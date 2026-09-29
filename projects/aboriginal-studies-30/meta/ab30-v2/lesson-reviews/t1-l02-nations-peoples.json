@@ -1,0 +1,78 @@
+{
+  "lessonId": "t1-l02-nations-peoples",
+  "contentVersion": "ab30-v2-l02.2",
+  "ticket": "teacher-voice-pilot-2026-09-24",
+  "role": "Build candidate review; teacher feedback pending",
+  "previousReview": "../teacher-voice-pilot/before/t1-l02-nations-peoples-review.json",
+  "goalAndTeaching": {
+    "goal": "Explain what the Dene Declaration seeks and distinguish a nation, a people, and individual persons.",
+    "whereTaught": "Opening question, goal strip, named readings, short explanations, worked response, existing practice and independent task."
+  },
+  "figureRole": "Annotated opening of the Dene Declaration, followed by related excerpts in the same reading.",
+  "sources": [
+    {
+      "id": "L02-A",
+      "locator": "Chapter 1, printed p. 2 (file p10)",
+      "quoteCheck": "verbatim in textbook band (text-layer 'N.W.T .' spacing); opening assertion"
+    },
+    {
+      "id": "L02-B",
+      "locator": "Chapter 1, printed p. 2 (file p10)",
+      "quoteCheck": "verbatim in textbook band; colonization account in the Declaration’s own words"
+    },
+    {
+      "id": "L02-C",
+      "locator": "Chapter 1, printed p. 3 (file p11)",
+      "quoteCheck": "verbatim in textbook band; 1975 population statement with datedness limits"
+    },
+    {
+      "id": "L02-D1",
+      "locator": "Chapter 1, printed p. 3 (file p11)",
+      "quoteCheck": "verbatim in textbook band; struggle-for-recognition line"
+    },
+    {
+      "id": "L02-D2",
+      "locator": "Chapter 1, printed p. 3 (file p11)",
+      "quoteCheck": "verbatim in textbook band; settlement definition with 'within' taught"
+    },
+    {
+      "id": "L02-E",
+      "locator": "Chapter 1, printed p. 4 (file p12)",
+      "quoteCheck": "verbatim in textbook band; kanakerahsera/'to be born' datum for q5"
+    },
+    {
+      "id": "L02-F",
+      "locator": "Chapter 1, printed p. 5 (file p13)",
+      "quoteCheck": "verbatim in textbook band; person/people distinction for q8"
+    }
+  ],
+  "sourceVerification": {
+    "originalPassages": 7,
+    "quoteAndProvenancePreserved": true,
+    "evidence": "scripts/tests/aboriginal-studies-30-teacher-pilot.test.ts",
+    "note": "Compared with the pre-pilot course source records; this does not imply a new community review."
+  },
+  "savedWork": {
+    "responseKeysUnchanged": true,
+    "questionAndAssignmentHomesUnchanged": true,
+    "answerOptionsAndKeysUnchanged": true,
+    "existingResponseCompatibility": "Six route/viewport save-reload cases passed; earlier .1 first submission preserved byte-for-byte after .2 update in Oral Tradition."
+  },
+  "reviewPasses": {
+    "lead": "Teacher-voice rewrite, source/provenance preservation, integration and desktop/phone visual inspection.",
+    "luna": "Read-only route and saved-response compatibility investigation; no editing or cultural acceptance delegated."
+  },
+  "accessibilityPrintScreenshots": {
+    "desktopAndPhone": "1440x1000 and 390x844; opening plus teaching captures under ../teacher-voice-pilot/screenshots/. Comparisons stack on phones.",
+    "keyboard": "Native disclosure controls, Escape closes mobile drawer and returns focus; mobile navigation closes drawer. Full screen-reader/zoom audit deferred.",
+    "print": "NOT_RUN for this candidate."
+  },
+  "reviewerStatus": {
+    "humanReviewed": false,
+    "status": "awaiting-teacher-feedback",
+    "unresolvedLimitations": [
+      "No teacher/community sign-off.",
+      "Full-course, Studio annotation, export and live LMS checks deferred."
+    ]
+  }
+}

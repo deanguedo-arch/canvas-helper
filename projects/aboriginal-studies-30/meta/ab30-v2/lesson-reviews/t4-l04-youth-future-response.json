@@ -1,0 +1,109 @@
+{
+  "schema": "ab30-v2-lesson-review-candidate-v1",
+  "lessonId": "t4-l04-youth-future-response",
+  "displayNumber": 50,
+  "contentVersion": "ab30-v2-l50.1",
+  "reviewState": "candidate lead source-and-render pass; teacher and community review pending",
+  "inputHashes": {
+    "course-data.js": "82d4151fe844a8941e557b2e036f077a7a67a37cdc2ce1df12b68402f30762a3",
+    "practice-data.js": "f21c0740ed24e7a4b351329a11666ed45846176f8167b9dabaee2873776052af"
+  },
+  "sourceOfTruth": "projects/aboriginal-studies-30/workspace/course-data.js",
+  "assignmentConnection": {
+    "bookletQuestionIds": [],
+    "assignmentIds": [
+      "4-3-personal-response"
+    ],
+    "assignmentHomeIds": [
+      "4-3-personal-response"
+    ],
+    "formativeMarksAdded": 0
+  },
+  "goalAndTeaching": {
+    "goal": "Choose one of the four Halfbreed prompts, plan evidence from Maria Campbell’s memoir, and write a 2–3 paragraph response using the assigned criteria.",
+    "essentialQuestion": "How do you make a personal interpretation of a memoir answerable to the author’s words?",
+    "headings": [
+      "1. Choose the active assignment",
+      "2. Make a claim the passage can support",
+      "3. Submit the existing task and close the course"
+    ],
+    "firstTeachingExcerpt": "The official Theme 4 booklet’s Assignment 4.3 asks you to choose ONE of four questions about Maria Campbell’s Halfbreed. The choices concern Métis culture and outside research; dreams and barriers; a government or legal act that discriminates against her family; or whether life improved when she left her home community. Write 2–3 paragraphs using the existing response criteria. The active Halfbreed version is worth 16 marks in the booklet."
+  },
+  "sourceVerification": [
+    {
+      "title": "Source A · the official Assignment 4.3",
+      "locator": "Theme 4 booklet, printed p. 21 (supplied PDF p. 21)",
+      "sourceType": "Theme 4 booklet prompt",
+      "contextLimits": "Defines the active assignment and its four options. It is a question sheet, not evidence about Campbell’s life.",
+      "check": "manually compared with the supplied official booklet/textbook or named publisher page; exact quote and page mapping require independent editorial sign-off"
+    },
+    {
+      "title": "Source B · Campbell’s Introduction",
+      "locator": "Maria Campbell, Halfbreed, 2019 supplied edition, Introduction, PDF pp. 23–24",
+      "sourceType": "Memoir excerpt",
+      "contextLimits": "First-person retrospective at the start of the memoir. Read the chapters for later events; this excerpt alone cannot answer the full assignment.",
+      "check": "manually compared with the supplied official booklet/textbook or named publisher page; exact quote and page mapping require independent editorial sign-off"
+    }
+  ],
+  "workedResponse": {
+    "title": "Worked interpretation: what the Introduction establishes",
+    "directions": "A learner considering prompt 4 asks: “Does the Introduction alone prove that leaving improved Campbell’s life?” Write a complete short answer with an evidence limit.",
+    "evidence": [
+      {
+        "ref": "Source B, Introduction, PDF p. 24",
+        "text": "Campbell returns, sees a changed home and community, and says she must search within herself for peace before writing her life story."
+      }
+    ],
+    "reasoning": [
+      "Identify the question’s scope: the whole life after leaving, not just the return scene.",
+      "Use the passage to infer how she frames loss and the search for peace.",
+      "State the limit: this opening cannot prove whether all later opportunities and harms add up to an improved life."
+    ],
+    "response": "No. In the Introduction, Campbell describes returning to a changed place and realizing she cannot recover the happiness she remembers there. She presents writing as part of a search for peace. That supports a claim about how she frames the return, but I would need evidence from later chapters before answering whether moving away improved her life overall."
+  },
+  "supportedControl": {
+    "itemId": "ab30-v2-l50-plan-1",
+    "key": "b",
+    "wrongFeedback": "The prompt asks for an explained judgment. Ignoring complicating evidence weakens it.",
+    "correctFeedback": "This plan reads across the memoir, allows a nuanced judgment and stays with the assigned question.",
+    "bankSynchronized": true
+  },
+  "independentTasks": [
+    {
+      "title": "Supported: map one prompt to evidence",
+      "task": "Choose one of the four active questions. Write a one-sentence possible answer and list two specific memoir passages or chapter moments you would use. Note one uncertainty you still need to check. Save this plan, view the criteria, then revise if needed.",
+      "criteria": "A strong plan identifies one active Halfbreed question; offers an arguable answer rather than a topic; locates two distinct memoir moments; and marks a real uncertainty to verify. Criteria unlock after the first save.",
+      "responseKey": "t4-l04-youth-future-response::supported-plan",
+      "differsFrom": {
+        "evidence": "Plans evidence from the learner’s chosen prompt; the worked example uses only the Introduction and prompt 4.",
+        "example": "Creates an original plan rather than choosing among plans."
+      }
+    },
+    {
+      "title": "Independent: draft the interpretive turn",
+      "task": "Write one paragraph for your chosen Halfbreed prompt. State your claim, use a specific memoir moment with its chapter or page, explain how it supports the claim, and include a relevant complication or limit. Save before viewing criteria, then revise. Use this as preparation for the separate 2–3 paragraph Assignment 4.3 submission.",
+      "criteria": "A strong paragraph answers the chosen prompt; identifies and explains a specific memoir moment; attributes Campbell’s experience to Campbell; and handles a relevant complication rather than making a universal claim. Criteria unlock after the first save.",
+      "responseKey": "t4-l04-youth-future-response::independent-paragraph",
+      "differsFrom": {
+        "evidence": "Builds an evidence-based paragraph from the chosen question, beyond the supported plan.",
+        "example": "Produces prose, not an outline, while the full marked response remains in its canonical assignment home."
+      }
+    }
+  ],
+  "browserEvidence": {
+    "desktop": "projects/aboriginal-studies-30/meta/ab30-v2/evidence/R27/l50-1440.png",
+    "mobile": "projects/aboriginal-studies-30/meta/ab30-v2/evidence/R27/l50-390.png",
+    "render": "local Chromium file preview at 1440 and 390: 3 options, 2 first-save controls, no page error or horizontal overflow; not Brightspace or Studio"
+  },
+  "limitations": [
+    "No teacher, Elder or community content approval.",
+    "Film scene access and media rights not verified; scene-specific work remains dependent on the assigned film.",
+    "No full assigned-work, curriculum-outcome, exported-SCORM or live Brightspace acceptance in this Build pass.",
+    "Screenshots show lesson openings; deep source and response visuals require rollout review."
+  ],
+  "reviewerStatus": {
+    "humanReviewed": false,
+    "leadTechnicalReview": true,
+    "learnerBrowserProof": "bounded local rendering only"
+  }
+}

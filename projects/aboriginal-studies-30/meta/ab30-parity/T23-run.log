@@ -1,0 +1,159 @@
+✔ A11Y01/UI02-ext: consent, conflict, and evidence controls all expose names (15.151625ms)
+✔ A11Y02/UI04-auto: routes announce; dialogs return focus; focus and motion are styled (5.01775ms)
+✔ A11Y03/UI01-auto: viewport zooms; narrow/table/print CSS facts hold (0.420667ms)
+✔ A11Y04: comparison tables keep headed, scoped structure (1.117ms)
+✔ ASSET01-auto: every shipped local reference exists on disk (7.999167ms)
+✔ ASSET02-auto: shell has zero essential network dependencies (2.83625ms)
+✔ ASSET05-auto: allowlist ships the course, excludes backups/metadata/keys, keeps sources (27.707916ms)
+✔ LEDGER: every shipped media asset carries a source/permission record (0.620416ms)
+[ab30-content] tested inputs: {"main.js":"b7d0b542ea2f3350867370c80bbbf3fee2454a7f34c793606eed5477a71f2a7c","course-data.js":"7c274e112ac8a01a321643a7f8e5a06af9bbd1daab9a4295965a6b15d7402884","lesson-components.js":"2956ad84609374e2ea0b20d0f52bab37a06663e7986d3d6facd151ecfec22ed5"}
+✔ CONTENT01-auto: v2 teaches goal+terms+blocks; every v1 lesson carries inline teaching (17.779375ms)
+✔ CONTENT02-auto: worked examples need evidence, reasoning, and a finished response (0.811625ms)
+✔ CONTENT03-auto: supported practice carries feedback; independent tasks declare their difference (0.71175ms)
+✔ CONTENT04-auto: all 50 lessons have versioned review records; structure never implies reviewed (0.884542ms)
+✔ UI02-auto: every control has an accessible name; headings and landmarks are meaningful (7.856084ms)
+✔ UI03-auto: figures need alt+caption; comparisons render headed tables; URLs are policed (0.636292ms)
+✔ SAFE-TEXT: learner writing never executes; editorial notes never render; links stay canonical (0.920542ms)
+✔ CONTENT05-auto(T10): exemplar sources carry full attribution; quotes hold only source text (20.973959ms)
+✔ CONTENT06-auto(T10): every exemplar quotation verifies against the textbook band (0.852584ms)
+✔ CONTENT07-auto(T10): exemplar assesses evidence and reasoning, never agreement or identity (0.284583ms)
+✔ CONTENT08-auto(T10): Q28-31 records byte-identical; formative adds zero compulsory work (1.940041ms)
+✔ STATE07-auto(T10): formative work saves, reloads, and gates the model honestly (2.002542ms)
+✔ FORMATIVE-GATE: criteria gating validates, locks, unlocks, and escapes (0.649834ms)
+✔ EVID01: collection groups real saved work with prompt context, roles, and task links (24.409959ms)
+✔ EVID02: evidence never carries key material; learner fields stay complete (2.985417ms)
+✔ EVID03: empty store renders an honest empty collection, never fake completion (4.909875ms)
+✔ EVID04/COMP06: rendered collection claims local-only, never review or mastery (11.494125ms)
+✔ EVID05/STATE11: canonical work survives an export/import round-trip; runs stay device-local (12.84225ms)
+✔ EVID06: ?section=mywork routes; nav entry exists in the shell (42.856584ms)
+✔ EVID07/ASSET04-print: print stylesheet covers the full collection (0.192042ms)
+✔ EVID08: conflicts, exposure flags, and hostile text render safely (2.19725ms)
+✔ EVID10: table cells collect with resolved row/column labels and partial status (22.95425ms)
+✔ EVID09: odd keys (aliases, drafts, unknown assignments) resolve without throwing (2.604709ms)
+[ab30-parity] tested inputs: {"main.js":"b7d0b542ea2f3350867370c80bbbf3fee2454a7f34c793606eed5477a71f2a7c","course-data.js":"7c274e112ac8a01a321643a7f8e5a06af9bbd1daab9a4295965a6b15d7402884","learning-store.js":"3872f1d8a8ce8a91726656052d94294c8ba34717fab24bf71ef9cd8eb89292a9"}
+✔ MAP03: all 50 lesson IDs survive in array display order (T00 baseline guard) (0.628125ms)
+✔ fixtures: reviewed Theme 1 map covers q1..q87 exactly once (0.132875ms)
+✔ fixtures: assignment aliases pair exactly one formal key with one lesson key (0.067042ms)
+✔ MAP01-data: every Theme 1 lesson carries explicit bookletQuestionIds matching the reviewed map (0.16ms)
+✔ MAP01-homes: q1..q87 each resolve to exactly one primary lesson home (1.430084ms)
+✔ MAP02: mutating kicker text with Assignment 1.2 wording and numbers changes no membership (0.671334ms)
+✔ STATE02-F02: lesson-only draft restores in the formal assignment view (3.058125ms)
+✔ STATE02-F03: formal-only draft restores in the lesson view (33.919125ms)
+✔ STATE02-F04: identical dual drafts stay consistent in both views (baseline guard) (20.915709ms)
+✔ STATE02-keys: alias fixture keys match the real production key builders (3.085625ms)
+✔ COMP01: four legacy Mark Complete flags with an empty answer store must not display 100% mastery (5.643916ms)
+✔ COMP01-zero: empty flags with an empty store render 0% (baseline guard) (0.777708ms)
+✔ COMP02: one Q37 cell is not complete; twelve cells are fields-complete, never auto-correct (8.688833ms)
+✔ COMP03: one Q73 blank is partial; both blanks are fields-complete (1.587ms)
+✔ COMP04: unstructured legacy text on a structured task is needs-review, never blank (1.849875ms)
+✔ COMP05: formative practice changes no denominator; one canonical response counts once (4.982417ms)
+✔ COMP06: completion UI never claims mastery, correctness, review, or grades (3.907417ms)
+✔ MAP04-DOM: real renders emit unique DOM ids and shared saved keys per record (1.515667ms)
+✔ MAP05-ids: explicit row/column ids equal the legacy token derivation (zero-migration proof) (0.527ms)
+✔ MAP05-render: relabelled and reordered tables keep keys, show new labels (real renderer) (1.202583ms)
+✔ MAP05-blanks: every fill-in blank carries an explicit stable id (0.062875ms)
+✔ MAP06: coverage manifest accounts for every required item with an allowed disposition (2.310416ms)
+[ab30-practice] tested inputs: {"main.js":"b7d0b542ea2f3350867370c80bbbf3fee2454a7f34c793606eed5477a71f2a7c","practice-data.js":"8bb7c2abb52aa3f202714d0609b583caccb274e0e98d491b7c049809acf12cfd","practice-engine.js":"2f95d6af16d28e55f90925d6ccbedc8161f3fe273bd2f0f56fa8a4cd2aefca06","learning-store.js":"3872f1d8a8ce8a91726656052d94294c8ba34717fab24bf71ef9cd8eb89292a9"}
+✔ PRACT01: only reviewed eligible items appear; scored selections key stably with feedback (6.229667ms)
+✔ PRACT02: wrong answers get explanatory feedback plus a teaching link (3.798459ms)
+✔ PRACT03: independent firsts save before feedback shows; failure keeps the draft (2.044958ms)
+✔ PRACT04: wrong answers keep stored reasoning; writing is never keyword-graded (10.822167ms)
+✔ PRACT05: reload replays items/stimuli/versions/order; keying is by stable id (1.161958ms)
+✔ PRACT06: sampling is without replacement; exhaustion is honest (5.431875ms)
+✔ PRACT07: exposed stimuli label review, never fresh independent evidence (1.938583ms)
+✔ PRACT08: matching runs on native keyboard controls; order ops transition honestly (0.896625ms)
+✔ PRACT09: revisions append; firsts stay immutable; feedback never rewrites history (1.236584ms)
+✔ PRACT10: reflection and concept cards produce no submission, score, or grade (0.898ms)
+✔ PRACT11: fill-in grading is narrow reviewed matching, never fuzzy (0.503709ms)
+✔ PRACT12: offered modes run; unoffered modes show reasons; the page is never falsely empty (0.537459ms)
+✔ RUNTIME-ATTEMPTS: submit/duplicate/finish/abandon/unknown paths through the real store (1.903292ms)
+[ab30-route] tested inputs: {"main.js":"b7d0b542ea2f3350867370c80bbbf3fee2454a7f34c793606eed5477a71f2a7c","course-data.js":"7c274e112ac8a01a321643a7f8e5a06af9bbd1daab9a4295965a6b15d7402884","learning-store.js":"3872f1d8a8ce8a91726656052d94294c8ba34717fab24bf71ef9cd8eb89292a9"}
+✔ ROUTE01: lesson URLs mount only that lesson; old URLs unchanged (21.0495ms)
+✔ ROUTE02: anchors resolve; bad params fall back without state loss (9.415583ms)
+✔ ROUTE03: prev/next follow array order across nonsequential IDs (1.539542ms)
+✔ ROUTE04-partial: route URLs preserve unrelated host params (Back/Forward/reload need a browser) (1.013708ms)
+✔ ROUTE05-partial: dialog close restores focus to the opener (native Esc needs a browser) (0.513416ms)
+✔ ROUTE06: all 50 lesson routes mount unique DOM ids and shared radio names (15.461542ms)
+✔ ROUTE07-partial: subnav exposes the current lesson link with aria-current (mobile/focus need a browser) (1.345208ms)
+✔ ROUTE08-partial: Studio preview URL sync covers lesson routes (live Studio needs a browser) (0.644ms)
+node:internal/modules/esm/resolve:275
+    throw new ERR_MODULE_NOT_FOUND(
+          ^
+
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/Users/deanguedo/Documents/GitHub/canvas-helper/scripts/lib/projects.js' imported from /Users/deanguedo/Documents/GitHub/canvas-helper/scripts/tests/aboriginal-studies-30-shell.test.ts
+    at finalizeResolution (node:internal/modules/esm/resolve:275:11)
+    at moduleResolve (node:internal/modules/esm/resolve:865:10)
+    at defaultResolve (node:internal/modules/esm/resolve:991:11)
+    at #cachedDefaultResolve (node:internal/modules/esm/loader:719:20)
+    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:736:38)
+    at ModuleLoader.resolveSync (node:internal/modules/esm/loader:765:52)
+    at #resolve (node:internal/modules/esm/loader:701:17)
+    at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:621:35)
+    at ModuleJob.syncLink (node:internal/modules/esm/module_job:160:33)
+    at ModuleJob.link (node:internal/modules/esm/module_job:245:17) {
+  code: 'ERR_MODULE_NOT_FOUND',
+  url: 'file:///Users/deanguedo/Documents/GitHub/canvas-helper/scripts/lib/projects.js'
+}
+
+Node.js v24.14.0
+✖ scripts/tests/aboriginal-studies-30-shell.test.ts (203.653166ms)
+[ab30-source] tested inputs: main.js=b7d0b542ea2f course-data.js=7c274e112ac8
+✔ SRC01-canonical: every assignment has one manifest definition matching live wording + official anchors (1.888ms)
+✔ SRC01-exports: HTML and DOCX mirrors match live requirements with no private-doc links (7.382916ms)
+✔ SRC02: legacy 4-3 prompt intact, Halfbreed candidate present but not activated (0.18475ms)
+✔ SRC03: student bundle serves no answer keys; unresolved holds are owned, not auto-resolved (0.645875ms)
+✔ SRC04: required and optional response modes persist without escalation (0.157625ms)
+✔ SRC05: bundle excludes machine paths and audit disputes; attribution remains (0.917291ms)
+✔ SRC06-steps: response steps run Statement/Evidence/Interpret/Connect with official starters (0.509167ms)
+✔ SRC06-rubric: rubric table matches the supplied rubric levels, weight, and descriptors (0.366459ms)
+✔ SRC07: printed-page references resolve inside the real chapter PDFs (0.5775ms)
+✔ SRC08: every correction has before/after text with source; outcomes mapping stays an explicit hold (0.106125ms)
+[ab30-state] capacity-typical: chars=81245 bytes=81245 scorm2004=OVER
+[ab30-state] capacity: chars=275981 bytes=275981 scorm2004=OVER scorm12=OVER local=fits firestore=fits
+✔ STATE01: fresh install migrates clean; reruns create no duplicates (1.905084ms)
+✔ STATE02-pure: lesson-only, formal-only, and identical-dual drafts resolve to one logical record (0.20375ms)
+✔ STATE03: differing drafts become an unresolved conflict; resolution preserves predecessors (0.193208ms)
+✔ STATE04: unicode, whitespace, and long text round-trip byte-exact; no timestamps invented (0.186458ms)
+✔ STATE05: corrupt, unknown, and future inputs are preserved, never coerced to empty (0.153834ms)
+✔ STATE06-pure: quota/blocked writes retain last-confirmed state and the candidate; status stays truthful (0.133583ms)
+✔ STATE08: first submissions stay immutable; attempts pin versions and option order (0.167291ms)
+✔ STATE09: reset targets only the selected unfinished run (0.210292ms)
+✔ STATE10-pure: stale writers cannot silently clobber; interleavings preserve both texts (0.090542ms)
+✔ STATE11: export/import round-trips everything; failed import leaves state intact (0.400875ms)
+✔ STATE12: novel/versioned work is isolated; legacy prompt identity never remaps (0.0945ms)
+✔ STATE13: failure at any commit step keeps inputs recoverable; marker never precedes commit (0.168667ms)
+✔ STATE14-pure: save status derives from actual outcomes; LMS wording needs a receipt (0.043333ms)
+✔ STATE15: complete payloads are measured with host wrappers; overflow is explicit, never truncation (13.572083ms)
+✔ T05-1 production adapter file loads and exposes the full surface (0.075875ms)
+✔ T05-2 prefix classification agrees with the registry booklet-key oracle (1.106292ms)
+✔ T05-3 runtime smoke: init, write, read, status, re-init persistence (5.198834ms)
+✔ T05-4 memory mode is truthful when no durable storage exists (0.214ms)
+✔ XW01: crosswalk inventories every required Theme 2 item with an explicit blocked disposition (1.161709ms)
+✔ XW02: workbook analogues resolve to the prompt-only fixture; fixture holds no student work (0.542667ms)
+✔ XW03: live 2.1/2.2 records pinned byte-exact; 2.1 prompt matches workbook para 137 verbatim (5.365166ms)
+✔ XW04: no booklet wording claimed; reservations collide with nothing live (3.358417ms)
+✔ T3XW01: crosswalk inventories every required Theme 3 item with an explicit blocked disposition (1.111916ms)
+✔ T3XW02: workbook analogues resolve to the prompt-only fixture; fixture holds no student work (1.000042ms)
+✔ T3XW03: live 3.1/report records pinned byte-exact; recency stays at the workbook version (6.831625ms)
+✔ T3XW04: no booklet wording claimed; reservations collide with nothing live (5.9305ms)
+✔ ASSET03-auto(T16): Reel Injun access recorded honestly; no synopsis claimed equivalent (0.833333ms)
+✔ T4XW01: crosswalk inventories every required Theme 4 item with an explicit blocked disposition (1.245583ms)
+✔ T4XW02: workbook analogues resolve to the prompt-only fixture; fixture holds no student work (0.613166ms)
+✔ T4XW03: live 4.2/4.3 records pinned byte-exact; legacy novel untouched (3.531ms)
+✔ T4XW04: no booklet wording claimed; reservations collide with nothing live (1.464541ms)
+✔ CHART41-auto(T18): 4.1 comparison inventories 12 categories across both country columns (0.243875ms)
+✔ NOVEL-GATE: legacy 4.3 live and preserved; Halfbreed staged, never activated (1.359958ms)
+ℹ tests 118
+ℹ suites 0
+ℹ pass 117
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 378.867083
+
+✖ failing tests:
+
+test at scripts/tests/aboriginal-studies-30-shell.test.ts:1:1
+✖ scripts/tests/aboriginal-studies-30-shell.test.ts (203.653166ms)
+  'test failed'

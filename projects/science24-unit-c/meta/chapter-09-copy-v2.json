@@ -1,0 +1,247 @@
+{
+  "status": "authored-copy-under-review",
+  "sourceMap": "source-task-map-v2.json",
+  "chapter": 9,
+  "lessons": [
+    {
+      "route": "lesson-01",
+      "title": "Disease causes and germ theory",
+      "goal": "Separate a disease cause from conditions that change the chance of becoming ill, and explain how evidence can support a germ claim.",
+      "before": "Think of a time food had to be kept cold. What did the cold change, and what did it not remove?",
+      "openingTitle": "The lunch left on the counter",
+      "opening": [
+        "A packed lunch sits in a warm room for several hours. One person later feels sick. It is tempting to say the heat itself was the disease. Heat may have helped microorganisms multiply, but the causal explanation still needs evidence about the food, the organism and the person's exposure.",
+        "Disease has more than one pathway. Infection involves an agent such as a pathogen entering and multiplying in a host. Some illnesses are non-infectious. Susceptibility, food handling and sanitation can change the chance of illness without being the pathogen itself."
+      ],
+      "mechanismTitle": "Build a cause-and-conditions explanation",
+      "mechanism": [
+        "A bacterium is a living single-celled organism; only some bacteria cause disease. A pathogen is a disease-causing agent. In suitable conditions, some bacteria reproduce quickly. The amount present can rise while the lunch remains warm, but temperature alone does not identify the species or prove that it caused a person's symptoms.",
+        "Germ theory links particular microorganisms with particular infectious diseases through testable evidence. A strong investigation compares cases, traces exposure and rules out competing explanations. The original text introduces Robert Koch's work; we use it to ask what evidence would make a claim more than a guess."
+      ],
+      "workedExamples": [
+        {
+          "title": "Trace the lunch case without leaping to a diagnosis",
+          "situation": "Two lunches were prepared together. One was chilled and one stayed in a warm car. Several people who ate the warm lunch became ill.",
+          "steps": [
+            "Name the observation: illness was associated with the warm lunch, not merely with being near a warm car.",
+            "Name a plausible mechanism: if disease-causing bacteria were in the food, warmth and time might permit more reproduction.",
+            "Name missing evidence: identify the organism and compare foods, handling, timing and other exposures."
+          ],
+          "interpretation": "The evidence suggests a route to investigate; it does not yet establish a particular pathogen or prove that heat itself caused infection."
+        },
+        {
+          "title": "Separate five contributing factors",
+          "situation": "A student asks why not everyone exposed to the same germ becomes equally ill.",
+          "steps": [
+            "List the agent and exposure route first: the microorganism and how it entered the body.",
+            "Then consider amount of exposure, body defences, food or water handling, and conditions such as sanitation or access to care.",
+            "Explain that these factors interact. They affect risk or severity; none should be used to blame an individual for illness."
+          ],
+          "interpretation": "A risk factor is not identical to a pathogen. The workbook's five-factor prompt calls for a connected explanation, not five unrelated labels."
+        }
+      ],
+      "terms": [
+        ["disease", "A condition that disrupts normal body function or health.", "An infection can cause disease, but an inherited condition can too.", "Disease names an outcome; it does not by itself identify a cause."],
+        ["pathogen", "An agent able to cause disease in a host.", "Some Salmonella bacteria can cause foodborne illness.", "Most microorganisms are not pathogens."],
+        ["germ theory", "The evidence-based idea that specific microorganisms can cause infectious diseases.", "Compare an organism found in cases with evidence from controls.", "It does not claim all disease is infectious."],
+        ["risk factor", "A condition or exposure associated with a changed chance of an outcome.", "Improper food temperature can increase foodborne illness risk.", "A risk factor is not the same as a confirmed diagnosis."]
+      ],
+      "transferPrompt": "A school cafeteria finds three people ill after one meal. Write a causal claim, two pieces of evidence that would support it, and one competing explanation to check.",
+      "transferModel": "A foodborne pathogen is one possibility. Investigators would compare what each person ate and whether the same organism is found in the food and affected people. A different shared exposure or an unrelated illness must also be checked before naming the meal as the cause.",
+      "laterPrompt": "Without opening the lesson, explain why a warm hamburger can become risky while warmth alone is not a pathogen.",
+      "laterModel": "Warmth and time can help some bacteria multiply if they are present. The bacteria or their products may cause illness; the temperature changes the conditions rather than becoming the infectious agent."
+    },
+    {
+      "route": "lesson-02",
+      "title": "Compare bacteria, viruses and other pathogens",
+      "goal": "Distinguish major pathogen groups by structure and reproduction, and connect each to a plausible transmission route.",
+      "before": "Lesson 1 separated a disease-causing agent from conditions that change risk.",
+      "openingTitle": "Why one medicine cannot treat every infection",
+      "opening": [
+        "A person asks for an antibiotic for a cold because antibiotics helped with a different illness. The request assumes every infection has the same kind of agent. Before choosing a response, identify whether the agent is a bacterium, a virus, a fungus or a protist; the mechanisms differ.",
+        "Names such as “germ” are convenient but too broad for explaining reproduction or treatment. A category tells us what evidence to seek, not the diagnosis of a particular person."
+      ],
+      "mechanismTitle": "Compare the agents before comparing the routes",
+      "mechanism": [
+        "Bacteria are cells that can reproduce on their own under suitable conditions. Viruses carry genetic material but use host cells to make more virus particles. A fungus includes organisms such as yeasts and moulds; some cause infections of skin. Protists are a diverse group that includes some disease-causing parasites.",
+        "Transmission depends on the agent and setting. Respiratory droplets, contaminated food or water, direct skin contact and animal or insect vectors are different pathways. The workbook's athlete's foot and beaver fever cases should be explained through their specific agents and routes rather than assigned to every member of a group."
+      ],
+      "workedExamples": [
+        {
+          "title": "Explain why a virus is not just a tiny bacterium",
+          "situation": "A learner writes that a cold virus grows by splitting in a sandwich like a bacterium.",
+          "steps": [
+            "Identify the claimed mechanism: independent division in food.",
+            "Correct the comparison: bacteria are cells that may divide in food; a virus needs a suitable host cell to produce new particles.",
+            "Use the difference to interpret prevention: safe food handling matters for bacterial growth; limiting respiratory exposure matters for many cold viruses."
+          ],
+          "interpretation": "Both can spread disease, but their reproduction mechanisms are not interchangeable."
+        },
+        {
+          "title": "Trace a waterborne protist case",
+          "situation": "Several hikers drink untreated stream water and later develop gastrointestinal symptoms.",
+          "steps": [
+            "Treat the symptoms as a clue, not a diagnosis.",
+            "Map the possible route: contamination enters the water; a person swallows the organism; it can establish an infection.",
+            "Name verification and control: test or treat the water and seek clinical evidence rather than assuming every stream contains the same organism."
+          ],
+          "interpretation": "The workbook's “beaver fever” example concerns Giardia, a protist; the animal nickname does not mean only beavers can be involved."
+        }
+      ],
+      "terms": [
+        ["bacterium", "A single-celled organism; some species can cause disease.", "A foodborne bacterium may multiply under suitable conditions.", "Bacteria are cells; viruses use host cells to replicate."],
+        ["virus", "An infectious agent that uses a host cell to make new virus particles.", "A respiratory virus can spread between people.", "A virus does not divide independently like a bacterial cell."],
+        ["protist", "A diverse eukaryotic group that includes some parasites.", "Giardia can spread through contaminated water.", "Protist does not mean all members cause disease."],
+        ["fungus", "A group of organisms including yeasts and moulds; some cause infections.", "A fungus can cause athlete's foot.", "A fungal infection is not a bacterial infection."]
+      ],
+      "transferPrompt": "A student sees a skin rash and says “it must be bacteria.” Explain why that conclusion is premature and what evidence would help distinguish causes.",
+      "transferModel": "A rash can have infectious or non-infectious causes, and a fungal infection is one possibility. The appearance alone does not prove the agent. A health professional may use history, examination or testing to identify the cause before choosing treatment.",
+      "laterPrompt": "From memory, compare where a bacterium and a virus make more of themselves, then name one infection route for a protist.",
+      "laterModel": "A bacterium can divide as a cell when conditions permit. A virus must use a suitable host cell. A disease-causing protist such as Giardia can be swallowed in contaminated water."
+    },
+    {
+      "route": "lesson-03",
+      "title": "Communicable disease and unequal risk",
+      "goal": "Explain the difference between communicable and non-communicable disease and analyze how environment and access affect risk.",
+      "before": "Lesson 2 compared pathogen types and routes; keep the route separate from a person's circumstances.",
+      "openingTitle": "The same infection, different chances of exposure",
+      "opening": [
+        "Two neighbourhoods face the same infectious agent. One has dependable treated water and enough space for people to isolate while ill; the other has unreliable water service and crowded housing. The agent may be the same, but exposure and opportunities to prevent spread differ.",
+        "Science can describe a transmission mechanism while also asking which conditions make that mechanism more likely. Avoid treating poverty or a country's income as a personal biological trait."
+      ],
+      "mechanismTitle": "Classify the disease, then explain the pathway",
+      "mechanism": [
+        "A communicable disease can spread between hosts through a route such as air, direct contact, food or water. A non-communicable disease is not transmitted from person to person by a pathogen. Its causes may involve genes, environment, behaviour, age and chance, often interacting.",
+        "Risk comparisons need a denominator and time period. A claim about “most deaths” or life expectancy may change with place, year, age structure and reporting. The old textbook and CBE figures can support historical discussion but cannot serve as current statistics without an up-to-date source."
+      ],
+      "workedExamples": [
+        {
+          "title": "Separate a route from a condition",
+          "situation": "A learner says crowded housing is a pathogen that causes respiratory infection.",
+          "steps": [
+            "Name the pathogen as the infectious agent, if one has been identified.",
+            "Describe the route: people may inhale particles from another infected person.",
+            "Describe the condition: close contact and limited space can raise exposure opportunities; ventilation and access to care can modify risk."
+          ],
+          "interpretation": "Crowding is a condition that can affect transmission, not a microorganism."
+        },
+        {
+          "title": "Challenge an overgeneralized mortality comparison",
+          "situation": "A chart from an older textbook compares leading disease categories in two groups of countries.",
+          "steps": [
+            "Read the chart's date, location and measure before comparing bars.",
+            "Ask whether the categories mean new cases, deaths, or rates per population and whether age distributions differ.",
+            "State only the historical pattern supported by that chart, then locate current data if asked about today."
+          ],
+          "interpretation": "A dated comparison is evidence about its time and measure, not a permanent rule about people."
+        }
+      ],
+      "terms": [
+        ["communicable disease", "A disease that can spread between hosts through a transmission route.", "A respiratory infection may spread between people.", "Spreadability differs from severity."],
+        ["non-communicable disease", "A disease not spread from person to person by an infectious agent.", "Some inherited disorders are non-communicable.", "Non-communicable does not mean there is only one cause."],
+        ["transmission route", "The pathway an infectious agent takes between source and host.", "Contaminated water can carry a pathogen into the digestive tract.", "The route is not identical to the social condition that permits exposure."],
+        ["health inequity", "An avoidable and unfair difference in health opportunities or outcomes linked to social conditions.", "Unequal access to treated water can change exposure risk.", "It is not a judgment about a person's worth or choices."]
+      ],
+      "transferPrompt": "Compare two communities with different water access. Identify the pathogen route, two conditions that may change exposure, and one action that does not blame residents.",
+      "transferModel": "If water carries a pathogen, drinking it is the route. Treatment and safe distribution reduce exposure; household crowding can make some infections harder to control. A public water-testing and repair program targets the system rather than blaming people who rely on it.",
+      "laterPrompt": "From memory, name one communicable and one non-communicable condition, and say why a risk factor is not a pathogen.",
+      "laterModel": "A cold is communicable; a single-gene inherited disorder is non-communicable. A factor such as unsafe water affects exposure, but the disease-causing organism is the pathogen."
+    },
+    {
+      "route": "lesson-04",
+      "title": "Food safety and preservation",
+      "goal": "Explain how preservation changes conditions for microbial growth and how clean preparation prevents contamination.",
+      "before": "Lesson 1 linked growth conditions with risk; Lesson 3 separated the agent from exposure conditions.",
+      "openingTitle": "Why the refrigerator and the cutting board do different jobs",
+      "opening": [
+        "A sandwich goes straight into a refrigerator, but its filling was cut on a board just used for raw meat. Cooling can slow the growth of some microbes; it does not undo contamination already transferred from the board.",
+        "Food safety uses layers: prevent contamination, control time and temperature, and process or store foods appropriately. No single step makes all food safe forever."
+      ],
+      "mechanismTitle": "Read each method as a change in conditions",
+      "mechanism": [
+        "Drying, salting and some additives reduce available water or otherwise inhibit microbial growth. Refrigeration slows many growth processes; freezing stops or greatly slows growth while food is frozen but does not reliably sterilize it. Canning and pasteurization use heat in different controlled ways. Vacuum packing changes oxygen exposure but may require additional temperature and handling controls. Smoking and irradiation also act through specific processes; their effectiveness depends on method and food.",
+        "Clean utensils and separation of raw from ready-to-eat foods reduce transfer. Handwashing, cleaning and appropriate cooking or storage are different interventions at different points in the pathway. The workbook asks for all ten named methods; explain the mechanism and limits of each rather than writing “it kills germs” ten times."
+      ],
+      "workedExamples": [
+        {
+          "title": "Compare chilling and pasteurization",
+          "situation": "A student claims both processes sterilize milk.",
+          "steps": [
+            "Identify the process: refrigeration lowers temperature during storage; pasteurization uses a controlled heat treatment.",
+            "Explain the different effects: cold slows many microbes, whereas pasteurization reduces targeted harmful microbes.",
+            "State the limit: neither means opened milk can be left warm indefinitely; storage guidance still matters."
+          ],
+          "interpretation": "A preservation method should be described by what it changes, not by an absolute safety promise."
+        },
+        {
+          "title": "Trace cross-contamination",
+          "situation": "Raw poultry is cut, and the same unwashed board is then used for salad vegetables.",
+          "steps": [
+            "Source: microbes may be present on the raw food.",
+            "Transfer: the board or knife carries them to food that will not receive the same cooking step.",
+            "Control: keep equipment separate or clean and sanitize it appropriately before preparing ready-to-eat food."
+          ],
+          "interpretation": "Refrigerating the finished salad does not replace preventing transfer during preparation."
+        }
+      ],
+      "terms": [
+        ["food preservation", "Processing or storage used to slow spoilage or reduce food-safety hazards.", "Refrigeration slows many microbial growth processes.", "It is not a guarantee of sterility."],
+        ["pasteurization", "Controlled heating that reduces specified harmful microbes in a product.", "Commercial milk is commonly pasteurized.", "Pasteurization differs from sterilization and later safe storage still matters."],
+        ["cross-contamination", "Transfer of harmful material from one food or surface to another.", "An unwashed board transfers raw-meat microbes to salad.", "Cooling after transfer does not undo contamination."],
+        ["refrigeration", "Cold storage that slows many biological and chemical changes.", "A chilled lunch stays colder than one left on a counter.", "Cold storage does not necessarily kill pathogens."]
+      ],
+      "transferPrompt": "Design a safe sequence for preparing raw chicken and a salad. Explain one contamination control and one time/temperature control, including the limit of each.",
+      "transferModel": "Use separate or properly cleaned utensils and boards before preparing the salad to prevent transfer. Keep perishable foods at safe cold temperatures until use and cook the chicken appropriately. Chilling slows growth but cannot reverse contamination, so both controls matter.",
+      "laterPrompt": "From memory, compare what refrigeration, drying and pasteurization change. Which one can be assumed to sterilize food?",
+      "laterModel": "Refrigeration slows growth through low temperature; drying reduces available water; pasteurization uses controlled heat to reduce harmful microbes. None should be described as universally sterilizing every product."
+    },
+    {
+      "route": "lesson-05",
+      "title": "Sanitation, sterilization and aseptic practice",
+      "goal": "Choose a safe infection-control method by distinguishing cleaning, disinfection, antisepsis, sterilization and aseptic technique.",
+      "before": "Lesson 4 used layers of prevention during food preparation; now compare methods used on surfaces, living tissue and equipment.",
+      "openingTitle": "A first-aid kit has two very different bottles",
+      "opening": [
+        "A kit contains a product meant for skin and another meant for hard surfaces. Swapping them because both “kill germs” can be unsafe. The label, intended surface and procedure matter as much as the general aim of reducing infection risk.",
+        "In practical settings, follow training and product directions. The online lesson explains choices but does not authorize a medical or laboratory procedure."
+      ],
+      "mechanismTitle": "Match the method to the target",
+      "mechanism": [
+        "Cleaning removes visible material and often reduces microbes. A disinfectant is used on suitable non-living surfaces to reduce or inactivate specified microorganisms. An antiseptic is formulated for living tissue when directed. Sterilization is a validated process intended to eliminate all viable microorganisms from an item; it is not the same as wiping a table or placing an item in a refrigerator.",
+        "Aseptic practice prevents contamination while a task is performed. It can involve clean hands, appropriate barriers, prepared equipment and keeping sterile items from touching unclean surfaces. Each step breaks a particular route of transfer. The original workbook asks for four practices; explain why each would help."
+      ],
+      "workedExamples": [
+        {
+          "title": "Choose the correct first-aid product",
+          "situation": "A learner wants to spray a classroom-surface disinfectant on a cut.",
+          "steps": [
+            "Read the label and intended use: the product is for a non-living surface, not living tissue.",
+            "Identify the safe decision: do not substitute it for an antiseptic or wound-care product; follow trained first-aid instructions.",
+            "Explain the science: efficacy against microbes and safety for tissue are separate requirements."
+          ],
+          "interpretation": "The words antiseptic and disinfectant describe different intended uses, not interchangeable strength levels."
+        },
+        {
+          "title": "Find the break in an aseptic sequence",
+          "situation": "A worker prepares clean equipment, then sets it on an unclean counter before using it.",
+          "steps": [
+            "Locate the contamination opportunity: contact with the counter can transfer microbes to the equipment.",
+            "Identify a control: prepare a suitable clean field and keep equipment protected until needed.",
+            "Explain why repeating an earlier hand-cleaning step alone does not remove contamination already on the equipment."
+          ],
+          "interpretation": "Aseptic practice is a chain of controls; later breaks can undo earlier preparation."
+        }
+      ],
+      "terms": [
+        ["antiseptic", "A product intended to reduce microorganisms on living tissue when used as directed.", "Some first-aid products are labeled for skin.", "It is not interchangeable with a hard-surface disinfectant."],
+        ["disinfectant", "A product or process used to reduce specified microorganisms on suitable non-living surfaces.", "A labeled product may be used on a counter as directed.", "Disinfection is not necessarily sterilization."],
+        ["sterilization", "A validated process intended to eliminate all viable microorganisms from an item.", "Specialized equipment can sterilize suitable instruments.", "A quick wipe or cold storage is not sterilization."],
+        ["aseptic technique", "A set of practices that prevents contamination during a task.", "Keeping prepared equipment away from unclean surfaces is aseptic practice.", "It is a procedure, not a chemical product." ]
+      ],
+      "transferPrompt": "A classroom investigation uses cleaned tools and a prepared surface. Identify two points where contamination could still enter and explain controls; keep any practical steps teacher-supervised.",
+      "transferModel": "Tools can be re-contaminated if placed on an unclean surface, and hands can transfer microbes after touching another object. Keep prepared tools in a protected area and repeat appropriate hand hygiene as directed. The exact laboratory procedure requires teacher supervision.",
+      "laterPrompt": "From memory, choose the term for living tissue, hard surfaces, complete validated elimination and prevention during a procedure.",
+      "laterModel": "Antiseptic is intended for living tissue; disinfectant for suitable hard surfaces; sterilization aims to eliminate all viable microorganisms; aseptic technique prevents contamination during a task."
+    }
+  ]
+}

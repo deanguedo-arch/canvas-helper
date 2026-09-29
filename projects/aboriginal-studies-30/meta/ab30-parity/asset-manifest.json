@@ -1,0 +1,950 @@
+{
+ "schemaVersion": 1,
+ "ticket": "T21",
+ "generatedBy": "node scripts/as30-asset-manifest.js",
+ "shipped": [
+  {
+   "path": "assets/assignments/docx/2-1-land-stewardship.docx",
+   "bytes": 36878,
+   "sha256": "93e1741354265d055bc56653d5622da185f6666346d3c7936c867a395356b091",
+   "class": "assignment-record"
+  },
+  {
+   "path": "assets/assignments/docx/2-2-specific-land-claims.docx",
+   "bytes": 37057,
+   "sha256": "8e31121177e16adf0c2ac7f48e40bdcc0c6b16ca655becd724120fb83d4a84ec",
+   "class": "assignment-record"
+  },
+  {
+   "path": "assets/assignments/docx/4-2-rabbit-proof-fence.docx",
+   "bytes": 36917,
+   "sha256": "87cc4e0fb5936b1bc54b5e01e157e8f12f63a7ec6c9811cd4dbbb4d2af34309b",
+   "class": "assignment-record"
+  },
+  {
+   "path": "assets/assignments/docx/4-3-personal-response.docx",
+   "bytes": 37186,
+   "sha256": "bbe81c6682d747570232e056137af781f92db54d63f07e4052dc11df67be209a",
+   "class": "assignment-record"
+  },
+  {
+   "path": "assets/assignments/docx/aboriginal-studies-30-theme-1-assignment.docx",
+   "bytes": 36889,
+   "sha256": "79674bb062cd7f41613ef2a5991ea8526131b5a56fb1f7a141d9abd2eb528eb7",
+   "class": "assignment-record"
+  },
+  {
+   "path": "assets/assignments/docx/aboriginal-studies-30-theme-2-assignment.docx",
+   "bytes": 36877,
+   "sha256": "eacd4644a245923164b723b089201e42462b41bcddc40ae575500ef1ff96a751",
+   "class": "assignment-record"
+  },
+  {
+   "path": "assets/assignments/docx/aboriginal-studies-30-theme-3-assignment.docx",
+   "bytes": 36890,
+   "sha256": "e399e134544b95c34897db9c1cbf03fb1c91f8da3e4368c90115d6a3c4d08f7c",
+   "class": "assignment-record"
+  },
+  {
+   "path": "assets/assignments/docx/aboriginal-studies-30-theme-4-assignment.docx",
+   "bytes": 36884,
+   "sha256": "f8683192997d32cd140459c3d9625822645c36080b369d428796b98722ac8594",
+   "class": "assignment-record"
+  },
+  {
+   "path": "assets/assignments/docx/assignment-3-1-breaking-stereotypes.docx",
+   "bytes": 36879,
+   "sha256": "ebd5a5f9db079a8e5832196c00c9669b49bf96e0aea752952093a6ba7fae7aa9",
+   "class": "assignment-record"
+  },
+  {
+   "path": "assets/assignments/docx/attawapiskat-report.docx",
+   "bytes": 37280,
+   "sha256": "5b2b33f678cfdab558f19b2143c074bdc4b30a3444b4e65c91dee2cc8b3b508b",
+   "class": "assignment-record"
+  },
+  {
+   "path": "assets/assignments/docx/oral-tradition.docx",
+   "bytes": 36896,
+   "sha256": "a4d3d51bece79dce4bb3b6111c96b0a3c1add20f927eb27591cb0c23cfc4abb7",
+   "class": "assignment-record"
+  },
+  {
+   "path": "assets/assignments/docx/rebuilding-self-government.docx",
+   "bytes": 36850,
+   "sha256": "090c4fce6b8e128f7548e502a03fad1bb999ac550c4de516b90eb39da92c8274",
+   "class": "assignment-record"
+  },
+  {
+   "path": "assets/assignments/html/2-1-land-stewardship.html",
+   "bytes": 1268,
+   "sha256": "d37acb2496ec5d69abbb23c7e36041a0512b6e3656ef7963da2d5be5864caffd",
+   "class": "code-shell"
+  },
+  {
+   "path": "assets/assignments/html/2-2-specific-land-claims.html",
+   "bytes": 1608,
+   "sha256": "2ddee6d0e382effa0f25f2ac410c60e5c8cfafd39dc7d82288039b49c869e378",
+   "class": "code-shell"
+  },
+  {
+   "path": "assets/assignments/html/4-2-rabbit-proof-fence.html",
+   "bytes": 1589,
+   "sha256": "9b1eff47ab18a50d8d528d3a5d9c5bda23c37d81d7f08b1d464a9dbe51694262",
+   "class": "code-shell"
+  },
+  {
+   "path": "assets/assignments/html/4-3-personal-response.html",
+   "bytes": 2214,
+   "sha256": "4f80b5f2d7f45bd1d89610515f0546084321aa35639f932e016517a03d83a0ba",
+   "class": "code-shell"
+  },
+  {
+   "path": "assets/assignments/html/aboriginal-studies-30-theme-1-assignment.html",
+   "bytes": 1427,
+   "sha256": "bef2b15a7182bf225d7ce401e1a83521f1c287e14bbc6096e58bd3822b7fa1f1",
+   "class": "code-shell"
+  },
+  {
+   "path": "assets/assignments/html/aboriginal-studies-30-theme-2-assignment.html",
+   "bytes": 1406,
+   "sha256": "7088d5a2c8d900530075f6cf09a4d002842d5a2b009076043139bc3752724c58",
+   "class": "code-shell"
+  },
+  {
+   "path": "assets/assignments/html/aboriginal-studies-30-theme-3-assignment.html",
+   "bytes": 1422,
+   "sha256": "339fe256c461114eae3000acb86cb9504cb322652d4ac79fe0377e04954579c5",
+   "class": "code-shell"
+  },
+  {
+   "path": "assets/assignments/html/aboriginal-studies-30-theme-4-assignment.html",
+   "bytes": 1407,
+   "sha256": "62a82a002c56d1bf717b3d31a10206f3e3270863fda13a6470c68ff5787be3ab",
+   "class": "code-shell"
+  },
+  {
+   "path": "assets/assignments/html/assignment-3-1-breaking-stereotypes.html",
+   "bytes": 1413,
+   "sha256": "773ccb7b7d5dffc8313291b281ba0bd4dbc547cd529c4a137e3c7fd58d474437",
+   "class": "code-shell"
+  },
+  {
+   "path": "assets/assignments/html/attawapiskat-report.html",
+   "bytes": 2232,
+   "sha256": "b04c35fb0758e4237ab1efd700ef216f83cab9d42533e0e1ae1bd2754af93811",
+   "class": "code-shell"
+  },
+  {
+   "path": "assets/assignments/html/oral-tradition.html",
+   "bytes": 1341,
+   "sha256": "5a279619e9a60aea8b690c433a519134da3cdea8b697329150778bbd08fb5714",
+   "class": "code-shell"
+  },
+  {
+   "path": "assets/assignments/html/rebuilding-self-government.html",
+   "bytes": 1222,
+   "sha256": "30b17c0cabd9190f74c886f3cb55a86927e2ebdd82aab7c8cb4fb4636528ed5b",
+   "class": "code-shell"
+  },
+  {
+   "path": "assets/brand/nxt-ce-logo-white-with-ce.png",
+   "bytes": 53313,
+   "sha256": "9ed7b47ad131ec598ae77fdb4650c95658dcab6fa1db6e6630c2fe7809b25ec8",
+   "class": "brand"
+  },
+  {
+   "path": "assets/course-visuals/generated/L01-t1-l01-oral-tradition.webp",
+   "bytes": 118098,
+   "sha256": "1ad8007e051d4318043eea0b5073d45b11405b760ac7f46b0d01940c5fbeeb42",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/course-visuals/generated/L02-t1-l02-nations-peoples.webp",
+   "bytes": 104932,
+   "sha256": "bacc843e6d39c67d1c358e6275d6524e531f81b687fa8094e584829d41d8a4ac",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/course-visuals/generated/L03-t1-l03-rights-distinctions.webp",
+   "bytes": 95916,
+   "sha256": "ecd1a54ee27356e095c20933d7234fe94634e9d3711250f38fcb2f71fa2eb7f1",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/course-visuals/generated/L04-t1-l04-worldview.webp",
+   "bytes": 134350,
+   "sha256": "539e4dacacdf03c3c6d4e168043e5cbe9b0b747e90b3c0005cb1eb3e9dc92bd7",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/course-visuals/generated/L05-t1-l05-early-treaties.webp",
+   "bytes": 128686,
+   "sha256": "3703e27fc0ac9fffe57c996271cb7a430ffd4a620fe1dcd943e79935eb1a2c34",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/course-visuals/generated/L06-t1-l06-colonization-proclamation.webp",
+   "bytes": 64112,
+   "sha256": "f30c0e83177a9ffd5c7782141aace851750acbf2d8cdb58c4deb49080fd18b48",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/course-visuals/generated/L07-t1-l07-numbered-treaties.webp",
+   "bytes": 93068,
+   "sha256": "2fdc4d70bb967911808d8fa12917b01d52c588f30f000b542e14c57352fc1de0",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/course-visuals/generated/L08-t1-l08-treaty-promises-alberta.webp",
+   "bytes": 114326,
+   "sha256": "7fac2e0f9132f30b1d27b16dfafe88138d63d856852c46fb9e7ad7975c90de77",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/course-visuals/generated/L09-t1-l09-geography-governance.webp",
+   "bytes": 206204,
+   "sha256": "1ef81fa338d9c410c0284db56005b3c472e11aeb15222255b33099c2dcfab033",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/course-visuals/generated/L10-t1-l10-land-law-knowledge.webp",
+   "bytes": 146800,
+   "sha256": "a61d2d505a46dc9abf86cb9743770be7c4a99498506e43ee64197e001767be1c",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/course-visuals/generated/L11-t1-l11-metis-governance-elders.webp",
+   "bytes": 164290,
+   "sha256": "c4122ca47307a9ea04796ab3e9077692449a614d7f5563022136430d8d752eb6",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/course-visuals/generated/L12-t1-l12-first-nations-inuit-relations.webp",
+   "bytes": 159526,
+   "sha256": "27d406a4f1a84bbc02bb5fa435386d5c23b366cb5d641affabd37dc890eaa052",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/course-visuals/generated/L13-t1-l13-scrip-road-allowances.webp",
+   "bytes": 137946,
+   "sha256": "490c73159aaeabba278d5eeb4f8c8592dc2dd6b53347ddff393f22ff2455858c",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/course-visuals/generated/L14-t1-l14-indian-act.webp",
+   "bytes": 68834,
+   "sha256": "371d9d706dd18ab9e191dfaebd72633bb9f66151f9fb77fa0155efb6286d1300",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/course-visuals/generated/L15-t1-l15-resistance-1951.webp",
+   "bytes": 68346,
+   "sha256": "6a873e48b96cc7839351e795b62579bbe04ece1a40c57c8e119819c39814e83f",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/course-visuals/generated/L16-t1-l16-policy-councils-devolution.webp",
+   "bytes": 59658,
+   "sha256": "6dfe19f6e5a5966815663b1998cdb3aa4bef39c43666ae4c259232a29ce27a9c",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/course-visuals/generated/L17-t1-l17-land-knowledge-constitution.webp",
+   "bytes": 129798,
+   "sha256": "8bcaaf59f17cd1cd31a9eb6f631de3a6209eb9d77af46487bcfd41eda4b3e876",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/course-visuals/generated/L18-t1-l18-constitutional-negotiations.webp",
+   "bytes": 65440,
+   "sha256": "161f51923abb10b0b3e735e3818be4bde02517916f66a10258a729577c2afcd2",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/course-visuals/generated/L19-t1-l19-title-treaties-constraints.webp",
+   "bytes": 89248,
+   "sha256": "26b63d68fc6fc2221dd8fd4b431b07e999127af3e0f1d82b11b375f8cfb8308a",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/course-visuals/generated/L20-t1-l20-harvesting-rights.webp",
+   "bytes": 108586,
+   "sha256": "fd6346b72ad22ae0a9ac905ed88d9dcade0044ee77a83a4fd79e37ca09b48290",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/course-visuals/generated/L21-t1-l21-rebuilding-goals.webp",
+   "bytes": 67816,
+   "sha256": "7e39bd72555508057bf38caf4bf1a462aa3cb2339beb20dd04aa7c7a914b26bd",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/course-visuals/generated/L22-t1-l22-models.webp",
+   "bytes": 119154,
+   "sha256": "79952d48ed0d582cb4683d3d6b5fc2eadbdae09ff495001ca616bf796d5563bf",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/course-visuals/generated/L23-t1-l23-synthesis.webp",
+   "bytes": 166800,
+   "sha256": "76c5ed340e8f4a11fd4496e4ed0673f4bab1402dbf45196290b4d1a6d1d40eba",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/course-visuals/generated/L24-t2-l01-why-land-matters.webp",
+   "bytes": 126822,
+   "sha256": "c51186464ca5ec1cf1ebca5244c3049d4098ee6ecb2fe901201219d1b9939152",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/course-visuals/generated/L25-t2-l05-land-values.webp",
+   "bytes": 166132,
+   "sha256": "1b3dd06d1727144af78bcd84d9fa8d82ca6d2b9743ab9a1f41c293814c93e4d4",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/course-visuals/generated/L26-t2-l02-two-kinds-of-claims.webp",
+   "bytes": 83840,
+   "sha256": "82dde36ac849159cfc27858f132c72914e4daaa89109dca627d70bbad8673c90",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/course-visuals/generated/L27-t2-l06-claims-machine.webp",
+   "bytes": 75076,
+   "sha256": "3452129ed582b9d8d307b90715929e40cbcaa2e2ec18d649ba97b4f75c775b23",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/course-visuals/generated/L28-t2-l07-bigstone-specific.webp",
+   "bytes": 79878,
+   "sha256": "82e226fecf57365b4839aad30ccc16df4c341902cbdc8109b65a58522cbed7ed",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/course-visuals/generated/L29-t2-l08-paths-resolution.webp",
+   "bytes": 140202,
+   "sha256": "ad342e2c2b3bffada520b86670d11b942e5b5af7eecf539cb7c3e3a97f9e7b68",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/course-visuals/generated/L30-t2-l03-metis-non-status-claims.webp",
+   "bytes": 143994,
+   "sha256": "b45f1d59a878a9010ba6b6ddb5122c2f2f87123c64e9bb841fe761c6e6218d71",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/course-visuals/generated/L31-t2-l09-first-modern-treaties.webp",
+   "bytes": 149960,
+   "sha256": "c22271ae64ca93178de64f749cad2d60e105a5ea1677f10c7ced22a81561f828",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/course-visuals/generated/L32-t2-l10-north-and-west.webp",
+   "bytes": 147800,
+   "sha256": "81eeded74b93214c9bd8ca05cd41869c263f7b4775aae5a135e391c680fc869c",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/course-visuals/generated/L33-t2-l04-resolving-claims.webp",
+   "bytes": 112296,
+   "sha256": "cb6db2c85cb0799b38d5b144629e60bfaacceee55ff455ebf9f96a165db6ef13",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/course-visuals/generated/L34-t3-l01-stereotypes-media.webp",
+   "bytes": 46188,
+   "sha256": "ca71f5dd2fea71f9424fb0be8fd0617dfd37ec93f7535523b95c28c3c4f3e7eb",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/course-visuals/generated/L35-t3-l05-words-that-wound.webp",
+   "bytes": 74344,
+   "sha256": "de5da3d42635c1c8f954e6875eaa93f05cee9949dbbefa35075a886d790c13bf",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/course-visuals/generated/L36-t3-l06-screens-punchlines.webp",
+   "bytes": 86628,
+   "sha256": "af9c6bf726a4516f9e37ad5517bf982c1de58b757acc3fe733cfab82dd316d01",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/course-visuals/generated/L37-t3-l02-breaking-barriers.webp",
+   "bytes": 91460,
+   "sha256": "2dcef6799cacd6bab4063f726f28693e55a5d043759b703e4b8e9a20550a2e60",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/course-visuals/generated/L38-t3-l03-community-life.webp",
+   "bytes": 192902,
+   "sha256": "a9b6a646001a7b666bd32360998c590af6433218f36c4edf580267dc5ec20fc9",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/course-visuals/generated/L39-t3-l07-running-own-show.webp",
+   "bytes": 63032,
+   "sha256": "ea74d388a371897ee17d082c5bc297ccdeb9d684cf222cd8d4df2a3b77a251cf",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/course-visuals/generated/L40-t3-l08-city-test.webp",
+   "bytes": 200106,
+   "sha256": "72d12cc2bb134bbd26e416b8c992d1e2be2efe62994fffeb9d00aaeddfff2169",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/course-visuals/generated/L41-t3-l09-friendship-success.webp",
+   "bytes": 121576,
+   "sha256": "2dbfaf966c24b98ee9d4c38b6ef00a47b479f079525d7447f176f5629b34b328",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/course-visuals/generated/L42-t3-l10-devolution.webp",
+   "bytes": 74438,
+   "sha256": "fddd9eec334992640b8bede2637330408cc34dfe47dbf096dea61d6b162d7790",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/course-visuals/generated/L43-t3-l04-urban-life-services.webp",
+   "bytes": 91228,
+   "sha256": "fa4784029cd6986081b150ad0bd16dde8fe10011747e7a0be6b74166fac5a5a1",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/course-visuals/generated/L44-t4-l01-one-world-many-peoples.webp",
+   "bytes": 125584,
+   "sha256": "90db2964a029d359e463089f297d7d72fd5fad2943914de14ae80468dde3c852",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/course-visuals/generated/L45-t4-l05-nine-issues.webp",
+   "bytes": 107934,
+   "sha256": "f444bc6f3da94b9a576bd28688aad5d1550186d02cc2068e56b1ec919f2dcab3",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/design/as30/progress-track-reference.png",
+   "bytes": 74930,
+   "sha256": "a1c2c005ad781d64250aa3233c1b4669fd4feaa65a3a6c984e46ebbb4a6306b3",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/design/as30/sidebar-brand-mark.png",
+   "bytes": 15053,
+   "sha256": "1e9d7042bce5ef5e5e3092b3d5b311077e597ddf22981f3a8d1c121c6b6ae0fd",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/design/as30/sidebar-lower-texture.png",
+   "bytes": 139443,
+   "sha256": "2e89a11961690c2db23ae6943e6dddb956f62df89461e8de9d5c455622296e79",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/design/as30/sidebar-top-pattern-band.png",
+   "bytes": 42376,
+   "sha256": "bcee7405ce96ae3c91c3e2bfbbfa133fe2953034101baa1e9b2cd19e5e27efa7",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/design/as30/unit-badge-reference.png",
+   "bytes": 8201,
+   "sha256": "489c826f055179f5bef062821b8852447b0ca48b86d1447f6113d52863670edc",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/design/as30/unit-badge-t1.png",
+   "bytes": 9672,
+   "sha256": "c3ee615f2d9f0fcf21bf312cff00663135315673df5c12f4a46c643ec7d397ff",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/design/as30/unit-badge-t2.png",
+   "bytes": 9728,
+   "sha256": "fe99d9687ba1d3c570e11f0fa03875eb6e81b48bcfe10c7a6038a39f8104810a",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/design/as30/unit-badge-t3.png",
+   "bytes": 9772,
+   "sha256": "208f8bad5665c21f8acaa1f3efded26c902cb24f3bf68bd412d013210d70bf9d",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/design/as30/unit-badge-t4.png",
+   "bytes": 9725,
+   "sha256": "559b0d43f1030c15a33c8b11d9f99fe4273cd3df1bc9e68c7415ed664773c958",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/design/as30/unit-card-divider-reference.png",
+   "bytes": 3126,
+   "sha256": "5dd24a237d2ef5b1834d01006ae68acfb9ad2d9b6160351b7ad56c91678bbc97",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/design/as30/unit-card-left-t1.png",
+   "bytes": 26092,
+   "sha256": "92eb45da0d034d8f9541d7ff786963633a96ef3e14ff95d274a9e545357f4bb4",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/design/as30/unit-card-left-t2.png",
+   "bytes": 26149,
+   "sha256": "7fc35a57f2fb49ebe3ae6d13c3ceb102baf1df7b321ce1ed10e8b8f6fab036ab",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/design/as30/unit-card-left-t3.png",
+   "bytes": 26190,
+   "sha256": "764ddfc68f4529c2b9eb34b17e0de39b9ad5b1eb70c796fe81ce8c6323da6554",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/design/as30/unit-card-left-t4.png",
+   "bytes": 26150,
+   "sha256": "b714d58b761eeb3afa24a07bcedfafcd2680920bd0757b92ed31e22c5ef043d5",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/design/as30/unit-card-right-texture.png",
+   "bytes": 77149,
+   "sha256": "65c527ce9ce5a37e4673504691ba44bd91c666889b8103f424d021e20a27c9cc",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/fonts/HankenGrotesk-Variable.ttf",
+   "bytes": 132892,
+   "sha256": "813b3f8fa0965405669a89b38e51bbefd95eef6b8e20d1cb2d8c10cce062662f",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/fonts/OFL-Hanken-Grotesk.txt",
+   "bytes": 4402,
+   "sha256": "e02ccb89a86839b22feff7872ff5cc355cc0f58318d29eee20e2cf83a612f16d",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/fonts/OFL-Work-Sans.txt",
+   "bytes": 4396,
+   "sha256": "749aca05078664ce682dce1b1b10096ac397cb088c1a6df4e1bb56f0092a9272",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/fonts/WorkSans-Variable.ttf",
+   "bytes": 361072,
+   "sha256": "f50f61f2ba738e239442d40bf1069adb195c224b6a5a73a581fc2f3ed62a9f63",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/library/chapter-1.pdf",
+   "bytes": 9095966,
+   "sha256": "2838d50c421ae47cc79298bbc1c3f68a7801ec30b5b5665b323963088c320a32",
+   "class": "library-reader"
+  },
+  {
+   "path": "assets/library/chapter-2.pdf",
+   "bytes": 10482756,
+   "sha256": "016ae885ef2f239a62a31f4eff0022a771e271f272638177de86096f79aca056",
+   "class": "library-reader"
+  },
+  {
+   "path": "assets/library/chapter-3.pdf",
+   "bytes": 7387233,
+   "sha256": "c2caa9dec44dda9fb0a36e226947bf445f130728bbac06e7a958d20f4aa4cbd2",
+   "class": "library-reader"
+  },
+  {
+   "path": "assets/library/chapter-4.pdf",
+   "bytes": 11846439,
+   "sha256": "1f9b7e635b39194631d4da162f5ef638f54acade838c5e769ad971d8ceebfe77",
+   "class": "library-reader"
+  },
+  {
+   "path": "assets/library/chapter-5.pdf",
+   "bytes": 4672785,
+   "sha256": "874c5713059a45d0e28d7232ef3b0969593a997b9c82b525b05f016022153fc6",
+   "class": "library-reader"
+  },
+  {
+   "path": "assets/library/chapter-6.pdf",
+   "bytes": 7710287,
+   "sha256": "80fc0c4d8815963dfbaad5c7de7093b7fa77132699768f5fb978edfbc8e99a86",
+   "class": "library-reader"
+  },
+  {
+   "path": "assets/library/chapter-7.pdf",
+   "bytes": 6124340,
+   "sha256": "5962e525ad019822b395b819de55ce3f3f0a6a33550a948b7f36b598c474ee1e",
+   "class": "library-reader"
+  },
+  {
+   "path": "assets/library/critical-response-criteria.pdf",
+   "bytes": 88269,
+   "sha256": "505c7ff4e3ce975ec9577d0c1d0843fc28210dda53f2613690fd07be9194449c",
+   "class": "library-reader"
+  },
+  {
+   "path": "assets/library/critical-response-rubric.pdf",
+   "bytes": 63415,
+   "sha256": "ecc2f510f139c6331ec592c8ce35923a391d65aca705a66fa7e3583bc87aae1c",
+   "class": "library-reader"
+  },
+  {
+   "path": "assets/library/glossary.pdf",
+   "bytes": 1299612,
+   "sha256": "ce6f1b5112f7f250124c3fe35ba12b0a42dff32feb82df421c6eed0e36be3cf8",
+   "class": "library-reader"
+  },
+  {
+   "path": "assets/library/halfbreed-maria-campbell.pdf",
+   "bytes": 2073874,
+   "sha256": "1f8b003f21ffcd58c4143efc2e422a0710193ee2c8593faae1a9eeaa4e7d63f2",
+   "class": "library-reader"
+  },
+  {
+   "path": "assets/library/textbook.pdf",
+   "bytes": 71778321,
+   "sha256": "ef7886447f454c15ee4b66751a190922f9e7241a2ac97939bc92e1156f20a3e9",
+   "class": "library-reader"
+  },
+  {
+   "path": "assets/source-pages/first-nation-drinking-water.html",
+   "bytes": 394,
+   "sha256": "104fbaa314fe70fc8c3761002ab10ebd4310dc74fc7289c1cf19f61a76824d50",
+   "class": "code-shell"
+  },
+  {
+   "path": "assets/source-pages/i-m-not-the-indian-you-had-in-mind.html",
+   "bytes": 405,
+   "sha256": "e1c26316e392e711beed41565f23a8971ef23c2092667ea09ee8fab8059dbaf8",
+   "class": "code-shell"
+  },
+  {
+   "path": "assets/theme-1/images/theme-1-page-01-image-01.jpg",
+   "bytes": 183098,
+   "sha256": "62f00054976764202a635b4cfacc1dd890bea6234c2a583a27e7b9076b4ad249",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/theme-1/images/theme-1-page-03-image-01.jpg",
+   "bytes": 12973,
+   "sha256": "bad06e81e4043ee161cebdb9670d4636285b4b964fe52a1467ee0350cf7baf61",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/theme-1/images/theme-1-page-05-image-01.jpg",
+   "bytes": 29301,
+   "sha256": "a86830e79ba9e5a4122df23691582535fe844e2a9fa401857771b9cd39753f5f",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/theme-1/images/theme-1-page-06-image-01.jpg",
+   "bytes": 42354,
+   "sha256": "a1b31f92d3b05d3bfcbaefb28d1245cd43f48704fe4646503b3c876f9c50f340",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/theme-1/images/theme-1-page-08-image-01.jpg",
+   "bytes": 12973,
+   "sha256": "bad06e81e4043ee161cebdb9670d4636285b4b964fe52a1467ee0350cf7baf61",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/theme-1/images/theme-1-page-08-image-02.jpg",
+   "bytes": 12196,
+   "sha256": "f69b98cad2a1bf01c5146c79c313497a2a67122fd8679b8c2efc9c623d339280",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/theme-1/images/theme-1-page-09-image-01.jpg",
+   "bytes": 122591,
+   "sha256": "815c60ffca84ccc82e76f0db7b68e11d034fbfe5b31f61bec73d582e10b7b590",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/theme-1/images/theme-1-page-10-image-01.jpg",
+   "bytes": 133306,
+   "sha256": "2899203623f22405b2e87fdcb593219d301d15e9213ca7a52e44c8f944f0f4f0",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/theme-1/images/theme-1-page-11-image-01.jpg",
+   "bytes": 14763,
+   "sha256": "388c7eb7e8025549e53eaab0660bd18ff82835b911ae6dcf27723c8f6e9be9fc",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/theme-1/images/theme-1-page-13-image-01.jpg",
+   "bytes": 30518,
+   "sha256": "81b307cfd3328edd3611177b0b5f11b601ec112c6c7c91e3770cc5698f0087b5",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/theme-1/images/theme-1-page-16-image-01.jpg",
+   "bytes": 12973,
+   "sha256": "bad06e81e4043ee161cebdb9670d4636285b4b964fe52a1467ee0350cf7baf61",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/theme-1/images/theme-1-page-16-image-02.jpg",
+   "bytes": 105869,
+   "sha256": "e7d5cea5788edb5b656efdc0b19317a997f736e2b76d42dff513ea53370f2277",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/theme-1/images/theme-1-page-16-image-03.jpg",
+   "bytes": 18298,
+   "sha256": "08caf9f8d8936befd373bb675c1a2b4a21e4a5f28c1779bd10ef4a7a83c96ad3",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/theme-1/images/theme-1-page-18-image-01.jpg",
+   "bytes": 73640,
+   "sha256": "90c90055012203d07c0e255be1c4f5364827e11f29f8f1cbbe544e6032e122de",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/theme-1/images/theme-1-page-18-image-02.jpg",
+   "bytes": 92330,
+   "sha256": "28b717be8dbf57cfa10253c24216afaceeb4be6c420ce5242299532065d57bdb",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/theme-1/images/theme-1-page-20-image-01.jpg",
+   "bytes": 202161,
+   "sha256": "4e30198182f445f31d55219c636c470f1f8e4f3e96e764e1cd6ed984b717e359",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/theme-1/images/theme-1-page-21-image-01.jpg",
+   "bytes": 21388,
+   "sha256": "9a439b09094ed3446eb589ba454fb9eaf75ccc556b7a94f1705278b69e2bb383",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/theme-1/images/theme-1-page-25-image-01.jpg",
+   "bytes": 12973,
+   "sha256": "bad06e81e4043ee161cebdb9670d4636285b4b964fe52a1467ee0350cf7baf61",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/theme-1/images/theme-1-page-25-image-02.jpg",
+   "bytes": 84164,
+   "sha256": "eaa204959b3212f2ccf054d096835eb7e3a769d2864795419a0e965c7dbbba36",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/theme-1/images/theme-1-page-25-image-03.jpg",
+   "bytes": 46027,
+   "sha256": "20af49a4a5d07aa941baad966f943371427fd4ccb4f0fa2ca8d0a1e799f76377",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/theme-1/images/theme-1-page-26-image-01.jpg",
+   "bytes": 88805,
+   "sha256": "b19b12d3087b3ec0b39b9a25547fdad68b7d900c2d7fccf5d3d211f4d2faed93",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/theme-1/images/theme-1-page-26-image-02.jpg",
+   "bytes": 130754,
+   "sha256": "5c15eba0242935f60c6c936332596eac0c7b77edd0297f3b8f5158737838ad24",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/theme-1/images/theme-1-page-27-image-01.jpg",
+   "bytes": 51413,
+   "sha256": "6bd6f374998ce29e7ef05cdf960601a43465cb0023c5e93aed06c269ead74550",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/theme-1/images/theme-1-page-27-image-02.jpg",
+   "bytes": 43131,
+   "sha256": "27fa952afd98630ff5296472ed15bd39d556ac3d17d55b92adc9908c90eefe03",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/theme-1/images/theme-1-page-27-image-03.jpg",
+   "bytes": 21326,
+   "sha256": "22dc3e58d9c1eb8f99747f7e8a83ada9bf6cb0f35d29877b1cf362fb947c45b3",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/theme-1/images/theme-1-page-27-image-04.jpg",
+   "bytes": 24371,
+   "sha256": "fbfaa423fa7678012944f0d6150ff4bd348bfbc61429b6b8c5abcd97a7c23192",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/theme-1/images/theme-1-page-27-image-05.jpg",
+   "bytes": 42246,
+   "sha256": "7e7b82b99ffd54844328a658a8ddd77fbbc93a350b2d21ac17844a57e617b86c",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/theme-1/images/theme-1-page-27-image-06.jpg",
+   "bytes": 15526,
+   "sha256": "b7dc185dffdcc9ed07cfc9bb66362afae671a89e7c485ac72782aab08e57a794",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/theme-1/images/theme-1-page-28-image-01.jpg",
+   "bytes": 12066,
+   "sha256": "b247673a80d15198cb227c37e4b6ddf91b92910459b282701cc469b9eb513104",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/theme-1/readings/indigenous-worldviews.pdf",
+   "bytes": 1206122,
+   "sha256": "06025b799e79906d821d86e3a738b26b2bfb1306647306a62a7a0eb74da933d0",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/theme-4/generated/colonial-wounds-card.webp",
+   "bytes": 132466,
+   "sha256": "f761ebb191799ed226ff341b600d18406bfe6f3faecd1d247938190d9c3c301c",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/theme-4/generated/colonial-wounds-header.webp",
+   "bytes": 206572,
+   "sha256": "98f7b09c28d4cea8b836dc0b7da09ec40ae35643927dbd01db6726801baa5e9b",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/theme-4/generated/education-voice-card.webp",
+   "bytes": 51798,
+   "sha256": "ca0242c17b235fcd59295ff3cfe6020d4d9ef797aab47bf3430902b251551610",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/theme-4/generated/education-voice-header.webp",
+   "bytes": 120014,
+   "sha256": "eccf3e54888fed006d9be82260b847c3a0d75202f351d76879c9716a97687a7a",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/theme-4/generated/resources-conflict-card.webp",
+   "bytes": 160426,
+   "sha256": "d7af7aecf02980ca2bcde0c8e06b900cf8d6c39a94c0cd01977589fda16403c9",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/theme-4/generated/resources-conflict-header.webp",
+   "bytes": 112890,
+   "sha256": "c5334c44881f6e136d314558511eb92ccc0e0a97fa745b8ac6fe9dc19c3a267c",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/theme-4/generated/un-pressure-card.webp",
+   "bytes": 43022,
+   "sha256": "9dff6a6a7d5de62812c0e5c823b1296f0a003bdcfde2bd5e00b0dffa60d2ed6f",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/theme-4/generated/un-pressure-header.webp",
+   "bytes": 98034,
+   "sha256": "e44fb09d322387008e4027fcc22ef5b05ded4bbf5569e037cc15dd5ac0cc3cbd",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/theme-4/generated/youth-response-card.webp",
+   "bytes": 100826,
+   "sha256": "0a8faaa5668a9b5b01ff2d63382d3467e5cc015625989568b851ce22a147eda9",
+   "class": "media-image"
+  },
+  {
+   "path": "assets/theme-4/generated/youth-response-header.webp",
+   "bytes": 171636,
+   "sha256": "761b7886e3babefa42754d99c6a072d942c59617b0434f2e85071ad0765c3b4c",
+   "class": "media-image"
+  },
+  {
+   "path": "course-data.js",
+   "bytes": 1559178,
+   "sha256": "69487ce9b6f0f715915f5b27efd2b15dce6fcb9ef7ffa60f3a392f1f4f87baeb",
+   "class": "code-shell"
+  },
+  {
+   "path": "index.html",
+   "bytes": 4458,
+   "sha256": "e33a4795caef4f6f8eb42cd45e07ce6a09a1a26750519a68bc25597a71e8f17d",
+   "class": "code-shell"
+  },
+  {
+   "path": "learning-store.js",
+   "bytes": 84892,
+   "sha256": "40ec2e355305860083e1cb1b255eb0ed746eac381c9a4d0443cfad095af190b8",
+   "class": "code-shell"
+  },
+  {
+   "path": "lesson-components.js",
+   "bytes": 48523,
+   "sha256": "c9d7f4def197d227dc741cf2954c5d21fcf4232089c8e2dfe642fef2625dcf94",
+   "class": "code-shell"
+  },
+  {
+   "path": "main.js",
+   "bytes": 195990,
+   "sha256": "17ca69653df77ed3a8b6fb913758a9600532f8d78cd799dc07d2600a4a768d83",
+   "class": "code-shell"
+  },
+  {
+   "path": "practice-data.js",
+   "bytes": 464135,
+   "sha256": "82041cad402db0ccc6ad4341cb914a2a2d22d7a7fe92170b61021fc9908b6aee",
+   "class": "code-shell"
+  },
+  {
+   "path": "practice-engine.js",
+   "bytes": 13561,
+   "sha256": "360ec61bf56bbf4d0f88d8c19f670c2930717fea95879b1d5f1defe9b14c0dfc",
+   "class": "code-shell"
+  },
+  {
+   "path": "source-locator-links.js",
+   "bytes": 7635,
+   "sha256": "79524cd55184881996b92818aec338615e472eac6dbc12a3fceb8193faa51be3",
+   "class": "code-shell"
+  },
+  {
+   "path": "styles.css",
+   "bytes": 68509,
+   "sha256": "afb53f5b74e5951f0c23615f93117fdc133aaebc80b9c75283b28045f0a6299b",
+   "class": "code-shell"
+  }
+ ],
+ "excluded": [
+  {
+   "path": ".DS_Store",
+   "bytes": 8196,
+   "reason": "macOS metadata; never shipped"
+  },
+  {
+   "path": "assets/.DS_Store",
+   "bytes": 10244,
+   "reason": "macOS metadata; never shipped"
+  },
+  {
+   "path": "assets/assignments/.DS_Store",
+   "bytes": 10244,
+   "reason": "macOS metadata; never shipped"
+  },
+  {
+   "path": "assets/assignments/docx/Archive.zip",
+   "bytes": 420764,
+   "reason": "source backup outside the deliverable; kept on disk, never shipped"
+  },
+  {
+   "path": "assets/library/Archive.zip",
+   "bytes": 54466520,
+   "reason": "source backup outside the deliverable; kept on disk, never shipped"
+  }
+ ],
+ "counts": {
+  "shipped": 152,
+  "excluded": 5
+ }
+}

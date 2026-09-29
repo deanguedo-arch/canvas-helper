@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "projectSlug": "biology30-chapter-18",
+  "generatedAt": "2026-09-21T15:54:51.412Z",
+  "pass": true,
+  "deviations": [
+    {
+      "ruleId": "require-interactive-shell",
+      "severity": "warn",
+      "surface": "export",
+      "location": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-chapter-18/workspace/index.html",
+      "why": "Required pattern \"lesson-shell\" is missing.",
+      "evidence": "Missing pattern: lesson-shell"
+    },
+    {
+      "ruleId": "quality-max-consecutive-paragraph-blocks",
+      "severity": "warn",
+      "surface": "export",
+      "location": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-chapter-18/workspace/index.html",
+      "why": "Detected 740 paragraph blocks but max allowed is 5.",
+      "evidence": "<p> count = 740"
+    }
+  ],
+  "acceptedDeviations": []
+}

@@ -1,0 +1,46 @@
+const {chromium}=require('playwright'),assert=require('assert'),fs=require('fs'),path=require('path'),{load}=require('cheerio');
+const root=path.resolve(__dirname,'../../workspace'),url='http://127.0.0.1:4189/index.html',key='calm10-2026-draft:learning:v3';
+const old=load(fs.readFileSync(__dirname+'/before-finlit-integration.html','utf8')),now=load(fs.readFileSync(root+'/index.html','utf8'));
+const srcs=$=>$('video source').map((i,e)=>e.attribs.src).get();
+assert(srcs(old).every(src=>srcs(now).includes(src)),'all earlier video sources retained');
+const keys=$=>new Set($('[data-save-key]').map((i,e)=>e.attribs['data-save-key']).get());
+assert([...keys(old)].every(k=>keys(now).has(k)),'all earlier response keys retained');
+const final=$=>$('[data-final-field]').map((i,e)=>({key:e.attribs['data-save-key'],version:e.attribs['data-task-version']})).get();
+assert.deepStrictEqual(final(now),final(old),'final fields and versions unchanged');
+for(const src of srcs(now))assert(fs.existsSync(path.join(root,src)),src);
+(async()=>{
+ const browser=await chromium.launch({headless:true}),context=await browser.newContext({viewport:{width:1440,height:1000}}),p=await context.newPage(),errors=[];
+ p.on('pageerror',e=>errors.push(e.message));
+ await p.goto(url+'#fl3-06');
+ const q=p.locator('#fl3-06-finlit .finlit-check');
+ await q.locator('[value=A]').check();await q.locator('button').click();assert((await q.locator('[data-choice-result]').textContent()).includes('does not forecast'));
+ await q.locator('[value=C]').check();await q.locator('button').click();assert((await q.locator('[data-choice-result]').textContent()).includes('actual balance'));
+ await p.waitForTimeout(450);await p.reload();assert(await q.locator('[value=C]').isChecked());
+ const state=await p.evaluate(k=>JSON.parse(localStorage.getItem(k)),key);assert.equal(state.responses['media:fl3-06:notice'],'C');assert(!state.completions?.['fl3-06']);
+ const checks=['all 21 earlier videos retained; two earlier FINLIT selections restored','all earlier save keys and final task versions unchanged','FINLIT alternative-specific feedback and revision','FINLIT answer persists after reload without completing lesson'];
+ for(const id of ['fl3-06','co1-01','fl3-01']){
+  await p.goto(url+'#'+id);const video=p.locator('#'+id+'-finlit video');
+  await video.evaluate(v=>{v.muted=true;return v.play();});await p.waitForTimeout(350);assert(await video.evaluate(v=>v.currentTime>0&&v.videoWidth>0));await video.evaluate(v=>v.pause());
+ }
+ checks.push('FL3-06 and two restored FINLIT clips load and advance playback');
+ await p.goto(url+'#fl3-06');await p.locator('#fl3-06-finlit').scrollIntoViewIfNeeded();
+ fs.mkdirSync(__dirname+'/screens',{recursive:true});await p.screenshot({path:__dirname+'/screens/finlit-desktop.png'});
+ if(!await p.locator('#fl3-06-finlit-activity').evaluate(e=>e.open))await p.locator('#fl3-06-finlit-activity>summary').click();await p.locator('#fl3-06-finlit-activity [data-open-resource-reader]').click();
+ assert(await p.locator('.resource-reader-dialog').evaluate(e=>e.open));
+ const image=p.locator('.resource-reader-page-image');await image.evaluate(e=>e.decode());assert(await image.evaluate(e=>e.naturalWidth>0));
+ assert((await p.locator('.resource-reader-alternative').textContent()).includes('$40 and $60'));
+ await p.screenshot({path:__dirname+'/screens/finlit-reader-desktop.png'});await p.locator('[data-close-resource-reader]').click();
+ assert(await p.locator('#fl3-06-finlit-activity [data-open-resource-reader]').evaluate(e=>e===document.activeElement));
+ p.on('dialog',d=>d.accept());
+ await p.locator('#fl3-06-finlit-activity [data-load-calculation]').first().click();
+ assert.equal(await p.locator('#tool-saving [name=monthly]').inputValue(),'40');assert.equal(await p.locator('#tool-saving [name=years]').inputValue(),'40');
+ assert((await p.locator('#tool-saving [data-activity-output]').textContent()).includes('19,200'));
+ checks.push('original compounding PDF reader, image fallback, course adaptation and focus return','original Q3 calculator preset loads $40 for 40 years with $19,200 contributions');
+ await p.setViewportSize({width:390,height:844});await p.goto(url+'#fl3-06');await p.locator('#fl3-06-finlit').scrollIntoViewIfNeeded();
+ assert(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));await p.screenshot({path:__dirname+'/screens/finlit-mobile.png'});
+ await q.locator('legend').scrollIntoViewIfNeeded();await p.screenshot({path:__dirname+'/screens/finlit-question-mobile.png'});
+ if(!await p.locator('#fl3-06-finlit-activity').evaluate(e=>e.open))await p.locator('#fl3-06-finlit-activity>summary').click();await p.locator('#fl3-06-finlit-activity [data-open-resource-reader]').click();await p.locator('.resource-reader-page-image').evaluate(e=>e.decode());await p.screenshot({path:__dirname+'/screens/finlit-reader-mobile.png'});await p.locator('[data-close-resource-reader]').click();
+ await p.goto(url+'#co1-01');await p.locator('#co1-01-finlit').scrollIntoViewIfNeeded();assert(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));await p.screenshot({path:__dirname+'/screens/finlit-co1-mobile.png'});
+ checks.push('desktop and mobile screenshots captured; FL3-06 and CO1-01 no page overflow');
+ assert.deepStrictEqual(errors,[]);fs.writeFileSync(__dirname+'/finlit-checks.json',JSON.stringify({passed:true,checks,errors,scope:'Focused new media/practice/reader behavior; not full media, accessibility or release certification'},null,2));console.log('FINLIT focused checks passed');await browser.close();
+})().catch(e=>{console.error(e);process.exit(1)});

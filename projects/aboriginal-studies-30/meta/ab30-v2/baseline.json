@@ -1,0 +1,165 @@
+{
+ "ticket": "R00",
+ "checkout": {
+  "branch": "codex/math-engine-preflight",
+  "head": "02a9fadc9148bf26c0c93006560375a9c5c6b4ee",
+  "dirtyOverlay": "preserved, uncommitted by contract; no reset/clean/stash"
+ },
+ "workspace": {
+  "dir": "projects/aboriginal-studies-30/workspace",
+  "preflight": "AUDIT_BASELINE_MATCH",
+  "files": [
+   {
+    "name": "course-data.js",
+    "baselineSha256": "7c274e112ac8a01a321643a7f8e5a06af9bbd1daab9a4295965a6b15d7402884",
+    "actualSha256": "7c274e112ac8a01a321643a7f8e5a06af9bbd1daab9a4295965a6b15d7402884",
+    "status": "MATCH"
+   },
+   {
+    "name": "index.html",
+    "baselineSha256": "88dbecd6c3bb7cd893113d5c510b55489fdc6ddc7c22e7f81807fbd6e9cc6c22",
+    "actualSha256": "88dbecd6c3bb7cd893113d5c510b55489fdc6ddc7c22e7f81807fbd6e9cc6c22",
+    "status": "MATCH"
+   },
+   {
+    "name": "learning-store.js",
+    "baselineSha256": "3872f1d8a8ce8a91726656052d94294c8ba34717fab24bf71ef9cd8eb89292a9",
+    "actualSha256": "3872f1d8a8ce8a91726656052d94294c8ba34717fab24bf71ef9cd8eb89292a9",
+    "status": "MATCH"
+   },
+   {
+    "name": "lesson-components.js",
+    "baselineSha256": "2956ad84609374e2ea0b20d0f52bab37a06663e7986d3d6facd151ecfec22ed5",
+    "actualSha256": "2956ad84609374e2ea0b20d0f52bab37a06663e7986d3d6facd151ecfec22ed5",
+    "status": "MATCH"
+   },
+   {
+    "name": "main.js",
+    "baselineSha256": "b7d0b542ea2f3350867370c80bbbf3fee2454a7f34c793606eed5477a71f2a7c",
+    "actualSha256": "b7d0b542ea2f3350867370c80bbbf3fee2454a7f34c793606eed5477a71f2a7c",
+    "status": "MATCH"
+   },
+   {
+    "name": "practice-data.js",
+    "baselineSha256": "8bb7c2abb52aa3f202714d0609b583caccb274e0e98d491b7c049809acf12cfd",
+    "actualSha256": "8bb7c2abb52aa3f202714d0609b583caccb274e0e98d491b7c049809acf12cfd",
+    "status": "MATCH"
+   },
+   {
+    "name": "practice-engine.js",
+    "baselineSha256": "2f95d6af16d28e55f90925d6ccbedc8161f3fe273bd2f0f56fa8a4cd2aefca06",
+    "actualSha256": "2f95d6af16d28e55f90925d6ccbedc8161f3fe273bd2f0f56fa8a4cd2aefca06",
+    "status": "MATCH"
+   },
+   {
+    "name": "styles.css",
+    "baselineSha256": "3f5e83ec89ae7551e063f4df5e1bd0242ec812badde18b0de1628fe802c25610",
+    "actualSha256": "3f5e83ec89ae7551e063f4df5e1bd0242ec812badde18b0de1628fe802c25610",
+    "status": "MATCH"
+   }
+  ]
+ },
+ "lessonIdentities": {
+  "count": 50,
+  "orderMatchesContract": true,
+  "missing": [],
+  "extra": [],
+  "ids": [
+   "theme-1::t1-l01-oral-tradition",
+   "theme-1::t1-l02-nations-peoples",
+   "theme-1::t1-l03-rights-distinctions",
+   "theme-1::t1-l04-worldview",
+   "theme-1::t1-l05-early-treaties",
+   "theme-1::t1-l06-colonization-proclamation",
+   "theme-1::t1-l07-numbered-treaties",
+   "theme-1::t1-l08-treaty-promises-alberta",
+   "theme-1::t1-l09-geography-governance",
+   "theme-1::t1-l10-land-law-knowledge",
+   "theme-1::t1-l11-metis-governance-elders",
+   "theme-1::t1-l12-first-nations-inuit-relations",
+   "theme-1::t1-l13-scrip-road-allowances",
+   "theme-1::t1-l14-indian-act",
+   "theme-1::t1-l15-resistance-1951",
+   "theme-1::t1-l16-policy-councils-devolution",
+   "theme-1::t1-l17-land-knowledge-constitution",
+   "theme-1::t1-l18-constitutional-negotiations",
+   "theme-1::t1-l19-title-treaties-constraints",
+   "theme-1::t1-l20-harvesting-rights",
+   "theme-1::t1-l21-rebuilding-goals",
+   "theme-1::t1-l22-models",
+   "theme-1::t1-l23-synthesis",
+   "theme-2::t2-l01-why-land-matters",
+   "theme-2::t2-l05-land-values",
+   "theme-2::t2-l02-two-kinds-of-claims",
+   "theme-2::t2-l06-claims-machine",
+   "theme-2::t2-l07-bigstone-specific",
+   "theme-2::t2-l08-paths-resolution",
+   "theme-2::t2-l03-metis-non-status-claims",
+   "theme-2::t2-l09-first-modern-treaties",
+   "theme-2::t2-l10-north-and-west",
+   "theme-2::t2-l04-resolving-claims",
+   "theme-3::t3-l01-stereotypes-media",
+   "theme-3::t3-l05-words-that-wound",
+   "theme-3::t3-l06-screens-punchlines",
+   "theme-3::t3-l02-breaking-barriers",
+   "theme-3::t3-l03-community-life",
+   "theme-3::t3-l07-running-own-show",
+   "theme-3::t3-l08-city-test",
+   "theme-3::t3-l09-friendship-success",
+   "theme-3::t3-l10-devolution",
+   "theme-3::t3-l04-urban-life-services",
+   "theme-4::t4-l01-one-world-many-peoples",
+   "theme-4::t4-l05-nine-issues",
+   "theme-4::t4-l02-colonial-wounds",
+   "theme-4::t4-l06-resources-conflict",
+   "theme-4::t4-l03-land-resources-un",
+   "theme-4::t4-l07-education-odds",
+   "theme-4::t4-l04-youth-future-response"
+  ]
+ },
+ "assignmentIdentities": {
+  "count": 12,
+  "ids": [
+   "oral-tradition",
+   "rebuilding-self-government",
+   "2-1-land-stewardship",
+   "2-2-specific-land-claims",
+   "assignment-3-1-breaking-stereotypes",
+   "attawapiskat-report",
+   "4-2-rabbit-proof-fence",
+   "4-3-personal-response",
+   "aboriginal-studies-30-theme-1-assignment",
+   "aboriginal-studies-30-theme-2-assignment",
+   "aboriginal-studies-30-theme-3-assignment",
+   "aboriginal-studies-30-theme-4-assignment"
+  ]
+ },
+ "storageKeys": [
+  "aboriginal-studies-30.progress",
+  "aboriginal-studies-30.ui",
+  "aboriginal-studies-30.activityResponses"
+ ],
+ "storageMechanism": "direct window.localStorage via loadJson/saveJson in workspace/main.js; no host save bridge in course runtime; mirrored in project.json googleHosted.trackedStorageKeys",
+ "exporter": {
+  "commands": [
+   "npm run export:brightspace -- --project aboriginal-studies-30",
+   "npm run export:brightspace:zip -- --project aboriginal-studies-30",
+   "npm run export:scorm -- --project aboriginal-studies-30"
+  ],
+  "orchestration": "scripts/export-*.ts over scripts/lib/exports/",
+  "evidence": "projects/aboriginal-studies-30/meta/studio-export-evidence.json"
+ },
+ "leadRouting": "Sol/Codex lead reviews production learner-state/host-bridge changes and integrates under Build/Rollout rules; writer hands bounded patches via handoff, no routine questions to Dean",
+ "tooling": {
+  "nodeTest": "node --test <file> works for import-free erasable-TS suites (route smoke 8/8 this ticket)",
+  "tsx": "EPERM in sandbox (IPC listen denied); workaround: node --import /tmp/ts-register.mjs loader shim resolving .js->.ts (proven in v1 T24)",
+  "browser": "BLOCKED in this environment: Google Chrome 153 present but cannot render (playwright launch closes immediately incl --no-sandbox; --dump-dom silent; --screenshot produces no file; likely sandbox subprocess restriction). Real-UI tests delivered as starters, marked NOT_RUN until human/CI run."
+ },
+ "reproductionCommands": [
+  "cd /tmp/AB30_BIO_PARITY_EXECUTION_v2 && python3 tools/validate_package.py",
+  "python3 tools/preflight.py --workspace <checkout>/projects/aboriginal-studies-30/workspace --out <ev>/preflight.json",
+  "python3 tools/emit_task.py R00 --out <ev>/R00-packet.md",
+  "node --test scripts/tests/aboriginal-studies-30-*.test.ts",
+  "node --import /tmp/ts-register.mjs scripts/course-doctor.ts --project aboriginal-studies-30"
+ ]
+}

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Paycheck Panic 2D</title>
+
+
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="./illustrated.css?v=20260929-phone">
+</head>
+<body>
+<canvas id="game"></canvas>
+
+<div id="title">
+  <img id="titleImg" src="assets/title.png" alt="Paycheck Panic">
+  <h1>PAYCHECK PANIC</h1>
+  <p>Pick your player, then take on a small town with big bills. Work <b>arcade shifts</b>, train your skills, climb your career lane, invest, dodge life's curveballs, and survive <b>24 months</b> without going broke. Every choice teaches a money lesson.</p>
+  <button class="bigbtn" id="btnStart">New Game</button>
+  <button class="bigbtn ghost" id="btnContinue" style="display:none">Continue</button>
+  <p style="margin-top:10px;font-size:12px;color:#95d5b2">WASD / arrows to walk &nbsp;•&nbsp; E to enter &nbsp;•&nbsp; touch controls on mobile</p>
+</div>
+
+<div id="charselect">
+  <h1>Choose your player</h1>
+  <p class="sub">This is who you'll walk around town as. Purely cosmetic — your money skills are up to you.</p>
+  <div id="chargrid"></div>
+  <div style="margin-top:18px;display:flex;gap:10px">
+    <button class="bigbtn ghost" id="btnCharBack">← Back</button>
+    <button class="bigbtn" id="btnCharGo">Start</button>
+  </div>
+</div>
+
+<div id="hud">
+  <img id="avatar" src="assets/avatar-happy.png" alt="you">
+  <span class="stat"><i>MO</i> <b id="hMonth">1</b>/24</span>
+  <span class="stat"><i>CASH</i> <b id="hCash">$1,000</b></span>
+  <span class="stat"><i>Savings</i> <b id="hSav">$500</b></span>
+  <span class="stat"><i>Emergency fund</i> <b id="hEfund">…</b></span>
+  <span class="stat neg"><i>DEBT</i> <b id="hDebt">$0</b></span>
+  <span class="stat"><i>MOOD</i> <b id="hHappy">70</b></span>
+  <span class="stat"><i>Credit</i> <b id="hScore">650</b></span>
+  <span class="stat"><i>Energy</i> <b id="hEnergy">80</b></span>
+  <span class="stat"><i>Stress</i> <b id="hStress">20</b></span>
+  <span class="stat"><i>STATS</i> <b id="hStats">MS 5 · WELL 10 · PS 5</b></span>
+  <span class="stat"><i>JOB</i> <b id="hJob">Clerk</b></span>
+  <span class="stat" id="hTeacher" style="display:none;cursor:pointer" title="Teacher report"><i>TEACHER</i></span>
+  <button id="statusDetails" type="button" aria-expanded="false">More status</button>
+  <button id="actionReceipt" type="button" aria-label="Recent changes">Choose an action to see its effect</button>
+</div>
+
+<div id="prompt"></div>
+<div id="hotspots"></div>
+<div id="objective"></div>
+<div id="toast"></div>
+<div id="fade"></div>
+
+<div id="modalWrap"><div id="modal"></div></div>
+
+<div id="joy"><div id="knob"></div></div>
+<button id="btnAct">E</button>
+
+<div id="endWrap"><div id="endCard"></div></div>
+<!-- Arcade minigame overlay -->
+<div id="mgWrap">
+  <div id="mgTop">
+    <span class="pill" id="mgTimer">⏱ 90</span>
+    <span class="pill" id="mgScore">⭐ 0</span>
+    <span class="pill" id="mgCombo"></span>
+    <span class="pill" id="mgMisc"></span>
+    <button id="mgQuit" title="End the shift now — pay is based on your performance so far">🏳️ End shift</button>
+  </div>
+  <div id="mgWarn"></div>
+  <canvas id="mgCanvas"></canvas>
+  <div id="mgCard" style="display:none"></div>
+  <div id="mgBtns"></div>
+  <div id="mgMsg"></div>
+  <div id="mgResults" style="display:none"></div>
+</div>
+<!-- Phase 2: arcade cabinet overlay -->
+<div id="cbWrap">
+  <div id="cbTop">
+    <span class="pill" id="cbTitle">Cabinet</span>
+    <span class="pill" id="cbInfo"></span>
+    <button id="cbPause">Pause</button>
+    <button id="cbQuit">Quit (forfeits entry)</button>
+  </div>
+  <div id="cbWarn"></div>
+  <canvas id="cbCanvas"></canvas>
+  <div id="cbBtns"></div>
+  <div id="cbMsg"></div>
+  <div id="cbResults" style="display:none"></div>
+</div>
+
+<div id="loadveil">Painting the town…</div>
+
+
+
+
+
+    <script src="./finance-core.js"></script>
+    <script src="./rules-core.js"></script>
+    <script src="./main.js?v=20260929-movement-guide"></script>
+    <script src="./world-core.js"></script>
+    <script src="./asset-manifest.js"></script>
+    <script src="./art.js"></script>
+    <script src="./scene.js"></script>
+    <script src="./activities.js"></script>
+    <script src="./cabinets.js"></script>
+    <script src="./stat-activities.js?v=20260929-gym-done"></script>
+<script src="./interface.js?v=20260929-goals"></script>
+<script src="./lucky.js?v=20260929-goals"></script>
+    <script src="./campaign.js?v=20260929-onboarding"></script>
+    <script src="./experience.js?v=20260929-feedback"></script>
+    <script src="./places.js?v=20260929-goals"></script>
+    <script src="./developer-review.js?v=20260929-movement-guide"></script>
+</body></html>

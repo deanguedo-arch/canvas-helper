@@ -1,0 +1,12 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Paycheck Panic — financial life</title><link rel="stylesheet" href="sim.css?v=3"></head><body>
+<canvas id="game" aria-label="Illustrated town. Use arrows, WASD, or the movement stick; E opens nearby doors and choices."></canvas>
+<header id="hud" hidden aria-label="Your current situation">
+ <div id="financialStatus"></div><div id="wellbeingStatus"></div><button id="receipt" aria-label="Recent transaction effects">Choose an action to see its effect.</button>
+</header>
+<button id="objective" hidden></button><div id="prompt"></div>
+<section id="title"><img src="assets/title.png" alt="Paycheck Panic"><h1>Paycheck Panic</h1><p>Paydays, bills, tempting offers, and a plan that has to change. Manage a financial life in this illustrated town.</p><div class="titleActions"><button id="storyStart">Play the story</button><button id="freeStart">Free Play</button><button id="continue" hidden>Continue</button><button id="savedGames">Saved games</button><button id="titleHelp">How to play</button></div><p>Story: six months · target 60–90 minutes · saves automatically</p><a href="earlier.html" id="earlierLink">Earlier version and existing campaigns</a></section>
+<div id="modalWrap" hidden><section id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" tabindex="-1"></section></div>
+<nav id="toolbar" aria-label="Game controls" hidden><button id="planButton">Plan & calendar</button><button id="locationsButton">Locations</button><button id="helpButton">Help</button><button id="pauseButton">Pause</button><button id="soundButton" aria-pressed="false">Sound on</button><button id="motionButton" aria-pressed="false">Motion on</button><span id="saveStatus" role="status">Ready</span></nav>
+<div id="joy" role="group" aria-label="Movement stick"><div id="knob"></div></div><button id="btnAct">E</button><div id="toast" role="status"></div>
+<script src="world-core.js"></script><script src="asset-manifest.js"></script><script src="art.js"></script><script src="sim-economy.js?v=3"></script><script src="sim-world.js?v=3"></script><script src="sim-activities.js?v=3"></script><script src="sim-game.js?v=3"></script>
+</body></html>

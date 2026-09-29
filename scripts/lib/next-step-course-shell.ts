@@ -32,6 +32,18 @@ export type NextStepShellNavGroup = {
   items: NextStepShellNavItem[];
 };
 
+export type NextStepShellFamilyNavEntry = {
+  id: string;
+  label: string;
+  items?: Array<{ id: string; label: string }>;
+};
+
+export type NextStepShellFamilyNavSection = {
+  id: string;
+  label: string;
+  items: NextStepShellFamilyNavEntry[];
+};
+
 export type NextStepCourseShellOptions = {
   slug: string;
   courseTitle: string;
@@ -44,6 +56,7 @@ export type NextStepCourseShellOptions = {
   completionLabel?: string;
   navGroups?: NextStepShellNavGroup[];
   navItems?: NextStepShellNavItem[];
+  familyNavigation?: NextStepShellFamilyNavSection[];
   lessonGroupTitle?: string;
   lessonSequenceTitle?: string;
   sourceLessonLabel?: string;
@@ -190,7 +203,29 @@ function renderNavGroup(group: NextStepShellNavGroup, options: NextStepCourseShe
       </div>`;
 }
 
+function renderFamilyNavEntry(entry: NextStepShellFamilyNavEntry) {
+  if (entry.items?.length) {
+    return `<div class="ela-nav-subgroup" data-ela-nav-subgroup="${escapeHtml(entry.id)}">
+      <button class="ela-nav-subheading" type="button" aria-expanded="false" data-ela-nav-subtoggle="${escapeHtml(entry.id)}">${escapeHtml(entry.label)}</button>
+      <div class="ela-nav-subitems">
+        ${entry.items.map((item) => `<a class="course-nav-link" href="#${escapeHtml(item.id)}" data-page-target="${escapeHtml(item.id)}"><span class="sidebar-label">${escapeHtml(item.label)}</span></a>`).join("\n")}
+      </div>
+    </div>`;
+  }
+  return `<a class="course-nav-link" href="#${escapeHtml(entry.id)}" data-page-target="${escapeHtml(entry.id)}"><span class="sidebar-label">${escapeHtml(entry.label)}</span></a>`;
+}
+
+function renderFamilyNavigation(sections: NextStepShellFamilyNavSection[]) {
+  return sections.map((section, index) => `<section class="ela-nav-group${index === 0 ? " is-open" : ""}" data-ela-nav-group="${escapeHtml(section.id)}">
+    <button class="ela-nav-heading" type="button" aria-expanded="${index === 0 ? "true" : "false"}" data-ela-nav-toggle="${escapeHtml(section.id)}">${escapeHtml(section.label)}</button>
+    <div class="ela-nav-items">${section.items.map(renderFamilyNavEntry).join("\n")}</div>
+  </section>`).join("\n");
+}
+
 function renderSidebar(options: NextStepCourseShellOptions) {
+  const familyNavigation = options.familyNavigation?.length
+    ? renderFamilyNavigation(options.familyNavigation)
+    : "";
   const navGroups = (options.navGroups ?? []).map((group) => renderNavGroup(group, options)).join("\n");
   const extraNav = (options.navItems ?? [])
     .filter((item) => !item.hiddenFromNavigation)
@@ -202,7 +237,7 @@ function renderSidebar(options: NextStepCourseShellOptions) {
     )
     .join("\n");
 
-  return `<aside class="course-sidebar" aria-label="Course sidebar">
+  return `<aside class="course-sidebar${familyNavigation ? " course-sidebar--ela-family" : ""}" aria-label="Course sidebar">
     <div class="sidebar-header">
       <button id="sidebar-toggle" class="sidebar-toggle-button" type="button" aria-label="Toggle sidebar">
         ${renderShellIcon("dock_to_left", options)}
@@ -210,7 +245,8 @@ function renderSidebar(options: NextStepCourseShellOptions) {
       ${options.lessonPresentation === "authored" ? `<p class="sidebar-title" data-canvas-helper-course-title>${escapeHtml(options.courseTitle)}</p>` : `<h1 class="sidebar-title" data-canvas-helper-course-title>${escapeHtml(options.courseTitle)}</h1>`}
       <p class="sidebar-course-label">${escapeHtml(options.courseCode)}</p>
     </div>
-    <nav class="course-nav" aria-label="Course navigation">
+    <nav class="course-nav${familyNavigation ? " course-nav--ela-family" : ""}" aria-label="Course navigation">
+      ${familyNavigation || `
       <a class="course-nav-link active" href="#overview" data-page-target="overview">
         ${renderShellIcon("dashboard", options)}
         <span class="sidebar-label">Overview</span>
@@ -224,7 +260,7 @@ function renderSidebar(options: NextStepCourseShellOptions) {
         <div id="lesson-subnav" class="lesson-subnav">${renderSubnav(options.lessons, options.showLessonSubnavHeadings)}</div>
       </div>
       ${navGroups}
-      ${extraNav}
+      ${extraNav}`}
     </nav>
   </aside>`;
 }
@@ -259,6 +295,34 @@ function renderOverview(options: NextStepCourseShellOptions) {
   const sourceLessonLabel = options.sourceLessonLabel ?? "source lessons";
   const completionCount = options.completionIds?.length ?? options.lessons.length;
   const completionLabel = options.completionLabel ?? "lessons";
+  if (options.familyNavigation?.length) {
+    const roadmap = options.lessons.slice(0, 8).map((lesson, index) => `<li>${lessonNumber(lesson, index)}. ${escapeHtml(lesson.title)}</li>`).join("\n");
+    return `<section id="overview" class="course-page ela-family-overview">
+      <header class="ela-overview-hero">
+        <p class="course-kicker">${escapeHtml(options.courseCode)} · Course overview</p>
+        <h2 data-canvas-helper-course-title>${escapeHtml(options.courseTitle)}</h2>
+        <p class="page-intro">${escapeHtml(options.overviewIntro)}</p>
+        <div class="ela-overview-meta"><span>${completionCount} ${escapeHtml(sourceLessonLabel)}</span><span>Saved work remains automatic</span><span>Existing completion checkpoints retained</span></div>
+      </header>
+      <section class="ela-overview-section">
+        <h3>Read, examine, and respond with purpose</h3>
+        <p>Move through the lessons in order, open the unit tools when you need them, and collect useful evidence for later writing.</p>
+        ${firstLesson ? `<a class="lesson-jump primary" href="#${escapeHtml(firstLesson.id)}" data-page-target="${escapeHtml(firstLesson.id)}">Begin the unit</a>` : ""}
+      </section>
+      <section class="ela-overview-section">
+        <div class="ela-overview-guide">
+          <div><p class="ela-overview-label">How to use this unit</p><h3>Learn → practise → respond → collect</h3><p>Use Student Work for assigned lessons and questions. Open Student Tools for writing, reading, viewing, and vocabulary support. Evidence you choose to keep remains available in Process Collection.</p></div>
+          <div><p class="ela-overview-label">Completion</p><h3>Your existing course requirements remain in place</h3><p>Complete the lesson checks and required responses already assigned in this unit. This organization does not replace or add completion gates.</p></div>
+        </div>
+      </section>
+      <section class="ela-overview-section ela-roadmap"><p class="ela-overview-label">Unit roadmap</p><h3>A clear path through the work</h3><ol>${roadmap}</ol></section>
+      <section class="ela-overview-section ela-overview-source">
+        <h3>Course introduction and guidance</h3>
+        ${options.overviewNotice ? `<aside class="overview-notice"><strong>Text access</strong><p>${escapeHtml(options.overviewNotice)}</p></aside>` : ""}
+        <section class="unit-outcomes" aria-labelledby="outcomes-title"><h3 id="outcomes-title" class="unit-outcomes-lead">I can...</h3><ul class="unit-focus-list">${options.outcomes.map((outcome) => `<li>${escapeHtml(outcome.replace(/^I can\s+/i, ""))}</li>`).join("\n")}</ul></section>
+      </section>
+    </section>`;
+  }
   return `<section id="overview" class="course-page">
     <p class="course-kicker">Course overview</p>
     <h2 data-canvas-helper-course-title>${escapeHtml(options.courseTitle)}</h2>
@@ -275,6 +339,82 @@ ${options.overviewNotice ? `    <aside class="overview-notice"><strong>Text acce
       ${firstLesson ? `<a class="external-resource-action" href="#${escapeHtml(firstLesson.id)}" data-page-target="${escapeHtml(firstLesson.id)}">Open Lesson Frame</a>` : ""}
     </div>
   </section>`;
+}
+
+export const ELA_CORE_VOCABULARY = [
+  { id: "characterization", label: "Characters and Characterization", definition: "How actions, dialogue, contrasts, visual choices, and stated positions reveal character or authorial stance.", aliases: ["character", "characters", "characterisation"] },
+  { id: "irony", label: "Irony", definition: "A meaningful gap between expectation and outcome, appearance and reality, or stated purpose and actual effect.", aliases: ["ironic"] },
+  { id: "point-of-view", label: "Point of View", definition: "The perspective, framing, or argumentative position that controls what the audience sees, knows, and evaluates.", aliases: ["point of view", "perspective", "narrator"] },
+  { id: "plot", label: "Plot", definition: "How exposition, conflict, rising action, climax, and resolution organize events and develop meaning.", aliases: ["plot structure"] },
+  { id: "setting", label: "Setting", definition: "How time, place, social conditions, and atmosphere shape action, character choices, and meaning.", aliases: ["atmosphere", "place"] },
+  { id: "symbols-motifs", label: "Symbols and Motifs", definition: "An object, image, word, or recurring pattern that develops an idea beyond its literal meaning.", aliases: ["symbol", "symbols", "motif", "motifs", "symbolism"] },
+  { id: "tone-mood", label: "Tone and Mood", definition: "Tone is the creator's attitude; mood is the feeling produced for the audience through language, imagery, sound, and visual atmosphere.", aliases: ["tone", "mood"] },
+  { id: "diction", label: "Diction", definition: "The deliberate word choices that establish voice, precision, attitude, emphasis, and emotional effect.", aliases: ["word choice"] },
+  { id: "theme", label: "Theme", definition: "A larger insight about people, society, or experience developed through conflict, choices, patterns, and consequences.", aliases: ["themes", "central idea"] }
+] as const;
+
+function lessonTerms(lesson: NextStepShellLesson) {
+  const text = `${lesson.title} ${lesson.summary} ${lesson.excerpt ?? ""}`.toLowerCase();
+  const matched = ELA_CORE_VOCABULARY.filter((term) => [term.label, ...term.aliases].some((alias) => text.includes(alias.toLowerCase())));
+  return [...matched, ...ELA_CORE_VOCABULARY].filter((term, index, all) => all.findIndex((candidate) => candidate.id === term.id) === index).slice(0, 4);
+}
+
+function renderElaLessonOpening(lesson: NextStepShellLesson) {
+  const terms = lessonTerms(lesson);
+  const hasResponses = /<(?:input|textarea|select)\b/i.test(lesson.html);
+  const hasMedia = /<(?:img|video|audio|iframe)\b/i.test(lesson.html);
+  const examine = hasMedia
+    ? "Examine the examples, images, media, or supported text and record precise details."
+    : "Examine the examples or supported text and record precise details.";
+  const apply = hasResponses
+    ? "Complete the lesson responses and use specific evidence in each answer."
+    : "Apply the lesson idea to a specific text, scene, image, or example.";
+  return `<header class="ela-lesson-opening">
+    <div class="ela-lesson-hero"><p class="ela-lesson-kicker">Lesson</p><h2>${escapeHtml(lesson.pageTitle ?? lesson.title)}</h2><p>What ideas and skills will you develop in ${escapeHtml(lesson.title)}?</p></div>
+    <div class="ela-opening-grid"><section><span class="ela-label">Learning goal</span><p>Understand and apply the central ideas and skills in ${escapeHtml(lesson.title)}.</p></section><section><span class="ela-label">Before you begin</span><p>Review the previous lesson and open any notes or evidence you want to use here.</p></section></div>
+    <details class="ela-how-to"><summary><span>Learn guide</span><strong>How to complete this lesson</strong><small>Learn → examine → respond → collect evidence</small></summary><div class="ela-guide-body"><ol><li>Read the ${escapeHtml(lesson.title)} guidance and identify the central idea or skill.</li><li>${examine}</li><li>${apply}</li><li>Review your work, collect useful evidence, and complete the existing lesson check.</li></ol></div></details>
+    <p class="ela-key-terms"><strong>Key terms:</strong> ${terms.map((term) => `<button type="button" class="ela-key-term" data-vocabulary-open="${escapeHtml(term.id)}">${escapeHtml(term.label)}</button>`).join(" · ")}</p>
+    <details class="ela-vocab-help"><summary>Vocabulary help</summary><div class="ela-vocab-help-body"><dl>${terms.map((term) => `<div><dt><button type="button" class="ela-key-term" data-vocabulary-open="${escapeHtml(term.id)}">${escapeHtml(term.label)}</button></dt><dd>${escapeHtml(term.definition)}</dd></div>`).join("")}</dl><p>Open any term for the shared definition and optional Frayer notes. Vocabulary work does not affect lesson completion.</p></div></details>
+  </header>`;
+}
+
+export function renderElaCoreVocabularyPage() {
+  const terms = ELA_CORE_VOCABULARY.map((term) => `<button type="button" class="ela-term-button" data-vocabulary-term="${escapeHtml(term.id)}" data-vocabulary-label="${escapeHtml(term.label)}" data-vocabulary-definition="${escapeHtml(term.definition)}" data-vocabulary-category="Literary Reading and Response" data-vocabulary-aliases="${escapeHtml(term.aliases.join("|"))}" data-vocabulary-open="${escapeHtml(term.id)}"><strong>${escapeHtml(term.label)}</strong><br><small>Reference available</small></button>`).join("\n");
+  return `<section id="core-vocabulary" class="course-page" hidden>
+    <header class="ela-vocabulary-header"><p class="course-kicker">Student tools</p><h2>Core Vocabulary</h2><p class="page-intro">Use each term to explain a relationship in a text, not just repeat a definition.</p><details class="ela-how-to"><summary><span>Page guide</span><strong>How to use vocabulary and Frayer work</strong><small>Find → understand → apply → collect</small></summary><div class="ela-guide-body"><ol><li>Find a term in the index or search by word or meaning.</li><li>Read the shared meaning and connect it to the current lesson.</li><li>Apply the term to a precise example in a text, scene, or image.</li><li>Keep optional Frayer notes or collect useful work in your Evidence Bank.</li></ol></div></details></header>
+    <div class="ela-vocabulary-filters"><label>Find a term<input type="search" data-vocabulary-search placeholder="Search word or meaning"></label><label>Topic<select data-vocabulary-topic><option value="all">All topics</option><option value="literary-reading-and-response">Literary Reading and Response</option></select></label></div>
+    <p class="ela-vocabulary-count" data-vocabulary-count>${ELA_CORE_VOCABULARY.length} matching terms</p>
+    <div class="ela-tool-layout"><aside class="ela-term-index"><div class="ela-term-list">${terms}</div></aside><div data-vocabulary-home><article class="ela-vocab-detail" data-vocabulary-detail><p class="ela-vocab-placeholder">Choose a term to begin.</p></article></div></div>
+  </section>`;
+}
+
+export function renderElaVocabularyTools(projectSlug: string) {
+  const safeSlug = projectSlug.replace(/[^a-z0-9-]/gi, "");
+  return `<dialog class="ela-dialog" data-vocabulary-dialog aria-labelledby="ela-vocabulary-dialog-title"><div class="ela-dialog-header"><strong id="ela-vocabulary-dialog-title">Core Vocabulary</strong><button type="button" data-vocabulary-close>Close</button></div><div class="ela-dialog-body" data-vocabulary-dialog-body></div></dialog>
+<script>(function(){
+"use strict";
+var projectSlug=${scriptJson(safeSlug)};
+var termNodes=Array.from(document.querySelectorAll("[data-vocabulary-term]"));
+var detail=document.querySelector("[data-vocabulary-detail]");
+var home=document.querySelector("[data-vocabulary-home]");
+var dialog=document.querySelector("[data-vocabulary-dialog]");
+var dialogBody=dialog&&dialog.querySelector("[data-vocabulary-dialog-body]");
+var search=document.querySelector("[data-vocabulary-search]");
+var topic=document.querySelector("[data-vocabulary-topic]");
+var count=document.querySelector("[data-vocabulary-count]");
+var activeTerm="characterization",returnFocus=null,returnScrollY=0;
+function esc(value){return String(value||"").replace(/[&<>\"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;","\\\"":"&quot;","'":"&#39;"}[c]||c;});}
+function record(id){var node=termNodes.find(function(item){return item.dataset.vocabularyTerm===id;})||termNodes[0];return node?{id:node.dataset.vocabularyTerm,label:node.dataset.vocabularyLabel||id,definition:node.dataset.vocabularyDefinition||"",category:node.dataset.vocabularyCategory||"Literary term"}:null;}
+function savedResponses(){try{return JSON.parse(localStorage.getItem("canvas-helper:"+projectSlug+":responses")||"{}");}catch(error){return {};}}
+function renderDetail(id){var term=record(id);if(!term||!detail)return;activeTerm=term.id;detail.innerHTML='<p class="ela-label">'+esc(term.category)+'</p><h3>'+esc(term.label)+'</h3><section class="ela-vocab-meaning"><p class="ela-label">Meaning</p><p>'+esc(term.definition)+'</p></section><details class="ela-frayer-section"><summary>My Frayer notes · optional</summary><div class="ela-frayer-grid"><label>Meaning in my own words<textarea data-response-id="ela-vocabulary:'+esc(term.id)+':meaning"></textarea></label><label>Characteristics<textarea data-response-id="ela-vocabulary:'+esc(term.id)+':characteristics"></textarea></label><label>Examples<textarea data-response-id="ela-vocabulary:'+esc(term.id)+':examples"></textarea></label><label>Non-examples<textarea data-response-id="ela-vocabulary:'+esc(term.id)+':non-examples"></textarea></label></div><div class="ela-tool-actions"><button type="button" class="external-resource-action" data-vocabulary-save-evidence>Save notes to Evidence Bank</button><span class="ela-tool-status" data-vocabulary-status>Notes save automatically</span></div></details>';var responses=savedResponses();detail.querySelectorAll("[data-response-id]").forEach(function(field){field.value=responses[field.dataset.responseId]||"";});document.querySelectorAll("[data-vocabulary-open]").forEach(function(button){button.classList.toggle("active",button.dataset.vocabularyOpen===term.id);});}
+function openTerm(id,opener){renderDetail(id);if(!dialog||!dialogBody||!detail)return;returnFocus=opener||document.activeElement;returnScrollY=window.scrollY;dialogBody.append(detail);dialog.showModal();var close=dialog.querySelector("[data-vocabulary-close]");if(close)close.focus();}
+function closeTerm(){if(dialog&&dialog.open)dialog.close();}
+if(dialog)dialog.addEventListener("close",function(){if(home&&detail)home.append(detail);window.scrollTo({top:returnScrollY,behavior:"auto"});if(returnFocus instanceof HTMLElement)returnFocus.focus({preventScroll:true});});
+function wireInlineTerms(){var aliases=new Map();termNodes.forEach(function(node){var id=node.dataset.vocabularyTerm;var values=[node.dataset.vocabularyLabel||""].concat((node.dataset.vocabularyAliases||"").split("|"));values.filter(Boolean).forEach(function(value){aliases.set(value.trim().toLowerCase(),id);});});document.querySelectorAll(".source-content strong, .source-content b").forEach(function(node){if(node.closest("button, a, h1, h2, h3, h4, label"))return;var key=node.textContent.trim().replace(/[.:;,!?]+$/,"").toLowerCase();var id=aliases.get(key);if(!id)return;var button=document.createElement("button");button.type="button";button.className="ela-key-term ela-inline-term";button.dataset.vocabularyOpen=id;button.textContent=node.textContent;node.replaceWith(button);});}
+document.addEventListener("click",function(event){var vocab=event.target.closest&&event.target.closest("[data-vocabulary-open]");if(vocab){event.preventDefault();if(vocab.closest("#core-vocabulary")&&!vocab.closest(".ela-key-terms"))renderDetail(vocab.dataset.vocabularyOpen);else openTerm(vocab.dataset.vocabularyOpen,vocab);return;}if(event.target.closest&&event.target.closest("[data-vocabulary-close]")){closeTerm();return;}var save=event.target.closest&&event.target.closest("[data-vocabulary-save-evidence]");if(!save)return;var term=record(activeTerm);var fields=Array.from((detail&&detail.querySelectorAll("[data-response-id]"))||[]);var answers=fields.map(function(field){return field.value.trim();}).filter(Boolean);var status=detail&&detail.querySelector("[data-vocabulary-status]");if(!answers.length){if(status)status.textContent="Add a note before collecting evidence.";return;}var api=window.nextStepEvidenceBank;if(!api||!term){if(status)status.textContent="Evidence Bank is unavailable in this preview.";return;}var contributionId="ela-vocabulary:"+term.id+":collection";var existing=api.list({contributionId:contributionId})[0];var now=new Date().toISOString();api.upsert({schemaVersion:2,contributionId:contributionId,responseId:contributionId,entryKind:"collection",source:"Core Vocabulary",concept:term.label,activity:{id:"core-vocabulary",title:"Core Vocabulary"},work:{id:term.id,title:term.label,kind:"vocabulary"},prompt:term.definition,answer:answers.join("\\n\\n"),responseIds:fields.map(function(field){return field.dataset.responseId;}),tags:["vocabulary",term.id],createdAt:existing&&existing.createdAt||now,updatedAt:now});if(status)status.textContent=existing?"Evidence entry updated.":"Saved to Evidence Bank.";});
+function filterTerms(){var query=(search&&search.value||"").trim().toLowerCase();var selected=topic&&topic.value||"all";var visible=0;termNodes.forEach(function(node){var category=(node.dataset.vocabularyCategory||"").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");var matchesQuery=!query||node.textContent.toLowerCase().includes(query)||(node.dataset.vocabularyDefinition||"").toLowerCase().includes(query);node.hidden=!(matchesQuery&&(selected==="all"||selected===category));if(!node.hidden)visible+=1;});if(count)count.textContent=visible+" matching "+(visible===1?"term":"terms");}
+if(search)search.addEventListener("input",filterTerms);if(topic)topic.addEventListener("change",filterTerms);wireInlineTerms();renderDetail(activeTerm);
+})();</script>`;
 }
 
 function renderLessonIndexCard(lesson: NextStepShellLesson, index: number, showSummary: boolean) {
@@ -364,10 +504,8 @@ function renderLessonPanel(
 
   if (options.lessonPresentation === "ela30") {
     return `<section id="${escapeHtml(lesson.id)}" class="course-page lesson-page lesson-page--ela30" hidden>
-    <article class="lesson-detail-panel lesson-detail-panel--ela30">
-      <div class="lesson-heading-row--ela30">
-        <h2>${escapeHtml(lesson.pageTitle ?? lesson.title)}</h2>
-      </div>
+    <article class="lesson-detail-panel lesson-detail-panel--ela30${options.familyNavigation?.length ? " ela-family-lesson" : ""}">
+      ${options.familyNavigation?.length ? renderElaLessonOpening(lesson) : `<div class="lesson-heading-row--ela30"><h2>${escapeHtml(lesson.pageTitle ?? lesson.title)}</h2></div>`}
       ${lesson.html}
       <div class="lesson-bottom-bar lesson-bottom-bar--ela30">
         ${previous ? `<a class="lesson-jump" href="#${escapeHtml(previous.id)}" data-page-target="${escapeHtml(previous.id)}">Previous</a>` : `<a class="lesson-jump" href="#lessons" data-page-target="lessons">Lesson Library</a>`}
@@ -415,7 +553,10 @@ function renderShellCss(extraCss = "") {
   --sidebar-rail: 76px;
 }
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--topbar-height) + 16px);
+}
 body {
   margin: 0;
   color: var(--ink);
@@ -527,6 +668,8 @@ button, input, select, textarea { font: inherit; }
   font-weight: 800;
 }
 .sidebar-course-label { margin: 6px 0 0; color: #cfd6cd; font-size: 13px; font-weight: 700; }
+.course-sidebar--ela-family .sidebar-header { padding-right: 72px; }
+.course-sidebar--ela-family .sidebar-title { max-width: none; font-size: 22px; line-height: 1.08; }
 .sidebar-toggle-button {
   position: absolute;
   right: 14px;
@@ -558,6 +701,40 @@ button, input, select, textarea { font: inherit; }
 }
 .course-nav-link:hover,
 .course-nav-link.active { background: #303432; color: #fff; }
+.course-nav--ela-family { gap: 0; padding: 0 12px 14px; }
+.ela-nav-group { border-bottom: 1px solid rgba(255,255,255,.16); }
+.ela-nav-heading,
+.ela-nav-subheading {
+  width: 100%;
+  border: 0;
+  background: transparent;
+  color: #eef3eb;
+  padding: 14px 5px;
+  text-align: left;
+  cursor: pointer;
+}
+.ela-nav-heading { position: relative; font-family: "Hanken Grotesk", "Aptos Display", sans-serif; font-size: 15px; font-weight: 800; }
+.ela-nav-heading::after,
+.ela-nav-subheading::after { content: "+"; position: absolute; right: 5px; font-weight: 800; }
+.ela-nav-group.is-open > .ela-nav-heading::after,
+.ela-nav-subgroup.is-open > .ela-nav-subheading::after { content: "−"; }
+.ela-nav-items,
+.ela-nav-subitems { display: none; }
+.ela-nav-group.is-open > .ela-nav-items,
+.ela-nav-subgroup.is-open > .ela-nav-subitems { display: grid; }
+.ela-nav-subheading { position: relative; padding: 9px 12px 9px 5px; font-family: "Work Sans", "Aptos", sans-serif; font-size: 13px; font-weight: 400; }
+.course-nav--ela-family .course-nav-link {
+  min-height: 0;
+  border-radius: 0;
+  padding: 8px 8px;
+  font-family: "Work Sans", "Aptos", sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.32;
+}
+.course-nav--ela-family .course-nav-link:hover { background: #262d29; }
+.course-nav--ela-family .course-nav-link.active { border-left: 3px solid #78bd6d; background: #27362b; padding-left: 9px; font-weight: 600; }
+.ela-nav-subitems { padding-left: 9px; }
 .lessons-toggle-icon { margin-left: auto; transition: transform .16s ease; }
 .lessons-nav.is-open .lessons-toggle-icon,
 .nav-group.is-open .nav-group-icon { transform: rotate(180deg); }
@@ -903,6 +1080,7 @@ body.sidebar-collapsed .nav-group.is-open .lesson-subnav { display: none !import
 body.sidebar-collapsed .sidebar-header { padding: 12px 8px; display: flex; justify-content: center; }
 body.sidebar-collapsed .sidebar-toggle-button { position: static; }
 body.sidebar-collapsed .course-nav { padding: 8px; }
+body.sidebar-collapsed .course-nav--ela-family { display: none; }
 body.sidebar-collapsed .course-nav-link {
   width: 52px;
   min-height: 52px;
@@ -930,6 +1108,12 @@ body.sidebar-collapsed .course-nav-link {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 6px;
     padding: 10px 12px;
+  }
+  body:not(.sidebar-collapsed) .course-nav--ela-family {
+    display: block;
+    overflow-y: auto;
+    max-height: calc(100vh - var(--topbar-height));
+    padding: 0 16px 14px;
   }
   body:not(.sidebar-collapsed) .lessons-nav,
   body:not(.sidebar-collapsed) .nav-group { display: contents; }
@@ -1024,6 +1208,7 @@ const EVIDENCE_PROJECT_SLUG = ${scriptJson(options.slug)};
 const EVIDENCE_PROFILE = ${scriptJson(options.evidenceProfile ?? "short-fiction")};
 const lessonsNav = document.querySelector(".lessons-nav");
 const navGroups = Array.from(document.querySelectorAll("[data-nav-group]"));
+const familyNavGroups = Array.from(document.querySelectorAll("[data-ela-nav-group]"));
 const fallbackStorage = {};
 let saveTimer = null;
 function readStorageValue(key, fallbackValue){
@@ -1087,6 +1272,28 @@ function syncNavOpenState(activeGroupId, lessonsOpen){
     if (groupId) setNavGroupOpen(groupId, groupId === activeGroupId);
   });
 }
+function syncFamilyNavigation(pageId){
+  if (!familyNavGroups.length) return;
+  familyNavGroups.forEach((group) => {
+    group.classList.remove("is-open");
+    group.querySelector(":scope > [data-ela-nav-toggle]")?.setAttribute("aria-expanded", "false");
+    group.querySelectorAll("[data-ela-nav-subgroup]").forEach((subgroup) => {
+      subgroup.classList.remove("is-open");
+      subgroup.querySelector(":scope > [data-ela-nav-subtoggle]")?.setAttribute("aria-expanded", "false");
+    });
+  });
+  const activeLink = Array.from(document.querySelectorAll(".course-nav--ela-family [data-page-target]")).find((link) => link.getAttribute("data-page-target") === pageId);
+  const activeGroup = activeLink?.closest("[data-ela-nav-group]");
+  const activeSubgroup = activeLink?.closest("[data-ela-nav-subgroup]");
+  if (activeGroup) {
+    activeGroup.classList.add("is-open");
+    activeGroup.querySelector(":scope > [data-ela-nav-toggle]")?.setAttribute("aria-expanded", "true");
+  }
+  if (activeSubgroup) {
+    activeSubgroup.classList.add("is-open");
+    activeSubgroup.querySelector(":scope > [data-ela-nav-subtoggle]")?.setAttribute("aria-expanded", "true");
+  }
+}
 function updateComplete(){
   const complete = readComplete();
   const count = completionIds.filter((id) => complete.has(id)).length;
@@ -1122,6 +1329,7 @@ function showPage(id){
     link.classList.toggle("active", target === fallback || (lessonsOpen && target === "lessons") || activeGroupToggle);
   });
   syncNavOpenState(navGroupId, lessonsOpen);
+  syncFamilyNavigation(fallback);
   if (window.matchMedia("(max-width: 1100px)").matches) setCourseMenuCollapsed(true);
   window.scrollTo({ top: 0, left: 0, behavior: "auto" });
 }
@@ -1597,6 +1805,24 @@ function initializePracticeSourceRegion(region){
   if (control) setActivePracticeSource(control.value, control);
 }
 document.addEventListener("click", (event) => {
+  const familyGroupToggle = event.target.closest("[data-ela-nav-toggle]");
+  if (familyGroupToggle) {
+    event.preventDefault();
+    const group = familyGroupToggle.closest("[data-ela-nav-group]");
+    const open = !group?.classList.contains("is-open");
+    group?.classList.toggle("is-open", open);
+    familyGroupToggle.setAttribute("aria-expanded", String(open));
+    return;
+  }
+  const familySubgroupToggle = event.target.closest("[data-ela-nav-subtoggle]");
+  if (familySubgroupToggle) {
+    event.preventDefault();
+    const subgroup = familySubgroupToggle.closest("[data-ela-nav-subgroup]");
+    const open = !subgroup?.classList.contains("is-open");
+    subgroup?.classList.toggle("is-open", open);
+    familySubgroupToggle.setAttribute("aria-expanded", String(open));
+    return;
+  }
   const lessonToggle = event.target.closest("[data-lessons-toggle]");
   if (lessonToggle) {
     event.preventDefault();

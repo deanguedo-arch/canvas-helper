@@ -1,0 +1,135 @@
+{
+  "syntheticOnly": true,
+  "storageKeys": {
+    "activity": "aboriginal-studies-30.activityResponses",
+    "ui": "aboriginal-studies-30.ui",
+    "progress": "aboriginal-studies-30.progress"
+  },
+  "cases": [
+    {
+      "id": "flat-alias-conflict",
+      "values": {
+        "aboriginal-studies-30.activityResponses": {
+          "written::oral-tradition": "SYNTHETIC formal draft — keep this wording.",
+          "theme-1-online-booklet::assignment-1-1": "SYNTHETIC lesson draft — different, do not replace.",
+          "theme-1-online-booklet::q37::arctic-challenges": "SYNTHETIC one chart cell.",
+          "written::4-3-personal-response": "SYNTHETIC legacy Inconvenient Indian response.",
+          "frayer::nation::examples": "SYNTHETIC learner example: Métis, nêhiyaw; ᒪᒥᐦᒋᒧᐁᐧᐃᐧᐣ.",
+          "unknown-old-field": {
+            "lines": [
+              "retained",
+              null,
+              42
+            ],
+            "futureField": true
+          }
+        },
+        "aboriginal-studies-30.ui": {
+          "section": "home"
+        },
+        "aboriginal-studies-30.progress": {
+          "completedUnits": [
+            "theme-1"
+          ]
+        }
+      }
+    },
+    {
+      "id": "v1-session-and-first-character-origin",
+      "values": {
+        "aboriginal-studies-30.activityResponses": {
+          "schema": "ab30-store-v1",
+          "revision": 7,
+          "records": {
+            "theme-1-online-booklet::assignment-1-1": {
+              "id": "theme-1-online-booklet::assignment-1-1",
+              "kind": "booklet-field",
+              "draft": "SYNTHETIC complete draft paragraph.",
+              "revision": 25,
+              "contentVersion": "legacy-v0",
+              "origins": [
+                {
+                  "key": "theme-1-online-booklet::assignment-1-1",
+                  "value": "S"
+                }
+              ],
+              "updatedAt": null
+            }
+          },
+          "conflicts": [],
+          "attempts": [],
+          "legacy": {
+            "raw": {
+              "unrecognized": {
+                "keep": "exactly"
+              }
+            }
+          },
+          "migration": {
+            "from": "flat-v0",
+            "at": null,
+            "complete": true
+          }
+        },
+        "aboriginal-studies-30.ui": {
+          "section": "quizzes",
+          "activeUnitId": "theme-1",
+          "activeLessonId": "t1-l07-numbered-treaties",
+          "practiceRuns": {
+            "run:7": {
+              "id": "run:7",
+              "mode": "matching",
+              "attemptMode": "supported",
+              "itemIds": [
+                "synthetic-term-1"
+              ],
+              "seed": 19,
+              "stimuli": [
+                {
+                  "id": "synthetic-term-1",
+                  "text": "Synthetic stimulus"
+                }
+              ],
+              "versions": [
+                "synthetic-v1"
+              ],
+              "optionOrders": [
+                [
+                  "b",
+                  "a",
+                  "c"
+                ]
+              ],
+              "attemptIds": {},
+              "status": "in-progress"
+            }
+          },
+          "practiceExposed": {
+            "synthetic-term-1": [
+              "feedback"
+            ]
+          },
+          "practiceRunCounter": 7,
+          "unknownUiField": {
+            "preserve": true
+          }
+        },
+        "aboriginal-studies-30.progress": {}
+      }
+    },
+    {
+      "id": "corrupt-raw",
+      "rawValues": {
+        "aboriginal-studies-30.activityResponses": "{\"schema\":\"ab30-store-v1\", BROKEN",
+        "aboriginal-studies-30.ui": "{}",
+        "aboriginal-studies-30.progress": "{}"
+      }
+    }
+  ],
+  "assertions": [
+    "All exact strings retained after migration and export; conflicting aliases never silently merge.",
+    "Legacy first-character origin is retained as legacy data but not certified a complete first submission.",
+    "Synthetic run is recoverable as versioned legacy even if its item is absent from production bank; do not silently drop it.",
+    "Raw corrupt bytes remain recoverable without overwrite."
+  ]
+}

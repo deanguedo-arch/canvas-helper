@@ -1,0 +1,133 @@
+{
+  "$schema": "../../../e2e/project-e2e-contract.schema.json",
+  "projectSlug": "ela10-2-film-study",
+  "requiredTestIds": [
+    "studio-shell",
+    "course-studio-tab",
+    "workspace-project-select",
+    "project-root",
+    "workspace-preview-frame"
+  ],
+  "modes": {
+    "enabled": false
+  },
+  "navigation": {
+    "enabled": false
+  },
+  "quiz": {
+    "enabled": false,
+    "lessonTitle": "Film Study Questions"
+  },
+  "fallbackPanel": {
+    "enabled": false
+  },
+  "learnerCourse": {
+    "enabled": true,
+    "routes": [
+      "overview",
+      "lessons",
+      "lesson-1-film-study-overview",
+      "lesson-2-a-brief-history-of-film",
+      "lesson-3-formal-elements-of-film",
+      "lesson-4-editing-and-sound",
+      "lesson-5-film-editing-techniques",
+      "lesson-6-camera-shots-and-angles",
+      "lesson-7-mise-en-scene",
+      "lesson-8-composition-and-camera-movement",
+      "lesson-9-sound-in-film",
+      "literary-exploration",
+      "literary-exploration-prompt-controlling-idea",
+      "literary-exploration-introduction-thesis",
+      "literary-exploration-body-assigned-text",
+      "literary-exploration-body-studied-work",
+      "literary-exploration-body-personal-connection",
+      "literary-exploration-conclusion-revision",
+      "literary-exploration-preview",
+      "personal-response",
+      "personal-response-prompt-impression",
+      "personal-response-text-evidence",
+      "personal-response-knowledge-experience",
+      "personal-response-form-perspective",
+      "personal-response-response-plan",
+      "personal-response-draft-revise",
+      "personal-response-preview",
+      "viewing-guide",
+      "film-study-questions",
+      "film-room",
+      "resources",
+      "core-vocabulary",
+      "evidence-bank"
+    ],
+    "hintRoutes": [
+      "literary-exploration-prompt-controlling-idea",
+      "literary-exploration-introduction-thesis",
+      "literary-exploration-body-assigned-text",
+      "literary-exploration-body-studied-work",
+      "literary-exploration-body-personal-connection",
+      "literary-exploration-conclusion-revision",
+      "personal-response-prompt-impression",
+      "personal-response-text-evidence",
+      "personal-response-knowledge-experience",
+      "personal-response-form-perspective",
+      "personal-response-response-plan",
+      "personal-response-draft-revise",
+      "viewing-guide",
+      "film-study-questions"
+    ],
+    "printRoutes": [
+      "literary-exploration-prompt-controlling-idea",
+      "literary-exploration-introduction-thesis",
+      "literary-exploration-body-assigned-text",
+      "literary-exploration-body-studied-work",
+      "literary-exploration-body-personal-connection",
+      "literary-exploration-conclusion-revision",
+      "literary-exploration-preview",
+      "personal-response-prompt-impression",
+      "personal-response-text-evidence",
+      "personal-response-knowledge-experience",
+      "personal-response-form-perspective",
+      "personal-response-response-plan",
+      "personal-response-draft-revise",
+      "personal-response-preview",
+      "viewing-guide",
+      "film-study-questions",
+      "evidence-bank"
+    ],
+    "evidenceScenarios": [
+      {
+        "route": "literary-exploration-prompt-controlling-idea",
+        "collectionId": "ela10-2-film-study:literary-exploration:unit:prompt-controlling-idea:collection",
+        "responseId": "ela10-2-film-study:literary-exploration:unit:prompt-controlling-idea:assigned-prompt"
+      },
+      {
+        "route": "personal-response-prompt-impression",
+        "collectionId": "ela10-2-film-study:personal-response:unit:prompt-impression:collection",
+        "responseId": "ela10-2-film-study:personal-response:unit:prompt-impression:prompt"
+      },
+      {
+        "route": "viewing-guide",
+        "collectionId": "ela10-2-film-study:viewing-guide:synthesis:collection",
+        "responseId": "ela10-2-film-study:viewing-guide:synthesis:pattern"
+      },
+      {
+        "route": "film-study-questions",
+        "collectionId": "ela10-2-film-study:film-study-questions:technique-questions:collection",
+        "responseId": "ela10-2-film-study:film-study-questions:technique-questions:panning"
+      }
+    ],
+    "resourceChecks": [],
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "routes": [
+        "overview",
+        "lesson-1-film-study-overview",
+        "literary-exploration-prompt-controlling-idea",
+        "personal-response-prompt-impression",
+        "viewing-guide",
+        "film-study-questions",
+        "evidence-bank"
+      ]
+    }
+  }
+}

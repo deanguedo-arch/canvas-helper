@@ -4,86 +4,92 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Aboriginal Studies 30</title>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <!-- T21: zero essential network dependencies. Local variable fonts (R05 @font-face) + text glyphs; no font/icon CDN. -->
   <link rel="stylesheet" href="./styles.css" />
 </head>
-<body class="as30-shell" data-project-slug="aboriginal-studies-30">
-  <div id="app-shell" class="app-shell">
-    <aside id="course-sidebar" class="sidebar" aria-label="Course navigation">
-      <div class="sidebar-pattern" aria-hidden="true"></div>
-      <button id="sidebar-toggle" class="sidebar-toggle" type="button" aria-controls="course-sidebar" aria-expanded="true" aria-label="Collapse sidebar">
-        <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+<body data-project-slug="aboriginal-studies-30">
+  <header class="course-topbar" data-testid="course-header">
+    <button id="topbar-menu-toggle" class="topbar-menu-toggle" type="button" aria-label="Toggle menu" data-testid="course-menu-toggle">
+      <i class="icon-glyph" aria-hidden="true">☰</i>
+    </button>
+    <img class="brand-logo" src="./assets/brand/nxt-ce-logo-white-with-ce.png" alt="Next Step Continuing Education" data-testid="course-logo" />
+    <div class="top-progress-shell" aria-label="Course progress" data-testid="course-progress">
+      <div class="top-progress-meta">
+        <span>Course Progress</span>
+        <strong id="progress-count">0 / 4 themes</strong>
+        <strong id="progress-percent">0%</strong>
+      </div>
+      <div class="top-progress-bar"><div class="top-progress-fill" id="progress-fill"></div></div>
+    </div>
+  </header>
+
+  <aside id="course-sidebar" class="course-sidebar" aria-label="Course sidebar" data-testid="course-sidebar">
+    <div class="sidebar-header">
+      <button id="sidebar-toggle" class="sidebar-toggle-button" type="button" aria-controls="course-sidebar" aria-label="Collapse sidebar">
+        <i class="icon-glyph" aria-hidden="true">‹</i>
       </button>
-      <header class="brand-block">
-        <div class="brand-panel">
-          <div class="brand-medallion" aria-hidden="true"></div>
-          <div class="brand-title-wrap">
-            <h1>Aboriginal<br />Studies 30</h1>
-            <div class="brand-rule" aria-hidden="true"></div>
-            <p class="mono">Course Shell</p>
-          </div>
+      <h1 class="sidebar-title">Aboriginal Studies 30</h1>
+      <p class="sidebar-course-label">ABS 30</p>
+    </div>
+    <nav class="course-nav" aria-label="Course navigation">
+      <details class="nav-group" open>
+        <summary>Start</summary>
+        <div class="nav-links"><button id="nav-home" class="nav-link" type="button" data-testid="nav-overview">Course overview</button></div>
+      </details>
+      <section class="nav-learn" aria-labelledby="nav-learn-heading">
+        <h2 id="nav-learn-heading">Learn</h2>
+        <div id="theme-subnav"></div>
+      </section>
+      <details class="nav-group" open>
+        <summary>Practice &amp; Review</summary>
+        <div class="nav-links"><button id="nav-quizzes" class="nav-link" type="button" data-testid="nav-practice">Practice activities</button></div>
+      </details>
+      <details class="nav-group" open>
+        <summary>My Work</summary>
+        <div class="nav-links">
+          <button id="nav-assignments" class="nav-link" type="button">All assignments</button>
+          <button id="nav-mywork" class="nav-link" type="button" data-testid="nav-all-my-work">All My Work</button>
         </div>
-      </header>
+      </details>
+      <details class="nav-group" open>
+        <summary>Resources</summary>
+        <div class="nav-links">
+          <button id="nav-vocabulary" class="nav-link" type="button">Core Vocabulary</button>
+          <button id="nav-library" class="nav-link" type="button">Library</button>
+          <button id="nav-film" class="nav-link" type="button">Film Room</button>
+        </div>
+      </details>
+    </nav>
+    <div class="sidebar-save-host" data-google-hosted-controls-host="true" data-sidebar-root-only="true"></div>
+  </aside>
+  <div id="menu-scrim" class="menu-scrim" hidden></div>
 
-      <nav class="sidebar-nav" aria-label="Course sections">
-        <button id="nav-home" class="nav-item active" type="button">
-          <span class="nav-left"><i class="fa-solid fa-layer-group nav-icon"></i><span>Units</span></span>
-        </button>
-        <button id="nav-quizzes" class="nav-item" type="button">
-          <span class="nav-left"><i class="fa-solid fa-circle-question nav-icon"></i><span>Quizzes</span></span>
-        </button>
-        <button id="nav-assignments" class="nav-item" type="button">
-          <span class="nav-left"><i class="fa-solid fa-clipboard-list nav-icon"></i><span>Assignments</span></span>
-        </button>
-        <button id="nav-library" class="nav-item" type="button">
-          <span class="nav-left"><i class="fa-solid fa-book nav-icon"></i><span>Library</span></span>
-        </button>
-        <button id="nav-film" class="nav-item" type="button">
-          <span class="nav-left"><i class="fa-solid fa-tv nav-icon"></i><span>Film Room</span></span>
-        </button>
-      </nav>
+  <main class="course-main" data-testid="course-main">
+    <div class="course-frame">
+      <div id="content-body"></div>
+    </div>
+  </main>
 
-      <div class="sidebar-footer" aria-hidden="true">
-        <p>Learning. Respect. Reciprocity.</p>
-        <span class="sidebar-footer-rule"></span>
+  <dialog id="course-dialog" class="course-dialog" aria-labelledby="course-dialog-title">
+    <div class="course-dialog-head">
+      <div>
+        <p class="course-kicker" id="course-dialog-kicker">Reader</p>
+        <h2 id="course-dialog-title">Reader</h2>
       </div>
+      <button id="course-dialog-close" class="lesson-jump" type="button">Close</button>
+    </div>
+    <div id="course-dialog-body" class="course-dialog-body"></div>
+  </dialog>
 
-      <div class="sidebar-save-host" data-google-hosted-controls-host="true" data-sidebar-root-only="true"></div>
-    </aside>
-
-    <main class="content">
-      <div class="content-inner">
-        <section class="progress-shell" aria-label="Course progress">
-          <div class="progress-panel">
-            <div class="progress-inner">
-              <div class="progress-top">
-                <span class="progress-label mono">Course progress</span>
-                <span id="progress-count" class="progress-count mono">0 / 4 Units</span>
-              </div>
-              <div class="progress-track" aria-hidden="true">
-                <div class="progress-fill" id="progress-fill"></div>
-              </div>
-              <div class="progress-bottom">
-                <span id="progress-percent" class="progress-percent">0% <span class="progress-complete">complete</span></span>
-                <span class="progress-meta mono"><i class="fa-solid fa-layer-group"></i> Modules: <strong>0/4</strong></span>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="modules-shell">
-          <div class="section-title-row">
-            <h2 id="section-title">Units</h2>
-            <span class="section-title-ornament" aria-hidden="true"></span>
-          </div>
-          <div id="content-body" class="content-body"></div>
-        </section>
-      </div>
-    </main>
-  </div>
+  <p id="save-status-announcer" class="visually-hidden" role="status"></p>
+  <p id="route-announcer" class="visually-hidden" role="status" aria-live="polite"></p>
 
   <script src="./course-data.js"></script>
+  <script src="./learning-store.js"></script>
+  <script src="./lesson-components.js"></script>
+  <script src="./practice-data.js"></script>
+  <script src="./practice-engine.js"></script>
   <script src="./main.js"></script>
+  <script src="./source-locator-links.js"></script>
 </body>
 </html>

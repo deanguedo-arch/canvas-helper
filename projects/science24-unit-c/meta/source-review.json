@@ -1,0 +1,263 @@
+{
+  "project": "science24-unit-c",
+  "unit": "C",
+  "status": "blocked-review-candidate",
+  "sourceArchive": "projects/resources/science24-unit-a/_sources/3d6a4d094ca3ebee56a750117dcbdc33a4e889ea1396bf2306bd544225b2de02.zip",
+  "sourceArchiveSha256": "3d6a4d094ca3ebee56a750117dcbdc33a4e889ea1396bf2306bd544225b2de02",
+  "sourcePrecedence": "Brightspace learner-visible textbook, workbook and learning guide control unit subject matter. Unit A and Biology 30 Pilot 3 control presentation and interaction patterns.",
+  "sourceMappings": [
+    {
+      "lesson": "s24-c-l01",
+      "chapter": 9,
+      "textbookPrintedPages": "158–162",
+      "workbookPages": "3–6",
+      "source": "student textbook and workbook",
+      "authoredAdditions": [
+        "online explanation",
+        "worked model",
+        "formative multiple-choice check",
+        "local written response"
+      ],
+      "textbookPdfStart": 4,
+      "guidedNotesPdfPages": "1–8"
+    },
+    {
+      "lesson": "s24-c-l02",
+      "chapter": 9,
+      "textbookPrintedPages": "163–170",
+      "workbookPages": "7–9",
+      "source": "student textbook and workbook",
+      "authoredAdditions": [
+        "online explanation",
+        "worked model",
+        "formative multiple-choice check",
+        "local written response"
+      ],
+      "textbookPdfStart": 7,
+      "guidedNotesPdfPages": "1–8"
+    },
+    {
+      "lesson": "s24-c-l03",
+      "chapter": 10,
+      "textbookPrintedPages": "174–180",
+      "workbookPages": "11–14",
+      "source": "student textbook and workbook",
+      "authoredAdditions": [
+        "online explanation",
+        "worked model",
+        "formative multiple-choice check",
+        "local written response"
+      ],
+      "textbookPdfStart": 15,
+      "guidedNotesPdfPages": "9–14"
+    },
+    {
+      "lesson": "s24-c-l04",
+      "chapter": 10,
+      "textbookPrintedPages": "181–187",
+      "workbookPages": "14–16",
+      "source": "student textbook and workbook",
+      "authoredAdditions": [
+        "online explanation",
+        "worked model",
+        "formative multiple-choice check",
+        "local written response"
+      ],
+      "textbookPdfStart": 22,
+      "guidedNotesPdfPages": "9–14"
+    },
+    {
+      "lesson": "s24-c-l05",
+      "chapter": 11,
+      "textbookPrintedPages": "194–199",
+      "workbookPages": "17–22",
+      "source": "student textbook and workbook",
+      "authoredAdditions": [
+        "online explanation",
+        "worked model",
+        "formative multiple-choice check",
+        "local written response"
+      ],
+      "textbookPdfStart": 31,
+      "guidedNotesPdfPages": "15–22"
+    },
+    {
+      "lesson": "s24-c-l06",
+      "chapter": 11,
+      "textbookPrintedPages": "200–206",
+      "workbookPages": "22–24",
+      "source": "student textbook and workbook",
+      "authoredAdditions": [
+        "online explanation",
+        "worked model",
+        "formative multiple-choice check",
+        "local written response"
+      ],
+      "textbookPdfStart": 35,
+      "guidedNotesPdfPages": "15–22"
+    },
+    {
+      "lesson": "s24-c-l07",
+      "chapter": 12,
+      "textbookPrintedPages": "212–218",
+      "workbookPages": "25–33",
+      "source": "student textbook and workbook",
+      "authoredAdditions": [
+        "online explanation",
+        "worked model",
+        "formative multiple-choice check",
+        "local written response"
+      ],
+      "textbookPdfStart": 42,
+      "guidedNotesPdfPages": "23–34"
+    },
+    {
+      "lesson": "s24-c-l08",
+      "chapter": 12,
+      "textbookPrintedPages": "220–225",
+      "workbookPages": "34–35",
+      "source": "student textbook and workbook",
+      "authoredAdditions": [
+        "online explanation",
+        "worked model",
+        "formative multiple-choice check",
+        "local written response"
+      ],
+      "textbookPdfStart": 46,
+      "guidedNotesPdfPages": "23–34"
+    }
+  ],
+  "learnerResources": [
+    {
+      "role": "textbook",
+      "archiveMember": "Content/unit c sc24.pdf",
+      "workspacePath": "projects/science24-unit-c/workspace/assets/textbook.pdf",
+      "sha256": "04418c17978f6192e36310817d04674af80991a408dd97404da985d0850e34ad"
+    },
+    {
+      "role": "workbook",
+      "archiveMember": "S24 Unit C Workbook 2023.pdf",
+      "workspacePath": "projects/science24-unit-c/workspace/assets/workbook.pdf",
+      "sha256": "4d58f54377193317793bd5d867da329f218b0f71737926b03aa194d1e8c728c8"
+    },
+    {
+      "role": "workbook-key",
+      "archiveMember": "S24 Unit C Workbook 2023 (KEY).pdf",
+      "workspacePath": "projects/science24-unit-c/workspace/assets/workbook-key.pdf",
+      "sha256": "e20652147dbd3e177000cdcf8c6b938d2024db2508ada2d193bf952bb7cd7879"
+    },
+    {
+      "role": "guided-notes",
+      "archiveMember": "Content/S24 Unit C Guided Notes.pdf",
+      "workspacePath": "projects/science24-unit-c/workspace/assets/guided-notes.pdf",
+      "sha256": "cd073ee8eafed286f984da45d8fc3ebd0653d4f66404a82279554591783af5fa"
+    }
+  ],
+  "assessmentDisposition": {
+    "unitQuiz": "Original Brightspace quiz remains in LMS; not reproduced in this local candidate.",
+    "unitTest": "Brightspace test is hidden in the source manifest; question bank is excluded from learner pages.",
+    "workbookKey": "2023 (KEY) PDF is learner-visible in Brightspace manifest and learning-guide self-check step; available after workbook guidance, not used for auto-grading."
+  },
+  "unmappedOrLimited": [
+    "Guided notes are source-mapped by chapter and preserved as PDFs; individual diagrams and all OCR wording are not rebuilt as native interactions.",
+    "No unit-specific video was verified for local lesson placement.",
+    "New online checks are formative authored additions, not equivalents of Brightspace Quiz/Test."
+  ],
+  "teacherDecisions": [
+    "Confirm the eight-lesson grouping and workbook/key placement for Unit C.",
+    "Confirm any additional media or guided-notes details that should become native lesson content.",
+    "Review scientific and instructional accuracy before activation."
+  ],
+  "guidedNotes": {
+    "pdfPages": 34,
+    "ocrEvidence": "projects/science24-unit-c/meta/guided-notes-ocr.json",
+    "chapterRanges": [
+      {
+        "chapter": 9,
+        "pdfPages": "1–8"
+      },
+      {
+        "chapter": 10,
+        "pdfPages": "9–14"
+      },
+      {
+        "chapter": 11,
+        "pdfPages": "15–22"
+      },
+      {
+        "chapter": 12,
+        "pdfPages": "23–34"
+      }
+    ],
+    "finding": "OCR confirms the same four chapter sequence and overlapping workbook questions. It is approximate; the original image-based PDF controls exact wording and diagrams."
+  },
+  "externalFactChecks": [
+    {
+      "claim": "Antibiotics act against bacteria, not viral colds.",
+      "source": "Health Canada",
+      "url": "https://www.canada.ca/en/health-canada/services/publications/drugs-health-products/antimicrobial-yes-no-fact-sheet.html"
+    },
+    {
+      "claim": "Refrigeration slows microbial growth; it does not prove food safe.",
+      "source": "Canadian Food Inspection Agency",
+      "url": "https://inspection.canada.ca/en/preventive-controls/shelf-life-studies"
+    }
+  ],
+  "textbookPracticePages": [
+    {
+      "chapter": 9,
+      "pdfPage": 6,
+      "image": "textbook-question-1.jpg"
+    },
+    {
+      "chapter": 9,
+      "pdfPage": 9,
+      "image": "textbook-question-2.jpg"
+    },
+    {
+      "chapter": 9,
+      "pdfPage": 11,
+      "image": "textbook-question-3.jpg"
+    },
+    {
+      "chapter": 10,
+      "pdfPage": 21,
+      "image": "textbook-question-4.jpg"
+    },
+    {
+      "chapter": 10,
+      "pdfPage": 24,
+      "image": "textbook-question-5.jpg"
+    },
+    {
+      "chapter": 10,
+      "pdfPage": 28,
+      "image": "textbook-question-6.jpg"
+    },
+    {
+      "chapter": 11,
+      "pdfPage": 31,
+      "image": "textbook-question-7.jpg"
+    },
+    {
+      "chapter": 11,
+      "pdfPage": 38,
+      "image": "textbook-question-8.jpg"
+    },
+    {
+      "chapter": 11,
+      "pdfPage": 39,
+      "image": "textbook-question-9.jpg"
+    },
+    {
+      "chapter": 12,
+      "pdfPage": 47,
+      "image": "textbook-question-10.jpg"
+    },
+    {
+      "chapter": 12,
+      "pdfPage": 49,
+      "image": "textbook-question-11.jpg"
+    }
+  ]
+}

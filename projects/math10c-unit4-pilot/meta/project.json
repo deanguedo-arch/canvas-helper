@@ -1,0 +1,66 @@
+{
+  "id": "4b09b377-8d8e-4e36-b3a7-2f92931bc783",
+  "slug": "math10c-unit4-pilot",
+  "title": "Math 10C \u2014 Chapter 4: Roots & Powers",
+  "courseCode": "MATH10C-C4",
+  "summary": "Blocked review candidate for the Roots and Powers chapter, reconstructed from independently verified course exports.",
+  "migrationState": "migrated",
+  "projectType": "conversion",
+  "preferredWorkflows": [
+    "conversion"
+  ],
+  "canonicalEntry": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/math10c-unit4-pilot/workspace/index.html",
+  "canonicalSources": [
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/math10c-unit4-pilot/workspace/index.html",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/math10c-unit4-pilot/workspace/styles.css",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/math10c-unit4-pilot/workspace/course.js",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/math10c-unit4-pilot/workspace/assets/chapter4-math.js",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/math10c-unit4-pilot/workspace/assets/chapter4-checkers.js",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/math10c-unit4-pilot/workspace/assets/chapter4-policy.js",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/math10c-unit4-pilot/workspace/assets/chapter4-mastery.js",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/math10c-unit4-pilot/workspace/assets/nextstep.png",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/math10c-unit4-pilot/workspace/assets/chapter4-practice-data.js",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/math10c-unit4-pilot/workspace/assets/chapter4-practice.js",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/math10c-unit4-pilot/workspace/assets/chapter4-learning.js",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/math10c-unit4-pilot/workspace/assets/chapter4-tools.js",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/math10c-unit4-pilot/workspace/scorm-tracking.json",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/math10c-unit4-pilot/workspace/assets/chapter4-save.js"
+  ],
+  "previewModes": [
+    "workspace"
+  ],
+  "authoring": {
+    "driverId": "proposal-only-v1",
+    "familyId": "imported-workspace-v1",
+    "studioEditing": {
+      "enabled": false,
+      "renameCourse": false,
+      "imageAssets": false
+    }
+  },
+  "generatedOutputs": [],
+  "injectedComponents": [],
+  "importedFirstPassOrigin": {
+    "sourceSystem": "brightspace",
+    "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/resources/math10c-production/v1/source-manifest.json",
+    "importedAt": "2026-09-24T00:00:00.000Z",
+    "notes": "Built from independently hashed CBE System and NXT Master Brightspace exports. The current class instance is comparison-only. Large immutable source ZIPs remain in Downloads and are identified by exact paths and SHA-256 hashes in the source manifest."
+  },
+  "exportTargets": [
+    {
+      "target": "brightspace",
+      "enabled": false,
+      "notes": "Blocked review candidate. No SCORM packaging or Brightspace release until mastery, saved-state, accessibility, learner-flow and LMS checks pass."
+    }
+  ],
+  "authoringStatus": "blocked",
+  "referenceOnly": [
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/resources/math10c-production/v1/source-manifest.json",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/resources/math10c-production/v1/chapter4/production-contract.json",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/resources/math10c-production/v1/chapter4/assessment-disposition.json",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/tasks/math10c-chapter4-intake"
+  ],
+  "sourceOfTruthNotes": "The workspace is the canonical blocked review candidate. It contains eight lessons and 32 stable targets. Deterministic question families provide at least 50 distinct lesson-practice instances per lesson, two balanced review partitions cover all targets, and optional textbook work remains outside mastery. Practice credit is separate from target stages 0/25/50/75/100. Policy c4-mastery-policy-3 requires fresh unaided verification, consistency across two explicit variation categories, paired transfer and reasoning, and a distinct later-session retention task after at least 48 hours in another browser session. State version 4 preserves drafts, first submissions, final corrections, support provenance and earlier unverifiable scores as labelled historical results. The reusable generation contract is versioned under scripts/lib/math-course-generation and this chapter declares its invocation in meta/math-generation.json. Local engineering validation passed; authoring and production release remain blocked until teacher and learner acceptance, real-device accessibility, actual retention and live Brightspace checks pass.",
+  "createdAt": "2026-09-24T00:00:00.000Z",
+  "updatedAt": "2026-09-25T00:00:00.000Z"
+}

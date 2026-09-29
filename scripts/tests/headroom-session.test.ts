@@ -43,5 +43,5 @@ test("session checklist treats headroom as part of startup context compression",
 
   assert.match(checklist, /Run Headroom/);
   assert.doesNotMatch(checklist, /Do not start Headroom automatically/);
-  assert.match(checklist, /Read `projects\/<slug>\/meta\/prompt-pack\.md` first/);
+  assert.match(checklist, /Read `projects\/<slug>\/meta\/prompt-pack\.md` only when the task needs that additional detail/);
 });

@@ -1,0 +1,121 @@
+{
+  "schema": "ab30-v2-lesson-review-candidate-v1",
+  "lessonId": "t4-l06-resources-conflict",
+  "displayNumber": 47,
+  "contentVersion": "ab30-v2-l47.1",
+  "reviewState": "candidate lead source-and-render pass; teacher and community review pending",
+  "inputHashes": {
+    "course-data.js": "82d4151fe844a8941e557b2e036f077a7a67a37cdc2ce1df12b68402f30762a3",
+    "practice-data.js": "f21c0740ed24e7a4b351329a11666ed45846176f8167b9dabaee2873776052af"
+  },
+  "sourceOfTruth": "projects/aboriginal-studies-30/workspace/course-data.js",
+  "assignmentConnection": {
+    "bookletQuestionIds": [
+      "q15",
+      "q16",
+      "q17"
+    ],
+    "assignmentIds": [],
+    "assignmentHomeIds": [],
+    "formativeMarksAdded": 0
+  },
+  "goalAndTeaching": {
+    "goal": "Explain the Great Bear Lake–Hiroshima connection, read Rio’s principles accurately, and evaluate the textbook’s Syncrude example with a date and source limit.",
+    "essentialQuestion": "What must a resource decision account for beyond the resource it produces?",
+    "headings": [
+      "1. Begin with the Sahtú Dene account",
+      "2. Read Rio by principle",
+      "3. Test a company claim against the source date",
+      "4. Complete the three booklet questions"
+    ],
+    "firstTeachingExcerpt": "The textbook opens its resource study at Great Bear Lake. It reports that Sahtú Dene men carried uranium ore for the Eldorado mine at Port Radium. Eldorado supplied uranium to the United States military during the Second World War; the textbook connects that supply chain to the atomic bomb dropped on Hiroshima. Question 15 asks for this connection. Name the mine, the work and the wartime customer rather than suggesting the workers chose the bomb’s use."
+  },
+  "sourceVerification": [
+    {
+      "title": "Source A · Great Bear Lake uranium",
+      "locator": "Chapter 7, printed pp. 220–221 (supplied PDF pp. 228–229)",
+      "sourceType": "Textbook historical account",
+      "contextLimits": "The textbook links mine operations to a wartime customer. It does not establish each worker’s knowledge or choice; present-day mine and health claims need newer sources.",
+      "check": "manually compared with the supplied official booklet/textbook or named publisher page; exact quote and page mapping require independent editorial sign-off"
+    },
+    {
+      "title": "Source B · Rio Declaration, Principle 22",
+      "locator": "UN Conference on Environment and Development, Rio Declaration (1992), Principle 22; linked in Theme 4 Resources",
+      "sourceType": "United Nations declaration",
+      "contextLimits": "A principle about participation and support, not an enforcement judgment or a verdict on any named mine, dam or company.",
+      "check": "manually compared with the supplied official booklet/textbook or named publisher page; exact quote and page mapping require independent editorial sign-off"
+    },
+    {
+      "title": "Source C · the textbook’s Syncrude account",
+      "locator": "Chapter 7, printed p. 224 (supplied PDF p. 232)",
+      "sourceType": "Textbook historical account",
+      "contextLimits": "Reports a company-community example as described in 2005. It is not current verification or a full account of the First Nation’s position.",
+      "check": "manually compared with the supplied official booklet/textbook or named publisher page; exact quote and page mapping require independent editorial sign-off"
+    }
+  ],
+  "workedResponse": {
+    "title": "Worked response: booklet Question 15",
+    "directions": "What is the connection between Hiroshima and the Dene people of Great Bear Lake? Answer with the supply chain and a limit.",
+    "evidence": [
+      {
+        "ref": "Source A, printed p. 220",
+        "text": "Sahtú Dene men carried uranium ore from the Eldorado mine near Great Bear Lake; the textbook names the United States Army as Eldorado’s primary customer."
+      },
+      {
+        "ref": "Source A, printed p. 220",
+        "text": "The textbook connects uranium from this operation to the bomb dropped on Hiroshima in 1945."
+      }
+    ],
+    "reasoning": [
+      "Identify the community and the work first, rather than jumping from a place name to the bomb.",
+      "Trace ore to company to wartime customer to use.",
+      "Keep responsibility and knowledge separate: the source does not say that ore carriers chose how the uranium would be used."
+    ],
+    "response": "Sahtú Dene men carried uranium ore from the Eldorado operation at Great Bear Lake. The textbook says the United States Army was Eldorado’s primary customer and connects that uranium supply to the bomb dropped on Hiroshima in 1945. This traces a supply chain; it does not make the ore carriers responsible for the bombing (Chapter 7, p. 220)."
+  },
+  "supportedControl": {
+    "itemId": "ab30-v2-l47-rio-1",
+    "key": "b",
+    "wrongFeedback": "The principle calls for effective participation; jobs alone do not answer that demand.",
+    "correctFeedback": "This is the principle’s direction. Apply it to a project only after checking the affected community and decision process.",
+    "bankSynchronized": true
+  },
+  "independentTasks": [
+    {
+      "title": "Repair a Rio overclaim",
+      "task": "After checking the choice, rewrite: “Rio made all resource projects illegal.” State what Principle 22 actually asks states to do and one question you would ask about a proposed project. Save a first version before comparing with the criteria, then revise separately.",
+      "criteria": "A strong repair describes recognition of Indigenous knowledge, identity and interests; names effective participation; and asks a concrete question about the affected community or decision process. It does not claim Rio automatically bans a project. Criteria unlock after the first save.",
+      "responseKey": "t4-l06-resources-conflict::supported-repair",
+      "differsFrom": {
+        "evidence": "Applies Principle 22 to a proposed decision; the worked example follows a wartime uranium supply chain.",
+        "example": "Writes a corrected claim and decision question rather than choosing a reading."
+      }
+    },
+    {
+      "title": "Independent: answer booklet Question 17 with a limit",
+      "task": "Using Source C, explain the relationship the 2005 textbook describes between Syncrude and Indigenous people, including Fort McKay First Nation. Then state one fact you would verify with a current Fort McKay source before making a present-day claim. Save your first response, compare with criteria and revise.",
+      "criteria": "A strong answer attributes partnership and employment claims to the 2005 textbook; names Fort McKay First Nation accurately; separates the historical report from present-day verification; and identifies a specific current fact to check. Criteria unlock after the first save.",
+      "responseKey": "t4-l06-resources-conflict::independent-syncrude",
+      "differsFrom": {
+        "evidence": "Uses Source C’s company-community account, not the Rio principle or the Great Bear Lake case.",
+        "example": "Writes a dated, source-bounded answer to an assigned booklet question."
+      }
+    }
+  ],
+  "browserEvidence": {
+    "desktop": "projects/aboriginal-studies-30/meta/ab30-v2/evidence/R27/l47-1440.png",
+    "mobile": "projects/aboriginal-studies-30/meta/ab30-v2/evidence/R27/l47-390.png",
+    "render": "local Chromium file preview at 1440 and 390: 3 options, 2 first-save controls, no page error or horizontal overflow; not Brightspace or Studio"
+  },
+  "limitations": [
+    "No teacher, Elder or community content approval.",
+    "Film scene access and media rights not verified; scene-specific work remains dependent on the assigned film.",
+    "No full assigned-work, curriculum-outcome, exported-SCORM or live Brightspace acceptance in this Build pass.",
+    "Screenshots show lesson openings; deep source and response visuals require rollout review."
+  ],
+  "reviewerStatus": {
+    "humanReviewed": false,
+    "leadTechnicalReview": true,
+    "learnerBrowserProof": "bounded local rendering only"
+  }
+}

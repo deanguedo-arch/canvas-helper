@@ -1,0 +1,104 @@
+{
+  "schemaVersion": 1,
+  "courseId": "ela10-2",
+  "courseCode": "ELA 10-2",
+  "courseTitle": "English Language Arts 10-2",
+  "profileId": "next-step-english",
+  "profileVersion": "next-step-english-v3-ela10-2",
+  "archives": [
+    {
+      "id": "brightspace",
+      "kind": "brightspace",
+      "path": "projects/resources/ela10-2/_sources/f1319deb2ada7c4ea36d86a9fe172058daa2d9f4baf7edb541acb38c44e36e53.zip",
+      "sha256": "f1319deb2ada7c4ea36d86a9fe172058daa2d9f4baf7edb541acb38c44e36e53",
+      "importedAt": "2026-07-22T15:14:13.967Z"
+    },
+    {
+      "id": "teacher-resources",
+      "kind": "teacher-resources",
+      "path": "projects/resources/ela10-2/_sources/cea6d0cc7cb840c4099011f9f71e10711a996ca5f49d75c586dbc172829877be.zip",
+      "sha256": "cea6d0cc7cb840c4099011f9f71e10711a996ca5f49d75c586dbc172829877be",
+      "importedAt": "2026-07-22T15:14:13.967Z"
+    },
+    {
+      "id": "supplement-90a7e3ee3452",
+      "kind": "supplement",
+      "path": "projects/resources/ela10-2/_sources/90a7e3ee34527e9c0eb9ae5ad4953f04cbc9867f881a9121e6fad0266c183fcf.doc",
+      "sha256": "90a7e3ee34527e9c0eb9ae5ad4953f04cbc9867f881a9121e6fad0266c183fcf",
+      "importedAt": "2026-07-22T15:14:13.967Z"
+    },
+    {
+      "id": "supplement-425beada71fb",
+      "kind": "supplement",
+      "path": "projects/resources/ela10-2/_sources/425beada71fb9f830e58e225b22752ad75c429b7e1bbb40b50e3524089458eef.docx",
+      "sha256": "425beada71fb9f830e58e225b22752ad75c429b7e1bbb40b50e3524089458eef",
+      "importedAt": "2026-07-22T15:14:13.967Z"
+    }
+  ],
+  "units": [
+    {
+      "projectSlug": "ela10-2-writing-foundations",
+      "unitTitle": "Writing Foundations",
+      "recipePath": "projects/ela10-2-writing-foundations/meta/english-unit.json",
+      "profileVersion": "next-step-english-v3-ela10-2",
+      "activityProfile": "writing-foundations",
+      "brightspaceUnitIds": [
+        "3349",
+        "3350",
+        "3351",
+        "3352",
+        "3353",
+        "3354",
+        "3355",
+        "3356",
+        "3357"
+      ],
+      "reviewStatus": "needs-review"
+    },
+    {
+      "projectSlug": "ela10-2-short-stories",
+      "unitTitle": "Short Stories",
+      "recipePath": "projects/ela10-2-short-stories/meta/english-unit.json",
+      "profileVersion": "next-step-english-v3-ela10-2",
+      "activityProfile": "short-fiction",
+      "brightspaceUnitIds": [
+        "donor:ela10-1-short-stories"
+      ],
+      "reviewStatus": "needs-review"
+    },
+    {
+      "projectSlug": "ela10-2-modern-play-dracula",
+      "unitTitle": "Modern Play - Dracula",
+      "recipePath": "projects/ela10-2-modern-play-dracula/meta/english-unit.json",
+      "profileVersion": "next-step-english-v3-ela10-2",
+      "activityProfile": "modern-drama",
+      "brightspaceUnitIds": [
+        "donor:ela10-1-modern-play-fences"
+      ],
+      "reviewStatus": "needs-review"
+    },
+    {
+      "projectSlug": "ela10-2-novel-study",
+      "unitTitle": "Novel Study",
+      "recipePath": "projects/ela10-2-novel-study/meta/english-unit.json",
+      "profileVersion": "next-step-english-v3-ela10-2",
+      "activityProfile": "novel-study",
+      "brightspaceUnitIds": [
+        "donor:ela10-1-novel-study"
+      ],
+      "reviewStatus": "needs-review"
+    },
+    {
+      "projectSlug": "ela10-2-film-study",
+      "unitTitle": "Film Study",
+      "recipePath": "projects/ela10-2-film-study/meta/english-unit.json",
+      "profileVersion": "next-step-english-v3-ela10-2",
+      "activityProfile": "film-study",
+      "brightspaceUnitIds": [
+        "donor:ela10-1-film-study"
+      ],
+      "reviewStatus": "needs-review"
+    }
+  ],
+  "generatedAt": "2026-07-22T15:14:13.967Z"
+}

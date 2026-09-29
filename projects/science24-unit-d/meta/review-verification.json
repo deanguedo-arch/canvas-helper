@@ -1,0 +1,53 @@
+{
+  "project": "science24-unit-d",
+  "candidate": "excellence-v2",
+  "checkedAt": "2026-09-25",
+  "candidateHashes": {
+    "index.html": "a1b9ce3c08bfe20ee020f6c95870fb3ef7395359892f323ff69ffdca3ab0eb65",
+    "course-data.json": "3aa1d3c2a74b055e5213cca530493a37cd9808b3ed8c502fb5d95630cf56aa7d",
+    "course-data.js": "e236486904c0def1b48467fad0fc19932da86ac4b6d9a98b6be5dddbab2955f2",
+    "main.js": "0b350161379c0354f920d0f0f4629c740ff8b1802b4867876f21f154de6e4ae9",
+    "state-store.js": "1b109df3f2a0113c626e32210230a94e29a904a88911dfe82055aeeaeefef2c2",
+    "styles.css": "f0bce32fcd6d4243cbcde101c1e916b247de55cc45696a3fc624c54bd0b6a85a",
+    "unit-d.css": "baa0ef045c9a27e601e5fbc5cadc1249b353951177efa5430bf4d6a4775c31fa",
+    "asset-loader.js": "c0e7bf1566b59cbbe9600cf569ff299be5b82c5119df9024130a22600076c662",
+    "legacy-v1-data.js": "e7f87a6e5ed9f8474d7ef39815ce748978be34d3991d4e84fa97fe04df8f40ec",
+    "assets/textbook-practice.css": "4101415cce977a4a8553754a01cea3d33ad194add1198db00ddc0ba99bfeea12",
+    "meta/project.json": "e7d7df0b8cf48a4541795737dfaf308608b4dbaf582cf878659dc0d8f39decfa",
+    "meta/lesson-source-map.json": "0981b39c6d0e00123edc791f1fe932f8fe180fc0bca23de209f1fc51cdeb0893",
+    "meta/workbook-task-disposition.json": "54718698c0ecfe5478d6cc86dacd10d92d22df324615e006f63cc51ad2349d32",
+    "meta/figure-provenance.json": "831f4a94b4bb58e45160c191e8c701efc2fab3648da7ec927677581b59221535",
+    "meta/source-review.json": "5cbb0da7b62cd7538e018d80977e0d331c7e1b25415d1f0e7867166094563136",
+    "meta/teacher-review.md": "8be3dfed695f5f99c6adbe612862bdee17a092d141687af84fe99fc535c9741f",
+    "meta/cbe-supplement-plan.md": "5558220e1d5828221f907702857c48a60ef2ced3e4c3fe4ea50b1f6353f90c0d"
+  },
+  "preview": "http://127.0.0.1:4191/science24-unit-d/workspace/#overview",
+  "buildModeChecks": {
+    "sourceAudit": "44 physical textbook pages mapped to printed page labels; 2023 workbook question and lettered-part catalog has 80 rows; six cropped textbook figures have provenance and teaching jobs. CBE 2020 reviewed as supplementary, not copied.",
+    "structure": "12 teaching lessons, one integrated review, 13 required checks, 48 vocabulary terms, 23 textbook practice pages, six source figures, four original labeling diagrams, eight optional video entries.",
+    "compiler": "node scripts/compile-science24-bcd-data.cjs --project science24-unit-d passed and regenerated browser data from canonical JSON.",
+    "syntax": "node --check passed for main.js, state-store.js and compiled course-data.js.",
+    "browserRoutes": "All declared routes opened in local Chromium; representative desktop and 390 px phone screens have no document overflow or uncaught page errors.",
+    "saveReload": "Focused real Chromium IndexedDB: a full required check completed and persisted 1 of 13 after reload; a collected four-field Frayer and a textbook response survived reload. Tests waited for visible confirmed-save status.",
+    "previousDraft": "Seeded earlier eight-lesson namespace and confirmed read-only prior response appears in All My Work while current required progress remains 0 of 13.",
+    "readerAndFormula": "Textbook reader opens printed p. 230 mapped to physical PDF p. 1; formula-sheet dialog opens, expands and remains usable at phone width.",
+    "screenshots": "meta/review-screenshots/overview-desktop.png, graph-lesson-desktop.png, safety-figure-desktop.png, momentum-lesson-phone.png visually inspected.",
+    "projectStatus": "meta/project.json remains blocked and previewable; no export or deployment."
+  },
+  "deferredRolloutChecks": [
+    "Complete teacher source and instructional sign-off",
+    "Full learner E2E and keyboard/screen-reader/zoom audit on exact candidate",
+    "Studio Edit map and reversible draft/reload/Undo",
+    "Export/SCORM packaging and actual Brightspace launch/save-resume/certification"
+  ],
+  "teacherDecisions": [
+    "Confirm whether the older workbook BAC exercise should remain visible as an explicitly historical source task.",
+    "Confirm whether any teacher-supervised workbook graph or road investigation should be assigned outside the optional online source work."
+  ],
+  "agentRoutes": {
+    "lead": "Science review, lesson design, integration, compatibility, browser acceptance",
+    "luna": "Bounded read-only Unit D source and CBE audit",
+    "muse": "Not used; canonical Unit D boundary was already dirty/untracked, failing clean-worktree admission.",
+    "usageSavings": "Unknown; no measured provider or token comparison."
+  }
+}

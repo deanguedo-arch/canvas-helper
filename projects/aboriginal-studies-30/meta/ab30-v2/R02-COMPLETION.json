@@ -1,0 +1,76 @@
+{
+ "ticketId": "R02",
+ "status": "IMPLEMENTED",
+ "baselineHashes": {
+  "learning-store.js": "14384894d658b00879e6435742cea7f6f0f4cbfaa5d378406f620075460c71e5",
+  "main.js": "b5735618d706b7e58aeb71b8c2b3437b4191c8b3fa1caf4cb74b1201dc8d9d2e",
+  "fixture-legacy-states": "7e078c3837fc89098b655aaa2f45b7c6d6ad93a1e517f7504eb54aeba83d11cb"
+ },
+ "dirtyOverlayDigest": "branch codex/math-engine-preflight @02a9fadc; R02 overlay: store v2 + main.js single-writer routing + storev2 suite + evidence; lead review pending",
+ "changedFiles": [
+  "projects/aboriginal-studies-30/workspace/learning-store.js (v2 envelope, migration, practice move, coordinated writers, cross-tab minimum)",
+  "projects/aboriginal-studies-30/workspace/main.js (saveJson routing, allowlists, fallback removal, evidence collector, storage listener)",
+  "scripts/tests/aboriginal-studies-30-storev2.test.ts (new, 8/8)",
+  "scripts/tests/aboriginal-studies-30-mywork.test.ts (EVID05 v2 replacement, strictly stronger)",
+  "scripts/tests/aboriginal-studies-30-route.test.ts (seam deps for new saveJson)",
+  "scripts/tests/fixtures/ab30-parity/v2-*.json (3 fixtures, exact package bytes)",
+  "meta/ab30-parity/asset-manifest.json + media-ledger.json (regen)",
+  "projects/aboriginal-studies-30/meta/ab30-v2/R02-packet.md, R02-LEAD-HANDOFF.md (new)"
+ ],
+ "commands": [
+  "node --test scripts/tests/aboriginal-studies-30-storev2.test.ts -> 8/8",
+  "full battery via loader -> 137/140 (3 pre-existing stale shell)",
+  "node --check learning-store.js + main.js -> OK",
+  "course:doctor via loader -> PASS"
+ ],
+ "tests": [
+  {
+   "name": "R02-MIG01..04",
+   "result": "4/4 PASS"
+  },
+  {
+   "name": "R02-OWN01..04",
+   "result": "4/4 PASS"
+  },
+  {
+   "name": "battery",
+   "result": "137/140 (3 known stale)"
+  },
+  {
+   "name": "doctor",
+   "result": "PASS"
+  },
+  {
+   "name": "browser acceptance (58 starter)",
+   "result": "NOT_RUN (no rendering env)"
+  }
+ ],
+ "screenshots": [],
+ "sourceReviewRecords": [],
+ "sourcePaths": [],
+ "limitations": [
+  "Lead integration review PENDING (handoff filed, nothing claimed).",
+  "Browser acceptance NOT_RUN here; human/CI must run the 58 starter.",
+  "Conflict/recovery VIEW is status+export surfacing only; full UI deferred (recorded, not claimed).",
+  "Budget model untouched (R04): nav/progress saves now pass the existing 60k check."
+ ],
+ "blockingDefects": [],
+ "candidateReviewer": {
+  "role": "",
+  "identity": "",
+  "reviewedAt": null,
+  "evidence": []
+ },
+ "leadIntegrationReview": {
+  "status": "NOT_REVIEWED",
+  "evidence": [
+   "projects/aboriginal-studies-30/meta/ab30-v2/R02-LEAD-HANDOFF.md"
+  ]
+ },
+ "teacherApproval": {
+  "status": "NOT_REQUESTED_BY_THIS_CANDIDATE_WORKFLOW",
+  "signature": null
+ },
+ "nextSafeStep": "R03: first-submission + revision lifecycle (submit ops, criteria wiring, per-char draft separation).",
+ "noPublishPerformed": true
+}

@@ -78,6 +78,30 @@ test("direct workspace provenance resolves an exact declared source only for a c
   assert.ok(Buffer.byteLength(resolution.sourceExcerpt.text, "utf8") <= 1_600);
 });
 
+test("runtime-rendered annotation anchors remain bounded review evidence", async () => {
+  const { nodeId, previewFilePath } = await firstSourceNode("forensics35");
+  const runtimeNodeId = `${nodeId}~0.1!li!12345678`;
+  const resolution = await resolvePreviewInspection(requestFor("forensics35", runtimeNodeId), previewFilePath);
+
+  assert.equal(resolution.resolution, "bounded");
+  assert.equal(resolution.freshness, "unverified");
+  assert.equal(resolution.primaryEditTarget, null);
+  assert.equal(resolution.primaryEditLine, null);
+  assert.match(resolution.warnings.join(" "), /rendered at runtime/);
+});
+
+test("runtime annotation anchors reject stale or malformed source ownership", async () => {
+  const { nodeId, previewFilePath } = await firstSourceNode("forensics35");
+  const staleNodeId = nodeId.replace(/:[a-f0-9]{24}:/, ":000000000000000000000000:");
+  const stale = await resolvePreviewInspection(requestFor("forensics35", `${staleNodeId}~0!li!12345678`), previewFilePath);
+  const malformed = await resolvePreviewInspection(requestFor("forensics35", `${nodeId}~0/1!li!12345678`), previewFilePath);
+
+  assert.equal(stale.resolution, "unknown");
+  assert.equal(stale.freshness, "stale");
+  assert.equal(malformed.resolution, "unknown");
+  assert.equal(malformed.freshness, "unsupported");
+});
+
 test("Social provenance never recommends its generated workspace HTML as an edit target", async () => {
   const slug = "social30-1-related-issue-1-option-2";
   const { nodeId, previewFilePath } = await firstSourceNode(slug);

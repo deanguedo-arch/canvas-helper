@@ -1,0 +1,68 @@
+{
+  "lessonId": "t2-l01-why-land-matters",
+  "contentVersion": "ab30-v2-l24.2",
+  "ticket": "teacher-voice-pilot-2026-09-24",
+  "role": "Build candidate review; teacher feedback pending",
+  "previousReview": "../teacher-voice-pilot/before/t2-l01-why-land-matters-review.json",
+  "goalAndTeaching": {
+    "goal": "Identify the treaty’s three priorities in Gosnell’s speech and explain one change he connects to the treaty.",
+    "whereTaught": "Opening question, goal strip, named readings, short explanations, worked response, existing practice and independent task."
+  },
+  "figureRole": "Sourced 1887/1998/2000 timeline, grouped speech excerpts and a changes/priorities comparison.",
+  "sources": [
+    {
+      "id": "L24-A",
+      "locator": "Chapter 4, printed p. 108 (file p116)",
+      "quoteCheck": "verbatim in ch4a band (R18-QUOTES); wardship/beggary sentence after print break (Gosnell)"
+    },
+    {
+      "id": "L24-B",
+      "locator": "Chapter 4, printed p. 108 (file p116)",
+      "quoteCheck": "verbatim in ch4a band; collective ownership of about 2000 sq km (Gosnell)"
+    },
+    {
+      "id": "L24-C",
+      "locator": "Chapter 4, printed p. 108 (file p116)",
+      "quoteCheck": "verbatim in ch4a band; own institutions within Canadian law (Gosnell)"
+    },
+    {
+      "id": "L24-D",
+      "locator": "Chapter 4, printed p. 108 (file p116)",
+      "quoteCheck": "verbatim in ch4a band; the q1 answer sentence: self-reliance, personal responsibility, modern education (Gosnell)"
+    },
+    {
+      "id": "L24-E",
+      "locator": "Chapter 4, printed p. 110 (file p118)",
+      "quoteCheck": "verbatim in ch4a band; treaty as sacred instrument between distinct cultures (Gosnell)"
+    }
+  ],
+  "sourceVerification": {
+    "originalPassages": 5,
+    "quoteAndProvenancePreserved": true,
+    "evidence": "scripts/tests/aboriginal-studies-30-teacher-pilot.test.ts",
+    "note": "Compared with the pre-pilot course source records; this does not imply a new community review."
+  },
+  "savedWork": {
+    "responseKeysUnchanged": true,
+    "questionAndAssignmentHomesUnchanged": true,
+    "answerOptionsAndKeysUnchanged": true,
+    "existingResponseCompatibility": "Six route/viewport save-reload cases passed; earlier .1 first submission preserved byte-for-byte after .2 update in Oral Tradition."
+  },
+  "reviewPasses": {
+    "lead": "Teacher-voice rewrite, source/provenance preservation, integration and desktop/phone visual inspection.",
+    "luna": "Read-only route and saved-response compatibility investigation; no editing or cultural acceptance delegated."
+  },
+  "accessibilityPrintScreenshots": {
+    "desktopAndPhone": "1440x1000 and 390x844; opening plus teaching captures under ../teacher-voice-pilot/screenshots/. Comparisons stack on phones.",
+    "keyboard": "Native disclosure controls, Escape closes mobile drawer and returns focus; mobile navigation closes drawer. Full screen-reader/zoom audit deferred.",
+    "print": "NOT_RUN for this candidate."
+  },
+  "reviewerStatus": {
+    "humanReviewed": false,
+    "status": "awaiting-teacher-feedback",
+    "unresolvedLimitations": [
+      "No teacher/community sign-off.",
+      "Full-course, Studio annotation, export and live LMS checks deferred."
+    ]
+  }
+}

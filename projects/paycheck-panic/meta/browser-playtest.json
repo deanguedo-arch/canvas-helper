@@ -1,0 +1,50 @@
+{
+  "checkedAt": "2026-09-29T17:00:29.141241+00:00",
+  "environment": "Chrome extension; separate QA namespaces; 1757 x 907 desktop and real 390 x 844 iframe",
+  "flows": [
+    {
+      "flow": "Apartment to grocery to Checkout Chaos",
+      "result": "Played with normal controls; painted scenery, foot placement, reachable checkout, scanner alignment, correct product scan and bagging visible."
+    },
+    {
+      "flow": "Class campaign opening payout",
+      "result": "Collected first monthly work pay; reload did not award it again. Observed before cents-only correction."
+    },
+    {
+      "flow": "Quick chapter",
+      "result": "Approved routine; month 1 to 2; reloaded month checkpoint; answered event; routine continued month 2 to 3 and chapter 2; stopped at another event."
+    },
+    {
+      "flow": "Life day and paycheck",
+      "result": "Day 1 to 2 kept cash at 1000 with no monthly bills. Played daily shift, 92.73 gross minus 17.62 deductions paid 75.11. Reload retained 1075.11 and evening phase."
+    },
+    {
+      "flow": "Work resume",
+      "result": "Mid-shift Save and return to title, reload, Continue retained score 100, one bagged product, 80 seconds, and strikes. Score-label refresh defect repaired and rechecked."
+    },
+    {
+      "flow": "Phone movement",
+      "result": "NE stick movement turned sprite NE; release stopped movement. South keyboard facing verified. Phone room camera and all controls visually inspected."
+    },
+    {
+      "flow": "Muted/reduced-motion rhythm",
+      "result": "Started at 1312 cash / 100 energy. Entry changed to 1308 / 94. Paused at 11 of 32 judged notes, reloaded, continued at 11 with same cash/energy. Completed 32 notes silently, no-input result paid zero; one play and 8 later energy used."
+    },
+    {
+      "flow": "Illustrated Lucky's result and resume",
+      "result": "A $5 slots play returned a $3 pair payout: cash 1075.11 to 1073.11. Reload, Continue, and reopening Lucky's retained 1073.11 and the same Lemon / Cherries / Lemon result without another charge or reward. Illustrated symbols and labeled outcome visually inspected."
+    }
+  ],
+  "screenshots": [
+    "review/grocery-desktop.png",
+    "review/checkout-desktop.png",
+    "review/grocery-phone.png",
+    "review/casino-desktop.png"
+  ],
+  "limitations": [
+    "Not actual phone hardware",
+    "No measured full-campaign duration/balance acceptance",
+    "Not exhaustive activity-phase or all-device regression",
+    "Not Studio/export/SCORM/Brightspace certification"
+  ]
+}

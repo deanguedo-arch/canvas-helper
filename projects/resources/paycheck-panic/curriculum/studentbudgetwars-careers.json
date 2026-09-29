@@ -1,0 +1,1213 @@
+[
+  {
+    "id": "retail_service",
+    "name": "Retail / Service",
+    "description": "Easy to enter, schedule-chaotic, and decent only if you can squeeze promotions out of it.",
+    "entry_path_ids": [
+      "full_time_work",
+      "college_university",
+      "trades_apprenticeship",
+      "gap_year_mixed_hustle",
+      "stay_home_stack_cash",
+      "move_out_immediately"
+    ],
+    "minimum_transport_access": 1,
+    "entry_required_credential_ids": [],
+    "entry_required_education_program_id": null,
+    "entry_requires_active_education": false,
+    "entry_minimum_gpa": null,
+    "entry_requires_pass_state": false,
+    "income_variance": 0.05,
+    "social_income_factor": 0.002,
+    "layoff_weight": 1.15,
+    "promotion_weight": 0.9,
+    "stability_profile": 40,
+    "volatility_profile": 60,
+    "transport_sensitivity": 35,
+    "city_sensitivity": 45,
+    "branches": [
+      {
+        "id": "retail_management_track",
+        "name": "Operations Management",
+        "description": "Higher managerial load with steadier base pay and higher burnout risk.",
+        "min_tier_index": 1,
+        "required_credential_ids": [],
+        "min_transport_reliability": 58,
+        "min_social_stability": 52,
+        "min_energy": 38,
+        "max_stress": 78,
+        "income_multiplier": 1.06,
+        "stress_delta": 3,
+        "energy_delta": -2,
+        "promotion_progress_bonus": 2,
+        "layoff_pressure_delta": 1
+      },
+      {
+        "id": "retail_sales_track",
+        "name": "Sales Performance",
+        "description": "Commission-leaning route with higher upside when social consistency is strong.",
+        "min_tier_index": 1,
+        "required_credential_ids": [],
+        "min_transport_reliability": null,
+        "min_social_stability": 60,
+        "min_energy": 34,
+        "max_stress": 82,
+        "income_multiplier": 1.12,
+        "stress_delta": 1,
+        "energy_delta": -1,
+        "promotion_progress_bonus": 1,
+        "layoff_pressure_delta": 1
+      },
+      {
+        "id": "retail_clienteling_track",
+        "name": "Clienteling / Key Accounts",
+        "description": "Relationship-heavy route that pays off when your consistency and social stability hold.",
+        "min_tier_index": 1,
+        "required_credential_ids": [],
+        "min_transport_reliability": 50,
+        "min_social_stability": 66,
+        "min_energy": 34,
+        "max_stress": 74,
+        "income_multiplier": 1.17,
+        "stress_delta": 0,
+        "energy_delta": -1,
+        "promotion_progress_bonus": 2,
+        "layoff_pressure_delta": -2
+      }
+    ],
+    "tiers": [
+      {
+        "label": "Floor Staff",
+        "monthly_income": 2100,
+        "energy_delta": -12,
+        "stress_delta": 8,
+        "life_satisfaction_delta": -1,
+        "social_stability_delta": -1,
+        "promotion_target": 8,
+        "required_credential_ids": [],
+        "required_minimum_gpa": null,
+        "required_pass_state": false,
+        "seniority_income_bonus": 15
+      },
+      {
+        "label": "Shift Lead",
+        "monthly_income": 2550,
+        "energy_delta": -13,
+        "stress_delta": 9,
+        "life_satisfaction_delta": 0,
+        "social_stability_delta": 0,
+        "promotion_target": 13,
+        "required_credential_ids": [],
+        "required_minimum_gpa": null,
+        "required_pass_state": false,
+        "seniority_income_bonus": 25
+      },
+      {
+        "label": "Assistant Manager",
+        "monthly_income": 3150,
+        "energy_delta": -14,
+        "stress_delta": 11,
+        "life_satisfaction_delta": 1,
+        "social_stability_delta": 0,
+        "promotion_target": 19,
+        "required_credential_ids": [],
+        "required_minimum_gpa": null,
+        "required_pass_state": false,
+        "seniority_income_bonus": 35
+      },
+      {
+        "label": "Store Manager",
+        "monthly_income": 4095,
+        "energy_delta": -15,
+        "stress_delta": 13,
+        "life_satisfaction_delta": 2,
+        "social_stability_delta": 0,
+        "promotion_target": 26,
+        "required_credential_ids": [],
+        "required_minimum_gpa": null,
+        "required_pass_state": false,
+        "seniority_income_bonus": 45
+      },
+      {
+        "label": "Regional Manager",
+        "monthly_income": 5733,
+        "energy_delta": -16,
+        "stress_delta": 16,
+        "life_satisfaction_delta": 4,
+        "social_stability_delta": 1,
+        "promotion_target": 34,
+        "required_credential_ids": [],
+        "required_minimum_gpa": null,
+        "required_pass_state": false,
+        "seniority_income_bonus": 60
+      }
+    ],
+    "skill_transfer_map": {
+      "sales": 0.4,
+      "office_admin": 0.2
+    }
+  },
+  {
+    "id": "warehouse_logistics",
+    "name": "Warehouse / Logistics",
+    "description": "Steady early cash with real physical wear and a stable grind mentality.",
+    "entry_path_ids": [
+      "full_time_work",
+      "college_university",
+      "trades_apprenticeship",
+      "gap_year_mixed_hustle",
+      "stay_home_stack_cash",
+      "move_out_immediately"
+    ],
+    "minimum_transport_access": 2,
+    "entry_required_credential_ids": [],
+    "entry_required_education_program_id": null,
+    "entry_requires_active_education": false,
+    "entry_minimum_gpa": null,
+    "entry_requires_pass_state": false,
+    "income_variance": 0.03,
+    "social_income_factor": 0.0,
+    "layoff_weight": 0.9,
+    "promotion_weight": 0.95,
+    "stability_profile": 62,
+    "volatility_profile": 38,
+    "transport_sensitivity": 72,
+    "city_sensitivity": 35,
+    "branches": [
+      {
+        "id": "warehouse_ops_track",
+        "name": "Floor Operations",
+        "description": "Physical leadership route with faster progression but heavier fatigue.",
+        "min_tier_index": 1,
+        "required_credential_ids": [],
+        "min_transport_reliability": 64,
+        "min_social_stability": null,
+        "min_energy": 42,
+        "max_stress": 80,
+        "income_multiplier": 1.04,
+        "stress_delta": 3,
+        "energy_delta": -3,
+        "promotion_progress_bonus": 3,
+        "layoff_pressure_delta": 0
+      },
+      {
+        "id": "warehouse_dispatch_track",
+        "name": "Dispatch Coordination",
+        "description": "Coordination-heavy path with lower physical drag and better stability.",
+        "min_tier_index": 1,
+        "required_credential_ids": [],
+        "min_transport_reliability": 60,
+        "min_social_stability": 50,
+        "min_energy": 32,
+        "max_stress": 78,
+        "income_multiplier": 1.02,
+        "stress_delta": -1,
+        "energy_delta": 1,
+        "promotion_progress_bonus": 2,
+        "layoff_pressure_delta": -1
+      },
+      {
+        "id": "warehouse_equipment_track",
+        "name": "Equipment Specialist",
+        "description": "Machine-heavy route with better pay and fewer brute-force hours if you stay reliable.",
+        "min_tier_index": 1,
+        "required_credential_ids": [],
+        "min_transport_reliability": 68,
+        "min_social_stability": 42,
+        "min_energy": 36,
+        "max_stress": 74,
+        "income_multiplier": 1.14,
+        "stress_delta": 1,
+        "energy_delta": 0,
+        "promotion_progress_bonus": 2,
+        "layoff_pressure_delta": -1
+      }
+    ],
+    "tiers": [
+      {
+        "label": "Picker / Loader",
+        "monthly_income": 2550,
+        "energy_delta": -19,
+        "stress_delta": 7,
+        "life_satisfaction_delta": 0,
+        "social_stability_delta": -1,
+        "promotion_target": 8,
+        "required_credential_ids": [],
+        "required_minimum_gpa": null,
+        "required_pass_state": false,
+        "seniority_income_bonus": 15
+      },
+      {
+        "label": "Team Lead",
+        "monthly_income": 3250,
+        "energy_delta": -20,
+        "stress_delta": 8,
+        "life_satisfaction_delta": 1,
+        "social_stability_delta": 0,
+        "promotion_target": 13,
+        "required_credential_ids": [],
+        "required_minimum_gpa": null,
+        "required_pass_state": false,
+        "seniority_income_bonus": 25
+      },
+      {
+        "label": "Ops Supervisor",
+        "monthly_income": 3980,
+        "energy_delta": -21,
+        "stress_delta": 10,
+        "life_satisfaction_delta": 2,
+        "social_stability_delta": 0,
+        "promotion_target": 19,
+        "required_credential_ids": [],
+        "required_minimum_gpa": null,
+        "required_pass_state": false,
+        "seniority_income_bonus": 35
+      },
+      {
+        "label": "Warehouse Manager",
+        "monthly_income": 5174,
+        "energy_delta": -22,
+        "stress_delta": 12,
+        "life_satisfaction_delta": 3,
+        "social_stability_delta": 0,
+        "promotion_target": 26,
+        "required_credential_ids": [],
+        "required_minimum_gpa": null,
+        "required_pass_state": false,
+        "seniority_income_bonus": 45
+      },
+      {
+        "label": "Regional Logistics Director",
+        "monthly_income": 7243,
+        "energy_delta": -23,
+        "stress_delta": 15,
+        "life_satisfaction_delta": 5,
+        "social_stability_delta": 1,
+        "promotion_target": 34,
+        "required_credential_ids": [],
+        "required_minimum_gpa": null,
+        "required_pass_state": false,
+        "seniority_income_bonus": 60
+      }
+    ],
+    "skill_transfer_map": {
+      "delivery_gig": 0.3,
+      "trades_apprenticeship": 0.2
+    }
+  },
+  {
+    "id": "delivery_gig",
+    "name": "Delivery / Gig Work",
+    "description": "Flexible and unstable. Great when you need freedom, brutal when you need certainty.",
+    "entry_path_ids": [
+      "full_time_work",
+      "college_university",
+      "trades_apprenticeship",
+      "gap_year_mixed_hustle",
+      "stay_home_stack_cash",
+      "move_out_immediately"
+    ],
+    "minimum_transport_access": 1,
+    "entry_required_credential_ids": [],
+    "entry_required_education_program_id": null,
+    "entry_requires_active_education": false,
+    "entry_minimum_gpa": null,
+    "entry_requires_pass_state": false,
+    "income_variance": 0.16,
+    "social_income_factor": 0.004,
+    "layoff_weight": 0.7,
+    "promotion_weight": 0.6,
+    "stability_profile": 30,
+    "volatility_profile": 80,
+    "transport_sensitivity": 78,
+    "city_sensitivity": 55,
+    "tiers": [
+      {
+        "label": "App Courier",
+        "monthly_income": 2000,
+        "energy_delta": -14,
+        "stress_delta": 7,
+        "life_satisfaction_delta": 0,
+        "social_stability_delta": -1,
+        "promotion_target": 8,
+        "required_credential_ids": [],
+        "required_minimum_gpa": null,
+        "required_pass_state": false,
+        "seniority_income_bonus": 15
+      },
+      {
+        "label": "Route Regular",
+        "monthly_income": 2450,
+        "energy_delta": -15,
+        "stress_delta": 7,
+        "life_satisfaction_delta": 1,
+        "social_stability_delta": 0,
+        "promotion_target": 13,
+        "required_credential_ids": [],
+        "required_minimum_gpa": null,
+        "required_pass_state": false,
+        "seniority_income_bonus": 25
+      },
+      {
+        "label": "Independent Runner",
+        "monthly_income": 3050,
+        "energy_delta": -16,
+        "stress_delta": 8,
+        "life_satisfaction_delta": 2,
+        "social_stability_delta": 1,
+        "promotion_target": 19,
+        "required_credential_ids": [],
+        "required_minimum_gpa": null,
+        "required_pass_state": false,
+        "seniority_income_bonus": 35
+      },
+      {
+        "label": "Fleet Operator",
+        "monthly_income": 3965,
+        "energy_delta": -17,
+        "stress_delta": 10,
+        "life_satisfaction_delta": 3,
+        "social_stability_delta": 1,
+        "promotion_target": 26,
+        "required_credential_ids": [],
+        "required_minimum_gpa": null,
+        "required_pass_state": false,
+        "seniority_income_bonus": 45
+      },
+      {
+        "label": "Logistics Franchisee",
+        "monthly_income": 5551,
+        "energy_delta": -18,
+        "stress_delta": 13,
+        "life_satisfaction_delta": 5,
+        "social_stability_delta": 2,
+        "promotion_target": 34,
+        "required_credential_ids": [],
+        "required_minimum_gpa": null,
+        "required_pass_state": false,
+        "seniority_income_bonus": 60
+      }
+    ],
+    "skill_transfer_map": {
+      "warehouse_logistics": 0.3,
+      "sales": 0.2
+    },
+    "branches": [
+      {
+        "id": "delivery_route_grind_track",
+        "name": "Route Grinder",
+        "description": "Volume route lane with steadier app output but faster physical wear.",
+        "min_tier_index": 1,
+        "required_credential_ids": [],
+        "min_transport_reliability": 58,
+        "min_social_stability": 40,
+        "min_energy": 38,
+        "max_stress": 82,
+        "income_multiplier": 1.06,
+        "stress_delta": 2,
+        "energy_delta": -2,
+        "promotion_progress_bonus": 2,
+        "layoff_pressure_delta": 1
+      },
+      {
+        "id": "delivery_platform_optimizer_track",
+        "name": "Platform Optimizer",
+        "description": "Tighter multi-app management with more control and less raw grind when you stay organized.",
+        "min_tier_index": 1,
+        "required_credential_ids": [],
+        "min_transport_reliability": 52,
+        "min_social_stability": 55,
+        "min_energy": 34,
+        "max_stress": 78,
+        "income_multiplier": 1.08,
+        "stress_delta": 0,
+        "energy_delta": -1,
+        "promotion_progress_bonus": 1,
+        "layoff_pressure_delta": -1
+      },
+      {
+        "id": "delivery_independent_operator_track",
+        "name": "Independent Operator",
+        "description": "Higher-upside owner-operator path that rewards reliability and self-direction.",
+        "min_tier_index": 1,
+        "required_credential_ids": [],
+        "min_transport_reliability": 60,
+        "min_social_stability": 58,
+        "min_energy": 36,
+        "max_stress": 76,
+        "income_multiplier": 1.14,
+        "stress_delta": 1,
+        "energy_delta": -1,
+        "promotion_progress_bonus": 2,
+        "layoff_pressure_delta": 0
+      }
+    ]
+  },
+  {
+    "id": "office_admin",
+    "name": "Office / Admin",
+    "description": "A lower-ceiling white-collar lane with steadier hours and less physical grind.",
+    "entry_path_ids": [
+      "full_time_work",
+      "college_university",
+      "trades_apprenticeship",
+      "gap_year_mixed_hustle",
+      "stay_home_stack_cash",
+      "move_out_immediately"
+    ],
+    "minimum_transport_access": 1,
+    "entry_required_credential_ids": [],
+    "entry_required_education_program_id": null,
+    "entry_requires_active_education": false,
+    "entry_minimum_gpa": 2.3,
+    "entry_requires_pass_state": false,
+    "income_variance": 0.04,
+    "social_income_factor": 0.005,
+    "layoff_weight": 0.95,
+    "promotion_weight": 1.05,
+    "stability_profile": 66,
+    "volatility_profile": 30,
+    "transport_sensitivity": 28,
+    "city_sensitivity": 40,
+    "branches": [
+      {
+        "id": "office_operations_track",
+        "name": "Operations Desk",
+        "description": "Deadline-heavy coordination lane with higher upside and faster pressure buildup.",
+        "min_tier_index": 1,
+        "required_credential_ids": [],
+        "min_transport_reliability": null,
+        "min_social_stability": 45,
+        "min_energy": 34,
+        "max_stress": 84,
+        "income_multiplier": 1.07,
+        "stress_delta": 2,
+        "energy_delta": -1,
+        "promotion_progress_bonus": 2,
+        "layoff_pressure_delta": 0
+      },
+      {
+        "id": "office_people_track",
+        "name": "People Coordination",
+        "description": "Relationship-driven lane with steadier outcomes when social consistency is strong.",
+        "min_tier_index": 1,
+        "required_credential_ids": [],
+        "min_transport_reliability": null,
+        "min_social_stability": 62,
+        "min_energy": 30,
+        "max_stress": 80,
+        "income_multiplier": 1.05,
+        "stress_delta": 0,
+        "energy_delta": 0,
+        "promotion_progress_bonus": 1,
+        "layoff_pressure_delta": -1
+      },
+      {
+        "id": "office_compliance_track",
+        "name": "Compliance / Controls",
+        "description": "Lower-volatility lane focused on audit discipline, stronger stability, and slower peaks.",
+        "min_tier_index": 1,
+        "required_credential_ids": [],
+        "min_transport_reliability": null,
+        "min_social_stability": 40,
+        "min_energy": 32,
+        "max_stress": 78,
+        "income_multiplier": 1.04,
+        "stress_delta": -1,
+        "energy_delta": 0,
+        "promotion_progress_bonus": 1,
+        "layoff_pressure_delta": -1
+      }
+    ],
+    "tiers": [
+      {
+        "label": "Reception / Admin Clerk",
+        "monthly_income": 2350,
+        "energy_delta": -9,
+        "stress_delta": 6,
+        "life_satisfaction_delta": 1,
+        "social_stability_delta": 1,
+        "promotion_target": 8,
+        "required_credential_ids": [],
+        "required_minimum_gpa": 2.3,
+        "required_pass_state": false,
+        "seniority_income_bonus": 15
+      },
+      {
+        "label": "Office Coordinator",
+        "monthly_income": 3050,
+        "energy_delta": -10,
+        "stress_delta": 7,
+        "life_satisfaction_delta": 2,
+        "social_stability_delta": 1,
+        "promotion_target": 13,
+        "required_credential_ids": [],
+        "required_minimum_gpa": 2.5,
+        "required_pass_state": false,
+        "seniority_income_bonus": 25
+      },
+      {
+        "label": "Operations Coordinator",
+        "monthly_income": 3850,
+        "energy_delta": -11,
+        "stress_delta": 8,
+        "life_satisfaction_delta": 3,
+        "social_stability_delta": 2,
+        "promotion_target": 19,
+        "required_credential_ids": [],
+        "required_minimum_gpa": 2.7,
+        "required_pass_state": false,
+        "seniority_income_bonus": 35
+      },
+      {
+        "label": "Office Manager",
+        "monthly_income": 5005,
+        "energy_delta": -12,
+        "stress_delta": 10,
+        "life_satisfaction_delta": 4,
+        "social_stability_delta": 2,
+        "promotion_target": 26,
+        "required_credential_ids": [],
+        "required_minimum_gpa": 2.7,
+        "required_pass_state": false,
+        "seniority_income_bonus": 45
+      },
+      {
+        "label": "VP of Operations",
+        "monthly_income": 7007,
+        "energy_delta": -13,
+        "stress_delta": 13,
+        "life_satisfaction_delta": 6,
+        "social_stability_delta": 3,
+        "promotion_target": 34,
+        "required_credential_ids": [],
+        "required_minimum_gpa": 2.7,
+        "required_pass_state": false,
+        "seniority_income_bonus": 60
+      }
+    ],
+    "skill_transfer_map": {
+      "sales": 0.3,
+      "degree_gated_professional": 0.3
+    }
+  },
+  {
+    "id": "trades_apprenticeship",
+    "name": "Trades / Apprenticeship",
+    "description": "Lean early pay, good long payoff, and a path that rewards sticking it out.",
+    "entry_path_ids": [
+      "full_time_work",
+      "college_university",
+      "trades_apprenticeship",
+      "gap_year_mixed_hustle",
+      "stay_home_stack_cash",
+      "move_out_immediately"
+    ],
+    "minimum_transport_access": 2,
+    "entry_required_credential_ids": [],
+    "entry_required_education_program_id": "apprenticeship",
+    "entry_requires_active_education": true,
+    "entry_minimum_gpa": null,
+    "entry_requires_pass_state": false,
+    "income_variance": 0.02,
+    "social_income_factor": 0.0,
+    "layoff_weight": 0.8,
+    "promotion_weight": 1.1,
+    "stability_profile": 58,
+    "volatility_profile": 44,
+    "transport_sensitivity": 80,
+    "city_sensitivity": 36,
+    "tiers": [
+      {
+        "label": "Apprentice",
+        "monthly_income": 1900,
+        "energy_delta": -16,
+        "stress_delta": 7,
+        "life_satisfaction_delta": 1,
+        "social_stability_delta": 0,
+        "promotion_target": 10,
+        "required_credential_ids": [],
+        "required_minimum_gpa": null,
+        "required_pass_state": false,
+        "seniority_income_bonus": 15
+      },
+      {
+        "label": "Junior Tradesperson",
+        "monthly_income": 3400,
+        "energy_delta": -17,
+        "stress_delta": 7,
+        "life_satisfaction_delta": 2,
+        "social_stability_delta": 1,
+        "promotion_target": 15,
+        "required_credential_ids": [
+          "apprenticeship_certificate"
+        ],
+        "required_minimum_gpa": null,
+        "required_pass_state": true,
+        "seniority_income_bonus": 25
+      },
+      {
+        "label": "Certified Tradesperson",
+        "monthly_income": 4850,
+        "energy_delta": -18,
+        "stress_delta": 8,
+        "life_satisfaction_delta": 4,
+        "social_stability_delta": 1,
+        "promotion_target": 21,
+        "required_credential_ids": [
+          "apprenticeship_certificate"
+        ],
+        "required_minimum_gpa": null,
+        "required_pass_state": true,
+        "seniority_income_bonus": 35
+      },
+      {
+        "label": "Master Tradesperson",
+        "monthly_income": 6305,
+        "energy_delta": -19,
+        "stress_delta": 10,
+        "life_satisfaction_delta": 5,
+        "social_stability_delta": 1,
+        "promotion_target": 28,
+        "required_credential_ids": [
+          "apprenticeship_certificate"
+        ],
+        "required_minimum_gpa": null,
+        "required_pass_state": true,
+        "seniority_income_bonus": 45
+      },
+      {
+        "label": "Shop Owner",
+        "monthly_income": 8827,
+        "energy_delta": -20,
+        "stress_delta": 13,
+        "life_satisfaction_delta": 7,
+        "social_stability_delta": 2,
+        "promotion_target": 36,
+        "required_credential_ids": [
+          "apprenticeship_certificate"
+        ],
+        "required_minimum_gpa": null,
+        "required_pass_state": true,
+        "seniority_income_bonus": 60
+      }
+    ],
+    "skill_transfer_map": {
+      "warehouse_logistics": 0.3
+    },
+    "branches": [
+      {
+        "id": "trades_field_crew_track",
+        "name": "Field Crew",
+        "description": "Crew-first fieldwork path with solid advancement if you can keep your body and schedule together.",
+        "min_tier_index": 1,
+        "required_credential_ids": [],
+        "min_transport_reliability": 64,
+        "min_social_stability": 40,
+        "min_energy": 44,
+        "max_stress": 82,
+        "income_multiplier": 1.05,
+        "stress_delta": 2,
+        "energy_delta": -2,
+        "promotion_progress_bonus": 2,
+        "layoff_pressure_delta": 0
+      },
+      {
+        "id": "trades_precision_specialist_track",
+        "name": "Precision Specialist",
+        "description": "Certification-heavy specialist lane with better margins and less brute-force wear.",
+        "min_tier_index": 1,
+        "required_credential_ids": [],
+        "min_transport_reliability": 68,
+        "min_social_stability": 46,
+        "min_energy": 38,
+        "max_stress": 76,
+        "income_multiplier": 1.12,
+        "stress_delta": 0,
+        "energy_delta": -1,
+        "promotion_progress_bonus": 1,
+        "layoff_pressure_delta": -1
+      },
+      {
+        "id": "trades_estimator_supervisor_track",
+        "name": "Estimator / Supervisor",
+        "description": "Coordination-heavy lane that trades some field grind for planning and crew pressure.",
+        "min_tier_index": 1,
+        "required_credential_ids": [],
+        "min_transport_reliability": 58,
+        "min_social_stability": 56,
+        "min_energy": 34,
+        "max_stress": 78,
+        "income_multiplier": 1.09,
+        "stress_delta": 1,
+        "energy_delta": 0,
+        "promotion_progress_bonus": 2,
+        "layoff_pressure_delta": 0
+      }
+    ]
+  },
+  {
+    "id": "healthcare_support",
+    "name": "Healthcare Support",
+    "description": "Stressful but steady work with decent security if you get the credential in hand.",
+    "entry_path_ids": [
+      "full_time_work",
+      "college_university",
+      "gap_year_mixed_hustle",
+      "stay_home_stack_cash",
+      "move_out_immediately"
+    ],
+    "minimum_transport_access": 2,
+    "entry_required_credential_ids": [
+      "support_certificate"
+    ],
+    "entry_required_education_program_id": null,
+    "entry_requires_active_education": false,
+    "entry_minimum_gpa": null,
+    "entry_requires_pass_state": false,
+    "income_variance": 0.03,
+    "social_income_factor": 0.003,
+    "layoff_weight": 0.55,
+    "promotion_weight": 1.0,
+    "stability_profile": 64,
+    "volatility_profile": 42,
+    "transport_sensitivity": 55,
+    "city_sensitivity": 30,
+    "tiers": [
+      {
+        "label": "Care Aide",
+        "monthly_income": 2750,
+        "energy_delta": -15,
+        "stress_delta": 10,
+        "life_satisfaction_delta": 1,
+        "social_stability_delta": 0,
+        "promotion_target": 8,
+        "required_credential_ids": [
+          "support_certificate"
+        ],
+        "required_minimum_gpa": null,
+        "required_pass_state": false,
+        "seniority_income_bonus": 15
+      },
+      {
+        "label": "Senior Care Aide",
+        "monthly_income": 3350,
+        "energy_delta": -16,
+        "stress_delta": 10,
+        "life_satisfaction_delta": 2,
+        "social_stability_delta": 1,
+        "promotion_target": 13,
+        "required_credential_ids": [
+          "support_certificate"
+        ],
+        "required_minimum_gpa": null,
+        "required_pass_state": false,
+        "seniority_income_bonus": 25
+      },
+      {
+        "label": "Unit Lead",
+        "monthly_income": 4080,
+        "energy_delta": -17,
+        "stress_delta": 12,
+        "life_satisfaction_delta": 3,
+        "social_stability_delta": 1,
+        "promotion_target": 19,
+        "required_credential_ids": [
+          "support_certificate"
+        ],
+        "required_minimum_gpa": null,
+        "required_pass_state": false,
+        "seniority_income_bonus": 35
+      },
+      {
+        "label": "Department Supervisor",
+        "monthly_income": 5304,
+        "energy_delta": -18,
+        "stress_delta": 14,
+        "life_satisfaction_delta": 4,
+        "social_stability_delta": 1,
+        "promotion_target": 26,
+        "required_credential_ids": [
+          "support_certificate"
+        ],
+        "required_minimum_gpa": null,
+        "required_pass_state": false,
+        "seniority_income_bonus": 45
+      },
+      {
+        "label": "Facility Administrator",
+        "monthly_income": 7425,
+        "energy_delta": -19,
+        "stress_delta": 17,
+        "life_satisfaction_delta": 6,
+        "social_stability_delta": 2,
+        "promotion_target": 34,
+        "required_credential_ids": [
+          "support_certificate"
+        ],
+        "required_minimum_gpa": null,
+        "required_pass_state": false,
+        "seniority_income_bonus": 60
+      }
+    ],
+    "skill_transfer_map": {
+      "office_admin": 0.2
+    },
+    "branches": [
+      {
+        "id": "healthcare_floor_care_track",
+        "name": "Floor Care",
+        "description": "Frontline support lane with steadier advancement but high human fatigue.",
+        "min_tier_index": 1,
+        "required_credential_ids": [],
+        "min_transport_reliability": 58,
+        "min_social_stability": 48,
+        "min_energy": 40,
+        "max_stress": 82,
+        "income_multiplier": 1.04,
+        "stress_delta": 2,
+        "energy_delta": -2,
+        "promotion_progress_bonus": 2,
+        "layoff_pressure_delta": 0
+      },
+      {
+        "id": "healthcare_technical_support_track",
+        "name": "Technical Support",
+        "description": "Procedure and equipment support lane with better upside for steady operators.",
+        "min_tier_index": 1,
+        "required_credential_ids": [],
+        "min_transport_reliability": 54,
+        "min_social_stability": 46,
+        "min_energy": 36,
+        "max_stress": 76,
+        "income_multiplier": 1.1,
+        "stress_delta": 0,
+        "energy_delta": -1,
+        "promotion_progress_bonus": 1,
+        "layoff_pressure_delta": -1
+      },
+      {
+        "id": "healthcare_scheduling_coordination_track",
+        "name": "Scheduling / Coordination",
+        "description": "Operations and coverage lane that rewards calm coordination more than physical output.",
+        "min_tier_index": 1,
+        "required_credential_ids": [],
+        "min_transport_reliability": 50,
+        "min_social_stability": 58,
+        "min_energy": 34,
+        "max_stress": 78,
+        "income_multiplier": 1.07,
+        "stress_delta": 1,
+        "energy_delta": 0,
+        "promotion_progress_bonus": 2,
+        "layoff_pressure_delta": -1
+      }
+    ]
+  },
+  {
+    "id": "sales",
+    "name": "Sales",
+    "description": "Higher upside, social leverage, and months that can swing hard in either direction.",
+    "entry_path_ids": [
+      "full_time_work",
+      "college_university",
+      "gap_year_mixed_hustle",
+      "stay_home_stack_cash",
+      "move_out_immediately"
+    ],
+    "minimum_transport_access": 1,
+    "entry_required_credential_ids": [],
+    "entry_required_education_program_id": null,
+    "entry_requires_active_education": false,
+    "entry_minimum_gpa": null,
+    "entry_requires_pass_state": false,
+    "income_variance": 0.18,
+    "social_income_factor": 0.012,
+    "layoff_weight": 1.05,
+    "promotion_weight": 1.2,
+    "stability_profile": 35,
+    "volatility_profile": 85,
+    "transport_sensitivity": 32,
+    "city_sensitivity": 62,
+    "tiers": [
+      {
+        "label": "Sales Associate",
+        "monthly_income": 2150,
+        "energy_delta": -11,
+        "stress_delta": 8,
+        "life_satisfaction_delta": 1,
+        "social_stability_delta": 1,
+        "promotion_target": 9,
+        "required_credential_ids": [],
+        "required_minimum_gpa": null,
+        "required_pass_state": false,
+        "seniority_income_bonus": 15
+      },
+      {
+        "label": "Account Rep",
+        "monthly_income": 3150,
+        "energy_delta": -12,
+        "stress_delta": 9,
+        "life_satisfaction_delta": 2,
+        "social_stability_delta": 1,
+        "promotion_target": 14,
+        "required_credential_ids": [],
+        "required_minimum_gpa": null,
+        "required_pass_state": false,
+        "seniority_income_bonus": 25
+      },
+      {
+        "label": "Senior Rep",
+        "monthly_income": 4550,
+        "energy_delta": -13,
+        "stress_delta": 11,
+        "life_satisfaction_delta": 3,
+        "social_stability_delta": 2,
+        "promotion_target": 20,
+        "required_credential_ids": [],
+        "required_minimum_gpa": null,
+        "required_pass_state": false,
+        "seniority_income_bonus": 35
+      },
+      {
+        "label": "Sales Manager",
+        "monthly_income": 5915,
+        "energy_delta": -14,
+        "stress_delta": 13,
+        "life_satisfaction_delta": 4,
+        "social_stability_delta": 2,
+        "promotion_target": 27,
+        "required_credential_ids": [],
+        "required_minimum_gpa": null,
+        "required_pass_state": false,
+        "seniority_income_bonus": 45
+      },
+      {
+        "label": "VP of Sales",
+        "monthly_income": 8281,
+        "energy_delta": -15,
+        "stress_delta": 16,
+        "life_satisfaction_delta": 6,
+        "social_stability_delta": 3,
+        "promotion_target": 35,
+        "required_credential_ids": [],
+        "required_minimum_gpa": null,
+        "required_pass_state": false,
+        "seniority_income_bonus": 60
+      }
+    ],
+    "skill_transfer_map": {
+      "retail_service": 0.3,
+      "office_admin": 0.3
+    },
+    "branches": [
+      {
+        "id": "sales_volume_closer_track",
+        "name": "Volume Closer",
+        "description": "High-activity closing lane with sharper upside and sharper burnout risk.",
+        "min_tier_index": 1,
+        "required_credential_ids": [],
+        "min_transport_reliability": 48,
+        "min_social_stability": 62,
+        "min_energy": 36,
+        "max_stress": 84,
+        "income_multiplier": 1.14,
+        "stress_delta": 2,
+        "energy_delta": -1,
+        "promotion_progress_bonus": 2,
+        "layoff_pressure_delta": 1
+      },
+      {
+        "id": "sales_account_manager_track",
+        "name": "Account Manager",
+        "description": "Retention and relationship lane with more stability and less month-to-month swing.",
+        "min_tier_index": 1,
+        "required_credential_ids": [],
+        "min_transport_reliability": 46,
+        "min_social_stability": 66,
+        "min_energy": 34,
+        "max_stress": 78,
+        "income_multiplier": 1.1,
+        "stress_delta": 0,
+        "energy_delta": 0,
+        "promotion_progress_bonus": 1,
+        "layoff_pressure_delta": -1
+      },
+      {
+        "id": "sales_enterprise_strategy_track",
+        "name": "Enterprise / Strategic Seller",
+        "description": "Long-cycle strategic lane with stronger upside if you can hold credibility and patience.",
+        "min_tier_index": 1,
+        "required_credential_ids": [],
+        "min_transport_reliability": 50,
+        "min_social_stability": 70,
+        "min_energy": 36,
+        "max_stress": 76,
+        "income_multiplier": 1.16,
+        "stress_delta": 1,
+        "energy_delta": 0,
+        "promotion_progress_bonus": 2,
+        "layoff_pressure_delta": 0
+      }
+    ]
+  },
+  {
+    "id": "degree_gated_professional",
+    "name": "Degree-Gated Professional",
+    "description": "Delayed entry, GPA and credential pressure, then serious upside if you held the line.",
+    "entry_path_ids": [
+      "full_time_work",
+      "college_university",
+      "gap_year_mixed_hustle",
+      "stay_home_stack_cash",
+      "move_out_immediately"
+    ],
+    "minimum_transport_access": 1,
+    "entry_required_credential_ids": [
+      "university_degree"
+    ],
+    "entry_required_education_program_id": null,
+    "entry_requires_active_education": false,
+    "entry_minimum_gpa": 3.0,
+    "entry_requires_pass_state": false,
+    "income_variance": 0.04,
+    "social_income_factor": 0.007,
+    "layoff_weight": 0.8,
+    "promotion_weight": 1.15,
+    "stability_profile": 72,
+    "volatility_profile": 28,
+    "transport_sensitivity": 20,
+    "city_sensitivity": 48,
+    "tiers": [
+      {
+        "label": "Analyst",
+        "monthly_income": 3550,
+        "energy_delta": -9,
+        "stress_delta": 7,
+        "life_satisfaction_delta": 2,
+        "social_stability_delta": 1,
+        "promotion_target": 10,
+        "required_credential_ids": [
+          "university_degree"
+        ],
+        "required_minimum_gpa": 3.0,
+        "required_pass_state": false,
+        "seniority_income_bonus": 15
+      },
+      {
+        "label": "Specialist",
+        "monthly_income": 5050,
+        "energy_delta": -10,
+        "stress_delta": 8,
+        "life_satisfaction_delta": 4,
+        "social_stability_delta": 2,
+        "promotion_target": 15,
+        "required_credential_ids": [
+          "university_degree"
+        ],
+        "required_minimum_gpa": 3.1,
+        "required_pass_state": false,
+        "seniority_income_bonus": 25
+      },
+      {
+        "label": "Manager",
+        "monthly_income": 6900,
+        "energy_delta": -11,
+        "stress_delta": 9,
+        "life_satisfaction_delta": 5,
+        "social_stability_delta": 2,
+        "promotion_target": 22,
+        "required_credential_ids": [
+          "university_degree"
+        ],
+        "required_minimum_gpa": 3.2,
+        "required_pass_state": false,
+        "seniority_income_bonus": 35
+      },
+      {
+        "label": "Director",
+        "monthly_income": 8970,
+        "energy_delta": -12,
+        "stress_delta": 11,
+        "life_satisfaction_delta": 6,
+        "social_stability_delta": 2,
+        "promotion_target": 30,
+        "required_credential_ids": [
+          "university_degree"
+        ],
+        "required_minimum_gpa": 3.2,
+        "required_pass_state": false,
+        "seniority_income_bonus": 45
+      },
+      {
+        "label": "Executive / Partner",
+        "monthly_income": 12558,
+        "energy_delta": -13,
+        "stress_delta": 14,
+        "life_satisfaction_delta": 8,
+        "social_stability_delta": 3,
+        "promotion_target": 39,
+        "required_credential_ids": [
+          "university_degree"
+        ],
+        "required_minimum_gpa": 3.2,
+        "required_pass_state": false,
+        "seniority_income_bonus": 60
+      }
+    ],
+    "skill_transfer_map": {
+      "office_admin": 0.5,
+      "sales": 0.4
+    },
+    "branches": [
+      {
+        "id": "professional_technical_specialist_track",
+        "name": "Technical Specialist",
+        "description": "Deep-skill lane with strong ceiling if you keep expertise and focus aligned.",
+        "min_tier_index": 1,
+        "required_credential_ids": [],
+        "min_transport_reliability": 40,
+        "min_social_stability": 48,
+        "min_energy": 36,
+        "max_stress": 76,
+        "income_multiplier": 1.08,
+        "stress_delta": 0,
+        "energy_delta": 0,
+        "promotion_progress_bonus": 1,
+        "layoff_pressure_delta": -1
+      },
+      {
+        "id": "professional_client_lead_track",
+        "name": "Client / Stakeholder Lead",
+        "description": "Relationship-heavy lane that converts trust into upside but punishes inconsistency.",
+        "min_tier_index": 1,
+        "required_credential_ids": [],
+        "min_transport_reliability": 44,
+        "min_social_stability": 62,
+        "min_energy": 34,
+        "max_stress": 78,
+        "income_multiplier": 1.1,
+        "stress_delta": 1,
+        "energy_delta": -1,
+        "promotion_progress_bonus": 2,
+        "layoff_pressure_delta": 0
+      },
+      {
+        "id": "professional_people_ops_track",
+        "name": "People / Operations Manager",
+        "description": "Leadership lane with steadier pay and heavier coordination load.",
+        "min_tier_index": 1,
+        "required_credential_ids": [],
+        "min_transport_reliability": 40,
+        "min_social_stability": 60,
+        "min_energy": 36,
+        "max_stress": 80,
+        "income_multiplier": 1.07,
+        "stress_delta": 2,
+        "energy_delta": -1,
+        "promotion_progress_bonus": 2,
+        "layoff_pressure_delta": 0
+      }
+    ]
+  }
+]

@@ -1,0 +1,124 @@
+{
+  "date": "2026-09-24",
+  "project": "science24-unit-b",
+  "candidateIndexSha256": "a2ba6bbc98bd3758516239494218e32f0fb1a8cee8e421ad7db8d70bcc97b1b4",
+  "criticalHashes": {
+    "index.html": "a2ba6bbc98bd3758516239494218e32f0fb1a8cee8e421ad7db8d70bcc97b1b4",
+    "course-data.json": "a8eab257bc3c5b5ef2fcb8603985a43b6df323c599c67a26aa52308cf289868d",
+    "course-data.js": "6cae00ae5a42268ffdd61c56c3c1e8599f84021abd72b61a0d110be4226c8d09",
+    "main.js": "e8e3a5f34192b6b8feefefa4f0387d88beae9db1afc71d9d3db9d519acd511aa",
+    "styles.css": "f0bce32fcd6d4243cbcde101c1e916b247de55cc45696a3fc624c54bd0b6a85a",
+    "unit-b.css": "ef1ccf15e4dcf730e360a70d4d1f3df23b9650da8061126ee5dd6aa1f14b77af",
+    "assets/source-generator-p101.png": "189e3a2b56cf3a1dbcf6baf3ac8be697676febf6b7402b112edbc0f13b5fbee7",
+    "assets/source-oil-reservoir-p140.png": "f628d63f5b997a407fc80e2d60ff3b196dd540d80481f86a9208aec1cceec45d"
+  },
+  "unitAIndexSha256": "32c23d7be63f0c22f7dbfad61aaadef2266245365dae6676e523bbe749789361",
+  "unitADataSha256": "31ced6f4048faf0db66db34c0ae16592ae7666037dfd1928f8f792cd63156244",
+  "checks": [
+    {
+      "unit": "b",
+      "route": "overview",
+      "width": 1594,
+      "target": "#overview>.p2-topic>.content-section",
+      "idx": 0,
+      "name": "overview-refined-desktop",
+      "state": {
+        "horizontalOverflow": false,
+        "guideOpen": false,
+        "cardCount": 0,
+        "requiredChecks": 17
+      },
+      "pageErrors": []
+    },
+    {
+      "unit": "b",
+      "route": "overview",
+      "width": 390,
+      "target": "#overview>.p2-topic>.content-section",
+      "idx": 0,
+      "name": "overview-refined-phone",
+      "state": {
+        "horizontalOverflow": false,
+        "guideOpen": false,
+        "cardCount": 0,
+        "requiredChecks": 17
+      },
+      "pageErrors": []
+    },
+    {
+      "unit": "b",
+      "route": "overview",
+      "width": 1594,
+      "target": "#overview>.p2-topic>.content-section",
+      "idx": 2,
+      "name": "overview-progress-refined",
+      "state": {
+        "horizontalOverflow": false,
+        "guideOpen": false,
+        "cardCount": 0,
+        "requiredChecks": 17
+      },
+      "pageErrors": []
+    },
+    {
+      "unit": "b",
+      "route": "lesson-15",
+      "width": 1594,
+      "target": "#lesson-15 section.content-section:has([data-video-card])",
+      "name": "lesson-15-video-refined",
+      "state": {
+        "horizontalOverflow": false,
+        "guideOpen": false,
+        "cardCount": 1,
+        "requiredChecks": 17
+      },
+      "pageErrors": []
+    },
+    {
+      "unit": "b",
+      "route": "lesson-04",
+      "width": 390,
+      "target": "#lesson-04 section.content-section:has(img[src*=\"source-generator\"])",
+      "name": "lesson-04-source-figure-phone",
+      "state": {
+        "horizontalOverflow": false,
+        "guideOpen": false,
+        "cardCount": 1,
+        "requiredChecks": 17
+      },
+      "pageErrors": []
+    },
+    {
+      "unit": "a",
+      "route": "lesson-04",
+      "width": 1594,
+      "target": "#lesson-04 section.content-section:has([data-video-card])",
+      "name": "unit-a-lesson-04-video-refined",
+      "state": {
+        "horizontalOverflow": false,
+        "guideOpen": false,
+        "cardCount": 1,
+        "requiredChecks": 15
+      },
+      "pageErrors": []
+    },
+    {
+      "videoAction": {
+        "unit": "a",
+        "route": "lesson-04"
+      },
+      "iframeCount": 1,
+      "writtenVisible": true
+    },
+    {
+      "videoAction": {
+        "unit": "b",
+        "route": "lesson-15"
+      },
+      "iframeCount": 1,
+      "writtenVisible": true
+    }
+  ],
+  "scope": "Focused visual and media check after teacher feedback; prior full-course review report belongs to its previous candidate. No new full-course certification.",
+  "previewUrl": "http://127.0.0.1:4191/science24-unit-b/workspace/#overview"
+}

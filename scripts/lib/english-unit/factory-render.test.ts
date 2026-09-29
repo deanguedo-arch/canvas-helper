@@ -241,15 +241,20 @@ test("factory renders grouped activity pages once and keeps Evidence Bank quick 
     resources: [],
     videos: []
   });
-  assert.match(html, /data-nav-group="critical-essay"/);
-  assert.match(html, />1\. Critical Analytical Essay Guide<\/a>/);
-  assert.match(html, />2\. Topic and Interpretation<\/a>/);
-  assert.match(html, />3\. Critical Essay Preview<\/a>/);
+  assert.match(html, /data-ela-nav-group="student-tools"/);
+  assert.match(html, /data-ela-nav-subgroup="critical-essay"/);
+  assert.match(html, />Critical Analytical Essay Guide<\/span><\/a>/);
+  assert.match(html, />Topic and Interpretation<\/span><\/a>/);
+  assert.match(html, />Critical Essay Preview<\/span><\/a>/);
   assert.equal((html.match(/<section id="critical-essay" class="course-page"/g) ?? []).length, 1);
   assert.equal((html.match(/<section id="critical-essay-topic" class="course-page"/g) ?? []).length, 1);
-  assert.doesNotMatch(html, /class="course-nav-link" href="#critical-essay-topic"/);
-  assert.match(html, /const activeGroupToggle = navGroupId && target === navGroupId && link\.hasAttribute\("data-nav-group-toggle"\);/);
-  assert.match(html, /const collapseCurrentLanding = group\?\.classList\.contains\("is-open"\) && location\.hash === "#" \+ groupId;[\s\S]*showPage\(groupId\);[\s\S]*if \(collapseCurrentLanding\) setNavGroupOpen\(groupId, false\);/);
+  assert.equal((html.match(/data-page-target="critical-essay-topic"/g) ?? []).length, 1);
+  assert.match(html, /data-ela-nav-group="overview"/);
+  assert.match(html, /data-ela-nav-group="student-work"/);
+  assert.match(html, /data-ela-nav-group="process-collection"/);
+  assert.match(html, /data-ela-nav-group="resources-group"/);
+  assert.match(html, /class="course-page ela-family-overview"/);
+  assert.match(html, /\.lesson-detail-panel--ela30 \{ padding: 36px 40px 40px; \}/);
 
   const evidenceBank = englishFactoryRenderInternals.renderEvidenceBank(
     groupedRecipe,
@@ -297,8 +302,62 @@ test("factory keeps lesson-linked practice routes available without adding redun
     videos: []
   });
   assert.equal((html.match(/<section id="sentence-lab" class="course-page"/g) ?? []).length, 1);
-  assert.match(html, /const pageIds = \["overview","lessons","sentence-lab"\]/);
+  assert.match(html, /const pageIds = \["overview","lessons","sentence-lab","core-vocabulary"\]/);
   assert.doesNotMatch(html, /class="course-nav-link" href="#sentence-lab"/);
+});
+
+test("factory lessons use the shared ELA opening and five-section navigation", () => {
+  const lessonRecipe = {
+    projectSlug: "ela10-1-shakespeare-merchant-of-venice",
+    courseCode: "ELA 10-1",
+    unitTitle: "The Merchant of Venice",
+    lessonGroups: [],
+    activityProfile: { activities: [] }
+  } as unknown as EnglishUnitRecipeV2;
+  const html = renderEnglishFactoryUnit({
+    recipe: lessonRecipe,
+    lessons: [{
+      id: "merchant-context",
+      title: "Lesson 1: Shakespeare's World",
+      sourceHref: "content/merchant-context.html",
+      html: "<h2>Shakespeare's World</h2><p>Lesson content.</p>",
+      text: "Shakespeare's World. Lesson content.",
+      supportingResources: []
+    }],
+    activityProfile: {
+      kind: "shakespeare-drama",
+      pages: [{
+        id: "script-reader",
+        label: "Merchant Script Reader",
+        icon: "menu_book",
+        navigation: "top-level",
+        html: '<section id="script-reader" class="course-page" hidden>Reader</section>'
+      }],
+      navGroups: []
+    },
+    resources: [],
+    videos: []
+  });
+
+  assert.equal((html.match(/data-ela-nav-group=/g) ?? []).length, 5);
+  assert.match(html, /class="lesson-detail-panel lesson-detail-panel--ela30 ela-family-lesson"/);
+  assert.match(html, /class="ela-lesson-opening"/);
+  assert.match(html, /What ideas and skills will you develop in Shakespeare&#39;s World\?/);
+  assert.match(html, /class="ela-how-to"><summary><span>Learn guide<\/span><strong>How to complete this lesson<\/strong>/);
+  assert.match(html, /<div class="ela-guide-body"><ol><li>.*?<\/li><li>.*?<\/li><li>.*?<\/li><li>.*?<\/li><\/ol><\/div>/);
+  assert.match(html, /class="ela-key-term" data-vocabulary-open="characterization"/);
+  assert.match(html, /How actions, dialogue, contrasts, visual choices, and stated positions reveal character or authorial stance\./);
+  assert.match(html, /id="core-vocabulary" class="course-page" hidden/);
+  assert.match(html, /data-vocabulary-dialog/);
+  assert.match(html, /data-vocabulary-search/);
+  assert.match(html, /class="ela-overview-guide"/);
+  assert.match(html, /class="ela-overview-section ela-roadmap"/);
+  assert.match(html, /class="ela-overview-section ela-overview-source"/);
+  assert.doesNotMatch(html, /ela-learn-guide|ela-overview-guide-grid|ela-overview-roadmap/);
+  const studentWorkPosition = html.indexOf('data-ela-nav-group="student-work"');
+  const scriptReaderPosition = html.indexOf('data-page-target="script-reader"');
+  const studentToolsPosition = html.indexOf('data-ela-nav-group="student-tools"');
+  assert.ok(studentWorkPosition < scriptReaderPosition && scriptReaderPosition < studentToolsPosition);
 });
 
 test("factory appends desktop full-width overrides after profile styling", () => {

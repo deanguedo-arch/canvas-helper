@@ -1,0 +1,982 @@
+[
+  {
+    "id": "s24-a-word-synthetic",
+    "term": "synthetic",
+    "topic": "01",
+    "meaning": "Made through human-controlled chemical processes rather than obtained unchanged from nature.",
+    "example": "Synthetic fibres can be designed to be strong or water-resistant.",
+    "distinction": "Synthetic does not mean automatically safer or better.",
+    "model": {
+      "meaning": "Made through human-controlled chemical processes rather than obtained unchanged from nature.",
+      "features": "Synthetic does not mean automatically safer or better.",
+      "example": "Synthetic fibres can be designed to be strong or water-resistant.",
+      "nonexample": "Wool obtained from sheep."
+    }
+  },
+  {
+    "id": "s24-a-word-pesticide",
+    "term": "pesticide",
+    "topic": "01",
+    "meaning": "A substance used to control organisms that damage crops or other valued materials.",
+    "example": "Agricultural pesticides can reduce crop losses.",
+    "distinction": "Pesticide is a broad category that includes herbicides and insecticides.",
+    "model": {
+      "meaning": "A substance used to control organisms that damage crops or other valued materials.",
+      "features": "Pesticide is a broad category that includes herbicides and insecticides.",
+      "example": "Agricultural pesticides can reduce crop losses.",
+      "nonexample": "Fertilizer used only to supply nutrients."
+    }
+  },
+  {
+    "id": "s24-a-word-herbicide",
+    "term": "herbicide",
+    "topic": "01",
+    "meaning": "A pesticide used to control unwanted plants.",
+    "example": "A farmer may use a herbicide to control weeds.",
+    "distinction": "Herbicides target plants; insecticides target insects.",
+    "model": {
+      "meaning": "A pesticide used to control unwanted plants.",
+      "features": "Herbicides target plants; insecticides target insects.",
+      "example": "A farmer may use a herbicide to control weeds.",
+      "nonexample": "An insecticide aimed at caterpillars."
+    }
+  },
+  {
+    "id": "s24-a-word-insecticide",
+    "term": "insecticide",
+    "topic": "01",
+    "meaning": "A pesticide used to control insects.",
+    "example": "An insecticide may be used to reduce insect damage to crops.",
+    "distinction": "It is not the same as a herbicide.",
+    "model": {
+      "meaning": "A pesticide used to control insects.",
+      "features": "It is not the same as a herbicide.",
+      "example": "An insecticide may be used to reduce insect damage to crops.",
+      "nonexample": "A herbicide aimed at weeds."
+    }
+  },
+  {
+    "id": "s24-a-word-synthetic-fibre",
+    "term": "synthetic fibre",
+    "topic": "01",
+    "meaning": "A manufactured fibre produced from chemical raw materials.",
+    "example": "Nylon and polyester are synthetic fibres.",
+    "distinction": "A fibre can be synthetic even if its raw materials ultimately came from natural resources.",
+    "model": {
+      "meaning": "A manufactured fibre produced from chemical raw materials.",
+      "features": "A fibre can be synthetic even if its raw materials ultimately came from natural resources.",
+      "example": "Nylon and polyester are synthetic fibres.",
+      "nonexample": "Cotton fibre."
+    }
+  },
+  {
+    "id": "s24-a-word-polymer",
+    "term": "polymer",
+    "topic": "01",
+    "meaning": "A large molecule made from repeating smaller units.",
+    "example": "Many plastics and fibres are polymers.",
+    "distinction": "Polymer describes molecular structure, not one specific product.",
+    "model": {
+      "meaning": "A large molecule made from repeating smaller units.",
+      "features": "Polymer describes molecular structure, not one specific product.",
+      "example": "Many plastics and fibres are polymers.",
+      "nonexample": "A water molecule."
+    }
+  },
+  {
+    "id": "s24-a-word-alloy",
+    "term": "alloy",
+    "topic": "01",
+    "meaning": "A material containing a metal mixed with one or more other elements.",
+    "example": "Stainless steel is an alloy.",
+    "distinction": "An alloy is a mixture, not a single pure element.",
+    "model": {
+      "meaning": "A material containing a metal mixed with one or more other elements.",
+      "features": "An alloy is a mixture, not a single pure element.",
+      "example": "Stainless steel is an alloy.",
+      "nonexample": "Pure elemental copper."
+    }
+  },
+  {
+    "id": "s24-a-word-hazard",
+    "term": "hazard",
+    "topic": "02",
+    "meaning": "A source or situation with the potential to cause harm.",
+    "example": "A corrosive cleaner is a chemical hazard.",
+    "distinction": "Hazard describes potential harm; risk also depends on exposure.",
+    "model": {
+      "meaning": "A source or situation with the potential to cause harm.",
+      "features": "Hazard describes potential harm; risk also depends on exposure.",
+      "example": "A corrosive cleaner is a chemical hazard.",
+      "nonexample": "A guarantee that no harm is possible."
+    }
+  },
+  {
+    "id": "s24-a-word-hhps",
+    "term": "HHPS",
+    "topic": "02",
+    "meaning": "Household hazard symbols used to communicate hazards on Canadian household chemical products.",
+    "example": "A household cleaner may display an HHPS symbol.",
+    "distinction": "HHPS is not the same workplace system as WHMIS.",
+    "model": {
+      "meaning": "Household hazard symbols used to communicate hazards on Canadian household chemical products.",
+      "features": "HHPS is not the same workplace system as WHMIS.",
+      "example": "A household cleaner may display an HHPS symbol.",
+      "nonexample": "A workplace WHMIS label system."
+    }
+  },
+  {
+    "id": "s24-a-word-whmis",
+    "term": "WHMIS",
+    "topic": "02",
+    "meaning": "Workplace Hazardous Materials Information System used to communicate workplace chemical hazards.",
+    "example": "A worker checks WHMIS information before using a hazardous product.",
+    "distinction": "WHMIS communicates hazards and precautions; it does not make a product harmless.",
+    "model": {
+      "meaning": "Workplace Hazardous Materials Information System used to communicate workplace chemical hazards.",
+      "features": "WHMIS communicates hazards and precautions; it does not make a product harmless.",
+      "example": "A worker checks WHMIS information before using a hazardous product.",
+      "nonexample": "Household hazard symbols as a separate labelling system."
+    }
+  },
+  {
+    "id": "s24-a-word-sds",
+    "term": "SDS",
+    "topic": "02",
+    "meaning": "Safety Data Sheet containing detailed hazard, handling, storage and first-aid information.",
+    "example": "Workers consult an SDS before using an unfamiliar chemical.",
+    "distinction": "Older course materials may use the term MSDS.",
+    "model": {
+      "meaning": "Safety Data Sheet containing detailed hazard, handling, storage and first-aid information.",
+      "features": "Older course materials may use the term MSDS.",
+      "example": "Workers consult an SDS before using an unfamiliar chemical.",
+      "nonexample": "An advertising slogan on a product."
+    }
+  },
+  {
+    "id": "s24-a-word-msds",
+    "term": "MSDS",
+    "topic": "02",
+    "meaning": "Material Safety Data Sheet, the older term used in the source course for detailed chemical safety information.",
+    "example": "The Unit A textbook refers to an MSDS.",
+    "distinction": "Current systems commonly use the shorter term SDS.",
+    "model": {
+      "meaning": "Material Safety Data Sheet, the older term used in the source course for detailed chemical safety information.",
+      "features": "Current systems commonly use the shorter term SDS.",
+      "example": "The Unit A textbook refers to an MSDS.",
+      "nonexample": "A chemical formula."
+    }
+  },
+  {
+    "id": "s24-a-word-corrosive",
+    "term": "corrosive",
+    "topic": "02",
+    "meaning": "Able to chemically damage tissue or materials.",
+    "example": "Strong acids and bases can be corrosive.",
+    "distinction": "Corrosive is a hazard property, not a reaction type.",
+    "model": {
+      "meaning": "Able to chemically damage tissue or materials.",
+      "features": "Corrosive is a hazard property, not a reaction type.",
+      "example": "Strong acids and bases can be corrosive.",
+      "nonexample": "A material described only as blue, with no corrosion evidence."
+    }
+  },
+  {
+    "id": "s24-a-word-chemical-reaction",
+    "term": "chemical reaction",
+    "topic": "03",
+    "meaning": "A process in which reactants are transformed into different substances called products.",
+    "example": "Methane reacting with oxygen is a chemical reaction.",
+    "distinction": "A physical state change alone is not necessarily a chemical reaction.",
+    "model": {
+      "meaning": "A process in which reactants are transformed into different substances called products.",
+      "features": "A physical state change alone is not necessarily a chemical reaction.",
+      "example": "Methane reacting with oxygen is a chemical reaction.",
+      "nonexample": "Cutting a potato into smaller pieces."
+    }
+  },
+  {
+    "id": "s24-a-word-reactant",
+    "term": "reactant",
+    "topic": "03",
+    "meaning": "A starting substance in a chemical reaction.",
+    "example": "Oxygen is a reactant in combustion.",
+    "distinction": "Reactants are written to the left of the reaction arrow.",
+    "model": {
+      "meaning": "A starting substance in a chemical reaction.",
+      "features": "Reactants are written to the left of the reaction arrow.",
+      "example": "Oxygen is a reactant in combustion.",
+      "nonexample": "A newly formed product."
+    }
+  },
+  {
+    "id": "s24-a-word-product",
+    "term": "product",
+    "topic": "03",
+    "meaning": "A substance formed by a chemical reaction.",
+    "example": "Carbon dioxide is a product of complete methane combustion.",
+    "distinction": "Products are written to the right of the reaction arrow.",
+    "model": {
+      "meaning": "A substance formed by a chemical reaction.",
+      "features": "Products are written to the right of the reaction arrow.",
+      "example": "Carbon dioxide is a product of complete methane combustion.",
+      "nonexample": "An unreacted starting substance."
+    }
+  },
+  {
+    "id": "s24-a-word-combustion",
+    "term": "combustion",
+    "topic": "03",
+    "meaning": "A reaction in which a substance reacts rapidly with oxygen and releases energy.",
+    "example": "Burning methane is combustion.",
+    "distinction": "Combustion is not the same as neutralization.",
+    "model": {
+      "meaning": "A reaction in which a substance reacts rapidly with oxygen and releases energy.",
+      "features": "Combustion is not the same as neutralization.",
+      "example": "Burning methane is combustion.",
+      "nonexample": "Water melting without reaction."
+    }
+  },
+  {
+    "id": "s24-a-word-neutralization",
+    "term": "neutralization",
+    "topic": "03",
+    "meaning": "An acid–base reaction; acid–hydroxide examples form a salt and water.",
+    "example": "Antacids neutralize stomach acid.",
+    "distinction": "Carbonate bases can also produce carbon dioxide; the final pH depends on the reactants and amounts.",
+    "model": {
+      "meaning": "An acid–base reaction; acid–hydroxide examples form a salt and water.",
+      "features": "Carbonate bases can also produce carbon dioxide; the final pH depends on the reactants and amounts.",
+      "example": "Antacids neutralize stomach acid.",
+      "nonexample": "Methane combustion."
+    }
+  },
+  {
+    "id": "s24-a-word-precipitate",
+    "term": "precipitate",
+    "topic": "04",
+    "meaning": "A solid product that forms from substances that were dissolved in solution.",
+    "example": "A solid appearing after two clear solutions are mixed can be a precipitate.",
+    "distinction": "A precipitate is a product, not simply any solid placed in a liquid.",
+    "model": {
+      "meaning": "A solid product that forms from substances that were dissolved in solution.",
+      "features": "A precipitate is a product, not simply any solid placed in a liquid.",
+      "example": "A solid appearing after two clear solutions are mixed can be a precipitate.",
+      "nonexample": "Sand added to water before mixing."
+    }
+  },
+  {
+    "id": "s24-a-word-physical-change",
+    "term": "physical change",
+    "topic": "04",
+    "meaning": "A change of form or state that does not produce a different substance.",
+    "example": "Freezing liquid water is a physical change.",
+    "distinction": "A dramatic appearance change is not automatically chemical.",
+    "model": {
+      "meaning": "A change of form or state that does not produce a different substance.",
+      "features": "A dramatic appearance change is not automatically chemical.",
+      "example": "Freezing liquid water is a physical change.",
+      "nonexample": "Iron chemically forming rust."
+    }
+  },
+  {
+    "id": "s24-a-word-exothermic",
+    "term": "exothermic",
+    "topic": "05",
+    "meaning": "A reaction that transfers net energy to the surroundings.",
+    "example": "Combustion is usually exothermic.",
+    "distinction": "Exothermic means energy is released overall; it does not mean every part is always hot.",
+    "model": {
+      "meaning": "A reaction that transfers net energy to the surroundings.",
+      "features": "Exothermic means energy is released overall; it does not mean every part is always hot.",
+      "example": "Combustion is usually exothermic.",
+      "nonexample": "A reaction taking energy in overall."
+    }
+  },
+  {
+    "id": "s24-a-word-endothermic",
+    "term": "endothermic",
+    "topic": "05",
+    "meaning": "A reaction or process that absorbs net energy from the surroundings.",
+    "example": "Photosynthesis requires an energy input from sunlight.",
+    "distinction": "Endothermic is about energy direction, not whether a reaction feels cold in every situation.",
+    "model": {
+      "meaning": "A reaction or process that absorbs net energy from the surroundings.",
+      "features": "Endothermic is about energy direction, not whether a reaction feels cold in every situation.",
+      "example": "Photosynthesis requires an energy input from sunlight.",
+      "nonexample": "A reaction releasing energy overall."
+    }
+  },
+  {
+    "id": "s24-a-word-word-equation",
+    "term": "word equation",
+    "topic": "06",
+    "meaning": "A representation of a reaction using the names of reactants and products.",
+    "example": "methane + oxygen → carbon dioxide + water",
+    "distinction": "A word equation does not show atom counts as precisely as a balanced formula equation.",
+    "model": {
+      "meaning": "A representation of a reaction using the names of reactants and products.",
+      "features": "A word equation does not show atom counts as precisely as a balanced formula equation.",
+      "example": "methane + oxygen → carbon dioxide + water",
+      "nonexample": "A list including a spoon, oven and bowl."
+    }
+  },
+  {
+    "id": "s24-a-word-reaction-arrow",
+    "term": "reaction arrow",
+    "topic": "06",
+    "meaning": "The symbol showing the direction from reactants to products.",
+    "example": "→ can be read as produces or yields.",
+    "distinction": "It is not an equals sign.",
+    "model": {
+      "meaning": "The symbol showing the direction from reactants to products.",
+      "features": "It is not an equals sign.",
+      "example": "→ can be read as produces or yields.",
+      "nonexample": "A plus sign between two reactants."
+    }
+  },
+  {
+    "id": "s24-a-word-simple-composition",
+    "term": "simple composition",
+    "topic": "07",
+    "meaning": "A reaction in which simpler substances combine to form a compound.",
+    "example": "A + B → AB",
+    "distinction": "Composition builds; decomposition breaks apart.",
+    "model": {
+      "meaning": "A reaction in which simpler substances combine to form a compound.",
+      "features": "Composition builds; decomposition breaks apart.",
+      "example": "A + B → AB",
+      "nonexample": "Water breaking down into gases."
+    }
+  },
+  {
+    "id": "s24-a-word-simple-decomposition",
+    "term": "simple decomposition",
+    "topic": "07",
+    "meaning": "A reaction in which a compound breaks down into simpler substances.",
+    "example": "AB → A + B",
+    "distinction": "It starts with one main compound reactant.",
+    "model": {
+      "meaning": "A reaction in which a compound breaks down into simpler substances.",
+      "features": "It starts with one main compound reactant.",
+      "example": "AB → A + B",
+      "nonexample": "Iron and sulfur forming a compound."
+    }
+  },
+  {
+    "id": "s24-a-word-chemical-formula",
+    "term": "chemical formula",
+    "topic": "08",
+    "meaning": "A symbolic representation showing which elements and how many of each are present in a substance.",
+    "example": "H₂O is the formula for water.",
+    "distinction": "A formula identifies a substance; changing a subscript changes the substance.",
+    "model": {
+      "meaning": "A symbolic representation showing which elements and how many of each are present in a substance.",
+      "features": "A formula identifies a substance; changing a subscript changes the substance.",
+      "example": "H₂O is the formula for water.",
+      "nonexample": "A trade name for a mixed cleaner."
+    }
+  },
+  {
+    "id": "s24-a-word-subscript",
+    "term": "subscript",
+    "topic": "08",
+    "meaning": "A small number in a chemical formula showing the number of atoms of the preceding element.",
+    "example": "The 2 in H₂O applies to H.",
+    "distinction": "Do not change subscripts to balance an equation.",
+    "model": {
+      "meaning": "A small number in a chemical formula showing the number of atoms of the preceding element.",
+      "features": "Do not change subscripts to balance an equation.",
+      "example": "The 2 in H₂O applies to H.",
+      "nonexample": "A coefficient before the formula."
+    }
+  },
+  {
+    "id": "s24-a-word-state-symbol",
+    "term": "state symbol",
+    "topic": "08",
+    "meaning": "A symbol showing physical state: (s), (l), (g) or (aq).",
+    "example": "NaCl(aq) means sodium chloride dissolved in water.",
+    "distinction": "A state symbol does not change the chemical identity.",
+    "model": {
+      "meaning": "A symbol showing physical state: (s), (l), (g) or (aq).",
+      "features": "A state symbol does not change the chemical identity.",
+      "example": "NaCl(aq) means sodium chloride dissolved in water.",
+      "nonexample": "The element symbol O."
+    }
+  },
+  {
+    "id": "s24-a-word-aqueous",
+    "term": "aqueous",
+    "topic": "08",
+    "meaning": "Dissolved in water, written (aq).",
+    "example": "HCl(aq) represents hydrochloric acid dissolved in water.",
+    "distinction": "Aqueous is not the same as liquid state (l).",
+    "model": {
+      "meaning": "Dissolved in water, written (aq).",
+      "features": "Aqueous is not the same as liquid state (l).",
+      "example": "HCl(aq) represents hydrochloric acid dissolved in water.",
+      "nonexample": "A pure solid not dissolved in water."
+    }
+  },
+  {
+    "id": "s24-a-word-coefficient",
+    "term": "coefficient",
+    "topic": "09",
+    "meaning": "A number placed in front of a chemical formula to count whole particles or formula units.",
+    "example": "2H₂O represents two water molecules.",
+    "distinction": "Coefficients can change during balancing; subscripts cannot.",
+    "model": {
+      "meaning": "A number placed in front of a chemical formula to count whole particles or formula units.",
+      "features": "Coefficients can change during balancing; subscripts cannot.",
+      "example": "2H₂O represents two water molecules.",
+      "nonexample": "The 2 inside H₂O."
+    }
+  },
+  {
+    "id": "s24-a-word-law-of-conservation-of-mass",
+    "term": "law of conservation of mass",
+    "topic": "09",
+    "meaning": "The total mass of matter is conserved in an ordinary chemical reaction.",
+    "example": "10 g of reactants should produce 10 g of products in a closed system.",
+    "distinction": "Measured changes in an open container may involve matter entering or leaving.",
+    "model": {
+      "meaning": "The total mass of matter is conserved in an ordinary chemical reaction.",
+      "features": "Measured changes in an open container may involve matter entering or leaving.",
+      "example": "10 g of reactants should produce 10 g of products in a closed system.",
+      "nonexample": "A claim that escaped gas was destroyed."
+    }
+  },
+  {
+    "id": "s24-a-word-balanced-equation",
+    "term": "balanced equation",
+    "topic": "09",
+    "meaning": "A chemical equation with equal numbers of each type of atom on both sides.",
+    "example": "CH₄ + 2O₂ → CO₂ + 2H₂O",
+    "distinction": "Balancing changes coefficients, not formulas.",
+    "model": {
+      "meaning": "A chemical equation with equal numbers of each type of atom on both sides.",
+      "features": "Balancing changes coefficients, not formulas.",
+      "example": "CH₄ + 2O₂ → CO₂ + 2H₂O",
+      "nonexample": "H₂ + O₂ → H₂O without coefficients."
+    }
+  },
+  {
+    "id": "s24-a-word-fossil-fuel",
+    "term": "fossil fuel",
+    "topic": "10",
+    "meaning": "A fuel such as coal, petroleum or natural gas formed from ancient organic material over geologic time.",
+    "example": "Natural gas is a fossil fuel.",
+    "distinction": "Fossil fuel is a source category, not a reaction type.",
+    "model": {
+      "meaning": "A fuel such as coal, petroleum or natural gas formed from ancient organic material over geologic time.",
+      "features": "Fossil fuel is a source category, not a reaction type.",
+      "example": "Natural gas is a fossil fuel.",
+      "nonexample": "Sunlight."
+    }
+  },
+  {
+    "id": "s24-a-word-complete-combustion",
+    "term": "complete combustion",
+    "topic": "10",
+    "meaning": "Combustion with sufficient oxygen so a hydrocarbon fuel forms mainly carbon dioxide and water.",
+    "example": "A properly adjusted natural-gas flame approaches complete combustion.",
+    "distinction": "It still produces carbon dioxide.",
+    "model": {
+      "meaning": "Combustion with sufficient oxygen so a hydrocarbon fuel forms mainly carbon dioxide and water.",
+      "features": "It still produces carbon dioxide.",
+      "example": "A properly adjusted natural-gas flame approaches complete combustion.",
+      "nonexample": "Oxygen-limited hydrocarbon combustion producing soot."
+    }
+  },
+  {
+    "id": "s24-a-word-incomplete-combustion",
+    "term": "incomplete combustion",
+    "topic": "10",
+    "meaning": "Combustion with insufficient oxygen, producing carbon monoxide, soot or other partially oxidized products.",
+    "example": "A smoky yellow flame can indicate incomplete combustion.",
+    "distinction": "It can be dangerous even when no smoke is obvious because carbon monoxide is colourless.",
+    "model": {
+      "meaning": "Combustion with insufficient oxygen, producing carbon monoxide, soot or other partially oxidized products.",
+      "features": "It can be dangerous even when no smoke is obvious because carbon monoxide is colourless.",
+      "example": "A smoky yellow flame can indicate incomplete combustion.",
+      "nonexample": "Ideal complete methane combustion forming only CO₂ and water."
+    }
+  },
+  {
+    "id": "s24-a-word-carbon-monoxide",
+    "term": "carbon monoxide",
+    "topic": "10",
+    "meaning": "A colourless, odourless toxic gas that can form during incomplete combustion.",
+    "example": "A faulty fuel-burning appliance can produce carbon monoxide.",
+    "distinction": "It is different from carbon dioxide.",
+    "model": {
+      "meaning": "A colourless, odourless toxic gas that can form during incomplete combustion.",
+      "features": "It is different from carbon dioxide.",
+      "example": "A faulty fuel-burning appliance can produce carbon monoxide.",
+      "nonexample": "Carbon dioxide, CO₂."
+    }
+  },
+  {
+    "id": "s24-a-word-greenhouse-gas",
+    "term": "greenhouse gas",
+    "topic": "11",
+    "meaning": "A gas that absorbs and re-emits some outgoing infrared energy in the atmosphere.",
+    "example": "Carbon dioxide and methane are greenhouse gases.",
+    "distinction": "Greenhouse gases occur naturally; human activity can change their concentrations.",
+    "model": {
+      "meaning": "A gas that absorbs and re-emits some outgoing infrared energy in the atmosphere.",
+      "features": "Greenhouse gases occur naturally; human activity can change their concentrations.",
+      "example": "Carbon dioxide and methane are greenhouse gases.",
+      "nonexample": "A gas classified only by colour."
+    }
+  },
+  {
+    "id": "s24-a-word-global-warming",
+    "term": "global warming",
+    "topic": "11",
+    "meaning": "The long-term increase in average global surface temperature.",
+    "example": "Rising average global temperature is one part of climate change.",
+    "distinction": "It is not defined by one local hot day.",
+    "model": {
+      "meaning": "The long-term increase in average global surface temperature.",
+      "features": "It is not defined by one local hot day.",
+      "example": "Rising average global temperature is one part of climate change.",
+      "nonexample": "One warm afternoon in one town."
+    }
+  },
+  {
+    "id": "s24-a-word-climate-change",
+    "term": "climate change",
+    "topic": "11",
+    "meaning": "Long-term changes in climate patterns, including temperature, precipitation and related Earth-system changes.",
+    "example": "Shifts in long-term temperature and precipitation patterns are climate change.",
+    "distinction": "Weather and climate operate on different time scales.",
+    "model": {
+      "meaning": "Long-term changes in climate patterns, including temperature, precipitation and related Earth-system changes.",
+      "features": "Weather and climate operate on different time scales.",
+      "example": "Shifts in long-term temperature and precipitation patterns are climate change.",
+      "nonexample": "One afternoon shower."
+    }
+  },
+  {
+    "id": "s24-a-word-acid-deposition",
+    "term": "acid deposition",
+    "topic": "12",
+    "meaning": "The transfer of acidic substances from the atmosphere to Earth as wet or dry deposition.",
+    "example": "Acidic rain can be one form of acid deposition.",
+    "distinction": "It includes more than rain alone.",
+    "model": {
+      "meaning": "The transfer of acidic substances from the atmosphere to Earth as wet or dry deposition.",
+      "features": "It includes more than rain alone.",
+      "example": "Acidic rain can be one form of acid deposition.",
+      "nonexample": "Only infrared absorption by CO₂."
+    }
+  },
+  {
+    "id": "s24-a-word-sulfur-dioxide",
+    "term": "sulfur dioxide",
+    "topic": "12",
+    "meaning": "A sulfur-containing gas that can contribute to acid formation in the atmosphere.",
+    "example": "Burning sulfur-containing fuel can release sulfur dioxide.",
+    "distinction": "It is not the same compound as carbon dioxide.",
+    "model": {
+      "meaning": "A sulfur-containing gas that can contribute to acid formation in the atmosphere.",
+      "features": "It is not the same compound as carbon dioxide.",
+      "example": "Burning sulfur-containing fuel can release sulfur dioxide.",
+      "nonexample": "Carbon dioxide."
+    }
+  },
+  {
+    "id": "s24-a-word-ph",
+    "term": "pH",
+    "topic": "12",
+    "meaning": "A scale used to describe how acidic or basic a solution is.",
+    "example": "pH below 7 is acidic; pH 7 is neutral; above 7 is basic.",
+    "distinction": "The pH scale is not a percent scale.",
+    "model": {
+      "meaning": "A scale used to describe how acidic or basic a solution is.",
+      "features": "The pH scale is not a percent scale.",
+      "example": "pH below 7 is acidic; pH 7 is neutral; above 7 is basic.",
+      "nonexample": "The mass of a sample in grams."
+    }
+  },
+  {
+    "id": "s24-a-word-liming",
+    "term": "liming",
+    "topic": "12",
+    "meaning": "Adding basic calcium-containing material to acidified soil or water to raise pH.",
+    "example": "Limestone can be added to an acidified lake.",
+    "distinction": "Liming treats acidity but does not stop emissions at the source.",
+    "model": {
+      "meaning": "Adding basic calcium-containing material to acidified soil or water to raise pH.",
+      "features": "Liming treats acidity but does not stop emissions at the source.",
+      "example": "Limestone can be added to an acidified lake.",
+      "nonexample": "Removing sulfur from fuel before burning."
+    }
+  },
+  {
+    "id": "s24-a-word-scrubber",
+    "term": "scrubber",
+    "topic": "13",
+    "meaning": "An emission-control system that removes or reacts with pollutants in exhaust gases before release.",
+    "example": "A smokestack scrubber can reduce sulfur dioxide emissions.",
+    "distinction": "It is not the same as liming an already acidified lake.",
+    "model": {
+      "meaning": "An emission-control system that removes or reacts with pollutants in exhaust gases before release.",
+      "features": "It is not the same as liming an already acidified lake.",
+      "example": "A smokestack scrubber can reduce sulfur dioxide emissions.",
+      "nonexample": "Paint protecting a railing."
+    }
+  },
+  {
+    "id": "s24-a-word-corrosion",
+    "term": "corrosion",
+    "topic": "14",
+    "meaning": "Chemical deterioration of a material, especially a metal, through reactions with the environment.",
+    "example": "Rusting is corrosion of iron.",
+    "distinction": "Not all corrosion products are rust.",
+    "model": {
+      "meaning": "Chemical deterioration of a material, especially a metal, through reactions with the environment.",
+      "features": "Not all corrosion products are rust.",
+      "example": "Rusting is corrosion of iron.",
+      "nonexample": "Cutting metal to a smaller length."
+    }
+  },
+  {
+    "id": "s24-a-word-rusting",
+    "term": "rusting",
+    "topic": "14",
+    "meaning": "The corrosion of iron, producing iron oxide compounds under suitable environmental conditions.",
+    "example": "Iron exposed to oxygen and water can rust.",
+    "distinction": "Rusting is chemical, not just a colour stain.",
+    "model": {
+      "meaning": "The corrosion of iron, producing iron oxide compounds under suitable environmental conditions.",
+      "features": "Rusting is chemical, not just a colour stain.",
+      "example": "Iron exposed to oxygen and water can rust.",
+      "nonexample": "Melting ice."
+    }
+  },
+  {
+    "id": "s24-a-word-galvanizing",
+    "term": "galvanizing",
+    "topic": "14",
+    "meaning": "Coating iron or steel with zinc to help protect it from corrosion.",
+    "example": "Galvanized steel resists rusting better than bare steel.",
+    "distinction": "Zinc can protect sacrificially as well as act as a barrier.",
+    "model": {
+      "meaning": "Coating iron or steel with zinc to help protect it from corrosion.",
+      "features": "Zinc can protect sacrificially as well as act as a barrier.",
+      "example": "Galvanized steel resists rusting better than bare steel.",
+      "nonexample": "Ordinary paint with no zinc."
+    }
+  },
+  {
+    "id": "s24-a-word-sacrificial-metal",
+    "term": "sacrificial metal",
+    "topic": "14",
+    "meaning": "A metal chosen to oxidize more readily than the material being protected.",
+    "example": "Zinc can protect iron by corroding first.",
+    "distinction": "The sacrificial metal is intentionally consumed over time.",
+    "model": {
+      "meaning": "A metal chosen to oxidize more readily than the material being protected.",
+      "features": "The sacrificial metal is intentionally consumed over time.",
+      "example": "Zinc can protect iron by corroding first.",
+      "nonexample": "A plastic barrier coating."
+    }
+  },
+  {
+    "id": "s24-a-word-system",
+    "term": "system",
+    "topic": "05",
+    "meaning": "The part of the situation chosen for study.",
+    "example": "The reacting chemicals in an energy-transfer explanation.",
+    "distinction": "The boundary must be stated before describing energy moving in or out.",
+    "model": {
+      "meaning": "The part of the situation chosen for study.",
+      "features": "The boundary must be stated before describing energy moving in or out.",
+      "example": "The reacting chemicals in an energy-transfer explanation.",
+      "nonexample": "Everything outside the chosen boundary."
+    }
+  },
+  {
+    "id": "s24-a-word-surroundings",
+    "term": "surroundings",
+    "topic": "05",
+    "meaning": "Everything outside the chosen system that may exchange energy or matter with it.",
+    "example": "The water and cup warmed by a reaction.",
+    "distinction": "A material can be system or surroundings depending on the boundary you define.",
+    "model": {
+      "meaning": "Everything outside the chosen system that may exchange energy or matter with it.",
+      "features": "A material can be system or surroundings depending on the boundary you define.",
+      "example": "The water and cup warmed by a reaction.",
+      "nonexample": "The reacting chemicals when they are defined as the system."
+    }
+  },
+  {
+    "id": "s24-a-word-energy-transfer",
+    "term": "energy transfer",
+    "topic": "05",
+    "meaning": "Movement of energy between a system and its surroundings.",
+    "example": "A reaction releases energy that warms nearby water.",
+    "distinction": "Energy transfer is not a new chemical substance.",
+    "model": {
+      "meaning": "Movement of energy between a system and its surroundings.",
+      "features": "Energy transfer is not a new chemical substance.",
+      "example": "A reaction releases energy that warms nearby water.",
+      "nonexample": "A claim that heat is an atom in an equation."
+    }
+  },
+  {
+    "id": "s24-a-word-closed-system",
+    "term": "closed system",
+    "topic": "09",
+    "meaning": "A system in which matter does not cross the defined boundary.",
+    "example": "A suitable sealed reaction setup used for a total-mass comparison.",
+    "distinction": "Energy may cross a closed-system boundary even when matter does not.",
+    "model": {
+      "meaning": "A system in which matter does not cross the defined boundary.",
+      "features": "Energy may cross a closed-system boundary even when matter does not.",
+      "example": "A suitable sealed reaction setup used for a total-mass comparison.",
+      "nonexample": "An open beaker losing gas to the room."
+    }
+  },
+  {
+    "id": "s24-a-word-common-name",
+    "term": "common name",
+    "topic": "08",
+    "meaning": "An everyday name used for a substance rather than its systematic chemical name.",
+    "example": "Baking soda is sodium hydrogen carbonate.",
+    "distinction": "A brand name may refer to a mixture rather than a pure compound.",
+    "model": {
+      "meaning": "An everyday name used for a substance rather than its systematic chemical name.",
+      "features": "A brand name may refer to a mixture rather than a pure compound.",
+      "example": "Baking soda is sodium hydrogen carbonate.",
+      "nonexample": "An element symbol such as Na."
+    }
+  },
+  {
+    "id": "s24-a-word-hydrocarbon",
+    "term": "hydrocarbon",
+    "topic": "10",
+    "meaning": "A compound containing only carbon and hydrogen.",
+    "example": "Methane, CH₄.",
+    "distinction": "A real fossil fuel may contain other substances in addition to hydrocarbons.",
+    "model": {
+      "meaning": "A compound containing only carbon and hydrogen.",
+      "features": "A real fossil fuel may contain other substances in addition to hydrocarbons.",
+      "example": "Methane, CH₄.",
+      "nonexample": "Carbon dioxide, which contains oxygen."
+    }
+  },
+  {
+    "id": "s24-a-word-carbon-dioxide",
+    "term": "carbon dioxide",
+    "topic": "11",
+    "meaning": "The compound CO₂, containing one carbon and two oxygen atoms per molecule.",
+    "example": "A product of complete methane combustion.",
+    "distinction": "Carbon dioxide and carbon monoxide are different compounds.",
+    "model": {
+      "meaning": "The compound CO₂, containing one carbon and two oxygen atoms per molecule.",
+      "features": "Carbon dioxide and carbon monoxide are different compounds.",
+      "example": "A product of complete methane combustion.",
+      "nonexample": "CO, carbon monoxide."
+    }
+  },
+  {
+    "id": "s24-a-word-greenhouse-effect",
+    "term": "greenhouse effect",
+    "topic": "11",
+    "meaning": "The effect of greenhouse gases absorbing and emitting infrared radiation, changing Earth’s energy transfer.",
+    "example": "CO₂ absorbs and emits some infrared radiation emitted by the surface.",
+    "distinction": "Energy still escapes to space; this is not a sealed lid.",
+    "model": {
+      "meaning": "The effect of greenhouse gases absorbing and emitting infrared radiation, changing Earth’s energy transfer.",
+      "features": "Energy still escapes to space; this is not a sealed lid.",
+      "example": "CO₂ absorbs and emits some infrared radiation emitted by the surface.",
+      "nonexample": "Acid deposition, which is a different mechanism."
+    }
+  },
+  {
+    "id": "s24-a-word-climate",
+    "term": "climate",
+    "topic": "11",
+    "meaning": "Long-term patterns and distributions of weather conditions for a specified area.",
+    "example": "A long-term regional temperature pattern.",
+    "distinction": "The area and time span need to match the claim being evaluated.",
+    "model": {
+      "meaning": "Long-term patterns and distributions of weather conditions for a specified area.",
+      "features": "The area and time span need to match the claim being evaluated.",
+      "example": "A long-term regional temperature pattern.",
+      "nonexample": "One rainy afternoon."
+    }
+  },
+  {
+    "id": "s24-a-word-weather",
+    "term": "weather",
+    "topic": "11",
+    "meaning": "Atmospheric conditions at a particular place and time.",
+    "example": "The temperature and rain at school this morning.",
+    "distinction": "A single weather event does not describe a whole climate trend.",
+    "model": {
+      "meaning": "Atmospheric conditions at a particular place and time.",
+      "features": "A single weather event does not describe a whole climate trend.",
+      "example": "The temperature and rain at school this morning.",
+      "nonexample": "A multi-decade climate average."
+    }
+  },
+  {
+    "id": "s24-a-word-acid",
+    "term": "acid",
+    "topic": "12",
+    "meaning": "In the classroom aqueous examples, a substance whose solution has pH below 7.",
+    "example": "Hydrochloric acid solution.",
+    "distinction": "pH describes acidity but does not identify the acid or establish safe handling.",
+    "model": {
+      "meaning": "In the classroom aqueous examples, a substance whose solution has pH below 7.",
+      "features": "pH describes acidity but does not identify the acid or establish safe handling.",
+      "example": "Hydrochloric acid solution.",
+      "nonexample": "A sodium hydroxide solution with pH above 7."
+    }
+  },
+  {
+    "id": "s24-a-word-base",
+    "term": "base",
+    "topic": "12",
+    "meaning": "A substance that can react with an acid; a basic aqueous solution has pH above 7 in the classroom examples.",
+    "example": "Sodium hydroxide.",
+    "distinction": "Not every base is a hydroxide; carbonate bases may also release CO₂ when reacting with acid.",
+    "model": {
+      "meaning": "A substance that can react with an acid; a basic aqueous solution has pH above 7 in the classroom examples.",
+      "features": "Not every base is a hydroxide; carbonate bases may also release CO₂ when reacting with acid.",
+      "example": "Sodium hydroxide.",
+      "nonexample": "Hydrochloric acid."
+    }
+  },
+  {
+    "id": "s24-a-word-sour-natural-gas",
+    "term": "sour natural gas",
+    "topic": "13",
+    "meaning": "Natural gas containing hydrogen sulfide.",
+    "example": "Gas processed to remove sulfur-containing material before use.",
+    "distinction": "Sour describes composition, not an invitation to smell or taste it.",
+    "model": {
+      "meaning": "Natural gas containing hydrogen sulfide.",
+      "features": "Sour describes composition, not an invitation to smell or taste it.",
+      "example": "Gas processed to remove sulfur-containing material before use.",
+      "nonexample": "Processed sweet gas with hydrogen sulfide largely removed."
+    }
+  },
+  {
+    "id": "s24-a-word-sweet-natural-gas",
+    "term": "sweet natural gas",
+    "topic": "13",
+    "meaning": "Natural gas with little or no hydrogen sulfide after suitable processing.",
+    "example": "Processed natural gas with reduced sulfur-containing material.",
+    "distinction": "Sweet does not mean harmless or free of carbon dioxide emissions when burned.",
+    "model": {
+      "meaning": "Natural gas with little or no hydrogen sulfide after suitable processing.",
+      "features": "Sweet does not mean harmless or free of carbon dioxide emissions when burned.",
+      "example": "Processed natural gas with reduced sulfur-containing material.",
+      "nonexample": "Sour natural gas containing hydrogen sulfide."
+    }
+  },
+  {
+    "id": "s24-a-word-catalytic-converter",
+    "term": "catalytic converter",
+    "topic": "13",
+    "meaning": "An exhaust-treatment device that catalyzes reactions of specified pollutants.",
+    "example": "A vehicle exhaust device that helps convert harmful gases into less harmful products.",
+    "distinction": "It does not destroy atoms or eliminate every emission.",
+    "model": {
+      "meaning": "An exhaust-treatment device that catalyzes reactions of specified pollutants.",
+      "features": "It does not destroy atoms or eliminate every emission.",
+      "example": "A vehicle exhaust device that helps convert harmful gases into less harmful products.",
+      "nonexample": "Liming a lake after deposition."
+    }
+  },
+  {
+    "id": "s24-a-word-emission",
+    "term": "emission",
+    "topic": "13",
+    "meaning": "A substance released from a source into its surroundings, such as the atmosphere.",
+    "example": "Sulfur dioxide in a flue-gas stream.",
+    "distinction": "A result about one emission is not automatically a result about all pollutants.",
+    "model": {
+      "meaning": "A substance released from a source into its surroundings, such as the atmosphere.",
+      "features": "A result about one emission is not automatically a result about all pollutants.",
+      "example": "Sulfur dioxide in a flue-gas stream.",
+      "nonexample": "A pollutant completely retained in a sealed treatment container."
+    }
+  },
+  {
+    "id": "s24-a-word-barrier-coating",
+    "term": "barrier coating",
+    "topic": "14",
+    "meaning": "A coating that reduces contact between a material and substances in its surroundings.",
+    "example": "Paint reducing oxygen and water contact with iron.",
+    "distinction": "A gap can expose metal; ordinary paint is not a sacrificial metal.",
+    "model": {
+      "meaning": "A coating that reduces contact between a material and substances in its surroundings.",
+      "features": "A gap can expose metal; ordinary paint is not a sacrificial metal.",
+      "example": "Paint reducing oxygen and water contact with iron.",
+      "nonexample": "An attached magnesium block used sacrificially."
+    }
+  },
+  {
+    "id": "s24-a-word-chemical-evidence",
+    "term": "chemical evidence",
+    "topic": "04",
+    "meaning": "Observations used to support an inference that new substances formed.",
+    "example": "A new precipitate appears when clear solutions are mixed.",
+    "distinction": "One observation may have a physical alternative explanation.",
+    "model": {
+      "meaning": "Observations used to support an inference that new substances formed.",
+      "features": "One observation may have a physical alternative explanation.",
+      "example": "A new precipitate appears when clear solutions are mixed.",
+      "nonexample": "Assuming that every colour change proves a reaction."
+    }
+  },
+  {
+    "id": "s24-a-word-gas-formation",
+    "term": "gas formation",
+    "topic": "04",
+    "meaning": "Production of a gaseous substance during a change.",
+    "example": "CO₂ is produced when an acid reacts with a carbonate.",
+    "distinction": "Bubbles can also come from boiling or release of dissolved gas.",
+    "model": {
+      "meaning": "Production of a gaseous substance during a change.",
+      "features": "Bubbles can also come from boiling or release of dissolved gas.",
+      "example": "CO₂ is produced when an acid reacts with a carbonate.",
+      "nonexample": "Water merely being stirred without a gaseous product forming."
+    }
+  },
+  {
+    "id": "s24-a-word-colour-change",
+    "term": "colour change",
+    "topic": "04",
+    "meaning": "An observed change in the colour of a material or mixture.",
+    "example": "A different colour appearing during a reaction.",
+    "distinction": "Dilution or mixing can also change colour without new substances.",
+    "model": {
+      "meaning": "An observed change in the colour of a material or mixture.",
+      "features": "Dilution or mixing can also change colour without new substances.",
+      "example": "A different colour appearing during a reaction.",
+      "nonexample": "A claim that colour alone identifies an exact compound."
+    }
+  },
+  {
+    "id": "s24-a-word-temperature-change",
+    "term": "temperature change",
+    "topic": "04",
+    "meaning": "The final temperature minus the initial temperature.",
+    "example": "A change from 20 °C to 26 °C gives +6 °C.",
+    "distinction": "Temperature change indicates energy transfer but does not identify reaction products.",
+    "model": {
+      "meaning": "The final temperature minus the initial temperature.",
+      "features": "Temperature change indicates energy transfer but does not identify reaction products.",
+      "example": "A change from 20 °C to 26 °C gives +6 °C.",
+      "nonexample": "Treating a final temperature of 26 °C as a change without an initial value."
+    }
+  }
+]

@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "projectSlug": "ela10-2-novel-study",
+  "generatedAt": "2026-09-22T16:59:49.833Z",
+  "status": "needs-review",
+  "profile": {
+    "id": "novel-study",
+    "version": "next-step-english-v3-ela10-2",
+    "sha256": "40ea2f2a1a51a905654ac5778f5233a447a6ce239d813578f0094949e5b40828"
+  },
+  "recipe": {
+    "path": "projects/ela10-2-novel-study/meta/english-unit.json",
+    "sha256": "d4f93637a49c9965e5006fee6798bfeec720b62e68ecc3a89b51c7bf298bf562"
+  },
+  "sources": [
+    {
+      "id": "brightspace",
+      "path": "projects/resources/ela10-2/_sources/f1319deb2ada7c4ea36d86a9fe172058daa2d9f4baf7edb541acb38c44e36e53.zip",
+      "sha256": "f1319deb2ada7c4ea36d86a9fe172058daa2d9f4baf7edb541acb38c44e36e53"
+    },
+    {
+      "id": "teacher-resources",
+      "path": "projects/resources/ela10-2/_sources/cea6d0cc7cb840c4099011f9f71e10711a996ca5f49d75c586dbc172829877be.zip",
+      "sha256": "cea6d0cc7cb840c4099011f9f71e10711a996ca5f49d75c586dbc172829877be"
+    },
+    {
+      "id": "family:supplement-90a7e3ee3452",
+      "path": "projects/resources/ela10-2/_sources/90a7e3ee34527e9c0eb9ae5ad4953f04cbc9867f881a9121e6fad0266c183fcf.doc",
+      "sha256": "90a7e3ee34527e9c0eb9ae5ad4953f04cbc9867f881a9121e6fad0266c183fcf"
+    },
+    {
+      "id": "family:supplement-425beada71fb",
+      "path": "projects/resources/ela10-2/_sources/425beada71fb9f830e58e225b22752ad75c429b7e1bbb40b50e3524089458eef.docx",
+      "sha256": "425beada71fb9f830e58e225b22752ad75c429b7e1bbb40b50e3524089458eef"
+    },
+    {
+      "id": "family:ela10-2",
+      "path": "config/english/families/ela10-2.json",
+      "sha256": "b6f0cb45ae387b564d448a2a3b6e4f5d417109d941457eb6f6eadbd9c2a02e28"
+    },
+    {
+      "id": "donor:ela10-1-novel-study:recipe-v2:1:1",
+      "path": "projects/resources/ela10-1/_sources/98a7423518aa49d55b37e75f4a7a44037949c06416146e806705b85c933cbf49.normalized.zip",
+      "sha256": "2b733ba29703933d8c126dea2cc53f12c871dea986c4d6cba10a54edd355b481"
+    },
+    {
+      "id": "donor:ela10-1-novel-study:recipe-v2:1:2",
+      "path": "projects/ela10-1-novel-study/meta/english-unit.json",
+      "sha256": "6d7f847e7863602c8a6fbfaf16f5f544515ed3dac3c927afbc83a1ed9699ed86"
+    }
+  ],
+  "components": [],
+  "ownedFiles": [
+    "assets/generated/brand/nxt-ce-logo-white-with-ce.png",
+    "assets/generated/lessons/synopsis-and-what-to-consider-before-reading-image-73444962731729540783094-20241021195946929.png",
+    "assets/generated/resources/boy-overview-the-boy-in-the-striped-pyjamas-overview.docx",
+    "assets/generated/resources/major-works-data-major-works-data-sheet.docx",
+    "assets/generated/resources/speak-overview-overview-of-speak-by-laurie-halse-anderson.docx",
+    "index.html"
+  ],
+  "reviewItems": [
+    "Confirm learner access to both novels; the primary texts are not supplied.",
+    "Review question coverage for both title tracks before export."
+  ]
+}

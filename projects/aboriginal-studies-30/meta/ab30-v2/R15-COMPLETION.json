@@ -1,0 +1,86 @@
+{
+  "ticketId": "R15",
+  "status": "IMPLEMENTED",
+  "baselineHashes": {
+    "course-data.js": "00c21bab7d1b2798c87722741b5781a77e58de05d0c9733e617bcc2cdc5cc55c",
+    "practice-data.js": "f534363ce99eeb70dbd5d30ffb0fd7eddcdcd996a143276e2106386f7b236c5c",
+    "lesson-components.js": "5ddf470978155b3803eebdcf2c0b9ff5760a50e926430e4c1b4cd16821bbe7ac",
+    "practice-engine.js": "8b700525e8facfa3140d68ca18b6c544f99bf997ec93264873b913544e53cb27",
+    "main.js": "ce50fd3156ece4d16333c2931f4f678ffd201b410757f3034c056707f680d563",
+    "styles.css": "938c55f25288fc3f3886df50accc012fd723415b1bc8bec1ed12d56014eaccae"
+  },
+  "changedFiles": [
+    "course-data.js (L17/L18/L19 v2 rebuilds; vocab-36..39 audited, kept; assigned records untouched)",
+    "practice-data.js (+24 reviewed bank items: 6+2 per lesson; 152 total)",
+    "scripts/tests/aboriginal-studies-30-lesson-batch15.test.ts (new, 10/10)",
+    "scripts/tests/fixtures/ab30-parity/textbook-ch3-pp76-81.txt (new)",
+    "scripts/tests/fixtures/ab30-parity/textbook-ch3-pp81-85.txt (new)",
+    "scripts/tests/fixtures/ab30-parity/textbook-ch3-pp86-91.txt (new)",
+    "content suite (v2 map extended to 19 lessons)",
+    "lesson-review-manifest.json (L17-L19 version bumps, still unreviewed)",
+    "asset-manifest.json (regen)",
+    "lesson-reviews x3 + evidence/R15/before-state.json"
+  ],
+  "commands": [
+    "R15 batch suite -> 10/10",
+    "full battery -> 237/238 (1 pre-existing lead-owned shell file)",
+    "course:doctor --project aboriginal-studies-30 -> PASS (legacy-snapshot-v1)",
+    "55/55 extracts verbatim vs R15 bands",
+    "LESSON-FREEZE green (no shared-component change)"
+  ],
+  "tests": [
+    {
+      "name": "R15 batch",
+      "result": "10/10 PASS"
+    },
+    {
+      "name": "battery",
+      "result": "237/238 (1 pre-existing lead-owned shell file)"
+    },
+    {
+      "name": "course:doctor",
+      "result": "PASS (legacy-snapshot-v1)"
+    }
+  ],
+  "evidence": [
+    "projects/aboriginal-studies-30/meta/ab30-v2/lesson-reviews/t1-l17-land-knowledge-constitution.json",
+    "projects/aboriginal-studies-30/meta/ab30-v2/lesson-reviews/t1-l18-constitutional-negotiations.json",
+    "projects/aboriginal-studies-30/meta/ab30-v2/lesson-reviews/t1-l19-title-treaties-constraints.json",
+    "projects/aboriginal-studies-30/meta/ab30-v2/evidence/R15/before-state.json"
+  ],
+  "candidateReviewer": {
+    "identity": "single-agent separated review pass (disclosed)",
+    "role": "candidate-reviewer (not teacher/lead/community)",
+    "reviewedAt": null,
+    "evidence": [
+      "projects/aboriginal-studies-30/meta/ab30-v2/lesson-reviews/t1-l17-land-knowledge-constitution.json",
+      "projects/aboriginal-studies-30/meta/ab30-v2/lesson-reviews/t1-l18-constitutional-negotiations.json",
+      "projects/aboriginal-studies-30/meta/ab30-v2/lesson-reviews/t1-l19-title-treaties-constraints.json"
+    ]
+  },
+  "leadIntegrationReview": {
+    "status": "NOT_REVIEWED",
+    "evidence": [
+      "projects/aboriginal-studies-30/meta/ab30-v2/R02-LEAD-HANDOFF.md"
+    ]
+  },
+  "teacherApproval": {
+    "status": "NOT_REQUESTED_BY_THIS_CANDIDATE_WORKFLOW",
+    "signature": null
+  },
+  "officialSources": {
+    "AB30-TEXT": "ef7886447f454c15ee4b66751a190922f9e7241a2ac97939bc92e1156f20a3e9 (256pp; R00 register match)"
+  },
+  "limitations": [
+    "Screenshots + live UI proof NOT_RUN in-sandbox.",
+    "Bank items keep AUTHORED_SPECIMEN_REQUIRES_PRODUCTION_INTEGRATION_REVIEW.",
+    "Shell suite still red on missing scripts/lib/projects.js (pre-existing, lead-owned)."
+  ],
+  "blockingDefects": [],
+  "screenshots": [],
+  "sourcePaths": [],
+  "sourceReviewRecords": [],
+  "noPublishPerformed": true,
+  "nextSafeStep": "R16: next batch per workcards (t1-l20, t1-l21, t1-l22).",
+  "dirtyOverlayDigest": "branch codex/math-engine-preflight @02a9fadc; R15 overlay: Theme 1 lessons 17-19 rebuilt + 24 bank items + reviews; freeze holds; lead review pending"
+}

@@ -1,0 +1,78 @@
+{
+  "scope": "Local source contracts only; not LMS/teacher/learner acceptance.",
+  "checks": [
+    {
+      "id": "EQ-RADICAL-CONTROL",
+      "expected": true,
+      "actual": true,
+      "passed": true,
+      "explanation": "Canonical mixed radical must be accepted."
+    },
+    {
+      "id": "EQ-RADICAL-REORDERED",
+      "expected": true,
+      "actual": false,
+      "passed": false,
+      "explanation": "The same coefficient and radical in reversed factor order remain equivalent; an unmet presentation preference is not a mathematical error."
+    },
+    {
+      "id": "EQ-MONOMIAL-REORDERED",
+      "expected": true,
+      "actual": false,
+      "passed": false,
+      "explanation": "8b^6a^3 is the same simplified product as 8a^3b^6."
+    },
+    {
+      "id": "EQ-RATIONAL-COEFFICIENT",
+      "expected": true,
+      "actual": false,
+      "passed": false,
+      "explanation": "A rational coefficient is equivalent to a single quotient."
+    },
+    {
+      "id": "EQ-EXACT-TERMINATING-DECIMAL",
+      "expected": true,
+      "actual": false,
+      "passed": false,
+      "explanation": "27/8 equals exactly 3.375; the prompt only requests evaluation."
+    },
+    {
+      "id": "WRONG-ANSWER-CONTROL",
+      "expected": false,
+      "actual": false,
+      "passed": true,
+      "explanation": "The positive-exponent reciprocal error must be rejected."
+    },
+    {
+      "id": "INPUT-MINUS-SYMBOL",
+      "expected": "-1",
+      "actual": "−1",
+      "passed": false,
+      "explanation": "The minus symbol supplied by the input toolbar must have a supported, consistent interpretation."
+    },
+    {
+      "id": "FRESH-NO-REUSE-WHEN-AVAILABLE",
+      "expected": 0,
+      "actual": 4,
+      "passed": false,
+      "explanation": "This proposed acceptance condition requires adequate new supply or honest repeat labelling. The current eight-item bank cannot supply two disjoint five-item sets."
+    },
+    {
+      "id": "REVIEW-TWO-SETS-COVER-CLAIM",
+      "expected": 32,
+      "actual": 15,
+      "passed": false,
+      "explanation": "The learner page promises all 32 targets across two balanced sets; coverage must be measured over target IDs."
+    }
+  ],
+  "semanticError": {
+    "id": "ERROR-EXPLANATION-OBSERVATION",
+    "response": "Compare 70 with 64 and 81, which are nearby perfect squares.",
+    "accepted": false,
+    "note": "A correct explanatory sentence is rejected by literal matching. The replacement need not automatically grade unrestricted prose: retain it ungraded or use a bounded reasoning interaction."
+  },
+  "summary": {
+    "passed": 2,
+    "total": 9
+  }
+}

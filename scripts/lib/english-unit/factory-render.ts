@@ -1,5 +1,8 @@
 import {
+  renderElaCoreVocabularyPage,
+  renderElaVocabularyTools,
   renderNextStepCourseShell,
+  type NextStepShellFamilyNavSection,
   type NextStepShellLesson,
   type NextStepShellNavGroup,
   type NextStepShellNavItem
@@ -583,7 +586,92 @@ function renderFilmRoom(recipe: EnglishFactoryRecipe, videos: Array<{ id: string
 }
 
 const FACTORY_CSS = `
-.lesson-detail-panel--ela30 { border-top: 4px solid #154212; border-radius: 8px; background: #f3f4f5; padding: 40px; }
+.ela-family-overview,
+.lesson-detail-panel--ela30 { border: 1px solid #d4dbd1; border-top: 4px solid #154212; border-radius: 7px; background: #fff; }
+.ela-family-overview { overflow: hidden; padding: 0; }
+.ela-overview-hero { padding: 34px 40px 30px; border-bottom: 1px solid #d4dbd1; }
+.ela-overview-hero h2 { margin: 5px 0 10px; color: #191c1d; font: 800 clamp(38px,5vw,56px)/1.02 "Hanken Grotesk",sans-serif; letter-spacing: -.035em; }
+.ela-overview-hero .page-intro { max-width: 820px; font-size: 17px; line-height: 1.55; }
+.ela-overview-meta { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 20px; color: #566056; font-size: 13px; }
+.ela-overview-section { margin: 0 40px; padding: 28px 0; border-bottom: 1px solid #d4dbd1; }
+.ela-overview-section:last-child { padding-bottom: 30px; border-bottom: 0; }
+.ela-overview-section h3 { margin: 0 0 12px; font: 800 23px/1.25 "Hanken Grotesk",sans-serif; }
+.ela-overview-section p { margin: 0 0 17px; }
+.ela-overview-guide { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); border: 1px solid #d4dbd1; }
+.ela-overview-guide > div { padding: 23px 25px; }
+.ela-overview-guide > div + div { border-left: 1px solid #d4dbd1; }
+.ela-overview-guide p:last-child { margin-bottom: 0; }
+.ela-overview-label { margin: 0 0 8px; color: #006b67; font-size: 11px; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; }
+.ela-roadmap { margin: 0 40px; padding: 22px; background: #edf7f5; border-left: 4px solid #007b73; }
+.ela-roadmap ol { columns: 2; margin: 10px 0 0; padding-left: 22px; column-gap: 36px; }
+.ela-roadmap li { break-inside: avoid; margin: 4px 0; }
+.ela-overview-source > .overview-notice { margin: 18px 0; }
+.ela-overview-source > .unit-outcomes { margin: 22px 0 0; }
+.lesson-detail-panel--ela30 { padding: 36px 40px 40px; }
+.ela-lesson-opening { margin: -36px -40px 30px; border-bottom: 1px solid #d4dbd1; }
+.ela-lesson-hero { padding: 42px 54px 32px; }
+.ela-lesson-kicker,.ela-label { color: #006b67; font-size: 12px; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; }
+.ela-lesson-hero h2 { margin: 8px 0; color: #191c1d; font: 800 clamp(34px,4vw,50px)/1.04 "Hanken Grotesk",sans-serif; letter-spacing: -.025em; }
+.ela-lesson-hero p { margin: 0; font-size: 17px; }
+.ela-opening-grid { display: grid; grid-template-columns: 1fr 1fr; border-block: 1px solid #d4dbd1; background: #f9fbf8; }
+.ela-opening-grid > section { min-width: 0; padding: 22px 54px; }
+.ela-opening-grid > section + section { border-left: 1px solid #d4dbd1; }
+.ela-opening-grid p { margin: 8px 0 0; }
+.ela-how-to { margin: 24px 54px 26px; background: #edf7f5; border-left: 3px solid #007b73; }
+.ela-how-to summary { position: relative; display: block; min-height: 72px; padding: 14px 56px 14px 18px; cursor: pointer; }
+.ela-how-to summary::-webkit-details-marker { display: none; }
+.ela-how-to summary::after { content: "⌄"; position: absolute; right: 20px; top: 22px; color: #007b73; font-size: 20px; }
+.ela-how-to[open] summary::after { content: "⌃"; }
+.ela-how-to summary span { display: block; color: #007b73; font-size: 11px; font-weight: 800; text-transform: uppercase; }
+.ela-how-to summary strong { display: block; font: 800 22px/1.3 "Hanken Grotesk",sans-serif; }
+.ela-how-to summary small { display: block; font-size: 14px; }
+.ela-guide-body { padding: 0 24px 24px; }
+.ela-guide-body ol { margin: 0; padding-left: 24px; }
+.ela-guide-body li + li { margin-top: 8px; }
+.ela-key-terms { margin: 24px 54px 18px; }
+.ela-key-term { min-height: 0; padding: 0; border: 0; background: none; color: #006b67; font: inherit; font-weight: 800; text-decoration: underline; cursor: pointer; }
+.ela-key-term:focus-visible { outline: 3px solid #77bce8; outline-offset: 2px; }
+.ela-vocab-help { margin: 18px 54px 28px; padding: 14px 0; border-block: 1px solid #d4dbd1; }
+.ela-vocab-help summary { color: #154212; font-weight: 800; cursor: pointer; }
+.ela-vocab-help-body { padding: 16px 0 0; }
+.ela-vocab-help dl { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 0 28px; margin: 0; }
+.ela-vocab-help dl > div { padding: 10px 0; border-top: 1px solid #d4dbd1; }
+.ela-vocab-help dt { font-weight: 700; }
+.ela-vocab-help dd { margin: 4px 0 0; color: #526158; }
+.ela-vocab-help p { margin: 12px 0 0; }
+.ela-vocabulary-header { margin-bottom: 24px; }
+.ela-vocabulary-header .ela-how-to { margin: 24px 0 0; }
+.ela-vocabulary-filters { display: grid; grid-template-columns: minmax(0,1fr) minmax(220px,.75fr); gap: 16px; margin: 0 calc(clamp(28px,4vw,52px) * -1); padding: 24px clamp(28px,4vw,52px); border-top: 1px solid #d4dbd1; }
+.ela-vocabulary-filters label { display: grid; gap: 8px; font-weight: 700; }
+.ela-vocabulary-filters input,.ela-vocabulary-filters select { width: 100%; }
+.ela-vocabulary-count { margin: 0 calc(clamp(28px,4vw,52px) * -1); padding: 0 clamp(28px,4vw,52px) 24px; color: #526158; }
+.ela-tool-layout { display: grid; grid-template-columns: 280px minmax(0,1fr); margin: 0 calc(clamp(28px,4vw,52px) * -1) calc(clamp(28px,4vw,52px) * -1); border-top: 1px solid #d4dbd1; }
+.ela-term-index { padding: 22px; border-right: 1px solid #d4dbd1; }
+.ela-term-list { display: grid; gap: 5px; }
+.ela-term-button { width: 100%; padding: 9px; border: 0; background: transparent; text-align: left; cursor: pointer; }
+.ela-term-button.active { background: #e5f1ed; border-left: 3px solid #007b73; }
+.ela-vocab-detail { min-width: 0; padding: 28px; }
+.ela-vocab-detail h3 { margin: 4px 0 12px; font-size: 32px; }
+.ela-vocab-meaning { padding: 16px 0 20px; border-block: 1px solid #d4dbd1; }
+.ela-vocab-meaning p:last-child { margin: 10px 0 0; line-height: 1.65; }
+.ela-frayer-section { margin-top: 18px; padding-top: 12px; border-top: 1px solid #d4dbd1; }
+.ela-frayer-section summary { color: #154212; font-weight: 800; cursor: pointer; }
+.ela-frayer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 22px; }
+.ela-frayer-grid label { display: grid; gap: 7px; font-weight: 700; }
+.ela-frayer-grid textarea { min-height: 110px; resize: vertical; }
+.ela-tool-actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-top: 18px; }
+.ela-tool-status { color: #526158; font-size: 14px; }
+.ela-inline-term { display: inline; text-decoration-style: dotted; text-underline-offset: .2em; }
+.ela-dialog { width: min(760px,calc(100vw - 32px)); max-height: calc(100vh - 32px); padding: 0; border: 1px solid #d4dbd1; border-radius: 4px; box-shadow: 0 22px 70px rgba(0,0,0,.25); }
+.ela-dialog::backdrop { background: rgba(10,16,14,.72); }
+.ela-dialog-header { display: flex; justify-content: space-between; align-items: center; padding: 15px 18px; color: #fff; background: #171b19; }
+.ela-dialog-header strong { font-size: 18px; }
+.ela-dialog-header button { padding: 7px 12px; border: 1px solid rgba(255,255,255,.4); color: #fff; background: transparent; cursor: pointer; }
+.ela-dialog-body { max-height: calc(100vh - 100px); overflow: auto; }
+.ela-dialog-body .ela-vocab-detail { padding: 24px; }
+.ela-vocab-placeholder { color: #526158; }
+.ela-family-lesson .source-content > h1:first-child,
+.ela-family-lesson .source-content > h2:first-child { display: none; }
 .lesson-heading-row--ela30 { margin: 0 0 24px; }
 .lesson-heading-row--ela30 h2 { margin: 0; font: 800 32px/1.2 "Hanken Grotesk", sans-serif; }
 .lesson-page--ela30 .source-content { max-width: none; font-family: "Work Sans", sans-serif; font-size: 16px; line-height: 1.65; }
@@ -709,7 +797,7 @@ const FACTORY_CSS = `
 .film-source-link { display: inline-flex; align-items: center; justify-content: center; min-height: 42px; margin-top: 14px; border: 1px solid #154212; border-radius: 8px; background: #154212; color: #fff; padding: 9px 14px; font-weight: 700; text-decoration: none; }
 .film-panel[hidden], .resource-lesson-group[hidden] { display: none !important; }
 .english-material-access-note { border-left: 3px solid #7d9272; background: #f5f7f1; padding: 12px 14px; }
-@media(max-width:760px){.lesson-detail-panel--ela30{padding:22px}.english-evidence-filter-grid,.english-evidence-fields{grid-template-columns:1fr}.english-factory-resource-card{align-items:stretch;flex-direction:column}.english-evidence-bank-heading,.english-evidence-capture-heading{display:grid}.shakespeare-resources-page .scene-overview-control{grid-template-columns:1fr}.film-room-shell{grid-template-columns:1fr}.film-room-frame{min-height:220px}.elements-checklist-header{align-items:start;flex-direction:column}.elements-table th:nth-child(3),.elements-table td:nth-child(3){display:none}.element-panel{padding:18px}.term-row{grid-template-columns:1fr;gap:4px}}
+@media(max-width:760px){.ela-overview-hero{padding:24px 20px}.ela-overview-section,.ela-roadmap{margin:0 20px}.ela-overview-guide{grid-template-columns:1fr}.ela-overview-guide>div+div{border-top:1px solid #d4dbd1;border-left:0}.ela-roadmap ol{columns:1}.lesson-detail-panel--ela30{padding:22px}.ela-lesson-opening{margin:-22px -22px 24px}.ela-lesson-hero{padding:28px 22px 22px}.ela-opening-grid{grid-template-columns:1fr}.ela-opening-grid>section{padding:18px 22px}.ela-opening-grid>section+section{border-top:1px solid #d4dbd1;border-left:0}.ela-how-to,.ela-key-terms,.ela-vocab-help{margin-inline:22px}.ela-vocab-help dl,.ela-vocabulary-filters,.ela-tool-layout,.ela-frayer-grid{grid-template-columns:1fr}.ela-tool-layout{margin-bottom:calc(clamp(28px,4vw,52px) * -1)}.ela-term-index{border-right:0;border-bottom:1px solid #d4dbd1}.english-evidence-filter-grid,.english-evidence-fields{grid-template-columns:1fr}.english-factory-resource-card{align-items:stretch;flex-direction:column}.english-evidence-bank-heading,.english-evidence-capture-heading{display:grid}.shakespeare-resources-page .scene-overview-control{grid-template-columns:1fr}.film-room-shell{grid-template-columns:1fr}.film-room-frame{min-height:220px}.elements-checklist-header{align-items:start;flex-direction:column}.elements-table th:nth-child(3),.elements-table td:nth-child(3){display:none}.element-panel{padding:18px}.term-row{grid-template-columns:1fr;gap:4px}}
 @media print{.english-evidence-filter-grid,.english-evidence-bank-actions,.english-evidence-actions{display:none!important}}
 `;
 
@@ -799,6 +887,42 @@ function buildActivityNavigation(activityProfile: EnglishRenderedActivityProfile
   return { navGroups, navItems };
 }
 
+function buildElaFamilyNavigation(input: {
+  lessons: NextStepShellLesson[];
+  navGroups: NextStepShellNavGroup[];
+  navItems: NextStepShellNavItem[];
+}) {
+  const workIds = new Set(["story-bank", "story-questions", "act-questions", "character-notes", "novel-study-questions", "major-works-data", "film-study-questions", "script-reader"]);
+  const resourceIds = new Set(["resources", "materials", "play-materials", "library"]);
+  const studentWork = input.lessons.map((lesson) => ({ id: lesson.id, label: cleanLessonTitle(lesson.title) }));
+  const studentTools: NextStepShellFamilyNavSection["items"] = input.navGroups.map((group) => ({
+    id: group.id,
+    label: group.label,
+    items: [
+      { id: group.id, label: group.landingItemLabel ?? group.label },
+      ...group.items.map((item) => ({ id: item.id, label: item.label }))
+    ]
+  }));
+  const processCollection: NextStepShellFamilyNavSection["items"] = [];
+  const resources: NextStepShellFamilyNavSection["items"] = [];
+
+  for (const item of input.navItems.filter((candidate) => !candidate.hiddenFromNavigation)) {
+    const entry = { id: item.id, label: item.label };
+    if (item.id === "evidence-bank") processCollection.push(entry);
+    else if (resourceIds.has(item.id)) resources.push(entry);
+    else if (workIds.has(item.id)) studentWork.push(entry);
+    else studentTools.push(entry);
+  }
+
+  return [
+    { id: "overview", label: "Overview", items: [{ id: "overview", label: "Course Overview" }] },
+    { id: "student-work", label: "Student Work", items: studentWork },
+    { id: "student-tools", label: "Student Tools", items: studentTools },
+    { id: "process-collection", label: "Process Collection", items: processCollection },
+    { id: "resources-group", label: "Resources", items: resources }
+  ] satisfies NextStepShellFamilyNavSection[];
+}
+
 export function renderEnglishFactoryUnit(input: {
   recipe: EnglishFactoryRecipe;
   lessons: EnglishBuiltLesson[];
@@ -817,6 +941,7 @@ export function renderEnglishFactoryUnit(input: {
     : input.activityProfile.pages[0];
   const navItems: NextStepShellNavItem[] = [
     ...activityNavigation.navItems,
+    { id: "core-vocabulary", label: "Core Vocabulary", icon: "menu_book", html: renderElaCoreVocabularyPage() },
     ...(recipeRouteEnabled(input.recipe, "evidence-bank", true)
       ? [{ id: "evidence-bank", label: "Evidence Bank", icon: "library_books", html: renderEvidenceBank(input.recipe, input.activityProfile.pages, input.activityProfile.navGroups) }]
       : []),
@@ -832,6 +957,11 @@ export function renderEnglishFactoryUnit(input: {
           : renderResources(input.recipe, input.resources, input.lessons, input.activityProfile.kind, input.activityProfile.resourceLinks) }]
       : [])
   ];
+  const familyNavigation = buildElaFamilyNavigation({
+    lessons: shellLessons,
+    navGroups: activityNavigation.navGroups,
+    navItems
+  });
   const html = renderNextStepCourseShell({
     slug: input.recipe.projectSlug,
     courseTitle: input.recipe.unitTitle,
@@ -870,6 +1000,8 @@ export function renderEnglishFactoryUnit(input: {
     storageKeyBase: `canvas-helper:${input.recipe.projectSlug}`,
     navGroups: activityNavigation.navGroups,
     navItems,
+    familyNavigation,
+    extraBodyHtml: renderElaVocabularyTools(input.recipe.projectSlug),
     extraCss: `${FACTORY_CSS}\n${ENGLISH_ACTIVITY_PROFILE_CSS}\n${input.activityProfile.css ?? ""}\n${FACTORY_LAYOUT_CSS}`
   });
   const runtime = isV3

@@ -1,0 +1,73 @@
+{
+  "lessonId": "t1-l01-oral-tradition",
+  "contentVersion": "ab30-v2-l01.2",
+  "ticket": "teacher-voice-pilot-2026-09-24",
+  "role": "Build candidate review; teacher feedback pending",
+  "previousReview": "../teacher-voice-pilot/before/t1-l01-oral-tradition-review.json",
+  "goalAndTeaching": {
+    "goal": "Explain how oral tradition carries knowledge across generations, using a specific example from the readings.",
+    "whereTaught": "Opening question, goal strip, named readings, short explanations, worked response, existing practice and independent task."
+  },
+  "figureRole": "Story detail and teaching organizer; connect the printed Nehiyawak telling to what stories teach.",
+  "sources": [
+    {
+      "id": "L01-A",
+      "locator": "Chapter 1, printed p. 13 (file p21)",
+      "quoteCheck": "verbatim in textbook band (R10-QUOTES); textbook definition, not a storyteller quotation"
+    },
+    {
+      "id": "L01-B",
+      "locator": "Walking Together reading, printed p. 5 (file p8)",
+      "quoteCheck": "verbatim in reading band; Nehiyawak (Cree) telling frame; unattributed single teller recorded, not invented"
+    },
+    {
+      "id": "L01-C",
+      "locator": "Walking Together reading, printed p. 4 (file p7)",
+      "quoteCheck": "verbatim in reading band; Chief Dan George 1974; missing community label recorded, not invented"
+    },
+    {
+      "id": "L01-D",
+      "locator": "Walking Together reading, printed p. 7 (file p10)",
+      "quoteCheck": "verbatim in reading band; cited course explanation (Kovach 2010)"
+    },
+    {
+      "id": "L01-E",
+      "locator": "Walking Together reading, printed p. 7 (file p10)",
+      "quoteCheck": "verbatim in reading band; cited summary (Dumbrill and Green 2008)"
+    },
+    {
+      "id": "L01-F",
+      "locator": "Chapter 3, printed p. 76 (file p84)",
+      "quoteCheck": "verbatim in textbook band; court ruling with stated boundary (land use/governance, Aboriginal-rights decisions)"
+    }
+  ],
+  "sourceVerification": {
+    "originalPassages": 6,
+    "quoteAndProvenancePreserved": true,
+    "evidence": "scripts/tests/aboriginal-studies-30-teacher-pilot.test.ts",
+    "note": "Compared with the pre-pilot course source records; this does not imply a new community review."
+  },
+  "savedWork": {
+    "responseKeysUnchanged": true,
+    "questionAndAssignmentHomesUnchanged": true,
+    "answerOptionsAndKeysUnchanged": true,
+    "existingResponseCompatibility": "Six route/viewport save-reload cases passed; earlier .1 first submission preserved byte-for-byte after .2 update in Oral Tradition."
+  },
+  "reviewPasses": {
+    "lead": "Teacher-voice rewrite, source/provenance preservation, integration and desktop/phone visual inspection.",
+    "luna": "Read-only route and saved-response compatibility investigation; no editing or cultural acceptance delegated."
+  },
+  "accessibilityPrintScreenshots": {
+    "desktopAndPhone": "1440x1000 and 390x844; opening plus teaching captures under ../teacher-voice-pilot/screenshots/. Comparisons stack on phones.",
+    "keyboard": "Native disclosure controls, Escape closes mobile drawer and returns focus; mobile navigation closes drawer. Full screen-reader/zoom audit deferred.",
+    "print": "NOT_RUN for this candidate."
+  },
+  "reviewerStatus": {
+    "humanReviewed": false,
+    "status": "awaiting-teacher-feedback",
+    "unresolvedLimitations": [
+      "No teacher/community sign-off.",
+      "Full-course, Studio annotation, export and live LMS checks deferred."
+    ]
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "workspace": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/aboriginal-studies-30/workspace",
+  "scope": "read-only source comparison, not approval",
+  "files": [
+    {
+      "name": "course-data.js",
+      "baselineSha256": "7c274e112ac8a01a321643a7f8e5a06af9bbd1daab9a4295965a6b15d7402884",
+      "actualSha256": "7c274e112ac8a01a321643a7f8e5a06af9bbd1daab9a4295965a6b15d7402884",
+      "status": "MATCH"
+    },
+    {
+      "name": "index.html",
+      "baselineSha256": "88dbecd6c3bb7cd893113d5c510b55489fdc6ddc7c22e7f81807fbd6e9cc6c22",
+      "actualSha256": "88dbecd6c3bb7cd893113d5c510b55489fdc6ddc7c22e7f81807fbd6e9cc6c22",
+      "status": "MATCH"
+    },
+    {
+      "name": "learning-store.js",
+      "baselineSha256": "3872f1d8a8ce8a91726656052d94294c8ba34717fab24bf71ef9cd8eb89292a9",
+      "actualSha256": "3872f1d8a8ce8a91726656052d94294c8ba34717fab24bf71ef9cd8eb89292a9",
+      "status": "MATCH"
+    },
+    {
+      "name": "lesson-components.js",
+      "baselineSha256": "2956ad84609374e2ea0b20d0f52bab37a06663e7986d3d6facd151ecfec22ed5",
+      "actualSha256": "2956ad84609374e2ea0b20d0f52bab37a06663e7986d3d6facd151ecfec22ed5",
+      "status": "MATCH"
+    },
+    {
+      "name": "main.js",
+      "baselineSha256": "b7d0b542ea2f3350867370c80bbbf3fee2454a7f34c793606eed5477a71f2a7c",
+      "actualSha256": "b7d0b542ea2f3350867370c80bbbf3fee2454a7f34c793606eed5477a71f2a7c",
+      "status": "MATCH"
+    },
+    {
+      "name": "practice-data.js",
+      "baselineSha256": "8bb7c2abb52aa3f202714d0609b583caccb274e0e98d491b7c049809acf12cfd",
+      "actualSha256": "8bb7c2abb52aa3f202714d0609b583caccb274e0e98d491b7c049809acf12cfd",
+      "status": "MATCH"
+    },
+    {
+      "name": "practice-engine.js",
+      "baselineSha256": "2f95d6af16d28e55f90925d6ccbedc8161f3fe273bd2f0f56fa8a4cd2aefca06",
+      "actualSha256": "2f95d6af16d28e55f90925d6ccbedc8161f3fe273bd2f0f56fa8a4cd2aefca06",
+      "status": "MATCH"
+    },
+    {
+      "name": "styles.css",
+      "baselineSha256": "3f5e83ec89ae7551e063f4df5e1bd0242ec812badde18b0de1628fe802c25610",
+      "actualSha256": "3f5e83ec89ae7551e063f4df5e1bd0242ec812badde18b0de1628fe802c25610",
+      "status": "MATCH"
+    }
+  ],
+  "decision": "AUDIT_BASELINE_MATCH",
+  "instructions": "Preserve newer/dirty work. Locate current functions; do not overwrite from baseline. Resolve existing repository instructions, donor and host owner before editing."
+}

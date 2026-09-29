@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 500" role="img" aria-labelledby="title desc">
+  <title id="title">Prairie Library Hub first shift floor plan</title>
+  <desc id="desc">A simple floor plan shows the public entrance at the lower left, the welcome desk beside it, a brochure shelf along the clear route to the activity room, and a spill blocking the shorter hallway. Rowan should place a cone at the spill and contact Morgan before continuing.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1f6b59"/>
+    </marker>
+    <pattern id="spill" width="16" height="16" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="8" height="16" fill="#f6c76b"/>
+    </pattern>
+  </defs>
+  <rect width="920" height="500" fill="#f7f8f5"/>
+  <rect x="55" y="58" width="810" height="380" fill="#fff" stroke="#58675f" stroke-width="5"/>
+  <path d="M335 58v205h205V58M335 263H165v175M540 263h325" fill="none" stroke="#8d9992" stroke-width="4"/>
+  <rect x="70" y="320" width="230" height="105" fill="#e9f2ed" stroke="#1f6b59" stroke-width="3"/>
+  <text x="185" y="360" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#183d33">WELCOME DESK</text>
+  <text x="185" y="392" text-anchor="middle" font-family="Arial, sans-serif" font-size="17" fill="#30453d">Morgan's extension · secure tray</text>
+  <rect x="365" y="84" width="145" height="72" fill="#f0f4f1" stroke="#66756d" stroke-width="3"/>
+  <text x="437" y="115" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#27362f">BROCHURE</text>
+  <text x="437" y="139" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#27362f">SHELF</text>
+  <rect x="575" y="80" width="265" height="150" fill="#edf3f7" stroke="#46677a" stroke-width="3"/>
+  <text x="708" y="145" text-anchor="middle" font-family="Arial, sans-serif" font-size="27" font-weight="700" fill="#284b5e">ACTIVITY ROOM</text>
+  <text x="708" y="177" text-anchor="middle" font-family="Arial, sans-serif" font-size="17" fill="#284b5e">Morgan is working here</text>
+  <path d="M85 452h145" stroke="#fff" stroke-width="12"/>
+  <path d="M112 466v-30M170 466v-30" stroke="#58675f" stroke-width="4"/>
+  <text x="140" y="489" text-anchor="middle" font-family="Arial, sans-serif" font-size="17" font-weight="700" fill="#27362f">PUBLIC ENTRANCE</text>
+  <path d="M250 366 C320 362 330 294 400 245 C462 202 544 222 605 245" fill="none" stroke="#1f6b59" stroke-width="8" stroke-dasharray="14 10" marker-end="url(#arrow)"/>
+  <text x="407" y="283" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#1f6b59">CLEAR ROUTE</text>
+  <ellipse cx="565" cy="355" rx="78" ry="34" fill="url(#spill)" stroke="#a96313" stroke-width="4"/>
+  <path d="M551 318l14-30 14 30z" fill="#d47719" stroke="#8a4c0a" stroke-width="3"/>
+  <text x="565" y="361" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#58320b">SPILL</text>
+  <text x="565" y="405" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#58320b">BLOCK THIS ROUTE · PLACE CONE</text>
+  <g transform="translate(700 316)">
+    <rect width="150" height="66" rx="4" fill="#fff6e6" stroke="#a96313" stroke-width="3"/>
+    <text x="75" y="27" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#58320b">CLEANING CART</text>
+    <text x="75" y="49" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#58320b">spray needs training</text>
+  </g>
+</svg>

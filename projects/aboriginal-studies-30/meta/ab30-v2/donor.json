@@ -1,0 +1,39 @@
+{
+ "ticket": "R00",
+ "slug": "biology30-unit-a-pilot-3",
+ "status": "active (per environment inventory; Bio/Chem never modified)",
+ "canonicalEntry": "projects/biology30-unit-a-pilot-3/workspace/index.html",
+ "verifiedHashes": {
+  "index.html": "9fcd8203b41f4220e53716e473c02a0835f356420b363ea0092e544a8e7bb210",
+  "styles.css": "a45318415c43b025748aceb5a6d220de38c76f683ac027de84a7f689964bca55"
+ },
+ "hashMatchEnvironmentRecord": true,
+ "fonts": {
+  "WorkSans-Variable.ttf": "f50f61f2ba738e239442d40bf1069adb195c224b6a5a73a581fc2f3ed62a9f63",
+  "HankenGrotesk-Variable.ttf": "813b3f8fa0965405669a89b38e51bbefd95eef6b8e20d1cb2d8c10cce062662f",
+  "licenses": [
+   "assets/fonts/OFL-Work-Sans.txt",
+   "assets/fonts/OFL-Hanken-Grotesk.txt"
+  ],
+  "wiredVia": "@font-face url(assets/fonts/...) in donor styles.css (2 faces)"
+ },
+ "logo": "assets/brand/nxt-ce-logo-white-with-ce.png (same Next Step identity as AB30)",
+ "keySelectors": [
+  ".lesson-page",
+  ".lesson-header",
+  ".lesson-block",
+  ".goal-strip",
+  ".lesson-term-strip",
+  ".lesson-vocabulary-help",
+  ".bio-term",
+  ".frayer",
+  ".frayer-grid",
+  ".practice-item",
+  ".practice-feedback",
+  ".practice-progress",
+  ".lesson-question",
+  ".lesson-completion"
+ ],
+ "chapter13Reference": "package references/bio/ (EXTRACTED_REFERENCE_NO_FONTS.css hash-verified in SOURCE_MANIFEST; font bytes removed from handoff; visual/content reference only, not latest-course claim)",
+ "rule": "reuse verified local donor components/fonts; copy no entire science runtime blindly into AB30"
+}

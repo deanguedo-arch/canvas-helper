@@ -1,0 +1,23 @@
+# Unit B parity review against refined Unit A
+
+Candidate: `science24-unit-b-excellence-v2`. Biology 30 Pilot 3 controls the inherited presentation conventions. This is a teacher-review candidate; the project remains blocked.
+
+| Requirement | Unit B implementation | Review result |
+| --- | --- | --- |
+| Instructional sequence and depth | 16 teaching lessons plus an integrated review, divided 3/5/5/3 across Chapters 5–8. Each lesson contains an opening, explanation, two worked models, five practice tasks, transfer and later writing, and a required check. | Structural inventory passed. Calculation models for power, Wh/kWh, efficiency, trophic transfer, and combustion were independently recomputed. |
+| Navigation and page guides | Unit A sidebar shell, lesson links, page guides, previous/next controls, progress, and optional resource routes. | All 30 declared routes opened at desktop, tablet, and phone widths without page errors or horizontal overflow. |
+| Textbook and workbook sources | 91 numbered workbook questions and 18 lettered parts mapped; 51 textbook pages have exact printed and PDF positions; 16 selected pages support saved numbered work. Original 2023 workbook and exact key remain available after attempt-first guidance. | Source map and visual guided-notes review recorded in `source-task-map-v2.json`. Textbook selector, enlargement, accessible text, save/reload, and phone dialog passed. |
+| Source figures and investigations | 25 relevant textbook figure dependencies and six investigations mapped, including supervised apparatus and original graph/table work. Six new semantic diagrams support explanations and four labeling choices. | Visually inspected the supplied guided notes and major textbook figures. An independent question review caught answer labels printed inside four SVGs; those were replaced with lettered visual targets and accessible descriptions. Labeling startup and enlargement passed. Teacher decides which supervised physical tasks to assign. |
+| Practice and review | Flash cards, blanks, multiple choice, mixed practice, labeling, final prep, and an eight-question integrated review. The authored banks contain 80 flash cards, 96 blanks, and 80 MC questions, with all 16 lessons represented. | All five question-bank modes and labeling started in browser; interrupted runs survived reload. Required check 1 completed and survived reload in a separate focused probe. |
+| Core Vocabulary | 74 supported terms, search and lesson filter, four blank Frayer fields, saved versions and model comparison after collection. | Collection and comparison passed in browser. Independent vocabulary review corrected the source-era use of “thermo-electric” and distinguished modern direct thermoelectric conversion. |
+| Videos | Eight lesson-linked optional entries with publisher, purpose, viewing focus, captions guidance where offered, and local written explanations. | Library and fallback passed. Link search found selected watch pages; regional playback and captions remain external dependencies. |
+| Saving and prior work | Unit A IndexedDB store pattern, confirmed-save status, visible storage failure, recovery copies, explicit two-tab conflict choice, and All My Work history. Previous eight-lesson draft is read only under its original namespace and cannot affect new progress. | Real browser save/reload, active storage failure, two-tab conflict and recovery, and prior-draft response visibility passed. Earlier work is available only in the browser origin where it was saved. |
+| Presentation and accessibility | Unit A shell and CSS are reused directly. Routine learner copy and links remain static HTML with edit keys. Generated practice and saved-work panels remain Annotation only. | Desktop, tablet, phone, 320–720 px narrow widths, phone enlargement dialog, and keyboard focus checks passed. Browser-level zoom beyond the equivalent narrow-width checks is not separately certified. |
+| Project ownership | Canonical HTML/data/runtime/assets in `workspace/`; metadata and evidence in `meta/`; compiler emits only `course-data.js`. | Workspace verification passed; `course:doctor` correctly refuses authoring because the project is intentionally blocked. |
+
+## Teacher decisions
+
+1. Confirm which original magnet-and-coil, powered-lamp, temperature-graph, and combustion activities should be assigned as supervised or paper tasks. The online lessons teach their concepts but do not claim to perform a physical investigation.
+2. Review the corrected historical claims and the placement of the original 2023 workbook key after the attempt-first guidance.
+
+Unit C and Unit D have not been rebuilt from this candidate. Their source audits and lesson divisions begin after Unit B approval.

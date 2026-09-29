@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aboriginal Studies 30 · Theme 3</title>
+  <!-- T21: zero essential network dependencies. Local variable fonts (R05 @font-face) + text glyphs; no font/icon CDN. -->
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body data-project-slug="aboriginal-studies-30-theme-3">
+  <header class="course-topbar" data-testid="course-header">
+    <button id="topbar-menu-toggle" class="topbar-menu-toggle" type="button" aria-label="Toggle menu" data-testid="course-menu-toggle">
+      <i class="icon-glyph" aria-hidden="true">☰</i>
+    </button>
+    <img class="brand-logo" src="./assets/brand/nxt-ce-logo-white-with-ce.png" alt="Next Step Continuing Education" data-testid="course-logo" />
+    <div class="top-progress-shell" aria-label="Course progress" data-testid="course-progress">
+      <div class="top-progress-meta">
+        <span>Course Progress</span>
+        <strong id="progress-count">0 / 1 theme</strong>
+        <strong id="progress-percent">0%</strong>
+      </div>
+      <div class="top-progress-bar"><div class="top-progress-fill" id="progress-fill"></div></div>
+    </div>
+  </header>
+
+  <aside id="course-sidebar" class="course-sidebar" aria-label="Course sidebar" data-testid="course-sidebar">
+    <div class="sidebar-header">
+      <button id="sidebar-toggle" class="sidebar-toggle-button" type="button" aria-controls="course-sidebar" aria-label="Collapse sidebar">
+        <i class="icon-glyph" aria-hidden="true">‹</i>
+      </button>
+      <h1 class="sidebar-title">Aboriginal Studies 30</h1>
+      <p class="sidebar-course-label">ABS 30 · Theme 3</p>
+    </div>
+    <nav class="course-nav" aria-label="Course navigation">
+      <details class="nav-group" open>
+        <summary>Start</summary>
+        <div class="nav-links"><button id="nav-home" class="nav-link" type="button" data-testid="nav-overview">Course overview</button></div>
+      </details>
+      <section class="nav-learn" aria-labelledby="nav-learn-heading">
+        <h2 id="nav-learn-heading">Learn</h2>
+        <div id="theme-subnav"></div>
+      </section>
+      <details class="nav-group" open>
+        <summary>Practice &amp; Review</summary>
+        <div class="nav-links"><button id="nav-quizzes" class="nav-link" type="button" data-testid="nav-practice">Practice activities</button></div>
+      </details>
+      <details class="nav-group" open>
+        <summary>My Work</summary>
+        <div class="nav-links">
+          <button id="nav-assignments" class="nav-link" type="button">All assignments</button>
+          <button id="nav-mywork" class="nav-link" type="button" data-testid="nav-all-my-work">All My Work</button>
+        </div>
+      </details>
+      <details class="nav-group" open>
+        <summary>Resources</summary>
+        <div class="nav-links">
+          <button id="nav-vocabulary" class="nav-link" type="button">Core Vocabulary</button>
+          <button id="nav-library" class="nav-link" type="button">Library</button>
+          <button id="nav-film" class="nav-link" type="button">Film Room</button>
+        </div>
+      </details>
+    </nav>
+    <div class="sidebar-save-host" data-google-hosted-controls-host="true" data-sidebar-root-only="true"></div>
+  </aside>
+  <div id="menu-scrim" class="menu-scrim" hidden></div>
+
+  <main class="course-main" data-testid="course-main">
+    <div class="course-frame">
+      <div id="content-body"></div>
+    </div>
+  </main>
+
+  <dialog id="course-dialog" class="course-dialog" aria-labelledby="course-dialog-title">
+    <div class="course-dialog-head">
+      <div>
+        <p class="course-kicker" id="course-dialog-kicker">Reader</p>
+        <h2 id="course-dialog-title">Reader</h2>
+      </div>
+      <button id="course-dialog-close" class="lesson-jump" type="button">Close</button>
+    </div>
+    <div id="course-dialog-body" class="course-dialog-body"></div>
+  </dialog>
+
+  <p id="save-status-announcer" class="visually-hidden" role="status"></p>
+  <p id="route-announcer" class="visually-hidden" role="status" aria-live="polite"></p>
+
+  <script src="./course-data.js"></script>
+  <script src="./learning-store.js"></script>
+  <script src="./lesson-components.js"></script>
+  <script src="./practice-data.js"></script>
+  <script src="./practice-engine.js"></script>
+  <script src="./main.js"></script>
+  <script src="./source-locator-links.js"></script>
+</body>
+</html>

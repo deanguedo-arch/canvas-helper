@@ -1,0 +1,350 @@
+{
+  "schemaVersion": 2,
+  "projectSlug": "ela10-1-novel-study",
+  "courseCode": "ELA 10-1",
+  "courseTitle": "English Language Arts 10-1",
+  "unitTitle": "Novel Study",
+  "profileVersion": "next-step-english-v2-ela10",
+  "status": "needs-review",
+  "source": {
+    "brightspaceZip": "projects/resources/ela10-1/_sources/98a7423518aa49d55b37e75f4a7a44037949c06416146e806705b85c933cbf49.normalized.zip",
+    "teacherResourcesZip": "projects/resources/ela10-1/_sources/61c75238e8ca90b0c2e874d4f3ab65074b4a14ee699f1854f753bdf938648d2b.zip",
+    "brightspaceUnitId": "1473031",
+    "teacherFolder": "UNIT 3 Novel",
+    "archiveRefs": {
+      "brightspace": "brightspace",
+      "teacherResources": "teacher-resources"
+    },
+    "lessonSelectors": [
+      {
+        "itemId": "1473041",
+        "disposition": "exclude",
+        "title": "Choice of Novel",
+        "reason": "Brightspace choice page conflicts with the two novels selected by the teacher archive."
+      },
+      {
+        "itemId": "1473116",
+        "disposition": "exclude",
+        "title": "To Kill a Mockingbird",
+        "reason": "Cover-only container; the instructional synopsis lesson is imported separately."
+      },
+      {
+        "itemId": "1473151",
+        "disposition": "include",
+        "title": "Synopsis and What to Consider Before Reading"
+      },
+      {
+        "itemId": "1473044",
+        "disposition": "exclude",
+        "title": "Writing a Critical/Analytical Essay",
+        "reason": "External assignment page is replaced by the shared ELA 10-1 Critical Essay profile."
+      },
+      {
+        "itemId": "1473117",
+        "disposition": "exclude",
+        "title": "Indian Horse",
+        "includeChildren": true,
+        "reason": "Not selected by the teacher archive."
+      },
+      {
+        "itemId": "1473118",
+        "disposition": "exclude",
+        "title": "Purple Hibiscus",
+        "includeChildren": true,
+        "reason": "Not selected by the teacher archive."
+      },
+      {
+        "itemId": "1473119",
+        "disposition": "exclude",
+        "title": "Essay Topics",
+        "reason": "Assessment topic page is excluded."
+      },
+      {
+        "itemId": "1473120",
+        "disposition": "exclude",
+        "title": "Unit Assessment",
+        "reason": "Assessment is excluded."
+      }
+    ]
+  },
+  "activityProfile": {
+    "schemaVersion": 1,
+    "activities": [
+      {
+        "id": "critical-essay",
+        "title": "Critical Essay",
+        "route": "critical-essay",
+        "enabled": true,
+        "evidencePolicyIds": [
+          "essay-plan"
+        ]
+      },
+      {
+        "id": "reading-guide",
+        "title": "Reading Guide",
+        "route": "reading-guide",
+        "enabled": true,
+        "evidencePolicyIds": [
+          "passage"
+        ]
+      },
+      {
+        "id": "major-works-data",
+        "title": "Major Works Data Sheet",
+        "route": "major-works-data",
+        "enabled": true,
+        "evidencePolicyIds": [
+          "major-works"
+        ]
+      },
+      {
+        "id": "novel-questions",
+        "title": "Novel Study Questions",
+        "route": "novel-study-questions",
+        "enabled": true,
+        "evidencePolicyIds": [
+          "questions"
+        ]
+      },
+      {
+        "id": "writing-studio",
+        "title": "Writing Studio",
+        "route": "writing-studio",
+        "enabled": true,
+        "evidencePolicyIds": [
+          "writing"
+        ]
+      },
+      {
+        "id": "evidence-bank",
+        "title": "Evidence Bank",
+        "route": "evidence-bank",
+        "enabled": true,
+        "evidencePolicyIds": []
+      },
+      {
+        "id": "personal-response",
+        "title": "Personal Response",
+        "route": "personal-response",
+        "enabled": true,
+        "evidencePolicyIds": [
+          "personal-response-writing-stage"
+        ],
+        "componentSlot": "writing-studio"
+      }
+    ],
+    "evidencePolicies": [
+      {
+        "id": "essay-plan",
+        "activityId": "critical-essay",
+        "saveMode": "collection",
+        "requiresExplicitSave": true,
+        "contributionIdTemplate": "{projectSlug}:critical-essay:{workId}:collection",
+        "collectionScope": "work"
+      },
+      {
+        "id": "passage",
+        "activityId": "reading-guide",
+        "saveMode": "individual",
+        "requiresExplicitSave": true,
+        "contributionIdTemplate": "{projectSlug}:reading-guide:{entryId}"
+      },
+      {
+        "id": "major-works",
+        "activityId": "major-works-data",
+        "saveMode": "collection",
+        "requiresExplicitSave": true,
+        "contributionIdTemplate": "{projectSlug}:major-works-data:{workId}:collection",
+        "collectionScope": "work"
+      },
+      {
+        "id": "questions",
+        "activityId": "novel-questions",
+        "saveMode": "collection",
+        "requiresExplicitSave": true,
+        "contributionIdTemplate": "{projectSlug}:novel-questions:{locatorId}:collection",
+        "collectionScope": "locator"
+      },
+      {
+        "id": "writing",
+        "activityId": "writing-studio",
+        "saveMode": "individual",
+        "requiresExplicitSave": true,
+        "contributionIdTemplate": "{projectSlug}:writing-studio:{entryId}"
+      },
+      {
+        "id": "personal-response-writing-stage",
+        "activityId": "personal-response",
+        "saveMode": "collection",
+        "requiresExplicitSave": true,
+        "contributionIdTemplate": "{projectSlug}:personal-response:unit:{entryId}",
+        "collectionScope": "activity",
+        "tags": [
+          "personal-response",
+          "writing-stage"
+        ]
+      }
+    ],
+    "kind": "novel-study",
+    "novels": [
+      {
+        "id": "to-kill-a-mockingbird",
+        "title": "To Kill a Mockingbird",
+        "author": "Harper Lee"
+      },
+      {
+        "id": "the-boy-in-the-striped-pyjamas",
+        "title": "The Boy in the Striped Pyjamas",
+        "author": "John Boyne"
+      }
+    ],
+    "questionPhases": [
+      "opening",
+      "middle",
+      "final"
+    ],
+    "genericQuestionCount": 24,
+    "writingTools": [
+      "analytical-paragraph",
+      "motif-string",
+      "authors-intent",
+      "critical-essay"
+    ]
+  },
+  "lessonOrder": [
+    "1473151"
+  ],
+  "topLevelLessonOrder": [
+    "1473151"
+  ],
+  "lessonGroups": [
+    {
+      "id": "unit-lessons",
+      "title": "Novel Study",
+      "lessonIds": [
+        "1473151"
+      ]
+    }
+  ],
+  "readings": [],
+  "placements": [],
+  "analysisTerms": [],
+  "analysisExamples": [],
+  "resourceDispositions": [
+    {
+      "id": "major-works-data",
+      "source": "UNIT 3 Novel/Major Works Data Sheet.docx",
+      "role": "supporting-resource",
+      "disposition": "place",
+      "destination": "major-works-data",
+      "reason": "Teacher-selected Major Works organizer."
+    },
+    {
+      "id": "tkamb-overview",
+      "source": "UNIT 3 Novel/TKAMB Novel overview.pdf",
+      "role": "supporting-resource",
+      "disposition": "place",
+      "destination": "resources",
+      "reason": "Teacher-selected novel overview."
+    },
+    {
+      "id": "tkamb-questions",
+      "source": "UNIT 3 Novel/TKAMB Questions.pdf",
+      "role": "question-set",
+      "disposition": "place",
+      "destination": "novel-study-questions",
+      "reason": "Teacher-selected novel questions."
+    },
+    {
+      "id": "tkamb-chapter-questions",
+      "source": "UNIT 3 Novel/TKAMB-Chapter Questions.pdf",
+      "role": "question-set",
+      "disposition": "place",
+      "destination": "novel-study-questions",
+      "reason": "Teacher-selected chapter questions."
+    },
+    {
+      "id": "boy-striped-pyjamas-overview",
+      "source": "UNIT 3 Novel/The Boy in the Striped Pyjamas Overview.docx",
+      "role": "supporting-resource",
+      "disposition": "place",
+      "destination": "resources",
+      "reason": "Teacher-selected novel overview."
+    },
+    {
+      "id": "novel-hard-gate",
+      "source": "UNIT 3 Novel/NOVEL UNIT 10-1 HARD GATE Critical Response to Text.docx",
+      "role": "excluded-assessment",
+      "disposition": "exclude",
+      "reason": "Hard-gate assessment is intentionally excluded."
+    }
+  ],
+  "excludedFiles": [
+    {
+      "file": "UNIT 3 Novel/NOVEL UNIT 10-1 HARD GATE Critical Response to Text.docx",
+      "reason": "Hard-gate assessment is intentionally excluded."
+    }
+  ],
+  "wordingCorrections": [
+    {
+      "find": "English 20-1",
+      "replace": "English 10-1",
+      "reason": "Prevent donor-grade contamination."
+    },
+    {
+      "find": "ELA 20-1",
+      "replace": "ELA 10-1",
+      "reason": "Prevent donor-grade contamination."
+    },
+    {
+      "find": "English 30-1",
+      "replace": "English 10-1",
+      "reason": "Prevent donor-grade contamination."
+    },
+    {
+      "find": "ELA 30-1",
+      "replace": "ELA 10-1",
+      "reason": "Prevent donor-grade contamination."
+    },
+    {
+      "find": "Diploma Exam",
+      "replace": "course assessment",
+      "reason": "Remove Diploma framing."
+    },
+    {
+      "find": "Part A",
+      "replace": "written response",
+      "reason": "Remove Diploma framing."
+    }
+  ],
+  "mediaPolicy": {
+    "verifiedAt": "not-reviewed",
+    "allowedYouTubeIds": [],
+    "blockedYouTubeIds": [],
+    "approvedExternalUrls": [],
+    "externalUrlRewrites": {}
+  },
+  "customComponents": [],
+  "acceptance": {
+    "requiredRoutes": [
+      "critical-essay",
+      "reading-guide",
+      "major-works-data",
+      "novel-study-questions",
+      "writing-studio",
+      "evidence-bank"
+    ],
+    "requiredActivityIds": [
+      "critical-essay",
+      "reading-guide",
+      "major-works-data",
+      "novel-questions",
+      "writing-studio",
+      "evidence-bank"
+    ],
+    "reviewItems": [
+      "Confirm learner access to both novels; the primary novels are not included.",
+      "Review profile-supplied enrichment questions alongside teacher question sheets."
+    ]
+  }
+}

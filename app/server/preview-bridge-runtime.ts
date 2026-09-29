@@ -2461,9 +2461,43 @@ export function buildPreviewBridgeRuntime(
     return sourceNodeCounts[nodeId] === 1 ? nodeId : null;
   }
 
+  function runtimeInspectionNodeId(element) {
+    var path = [];
+    var current = element;
+    while (current && path.length < 24) {
+      var parent = current.parentElement;
+      if (!parent) return null;
+      var index = Array.prototype.indexOf.call(parent.children, current);
+      if (index < 0 || index > 46655) return null;
+      path.unshift(index.toString(36));
+      var ownerId = uniqueSourceNodeId(parent);
+      if (ownerId) {
+        var tag = (element.tagName || "").toLowerCase();
+        if (!/^[a-z][a-z0-9-]{0,15}$/.test(tag)) return null;
+        var textHash = renderedTextFingerprint(normalizedRenderedText(element.textContent || ""));
+        var runtimeId = ownerId + "~" + path.join(".") + "!" + tag + "!" + textHash;
+        return runtimeId.length <= 160 ? runtimeId : null;
+      }
+      current = parent;
+    }
+    return null;
+  }
+
   function elementForSourceNodeId(nodeId) {
     if (typeof nodeId !== "string" || !nodeId) return null;
     ensureSourceNodeIndex();
+    var runtimeMatch = /^([^~]+)~([0-9a-z]{1,3}(?:\.[0-9a-z]{1,3}){0,23})!([a-z][a-z0-9-]{0,15})!([a-f0-9]{8})$/.exec(nodeId);
+    if (runtimeMatch) {
+      if (sourceNodeCounts[runtimeMatch[1]] !== 1) return null;
+      var current = sourceNodeElements[runtimeMatch[1]];
+      var steps = runtimeMatch[2].split(".");
+      for (var stepIndex = 0; stepIndex < steps.length; stepIndex += 1) {
+        current = current && current.children[parseInt(steps[stepIndex], 36)];
+        if (!current) return null;
+      }
+      if (uniqueSourceNodeId(current) || current.tagName.toLowerCase() !== runtimeMatch[3]) return null;
+      return renderedTextFingerprint(normalizedRenderedText(current.textContent || "")) === runtimeMatch[4] ? current : null;
+    }
     return sourceNodeCounts[nodeId] === 1 ? sourceNodeElements[nodeId] : null;
   }
 
@@ -2488,7 +2522,7 @@ export function buildPreviewBridgeRuntime(
     var isFormControl = element instanceof HTMLInputElement || element instanceof HTMLTextAreaElement || element instanceof HTMLSelectElement;
     var fullVisibleText = isFormControl ? "" : normalizedRenderedText(element.textContent || "");
     return {
-      nodeId: uniqueSourceNodeId(element),
+      nodeId: uniqueSourceNodeId(element) || (!editModeEnabled ? runtimeInspectionNodeId(element) : null),
       selectionKind: "element",
       visibleText: boundedString(fullVisibleText, MAX_TEXT),
       tagName: boundedString(element.tagName ? element.tagName.toLowerCase() : "", MAX_ELEMENT_TAG),
@@ -2558,7 +2592,9 @@ export function buildPreviewBridgeRuntime(
         setEditPanelOpen(true);
       } else {
         reviewSelection = selection;
-        reviewLocalMessage = selection.nodeId ? "Add a note or screenshot, then save this annotation." : "Choose a more specific course element.";
+        reviewLocalMessage = selection.nodeId
+          ? "Add a note or screenshot, then save this annotation."
+          : "Choose a more specific course element.";
         setReviewPanelOpen(true);
       }
     }

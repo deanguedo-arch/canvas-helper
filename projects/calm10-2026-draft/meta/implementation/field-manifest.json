@@ -1,0 +1,2567 @@
+[
+  {
+    "key": "guided:ce1-01:match",
+    "label": "Choose a supported claim",
+    "type": "Select: organized a shared task; completed every part alone; enjoys supervising people all day",
+    "required": false,
+    "instruction": "No",
+    "id": "ce1-01",
+    "kind": "select"
+  },
+  {
+    "key": "guided:ce1-01:part1",
+    "label": "Action and result",
+    "type": "Textarea",
+    "required": false,
+    "instruction": "No",
+    "id": "ce1-01",
+    "kind": "textarea"
+  },
+  {
+    "key": "guided:ce1-01:part2",
+    "label": "Skill and limit",
+    "type": "Textarea",
+    "required": false,
+    "instruction": "No",
+    "id": "ce1-01",
+    "kind": "textarea"
+  },
+  {
+    "key": "guided:ce1-01:part3",
+    "label": "Next question linked to a value",
+    "type": "Textarea",
+    "required": false,
+    "instruction": "No",
+    "id": "ce1-01",
+    "kind": "textarea"
+  },
+  {
+    "key": "ce1-01",
+    "label": "Two examples and what they suggest",
+    "type": "Textarea",
+    "required": true,
+    "instruction": "Yes",
+    "id": "ce1-01",
+    "kind": "textarea"
+  },
+  {
+    "key": "evidence:ce1-01:directions",
+    "label": "Goals, values and two directions",
+    "type": "Textarea",
+    "required": true,
+    "instruction": "Yes",
+    "id": "ce1-01",
+    "kind": "textarea"
+  },
+  {
+    "key": "evidence:ce1-01:questions",
+    "label": "A question that could change each direction",
+    "type": "Textarea",
+    "required": true,
+    "instruction": "Yes",
+    "id": "ce1-01",
+    "kind": "textarea"
+  },
+  {
+    "key": "guided:ce1-02:match",
+    "label": "Classify the experience statement",
+    "type": "Select: universal legal requirement; preference in this opening; guaranteed admission to a program",
+    "required": false,
+    "instruction": "No",
+    "id": "ce1-02",
+    "kind": "select"
+  },
+  {
+    "key": "guided:ce1-02:part1",
+    "label": "Evidence and source",
+    "type": "Textarea",
+    "required": false,
+    "instruction": "No",
+    "id": "ce1-02",
+    "kind": "textarea"
+  },
+  {
+    "key": "guided:ce1-02:part2",
+    "label": "What Jordan can conclude",
+    "type": "Textarea",
+    "required": false,
+    "instruction": "No",
+    "id": "ce1-02",
+    "kind": "textarea"
+  },
+  {
+    "key": "guided:ce1-02:part3",
+    "label": "One unresolved preparation question",
+    "type": "Textarea",
+    "required": false,
+    "instruction": "No",
+    "id": "ce1-02",
+    "kind": "textarea"
+  },
+  {
+    "key": "ce1-02",
+    "label": "Graphic-design evidence",
+    "type": "Textarea",
+    "required": true,
+    "instruction": "Yes",
+    "id": "ce1-02",
+    "kind": "textarea"
+  },
+  {
+    "key": "evidence:ce1-02:web",
+    "label": "Web-design evidence",
+    "type": "Textarea",
+    "required": true,
+    "instruction": "Yes",
+    "id": "ce1-02",
+    "kind": "textarea"
+  },
+  {
+    "key": "evidence:ce1-02:decision",
+    "label": "A provisional direction for Nia",
+    "type": "Textarea",
+    "required": true,
+    "instruction": "Yes",
+    "id": "ce1-02",
+    "kind": "textarea"
+  },
+  {
+    "key": "guided:ce1-03:travel",
+    "label": "Route B travel cost ($)",
+    "type": "Number, CAD, nonnegative",
+    "required": false,
+    "instruction": "No",
+    "id": "ce1-03",
+    "kind": "number"
+  },
+  {
+    "key": "guided:ce1-03:total",
+    "label": "Route B listed total ($)",
+    "type": "Number, CAD, nonnegative",
+    "required": false,
+    "instruction": "No",
+    "id": "ce1-03",
+    "kind": "number"
+  },
+  {
+    "key": "guided:ce1-03:part1",
+    "label": "Preparation still needed",
+    "type": "Textarea",
+    "required": false,
+    "instruction": "No",
+    "id": "ce1-03",
+    "kind": "textarea"
+  },
+  {
+    "key": "guided:ce1-03:part2",
+    "label": "Trade-off and funding gap",
+    "type": "Textarea",
+    "required": false,
+    "instruction": "No",
+    "id": "ce1-03",
+    "kind": "textarea"
+  },
+  {
+    "key": "guided:ce1-03:part3",
+    "label": "Backup condition and checkpoint",
+    "type": "Textarea",
+    "required": false,
+    "instruction": "No",
+    "id": "ce1-03",
+    "kind": "textarea"
+  },
+  {
+    "key": "evidence:ce1-03:c-total",
+    "label": "Route C listed total ($)",
+    "type": "Number, CAD",
+    "required": true,
+    "instruction": "Yes",
+    "id": "ce1-03",
+    "kind": "number"
+  },
+  {
+    "key": "evidence:ce1-03:d-total",
+    "label": "Route D listed total ($)",
+    "type": "Number, CAD",
+    "required": true,
+    "instruction": "Yes",
+    "id": "ce1-03",
+    "kind": "number"
+  },
+  {
+    "key": "ce1-03",
+    "label": "Owen's primary and backup route",
+    "type": "Textarea",
+    "required": true,
+    "instruction": "Yes",
+    "id": "ce1-03",
+    "kind": "textarea"
+  },
+  {
+    "key": "guided:ce1-04:match",
+    "label": "Which statement does the new log support?",
+    "type": "Select: whole occupation disappeared; this search found zero on October 1; both earlier jobs were filled",
+    "required": false,
+    "instruction": "No",
+    "id": "ce1-04",
+    "kind": "select"
+  },
+  {
+    "key": "guided:ce1-04:part1",
+    "label": "Observation with scope/date",
+    "type": "Textarea",
+    "required": false,
+    "instruction": "No",
+    "id": "ce1-04",
+    "kind": "textarea"
+  },
+  {
+    "key": "guided:ce1-04:part2",
+    "label": "What the two searches cannot establish",
+    "type": "Textarea",
+    "required": false,
+    "instruction": "No",
+    "id": "ce1-04",
+    "kind": "textarea"
+  },
+  {
+    "key": "guided:ce1-04:part3",
+    "label": "A useful next comparison",
+    "type": "Textarea",
+    "required": false,
+    "instruction": "No",
+    "id": "ce1-04",
+    "kind": "textarea"
+  },
+  {
+    "key": "evidence:ce1-04:e1",
+    "label": "E1 annotation",
+    "type": "Textarea",
+    "required": true,
+    "instruction": "Yes",
+    "id": "ce1-04",
+    "kind": "textarea"
+  },
+  {
+    "key": "evidence:ce1-04:e2",
+    "label": "E2 annotation",
+    "type": "Textarea",
+    "required": true,
+    "instruction": "Yes",
+    "id": "ce1-04",
+    "kind": "textarea"
+  },
+  {
+    "key": "ce1-04",
+    "label": "Ellis's evidence-based next step",
+    "type": "Textarea",
+    "required": true,
+    "instruction": "Yes",
+    "id": "ce1-04",
+    "kind": "textarea"
+  },
+  {
+    "key": "guided:ce1-05:match",
+    "label": "Choose a valid design sequence",
+    "type": "Select with three exact §5 choices",
+    "required": false,
+    "instruction": "No",
+    "id": "ce1-05",
+    "kind": "select"
+  },
+  {
+    "key": "guided:ce1-05:part1",
+    "label": "Revised elective sequence",
+    "type": "Textarea",
+    "required": false,
+    "instruction": "No",
+    "id": "ce1-05",
+    "kind": "textarea"
+  },
+  {
+    "key": "guided:ce1-05:part2",
+    "label": "Deadline and capacity check",
+    "type": "Textarea",
+    "required": false,
+    "instruction": "No",
+    "id": "ce1-05",
+    "kind": "textarea"
+  },
+  {
+    "key": "guided:ce1-05:part3",
+    "label": "Checkpoint and precise support question",
+    "type": "Textarea",
+    "required": false,
+    "instruction": "No",
+    "id": "ce1-05",
+    "kind": "textarea"
+  },
+  {
+    "key": "ce1-05",
+    "label": "Nessa's Grade 10–12 route",
+    "type": "Textarea",
+    "required": true,
+    "instruction": "Yes",
+    "id": "ce1-05",
+    "kind": "textarea"
+  },
+  {
+    "key": "evidence:ce1-05:reason",
+    "label": "Goals, costs and revision reason",
+    "type": "Textarea",
+    "required": true,
+    "instruction": "Yes",
+    "id": "ce1-05",
+    "kind": "textarea"
+  },
+  {
+    "key": "evidence:ce1-05:checkpoints",
+    "label": "Two checkpoints and support questions",
+    "type": "Textarea",
+    "required": true,
+    "instruction": "Yes",
+    "id": "ce1-05",
+    "kind": "textarea"
+  },
+  {
+    "key": "guided:ce1-06:match",
+    "label": "Which cost repeats per job?",
+    "type": "Select: $25 weekly charge; $15 parts charge; every cost becomes zero",
+    "required": false,
+    "instruction": "No",
+    "id": "ce1-06",
+    "kind": "select"
+  },
+  {
+    "key": "guided:ce1-06:revenue",
+    "label": "Three-job revenue ($)",
+    "type": "Number/CAD",
+    "required": false,
+    "instruction": "No",
+    "id": "ce1-06",
+    "kind": "number"
+  },
+  {
+    "key": "guided:ce1-06:costs",
+    "label": "Listed costs ($)",
+    "type": "Number/CAD",
+    "required": false,
+    "instruction": "No",
+    "id": "ce1-06",
+    "kind": "number"
+  },
+  {
+    "key": "guided:ce1-06:remaining",
+    "label": "Amount remaining ($)",
+    "type": "Number/CAD",
+    "required": false,
+    "instruction": "No",
+    "id": "ce1-06",
+    "kind": "number"
+  },
+  {
+    "key": "guided:ce1-06:part1",
+    "label": "What changed in the opportunity",
+    "type": "Textarea",
+    "required": false,
+    "instruction": "No",
+    "id": "ce1-06",
+    "kind": "textarea"
+  },
+  {
+    "key": "guided:ce1-06:part2",
+    "label": "A safe next learning step",
+    "type": "Textarea",
+    "required": false,
+    "instruction": "No",
+    "id": "ce1-06",
+    "kind": "textarea"
+  },
+  {
+    "key": "evidence:ce1-06:remaining",
+    "label": "Venture amount remaining ($)",
+    "type": "Number/CAD",
+    "required": true,
+    "instruction": "Yes",
+    "id": "ce1-06",
+    "kind": "number"
+  },
+  {
+    "key": "ce1-06",
+    "label": "Samir's route comparison",
+    "type": "Textarea",
+    "required": true,
+    "instruction": "Yes",
+    "id": "ce1-06",
+    "kind": "textarea"
+  },
+  {
+    "key": "evidence:ce1-06:profile",
+    "label": "Truthful employment-profile snippet",
+    "type": "Textarea",
+    "required": true,
+    "instruction": "Yes",
+    "id": "ce1-06",
+    "kind": "textarea"
+  },
+  {
+    "key": "guided:ce1-07:match",
+    "label": "Choose a supported Thursday revision",
+    "type": "Select with exact three §5 choices",
+    "required": false,
+    "instruction": "No",
+    "id": "ce1-07",
+    "kind": "select"
+  },
+  {
+    "key": "guided:ce1-07:part1",
+    "label": "The changed assumption",
+    "type": "Textarea",
+    "required": false,
+    "instruction": "No",
+    "id": "ce1-07",
+    "kind": "textarea"
+  },
+  {
+    "key": "guided:ce1-07:part2",
+    "label": "Revised Thursday with full timing",
+    "type": "Textarea",
+    "required": false,
+    "instruction": "No",
+    "id": "ce1-07",
+    "kind": "textarea"
+  },
+  {
+    "key": "guided:ce1-07:part3",
+    "label": "Review trigger and digital habit",
+    "type": "Textarea",
+    "required": false,
+    "instruction": "No",
+    "id": "ce1-07",
+    "kind": "textarea"
+  },
+  {
+    "key": "ce1-07",
+    "label": "Arun's revised plan",
+    "type": "Textarea",
+    "required": true,
+    "instruction": "Yes",
+    "id": "ce1-07",
+    "kind": "textarea"
+  },
+  {
+    "key": "evidence:ce1-07:fit",
+    "label": "Why the plan fits and how to support it",
+    "type": "Textarea",
+    "required": true,
+    "instruction": "Yes",
+    "id": "ce1-07",
+    "kind": "textarea"
+  },
+  {
+    "key": "evidence:ce1-07:review",
+    "label": "Review date and trigger",
+    "type": "Textarea",
+    "required": true,
+    "instruction": "Yes",
+    "id": "ce1-07",
+    "kind": "textarea"
+  },
+  {
+    "key": "guided:co1-02:moment1",
+    "label": "9:20 brochures",
+    "type": "three radios above",
+    "required": false,
+    "instruction": "Practice first",
+    "id": "co1-02",
+    "kind": "select"
+  },
+  {
+    "key": "guided:co1-02:moment2",
+    "label": "9:25 spill",
+    "type": "three radios above",
+    "required": false,
+    "instruction": "Practice first",
+    "id": "co1-02",
+    "kind": "select"
+  },
+  {
+    "key": "guided:co1-02:moment3",
+    "label": "9:35 list",
+    "type": "three radios above",
+    "required": false,
+    "instruction": "Practice first",
+    "id": "co1-02",
+    "kind": "select"
+  },
+  {
+    "key": "guided:co1-02:part1",
+    "label": "My spill message to Morgan",
+    "type": "textarea",
+    "required": false,
+    "instruction": "Practice, compare model",
+    "id": "co1-02",
+    "kind": "textarea"
+  },
+  {
+    "key": "evidence:co1-02:spray-action",
+    "label": "Cleaning spray: boundary and immediate action",
+    "type": "textarea",
+    "required": true,
+    "instruction": "Required",
+    "id": "co1-02",
+    "kind": "textarea"
+  },
+  {
+    "key": "evidence:co1-02:spray-message",
+    "label": "Cleaning spray: evidence and message",
+    "type": "textarea",
+    "required": true,
+    "instruction": "Required",
+    "id": "co1-02",
+    "kind": "textarea"
+  },
+  {
+    "key": "evidence:co1-02:phone-action",
+    "label": "Phone request: boundary and immediate action",
+    "type": "textarea",
+    "required": true,
+    "instruction": "Required",
+    "id": "co1-02",
+    "kind": "textarea"
+  },
+  {
+    "key": "co1-02",
+    "label": "Phone request: evidence and message",
+    "type": "textarea",
+    "required": true,
+    "instruction": "Required; group with other three",
+    "id": "co1-02",
+    "kind": "textarea"
+  },
+  {
+    "key": "guided:co1-03:match",
+    "label": "Relevant action in Record B",
+    "type": "three radios above",
+    "required": false,
+    "instruction": "Practice first",
+    "id": "co1-03",
+    "kind": "select"
+  },
+  {
+    "key": "guided:co1-03:part1",
+    "label": "Situation and responsibility",
+    "type": "textarea",
+    "required": false,
+    "instruction": "Practice",
+    "id": "co1-03",
+    "kind": "textarea"
+  },
+  {
+    "key": "guided:co1-03:part2",
+    "label": "My action and the shared result",
+    "type": "textarea",
+    "required": false,
+    "instruction": "Practice",
+    "id": "co1-03",
+    "kind": "textarea"
+  },
+  {
+    "key": "guided:co1-03:part3",
+    "label": "A truthful limit or next improvement",
+    "type": "textarea",
+    "required": false,
+    "instruction": "Practice",
+    "id": "co1-03",
+    "kind": "textarea"
+  },
+  {
+    "key": "co1-03",
+    "label": "My 4–6 sentence interview answer",
+    "type": "textarea",
+    "required": true,
+    "instruction": "Required",
+    "id": "co1-03",
+    "kind": "textarea"
+  },
+  {
+    "key": "evidence:co1-03:question",
+    "label": "My question about the role or pathway",
+    "type": "textarea",
+    "required": true,
+    "instruction": "Required",
+    "id": "co1-03",
+    "kind": "textarea"
+  },
+  {
+    "key": "evidence:co1-03:route",
+    "label": "How I could investigate that question",
+    "type": "textarea",
+    "required": true,
+    "instruction": "Required; the three example routes are help text, not a compulsory contact",
+    "id": "co1-03",
+    "kind": "textarea"
+  },
+  {
+    "key": "guided:co1-04:match",
+    "label": "Workable outdoor sequence",
+    "type": "three radios above",
+    "required": false,
+    "instruction": "Practice second",
+    "id": "co1-04",
+    "kind": "select"
+  },
+  {
+    "key": "guided:co1-04:part1",
+    "label": "First action at 10:20",
+    "type": "textarea",
+    "required": false,
+    "instruction": "Practice",
+    "id": "co1-04",
+    "kind": "textarea"
+  },
+  {
+    "key": "guided:co1-04:part2",
+    "label": "My 10:25 update and task split",
+    "type": "textarea",
+    "required": false,
+    "instruction": "Practice",
+    "id": "co1-04",
+    "kind": "textarea"
+  },
+  {
+    "key": "guided:co1-04:part3",
+    "label": "Times for notice, check and setup",
+    "type": "textarea",
+    "required": false,
+    "instruction": "Practice",
+    "id": "co1-04",
+    "kind": "textarea"
+  },
+  {
+    "key": "co1-04",
+    "label": "My changed-room decision log",
+    "type": "textarea",
+    "required": true,
+    "instruction": "Required",
+    "id": "co1-04",
+    "kind": "textarea"
+  },
+  {
+    "key": "evidence:co1-04:notice",
+    "label": "Notice posted by",
+    "type": "time input, 24-hour storage",
+    "required": true,
+    "instruction": "Required; examples 12:25 or 12:30",
+    "id": "co1-04",
+    "kind": "time"
+  },
+  {
+    "key": "evidence:co1-04:cards",
+    "label": "Card move finished by",
+    "type": "time input",
+    "required": true,
+    "instruction": "Required; examples 12:30 or 12:20",
+    "id": "co1-04",
+    "kind": "time"
+  },
+  {
+    "key": "guided:co1-05:match",
+    "label": "Supported directions claim",
+    "type": "three radios above",
+    "required": false,
+    "instruction": "Practice first",
+    "id": "co1-05",
+    "kind": "select"
+  },
+  {
+    "key": "guided:co1-05:part1",
+    "label": "Observation and limited strength",
+    "type": "textarea",
+    "required": false,
+    "instruction": "Practice",
+    "id": "co1-05",
+    "kind": "textarea"
+  },
+  {
+    "key": "guided:co1-05:part2",
+    "label": "Next explanation test and criterion",
+    "type": "textarea",
+    "required": false,
+    "instruction": "Practice",
+    "id": "co1-05",
+    "kind": "textarea"
+  },
+  {
+    "key": "guided:co1-05:part3",
+    "label": "Work arrangement that fits the school term",
+    "type": "textarea",
+    "required": false,
+    "instruction": "Practice",
+    "id": "co1-05",
+    "kind": "textarea"
+  },
+  {
+    "key": "co1-05",
+    "label": "My revised reflection and career step",
+    "type": "textarea",
+    "required": true,
+    "instruction": "Required",
+    "id": "co1-05",
+    "kind": "textarea"
+  },
+  {
+    "key": "evidence:co1-05:question",
+    "label": "What I still need to investigate",
+    "type": "textarea",
+    "required": true,
+    "instruction": "Required",
+    "id": "co1-05",
+    "kind": "textarea"
+  },
+  {
+    "key": "guided:co2-01:part1",
+    "label": "Which recorded facts select the rules?",
+    "type": "Textarea",
+    "required": false,
+    "instruction": "Optional practice",
+    "id": "co2-01",
+    "kind": "textarea"
+  },
+  {
+    "key": "guided:co2-01:part2",
+    "label": "Check the corrected time and supervision",
+    "type": "Textarea",
+    "required": false,
+    "instruction": "Optional practice",
+    "id": "co2-01",
+    "kind": "textarea"
+  },
+  {
+    "key": "guided:co2-01:part3",
+    "label": "What can Ellis conclude, and what is the next action?",
+    "type": "Textarea",
+    "required": false,
+    "instruction": "Optional practice",
+    "id": "co2-01",
+    "kind": "textarea"
+  },
+  {
+    "key": "evidence:co2-01:facts",
+    "label": "Case facts and applicable conditions",
+    "type": "Textarea",
+    "required": true,
+    "instruction": "Required",
+    "id": "co2-01",
+    "kind": "textarea"
+  },
+  {
+    "key": "evidence:co2-01:hours",
+    "label": "Hours check and proposed revision",
+    "type": "Textarea",
+    "required": true,
+    "instruction": "Required",
+    "id": "co2-01",
+    "kind": "textarea"
+  },
+  {
+    "key": "co2-01",
+    "label": "Review note and next step",
+    "type": "Textarea",
+    "required": true,
+    "instruction": "Required; existing final evidence owner",
+    "id": "co2-01",
+    "kind": "textarea"
+  },
+  {
+    "key": "guided:co2-02:video",
+    "label": "My video pause response: observation, missing information and next safe action",
+    "type": "Textarea beside optional video pause instruction",
+    "required": false,
+    "instruction": "Optional",
+    "id": "co2-02",
+    "kind": "textarea"
+  },
+  {
+    "key": "guided:co2-02:part1",
+    "label": "What does Cam's comment establish, and what remains unknown?",
+    "type": "Textarea",
+    "required": false,
+    "instruction": "Optional",
+    "id": "co2-02",
+    "kind": "textarea"
+  },
+  {
+    "key": "guided:co2-02:part2",
+    "label": "What will Devin say and do now?",
+    "type": "Textarea",
+    "required": false,
+    "instruction": "Optional",
+    "id": "co2-02",
+    "kind": "textarea"
+  },
+  {
+    "key": "guided:co2-02:part3",
+    "label": "What must be confirmed before Devin performs the task?",
+    "type": "Textarea",
+    "required": false,
+    "instruction": "Optional",
+    "id": "co2-02",
+    "kind": "textarea"
+  },
+  {
+    "key": "evidence:co2-02:observation",
+    "label": "Observed condition and possible harm",
+    "type": "Textarea",
+    "required": true,
+    "instruction": "Required",
+    "id": "co2-02",
+    "kind": "textarea"
+  },
+  {
+    "key": "co2-02",
+    "label": "Immediate action and report",
+    "type": "Textarea; existing evidence owner",
+    "required": true,
+    "instruction": "Required",
+    "id": "co2-02",
+    "kind": "textarea"
+  },
+  {
+    "key": "evidence:co2-02:controls",
+    "label": "Information, control and competence before resuming",
+    "type": "Textarea",
+    "required": true,
+    "instruction": "Required",
+    "id": "co2-02",
+    "kind": "textarea"
+  },
+  {
+    "key": "evidence:co2-02:followup",
+    "label": "Unresolved-danger follow-up",
+    "type": "Textarea",
+    "required": true,
+    "instruction": "Required",
+    "id": "co2-02",
+    "kind": "textarea"
+  },
+  {
+    "key": "guided:co2-03:part1",
+    "label": "What did Owen hear, and what did Tessa confirm?",
+    "type": "Textarea",
+    "required": false,
+    "instruction": "Optional",
+    "id": "co2-03",
+    "kind": "textarea"
+  },
+  {
+    "key": "guided:co2-03:part2",
+    "label": "Append the follow-up entry",
+    "type": "Textarea",
+    "required": false,
+    "instruction": "Optional",
+    "id": "co2-03",
+    "kind": "textarea"
+  },
+  {
+    "key": "guided:co2-03:part3",
+    "label": "Write the next check and source route",
+    "type": "Textarea",
+    "required": false,
+    "instruction": "Optional",
+    "id": "co2-03",
+    "kind": "textarea"
+  },
+  {
+    "key": "evidence:co2-03:hours",
+    "label": "Compare the matching records",
+    "type": "Textarea",
+    "required": true,
+    "instruction": "Required",
+    "id": "co2-03",
+    "kind": "textarea"
+  },
+  {
+    "key": "evidence:co2-03:wages",
+    "label": "Calculate the regular-wage difference",
+    "type": "Textarea",
+    "required": true,
+    "instruction": "Required",
+    "id": "co2-03",
+    "kind": "textarea"
+  },
+  {
+    "key": "co2-03",
+    "label": "Draft the review request",
+    "type": "Textarea; existing evidence owner",
+    "required": true,
+    "instruction": "Required",
+    "id": "co2-03",
+    "kind": "textarea"
+  },
+  {
+    "key": "evidence:co2-03:followup",
+    "label": "Plan the follow-up and source route",
+    "type": "Textarea",
+    "required": true,
+    "instruction": "Required",
+    "id": "co2-03",
+    "kind": "textarea"
+  },
+  {
+    "key": "guided:co2-04:part1",
+    "label": "What is confirmed, and what remains unresolved?",
+    "type": "Textarea",
+    "required": false,
+    "instruction": "Optional",
+    "id": "co2-04",
+    "kind": "textarea"
+  },
+  {
+    "key": "guided:co2-04:part2",
+    "label": "Draft Jules's response to Ash",
+    "type": "Textarea",
+    "required": false,
+    "instruction": "Optional",
+    "id": "co2-04",
+    "kind": "textarea"
+  },
+  {
+    "key": "guided:co2-04:part3",
+    "label": "Record the follow-up and support choice",
+    "type": "Textarea",
+    "required": false,
+    "instruction": "Optional",
+    "id": "co2-04",
+    "kind": "textarea"
+  },
+  {
+    "key": "evidence:co2-04:facts",
+    "label": "Dated facts and effect",
+    "type": "Textarea",
+    "required": true,
+    "instruction": "Required",
+    "id": "co2-04",
+    "kind": "textarea"
+  },
+  {
+    "key": "evidence:co2-04:connection",
+    "label": "Possible protected-ground connection and missing information",
+    "type": "Textarea",
+    "required": true,
+    "instruction": "Required",
+    "id": "co2-04",
+    "kind": "textarea"
+  },
+  {
+    "key": "co2-04",
+    "label": "Draft the review request",
+    "type": "Textarea; existing evidence owner",
+    "required": true,
+    "instruction": "Required",
+    "id": "co2-04",
+    "kind": "textarea"
+  },
+  {
+    "key": "evidence:co2-04:support",
+    "label": "Support, records and timing plan",
+    "type": "Textarea",
+    "required": true,
+    "instruction": "Required",
+    "id": "co2-04",
+    "kind": "textarea"
+  },
+  {
+    "key": "guided:fl1-01:part1",
+    "label": "Hours in the time record",
+    "type": "decimal number, hours",
+    "required": false,
+    "instruction": "Practice; 20",
+    "id": "fl1-01",
+    "kind": "number"
+  },
+  {
+    "key": "guided:fl1-01:part2",
+    "label": "Gross from those hours",
+    "type": "decimal number, dollars",
+    "required": false,
+    "instruction": "Practice; 320",
+    "id": "fl1-01",
+    "kind": "number"
+  },
+  {
+    "key": "guided:fl1-01:part3",
+    "label": "Net calculated from the stub's listed gross and deductions",
+    "type": "decimal number, dollars",
+    "required": false,
+    "instruction": "Practice; 257",
+    "id": "fl1-01",
+    "kind": "number"
+  },
+  {
+    "key": "guided:fl1-01:part4",
+    "label": "What needs checking?",
+    "type": "textarea",
+    "required": false,
+    "instruction": "Practice, manual comparison",
+    "id": "fl1-01",
+    "kind": "textarea"
+  },
+  {
+    "key": "evidence:fl1-01:hours",
+    "label": "Time-record hours",
+    "type": "decimal number",
+    "required": true,
+    "instruction": "Required; reference 20",
+    "id": "fl1-01",
+    "kind": "number"
+  },
+  {
+    "key": "evidence:fl1-01:gross",
+    "label": "Gross supported by the time record ($)",
+    "type": "decimal number",
+    "required": true,
+    "instruction": "Required; reference 340",
+    "id": "fl1-01",
+    "kind": "number"
+  },
+  {
+    "key": "evidence:fl1-01:net",
+    "label": "Net supported by the current stub ($)",
+    "type": "decimal number",
+    "required": true,
+    "instruction": "Required; reference 287.50",
+    "id": "fl1-01",
+    "kind": "number"
+  },
+  {
+    "key": "fl1-01",
+    "label": "My pay-check note",
+    "type": "textarea",
+    "required": true,
+    "instruction": "Required; no keyword grading",
+    "id": "fl1-01",
+    "kind": "textarea"
+  },
+  {
+    "key": "guided:fl1-02:match",
+    "label": "Strongest statement",
+    "type": "radio, three exact statements above",
+    "required": false,
+    "instruction": "Practice; middle option",
+    "id": "fl1-02",
+    "kind": "select"
+  },
+  {
+    "key": "guided:fl1-02:part1",
+    "label": "Money left after commitments ($)",
+    "type": "number",
+    "required": false,
+    "instruction": "Practice; 56 ±0.005",
+    "id": "fl1-02",
+    "kind": "number"
+  },
+  {
+    "key": "guided:fl1-02:part2",
+    "label": "Money left if Ari also buys the hoodie ($)",
+    "type": "number",
+    "required": false,
+    "instruction": "Practice; 8 ±0.005",
+    "id": "fl1-02",
+    "kind": "number"
+  },
+  {
+    "key": "guided:fl1-02:part3",
+    "label": "Ari's revised decision",
+    "type": "textarea",
+    "required": false,
+    "instruction": "Practice; comparison, no inferred grade",
+    "id": "fl1-02",
+    "kind": "textarea"
+  },
+  {
+    "key": "evidence:fl1-02:choice",
+    "label": "Choice",
+    "type": "select, repair; new bag; another feasible action",
+    "required": true,
+    "instruction": "Required; no default selection",
+    "id": "fl1-02",
+    "kind": "select"
+  },
+  {
+    "key": "evidence:fl1-02:remaining",
+    "label": "Money after commitments and my choice ($)",
+    "type": "signed decimal",
+    "required": true,
+    "instruction": "Required; model 38 for repair; allow negative to expose a shortfall",
+    "id": "fl1-02",
+    "kind": "number"
+  },
+  {
+    "key": "fl1-02",
+    "label": "My reasons and the influence I questioned",
+    "type": "textarea",
+    "required": true,
+    "instruction": "Required",
+    "id": "fl1-02",
+    "kind": "textarea"
+  },
+  {
+    "key": "guided:fl1-03:match",
+    "label": "Choose a change",
+    "type": "three radios above",
+    "required": false,
+    "instruction": "Practice second choice",
+    "id": "fl1-03",
+    "kind": "select"
+  },
+  {
+    "key": "guided:fl1-03:part1",
+    "label": "Revised saving transfer ($)",
+    "type": "number",
+    "required": false,
+    "instruction": "Practice 0–70",
+    "id": "fl1-03",
+    "kind": "number"
+  },
+  {
+    "key": "guided:fl1-03:part2",
+    "label": "Revised recreation ($)",
+    "type": "number",
+    "required": false,
+    "instruction": "Practice 0–35",
+    "id": "fl1-03",
+    "kind": "number"
+  },
+  {
+    "key": "guided:fl1-03:part3",
+    "label": "My repair plan and two balance checks",
+    "type": "textarea",
+    "required": false,
+    "instruction": "Practice, model comparison",
+    "id": "fl1-03",
+    "kind": "textarea"
+  },
+  {
+    "key": "evidence:fl1-03:option",
+    "label": "Payment option",
+    "type": "select: full payment; confirmed two-payment option",
+    "required": true,
+    "instruction": "Required, blank initial",
+    "id": "fl1-03",
+    "kind": "select"
+  },
+  {
+    "key": "evidence:fl1-03:early",
+    "label": "Balance after November 18 ($)",
+    "type": "signed decimal",
+    "required": true,
+    "instruction": "Required; split model 5, full −55",
+    "id": "fl1-03",
+    "kind": "number"
+  },
+  {
+    "key": "evidence:fl1-03:ending",
+    "label": "Ending balance ($)",
+    "type": "signed decimal",
+    "required": true,
+    "instruction": "Required; model 85 if no cuts",
+    "id": "fl1-03",
+    "kind": "number"
+  },
+  {
+    "key": "fl1-03",
+    "label": "My dated balances and recommendation",
+    "type": "textarea",
+    "required": true,
+    "instruction": "Required",
+    "id": "fl1-03",
+    "kind": "textarea"
+  },
+  {
+    "key": "guided:fl1-04:part1",
+    "label": "A total including this repair ($)",
+    "type": "number",
+    "required": false,
+    "instruction": "Practice 1096",
+    "id": "fl1-04",
+    "kind": "number"
+  },
+  {
+    "key": "guided:fl1-04:part2",
+    "label": "B total including this claim ($)",
+    "type": "number",
+    "required": false,
+    "instruction": "Practice 1034",
+    "id": "fl1-04",
+    "kind": "number"
+  },
+  {
+    "key": "guided:fl1-04:part3",
+    "label": "What changes, and what does not?",
+    "type": "textarea",
+    "required": false,
+    "instruction": "Practice, compare model",
+    "id": "fl1-04",
+    "kind": "textarea"
+  },
+  {
+    "key": "evidence:fl1-04:pickup",
+    "label": "Rental cash at pickup ($)",
+    "type": "number",
+    "required": true,
+    "instruction": "Required, reference 137",
+    "id": "fl1-04",
+    "kind": "number"
+  },
+  {
+    "key": "evidence:fl1-04:rental",
+    "label": "Rental cost after deposit return ($)",
+    "type": "number",
+    "required": true,
+    "instruction": "Required, reference 112",
+    "id": "fl1-04",
+    "kind": "number"
+  },
+  {
+    "key": "evidence:fl1-04:purchase",
+    "label": "Used purchase plus battery ($)",
+    "type": "number",
+    "required": true,
+    "instruction": "Required, reference 107",
+    "id": "fl1-04",
+    "kind": "number"
+  },
+  {
+    "key": "fl1-04",
+    "label": "My calculator comparison and choice",
+    "type": "textarea",
+    "required": true,
+    "instruction": "Required, no keyword grading",
+    "id": "fl1-04",
+    "kind": "textarea"
+  },
+  {
+    "key": "guided:fl1-05:part1",
+    "label": "A: nine months paid plus remaining device balance ($)",
+    "type": "number",
+    "required": false,
+    "instruction": "Practice 468",
+    "id": "fl1-05",
+    "kind": "number"
+  },
+  {
+    "key": "guided:fl1-05:part2",
+    "label": "B: nine months paid ($)",
+    "type": "number",
+    "required": false,
+    "instruction": "Practice 387",
+    "id": "fl1-05",
+    "kind": "number"
+  },
+  {
+    "key": "guided:fl1-05:part3",
+    "label": "Explain the exit difference",
+    "type": "textarea",
+    "required": false,
+    "instruction": "Practice comparison",
+    "id": "fl1-05",
+    "kind": "textarea"
+  },
+  {
+    "key": "evidence:fl1-05:c12",
+    "label": "C: twelve-month total ($)",
+    "type": "number",
+    "required": true,
+    "instruction": "Required 426",
+    "id": "fl1-05",
+    "kind": "number"
+  },
+  {
+    "key": "evidence:fl1-05:d12",
+    "label": "D: twelve-month total ($)",
+    "type": "number",
+    "required": true,
+    "instruction": "Required 432",
+    "id": "fl1-05",
+    "kind": "number"
+  },
+  {
+    "key": "evidence:fl1-05:c6",
+    "label": "C: six-month total ($)",
+    "type": "number",
+    "required": true,
+    "instruction": "Required 186",
+    "id": "fl1-05",
+    "kind": "number"
+  },
+  {
+    "key": "evidence:fl1-05:d6",
+    "label": "D: six-month total ($)",
+    "type": "number",
+    "required": true,
+    "instruction": "Required 216",
+    "id": "fl1-05",
+    "kind": "number"
+  },
+  {
+    "key": "fl1-05",
+    "label": "My recommendation for Sacha",
+    "type": "textarea",
+    "required": true,
+    "instruction": "Required",
+    "id": "fl1-05",
+    "kind": "textarea"
+  },
+  {
+    "key": "guided:fl1-06:part1",
+    "label": "Revised cash needed by September 1 ($)",
+    "type": "number",
+    "required": false,
+    "instruction": "Practice 1380",
+    "id": "fl1-06",
+    "kind": "number"
+  },
+  {
+    "key": "guided:fl1-06:part2",
+    "label": "Confirmed cash available by September 1 ($)",
+    "type": "number",
+    "required": false,
+    "instruction": "Practice 1380",
+    "id": "fl1-06",
+    "kind": "number"
+  },
+  {
+    "key": "guided:fl1-06:part3",
+    "label": "Known monthly recurring total ($)",
+    "type": "number",
+    "required": false,
+    "instruction": "Practice 810",
+    "id": "fl1-06",
+    "kind": "number"
+  },
+  {
+    "key": "guided:fl1-06:part4",
+    "label": "What can Tess conclude now?",
+    "type": "textarea",
+    "required": false,
+    "instruction": "Practice comparison",
+    "id": "fl1-06",
+    "kind": "textarea"
+  },
+  {
+    "key": "evidence:fl1-06:initial",
+    "label": "Bike cash needed before the first ride, excluding storage ($)",
+    "type": "number",
+    "required": true,
+    "instruction": "Required 450",
+    "id": "fl1-06",
+    "kind": "number"
+  },
+  {
+    "key": "evidence:fl1-06:bike",
+    "label": "Four-month bike cost including storage ($)",
+    "type": "number",
+    "required": true,
+    "instruction": "Required 522",
+    "id": "fl1-06",
+    "kind": "number"
+  },
+  {
+    "key": "evidence:fl1-06:bus",
+    "label": "Four-month bus cost ($)",
+    "type": "number",
+    "required": true,
+    "instruction": "Required 300",
+    "id": "fl1-06",
+    "kind": "number"
+  },
+  {
+    "key": "fl1-06",
+    "label": "My transport recommendation",
+    "type": "textarea",
+    "required": true,
+    "instruction": "Required",
+    "id": "fl1-06",
+    "kind": "textarea"
+  },
+  {
+    "key": "guided:fl2-01:part1",
+    "label": "B total paid, including setup ($)",
+    "type": "number",
+    "required": false,
+    "instruction": "Practice 759",
+    "id": "fl2-01",
+    "kind": "number"
+  },
+  {
+    "key": "guided:fl2-01:part2",
+    "label": "B borrowing cost above $600 ($)",
+    "type": "number",
+    "required": false,
+    "instruction": "Practice 159",
+    "id": "fl2-01",
+    "kind": "number"
+  },
+  {
+    "key": "guided:fl2-01:part3",
+    "label": "My comparison of A and B",
+    "type": "textarea",
+    "required": false,
+    "instruction": "Practice",
+    "id": "fl2-01",
+    "kind": "textarea"
+  },
+  {
+    "key": "guided:fl2-01:match",
+    "label": "Changed repayment allowance",
+    "type": "three radios above",
+    "required": false,
+    "instruction": "Practice second",
+    "id": "fl2-01",
+    "kind": "select"
+  },
+  {
+    "key": "evidence:fl2-01:c",
+    "label": "C total and cost above $240",
+    "type": "short text",
+    "required": true,
+    "instruction": "Required; model 264/24",
+    "id": "fl2-01",
+    "kind": "textarea"
+  },
+  {
+    "key": "evidence:fl2-01:d",
+    "label": "D total and cost above $240",
+    "type": "short text",
+    "required": true,
+    "instruction": "Required; model 300/60",
+    "id": "fl2-01",
+    "kind": "textarea"
+  },
+  {
+    "key": "fl2-01",
+    "label": "My recommendation and terms to check",
+    "type": "textarea",
+    "required": true,
+    "instruction": "Required",
+    "id": "fl2-01",
+    "kind": "textarea"
+  },
+  {
+    "key": "guided:fl2-02:part1",
+    "label": "Six-month interest ($)",
+    "type": "number",
+    "required": false,
+    "instruction": "Practice 36",
+    "id": "fl2-02",
+    "kind": "number"
+  },
+  {
+    "key": "guided:fl2-02:part2",
+    "label": "Six-month repayment ($)",
+    "type": "number",
+    "required": false,
+    "instruction": "Practice 636",
+    "id": "fl2-02",
+    "kind": "number"
+  },
+  {
+    "key": "guided:fl2-02:part3",
+    "label": "Interest at 9% for six months ($)",
+    "type": "number",
+    "required": false,
+    "instruction": "Practice 27",
+    "id": "fl2-02",
+    "kind": "number"
+  },
+  {
+    "key": "guided:fl2-02:part4",
+    "label": "Explain the comparison",
+    "type": "textarea",
+    "required": false,
+    "instruction": "Practice",
+    "id": "fl2-02",
+    "kind": "textarea"
+  },
+  {
+    "key": "evidence:fl2-02:interest",
+    "label": "Interest for four months ($)",
+    "type": "number",
+    "required": true,
+    "instruction": "Required 24",
+    "id": "fl2-02",
+    "kind": "number"
+  },
+  {
+    "key": "evidence:fl2-02:subtotal",
+    "label": "Principal plus interest before the fee ($)",
+    "type": "number",
+    "required": true,
+    "instruction": "Required 824",
+    "id": "fl2-02",
+    "kind": "number"
+  },
+  {
+    "key": "evidence:fl2-02:maxfee",
+    "label": "Largest setup fee consistent with the $835 limit ($)",
+    "type": "number",
+    "required": true,
+    "instruction": "Required 11",
+    "id": "fl2-02",
+    "kind": "number"
+  },
+  {
+    "key": "fl2-02",
+    "label": "My calculation and conclusion",
+    "type": "textarea",
+    "required": true,
+    "instruction": "Required",
+    "id": "fl2-02",
+    "kind": "textarea"
+  },
+  {
+    "key": "guided:fl2-03:match",
+    "label": "Predict the 24-month change",
+    "type": "radio, four options above",
+    "required": false,
+    "instruction": "Practice first option",
+    "id": "fl2-03",
+    "kind": "select"
+  },
+  {
+    "key": "guided:fl2-03:part1",
+    "label": "Month-one principal repaid ($)",
+    "type": "number",
+    "required": false,
+    "instruction": "Practice 37.07",
+    "id": "fl2-03",
+    "kind": "number"
+  },
+  {
+    "key": "guided:fl2-03:part2",
+    "label": "Balance after month one ($)",
+    "type": "number",
+    "required": false,
+    "instruction": "Practice 962.93",
+    "id": "fl2-03",
+    "kind": "number"
+  },
+  {
+    "key": "guided:fl2-03:part3",
+    "label": "Extra total interest compared with 12 months ($)",
+    "type": "number",
+    "required": false,
+    "instruction": "Practice 63.60",
+    "id": "fl2-03",
+    "kind": "number"
+  },
+  {
+    "key": "guided:fl2-03:part4",
+    "label": "What the smaller payment changes",
+    "type": "textarea",
+    "required": false,
+    "instruction": "Practice, model/self-check only",
+    "id": "fl2-03",
+    "kind": "textarea"
+  },
+  {
+    "key": "evidence:fl2-03:costA",
+    "label": "Offer A total borrowing cost ($)",
+    "type": "number",
+    "required": true,
+    "instruction": "Required, comparison target 108.95",
+    "id": "fl2-03",
+    "kind": "number"
+  },
+  {
+    "key": "evidence:fl2-03:costB",
+    "label": "Offer B total borrowing cost ($)",
+    "type": "number",
+    "required": true,
+    "instruction": "Required, comparison target 193.58",
+    "id": "fl2-03",
+    "kind": "number"
+  },
+  {
+    "key": "evidence:fl2-03:balance",
+    "label": "Offer A balance after its first payment ($)",
+    "type": "number",
+    "required": true,
+    "instruction": "Required, target 1656.09",
+    "id": "fl2-03",
+    "kind": "number"
+  },
+  {
+    "key": "fl2-03",
+    "label": "My recommendation for Ren",
+    "type": "textarea",
+    "required": true,
+    "instruction": "Required, no automated prose grade",
+    "id": "fl2-03",
+    "kind": "textarea"
+  },
+  {
+    "key": "guided:fl2-04:part1",
+    "label": "Extra available after both minimums ($)",
+    "type": "number",
+    "required": false,
+    "instruction": "Practice 20",
+    "id": "fl2-04",
+    "kind": "number"
+  },
+  {
+    "key": "guided:fl2-04:part2",
+    "label": "Payment to A ($)",
+    "type": "number",
+    "required": false,
+    "instruction": "Practice 25",
+    "id": "fl2-04",
+    "kind": "number"
+  },
+  {
+    "key": "guided:fl2-04:part3",
+    "label": "Payment to B ($)",
+    "type": "number",
+    "required": false,
+    "instruction": "Practice 65",
+    "id": "fl2-04",
+    "kind": "number"
+  },
+  {
+    "key": "guided:fl2-04:part4",
+    "label": "What the earlier schedule can no longer promise",
+    "type": "textarea",
+    "required": false,
+    "instruction": "Practice",
+    "id": "fl2-04",
+    "kind": "textarea"
+  },
+  {
+    "key": "guided:fl2-04:match",
+    "label": "Respond to a $60 budget",
+    "type": "radio, four choices above",
+    "required": false,
+    "instruction": "Practice first choice",
+    "id": "fl2-04",
+    "kind": "select"
+  },
+  {
+    "key": "evidence:fl2-04:paymentC",
+    "label": "First payment to C ($)",
+    "type": "number",
+    "required": true,
+    "instruction": "Required",
+    "id": "fl2-04",
+    "kind": "number"
+  },
+  {
+    "key": "evidence:fl2-04:paymentD",
+    "label": "First payment to D ($)",
+    "type": "number",
+    "required": true,
+    "instruction": "Required",
+    "id": "fl2-04",
+    "kind": "number"
+  },
+  {
+    "key": "evidence:fl2-04:shortfall",
+    "label": "Shortfall if the proposed investment sells for $540 ($)",
+    "type": "number",
+    "required": true,
+    "instruction": "Required, target 108",
+    "id": "fl2-04",
+    "kind": "number"
+  },
+  {
+    "key": "fl2-04",
+    "label": "My repayment instruction and response to the proposal",
+    "type": "textarea",
+    "required": true,
+    "instruction": "Required",
+    "id": "fl2-04",
+    "kind": "textarea"
+  },
+  {
+    "key": "guided:fl2-05:part1",
+    "label": "Cash available at return ($)",
+    "type": "number",
+    "required": false,
+    "instruction": "Practice 260",
+    "id": "fl2-05",
+    "kind": "number"
+  },
+  {
+    "key": "guided:fl2-05:part2",
+    "label": "Gap to the cash price ($)",
+    "type": "number",
+    "required": false,
+    "instruction": "Practice 160",
+    "id": "fl2-05",
+    "kind": "number"
+  },
+  {
+    "key": "guided:fl2-05:part3",
+    "label": "What to verify before choosing",
+    "type": "textarea",
+    "required": false,
+    "instruction": "Practice model/self-check",
+    "id": "fl2-05",
+    "kind": "textarea"
+  },
+  {
+    "key": "evidence:fl2-05:total",
+    "label": "Financing total ($)",
+    "type": "number",
+    "required": true,
+    "instruction": "Required, comparison 168",
+    "id": "fl2-05",
+    "kind": "number"
+  },
+  {
+    "key": "evidence:fl2-05:extra",
+    "label": "Extra cost above cash ($)",
+    "type": "number",
+    "required": true,
+    "instruction": "Required, comparison 24",
+    "id": "fl2-05",
+    "kind": "number"
+  },
+  {
+    "key": "evidence:fl2-05:cash",
+    "label": "Cash available on day 7 ($)",
+    "type": "number",
+    "required": true,
+    "instruction": "Required, comparison 150",
+    "id": "fl2-05",
+    "kind": "number"
+  },
+  {
+    "key": "fl2-05",
+    "label": "My recommendation for Taylor",
+    "type": "textarea",
+    "required": true,
+    "instruction": "Required",
+    "id": "fl2-05",
+    "kind": "textarea"
+  },
+  {
+    "key": "guided:fl2-06:part1",
+    "label": "Regular payment amount above Ari's limit ($)",
+    "type": "number",
+    "required": false,
+    "instruction": "Practice 2.27",
+    "id": "fl2-06",
+    "kind": "number"
+  },
+  {
+    "key": "guided:fl2-06:part2",
+    "label": "Extra interest compared with F ($)",
+    "type": "number",
+    "required": false,
+    "instruction": "Practice 17.03",
+    "id": "fl2-06",
+    "kind": "number"
+  },
+  {
+    "key": "guided:fl2-06:part3",
+    "label": "What changed in my recommendation",
+    "type": "textarea",
+    "required": false,
+    "instruction": "Practice",
+    "id": "fl2-06",
+    "kind": "textarea"
+  },
+  {
+    "key": "evidence:fl2-06:margin",
+    "label": "H's later monthly margin ($)",
+    "type": "number",
+    "required": true,
+    "instruction": "Required, target 0.98",
+    "id": "fl2-06",
+    "kind": "number"
+  },
+  {
+    "key": "evidence:fl2-06:difference",
+    "label": "H's extra total interest compared with G ($)",
+    "type": "number",
+    "required": true,
+    "instruction": "Required, target 48.32",
+    "id": "fl2-06",
+    "kind": "number"
+  },
+  {
+    "key": "fl2-06",
+    "label": "My recommendation for Jules",
+    "type": "textarea",
+    "required": true,
+    "instruction": "Required",
+    "id": "fl2-06",
+    "kind": "textarea"
+  },
+  {
+    "key": "guided:fl2-07:part1",
+    "label": "Increase in regular monthly payment ($)",
+    "type": "number",
+    "required": false,
+    "instruction": "Practice 86.86",
+    "id": "fl2-07",
+    "kind": "number"
+  },
+  {
+    "key": "guided:fl2-07:part2",
+    "label": "Reduction in balance at month 60 ($)",
+    "type": "number",
+    "required": false,
+    "instruction": "Practice 6048.77",
+    "id": "fl2-07",
+    "kind": "number"
+  },
+  {
+    "key": "guided:fl2-07:part3",
+    "label": "Monthly margin under $860 ($)",
+    "type": "number",
+    "required": false,
+    "instruction": "Practice 5.37",
+    "id": "fl2-07",
+    "kind": "number"
+  },
+  {
+    "key": "guided:fl2-07:part4",
+    "label": "What the shorter plan changes",
+    "type": "textarea",
+    "required": false,
+    "instruction": "Practice",
+    "id": "fl2-07",
+    "kind": "textarea"
+  },
+  {
+    "key": "evidence:fl2-07:margin",
+    "label": "P's monthly margin ($)",
+    "type": "number",
+    "required": true,
+    "instruction": "Required, target 17.17",
+    "id": "fl2-07",
+    "kind": "number"
+  },
+  {
+    "key": "evidence:fl2-07:privilegeP",
+    "label": "P's annual privilege ($)",
+    "type": "number",
+    "required": true,
+    "instruction": "Required, target 18000",
+    "id": "fl2-07",
+    "kind": "number"
+  },
+  {
+    "key": "evidence:fl2-07:privilegeQ",
+    "label": "Q's annual privilege ($)",
+    "type": "number",
+    "required": true,
+    "instruction": "Required, target 27000",
+    "id": "fl2-07",
+    "kind": "number"
+  },
+  {
+    "key": "fl2-07",
+    "label": "My comparison for Morgan",
+    "type": "textarea",
+    "required": true,
+    "instruction": "Required",
+    "id": "fl2-07",
+    "kind": "textarea"
+  },
+  {
+    "key": "guided:fl3-01:part1",
+    "label": "Weekly bicycle contribution in weeks 1–6 ($)",
+    "type": "number",
+    "required": false,
+    "instruction": "Practice 5",
+    "id": "fl3-01",
+    "kind": "number"
+  },
+  {
+    "key": "guided:fl3-01:part2",
+    "label": "Bicycle balance at week 12 ($)",
+    "type": "number",
+    "required": false,
+    "instruction": "Practice 300",
+    "id": "fl3-01",
+    "kind": "number"
+  },
+  {
+    "key": "guided:fl3-01:part3",
+    "label": "Bicycle shortfall at week 12 ($)",
+    "type": "number",
+    "required": false,
+    "instruction": "Practice 60",
+    "id": "fl3-01",
+    "kind": "number"
+  },
+  {
+    "key": "guided:fl3-01:part4",
+    "label": "A feasible change to the bicycle plan",
+    "type": "textarea",
+    "required": false,
+    "instruction": "Practice",
+    "id": "fl3-01",
+    "kind": "textarea"
+  },
+  {
+    "key": "evidence:fl3-01:weekly",
+    "label": "Weekly amount needed for the fee ($)",
+    "type": "number",
+    "required": true,
+    "instruction": "Required, target 18",
+    "id": "fl3-01",
+    "kind": "number"
+  },
+  {
+    "key": "evidence:fl3-01:balance",
+    "label": "Fee balance at week 8 ($)",
+    "type": "number",
+    "required": true,
+    "instruction": "Required, target 144",
+    "id": "fl3-01",
+    "kind": "number"
+  },
+  {
+    "key": "fl3-01",
+    "label": "Lena's eight-week saving instruction",
+    "type": "textarea",
+    "required": true,
+    "instruction": "Required",
+    "id": "fl3-01",
+    "kind": "textarea"
+  },
+  {
+    "key": "guided:fl3-02:match",
+    "label": "Next use when reserve is funded",
+    "type": "radio, four authored choices",
+    "required": false,
+    "instruction": "Practice first option",
+    "id": "fl3-02",
+    "kind": "select"
+  },
+  {
+    "key": "guided:fl3-02:part1",
+    "label": "Debt balance after my extra payment ($)",
+    "type": "number",
+    "required": false,
+    "instruction": "Practice 220",
+    "id": "fl3-02",
+    "kind": "number"
+  },
+  {
+    "key": "guided:fl3-02:part2",
+    "label": "The benefit and opportunity cost of this choice",
+    "type": "textarea",
+    "required": false,
+    "instruction": "Practice",
+    "id": "fl3-02",
+    "kind": "textarea"
+  },
+  {
+    "key": "evidence:fl3-02:gap",
+    "label": "Additional repair money needed ($)",
+    "type": "number",
+    "required": true,
+    "instruction": "Required, target 40",
+    "id": "fl3-02",
+    "kind": "number"
+  },
+  {
+    "key": "evidence:fl3-02:funds",
+    "label": "Repair funds if the extra $40 is saved ($)",
+    "type": "number",
+    "required": true,
+    "instruction": "Required, target 100",
+    "id": "fl3-02",
+    "kind": "number"
+  },
+  {
+    "key": "fl3-02",
+    "label": "Jules's decision and opportunity cost",
+    "type": "textarea",
+    "required": true,
+    "instruction": "Required",
+    "id": "fl3-02",
+    "kind": "textarea"
+  },
+  {
+    "key": "guided:fl3-03:match",
+    "label": "What must still be checked?",
+    "type": "radio",
+    "required": false,
+    "instruction": "Practice first option",
+    "id": "fl3-03",
+    "kind": "select"
+  },
+  {
+    "key": "guided:fl3-03:part1",
+    "label": "Account arrangement",
+    "type": "text",
+    "required": false,
+    "instruction": "Practice",
+    "id": "fl3-03",
+    "kind": "textarea"
+  },
+  {
+    "key": "guided:fl3-03:part2",
+    "label": "Holding",
+    "type": "text",
+    "required": false,
+    "instruction": "Practice",
+    "id": "fl3-03",
+    "kind": "textarea"
+  },
+  {
+    "key": "guided:fl3-03:part3",
+    "label": "Why F could be considered and what it cannot promise",
+    "type": "textarea",
+    "required": false,
+    "instruction": "Practice",
+    "id": "fl3-03",
+    "kind": "textarea"
+  },
+  {
+    "key": "evidence:fl3-03:holding",
+    "label": "Holding for the three-month money",
+    "type": "select S2,G2,F2",
+    "required": true,
+    "instruction": "Required; feedback points to S2's access/stability, G2 lock-in, F2 price risk",
+    "id": "fl3-03",
+    "kind": "select"
+  },
+  {
+    "key": "evidence:fl3-03:contribution",
+    "label": "Total amount I propose contributing to the TFSA ($)",
+    "type": "number",
+    "required": true,
+    "instruction": "Required; nonnegative, compare with 1200",
+    "id": "fl3-03",
+    "kind": "number"
+  },
+  {
+    "key": "fl3-03",
+    "label": "My two-goal account and holding plan",
+    "type": "textarea",
+    "required": true,
+    "instruction": "Required; model/self-review",
+    "id": "fl3-03",
+    "kind": "textarea"
+  },
+  {
+    "key": "guided:fl3-04:part1",
+    "label": "Displayed nominal difference caused by the fee ($)",
+    "type": "number",
+    "required": false,
+    "instruction": "Practice 1.04",
+    "id": "fl3-04",
+    "kind": "number"
+  },
+  {
+    "key": "guided:fl3-04:match",
+    "label": "Which comparison is supported?",
+    "type": "radio",
+    "required": false,
+    "instruction": "Practice first option",
+    "id": "fl3-04",
+    "kind": "select"
+  },
+  {
+    "key": "guided:fl3-04:part2",
+    "label": "What the tool helps me see",
+    "type": "textarea",
+    "required": false,
+    "instruction": "Practice",
+    "id": "fl3-04",
+    "kind": "textarea"
+  },
+  {
+    "key": "evidence:fl3-04:price",
+    "label": "New quoted price ($)",
+    "type": "number",
+    "required": true,
+    "instruction": "Required, target 252",
+    "id": "fl3-04",
+    "kind": "number"
+  },
+  {
+    "key": "evidence:fl3-04:gap",
+    "label": "Gap compared with $248 saved ($)",
+    "type": "number",
+    "required": true,
+    "instruction": "Required, target 4",
+    "id": "fl3-04",
+    "kind": "number"
+  },
+  {
+    "key": "evidence:fl3-04:choice",
+    "label": "Updated purchase choice",
+    "type": "radio, two options above",
+    "required": true,
+    "instruction": "Required, either",
+    "id": "fl3-04",
+    "kind": "select"
+  },
+  {
+    "key": "fl3-04",
+    "label": "My updated plan for Riley",
+    "type": "textarea",
+    "required": true,
+    "instruction": "Required",
+    "id": "fl3-04",
+    "kind": "textarea"
+  },
+  {
+    "key": "guided:fl3-05:part1",
+    "label": "Monthly training contribution in months 1–8 ($)",
+    "type": "number",
+    "required": false,
+    "instruction": "Practice 15",
+    "id": "fl3-05",
+    "kind": "number"
+  },
+  {
+    "key": "guided:fl3-05:part2",
+    "label": "Training balance after month 8 ($)",
+    "type": "number",
+    "required": false,
+    "instruction": "Practice 220",
+    "id": "fl3-05",
+    "kind": "number"
+  },
+  {
+    "key": "guided:fl3-05:part3",
+    "label": "Month when training first reaches $1,200",
+    "type": "integer",
+    "required": false,
+    "instruction": "Practice 25",
+    "id": "fl3-05",
+    "kind": "number"
+  },
+  {
+    "key": "guided:fl3-05:part4",
+    "label": "The revised phase instruction",
+    "type": "textarea",
+    "required": false,
+    "instruction": "Practice",
+    "id": "fl3-05",
+    "kind": "textarea"
+  },
+  {
+    "key": "guided:fl3-05:match",
+    "label": "Useful next question",
+    "type": "radio",
+    "required": false,
+    "instruction": "Practice first option",
+    "id": "fl3-05",
+    "kind": "select"
+  },
+  {
+    "key": "evidence:fl3-05:nearMonth",
+    "label": "Earliest month the nearer goal can be fully funded",
+    "type": "integer",
+    "required": true,
+    "instruction": "Required, target 7",
+    "id": "fl3-05",
+    "kind": "number"
+  },
+  {
+    "key": "evidence:fl3-05:bothMonth",
+    "label": "Earliest month both goals can be fully funded",
+    "type": "integer",
+    "required": true,
+    "instruction": "Required, target 28",
+    "id": "fl3-05",
+    "kind": "number"
+  },
+  {
+    "key": "fl3-05",
+    "label": "Mina's revised plan",
+    "type": "textarea",
+    "required": true,
+    "instruction": "Required",
+    "id": "fl3-05",
+    "kind": "textarea"
+  },
+  {
+    "key": "guided:fl3-06:part1",
+    "label": "Deposits still needed",
+    "type": "integer",
+    "required": false,
+    "instruction": "Practice 6",
+    "id": "fl3-06",
+    "kind": "number"
+  },
+  {
+    "key": "guided:fl3-06:part2",
+    "label": "New completion month",
+    "type": "integer",
+    "required": false,
+    "instruction": "Practice 8",
+    "id": "fl3-06",
+    "kind": "number"
+  },
+  {
+    "key": "guided:fl3-06:part3",
+    "label": "My revised instruction",
+    "type": "textarea",
+    "required": false,
+    "instruction": "Practice",
+    "id": "fl3-06",
+    "kind": "textarea"
+  },
+  {
+    "key": "evidence:fl3-06:balance",
+    "label": "Balance after the expense ($)",
+    "type": "number",
+    "required": true,
+    "instruction": "Required, target 180",
+    "id": "fl3-06",
+    "kind": "number"
+  },
+  {
+    "key": "evidence:fl3-06:gap",
+    "label": "Remaining target gap ($)",
+    "type": "number",
+    "required": true,
+    "instruction": "Required, target 180",
+    "id": "fl3-06",
+    "kind": "number"
+  },
+  {
+    "key": "evidence:fl3-06:monthly",
+    "label": "Required contribution for each remaining month ($)",
+    "type": "number",
+    "required": true,
+    "instruction": "Required, target 60",
+    "id": "fl3-06",
+    "kind": "number"
+  },
+  {
+    "key": "fl3-06",
+    "label": "Devon's revision note",
+    "type": "textarea",
+    "required": true,
+    "instruction": "Required",
+    "id": "fl3-06",
+    "kind": "textarea"
+  },
+  {
+    "key": "guided:fl4-01:part1",
+    "label": "Which exposure is reduced, and what remains uncertain?",
+    "type": "Textarea",
+    "required": false,
+    "instruction": "Optional",
+    "id": "fl4-01",
+    "kind": "textarea"
+  },
+  {
+    "key": "guided:fl4-01:part2",
+    "label": "Which two remaining controls should Casey add?",
+    "type": "Textarea",
+    "required": false,
+    "instruction": "Optional",
+    "id": "fl4-01",
+    "kind": "textarea"
+  },
+  {
+    "key": "guided:fl4-01:part3",
+    "label": "Write Casey's repeatable review habit",
+    "type": "Textarea",
+    "required": false,
+    "instruction": "Optional",
+    "id": "fl4-01",
+    "kind": "textarea"
+  },
+  {
+    "key": "evidence:fl4-01:clues",
+    "label": "Two specific public clues and their possible misuse",
+    "type": "Textarea",
+    "required": true,
+    "instruction": "Required",
+    "id": "fl4-01",
+    "kind": "textarea"
+  },
+  {
+    "key": "fl4-01",
+    "label": "A revised bio and photo-sharing decision",
+    "type": "Textarea; retained main evidence owner",
+    "required": true,
+    "instruction": "Required",
+    "id": "fl4-01",
+    "kind": "textarea"
+  },
+  {
+    "key": "evidence:fl4-01:controls",
+    "label": "Account and permission controls with reasons",
+    "type": "Textarea",
+    "required": true,
+    "instruction": "Required",
+    "id": "fl4-01",
+    "kind": "textarea"
+  },
+  {
+    "key": "evidence:fl4-01:habit",
+    "label": "A review habit and limits",
+    "type": "Textarea",
+    "required": true,
+    "instruction": "Required",
+    "id": "fl4-01",
+    "kind": "textarea"
+  },
+  {
+    "key": "guided:fl4-02:part1",
+    "label": "What changed in A's request, and what boundary remains?",
+    "type": "Textarea",
+    "required": false,
+    "instruction": "Optional",
+    "id": "fl4-02",
+    "kind": "textarea"
+  },
+  {
+    "key": "guided:fl4-02:part2",
+    "label": "What did the independent check of B establish?",
+    "type": "Textarea",
+    "required": false,
+    "instruction": "Optional",
+    "id": "fl4-02",
+    "kind": "textarea"
+  },
+  {
+    "key": "guided:fl4-02:part3",
+    "label": "Write Leah's next action for each contact",
+    "type": "Textarea",
+    "required": false,
+    "instruction": "Optional",
+    "id": "fl4-02",
+    "kind": "textarea"
+  },
+  {
+    "key": "evidence:fl4-02:classify",
+    "label": "Classify the job contact with evidence",
+    "type": "Textarea",
+    "required": true,
+    "instruction": "Required",
+    "id": "fl4-02",
+    "kind": "textarea"
+  },
+  {
+    "key": "fl4-02",
+    "label": "Plan the job verification and boundary",
+    "type": "Textarea; existing evidence owner",
+    "required": true,
+    "instruction": "Required",
+    "id": "fl4-02",
+    "kind": "textarea"
+  },
+  {
+    "key": "evidence:fl4-02:appointment",
+    "label": "Evaluate and verify the appointment contact",
+    "type": "Textarea",
+    "required": true,
+    "instruction": "Required",
+    "id": "fl4-02",
+    "kind": "textarea"
+  },
+  {
+    "key": "evidence:fl4-02:result",
+    "label": "State what happens after checking",
+    "type": "Textarea",
+    "required": true,
+    "instruction": "Required",
+    "id": "fl4-02",
+    "kind": "textarea"
+  },
+  {
+    "key": "guided:fl4-03:part1",
+    "label": "What has been completed, and what remains uncertain?",
+    "type": "Textarea",
+    "required": false,
+    "instruction": "Optional",
+    "id": "fl4-03",
+    "kind": "textarea"
+  },
+  {
+    "key": "guided:fl4-03:part2",
+    "label": "Write the next two security actions and reasons",
+    "type": "Textarea",
+    "required": false,
+    "instruction": "Optional",
+    "id": "fl4-03",
+    "kind": "textarea"
+  },
+  {
+    "key": "guided:fl4-03:part3",
+    "label": "Append a safe evidence/follow-up entry",
+    "type": "Textarea",
+    "required": false,
+    "instruction": "Optional",
+    "id": "fl4-03",
+    "kind": "textarea"
+  },
+  {
+    "key": "evidence:fl4-03:exposure",
+    "label": "Exposure and evidence boundaries",
+    "type": "Textarea",
+    "required": true,
+    "instruction": "Required",
+    "id": "fl4-03",
+    "kind": "textarea"
+  },
+  {
+    "key": "fl4-03",
+    "label": "Prioritized immediate response",
+    "type": "Textarea; existing main key",
+    "required": true,
+    "instruction": "Required",
+    "id": "fl4-03",
+    "kind": "textarea"
+  },
+  {
+    "key": "evidence:fl4-03:log",
+    "label": "Privacy-safe evidence entry",
+    "type": "Textarea",
+    "required": true,
+    "instruction": "Required",
+    "id": "fl4-03",
+    "kind": "textarea"
+  },
+  {
+    "key": "evidence:fl4-03:followup",
+    "label": "Follow-up, rights and limits",
+    "type": "Textarea",
+    "required": true,
+    "instruction": "Required",
+    "id": "fl4-03",
+    "kind": "textarea"
+  },
+  {
+    "key": "guided:fl4-04:part1",
+    "label": "Compare the revised advertisement and checkout",
+    "type": "Textarea",
+    "required": false,
+    "instruction": "Optional",
+    "id": "fl4-04",
+    "kind": "textarea"
+  },
+  {
+    "key": "guided:fl4-04:part2",
+    "label": "Write Mina's next decision note",
+    "type": "Textarea",
+    "required": false,
+    "instruction": "Optional",
+    "id": "fl4-04",
+    "kind": "textarea"
+  },
+  {
+    "key": "guided:fl4-04:part3",
+    "label": "Update the evidence and route plan",
+    "type": "Textarea",
+    "required": false,
+    "instruction": "Optional",
+    "id": "fl4-04",
+    "kind": "textarea"
+  },
+  {
+    "key": "evidence:fl4-04:comparison",
+    "label": "Compare the promise, terms and charge",
+    "type": "Textarea",
+    "required": true,
+    "instruction": "Required",
+    "id": "fl4-04",
+    "kind": "textarea"
+  },
+  {
+    "key": "fl4-04",
+    "label": "Write Omar's concern summary",
+    "type": "Textarea; existing main evidence key",
+    "required": true,
+    "instruction": "Required",
+    "id": "fl4-04",
+    "kind": "textarea"
+  },
+  {
+    "key": "evidence:fl4-04:routes",
+    "label": "Choose recipients and independently reached routes",
+    "type": "Textarea",
+    "required": true,
+    "instruction": "Required",
+    "id": "fl4-04",
+    "kind": "textarea"
+  },
+  {
+    "key": "evidence:fl4-04:followup",
+    "label": "Set an evidence and follow-up plan",
+    "type": "Textarea",
+    "required": true,
+    "instruction": "Required",
+    "id": "fl4-04",
+    "kind": "textarea"
+  },
+  {
+    "key": "guided:fl4-05:part1",
+    "label": "Update completed and pending work",
+    "type": "Textarea",
+    "required": false,
+    "instruction": "Optional",
+    "id": "fl4-05",
+    "kind": "textarea"
+  },
+  {
+    "key": "guided:fl4-05:part2",
+    "label": "Write the next priority and safe route",
+    "type": "Textarea",
+    "required": false,
+    "instruction": "Optional",
+    "id": "fl4-05",
+    "kind": "textarea"
+  },
+  {
+    "key": "guided:fl4-05:part3",
+    "label": "Respond to the new verification claim in the plan",
+    "type": "Textarea",
+    "required": false,
+    "instruction": "Optional",
+    "id": "fl4-05",
+    "kind": "textarea"
+  },
+  {
+    "key": "evidence:fl4-05:exposure",
+    "label": "Map confirmed exposure, misuse and unknowns",
+    "type": "Textarea",
+    "required": true,
+    "instruction": "Required",
+    "id": "fl4-05",
+    "kind": "textarea"
+  },
+  {
+    "key": "fl4-05",
+    "label": "Build the prioritized response plan",
+    "type": "Textarea; existing main key",
+    "required": true,
+    "instruction": "Required",
+    "id": "fl4-05",
+    "kind": "textarea"
+  },
+  {
+    "key": "evidence:fl4-05:log",
+    "label": "Prepare the reporting and evidence log",
+    "type": "Textarea",
+    "required": true,
+    "instruction": "Required",
+    "id": "fl4-05",
+    "kind": "textarea"
+  },
+  {
+    "key": "evidence:fl4-05:followup",
+    "label": "Set boundaries and follow-up triggers",
+    "type": "Textarea",
+    "required": true,
+    "instruction": "Required",
+    "id": "fl4-05",
+    "kind": "textarea"
+  }
+]

@@ -1,0 +1,536 @@
+{
+  "schemaVersion": 1,
+  "status": "authored-packets-awaiting-teacher-review",
+  "lessons": [
+    {
+      "id": "fl3-01",
+      "title": "Give a savings goal a job",
+      "goal": "Turn a vague wish into a funded goal and distinguish planned costs from emergencies.",
+      "opening": "Sam earns irregular income and wants a winter jacket, a bicycle repair fund, and money for a surprise expense. Which goal needs a date? Which needs quick access?",
+      "teach": [
+        {
+          "heading": "Name the purpose",
+          "body": "A useful goal states the purpose, amount, deadline, and contribution plan. ‘Save more’ gives no way to decide whether a weekly transfer is enough. ‘Set aside $360 for a bicycle repair by December, starting in September’ can be checked: $360 divided by about 12 weeks is $30 each week. That amount is a plan, not a moral judgement about what a person can afford."
+        },
+        {
+          "heading": "Sort the costs",
+          "body": "A known but occasional expense belongs in a planned-cost fund. An emergency fund is for a significant, unexpected need. Winter clothing and annual school fees may be irregular, but they are predictable. A sudden repair that makes safe transportation impossible may be an emergency. This distinction matters because repeatedly using emergency money for expected costs leaves no buffer when income falls."
+        },
+        {
+          "heading": "Make the plan usable",
+          "body": "Build from actual cash flow, not a hopeful number. Keep money needed soon in an accessible place with low fees and withdrawal limits you understand. Revisit the target if hours at work change. You can lower a contribution, lengthen the timeline, or reduce the goal amount; borrowing to keep an arbitrary deadline can make the goal cost more."
+        },
+        {
+          "heading": "Check the goal amount and calendar",
+          "body": "A goal is easier to fund when its target comes from a current quote or a clearly labelled estimate. Break a large purchase into required parts: base cost, delivery, tax if relevant, and any recurring cost. Then check how many saving periods actually occur before the deadline. If the next pay arrives after a bill is due, a weekly average can hide a shortfall. Use a calendar, not just division, and label any amount that is invented for planning practice."
+        },
+        {
+          "heading": "Keep the buffer’s job clear",
+          "body": "An emergency buffer is for unexpected needs, so define what counts in the fictional plan and how it can be replenished after use. The buffer does not need to reach an arbitrary amount before any other goal can begin; the appropriate balance depends on a person’s circumstances. For this online task, students can compare scenarios without revealing household savings. If a planned cost repeatedly uses the buffer, make it a separate target and revise the contribution schedule. A goal can also include a small contingency for price or timing changes. Keep that amount visibly separate from the target so the plan does not count one dollar twice."
+        }
+      ],
+      "document": {
+        "title": "Sam’s planning board — fictional amounts",
+        "headers": [
+          "Purpose",
+          "Target",
+          "Timing",
+          "Weekly amount"
+        ],
+        "rows": [
+          [
+            "Winter jacket",
+            "$180",
+            "9 weeks",
+            "$20"
+          ],
+          [
+            "Bicycle repair",
+            "$360",
+            "12 weeks",
+            "$30"
+          ],
+          [
+            "Emergency buffer",
+            "$300",
+            "No fixed purchase date",
+            "Flexible"
+          ]
+        ],
+        "note": "The last row is a buffer, not a planned purchase. Every amount is illustrative."
+      },
+      "worked": [
+        {
+          "prompt": "Sam can save $35 weekly. Can the first two targets both be met on time?",
+          "steps": [
+            "Their combined required transfer is $20 + $30 = $50 each week.",
+            "$35 leaves a $15 weekly gap. Over nine weeks, the gap is $135 even before the bicycle deadline.",
+            "Sam can keep the jacket date and move the bicycle date, choose a lower-cost jacket, or find another realistic source of income."
+          ],
+          "conclusion": "A defensible plan names the trade-off rather than pretending both goals fit."
+        },
+        {
+          "prompt": "A different learner calls predictable school fees an emergency. What changes?",
+          "steps": [
+            "The fees occur each year, so their timing can be estimated.",
+            "Divide the amount by the remaining pay periods and create a planned-cost line.",
+            "Reserve the emergency buffer for unexpected needs and review it after any use."
+          ],
+          "conclusion": "Frequency alone does not make a cost unexpected."
+        }
+      ],
+      "practice": [
+        {
+          "prompt": "Sam has $35 weekly. What is the first calculation?",
+          "choices": [
+            "Add the weekly amounts required by dated goals",
+            "Add the targets to the emergency buffer",
+            "Assume every goal can be financed later",
+            "Divide the monthly pay by three"
+          ],
+          "correctIndex": 0,
+          "feedback": [
+            "Yes. $20 + $30 = $50 weekly, which can be compared with $35 available.",
+            "Targets are balances; compare weekly flows first.",
+            "Borrowing is a separate costly decision and does not fix this cash-flow gap.",
+            "The goals have different deadlines; start with their required weekly flows."
+          ]
+        },
+        {
+          "prompt": "Which cost belongs in a planned-cost fund?",
+          "choices": [
+            "A suddenly broken essential appliance",
+            "School supplies bought each September",
+            "An unexpected loss of work hours",
+            "An emergency trip after a family crisis"
+          ],
+          "correctIndex": 1,
+          "feedback": [
+            "This may be an emergency if it was unanticipated and essential.",
+            "Yes. The exact price may vary, but the annual timing is known.",
+            "That can call for an emergency buffer.",
+            "That may be an emergency; the context matters."
+          ]
+        },
+        {
+          "prompt": "Sam’s work hours fall. Which revision is defensible?",
+          "choices": [
+            "Keep the transfer and skip a required bill",
+            "Borrow automatically to preserve all dates",
+            "Recalculate the affordable transfer and adjust a target or date",
+            "Stop tracking because the first plan failed"
+          ],
+          "correctIndex": 2,
+          "feedback": [
+            "Required expenses need attention before an optional transfer.",
+            "Borrowing adds cost and risk; compare other adjustments first.",
+            "Yes. A plan is useful because it can respond to new evidence.",
+            "The changed circumstances make tracking more useful, not less."
+          ]
+        },
+        {
+          "prompt": "A target date is before the next scheduled contribution. What should the learner check?",
+          "choices": [
+            "The actual dates and number of deposits before the purchase.",
+            "Only the weekly average over a year.",
+            "Whether another student saved the same amount.",
+            "Nothing; division proves the cash is ready."
+          ],
+          "correctIndex": 0,
+          "feedback": [
+            "Correct: the calendar determines whether deposits arrive in time.",
+            "A long-term average can hide timing gaps.",
+            "Other students’ finances are irrelevant.",
+            "An arithmetic average does not confirm available funds by the deadline."
+          ]
+        },
+        {
+          "prompt": "A school fee is due every September. How should it usually be planned in this lesson?",
+          "choices": [
+            "As a predictable planned cost with a dated contribution target.",
+            "As an unexpected emergency every year.",
+            "As free because it repeats.",
+            "As a reason to ignore the emergency buffer."
+          ],
+          "correctIndex": 0,
+          "feedback": [
+            "Correct: a recurring known date can be planned in advance.",
+            "A predictable annual cost is not unexpected.",
+            "It still requires funding.",
+            "The buffer should retain its distinct purpose."
+          ]
+        },
+        {
+          "prompt": "The emergency buffer was used for an unexpected repair. What is a useful next step?",
+          "choices": [
+            "Record the use and choose a realistic replenishment plan while protecting other priorities.",
+            "Assume the buffer must be replaced tomorrow regardless of cash flow.",
+            "Hide the use from the plan.",
+            "Borrow immediately without considering cost."
+          ],
+          "correctIndex": 0,
+          "feedback": [
+            "Correct: track the change and rebuild in a feasible way.",
+            "An arbitrary deadline may create another problem.",
+            "A plan should reflect the actual balance.",
+            "Borrowing has costs and should not be automatic."
+          ]
+        }
+      ],
+      "transfer": "Lena can now save only $18 weekly and needs $144 for a known fee in eight weeks. Show the calculation and one feasible change if another goal already uses $6 weekly.",
+      "evidence": "Write a goal card for a fictional learner: amount, date, transfer, category, and a response to lower income.",
+      "mediaId": "928a0fcf335c",
+      "source": "https://www.canada.ca/en/financial-consumer-agency/services/savings-investments/setting-up-emergency-funds.html"
+    },
+    {
+      "id": "fl3-02",
+      "title": "Choose what a dollar does next",
+      "goal": "Explain opportunity cost and prioritize cash flow without treating a value judgement as a calculation.",
+      "opening": "A fictional student has $60 after required expenses. A concert, a short-term goal, and a high-interest debt payment each compete for it.",
+      "teach": [
+        {
+          "heading": "Opportunity cost is a forgone option",
+          "body": "Choosing one use for scarce time or money means giving up the next best available use. The opportunity cost is not the price tag alone. If Avery spends $60 at a concert, the cost includes the future progress that the same $60 could have made toward another goal. People can value the concert highly; the lesson is to make the trade-off visible."
+        },
+        {
+          "heading": "Order before optimizing",
+          "body": "First protect required expenses and payments. Then compare the timing and consequences of other choices. A short-term safety buffer can prevent expensive borrowing; extra repayment may save interest; a meaningful experience has personal value. There is no universal order for every person, but a sound choice identifies what is lost and why the selected benefit is worth it."
+        },
+        {
+          "heading": "Watch for false precision",
+          "body": "A calculator can show the interest saved by an extra payment if its rate and balance assumptions are correct. It cannot measure the value of time with friends or the stress reduction of an emergency buffer. Keep numerical and personal reasons separate in the explanation; do not pretend one cancels the other automatically."
+        },
+        {
+          "heading": "Compare options using the same time frame",
+          "body": "Opportunity-cost reasoning improves when choices are compared over the same period and against the same constraints. If a learner spends $60 today, ask what goal contribution would otherwise have happened this week and whether that goal has a fixed due date. Do not compare one evening’s enjoyment with an entire year of hypothetical savings. A choice can be worthwhile if the learner understands the foregone option and accepts its effect on the plan. The goal is deliberate trade-offs, not a rule that every optional purchase is wrong."
+        },
+        {
+          "heading": "Separate dollar effects from personal value",
+          "body": "A calculation can show how an extra payment changes interest under stated assumptions, but it cannot assign a universal value to rest, belonging, learning, or time with friends. Explain both kinds of reason separately. For a fictional choice, state the amount and which goal changes, then explain why the selected benefit matters to that person. A different learner may choose differently with different priorities. Avoid grading students on whether they choose the teacher’s preferred lifestyle; assess whether they recognize the trade-off and support the decision."
+        }
+      ],
+      "document": {
+        "title": "Avery’s decision card — fictional",
+        "headers": [
+          "Option",
+          "Immediate result",
+          "What is given up"
+        ],
+        "rows": [
+          [
+            "Concert",
+            "Attend this weekend",
+            "Less cash for the other goals"
+          ],
+          [
+            "Emergency buffer",
+            "More cash accessible later",
+            "No concert this time"
+          ],
+          [
+            "Extra debt payment",
+            "Potentially less future interest",
+            "Less cash available now"
+          ]
+        ],
+        "note": "Each option has a benefit and an opportunity cost; do not grade the person’s values."
+      },
+      "worked": [
+        {
+          "prompt": "Avery chooses the emergency buffer. What is the opportunity cost?",
+          "steps": [
+            "List feasible alternatives after required expenses.",
+            "Identify the next best option for Avery, perhaps the concert.",
+            "Explain the forgone benefit rather than calling $60 itself the opportunity cost."
+          ],
+          "conclusion": "The choice trades a near-term experience for future flexibility."
+        },
+        {
+          "prompt": "An extra $60 debt payment is claimed to save exactly $12. Is that established?",
+          "steps": [
+            "The actual saving depends on the rate, timing, minimum payment and remaining term.",
+            "Without those details, $12 is an unsupported number.",
+            "State the likely direction and use a transparent calculation if exact savings matter."
+          ],
+          "conclusion": "Do not manufacture precision from missing terms."
+        }
+      ],
+      "practice": [
+        {
+          "prompt": "What is an opportunity cost?",
+          "choices": [
+            "The value of the next best forgone option",
+            "Every price on the shopping receipt",
+            "Money that was lost through theft",
+            "The difference between income and tax"
+          ],
+          "correctIndex": 0,
+          "feedback": [
+            "Yes. It describes the alternative you give up by choosing.",
+            "A price is one input, but the forgone option is the opportunity cost.",
+            "That is a loss, not the decision trade-off defined here.",
+            "That calculation does not describe the forgone choice."
+          ]
+        },
+        {
+          "prompt": "Which item should be protected before choosing among optional uses?",
+          "choices": [
+            "An advertisement discount",
+            "A required rent or bill payment",
+            "The most exciting purchase",
+            "A prediction of future wages"
+          ],
+          "correctIndex": 1,
+          "feedback": [
+            "A discount does not make an optional item required.",
+            "Yes. Protect required obligations in the cash-flow plan.",
+            "Personal value matters after essential obligations are addressed.",
+            "Future income is uncertain until received."
+          ]
+        },
+        {
+          "prompt": "A peer says the concert is ‘wrong’ because saving is always better. What is missing?",
+          "choices": [
+            "A moral rule that bans experiences",
+            "A larger advertisement",
+            "Avery’s goals, obligations and actual trade-off",
+            "The most expensive option"
+          ],
+          "correctIndex": 2,
+          "feedback": [
+            "The course does not grade a person’s values.",
+            "Advertising is not a reliable substitute for reasoning.",
+            "Yes. A decision is evaluated with context and consequences.",
+            "Higher price alone does not decide the choice."
+          ]
+        },
+        {
+          "prompt": "A learner’s $40 choice delays a goal by one week. What is the most complete comparison?",
+          "choices": [
+            "Name the $40, the delayed deposit/date, and why the chosen benefit is worth that trade-off.",
+            "Say the choice is wrong because saving always wins.",
+            "Ignore the goal deadline.",
+            "Convert friendship into an invented dollar value."
+          ],
+          "correctIndex": 0,
+          "feedback": [
+            "Correct: this states the financial consequence and personal reason.",
+            "There is no universal rule that saving always wins.",
+            "The timing consequence is central to the trade-off.",
+            "Personal value cannot be reliably reduced to a made-up dollar figure."
+          ]
+        },
+        {
+          "prompt": "Two uses of money are being compared. Which setup is fairest?",
+          "choices": [
+            "Use the same period and include the goal deadline and constraints.",
+            "Compare one purchase with a ten-year investment projection.",
+            "Ignore fees in one option but include them in the other.",
+            "Choose whichever option has a larger label."
+          ],
+          "correctIndex": 0,
+          "feedback": [
+            "Correct: matching period and constraints makes the comparison meaningful.",
+            "The time horizons differ.",
+            "The assumptions are inconsistent.",
+            "A product label does not establish value."
+          ]
+        },
+        {
+          "prompt": "Why is opportunity cost not always a precise dollar amount?",
+          "choices": [
+            "Some forgone benefits, such as rest or connection, are meaningful but not objectively priced.",
+            "Because all choices have identical costs.",
+            "Because calculations are never useful.",
+            "Because preferences should not affect decisions."
+          ],
+          "correctIndex": 0,
+          "feedback": [
+            "Correct: some benefits are qualitative and should be explained rather than fabricated.",
+            "Choices can have different consequences.",
+            "Calculations help with numerical effects; they have limits.",
+            "Personal priorities are part of an informed decision."
+          ]
+        }
+      ],
+      "transfer": "Jules has $40 after bills. A $40 outing competes with a $100 repair fund. State the next best forgone option and a question needed before advising Jules.",
+      "evidence": "Give a reasoned decision for a fictional learner and identify both the numerical and personal trade-offs.",
+      "source": "https://www.canada.ca/en/financial-consumer-agency/services/savings-investments/savings-investment-goals.html"
+    },
+    {
+      "id": "fl3-03",
+      "title": "Separate an account from what it holds",
+      "goal": "Compare access, fees and risk when choosing a place for short- and long-term money.",
+      "opening": "A bank ad names an account and an investment in the same sentence. Which part describes the container, and which part describes what happens to the money?",
+      "teach": [
+        {
+          "heading": "Two different questions",
+          "body": "An account is the arrangement through which money is held or invested; a product or asset is the thing the money buys or earns on. A regular savings account is usually a deposit product and account together, while some registered accounts can hold different eligible investments. The label alone does not tell you the return, guarantee, access rules, or tax treatment."
+        },
+        {
+          "heading": "Match features to a goal",
+          "body": "For a near-term emergency fund, ready access and low withdrawal cost may be more important than a high advertised return. For a longer horizon, someone may consider diversified investments, while accepting that values can fall. Check account eligibility, current rules, and product documents before making a real decision. This course uses fictional examples and does not ask you to open an account."
+        },
+        {
+          "heading": "Read the full offer",
+          "body": "Compare the rate after any promotional period, transaction or management fees, access restrictions, and whether the principal can change. A higher posted rate may be less useful if the money is locked away before a known deadline. An investment fund’s past performance is a description of history, not a promise about the next year."
+        },
+        {
+          "heading": "Read the terms that affect access",
+          "body": "A comparison should identify when the learner can withdraw, whether there are transaction limits, whether a promotional rate expires, and what fees apply after the promotion. Note whether a rate is variable or fixed only when current product documentation says so. A posted annual rate does not explain every condition, and a high starting rate may not last through the goal date. Keep the date of the product page because providers can change terms. In class, use the supplied fictional offer rather than opening an account or sharing a real statement."
+        },
+        {
+          "heading": "Match the risk to the deadline",
+          "body": "Ask what happens if the value is lower on the date the money is needed. A deposit balance and a market investment do not have identical risks or protections. A near-term emergency goal often values access and predictable balance; a long-horizon goal may allow a learner to study investments, but can still experience loss. Do not infer that a registered account guarantees the investments inside it, or that a product is suitable because it appears in a familiar account. Verify current official protections and eligibility before making a real claim."
+        }
+      ],
+      "document": {
+        "title": "Feature comparison — illustrative only",
+        "headers": [
+          "Option",
+          "Access",
+          "Main uncertainty"
+        ],
+        "rows": [
+          [
+            "Ordinary savings deposit",
+            "Usually accessible; check withdrawal terms",
+            "Rate and fees can change"
+          ],
+          [
+            "Term deposit",
+            "Check term and early-access rules",
+            "May not fit an unexpected need"
+          ],
+          [
+            "Diversified investment fund",
+            "Can usually be sold; value may change",
+            "Market returns and fees are uncertain"
+          ]
+        ],
+        "note": "Actual eligibility, protection, tax and withdrawal rules depend on the specific account and product."
+      },
+      "worked": [
+        {
+          "prompt": "Nia needs emergency money available next month. What features come first?",
+          "steps": [
+            "Name the short and uncertain timing.",
+            "Check whether withdrawals can occur promptly without a costly penalty.",
+            "Compare fees and the rate after any promotion."
+          ],
+          "conclusion": "A long lock-in conflicts with the fund’s purpose even if its advertised rate is higher."
+        },
+        {
+          "prompt": "An ad says ‘TFSA earns 8% guaranteed.’ What should be checked?",
+          "steps": [
+            "Separate account label from the product held inside it.",
+            "Find the source and terms of the 8% claim.",
+            "Ask whether value can fall, whether there are fees, and whether ‘guaranteed’ has conditions."
+          ],
+          "conclusion": "The account name alone cannot establish a return."
+        }
+      ],
+      "practice": [
+        {
+          "prompt": "What does an account label alone tell you?",
+          "choices": [
+            "The exact future return",
+            "The legal arrangement, but not every product feature",
+            "That principal can never fall",
+            "That withdrawals are free"
+          ],
+          "correctIndex": 1,
+          "feedback": [
+            "Returns depend on the product and future conditions.",
+            "Yes. Inspect what the account holds and the terms.",
+            "Some products can lose value.",
+            "Withdrawal and account fees vary."
+          ]
+        },
+        {
+          "prompt": "Which feature matters most for a near-term emergency fund?",
+          "choices": [
+            "The highest historical market return",
+            "A famous brand logo",
+            "Prompt access with suitable fees",
+            "A long withdrawal lock"
+          ],
+          "correctIndex": 2,
+          "feedback": [
+            "Historical returns do not guarantee emergency access.",
+            "Brand recognition is not a feature comparison.",
+            "Yes. Liquidity matters when timing is uncertain.",
+            "A lock can defeat the purpose of emergency money."
+          ]
+        },
+        {
+          "prompt": "A promotional rate ends in three months. What is the next question?",
+          "choices": [
+            "What rate and fees apply afterward?",
+            "Can I ignore the fine print?",
+            "Will every other account pay less forever?",
+            "Can past returns promise future ones?"
+          ],
+          "correctIndex": 0,
+          "feedback": [
+            "Yes. Compare the full period in which you expect to hold the money.",
+            "The later terms may dominate the total result.",
+            "Competitor terms and future changes are unknown.",
+            "Past returns are not a guarantee."
+          ]
+        },
+        {
+          "prompt": "A promotional rate ends before the goal date. Which comparison matters next?",
+          "choices": [
+            "The ongoing rate, fees, access conditions, and value after promotion.",
+            "The banner colour.",
+            "The opening rate alone.",
+            "The provider’s slogan."
+          ],
+          "correctIndex": 0,
+          "feedback": [
+            "Correct: the learner needs the terms that apply when funds remain invested.",
+            "Design does not change the terms.",
+            "The initial rate may not last.",
+            "A slogan does not establish value or access."
+          ]
+        },
+        {
+          "prompt": "Which statement about a registered account and investment is sound?",
+          "choices": [
+            "The account label guarantees every investment inside it cannot lose value.",
+            "An account arrangement and the assets held within it have different features and risks.",
+            "All eligible accounts hold only cash.",
+            "A familiar account name proves tax treatment for every person."
+          ],
+          "correctIndex": 1,
+          "feedback": [
+            "The account does not guarantee an investment’s value.",
+            "Correct: distinguish the wrapper/account from the held product or asset.",
+            "Different arrangements may permit different holdings.",
+            "Eligibility and tax treatment depend on current rules and circumstances."
+          ]
+        },
+        {
+          "prompt": "A learner needs emergency money soon. What feature deserves close attention?",
+          "choices": [
+            "Access timing, withdrawal conditions, and fees.",
+            "Only the highest advertised return.",
+            "Whether the investment performed well in a past year.",
+            "How popular the product is online."
+          ],
+          "correctIndex": 0,
+          "feedback": [
+            "Correct: access is central for a near-term need.",
+            "A high return claim may ignore access and risk.",
+            "Past performance does not guarantee the future or establish suitability.",
+            "Popularity is not evidence of fit."
+          ]
+        }
+      ],
+      "transfer": "Compare two fictional places for $500 needed in six months: one gives easy access at 2% illustrative annual interest; one advertises 5% but locks funds for a year. Explain the more suitable feature and one fact to verify.",
+      "evidence": "Complete a feature comparison for a near-term and a long-term fictional goal, with a caveat about real product terms.",
+      "source": "https://www.canada.ca/en/financial-consumer-agency/services/banking/choosing-products.html"
+    }
+  ]
+}

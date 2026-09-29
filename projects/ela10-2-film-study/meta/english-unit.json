@@ -1,0 +1,222 @@
+{
+  "schemaVersion": 3,
+  "projectSlug": "ela10-2-film-study",
+  "courseCode": "ELA 10-2",
+  "courseTitle": "English Language Arts 10-2",
+  "unitTitle": "Film Study",
+  "profileVersion": "next-step-english-v3-ela10-2",
+  "status": "needs-review",
+  "derivesFromProject": "ela10-1-film-study",
+  "writingForms": [
+    {
+      "kind": "literary-exploration",
+      "trackMode": "unit",
+      "profile": "film-study"
+    },
+    {
+      "kind": "personal-response",
+      "trackMode": "unit",
+      "profile": "film-study"
+    }
+  ],
+  "source": {
+    "brightspaceZip": "projects/resources/ela10-2/_sources/f1319deb2ada7c4ea36d86a9fe172058daa2d9f4baf7edb541acb38c44e36e53.zip",
+    "teacherResourcesZip": "projects/resources/ela10-2/_sources/cea6d0cc7cb840c4099011f9f71e10711a996ca5f49d75c586dbc172829877be.zip",
+    "brightspaceUnitId": "derived-ela10-1-film-study",
+    "teacherFolder": "ENGLISH 10-2 NSO/UNIT 5 Film",
+    "archiveRefs": {
+      "brightspace": "brightspace",
+      "teacherResources": "teacher-resources"
+    },
+    "lessonSelectors": [
+      {
+        "itemId": "donor:ela10-1-film-study",
+        "title": "Approved donor lesson sequence",
+        "disposition": "include",
+        "includeChildren": true,
+        "reason": "Resolve lesson content from the approved donor recipe during the derived V3 build; this is not a Brightspace content selector."
+      }
+    ]
+  },
+  "activityProfile": {
+    "schemaVersion": 1,
+    "kind": "film-study",
+    "filmSelection": {
+      "mode": "pending"
+    },
+    "techniqueQuestionCount": 22,
+    "fullResponseQuestionCount": 18,
+    "criticalEssayFieldCount": 0,
+    "viewingGuide": true,
+    "activities": [
+      {
+        "id": "viewing-guide",
+        "title": "Viewing Guide",
+        "route": "viewing-guide",
+        "enabled": true,
+        "evidencePolicyIds": [
+          "viewing-moment-entry",
+          "viewing-synthesis"
+        ]
+      },
+      {
+        "id": "film-questions",
+        "title": "Film Study Questions",
+        "route": "film-study-questions",
+        "enabled": true,
+        "evidencePolicyIds": [
+          "film-question-collection"
+        ]
+      },
+      {
+        "id": "film-room",
+        "title": "Film Room",
+        "route": "film-room",
+        "enabled": true,
+        "evidencePolicyIds": []
+      },
+      {
+        "id": "evidence-bank",
+        "title": "Evidence Bank",
+        "route": "evidence-bank",
+        "enabled": true,
+        "evidencePolicyIds": []
+      },
+      {
+        "id": "resources",
+        "title": "Resources",
+        "route": "resources",
+        "enabled": true,
+        "evidencePolicyIds": []
+      }
+    ],
+    "evidencePolicies": [
+      {
+        "id": "viewing-moment-entry",
+        "activityId": "viewing-guide",
+        "saveMode": "individual",
+        "requiresExplicitSave": true,
+        "contributionIdTemplate": "{projectSlug}:viewing-guide:{entryId}"
+      },
+      {
+        "id": "viewing-synthesis",
+        "activityId": "viewing-guide",
+        "saveMode": "collection",
+        "requiresExplicitSave": true,
+        "collectionScope": "work",
+        "contributionIdTemplate": "{projectSlug}:viewing-guide:{workId}"
+      },
+      {
+        "id": "film-question-collection",
+        "activityId": "film-questions",
+        "saveMode": "collection",
+        "requiresExplicitSave": true,
+        "collectionScope": "locator",
+        "contributionIdTemplate": "{projectSlug}:film-questions:{locatorId}"
+      }
+    ]
+  },
+  "lessonOrder": [
+    "donor:ela10-1-film-study"
+  ],
+  "topLevelLessonOrder": [
+    "donor:ela10-1-film-study"
+  ],
+  "lessonGroups": [
+    {
+      "id": "unit-lessons",
+      "title": "Film Study",
+      "lessonIds": [
+        "donor:ela10-1-film-study"
+      ]
+    }
+  ],
+  "readings": [],
+  "placements": [],
+  "analysisTerms": [],
+  "analysisExamples": [],
+  "resourceDispositions": [
+    {
+      "id": "film-hard-gate",
+      "source": "ENGLISH 10-2 NSO/UNIT 5 Film/FILM UNIT 10-2 HARD GATE Personal Response to Text Essay Prompt.docx",
+      "role": "excluded-assessment",
+      "disposition": "exclude",
+      "reason": "Soft/hard-gate assessment is intentionally excluded."
+    }
+  ],
+  "excludedFiles": [
+    {
+      "file": "ENGLISH 10-2 NSO/UNIT 5 Film/FILM UNIT 10-2 HARD GATE Personal Response to Text Essay Prompt.docx",
+      "reason": "Soft/hard-gate assessment is intentionally excluded."
+    }
+  ],
+  "wordingCorrections": [
+    {
+      "find": "ELA 10-1",
+      "replace": "ELA 10-2",
+      "reason": "Correct inherited donor course-level wording."
+    },
+    {
+      "find": "English 10-1",
+      "replace": "ELA 10-2",
+      "reason": "Correct inherited donor course-level wording."
+    },
+    {
+      "find": "ELA 20-1",
+      "replace": "ELA 10-2",
+      "reason": "Correct inherited donor course-level wording."
+    },
+    {
+      "find": "English 20-1",
+      "replace": "ELA 10-2",
+      "reason": "Correct inherited donor course-level wording."
+    },
+    {
+      "find": "ELA 30-1",
+      "replace": "ELA 10-2",
+      "reason": "Correct inherited donor course-level wording."
+    },
+    {
+      "find": "English 30-1",
+      "replace": "ELA 10-2",
+      "reason": "Correct inherited donor course-level wording."
+    },
+    {
+      "find": "CBE",
+      "replace": "",
+      "reason": "Remove inherited provider branding from learner-facing copy."
+    },
+    {
+      "find": "continue to the next page",
+      "replace": "",
+      "reason": "Remove obsolete LMS navigation language."
+    }
+  ],
+  "mediaPolicy": {
+    "verifiedAt": "not-reviewed",
+    "allowedYouTubeIds": [],
+    "blockedYouTubeIds": [],
+    "approvedExternalUrls": [],
+    "externalUrlRewrites": {}
+  },
+  "customComponents": [],
+  "acceptance": {
+    "requiredRoutes": [
+      "viewing-guide",
+      "film-study-questions",
+      "film-room",
+      "evidence-bank",
+      "resources"
+    ],
+    "requiredActivityIds": [
+      "viewing-guide",
+      "film-questions",
+      "film-room",
+      "evidence-bank",
+      "resources"
+    ],
+    "reviewItems": [
+      "Keep title-neutral language and validate every inherited lesson video and fallback link."
+    ]
+  }
+}

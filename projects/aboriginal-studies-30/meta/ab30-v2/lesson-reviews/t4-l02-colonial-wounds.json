@@ -1,0 +1,123 @@
+{
+  "schema": "ab30-v2-lesson-review-candidate-v1",
+  "lessonId": "t4-l02-colonial-wounds",
+  "displayNumber": 46,
+  "contentVersion": "ab30-v2-l46.1",
+  "reviewState": "candidate lead source-and-render pass; teacher and community review pending",
+  "inputHashes": {
+    "course-data.js": "82d4151fe844a8941e557b2e036f077a7a67a37cdc2ce1df12b68402f30762a3",
+    "practice-data.js": "f21c0740ed24e7a4b351329a11666ed45846176f8167b9dabaee2873776052af"
+  },
+  "sourceOfTruth": "projects/aboriginal-studies-30/workspace/course-data.js",
+  "assignmentConnection": {
+    "bookletQuestionIds": [
+      "q7",
+      "q8",
+      "q9",
+      "q10",
+      "q11",
+      "q12",
+      "q13",
+      "q14"
+    ],
+    "assignmentIds": [
+      "4-2-rabbit-proof-fence"
+    ],
+    "assignmentHomeIds": [
+      "4-2-rabbit-proof-fence"
+    ],
+    "formativeMarksAdded": 0
+  },
+  "goalAndTeaching": {
+    "goal": "Complete one evidence-based row of the Australia–Canada chart, then use the film as a film source for Questions 9–14 and Assignment 4.2.",
+    "essentialQuestion": "How can we compare child-removal policies while keeping each source and experience distinct?",
+    "headings": [
+      "1. Start with people and precise names",
+      "2. Compare a policy, not two interchangeable stories",
+      "3. Read the film as a film",
+      "4. Finish the assigned comparison"
+    ],
+    "firstTeachingExcerpt": "The Theme 4 booklet introduces the terminology discussion by Summer May Finlay, a Yorta Yorta woman. Question 7 asks why acronyms can be disrespectful when naming a person. Use a person’s or Nation’s own preferred name when known; “Aboriginal and Torres Strait Islander peoples” refers to distinct peoples in Australia. In Canada, First Nations, Inuit and Métis are distinct peoples. A convenient collective label never replaces a person’s identity."
+  },
+  "sourceVerification": [
+    {
+      "title": "Source A · Australian fact sheet",
+      "locator": "Racism. No Way!, “The Stolen Generations,” sections “The Stolen Generations” and “Bringing them Home” (linked in Theme 4 Resources; accessed 24 September 2026)",
+      "sourceType": "Government education fact sheet",
+      "contextLimits": "Summary of Australian child-removal policies. It notes that incomplete records prevent an exact total. It does not describe every child’s individual experience.",
+      "check": "manually compared with the supplied official booklet/textbook or named publisher page; exact quote and page mapping require independent editorial sign-off"
+    },
+    {
+      "title": "Source B · Canadian residential school history",
+      "locator": "NCTR, “Residential School History,” opening history and impact sections (accessed 24 September 2026)",
+      "sourceType": "National Centre for Truth and Reconciliation education resource",
+      "contextLimits": "Overview of Canada’s residential school system and its effects. It does not stand in for every Survivor’s testimony or every Indigenous child’s experience.",
+      "check": "manually compared with the supplied official booklet/textbook or named publisher page; exact quote and page mapping require independent editorial sign-off"
+    }
+  ],
+  "workedResponse": {
+    "title": "Worked chart row: destinations after removal",
+    "directions": "The assigned chart asks where removed children went in Australia and Canada. Write one short, sourced entry for each country, then state the comparison without equating the institutions.",
+    "evidence": [
+      {
+        "ref": "Source A · Australian fact sheet",
+        "text": "Removed Aboriginal children were brought up in institutions or fostered into white families."
+      },
+      {
+        "ref": "Source B · NCTR history",
+        "text": "Children from First Nations, Inuit and Métis communities attended residential schools, often far from home."
+      }
+    ],
+    "reasoning": [
+      "Locate the exact chart category: destination after removal. Do not answer with a cause or an impact.",
+      "Give the Australian destination from Source A and the Canadian destination from Source B.",
+      "Name the shared action of separation, then name the institutional difference. Neither source proves that all children followed the same route."
+    ],
+    "response": "Australia: the fact sheet describes children placed in institutions or with white foster families. Canada: the NCTR describes children sent to residential schools, often far from their communities. Both involved separation from family, but the destinations and systems described by these sources are not identical. (Sources A–B.)"
+  },
+  "supportedControl": {
+    "itemId": "ab30-v2-l46-application-1",
+    "key": "b",
+    "wrongFeedback": "That collapses the systems and claims “every child” without evidence. The sources name different destinations and do not give one duration for all children.",
+    "correctFeedback": "This note addresses losses in each country and identifies which source supports each detail. It leaves individual experiences open.",
+    "bankSynchronized": true
+  },
+  "independentTasks": [
+    {
+      "title": "Repair a conflated comparison",
+      "task": "After checking the choice above, rewrite this sentence with one fact from each source: “Australia and Canada used the same schools and every child lost exactly the same things.” Save your first version, compare it with the criteria, then revise if needed.",
+      "criteria": "A strong repair names a documented Australian placement and a documented Canadian placement; states one shared policy effect without claiming identical institutions or experiences; and attributes the facts to Sources A and B. The criteria unlock after your first save.",
+      "responseKey": "t4-l02-colonial-wounds::supported-repair",
+      "differsFrom": {
+        "evidence": "The worked row supplies destinations; this repair adds an evidence-bounded claim about effects.",
+        "example": "Writes and revises a sentence rather than selecting an option."
+      }
+    },
+    {
+      "title": "Independent chart row: policy rationale",
+      "task": "Choose the chart’s government-rationale row. Using Source A for Australia and Source B for Canada, write a separate, sourced note for each country. Explain what the sources establish and one question you still need a source to answer. Save before viewing the criteria, then revise separately.",
+      "criteria": "A strong response identifies an assimilation rationale in each source, names who the source describes, distinguishes Australian removal policy from Canadian residential schooling, and states a specific source limit rather than inventing a motive for an individual official. Criteria unlock after your first save.",
+      "responseKey": "t4-l02-colonial-wounds::independent-rationale",
+      "differsFrom": {
+        "evidence": "Uses the rationale row, not the worked destinations or supported loss row.",
+        "example": "Produces an original two-country chart entry with a source-limit sentence."
+      }
+    }
+  ],
+  "browserEvidence": {
+    "desktop": "projects/aboriginal-studies-30/meta/ab30-v2/evidence/R27/l46-1440.png",
+    "mobile": "projects/aboriginal-studies-30/meta/ab30-v2/evidence/R27/l46-390.png",
+    "render": "local Chromium file preview at 1440 and 390: 3 options, 2 first-save controls, no page error or horizontal overflow; not Brightspace or Studio"
+  },
+  "limitations": [
+    "No teacher, Elder or community content approval.",
+    "Film scene access and media rights not verified; scene-specific work remains dependent on the assigned film.",
+    "No full assigned-work, curriculum-outcome, exported-SCORM or live Brightspace acceptance in this Build pass.",
+    "Screenshots show lesson openings; deep source and response visuals require rollout review."
+  ],
+  "reviewerStatus": {
+    "humanReviewed": false,
+    "leadTechnicalReview": true,
+    "learnerBrowserProof": "bounded local rendering only"
+  }
+}

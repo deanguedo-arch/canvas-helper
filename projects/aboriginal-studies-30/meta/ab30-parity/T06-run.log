@@ -1,0 +1,38 @@
+=== T06 run log 2026-09-23 ===
+SYNTAX_OK
+--- parity suite (COMP01-COMP06) ---
+✔ MAP03: all 50 lesson IDs survive in array display order (T00 baseline guard) (0.573875ms)
+✔ fixtures: reviewed Theme 1 map covers q1..q87 exactly once (0.118625ms)
+✔ fixtures: assignment aliases pair exactly one formal key with one lesson key (0.057709ms)
+✔ MAP01-data: every Theme 1 lesson carries explicit bookletQuestionIds matching the reviewed map (0.165834ms)
+✔ MAP01-homes: q1..q87 each resolve to exactly one primary lesson home (1.253542ms)
+✔ MAP02: mutating kicker text with Assignment 1.2 wording and numbers changes no membership (0.630667ms)
+✔ STATE02-F02: lesson-only draft restores in the formal assignment view (3.275917ms)
+✔ STATE02-F03: formal-only draft restores in the lesson view (2.474083ms)
+✔ STATE02-F04: identical dual drafts stay consistent in both views (baseline guard) (3.331541ms)
+✔ STATE02-keys: alias fixture keys match the real production key builders (0.672875ms)
+✔ COMP01: four legacy Mark Complete flags with an empty answer store must not display 100% mastery (0.810791ms)
+✔ COMP01-zero: empty flags with an empty store render 0% (baseline guard) (0.520916ms)
+✔ COMP02: one Q37 cell is not complete; twelve cells are fields-complete, never auto-correct (2.239916ms)
+✔ COMP03: one Q73 blank is partial; both blanks are fields-complete (0.520333ms)
+✔ COMP04: unstructured legacy text on a structured task is needs-review, never blank (0.39975ms)
+✔ COMP05: formative practice changes no denominator; one canonical response counts once (1.310792ms)
+✔ COMP06: completion UI never claims mastery, correctness, review, or grades (1.513916ms)
+✔ MAP04-DOM: real renders emit unique DOM ids and shared saved keys per record (1.143667ms)
+✔ MAP05-ids: explicit row/column ids equal the legacy token derivation (zero-migration proof) (0.361417ms)
+✔ MAP05-render: relabelled and reordered tables keep keys, show new labels (real renderer) (1.037417ms)
+✔ MAP05-blanks: every fill-in blank carries an explicit stable id (0.055958ms)
+✔ MAP06: coverage manifest accounts for every required item with an allowed disposition (1.660792ms)
+ℹ tests 22
+ℹ pass 22
+ℹ fail 0
+--- state + source suites ---
+ℹ tests 28
+ℹ pass 28
+ℹ fail 0
+--- shell file-scope ---
+ℹ tests 10
+ℹ pass 10
+ℹ fail 0
+--- tsc touched-files ---
+TSC_TOUCHED_CLEAN

@@ -1,0 +1,106 @@
+{
+  "passed": 25,
+  "total": 25,
+  "results": [
+    {
+      "name": "All art sheets loaded",
+      "pass": true
+    },
+    {
+      "name": "All five characters have eight complete directions",
+      "pass": true
+    },
+    {
+      "name": "Eight input directions retain last facing at rest",
+      "pass": true
+    },
+    {
+      "name": "Feet stop at walls, slide, and cannot tunnel",
+      "pass": true
+    },
+    {
+      "name": "Every room has a collision-free route to its activity and exit",
+      "pass": true
+    },
+    {
+      "name": "Town doors and NPC routes remain reachable",
+      "pass": true
+    },
+    {
+      "name": "A shelf obstructs interaction reach",
+      "pass": true
+    },
+    {
+      "name": "Activity rewards are finite and do not charge the reward as a fee",
+      "pass": true
+    },
+    {
+      "name": "Daily pay reconciles to cents through gross, deductions, and net",
+      "pass": true
+    },
+    {
+      "name": "World controls are exclusive during work, cabinets, results, and pause",
+      "pass": true
+    },
+    {
+      "name": "All four stat activities charge and award once, including quit",
+      "pass": true
+    },
+    {
+      "name": "Legacy paid gym state keeps original reward rules",
+      "pass": true
+    },
+    {
+      "name": "Action receipt reports capped actual values",
+      "pass": true
+    },
+    {
+      "name": "Collected pay stub stays in bank without paying twice",
+      "pass": true
+    },
+    {
+      "name": "Tutorial movement requires actual character travel",
+      "pass": true
+    },
+    {
+      "name": "Tutorial shopping and budget steps require their guided actions",
+      "pass": true
+    },
+    {
+      "name": "All ten location comparisons open from current state",
+      "pass": true
+    },
+    {
+      "name": "Reward thresholds and wheel expectation match approved rules",
+      "pass": true
+    },
+    {
+      "name": "Cabinet fee and payout settle once",
+      "pass": true
+    },
+    {
+      "name": "Loans keep arrears inside one carrying balance",
+      "pass": true
+    },
+    {
+      "name": "Credit minimum is capped at balance and missed minimum has a consequence",
+      "pass": true
+    },
+    {
+      "name": "Quick / Class / Life calendars settle a month only once",
+      "pass": true
+    },
+    {
+      "name": "Life Sim advances ordinary days without monthly bills or salary",
+      "pass": true
+    },
+    {
+      "name": "Twenty-four monthly settlements stay finite in all three modes",
+      "pass": true
+    },
+    {
+      "name": "Saved activity state round-trips without DOM or audio handles",
+      "pass": true
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "reviewDate": "2026-09-25",
+  "reviewSourceSha256": "96e9c881de763dde22d7f43063d8370a07fdc06f2fc1177a355155acba3fdf8f",
+  "candidateStatus": "blocked",
+  "repairs": [
+    "Required-check completion now rolls back to the active run when the completion save fails.",
+    "Long Frayer drafts remain saveable; the 240-character rule is enforced only when collecting a word.",
+    "The final guide now states eight selections plus two synthesis responses.",
+    "The paired Lesson 5 motion graphs become two readable source-faithful panels on phone widths while desktop retains the original comparison."
+  ],
+  "workspaceIndexSha256": "e0ce70456244cf91f107ea5ff7a12ff90d375e120a8200f97cbd6bcdb77ff288",
+  "unitCssSha256": "ca08411b42308fe160e191d878feb1dbf83aa2fa65efc1c8b765f77f2758aca6",
+  "focusedCompiler": "node scripts/compile-science24-bcd-data.cjs --project science24-unit-d",
+  "focusedCheck": "node scripts/tests/science24-abcd-review-p0.cjs",
+  "rolloutComplete": false
+}

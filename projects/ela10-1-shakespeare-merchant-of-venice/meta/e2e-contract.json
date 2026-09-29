@@ -1,0 +1,148 @@
+{
+  "$schema": "../../../e2e/project-e2e-contract.schema.json",
+  "projectSlug": "ela10-1-shakespeare-merchant-of-venice",
+  "requiredTestIds": [
+    "studio-shell",
+    "course-studio-tab",
+    "workspace-project-select",
+    "project-root",
+    "workspace-preview-frame"
+  ],
+  "modes": {
+    "enabled": false
+  },
+  "navigation": {
+    "enabled": false
+  },
+  "quiz": {
+    "enabled": false,
+    "lessonTitle": "Questions"
+  },
+  "fallbackPanel": {
+    "enabled": false
+  },
+  "learnerCourse": {
+    "enabled": true,
+    "routes": [
+      "overview",
+      "lessons",
+      "merchant-foundation-1-introduction",
+      "merchant-foundation-2-life-times-themes",
+      "merchant-foundation-3-understanding-shakespeare",
+      "merchant-foundation-4-globe-theatre",
+      "merchant-foundation-5-shakespeares-world",
+      "merchant-foundation-6-literary-devices",
+      "critical-essay",
+      "critical-essay-topic-thesis",
+      "critical-essay-introduction",
+      "critical-essay-body-1",
+      "critical-essay-body-2",
+      "critical-essay-body-3",
+      "critical-essay-conclusion-revision",
+      "critical-essay-preview",
+      "personal-response",
+      "personal-response-prompt-impression",
+      "personal-response-text-evidence",
+      "personal-response-knowledge-experience",
+      "personal-response-form-perspective",
+      "personal-response-response-plan",
+      "personal-response-draft-revise",
+      "personal-response-preview",
+      "side-by-side",
+      "play-materials",
+      "act-questions",
+      "character-notes",
+      "writing-studio",
+      "core-vocabulary",
+      "evidence-bank",
+      "resources"
+    ],
+    "hintRoutes": [
+      "critical-essay-topic-thesis",
+      "critical-essay-introduction",
+      "critical-essay-body-1",
+      "critical-essay-body-2",
+      "critical-essay-body-3",
+      "critical-essay-conclusion-revision",
+      "personal-response-prompt-impression",
+      "personal-response-text-evidence",
+      "personal-response-knowledge-experience",
+      "personal-response-form-perspective",
+      "personal-response-response-plan",
+      "personal-response-draft-revise",
+      "act-questions",
+      "character-notes"
+    ],
+    "printRoutes": [
+      "critical-essay-topic-thesis",
+      "critical-essay-introduction",
+      "critical-essay-body-1",
+      "critical-essay-body-2",
+      "critical-essay-body-3",
+      "critical-essay-conclusion-revision",
+      "critical-essay-preview",
+      "personal-response-prompt-impression",
+      "personal-response-text-evidence",
+      "personal-response-knowledge-experience",
+      "personal-response-form-perspective",
+      "personal-response-response-plan",
+      "personal-response-draft-revise",
+      "personal-response-preview",
+      "act-questions",
+      "character-notes",
+      "writing-studio",
+      "evidence-bank"
+    ],
+    "evidenceScenarios": [
+      {
+        "route": "critical-essay-topic-thesis",
+        "collectionId": "ela10-1-shakespeare-merchant-of-venice:critical-essay:unit:topic-thesis:collection",
+        "responseId": "ela10-1-shakespeare-merchant-of-venice:critical-essay:unit:topic-thesis:topic"
+      },
+      {
+        "route": "personal-response-prompt-impression",
+        "collectionId": "ela10-1-shakespeare-merchant-of-venice:personal-response:unit:prompt-impression:collection",
+        "responseId": "ela10-1-shakespeare-merchant-of-venice:personal-response:unit:prompt-impression:prompt"
+      },
+      {
+        "route": "act-questions",
+        "collectionId": "ela10-1-shakespeare-merchant-of-venice:act-questions:act-1:collection",
+        "responseId": "ela10-1-shakespeare-merchant-of-venice:act-questions:act-1:scene-1:summary"
+      },
+      {
+        "route": "character-notes",
+        "collectionId": "ela10-1-shakespeare-merchant-of-venice:character-notes:antonio:dossier",
+        "responseId": "ela10-1-shakespeare-merchant-of-venice:character-notes:antonio:traits"
+      },
+      {
+        "route": "writing-studio",
+        "collectionId": "ela10-1-shakespeare-merchant-of-venice:writing-studio:critical-essay:collection",
+        "responseId": "ela10-1-shakespeare-merchant-of-venice:writing-studio:critical-essay:topic",
+        "activateSelector": "[data-english-activity-select=\"ela10-1-shakespeare-merchant-of-venice:writing-studio:tools\"] option[value=\"critical-essay\"]"
+      }
+    ],
+    "resourceChecks": [
+      {
+        "route": "play-materials",
+        "kind": "document-reader",
+        "minimumPrimary": 1,
+        "minimumFallback": 1
+      }
+    ],
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "routes": [
+        "overview",
+        "side-by-side",
+        "act-questions",
+        "critical-essay-topic-thesis",
+        "personal-response-prompt-impression",
+        "character-notes",
+        "writing-studio",
+        "play-materials",
+        "evidence-bank"
+      ]
+    }
+  }
+}

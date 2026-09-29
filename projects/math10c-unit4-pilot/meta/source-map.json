@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "chapter": 4,
+  "sourceManifest": "projects/resources/math10c-production/v1/source-manifest.json",
+  "productionContract": "projects/resources/math10c-production/v1/chapter4/production-contract.json",
+  "canonicalSources": [
+    {
+      "id": "cbe-system-6685-202692410",
+      "use": "Primary teaching sequence, worked-example concepts, vocabulary and misconception evidence"
+    },
+    {
+      "id": "nxt-master-6861-202692441",
+      "use": "Independent organization check, shared textbook section map and optional-review evidence"
+    }
+  ],
+  "comparisonOnly": [
+    {
+      "id": "class-157162-202692413",
+      "use": "Current-course comparison only; class-specific labels, quiz identifiers and submissions are excluded"
+    }
+  ],
+  "lessonEvidence": [
+    {
+      "lesson": "4.1",
+      "primaryLocator": "cbe-system-6685-202692410::Roots_powers/irrational_numbers.html",
+      "textbookLocators": ["cbe-system-6685-202692410::Content/Math 10C Textbook 4.1.pdf", "cbe-system-6685-202692410::Content/Math 10C Textbook 4.2.pdf"],
+      "demandEvidence": "Exact roots, non-perfect-root bounds, rational/irrational classification and ordering are each represented by a required learner response."
+    },
+    {
+      "lesson": "4.2",
+      "primaryLocator": "cbe-system-6685-202692410::Roots_powers/mixed_entire_radicals.html",
+      "textbookLocator": "cbe-system-6685-202692410::Content/Math 10C Textbook 4.3.pdf",
+      "demandEvidence": "Learners identify radical parts, simplify, convert to entire form and make a separate bounded equivalence decision."
+    },
+    {
+      "lesson": "4.3",
+      "primaryLocator": "cbe-system-6685-202692410::Roots_powers/exponent_laws_1.html",
+      "textbookLocator": "cbe-system-6685-202692410::Content/Math 10C Textbook 4.6.pdf",
+      "demandEvidence": "Product, quotient, zero-exponent restrictions and coefficient-variable simplification have separate checked components."
+    },
+    {
+      "lesson": "4.4",
+      "primaryLocator": "cbe-system-6685-202692410::Roots_powers/exponent_laws_2.html",
+      "textbookLocator": "cbe-system-6685-202692410::Content/(10C Ch. 4) Exponent laws.pdf",
+      "demandEvidence": "Power-of-power, product and quotient scope are taught and checked before combined-law sequencing."
+    },
+    {
+      "lesson": "4.5",
+      "primaryLocator": "cbe-system-6685-202692410::Roots_powers/exponent_laws_3.html",
+      "textbookLocator": "cbe-system-6685-202692410::Content/Math 10C Textbook 4.5.pdf",
+      "demandEvidence": "Reciprocal meaning, positive-exponent rewriting, rational-base evaluation and original restrictions are distinct response demands."
+    },
+    {
+      "lesson": "4.6",
+      "primaryLocator": "cbe-system-6685-202692410::Roots_powers/exponent_laws_4.html",
+      "textbookLocator": "cbe-system-6685-202692410::Content/Math 10C Textbook 4.4.pdf",
+      "demandEvidence": "Index/power interpretation, form conversion, evaluation and real-domain decisions are separately elicited."
+    },
+    {
+      "lesson": "4.7",
+      "primaryLocator": "cbe-system-6685-202692410::Roots_powers/applying_exp_laws.html",
+      "textbookLocator": "nxt-master-6861-202692441::Worksheets/(10C Ch. 4) Exponent laws.pdf",
+      "demandEvidence": "Law choice, multi-step simplification, model evaluation and a bounded explanation of invalid additive use are required."
+    },
+    {
+      "lesson": "4.8",
+      "primaryLocators": ["cbe-system-6685-202692410::Roots_powers/going_beyond_this_lesson.html", "cbe-system-6685-202692410::Content/10C Unit 2 Review - Answer Key.pdf (scope evidence only; no learner item reuse)"],
+      "independentOrganizationLocator": "nxt-master-6861-202692441::Textbook/Ch.4/Math 10C Textbook 4.6.pdf",
+      "demandEvidence": "New non-secure transfer tasks require exact form, explicit strategy comparison, changed-context solving and unit/reasonableness checks."
+    }
+  ],
+  "includedScope": [
+    "Textbook concepts 4.1 through 4.6",
+    "CBE Roots and Powers teaching sequence",
+    "Non-secure formative worksheet concepts after independent review",
+    "New non-secure examples and transfer prompts"
+  ],
+  "excludedScope": [
+    "Formal exams and exam questions",
+    "Answer keys and teacher-only solutions",
+    "Quiz identifiers and live class submissions",
+    "End-of-learning submission workflow",
+    "Textbook work as automated mastery evidence"
+  ],
+  "status": "blocked-review-candidate"
+}

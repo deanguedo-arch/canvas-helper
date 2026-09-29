@@ -4,8 +4,9 @@
 // raw baseline, active-route/SCORM agreement, full eight-lesson reachability,
 // the eight required lesson-check IDs with the triangle lab excluded, route
 // migration without evidence loss, the four-condition optional triangle gate,
-// the eight-checkpoint progress denominator, and unchanged
-// response/history/state limits.
+// the eight-checkpoint progress denominator, unchanged
+// response/history/state limits, and separation of the optional Chapter 3
+// textbook notebooks into three bounded standalone courses.
 import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
 import { execFileSync } from "node:child_process";
@@ -134,6 +135,12 @@ test("state decoder keeps pre-refinement work readable while new attempts use ch
     summaryRevision: 0,
   };
   const packed = MathState.encode(blank);
+  // The exact prior schema remains readable and begins with no inferred mastery.
+  const prior = structuredClone(packed);
+  prior.format = "unit3-state-3";
+  delete prior.mastery;
+  const priorDecoded = MathState.decode(prior, { pages: Pilot.ACTIVE_ROUTES, version: current.contentVersion });
+  assert.deepEqual(priorDecoded.mastery, { session: "", receipts: [], gaps: {}, seen36: [], seen31: [], seen32: [], seen33: [], seen34: [], seen35: [], seen37: [], seen38: [], submissions: [], retiredCount: 0 });
   packed.engine = previousEngine;
   packed.provenances.push({
     engine: previousEngine,
@@ -147,7 +154,25 @@ test("state decoder keeps pre-refinement work readable while new attempts use ch
   assert.equal(MathState.resultProvenance({ contentVersion: current.contentVersion }).engine, MathState.ENGINE);
 });
 
-test("active route contract and SCORM tracking agree on 22 routes and eight IDs", () => {
+test("bounded mastery evidence round-trips without changing completion", () => {
+  const current = MathState.catalog("unit3-catalog-v05");
+  const state = {
+    v: current.contentVersion, rev: 1, route: "u3-practice", r: {}, active: [], pos: 0, recent: [], pins: [],
+    selectedTopic: "3.6", runMode: "independent", runSeed: 7, firsts: {}, drafts: {}, counts: {}, trig: {}, book: {},
+    reasons: {}, paper: {}, done: ["3.1"], notes: {}, exposed: [], seen: [], summary: { attempts: 0, correct: 0, supported: 0 },
+    skills: {}, legacySummary: { attempts: 0, correct: 0, supported: 0 }, summaryRevision: 0,
+    mastery: { session: "session-a", gaps: {}, seen36: [], submissions: [], workshop: { id: "m36-transfer-v1", index: 10, mode: "transfer", values: { "m36-a": "4", "m36-split": "draft equality" } }, receipts: [{
+      target: "C3-36d", kind: "verification", instance: "r-1", variation: "practice-1", observedAt: 123,
+      correct: true, support: 0, firstValid: true, fresh: true, policy: MathState.MASTERY_POLICY,
+      checker: MathState.ENGINE, component: "final-answer", session: "session-a", originSession: "session-a",
+    }] },
+  };
+  const decoded = MathState.decode(MathState.encode(state), { pages: Pilot.ACTIVE_ROUTES, version: current.contentVersion });
+  assert.deepEqual(decoded.mastery, { ...state.mastery, seen31: [], seen32: [], seen33: [], seen34: [], seen35: [], seen37: [], seen38: [], retiredCount: 0 });
+  assert.deepEqual(decoded.done, ["3.1"]);
+});
+
+test("active route contract and SCORM tracking agree on 22 mastery routes and eight IDs", () => {
   const expectedRoutes = [
     "u3-overview", "u3-ready",
     "u3-31", "u3-32", "u3-33", "u3-34", "u3-35", "u3-36", "u3-37", "u3-38",
@@ -175,7 +200,7 @@ test("active route contract and SCORM tracking agree on 22 routes and eight IDs"
   assert.ok(!course.includes("u3-transfer-complete"), "triangle ID must not be a completion ID");
 });
 
-test("all 22 pages are retained and every one is learner-reachable", () => {
+test("all 22 mastery pages are retained and every one is learner-reachable", () => {
   for (const id of Pilot.ACTIVE_ROUTES) {
     assert.ok(html.includes(`id="${id}"`), `preserved page missing: ${id}`);
     assert.ok(Pilot.isKnownRoute(id), `unknown route: ${id}`);
@@ -205,6 +230,7 @@ test("the eight lesson checks are the only required IDs; triangle work is exclud
   assert.ok(course.includes("isTriangleComplete"), "optional triangle gate must stay");
   assert.ok(!course.includes("u3-transfer-complete"), "triangle ID must not be completed");
   assert.deepEqual(Pilot.OPTIONAL_ROUTES, ["u3-transfer"]);
+  assert.equal(Pilot.isOptionalRoute("u3-textbook-practice"), false);
   assert.equal(Pilot.isOptionalRoute("u3-transfer"), true);
   assert.equal(Pilot.isOptionalRoute("u3-35"), false);
   for (const id of tracking.completion.requiredIds) assert.equal(Pilot.isRequiredId(id), true);
@@ -335,7 +361,7 @@ test("the optional triangle gate still requires all four conditions", () => {
   assert.equal(Contracts.trig("5 m", { kind: "length" }).status, "correct");
 });
 
-test("visible progress denominator is eight lesson checkpoints; triangle work never counts", () => {
+test("mastery is learner-facing while eight private completion IDs remain stable", () => {
   const trig = {
     side: "BC",
     adjacent: "AB",
@@ -369,10 +395,11 @@ test("visible progress denominator is eight lesson checkpoints; triangle work ne
   // Additive aliases report the same Chapter progress without breaking the public API.
   assert.equal(Pilot.chapterProgress(all, trig).count, 8);
   assert.equal(Pilot.unitProgress(["3.1"], {}).count, 1);
-  assert.ok(course.includes("of 8 lesson checkpoints"));
-  assert.ok(course.includes("Chapter checkpoints recorded:"));
-  assert.ok(course.includes("Chapter progress"));
+  assert.ok(course.includes("Mastery evidence"));
+  assert.ok(course.includes("fixed 32-target denominator"));
+  assert.ok(course.includes("Private lesson work records preserved:"));
   assert.ok(course.includes("syncSaving();updateProgress();return ok"));
+  // Static fallback text is replaced as soon as the learner runtime opens.
   assert.ok(html.includes("0 of 8 lesson checkpoints"));
   assert.ok(html.includes("Chapter progress"));
   assert.ok(html.includes('id="transfer-check-status"'));
@@ -390,10 +417,11 @@ test("no response, history, retention or state limit is reduced", () => {
     recent: 2,
     selected: 4,
     attemptDetails: 4,
-    applicationCharacters: 40000,
+    applicationCharacters: 52000,
   });
-  assert.equal(MathState.APP_LIMIT, 40000);
-  assert.equal(MathState.VERSION, "unit3-state-3");
+  assert.equal(MathState.APP_LIMIT, 52000);
+  assert.equal(MathState.VERSION, "unit3-state-14");
+  assert.equal(MathState.PREVIOUS_VERSION, "unit3-state-13");
   assert.ok(course.includes("key:'math10c-unit3-pilot:review:v2'"));
   assert.ok(course.includes("const rawLimit=160"));
   assert.ok(html.includes('maxlength="160"'));
@@ -402,7 +430,12 @@ test("no response, history, retention or state limit is reduced", () => {
 
 test("teacher-review UI fixes keep gutters, collapsed control, launcher, and desktop reference hooks", () => {
   const css = read(`${SLUG}/workspace/styles.css`);
-  // 1. The direct .lesson-section child of #check-3.5 shares lesson-block gutters.
+  // 1. Every exceptional top-level activity shares lesson-block gutters.
+  assert.ok(css.includes(".course-page>section.lesson-section"), "named top-level activity gutter");
+  assert.ok(css.includes(".course-page>section:not([class])"), "unclassified top-level activity gutter");
+  assert.ok(pageSegment(html, "u3-32").includes('class="lesson-section"'), "root-estimation activity covered");
+  assert.match(pageSegment(html, "u3-errors"), /<section data-canvas-helper-edit-key="repair-error-catalog">/, "error catalog covered");
+  // The direct .lesson-section child of #check-3.5 shares lesson-block gutters.
   assert.ok(css.includes("#check-3\\.5>.lesson-section{padding:36px 54px"), "desktop gutter");
   assert.ok(css.includes("#check-3\\.5>.lesson-section{padding:30px 32px"), "<=1050px gutter");
   assert.ok(css.includes("#check-3\\.5>.lesson-section{padding:28px 22px"), "<=760px gutter");
@@ -463,7 +496,7 @@ test("teacher-review UI fixes keep gutters, collapsed control, launcher, and des
   assert.ok(course.includes("window.innerHeight-saveBar-height"), "panel bottom stays above save status");
   assert.ok(course.includes("resetReferencePanel"), "desktop drag styles reset for the mobile inset sheet");
   assert.ok(
-    course.includes("addEventListener('resize',()=>clampReferencePanel())"),
+    course.includes("addEventListener('resize',()=>{clampReferencePanel();clampTextbookDialog();})"),
     "viewport changes re-clamp the panel",
   );
   for (const id of ["reference-open", "reference-close", "reference-panel", "sidebar-toggle", "check-3.5"]) {
@@ -549,4 +582,202 @@ test("a newly checked supported response immediately replaces stale history meta
     course.includes("showFeedback(task,result);if(!['input','unsupported'].includes(result.status))draftFeedback(task,r);"),
     "supported results must refresh their checked-response feedback and history immediately",
   );
+});
+
+test("textbook practice is removed from mastery and owned by three optional standalone courses", () => {
+  assert.ok(!Pilot.ACTIVE_ROUTES.includes("u3-textbook-practice"));
+  assert.equal(Pilot.ACTIVE_ROUTES.length, 22);
+  assert.equal(Pilot.isOptionalRoute("u3-textbook-practice"), false);
+  assert.deepEqual(Pilot.REQUIRED_IDS, [
+    "u3-check-31", "u3-check-32", "u3-check-33", "u3-check-34",
+    "u3-check-35", "u3-check-36", "u3-check-37", "u3-check-38",
+  ]);
+  assert.ok(!html.includes('id="u3-textbook-practice"'));
+  assert.ok(!html.includes("data-textbook-page"));
+  assert.ok(!html.includes('id="textbook-dialog"'));
+  assert.ok(!pageSegment(html, "u3-resources").includes("Textbook library"));
+  const expected = [
+    ["math10c-unit3-textbook-1", 54],
+    ["math10c-unit3-textbook-2", 43],
+    ["math10c-unit3-textbook-3", 81],
+  ] as const;
+  let total = 0;
+  for (const [slug, count] of expected) {
+    const standalone = read(`projects/${slug}/workspace/index.html`);
+    const manifest = JSON.parse(read(`projects/${slug}/meta/project.json`));
+    assert.match(standalone, /Optional and ungraded/i);
+    assert.match(standalone, /does not report a grade/i);
+    assert.equal((standalone.match(/data-question-index=/g) || []).length, count);
+    assert.ok(standalone.includes("data-reader-file"), `${slug} needs inline full-page readers`);
+    assert.equal(manifest.textbookPractice.questionCount, count);
+    assert.equal(manifest.textbookPractice.graded, false);
+    assert.equal(manifest.textbookPractice.completion, false);
+    total += count;
+  }
+  assert.equal(total, 178);
+});
+
+test("individual textbook questions retain auditable crop provenance", () => {
+  const manifest = JSON.parse(read(`${SLUG}/meta/textbook-question-crops.json`));
+  assert.equal(manifest.schemaVersion, 2);
+  assert.equal(manifest.distributionStatus, "private-local-review-pending-source-approval");
+  assert.equal(manifest.generatedBy, "scripts/build-math10c-unit3-question-crops.py");
+  assert.equal(manifest.entries.length, 178);
+  assert.equal(Pilot.TEXTBOOK_QUESTIONS.length, 178);
+  assert.deepEqual(Pilot.textbookQuestion("3.1", "q3"), { section: "3.1", id: "q3", label: "Q3", number: 3, printed: 140, image: "assets/textbook-crops/3-1-q3.png" });
+  assert.deepEqual(Pilot.textbookQuestion("review", "review-q35"), { section: "review", id: "review-q35", label: "Review 35", number: 35, printed: 200, image: "assets/textbook-crops/review-q35.png" });
+  assert.deepEqual(Pilot.textbookQuestion("review", "test-q9"), { section: "review", id: "test-q9", label: "Practice test 9", number: 9, printed: 201, image: "assets/textbook-crops/test-q9.png" });
+  assert.equal(Pilot.textbookQuestion("3.1", "q2"), null);
+  assert.equal(new Set(manifest.entries.map((entry: any) => `${entry.section}:${entry.questionId}`)).size, 178);
+  for (const entry of manifest.entries) {
+    assert.ok(/^assets\/textbook-crops\/(?:3-[1-8]|review|test)-q\d+\.png$/.test(entry.image));
+    assert.ok(/^assets\/textbook\/.+\.pdf$/.test(entry.sourceFile));
+    assert.ok(Number.isSafeInteger(entry.pdfPage) && entry.pdfPage >= 1);
+    assert.equal(entry.crop.length, 4);
+    assert.ok(entry.crop.every((value: number) => Number.isFinite(value)));
+  }
+  const css = read(`${SLUG}/workspace/styles.css`);
+  assert.ok(css.includes(".textbook-question-preview"));
+  assert.ok(css.includes('.textbook-pages button[aria-pressed="true"]'));
+});
+
+test("printed-page mapping covers 134-201 with exact file boundaries", () => {
+  assert.equal(Pilot.TEXTBOOK.length, 11);
+  const at = (printed: number) => Pilot.textbookForPrintedPage(printed);
+  assert.deepEqual(at(134), { key: "3.1", title: "3.1 Factors and multiples", file: "assets/textbook/math10c-3-1.pdf", printed: 134, pdfPage: 1, pdfPages: 8 });
+  assert.equal(at(141).pdfPage, 8);
+  assert.equal(at(141).file, "assets/textbook/math10c-3-1.pdf");
+  assert.deepEqual([at(142).key, at(142).pdfPage], ["3.2", 1]);
+  assert.deepEqual([at(195).key, at(195).pdfPage, at(195).pdfPages], ["3.8", 8, 8]);
+  assert.deepEqual([at(196).key, at(196).pdfPage], ["study-guide", 1]);
+  assert.deepEqual([at(200).key, at(200).pdfPage, at(200).pdfPages], ["review", 3, 3]);
+  assert.deepEqual(at(201), { key: "practice-test", title: "Chapter 3 practice test", file: "assets/textbook/math10c-practice-test-3.pdf", printed: 201, pdfPage: 1, pdfPages: 1 });
+  for (const bad of [133, 202, 0, -1, NaN, 134.5, "134"]) assert.equal(at(bad as number), null, `printed page ${String(bad)} must not map`);
+});
+
+test("all 11 textbook PDFs are referenced and no solutions PDF is referenced", () => {
+  const expected = [
+    "assets/textbook/math10c-3-1.pdf",
+    "assets/textbook/math10c-3-2.pdf",
+    "assets/textbook/math10c-3-3.pdf",
+    "assets/textbook/math10c-3-4.pdf",
+    "assets/textbook/math10c-3-5.pdf",
+    "assets/textbook/math10c-3-6.pdf",
+    "assets/textbook/math10c-3-7.pdf",
+    "assets/textbook/math10c-3-8.pdf",
+    "assets/textbook/math10c-study-guide-3.pdf",
+    "assets/textbook/math10c-review-3.pdf",
+    "assets/textbook/math10c-practice-test-3.pdf",
+  ];
+  const pilotSlice = read(`${SLUG}/workspace/assets/pilot-slice.js`);
+  for (const file of expected) {
+    assert.ok(html.includes(file) || course.includes(file) || pilotSlice.includes(file), `missing reference: ${file}`);
+  }
+  const found = new Set(
+    [html, course, pilotSlice]
+      .flatMap((src) => [...src.matchAll(/assets\/textbook\/[A-Za-z0-9-]+\.pdf/g)].map((m) => m[0])),
+  );
+  assert.deepEqual([...found].sort(), [...expected].sort());
+  assert.ok(!/solution/i.test([...found].join(" ")), "a solutions PDF must never be referenced");
+  assert.ok(!/textbook[^"'<>]*solution/i.test(html + course), "no solutions-adjacent textbook reference");
+  const sourceMap = JSON.parse(read(`${SLUG}/meta/textbook-source-map.json`));
+  assert.equal(sourceMap.distributionStatus, "private-local-review-pending-source-approval");
+  assert.equal(sourceMap.sourceArchive.sha256, "26c85da37b10c6745495eceb54ded50dc3d5e9a27429d477742cb413b2da128b");
+  assert.equal(sourceMap.items.length, 11);
+  assert.deepEqual(sourceMap.items.map((item: any) => item.file).sort(), [...expected].sort());
+  assert.ok(/solution/i.test(sourceMap.excluded.join(" ")), "the solutions exclusion must be explicit");
+});
+
+const bookBlank = () => {
+  const current = MathState.catalog("unit3-catalog-v05");
+  return {
+    v: current.contentVersion,
+    rev: 0,
+    route: "u3-overview",
+    r: {},
+    active: [],
+    pos: 0,
+    recent: [],
+    pins: [],
+    selectedTopic: "mixed",
+    runMode: "learn",
+    runSeed: 0,
+    firsts: {},
+    drafts: {},
+    counts: {},
+    trig: {},
+    reasons: {},
+    paper: {},
+    done: [],
+    notes: {},
+    exposed: [],
+    seen: [],
+    summary: { attempts: 0, correct: 0, supported: 0 },
+    skills: {},
+    legacySummary: { attempts: 0, correct: 0, supported: 0 },
+    summaryRevision: 0,
+  };
+};
+const bookDecodeOptions = () => ({
+  pages: Pilot.ACTIVE_ROUTES,
+  version: MathState.catalog("unit3-catalog-v05").contentVersion,
+});
+
+test("saved state without book decodes to empty textbook records", () => {
+  const packed = MathState.encode(bookBlank());
+  assert.ok(!("book" in packed), "older payloads carry no book field");
+  const decoded = MathState.decode(packed, bookDecodeOptions());
+  assert.deepEqual(decoded.book, {});
+});
+
+test("valid bounded textbook state round-trips at its range edges", () => {
+  const book = {
+    "3.1": { page: 140, selected: "q3", answers: { q3: "Multiples listed and checked." }, ref: "Earlier Q4-6", work: "Earlier section note." },
+    "3.6": { page: 181, work: "x".repeat(600) },
+    review: { page: 201, selected: "test-q9", answers: { "review-q35": "Review work", "test-q9": "Timed attempt kept on paper." } },
+  };
+  const packed = MathState.encode({ ...bookBlank(), book });
+  const decoded = MathState.decode(packed, bookDecodeOptions());
+  assert.deepEqual(decoded.book, book);
+  assert.ok("book" in packed, "textbook records must persist through the saved payload");
+});
+
+test("invalid textbook key, page, control character, or oversized response is rejected", () => {
+  const current = bookDecodeOptions();
+  const rejects = [
+    { book: { "9.9": {} } },
+    { book: { "3.1": { page: 142 } } },
+    { book: { "3.1": { page: 133 } } },
+    { book: { review: { page: 195 } } },
+    { book: { "3.1": { ref: "x".repeat(81) } } },
+    { book: { "3.1": { work: "x".repeat(601) } } },
+    { book: { "3.1": { work: "kept\u0007on paper" } } },
+    { book: { "3.1": { selected: "q2" } } },
+    { book: { review: { selected: "q1" } } },
+    { book: { "3.1": { answers: { q23: "outside section range" } } } },
+    { book: { review: { answers: { "test-q10": "outside test range" } } } },
+    { book: { "3.1": { answers: { q3: "x".repeat(601) } } } },
+    { book: { "3.1": { page: 134, extra: 1 } } },
+    { book: { "3.1": {}, "3.2": {}, "3.3": {}, "3.4": {}, "3.5": {}, "3.6": {}, "3.7": {}, "3.8": {}, review: {}, surplus: {} } },
+  ];
+  for (const [index, patch] of rejects.entries()) {
+    const packed = { ...MathState.encode(bookBlank()), ...patch };
+    assert.throws(() => MathState.decode(packed, current), `invalid textbook payload ${index} was accepted`);
+  }
+});
+
+test("textbook edits do not change completion or progress", () => {
+  assert.equal(Pilot.pilotProgress(["3.1"], {}).count, 1);
+  assert.equal(Pilot.pilotProgress(["3.1"], { reason: "textbook drafting never feeds the gate" } as any).count, 1);
+  const completedLine = course.split("\n").find((line: string) => line.includes("completedIds:"));
+  assert.ok(completedLine && !completedLine.includes("book"), "completion must derive from lesson checks only");
+  assert.ok(course.includes("completedIds:()=>[...S.done.map(x=>'u3-check-'+x.replace('.',''))]"));
+  assert.ok(course.includes("syncBookInputs"), "textbook drafts must sync through the shared saver path");
+  const withBook = MathState.decode(
+    MathState.encode({ ...bookBlank(), book: { "3.1": { page: 140, selected: "q3", answers: { q3: "draft" } } }, done: ["3.1"] }),
+    bookDecodeOptions(),
+  );
+  assert.deepEqual(withBook.done, ["3.1"]);
+  assert.deepEqual(withBook.summary, { attempts: 0, correct: 0, supported: 0 });
+  assert.equal(Pilot.pilotProgress(withBook.done, withBook.trig).count, 1);
 });

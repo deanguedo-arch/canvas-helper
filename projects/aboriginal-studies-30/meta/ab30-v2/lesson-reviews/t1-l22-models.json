@@ -1,0 +1,149 @@
+{
+  "ticket": "R16",
+  "lessonId": "t1-l22-models",
+  "contentVersion": "ab30-v2-l22.1",
+  "goalAndTeaching": {
+    "goal": "Compare the textbook's model descriptions with the same factual categories, and explain why different contexts need different arrangements.",
+    "excerpt": "Same five questions, two different fits — and neither row judges any real agreement.",
+    "whereTaught": "Goal strip + section 1 (A-E: ground rules, third order); public (F-I); municipal (J-M); community of interest (N-O); sections 2-3 authority/context; section 4 panel + worked five-question run; sections 5-7 practice, bridge, Assignment 1.2 complete."
+  },
+  "workedResponse": {
+    "where": "Section 4: bounded question, 2 cited passages, four-model panel + 4 steps, finished response.",
+    "reasoningDemonstrated": "authority -> participants + territory -> responsibilities + accountability -> table-cannot-judge-real-cases limit.",
+    "finishedResponse": "Runs public vs municipal across all five questions with card citations, then fences real-agreement legal character."
+  },
+  "supportedControl": {
+    "task": "supportedSelection on ab30-v2-l22-match-1, deep-synced (R16-SYNC).",
+    "correctPath": "(a): Nunavut-public, Sechelt-municipal, urban-community-of-interest — judged correct (R16-BANK).",
+    "wrongPath": "(b): fully crossed matches — correctly rejected with re-match direction.",
+    "repairAction": "Sentence repair on the 'qulliq opened Nunavut's government' founding story with gated criteria (Sources F, I)."
+  },
+  "independentTask": {
+    "stimulus": "Two structural differences between any two models, evaluated but never universalized.",
+    "differsFrom": "Original two-difference comparison, unworked as an explanation above.",
+    "savedFirstResponse": "R16-GATING: locked pre-save, toggle + criteria + revision after explicit first save."
+  },
+  "sources": [
+    {
+      "id": "L22-A",
+      "locator": "Chapter 3, printed p. 104 (file p112)",
+      "quoteCheck": "verbatim in band3 (R16-QUOTES); no-single-model ground rule"
+    },
+    {
+      "id": "L22-B",
+      "locator": "Chapter 3, printed p. 104 (file p112)",
+      "quoteCheck": "verbatim in band3; fiduciary resourcing duty"
+    },
+    {
+      "id": "L22-C",
+      "locator": "Chapter 3, printed p. 104 (file p112)",
+      "quoteCheck": "verbatim in band3; third-order model (constitutional order)"
+    },
+    {
+      "id": "L22-D",
+      "locator": "Chapter 3, printed p. 104 (file p112)",
+      "quoteCheck": "verbatim in band3; enshrinement benefits for q84"
+    },
+    {
+      "id": "L22-E",
+      "locator": "Chapter 3, printed p. 104 (file p112)",
+      "quoteCheck": "verbatim in band3; third-order drawbacks (decades)"
+    },
+    {
+      "id": "L22-F",
+      "locator": "Chapter 3, printed p. 104 (file p112)",
+      "quoteCheck": "verbatim in band3; qulliq second-session opening (repair target)"
+    },
+    {
+      "id": "L22-G",
+      "locator": "Chapter 3, printed p. 105 (file p113)",
+      "quoteCheck": "verbatim in band3; public model (majority + equal participation)"
+    },
+    {
+      "id": "L22-H",
+      "locator": "Chapter 3, printed p. 105 (file p113)",
+      "quoteCheck": "verbatim in band3; public benefits (existing systems)"
+    },
+    {
+      "id": "L22-I",
+      "locator": "Chapter 3, printed p. 105 (file p113)",
+      "quoteCheck": "verbatim in band3; Nunavut current example for q85"
+    },
+    {
+      "id": "L22-J",
+      "locator": "Chapter 3, printed p. 105 (file p113)",
+      "quoteCheck": "verbatim in band3; municipal route + 1984 Cree first"
+    },
+    {
+      "id": "L22-K",
+      "locator": "Chapter 3, printed p. 105 (file p113)",
+      "quoteCheck": "verbatim in band3; Sechelt Bill C-43 for q86"
+    },
+    {
+      "id": "L22-L",
+      "locator": "Chapter 3, printed p. 105 (file p113)",
+      "quoteCheck": "verbatim in band3; municipal benefits (quick, practical)"
+    },
+    {
+      "id": "L22-M",
+      "locator": "Chapter 3, printed p. 105 (file p113)",
+      "quoteCheck": "verbatim in band3; delegation drawback (revocable)"
+    },
+    {
+      "id": "L22-N",
+      "locator": "Chapter 3, printed p. 105 (file p113)",
+      "quoteCheck": "verbatim in band3; community-of-interest urban model"
+    },
+    {
+      "id": "L22-O",
+      "locator": "Chapter 3, printed p. 105 (file p113)",
+      "quoteCheck": "verbatim in band3; no-land-base fit for q87"
+    }
+  ],
+  "assignedWorkConnection": "bookletQuestionIds q84-q87 byte-identical (R16-ASSIGNED); section-6 bridge maps q84 to D, q85 to I, q86 to J/K (1984-first + named-bill honesty note), q87 to N/O; Assignment 1.2 complete-notes + connection home block; answers save under existing records; nothing adds marked work.",
+  "misconception": {
+    "misconceptions": [
+      "one model fits every community",
+      "a simplified model table determines the legal character of a current agreement"
+    ],
+    "explanation": "M14 four-model/five-question panel + worked run with explicit table-limit step + independent ban on universal-best claims."
+  },
+  "mediaDecisions": {
+    "M14-model-comparison": "Implemented as the brief requires: four models against common questions (authority, participants, territory, responsibilities, accountability) with attributed advantages and constraints; no best-model ranking. No new component needed."
+  },
+  "figureRole": "No figure: the four-model panel carries the comparison in text; the qulliq moment is described via its source card (F), not illustrated.",
+  "accessibilityPrintScreenshots": {
+    "print": "NOT_RUN live print; print stylesheet covers lesson surfaces per static suites.",
+    "screenshots": "NOT_RUN in-sandbox; frozen interaction pattern (see L01 review).",
+    "staticA11y": "UI02 passes over the rendered article; live keyboard/focus/announcement/zoom/screen-reader checks NOT_RUN."
+  },
+  "reviewerStatus": {
+    "humanReviewed": false,
+    "unresolvedLimitations": [
+      "Live-browser proof NOT_RUN in-sandbox.",
+      "No teacher/community sign-off; candidate acceptance only."
+    ]
+  },
+  "reviewPasses": {
+    "implementPass": "R16 implementation (this agent).",
+    "reviewPass": "R16 review (this agent, separate pass): learner-text read incl. import audit (no p84 Section-35-foundation import, no founding-date invention), extract verification (R16-QUOTES), q84-q87 + Assignment 1.2 home audit.",
+    "limitations": "Single-agent; no teacher/Elder/community review; no live-browser proof in-sandbox. Bank items keep AUTHORED_SPECIMEN_REQUIRES_PRODUCTION_INTEGRATION_REVIEW.",
+    "reviewFindings": [
+      {
+        "severity": "before-state-correction",
+        "finding": "Before-state wrote the qulliq 'opened' Nunavut's government / 'Nunavut's opening' in 2004 — the chapter states a ceremonial lighting for the second session of the legislative assembly.",
+        "action": "Rebuild states the session opening exactly (Source F) and makes the founding confusion the repair target."
+      },
+      {
+        "severity": "before-state-correction",
+        "finding": "Before-state grounded enshrinement benefits in 'Section 35's foundation through courts and negotiations instead of chasing new amendments' — a page-84 import from Lesson 18's band.",
+        "action": "Rebuild grounds q84 in the third-order benefits passage (Source D, p104); the p84 import is removed."
+      },
+      {
+        "severity": "observation",
+        "finding": "Label pp99-105 narrowed to pp104-105 per starting pages; q86's 'which bill / first' pairing answered honestly (1984 Cree first unnamed, C-43 named for 1986 Sechelt) without altering the assigned question.",
+        "action": "Honesty note in lesson prose + bridge + bank item; assigned record untouched (R16-ASSIGNED)."
+      }
+    ]
+  }
+}

@@ -1,0 +1,2632 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-09-24",
+  "status": "visuals-integrated-videos-pending-exact-media-review",
+  "course": "aboriginal-studies-30",
+  "lessonCount": 50,
+  "coverageTarget": {
+    "lessonsWithAtLeastOneInstructionalVisual": 50,
+    "requiredDecorativeHeroes": 0
+  },
+  "designRule": "Every lesson receives at least one instructional visual, but its form may be a sourced photograph, document, map, timeline, chart, diagram, or restrained illustration. Heroes are optional. Text wrapping is used only when the image and paragraph explain the same idea.",
+  "sourceRules": [
+    "Textbook visuals remain review-only until reproduction rights and the original caption/context are confirmed.",
+    "Named people, communities, events, ceremonies, regalia and sacred objects are never invented with image generation.",
+    "Generated art is labelled as illustration and never presented as documentary evidence.",
+    "Diagrams, maps, timelines and comparison organizers use accessible HTML/SVG with real text whenever accuracy depends on labels.",
+    "Existing Film Room links are not embedded into lessons until exact title, provider, current availability, rights, captions, transcript and fallback are reviewed."
+  ],
+  "lessons": [
+    {
+      "sequence": "L01",
+      "unitId": "theme-1",
+      "lessonId": "t1-l01-oral-tradition",
+      "title": "Oral Tradition: Listening, Knowledge, and Evidence",
+      "learningGoal": "Explain how oral tradition carries knowledge across generations, using a specific example from the readings.",
+      "currentLearnerVisuals": [
+        {
+          "role": "supporting",
+          "type": "figure",
+          "src": "./assets/course-visuals/generated/L01-t1-l01-oral-tradition.webp",
+          "alt": "Editorial illustration: A careful listening workspace with two empty chairs angled toward one another, a small audio recorder, a notebook with an unfilled story-detail organizer, and warm natural light; the scene suggests listening, memory, and responsibility without depicting a ceremony or a named community.",
+          "caption": "Generated illustration for lesson orientation. It is not documentary evidence and does not depict a named person, community or historical event.",
+          "captionDisplay": "hidden"
+        }
+      ],
+      "recommendedMinimum": "one instructional visual",
+      "primaryVisualType": "repo-native story-detail organizer",
+      "layout": "full-width-activity",
+      "layoutInstruction": "Use the full reading width because students interact with or annotate the visual.",
+      "textbookCandidate": null,
+      "textbookCandidateNote": "No direct-fit textbook image",
+      "generatedComparisonCandidate": {
+        "concept": "a careful listening workspace with two empty chairs angled toward one another, a small audio recorder, a notebook with an unfilled story-detail organizer, and warm natural light; the scene suggests listening, memory, and responsibility without depicting a ceremony or a named community",
+        "aspectRatio": "16:9",
+        "prompt": "Contemporary Canadian high-school editorial illustration, quiet documentary-inspired realism, warm natural light, restrained spruce green, teal, charcoal and ochre palette, clean composition, authentic materials and geography, designed to sit inside a readable lesson rather than function as a poster. a careful listening workspace with two empty chairs angled toward one another, a small audio recorder, a notebook with an unfilled story-detail organizer, and warm natural light; the scene suggests listening, memory, and responsibility without depicting a ceremony or a named community. No words or labels, no border, no infographic text, no watermark. Do not imitate an Indigenous artist or style. Do not invent a named person, Nation, community, ceremony, regalia, sacred object, historical event, or official document. Avoid feathers, dreamcatchers, beadwork patterns, medicine wheels, tipis, and other generic pan-Indigenous decoration unless a reviewed source requires the actual object. ",
+        "status": "generated-integrated",
+        "calibrationAsset": {
+          "path": "projects/aboriginal-studies-30/meta/ab30-v2/media-integration-plan-2026-09-24/generated-calibration/L01-listening-generated-b.png",
+          "width": 1672,
+          "height": 941,
+          "sha256": "1feb4c555f9815b53e73d696fcdac0f01b5ce99d4503e9ce8caf376bb6972ab4",
+          "status": "generated-integrated-as-optimized-webp",
+          "leadRecommendation": "Use B as a restrained opening visual and C for the actual student activity."
+        }
+      },
+      "videoPlan": {
+        "proposalDecision": "YES",
+        "proposalType": "EXTERNAL — VOICE",
+        "instructionalJob": "Oral tradition as a living knowledge system",
+        "placement": "After the opening concept, before the first knowledge check",
+        "sourceOrCreationNeed": "Indigenous educator/Elder/community-produced source; local/Canadian source preferred",
+        "existingFilmRoomCandidates": [],
+        "legacyFilmCandidateConflict": false,
+        "integrationStatus": "not-in-lesson-pending-exact-media-review"
+      },
+      "decisionNeeded": "Generated supporting visual integrated. Keep source-image and video decisions in their separate verification passes."
+    },
+    {
+      "sequence": "L02",
+      "unitId": "theme-1",
+      "lessonId": "t1-l02-nations-peoples",
+      "title": "Nations, Peoples, and the Dene Declaration",
+      "learningGoal": "Explain what the Dene Declaration seeks and distinguish a nation, a people, and individual persons.",
+      "currentLearnerVisuals": [
+        {
+          "role": "supporting",
+          "type": "figure",
+          "src": "./assets/course-visuals/generated/L02-t1-l02-nations-peoples.webp",
+          "alt": "Editorial illustration: A document-analysis workspace with an archival declaration page, a simple Northwest Territories map outline, removable annotation tabs, and a pencil.",
+          "caption": "Generated illustration for lesson orientation. It is not documentary evidence and does not depict a named person, community or historical event.",
+          "captionDisplay": "hidden"
+        }
+      ],
+      "recommendedMinimum": "one instructional visual",
+      "primaryVisualType": "source document crop plus annotation",
+      "layout": "full-width-evidence",
+      "layoutInstruction": "Use the full reading width with a concise source caption; keep the visual beside the passage it documents.",
+      "textbookCandidate": {
+        "kind": "textbook-page-visual",
+        "printedPage": 3,
+        "pdfPage": 11,
+        "subject": "Dene Declaration opening-page visual",
+        "renderedPageForLocalReview": "tmp/pdfs/ab30-textbook-pages/page-011.jpg",
+        "imageObjectCountOnPage": 1,
+        "status": "review-only-rights-and-context-not-cleared"
+      },
+      "textbookCandidateNote": null,
+      "generatedComparisonCandidate": {
+        "concept": "a document-analysis workspace with an archival declaration page, a simple Northwest Territories map outline, removable annotation tabs, and a pencil; no readable invented wording, no official logo, no people",
+        "aspectRatio": "16:9",
+        "prompt": "Contemporary Canadian high-school editorial illustration, quiet documentary-inspired realism, warm natural light, restrained spruce green, teal, charcoal and ochre palette, clean composition, authentic materials and geography, designed to sit inside a readable lesson rather than function as a poster. a document-analysis workspace with an archival declaration page, a simple Northwest Territories map outline, removable annotation tabs, and a pencil; no readable invented wording, no official logo, no people. No words or labels, no border, no infographic text, no watermark. Do not imitate an Indigenous artist or style. Do not invent a named person, Nation, community, ceremony, regalia, sacred object, historical event, or official document. Avoid feathers, dreamcatchers, beadwork patterns, medicine wheels, tipis, and other generic pan-Indigenous decoration unless a reviewed source requires the actual object. ",
+        "status": "generated-integrated",
+        "calibrationAsset": {
+          "path": "projects/aboriginal-studies-30/meta/ab30-v2/media-integration-plan-2026-09-24/generated-calibration/L02-declaration-generated-b.png",
+          "width": 1672,
+          "height": 941,
+          "sha256": "3bb1e6ace575e02ca4117ff6f9574d3dd3d230048c30e3ed2746de6a9fcdd9da",
+          "status": "generated-integrated-as-optimized-webp",
+          "leadRecommendation": "Use A and C for teaching; B can support the opening but must remain labelled as illustration."
+        }
+      },
+      "videoPlan": {
+        "proposalDecision": "YES",
+        "proposalType": "EXTERNAL — VOICE/EVIDENCE",
+        "instructionalJob": "Nationhood, political voice, and the Dene Declaration context",
+        "placement": "After students understand nations and before the lesson’s main application",
+        "sourceOrCreationNeed": "Dene/NWT Indigenous organization, archive, or educational source",
+        "existingFilmRoomCandidates": [],
+        "legacyFilmCandidateConflict": false,
+        "integrationStatus": "not-in-lesson-pending-exact-media-review"
+      },
+      "decisionNeeded": "Generated supporting visual integrated. Keep source-image and video decisions in their separate verification passes."
+    },
+    {
+      "sequence": "L03",
+      "unitId": "theme-1",
+      "lessonId": "t1-l03-rights-distinctions",
+      "title": "Rights: Making the Important Distinctions",
+      "learningGoal": "Distinguish the rights terms in the course and apply them to a specifically framed source example.",
+      "currentLearnerVisuals": [
+        {
+          "role": "supporting",
+          "type": "figure",
+          "src": "./assets/course-visuals/generated/L03-t1-l03-rights-distinctions.webp",
+          "alt": "Editorial illustration: Three distinct but related civic pathways represented by a person icon, a people/community circle, and a treaty document, converging beside a courthouse.",
+          "caption": "Generated illustration for lesson orientation. It is not documentary evidence and does not depict a named person, community or historical event.",
+          "captionDisplay": "hidden"
+        }
+      ],
+      "recommendedMinimum": "one instructional visual",
+      "primaryVisualType": "rights categories diagram",
+      "layout": "text-wrap-right",
+      "layoutInstruction": "Use a 38–42% right-side figure on wide screens and stack it before the related paragraph below 760 px.",
+      "textbookCandidate": {
+        "kind": "textbook-page-visual",
+        "printedPage": 9,
+        "pdfPage": 17,
+        "subject": "Aboriginal-rights advocacy photograph",
+        "renderedPageForLocalReview": "tmp/pdfs/ab30-textbook-pages/page-017.jpg",
+        "imageObjectCountOnPage": 1,
+        "status": "review-only-rights-and-context-not-cleared"
+      },
+      "textbookCandidateNote": null,
+      "generatedComparisonCandidate": {
+        "concept": "three distinct but related civic pathways represented by a person icon, a people/community circle, and a treaty document, converging beside a courthouse; no labels, flags, logos, or cultural motifs",
+        "aspectRatio": "4:3",
+        "prompt": "Contemporary Canadian high-school editorial illustration, quiet documentary-inspired realism, warm natural light, restrained spruce green, teal, charcoal and ochre palette, clean composition, authentic materials and geography, designed to sit inside a readable lesson rather than function as a poster. three distinct but related civic pathways represented by a person icon, a people/community circle, and a treaty document, converging beside a courthouse; no labels, flags, logos, or cultural motifs. No words or labels, no border, no infographic text, no watermark. Do not imitate an Indigenous artist or style. Do not invent a named person, Nation, community, ceremony, regalia, sacred object, historical event, or official document. Avoid feathers, dreamcatchers, beadwork patterns, medicine wheels, tipis, and other generic pan-Indigenous decoration unless a reviewed source requires the actual object. ",
+        "status": "generated-integrated"
+      },
+      "videoPlan": {
+        "proposalDecision": "YES",
+        "proposalType": "CUSTOM — TEACH",
+        "instructionalJob": "Making rights distinctions without collapsing different legal/political categories",
+        "placement": "Immediately after the lesson introduces the categories",
+        "sourceOrCreationNeed": "Create in-course explainer",
+        "existingFilmRoomCandidates": [],
+        "legacyFilmCandidateConflict": false,
+        "integrationStatus": "not-in-lesson-pending-exact-media-review"
+      },
+      "decisionNeeded": "Generated supporting visual integrated. Keep source-image and video decisions in their separate verification passes."
+    },
+    {
+      "sequence": "L04",
+      "unitId": "theme-1",
+      "lessonId": "t1-l04-worldview",
+      "title": "Independence, Interdependence, and Worldview",
+      "learningGoal": "Explain relationships among autonomy, mutual support, and worldview in the named accounts used by the textbook.",
+      "currentLearnerVisuals": [
+        {
+          "role": "supporting",
+          "type": "figure",
+          "src": "./assets/course-visuals/generated/L04-t1-l04-worldview.webp",
+          "alt": "Editorial illustration: A northern landscape shown as an interconnected system of water, animals, travel routes, shelter, and family responsibility; contemporary educational editorial illustration, no people, no cultural symbols.",
+          "caption": "Generated illustration for lesson orientation. It is not documentary evidence and does not depict a named person, community or historical event.",
+          "captionDisplay": "hidden"
+        }
+      ],
+      "recommendedMinimum": "one instructional visual",
+      "primaryVisualType": "relationship network illustration",
+      "layout": "text-wrap-left",
+      "layoutInstruction": "Use a 38–42% left-side figure on wide screens and stack it before the related paragraph below 760 px.",
+      "textbookCandidate": {
+        "kind": "textbook-page-visual",
+        "printedPage": 12,
+        "pdfPage": 20,
+        "subject": "Land-based life photograph",
+        "renderedPageForLocalReview": "tmp/pdfs/ab30-textbook-pages/page-020.jpg",
+        "imageObjectCountOnPage": 1,
+        "status": "review-only-rights-and-context-not-cleared"
+      },
+      "textbookCandidateNote": null,
+      "generatedComparisonCandidate": {
+        "concept": "a northern landscape shown as an interconnected system of water, animals, travel routes, shelter, and family responsibility; contemporary educational editorial illustration, no people, no cultural symbols",
+        "aspectRatio": "4:3",
+        "prompt": "Contemporary Canadian high-school editorial illustration, quiet documentary-inspired realism, warm natural light, restrained spruce green, teal, charcoal and ochre palette, clean composition, authentic materials and geography, designed to sit inside a readable lesson rather than function as a poster. a northern landscape shown as an interconnected system of water, animals, travel routes, shelter, and family responsibility; contemporary educational editorial illustration, no people, no cultural symbols. No words or labels, no border, no infographic text, no watermark. Do not imitate an Indigenous artist or style. Do not invent a named person, Nation, community, ceremony, regalia, sacred object, historical event, or official document. Avoid feathers, dreamcatchers, beadwork patterns, medicine wheels, tipis, and other generic pan-Indigenous decoration unless a reviewed source requires the actual object. ",
+        "status": "generated-integrated"
+      },
+      "videoPlan": {
+        "proposalDecision": "NO — INTENTIONAL",
+        "proposalType": "TEXT/INTERACTIVE ONLY",
+        "instructionalJob": "No video required; protect pacing and avoid duplication",
+        "placement": "—",
+        "sourceOrCreationNeed": "—",
+        "existingFilmRoomCandidates": [],
+        "legacyFilmCandidateConflict": false,
+        "integrationStatus": "intentionally-video-free-per-new-proposal"
+      },
+      "decisionNeeded": "Generated supporting visual integrated. Keep source-image and video decisions in their separate verification passes."
+    },
+    {
+      "sequence": "L05",
+      "unitId": "theme-1",
+      "lessonId": "t1-l05-early-treaties",
+      "title": "Early Treaties and Relationships Among Nations",
+      "learningGoal": "Explain the relationships described in the Great Law of Peace, Two Row Wampum discussion, and Agreement of 1844 without treating them as identical arrangements.",
+      "currentLearnerVisuals": [
+        {
+          "role": "supporting",
+          "type": "figure",
+          "src": "./assets/course-visuals/generated/L05-t1-l05-early-treaties.webp",
+          "alt": "Editorial illustration: Two parallel river routes viewed from above, separate and equal with a shared horizon, created as a neutral metaphor for coexistence.",
+          "caption": "Generated illustration for lesson orientation. It is not documentary evidence and does not depict a named person, community or historical event.",
+          "captionDisplay": "hidden"
+        }
+      ],
+      "recommendedMinimum": "one instructional visual",
+      "primaryVisualType": "source visual with two-column comparison",
+      "layout": "full-width-evidence",
+      "layoutInstruction": "Use the full reading width with a concise source caption; keep the visual beside the passage it documents.",
+      "textbookCandidate": {
+        "kind": "textbook-page-visual",
+        "printedPage": 16,
+        "pdfPage": 24,
+        "subject": "Two Row Wampum photograph and explanation",
+        "renderedPageForLocalReview": "tmp/pdfs/ab30-textbook-pages/page-024.jpg",
+        "imageObjectCountOnPage": 1,
+        "status": "review-only-rights-and-context-not-cleared"
+      },
+      "textbookCandidateNote": null,
+      "generatedComparisonCandidate": {
+        "concept": "two parallel river routes viewed from above, separate and equal with a shared horizon, created as a neutral metaphor for coexistence; no beadwork, wampum, cultural patterns, ships, or canoes",
+        "aspectRatio": "16:9",
+        "prompt": "Contemporary Canadian high-school editorial illustration, quiet documentary-inspired realism, warm natural light, restrained spruce green, teal, charcoal and ochre palette, clean composition, authentic materials and geography, designed to sit inside a readable lesson rather than function as a poster. two parallel river routes viewed from above, separate and equal with a shared horizon, created as a neutral metaphor for coexistence; no beadwork, wampum, cultural patterns, ships, or canoes. No words or labels, no border, no infographic text, no watermark. Do not imitate an Indigenous artist or style. Do not invent a named person, Nation, community, ceremony, regalia, sacred object, historical event, or official document. Avoid feathers, dreamcatchers, beadwork patterns, medicine wheels, tipis, and other generic pan-Indigenous decoration unless a reviewed source requires the actual object. ",
+        "status": "generated-integrated"
+      },
+      "videoPlan": {
+        "proposalDecision": "YES",
+        "proposalType": "CUSTOM — TEACH",
+        "instructionalJob": "Treaty as relationship, promises, obligations, and ongoing interpretation",
+        "placement": "After the first treaty example and before detailed reading",
+        "sourceOrCreationNeed": "Create in-course explainer",
+        "existingFilmRoomCandidates": [],
+        "legacyFilmCandidateConflict": false,
+        "integrationStatus": "not-in-lesson-pending-exact-media-review"
+      },
+      "decisionNeeded": "Generated supporting visual integrated. Keep source-image and video decisions in their separate verification passes."
+    },
+    {
+      "sequence": "L06",
+      "unitId": "theme-1",
+      "lessonId": "t1-l06-colonization-proclamation",
+      "title": "Colonization, the Royal Proclamation, and Confederation",
+      "learningGoal": "Trace the textbook’s historical explanation and distinguish document wording, an attributed interpretation, and a claim about consequences.",
+      "currentLearnerVisuals": [
+        {
+          "role": "supporting",
+          "type": "figure",
+          "src": "./assets/course-visuals/generated/L06-t1-l06-colonization-proclamation.webp",
+          "alt": "Editorial illustration: An archival research table with a period map, a sealed but unreadable proclamation page, and a timeline strip moving from 1763 toward Confederation.",
+          "caption": "Generated illustration for lesson orientation. It is not documentary evidence and does not depict a named person, community or historical event.",
+          "captionDisplay": "hidden"
+        }
+      ],
+      "recommendedMinimum": "one instructional visual",
+      "primaryVisualType": "document-context panel",
+      "layout": "text-wrap-right",
+      "layoutInstruction": "Use a 38–42% right-side figure on wide screens and stack it before the related paragraph below 760 px.",
+      "textbookCandidate": {
+        "kind": "textbook-page-visual",
+        "printedPage": 22,
+        "pdfPage": 30,
+        "subject": "Royal Proclamation-era historical illustration",
+        "renderedPageForLocalReview": "tmp/pdfs/ab30-textbook-pages/page-030.jpg",
+        "imageObjectCountOnPage": 1,
+        "status": "review-only-rights-and-context-not-cleared"
+      },
+      "textbookCandidateNote": null,
+      "generatedComparisonCandidate": {
+        "concept": "an archival research table with a period map, a sealed but unreadable proclamation page, and a timeline strip moving from 1763 toward Confederation; no invented legible text or people",
+        "aspectRatio": "4:3",
+        "prompt": "Contemporary Canadian high-school editorial illustration, quiet documentary-inspired realism, warm natural light, restrained spruce green, teal, charcoal and ochre palette, clean composition, authentic materials and geography, designed to sit inside a readable lesson rather than function as a poster. an archival research table with a period map, a sealed but unreadable proclamation page, and a timeline strip moving from 1763 toward Confederation; no invented legible text or people. No words or labels, no border, no infographic text, no watermark. Do not imitate an Indigenous artist or style. Do not invent a named person, Nation, community, ceremony, regalia, sacred object, historical event, or official document. Avoid feathers, dreamcatchers, beadwork patterns, medicine wheels, tipis, and other generic pan-Indigenous decoration unless a reviewed source requires the actual object. ",
+        "status": "generated-integrated"
+      },
+      "videoPlan": {
+        "proposalDecision": "NO — INTENTIONAL",
+        "proposalType": "TEXT/INTERACTIVE ONLY",
+        "instructionalJob": "No video required; protect pacing and avoid duplication",
+        "placement": "—",
+        "sourceOrCreationNeed": "—",
+        "existingFilmRoomCandidates": [],
+        "legacyFilmCandidateConflict": false,
+        "integrationStatus": "intentionally-video-free-per-new-proposal"
+      },
+      "decisionNeeded": "Generated supporting visual integrated. Keep source-image and video decisions in their separate verification passes."
+    },
+    {
+      "sequence": "L07",
+      "unitId": "theme-1",
+      "lessonId": "t1-l07-numbered-treaties",
+      "title": "Numbered Treaties: Purposes, Language, and Understandings",
+      "learningGoal": "Use a specific detail from a source to explain a treaty purpose or understanding, and distinguish the source’s words from your own conclusion.",
+      "currentLearnerVisuals": [
+        {
+          "role": "supporting",
+          "type": "figure",
+          "src": "./assets/course-visuals/generated/L07-t1-l07-numbered-treaties.webp",
+          "alt": "Editorial illustration: An overhead treaty-study table with multiple empty chairs, a map grid, an unsigned document folder, and evidence cards for spoken promises, written terms, and later implementation.",
+          "caption": "Generated illustration for lesson orientation. It is not documentary evidence and does not depict a named person, community or historical event.",
+          "captionDisplay": "hidden"
+        }
+      ],
+      "recommendedMinimum": "one instructional visual",
+      "primaryVisualType": "treaty evidence timeline",
+      "layout": "full-width-evidence",
+      "layoutInstruction": "Use the full reading width with a concise source caption; keep the visual beside the passage it documents.",
+      "textbookCandidate": {
+        "kind": "textbook-page-visual",
+        "printedPage": 28,
+        "pdfPage": 36,
+        "subject": "Numbered Treaty party photograph",
+        "renderedPageForLocalReview": "tmp/pdfs/ab30-textbook-pages/page-036.jpg",
+        "imageObjectCountOnPage": 1,
+        "status": "review-only-rights-and-context-not-cleared"
+      },
+      "textbookCandidateNote": null,
+      "generatedComparisonCandidate": {
+        "concept": "an overhead treaty-study table with multiple empty chairs, a map grid, an unsigned document folder, and evidence cards for spoken promises, written terms, and later implementation; no people or legible text",
+        "aspectRatio": "16:9",
+        "prompt": "Contemporary Canadian high-school editorial illustration, quiet documentary-inspired realism, warm natural light, restrained spruce green, teal, charcoal and ochre palette, clean composition, authentic materials and geography, designed to sit inside a readable lesson rather than function as a poster. an overhead treaty-study table with multiple empty chairs, a map grid, an unsigned document folder, and evidence cards for spoken promises, written terms, and later implementation; no people or legible text. No words or labels, no border, no infographic text, no watermark. Do not imitate an Indigenous artist or style. Do not invent a named person, Nation, community, ceremony, regalia, sacred object, historical event, or official document. Avoid feathers, dreamcatchers, beadwork patterns, medicine wheels, tipis, and other generic pan-Indigenous decoration unless a reviewed source requires the actual object. ",
+        "status": "generated-integrated"
+      },
+      "videoPlan": {
+        "proposalDecision": "NO — INTENTIONAL",
+        "proposalType": "TEXT/INTERACTIVE ONLY",
+        "instructionalJob": "No video required; protect pacing and avoid duplication",
+        "placement": "—",
+        "sourceOrCreationNeed": "—",
+        "existingFilmRoomCandidates": [],
+        "legacyFilmCandidateConflict": false,
+        "integrationStatus": "intentionally-video-free-per-new-proposal"
+      },
+      "decisionNeeded": "Generated supporting visual integrated. Keep source-image and video decisions in their separate verification passes."
+    },
+    {
+      "sequence": "L08",
+      "unitId": "theme-1",
+      "lessonId": "t1-l08-treaty-promises-alberta",
+      "title": "Treaty Promises and Implementation in Alberta",
+      "learningGoal": "Distinguish a negotiated commitment, what was recorded, and what the evidence shows about implementation.",
+      "currentLearnerVisuals": [
+        {
+          "role": "supporting",
+          "type": "figure",
+          "src": "./assets/course-visuals/generated/L08-t1-l08-treaty-promises-alberta.webp",
+          "alt": "Editorial illustration: A historical document transitioning into a present-day Alberta landscape and community service buildings, showing the distance between written promise and implementation.",
+          "caption": "Generated illustration for lesson orientation. It is not documentary evidence and does not depict a named person, community or historical event.",
+          "captionDisplay": "hidden"
+        }
+      ],
+      "recommendedMinimum": "one instructional visual",
+      "primaryVisualType": "promise-to-implementation evidence chain",
+      "layout": "full-width-evidence",
+      "layoutInstruction": "Use the full reading width with a concise source caption; keep the visual beside the passage it documents.",
+      "textbookCandidate": {
+        "kind": "textbook-page-visual",
+        "printedPage": 30,
+        "pdfPage": 38,
+        "subject": "Treaty Eight manuscript",
+        "renderedPageForLocalReview": "tmp/pdfs/ab30-textbook-pages/page-038.jpg",
+        "imageObjectCountOnPage": 1,
+        "status": "review-only-rights-and-context-not-cleared"
+      },
+      "textbookCandidateNote": null,
+      "generatedComparisonCandidate": {
+        "concept": "a historical document transitioning into a present-day Alberta landscape and community service buildings, showing the distance between written promise and implementation; no readable text, people, flags, or logos",
+        "aspectRatio": "16:9",
+        "prompt": "Contemporary Canadian high-school editorial illustration, quiet documentary-inspired realism, warm natural light, restrained spruce green, teal, charcoal and ochre palette, clean composition, authentic materials and geography, designed to sit inside a readable lesson rather than function as a poster. a historical document transitioning into a present-day Alberta landscape and community service buildings, showing the distance between written promise and implementation; no readable text, people, flags, or logos. No words or labels, no border, no infographic text, no watermark. Do not imitate an Indigenous artist or style. Do not invent a named person, Nation, community, ceremony, regalia, sacred object, historical event, or official document. Avoid feathers, dreamcatchers, beadwork patterns, medicine wheels, tipis, and other generic pan-Indigenous decoration unless a reviewed source requires the actual object. ",
+        "status": "generated-integrated"
+      },
+      "videoPlan": {
+        "proposalDecision": "YES",
+        "proposalType": "EXTERNAL — VOICE",
+        "instructionalJob": "Treaty promises in Alberta from Indigenous/Treaty perspective",
+        "placement": "After students review the written promises, before comparison/reflection",
+        "sourceOrCreationNeed": "Treaty 6/7/8 organization, Indigenous educator, Nation or reputable Alberta source",
+        "existingFilmRoomCandidates": [],
+        "legacyFilmCandidateConflict": false,
+        "integrationStatus": "not-in-lesson-pending-exact-media-review"
+      },
+      "decisionNeeded": "Generated supporting visual integrated. Keep source-image and video decisions in their separate verification passes."
+    },
+    {
+      "sequence": "L09",
+      "unitId": "theme-1",
+      "lessonId": "t1-l09-geography-governance",
+      "title": "Geography, Resources, and Forms of Governance",
+      "learningGoal": "Explain how the textbook connects environments, resources, and governance — and where broad regions stop explaining.",
+      "currentLearnerVisuals": [
+        {
+          "role": "supporting",
+          "type": "figure",
+          "src": "./assets/course-visuals/generated/L09-t1-l09-geography-governance.webp",
+          "alt": "Editorial illustration: Four connected Canadian ecological bands—plains, coast, subarctic forest, and arctic coast—shown with the natural resources and travel conditions each environment makes possible.",
+          "caption": "Generated illustration for lesson orientation. It is not documentary evidence and does not depict a named person, community or historical event.",
+          "captionDisplay": "hidden"
+        }
+      ],
+      "recommendedMinimum": "one instructional visual",
+      "primaryVisualType": "conditions-resources-organization landscape strip",
+      "layout": "full-width-diagram",
+      "layoutInstruction": "Render as accessible HTML/SVG at full reading width; preserve labels as real text.",
+      "textbookCandidate": {
+        "kind": "textbook-page-visual",
+        "printedPage": 39,
+        "pdfPage": 47,
+        "subject": "Bison photograph in the regional geography section",
+        "renderedPageForLocalReview": "tmp/pdfs/ab30-textbook-pages/page-047.jpg",
+        "imageObjectCountOnPage": 1,
+        "status": "review-only-rights-and-context-not-cleared"
+      },
+      "textbookCandidateNote": null,
+      "generatedComparisonCandidate": {
+        "concept": "four connected Canadian ecological bands—plains, coast, subarctic forest, and arctic coast—shown with the natural resources and travel conditions each environment makes possible; no people or cultural stereotypes",
+        "aspectRatio": "16:9",
+        "prompt": "Contemporary Canadian high-school editorial illustration, quiet documentary-inspired realism, warm natural light, restrained spruce green, teal, charcoal and ochre palette, clean composition, authentic materials and geography, designed to sit inside a readable lesson rather than function as a poster. four connected Canadian ecological bands—plains, coast, subarctic forest, and arctic coast—shown with the natural resources and travel conditions each environment makes possible; no people or cultural stereotypes. No words or labels, no border, no infographic text, no watermark. Do not imitate an Indigenous artist or style. Do not invent a named person, Nation, community, ceremony, regalia, sacred object, historical event, or official document. Avoid feathers, dreamcatchers, beadwork patterns, medicine wheels, tipis, and other generic pan-Indigenous decoration unless a reviewed source requires the actual object. ",
+        "status": "generated-integrated"
+      },
+      "videoPlan": {
+        "proposalDecision": "NO — INTENTIONAL",
+        "proposalType": "TEXT/INTERACTIVE ONLY",
+        "instructionalJob": "No video required; protect pacing and avoid duplication",
+        "placement": "—",
+        "sourceOrCreationNeed": "—",
+        "existingFilmRoomCandidates": [],
+        "legacyFilmCandidateConflict": false,
+        "integrationStatus": "intentionally-video-free-per-new-proposal"
+      },
+      "decisionNeeded": "Generated supporting visual integrated. Keep source-image and video decisions in their separate verification passes."
+    },
+    {
+      "sequence": "L10",
+      "unitId": "theme-1",
+      "lessonId": "t1-l10-land-law-knowledge",
+      "title": "Land, Law, and Knowledge in Community Accounts",
+      "learningGoal": "Explain how named speakers connect land, knowledge, law, and responsibility — staying inside what they published.",
+      "currentLearnerVisuals": [
+        {
+          "role": "supporting",
+          "type": "figure",
+          "src": "./assets/course-visuals/generated/L10-t1-l10-land-law-knowledge.webp",
+          "alt": "Editorial illustration: A carefully managed grassland burn beside an unburned control area, with water, wind direction, and regrowth visible; educational environmental illustration, no people, buildings, or cultural motifs.",
+          "caption": "Generated illustration for lesson orientation. It is not documentary evidence and does not depict a named person, community or historical event.",
+          "captionDisplay": "hidden"
+        }
+      ],
+      "recommendedMinimum": "one instructional visual",
+      "primaryVisualType": "land-practice evidence panel",
+      "layout": "text-wrap-left",
+      "layoutInstruction": "Use a 38–42% left-side figure on wide screens and stack it before the related paragraph below 760 px.",
+      "textbookCandidate": {
+        "kind": "textbook-page-visual",
+        "printedPage": 41,
+        "pdfPage": 49,
+        "subject": "Controlled-burning land-care photograph",
+        "renderedPageForLocalReview": "tmp/pdfs/ab30-textbook-pages/page-049.jpg",
+        "imageObjectCountOnPage": 1,
+        "status": "review-only-rights-and-context-not-cleared"
+      },
+      "textbookCandidateNote": null,
+      "generatedComparisonCandidate": {
+        "concept": "a carefully managed grassland burn beside an unburned control area, with water, wind direction, and regrowth visible; educational environmental illustration, no people, buildings, or cultural motifs",
+        "aspectRatio": "4:3",
+        "prompt": "Contemporary Canadian high-school editorial illustration, quiet documentary-inspired realism, warm natural light, restrained spruce green, teal, charcoal and ochre palette, clean composition, authentic materials and geography, designed to sit inside a readable lesson rather than function as a poster. a carefully managed grassland burn beside an unburned control area, with water, wind direction, and regrowth visible; educational environmental illustration, no people, buildings, or cultural motifs. No words or labels, no border, no infographic text, no watermark. Do not imitate an Indigenous artist or style. Do not invent a named person, Nation, community, ceremony, regalia, sacred object, historical event, or official document. Avoid feathers, dreamcatchers, beadwork patterns, medicine wheels, tipis, and other generic pan-Indigenous decoration unless a reviewed source requires the actual object. ",
+        "status": "generated-integrated"
+      },
+      "videoPlan": {
+        "proposalDecision": "NO — INTENTIONAL",
+        "proposalType": "TEXT/INTERACTIVE ONLY",
+        "instructionalJob": "No video required; protect pacing and avoid duplication",
+        "placement": "—",
+        "sourceOrCreationNeed": "—",
+        "existingFilmRoomCandidates": [],
+        "legacyFilmCandidateConflict": false,
+        "integrationStatus": "intentionally-video-free-per-new-proposal"
+      },
+      "decisionNeeded": "Generated supporting visual integrated. Keep source-image and video decisions in their separate verification passes."
+    },
+    {
+      "sequence": "L11",
+      "unitId": "theme-1",
+      "lessonId": "t1-l11-metis-governance-elders",
+      "title": "Métis Governance, Leadership, and Elders",
+      "learningGoal": "Compare Métis governance and leadership examples, and explain what community recognition has to do with expertise.",
+      "currentLearnerVisuals": [
+        {
+          "role": "supporting",
+          "type": "figure",
+          "src": "./assets/course-visuals/generated/L11-t1-l11-metis-governance-elders.webp",
+          "alt": "Editorial illustration: A prairie river crossing and seasonal gathering place shown with route lines, shared work areas, and decision points.",
+          "caption": "Generated illustration for lesson orientation. It is not documentary evidence and does not depict a named person, community or historical event.",
+          "captionDisplay": "hidden"
+        }
+      ],
+      "recommendedMinimum": "one instructional visual",
+      "primaryVisualType": "rules-responsibility organizer",
+      "layout": "text-wrap-right",
+      "layoutInstruction": "Use a 38–42% right-side figure on wide screens and stack it before the related paragraph below 760 px.",
+      "textbookCandidate": {
+        "kind": "textbook-page-visual",
+        "printedPage": 45,
+        "pdfPage": 53,
+        "subject": "St. Albert site and buffalo-hunt governance material",
+        "renderedPageForLocalReview": "tmp/pdfs/ab30-textbook-pages/page-053.jpg",
+        "imageObjectCountOnPage": 2,
+        "status": "review-only-rights-and-context-not-cleared"
+      },
+      "textbookCandidateNote": null,
+      "generatedComparisonCandidate": {
+        "concept": "a prairie river crossing and seasonal gathering place shown with route lines, shared work areas, and decision points; no people, historical reenactment, tipis, flags, or cultural decoration",
+        "aspectRatio": "4:3",
+        "prompt": "Contemporary Canadian high-school editorial illustration, quiet documentary-inspired realism, warm natural light, restrained spruce green, teal, charcoal and ochre palette, clean composition, authentic materials and geography, designed to sit inside a readable lesson rather than function as a poster. a prairie river crossing and seasonal gathering place shown with route lines, shared work areas, and decision points; no people, historical reenactment, tipis, flags, or cultural decoration. No words or labels, no border, no infographic text, no watermark. Do not imitate an Indigenous artist or style. Do not invent a named person, Nation, community, ceremony, regalia, sacred object, historical event, or official document. Avoid feathers, dreamcatchers, beadwork patterns, medicine wheels, tipis, and other generic pan-Indigenous decoration unless a reviewed source requires the actual object. ",
+        "status": "generated-integrated"
+      },
+      "videoPlan": {
+        "proposalDecision": "NO — INTENTIONAL",
+        "proposalType": "TEXT/INTERACTIVE ONLY",
+        "instructionalJob": "No video required; protect pacing and avoid duplication",
+        "placement": "—",
+        "sourceOrCreationNeed": "—",
+        "existingFilmRoomCandidates": [],
+        "legacyFilmCandidateConflict": false,
+        "integrationStatus": "intentionally-video-free-per-new-proposal"
+      },
+      "decisionNeeded": "Generated supporting visual integrated. Keep source-image and video decisions in their separate verification passes."
+    },
+    {
+      "sequence": "L12",
+      "unitId": "theme-1",
+      "lessonId": "t1-l12-first-nations-inuit-relations",
+      "title": "Different Historical Relationships: First Nations and Inuit",
+      "learningGoal": "Explain why First Nations, Métis, and Inuit paths diverged, tracking whose interpretation of each agreement is being described.",
+      "currentLearnerVisuals": [
+        {
+          "role": "supporting",
+          "type": "figure",
+          "src": "./assets/course-visuals/generated/L12-t1-l12-first-nations-inuit-relations.webp",
+          "alt": "Editorial illustration: A restrained northern map comparing two different colonial policy routes and their consequences, using land, distance, and administration symbols.",
+          "caption": "Generated illustration for lesson orientation. It is not documentary evidence and does not depict a named person, community or historical event.",
+          "captionDisplay": "hidden"
+        }
+      ],
+      "recommendedMinimum": "one instructional visual",
+      "primaryVisualType": "two-history comparison map",
+      "layout": "full-width-evidence",
+      "layoutInstruction": "Use the full reading width with a concise source caption; keep the visual beside the passage it documents.",
+      "textbookCandidate": {
+        "kind": "textbook-page-visual",
+        "printedPage": 53,
+        "pdfPage": 61,
+        "subject": "Arctic relocation historical photograph",
+        "renderedPageForLocalReview": "tmp/pdfs/ab30-textbook-pages/page-061.jpg",
+        "imageObjectCountOnPage": 2,
+        "status": "review-only-rights-and-context-not-cleared"
+      },
+      "textbookCandidateNote": null,
+      "generatedComparisonCandidate": {
+        "concept": "a restrained northern map comparing two different colonial policy routes and their consequences, using land, distance, and administration symbols; no reenactment, people, flags, or invented community names",
+        "aspectRatio": "16:9",
+        "prompt": "Contemporary Canadian high-school editorial illustration, quiet documentary-inspired realism, warm natural light, restrained spruce green, teal, charcoal and ochre palette, clean composition, authentic materials and geography, designed to sit inside a readable lesson rather than function as a poster. a restrained northern map comparing two different colonial policy routes and their consequences, using land, distance, and administration symbols; no reenactment, people, flags, or invented community names. No words or labels, no border, no infographic text, no watermark. Do not imitate an Indigenous artist or style. Do not invent a named person, Nation, community, ceremony, regalia, sacred object, historical event, or official document. Avoid feathers, dreamcatchers, beadwork patterns, medicine wheels, tipis, and other generic pan-Indigenous decoration unless a reviewed source requires the actual object. ",
+        "status": "generated-integrated"
+      },
+      "videoPlan": {
+        "proposalDecision": "NO — INTENTIONAL",
+        "proposalType": "TEXT/INTERACTIVE ONLY",
+        "instructionalJob": "No video required; protect pacing and avoid duplication",
+        "placement": "—",
+        "sourceOrCreationNeed": "—",
+        "existingFilmRoomCandidates": [],
+        "legacyFilmCandidateConflict": false,
+        "integrationStatus": "intentionally-video-free-per-new-proposal"
+      },
+      "decisionNeeded": "Generated supporting visual integrated. Keep source-image and video decisions in their separate verification passes."
+    },
+    {
+      "sequence": "L13",
+      "unitId": "theme-1",
+      "lessonId": "t1-l13-scrip-road-allowances",
+      "title": "Métis Experiences: Red River, Scrip, and Road Allowances",
+      "learningGoal": "Trace Métis land and governance experiences from Red River through scrip to road allowances — barriers and community life together.",
+      "currentLearnerVisuals": [
+        {
+          "role": "supporting",
+          "type": "figure",
+          "src": "./assets/course-visuals/generated/L13-t1-l13-scrip-road-allowances.webp",
+          "alt": "Editorial illustration: A prairie road allowance beside a surveyed township grid, with an unreadable land certificate and a family travel trunk.",
+          "caption": "Generated illustration for lesson orientation. It is not documentary evidence and does not depict a named person, community or historical event.",
+          "captionDisplay": "hidden"
+        }
+      ],
+      "recommendedMinimum": "one instructional visual",
+      "primaryVisualType": "scrip-document and road-allowance map pairing",
+      "layout": "full-width-evidence",
+      "layoutInstruction": "Use the full reading width with a concise source caption; keep the visual beside the passage it documents.",
+      "textbookCandidate": {
+        "kind": "textbook-page-visual",
+        "printedPage": 55,
+        "pdfPage": 63,
+        "subject": "Métis scrip certificate",
+        "renderedPageForLocalReview": "tmp/pdfs/ab30-textbook-pages/page-063.jpg",
+        "imageObjectCountOnPage": 3,
+        "status": "review-only-rights-and-context-not-cleared"
+      },
+      "textbookCandidateNote": null,
+      "generatedComparisonCandidate": {
+        "concept": "a prairie road allowance beside a surveyed township grid, with an unreadable land certificate and a family travel trunk; no people, logos, flags, or decorative Métis motifs",
+        "aspectRatio": "16:9",
+        "prompt": "Contemporary Canadian high-school editorial illustration, quiet documentary-inspired realism, warm natural light, restrained spruce green, teal, charcoal and ochre palette, clean composition, authentic materials and geography, designed to sit inside a readable lesson rather than function as a poster. a prairie road allowance beside a surveyed township grid, with an unreadable land certificate and a family travel trunk; no people, logos, flags, or decorative Métis motifs. No words or labels, no border, no infographic text, no watermark. Do not imitate an Indigenous artist or style. Do not invent a named person, Nation, community, ceremony, regalia, sacred object, historical event, or official document. Avoid feathers, dreamcatchers, beadwork patterns, medicine wheels, tipis, and other generic pan-Indigenous decoration unless a reviewed source requires the actual object. ",
+        "status": "generated-integrated",
+        "calibrationAsset": {
+          "path": "projects/aboriginal-studies-30/meta/ab30-v2/media-integration-plan-2026-09-24/generated-calibration/L13-scrip-road-allowance-generated-b.png",
+          "width": 1672,
+          "height": 941,
+          "sha256": "afe59834c16768a0ce0a14cc1cf592f8c5dbee65b23d8e15393a0f22e55cbbcf",
+          "status": "generated-integrated-as-optimized-webp",
+          "leadRecommendation": "Use A and C for evidence; B is suitable as an opening illustration after the targeted correction."
+        }
+      },
+      "videoPlan": {
+        "proposalDecision": "NO — INTENTIONAL",
+        "proposalType": "TEXT/INTERACTIVE ONLY",
+        "instructionalJob": "No video required; protect pacing and avoid duplication",
+        "placement": "—",
+        "sourceOrCreationNeed": "—",
+        "existingFilmRoomCandidates": [
+          {
+            "filmRoomId": "film-road-allowance-people",
+            "title": "Road Allowance People",
+            "url": "https://www.youtube.com/embed/OFpTIbuaAao",
+            "matchConfidence": "high",
+            "status": "candidate-needs-source-rights-caption-transcript-and-availability-review"
+          }
+        ],
+        "legacyFilmCandidateConflict": true,
+        "integrationStatus": "intentionally-video-free-per-new-proposal"
+      },
+      "decisionNeeded": "Generated supporting visual integrated. Keep source-image and video decisions in their separate verification passes."
+    },
+    {
+      "sequence": "L14",
+      "unitId": "theme-1",
+      "lessonId": "t1-l14-indian-act",
+      "title": "The Indian Act: Purpose and Machinery",
+      "learningGoal": "Explain what the Indian Act stated, who it empowered, and how First Nations judged its terms — with every claim dated.",
+      "currentLearnerVisuals": [
+        {
+          "role": "supporting",
+          "type": "figure",
+          "src": "./assets/course-visuals/generated/L14-t1-l14-indian-act.webp",
+          "alt": "Editorial illustration: A stark archival desk with government ledgers, boundary maps, permit cards, stamps, and institutional files arranged as a system of control.",
+          "caption": "Generated illustration for lesson orientation. It is not documentary evidence and does not depict a named person, community or historical event.",
+          "captionDisplay": "hidden"
+        }
+      ],
+      "recommendedMinimum": "one instructional visual",
+      "primaryVisualType": "administrative-control system diagram",
+      "layout": "full-width-evidence",
+      "layoutInstruction": "Use the full reading width with a concise source caption; keep the visual beside the passage it documents.",
+      "textbookCandidate": {
+        "kind": "textbook-page-visual",
+        "printedPage": 60,
+        "pdfPage": 68,
+        "subject": "Indian Act-era school photograph",
+        "renderedPageForLocalReview": "tmp/pdfs/ab30-textbook-pages/page-068.jpg",
+        "imageObjectCountOnPage": 2,
+        "status": "review-only-rights-and-context-not-cleared"
+      },
+      "textbookCandidateNote": null,
+      "generatedComparisonCandidate": {
+        "concept": "a stark archival desk with government ledgers, boundary maps, permit cards, stamps, and institutional files arranged as a system of control; no readable text, people, schoolchildren, or reenactment",
+        "aspectRatio": "16:9",
+        "prompt": "Contemporary Canadian high-school editorial illustration, quiet documentary-inspired realism, warm natural light, restrained spruce green, teal, charcoal and ochre palette, clean composition, authentic materials and geography, designed to sit inside a readable lesson rather than function as a poster. a stark archival desk with government ledgers, boundary maps, permit cards, stamps, and institutional files arranged as a system of control; no readable text, people, schoolchildren, or reenactment. No words or labels, no border, no infographic text, no watermark. Do not imitate an Indigenous artist or style. Do not invent a named person, Nation, community, ceremony, regalia, sacred object, historical event, or official document. Avoid feathers, dreamcatchers, beadwork patterns, medicine wheels, tipis, and other generic pan-Indigenous decoration unless a reviewed source requires the actual object. ",
+        "status": "generated-integrated"
+      },
+      "videoPlan": {
+        "proposalDecision": "YES",
+        "proposalType": "CUSTOM — TEACH",
+        "instructionalJob": "How the Indian Act system structured federal control and administration",
+        "placement": "After the lesson’s basic definition, before consequences/examples",
+        "sourceOrCreationNeed": "Create in-course explainer",
+        "existingFilmRoomCandidates": [],
+        "legacyFilmCandidateConflict": false,
+        "integrationStatus": "not-in-lesson-pending-exact-media-review"
+      },
+      "decisionNeeded": "Generated supporting visual integrated. Keep source-image and video decisions in their separate verification passes."
+    },
+    {
+      "sequence": "L15",
+      "unitId": "theme-1",
+      "lessonId": "t1-l15-resistance-1951",
+      "title": "Resistance and the 1951 Revisions",
+      "learningGoal": "Distinguish resistance, coercion, and revision — and explain why 1951 was a turning point without being a transformation.",
+      "currentLearnerVisuals": [
+        {
+          "role": "supporting",
+          "type": "figure",
+          "src": "./assets/course-visuals/generated/L15-t1-l15-resistance-1951.webp",
+          "alt": "Editorial illustration: Civic steps with petition folders, blank protest placards, and a dated timeline moving from restriction toward revision.",
+          "caption": "Generated illustration for lesson orientation. It is not documentary evidence and does not depict a named person, community or historical event.",
+          "captionDisplay": "hidden"
+        }
+      ],
+      "recommendedMinimum": "one instructional visual",
+      "primaryVisualType": "restriction-revision timeline",
+      "layout": "text-wrap-left",
+      "layoutInstruction": "Use a 38–42% left-side figure on wide screens and stack it before the related paragraph below 760 px.",
+      "textbookCandidate": {
+        "kind": "textbook-page-visual",
+        "printedPage": 65,
+        "pdfPage": 73,
+        "subject": "Rights advocates connected to legislative change",
+        "renderedPageForLocalReview": "tmp/pdfs/ab30-textbook-pages/page-073.jpg",
+        "imageObjectCountOnPage": 1,
+        "status": "review-only-rights-and-context-not-cleared"
+      },
+      "textbookCandidateNote": null,
+      "generatedComparisonCandidate": {
+        "concept": "civic steps with petition folders, blank protest placards, and a dated timeline moving from restriction toward revision; no slogans, readable text, flags, logos, or identifiable people",
+        "aspectRatio": "4:3",
+        "prompt": "Contemporary Canadian high-school editorial illustration, quiet documentary-inspired realism, warm natural light, restrained spruce green, teal, charcoal and ochre palette, clean composition, authentic materials and geography, designed to sit inside a readable lesson rather than function as a poster. civic steps with petition folders, blank protest placards, and a dated timeline moving from restriction toward revision; no slogans, readable text, flags, logos, or identifiable people. No words or labels, no border, no infographic text, no watermark. Do not imitate an Indigenous artist or style. Do not invent a named person, Nation, community, ceremony, regalia, sacred object, historical event, or official document. Avoid feathers, dreamcatchers, beadwork patterns, medicine wheels, tipis, and other generic pan-Indigenous decoration unless a reviewed source requires the actual object. ",
+        "status": "generated-integrated"
+      },
+      "videoPlan": {
+        "proposalDecision": "NO — INTENTIONAL",
+        "proposalType": "TEXT/INTERACTIVE ONLY",
+        "instructionalJob": "No video required; protect pacing and avoid duplication",
+        "placement": "—",
+        "sourceOrCreationNeed": "—",
+        "existingFilmRoomCandidates": [],
+        "legacyFilmCandidateConflict": false,
+        "integrationStatus": "intentionally-video-free-per-new-proposal"
+      },
+      "decisionNeeded": "Generated supporting visual integrated. Keep source-image and video decisions in their separate verification passes."
+    },
+    {
+      "sequence": "L16",
+      "unitId": "theme-1",
+      "lessonId": "t1-l16-policy-councils-devolution",
+      "title": "Modern Policy, Band Councils, and Devolution",
+      "learningGoal": "Sequence the post-1969 landmarks and explain what devolution transferred — and what it fenced off.",
+      "currentLearnerVisuals": [
+        {
+          "role": "supporting",
+          "type": "figure",
+          "src": "./assets/course-visuals/generated/L16-t1-l16-policy-councils-devolution.webp",
+          "alt": "Editorial illustration: Two connected meeting tables, one federal administrative and one community-led, with service, budget, law, and accountability folders moving between them.",
+          "caption": "Generated illustration for lesson orientation. It is not documentary evidence and does not depict a named person, community or historical event.",
+          "captionDisplay": "hidden"
+        }
+      ],
+      "recommendedMinimum": "one instructional visual",
+      "primaryVisualType": "authority-transfer flow diagram",
+      "layout": "text-wrap-right",
+      "layoutInstruction": "Use a 38–42% right-side figure on wide screens and stack it before the related paragraph below 760 px.",
+      "textbookCandidate": {
+        "kind": "textbook-page-visual",
+        "printedPage": 66,
+        "pdfPage": 74,
+        "subject": "Indigenous leaders in a policy meeting",
+        "renderedPageForLocalReview": "tmp/pdfs/ab30-textbook-pages/page-074.jpg",
+        "imageObjectCountOnPage": 1,
+        "status": "review-only-rights-and-context-not-cleared"
+      },
+      "textbookCandidateNote": null,
+      "generatedComparisonCandidate": {
+        "concept": "two connected meeting tables, one federal administrative and one community-led, with service, budget, law, and accountability folders moving between them; no people, flags, logos, or readable text",
+        "aspectRatio": "4:3",
+        "prompt": "Contemporary Canadian high-school editorial illustration, quiet documentary-inspired realism, warm natural light, restrained spruce green, teal, charcoal and ochre palette, clean composition, authentic materials and geography, designed to sit inside a readable lesson rather than function as a poster. two connected meeting tables, one federal administrative and one community-led, with service, budget, law, and accountability folders moving between them; no people, flags, logos, or readable text. No words or labels, no border, no infographic text, no watermark. Do not imitate an Indigenous artist or style. Do not invent a named person, Nation, community, ceremony, regalia, sacred object, historical event, or official document. Avoid feathers, dreamcatchers, beadwork patterns, medicine wheels, tipis, and other generic pan-Indigenous decoration unless a reviewed source requires the actual object. ",
+        "status": "generated-integrated"
+      },
+      "videoPlan": {
+        "proposalDecision": "NO — INTENTIONAL",
+        "proposalType": "TEXT/INTERACTIVE ONLY",
+        "instructionalJob": "No video required; protect pacing and avoid duplication",
+        "placement": "—",
+        "sourceOrCreationNeed": "—",
+        "existingFilmRoomCandidates": [],
+        "legacyFilmCandidateConflict": false,
+        "integrationStatus": "intentionally-video-free-per-new-proposal"
+      },
+      "decisionNeeded": "Generated supporting visual integrated. Keep source-image and video decisions in their separate verification passes."
+    },
+    {
+      "sequence": "L17",
+      "unitId": "theme-1",
+      "lessonId": "t1-l17-land-knowledge-constitution",
+      "title": "Land-Based Knowledge and Constitutional Recognition",
+      "learningGoal": "Explain Carpenter's land ethic and the 1982 recognition, and keep an expressed concern separate from an enacted provision.",
+      "currentLearnerVisuals": [
+        {
+          "role": "supporting",
+          "type": "figure",
+          "src": "./assets/course-visuals/generated/L17-t1-l17-land-knowledge-constitution.webp",
+          "alt": "Editorial illustration: Three linked evidence panels showing a lived landscape, a recorded oral account waveform, and a constitutional page, with arrows showing how recognition is argued.",
+          "caption": "Generated illustration for lesson orientation. It is not documentary evidence and does not depict a named person, community or historical event.",
+          "captionDisplay": "hidden"
+        }
+      ],
+      "recommendedMinimum": "one instructional visual",
+      "primaryVisualType": "land-testimony-law evidence triad",
+      "layout": "full-width-evidence",
+      "layoutInstruction": "Use the full reading width with a concise source caption; keep the visual beside the passage it documents.",
+      "textbookCandidate": {
+        "kind": "textbook-page-visual",
+        "printedPage": 78,
+        "pdfPage": 86,
+        "subject": "Constitution Act signing photograph",
+        "renderedPageForLocalReview": "tmp/pdfs/ab30-textbook-pages/page-086.jpg",
+        "imageObjectCountOnPage": 1,
+        "status": "review-only-rights-and-context-not-cleared"
+      },
+      "textbookCandidateNote": null,
+      "generatedComparisonCandidate": {
+        "concept": "three linked evidence panels showing a lived landscape, a recorded oral account waveform, and a constitutional page, with arrows showing how recognition is argued; no people or readable legal wording",
+        "aspectRatio": "16:9",
+        "prompt": "Contemporary Canadian high-school editorial illustration, quiet documentary-inspired realism, warm natural light, restrained spruce green, teal, charcoal and ochre palette, clean composition, authentic materials and geography, designed to sit inside a readable lesson rather than function as a poster. three linked evidence panels showing a lived landscape, a recorded oral account waveform, and a constitutional page, with arrows showing how recognition is argued; no people or readable legal wording. No words or labels, no border, no infographic text, no watermark. Do not imitate an Indigenous artist or style. Do not invent a named person, Nation, community, ceremony, regalia, sacred object, historical event, or official document. Avoid feathers, dreamcatchers, beadwork patterns, medicine wheels, tipis, and other generic pan-Indigenous decoration unless a reviewed source requires the actual object. ",
+        "status": "generated-integrated"
+      },
+      "videoPlan": {
+        "proposalDecision": "NO — INTENTIONAL",
+        "proposalType": "TEXT/INTERACTIVE ONLY",
+        "instructionalJob": "No video required; protect pacing and avoid duplication",
+        "placement": "—",
+        "sourceOrCreationNeed": "—",
+        "existingFilmRoomCandidates": [],
+        "legacyFilmCandidateConflict": false,
+        "integrationStatus": "intentionally-video-free-per-new-proposal"
+      },
+      "decisionNeeded": "Generated supporting visual integrated. Keep source-image and video decisions in their separate verification passes."
+    },
+    {
+      "sequence": "L18",
+      "unitId": "theme-1",
+      "lessonId": "t1-l18-constitutional-negotiations",
+      "title": "Constitutional Negotiations and National Organizations",
+      "learningGoal": "Compare the Meech Lake and Charlottetown records by date, participants, and outcome — and name who speaks for whom.",
+      "currentLearnerVisuals": [
+        {
+          "role": "supporting",
+          "type": "figure",
+          "src": "./assets/course-visuals/generated/L18-t1-l18-constitutional-negotiations.webp",
+          "alt": "Editorial illustration: A constitutional negotiation table with empty chairs, a dated sequence of document folders, and one unresolved place at the table.",
+          "caption": "Generated illustration for lesson orientation. It is not documentary evidence and does not depict a named person, community or historical event.",
+          "captionDisplay": "hidden"
+        }
+      ],
+      "recommendedMinimum": "one instructional visual",
+      "primaryVisualType": "constitutional-negotiation timeline",
+      "layout": "text-wrap-right",
+      "layoutInstruction": "Use a 38–42% right-side figure on wide screens and stack it before the related paragraph below 760 px.",
+      "textbookCandidate": {
+        "kind": "textbook-page-visual",
+        "printedPage": 82,
+        "pdfPage": 90,
+        "subject": "Elijah Harper during constitutional negotiations",
+        "renderedPageForLocalReview": "tmp/pdfs/ab30-textbook-pages/page-090.jpg",
+        "imageObjectCountOnPage": 1,
+        "status": "review-only-rights-and-context-not-cleared"
+      },
+      "textbookCandidateNote": null,
+      "generatedComparisonCandidate": {
+        "concept": "a constitutional negotiation table with empty chairs, a dated sequence of document folders, and one unresolved place at the table; no people, flags, logos, or readable text",
+        "aspectRatio": "4:3",
+        "prompt": "Contemporary Canadian high-school editorial illustration, quiet documentary-inspired realism, warm natural light, restrained spruce green, teal, charcoal and ochre palette, clean composition, authentic materials and geography, designed to sit inside a readable lesson rather than function as a poster. a constitutional negotiation table with empty chairs, a dated sequence of document folders, and one unresolved place at the table; no people, flags, logos, or readable text. No words or labels, no border, no infographic text, no watermark. Do not imitate an Indigenous artist or style. Do not invent a named person, Nation, community, ceremony, regalia, sacred object, historical event, or official document. Avoid feathers, dreamcatchers, beadwork patterns, medicine wheels, tipis, and other generic pan-Indigenous decoration unless a reviewed source requires the actual object. ",
+        "status": "generated-integrated"
+      },
+      "videoPlan": {
+        "proposalDecision": "YES",
+        "proposalType": "EXTERNAL — EVIDENCE",
+        "instructionalJob": "Constitutional negotiations and Indigenous political participation",
+        "placement": "After the timeline, before analysis of outcomes/limits",
+        "sourceOrCreationNeed": "Archival broadcaster, Indigenous organization, museum/archive, government archive",
+        "existingFilmRoomCandidates": [],
+        "legacyFilmCandidateConflict": false,
+        "integrationStatus": "not-in-lesson-pending-exact-media-review"
+      },
+      "decisionNeeded": "Generated supporting visual integrated. Keep source-image and video decisions in their separate verification passes."
+    },
+    {
+      "sequence": "L19",
+      "unitId": "theme-1",
+      "lessonId": "t1-l19-title-treaties-constraints",
+      "title": "Aboriginal Title, Treaties, and Land-Related Constraints",
+      "learningGoal": "Define Aboriginal title, separate it from treaty rights and reserve rules, and read one case the chapter's way.",
+      "currentLearnerVisuals": [
+        {
+          "role": "supporting",
+          "type": "figure",
+          "src": "./assets/course-visuals/generated/L19-t1-l19-title-treaties-constraints.webp",
+          "alt": "Editorial illustration: A courthouse, a longstanding land-use map, a treaty document, and a reserve boundary plan presented as four pieces of evidence that must not be collapsed.",
+          "caption": "Generated illustration for lesson orientation. It is not documentary evidence and does not depict a named person, community or historical event.",
+          "captionDisplay": "hidden"
+        }
+      ],
+      "recommendedMinimum": "one instructional visual",
+      "primaryVisualType": "title-treaty-reserve comparison",
+      "layout": "text-wrap-left",
+      "layoutInstruction": "Use a 38–42% left-side figure on wide screens and stack it before the related paragraph below 760 px.",
+      "textbookCandidate": {
+        "kind": "textbook-page-visual",
+        "printedPage": 86,
+        "pdfPage": 94,
+        "subject": "Supreme Court of Canada photograph",
+        "renderedPageForLocalReview": "tmp/pdfs/ab30-textbook-pages/page-094.jpg",
+        "imageObjectCountOnPage": 3,
+        "status": "review-only-rights-and-context-not-cleared"
+      },
+      "textbookCandidateNote": null,
+      "generatedComparisonCandidate": {
+        "concept": "a courthouse, a longstanding land-use map, a treaty document, and a reserve boundary plan presented as four pieces of evidence that must not be collapsed; no readable text or people",
+        "aspectRatio": "4:3",
+        "prompt": "Contemporary Canadian high-school editorial illustration, quiet documentary-inspired realism, warm natural light, restrained spruce green, teal, charcoal and ochre palette, clean composition, authentic materials and geography, designed to sit inside a readable lesson rather than function as a poster. a courthouse, a longstanding land-use map, a treaty document, and a reserve boundary plan presented as four pieces of evidence that must not be collapsed; no readable text or people. No words or labels, no border, no infographic text, no watermark. Do not imitate an Indigenous artist or style. Do not invent a named person, Nation, community, ceremony, regalia, sacred object, historical event, or official document. Avoid feathers, dreamcatchers, beadwork patterns, medicine wheels, tipis, and other generic pan-Indigenous decoration unless a reviewed source requires the actual object. ",
+        "status": "generated-integrated"
+      },
+      "videoPlan": {
+        "proposalDecision": "NO — INTENTIONAL",
+        "proposalType": "TEXT/INTERACTIVE ONLY",
+        "instructionalJob": "No video required; protect pacing and avoid duplication",
+        "placement": "—",
+        "sourceOrCreationNeed": "—",
+        "existingFilmRoomCandidates": [],
+        "legacyFilmCandidateConflict": false,
+        "integrationStatus": "intentionally-video-free-per-new-proposal"
+      },
+      "decisionNeeded": "Generated supporting visual integrated. Keep source-image and video decisions in their separate verification passes."
+    },
+    {
+      "sequence": "L20",
+      "unitId": "theme-1",
+      "lessonId": "t1-l20-harvesting-rights",
+      "title": "Harvesting Rights, Section 35, and Careful Claims",
+      "learningGoal": "Read harvesting-rights claims with attention to scope, time, place, and the limits of the evidence.",
+      "currentLearnerVisuals": [
+        {
+          "role": "supporting",
+          "type": "figure",
+          "src": "./assets/course-visuals/generated/L20-t1-l20-harvesting-rights.webp",
+          "alt": "Editorial illustration: A legal reasoning path linking a harvesting practice, historical continuity, community connection, and a bounded conclusion; neutral symbols, no people, logos, flags, or cultural motifs.",
+          "caption": "Generated illustration for lesson orientation. It is not documentary evidence and does not depict a named person, community or historical event.",
+          "captionDisplay": "hidden"
+        }
+      ],
+      "recommendedMinimum": "one instructional visual",
+      "primaryVisualType": "rights-test decision path",
+      "layout": "text-wrap-right",
+      "layoutInstruction": "Use a 38–42% right-side figure on wide screens and stack it before the related paragraph below 760 px.",
+      "textbookCandidate": {
+        "kind": "textbook-page-visual",
+        "printedPage": 95,
+        "pdfPage": 103,
+        "subject": "Steve Powley and Jannette Corbiere Lavell photographs",
+        "renderedPageForLocalReview": "tmp/pdfs/ab30-textbook-pages/page-103.jpg",
+        "imageObjectCountOnPage": 2,
+        "status": "review-only-rights-and-context-not-cleared"
+      },
+      "textbookCandidateNote": null,
+      "generatedComparisonCandidate": {
+        "concept": "a legal reasoning path linking a harvesting practice, historical continuity, community connection, and a bounded conclusion; neutral symbols, no people, logos, flags, or cultural motifs",
+        "aspectRatio": "4:3",
+        "prompt": "Contemporary Canadian high-school editorial illustration, quiet documentary-inspired realism, warm natural light, restrained spruce green, teal, charcoal and ochre palette, clean composition, authentic materials and geography, designed to sit inside a readable lesson rather than function as a poster. a legal reasoning path linking a harvesting practice, historical continuity, community connection, and a bounded conclusion; neutral symbols, no people, logos, flags, or cultural motifs. No words or labels, no border, no infographic text, no watermark. Do not imitate an Indigenous artist or style. Do not invent a named person, Nation, community, ceremony, regalia, sacred object, historical event, or official document. Avoid feathers, dreamcatchers, beadwork patterns, medicine wheels, tipis, and other generic pan-Indigenous decoration unless a reviewed source requires the actual object. ",
+        "status": "generated-integrated"
+      },
+      "videoPlan": {
+        "proposalDecision": "NO — INTENTIONAL",
+        "proposalType": "TEXT/INTERACTIVE ONLY",
+        "instructionalJob": "No video required; protect pacing and avoid duplication",
+        "placement": "—",
+        "sourceOrCreationNeed": "—",
+        "existingFilmRoomCandidates": [],
+        "legacyFilmCandidateConflict": false,
+        "integrationStatus": "intentionally-video-free-per-new-proposal"
+      },
+      "decisionNeeded": "Generated supporting visual integrated. Keep source-image and video decisions in their separate verification passes."
+    },
+    {
+      "sequence": "L21",
+      "unitId": "theme-1",
+      "lessonId": "t1-l21-rebuilding-goals",
+      "title": "Rebuilding Self-Government: Goals and Negotiations",
+      "learningGoal": "Explain the goals and differing perspectives in the chapter's self-government accounts, with clear attribution and evidence.",
+      "currentLearnerVisuals": [
+        {
+          "role": "supporting",
+          "type": "figure",
+          "src": "./assets/course-visuals/generated/L21-t1-l21-rebuilding-goals.webp",
+          "alt": "Editorial illustration: A community planning table with lands, language, housing, health, education, justice, and accountability cards arranged around a shared decision space.",
+          "caption": "Generated illustration for lesson orientation. It is not documentary evidence and does not depict a named person, community or historical event.",
+          "captionDisplay": "hidden"
+        }
+      ],
+      "recommendedMinimum": "one instructional visual",
+      "primaryVisualType": "self-government goals planning table",
+      "layout": "text-wrap-left",
+      "layoutInstruction": "Use a 38–42% left-side figure on wide screens and stack it before the related paragraph below 760 px.",
+      "textbookCandidate": {
+        "kind": "textbook-page-visual",
+        "printedPage": 99,
+        "pdfPage": 107,
+        "subject": "George Erasmus profile",
+        "renderedPageForLocalReview": "tmp/pdfs/ab30-textbook-pages/page-107.jpg",
+        "imageObjectCountOnPage": 1,
+        "status": "review-only-rights-and-context-not-cleared"
+      },
+      "textbookCandidateNote": null,
+      "generatedComparisonCandidate": {
+        "concept": "a community planning table with lands, language, housing, health, education, justice, and accountability cards arranged around a shared decision space; no people, readable text, flags, or logos",
+        "aspectRatio": "4:3",
+        "prompt": "Contemporary Canadian high-school editorial illustration, quiet documentary-inspired realism, warm natural light, restrained spruce green, teal, charcoal and ochre palette, clean composition, authentic materials and geography, designed to sit inside a readable lesson rather than function as a poster. a community planning table with lands, language, housing, health, education, justice, and accountability cards arranged around a shared decision space; no people, readable text, flags, or logos. No words or labels, no border, no infographic text, no watermark. Do not imitate an Indigenous artist or style. Do not invent a named person, Nation, community, ceremony, regalia, sacred object, historical event, or official document. Avoid feathers, dreamcatchers, beadwork patterns, medicine wheels, tipis, and other generic pan-Indigenous decoration unless a reviewed source requires the actual object. ",
+        "status": "generated-integrated"
+      },
+      "videoPlan": {
+        "proposalDecision": "YES",
+        "proposalType": "CUSTOM — TEACH",
+        "instructionalJob": "What self-government can mean in practice",
+        "placement": "At the start of the rebuild/self-government section",
+        "sourceOrCreationNeed": "Create in-course explainer",
+        "existingFilmRoomCandidates": [
+          {
+            "filmRoomId": "film-m-tis-self-governance",
+            "title": "Métis Self Governance",
+            "url": "https://www.youtube.com/embed/IBuu2AjtwTM",
+            "matchConfidence": "medium",
+            "status": "candidate-needs-source-rights-caption-transcript-and-availability-review"
+          }
+        ],
+        "legacyFilmCandidateConflict": false,
+        "integrationStatus": "not-in-lesson-pending-exact-media-review"
+      },
+      "decisionNeeded": "Generated supporting visual integrated. Keep source-image and video decisions in their separate verification passes."
+    },
+    {
+      "sequence": "L22",
+      "unitId": "theme-1",
+      "lessonId": "t1-l22-models",
+      "title": "Comparing Models of Self-Government",
+      "learningGoal": "Compare the textbook's model descriptions with the same factual categories, and explain why different contexts need different arrangements.",
+      "currentLearnerVisuals": [
+        {
+          "role": "supporting",
+          "type": "figure",
+          "src": "./assets/course-visuals/generated/L22-t1-l22-models.webp",
+          "alt": "Editorial illustration: Four equal governance diagrams distinguished by participants, territory, authority, and accountability, laid out without a hierarchy.",
+          "caption": "Generated illustration for lesson orientation. It is not documentary evidence and does not depict a named person, community or historical event.",
+          "captionDisplay": "hidden"
+        }
+      ],
+      "recommendedMinimum": "one instructional visual",
+      "primaryVisualType": "four-model comparison matrix",
+      "layout": "full-width-diagram",
+      "layoutInstruction": "Render as accessible HTML/SVG at full reading width; preserve labels as real text.",
+      "textbookCandidate": {
+        "kind": "textbook-page-visual",
+        "printedPage": 104,
+        "pdfPage": 112,
+        "subject": "Textbook panel on models of self-government",
+        "renderedPageForLocalReview": "tmp/pdfs/ab30-textbook-pages/page-112.jpg",
+        "imageObjectCountOnPage": 1,
+        "status": "review-only-rights-and-context-not-cleared"
+      },
+      "textbookCandidateNote": null,
+      "generatedComparisonCandidate": {
+        "concept": "four equal governance diagrams distinguished by participants, territory, authority, and accountability, laid out without a hierarchy; no text, flags, people, or ranking cues",
+        "aspectRatio": "16:9",
+        "prompt": "Contemporary Canadian high-school editorial illustration, quiet documentary-inspired realism, warm natural light, restrained spruce green, teal, charcoal and ochre palette, clean composition, authentic materials and geography, designed to sit inside a readable lesson rather than function as a poster. four equal governance diagrams distinguished by participants, territory, authority, and accountability, laid out without a hierarchy; no text, flags, people, or ranking cues. No words or labels, no border, no infographic text, no watermark. Do not imitate an Indigenous artist or style. Do not invent a named person, Nation, community, ceremony, regalia, sacred object, historical event, or official document. Avoid feathers, dreamcatchers, beadwork patterns, medicine wheels, tipis, and other generic pan-Indigenous decoration unless a reviewed source requires the actual object. ",
+        "status": "generated-integrated"
+      },
+      "videoPlan": {
+        "proposalDecision": "YES",
+        "proposalType": "CUSTOM — TEACH",
+        "instructionalJob": "Comparing governance models without ranking them",
+        "placement": "Before the main comparison activity",
+        "sourceOrCreationNeed": "Create in-course explainer",
+        "existingFilmRoomCandidates": [],
+        "legacyFilmCandidateConflict": false,
+        "integrationStatus": "not-in-lesson-pending-exact-media-review"
+      },
+      "decisionNeeded": "Generated supporting visual integrated. Keep source-image and video decisions in their separate verification passes."
+    },
+    {
+      "sequence": "L23",
+      "unitId": "theme-1",
+      "lessonId": "t1-l23-synthesis",
+      "title": "Theme 1 Synthesis and Fresh Evidence Check",
+      "learningGoal": "Integrate terms, context, perspectives, and evidence in a new explanation — and prove it on a source you have not seen worked.",
+      "currentLearnerVisuals": [
+        {
+          "role": "supporting",
+          "type": "figure",
+          "src": "./assets/course-visuals/generated/L23-t1-l23-synthesis.webp",
+          "alt": "Editorial illustration: Three distinct streams representing relationship, recognition, and governance joining into one evidence-based conclusion, with room for student-added examples.",
+          "caption": "Generated illustration for lesson orientation. It is not documentary evidence and does not depict a named person, community or historical event.",
+          "captionDisplay": "hidden"
+        }
+      ],
+      "recommendedMinimum": "one instructional visual",
+      "primaryVisualType": "three-thread synthesis map",
+      "layout": "full-width-diagram",
+      "layoutInstruction": "Render as accessible HTML/SVG at full reading width; preserve labels as real text.",
+      "textbookCandidate": null,
+      "textbookCandidateNote": "No single textbook image covers the synthesis",
+      "generatedComparisonCandidate": {
+        "concept": "three distinct streams representing relationship, recognition, and governance joining into one evidence-based conclusion, with room for student-added examples; no cultural patterns, people, flags, or text",
+        "aspectRatio": "16:9",
+        "prompt": "Contemporary Canadian high-school editorial illustration, quiet documentary-inspired realism, warm natural light, restrained spruce green, teal, charcoal and ochre palette, clean composition, authentic materials and geography, designed to sit inside a readable lesson rather than function as a poster. three distinct streams representing relationship, recognition, and governance joining into one evidence-based conclusion, with room for student-added examples; no cultural patterns, people, flags, or text. No words or labels, no border, no infographic text, no watermark. Do not imitate an Indigenous artist or style. Do not invent a named person, Nation, community, ceremony, regalia, sacred object, historical event, or official document. Avoid feathers, dreamcatchers, beadwork patterns, medicine wheels, tipis, and other generic pan-Indigenous decoration unless a reviewed source requires the actual object. ",
+        "status": "generated-integrated"
+      },
+      "videoPlan": {
+        "proposalDecision": "NO — INTENTIONAL",
+        "proposalType": "TEXT/INTERACTIVE ONLY",
+        "instructionalJob": "No video required; protect pacing and avoid duplication",
+        "placement": "—",
+        "sourceOrCreationNeed": "—",
+        "existingFilmRoomCandidates": [],
+        "legacyFilmCandidateConflict": false,
+        "integrationStatus": "intentionally-video-free-per-new-proposal"
+      },
+      "decisionNeeded": "Generated supporting visual integrated. Keep source-image and video decisions in their separate verification passes."
+    },
+    {
+      "sequence": "L24",
+      "unitId": "theme-2",
+      "lessonId": "t2-l01-why-land-matters",
+      "title": "A Triumph for All: Gosnell and the Nisga'a Treaty",
+      "learningGoal": "Identify the treaty’s three priorities in Gosnell’s speech and explain one change he connects to the treaty.",
+      "currentLearnerVisuals": [
+        {
+          "role": "supporting",
+          "type": "figure",
+          "src": "./assets/course-visuals/generated/L24-t2-l01-why-land-matters.webp",
+          "alt": "Editorial illustration: A northwest coast estuary, a civic building in the distance, a treaty folder, and a long timeline from petition to agreement.",
+          "caption": "Generated illustration for lesson orientation. It is not documentary evidence and does not depict a named person, community or historical event.",
+          "captionDisplay": "hidden"
+        }
+      ],
+      "recommendedMinimum": "one instructional visual",
+      "primaryVisualType": "sourced portrait plus petition-to-treaty timeline",
+      "layout": "text-wrap-right",
+      "layoutInstruction": "Use a 38–42% right-side figure on wide screens and stack it before the related paragraph below 760 px.",
+      "textbookCandidate": {
+        "kind": "textbook-page-visual",
+        "printedPage": 109,
+        "pdfPage": 117,
+        "subject": "Dr. Joseph Gosnell outside the British Columbia legislature",
+        "renderedPageForLocalReview": "tmp/pdfs/ab30-textbook-pages/page-117.jpg",
+        "imageObjectCountOnPage": 1,
+        "status": "review-only-rights-and-context-not-cleared"
+      },
+      "textbookCandidateNote": null,
+      "generatedComparisonCandidate": {
+        "concept": "a northwest coast estuary, a civic building in the distance, a treaty folder, and a long timeline from petition to agreement; no people, logos, flags, longhouse imitation, or named-site claim",
+        "aspectRatio": "4:3",
+        "prompt": "Contemporary Canadian high-school editorial illustration, quiet documentary-inspired realism, warm natural light, restrained spruce green, teal, charcoal and ochre palette, clean composition, authentic materials and geography, designed to sit inside a readable lesson rather than function as a poster. a northwest coast estuary, a civic building in the distance, a treaty folder, and a long timeline from petition to agreement; no people, logos, flags, longhouse imitation, or named-site claim. No words or labels, no border, no infographic text, no watermark. Do not imitate an Indigenous artist or style. Do not invent a named person, Nation, community, ceremony, regalia, sacred object, historical event, or official document. Avoid feathers, dreamcatchers, beadwork patterns, medicine wheels, tipis, and other generic pan-Indigenous decoration unless a reviewed source requires the actual object. ",
+        "status": "generated-integrated",
+        "calibrationAsset": {
+          "path": "projects/aboriginal-studies-30/meta/ab30-v2/media-integration-plan-2026-09-24/generated-calibration/L24-nisgaa-treaty-generated-b.png",
+          "width": 1448,
+          "height": 1086,
+          "sha256": "fe5a2afde9964a143cd64674dceb6b3aa2f57f7b8150fefa2b94c11e9ab350ce",
+          "status": "generated-integrated-as-optimized-webp",
+          "leadRecommendation": "Prefer A and C. Hold B unless the civic-building ambiguity is resolved."
+        }
+      },
+      "videoPlan": {
+        "proposalDecision": "YES",
+        "proposalType": "EXTERNAL — VOICE/EVIDENCE",
+        "instructionalJob": "Nisga'a treaty: community perspective and modern treaty context",
+        "placement": "After introductory geography/context, before the detailed case study",
+        "sourceOrCreationNeed": "Nisga'a Lisims Government / Indigenous-produced educational material / reputable documentary",
+        "existingFilmRoomCandidates": [],
+        "legacyFilmCandidateConflict": false,
+        "integrationStatus": "not-in-lesson-pending-exact-media-review"
+      },
+      "decisionNeeded": "Generated supporting visual integrated. Keep source-image and video decisions in their separate verification passes."
+    },
+    {
+      "sequence": "L25",
+      "unitId": "theme-2",
+      "lessonId": "t2-l05-land-values",
+      "title": "Six Ways to Value Land",
+      "learningGoal": "Describe each of the six land values with one chapter example, and explain stewardship against ownership for Assignment 2.1.",
+      "currentLearnerVisuals": [
+        {
+          "role": "supporting",
+          "type": "figure",
+          "src": "./assets/course-visuals/generated/L25-t2-l05-land-values.webp",
+          "alt": "Editorial illustration: One landscape viewed through six transparent lenses for family, livelihood, law, community, responsibility, and economic value.",
+          "caption": "Generated illustration for lesson orientation. It is not documentary evidence and does not depict a named person, community or historical event.",
+          "captionDisplay": "hidden"
+        }
+      ],
+      "recommendedMinimum": "one instructional visual",
+      "primaryVisualType": "six-lens land-values organizer",
+      "layout": "full-width-diagram",
+      "layoutInstruction": "Render as accessible HTML/SVG at full reading width; preserve labels as real text.",
+      "textbookCandidate": {
+        "kind": "textbook-page-visual",
+        "printedPage": 117,
+        "pdfPage": 125,
+        "subject": "Textbook land-values comparison panel",
+        "renderedPageForLocalReview": "tmp/pdfs/ab30-textbook-pages/page-125.jpg",
+        "imageObjectCountOnPage": 2,
+        "status": "review-only-rights-and-context-not-cleared"
+      },
+      "textbookCandidateNote": null,
+      "generatedComparisonCandidate": {
+        "concept": "one landscape viewed through six transparent lenses for family, livelihood, law, community, responsibility, and economic value; no text, people, cultural symbols, or ranking",
+        "aspectRatio": "16:9",
+        "prompt": "Contemporary Canadian high-school editorial illustration, quiet documentary-inspired realism, warm natural light, restrained spruce green, teal, charcoal and ochre palette, clean composition, authentic materials and geography, designed to sit inside a readable lesson rather than function as a poster. one landscape viewed through six transparent lenses for family, livelihood, law, community, responsibility, and economic value; no text, people, cultural symbols, or ranking. No words or labels, no border, no infographic text, no watermark. Do not imitate an Indigenous artist or style. Do not invent a named person, Nation, community, ceremony, regalia, sacred object, historical event, or official document. Avoid feathers, dreamcatchers, beadwork patterns, medicine wheels, tipis, and other generic pan-Indigenous decoration unless a reviewed source requires the actual object. ",
+        "status": "generated-integrated"
+      },
+      "videoPlan": {
+        "proposalDecision": "NO — INTENTIONAL",
+        "proposalType": "TEXT/INTERACTIVE ONLY",
+        "instructionalJob": "No video required; protect pacing and avoid duplication",
+        "placement": "—",
+        "sourceOrCreationNeed": "—",
+        "existingFilmRoomCandidates": [
+          {
+            "filmRoomId": "film-2-world-views",
+            "title": "2 World Views",
+            "url": "https://www.youtube.com/embed/hsh-NcZyuiI",
+            "matchConfidence": "medium",
+            "status": "candidate-needs-source-rights-caption-transcript-and-availability-review"
+          },
+          {
+            "filmRoomId": "film-miyo-w-hk-htowin",
+            "title": "Miyo Wâhkôhtowin",
+            "url": "https://www.youtube.com/embed/MKy0eAf_LLY",
+            "matchConfidence": "medium",
+            "status": "candidate-needs-source-rights-caption-transcript-and-availability-review"
+          }
+        ],
+        "legacyFilmCandidateConflict": true,
+        "integrationStatus": "intentionally-video-free-per-new-proposal"
+      },
+      "decisionNeeded": "Generated supporting visual integrated. Keep source-image and video decisions in their separate verification passes."
+    },
+    {
+      "sequence": "L26",
+      "unitId": "theme-2",
+      "lessonId": "t2-l02-two-kinds-of-claims",
+      "title": "From Petitions to Policy: The Calder Case",
+      "learningGoal": "Explain why the Nisga'a petition mattered, how federal law blocked claims until 1955, and what the Calder court declared about title.",
+      "currentLearnerVisuals": [
+        {
+          "role": "supporting",
+          "type": "figure",
+          "src": "./assets/course-visuals/generated/L26-t2-l02-two-kinds-of-claims.webp",
+          "alt": "Editorial illustration: A petition folder moving through research, court review, policy change, and negotiation as a clear four-stage educational diagram.",
+          "caption": "Generated illustration for lesson orientation. It is not documentary evidence and does not depict a named person, community or historical event.",
+          "captionDisplay": "hidden"
+        }
+      ],
+      "recommendedMinimum": "one instructional visual",
+      "primaryVisualType": "petition-case-policy path",
+      "layout": "full-width-evidence",
+      "layoutInstruction": "Use the full reading width with a concise source caption; keep the visual beside the passage it documents.",
+      "textbookCandidate": {
+        "kind": "textbook-page-visual",
+        "printedPage": 118,
+        "pdfPage": 126,
+        "subject": "Gitksan and Wet'suwet'en Supreme Court rally",
+        "renderedPageForLocalReview": "tmp/pdfs/ab30-textbook-pages/page-126.jpg",
+        "imageObjectCountOnPage": 1,
+        "status": "review-only-rights-and-context-not-cleared"
+      },
+      "textbookCandidateNote": null,
+      "generatedComparisonCandidate": {
+        "concept": "a petition folder moving through research, court review, policy change, and negotiation as a clear four-stage educational diagram; no readable text, people, flags, logos, or verdict claim",
+        "aspectRatio": "16:9",
+        "prompt": "Contemporary Canadian high-school editorial illustration, quiet documentary-inspired realism, warm natural light, restrained spruce green, teal, charcoal and ochre palette, clean composition, authentic materials and geography, designed to sit inside a readable lesson rather than function as a poster. a petition folder moving through research, court review, policy change, and negotiation as a clear four-stage educational diagram; no readable text, people, flags, logos, or verdict claim. No words or labels, no border, no infographic text, no watermark. Do not imitate an Indigenous artist or style. Do not invent a named person, Nation, community, ceremony, regalia, sacred object, historical event, or official document. Avoid feathers, dreamcatchers, beadwork patterns, medicine wheels, tipis, and other generic pan-Indigenous decoration unless a reviewed source requires the actual object. ",
+        "status": "generated-integrated"
+      },
+      "videoPlan": {
+        "proposalDecision": "NO — INTENTIONAL",
+        "proposalType": "TEXT/INTERACTIVE ONLY",
+        "instructionalJob": "No video required; protect pacing and avoid duplication",
+        "placement": "—",
+        "sourceOrCreationNeed": "—",
+        "existingFilmRoomCandidates": [],
+        "legacyFilmCandidateConflict": false,
+        "integrationStatus": "intentionally-video-free-per-new-proposal"
+      },
+      "decisionNeeded": "Generated supporting visual integrated. Keep source-image and video decisions in their separate verification passes."
+    },
+    {
+      "sequence": "L27",
+      "unitId": "theme-2",
+      "lessonId": "t2-l06-claims-machine",
+      "title": "The Claims Machine: Offices, Reports, and Proof",
+      "learningGoal": "Define both claim types, name the 1981 policy, list the four issues and the ICC's role, and explain the five comprehensive criteria.",
+      "currentLearnerVisuals": [
+        {
+          "role": "supporting",
+          "type": "figure",
+          "src": "./assets/course-visuals/generated/L27-t2-l06-claims-machine.webp",
+          "alt": "Editorial illustration: A sequence of evidence files moving through research, validation, negotiation, settlement, and implementation, with a loop for unresolved claims.",
+          "caption": "Generated illustration for lesson orientation. It is not documentary evidence and does not depict a named person, community or historical event.",
+          "captionDisplay": "hidden"
+        }
+      ],
+      "recommendedMinimum": "one instructional visual",
+      "primaryVisualType": "claims process file trail",
+      "layout": "text-wrap-right",
+      "layoutInstruction": "Use a 38–42% right-side figure on wide screens and stack it before the related paragraph below 760 px.",
+      "textbookCandidate": {
+        "kind": "textbook-page-visual",
+        "printedPage": 126,
+        "pdfPage": 134,
+        "subject": "Land-claim agreement signing photograph",
+        "renderedPageForLocalReview": "tmp/pdfs/ab30-textbook-pages/page-134.jpg",
+        "imageObjectCountOnPage": 2,
+        "status": "review-only-rights-and-context-not-cleared"
+      },
+      "textbookCandidateNote": null,
+      "generatedComparisonCandidate": {
+        "concept": "a sequence of evidence files moving through research, validation, negotiation, settlement, and implementation, with a loop for unresolved claims; no readable text, people, flags, or logos",
+        "aspectRatio": "4:3",
+        "prompt": "Contemporary Canadian high-school editorial illustration, quiet documentary-inspired realism, warm natural light, restrained spruce green, teal, charcoal and ochre palette, clean composition, authentic materials and geography, designed to sit inside a readable lesson rather than function as a poster. a sequence of evidence files moving through research, validation, negotiation, settlement, and implementation, with a loop for unresolved claims; no readable text, people, flags, or logos. No words or labels, no border, no infographic text, no watermark. Do not imitate an Indigenous artist or style. Do not invent a named person, Nation, community, ceremony, regalia, sacred object, historical event, or official document. Avoid feathers, dreamcatchers, beadwork patterns, medicine wheels, tipis, and other generic pan-Indigenous decoration unless a reviewed source requires the actual object. ",
+        "status": "generated-integrated"
+      },
+      "videoPlan": {
+        "proposalDecision": "YES",
+        "proposalType": "CUSTOM — TEACH",
+        "instructionalJob": "How a land claim moves through research, review, negotiation, and settlement",
+        "placement": "Immediately after the lesson names the claims process",
+        "sourceOrCreationNeed": "Create in-course explainer",
+        "existingFilmRoomCandidates": [],
+        "legacyFilmCandidateConflict": false,
+        "integrationStatus": "not-in-lesson-pending-exact-media-review"
+      },
+      "decisionNeeded": "Generated supporting visual integrated. Keep source-image and video decisions in their separate verification passes."
+    },
+    {
+      "sequence": "L28",
+      "unitId": "theme-2",
+      "lessonId": "t2-l07-bigstone-specific",
+      "title": "Specific Claims and the Bigstone Cree",
+      "learningGoal": "Explain the five parts of a specific claim and trace the Bigstone file from treaty to negotiation.",
+      "currentLearnerVisuals": [
+        {
+          "role": "supporting",
+          "type": "figure",
+          "src": "./assets/course-visuals/generated/L28-t2-l07-bigstone-specific.webp",
+          "alt": "Editorial illustration: A survey map showing population count, promised acreage, delivered parcels, and a visible gap, using unlabeled measurement blocks.",
+          "caption": "Generated illustration for lesson orientation. It is not documentary evidence and does not depict a named person, community or historical event.",
+          "captionDisplay": "hidden"
+        }
+      ],
+      "recommendedMinimum": "one instructional visual",
+      "primaryVisualType": "survey and acreage evidence map",
+      "layout": "text-wrap-left",
+      "layoutInstruction": "Use a 38–42% left-side figure on wide screens and stack it before the related paragraph below 760 px.",
+      "textbookCandidate": {
+        "kind": "textbook-page-visual",
+        "printedPage": 129,
+        "pdfPage": 137,
+        "subject": "Joe Weasel Child profile connected to the Bigstone claim",
+        "renderedPageForLocalReview": "tmp/pdfs/ab30-textbook-pages/page-137.jpg",
+        "imageObjectCountOnPage": 1,
+        "status": "review-only-rights-and-context-not-cleared"
+      },
+      "textbookCandidateNote": null,
+      "generatedComparisonCandidate": {
+        "concept": "a survey map showing population count, promised acreage, delivered parcels, and a visible gap, using unlabeled measurement blocks; no people, flags, logos, or invented place names",
+        "aspectRatio": "4:3",
+        "prompt": "Contemporary Canadian high-school editorial illustration, quiet documentary-inspired realism, warm natural light, restrained spruce green, teal, charcoal and ochre palette, clean composition, authentic materials and geography, designed to sit inside a readable lesson rather than function as a poster. a survey map showing population count, promised acreage, delivered parcels, and a visible gap, using unlabeled measurement blocks; no people, flags, logos, or invented place names. No words or labels, no border, no infographic text, no watermark. Do not imitate an Indigenous artist or style. Do not invent a named person, Nation, community, ceremony, regalia, sacred object, historical event, or official document. Avoid feathers, dreamcatchers, beadwork patterns, medicine wheels, tipis, and other generic pan-Indigenous decoration unless a reviewed source requires the actual object. ",
+        "status": "generated-integrated"
+      },
+      "videoPlan": {
+        "proposalDecision": "NO — INTENTIONAL",
+        "proposalType": "TEXT/INTERACTIVE ONLY",
+        "instructionalJob": "No video required; protect pacing and avoid duplication",
+        "placement": "—",
+        "sourceOrCreationNeed": "—",
+        "existingFilmRoomCandidates": [],
+        "legacyFilmCandidateConflict": false,
+        "integrationStatus": "intentionally-video-free-per-new-proposal"
+      },
+      "decisionNeeded": "Generated supporting visual integrated. Keep source-image and video decisions in their separate verification passes."
+    },
+    {
+      "sequence": "L29",
+      "unitId": "theme-2",
+      "lessonId": "t2-l08-paths-resolution",
+      "title": "When Talks Fail: Paths to Resolution",
+      "learningGoal": "Sequence the Oka crisis, date the Cardston blockade, name the Lubicon's 1988 action, and place each on the methods spectrum.",
+      "currentLearnerVisuals": [
+        {
+          "role": "supporting",
+          "type": "figure",
+          "src": "./assets/course-visuals/generated/L29-t2-l08-paths-resolution.webp",
+          "alt": "Editorial illustration: A claim branching into negotiation, commission review, court action, public advocacy, and settlement, with paths reconnecting rather than ranking.",
+          "caption": "Generated illustration for lesson orientation. It is not documentary evidence and does not depict a named person, community or historical event.",
+          "captionDisplay": "hidden"
+        }
+      ],
+      "recommendedMinimum": "one instructional visual",
+      "primaryVisualType": "resolution-paths decision map",
+      "layout": "full-width-evidence",
+      "layoutInstruction": "Use the full reading width with a concise source caption; keep the visual beside the passage it documents.",
+      "textbookCandidate": {
+        "kind": "textbook-page-visual",
+        "printedPage": 134,
+        "pdfPage": 142,
+        "subject": "Lubicon protest photograph",
+        "renderedPageForLocalReview": "tmp/pdfs/ab30-textbook-pages/page-142.jpg",
+        "imageObjectCountOnPage": 1,
+        "status": "review-only-rights-and-context-not-cleared"
+      },
+      "textbookCandidateNote": null,
+      "generatedComparisonCandidate": {
+        "concept": "a claim branching into negotiation, commission review, court action, public advocacy, and settlement, with paths reconnecting rather than ranking; no readable text, people, flags, or logos",
+        "aspectRatio": "16:9",
+        "prompt": "Contemporary Canadian high-school editorial illustration, quiet documentary-inspired realism, warm natural light, restrained spruce green, teal, charcoal and ochre palette, clean composition, authentic materials and geography, designed to sit inside a readable lesson rather than function as a poster. a claim branching into negotiation, commission review, court action, public advocacy, and settlement, with paths reconnecting rather than ranking; no readable text, people, flags, or logos. No words or labels, no border, no infographic text, no watermark. Do not imitate an Indigenous artist or style. Do not invent a named person, Nation, community, ceremony, regalia, sacred object, historical event, or official document. Avoid feathers, dreamcatchers, beadwork patterns, medicine wheels, tipis, and other generic pan-Indigenous decoration unless a reviewed source requires the actual object. ",
+        "status": "generated-integrated"
+      },
+      "videoPlan": {
+        "proposalDecision": "YES",
+        "proposalType": "CUSTOM — TEACH",
+        "instructionalJob": "Different paths to resolution and why claims do not all follow one route",
+        "placement": "Before students compare resolution pathways",
+        "sourceOrCreationNeed": "Create in-course explainer",
+        "existingFilmRoomCandidates": [],
+        "legacyFilmCandidateConflict": false,
+        "integrationStatus": "not-in-lesson-pending-exact-media-review"
+      },
+      "decisionNeeded": "Generated supporting visual integrated. Keep source-image and video decisions in their separate verification passes."
+    },
+    {
+      "sequence": "L30",
+      "unitId": "theme-2",
+      "lessonId": "t2-l03-metis-non-status-claims",
+      "title": "Métis and Non-Status Claims",
+      "learningGoal": "Name three ways status was lost, explain the individual-only Métis policy and the Association's provincial turn, and state the 1988 settlement.",
+      "currentLearnerVisuals": [
+        {
+          "role": "supporting",
+          "type": "figure",
+          "src": "./assets/course-visuals/generated/L30-t2-l03-metis-non-status-claims.webp",
+          "alt": "Editorial illustration: A prairie road allowance, a Métis settlement land grid, and provincial Crown-land boundaries shown as three distinct legal-geographic arrangements.",
+          "caption": "Generated illustration for lesson orientation. It is not documentary evidence and does not depict a named person, community or historical event.",
+          "captionDisplay": "hidden"
+        }
+      ],
+      "recommendedMinimum": "one instructional visual",
+      "primaryVisualType": "land-status comparison",
+      "layout": "text-wrap-right",
+      "layoutInstruction": "Use a 38–42% right-side figure on wide screens and stack it before the related paragraph below 760 px.",
+      "textbookCandidate": {
+        "kind": "textbook-page-visual",
+        "printedPage": 140,
+        "pdfPage": 148,
+        "subject": "Métis settlement photograph",
+        "renderedPageForLocalReview": "tmp/pdfs/ab30-textbook-pages/page-148.jpg",
+        "imageObjectCountOnPage": 1,
+        "status": "review-only-rights-and-context-not-cleared"
+      },
+      "textbookCandidateNote": null,
+      "generatedComparisonCandidate": {
+        "concept": "a prairie road allowance, a Métis settlement land grid, and provincial Crown-land boundaries shown as three distinct legal-geographic arrangements; no people, flags, logos, or decorative cultural motifs",
+        "aspectRatio": "4:3",
+        "prompt": "Contemporary Canadian high-school editorial illustration, quiet documentary-inspired realism, warm natural light, restrained spruce green, teal, charcoal and ochre palette, clean composition, authentic materials and geography, designed to sit inside a readable lesson rather than function as a poster. a prairie road allowance, a Métis settlement land grid, and provincial Crown-land boundaries shown as three distinct legal-geographic arrangements; no people, flags, logos, or decorative cultural motifs. No words or labels, no border, no infographic text, no watermark. Do not imitate an Indigenous artist or style. Do not invent a named person, Nation, community, ceremony, regalia, sacred object, historical event, or official document. Avoid feathers, dreamcatchers, beadwork patterns, medicine wheels, tipis, and other generic pan-Indigenous decoration unless a reviewed source requires the actual object. ",
+        "status": "generated-integrated"
+      },
+      "videoPlan": {
+        "proposalDecision": "YES",
+        "proposalType": "EXTERNAL — VOICE",
+        "instructionalJob": "Métis/non-status land and rights perspectives",
+        "placement": "After the lesson’s definitions, before the application section",
+        "sourceOrCreationNeed": "Métis government/organization, Indigenous legal education source, reputable documentary",
+        "existingFilmRoomCandidates": [],
+        "legacyFilmCandidateConflict": false,
+        "integrationStatus": "not-in-lesson-pending-exact-media-review"
+      },
+      "decisionNeeded": "Generated supporting visual integrated. Keep source-image and video decisions in their separate verification passes."
+    },
+    {
+      "sequence": "L31",
+      "unitId": "theme-2",
+      "lessonId": "t2-l09-first-modern-treaties",
+      "title": "A New Era and the First Modern Treaty",
+      "learningGoal": "Explain who Ottawa claims responsibility for and why, name the 1985 contact point, and trace what triggered James Bay.",
+      "currentLearnerVisuals": [
+        {
+          "role": "supporting",
+          "type": "figure",
+          "src": "./assets/course-visuals/generated/L31-t2-l09-first-modern-treaties.webp",
+          "alt": "Editorial illustration: A northern river system with a proposed hydroelectric change, community response, negotiation table, and agreement outcome arranged as a timeline.",
+          "caption": "Generated illustration for lesson orientation. It is not documentary evidence and does not depict a named person, community or historical event.",
+          "captionDisplay": "hidden"
+        }
+      ],
+      "recommendedMinimum": "one instructional visual",
+      "primaryVisualType": "project-trigger-to-agreement timeline",
+      "layout": "text-wrap-left",
+      "layoutInstruction": "Use a 38–42% left-side figure on wide screens and stack it before the related paragraph below 760 px.",
+      "textbookCandidate": {
+        "kind": "textbook-page-visual",
+        "printedPage": 145,
+        "pdfPage": 153,
+        "subject": "Oujé-Bougoumou community photograph",
+        "renderedPageForLocalReview": "tmp/pdfs/ab30-textbook-pages/page-153.jpg",
+        "imageObjectCountOnPage": 1,
+        "status": "review-only-rights-and-context-not-cleared"
+      },
+      "textbookCandidateNote": null,
+      "generatedComparisonCandidate": {
+        "concept": "a northern river system with a proposed hydroelectric change, community response, negotiation table, and agreement outcome arranged as a timeline; no people, dams copied from a named site, flags, or logos",
+        "aspectRatio": "4:3",
+        "prompt": "Contemporary Canadian high-school editorial illustration, quiet documentary-inspired realism, warm natural light, restrained spruce green, teal, charcoal and ochre palette, clean composition, authentic materials and geography, designed to sit inside a readable lesson rather than function as a poster. a northern river system with a proposed hydroelectric change, community response, negotiation table, and agreement outcome arranged as a timeline; no people, dams copied from a named site, flags, or logos. No words or labels, no border, no infographic text, no watermark. Do not imitate an Indigenous artist or style. Do not invent a named person, Nation, community, ceremony, regalia, sacred object, historical event, or official document. Avoid feathers, dreamcatchers, beadwork patterns, medicine wheels, tipis, and other generic pan-Indigenous decoration unless a reviewed source requires the actual object. ",
+        "status": "generated-integrated"
+      },
+      "videoPlan": {
+        "proposalDecision": "NO — INTENTIONAL",
+        "proposalType": "TEXT/INTERACTIVE ONLY",
+        "instructionalJob": "No video required; protect pacing and avoid duplication",
+        "placement": "—",
+        "sourceOrCreationNeed": "—",
+        "existingFilmRoomCandidates": [],
+        "legacyFilmCandidateConflict": false,
+        "integrationStatus": "intentionally-video-free-per-new-proposal"
+      },
+      "decisionNeeded": "Generated supporting visual integrated. Keep source-image and video decisions in their separate verification passes."
+    },
+    {
+      "sequence": "L32",
+      "unitId": "theme-2",
+      "lessonId": "t2-l10-north-and-west",
+      "title": "The North and West Settle",
+      "learningGoal": "Fill the six timeline blanks, state the 1990 AIP settlement, and explain who the Yukon Council represented.",
+      "currentLearnerVisuals": [
+        {
+          "role": "supporting",
+          "type": "figure",
+          "src": "./assets/course-visuals/generated/L32-t2-l10-north-and-west.webp",
+          "alt": "Editorial illustration: A northern river and mountain region shown with three distinct negotiation areas, land, resource, and governance layers.",
+          "caption": "Generated illustration for lesson orientation. It is not documentary evidence and does not depict a named person, community or historical event.",
+          "captionDisplay": "hidden"
+        }
+      ],
+      "recommendedMinimum": "one instructional visual",
+      "primaryVisualType": "northern claims regional map",
+      "layout": "full-width-map",
+      "layoutInstruction": "Use a wide map with a text alternative and source/scale note.",
+      "textbookCandidate": {
+        "kind": "textbook-page-visual",
+        "printedPage": 148,
+        "pdfPage": 156,
+        "subject": "Mackenzie River landscape",
+        "renderedPageForLocalReview": "tmp/pdfs/ab30-textbook-pages/page-156.jpg",
+        "imageObjectCountOnPage": 1,
+        "status": "review-only-rights-and-context-not-cleared"
+      },
+      "textbookCandidateNote": null,
+      "generatedComparisonCandidate": {
+        "concept": "a northern river and mountain region shown with three distinct negotiation areas, land, resource, and governance layers; no people, flags, logos, or invented place names",
+        "aspectRatio": "16:9",
+        "prompt": "Contemporary Canadian high-school editorial illustration, quiet documentary-inspired realism, warm natural light, restrained spruce green, teal, charcoal and ochre palette, clean composition, authentic materials and geography, designed to sit inside a readable lesson rather than function as a poster. a northern river and mountain region shown with three distinct negotiation areas, land, resource, and governance layers; no people, flags, logos, or invented place names. No words or labels, no border, no infographic text, no watermark. Do not imitate an Indigenous artist or style. Do not invent a named person, Nation, community, ceremony, regalia, sacred object, historical event, or official document. Avoid feathers, dreamcatchers, beadwork patterns, medicine wheels, tipis, and other generic pan-Indigenous decoration unless a reviewed source requires the actual object. ",
+        "status": "generated-integrated"
+      },
+      "videoPlan": {
+        "proposalDecision": "NO — INTENTIONAL",
+        "proposalType": "TEXT/INTERACTIVE ONLY",
+        "instructionalJob": "No video required; protect pacing and avoid duplication",
+        "placement": "—",
+        "sourceOrCreationNeed": "—",
+        "existingFilmRoomCandidates": [],
+        "legacyFilmCandidateConflict": false,
+        "integrationStatus": "intentionally-video-free-per-new-proposal"
+      },
+      "decisionNeeded": "Generated supporting visual integrated. Keep source-image and video decisions in their separate verification passes."
+    },
+    {
+      "sequence": "L33",
+      "unitId": "theme-2",
+      "lessonId": "t2-l04-resolving-claims",
+      "title": "Nunavut: A Public Government, An Inuit Future",
+      "learningGoal": "Name the largest settlement, explain why Nunavut's government must be culturally sensitive, contrast its justice system, and write Assignment 2.2.",
+      "currentLearnerVisuals": [
+        {
+          "role": "supporting",
+          "type": "figure",
+          "src": "./assets/course-visuals/generated/L33-t2-l04-resolving-claims.webp",
+          "alt": "Editorial illustration: An arctic coastline map beside a public assembly building silhouette and a timeline from land claim to territorial government.",
+          "caption": "Generated illustration for lesson orientation. It is not documentary evidence and does not depict a named person, community or historical event.",
+          "captionDisplay": "hidden"
+        }
+      ],
+      "recommendedMinimum": "one instructional visual",
+      "primaryVisualType": "map plus public-government explainer",
+      "layout": "full-width-evidence",
+      "layoutInstruction": "Use the full reading width with a concise source caption; keep the visual beside the passage it documents.",
+      "textbookCandidate": {
+        "kind": "textbook-page-visual",
+        "printedPage": 153,
+        "pdfPage": 161,
+        "subject": "Nunavut agreement map and legislature",
+        "renderedPageForLocalReview": "tmp/pdfs/ab30-textbook-pages/page-161.jpg",
+        "imageObjectCountOnPage": 2,
+        "status": "review-only-rights-and-context-not-cleared"
+      },
+      "textbookCandidateNote": null,
+      "generatedComparisonCandidate": {
+        "concept": "an arctic coastline map beside a public assembly building silhouette and a timeline from land claim to territorial government; no flags, people, logos, or imitation of a named building",
+        "aspectRatio": "16:9",
+        "prompt": "Contemporary Canadian high-school editorial illustration, quiet documentary-inspired realism, warm natural light, restrained spruce green, teal, charcoal and ochre palette, clean composition, authentic materials and geography, designed to sit inside a readable lesson rather than function as a poster. an arctic coastline map beside a public assembly building silhouette and a timeline from land claim to territorial government; no flags, people, logos, or imitation of a named building. No words or labels, no border, no infographic text, no watermark. Do not imitate an Indigenous artist or style. Do not invent a named person, Nation, community, ceremony, regalia, sacred object, historical event, or official document. Avoid feathers, dreamcatchers, beadwork patterns, medicine wheels, tipis, and other generic pan-Indigenous decoration unless a reviewed source requires the actual object. ",
+        "status": "generated-integrated"
+      },
+      "videoPlan": {
+        "proposalDecision": "YES",
+        "proposalType": "EXTERNAL — VOICE/EVIDENCE",
+        "instructionalJob": "Nunavut: land claim, governance, and creation of the territory",
+        "placement": "After the basic timeline, before synthesis",
+        "sourceOrCreationNeed": "Nunavut Tunngavik, Inuit organization, territorial/archive source, reputable documentary",
+        "existingFilmRoomCandidates": [],
+        "legacyFilmCandidateConflict": false,
+        "integrationStatus": "not-in-lesson-pending-exact-media-review"
+      },
+      "decisionNeeded": "Generated supporting visual integrated. Keep source-image and video decisions in their separate verification passes."
+    },
+    {
+      "sequence": "L34",
+      "unitId": "theme-3",
+      "lessonId": "t3-l01-stereotypes-media",
+      "title": "Mirrors and Walls: Dumont and Cultural Barriers",
+      "learningGoal": "Name two stereotypes Dumont faced, trace their effects on her confidence, and tell multiculturalism from assimilation.",
+      "currentLearnerVisuals": [
+        {
+          "role": "supporting",
+          "type": "figure",
+          "src": "./assets/course-visuals/generated/L34-t3-l01-stereotypes-media.webp",
+          "alt": "Editorial illustration: A mirror reflecting a complex contemporary person while a wall beside it carries repeated simplified silhouette cutouts, illustrating representation versus stereotype.",
+          "caption": "Generated illustration for lesson orientation. It is not documentary evidence and does not depict a named person, community or historical event.",
+          "captionDisplay": "hidden"
+        }
+      ],
+      "recommendedMinimum": "one instructional visual",
+      "primaryVisualType": "mirror-and-wall representation visual",
+      "layout": "text-wrap-right",
+      "layoutInstruction": "Use a 38–42% right-side figure on wide screens and stack it before the related paragraph below 760 px.",
+      "textbookCandidate": {
+        "kind": "textbook-page-visual",
+        "printedPage": 159,
+        "pdfPage": 167,
+        "subject": "Jenine Dumont artwork and representation discussion",
+        "renderedPageForLocalReview": "tmp/pdfs/ab30-textbook-pages/page-167.jpg",
+        "imageObjectCountOnPage": 2,
+        "status": "review-only-rights-and-context-not-cleared"
+      },
+      "textbookCandidateNote": null,
+      "generatedComparisonCandidate": {
+        "concept": "a mirror reflecting a complex contemporary person while a wall beside it carries repeated simplified silhouette cutouts, illustrating representation versus stereotype; no cultural dress, logos, or identifiable people",
+        "aspectRatio": "4:3",
+        "prompt": "Contemporary Canadian high-school editorial illustration, quiet documentary-inspired realism, warm natural light, restrained spruce green, teal, charcoal and ochre palette, clean composition, authentic materials and geography, designed to sit inside a readable lesson rather than function as a poster. a mirror reflecting a complex contemporary person while a wall beside it carries repeated simplified silhouette cutouts, illustrating representation versus stereotype; no cultural dress, logos, or identifiable people. No words or labels, no border, no infographic text, no watermark. Do not imitate an Indigenous artist or style. Do not invent a named person, Nation, community, ceremony, regalia, sacred object, historical event, or official document. Avoid feathers, dreamcatchers, beadwork patterns, medicine wheels, tipis, and other generic pan-Indigenous decoration unless a reviewed source requires the actual object. ",
+        "status": "generated-integrated"
+      },
+      "videoPlan": {
+        "proposalDecision": "YES",
+        "proposalType": "CUSTOM — TEACH",
+        "instructionalJob": "Representation: who is shown, who speaks, and what patterns repeat",
+        "placement": "Near the start of Theme 3 after the first examples",
+        "sourceOrCreationNeed": "Create in-course explainer",
+        "existingFilmRoomCandidates": [
+          {
+            "filmRoomId": "film-the-debate",
+            "title": "The Debate",
+            "url": "https://www.youtube.com/embed/a6Vs7IcxaF0",
+            "matchConfidence": "low",
+            "status": "candidate-needs-source-rights-caption-transcript-and-availability-review"
+          }
+        ],
+        "legacyFilmCandidateConflict": false,
+        "integrationStatus": "not-in-lesson-pending-exact-media-review"
+      },
+      "decisionNeeded": "Generated supporting visual integrated. Keep source-image and video decisions in their separate verification passes."
+    },
+    {
+      "sequence": "L35",
+      "unitId": "theme-3",
+      "lessonId": "t3-l05-words-that-wound",
+      "title": "Words That Wound: Discrimination, Columbus, Littlechild",
+      "learningGoal": "Trace the stereotype-to-discrimination chain, describe all nine table types, and explain how language feeds stereotypes.",
+      "currentLearnerVisuals": [
+        {
+          "role": "supporting",
+          "type": "figure",
+          "src": "./assets/course-visuals/generated/L35-t3-l05-words-that-wound.webp",
+          "alt": "Editorial illustration: Torn newspaper headline shapes casting long shadows across a school corridor and civic space, showing how repeated language affects opportunity.",
+          "caption": "Generated illustration for lesson orientation. It is not documentary evidence and does not depict a named person, community or historical event.",
+          "captionDisplay": "hidden"
+        }
+      ],
+      "recommendedMinimum": "one instructional visual",
+      "primaryVisualType": "language-impact evidence panel",
+      "layout": "text-wrap-left",
+      "layoutInstruction": "Use a 38–42% left-side figure on wide screens and stack it before the related paragraph below 760 px.",
+      "textbookCandidate": {
+        "kind": "textbook-page-visual",
+        "printedPage": 166,
+        "pdfPage": 174,
+        "subject": "Willie Littlechild profile",
+        "renderedPageForLocalReview": "tmp/pdfs/ab30-textbook-pages/page-174.jpg",
+        "imageObjectCountOnPage": 1,
+        "status": "review-only-rights-and-context-not-cleared"
+      },
+      "textbookCandidateNote": null,
+      "generatedComparisonCandidate": {
+        "concept": "torn newspaper headline shapes casting long shadows across a school corridor and civic space, showing how repeated language affects opportunity; no legible slurs, people, logos, flags, or cultural motifs",
+        "aspectRatio": "4:3",
+        "prompt": "Contemporary Canadian high-school editorial illustration, quiet documentary-inspired realism, warm natural light, restrained spruce green, teal, charcoal and ochre palette, clean composition, authentic materials and geography, designed to sit inside a readable lesson rather than function as a poster. torn newspaper headline shapes casting long shadows across a school corridor and civic space, showing how repeated language affects opportunity; no legible slurs, people, logos, flags, or cultural motifs. No words or labels, no border, no infographic text, no watermark. Do not imitate an Indigenous artist or style. Do not invent a named person, Nation, community, ceremony, regalia, sacred object, historical event, or official document. Avoid feathers, dreamcatchers, beadwork patterns, medicine wheels, tipis, and other generic pan-Indigenous decoration unless a reviewed source requires the actual object. ",
+        "status": "generated-integrated"
+      },
+      "videoPlan": {
+        "proposalDecision": "NO — INTENTIONAL",
+        "proposalType": "TEXT/INTERACTIVE ONLY",
+        "instructionalJob": "No video required; protect pacing and avoid duplication",
+        "placement": "—",
+        "sourceOrCreationNeed": "—",
+        "existingFilmRoomCandidates": [],
+        "legacyFilmCandidateConflict": false,
+        "integrationStatus": "intentionally-video-free-per-new-proposal"
+      },
+      "decisionNeeded": "Generated supporting visual integrated. Keep source-image and video decisions in their separate verification passes."
+    },
+    {
+      "sequence": "L36",
+      "unitId": "theme-3",
+      "lessonId": "t3-l06-screens-punchlines",
+      "title": "Screens and Punchlines: Media, Humour, Identity",
+      "learningGoal": "Explain how mass media reinforce stereotypes, judge who controls the symbol, and take the film questions to Reel Injun.",
+      "currentLearnerVisuals": [
+        {
+          "role": "supporting",
+          "type": "figure",
+          "src": "./assets/course-visuals/generated/L36-t3-l06-screens-punchlines.webp",
+          "alt": "Editorial illustration: A media screen split between a flat repeated stereotype silhouette and a community-controlled camera, microphone, and editing console showing many perspectives.",
+          "caption": "Generated illustration for lesson orientation. It is not documentary evidence and does not depict a named person, community or historical event.",
+          "captionDisplay": "hidden"
+        }
+      ],
+      "recommendedMinimum": "one instructional visual",
+      "primaryVisualType": "screen-analysis composition",
+      "layout": "text-wrap-right",
+      "layoutInstruction": "Use a 38–42% right-side figure on wide screens and stack it before the related paragraph below 760 px.",
+      "textbookCandidate": {
+        "kind": "textbook-page-visual",
+        "printedPage": 169,
+        "pdfPage": 177,
+        "subject": "APTN programming image",
+        "renderedPageForLocalReview": "tmp/pdfs/ab30-textbook-pages/page-177.jpg",
+        "imageObjectCountOnPage": 1,
+        "status": "review-only-rights-and-context-not-cleared"
+      },
+      "textbookCandidateNote": null,
+      "generatedComparisonCandidate": {
+        "concept": "a media screen split between a flat repeated stereotype silhouette and a community-controlled camera, microphone, and editing console showing many perspectives; no people, logos, film characters, or cultural motifs",
+        "aspectRatio": "4:3",
+        "prompt": "Contemporary Canadian high-school editorial illustration, quiet documentary-inspired realism, warm natural light, restrained spruce green, teal, charcoal and ochre palette, clean composition, authentic materials and geography, designed to sit inside a readable lesson rather than function as a poster. a media screen split between a flat repeated stereotype silhouette and a community-controlled camera, microphone, and editing console showing many perspectives; no people, logos, film characters, or cultural motifs. No words or labels, no border, no infographic text, no watermark. Do not imitate an Indigenous artist or style. Do not invent a named person, Nation, community, ceremony, regalia, sacred object, historical event, or official document. Avoid feathers, dreamcatchers, beadwork patterns, medicine wheels, tipis, and other generic pan-Indigenous decoration unless a reviewed source requires the actual object. ",
+        "status": "generated-integrated",
+        "calibrationAsset": {
+          "path": "projects/aboriginal-studies-30/meta/ab30-v2/media-integration-plan-2026-09-24/generated-calibration/L36-media-representation-generated-b.png",
+          "width": 1448,
+          "height": 1086,
+          "sha256": "ddb29bceab805c850ed489982befe1a156f9526efcc294ae1ff1b44510f9fc48",
+          "status": "generated-integrated-as-optimized-webp",
+          "leadRecommendation": "B is a strong opener; pair it with A and C rather than using it as evidence."
+        }
+      },
+      "videoPlan": {
+        "proposalDecision": "YES",
+        "proposalType": "EXTERNAL — VOICE/EVIDENCE",
+        "instructionalJob": "Indigenous perspectives on media stereotypes and representation",
+        "placement": "After students learn the analysis lens, before applying it",
+        "sourceOrCreationNeed": "Indigenous media organization/filmmaker/educator",
+        "existingFilmRoomCandidates": [
+          {
+            "filmRoomId": "film-peter-pan-tiger-lily-and-chief",
+            "title": "Peter Pan - Tiger Lily and Chief",
+            "url": "https://www.youtube.com/embed/f7yE8TKUB_M",
+            "matchConfidence": "high",
+            "status": "candidate-needs-source-rights-caption-transcript-and-availability-review"
+          },
+          {
+            "filmRoomId": "film-reel-injun-documentary",
+            "title": "Reel Injun Documentary",
+            "url": "https://www.youtube.com/watch?v=RZBX5vtFZMk&ab_channel=TVODocs",
+            "matchConfidence": "high",
+            "status": "candidate-needs-source-rights-caption-transcript-and-availability-review"
+          }
+        ],
+        "legacyFilmCandidateConflict": false,
+        "integrationStatus": "not-in-lesson-pending-exact-media-review"
+      },
+      "decisionNeeded": "Generated supporting visual integrated. Keep source-image and video decisions in their separate verification passes."
+    },
+    {
+      "sequence": "L37",
+      "unitId": "theme-3",
+      "lessonId": "t3-l02-breaking-barriers",
+      "title": "Breaking Barriers: Recognition and Response",
+      "learningGoal": "Show how recognition, adoption, and restorative justice break barriers — then write Assignment 3.1.",
+      "currentLearnerVisuals": [
+        {
+          "role": "supporting",
+          "type": "figure",
+          "src": "./assets/course-visuals/generated/L37-t3-l02-breaking-barriers.webp",
+          "alt": "Editorial illustration: A series of closed and opening doors across education, arts, public service, and media, with evidence cards showing recognition and response.",
+          "caption": "Generated illustration for lesson orientation. It is not documentary evidence and does not depict a named person, community or historical event.",
+          "captionDisplay": "hidden"
+        }
+      ],
+      "recommendedMinimum": "one instructional visual",
+      "primaryVisualType": "barriers-and-responses pathway",
+      "layout": "full-width-evidence",
+      "layoutInstruction": "Use the full reading width with a concise source caption; keep the visual beside the passage it documents.",
+      "textbookCandidate": {
+        "kind": "textbook-page-visual",
+        "printedPage": 172,
+        "pdfPage": 180,
+        "subject": "Achievement mural",
+        "renderedPageForLocalReview": "tmp/pdfs/ab30-textbook-pages/page-180.jpg",
+        "imageObjectCountOnPage": 1,
+        "status": "review-only-rights-and-context-not-cleared"
+      },
+      "textbookCandidateNote": null,
+      "generatedComparisonCandidate": {
+        "concept": "a series of closed and opening doors across education, arts, public service, and media, with evidence cards showing recognition and response; no people, logos, flags, or cultural decoration",
+        "aspectRatio": "16:9",
+        "prompt": "Contemporary Canadian high-school editorial illustration, quiet documentary-inspired realism, warm natural light, restrained spruce green, teal, charcoal and ochre palette, clean composition, authentic materials and geography, designed to sit inside a readable lesson rather than function as a poster. a series of closed and opening doors across education, arts, public service, and media, with evidence cards showing recognition and response; no people, logos, flags, or cultural decoration. No words or labels, no border, no infographic text, no watermark. Do not imitate an Indigenous artist or style. Do not invent a named person, Nation, community, ceremony, regalia, sacred object, historical event, or official document. Avoid feathers, dreamcatchers, beadwork patterns, medicine wheels, tipis, and other generic pan-Indigenous decoration unless a reviewed source requires the actual object. ",
+        "status": "generated-integrated"
+      },
+      "videoPlan": {
+        "proposalDecision": "NO — INTENTIONAL",
+        "proposalType": "TEXT/INTERACTIVE ONLY",
+        "instructionalJob": "No video required; protect pacing and avoid duplication",
+        "placement": "—",
+        "sourceOrCreationNeed": "—",
+        "existingFilmRoomCandidates": [
+          {
+            "filmRoomId": "film-shannen-s-dream",
+            "title": "Shannen's Dream",
+            "url": "https://www.youtube.com/embed/3Gy38grr35c",
+            "matchConfidence": "medium",
+            "status": "candidate-needs-source-rights-caption-transcript-and-availability-review"
+          }
+        ],
+        "legacyFilmCandidateConflict": true,
+        "integrationStatus": "intentionally-video-free-per-new-proposal"
+      },
+      "decisionNeeded": "Generated supporting visual integrated. Keep source-image and video decisions in their separate verification passes."
+    },
+    {
+      "sequence": "L38",
+      "unitId": "theme-3",
+      "lessonId": "t3-l03-community-life",
+      "title": "Reserve Life: Draw and Drag",
+      "learningGoal": "Name the song's urban problems, fill the reserve-benefits chart, and explain Smallboy's 1968 walk.",
+      "currentLearnerVisuals": [
+        {
+          "role": "supporting",
+          "type": "figure",
+          "src": "./assets/course-visuals/generated/L38-t3-l03-community-life.webp",
+          "alt": "Editorial illustration: A contemporary northern or prairie community shown as connected homes, school, water plant, recreation space, local office, and land-use area.",
+          "caption": "Generated illustration for lesson orientation. It is not documentary evidence and does not depict a named person, community or historical event.",
+          "captionDisplay": "hidden"
+        }
+      ],
+      "recommendedMinimum": "one instructional visual",
+      "primaryVisualType": "community-systems landscape",
+      "layout": "full-width-illustration",
+      "layoutInstruction": "Use one wide visual between teaching sections, not as a decorative banner.",
+      "textbookCandidate": {
+        "kind": "textbook-page-visual",
+        "printedPage": 181,
+        "pdfPage": 189,
+        "subject": "Community economic and resource-development photograph",
+        "renderedPageForLocalReview": "tmp/pdfs/ab30-textbook-pages/page-189.jpg",
+        "imageObjectCountOnPage": 2,
+        "status": "review-only-rights-and-context-not-cleared"
+      },
+      "textbookCandidateNote": null,
+      "generatedComparisonCandidate": {
+        "concept": "a contemporary northern or prairie community shown as connected homes, school, water plant, recreation space, local office, and land-use area; no people, flags, logos, or generic reserve stereotypes",
+        "aspectRatio": "16:9",
+        "prompt": "Contemporary Canadian high-school editorial illustration, quiet documentary-inspired realism, warm natural light, restrained spruce green, teal, charcoal and ochre palette, clean composition, authentic materials and geography, designed to sit inside a readable lesson rather than function as a poster. a contemporary northern or prairie community shown as connected homes, school, water plant, recreation space, local office, and land-use area; no people, flags, logos, or generic reserve stereotypes. No words or labels, no border, no infographic text, no watermark. Do not imitate an Indigenous artist or style. Do not invent a named person, Nation, community, ceremony, regalia, sacred object, historical event, or official document. Avoid feathers, dreamcatchers, beadwork patterns, medicine wheels, tipis, and other generic pan-Indigenous decoration unless a reviewed source requires the actual object. ",
+        "status": "generated-integrated"
+      },
+      "videoPlan": {
+        "proposalDecision": "YES",
+        "proposalType": "EXTERNAL — VOICE",
+        "instructionalJob": "Community life beyond simplified “reserve life” generalizations",
+        "placement": "After the lesson challenges generalization, before reflection",
+        "sourceOrCreationNeed": "First Nation/community-produced video or Indigenous broadcaster",
+        "existingFilmRoomCandidates": [
+          {
+            "filmRoomId": "film-water-crisis",
+            "title": "Water Crisis",
+            "url": "https://www.youtube.com/embed/D4DSu5xqXUM",
+            "matchConfidence": "medium",
+            "status": "candidate-needs-source-rights-caption-transcript-and-availability-review"
+          }
+        ],
+        "legacyFilmCandidateConflict": false,
+        "integrationStatus": "not-in-lesson-pending-exact-media-review"
+      },
+      "decisionNeeded": "Generated supporting visual integrated. Keep source-image and video decisions in their separate verification passes."
+    },
+    {
+      "sequence": "L39",
+      "unitId": "theme-3",
+      "lessonId": "t3-l07-running-own-show",
+      "title": "Running Their Own Show",
+      "learningGoal": "Count the services gap, explain self-government's answer, and tell Métis Settlements from open Métis towns.",
+      "currentLearnerVisuals": [
+        {
+          "role": "supporting",
+          "type": "figure",
+          "src": "./assets/course-visuals/generated/L39-t3-l07-running-own-show.webp",
+          "alt": "Editorial illustration: A small community newsroom with a microphone, camera, editing desk, and broadcast signal flowing outward, emphasizing ownership and voice.",
+          "caption": "Generated illustration for lesson orientation. It is not documentary evidence and does not depict a named person, community or historical event.",
+          "captionDisplay": "hidden"
+        }
+      ],
+      "recommendedMinimum": "one instructional visual",
+      "primaryVisualType": "community-controlled media workspace",
+      "layout": "text-wrap-left",
+      "layoutInstruction": "Use a 38–42% left-side figure on wide screens and stack it before the related paragraph below 760 px.",
+      "textbookCandidate": {
+        "kind": "textbook-page-visual",
+        "printedPage": 184,
+        "pdfPage": 192,
+        "subject": "Community self-government panel",
+        "renderedPageForLocalReview": "tmp/pdfs/ab30-textbook-pages/page-192.jpg",
+        "imageObjectCountOnPage": 1,
+        "status": "review-only-rights-and-context-not-cleared"
+      },
+      "textbookCandidateNote": null,
+      "generatedComparisonCandidate": {
+        "concept": "a small community newsroom with a microphone, camera, editing desk, and broadcast signal flowing outward, emphasizing ownership and voice; no people, logos, flags, or cultural motifs",
+        "aspectRatio": "4:3",
+        "prompt": "Contemporary Canadian high-school editorial illustration, quiet documentary-inspired realism, warm natural light, restrained spruce green, teal, charcoal and ochre palette, clean composition, authentic materials and geography, designed to sit inside a readable lesson rather than function as a poster. a small community newsroom with a microphone, camera, editing desk, and broadcast signal flowing outward, emphasizing ownership and voice; no people, logos, flags, or cultural motifs. No words or labels, no border, no infographic text, no watermark. Do not imitate an Indigenous artist or style. Do not invent a named person, Nation, community, ceremony, regalia, sacred object, historical event, or official document. Avoid feathers, dreamcatchers, beadwork patterns, medicine wheels, tipis, and other generic pan-Indigenous decoration unless a reviewed source requires the actual object. ",
+        "status": "generated-integrated"
+      },
+      "videoPlan": {
+        "proposalDecision": "YES",
+        "proposalType": "EXTERNAL — VOICE/EVIDENCE",
+        "instructionalJob": "Indigenous-controlled media and telling one’s own stories",
+        "placement": "After explaining media control/ownership",
+        "sourceOrCreationNeed": "APTN/community radio/Indigenous media outlet",
+        "existingFilmRoomCandidates": [],
+        "legacyFilmCandidateConflict": false,
+        "integrationStatus": "not-in-lesson-pending-exact-media-review"
+      },
+      "decisionNeeded": "Generated supporting visual integrated. Keep source-image and video decisions in their separate verification passes."
+    },
+    {
+      "sequence": "L40",
+      "unitId": "theme-3",
+      "lessonId": "t3-l08-city-test",
+      "title": "The City Test: Pull, Push, and the Policy Gap",
+      "learningGoal": "Name why people move, price the city's tolls, and explain the gap plus the AFN's new direction.",
+      "currentLearnerVisuals": [
+        {
+          "role": "supporting",
+          "type": "figure",
+          "src": "./assets/course-visuals/generated/L40-t3-l08-city-test.webp",
+          "alt": "Editorial illustration: A city map with housing, work, education, family, health, and cultural-service points connected by routes, with both pull and push forces visible.",
+          "caption": "Generated illustration for lesson orientation. It is not documentary evidence and does not depict a named person, community or historical event.",
+          "captionDisplay": "hidden"
+        }
+      ],
+      "recommendedMinimum": "one instructional visual",
+      "primaryVisualType": "city push-pull service map",
+      "layout": "full-width-map",
+      "layoutInstruction": "Use a wide map with a text alternative and source/scale note.",
+      "textbookCandidate": {
+        "kind": "textbook-page-visual",
+        "printedPage": 191,
+        "pdfPage": 199,
+        "subject": "Urban-population and migration visual",
+        "renderedPageForLocalReview": "tmp/pdfs/ab30-textbook-pages/page-199.jpg",
+        "imageObjectCountOnPage": 2,
+        "status": "review-only-rights-and-context-not-cleared"
+      },
+      "textbookCandidateNote": null,
+      "generatedComparisonCandidate": {
+        "concept": "a city map with housing, work, education, family, health, and cultural-service points connected by routes, with both pull and push forces visible; no people, logos, flags, or named city",
+        "aspectRatio": "16:9",
+        "prompt": "Contemporary Canadian high-school editorial illustration, quiet documentary-inspired realism, warm natural light, restrained spruce green, teal, charcoal and ochre palette, clean composition, authentic materials and geography, designed to sit inside a readable lesson rather than function as a poster. a city map with housing, work, education, family, health, and cultural-service points connected by routes, with both pull and push forces visible; no people, logos, flags, or named city. No words or labels, no border, no infographic text, no watermark. Do not imitate an Indigenous artist or style. Do not invent a named person, Nation, community, ceremony, regalia, sacred object, historical event, or official document. Avoid feathers, dreamcatchers, beadwork patterns, medicine wheels, tipis, and other generic pan-Indigenous decoration unless a reviewed source requires the actual object. ",
+        "status": "generated-integrated"
+      },
+      "videoPlan": {
+        "proposalDecision": "NO — INTENTIONAL",
+        "proposalType": "TEXT/INTERACTIVE ONLY",
+        "instructionalJob": "No video required; protect pacing and avoid duplication",
+        "placement": "—",
+        "sourceOrCreationNeed": "—",
+        "existingFilmRoomCandidates": [
+          {
+            "filmRoomId": "film-suicide-crisis-discussed",
+            "title": "Suicide Crisis Discussed",
+            "url": "https://www.youtube.com/embed/xzIxiYacXPU",
+            "matchConfidence": "low",
+            "status": "candidate-needs-source-rights-caption-transcript-and-availability-review"
+          }
+        ],
+        "legacyFilmCandidateConflict": true,
+        "integrationStatus": "intentionally-video-free-per-new-proposal"
+      },
+      "decisionNeeded": "Generated supporting visual integrated. Keep source-image and video decisions in their separate verification passes."
+    },
+    {
+      "sequence": "L41",
+      "unitId": "theme-3",
+      "lessonId": "t3-l09-friendship-success",
+      "title": "Friendship Centres and Success Stories",
+      "learningGoal": "Trace the centres from referral desks to cultural base, and show success holding both memberships.",
+      "currentLearnerVisuals": [
+        {
+          "role": "supporting",
+          "type": "figure",
+          "src": "./assets/course-visuals/generated/L41-t3-l09-friendship-success.webp",
+          "alt": "Editorial illustration: A welcoming urban community centre acting as a hub for housing, employment, cultural connection, health, and youth services.",
+          "caption": "Generated illustration for lesson orientation. It is not documentary evidence and does not depict a named person, community or historical event.",
+          "captionDisplay": "hidden"
+        }
+      ],
+      "recommendedMinimum": "one instructional visual",
+      "primaryVisualType": "urban service hub diagram",
+      "layout": "text-wrap-right",
+      "layoutInstruction": "Use a 38–42% right-side figure on wide screens and stack it before the related paragraph below 760 px.",
+      "textbookCandidate": {
+        "kind": "textbook-page-visual",
+        "printedPage": 194,
+        "pdfPage": 202,
+        "subject": "Friendship Centre photograph",
+        "renderedPageForLocalReview": "tmp/pdfs/ab30-textbook-pages/page-202.jpg",
+        "imageObjectCountOnPage": 1,
+        "status": "review-only-rights-and-context-not-cleared"
+      },
+      "textbookCandidateNote": null,
+      "generatedComparisonCandidate": {
+        "concept": "a welcoming urban community centre acting as a hub for housing, employment, cultural connection, health, and youth services; no people, logos, flags, or decorative cultural motifs",
+        "aspectRatio": "4:3",
+        "prompt": "Contemporary Canadian high-school editorial illustration, quiet documentary-inspired realism, warm natural light, restrained spruce green, teal, charcoal and ochre palette, clean composition, authentic materials and geography, designed to sit inside a readable lesson rather than function as a poster. a welcoming urban community centre acting as a hub for housing, employment, cultural connection, health, and youth services; no people, logos, flags, or decorative cultural motifs. No words or labels, no border, no infographic text, no watermark. Do not imitate an Indigenous artist or style. Do not invent a named person, Nation, community, ceremony, regalia, sacred object, historical event, or official document. Avoid feathers, dreamcatchers, beadwork patterns, medicine wheels, tipis, and other generic pan-Indigenous decoration unless a reviewed source requires the actual object. ",
+        "status": "generated-integrated"
+      },
+      "videoPlan": {
+        "proposalDecision": "YES",
+        "proposalType": "EXTERNAL — VOICE/EVIDENCE",
+        "instructionalJob": "Friendship centres and urban Indigenous community/service roles",
+        "placement": "After students learn why urban organizations emerged",
+        "sourceOrCreationNeed": "National Association of Friendship Centres or local Friendship Centre source",
+        "existingFilmRoomCandidates": [],
+        "legacyFilmCandidateConflict": false,
+        "integrationStatus": "not-in-lesson-pending-exact-media-review"
+      },
+      "decisionNeeded": "Generated supporting visual integrated. Keep source-image and video decisions in their separate verification passes."
+    },
+    {
+      "sequence": "L42",
+      "unitId": "theme-3",
+      "lessonId": "t3-l10-devolution",
+      "title": "Devolution: Services by Aboriginal People",
+      "learningGoal": "Trace services from Citizens Plus through the controversies to the devolution evidence, and answer Questions 25–28.",
+      "currentLearnerVisuals": [
+        {
+          "role": "supporting",
+          "type": "figure",
+          "src": "./assets/course-visuals/generated/L42-t3-l10-devolution.webp",
+          "alt": "Editorial illustration: A service program moving from a distant administrative office to a locally governed community team, with accountability and funding links kept visible.",
+          "caption": "Generated illustration for lesson orientation. It is not documentary evidence and does not depict a named person, community or historical event.",
+          "captionDisplay": "hidden"
+        }
+      ],
+      "recommendedMinimum": "one instructional visual",
+      "primaryVisualType": "service responsibility transfer",
+      "layout": "text-wrap-left",
+      "layoutInstruction": "Use a 38–42% left-side figure on wide screens and stack it before the related paragraph below 760 px.",
+      "textbookCandidate": {
+        "kind": "textbook-page-visual",
+        "printedPage": 202,
+        "pdfPage": 210,
+        "subject": "Head Start and community-program photographs",
+        "renderedPageForLocalReview": "tmp/pdfs/ab30-textbook-pages/page-210.jpg",
+        "imageObjectCountOnPage": 2,
+        "status": "review-only-rights-and-context-not-cleared"
+      },
+      "textbookCandidateNote": null,
+      "generatedComparisonCandidate": {
+        "concept": "a service program moving from a distant administrative office to a locally governed community team, with accountability and funding links kept visible; no people, logos, flags, or readable text",
+        "aspectRatio": "4:3",
+        "prompt": "Contemporary Canadian high-school editorial illustration, quiet documentary-inspired realism, warm natural light, restrained spruce green, teal, charcoal and ochre palette, clean composition, authentic materials and geography, designed to sit inside a readable lesson rather than function as a poster. a service program moving from a distant administrative office to a locally governed community team, with accountability and funding links kept visible; no people, logos, flags, or readable text. No words or labels, no border, no infographic text, no watermark. Do not imitate an Indigenous artist or style. Do not invent a named person, Nation, community, ceremony, regalia, sacred object, historical event, or official document. Avoid feathers, dreamcatchers, beadwork patterns, medicine wheels, tipis, and other generic pan-Indigenous decoration unless a reviewed source requires the actual object. ",
+        "status": "generated-integrated"
+      },
+      "videoPlan": {
+        "proposalDecision": "NO — INTENTIONAL",
+        "proposalType": "TEXT/INTERACTIVE ONLY",
+        "instructionalJob": "No video required; protect pacing and avoid duplication",
+        "placement": "—",
+        "sourceOrCreationNeed": "—",
+        "existingFilmRoomCandidates": [],
+        "legacyFilmCandidateConflict": false,
+        "integrationStatus": "intentionally-video-free-per-new-proposal"
+      },
+      "decisionNeeded": "Generated supporting visual integrated. Keep source-image and video decisions in their separate verification passes."
+    },
+    {
+      "sequence": "L43",
+      "unitId": "theme-3",
+      "lessonId": "t3-l04-urban-life-services",
+      "title": "What Works: Designing Services That Fit",
+      "learningGoal": "Collect the delivered examples, run the design task and chapter review, then write the Attawapiskat report.",
+      "currentLearnerVisuals": [
+        {
+          "role": "supporting",
+          "type": "figure",
+          "src": "./assets/course-visuals/generated/L43-t3-l04-urban-life-services.webp",
+          "alt": "Editorial illustration: A co-design table connecting community priorities, service design, delivery, feedback, and revision in a continuous loop.",
+          "caption": "Generated illustration for lesson orientation. It is not documentary evidence and does not depict a named person, community or historical event.",
+          "captionDisplay": "hidden"
+        }
+      ],
+      "recommendedMinimum": "one instructional visual",
+      "primaryVisualType": "service co-design loop",
+      "layout": "full-width-diagram",
+      "layoutInstruction": "Render as accessible HTML/SVG at full reading width; preserve labels as real text.",
+      "textbookCandidate": {
+        "kind": "textbook-page-visual",
+        "printedPage": 203,
+        "pdfPage": 211,
+        "subject": "Cultural health and Native Counselling Services photographs",
+        "renderedPageForLocalReview": "tmp/pdfs/ab30-textbook-pages/page-211.jpg",
+        "imageObjectCountOnPage": 2,
+        "status": "review-only-rights-and-context-not-cleared"
+      },
+      "textbookCandidateNote": null,
+      "generatedComparisonCandidate": {
+        "concept": "a co-design table connecting community priorities, service design, delivery, feedback, and revision in a continuous loop; no people, logos, flags, cultural motifs, or readable text",
+        "aspectRatio": "16:9",
+        "prompt": "Contemporary Canadian high-school editorial illustration, quiet documentary-inspired realism, warm natural light, restrained spruce green, teal, charcoal and ochre palette, clean composition, authentic materials and geography, designed to sit inside a readable lesson rather than function as a poster. a co-design table connecting community priorities, service design, delivery, feedback, and revision in a continuous loop; no people, logos, flags, cultural motifs, or readable text. No words or labels, no border, no infographic text, no watermark. Do not imitate an Indigenous artist or style. Do not invent a named person, Nation, community, ceremony, regalia, sacred object, historical event, or official document. Avoid feathers, dreamcatchers, beadwork patterns, medicine wheels, tipis, and other generic pan-Indigenous decoration unless a reviewed source requires the actual object. ",
+        "status": "generated-integrated"
+      },
+      "videoPlan": {
+        "proposalDecision": "YES",
+        "proposalType": "CUSTOM — TEACH",
+        "instructionalJob": "Why who designs and governs a service can change how well it fits",
+        "placement": "After L42 devolution concept and early in L43",
+        "sourceOrCreationNeed": "Create in-course explainer",
+        "existingFilmRoomCandidates": [
+          {
+            "filmRoomId": "film-ottawa-s-promise",
+            "title": "Ottawa's Promise",
+            "url": "https://www.youtube.com/embed/DyiJOlwenD4",
+            "matchConfidence": "medium",
+            "status": "candidate-needs-source-rights-caption-transcript-and-availability-review"
+          }
+        ],
+        "legacyFilmCandidateConflict": false,
+        "integrationStatus": "not-in-lesson-pending-exact-media-review"
+      },
+      "decisionNeeded": "Generated supporting visual integrated. Keep source-image and video decisions in their separate verification passes."
+    },
+    {
+      "sequence": "L44",
+      "unitId": "theme-4",
+      "lessonId": "t4-l01-one-world-many-peoples",
+      "title": "One World, Many Peoples",
+      "learningGoal": "Hear Menchú's case, define indigenous and ethnocentrism, and table the six shared characteristics for Questions 1–5.",
+      "currentLearnerVisuals": [
+        {
+          "role": "supporting",
+          "type": "figure",
+          "src": "./assets/course-visuals/generated/L44-t4-l01-one-world-many-peoples.webp",
+          "alt": "Editorial illustration: A world map connected to several clearly distinct local landscapes and civic settings, showing shared issues without blending peoples into one culture.",
+          "caption": "Generated illustration for lesson orientation. It is not documentary evidence and does not depict a named person, community or historical event.",
+          "captionDisplay": "hidden"
+        }
+      ],
+      "recommendedMinimum": "one instructional visual",
+      "primaryVisualType": "distinct-peoples world map",
+      "layout": "text-wrap-right",
+      "layoutInstruction": "Use a 38–42% right-side figure on wide screens and stack it before the related paragraph below 760 px.",
+      "textbookCandidate": {
+        "kind": "textbook-page-visual",
+        "printedPage": 209,
+        "pdfPage": 217,
+        "subject": "Rigoberta Menchú Tum profile",
+        "renderedPageForLocalReview": "tmp/pdfs/ab30-textbook-pages/page-217.jpg",
+        "imageObjectCountOnPage": 1,
+        "status": "review-only-rights-and-context-not-cleared"
+      },
+      "textbookCandidateNote": null,
+      "generatedComparisonCandidate": {
+        "concept": "a world map connected to several clearly distinct local landscapes and civic settings, showing shared issues without blending peoples into one culture; no people, flags, logos, or generic Indigenous motifs",
+        "aspectRatio": "4:3",
+        "prompt": "Contemporary Canadian high-school editorial illustration, quiet documentary-inspired realism, warm natural light, restrained spruce green, teal, charcoal and ochre palette, clean composition, authentic materials and geography, designed to sit inside a readable lesson rather than function as a poster. a world map connected to several clearly distinct local landscapes and civic settings, showing shared issues without blending peoples into one culture; no people, flags, logos, or generic Indigenous motifs. No words or labels, no border, no infographic text, no watermark. Do not imitate an Indigenous artist or style. Do not invent a named person, Nation, community, ceremony, regalia, sacred object, historical event, or official document. Avoid feathers, dreamcatchers, beadwork patterns, medicine wheels, tipis, and other generic pan-Indigenous decoration unless a reviewed source requires the actual object. ",
+        "status": "generated-integrated"
+      },
+      "videoPlan": {
+        "proposalDecision": "YES",
+        "proposalType": "CUSTOM — TEACH",
+        "instructionalJob": "One world, many Indigenous peoples: diversity without collapsing distinct peoples into one story",
+        "placement": "Theme 4 opening, after the visual hook",
+        "sourceOrCreationNeed": "Create in-course explainer",
+        "existingFilmRoomCandidates": [
+          {
+            "filmRoomId": "film-what-to-say-what-not-to-say",
+            "title": "What to Say...What not to Say",
+            "url": "https://www.youtube.com/embed/zOOhNNdHOYI",
+            "matchConfidence": "medium",
+            "status": "candidate-needs-source-rights-caption-transcript-and-availability-review"
+          },
+          {
+            "filmRoomId": "film-thomas-king-speaks",
+            "title": "Thomas King Speaks",
+            "url": "https://www.youtube.com/embed/R3XfYNvjee4",
+            "matchConfidence": "low",
+            "status": "candidate-needs-source-rights-caption-transcript-and-availability-review"
+          }
+        ],
+        "legacyFilmCandidateConflict": false,
+        "integrationStatus": "not-in-lesson-pending-exact-media-review"
+      },
+      "decisionNeeded": "Generated supporting visual integrated. Keep source-image and video decisions in their separate verification passes."
+    },
+    {
+      "sequence": "L45",
+      "unitId": "theme-4",
+      "lessonId": "t4-l05-nine-issues",
+      "title": "Nine Issues, One Pattern",
+      "learningGoal": "Tour the nine issue areas with an example for each, and complete the Question 6 table.",
+      "currentLearnerVisuals": [
+        {
+          "role": "supporting",
+          "type": "figure",
+          "src": "./assets/course-visuals/generated/L45-t4-l05-nine-issues.webp",
+          "alt": "Editorial illustration: A balanced three-by-three set of environmental, legal, health, education, language, land, economic, political, and cultural-continuity scenes, linked without ranking.",
+          "caption": "Generated illustration for lesson orientation. It is not documentary evidence and does not depict a named person, community or historical event.",
+          "captionDisplay": "hidden"
+        }
+      ],
+      "recommendedMinimum": "one instructional visual",
+      "primaryVisualType": "nine-issues constellation",
+      "layout": "text-wrap-left",
+      "layoutInstruction": "Use a 38–42% left-side figure on wide screens and stack it before the related paragraph below 760 px.",
+      "textbookCandidate": {
+        "kind": "textbook-page-visual",
+        "printedPage": 213,
+        "pdfPage": 221,
+        "subject": "Melina Laboucan-Massimo profile",
+        "renderedPageForLocalReview": "tmp/pdfs/ab30-textbook-pages/page-221.jpg",
+        "imageObjectCountOnPage": 2,
+        "status": "review-only-rights-and-context-not-cleared"
+      },
+      "textbookCandidateNote": null,
+      "generatedComparisonCandidate": {
+        "concept": "a balanced three-by-three set of environmental, legal, health, education, language, land, economic, political, and cultural-continuity scenes, linked without ranking; no people, logos, flags, or cultural motifs",
+        "aspectRatio": "4:3",
+        "prompt": "Contemporary Canadian high-school editorial illustration, quiet documentary-inspired realism, warm natural light, restrained spruce green, teal, charcoal and ochre palette, clean composition, authentic materials and geography, designed to sit inside a readable lesson rather than function as a poster. a balanced three-by-three set of environmental, legal, health, education, language, land, economic, political, and cultural-continuity scenes, linked without ranking; no people, logos, flags, or cultural motifs. No words or labels, no border, no infographic text, no watermark. Do not imitate an Indigenous artist or style. Do not invent a named person, Nation, community, ceremony, regalia, sacred object, historical event, or official document. Avoid feathers, dreamcatchers, beadwork patterns, medicine wheels, tipis, and other generic pan-Indigenous decoration unless a reviewed source requires the actual object. ",
+        "status": "generated-integrated"
+      },
+      "videoPlan": {
+        "proposalDecision": "NO — INTENTIONAL",
+        "proposalType": "TEXT/INTERACTIVE ONLY",
+        "instructionalJob": "No video required; protect pacing and avoid duplication",
+        "placement": "—",
+        "sourceOrCreationNeed": "—",
+        "existingFilmRoomCandidates": [
+          {
+            "filmRoomId": "film-systemic-racism",
+            "title": "Systemic Racism",
+            "url": "https://www.youtube.com/embed/gHuvxdYfPyo",
+            "matchConfidence": "medium",
+            "status": "candidate-needs-source-rights-caption-transcript-and-availability-review"
+          }
+        ],
+        "legacyFilmCandidateConflict": true,
+        "integrationStatus": "intentionally-video-free-per-new-proposal"
+      },
+      "decisionNeeded": "Generated supporting visual integrated. Keep source-image and video decisions in their separate verification passes."
+    },
+    {
+      "sequence": "L46",
+      "unitId": "theme-4",
+      "lessonId": "t4-l02-colonial-wounds",
+      "title": "Child Removal in Australia and Canada",
+      "learningGoal": "Complete one evidence-based row of the Australia–Canada chart, then use the film as a film source for Questions 9–14 and Assignment 4.2.",
+      "currentLearnerVisuals": [
+        {
+          "role": "hero",
+          "src": "./assets/theme-4/generated/colonial-wounds-header.webp",
+          "alt": "Illustration: an empty road through morning bush.",
+          "caption": "Generated illustration for lesson orientation. It does not depict a documented location, community or historical event."
+        },
+        {
+          "role": "supporting",
+          "type": "figure",
+          "src": "./assets/theme-4/generated/colonial-wounds-card.webp",
+          "alt": "Illustration: fishing boats on a northern shore.",
+          "caption": "Generated illustration for visual reflection on place and livelihood. It is not documentary evidence and does not depict a named community or event.",
+          "captionDisplay": "hidden"
+        }
+      ],
+      "recommendedMinimum": "one instructional visual",
+      "primaryVisualType": "parallel policy timelines",
+      "layout": "full-width-diagram",
+      "layoutInstruction": "Render as accessible HTML/SVG at full reading width; preserve labels as real text.",
+      "textbookCandidate": null,
+      "textbookCandidateNote": "Assigned textbook images do not directly support the Canada-Australia comparison",
+      "generatedComparisonCandidate": {
+        "concept": "two parallel policy timelines for child removal in Australia and Canada, using government files, separated homes, institutions, testimony, and later truth-seeking symbols; no children, people, reenactment, logos, flags, or sensational imagery",
+        "aspectRatio": "16:9",
+        "prompt": "Contemporary Canadian high-school editorial illustration, quiet documentary-inspired realism, warm natural light, restrained spruce green, teal, charcoal and ochre palette, clean composition, authentic materials and geography, designed to sit inside a readable lesson rather than function as a poster. two parallel policy timelines for child removal in Australia and Canada, using government files, separated homes, institutions, testimony, and later truth-seeking symbols; no children, people, reenactment, logos, flags, or sensational imagery. No words or labels, no border, no infographic text, no watermark. Do not imitate an Indigenous artist or style. Do not invent a named person, Nation, community, ceremony, regalia, sacred object, historical event, or official document. Avoid feathers, dreamcatchers, beadwork patterns, medicine wheels, tipis, and other generic pan-Indigenous decoration unless a reviewed source requires the actual object. ",
+        "status": "prompt-ready-not-generated",
+        "calibrationAsset": {
+          "path": "projects/aboriginal-studies-30/meta/ab30-v2/media-integration-plan-2026-09-24/generated-calibration/L46-child-removal-generated-b.png",
+          "width": 1672,
+          "height": 941,
+          "sha256": "6392fcb920fe2b72456f7e8bf04d214630570f31d65cb999a54ce2d7c66c5542",
+          "status": "generated-calibration-not-integrated",
+          "leadRecommendation": "Use C as the primary teaching visual. Keep B as review-only unless its symbolic routes are explicitly framed."
+        }
+      },
+      "videoPlan": {
+        "proposalDecision": "YES",
+        "proposalType": "CUSTOM — TEACH",
+        "instructionalJob": "Colonialism across contexts: recurring mechanisms, different histories and consequences",
+        "placement": "After the lesson introduces more than one national context",
+        "sourceOrCreationNeed": "Create in-course explainer",
+        "existingFilmRoomCandidates": [
+          {
+            "filmRoomId": "film-stolen-generation",
+            "title": "Stolen Generation",
+            "url": "https://www.youtube.com/embed/wikX7V3nXDE",
+            "matchConfidence": "high",
+            "status": "candidate-needs-source-rights-caption-transcript-and-availability-review"
+          },
+          {
+            "filmRoomId": "film-rabbit-proof-fence",
+            "title": "Rabbit Proof Fence",
+            "url": "https://archive.org/details/rabbit-proof-fence-2002",
+            "matchConfidence": "high",
+            "status": "candidate-needs-source-rights-caption-transcript-and-availability-review"
+          },
+          {
+            "filmRoomId": "film-through-the-wall",
+            "title": "Through the Wall",
+            "url": "https://www.youtube.com/embed/JliZ0kFTJEo",
+            "matchConfidence": "low",
+            "status": "candidate-needs-source-rights-caption-transcript-and-availability-review"
+          },
+          {
+            "filmRoomId": "film-one-year-later",
+            "title": "One Year Later",
+            "url": "https://www.youtube.com/embed/_MhqF4yeSXo",
+            "matchConfidence": "low",
+            "status": "candidate-needs-source-rights-caption-transcript-and-availability-review"
+          },
+          {
+            "filmRoomId": "film-beyond-apology",
+            "title": "Beyond Apology",
+            "url": "https://www.youtube.com/embed/DKz8lwr5U0M",
+            "matchConfidence": "low",
+            "status": "candidate-needs-source-rights-caption-transcript-and-availability-review"
+          }
+        ],
+        "legacyFilmCandidateConflict": false,
+        "integrationStatus": "not-in-lesson-pending-exact-media-review"
+      },
+      "decisionNeeded": "Choose sourced visual, generated alternative, or accessible repo-native diagram; then approve exact placement."
+    },
+    {
+      "sequence": "L47",
+      "unitId": "theme-4",
+      "lessonId": "t4-l06-resources-conflict",
+      "title": "Resource Development, Rights and Responsibility",
+      "learningGoal": "Explain the Great Bear Lake–Hiroshima connection, read Rio’s principles accurately, and evaluate the textbook’s Syncrude example with a date and source limit.",
+      "currentLearnerVisuals": [
+        {
+          "role": "hero",
+          "src": "./assets/theme-4/generated/resources-conflict-header.webp",
+          "alt": "Illustration: a northern lake with distant industrial buildings.",
+          "caption": "Generated illustration for lesson orientation. It does not depict Great Bear Lake, Port Radium or a documented industrial site."
+        },
+        {
+          "role": "supporting",
+          "type": "figure",
+          "src": "./assets/theme-4/generated/resources-conflict-card.webp",
+          "alt": "Illustration: a young wetland recovering into marsh.",
+          "caption": "Generated illustration for thinking about environmental recovery. It is not evidence of conditions at a particular development site.",
+          "captionDisplay": "hidden"
+        }
+      ],
+      "recommendedMinimum": "one instructional visual",
+      "primaryVisualType": "land-resource-consequence evidence spread",
+      "layout": "full-width-evidence",
+      "layoutInstruction": "Use the full reading width with a concise source caption; keep the visual beside the passage it documents.",
+      "textbookCandidate": {
+        "kind": "textbook-page-visual",
+        "printedPage": 220,
+        "pdfPage": 228,
+        "subject": "Great Bear Lake and uranium history images",
+        "renderedPageForLocalReview": "tmp/pdfs/ab30-textbook-pages/page-228.jpg",
+        "imageObjectCountOnPage": 2,
+        "status": "review-only-rights-and-context-not-cleared"
+      },
+      "textbookCandidateNote": null,
+      "generatedComparisonCandidate": {
+        "concept": "a northern lake landscape with a distant industrial site, ore transport path, community water route, and restoration area shown as connected consequences; no people, logos, flags, or claim that it depicts Great Bear Lake",
+        "aspectRatio": "16:9",
+        "prompt": "Contemporary Canadian high-school editorial illustration, quiet documentary-inspired realism, warm natural light, restrained spruce green, teal, charcoal and ochre palette, clean composition, authentic materials and geography, designed to sit inside a readable lesson rather than function as a poster. a northern lake landscape with a distant industrial site, ore transport path, community water route, and restoration area shown as connected consequences; no people, logos, flags, or claim that it depicts Great Bear Lake. No words or labels, no border, no infographic text, no watermark. Do not imitate an Indigenous artist or style. Do not invent a named person, Nation, community, ceremony, regalia, sacred object, historical event, or official document. Avoid feathers, dreamcatchers, beadwork patterns, medicine wheels, tipis, and other generic pan-Indigenous decoration unless a reviewed source requires the actual object. ",
+        "status": "prompt-ready-not-generated"
+      },
+      "videoPlan": {
+        "proposalDecision": "YES",
+        "proposalType": "EXTERNAL — VOICE/EVIDENCE",
+        "instructionalJob": "Resource extraction, traditional lands, rights, and competing definitions of value",
+        "placement": "After resource-development concept, before case analysis",
+        "sourceOrCreationNeed": "Indigenous broadcaster/community/organization; multi-country source useful here",
+        "existingFilmRoomCandidates": [
+          {
+            "filmRoomId": "film-shoal-lake-40",
+            "title": "Shoal Lake 40",
+            "url": "https://www.cbc.ca/player/play/video/1.6497093",
+            "matchConfidence": "medium",
+            "status": "candidate-needs-source-rights-caption-transcript-and-availability-review"
+          }
+        ],
+        "legacyFilmCandidateConflict": false,
+        "integrationStatus": "not-in-lesson-pending-exact-media-review"
+      },
+      "decisionNeeded": "Choose sourced visual, generated alternative, or accessible repo-native diagram; then approve exact placement."
+    },
+    {
+      "sequence": "L48",
+      "unitId": "theme-4",
+      "lessonId": "t4-l03-land-resources-un",
+      "title": "Indigenous Peoples and the United Nations",
+      "learningGoal": "Explain Canada’s reported response to UN findings, name the four UN Charter purposes, and identify a concrete way Indigenous peoples use UN forums.",
+      "currentLearnerVisuals": [
+        {
+          "role": "hero",
+          "src": "./assets/theme-4/generated/un-pressure-header.webp",
+          "alt": "Illustration: an empty round table in a meeting hall.",
+          "caption": "Generated illustration for lesson orientation. It is a visual prompt about international discussion, not a photograph of a United Nations meeting."
+        },
+        {
+          "role": "supporting",
+          "type": "figure",
+          "src": "./assets/theme-4/generated/un-pressure-card.webp",
+          "alt": "Illustration: an abstract globe of line markings.",
+          "caption": "Generated illustration for thinking about international connections. It is not a map, United Nations document or record of a specific case.",
+          "captionDisplay": "hidden"
+        }
+      ],
+      "recommendedMinimum": "one instructional visual",
+      "primaryVisualType": "UN influence-versus-law diagram",
+      "layout": "text-wrap-right",
+      "layoutInstruction": "Use a 38–42% right-side figure on wide screens and stack it before the related paragraph below 760 px.",
+      "textbookCandidate": {
+        "kind": "textbook-page-visual",
+        "printedPage": 229,
+        "pdfPage": 237,
+        "subject": "Indigenous participation at the United Nations",
+        "renderedPageForLocalReview": "tmp/pdfs/ab30-textbook-pages/page-237.jpg",
+        "imageObjectCountOnPage": 1,
+        "status": "review-only-rights-and-context-not-cleared"
+      },
+      "textbookCandidateNote": null,
+      "generatedComparisonCandidate": {
+        "concept": "an international meeting hall connected by arrows to advocacy, standard-setting, national law, and community action, with the national-law connection shown as indirect; no people, flags, UN logo, or readable text",
+        "aspectRatio": "4:3",
+        "prompt": "Contemporary Canadian high-school editorial illustration, quiet documentary-inspired realism, warm natural light, restrained spruce green, teal, charcoal and ochre palette, clean composition, authentic materials and geography, designed to sit inside a readable lesson rather than function as a poster. an international meeting hall connected by arrows to advocacy, standard-setting, national law, and community action, with the national-law connection shown as indirect; no people, flags, UN logo, or readable text. No words or labels, no border, no infographic text, no watermark. Do not imitate an Indigenous artist or style. Do not invent a named person, Nation, community, ceremony, regalia, sacred object, historical event, or official document. Avoid feathers, dreamcatchers, beadwork patterns, medicine wheels, tipis, and other generic pan-Indigenous decoration unless a reviewed source requires the actual object. ",
+        "status": "prompt-ready-not-generated"
+      },
+      "videoPlan": {
+        "proposalDecision": "YES",
+        "proposalType": "HYBRID — EXTERNAL + CUSTOM MICRO",
+        "instructionalJob": "UNDRIP: international standard and influence versus direct domestic lawmaking",
+        "placement": "Custom 60–90 sec setup → official/credible explainer → immediate check",
+        "sourceOrCreationNeed": "Official UN/UN human-rights source + create short in-course setup",
+        "existingFilmRoomCandidates": [],
+        "legacyFilmCandidateConflict": false,
+        "integrationStatus": "not-in-lesson-pending-exact-media-review"
+      },
+      "decisionNeeded": "Choose sourced visual, generated alternative, or accessible repo-native diagram; then approve exact placement."
+    },
+    {
+      "sequence": "L49",
+      "unitId": "theme-4",
+      "lessonId": "t4-l07-education-odds",
+      "title": "Education, Voice and Self-Determination",
+      "learningGoal": "Evaluate the booklet’s claim about global schooling and explain how relevant education can support Indigenous advocacy.",
+      "currentLearnerVisuals": [
+        {
+          "role": "hero",
+          "src": "./assets/theme-4/generated/education-voice-header.webp",
+          "alt": "Illustration: an empty classroom in afternoon light.",
+          "caption": "Generated illustration for lesson orientation. It does not depict a named school, community or education system."
+        },
+        {
+          "role": "supporting",
+          "type": "figure",
+          "src": "./assets/theme-4/generated/education-voice-card.webp",
+          "alt": "Illustration: an open book with light rising from its pages.",
+          "caption": "Generated symbolic illustration about learning. It is not evidence about a named student, school or education program.",
+          "captionDisplay": "hidden"
+        }
+      ],
+      "recommendedMinimum": "one instructional visual",
+      "primaryVisualType": "education-control learning scene",
+      "layout": "text-wrap-left",
+      "layoutInstruction": "Use a 38–42% left-side figure on wide screens and stack it before the related paragraph below 760 px.",
+      "textbookCandidate": {
+        "kind": "textbook-page-visual",
+        "printedPage": 233,
+        "pdfPage": 241,
+        "subject": "Students in an Indigenous education program",
+        "renderedPageForLocalReview": "tmp/pdfs/ab30-textbook-pages/page-241.jpg",
+        "imageObjectCountOnPage": 1,
+        "status": "review-only-rights-and-context-not-cleared"
+      },
+      "textbookCandidateNote": null,
+      "generatedComparisonCandidate": {
+        "concept": "a contemporary classroom connected to language learning, land-based observation, digital research, and community-directed curriculum planning; no people, logos, flags, sacred objects, or imitation of a named program",
+        "aspectRatio": "4:3",
+        "prompt": "Contemporary Canadian high-school editorial illustration, quiet documentary-inspired realism, warm natural light, restrained spruce green, teal, charcoal and ochre palette, clean composition, authentic materials and geography, designed to sit inside a readable lesson rather than function as a poster. a contemporary classroom connected to language learning, land-based observation, digital research, and community-directed curriculum planning; no people, logos, flags, sacred objects, or imitation of a named program. No words or labels, no border, no infographic text, no watermark. Do not imitate an Indigenous artist or style. Do not invent a named person, Nation, community, ceremony, regalia, sacred object, historical event, or official document. Avoid feathers, dreamcatchers, beadwork patterns, medicine wheels, tipis, and other generic pan-Indigenous decoration unless a reviewed source requires the actual object. ",
+        "status": "prompt-ready-not-generated"
+      },
+      "videoPlan": {
+        "proposalDecision": "YES",
+        "proposalType": "EXTERNAL — VOICE",
+        "instructionalJob": "Education, language revitalization, cultural continuity, and control of learning",
+        "placement": "After historical/problem framing, before forward-looking application",
+        "sourceOrCreationNeed": "Indigenous school, language program, Nation, Inuit/Métis/First Nations education organization",
+        "existingFilmRoomCandidates": [],
+        "legacyFilmCandidateConflict": false,
+        "integrationStatus": "not-in-lesson-pending-exact-media-review"
+      },
+      "decisionNeeded": "Choose sourced visual, generated alternative, or accessible repo-native diagram; then approve exact placement."
+    },
+    {
+      "sequence": "L50",
+      "unitId": "theme-4",
+      "lessonId": "t4-l04-youth-future-response",
+      "title": "Halfbreed: Choose, Support and Revise a Response",
+      "learningGoal": "Choose one of the four Halfbreed prompts, plan evidence from Maria Campbell’s memoir, and write a 2–3 paragraph response using the assigned criteria.",
+      "currentLearnerVisuals": [
+        {
+          "role": "hero",
+          "src": "./assets/theme-4/generated/youth-response-header.webp",
+          "alt": "Illustration: a path through grass toward a sunrise horizon.",
+          "caption": "Generated illustration for lesson orientation. It is a symbolic landscape, not a location from Maria Campbell’s memoir."
+        },
+        {
+          "role": "supporting",
+          "type": "figure",
+          "src": "./assets/theme-4/generated/youth-response-card.webp",
+          "alt": "Illustration: a seedling planted in dark soil.",
+          "caption": "Generated symbolic illustration about growth and response. It is not evidence from Maria Campbell’s memoir or a named community program.",
+          "captionDisplay": "hidden"
+        }
+      ],
+      "recommendedMinimum": "one instructional visual",
+      "primaryVisualType": "evidence-based writing workspace",
+      "layout": "text-wrap-right",
+      "layoutInstruction": "Use a 38–42% right-side figure on wide screens and stack it before the related paragraph below 760 px.",
+      "textbookCandidate": null,
+      "textbookCandidateNote": "Halfbreed is the governing source; no textbook image is a direct fit",
+      "generatedComparisonCandidate": {
+        "concept": "a respectful writing desk with an open memoir, blank evidence cards, a paragraph plan, and revision notes, lit by warm daylight; no visible book-cover copy, readable quotations, people, logos, or cultural motifs",
+        "aspectRatio": "4:3",
+        "prompt": "Contemporary Canadian high-school editorial illustration, quiet documentary-inspired realism, warm natural light, restrained spruce green, teal, charcoal and ochre palette, clean composition, authentic materials and geography, designed to sit inside a readable lesson rather than function as a poster. a respectful writing desk with an open memoir, blank evidence cards, a paragraph plan, and revision notes, lit by warm daylight; no visible book-cover copy, readable quotations, people, logos, or cultural motifs. No words or labels, no border, no infographic text, no watermark. Do not imitate an Indigenous artist or style. Do not invent a named person, Nation, community, ceremony, regalia, sacred object, historical event, or official document. Avoid feathers, dreamcatchers, beadwork patterns, medicine wheels, tipis, and other generic pan-Indigenous decoration unless a reviewed source requires the actual object. ",
+        "status": "prompt-ready-not-generated"
+      },
+      "videoPlan": {
+        "proposalDecision": "YES",
+        "proposalType": "EXTERNAL — VOICE/EVIDENCE",
+        "instructionalJob": "Youth leadership, response, and future-oriented action",
+        "placement": "Near the end of the lesson, before final Theme 4 reflection",
+        "sourceOrCreationNeed": "Indigenous youth organization/broadcaster/community program",
+        "existingFilmRoomCandidates": [],
+        "legacyFilmCandidateConflict": false,
+        "integrationStatus": "not-in-lesson-pending-exact-media-review"
+      },
+      "decisionNeeded": "Choose sourced visual, generated alternative, or accessible repo-native diagram; then approve exact placement."
+    }
+  ],
+  "calibration": {
+    "status": "approved-five-calibration-images-integrated-l46-existing-visuals-retained",
+    "sequences": [
+      "L01",
+      "L02",
+      "L13",
+      "L24",
+      "L36",
+      "L46"
+    ],
+    "manifest": "calibration-manifest.json"
+  }
+}

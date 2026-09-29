@@ -1,0 +1,1671 @@
+{
+  "schemaVersion": 1,
+  "status": "lead-integration content packets; not yet learner-rendered or fact-checked for release",
+  "lessonIds": [
+    "fl3-04",
+    "fl3-05",
+    "fl3-06",
+    "fl4-01",
+    "fl4-02",
+    "fl4-03",
+    "fl4-04",
+    "fl4-05"
+  ],
+  "lessons": [
+    {
+      "id": "fl3-04",
+      "title": "Inflation and changing plans",
+      "goal": "Explain how a changing price level can alter purchasing power, compare nominal amounts with real purchasing power, and use scenarios to keep a financial plan adaptable.",
+      "opening": "Your fictional savings balance rises from $100 to $101. During the same year, the basket of items you planned to buy rises from $100 to $103. Did your money grow? The balance is larger, but the question is whether it can still buy as much.",
+      "teach": [
+        "Inflation describes a general rise in prices across a basket of goods and services over time. It does not mean every price rises by the same amount: a particular item may become cheaper, rise sharply, or stay similar while the overall basket changes. A published inflation measure is a summary for a defined place, time, and basket. It is useful evidence, not a forecast of one household's exact costs. For this lesson, the $100 basket and its later price are invented teaching numbers. They are not a Canadian Consumer Price Index result and should never be quoted as one.",
+        "Keep nominal dollars and purchasing power separate. A nominal balance is the number displayed in an account. Purchasing power asks what that balance can buy at the relevant prices. If an account balance moves from $100 to $101 while a comparable fictional basket moves from $100 to $103, the balance is nominally up one dollar but the basket now costs more. The ratio $101 \u00f7 $103 \u2248 0.9806 means the later balance buys about 98.06% of the original basket in this simplified comparison. This is a comparison of the stated basket only; it does not measure a person's full life or prove a particular account is unsuitable.",
+        "For a plan, inflation is one uncertainty among income, timing, fees, access, and changing goals. Make a useful scenario instead of pretending to know the future: state a current cost, choose a clearly labelled hypothetical price change, calculate the changed target, then ask whether the contribution or timeline still works. Avoid applying an annual percentage repeatedly without explaining compounding and the period. If you consult an official inflation series, record its geography, dates, basket definition, and publication date. Do not use one recent statistic as a guaranteed future rate or treat a broad index as a personal cost-of-living calculator.",
+        "A resilient response can combine options: increase a contribution only if the budget can support it, extend the timeline, choose a different version of the goal, reduce another cost, or seek current qualified guidance. Each option has a trade-off. A young person should not be told that market investing is the answer to a short-term price change; value can fall precisely when cash is needed. Keep near-term needs and emergency access in view, and compare long-term choices using fees, risk, and time horizon. The FINLIT Investing Money video introduces purchasing power; use only its conceptual segment and stop before its dated generalization about a usual inflation target. The essential learning remains in this explanation and the calculation below."
+      ],
+      "document": {
+        "title": "Fictional balance and shopping basket comparison",
+        "context": "All amounts, dates, items, and price changes are invented solely for instruction. The 3% basket increase is a scenario, not a forecast, official inflation figure, or personal cost estimate.",
+        "rows": [
+          {
+            "field": "Starting basket cost",
+            "value": "$100.00",
+            "sourceNote": "Invented baseline for one fictional basket."
+          },
+          {
+            "field": "Later basket cost",
+            "value": "$103.00",
+            "sourceNote": "Invented scenario, exactly $3 more than baseline; not a measured CPI value."
+          },
+          {
+            "field": "Starting account balance",
+            "value": "$100.00",
+            "sourceNote": "Invented account balance; no real account or product is implied."
+          },
+          {
+            "field": "Later account balance",
+            "value": "$101.00",
+            "sourceNote": "Invented scenario; nominal change is +$1, not a promised return."
+          },
+          {
+            "field": "Purchasing-power comparison",
+            "value": "$101 \u00f7 $103 \u2248 0.9806",
+            "sourceNote": "Calculated only for the stated fictional basket; rounded to about 98.06% of the starting basket quantity."
+          }
+        ]
+      },
+      "worked": [
+        {
+          "case": "A larger balance can still buy less",
+          "steps": [
+            "Name the compared quantities: balance changes from $100 to $101; basket cost changes from $100 to $103.",
+            "Compute nominal change: $101 \u2212 $100 = +$1.",
+            "Compare the fraction of the later basket affordable: $101 \u00f7 $103 \u2248 0.9806 basket. This is less than one full basket.",
+            "Conclude narrowly: nominal dollars rose, but purchasing power against this fictional basket fell. Do not generalize to all expenses."
+          ],
+          "misconception": "\u201cThe balance went up, so purchasing power went up.\u201d A nominal gain does not answer what prices did."
+        },
+        {
+          "case": "Translate a scenario into a plan question",
+          "steps": [
+            "Start with an invented goal that costs $100 today. A selected hypothetical 3% increase gives $100 \u00d7 1.03 = $103.",
+            "Compare the goal target with the learner\u2019s available plan amount and time. Do not call 3% a forecast.",
+            "Choose one response to test: add $3, extend the timeline, reduce the goal cost, or identify another safe option.",
+            "State a condition for revisiting the plan, such as checking the next dated official price measure or a new quote before committing."
+          ],
+          "misconception": "Applying a scenario percentage makes the future cost certain. It only shows what follows if the assumed change occurs."
+        }
+      ],
+      "practice": [
+        {
+          "prompt": "Using the fictional figures, what happened to the displayed balance?",
+          "choices": [
+            "$3 lower",
+            "$1 higher",
+            "$2 higher",
+            "It stayed unchanged"
+          ],
+          "correctIndex": 1,
+          "feedbackByChoice": [
+            "$100 to $101 is not a decrease.",
+            "$101 \u2212 $100 = $1; this is the nominal change.",
+            "$2 is not the difference shown.",
+            "$100 and $101 are different nominal balances."
+          ],
+          "explanation": "The balance rose by one nominal dollar. This fact alone does not establish purchasing-power growth.",
+          "nextHint": "Subtract starting balance from later balance."
+        },
+        {
+          "prompt": "What does $101 \u00f7 $103 represent here?",
+          "choices": [
+            "A guaranteed investment return",
+            "The share of the later fictional basket affordable with the later balance",
+            "The official annual inflation rate",
+            "The amount of tax owed"
+          ],
+          "correctIndex": 1,
+          "feedbackByChoice": [
+            "No return is guaranteed or even established by this ratio.",
+            "Correct: it compares the later balance with the later basket cost.",
+            "The values are invented scenarios, not an official measure.",
+            "Nothing in the document describes tax."
+          ],
+          "explanation": "A ratio compares the money available with the stated basket price, not an official inflation rate.",
+          "nextHint": "Ask: dollars available divided by dollars needed for one basket."
+        },
+        {
+          "prompt": "Why can one grocery item\u2019s price change differ from the inflation measure?",
+          "choices": [
+            "The measure summarizes a defined basket, while individual prices can move differently",
+            "Inflation requires every item price to rise identically",
+            "One price determines the full national inflation measure",
+            "A single price never provides useful information"
+          ],
+          "correctIndex": 0,
+          "feedbackByChoice": [
+            "Correct: a summary basket and an individual item answer different questions.",
+            "The lesson explicitly distinguishes uneven item changes from an overall measure.",
+            "One item alone does not define a broad basket measure.",
+            "A single price can matter to a personal budget; it just is not the whole measure."
+          ],
+          "explanation": "Separate a personal cost from a broad price index.",
+          "nextHint": "Look for \u201cbasket\u201d in the explanation."
+        },
+        {
+          "prompt": "Which statement is the safest description of the 3% change in the document?",
+          "choices": [
+            "A Bank of Canada forecast",
+            "A personal cost increase every learner will experience",
+            "An invented scenario chosen to practise planning",
+            "A guaranteed annual rate"
+          ],
+          "correctIndex": 2,
+          "feedbackByChoice": [
+            "No official forecast is cited; the value is explicitly invented.",
+            "Personal costs differ and this is fictional.",
+            "Correct: the context labels it as a made-up scenario.",
+            "The value is not guaranteed and is not repeated as a factual annual rate."
+          ],
+          "explanation": "The source note labels the number as a scenario, not a prediction.",
+          "nextHint": "Read the document context before interpreting the value."
+        },
+        {
+          "prompt": "A goal is needed in six months. Prices may change, but the exact amount is unknown. What is a sound planning move?",
+          "choices": [
+            "Treat one current index value as certain",
+            "Build a labelled scenario, preserve near-term access, and revisit the target with current evidence",
+            "Move all needed money into a risky investment",
+            "Ignore the uncertainty because the goal is short"
+          ],
+          "correctIndex": 1,
+          "feedbackByChoice": [
+            "A single measure cannot guarantee the six-month price.",
+            "Correct: model uncertainty and review the goal while keeping access needs visible.",
+            "A short horizon can make market loss especially harmful; this is not an automatic solution.",
+            "A plan can state uncertainty and a review point rather than ignore it."
+          ],
+          "explanation": "Consider when the money is needed and what happens if its value falls.",
+          "nextHint": "Choose an option that makes uncertainty explicit and keeps the money usable."
+        },
+        {
+          "prompt": "Which conclusion goes beyond the evidence?",
+          "choices": [
+            "The fictional balance rose by $1",
+            "The basket cost rose by $3 in this scenario",
+            "The later balance buys slightly less of this exact basket",
+            "Every CALM student has lost purchasing power by 1.94%"
+          ],
+          "correctIndex": 3,
+          "feedbackByChoice": [
+            "This is directly calculated from the fictional values.",
+            "This is directly shown by the scenario.",
+            "The ratio supports this narrow comparison.",
+            "The example is invented and cannot establish anything about real students or their budgets."
+          ],
+          "explanation": "Good interpretation keeps the conclusion within the scenario\u2019s evidence.",
+          "nextHint": "Find the statement about all students."
+        }
+      ],
+      "transfer": {
+        "newCase": "A fictional goal item costs $240 today. A learner uses a 5% increase only as a planning scenario and has $248 set aside for that goal.",
+        "prompt": "Calculate the scenario cost and compare it with the saved amount. Give two possible plan adjustments and explain one limitation.",
+        "modelAnswerTeacherOnly": "Scenario cost: $240 \u00d7 1.05 = $252. The $248 target is $4 short under this assumption. The learner could add $4 if affordable, extend the saving timeline, or choose a lower-cost equivalent; no option is automatically best. Five percent is only the chosen scenario, not a forecast, and an actual future price may differ."
+      },
+      "media": {
+        "sourcePath": "projects/incoming/FINLIT/Videos/Topic 07 - Saving and Investing Money/3 Investing Money.mp4",
+        "startSeconds": 48.0,
+        "endSeconds": 84.0,
+        "teachingRole": "Preview the video\u2019s conceptual link between changing prices and purchasing power, then calculate with the fictional basket in the lesson. End before the video\u2019s subsequent numerical generalization about a usual inflation target; do not present it as current guidance."
+      },
+      "visualBrief": "Create a two-panel, editable diagram: left shows a fictional $100 balance and $100 basket at baseline; right shows $101 beside $103 basket. Add a transparent ratio arrow, nominal vs purchasing-power labels, \u201cinvented scenario\u201d stamp, and screen-reader text. Do not use a rising CPI chart that might imply an actual forecast.",
+      "independentEvidence": {
+        "task": "A6 scenario note: explain a price-change assumption and use it to revise one goal in a fictional financial plan.",
+        "prompt": "Using a fictional goal of your choice, state today\u2019s cost, create one clearly labelled price-change scenario, calculate the scenario target, and explain whether you would change the contribution, timeline, or goal. Cite any real official data by geography, date, and source; you may also use an invented scenario.",
+        "successCriteria": [
+          "Correctly distinguish nominal dollars and purchasing power.",
+          "Show units and calculation; label invented assumptions.",
+          "Explain one trade-off and one limitation; do not claim a scenario is a forecast.",
+          "Keep short-term access and learner privacy in view."
+        ]
+      },
+      "sourceNotes": [
+        "FINLIT video segment transcript reviewed; crop at 84.0 seconds to omit its following inflation-target claim.",
+        "For any real CPI use, check Statistics Canada\u2019s current series and definition at release; do not substitute a forecast or broad index for a personal basket.",
+        "All document amounts are fictional; independent calculation reviewed: 101/103 \u2248 0.98058."
+      ]
+    },
+    {
+      "id": "fl3-05",
+      "title": "Review a complete financial plan",
+      "goal": "Assemble a realistic fictional financial plan by matching goals, time horizons, cash access, accounts and products, costs, uncertainty, and available support.",
+      "opening": "A fictional learner has two goals: replace a laptop before the next school year and save toward training after graduation. A single account or investment choice may not suit both timelines. Your job is to make the plan coherent, not to pick a \u201cbest\u201d product in the abstract.",
+      "teach": [
+        "A financial plan is a connected set of decisions: what matters, when money is needed, what resources are available, what may change, and how the learner will review the plan. Begin with a goal stated in observable terms. \u201cBe financially successful\u201d is too broad to check; \u201cset aside a fictional amount for a training deposit by a stated month\u201d has a target and a time horizon. Goals may conflict. A near-term need can compete with a longer-term goal for the same dollars, so a plan should name the trade-off rather than pretend every goal can be funded at once.",
+        "Next, distinguish an account from a financial product held in or associated with it. An account is an arrangement for holding or accessing money; a product is an asset or service with features, costs, risk, and terms. The words are not interchangeable. A savings account can provide accessible funds, subject to its terms; an investment can rise or fall and may be unsuitable for a near-term purchase. The name of an account alone does not establish eligibility, tax treatment, protection, fees, or suitability. Verify the current terms with an official provider or qualified source before a real decision.",
+        "Match each goal to its time horizon and consequences if the value is lower or money is temporarily unavailable. Ask: when is it needed, how certain is the date, what minimum amount is required, what access restrictions or withdrawal costs apply, and can the learner tolerate a loss? A plan can use separate \u201cbuckets\u201d for clarity without implying separate real accounts. Keep a contingency for unexpected costs if the scenario permits. Do not use a high projected return to make an infeasible contribution schedule appear workable. Contributions should be checked against fictional income and essential expenses, with the remaining amount visible.",
+        "A complete plan also tracks assumptions and revision triggers. State whether a return is illustrative, whether fees or inflation are included, and what evidence will be checked again. FINLIT\u2019s planning material usefully prompts learners to connect goals, time, savings, and investments; this course rebuilds those prompts into an original evidence-based plan, omitting dated benefit amounts, historic rates, and unsupported guarantees. The selected video excerpt makes the teaching point that planning still has value when some variables are unknown. Unknowns are a reason to document assumptions and test scenarios, not a reason to claim certainty or give up.",
+        "Finally, identify when another person or institution should help. A trusted adult or teacher may help a student understand a decision; a financial institution can explain its own product terms; a regulated or qualified professional may be appropriate for complex personal advice. The student should know what question to ask and how to verify the source. Do not request real household balances, account statements, passwords, SINs, or credit reports for a class assignment. The fictional worksheet below intentionally includes enough figures to test whether the plan balances while leaving personal information out."
+      ],
+      "document": {
+        "title": "Fictional learner\u2019s two-goal plan worksheet",
+        "context": "Every person, goal, date, contribution, and dollar figure is invented. Contributions are scenario inputs, not advice or evidence about a real learner\u2019s ability to save.",
+        "rows": [
+          {
+            "field": "Near-term goal",
+            "value": "Replace a course laptop in 8 months; target $480",
+            "sourceNote": "Invented goal, deadline, and price."
+          },
+          {
+            "field": "Longer-term goal",
+            "value": "Training deposit in 30 months; target $1,200",
+            "sourceNote": "Invented target and horizon."
+          },
+          {
+            "field": "Available monthly amount",
+            "value": "$70 total for both goals",
+            "sourceNote": "Fictional planning amount after listed scenario expenses."
+          },
+          {
+            "field": "Proposed split",
+            "value": "$45/month laptop; $25/month training",
+            "sourceNote": "Invented allocation; sums to $70."
+          },
+          {
+            "field": "Starting amounts",
+            "value": "$120 laptop; $100 training",
+            "sourceNote": "Invented balances with no real account implied."
+          },
+          {
+            "field": "Known costs",
+            "value": "Laptop goal must be available at month 8; possible access fees not yet checked",
+            "sourceNote": "Invented constraint; provider terms require verification."
+          },
+          {
+            "field": "Planning assumptions",
+            "value": "No interest or investment growth counted",
+            "sourceNote": "Conservative arithmetic simplification, not a product recommendation."
+          }
+        ]
+      },
+      "worked": [
+        {
+          "case": "Test whether the short-term target is funded",
+          "steps": [
+            "Starting laptop amount is $120. Eight monthly contributions of $45 add $360.",
+            "$120 + $360 = $480, exactly the fictional target if every contribution occurs on time.",
+            "Because the goal date is only eight months away, check access and fees; do not add risky growth to make the plan look better.",
+            "Name a contingency: if one contribution is missed, revise the date or amount rather than assuming the target remains met."
+          ],
+          "misconception": "\u201cThe plan reaches exactly $480, so it is guaranteed.\u201d The arithmetic depends on all assumed deposits and ignores unverified fees or changed costs."
+        },
+        {
+          "case": "Audit the longer goal without inventing a return",
+          "steps": [
+            "Start with the fictional $100 and add $25 \u00d7 30 months = $750.",
+            "The no-growth total is $850, below the fictional $1,200 target by $350.",
+            "Do not fill the gap by assuming a fixed investment return. Ask which variable can be changed: contributions, deadline, target, funding source, or goal priority.",
+            "Record which product/account terms and current opportunities need independent research."
+          ],
+          "misconception": "\u201cLonger horizon means the target will automatically be reached.\u201d Time can allow choices, but it does not guarantee a return or sufficient contributions."
+        }
+      ],
+      "practice": [
+        {
+          "prompt": "What is the no-growth total for the laptop goal?",
+          "choices": [
+            "$360",
+            "$480",
+            "$840",
+            "$120"
+          ],
+          "correctIndex": 1,
+          "feedbackByChoice": [
+            "$360 is only the sum of contributions, not including the starting amount.",
+            "Correct: $120 + (8 \u00d7 $45) = $480.",
+            "$840 combines no relevant listed amounts.",
+            "$120 is only the starting amount."
+          ],
+          "explanation": "Add the starting amount to all planned contributions.",
+          "nextHint": "Calculate 8 \u00d7 45, then add 120."
+        },
+        {
+          "prompt": "Why is the $1,200 training goal not met under the stated no-growth plan?",
+          "choices": [
+            "The total is $850, leaving a $350 gap",
+            "The total is $1,200 exactly",
+            "The plan has no monthly contribution",
+            "The laptop goal uses all $70 monthly"
+          ],
+          "correctIndex": 0,
+          "feedbackByChoice": [
+            "Correct: $100 + (30 \u00d7 $25) = $850; $1,200 \u2212 $850 = $350.",
+            "The worksheet\u2019s arithmetic does not reach $1,200.",
+            "It lists a $25 monthly contribution to training.",
+            "The two allocations total $70; the laptop allocation is $45."
+          ],
+          "explanation": "Compute the training goal separately from laptop funds.",
+          "nextHint": "Starting training amount plus 30 deposits of $25."
+        },
+        {
+          "prompt": "Which statement correctly distinguishes account and product?",
+          "choices": [
+            "They always mean the same thing",
+            "An account is an arrangement for holding/accessing funds; a product has its own features and risks",
+            "A product name proves its fee and eligibility terms",
+            "Only investments count as accounts"
+          ],
+          "correctIndex": 1,
+          "feedbackByChoice": [
+            "They can be related but are not the same concept.",
+            "Correct: keep the holding/access arrangement distinct from what is held or offered.",
+            "Names do not verify current terms.",
+            "Accounts can hold or provide access to different kinds of funds."
+          ],
+          "explanation": "The teaching text defines each term separately.",
+          "nextHint": "Think \u201ccontainer/access arrangement\u201d versus \u201cthing or service with terms.\u201d"
+        },
+        {
+          "prompt": "What should a learner check before relying on a short-term money choice?",
+          "choices": [
+            "Only the advertised return",
+            "When funds are needed, access conditions, fees, and loss risk",
+            "Whether a classmate chose the same option",
+            "Whether the account title sounds familiar"
+          ],
+          "correctIndex": 1,
+          "feedbackByChoice": [
+            "A return alone ignores liquidity, terms, and risk.",
+            "Correct: those factors affect whether money is available when needed.",
+            "Another person\u2019s choice does not establish suitability.",
+            "A familiar name is not a substitute for current terms."
+          ],
+          "explanation": "The laptop date is fixed in the scenario.",
+          "nextHint": "Match the choice to timing and consequences if access is blocked."
+        },
+        {
+          "prompt": "Which revision trigger is most useful?",
+          "choices": [
+            "\u201cReview someday\u201d",
+            "A dated check before the goal commitment and after a missed contribution or changed cost",
+            "Never review after starting",
+            "Change everything whenever an ad appears"
+          ],
+          "correctIndex": 1,
+          "feedbackByChoice": [
+            "It does not say when or what to review.",
+            "Correct: it links review to decision-relevant evidence or a change.",
+            "Changed conditions can make a plan stale.",
+            "An advertisement alone is not reliable evidence."
+          ],
+          "explanation": "A trigger identifies an event or date that could change the plan.",
+          "nextHint": "Choose the option tied to a deadline and observable change."
+        },
+        {
+          "prompt": "What would make the plan\u2019s recommendation less defensible?",
+          "choices": [
+            "Showing the calculation and its assumptions",
+            "Stating a funding gap and testing alternatives",
+            "Claiming the training goal will be met because investment returns are guaranteed",
+            "Keeping all data fictional"
+          ],
+          "correctIndex": 2,
+          "feedbackByChoice": [
+            "Transparent calculations strengthen the recommendation.",
+            "Identifying a gap and comparing options is sound planning.",
+            "Correct: returns are uncertain and the given plan falls short without added resources or changed assumptions.",
+            "Fictional data protects privacy."
+          ],
+          "explanation": "Check whether the plan converts an assumption into a promise.",
+          "nextHint": "Find the claim that treats an uncertain return as certain."
+        }
+      ],
+      "transfer": {
+        "newCase": "In a new fictional case, a learner needs $300 in five months for a required course item and has $80 saved. They can set aside $35 per month. A separate $900 goal is due in two years.",
+        "prompt": "Build a brief plan for both goals. Calculate whether the near-term target is reached, identify the long-term gap under a no-growth assumption, and name two checks before choosing an account or product.",
+        "modelAnswerTeacherOnly": "Near-term total: $80 + 5\u00d7$35 = $255, a $45 shortfall. The learner should consider a changed target/date or another safe funding route rather than assuming growth; course-item requirement should be confirmed. Long-term plan must be calculated independently with any stated contribution amount (not provided, so request/choose a fictional amount). Before choosing, check current access/withdrawal terms, fees, eligibility/tax treatment, risk, and whether the time horizon matches. Do not invent a guaranteed return."
+      },
+      "media": {
+        "sourcePath": "projects/incoming/FINLIT/Videos/Topic 09 - Financial Independence/1 Planning for financial independence.mp4",
+        "startSeconds": 110.3,
+        "endSeconds": 127.2,
+        "teachingRole": "Use this short excerpt to establish that planning remains useful despite unknown variables. Stop before the video turns to specific retirement assumptions and dated numeric examples; students then audit the fictional two-goal worksheet."
+      },
+      "visualBrief": "Create an editable two-goal plan board with horizon lanes (8 months / 30 months), starting amount + contribution \u00d7 periods formula, a \u201cknown / assumption / verify\u201d column, and a decision checkpoint. Show account as a container and product as a separate label, not as a recommendation. Text alternative must explain each calculation.",
+      "independentEvidence": {
+        "task": "A6 applied plan: submit a fictional, balanced goal plan with a justified revision trigger.",
+        "prompt": "Create two fictional goals with different horizons. Show starting amounts, contributions, period totals, a cash-access need, and one plan change you would make if income, cost, or timing changed. State what account/product terms need verification.",
+        "successCriteria": [
+          "Correctly total the scenario and identify any gap.",
+          "Match timing and access needs to the decision; do not assume guaranteed returns.",
+          "Distinguish account from product and list terms to verify.",
+          "Document assumptions, a review trigger, and a privacy-safe source choice."
+        ]
+      },
+      "sourceNotes": [
+        "FINLIT Planning for Financial Independence video segment reviewed; use only 110.3\u2013127.2 seconds and do not carry its later benefit/return figures into teaching.",
+        "Planning for Financial Independence and Savings and Investments FINLIT assignments inform the original planning prompts; no dated numeric claim is reused.",
+        "Before release, verify any product-specific eligibility, account, tax, fee, protection, or provider statements against current official Canadian sources.",
+        "All worksheet values are fictional; arithmetic check: laptop 120+8\u00d745=480; training 100+30\u00d725=850."
+      ]
+    },
+    {
+      "id": "fl3-06",
+      "title": "Test a plan against change",
+      "goal": "Use transparent scenarios to test a fictional financial plan, distinguish uncertainty from prediction, and revise one decision when a cost, contribution, or investment value changes.",
+      "opening": "A plan looks balanced until an unexpected $80 expense appears. Another version shows a market value falling just before money is needed. A strong plan does not hide either case: it shows what changes, which assumptions matter, and what response is feasible.",
+      "teach": [
+        "A scenario test asks, \u201cIf this specified change occurs, what happens to the plan?\u201d It is not a prediction. Name the baseline, alter one or two variables, recalculate, and explain the consequence. This isolates cause and effect. For example, use fictional market value $500 and compare three one-year outcomes: a 15% loss, no change, or a 6% increase. Applying those percentages gives $425, $500, and $530 before any fees, tax, inflation, contributions, or product rules. These are simple arithmetic illustrations, not expected outcomes or financial advice.",
+        "The lesson\u2019s simulator separates time horizon from uncertainty. Money required soon may have little time to recover from a decline; money intended for a distant goal can still lose value, and a longer timeline does not eliminate risk. A scenario is useful when it exposes consequences the student can tolerate or cannot tolerate. Never present the positive case as the normal result or the loss case as impossible. If a product has fees or withdrawals, those terms would need to be added from current verified documentation. Keep the basic calculator transparent so every student can reproduce it without trusting a black box.",
+        "Test cash flow too. Suppose a fictional learner begins with $200 for a goal and plans to contribute $25 per month for six months. The simple no-growth total is $350. If an $80 unexpected expense is paid from that same goal fund in month two, the remaining amount becomes $120 at that point. Six further deposits of $30 would add $180, producing $300, still below the original $350 target. The plan must change: amount, timeline, target, or another funding source. State which resource is actually available; do not count the same dollars for two goals.",
+        "A useful revision has a reason and a check date. If a short-term goal is underfunded, extending the date may be safer than taking more risk, but circumstances vary. If the need is essential and immediate, the student should seek a trusted adult or appropriate support instead of treating a classroom simulation as personal advice. The FINLIT compounding lesson can help students visualize how time and reinvested gains interact, but its later numerical examples must not be used as guaranteed growth or copied uncritically. This lesson uses the conceptual \u201csnowball\u201d segment only, then contrasts it with negative, flat, and positive scenarios.",
+        "When reviewing a result, ask four questions: (1) What changed? (2) Which total or risk changed because of it? (3) What is the consequence if the original target date stays fixed? (4) What revision best fits the stated priorities? A strong response can say what remains unknown. It should also name the simplifications: no fees, taxes, inflation, contributions, or product-specific rules unless the scenario explicitly includes them. This habit makes a student\u2019s reasoning inspectable and transferable to future information without claiming to forecast markets."
+      ],
+      "document": {
+        "title": "Fictional scenario simulator inputs and outputs",
+        "context": "Every value below is invented to practise scenario reasoning. The return percentages are hypothetical stress-test inputs, not forecasts, guaranteed rates, market history, or a recommended portfolio. No fees, tax, inflation, contribution, or product terms are included unless explicitly stated.",
+        "rows": [
+          {
+            "field": "Starting illustrative value",
+            "value": "$500.00",
+            "sourceNote": "Invented starting value; not a real investment."
+          },
+          {
+            "field": "Loss scenario",
+            "value": "\u221215% over one year \u2192 $425",
+            "sourceNote": "Invented stress scenario: $500 \u00d7 0.85; not a forecast."
+          },
+          {
+            "field": "Flat scenario",
+            "value": "0% over one year \u2192 $500",
+            "sourceNote": "Invented comparison case; excludes fees, tax, inflation."
+          },
+          {
+            "field": "Gain scenario",
+            "value": "+6% over one year \u2192 $530",
+            "sourceNote": "Invented positive case: $500 \u00d7 1.06; not a guaranteed return."
+          },
+          {
+            "field": "Goal cash-flow baseline",
+            "value": "$200 start + $25 \u00d7 6 months = $350",
+            "sourceNote": "Invented no-growth contribution scenario."
+          },
+          {
+            "field": "Change event",
+            "value": "$80 expense, then $30 \u00d7 6 months",
+            "sourceNote": "Invented expense and later contribution assumption; six deposits occur after the event."
+          },
+          {
+            "field": "Changed total",
+            "value": "$200 \u2212 $80 + (6 \u00d7 $30) = $300",
+            "sourceNote": "Invented arithmetic; $50 below the baseline target of $350."
+          }
+        ]
+      },
+      "worked": [
+        {
+          "case": "Compare three outcomes without selecting a forecast",
+          "steps": [
+            "Start each scenario at the same fictional $500.",
+            "Loss case: a 15% decline means 0.15 \u00d7 $500 = $75 lost; $500 \u2212 $75 = $425.",
+            "Flat case leaves the value at $500 before excluded costs. Gain case adds 0.06 \u00d7 $500 = $30, giving $530.",
+            "Label every result illustrative. Compare what happens if the money is needed at the end of that one year."
+          ],
+          "misconception": "\u201cThe +6% case is the expected or promised result.\u201d It is only one hypothetical input; the other outcomes demonstrate uncertainty."
+        },
+        {
+          "case": "Revise after an unexpected expense",
+          "steps": [
+            "Baseline: $200 + six deposits of $25 = $350.",
+            "After the $80 expense, the fund has $200 \u2212 $80 = $120.",
+            "Six later deposits of $30 add $180, so the revised balance is $300.",
+            "Compare $300 with the $350 target: the remaining gap is $50. Propose a feasible next step and disclose its trade-off."
+          ],
+          "misconception": "Counting the original six deposits and the later six deposits together double-counts the timeline; the changed case specifies six future deposits after the expense."
+        }
+      ],
+      "practice": [
+        {
+          "prompt": "What is the value in the fictional \u221215% scenario?",
+          "choices": [
+            "$575",
+            "$425",
+            "$485",
+            "$15"
+          ],
+          "correctIndex": 1,
+          "feedbackByChoice": [
+            "A loss cannot increase $500 to $575.",
+            "$500 \u00d7 0.85 = $425, correct.",
+            "$485 corresponds to a 3% loss, not the stated scenario.",
+            "$15 is the change amount only for a different 3% case."
+          ],
+          "explanation": "Find 15% of $500 and subtract it from $500.",
+          "nextHint": "A 15% loss leaves 85% of the starting value."
+        },
+        {
+          "prompt": "Why are all three market values shown?",
+          "choices": [
+            "To prove the gain scenario is most likely",
+            "To compare consequences under distinct assumptions without claiming which will occur",
+            "To recommend investing all short-term savings",
+            "To calculate current Canadian returns"
+          ],
+          "correctIndex": 1,
+          "feedbackByChoice": [
+            "A scenario is not probability evidence.",
+            "Correct: side-by-side cases reveal sensitivity to different hypothetical outcomes.",
+            "The lesson warns against using risk assets automatically for near-term funds.",
+            "The values are invented, not current market data."
+          ],
+          "explanation": "Look at the scenario labels and source note.",
+          "nextHint": "Which option explicitly preserves uncertainty?"
+        },
+        {
+          "prompt": "After the expense, what is the revised six-deposit total?",
+          "choices": [
+            "$380",
+            "$300",
+            "$350",
+            "$120"
+          ],
+          "correctIndex": 1,
+          "feedbackByChoice": [
+            "$380 counts the $80 expense as if it were added.",
+            "$120 \u2212? No: after expense the $120 remains, and six deposits add $180, total $300.",
+            "$350 is the baseline before the changed event.",
+            "$120 is the remaining amount before future deposits."
+          ],
+          "explanation": "Use the post-expense balance plus the six later deposits.",
+          "nextHint": "Calculate 200 \u2212 80, then add 6 \u00d7 30."
+        },
+        {
+          "prompt": "What is the gap between the revised $300 and original $350 goal?",
+          "choices": [
+            "$50",
+            "$80",
+            "$30",
+            "$0"
+          ],
+          "correctIndex": 0,
+          "feedbackByChoice": [
+            "Correct: $350 \u2212 $300 = $50.",
+            "$80 is the expense, not the remaining gap.",
+            "$30 is each fictional monthly contribution.",
+            "The revised total is below the goal."
+          ],
+          "explanation": "Subtract the revised total from the target.",
+          "nextHint": "350 minus 300."
+        },
+        {
+          "prompt": "A student needs the $500 in one year. What is a responsible inference from the scenarios?",
+          "choices": [
+            "The +6% outcome should be assumed",
+            "The money will definitely fall 15%",
+            "The value could differ from the starting amount, so access and loss tolerance matter",
+            "The simulator replaces checking product terms"
+          ],
+          "correctIndex": 2,
+          "feedbackByChoice": [
+            "The gain case is explicitly only hypothetical.",
+            "The loss case is not guaranteed either.",
+            "Correct: near-term timing and possible decline are relevant to the decision.",
+            "Real product fees, access, tax, and rules are excluded and must be checked."
+          ],
+          "explanation": "Focus on what the cases imply about needing the money soon.",
+          "nextHint": "Avoid turning any one case into certainty."
+        },
+        {
+          "prompt": "Which revision is strongest after the gap appears?",
+          "choices": [
+            "Hide the gap and report the original target as funded",
+            "Name the $50 shortfall, adjust a contribution or date if feasible, and schedule review",
+            "Assume the next market outcome will cover it",
+            "Borrow immediately without comparing consequences"
+          ],
+          "correctIndex": 1,
+          "feedbackByChoice": [
+            "Concealing the gap makes the plan misleading.",
+            "Correct: it preserves the evidence and makes an explicit, reviewable choice.",
+            "The future outcome is unknown.",
+            "Borrowing is a separate decision with risks and terms to assess."
+          ],
+          "explanation": "A good revision should state the shortfall and an evidence-based action.",
+          "nextHint": "Choose a response that is transparent and feasible, not a promise."
+        }
+      ],
+      "transfer": {
+        "newCase": "A fictional learner has $360 toward a $400 trip goal due in four months. A surprise $40 cost is paid from the goal fund. They can contribute $25 monthly for four months.",
+        "prompt": "Calculate the new amount, compare it with the target, and draft a revision that identifies one trade-off. Explain what this calculation does not predict.",
+        "modelAnswerTeacherOnly": "After the surprise cost: $360 \u2212 $40 = $320. Four deposits add 4\u00d7$25=$100, so $420, which is $20 above the stated $400 target if all deposits occur and the target cost does not change. A revision could preserve a $20 contingency, lower the contribution if another priority needs funds, or verify actual trip costs. It does not predict the final price, deposits, fees, or income."
+      },
+      "media": {
+        "sourcePath": "projects/incoming/FINLIT/Videos/Topic 07 - Saving and Investing Money/1 magic of compounding.mp4",
+        "startSeconds": 5.6,
+        "endSeconds": 43.6,
+        "teachingRole": "Show the conceptual compounding \u201csnowball\u201d analogy before contrasting it with explicit scenario outcomes. Stop before numerical 5% examples; students must not treat the video\u2019s later figures as guarantees."
+      },
+      "visualBrief": "Build an editable three-lane scenario board for loss/flat/gain and a separate cash-flow timeline. Each lane displays formula, input, result, and omitted factors. Put \u201cillustration, not forecast\u201d beside all market cases; expose keyboard-readable number fields and a text-only equivalent.",
+      "independentEvidence": {
+        "task": "A6 plan challenge: submit a scenario test and revision with calculations and limitations.",
+        "prompt": "Use fictional figures to test one goal under a negative or unexpected-cost case and one alternative. Show all arithmetic, identify what remains unknown, and revise the timeline, contribution, or target with a stated trade-off.",
+        "successCriteria": [
+          "Calculate baseline and changed case correctly with units.",
+          "Keep hypothetical return/cost assumptions distinct from forecasts.",
+          "Avoid counting funds twice and identify shortfall/surplus.",
+          "Choose a feasible revision, name a review trigger, and protect privacy."
+        ]
+      },
+      "sourceNotes": [
+        "FINLIT Magic of Compounding video concept reviewed; use only 5.6\u201343.6 seconds and omit its later 5% numeric examples.",
+        "All simulator values are fictional; arithmetic: 500\u00d70.85=425; 500\u00d71.06=530; 200\u221280+6\u00d730=300.",
+        "Before release, add fees, taxes, inflation, or product terms only if verified and clearly specified; no rate or return is implied."
+      ]
+    },
+    {
+      "id": "fl4-01",
+      "title": "Digital footprints and financial security",
+      "goal": "Identify how digital traces and account habits can increase or reduce financial-information exposure, and select practical security steps without disclosing personal information.",
+      "opening": "A fictional learner posts a photo showing a team hoodie, a bus stop sign, and the time they leave home. In a different app, they reuse a password and receive an unexpected sign-in code. None of these clues alone proves account compromise, but together they create avoidable exposure.",
+      "teach": [
+        "A digital footprint is the trail of information created when people post, search, message, sign in, or use connected devices. Some information is deliberately shared; other information can be inferred from images, timing, location tags, public profiles, data brokers, or old accounts. A footprint is not a moral score and students should not be asked to reveal or defend their own posts. We use a fictional profile to practise asking: what can a stranger learn, what might be reused elsewhere, and what could a person change? A detail that seems harmless alone may become identifying when combined with other details.",
+        "Protect account access with unique passwords or passphrases for important accounts, a reputable password manager where appropriate, and multi-factor authentication when available. Never share a one-time verification code, password, recovery phrase, or remote-access control with someone who unexpectedly contacts you. A legitimate service may use verification steps, but you should initiate contact through a trusted route if uncertain. A code arriving unexpectedly can mean someone mistyped a number or is attempting sign-in; do not approve it just to stop the messages. Use account security settings to review active sessions, recovery details, and alerts.",
+        "Reduce what is exposed: make profile audiences intentional, avoid posting real-time location or predictable routines, remove unnecessary app permissions, update devices and apps, use a screen lock, and use secure networks for sensitive work. These are layers, not guarantees. Public Wi-Fi does not automatically mean every transaction is unsafe, and a padlock icon does not prove a website or offer is honest. Check the domain and reach a service independently. If someone else\u2019s image or data is involved, get permission before sharing and consider whether reposting could expose them.",
+        "For a practical audit, label each fictional detail as public, limited, or private; then identify one plausible misuse and one proportionate control. Prioritize credentials and recovery routes because one reused password may unlock more than one account. If an account may already be accessed, secure it from a trusted device using the independently located service, change the exposed password and any reused password, end unknown sessions if possible, and contact the provider. The order can vary with account type and urgency, so use the provider\u2019s current official instructions.",
+        "FINLIT\u2019s Avoiding Scams video gives a short reminder that personal information and passwords deserve protection. This course adds the reasoning and practice: students inspect a made-up profile, minimize exposure, and rehearse how not to share a code. No real passwords, usernames, account screenshots, phone numbers, location histories, or private family details belong in this assignment. When the scenario requires personal reflection, use a fictional persona instead."
+      ],
+      "document": {
+        "title": "Fictional public profile risk audit",
+        "context": "All names, locations, clues, timing, devices, and account events are fictional. No actual learner profile or credential is shown; never enter a real password or code into classwork.",
+        "rows": [
+          {
+            "field": "Public post",
+            "value": "\u201cLeaving for practice at 4:10\u201d beside a visible community-centre sign",
+            "sourceNote": "Invented text/time/location; demonstrates real-time routine exposure."
+          },
+          {
+            "field": "Photo clue",
+            "value": "School team hoodie plus a street sign partly visible",
+            "sourceNote": "Invented image description; location inference is uncertain, not proof."
+          },
+          {
+            "field": "Account habit",
+            "value": "Same fictional password phrase used on two sample services",
+            "sourceNote": "Invented example; no actual password is supplied."
+          },
+          {
+            "field": "Unexpected prompt",
+            "value": "A sign-in code arrives when the fictional user did not request it",
+            "sourceNote": "Invented event; do not share or approve the code."
+          },
+          {
+            "field": "Possible controls",
+            "value": "Remove real-time posts; unique credentials; MFA; check sessions and recovery settings",
+            "sourceNote": "General security practices; apply current provider guidance, not a guarantee."
+          },
+          {
+            "field": "Privacy rule",
+            "value": "Use the fictional profile only",
+            "sourceNote": "No personal disclosure or real account access required."
+          }
+        ]
+      },
+      "worked": [
+        {
+          "case": "Read the clues without claiming certainty",
+          "steps": [
+            "The post gives a time and recognizable location clue. Together they could reveal a routine to someone who sees the profile.",
+            "The photo may identify a team or place, but the visual clue is incomplete; do not claim it identifies a particular person or exact address.",
+            "Recommend removing the real-time schedule and cropping or replacing the location clue.",
+            "Explain that limited-audience controls reduce exposure but cannot guarantee that a viewer will not copy or share content."
+          ],
+          "misconception": "\u201cA single post proves where the learner will be.\u201d Clues can raise exposure; interpretation should state uncertainty."
+        },
+        {
+          "case": "Handle an unexpected login code",
+          "steps": [
+            "Do not share the code or approve a prompt; the user did not initiate the sign-in.",
+            "Open the service using a known app/bookmark or independently typed official address, not a message link.",
+            "Review active sessions and recovery methods; if the account appears exposed, follow the service\u2019s official security steps and change the password from a trusted device.",
+            "If the same password was reused, replace it on each affected service with a unique credential."
+          ],
+          "misconception": "\u201cSomeone on the phone needs the code to cancel the alert.\u201d A code can authorize access; an unexpected contact should not receive it."
+        }
+      ],
+      "practice": [
+        {
+          "prompt": "Which profile detail creates the clearest location and routine clue?",
+          "choices": [
+            "A fictional post naming a departure time beside a recognizable sign",
+            "A generic drawing with no place or time",
+            "A private note not shared with anyone",
+            "A blank avatar"
+          ],
+          "correctIndex": 0,
+          "feedbackByChoice": [
+            "Correct: the combination of time and recognizable place can expose a routine.",
+            "This example provides no location or timing clue.",
+            "A private note is not part of the shown public profile, though device/account security still matters.",
+            "A blank avatar does not supply the described routine clue."
+          ],
+          "explanation": "Look for a detail that reveals both where and when.",
+          "nextHint": "Combine the sign with the departure time."
+        },
+        {
+          "prompt": "An unexpected verification code arrives. What should the learner do first?",
+          "choices": [
+            "Send it to the caller who says they can stop the alerts",
+            "Do not share or approve it; independently open the service and review security",
+            "Post the code to ask friends what it means",
+            "Click the newest link in a message"
+          ],
+          "correctIndex": 1,
+          "feedbackByChoice": [
+            "A code may authorize access; do not send it to an unexpected caller.",
+            "Correct: keep the code private and use an independently reached service.",
+            "Sharing the code expands exposure.",
+            "A message link may be malicious; independently locate the service."
+          ],
+          "explanation": "The user did not initiate the sign-in.",
+          "nextHint": "Treat the code as a credential."
+        },
+        {
+          "prompt": "Why use unique passwords for important accounts?",
+          "choices": [
+            "A password reused across services may expose several accounts if one service is compromised",
+            "Unique passwords guarantee no account can be breached",
+            "It helps a caller verify identity by reading them aloud",
+            "It makes public posts private"
+          ],
+          "correctIndex": 0,
+          "feedbackByChoice": [
+            "Correct: reuse can let a compromised credential be tried elsewhere.",
+            "No practice guarantees that an account cannot be breached.",
+            "Never read passwords to an unexpected caller.",
+            "Password choice does not change post audience settings."
+          ],
+          "explanation": "Think about what happens if one credential leaks.",
+          "nextHint": "Choose the option about limiting spillover."
+        },
+        {
+          "prompt": "What does a profile privacy setting do?",
+          "choices": [
+            "Guarantees no one can copy a post",
+            "Can limit intended visibility but cannot prevent every screenshot or resharing",
+            "Makes a misleading website legitimate",
+            "Automatically changes reused passwords"
+          ],
+          "correctIndex": 1,
+          "feedbackByChoice": [
+            "Privacy settings cannot control every viewer\u2019s later actions.",
+            "Correct: settings are a useful layer, not a guarantee.",
+            "A profile setting does not authenticate an external website.",
+            "Passwords must be changed separately."
+          ],
+          "explanation": "Distinguish risk reduction from a promise.",
+          "nextHint": "Pick the answer with a limitation."
+        },
+        {
+          "prompt": "Which action is a good fictional-profile audit?",
+          "choices": [
+            "Ask the student to show their real location history",
+            "Mark which clues are exposed, describe a plausible misuse, and select a proportionate control",
+            "Save every real password in the assignment",
+            "Assume every viewer has criminal intent"
+          ],
+          "correctIndex": 1,
+          "feedbackByChoice": [
+            "The task must not require private personal information.",
+            "Correct: the audit is evidence-based and privacy-safe.",
+            "The assignment must never collect credentials.",
+            "Risk analysis should not become unsupported certainty or fear."
+          ],
+          "explanation": "The context says use only the fictional profile.",
+          "nextHint": "Choose a method that teaches decisions without collecting secrets."
+        },
+        {
+          "prompt": "A new app asks for contact, photo, and location permissions. What is a careful next step?",
+          "choices": [
+            "Grant all permissions because the app requested them",
+            "Review what features need each permission and deny unnecessary access, then revisit settings",
+            "Post the request publicly with account details",
+            "Assume the app is malicious without checking"
+          ],
+          "correctIndex": 1,
+          "feedbackByChoice": [
+            "Requests should be considered, not accepted automatically.",
+            "Correct: connect each permission to a function and minimize exposure.",
+            "Sharing account details creates new risk.",
+            "A permission request alone does not prove malicious intent."
+          ],
+          "explanation": "Apply data minimization and reason from the feature needed.",
+          "nextHint": "Ask whether the app can function without each permission."
+        }
+      ],
+      "transfer": {
+        "newCase": "A fictional music app account sends an alert about a new device. The learner did not sign in. A text message offers a \u201csecurity desk\u201d link and asks for a verification code.",
+        "prompt": "Write a three-step response and identify two account habits to improve after securing access. State one uncertainty that requires checking with the actual provider.",
+        "modelAnswerTeacherOnly": "Do not click the text link or share/approve the code. Independently open the known official app/site or contact route; review devices/sessions and follow its account-recovery instructions from a trusted device. Change the exposed/reused password and enable MFA if available. Check with the provider whether the new-device alert reflects an actual session; the text itself is not proof. Revisit recovery methods and permission/privacy settings."
+      },
+      "media": {
+        "sourcePath": "projects/incoming/FINLIT/Videos/Topic 08 - Protecting Your Money and Things of Value/2 Avoiding Scams.mp4",
+        "startSeconds": 21.1,
+        "endSeconds": 46.0,
+        "teachingRole": "Use the short segment for a starting reminder about protecting personal information and passwords. Do not treat its simplified statements as a complete security guide; students apply the more precise account-protection steps in the lesson."
+      },
+      "visualBrief": "Create a fictional profile card with a location/time post, partial location clue, reused-credential warning (never show a real password), and unexpected code alert. Add an \u201cexposure / possible inference / control / limitation\u201d annotation table. Provide a text-only card and keyboard-accessible controls; no maps of real student locations.",
+      "independentEvidence": {
+        "task": "A7 information-protection practice: complete a privacy-safe exposure audit of a fictional profile.",
+        "prompt": "Classify at least three fictional clues by exposure, explain one plausible inference without overstating certainty, then propose two layered controls and one limitation of those controls.",
+        "successCriteria": [
+          "Use only fictional data; disclose no personal credentials or histories.",
+          "Connect each control to the risk it reduces.",
+          "Distinguish an alert or clue from proof of compromise.",
+          "Explain a limitation and a safe independent verification route."
+        ]
+      },
+      "sourceNotes": [
+        "FINLIT Avoiding Scams video segment reviewed; use 21.1\u201346.0 seconds only as a short prompt, not as a complete or authoritative security protocol.",
+        "For account-specific recovery, verify the service\u2019s current official instructions before release; the appropriate sequence varies by provider.",
+        "No current rates or eligibility claims are included."
+      ]
+    },
+    {
+      "id": "fl4-02",
+      "title": "Recognize scams and verify independently",
+      "goal": "Identify pressure, unusual payment or information requests, suspicious links, and impersonation cues; explain why appearance alone is not proof and verify through an independently located channel.",
+      "opening": "Two messages arrive on the same day. One claims that a bank transfer is \u201cat risk\u201d and demands a code through a link. Another says a tax account has a new notice and directs the recipient to sign in through Canada.ca. Which is suspicious? Which might be legitimate? The answer requires checking the request and route, not guessing from tone or logo.",
+      "teach": [
+        "A scam is an attempt to deceive someone for money, access, or information. Common indicators include urgency, secrecy, threats, an unexpected prize or refund, requests to move money, requests for passwords or one-time codes, remote access demands, unusual payment methods, and links that do not match the organization\u2019s independently located address. Grammar and logos are weak tests: a polished message can be fraudulent, and a legitimate notice can look plain. One indicator raises a question; it does not by itself prove who sent the message.",
+        "Use a verification routine: pause; do not click, reply, transfer money, or share a code while pressured; identify what action is requested; locate the organization\u2019s contact route independently using a trusted official website, app, card, statement, or known number; and ask whether the request is genuine. Do not use the phone number, link, or caller ID supplied by the suspicious contact. Search results and ads can also be misleading, so navigate to the known official domain and inspect it carefully. If in doubt, tell a trusted person and ask for help without forwarding sensitive information.",
+        "Government and financial contacts require nuance. The Canada Revenue Agency can contact people by phone, automated message, letter, and email notifications, depending on the situation. Therefore, the blanket claim \u201cCRA never calls\u201d is false and must not be taught. At the same time, a caller ID can be spoofed and a caller\u2019s claim is not proof. CRA guidance says a person may ask for the caller\u2019s name, office, and callback number, end the call, and independently verify through CRA\u2019s official contact-verification tool or a number found on Canada.ca. A legitimate contact may ask for some information during identity verification or to resolve missing tax information; students should not infer legitimacy solely because a caller knows details. Never share passwords or security codes with an unexpected caller.",
+        "For suspicious email or text, avoid opening attachments or links; inspect the request without interacting, then independently access the account or contact channel. If the message asks for an immediate \u201csafe account\u201d transfer, gift cards, crypto, e-transfer, a remote-access app, or a code, stop and verify. Legitimate institutions may have fraud-prevention procedures, but move only after contacting them through independently sourced details. Do not call a message safe just because it names a real organization; impersonation is the tactic.",
+        "FINLIT\u2019s Avoiding Scams segment teaches a useful pause-and-verify idea, but its later statement that CRA does not call is inaccurate. This course deliberately crops the video before that statement and replaces it with current CRA guidance. Students classify fictional messages by evidence, state what remains uncertain, and choose a safe verification route. The goal is not to make learners suspicious of every contact; it is to slow an irreversible action until the request and channel are independently checked."
+      ],
+      "document": {
+        "title": "Fictional message cards for classification",
+        "context": "All organizations, message wording, amounts, dates, URLs, and identities shown here are fictional. Cards are designed for analysis; no live links or reply addresses are provided.",
+        "rows": [
+          {
+            "field": "Card A \u2014 urgent bank text",
+            "value": "\u201cTransfer your balance to our protected account now. Reply with the one-time code to prevent closure.\u201d",
+            "sourceNote": "Invented message. \u201cProtected account\u201d transfer and code request are red flags; never use the supplied reply route."
+          },
+          {
+            "field": "Card B \u2014 tax notice",
+            "value": "\u201cA new notice is available. Sign in by opening Canada.ca yourself, then access your CRA account through the official route.\u201d",
+            "sourceNote": "Invented message. It may be plausible but still must be independently verified; the class card is not an actual CRA message."
+          },
+          {
+            "field": "Card C \u2014 caller claim",
+            "value": "\u201cI am CRA. Your caller ID shows Canada. Tell me your password so I can verify you.\u201d",
+            "sourceNote": "Invented message. Caller ID can be spoofed; CRA can call, but do not disclose a password. End and independently verify."
+          },
+          {
+            "field": "Decision rule",
+            "value": "Pause \u2192 identify action \u2192 independent contact \u2192 verify \u2192 act only if confirmed",
+            "sourceNote": "Instructional sequence grounded in CRA/CAFC guidance; not a guarantee that a message can be authenticated from appearance."
+          },
+          {
+            "field": "Possible official verification",
+            "value": "CRA caller name, office, callback number; verify independently using CRA\u2019s official tool/contact page",
+            "sourceNote": "Use current Canada.ca process; do not call a number supplied only by the unexpected contact."
+          }
+        ]
+      },
+      "worked": [
+        {
+          "case": "Classify the bank text",
+          "steps": [
+            "Underline the requested actions: move money and send a one-time code.",
+            "Identify two red flags: urgency/threat of closure and a request to transfer funds to a \u201cprotected\u201d account; the request also seeks a security code.",
+            "Do not reply, click, or transfer. Contact the bank independently using a known official channel.",
+            "Record the reason: message appearance does not prove sender identity; the requested action is high consequence."
+          ],
+          "misconception": "\u201cA text that names my bank and knows my balance must be real.\u201d Details can be obtained or fabricated, and caller/message identity can be spoofed."
+        },
+        {
+          "case": "Handle the possible CRA contact carefully",
+          "steps": [
+            "Do not decide from caller ID alone: it can be spoofed, but CRA does make phone contact in some situations.",
+            "Do not provide a password or security code. Ask for the caller\u2019s name, office, and callback number if useful.",
+            "End the unexpected call and use CRA\u2019s official contact-verification tool or contact information found independently on Canada.ca.",
+            "If CRA confirms a real issue, continue through the verified channel and provide only information appropriate to that process."
+          ],
+          "misconception": "\u201cCRA never calls, so every CRA caller is a scam.\u201d The blanket rule is false; verify instead of assuming either way."
+        }
+      ],
+      "practice": [
+        {
+          "prompt": "Which message contains the strongest immediate warning sign?",
+          "choices": [
+            "A text demanding a one-time code and transfer to a \u201cprotected account\u201d",
+            "A generic reminder to open an official account yourself",
+            "A saved paper statement",
+            "A teacher\u2019s fictional scenario"
+          ],
+          "correctIndex": 0,
+          "feedbackByChoice": [
+            "Correct: urgency plus code and money-transfer demands are high-risk indicators.",
+            "This still deserves independent navigation but does not demand a transfer or code.",
+            "A paper statement is not itself an unexpected electronic demand.",
+            "A fictional scenario is instructional, not a real contact."
+          ],
+          "explanation": "Identify the requested action, not just the sender name.",
+          "nextHint": "Which asks for irreversible action and an authentication secret?"
+        },
+        {
+          "prompt": "Which statement about CRA phone contact is accurate?",
+          "choices": [
+            "CRA never calls anyone",
+            "A caller ID showing CRA proves the call is authentic",
+            "CRA may call, but a person should independently verify if unsure",
+            "Any caller who knows a name is legitimate"
+          ],
+          "correctIndex": 2,
+          "feedbackByChoice": [
+            "This blanket statement is false.",
+            "Caller ID can be spoofed.",
+            "Correct: CRA can contact people, and uncertain contact should be verified through official routes.",
+            "Personal details can be known or guessed and do not prove identity."
+          ],
+          "explanation": "Use CRA\u2019s current contact guidance, not an absolute rule.",
+          "nextHint": "Keep both facts: CRA can call; caller identity needs verification."
+        },
+        {
+          "prompt": "What is an independent verification route?",
+          "choices": [
+            "Call the number included in the suspicious text",
+            "Use contact details found on the organization\u2019s known official website, app, statement, or card",
+            "Reply \u201cSTOP\u201d with your account password",
+            "Trust the caller ID only"
+          ],
+          "correctIndex": 1,
+          "feedbackByChoice": [
+            "Using the suspicious message\u2019s own number does not independently verify it.",
+            "Correct: obtain the route separately from a trusted source.",
+            "Never send a password; this is not verification.",
+            "Caller ID may be spoofed."
+          ],
+          "explanation": "Independent means the contact path did not come only from the unexpected request.",
+          "nextHint": "Choose a known channel obtained separately."
+        },
+        {
+          "prompt": "A message has correct spelling and an official-looking logo. What does that prove?",
+          "choices": [
+            "The sender is authentic",
+            "The link is safe",
+            "Nothing by itself; verify the request and route",
+            "That the message is from a Canadian agency"
+          ],
+          "correctIndex": 2,
+          "feedbackByChoice": [
+            "Professional presentation can be copied.",
+            "A logo cannot authenticate the destination.",
+            "Correct: visual appearance is not enough evidence.",
+            "A logo does not establish sender identity or jurisdiction."
+          ],
+          "explanation": "Appearance can be manufactured.",
+          "nextHint": "Ask which option avoids treating design as proof."
+        },
+        {
+          "prompt": "A caller says they are CRA and asks for a password. What should the recipient do?",
+          "choices": [
+            "Share it if caller ID matches",
+            "Ask for details if needed, end the call, and verify independently; never share the password",
+            "Transfer money to a safe account",
+            "Give a one-time code instead"
+          ],
+          "correctIndex": 1,
+          "feedbackByChoice": [
+            "Caller ID does not authenticate and passwords should not be shared.",
+            "Correct: CRA verification guidance allows independent checking; passwords remain secret.",
+            "A safe-account transfer demand is a common scam cue; do not do it.",
+            "A one-time code is also a credential and should not be shared."
+          ],
+          "explanation": "Separate the identity-check process from secret credentials.",
+          "nextHint": "Use independently located CRA contact details and keep password/code private."
+        },
+        {
+          "prompt": "What is the best first action under pressure to act immediately?",
+          "choices": [
+            "Pause and avoid the link, transfer, or code until independently verified",
+            "Act quickly so a legitimate account is not closed",
+            "Call back the number displayed on caller ID",
+            "Forward the message with sensitive details to classmates"
+          ],
+          "correctIndex": 0,
+          "feedbackByChoice": [
+            "Correct: pausing prevents an irreversible action while the request is checked.",
+            "Pressure is a reason to slow down and verify.",
+            "Caller ID may be spoofed; use separately sourced contact details.",
+            "Forwarding can spread sensitive information and the scam."
+          ],
+          "explanation": "Choose a safe step that does not commit money or credentials.",
+          "nextHint": "Delay the action and verify separately."
+        }
+      ],
+      "transfer": {
+        "newCase": "A fictional caller says a student is owed a tax refund and must install a remote-access app to \u201cconfirm identity.\u201d They know the student\u2019s first name but provide no independently verifiable case number.",
+        "prompt": "Classify the requested action, explain what the name proves and does not prove, and write the safe verification sequence. Include one sentence that avoids the false blanket claim about CRA calls.",
+        "modelAnswerTeacherOnly": "Remote access to the device is a major warning sign; do not install the app or share codes/passwords. Knowing a first name does not authenticate the caller. CRA may call, so do not say all CRA calls are fake; ask for identifying/callback details if appropriate, end the call, and independently verify through CRA\u2019s official contact-verification tool or Canada.ca contact information. If verified, continue using a trusted official channel."
+      },
+      "media": {
+        "sourcePath": "projects/incoming/FINLIT/Videos/Topic 08 - Protecting Your Money and Things of Value/2 Avoiding Scams.mp4",
+        "startSeconds": 55.3,
+        "endSeconds": 72.1,
+        "teachingRole": "Use the pause-and-independently-verify idea. Stop well before the later government-email generalization and the inaccurate blanket claim that CRA never calls. Pair the clip with the current CRA contact-verification lesson; do not use the full video as authority."
+      },
+      "visualBrief": "Create three fictional message cards with requested-action highlights, a \u201cproof / clue / unknown\u201d sorter, and a four-step pause-verify-act flow. For CRA card, explicitly show \u201cCRA may call\u201d beside \u201ccaller ID is not proof; verify independently.\u201d Use no live clickable phishing URLs; accessible text mirrors every visual cue.",
+      "independentEvidence": {
+        "task": "A7 scam-classification task: analyze a fictional message set and defend a verification choice.",
+        "prompt": "For two fictional contacts, list the requested action, two evidence-based cues, what remains unknown, and the independently located channel you would use. Include one possible legitimate CRA contact and explain why \u201cCRA never calls\u201d is not a safe rule.",
+        "successCriteria": [
+          "Separate sender appearance from verified identity.",
+          "Identify high-risk requests such as codes, urgent transfers, links, or remote access.",
+          "Use an official independently located route; do not use supplied contact details alone.",
+          "State uncertainty and avoid sharing credentials or personal data."
+        ]
+      },
+      "sourceNotes": [
+        "FINLIT Avoiding Scams transcript reviewed: use only 55.3\u201372.1 seconds; crop before its broad government email statement (from about 73.8s) and before the false CRA-never-calls claim (123.3\u2013144.3s).",
+        "CRA verification source checked 2026-09-24: https://www.canada.ca/en/revenue-agency/corporate/scams-fraud/verify-cra-contact.html . CRA may call; caller ID can be spoofed; independently verify if uncertain.",
+        "CRA scam recognition checked 2026-09-24: https://www.canada.ca/en/revenue-agency/corporate/scams-fraud/recognize-scam.html . Do not teach absolute \u201cgovernment never asks\u201d rules; legitimate contact may involve some information requests in specific contexts.",
+        "Before release, recheck current CRA and CAFC contact guidance. No live URLs or real contact details appear in fictional cards."
+      ]
+    },
+    {
+      "id": "fl4-03",
+      "title": "Respond when information may be exposed",
+      "goal": "Choose a safe first response when a learner interacts with a suspicious message, protect accounts and payment routes, preserve evidence, and report through appropriate channels without shame or false promises.",
+      "opening": "A fictional learner clicks a bank-looking link and enters a password, then realizes the address was wrong. No money has moved yet. The next steps matter, but panic and blame do not help. Work through a response that starts with account protection and uses official contact routes.",
+      "teach": [
+        "If a suspicious link was opened but no information was entered, close it and do not download anything or grant permissions. If a password, code, card number, or identity detail was entered, treat that information as exposed and act promptly. Use a trusted device and independently locate the real service\u2019s app or website; do not return through the message. Change the exposed password and every reused version. If a code or authentication prompt was shared or approved, review sessions and recovery methods, revoke unfamiliar devices when possible, and follow the provider\u2019s current account-recovery process.",
+        "If payment details, a card, or money transfer may be involved, contact the financial institution or payment provider immediately using its official number or app found separately. Explain what happened, when, and what information was shared; follow the provider\u2019s instructions for blocking a card, disputing a transaction, or securing an account. Acting quickly can help limit harm, but do not promise that money will always be recovered or that every transaction has identical protections. Keep records of who you contacted and any reference number, without putting secrets into a school submission.",
+        "Preserve evidence before deleting the message: save the sender information, screenshots, transaction receipts, web address as text, dates, and provider communications. Do not click again to gather evidence. If money was lost or there is a safety concern, contact local police promptly and ask for a file or incident number. Report suspected fraud or cybercrime to the Canadian Anti-Fraud Centre (CAFC); its reporting system accepts reports from victims and witnesses, and the centre supports investigations by collecting information. Reporting does not itself guarantee an investigation or repayment.",
+        "Tell a trusted adult if you are a minor or feel overwhelmed. There is no benefit in shaming someone for being deceived; scams are designed to pressure people and can look convincing. If identity information or credit may have been exposed, contact affected institutions and consider credit-bureau alerts through current official channels. For tax-related identity concerns, contact CRA using independently verified contact information. Do not report a routine suspicious text as an emergency; use 911 only for immediate danger. Avoid \u201crecovery\u201d services that demand an upfront fee or ask for more access\u2014CAFC warns that fraud victims can be targeted again.",
+        "Use a sequence rather than a rigid universal checklist: stop further interaction; identify what was exposed; secure the relevant account/device; contact the payment or service provider; preserve evidence; report to police when money or safety is involved and to CAFC; then monitor and update credentials or identity protections. The exact order may change\u2014for example, a stolen card needs an immediate issuer call. The lesson\u2019s fictional case and the official sources help students choose a proportionate response. No real incident details, account data, or identifying evidence are required for this assignment."
+      ],
+      "document": {
+        "title": "Fictional phishing incident log",
+        "context": "All events, names, times, account details, and amounts are invented. The checklist teaches options, not a guaranteed recovery sequence. Do not submit real passwords, codes, card data, SIN, screenshots, or police reports.",
+        "rows": [
+          {
+            "field": "Initial event",
+            "value": "Fictional learner entered one password on a look-alike page at 3:20 p.m.",
+            "sourceNote": "Invented time and event; no real website address is included."
+          },
+          {
+            "field": "Payment status",
+            "value": "No known transfer or card entry yet",
+            "sourceNote": "Invented scenario fact; the learner still checks for unknown activity."
+          },
+          {
+            "field": "Account habit",
+            "value": "Same fictional password used on a second service",
+            "sourceNote": "Invented clue; no actual credential supplied."
+          },
+          {
+            "field": "Evidence to preserve",
+            "value": "Message sender, page address as text, time, and screenshots",
+            "sourceNote": "General evidence categories; never revisit the suspicious link to collect more."
+          },
+          {
+            "field": "First independent contact",
+            "value": "Known official bank app/site or number from card/statement",
+            "sourceNote": "Use a route obtained separately from the message."
+          },
+          {
+            "field": "Reporting options",
+            "value": "Local police if money was lost/safety issue; CAFC for fraud/cybercrime report",
+            "sourceNote": "Check current official reporting process; reports do not guarantee recovery."
+          }
+        ]
+      },
+      "worked": [
+        {
+          "case": "Password entered, no known money movement",
+          "steps": [
+            "Stop interacting with the page; do not revisit it or install anything.",
+            "From a trusted device, open the service independently and change the exposed password. Change any reused password on the second service too.",
+            "Review active sessions and recovery details; end unfamiliar sessions if the provider offers that control and follow its official guidance.",
+            "Contact the provider through a verified route if access is uncertain; monitor for unfamiliar activity."
+          ],
+          "misconception": "\u201cNo money has left, so there is no risk.\u201d Stolen credentials can be used later or on another service."
+        },
+        {
+          "case": "A transfer is discovered",
+          "steps": [
+            "Contact the sending financial institution or payment provider immediately using its official independently located contact route.",
+            "State the transfer details and ask what blocking, recall, dispute, or account-protection steps apply. Record the time and reference number.",
+            "Preserve messages and receipts. Contact local police promptly when money was lost and obtain a file number if available.",
+            "Submit a CAFC report; do not pay a stranger claiming guaranteed recovery."
+          ],
+          "misconception": "\u201cA CAFC report automatically returns the money.\u201d The CAFC collects and shares information to support investigations; it does not promise individual recovery."
+        }
+      ],
+      "practice": [
+        {
+          "prompt": "A password was entered on a look-alike site. What should happen next?",
+          "choices": [
+            "Reuse it on other accounts to check if they work",
+            "Use a trusted device and independently reach the service to change it; replace reused versions too",
+            "Reply to the message asking the sender to delete it",
+            "Wait for a money loss before acting"
+          ],
+          "correctIndex": 1,
+          "feedbackByChoice": [
+            "Reusing an exposed credential increases risk.",
+            "Correct: secure the affected service and every account using that password.",
+            "The sender may be the attacker; replying adds exposure.",
+            "Credential exposure deserves prompt action even before visible loss."
+          ],
+          "explanation": "Think about every place the same password was used.",
+          "nextHint": "Start from a trusted service route and address reuse."
+        },
+        {
+          "prompt": "Why preserve the message and receipts?",
+          "choices": [
+            "To click the link again later",
+            "They may help the institution or investigator understand what happened",
+            "To post them publicly with account numbers visible",
+            "Because preserving evidence guarantees a refund"
+          ],
+          "correctIndex": 1,
+          "feedbackByChoice": [
+            "Do not revisit the suspicious link.",
+            "Correct: evidence can support provider or police reporting.",
+            "Sensitive information should not be publicly shared.",
+            "Evidence supports a report but does not guarantee recovery."
+          ],
+          "explanation": "Evidence should be retained safely and shared through appropriate channels.",
+          "nextHint": "Pick the option that explains a practical use without promising an outcome."
+        },
+        {
+          "prompt": "A transfer may have gone out. Which contact is most urgent?",
+          "choices": [
+            "The financial institution/payment provider through an official route",
+            "A recovery company from a social media ad",
+            "The suspicious sender",
+            "A random number in a search ad"
+          ],
+          "correctIndex": 0,
+          "feedbackByChoice": [
+            "Correct: promptly contact the institution that moved or holds the funds using known official details.",
+            "Recovery ads may target victims and request fees or access.",
+            "The sender may be the fraudster.",
+            "Search ads may not provide an independently verified contact."
+          ],
+          "explanation": "Who may be able to secure or investigate the payment route?",
+          "nextHint": "Use a contact path from a card, statement, or known official app."
+        },
+        {
+          "prompt": "What is a CAFC report for?",
+          "choices": [
+            "An automatic reimbursement application",
+            "A way to report fraud/cybercrime information that supports a central repository and investigations",
+            "A guarantee that local police will contact the learner",
+            "A replacement for securing an account"
+          ],
+          "correctIndex": 1,
+          "feedbackByChoice": [
+            "The CAFC does not promise repayment.",
+            "Correct: reports help collect information and support investigations.",
+            "Local police and CAFC roles differ; no response is guaranteed.",
+            "Account security and provider contact are still necessary."
+          ],
+          "explanation": "Separate reporting from recovery and account protection.",
+          "nextHint": "Choose the option describing information collection/support."
+        },
+        {
+          "prompt": "When is contacting local police appropriate in this lesson?",
+          "choices": [
+            "If money was lost or there is a safety concern, promptly",
+            "Only after a social media recovery agent approves",
+            "Never, because CAFC replaces police",
+            "For every ordinary advertisement"
+          ],
+          "correctIndex": 0,
+          "feedbackByChoice": [
+            "Correct: CAFC guidance recommends police contact if victimized; immediate danger requires emergency help.",
+            "A recovery agent is not an authority.",
+            "Police and CAFC have distinct roles.",
+            "An ordinary ad is not automatically a police matter."
+          ],
+          "explanation": "Check the reporting guidance for victim response.",
+          "nextHint": "Use the option that ties police contact to loss or safety."
+        },
+        {
+          "prompt": "Which statement is accurate about recovery?",
+          "choices": [
+            "A report guarantees the money comes back",
+            "A recovery service demanding an upfront payment is always safe",
+            "Prompt contact may help limit harm, but outcomes and protections depend on circumstances",
+            "There is no value in saving evidence"
+          ],
+          "correctIndex": 2,
+          "feedbackByChoice": [
+            "Reports do not guarantee repayment.",
+            "Upfront recovery requests can be a second fraud.",
+            "Correct: act promptly without promising a result.",
+            "Evidence can help providers and investigations."
+          ],
+          "explanation": "Look for careful language about what action can and cannot guarantee.",
+          "nextHint": "Choose the option that encourages action but avoids certainty."
+        }
+      ],
+      "transfer": {
+        "newCase": "A fictional learner clicked a fake delivery message and entered a card number and password. A small unfamiliar charge appears.",
+        "prompt": "Write a prioritized response plan with at least four actions. Include which contact must be independent, what evidence to keep, and one limit on what reporting can promise.",
+        "modelAnswerTeacherOnly": "Stop interacting and do not revisit the link. From a trusted device, secure the account and change the exposed/reused password; review sessions and MFA. Contact the card issuer/payment provider immediately through its official app/card number and report the charge, following its instructions. Preserve the message, sender, URL as text, timestamp, and transaction record. Contact local police because money was lost and report to CAFC. A report or prompt call does not guarantee reimbursement; provider terms and circumstances govern next steps."
+      },
+      "media": null,
+      "visualBrief": "Create a branching incident-response flow: clicked only / credentials entered / payment information exposed / money transferred / identity data exposed. Each branch shows first safe action, verified contact, evidence to preserve, and report route. Include a calm, blame-free banner and a printable text-only checklist. No real URL or student submission of incident records.",
+      "independentEvidence": {
+        "task": "A7 response task: produce a privacy-safe incident-response plan for a fictional exposure.",
+        "prompt": "Given a fictional scam event, identify what was exposed, prioritize four actions, choose the independently reached institution/service, list evidence to preserve, and name the reporting route. Do not include real account or identity information.",
+        "successCriteria": [
+          "Match actions to what was exposed and act promptly.",
+          "Use an independently located official provider contact.",
+          "Preserve evidence without reopening the suspicious link or sharing secrets.",
+          "Distinguish police, CAFC, provider, and recovery roles; do not guarantee repayment."
+        ]
+      },
+      "sourceNotes": [
+        "Official sources checked 2026-09-24: CAFC victim response https://antifraudcentre-centreantifraude.ca/scams-fraudes/victim-victime-eng.htm ; CAFC reporting https://antifraudcentre-centreantifraude.ca/report-signalez-eng.htm .",
+        "CAFC guidance says contact financial institution when money transferred; police promptly if victim; preserve evidence; report to CAFC. Outcomes are not guaranteed.",
+        "Before release, confirm current reporting portal, local police wording, and payment-provider instructions. Keep emergency guidance limited to immediate danger."
+      ]
+    },
+    {
+      "id": "fl4-04",
+      "title": "Consumer protection and unfair offers",
+      "goal": "Analyze a fictional consumer offer for misleading overall impressions, hidden conditions, and transaction evidence; choose a proportionate Alberta or federal reporting route without promising a refund.",
+      "opening": "An online listing advertises a fictional tablet for $120. At checkout, a mandatory \u201cactivation fee\u201d adds $80, while a banner still says \u201call-in price.\u201d The seller says the promotion ends in five minutes. Is this a poor deal, a misleading representation, a scam, or more than one? Work from the claim, transaction, and evidence before choosing a next step.",
+      "teach": [
+        "Consumer protection helps people make informed transactions and gives routes for certain unfair practices. Start by recording the specific representation: the headline, price, feature, availability, refund promise, or condition. Then compare it with the overall impression a reasonable consumer could take away and with the final contract or checkout. A technically true line buried in small print may not undo a prominent false or misleading impression. Pressure tactics, material omissions, bait pricing, and failure to deliver can raise concerns, but a single scenario does not establish a legal violation. Avoid naming conduct unlawful without checking the applicable rule and facts.",
+        "For Alberta transactions, the Consumer Protection Act and its rules address unfair practices before, during, and after consumer transactions. Alberta\u2019s consumer guidance gives examples such as misleading claims, pressure, and failing to deliver what was promised. A practical first step for a dispute about a supplier is to contact the business in writing, state the facts and requested resolution, and keep a copy. If unresolved, a consumer may file a complaint with Alberta\u2019s Consumer Investigations Unit (CIU) where appropriate. CIU can investigate potential violations; it does not recover a consumer\u2019s financial loss or mediate a private dispute, and it does not investigate scam texts or calls. Do not imply that submitting a complaint guarantees an outcome.",
+        "The Competition Bureau deals with deceptive marketing practices under federal competition law, including materially false or misleading representations; it considers the general impression as well as literal wording. It accepts information about such practices but is not the route for an individual refund. A consumer who paid through a card, marketplace, or financial institution may also need to contact that provider about its own dispute process, using official channels. These paths can overlap, but they have different roles. A scam that impersonates an organization and an unfair seller transaction are not automatically the same category. Determine whether there was a real seller/contract, what was promised, whether the transaction was completed, and whether money or account access is at risk.",
+        "Keep a clean evidence record: screenshot the advertisement and checkout, save the terms in effect on the transaction date, keep receipts and delivery messages, note dates and the seller\u2019s contact details, and write down what resolution was requested. Do not post personal payment information publicly. If the seller\u2019s offer may be a scam, avoid sending more money or identity information until independently checked; report fraud through CAFC guidance when appropriate. For a lawful contract, cancellation rights vary by transaction type and current law. Do not tell students that every purchase has a general cooling-off period or refund right. Verify the specific product, transaction method, jurisdiction, and applicable current guidance.",
+        "In this course, students identify the exact claim, compare the complete impression with the final amount, distinguish the available reporting routes, and explain what each can and cannot do. All prices and statements in the document are invented. The lesson does not give individualized legal advice or decide a real complaint. Its goal is to help a learner preserve evidence, ask a clear question, and select a competent source rather than relying on a threatening countdown or a social-media opinion."
+      ],
+      "document": {
+        "title": "Fictional listing, checkout, and complaint record",
+        "context": "All seller names, prices, fees, promises, times, and transaction events below are invented. This example is for analysis, not a finding that a real business broke the law. Dollar figures do not represent current market prices.",
+        "rows": [
+          {
+            "field": "Listing headline",
+            "value": "\u201cTablet $120 \u2014 all-in price, no surprises\u201d",
+            "sourceNote": "Invented advertising claim and price."
+          },
+          {
+            "field": "Checkout breakdown",
+            "value": "$120 listed price + $80 mandatory activation fee = $200 total",
+            "sourceNote": "Invented amounts; arithmetic only."
+          },
+          {
+            "field": "Urgency banner",
+            "value": "\u201cOffer disappears in 5 minutes\u201d",
+            "sourceNote": "Invented pressure tactic; not proof on its own of a legal breach."
+          },
+          {
+            "field": "Terms link",
+            "value": "\u201cFee disclosed at checkout\u201d; no fee shown beside headline",
+            "sourceNote": "Invented condition; assess overall impression and actual terms."
+          },
+          {
+            "field": "Consumer\u2019s evidence",
+            "value": "Saved ad, checkout screen, receipt, date, and written request",
+            "sourceNote": "Examples of records to preserve; never include real card number."
+          },
+          {
+            "field": "Possible routes",
+            "value": "Seller contact; Alberta CIU if possible provincial unfair practice; Competition Bureau for deceptive marketing information; issuer for payment dispute",
+            "sourceNote": "Routes have distinct mandates; check current eligibility and do not promise refund or investigation."
+          }
+        ]
+      },
+      "worked": [
+        {
+          "case": "Compare headline and checkout",
+          "steps": [
+            "The headline calls $120 \u201call-in\u201d and says there are no surprises.",
+            "Checkout adds an invented mandatory $80 fee, so the total shown is $120 + $80 = $200.",
+            "The difference is material to understanding the price; keep both the prominent claim and the checkout/terms record.",
+            "Describe it as a possible misleading-impression concern for review, not as a proven legal finding."
+          ],
+          "misconception": "\u201cBecause the fee appears somewhere at checkout, the headline cannot mislead.\u201d The full impression and timing of disclosure matter; the lesson does not decide legality."
+        },
+        {
+          "case": "Choose a route for an unresolved seller dispute",
+          "steps": [
+            "First preserve the listing, checkout, terms, receipt, and written contact with the seller.",
+            "If this is an Alberta consumer transaction and the issue may involve unfair practice, review Alberta guidance and consider filing with CIU if eligible.",
+            "If the concern is deceptive marketing, the Competition Bureau may receive information; it does not provide an individual refund.",
+            "If payment was made by card or through a marketplace, contact that provider separately about its process; no route guarantees recovery."
+          ],
+          "misconception": "\u201cThe Alberta CIU will get the money back.\u201d Its role is to investigate potential violations, not recover financial losses or mediate the dispute."
+        }
+      ],
+      "practice": [
+        {
+          "prompt": "What is the invented checkout total?",
+          "choices": [
+            "$200",
+            "$120",
+            "$80",
+            "$320"
+          ],
+          "correctIndex": 0,
+          "feedbackByChoice": [
+            "Correct: $120 + $80 = $200.",
+            "$120 is only the advertised base figure.",
+            "$80 is only the invented fee.",
+            "No listed amount supports $320."
+          ],
+          "explanation": "Add the base price and mandatory fee.",
+          "nextHint": "120 plus 80."
+        },
+        {
+          "prompt": "What is the strongest evidence-based concern in the scenario?",
+          "choices": [
+            "The fictional seller used blue text",
+            "The \u201call-in\u201d headline conflicts with a later mandatory $80 fee",
+            "The tablet price is lower than every market price",
+            "The countdown proves a crime"
+          ],
+          "correctIndex": 1,
+          "feedbackByChoice": [
+            "Colour alone does not establish a misleading claim.",
+            "Correct: the prominent total impression conflicts with the checkout amount.",
+            "No comparison-market evidence is supplied.",
+            "A countdown can be a pressure cue but does not prove a legal breach by itself."
+          ],
+          "explanation": "Compare the precise claim with the full amount.",
+          "nextHint": "What does \u201call-in\u201d promise versus checkout?"
+        },
+        {
+          "prompt": "What can Alberta\u2019s CIU do according to the lesson?",
+          "choices": [
+            "Guarantee a refund to the consumer",
+            "Investigate potential violations of Alberta consumer law",
+            "Mediate every private dispute and recover all losses",
+            "Investigate every suspicious scam text"
+          ],
+          "correctIndex": 1,
+          "feedbackByChoice": [
+            "No refund is guaranteed.",
+            "Correct: CIU can investigate potential violations within its mandate.",
+            "The lesson says CIU does not recover losses or mediate private disputes.",
+            "Alberta says CIU does not investigate scam texts or calls."
+          ],
+          "explanation": "Keep the agency role specific.",
+          "nextHint": "Which choice matches \u201cinvestigate potential violations\u201d?"
+        },
+        {
+          "prompt": "What is the Competition Bureau\u2019s role in this lesson?",
+          "choices": [
+            "Provide a personal refund from a seller",
+            "Receive information about deceptive marketing and enforce federal competition law",
+            "Approve every Alberta contract before sale",
+            "Replace a financial institution\u2019s payment dispute process"
+          ],
+          "correctIndex": 1,
+          "feedbackByChoice": [
+            "It is not an individual refund route.",
+            "Correct: it addresses deceptive marketing under federal competition law.",
+            "No such universal contract pre-approval is described.",
+            "A payment provider has a separate dispute process."
+          ],
+          "explanation": "Distinguish marketing enforcement from individual loss recovery.",
+          "nextHint": "Look for the role described in the federal guidance."
+        },
+        {
+          "prompt": "Which next step is appropriate before filing a complaint about the seller?",
+          "choices": [
+            "Delete the ad and rely on memory",
+            "Save the ad, checkout, terms, receipt, and a written account of contact",
+            "Post a card number to ask for help",
+            "Assume every purchase can be cancelled within a fixed period"
+          ],
+          "correctIndex": 1,
+          "feedbackByChoice": [
+            "Memory alone may lose important details.",
+            "Correct: preserve the transaction evidence and contact the seller in writing.",
+            "Never publish payment credentials.",
+            "Cancellation rights depend on transaction type and current law."
+          ],
+          "explanation": "Build a record that another reviewer can understand.",
+          "nextHint": "Choose evidence preservation with privacy protection."
+        },
+        {
+          "prompt": "Why shouldn\u2019t the course promise a cooling-off period for every purchase?",
+          "choices": [
+            "Because consumer laws never allow cancellation",
+            "Because rights depend on transaction type, jurisdiction, and current rules",
+            "Because all online sellers are exempt",
+            "Because only the Competition Bureau can cancel contracts"
+          ],
+          "correctIndex": 1,
+          "feedbackByChoice": [
+            "Some transaction-specific cancellation rights exist; a blanket \u201cnever\u201d is also wrong.",
+            "Correct: check the applicable purchase and current guidance.",
+            "The lesson makes no such universal exemption.",
+            "The Bureau does not cancel every individual contract."
+          ],
+          "explanation": "Avoid both universal yes and universal no statements.",
+          "nextHint": "Which answer names the variables that change the right?"
+        }
+      ],
+      "transfer": {
+        "newCase": "A fictional tutoring service advertises \u201cfirst month free\u201d but bills a $45 setup charge and starts an automatic monthly plan. The learner says the checkout was confusing and has a receipt.",
+        "prompt": "Identify the exact claim and total/term evidence needed, propose a written first step, and distinguish one possible Alberta route from the Competition Bureau\u2019s role. Avoid declaring a legal result.",
+        "modelAnswerTeacherOnly": "Preserve the ad, full checkout and terms, receipt, billing date, and cancellation communications. Ask the supplier in writing to explain how \u201cfirst month free\u201d applies, identify the $45 fee and recurring plan terms, and state the requested correction or cancellation. If the facts suggest an Alberta unfair practice, review current Alberta guidance and consider CIU eligibility; the Competition Bureau can receive information about deceptive marketing but is not a refund service. Contact the payment provider separately about charges. Do not assume every recurring service has the same cancellation period."
+      },
+      "media": null,
+      "visualBrief": "Create an editable claim-to-evidence worksheet: prominent ad claim, full checkout/terms, actual charge, possible gap, evidence saved, first business contact, and agency role. Include a branching route map showing Alberta CIU, Competition Bureau, payment provider, and CAFC as distinct functions; add \u201cnot a legal finding / no refund guarantee\u201d labels and accessible text equivalent.",
+      "independentEvidence": {
+        "task": "A7 consumer-protection application: analyze a fictional offer and select a proportionate, privacy-safe next step.",
+        "prompt": "Compare one fictional advertising claim with its complete checkout terms. State the evidence you would preserve, the written question to the seller, and which route could receive the concern. Explain what the route cannot guarantee.",
+        "successCriteria": [
+          "Quote/describe the specific claim and compare it with the complete transaction.",
+          "Avoid declaring illegality from incomplete facts.",
+          "Distinguish Alberta CIU, Competition Bureau, seller, payment provider, and CAFC roles.",
+          "Do not claim a universal cooling-off right, mediation, investigation, or refund."
+        ]
+      },
+      "sourceNotes": [
+        "Alberta unfair-business-practices guidance checked 2026-09-24: https://www.alberta.ca/unfair-business-practices .",
+        "Alberta consumer complaint limits checked 2026-09-24: https://www.alberta.ca/file-consumer-complaint.aspx . CIU does not recover losses, mediate private disputes, or investigate scam texts/calls.",
+        "Competition Bureau deceptive marketing guidance checked 2026-09-24: https://competition-bureau.canada.ca/en/deceptive-marketing-practices and https://competition-bureau.canada.ca/en/deceptive-marketing-practices/types-deceptive-marketing-practices/misleading-representations-and-deceptive-marketing-practices .",
+        "Recheck applicable provincial/federal complaint eligibility and transaction-specific cancellation law before release; avoid blanket cooling-off statements."
+      ]
+    },
+    {
+      "id": "fl4-05",
+      "title": "Recover safely after a scam",
+      "goal": "Build a calm, prioritized recovery plan after a fictional scam by matching actions to exposed money, credentials, identity information, or tax details, and avoid secondary recovery fraud.",
+      "opening": "A fictional person paid a suspicious invoice and also entered a reused password. They now receive messages promising guaranteed recovery for an upfront fee. Recovery is not one generic form: the right first actions depend on what was exposed, and a second scam can target people who have already lost money.",
+      "teach": [
+        "Begin by separating four kinds of exposure: money/payment route, account credentials, identity or credit information, and tax information. More than one can apply. If money was transferred or a card/payment detail was exposed, promptly contact the financial institution, card issuer, or payment provider through a number or app obtained independently. Ask what immediate security, block, dispute, or recall steps apply and record the time and reference. Do not assume a particular charge will be refunded; institutions review disputes under applicable rules and circumstances. If passwords were exposed, use a trusted device, independently access each affected service, change the password and reused versions, review sessions/recovery details, and enable stronger verification where available.",
+        "If identity details or credit information may be misused, contact affected organizations and consider placing fraud alerts with Equifax and TransUnion using their official channels. Check credit reports through current official guidance for unfamiliar accounts or inquiries. Security-freeze availability and procedures can vary by province or territory, so do not promise an Alberta student that a freeze always exists or works the same way. If a document or device is missing, contact its issuer or service provider promptly. Keep a log of actions, dates, people contacted, and case numbers while storing documents securely.",
+        "If money was lost or the person is a victim of fraud, CAFC guidance says to contact local police promptly and report to the Canadian Anti-Fraud Centre (CAFC). CAFC reports help create a central repository and support investigations; CAFC is not a refund service. Preserve evidence such as receipts, message copies, sender details, dates, account statements, and police file number. Report an unauthorized card transaction to the issuer promptly and follow its instructions. For a data breach, the federal Financial Consumer Agency of Canada (FCAC) also advises contacting affected businesses, financial institutions, and credit bureaus, and reporting through the National Fraud Reporting System; verify current routes before release.",
+        "CRA contact needs precise treatment. CRA can call people; never use the false blanket rule \u201cCRA never calls.\u201d If a contact claims to be CRA and the person is unsure, ask for the caller\u2019s name, office, and callback number, end the call, then verify independently through CRA\u2019s official contact-verification tool or contact details found on Canada.ca. For suspected tax-related identity fraud, contact CRA through an independently verified official route. Do not share passwords or one-time codes with an unexpected contact. A caller knowing personal facts or caller ID showing a government number does not prove authenticity.",
+        "Watch for a second wave: a supposed recovery expert may promise guaranteed reimbursement, demand an upfront fee, request remote access, or ask for more identity details. CAFC warns that scammers impersonate authorities and target people who already lost money; CAFC does not contact people to request payment. Stop, preserve the approach as evidence, and verify through the institution or police already contacted. Be kind to the person affected: prompt, practical action matters more than blame. This is a classroom plan, not a substitute for an institution\u2019s current instructions, legal advice, or emergency response. Students complete the task with a fictional case only."
+      ],
+      "document": {
+        "title": "Fictional post-scam exposure summary",
+        "context": "All identities, dates, amounts, accounts, messages, and losses are invented. The plan is a teaching aid, not a promise of reimbursement or an exhaustive legal procedure. Never submit real account numbers, SINs, passwords, tax records, or police documents.",
+        "rows": [
+          {
+            "field": "Money exposure",
+            "value": "Fictional $160 transfer to an unknown recipient; outcome not yet known",
+            "sourceNote": "Invented amount and event; report promptly to sending institution and police if victimized."
+          },
+          {
+            "field": "Credential exposure",
+            "value": "One reused fictional password entered on a fake page",
+            "sourceNote": "Invented event; secure affected/reused accounts from a trusted device."
+          },
+          {
+            "field": "Identity exposure",
+            "value": "Fictional name and address were included in a submitted form",
+            "sourceNote": "Invented data category; contact affected organizations and consider credit-bureau steps."
+          },
+          {
+            "field": "Tax account concern",
+            "value": "A message claims CRA access was changed",
+            "sourceNote": "Invented message; CRA may call, but verify contact independently through Canada.ca."
+          },
+          {
+            "field": "Recovery offer",
+            "value": "A stranger promises to recover all money for a fictional $40 upfront fee",
+            "sourceNote": "Invented scam; do not pay; CAFC does not request money from individuals."
+          },
+          {
+            "field": "Evidence log",
+            "value": "Receipt, message copy, dates, payment details, case number",
+            "sourceNote": "Keep securely; do not publish or send sensitive evidence to an unverified address."
+          }
+        ]
+      },
+      "worked": [
+        {
+          "case": "Money sent and credential reused",
+          "steps": [
+            "Contact the sending bank/payment provider immediately using its official independently reached route; describe the transfer and ask what protective or dispute steps apply.",
+            "$160 is a fictional scenario amount; do not assume the transfer can or cannot be reversed. Record the reference and follow the provider\u2019s instructions.",
+            "From a trusted device, change the exposed password and every reused instance, review sessions and recovery settings, and monitor related accounts.",
+            "Because money was lost, contact local police promptly and report to CAFC; preserve the message, receipt, and case numbers."
+          ],
+          "misconception": "\u201cA fast report guarantees the transfer will be returned.\u201d Prompt action can help, but outcome depends on circumstances, payment path, and institution review."
+        },
+        {
+          "case": "Identity details and fake CRA callback",
+          "steps": [
+            "Do not use the callback number or link supplied by the message; do not share a password or code.",
+            "Ask for the claimed caller\u2019s name, office, and callback number if appropriate, end the call, and verify through CRA\u2019s official tool or contact details found independently on Canada.ca.",
+            "Contact affected organizations and use official Equifax/TransUnion routes to ask about fraud alerts and monitoring; check current procedures.",
+            "Save the contact evidence and report suspected fraud through appropriate police/CAFC channels. Do not pay a recovery service."
+          ],
+          "misconception": "\u201cCRA never calls, so there is no need to verify.\u201d CRA can call; the correct response is independent verification, not a blanket assumption."
+        }
+      ],
+      "practice": [
+        {
+          "prompt": "A fictional transfer was just sent to a suspected fraudster. Which action should be prioritized?",
+          "choices": [
+            "Contact the sending institution/payment provider immediately through its official route",
+            "Wait a month to see if it returns",
+            "Pay the recovery service\u2019s upfront fee",
+            "Reply with a password"
+          ],
+          "correctIndex": 0,
+          "feedbackByChoice": [
+            "Correct: prompt provider contact may help secure the route or explain dispute steps.",
+            "Delay may reduce the chance to act quickly.",
+            "Recovery fees can be part of a second fraud.",
+            "Never share credentials with an unexpected contact."
+          ],
+          "explanation": "Use the institution involved in moving the money.",
+          "nextHint": "Reach it independently and promptly."
+        },
+        {
+          "prompt": "What should the learner say about a refund?",
+          "choices": [
+            "It is guaranteed if police are contacted",
+            "It depends on circumstances and provider rules; prompt contact is still important",
+            "CAFC will issue it after a report",
+            "A recovery expert can always obtain it"
+          ],
+          "correctIndex": 1,
+          "feedbackByChoice": [
+            "A report does not guarantee reimbursement.",
+            "Correct: avoid promising outcomes while taking timely action.",
+            "CAFC is not a refund service.",
+            "Guaranteed recovery claims are suspicious."
+          ],
+          "explanation": "Separate useful action from guaranteed result.",
+          "nextHint": "Choose the careful statement."
+        },
+        {
+          "prompt": "What is an appropriate CRA response if a caller is uncertain?",
+          "choices": [
+            "Say CRA never calls and hang up without checking",
+            "Share a one-time code to prove identity",
+            "Ask for name/office/callback, end the call, and verify through an official independently located CRA route",
+            "Call the number provided by the caller"
+          ],
+          "correctIndex": 2,
+          "feedbackByChoice": [
+            "CRA can call, so the absolute claim is false.",
+            "A code is sensitive and should not be shared with an unexpected caller.",
+            "Correct: independent verification preserves nuance and safety.",
+            "A supplied number is not independent."
+          ],
+          "explanation": "The goal is not to assume either real or fake from the caller ID.",
+          "nextHint": "Use the CRA verification process found separately."
+        },
+        {
+          "prompt": "A stranger promises to recover money for an upfront fee. What is the safest inference?",
+          "choices": [
+            "The fee is normal because the person knows the victim\u2019s name",
+            "It may be a recovery scam; do not pay or grant access and verify through known official contacts",
+            "CAFC requires victims to pay first",
+            "Pay a small fee to test the promise"
+          ],
+          "correctIndex": 1,
+          "feedbackByChoice": [
+            "Personal details do not prove legitimacy.",
+            "Correct: recovery offers can target people already defrauded; CAFC does not request payment.",
+            "CAFC does not request money from individuals.",
+            "Even a \u201ctest\u201d payment can expose more funds."
+          ],
+          "explanation": "Use the official warning about re-targeting victims.",
+          "nextHint": "Do not pay a person who guarantees recovery."
+        },
+        {
+          "prompt": "If identity or credit information was exposed, what should the person consider?",
+          "choices": [
+            "Contact affected organizations and ask Equifax and TransUnion about current fraud-alert steps",
+            "Post the details so others can search them",
+            "Assume one bureau action protects every account",
+            "Freeze every report in every province using a universal process"
+          ],
+          "correctIndex": 0,
+          "feedbackByChoice": [
+            "Correct: use official bureau channels and check both current procedures.",
+            "Public posting increases exposure.",
+            "One action may not protect all services.",
+            "Freeze procedures and availability vary by jurisdiction."
+          ],
+          "explanation": "Choose a route that addresses credit monitoring while respecting varying rules.",
+          "nextHint": "Use official channels for both bureaus."
+        },
+        {
+          "prompt": "Which evidence is useful to preserve securely?",
+          "choices": [
+            "Receipts, message copies, dates, payment details, and reference numbers",
+            "Only a screenshot with visible password",
+            "The suspicious link opened repeatedly",
+            "Nothing; reports need no supporting details"
+          ],
+          "correctIndex": 0,
+          "feedbackByChoice": [
+            "Correct: these records can help providers/police understand the incident.",
+            "Never preserve or submit a visible credential; redact secrets.",
+            "Do not reopen the link to collect more information.",
+            "Evidence can support reports, though outcomes are not guaranteed."
+          ],
+          "explanation": "Retain the incident record without spreading secrets.",
+          "nextHint": "Select the list that records what happened safely."
+        }
+      ],
+      "transfer": {
+        "newCase": "A fictional learner entered a password and SIN into a fake scholarship form but did not send money. A caller claiming to be CRA asks them to confirm a one-time code.",
+        "prompt": "Create a prioritized plan covering credentials, identity data, the unexpected CRA call, evidence, and reporting. State two things the learner must not assume.",
+        "modelAnswerTeacherOnly": "Do not share/approve the code or use the caller\u2019s number/link. End the call and verify independently through CRA\u2019s official contact-verification tool or Canada.ca; CRA can call, but caller ID/details do not prove authenticity. From a trusted device, change the exposed and reused passwords, review sessions/recovery information, and contact affected account providers. Contact relevant identity/financial organizations; monitor and ask both credit bureaus about current fraud alert options. Preserve the fake form/message and dates without sharing credentials. Report the fraud attempt to CAFC; contact local police if money was lost or safety concerns arise. Do not assume a CRA call is always fake, nor that no money loss means no risk; do not assume a report guarantees reimbursement."
+      },
+      "media": null,
+      "visualBrief": "Create a privacy-safe recovery decision tree keyed by exposure: money transferred, card details, password/code, identity/credit, tax account, or recovery offer. Show independently verified contact as a repeated checkpoint. Separate institution, local police, CAFC, credit bureaus, CRA, and recovery-fraud warnings. Display no student data; include printable accessible checklist and \u201cno refund guaranteed\u201d language.",
+      "independentEvidence": {
+        "task": "A7 recovery plan: submit a fictional incident response with actions matched to each exposure type.",
+        "prompt": "Use a fictional case involving at least two exposure types. Prioritize actions, name independently verified contacts, list evidence to preserve, identify police/CAFC/CRA or credit-bureau roles as applicable, and explain two limits or uncertainties.",
+        "successCriteria": [
+          "Match each action to the actual exposed information or payment route.",
+          "Treat CRA contact accurately: it may call; independently verify uncertainty.",
+          "Use official financial institution, police, CAFC, bureau, and CRA routes with distinct roles.",
+          "Avoid guaranteed reimbursement/recovery and reject upfront recovery fees.",
+          "Use fictional information only and securely preserve evidence."
+        ]
+      },
+      "sourceNotes": [
+        "CAFC victim response and reporting checked 2026-09-24: https://antifraudcentre-centreantifraude.ca/scams-fraudes/victim-victime-eng.htm and https://antifraudcentre-centreantifraude.ca/report-signalez-eng.htm .",
+        "CAFC warns about recovery fraud and does not request money: https://antifraudcentre-centreantifraude.ca/index-eng.htm . Recheck current CAFC warnings before release.",
+        "CRA verification checked 2026-09-24: https://www.canada.ca/en/revenue-agency/corporate/scams-fraud/verify-cra-contact.html . CRA may call; use the official tool/contact route if uncertain.",
+        "FCAC data-breach steps checked 2026-09-24: https://www.canada.ca/en/financial-consumer-agency/services/protect-financial-information-data-breach.html .",
+        "FCAC unauthorized transactions guidance checked 2026-09-24: https://www.canada.ca/en/financial-consumer-agency/services/rights-responsibilities/protection-unauthorized-transactions.html . Do not promise reimbursement; contact issuer immediately.",
+        "FCAC credit-report fraud guidance checked 2026-09-24: https://www.canada.ca/en/financial-consumer-agency/services/credit-reports-score/check-errors.html . Freeze availability/procedures vary; verify current Alberta options before making a specific claim."
+      ]
+    }
+  ]
+}

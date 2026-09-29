@@ -22,6 +22,7 @@ Repo-level authoring enforcement defaults live in `config/authoring-preferences.
    - `npm run studio:codex:auto`
    - `npm run studio:codex:migrate` (run migration, then Studio)
    - `npm run studio:codex:session` (opens Studio + prints prompt starters)
+   - `npm run studio:efficient` (compact Codex startup with local agent status; Studio still starts when agent status is unavailable)
    - See [docs/ops/codex-mac-workflow.md](docs/ops/codex-mac-workflow.md)
 6. Optional advanced commands from the launcher:
    - `launch-canvas-helper.bat refresh` / `./launch-canvas-helper.command refresh`
@@ -39,6 +40,11 @@ Repo-level authoring enforcement defaults live in `config/authoring-preferences.
 - `npm run studio:codex:auto` (Codex desktop app + intake watcher on macOS)
 - `npm run studio:codex:migrate` (Codex app + explicit project layout migration)
 - `npm run studio:codex:session` (Codex app starter with prompt templates)
+- `npm run studio:efficient` (normal compact Codex start; skips routine Headroom regeneration)
+- `npm run agents:doctor`, `npm run agents:status`, and `npm run agents:report` (local-only agent capability, state, and evidence)
+- `npm run agents:plan -- --task <task.json>` (deterministic route and bounded context packet; no model call)
+- `npm run agents:run -- --task <task.json>` (native host action or subscription-gated Muse execution)
+- `npm run agents:mode -- off|auto` (new-admission switch; retains cooldown and partial work)
 - `npm run course:create -- --slug <slug> --title "<title>" --course-code "<code>" --summary "<summary>"` (new Codex-authored, Studio-ready course)
 - `npm run course:list -- --all` (all source-backed projects plus package/archive classifications)
 - `npm run course:onboard -- --all [--apply]` (audit or transactionally onboard the existing catalog)
@@ -352,6 +358,8 @@ Optional override flags for convert/export/deploy:
 ```
 
 ## Fast Agent Paths
+
+The additive efficiency workflow is documented in [docs/ops/AGENT_EFFICIENCY.md](docs/ops/AGENT_EFFICIENCY.md). Local context reuse does not establish provider prompt-cache hits or subscription savings. Native Luna and automatic Muse routes remain disabled until their observed host, billing, and isolation gates pass.
 
 - Use [docs/ops/FAST_PATHS.md](docs/ops/FAST_PATHS.md) to keep agent retrieval narrow for common tasks
 - Repo-wide or multi-project continuation work should resume from `docs/ops/ACTIVE_HANDOFF.md`

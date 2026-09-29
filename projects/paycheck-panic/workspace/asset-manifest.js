@@ -1,0 +1,25 @@
+/* Source atlases stay intact. These rectangles and pivots are the runtime atlas. */
+window.PPAssets = {
+  version: 1,
+  style: {camera:'elevated orthographic', outlines:'#254733', paper:'#fff4da', green:'#285e46', gold:'#e2ad45', characterHeight:88, footRadius:12},
+  directions:['s','sw','w','nw','n','ne','e','se'],
+  animations:{idle:{cycle:2.4},walk:{cycle:.62,armSwing:.18,legSwing:.24},interact:{cycle:.8,armSwing:.5},carry:{cycle:.7,armSwing:.08},celebrate:{cycle:1,armSwing:1.0},setback:{cycle:1.2,armSwing:.12}},
+  rig:{head:[0,0,1,.34],torso:[.24,.32,.52,.34],leftArm:[0,.33,.25,.34],rightArm:[.75,.33,.25,.34],leftLeg:[0,.65,.5,.35],rightLeg:[.5,.65,.5,.35],pivots:{head:[.5,.32],torso:[.5,.5],leftArm:[.23,.37],rightArm:[.77,.37],leftLeg:[.4,.66],rightLeg:[.6,.66]}},
+  sheets:{
+    luckySymbols:{src:'assets/generated/lucky-symbols.png',frames:[[89,104,418,399],[607,115,337,389],[1092,147,387,344],[83,549,384,367],[619,594,301,335],[1046,584,423,341]],names:['cherries','lemon','bell','star','gem','seven'],reference:'props'},
+    groceriesExtra:{src:'assets/generated/groceries-extra.png',frames:[[112,69,324,388],[543,146,444,270],[1088,67,373,445],[97,550,358,381],[599,516,347,423],[1098,512,365,426]],names:['pasta','salmon','veggies','granola','chips','rice'],reference:'groceries'},
+    checkout:{src:'assets/generated/checkout.png',columns:1,rows:1,names:['checkout'],reference:'roomsA'},
+    ground:{src:'assets/generated/ground.png',columns:1,rows:1,names:['ground'],reference:'town'},
+    props:{src:'assets/generated/props.png',frames:[[57,64,205,300],[374,62,196,313],[675,63,211,299],[960,140,274,148],[60,414,193,237],[350,408,239,246],[667,424,224,224],[1000,408,194,253],[35,678,254,273],[355,680,247,266],[679,680,209,266],[995,672,209,278],[10,974,310,224],[361,961,230,242],[635,1000,305,180],[964,994,268,188]],names:['car','scooter','traffic','barrier','fuel','food','parcel','coffee','dinosaur','rabbit','rocket','robot','book','papers','dumbbell','ticket'],reference:'furniture'},
+    jay:{src:'assets/generated/characters-b-transparent.png',frames:[[55,28,128,294],[247,28,120,298],[444,28,85,297],[617,28,118,296],[799,29,128,291],[994,28,116,295],[1198,28,85,298],[1359,28,121,297]],reference:'maya'},
+    sam:{src:'assets/generated/characters-b-transparent.png',frames:[[53,354,129,301],[247,355,122,302],[443,357,90,300],[616,356,118,300],[799,355,127,299],[994,357,119,299],[1193,357,92,300],[1359,356,122,302]],reference:'maya'},
+    classic:{src:'assets/generated/characters-b-transparent.png',frames:[[52,680,128,309],[245,680,121,312],[442,679,91,313],[615,679,119,311],[799,682,127,305],[995,679,118,311],[1196,680,89,312],[1361,680,122,312]],reference:'maya'},
+    roomsB:{src:'assets/generated/rooms-b.png',frames:[[0,0,748,338],[759,0,752,338],[0,347,748,327],[759,347,752,327],[0,684,748,357],[759,684,752,357]],names:['school','gym','diner','mall','dealer','lucky'],reference:'roomsA'},
+    roomsA:{src:'assets/generated/rooms-a.png',frames:[[0,0,748,514],[761,0,750,514],[0,525,748,516],[761,525,750,516]],names:['home','grocery','office','bank'],reference:'furniture'},
+    groceries:{src:'assets/generated/groceries-atlas.png',frames:[[48,85,220,244],[365,51,190,284],[651,51,245,282],[940,80,293,247],[42,398,244,222],[324,388,291,224],[719,337,140,305],[926,370,307,259],[10,677,312,222],[373,650,185,254],[659,658,232,249],[996,636,188,271],[23,942,285,260],[344,969,268,218],[659,921,244,278],[984,921,217,271]],names:['apple','milk','bread','eggs','cheese','cookies','soda','bananas','chicken','beans','icecream','juice','avocado','doughnut','nuts','cupcake'],reference:'furniture'},
+    alex:{src:'assets/generated/alex-directions.png',frames:[[62,67,227,590],[356,66,195,594],[634,69,145,590],[862,69,184,586],[1106,66,221,589],[1389,67,187,588],[1663,68,144,591],[1897,68,210,592]],reference:'assets/player-alex.png'},
+    maya:{src:'assets/generated/maya-directions.png',frames:[[29,24,232,656],[303,26,207,659],[574,23,189,664],[1411,23,205,662],[1102,24,236,658],[1411,23,205,662],[1686,25,182,664],[1921,24,223,660]],mirror:[3],reference:'alex'},
+    town:{src:'assets/generated/town-atlas.png',frames:[[20,70,340,318],[375,30,333,365],[706,105,376,281],[1087,87,351,300],[6,398,360,294],[372,432,346,259],[717,454,365,239],[1080,389,362,302],[12,768,365,230],[378,705,381,333],[783,735,306,306],[1115,750,320,289]],names:['home','office','grocery','bank','school','gym','diner','mall','dealer','lucky','tree','pines'],reference:'assets/town-map.png'},
+    furniture:{src:'assets/generated/furniture-atlas.png',frames:[[40,38,240,285],[329,70,281,257],[632,75,333,253],[1000,76,213,255],[12,426,307,194],[331,348,281,281],[637,375,311,256],[1000,324,215,307],[23,655,294,269],[317,684,310,226],[631,655,326,253],[972,635,247,289],[49,916,217,307],[323,943,300,267],[685,936,199,288],[934,940,297,284]],names:['shelf','produce','checkout','bag','sofa','bed','desk','bookcase','weights','table','booth','plant','arcade','teller','chair','study'],reference:'maya'}
+  }
+};

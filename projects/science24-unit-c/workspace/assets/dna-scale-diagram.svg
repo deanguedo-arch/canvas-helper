@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 390" role="img" aria-labelledby="title desc">
+  <title id="title">From cell nucleus to chromosome to DNA base sequence</title>
+  <desc id="desc">Three connected panels show a cell with a nucleus, a chromosome made of tightly packed DNA, and a short complementary DNA sequence. A karyotype compares chromosomes but does not display every DNA base.</desc>
+  <style>
+    text{font-family:Arial,Helvetica,sans-serif;fill:#202b2c}.heading{font-size:20px;font-weight:700}.label{font-size:16px;font-weight:700}.small{font-size:14px}.panel{fill:#f7faf9;stroke:#bed2cd;stroke-width:2}.teal{stroke:#11605a;fill:none;stroke-width:5;stroke-linecap:round}.gold{stroke:#a76218;fill:none;stroke-width:5;stroke-linecap:round}
+  </style>
+  <rect width="780" height="390" fill="#fff"/>
+  <text x="24" y="37" class="heading">Three scales of inherited information</text>
+  <rect class="panel" x="24" y="62" width="218" height="246" rx="4"/>
+  <rect class="panel" x="281" y="62" width="218" height="246" rx="4"/>
+  <rect class="panel" x="538" y="62" width="218" height="246" rx="4"/>
+  <text x="44" y="96" class="label">Cell nucleus</text>
+  <circle cx="133" cy="184" r="72" fill="#e9f3f0" stroke="#11605a" stroke-width="3"/>
+  <circle cx="133" cy="184" r="36" fill="#fff" stroke="#11605a" stroke-width="3"/>
+  <text x="73" y="283" class="small">Chromosomes are inside.</text>
+  <path d="M248 184h28" stroke="#11605a" stroke-width="3"/><path d="m266 176 10 8-10 8" fill="none" stroke="#11605a" stroke-width="3"/>
+  <text x="302" y="96" class="label">Chromosome</text>
+  <path d="M351 134c18 35 45 65 39 97M430 134c-18 35-45 65-39 97M351 231c18-35 45-65 39-97M430 231c-18-35-45-65-39-97" class="teal"/>
+  <circle cx="390" cy="183" r="12" fill="#a76218"/>
+  <text x="310" y="283" class="small">Packed DNA is visible.</text>
+  <path d="M505 184h28" stroke="#11605a" stroke-width="3"/><path d="m523 176 10 8-10 8" fill="none" stroke="#11605a" stroke-width="3"/>
+  <text x="558" y="96" class="label">DNA sequence</text>
+  <path d="M592 132v105M705 132v105" class="teal"/>
+  <g class="small" text-anchor="middle"><text x="606" y="154">A</text><text x="691" y="154">T</text><text x="606" y="183">G</text><text x="691" y="183">C</text><text x="606" y="212">C</text><text x="691" y="212">G</text></g>
+  <path d="M622 149h60M622 178h60M622 207h60" class="gold" stroke-width="2"/>
+  <text x="557" y="283" class="small">Base pairing: A–T, C–G.</text>
+  <rect x="24" y="328" width="732" height="42" fill="#edf5f2"/>
+  <text x="39" y="354" class="small">A karyotype shows chromosome number and arrangement; it cannot reveal every gene or trait.</text>
+</svg>

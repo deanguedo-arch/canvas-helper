@@ -1,0 +1,135 @@
+{
+  "schemaVersion": 1,
+  "status": "Three original batch drafts remain review media; the CO2-02 path now contains a user-supplied replacement with synchronized captions and exact transcript pending.",
+  "visualReference": "CE1-03 pathways pilot; this batch uses the same restrained CALM 10 palette and frame with content-specific document/safety/loan/scam visualizations.",
+  "voice": "macOS Samantha system voice generated locally; synthetic narration.",
+  "captionMethod": "Each sentence was synthesized separately; VTT timing uses measured audio duration and readable line wrapping. Caption and sync review remains pending.",
+  "clips": [
+    {
+      "id": "co2-02-workplace-hazard-demo",
+      "lessonId": "co2-02",
+      "title": "Stop, identify, and control a hazard",
+      "videoPath": "projects/calm10-2026-draft/workspace/assets/media/co2-02-workplace-hazard-demo.mp4",
+      "captionPath": null,
+      "transcriptPath": null,
+      "scriptAndStoryboardPath": "projects/calm10-2026-draft/meta/media/co2-02-workplace-hazard-demo-script.json",
+      "slideSources": [
+        "projects/calm10-2026-draft/workspace/assets/media/co2-02-workplace-hazard-demo-slide-1.svg",
+        "projects/calm10-2026-draft/workspace/assets/media/co2-02-workplace-hazard-demo-slide-2.svg",
+        "projects/calm10-2026-draft/workspace/assets/media/co2-02-workplace-hazard-demo-slide-3.svg",
+        "projects/calm10-2026-draft/workspace/assets/media/co2-02-workplace-hazard-demo-slide-4.svg",
+        "projects/calm10-2026-draft/workspace/assets/media/co2-02-workplace-hazard-demo-slide-5.svg",
+        "projects/calm10-2026-draft/workspace/assets/media/co2-02-workplace-hazard-demo-slide-6.svg"
+      ],
+      "slideImages": [
+        "projects/calm10-2026-draft/workspace/assets/media/co2-02-workplace-hazard-demo-slide-1.png",
+        "projects/calm10-2026-draft/workspace/assets/media/co2-02-workplace-hazard-demo-slide-2.png",
+        "projects/calm10-2026-draft/workspace/assets/media/co2-02-workplace-hazard-demo-slide-3.png",
+        "projects/calm10-2026-draft/workspace/assets/media/co2-02-workplace-hazard-demo-slide-4.png",
+        "projects/calm10-2026-draft/workspace/assets/media/co2-02-workplace-hazard-demo-slide-5.png",
+        "projects/calm10-2026-draft/workspace/assets/media/co2-02-workplace-hazard-demo-slide-6.png"
+      ],
+      "videoDurationSeconds": 384.01161,
+      "narrationWords": null,
+      "voice": "user-supplied replacement; narration metadata not asserted",
+      "status": "replacement-review-draft-caption-pending",
+      "factualCaveats": "Check current Alberta OHS refusal/reporting procedures before real workplace use. No chemical is identified and no legal conclusion is made.",
+      "supersededDraft": {
+        "videoSha256": "f1b94e77d9ffb4566a4b0e977a87235cf554f75fe67291f97ea50cfc73811563",
+        "captionPath": "projects/calm10-2026-draft/workspace/assets/media/co2-02-workplace-hazard-demo.vtt",
+        "transcriptPath": "projects/calm10-2026-draft/workspace/assets/media/co2-02-workplace-hazard-demo-transcript.txt"
+      }
+    },
+    {
+      "id": "fl1-01-paystub-demo",
+      "lessonId": "fl1-01",
+      "title": "Read Mika’s fictional pay stub",
+      "videoPath": "projects/calm10-2026-draft/workspace/assets/media/fl1-01-paystub-demo.mp4",
+      "captionPath": "projects/calm10-2026-draft/workspace/assets/media/fl1-01-paystub-demo.vtt",
+      "transcriptPath": "projects/calm10-2026-draft/workspace/assets/media/fl1-01-paystub-demo-transcript.txt",
+      "scriptAndStoryboardPath": "projects/calm10-2026-draft/meta/media/fl1-01-paystub-demo-script.json",
+      "slideSources": [
+        "projects/calm10-2026-draft/workspace/assets/media/fl1-01-paystub-demo-slide-1.svg",
+        "projects/calm10-2026-draft/workspace/assets/media/fl1-01-paystub-demo-slide-2.svg",
+        "projects/calm10-2026-draft/workspace/assets/media/fl1-01-paystub-demo-slide-3.svg",
+        "projects/calm10-2026-draft/workspace/assets/media/fl1-01-paystub-demo-slide-4.svg",
+        "projects/calm10-2026-draft/workspace/assets/media/fl1-01-paystub-demo-slide-5.svg",
+        "projects/calm10-2026-draft/workspace/assets/media/fl1-01-paystub-demo-slide-6.svg"
+      ],
+      "slideImages": [
+        "projects/calm10-2026-draft/workspace/assets/media/fl1-01-paystub-demo-slide-1.png",
+        "projects/calm10-2026-draft/workspace/assets/media/fl1-01-paystub-demo-slide-2.png",
+        "projects/calm10-2026-draft/workspace/assets/media/fl1-01-paystub-demo-slide-3.png",
+        "projects/calm10-2026-draft/workspace/assets/media/fl1-01-paystub-demo-slide-4.png",
+        "projects/calm10-2026-draft/workspace/assets/media/fl1-01-paystub-demo-slide-5.png",
+        "projects/calm10-2026-draft/workspace/assets/media/fl1-01-paystub-demo-slide-6.png"
+      ],
+      "videoDurationSeconds": 185.6,
+      "narrationWords": 496,
+      "voice": "macOS Samantha TTS, 160 wpm setting",
+      "status": "produced-review-draft",
+      "factualCaveats": "All pay figures and deduction lines are invented; not current tax, CPP/EI rates or benefit guidance."
+    },
+    {
+      "id": "fl2-03-amortization-demo",
+      "lessonId": "fl2-03",
+      "title": "Follow a fictional amortizing loan",
+      "videoPath": "projects/calm10-2026-draft/workspace/assets/media/fl2-03-amortization-demo.mp4",
+      "captionPath": "projects/calm10-2026-draft/workspace/assets/media/fl2-03-amortization-demo.vtt",
+      "transcriptPath": "projects/calm10-2026-draft/workspace/assets/media/fl2-03-amortization-demo-transcript.txt",
+      "scriptAndStoryboardPath": "projects/calm10-2026-draft/meta/media/fl2-03-amortization-demo-script.json",
+      "slideSources": [
+        "projects/calm10-2026-draft/workspace/assets/media/fl2-03-amortization-demo-slide-1.svg",
+        "projects/calm10-2026-draft/workspace/assets/media/fl2-03-amortization-demo-slide-2.svg",
+        "projects/calm10-2026-draft/workspace/assets/media/fl2-03-amortization-demo-slide-3.svg",
+        "projects/calm10-2026-draft/workspace/assets/media/fl2-03-amortization-demo-slide-4.svg",
+        "projects/calm10-2026-draft/workspace/assets/media/fl2-03-amortization-demo-slide-5.svg",
+        "projects/calm10-2026-draft/workspace/assets/media/fl2-03-amortization-demo-slide-6.svg"
+      ],
+      "slideImages": [
+        "projects/calm10-2026-draft/workspace/assets/media/fl2-03-amortization-demo-slide-1.png",
+        "projects/calm10-2026-draft/workspace/assets/media/fl2-03-amortization-demo-slide-2.png",
+        "projects/calm10-2026-draft/workspace/assets/media/fl2-03-amortization-demo-slide-3.png",
+        "projects/calm10-2026-draft/workspace/assets/media/fl2-03-amortization-demo-slide-4.png",
+        "projects/calm10-2026-draft/workspace/assets/media/fl2-03-amortization-demo-slide-5.png",
+        "projects/calm10-2026-draft/workspace/assets/media/fl2-03-amortization-demo-slide-6.png"
+      ],
+      "videoDurationSeconds": 214.3,
+      "narrationWords": 529,
+      "voice": "macOS Samantha TTS, 160 wpm setting",
+      "status": "produced-review-draft",
+      "factualCaveats": "Fictional loan model uses nominal 12% compounded semi-annually with monthly payments converted to equivalent monthly rate; no fees/irregular payments. Not a lender offer."
+    },
+    {
+      "id": "fl4-02-scam-verification-demo",
+      "lessonId": "fl4-02",
+      "title": "Pause, verify, then act",
+      "videoPath": "projects/calm10-2026-draft/workspace/assets/media/fl4-02-scam-verification-demo.mp4",
+      "captionPath": "projects/calm10-2026-draft/workspace/assets/media/fl4-02-scam-verification-demo.vtt",
+      "transcriptPath": "projects/calm10-2026-draft/workspace/assets/media/fl4-02-scam-verification-demo-transcript.txt",
+      "scriptAndStoryboardPath": "projects/calm10-2026-draft/meta/media/fl4-02-scam-verification-demo-script.json",
+      "slideSources": [
+        "projects/calm10-2026-draft/workspace/assets/media/fl4-02-scam-verification-demo-slide-1.svg",
+        "projects/calm10-2026-draft/workspace/assets/media/fl4-02-scam-verification-demo-slide-2.svg",
+        "projects/calm10-2026-draft/workspace/assets/media/fl4-02-scam-verification-demo-slide-3.svg",
+        "projects/calm10-2026-draft/workspace/assets/media/fl4-02-scam-verification-demo-slide-4.svg",
+        "projects/calm10-2026-draft/workspace/assets/media/fl4-02-scam-verification-demo-slide-5.svg",
+        "projects/calm10-2026-draft/workspace/assets/media/fl4-02-scam-verification-demo-slide-6.svg"
+      ],
+      "slideImages": [
+        "projects/calm10-2026-draft/workspace/assets/media/fl4-02-scam-verification-demo-slide-1.png",
+        "projects/calm10-2026-draft/workspace/assets/media/fl4-02-scam-verification-demo-slide-2.png",
+        "projects/calm10-2026-draft/workspace/assets/media/fl4-02-scam-verification-demo-slide-3.png",
+        "projects/calm10-2026-draft/workspace/assets/media/fl4-02-scam-verification-demo-slide-4.png",
+        "projects/calm10-2026-draft/workspace/assets/media/fl4-02-scam-verification-demo-slide-5.png",
+        "projects/calm10-2026-draft/workspace/assets/media/fl4-02-scam-verification-demo-slide-6.png"
+      ],
+      "videoDurationSeconds": 197.4,
+      "narrationWords": 529,
+      "voice": "macOS Samantha TTS, 160 wpm setting",
+      "status": "produced-review-draft",
+      "factualCaveats": "CRA may contact people; caller ID can be spoofed. Verify independently through current CRA official routes; never teach “CRA never calls.”"
+    }
+  ],
+  "overallReviewStatus": "not learner media"
+}

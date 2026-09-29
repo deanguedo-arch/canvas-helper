@@ -1,0 +1,15 @@
+{
+ "ticket": "R09",
+ "frozenAt": "R09-pattern-freeze",
+ "note": "Pilot pattern freeze. File hashes trip on ANY shared edit (re-freeze + re-proof required). Record hashes pin L7 semantics across R10-R28 batches, which must not alter them.",
+ "files": {
+  "lesson-components.js": "5ddf470978155b3803eebdcf2c0b9ff5760a50e926430e4c1b4cd16821bbe7ac",
+  "practice-engine.js": "8b700525e8facfa3140d68ca18b6c544f99bf997ec93264873b913544e53cb27",
+  "main.js": "ce50fd3156ece4d16333c2931f4f678ffd201b410757f3034c056707f680d563",
+  "styles.css": "938c55f25288fc3f3886df50accc012fd723415b1bc8bec1ed12d56014eaccae"
+ },
+ "records": {
+  "t1-l07-numbered-treaties": "89c3b06fc3df5bb21c86dd9e55d0a80bc3cea495b170189d5c134c82e267263c",
+  "bank:l7-items": "497bcd882cb5282d9c4444a32ab5c126859da8f36bd78575f1653178dc235892"
+ }
+}

@@ -1,0 +1,1673 @@
+{
+  "schemaVersion": 1,
+  "notes": [
+    "All financial amounts and product terms in questions are fictional instructional values, not current rates, tax calculations, wages, benefits, or recommendations. Calculations use only the assumptions stated in each prompt.",
+    "Before release, recheck Alberta employment, occupational-safety, human-rights, consumer-protection, and youth-work rules against current official sources. Items assess source selection and safe reasoning where rules can depend on age, task, industry, and jurisdiction.",
+    "CRA guidance is taught precisely: CRA may contact people, caller ID can be spoofed, and uncertain contact should be independently verified through current official CRA channels. Never teach a blanket rule that CRA never calls.",
+    "No test requires disclosure of real income, family finances, account details, passwords, SIN, employment records, or personal credit information. Brightspace teacher marking remains authoritative."
+  ],
+  "tests": [
+    {
+      "id": "T1-A",
+      "items": [
+        {
+          "id": "T1-A-Q01",
+          "type": "mc",
+          "prompt": "A student helped coordinate a school event. Which résumé note gives the clearest evidence for an employer who needs reliable record handling?",
+          "choices": [
+            "“I am naturally organized.”",
+            "“My friends trust me.”",
+            "“I checked sign-up names against the supply list and asked the teacher about one mismatch.”",
+            "“I want a job with records.”"
+          ],
+          "correctIndex": 2,
+          "rationale": "It names a relevant task, action, and safe response to uncertainty. The other statements are preferences or unsupported labels.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T1-A-Q02",
+          "type": "mc",
+          "prompt": "A career profile says a certificate is commonly preferred; an Alberta regulator lists a credential as required for a protected title. What should the student verify before planning training?",
+          "choices": [
+            "Whether the exact job title is regulated and which current requirement applies.",
+            "Whether the shortest program uses the word “career.”",
+            "Whether classmates think the certificate is useful.",
+            "Whether the profile has a photo of the workplace."
+          ],
+          "correctIndex": 0,
+          "rationale": "The exact role and current regulator requirement control the credential question; a profile preference and a regulated-title requirement are different.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T1-A-Q03",
+          "type": "mc",
+          "prompt": "A program route costs a fictional $1,600 tuition, $240 tools, and $35 monthly transit for 8 months. What is the listed total for these items?",
+          "choices": [
+            "$1,840",
+            "$2,120",
+            "$2,400",
+            "$2,080"
+          ],
+          "correctIndex": 1,
+          "rationale": "$1,600 + $240 + (8 × $35) = $2,120. This is only the stated fictional cost set.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T1-A-Q04",
+          "type": "mc",
+          "prompt": "An Alberta career report gives a five-year projection. A local search today finds two postings. Which conclusion is best supported?",
+          "choices": [
+            "The projection guarantees a local opening for this student.",
+            "The local search proves the provincial report is false.",
+            "The two sources measure different things; record their dates, locations, and definitions before comparing.",
+            "The student should average the two counts."
+          ],
+          "correctIndex": 2,
+          "rationale": "A projection and a one-day vacancy search are not directly comparable; context and definitions matter.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T1-A-Q05",
+          "type": "mc",
+          "prompt": "A student cannot take a prerequisite course in the planned semester. What is the most useful next step?",
+          "choices": [
+            "Assume any similar course will count.",
+            "Abandon the long-term interest immediately.",
+            "Ignore the prerequisite and submit the plan as complete.",
+            "Ask the school about the next offering or approved equivalent, then update the route and timing."
+          ],
+          "correctIndex": 3,
+          "rationale": "Confirm the sequence and approved options before revising; an availability constraint can change timing without deciding the goal.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T1-A-Q06",
+          "type": "mc",
+          "prompt": "A fictional job posting requires greeting visitors and protecting their information. Which example best supports both needs?",
+          "choices": [
+            "“At a school event I welcomed families and asked the coordinator before sharing a participant list.”",
+            "“I like talking and technology.”",
+            "“I am an expert in privacy law.”",
+            "“My cousin is good with people.”"
+          ],
+          "correctIndex": 0,
+          "rationale": "It shows relevant communication and a permission-aware action without overstating expertise.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T1-A-Q07",
+          "type": "mc",
+          "prompt": "Which statement treats a career interest survey responsibly?",
+          "choices": [
+            "Its top result proves which job the student should choose.",
+            "Use the result to generate roles, then compare tasks, training, and conditions.",
+            "Ignore all results because surveys are useless.",
+            "Choose the result with the highest salary."
+          ],
+          "correctIndex": 1,
+          "rationale": "A survey can suggest hypotheses but cannot decide fit or replace occupational research.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T1-A-Q08",
+          "type": "mc",
+          "prompt": "A learner’s plan assumes a bus arrives exactly on time and fills every evening. Which revision improves feasibility?",
+          "choices": [
+            "Add another course to strengthen the plan.",
+            "Assume motivation prevents delays.",
+            "Add travel and transition time plus a buffer, then check fixed commitments.",
+            "Remove rest to protect study time."
+          ],
+          "correctIndex": 2,
+          "rationale": "A realistic schedule accounts for travel, transitions, fixed commitments, and recovery.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T1-A-Q09",
+          "type": "mc",
+          "prompt": "A fictional job requires a safety orientation before equipment use. The supervisor is away and a coworker says “just try it.” What should the learner do?",
+          "choices": [
+            "Wait and ask an authorized supervisor for required instruction before using it.",
+            "Use the equipment carefully without orientation.",
+            "Copy another worker without asking.",
+            "Watch a video on a personal phone and begin."
+          ],
+          "correctIndex": 0,
+          "rationale": "The missing training and authorization are a safety boundary; do not improvise.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T1-A-Q10",
+          "type": "mc",
+          "prompt": "Which interview response best answers “Tell me about a time plans changed”?",
+          "choices": [
+            "“When a volunteer cancelled, I reassigned check-in, updated the schedule, and we opened on time.”",
+            "“I am adaptable.”",
+            "“My team was disorganized.”",
+            "“I always solve every problem.”"
+          ],
+          "correctIndex": 0,
+          "rationale": "The response gives a specific change, action, and result without relying on a broad claim.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T1-A-Q11",
+          "type": "mc",
+          "prompt": "A worker is unsure whether a shift is permitted for their age and task. What should they record before checking the current Alberta rule?",
+          "choices": [
+            "Only the supervisor’s first name.",
+            "A rule from another province.",
+            "Their opinion about whether it feels fair.",
+            "Age, type of work, actual hours/time, and relevant workplace context."
+          ],
+          "correctIndex": 3,
+          "rationale": "Applicability may depend on age, work, time, and other context; current Alberta guidance should then be consulted.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T1-A-Q12",
+          "type": "mc",
+          "prompt": "A bottle with no label is left beside a sink. Which action uses the worker’s safety rights appropriately?",
+          "choices": [
+            "Smell it to identify it.",
+            "Mix a small amount with another cleaner.",
+            "Move it to a drain.",
+            "Pause, keep clear if safe, and ask for hazard information and training before handling it."
+          ],
+          "correctIndex": 3,
+          "rationale": "The worker has a right to know about hazards and should not expose themselves while identifying an unknown substance.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T1-A-Q13",
+          "type": "mc",
+          "prompt": "A worker reports that a machine guard is loose. What is the strongest report?",
+          "choices": [
+            "“The machine is bad.”",
+            "“At closing, the guard moved during inspection; I stopped using it and need the approved check before resuming.”",
+            "“The operator is careless.”",
+            "“Everyone should know better.”"
+          ],
+          "correctIndex": 1,
+          "rationale": "It states an observable condition, context, safe action, and needed follow-up.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T1-A-Q14",
+          "type": "mc",
+          "prompt": "A student sees a difference in who received training but has only one short note about it. What is a careful next step?",
+          "choices": [
+            "Declare a legal finding immediately.",
+            "Post the names of all workers online.",
+            "Record dates, criteria, comparable roles, and exact statements, then seek appropriate support.",
+            "Delete the note because it is incomplete."
+          ],
+          "correctIndex": 2,
+          "rationale": "A careful record separates facts from conclusions and supports timely advice without exposing private information.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T1-A-Q15",
+          "type": "mc",
+          "prompt": "A role profile and one current job posting describe different daily tasks. What should the learner do?",
+          "choices": [
+            "Assume one source is lying.",
+            "Compare role scope, employer, date, and specialty; treat the posting as one opening.",
+            "Average the task lists.",
+            "Ignore the posting because profiles are always complete."
+          ],
+          "correctIndex": 1,
+          "rationale": "The sources may cover different scopes; identify what each actually describes.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T1-A-Q16",
+          "type": "mc",
+          "prompt": "Which note is the best basis for revising a career hypothesis after a simulated shift?",
+          "choices": [
+            "“I failed at work.”",
+            "“I will never use equipment.”",
+            "“The supervisor’s opinion decides my career.”",
+            "“I kept visitor details private, but delayed reporting a printer blocker; I will compare roles and practise earlier updates.”"
+          ],
+          "correctIndex": 3,
+          "rationale": "It connects observed actions to a specific, testable next step without turning one task into a permanent label.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T1-A-Q17",
+          "type": "written",
+          "prompt": "Using the fictional profile below, compare two possible routes to a career direction. State one entry requirement to verify, two cost/time factors, and one reason to keep a backup route.",
+          "markingGuide": "3 points: 1 for naming two distinct routes and the same/different destination; 1 for a plausible requirement and source to verify (current program/provider or regulator); 1 for comparing at least two cost/time factors and explaining a backup trigger. Full credit distinguishes verified facts from estimates.",
+          "level": "reasoning",
+          "points": 3
+        },
+        {
+          "id": "T1-A-Q18",
+          "type": "written",
+          "prompt": "A fictional learner is interested in health work, prefers predictable hours, and is unsure about direct patient contact. Describe a three-step research plan that preserves choice and uses evidence.",
+          "markingGuide": "3 points: 1 for comparing actual duties across at least two roles, including contact/schedule; 1 for checking current education/licensing or entry information through an appropriate official source; 1 for naming a next evidence check and keeping the conclusion provisional. Do not require personal disclosure.",
+          "level": "reasoning",
+          "points": 3
+        },
+        {
+          "id": "T1-A-Q19",
+          "type": "written",
+          "prompt": "A youth worker’s schedule, time record, and pay statement do not agree. Explain how to investigate the discrepancy and where to seek help without claiming a legal violation from incomplete facts.",
+          "markingGuide": "3 points: 1 for comparing same dates, hours, breaks, and records; 1 for documenting the difference and asking a specific payroll/employer question; 1 for consulting current Alberta Employment Standards guidance or a trusted adult/official support route, while stating uncertainty.",
+          "level": "reasoning",
+          "points": 3
+        },
+        {
+          "id": "T1-A-Q20",
+          "type": "written",
+          "prompt": "In a fictional workplace case, an unidentified liquid is near a blocked exit and a supervisor is not immediately available. Write a safe response and explain which information you still need.",
+          "markingGuide": "3 points: 1 for warning/keeping people clear and following emergency/site procedure if safe; 1 for not touching, smelling, mixing, or moving the unknown substance and requesting trained help; 1 for naming missing hazard identity/procedure and preserving a factual report. Do not invent a chemical rule.",
+          "level": "reasoning",
+          "points": 3
+        }
+      ]
+    },
+    {
+      "id": "T1-B",
+      "items": [
+        {
+          "id": "T1-B-Q01",
+          "type": "mc",
+          "prompt": "A student fixed a class display after visitors could not read the instructions. Which portfolio note best shows transferable evidence?",
+          "choices": [
+            "“I am creative.”",
+            "“I like displays.”",
+            "“I will be a designer.”",
+            "“I tested the sign from a visitor’s position, enlarged the steps, and asked two people to try them.”"
+          ],
+          "correctIndex": 3,
+          "rationale": "It gives a task, action, and check of the result, while leaving career fit open.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T1-B-Q02",
+          "type": "mc",
+          "prompt": "A student is comparing an apprenticeship and a college program for related work. What should they establish first?",
+          "choices": [
+            "Which campus has the best slogan.",
+            "The exact credential or role each route reaches and any regulated requirements.",
+            "Which route a friend liked.",
+            "The expected wage midpoint."
+          ],
+          "correctIndex": 1,
+          "rationale": "Different routes may lead to related but non-identical credentials or scope; verify the destination before comparing cost.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T1-B-Q03",
+          "type": "mc",
+          "prompt": "A fictional training route has $900 fees, $180 equipment, and $28 weekly travel for 20 weeks. What is the listed total?",
+          "choices": [
+            "$1,640",
+            "$1,080",
+            "$1,460",
+            "$2,000"
+          ],
+          "correctIndex": 0,
+          "rationale": "$900 + $180 + (20 × $28) = $1,640. The figure includes only the listed fictional items.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T1-B-Q04",
+          "type": "mc",
+          "prompt": "A regional report describes a possible shortage over several years. What does it not establish by itself?",
+          "choices": [
+            "That the report’s time frame matters.",
+            "That location is relevant.",
+            "That every student will get hired locally at a stated wage.",
+            "That the claim needs a source date."
+          ],
+          "correctIndex": 2,
+          "rationale": "A broad outlook does not guarantee an individual job, location, or starting wage.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T1-B-Q05",
+          "type": "mc",
+          "prompt": "A program admission page lists a course as recommended, but a school checklist says required for graduation. Which question should be answered?",
+          "choices": [
+            "Are these different requirements for admission and graduation, and what does the school confirm for this learner’s timetable?",
+            "Which page is longer?",
+            "Can the learner skip both without asking?",
+            "Can the course be replaced by a work value?"
+          ],
+          "correctIndex": 0,
+          "rationale": "Program admission and school graduation requirements are different scopes and should both be verified.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T1-B-Q06",
+          "type": "mc",
+          "prompt": "An application asks for evidence of teamwork. Which example is strongest?",
+          "choices": [
+            "“I work well with everyone.”",
+            "“For a group presentation, I divided research tasks, checked progress, and combined the sections before the deadline.”",
+            "“I am friendly.”",
+            "“My sibling led a team.”"
+          ],
+          "correctIndex": 1,
+          "rationale": "It describes the applicant’s actions in a specific context.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T1-B-Q07",
+          "type": "mc",
+          "prompt": "A student sees a high projected wage on an occupation page. What is a responsible use of it?",
+          "choices": [
+            "Treat it as the exact starting salary.",
+            "Use it to decide without reading job duties.",
+            "Assume all employers pay the same.",
+            "Record the population, region, date, and measure, then investigate entry-level roles and conditions."
+          ],
+          "correctIndex": 3,
+          "rationale": "A wage statistic is scoped evidence and does not promise a new worker’s pay.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T1-B-Q08",
+          "type": "mc",
+          "prompt": "A work-value survey says a student values variety. What research would test that value?",
+          "choices": [
+            "Choose the survey’s first occupation.",
+            "Ignore the work conditions.",
+            "Assume every role in a cluster is varied.",
+            "Compare actual daily tasks and ask how routine varies across two roles."
+          ],
+          "correctIndex": 3,
+          "rationale": "Compare work tasks and conditions rather than treating a survey result as a verdict.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T1-B-Q09",
+          "type": "mc",
+          "prompt": "A worker is asked to use a tool they have not been trained to operate. What is the safest response?",
+          "choices": [
+            "Try it once while a coworker watches.",
+            "Search for a video and proceed.",
+            "Ask for required training and supervision before using it.",
+            "Say nothing and use it quickly."
+          ],
+          "correctIndex": 2,
+          "rationale": "A worker should not improvise with equipment without the needed information and training.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T1-B-Q10",
+          "type": "mc",
+          "prompt": "A customer asks a student worker to confirm another person’s booking. What should the student do?",
+          "choices": [
+            "Confirm it if the customer knows the person’s name.",
+            "Show only the first half of the record.",
+            "Follow the approved identity/privacy procedure or refer to the supervisor.",
+            "Search the person online."
+          ],
+          "correctIndex": 2,
+          "rationale": "A name alone does not authorize disclosure; follow the site’s approved process.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T1-B-Q11",
+          "type": "mc",
+          "prompt": "A worker reports a possible safety concern, but no one responds and the condition remains. What is the next sound action?",
+          "choices": [
+            "Resume the task because reporting is complete.",
+            "Post the allegation publicly.",
+            "Ask an untrained peer to test the hazard.",
+            "Follow the workplace escalation and current Alberta OHS process; do not treat silence as resolution."
+          ],
+          "correctIndex": 3,
+          "rationale": "An unresolved hazard requires a further safe step, not an assumption or public disclosure.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T1-B-Q12",
+          "type": "mc",
+          "prompt": "An unknown product is leaking near a walkway. Which action avoids creating more exposure?",
+          "choices": [
+            "Block access if safe and alert trained staff using the site procedure.",
+            "Wipe it up with paper towels.",
+            "Smell the spill to identify it.",
+            "Pour it into another container."
+          ],
+          "correctIndex": 0,
+          "rationale": "Keep people away if safe and get trained assistance; do not handle or identify by exposure.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T1-B-Q13",
+          "type": "mc",
+          "prompt": "A student receives feedback that their update came too late. What is the most useful adjustment?",
+          "choices": [
+            "Decide they are bad at all communication.",
+            "Practise a short early message with the issue, impact, action taken, and help needed.",
+            "Ignore the feedback because one task is not a career.",
+            "Send every minor detail immediately to all staff."
+          ],
+          "correctIndex": 1,
+          "rationale": "A specific communication behavior can be practised without making a global judgement.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T1-B-Q14",
+          "type": "mc",
+          "prompt": "A learner has one record of being left out of a training session and is concerned. What is the strongest response?",
+          "choices": [
+            "Keep a private factual note and seek an appropriate trusted support route before making a legal conclusion.",
+            "Publish the names of everyone involved.",
+            "State the manager’s motive as proven.",
+            "Delete the record."
+          ],
+          "correctIndex": 0,
+          "rationale": "A factual record and timely support help assess the context while protecting privacy.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T1-B-Q15",
+          "type": "mc",
+          "prompt": "A current posting asks for a licence not mentioned on a general profile. What is the best interpretation?",
+          "choices": [
+            "The posting is automatically wrong.",
+            "Every occupation in the cluster needs that licence.",
+            "The posting may describe a particular employer or specialty; check the regulator and other current sources.",
+            "The licence is not relevant because it is absent from the profile."
+          ],
+          "correctIndex": 2,
+          "rationale": "A posting can be narrower than a profile; verify a licensing claim with the appropriate authority.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T1-B-Q16",
+          "type": "mc",
+          "prompt": "Two possible routes share a foundational course but diverge later. How should the learner show this in a plan?",
+          "choices": [
+            "Hide the route that is less certain.",
+            "Place the shared step first and label the later decision point with evidence to verify.",
+            "Claim both routes are identical.",
+            "Wait until graduation to investigate requirements."
+          ],
+          "correctIndex": 1,
+          "rationale": "A shared prerequisite can preserve options; the later decision point should show unresolved requirements.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T1-B-Q17",
+          "type": "written",
+          "prompt": "Using two fictional occupational profiles, compare the work conditions and entry steps. State what evidence would make you keep one route as a backup.",
+          "markingGuide": "3 points: 1 for comparing duties/conditions rather than titles alone; 1 for checking an entry or credential step using current profile/regulator/program evidence; 1 for a specific uncertainty or trigger that would keep/revise the backup. Reward clearly labelled unknowns.",
+          "level": "reasoning",
+          "points": 3
+        },
+        {
+          "id": "T1-B-Q18",
+          "type": "written",
+          "prompt": "A learner values predictable hours but is interested in emergency services. Propose a privacy-safe research plan to test fit without assuming every job in a cluster is the same.",
+          "markingGuide": "3 points: 1 for comparing at least two actual roles’ schedules/duties; 1 for checking entry/training through current official sources; 1 for naming a safe next step (profile review, school-approved Q&A, or scenario practice) and keeping the conclusion provisional.",
+          "level": "reasoning",
+          "points": 3
+        },
+        {
+          "id": "T1-B-Q19",
+          "type": "written",
+          "prompt": "A fictional shift note shows an unexpected schedule change and a missed break entry. Explain what should be compared and how the learner can ask about it.",
+          "markingGuide": "3 points: 1 for aligning dates and actual hours/break evidence; 1 for a factual question to employer/payroll; 1 for checking current Alberta Employment Standards guidance or appropriate adult/official support, avoiding a premature legal conclusion.",
+          "level": "reasoning",
+          "points": 3
+        },
+        {
+          "id": "T1-B-Q20",
+          "type": "written",
+          "prompt": "A coworker suggests entering a locked room to retrieve supplies, but the learner has no authorization and a visitor is waiting. Write a safe, professional response.",
+          "markingGuide": "3 points: 1 for not entering or bypassing access controls; 1 for explaining the task/deadline to the authorized supervisor and requesting approved help; 1 for protecting visitor information and proposing a safe alternative without making a false claim.",
+          "level": "reasoning",
+          "points": 3
+        }
+      ]
+    },
+    {
+      "id": "T2-A",
+      "items": [
+        {
+          "id": "T2-A-Q01",
+          "type": "mc",
+          "prompt": "A fictional pay statement shows $312 gross earnings and $41 total deductions. What is net pay?",
+          "choices": [
+            "$353",
+            "$271",
+            "$41",
+            "$312"
+          ],
+          "correctIndex": 1,
+          "rationale": "Net = gross − deductions = $312 − $41 = $271.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T2-A-Q02",
+          "type": "mc",
+          "prompt": "A learner wants a $240 item in 6 weeks and has $60 set aside. Ignoring other costs, what weekly saving amount reaches the target?",
+          "choices": [
+            "$20",
+            "$40",
+            "$50",
+            "$30"
+          ],
+          "correctIndex": 3,
+          "rationale": "The gap is $240 − $60 = $180; $180 ÷ 6 = $30 per week.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T2-A-Q03",
+          "type": "mc",
+          "prompt": "A fictional phone offer is $35 per month for 18 months plus a one-time $45 fee. What is the stated contract cost before optional use charges?",
+          "choices": [
+            "$630",
+            "$585",
+            "$675",
+            "$45"
+          ],
+          "correctIndex": 2,
+          "rationale": "18 × $35 = $630; add the $45 fee for $675. Optional charges are excluded.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T2-A-Q04",
+          "type": "mc",
+          "prompt": "Two advertisements show the same monthly payment, but one runs for 24 months and the other for 36 months. What should be compared next?",
+          "choices": [
+            "Total payments, fees, included services, and cancellation/return terms.",
+            "Only the larger font.",
+            "Only the first month.",
+            "Whether a friend has the same phone."
+          ],
+          "correctIndex": 0,
+          "rationale": "Equal monthly payments do not mean equal total cost or terms.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T2-A-Q05",
+          "type": "mc",
+          "prompt": "A fictional bike costs $460. A learner has $130 and saves $35 weekly for 8 weeks. How much will they have before fees or price changes?",
+          "choices": [
+            "$280",
+            "$460",
+            "$410",
+            "$590"
+          ],
+          "correctIndex": 2,
+          "rationale": "$130 + (8 × $35) = $410 before other costs.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T2-A-Q06",
+          "type": "mc",
+          "prompt": "A store says “$20 per month” but requires 30 payments and a $35 setup fee. What is the minimum stated total?",
+          "choices": [
+            "$600",
+            "$655",
+            "$20",
+            "$635"
+          ],
+          "correctIndex": 3,
+          "rationale": "30 × $20 = $600; plus $35 gives $635, before any other terms.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T2-A-Q07",
+          "type": "mc",
+          "prompt": "A purchase contract says a promotional price ends after month 3, then the regular monthly price applies. What is the key next step?",
+          "choices": [
+            "Multiply the promotional price by the whole contract.",
+            "Calculate the full term using each period’s price and check cancellation terms.",
+            "Assume the seller will extend the promotion.",
+            "Ignore the end date."
+          ],
+          "correctIndex": 1,
+          "rationale": "The total must use the actual schedule and terms, not the initial promotion alone.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T2-A-Q08",
+          "type": "mc",
+          "prompt": "A fictional budget has $520 available after income. Listed essentials total $347 and a planned-cost transfer is $48. What remains for other goals and optional spending?",
+          "choices": [
+            "$173",
+            "$395",
+            "$125",
+            "$221"
+          ],
+          "correctIndex": 2,
+          "rationale": "$520 − $347 − $48 = $125.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T2-A-Q09",
+          "type": "mc",
+          "prompt": "A friend suggests using a high-interest loan to preserve a concert date. Which question should come before borrowing?",
+          "choices": [
+            "What is the total repayment and how does the payment fit after essential expenses?",
+            "Can the lender approve instantly?",
+            "Will the concert photo look good?",
+            "Can the loan be hidden from the budget?"
+          ],
+          "correctIndex": 0,
+          "rationale": "Borrowing should be assessed by total cost, repayment timing, and affordable cash flow.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T2-A-Q10",
+          "type": "mc",
+          "prompt": "A fictional loan is $500 with 6 equal payments of $92 and a $12 fee. What is the total repayment and borrowing cost?",
+          "choices": [
+            "$564 repayment; $64 cost",
+            "$552 repayment; $52 cost",
+            "$512 repayment; $12 cost",
+            "$564 repayment; $500 cost"
+          ],
+          "correctIndex": 0,
+          "rationale": "Payments total 6 × $92 = $552; add $12 fee = $564 total. Cost above the $500 principal is $64.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T2-A-Q11",
+          "type": "mc",
+          "prompt": "A variable-rate loan offer says payments may change. What should a borrower inspect?",
+          "choices": [
+            "Only the initial payment.",
+            "How a rate change affects payment or term, fees, and what happens if payment rises.",
+            "A guaranteed future rate from an advertisement.",
+            "Whether the lender’s logo looks official."
+          ],
+          "correctIndex": 1,
+          "rationale": "A variable rate creates uncertainty; understand the contractual adjustment and affordability.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T2-A-Q12",
+          "type": "mc",
+          "prompt": "Two loans both lend $800. Offer A requires $72 × 12 plus a $25 fee; Offer B requires $56 × 16 and no fee. Which statement is correct?",
+          "choices": [
+            "A costs $864; B costs $800.",
+            "A costs $889 total; B costs $896 total, but A has the higher scheduled payment.",
+            "B costs less and has fewer payments.",
+            "Both cost exactly $800."
+          ],
+          "correctIndex": 1,
+          "rationale": "A: 12×72+25=$889. B: 16×56=$896. A costs $7 less overall but has a $16 higher payment.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T2-A-Q13",
+          "type": "mc",
+          "prompt": "A learner compares a cash purchase with a financing offer. Which comparison is complete?",
+          "choices": [
+            "Cash price versus first monthly payment only.",
+            "Only the advertised interest rate.",
+            "Only the size of the item.",
+            "Cash price versus all instalments plus mandatory fees and any required add-ons."
+          ],
+          "correctIndex": 3,
+          "rationale": "Total cost includes the complete payment stream and mandatory costs; the rate alone can omit fees or conditions.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T2-A-Q14",
+          "type": "mc",
+          "prompt": "An online ad claims “free trial,” then starts billing unless cancelled by a stated date. Which action is strongest?",
+          "choices": [
+            "Assume “free” means no later cost.",
+            "Share payment details with a caller who offers to cancel.",
+            "Record the billing start, cancellation method/deadline, and total after trial before enrolling.",
+            "Ignore the renewal terms."
+          ],
+          "correctIndex": 2,
+          "rationale": "The trial has conditions; the learner should understand timing and cancellation before agreeing.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T2-A-Q15",
+          "type": "mc",
+          "prompt": "A budget becomes short after a fictional $90 repair. Which response best shows reasoning?",
+          "choices": [
+            "Show the new gap and compare changing a flexible cost, timeline, or goal before borrowing.",
+            "Hide the repair from the budget.",
+            "Assume it will never happen again.",
+            "Use savings that are already assigned to a bill without checking."
+          ],
+          "correctIndex": 0,
+          "rationale": "A changed case should be recalculated and revised transparently before adding borrowing risk.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T2-A-Q16",
+          "type": "mc",
+          "prompt": "A fictional learner uses $200 of their own money plus an $800 loan to buy a $1,000 investment. A year later it is worth $900, and the loan requires $840 repayment. What remains after repaying the loan?",
+          "choices": [
+            "$900 remains because the investment is still valuable.",
+            "$160 remains because only the interest is deducted.",
+            "$200 remains because the learner’s own money is protected.",
+            "$60 remains; this is $140 less than the learner’s original $200."
+          ],
+          "correctIndex": 3,
+          "rationale": "The investment is worth $900, then $840 must repay the lender, leaving $60. The learner’s own $200 has fallen by $140 in this simplified borrowing-to-invest case.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T2-A-Q17",
+          "type": "written",
+          "prompt": "Annotate a fictional pay statement with $468 gross pay, $22 income-tax withholding, $18 in another listed deduction, and $7 in a voluntary benefit. Calculate net pay, identify one question the statement cannot answer, and suggest a safe check.",
+          "markingGuide": "3 points: 1 for correct total deductions ($47) and net ($421); 1 for stating that labels/amounts alone do not prove hours, eligibility, or correctness; 1 for comparing the pay period/hours/agreement and asking payroll or checking current official guidance. All amounts are fictional.",
+          "level": "reasoning",
+          "points": 3
+        },
+        {
+          "id": "T2-A-Q18",
+          "type": "written",
+          "prompt": "Compare two fictional phone offers: A is $32 monthly for 24 months plus $60 activation; B is $40 monthly for 18 months with activation included. Calculate each stated total and recommend one based on total cost and one non-price term to verify.",
+          "markingGuide": "3 points: 1 for A = 24×32+60 = $828; 1 for B = 18×40 = $720; 1 for a recommendation tied to the stated priority plus a relevant term to verify (data, cancellation, device return, tax/other charges). Do not claim either is universally better.",
+          "level": "reasoning",
+          "points": 3
+        },
+        {
+          "id": "T2-A-Q19",
+          "type": "written",
+          "prompt": "A fictional borrower needs $700. Offer X is 10 payments of $78 plus a $20 fee; Offer Y is 14 payments of $57 with no fee. Calculate total cost above principal for each, compare scheduled payment pressure, and recommend what else to check.",
+          "markingGuide": "3 points: 1 for X total $800/cost $100; 1 for Y total $798/cost $98 and noting Y’s lower scheduled payment but longer term; 1 for naming contract/rate/late fee/prepayment or cash-flow checks and explaining that lowest total alone does not establish affordability.",
+          "level": "reasoning",
+          "points": 3
+        },
+        {
+          "id": "T2-A-Q20",
+          "type": "written",
+          "prompt": "A fictional monthly budget has $1,150 income, $730 essential costs, $120 planned-cost saving, and a new $95 repair. Recalculate what remains and name two possible adjustments before considering borrowing.",
+          "markingGuide": "3 points: 1 for calculating $1,150−$730−$120 = $300 before the repair and $300−$95 = $205 after it; 1 for a feasible revision (flexible spending, goal amount, or timeline) without double-counting; 1 for explaining that borrowing adds repayment cost and should be compared only after terms and affordability are checked.",
+          "level": "reasoning",
+          "points": 3
+        }
+      ]
+    },
+    {
+      "id": "T2-B",
+      "items": [
+        {
+          "id": "T2-B-Q01",
+          "type": "mc",
+          "prompt": "A fictional pay statement lists $396 gross earnings and $54 in total listed deductions. What is the deposit amount in this example?",
+          "choices": [
+            "$450",
+            "$54",
+            "$396",
+            "$342"
+          ],
+          "correctIndex": 3,
+          "rationale": "$396 − $54 = $342 net pay, assuming no other adjustment or payment method.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T2-B-Q02",
+          "type": "mc",
+          "prompt": "A learner plans a fictional $315 purchase in 9 weeks and already has $90. What weekly amount fills the gap, before other costs?",
+          "choices": [
+            "$35",
+            "$25",
+            "$45",
+            "$90"
+          ],
+          "correctIndex": 1,
+          "rationale": "The gap is $225; $225 ÷ 9 = $25 weekly.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T2-B-Q03",
+          "type": "mc",
+          "prompt": "A fictional transit pass costs $72 monthly for 5 months, plus a $18 card fee. What is the listed total?",
+          "choices": [
+            "$360",
+            "$342",
+            "$378",
+            "$90"
+          ],
+          "correctIndex": 2,
+          "rationale": "5 × $72 + $18 = $378.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T2-B-Q04",
+          "type": "mc",
+          "prompt": "A contract lists $18 per week for 40 weeks and a $30 setup fee. What is the total scheduled amount?",
+          "choices": [
+            "$720",
+            "$690",
+            "$48",
+            "$750"
+          ],
+          "correctIndex": 3,
+          "rationale": "$18 × 40 = $720; plus $30 = $750.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T2-B-Q05",
+          "type": "mc",
+          "prompt": "A learner has $600 after income. Essential expenses are $382 and a planned-cost transfer is $75. What remains?",
+          "choices": [
+            "$143",
+            "$218",
+            "$293",
+            "$457"
+          ],
+          "correctIndex": 0,
+          "rationale": "$600 − $382 − $75 = $143.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T2-B-Q06",
+          "type": "mc",
+          "prompt": "A fictional membership says “$9 introductory month” followed by 11 months at $24. What is the stated 12-month total?",
+          "choices": [
+            "$108",
+            "$273",
+            "$264",
+            "$288"
+          ],
+          "correctIndex": 1,
+          "rationale": "$9 + (11 × $24) = $273.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T2-B-Q07",
+          "type": "mc",
+          "prompt": "A purchase’s mandatory delivery fee appears only on the final checkout screen. What comparison should a learner make?",
+          "choices": [
+            "Only the advertised price.",
+            "Only delivery cost.",
+            "Advertised price versus checkout total, then save both screens and review terms.",
+            "Price after asking a friend."
+          ],
+          "correctIndex": 2,
+          "rationale": "The final mandatory cost affects the full price impression; preserve the evidence and review the terms.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T2-B-Q08",
+          "type": "mc",
+          "prompt": "A learner has a fixed date for a required item. Which budget line is most helpful?",
+          "choices": [
+            "An annual total with no dates.",
+            "A guessed future income bonus.",
+            "A spending category called “whatever is left.”",
+            "The item’s target amount and due date, compared with deposits available before then."
+          ],
+          "correctIndex": 3,
+          "rationale": "Timing matters: funds must arrive before the commitment.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T2-B-Q09",
+          "type": "mc",
+          "prompt": "A borrower can pay $65 weekly or $280 monthly for a fictional loan. What must be known before comparing payment burden?",
+          "choices": [
+            "Number of payments, term, fees, and full repayment total for each schedule.",
+            "Only which number looks smaller.",
+            "The number of online reviews.",
+            "Whether the schedule is called weekly."
+          ],
+          "correctIndex": 0,
+          "rationale": "Different frequencies and terms can make a small payment more costly overall.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T2-B-Q10",
+          "type": "mc",
+          "prompt": "A fictional $900 loan has 15 payments of $68 and a $30 fee. What is total repayment and cost above principal?",
+          "choices": [
+            "$1,020 total; $120 cost",
+            "$1,050 total; $150 cost",
+            "$930 total; $30 cost",
+            "$1,050 total; $900 cost"
+          ],
+          "correctIndex": 1,
+          "rationale": "15 × $68 = $1,020; plus $30 fee = $1,050. Cost above $900 principal is $150.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T2-B-Q11",
+          "type": "mc",
+          "prompt": "A loan contract says an extra payment may be applied to fees first. Why does this matter?",
+          "choices": [
+            "It can change how quickly principal falls and the total cost; verify the allocation terms.",
+            "It proves extra payment is always harmful.",
+            "It removes the original contract.",
+            "It guarantees the rate will fall."
+          ],
+          "correctIndex": 0,
+          "rationale": "Payment allocation affects remaining balance and potential cost; inspect the contract rather than assume.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T2-B-Q12",
+          "type": "mc",
+          "prompt": "A fictional appliance costs $540 cash. A payment plan totals 18 × $34 plus a $25 fee. How much higher is the plan’s total than cash?",
+          "choices": [
+            "$25",
+            "$612",
+            "$637",
+            "$97"
+          ],
+          "correctIndex": 3,
+          "rationale": "Payment plan total is 18×34+25=$637; $637−$540=$97.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T2-B-Q13",
+          "type": "mc",
+          "prompt": "Which choice is a planned cost rather than an unexpected emergency in a budget example?",
+          "choices": [
+            "A sudden essential repair after an accident.",
+            "A surprise loss of income.",
+            "A school fee due every September.",
+            "An urgent safety-related replacement."
+          ],
+          "correctIndex": 2,
+          "rationale": "A recurring dated school fee is foreseeable and can be planned, although circumstances still matter.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T2-B-Q14",
+          "type": "mc",
+          "prompt": "A friend says borrowing is harmless because the monthly payment fits. What else must be checked?",
+          "choices": [
+            "Only whether the lender approves.",
+            "Total repayment, fees, term, and whether payment remains affordable after essentials.",
+            "Whether the amount is round.",
+            "Whether another friend borrowed."
+          ],
+          "correctIndex": 1,
+          "rationale": "A payment can fit while the full cost or term remains unsuitable.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T2-B-Q15",
+          "type": "mc",
+          "prompt": "A person faces a new $120 fictional expense and the budget has $85 flexible surplus. What is the immediate gap?",
+          "choices": [
+            "$35",
+            "$85",
+            "$120",
+            "$205"
+          ],
+          "correctIndex": 0,
+          "rationale": "$120 − $85 = $35 gap before any other adjustment or source.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T2-B-Q16",
+          "type": "mc",
+          "prompt": "A fictional learner borrows $500 to invest it. In a simple one-year case, the investment falls 10% to $450, while the loan requires $540 repayment. What is the remaining gap?",
+          "choices": [
+            "$0; the lender shares the investment loss.",
+            "$40; only the interest matters.",
+            "$90, which must be covered even after the investment loss.",
+            "$50; only the change in investment value matters."
+          ],
+          "correctIndex": 2,
+          "rationale": "The investment value of $450 is $90 short of the $540 owed. The investment loss does not cancel the debt.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T2-B-Q17",
+          "type": "written",
+          "prompt": "A fictional pay record shows $525 gross, $31 withholding, and $16 in another deduction. Calculate net pay and identify two checks before treating it as correct.",
+          "markingGuide": "3 points: 1 for total listed deductions $47 and net $478; 1 for checking matching pay-period dates and hours/rate; 1 for asking payroll or consulting current official guidance about a specific deduction, noting the fictional lines do not establish real tax/benefit rules.",
+          "level": "reasoning",
+          "points": 3
+        },
+        {
+          "id": "T2-B-Q18",
+          "type": "written",
+          "prompt": "Compare two fictional purchase plans for a $480 item: Plan A is 12 × $43 plus a $10 fee; Plan B is 8 × $59 with no fee. Calculate both totals and explain one trade-off beyond total cost.",
+          "markingGuide": "3 points: 1 for A = $526; 1 for B = $472; 1 for noting B has higher payment but lower total, or another accurate trade-off such as term/cancellation/access. Values are illustrative.",
+          "level": "reasoning",
+          "points": 3
+        },
+        {
+          "id": "T2-B-Q19",
+          "type": "written",
+          "prompt": "A fictional $1,000 loan offer requires 20 payments of $57 and a $15 fee. Calculate total repayment and cost above principal. If another offer has a lower total but a larger payment, name the comparison needed before recommending.",
+          "markingGuide": "3 points: 1 for total 20×57+15=$1,155; 1 for cost above principal $155; 1 for comparing payment timing/affordability, term, fees, and contract conditions rather than using total alone.",
+          "level": "reasoning",
+          "points": 3
+        },
+        {
+          "id": "T2-B-Q20",
+          "type": "written",
+          "prompt": "A fictional budget has $940 income, $610 essential costs, $85 planned-cost saving, and a $110 unexpected repair. Calculate the remaining amount after the repair and name one revision and one borrowing question.",
+          "markingGuide": "3 points: 1 for $940−610−85=$245 before repair and $135 after; 1 for a feasible revision (adjust flexible spending, goal amount, or timing); 1 for one borrowing check such as full repayment/fees/payment affordability, without assuming borrowing is required.",
+          "level": "reasoning",
+          "points": 3
+        }
+      ]
+    },
+    {
+      "id": "T3-A",
+      "items": [
+        {
+          "id": "T3-A-Q01",
+          "type": "mc",
+          "prompt": "A fictional learner sets aside $28 weekly for 10 weeks, starting with $40. What is the planned total before costs or changes?",
+          "choices": [
+            "$280",
+            "$440",
+            "$320",
+            "$68"
+          ],
+          "correctIndex": 2,
+          "rationale": "Starting $40 + (10 × $28) = $320.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T3-A-Q02",
+          "type": "mc",
+          "prompt": "Which statement best distinguishes an account from an investment product?",
+          "choices": [
+            "An account is the holding/access arrangement; an investment is an asset with its own risks and terms.",
+            "They always guarantee the same return.",
+            "The account name proves the product cannot lose value.",
+            "Every account can hold every product."
+          ],
+          "correctIndex": 0,
+          "rationale": "The arrangement and the asset are distinct; verify eligibility and terms.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T3-A-Q03",
+          "type": "mc",
+          "prompt": "A fictional basket costs $200 at baseline and $210 in a scenario. A balance rises from $200 to $205. What does $205 ÷ $210 tell you?",
+          "choices": [
+            "The official inflation rate is 2.5%.",
+            "The account earned a guaranteed 2.5% return.",
+            "About 97.6% of one later fictional basket is affordable.",
+            "The new basket costs $5 less."
+          ],
+          "correctIndex": 2,
+          "rationale": "$205 ÷ $210 ≈ 0.976, a narrow purchasing-power comparison for the fictional basket; no official rate or return is implied.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T3-A-Q04",
+          "type": "mc",
+          "prompt": "A fictional $400 value falls by 10% in a scenario. What is the resulting amount before fees or other changes?",
+          "choices": [
+            "$390",
+            "$360",
+            "$440",
+            "$40"
+          ],
+          "correctIndex": 1,
+          "rationale": "10% of $400 is $40; $400−$40=$360.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T3-A-Q05",
+          "type": "mc",
+          "prompt": "A learner needs funds in three months for a required purchase. Which risk question is most relevant?",
+          "choices": [
+            "What was the investment’s highest past value?",
+            "Which product has the most complicated name?",
+            "Could the value or access change before the due date?",
+            "Can the learner assume a positive result?"
+          ],
+          "correctIndex": 2,
+          "rationale": "Short time horizon makes access and possible decline especially relevant.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T3-A-Q06",
+          "type": "mc",
+          "prompt": "An online account alert arrives, but the learner did not sign in. A text asks for the code. What should happen?",
+          "choices": [
+            "Send the code to stop the alerts.",
+            "Click the text link and enter the old password.",
+            "Post the code to ask the class.",
+            "Do not share the code; independently open the official service and review account security."
+          ],
+          "correctIndex": 3,
+          "rationale": "A verification code can grant access; use a separately located official route.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T3-A-Q07",
+          "type": "mc",
+          "prompt": "A caller says they are from CRA and the caller ID looks official. Which response is accurate?",
+          "choices": [
+            "CRA may call, but caller ID is not proof; end and independently verify if unsure.",
+            "CRA never calls anyone.",
+            "A matching caller ID proves authenticity.",
+            "Share a password to confirm identity."
+          ],
+          "correctIndex": 0,
+          "rationale": "CRA can contact people; caller ID can be spoofed, so use current official verification guidance. Never share passwords.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T3-A-Q08",
+          "type": "mc",
+          "prompt": "A fictional email threatens arrest unless a gift-card code is sent within ten minutes. Which feature most strongly signals risk?",
+          "choices": [
+            "A greeting with the person’s name.",
+            "A spelling mistake alone.",
+            "The fact that the email arrived on a weekday.",
+            "Threat plus urgent unusual payment demand."
+          ],
+          "correctIndex": 3,
+          "rationale": "Threats and gift-card/urgent payment demands are strong scam indicators; verify independently and do not pay.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T3-A-Q09",
+          "type": "mc",
+          "prompt": "A student entered a reused password on a look-alike site but did not pay. What is a strong next action?",
+          "choices": [
+            "From a trusted device, independently access the real service, change the exposed/reused password, and check sessions.",
+            "Wait for money to disappear.",
+            "Reply asking the sender to delete the password.",
+            "Use the same password with a different symbol only on one site."
+          ],
+          "correctIndex": 0,
+          "rationale": "Credential exposure creates risk before visible money loss; secure the service and reused accounts.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T3-A-Q10",
+          "type": "mc",
+          "prompt": "A transfer to a suspected scammer has just been sent. Which action should be prompt?",
+          "choices": [
+            "Pay a recovery agent’s upfront fee.",
+            "Wait for the CAFC to reverse it.",
+            "Contact the sending financial institution using independently obtained official details.",
+            "Message the recipient your banking password."
+          ],
+          "correctIndex": 2,
+          "rationale": "The payment institution may explain immediate protective or dispute steps. CAFC is not a refund service.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T3-A-Q11",
+          "type": "mc",
+          "prompt": "What should a person preserve after a suspected scam?",
+          "choices": [
+            "Only a screenshot showing a full password.",
+            "Message copy, sender details, dates, receipts, and contact reference numbers stored securely.",
+            "The link opened repeatedly.",
+            "Nothing, because evidence never helps."
+          ],
+          "correctIndex": 1,
+          "rationale": "Secure evidence can help the institution or investigators understand the event; do not expose credentials or reopen the link.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T3-A-Q12",
+          "type": "mc",
+          "prompt": "A student sees “free for 30 days,” then monthly billing in the terms. What is the best action before enrolling?",
+          "choices": [
+            "Check the start date, renewal/cancellation method, deadline, and post-trial cost.",
+            "Assume the service stays free.",
+            "Share the password with the advertiser.",
+            "Ignore terms because the headline says free."
+          ],
+          "correctIndex": 0,
+          "rationale": "The full offer includes renewal conditions; understand them before agreeing.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T3-A-Q13",
+          "type": "mc",
+          "prompt": "A seller’s headline promises an all-in price, but checkout adds a mandatory fee. What is the most useful first record?",
+          "choices": [
+            "Only the seller logo.",
+            "A classmate’s memory.",
+            "A public post showing payment details.",
+            "Save the ad, checkout amount, terms, receipt, and date."
+          ],
+          "correctIndex": 3,
+          "rationale": "Preserve both the claim and actual transaction evidence, while protecting private payment information.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T3-A-Q14",
+          "type": "mc",
+          "prompt": "Which statement about Alberta’s Consumer Investigations Unit is careful?",
+          "choices": [
+            "It always recovers losses.",
+            "It may investigate potential Alberta consumer-law violations, but does not guarantee a refund or mediate every dispute.",
+            "It investigates every scam text and call.",
+            "It approves all ads before publication."
+          ],
+          "correctIndex": 1,
+          "rationale": "Its mandate is limited; do not promise loss recovery or misstate scam-reporting roles.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T3-A-Q15",
+          "type": "mc",
+          "prompt": "A “recovery expert” asks a scam victim for $50 upfront and promises all money back. What is safest?",
+          "choices": [
+            "Pay because the amount is small.",
+            "Send identity documents so they can help.",
+            "Give remote access to the device.",
+            "Do not pay or grant access; independently contact known institutions and report the recovery attempt."
+          ],
+          "correctIndex": 3,
+          "rationale": "Guaranteed recovery and upfront fees are warning signs; CAFC warns victims may be targeted again.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T3-A-Q16",
+          "type": "mc",
+          "prompt": "A learner is preparing an investment scenario with a positive and negative outcome. What must the explanation say?",
+          "choices": [
+            "The positive result is the expected result.",
+            "Both are illustrative assumptions, not guaranteed or predicted returns.",
+            "The negative result cannot happen over long periods.",
+            "Past performance proves future value."
+          ],
+          "correctIndex": 1,
+          "rationale": "Scenario testing explores possible consequences; it does not forecast or guarantee outcomes.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T3-A-Q17",
+          "type": "written",
+          "prompt": "A fictional savings goal is $540 in 9 months. The learner has $135 and can contribute $40 per month. Calculate the projected amount without growth, the gap/surplus, and one revision.",
+          "markingGuide": "3 points: 1 for $135 + 9×$40 = $495; 1 for identifying a $45 shortfall; 1 for a feasible revision such as $5 more per month if affordable, timeline extension, or target adjustment, with assumptions stated.",
+          "level": "reasoning",
+          "points": 3
+        },
+        {
+          "id": "T3-A-Q18",
+          "type": "written",
+          "prompt": "A fictional learner has $500 for a goal in 18 months. In a stress test, compare −12%, 0%, and +5% outcomes on that amount before fees, tax, inflation, or contributions. Explain why none is a forecast and what the time horizon requires them to consider.",
+          "markingGuide": "3 points: 1 for correct outcomes $440, $500, $525; 1 for explicitly labelling all rates as fictional scenarios, not promises; 1 for discussing access/time horizon and possible loss near the needed date.",
+          "level": "reasoning",
+          "points": 3
+        },
+        {
+          "id": "T3-A-Q19",
+          "type": "written",
+          "prompt": "A fictional student receives a message claiming to be CRA and requesting a one-time code. Write a safe verification sequence and explain why neither “CRA never calls” nor caller ID is enough to decide.",
+          "markingGuide": "3 points: 1 for not sharing code/password and pausing; 1 for requesting caller name/office/callback if appropriate, ending contact, and verifying through the official CRA tool/Canada.ca route; 1 for stating CRA may call but caller ID can be spoofed. No real tax details.",
+          "level": "reasoning",
+          "points": 3
+        },
+        {
+          "id": "T3-A-Q20",
+          "type": "written",
+          "prompt": "A fictional person transferred money after a scam and entered a reused password. Give a prioritized response, two reporting/contact routes, and one limit on what those routes can promise.",
+          "markingGuide": "3 points: 1 for prompt independent contact with sending institution and account security/password changes; 1 for preserving evidence and contacting local police if victimized plus reporting to CAFC; 1 for explaining reports do not guarantee reimbursement and rejecting recovery fees.",
+          "level": "reasoning",
+          "points": 3
+        }
+      ]
+    },
+    {
+      "id": "T3-B",
+      "items": [
+        {
+          "id": "T3-B-Q01",
+          "type": "mc",
+          "prompt": "A fictional learner starts with $75 and saves $22 per week for 11 weeks. What is the planned amount before costs or changes?",
+          "choices": [
+            "$317",
+            "$242",
+            "$75",
+            "$339"
+          ],
+          "correctIndex": 0,
+          "rationale": "$75 + (11 × $22) = $317. This is a plan total, not a promised account balance.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T3-B-Q02",
+          "type": "mc",
+          "prompt": "A learner’s goal is due in six weeks. Why should the plan include an access check?",
+          "choices": [
+            "Every account has identical access.",
+            "A high advertised return guarantees access.",
+            "Past performance proves today’s withdrawal terms.",
+            "A product may have withdrawal timing, limits, fees, or value changes that affect the due date."
+          ],
+          "correctIndex": 3,
+          "rationale": "The terms and risk must fit when funds are needed; account labels alone do not answer this.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T3-B-Q03",
+          "type": "mc",
+          "prompt": "A fictional price basket moves from $80 to $84, while a balance rises from $80 to $82. What is the best interpretation?",
+          "choices": [
+            "The official inflation rate was exactly 5%.",
+            "The balance guaranteed a 2.5% real return.",
+            "Nominal dollars rose, but $82 buys less than one of the later $84 baskets.",
+            "The later basket is cheaper."
+          ],
+          "correctIndex": 2,
+          "rationale": "$82 is less than $84, so it buys less than one stated basket. Values are hypothetical and do not establish an official measure.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T3-B-Q04",
+          "type": "mc",
+          "prompt": "A fictional balance of $650 falls by 8% in a scenario. What is the scenario value before other factors?",
+          "choices": [
+            "$642",
+            "$598",
+            "$702",
+            "$52"
+          ],
+          "correctIndex": 1,
+          "rationale": "8% of $650 is $52; $650−$52=$598.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T3-B-Q05",
+          "type": "mc",
+          "prompt": "A learner sees an investment’s positive past result in an advertisement. What conclusion is justified?",
+          "choices": [
+            "It describes a past period; it does not guarantee a future result.",
+            "The next year’s value is guaranteed to rise.",
+            "The product has no fees.",
+            "It will be suitable for a short-term goal."
+          ],
+          "correctIndex": 0,
+          "rationale": "Historical performance is not a promise and says nothing by itself about fees or suitability.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T3-B-Q06",
+          "type": "mc",
+          "prompt": "A friend asks to borrow a one-time sign-in code to “fix” an account. What should the learner do?",
+          "choices": [
+            "Send it if the friend knows the username.",
+            "Read it aloud in class.",
+            "Put it in a shared document.",
+            "Keep the code private and contact the service independently if there is a problem."
+          ],
+          "correctIndex": 3,
+          "rationale": "A code may authorize access; do not share it, even with a familiar person, without official reason.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T3-B-Q07",
+          "type": "mc",
+          "prompt": "A caller claims to be CRA and says caller ID proves it. Which response is most accurate?",
+          "choices": [
+            "CRA never calls under any circumstances.",
+            "Caller ID cannot be spoofed.",
+            "CRA can call, but caller ID is not proof; independently verify if uncertain.",
+            "Give the caller a password to confirm identity."
+          ],
+          "correctIndex": 2,
+          "rationale": "CRA may contact people; the safer rule is independent verification, not a blanket claim. Never share a password.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T3-B-Q08",
+          "type": "mc",
+          "prompt": "A text says an account will close in 5 minutes unless the learner transfers money to a “safe account.” What is the best first action?",
+          "choices": [
+            "Transfer quickly to prevent loss.",
+            "Pause; do not transfer or use the supplied link; independently contact the institution.",
+            "Ask the sender for a bigger discount.",
+            "Share an authentication code first."
+          ],
+          "correctIndex": 1,
+          "rationale": "Urgency and a safe-account transfer request are strong red flags; verify using independently found contact details.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T3-B-Q09",
+          "type": "mc",
+          "prompt": "A learner entered a card number on a suspicious page and sees an unfamiliar charge. Which response should come first?",
+          "choices": [
+            "Contact the card issuer/payment provider immediately using the official number/app obtained independently.",
+            "Wait until next month’s statement.",
+            "Reply with a password to the sender.",
+            "Post the full card number to a class forum."
+          ],
+          "correctIndex": 0,
+          "rationale": "Prompt contact can help secure the payment route; protect the card details and follow the issuer’s instructions.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T3-B-Q10",
+          "type": "mc",
+          "prompt": "A person’s identity details may have been exposed. Which action is appropriate?",
+          "choices": [
+            "Contact affected organizations and ask the credit bureaus about current fraud-alert steps.",
+            "Assume one password change fixes every identity risk.",
+            "Publish the exposed details to warn others.",
+            "Pay an online recovery agent."
+          ],
+          "correctIndex": 0,
+          "rationale": "Identity exposure may require provider and credit-monitoring actions; use official channels and current steps.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T3-B-Q11",
+          "type": "mc",
+          "prompt": "What does a report to the Canadian Anti-Fraud Centre do?",
+          "choices": [
+            "It automatically reverses every transfer.",
+            "It records fraud/cybercrime information and supports information sharing/investigations; it does not promise repayment.",
+            "It replaces the financial institution call.",
+            "It guarantees a police investigation."
+          ],
+          "correctIndex": 1,
+          "rationale": "CAFC collects reports and supports investigations, but is not a refund service or substitute for securing accounts.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T3-B-Q12",
+          "type": "mc",
+          "prompt": "Which scenario should be treated as a planned cost in a fictional budget?",
+          "choices": [
+            "An unexpected urgent repair.",
+            "A sudden income loss.",
+            "A predictable annual course fee due on a known date.",
+            "A new unknown card charge."
+          ],
+          "correctIndex": 2,
+          "rationale": "A known annual fee can be scheduled as a planned cost rather than routinely using an emergency buffer.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T3-B-Q13",
+          "type": "mc",
+          "prompt": "A seller advertises “all included” but adds a required service fee at checkout. What is a careful conclusion?",
+          "choices": [
+            "The seller has definitely committed a crime.",
+            "The fee is irrelevant because it appears somewhere.",
+            "The learner is guaranteed a refund.",
+            "Save both screens and assess the overall impression; this may raise a misleading-practice concern but is not a legal finding by itself."
+          ],
+          "correctIndex": 3,
+          "rationale": "Compare the claim and complete transaction evidence while avoiding a premature legal conclusion or refund promise.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T3-B-Q14",
+          "type": "mc",
+          "prompt": "Which action helps secure an account after a password was reused and exposed?",
+          "choices": [
+            "Change only one letter on the original account.",
+            "Change it on the affected service and every service where the same password was used; review sessions.",
+            "Wait for the next login alert.",
+            "Send the password to the bank."
+          ],
+          "correctIndex": 1,
+          "rationale": "Reused credentials can expose multiple accounts; use unique passwords and review account access.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T3-B-Q15",
+          "type": "mc",
+          "prompt": "A recovery service asks for a remote-access app and promises a full refund. What is safest?",
+          "choices": [
+            "Install it if the caller sounds confident.",
+            "Share the sign-in code to test the service.",
+            "Decline access/payment and verify through the institution or authorities already contacted.",
+            "Pay a smaller fee first."
+          ],
+          "correctIndex": 2,
+          "rationale": "Guaranteed recovery, remote access, and payment demands can signal a second fraud.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T3-B-Q16",
+          "type": "mc",
+          "prompt": "A fictional goal has $250 saved, and the plan adds $30 monthly for 7 months. What is the planned total without growth?",
+          "choices": [
+            "$210",
+            "$280",
+            "$520",
+            "$460"
+          ],
+          "correctIndex": 3,
+          "rationale": "$250 + (7 × $30) = $460; no interest or investment growth is assumed.",
+          "level": "application",
+          "points": 1
+        },
+        {
+          "id": "T3-B-Q17",
+          "type": "written",
+          "prompt": "A fictional goal costs $720 in 12 months. The learner has $180 and can contribute $42 monthly. Calculate the no-growth total and shortfall, then propose a revision that does not assume a guaranteed return.",
+          "markingGuide": "3 points: 1 for $180 + 12×$42 = $684; 1 for $36 shortfall; 1 for a feasible revision (add $3/month if affordable, extend timeline, reduce target, or identify another verified route) and explicitly not relying on guaranteed investment growth.",
+          "level": "reasoning",
+          "points": 3
+        },
+        {
+          "id": "T3-B-Q18",
+          "type": "written",
+          "prompt": "A fictional learner models $900 over one year using −10%, 0%, and +4% scenarios, excluding fees, tax, inflation, and contributions. Calculate the three outcomes and explain one planning implication.",
+          "markingGuide": "3 points: 1 for $810, $900, and $936; 1 for stating the rates are illustrative assumptions, not predictions or guarantees; 1 for explaining access/risk in relation to the one-year horizon and what must be checked before a real choice.",
+          "level": "reasoning",
+          "points": 3
+        },
+        {
+          "id": "T3-B-Q19",
+          "type": "written",
+          "prompt": "A fictional student receives a text linking to a tax notice and a follow-up call asking for a password. Describe how to verify and respond. Your answer must accurately explain CRA contact and caller-ID limits.",
+          "markingGuide": "3 points: 1 for not clicking/sending password or code; 1 for independently opening CRA through Canada.ca or using official verification/contact guidance; 1 for stating CRA may call but caller ID is not proof and documenting/reporting a suspicious attempt through current guidance.",
+          "level": "reasoning",
+          "points": 3
+        },
+        {
+          "id": "T3-B-Q20",
+          "type": "written",
+          "prompt": "A fictional buyer notices an unexpected charge and receives an offer from a stranger to recover it for an upfront fee. Give a sequence for payment protection, evidence, and reporting, and distinguish one route’s role.",
+          "markingGuide": "3 points: 1 for promptly contacting the payment provider independently; 1 for preserving receipts/messages and contacting police if money was lost plus reporting to CAFC; 1 for declining upfront recovery and explaining that CAFC reports do not guarantee reimbursement.",
+          "level": "reasoning",
+          "points": 3
+        }
+      ]
+    }
+  ]
+}

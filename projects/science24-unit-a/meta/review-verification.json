@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "candidate": "science24-unit-a",
+  "reviewReference": "biology30-unit-a-pilot-3",
+  "workspaceTreeSha256": "76d39c3cc5bbb76ef9a725003910418552b7a401d1382605903b35333eda6ef6",
+  "keyFileSha256": {
+    "index.html": "289fb092f2ef9d011cdcf01546582e636fa1fb6cb686107800c84bd8a082f266",
+    "styles.css": "f0bce32fcd6d4243cbcde101c1e916b247de55cc45696a3fc624c54bd0b6a85a",
+    "unit-a.css": "ef1ccf15e4dcf730e360a70d4d1f3df23b9650da8061126ee5dd6aa1f14b77af",
+    "main.js": "d1dd39387e9197176eed428274d084f0b42da798fb1e32e187abf022fa6b1514",
+    "state-store.js": "52bab354192aabb8ea9f74946a712a19e2a04b7a361cb6b64834cef565cb4cff",
+    "course-data.js": "6cc01d334be9eb3ec48a237f50a2f926f89c9f1a61603d5de214748b09599425",
+    "science24-unit-a-workbook-key.pdf": "43b820482486ad9bb9105feb7adc3f457e0e75447a78a28287bab07954ac7517"
+  },
+  "checks": [
+    {
+      "name": "metadata policy for science24-unit-a",
+      "result": "pass"
+    },
+    {
+      "name": "workspace verify for science24-unit-a",
+      "result": "pass"
+    },
+    {
+      "name": "node syntax for learner scripts",
+      "result": "pass"
+    },
+    {
+      "name": "exact source PDF hashes and 21 printed/physical question links",
+      "result": "pass"
+    },
+    {
+      "name": "Chromium routes at 1440, 1024 and 390 pixels",
+      "result": "pass",
+      "routes": 28
+    },
+    {
+      "name": "Chromium IndexedDB textbook response and Frayer save/reload",
+      "result": "pass"
+    },
+    {
+      "name": "Chromium figure and reader dialogs at 390 pixels",
+      "result": "pass"
+    },
+    {
+      "name": "Chromium all eight video written fallbacks without network playback",
+      "result": "pass"
+    },
+    {
+      "name": "manual desktop and phone contact-sheet review of all 28 route openings",
+      "result": "pass"
+    },
+    {
+      "name": "course doctor",
+      "result": "expected refusal: not-active because project is blocked"
+    },
+    {
+      "name": "repository-wide validate:manifests",
+      "result": "Science 24 passed; command failed on existing Sports Wellness Phase 2-4 missing regenerateCommand"
+    },
+    {
+      "name": "exact Brightspace workbook key in learner library with local browser fetch",
+      "result": "pass"
+    },
+    {
+      "name": "workbook self-check layout at desktop and phone widths",
+      "result": "pass"
+    }
+  ],
+  "limitations": [
+    "No external video playback availability certification.",
+    "No Brightspace/SCORM launch, reporting or grade test.",
+    "No Studio apply/reload/Undo proof; Studio Edit remains disabled.",
+    "No teacher acceptance of the exact candidate.",
+    "No exhaustive textbook question or sentence-level curriculum audit.",
+    "Teacher review of the restored workbook key placement and exact candidate remains pending."
+  ]
+}

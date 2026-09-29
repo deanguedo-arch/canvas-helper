@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "projectSlug": "ela10-1-novel-study",
+  "generatedAt": "2026-09-22T16:59:45.627Z",
+  "status": "needs-review",
+  "profile": {
+    "id": "novel-study",
+    "version": "next-step-english-v2-ela10",
+    "sha256": "5837d36db7ce1be78ee403b6bea0151dc815f580cbd8fd97f18f505c44572f9f"
+  },
+  "recipe": {
+    "path": "projects/ela10-1-novel-study/meta/english-unit.json",
+    "sha256": "6d7f847e7863602c8a6fbfaf16f5f544515ed3dac3c927afbc83a1ed9699ed86"
+  },
+  "sources": [
+    {
+      "id": "brightspace",
+      "path": "projects/resources/ela10-1/_sources/98a7423518aa49d55b37e75f4a7a44037949c06416146e806705b85c933cbf49.normalized.zip",
+      "sha256": "2b733ba29703933d8c126dea2cc53f12c871dea986c4d6cba10a54edd355b481"
+    },
+    {
+      "id": "teacher-resources",
+      "path": "projects/resources/ela10-1/_sources/61c75238e8ca90b0c2e874d4f3ab65074b4a14ee699f1854f753bdf938648d2b.zip",
+      "sha256": "61c75238e8ca90b0c2e874d4f3ab65074b4a14ee699f1854f753bdf938648d2b"
+    }
+  ],
+  "components": [],
+  "ownedFiles": [
+    "assets/generated/brand/nxt-ce-logo-white-with-ce.png",
+    "assets/generated/lessons/synopsis-and-what-to-consider-before-reading-image-73444962731729540783094-20241021195946929.png",
+    "assets/generated/resources/boy-striped-pyjamas-overview-the-boy-in-the-striped-pyjamas-overview.docx",
+    "assets/generated/resources/major-works-data-major-works-data-sheet.docx",
+    "assets/generated/resources/tkamb-chapter-questions-tkamb-chapter-questions.pdf",
+    "assets/generated/resources/tkamb-overview-tkamb-novel-overview.pdf",
+    "assets/generated/resources/tkamb-questions-tkamb-questions.pdf",
+    "index.html"
+  ],
+  "reviewItems": [
+    "Confirm learner access to both novels; the primary novels are not included.",
+    "Review profile-supplied enrichment questions alongside teacher question sheets."
+  ]
+}

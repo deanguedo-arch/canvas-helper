@@ -1,0 +1,29 @@
+Follow a fictional amortizing loan — narrated visual draft
+Status: draft for factual, caption, visual, and teacher review.
+Voice: macOS Samantha system voice (synthetic narration).
+All stated scenarios and dollar values are fictional unless a slide explicitly labels a general safety process.
+
+Slide 1: Why did the balance fall by less?
+Visual description: A payment has two jobs in an amortizing loan. The slide displays: PAYMENT = INTEREST + PRINCIPAL; Interest covers borrowing cost for the period; Principal reduction lowers the balance. Key visual: The whole payment does not reduce principal.
+Narration: A fictional statement shows a payment of about 88 dollars and 71 cents, but the balance fell by less than that amount. Where did the rest go? In an amortizing loan, each scheduled payment first covers interest accrued for that period; the remaining amount reduces principal. Because the principal balance changes, the next period’s interest is calculated on a different amount. We will follow the classroom case’s simplified one-thousand-dollar example using a stated Canadian conversion convention.
+
+Slide 2: State the assumptions first
+Visual description: These are classroom figures—not a lender offer. The slide displays: Starting principal  $1,000; Nominal annual rate  12%; Semi-annual compounding; monthly payments; 12 payments • no fees or extra payments. Key visual: Fictional fixed-rate model; full precision internally.
+Narration: The model assumes a one-thousand-dollar principal, a nominal annual rate of twelve percent compounded semi-annually, and twelve monthly payments. It excludes fees, missed or extra payments, taxes, and changes to the contract. Under the Canadian convention used in this example, convert the stated nominal rate to an equivalent monthly rate: one plus point-twelve divided by two, raised to the power of two-twelfths, minus one. That is approximately 0.00975879, or 0.975879 percent per month. Product documents can use different terms; verify a real contract.
+
+Slide 3: Calculate the level payment
+Visual description: Use the converted monthly rate, not 12% ÷ 12. The slide displays: Principal P = $1,000; Monthly rate i ≈ 0.00975879; n = 12 monthly payments. Key visual: Payment = P × i ÷ [1 − (1 + i)⁻ⁿ] ≈ $88.71344
+Narration: For equal payments, the payment formula is principal times the periodic rate divided by one minus one plus the rate raised to negative the number of payments. Substitute one thousand, the equivalent monthly rate, and twelve periods. The calculated payment is about 88 dollars and 71 cents when displayed to cents; we keep the unrounded amount internally for the demonstration. Dividing twelve percent by twelve would use a different convention and would not match the stated semi-annual compounding assumption.
+
+Slide 4: Follow month one and two
+Visual description: Interest uses the opening balance each month. The slide displays: Month 1  opening $1,000.00; Interest $9.75879 → $9.76; Principal ≈ $78.95465 → $78.95; Closing balance ≈ $921.04535 → $921.05. Key visual: Month 2 interest: $921.04535 × 0.00975879 ≈ $8.99
+Narration: In month one, interest is one thousand dollars times the monthly rate, about 9 dollars and 76 cents. Subtract that from the unrounded payment of about 88 dollars and 71 cents. Approximately 78 dollars and 95 cents reduces principal, leaving a balance near 921 dollars and 5 cents. For month two, calculate interest from the new unrounded balance, not the original thousand. It is about 8 dollars and 99 cents. The remainder of the payment, about 79 dollars and 73 cents, reduces principal.
+
+Slide 5: Pause: predict the next split
+Visual description: The payment stays level; the balance does not. The slide displays: Opening balance ≈ $921.04535; Monthly rate ≈ 0.00975879; Interest = balance × rate. Key visual: Pause and estimate month-two interest before continuing.
+Narration: After month one, the displayed payment is about $88.71 and the balance about $921.05. Estimate month-two interest. Pause and calculate.
+Pause: 7 seconds of silent think time follows the spoken question before the worked explanation.
+
+Slide 6: Worked answer and misconception
+Visual description: As principal falls, the interest portion usually shrinks. The slide displays: Month 2 interest ≈ $8.99; Principal reduction ≈ $79.73; Balance ≈ $841.32. Key visual: Same payment − lower interest = more principal reduction.
+Narration: Using full precision, month-two interest is about 8 dollars and 99 cents. Subtract that from the calculated payment and roughly 79 dollars and 73 cents reduces principal, leaving about 841 dollars and 32 cents. The common mistake is to calculate month-two interest on the original thousand-dollar balance or to say the entire payment reduces principal. The model’s total interest over twelve exact payments is about 64 dollars and 56 cents before cent-rounding adjustments. These numbers depend on the stated convention and assumptions; they are not a current rate or an offer. If comparing this schedule with another loan, keep principal, payment frequency, and assumptions visible. A smaller monthly payment may simply extend the term and increase total interest. Add fees only when the offer states them, and do not compare a weekly payment with a monthly payment by looking at the number alone. The useful question is what the borrower pays in total, when payments are due, and whether the schedule remains affordable. Any real mortgage or loan uses its own contract and calculation terms; this classroom model is for understanding the balance movement.

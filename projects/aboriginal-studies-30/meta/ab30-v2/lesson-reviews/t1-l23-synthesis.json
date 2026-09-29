@@ -1,0 +1,89 @@
+{
+  "ticket": "R17",
+  "lessonId": "t1-l23-synthesis",
+  "contentVersion": "ab30-v2-l23.1",
+  "goalAndTeaching": {
+    "goal": "Integrate terms, context, perspectives, and evidence in a new explanation — and prove it on a source you have not seen worked.",
+    "excerpt": "Understanding travels; completion alone does not.",
+    "whereTaught": "Goal strip + section 1 (three threads with lesson/source/page citations); threads panel; section 2 + worked five-move run on Lessons 17/19 sources; fresh dossier (A-C); section 3 method; practice, repair, independent dossier work; formative checkpoint close."
+  },
+  "workedResponse": {
+    "where": "Section 2: bounded question, 2 cited earlier-lesson passages, threads panel + 4 steps, finished response.",
+    "reasoningDemonstrated": "claim + evidence selection -> per-source interpretation -> flagged connection -> fenced limits.",
+    "finishedResponse": "Bridges Carpenter's ethic to Delgamuukw's rule on method (lived use needs lived-memory evidence), then fences both banks."
+  },
+  "supportedControl": {
+    "task": "supportedSelection on ab30-v2-l23-inference-1, deep-synced (R17-SYNC).",
+    "correctPath": "(b): the Dutch-colony sentence — judged correct (R17-BANK).",
+    "wrongPath": "(a): the supported first-treaty sentence — correctly rejected with redirect to the unsourced claim.",
+    "repairAction": "Sentence repair rewriting the colony invention into a Source-B-supported claim with gated criteria (Sources A-C)."
+  },
+  "independentTask": {
+    "stimulus": "Full dossier (A-C): what the Guswentah proposed and did not, plus one panel-thread connection.",
+    "differsFrom": "Full-dossier propose-and-fence explanation, unworked above; panel connection original to this task.",
+    "savedFirstResponse": "R17-GATING: locked pre-save, toggle + criteria + revision after explicit first save."
+  },
+  "sources": [
+    {
+      "id": "L23-A",
+      "locator": "Chapter 1, printed p. 15 (file p23)",
+      "quoteCheck": "verbatim in ch1 band (R17-QUOTES); Guswentah opener among earliest treaties"
+    },
+    {
+      "id": "L23-B",
+      "locator": "Chapter 1, printed p. 15 (file p23)",
+      "quoteCheck": "verbatim in ch1 band; 1645 first treaty + Dutch fort motive + mutual-respect proposal"
+    },
+    {
+      "id": "L23-C",
+      "locator": "Walking Together reading, file p. 18",
+      "quoteCheck": "verbatim in worldviews band (R17-QUOTES); Two Row as Kanien:keha'ka values basis (transfer passage)"
+    }
+  ],
+  "assignedWorkConnection": "No booklet homes, no assignment links (R17-ASSIGNED); checkpoint close revisits q69-q87 + both critical responses by canonical reference only; answers save nowhere new; nothing adds marked work.",
+  "misconception": {
+    "misconceptions": [
+      "completing every page or repeating a corrected question proves independent understanding"
+    ],
+    "explanation": "Five-move method + unworked dossier + unsupported-inference selection and repair + propose-and-fence independent task: only transfer to unseen sources passes."
+  },
+  "mediaDecisions": {
+    "M01-attributed-reader": "Implemented as the brief's text form: dossier cards carry speaker/creator, date where given, and locators, with contextLimits as context. First use of a course-reading card (Course-reading explanation). No new component needed.",
+    "M14-model-comparison": "Brief written for self-government models; applied here as its method (common questions, no ranking) on the theme's three threads. Full model content stays in L22. No new component needed."
+  },
+  "figureRole": "No figure: the threads panel and the dossier carry the synthesis in text and cited sources.",
+  "accessibilityPrintScreenshots": {
+    "print": "NOT_RUN live print; print stylesheet covers lesson surfaces per static suites.",
+    "screenshots": "NOT_RUN in-sandbox; frozen interaction pattern (see L01 review).",
+    "staticA11y": "UI02 passes over the rendered article; live keyboard/focus/announcement/zoom/screen-reader checks NOT_RUN."
+  },
+  "reviewerStatus": {
+    "humanReviewed": false,
+    "unresolvedLimitations": [
+      "Live-browser proof NOT_RUN in-sandbox.",
+      "No teacher/community sign-off; candidate acceptance only."
+    ]
+  },
+  "reviewPasses": {
+    "implementPass": "R17 implementation (this agent).",
+    "reviewPass": "R17 review (this agent, separate pass): learner-text read incl. citation audit (every Lesson/ Source/page reference checked against the rebuilt lessons), extract verification (R17-QUOTES), no-new-work audit.",
+    "limitations": "Single-agent; no teacher/Elder/community review; no live-browser proof in-sandbox. Bank items keep AUTHORED_SPECIMEN_REQUIRES_PRODUCTION_INTEGRATION_REVIEW.",
+    "reviewFindings": [
+      {
+        "severity": "before-state-correction",
+        "finding": "Before-state's checkpoint example claimed students should 'complete both critical responses' as a Lesson 23 outcome — L23 homes nothing; 1.1 completes at L05 and 1.2 at L22.",
+        "action": "Rebuild closes with targeted re-proof of existing responses by canonical reference; no completion re-homed to L23."
+      },
+      {
+        "severity": "before-state-correction",
+        "finding": "Before-state asserted the Two Row pairing ('two vessels travelling side by side') in prose without any quoted source — the image is real but was uncited.",
+        "action": "Rebuild quotes the Guswentah passages verbatim (Sources A-B) and teaches only what the cards state; the vessels image is not imported."
+      },
+      {
+        "severity": "observation",
+        "finding": "Textbook file/title pairing (Chapters 1-3 label on chapter-3.pdf / Chapter 3) kept as-is: no single file spans the synthesis, so no drift-free correction exists.",
+        "action": "Recorded here; lesson text cites per-source locators instead of the header."
+      }
+    ]
+  }
+}

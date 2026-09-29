@@ -1,0 +1,17 @@
+[ab30-content] tested inputs: {"main.js":"9da73170b1e42c7204a2660fcaf7cc6b0aacf789f712d12b52d8dcc88b450d24","course-data.js":"7c274e112ac8a01a321643a7f8e5a06af9bbd1daab9a4295965a6b15d7402884","lesson-components.js":"2956ad84609374e2ea0b20d0f52bab37a06663e7986d3d6facd151ecfec22ed5"}
+✔ CONTENT01-auto: v2 teaches goal+terms+blocks; every v1 lesson carries inline teaching (10.501583ms)
+✔ CONTENT02-auto: worked examples need evidence, reasoning, and a finished response (1.537334ms)
+✔ CONTENT03-auto: supported practice carries feedback; independent tasks declare their difference (0.741333ms)
+✔ CONTENT04-auto: all 50 lessons have versioned review records; structure never implies reviewed (0.839041ms)
+✔ UI02-auto: every control has an accessible name; headings and landmarks are meaningful (7.23175ms)
+✔ UI03-auto: figures need alt+caption; comparisons render headed tables; URLs are policed (0.588167ms)
+✔ SAFE-TEXT: learner writing never executes; editorial notes never render; links stay canonical (0.885709ms)
+✔ CONTENT05-auto(T10): exemplar sources carry full attribution; quotes hold only source text (1.282041ms)
+✔ CONTENT06-auto(T10): every exemplar quotation verifies against the textbook band (0.648083ms)
+✔ CONTENT07-auto(T10): exemplar assesses evidence and reasoning, never agreement or identity (0.252333ms)
+✔ CONTENT08-auto(T10): Q28-31 records byte-identical; formative adds zero compulsory work (1.319208ms)
+✔ STATE07-auto(T10): formative work saves, reloads, and gates the model honestly (0.928833ms)
+✔ FORMATIVE-GATE: criteria gating validates, locks, unlocks, and escapes (0.614541ms)
+ℹ tests 13
+ℹ pass 13
+ℹ fail 0

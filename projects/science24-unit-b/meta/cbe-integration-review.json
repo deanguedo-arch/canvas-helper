@@ -1,0 +1,49 @@
+{
+  "project": "science24-unit-b",
+  "date": "2026-09-24",
+  "scope": "CBE supplemental source integration in Lesson 5 only; focused Build-mode verification.",
+  "primarySource": "Original class Brightspace export and 2023 workbook remain authoritative.",
+  "supplementalArchive": {
+    "path": "projects/resources/science24-unit-b/_sources/b68e4799f873afb3346e0741d6a0be2bb5188a495d9fdfc292da1d1f74edf681.zip",
+    "sha256": "b68e4799f873afb3346e0741d6a0be2bb5188a495d9fdfc292da1d1f74edf681",
+    "role": "reference"
+  },
+  "candidate": {
+    "index": "95d9404dff838fec4ea86baa4b4a2018d6c4810bc4dcae85c9e8ee5631a6af4f",
+    "courseDataJson": "31c833376a35a6aacac067349c2c90867d284dd9c3e4ce3dda9cb6d84c789784",
+    "courseDataJs": "9babf7df7017cf51c95eb3e607c4f88d89efb046cd7365f4453a9a38bc0c6276",
+    "unitCss": "a4038abe2a26a3962238bffa67f5cc785b0de1714e67e3b8c6041a414dba4499",
+    "figure": "b7ca560fb7be763943d92dcaf81472750f70ed0defeca6de742471692e2369cf"
+  },
+  "figureSource": "https://commons.wikimedia.org/wiki/File:Water_turbine.svg",
+  "verification": {
+    "compiler": "16 lessons / 74 terms compiled",
+    "courseDataSyntax": "passed",
+    "workspaceVerify": "passed; local assets and metadata policy",
+    "desktopViewport": [
+      1594,
+      900
+    ],
+    "phoneViewport": [
+      390,
+      900
+    ],
+    "imageDecoded": true,
+    "imageNaturalSize": [
+      1288,
+      1846
+    ],
+    "enlargeDialogOpened": true,
+    "horizontalOverflow": false,
+    "pageErrors": [],
+    "screenshots": [
+      "review-screenshots/cbe-turbine-desktop.png",
+      "review-screenshots/cbe-turbine-phone.png"
+    ]
+  },
+  "deferred": [
+    "Full course learner E2E and Studio editability",
+    "Export and Brightspace certification",
+    "Teacher sign-off and C/D propagation"
+  ]
+}

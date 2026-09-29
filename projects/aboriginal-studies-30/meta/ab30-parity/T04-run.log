@@ -1,0 +1,24 @@
+[ab30-state] capacity-typical: chars=81245 bytes=81245 scorm2004=OVER
+[ab30-state] capacity: chars=275981 bytes=275981 scorm2004=OVER scorm12=OVER local=fits firestore=fits
+✔ STATE01: fresh install migrates clean; reruns create no duplicates (1.101041ms)
+✔ STATE02-pure: lesson-only, formal-only, and identical-dual drafts resolve to one logical record (0.147458ms)
+✔ STATE03: differing drafts become an unresolved conflict; resolution preserves predecessors (0.159375ms)
+✔ STATE04: unicode, whitespace, and long text round-trip byte-exact; no timestamps invented (0.122958ms)
+✔ STATE05: corrupt, unknown, and future inputs are preserved, never coerced to empty (0.145458ms)
+✔ STATE06-pure: quota/blocked writes retain last-confirmed state and the candidate; status stays truthful (0.107625ms)
+✔ STATE08: first submissions stay immutable; attempts pin versions and option order (0.119625ms)
+✔ STATE09: reset targets only the selected unfinished run (0.496041ms)
+✔ STATE10-pure: stale writers cannot silently clobber; interleavings preserve both texts (0.073333ms)
+✔ STATE11: export/import round-trips everything; failed import leaves state intact (0.33775ms)
+✔ STATE12: novel/versioned work is isolated; legacy prompt identity never remaps (0.07425ms)
+✔ STATE13: failure at any commit step keeps inputs recoverable; marker never precedes commit (0.1275ms)
+✔ STATE14-pure: save status derives from actual outcomes; LMS wording needs a receipt (0.040458ms)
+✔ STATE15: complete payloads are measured with host wrappers; overflow is explicit, never truncation (2.937917ms)
+ℹ tests 14
+ℹ suites 0
+ℹ pass 14
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 74.408958

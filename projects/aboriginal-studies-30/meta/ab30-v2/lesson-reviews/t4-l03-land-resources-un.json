@@ -1,0 +1,116 @@
+{
+  "schema": "ab30-v2-lesson-review-candidate-v1",
+  "lessonId": "t4-l03-land-resources-un",
+  "displayNumber": 48,
+  "contentVersion": "ab30-v2-l48.1",
+  "reviewState": "candidate lead source-and-render pass; teacher and community review pending",
+  "inputHashes": {
+    "course-data.js": "82d4151fe844a8941e557b2e036f077a7a67a37cdc2ce1df12b68402f30762a3",
+    "practice-data.js": "f21c0740ed24e7a4b351329a11666ed45846176f8167b9dabaee2873776052af"
+  },
+  "sourceOfTruth": "projects/aboriginal-studies-30/workspace/course-data.js",
+  "assignmentConnection": {
+    "bookletQuestionIds": [
+      "q18",
+      "q19",
+      "q20"
+    ],
+    "assignmentIds": [],
+    "assignmentHomeIds": [],
+    "formativeMarksAdded": 0
+  },
+  "goalAndTeaching": {
+    "goal": "Explain Canada’s reported response to UN findings, name the four UN Charter purposes, and identify a concrete way Indigenous peoples use UN forums.",
+    "essentialQuestion": "How can an international finding matter when it does not itself rewrite a Canadian law?",
+    "headings": [
+      "1. A finding can create pressure and a public record",
+      "2. Four purposes, several routes",
+      "3. Finish the existing work"
+    ],
+    "firstTeachingExcerpt": "The textbook begins with the James Bay Cree, who took concerns about water, services and territory to UN forums in the 1980s and 1990s. It reports that a 1998 UN committee found Canada in violation of international obligations affecting First Nations rights, and that a 1999 committee made a similar finding. Canada then committed to end what the textbook calls its “practice of extinguishment,” policies that denied future recognition of Aboriginal rights."
+  },
+  "sourceVerification": [
+    {
+      "title": "Source A · response to UN findings",
+      "locator": "Chapter 7, printed p. 226 (supplied PDF p. 234)",
+      "sourceType": "Textbook historical account",
+      "contextLimits": "Reports a response in the late 1990s. It does not verify implementation or the current state of Canadian policy.",
+      "check": "manually compared with the supplied official booklet/textbook or named publisher page; exact quote and page mapping require independent editorial sign-off"
+    },
+    {
+      "title": "Source B · UN purposes and limits",
+      "locator": "Chapter 7, printed p. 227 (supplied PDF p. 235)",
+      "sourceType": "Textbook institutional summary",
+      "contextLimits": "The four-purpose list summarizes the UN Charter. The textbook’s membership and peacekeeping figures are dated and are not used here as current facts.",
+      "check": "manually compared with the supplied official booklet/textbook or named publisher page; exact quote and page mapping require independent editorial sign-off"
+    },
+    {
+      "title": "Source C · Indigenous participation",
+      "locator": "Chapter 7, printed p. 229 (supplied PDF p. 237)",
+      "sourceType": "Textbook institutional summary",
+      "contextLimits": "Describes the participation routes and bodies as of the textbook edition; current mandates should be checked separately.",
+      "check": "manually compared with the supplied official booklet/textbook or named publisher page; exact quote and page mapping require independent editorial sign-off"
+    }
+  ],
+  "workedResponse": {
+    "title": "Worked answer: booklet Question 18",
+    "directions": "What was Canada’s response to the UN Human Rights Committee report? Answer the reported response, then distinguish commitment from completed change.",
+    "evidence": [
+      {
+        "ref": "Source A, textbook p. 226",
+        "text": "The textbook reports UN findings in 1998 and 1999 and says Canada committed to end the “practice of extinguishment.”"
+      }
+    ],
+    "reasoning": [
+      "Locate the response sentence rather than listing everything the UN does.",
+      "Explain the term in the textbook’s context: freezing rights, denying future recognition and limiting court access.",
+      "State the evidence limit: a commitment is a response, not proof of implementation."
+    ],
+    "response": "The textbook says Canada committed to end its “practice of extinguishment” after UN committees criticized its record. In the textbook’s explanation, that meant ending policies that froze Aboriginal rights and denied their future recognition or access to courts. This is the response reported on page 226; whether Canada carried it out requires later evidence."
+  },
+  "supportedControl": {
+    "itemId": "ab30-v2-l48-route-1",
+    "key": "b",
+    "wrongFeedback": "The textbook reserves votes for countries and does not give an NGO the power to amend Canadian law.",
+    "correctFeedback": "This identifies a route for influence and its limit. A forum can amplify evidence; domestic change requires further action.",
+    "bankSynchronized": true
+  },
+  "independentTasks": [
+    {
+      "title": "Repair an enforcement overclaim",
+      "task": "After the check, rewrite: “The UN committee changed Canada’s law in 1999.” Use Sources A–C to explain a finding, Canada’s reported commitment and what would still need to happen. Save before viewing criteria, then revise.",
+      "criteria": "A strong repair attributes the UN finding and Canadian response to the textbook; says a committee did not itself amend Canadian law; and names a concrete domestic follow-through that would need separate evidence. Criteria unlock after the first save.",
+      "responseKey": "t4-l03-land-resources-un::supported-repair",
+      "differsFrom": {
+        "evidence": "Connects a reported Canadian response to the forum’s limit; the worked example answers only the response question.",
+        "example": "Repairs a causal claim instead of selecting a forum route."
+      }
+    },
+    {
+      "title": "Independent: answer Question 20",
+      "task": "Choose one route from Source C: an NGO presentation, a working group or the Permanent Forum. Explain how it could help an Indigenous cause, what it cannot do alone, and what evidence you would need to judge the outcome. Save first, compare with criteria and revise.",
+      "criteria": "A strong answer identifies one real UN participation route; explains an influence mechanism such as visibility, standards or advice; states the limit of that route; and asks for evidence of an actual response. Criteria unlock after the first save.",
+      "responseKey": "t4-l03-land-resources-un::independent-route",
+      "differsFrom": {
+        "evidence": "Applies the participation route to a new cause rather than revising the 1999 Canada claim.",
+        "example": "Builds an original mechanism-and-limit answer to the assigned booklet question."
+      }
+    }
+  ],
+  "browserEvidence": {
+    "desktop": "projects/aboriginal-studies-30/meta/ab30-v2/evidence/R27/l48-1440.png",
+    "mobile": "projects/aboriginal-studies-30/meta/ab30-v2/evidence/R27/l48-390.png",
+    "render": "local Chromium file preview at 1440 and 390: 3 options, 2 first-save controls, no page error or horizontal overflow; not Brightspace or Studio"
+  },
+  "limitations": [
+    "No teacher, Elder or community content approval.",
+    "Film scene access and media rights not verified; scene-specific work remains dependent on the assigned film.",
+    "No full assigned-work, curriculum-outcome, exported-SCORM or live Brightspace acceptance in this Build pass.",
+    "Screenshots show lesson openings; deep source and response visuals require rollout review."
+  ],
+  "reviewerStatus": {
+    "humanReviewed": false,
+    "leadTechnicalReview": true,
+    "learnerBrowserProof": "bounded local rendering only"
+  }
+}

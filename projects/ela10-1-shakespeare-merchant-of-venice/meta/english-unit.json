@@ -1,0 +1,428 @@
+{
+  "schemaVersion": 2,
+  "projectSlug": "ela10-1-shakespeare-merchant-of-venice",
+  "courseCode": "ELA 10-1",
+  "courseTitle": "English Language Arts 10-1",
+  "unitTitle": "Shakespearean Drama - The Merchant of Venice",
+  "profileVersion": "next-step-english-v3-ela10",
+  "status": "needs-review",
+  "source": {
+    "brightspaceZip": "projects/resources/ela10-1/_sources/98a7423518aa49d55b37e75f4a7a44037949c06416146e806705b85c933cbf49.normalized.zip",
+    "teacherResourcesZip": "projects/resources/ela10-1/_sources/61c75238e8ca90b0c2e874d4f3ab65074b4a14ee699f1854f753bdf938648d2b.zip",
+    "brightspaceUnitId": "1473028",
+    "teacherFolder": "UNIT 2 Shakespeare",
+    "archiveRefs": {
+      "brightspace": "brightspace",
+      "teacherResources": "teacher-resources"
+    },
+    "lessonSelectors": [
+      {
+        "itemId": "1473078",
+        "disposition": "exclude",
+        "title": "Introduction to Shakespeare",
+        "reason": "Container page contains Romeo and Juliet-specific material; the teacher archive selects The Merchant of Venice."
+      },
+      {
+        "itemId": "1473108",
+        "disposition": "exclude",
+        "title": "Who is William Shakespeare?",
+        "reason": "Replaced by the richer CBE ELA 10-1 and Othello-derived Shakespeare foundation component."
+      },
+      {
+        "itemId": "1473109",
+        "disposition": "exclude",
+        "title": "The Globe Theatre",
+        "reason": "Replaced by the richer CBE ELA 10-1 and Othello-derived Shakespeare foundation component."
+      },
+      {
+        "itemId": "1473110",
+        "disposition": "exclude",
+        "title": "Shakespeare's Language",
+        "reason": "Replaced by the richer CBE ELA 10-1 and Othello-derived Shakespeare foundation component."
+      },
+      {
+        "itemId": "1473111",
+        "disposition": "exclude",
+        "title": "Structure of Shakespeare's Plays",
+        "reason": "Replaced by the richer CBE ELA 10-1 and Othello-derived Shakespeare foundation component."
+      },
+      {
+        "itemId": "1494110",
+        "disposition": "exclude",
+        "title": "Shakespeare Resources",
+        "reason": "Resource container points to Romeo and Juliet materials rather than the teacher-selected play."
+      },
+      {
+        "itemId": "1473086",
+        "disposition": "exclude",
+        "title": "Romeo and Juliet: The Play",
+        "includeChildren": true,
+        "reason": "Alternate play branch; The Merchant of Venice is teacher-selected."
+      },
+      {
+        "itemId": "1473083",
+        "disposition": "exclude",
+        "title": "Romeo and Juliet Motif Project",
+        "includeChildren": true,
+        "reason": "Alternate play project."
+      },
+      {
+        "itemId": "1473082",
+        "disposition": "exclude",
+        "title": "Unit 4 Assessment",
+        "includeChildren": true,
+        "reason": "Assessment branch is excluded."
+      }
+    ]
+  },
+  "activityProfile": {
+    "schemaVersion": 1,
+    "activities": [
+      {
+        "id": "side-by-side-reader",
+        "title": "Side-by-Side Reader",
+        "route": "side-by-side",
+        "enabled": true,
+        "evidencePolicyIds": [
+          "scene-evidence-entry"
+        ]
+      },
+      {
+        "id": "play-materials",
+        "title": "The Merchant of Venice Materials",
+        "route": "play-materials",
+        "enabled": true,
+        "evidencePolicyIds": []
+      },
+      {
+        "id": "act-questions",
+        "title": "The Merchant of Venice Act Questions",
+        "route": "act-questions",
+        "enabled": true,
+        "evidencePolicyIds": [
+          "act-question-collection"
+        ]
+      },
+      {
+        "id": "character-notes",
+        "title": "Character Notes",
+        "route": "character-notes",
+        "enabled": true,
+        "evidencePolicyIds": [
+          "character-dossier"
+        ]
+      },
+      {
+        "id": "writing-studio",
+        "title": "Writing Studio",
+        "route": "writing-studio",
+        "enabled": true,
+        "evidencePolicyIds": [
+          "writing-entry"
+        ]
+      },
+      {
+        "id": "critical-essay",
+        "title": "Critical Essay",
+        "route": "critical-essay",
+        "enabled": true,
+        "evidencePolicyIds": [
+          "essay-plan"
+        ]
+      },
+      {
+        "id": "evidence-bank",
+        "title": "Evidence Bank",
+        "route": "evidence-bank",
+        "enabled": true,
+        "evidencePolicyIds": []
+      },
+      {
+        "id": "personal-response",
+        "title": "Personal Response",
+        "route": "personal-response",
+        "enabled": true,
+        "evidencePolicyIds": [
+          "personal-response-writing-stage"
+        ],
+        "componentSlot": "writing-studio"
+      }
+    ],
+    "evidencePolicies": [
+      {
+        "id": "scene-evidence-entry",
+        "activityId": "side-by-side-reader",
+        "saveMode": "individual",
+        "requiresExplicitSave": true,
+        "contributionIdTemplate": "{projectSlug}:side-by-side-reader:{entryId}"
+      },
+      {
+        "id": "act-question-collection",
+        "activityId": "act-questions",
+        "saveMode": "collection",
+        "requiresExplicitSave": true,
+        "contributionIdTemplate": "{projectSlug}:act-questions:{locatorId}:collection",
+        "collectionScope": "locator"
+      },
+      {
+        "id": "character-dossier",
+        "activityId": "character-notes",
+        "saveMode": "collection",
+        "requiresExplicitSave": true,
+        "contributionIdTemplate": "{projectSlug}:character-notes:{workId}:collection",
+        "collectionScope": "work"
+      },
+      {
+        "id": "writing-entry",
+        "activityId": "writing-studio",
+        "saveMode": "individual",
+        "requiresExplicitSave": true,
+        "contributionIdTemplate": "{projectSlug}:writing-studio:{entryId}"
+      },
+      {
+        "id": "essay-plan",
+        "activityId": "critical-essay",
+        "saveMode": "collection",
+        "requiresExplicitSave": true,
+        "contributionIdTemplate": "{projectSlug}:critical-essay:{activityId}:collection",
+        "collectionScope": "activity"
+      },
+      {
+        "id": "personal-response-writing-stage",
+        "activityId": "personal-response",
+        "saveMode": "collection",
+        "requiresExplicitSave": true,
+        "contributionIdTemplate": "{projectSlug}:personal-response:unit:{entryId}",
+        "collectionScope": "activity",
+        "tags": [
+          "personal-response",
+          "writing-stage"
+        ]
+      }
+    ],
+    "kind": "shakespeare-drama",
+    "actIds": [
+      "act-1",
+      "act-2",
+      "act-3",
+      "act-4",
+      "act-5"
+    ],
+    "sceneCount": 20,
+    "sideBySideReader": true,
+    "characterIds": [
+      "antonio",
+      "bassanio",
+      "portia",
+      "shylock",
+      "jessica",
+      "lorenzo"
+    ],
+    "writingTools": [
+      "language-lab",
+      "close-reading",
+      "theme-builder",
+      "critical-essay",
+      "graphic-essay"
+    ],
+    "editorialStatus": "needs-editorial"
+  },
+  "lessonOrder": [
+    "merchant-foundation-1-introduction",
+    "merchant-foundation-2-life-times-themes",
+    "merchant-foundation-3-understanding-shakespeare",
+    "merchant-foundation-4-globe-theatre",
+    "merchant-foundation-5-shakespeares-world",
+    "merchant-foundation-6-literary-devices"
+  ],
+  "topLevelLessonOrder": [
+    "merchant-foundation-1-introduction",
+    "merchant-foundation-2-life-times-themes",
+    "merchant-foundation-3-understanding-shakespeare",
+    "merchant-foundation-4-globe-theatre",
+    "merchant-foundation-5-shakespeares-world",
+    "merchant-foundation-6-literary-devices"
+  ],
+  "lessonGroups": [
+    {
+      "id": "unit-lessons",
+      "title": "Shakespearean Drama - The Merchant of Venice",
+      "lessonIds": [
+        "merchant-foundation-1-introduction",
+        "merchant-foundation-2-life-times-themes",
+        "merchant-foundation-3-understanding-shakespeare",
+        "merchant-foundation-4-globe-theatre",
+        "merchant-foundation-5-shakespeares-world",
+        "merchant-foundation-6-literary-devices"
+      ]
+    }
+  ],
+  "readings": [],
+  "placements": [],
+  "analysisTerms": [],
+  "analysisExamples": [],
+  "resourceDispositions": [
+    {
+      "id": "mov-act-2-questions",
+      "source": "UNIT 2 Shakespeare/M of V Act 2 questions.docx",
+      "role": "question-set",
+      "disposition": "place",
+      "destination": "act-questions",
+      "reason": "Teacher-selected Act 2 questions."
+    },
+    {
+      "id": "mov-act-questions",
+      "source": "UNIT 2 Shakespeare/MOV Act Questions.pdf",
+      "role": "question-set",
+      "disposition": "place",
+      "destination": "act-questions",
+      "reason": "Teacher-selected act questions."
+    },
+    {
+      "id": "mov-questions",
+      "source": "UNIT 2 Shakespeare/MOV questions.pdf",
+      "role": "question-set",
+      "disposition": "exclude",
+      "destination": "act-questions",
+      "reason": "Exact byte-identical duplicate of MOV Act Questions.pdf; excluded to prevent repeated learner questions."
+    },
+    {
+      "id": "mov-graphic-essay",
+      "source": "UNIT 2 Shakespeare/MOV Graphic Essay.docx",
+      "role": "supporting-resource",
+      "disposition": "place",
+      "destination": "writing-studio",
+      "reason": "Teacher-selected Graphic Essay planner."
+    },
+    {
+      "id": "mov-resources",
+      "source": "UNIT 2 Shakespeare/MOV Resources.pdf",
+      "role": "supporting-resource",
+      "disposition": "place",
+      "destination": "play-materials",
+      "reason": "Teacher-selected play resources."
+    },
+    {
+      "id": "mov-imagery",
+      "source": "UNIT 2 Shakespeare/MOV imagery.pdf",
+      "role": "supporting-resource",
+      "disposition": "place",
+      "destination": "writing-studio",
+      "reason": "Teacher-selected imagery activity."
+    },
+    {
+      "id": "mov-act-3-text",
+      "source": "UNIT 2 Shakespeare/The Merchant of Venice3.docx",
+      "title": "The Merchant of Venice Act 3 Questions",
+      "role": "question-set",
+      "disposition": "place",
+      "destination": "act-questions",
+      "reason": "Teacher-supplied Act 3 question worksheet."
+    },
+    {
+      "id": "mov-act-4-text",
+      "source": "UNIT 2 Shakespeare/The Merchant of Venice.4x.docx",
+      "title": "The Merchant of Venice Act 4 Trial Questions",
+      "role": "question-set",
+      "disposition": "place",
+      "destination": "act-questions",
+      "reason": "Teacher-supplied Act 4 trial worksheet."
+    },
+    {
+      "id": "mov-act-5-text",
+      "source": "UNIT 2 Shakespeare/The Merchant of Venice V.docx",
+      "title": "The Merchant of Venice Act 5 Questions",
+      "role": "question-set",
+      "disposition": "place",
+      "destination": "act-questions",
+      "reason": "Teacher-supplied Act 5 question worksheet."
+    }
+  ],
+  "excludedFiles": [
+    {
+      "file": "UNIT 2 Shakespeare/MOV questions.pdf",
+      "reason": "Exact byte-identical duplicate of MOV Act Questions.pdf; excluded to prevent repeated learner questions."
+    }
+  ],
+  "wordingCorrections": [
+    {
+      "find": "English 20-1",
+      "replace": "English 10-1",
+      "reason": "Prevent donor-grade contamination."
+    },
+    {
+      "find": "ELA 20-1",
+      "replace": "ELA 10-1",
+      "reason": "Prevent donor-grade contamination."
+    },
+    {
+      "find": "English 30-1",
+      "replace": "English 10-1",
+      "reason": "Prevent donor-grade contamination."
+    },
+    {
+      "find": "ELA 30-1",
+      "replace": "ELA 10-1",
+      "reason": "Prevent donor-grade contamination."
+    },
+    {
+      "find": "Diploma Exam",
+      "replace": "course assessment",
+      "reason": "Remove Diploma framing."
+    },
+    {
+      "find": "Part A",
+      "replace": "written response",
+      "reason": "Remove Diploma framing."
+    }
+  ],
+  "mediaPolicy": {
+    "verifiedAt": "not-reviewed",
+    "allowedYouTubeIds": [],
+    "blockedYouTubeIds": [],
+    "approvedExternalUrls": [],
+    "externalUrlRewrites": {}
+  },
+  "customComponents": [
+    {
+      "id": "merchant-side-by-side-data",
+      "slot": "custom:side-by-side-companion",
+      "mode": "extend",
+      "source": "workspace/components/shakespeare-side-by-side/scenes.json",
+      "enabled": true
+    },
+    {
+      "id": "merchant-shakespeare-foundation-lessons",
+      "slot": "custom:shakespeare-foundation-lessons",
+      "mode": "replace",
+      "source": "workspace/components/shakespeare-foundation-lessons/lessons.json",
+      "assetRoot": "workspace/assets/custom/shakespeare-foundations",
+      "enabled": true
+    }
+  ],
+  "acceptance": {
+    "requiredRoutes": [
+      "side-by-side",
+      "play-materials",
+      "act-questions",
+      "character-notes",
+      "writing-studio",
+      "critical-essay",
+      "evidence-bank"
+    ],
+    "requiredActivityIds": [
+      "side-by-side-reader",
+      "play-materials",
+      "act-questions",
+      "character-notes",
+      "writing-studio",
+      "critical-essay",
+      "evidence-bank"
+    ],
+    "reviewItems": [
+      "Editorially review all 20 locally stored plain-language companion scenes.",
+      "Review the 86 mapped teacher questions and the supplied Graphic Essay instructions.",
+      "Review the six consolidated Shakespeare foundation lessons before final export."
+    ]
+  }
+}

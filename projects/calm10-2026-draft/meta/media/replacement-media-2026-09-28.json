@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-09-28",
+  "status": "implemented-review-draft-caption-pending",
+  "request": "Replace the three matching CALM lesson videos with the supplied higher-quality MP4 files.",
+  "accessibilityDisposition": "Old caption tracks were disabled because their duration and content belong to the superseded videos. Each lesson retains a visible written equivalent. Synchronized captions and exact descriptive transcripts remain a release gate.",
+  "encoding": {
+    "video": "H.264",
+    "audio": "AAC mono",
+    "dimensions": "1280x720",
+    "frameRate": "24 fps",
+    "fastStart": "verified; moov atom precedes media data"
+  },
+  "replacements": [
+    {
+      "lessonId": "ce1-03",
+      "title": "How to compare two pathways",
+      "sourceName": "How_to_compare_two_pathways.mp4",
+      "duration": 508.609887,
+      "previousVideoSha256": "6daa63c7939f0a91e39d8a5e19baf3cc2c1f4a3abd5e70fd3d38e3e39e646e83",
+      "sourceSha256": "9241bb0ee668c9b68e3929195594d5b598bd761a85d97d9cd31a5129f4d9a84b",
+      "videoSha256": "9241bb0ee668c9b68e3929195594d5b598bd761a85d97d9cd31a5129f4d9a84b",
+      "videoBytes": 40255960,
+      "targetPath": "projects/calm10-2026-draft/workspace/assets/media/ce1-03-pathways-pilot.mp4",
+      "posterPath": "projects/calm10-2026-draft/workspace/assets/media/ce1-03-slide-1.png",
+      "posterSha256": "8c79fa9599175bbf0e8fd8a2cdf895b3537714fb8772153c8422053689f8fc12",
+      "sourceCopyVerified": true,
+      "captionTrack": "disabled-pending-synchronized-replacement"
+    },
+    {
+      "lessonId": "ce1-04",
+      "title": "What does a wage headline mean?",
+      "sourceName": "What_does_a_wage_headline_mean_.mp4",
+      "duration": 459.917642,
+      "previousVideoSha256": "5e456f1a1ffe3a6f65c0d76e7617ffaf098ad36b7bae545eac219ba135b8150c",
+      "sourceSha256": "cedd744e75c2b8bebdadd7cae02abbd74b836f79548a862df9d16a513ab2cb24",
+      "videoSha256": "cedd744e75c2b8bebdadd7cae02abbd74b836f79548a862df9d16a513ab2cb24",
+      "videoBytes": 37985589,
+      "targetPath": "projects/calm10-2026-draft/workspace/assets/media/ce1-04-labour-market-demo.mp4",
+      "posterPath": "projects/calm10-2026-draft/workspace/assets/media/ce1-04-labour-market-demo-poster.png",
+      "posterSha256": "85bfb1bffeda501b0d827f1e9020c9b8a6f3f20f8482f9297d684f89c8fbe4ff",
+      "sourceCopyVerified": true,
+      "captionTrack": "disabled-pending-synchronized-replacement"
+    },
+    {
+      "lessonId": "co2-02",
+      "title": "Stop, identify, and control a hazard",
+      "sourceName": "Stop,_identify,_and_control_a_hazard.mp4",
+      "duration": 384.01161,
+      "previousVideoSha256": "f1b94e77d9ffb4566a4b0e977a87235cf554f75fe67291f97ea50cfc73811563",
+      "sourceSha256": "3d7bcd28b46f76b595d96a7818770ac21a4dffaec126fbbd5215c6a11544a582",
+      "videoSha256": "3d7bcd28b46f76b595d96a7818770ac21a4dffaec126fbbd5215c6a11544a582",
+      "videoBytes": 29349475,
+      "targetPath": "projects/calm10-2026-draft/workspace/assets/media/co2-02-workplace-hazard-demo.mp4",
+      "posterPath": "projects/calm10-2026-draft/workspace/assets/media/co2-02-workplace-hazard-demo-slide-1.png",
+      "posterSha256": "20bcb5f5bc034cb749ba8e74e2583aaa8c68f565f6c9689cd5415fba5b8f32ee",
+      "sourceCopyVerified": true,
+      "captionTrack": "disabled-pending-synchronized-replacement"
+    }
+  ]
+}

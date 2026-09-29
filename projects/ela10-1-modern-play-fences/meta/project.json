@@ -1,0 +1,72 @@
+{
+  "id": "ela10-1-modern-play-fences",
+  "slug": "ela10-1-modern-play-fences",
+  "sourcePath": "projects/resources/ela10-1/_sources/98a7423518aa49d55b37e75f4a7a44037949c06416146e806705b85c933cbf49.normalized.zip",
+  "inputKind": "brightspace-zip",
+  "previewModes": [
+    "workspace"
+  ],
+  "workspaceEntrypoint": "projects/ela10-1-modern-play-fences/workspace/index.html",
+  "createdAt": "2026-07-17T01:55:25.016Z",
+  "updatedAt": "2026-09-22T17:29:09.365Z",
+  "migrationState": "migrated",
+  "projectType": "conversion",
+  "preferredWorkflows": [
+    "conversion"
+  ],
+  "canonicalEntry": "projects/ela10-1-modern-play-fences/workspace/index.html",
+  "canonicalSources": [
+    "projects/ela10-1-modern-play-fences/workspace/index.html",
+    "projects/ela10-1-modern-play-fences/meta/english-unit.json",
+    "projects/ela10-1-modern-play-fences/meta/prompt-pack.md",
+    "scripts/build-english-unit.ts",
+    "scripts/lib/english-unit/factory-build.ts",
+    "scripts/lib/english-unit/activity-profile-renderers.ts",
+    "scripts/lib/next-step-course-shell.ts"
+  ],
+  "generatedOutputs": [],
+  "regenerateCommand": "npm run build:english-unit -- --project ela10-1-modern-play-fences",
+  "importedFirstPassOrigin": {
+    "sourceSystem": "brightspace",
+    "sourcePath": "projects/resources/ela10-1/_sources/98a7423518aa49d55b37e75f4a7a44037949c06416146e806705b85c933cbf49.normalized.zip",
+    "importedAt": "2026-07-17T01:55:25.016Z",
+    "notes": "Modern Play - Fences factory conversion using the modern-drama activity profile."
+  },
+  "authoringStatus": "active",
+  "exportTargets": [
+    {
+      "target": "scorm",
+      "enabled": true,
+      "notes": "Export individually only after the recipe is ready-for-export and verification passes."
+    },
+    {
+      "target": "html",
+      "enabled": true,
+      "notes": "Canonical editable workspace preview."
+    }
+  ],
+  "referenceOnly": [
+    "projects/resources/ela10-1/_sources/98a7423518aa49d55b37e75f4a7a44037949c06416146e806705b85c933cbf49.normalized.zip",
+    "projects/resources/ela10-1/_sources/61c75238e8ca90b0c2e874d4f3ab65074b4a14ee699f1854f753bdf938648d2b.zip"
+  ],
+  "sourceOfTruthNotes": "Edit meta/english-unit.json and workspace/components or workspace/assets/custom. Factory-owned index/assets/generated output is replaced through a safe staged build; custom component paths are preserved.",
+  "injectedComponents": [],
+  "learningSource": "other",
+  "learningTrust": "auto",
+  "learningUpdatedAt": "2026-07-20T15:15:40.372Z",
+  "workspaceApprovedAt": "2026-09-22T17:29:09.365Z",
+  "authoring": {
+    "driverId": "english-factory-v1",
+    "familyId": "english-unit",
+    "qualityProfile": "english-unit",
+    "studioEditing": {
+      "enabled": true,
+      "renameCourse": true,
+      "imageAssets": true
+    },
+    "editabilityContract": {
+      "schemaVersion": 1,
+      "profileId": "studio-routine-content-v1"
+    }
+  }
+}

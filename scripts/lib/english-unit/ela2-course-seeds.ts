@@ -823,6 +823,7 @@ function donorSelectors(projectSlug: string): EnglishLessonSelectorV2[] {
 }
 
 function formsFor(courseId: Ela2CourseId, trackMode: "unit" | "per-work", profile: string): EnglishWritingFormConfigV1[] {
+  if (profile === "writing-foundations") return [];
   const forms: EnglishWritingFormConfigV1[] = [
     { kind: "literary-exploration", trackMode, profile },
     { kind: "personal-response", trackMode, profile }

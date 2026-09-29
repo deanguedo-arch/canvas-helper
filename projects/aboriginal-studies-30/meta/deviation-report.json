@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "projectSlug": "aboriginal-studies-30",
+  "generatedAt": "2026-09-23T20:58:25.957Z",
+  "pass": true,
+  "deviations": [
+    {
+      "ruleId": "require-interactive-shell",
+      "severity": "warn",
+      "surface": "export",
+      "location": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/aboriginal-studies-30/workspace/index.html",
+      "why": "Required pattern \"lesson-shell\" is missing.",
+      "evidence": "Missing pattern: lesson-shell"
+    }
+  ],
+  "acceptedDeviations": []
+}

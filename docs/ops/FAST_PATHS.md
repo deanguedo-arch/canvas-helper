@@ -11,6 +11,12 @@ Use these retrieval shortcuts before broader discovery. The point is to keep age
 - At the Rollout checkpoint, freeze the candidate and run the relevant accumulated floor once, cheapest checks first and expensive Studio/readiness proof last. Rerun only affected checks after fixes.
 - Existing push/PR CI remains unchanged.
 
+## Agent Efficiency Work
+
+Read `docs/ops/AGENT_EFFICIENCY.md`, then `scripts/lib/agent-delegation/` and `.agents/skills/muse-delegate/scripts/` only for the affected router or worker boundary. Use `npm run agents:doctor` and `npm run agents:status` for local capability/state; neither makes a provider request. Run `npm run test:agent-delegation` when routing, admission, billing, subprocess, or recovery behavior changes. Keep Studio and course files outside this developer-only boundary.
+
+For substantive work, decide routes and check dirty write-path overlap before the first edit. Route multi-project or unfamiliar reconnaissance separately from a small eventual edit: prefer a bounded Luna scout unless one compact deterministic read resolves it, and state why when retaining that investigation. Put the short decision and any lead-retained bulk-slice reason in the handoff; do not turn a small known edit into a worker task.
+
 ## Export Target Work
 
 Read first:

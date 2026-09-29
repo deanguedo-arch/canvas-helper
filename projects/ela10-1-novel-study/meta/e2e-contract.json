@@ -1,0 +1,173 @@
+{
+  "$schema": "../../../e2e/project-e2e-contract.schema.json",
+  "projectSlug": "ela10-1-novel-study",
+  "requiredTestIds": [
+    "studio-shell",
+    "course-studio-tab",
+    "workspace-project-select",
+    "project-root",
+    "workspace-preview-frame"
+  ],
+  "modes": {
+    "enabled": false
+  },
+  "navigation": {
+    "enabled": false
+  },
+  "quiz": {
+    "enabled": false,
+    "lessonTitle": "Questions"
+  },
+  "fallbackPanel": {
+    "enabled": false
+  },
+  "learnerCourse": {
+    "enabled": true,
+    "routes": [
+      "overview",
+      "lessons",
+      "lesson-1-synopsis-and-what-to-consider-before-reading",
+      "critical-essay",
+      "critical-essay-topic-thesis",
+      "critical-essay-introduction",
+      "critical-essay-body-one",
+      "critical-essay-body-two",
+      "critical-essay-body-three",
+      "critical-essay-conclusion-revision",
+      "critical-essay-preview",
+      "personal-response",
+      "personal-response-prompt-impression",
+      "personal-response-text-evidence",
+      "personal-response-knowledge-experience",
+      "personal-response-form-perspective",
+      "personal-response-response-plan",
+      "personal-response-draft-revise",
+      "personal-response-preview",
+      "reading-guide",
+      "major-works-data",
+      "novel-study-questions",
+      "writing-studio",
+      "core-vocabulary",
+      "evidence-bank",
+      "resources"
+    ],
+    "hintRoutes": [
+      "critical-essay-topic-thesis",
+      "critical-essay-introduction",
+      "critical-essay-body-one",
+      "critical-essay-body-two",
+      "critical-essay-body-three",
+      "critical-essay-conclusion-revision",
+      "personal-response-prompt-impression",
+      "personal-response-text-evidence",
+      "personal-response-knowledge-experience",
+      "personal-response-form-perspective",
+      "personal-response-response-plan",
+      "personal-response-draft-revise",
+      "reading-guide",
+      "major-works-data",
+      "novel-study-questions",
+      "writing-studio"
+    ],
+    "printRoutes": [
+      "critical-essay-topic-thesis",
+      "critical-essay-introduction",
+      "critical-essay-body-one",
+      "critical-essay-body-two",
+      "critical-essay-body-three",
+      "critical-essay-conclusion-revision",
+      "critical-essay-preview",
+      "personal-response-prompt-impression",
+      "personal-response-text-evidence",
+      "personal-response-knowledge-experience",
+      "personal-response-form-perspective",
+      "personal-response-response-plan",
+      "personal-response-draft-revise",
+      "personal-response-preview",
+      "reading-guide",
+      "major-works-data",
+      "novel-study-questions",
+      "writing-studio",
+      "evidence-bank"
+    ],
+    "evidenceScenarios": [
+      {
+        "route": "critical-essay-topic-thesis",
+        "collectionId": "ela10-1-novel-study:critical-essay:to-kill-a-mockingbird:topic-thesis:collection",
+        "responseId": "ela10-1-novel-study:critical-essay:to-kill-a-mockingbird:topic-thesis:topic"
+      },
+      {
+        "route": "critical-essay-introduction",
+        "collectionId": "ela10-1-novel-study:critical-essay:to-kill-a-mockingbird:introduction:collection",
+        "responseId": "ela10-1-novel-study:critical-essay:to-kill-a-mockingbird:introduction:opening"
+      },
+      {
+        "route": "critical-essay-body-one",
+        "collectionId": "ela10-1-novel-study:critical-essay:to-kill-a-mockingbird:body-one:collection",
+        "responseId": "ela10-1-novel-study:critical-essay:to-kill-a-mockingbird:body-one:beginning-state"
+      },
+      {
+        "route": "critical-essay-body-two",
+        "collectionId": "ela10-1-novel-study:critical-essay:to-kill-a-mockingbird:body-two:collection",
+        "responseId": "ela10-1-novel-study:critical-essay:to-kill-a-mockingbird:body-two:middle-state"
+      },
+      {
+        "route": "critical-essay-body-three",
+        "collectionId": "ela10-1-novel-study:critical-essay:to-kill-a-mockingbird:body-three:collection",
+        "responseId": "ela10-1-novel-study:critical-essay:to-kill-a-mockingbird:body-three:end-state"
+      },
+      {
+        "route": "critical-essay-conclusion-revision",
+        "collectionId": "ela10-1-novel-study:critical-essay:to-kill-a-mockingbird:conclusion-revision:collection",
+        "responseId": "ela10-1-novel-study:critical-essay:to-kill-a-mockingbird:conclusion-revision:final-insight"
+      },
+      {
+        "route": "personal-response-prompt-impression",
+        "collectionId": "ela10-1-novel-study:personal-response:unit:prompt-impression:collection",
+        "responseId": "ela10-1-novel-study:personal-response:unit:prompt-impression:prompt"
+      },
+      {
+        "route": "reading-guide",
+        "collectionId": "ela10-1-novel-study:reading-guide:to-kill-a-mockingbird:synthesis",
+        "responseId": "ela10-1-novel-study:reading-guide:to-kill-a-mockingbird:synthesis:pattern"
+      },
+      {
+        "route": "major-works-data",
+        "collectionId": "ela10-1-novel-study:major-works:to-kill-a-mockingbird:collection",
+        "responseId": "ela10-1-novel-study:major-works:to-kill-a-mockingbird:context"
+      },
+      {
+        "route": "novel-study-questions",
+        "collectionId": "ela10-1-novel-study:novel-questions:to-kill-a-mockingbird:to-kill-a-mockingbird-1:collection",
+        "responseId": "ela10-1-novel-study:novel-questions:to-kill-a-mockingbird:to-kill-a-mockingbird-1:question-1"
+      }
+    ],
+    "resourceChecks": [
+      {
+        "route": "resources",
+        "kind": "access-notice",
+        "minimumPrimary": 2
+      }
+    ],
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "routes": [
+        "overview",
+        "lesson-1-synopsis-and-what-to-consider-before-reading",
+        "critical-essay-topic-thesis",
+        "critical-essay-introduction",
+        "critical-essay-body-one",
+        "critical-essay-body-two",
+        "critical-essay-body-three",
+        "critical-essay-conclusion-revision",
+        "personal-response-prompt-impression",
+        "reading-guide",
+        "major-works-data",
+        "novel-study-questions",
+        "resources",
+        "evidence-bank"
+      ]
+    }
+  }
+}

@@ -1,0 +1,266 @@
+{
+ "ticket": "R04",
+ "generatedAt": null,
+ "serializer": {
+  "path": "projects/aboriginal-studies-30/workspace/learning-store.js",
+  "sha256": "40ec2e355305860083e1cb1b255eb0ed746eac381c9a4d0443cfad095af190b8",
+  "entryPoints": [
+   "AB30Store.write",
+   "writeDraft",
+   "submitFirstResponse",
+   "submitRevision",
+   "recordExposure",
+   "startPracticeRun",
+   "submitPracticeAttempt",
+   "saveNavigation",
+   "saveProgress"
+  ],
+  "commit": "storeCommitWithChecks (two-phase write + readback verify per key)",
+  "units": "UTF-16 code units (.length) for budgets; UTF-8 bytes reported alongside"
+ },
+ "registryCounts": {
+  "bookletLegacyKeys": 102,
+  "frayerKeys": 376,
+  "formalKeys": 24,
+  "independentTaskKeysCurrent": 1,
+  "assignmentAliases": 8
+ },
+ "fieldLimitsObserved": {
+  "frayerTextareaMaxlength": 600,
+  "otherTextFields": "no maxlength attribute in workspace (unlimited at DOM level)"
+ },
+ "host": {
+  "bridge": "none found (no runtime code references the 3 keys outside workspace+tests)",
+  "savePath": "UNKNOWN (lead-owned measurement required)",
+  "encodedHostSize": "UNKNOWN",
+  "configuredLimit": "none (browser-local default); scorm-2004 profile = 60000 chars when explicitly configured"
+ },
+ "scenarios": [
+  {
+   "scenario": "empty",
+   "profile": "browser-local",
+   "accepted": 0,
+   "rejected": 0,
+   "firstRejection": null,
+   "lastConfirmedRevision": 2,
+   "outputSha256": "fb01a6b22248a9b456b3e43e6cd9894a6a454721b6723b63f845b48f03eb2cc6",
+   "utf16Units": 491,
+   "utf8Bytes": 491,
+   "activityChars": 442,
+   "status": "saved"
+  },
+  {
+   "scenario": "all-numbered-600",
+   "profile": "browser-local",
+   "accepted": 102,
+   "rejected": 0,
+   "firstRejection": null,
+   "lastConfirmedRevision": 104,
+   "outputSha256": "4e3e3a6ec870dde3cda72df57b3180736c0add4c1b090867441bd8e93f6c94db",
+   "utf16Units": 146661,
+   "utf8Bytes": 146661,
+   "activityChars": 146612,
+   "status": "saved"
+  },
+  {
+   "scenario": "existing-field-limits",
+   "profile": "browser-local",
+   "accepted": 401,
+   "rejected": 0,
+   "firstRejection": null,
+   "lastConfirmedRevision": 403,
+   "outputSha256": "ace398a7e51f837a99c373c49364cb8b174263646e06861d4f12670190de9f20",
+   "utf16Units": 650073,
+   "utf8Bytes": 650085,
+   "activityChars": 650024,
+   "status": "saved"
+  },
+  {
+   "scenario": "whole-course-typical",
+   "profile": "browser-local",
+   "accepted": 722,
+   "rejected": 0,
+   "firstRejection": null,
+   "lastConfirmedRevision": 629,
+   "outputSha256": "f849d20922ed19e126ba5438a8c17114b04c909abbe3f1a1ed2a264099acf4a6",
+   "utf16Units": 868356,
+   "utf8Bytes": 868368,
+   "activityChars": 868307,
+   "status": "saved"
+  },
+  {
+   "scenario": "history-accumulation",
+   "profile": "browser-local",
+   "accepted": 902,
+   "rejected": 0,
+   "firstRejection": null,
+   "lastConfirmedRevision": 409,
+   "outputSha256": "bb383550c264cf5e24c4306598d6a8dc25608c686e4616903b140e81614d7b14",
+   "utf16Units": 539824,
+   "utf8Bytes": 539824,
+   "activityChars": 539775,
+   "status": "saved"
+  },
+  {
+   "scenario": "unicode-and-escaping",
+   "profile": "browser-local",
+   "accepted": 22,
+   "rejected": 0,
+   "firstRejection": null,
+   "lastConfirmedRevision": 24,
+   "outputSha256": "2ad59834acb5760437944f22d0a1d88df244844daa7626c086e87a6927b7a167",
+   "utf16Units": 96204,
+   "utf8Bytes": 146804,
+   "activityChars": 96155,
+   "status": "saved"
+  },
+  {
+   "scenario": "conflicts-and-legacy",
+   "profile": "browser-local",
+   "accepted": 17,
+   "rejected": 0,
+   "firstRejection": null,
+   "lastConfirmedRevision": 19,
+   "outputSha256": "bf7693a4a2e96d6bf6eea175469407fe9dd80b421a30bba4472fae761cc59f9d",
+   "utf16Units": 3205,
+   "utf8Bytes": 3205,
+   "activityChars": 3156,
+   "status": "saved"
+  },
+  {
+   "scenario": "beyond-real-limit",
+   "profile": "browser-local",
+   "accepted": 11,
+   "rejected": 0,
+   "firstRejection": null,
+   "lastConfirmedRevision": 13,
+   "outputSha256": "306e0970e340d91fee8a32503922367a8d5f470a6f4b30bf54441e34fd8ed1cd",
+   "utf16Units": 1025668,
+   "utf8Bytes": 1025668,
+   "activityChars": 1025619,
+   "status": "saved"
+  },
+  {
+   "scenario": "empty",
+   "profile": "scorm-2004",
+   "accepted": 0,
+   "rejected": 0,
+   "firstRejection": null,
+   "lastConfirmedRevision": 2,
+   "outputSha256": "fb01a6b22248a9b456b3e43e6cd9894a6a454721b6723b63f845b48f03eb2cc6",
+   "utf16Units": 491,
+   "utf8Bytes": 491,
+   "activityChars": 442,
+   "status": "saved"
+  },
+  {
+   "scenario": "all-numbered-600",
+   "profile": "scorm-2004",
+   "accepted": 39,
+   "rejected": 63,
+   "firstRejection": {
+    "op": "write:theme-1-online-booklet::q37.plateau.environmental-challenges",
+    "code": "over-budget"
+   },
+   "lastConfirmedRevision": 41,
+   "outputSha256": "912fa8beab2b1b097b77f428e83cce7f2063bb629ce33df8455320912542a046",
+   "utf16Units": 56162,
+   "utf8Bytes": 56162,
+   "activityChars": 56113,
+   "status": "over-budget"
+  },
+  {
+   "scenario": "existing-field-limits",
+   "profile": "scorm-2004",
+   "accepted": 40,
+   "rejected": 361,
+   "firstRejection": {
+    "op": "write:frayer::Interdependence::0",
+    "code": "over-budget"
+   },
+   "lastConfirmedRevision": 42,
+   "outputSha256": "b33cd0a6e2c781f3cb5d2d39761aec1ef648cb9fdbd8f36d8a21886ed7c7a72d",
+   "utf16Units": 56839,
+   "utf8Bytes": 56839,
+   "activityChars": 56790,
+   "status": "over-budget"
+  },
+  {
+   "scenario": "whole-course-typical",
+   "profile": "scorm-2004",
+   "accepted": 26,
+   "rejected": 546,
+   "firstRejection": {
+    "op": "write:theme-1-online-booklet::q25",
+    "code": "over-budget"
+   },
+   "lastConfirmedRevision": 28,
+   "outputSha256": "6668d308d28b8f85679cd3cbbb764b20553bd7ba9be506a1833e3f43a6e41121",
+   "utf16Units": 57046,
+   "utf8Bytes": 57046,
+   "activityChars": 56997,
+   "status": "over-budget"
+  },
+  {
+   "scenario": "history-accumulation",
+   "profile": "scorm-2004",
+   "accepted": 25,
+   "rejected": 227,
+   "firstRejection": {
+    "op": "write:theme-1-online-booklet::q25",
+    "code": "over-budget"
+   },
+   "lastConfirmedRevision": 27,
+   "outputSha256": "9c594e3089e369796fcee29a1a57f53deceb10189ce2d42cf058967748ef5290",
+   "utf16Units": 56031,
+   "utf8Bytes": 56031,
+   "activityChars": 55982,
+   "status": "over-budget"
+  },
+  {
+   "scenario": "unicode-and-escaping",
+   "profile": "scorm-2004",
+   "accepted": 13,
+   "rejected": 8,
+   "firstRejection": {
+    "op": "write:theme-1-online-booklet::q13",
+    "code": "over-budget"
+   },
+   "lastConfirmedRevision": 15,
+   "outputSha256": "ebad589d7e483b024cb2ba6b8bd14a42c5cc6e0fa05f16fb7c9a2473de4f2b02",
+   "utf16Units": 56679,
+   "utf8Bytes": 86579,
+   "activityChars": 56630,
+   "status": "over-budget"
+  },
+  {
+   "scenario": "conflicts-and-legacy",
+   "profile": "scorm-2004",
+   "accepted": 17,
+   "rejected": 0,
+   "firstRejection": null,
+   "lastConfirmedRevision": 19,
+   "outputSha256": "bf7693a4a2e96d6bf6eea175469407fe9dd80b421a30bba4472fae761cc59f9d",
+   "utf16Units": 3205,
+   "utf8Bytes": 3205,
+   "activityChars": 3156,
+   "status": "saved"
+  },
+  {
+   "scenario": "beyond-real-limit",
+   "profile": "scorm-2004",
+   "accepted": 6,
+   "rejected": 5,
+   "firstRejection": {
+    "op": "write:growth-probe",
+    "code": "over-budget"
+   },
+   "lastConfirmedRevision": 8,
+   "outputSha256": "2fa8028c10ba9dfdf0e84e15dd28ebaaf71e885f7384ed002d4c3c87d635dcb3",
+   "utf16Units": 33666,
+   "utf8Bytes": 33666,
+   "activityChars": 33617,
+   "status": "over-budget"
+  }
+ ]
+}

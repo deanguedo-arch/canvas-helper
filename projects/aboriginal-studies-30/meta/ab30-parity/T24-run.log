@@ -1,0 +1,18 @@
+=== T24 export staging ===
+Packaged via: node --import /tmp/ts-register.mjs scripts/export-brightspace-package.ts --project aboriginal-studies-30
+(tsx unusable in sandbox: IPC listen EPERM; loader shim resolves .js->.ts, native type-stripping)
+
+=== zip integrity ===
+    testing: lesson-components.js     OK
+No errors detected in compressed data of projects/aboriginal-studies-30/exports/aboriginal-studies-30-brightspace.zip.
+
+=== entry point ===
+     1061  09-23-2026 14:58   export-report.md
+     3800  09-23-2026 14:58   index.html
+
+=== absolute-path scan (expect none) ===
+(scan done)
+
+=== sizes ===
+200M	projects/aboriginal-studies-30/exports/brightspace
+193M	projects/aboriginal-studies-30/exports/aboriginal-studies-30-brightspace.zip

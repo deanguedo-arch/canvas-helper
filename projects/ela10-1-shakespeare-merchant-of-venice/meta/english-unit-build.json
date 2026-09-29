@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "projectSlug": "ela10-1-shakespeare-merchant-of-venice",
+  "generatedAt": "2026-09-22T16:58:24.490Z",
+  "status": "needs-review",
+  "profile": {
+    "id": "shakespeare-drama",
+    "version": "next-step-english-v3-ela10",
+    "sha256": "02237dae40c02c734b84255af76c41fd9d2a148f17c00353e588c7dfabbd1204"
+  },
+  "recipe": {
+    "path": "projects/ela10-1-shakespeare-merchant-of-venice/meta/english-unit.json",
+    "sha256": "aa113353960091d5a572668e057b045a9b5ff1f749c02e43ad44fc20e350964a"
+  },
+  "sources": [
+    {
+      "id": "brightspace",
+      "path": "projects/resources/ela10-1/_sources/98a7423518aa49d55b37e75f4a7a44037949c06416146e806705b85c933cbf49.normalized.zip",
+      "sha256": "2b733ba29703933d8c126dea2cc53f12c871dea986c4d6cba10a54edd355b481"
+    },
+    {
+      "id": "teacher-resources",
+      "path": "projects/resources/ela10-1/_sources/61c75238e8ca90b0c2e874d4f3ab65074b4a14ee699f1854f753bdf938648d2b.zip",
+      "sha256": "61c75238e8ca90b0c2e874d4f3ab65074b4a14ee699f1854f753bdf938648d2b"
+    }
+  ],
+  "components": [
+    {
+      "id": "assets/custom/shakespeare-foundations/elizabeth.jpg",
+      "source": "assets/custom/shakespeare-foundations/elizabeth.jpg",
+      "sha256": "157fa10d820fe4efa4f592542281b608ae03001e5ab04953db8ea050723bc67e"
+    },
+    {
+      "id": "assets/custom/shakespeare-foundations/globe-painting.jpg",
+      "source": "assets/custom/shakespeare-foundations/globe-painting.jpg",
+      "sha256": "9f0a6813aa4fabbf93585fc788c92733981baa8c10acbb2dc3ce7d1728ffe42c"
+    },
+    {
+      "id": "assets/custom/shakespeare-foundations/shakes-blocks.jpg",
+      "source": "assets/custom/shakespeare-foundations/shakes-blocks.jpg",
+      "sha256": "6a307b1a61f42ff9c5b42f9c0280c42ffab603f5d0b09e9a000960f35bc7cb80"
+    },
+    {
+      "id": "assets/custom/shakespeare-foundations/shakes-life-times-themes-clip-image002.jpg",
+      "source": "assets/custom/shakespeare-foundations/shakes-life-times-themes-clip-image002.jpg",
+      "sha256": "a8886be79b418f6646b98cae75db13be809c8fdb95ab6903fd91176a5941d4ae"
+    },
+    {
+      "id": "assets/custom/shakespeare-foundations/shakes-life-times-themes-clip-image004.jpg",
+      "source": "assets/custom/shakespeare-foundations/shakes-life-times-themes-clip-image004.jpg",
+      "sha256": "7239052194c5e244c4682eddfadd329fdc7afc2560b960c3674b872e4e85f332"
+    },
+    {
+      "id": "assets/custom/shakespeare-foundations/shakespeare-head.jpg",
+      "source": "assets/custom/shakespeare-foundations/shakespeare-head.jpg",
+      "sha256": "dee38df1f967fedf78786e3b994ef5fae34fcfa0d2e7c8aa138e83dc0c562781"
+    },
+    {
+      "id": "assets/custom/shakespeare-foundations/tudor-cottage.jpg",
+      "source": "assets/custom/shakespeare-foundations/tudor-cottage.jpg",
+      "sha256": "6d10177ea5d63014a66616c7b22bb69481c2dee4db0382e555b3d2208bb3130a"
+    },
+    {
+      "id": "components/shakespeare-foundation-lessons/lessons.json",
+      "source": "components/shakespeare-foundation-lessons/lessons.json",
+      "sha256": "84cc5739db00ad7e77a13cf7986377936d93ebdcffaf10907dd01b65f727c0a9"
+    },
+    {
+      "id": "components/shakespeare-side-by-side/scenes.json",
+      "source": "components/shakespeare-side-by-side/scenes.json",
+      "sha256": "8bcc95b89ca225d7c2ec86b2e833d4ec7a983087513848cec8515aa9ecfd049d"
+    }
+  ],
+  "ownedFiles": [
+    "assets/generated/brand/nxt-ce-logo-white-with-ce.png",
+    "assets/generated/resources/mov-act-2-questions-m-of-v-act-2-questions.docx",
+    "assets/generated/resources/mov-act-3-text-the-merchant-of-venice3.docx",
+    "assets/generated/resources/mov-act-4-text-the-merchant-of-venice-4x.docx",
+    "assets/generated/resources/mov-act-5-text-the-merchant-of-venice-v.docx",
+    "assets/generated/resources/mov-act-questions-mov-act-questions.pdf",
+    "assets/generated/resources/mov-graphic-essay-mov-graphic-essay.docx",
+    "assets/generated/resources/mov-imagery-mov-imagery.pdf",
+    "assets/generated/resources/mov-resources-mov-resources.pdf",
+    "index.html"
+  ],
+  "reviewItems": [
+    "Editorially review all 20 locally stored plain-language companion scenes.",
+    "Review the 86 mapped teacher questions and the supplied Graphic Essay instructions.",
+    "Review the six consolidated Shakespeare foundation lessons before final export."
+  ]
+}

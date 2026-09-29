@@ -1,0 +1,155 @@
+{
+  "status": "proposed_template_not_implemented",
+  "purpose": "Demonstrate explicit teaching and per-target evidence requirements; adapt to actual approved sources and policy.",
+  "logical_target_id": "C4-43a",
+  "target_name": "Product of powers",
+  "target_demand": "Recognize multiplication of powers with the same base, simplify it, and connect exponent addition to repeated factors.",
+  "source_authority": {
+    "actual_source_locators": [],
+    "status": "pending_actual_source_packet",
+    "observed_current_target_locator": "Chapter_4/workspace/index.html#u4-43 [data-target-id=\"C4-43a\"]",
+    "do_not_claim_curriculum_alignment_without_source_review": true
+  },
+  "policy": {
+    "use_owner_approved_reference_policy": true,
+    "current_chapter4_consistency_stage_deviation": "owner decision or correction required",
+    "approved_policy_version": null,
+    "never_silently_reinterpret_historical_scores": true
+  },
+  "teaching": {
+    "proposed_sample": "04_TEACHING_CALIBRATION_4_3.md",
+    "canonical_lesson_id": "u4-43",
+    "mechanism": "Join groups of identical factors; add the counts, not the bases.",
+    "contrast": [
+      "Addition of powers is not multiplication.",
+      "Unlike bases do not combine into a single same-base power."
+    ],
+    "prerequisites": [
+      "Meaning of a positive integer exponent",
+      "Multiplication versus addition"
+    ],
+    "unexplained_negative_exponents_allowed": false
+  },
+  "family": {
+    "proposed_family_id": "c4-43a-product-positive-integer-v1",
+    "bounds": {
+      "base_symbols": [
+        "p",
+        "q",
+        "r",
+        "s",
+        "t"
+      ],
+      "exponents_min": 2,
+      "exponents_max": 8
+    },
+    "mathematical_review_status": "not_run",
+    "task_instances_require_frozen_givens": true,
+    "mathematical_fingerprint_components": [
+      "operation_tree",
+      "base_identity_or_documented_isomorphism_class",
+      "exponents",
+      "required_response_construct"
+    ],
+    "cross_route_exposure": [
+      "lesson_examples",
+      "ordinary_practice",
+      "mastery",
+      "worked_support"
+    ],
+    "freshness_not_based_on": [
+      "seed_only",
+      "array_index_only",
+      "route_name_only"
+    ]
+  },
+  "sample_review_only": {
+    "given": "p^3 * p^5",
+    "requested": "Simplify. Explain which operation on the exponents is justified.",
+    "expected_simplified": "p^8",
+    "bounded_reasoning": "Identify the joined groups as eight factors of the same base.",
+    "valid_forms_to_review": [
+      "p^8",
+      "p⁸"
+    ],
+    "contrast_cases": [
+      "p^3 + p^5",
+      "p^3 * q^5"
+    ],
+    "never_use_exposed_sample_as_fresh_evidence": true
+  },
+  "checking": {
+    "algorithm_requirement": "Bounded mathematically justified parser/normalizer and requested-form contract, not a list of canonical answer strings.",
+    "outcomes": [
+      "blank_input",
+      "malformed_input",
+      "unsupported_notation",
+      "mathematical_error",
+      "equivalent_not_requested_form",
+      "correct_intermediate",
+      "correct_complete"
+    ],
+    "unicode_toolbar_symbols_supported": true,
+    "arbitrary_prose": "retain_for_review_unless_separately_validated_contract",
+    "equivalent_and_wrong_responses_both_tested": true
+  },
+  "credit_contract": {
+    "eligible_targets": [
+      "C4-43a"
+    ],
+    "never_credit_by_lesson_boolean": [
+      "C4-43b",
+      "C4-43c",
+      "C4-43d"
+    ],
+    "independent_conditions": [
+      "predesignated before response",
+      "unexposed mathematical target",
+      "unaided first mathematical check",
+      "support and original response persisted",
+      "actually demonstrated component passes"
+    ],
+    "consistency_transfer_retention": "Apply the owner-approved policy; each stage must have specifically elicited evidence, not just a renamed task.",
+    "helped_success": "practice evidence followed by another fresh independent opportunity"
+  },
+  "repair": {
+    "observed_error": "Uses multiplication of exponents on a same-base product",
+    "do_not_infer_cause_from_final_answer_alone": true,
+    "discriminating_question": "Which operation did you use on the two exponents?",
+    "short_teaching": "Display the repeated factors and count the joined groups.",
+    "repair_task": "Different bounded product; do not repeat its answer in the prompt.",
+    "return_to_original_work": true,
+    "next_fresh_task": true,
+    "four_checks_must_not_end_learning": true
+  },
+  "retention_and_work": {
+    "immutable_first_submission": true,
+    "final_or_selected_correction": true,
+    "support_before_submission": true,
+    "original_givens_and_version": true,
+    "limited_history_is_not_unlimited_notebook": true,
+    "compaction_preserves_established_evidence_meaning": true,
+    "no_new_storage_owner": true
+  },
+  "acceptance": {
+    "required_gates": [
+      "G01",
+      "G03",
+      "G04",
+      "G06",
+      "G08",
+      "G09",
+      "G10",
+      "G11",
+      "G12",
+      "G13",
+      "G14",
+      "G15",
+      "G18"
+    ],
+    "executed": false,
+    "teacher_review": "not_run",
+    "learner_review": "not_run",
+    "tenant_review": "not_run"
+  }
+}

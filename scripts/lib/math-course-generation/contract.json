@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "contractVersion": "math-course-generation-v2",
+  "lessonArchitecture": {
+    "requiredRoles": ["orientation", "meaning", "worked", "guided", "faded", "misconception", "mastery"]
+  },
+  "assessment": {
+    "targetsPerLessonMinimum": 1,
+    "generatedQuestionsPerLessonMinimum": 50,
+    "reviewPartitions": 2,
+    "masteryStages": [0, 25, 50, 75, 100],
+    "retentionDelayHours": 48
+  },
+  "requiredFiles": [
+    "assets/chapter4-math.js",
+    "assets/chapter4-checkers.js",
+    "assets/chapter4-policy.js",
+    "assets/chapter4-mastery.js",
+    "assets/chapter4-practice-data.js",
+    "assets/chapter4-practice.js"
+    ,"assets/chapter4-learning.js"
+  ],
+  "forbiddenLearnerPhrases": ["CBE System", "NXT Master", "task identity", "contract version", "review build"],
+  "requiredAdapterMeasurements": ["generatedQuestionsPerLesson", "reviewPartitions", "reviewTargetUnion", "targetResponseCoverage", "semanticCases", "freshnessCases"]
+}

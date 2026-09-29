@@ -1,0 +1,115 @@
+{
+  "schema": "ab30-v2-lesson-review-candidate-v1",
+  "lessonId": "t4-l07-education-odds",
+  "displayNumber": 49,
+  "contentVersion": "ab30-v2-l49.1",
+  "reviewState": "candidate lead source-and-render pass; teacher and community review pending",
+  "inputHashes": {
+    "course-data.js": "82d4151fe844a8941e557b2e036f077a7a67a37cdc2ce1df12b68402f30762a3",
+    "practice-data.js": "f21c0740ed24e7a4b351329a11666ed45846176f8167b9dabaee2873776052af"
+  },
+  "sourceOfTruth": "projects/aboriginal-studies-30/workspace/course-data.js",
+  "assignmentConnection": {
+    "bookletQuestionIds": [
+      "q21",
+      "q22"
+    ],
+    "assignmentIds": [],
+    "assignmentHomeIds": [],
+    "formativeMarksAdded": 0
+  },
+  "goalAndTeaching": {
+    "goal": "Evaluate the booklet’s claim about global schooling and explain how relevant education can support Indigenous advocacy.",
+    "essentialQuestion": "When does education expand a person’s choices and a community’s voice?",
+    "headings": [
+      "1. Read the statistic before judging the statement",
+      "2. Education can open routes to public action",
+      "3. Connect the reading without changing the assignment"
+    ],
+    "firstTeachingExcerpt": "The textbook reports that 130 million children worldwide lacked access to education when its data were gathered, and that Indigenous children were disproportionately represented. Question 21 changes that into “the vast majority are Aboriginal.” Those are different claims. “Disproportionately represented” means a group’s share is higher than expected relative to its population; it does not mean that group is most of the total."
+  },
+  "sourceVerification": [
+    {
+      "title": "Source A · textbook education figures",
+      "locator": "Chapter 7, printed p. 231 (supplied PDF p. 239)",
+      "sourceType": "Dated textbook summary",
+      "contextLimits": "Historical figures drawn from older data, not a current global estimate. “Disproportionate” does not establish a majority.",
+      "check": "manually compared with the supplied official booklet/textbook or named publisher page; exact quote and page mapping require independent editorial sign-off"
+    },
+    {
+      "title": "Source B · Perkins’s organizing",
+      "locator": "Chapter 7, printed p. 230 (supplied PDF p. 238)",
+      "sourceType": "Textbook profile",
+      "contextLimits": "A profile of one activist. It cannot establish how every student experiences education.",
+      "check": "manually compared with the supplied official booklet/textbook or named publisher page; exact quote and page mapping require independent editorial sign-off"
+    },
+    {
+      "title": "Source C · international learning exchange",
+      "locator": "Chapter 7, printed p. 231 (supplied PDF p. 239)",
+      "sourceType": "Textbook program example",
+      "contextLimits": "Examples from the period described by the textbook; verify any current program status separately.",
+      "check": "manually compared with the supplied official booklet/textbook or named publisher page; exact quote and page mapping require independent editorial sign-off"
+    }
+  ],
+  "workedResponse": {
+    "title": "Worked answer: booklet Question 21",
+    "directions": "True or false: Of the 130 million children worldwide who do not finish school, the vast majority are Aboriginal? Use the textbook’s wording and note the date limit.",
+    "evidence": [
+      {
+        "ref": "Source A, textbook p. 231",
+        "text": "The textbook says Indigenous children are disproportionately represented among those without access; it does not say they are the vast majority."
+      }
+    ],
+    "reasoning": [
+      "Underline “vast majority” in the question and “disproportionate number” in the source.",
+      "A higher-than-expected share need not exceed half, let alone be a vast majority.",
+      "Answer the course’s logic question without treating the old total as a present-day statistic."
+    ],
+    "response": "False. The textbook says Indigenous children were disproportionately represented among children without access to education, not that they made up the vast majority. The 130 million figure is from the textbook’s older data and should be dated if used elsewhere."
+  },
+  "supportedControl": {
+    "itemId": "ab30-v2-l49-voice-1",
+    "key": "b",
+    "wrongFeedback": "One profile cannot prove what happens to every educated person.",
+    "correctFeedback": "This connects a specific example to a public-voice mechanism while keeping organizing visible.",
+    "bankSynchronized": true
+  },
+  "independentTasks": [
+    {
+      "title": "Repair an education overclaim",
+      "task": "After checking the selection, rewrite: “Education automatically fixes discrimination.” Use Perkins’s profile to explain one opportunity education can provide and one action beyond schooling that his story shows. Save a first response before viewing criteria, then revise.",
+      "criteria": "A strong repair identifies a specific opportunity, names Perkins’s organizing or public advocacy, and avoids saying education alone removes structural barriers. Criteria unlock after the first save.",
+      "responseKey": "t4-l07-education-odds::supported-repair",
+      "differsFrom": {
+        "evidence": "Moves from a selected mechanism to a bounded causal explanation.",
+        "example": "Writes and revises a claim using Perkins’s profile."
+      }
+    },
+    {
+      "title": "Independent: another route to voice",
+      "task": "Choose one Young Professionals example from Source C’s full textbook section. Name the participant’s Nation or community and placement, explain what they learned or shared, and connect that work to a way Indigenous concerns could be heard. Save, compare with criteria and revise.",
+      "criteria": "A strong answer identifies the named participant accurately; explains the placement’s work rather than merely listing a destination; links learning or exchange to an advocacy route; and notes that the example is dated. Criteria unlock after the first save.",
+      "responseKey": "t4-l07-education-odds::independent-exchange",
+      "differsFrom": {
+        "evidence": "Uses an international exchange rather than Perkins’s Freedom Rides.",
+        "example": "Applies the same mechanism question to a different named person and setting."
+      }
+    }
+  ],
+  "browserEvidence": {
+    "desktop": "projects/aboriginal-studies-30/meta/ab30-v2/evidence/R27/l49-1440.png",
+    "mobile": "projects/aboriginal-studies-30/meta/ab30-v2/evidence/R27/l49-390.png",
+    "render": "local Chromium file preview at 1440 and 390: 3 options, 2 first-save controls, no page error or horizontal overflow; not Brightspace or Studio"
+  },
+  "limitations": [
+    "No teacher, Elder or community content approval.",
+    "Film scene access and media rights not verified; scene-specific work remains dependent on the assigned film.",
+    "No full assigned-work, curriculum-outcome, exported-SCORM or live Brightspace acceptance in this Build pass.",
+    "Screenshots show lesson openings; deep source and response visuals require rollout review."
+  ],
+  "reviewerStatus": {
+    "humanReviewed": false,
+    "leadTechnicalReview": true,
+    "learnerBrowserProof": "bounded local rendering only"
+  }
+}

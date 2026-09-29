@@ -1,0 +1,152 @@
+{
+  "$schema": "../../../e2e/project-e2e-contract.schema.json",
+  "projectSlug": "ela10-2-novel-study",
+  "requiredTestIds": [
+    "studio-shell",
+    "course-studio-tab",
+    "workspace-project-select",
+    "project-root",
+    "workspace-preview-frame"
+  ],
+  "modes": {
+    "enabled": false
+  },
+  "navigation": {
+    "enabled": false
+  },
+  "quiz": {
+    "enabled": false,
+    "lessonTitle": "Questions"
+  },
+  "fallbackPanel": {
+    "enabled": false
+  },
+  "learnerCourse": {
+    "enabled": true,
+    "routes": [
+      "overview",
+      "lessons",
+      "lesson-1-synopsis-and-what-to-consider-before-reading",
+      "literary-exploration",
+      "literary-exploration-prompt-controlling-idea",
+      "literary-exploration-introduction-thesis",
+      "literary-exploration-body-assigned-text",
+      "literary-exploration-body-studied-work",
+      "literary-exploration-body-personal-connection",
+      "literary-exploration-conclusion-revision",
+      "literary-exploration-preview",
+      "personal-response",
+      "personal-response-prompt-impression",
+      "personal-response-text-evidence",
+      "personal-response-knowledge-experience",
+      "personal-response-form-perspective",
+      "personal-response-response-plan",
+      "personal-response-draft-revise",
+      "personal-response-preview",
+      "reading-guide",
+      "major-works-data",
+      "novel-study-questions",
+      "writing-studio",
+      "core-vocabulary",
+      "evidence-bank",
+      "resources"
+    ],
+    "hintRoutes": [
+      "literary-exploration-prompt-controlling-idea",
+      "literary-exploration-introduction-thesis",
+      "literary-exploration-body-assigned-text",
+      "literary-exploration-body-studied-work",
+      "literary-exploration-body-personal-connection",
+      "literary-exploration-conclusion-revision",
+      "personal-response-prompt-impression",
+      "personal-response-text-evidence",
+      "personal-response-knowledge-experience",
+      "personal-response-form-perspective",
+      "personal-response-response-plan",
+      "personal-response-draft-revise",
+      "reading-guide",
+      "major-works-data",
+      "novel-study-questions",
+      "writing-studio"
+    ],
+    "printRoutes": [
+      "literary-exploration-prompt-controlling-idea",
+      "literary-exploration-introduction-thesis",
+      "literary-exploration-body-assigned-text",
+      "literary-exploration-body-studied-work",
+      "literary-exploration-body-personal-connection",
+      "literary-exploration-conclusion-revision",
+      "literary-exploration-preview",
+      "personal-response-prompt-impression",
+      "personal-response-text-evidence",
+      "personal-response-knowledge-experience",
+      "personal-response-form-perspective",
+      "personal-response-response-plan",
+      "personal-response-draft-revise",
+      "personal-response-preview",
+      "reading-guide",
+      "major-works-data",
+      "novel-study-questions",
+      "writing-studio",
+      "evidence-bank"
+    ],
+    "evidenceScenarios": [
+      {
+        "route": "literary-exploration-prompt-controlling-idea",
+        "collectionId": "ela10-2-novel-study:literary-exploration:speak:prompt-controlling-idea:collection",
+        "responseId": "ela10-2-novel-study:literary-exploration:speak:prompt-controlling-idea:assigned-prompt",
+        "activateSelector": "[data-english-writing-track-select=\"ela10-2-novel-study:literary-exploration\"] option[value=\"speak\"]"
+      },
+      {
+        "route": "literary-exploration-introduction-thesis",
+        "collectionId": "ela10-2-novel-study:literary-exploration:boy-striped-pajamas:introduction-thesis:collection",
+        "responseId": "ela10-2-novel-study:literary-exploration:boy-striped-pajamas:introduction-thesis:opening",
+        "activateSelector": "[data-english-writing-track-select=\"ela10-2-novel-study:literary-exploration\"] option[value=\"boy-striped-pajamas\"]"
+      },
+      {
+        "route": "personal-response-prompt-impression",
+        "collectionId": "ela10-2-novel-study:personal-response:speak:prompt-impression:collection",
+        "responseId": "ela10-2-novel-study:personal-response:speak:prompt-impression:prompt",
+        "activateSelector": "[data-english-writing-track-select=\"ela10-2-novel-study:personal-response\"] option[value=\"speak\"]"
+      },
+      {
+        "route": "personal-response-text-evidence",
+        "collectionId": "ela10-2-novel-study:personal-response:boy-striped-pajamas:text-evidence:collection",
+        "responseId": "ela10-2-novel-study:personal-response:boy-striped-pajamas:text-evidence:moment",
+        "activateSelector": "[data-english-writing-track-select=\"ela10-2-novel-study:personal-response\"] option[value=\"boy-striped-pajamas\"]"
+      },
+      {
+        "route": "reading-guide",
+        "collectionId": "ela10-2-novel-study:reading-guide:speak:synthesis",
+        "responseId": "ela10-2-novel-study:reading-guide:speak:synthesis:pattern"
+      },
+      {
+        "route": "major-works-data",
+        "collectionId": "ela10-2-novel-study:major-works:speak:collection",
+        "responseId": "ela10-2-novel-study:major-works:speak:context"
+      },
+      {
+        "route": "novel-study-questions",
+        "collectionId": "ela10-2-novel-study:novel-questions:speak:opening:collection",
+        "responseId": "ela10-2-novel-study:novel-questions:speak:opening:opening-situation"
+      }
+    ],
+    "resourceChecks": [],
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "routes": [
+        "overview",
+        "lesson-1-synopsis-and-what-to-consider-before-reading",
+        "literary-exploration-prompt-controlling-idea",
+        "literary-exploration-introduction-thesis",
+        "personal-response-prompt-impression",
+        "personal-response-text-evidence",
+        "reading-guide",
+        "major-works-data",
+        "novel-study-questions",
+        "evidence-bank"
+      ]
+    }
+  }
+}

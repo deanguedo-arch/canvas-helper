@@ -40,6 +40,7 @@ These are Rollout-checkpoint expectations, not commands to rerun after every Bui
 - Authoring enforcement changes: targeted deviation/preference tests plus `npm.cmd run typecheck`
 - Project metadata/source-of-truth policy changes: `npm.cmd run validate:manifests` plus targeted tests and `npm.cmd run typecheck`
 - Pipeline changes: smoke-path verification plus targeted tests
+- Agent routing, subprocess, billing, or admission changes: `npm run test:agent-delegation`, local `agents:doctor`/`agents:status`, and the observed host gate described in `docs/ops/AGENT_EFFICIENCY.md`. Synthetic worker results never establish subscription billing, effective sandboxing, or accepted work.
 - Incoming pipeline changes: targeted intake tests plus `npm.cmd run incoming:refresh -- --incoming <temp>` or an equivalent temp-root one-shot check
 
 ## Doc Update Triggers

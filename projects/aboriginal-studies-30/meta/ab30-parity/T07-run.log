@@ -1,0 +1,24 @@
+=== T07 run log 2026-09-23 ===
+SYNTAX_OK
+--- route suite ---
+✔ ROUTE01: lesson URLs mount only that lesson; old URLs unchanged (3.877458ms)
+✔ ROUTE02: anchors resolve; bad params fall back without state loss (2.1575ms)
+✔ ROUTE03: prev/next follow array order across nonsequential IDs (0.555917ms)
+✔ ROUTE04-partial: route URLs preserve unrelated host params (Back/Forward/reload need a browser) (0.435208ms)
+✔ ROUTE05-partial: dialog close restores focus to the opener (native Esc needs a browser) (0.404792ms)
+✔ ROUTE06: all 50 lesson routes mount unique DOM ids and shared radio names (7.464625ms)
+✔ ROUTE07-partial: subnav exposes the current lesson link with aria-current (mobile/focus need a browser) (0.652208ms)
+✔ ROUTE08-partial: Studio preview URL sync covers lesson routes (live Studio needs a browser) (0.644041ms)
+ℹ tests 8
+ℹ pass 8
+ℹ fail 0
+--- parity/state/source ---
+ℹ tests 50
+ℹ pass 50
+ℹ fail 0
+--- shell file-scope ---
+ℹ tests 10
+ℹ pass 10
+ℹ fail 0
+--- tsc touched-files ---
+TSC_TOUCHED_CLEAN

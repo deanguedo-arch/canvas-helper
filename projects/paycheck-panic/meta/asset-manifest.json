@@ -1,0 +1,1405 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-09-29T16:54:06.073Z",
+  "runtimeOwner": "workspace/asset-manifest.js",
+  "renderer": "workspace/art.js",
+  "styleReference": "workspace/assets/generated/style-reference.png",
+  "style": {
+    "camera": "elevated orthographic",
+    "outlines": "#254733",
+    "paper": "#fff4da",
+    "green": "#285e46",
+    "gold": "#e2ad45",
+    "characterHeight": 88,
+    "footRadius": 12
+  },
+  "directions": [
+    "s",
+    "sw",
+    "w",
+    "nw",
+    "n",
+    "ne",
+    "e",
+    "se"
+  ],
+  "animations": {
+    "idle": {
+      "cycle": 2.4
+    },
+    "walk": {
+      "cycle": 0.62,
+      "armSwing": 0.18,
+      "legSwing": 0.24
+    },
+    "interact": {
+      "cycle": 0.8,
+      "armSwing": 0.5
+    },
+    "carry": {
+      "cycle": 0.7,
+      "armSwing": 0.08
+    },
+    "celebrate": {
+      "cycle": 1,
+      "armSwing": 1
+    },
+    "setback": {
+      "cycle": 1.2,
+      "armSwing": 0.12
+    }
+  },
+  "rig": {
+    "head": [
+      0,
+      0,
+      1,
+      0.34
+    ],
+    "torso": [
+      0.24,
+      0.32,
+      0.52,
+      0.34
+    ],
+    "leftArm": [
+      0,
+      0.33,
+      0.25,
+      0.34
+    ],
+    "rightArm": [
+      0.75,
+      0.33,
+      0.25,
+      0.34
+    ],
+    "leftLeg": [
+      0,
+      0.65,
+      0.5,
+      0.35
+    ],
+    "rightLeg": [
+      0.5,
+      0.65,
+      0.5,
+      0.35
+    ],
+    "pivots": {
+      "head": [
+        0.5,
+        0.32
+      ],
+      "torso": [
+        0.5,
+        0.5
+      ],
+      "leftArm": [
+        0.23,
+        0.37
+      ],
+      "rightArm": [
+        0.77,
+        0.37
+      ],
+      "leftLeg": [
+        0.4,
+        0.66
+      ],
+      "rightLeg": [
+        0.6,
+        0.66
+      ]
+    }
+  },
+  "display": {
+    "worldCharacterHeight": 88,
+    "interiorCharacterHeight": 140,
+    "feetColliderRadius": 12,
+    "localBitmapEdits": false,
+    "notes": [
+      "Original PNG atlases are retained intact. Canvas source rectangles produce sprites at runtime.",
+      "All character directions share a fractional cutout rig. Limb rotations are essential movement; decorative breathing is suppressed in reduced motion.",
+      "Maya northwest uses a mirrored northeast frame because the generated northwest view duplicated northeast.",
+      "Room backdrops include wall decor; furniture on the walkable floor is a separately sorted layer.",
+      "Dynamic prices, scores, directions, instructions, and feedback are drawn by the game."
+    ]
+  },
+  "assets": [
+    {
+      "file": "workspace/assets/generated/alex-directions.png",
+      "sha256": "8e9219292dcbe4b64020ec0efde251414c77b44c24873653b31ca0bbd3de5a1f",
+      "bytes": 1150322,
+      "width": 2172,
+      "height": 724,
+      "role": "production source atlas",
+      "provider": "Codex image generation",
+      "generation": {
+        "prompt": "Use case: stylized-concept. Asset type: production transparent 2D game character turnaround atlas for Paycheck Panic. Create Alex, an expressive young adult cartoon man, warm tan skin, short tousled dark brown hair, sage green zip hoodie over cream tee, dark navy trousers and simple cream sneakers. Style: polished hand-illustrated 2D life-sim, clean ink contours, soft cel shading, friendly but not babyish, four-head-tall proportions. Match the attached painted town's warm palette and crisp illustration, but use a fixed elevated orthographic three-quarter game camera. IMPORTANT exact atlas layout: 8 equal columns and ONE row on a wide transparent canvas. Eight full-body neutral standing figures same height, centered in their own cell, identical body proportions, with feet on the same baseline and generous transparent margin. Columns in exact order: facing south (toward viewer), southwest, west (left profile), northwest, north (back), northeast, east (right profile), southeast. True distinct directional drawings, not all front faces. Relaxed arms visibly separated from torso, legs visibly separated to support runtime cutout animation. Whole feet visible. No ground, no scenery, no shadows, no labels, no text, no cell borders. Every view is the exact same character and outfit. This is a game sprite atlas, not a poster.",
+        "reference": "workspace/assets/town-map.png"
+      },
+      "edit": null,
+      "sheets": [
+        {
+          "name": "alex",
+          "src": "assets/generated/alex-directions.png",
+          "frames": [
+            [
+              62,
+              67,
+              227,
+              590
+            ],
+            [
+              356,
+              66,
+              195,
+              594
+            ],
+            [
+              634,
+              69,
+              145,
+              590
+            ],
+            [
+              862,
+              69,
+              184,
+              586
+            ],
+            [
+              1106,
+              66,
+              221,
+              589
+            ],
+            [
+              1389,
+              67,
+              187,
+              588
+            ],
+            [
+              1663,
+              68,
+              144,
+              591
+            ],
+            [
+              1897,
+              68,
+              210,
+              592
+            ]
+          ],
+          "reference": "assets/player-alex.png",
+          "anchor": [
+            0.5,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "file": "workspace/assets/generated/characters-b-transparent.png",
+      "sha256": "cf2736bea5e185144a93c361c190ab8ff6480b60d07b681c438e985782df9379",
+      "bytes": 2184834,
+      "width": 1536,
+      "height": 1024,
+      "role": "production source atlas",
+      "provider": "ChatGPT via Chrome extension",
+      "generation": {
+        "prompt": "Generate the next transparent character sprite atlas in exactly the same illustrated young adult proportions and rendering as Maya, same elevated orthographic angle. THREE rows of EIGHT full-body views, 24 complete separated figures, no text. Row one JAY: young Black man, close cropped dark hair, burnt orange bomber jacket, cream shirt, charcoal trousers, white sneakers. Row two SAM: young East Asian person with chin-length black hair and round glasses, lavender overshirt, cream shirt, charcoal trousers, white sneakers. Row three CLASSIC: androgynous young adult with short dark hair, cream and forest-green striped shirt, dark green trousers, white sneakers. Each row reads left to right: south facing viewer, southwest looking left, west profile looking left, northwest back looking left, north full back, northeast back looking right, east profile looking right, southeast looking right. Correct northwest views must look LEFT not right. All eight views of each person same height with aligned feet; hands relaxed slightly separated from body, separate legs. Large transparent gaps between each figure and each row. No floor, ground shadows, lettering, labels, frames or captions. Actual transparent PNG production sprite sheet.",
+        "conversation": "https://chatgpt.com/c/6abbd6bb-6b5c-83e8-9915-e9d251479641"
+      },
+      "edit": {
+        "source": "workspace/assets/generated/characters-b.png",
+        "prompt": "Remove the background from this image. Keep all foreground subjects unchanged and fully intact, with clean, smooth edges. Make the background transparent.",
+        "tool": "ChatGPT Remove BG"
+      },
+      "sheets": [
+        {
+          "name": "jay",
+          "src": "assets/generated/characters-b-transparent.png",
+          "frames": [
+            [
+              55,
+              28,
+              128,
+              294
+            ],
+            [
+              247,
+              28,
+              120,
+              298
+            ],
+            [
+              444,
+              28,
+              85,
+              297
+            ],
+            [
+              617,
+              28,
+              118,
+              296
+            ],
+            [
+              799,
+              29,
+              128,
+              291
+            ],
+            [
+              994,
+              28,
+              116,
+              295
+            ],
+            [
+              1198,
+              28,
+              85,
+              298
+            ],
+            [
+              1359,
+              28,
+              121,
+              297
+            ]
+          ],
+          "reference": "maya",
+          "anchor": [
+            0.5,
+            1
+          ]
+        },
+        {
+          "name": "sam",
+          "src": "assets/generated/characters-b-transparent.png",
+          "frames": [
+            [
+              53,
+              354,
+              129,
+              301
+            ],
+            [
+              247,
+              355,
+              122,
+              302
+            ],
+            [
+              443,
+              357,
+              90,
+              300
+            ],
+            [
+              616,
+              356,
+              118,
+              300
+            ],
+            [
+              799,
+              355,
+              127,
+              299
+            ],
+            [
+              994,
+              357,
+              119,
+              299
+            ],
+            [
+              1193,
+              357,
+              92,
+              300
+            ],
+            [
+              1359,
+              356,
+              122,
+              302
+            ]
+          ],
+          "reference": "maya",
+          "anchor": [
+            0.5,
+            1
+          ]
+        },
+        {
+          "name": "classic",
+          "src": "assets/generated/characters-b-transparent.png",
+          "frames": [
+            [
+              52,
+              680,
+              128,
+              309
+            ],
+            [
+              245,
+              680,
+              121,
+              312
+            ],
+            [
+              442,
+              679,
+              91,
+              313
+            ],
+            [
+              615,
+              679,
+              119,
+              311
+            ],
+            [
+              799,
+              682,
+              127,
+              305
+            ],
+            [
+              995,
+              679,
+              118,
+              311
+            ],
+            [
+              1196,
+              680,
+              89,
+              312
+            ],
+            [
+              1361,
+              680,
+              122,
+              312
+            ]
+          ],
+          "reference": "maya",
+          "anchor": [
+            0.5,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "file": "workspace/assets/generated/characters-b.png",
+      "sha256": "09e62e066e75a5fb4fa0fcc67af3d55ac3a31e43810fa1569c7c741875676540",
+      "bytes": 2197987,
+      "width": 1536,
+      "height": 1024,
+      "role": "reference only",
+      "provider": "ChatGPT via Chrome extension",
+      "generation": {
+        "prompt": "Generate the next transparent character sprite atlas in exactly the same illustrated young adult proportions and rendering as Maya, same elevated orthographic angle. THREE rows of EIGHT full-body views, 24 complete separated figures, no text. Row one JAY: young Black man, close cropped dark hair, burnt orange bomber jacket, cream shirt, charcoal trousers, white sneakers. Row two SAM: young East Asian person with chin-length black hair and round glasses, lavender overshirt, cream shirt, charcoal trousers, white sneakers. Row three CLASSIC: androgynous young adult with short dark hair, cream and forest-green striped shirt, dark green trousers, white sneakers. Each row reads left to right: south facing viewer, southwest looking left, west profile looking left, northwest back looking left, north full back, northeast back looking right, east profile looking right, southeast looking right. Correct northwest views must look LEFT not right. All eight views of each person same height with aligned feet; hands relaxed slightly separated from body, separate legs. Large transparent gaps between each figure and each row. No floor, ground shadows, lettering, labels, frames or captions. Actual transparent PNG production sprite sheet.",
+        "conversation": "https://chatgpt.com/c/6abbd6bb-6b5c-83e8-9915-e9d251479641"
+      },
+      "edit": null,
+      "sheets": []
+    },
+    {
+      "file": "workspace/assets/generated/checkout.png",
+      "sha256": "a5fd52b76323d6e1fc37851e57b13c423b8a7c5b8031f8e0df83e8685987e266",
+      "bytes": 2133613,
+      "width": 1672,
+      "height": 941,
+      "role": "production source atlas",
+      "provider": "ChatGPT via Chrome extension",
+      "generation": {
+        "prompt": "Generate the finished PAINTED CHECKOUT GAME SET for Paycheck Panic. A single richly illustrated horizontal 16:9 grocery checkout scene, matching the cozy forest green cream ochre style above. View from slightly above and straight on toward the counter. Lush welcoming neighborhood grocery behind: high sunlit windows, lamps, stocked wall shelves, produce crates, warm cream tile, hand painted textures, no text anywhere. The foreground checkout counter spans the entire width, its top from 55% down to 83% down; wood front below. A clearly EMPTY dark green conveyor belt runs horizontally from x=28% to right edge, centered at y=66%, height about 15% of canvas. Empty bagging area to left at x=10%. Leave open room for a separately animated customer at x=16%, between y=10% and55%. No people, no loose products on the belt, no shopping bags, no scanner apparatus, no numbers, no prices, no labels, no UI, no emoji. All gameplay objects including scanner and bag will be layered on top in code. Beautiful detailed production game environment, convincing warm light and tangible materials, not flat colored rectangles. Opaque PNG.",
+        "conversation": "https://chatgpt.com/c/6abbd6bb-6b5c-83e8-9915-e9d251479641"
+      },
+      "edit": null,
+      "sheets": [
+        {
+          "name": "checkout",
+          "src": "assets/generated/checkout.png",
+          "columns": 1,
+          "rows": 1,
+          "names": [
+            "checkout"
+          ],
+          "reference": "roomsA",
+          "frames": [
+            [
+              0,
+              0,
+              1672,
+              941
+            ]
+          ],
+          "anchor": [
+            0.5,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "file": "workspace/assets/generated/furniture-atlas.png",
+      "sha256": "662b3dd1d8089cbe5a54d8313128073f04b5e4db1ab14e544ea4be23be664162",
+      "bytes": 1533173,
+      "width": 1254,
+      "height": 1254,
+      "role": "production source atlas",
+      "provider": "ChatGPT via Chrome extension",
+      "generation": {
+        "prompt": "Continue the same asset family, same rendering and camera: create a transparent 4-column by 4-row sprite atlas of SIXTEEN separate illustrated room props. One object per equally sized cell with clear transparent margins, complete object, no overlaps, no captions or text. Front-facing with tops visible, elevated orthographic camera, painted highlights, dark green soft outline, warm cream lighting. Row 1: grocery shelf full of colorful packages; grocery produce display; checkout counter with conveyor and scanner; paper grocery bag with handles. Row 2: green two-seat sofa; single wooden bed with cream duvet; wooden desk with monitor; tall bookcase. Row 3: dumbbell weight bench; round diner table with two chairs; red diner booth; potted leafy plant. Row 4: green arcade cabinet; bank teller counter; office swivel chair; wooden study table with open books. Keep recognizable shapes at 100px display size, ground bases at bottom of each cell. No floor or scenery. Generate the actual transparent PNG image.",
+        "conversation": "https://chatgpt.com/c/6abbd6bb-6b5c-83e8-9915-e9d251479641"
+      },
+      "edit": null,
+      "sheets": [
+        {
+          "name": "furniture",
+          "src": "assets/generated/furniture-atlas.png",
+          "frames": [
+            [
+              40,
+              38,
+              240,
+              285
+            ],
+            [
+              329,
+              70,
+              281,
+              257
+            ],
+            [
+              632,
+              75,
+              333,
+              253
+            ],
+            [
+              1000,
+              76,
+              213,
+              255
+            ],
+            [
+              12,
+              426,
+              307,
+              194
+            ],
+            [
+              331,
+              348,
+              281,
+              281
+            ],
+            [
+              637,
+              375,
+              311,
+              256
+            ],
+            [
+              1000,
+              324,
+              215,
+              307
+            ],
+            [
+              23,
+              655,
+              294,
+              269
+            ],
+            [
+              317,
+              684,
+              310,
+              226
+            ],
+            [
+              631,
+              655,
+              326,
+              253
+            ],
+            [
+              972,
+              635,
+              247,
+              289
+            ],
+            [
+              49,
+              916,
+              217,
+              307
+            ],
+            [
+              323,
+              943,
+              300,
+              267
+            ],
+            [
+              685,
+              936,
+              199,
+              288
+            ],
+            [
+              934,
+              940,
+              297,
+              284
+            ]
+          ],
+          "names": [
+            "shelf",
+            "produce",
+            "checkout",
+            "bag",
+            "sofa",
+            "bed",
+            "desk",
+            "bookcase",
+            "weights",
+            "table",
+            "booth",
+            "plant",
+            "arcade",
+            "teller",
+            "chair",
+            "study"
+          ],
+          "reference": "maya",
+          "anchor": [
+            0.5,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "file": "workspace/assets/generated/groceries-atlas.png",
+      "sha256": "6c3ee03154fed6bb3a89f9c9c206d348aeed641237dfcffec30ff0533cd0fafb",
+      "bytes": 1431607,
+      "width": 1254,
+      "height": 1254,
+      "role": "production source atlas",
+      "provider": "ChatGPT via Chrome extension",
+      "generation": {
+        "prompt": "Generate next production transparent sprite atlas in the same polished painted 2D style and elevated camera. Exactly 4 columns by 4 rows, sixteen equal isolated cells with large transparent gaps, no printed labels or text: row 1 apple, milk carton, loaf of bread, carton of eggs; row 2 cheese wedge, cookie package, soda bottle, bunch of bananas; row 3 cooked chicken on a tray, canned beans, ice cream tub, juice carton; row 4 avocado, doughnut, bag of nuts, cupcake. Each grocery recognizable at 55 pixels and slightly turned so its front and top are visible. Warm cream highlights, dark green soft outlines, no scenery, no shadows on ground, truly transparent background. Consistent product scale. Actual PNG image please.",
+        "conversation": "https://chatgpt.com/c/6abbd6bb-6b5c-83e8-9915-e9d251479641"
+      },
+      "edit": null,
+      "sheets": [
+        {
+          "name": "groceries",
+          "src": "assets/generated/groceries-atlas.png",
+          "frames": [
+            [
+              48,
+              85,
+              220,
+              244
+            ],
+            [
+              365,
+              51,
+              190,
+              284
+            ],
+            [
+              651,
+              51,
+              245,
+              282
+            ],
+            [
+              940,
+              80,
+              293,
+              247
+            ],
+            [
+              42,
+              398,
+              244,
+              222
+            ],
+            [
+              324,
+              388,
+              291,
+              224
+            ],
+            [
+              719,
+              337,
+              140,
+              305
+            ],
+            [
+              926,
+              370,
+              307,
+              259
+            ],
+            [
+              10,
+              677,
+              312,
+              222
+            ],
+            [
+              373,
+              650,
+              185,
+              254
+            ],
+            [
+              659,
+              658,
+              232,
+              249
+            ],
+            [
+              996,
+              636,
+              188,
+              271
+            ],
+            [
+              23,
+              942,
+              285,
+              260
+            ],
+            [
+              344,
+              969,
+              268,
+              218
+            ],
+            [
+              659,
+              921,
+              244,
+              278
+            ],
+            [
+              984,
+              921,
+              217,
+              271
+            ]
+          ],
+          "names": [
+            "apple",
+            "milk",
+            "bread",
+            "eggs",
+            "cheese",
+            "cookies",
+            "soda",
+            "bananas",
+            "chicken",
+            "beans",
+            "icecream",
+            "juice",
+            "avocado",
+            "doughnut",
+            "nuts",
+            "cupcake"
+          ],
+          "reference": "furniture",
+          "anchor": [
+            0.5,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "file": "workspace/assets/generated/groceries-extra.png",
+      "sha256": "7c66ae21bfe4abebd8e3bc43a79d0cea5a98519e5d18f89861e386a021384050",
+      "bytes": 2067974,
+      "width": 1536,
+      "height": 1024,
+      "role": "production source atlas",
+      "provider": "ChatGPT via Chrome extension",
+      "generation": {
+        "prompt": "Produce a supplemental transparent grocery object atlas in the identical painted forest green cream cozy game art style. Strict 3-column by 2-row grid, SIX complete isolated objects with wide transparent gaps, no overlaps, no text, no emoji. Top row left to right: a clear packet of dry spiral pasta; a salmon fillet on a small dark tray; a bag of frozen mixed vegetables with a small transparent window. Bottom row: a box of granola bars with no lettering; a bag of potato chips with no lettering; a paper sack of rice and red beans with a visible small scoop. Warm upper-left lighting, soft dark outlines, slightly elevated orthographic view, realistic recognizable food proportions. Actual transparent PNG, no background, no floor, no labels.",
+        "conversation": "https://chatgpt.com/c/6abbd6bb-6b5c-83e8-9915-e9d251479641"
+      },
+      "edit": null,
+      "sheets": [
+        {
+          "name": "groceriesExtra",
+          "src": "assets/generated/groceries-extra.png",
+          "frames": [
+            [
+              112,
+              69,
+              324,
+              388
+            ],
+            [
+              543,
+              146,
+              444,
+              270
+            ],
+            [
+              1088,
+              67,
+              373,
+              445
+            ],
+            [
+              97,
+              550,
+              358,
+              381
+            ],
+            [
+              599,
+              516,
+              347,
+              423
+            ],
+            [
+              1098,
+              512,
+              365,
+              426
+            ]
+          ],
+          "names": [
+            "pasta",
+            "salmon",
+            "veggies",
+            "granola",
+            "chips",
+            "rice"
+          ],
+          "reference": "groceries",
+          "anchor": [
+            0.5,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "file": "workspace/assets/generated/ground.png",
+      "sha256": "0dbcd1ac2f3d04974f0272f1c4098b22f9d971e13fb62600994bcb77d500b818",
+      "bytes": 2729073,
+      "width": 1536,
+      "height": 1024,
+      "role": "production source atlas",
+      "provider": "ChatGPT via Chrome extension",
+      "generation": {
+        "prompt": "Create one seamless soft painted meadow grass ground texture for this illustrated 2D game, premium warm gouache-style fine brush texture in sage green and soft olive green, tiny clover and sparse small wildflowers. Seen directly from overhead, flat even lighting, no horizon, no objects, no trees, no buildings, no people, no roads, no text. Quiet subtle color variation, never a checkerboard. Tileable on all edges. Landscape 3:2 opaque PNG, usable behind separately drawn buildings and roads.",
+        "conversation": "https://chatgpt.com/c/6abbd6bb-6b5c-83e8-9915-e9d251479641"
+      },
+      "edit": null,
+      "sheets": [
+        {
+          "name": "ground",
+          "src": "assets/generated/ground.png",
+          "columns": 1,
+          "rows": 1,
+          "names": [
+            "ground"
+          ],
+          "reference": "town",
+          "frames": [
+            [
+              0,
+              0,
+              1536,
+              1024
+            ]
+          ],
+          "anchor": [
+            0.5,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "file": "workspace/assets/generated/lucky-symbols.png",
+      "sha256": "32b5c5ae93dded2726f18a8d15363e2c224ae537b7d3299a4605bc858ed980d5",
+      "bytes": 1990978,
+      "width": 1536,
+      "height": 1024,
+      "role": "production source atlas",
+      "provider": "ChatGPT via Chrome extension",
+      "generation": {
+        "prompt": "Create a final small production object atlas for the same illustrated Paycheck Panic game. Strict 3 columns by 2 rows, SIX isolated objects on a truly transparent background, generous empty space around every object. Warm painted 2D illustration, clean soft dark green outlines, forest green cream gold palette, rich tangible materials and subtle upper-left light. Top row: pair of glossy red cherries with green leaves; whole yellow lemon with a leaf; small polished brass bell. Bottom row: a carved golden five-point star; faceted teal blue gemstone; ornate small golden oval token with a completely BLANK cream face. No text, no numbers, no letters, no emoji, no scenery, no ground shadow, no cell borders. Objects centered separately and recognizable at 80 pixels. Actual transparent PNG sprite atlas, matching the preceding groceries and arcade props.",
+        "conversation": "https://chatgpt.com/c/6abbd6bb-6b5c-83e8-9915-e9d251479641"
+      },
+      "edit": null,
+      "sheets": [
+        {
+          "name": "luckySymbols",
+          "src": "assets/generated/lucky-symbols.png",
+          "frames": [
+            [
+              89,
+              104,
+              418,
+              399
+            ],
+            [
+              607,
+              115,
+              337,
+              389
+            ],
+            [
+              1092,
+              147,
+              387,
+              344
+            ],
+            [
+              83,
+              549,
+              384,
+              367
+            ],
+            [
+              619,
+              594,
+              301,
+              335
+            ],
+            [
+              1046,
+              584,
+              423,
+              341
+            ]
+          ],
+          "names": [
+            "cherries",
+            "lemon",
+            "bell",
+            "star",
+            "gem",
+            "seven"
+          ],
+          "reference": "props",
+          "anchor": [
+            0.5,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "file": "workspace/assets/generated/maya-directions.png",
+      "sha256": "66e162aa8d0bd3de4fc113ba175dc89f2af881d7eb6ad5bd992676d57af5413f",
+      "bytes": 1493203,
+      "width": 2172,
+      "height": 724,
+      "role": "production source atlas",
+      "provider": "ChatGPT via Chrome extension",
+      "generation": {
+        "prompt": "Generate a production game sprite atlas, transparent background. Polished illustrated 2D storybook game called Paycheck Panic. Clean soft dark outlines, subtle painted shading, warm cream light, forest green / honey gold palette; same proportions in every view, head about one quarter of standing height, young adult, elevated orthographic camera looking slightly down. One character MAYA: warm medium-brown skin, dark curly hair tied high, mustard yellow cardigan over cream T-shirt, dark navy jeans, white sneakers. Create exactly EIGHT full-body standing directional views in one horizontal row of eight equal cells: front (south), southwest, west, northwest, back (north), northeast, east, southeast. Every figure same height, feet on exactly the same baseline, no overlap. Arms relaxed with a small gap from torso, separate legs; will be cut into limb sections and articulated in code. Friendly expressive features visible in front views; back views must show back of head with no face. No text, letters, numbers, borders, ground, scenery, contact shadows or checkerboard. Transparent PNG, wide canvas. Actual downloadable image please. This is a reusable asset, not a mockup or contact-sheet photograph.",
+        "conversation": "https://chatgpt.com/c/6abbd6bb-6b5c-83e8-9915-e9d251479641"
+      },
+      "edit": null,
+      "sheets": [
+        {
+          "name": "maya",
+          "src": "assets/generated/maya-directions.png",
+          "frames": [
+            [
+              29,
+              24,
+              232,
+              656
+            ],
+            [
+              303,
+              26,
+              207,
+              659
+            ],
+            [
+              574,
+              23,
+              189,
+              664
+            ],
+            [
+              1411,
+              23,
+              205,
+              662
+            ],
+            [
+              1102,
+              24,
+              236,
+              658
+            ],
+            [
+              1411,
+              23,
+              205,
+              662
+            ],
+            [
+              1686,
+              25,
+              182,
+              664
+            ],
+            [
+              1921,
+              24,
+              223,
+              660
+            ]
+          ],
+          "mirror": [
+            3
+          ],
+          "reference": "alex",
+          "anchor": [
+            0.5,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "file": "workspace/assets/generated/props.png",
+      "sha256": "5661a527198a43eae4b70ac3fde78fb350f74219759151b76d26aba1cffda3b1",
+      "bytes": 1182918,
+      "width": 1254,
+      "height": 1254,
+      "role": "production source atlas",
+      "provider": "ChatGPT via Chrome extension",
+      "generation": {
+        "prompt": "Generate one production GAME PROP atlas in exactly the premium illustrated cozy Paycheck Panic style established above: warm textured paint, clean dark outlines, recognizable real objects, forest green cream ochre coral palette. TRANSPARENT background PNG, 4 columns by 4 rows of isolated objects, generous transparent space between every item. Row 1: compact forest green car seen exactly TOP DOWN with nose toward top; delivery scooter with helmeted rider seen exactly TOP DOWN with nose toward top; red traffic car seen exactly TOP DOWN with nose toward top; orange and white striped road barrier seen top down. Row 2: red fuel can; closed insulated food parcel delivery bag; brown cardboard parcel; cream takeout coffee cup. Row 3: small plush green dinosaur; small plush cream rabbit; small toy red rocket; small blue robot prize. Row 4: open illustrated money learning book with blank pages; stack of incoming cream paper requests; dumbbell; golden prize ticket with no text. Complete separate objects, no shadows outside object, no floor, no labels, no lettering, no emoji. Same consistent orthographic object scale inside each cell; larger spacing than previous grids so objects never touch borders. Actual transparent PNG.",
+        "conversation": "https://chatgpt.com/c/6abbd6bb-6b5c-83e8-9915-e9d251479641"
+      },
+      "edit": null,
+      "sheets": [
+        {
+          "name": "props",
+          "src": "assets/generated/props.png",
+          "frames": [
+            [
+              57,
+              64,
+              205,
+              300
+            ],
+            [
+              374,
+              62,
+              196,
+              313
+            ],
+            [
+              675,
+              63,
+              211,
+              299
+            ],
+            [
+              960,
+              140,
+              274,
+              148
+            ],
+            [
+              60,
+              414,
+              193,
+              237
+            ],
+            [
+              350,
+              408,
+              239,
+              246
+            ],
+            [
+              667,
+              424,
+              224,
+              224
+            ],
+            [
+              1000,
+              408,
+              194,
+              253
+            ],
+            [
+              35,
+              678,
+              254,
+              273
+            ],
+            [
+              355,
+              680,
+              247,
+              266
+            ],
+            [
+              679,
+              680,
+              209,
+              266
+            ],
+            [
+              995,
+              672,
+              209,
+              278
+            ],
+            [
+              10,
+              974,
+              310,
+              224
+            ],
+            [
+              361,
+              961,
+              230,
+              242
+            ],
+            [
+              635,
+              1000,
+              305,
+              180
+            ],
+            [
+              964,
+              994,
+              268,
+              188
+            ]
+          ],
+          "names": [
+            "car",
+            "scooter",
+            "traffic",
+            "barrier",
+            "fuel",
+            "food",
+            "parcel",
+            "coffee",
+            "dinosaur",
+            "rabbit",
+            "rocket",
+            "robot",
+            "book",
+            "papers",
+            "dumbbell",
+            "ticket"
+          ],
+          "reference": "furniture",
+          "anchor": [
+            0.5,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "file": "workspace/assets/generated/rooms-a-variant.png",
+      "sha256": "818ae462a3550c79964087007615ef92969c0c0725c7e2bc3375241a0dafe354",
+      "bytes": 2233957,
+      "width": 1536,
+      "height": 1024,
+      "role": "reference only",
+      "provider": "ChatGPT via Chrome extension",
+      "generation": null,
+      "edit": null,
+      "sheets": []
+    },
+    {
+      "file": "workspace/assets/generated/rooms-a.png",
+      "sha256": "f07e6bf75c14233811af1b737b5acf347e38928be6d4b8e6a57cd978fd41377e",
+      "bytes": 2134818,
+      "width": 1511,
+      "height": 1041,
+      "role": "production source atlas",
+      "provider": "ChatGPT via Chrome extension",
+      "generation": {
+        "prompt": "Create a richly illustrated production background atlas for Paycheck Panic. Four distinct room backgrounds in a strict 2 by 2 grid, each the same landscape 900:620 ratio with a thin plain gutter. Fully painted premium 2D cozy life-sim art, warm gouache-like texture, soft dark outlines, consistent slightly elevated straight-on orthographic camera, NO isometric diagonal room rotation. Top-left: inviting small apartment with sage plaster, sunlit window, cream curtains, wood floor, baseboards and wall art. Top-right: cheerful neighborhood grocery with deep green wall trim, high windows, chalkboard without words, warm cream tile floor, wall-mounted lights and botanical details. Bottom-left: warmly lit creative office with cork wall panels, broad windows, wood floor, wall calendar with no text and plants mounted on the wall. Bottom-right: friendly bank interior with brass details, cream stone floor, tall windows, green wall trim and wall clock. IMPORTANT GAME LAYERS: all four floors have generous completely empty walkable space from 30 percent down to the bottom; no furniture, shelves, counters, tables, people or free-standing props on that floor. Decor stays attached to the back wall in top 30 percent. Front wall removed, no perspective floor shrinkage: a rectangular floor suitable for walking. Warm directional light across the floor, natural shadows near wall only, detailed texture. No typography, captions, labels, UI or emoji. Actual downloadable landscape PNG atlas.",
+        "conversation": "https://chatgpt.com/c/6abbd6bb-6b5c-83e8-9915-e9d251479641"
+      },
+      "edit": null,
+      "sheets": [
+        {
+          "name": "roomsA",
+          "src": "assets/generated/rooms-a.png",
+          "frames": [
+            [
+              0,
+              0,
+              748,
+              514
+            ],
+            [
+              761,
+              0,
+              750,
+              514
+            ],
+            [
+              0,
+              525,
+              748,
+              516
+            ],
+            [
+              761,
+              525,
+              750,
+              516
+            ]
+          ],
+          "names": [
+            "home",
+            "grocery",
+            "office",
+            "bank"
+          ],
+          "reference": "furniture",
+          "anchor": [
+            0.5,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "file": "workspace/assets/generated/rooms-b.png",
+      "sha256": "0db1e5748e3ca5d7055cdae1e8aa037d64f9184f4e2a82efe97e3fec90215405",
+      "bytes": 2452710,
+      "width": 1511,
+      "height": 1041,
+      "role": "production source atlas",
+      "provider": "ChatGPT via Chrome extension",
+      "generation": {
+        "prompt": "Continue exactly the same premium painted interior background style, depth, perspective, composition and rectangular empty walkable floor as the preceding four rooms. Generate SIX new rooms in a strict 2-column by 3-row grid. Each landscape cell aspect 900:620, thin plain gutters only. Top-left: warm night school, chalkboard and wall display with blank pinned papers, oak trim, tan school linoleum. Top-right: sunny neighborhood gym, tall windows, brick wall, wall-mounted sports mural, green rubber floor. Middle-left: cozy diner, red wall panels, small window, brass lights, black and cream tile floor. Middle-right: inviting indoor mall arcade, midnight green walls, warm golden wall sconces, carpet with subtle small star motif, display windows on back wall only. Bottom-left: clean local auto showroom, broad high windows, pale polished concrete floor, industrial beams. Bottom-right: old-fashioned amusement hall with deep plum walls, ornate golden wall lights, jewel-pattern carpet. All rooms richly detailed but floor open, no tables, counters, furniture, people, cars, arcade cabinets, or free-standing props; those will be separate game layers. Decor stays attached to the top 30 percent back wall. 70 percent empty walkable floor, rectangular front cutaway, no isometric diagonal room rotation. Lovely texture and convincing warm lighting, no readable words or UI or emoji. Actual downloadable PNG atlas.",
+        "conversation": "https://chatgpt.com/c/6abbd6bb-6b5c-83e8-9915-e9d251479641"
+      },
+      "edit": null,
+      "sheets": [
+        {
+          "name": "roomsB",
+          "src": "assets/generated/rooms-b.png",
+          "frames": [
+            [
+              0,
+              0,
+              748,
+              338
+            ],
+            [
+              759,
+              0,
+              752,
+              338
+            ],
+            [
+              0,
+              347,
+              748,
+              327
+            ],
+            [
+              759,
+              347,
+              752,
+              327
+            ],
+            [
+              0,
+              684,
+              748,
+              357
+            ],
+            [
+              759,
+              684,
+              752,
+              357
+            ]
+          ],
+          "names": [
+            "school",
+            "gym",
+            "diner",
+            "mall",
+            "dealer",
+            "lucky"
+          ],
+          "reference": "roomsA",
+          "anchor": [
+            0.5,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "file": "workspace/assets/generated/style-reference.png",
+      "sha256": "3a9f701d58702d109a73c8640fcd8a3489cefc8784c1b12d8d1253dcb2d5b770",
+      "bytes": 2080704,
+      "width": 1536,
+      "height": 1024,
+      "role": "visual reference sheet",
+      "provider": "ChatGPT via Chrome extension",
+      "generation": {
+        "prompt": "Create the final visual reference sheet for this same Paycheck Panic illustrated game, summarizing the exact visual language already used. Premium cozy 2D painted game art. Landscape 3:2 composition. Show the FIVE existing young adult characters together full body, consistent height: Alex green hoodie and short brown hair; Maya warm brown skin curly high bun mustard cardigan; Jay Black man cropped curls orange bomber; Sam East Asian chin length black hair glasses lavender overshirt; Classic androgynous short dark hair cream/green striped shirt. Below show small matching grocery shelf, checkout counter, cream grocery bag, green scooter, green car, apartment and grocery exterior. Include unlabeled palette swatches forest green, sage green, cream, gold, burnt orange and muted lavender. Light cream background, consistent elevated orthographic camera, soft dark outlines, warm upper-left light, clear feet on shared baseline, no emoji, no captions or readable text. Reference artwork, not UI.",
+        "conversation": "https://chatgpt.com/c/6abbd6bb-6b5c-83e8-9915-e9d251479641"
+      },
+      "edit": null,
+      "sheets": []
+    },
+    {
+      "file": "workspace/assets/generated/town-atlas.png",
+      "sha256": "feac22e965c09e344b659ac4860ae3c2cedf8f8faa7aa67ad720bc2248415cc5",
+      "bytes": 1787485,
+      "width": 1448,
+      "height": 1086,
+      "role": "production source atlas",
+      "provider": "Codex image generation",
+      "generation": {
+        "prompt": "Use case: stylized-concept. Asset type: transparent modular town building atlas for the illustrated 2D life-simulation Paycheck Panic. Match the warm painted town reference, but every building is an isolated separate object in a strictly regular 4-column by 3-row grid. Each cell has ample transparent margin. Fixed elevated orthographic front-facing camera, showing front facade and roof, no vanishing perspective, same scale, crisp ink outlines and soft warm cel shading, beautifully illustrated with thoughtful architectural details, readable at 240px wide. Twelve cells in row-major order: 1 cozy three-story redbrick apartment with teal entrance; 2 glass-front office with warm stone trim; 3 green-and-cream awning grocery shop; 4 cream civic bank with four columns; 5 redbrick school with clock; 6 compact community gym with curved roof; 7 red-and-cream retro diner; 8 elegant mall with teal glass entrance; 9 small blue car dealership; 10 small purple and gold entertainment lounge; 11 broad deciduous tree; 12 small cluster of evergreen trees. All entrances centered on front edge. Buildings fully visible, roof and feet of building not clipped. No baseplates, no surrounding ground or roads, no cast shadows outside objects, no labels, no text, no cell borders, no extra objects. 4x3 atlas with uniform cell dimensions on true alpha transparency. Design imagery, not a screenshot.",
+        "reference": "workspace/assets/town-map.png"
+      },
+      "edit": null,
+      "sheets": [
+        {
+          "name": "town",
+          "src": "assets/generated/town-atlas.png",
+          "frames": [
+            [
+              20,
+              70,
+              340,
+              318
+            ],
+            [
+              375,
+              30,
+              333,
+              365
+            ],
+            [
+              706,
+              105,
+              376,
+              281
+            ],
+            [
+              1087,
+              87,
+              351,
+              300
+            ],
+            [
+              6,
+              398,
+              360,
+              294
+            ],
+            [
+              372,
+              432,
+              346,
+              259
+            ],
+            [
+              717,
+              454,
+              365,
+              239
+            ],
+            [
+              1080,
+              389,
+              362,
+              302
+            ],
+            [
+              12,
+              768,
+              365,
+              230
+            ],
+            [
+              378,
+              705,
+              381,
+              333
+            ],
+            [
+              783,
+              735,
+              306,
+              306
+            ],
+            [
+              1115,
+              750,
+              320,
+              289
+            ]
+          ],
+          "names": [
+            "home",
+            "office",
+            "grocery",
+            "bank",
+            "school",
+            "gym",
+            "diner",
+            "mall",
+            "dealer",
+            "lucky",
+            "tree",
+            "pines"
+          ],
+          "reference": "assets/town-map.png",
+          "anchor": [
+            0.5,
+            1
+          ]
+        }
+      ]
+    }
+  ]
+}

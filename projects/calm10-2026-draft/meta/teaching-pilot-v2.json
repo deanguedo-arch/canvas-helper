@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "candidate": "2026-09-25-teach-show-practise-pilot",
+  "status": "awaiting-user-review",
+  "lessonStandard": [
+    "learn the concept with all necessary information visible",
+    "follow one complete model using the same case",
+    "perform a saved guided activity with useful feedback",
+    "apply the skill to a complete new case"
+  ],
+  "lessons": {
+    "co1-01": {
+      "activityId": "pilot-co1-01-evidence",
+      "product": "truthful posting-to-evidence statement",
+      "visualAssets": [
+        "workspace/assets/scenarios/co1-01-library-welcome-v1.webp",
+        "editable HTML job posting",
+        "editable HTML experience timeline"
+      ],
+      "finlitAdaptation": [
+        "Employment Income Assignment: employability and enterprising skills",
+        "Tips for Preparing a Resume Assignment: specific evidence for a plausible first job"
+      ],
+      "learnerPdf": false,
+      "reviewGate": "Confirm that the posting, experience record, model, builder and independent task form one understandable sequence."
+    },
+    "co1-02": {
+      "activityId": "pilot-co1-02-first-shift",
+      "product": "two-row first-shift decision record",
+      "visualAssets": [
+        "workspace/assets/scenarios/co1-02-first-shift-v1.webp",
+        "workspace/assets/scenarios/co1-02-library-floor-plan-v2.png",
+        "editable HTML shift brief"
+      ],
+      "finlitAdaptation": [],
+      "note": "The supplied FINLIT job-search activity did not teach first-shift decisions; this lesson uses a complete CALM-authored shift brief instead.",
+      "learnerPdf": false,
+      "reviewGate": "Confirm that each decision can be made from the visible brief, procedure and workplace map."
+    },
+    "fl3-01": {
+      "activityId": "pilot-fl3-01-savings",
+      "product": "calculated savings plan with a justified revision",
+      "visualAssets": [
+        "workspace/assets/scenarios/fl3-01-savings-plan-v1.webp",
+        "editable HTML savings board",
+        "accessible weekly savings path"
+      ],
+      "finlitAdaptation": [
+        "Saving Tips Assignment: spending changes and accumulated savings"
+      ],
+      "learnerPdf": false,
+      "reviewGate": "Confirm that the weekly calculations, shortfall, selectable changes and independent case use consistent figures and units."
+    }
+  },
+  "state": {
+    "namespace": "calm10-2026-draft:learning:v3",
+    "taskVersion": "2026-09-25.2",
+    "progressSelector": "[data-lesson-evidence]",
+    "preserveRemovedResponses": true,
+    "practiceDoesNotCountAsLessonEvidence": true
+  },
+  "resourcePolicy": {
+    "finlitPermission": "user-confirmed unrestricted educational reuse and adaptation",
+    "learnerPdfCards": 0,
+    "sourceOriginalsRemainInArchive": true,
+    "adaptedTeachingRemainsEditableHtml": true
+  },
+  "visualPolicy": {
+    "scenarioImagesProvideContextOnly": true,
+    "requiredFactsRemainInAccessibleHtml": true,
+    "factualDiagramsUseEditableVectorOrHtml": true
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "status": "teacher-review-candidate",
+  "scope": "all-50-lessons-teacher-presentation",
+  "lessonCount": 50,
+  "sourceBlockCount": 581,
+  "practiceItemCount": 400,
+  "routeChecks": 100,
+  "routeFailures": 0,
+  "focusedTests": 46,
+  "courseDoctor": "pass",
+  "sha256": {
+    "workspace/main.js": "747224d3e71c457fc5804aa9546021a17a5437931cd3ac9343df9214dbc28cd5",
+    "workspace/lesson-components.js": "47b2786f7d1ced64dae4d85028ce0e09a8850c7958fedeee2fffe6ffaa3f1700",
+    "scripts/tests/aboriginal-studies-30-teacher-pilot.test.ts": "9d567b3eb35efbdc55a8070ad7bd8a27169928d81eb3617fdea1236d834b903b",
+    "browser-report.json": "1aa6813fd2a64908338b7824e3b7a487ef3a6b4d3aa682f0cefd2c4843f01be6"
+  },
+  "packaged": false,
+  "deployed": false,
+  "teacherApproved": false,
+  "sourceReviewGaps": {
+    "missingLessonReview": [
+      "t1-l07-numbered-treaties"
+    ],
+    "theme4ReviewFilesWithoutSourceRecords": 5
+  },
+  "browserReport": "browser-report.json",
+  "review": "REVIEW.md"
+}

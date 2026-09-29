@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "taskId": "calm-implementation-activity-scout",
+  "attemptId": "a1",
+  "workflow": "generated-course",
+  "mode": "build",
+  "objective": "Read existing activity/calculator and vocabulary connections; report exact preservation hooks and conflicts with the authored specification. No edits.",
+  "taskFamily": "investigation",
+  "consequenceLevel": "normal",
+  "allowedReadPaths": [
+    "projects/calm10-2026-draft/workspace/activities.js",
+    "projects/calm10-2026-draft/workspace/vocabulary.js",
+    "projects/calm10-2026-draft/workspace/lesson-practice.js",
+    "projects/calm10-2026-draft/meta/astra-authoring/SOL-IMPLEMENTATION-HANDOFF.md"
+  ],
+  "allowedWritePaths": [],
+  "contextSources": [
+    "projects/calm10-2026-draft/workspace/activities.js",
+    "projects/calm10-2026-draft/workspace/vocabulary.js"
+  ],
+  "acceptanceCriteria": [
+    "Return exact activity owner hooks, current calculation defects against authored formulas and vocabulary save compatibility requirements."
+  ],
+  "requiredChecks": [],
+  "deferredChecks": [
+    "Broad E2E, Studio and SCORM at rollout"
+  ],
+  "prohibitedChanges": [
+    "No edits, commits, packaging or deployment"
+  ],
+  "privacyScope": "repository"
+}

@@ -1,0 +1,31 @@
+{
+  "status": "implemented-build-candidate",
+  "date": "2026-09-25",
+  "finding": "Workbook Q11 on p. 31 and Q12 on p. 32 use different pedigree diagrams. Earlier course copy incorrectly applied Q11's named-family relationships to Q12 and rejected the answer key.",
+  "verifiedEvidence": [
+    "workspace/assets/workbook-pedigree-q11.jpg",
+    "workspace/assets/workbook-page-32.jpg",
+    "/Users/deanguedo/Downloads/c-workbook-key-page-32.png"
+  ],
+  "correctInterpretation": "Use Q11 for the named-family reading questions. In Q12's separate pedigree, two unaffected parents have an affected child, supporting recessive inheritance within the worksheet's intended simple dominant-or-recessive model.",
+  "versionedLearnerIds": [
+    "s24-c-v4-l15-error",
+    "s24-c-v4-l15-independent2",
+    "s24-c-v4-l15-transfer3",
+    "s24-c-v4-l15-later",
+    "s24-c-v4-l15-source-work",
+    "s24-c-required-15-v2",
+    "s24-c-l15-write2-v2",
+    "s24-c-final-v2",
+    "s24-c-v4-review-q8"
+  ],
+  "stateRule": "Previous records keep their stored question snapshots and old IDs. They do not count as completion of the replacement lesson 15 or final checks.",
+  "supersedes": [
+    "chapter-12-copy-v2.json pedigree claim",
+    "chapter-12-questions-v2.json lesson 15 error and independent item",
+    "source-task-map-v2.json Q12 correction",
+    "source-coverage-repair-v3.json lesson 15 correction",
+    "unit-c-v2-build-evidence.md pedigree claim",
+    "unit-c-v3-refinement-evidence.md open pedigree decision"
+  ]
+}

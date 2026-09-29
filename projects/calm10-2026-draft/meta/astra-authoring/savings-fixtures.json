@@ -1,0 +1,45 @@
+{
+  "rounding": "Full decimal precision through all months; round displayed money half-up to cents only. Gross annual effective return converted to monthly; fee deducted monthly after gross return, before end-of-month deposit. Inflation constant annual.",
+  "cases": {
+    "fl3-04-model": {
+      "start": "100",
+      "monthly": "0",
+      "years": 1,
+      "annualReturn": "1",
+      "annualFee": "0",
+      "inflation": "3",
+      "nominal": "101.00",
+      "purchasingPower": "98.06"
+    },
+    "fl3-04-guided-fee": {
+      "start": "100",
+      "monthly": "0",
+      "years": 1,
+      "annualReturn": "4",
+      "annualFee": "1",
+      "inflation": "3",
+      "nominal": "102.96",
+      "purchasingPower": "99.97"
+    },
+    "fl3-04-no-fee-comparison": {
+      "start": "100",
+      "monthly": "0",
+      "years": 1,
+      "annualReturn": "4",
+      "annualFee": "0",
+      "inflation": "3",
+      "nominal": "104.00",
+      "purchasingPower": "100.97"
+    },
+    "fl3-04-zero-growth": {
+      "start": "120",
+      "monthly": "10",
+      "years": 1,
+      "annualReturn": "0",
+      "annualFee": "0",
+      "inflation": "0",
+      "nominal": "240.00",
+      "purchasingPower": "240.00"
+    }
+  }
+}

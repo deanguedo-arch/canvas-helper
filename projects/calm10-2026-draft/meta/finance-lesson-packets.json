@@ -1,0 +1,2732 @@
+{
+  "schemaVersion": 1,
+  "status": "lead-integration content packets; not yet learner-rendered or fact-checked for release",
+  "lessonIds": [
+    "fl1-01",
+    "fl1-02",
+    "fl1-03",
+    "fl1-04",
+    "fl1-05",
+    "fl1-06",
+    "fl2-01",
+    "fl2-02",
+    "fl2-03",
+    "fl2-04",
+    "fl2-05",
+    "fl2-06",
+    "fl2-07"
+  ],
+  "lessons": [
+    {
+      "id": "fl1-01",
+      "title": "Read a pay stub",
+      "goal": "Explain how a fictional pay stub connects hours, gross earnings, deductions, and take-home pay, and identify what a deduction label does and does not tell you.",
+      "opening": "Mika planned to spend the money from a weekend shift, but the deposit is smaller than the hours-times-wage estimate. The task is to find where the difference went without assuming the employer made an error.",
+      "teach": [
+        "A pay stub is a record of how an employer calculated one pay period. Begin with the period dates and hours, then find the rate and gross earnings. Gross pay is the amount before deductions. For hourly work, regular hours multiplied by the hourly rate gives regular earnings; overtime, holiday pay, tips, or other items may appear separately when applicable. A salaried worker may instead see a salary amount apportioned by pay period. Do not multiply an annual salary by the number of weeks unless the period and pay arrangement support that calculation. First ask, “What work and time does this statement cover?” A mismatch between expected and recorded hours is a question to investigate, not proof of wrongdoing. Keep this course example fictional: it teaches how to read a statement, not what any particular worker should receive.",
+        "Next, classify each subtraction rather than treating every deduction as the same thing. A statement may show income-tax withholding, statutory contributions, benefit-plan premiums, or an employee-authorized amount. The labels and whether they apply depend on current law, eligibility, employer arrangements, and the worker’s situation. This lesson will not teach fixed deduction rates because those can change and depend on details. For the arithmetic, add the listed deductions and subtract that total from gross pay: net pay = gross pay − total deductions. Net pay is the deposit amount only when the statement has no other payment method or adjustment. Check whether a line is a deduction from this cheque or an employer-paid contribution shown for information. Never infer from a label alone that the amount is correct; compare the pay period, hours, agreement, and current official guidance, then ask an appropriate payroll contact if a real discrepancy remains.",
+        "Use a deliberate reading sequence: (1) verify the pay-period dates, (2) calculate gross earnings from the supplied hours and rate, (3) compare that result to the gross line, (4) add the listed deductions, (5) subtract and compare with net pay, and (6) explain one uncertainty. This method is useful because a correct total can still hide an incorrect hour count, while an unusual net amount can result from a legitimate deduction or a changed pay period. When comparing two jobs, compare more than hourly wage: hours available, predictable scheduling, paid time, benefits, travel, and safety also affect the value of work. FINLIT’s paycheque material introduces gross and net pay and common deduction categories; the examples here use invented values and deliberately avoid its dated CPP figures or treating every listed category as universal. A readable statement plus the calculation is the lesson; a video is a preview, not a substitute for examining the evidence."
+      ],
+      "document": {
+        "title": "Mika’s fictional two-shift pay statement",
+        "context": "Invented instructional example only. All hours, rates, dollar values, deductions, and dates below are fictional and are not current tax, payroll, or benefit guidance.",
+        "rows": [
+          {
+            "field": "Pay period",
+            "value": "May 1–14 (fictional dates)",
+            "sourceNote": "Invented date range; included only to practise locating the period."
+          },
+          {
+            "field": "Regular hours",
+            "value": "12.5 hours",
+            "sourceNote": "Fictional hours; no claim about a real student’s work."
+          },
+          {
+            "field": "Hourly rate",
+            "value": "$18.00/hour",
+            "sourceNote": "Fictional rate; not an Alberta wage claim."
+          },
+          {
+            "field": "Gross earnings",
+            "value": "$225.00",
+            "sourceNote": "Fictional; calculated as 12.5 × $18.00."
+          },
+          {
+            "field": "Income-tax withholding",
+            "value": "$16.00",
+            "sourceNote": "Fictional placeholder; not a tax estimate or rate."
+          },
+          {
+            "field": "CPP line",
+            "value": "$10.80",
+            "sourceNote": "Fictional placeholder; eligibility and current rules require official review."
+          },
+          {
+            "field": "EI line",
+            "value": "$3.60",
+            "sourceNote": "Fictional placeholder; eligibility and current rules require official review."
+          },
+          {
+            "field": "Total listed deductions",
+            "value": "$30.40",
+            "sourceNote": "Fictional; arithmetic total of the three invented lines."
+          },
+          {
+            "field": "Net pay",
+            "value": "$194.60",
+            "sourceNote": "Fictional; $225.00 − $30.40."
+          }
+        ]
+      },
+      "worked": [
+        {
+          "case": "Check gross earnings",
+          "steps": [
+            "Read 12.5 regular hours and $18.00 per hour from the supplied fictional statement.",
+            "Multiply 12.5 × 18.00 = $225.00.",
+            "The gross line is $225.00, so the arithmetic agrees; this alone does not verify that the hours recorded are correct."
+          ],
+          "misconception": "A common mistake is to call $194.60 the gross amount because it is the deposit. Gross is before deductions; the deposit is net pay in this example."
+        },
+        {
+          "case": "Reconcile the deposit",
+          "steps": [
+            "Add $16.00 + $10.80 + $3.60 = $30.40 in listed fictional deductions.",
+            "Subtract $225.00 − $30.40 = $194.60.",
+            "Compare the calculated net with the printed net line. It matches, so the arithmetic reconciles; a real worker would still verify the hours and rules."
+          ],
+          "misconception": "Do not subtract each line from the previous one and accidentally omit a deduction. Add all deductions once, then subtract their sum from gross."
+        }
+      ],
+      "practice": [
+        {
+          "prompt": "The fictional statement lists 12.5 hours at $18.00/hour. What is gross earnings?",
+          "choices": [
+            "$194.60",
+            "$225.00",
+            "$30.40",
+            "$18.00"
+          ],
+          "correctIndex": 1,
+          "feedbackByChoice": [
+            "That is the fictional net deposit after deductions. Gross is calculated before any deductions.",
+            "Correct: 12.5 × $18.00 = $225.00 before deductions.",
+            "That is the total fictional deductions, not earnings before deductions.",
+            "That is the hourly rate. Multiply it by the hours to find gross earnings."
+          ],
+          "explanation": "Gross pay is the starting earnings amount. Multiply the fictional hours by the fictional hourly rate before considering deductions.",
+          "nextHint": "Write the units first: hours × dollars per hour gives dollars."
+        },
+        {
+          "prompt": "Which statement best defines net pay in the supplied example?",
+          "choices": [
+            "Gross earnings before subtractions",
+            "The total hours worked",
+            "Gross earnings minus listed deductions",
+            "The employer’s total payroll cost"
+          ],
+          "correctIndex": 2,
+          "feedbackByChoice": [
+            "That is gross pay. Net pay is calculated after listed deductions are subtracted.",
+            "Hours are a time quantity, not the amount deposited.",
+            "Correct: $225.00 − $30.40 = $194.60 net pay in this fictional case.",
+            "Employer payroll cost can include employer contributions and is not the worker’s net pay."
+          ],
+          "explanation": "The example defines net pay through the calculation: start with gross earnings and subtract the listed deductions once.",
+          "nextHint": "Look for the amount that reaches Mika after the deductions."
+        },
+        {
+          "prompt": "A real statement has fewer hours than a worker remembers. What is the best first response?",
+          "choices": [
+            "Assume the employer committed wage theft",
+            "Compare the dates and recorded hours with the worker’s records, then ask payroll about the difference",
+            "Ignore it because gross and net totals match",
+            "Apply a deduction percentage from this fictional example"
+          ],
+          "correctIndex": 1,
+          "feedbackByChoice": [
+            "A mismatch deserves attention, but the statement alone does not prove the cause or intent.",
+            "Correct: check the pay period and evidence, then seek clarification through an appropriate payroll route.",
+            "Matching arithmetic does not establish that the hours themselves are accurate.",
+            "The example’s invented deduction values are not real rates and cannot resolve an hours discrepancy."
+          ],
+          "explanation": "First verify that both records cover the same dates. A clear, evidence-based question can identify a recording, timing, or calculation issue.",
+          "nextHint": "Before deciding, make sure both records refer to the same pay period."
+        },
+        {
+          "prompt": "Which set of steps correctly reconciles the fictional net amount?",
+          "choices": [
+            "Add the deductions, then subtract the sum from gross",
+            "Subtract each deduction from the last deduction",
+            "Add gross pay to the deductions",
+            "Use the net line as the hourly rate"
+          ],
+          "correctIndex": 0,
+          "feedbackByChoice": [
+            "Correct: add all three deductions to get $30.40, then subtract once from $225.00.",
+            "This does not start from gross pay and can produce a meaningless amount.",
+            "Deductions reduce gross in this model; adding them would reverse their effect.",
+            "Net pay is a total for the period, not an hourly rate."
+          ],
+          "explanation": "Combining the deductions first reduces the chance of skipping or double-counting one. The calculated net is $194.60.",
+          "nextHint": "First compute 16.00 + 10.80 + 3.60."
+        },
+        {
+          "prompt": "What can you safely conclude from a pay stub line labelled CPP?",
+          "choices": [
+            "Every worker always has the same CPP deduction",
+            "The label suggests a CPP-related line, but current eligibility and amount need context and official rules",
+            "It is the employee’s net pay",
+            "It proves the worker will receive a specific future pension amount"
+          ],
+          "correctIndex": 1,
+          "feedbackByChoice": [
+            "Eligibility and amounts can depend on current rules and circumstances; do not universalize from a label.",
+            "Correct: read the label cautiously and verify current eligibility and calculations with authoritative guidance.",
+            "A contribution line is one possible deduction, not the final deposit.",
+            "A contribution line does not guarantee a specific future benefit amount."
+          ],
+          "explanation": "The lesson teaches how to interpret a label, not to calculate real payroll entitlements or forecast a benefit.",
+          "nextHint": "Separate what the document names from what you still need to verify."
+        },
+        {
+          "prompt": "Why compare benefits and schedule as well as hourly wage when considering a job?",
+          "choices": [
+            "They can change the overall value and practicality of the work",
+            "They make gross and net pay the same",
+            "They remove all uncertainty about future hours",
+            "They are always worth more than wages"
+          ],
+          "correctIndex": 0,
+          "feedbackByChoice": [
+            "Correct: total work conditions affect value, costs, and whether the arrangement fits, though details vary.",
+            "Benefits do not erase deductions or make gross equal net.",
+            "A schedule may be more or less predictable; comparison does not guarantee future hours.",
+            "No universal rule says benefits always exceed wages; compare evidence and needs."
+          ],
+          "explanation": "A useful comparison includes the whole arrangement and avoids declaring one job better from a single number.",
+          "nextHint": "List one direct dollar amount and one non-dollar condition that matters."
+        }
+      ],
+      "transfer": {
+        "newCase": "A fictional worker receives two statements in the same month: one covers 7 hours and one covers 9 hours because the employer’s pay cycle changed. Each lists different deduction lines.",
+        "prompt": "Explain what records you would compare before deciding whether either statement is wrong, and name one conclusion the figures alone cannot support.",
+        "modelAnswerTeacherOnly": "Check the dates and hours covered by each statement, the agreed rate and any separate earnings, then calculate gross for each period and reconcile each set of listed deductions to net. Different deduction lines or totals do not alone prove error because eligibility and arrangements can differ. The totals alone cannot establish that recorded hours match hours actually worked or predict future benefits."
+      },
+      "media": {
+        "sourcePath": "projects/incoming/FINLIT/Videos/Topic 03 - Getting Money and Employment/Paycheque deductions.mp4",
+        "startSeconds": 18.6,
+        "endSeconds": 62.3,
+        "teachingRole": "Preview the gross-versus-net distinction and common deduction categories before students inspect the fictional stub. The transcript then moves into historical CPP values, so stop before that content; captions/transcript and visuals still require original-file review."
+      },
+      "visualBrief": "Design an accessible, zoomable fictional pay stub with aligned columns for hours/rate, gross, each deduction, and net. Add numbered reading cues and a separate equation ribbon; never use colour as the only category cue. Provide the same information as an HTML table.",
+      "independentEvidence": {
+        "task": "A4",
+        "prompt": "Annotate a new fictional pay stub: verify gross arithmetic, total the deductions, calculate net pay, and write two questions you would ask before claiming a real payroll error.",
+        "successCriteria": [
+          "Uses the supplied period and hours",
+          "Shows calculation steps with units",
+          "Distinguishes gross, deductions, and net",
+          "Identifies at least one fact that needs current verification"
+        ]
+      },
+      "sourceNotes": [
+        "FINLIT video transcript contains a historical 2021 CPP maximum and generalized claims about deductions; crop before the dated figure and review the full video/audio before release.",
+        "Use current CRA payroll guidance only if the learner task requires an actual rule; fictional line items and amounts are practice data, not rates.",
+        "FINLIT Paycheque Deductions PDF contains research prompts about EI and parental benefits; do not transfer eligibility claims without current federal sources.",
+        "Adaptation input: projects/incoming/FINLIT/Assignments/Topic 03 - Getting Money and Employment/Paycheque Deductions Assignment _ FinLit 101.pdf. Preserve the learning move of reading deduction information, but replace its EI/benefit research prompt with a complete fictional statement and arithmetic; verify any real rule separately."
+      ]
+    },
+    {
+      "id": "fl1-02",
+      "title": "What shapes a money decision",
+      "goal": "Identify values, needs, wants, social and commercial influences, and constraints in a fictional decision, then explain a decision process that protects choice without judging the person.",
+      "opening": "Ari’s friends are ordering a limited-edition hoodie. Ari also wants to save for a transit pass and has already promised to help replace a broken shared headset. What information would make this decision clearer?",
+      "teach": [
+        "A money decision is rarely just “good at math” versus “bad at math.” People make choices within real constraints: money available, time, access, family or community commitments, location, health, advertising, and pressure from other people. A value is something a person considers important, such as connection, independence, creativity, security, or helping others. Values can guide a choice, but they do not dictate one universal answer. Two people can value connection and still choose differently because their circumstances differ. A need is an item or service required for a particular purpose in a particular situation; a want is something desired. The line depends on context: transportation may be essential to reach a remote job, while a particular brand of vehicle is one option among several. Avoid labelling people or their purchases as irresponsible when you do not know the constraints they face.",
+        "Before deciding, separate the offer from the influence around it. An advertisement may emphasize a deadline, popularity, or a discount while leaving out recurring costs, conditions, or alternatives. A friend’s preference is information about what they like, not proof that the product fits Ari. Emotion is also information: excitement may point to a real preference, while urgency may be designed to shorten comparison. A short pause creates room to ask: what job must the purchase do, what options meet that job, what is the full cost, what must wait, and what happens if the plan changes? “Can I afford it?” is not answered by a single balance. It means testing the choice against commitments and a chosen goal, while leaving space for uncertainty. The goal is not to eliminate pleasure; it is to make the trade-off visible and chosen.",
+        "Use a repeatable decision routine. Name the decision and the purpose; list constraints and known facts; identify at least two plausible options, including waiting or choosing a lower-cost alternative; compare benefits, full costs, risks, and reversibility; choose using the person’s stated priorities; then review what happened. A decision can be reasonable even when an unexpected event changes the result. Reviewing an outcome should ask what information was available at the time and what can be learned, not shame the learner for not predicting everything. FINLIT’s “Factors Influencing Money Decisions” and “Factors Affecting Your Values” materials can prompt learners to notice peers, family, advertising, habits, and personal priorities. Their prompt and video format does not by itself teach comparison, so this lesson adds an explicit fictional case, evidence table, and feedback. Students never need to reveal real purchases, family income, or private beliefs to demonstrate the skill."
+      ],
+      "document": {
+        "title": "Ari’s fictional hoodie offer and goals",
+        "context": "All people, amounts, prices, and timelines are fictional. This is an analysis case, not an expectation about students’ priorities.",
+        "rows": [
+          {
+            "field": "Hoodie offer",
+            "value": "$48 today; advertised as limited",
+            "sourceNote": "Fictional price and claim; no real product or current market price."
+          },
+          {
+            "field": "Ari’s available discretionary amount",
+            "value": "$60 for the next two weeks",
+            "sourceNote": "Fictional scenario amount; not a suggested allowance."
+          },
+          {
+            "field": "Transit goal",
+            "value": "$42 by the end of the two weeks",
+            "sourceNote": "Fictional goal cost; verify actual transit fares for real planning."
+          },
+          {
+            "field": "Shared headset repair contribution",
+            "value": "$12 by Friday",
+            "sourceNote": "Fictional commitment; all values invented."
+          },
+          {
+            "field": "Friend message",
+            "value": "Everyone’s getting one; order before midnight",
+            "sourceNote": "Fictional social pressure, not market evidence."
+          },
+          {
+            "field": "Alternative",
+            "value": "Wait one week; compare two resale listings and ask about condition",
+            "sourceNote": "Fictional option; any real listing needs current inspection."
+          }
+        ]
+      },
+      "worked": [
+        {
+          "case": "Separate pressure from evidence",
+          "steps": [
+            "The phrase “everyone’s getting one” indicates social influence; it does not show fit, quality, or total cost.",
+            "The $48 offer is a stated fictional price, but “limited” needs verification and does not establish value.",
+            "Compare the hoodie with the $42 transit goal and $12 commitment before deciding."
+          ],
+          "misconception": "Calling Ari’s friends “bad influences” turns analysis into judgement. Identify the influence and then ask whether Ari chooses to give it weight."
+        },
+        {
+          "case": "Compare two reasonable choices",
+          "steps": [
+            "Option A: buy today for $48; $12 remains from the $60 discretionary amount, so the transit goal is not fully funded.",
+            "Option B: wait and compare; Ari preserves the $42 transit goal and can still reconsider after checking condition and price.",
+            "If the transit pass is a stated priority, waiting better fits it. If Ari’s priorities differ and the commitment is covered, a purchase could still be reasoned."
+          ],
+          "misconception": "A mathematically possible purchase is not automatically affordable relative to commitments. Also, the lesson does not declare one value more important for everyone."
+        }
+      ],
+      "practice": [
+        {
+          "prompt": "Which detail is evidence about a financial constraint in Ari’s case?",
+          "choices": [
+            "Friends say everyone is buying",
+            "Ari has $60 for two weeks and a $12 commitment",
+            "The ad calls the item limited",
+            "Ari likes the colour"
+          ],
+          "correctIndex": 1,
+          "feedbackByChoice": [
+            "That is social information, not an amount available or an existing commitment.",
+            "Correct: the available amount and commitment directly constrain what remains.",
+            "That is promotional language needing verification, not a household constraint.",
+            "That is a preference; it may matter but does not state a financial limit."
+          ],
+          "explanation": "Good analysis separates evidence types: constraints, preferences, social cues, and claims from sellers.",
+          "nextHint": "Find the detail expressed as money available or money already committed."
+        },
+        {
+          "prompt": "What does “limited edition” establish by itself?",
+          "choices": [
+            "The item is worth $48",
+            "The item will sell out tonight",
+            "It is a seller’s claim that may create urgency and needs verification",
+            "It is a need"
+          ],
+          "correctIndex": 2,
+          "feedbackByChoice": [
+            "A label does not prove the product’s value to Ari.",
+            "The claim alone does not verify inventory or timing.",
+            "Correct: note the persuasive effect and seek evidence before treating it as a fact.",
+            "A promotional label does not determine whether an item is a need in this context."
+          ],
+          "explanation": "Marketing can supply information, but promotional language should not replace comparison or verification.",
+          "nextHint": "Distinguish what the advertisement says from what you can confirm."
+        },
+        {
+          "prompt": "A friend’s preference is best treated as…",
+          "choices": [
+            "Proof Ari should buy",
+            "Evidence about the friend’s preference and possible social influence",
+            "A complete cost comparison",
+            "A reason Ari’s values are wrong"
+          ],
+          "correctIndex": 1,
+          "feedbackByChoice": [
+            "Another person’s choice does not establish that the product meets Ari’s goals.",
+            "Correct: it is useful to notice, while Ari decides whether it matters.",
+            "A preference does not give prices, conditions, or alternatives.",
+            "People can hold different priorities without one being wrong."
+          ],
+          "explanation": "Naming an influence helps reclaim choice; it does not require rejecting friends or their tastes.",
+          "nextHint": "Ask what the message tells you and what it leaves unanswered."
+        },
+        {
+          "prompt": "Which is the strongest next step before buying?",
+          "choices": [
+            "Compare total cost and alternatives against the transit goal and commitment",
+            "Assume waiting always saves money",
+            "Buy immediately to avoid regret",
+            "Ask a friend to decide"
+          ],
+          "correctIndex": 0,
+          "feedbackByChoice": [
+            "Correct: this combines costs, alternatives, and Ari’s stated priorities.",
+            "Waiting may preserve options, but it does not guarantee a lower price or better outcome.",
+            "Urgency can narrow attention; it does not add evidence about fit.",
+            "Advice may help, but Ari still needs to use their own constraints and priorities."
+          ],
+          "explanation": "A sound process makes the trade-off visible and includes at least one viable alternative.",
+          "nextHint": "Which option protects Ari’s stated goal while more information is gathered?"
+        },
+        {
+          "prompt": "How should the class interpret “need” in this example?",
+          "choices": [
+            "A hoodie is always a need",
+            "A hoodie is always wasteful",
+            "Need depends on purpose and circumstances; the brand is one possible option",
+            "Need and want are identical labels"
+          ],
+          "correctIndex": 2,
+          "feedbackByChoice": [
+            "The case does not establish that a hoodie is required for Ari’s purpose.",
+            "That judgement ignores context and individual circumstances.",
+            "Correct: identify the purpose and compare possible ways to meet it.",
+            "The terms help clarify purpose, though context can make the boundary less simple."
+          ],
+          "explanation": "Needs and wants are analytical tools, not moral labels. More than one option may meet a need.",
+          "nextHint": "Ask what function the item serves, then list alternatives that serve that function."
+        },
+        {
+          "prompt": "After an unexpected price change, what does reviewing the decision mean?",
+          "choices": [
+            "Blame the person for not predicting it",
+            "Check what was known at the time and what can be adjusted now",
+            "Hide the purchase",
+            "Assume every earlier choice was irrational"
+          ],
+          "correctIndex": 1,
+          "feedbackByChoice": [
+            "Review should support learning, not punish someone for an unforeseeable change.",
+            "Correct: distinguish the original evidence from new information and choose a next step.",
+            "Hiding removes useful information and does not solve the changed constraint.",
+            "An outcome alone does not prove the original reasoning was poor."
+          ],
+          "explanation": "Decision quality depends on the process and evidence available then; new evidence can justify a revision.",
+          "nextHint": "Separate the decision made earlier from the new fact that appeared afterward."
+        }
+      ],
+      "transfer": {
+        "newCase": "A fictional student must choose between a $30 club trip deposit and replacing a worn backpack before a rainy outdoor event. A peer posts an expensive brand comparison.",
+        "prompt": "Identify two influences and two pieces of decision evidence, then propose a fair comparison that avoids judging the student’s priorities.",
+        "modelAnswerTeacherOnly": "Peer comparison is a social influence and brand marketing may be commercial influence. Evidence includes the actual trip requirement/deadline, backpack condition and weather needs, total costs, available alternatives, and the student’s stated priorities. Compare at least two ways to meet each practical need and consider whether one choice can wait. Do not presume the trip or backpack is universally more important."
+      },
+      "media": {
+        "sourcePath": "projects/incoming/FINLIT/Videos/Topic 02 - Setting Goals and Making Decisions/Factors Influencing Money Decisions.mp4",
+        "startSeconds": 17,
+        "endSeconds": 104.2,
+        "teachingRole": "Prompt students to spot feelings, peers, family, advertising, sales, affordability, and reflection. Pause after the influence examples and use the supplied Ari case to move from recognition to evidence-based comparison. Transcript reviewed for segment selection; original visual/caption review remains required."
+      },
+      "visualBrief": "Build an influence-and-evidence board: centre panel with Ari’s decision; four labelled spokes for values/preferences, social influence, marketing claims, and constraints; a second panel sorts statements into known, claim to verify, and unknown. Include a linear text equivalent and no moralized red/green coding.",
+      "independentEvidence": {
+        "task": "A4",
+        "prompt": "Use a fictional purchase case to make an influence map, compare two options against the fictional person’s stated goal, and explain one uncertainty that could change the choice.",
+        "successCriteria": [
+          "Names at least two different influence types",
+          "Separates a claim from verified information",
+          "Compares two feasible options",
+          "Explains the person’s priorities without judging them"
+        ]
+      },
+      "sourceNotes": [
+        "FINLIT values and decision videos are useful prompts, but their advice about saving, credit limits, or professional advice should not be treated as universal rules.",
+        "Review the whole video for regional examples and confirm selected frames are understandable without audio.",
+        "Do not require student or family spending disclosures; all class cases must remain fictional.",
+        "Adaptation inputs: projects/incoming/FINLIT/Assignments/Topic 02 - Setting Goals and Making Decisions/Factors Influencing Money Decisions Assignment _ FinLit 101.pdf; Factors Affecting Your Values Assignment _ FinLit 101.pdf; Deciding Between Needs and Wants Assignment _ FinLit 101.pdf. Adapt the influence/value/need-want prompts into Ari’s evidence-sorting case; do not copy the exported worksheet or require personal disclosure."
+      ]
+    },
+    {
+      "id": "fl1-03",
+      "title": "Build a flexible budget",
+      "goal": "Construct and revise a fictional cash-flow plan that distinguishes timing, fixed and changing expenses, goals, and a buffer for uncertainty.",
+      "opening": "Sam’s fictional summer pay arrives every two weeks, but rent for a room, phone service, and a one-time course fee are due on different dates. A monthly total can balance on paper while cash runs short before payday.",
+      "teach": [
+        "A budget is a plan for matching money coming in with money going out over a named time period. Start by stating whose fictional situation it describes, the dates covered, and whether income is gross or take-home. For decisions about spending, use net income or clearly show the deductions needed to move from gross to net. Convert every amount to the same time unit only when the conversion is valid: weekly, biweekly, twice monthly, and monthly pay are not interchangeable. A cash-flow calendar adds due dates so a student sees when money arrives and when bills must be paid. A budget may include fixed or predictable expenses, variable needs, goals, discretionary choices, and irregular costs. Categories help organize information; they do not decide what a person should value. A plan is a forecast that can be revised when evidence changes.",
+        "Build the first draft in a transparent order. Record take-home income and its timing. List committed costs with due dates, then estimate variable costs using the supplied evidence, then assign money to goals and flexible choices. Add an irregular-cost or buffer line if the scenario allows it. Subtract planned outflows from planned inflows and inspect both the total and the calendar. If there is a shortfall, do not erase it by changing a number without reason. Identify options: change timing, compare a lower-cost alternative, adjust a flexible category, increase income if realistic, seek support, or revise a goal. Some costs are not safely reducible; the lesson should distinguish flexible choices from basic needs and obligations. If money remains, it is not “free” by default; the fictional person can choose a priority for it. If values conflict, explain the trade-off rather than pretending a formula selects the right life.",
+        "Test the plan with one changed circumstance, such as fewer work hours, a repair, or a shifted bill date. Recalculate only the affected rows, then examine the effect on the goal and on essentials. This is a sensitivity check: it shows which assumptions make the plan fragile. FINLIT’s spending-tracking and budgeting materials explain that tracking can reveal differences between expected and actual spending and that a budget can support goals. For this course, students use a supplied fictional ledger rather than tracking family or personal transactions. Historical video prompts, suggested savings percentages, and examples must not be copied as current expectations. A budget becomes useful when it gives a person more informed choices, not when it is treated as a test of virtue. The evidence of learning is a defensible plan, a correct calculation, and a thoughtful revision when something changes."
+      ],
+      "document": {
+        "title": "Sam’s fictional monthly plan and due-date strip",
+        "context": "All dates, work hours, pay, expenses, and amounts are invented for practice. The pay shown is take-home income for this fictional calculation, not a real wage or cost-of-living estimate.",
+        "rows": [
+          {
+            "field": "Take-home income, paid on the 1st and 15th",
+            "value": "$900 per month",
+            "sourceNote": "Fictional net income; both pay deposits combined."
+          },
+          {
+            "field": "Room share, due on the 1st",
+            "value": "$420",
+            "sourceNote": "Fictional expense, not a rental-market estimate."
+          },
+          {
+            "field": "Phone, due on the 8th",
+            "value": "$45",
+            "sourceNote": "Fictional plan price; no current provider claim."
+          },
+          {
+            "field": "Transit, spread across month",
+            "value": "$80",
+            "sourceNote": "Fictional amount; actual fares vary and need current local checking."
+          },
+          {
+            "field": "Food contribution, flexible schedule",
+            "value": "$180",
+            "sourceNote": "Fictional scenario amount; not a nutrition recommendation."
+          },
+          {
+            "field": "Course fee, one-time and due on the 20th",
+            "value": "$60",
+            "sourceNote": "Fictional one-time expense."
+          },
+          {
+            "field": "Goal: save toward a laptop",
+            "value": "$70",
+            "sourceNote": "Fictional chosen goal amount."
+          },
+          {
+            "field": "Flexible recreation",
+            "value": "$35",
+            "sourceNote": "Fictional choice amount, not a prescribed limit."
+          }
+        ]
+      },
+      "worked": [
+        {
+          "case": "Check the monthly total",
+          "steps": [
+            "Add the fictional outflows: 420 + 45 + 80 + 180 + 60 + 70 + 35 = $890.",
+            "Subtract from the $900 take-home income: $900 − $890 = $10 remaining.",
+            "State that the total balances under the listed assumptions, but the $10 margin is small and the due-date strip still matters."
+          ],
+          "misconception": "A zero or positive monthly total does not prove bills can be paid on the dates they are due. Timing and unexpected costs still matter."
+        },
+        {
+          "case": "Respond to a $25 repair",
+          "steps": [
+            "Add the new fictional repair cost: $10 − $25 = −$15 relative to the plan.",
+            "Keep the due obligation visible; do not change its amount without evidence.",
+            "Compare options such as reducing the $35 flexible recreation amount, delaying or adjusting the fictional laptop goal, or identifying another safe support route. Explain the trade-off."
+          ],
+          "misconception": "Do not silently remove food or transit to make the arithmetic fit. First distinguish flexible categories from essential access and commitments."
+        }
+      ],
+      "practice": [
+        {
+          "prompt": "What time period is Sam’s $900 income stated for?",
+          "choices": [
+            "Each week",
+            "The whole month",
+            "Each pay period",
+            "One year"
+          ],
+          "correctIndex": 1,
+          "feedbackByChoice": [
+            "The document says the two deposits together total $900 per month.",
+            "Correct: the case explicitly combines both fictional deposits into a monthly amount.",
+            "The individual deposit amount is not given, so this cannot be inferred.",
+            "No yearly income is stated; do not multiply without defining the period."
+          ],
+          "explanation": "A budget is only interpretable when the period and income basis are clear.",
+          "nextHint": "Read the unit written beside the income value."
+        },
+        {
+          "prompt": "What is the total of the seven planned outflows?",
+          "choices": [
+            "$890",
+            "$900",
+            "$10",
+            "$830"
+          ],
+          "correctIndex": 0,
+          "feedbackByChoice": [
+            "Correct: the seven listed fictional amounts add to $890.",
+            "That is income, not the sum of the listed expenses and goal amounts.",
+            "That is the remainder after comparing outflows with income.",
+            "This omits one or more listed categories; add each row once."
+          ],
+          "explanation": "Summing every planned outflow gives 420 + 45 + 80 + 180 + 60 + 70 + 35 = $890.",
+          "nextHint": "Add the larger fixed rows first, then include the goal and flexible rows."
+        },
+        {
+          "prompt": "How much remains before any new event is added?",
+          "choices": [
+            "$10",
+            "$110",
+            "$890",
+            "$1,790"
+          ],
+          "correctIndex": 0,
+          "feedbackByChoice": [
+            "Correct: $900 income − $890 planned outflows = $10.",
+            "This overstates the remainder by $100; recheck the sum of costs.",
+            "That is the planned outflow total, not the remaining amount.",
+            "This adds income and expenses instead of finding the difference."
+          ],
+          "explanation": "The remainder is the difference between planned inflows and outflows, not an extra expense category.",
+          "nextHint": "Compute income minus the outflow total."
+        },
+        {
+          "prompt": "Why is the date strip useful when the monthly totals balance?",
+          "choices": [
+            "It proves the costs are affordable forever",
+            "It shows whether money arrives before bills are due",
+            "It turns net income into gross income",
+            "It replaces checking the totals"
+          ],
+          "correctIndex": 1,
+          "feedbackByChoice": [
+            "A one-month plan cannot establish long-term affordability or future prices.",
+            "Correct: timing can create a shortfall even when monthly income exceeds monthly costs.",
+            "Dates do not change the meaning of net and gross.",
+            "Calendar timing supplements arithmetic; it does not replace it."
+          ],
+          "explanation": "Cash flow asks when money arrives and must be paid. This complements the monthly total.",
+          "nextHint": "Compare the 1st/15th deposits with the 1st, 8th, and 20th due dates."
+        },
+        {
+          "prompt": "The $25 repair occurs. What is the first arithmetic result?",
+          "choices": [
+            "The plan now has a $15 shortfall",
+            "The plan still has $35 left",
+            "Income increases to $925",
+            "The laptop goal automatically disappears"
+          ],
+          "correctIndex": 0,
+          "feedbackByChoice": [
+            "Correct: the old $10 remainder minus the $25 repair is −$15.",
+            "That mistakes a planned category for the remainder after the new cost.",
+            "A repair is an expense; no increased income is supplied.",
+            "A changed plan requires a chosen revision; the goal does not vanish automatically."
+          ],
+          "explanation": "Show the impact before choosing a response. The arithmetic identifies a gap but does not decide which trade-off Sam should make.",
+          "nextHint": "Start with the old $10 remainder and subtract $25."
+        },
+        {
+          "prompt": "Which response shows a reasoned revision?",
+          "choices": [
+            "Delete a cost without explaining why",
+            "Compare flexible options and protect essential access before revising the plan",
+            "Assume any small budget deficit is harmless",
+            "Use a friend’s real family budget"
+          ],
+          "correctIndex": 1,
+          "feedbackByChoice": [
+            "Changing a line without evidence hides the trade-off instead of resolving it.",
+            "Correct: compare feasible choices and explain how each affects priorities and access.",
+            "A shortfall is a signal to revise or seek another option, not to ignore it.",
+            "Another household’s private circumstances are not needed; use the fictional case."
+          ],
+          "explanation": "Budgets support decisions when changes are transparent and consistent with the fictional person’s constraints.",
+          "nextHint": "Name one flexible line, one essential line, and the consequence of changing each."
+        }
+      ],
+      "transfer": {
+        "newCase": "A fictional student’s monthly take-home amount stays constant, but a seasonal bus schedule shifts a required pass purchase earlier and a planned work shift is cancelled.",
+        "prompt": "Describe how to update the cash-flow calendar and budget. Identify an assumption to recheck before recommending a cut.",
+        "modelAnswerTeacherOnly": "Record the changed income date/amount and the earlier pass due date, recalculate the affected period, and preserve essential transport access. Before cutting, verify whether another route or pass option exists and whether the work shift cancellation affects only this month. Compare flexible choices and goals, explain the effect, and keep the budget period and net-income basis explicit."
+      },
+      "media": {
+        "sourcePath": "projects/incoming/FINLIT/Videos/Topic 02 - Setting Goals and Making Decisions/Tracking Your Spending.mp4",
+        "startSeconds": 5.2,
+        "endSeconds": 24.2,
+        "teachingRole": "Introduce a budget as a plan connected to income and expenses. Stop before the video’s tracking advice asks learners to inspect their own spending; transition to Sam’s supplied fictional ledger instead. Transcript checked for the segment; review the original visual and captions."
+      },
+      "visualBrief": "Create two linked views: a categorized monthly plan showing inflows/outflows and a dated cash-flow rail with deposit and due-date markers. Include a change control that adds the $25 fictional repair and visibly updates remainder. Use text labels, not only colour, and expose arithmetic in a screen-reader friendly table.",
+      "independentEvidence": {
+        "task": "A4",
+        "prompt": "Complete a new fictional monthly plan, state whether the total balances, mark any timing risk, then revise the plan after a supplied expense change and justify the trade-off.",
+        "successCriteria": [
+          "Uses consistent monthly units and states net/gross basis",
+          "Adds the listed figures accurately",
+          "Checks calendar timing",
+          "Shows and explains a revision without hiding essential needs"
+        ]
+      },
+      "sourceNotes": [
+        "FINLIT tracking video refers to tracking over months and suggests a bank app; use supplied fictional records so no real transaction history is required.",
+        "Do not reproduce historical cost examples from FINLIT or imply one savings percentage is suitable for all.",
+        "All listed amounts are invented; current rent, food, transit, and course prices require dated local research if used outside the exercise.",
+        "Adaptation inputs: projects/incoming/FINLIT/Assignments/Topic 02 - Setting Goals and Making Decisions/Tips for Wise Decision-making Assignment _ FinLit 101.pdf and Decision Making – Key Steps Assignment _ FinLit 101.pdf. Carry forward tracking, goals, and revision as ideas; replace personal tracking with the supplied fictional cash-flow ledger and calculated shock."
+      ]
+    },
+    {
+      "id": "fl1-04",
+      "title": "Compare a major purchase",
+      "goal": "Compare purchase arrangements over the same time horizon by calculating total outlay, recurring obligations, included services, restrictions, and flexibility.",
+      "opening": "A fictional community group needs a laptop for a two-year program. One offer has a lower monthly payment but an upfront fee; another costs more each month but includes accidental-damage coverage. Which offer is actually cheaper for this purpose?",
+      "teach": [
+        "A major purchase is not fully compared by its advertised monthly payment. First describe what job the product must do, how long it is needed, and what features are essential. Then identify each cash flow: upfront amount, recurring payment, taxes or fees if supplied, required add-ons, and end-of-term responsibilities. Choose one comparison horizon and apply it to every option. If the contract continues beyond the horizon, say whether you include the remaining commitment or only costs incurred within the period; do not mix the two. Calculate the total outlay with clear units. For a service or lease, the lowest total may not give the same reliability, ownership, or flexibility. Cost and value are related but not identical: a more expensive option could include a needed service, while a cheap option can be unsuitable if it cannot perform the job.",
+        "Read conditions as part of the price. A phone, computer, or vehicle offer may include a discount, financing, lease, subscription, warranty, usage limit, return condition, cancellation fee, or final payment. A headline can omit the payment that begins after a promotion ends. Write down what the seller promises, what the buyer must do, and what is unknown. For a lease, distinguish payment for use from ownership; check mileage or condition limits and what happens at the end. For an installment purchase, check total payable, fees, term, and whether missed payments trigger costs. Compare “buy now” and “pay later” carefully: deferred payment moves a decision into the future and may create fees or debt. Do not invent missing terms. If an offer does not state a fee, label it unknown rather than zero. Current market examples must be gathered and dated; the numerical offers in this lesson are fictional for arithmetic only.",
+        "A fair comparison includes at least one non-price factor tied to the purpose: reliability, accessibility, repair, portability, warranty, or ability to exit. Use a decision table rather than declaring a winner from one line. Calculate total outlay over the same horizon, list conditions and uncertainty, then apply stated priorities. Ask what changes if the person leaves early, the device fails, or the program length changes. FINLIT’s car and lease and phone-plan videos emphasize monthly costs, included features, term, and early-exit conditions. Those are useful things to inspect, but the videos may discuss market or tax details that are date-sensitive or situation-specific. This lesson applies the comparison method to a supplied fictional laptop case; it does not assume today’s price, tax, financing rate, or consumer rule. Students practise asking “what is included?” and “what does the end of the agreement cost?” before making a supported recommendation."
+      ],
+      "document": {
+        "title": "Two fictional laptop offers for a two-year project",
+        "context": "Every price, fee, term, and feature is fictional. Taxes are excluded from both options because none are provided; the exercise compares only the stated figures. No real retailer or current price is represented.",
+        "rows": [
+          {
+            "field": "Option A: upfront payment",
+            "value": "$120",
+            "sourceNote": "Fictional upfront amount."
+          },
+          {
+            "field": "Option A: monthly payment for 24 months",
+            "value": "$34/month",
+            "sourceNote": "Fictional installment; the scenario says no additional fee is listed."
+          },
+          {
+            "field": "Option A: accidental-damage coverage",
+            "value": "Not included",
+            "sourceNote": "Fictional contract feature; repair costs unknown."
+          },
+          {
+            "field": "Option B: upfront payment",
+            "value": "$0",
+            "sourceNote": "Fictional upfront amount."
+          },
+          {
+            "field": "Option B: monthly payment for 24 months",
+            "value": "$41/month",
+            "sourceNote": "Fictional installment amount."
+          },
+          {
+            "field": "Option B: coverage",
+            "value": "Included for the stated 24-month term",
+            "sourceNote": "Fictional feature; exclusions and claim terms are not supplied and remain unknown."
+          },
+          {
+            "field": "Comparison horizon",
+            "value": "24 months",
+            "sourceNote": "Fictional decision horizon selected for this case."
+          }
+        ]
+      },
+      "worked": [
+        {
+          "case": "Calculate the stated total for Option A",
+          "steps": [
+            "Multiply $34/month × 24 months = $816.",
+            "Add the $120 fictional upfront payment: $816 + $120 = $936 total stated outlay.",
+            "Record that coverage is not included, so repair cost is unknown and excluded from the total."
+          ],
+          "misconception": "Comparing $34 with $41 alone ignores the upfront payment and term."
+        },
+        {
+          "case": "Compare with Option B without hiding uncertainty",
+          "steps": [
+            "Multiply $41/month × 24 months = $984; upfront is $0, so stated outlay is $984.",
+            "Option B costs $48 more in stated outlay: $984 − $936 = $48.",
+            "Coverage may matter, but its value cannot be calculated without exclusions and likelihood/cost evidence. Ask for terms before deciding."
+          ],
+          "misconception": "Do not subtract a made-up repair estimate from Option B or treat included coverage as unlimited. Unknown is not zero."
+        }
+      ],
+      "practice": [
+        {
+          "prompt": "What is Option A’s stated 24-month monthly-payment total before its upfront amount?",
+          "choices": [
+            "$816",
+            "$936",
+            "$34",
+            "$1,200"
+          ],
+          "correctIndex": 0,
+          "feedbackByChoice": [
+            "Correct: $34 × 24 = $816.",
+            "That includes the $120 upfront amount; this question asks for monthly payments only.",
+            "That is one month’s payment, not the full horizon.",
+            "This uses neither the monthly amount nor the 24-month term correctly."
+          ],
+          "explanation": "Keep the recurring-payment subtotal separate before adding the upfront cost.",
+          "nextHint": "Multiply the monthly figure by the number of months."
+        },
+        {
+          "prompt": "What is Option A’s stated total outlay over the 24-month horizon?",
+          "choices": [
+            "$816",
+            "$936",
+            "$984",
+            "$120"
+          ],
+          "correctIndex": 1,
+          "feedbackByChoice": [
+            "This omits the $120 upfront amount.",
+            "Correct: $816 monthly total + $120 upfront = $936.",
+            "That is Option B’s stated total, not Option A’s.",
+            "That is only Option A’s upfront payment."
+          ],
+          "explanation": "Add the monthly subtotal and upfront amount because both are paid in the chosen horizon.",
+          "nextHint": "Use the subtotal from the prior question and add $120."
+        },
+        {
+          "prompt": "How much higher is Option B’s stated total than Option A’s?",
+          "choices": [
+            "$48",
+            "$120",
+            "$816",
+            "$984"
+          ],
+          "correctIndex": 0,
+          "feedbackByChoice": [
+            "Correct: $984 − $936 = $48.",
+            "That is Option A’s upfront amount, not the difference between totals.",
+            "That is Option A’s monthly-payment subtotal.",
+            "That is Option B’s total; subtract Option A’s total."
+          ],
+          "explanation": "A difference compares totals on the same horizon. The cost gap is $48 before considering coverage value.",
+          "nextHint": "Subtract the smaller stated total from the larger."
+        },
+        {
+          "prompt": "How should the learner treat Option B’s coverage exclusions when they are not supplied?",
+          "choices": [
+            "Assume every repair is covered",
+            "Assign a dollar value of $48",
+            "Mark the coverage terms unknown and request them before a final decision",
+            "Assume Option A is always better"
+          ],
+          "correctIndex": 2,
+          "feedbackByChoice": [
+            "No terms support unlimited coverage; this invents a contractual promise.",
+            "The $48 is a price difference, not a coverage valuation.",
+            "Correct: unknown exclusions prevent a complete comparison and should be made visible.",
+            "A lower stated total does not decide value without the purpose and coverage information."
+          ],
+          "explanation": "Good comparison makes uncertainty explicit rather than assigning an unsupported value.",
+          "nextHint": "What contract information would reveal what a claim actually covers?"
+        },
+        {
+          "prompt": "Why must both options use the same comparison horizon?",
+          "choices": [
+            "So recurring costs and obligations are compared over equal periods",
+            "Because all contracts last 24 months",
+            "To remove every difference between them",
+            "Because upfront costs never matter"
+          ],
+          "correctIndex": 0,
+          "feedbackByChoice": [
+            "Correct: a shared horizon makes the totals comparable, while any longer commitment must be disclosed.",
+            "The case gives a 24-month horizon; it does not prove all contracts have that term.",
+            "A common horizon clarifies differences; it does not erase them.",
+            "Upfront costs are part of total outlay and must be included."
+          ],
+          "explanation": "Comparing one option for 12 months and another for 24 months would confuse the cost conclusion.",
+          "nextHint": "Check the number of months used in each multiplication."
+        },
+        {
+          "prompt": "Which statement best describes cost and value here?",
+          "choices": [
+            "The cheapest stated option is automatically best",
+            "Coverage can matter, but terms and the buyer’s purpose determine its value",
+            "The higher price guarantees better quality",
+            "Unknown repair costs should be ignored permanently"
+          ],
+          "correctIndex": 1,
+          "feedbackByChoice": [
+            "Lowest total may not meet needs; compare purpose, terms, and flexibility.",
+            "Correct: coverage matters only as understood through conditions and a relevant use case.",
+            "Price alone does not prove quality or suitability.",
+            "Unknown costs should be recorded and investigated, not permanently dismissed."
+          ],
+          "explanation": "A recommendation joins arithmetic with relevant conditions and stated priorities.",
+          "nextHint": "Ask what problem the laptop must solve and what risk the coverage addresses."
+        }
+      ],
+      "transfer": {
+        "newCase": "A fictional student compares two plans for a calculator required for one semester: rent for a low weekly fee with a return deposit, or buy a used unit with no return option.",
+        "prompt": "Choose a fair comparison horizon and identify the figures and conditions needed before recommending either option.",
+        "modelAnswerTeacherOnly": "Use the semester length as the common horizon. Compare weekly rent multiplied by the actual number of weeks plus any non-refundable fees, against purchase price and any relevant return/resale condition. Treat a refundable deposit separately from an expense but show the temporary cash requirement and return conditions. Check calculator specifications, damage responsibility, and access timing. Do not invent missing costs."
+      },
+      "media": {
+        "sourcePath": "projects/incoming/FINLIT/Videos/Topic 05 - Spending on Major Purchases/2 Buying or Leasing a car.mp4",
+        "startSeconds": 24.7,
+        "endSeconds": 54.9,
+        "teachingRole": "Preview contract fields such as upfront amount, lease length, monthly/total cost, mileage limits, and warranty before students inspect the fictional laptop offers. The video discusses car leasing and may contain jurisdiction-specific or outdated claims later; use this segment as a document-reading prompt only, and review original captions/visuals."
+      },
+      "visualBrief": "Make a side-by-side offer viewer with a fixed 24-month horizon, upfront/recurring/total rows, included-feature checklist, unknown-terms column, and a toggle for a changed duration. Keep total arithmetic visible and provide table text for assistive technology.",
+      "independentEvidence": {
+        "task": "A4",
+        "prompt": "Compare two new fictional purchase offers over a stated horizon. Show the total-cost arithmetic, identify an unknown term, and recommend an option only in relation to a stated purpose and priority.",
+        "successCriteria": [
+          "Uses equal horizons",
+          "Includes upfront and recurring costs",
+          "Separates known terms from unknowns",
+          "Connects recommendation to the person’s purpose"
+        ]
+      },
+      "sourceNotes": [
+        "FINLIT car/phone materials mention contract and usage terms but may include dated market or tax claims; use only the comparison method unless current specifics are verified.",
+        "All laptop figures are invented, tax excluded; do not present them as current market prices.",
+        "Review local consumer cancellation and disclosure rules through current official sources if the lesson makes legal claims.",
+        "Adaptation input: projects/incoming/FINLIT/Assignments/Topic 05 - Spending on Major Purchases/Buying or Leasing a Car Assignment _ FinLit 101.pdf. Adapt the emphasis on total cost, term, limits, and return/end conditions into a fictional laptop comparison; do not transfer car prices or tax advice."
+      ]
+    },
+    {
+      "id": "fl1-05",
+      "title": "Compare phone contracts and subscriptions",
+      "goal": "Compare phone or subscription plans using total cost across a shared term, included services, usage fit, promotion changes, and cancellation conditions.",
+      "opening": "A fictional student sees “$20 per month!” on a phone-plan ad. The small print says the price lasts for three months, then changes. A second plan costs more each month but has no fixed term. The headline alone cannot decide.",
+      "teach": [
+        "Start by defining the service needed: coverage where the person uses it, enough data or minutes for the intended use, and an amount that fits the fictional budget. Do not assume the largest data package is best or that all providers have the same coverage. A plan comparison should use one time horizon and show each cost during each part of the term. If a promotion changes after three months, multiply the promotional price by three and the later price by the remaining months. Add activation, device, roaming, overage, or cancellation charges only when the offer supplies them; mark missing terms unknown. Distinguish a device payment from the service fee. “Bring your own phone” may avoid a device installment but does not tell you the network or coverage quality. This is arithmetic plus contract reading, not a recommendation to buy a plan.",
+        "Then inspect what commitment creates. Month-to-month service may allow more flexibility, while a fixed term can have a lower payment or include a device; neither is automatically superior. Record the term, what happens after it ends, what it costs to cancel early, and whether usage beyond the allowance is charged or slowed. Check if the displayed figure includes taxes and fees; if not, label the total as before them. If terms are unavailable, do not calculate a fictional penalty or claim the ad is deceptive. Ask a specific question or consult current official consumer guidance. A contract’s total over 12 months is not always its total over 24 months, so state the horizon in the conclusion. Compare the likely use case against the included service, then test a changed usage case such as less data, more travel, or a move to a different region.",
+        "A good explanation says, “For this fictional use and this stated period, Plan A costs __ before omitted charges; Plan B costs __; Plan __ better fits the named need because __; this conclusion could change if __.” FINLIT’s smartphone-plan video usefully raises data habits, coverage, roaming, contract length, bundled phones, and early-exit costs. Its specific data ranges, provider landscape, and pricing can become dated. Use the clip to generate questions, then let learners analyse a supplied fictional offer rather than repeat the numbers as current facts. A PDF assignment or quiz can test recall of a video, but the learner needs to calculate from visible plan terms and receive feedback for common errors: multiplying the promotion for all months, forgetting the device payment, or ignoring that “unknown fee” is not zero. Never ask students to share their personal phone bills or account details."
+      ],
+      "document": {
+        "title": "Two fictional 12-month mobile plans",
+        "context": "All prices, usage amounts, durations, and conditions are invented. Taxes and other fees are omitted by design; do not treat totals as current provider quotes.",
+        "rows": [
+          {
+            "field": "Plan A service months 1–3",
+            "value": "$20/month",
+            "sourceNote": "Fictional promotional price."
+          },
+          {
+            "field": "Plan A service months 4–12",
+            "value": "$38/month",
+            "sourceNote": "Fictional later price."
+          },
+          {
+            "field": "Plan A device payment",
+            "value": "$15/month for 12 months",
+            "sourceNote": "Fictional device instalment; device ownership/end terms unknown."
+          },
+          {
+            "field": "Plan A early cancellation",
+            "value": "Terms not supplied",
+            "sourceNote": "Intentionally unknown; ask for the contract terms."
+          },
+          {
+            "field": "Plan B service",
+            "value": "$43/month; month-to-month",
+            "sourceNote": "Fictional service price and term."
+          },
+          {
+            "field": "Plan B device",
+            "value": "Use existing device",
+            "sourceNote": "Fictional case assumption; device condition/compatibility still needs checking."
+          },
+          {
+            "field": "Illustrative usage",
+            "value": "Wi-Fi at home/school; 4 GB/month away",
+            "sourceNote": "Fictional profile; not a statement about actual student usage."
+          },
+          {
+            "field": "Comparison horizon",
+            "value": "12 months",
+            "sourceNote": "Fictional comparison period."
+          }
+        ]
+      },
+      "worked": [
+        {
+          "case": "Calculate Plan A’s stated 12-month outlay",
+          "steps": [
+            "Service: 3 × $20 = $60; then 9 × $38 = $342; service subtotal = $402.",
+            "Device: 12 × $15 = $180.",
+            "Stated total = $402 + $180 = $582, before omitted taxes/fees and with cancellation terms unknown."
+          ],
+          "misconception": "Multiplying $20 by all 12 months gives $240 and incorrectly extends a three-month promotion."
+        },
+        {
+          "case": "Compare Plan B",
+          "steps": [
+            "Service: 12 × $43 = $516.",
+            "The stated difference is $582 − $516 = $66, so Plan B is $66 less over 12 months using these fictional terms.",
+            "Check fit: Plan B uses an existing device and offers monthly flexibility; verify compatibility, coverage, and any omitted fees before recommending."
+          ],
+          "misconception": "The lower total does not establish Plan B as universally better; it is conditional on the fictional needs and missing terms."
+        }
+      ],
+      "practice": [
+        {
+          "prompt": "What is Plan A’s service subtotal for months 1–3?",
+          "choices": [
+            "$60",
+            "$20",
+            "$114",
+            "$240"
+          ],
+          "correctIndex": 0,
+          "feedbackByChoice": [
+            "Correct: 3 × $20 = $60.",
+            "That is one month, not the three-month promotional subtotal.",
+            "That would use the later $38 price for three months.",
+            "That incorrectly applies $20 to all 12 months."
+          ],
+          "explanation": "Break the term into price periods before multiplying.",
+          "nextHint": "Use three months at $20 per month."
+        },
+        {
+          "prompt": "What is Plan A’s service subtotal for months 4–12?",
+          "choices": [
+            "$342",
+            "$38",
+            "$180",
+            "$456"
+          ],
+          "correctIndex": 0,
+          "feedbackByChoice": [
+            "Correct: nine months × $38 = $342.",
+            "That is one month at the later price.",
+            "That is the device subtotal, not service.",
+            "This applies the $38 rate for all 12 months."
+          ],
+          "explanation": "Months 4 through 12 are nine months, so use nine instances of the later price.",
+          "nextHint": "Count the later-price months: 12 − 3."
+        },
+        {
+          "prompt": "What is the total stated Plan A cost including the device payments?",
+          "choices": [
+            "$402",
+            "$582",
+            "$516",
+            "$180"
+          ],
+          "correctIndex": 1,
+          "feedbackByChoice": [
+            "This omits the device payments.",
+            "Correct: $402 service + $180 device = $582 before omitted fees.",
+            "That is Plan B’s service total, not Plan A.",
+            "That includes the device only and omits service."
+          ],
+          "explanation": "A bundled or financed device still contributes to the buyer’s stated outlay.",
+          "nextHint": "Add $180 device cost to the service subtotal $402."
+        },
+        {
+          "prompt": "Which comparison statement is accurate?",
+          "choices": [
+            "Plan A is $66 cheaper",
+            "Plan B is $66 cheaper on the stated 12-month figures",
+            "Plan B has no costs because it uses an existing device",
+            "Both plans cost $43 per month"
+          ],
+          "correctIndex": 1,
+          "feedbackByChoice": [
+            "The subtraction is reversed; Plan A’s stated total is larger.",
+            "Correct: $582 − $516 = $66 in Plan B’s favour, before omitted costs.",
+            "The service still costs money and device condition may matter.",
+            "The plans have different monthly prices and Plan A changes price during the term."
+          ],
+          "explanation": "The conclusion must preserve the horizon and limitation that taxes and fees are omitted.",
+          "nextHint": "Subtract Plan B’s $516 from Plan A’s $582."
+        },
+        {
+          "prompt": "How should a missing cancellation term be represented?",
+          "choices": [
+            "As $0",
+            "As unlimited free cancellation",
+            "As unknown, with a request for the actual term",
+            "As proof that the plan is illegal"
+          ],
+          "correctIndex": 2,
+          "feedbackByChoice": [
+            "No supplied term says cancellation has no charge.",
+            "This invents a promise that the case does not provide.",
+            "Correct: mark the gap and obtain the contract before making a complete claim.",
+            "A missing term in this teaching case is not evidence about legality."
+          ],
+          "explanation": "Unknown values must stay unknown; otherwise the calculated comparison creates false certainty.",
+          "nextHint": "What do we actually know from the fictional offer?"
+        },
+        {
+          "prompt": "What is the fairest next question about the 4 GB usage profile?",
+          "choices": [
+            "Does the plan provide suitable coverage and enough usable data where needed?",
+            "How can the student prove their real phone habits?",
+            "Why is the largest package always better?",
+            "Can the promotion be extended forever?"
+          ],
+          "correctIndex": 0,
+          "feedbackByChoice": [
+            "Correct: service fit depends on coverage and included usage in relevant locations.",
+            "Real personal usage disclosure is unnecessary; the fictional profile is sufficient.",
+            "More data can cost more without improving the actual use case.",
+            "No information suggests the promotion can continue beyond its stated period."
+          ],
+          "explanation": "Price comparison matters only after checking the plan can serve the fictional purpose.",
+          "nextHint": "Pair the fictional use profile with the plan’s stated coverage and allowance."
+        }
+      ],
+      "transfer": {
+        "newCase": "A fictional learner compares a music subscription with a student discount for six months followed by a regular price, against a free tier with limited offline access.",
+        "prompt": "State the comparison horizon, calculate only from supplied terms, and identify one non-price factor and one unknown condition that matter.",
+        "modelAnswerTeacherOnly": "Use six or twelve months only after the case states both prices and the post-discount term; if the later price is not supplied, mark the full-year total unknown. Compare the stated fees across the selected horizon, then consider offline access and cancellation/renewal terms relative to the learner’s use. Do not assume the free tier has no data, privacy, or access trade-offs unless those are supplied."
+      },
+      "media": {
+        "sourcePath": "projects/incoming/FINLIT/Videos/Topic 05 - Spending on Major Purchases/3 Smart phones and plans.mp4",
+        "startSeconds": 36.1,
+        "endSeconds": 49,
+        "teachingRole": "Introduce fit-to-use and comparison before examining the fictional plan table. The clip continues into specific data ranges and provider conditions; do not present those as current prices or coverage facts. Review original captions/visuals before using."
+      },
+      "visualBrief": "Build a 12-month timeline split into promotional and later-price segments, plus a separate device-cost band. A learner can select months to reveal the running total; show “fees not supplied” visibly. Provide a plain table equivalent and keyboard-operable controls.",
+      "independentEvidence": {
+        "task": "A4",
+        "prompt": "Create a comparison of two supplied fictional plans for a shared 12-month horizon. Calculate the total, test service fit against a fictional usage profile, and list terms to confirm before signing.",
+        "successCriteria": [
+          "Calculates each price period separately",
+          "Includes device/service cost where supplied",
+          "Checks usage and flexibility",
+          "Keeps omitted charges and terms visible"
+        ]
+      },
+      "sourceNotes": [
+        "FINLIT video includes provider-neutral concepts plus time-sensitive plan types, data amounts, and roaming information; verify before reuse and avoid turning examples into current recommendations.",
+        "FINLIT smartphone quiz is recall-oriented; create original scenario questions rather than copy its test items.",
+        "No personal phone bill, account, or actual usage data is requested.",
+        "Adaptation input: projects/incoming/FINLIT/Assignments/Topic 05 - Spending on Major Purchases/Smartphones and Plans Assignment _ FinLit 101.pdf. Use its prompts about use pattern, data, term, provider fit, and early exit to create a new staged-price comparison; replace current market details with fictional terms."
+      ]
+    },
+    {
+      "id": "fl1-06",
+      "title": "What a major purchase really costs",
+      "goal": "Estimate start-up and recurring costs for a fictional move or major purchase, distinguish known from uncertain costs, and revise a plan when assumptions change.",
+      "opening": "A fictional learner has been offered a place near a training program. The monthly room share seems manageable, but the move also requires a deposit, transit, food, setup items, and a plan for irregular costs.",
+      "teach": [
+        "A large decision often combines one-time start-up costs with recurring costs. Start with the purpose and time period: moving for a term, buying a bicycle for a year, or joining a program may create different cost lists. For a move, possible categories include a deposit, first payment, transportation, basic furnishings, utilities, food, communication, laundry, and emergency travel. These are categories to investigate, not a universal checklist or current price guide. Some amounts depend on location, roommates, eligibility, agreement terms, and what the person already owns. Mark each item as known, estimated, or unknown. A refundable amount affects cash needed up front, but may not be a final expense if returned under the agreement; students must still consider when it is tied up and what conditions govern its return. Never confuse a monthly payment with the full cost of a term or a year.",
+        "Make the arithmetic honest. Add one-time costs separately from monthly totals. Multiply recurring costs by the number of months only if they occur each month and the term is stated. If income arrives on a different schedule, connect the totals to a cash-flow calendar. Then compare total expected cost with the fictional resources available and identify a buffer. An estimate should include its basis and a range or uncertainty note when appropriate. Do not invent a precise utility bill, rental rule, deposit maximum, or transit price. If the scenario leaves a price blank, calculate a partial known total and list what must be researched from dated, local sources. Ask whether a roommate arrangement changes both cost and responsibility; a lower share can also create coordination risks or a joint obligation. A budget that relies on every uncertain assumption going perfectly is fragile.",
+        "Run a change test: one roommate leaves, a bus pass cost changes, a move date shifts, or an essential item is unavailable second-hand. Update only the affected assumptions and explain what the person could do next. Options might include delaying the move, comparing a different location, identifying safe school or community supports, changing a flexible purchase, or requesting current information from a landlord or service provider. Avoid telling a student that moving out is an individual financial choice independent of safety, family, disability, or housing access. FINLIT’s moving-out and car-purchase resources encourage consideration of roommates, furnishings, transport, upkeep, and agreement details. The dated prices and generalized advice do not establish what a current Alberta student will pay. This lesson uses a fictional plan and helps students ask better questions; it does not encourage students to move, borrow, or reveal their own family finances."
+      ],
+      "document": {
+        "title": "Fictional first-month move estimate",
+        "context": "Every figure is invented and not a current rental, utility, transit, or retail estimate. Some entries are explicitly uncertain; the exercise requires learners to keep those unknowns visible.",
+        "rows": [
+          {
+            "field": "Shared room amount per month",
+            "value": "$480",
+            "sourceNote": "Fictional monthly amount; not a market rent estimate."
+          },
+          {
+            "field": "Refundable deposit due before move",
+            "value": "$480",
+            "sourceNote": "Fictional cash requirement; legal limit/return conditions are not represented."
+          },
+          {
+            "field": "Transit for first month",
+            "value": "$75",
+            "sourceNote": "Fictional; current local fares would need checking."
+          },
+          {
+            "field": "Basic household setup",
+            "value": "$160",
+            "sourceNote": "Fictional one-time estimate; actual needs and second-hand availability vary."
+          },
+          {
+            "field": "Utilities share",
+            "value": "Unknown",
+            "sourceNote": "Not provided; request the agreement/history rather than inserting zero."
+          },
+          {
+            "field": "Food contribution per month",
+            "value": "$190",
+            "sourceNote": "Fictional scenario amount; not a nutrition or cost-of-living estimate."
+          },
+          {
+            "field": "Available fictional move fund",
+            "value": "$1,250",
+            "sourceNote": "Fictional resource amount, not a recommended savings target."
+          },
+          {
+            "field": "Planning horizon",
+            "value": "First month plus start-up",
+            "sourceNote": "The case does not yet supply the full program duration."
+          }
+        ]
+      },
+      "worked": [
+        {
+          "case": "Calculate the known first-month cash requirement",
+          "steps": [
+            "Add known cash needed before/for the first month: $480 room + $480 deposit + $75 transit + $160 setup + $190 food = $1,385.",
+            "Compare with the fictional $1,250 fund: $1,250 − $1,385 = −$135, before utilities.",
+            "State this is a partial estimate and first-month cash requirement; do not call the deposit a permanent expense or set unknown utilities to zero."
+          ],
+          "misconception": "The refundable deposit may be returned later, but it still must be available up front and its return conditions matter."
+        },
+        {
+          "case": "Test a lower-cost setup option",
+          "steps": [
+            "Suppose the fictional setup cost falls from $160 to $60 after finding usable second-hand items; savings = $100.",
+            "Known requirement becomes $1,285, still $35 above the $1,250 fund and still excluding utilities.",
+            "The estimate is improved but not yet complete; ask about utilities and consider safe alternatives rather than pretending the gap disappeared."
+          ],
+          "misconception": "A $100 reduction does not mean the full plan is affordable; the remaining gap and unknown cost remain."
+        }
+      ],
+      "practice": [
+        {
+          "prompt": "Which listed item is explicitly unknown in the fictional estimate?",
+          "choices": [
+            "Utilities share",
+            "Room amount",
+            "Transit",
+            "Setup"
+          ],
+          "correctIndex": 0,
+          "feedbackByChoice": [
+            "Correct: utilities are listed as unknown and must be investigated.",
+            "The room amount is supplied as a fictional $480 monthly value.",
+            "Transit is supplied as a fictional $75 first-month figure.",
+            "Setup is supplied as a fictional $160 one-time figure."
+          ],
+          "explanation": "An unknown item should remain visible in the estimate until evidence is gathered.",
+          "nextHint": "Find the row whose value is not a dollar amount."
+        },
+        {
+          "prompt": "What is the known first-month cash requirement before utilities?",
+          "choices": [
+            "$1,385",
+            "$1,250",
+            "$905",
+            "$1,865"
+          ],
+          "correctIndex": 0,
+          "feedbackByChoice": [
+            "Correct: add room, deposit, transit, setup, and food for $1,385.",
+            "That is the fictional available fund, not total costs.",
+            "This omits one or more listed cash requirements.",
+            "This double counts or otherwise mis-sums the supplied rows; add each once."
+          ],
+          "explanation": "The total is partial because utilities remain unknown.",
+          "nextHint": "Add 480 + 480 + 75 + 160 + 190."
+        },
+        {
+          "prompt": "How far above or below the fund is the known cost?",
+          "choices": [
+            "$135 short",
+            "$135 left",
+            "$480 short",
+            "Exactly balanced"
+          ],
+          "correctIndex": 0,
+          "feedbackByChoice": [
+            "Correct: $1,385 costs − $1,250 fund = $135 short before utilities.",
+            "This reverses the subtraction; known costs exceed the fund.",
+            "The deposit amount alone is not the total gap.",
+            "The partial total is greater than the available amount."
+          ],
+          "explanation": "Compare like quantities: total known required cash minus available fictional funds.",
+          "nextHint": "Subtract $1,250 from $1,385."
+        },
+        {
+          "prompt": "How should the refundable deposit be treated in a first-month cash plan?",
+          "choices": [
+            "Ignore it because it may be returned",
+            "Include cash needed up front and separately note return conditions",
+            "Count it as monthly rent forever",
+            "Assume it is illegal"
+          ],
+          "correctIndex": 1,
+          "feedbackByChoice": [
+            "Even if refundable, the money may be needed before moving and tied up for a time.",
+            "Correct: show the up-front cash requirement and research the agreement’s return rules.",
+            "A deposit is not automatically recurring monthly rent.",
+            "The case gives no legal facts; check current official Alberta tenancy rules if needed."
+          ],
+          "explanation": "Cash timing and final expense are different questions. The scenario requires both to remain clear.",
+          "nextHint": "Ask when the money is needed and what conditions govern its return."
+        },
+        {
+          "prompt": "The second-hand setup change saves $100. What is the new known gap?",
+          "choices": [
+            "$35 short",
+            "$100 left",
+            "$135 short",
+            "$0"
+          ],
+          "correctIndex": 0,
+          "feedbackByChoice": [
+            "Correct: the known requirement becomes $1,285, which is $35 above the $1,250 fund.",
+            "This treats the savings as new money and ignores the original shortfall.",
+            "That is the gap before reducing setup cost.",
+            "The revised known total still exceeds the fund and utilities remain unknown."
+          ],
+          "explanation": "Reduce the known cost by $100, then compare the new requirement with the fund.",
+          "nextHint": "Compute $1,385 − $100, then subtract $1,250."
+        },
+        {
+          "prompt": "What is the responsible treatment of the unknown utility share?",
+          "choices": [
+            "Enter $0 so the sum is easy",
+            "Use the highest number you can imagine",
+            "Ask for evidence and keep the current total labelled partial",
+            "Remove the move from the plan without discussion"
+          ],
+          "correctIndex": 2,
+          "feedbackByChoice": [
+            "Unknown does not mean free; zero would create false confidence.",
+            "An unsupported high guess is not evidence either.",
+            "Correct: identify the source needed and state what the present total excludes.",
+            "A recommendation needs comparison and context; the missing figure alone does not resolve the whole case."
+          ],
+          "explanation": "A useful estimate distinguishes known amounts, evidence-based estimates, and unfilled questions.",
+          "nextHint": "What document or provider could supply the missing amount?"
+        }
+      ],
+      "transfer": {
+        "newCase": "A fictional learner considers buying a used bicycle for a seasonal job. The purchase price is supplied, but a lock, repairs, and winter storage are not.",
+        "prompt": "Separate one-time and recurring costs, identify unknowns, and explain what must be true for the purchase to be practical.",
+        "modelAnswerTeacherOnly": "List the purchase and any one-time lock/repair estimates separately; ask for inspection evidence and current prices rather than inventing them. Identify recurring maintenance or storage only if the use period implies them. Compare with transport alternatives over the same season and consider reliability, safety, route, weather, and access. A recommendation is conditional on verified condition, total cost, and the fictional person’s resources."
+      },
+      "media": {
+        "sourcePath": "projects/incoming/FINLIT/Videos/Topic 05 - Spending on Major Purchases/1 Moving out on your own.mp4",
+        "startSeconds": 20.9,
+        "endSeconds": 92.9,
+        "teachingRole": "Introduce the range of responsibilities and the need to examine roommates, furnishing, and moving for study. Pivot from its general examples to the supplied fictional estimate; no clip price is presented as current. Transcript selection reviewed; inspect the original visuals/captions."
+      },
+      "visualBrief": "Make an accessible move-planning sheet divided into one-time cash, recurring monthly costs, refundable amounts, and unknowns, followed by a month-one timeline. A change control lowers setup cost by $100 and visibly updates the remaining gap. Include table and text equivalent.",
+      "independentEvidence": {
+        "task": "A4",
+        "prompt": "Analyse a fictional major-purchase or move estimate. Separate one-time and recurring values, calculate known costs, flag unknowns, and recommend the next evidence to gather before a decision.",
+        "successCriteria": [
+          "Separates cost types and planning period",
+          "Calculates a known partial total accurately",
+          "Keeps unknowns visible",
+          "Tests feasibility without judging the person’s circumstances"
+        ]
+      },
+      "sourceNotes": [
+        "FINLIT moving-out video/PDF contain general advice and potentially dated example prices; do not reuse any price as current.",
+        "If teaching Alberta security-deposit law or tenant rights, verify current official provincial guidance before release; this packet does not state a legal maximum.",
+        "All costs and funds are fictional teaching values, not a cost-of-living estimate.",
+        "Adaptation input: projects/incoming/FINLIT/Assignments/Topic 05 - Spending on Major Purchases/Moving Out On Your Own Assignment _ FinLit 101.pdf. Preserve the cost-category and shared-living planning move; replace location prices and personal financial research with a fictional partial estimate and visible unknowns."
+      ]
+    },
+    {
+      "id": "fl2-01",
+      "title": "What borrowing offers mean",
+      "goal": "Identify the amount borrowed, purpose, term, payment, fees, security, and risk in fictional offers, and distinguish access to credit from ability to repay.",
+      "opening": "A fictional student is comparing a store installment offer for a laptop with a small line-of-credit offer. One monthly payment looks low because it lasts longer. What else must be known before comparing?",
+      "teach": [
+        "Borrowing means receiving money or purchasing now with an agreement to repay later, often with interest or fees. It shifts some future income into a present decision. A loan is not simply “extra money”: repayment claims on future income can reduce later choices. Borrowing can sometimes help meet a large, purposeful need, but whether it is suitable depends on the goal, alternatives, full cost, stability of income, time, and risks. A lender may approve an amount that is not comfortable or safe for a particular borrower. Approval is not a personal budget recommendation. For this lesson, compare only fictional offers and do not submit an actual credit application, credit score, or family financial information.",
+        "Read an offer systematically. Find principal (the amount borrowed), interest rate and how it is expressed, fees, payment amount and frequency, number of payments or term, total repayment if supplied, late or other charges, whether the rate can change, and whether an asset or co-signer secures it. Security means the lender may have a claim related to the stated asset if repayment fails; the precise legal consequences depend on the agreement and law. A co-signer takes on obligations and is not a casual reference. A credit card usually allows a changing balance and minimum payment; paying only the minimum can extend repayment and increase interest. A line of credit may allow repeated borrowing within a limit, so the balance can grow again. A fixed installment loan provides scheduled payments but may still include fees or penalties. Compare products only after confirming the same borrowing purpose and amount.",
+        "A low monthly payment can be created by stretching repayment over more time. That may ease each month while raising total interest and keeping the obligation active longer. Therefore ask two different questions: can the fictional person handle the scheduled payment under plausible changes, and what is the full amount paid across the term? If a fee or total is missing, label it unknown. The FINLIT “Why Borrow Money” video lists purposes such as unexpected costs, major purchases, education, and investing; those are examples, not a direction to borrow. Its claim that borrowed investment returns should exceed loan interest omits uncertainty, taxes, fees, and loss risk; do not teach that as a reliable strategy. “Your Credit Worthiness” introduces lender considerations but oversimplifies human decisions into three Cs. Use it only as a prompt to discuss evidence and obligations. Current lender rules, credit reporting, fees, and products require official and dated verification."
+      ],
+      "document": {
+        "title": "Two fictional laptop borrowing offers",
+        "context": "All amounts, rates, terms, fees, and decisions are invented. Offers are simplified to teach what information to inspect; no real financial product, current rate, or approval criteria are represented.",
+        "rows": [
+          {
+            "field": "Purpose and requested amount",
+            "value": "$600 for a required fictional course laptop",
+            "sourceNote": "Invented amount and purpose; not a real price or recommendation."
+          },
+          {
+            "field": "Offer A",
+            "value": "$600 principal; 12 monthly payments of $55; $0 stated setup fee",
+            "sourceNote": "Fictional payment and fee terms; rate and total interest not supplied."
+          },
+          {
+            "field": "Offer B",
+            "value": "$600 principal; 24 monthly payments of $31; $15 stated fee",
+            "sourceNote": "Fictional payment and fee terms; rate and total interest not supplied."
+          },
+          {
+            "field": "Asset/security",
+            "value": "Not stated",
+            "sourceNote": "Intentionally unknown; ask for complete written terms."
+          },
+          {
+            "field": "Rate type and late charges",
+            "value": "Not stated",
+            "sourceNote": "Intentionally unknown; do not assume zero or fixed."
+          },
+          {
+            "field": "Alternative",
+            "value": "Use a school loaner or save for a refurbished device",
+            "sourceNote": "Fictional possibilities; availability and suitability would need checking."
+          }
+        ]
+      },
+      "worked": [
+        {
+          "case": "Compare stated repayments",
+          "steps": [
+            "Offer A repayments: 12 × $55 = $660; with $0 stated fee, stated total is $660 if no other charge exists.",
+            "Offer B repayments: 24 × $31 = $744; add the $15 fee = $759 stated total.",
+            "Offer B’s monthly amount is lower, but its stated total is $99 higher and lasts twice as many months."
+          ],
+          "misconception": "A lower payment is not the same as a lower total cost. Missing rate and security terms still need to be obtained."
+        },
+        {
+          "case": "Separate approval from affordability",
+          "steps": [
+            "Imagine the lender approves the fictional $600 principal. That establishes access under the lender’s process, not that the payment fits the student’s budget.",
+            "Test the payment against the fictional monthly plan and a plausible income interruption.",
+            "Compare the loan with the school loaner and refurbished option; explain what evidence is missing."
+          ],
+          "misconception": "Do not treat a lender’s maximum or approval as a safe spending limit or personalized recommendation."
+        }
+      ],
+      "practice": [
+        {
+          "prompt": "What does Offer B’s lower monthly payment fail to show by itself?",
+          "choices": [
+            "Whether the total repayment is higher",
+            "The amount borrowed",
+            "That a payment occurs monthly",
+            "The stated term"
+          ],
+          "correctIndex": 0,
+          "feedbackByChoice": [
+            "Correct: multiply payment by count and include fees to compare stated totals.",
+            "The case states the principal is $600.",
+            "The offer explicitly lists a monthly payment.",
+            "The offer states 24 monthly payments."
+          ],
+          "explanation": "Payment size is one dimension; total cost and duration are separate dimensions.",
+          "nextHint": "Multiply each payment by its number of months, then include stated fees."
+        },
+        {
+          "prompt": "What is Offer B’s stated total under the simplified case?",
+          "choices": [
+            "$759",
+            "$744",
+            "$600",
+            "$31"
+          ],
+          "correctIndex": 0,
+          "feedbackByChoice": [
+            "Correct: 24 × $31 = $744, plus the $15 fee = $759.",
+            "This omits the stated $15 fee.",
+            "This is the principal, not the total scheduled repayment.",
+            "This is the monthly payment only."
+          ],
+          "explanation": "Use only the stated payment count and fee; the case does not supply other costs.",
+          "nextHint": "Calculate 24 × 31, then add 15."
+        },
+        {
+          "prompt": "Why is lender approval not enough to decide the offer is manageable?",
+          "choices": [
+            "The lender sees every future event",
+            "Approval does not prove payments fit the borrower’s full budget or changes",
+            "Approval removes interest",
+            "It proves the offer has no fees"
+          ],
+          "correctIndex": 1,
+          "feedbackByChoice": [
+            "No lender can establish every future circumstance from approval alone.",
+            "Correct: test the obligation against the fictional budget and plausible disruptions.",
+            "Approval does not remove stated or possible interest.",
+            "Offer B explicitly has a fictional $15 fee; other terms are unknown."
+          ],
+          "explanation": "A lender’s decision and a borrower’s own risk assessment answer different questions.",
+          "nextHint": "Ask what happens to the payment if income changes or another cost arrives."
+        },
+        {
+          "prompt": "What does “security not stated” mean in this case?",
+          "choices": [
+            "The loan is definitely unsecured",
+            "The loan is secured by the laptop",
+            "The document is incomplete for this comparison; ask for the terms",
+            "Security is the same as interest"
+          ],
+          "correctIndex": 2,
+          "feedbackByChoice": [
+            "Absence of a statement does not establish the legal product structure.",
+            "The scenario does not say the laptop is collateral.",
+            "Correct: do not fill a missing term with an assumption.",
+            "Security and interest are distinct contract concepts."
+          ],
+          "explanation": "A reliable analysis records known and missing terms separately.",
+          "nextHint": "What exactly does the fictional offer say about collateral?"
+        },
+        {
+          "prompt": "Which alternative is worth comparing before borrowing?",
+          "choices": [
+            "Only a larger loan",
+            "A school loaner or saving for another device",
+            "A real student’s credit report",
+            "An investment funded with the loan"
+          ],
+          "correctIndex": 1,
+          "feedbackByChoice": [
+            "The case does not establish that borrowing more helps meet the stated need.",
+            "Correct: non-borrowing options may meet the purpose with different cost and timing.",
+            "Private credit information is unnecessary and should not be requested.",
+            "Borrowing to invest adds risk and is not a default safe alternative."
+          ],
+          "explanation": "Compare whether the underlying need can be met another way before deciding to pay borrowing costs.",
+          "nextHint": "Find the alternatives listed in the fictional offer sheet."
+        },
+        {
+          "prompt": "How should a missing rate or late charge be handled?",
+          "choices": [
+            "Assume each is zero",
+            "Use a current rate from memory",
+            "Mark it unknown and request dated written terms",
+            "Choose whichever offer has the lowest payment"
+          ],
+          "correctIndex": 2,
+          "feedbackByChoice": [
+            "Unknown is not zero; this would understate possible cost.",
+            "Rates and fees change and depend on product terms; memory is not enough.",
+            "Correct: obtain the exact terms and date before making a full comparison.",
+            "A low payment does not resolve missing cost and risk information."
+          ],
+          "explanation": "A partial comparison can be useful if its limits are stated; it must not be presented as complete.",
+          "nextHint": "Which fields are blank in both fictional offers?"
+        }
+      ],
+      "transfer": {
+        "newCase": "A fictional learner sees a buy-now-pay-later offer for a winter coat and an installment store offer. The coat is needed before cold weather, but the case supplies no fee schedule or missed-payment terms.",
+        "prompt": "Describe the fields and alternatives to inspect before deciding whether borrowing fits the purpose.",
+        "modelAnswerTeacherOnly": "Confirm principal, payment dates and count, total repayment, fees, consequences of late or missed payments, whether payments are automatic, credit reporting treatment, and return/refund terms. Compare the full purchase with an affordable alternative such as an existing coat or school/community support. Test dates against the fictional budget. Do not infer that “pay later” means interest-free or harmless because a fee schedule is missing."
+      },
+      "media": {
+        "sourcePath": "projects/incoming/FINLIT/Videos/Topic 06 - Borrowing Money/1 Why borrow money.mp4",
+        "startSeconds": 21.3,
+        "endSeconds": 58.7,
+        "teachingRole": "Introduce the idea of purposes and the limit that borrowing should match repayment ability. Pause before the list of rationales and use the fictional laptop case; do not treat investment-borrowing claims as advice. Transcript reviewed for selected segment; visual/caption review required."
+      },
+      "visualBrief": "Use an offer-reading lens with fields for principal, rate, fees, payment count, term, total, security, late terms, and unknowns. A visual timeline compares 12 and 24 monthly payments. Add a separate affordability checkpoint that tests the payment against a fictional cash-flow calendar, without giving individualized recommendations.",
+      "independentEvidence": {
+        "task": "A5",
+        "prompt": "Compare two new fictional borrowing offers and one non-borrowing alternative. Calculate the stated repayment totals, list material missing terms, and explain how a changed-income case affects the decision.",
+        "successCriteria": [
+          "Identifies principal, payment, term, and fee",
+          "Calculates stated totals accurately",
+          "Distinguishes approval from affordability",
+          "Explains missing information and alternatives"
+        ]
+      },
+      "sourceNotes": [
+        "FINLIT creditworthiness video references the “three Cs”; treatment of character/capital/capacity can oversimplify lending and carry bias. Teach observable terms and obligations rather than judging a person’s character.",
+        "Never send students to retrieve real credit reports or share scores; adapt the FINLIT assignment with fictional borrower files.",
+        "Rates, eligibility, product rules, collateral, and credit reporting require current official Canadian/Alberta verification before release.",
+        "Adaptation inputs: projects/incoming/FINLIT/Assignments/Topic 06 - Borrowing Money/Why Borrow Money Assignment _ FinLit 101.pdf and Your Credit Worthiness Assignment _ FinLit 101.pdf. Replace the payday-loan research and request for a real credit report/score with fictional offers and an explicit non-borrowing alternative."
+      ]
+    },
+    {
+      "id": "fl2-02",
+      "title": "Interest and the cost of borrowing",
+      "goal": "Explain simple periodic interest calculations, distinguish principal from interest and fees, and compare costs under clearly stated assumptions.",
+      "opening": "A fictional lender advertises “just $12 a month in interest” on a $600 balance. The number sounds small, but what does it mean across a year, and what happens if the balance changes?",
+      "teach": [
+        "Interest is the price charged for using borrowed money, usually expressed as a rate applied to an outstanding balance according to contract rules. A rate is not the same thing as a dollar charge. To make an introductory calculation, the case must state the principal, annual rate, time fraction, and assumption about the balance. Under a simple-interest approximation with a constant balance, interest = principal × annual rate × fraction of a year. A 12% annual rate is written as 0.12 in the calculation. For $600 held for three months at a fictional 12% simple annual rate: $600 × 0.12 × 3/12 = $18. This is a teaching approximation, not a statement of how any real credit card or loan compounds or bills interest. Real agreements may calculate daily, compound, use different APR disclosures, apply fees, or change the balance with payments and purchases.",
+        "Keep principal, interest, and fees separate. Principal is what remains to be repaid from the amount borrowed. Interest is the charge for borrowing over time. A fee is another charge specified by the contract. Total repaid is not necessarily just principal plus a single interest calculation if balances change, fees are added, or the rate varies. On revolving credit, new purchases and payments affect the balance; interest can be calculated under specific agreement terms, and grace periods may apply under conditions. Never assume a universal interest-free period or minimum-payment formula. For this course, practice with supplied simplified scenarios where the assumptions are explicit. Before calculating a real product, read the current agreement and official consumer information. When comparing two offers, align the principal and time horizon, include stated fees, show the calculation, and mark missing terms as unknown.",
+        "Interest makes time matter. If the balance is not repaid, a charge may be applied again to the remaining balance, depending on the product. A simple-interest estimate that keeps the balance constant can understate or overstate the real cost when payments, compounding, or fees differ. The key learning is not memorizing one formula; it is recognizing what information a valid formula needs and checking whether the assumptions fit the document. FINLIT’s borrowing videos explain why someone may borrow and discuss credit-card trade-offs, including the risk that minimum-only payments increase interest and delay repayment. Use those concepts with a transparent worked case and original arithmetic, not copied historic rates or unsecured claims. The next lessons introduce payment schedules and amortization. A learner should be able to say “under these assumptions, the estimated interest is __” and “this is not the contract’s final total unless __.”"
+      ],
+      "document": {
+        "title": "Fictional simple-interest comparison card",
+        "context": "Every principal, rate, fee, and duration is invented. The rate is a classroom assumption, not a current lender offer, APR, or recommendation. The simple-interest formula assumes an unchanged balance and no compounding during the stated period.",
+        "rows": [
+          {
+            "field": "Principal",
+            "value": "$600",
+            "sourceNote": "Fictional borrowed amount."
+          },
+          {
+            "field": "Annual simple rate",
+            "value": "12% (0.12)",
+            "sourceNote": "Fictional assumption for arithmetic practice, not a current market rate."
+          },
+          {
+            "field": "Time",
+            "value": "3 months = 3/12 year",
+            "sourceNote": "Fictional term interval used by the simple-interest model."
+          },
+          {
+            "field": "Stated fee",
+            "value": "$0 in this simplified example",
+            "sourceNote": "Fictional model assumption only; real offers may include fees."
+          },
+          {
+            "field": "Balance behaviour",
+            "value": "Unchanged for the calculation",
+            "sourceNote": "Fictional assumption; actual payments/purchases can change balance."
+          },
+          {
+            "field": "Formula",
+            "value": "principal × annual rate × fraction of year",
+            "sourceNote": "Pedagogical simple-interest approximation; verify product-specific calculation rules."
+          }
+        ]
+      },
+      "worked": [
+        {
+          "case": "Estimate three months of simple interest",
+          "steps": [
+            "Convert 12% to decimal 0.12 and three months to 3/12 of a year.",
+            "Multiply $600 × 0.12 = $72 for the simple annual amount at a constant balance.",
+            "Multiply $72 × 3/12 = $18 estimated interest for three months under the stated assumptions."
+          ],
+          "misconception": "Do not add $72 as the three-month charge; $72 is the one-year simple amount for a constant $600 balance."
+        },
+        {
+          "case": "Find principal plus estimated interest",
+          "steps": [
+            "Start with $600 principal.",
+            "Add the $18 three-month estimate: $600 + $18 = $618 before any fee or other charge.",
+            "State that $618 is not necessarily a real statement balance or contract total because real calculation and payment rules can differ."
+          ],
+          "misconception": "The estimated total does not include any unknown fees, compounded interest, or balance changes."
+        }
+      ],
+      "practice": [
+        {
+          "prompt": "What decimal represents the fictional 12% annual rate?",
+          "choices": [
+            "0.12",
+            "12",
+            "1.2",
+            "0.012"
+          ],
+          "correctIndex": 0,
+          "feedbackByChoice": [
+            "Correct: divide 12 by 100 to express 12% as 0.12.",
+            "12 is the percent number, not the decimal multiplier.",
+            "1.2 represents 120%, ten times the stated rate.",
+            "0.012 represents 1.2%, one-tenth of the stated rate."
+          ],
+          "explanation": "A percentage must be divided by 100 before multiplying as a decimal.",
+          "nextHint": "Move the decimal point two places left."
+        },
+        {
+          "prompt": "Using the stated simple-interest assumptions, what is the three-month interest?",
+          "choices": [
+            "$18",
+            "$72",
+            "$600",
+            "$618"
+          ],
+          "correctIndex": 0,
+          "feedbackByChoice": [
+            "Correct: $600 × 0.12 × 3/12 = $18.",
+            "$72 is the simple one-year amount before applying the three-month fraction.",
+            "$600 is the principal, not the interest charge.",
+            "$618 includes the principal plus estimated interest."
+          ],
+          "explanation": "Apply the time fraction after calculating the one-year simple interest amount.",
+          "nextHint": "First find $600 × 0.12, then multiply by one quarter."
+        },
+        {
+          "prompt": "Which assumption lets the simple-interest example use a constant $600 principal?",
+          "choices": [
+            "No payment or new purchase changes the balance during the interval",
+            "Interest is always free",
+            "The loan is approved",
+            "The fictional fee is added monthly"
+          ],
+          "correctIndex": 0,
+          "feedbackByChoice": [
+            "Correct: the model explicitly holds the balance unchanged for this calculation.",
+            "The model computes an interest charge; it is not free.",
+            "Approval has no role in the arithmetic assumption.",
+            "No monthly fee is supplied, and adding one would change the model."
+          ],
+          "explanation": "State balance behaviour before using a simple formula; real balances often change.",
+          "nextHint": "Check the document row that describes balance behaviour."
+        },
+        {
+          "prompt": "What is principal plus the estimated three-month interest, before any other charges?",
+          "choices": [
+            "$618",
+            "$18",
+            "$672",
+            "$600"
+          ],
+          "correctIndex": 0,
+          "feedbackByChoice": [
+            "Correct: $600 principal + $18 estimated interest = $618.",
+            "That is only the interest estimate.",
+            "That adds the one-year $72 amount instead of the three-month estimate.",
+            "That is principal only and omits the interest."
+          ],
+          "explanation": "Keep the total limited to the specified components and label it as a model result.",
+          "nextHint": "Add the three-month interest, not the annual estimate, to principal."
+        },
+        {
+          "prompt": "A real card balance changes as purchases and payments occur. What follows?",
+          "choices": [
+            "The fixed-balance estimate may not match the actual interest charge",
+            "The classroom result must be the exact bill",
+            "Payments never affect interest",
+            "The rate no longer matters"
+          ],
+          "correctIndex": 0,
+          "feedbackByChoice": [
+            "Correct: balance and contract calculation rules affect real interest.",
+            "The example is explicitly an approximation under simplified assumptions.",
+            "Payments can change the outstanding balance and product calculation.",
+            "Rate and balance both affect interest, alongside terms and timing."
+          ],
+          "explanation": "Use the model to understand variables, then use the agreement and current official information for a real product.",
+          "nextHint": "Name the two key inputs in the formula that can change over time."
+        },
+        {
+          "prompt": "What is the best statement about an offer that omits fees?",
+          "choices": [
+            "The fees are $0",
+            "The true total is unknown until the fee terms are checked",
+            "The lender has broken the law",
+            "The principal equals total repayment"
+          ],
+          "correctIndex": 1,
+          "feedbackByChoice": [
+            "Missing information is not evidence of a zero charge.",
+            "Correct: label fees unknown and request full terms before claiming a complete total.",
+            "A missing field in this fictional card does not establish legal wrongdoing.",
+            "Interest and fees can cause total repayment to exceed principal."
+          ],
+          "explanation": "A useful partial estimate can exclude fees only if it clearly says so.",
+          "nextHint": "What is stated, and what is missing from the offer?"
+        }
+      ],
+      "transfer": {
+        "newCase": "A fictional loan has $800 principal, a 9% simple annual teaching rate, and an unchanged balance for four months. A document also mentions an unspecified service fee.",
+        "prompt": "Calculate the model interest and describe why it is not the complete borrowing cost.",
+        "modelAnswerTeacherOnly": "Use $800 × 0.09 × 4/12 = $24 estimated simple interest under the unchanged-balance assumption. Principal plus this interest is $824 before fees. Because the service fee is unspecified and real contract rules may differ, the complete total remains unknown. Request the fee and product calculation terms."
+      },
+      "media": {
+        "sourcePath": "projects/incoming/FINLIT/Videos/Topic 06 - Borrowing Money/3 Pros and cons of credit cards.mp4",
+        "startSeconds": 133.8,
+        "endSeconds": 151.8,
+        "teachingRole": "Introduce the consequence of missed/minimum payments and that interest can add up, then pause for the simplified worked calculation. Do not treat the clip as a statement of a particular card’s current formula or minimum-payment rule; original captions/audio review remains required."
+      },
+      "visualBrief": "Display a formula card with labelled principal, decimal annual rate, time fraction, and assumption, then an animated but text-described three-month calculation. A comparison panel distinguishes principal, interest estimate, fees, and unknown contract total. Avoid presenting an invented rate as market data.",
+      "independentEvidence": {
+        "task": "A5",
+        "prompt": "Calculate interest for a new fictional case using the supplied simple-interest assumptions, show each step and units, and explain which contract fields are still needed for a real total-cost comparison.",
+        "successCriteria": [
+          "Converts percent and time correctly",
+          "Shows formula substitution and result",
+          "Separates principal, interest, and fee",
+          "States limits of the approximation"
+        ]
+      },
+      "sourceNotes": [
+        "No current rates are used. Every percentage in the document is explicitly fictional.",
+        "FINLIT video and PDF prompts include credit advice; independently verify all real minimum payment, grace period, APR, and fee claims against current official Canadian guidance.",
+        "Lead must verify any calculator implementation against the declared product-specific convention before learner release.",
+        "Adaptation input: projects/incoming/FINLIT/Assignments/Topic 06 - Borrowing Money/Pros and Cons of Credit Cards Assignment _ FinLit 101.pdf. Use its prompt about the trade-off between current use and future payments to motivate the interest example; write original questions and avoid copied historical rates or universal minimum-payment rules."
+      ]
+    },
+    {
+      "id": "fl2-03",
+      "title": "Amortization and repayment time",
+      "goal": "Read and build an amortization schedule, explaining how each payment is split between interest and principal and how term and payment size affect total cost.",
+      "opening": "A fictional loan statement says the borrower paid $89 this month but the balance fell by less than $89. The learner’s task is to show where the rest went and why the next payment may be split differently.",
+      "teach": [
+        "An amortizing loan is repaid through scheduled payments that cover the interest due for a period and reduce principal. At the start, interest is calculated on the outstanding balance under the agreement’s rate convention. The payment is applied first to interest; the remainder reduces principal. As principal falls, the interest portion usually falls too, so more of a level payment can go toward principal later. A payment is not the same amount of principal reduction. An amortization schedule makes this visible with columns for opening balance, interest, payment, principal reduction, and closing balance. If a payment is too small to cover the interest accruing, the balance can grow instead of shrink; the specific consequence depends on the agreement. This course uses a clearly stated Canadian semi-annual compounding convention for its fixed-rate classroom example. A real contract may have different terms, fees, payment dates, variable-rate rules, or rounding practices; always follow its disclosure and current official explanations.",
+        "To model a fixed-rate loan quoted as a nominal annual rate compounded semi-annually but paid monthly, first convert it to the equivalent monthly rate: i = (1 + j/2)^(2/12) − 1, where j is the annual rate written as a decimal. This conversion is important because simply dividing that nominal rate by 12 would apply a different convention. Given principal P, monthly rate i, and n monthly payments, a level payment can be calculated as payment = P × i / (1 − (1+i)^−n). The formula assumes regular periods, no extra fees, no missed payments, a fixed rate, and payments made as scheduled. On each row, interest = opening balance × i; principal reduction = payment − interest; closing balance = opening balance − principal reduction. Keep internal precision in a calculator and round displayed currency to cents; the final payment may need a small adjustment to clear rounding residue.",
+        "Longer repayment time usually lowers the scheduled payment for a fixed principal and rate, but it usually increases the total amount of interest because the borrower keeps a balance for more periods. A faster payment plan may cost more each month while reducing total interest, but a payment that strains essential costs can create a different risk. Compare payment affordability and total cost separately. FINLIT’s borrowing clips introduce credit products and the cost of carrying a balance, but none replaces a worked amortization table. Its compounding videos concern savings/investments and should not be copied as loan-payment instructions. Here, the learner follows the monthly balance through a fictional schedule and then changes the term to see the trade-off. Explain the convention and every assumption beside the result. Never present the fictional rate as current, or claim that a simplified calculator reproduces every lender’s mortgage disclosure."
+      ],
+      "document": {
+        "title": "Fictional 12-payment amortization setup",
+        "context": "All figures are invented for teaching, not a lender offer. It is a fixed-rate classroom model using a nominal annual rate of 12% compounded semi-annually and monthly payments. Assumptions: no fees, no missed or extra payments, regular monthly periods, full precision in calculation, display rounded to cents; final payment can vary slightly due to rounding.",
+        "rows": [
+          {
+            "field": "Starting principal",
+            "value": "$1,000",
+            "sourceNote": "Fictional borrowed amount."
+          },
+          {
+            "field": "Nominal annual rate j",
+            "value": "12% (0.12)",
+            "sourceNote": "Fictional teaching rate; not a current market rate or offer."
+          },
+          {
+            "field": "Canadian conversion convention in this example",
+            "value": "Semi-annual compounding converted to an equivalent monthly rate",
+            "sourceNote": "Stated mathematical convention for this fixed-rate classroom example; verify product-specific terms for real loans."
+          },
+          {
+            "field": "Equivalent monthly rate i",
+            "value": "(1 + 0.12/2)^(2/12) − 1 ≈ 0.00975879",
+            "sourceNote": "Fictional derived rate; monthly value is about 0.975879%."
+          },
+          {
+            "field": "Number of scheduled payments",
+            "value": "12 monthly payments",
+            "sourceNote": "Fictional term; no real loan product is represented."
+          },
+          {
+            "field": "Calculated level payment",
+            "value": "about $88.71/month",
+            "sourceNote": "Fictional formula output; full precision used internally and final payment may adjust."
+          }
+        ]
+      },
+      "worked": [
+        {
+          "case": "Calculate first payment allocation",
+          "steps": [
+            "Use i ≈ 0.00975879 and opening principal $1,000.",
+            "Interest for month 1 = $1,000 × 0.00975879 = $9.75879, displayed as $9.76.",
+            "Using the unrounded calculated payment (about $88.71344), principal reduction is about $78.95464 (display $78.95); closing balance is about $921.04536 (display $921.05)."
+          ],
+          "misconception": "The full $88.71 does not reduce principal. Interest is paid first in this model."
+        },
+        {
+          "case": "Follow month 2",
+          "steps": [
+            "Use the unrounded month-1 closing balance, about $921.04536, rather than the displayed rounded value for internal calculation.",
+            "Month-2 interest = $921.04536 × 0.00975879 ≈ $8.98829, displayed as $8.99.",
+            "Principal reduction is about $88.71344 − $8.98829 = $79.72515; the displayed balance is about $841.32."
+          ],
+          "misconception": "Do not calculate month-2 interest on the original $1,000; the outstanding balance has decreased."
+        }
+      ],
+      "practice": [
+        {
+          "prompt": "Under the stated convention, which rate should be used for monthly schedule rows?",
+          "choices": [
+            "The equivalent monthly rate calculated from semi-annual compounding",
+            "12% divided by 2 and applied monthly",
+            "12% applied each month",
+            "The payment divided by principal"
+          ],
+          "correctIndex": 0,
+          "feedbackByChoice": [
+            "Correct: convert the nominal annual rate under the stated semi-annual convention to an equivalent monthly rate.",
+            "Dividing by 2 gives a half-year rate, not the equivalent monthly rate.",
+            "This would charge a 12% monthly rate and greatly distort the model.",
+            "Payment-to-principal is not the periodic interest rate."
+          ],
+          "explanation": "The conversion aligns the quoted annual convention with monthly payment periods.",
+          "nextHint": "Use i = (1 + j/2)^(2/12) − 1."
+        },
+        {
+          "prompt": "About how much of payment 1 is interest?",
+          "choices": [
+            "$9.76",
+            "$88.71",
+            "$78.95",
+            "$1,000"
+          ],
+          "correctIndex": 0,
+          "feedbackByChoice": [
+            "Correct: $1,000 × 0.00975879 ≈ $9.76.",
+            "That is the entire monthly payment, not the interest portion.",
+            "That is approximately the principal reduction in month 1.",
+            "That is the opening principal."
+          ],
+          "explanation": "Interest uses the opening balance multiplied by the equivalent monthly rate.",
+          "nextHint": "Multiply the opening balance by the monthly rate as a decimal."
+        },
+        {
+          "prompt": "Approximately how much principal is reduced in the first payment?",
+          "choices": [
+            "$78.95",
+            "$9.76",
+            "$88.71",
+            "$921.05"
+          ],
+          "correctIndex": 0,
+          "feedbackByChoice": [
+            "Correct: payment about $88.71 minus interest about $9.76 leaves about $78.95 principal reduction.",
+            "That is the interest portion only.",
+            "That is the full payment, including interest.",
+            "That is the approximate closing balance."
+          ],
+          "explanation": "Payment allocation separates interest from the amount that reduces the debt.",
+          "nextHint": "Subtract interest from payment."
+        },
+        {
+          "prompt": "Why is month-2 interest lower than month-1 interest in this fixed-rate example?",
+          "choices": [
+            "The rate is assumed to apply to a smaller outstanding balance",
+            "The borrower skipped interest",
+            "The payment became larger automatically",
+            "The lender waived all month-2 charges"
+          ],
+          "correctIndex": 0,
+          "feedbackByChoice": [
+            "Correct: the rate is unchanged, but the opening balance is smaller after principal was repaid.",
+            "The model includes interest every period; no skipped payment is stated.",
+            "The level payment is assumed constant; it is not described as increasing.",
+            "No waiver is included in the case."
+          ],
+          "explanation": "With a fixed periodic rate, a lower balance produces a lower interest charge.",
+          "nextHint": "Compare the two opening balances while keeping i fixed."
+        },
+        {
+          "prompt": "What usually happens to total interest when a fixed principal is repaid over a longer term?",
+          "choices": [
+            "It usually rises because the balance remains outstanding for more periods",
+            "It always becomes zero",
+            "It cannot change if the monthly payment is smaller",
+            "It turns into principal"
+          ],
+          "correctIndex": 0,
+          "feedbackByChoice": [
+            "Correct: more periods generally mean interest is charged for longer, under otherwise comparable terms.",
+            "A longer term does not eliminate interest.",
+            "Payment size and duration both affect total cost; duration matters.",
+            "Interest and principal are different parts of repayment."
+          ],
+          "explanation": "Payment affordability and total borrowing cost are related but distinct comparisons.",
+          "nextHint": "Ask how many periods the balance remains before it is fully repaid."
+        },
+        {
+          "prompt": "What limitation must accompany a classroom amortization result?",
+          "choices": [
+            "It assumes the stated rate, payment timing, no fees, and scheduled payments; a real contract may differ",
+            "It predicts every lender’s exact statement",
+            "It proves the borrower should accept the loan",
+            "It uses current market pricing"
+          ],
+          "correctIndex": 0,
+          "feedbackByChoice": [
+            "Correct: disclose the model conditions and distinguish them from product terms.",
+            "A simplified model cannot replace the lender’s disclosure or statement.",
+            "An arithmetic result is not individualized advice or a recommendation.",
+            "The rate is explicitly fictional, not a market quote."
+          ],
+          "explanation": "A model teaches how variables interact; the contract governs the real calculation.",
+          "nextHint": "Read the assumptions beside the fictional setup."
+        }
+      ],
+      "transfer": {
+        "newCase": "A fictional borrower compares the same $2,000 principal at the same fixed rate under 24 versus 36 monthly payments; all fees are excluded and the rate convention is supplied.",
+        "prompt": "Explain what to compare besides the monthly payment and what a lower 36-month payment does not prove.",
+        "modelAnswerTeacherOnly": "Use the same Canadian rate conversion and principal in both calculations, compare scheduled monthly payments and total paid/interest across each term, and state that all fees are excluded. The 36-month payment will generally be lower while total interest is generally higher. A lower payment does not prove affordability or a better total deal; test the budget and verify actual terms."
+      },
+      "media": null,
+      "visualBrief": "Show a five-column amortization table with opening balance, interest, payment, principal reduction, and closing balance. Highlight month 1 and 2 with step-by-step arrows, then a term slider comparing monthly payment and total interest. Include the Canadian rate-conversion formula in text, a screen-reader table, and a warning that this is a fictional fixed-rate model.",
+      "independentEvidence": {
+        "task": "A5",
+        "prompt": "Construct the first two rows of a new fictional amortization schedule using the supplied Canadian convention, show the rate conversion and allocation, then compare a shorter and longer term.",
+        "successCriteria": [
+          "Uses the stated compounding conversion",
+          "Separates interest and principal",
+          "Tracks the reduced balance correctly",
+          "Compares payment with total cost and states assumptions"
+        ]
+      },
+      "sourceNotes": [
+        "No FINLIT video is claimed to teach amortization; this is original instruction because the source library does not supply a complete schedule lesson.",
+        "Lead must independently check the Canadian nominal-rate conversion, payment formula, display rounding, and final-payment adjustment before calculator integration.",
+        "All monetary values, rates, and terms are fictional.",
+        "Source boundary: the FINLIT PDFs reviewed do not provide a complete amortization schedule with Canadian rate conversion and payment allocation. Teach this procedure originally; use no FINLIT worksheet as a substitute."
+      ]
+    },
+    {
+      "id": "fl2-04",
+      "title": "Strategies when debt grows",
+      "goal": "Compare practical and ethical responses to increasing debt, distinguish balance-reduction strategies from new borrowing, and identify when to seek timely qualified help.",
+      "opening": "A fictional learner has two small balances and one unexpected expense. A social post promises to “erase debt in a week” if the learner pays a fee and shares account access. Which actions reduce risk now, and which could make it worse?",
+      "teach": [
+        "Debt can grow when interest and fees are added faster than payments reduce the balance, when new purchases are added, or when income falls and scheduled amounts become hard to meet. Start by organizing evidence: creditor, balance, rate and rate type, minimum due, due date, fees, and whether the balance is still receiving new purchases. Use statements and written agreements, not memory or a social-media claim. Prioritize safety and essential needs such as housing, food, utilities, and transport to work or school; the exact choices depend on the situation. Do not stop paying one obligation based only on a generic classroom rule. Contact the lender through a verified channel and ask about the payment, hardship options, interest, fees, and consequences. Record the date, representative, and terms offered. If a demand feels urgent, threatening, or confusing, pause and get trusted adult or qualified consumer-support help.",
+        "Two common payoff strategies are often called highest-rate-first and smallest-balance-first. Highest-rate-first directs extra money to the debt with the highest interest rate while maintaining required payments on other debts, if the person can safely do that; mathematically it can reduce interest compared with paying extra to a lower-rate balance under comparable terms. Smallest-balance-first targets the smallest balance for an early visible payoff; this can support motivation, but may cost more interest when the smallest balance has a lower rate. Neither strategy creates money or removes contractual duties. Before comparing, check rates, fees, overdue amounts, and whether extra payments have penalties. A consolidation loan can simplify payments or change a rate, but it also creates a new agreement, may extend repayment or add fees, and can leave someone with new borrowing room that increases total debt. Compare full written terms rather than accepting a promise.",
+        "Scams and high-pressure “debt relief” pitches exploit stress. Warning signs include guaranteed fast results, advance fees, requests for passwords or one-time codes, demands to stop communicating with creditors, and pressure to sign immediately. Do not grant access to accounts or send money because a stranger claims to be an official helper. Verify organizations and current Canadian consumer or insolvency rules using government sources and a trusted adult. This course does not provide individual debt counselling. FINLIT’s credit-card video warns that minimum-only payments can make repayment take longer and cost more, but it does not establish a universal minimum-payment formula or current legal rights. Learners work with entirely fictional balances and practice making a safe next-step plan. The goal is not to shame someone for debt; it is to understand the terms, protect essential needs, and find accurate help before a problem deepens.",
+        "Financial leveraging means using borrowed money to increase the size of an investment or purchase. The loan must be repaid even if the asset loses value. In a deliberately simple one-year classroom case, a learner borrows $500, invests the $500, and owes $540 after interest. If the investment rises 10%, it becomes $550 and only $10 remains after repayment before tax or fees. If it falls 10%, it becomes $450 and the learner must find another $90 to repay the lender. Borrowing can enlarge both possible gain and possible loss, while interest is owed regardless of performance. Actual loans may compound, charge fees, require collateral or change rates. Borrowing to gamble or to chase a loss adds an obligation without making an uncertain outcome safe. Never treat a hoped-for return as a repayment plan."
+      ],
+      "document": {
+        "title": "Fictional two-balance case and suspicious offer",
+        "context": "Every balance, payment, date, interest value, and message is invented. No current lender rate or debt-relief service is represented. The case intentionally omits exact contract formulas; students should identify missing facts instead of calculating a false precise payoff.",
+        "rows": [
+          {
+            "field": "Balance A",
+            "value": "$240; fictional stated rate 8% per year",
+            "sourceNote": "Invented balance and rate solely for comparison; not a real offer."
+          },
+          {
+            "field": "Balance B",
+            "value": "$500; fictional stated rate 4% per year",
+            "sourceNote": "Invented balance and rate solely for comparison; not a real offer."
+          },
+          {
+            "field": "Required payment terms",
+            "value": "Not supplied",
+            "sourceNote": "Unknown; exact minimums, due dates, fees, and calculation methods require statements."
+          },
+          {
+            "field": "Unexpected fictional expense",
+            "value": "$60 due this week",
+            "sourceNote": "Invented scenario event; not a real bill."
+          },
+          {
+            "field": "Online message",
+            "value": "Pay $40 today; send your password; we guarantee debt gone by Friday",
+            "sourceNote": "Fictional suspicious claim and fee; do not contact or pay."
+          },
+          {
+            "field": "Possible support step",
+            "value": "Verify the creditor independently and ask a trusted adult/qualified official support service",
+            "sourceNote": "General safety direction; confirm current official Canadian contact routes before publication."
+          }
+        ]
+      },
+      "worked": [
+        {
+          "case": "Choose which balance receives extra repayment in a rate-first strategy",
+          "steps": [
+            "Compare the fictional stated annual rates: Balance A is 8%; Balance B is 4%.",
+            "If required payments and contract terms are met, rate-first directs any safely available extra amount to A while maintaining the required payment on B.",
+            "Explain that this can reduce interest compared with directing extra money to a lower-rate debt under comparable assumptions; exact savings cannot be calculated because payment and compounding terms are missing."
+          ],
+          "misconception": "Do not redirect all money to Balance A or miss required payments on Balance B; strategy concerns extra money after obligations and essentials are considered."
+        },
+        {
+          "case": "Evaluate the online debt-relief pitch",
+          "steps": [
+            "Identify the $40 advance fee, password request, guaranteed deadline, and urgency as warning signs.",
+            "Do not send payment or access credentials; save the message without clicking links.",
+            "Verify the creditor or support option through a separately found official channel and involve trusted qualified help."
+          ],
+          "misconception": "A polished website or use of official-sounding words does not verify legitimacy."
+        }
+      ],
+      "practice": [
+        {
+          "prompt": "What first information helps explain why a balance is increasing?",
+          "choices": [
+            "Balance, rate, fees, new transactions, payments, and due dates",
+            "Only the borrower’s age",
+            "The colour of the payment card",
+            "A friend’s guess"
+          ],
+          "correctIndex": 0,
+          "feedbackByChoice": [
+            "Correct: these records reveal charges, transactions, and payment timing.",
+            "Age alone does not explain the account’s balance calculation.",
+            "Card appearance is irrelevant to the repayment record.",
+            "A guess cannot replace statements and written terms."
+          ],
+          "explanation": "A debt review begins with verifiable account information rather than blame or assumptions.",
+          "nextHint": "List the statement fields that change the balance."
+        },
+        {
+          "prompt": "In a rate-first strategy, where does extra repayment generally go?",
+          "choices": [
+            "To the highest-rate balance while required payments on others are maintained",
+            "Only to the newest purchase",
+            "To the smallest rate",
+            "To a new loan automatically"
+          ],
+          "correctIndex": 0,
+          "feedbackByChoice": [
+            "Correct: under comparable terms, extra money targets the highest-cost rate first while other obligations remain covered.",
+            "Newness does not determine interest cost or payoff order.",
+            "Paying extra to the lowest rate may increase interest versus the rate-first method.",
+            "A strategy does not automatically create or require another loan."
+          ],
+          "explanation": "Rate-first is about directing extra money after required payments and essential needs are accounted for.",
+          "nextHint": "Compare 8% and 4%; which rate is higher?"
+        },
+        {
+          "prompt": "What is a possible advantage and limitation of smallest-balance-first?",
+          "choices": [
+            "An early visible payoff may motivate, but it may cost more interest",
+            "It always saves the most interest",
+            "It erases contract terms",
+            "It guarantees a lender will forgive the rest"
+          ],
+          "correctIndex": 0,
+          "feedbackByChoice": [
+            "Correct: motivation may improve, but rate differences can make total interest higher.",
+            "Highest-rate-first is more directly aligned to minimizing interest under comparable assumptions.",
+            "Changing payoff order does not remove agreement terms.",
+            "No strategy guarantees forgiveness."
+          ],
+          "explanation": "Strategies involve both arithmetic and behaviour; describe the trade-off rather than calling one universally best.",
+          "nextHint": "Which balance disappears first, and what rate does it carry?"
+        },
+        {
+          "prompt": "Which detail in the debt-relief message is a warning sign?",
+          "choices": [
+            "Requests the password and guarantees a fast result after an advance fee",
+            "It is written in a sentence",
+            "It names a weekday",
+            "It mentions debt"
+          ],
+          "correctIndex": 0,
+          "feedbackByChoice": [
+            "Correct: credential access, upfront payment, guarantee, and urgency signal serious risk.",
+            "Writing style alone does not prove fraud.",
+            "A weekday is not itself suspicious evidence.",
+            "Legitimate information may discuss debt; inspect the specific behaviour and claims."
+          ],
+          "explanation": "Multiple high-pressure signals support pausing and independent verification.",
+          "nextHint": "Find the request that would give a stranger control of an account."
+        },
+        {
+          "prompt": "Why should someone contact a creditor through an independently verified route?",
+          "choices": [
+            "To avoid relying on contact details in a suspicious message",
+            "To guarantee debt disappears",
+            "To avoid reading the agreement",
+            "To share account credentials"
+          ],
+          "correctIndex": 0,
+          "feedbackByChoice": [
+            "Correct: independently locating the legitimate contact reduces the risk of following a scam link or number.",
+            "No contact method can guarantee debt cancellation.",
+            "The agreement and statements still need to be reviewed.",
+            "Passwords and one-time codes should not be shared with an unsolicited contact."
+          ],
+          "explanation": "Use a known official website or statement and seek support if uncertain.",
+          "nextHint": "Do not use the link or phone number supplied in the suspicious message."
+        },
+        {
+          "prompt": "What can be concluded from the missing required-payment terms in the fictional file?",
+          "choices": [
+            "Exact payoff savings cannot be calculated yet",
+            "Both balances have no minimum payment",
+            "The rates are current market rates",
+            "The debts have been forgiven"
+          ],
+          "correctIndex": 0,
+          "feedbackByChoice": [
+            "Correct: rates alone are not enough to calculate a real payoff without payment and contract details.",
+            "Missing information is not proof that no payment is due.",
+            "The rates are explicitly fictional.",
+            "No evidence says any balance is forgiven."
+          ],
+          "explanation": "A safe analysis names the missing fields and does not invent a precise outcome.",
+          "nextHint": "Which details determine payment amount, interest timing, and due date?"
+        }
+      ],
+      "transfer": {
+        "newCase": "A fictional person misses a payment after an unexpected reduction in hours and receives a text demanding immediate gift-card payment to “protect their credit.”",
+        "prompt": "Write a safe first-three-step response and state two facts to verify before making a repayment strategy.",
+        "modelAnswerTeacherOnly": "Do not pay by gift card or follow the text link. Preserve the message, verify the account using contact details from a known statement or independently located official source, and involve trusted adult/qualified support. Verify the actual balance, due date, rate/fees, and available hardship options from written terms. Protect essential needs and avoid promising an exact payoff without the agreement."
+      },
+      "media": {
+        "sourcePath": "projects/incoming/FINLIT/Videos/Topic 06 - Borrowing Money/3 Pros and cons of credit cards.mp4",
+        "startSeconds": 123.8,
+        "endSeconds": 162.8,
+        "teachingRole": "Use the clip to prompt discussion of future income being tied to past debt, missed payments, and minimum-only repayment. Its statements are generalized; pair them with the fictional file, and verify current legal/credit claims before making any. Review captions and visuals in the original asset."
+      },
+      "visualBrief": "Create a fictional account organizer with two balance cards, rates clearly marked fictional, missing-term flags, and an extra-payment decision slider. Beside it, annotate the suspicious message with evidence cues (urgency, credential request, advance fee, guarantee) and a safe-response path. Provide text-only equivalent.",
+      "independentEvidence": {
+        "task": "A5",
+        "prompt": "Use a new fictional debt file to compare rate-first and smallest-balance-first, flag missing payment terms, and evaluate a suspicious debt-relief message with a safe next step.",
+        "successCriteria": [
+          "Explains the strategy trade-off without universal claims",
+          "Maintains required-payment and essential-needs priority",
+          "Identifies evidence from the message",
+          "Requests current written terms before calculating exact savings"
+        ]
+      },
+      "sourceNotes": [
+        "FINLIT credit-card content includes broad cautions about minimum payments; do not state a universal payment formula or credit-score effect without current official sources.",
+        "Debt-relief, insolvency, and consumer-protection routes must be checked against current Canadian and Alberta official guidance before launch.",
+        "All debts, rates, payments, and messages in this packet are fictional.",
+        "Adaptation input: projects/incoming/FINLIT/Assignments/Topic 06 - Borrowing Money/Pros and Cons of Credit Cards Assignment _ FinLit 101.pdf. Adapt its minimum-payment and future-income concern into a fictional balance case; the highest-rate/smallest-balance strategy lesson is original and requires no personal credit data."
+      ]
+    },
+    {
+      "id": "fl2-05",
+      "title": "Make a borrowing decision",
+      "goal": "Make a conditional borrowing recommendation by comparing purpose, non-borrowing alternatives, payment timing, total cost, risk, and missing contract evidence.",
+      "opening": "A fictional student needs a device for a credential course. The course begins soon; a school loaner may be available for one term, a refurbished device has a lower price, and a store offer spreads payments across a longer term.",
+      "teach": [
+        "Before comparing offers, make sure borrowing solves a real purpose. State what the item must do, when it is needed, how long it will be used, and what would happen if the purchase were delayed. Then compare alternatives that meet the same purpose: borrow from a school, use an existing device, rent, buy refurbished, save, or borrow. Alternatives may have access, reliability, accessibility, or timing limits; they must be checked rather than assumed. A decision matrix can compare suitability, upfront cash, monthly payment, total repayment, term, fees, flexibility, and main uncertainty. The matrix is not a scoring machine that makes a personal choice for the learner. It helps make the reasoning visible so the fictional person can apply their own priorities and constraints.",
+        "Next test affordability in two ways. First, map the scheduled payments onto a fictional cash-flow plan: due dates, take-home income timing, and committed essentials. Second, stress-test a plausible change such as one missed shift, repair, or delayed reimbursement. A payment can fit an average month but fail when timing changes. Do not call a lender’s approval proof that a borrower can safely repay. For each offer, calculate total stated repayment from payment amount times number of payments, then add stated fees and upfront charges exactly once. If interest rate, fees, late terms, or total is missing, mark it unknown and request complete written terms. A longer term can lower a scheduled payment and raise total cost. Explain both effects. Current consumer rules and product disclosures require dated authoritative checking.",
+        "Finally, write a conditional recommendation with evidence: “Given this fictional purpose, time, and constraints, option __ fits best because __. The calculation assumes __. Before proceeding, verify __. If __ changes, I would reconsider.” This form prevents a confident calculation from concealing missing information. FINLIT’s “Why Borrow Money,” “Your Credit Worthiness,” and credit-card materials are useful prompts about purpose, repayment ability, terms, and future income. Their assignments sometimes ask learners to research payday lending or obtain real credit information; this lesson replaces those requirements with fictional offers and a school-loaner alternative. Do not frame borrowing as automatically wise for education or automatically irresponsible for consumption. The student’s job is to compare evidence, not to disclose finances or accept an offer."
+      ],
+      "document": {
+        "title": "Fictional device decision file",
+        "context": "All figures, deadlines, and terms are fictional. No current product, lender, rate, or market price is represented. Fees and some terms are intentionally missing so the learner must not claim the comparison is complete.",
+        "rows": [
+          {
+            "field": "Course requirement",
+            "value": "A fictional device able to run specified software for 10 months",
+            "sourceNote": "Invented educational requirement and duration."
+          },
+          {
+            "field": "Option 1: school loaner",
+            "value": "Available for one term; booking and return dates need checking; no stated fee",
+            "sourceNote": "Fictional option; do not assume availability until confirmed."
+          },
+          {
+            "field": "Option 2: refurbished device",
+            "value": "$420 upfront; condition and warranty need inspection",
+            "sourceNote": "Fictional price and unknown quality terms."
+          },
+          {
+            "field": "Option 3: store installment",
+            "value": "$0 upfront; 18 payments of $32; $20 setup fee",
+            "sourceNote": "Fictional payment and fee terms; interest rate, late charges, and return conditions not supplied."
+          },
+          {
+            "field": "Fictional monthly take-home resources available after essentials",
+            "value": "$45",
+            "sourceNote": "Invented scenario figure, not a recommended personal threshold."
+          },
+          {
+            "field": "Course begins",
+            "value": "In 3 weeks",
+            "sourceNote": "Fictional timeline."
+          }
+        ]
+      },
+      "worked": [
+        {
+          "case": "Calculate stated installment total",
+          "steps": [
+            "Multiply 18 × $32 = $576 scheduled payments.",
+            "Add the stated $20 setup fee: $576 + $20 = $596 stated outlay.",
+            "Compare with the $420 refurbished price: installment outlay is $176 higher before unknown rate/late terms and before assessing warranty or condition."
+          ],
+          "misconception": "The $0 upfront amount does not mean the installment offer is free or lower cost."
+        },
+        {
+          "case": "Test the monthly payment against the fictional available amount",
+          "steps": [
+            "The scheduled $32 payment is below the fictional $45 amount by $13 in a typical month.",
+            "Do not treat this $13 as safe surplus until timing, other unlisted costs, and changed-income cases are considered.",
+            "Check whether the school loaner meets the need and is available for all 10 months; if not, compare a partial loaner plus later purchase only after obtaining details."
+          ],
+          "misconception": "A payment that fits one stated monthly number does not prove the contract is affordable under all timing and uncertainty."
+        }
+      ],
+      "practice": [
+        {
+          "prompt": "What question should be answered before comparing financing?",
+          "choices": [
+            "What must the device do and for how long?",
+            "Which offer has the biggest ad?",
+            "Can the learner share a real credit score?",
+            "Which loan has the longest term?"
+          ],
+          "correctIndex": 0,
+          "feedbackByChoice": [
+            "Correct: define the purpose and use period so alternatives solve the same problem.",
+            "Ad size is not evidence of suitability or cost.",
+            "A real score is private and unnecessary for this fictional lesson.",
+            "Longer term alone does not establish fit or value."
+          ],
+          "explanation": "Purpose and timeline define what counts as a plausible alternative.",
+          "nextHint": "Read the course requirement and stated ten-month use."
+        },
+        {
+          "prompt": "What is the store installment’s stated outlay from supplied terms?",
+          "choices": [
+            "$596",
+            "$576",
+            "$420",
+            "$20"
+          ],
+          "correctIndex": 0,
+          "feedbackByChoice": [
+            "Correct: 18 × $32 + $20 = $596.",
+            "This omits the setup fee.",
+            "That is the fictional refurbished-device price.",
+            "That is only the setup fee."
+          ],
+          "explanation": "Include all supplied payment and fee components exactly once.",
+          "nextHint": "Calculate 18 equal payments, then add the setup fee."
+        },
+        {
+          "prompt": "How much more is the installment’s stated outlay than the refurbished price?",
+          "choices": [
+            "$176",
+            "$596",
+            "$420",
+            "$13"
+          ],
+          "correctIndex": 0,
+          "feedbackByChoice": [
+            "Correct: $596 − $420 = $176 before considering other differences.",
+            "This is the installment total, not the difference.",
+            "This is the refurbished price itself.",
+            "This is the typical-month margin from a separate affordability comparison."
+          ],
+          "explanation": "Subtract comparable stated totals, then note that quality and unknown terms remain.",
+          "nextHint": "Compare $596 and $420."
+        },
+        {
+          "prompt": "Which conclusion about the $32 monthly payment is supported?",
+          "choices": [
+            "It is below the fictional $45 typical-month amount by $13",
+            "It guarantees the loan is affordable",
+            "It proves there are no additional fees",
+            "It is the total repayment"
+          ],
+          "correctIndex": 0,
+          "feedbackByChoice": [
+            "Correct: $45 − $32 = $13 in the stated typical-month comparison only.",
+            "One-month arithmetic does not test other costs, timing, or changes.",
+            "The case includes a $20 setup fee and omits other terms.",
+            "It is one payment; 18 payments plus a fee create the stated total."
+          ],
+          "explanation": "State exactly what the comparison shows and what it does not establish.",
+          "nextHint": "Subtract the payment from the fictional available monthly amount."
+        },
+        {
+          "prompt": "What is the strongest treatment of the school-loaner option?",
+          "choices": [
+            "Assume it is available for all 10 months",
+            "Verify booking and return dates, then compare whether it meets the 10-month need",
+            "Ignore it because it has no listed fee",
+            "Borrow regardless because a device is educational"
+          ],
+          "correctIndex": 1,
+          "feedbackByChoice": [
+            "The fictional file says dates need checking; availability is not confirmed.",
+            "Correct: confirm access and suitability before treating it as a complete alternative.",
+            "No stated fee does not answer availability, duration, or suitability.",
+            "Educational purpose does not remove repayment cost or alternatives."
+          ],
+          "explanation": "A non-borrowing option is useful only if it actually meets the stated need.",
+          "nextHint": "Which conditions about loaner duration are still open?"
+        },
+        {
+          "prompt": "Which is the best form for the recommendation?",
+          "choices": [
+            "Choose the smallest monthly payment with no explanation",
+            "Choose an option, cite evidence and assumptions, and state what must be verified",
+            "Say all debt is always bad",
+            "Say approval means the lender accepts all risk"
+          ],
+          "correctIndex": 1,
+          "feedbackByChoice": [
+            "Monthly payment alone hides total repayment, term, and missing terms.",
+            "Correct: connect the choice to purpose, calculation, constraints, and unresolved evidence.",
+            "This is a universal judgement and does not analyze the case.",
+            "Borrowers retain obligations; approval does not transfer all risk to the lender."
+          ],
+          "explanation": "A conditional recommendation is transparent and can be revised when facts change.",
+          "nextHint": "Use the sentence frame in the teaching section: given…, because…, verify…, reconsider if…"
+        }
+      ],
+      "transfer": {
+        "newCase": "A fictional learner needs safety footwear for a short work placement. A borrowed pair may not fit; a purchase offer includes installment payments, while a school equipment program may provide a suitable pair after an appointment.",
+        "prompt": "Build a conditional recommendation that compares purpose, timing, total cost, fit/safety, and one unknown term.",
+        "modelAnswerTeacherOnly": "Check the placement date, required safety rating and fit, program appointment timing, and whether the borrowed pair meets the safety requirement. Calculate all stated installment payments plus fees over the same use horizon; mark missing rate or late terms unknown. The program may be preferable if confirmed in time and suitable. Do not recommend unsafe footwear simply because it is cheaper."
+      },
+      "media": {
+        "sourcePath": "projects/incoming/FINLIT/Videos/Topic 06 - Borrowing Money/1 Why borrow money.mp4",
+        "startSeconds": 143.2,
+        "endSeconds": 169.2,
+        "teachingRole": "Prompt a comparison between borrowing for education and exploring scholarships/bursaries or other ways to meet the purpose. Treat the clip as a question generator, not advice that borrowing for education is always appropriate. Verify all current aid information elsewhere."
+      },
+      "visualBrief": "Create an interactive decision board: requirement, alternatives, same-horizon totals, payment timeline, conditions, uncertainty, and conditional recommendation. Each option card exposes both cost and fit; user can reveal evidence without hidden scoring. Provide a structured text worksheet equivalent.",
+      "independentEvidence": {
+        "task": "A5",
+        "prompt": "Write a conditional recommendation for a new fictional borrowing case. Compare at least one non-borrowing option, calculate known totals, stress-test one changed circumstance, and list terms to verify.",
+        "successCriteria": [
+          "Defines the purpose and timeline",
+          "Uses same-horizon cost comparison",
+          "Checks payment timing and a change",
+          "States uncertainty and a condition that would alter the recommendation"
+        ]
+      },
+      "sourceNotes": [
+        "FINLIT assignments may ask for actual credit reports or private data; keep this assignment fully fictional.",
+        "Any school loaner, bursary, grant, or student-loan detail must be confirmed by current school/federal sources before publication.",
+        "All figures and timelines in this packet are fictional.",
+        "Adaptation inputs: projects/incoming/FINLIT/Assignments/Topic 06 - Borrowing Money/Why Borrow Money Assignment _ FinLit 101.pdf and Your Credit Worthiness Assignment _ FinLit 101.pdf. Replace real credit-report retrieval and payday-loan web research with the supplied fictional comparison and school loaner alternative."
+      ]
+    },
+    {
+      "id": "fl2-06",
+      "title": "Fixed rates, variable rates, and uncertainty",
+      "goal": "Explain how fixed and variable rate structures change payment or balance risk, compare scenarios under explicit assumptions, and identify contract details that determine the actual outcome.",
+      "opening": "A fictional borrower has the same principal and term in two offers. One rate is fixed for the term. The other begins lower but can change. Which uncertainty matters if the borrower’s budget has little room?",
+      "teach": [
+        "A fixed rate stays at the contracted rate for the specified period, subject to the agreement. A variable rate can move as its reference rate or contract terms change. Do not assume what happens to the payment when a variable rate changes: some products adjust the payment, some keep it level for a time while changing how quickly principal falls, and contracts may set trigger points or other rules. The agreement determines the result. This distinction matters because “lower starting rate” is not the same as “lower cost over the full term.” If rates rise, payments may increase or repayment may take longer, depending on the product. If rates fall, costs may decrease, but that is not guaranteed. The student should identify whose risk changes, when a rate can change, what index or notice is used, how often it adjusts, and whether there are caps or penalties. These terms must be sourced from the actual document.",
+        "To compare scenarios fairly, hold the principal and repayment horizon constant. Use the same stated conversion convention and payment formula for each fixed-rate scenario. For a variable path, use the contract’s rule: if payment recalculates, calculate the new payment using the remaining balance and remaining periods; if payment remains fixed, calculate the changing interest/principal split and whether the balance is still amortizing. A classroom stress test can show how a fictional payment changes under a stated higher-rate assumption without claiming a forecast. Record current assumption, changed assumption, resulting payment or payoff time, and monthly budget margin. Do not present an invented rate as likely, current, or predictive. A rate change is a scenario, not a market forecast. Payment affordability and total cost remain separate. People have different tolerance for uncertainty and room in their budgets; do not label one choice universally responsible.",
+        "FINLIT’s borrowing videos explain that credit has advantages and risks and that borrowing commits future income. They do not teach how a real variable contract recalculates, and the course has no source video that can replace this instruction. A fictional case plus a rate-change visual is more useful than playing a generic clip and asking “which would you choose?” Look at the written terms, then ask what would happen under at least two possible rate paths. If the offer omits its change mechanism, label the outcome unknown. Before release, a teacher must verify any actual Canadian mortgage or loan rate convention, terminology, and disclosure claim with official and product-specific sources. Learners do not apply for real products or disclose family borrowing. Their evidence is the ability to explain the structure, run a clearly labelled scenario, and name which detail the contract controls."
+      ],
+      "document": {
+        "title": "Fictional fixed and variable rate scenario card",
+        "context": "All principals, rates, periods, payments, and margins are invented stress-test assumptions, not current or expected market rates. For classroom comparison only, both offers use the same 24-month schedule and the stated equivalent monthly-rate calculation; real variable products may recalculate differently.",
+        "rows": [
+          {
+            "field": "Principal and horizon",
+            "value": "$5,000 over 24 months",
+            "sourceNote": "Fictional loan amount and term."
+          },
+          {
+            "field": "Offer F",
+            "value": "Fixed nominal annual rate 6%, compounded semi-annually for this model",
+            "sourceNote": "Fictional rate and model convention; not a real quote."
+          },
+          {
+            "field": "Offer V starting scenario",
+            "value": "Variable nominal annual rate 5% for first 12 months",
+            "sourceNote": "Fictional starting assumption; not a market rate."
+          },
+          {
+            "field": "Offer V stress scenario",
+            "value": "Rate rises to 7% for remaining 12 months; payment recalculates over remaining term",
+            "sourceNote": "Fictional stress path and stated model rule; not a forecast or a claim about typical contracts."
+          },
+          {
+            "field": "Budget room for scheduled payment",
+            "value": "$230/month in the fictional case",
+            "sourceNote": "Fictional monthly margin, not advice or a personal affordability threshold."
+          },
+          {
+            "field": "Fees and penalties",
+            "value": "Not supplied",
+            "sourceNote": "Unknown; a real decision needs full written terms."
+          }
+        ]
+      },
+      "worked": [
+        {
+          "case": "Explain the risk distinction without predicting rates",
+          "steps": [
+            "Offer F holds the stated fictional rate for the specified term, so its model payment is more predictable under the assumptions.",
+            "Offer V begins at a lower fictional rate but can change; the stress case rises to 7% after 12 months.",
+            "The learner must check whether the actual contract changes payment, amortization, or both. The stress scenario shows exposure, not probability."
+          ],
+          "misconception": "Do not say the variable rate will rise or that the fixed offer is always cheaper; the case supplies scenarios, not a forecast."
+        },
+        {
+          "case": "Test payment margin qualitatively",
+          "steps": [
+            "Compare any recalculated payment under the 7% scenario with the fictional $230/month margin.",
+            "If payment exceeds that margin, identify a shortfall under the case assumptions; if below, do not call the offer risk-free because other costs and fees are unknown.",
+            "Ask what evidence, such as rate-change notice terms and fee schedule, would be needed before making a complete decision."
+          ],
+          "misconception": "A payment that fits the current scenario does not prove it will fit every future rate path or household budget."
+        }
+      ],
+      "practice": [
+        {
+          "prompt": "What is the defining feature of the fictional fixed-rate offer during its stated term?",
+          "choices": [
+            "The contracted rate stays the same for that term",
+            "The lender can change the rate each month without terms",
+            "The principal disappears",
+            "The payment has no interest"
+          ],
+          "correctIndex": 0,
+          "feedbackByChoice": [
+            "Correct: fixed refers to the rate for the stated period, subject to the agreement.",
+            "Rate changes still depend on product terms; this describes a variable possibility.",
+            "A fixed rate does not erase principal.",
+            "Interest is part of the fictional borrowing cost."
+          ],
+          "explanation": "Always state what period the fixed-rate promise covers; it may not cover the entire loan life.",
+          "nextHint": "Read the phrase “for the specified term.”"
+        },
+        {
+          "prompt": "What does the lower starting variable rate establish?",
+          "choices": [
+            "It is lower at the start under the fictional assumptions, not guaranteed lower over the full term",
+            "It will remain lower forever",
+            "It is safer for every budget",
+            "It has no fees"
+          ],
+          "correctIndex": 0,
+          "feedbackByChoice": [
+            "Correct: one starting comparison is not a full-term result or forecast.",
+            "The rate is explicitly allowed to change in the scenario.",
+            "Risk tolerance and budget room vary; no universal conclusion follows.",
+            "Fees are marked unknown."
+          ],
+          "explanation": "A starting rate is one point in a possible path. Compare the contract and scenarios.",
+          "nextHint": "Check what the document says can happen after month 12."
+        },
+        {
+          "prompt": "What controls how a real variable-rate payment responds to a rate change?",
+          "choices": [
+            "The written contract’s adjustment mechanism",
+            "The learner’s preferred answer",
+            "The original ad colour",
+            "A fixed-rate formula applied without checking terms"
+          ],
+          "correctIndex": 0,
+          "feedbackByChoice": [
+            "Correct: the contract states whether the payment, amortization, or both change.",
+            "Preference does not define payment mechanics.",
+            "Advertising colour is irrelevant to the agreement.",
+            "The fixed-rate model may not apply to the variable product."
+          ],
+          "explanation": "Do not infer variable-rate behaviour; inspect the exact product terms.",
+          "nextHint": "Find the clause describing payment recalculation or trigger points."
+        },
+        {
+          "prompt": "Why is the rise to 7% called a stress scenario?",
+          "choices": [
+            "It tests a possible effect under an invented assumption, not a prediction",
+            "It proves rates will reach 7%",
+            "It is the current Canadian rate",
+            "It guarantees the borrower will default"
+          ],
+          "correctIndex": 0,
+          "feedbackByChoice": [
+            "Correct: it is a fictional “what if” used to inspect resilience.",
+            "No probability or forecast is supplied.",
+            "The rate is explicitly fictional, not current.",
+            "An illustrative payment test cannot determine a real future outcome."
+          ],
+          "explanation": "Scenario analysis explores consequences conditional on an assumption.",
+          "nextHint": "Look at the document’s source note for the 7% figure."
+        },
+        {
+          "prompt": "Which comparison is fairer?",
+          "choices": [
+            "Same principal, term, and stated calculation convention, with contract rules disclosed",
+            "Compare one offer for 12 months and one for 24 without noting it",
+            "Compare only the first payment",
+            "Assume missing fees are zero"
+          ],
+          "correctIndex": 0,
+          "feedbackByChoice": [
+            "Correct: shared assumptions make the scenario comparison interpretable.",
+            "Unequal periods can produce misleading totals.",
+            "The initial payment omits later rate changes and full-term costs.",
+            "Missing fees are unknown, not zero."
+          ],
+          "explanation": "A fair comparison names equal conditions and separates unknown contract costs.",
+          "nextHint": "Which variables must stay equal so the rate structure is the main difference?"
+        },
+        {
+          "prompt": "The fictional payment exceeds the $230 margin in one stress scenario. What conclusion is supported?",
+          "choices": [
+            "It creates a modeled shortfall under that scenario and deserves investigation",
+            "The borrower must accept anyway",
+            "The offer is illegal",
+            "The actual household will certainly have the same result"
+          ],
+          "correctIndex": 0,
+          "feedbackByChoice": [
+            "Correct: describe the result conditionally and investigate actual terms and alternatives.",
+            "No information requires accepting this fictional offer.",
+            "A classroom stress test does not establish legality.",
+            "The case is fictional and cannot predict a real household outcome."
+          ],
+          "explanation": "State what follows from the model assumptions without overclaiming beyond them.",
+          "nextHint": "Use the phrase “under this fictional scenario.”"
+        }
+      ],
+      "transfer": {
+        "newCase": "A fictional borrower chooses between a 3-year fixed-rate car loan and a variable-rate line of credit. The line of credit permits repeated borrowing and the exact rate-change formula is absent.",
+        "prompt": "Identify the main risks to compare and list contract evidence needed before calculating a full-term total.",
+        "modelAnswerTeacherOnly": "Compare fixed-rate term and payment certainty with variable-rate exposure, repeated borrowing access, purpose, total repayment, fees, security, and payment rules. Ask how the rate is set and changed, whether the payment or amortization adjusts, how minimum payments are determined, and whether there are penalties. The missing formula prevents a reliable full-term variable-cost calculation; do not assume the starting rate persists."
+      },
+      "media": null,
+      "visualBrief": "Show two parallel timelines with an explicitly fictional rate path. The fixed path remains flat; the variable path changes at month 13. A contract-rule selector has two illustrative modes (payment recalculates / payment held while balance changes), each labelled as an abstract scenario. Accessible text explains results without relying on line colour.",
+      "independentEvidence": {
+        "task": "A5",
+        "prompt": "Compare two new fictional rate structures under a supplied stress scenario. Explain payment and total-cost uncertainty, mark missing contract terms, and make a conditional recommendation.",
+        "successCriteria": [
+          "Distinguishes fixed and variable period",
+          "Uses equal principal/horizon assumptions",
+          "Treats stress case as scenario, not forecast",
+          "Identifies contract-specific payment rules and fees"
+        ]
+      },
+      "sourceNotes": [
+        "No FINLIT source adequately teaches variable-rate adjustment; this packet is original instruction and should not be padded with an unrelated clip.",
+        "All rates and payment margins are fictional. Do not use them as current rates or forecasts.",
+        "Before release, verify Canadian terminology and any selected current rate/disclosure examples with official sources and product agreements.",
+        "Source boundary: FINLIT borrowing resources introduce products and risks but do not explain a variable contract’s payment adjustment mechanism. The rate-path stress test is original and must remain explicitly fictional."
+      ]
+    },
+    {
+      "id": "fl2-07",
+      "title": "Mortgage features and borrowing decisions",
+      "goal": "Interpret a fictional mortgage summary by separating principal, down payment, term, amortization, rate convention, payment, fees, and prepayment conditions.",
+      "opening": "A fictional listing shows an attractive monthly payment beside a home price. A learner notices that the payment cannot explain the down payment, total interest, mortgage term, or costs due at closing. What must the summary include?",
+      "teach": [
+        "A mortgage is a loan secured against real property under a legal agreement. The home price, down payment, and mortgage principal are different amounts. In a simplified purchase, principal begins with purchase price minus down payment, but fees, insurance, adjustments, and other amounts may affect the real funds needed. The amortization period is the modeled time to repay the principal through scheduled payments if the terms continue as assumed. The mortgage term is the period for which a specific contract and rate conditions apply before renewal or another event; it can be shorter than amortization. A learner must not confuse “25-year amortization” with a 25-year guaranteed rate. A payment is one piece of the decision; the person also needs cash for initial costs, recurring ownership costs, and the possibility that conditions change at renewal.",
+        "Canadian fixed mortgage rates are commonly quoted on a nominal annual basis compounded semi-annually, not in advance, with monthly payments; the exact contract and disclosure govern. In the classroom model, convert a quoted nominal annual rate j to an equivalent monthly rate using i = (1 + j/2)^(2/12) − 1, then use the amortizing-payment formula. This is why simply dividing j by 12 can produce a different answer. Variable mortgage structures and payment rules can differ, so this convention must not be blindly applied to every product. A lender’s calculator may also include payment frequency, taxes, mortgage default insurance, fees, or other factors absent from a simple model. State each assumption and compare like with like. The packet’s fictional mortgage figures are not current offers, qualification thresholds, or guidance about what a student can afford.",
+        "Mortgage features can change flexibility and cost. A prepayment privilege may allow additional principal payments under stated limits; a penalty or charge may apply for certain early payouts or changes, depending on the contract. Open and closed describe options and restrictions under particular terms, not a universal “good/bad” scale. Accelerated payment schedules can change how quickly principal falls, but only if the borrower can sustain the cash flow. Property costs such as utilities, maintenance, insurance, taxes, and transportation can materially affect ownership budgets and must be estimated from current local evidence. FINLIT’s moving-out and borrowing content can prompt a wider cost discussion but does not provide a full mortgage lesson. Use original annotated documents and a calculator that reveals the Canadian convention and limitations. Students should interpret the sample and name questions, not select a real mortgage or disclose family home ownership."
+      ],
+      "document": {
+        "title": "Fictional mortgage comparison summary",
+        "context": "Every home value, down payment, principal, rate, term, amortization, and fee is invented. The fixed-rate calculation uses a classroom Canadian semi-annual compounding conversion with monthly payments, no fees or insurance, no missed/extra payments, and a fixed rate continuing for the full amortization only to make the model calculable. Real mortgages usually have a term distinct from amortization and require full contract review.",
+        "rows": [
+          {
+            "field": "Fictional purchase price",
+            "value": "$150,000",
+            "sourceNote": "Invented home price; not a market example or affordability benchmark."
+          },
+          {
+            "field": "Fictional down payment",
+            "value": "$30,000",
+            "sourceNote": "Invented amount; no real minimum requirement is implied."
+          },
+          {
+            "field": "Simplified starting principal",
+            "value": "$120,000",
+            "sourceNote": "Fictional arithmetic: $150,000 − $30,000; excludes other financing/closing adjustments."
+          },
+          {
+            "field": "Nominal annual rate j",
+            "value": "6% (0.06), compounded semi-annually for model",
+            "sourceNote": "Fictional teaching assumption; not a current mortgage rate."
+          },
+          {
+            "field": "Amortization",
+            "value": "25 years, monthly payments",
+            "sourceNote": "Fictional calculation period; distinct from the contract term in a real mortgage."
+          },
+          {
+            "field": "Contract term",
+            "value": "5 years, then renewal decision",
+            "sourceNote": "Fictional example demonstrating term vs amortization."
+          },
+          {
+            "field": "Prepayment privilege and penalty",
+            "value": "Not supplied",
+            "sourceNote": "Unknown; obtain exact contract language before evaluating flexibility or exit cost."
+          },
+          {
+            "field": "Taxes, insurance, utilities, maintenance, closing costs",
+            "value": "Not included",
+            "sourceNote": "Excluded from model; real ownership-cost assessment needs current local evidence."
+          }
+        ]
+      },
+      "worked": [
+        {
+          "case": "Find the simplified starting principal",
+          "steps": [
+            "Subtract the fictional down payment from the fictional purchase price: $150,000 − $30,000 = $120,000.",
+            "Label this as simplified principal before other financing or closing adjustments.",
+            "Do not infer that $120,000 is all the cash needed to complete a real purchase."
+          ],
+          "misconception": "The purchase price is not automatically the loan amount; the down payment and other costs matter."
+        },
+        {
+          "case": "Interpret term versus amortization",
+          "steps": [
+            "The fictional amortization is 25 years, meaning the schedule models repayment over 300 monthly payments if assumptions continue.",
+            "The fictional contract term is 5 years; at that point, renewal conditions must be addressed even though the modeled balance remains.",
+            "A 25-year schedule under one fictional rate does not predict the payment or total cost across later real renewals."
+          ],
+          "misconception": "Do not say the 6% rate is guaranteed for all 25 years. The example deliberately distinguishes a five-year term from amortization."
+        }
+      ],
+      "practice": [
+        {
+          "prompt": "What is the simplified fictional starting principal?",
+          "choices": [
+            "$120,000",
+            "$150,000",
+            "$30,000",
+            "$180,000"
+          ],
+          "correctIndex": 0,
+          "feedbackByChoice": [
+            "Correct: $150,000 − $30,000 = $120,000 before excluded costs/adjustments.",
+            "That is the full fictional purchase price, before the down payment.",
+            "That is the fictional down payment only.",
+            "This adds the price and down payment, reversing the relationship."
+          ],
+          "explanation": "In the simplified case, subtract the down payment from purchase price to find principal.",
+          "nextHint": "Purchase price minus down payment."
+        },
+        {
+          "prompt": "What does the five-year term mean in this fictional summary?",
+          "choices": [
+            "The contract/rate conditions run for five years before a renewal decision",
+            "The home is fully paid in five years",
+            "The rate is guaranteed for all 25 years",
+            "The down payment is repaid every five years"
+          ],
+          "correctIndex": 0,
+          "feedbackByChoice": [
+            "Correct: term is the contract period before the stated renewal point.",
+            "The amortization is 25 years, not five.",
+            "The summary says five-year term and 25-year amortization.",
+            "Down payment is not a recurring five-year repayment."
+          ],
+          "explanation": "A mortgage term can be shorter than its amortization period.",
+          "nextHint": "Compare the separate term and amortization rows."
+        },
+        {
+          "prompt": "Under the stated Canadian fixed-rate classroom convention, what is the role of semi-annual compounding conversion?",
+          "choices": [
+            "Convert the quoted nominal annual rate to the equivalent monthly rate for monthly payment math",
+            "Subtract the down payment twice",
+            "Change a 5-year term into a 25-year term",
+            "Remove all interest"
+          ],
+          "correctIndex": 0,
+          "feedbackByChoice": [
+            "Correct: it aligns the stated annual convention with monthly periods in the model.",
+            "Down payment arithmetic is separate from rate conversion.",
+            "Term and amortization are separate contract periods; conversion does not change them.",
+            "Rate conversion calculates periodic interest; it does not remove borrowing cost."
+          ],
+          "explanation": "Use the convention stated in the model, and check the actual product disclosure for real calculations.",
+          "nextHint": "Find the formula i = (1 + j/2)^(2/12) − 1."
+        },
+        {
+          "prompt": "What is missing from a complete ownership-cost estimate?",
+          "choices": [
+            "Utilities, maintenance, insurance, taxes, transport, and closing costs",
+            "The fictional purchase price",
+            "The fictional down payment",
+            "The stated amortization"
+          ],
+          "correctIndex": 0,
+          "feedbackByChoice": [
+            "Correct: those categories are excluded and need evidence in a real scenario.",
+            "The price is supplied, though fictional.",
+            "The down payment is supplied, though fictional.",
+            "The amortization is supplied for the model."
+          ],
+          "explanation": "Mortgage payment alone does not equal the cost of owning and maintaining a home.",
+          "nextHint": "Review the row listing exclusions."
+        },
+        {
+          "prompt": "How should an unknown prepayment penalty be treated?",
+          "choices": [
+            "Assume no penalty",
+            "Assume the maximum possible penalty",
+            "Mark it unknown and obtain the written privilege/penalty terms",
+            "Assume prepayment is impossible"
+          ],
+          "correctIndex": 2,
+          "feedbackByChoice": [
+            "No evidence supports a zero penalty.",
+            "A made-up maximum is not contract evidence.",
+            "Correct: the feature can materially affect flexibility and must be checked in the agreement.",
+            "The terms are missing; the case does not say prepayment is prohibited."
+          ],
+          "explanation": "Mortgage flexibility depends on contract wording, not the feature name alone.",
+          "nextHint": "Ask what extra payments or early payout are allowed and what they cost."
+        },
+        {
+          "prompt": "Which statement is accurate about the 25-year payment model?",
+          "choices": [
+            "It assumes one fictional rate continues for the model and does not predict future renewal terms",
+            "It proves the real payment will be the same for 25 years",
+            "It includes every ownership cost",
+            "It is a current mortgage quote"
+          ],
+          "correctIndex": 0,
+          "feedbackByChoice": [
+            "Correct: the model is deliberately simplified and its assumption must be visible.",
+            "The five-year fictional term means renewal conditions must be addressed.",
+            "Taxes, insurance, maintenance, utilities, and closing costs are excluded.",
+            "The rate and all dollar figures are invented teaching values."
+          ],
+          "explanation": "Model output is conditional on its inputs and exclusions.",
+          "nextHint": "Read the context row describing term, amortization, and excluded costs."
+        }
+      ],
+      "transfer": {
+        "newCase": "A fictional household compares two mortgage summaries with the same principal and amortization but different five-year terms, payment frequencies, and prepayment clauses. One rate is variable and its adjustment rule is omitted.",
+        "prompt": "List which fields must be aligned or clarified before comparing and explain why a single payment quote is insufficient.",
+        "modelAnswerTeacherOnly": "Align principal, amortization, payment frequency, compounding convention, and the period used for total-cost comparison. Clarify each five-year term, fixed/variable structure, rate adjustment and payment rule, fees, prepayment privileges/penalties, and what happens at renewal. A single payment quote omits ownership costs and may not show future renewal risk; mark the variable result unknown until the agreement supplies its mechanism."
+      },
+      "media": null,
+      "visualBrief": "Create a labelled mortgage anatomy diagram: purchase price split into down payment and starting principal; a 25-year amortization bar divided into five-year contract terms; a payment magnifier separating interest and principal; and a side panel for excluded ownership costs and prepayment terms. Use exact textual equivalents and clearly badge every numerical value as fictional.",
+      "independentEvidence": {
+        "task": "A5",
+        "prompt": "Annotate a new fictional mortgage summary: calculate simplified principal, distinguish term from amortization, interpret rate convention and payment limitations, and write questions about ownership costs and prepayment.",
+        "successCriteria": [
+          "Separates price, down payment, and principal",
+          "Distinguishes term from amortization",
+          "States and applies only the supplied convention",
+          "Identifies excluded costs and missing contract features"
+        ]
+      },
+      "sourceNotes": [
+        "Mortgage math uses the Canadian fixed-rate nominal semi-annual convention for the classroom model; have a lead independently verify conversion/formula and explain that variable and product-specific terms differ.",
+        "No current rates, qualification rules, required down-payment percentages, or housing prices are included.",
+        "Any statement about prepayment rights, default-insurance thresholds, closing costs, or mortgage regulation needs current official-source review before release.",
+        "Source boundary: no FINLIT item in the supplied resource set provides a full Canadian mortgage-term/amortization lesson. Mortgage anatomy and the stated convention are original; all actual product or legal details need current official review."
+      ]
+    }
+  ]
+}

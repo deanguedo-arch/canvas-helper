@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "courseId": "ela10-1",
+  "courseCode": "ELA 10-1",
+  "courseTitle": "English Language Arts 10-1",
+  "profileId": "next-step-english",
+  "profileVersion": "next-step-english-v2-ela10",
+  "archives": [
+    {
+      "id": "brightspace-normalized",
+      "kind": "brightspace",
+      "path": "projects/resources/ela10-1/_sources/98a7423518aa49d55b37e75f4a7a44037949c06416146e806705b85c933cbf49.normalized.zip",
+      "sha256": "2b733ba29703933d8c126dea2cc53f12c871dea986c4d6cba10a54edd355b481",
+      "importedAt": "2026-07-17T03:39:10.690Z"
+    },
+    {
+      "id": "teacher-resources",
+      "kind": "teacher-resources",
+      "path": "projects/resources/ela10-1/_sources/61c75238e8ca90b0c2e874d4f3ab65074b4a14ee699f1854f753bdf938648d2b.zip",
+      "sha256": "61c75238e8ca90b0c2e874d4f3ab65074b4a14ee699f1854f753bdf938648d2b",
+      "importedAt": "2026-07-17T03:39:10.690Z"
+    }
+  ],
+  "units": [
+    {
+      "projectSlug": "ela10-1-short-stories",
+      "unitTitle": "Short Stories",
+      "recipePath": "projects/ela10-1-short-stories/meta/english-unit.json",
+      "profileVersion": "next-step-english-v2-ela10",
+      "activityProfile": "short-fiction",
+      "brightspaceUnitIds": [
+        "1473027"
+      ],
+      "reviewStatus": "needs-review"
+    },
+    {
+      "projectSlug": "ela10-1-shakespeare-merchant-of-venice",
+      "unitTitle": "Shakespearean Drama - The Merchant of Venice",
+      "recipePath": "projects/ela10-1-shakespeare-merchant-of-venice/meta/english-unit.json",
+      "profileVersion": "next-step-english-v2-ela10",
+      "activityProfile": "shakespeare-drama",
+      "brightspaceUnitIds": [
+        "1473028"
+      ],
+      "reviewStatus": "needs-review"
+    },
+    {
+      "projectSlug": "ela10-1-novel-study",
+      "unitTitle": "Novel Study",
+      "recipePath": "projects/ela10-1-novel-study/meta/english-unit.json",
+      "profileVersion": "next-step-english-v2-ela10",
+      "activityProfile": "novel-study",
+      "brightspaceUnitIds": [
+        "1473031"
+      ],
+      "reviewStatus": "needs-review"
+    },
+    {
+      "projectSlug": "ela10-1-modern-play-fences",
+      "unitTitle": "Modern Play - Fences",
+      "recipePath": "projects/ela10-1-modern-play-fences/meta/english-unit.json",
+      "profileVersion": "next-step-english-v2-ela10",
+      "activityProfile": "modern-drama",
+      "brightspaceUnitIds": [
+        "1473026"
+      ],
+      "reviewStatus": "needs-review"
+    },
+    {
+      "projectSlug": "ela10-1-film-study",
+      "unitTitle": "Film Study",
+      "recipePath": "projects/ela10-1-film-study/meta/english-unit.json",
+      "profileVersion": "next-step-english-v2-ela10",
+      "activityProfile": "film-study",
+      "brightspaceUnitIds": [
+        "1473029"
+      ],
+      "reviewStatus": "needs-review"
+    }
+  ],
+  "generatedAt": "2026-07-17T03:39:10.690Z"
+}

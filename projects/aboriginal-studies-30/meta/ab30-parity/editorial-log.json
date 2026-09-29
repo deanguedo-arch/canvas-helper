@@ -1,0 +1,159 @@
+{
+  "schemaVersion": 1,
+  "ticket": "T03",
+  "entries": [
+    {
+      "id": "E-T03-01",
+      "date": "2026-09-23",
+      "area": "main.js renderWrittenSteps",
+      "before": "Step 4 \"Conclude. Control the discussion to a purposeful ending that restates your main idea. The rubric marks your conclusion.\"; 5 interpret starters; unattributed Palestine example.",
+      "after": "Step 4 \"Connect. Add personal or summary comments that connect your understanding...\" with handout example; full official 7-starter list; Palestine example attributed to the criteria handout.",
+      "source": "critical-response-criteria.pdf (bundled) cross-checked vs D2L Criteria Response Format.pdf (same framework).",
+      "reason": "SRC06: criteria prescribe Statement/Evidence/Interpret/Connect; \"Conclude\" silently replaced Connect. Conclusion language remains ONLY inside the verified rubric quotation."
+    },
+    {
+      "id": "E-T03-02",
+      "date": "2026-09-23",
+      "area": "assignment criteria/rubric links (data + 8 HTML + 8 DOCX)",
+      "before": "16 links to two private Google Docs (12LtUq2b... criteria, 1kd3XGjh... rubric).",
+      "after": "Data links -> ./assets/library/critical-response-criteria.pdf and critical-response-rubric.pdf (same convention the 4 shells already used); HTML mirrors -> ../../library/*.pdf (path-correct); DOCX text -> \"critical-response-*.pdf (in the course library)\". 4 shell booklet-Doc links intentionally kept.",
+      "source": "Bundled local PDFs verified content-equivalent in framework to the course-issued D2L copies (variances logged, non-blocking).",
+      "reason": "T03.7: do not rely on a private Google Doc when the approved resource is bundled. In-course viewer buttons now serve these links."
+    },
+    {
+      "id": "E-T03-03",
+      "date": "2026-09-23",
+      "area": "course-data.js sourceAudit",
+      "before": "sourceAudit with absolute Windows paths (Downloads + Course Materials dirs) shipped in the student data bundle.",
+      "after": "Key removed from the bundle; values preserved verbatim in source-ledger.json movedFromStudentBundle.",
+      "source": "Developer provenance; zero code references (grep-verified).",
+      "reason": "SRC05."
+    },
+    {
+      "id": "E-T03-04",
+      "date": "2026-09-23",
+      "area": "main.js libraryPageCounts",
+      "before": "halfbreed-maria-campbell.pdf: 223",
+      "after": "halfbreed-maria-campbell.pdf: 222",
+      "source": "pypdf page count of the bundled file (all other counts verified exact: chapters 34/40/32/50/20/30/28, textbook 256).",
+      "reason": "Off-by-one vs the real file."
+    },
+    {
+      "id": "E-T03-OBS-01",
+      "date": "2026-09-23",
+      "area": "observed, not changed: 1.1 typo",
+      "before": "Booklet prints \"Aborigional oral tradition\".",
+      "after": "Course reads \"Aboriginal oral tradition\" (pre-existing).",
+      "source": "Theme 1 booklet p.5.",
+      "reason": "Record the pre-existing fix; no action."
+    },
+    {
+      "id": "E-T05-01",
+      "date": "2026-09-23",
+      "area": "learner response persistence (main.js + learning-store.js)",
+      "before": "Responses lived in a flat localStorage map keyed per view; lesson/formal views could diverge silently; saves never reported failure.",
+      "after": "All response reads/writes route through the approved AB30Store adapter (envelope with logical records, conflicts, attempts); same 3 key names; legacy fallback when the adapter script is absent.",
+      "source": "T04 store-design.md (lead-approved 2026-09-23).",
+      "reason": "T05: unify views, preserve conflicts, honest saves."
+    },
+    {
+      "id": "E-T05-02",
+      "date": "2026-09-23",
+      "area": "save-status copy (main.js + styles.css)",
+      "before": "Static \"Responses save automatically.\" / \"It saves automatically in this browser.\" claims in 7 places, plus \"Saved just now.\" state text.",
+      "after": "Neutral static \"Save status.\" + per-state attribute text (Saved in this browser / Unsaved changes / Saving\u2026 / Save failed\u2026 / over-budget / conflict count); word-count line shows the live save word; aria-live announcer added. All state rides on data-save-state (Studio-safe mechanism preserved).",
+      "source": "Runbook T05.5\u20136 (remove misleading static autosave text; attribute mechanism).",
+      "reason": "STATE14: truthful saves."
+    },
+    {
+      "id": "E-T05-03",
+      "date": "2026-09-23",
+      "area": "conflict + export UI (main.js + styles.css + index.html)",
+      "before": "No conflict surface; no work export/import; copy-to-clipboard only.",
+      "after": "Neutral per-record conflict panels (keep A / keep B / merged, predecessors preserved, targeted editor refresh, no full re-render); Export my work (JSON download) + Import work (validated merge, refused while unsaved writing is unconfirmed) in review + written views; flush before navigation/render/unload with beforeunload guard.",
+      "source": "T04 store-design.md \u00a74\u20135 + runbook T05.3/7.",
+      "reason": "STATE03/07/11 + capacity option (a)."
+    },
+    {
+      "id": "E-R07-01",
+      "date": "2026-09-24",
+      "area": "course-data.js 2-1-land-stewardship summary + instructionsHtml + mirrors",
+      "before": "\"what do you think oral tradition teaches us the Indigenous concept of land stewardship\" + trailing sentence \"You may find the posted videos in this module section to be helpful in forming your response.\" (Aug 2020 workbook wording)",
+      "after": "\"what do you think oral tradition teaches us about the Indigenous concept of land stewardship\"; videos sentence removed. HTML + DOCX mirrors updated to match.",
+      "source": "AB30-T2 official Theme 2 booklet, Assignment 2.1, file page 7",
+      "reason": "R07 reconciliation: live wording matched the workbook, not the official booklet. Booklet grammar (\"about\") adopted; booklet has no videos sentence."
+    },
+    {
+      "id": "E-R07-02",
+      "date": "2026-09-24",
+      "area": "course-data.js 2-2-specific-land-claims summary + instructionsHtml + mirrors",
+      "before": "\"review TWO of the land claims from Alberta listed in your module booklet\"; elements: \"if, how and when they were settled, or why not\".",
+      "after": "\"review TWO of the land claims from Alberta listed below\" + the 7 Alberta claims inline (Lubicon Lake Cree; Siksika (Blackfoot); Woodland Cree; Blood-Cardston; Loon River; Peigan Nation; Nakoda (Stoney)); elements use booklet wording (\"include if, how and when they were settled; if they are not settled, explain why\"). HTML + DOCX mirrors updated.",
+      "source": "AB30-T2 official Theme 2 booklet, Assignment 2.2, file page 16",
+      "reason": "R07 reconciliation: booklet lists the claims inline; workbook pointed elsewhere. No new workload: same two-claim review."
+    },
+    {
+      "id": "E-R07-03",
+      "date": "2026-09-24",
+      "area": "course-data.js attawapiskat-report summary + instructionsHtml + mirrors",
+      "before": "Workbook version: \"living in third-world conditions\", \"Your report may include\", paragraph-form-only response, no recency requirement.",
+      "after": "Official version: \"community in crisis that is living in poor conditions\", 2011-document + own research, 3 sources from 2023 onwards, must-include elements, any response form (paragraph/letter/presentation/video/visual). HTML + DOCX mirrors updated.",
+      "source": "AB30-T3 official Theme 3 booklet, Assignment 3.3, file pages 19-20",
+      "reason": "R07 reconciliation: live wording matched the workbook. SRC04 keeps a named booklet-verified exception for this record's official \"must\"."
+    },
+    {
+      "id": "E-R07-04",
+      "date": "2026-09-24",
+      "area": "course-data.js 4-2-rabbit-proof-fence summary + instructionsHtml + mirrors",
+      "before": "\"Respond in paragraph form using the response criteria.\"",
+      "after": "\"Respond in paragraph form (1-2 paragraphs) using the response criteria.\" HTML + DOCX mirrors updated.",
+      "source": "AB30-T4 official Theme 4 booklet, Assignment 4.2, file page 13",
+      "reason": "R07 reconciliation: booklet specifies 1-2 paragraphs."
+    },
+    {
+      "id": "E-R07-05",
+      "date": "2026-09-24",
+      "area": "course-data.js q79 (Theme 1, t1-l20-harvesting-rights) \u2014 investigated, no change",
+      "before": "Live label \"True or False: First Nations people can hunt, fish and trap year-round outside of their province.\", choices True/False, homed t1-l20.",
+      "after": "No change. Label, choices, home, and section all match the official text; the renderer auto-letters choices (A/B), matching the booklet's a)/b) presentation.",
+      "source": "AB30-T1 official Theme 1 booklet, Q79, Natural Resources Transfer Agreements (extraction line ~1150)",
+      "reason": "R07 step 5 named a Q79 source mismatch; comparison found no live defect, so no edit was manufactured."
+    },
+    {
+      "id": "E-R07-06",
+      "date": "2026-09-24",
+      "area": "Lesson 7 source speakers \u2014 investigated, arbitration carried to R08",
+      "before": "Live Lesson 7 v2 sources attribute James Ahnassay (2 extracts), Dene Tha' Elders via Ahnassay (1), Chief Francois Paulette (1); no \"narrator\" label exists in course-data.js.",
+      "after": "No change in R07. R08 rebuilds Lesson 7 from LESSON07_COMPLETE_TEACHING_SPECIMEN, which arbitrates the intended narrator/speaker correction.",
+      "source": "course-data.js t1-l07-numbered-treaties blocks vs AB30_BIO_PARITY_EXECUTION_v2 R07 step 5",
+      "reason": "No live \"narrator\" defect found; the specimen-driven R08 rewrite is the correct place to settle attribution."
+    },
+    {
+      "id": "E-R07-07",
+      "date": "2026-09-24",
+      "area": "Official-booklet quirks preserved verbatim (not silently fixed)",
+      "before": "n/a (transcription decision)",
+      "after": "Preserved exactly as printed: Theme 2 Q22 \"In Inuvialuit Final Agreement\" (doubled \"In\") and 1994 entry ordered after 2002; Theme 2 Q7 choice \"In all Fairness: A Native Claims Policy\"; Theme 3 Q2 and Q12 identical wording; Theme 3 Q7 and Q9 identical wording; Theme 4 checklist \"4.2 Novel Study (Critical Response) /16 20%\" vs body \"Assignment 4.3 Personal Response\" (live record id 4-3-personal-response follows the body).",
+      "source": "AB30-T2 file pages 11, 14; AB30-T3 file pages 4-5, 14; AB30-T4 file pages 21-22",
+      "reason": "R07 step 5: source inconsistencies are ledgered, never silently fixed or smoothed."
+    },
+    {
+      "id": "E-R07-08",
+      "date": "2026-09-24",
+      "area": "EXPECTED_ITEM_HOMES attawapiskat-report themeId \u2014 contract typo noted",
+      "before": "Contract row lists themeId \"theme-1\" for sourceItem attawapiskat-report (homed t3-l04-urban-life-services).",
+      "after": "Homed to the Theme 3 lesson per the row's own primaryLessonId and the AB30-T3 source; theme-1 untouched. Manifest row keeps the contract's themeId verbatim with this note.",
+      "source": "AB30_BIO_PARITY_EXECUTION_v2/contracts/EXPECTED_ITEM_HOMES.json vs AB30-T3 Assignment 3.3",
+      "reason": "Executor-observed contract inconsistency; resolved toward the source document, recorded here."
+    },
+    {
+      "id": "E-R07-09",
+      "date": "2026-09-24",
+      "area": "4-3-personal-response versioned profiles (A-04 activation)",
+      "before": "Single legacy record (Inconvenient Indian prompt); Halfbreed candidate staged in the manifest as blocked-not-activated.",
+      "after": "Record keeps legacy summary/instructions byte-identical and gains profiles { legacy-inconvenient-indian (byte-identical), v2-halfbreed (official AB30-T4 A4.3 wording, /16) } with activeProfile v2-halfbreed. Legacy keys unsuffixed; Halfbreed keys suffixed ::v2-halfbreed. Legacy work renders read-only + continues in its draft; nothing transfers. Teacher review of the activation is pending; no approval stamped.",
+      "source": "AB30-T4 official Theme 4 booklet, Assignment 4.3, file page 21; AB30_BIO_PARITY_EXECUTION_v2 A-04",
+      "reason": "R07 step 3: activate Halfbreed ONLY as a versioned new-candidate profile; legacy prompt/text preserved forever."
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "role": "local-build-review",
+  "date": "2026-09-24",
+  "branch": "codex/math-engine-preflight",
+  "baseCommit": "02a9fadc",
+  "dirtyCheckoutPreserved": true,
+  "lessons": [
+    {
+      "id": "t1-l01-oral-tradition",
+      "version": "ab30-v2-l01.2",
+      "url": "http://127.0.0.1:4188/projects/aboriginal-studies-30/workspace/index.html?section=lesson&unit=theme-1&lesson=t1-l01-oral-tradition"
+    },
+    {
+      "id": "t1-l02-nations-peoples",
+      "version": "ab30-v2-l02.2",
+      "url": "http://127.0.0.1:4188/projects/aboriginal-studies-30/workspace/index.html?section=lesson&unit=theme-1&lesson=t1-l02-nations-peoples"
+    },
+    {
+      "id": "t2-l01-why-land-matters",
+      "version": "ab30-v2-l24.2",
+      "url": "http://127.0.0.1:4188/projects/aboriginal-studies-30/workspace/index.html?section=lesson&unit=theme-2&lesson=t2-l01-why-land-matters"
+    }
+  ],
+  "sourceHashes": {
+    "index.html": "e33a4795caef4f6f8eb42cd45e07ce6a09a1a26750519a68bc25597a71e8f17d",
+    "course-data.js": "aef683da67f8cee1036f428a3ed8c6d6959ea43dd4a14fed7d809e54281cb047",
+    "main.js": "08ed29969346f0f27176721955eeef10d9b57bf0a0eeecf18f2dfee086bf00a2",
+    "styles.css": "065e2cd958ad3dcf1039357016a19de1ac763b268754be388161fe4faf1b6cd9",
+    "lesson-components.js": "3ebf0c082f2177a5fbfe5d08a5d5003dbc06ea62907083790eb99ce7b856f781",
+    "practice-data.js": "82041cad402db0ccc6ad4341cb914a2a2d22d7a7fe92170b61021fc9908b6aee",
+    "source-locator-links.js": "ee5d6f7ca2361df921f872da0c9d772b6e69300dca907b50eaf688e9e035576c",
+    "learning-store.js": "40ec2e355305860083e1cb1b255eb0ed746eac381c9a4d0443cfad095af190b8",
+    "practice-engine.js": "360ec61bf56bbf4d0f88d8c19f670c2930717fea95879b1d5f1defe9b14c0dfc"
+  },
+  "verification": {
+    "focusedTestsPassed": 58,
+    "doctor": "PASS legacy-snapshot-v1",
+    "browser": "browser-report.json",
+    "comparisonLayouts": "comparison-layout-report.json",
+    "compatibility": "compatibility-report.json",
+    "strictTypecheck": "PASS for new teacher-pilot test file",
+    "inAppBrowser": "Startup warning diagnosed: applyRouteFromUrl ran before NAV_PERSIST_PROPS initialization. Moved initial route application immediately before first render. Real file-browser launches and reloads passed for all three pilots; in-app HTTP reload now reports Saved in this browser. Storage and saving guards unchanged."
+  },
+  "knownBaselineFailure": "LOCATOR-LINKS01 assumes every non-Chapter source is Walking Together; pre-existing Theme 4 official web-source records violate that assumption. LOCATOR-LINKS02-05 passed.",
+  "deferred": [
+    "Teacher feedback before the other 47 lesson rewrites",
+    "Full-course source/curriculum reconciliation",
+    "Live read-aloud, screen-reader, zoom and print review",
+    "Studio annotation save/reopen",
+    "Export regeneration and package validation",
+    "SCORM and live Brightspace save/resume"
+  ],
+  "agentRouting": {
+    "lead": "Pedagogy, source judgment, dirty canonical edits, state compatibility and integration",
+    "luna": "One bounded read-only compatibility scout; accepted and worker admission released",
+    "muse": "Not eligible: overlapping dirty source paths and teacher/source judgment",
+    "localContextCache": "No hit claimed for this pilot; not measured",
+    "providerCache": "Unknown",
+    "usageSavings": "Unknown"
+  }
+}

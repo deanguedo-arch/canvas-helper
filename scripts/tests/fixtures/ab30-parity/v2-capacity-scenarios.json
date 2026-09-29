@@ -1,0 +1,53 @@
+{
+  "syntheticOnly": true,
+  "limitsPolicy": "Observe actual existing field limits; these workloads are tests, not new learner caps. Count actual registered fields, not regex source hits.",
+  "scenarios": [
+    {
+      "id": "empty",
+      "populate": "No responses; actual runtime metadata only."
+    },
+    {
+      "id": "all-numbered-600",
+      "populate": "All registered numbered text responses with 600 characters each; all chart fields populated."
+    },
+    {
+      "id": "whole-course-typical",
+      "populate": "Every assigned field completed,1,000 characters per short/independent response,3,000 per critical response, all94 Frayer records and chart/memoir fields at 400 characters;50 first submissions+50 revisions and20 five-item runs."
+    },
+    {
+      "id": "existing-field-limits",
+      "populate": "Every field at its actual current allowed limit (do not reduce it); include a first submission and revision for each supported long response."
+    },
+    {
+      "id": "history-accumulation",
+      "populate": "Starting from whole-course-typical add 100 complete practice runs and three revisions for each of 50 independent tasks; report exact accepted capacity and nondestructive boundary rejection."
+    },
+    {
+      "id": "unicode-and-escaping",
+      "populate": "Repeat equivalent workload with multi-byte syllabics, accented text, quotes, line breaks and backslashes; measure actual encoded wrapper, not string.length alone."
+    },
+    {
+      "id": "conflicts-and-legacy",
+      "populate": "Whole-course-typical plus all synthetic legacy fixtures and unresolved competing versions."
+    },
+    {
+      "id": "beyond-real-limit",
+      "populate": "Increment actual full payload until real configured host or browser rejects; current text and last confirmed save remain recoverable."
+    }
+  ],
+  "requiredReport": [
+    "mode",
+    "actual registry counts",
+    "field limits observed",
+    "serializer path and hash",
+    "raw UTF-16 units",
+    "UTF-8 byte length when relevant",
+    "actual encoded host size",
+    "configured limit and unit",
+    "accepted/rejected counts",
+    "last confirmed state",
+    "unsaved candidate recovery",
+    "local and host receipts",
+    "limitations"
+  ]
+}

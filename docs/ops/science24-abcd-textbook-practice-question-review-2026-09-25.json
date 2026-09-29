@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-09-25",
+  "branch": "codex/math-engine-preflight",
+  "baseCommit": "02a9fadc9148bf26c0c93006560375a9c5c6b4ee",
+  "reference": {
+    "project": "biology30-chapter-16",
+    "screenshot": ".runtime/studio-review-sets/881ffde9-cb2a-40fc-8da5-71c0b4923808/biology30-chapter-16-102ebc4eb57003db89544536b74a44d5-a210c9101ba3a271.png",
+    "use": "Question selector, one bounded source crop per question, full-page context control and one saved response per question."
+  },
+  "units": {
+    "science24-unit-a": {
+      "questionCount": 32,
+      "printedPageGroups": 12,
+      "manifestSha256": "fa61dff244657748cce0d54739601a89671ab2d0835866cb603387a643afccdb",
+      "overlaySha256": "bdc2e5557b23060072b90fbd1f69b4190abd680495708ca1d886dde29be7a677",
+      "cropSetSha256": "d7afe5a446c9d8cc67040f6be3b91d568f937f11691bdb309347d6e06a2360b6"
+    },
+    "science24-unit-b": {
+      "questionCount": 35,
+      "printedPageGroups": 12,
+      "manifestSha256": "e96069402d6e2bb8895bcfb2dab721171ea257004ced00a2d93ba689d9f933ad",
+      "overlaySha256": "a67b69568e723d4211eed9a4c86575d654b17eb2217c6f60b62af31b96c3a9ce",
+      "cropSetSha256": "f865ee36cbb6e60863a21f74da1599d50fef505652fed4babd2259c38a5eb48d"
+    },
+    "science24-unit-c": {
+      "questionCount": 29,
+      "printedPageGroups": 8,
+      "manifestSha256": "693748ca747c84295734c3341e3f74450ebc43bbb364d4ecc343bfbb62e8c99b",
+      "overlaySha256": "8c16eda3fd24072d65e750173cba5098c109964ecd3e6acbe9d1d16989112eba",
+      "cropSetSha256": "0ab52502afb0605dc03326ddde1d1f82bf2a1f35f5e7876334edc222098ec216"
+    },
+    "science24-unit-d": {
+      "questionCount": 50,
+      "printedPageGroups": 13,
+      "manifestSha256": "cd2cbf1df44ed341ecaecdec977571400d6cd8208269095ccd4eaeb82db06d3c",
+      "overlaySha256": "3c108d3852e2c7d24044c664336691e0e0743a5f254c96031f1dd664b52fac19",
+      "cropSetSha256": "da72c71c690d9bf84babe6020ee209bdd91d73d2a04ac8a60729a3c4c268c324",
+      "mobileMotionGraphSha256": "bb8c9e165430b6fe6f6b0c6600dbf242baf69f0fc80781220cdceb1b711b1299"
+    }
+  },
+  "compatibility": {
+    "newRecordPolicy": "Every current question has a new stable ID.",
+    "legacyRecordPolicy": "The original page catalog is frozen as legacyBookQuestions. Earlier state.book records remain visible in All My Work under Previous page-based Textbook Practice work and do not count as current question work."
+  },
+  "verification": [
+    {
+      "command": "node scripts/tests/science24-textbook-practice-question-level.cjs",
+      "result": "pass"
+    },
+    {
+      "command": "node scripts/tests/science24-abcd-review-p0.cjs",
+      "result": "pass"
+    },
+    {
+      "check": "Local browser Unit A Textbook Practice",
+      "result": "32 question tiles, 12 printed-page groups, bounded question 1 crop, corrected Unit A alternative text and no horizontal overflow"
+    },
+    {
+      "check": "Local browser Unit D video card",
+      "result": "full-width card with two-column content, zero old nested video-support wrappers and no horizontal overflow"
+    },
+    {
+      "check": "Local browser Unit D graph",
+      "result": "one image element; desktop and phone select the appropriate source without overflow"
+    },
+    {
+      "command": "npm run course:doctor -- --project science24-unit-{a,b,c,d}",
+      "result": "expected refusal: all four projects remain blocked, so this is not a passing doctor result"
+    }
+  ],
+  "status": "blocked-review-candidate"
+}

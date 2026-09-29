@@ -1,0 +1,23 @@
+=== T08 run log 2026-09-23 ===
+SYNTAX_OK
+--- content suite ---
+✔ CONTENT01-auto: v2 teaches goal+terms+blocks; every v1 lesson carries inline teaching (9.282667ms)
+✔ CONTENT02-auto: worked examples need evidence, reasoning, and a finished response (0.646375ms)
+✔ CONTENT03-auto: supported practice carries feedback; independent tasks declare their difference (0.448833ms)
+✔ CONTENT04-auto: all 50 lessons have versioned review records; structure never implies reviewed (0.724833ms)
+✔ UI02-auto: every control has an accessible name; headings and landmarks are meaningful (7.529ms)
+✔ UI03-auto: figures need alt+caption; comparisons render headed tables; URLs are policed (0.699791ms)
+✔ SAFE-TEXT: learner writing never executes; editorial notes never render; links stay canonical (1.028042ms)
+ℹ tests 7
+ℹ pass 7
+ℹ fail 0
+--- all suites ---
+ℹ tests 65
+ℹ pass 65
+ℹ fail 0
+--- shell file-scope ---
+ℹ tests 10
+ℹ pass 10
+ℹ fail 0
+--- tsc touched-files ---
+TSC_TOUCHED_CLEAN

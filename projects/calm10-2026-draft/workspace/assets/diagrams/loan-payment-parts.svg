@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 330" role="img" aria-labelledby="title desc">
+<title id="title">A loan payment pays interest and reduces the balance</title>
+<desc id="desc">A conceptual monthly payment bar is divided into interest and principal. An arrow leads to a smaller outstanding balance. In the next period interest is calculated from that remaining balance. Proportions are illustrative, not a loan schedule.</desc>
+<rect width="900" height="330" fill="#f8faf8"/>
+<g font-family="Arial,sans-serif" fill="#17221e"><text x="42" y="55" font-size="24" font-weight="700">Follow a payment through the loan</text>
+<text x="42" y="107" font-size="18" font-weight="700">Payment this month</text>
+<rect x="42" y="125" width="255" height="70" fill="#c8dfd3" stroke="#2d6956" stroke-width="2"/><rect x="297" y="125" width="170" height="70" fill="#f0dfbd" stroke="#9c6720" stroke-width="2"/>
+<text x="63" y="164" font-size="19" font-weight="700">Principal portion</text><text x="314" y="164" font-size="19" font-weight="700">Interest portion</text>
+<path d="M492 160h72" stroke="#426c60" stroke-width="4"/><path d="m555 151 15 9-15 9" fill="none" stroke="#426c60" stroke-width="4"/>
+<rect x="588" y="112" width="270" height="97" rx="4" fill="#e8f1eb" stroke="#2d6956" stroke-width="2"/><text x="606" y="147" font-size="18">Starting balance</text><text x="606" y="178" font-size="21" font-weight="700">− principal = new balance</text>
+<text x="42" y="256" font-size="18" font-weight="700">Next period: calculate interest from the new balance, then split the next payment.</text>
+<text x="42" y="293" font-size="15" fill="#506158">Illustrative proportions only. The lesson table and calculator show the actual rounded figures and assumptions.</text>
+</g></svg>

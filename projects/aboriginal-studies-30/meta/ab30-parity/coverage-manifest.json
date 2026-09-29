@@ -1,0 +1,1444 @@
+{
+  "schemaVersion": 1,
+  "ticket": "T02",
+  "dispositions": [
+    "retained",
+    "moved",
+    "teacher-approved replacement",
+    "teacher-approved exclusion",
+    "blocked"
+  ],
+  "rules": {
+    "domNamespace": "DOM ids are view-scoped (activity-<activityId>-<promptId>[-<field>]); saved record ids live in the activityResponses key namespace. One canonical record may appear in several views with distinct DOM ids but one shared response key. Current renderer mounts one view at a time; any future co-mounting (T07/T20) must add a view prefix to DOM ids.",
+    "savedVsDom": "data-activity-response / data-written-response attributes carry the saved record id; id/for attributes carry the DOM id. Never derive one namespace from the other.",
+    "explicitIdentity": "Lesson membership (bookletQuestionIds), table row/column ids, and blank ids are explicit data, never parsed from display text (T02)."
+  },
+  "items": [
+    {
+      "id": "q1",
+      "class": "booklet-question",
+      "theme": "theme-1",
+      "lessonHome": "t1-l02-nations-peoples",
+      "sectionId": "inherent-rights",
+      "kind": "fillBlank",
+      "number": "1",
+      "runtimeKeys": [
+        "theme-1-online-booklet::q1.blank-1"
+      ],
+      "disposition": "retained",
+      "note": "Explicit T02 home; source wording/pages verified in T03/T13."
+    },
+    {
+      "id": "q2",
+      "class": "booklet-question",
+      "theme": "theme-1",
+      "lessonHome": "t1-l02-nations-peoples",
+      "sectionId": "inherent-rights",
+      "kind": "fillBlank",
+      "number": "2",
+      "runtimeKeys": [
+        "theme-1-online-booklet::q2.blank-1"
+      ],
+      "disposition": "retained",
+      "note": "Explicit T02 home; source wording/pages verified in T03/T13."
+    },
+    {
+      "id": "q3",
+      "class": "booklet-question",
+      "theme": "theme-1",
+      "lessonHome": "t1-l02-nations-peoples",
+      "sectionId": "inherent-rights",
+      "kind": "shortAnswer",
+      "number": "3",
+      "runtimeKeys": [
+        "theme-1-online-booklet::q3"
+      ],
+      "disposition": "retained",
+      "note": "Explicit T02 home; source wording/pages verified in T03/T13."
+    },
+    {
+      "id": "q4",
+      "class": "booklet-question",
+      "theme": "theme-1",
+      "lessonHome": "t1-l02-nations-peoples",
+      "sectionId": "inherent-rights",
+      "kind": "shortAnswer",
+      "number": "4",
+      "runtimeKeys": [
+        "theme-1-online-booklet::q4"
+      ],
+      "disposition": "retained",
+      "note": "Explicit T02 home; source wording/pages verified in T03/T13."
+    },
+    {
+      "id": "q5",
+      "class": "booklet-question",
+      "theme": "theme-1",
+      "lessonHome": "t1-l02-nations-peoples",
+      "sectionId": "inherent-rights",
+      "kind": "shortAnswer",
+      "number": "5",
+      "runtimeKeys": [
+        "theme-1-online-booklet::q5"
+      ],
+      "disposition": "retained",
+      "note": "Explicit T02 home; source wording/pages verified in T03/T13."
+    },
+    {
+      "id": "q6",
+      "class": "booklet-question",
+      "theme": "theme-1",
+      "lessonHome": "t1-l02-nations-peoples",
+      "sectionId": "inherent-rights",
+      "kind": "shortAnswer",
+      "number": "6",
+      "runtimeKeys": [
+        "theme-1-online-booklet::q6"
+      ],
+      "disposition": "retained",
+      "note": "Explicit T02 home; source wording/pages verified in T03/T13."
+    },
+    {
+      "id": "q7",
+      "class": "booklet-question",
+      "theme": "theme-1",
+      "lessonHome": "t1-l02-nations-peoples",
+      "sectionId": "inherent-rights",
+      "kind": "shortAnswer",
+      "number": "7",
+      "runtimeKeys": [
+        "theme-1-online-booklet::q7"
+      ],
+      "disposition": "retained",
+      "note": "Explicit T02 home; source wording/pages verified in T03/T13."
+    },
+    {
+      "id": "q8",
+      "class": "booklet-question",
+      "theme": "theme-1",
+      "lessonHome": "t1-l02-nations-peoples",
+      "sectionId": "inherent-rights",
+      "kind": "shortAnswer",
+      "number": "8",
+      "runtimeKeys": [
+        "theme-1-online-booklet::q8"
+      ],
+      "disposition": "retained",
+      "note": "Explicit T02 home; source wording/pages verified in T03/T13."
+    },
+    {
+      "id": "q9",
+      "class": "booklet-question",
+      "theme": "theme-1",
+      "lessonHome": "t1-l03-rights-distinctions",
+      "sectionId": "inherent-rights",
+      "kind": "shortAnswer",
+      "number": "9",
+      "runtimeKeys": [
+        "theme-1-online-booklet::q9"
+      ],
+      "disposition": "retained",
+      "note": "Explicit T02 home; source wording/pages verified in T03/T13."
+    },
+    {
+      "id": "q10",
+      "class": "booklet-question",
+      "theme": "theme-1",
+      "lessonHome": "t1-l03-rights-distinctions",
+      "sectionId": "inherent-rights",
+      "kind": "shortAnswer",
+      "number": "10",
+      "runtimeKeys": [
+        "theme-1-online-booklet::q10"
+      ],
+      "disposition": "retained",
+      "note": "Explicit T02 home; source wording/pages verified in T03/T13."
+    },
+    {
+      "id": "q11",
+      "class": "booklet-question",
+      "theme": "theme-1",
+      "lessonHome": "t1-l03-rights-distinctions",
+      "sectionId": "inherent-rights",
+      "kind": "multipleChoice",
+      "number": "11",
+      "runtimeKeys": [
+        "theme-1-online-booklet::q11"
+      ],
+      "disposition": "retained",
+      "note": "Explicit T02 home; source wording/pages verified in T03/T13."
+    },
+    {
+      "id": "q12",
+      "class": "booklet-question",
+      "theme": "theme-1",
+      "lessonHome": "t1-l03-rights-distinctions",
+      "sectionId": "inherent-rights",
+      "kind": "shortAnswer",
+      "number": "12",
+      "runtimeKeys": [
+        "theme-1-online-booklet::q12"
+      ],
+      "disposition": "retained",
+      "note": "Explicit T02 home; source wording/pages verified in T03/T13."
+    },
+    {
+      "id": "q13",
+      "class": "booklet-question",
+      "theme": "theme-1",
+      "lessonHome": "t1-l03-rights-distinctions",
+      "sectionId": "inherent-rights",
+      "kind": "shortAnswer",
+      "number": "13",
+      "runtimeKeys": [
+        "theme-1-online-booklet::q13"
+      ],
+      "disposition": "retained",
+      "note": "Explicit T02 home; source wording/pages verified in T03/T13."
+    },
+    {
+      "id": "q14",
+      "class": "booklet-question",
+      "theme": "theme-1",
+      "lessonHome": "t1-l03-rights-distinctions",
+      "sectionId": "inherent-rights",
+      "kind": "shortAnswer",
+      "number": "14",
+      "runtimeKeys": [
+        "theme-1-online-booklet::q14"
+      ],
+      "disposition": "retained",
+      "note": "Explicit T02 home; source wording/pages verified in T03/T13."
+    },
+    {
+      "id": "q15",
+      "class": "booklet-question",
+      "theme": "theme-1",
+      "lessonHome": "t1-l03-rights-distinctions",
+      "sectionId": "inherent-rights",
+      "kind": "shortAnswer",
+      "number": "15",
+      "runtimeKeys": [
+        "theme-1-online-booklet::q15"
+      ],
+      "disposition": "retained",
+      "note": "Explicit T02 home; source wording/pages verified in T03/T13."
+    },
+    {
+      "id": "q16",
+      "class": "booklet-question",
+      "theme": "theme-1",
+      "lessonHome": "t1-l04-worldview",
+      "sectionId": "inherent-rights",
+      "kind": "shortAnswer",
+      "number": "16",
+      "runtimeKeys": [
+        "theme-1-online-booklet::q16"
+      ],
+      "disposition": "retained",
+      "note": "Explicit T02 home; source wording/pages verified in T03/T13."
+    },
+    {
+      "id": "q17",
+      "class": "booklet-question",
+      "theme": "theme-1",
+      "lessonHome": "t1-l04-worldview",
+      "sectionId": "inherent-rights",
+      "kind": "shortAnswer",
+      "number": "17",
+      "runtimeKeys": [
+        "theme-1-online-booklet::q17"
+      ],
+      "disposition": "retained",
+      "note": "Explicit T02 home; source wording/pages verified in T03/T13."
+    },
+    {
+      "id": "q18",
+      "class": "booklet-question",
+      "theme": "theme-1",
+      "lessonHome": "t1-l04-worldview",
+      "sectionId": "inherent-rights",
+      "kind": "shortAnswer",
+      "number": "18",
+      "runtimeKeys": [
+        "theme-1-online-booklet::q18"
+      ],
+      "disposition": "retained",
+      "note": "Explicit T02 home; source wording/pages verified in T03/T13."
+    },
+    {
+      "id": "q19",
+      "class": "booklet-question",
+      "theme": "theme-1",
+      "lessonHome": "t1-l05-early-treaties",
+      "sectionId": "inherent-rights",
+      "kind": "shortAnswer",
+      "number": "19",
+      "runtimeKeys": [
+        "theme-1-online-booklet::q19"
+      ],
+      "disposition": "retained",
+      "note": "Explicit T02 home; source wording/pages verified in T03/T13."
+    },
+    {
+      "id": "q20",
+      "class": "booklet-question",
+      "theme": "theme-1",
+      "lessonHome": "t1-l05-early-treaties",
+      "sectionId": "inherent-rights",
+      "kind": "shortAnswer",
+      "number": "20",
+      "runtimeKeys": [
+        "theme-1-online-booklet::q20"
+      ],
+      "disposition": "retained",
+      "note": "Explicit T02 home; source wording/pages verified in T03/T13."
+    },
+    {
+      "id": "q21",
+      "class": "booklet-question",
+      "theme": "theme-1",
+      "lessonHome": "t1-l05-early-treaties",
+      "sectionId": "inherent-rights",
+      "kind": "shortAnswer",
+      "number": "21",
+      "runtimeKeys": [
+        "theme-1-online-booklet::q21"
+      ],
+      "disposition": "retained",
+      "note": "Explicit T02 home; source wording/pages verified in T03/T13."
+    },
+    {
+      "id": "q22",
+      "class": "booklet-question",
+      "theme": "theme-1",
+      "lessonHome": "t1-l05-early-treaties",
+      "sectionId": "inherent-rights",
+      "kind": "shortAnswer",
+      "number": "22",
+      "runtimeKeys": [
+        "theme-1-online-booklet::q22"
+      ],
+      "disposition": "retained",
+      "note": "Explicit T02 home; source wording/pages verified in T03/T13."
+    },
+    {
+      "id": "q23",
+      "class": "booklet-question",
+      "theme": "theme-1",
+      "lessonHome": "t1-l05-early-treaties",
+      "sectionId": "inherent-rights",
+      "kind": "shortAnswer",
+      "number": "23",
+      "runtimeKeys": [
+        "theme-1-online-booklet::q23"
+      ],
+      "disposition": "retained",
+      "note": "Explicit T02 home; source wording/pages verified in T03/T13."
+    },
+    {
+      "id": "q24",
+      "class": "booklet-question",
+      "theme": "theme-1",
+      "lessonHome": "t1-l06-colonization-proclamation",
+      "sectionId": "inherent-rights",
+      "kind": "shortAnswer",
+      "number": "24",
+      "runtimeKeys": [
+        "theme-1-online-booklet::q24"
+      ],
+      "disposition": "retained",
+      "note": "Explicit T02 home; source wording/pages verified in T03/T13."
+    },
+    {
+      "id": "q25",
+      "class": "booklet-question",
+      "theme": "theme-1",
+      "lessonHome": "t1-l06-colonization-proclamation",
+      "sectionId": "inherent-rights",
+      "kind": "shortAnswer",
+      "number": "25",
+      "runtimeKeys": [
+        "theme-1-online-booklet::q25"
+      ],
+      "disposition": "retained",
+      "note": "Explicit T02 home; source wording/pages verified in T03/T13."
+    },
+    {
+      "id": "q26",
+      "class": "booklet-question",
+      "theme": "theme-1",
+      "lessonHome": "t1-l06-colonization-proclamation",
+      "sectionId": "inherent-rights",
+      "kind": "shortAnswer",
+      "number": "26",
+      "runtimeKeys": [
+        "theme-1-online-booklet::q26"
+      ],
+      "disposition": "retained",
+      "note": "Explicit T02 home; source wording/pages verified in T03/T13."
+    },
+    {
+      "id": "q27",
+      "class": "booklet-question",
+      "theme": "theme-1",
+      "lessonHome": "t1-l06-colonization-proclamation",
+      "sectionId": "inherent-rights",
+      "kind": "shortAnswer",
+      "number": "27",
+      "runtimeKeys": [
+        "theme-1-online-booklet::q27"
+      ],
+      "disposition": "retained",
+      "note": "Explicit T02 home; source wording/pages verified in T03/T13."
+    },
+    {
+      "id": "q28",
+      "class": "booklet-question",
+      "theme": "theme-1",
+      "lessonHome": "t1-l07-numbered-treaties",
+      "sectionId": "inherent-rights",
+      "kind": "shortAnswer",
+      "number": "28",
+      "runtimeKeys": [
+        "theme-1-online-booklet::q28"
+      ],
+      "disposition": "retained",
+      "note": "Explicit T02 home; source wording/pages verified in T03/T13."
+    },
+    {
+      "id": "q29",
+      "class": "booklet-question",
+      "theme": "theme-1",
+      "lessonHome": "t1-l07-numbered-treaties",
+      "sectionId": "inherent-rights",
+      "kind": "shortAnswer",
+      "number": "29",
+      "runtimeKeys": [
+        "theme-1-online-booklet::q29"
+      ],
+      "disposition": "retained",
+      "note": "Explicit T02 home; source wording/pages verified in T03/T13."
+    },
+    {
+      "id": "q30",
+      "class": "booklet-question",
+      "theme": "theme-1",
+      "lessonHome": "t1-l07-numbered-treaties",
+      "sectionId": "inherent-rights",
+      "kind": "shortAnswer",
+      "number": "30",
+      "runtimeKeys": [
+        "theme-1-online-booklet::q30"
+      ],
+      "disposition": "retained",
+      "note": "Explicit T02 home; source wording/pages verified in T03/T13."
+    },
+    {
+      "id": "q31",
+      "class": "booklet-question",
+      "theme": "theme-1",
+      "lessonHome": "t1-l07-numbered-treaties",
+      "sectionId": "inherent-rights",
+      "kind": "shortAnswer",
+      "number": "31",
+      "runtimeKeys": [
+        "theme-1-online-booklet::q31"
+      ],
+      "disposition": "retained",
+      "note": "Explicit T02 home; source wording/pages verified in T03/T13."
+    },
+    {
+      "id": "q32",
+      "class": "booklet-question",
+      "theme": "theme-1",
+      "lessonHome": "t1-l08-treaty-promises-alberta",
+      "sectionId": "inherent-rights",
+      "kind": "shortAnswer",
+      "number": "32",
+      "runtimeKeys": [
+        "theme-1-online-booklet::q32"
+      ],
+      "disposition": "retained",
+      "note": "Explicit T02 home; source wording/pages verified in T03/T13."
+    },
+    {
+      "id": "q33",
+      "class": "booklet-question",
+      "theme": "theme-1",
+      "lessonHome": "t1-l08-treaty-promises-alberta",
+      "sectionId": "inherent-rights",
+      "kind": "shortAnswer",
+      "number": "33",
+      "runtimeKeys": [
+        "theme-1-online-booklet::q33"
+      ],
+      "disposition": "retained",
+      "note": "Explicit T02 home; source wording/pages verified in T03/T13."
+    },
+    {
+      "id": "q34",
+      "class": "booklet-question",
+      "theme": "theme-1",
+      "lessonHome": "t1-l08-treaty-promises-alberta",
+      "sectionId": "inherent-rights",
+      "kind": "shortAnswer",
+      "number": "34",
+      "runtimeKeys": [
+        "theme-1-online-booklet::q34"
+      ],
+      "disposition": "retained",
+      "note": "Explicit T02 home; source wording/pages verified in T03/T13."
+    },
+    {
+      "id": "q37",
+      "class": "booklet-question",
+      "theme": "theme-1",
+      "lessonHome": "t1-l09-geography-governance",
+      "sectionId": "traditional-governance",
+      "kind": "table",
+      "number": "37",
+      "runtimeKeys": [
+        "theme-1-online-booklet::q37.pacific-northwest.environmental-challenges",
+        "theme-1-online-booklet::q37.pacific-northwest.resources",
+        "theme-1-online-booklet::q37.plateau.environmental-challenges",
+        "theme-1-online-booklet::q37.plateau.resources",
+        "theme-1-online-booklet::q37.plains.environmental-challenges",
+        "theme-1-online-booklet::q37.plains.resources",
+        "theme-1-online-booklet::q37.eastern-woodlands.environmental-challenges",
+        "theme-1-online-booklet::q37.eastern-woodlands.resources",
+        "theme-1-online-booklet::q37.subarctic.environmental-challenges",
+        "theme-1-online-booklet::q37.subarctic.resources",
+        "theme-1-online-booklet::q37.arctic.environmental-challenges",
+        "theme-1-online-booklet::q37.arctic.resources"
+      ],
+      "disposition": "retained",
+      "note": "Explicit T02 home; source wording/pages verified in T03/T13."
+    },
+    {
+      "id": "q38",
+      "class": "booklet-question",
+      "theme": "theme-1",
+      "lessonHome": "t1-l09-geography-governance",
+      "sectionId": "traditional-governance",
+      "kind": "shortAnswer",
+      "number": "38",
+      "runtimeKeys": [
+        "theme-1-online-booklet::q38"
+      ],
+      "disposition": "retained",
+      "note": "Explicit T02 home; source wording/pages verified in T03/T13."
+    },
+    {
+      "id": "q35",
+      "class": "booklet-question",
+      "theme": "theme-1",
+      "lessonHome": "t1-l10-land-law-knowledge",
+      "sectionId": "traditional-governance",
+      "kind": "shortAnswer",
+      "number": "35",
+      "runtimeKeys": [
+        "theme-1-online-booklet::q35"
+      ],
+      "disposition": "retained",
+      "note": "Explicit T02 home; source wording/pages verified in T03/T13."
+    },
+    {
+      "id": "q36",
+      "class": "booklet-question",
+      "theme": "theme-1",
+      "lessonHome": "t1-l10-land-law-knowledge",
+      "sectionId": "traditional-governance",
+      "kind": "fillBlank",
+      "number": "36",
+      "runtimeKeys": [
+        "theme-1-online-booklet::q36.blank-1"
+      ],
+      "disposition": "retained",
+      "note": "Explicit T02 home; source wording/pages verified in T03/T13."
+    },
+    {
+      "id": "q39",
+      "class": "booklet-question",
+      "theme": "theme-1",
+      "lessonHome": "t1-l10-land-law-knowledge",
+      "sectionId": "traditional-governance",
+      "kind": "shortAnswer",
+      "number": "39",
+      "runtimeKeys": [
+        "theme-1-online-booklet::q39"
+      ],
+      "disposition": "retained",
+      "note": "Explicit T02 home; source wording/pages verified in T03/T13."
+    },
+    {
+      "id": "q40",
+      "class": "booklet-question",
+      "theme": "theme-1",
+      "lessonHome": "t1-l10-land-law-knowledge",
+      "sectionId": "traditional-governance",
+      "kind": "fillBlank",
+      "number": "40",
+      "runtimeKeys": [
+        "theme-1-online-booklet::q40.blank-1",
+        "theme-1-online-booklet::q40.blank-2"
+      ],
+      "disposition": "retained",
+      "note": "Explicit T02 home; source wording/pages verified in T03/T13."
+    },
+    {
+      "id": "q41",
+      "class": "booklet-question",
+      "theme": "theme-1",
+      "lessonHome": "t1-l10-land-law-knowledge",
+      "sectionId": "traditional-governance",
+      "kind": "shortAnswer",
+      "number": "41",
+      "runtimeKeys": [
+        "theme-1-online-booklet::q41"
+      ],
+      "disposition": "retained",
+      "note": "Explicit T02 home; source wording/pages verified in T03/T13."
+    },
+    {
+      "id": "q42",
+      "class": "booklet-question",
+      "theme": "theme-1",
+      "lessonHome": "t1-l10-land-law-knowledge",
+      "sectionId": "traditional-governance",
+      "kind": "shortAnswer",
+      "number": "42",
+      "runtimeKeys": [
+        "theme-1-online-booklet::q42"
+      ],
+      "disposition": "retained",
+      "note": "Explicit T02 home; source wording/pages verified in T03/T13."
+    },
+    {
+      "id": "q43",
+      "class": "booklet-question",
+      "theme": "theme-1",
+      "lessonHome": "t1-l10-land-law-knowledge",
+      "sectionId": "traditional-governance",
+      "kind": "shortAnswer",
+      "number": "43",
+      "runtimeKeys": [
+        "theme-1-online-booklet::q43"
+      ],
+      "disposition": "retained",
+      "note": "Explicit T02 home; source wording/pages verified in T03/T13."
+    },
+    {
+      "id": "q44",
+      "class": "booklet-question",
+      "theme": "theme-1",
+      "lessonHome": "t1-l11-metis-governance-elders",
+      "sectionId": "traditional-governance",
+      "kind": "shortAnswer",
+      "number": "44",
+      "runtimeKeys": [
+        "theme-1-online-booklet::q44"
+      ],
+      "disposition": "retained",
+      "note": "Explicit T02 home; source wording/pages verified in T03/T13."
+    },
+    {
+      "id": "q45",
+      "class": "booklet-question",
+      "theme": "theme-1",
+      "lessonHome": "t1-l11-metis-governance-elders",
+      "sectionId": "traditional-governance",
+      "kind": "shortAnswer",
+      "number": "45",
+      "runtimeKeys": [
+        "theme-1-online-booklet::q45"
+      ],
+      "disposition": "retained",
+      "note": "Explicit T02 home; source wording/pages verified in T03/T13."
+    },
+    {
+      "id": "q46",
+      "class": "booklet-question",
+      "theme": "theme-1",
+      "lessonHome": "t1-l11-metis-governance-elders",
+      "sectionId": "traditional-governance",
+      "kind": "shortAnswer",
+      "number": "46",
+      "runtimeKeys": [
+        "theme-1-online-booklet::q46"
+      ],
+      "disposition": "retained",
+      "note": "Explicit T02 home; source wording/pages verified in T03/T13."
+    },
+    {
+      "id": "q47",
+      "class": "booklet-question",
+      "theme": "theme-1",
+      "lessonHome": "t1-l11-metis-governance-elders",
+      "sectionId": "traditional-governance",
+      "kind": "shortAnswer",
+      "number": "47",
+      "runtimeKeys": [
+        "theme-1-online-booklet::q47"
+      ],
+      "disposition": "retained",
+      "note": "Explicit T02 home; source wording/pages verified in T03/T13."
+    },
+    {
+      "id": "q48",
+      "class": "booklet-question",
+      "theme": "theme-1",
+      "lessonHome": "t1-l12-first-nations-inuit-relations",
+      "sectionId": "traditional-governance",
+      "kind": "shortAnswer",
+      "number": "48",
+      "runtimeKeys": [
+        "theme-1-online-booklet::q48"
+      ],
+      "disposition": "retained",
+      "note": "Explicit T02 home; source wording/pages verified in T03/T13."
+    },
+    {
+      "id": "q49",
+      "class": "booklet-question",
+      "theme": "theme-1",
+      "lessonHome": "t1-l12-first-nations-inuit-relations",
+      "sectionId": "traditional-governance",
+      "kind": "shortAnswer",
+      "number": "49",
+      "runtimeKeys": [
+        "theme-1-online-booklet::q49"
+      ],
+      "disposition": "retained",
+      "note": "Explicit T02 home; source wording/pages verified in T03/T13."
+    },
+    {
+      "id": "q50",
+      "class": "booklet-question",
+      "theme": "theme-1",
+      "lessonHome": "t1-l12-first-nations-inuit-relations",
+      "sectionId": "traditional-governance",
+      "kind": "fillBlank",
+      "number": "50",
+      "runtimeKeys": [
+        "theme-1-online-booklet::q50.blank-1"
+      ],
+      "disposition": "retained",
+      "note": "Explicit T02 home; source wording/pages verified in T03/T13."
+    },
+    {
+      "id": "q51",
+      "class": "booklet-question",
+      "theme": "theme-1",
+      "lessonHome": "t1-l12-first-nations-inuit-relations",
+      "sectionId": "traditional-governance",
+      "kind": "shortAnswer",
+      "number": "51",
+      "runtimeKeys": [
+        "theme-1-online-booklet::q51"
+      ],
+      "disposition": "retained",
+      "note": "Explicit T02 home; source wording/pages verified in T03/T13."
+    },
+    {
+      "id": "q52",
+      "class": "booklet-question",
+      "theme": "theme-1",
+      "lessonHome": "t1-l13-scrip-road-allowances",
+      "sectionId": "traditional-governance",
+      "kind": "shortAnswer",
+      "number": "52",
+      "runtimeKeys": [
+        "theme-1-online-booklet::q52"
+      ],
+      "disposition": "retained",
+      "note": "Explicit T02 home; source wording/pages verified in T03/T13."
+    },
+    {
+      "id": "q53",
+      "class": "booklet-question",
+      "theme": "theme-1",
+      "lessonHome": "t1-l13-scrip-road-allowances",
+      "sectionId": "traditional-governance",
+      "kind": "shortAnswer",
+      "number": "53",
+      "runtimeKeys": [
+        "theme-1-online-booklet::q53"
+      ],
+      "disposition": "retained",
+      "note": "Explicit T02 home; source wording/pages verified in T03/T13."
+    },
+    {
+      "id": "q54",
+      "class": "booklet-question",
+      "theme": "theme-1",
+      "lessonHome": "t1-l13-scrip-road-allowances",
+      "sectionId": "traditional-governance",
+      "kind": "shortAnswer",
+      "number": "54",
+      "runtimeKeys": [
+        "theme-1-online-booklet::q54"
+      ],
+      "disposition": "retained",
+      "note": "Explicit T02 home; source wording/pages verified in T03/T13."
+    },
+    {
+      "id": "q55",
+      "class": "booklet-question",
+      "theme": "theme-1",
+      "lessonHome": "t1-l13-scrip-road-allowances",
+      "sectionId": "traditional-governance",
+      "kind": "shortAnswer",
+      "number": "55",
+      "runtimeKeys": [
+        "theme-1-online-booklet::q55"
+      ],
+      "disposition": "retained",
+      "note": "Explicit T02 home; source wording/pages verified in T03/T13."
+    },
+    {
+      "id": "q56",
+      "class": "booklet-question",
+      "theme": "theme-1",
+      "lessonHome": "t1-l13-scrip-road-allowances",
+      "sectionId": "traditional-governance",
+      "kind": "shortAnswer",
+      "number": "56",
+      "runtimeKeys": [
+        "theme-1-online-booklet::q56"
+      ],
+      "disposition": "retained",
+      "note": "Explicit T02 home; source wording/pages verified in T03/T13."
+    },
+    {
+      "id": "q57",
+      "class": "booklet-question",
+      "theme": "theme-1",
+      "lessonHome": "t1-l14-indian-act",
+      "sectionId": "traditional-governance",
+      "kind": "shortAnswer",
+      "number": "57",
+      "runtimeKeys": [
+        "theme-1-online-booklet::q57"
+      ],
+      "disposition": "retained",
+      "note": "Explicit T02 home; source wording/pages verified in T03/T13."
+    },
+    {
+      "id": "q58",
+      "class": "booklet-question",
+      "theme": "theme-1",
+      "lessonHome": "t1-l14-indian-act",
+      "sectionId": "traditional-governance",
+      "kind": "shortAnswer",
+      "number": "58",
+      "runtimeKeys": [
+        "theme-1-online-booklet::q58"
+      ],
+      "disposition": "retained",
+      "note": "Explicit T02 home; source wording/pages verified in T03/T13."
+    },
+    {
+      "id": "q59",
+      "class": "booklet-question",
+      "theme": "theme-1",
+      "lessonHome": "t1-l14-indian-act",
+      "sectionId": "traditional-governance",
+      "kind": "shortAnswer",
+      "number": "59",
+      "runtimeKeys": [
+        "theme-1-online-booklet::q59"
+      ],
+      "disposition": "retained",
+      "note": "Explicit T02 home; source wording/pages verified in T03/T13."
+    },
+    {
+      "id": "q60",
+      "class": "booklet-question",
+      "theme": "theme-1",
+      "lessonHome": "t1-l14-indian-act",
+      "sectionId": "traditional-governance",
+      "kind": "shortAnswer",
+      "number": "60",
+      "runtimeKeys": [
+        "theme-1-online-booklet::q60"
+      ],
+      "disposition": "retained",
+      "note": "Explicit T02 home; source wording/pages verified in T03/T13."
+    },
+    {
+      "id": "q61",
+      "class": "booklet-question",
+      "theme": "theme-1",
+      "lessonHome": "t1-l15-resistance-1951",
+      "sectionId": "traditional-governance",
+      "kind": "shortAnswer",
+      "number": "61",
+      "runtimeKeys": [
+        "theme-1-online-booklet::q61"
+      ],
+      "disposition": "retained",
+      "note": "Explicit T02 home; source wording/pages verified in T03/T13."
+    },
+    {
+      "id": "q62",
+      "class": "booklet-question",
+      "theme": "theme-1",
+      "lessonHome": "t1-l15-resistance-1951",
+      "sectionId": "traditional-governance",
+      "kind": "shortAnswer",
+      "number": "62",
+      "runtimeKeys": [
+        "theme-1-online-booklet::q62"
+      ],
+      "disposition": "retained",
+      "note": "Explicit T02 home; source wording/pages verified in T03/T13."
+    },
+    {
+      "id": "q63",
+      "class": "booklet-question",
+      "theme": "theme-1",
+      "lessonHome": "t1-l15-resistance-1951",
+      "sectionId": "traditional-governance",
+      "kind": "shortAnswer",
+      "number": "63",
+      "runtimeKeys": [
+        "theme-1-online-booklet::q63"
+      ],
+      "disposition": "retained",
+      "note": "Explicit T02 home; source wording/pages verified in T03/T13."
+    },
+    {
+      "id": "q64",
+      "class": "booklet-question",
+      "theme": "theme-1",
+      "lessonHome": "t1-l15-resistance-1951",
+      "sectionId": "traditional-governance",
+      "kind": "shortAnswer",
+      "number": "64",
+      "runtimeKeys": [
+        "theme-1-online-booklet::q64"
+      ],
+      "disposition": "retained",
+      "note": "Explicit T02 home; source wording/pages verified in T03/T13."
+    },
+    {
+      "id": "q65",
+      "class": "booklet-question",
+      "theme": "theme-1",
+      "lessonHome": "t1-l16-policy-councils-devolution",
+      "sectionId": "traditional-governance",
+      "kind": "shortAnswer",
+      "number": "65",
+      "runtimeKeys": [
+        "theme-1-online-booklet::q65"
+      ],
+      "disposition": "retained",
+      "note": "Explicit T02 home; source wording/pages verified in T03/T13."
+    },
+    {
+      "id": "q66",
+      "class": "booklet-question",
+      "theme": "theme-1",
+      "lessonHome": "t1-l16-policy-councils-devolution",
+      "sectionId": "traditional-governance",
+      "kind": "shortAnswer",
+      "number": "66",
+      "runtimeKeys": [
+        "theme-1-online-booklet::q66"
+      ],
+      "disposition": "retained",
+      "note": "Explicit T02 home; source wording/pages verified in T03/T13."
+    },
+    {
+      "id": "q67",
+      "class": "booklet-question",
+      "theme": "theme-1",
+      "lessonHome": "t1-l16-policy-councils-devolution",
+      "sectionId": "traditional-governance",
+      "kind": "shortAnswer",
+      "number": "67",
+      "runtimeKeys": [
+        "theme-1-online-booklet::q67"
+      ],
+      "disposition": "retained",
+      "note": "Explicit T02 home; source wording/pages verified in T03/T13."
+    },
+    {
+      "id": "q68",
+      "class": "booklet-question",
+      "theme": "theme-1",
+      "lessonHome": "t1-l16-policy-councils-devolution",
+      "sectionId": "traditional-governance",
+      "kind": "shortAnswer",
+      "number": "68",
+      "runtimeKeys": [
+        "theme-1-online-booklet::q68"
+      ],
+      "disposition": "retained",
+      "note": "Explicit T02 home; source wording/pages verified in T03/T13."
+    },
+    {
+      "id": "q69",
+      "class": "booklet-question",
+      "theme": "theme-1",
+      "lessonHome": "t1-l17-land-knowledge-constitution",
+      "sectionId": "rights-self-government",
+      "kind": "shortAnswer",
+      "number": "69",
+      "runtimeKeys": [
+        "theme-1-online-booklet::q69"
+      ],
+      "disposition": "retained",
+      "note": "Explicit T02 home; source wording/pages verified in T03/T13."
+    },
+    {
+      "id": "q70",
+      "class": "booklet-question",
+      "theme": "theme-1",
+      "lessonHome": "t1-l17-land-knowledge-constitution",
+      "sectionId": "rights-self-government",
+      "kind": "shortAnswer",
+      "number": "70",
+      "runtimeKeys": [
+        "theme-1-online-booklet::q70"
+      ],
+      "disposition": "retained",
+      "note": "Explicit T02 home; source wording/pages verified in T03/T13."
+    },
+    {
+      "id": "q71",
+      "class": "booklet-question",
+      "theme": "theme-1",
+      "lessonHome": "t1-l17-land-knowledge-constitution",
+      "sectionId": "rights-self-government",
+      "kind": "shortAnswer",
+      "number": "71",
+      "runtimeKeys": [
+        "theme-1-online-booklet::q71"
+      ],
+      "disposition": "retained",
+      "note": "Explicit T02 home; source wording/pages verified in T03/T13."
+    },
+    {
+      "id": "q72",
+      "class": "booklet-question",
+      "theme": "theme-1",
+      "lessonHome": "t1-l17-land-knowledge-constitution",
+      "sectionId": "rights-self-government",
+      "kind": "shortAnswer",
+      "number": "72",
+      "runtimeKeys": [
+        "theme-1-online-booklet::q72"
+      ],
+      "disposition": "retained",
+      "note": "Explicit T02 home; source wording/pages verified in T03/T13."
+    },
+    {
+      "id": "q73",
+      "class": "booklet-question",
+      "theme": "theme-1",
+      "lessonHome": "t1-l18-constitutional-negotiations",
+      "sectionId": "rights-self-government",
+      "kind": "fillBlank",
+      "number": "73",
+      "runtimeKeys": [
+        "theme-1-online-booklet::q73.blank-1",
+        "theme-1-online-booklet::q73.blank-2"
+      ],
+      "disposition": "retained",
+      "note": "Explicit T02 home; source wording/pages verified in T03/T13."
+    },
+    {
+      "id": "q74",
+      "class": "booklet-question",
+      "theme": "theme-1",
+      "lessonHome": "t1-l18-constitutional-negotiations",
+      "sectionId": "rights-self-government",
+      "kind": "shortAnswer",
+      "number": "74",
+      "runtimeKeys": [
+        "theme-1-online-booklet::q74"
+      ],
+      "disposition": "retained",
+      "note": "Explicit T02 home; source wording/pages verified in T03/T13."
+    },
+    {
+      "id": "q75",
+      "class": "booklet-question",
+      "theme": "theme-1",
+      "lessonHome": "t1-l18-constitutional-negotiations",
+      "sectionId": "rights-self-government",
+      "kind": "shortAnswer",
+      "number": "75",
+      "runtimeKeys": [
+        "theme-1-online-booklet::q75"
+      ],
+      "disposition": "retained",
+      "note": "Explicit T02 home; source wording/pages verified in T03/T13."
+    },
+    {
+      "id": "q76",
+      "class": "booklet-question",
+      "theme": "theme-1",
+      "lessonHome": "t1-l19-title-treaties-constraints",
+      "sectionId": "rights-self-government",
+      "kind": "shortAnswer",
+      "number": "76",
+      "runtimeKeys": [
+        "theme-1-online-booklet::q76"
+      ],
+      "disposition": "retained",
+      "note": "Explicit T02 home; source wording/pages verified in T03/T13."
+    },
+    {
+      "id": "q77",
+      "class": "booklet-question",
+      "theme": "theme-1",
+      "lessonHome": "t1-l19-title-treaties-constraints",
+      "sectionId": "rights-self-government",
+      "kind": "shortAnswer",
+      "number": "77",
+      "runtimeKeys": [
+        "theme-1-online-booklet::q77"
+      ],
+      "disposition": "retained",
+      "note": "Explicit T02 home; source wording/pages verified in T03/T13."
+    },
+    {
+      "id": "q78",
+      "class": "booklet-question",
+      "theme": "theme-1",
+      "lessonHome": "t1-l19-title-treaties-constraints",
+      "sectionId": "rights-self-government",
+      "kind": "shortAnswer",
+      "number": "78",
+      "runtimeKeys": [
+        "theme-1-online-booklet::q78"
+      ],
+      "disposition": "retained",
+      "note": "Explicit T02 home; source wording/pages verified in T03/T13."
+    },
+    {
+      "id": "q79",
+      "class": "booklet-question",
+      "theme": "theme-1",
+      "lessonHome": "t1-l20-harvesting-rights",
+      "sectionId": "rights-self-government",
+      "kind": "multipleChoice",
+      "number": "79",
+      "runtimeKeys": [
+        "theme-1-online-booklet::q79"
+      ],
+      "disposition": "retained",
+      "note": "Explicit T02 home; source wording/pages verified in T03/T13."
+    },
+    {
+      "id": "q80",
+      "class": "booklet-question",
+      "theme": "theme-1",
+      "lessonHome": "t1-l20-harvesting-rights",
+      "sectionId": "rights-self-government",
+      "kind": "shortAnswer",
+      "number": "80",
+      "runtimeKeys": [
+        "theme-1-online-booklet::q80"
+      ],
+      "disposition": "retained",
+      "note": "Explicit T02 home; source wording/pages verified in T03/T13."
+    },
+    {
+      "id": "q81",
+      "class": "booklet-question",
+      "theme": "theme-1",
+      "lessonHome": "t1-l21-rebuilding-goals",
+      "sectionId": "rights-self-government",
+      "kind": "shortAnswer",
+      "number": "81",
+      "runtimeKeys": [
+        "theme-1-online-booklet::q81"
+      ],
+      "disposition": "retained",
+      "note": "Explicit T02 home; source wording/pages verified in T03/T13."
+    },
+    {
+      "id": "q82",
+      "class": "booklet-question",
+      "theme": "theme-1",
+      "lessonHome": "t1-l21-rebuilding-goals",
+      "sectionId": "rights-self-government",
+      "kind": "shortAnswer",
+      "number": "82",
+      "runtimeKeys": [
+        "theme-1-online-booklet::q82"
+      ],
+      "disposition": "retained",
+      "note": "Explicit T02 home; source wording/pages verified in T03/T13."
+    },
+    {
+      "id": "q83",
+      "class": "booklet-question",
+      "theme": "theme-1",
+      "lessonHome": "t1-l21-rebuilding-goals",
+      "sectionId": "rights-self-government",
+      "kind": "shortAnswer",
+      "number": "83",
+      "runtimeKeys": [
+        "theme-1-online-booklet::q83"
+      ],
+      "disposition": "retained",
+      "note": "Explicit T02 home; source wording/pages verified in T03/T13."
+    },
+    {
+      "id": "q84",
+      "class": "booklet-question",
+      "theme": "theme-1",
+      "lessonHome": "t1-l22-models",
+      "sectionId": "rights-self-government",
+      "kind": "shortAnswer",
+      "number": "84",
+      "runtimeKeys": [
+        "theme-1-online-booklet::q84"
+      ],
+      "disposition": "retained",
+      "note": "Explicit T02 home; source wording/pages verified in T03/T13."
+    },
+    {
+      "id": "q85",
+      "class": "booklet-question",
+      "theme": "theme-1",
+      "lessonHome": "t1-l22-models",
+      "sectionId": "rights-self-government",
+      "kind": "shortAnswer",
+      "number": "85",
+      "runtimeKeys": [
+        "theme-1-online-booklet::q85"
+      ],
+      "disposition": "retained",
+      "note": "Explicit T02 home; source wording/pages verified in T03/T13."
+    },
+    {
+      "id": "q86",
+      "class": "booklet-question",
+      "theme": "theme-1",
+      "lessonHome": "t1-l22-models",
+      "sectionId": "rights-self-government",
+      "kind": "shortAnswer",
+      "number": "86",
+      "runtimeKeys": [
+        "theme-1-online-booklet::q86"
+      ],
+      "disposition": "retained",
+      "note": "Explicit T02 home; source wording/pages verified in T03/T13."
+    },
+    {
+      "id": "q87",
+      "class": "booklet-question",
+      "theme": "theme-1",
+      "lessonHome": "t1-l22-models",
+      "sectionId": "rights-self-government",
+      "kind": "shortAnswer",
+      "number": "87",
+      "runtimeKeys": [
+        "theme-1-online-booklet::q87"
+      ],
+      "disposition": "retained",
+      "note": "Explicit T02 home; source wording/pages verified in T03/T13."
+    },
+    {
+      "id": "assignment-1-1",
+      "class": "booklet-assignment-prompt",
+      "theme": "theme-1",
+      "lessonHome": "t1-l05-early-treaties",
+      "sectionId": "assignment-1-1",
+      "runtimeKeys": [
+        "theme-1-online-booklet::assignment-1-1"
+      ],
+      "disposition": "retained",
+      "observedFormalCounterpart": "oral-tradition",
+      "note": "Observed section->lesson link ASSIGNMENT_PROMPT_LESSONS; canonical section->assignment linkage in T03 manifest."
+    },
+    {
+      "id": "assignment-1-2",
+      "class": "booklet-assignment-prompt",
+      "theme": "theme-1",
+      "lessonHome": "t1-l22-models",
+      "sectionId": "assignment-1-2",
+      "runtimeKeys": [
+        "theme-1-online-booklet::assignment-1-2"
+      ],
+      "disposition": "retained",
+      "observedFormalCounterpart": "rebuilding-self-government",
+      "note": "Observed section->lesson link ASSIGNMENT_PROMPT_LESSONS; canonical section->assignment linkage in T03 manifest."
+    },
+    {
+      "id": "theme-1-definition-terms",
+      "class": "definition-set",
+      "theme": "theme-1",
+      "count": 12,
+      "disposition": "blocked",
+      "blockedReason": "Individual terms not yet reconciled against the official Theme 1 booklet; vocabulary reference is not evidence the tasks exist.",
+      "owningTicket": "T03",
+      "note": "Recorded here so the requirement cannot be silently dropped."
+    },
+    {
+      "id": "2-1-land-stewardship",
+      "class": "formal-assignment",
+      "theme": "theme-2",
+      "runtimeKeys": [
+        "written::2-1-land-stewardship"
+      ],
+      "disposition": "retained",
+      "note": "Prompt/source reconciliation in T03; versioned novel decision for 4-3 needs teacher approval (T18)."
+    },
+    {
+      "id": "2-2-specific-land-claims",
+      "class": "formal-assignment",
+      "theme": "theme-2",
+      "runtimeKeys": [
+        "written::2-2-specific-land-claims"
+      ],
+      "disposition": "retained",
+      "note": "Prompt/source reconciliation in T03; versioned novel decision for 4-3 needs teacher approval (T18)."
+    },
+    {
+      "id": "4-2-rabbit-proof-fence",
+      "class": "formal-assignment",
+      "theme": "theme-4",
+      "runtimeKeys": [
+        "written::4-2-rabbit-proof-fence"
+      ],
+      "disposition": "retained",
+      "note": "Prompt/source reconciliation in T03; versioned novel decision for 4-3 needs teacher approval (T18)."
+    },
+    {
+      "id": "4-3-personal-response",
+      "class": "formal-assignment",
+      "theme": "theme-4",
+      "runtimeKeys": [
+        "written::4-3-personal-response"
+      ],
+      "disposition": "retained",
+      "note": "Prompt/source reconciliation in T03; versioned novel decision for 4-3 needs teacher approval (T18)."
+    },
+    {
+      "id": "assignment-3-1-breaking-stereotypes",
+      "class": "formal-assignment",
+      "theme": "theme-3",
+      "runtimeKeys": [
+        "written::assignment-3-1-breaking-stereotypes"
+      ],
+      "disposition": "retained",
+      "note": "Prompt/source reconciliation in T03; versioned novel decision for 4-3 needs teacher approval (T18)."
+    },
+    {
+      "id": "attawapiskat-report",
+      "class": "formal-assignment",
+      "theme": "theme-1",
+      "runtimeKeys": [
+        "written::attawapiskat-report"
+      ],
+      "disposition": "retained",
+      "note": "Prompt/source reconciliation in T03; versioned novel decision for 4-3 needs teacher approval (T18)."
+    },
+    {
+      "id": "oral-tradition",
+      "class": "formal-assignment",
+      "theme": "theme-1",
+      "runtimeKeys": [
+        "written::oral-tradition"
+      ],
+      "disposition": "retained",
+      "note": "Prompt/source reconciliation in T03; versioned novel decision for 4-3 needs teacher approval (T18)."
+    },
+    {
+      "id": "rebuilding-self-government",
+      "class": "formal-assignment",
+      "theme": "theme-1",
+      "runtimeKeys": [
+        "written::rebuilding-self-government"
+      ],
+      "disposition": "retained",
+      "note": "Prompt/source reconciliation in T03; versioned novel decision for 4-3 needs teacher approval (T18)."
+    },
+    {
+      "id": "aboriginal-studies-30-theme-1-assignment",
+      "class": "booklet-shell",
+      "theme": "theme-1",
+      "disposition": "retained",
+      "note": "Hidden shell record; kept in data, never renders as a written assignment. T03 decides final disposition."
+    },
+    {
+      "id": "aboriginal-studies-30-theme-2-assignment",
+      "class": "booklet-shell",
+      "theme": "theme-2",
+      "disposition": "retained",
+      "note": "Hidden shell record; kept in data, never renders as a written assignment. T03 decides final disposition."
+    },
+    {
+      "id": "aboriginal-studies-30-theme-3-assignment",
+      "class": "booklet-shell",
+      "theme": "theme-3",
+      "disposition": "retained",
+      "note": "Hidden shell record; kept in data, never renders as a written assignment. T03 decides final disposition."
+    },
+    {
+      "id": "aboriginal-studies-30-theme-4-assignment",
+      "class": "booklet-shell",
+      "theme": "theme-4",
+      "disposition": "retained",
+      "note": "Hidden shell record; kept in data, never renders as a written assignment. T03 decides final disposition."
+    },
+    {
+      "id": "theme-2-questions",
+      "class": "question-set",
+      "theme": "theme-2",
+      "count": 28,
+      "disposition": "blocked",
+      "blockedReason": "Q1-28 forms not in current data; restore from official Theme 2 booklet.",
+      "owningTicket": "T14"
+    },
+    {
+      "id": "theme-3-questions",
+      "class": "question-set",
+      "theme": "theme-3",
+      "count": 30,
+      "disposition": "blocked",
+      "blockedReason": "Q1-30 forms not in current data; restore from official Theme 3 booklet incl. duplicated prompts as distinct items.",
+      "owningTicket": "T16"
+    },
+    {
+      "id": "theme-4-world-issues-questions",
+      "class": "question-set",
+      "theme": "theme-4",
+      "count": 22,
+      "disposition": "blocked",
+      "blockedReason": "World Issues Q1-22 forms not in current data; restore from official Theme 4 booklet.",
+      "owningTicket": "T18"
+    },
+    {
+      "id": "theme-4-comparison-4-1",
+      "class": "chart-task",
+      "theme": "theme-4",
+      "disposition": "blocked",
+      "blockedReason": "Canada/Australia comparison (12 categories x both columns) surface missing; restore per booklet.",
+      "owningTicket": "T18"
+    },
+    {
+      "id": "theme-3-reel-injun-sequence",
+      "class": "film-task",
+      "theme": "theme-3",
+      "disposition": "blocked",
+      "blockedReason": "Full Reel Injun prompt sequence incl. unnumbered final prompt missing; Film Room entry is not a substitute.",
+      "owningTicket": "T16"
+    },
+    {
+      "id": "theme-4-novel-4-3",
+      "class": "novel-task",
+      "theme": "theme-4",
+      "disposition": "blocked",
+      "blockedReason": "Official Halfbreed version pending; legacy Inconvenient Indian record preserved; teacher decision required before activation.",
+      "owningTicket": "T18"
+    }
+  ]
+}

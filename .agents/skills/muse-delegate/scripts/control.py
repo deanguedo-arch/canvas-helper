@@ -10,6 +10,7 @@ import os
 from pathlib import Path
 import re
 import subprocess
+from shared_state import cooldown as shared_cooldown, state_root as default_shared_root, status as shared_status
 
 
 OFF_VALUES = {"0", "false", "no", "off", "disabled"}
@@ -32,7 +33,7 @@ def read_state(runtime_root: Path) -> dict[str, object] | None:
     return json.loads(state_path.read_text(encoding="utf-8"))
 
 
-def delegation_state(runtime_root: Path) -> tuple[bool, str]:
+def delegation_state(runtime_root: Path, shared_root: Path | None = None) -> tuple[bool, str]:
     environment = os.environ.get("MUSE_DELEGATION", "").strip().lower()
     if environment in OFF_VALUES:
         return False, f"MUSE_DELEGATION={environment}"
@@ -41,8 +42,8 @@ def delegation_state(runtime_root: Path) -> tuple[bool, str]:
     except (OSError, json.JSONDecodeError) as error:
         return False, f"invalid delegation state: {error}"
     if state is None:
-        return True, "enabled"
-    if state.get("mode") == AUTOMATIC_MODE:
+        pass
+    elif state.get("mode") == AUTOMATIC_MODE:
         disabled_until_raw = str(state.get("disabledUntil") or "")
         try:
             disabled_until = datetime.fromisoformat(disabled_until_raw)
@@ -50,11 +51,23 @@ def delegation_state(runtime_root: Path) -> tuple[bool, str]:
             return False, "invalid automatic usage cooldown"
         if disabled_until.tzinfo is None:
             disabled_until = disabled_until.replace(tzinfo=timezone.utc)
-        if datetime.now(timezone.utc) >= disabled_until:
-            return True, f"automatic usage cooldown expired at {disabled_until.isoformat()}"
-        return False, f"Muse usage cooldown until {disabled_until.isoformat()}"
-    if state.get("enabled") is False:
+        if datetime.now(timezone.utc) < disabled_until:
+            return False, f"Muse usage cooldown until {disabled_until.isoformat()}"
+    elif state.get("enabled") is False:
         return False, str(state.get("reason") or "disabled locally")
+    try:
+        shared = shared_status(shared_root or default_shared_root())
+    except (OSError, ValueError, json.JSONDecodeError) as error:
+        return False, f"invalid shared admission state: {error}"
+    if shared.get("mode") == "off":
+        return False, "shared routing mode off"
+    if shared.get("providerDisabled"):
+        return False, f"Muse disabled: {shared['providerDisabled']}"
+    cooldown = shared.get("cooldown")
+    if isinstance(cooldown, dict) and cooldown.get("until"):
+        until = datetime.fromisoformat(str(cooldown["until"]))
+        if datetime.now(timezone.utc) < until:
+            return False, f"Muse usage cooldown until {until.isoformat()}"
     return True, "enabled"
 
 
@@ -77,29 +90,9 @@ def usage_cooldown_minutes() -> int:
     return min(24 * 60, max(5, value))
 
 
-def disable_for_usage_limit(runtime_root: Path, evidence: str) -> str:
-    runtime_root.mkdir(parents=True, exist_ok=True)
-    changed_at = datetime.now(timezone.utc)
-    disabled_until = changed_at.timestamp() + usage_cooldown_minutes() * 60
-    disabled_until_iso = datetime.fromtimestamp(disabled_until, tz=timezone.utc).isoformat()
-    (runtime_root / STATE_FILENAME).write_text(
-        json.dumps(
-            {
-                "schemaVersion": 1,
-                "enabled": False,
-                "mode": AUTOMATIC_MODE,
-                "reason": "confirmed Muse usage limit",
-                "evidence": evidence[:240],
-                "changedAt": changed_at.isoformat(),
-                "disabledUntil": disabled_until_iso,
-            },
-            indent=2,
-            sort_keys=True,
-        )
-        + "\n",
-        encoding="utf-8",
-    )
-    return disabled_until_iso
+def disable_for_usage_limit(runtime_root: Path, evidence: str, shared_root: Path | None = None) -> str:
+    _ = runtime_root  # Retained for the existing launcher interface.
+    return str(shared_cooldown(shared_root or default_shared_root(), evidence)["until"])
 
 
 def clear_expired_automatic_state(runtime_root: Path) -> None:
@@ -130,6 +123,7 @@ def main() -> int:
     parser.add_argument("action", choices=["status", "enable", "disable"])
     parser.add_argument("--workspace", default=".")
     parser.add_argument("--runtime-root", help=argparse.SUPPRESS)
+    parser.add_argument("--state-root", help=argparse.SUPPRESS)
     parser.add_argument("--reason", default="disabled by user request")
     args = parser.parse_args()
 
@@ -139,6 +133,7 @@ def main() -> int:
     except subprocess.CalledProcessError as error:
         parser.error(error.stderr.strip() or "workspace is not a Git repository")
     state_path = runtime_root / STATE_FILENAME
+    shared_root = Path(args.state_root).expanduser().resolve() if args.state_root else default_shared_root()
 
     if args.action == "disable":
         runtime_root.mkdir(parents=True, exist_ok=True)
@@ -158,9 +153,11 @@ def main() -> int:
             encoding="utf-8",
         )
     elif args.action == "enable":
-        state_path.unlink(missing_ok=True)
+        current = read_state(runtime_root)
+        if current and current.get("mode") == "manual":
+            state_path.unlink(missing_ok=True)
 
-    enabled, reason = delegation_state(runtime_root)
+    enabled, reason = delegation_state(runtime_root, shared_root)
     print(f"Muse delegation: {'enabled' if enabled else 'disabled'}")
     print(f"Reason: {reason}")
     print(f"Local state: {state_path}")

@@ -1,0 +1,254 @@
+{
+ "arbitration": {
+  "conclusion": "Source N is textbook narration, not Ahnassay speech. The v1 exemplar's speaker attribution on this sentence was wrong and is corrected in ab30-v2-l7.1.",
+  "evidence": "PDF text of file p35 (printed p27): B's quotation closes with 'come,' Ahnassay explains. — followed by the unquoted narrator sentence 'No wonder the chief was hesitant.' — followed by the unquoted N question — followed by a newly opened quotation ('I doubt the translator...'). N sits outside any quotation marks.",
+  "finding": "CONFIRMED_N_IS_NARRATION",
+  "priorTicket": "R07 recorded 'no live narrator label; specimen arbitrates in R08' — this record is that arbitration, with first-hand PDF evidence.",
+  "scope": "Lesson 7 Source N (printed p27) only; Q79 was separately investigated in R07 with no defect found."
+ },
+ "bank": {
+  "bankVersion": "ab30-practice-bank-v1",
+  "engineSelectedResponseVersion": "ab30-practice-bank-v1:1",
+  "items": [
+   {
+    "correctOptionId": "b",
+    "familyId": "l7-source-kind",
+    "id": "ab30-v2-l7-concept-1",
+    "mode": "multipleChoice",
+    "optionIds": [
+     "a",
+     "b",
+     "c"
+    ],
+    "skillTag": "source-kind",
+    "sourceIds": [
+     "L7-A"
+    ],
+    "status": "AUTHORED_SPECIMEN_REQUIRES_PRODUCTION_INTEGRATION_REVIEW"
+   },
+   {
+    "correctOptionId": "c",
+    "familyId": "l7-purpose-understanding",
+    "id": "ab30-v2-l7-concept-2",
+    "mode": "multipleChoice",
+    "optionIds": [
+     "a",
+     "b",
+     "c"
+    ],
+    "skillTag": "purpose-understanding",
+    "sourceIds": [
+     "L7-A"
+    ],
+    "status": "AUTHORED_SPECIMEN_REQUIRES_PRODUCTION_INTEGRATION_REVIEW"
+   },
+   {
+    "correctOptionId": "a",
+    "familyId": "l7-evidence-selection",
+    "id": "ab30-v2-l7-evidence-1",
+    "mode": "multipleChoice",
+    "optionIds": [
+     "a",
+     "b",
+     "c"
+    ],
+    "skillTag": "evidence-selection",
+    "sourceIds": [
+     "L7-B"
+    ],
+    "status": "AUTHORED_SPECIMEN_REQUIRES_PRODUCTION_INTEGRATION_REVIEW"
+   },
+   {
+    "correctOptionId": "b",
+    "familyId": "l7-evidence-selection",
+    "id": "ab30-v2-l7-evidence-2",
+    "inLesson": "supportedSelection (pinned section version ab30-practice-bank-v1:1; L7-BANK-SYNC deep-sync test)",
+    "mode": "multipleChoice",
+    "optionIds": [
+     "a",
+     "b",
+     "c"
+    ],
+    "skillTag": "evidence-selection",
+    "sourceIds": [
+     "L7-B"
+    ],
+    "status": "AUTHORED_SPECIMEN_REQUIRES_PRODUCTION_INTEGRATION_REVIEW"
+   },
+   {
+    "correctOptionId": "c",
+    "familyId": "l7-scope-of-inference",
+    "id": "ab30-v2-l7-application-1",
+    "mode": "multipleChoice",
+    "optionIds": [
+     "a",
+     "b",
+     "c"
+    ],
+    "skillTag": "scope-of-inference",
+    "sourceIds": [
+     "L7-A",
+     "L7-B"
+    ],
+    "status": "AUTHORED_SPECIMEN_REQUIRES_PRODUCTION_INTEGRATION_REVIEW"
+   },
+   {
+    "correctOptionId": "a",
+    "familyId": "l7-attribution",
+    "id": "ab30-v2-l7-application-2",
+    "mode": "multipleChoice",
+    "optionIds": [
+     "a",
+     "b",
+     "c"
+    ],
+    "skillTag": "attribution",
+    "sourceIds": [
+     "L7-N"
+    ],
+    "status": "AUTHORED_SPECIMEN_REQUIRES_PRODUCTION_INTEGRATION_REVIEW"
+   },
+   {
+    "criteriaCount": 3,
+    "familyId": "l7-translation-transfer",
+    "id": "ab30-v2-l7-independent-1",
+    "inLesson": "independentTask t1-l07-numbered-treaties::independent-language-gap (prompt + criteria adapted; criteria text carried in the lesson record)",
+    "mode": "written",
+    "sourceIds": [
+     "L7-C"
+    ],
+    "status": "AUTHORED_SPECIMEN_REQUIRES_PRODUCTION_INTEGRATION_REVIEW"
+   },
+   {
+    "criteriaCount": 3,
+    "familyId": "l7-written-oral-transfer",
+    "id": "ab30-v2-l7-independent-2",
+    "inLesson": "bank-only transfer variant (Source D not shown in-lesson per specimen: 'a different example for later practice, not a second compulsory response')",
+    "mode": "written",
+    "sourceIds": [
+     "L7-D"
+    ],
+    "status": "AUTHORED_SPECIMEN_REQUIRES_PRODUCTION_INTEGRATION_REVIEW"
+   }
+  ],
+  "modes": {
+   "selected-response": "offered=false until the R29 catalogue entry point; items run in-lesson on real engine sessions",
+   "written-comparison": "offered=false; no reviewed model responses recorded"
+  },
+  "reviewedCount": 8,
+  "workload": "all items formalMarks=null, compulsory=false; L7-WORKLOAD proves the in-lesson keys stay formative"
+ },
+ "claims": [
+  {
+   "claim": "The government understood the treaties as surrender of the land claim; First Nations leaders understood them as agreements to share the land.",
+   "sourceIds": [
+    "L7-A"
+   ],
+   "usedIn": [
+    "taught section 2",
+    "worked example",
+    "supported repair"
+   ]
+  },
+  {
+   "claim": "Chief Chateh delayed signing to protect his people's traditional lands into the future; Ahnassay reports an account he heard, not an eyewitness observation.",
+   "sourceIds": [
+    "L7-B"
+   ],
+   "usedIn": [
+    "taught section 2",
+    "worked example",
+    "supported selection + repair"
+   ]
+  },
+  {
+   "claim": "The language question on printed p27 is the textbook narrator's framing outside Ahnassay's quotation.",
+   "sourceIds": [
+    "L7-N"
+   ],
+   "usedIn": [
+    "taught section 5",
+    "bank item application-2"
+   ]
+  },
+  {
+   "claim": "Interpreting required conveying larger implications and bridging a culture gap as well as a language gap; the passage alone does not establish every interpreter's intention or conduct.",
+   "sourceIds": [
+    "L7-C"
+   ],
+   "usedIn": [
+    "independent task variant 1",
+    "bank item independent-1"
+   ]
+  },
+  {
+   "claim": "Archibald promised continued hunting/fishing/trapping rights; the promise was not included in the written treaty.",
+   "sourceIds": [
+    "L7-D"
+   ],
+   "usedIn": [
+    "bank item independent-2 (transfer variant)"
+   ]
+  }
+ ],
+ "contentVersion": "ab30-v2-l7.1",
+ "hashes": {
+  "course-data.js": "eb060c31cebc3e0bb93016e78397a803ac884705ed4adb8210f36c3e5e4bc1d1",
+  "lesson-components.js": "5ddf470978155b3803eebdcf2c0b9ff5760a50e926430e4c1b4cd16821bbe7ac",
+  "main.js": "ce50fd3156ece4d16333c2931f4f678ffd201b410757f3034c056707f680d563",
+  "officialTextbookPdf": "ef7886447f454c15ee4b66751a190922f9e7241a2ac97939bc92e1156f20a3e9",
+  "practice-data.js": "4daff28ddd458b336489a614345660682fe40254a655ddad11ba7bd34df34c87",
+  "practice-engine.js": "8b700525e8facfa3140d68ca18b6c544f99bf997ec93264873b913544e53cb27",
+  "styles.css": "938c55f25288fc3f3886df50accc012fd723415b1bc8bec1ed12d56014eaccae"
+ },
+ "lessonId": "t1-l07-numbered-treaties",
+ "sources": [
+  {
+   "extractSha256": "see course-data.js hash; extract text pinned by CONTENT06 against the textbook band fixture",
+   "filePage": 34,
+   "id": "L7-A",
+   "inLesson": "Source A",
+   "kind": "textbook-narration",
+   "printedPage": 26,
+   "verification": "verbatim in textbook-ch1-pp24-28.txt fixture (CONTENT06) + specimen planning check"
+  },
+  {
+   "extractSha256": "see course-data.js hash; extract text pinned by CONTENT06 against the textbook band fixture",
+   "filePage": 35,
+   "id": "L7-B",
+   "inLesson": "Source B",
+   "kind": "attributed-quotation",
+   "printedPage": 27,
+   "verification": "verbatim in textbook-ch1-pp24-28.txt fixture (CONTENT06) + specimen planning check; quotation close confirmed in PDF text this ticket"
+  },
+  {
+   "extractSha256": "see course-data.js hash; extract text pinned by CONTENT06 against the textbook band fixture",
+   "filePage": 35,
+   "id": "L7-N",
+   "inLesson": "Source N",
+   "kind": "textbook-narration",
+   "printedPage": 27,
+   "verification": "verbatim in textbook-ch1-pp24-28.txt fixture (CONTENT06); unquoted narrator position confirmed in PDF text this ticket (see arbitration)"
+  },
+  {
+   "extractSha256": "see course-data.js hash; extract text pinned by CONTENT06 against the textbook band fixture",
+   "filePage": 36,
+   "id": "L7-C",
+   "inLesson": "Source C",
+   "kind": "textbook-narration",
+   "printedPage": 28,
+   "verification": "verbatim in textbook-ch1-pp24-28.txt fixture (CONTENT06) + specimen planning check"
+  },
+  {
+   "extractSha256": "bank-only; ledger text verified, not lesson-rendered",
+   "filePage": 37,
+   "id": "L7-D",
+   "inLesson": "bank-only (see independent-2)",
+   "kind": "textbook-narration",
+   "printedPage": 29,
+   "verification": "verified verbatim against the staged official PDF this ticket (pypdf file p37, quote/case/space normalized + line-wrap de-hyphenation); preceding context names Archibald assuring First Nations leaders"
+  }
+ ],
+ "statusNotes": "Candidate implementation evidence, not teacher approval. All 8 bank items retain AUTHORED_SPECIMEN_REQUIRES_PRODUCTION_INTEGRATION_REVIEW until the R09 review pass.",
+ "ticket": "R08"
+}

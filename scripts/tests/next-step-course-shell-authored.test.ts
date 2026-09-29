@@ -54,6 +54,7 @@ test("authored self-contained shell emits semantic bodies and no remote chrome d
   assert.doesNotMatch(html, /fonts\.googleapis\.com|fonts\.gstatic\.com|Material\+Symbols/);
   assert.doesNotMatch(html, /data-complete-id="lesson-04"/);
   assert.doesNotMatch(html, /<h1 class="sidebar-title"/);
+  assert.match(html, /scroll-padding-top:\s*calc\(var\(--topbar-height\) \+ 16px\)/);
   assert.match(html, /if \(open\) navigateToPage\(showLessonsIndex \? "lessons" : \(lessonIds\[0\] \|\| "overview"\)\)/);
   assert.doesNotMatch(html, /id="lessons" class="course-page/);
 });

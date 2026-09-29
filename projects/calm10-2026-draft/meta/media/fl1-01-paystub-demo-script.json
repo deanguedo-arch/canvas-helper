@@ -1,0 +1,106 @@
+{
+  "id": "fl1-01-paystub-demo",
+  "lessonId": "fl1-01",
+  "title": "Read Mika’s fictional pay stub",
+  "learningGoal": "Reconcile hours, gross earnings, deductions, and net pay without treating a label as proof.",
+  "pauseQuestion": "Calculate gross pay and total deductions. What does a match establish—and what does it not prove? Pause to work it out.",
+  "workedExplanation": "12.5 × $18 = $225 gross. Listed deductions total $30.40, leaving $194.60 net. The arithmetic reconciles, but it does not prove the recorded hours or real-world deduction rules are correct.",
+  "scenes": [
+    {
+      "slide": 1,
+      "title": "A smaller deposit",
+      "visualType": "paystub",
+      "visualDescription": "Start by finding the period—not by guessing at an error.",
+      "onScreenLabels": [
+        "Pay period  •  May 1–14",
+        "12.5 regular hours × $18.00/hour",
+        "Gross earnings  $225.00"
+      ],
+      "formulaOrDecision": "What is the statement actually measuring?",
+      "narration": "Mika expected the weekend deposit to equal hours multiplied by the hourly rate, but the deposit is smaller. The first move is not to accuse anyone or assume every line is correct. Find the pay-period dates and the hours covered. This classroom pay stub is fictional; its dates, hours, dollar values, and deductions are invented. We are learning how to read and reconcile a statement, not estimating a real student’s tax or benefits.",
+      "approximateDurationSeconds": 25.09,
+      "pauseSeconds": 0,
+      "wordCount": 73
+    },
+    {
+      "slide": 2,
+      "title": "Calculate the gross amount",
+      "visualType": "paystub",
+      "visualDescription": "Gross pay is before listed deductions.",
+      "onScreenLabels": [
+        "Regular hours     12.5",
+        "Hourly rate        $18.00",
+        "12.5 × $18.00 = $225.00"
+      ],
+      "formulaOrDecision": "Gross earnings = $225.00",
+      "narration": "Gross earnings are the starting amount before deductions. For this fictional hourly example, multiply 12.5 hours by $18 per hour. The units cancel: hours times dollars per hour gives dollars. Twelve times eighteen is 216, and half an hour at eighteen dollars is nine, so gross pay is $225. Compare that result with the printed gross line. It matches here, but the match cannot establish that the recorded 12.5 hours are the hours Mika actually worked.",
+      "approximateDurationSeconds": 29.87,
+      "pauseSeconds": 0,
+      "wordCount": 78
+    },
+    {
+      "slide": 3,
+      "title": "Classify the listed lines",
+      "visualType": "paystub",
+      "visualDescription": "Add only the deductions shown as deductions.",
+      "onScreenLabels": [
+        "Income-tax withholding     $16.00",
+        "CPP line                   $10.80",
+        "EI line                     $3.60"
+      ],
+      "formulaOrDecision": "$16.00 + $10.80 + $3.60 = $30.40",
+      "narration": "Now read the labels and determine which lines are deducted from this fictional cheque. Add the three listed amounts: sixteen dollars plus ten dollars and eighty cents plus three dollars and sixty cents. The total is thirty dollars and forty cents. In real payroll, eligibility, amounts, employer arrangements, and current rules depend on the situation. These invented figures are not current contribution rates, tax guidance, or evidence that a real deduction should apply.",
+      "approximateDurationSeconds": 27.32,
+      "pauseSeconds": 0,
+      "wordCount": 73
+    },
+    {
+      "slide": 4,
+      "title": "Reconcile net pay",
+      "visualType": "calculation",
+      "visualDescription": "Subtract the deduction total once.",
+      "onScreenLabels": [
+        "Gross     $225.00",
+        "Deductions − $30.40",
+        "Net        $194.60"
+      ],
+      "formulaOrDecision": "$225.00 − $30.40 = $194.60",
+      "narration": "Net pay is gross pay minus the deductions taken from this payment. Subtract the total once: 225 dollars minus 30 dollars and 40 cents equals 194 dollars and 60 cents. The printed net amount matches. Do not subtract each deduction from the previous line and accidentally omit one. Also check whether the document has a different payment method, an adjustment, or an informational employer-paid amount before assuming that the net line equals the bank deposit.",
+      "approximateDurationSeconds": 28.25,
+      "pauseSeconds": 0,
+      "wordCount": 75
+    },
+    {
+      "slide": 5,
+      "title": "Pause: try the calculation",
+      "visualType": "pause",
+      "visualDescription": "Use the document, then explain the limit.",
+      "onScreenLabels": [
+        "Gross?",
+        "Total deductions?",
+        "Net? What is still unknown?"
+      ],
+      "formulaOrDecision": "Pause and write your calculation before continuing.",
+      "narration": "Calculate gross pay and total deductions. What does a match establish—and what does it not prove? Pause to work it out.",
+      "approximateDurationSeconds": 13.8,
+      "pauseSeconds": 7,
+      "wordCount": 22
+    },
+    {
+      "slide": 6,
+      "title": "Worked answer and next check",
+      "visualType": "answer",
+      "visualDescription": "Arithmetic can reconcile while a record still needs checking.",
+      "onScreenLabels": [
+        "12.5 × $18.00 = $225.00 gross",
+        "$16.00 + $10.80 + $3.60 = $30.40",
+        "$225.00 − $30.40 = $194.60 net"
+      ],
+      "formulaOrDecision": "Next check: same dates, actual hours, and applicable records.",
+      "narration": "The result is 225 dollars gross, 30 dollars and 40 cents in listed deductions, and 194 dollars and 60 cents net. A common misconception is that the deposit amount is gross pay; it is net in this example. Another is that matching arithmetic proves a pay statement is correct. It proves only that these lines add up. For a real discrepancy, compare the same pay dates with time records and the agreement, then ask payroll or check current official guidance. Never use this classroom example as a real deduction rate. Suppose the time record showed 11.5 hours instead of 12.5. At the fictional rate, gross would be 11.5 times 18 dollars, or 207 dollars, which is 18 dollars less than the printed 225. That difference is a question to check against the same dates and actual work record, not proof of intent. A clear follow-up would identify the exact pay period and ask payroll to review the hour entry. The invented deduction lines should not be scaled to estimate a real cheque.",
+      "approximateDurationSeconds": 61.26,
+      "pauseSeconds": 0,
+      "wordCount": 175
+    }
+  ]
+}

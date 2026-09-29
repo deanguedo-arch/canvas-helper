@@ -108,6 +108,10 @@ export async function captureMarkedPreviewPng(input: PreviewCaptureInput) {
   if (input.signal?.aborted) {
     throw new Error("Screenshot capture was cancelled.");
   }
+  const selectionNodeId = input.selection.nodeId;
+  if (!selectionNodeId) {
+    throw new Error("A selected course element is required for screenshot capture.");
+  }
   const target = captureUrl(input);
   const browser = await launchCaptureBrowser(input.signal);
   if (input.signal?.aborted) {
@@ -182,12 +186,30 @@ export async function captureMarkedPreviewPng(input: PreviewCaptureInput) {
       throw new Error("The captured course created an unguarded browser context.");
     }
 
-    await page.waitForFunction(
-      ({ attribute, nodeId }) =>
-        Array.from(document.querySelectorAll(`[${attribute}]`)).filter(
-          (element) => element.getAttribute(attribute) === nodeId
-        ).length === 1,
-      { attribute: PREVIEW_INSPECT_NODE_ATTRIBUTE, nodeId: input.selection.nodeId },
+    const selectedHandle = await page.waitForFunction(
+      ({ attribute, nodeId }) => {
+        const runtime = /^(ch1:[a-f0-9]{24}:[1-9][0-9]*)~([0-9a-z]{1,3}(?:\.[0-9a-z]{1,3}){0,23})!([a-z][a-z0-9-]{0,15})!([a-f0-9]{8})$/.exec(nodeId);
+        const sourceId = runtime?.[1] ?? nodeId;
+        const owners = Array.from(document.querySelectorAll(`[${attribute}]`)).filter(
+          (element) => element.getAttribute(attribute) === sourceId
+        );
+        if (owners.length !== 1) return false;
+        if (!runtime) return owners[0];
+        let selected: Element | undefined = owners[0];
+        for (const step of runtime[2].split(".")) {
+          selected = selected?.children[parseInt(step, 36)];
+          if (!selected) return false;
+        }
+        if (selected.tagName.toLowerCase() !== runtime[3] || selected.hasAttribute(attribute)) return false;
+        const text = String(selected.textContent || "").replace(/\s+/g, " ").trim().slice(0, 24_000);
+        let hash = 2166136261;
+        for (let index = 0; index < text.length; index += 1) {
+          hash ^= text.charCodeAt(index);
+          hash = Math.imul(hash, 16777619);
+        }
+        return (hash >>> 0).toString(16).padStart(8, "0") === runtime[4] ? selected : false;
+      },
+      { attribute: PREVIEW_INSPECT_NODE_ATTRIBUTE, nodeId: selectionNodeId },
       { timeout: 5_000 }
     );
 
@@ -212,15 +234,32 @@ export async function captureMarkedPreviewPng(input: PreviewCaptureInput) {
       throw new Error("The preview changed pages before the bounded screenshot could be captured.");
     }
 
-    await page.evaluate(
-      ({ attribute, nodeId, markerNumber }) => {
-        const matches = Array.from(document.querySelectorAll(`[${attribute}]`)).filter(
-          (element) => element.getAttribute(attribute) === nodeId
-        );
-        if (matches.length !== 1) {
-          throw new Error("The selected element is no longer unique in the preview.");
+    await selectedHandle.evaluate(
+      (element, { attribute, nodeId, markerNumber }) => {
+        if (!(element instanceof Element) || !element.isConnected) {
+          throw new Error("The selected element is no longer available in the preview.");
         }
-        const selectedRect = matches[0].getBoundingClientRect();
+        const runtime = /^(ch1:[a-f0-9]{24}:[1-9][0-9]*)~([0-9a-z]{1,3}(?:\.[0-9a-z]{1,3}){0,23})!([a-z][a-z0-9-]{0,15})!([a-f0-9]{8})$/.exec(nodeId);
+        if (runtime) {
+          const owner = element.closest(`[${attribute}]`);
+          let current: Element | undefined = owner ?? undefined;
+          for (const step of runtime[2].split(".")) current = current?.children[parseInt(step, 36)];
+          const text = String(element.textContent || "").replace(/\s+/g, " ").trim().slice(0, 24_000);
+          let hash = 2166136261;
+          for (let index = 0; index < text.length; index += 1) {
+            hash ^= text.charCodeAt(index);
+            hash = Math.imul(hash, 16777619);
+          }
+          if (
+            owner?.getAttribute(attribute) !== runtime[1] ||
+            current !== element ||
+            element.tagName.toLowerCase() !== runtime[3] ||
+            (hash >>> 0).toString(16).padStart(8, "0") !== runtime[4]
+          ) throw new Error("The rendered selection changed before capture.");
+        } else if (element.getAttribute(attribute) !== nodeId) {
+          throw new Error("The source selection changed before capture.");
+        }
+        const selectedRect = element.getBoundingClientRect();
         if (
           selectedRect.width <= 0 ||
           selectedRect.height <= 0 ||
@@ -277,11 +316,7 @@ export async function captureMarkedPreviewPng(input: PreviewCaptureInput) {
         overlay.appendChild(badge);
         (document.body || document.documentElement).appendChild(overlay);
       },
-      {
-        attribute: PREVIEW_INSPECT_NODE_ATTRIBUTE,
-        nodeId: input.selection.nodeId,
-        markerNumber: input.markerNumber
-      }
+      { attribute: PREVIEW_INSPECT_NODE_ATTRIBUTE, nodeId: selectionNodeId, markerNumber: input.markerNumber }
     );
 
     const finalCaptureUrl = new URL(page.url());

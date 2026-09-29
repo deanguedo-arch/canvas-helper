@@ -1,0 +1,460 @@
+Math 10C Chapter 4 checker tests passed: semantic equivalence, required form, Unicode normalization, 8 initial tasks and 48 versioned variants.
+✔ scripts/tests/math10c-unit4-checkers.test.cjs (54.657666ms)
+Math 10C Chapter 4 policy tests passed: 48-hour later-session gate; modeled state 43436/52000; protected compaction preserves evidence; oversized state refused.
+✔ scripts/tests/math10c-unit4-policy.test.cjs (53.591833ms)
+Math 10C Chapter 4 practice tests passed: 50 unique generated instances per lesson, 32-target review union, semantic equivalence and preserved legacy questions.
+✔ scripts/tests/math10c-unit4-practice.test.cjs (50.936375ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 59.113625
+
+> canvas-helper@0.1.0 test:math-course-generation
+> tsx --test scripts/tests/math-course-generation-gate.test.ts
+
+✔ generation contract is versioned and rejects shallow lesson structure by definition (0.809833ms)
+✔ generation gate rejects the intentionally shallow fixture (126.850167ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 213.318792
+
+> canvas-helper@0.1.0 validate:math-course-generation
+> tsx scripts/validate-math-course-generation.ts --project math10c-unit4-pilot
+
+{
+  "ok": true,
+  "errors": [],
+  "measurements": {
+    "lessons": 8,
+    "targets": 32,
+    "targetMarkup": 32,
+    "roleCounts": {
+      "orientation": 8,
+      "meaning": 8,
+      "worked": 8,
+      "guided": 8,
+      "faded": 8,
+      "misconception": 8,
+      "mastery": 8
+    },
+    "lessonWords": {
+      "u4-41": 605,
+      "u4-42": 483,
+      "u4-43": 509,
+      "u4-44": 462,
+      "u4-45": 469,
+      "u4-46": 445,
+      "u4-47": 524,
+      "u4-48": 579
+    },
+    "adapter": {
+      "generatedQuestionsPerLesson": {
+        "41": 50,
+        "42": 50,
+        "43": 50,
+        "44": 50,
+        "45": 50,
+        "46": 50,
+        "47": 50,
+        "48": 50
+      },
+      "reviewPartitions": [
+        16,
+        16
+      ],
+      "reviewTargetUnion": [
+        "C4-41a",
+        "C4-41b",
+        "C4-41c",
+        "C4-41d",
+        "C4-42a",
+        "C4-42b",
+        "C4-42c",
+        "C4-42d",
+        "C4-43a",
+        "C4-43b",
+        "C4-43c",
+        "C4-43d",
+        "C4-44a",
+        "C4-44b",
+        "C4-44c",
+        "C4-44d",
+        "C4-45a",
+        "C4-45b",
+        "C4-45c",
+        "C4-45d",
+        "C4-46a",
+        "C4-46b",
+        "C4-46c",
+        "C4-46d",
+        "C4-47a",
+        "C4-47b",
+        "C4-47c",
+        "C4-47d",
+        "C4-48a",
+        "C4-48b",
+        "C4-48c",
+        "C4-48d"
+      ],
+      "targetResponseCoverage": {
+        "C4-41a": {
+          "verification": 3,
+          "verificationVariations": [
+            "routine-symbolic",
+            "changed-representation"
+          ],
+          "transfer": 2,
+          "retention": 2
+        },
+        "C4-41b": {
+          "verification": 3,
+          "verificationVariations": [
+            "routine-symbolic",
+            "changed-representation"
+          ],
+          "transfer": 2,
+          "retention": 2
+        },
+        "C4-41c": {
+          "verification": 3,
+          "verificationVariations": [
+            "routine-symbolic",
+            "changed-representation"
+          ],
+          "transfer": 1,
+          "retention": 2
+        },
+        "C4-41d": {
+          "verification": 3,
+          "verificationVariations": [
+            "routine-symbolic",
+            "changed-representation"
+          ],
+          "transfer": 1,
+          "retention": 2
+        },
+        "C4-42a": {
+          "verification": 3,
+          "verificationVariations": [
+            "routine-symbolic",
+            "changed-representation"
+          ],
+          "transfer": 2,
+          "retention": 2
+        },
+        "C4-42b": {
+          "verification": 3,
+          "verificationVariations": [
+            "routine-symbolic",
+            "changed-representation"
+          ],
+          "transfer": 2,
+          "retention": 2
+        },
+        "C4-42c": {
+          "verification": 3,
+          "verificationVariations": [
+            "routine-symbolic",
+            "changed-representation"
+          ],
+          "transfer": 2,
+          "retention": 2
+        },
+        "C4-42d": {
+          "verification": 3,
+          "verificationVariations": [
+            "routine-symbolic",
+            "changed-representation"
+          ],
+          "transfer": 2,
+          "retention": 2
+        },
+        "C4-43a": {
+          "verification": 3,
+          "verificationVariations": [
+            "routine-symbolic",
+            "changed-representation"
+          ],
+          "transfer": 1,
+          "retention": 2
+        },
+        "C4-43b": {
+          "verification": 3,
+          "verificationVariations": [
+            "routine-symbolic",
+            "changed-representation"
+          ],
+          "transfer": 2,
+          "retention": 2
+        },
+        "C4-43c": {
+          "verification": 3,
+          "verificationVariations": [
+            "routine-symbolic",
+            "changed-representation"
+          ],
+          "transfer": 1,
+          "retention": 2
+        },
+        "C4-43d": {
+          "verification": 3,
+          "verificationVariations": [
+            "routine-symbolic",
+            "changed-representation"
+          ],
+          "transfer": 2,
+          "retention": 2
+        },
+        "C4-44a": {
+          "verification": 3,
+          "verificationVariations": [
+            "routine-symbolic",
+            "changed-representation"
+          ],
+          "transfer": 2,
+          "retention": 2
+        },
+        "C4-44b": {
+          "verification": 3,
+          "verificationVariations": [
+            "routine-symbolic",
+            "changed-representation"
+          ],
+          "transfer": 2,
+          "retention": 2
+        },
+        "C4-44c": {
+          "verification": 3,
+          "verificationVariations": [
+            "routine-symbolic",
+            "changed-representation"
+          ],
+          "transfer": 1,
+          "retention": 2
+        },
+        "C4-44d": {
+          "verification": 3,
+          "verificationVariations": [
+            "routine-symbolic",
+            "changed-representation"
+          ],
+          "transfer": 1,
+          "retention": 2
+        },
+        "C4-45a": {
+          "verification": 3,
+          "verificationVariations": [
+            "routine-symbolic",
+            "changed-representation"
+          ],
+          "transfer": 1,
+          "retention": 2
+        },
+        "C4-45b": {
+          "verification": 3,
+          "verificationVariations": [
+            "routine-symbolic",
+            "changed-representation"
+          ],
+          "transfer": 2,
+          "retention": 2
+        },
+        "C4-45c": {
+          "verification": 3,
+          "verificationVariations": [
+            "routine-symbolic",
+            "changed-representation"
+          ],
+          "transfer": 2,
+          "retention": 2
+        },
+        "C4-45d": {
+          "verification": 3,
+          "verificationVariations": [
+            "routine-symbolic",
+            "changed-representation"
+          ],
+          "transfer": 2,
+          "retention": 2
+        },
+        "C4-46a": {
+          "verification": 3,
+          "verificationVariations": [
+            "routine-symbolic",
+            "changed-representation"
+          ],
+          "transfer": 2,
+          "retention": 2
+        },
+        "C4-46b": {
+          "verification": 3,
+          "verificationVariations": [
+            "routine-symbolic",
+            "changed-representation"
+          ],
+          "transfer": 2,
+          "retention": 2
+        },
+        "C4-46c": {
+          "verification": 3,
+          "verificationVariations": [
+            "routine-symbolic",
+            "changed-representation"
+          ],
+          "transfer": 2,
+          "retention": 2
+        },
+        "C4-46d": {
+          "verification": 3,
+          "verificationVariations": [
+            "routine-symbolic",
+            "changed-representation"
+          ],
+          "transfer": 2,
+          "retention": 2
+        },
+        "C4-47a": {
+          "verification": 3,
+          "verificationVariations": [
+            "routine-symbolic",
+            "changed-representation"
+          ],
+          "transfer": 1,
+          "retention": 2
+        },
+        "C4-47b": {
+          "verification": 3,
+          "verificationVariations": [
+            "routine-symbolic",
+            "changed-representation"
+          ],
+          "transfer": 2,
+          "retention": 2
+        },
+        "C4-47c": {
+          "verification": 3,
+          "verificationVariations": [
+            "routine-symbolic",
+            "changed-representation"
+          ],
+          "transfer": 1,
+          "retention": 2
+        },
+        "C4-47d": {
+          "verification": 3,
+          "verificationVariations": [
+            "routine-symbolic",
+            "changed-representation"
+          ],
+          "transfer": 2,
+          "retention": 2
+        },
+        "C4-48a": {
+          "verification": 3,
+          "verificationVariations": [
+            "routine-symbolic",
+            "changed-representation"
+          ],
+          "transfer": 2,
+          "retention": 2
+        },
+        "C4-48b": {
+          "verification": 3,
+          "verificationVariations": [
+            "routine-symbolic",
+            "changed-representation"
+          ],
+          "transfer": 2,
+          "retention": 2
+        },
+        "C4-48c": {
+          "verification": 3,
+          "verificationVariations": [
+            "routine-symbolic",
+            "changed-representation"
+          ],
+          "transfer": 2,
+          "retention": 2
+        },
+        "C4-48d": {
+          "verification": 3,
+          "verificationVariations": [
+            "routine-symbolic",
+            "changed-representation"
+          ],
+          "transfer": 2,
+          "retention": 2
+        }
+      },
+      "semanticCases": 6,
+      "freshnessCases": {
+        "41": {
+          "routineDistinct": true,
+          "changedVariation": true,
+          "transferVariation": true
+        },
+        "42": {
+          "routineDistinct": true,
+          "changedVariation": true,
+          "transferVariation": true
+        },
+        "43": {
+          "routineDistinct": true,
+          "changedVariation": true,
+          "transferVariation": true
+        },
+        "44": {
+          "routineDistinct": true,
+          "changedVariation": true,
+          "transferVariation": true
+        },
+        "45": {
+          "routineDistinct": true,
+          "changedVariation": true,
+          "transferVariation": true
+        },
+        "46": {
+          "routineDistinct": true,
+          "changedVariation": true,
+          "transferVariation": true
+        },
+        "47": {
+          "routineDistinct": true,
+          "changedVariation": true,
+          "transferVariation": true
+        },
+        "48": {
+          "routineDistinct": true,
+          "changedVariation": true,
+          "transferVariation": true
+        }
+      }
+    }
+  }
+}
+
+> canvas-helper@0.1.0 verify
+> tsx scripts/verify-project.ts --project math10c-unit4-pilot --mode workspace
+
+Metadata policy: passed
+Mode: workspace
+Entry: /Users/deanguedo/Documents/GitHub/canvas-helper/projects/math10c-unit4-pilot/workspace/index.html
+
+Missing local assets (ERROR): none
+
+External dependencies (WARN): none
+
+Missing workspace embeds (ERROR): none
+
+Missing course-shell resources (ERROR): none
+
+Declared missing course-shell resources (WARN): none

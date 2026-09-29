@@ -1,0 +1,72 @@
+{
+  "id": "aboriginal-studies-30-theme-3",
+  "slug": "aboriginal-studies-30-theme-3",
+  "title": "Aboriginal Studies 30 · Theme 3: Aboriginal Peoples in Canadian Society",
+  "sourcePath": "projects/aboriginal-studies-30/workspace",
+  "inputKind": "derived-workspace-split",
+  "brightspaceTarget": "course-page",
+  "previewModes": [
+    "workspace"
+  ],
+  "workspaceEntrypoint": "workspace/index.html",
+  "migrationState": "migrated",
+  "projectType": "conversion",
+  "preferredWorkflows": [
+    "conversion"
+  ],
+  "canonicalEntry": "projects/aboriginal-studies-30-theme-3/workspace/index.html",
+  "canonicalSources": [
+    "projects/aboriginal-studies-30-theme-3/workspace/index.html",
+    "projects/aboriginal-studies-30-theme-3/workspace/course-data.js",
+    "projects/aboriginal-studies-30-theme-3/workspace/main.js",
+    "projects/aboriginal-studies-30-theme-3/workspace/learning-store.js",
+    "projects/aboriginal-studies-30-theme-3/workspace/lesson-components.js",
+    "projects/aboriginal-studies-30-theme-3/workspace/practice-data.js",
+    "projects/aboriginal-studies-30-theme-3/workspace/practice-engine.js",
+    "projects/aboriginal-studies-30-theme-3/workspace/source-locator-links.js",
+    "projects/aboriginal-studies-30-theme-3/workspace/styles.css"
+  ],
+  "importedFirstPassOrigin": {
+    "sourceSystem": "canvas-helper-project",
+    "sourcePath": "projects/aboriginal-studies-30/workspace",
+    "importedAt": "2026-09-25T16:13:34.327Z",
+    "notes": "Theme 3 was separated from the current Aboriginal Studies 30 review candidate."
+  },
+  "generatedOutputs": [],
+  "injectedComponents": [],
+  "exportTargets": [
+    {
+      "target": "brightspace",
+      "enabled": false,
+      "notes": "Enable only after the four-course split is reviewed and rollout checks pass."
+    },
+    {
+      "target": "google-hosted",
+      "enabled": false,
+      "notes": "No review site has been assigned."
+    }
+  ],
+  "authoringStatus": "active",
+  "referenceOnly": [],
+  "sourceOfTruthNotes": "This workspace is the canonical editable Theme 3 course. It was initialized from aboriginal-studies-30; future edits belong in this project and must not be overwritten by rerunning the split script. Preserve lesson, assignment, response, and activity IDs.",
+  "googleHosted": {
+    "trackedStorageKeys": [
+      "aboriginal-studies-30-theme-3.progress",
+      "aboriginal-studies-30-theme-3.ui",
+      "aboriginal-studies-30-theme-3.activityResponses"
+    ],
+    "authMode": "google"
+  },
+  "authoring": {
+    "driverId": "legacy-snapshot-v1",
+    "familyId": "builder-legacy-snapshot",
+    "qualityProfile": "legacy-snapshot-rendered",
+    "studioEditing": {
+      "enabled": true,
+      "renameCourse": false,
+      "imageAssets": true
+    }
+  },
+  "createdAt": "2026-09-25T16:13:34.327Z",
+  "updatedAt": "2026-09-25T16:13:34.327Z"
+}

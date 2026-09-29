@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "projectSlug": "ela10-1-modern-play-fences",
+  "generatedAt": "2026-09-22T17:16:39.197Z",
+  "status": "needs-review",
+  "profile": {
+    "id": "modern-drama",
+    "version": "next-step-english-v2-ela10",
+    "sha256": "c974cf6c3471c3ee53a2088ffb6961373895b0f2355ac8232a1be87b45fd403f"
+  },
+  "recipe": {
+    "path": "projects/ela10-1-modern-play-fences/meta/english-unit.json",
+    "sha256": "10847bf8f03285e3f7d267967e5c7d82dc5d5fa06824cd618376db107379959f"
+  },
+  "sources": [
+    {
+      "id": "brightspace",
+      "path": "projects/resources/ela10-1/_sources/98a7423518aa49d55b37e75f4a7a44037949c06416146e806705b85c933cbf49.normalized.zip",
+      "sha256": "2b733ba29703933d8c126dea2cc53f12c871dea986c4d6cba10a54edd355b481"
+    },
+    {
+      "id": "teacher-resources",
+      "path": "projects/resources/ela10-1/_sources/61c75238e8ca90b0c2e874d4f3ab65074b4a14ee699f1854f753bdf938648d2b.zip",
+      "sha256": "61c75238e8ca90b0c2e874d4f3ab65074b4a14ee699f1854f753bdf938648d2b"
+    }
+  ],
+  "components": [],
+  "ownedFiles": [
+    "assets/generated/brand/nxt-ce-logo-white-with-ce.png",
+    "assets/generated/lessons/considering-language-word-choice-in-writing-assignments.jpg",
+    "assets/generated/resources/fences-acts-1-2-fences-1-2.pdf",
+    "assets/generated/resources/fences-acts-2-4-fences-2-4.pdf",
+    "assets/generated/resources/fences-allusions-fences-allusions.pdf",
+    "assets/generated/resources/fences-objectives-fences-objectives.pdf",
+    "assets/generated/resources/fences-script-fences-script-pdf.pdf",
+    "index.html"
+  ],
+  "reviewItems": [
+    "Confirm redistribution and accessibility for the teacher-supplied Fences script.",
+    "Review the extracted teacher questions and profile-supplied scene questions before final export."
+  ]
+}

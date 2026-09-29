@@ -10,7 +10,7 @@ try{
  const page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));
  page.on('response',r=>{if(r.url().startsWith(base)&&r.status()>=400)badLocal.push({url:r.url(),status:r.status()});});
  await page.goto(base+'/?verify='+Date.now(),{waitUntil:'networkidle'});
- assert.equal(await page.locator('#course-select option').count(),11);
+ assert.equal(await page.locator('#course-select option').count(),17);
  for(let ch=14;ch<=20;ch++){
   const id=`biology30-ch${ch}`;await page.selectOption('#course-select',id);
   await page.waitForFunction(id=>document.querySelector('#course-frame').contentWindow.location.pathname===`/${id}/index.html`,id);
@@ -26,6 +26,20 @@ try{
   await nav('labeling-practice');await nav('core-vocabulary');
   routes.push(id);console.log(`${id}: live lesson, font, textbook draft reload, labeling and vocabulary passed`);
  }
+ const science24={
+  'science24-unit-a':'Matter and Chemical Change',
+  'science24-unit-b':'Energy Transformations',
+  'science24-unit-c':'Disease Defence and Human Health',
+  'science24-unit-d':'Safety in Transportation'
+ };
+ for(const [id,heading] of Object.entries(science24)){
+  await page.selectOption('#course-select',id);
+  await page.waitForFunction(id=>document.querySelector('#course-frame').contentWindow.location.pathname===`/${id}/index.html`,id);
+  const f=page.frameLocator('#course-frame');
+  assert.match((await f.locator('h1').first().textContent())||'',new RegExp(heading,'i'));
+  assert.ok(await f.locator('a[href="#lesson-01"]').count()>0);
+  routes.push(id);console.log(`${id}: live selector route, heading and lesson navigation passed`);
+ }
  assert.deepEqual(errors,[]);assert.deepEqual(badLocal,[]);
  const receiptFile='projects/biology30-unit-a-pilot-2/meta/review-selector-deployment.json';
  const receipt=JSON.parse(await readFile(receiptFile,'utf8'));
@@ -34,5 +48,5 @@ try{
  receipt.verification.browserRoutes=routes;receipt.verification.browserPageErrors=errors;receipt.verification.browserMissingLocalAssets=badLocal;receipt.verification.liveSmokeAt=new Date().toISOString();
  await writeFile(receiptFile,JSON.stringify(receipt,null,2)+'\n');
  for(let ch=14;ch<=20;ch++){const file=`projects/biology30-chapter-${ch}/meta/integration-receipt.json`,r=JSON.parse(await readFile(file,'utf8'));r.reviewDeployment={url:`${base}/biology30-ch${ch}/index.html`,reviewOnly:true,deployedAt:receipt.deployedAt,verifiedAt:receipt.verification.liveSmokeAt,indexSha256:receipt.files[`biology30-ch${ch}/index.html`],releaseStatusUnchanged:true};await writeFile(file,JSON.stringify(r,null,2)+'\n');}
- console.log('Live selector: 11 options; all seven new chapter checks passed. External media intentionally excluded.');
+ console.log('Live selector: 17 options; seven Biology chapter checks and four Science 24 route checks passed. External media intentionally excluded.');
 }finally{await browser.close();}

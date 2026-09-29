@@ -1,0 +1,87 @@
+{
+ "baselineHashes": {
+  "index.html": "c93b185860a8db463f42da9d22e88258a551713fc17f3c5f50a77cfb8fa1f1be",
+  "main.js": "0f313557d243b477308bb7f607d4180cca3ac1dc9e07a8a9857663ff2c9f30c7",
+  "lesson-components.js": "dca4c0ffab3548107683967c086e84880ffd06bca19cfb8c9fb5b8b5ec6754c3"
+ },
+ "blockingDefects": [
+  "F1 shared-ui-key overwrite (P1, mechanism reproduced, repair=R02)",
+  "F2 60k budget vs headroom claim (P1, mechanism reproduced, repair=R04+lead)",
+  "F3 save does not unlock criteria on-page (P2, mechanism reproduced, repair=R03)",
+  "F4 first response not preserved as attempt (P1/P2, mechanism reproduced, repair=R03)",
+  "F5 no Escape collapse/focus for mobile menu (mechanism reproduced, repair=R06)",
+  "V1 no shipped fonts (mechanism reproduced, repair=R05)",
+  "V2/V3/V4 static defects confirmed, geometry NOT_RUN (repair=R05/R06)"
+ ],
+ "candidateReviewer": {
+  "evidence": [],
+  "identity": "",
+  "reviewedAt": null,
+  "role": ""
+ },
+ "changedFiles": [
+  "projects/aboriginal-studies-30/workspace/index.html (9 data-testid, attribute-only)",
+  "projects/aboriginal-studies-30/workspace/main.js (9 testid sites, attribute-only)",
+  "projects/aboriginal-studies-30/workspace/lesson-components.js (7 testid sites, attribute-only)",
+  "scripts/tests/aboriginal-studies-30-testids.test.ts (new, 4/4)",
+  "scripts/tests/aboriginal-studies-30-route.test.ts (ROUTE07 order-sensitive assertion -> element-scoped + testid assertion; strictly stronger)",
+  "projects/aboriginal-studies-30/meta/ab30-v2/route-map.json (new)",
+  "projects/aboriginal-studies-30/meta/ab30-v2/R01-packet.md, R01-repro.log (new)",
+  "meta/ab30-parity/asset-manifest.json + media-ledger.json (regen for testid byte drift)"
+ ],
+ "commands": [
+  "python3 tools/validate_package.py --json -> errors []",
+  "python3 -m unittest discover -s tests -p test_package_tools.py -> 12 OK",
+  "node --check critical-paths.spec.cjs + playwright.config.cjs -> OK",
+  "playwright --list via repo runner -> 58 tests",
+  "node /tmp/r01_repro.js -> F1/F2/F3/F4 reproduced, statics confirmed (R01-repro.log)",
+  "node --test testids suite -> 4/4",
+  "full battery via loader -> 129/132 (3 classified stale-contract)"
+ ],
+ "dirtyOverlayDigest": "branch codex/math-engine-preflight @02a9fadc; v2 R01 overlay adds testid attributes + 1 test file + evidence; no behavior/semantics changes",
+ "leadIntegrationReview": {
+  "evidence": [],
+  "status": "NOT_REVIEWED"
+ },
+ "limitations": [
+  "Real-browser UI acceptance NOT_RUN (Chrome cannot render in sandbox; proven R00). Starter delivered + discovery-verified; human/CI must run the 58.",
+  "Baseline screenshots (1440/390) NOT_RUN \u2014 same blocker; R05/R06 must capture before/after in a rendering env.",
+  "Reaudit's 11 missing-fixture failures were their recreated layout, not this repo: all fixtures resolve here (129 pass incl. new suite)."
+ ],
+ "nextSafeStep": "R02: single-writer store + safe migration per 04_STATE_AND_CAPACITY_SPEC.md and STATE_CONTRACT.d.ts; F1 mechanism tests become regression tests.",
+ "noPublishPerformed": true,
+ "screenshots": [],
+ "sourcePaths": [],
+ "sourceReviewRecords": [],
+ "status": "IMPLEMENTED",
+ "teacherApproval": {
+  "signature": null,
+  "status": "NOT_REQUESTED_BY_THIS_CANDIDATE_WORKFLOW"
+ },
+ "tests": [
+  {
+   "detail": "F1 runs 1->0 + exposure wiped via real store + real saveJson pattern; F2 86/66/45 of 102 keys at 400/600/1000 chars then over-budget via real write path; F3 handler has no criteria/render path; F4 origins=[F], revision overwrites, attempts 0; V1-V4/F5 static facts + R5b Escape correction",
+   "name": "mechanism reproductions (R01-repro.log)",
+   "result": "REPRODUCED (mechanism, not UI acceptance)"
+  },
+  {
+   "detail": "3 red = stale casing, stale Work+Sans, version-drifted body[] schema (reaudit section 7 concurs); 0 missing-harness; 0 battery-product-defect",
+   "name": "full battery classification",
+   "result": "129/132 PASS with classification"
+  },
+  {
+   "detail": "58 tests discovered through repo @playwright/test; execution BLOCKED_TOOLING here",
+   "name": "starter integration --list",
+   "result": "PASS (discovery)"
+  },
+  {
+   "name": "package planning checks",
+   "result": "PASS"
+  },
+  {
+   "name": "R01-TESTID01..04",
+   "result": "4/4 PASS"
+  }
+ ],
+ "ticketId": "R01"
+}

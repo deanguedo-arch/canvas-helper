@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "contractVersion": "math-course-generation-v2",
+  "workspace": "../workspace",
+  "validationAdapter": "math-generation-validation.cjs",
+  "lessonRoutes": ["u4-41", "u4-42", "u4-43", "u4-44", "u4-45", "u4-46", "u4-47", "u4-48"],
+  "targetIds": [
+    "C4-41a", "C4-41b", "C4-41c", "C4-41d",
+    "C4-42a", "C4-42b", "C4-42c", "C4-42d",
+    "C4-43a", "C4-43b", "C4-43c", "C4-43d",
+    "C4-44a", "C4-44b", "C4-44c", "C4-44d",
+    "C4-45a", "C4-45b", "C4-45c", "C4-45d",
+    "C4-46a", "C4-46b", "C4-46c", "C4-46d",
+    "C4-47a", "C4-47b", "C4-47c", "C4-47d",
+    "C4-48a", "C4-48b", "C4-48c", "C4-48d"
+  ],
+  "lessonIdFromRoutePattern": "u4-(4[1-8])"
+}

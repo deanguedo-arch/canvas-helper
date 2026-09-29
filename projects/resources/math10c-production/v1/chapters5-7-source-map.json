@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "status": "preflight-source-map",
+  "course": "Math 10C",
+  "sourceManifest": "projects/resources/math10c-production/v1/source-manifest.json",
+  "sourceRoles": {
+    "cbe-system-6685-202692410": "Primary local HTML instruction, worked examples and curriculum sequence evidence",
+    "nxt-master-6861-202692441": "Independent hierarchy, printed-book sequence and optional-review comparison",
+    "class-157162-202692413": "Comparison only; class identifiers and submissions excluded"
+  },
+  "chapters": [
+    {
+      "chapter": 5,
+      "title": "Relations and Functions",
+      "cbeTeachingUnit": "Unit 4: Relations and Functions",
+      "recommendedSequence": [
+        {"id": "5.1", "title": "Representing Relations", "coverage": "shared"},
+        {"id": "5.2", "title": "Properties of Functions", "coverage": "shared"},
+        {"id": "5.3", "title": "Interpreting and Sketching Graphs", "coverage": "shared"},
+        {"id": "5.4", "title": "Graphing Data", "coverage": "printed-book gap in the explicit CBE intro map"},
+        {"id": "5.5", "title": "Graphs of Relations and Functions", "coverage": "shared"},
+        {"id": "5.6", "title": "Properties of Linear Relations", "coverage": "shared"},
+        {"id": "5.7", "title": "Interpreting Graphs of Linear Functions", "coverage": "shared"}
+      ],
+      "preAuthoringDecision": "Inspect whether nearby CBE teaching pages already cover the 5.4 domain/range-with-data demand before assigning standalone targets."
+    },
+    {
+      "chapter": 6,
+      "title": "Linear Functions",
+      "cbeTeachingUnit": "Unit 5: Linear Functions",
+      "recommendedSequence": [
+        {"id": "6.1", "title": "Slope of a Line", "coverage": "shared"},
+        {"id": "6.2", "title": "Slopes of Parallel and Perpendicular Lines", "coverage": "shared"},
+        {"id": "6.3", "title": "Investigating Graphs of Linear Functions", "coverage": "printed-book Math Lab gap in the explicit CBE intro map"},
+        {"id": "6.4", "title": "Slope-Intercept Form", "coverage": "shared"},
+        {"id": "6.5", "title": "Slope-Point Form", "coverage": "shared"},
+        {"id": "6.6", "title": "General Form of a Linear Relation", "coverage": "shared"}
+      ],
+      "preAuthoringDecision": "Inspect whether adjacent CBE graph and equation pages already establish the 6.3 relation before assigning standalone targets."
+    },
+    {
+      "chapter": 7,
+      "title": "Systems of Linear Equations",
+      "cbeTeachingUnit": "Unit 6: Systems of Linear Equations",
+      "recommendedSequence": [
+        {"id": "7.1", "title": "Developing Systems", "coverage": "shared"},
+        {"id": "7.2", "title": "Solving Graphically", "coverage": "shared"},
+        {"id": "7.3", "title": "Using Graphing Technology to Solve a System", "coverage": "meaningful printed-book Math Lab gap in CBE"},
+        {"id": "7.4", "title": "Solving by Substitution", "coverage": "shared"},
+        {"id": "7.5", "title": "Solving by Elimination", "coverage": "shared"},
+        {"id": "7.6", "title": "Properties of Systems", "coverage": "shared"}
+      ],
+      "preAuthoringDecision": "Keep 7.3 as an alternate-technology route and provide an accessible non-calculator interpretation of the same solution evidence."
+    }
+  ],
+  "sharedEvidence": [
+    "CBE and NXT copies of every Chapter 5 through 7 textbook section are byte-identical after path reconciliation.",
+    "Matching textbook solutions, chapter workbooks and workbook answer guides are byte-identical.",
+    "The shared Chapter 7 solving-a-system worksheet is byte-identical."
+  ],
+  "cbeUniqueInstruction": [
+    "Local HTML teaching pages, contextual images, worked examples and try-this activities",
+    "Relations_functions lesson sequence plus review",
+    "Linear_functions lesson sequence plus review",
+    "Systems lesson sequence plus review"
+  ],
+  "restrictedOrExternal": [
+    "NXT section quiz images and question-bank contracts",
+    "NXT chapter practice exams and answer keys",
+    "NXT online chapter exams and EOL download, mark and submit routes",
+    "CBE review assignments and answer keys stored under Assessment",
+    "Embedded solutions as fresh independent checks",
+    "Generic OpenStax links whose Chapter 5 through 7 labels do not match Math 10C chapter subjects"
+  ],
+  "nextGate": "Create teacher-reviewable target maps and mathematical checking contracts chapter by chapter before learner authoring. Chapter 4 remains the active implementation boundary."
+}

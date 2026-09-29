@@ -15,7 +15,7 @@ const indexPath = path.resolve(workspaceDir, "index.html");
 const mainPath = path.resolve(workspaceDir, "main.js");
 const dataPath = path.resolve(workspaceDir, "course-data.js");
 const stylesPath = path.resolve(workspaceDir, "styles.css");
-const viewerPath = path.resolve(workspaceDir, "pdf-viewer.html");
+const brandLogoPath = path.resolve(workspaceDir, "assets", "brand", "nxt-ce-logo-white-with-ce.png");
 const designAssetDir = path.resolve(workspaceDir, "assets", "design", "as30");
 
 type CourseData = {
@@ -43,7 +43,7 @@ test("aboriginal studies 30 project metadata and workspace shell exist", async (
   await access(mainPath);
   await access(dataPath);
   await access(stylesPath);
-  await access(viewerPath);
+  await access(brandLogoPath);
 
   const [projectJsonSource, indexSource, mainSource] = await Promise.all([
     readFile(projectJsonPath, "utf8"),
@@ -73,124 +73,102 @@ test("aboriginal studies 30 project metadata and workspace shell exist", async (
   assert.match(indexSource, /data-google-hosted-controls-host="true"/);
   assert.match(indexSource, /id="sidebar-toggle"/);
   assert.match(indexSource, /aria-controls="course-sidebar"/);
-  assert.match(indexSource, />Units<\/span>/);
-  assert.match(indexSource, />Quizzes<\/span>/);
-  assert.match(indexSource, />Assignments<\/span>/);
-  assert.match(indexSource, />Library<\/span>/);
-  assert.match(indexSource, />Film Room<\/span>/);
+  assert.match(indexSource, />Course Overview<\/button>/);
+  assert.match(indexSource, />Themes<\/summary>/);
+  assert.match(indexSource, />Quizzes<\/button>/);
+  assert.match(indexSource, />Assignments<\/button>/);
+  assert.match(indexSource, />Library<\/button>/);
+  assert.match(indexSource, />Film Room<\/button>/);
+  assert.match(indexSource, />Core Vocabulary<\/button>/);
+  assert.match(indexSource, /class="brand-logo"/);
+  assert.match(indexSource, /nxt-ce-logo-white-with-ce\.png/);
+  assert.match(indexSource, />ABS 30<\/p>/);
   assert.doesNotMatch(indexSource, /Phases|Performance|Sports Wellness/i);
   assert.doesNotMatch(mainSource, /Phases|Performance|View Slides/);
 });
 
-test("aboriginal studies 30 shell uses the supplied pixel-redline visual system", async () => {
+test("aboriginal studies 30 shell uses the shared social-shell visual system", async () => {
   const [indexSource, mainSource, stylesSource] = await Promise.all([
     readFile(indexPath, "utf8"),
     readFile(mainPath, "utf8"),
     readFile(stylesPath, "utf8")
   ]);
 
-  const requiredDesignAssets = [
-    "sidebar-top-pattern-band.png",
-    "sidebar-lower-texture.png",
-    "sidebar-brand-mark.png",
-    "progress-track-reference.png",
-    "unit-badge-reference.png",
-    "unit-badge-t1.png",
-    "unit-badge-t2.png",
-    "unit-badge-t3.png",
-    "unit-badge-t4.png",
-    "unit-card-left-t1.png",
-    "unit-card-left-t2.png",
-    "unit-card-left-t3.png",
-    "unit-card-left-t4.png",
-    "unit-card-divider-reference.png",
-    "unit-card-right-texture.png"
-  ];
-
-  for (const fileName of requiredDesignAssets) {
-    await access(path.resolve(designAssetDir, fileName));
-  }
-
-  assert.match(indexSource, /Barlow\+Condensed/);
-  assert.match(indexSource, /Playfair\+Display/);
-  assert.match(indexSource, /Inter:wght/);
-  assert.match(indexSource, /sidebar-pattern/);
-  assert.match(indexSource, /brand-medallion/);
-  assert.match(indexSource, /brand-panel/);
-  assert.doesNotMatch(indexSource, /brand-mark/);
-  assert.doesNotMatch(indexSource, />AS<\/div>/);
-  assert.match(indexSource, /Learning\. Respect\. Reciprocity\./);
-  assert.match(indexSource, /section-title-row/);
+  assert.match(indexSource, /Work\+Sans/);
+  assert.match(indexSource, /Hanken\+Grotesk/);
+  assert.match(indexSource, /course-topbar/);
+  assert.match(indexSource, /course-sidebar/);
+  assert.match(indexSource, /course-nav/);
+  assert.match(indexSource, /<details class="nav-group"/);
+  assert.match(indexSource, /<summary>/);
+  assert.match(indexSource, /theme-subnav/);
+  assert.doesNotMatch(indexSource, /social-nav-group/);
+  assert.match(indexSource, /course-main/);
+  assert.match(indexSource, /content-body/);
+  assert.match(indexSource, /top-progress-shell/);
+  assert.doesNotMatch(indexSource, /sidebar-pattern/);
+  assert.doesNotMatch(indexSource, /brand-medallion/);
+  assert.doesNotMatch(indexSource, /Barlow\+Condensed/);
+  assert.doesNotMatch(indexSource, /Playfair\+Display/);
 
   assert.match(mainSource, /sidebarCollapsed/);
   assert.match(mainSource, /toggleSidebar/);
-  assert.match(mainSource, /unit-badge/);
-  assert.match(mainSource, /unit-badge-shell--\$\{escapeHtml\(unit\.code\.toLowerCase\(\)\)\}/);
-  assert.match(mainSource, /unit-badge--\$\{escapeHtml\(unit\.code\.toLowerCase\(\)\)\}/);
-  assert.doesNotMatch(mainSource, /unit-badge-label/);
-  assert.match(mainSource, /unit-arrow/);
+  assert.match(mainSource, /renderThemeSubnav/);
+  assert.match(mainSource, /social-roadmap/);
+  assert.match(mainSource, /lesson-document-header/);
+  assert.match(mainSource, /lesson-jump/);
+  assert.match(mainSource, /social-overview-hero/);
+  assert.doesNotMatch(mainSource, /unit-badge/);
+  assert.doesNotMatch(mainSource, /unit-arrow/);
+  assert.doesNotMatch(mainSource, /sectionTitle/);
 
-  assert.match(stylesSource, /--as-sidebar-width:\s*336px/);
-  assert.match(stylesSource, /--as-content-max:\s*1256px/);
-  assert.match(stylesSource, /--font-brand:\s*"Barlow Condensed"/);
-  assert.match(stylesSource, /--font-display:\s*"Playfair Display"/);
-  assert.match(stylesSource, /#061014/);
-  assert.match(stylesSource, /#19C1B7/);
-  assert.match(stylesSource, /#B87347/);
-  assert.match(stylesSource, /#F2E9D8/);
-  assert.match(stylesSource, /grid-template-columns:\s*var\(--as-sidebar-width\) minmax\(0,\s*1fr\)/);
-  assert.match(stylesSource, /--as-sidebar-collapsed-width:\s*88px/);
-  assert.match(stylesSource, /\.app-shell\.is-sidebar-collapsed/);
-  assert.match(stylesSource, /sidebar-brand-mark\.png/);
-  assert.doesNotMatch(stylesSource, /\.brand-medallion\s*{[^}]*conic-gradient/s);
-  assert.doesNotMatch(stylesSource, /sidebar-brand-block\.png/);
-  assert.match(stylesSource, /\.progress-panel\s*{[^}]*min-height:\s*271px/s);
-  assert.match(stylesSource, /\.progress-panel\s*{[^}]*border-radius:\s*18px/s);
-  assert.doesNotMatch(stylesSource, /progress-hero-reference\.png/);
-  assert.doesNotMatch(stylesSource, /sidebar-active-nav-slice\.png/);
-  await assert.rejects(access(path.resolve(designAssetDir, "sidebar-active-nav-slice.png")));
-  await assert.rejects(access(path.resolve(designAssetDir, "sidebar-brand-block.png")));
-  assert.match(stylesSource, /\.progress-track\s*{[^}]*height:\s*39px/s);
-  assert.doesNotMatch(stylesSource, /\.content-body\s*>\s*\.stack-list\s*{[^}]*max-width:\s*980px/s);
-  assert.match(stylesSource, /\.unit-card\s*{[^}]*min-height:\s*107px/s);
-  assert.match(stylesSource, /\.unit-card\s*{[^}]*grid-template-columns:\s*128px minmax\(0,\s*1fr\) 48px/s);
-  assert.match(stylesSource, /\.stack-list\s*{[^}]*container-type:\s*inline-size/s);
-  assert.match(stylesSource, /\.unit-card \.unit-card-content span\s*{[^}]*text-overflow:\s*ellipsis/s);
-  assert.match(stylesSource, /\.unit-card \.unit-card-content span\s*{[^}]*white-space:\s*nowrap/s);
-  assert.match(stylesSource, /\.unit-card::before/);
-  assert.match(stylesSource, /\.unit-card::before\s*{[^}]*unit-card-right-texture/s);
-  assert.match(stylesSource, /\.unit-card::before\s*{[^}]*width:\s*530px/s);
-  assert.match(stylesSource, /\.unit-card::after\s*{[^}]*left:\s*126px/s);
-  assert.match(stylesSource, /\.unit-card::after\s*{[^}]*width:\s*12px/s);
-  assert.match(stylesSource, /\.unit-card::after\s*{[^}]*unit-card-divider-reference/s);
-  assert.doesNotMatch(stylesSource, /\.unit-badge-shell\s*{[^}]*linear-gradient/s);
-  assert.match(stylesSource, /\.unit-badge-shell\s*{[^}]*unit-card-left-t1\.png/s);
-  assert.match(stylesSource, /unit-card-left-t2\.png/);
-  assert.match(stylesSource, /unit-card-left-t3\.png/);
-  assert.match(stylesSource, /unit-card-left-t4\.png/);
-  assert.match(stylesSource, /\.unit-badge/);
-  assert.match(stylesSource, /\.unit-badge\s*{[^}]*display:\s*none/s);
-  assert.doesNotMatch(stylesSource, /\.unit-badge-label/);
-  assert.match(stylesSource, /\.unit-arrow/);
-  assert.doesNotMatch(stylesSource, /\.brand-mark/);
-  assert.match(stylesSource, /@container \(max-width:\s*980px\)[\s\S]*?\.unit-card\s*{[\s\S]*?grid-template-columns:\s*128px minmax\(0,\s*1fr\) 48px[\s\S]*?min-height:\s*107px/);
-  assert.match(stylesSource, /@container \(max-width:\s*980px\)[\s\S]*?\.unit-card \.unit-card-content span\s*{[\s\S]*?display:\s*block/);
-  assert.match(stylesSource, /@container \(max-width:\s*720px\)[\s\S]*?\.unit-card\s*{[\s\S]*?grid-template-columns:\s*104px minmax\(0,\s*1fr\) 24px[\s\S]*?height:\s*88px/);
-  assert.match(stylesSource, /@container \(max-width:\s*720px\)[\s\S]*?\.unit-card \.unit-card-content span\s*{[\s\S]*?display:\s*none/);
-  assert.match(stylesSource, /@media \(max-width:\s*760px\)[\s\S]*?\.unit-card\s*{[\s\S]*?grid-template-columns:\s*104px minmax\(0,\s*1fr\) 24px[\s\S]*?height:\s*88px/);
-  assert.match(stylesSource, /@media \(max-width:\s*760px\)[\s\S]*?\.unit-card \.unit-card-content span\s*{[\s\S]*?display:\s*none/);
-  assert.match(stylesSource, /@media \(max-width:\s*860px\)[\s\S]*?\.app-shell,\s*\.app-shell\.is-sidebar-collapsed\s*{[\s\S]*?grid-template-columns:\s*1fr/);
-  assert.match(stylesSource, /@media \(max-width:\s*860px\)[\s\S]*?\.progress-shell\s*{[\s\S]*?display:\s*none/);
-  assert.match(stylesSource, /@media \(max-width:\s*860px\)[\s\S]*?\.stack-card-button:not\(\.unit-card\)\s*{[\s\S]*?grid-template-columns:\s*1fr/);
-  assert.doesNotMatch(stylesSource, /@media \(max-width:\s*860px\)[\s\S]*?\.stack-card-button\s*{[\s\S]*?grid-template-columns:\s*1fr/);
-  assert.match(stylesSource, /@media \(max-width:\s*640px\)[\s\S]*?\.unit-card\s*{[\s\S]*?grid-template-columns:\s*92px minmax\(0,\s*1fr\) 18px[\s\S]*?height:\s*78px/);
+  assert.match(stylesSource, /--sidebar-width:\s*270px/);
+  assert.match(stylesSource, /--topbar-height:\s*64px/);
+  assert.match(stylesSource, /--primary:\s*#154212/);
+  assert.match(stylesSource, /--teal:\s*#146c60/);
+  assert.match(stylesSource, /\.course-topbar\s*{[^}]*position:\s*fixed/s);
+  assert.match(stylesSource, /\.course-sidebar\s*{[^}]*position:\s*fixed/s);
+  assert.match(stylesSource, /\.course-sidebar\s*{[^}]*width:\s*var\(--sidebar-width\)/s);
+  assert.match(stylesSource, /\.course-main\s*{[^}]*margin-left:\s*var\(--sidebar-width\)/s);
+  assert.match(stylesSource, /\.course-page\s*{[^}]*border-top:\s*3px solid var\(--primary\)/s);
+  assert.match(stylesSource, /\.course-nav details\.nav-group\s*>\s*summary/s);
+  assert.match(stylesSource, /summary::after\s*{\s*content:\s*"\+"[^}]*font-size:\s*22px/s);
+  assert.match(stylesSource, /\.nav-link\s*{[^}]*border-left:\s*2px solid transparent/s);
+  assert.match(stylesSource, /\.nav-link\s*{[^}]*color:\s*#dbe2d8/s);
+  assert.match(stylesSource, /\.nav-link\.active\s*{[^}]*font-weight:\s*800/s);
+  assert.match(stylesSource, /\.brand-logo\s*{[^}]*width:\s*112px/s);
+  assert.match(stylesSource, /\.sidebar-course-label\s*{[^}]*color:\s*#bfc8bd/s);
+  assert.doesNotMatch(stylesSource, /\.course-nav-link/);
+  assert.doesNotMatch(stylesSource, /\.social-nav-group/);
+  assert.doesNotMatch(stylesSource, /pdf-viewer/);
+  assert.match(stylesSource, /\.social-overview-hero/);
+  assert.match(stylesSource, /\.social-roadmap/);
+  assert.match(stylesSource, /\.lesson-document-header/);
+  assert.match(stylesSource, /\.goal-strip/);
+  assert.match(stylesSource, /\.top-progress-fill/);
+  assert.doesNotMatch(stylesSource, /--as-sidebar-width/);
+  assert.doesNotMatch(stylesSource, /#061014/);
+  assert.doesNotMatch(stylesSource, /#19C1B7/);
+  assert.doesNotMatch(stylesSource, /\.app-shell/);
+  assert.doesNotMatch(stylesSource, /\.unit-card/);
+  assert.doesNotMatch(stylesSource, /\.progress-panel/);
+  assert.match(stylesSource, /@media \(max-width:\s*760px\)[\s\S]*?\.course-main[\s\S]*?margin-left:\s*0/);
+  assert.match(stylesSource, /prefers-reduced-motion/);
+
+  // Legacy pixel-redline reference art stays on disk for history, but the
+  // social shell must not depend on it.
+  for (const fileName of ["unit-card-right-texture.png", "sidebar-brand-mark.png"]) {
+    await access(path.resolve(designAssetDir, fileName));
+  }
+  assert.doesNotMatch(stylesSource, /unit-card-right-texture\.png/);
+  assert.doesNotMatch(stylesSource, /sidebar-brand-mark\.png/);
 });
 
-test("aboriginal studies 30 library uses chapter viewer cards and excludes answer keys", async () => {
-  const [dataSource, mainSource, viewerSource] = await Promise.all([
+test("aboriginal studies 30 library embeds chapter PDFs directly and excludes answer keys", async () => {
+  const [dataSource, mainSource, stylesSource] = await Promise.all([
     readFile(dataPath, "utf8"),
     readFile(mainPath, "utf8"),
-    readFile(viewerPath, "utf8")
+    readFile(stylesPath, "utf8")
   ]);
   const data = loadCourseData(dataSource);
   const libraryItems = data.libraryItems ?? [];
@@ -222,10 +200,15 @@ test("aboriginal studies 30 library uses chapter viewer cards and excludes answe
 
   assert.match(mainSource, /View Chapter/);
   assert.match(mainSource, /Download PDF/);
-  assert.match(mainSource, /pdf-viewer\.html\?file=/);
+  assert.match(mainSource, /\$\{selected\.file\}#page=1/);
+  assert.doesNotMatch(mainSource, /pdf-viewer/);
   assert.doesNotMatch(mainSource, /View Slides/);
-  assert.match(viewerSource, /Chapter Viewer/);
-  assert.match(viewerSource, /Rendering in app/);
+  assert.match(stylesSource, /\.pdf-reader-frame iframe/);
+  assert.match(stylesSource, /\.chapter-frame\s*{[^}]*height:\s*80vh/s);
+  assert.match(stylesSource, /\.course-dialog\s*{[^}]*width:\s*min\(1400px,\s*98vw\)/s);
+  assert.match(stylesSource, /\.course-frame\s*{[^}]*width:\s*min\(1120px/s);
+  assert.match(stylesSource, /body\.sidebar-collapsed \.course-frame/);
+  assert.doesNotMatch(dataSource, /pdf-viewer/);
   assert.doesNotMatch(dataSource, /AB-Studies-30-Theme-\d-Key\.pdf/);
 });
 
@@ -296,8 +279,58 @@ test("aboriginal studies 30 assignments import Dropbox folders and generated DOC
     assert.match(docxPath, /^\.\/assets\/assignments\/docx\/.+\.docx$/);
     assert.doesNotMatch(String(assignment.title), /hidden/i);
     assert.doesNotMatch(String(assignment.summary), /BrightSpace|Brightspace page|source package/i);
+    const isBookletShell = /^aboriginal-studies-30-theme-\d-assignment$/.test(String(assignment.id));
+    if (!isBookletShell) {
+      assert.doesNotMatch(String(assignment.summary), /\.\.\.$/);
+      const textbook = (assignment.textbook ?? {}) as Record<string, unknown>;
+      assert.match(String(textbook.label), /^Textbook Chapter \d+, pages \d+-\d+$/);
+      assert.match(String(textbook.file), /^\.\/assets\/library\/chapter-\d\.pdf$/);
+      await access(path.resolve(workspaceDir, String(textbook.file).replace(/^\.\//, "")));
+    }
     await access(path.resolve(workspaceDir, docxPath.replace(/^\.\//, "")));
   }
+});
+
+test("aboriginal studies 30 houses written assignments inside theme 1", async () => {
+  const [mainSource, stylesSource] = await Promise.all([
+    readFile(mainPath, "utf8"),
+    readFile(stylesPath, "utf8")
+  ]);
+
+  assert.match(mainSource, /BOOKLET_SHELL_ASSIGNMENT_IDS/);
+  assert.match(mainSource, /!BOOKLET_SHELL_ASSIGNMENT_IDS\.has\(assignment\.id\)/);
+  assert.match(mainSource, /function themeAssignments/);
+  assert.match(mainSource, /function renderWrittenAssignmentCard/);
+  assert.match(mainSource, /assignment\.textbook/);
+  assert.match(mainSource, /lessonStartPage\(assignment\)/);
+  assert.match(mainSource, /function assignmentDescription/);
+  assert.match(mainSource, /function gotoThemeWritten/);
+  assert.match(mainSource, /state\.themeTab === 'written'/);
+  assert.match(mainSource, /data-theme-lessons/);
+  assert.match(mainSource, /data-theme-written/);
+  assert.match(mainSource, /data-theme-written-open/);
+  assert.match(mainSource, /How to complete a written assignment/);
+  assert.match(mainSource, /WRITTEN_RUBRIC/);
+  assert.match(mainSource, /Critical Response Rubric/);
+  assert.match(mainSource, /Comprehension ×2/);
+  assert.match(mainSource, /Restating the quote is not interpreting/);
+  assert.match(mainSource, /function renderWrittenSteps/);
+  assert.match(mainSource, /Steps to follow/);
+  assert.match(mainSource, /data-written-assignment/);
+  assert.match(mainSource, /data-written-response/);
+  assert.match(mainSource, /data-view-local-doc/);
+  assert.match(mainSource, /data-view-external-doc/);
+  assert.match(mainSource, /function openDocumentViewer/);
+  assert.match(mainSource, /\/preview/);
+  assert.match(mainSource, /data-mark-assignment/);
+  assert.match(mainSource, /Written Assignments section/);
+  assert.match(mainSource, /function renderAssignmentDetail/);
+  assert.match(stylesSource, /\.written-assignments/);
+  assert.match(stylesSource, /\.nav-sub-link/);
+  assert.match(stylesSource, /\.rubric-table/);
+  assert.match(stylesSource, /\.written-work/);
+  assert.match(stylesSource, /\.link-button/);
+  assert.match(stylesSource, /\.assignment-status/);
 });
 
 test("aboriginal studies 30 theme 1 preserves all numbered booklet questions without answer keys", async () => {
@@ -324,7 +357,7 @@ test("aboriginal studies 30 theme 1 preserves all numbered booklet questions wit
   assert.ok(sections.length >= 5, "Theme 1 activity should preserve the major booklet sections");
   assert.equal(activity?.sourceQuestionCount, 87);
   assert.equal(numberedPrompts.length, 87, "Theme 1 activity should preserve every numbered source question");
-  assert.equal(prompts.length, 89, "Theme 1 activity should include all numbered questions plus assignments 1.1 and 1.2");
+  assert.equal(prompts.length, 90, "Theme 1 activity should include all numbered questions plus assignments 1.1 and 1.2 and the R07 glossary table");
 
   const q1 = numberedPrompts.find((prompt) => String(prompt.number) === "1");
   const q11 = numberedPrompts.find((prompt) => String(prompt.number) === "11");
@@ -341,8 +374,24 @@ test("aboriginal studies 30 theme 1 preserves all numbered booklet questions wit
   assert.equal(q11?.kind, "multipleChoice");
   assert.deepEqual(Array.from(q11?.choices as string[]), ["WWI", "Metis land settlements", "Battle of Seven Oaks", "Six Nations Confederacy"]);
   assert.equal(q37?.kind, "table");
-  assert.deepEqual(Array.from(q37?.columns as string[]), ["Environmental challenges", "Resources"]);
-  assert.deepEqual(Array.from(q37?.rows as string[]), ["Pacific Northwest", "Plateau", "Plains", "Eastern Woodlands", "Subarctic", "Arctic"]);
+  // T02 (lead-authorized): rows/columns carry explicit stable ids so saved
+  // keys survive label edits and reordering; labels render as before.
+  assert.deepEqual(
+    Array.from(q37?.columns as Array<{ id: string; label: string }>, (column) => column.label),
+    ["Environmental challenges", "Resources"]
+  );
+  assert.deepEqual(
+    Array.from(q37?.columns as Array<{ id: string; label: string }>, (column) => column.id),
+    ["environmental-challenges", "resources"]
+  );
+  assert.deepEqual(
+    Array.from(q37?.rows as Array<{ id: string; label: string }>, (row) => row.label),
+    ["Pacific Northwest", "Plateau", "Plains", "Eastern Woodlands", "Subarctic", "Arctic"]
+  );
+  assert.deepEqual(
+    Array.from(q37?.rows as Array<{ id: string; label: string }>, (row) => row.id),
+    ["pacific-northwest", "plateau", "plains", "eastern-woodlands", "subarctic", "arctic"]
+  );
   assert.equal(q40?.kind, "fillBlank");
   assert.equal((q40?.blanks as unknown[] | undefined)?.length, 2);
   assert.equal(q73?.kind, "fillBlank");
@@ -372,6 +421,12 @@ test("aboriginal studies 30 theme 1 preserves all numbered booklet questions wit
   assert.match(mainSource, /aboriginal-studies-30\.activityResponses/);
   assert.match(mainSource, /function renderUnitActivity/);
   assert.match(mainSource, /data-activity-response/);
+  assert.match(mainSource, /choice-letter/);
+  assert.match(mainSource, /String\.fromCharCode\(65 \+ index\)/);
+  assert.doesNotMatch(mainSource, /Taught in /);
+  assert.match(stylesSource, /\.choice-letter\s*{/);
+  assert.match(stylesSource, /\.activity-choice:has\(input:checked\)/);
+  assert.match(stylesSource, /\.activity-choice-list\s*{[^}]*grid-template-columns:\s*1fr/s);
   assert.match(mainSource, /activity-blank-input/);
   assert.match(mainSource, /activity-choice-list/);
   assert.match(mainSource, /activity-table/);
@@ -385,7 +440,11 @@ test("aboriginal studies 30 theme 1 preserves all numbered booklet questions wit
   assert.doesNotMatch(mainSource, /Booklet page \$\{escapeHtml/);
   assert.match(mainSource, /activity-question-number/);
   assert.match(mainSource, /copy-activity-responses/);
+  assert.match(mainSource, /data-activity-save-status/);
+  assert.match(mainSource, /data-save-state/);
+  assert.doesNotMatch(mainSource, /status\.textContent\s*=/);
   assert.match(stylesSource, /\.activity-shell/);
+  assert.match(stylesSource, /\[data-activity-save-status\]\[data-save-state="saved"\]::after/s);
   assert.match(stylesSource, /\.activity-question-number/);
   assert.match(stylesSource, /\.activity-blank-input/);
   assert.match(stylesSource, /\.activity-choice-list/);
@@ -421,16 +480,133 @@ test("aboriginal studies 30 runtime preserves progress locks and section labels"
   assert.match(mainSource, /renderLibrary/);
   assert.match(mainSource, /renderFilmRoom/);
   assert.match(mainSource, /renderAssignments/);
-  assert.match(stylesSource, /\.unit-card\.is-locked/);
-  assert.match(stylesSource, /filter:\s*blur\(2px\)/);
+  assert.match(stylesSource, /\.stack-card\.is-complete/);
+  assert.match(stylesSource, /\.stack-card\.is-locked/);
   assert.match(stylesSource, /\.sidebar-save-host/);
   assert.match(stylesSource, /\.sidebar-save-host\s*{[^}]*margin-top:\s*auto/s);
-  assert.match(stylesSource, /\.app-shell\.is-sidebar-collapsed\s+\.sidebar-save-host/);
-  assert.match(stylesSource, /grid-template-columns:\s*var\(--as-sidebar-width\) minmax\(0,\s*1fr\)/);
-  assert.match(stylesSource, /\.content-inner\s*{[^}]*height:\s*100vh/s);
-  assert.match(stylesSource, /\.content-inner\s*{[^}]*overflow-y:\s*auto/s);
-  assert.match(stylesSource, /\.progress-inner/);
-  assert.match(stylesSource, /\.nav-item\.active\s*{[^}]*linear-gradient\(90deg,\s*rgba\(25,\s*193,\s*183,\s*0\.54\)/s);
+  assert.match(stylesSource, /body\.sidebar-collapsed\s+\.course-sidebar/);
+  assert.match(stylesSource, /body\.sidebar-collapsed\s+\.course-main\s*{[^}]*margin-left:\s*var\(--sidebar-rail\)/s);
+  assert.match(stylesSource, /body\.is-library-reader-fullscreen\s*{[^}]*overflow:\s*hidden/s);
+  assert.match(stylesSource, /\.top-progress-fill/);
+  assert.match(stylesSource, /\.nav-link:disabled/);
+  assert.doesNotMatch(stylesSource, /\.sublesson-link/);
+});
+
+test("aboriginal studies 30 theme lessons teach the booklet before practice", async () => {
+  const [dataSource, mainSource, stylesSource] = await Promise.all([
+    readFile(dataPath, "utf8"),
+    readFile(mainPath, "utf8"),
+    readFile(stylesPath, "utf8")
+  ]);
+  const data = loadCourseData(dataSource);
+  const expectedLessons: Record<string, number> = {
+    "theme-1": 23,
+    "theme-2": 4,
+    "theme-3": 4,
+    "theme-4": 4
+  };
+  const lessons: Array<Record<string, unknown>> = [];
+  for (const [unitId, minimum] of Object.entries(expectedLessons)) {
+    const unit = (data.units ?? []).find((entry) => String(entry.id) === unitId);
+    const unitLessons = (unit?.lessons as Array<Record<string, unknown>> | undefined) ?? [];
+    assert.ok(
+      unitLessons.length >= minimum,
+      `${unitId} should teach at least ${minimum} lessons ahead of its practice work`
+    );
+    lessons.push(...unitLessons);
+  }
+  for (const lesson of lessons) {
+    assert.ok(String(lesson.id ?? "").length > 0);
+    assert.ok(String(lesson.title ?? "").length > 0);
+    assert.ok(String(lesson.intro ?? "").length > 0);
+    const terms = lesson.terms as Array<Record<string, unknown>> | undefined;
+    assert.ok(Array.isArray(terms) && terms.length >= 1, "Every lesson should define its key terms");
+    const body = lesson.body as string[] | undefined;
+    assert.ok(Array.isArray(body) && body.length >= 2, "Every lesson should teach in complete paragraphs");
+    const check = lesson.check as Record<string, unknown> | undefined;
+    assert.ok(String(check?.prompt ?? "").length > 0, "Every lesson should end with a retrieval check");
+    assert.ok(String(check?.sample ?? "").length > 0, "Every check should carry a sample response");
+    const textbook = lesson.textbook as Record<string, unknown> | undefined;
+    assert.match(String(textbook?.file ?? ""), /^\.\/assets\/library\/chapter-\d\.pdf$/);
+    await access(path.resolve(workspaceDir, String(textbook?.file).replace(/^\.\//, "")));
+  }
+
+  assert.match(mainSource, /function renderThemeLessons/);
+  assert.match(mainSource, /renderThemeLessons\(unit\)/);
+  assert.match(mainSource, /theme-lesson/);
+  assert.match(mainSource, /key-terms/);
+  assert.match(mainSource, /<summary>Vocabulary help<\/summary>/);
+  assert.match(mainSource, /Words for this lesson/);
+  assert.match(mainSource, /lesson-term-strip/);
+  assert.match(mainSource, /<strong>Key terms:<\/strong>/);
+  assert.match(mainSource, /class="bio-term"/);
+  assert.match(mainSource, /data-vocab-term/);
+  assert.match(mainSource, /function linkLessonTerms/);
+  assert.match(mainSource, /page-guide/);
+  assert.match(mainSource, /check-source/);
+  assert.match(mainSource, /word-more/);
+  assert.match(mainSource, /drawer-frayer-disclosure/);
+  assert.match(mainSource, /function renderVocabFrayer/);
+  assert.match(mainSource, /FRAYER_LABELS/);
+  assert.match(mainSource, /data-goto-vocab/);
+  assert.match(mainSource, /stop-check/);
+  assert.match(mainSource, /Check your understanding/);
+  assert.match(mainSource, /Show the explanation/);
+  assert.match(mainSource, /function renderVocabulary/);
+  assert.match(mainSource, /vocabulary-layout/);
+  assert.match(mainSource, /vocabulary-index/);
+  assert.match(mainSource, /vocabulary-reader/);
+  assert.match(mainSource, /data-vocab-select/);
+  assert.match(mainSource, /course-dialog-word-select/);
+  assert.match(mainSource, /function openVocabularyViewer/);
+  assert.match(mainSource, /function openChapterViewer/);
+  assert.doesNotMatch(mainSource, /lesson-check/);
+  assert.doesNotMatch(mainSource, /vocab-term-button/);
+  assert.doesNotMatch(mainSource, /vocab-row/);
+  assert.match(stylesSource, /\.theme-lesson-body/);
+  assert.match(stylesSource, /\.textbook-band/);
+  assert.match(stylesSource, /\.key-terms/);
+  assert.match(stylesSource, /\.key-terms > summary/);
+  assert.match(stylesSource, /\.terms-line\s*{/);
+  assert.match(stylesSource, /\.lesson-words dl/);
+  assert.match(stylesSource, /\.lesson-words h2/);
+  assert.match(stylesSource, /\.page-guide > summary span/);
+  assert.match(stylesSource, /\.page-guide/);
+  assert.match(stylesSource, /\.page-guide > summary/);
+  assert.match(stylesSource, /\.key-terms\.vocab-help\[open\]/);
+  assert.match(stylesSource, /\.page-guide > summary strong::before/);
+  assert.match(stylesSource, /\.page-guide\[open\] > summary::after/);
+  assert.match(mainSource, /guide-body/);
+  assert.match(mainSource, /sidebarCollapsedBeforeReader/);
+  assert.match(mainSource, /function restoreSidebarAfterReader/);
+  assert.match(stylesSource, /\.check-source/);
+  assert.match(stylesSource, /\.word-parts/);
+  assert.match(stylesSource, /\.drawer-frayer-disclosure/);
+  assert.match(stylesSource, /\.frayer-grid/);
+  assert.match(stylesSource, /\.frayer-model/);
+  assert.match(stylesSource, /\.stop-check/);
+  assert.match(stylesSource, /\.stop-check summary/);
+  assert.match(stylesSource, /\.terms-line button\.bio-term/);
+  assert.match(stylesSource, /\.vocabulary-layout/);
+  assert.match(stylesSource, /\.vocabulary-index button\[aria-pressed="true"\]/);
+  assert.match(stylesSource, /\.vocabulary-reader article > h2/);
+  assert.match(stylesSource, /\.popup-word-select/);
+  assert.match(stylesSource, /\.course-dialog\s*{[^}]*border-radius:\s*8px/s);
+  assert.match(stylesSource, /\.social-reading-link/);
+});
+
+test("aboriginal studies 30 vocabulary enrichment covers every core term", async () => {
+  const dataSource = await readFile(dataPath, "utf8");
+  const mainSource = await readFile(mainPath, "utf8");
+  assert.match(dataSource, /AS30_VOCAB_ENRICHMENT/);
+  const termCount = (dataSource.match(/"term": "/g) || []).length;
+  const frayerCount = (dataSource.match(/frayer: \[/g) || []).length;
+  assert.equal(frayerCount, 94);
+  assert.ok(termCount >= 94);
+  assert.match(mainSource, /function vocabEnrichmentFor/);
+  assert.doesNotMatch(dataSource, /See it in the booklet/);
+  assert.doesNotMatch(dataSource, /Supports booklet/);
+  assert.match(dataSource, /are answered in this lesson/);
 });
 
 test("aboriginal studies 30 is discoverable by the studio project picker", async () => {

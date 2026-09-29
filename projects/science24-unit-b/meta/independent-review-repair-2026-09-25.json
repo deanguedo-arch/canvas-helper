@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "reviewDate": "2026-09-25",
+  "reviewSourceSha256": "96e9c881de763dde22d7f43063d8370a07fdc06f2fc1177a355155acba3fdf8f",
+  "candidateStatus": "blocked",
+  "repairs": [
+    "Required-check completion now rolls back to the active run when the completion save fails.",
+    "Long Frayer drafts remain saveable; the 240-character rule is enforced only when collecting a word.",
+    "Every route heading can receive programmatic focus after navigation."
+  ],
+  "workspaceIndexSha256": "5721254efff1d3205fe9ec3e844161481a7c19cab3438115d15c73be88ad9750",
+  "focusedCompiler": "node scripts/compile-science24-bcd-data.cjs --project science24-unit-b",
+  "focusedCheck": "node scripts/tests/science24-abcd-review-p0.cjs",
+  "rolloutComplete": false
+}

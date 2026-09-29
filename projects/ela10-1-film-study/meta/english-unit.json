@@ -1,0 +1,356 @@
+{
+  "schemaVersion": 2,
+  "projectSlug": "ela10-1-film-study",
+  "courseCode": "ELA 10-1",
+  "courseTitle": "English Language Arts 10-1",
+  "unitTitle": "Film Study",
+  "profileVersion": "next-step-english-v2-ela10",
+  "status": "needs-review",
+  "source": {
+    "brightspaceZip": "projects/resources/ela20-1/_sources/de70945ff9b907b1d63e719c890140bd69c65051f85a47c5ef657f715138f36c.zip",
+    "teacherResourcesZip": "projects/resources/ela10-1/_sources/61c75238e8ca90b0c2e874d4f3ab65074b4a14ee699f1854f753bdf938648d2b.zip",
+    "brightspaceUnitId": "53042",
+    "teacherFolder": "UNIT 5 Film Study",
+    "archiveRefs": {
+      "brightspace": "feature-film-20-1-donor",
+      "teacherResources": "teacher-resources"
+    },
+    "lessonSelectors": [
+      {
+        "itemId": "53128",
+        "disposition": "include",
+        "title": "Film Study Overview"
+      },
+      {
+        "itemId": "53129",
+        "disposition": "include",
+        "title": "A Brief History of Film"
+      },
+      {
+        "itemId": "53130",
+        "disposition": "include",
+        "title": "Formal Elements of Film"
+      },
+      {
+        "itemId": "53131",
+        "disposition": "include",
+        "title": "Editing and Sound"
+      },
+      {
+        "itemId": "53132",
+        "disposition": "include",
+        "title": "Film Editing Techniques"
+      },
+      {
+        "itemId": "53133",
+        "disposition": "include",
+        "title": "Camera Shots and Angles"
+      },
+      {
+        "itemId": "53134",
+        "disposition": "include",
+        "title": "Mise-en-scene"
+      },
+      {
+        "itemId": "53135",
+        "disposition": "include",
+        "title": "Composition and Camera Movement"
+      },
+      {
+        "itemId": "53136",
+        "disposition": "include",
+        "title": "Sound in Film"
+      }
+    ]
+  },
+  "activityProfile": {
+    "schemaVersion": 1,
+    "activities": [
+      {
+        "id": "critical-essay",
+        "title": "Critical Essay",
+        "route": "critical-essay",
+        "enabled": true,
+        "evidencePolicyIds": [
+          "essay"
+        ]
+      },
+      {
+        "id": "viewing-guide",
+        "title": "Viewing Guide",
+        "route": "viewing-guide",
+        "enabled": true,
+        "evidencePolicyIds": [
+          "moment",
+          "synthesis"
+        ]
+      },
+      {
+        "id": "film-questions",
+        "title": "Film Study Questions",
+        "route": "film-study-questions",
+        "enabled": true,
+        "evidencePolicyIds": [
+          "questions"
+        ]
+      },
+      {
+        "id": "film-room",
+        "title": "Film Room",
+        "route": "film-room",
+        "enabled": true,
+        "evidencePolicyIds": []
+      },
+      {
+        "id": "resources",
+        "title": "Resources",
+        "route": "resources",
+        "enabled": true,
+        "evidencePolicyIds": []
+      },
+      {
+        "id": "evidence-bank",
+        "title": "Evidence Bank",
+        "route": "evidence-bank",
+        "enabled": true,
+        "evidencePolicyIds": []
+      },
+      {
+        "id": "personal-response",
+        "title": "Personal Response",
+        "route": "personal-response",
+        "enabled": true,
+        "evidencePolicyIds": [
+          "personal-response-writing-stage"
+        ],
+        "componentSlot": "writing-studio"
+      }
+    ],
+    "evidencePolicies": [
+      {
+        "id": "essay",
+        "activityId": "critical-essay",
+        "saveMode": "collection",
+        "requiresExplicitSave": true,
+        "contributionIdTemplate": "{projectSlug}:critical-essay:{activityId}:collection",
+        "collectionScope": "activity"
+      },
+      {
+        "id": "moment",
+        "activityId": "viewing-guide",
+        "saveMode": "individual",
+        "requiresExplicitSave": true,
+        "contributionIdTemplate": "{projectSlug}:viewing-guide:{entryId}"
+      },
+      {
+        "id": "synthesis",
+        "activityId": "viewing-guide",
+        "saveMode": "collection",
+        "requiresExplicitSave": true,
+        "contributionIdTemplate": "{projectSlug}:viewing-guide:{workId}:collection",
+        "collectionScope": "work"
+      },
+      {
+        "id": "questions",
+        "activityId": "film-questions",
+        "saveMode": "collection",
+        "requiresExplicitSave": true,
+        "contributionIdTemplate": "{projectSlug}:film-questions:{locatorId}:collection",
+        "collectionScope": "locator"
+      },
+      {
+        "id": "personal-response-writing-stage",
+        "activityId": "personal-response",
+        "saveMode": "collection",
+        "requiresExplicitSave": true,
+        "contributionIdTemplate": "{projectSlug}:personal-response:unit:{entryId}",
+        "collectionScope": "activity",
+        "tags": [
+          "personal-response",
+          "writing-stage"
+        ]
+      }
+    ],
+    "kind": "film-study",
+    "filmSelection": {
+      "mode": "pending"
+    },
+    "techniqueQuestionCount": 22,
+    "fullResponseQuestionCount": 18,
+    "criticalEssayFieldCount": 19,
+    "viewingGuide": true
+  },
+  "lessonOrder": [
+    "53128",
+    "53129",
+    "53130",
+    "53131",
+    "53132",
+    "53133",
+    "53134",
+    "53135",
+    "53136"
+  ],
+  "topLevelLessonOrder": [
+    "53128",
+    "53129",
+    "53130",
+    "53131",
+    "53132",
+    "53133",
+    "53134",
+    "53135",
+    "53136"
+  ],
+  "lessonGroups": [
+    {
+      "id": "unit-lessons",
+      "title": "Film Study",
+      "lessonIds": [
+        "53128",
+        "53129",
+        "53130",
+        "53131",
+        "53132",
+        "53133",
+        "53134",
+        "53135",
+        "53136"
+      ]
+    }
+  ],
+  "readings": [],
+  "placements": [],
+  "analysisTerms": [],
+  "analysisExamples": [],
+  "resourceDispositions": [
+    {
+      "id": "film-hard-gate",
+      "source": "UNIT 5 Film Study/FILM UNIT 10-1 HARD GATE Personal Response to Text Essay Prompt.docx",
+      "role": "excluded-assessment",
+      "disposition": "exclude",
+      "reason": "Hard-gate assessment is intentionally excluded."
+    },
+    {
+      "id": "film-selection",
+      "source": "profile://student-selected-film",
+      "role": "supporting-resource",
+      "disposition": "place",
+      "destination": "viewing-guide",
+      "reason": "Learners record their approved film in the Viewing Guide; no bundled film is required."
+    }
+  ],
+  "excludedFiles": [
+    {
+      "file": "UNIT 5 Film Study/FILM UNIT 10-1 HARD GATE Personal Response to Text Essay Prompt.docx",
+      "reason": "Hard-gate assessment is intentionally excluded."
+    }
+  ],
+  "wordingCorrections": [
+    {
+      "find": "English 20-1",
+      "replace": "English 10-1",
+      "reason": "Prevent donor-grade contamination."
+    },
+    {
+      "find": "ELA 20-1",
+      "replace": "ELA 10-1",
+      "reason": "Prevent donor-grade contamination."
+    },
+    {
+      "find": "English 30-1",
+      "replace": "English 10-1",
+      "reason": "Prevent donor-grade contamination."
+    },
+    {
+      "find": "ELA 30-1",
+      "replace": "ELA 10-1",
+      "reason": "Prevent donor-grade contamination."
+    },
+    {
+      "find": "Diploma Exam",
+      "replace": "course assessment",
+      "reason": "Remove Diploma framing."
+    },
+    {
+      "find": "Part A",
+      "replace": "written response",
+      "reason": "Remove Diploma framing."
+    },
+    {
+      "find": "it's narrative",
+      "replace": "its narrative",
+      "reason": "Correct inherited grammar in the Feature Film donor lesson."
+    },
+    {
+      "find": "critically evaluation",
+      "replace": "critically evaluating",
+      "reason": "Correct inherited grammar in the Feature Film donor lesson."
+    },
+    {
+      "find": "much more to analyzed",
+      "replace": "much more to analyze",
+      "reason": "Correct inherited grammar in the Feature Film donor lesson."
+    },
+    {
+      "find": "resemble the basic elements",
+      "replace": "resembles the basic elements",
+      "reason": "Correct inherited grammar in the Feature Film donor lesson."
+    },
+    {
+      "find": "Setting Characters",
+      "replace": "Setting, Characters",
+      "reason": "Restore missing punctuation in the Feature Film donor lesson."
+    },
+    {
+      "find": "The way in which the short is framed",
+      "replace": "The way in which the shot is framed",
+      "reason": "Correct an inherited film-term typo."
+    },
+    {
+      "find": "butfigurative",
+      "replace": "but figurative",
+      "reason": "Restore missing spacing in the mise-en-scene lesson."
+    },
+    {
+      "find": "student offilm",
+      "replace": "student of film",
+      "reason": "Restore missing spacing in the mise-en-scene lesson."
+    }
+  ],
+  "mediaPolicy": {
+    "verifiedAt": "2026-07-14",
+    "allowedYouTubeIds": [
+      "BXAr2yiYCV4",
+      "3Sr-vxVaY_M",
+      "G45X6fSk1do",
+      "sgiZb8jJgF8"
+    ],
+    "blockedYouTubeIds": [],
+    "approvedExternalUrls": [],
+    "externalUrlRewrites": {}
+  },
+  "customComponents": [],
+  "acceptance": {
+    "requiredRoutes": [
+      "critical-essay",
+      "viewing-guide",
+      "film-study-questions",
+      "film-room",
+      "resources",
+      "evidence-bank"
+    ],
+    "requiredActivityIds": [
+      "critical-essay",
+      "viewing-guide",
+      "film-questions",
+      "film-room",
+      "resources",
+      "evidence-bank"
+    ],
+    "reviewItems": [
+      "Review the nine ELA 20-1 Feature Film donor lessons after their ELA 10-1 wording adaptation.",
+      "Validate all inherited film-study media and fallback links."
+    ]
+  }
+}

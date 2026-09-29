@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "taskId": "calm-finlit-handout-fit",
+  "attemptId": "a1",
+  "workflow": "generated-course",
+  "mode": "build",
+  "objective": "Read the eight selected FINLIT PDF handouts and their manifest. Report exact questions, learner dependencies and specific teaching connections to the current matching authored lessons. Read-only; do not edit.",
+  "taskFamily": "investigation",
+  "consequenceLevel": "normal",
+  "allowedReadPaths": [
+    "projects/calm10-2026-draft/workspace/assets/resources",
+    "projects/calm10-2026-draft/meta/learner-resource-manifest-v1.json",
+    "projects/calm10-2026-draft/meta/astra-authoring/lessons/ce1-01.md",
+    "projects/calm10-2026-draft/meta/astra-authoring/lessons/ce1-03.md",
+    "projects/calm10-2026-draft/meta/astra-authoring/lessons/fl1-01.md",
+    "projects/calm10-2026-draft/meta/astra-authoring/lessons/fl1-05.md",
+    "projects/calm10-2026-draft/meta/astra-authoring/lessons/fl2-05.md",
+    "projects/calm10-2026-draft/meta/astra-authoring/lessons/fl3-06.md",
+    "projects/calm10-2026-draft/meta/astra-authoring/lessons/fl4-02.md"
+  ],
+  "allowedWritePaths": [],
+  "contextSources": [
+    "projects/calm10-2026-draft/meta/learner-resource-manifest-v1.json"
+  ],
+  "acceptanceCriteria": [
+    "Report question-specific adaptation and point of use for each PDF, distinguish source text from proposed learner copy; no generic resource advice."
+  ],
+  "requiredChecks": [],
+  "deferredChecks": [
+    "Broad E2E, Studio and SCORM at rollout"
+  ],
+  "prohibitedChanges": [
+    "No edits, commits, packaging or deployment"
+  ],
+  "privacyScope": "repository"
+}

@@ -1,0 +1,1401 @@
+{
+  "inspectionKind": "static JSON-literal inventory; no browser or production tests",
+  "files": {
+    "index.html": {
+      "sha256": "c9a7f359c38b8555d6c4e2e88866bec522a7db504c4f66b6a69586a8a4d9f9a9",
+      "bytes": 3529
+    },
+    "course-data.js": {
+      "sha256": "7b1ce7220dcc3fadfb6962f5c86aaa18b71a49e84d96e829ef4444f46fa0cac5",
+      "bytes": 325062
+    },
+    "main.js": {
+      "sha256": "91171649ed3d39ce26b67644d31e2d7db898bb181b1f3688af97fee25ec0e0d7",
+      "bytes": 91286
+    },
+    "styles.css": {
+      "sha256": "3acd132f38b0684c1e7d1895f1ed9eed9cad3fce0ad01b67dd492ee7085dcd27",
+      "bytes": 45075
+    }
+  },
+  "counts": {
+    "themes": 4,
+    "lessons": 50,
+    "lessonsPerTheme": {
+      "theme-1": 23,
+      "theme-2": 10,
+      "theme-3": 10,
+      "theme-4": 7
+    },
+    "assignments": 12,
+    "themeActivities": 1,
+    "vocabulary": 94,
+    "filmRoomItems": 20,
+    "quizzes": 0,
+    "bookletPrompts": 89,
+    "bookletFields": 102
+  },
+  "lessonRegistry": [
+    {
+      "id": "t1-l01-oral-tradition",
+      "unitId": "theme-1",
+      "displayOrder": 1,
+      "title": "Oral Tradition: Listening, Knowledge, and Evidence",
+      "kicker": "Block A · Lesson 1 · Begin Assignment 1.1",
+      "hasExplicitMapping": false
+    },
+    {
+      "id": "t1-l02-nations-peoples",
+      "unitId": "theme-1",
+      "displayOrder": 2,
+      "title": "Nations, Peoples, and the Dene Declaration",
+      "kicker": "Block A · Lesson 2 · Questions 1-8",
+      "hasExplicitMapping": false
+    },
+    {
+      "id": "t1-l03-rights-distinctions",
+      "unitId": "theme-1",
+      "displayOrder": 3,
+      "title": "Rights: Making the Important Distinctions",
+      "kicker": "Block A · Lesson 3 · Questions 9-15",
+      "hasExplicitMapping": false
+    },
+    {
+      "id": "t1-l04-worldview",
+      "unitId": "theme-1",
+      "displayOrder": 4,
+      "title": "Independence, Interdependence, and Worldview",
+      "kicker": "Block A · Lesson 4 · Questions 16-18",
+      "hasExplicitMapping": false
+    },
+    {
+      "id": "t1-l05-early-treaties",
+      "unitId": "theme-1",
+      "displayOrder": 5,
+      "title": "Early Treaties and Relationships Among Nations",
+      "kicker": "Block A · Lesson 5 · Questions 19-23",
+      "hasExplicitMapping": false
+    },
+    {
+      "id": "t1-l06-colonization-proclamation",
+      "unitId": "theme-1",
+      "displayOrder": 6,
+      "title": "Colonization, the Royal Proclamation, and Confederation",
+      "kicker": "Block A · Lesson 6 · Questions 24-27",
+      "hasExplicitMapping": false
+    },
+    {
+      "id": "t1-l07-numbered-treaties",
+      "unitId": "theme-1",
+      "displayOrder": 7,
+      "title": "Numbered Treaties: Purposes, Language, and Understandings",
+      "kicker": "Block A · Lesson 7 · Questions 28-31",
+      "hasExplicitMapping": false
+    },
+    {
+      "id": "t1-l08-treaty-promises-alberta",
+      "unitId": "theme-1",
+      "displayOrder": 8,
+      "title": "Treaty Promises and Implementation in Alberta",
+      "kicker": "Block A · Lesson 8 · Questions 32-34 · Checkpoint",
+      "hasExplicitMapping": false
+    },
+    {
+      "id": "t1-l09-geography-governance",
+      "unitId": "theme-1",
+      "displayOrder": 9,
+      "title": "Geography, Resources, and Forms of Governance",
+      "kicker": "Block B · Lesson 9 · Questions 37-38",
+      "hasExplicitMapping": false
+    },
+    {
+      "id": "t1-l10-land-law-knowledge",
+      "unitId": "theme-1",
+      "displayOrder": 10,
+      "title": "Land, Law, and Knowledge in Community Accounts",
+      "kicker": "Block B · Lesson 10 · Questions 35-36, 39-43",
+      "hasExplicitMapping": false
+    },
+    {
+      "id": "t1-l11-metis-governance-elders",
+      "unitId": "theme-1",
+      "displayOrder": 11,
+      "title": "Métis Governance, Leadership, and Elders",
+      "kicker": "Block B · Lesson 11 · Questions 44-47",
+      "hasExplicitMapping": false
+    },
+    {
+      "id": "t1-l12-first-nations-inuit-relations",
+      "unitId": "theme-1",
+      "displayOrder": 12,
+      "title": "Different Historical Relationships: First Nations and Inuit",
+      "kicker": "Block B · Lesson 12 · Questions 48-51",
+      "hasExplicitMapping": false
+    },
+    {
+      "id": "t1-l13-scrip-road-allowances",
+      "unitId": "theme-1",
+      "displayOrder": 13,
+      "title": "Métis Experiences: Red River, Scrip, and Road Allowances",
+      "kicker": "Block B · Lesson 13 · Questions 52-56",
+      "hasExplicitMapping": false
+    },
+    {
+      "id": "t1-l14-indian-act",
+      "unitId": "theme-1",
+      "displayOrder": 14,
+      "title": "The Indian Act: Status, Administration, and Control",
+      "kicker": "Block B · Lesson 14 · Questions 57-60",
+      "hasExplicitMapping": false
+    },
+    {
+      "id": "t1-l15-resistance-1951",
+      "unitId": "theme-1",
+      "displayOrder": 15,
+      "title": "Responses, Resistance, and the 1951 Revisions",
+      "kicker": "Block B · Lesson 15 · Questions 61-64",
+      "hasExplicitMapping": false
+    },
+    {
+      "id": "t1-l16-policy-councils-devolution",
+      "unitId": "theme-1",
+      "displayOrder": 16,
+      "title": "Changing Relationships: Policy, Councils, and Devolution",
+      "kicker": "Block B · Lesson 16 · Questions 65-68 · Checkpoint",
+      "hasExplicitMapping": false
+    },
+    {
+      "id": "t1-l17-land-knowledge-constitution",
+      "unitId": "theme-1",
+      "displayOrder": 17,
+      "title": "Land-Based Knowledge and Constitutional Recognition",
+      "kicker": "Block C · Lesson 17 · Questions 69-72",
+      "hasExplicitMapping": false
+    },
+    {
+      "id": "t1-l18-constitutional-negotiations",
+      "unitId": "theme-1",
+      "displayOrder": 18,
+      "title": "Constitutional Negotiations and National Organizations",
+      "kicker": "Block C · Lesson 18 · Questions 73-75",
+      "hasExplicitMapping": false
+    },
+    {
+      "id": "t1-l19-title-treaties-constraints",
+      "unitId": "theme-1",
+      "displayOrder": 19,
+      "title": "Aboriginal Title, Treaties, and Land-Related Constraints",
+      "kicker": "Block C · Lesson 19 · Questions 76-78",
+      "hasExplicitMapping": false
+    },
+    {
+      "id": "t1-l20-harvesting-rights",
+      "unitId": "theme-1",
+      "displayOrder": 20,
+      "title": "Harvesting Rights, Section 35, and Careful Claims",
+      "kicker": "Block C · Lesson 20 · Questions 79-80",
+      "hasExplicitMapping": false
+    },
+    {
+      "id": "t1-l21-rebuilding-goals",
+      "unitId": "theme-1",
+      "displayOrder": 21,
+      "title": "Rebuilding Self-Government: Goals and Negotiations",
+      "kicker": "Block C · Lesson 21 · Questions 81-83 · Begin 1.2",
+      "hasExplicitMapping": false
+    },
+    {
+      "id": "t1-l22-models",
+      "unitId": "theme-1",
+      "displayOrder": 22,
+      "title": "Comparing Models of Self-Government",
+      "kicker": "Block C · Lesson 22 · Questions 84-87 · Complete 1.2",
+      "hasExplicitMapping": false
+    },
+    {
+      "id": "t1-l23-synthesis",
+      "unitId": "theme-1",
+      "displayOrder": 23,
+      "title": "Theme 1 Synthesis and Fresh Evidence Check",
+      "kicker": "Block C · Lesson 23 · Synthesis · Checkpoint",
+      "hasExplicitMapping": false
+    },
+    {
+      "id": "t2-l01-why-land-matters",
+      "unitId": "theme-2",
+      "displayOrder": 1,
+      "title": "A Triumph for All: Gosnell and the Nisga'a Treaty",
+      "kicker": "Theme 2 · Lesson 1 · Start Assignment 2.1",
+      "hasExplicitMapping": false
+    },
+    {
+      "id": "t2-l05-land-values",
+      "unitId": "theme-2",
+      "displayOrder": 2,
+      "title": "Six Ways to Value Land",
+      "kicker": "Theme 2 · Lesson 2",
+      "hasExplicitMapping": false
+    },
+    {
+      "id": "t2-l02-two-kinds-of-claims",
+      "unitId": "theme-2",
+      "displayOrder": 3,
+      "title": "From Petitions to Policy: The Calder Case",
+      "kicker": "Theme 2 · Lesson 3 · Start Assignment 2.2",
+      "hasExplicitMapping": false
+    },
+    {
+      "id": "t2-l06-claims-machine",
+      "unitId": "theme-2",
+      "displayOrder": 4,
+      "title": "The Claims Machine: Offices, Reports, and Proof",
+      "kicker": "Theme 2 · Lesson 4",
+      "hasExplicitMapping": false
+    },
+    {
+      "id": "t2-l07-bigstone-specific",
+      "unitId": "theme-2",
+      "displayOrder": 5,
+      "title": "Specific Claims and the Bigstone Cree",
+      "kicker": "Theme 2 · Lesson 5",
+      "hasExplicitMapping": false
+    },
+    {
+      "id": "t2-l08-paths-resolution",
+      "unitId": "theme-2",
+      "displayOrder": 6,
+      "title": "When Talks Fail: Paths to Resolution",
+      "kicker": "Theme 2 · Lesson 6",
+      "hasExplicitMapping": false
+    },
+    {
+      "id": "t2-l03-metis-non-status-claims",
+      "unitId": "theme-2",
+      "displayOrder": 7,
+      "title": "Métis and Non-Status Claims",
+      "kicker": "Theme 2 · Lesson 7",
+      "hasExplicitMapping": false
+    },
+    {
+      "id": "t2-l09-first-modern-treaties",
+      "unitId": "theme-2",
+      "displayOrder": 8,
+      "title": "A New Era and the First Modern Treaty",
+      "kicker": "Theme 2 · Lesson 8",
+      "hasExplicitMapping": false
+    },
+    {
+      "id": "t2-l10-north-and-west",
+      "unitId": "theme-2",
+      "displayOrder": 9,
+      "title": "The North and West Settle",
+      "kicker": "Theme 2 · Lesson 9",
+      "hasExplicitMapping": false
+    },
+    {
+      "id": "t2-l04-resolving-claims",
+      "unitId": "theme-2",
+      "displayOrder": 10,
+      "title": "Nunavut: A Public Government, An Inuit Future",
+      "kicker": "Theme 2 · Lesson 10 · Complete 2.1 and 2.2",
+      "hasExplicitMapping": false
+    },
+    {
+      "id": "t3-l01-stereotypes-media",
+      "unitId": "theme-3",
+      "displayOrder": 1,
+      "title": "Mirrors and Walls: Dumont and Cultural Barriers",
+      "kicker": "Theme 3 · Lesson 1 · Start 3.1",
+      "hasExplicitMapping": false
+    },
+    {
+      "id": "t3-l05-words-that-wound",
+      "unitId": "theme-3",
+      "displayOrder": 2,
+      "title": "Words That Wound: Discrimination, Columbus, Littlechild",
+      "kicker": "Theme 3 · Lesson 2",
+      "hasExplicitMapping": false
+    },
+    {
+      "id": "t3-l06-screens-punchlines",
+      "unitId": "theme-3",
+      "displayOrder": 3,
+      "title": "Screens and Punchlines: Media, Humour, Identity",
+      "kicker": "Theme 3 · Lesson 3",
+      "hasExplicitMapping": false
+    },
+    {
+      "id": "t3-l02-breaking-barriers",
+      "unitId": "theme-3",
+      "displayOrder": 4,
+      "title": "Breaking Barriers: Recognition and Response",
+      "kicker": "Theme 3 · Lesson 4 · Complete 3.1",
+      "hasExplicitMapping": false
+    },
+    {
+      "id": "t3-l03-community-life",
+      "unitId": "theme-3",
+      "displayOrder": 5,
+      "title": "Reserve Life: Draw and Drag",
+      "kicker": "Theme 3 · Lesson 5 · Start Attawapiskat Report",
+      "hasExplicitMapping": false
+    },
+    {
+      "id": "t3-l07-running-own-show",
+      "unitId": "theme-3",
+      "displayOrder": 6,
+      "title": "Running Their Own Show",
+      "kicker": "Theme 3 · Lesson 6",
+      "hasExplicitMapping": false
+    },
+    {
+      "id": "t3-l08-city-test",
+      "unitId": "theme-3",
+      "displayOrder": 7,
+      "title": "The City Test: Pull, Push, and the Policy Gap",
+      "kicker": "Theme 3 · Lesson 7",
+      "hasExplicitMapping": false
+    },
+    {
+      "id": "t3-l09-friendship-success",
+      "unitId": "theme-3",
+      "displayOrder": 8,
+      "title": "Friendship Centres and Success Stories",
+      "kicker": "Theme 3 · Lesson 8",
+      "hasExplicitMapping": false
+    },
+    {
+      "id": "t3-l10-devolution",
+      "unitId": "theme-3",
+      "displayOrder": 9,
+      "title": "Devolution: Services by Aboriginal People",
+      "kicker": "Theme 3 · Lesson 9",
+      "hasExplicitMapping": false
+    },
+    {
+      "id": "t3-l04-urban-life-services",
+      "unitId": "theme-3",
+      "displayOrder": 10,
+      "title": "What Works: Designing Services That Fit",
+      "kicker": "Theme 3 · Lesson 10 · Complete Attawapiskat Report",
+      "hasExplicitMapping": false
+    },
+    {
+      "id": "t4-l01-one-world-many-peoples",
+      "unitId": "theme-4",
+      "displayOrder": 1,
+      "title": "One World, Many Peoples",
+      "kicker": "Theme 4 · Lesson 1",
+      "hasExplicitMapping": false
+    },
+    {
+      "id": "t4-l05-nine-issues",
+      "unitId": "theme-4",
+      "displayOrder": 2,
+      "title": "Nine Issues, One Pattern",
+      "kicker": "Theme 4 · Lesson 2",
+      "hasExplicitMapping": false
+    },
+    {
+      "id": "t4-l02-colonial-wounds",
+      "unitId": "theme-4",
+      "displayOrder": 3,
+      "title": "Colonial Wounds: Ainu, Australia, and the Stolen Generations",
+      "kicker": "Theme 4 · Lesson 3 · Start 4.2",
+      "hasExplicitMapping": false
+    },
+    {
+      "id": "t4-l06-resources-conflict",
+      "unitId": "theme-4",
+      "displayOrder": 4,
+      "title": "What the World Wants from Indigenous Land",
+      "kicker": "Theme 4 · Lesson 4",
+      "hasExplicitMapping": false
+    },
+    {
+      "id": "t4-l03-land-resources-un",
+      "unitId": "theme-4",
+      "displayOrder": 5,
+      "title": "The UN: Pressure, Not Law",
+      "kicker": "Theme 4 · Lesson 5 · Complete 4.2",
+      "hasExplicitMapping": false
+    },
+    {
+      "id": "t4-l07-education-odds",
+      "unitId": "theme-4",
+      "displayOrder": 6,
+      "title": "Education Changes the Odds",
+      "kicker": "Theme 4 · Lesson 6 · Start 4.3",
+      "hasExplicitMapping": false
+    },
+    {
+      "id": "t4-l04-youth-future-response",
+      "unitId": "theme-4",
+      "displayOrder": 7,
+      "title": "Carrying It Forward: Youth, Review, and Your Response",
+      "kicker": "Theme 4 · Lesson 7 · Complete 4.3",
+      "hasExplicitMapping": false
+    }
+  ],
+  "duplicateLessonIds": [],
+  "bookletFieldRegistry": [
+    {
+      "activityId": "theme-1-online-booklet",
+      "sectionId": "assignment-1-1",
+      "promptId": "assignment-1-1",
+      "number": null,
+      "kind": "shortAnswer",
+      "fieldKeys": [
+        "theme-1-online-booklet::assignment-1-1"
+      ]
+    },
+    {
+      "activityId": "theme-1-online-booklet",
+      "sectionId": "inherent-rights",
+      "promptId": "q1",
+      "number": "1",
+      "kind": "fillBlank",
+      "fieldKeys": [
+        "theme-1-online-booklet::q1.blank-1"
+      ]
+    },
+    {
+      "activityId": "theme-1-online-booklet",
+      "sectionId": "inherent-rights",
+      "promptId": "q2",
+      "number": "2",
+      "kind": "fillBlank",
+      "fieldKeys": [
+        "theme-1-online-booklet::q2.blank-1"
+      ]
+    },
+    {
+      "activityId": "theme-1-online-booklet",
+      "sectionId": "inherent-rights",
+      "promptId": "q3",
+      "number": "3",
+      "kind": "shortAnswer",
+      "fieldKeys": [
+        "theme-1-online-booklet::q3"
+      ]
+    },
+    {
+      "activityId": "theme-1-online-booklet",
+      "sectionId": "inherent-rights",
+      "promptId": "q4",
+      "number": "4",
+      "kind": "shortAnswer",
+      "fieldKeys": [
+        "theme-1-online-booklet::q4"
+      ]
+    },
+    {
+      "activityId": "theme-1-online-booklet",
+      "sectionId": "inherent-rights",
+      "promptId": "q5",
+      "number": "5",
+      "kind": "shortAnswer",
+      "fieldKeys": [
+        "theme-1-online-booklet::q5"
+      ]
+    },
+    {
+      "activityId": "theme-1-online-booklet",
+      "sectionId": "inherent-rights",
+      "promptId": "q6",
+      "number": "6",
+      "kind": "shortAnswer",
+      "fieldKeys": [
+        "theme-1-online-booklet::q6"
+      ]
+    },
+    {
+      "activityId": "theme-1-online-booklet",
+      "sectionId": "inherent-rights",
+      "promptId": "q7",
+      "number": "7",
+      "kind": "shortAnswer",
+      "fieldKeys": [
+        "theme-1-online-booklet::q7"
+      ]
+    },
+    {
+      "activityId": "theme-1-online-booklet",
+      "sectionId": "inherent-rights",
+      "promptId": "q8",
+      "number": "8",
+      "kind": "shortAnswer",
+      "fieldKeys": [
+        "theme-1-online-booklet::q8"
+      ]
+    },
+    {
+      "activityId": "theme-1-online-booklet",
+      "sectionId": "inherent-rights",
+      "promptId": "q9",
+      "number": "9",
+      "kind": "shortAnswer",
+      "fieldKeys": [
+        "theme-1-online-booklet::q9"
+      ]
+    },
+    {
+      "activityId": "theme-1-online-booklet",
+      "sectionId": "inherent-rights",
+      "promptId": "q10",
+      "number": "10",
+      "kind": "shortAnswer",
+      "fieldKeys": [
+        "theme-1-online-booklet::q10"
+      ]
+    },
+    {
+      "activityId": "theme-1-online-booklet",
+      "sectionId": "inherent-rights",
+      "promptId": "q11",
+      "number": "11",
+      "kind": "multipleChoice",
+      "fieldKeys": [
+        "theme-1-online-booklet::q11"
+      ]
+    },
+    {
+      "activityId": "theme-1-online-booklet",
+      "sectionId": "inherent-rights",
+      "promptId": "q12",
+      "number": "12",
+      "kind": "shortAnswer",
+      "fieldKeys": [
+        "theme-1-online-booklet::q12"
+      ]
+    },
+    {
+      "activityId": "theme-1-online-booklet",
+      "sectionId": "inherent-rights",
+      "promptId": "q13",
+      "number": "13",
+      "kind": "shortAnswer",
+      "fieldKeys": [
+        "theme-1-online-booklet::q13"
+      ]
+    },
+    {
+      "activityId": "theme-1-online-booklet",
+      "sectionId": "inherent-rights",
+      "promptId": "q14",
+      "number": "14",
+      "kind": "shortAnswer",
+      "fieldKeys": [
+        "theme-1-online-booklet::q14"
+      ]
+    },
+    {
+      "activityId": "theme-1-online-booklet",
+      "sectionId": "inherent-rights",
+      "promptId": "q15",
+      "number": "15",
+      "kind": "shortAnswer",
+      "fieldKeys": [
+        "theme-1-online-booklet::q15"
+      ]
+    },
+    {
+      "activityId": "theme-1-online-booklet",
+      "sectionId": "inherent-rights",
+      "promptId": "q16",
+      "number": "16",
+      "kind": "shortAnswer",
+      "fieldKeys": [
+        "theme-1-online-booklet::q16"
+      ]
+    },
+    {
+      "activityId": "theme-1-online-booklet",
+      "sectionId": "inherent-rights",
+      "promptId": "q17",
+      "number": "17",
+      "kind": "shortAnswer",
+      "fieldKeys": [
+        "theme-1-online-booklet::q17"
+      ]
+    },
+    {
+      "activityId": "theme-1-online-booklet",
+      "sectionId": "inherent-rights",
+      "promptId": "q18",
+      "number": "18",
+      "kind": "shortAnswer",
+      "fieldKeys": [
+        "theme-1-online-booklet::q18"
+      ]
+    },
+    {
+      "activityId": "theme-1-online-booklet",
+      "sectionId": "inherent-rights",
+      "promptId": "q19",
+      "number": "19",
+      "kind": "shortAnswer",
+      "fieldKeys": [
+        "theme-1-online-booklet::q19"
+      ]
+    },
+    {
+      "activityId": "theme-1-online-booklet",
+      "sectionId": "inherent-rights",
+      "promptId": "q20",
+      "number": "20",
+      "kind": "shortAnswer",
+      "fieldKeys": [
+        "theme-1-online-booklet::q20"
+      ]
+    },
+    {
+      "activityId": "theme-1-online-booklet",
+      "sectionId": "inherent-rights",
+      "promptId": "q21",
+      "number": "21",
+      "kind": "shortAnswer",
+      "fieldKeys": [
+        "theme-1-online-booklet::q21"
+      ]
+    },
+    {
+      "activityId": "theme-1-online-booklet",
+      "sectionId": "inherent-rights",
+      "promptId": "q22",
+      "number": "22",
+      "kind": "shortAnswer",
+      "fieldKeys": [
+        "theme-1-online-booklet::q22"
+      ]
+    },
+    {
+      "activityId": "theme-1-online-booklet",
+      "sectionId": "inherent-rights",
+      "promptId": "q23",
+      "number": "23",
+      "kind": "shortAnswer",
+      "fieldKeys": [
+        "theme-1-online-booklet::q23"
+      ]
+    },
+    {
+      "activityId": "theme-1-online-booklet",
+      "sectionId": "inherent-rights",
+      "promptId": "q24",
+      "number": "24",
+      "kind": "shortAnswer",
+      "fieldKeys": [
+        "theme-1-online-booklet::q24"
+      ]
+    },
+    {
+      "activityId": "theme-1-online-booklet",
+      "sectionId": "inherent-rights",
+      "promptId": "q25",
+      "number": "25",
+      "kind": "shortAnswer",
+      "fieldKeys": [
+        "theme-1-online-booklet::q25"
+      ]
+    },
+    {
+      "activityId": "theme-1-online-booklet",
+      "sectionId": "inherent-rights",
+      "promptId": "q26",
+      "number": "26",
+      "kind": "shortAnswer",
+      "fieldKeys": [
+        "theme-1-online-booklet::q26"
+      ]
+    },
+    {
+      "activityId": "theme-1-online-booklet",
+      "sectionId": "inherent-rights",
+      "promptId": "q27",
+      "number": "27",
+      "kind": "shortAnswer",
+      "fieldKeys": [
+        "theme-1-online-booklet::q27"
+      ]
+    },
+    {
+      "activityId": "theme-1-online-booklet",
+      "sectionId": "inherent-rights",
+      "promptId": "q28",
+      "number": "28",
+      "kind": "shortAnswer",
+      "fieldKeys": [
+        "theme-1-online-booklet::q28"
+      ]
+    },
+    {
+      "activityId": "theme-1-online-booklet",
+      "sectionId": "inherent-rights",
+      "promptId": "q29",
+      "number": "29",
+      "kind": "shortAnswer",
+      "fieldKeys": [
+        "theme-1-online-booklet::q29"
+      ]
+    },
+    {
+      "activityId": "theme-1-online-booklet",
+      "sectionId": "inherent-rights",
+      "promptId": "q30",
+      "number": "30",
+      "kind": "shortAnswer",
+      "fieldKeys": [
+        "theme-1-online-booklet::q30"
+      ]
+    },
+    {
+      "activityId": "theme-1-online-booklet",
+      "sectionId": "inherent-rights",
+      "promptId": "q31",
+      "number": "31",
+      "kind": "shortAnswer",
+      "fieldKeys": [
+        "theme-1-online-booklet::q31"
+      ]
+    },
+    {
+      "activityId": "theme-1-online-booklet",
+      "sectionId": "inherent-rights",
+      "promptId": "q32",
+      "number": "32",
+      "kind": "shortAnswer",
+      "fieldKeys": [
+        "theme-1-online-booklet::q32"
+      ]
+    },
+    {
+      "activityId": "theme-1-online-booklet",
+      "sectionId": "inherent-rights",
+      "promptId": "q33",
+      "number": "33",
+      "kind": "shortAnswer",
+      "fieldKeys": [
+        "theme-1-online-booklet::q33"
+      ]
+    },
+    {
+      "activityId": "theme-1-online-booklet",
+      "sectionId": "inherent-rights",
+      "promptId": "q34",
+      "number": "34",
+      "kind": "shortAnswer",
+      "fieldKeys": [
+        "theme-1-online-booklet::q34"
+      ]
+    },
+    {
+      "activityId": "theme-1-online-booklet",
+      "sectionId": "traditional-governance",
+      "promptId": "q35",
+      "number": "35",
+      "kind": "shortAnswer",
+      "fieldKeys": [
+        "theme-1-online-booklet::q35"
+      ]
+    },
+    {
+      "activityId": "theme-1-online-booklet",
+      "sectionId": "traditional-governance",
+      "promptId": "q36",
+      "number": "36",
+      "kind": "fillBlank",
+      "fieldKeys": [
+        "theme-1-online-booklet::q36.blank-1"
+      ]
+    },
+    {
+      "activityId": "theme-1-online-booklet",
+      "sectionId": "traditional-governance",
+      "promptId": "q37",
+      "number": "37",
+      "kind": "table",
+      "fieldKeys": [
+        "theme-1-online-booklet::q37.pacific-northwest.environmental-challenges",
+        "theme-1-online-booklet::q37.pacific-northwest.resources",
+        "theme-1-online-booklet::q37.plateau.environmental-challenges",
+        "theme-1-online-booklet::q37.plateau.resources",
+        "theme-1-online-booklet::q37.plains.environmental-challenges",
+        "theme-1-online-booklet::q37.plains.resources",
+        "theme-1-online-booklet::q37.eastern-woodlands.environmental-challenges",
+        "theme-1-online-booklet::q37.eastern-woodlands.resources",
+        "theme-1-online-booklet::q37.subarctic.environmental-challenges",
+        "theme-1-online-booklet::q37.subarctic.resources",
+        "theme-1-online-booklet::q37.arctic.environmental-challenges",
+        "theme-1-online-booklet::q37.arctic.resources"
+      ]
+    },
+    {
+      "activityId": "theme-1-online-booklet",
+      "sectionId": "traditional-governance",
+      "promptId": "q38",
+      "number": "38",
+      "kind": "shortAnswer",
+      "fieldKeys": [
+        "theme-1-online-booklet::q38"
+      ]
+    },
+    {
+      "activityId": "theme-1-online-booklet",
+      "sectionId": "traditional-governance",
+      "promptId": "q39",
+      "number": "39",
+      "kind": "shortAnswer",
+      "fieldKeys": [
+        "theme-1-online-booklet::q39"
+      ]
+    },
+    {
+      "activityId": "theme-1-online-booklet",
+      "sectionId": "traditional-governance",
+      "promptId": "q40",
+      "number": "40",
+      "kind": "fillBlank",
+      "fieldKeys": [
+        "theme-1-online-booklet::q40.blank-1",
+        "theme-1-online-booklet::q40.blank-2"
+      ]
+    },
+    {
+      "activityId": "theme-1-online-booklet",
+      "sectionId": "traditional-governance",
+      "promptId": "q41",
+      "number": "41",
+      "kind": "shortAnswer",
+      "fieldKeys": [
+        "theme-1-online-booklet::q41"
+      ]
+    },
+    {
+      "activityId": "theme-1-online-booklet",
+      "sectionId": "traditional-governance",
+      "promptId": "q42",
+      "number": "42",
+      "kind": "shortAnswer",
+      "fieldKeys": [
+        "theme-1-online-booklet::q42"
+      ]
+    },
+    {
+      "activityId": "theme-1-online-booklet",
+      "sectionId": "traditional-governance",
+      "promptId": "q43",
+      "number": "43",
+      "kind": "shortAnswer",
+      "fieldKeys": [
+        "theme-1-online-booklet::q43"
+      ]
+    },
+    {
+      "activityId": "theme-1-online-booklet",
+      "sectionId": "traditional-governance",
+      "promptId": "q44",
+      "number": "44",
+      "kind": "shortAnswer",
+      "fieldKeys": [
+        "theme-1-online-booklet::q44"
+      ]
+    },
+    {
+      "activityId": "theme-1-online-booklet",
+      "sectionId": "traditional-governance",
+      "promptId": "q45",
+      "number": "45",
+      "kind": "shortAnswer",
+      "fieldKeys": [
+        "theme-1-online-booklet::q45"
+      ]
+    },
+    {
+      "activityId": "theme-1-online-booklet",
+      "sectionId": "traditional-governance",
+      "promptId": "q46",
+      "number": "46",
+      "kind": "shortAnswer",
+      "fieldKeys": [
+        "theme-1-online-booklet::q46"
+      ]
+    },
+    {
+      "activityId": "theme-1-online-booklet",
+      "sectionId": "traditional-governance",
+      "promptId": "q47",
+      "number": "47",
+      "kind": "shortAnswer",
+      "fieldKeys": [
+        "theme-1-online-booklet::q47"
+      ]
+    },
+    {
+      "activityId": "theme-1-online-booklet",
+      "sectionId": "traditional-governance",
+      "promptId": "q48",
+      "number": "48",
+      "kind": "shortAnswer",
+      "fieldKeys": [
+        "theme-1-online-booklet::q48"
+      ]
+    },
+    {
+      "activityId": "theme-1-online-booklet",
+      "sectionId": "traditional-governance",
+      "promptId": "q49",
+      "number": "49",
+      "kind": "shortAnswer",
+      "fieldKeys": [
+        "theme-1-online-booklet::q49"
+      ]
+    },
+    {
+      "activityId": "theme-1-online-booklet",
+      "sectionId": "traditional-governance",
+      "promptId": "q50",
+      "number": "50",
+      "kind": "fillBlank",
+      "fieldKeys": [
+        "theme-1-online-booklet::q50.blank-1"
+      ]
+    },
+    {
+      "activityId": "theme-1-online-booklet",
+      "sectionId": "traditional-governance",
+      "promptId": "q51",
+      "number": "51",
+      "kind": "shortAnswer",
+      "fieldKeys": [
+        "theme-1-online-booklet::q51"
+      ]
+    },
+    {
+      "activityId": "theme-1-online-booklet",
+      "sectionId": "traditional-governance",
+      "promptId": "q52",
+      "number": "52",
+      "kind": "shortAnswer",
+      "fieldKeys": [
+        "theme-1-online-booklet::q52"
+      ]
+    },
+    {
+      "activityId": "theme-1-online-booklet",
+      "sectionId": "traditional-governance",
+      "promptId": "q53",
+      "number": "53",
+      "kind": "shortAnswer",
+      "fieldKeys": [
+        "theme-1-online-booklet::q53"
+      ]
+    },
+    {
+      "activityId": "theme-1-online-booklet",
+      "sectionId": "traditional-governance",
+      "promptId": "q54",
+      "number": "54",
+      "kind": "shortAnswer",
+      "fieldKeys": [
+        "theme-1-online-booklet::q54"
+      ]
+    },
+    {
+      "activityId": "theme-1-online-booklet",
+      "sectionId": "traditional-governance",
+      "promptId": "q55",
+      "number": "55",
+      "kind": "shortAnswer",
+      "fieldKeys": [
+        "theme-1-online-booklet::q55"
+      ]
+    },
+    {
+      "activityId": "theme-1-online-booklet",
+      "sectionId": "traditional-governance",
+      "promptId": "q56",
+      "number": "56",
+      "kind": "shortAnswer",
+      "fieldKeys": [
+        "theme-1-online-booklet::q56"
+      ]
+    },
+    {
+      "activityId": "theme-1-online-booklet",
+      "sectionId": "traditional-governance",
+      "promptId": "q57",
+      "number": "57",
+      "kind": "shortAnswer",
+      "fieldKeys": [
+        "theme-1-online-booklet::q57"
+      ]
+    },
+    {
+      "activityId": "theme-1-online-booklet",
+      "sectionId": "traditional-governance",
+      "promptId": "q58",
+      "number": "58",
+      "kind": "shortAnswer",
+      "fieldKeys": [
+        "theme-1-online-booklet::q58"
+      ]
+    },
+    {
+      "activityId": "theme-1-online-booklet",
+      "sectionId": "traditional-governance",
+      "promptId": "q59",
+      "number": "59",
+      "kind": "shortAnswer",
+      "fieldKeys": [
+        "theme-1-online-booklet::q59"
+      ]
+    },
+    {
+      "activityId": "theme-1-online-booklet",
+      "sectionId": "traditional-governance",
+      "promptId": "q60",
+      "number": "60",
+      "kind": "shortAnswer",
+      "fieldKeys": [
+        "theme-1-online-booklet::q60"
+      ]
+    },
+    {
+      "activityId": "theme-1-online-booklet",
+      "sectionId": "traditional-governance",
+      "promptId": "q61",
+      "number": "61",
+      "kind": "shortAnswer",
+      "fieldKeys": [
+        "theme-1-online-booklet::q61"
+      ]
+    },
+    {
+      "activityId": "theme-1-online-booklet",
+      "sectionId": "traditional-governance",
+      "promptId": "q62",
+      "number": "62",
+      "kind": "shortAnswer",
+      "fieldKeys": [
+        "theme-1-online-booklet::q62"
+      ]
+    },
+    {
+      "activityId": "theme-1-online-booklet",
+      "sectionId": "traditional-governance",
+      "promptId": "q63",
+      "number": "63",
+      "kind": "shortAnswer",
+      "fieldKeys": [
+        "theme-1-online-booklet::q63"
+      ]
+    },
+    {
+      "activityId": "theme-1-online-booklet",
+      "sectionId": "traditional-governance",
+      "promptId": "q64",
+      "number": "64",
+      "kind": "shortAnswer",
+      "fieldKeys": [
+        "theme-1-online-booklet::q64"
+      ]
+    },
+    {
+      "activityId": "theme-1-online-booklet",
+      "sectionId": "traditional-governance",
+      "promptId": "q65",
+      "number": "65",
+      "kind": "shortAnswer",
+      "fieldKeys": [
+        "theme-1-online-booklet::q65"
+      ]
+    },
+    {
+      "activityId": "theme-1-online-booklet",
+      "sectionId": "traditional-governance",
+      "promptId": "q66",
+      "number": "66",
+      "kind": "shortAnswer",
+      "fieldKeys": [
+        "theme-1-online-booklet::q66"
+      ]
+    },
+    {
+      "activityId": "theme-1-online-booklet",
+      "sectionId": "traditional-governance",
+      "promptId": "q67",
+      "number": "67",
+      "kind": "shortAnswer",
+      "fieldKeys": [
+        "theme-1-online-booklet::q67"
+      ]
+    },
+    {
+      "activityId": "theme-1-online-booklet",
+      "sectionId": "traditional-governance",
+      "promptId": "q68",
+      "number": "68",
+      "kind": "shortAnswer",
+      "fieldKeys": [
+        "theme-1-online-booklet::q68"
+      ]
+    },
+    {
+      "activityId": "theme-1-online-booklet",
+      "sectionId": "rights-self-government",
+      "promptId": "q69",
+      "number": "69",
+      "kind": "shortAnswer",
+      "fieldKeys": [
+        "theme-1-online-booklet::q69"
+      ]
+    },
+    {
+      "activityId": "theme-1-online-booklet",
+      "sectionId": "rights-self-government",
+      "promptId": "q70",
+      "number": "70",
+      "kind": "shortAnswer",
+      "fieldKeys": [
+        "theme-1-online-booklet::q70"
+      ]
+    },
+    {
+      "activityId": "theme-1-online-booklet",
+      "sectionId": "rights-self-government",
+      "promptId": "q71",
+      "number": "71",
+      "kind": "shortAnswer",
+      "fieldKeys": [
+        "theme-1-online-booklet::q71"
+      ]
+    },
+    {
+      "activityId": "theme-1-online-booklet",
+      "sectionId": "rights-self-government",
+      "promptId": "q72",
+      "number": "72",
+      "kind": "shortAnswer",
+      "fieldKeys": [
+        "theme-1-online-booklet::q72"
+      ]
+    },
+    {
+      "activityId": "theme-1-online-booklet",
+      "sectionId": "rights-self-government",
+      "promptId": "q73",
+      "number": "73",
+      "kind": "fillBlank",
+      "fieldKeys": [
+        "theme-1-online-booklet::q73.blank-1",
+        "theme-1-online-booklet::q73.blank-2"
+      ]
+    },
+    {
+      "activityId": "theme-1-online-booklet",
+      "sectionId": "rights-self-government",
+      "promptId": "q74",
+      "number": "74",
+      "kind": "shortAnswer",
+      "fieldKeys": [
+        "theme-1-online-booklet::q74"
+      ]
+    },
+    {
+      "activityId": "theme-1-online-booklet",
+      "sectionId": "rights-self-government",
+      "promptId": "q75",
+      "number": "75",
+      "kind": "shortAnswer",
+      "fieldKeys": [
+        "theme-1-online-booklet::q75"
+      ]
+    },
+    {
+      "activityId": "theme-1-online-booklet",
+      "sectionId": "rights-self-government",
+      "promptId": "q76",
+      "number": "76",
+      "kind": "shortAnswer",
+      "fieldKeys": [
+        "theme-1-online-booklet::q76"
+      ]
+    },
+    {
+      "activityId": "theme-1-online-booklet",
+      "sectionId": "rights-self-government",
+      "promptId": "q77",
+      "number": "77",
+      "kind": "shortAnswer",
+      "fieldKeys": [
+        "theme-1-online-booklet::q77"
+      ]
+    },
+    {
+      "activityId": "theme-1-online-booklet",
+      "sectionId": "rights-self-government",
+      "promptId": "q78",
+      "number": "78",
+      "kind": "shortAnswer",
+      "fieldKeys": [
+        "theme-1-online-booklet::q78"
+      ]
+    },
+    {
+      "activityId": "theme-1-online-booklet",
+      "sectionId": "rights-self-government",
+      "promptId": "q79",
+      "number": "79",
+      "kind": "multipleChoice",
+      "fieldKeys": [
+        "theme-1-online-booklet::q79"
+      ]
+    },
+    {
+      "activityId": "theme-1-online-booklet",
+      "sectionId": "rights-self-government",
+      "promptId": "q80",
+      "number": "80",
+      "kind": "shortAnswer",
+      "fieldKeys": [
+        "theme-1-online-booklet::q80"
+      ]
+    },
+    {
+      "activityId": "theme-1-online-booklet",
+      "sectionId": "rights-self-government",
+      "promptId": "q81",
+      "number": "81",
+      "kind": "shortAnswer",
+      "fieldKeys": [
+        "theme-1-online-booklet::q81"
+      ]
+    },
+    {
+      "activityId": "theme-1-online-booklet",
+      "sectionId": "rights-self-government",
+      "promptId": "q82",
+      "number": "82",
+      "kind": "shortAnswer",
+      "fieldKeys": [
+        "theme-1-online-booklet::q82"
+      ]
+    },
+    {
+      "activityId": "theme-1-online-booklet",
+      "sectionId": "rights-self-government",
+      "promptId": "q83",
+      "number": "83",
+      "kind": "shortAnswer",
+      "fieldKeys": [
+        "theme-1-online-booklet::q83"
+      ]
+    },
+    {
+      "activityId": "theme-1-online-booklet",
+      "sectionId": "rights-self-government",
+      "promptId": "q84",
+      "number": "84",
+      "kind": "shortAnswer",
+      "fieldKeys": [
+        "theme-1-online-booklet::q84"
+      ]
+    },
+    {
+      "activityId": "theme-1-online-booklet",
+      "sectionId": "rights-self-government",
+      "promptId": "q85",
+      "number": "85",
+      "kind": "shortAnswer",
+      "fieldKeys": [
+        "theme-1-online-booklet::q85"
+      ]
+    },
+    {
+      "activityId": "theme-1-online-booklet",
+      "sectionId": "rights-self-government",
+      "promptId": "q86",
+      "number": "86",
+      "kind": "shortAnswer",
+      "fieldKeys": [
+        "theme-1-online-booklet::q86"
+      ]
+    },
+    {
+      "activityId": "theme-1-online-booklet",
+      "sectionId": "rights-self-government",
+      "promptId": "q87",
+      "number": "87",
+      "kind": "shortAnswer",
+      "fieldKeys": [
+        "theme-1-online-booklet::q87"
+      ]
+    },
+    {
+      "activityId": "theme-1-online-booklet",
+      "sectionId": "assignment-1-2",
+      "promptId": "assignment-1-2",
+      "number": null,
+      "kind": "shortAnswer",
+      "fieldKeys": [
+        "theme-1-online-booklet::assignment-1-2"
+      ]
+    }
+  ],
+  "oldParserDiagnosticOnly": {
+    "duplicatePlacements": {
+      "q2": [
+        "t1-l02-nations-peoples",
+        "t1-l21-rebuilding-goals",
+        "t1-l22-models"
+      ],
+      "q1": [
+        "t1-l02-nations-peoples",
+        "t1-l21-rebuilding-goals",
+        "t1-l22-models"
+      ]
+    },
+    "warning": "This describes how the old title parser interprets data, not whether a repaired renderer still calls it."
+  },
+  "externalStyleDependencies": [
+    "https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@700;800&family=Work+Sans:wght@400;500;700;800&display=swap",
+    "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  ],
+  "scopeLimits": [
+    "No network requests.",
+    "No student storage read.",
+    "No JavaScript executed.",
+    "No factual/cultural/LMS certification.",
+    "No source files modified."
+  ],
+  "baselineComparison": {
+    "matching": true,
+    "differentFiles": [],
+    "auditPackagingOnly": [
+      "AUDIT_README.md"
+    ],
+    "action": "Reconcile divergence; never overwrite newer work.",
+    "preconditionNote": "Inspector CLI requires AUDIT_README.md (audit-ZIP packaging, absent from repo checkout); wrapper relaxed only that precondition. Parsing logic unmodified."
+  },
+  "observedVsBaseline": {
+    "baseline": {
+      "themes": 4,
+      "lessons": 50,
+      "lessonsPerTheme": {
+        "theme-1": 23,
+        "theme-2": 10,
+        "theme-3": 10,
+        "theme-4": 7
+      },
+      "formalAssignmentRecords": 12,
+      "hiddenBookletShells": 4,
+      "visibleWrittenAssignments": 8,
+      "themeActivities": 1,
+      "vocabularyRecords": 94,
+      "filmRoomRecords": 20,
+      "quizRecords": 0
+    },
+    "note": "baseline counts use audit vocabulary; inspector counts use data keys"
+  }
+}

@@ -1,0 +1,77 @@
+{
+ "ticket": "R00",
+ "manifestEntries": 13,
+ "hashVerification": "13/13 MATCH against sources/SOURCE_MANIFEST.json (first-hand this ticket)",
+ "stagedAuthoringCopies": {
+  "dir": "projects/resources/aboriginal-studies-30/official/",
+  "files": 8,
+  "postCopyVerification": "8/8 sha256 MATCH"
+ },
+ "entries": [
+  {
+   "path": "sources/official/ContemporaryIssuesAB30Textbook.pdf",
+   "sha256": "ef7886447f454c15ee4b66751a190922f9e7241a2ac97939bc92e1156f20a3e9"
+  },
+  {
+   "path": "sources/official/ab30theme1BOOKLET.pdf",
+   "sha256": "81632538fd4c22352d274fc65b2eeead1436b0eb99f660286539797a869e05b8"
+  },
+  {
+   "path": "sources/official/AB30theme2Booklet.pdf",
+   "sha256": "9d6965263a1edc3616fbcc50abde46f052636718e963650217484ad705eb0377"
+  },
+  {
+   "path": "sources/official/AB30Theme3Booklet.pdf",
+   "sha256": "f8e0f22d2e1af3dcb4196d8a2498e82af298e8db27e33b4fbbbba2615fbd1b94"
+  },
+  {
+   "path": "sources/official/AB30theme4Booklet.pdf",
+   "sha256": "a154ca2bdc5eec24e547e880811b80981b3c8c4a734ac8715fdf84e356abc6e2"
+  },
+  {
+   "path": "sources/official/Critical Response Criteria Aboriginal Studies.pdf",
+   "sha256": "eb8b8e6b9847176adc1121fdf459e17ae4801cf8482f8fcc773cbdf3a75fa5a5"
+  },
+  {
+   "path": "sources/official/Critical Response Rubric.pdf",
+   "sha256": "a45e6c4116c475c1845df2761ca8b89ee8ccae2b77f4259b89e78ee1a1124200"
+  },
+  {
+   "path": "sources/official/AB30 MARKING CONSTITUTION.pdf",
+   "sha256": "7149ad60bd0e305623ca1988662caa33189f3098e216b1d0e906309428ce31ef"
+  },
+  {
+   "path": "references/bio/EXTRACTED_REFERENCE_NO_FONTS.css",
+   "sha256": "702cbae5a4011ba413764c1abad84aa531c5e20a2e470a90c48da5cfdd5caeb7"
+  },
+  {
+   "path": "sources/existing-course/library/halfbreed-maria-campbell.pdf",
+   "sha256": "1f8b003f21ffcd58c4143efc2e422a0710193ee2c8593faae1a9eeaa4e7d63f2"
+  },
+  {
+   "path": "sources/existing-course/source-pages/first-nation-drinking-water.html",
+   "sha256": "104fbaa314fe70fc8c3761002ab10ebd4310dc74fc7289c1cf19f61a76824d50"
+  },
+  {
+   "path": "sources/existing-course/source-pages/i-m-not-the-indian-you-had-in-mind.html",
+   "sha256": "e1c26316e392e711beed41565f23a8971ef23c2092667ea09ee8fab8059dbaf8"
+  },
+  {
+   "path": "sources/existing-course/theme-1/readings/indigenous-worldviews.pdf",
+   "sha256": "06025b799e79906d821d86e3a738b26b2bfb1306647306a62a7a0eb74da933d0"
+  }
+ ],
+ "halfbreed": {
+  "workspaceCopy": "projects/aboriginal-studies-30/workspace/assets/library/halfbreed-maria-campbell.pdf",
+  "hashMatchesManifest": true,
+  "candidateStatus": "blocked-not-activated",
+  "profile": "v2 NEW-CANDIDATE uses official Theme 4 Halfbreed assignment wording/choices//16 rubric (spec 07 A-04); teaching/reading support in later tickets"
+ },
+ "legacyNovel": {
+  "selectedVersion": "legacy-inconvenient-indian",
+  "rule": "existing Inconvenient Indian responses stay attached; never relabelled; assignmentId 4-3-personal-response with version-bound records"
+ },
+ "permissions": "PDFs are authoring evidence, not auto-packaged student assets; inclusion is a private handoff, no new publication/redistribution rights; new maps/photos/extracts need explicit permission records (SOURCES.md)",
+ "pageMap": "package sources/textbook-page-map.json (printed->PDF pages); specimen checks in validation/specimen-source-check.json",
+ "curriculumAlignment": "NOT CLAIMED: official Alberta program link returns a move notice (SOURCES.md); alignment needs the actual program document identity (R00/R30 rule) \u2014 recorded as held, blocking only the alignment claim"
+}

@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 4,
+  "measuredAt": "2026-09-25",
+  "stateVersion": "chapter4-review-state-4",
+  "policyVersion": "c4-mastery-policy-3",
+  "applicationLimitCharacters": 52000,
+  "realCompleteMasteryCharacters": 50112,
+  "realRemainingMasteryCharacters": 1888,
+  "realMasteryUsagePercent": 96.37,
+  "completeCompositeCharactersBeforeScormPacking": 57616,
+  "scormSuspendDataLimitCharacters": 60000,
+  "realScormSuspendDataCharacters": 19676,
+  "realScormUsagePercent": 32.79,
+  "stressFixtureMasteryCharacters": 44615,
+  "stressFixtureCompositeCharacters": 54209,
+  "stressFixtureSuspendDataCharacters": 12153,
+  "realPath": {
+    "targets": 32,
+    "verificationReceipts": 2,
+    "verificationVariationCategories": 2,
+    "pairedTransferReasoning": true,
+    "transfer": true,
+    "retention": true,
+    "separateBrowserSession": true,
+    "clockAdvance": "controlled test only",
+    "includesFirstAndFinalWorking": true,
+    "includesPracticeResponses": 32,
+    "includesGuidedTasks": 16,
+    "includesToolState": true
+  },
+  "verified": [
+    "protected answers are not truncated",
+    "duplicate first/final work is represented by reversible sameAsFirst references",
+    "per-attempt provenance is shared without losing task version, presentation, time or session",
+    "all 32 targets restore at 100 after an exact SCORM save/reload",
+    "oversized protected state is refused",
+    "failed LMS commit preserves the last confirmed snapshot"
+  ],
+  "limits": [
+    "48-hour eligibility used a controlled clock and distinct session; actual two-day retention is unverified",
+    "SCORM 2004 API was simulated against the exact generated package; live Brightspace is unverified",
+    "device time is not a trusted server clock"
+  ]
+}

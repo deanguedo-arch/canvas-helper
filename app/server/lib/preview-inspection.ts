@@ -151,6 +151,12 @@ export function isPreviewInspectionNodeId(value: string | null | undefined) {
   return typeof value === "string" && new RegExp(`^${PREVIEW_NODE_ID_PREFIX}:[a-f0-9]{24}:[1-9][0-9]*$`).test(value);
 }
 
+function runtimeInspectionSourceNodeId(value: string | null | undefined) {
+  if (typeof value !== "string") return null;
+  const match = /^(ch1:[a-f0-9]{24}:[1-9][0-9]*)~([0-9a-z]{1,3}(?:\.[0-9a-z]{1,3}){0,23})!([a-z][a-z0-9-]{0,15})!([a-f0-9]{8})$/.exec(value);
+  return match && value.length <= STUDIO_REVIEW_LIMITS.identifierCodeUnits ? match[1] : null;
+}
+
 export function decoratePreviewHtml(html: string): PreviewInspectionDocument | null {
   if (Buffer.byteLength(html, "utf8") > MAX_INSPECTABLE_HTML_BYTES) {
     return null;
@@ -467,7 +473,9 @@ export async function resolvePreviewInspection(request: InspectionResolveRequest
   }
 
   const requestedNode = request.selection.nodeId;
-  if (!requestedNode || !isPreviewInspectionNodeId(requestedNode)) {
+  const runtimeSourceNode = runtimeInspectionSourceNodeId(requestedNode);
+  const sourceNode = runtimeSourceNode ?? requestedNode;
+  if (!sourceNode || !isPreviewInspectionNodeId(sourceNode)) {
     return buildUnknownResolution(
       request,
       previewPath,
@@ -476,8 +484,8 @@ export async function resolvePreviewInspection(request: InspectionResolveRequest
     );
   }
 
-  if (!document.nodeIds.has(requestedNode)) {
-    const freshness = requestedNode.includes(document.sourceDigest.slice(0, 24)) ? "unsupported" : "stale";
+  if (!document.nodeIds.has(sourceNode)) {
+    const freshness = sourceNode.includes(document.sourceDigest.slice(0, 24)) ? "unsupported" : "stale";
     return buildUnknownResolution(
       request,
       previewPath,
@@ -497,6 +505,29 @@ export async function resolvePreviewInspection(request: InspectionResolveRequest
   }
 
   const project = report.project;
+  if (runtimeSourceNode) {
+    const warning = "This element is rendered at runtime. Its source HTML ancestor is verified, but the specific element is only a review anchor; inspect the course's canonical runtime sources before editing.";
+    if (project.driverId === "legacy-snapshot-v1" || project.driverId === "english-factory-v1" || project.driverId === "social-related-issues-v1") {
+      const resolution = generatedResolution(request, previewPath, project);
+      return { ...resolution, warnings: [...resolution.warnings, warning] };
+    }
+    return {
+      projectSlug: request.projectSlug,
+      previewPath,
+      selection: request.selection,
+      resolution: "bounded",
+      freshness: "unverified",
+      artifactRole: "unknown",
+      generated: false,
+      primaryEditTarget: null,
+      primaryEditLine: null,
+      sourceExcerpt: null,
+      contributors: uniquePaths([...project.editableSources, ...project.canonicalSources, ...project.sharedSources], 4),
+      rebuildCommand: project.regenerateCommand ?? null,
+      validationCommand: `npm run course:doctor -- --project ${request.projectSlug}`,
+      warnings: [warning]
+    };
+  }
   if (project.driverId === "direct-workspace-v1" && project.authoringMode === "direct") {
     return directResolution(request, previewPath, project, document);
   }

@@ -1,0 +1,303 @@
+{
+  "schemaVersion": 3,
+  "projectSlug": "ela10-2-modern-play-dracula",
+  "courseCode": "ELA 10-2",
+  "courseTitle": "English Language Arts 10-2",
+  "unitTitle": "Modern Play - Dracula",
+  "profileVersion": "next-step-english-v3-ela10-2",
+  "status": "needs-review",
+  "derivesFromProject": "ela10-1-modern-play-fences",
+  "writingForms": [
+    {
+      "kind": "literary-exploration",
+      "trackMode": "unit",
+      "profile": "modern-drama"
+    },
+    {
+      "kind": "personal-response",
+      "trackMode": "unit",
+      "profile": "modern-drama"
+    }
+  ],
+  "source": {
+    "brightspaceZip": "projects/resources/ela10-2/_sources/f1319deb2ada7c4ea36d86a9fe172058daa2d9f4baf7edb541acb38c44e36e53.zip",
+    "teacherResourcesZip": "projects/resources/ela10-2/_sources/cea6d0cc7cb840c4099011f9f71e10711a996ca5f49d75c586dbc172829877be.zip",
+    "brightspaceUnitId": "derived-ela10-1-modern-play-fences",
+    "teacherFolder": "ENGLISH 10-2 NSO/UNIT 3 Modern Play",
+    "archiveRefs": {
+      "brightspace": "brightspace",
+      "teacherResources": "teacher-resources"
+    },
+    "lessonSelectors": [
+      {
+        "itemId": "donor:ela10-1-modern-play-fences",
+        "title": "Approved donor lesson sequence",
+        "disposition": "include",
+        "includeChildren": true,
+        "reason": "Resolve lesson content from the approved donor recipe during the derived V3 build; this is not a Brightspace content selector."
+      }
+    ]
+  },
+  "activityProfile": {
+    "schemaVersion": 1,
+    "kind": "modern-drama",
+    "actIds": [
+      "act-1",
+      "act-2",
+      "act-3"
+    ],
+    "characterIds": [
+      "dracula",
+      "jonathan-harker",
+      "mina",
+      "lucy",
+      "van-helsing"
+    ],
+    "criticalEssay": false,
+    "activities": [
+      {
+        "id": "script-reader",
+        "title": "Script Reader",
+        "route": "script-reader",
+        "enabled": true,
+        "evidencePolicyIds": []
+      },
+      {
+        "id": "act-questions",
+        "title": "Act Questions",
+        "route": "act-questions",
+        "enabled": true,
+        "evidencePolicyIds": [
+          "act-question-collection"
+        ]
+      },
+      {
+        "id": "character-conflict",
+        "title": "Character and Conflict Notes",
+        "route": "character-notes",
+        "enabled": true,
+        "evidencePolicyIds": [
+          "character-dossier-collection"
+        ]
+      },
+      {
+        "id": "evidence-bank",
+        "title": "Evidence Bank",
+        "route": "evidence-bank",
+        "enabled": true,
+        "evidencePolicyIds": []
+      },
+      {
+        "id": "resources",
+        "title": "Resources",
+        "route": "resources",
+        "enabled": true,
+        "evidencePolicyIds": []
+      }
+    ],
+    "evidencePolicies": [
+      {
+        "id": "act-question-collection",
+        "activityId": "act-questions",
+        "saveMode": "collection",
+        "requiresExplicitSave": true,
+        "collectionScope": "locator",
+        "contributionIdTemplate": "{projectSlug}:act-questions:{locatorId}"
+      },
+      {
+        "id": "character-dossier-collection",
+        "activityId": "character-conflict",
+        "saveMode": "collection",
+        "requiresExplicitSave": true,
+        "collectionScope": "work",
+        "contributionIdTemplate": "{projectSlug}:character-conflict:{workId}"
+      }
+    ]
+  },
+  "lessonOrder": [
+    "donor:ela10-1-modern-play-fences"
+  ],
+  "topLevelLessonOrder": [
+    "donor:ela10-1-modern-play-fences"
+  ],
+  "lessonGroups": [
+    {
+      "id": "unit-lessons",
+      "title": "Modern Play - Dracula",
+      "lessonIds": [
+        "donor:ela10-1-modern-play-fences"
+      ]
+    }
+  ],
+  "readings": [],
+  "placements": [],
+  "analysisTerms": [],
+  "analysisExamples": [],
+  "resourceDispositions": [
+    {
+      "id": "dracula-script",
+      "title": "Dracula Play Script",
+      "source": "ENGLISH 10-2 NSO/UNIT 3 Modern Play/Dracula.pdf",
+      "role": "reading",
+      "disposition": "source-only",
+      "sourcePages": [
+        {
+          "start": 3,
+          "end": 12
+        },
+        {
+          "start": 14,
+          "end": 18
+        },
+        {
+          "start": 20,
+          "end": 26
+        }
+      ],
+      "reason": "Use only the 22 play-script pages: Act I source pages 3-12, Act II pages 14-18, and Act III pages 20-26. The original 125-page anthology PDF stays non-learner-facing; front matter (1-2), embedded question sheets (13, 19, 27-28), duplicate Act III text (29), a monologue brief and student samples (30-32), and unrelated anthology material (33-125) are excluded from the Script Reader.",
+      "destination": "script-reader"
+    },
+    {
+      "id": "dracula-assignments",
+      "title": "Dracula Questions and Assignment Sources",
+      "source": "ENGLISH 10-2 NSO/UNIT 3 Modern Play/Dracula Assignments.pdf",
+      "role": "question-set",
+      "disposition": "source-only",
+      "sourcePages": [
+        {
+          "start": 15,
+          "end": 15
+        },
+        {
+          "start": 17,
+          "end": 20
+        },
+        {
+          "start": 25,
+          "end": 25
+        },
+        {
+          "start": 27,
+          "end": 28
+        }
+      ],
+      "reason": "Retain only eight clean Dracula-specific source pages. Interactive Act Questions use pages 18-20 (Act I: 4, Act II: 5, Act III: 3; 12 total). Pages 15, 17, 25, and 27-28 remain source-only assignment candidates pending teacher review. Filled responses (5, 16, 21-24, 29), the duplicate character sheet (26), unit tests and exams (30-47), and background or non-assignment pages (1-14) are excluded from learner output.",
+      "destination": "act-questions"
+    },
+    {
+      "id": "dracula-vocabulary",
+      "source": "ENGLISH 10-2 NSO/UNIT 3 Modern Play/Dracula Vocabulary Quiz.doc",
+      "role": "question-set",
+      "disposition": "review-required",
+      "reason": "Retain as the source for clearly labelled, non-graded formative vocabulary practice only; teacher review is required before learner placement.",
+      "destination": "vocabulary-practice"
+    },
+    {
+      "id": "dracula-soft-reading",
+      "source": "ENGLISH 10-2 NSO/UNIT 3 Modern Play/SOFT GATE_ School Thief Reading.docx",
+      "role": "excluded-assessment",
+      "disposition": "exclude",
+      "reason": "Soft/hard-gate assessment is intentionally excluded."
+    },
+    {
+      "id": "dracula-soft-questions",
+      "source": "ENGLISH 10-2 NSO/UNIT 3 Modern Play/SOFT GATE_ School Thief Questions.docx",
+      "role": "excluded-assessment",
+      "disposition": "exclude",
+      "reason": "Soft/hard-gate assessment is intentionally excluded."
+    },
+    {
+      "id": "dracula-hard-gate",
+      "source": "ENGLISH 10-2 NSO/UNIT 3 Modern Play/MODERN PLAY UNIT 10-2 HARD GATE Critical Response to Text.docx",
+      "role": "excluded-assessment",
+      "disposition": "exclude",
+      "reason": "Soft/hard-gate assessment is intentionally excluded."
+    }
+  ],
+  "excludedFiles": [
+    {
+      "file": "ENGLISH 10-2 NSO/UNIT 3 Modern Play/SOFT GATE_ School Thief Reading.docx",
+      "reason": "Soft/hard-gate assessment is intentionally excluded."
+    },
+    {
+      "file": "ENGLISH 10-2 NSO/UNIT 3 Modern Play/SOFT GATE_ School Thief Questions.docx",
+      "reason": "Soft/hard-gate assessment is intentionally excluded."
+    },
+    {
+      "file": "ENGLISH 10-2 NSO/UNIT 3 Modern Play/MODERN PLAY UNIT 10-2 HARD GATE Critical Response to Text.docx",
+      "reason": "Soft/hard-gate assessment is intentionally excluded."
+    }
+  ],
+  "wordingCorrections": [
+    {
+      "find": "ELA 10-1",
+      "replace": "ELA 10-2",
+      "reason": "Correct inherited donor course-level wording."
+    },
+    {
+      "find": "English 10-1",
+      "replace": "ELA 10-2",
+      "reason": "Correct inherited donor course-level wording."
+    },
+    {
+      "find": "ELA 20-1",
+      "replace": "ELA 10-2",
+      "reason": "Correct inherited donor course-level wording."
+    },
+    {
+      "find": "English 20-1",
+      "replace": "ELA 10-2",
+      "reason": "Correct inherited donor course-level wording."
+    },
+    {
+      "find": "ELA 30-1",
+      "replace": "ELA 10-2",
+      "reason": "Correct inherited donor course-level wording."
+    },
+    {
+      "find": "English 30-1",
+      "replace": "ELA 10-2",
+      "reason": "Correct inherited donor course-level wording."
+    },
+    {
+      "find": "CBE",
+      "replace": "",
+      "reason": "Remove inherited provider branding from learner-facing copy."
+    },
+    {
+      "find": "continue to the next page",
+      "replace": "",
+      "reason": "Remove obsolete LMS navigation language."
+    }
+  ],
+  "mediaPolicy": {
+    "verifiedAt": "not-reviewed",
+    "allowedYouTubeIds": [],
+    "blockedYouTubeIds": [],
+    "approvedExternalUrls": [],
+    "externalUrlRewrites": {}
+  },
+  "customComponents": [],
+  "acceptance": {
+    "requiredRoutes": [
+      "script-reader",
+      "act-questions",
+      "character-notes",
+      "evidence-bank",
+      "resources"
+    ],
+    "requiredActivityIds": [
+      "script-reader",
+      "act-questions",
+      "character-conflict",
+      "evidence-bank",
+      "resources"
+    ],
+    "reviewItems": [
+      "Verify the scoped Script Reader against Dracula.pdf pages 3-12, 14-18, and 20-26; it maps four scenes across Acts I-III and still requires rights and accessibility approval.",
+      "Editorially verify all 12 clean act questions from Dracula Assignments.pdf pages 18-20 (4/5/3 by act) before final export.",
+      "Review the retained Dracula vocabulary quiz before adapting it into clearly labelled, non-graded formative practice; no answer key or learner answers may be published.",
+      "Approve, adapt, or decline the source-only assignment candidates on Dracula Assignments.pdf pages 15, 17, 25, and 27-28; page 28 is only a partial Personal Response planner."
+    ]
+  }
+}

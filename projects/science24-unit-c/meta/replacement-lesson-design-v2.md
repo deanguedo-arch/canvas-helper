@@ -1,0 +1,42 @@
+# Unit C replacement lesson design
+
+**Candidate state:** the 17-lesson v2 learner build is in the canonical workspace, blocked and previewable for review. The eight-lesson original is frozen in `rejected-candidate-v1.zip`; `legacy-catalog-v1.json` records its IDs and save namespace. Exact build evidence and deferred acceptance checks are in `unit-c-v2-build-evidence.md`.
+
+The planned route is 17 teaching lessons and one integrated review. Chapters and lesson boundaries follow `source-task-map-v2.json`; the exact 2023 workbook and textbook page images remain original source work. Unit B controls layout, navigation, save/recovery behaviour and optional practice structure; Unit A and Biology 30 Pilot 3 control the presentation details already refined into B.
+
+Every teaching lesson will contain: goal and prerequisite; four anchor terms plus remaining vocabulary; a printed-page textbook link; familiar opening; two substantive explanation sections; two worked examples; five formative tasks (error diagnosis, two guided, two independent) with reasoning-based feedback; saved transfer and later retrieval; two objective and two saved-written required-check items; explicit finish action. A card count alone cannot satisfy this contract. An authored practice question must be distinguishable from an original workbook question. Optional media and practice never control progress.
+
+| Lesson | Main learning evidence and worked models | Independent work that must be possible |
+| --- | --- | --- |
+| 1. Disease causes and germ theory | Use a food-illness case to distinguish a cause from a contributing condition; model how an observation and controlled evidence can test a germ claim. | Explain why food left at room temperature may support bacterial growth, without assuming every microorganism is harmful. WB 9:1–3, 9. |
+| 2. Bacteria, viruses and other pathogens | Compare cellular bacteria with viruses that replicate in host cells; trace one protist and one fungal transmission example. | Classify pathogen examples and propose evidence needed to identify one. WB 9:4–8. |
+| 3. Communicable disease and unequal risk | Contrast transmission routes with non-communicable factors; unpack an environment/access case without blaming an affected group. | Separate disease mechanism from social conditions and evaluate a prevention claim. WB 9:10–15. |
+| 4. Food safety and preservation | Explain water, temperature and contamination pathways; compare refrigeration with pasteurization as different controls. | Account for the workbook’s ten preservation methods and five preparation-surface recommendations. WB 9:16–17. |
+| 5. Sanitation, sterilization and aseptic practice | Contrast antiseptic on living tissue, disinfectant on surfaces and sterilization; model a safe preparation workflow. | Diagnose a broken aseptic procedure and explain why a named control works. WB 9:2c–d, 18–20. |
+| 6. Outbreaks and historical impact | Distinguish outbreak, epidemic and pandemic using extent over time; compare the workbook’s four historical disease cases with dated evidence. | Fill a social-conditions/impact/time-place matrix and explain one limitation of comparing eras. WB 10:1–6. |
+| 7. Water, waste and air as public systems | Trace source → treatment/monitoring → exposure prevention for drinking water; compare waste and air pathways. | Explain who acts, what is monitored and what a public alert means without teaching old AQI numbers as current. WB 10:7–14. |
+| 8. Guidelines and the Walkerton case | Work through a source-based timeline and distinguish a warning sign, system failure and preventive action; model risk-factor table reasoning. | Make a justified public-health recommendation from the original case evidence. WB 10:15–17. Cited textbook p. 186 is absent; workbook p. 16 remains available. |
+| 9. Barriers and inflammation | Trace how intact skin, mucus and cilia limit entry; model a sliver causing a local inflammatory response. | Complete the physical-defence chart and explain redness, warmth, swelling and macrophage action. WB 11:2–8. |
+| 10. Antigens, antibodies and immune response | Trace the workbook’s simplified sequence while distinguishing an antigen marker from an antibody; read the branching immunity flowchart. | Order the original five statements and distinguish active from passive immunity using examples. WB 11:9–16. |
+| 11. Blood compatibility, vaccines and immunity | Model why a red-cell antigen/antibody mismatch matters; distinguish vaccine-induced active immunity from supplied passive antibodies. | Qualify O-negative red-cell donor language and explain current vaccine types, benefits and limits. WB 11:17–22; Canadian Immunization Guide governs corrections. |
+| 12. Medicines and antibiotics | Model why antibiotics act on bacteria rather than a viral cold; interpret a safe medicine-label choice. | Explain resistance and use instructions without prescribing individual treatment. WB 11:1, 23–27. |
+| 13. DNA, chromosomes and inheritance | Scale DNA → gene → chromosome → cell; read a simple karyotype and base-pair example. | Interpret all three workbook karyotypes with accurate chromosome language; present XX/XY as common patterns with variation. WB 12:1–6. |
+| 14. Genotypes and Punnett squares | Work a Tt × tt plant cross and a Ww × Ww sheep cross, explicitly separating four equally likely outcomes from an observed small family. | Draw, label and interpret the workbook’s plant, sheep and simplified eye-colour crosses; note real human eye colour is multi-gene. WB 12:7–10. |
+| 15. Read and construct pedigrees | Read generations, relationships and shaded status in the Q11 family pedigree on p. 31; use the separate Q12 pedigree on p. 32 to identify the unaffected-parent/affected-child evidence for recessive inheritance in the intended simple model. | Answer source Q11 from its own figure, explain Q12 from its separate figure, and construct Q13 with a key under its simplified model. |
+| 16. Mutations, mutagens and genetic disorders | Distinguish DNA change from its effect, and inherited versus acquired changes; evaluate an exposure claim with mechanism and evidence. | Explain the mutation and mutagen tasks with non-deterministic language. WB 12:14–17. |
+| 17. Genetic research and ethics | Compare a research benefit, limitation and affected person's choice; use a claim/evidence/uncertainty model for genetic-engineering examples. | Complete the original research chart with dated context and write a consent/harms/alternatives response to the cloning hypothetical. WB 12:18–19. |
+| 18. Integrated review | Eight objective items span all four chapters; two saved synthesis responses join personal, community, immune and genetics evidence. | Transfer ideas across chapters without treating the original Brightspace quiz or hidden test as a public practice bank. |
+
+## Source and interaction acceptance
+
+1. Workbook tasks, including the Q14 immunity flowchart, Q11–13 pedigree work, Q4 karyotypes and Q8–10 Punnett layouts, are represented by meaningful reading or written/diagram tasks. The learner can always open the original page.
+2. Textbook Practice stores numbered written answers and keeps printed-page and physical-PDF positions separate. Missing printed pages are marked as unavailable, not silently linked to neighbouring PDF pages.
+3. The 2023 key is linked only through attempt-first guidance. Hidden Unit C quiz/test items are absent from public practice.
+4. Saved v1 work is read under `science24-unit-c-review-v1` through the frozen catalog and labelled **Previous draft**. New checks use v2 IDs and do not count old completions.
+5. Directly editable copy, links and images remain in canonical HTML with durable edit keys. Dynamic question banks, histories, Frayer entries and dialogs are Annotation only.
+6. A complete v2 candidate receives source reconciliation, science review, responsive/keyboard review, real-browser save/reload and conflict testing, and project evidence tied to candidate hashes before teacher sign-off. Doctor refusal while blocked is recorded as a refusal, not a pass.
+
+## Teacher decisions for the review checkpoint
+
+- Closed 2026-09-25: Q11 and Q12 use different figures. Assess Q12 from its p. 32 figure; its unaffected-parent/affected-child pattern supports recessive inheritance in the intended simple model.
+- Confirm any rights or local approval needed before publishing CBE photos. The current candidate uses no copied CBE image.

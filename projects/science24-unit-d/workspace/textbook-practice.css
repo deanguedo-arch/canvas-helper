@@ -1,0 +1,16 @@
+/* Question-level Textbook Practice, generated source crops remain canonical assets. */
+#textbook-practice #book-tiles{display:block;max-height:430px;padding:0;border:1px solid var(--border);background:#fff}
+#textbook-practice #book-tiles .book-list-intro{position:sticky;top:0;z-index:2;margin:0;padding:14px 16px;border-bottom:1px solid var(--border);background:#f4f7f4}
+#textbook-practice .book-page-group{padding:14px 16px;border-bottom:1px solid var(--border)}
+#textbook-practice .book-page-group:last-child{border-bottom:0}
+#textbook-practice .book-page-group h3{margin:0 0 9px;font-size:14px;color:var(--muted)}
+#textbook-practice .book-question-tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(128px,1fr));gap:8px}
+#textbook-practice #book-tiles .book-question-tiles button{display:grid;align-content:start;gap:3px;min-width:0;min-height:80px;margin:0;padding:10px;border:1px solid var(--border);border-left:3px solid transparent;border-radius:3px;background:#fff;color:var(--ink);text-align:left;box-shadow:none}
+#textbook-practice #book-tiles .book-question-tiles button strong{font-size:18px;line-height:1.2}
+#textbook-practice #book-tiles .book-question-tiles button span,#textbook-practice #book-tiles .book-question-tiles button small{font-size:12px;line-height:1.3;color:var(--muted)}
+#textbook-practice #book-tiles .book-question-tiles button[aria-pressed=true]{border-color:var(--teal);border-left-color:var(--teal);background:#eef7f4;color:var(--ink)}
+#textbook-practice .book-source figure{display:grid;justify-items:center;margin:18px 0}
+#textbook-practice .book-crop{display:block;width:auto;max-width:100%;max-height:560px;margin:0 auto;border:1px solid var(--border);object-fit:contain;background:#fff}
+#textbook-practice .book-source figcaption{width:100%;margin-top:8px}
+@media(max-width:760px){#textbook-practice #book-tiles{max-height:340px}#textbook-practice .book-question-tiles{grid-template-columns:repeat(2,minmax(0,1fr))}#textbook-practice .book-crop{max-height:440px}}
+

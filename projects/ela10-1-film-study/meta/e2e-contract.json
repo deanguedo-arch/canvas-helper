@@ -1,0 +1,141 @@
+{
+  "$schema": "../../../e2e/project-e2e-contract.schema.json",
+  "projectSlug": "ela10-1-film-study",
+  "requiredTestIds": [
+    "studio-shell",
+    "course-studio-tab",
+    "workspace-project-select",
+    "project-root",
+    "workspace-preview-frame"
+  ],
+  "modes": {
+    "enabled": false
+  },
+  "navigation": {
+    "enabled": false
+  },
+  "quiz": {
+    "enabled": false,
+    "lessonTitle": "Film Study Questions"
+  },
+  "fallbackPanel": {
+    "enabled": false
+  },
+  "learnerCourse": {
+    "enabled": true,
+    "routes": [
+      "overview",
+      "lessons",
+      "lesson-1-film-study-overview",
+      "lesson-2-a-brief-history-of-film",
+      "lesson-3-formal-elements-of-film",
+      "lesson-4-editing-and-sound",
+      "lesson-5-film-editing-techniques",
+      "lesson-6-camera-shots-and-angles",
+      "lesson-7-mise-en-scene",
+      "lesson-8-composition-and-camera-movement",
+      "lesson-9-sound-in-film",
+      "critical-essay",
+      "critical-essay-topic-interpretation",
+      "critical-essay-introduction",
+      "critical-essay-body-one",
+      "critical-essay-body-two",
+      "critical-essay-body-three",
+      "critical-essay-conclusion-revision",
+      "critical-essay-preview",
+      "personal-response",
+      "personal-response-prompt-impression",
+      "personal-response-film-evidence",
+      "personal-response-knowledge-experience",
+      "personal-response-form-perspective",
+      "personal-response-response-plan",
+      "personal-response-draft-revise",
+      "personal-response-preview",
+      "viewing-guide",
+      "film-study-questions",
+      "film-room",
+      "resources",
+      "core-vocabulary",
+      "evidence-bank"
+    ],
+    "hintRoutes": [
+      "critical-essay-topic-interpretation",
+      "critical-essay-introduction",
+      "critical-essay-body-one",
+      "critical-essay-body-two",
+      "critical-essay-body-three",
+      "critical-essay-conclusion-revision",
+      "personal-response-prompt-impression",
+      "personal-response-film-evidence",
+      "personal-response-knowledge-experience",
+      "personal-response-form-perspective",
+      "personal-response-response-plan",
+      "personal-response-draft-revise",
+      "viewing-guide",
+      "film-study-questions"
+    ],
+    "printRoutes": [
+      "critical-essay-topic-interpretation",
+      "critical-essay-introduction",
+      "critical-essay-body-one",
+      "critical-essay-body-two",
+      "critical-essay-body-three",
+      "critical-essay-conclusion-revision",
+      "critical-essay-preview",
+      "personal-response-prompt-impression",
+      "personal-response-film-evidence",
+      "personal-response-knowledge-experience",
+      "personal-response-form-perspective",
+      "personal-response-response-plan",
+      "personal-response-draft-revise",
+      "personal-response-preview",
+      "viewing-guide",
+      "film-study-questions",
+      "evidence-bank"
+    ],
+    "evidenceScenarios": [
+      {
+        "route": "critical-essay-topic-interpretation",
+        "collectionId": "ela10-1-film-study:critical-essay:unit:topic-interpretation:collection",
+        "responseId": "ela10-1-film-study:critical-essay:unit:topic-interpretation:topic"
+      },
+      {
+        "route": "personal-response-prompt-impression",
+        "collectionId": "ela10-1-film-study:personal-response:unit:prompt-impression:collection",
+        "responseId": "ela10-1-film-study:personal-response:unit:prompt-impression:prompt"
+      },
+      {
+        "route": "viewing-guide",
+        "collectionId": "ela10-1-film-study:viewing-guide:synthesis:collection",
+        "responseId": "ela10-1-film-study:viewing-guide:synthesis:pattern"
+      },
+      {
+        "route": "film-study-questions",
+        "collectionId": "ela10-1-film-study:film-study-questions:technique-questions:collection",
+        "responseId": "ela10-1-film-study:film-study-questions:technique-questions:panning"
+      }
+    ],
+    "resourceChecks": [
+      {
+        "route": "film-room",
+        "kind": "media",
+        "minimumPrimary": 1,
+        "minimumFallback": 1
+      }
+    ],
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "routes": [
+        "overview",
+        "lesson-1-film-study-overview",
+        "critical-essay-topic-interpretation",
+        "personal-response-prompt-impression",
+        "viewing-guide",
+        "film-study-questions",
+        "film-room",
+        "evidence-bank"
+      ]
+    }
+  }
+}

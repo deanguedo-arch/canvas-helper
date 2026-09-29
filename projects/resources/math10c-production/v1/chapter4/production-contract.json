@@ -1,0 +1,133 @@
+{
+  "schemaVersion": 1,
+  "contractId": "math10c-chapter4-roots-powers-v1",
+  "status": "blocked-review-candidate",
+  "course": "Math 10C",
+  "chapter": 4,
+  "title": "Roots and Powers",
+  "sourceManifest": "projects/resources/math10c-production/v1/source-manifest.json",
+  "presentationReference": "projects/math10c-unit3-pilot",
+  "sourcePriority": [
+    "CBE System Unit 2 HTML teaching sequence and worked examples",
+    "shared textbook sections 4.1 through 4.6",
+    "shared workbook and formative worksheets",
+    "NXT organization and optional-review evidence"
+  ],
+  "lessonMap": [
+    {
+      "id": "4.1",
+      "title": "Roots, estimates and irrational numbers",
+      "source": ["Textbook 4.1", "Textbook 4.2", "CBE Irrational Numbers"],
+      "targets": [
+        {"id": "C4-41a", "title": "Interpret roots", "studentCan": "Identify the index and radicand and evaluate exact square, cube and fourth roots."},
+        {"id": "C4-41b", "title": "Bracket and estimate roots", "studentCan": "Bound a non-perfect root between consecutive powers and estimate its value."},
+        {"id": "C4-41c", "title": "Classify rational and irrational numbers", "studentCan": "Use fraction and decimal behaviour to classify real numbers."},
+        {"id": "C4-41d", "title": "Order real numbers", "studentCan": "Compare and place rational numbers and radicals on a number line."}
+      ]
+    },
+    {
+      "id": "4.2",
+      "title": "Mixed and entire radicals",
+      "source": ["Textbook 4.3", "CBE Mixed and Entire Radicals", "shared simplifying-radicals worksheets"],
+      "targets": [
+        {"id": "C4-42a", "title": "Read radical form", "studentCan": "Identify the coefficient, index and radicand of a radical."},
+        {"id": "C4-42b", "title": "Simplify to mixed form", "studentCan": "Extract perfect powers to write a radical in simplest mixed form."},
+        {"id": "C4-42c", "title": "Convert to entire form", "studentCan": "Move a coefficient into a radical using the correct power."},
+        {"id": "C4-42d", "title": "Verify equivalent radicals", "studentCan": "Show that mixed and entire forms represent the same value within the real-number domain."}
+      ]
+    },
+    {
+      "id": "4.3",
+      "title": "Product, quotient and zero exponent laws",
+      "source": ["CBE Exponent Laws Part 1", "Textbook 4.6", "shared Exponent Laws worksheet"],
+      "targets": [
+        {"id": "C4-43a", "title": "Product of powers", "studentCan": "Multiply powers with the same base by adding exponents."},
+        {"id": "C4-43b", "title": "Quotient of powers", "studentCan": "Divide powers with the same nonzero base by subtracting exponents."},
+        {"id": "C4-43c", "title": "Zero exponents", "studentCan": "Use the zero-exponent law and state the nonzero-base restriction."},
+        {"id": "C4-43d", "title": "Coefficients and variables", "studentCan": "Simplify products and quotients containing coefficients and multiple variables."}
+      ]
+    },
+    {
+      "id": "4.4",
+      "title": "Powers of powers, products and quotients",
+      "source": ["CBE Exponent Laws Part 2", "Textbook 4.6", "shared Exponent Laws worksheet"],
+      "targets": [
+        {"id": "C4-44a", "title": "Power of a power", "studentCan": "Raise a power to a power by multiplying exponents."},
+        {"id": "C4-44b", "title": "Power of a product", "studentCan": "Distribute an exponent across every factor in a product."},
+        {"id": "C4-44c", "title": "Power of a quotient", "studentCan": "Distribute an exponent across numerator and denominator and retain restrictions."},
+        {"id": "C4-44d", "title": "Combine exponent laws", "studentCan": "Select and sequence more than one exponent law without changing the expression's value."}
+      ]
+    },
+    {
+      "id": "4.5",
+      "title": "Negative exponents and reciprocals",
+      "source": ["Textbook 4.5", "CBE Exponent Laws Part 3", "shared Negative Exponents worksheet"],
+      "targets": [
+        {"id": "C4-45a", "title": "Interpret a negative exponent", "studentCan": "Explain a negative exponent as a reciprocal, not a negative value."},
+        {"id": "C4-45b", "title": "Rewrite with positive exponents", "studentCan": "Move factors across a fraction bar to express an answer using positive exponents."},
+        {"id": "C4-45c", "title": "Simplify rational bases", "studentCan": "Evaluate powers of rational bases with negative integer exponents."},
+        {"id": "C4-45d", "title": "Preserve restrictions", "studentCan": "State excluded values introduced by variable denominators and detect invalid zero-base work."}
+      ]
+    },
+    {
+      "id": "4.6",
+      "title": "Fractional exponents and radicals",
+      "source": ["Textbook 4.4", "CBE Exponent Laws Part 4"],
+      "targets": [
+        {"id": "C4-46a", "title": "Read a rational exponent", "studentCan": "Interpret the denominator as a root index and the numerator as a power."},
+        {"id": "C4-46b", "title": "Convert between forms", "studentCan": "Write equivalent radical and rational-exponent forms."},
+        {"id": "C4-46c", "title": "Evaluate rational exponents", "studentCan": "Evaluate perfect-power expressions with rational exponents using a valid order."},
+        {"id": "C4-46d", "title": "Respect the real-number domain", "studentCan": "Distinguish valid odd-root cases from restricted even-root cases over the reals."}
+      ]
+    },
+    {
+      "id": "4.7",
+      "title": "Apply the exponent laws",
+      "source": ["Textbook 4.6", "CBE Applying the Exponent Laws"],
+      "targets": [
+        {"id": "C4-47a", "title": "Choose a law", "studentCan": "Identify which exponent law applies at each step."},
+        {"id": "C4-47b", "title": "Simplify multi-step expressions", "studentCan": "Combine integer, negative and rational exponents into an equivalent simplest form."},
+        {"id": "C4-47c", "title": "Evaluate exponential models", "studentCan": "Substitute values and use order of operations in a contextual exponential model."},
+        {"id": "C4-47d", "title": "Explain equivalence", "studentCan": "Justify why each transformation preserves value and identify an invalid step."}
+      ]
+    },
+    {
+      "id": "4.8",
+      "title": "Roots and powers transfer",
+      "source": ["CBE Roots and Powers Review", "shared textbook study guide and review", "new non-secure transfer tasks"],
+      "targets": [
+        {"id": "C4-48a", "title": "Connect roots and exponents", "studentCan": "Move flexibly among exact roots, radicals and rational exponents."},
+        {"id": "C4-48b", "title": "Compare solution strategies", "studentCan": "Choose an efficient valid representation and compare it with another method."},
+        {"id": "C4-48c", "title": "Solve an unfamiliar problem", "studentCan": "Apply roots and exponent laws in a changed context without copying a rehearsed example."},
+        {"id": "C4-48d", "title": "Check and communicate", "studentCan": "Verify domain, units and reasonableness and communicate the mathematical chain clearly."}
+      ]
+    }
+  ],
+  "mastery": {
+    "targetCount": 32,
+    "requiredStages": ["independent", "reasoning-transfer", "retention"],
+    "practiceCreditChecks": [100, 75, 50, 25],
+    "helpRule": "Mathematical help reduces practice credit one step with a 25 percent floor. Only a fresh, fully correct, unaided first mathematical check may establish independent mastery evidence.",
+    "freshness": "Equivalent mathematics, reordered factors or cosmetic notation do not establish a fresh task. Each stage uses a genuinely changed instance.",
+    "retention": "Retention requires a different task in a later session at least 48 hours after qualifying reasoning-transfer evidence.",
+    "stateNamespace": "math10c-unit4-pilot:review:v1"
+  },
+  "boundaries": {
+    "optionalTextbookPracticeInMastery": false,
+    "formalGradesInCourse": false,
+    "teacherConfirmationInCourse": false,
+    "reuseSourceExamQuestions": false,
+    "reuseSourceAnswerKeysAsLearnerChecks": false,
+    "sourceSolutionsRole": "teacher/reference evidence only",
+    "eolRole": "external LMS evidence workflow only"
+  },
+  "rolloutGates": [
+    "focused mathematical checker tests",
+    "saved-state and migration tests",
+    "complete learner-flow browser tests",
+    "SCORM capacity and save-envelope tests",
+    "accessibility review",
+    "teacher review",
+    "tracked Brightspace launch and save/resume"
+  ]
+}

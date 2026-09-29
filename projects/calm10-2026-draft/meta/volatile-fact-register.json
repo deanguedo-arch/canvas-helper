@@ -1,0 +1,136 @@
+{
+  "schemaVersion": 1,
+  "curriculum": {
+    "url": "https://curriculum.learnalberta.ca/curriculum/en/gfc/CALM/PEW0770",
+    "published": "2026-09-22",
+    "statusAtReview": "draft optional 2026-27 field testing",
+    "check": "Compare outcome, knowledge, understanding and procedures before each school term and before release."
+  },
+  "items": [
+    {
+      "id": "employment-youth",
+      "domain": "Alberta youth employment standards",
+      "lessonIds": [
+        "co2-01",
+        "co2-03"
+      ],
+      "source": "https://www.alberta.ca/youth-employment-laws",
+      "lastSubstantiveReview": null,
+      "releaseGate": "current law and age/task rules checked by teacher",
+      "recheckCadence": "before release and each school term"
+    },
+    {
+      "id": "employment-pay",
+      "domain": "Alberta pay, breaks and deductions",
+      "lessonIds": [
+        "co2-01",
+        "fl1-01"
+      ],
+      "source": "https://www.alberta.ca/employment-standards",
+      "lastSubstantiveReview": null,
+      "releaseGate": "current rule and example checked",
+      "recheckCadence": "before release and each school term",
+      "sourceAuditCaution": "ALIS employment-standards overview still displays 2019 minimum/student wage figures; never import them as current. Use current Alberta sources for real pay/break rules."
+    },
+    {
+      "id": "ohs-refusal",
+      "domain": "Alberta occupational health and safety and work refusal",
+      "lessonIds": [
+        "co2-02",
+        "co2-04"
+      ],
+      "source": "https://www.alberta.ca/refuse-dangerous-work",
+      "lastSubstantiveReview": null,
+      "releaseGate": "formal procedure and terminology checked",
+      "recheckCadence": "before release and each school term"
+    },
+    {
+      "id": "labour-market",
+      "domain": "Alberta occupations, outlook and training entry",
+      "lessonIds": [
+        "ce1-03",
+        "ce1-04",
+        "ce1-05"
+      ],
+      "source": "https://alis.alberta.ca/",
+      "lastSubstantiveReview": null,
+      "releaseGate": "source and date recorded for every assigned profile",
+      "recheckCadence": "before release and each school term"
+    },
+    {
+      "id": "payroll",
+      "domain": "Payroll deductions and tax thresholds",
+      "lessonIds": [
+        "fl1-01"
+      ],
+      "source": "https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/payroll.html",
+      "lastSubstantiveReview": null,
+      "releaseGate": "sample pay stub and rate claims reviewed; fictional figures identified",
+      "recheckCadence": "before release and each school term"
+    },
+    {
+      "id": "credit",
+      "domain": "Credit reporting, products, costs and consumer rules",
+      "lessonIds": [
+        "fl2-01",
+        "fl2-07"
+      ],
+      "source": "https://www.canada.ca/en/financial-consumer-agency.html",
+      "lastSubstantiveReview": null,
+      "releaseGate": "current rate, fee, APR and product rules checked",
+      "recheckCadence": "before release and quarterly for links"
+    },
+    {
+      "id": "accounts",
+      "domain": "Savings and investment accounts, limits and protections",
+      "lessonIds": [
+        "fl3-03",
+        "fl3-06"
+      ],
+      "source": "https://www.canada.ca/en/financial-consumer-agency.html",
+      "lastSubstantiveReview": null,
+      "releaseGate": "current account rules and tax treatment checked",
+      "recheckCadence": "before release and each school term",
+      "sourceAuditCaution": "The linked CRA saving lesson includes TFSA examples from 2023/2024. Learner copy labels them dated; verify current limits and eligibility before real-world guidance."
+    },
+    {
+      "id": "fraud",
+      "domain": "Scam reporting and response channels",
+      "lessonIds": [
+        "fl4-02",
+        "fl4-05"
+      ],
+      "source": "https://www.canada.ca/en/financial-consumer-agency/services/protecting-financial-information.html",
+      "lastSubstantiveReview": null,
+      "releaseGate": "report routes checked and classroom examples refreshed",
+      "recheckCadence": "before release and quarterly for links",
+      "sourceAuditCaution": "The older ISED identity-theft page was replaced with newer Cyber Centre guidance. Get Cyber Safe e-transfer article makes an absolute reversal claim; course does not use it as a universal promise."
+    },
+    {
+      "id": "mortgage-rate-convention",
+      "domain": "Illustrative Canadian mortgage semi-annual compounding convention",
+      "lessonIds": [
+        "fl2-03",
+        "fl2-07"
+      ],
+      "source": "https://www.canada.ca/en/financial-consumer-agency/services/industry/bulletins/information-box-examples/credit-agreement-fixed-mortgage.html",
+      "lastSubstantiveReview": "2026-09-24",
+      "reviewScope": "FCAC example confirms interest compounded twice yearly and charged monthly; course conversion and $1,000 case arithmetic checked independently. This does not validate any real offer.",
+      "releaseGate": "teacher checks worked calculation, displayed rounding and actual product assumptions",
+      "recheckCadence": "before release and each school term"
+    },
+    {
+      "id": "cra-contact-verification",
+      "domain": "CRA caller verification and scam response",
+      "lessonIds": [
+        "fl4-02",
+        "fl4-05"
+      ],
+      "source": "https://www.canada.ca/en/revenue-agency/corporate/scams-fraud/verify-cra-contact.html",
+      "lastSubstantiveReview": "2026-09-24",
+      "reviewScope": "Official page confirms CRA may call, caller ID is unreliable, and callback details should be verified after ending the call.",
+      "releaseGate": "recheck current CRA verification tool and reporting links before learner release",
+      "recheckCadence": "quarterly and before release"
+    }
+  ]
+}

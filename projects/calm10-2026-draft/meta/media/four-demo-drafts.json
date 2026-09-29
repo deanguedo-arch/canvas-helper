@@ -1,0 +1,346 @@
+{
+  "schemaVersion": 1,
+  "status": "original draft demonstrations; factual, caption, audio, visual, and teacher review required",
+  "voice": "macOS Samantha system voice; generated TTS, not a human teacher recording",
+  "rateWordsPerMinute": 160,
+  "pausePolicy": "At the explicit pause slide, the video holds for 7 seconds after narration before the worked explanation slide.",
+  "clips": [
+    {
+      "id": "co2-02-workplace-hazard-demo",
+      "lesson": "co2-02",
+      "title": "Stop, identify, and control a hazard",
+      "module": "WORKPLACE RIGHTS",
+      "goal": "Decide what must happen before a worker handles an unknown hazard.",
+      "pause": "Before Devin acts: name the hazard, the missing information, and the safest next step. Pause here and decide.",
+      "answer": "Do not touch, smell, mix, or move the liquid. Keep clear if safe, tell the supervisor what is observed, and request the label, training, and safe procedure.",
+      "scenes": [
+        {
+          "title": "The first shift",
+          "subtitle": "A request is not the same as safe information.",
+          "kind": "hazard",
+          "labels": [
+            "UNLABELLED LIQUID",
+            "POOR VENTILATION",
+            "SUPERVISOR BUSY"
+          ],
+          "formula": "What is unknown?",
+          "body": "A first shift is a time to ask, not guess. Devin is asked to use a cleaning liquid beside a storage area with poor ventilation. There is no readable label, and the supervisor is helping another worker. A coworker says, “It is probably the usual cleaner.” That description is not enough to identify the substance or its safe use. Pause the task. We will separate what Devin observed from what still needs confirmation."
+        },
+        {
+          "title": "Name the hazard and the gap",
+          "subtitle": "Describe evidence before deciding what the substance is.",
+          "kind": "hazard",
+          "labels": [
+            "OBSERVED: container has no readable label",
+            "CONDITION: air feels stale; ventilation uncertain",
+            "UNKNOWN: contents, exposure risk, required controls"
+          ],
+          "formula": "Observed fact ≠ confirmed identity",
+          "body": "A hazard is a source or condition that could cause harm. Here, the unlabeled container creates uncertainty; the ventilation condition may affect exposure. Devin should not infer the chemical from its colour, smell, or a coworker’s guess. The missing information includes the product identity, its instructions, possible exposure routes, and the site procedure. This is a case about a missing safety control, not about diagnosing a chemical or deciding whether a law was broken."
+        },
+        {
+          "title": "Use the three worker rights",
+          "subtitle": "Know • Participate • Refuse dangerous work",
+          "kind": "rights",
+          "labels": [
+            "KNOW: ask for hazard information and training",
+            "PARTICIPATE: report the concern and suggest a control",
+            "REFUSE: follow the applicable process if danger remains"
+          ],
+          "formula": "Rights guide a safe process",
+          "body": "Canadian workplace safety guidance describes three worker rights: to know about hazards, to participate in health and safety decisions, and to refuse work that may endanger someone. Devin can request the product label, the relevant safety information, instruction, and supervision. Devin can report the concern and take part in choosing a safer method. If the hazard remains, the worker follows the applicable refusal process; it is not a dare or an invitation to confront someone alone. Details belong to the current Alberta process and workplace."
+        },
+        {
+          "title": "Choose an immediate control",
+          "subtitle": "Reduce exposure before collecting more detail.",
+          "kind": "sequence",
+          "labels": [
+            "1  STOP the task",
+            "2  KEEP CLEAR if safe",
+            "3  TELL the supervisor",
+            "4  WAIT for trained direction"
+          ],
+          "formula": "Never smell • mix • pour • test",
+          "body": "The safe immediate move is to stop before handling the container. If it is safe, Devin should keep other people away from the area and alert the supervisor or designated trained person. Devin should not smell the liquid, mix it with another cleaner, pour it down a drain, or carry it to find a label. Those actions can create exposure or a reaction. If there is immediate serious danger, move to safety and follow the site emergency procedure."
+        },
+        {
+          "title": "Pause: make the decision",
+          "subtitle": "Name the hazard, missing evidence, and next safe action.",
+          "kind": "pause",
+          "labels": [
+            "What is observed?",
+            "What must be confirmed?",
+            "What should Devin do now?"
+          ],
+          "formula": "Pause the video and write a 1–2 sentence response.",
+          "body": "Before Devin acts: name the hazard, the missing information, and the safest next step. Pause here and decide."
+        },
+        {
+          "title": "Worked response and follow-up",
+          "subtitle": "State facts, ask for controls, and close the loop.",
+          "kind": "answer",
+          "labels": [
+            "DO NOT handle the unknown liquid",
+            "Ask for identity, information, training, and procedure",
+            "Record the concern through the site process"
+          ],
+          "formula": "A good response is specific—not dramatic.",
+          "body": "A strong response says: the container has no readable label, ventilation is uncertain, and Devin has not received the safe procedure. Devin pauses, keeps clear if safe, alerts the supervisor, and asks for the identity, hazard information, training, and approved control before using it. The misconception is that a familiar-looking product or coworker’s confidence makes handling safe. It does not. After the hazard is addressed, Devin records the outcome and follows up. For an actual workplace, check current Alberta guidance and site instructions; this example does not decide a legal case. Before closing, Devin checks who will identify the liquid and what training is needed before anyone resumes the task. If no trained person is available, the area remains controlled and the concern is escalated through the site process. The follow-up is not “clean it up later”; it is to confirm that a responsible person has identified the product, selected controls, and explained how to work safely. This makes the handoff concrete and prevents the unknown hazard from becoming the next shift’s problem."
+        }
+      ]
+    },
+    {
+      "id": "fl1-01-paystub-demo",
+      "lesson": "fl1-01",
+      "title": "Read Mika’s fictional pay stub",
+      "module": "EVERYDAY MONEY",
+      "goal": "Reconcile hours, gross earnings, deductions, and net pay without treating a label as proof.",
+      "pause": "Calculate gross pay and total deductions. What does a match establish—and what does it not prove? Pause to work it out.",
+      "answer": "12.5 × $18 = $225 gross. Listed deductions total $30.40, leaving $194.60 net. The arithmetic reconciles, but it does not prove the recorded hours or real-world deduction rules are correct.",
+      "scenes": [
+        {
+          "title": "A smaller deposit",
+          "subtitle": "Start by finding the period—not by guessing at an error.",
+          "kind": "paystub",
+          "labels": [
+            "Pay period  •  May 1–14",
+            "12.5 regular hours × $18.00/hour",
+            "Gross earnings  $225.00"
+          ],
+          "formula": "What is the statement actually measuring?",
+          "body": "Mika expected the weekend deposit to equal hours multiplied by the hourly rate, but the deposit is smaller. The first move is not to accuse anyone or assume every line is correct. Find the pay-period dates and the hours covered. This classroom pay stub is fictional; its dates, hours, dollar values, and deductions are invented. We are learning how to read and reconcile a statement, not estimating a real student’s tax or benefits."
+        },
+        {
+          "title": "Calculate the gross amount",
+          "subtitle": "Gross pay is before listed deductions.",
+          "kind": "paystub",
+          "labels": [
+            "Regular hours     12.5",
+            "Hourly rate        $18.00",
+            "12.5 × $18.00 = $225.00"
+          ],
+          "formula": "Gross earnings = $225.00",
+          "body": "Gross earnings are the starting amount before deductions. For this fictional hourly example, multiply 12.5 hours by $18 per hour. The units cancel: hours times dollars per hour gives dollars. Twelve times eighteen is 216, and half an hour at eighteen dollars is nine, so gross pay is $225. Compare that result with the printed gross line. It matches here, but the match cannot establish that the recorded 12.5 hours are the hours Mika actually worked."
+        },
+        {
+          "title": "Classify the listed lines",
+          "subtitle": "Add only the deductions shown as deductions.",
+          "kind": "paystub",
+          "labels": [
+            "Income-tax withholding     $16.00",
+            "CPP line                   $10.80",
+            "EI line                     $3.60"
+          ],
+          "formula": "$16.00 + $10.80 + $3.60 = $30.40",
+          "body": "Now read the labels and determine which lines are deducted from this fictional cheque. Add the three listed amounts: sixteen dollars plus ten dollars and eighty cents plus three dollars and sixty cents. The total is thirty dollars and forty cents. In real payroll, eligibility, amounts, employer arrangements, and current rules depend on the situation. These invented figures are not current contribution rates, tax guidance, or evidence that a real deduction should apply."
+        },
+        {
+          "title": "Reconcile net pay",
+          "subtitle": "Subtract the deduction total once.",
+          "kind": "calculation",
+          "labels": [
+            "Gross     $225.00",
+            "Deductions − $30.40",
+            "Net        $194.60"
+          ],
+          "formula": "$225.00 − $30.40 = $194.60",
+          "body": "Net pay is gross pay minus the deductions taken from this payment. Subtract the total once: 225 dollars minus 30 dollars and 40 cents equals 194 dollars and 60 cents. The printed net amount matches. Do not subtract each deduction from the previous line and accidentally omit one. Also check whether the document has a different payment method, an adjustment, or an informational employer-paid amount before assuming that the net line equals the bank deposit."
+        },
+        {
+          "title": "Pause: try the calculation",
+          "subtitle": "Use the document, then explain the limit.",
+          "kind": "pause",
+          "labels": [
+            "Gross?",
+            "Total deductions?",
+            "Net? What is still unknown?"
+          ],
+          "formula": "Pause and write your calculation before continuing.",
+          "body": "Calculate gross pay and total deductions. What does a match establish—and what does it not prove? Pause to work it out."
+        },
+        {
+          "title": "Worked answer and next check",
+          "subtitle": "Arithmetic can reconcile while a record still needs checking.",
+          "kind": "answer",
+          "labels": [
+            "12.5 × $18.00 = $225.00 gross",
+            "$16.00 + $10.80 + $3.60 = $30.40",
+            "$225.00 − $30.40 = $194.60 net"
+          ],
+          "formula": "Next check: same dates, actual hours, and applicable records.",
+          "body": "The result is 225 dollars gross, 30 dollars and 40 cents in listed deductions, and 194 dollars and 60 cents net. A common misconception is that the deposit amount is gross pay; it is net in this example. Another is that matching arithmetic proves a pay statement is correct. It proves only that these lines add up. For a real discrepancy, compare the same pay dates with time records and the agreement, then ask payroll or check current official guidance. Never use this classroom example as a real deduction rate. Suppose the time record showed 11.5 hours instead of 12.5. At the fictional rate, gross would be 11.5 times 18 dollars, or 207 dollars, which is 18 dollars less than the printed 225. That difference is a question to check against the same dates and actual work record, not proof of intent. A clear follow-up would identify the exact pay period and ask payroll to review the hour entry. The invented deduction lines should not be scaled to estimate a real cheque."
+        }
+      ]
+    },
+    {
+      "id": "fl2-03-amortization-demo",
+      "lesson": "fl2-03",
+      "title": "Follow a fictional amortizing loan",
+      "module": "BORROWING AND DEBT",
+      "goal": "Trace how a level payment is divided between interest and principal as the balance declines.",
+      "pause": "After month one, the displayed payment is about $88.71 and the balance about $921.05. Estimate month-two interest. Pause and calculate.",
+      "answer": "Use the new balance: $921.045… × 0.00975879… ≈ $8.99 interest. The remaining payment reduces principal by about $79.73.",
+      "scenes": [
+        {
+          "title": "Why did the balance fall by less?",
+          "subtitle": "A payment has two jobs in an amortizing loan.",
+          "kind": "amort",
+          "labels": [
+            "PAYMENT = INTEREST + PRINCIPAL",
+            "Interest covers borrowing cost for the period",
+            "Principal reduction lowers the balance"
+          ],
+          "formula": "The whole payment does not reduce principal.",
+          "body": "A fictional statement shows a payment of about 88 dollars and 71 cents, but the balance fell by less than that amount. Where did the rest go? In an amortizing loan, each scheduled payment first covers interest accrued for that period; the remaining amount reduces principal. Because the principal balance changes, the next period’s interest is calculated on a different amount. We will follow the classroom case’s simplified one-thousand-dollar example using a stated Canadian conversion convention."
+        },
+        {
+          "title": "State the assumptions first",
+          "subtitle": "These are classroom figures—not a lender offer.",
+          "kind": "amort",
+          "labels": [
+            "Starting principal  $1,000",
+            "Nominal annual rate  12%",
+            "Semi-annual compounding; monthly payments",
+            "12 payments • no fees or extra payments"
+          ],
+          "formula": "Fictional fixed-rate model; full precision internally.",
+          "body": "The model assumes a one-thousand-dollar principal, a nominal annual rate of twelve percent compounded semi-annually, and twelve monthly payments. It excludes fees, missed or extra payments, taxes, and changes to the contract. Under the Canadian convention used in this example, convert the stated nominal rate to an equivalent monthly rate: one plus point-twelve divided by two, raised to the power of two-twelfths, minus one. That is approximately 0.00975879, or 0.975879 percent per month. Product documents can use different terms; verify a real contract."
+        },
+        {
+          "title": "Calculate the level payment",
+          "subtitle": "Use the converted monthly rate, not 12% ÷ 12.",
+          "kind": "formula",
+          "labels": [
+            "Principal P = $1,000",
+            "Monthly rate i ≈ 0.00975879",
+            "n = 12 monthly payments"
+          ],
+          "formula": "Payment = P × i ÷ [1 − (1 + i)⁻ⁿ] ≈ $88.71344",
+          "body": "For equal payments, the payment formula is principal times the periodic rate divided by one minus one plus the rate raised to negative the number of payments. Substitute one thousand, the equivalent monthly rate, and twelve periods. The calculated payment is about 88 dollars and 71 cents when displayed to cents; we keep the unrounded amount internally for the demonstration. Dividing twelve percent by twelve would use a different convention and would not match the stated semi-annual compounding assumption."
+        },
+        {
+          "title": "Follow month one and two",
+          "subtitle": "Interest uses the opening balance each month.",
+          "kind": "schedule",
+          "labels": [
+            "Month 1  opening $1,000.00",
+            "Interest $9.75879 → $9.76",
+            "Principal ≈ $78.95465 → $78.95",
+            "Closing balance ≈ $921.04535 → $921.05"
+          ],
+          "formula": "Month 2 interest: $921.04535 × 0.00975879 ≈ $8.99",
+          "body": "In month one, interest is one thousand dollars times the monthly rate, about 9 dollars and 76 cents. Subtract that from the unrounded payment of about 88 dollars and 71 cents. Approximately 78 dollars and 95 cents reduces principal, leaving a balance near 921 dollars and 5 cents. For month two, calculate interest from the new unrounded balance, not the original thousand. It is about 8 dollars and 99 cents. The remainder of the payment, about 79 dollars and 73 cents, reduces principal."
+        },
+        {
+          "title": "Pause: predict the next split",
+          "subtitle": "The payment stays level; the balance does not.",
+          "kind": "pause",
+          "labels": [
+            "Opening balance ≈ $921.04535",
+            "Monthly rate ≈ 0.00975879",
+            "Interest = balance × rate"
+          ],
+          "formula": "Pause and estimate month-two interest before continuing.",
+          "body": "After month one, the displayed payment is about $88.71 and the balance about $921.05. Estimate month-two interest. Pause and calculate."
+        },
+        {
+          "title": "Worked answer and misconception",
+          "subtitle": "As principal falls, the interest portion usually shrinks.",
+          "kind": "answer",
+          "labels": [
+            "Month 2 interest ≈ $8.99",
+            "Principal reduction ≈ $79.73",
+            "Balance ≈ $841.32"
+          ],
+          "formula": "Same payment − lower interest = more principal reduction.",
+          "body": "Using full precision, month-two interest is about 8 dollars and 99 cents. Subtract that from the calculated payment and roughly 79 dollars and 73 cents reduces principal, leaving about 841 dollars and 32 cents. The common mistake is to calculate month-two interest on the original thousand-dollar balance or to say the entire payment reduces principal. The model’s total interest over twelve exact payments is about 64 dollars and 56 cents before cent-rounding adjustments. These numbers depend on the stated convention and assumptions; they are not a current rate or an offer. If comparing this schedule with another loan, keep principal, payment frequency, and assumptions visible. A smaller monthly payment may simply extend the term and increase total interest. Add fees only when the offer states them, and do not compare a weekly payment with a monthly payment by looking at the number alone. The useful question is what the borrower pays in total, when payments are due, and whether the schedule remains affordable. Any real mortgage or loan uses its own contract and calculation terms; this classroom model is for understanding the balance movement."
+        }
+      ]
+    },
+    {
+      "id": "fl4-02-scam-verification-demo",
+      "lesson": "fl4-02",
+      "title": "Pause, verify, then act",
+      "module": "PROTECT YOUR MONEY AND INFORMATION",
+      "goal": "Recognize high-risk requests, distinguish appearance from evidence, and verify a contact independently.",
+      "pause": "For the two fictional contacts, identify the requested action, one warning cue, and the verification route. Pause before choosing.",
+      "answer": "Do not transfer money or share a code. Independently contact the bank. For the possible CRA notice, navigate to Canada.ca yourself and verify the account notice; CRA may call, so do not use a blanket rule.",
+      "scenes": [
+        {
+          "title": "Two messages, two requests",
+          "subtitle": "Read the action—not just the logo.",
+          "kind": "scam",
+          "labels": [
+            "A  “Move your money to our safe account. Send the code.”",
+            "B  “A new tax notice is available.”"
+          ],
+          "formula": "What does each contact want you to do?",
+          "body": "Two fictional contacts arrive. A bank-looking text says a transfer is at risk and asks the person to move money to a “safe account” and reply with a one-time code. A second notice says a tax message is waiting and tells the person to sign in through the usual government route. A familiar logo or official-sounding name does not identify the sender. Start by underlining the action each message requests and decide whether it is reversible or sensitive."
+        },
+        {
+          "title": "Spot pressure and sensitive requests",
+          "subtitle": "A cue raises concern; verify before acting.",
+          "kind": "scam",
+          "labels": [
+            "Urgency or threat",
+            "Transfer to a “safe” account",
+            "One-time code or password",
+            "Remote access or unusual payment"
+          ],
+          "formula": "Cue ≠ proof • pause before an irreversible action.",
+          "body": "Scams often create urgency, secrecy, threats, or an unexpected reward. Requests to transfer money to a “safe account,” buy gift cards, use cryptocurrency, install remote-access software, or share a password or one-time code are high-risk. Poor spelling can be a clue, but polished writing does not prove a message is real. A cue is evidence to slow down, not a complete identity test. Do not click, reply, transfer, or share secrets while pressured."
+        },
+        {
+          "title": "Verify through a separate route",
+          "subtitle": "Do not use the contact path supplied by the suspicious message.",
+          "kind": "verify",
+          "labels": [
+            "PAUSE",
+            "Find the official service independently",
+            "Ask if the request is real",
+            "Act only through a verified route"
+          ],
+          "formula": "Known app • saved statement • official website typed independently",
+          "body": "For a bank concern, open the known app or use contact details from a bank card or statement. Do not call a number included only in the unexpected text, and do not trust caller ID by itself. For a web notice, navigate to the known official site yourself rather than following a message link. If uncertain, talk to a trusted adult and ask the institution through an independently found route. A search result or advertisement may also be misleading; use the known official domain."
+        },
+        {
+          "title": "CRA contact needs a precise rule",
+          "subtitle": "CRA may contact people; caller ID is not proof.",
+          "kind": "cra",
+          "labels": [
+            "CRA may call, write, or send notifications",
+            "Caller ID can be spoofed",
+            "Never share passwords or security codes",
+            "Ask, end, verify independently if unsure"
+          ],
+          "formula": "Use the CRA contact-verification tool or Canada.ca details.",
+          "body": "Do not memorize the false rule “CRA never calls.” The Canada Revenue Agency may contact people by phone and other channels. A caller ID that displays a government name still does not prove who is calling. If a person is unsure, they can ask for the caller’s name, office, and callback number, end the call, and check using CRA’s official contact-verification tool or contact details found independently on Canada.ca. CRA may request some information for a legitimate identity check or missing tax information, but never share passwords or one-time security codes with an unexpected caller."
+        },
+        {
+          "title": "Pause: classify before you respond",
+          "subtitle": "Name the action, cue, and independent check.",
+          "kind": "pause",
+          "labels": [
+            "Message A: requested action?",
+            "Message B: safe route?",
+            "What remains uncertain?"
+          ],
+          "formula": "Pause and write one sentence for each contact.",
+          "body": "For the two fictional contacts, identify the requested action, one warning cue, and the verification route. Pause before choosing."
+        },
+        {
+          "title": "Worked answer: safe without guessing",
+          "subtitle": "Verify the contact; do not make an irreversible move.",
+          "kind": "answer",
+          "labels": [
+            "A  Do not transfer or share the code; contact the bank independently.",
+            "B  Navigate to Canada.ca yourself and check for the notice.",
+            "Unknown sender identity? Verify before acting."
+          ],
+          "formula": "Appearance is a clue—not authentication.",
+          "body": "For message A, the safe-account transfer and code request are high-risk. Do not transfer or reply; contact the bank independently. For message B, the notification may be legitimate, but this fictional card is not proof. Navigate to Canada.ca yourself and check the account through the official route. If a caller claims to be CRA, remember that CRA can call, but caller ID can be spoofed. Ask for callback details, end the call, and verify independently if unsure. The lesson is neither “trust it” nor “all contacts are fake.” It is pause, verify, then act. If a learner already clicked or shared information, the response changes: stop interacting, secure the affected account from a trusted device, and promptly contact the relevant institution through an independently found route. Preserve the message and time, but do not reopen its link to collect evidence. If money was lost, contact local police promptly and report through current Canadian Anti-Fraud Centre guidance. Reporting does not guarantee recovery. A second person offering guaranteed reimbursement for an upfront fee is another reason to pause and verify."
+        }
+      ]
+    }
+  ]
+}

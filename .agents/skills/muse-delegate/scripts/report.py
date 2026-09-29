@@ -60,6 +60,9 @@ def main() -> int:
         "diffStat": diff_stat,
         "finalText": final_text,
         "usage": manifest.get("usage") or {},
+        "failureReason": manifest.get("failureReason"),
+        "workerStopped": manifest.get("workerStopped"),
+        "result": manifest.get("result"),
     }
     if args.json:
         print(json.dumps(report, indent=2, sort_keys=True))

@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "taskId": "math10c-generation-gate",
+  "attemptId": "2026-09-25-a1",
+  "projectSlug": "math10c-unit4-pilot",
+  "workflow": "conversion",
+  "mode": "build",
+  "objective": "Implement the isolated reusable Math chapter generation contract and deterministic validation entrypoint required by the Chapter 4 repair work order. Add a versioned contract, validator, CLI wrapper, package command, and a negative fixture proving the gate rejects revealed guided answers, lesson-wide unmeasured target credit, and fixed-bank rotation described as fresh. Keep the implementation chapter-count and topic agnostic.",
+  "taskFamily": "bulk-implementation",
+  "consequenceLevel": "normal",
+  "allowedReadPaths": [
+    "AGENTS.md",
+    "package.json",
+    "projects/math10c-unit4-pilot/meta/prompt-pack.md",
+    "projects/resources/math10c-production/v1/chapter4/production-contract.json",
+    "scripts/lib/agent-delegation/contracts.ts",
+    "tasks/math10c-chapter4-review-input/2026-09-25-execution-bundle/Math10C_Chapter4_Codex_Execution_Bundle/01_EXECUTE_CHAPTER4_REPAIR.md",
+    "tasks/math10c-chapter4-review-input/2026-09-25-execution-bundle/Math10C_Chapter4_Codex_Execution_Bundle/references/Math10C_Chapter4_Quality_Standard/02_CODEX_GENERATION_STANDARD.md",
+    "tasks/math10c-chapter4-review-input/2026-09-25-execution-bundle/Math10C_Chapter4_Codex_Execution_Bundle/references/Math10C_Chapter4_Quality_Standard/06_ACCEPTANCE_GATES.md"
+  ],
+  "allowedWritePaths": [
+    "package.json",
+    "scripts/lib/math-course-generation/contract.json",
+    "scripts/lib/math-course-generation/validate.ts",
+    "scripts/validate-math-course-generation.ts",
+    "scripts/tests/fixtures/math-course-generation/defective-output.json",
+    "scripts/tests/math-course-generation-gate.test.ts"
+  ],
+  "contextSources": [
+    "AGENTS.md",
+    "tasks/math10c-chapter4-review-input/2026-09-25-execution-bundle/Math10C_Chapter4_Codex_Execution_Bundle/01_EXECUTE_CHAPTER4_REPAIR.md",
+    "tasks/math10c-chapter4-review-input/2026-09-25-execution-bundle/Math10C_Chapter4_Codex_Execution_Bundle/references/Math10C_Chapter4_Quality_Standard/02_CODEX_GENERATION_STANDARD.md",
+    "tasks/math10c-chapter4-review-input/2026-09-25-execution-bundle/Math10C_Chapter4_Codex_Execution_Bundle/references/Math10C_Chapter4_Quality_Standard/06_ACCEPTANCE_GATES.md"
+  ],
+  "acceptanceCriteria": [
+    "The contract is versioned and requires source mapping, prerequisite mapping, meaningful teaching decisions, guided and faded work, target-specific repair, semantic adapters, component evidence, shared freshness, adequate supply, review coverage, adversarial validation, and bounded correction cycles.",
+    "The validator is deterministic and chapter-count/topic agnostic.",
+    "The negative fixture fails specifically for revealed guided answers, unmeasured target credit, and fixed rotation claimed fresh.",
+    "A valid fixture in the test passes without weakening any negative assertion.",
+    "package.json exposes one explicit validation command."
+  ],
+  "requiredChecks": [
+    "npx tsx --test scripts/tests/math-course-generation-gate.test.ts",
+    "npm run validate:math-course-generation -- --help"
+  ],
+  "deferredChecks": [
+    "Chapter 4 course integration and full rollout tests remain lead-owned."
+  ],
+  "prohibitedChanges": [
+    "Do not edit any course workspace, Chapter 3, source archive, export, deployment, policy, state, or release status.",
+    "Do not hardcode eight lessons, 32 targets, or Chapter 4 topic names into universal validation logic.",
+    "Do not claim teacher, learner, accessibility, retention, Brightspace, or release acceptance."
+  ],
+  "privacyScope": "repository",
+  "baselineSha": "02a9fadc9148bf26c0c93006560375a9c5c6b4ee"
+}

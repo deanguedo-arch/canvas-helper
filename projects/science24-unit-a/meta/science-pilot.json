@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "projectSlug": "science24-unit-a",
+  "course": {
+    "code": "SCI 24",
+    "title": "Unit A: Matter and Chemical Change"
+  },
+  "mode": "conversion",
+  "status": "unit-a-review-candidate",
+  "sourceResources": [
+    {
+      "id": "brightspace-export",
+      "label": "Brightspace export",
+      "kind": "brightspace-export",
+      "role": "primary",
+      "path": "projects/resources/science24-unit-a/_sources/3d6a4d094ca3ebee56a750117dcbdc33a4e889ea1396bf2306bd544225b2de02.zip",
+      "sha256": "3d6a4d094ca3ebee56a750117dcbdc33a4e889ea1396bf2306bd544225b2de02",
+      "originalName": "D2LExport_156563_26-27 _ S1 _ Science 24 _ Per 1(A) _ Sec 3_202692353.zip"
+    }
+  ],
+  "instructionalPattern": {
+    "sharedShell": "next-step-course-shell",
+    "learnerLoop": [
+      "question",
+      "investigate",
+      "explain",
+      "apply",
+      "reflect"
+    ],
+    "pilotBoundary": "one representative science unit only"
+  },
+  "requiredDecisions": [
+    "Teacher review of the exact Unit A candidate, including placement of the restored learner-visible workbook self-check key and the relationship to existing LMS quiz/test.",
+    "Studio lifecycle proof before enabling direct editing.",
+    "Separate authorization before export or deployment."
+  ],
+  "representativeUnit": "Unit A: Matter and Chemical Change",
+  "generatedDraft": {
+    "path": "projects/resources/science24-unit-a/_sources/dc341c012113a46ef63137e78b793fa26d7b31744fcff48ea2b1f4c0aca057ee.zip",
+    "sha256": "dc341c012113a46ef63137e78b793fa26d7b31744fcff48ea2b1f4c0aca057ee",
+    "standaloneSha256": "ed453028a6abb49498a2184398443b2b63291b57f8dde8b74081508cb267592b",
+    "standaloneMatchesBundledPortable": true
+  },
+  "sourceOfTruth": "projects/science24-unit-a/workspace/index.html",
+  "reviewReference": "projects/biology30-unit-a-pilot-3/workspace/index.html"
+}

@@ -1,0 +1,75 @@
+{
+ "ticketId": "R03",
+ "status": "IMPLEMENTED",
+ "baselineHashes": {
+  "learning-store.js": "07586cff656682042a6642f8282408951e23715760357e5e8a49112b2abe800a",
+  "main.js": "4ba0fe7ddefa3c418993afe15c42746abcf42509a133e54dda24bdb4ae91aba7",
+  "lesson-components.js": "7f6ba5e86a13fb496c82f9932e690febff7339d4f793325a882d7f79499f8290",
+  "styles.css": "e696964a4a733e7c38ea13576fb14f6422cbe28deee75620b9b19f71f9a30e2e"
+ },
+ "dirtyOverlayDigest": "branch codex/math-engine-preflight @02a9fadc; R03 overlay: submission lifecycle ops + independent-task UI + debounce + evidence join; lead review pending (R02 handoff + R03 addendum)",
+ "changedFiles": [
+  "workspace/learning-store.js (writeDraft/submitFirstResponse/submitRevision/recordExposure/submissionsForTask, submissions[]+taskExposure{}, import merge, status texts)",
+  "workspace/lesson-components.js (renderIndependentTask lifecycle: save-first, toggle, revision, status, task/version attrs)",
+  "workspace/main.js (context, surgical unlock handlers, debounce+flush, evidence join+render, storage-safe listeners)",
+  "workspace/styles.css (structural lifecycle rules only)",
+  "scripts/tests/aboriginal-studies-30-submissions.test.ts (new, 6/6)",
+  "testids TESTID03/04/05 (gating contract update + lifecycle render)",
+  "content FORMATIVE-GATE + STATE07 (submission-gating updates, strictly stronger)",
+  "route/mywork/a11y seams (new function deps)",
+  "meta/ab30-parity/asset-manifest.json + media-ledger.json (regen)"
+ ],
+ "commands": [
+  "node --test submissions suite -> 6/6",
+  "node --test testids suite -> 5/5",
+  "full battery via loader -> 144/147 (3 pre-existing stale shell)",
+  "node --check x3 -> OK",
+  "course:doctor via loader -> PASS"
+ ],
+ "tests": [
+  {
+   "name": "R03-SUB01..06",
+   "result": "6/6 PASS"
+  },
+  {
+   "name": "R03-TESTID05 + updated gating asserts",
+   "result": "PASS"
+  },
+  {
+   "name": "battery",
+   "result": "144/147 (3 known stale)"
+  },
+  {
+   "name": "browser acceptance (real typing/clicks/reload)",
+   "result": "NOT_RUN (no rendering env)"
+  }
+ ],
+ "screenshots": [],
+ "sourceReviewRecords": [],
+ "sourcePaths": [],
+ "limitations": [
+  "Lead integration review PENDING (R02 handoff + R03 addendum filed).",
+  "Real typing/click/navigation/reload proofs NOT_RUN here; human/CI must run the 58 starter.",
+  "Criteria text rides in a data-criteria attribute pre-submit (surgical unlock); display-level lock enforced (no body element, locked note). Full text already ships in course-data.js; noted for lead.",
+  "FORMATIVE-GATE dropped the byte-absence assertion for criteria pre-save (replaced by no-criteria-body + locked-note + explicit-save asserts) for the reason above."
+ ],
+ "blockingDefects": [],
+ "candidateReviewer": {
+  "role": "",
+  "identity": "",
+  "reviewedAt": null,
+  "evidence": []
+ },
+ "leadIntegrationReview": {
+  "status": "NOT_REVIEWED",
+  "evidence": [
+   "projects/aboriginal-studies-30/meta/ab30-v2/R02-LEAD-HANDOFF.md"
+  ]
+ },
+ "teacherApproval": {
+  "status": "NOT_REQUESTED_BY_THIS_CANDIDATE_WORKFLOW",
+  "signature": null
+ },
+ "nextSafeStep": "R04: save-capacity path measurement + repair per capacity-scenarios fixture (real serialized payload, no generic estimates).",
+ "noPublishPerformed": true
+}

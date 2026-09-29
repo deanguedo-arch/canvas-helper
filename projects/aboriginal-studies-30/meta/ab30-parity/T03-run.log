@@ -1,0 +1,19 @@
+[ab30-source] tested inputs: main.js=82b1b5ca8586 course-data.js=87c05932bb97
+✔ SRC01-canonical: every assignment has one manifest definition matching live wording + official anchors (1.957541ms)
+✔ SRC01-exports: HTML and DOCX mirrors match live requirements with no private-doc links (8.802333ms)
+✔ SRC02: legacy 4-3 prompt intact, Halfbreed candidate present but not activated (0.34725ms)
+✔ SRC03: student bundle serves no answer keys; unresolved holds are owned, not auto-resolved (3.955208ms)
+✔ SRC04: required and optional response modes persist without escalation (0.6935ms)
+✔ SRC05: bundle excludes machine paths and audit disputes; attribution remains (2.384833ms)
+✔ SRC06-steps: response steps run Statement/Evidence/Interpret/Connect with official starters (1.979125ms)
+✔ SRC06-rubric: rubric table matches the supplied rubric levels, weight, and descriptors (1.3455ms)
+✔ SRC07: printed-page references resolve inside the real chapter PDFs (2.247458ms)
+✔ SRC08: every correction has before/after text with source; outcomes mapping stays an explicit hold (0.251292ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 244.408542

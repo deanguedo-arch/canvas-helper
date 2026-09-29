@@ -1,0 +1,211 @@
+{
+  "routes": [
+    {
+      "width": 1440,
+      "lesson": "t1-l01-oral-tradition",
+      "overflow": false,
+      "heading": "Oral Tradition: Listening, Knowledge, and Evidence",
+      "current": 1,
+      "open": "theme-1",
+      "markers": [
+        {
+          "list": "none",
+          "marker": "\"\"",
+          "after": "\"−\""
+        },
+        {
+          "list": "none",
+          "marker": "\"\"",
+          "after": "\"+\""
+        },
+        {
+          "list": "none",
+          "marker": "\"\"",
+          "after": "\"+\""
+        },
+        {
+          "list": "none",
+          "marker": "\"\"",
+          "after": "\"+\""
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "lesson": "t1-l02-nations-peoples",
+      "overflow": false,
+      "heading": "Nations, Peoples, and the Dene Declaration",
+      "current": 1,
+      "open": "theme-1",
+      "markers": [
+        {
+          "list": "none",
+          "marker": "\"\"",
+          "after": "\"−\""
+        },
+        {
+          "list": "none",
+          "marker": "\"\"",
+          "after": "\"+\""
+        },
+        {
+          "list": "none",
+          "marker": "\"\"",
+          "after": "\"+\""
+        },
+        {
+          "list": "none",
+          "marker": "\"\"",
+          "after": "\"+\""
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "lesson": "t2-l01-why-land-matters",
+      "overflow": false,
+      "heading": "A Triumph for All: Gosnell and the Nisga'a Treaty",
+      "current": 1,
+      "open": "theme-2",
+      "markers": [
+        {
+          "list": "none",
+          "marker": "\"\"",
+          "after": "\"+\""
+        },
+        {
+          "list": "none",
+          "marker": "\"\"",
+          "after": "\"−\""
+        },
+        {
+          "list": "none",
+          "marker": "\"\"",
+          "after": "\"+\""
+        },
+        {
+          "list": "none",
+          "marker": "\"\"",
+          "after": "\"+\""
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "lesson": "t1-l01-oral-tradition",
+      "overflow": false,
+      "heading": "Oral Tradition: Listening, Knowledge, and Evidence",
+      "current": 1,
+      "open": "theme-1",
+      "markers": [
+        {
+          "list": "none",
+          "marker": "\"\"",
+          "after": "\"−\""
+        },
+        {
+          "list": "none",
+          "marker": "\"\"",
+          "after": "\"+\""
+        },
+        {
+          "list": "none",
+          "marker": "\"\"",
+          "after": "\"+\""
+        },
+        {
+          "list": "none",
+          "marker": "\"\"",
+          "after": "\"+\""
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "lesson": "t1-l02-nations-peoples",
+      "overflow": false,
+      "heading": "Nations, Peoples, and the Dene Declaration",
+      "current": 1,
+      "open": "theme-1",
+      "markers": [
+        {
+          "list": "none",
+          "marker": "\"\"",
+          "after": "\"−\""
+        },
+        {
+          "list": "none",
+          "marker": "\"\"",
+          "after": "\"+\""
+        },
+        {
+          "list": "none",
+          "marker": "\"\"",
+          "after": "\"+\""
+        },
+        {
+          "list": "none",
+          "marker": "\"\"",
+          "after": "\"+\""
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "lesson": "t2-l01-why-land-matters",
+      "overflow": false,
+      "heading": "A Triumph for All: Gosnell and the Nisga'a Treaty",
+      "current": 1,
+      "open": "theme-2",
+      "markers": [
+        {
+          "list": "none",
+          "marker": "\"\"",
+          "after": "\"+\""
+        },
+        {
+          "list": "none",
+          "marker": "\"\"",
+          "after": "\"−\""
+        },
+        {
+          "list": "none",
+          "marker": "\"\"",
+          "after": "\"+\""
+        },
+        {
+          "list": "none",
+          "marker": "\"\"",
+          "after": "\"+\""
+        }
+      ]
+    }
+  ],
+  "checks": [
+    "1440 t1-l01-oral-tradition: first response survives reload",
+    "1440 t1-l02-nations-peoples: first response survives reload",
+    "1440 t2-l01-why-land-matters: first response survives reload",
+    "1440: theme expansion, lesson navigation, browser Back",
+    "390 t1-l01-oral-tradition: first response survives reload",
+    "390 t1-l02-nations-peoples: first response survives reload",
+    "390 t2-l01-why-land-matters: first response survives reload",
+    "390: theme expansion, lesson navigation, browser Back",
+    "Earlier .1 first submission survives .2 lesson update byte-for-byte"
+  ],
+  "screenshots": [
+    "screenshots/t1-l01-oral-tradition-1440-opening.png",
+    "screenshots/t1-l01-oral-tradition-1440-teaching.png",
+    "screenshots/t1-l02-nations-peoples-1440-opening.png",
+    "screenshots/t1-l02-nations-peoples-1440-teaching.png",
+    "screenshots/t2-l01-why-land-matters-1440-opening.png",
+    "screenshots/t2-l01-why-land-matters-1440-teaching.png",
+    "screenshots/t1-l01-oral-tradition-390-opening.png",
+    "screenshots/t1-l01-oral-tradition-390-teaching.png",
+    "screenshots/t1-l02-nations-peoples-390-opening.png",
+    "screenshots/t1-l02-nations-peoples-390-teaching.png",
+    "screenshots/t2-l01-why-land-matters-390-opening.png",
+    "screenshots/t2-l01-why-land-matters-390-teaching.png"
+  ],
+  "errors": [],
+  "passed": true
+}

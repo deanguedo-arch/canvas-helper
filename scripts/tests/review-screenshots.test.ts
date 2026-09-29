@@ -170,6 +170,43 @@ test("course capture skips blocked remote iframe error documents without stallin
   });
 });
 
+test("course capture finds a rendered child only when its source owner and text match", async () => {
+  const html = `<!doctype html><html><body>
+    <h1 id="capture-target"></h1>
+    <script>document.getElementById("capture-target").appendChild(Object.assign(document.createElement("span"), { textContent: "Rendered lesson text" }));</script>
+  </body></html>`;
+  await withTemporaryCapturePage(html, async ({ previewOrigin, pageHref, nodeId }) => {
+    let hash = 2166136261;
+    for (const character of "Rendered lesson text") {
+      hash ^= character.charCodeAt(0);
+      hash = Math.imul(hash, 16777619);
+    }
+    const runtimeNodeId = `${nodeId}~0!span!${(hash >>> 0).toString(16).padStart(8, "0")}`;
+    const selection = {
+      nodeId: runtimeNodeId,
+      visibleText: "Rendered lesson text",
+      tagName: "span",
+      role: "",
+      testId: "",
+      geometry: { x: 8, y: 8, width: 320, height: 48 },
+      viewport: { width: 640, height: 480 },
+      scroll: { windowTop: 0, windowLeft: 0, containers: [] },
+      pageHref
+    };
+    const result = await captureMarkedPreviewPng({ previewOrigin, projectSlug: "e2e-fixture", markerNumber: 1, selection });
+    assert.equal(result.png.subarray(0, 8).toString("hex"), "89504e470d0a1a0a");
+    await assert.rejects(
+      captureMarkedPreviewPng({
+        previewOrigin,
+        projectSlug: "e2e-fixture",
+        markerNumber: 1,
+        selection: { ...selection, nodeId: `${nodeId}~0!span!00000000` }
+      }),
+      /timeout|waiting|exceeded/i
+    );
+  });
+});
+
 test("course capture rejects a same-path page whose query or hash state changes", async () => {
   const html = `<!doctype html>
 <html><head><meta charset="utf-8"><title>Capture state test</title></head>

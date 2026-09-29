@@ -1,0 +1,53 @@
+{
+  "project": "science24-unit-b",
+  "candidate": "science24-unit-b-excellence-v2",
+  "date": "2026-09-24",
+  "authoringStatus": "blocked",
+  "previewUrl": "http://127.0.0.1:4191/science24-unit-b/workspace/#overview",
+  "workspaceFingerprintSha256": "f62c297d87690d465ce21454681352a97d55a5828103d851930153d68d4073be",
+  "workspaceFileCount": 72,
+  "criticalHashes": {
+    "index.html": "dafad0a8f3a6c4673bca78fd68d4e188cd8d25f01d71587cfb55d7c9a0671f55",
+    "course-data.json": "a8eab257bc3c5b5ef2fcb8603985a43b6df323c599c67a26aa52308cf289868d",
+    "course-data.js": "6cae00ae5a42268ffdd61c56c3c1e8599f84021abd72b61a0d110be4226c8d09",
+    "main.js": "e8e3a5f34192b6b8feefefa4f0387d88beae9db1afc71d9d3db9d519acd511aa",
+    "state-store.js": "51237bdbf49a6c3e3b70ed64bfec3d418e4ad1f1ab4011ff56a70f8424dd8a52",
+    "styles.css": "f0bce32fcd6d4243cbcde101c1e916b247de55cc45696a3fc624c54bd0b6a85a",
+    "unit-b.css": "ef1ccf15e4dcf730e360a70d4d1f3df23b9650da8061126ee5dd6aa1f14b77af"
+  },
+  "sourceTaskMapSha256": "89dd8ada8ae04276792305f159327686f2906b84c7402fde1e12ad86c7453fa4",
+  "sourceReviewSha256": "4bbd715f9256c1762dc73843e316d7ecec92e90cf1e02fcf765850aa95461cec",
+  "rejectedCandidateArchiveSha256": "0d4e986d3eebf7fd7fe316ce2ddfe977d0dd3a57f681510cb3d12b32c441bace",
+  "sourceArchiveSha256": "3d6a4d094ca3ebee56a750117dcbdc33a4e889ea1396bf2306bd544225b2de02",
+  "verification": {
+    "compiler": "pass: 16 lessons, 74 terms, stable catalog IDs",
+    "workspaceVerify": "pass: metadata and local assets, no missing embeds",
+    "doctor": "expected refusal: blocked project is not eligible for active authoring context",
+    "browserReview": {
+      "passed": true,
+      "checks": 23,
+      "routes": 30,
+      "widths": [
+        1440,
+        820,
+        390
+      ],
+      "report": "browser-review.json"
+    },
+    "requiredCheck": "pass: 2 objective + 2 saved explanations, explicit finish, confirmed progress and reload",
+    "twoTabConflict": "pass: explicit choice, both drafts visible, recovery copies survive reload",
+    "activeStorageFailure": "pass: visible quota alert and full draft remains on screen",
+    "keyboardDialog": "pass: Tab remains in dialog; Escape returns focus to opener",
+    "narrowWidth": "pass: 320, 360 and 720 CSS-pixel widths without horizontal overflow",
+    "independentContentReview": "pass after repairs: 32 worked examples, 80 lesson MC items, 32 lesson required objectives, 8 review objectives, 74 vocabulary records, numeric units, and 4 diagrams; corrected historical thermoelectric meaning and diagram answer leakage"
+  },
+  "notEstablished": [
+    "External video playback and captions in every learner region",
+    "Brightspace LMS launch, suspend/resume and completion",
+    "Teacher sign-off on supervised source investigations and historical corrections",
+    "Studio editability lifecycle; project remains blocked"
+  ],
+  "projectMetadataSha256": "48174628f081162a4c8c29364fe01f4551bebb044ba7021cae63502ea4be33d4",
+  "compilerSha256": "14dafac06eda8b625693cf1b4e30cdadb5c88eee9ac1dcef4adbaec7306cafcf",
+  "browserReviewSha256": "84c391bc6ea0cc291ddcbafdb5ed09868df65bd6ee562581002e8a5aff94e519"
+}

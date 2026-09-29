@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 3,
+  "measuredAt": "2026-09-23",
+  "method": "State 14 measurements through State.encode and the production SCORM state codec. The authored eight-lesson path retains immutable first working, final corrections and practice credit, including eight supported repairs; the separate high-entropy stress fixture exercises the configured 52,000-character application and 60,000-character SCORM 2004 envelope limits. Local measurements do not prove Brightspace save/resume.",
+  "mainCourse": {
+    "applicationPayloadCharacters": 50048,
+    "losslessCodecOutputCharacters": 45766,
+    "scorm2004EnvelopeCharacters": 46180,
+    "applicationLimitCharacters": 52000,
+    "scorm2004SuspendDataLimitCharacters": 60000,
+    "applicationMargin": 1952,
+    "scorm2004Margin": 13820,
+    "fullFieldPeak": {
+      "applicationPayloadCharacters": 59888,
+      "losslessCodecOutputCharacters": 60279,
+      "scorm2004EnvelopeCharacters": 60693,
+      "applicationAdmission": "rejected_over_52000_character_budget"
+    },
+    "fullChapterCoverage": "authored_perfect_path_locally_measured",
+    "authoredPath": {
+      "targetsAt100": 32,
+      "qualifyingReceipts": 164,
+      "linkedEvidenceSubmissions": 33,
+      "retainedSupportedRepairs": 8,
+      "savedWorkRecords": 41,
+      "selectedEvidenceRecords": 8,
+      "fullSeenLedgers": 8,
+      "openWorkshopDrafts": 8,
+      "applicationPayloadCharacters": 38245,
+      "losslessCodecOutputCharacters": 12127,
+      "scorm2004EnvelopeCharacters": 12542,
+      "decodedScore": 100,
+      "notes": "The fixture checks every authored answer, links all credited receipts to problem and actual work, retains first and final working for all 41 submissions, includes eight corrected supported repairs and a separate later session after more than 48 hours. Synthetic timestamps do not prove real-time behavior or Brightspace persistence."
+    },
+    "limitation": "The authored 41-record path including first-attempt history and the high-entropy stress fixture fit both configured limits. Maximum-length fields exceed both and are rejected before save. Long real learner history may fill finite protected evidence; live Brightspace save/resume remains pending."
+  },
+  "textbookPackages": {
+    "math10c-unit3-textbook-1": {
+      "questionCount": 54,
+      "responseLimit": 600,
+      "applicationPayloadCharacters": 32884,
+      "losslessCodecOutputCharacters": 32884,
+      "scorm2004EnvelopeCharacters": 33312,
+      "applicationLimitCharacters": 55000,
+      "scorm2004SuspendDataLimitCharacters": 60000,
+      "applicationMargin": 22116,
+      "scorm2004Margin": 26688
+    },
+    "math10c-unit3-textbook-2": {
+      "questionCount": 43,
+      "responseLimit": 600,
+      "applicationPayloadCharacters": 26196,
+      "losslessCodecOutputCharacters": 26196,
+      "scorm2004EnvelopeCharacters": 26602,
+      "applicationLimitCharacters": 55000,
+      "scorm2004SuspendDataLimitCharacters": 60000,
+      "applicationMargin": 28804,
+      "scorm2004Margin": 33398
+    },
+    "math10c-unit3-textbook-3": {
+      "questionCount": 81,
+      "responseLimit": 600,
+      "applicationPayloadCharacters": 49300,
+      "losslessCodecOutputCharacters": 49300,
+      "scorm2004EnvelopeCharacters": 49782,
+      "applicationLimitCharacters": 55000,
+      "scorm2004SuspendDataLimitCharacters": 60000,
+      "applicationMargin": 5700,
+      "scorm2004Margin": 10218
+    }
+  }
+}

@@ -1,0 +1,136 @@
+{
+  "$schema": "../../../e2e/project-e2e-contract.schema.json",
+  "projectSlug": "ela10-1-modern-play-fences",
+  "requiredTestIds": [
+    "studio-shell",
+    "course-studio-tab",
+    "workspace-project-select",
+    "project-root",
+    "workspace-preview-frame"
+  ],
+  "modes": {
+    "enabled": false
+  },
+  "navigation": {
+    "enabled": false
+  },
+  "quiz": {
+    "enabled": false,
+    "lessonTitle": "Questions"
+  },
+  "fallbackPanel": {
+    "enabled": false
+  },
+  "learnerCourse": {
+    "enabled": true,
+    "routes": [
+      "overview",
+      "lessons",
+      "lesson-1-considering-language",
+      "lesson-2-how-to-respond-to-literature",
+      "lesson-3-writing-a-personal-response-to-text",
+      "critical-essay",
+      "critical-essay-topic-thesis",
+      "critical-essay-introduction",
+      "critical-essay-body-1",
+      "critical-essay-body-2",
+      "critical-essay-body-3",
+      "critical-essay-conclusion-revision",
+      "critical-essay-preview",
+      "personal-response",
+      "personal-response-prompt-impression",
+      "personal-response-text-evidence",
+      "personal-response-knowledge-experience",
+      "personal-response-form-perspective",
+      "personal-response-response-plan",
+      "personal-response-draft-revise",
+      "personal-response-preview",
+      "script-reader",
+      "play-materials",
+      "act-questions",
+      "character-notes",
+      "core-vocabulary",
+      "evidence-bank",
+      "resources"
+    ],
+    "hintRoutes": [
+      "critical-essay-topic-thesis",
+      "critical-essay-introduction",
+      "critical-essay-body-1",
+      "critical-essay-body-2",
+      "critical-essay-body-3",
+      "critical-essay-conclusion-revision",
+      "personal-response-prompt-impression",
+      "personal-response-text-evidence",
+      "personal-response-knowledge-experience",
+      "personal-response-form-perspective",
+      "personal-response-response-plan",
+      "personal-response-draft-revise",
+      "act-questions",
+      "character-notes"
+    ],
+    "printRoutes": [
+      "critical-essay-topic-thesis",
+      "critical-essay-introduction",
+      "critical-essay-body-1",
+      "critical-essay-body-2",
+      "critical-essay-body-3",
+      "critical-essay-conclusion-revision",
+      "critical-essay-preview",
+      "personal-response-prompt-impression",
+      "personal-response-text-evidence",
+      "personal-response-knowledge-experience",
+      "personal-response-form-perspective",
+      "personal-response-response-plan",
+      "personal-response-draft-revise",
+      "personal-response-preview",
+      "act-questions",
+      "character-notes",
+      "evidence-bank"
+    ],
+    "evidenceScenarios": [
+      {
+        "route": "critical-essay-topic-thesis",
+        "collectionId": "ela10-1-modern-play-fences:critical-essay:unit:topic-thesis:collection",
+        "responseId": "ela10-1-modern-play-fences:critical-essay:unit:topic-thesis:topic"
+      },
+      {
+        "route": "personal-response-prompt-impression",
+        "collectionId": "ela10-1-modern-play-fences:personal-response:unit:prompt-impression:collection",
+        "responseId": "ela10-1-modern-play-fences:personal-response:unit:prompt-impression:prompt"
+      },
+      {
+        "route": "act-questions",
+        "collectionId": "ela10-1-modern-play-fences:act-questions:fences-1:scene-collection:act-i-scene-1:collection",
+        "responseId": "ela10-1-modern-play-fences:act-questions:fences-1:scene-1-workplace"
+      },
+      {
+        "route": "character-notes",
+        "collectionId": "ela10-1-modern-play-fences:character-notes:troy-maxson:dossier",
+        "responseId": "ela10-1-modern-play-fences:character-notes:troy-maxson:traits"
+      }
+    ],
+    "resourceChecks": [
+      {
+        "route": "play-materials",
+        "kind": "document-reader",
+        "minimumPrimary": 1,
+        "minimumFallback": 1
+      }
+    ],
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "routes": [
+        "overview",
+        "lesson-1-considering-language",
+        "act-questions",
+        "critical-essay-topic-thesis",
+        "personal-response-prompt-impression",
+        "character-notes",
+        "play-materials",
+        "evidence-bank"
+      ]
+    }
+  }
+}

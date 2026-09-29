@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "taskId": "math10c-chapter4-static-scaffold-20260924",
+  "attemptId": "a1",
+  "workflow": "conversion",
+  "mode": "build",
+  "objective": "Create the clean blocked Math 10C Chapter 4 static learner shell from the approved production contract, matching the established Chapter 3 navigation and presentation conventions without implementing mastery scoring or saved-state logic.",
+  "taskFamily": "bulk-implementation",
+  "consequenceLevel": "normal",
+  "allowedReadPaths": [
+    "AGENTS.md",
+    "docs/workflows/conversion.md",
+    "projects/resources/math10c-production/v1/chapter4/production-contract.json",
+    "projects/resources/math10c-production/v1/chapter4/assessment-disposition.json",
+    "projects/math10c-unit3-pilot/meta/project.json",
+    "projects/math10c-unit3-pilot/workspace/index.html",
+    "projects/math10c-unit3-pilot/workspace/styles.css"
+  ],
+  "allowedWritePaths": [
+    "projects/math10c-unit4-pilot/meta/project.json",
+    "projects/math10c-unit4-pilot/meta/source-map.json",
+    "projects/math10c-unit4-pilot/workspace/index.html",
+    "projects/math10c-unit4-pilot/workspace/styles.css",
+    "projects/math10c-unit4-pilot/workspace/course.js"
+  ],
+  "contextSources": [
+    "projects/resources/math10c-production/v1/chapter4/production-contract.json",
+    "projects/resources/math10c-production/v1/chapter4/assessment-disposition.json",
+    "projects/math10c-unit3-pilot/workspace/index.html",
+    "projects/math10c-unit3-pilot/workspace/styles.css"
+  ],
+  "acceptanceCriteria": [
+    "The blocked local project has overview, before-you-begin, eight lesson, practice/review, reference, resources and retained-work routes.",
+    "Lesson headings and target lists exactly reflect the 32 targets in the production contract.",
+    "Navigation, responsive sidebar, reference panel and page switching follow the established Chapter 3 presentation pattern.",
+    "The learner shell makes no mastery, grade, SCORM, Brightspace, accessibility or release claim.",
+    "Formal assessments, answer keys and EOL content are absent from learner pages.",
+    "No scoring, checking or saved-state logic is invented; placeholders clearly say those contracts remain under implementation."
+  ],
+  "requiredChecks": [
+    "node --check projects/math10c-unit4-pilot/workspace/course.js",
+    "Verify that all route IDs u4-overview, u4-ready, u4-41 through u4-48, u4-practice, u4-review, u4-reference, u4-resources and u4-work occur in the workspace.",
+    "Verify that all 32 target IDs C4-41a through C4-48d occur exactly once in the learner source.",
+    "git diff --check -- projects/math10c-unit4-pilot"
+  ],
+  "deferredChecks": [
+    "Mathematical checker tests after lead implementation",
+    "Saved-state and capacity tests after lead implementation",
+    "Browser interaction and responsive review",
+    "SCORM, Brightspace, accessibility and teacher review"
+  ],
+  "prohibitedChanges": [
+    "Do not edit Chapter 3, production contracts, raw sources, exports, runtime caches, active handoffs or unrelated files.",
+    "Do not implement or claim mastery scoring, mathematical correctness, saved-state compatibility, SCORM readiness or release readiness.",
+    "Do not copy formal assessments, answer keys, quiz images or EOL prompts into the learner shell.",
+    "Do not commit, push, package, deploy, publish or change branches."
+  ],
+  "privacyScope": "repository"
+}

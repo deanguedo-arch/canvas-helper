@@ -1,0 +1,256 @@
+[ab30-parity] tested inputs: {"main.js":"91171649ed3d39ce26b67644d31e2d7db898bb181b1f3688af97fee25ec0e0d7","course-data.js":"7b1ce7220dcc3fadfb6962f5c86aaa18b71a49e84d96e829ef4444f46fa0cac5"}
+✔ MAP03: all 50 lesson IDs survive in array display order (T00 baseline guard) (0.554125ms)
+✔ fixtures: reviewed Theme 1 map covers q1..q87 exactly once (0.116208ms)
+✔ fixtures: assignment aliases pair exactly one formal key with one lesson key (0.048667ms)
+✖ MAP01-data: every Theme 1 lesson carries explicit bookletQuestionIds matching the reviewed map (0.546125ms)
+✖ MAP01-homes: q1..q87 each resolve to exactly one primary lesson home (1.313709ms)
+✖ MAP02: mutating kicker text with Assignment 1.2 wording and numbers changes no membership (1.194708ms)
+✖ STATE02-F02: lesson-only draft restores in the formal assignment view (1.868042ms)
+✖ STATE02-F03: formal-only draft restores in the lesson view (2.984917ms)
+✔ STATE02-F04: identical dual drafts stay consistent in both views (baseline guard) (1.613042ms)
+✔ STATE02-keys: alias fixture keys match the real production key builders (0.377917ms)
+✖ COMP01: four legacy Mark Complete flags with an empty answer store must not display 100% mastery (0.3275ms)
+✔ COMP01-zero: empty flags with an empty store render 0% (baseline guard) (0.925083ms)
+✖ COMP02: one Q37 cell is not complete; twelve cells are fields-complete, never auto-correct (0.68275ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 6
+ℹ fail 7
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 87.412416
+
+✖ failing tests:
+
+test at scripts/tests/aboriginal-studies-30-parity.test.ts:344:1
+✖ MAP01-data: every Theme 1 lesson carries explicit bookletQuestionIds matching the reviewed map (0.546125ms)
+  AssertionError [ERR_ASSERTION]: lessons lacking explicit bookletQuestionIds: t1-l01-oral-tradition, t1-l02-nations-peoples, t1-l03-rights-distinctions, t1-l04-worldview, t1-l05-early-treaties, t1-l06-colonization-proclamation, t1-l07-numbered-treaties, t1-l08-treaty-promises-alberta, t1-l09-geography-governance, t1-l10-land-law-knowledge, t1-l11-metis-governance-elders, t1-l12-first-nations-inuit-relations, t1-l13-scrip-road-allowances, t1-l14-indian-act, t1-l15-resistance-1951, t1-l16-policy-councils-devolution, t1-l17-land-knowledge-constitution, t1-l18-constitutional-negotiations, t1-l19-title-treaties-constraints, t1-l20-harvesting-rights, t1-l21-rebuilding-goals, t1-l22-models, t1-l23-synthesis
+  + actual - expected
+  
+  + [
+  +   't1-l01-oral-tradition',
+  +   't1-l02-nations-peoples',
+  +   't1-l03-rights-distinctions',
+  +   't1-l04-worldview',
+  +   't1-l05-early-treaties',
+  +   't1-l06-colonization-proclamation',
+  +   't1-l07-numbered-treaties',
+  +   't1-l08-treaty-promises-alberta',
+  +   't1-l09-geography-governance',
+  +   't1-l10-land-law-knowledge',
+  +   't1-l11-metis-governance-elders',
+  +   't1-l12-first-nations-inuit-relations',
+  +   't1-l13-scrip-road-allowances',
+  +   't1-l14-indian-act',
+  +   't1-l15-resistance-1951',
+  +   't1-l16-policy-councils-devolution',
+  +   't1-l17-land-knowledge-constitution',
+  +   't1-l18-constitutional-negotiations',
+  +   't1-l19-title-treaties-constraints',
+  +   't1-l20-harvesting-rights',
+  +   't1-l21-rebuilding-goals',
+  +   't1-l22-models',
+  +   't1-l23-synthesis'
+  + ]
+  - []
+  
+      at TestContext.<anonymous> (file:///Users/deanguedo/Documents/GitHub/canvas-helper/scripts/tests/aboriginal-studies-30-parity.test.ts:356:10)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:787:18)
+      at Test.postRun (node:internal/test_runner/test:1247:19)
+      at Test.run (node:internal/test_runner/test:1175:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: [ 't1-l01-oral-tradition', 't1-l02-nations-peoples', 't1-l03-rights-distinctions', 't1-l04-worldview', 't1-l05-early-treaties', 't1-l06-colonization-proclamation', 't1-l07-numbered-treaties', 't1-l08-treaty-promises-alberta', 't1-l09-geography-governance', 't1-l10-land-law-knowledge', 't1-l11-metis-governance-elders', 't1-l12-first-nations-inuit-relations', 't1-l13-scrip-road-allowances', 't1-l14-indian-act', 't1-l15-resistance-1951', 't1-l16-policy-councils-devolution', 't1-l17-land-knowledge-constitution', 't1-l18-constitutional-negotiations', 't1-l19-title-treaties-constraints', 't1-l20-harvesting-rights', 't1-l21-rebuilding-goals', 't1-l22-models', 't1-l23-synthesis' ],
+    expected: [],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at scripts/tests/aboriginal-studies-30-parity.test.ts:360:1
+✖ MAP01-homes: q1..q87 each resolve to exactly one primary lesson home (1.313709ms)
+  AssertionError [ERR_ASSERTION]: questions with != 1 home: q1->[t1-l02-nations-peoples,t1-l21-rebuilding-goals,t1-l22-models]; q2->[t1-l02-nations-peoples,t1-l21-rebuilding-goals,t1-l22-models]
+  + actual - expected
+  
+  + [
+  +   [
+  +     'q1',
+  +     [
+  +       't1-l02-nations-peoples',
+  +       't1-l21-rebuilding-goals',
+  +       't1-l22-models'
+  +     ]
+  +   ],
+  +   [
+  +     'q2',
+  +     [
+  +       't1-l02-nations-peoples',
+  +       't1-l21-rebuilding-goals',
+  +       't1-l22-models'
+  +     ]
+  +   ]
+  + ]
+  - []
+  
+      at TestContext.<anonymous> (file:///Users/deanguedo/Documents/GitHub/canvas-helper/scripts/tests/aboriginal-studies-30-parity.test.ts:373:10)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:787:18)
+      at Test.postRun (node:internal/test_runner/test:1247:19)
+      at Test.run (node:internal/test_runner/test:1175:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: [ [ 'q1', [Array] ], [ 'q2', [Array] ] ],
+    expected: [],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at scripts/tests/aboriginal-studies-30-parity.test.ts:392:1
+✖ MAP02: mutating kicker text with Assignment 1.2 wording and numbers changes no membership (1.194708ms)
+  AssertionError [ERR_ASSERTION]: kicker-sensitive membership in: t1-l03-rights-distinctions, t1-l04-worldview, t1-l05-early-treaties, t1-l06-colonization-proclamation, t1-l07-numbered-treaties, t1-l08-treaty-promises-alberta, t1-l09-geography-governance, t1-l10-land-law-knowledge, t1-l11-metis-governance-elders, t1-l12-first-nations-inuit-relations, t1-l13-scrip-road-allowances, t1-l14-indian-act, t1-l15-resistance-1951, t1-l16-policy-councils-devolution, t1-l17-land-knowledge-constitution, t1-l18-constitutional-negotiations, t1-l19-title-treaties-constraints, t1-l20-harvesting-rights
+  + actual - expected
+  
+  + [
+  +   't1-l03-rights-distinctions',
+  +   't1-l04-worldview',
+  +   't1-l05-early-treaties',
+  +   't1-l06-colonization-proclamation',
+  +   't1-l07-numbered-treaties',
+  +   't1-l08-treaty-promises-alberta',
+  +   't1-l09-geography-governance',
+  +   't1-l10-land-law-knowledge',
+  +   't1-l11-metis-governance-elders',
+  +   't1-l12-first-nations-inuit-relations',
+  +   't1-l13-scrip-road-allowances',
+  +   't1-l14-indian-act',
+  +   't1-l15-resistance-1951',
+  +   't1-l16-policy-councils-devolution',
+  +   't1-l17-land-knowledge-constitution',
+  +   't1-l18-constitutional-negotiations',
+  +   't1-l19-title-treaties-constraints',
+  +   't1-l20-harvesting-rights'
+  + ]
+  - []
+  
+      at TestContext.<anonymous> (file:///Users/deanguedo/Documents/GitHub/canvas-helper/scripts/tests/aboriginal-studies-30-parity.test.ts:402:10)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:787:18)
+      at Test.postRun (node:internal/test_runner/test:1247:19)
+      at Test.run (node:internal/test_runner/test:1175:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: [ 't1-l03-rights-distinctions', 't1-l04-worldview', 't1-l05-early-treaties', 't1-l06-colonization-proclamation', 't1-l07-numbered-treaties', 't1-l08-treaty-promises-alberta', 't1-l09-geography-governance', 't1-l10-land-law-knowledge', 't1-l11-metis-governance-elders', 't1-l12-first-nations-inuit-relations', 't1-l13-scrip-road-allowances', 't1-l14-indian-act', 't1-l15-resistance-1951', 't1-l16-policy-councils-devolution', 't1-l17-land-knowledge-constitution', 't1-l18-constitutional-negotiations', 't1-l19-title-treaties-constraints', 't1-l20-harvesting-rights' ],
+    expected: [],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at scripts/tests/aboriginal-studies-30-parity.test.ts:417:1
+✖ STATE02-F02: lesson-only draft restores in the formal assignment view (1.868042ms)
+  AssertionError [ERR_ASSERTION]: lesson-only drafts invisible formally: oral-tradition, rebuilding-self-government, 2-1-land-stewardship, 2-2-specific-land-claims, assignment-3-1-breaking-stereotypes, attawapiskat-report, 4-2-rabbit-proof-fence, 4-3-personal-response
+  + actual - expected
+  
+  + [
+  +   'oral-tradition',
+  +   'rebuilding-self-government',
+  +   '2-1-land-stewardship',
+  +   '2-2-specific-land-claims',
+  +   'assignment-3-1-breaking-stereotypes',
+  +   'attawapiskat-report',
+  +   '4-2-rabbit-proof-fence',
+  +   '4-3-personal-response'
+  + ]
+  - []
+  
+      at TestContext.<anonymous> (file:///Users/deanguedo/Documents/GitHub/canvas-helper/scripts/tests/aboriginal-studies-30-parity.test.ts:427:10)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:787:18)
+      at Test.postRun (node:internal/test_runner/test:1247:19)
+      at Test.run (node:internal/test_runner/test:1175:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: [ 'oral-tradition', 'rebuilding-self-government', '2-1-land-stewardship', '2-2-specific-land-claims', 'assignment-3-1-breaking-stereotypes', 'attawapiskat-report', '4-2-rabbit-proof-fence', '4-3-personal-response' ],
+    expected: [],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at scripts/tests/aboriginal-studies-30-parity.test.ts:430:1
+✖ STATE02-F03: formal-only draft restores in the lesson view (2.984917ms)
+  AssertionError [ERR_ASSERTION]: formal-only drafts invisible in lessons: oral-tradition, rebuilding-self-government, 2-1-land-stewardship, 2-2-specific-land-claims, assignment-3-1-breaking-stereotypes, attawapiskat-report, 4-2-rabbit-proof-fence, 4-3-personal-response
+  + actual - expected
+  
+  + [
+  +   'oral-tradition',
+  +   'rebuilding-self-government',
+  +   '2-1-land-stewardship',
+  +   '2-2-specific-land-claims',
+  +   'assignment-3-1-breaking-stereotypes',
+  +   'attawapiskat-report',
+  +   '4-2-rabbit-proof-fence',
+  +   '4-3-personal-response'
+  + ]
+  - []
+  
+      at TestContext.<anonymous> (file:///Users/deanguedo/Documents/GitHub/canvas-helper/scripts/tests/aboriginal-studies-30-parity.test.ts:440:10)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:787:18)
+      at Test.postRun (node:internal/test_runner/test:1247:19)
+      at Test.run (node:internal/test_runner/test:1175:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: [ 'oral-tradition', 'rebuilding-self-government', '2-1-land-stewardship', '2-2-specific-land-claims', 'assignment-3-1-breaking-stereotypes', 'attawapiskat-report', '4-2-rabbit-proof-fence', '4-3-personal-response' ],
+    expected: [],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at scripts/tests/aboriginal-studies-30-parity.test.ts:492:1
+✖ COMP01: four legacy Mark Complete flags with an empty answer store must not display 100% mastery (0.3275ms)
+  AssertionError [ERR_ASSERTION]: flags-only state must not render verified mastery (count: 4 / 4 themes)
+      at TestContext.<anonymous> (file:///Users/deanguedo/Documents/GitHub/canvas-helper/scripts/tests/aboriginal-studies-30-parity.test.ts:502:10)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:787:18)
+      at Test.postRun (node:internal/test_runner/test:1247:19)
+      at Test.run (node:internal/test_runner/test:1175:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: '100%',
+    expected: '100%',
+    operator: 'notStrictEqual',
+    diff: 'simple'
+  }
+
+test at scripts/tests/aboriginal-studies-30-parity.test.ts:538:1
+✖ COMP02: one Q37 cell is not complete; twelve cells are fields-complete, never auto-correct (0.68275ms)
+  AssertionError [ERR_ASSERTION]: one filled cell must not count as answered (legacy-boolean)
+  
+  true !== false
+  
+      at TestContext.<anonymous> (file:///Users/deanguedo/Documents/GitHub/canvas-helper/scripts/tests/aboriginal-studies-30-parity.test.ts:546:10)
+      at Test.runInAsyncScope (node:async_hooks:228:14)
+      at Test.run (node:internal/test_runner/test:1118:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:787:18)
+      at Test.postRun (node:internal/test_runner/test:1247:19)
+      at Test.run (node:internal/test_runner/test:1175:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

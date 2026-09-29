@@ -1,0 +1,13 @@
+✔ EVID01: collection groups real saved work with prompt context, roles, and task links (12.075875ms)
+✔ EVID02: evidence never carries key material; learner fields stay complete (2.539875ms)
+✔ EVID03: empty store renders an honest empty collection, never fake completion (4.779333ms)
+✔ EVID04/COMP06: rendered collection claims local-only, never review or mastery (5.192ms)
+✔ EVID05/STATE11: canonical work survives an export/import round-trip; runs stay device-local (5.408459ms)
+✔ EVID06: ?section=mywork routes; nav entry exists in the shell (4.835417ms)
+✔ EVID07/ASSET04-print: print stylesheet covers the full collection (0.614417ms)
+✔ EVID08: conflicts, exposure flags, and hostile text render safely (3.728125ms)
+✔ EVID10: table cells collect with resolved row/column labels and partial status (4.291542ms)
+✔ EVID09: odd keys (aliases, drafts, unknown assignments) resolve without throwing (2.205625ms)
+ℹ tests 10
+ℹ pass 10
+ℹ fail 0

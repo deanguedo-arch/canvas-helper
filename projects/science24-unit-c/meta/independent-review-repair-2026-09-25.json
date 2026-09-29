@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "reviewDate": "2026-09-25",
+  "reviewSourceSha256": "96e9c881de763dde22d7f43063d8370a07fdc06f2fc1177a355155acba3fdf8f",
+  "suppliedQ12KeyImageSha256": "4e2a4fada3d93861ffa01ffa022ee942e737172e0962a6fec422cef5bd75d562",
+  "candidateStatus": "blocked",
+  "repairs": [
+    "Separated workbook Q11 on page 31 from Q12 on page 32 throughout Lesson 15, practice, writing, final review, source maps and video fallback.",
+    "Added the exact original Q12 page image and taught its unaffected-parent and affected-child evidence under the intended simple inheritance model.",
+    "Assigned new stable IDs to activities whose scientific meaning changed; unchanged items retained their IDs.",
+    "Required-check completion now rolls back to the active run when the completion save fails.",
+    "Long Frayer drafts remain saveable; the 240-character rule is enforced only when collecting a word.",
+    "Every route heading can receive programmatic focus, and the final guide now states eight selections plus two synthesis responses."
+  ],
+  "workspaceIndexSha256": "9b0067163743165f37c36894784d0aa4747fa524b621cf10dd7fd92ad9aa460a",
+  "courseDataJsonSha256": "cc10b96cb9ddb6dd36f3cfd2e5af12c838e0f1a7bb5475da7f0779f8c253ba08",
+  "courseDataJsSha256": "708311361220a234c2d030cf1612333e367aafcb888112bcc1de145e6f406a04",
+  "focusedCompiler": "node scripts/compile-science24-bcd-data.cjs --project science24-unit-c",
+  "focusedCheck": "node scripts/tests/science24-abcd-review-p0.cjs",
+  "rolloutComplete": false
+}

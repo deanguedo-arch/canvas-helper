@@ -1,0 +1,315 @@
+{
+  "schemaVersion": 2,
+  "projectSlug": "ela10-1-modern-play-fences",
+  "courseCode": "ELA 10-1",
+  "courseTitle": "English Language Arts 10-1",
+  "unitTitle": "Modern Play - Fences",
+  "profileVersion": "next-step-english-v2-ela10",
+  "status": "needs-review",
+  "source": {
+    "brightspaceZip": "projects/resources/ela10-1/_sources/98a7423518aa49d55b37e75f4a7a44037949c06416146e806705b85c933cbf49.normalized.zip",
+    "teacherResourcesZip": "projects/resources/ela10-1/_sources/61c75238e8ca90b0c2e874d4f3ab65074b4a14ee699f1854f753bdf938648d2b.zip",
+    "brightspaceUnitId": "1473026",
+    "teacherFolder": "UNIT 4 Modern Play",
+    "archiveRefs": {
+      "brightspace": "brightspace",
+      "teacherResources": "teacher-resources"
+    },
+    "lessonSelectors": [
+      {
+        "itemId": "1473035",
+        "disposition": "exclude",
+        "title": "Creating Text",
+        "reason": "Image-only module heading with no instructional lesson resource."
+      },
+      {
+        "itemId": "1473101",
+        "disposition": "include",
+        "title": "Considering Language"
+      },
+      {
+        "itemId": "1473096",
+        "disposition": "include",
+        "title": "How to Respond to Literature"
+      },
+      {
+        "itemId": "1473038",
+        "disposition": "exclude",
+        "title": "Interpreting Text",
+        "reason": "Empty module heading with no instructional lesson resource."
+      },
+      {
+        "itemId": "1473100",
+        "disposition": "include",
+        "title": "Writing a Personal Response to Text"
+      },
+      {
+        "itemId": "1473036",
+        "disposition": "exclude",
+        "title": "Unit 1 Assessment",
+        "includeChildren": true,
+        "reason": "Assessment branch is excluded."
+      }
+    ]
+  },
+  "activityProfile": {
+    "schemaVersion": 1,
+    "activities": [
+      {
+        "id": "script-reader",
+        "title": "Fences Script Reader",
+        "route": "script-reader",
+        "enabled": true,
+        "evidencePolicyIds": []
+      },
+      {
+        "id": "play-materials",
+        "title": "Fences Materials",
+        "route": "play-materials",
+        "enabled": true,
+        "evidencePolicyIds": []
+      },
+      {
+        "id": "act-questions",
+        "title": "Act and Scene Questions",
+        "route": "act-questions",
+        "enabled": true,
+        "evidencePolicyIds": [
+          "question-collection"
+        ]
+      },
+      {
+        "id": "character-conflict",
+        "title": "Character and Conflict Notes",
+        "route": "character-notes",
+        "enabled": true,
+        "evidencePolicyIds": [
+          "dossier"
+        ]
+      },
+      {
+        "id": "critical-essay",
+        "title": "Critical Essay",
+        "route": "critical-essay",
+        "enabled": true,
+        "evidencePolicyIds": [
+          "essay-plan"
+        ]
+      },
+      {
+        "id": "evidence-bank",
+        "title": "Evidence Bank",
+        "route": "evidence-bank",
+        "enabled": true,
+        "evidencePolicyIds": []
+      },
+      {
+        "id": "personal-response",
+        "title": "Personal Response",
+        "route": "personal-response",
+        "enabled": true,
+        "evidencePolicyIds": [
+          "personal-response-writing-stage"
+        ],
+        "componentSlot": "writing-studio"
+      }
+    ],
+    "evidencePolicies": [
+      {
+        "id": "question-collection",
+        "activityId": "act-questions",
+        "saveMode": "collection",
+        "requiresExplicitSave": true,
+        "contributionIdTemplate": "{projectSlug}:act-questions:{locatorId}:collection",
+        "collectionScope": "locator"
+      },
+      {
+        "id": "dossier",
+        "activityId": "character-conflict",
+        "saveMode": "collection",
+        "requiresExplicitSave": true,
+        "contributionIdTemplate": "{projectSlug}:character-conflict:{workId}:collection",
+        "collectionScope": "work"
+      },
+      {
+        "id": "essay-plan",
+        "activityId": "critical-essay",
+        "saveMode": "collection",
+        "requiresExplicitSave": true,
+        "contributionIdTemplate": "{projectSlug}:critical-essay:{activityId}:collection",
+        "collectionScope": "activity"
+      },
+      {
+        "id": "personal-response-writing-stage",
+        "activityId": "personal-response",
+        "saveMode": "collection",
+        "requiresExplicitSave": true,
+        "contributionIdTemplate": "{projectSlug}:personal-response:unit:{entryId}",
+        "collectionScope": "activity",
+        "tags": [
+          "personal-response",
+          "writing-stage"
+        ]
+      }
+    ],
+    "kind": "modern-drama",
+    "actIds": [
+      "act-one",
+      "act-two"
+    ],
+    "characterIds": [
+      "troy-maxson",
+      "rose-maxson",
+      "cory-maxson",
+      "bono",
+      "gabriel-maxson",
+      "lyons-maxson"
+    ],
+    "criticalEssay": true
+  },
+  "lessonOrder": [
+    "1473101",
+    "1473096",
+    "1473100"
+  ],
+  "topLevelLessonOrder": [
+    "1473101",
+    "1473096",
+    "1473100"
+  ],
+  "lessonGroups": [
+    {
+      "id": "unit-lessons",
+      "title": "Modern Play - Fences",
+      "lessonIds": [
+        "1473101",
+        "1473096",
+        "1473100"
+      ]
+    }
+  ],
+  "readings": [],
+  "placements": [],
+  "analysisTerms": [],
+  "analysisExamples": [],
+  "resourceDispositions": [
+    {
+      "id": "fences-script",
+      "source": "UNIT 4 Modern Play/Fences script.pdf .pdf",
+      "title": "Fences Script",
+      "role": "reading",
+      "disposition": "place",
+      "destination": "play-materials",
+      "reason": "Teacher-supplied play text."
+    },
+    {
+      "id": "fences-acts-1-2",
+      "source": "UNIT 4 Modern Play/fences 1, 2.pdf",
+      "title": "Fences Act I, Scene 2 Questions",
+      "role": "question-set",
+      "disposition": "place",
+      "destination": "act-questions",
+      "reason": "Teacher-selected questions for Act I, Scene 2."
+    },
+    {
+      "id": "fences-acts-2-4",
+      "source": "UNIT 4 Modern Play/fences 2,4.pdf",
+      "title": "Fences Act II, Scene 4 Questions",
+      "role": "question-set",
+      "disposition": "place",
+      "destination": "act-questions",
+      "reason": "Teacher-selected questions for Act II, Scene 4."
+    },
+    {
+      "id": "fences-allusions",
+      "source": "UNIT 4 Modern Play/fences allusions.pdf",
+      "role": "supporting-resource",
+      "disposition": "place",
+      "destination": "play-materials",
+      "reason": "Teacher-selected allusions resource."
+    },
+    {
+      "id": "fences-objectives",
+      "source": "UNIT 4 Modern Play/fences objectives.pdf",
+      "role": "supporting-resource",
+      "disposition": "place",
+      "destination": "play-materials",
+      "reason": "Teacher-selected learning objectives."
+    },
+    {
+      "id": "fences-hard-gate",
+      "source": "UNIT 4 Modern Play/MODERN PLAY UNIT 10-1 HARD GATE Critical Response to Text.docx",
+      "role": "excluded-assessment",
+      "disposition": "exclude",
+      "reason": "Hard-gate assessment is intentionally excluded."
+    }
+  ],
+  "excludedFiles": [
+    {
+      "file": "UNIT 4 Modern Play/MODERN PLAY UNIT 10-1 HARD GATE Critical Response to Text.docx",
+      "reason": "Hard-gate assessment is intentionally excluded."
+    }
+  ],
+  "wordingCorrections": [
+    {
+      "find": "English 20-1",
+      "replace": "English 10-1",
+      "reason": "Prevent donor-grade contamination."
+    },
+    {
+      "find": "ELA 20-1",
+      "replace": "ELA 10-1",
+      "reason": "Prevent donor-grade contamination."
+    },
+    {
+      "find": "English 30-1",
+      "replace": "English 10-1",
+      "reason": "Prevent donor-grade contamination."
+    },
+    {
+      "find": "ELA 30-1",
+      "replace": "ELA 10-1",
+      "reason": "Prevent donor-grade contamination."
+    },
+    {
+      "find": "Diploma Exam",
+      "replace": "course assessment",
+      "reason": "Remove Diploma framing."
+    },
+    {
+      "find": "Part A",
+      "replace": "written response",
+      "reason": "Remove Diploma framing."
+    }
+  ],
+  "mediaPolicy": {
+    "verifiedAt": "not-reviewed",
+    "allowedYouTubeIds": [],
+    "blockedYouTubeIds": [],
+    "approvedExternalUrls": [],
+    "externalUrlRewrites": {}
+  },
+  "customComponents": [],
+  "acceptance": {
+    "requiredRoutes": [
+      "script-reader",
+      "play-materials",
+      "act-questions",
+      "character-notes",
+      "critical-essay",
+      "evidence-bank"
+    ],
+    "requiredActivityIds": [
+      "script-reader",
+      "play-materials",
+      "act-questions",
+      "character-conflict",
+      "critical-essay",
+      "evidence-bank"
+    ],
+    "reviewItems": [
+      "Confirm redistribution and accessibility for the teacher-supplied Fences script.",
+      "Review the extracted teacher questions and profile-supplied scene questions before final export."
+    ]
+  }
+}

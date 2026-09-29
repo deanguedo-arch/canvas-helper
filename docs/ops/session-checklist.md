@@ -7,7 +7,7 @@
 3. For active migrated course work, run `npm run course:doctor -- --project <slug>`.
 4. Only when an agent needs a project brief, run `npm run context:project -- --project <slug>` after the doctor passes.
 5. Run Headroom only when you intentionally need prompt-pack regeneration: `npm run headroom -- --project <slug>` or, for a deliberate repo-wide refresh, `npm run headroom:all`.
-   Use `npm run studio:codex:session -- --no-headroom` for the compact default session path.
+   Use `npm run studio:efficient` for the compact default session path; it calls the existing `--no-headroom` helper and shows local agent status.
 6. If workflow is known, read `docs/workflows/<workflow>.md`.
 7. Read `projects/<slug>/meta/prompt-pack.md` only when the task needs that additional detail.
 8. Read `AGENTS.md` and `ARCHITECTURE.md` for repo-wide work.

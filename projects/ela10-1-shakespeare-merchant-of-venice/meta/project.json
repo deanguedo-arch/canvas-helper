@@ -1,0 +1,76 @@
+{
+  "id": "ela10-1-shakespeare-merchant-of-venice",
+  "slug": "ela10-1-shakespeare-merchant-of-venice",
+  "sourcePath": "projects/resources/ela10-1/_sources/98a7423518aa49d55b37e75f4a7a44037949c06416146e806705b85c933cbf49.normalized.zip",
+  "inputKind": "brightspace-zip",
+  "previewModes": [
+    "workspace"
+  ],
+  "workspaceEntrypoint": "projects/ela10-1-shakespeare-merchant-of-venice/workspace/index.html",
+  "createdAt": "2026-07-17T01:53:46.794Z",
+  "updatedAt": "2026-09-22T17:29:08.690Z",
+  "migrationState": "migrated",
+  "projectType": "conversion",
+  "preferredWorkflows": [
+    "conversion"
+  ],
+  "canonicalEntry": "projects/ela10-1-shakespeare-merchant-of-venice/workspace/index.html",
+  "canonicalSources": [
+    "projects/ela10-1-shakespeare-merchant-of-venice/workspace/index.html",
+    "projects/ela10-1-shakespeare-merchant-of-venice/meta/english-unit.json",
+    "projects/ela10-1-shakespeare-merchant-of-venice/meta/prompt-pack.md",
+    "scripts/build-english-unit.ts",
+    "scripts/lib/english-unit/factory-build.ts",
+    "scripts/lib/english-unit/activity-profile-renderers.ts",
+    "scripts/lib/next-step-course-shell.ts",
+    "projects/ela10-1-shakespeare-merchant-of-venice/workspace/components/shakespeare-side-by-side/scenes.json",
+    "projects/ela10-1-shakespeare-merchant-of-venice/workspace/components/shakespeare-foundation-lessons/lessons.json",
+    "projects/ela10-1-shakespeare-merchant-of-venice/workspace/assets/custom/shakespeare-foundations"
+  ],
+  "generatedOutputs": [],
+  "regenerateCommand": "npm run build:english-unit -- --project ela10-1-shakespeare-merchant-of-venice",
+  "importedFirstPassOrigin": {
+    "sourceSystem": "brightspace",
+    "sourcePath": "projects/resources/ela10-1/_sources/98a7423518aa49d55b37e75f4a7a44037949c06416146e806705b85c933cbf49.normalized.zip",
+    "importedAt": "2026-07-17T01:53:46.794Z",
+    "notes": "Shakespearean Drama - The Merchant of Venice factory conversion using the shakespeare-drama activity profile."
+  },
+  "authoringStatus": "active",
+  "exportTargets": [
+    {
+      "target": "scorm",
+      "enabled": true,
+      "notes": "Export individually only after the recipe is ready-for-export and verification passes."
+    },
+    {
+      "target": "html",
+      "enabled": true,
+      "notes": "Canonical editable workspace preview."
+    }
+  ],
+  "referenceOnly": [
+    "projects/resources/ela10-1/_sources/98a7423518aa49d55b37e75f4a7a44037949c06416146e806705b85c933cbf49.normalized.zip",
+    "projects/resources/ela10-1/_sources/61c75238e8ca90b0c2e874d4f3ab65074b4a14ee699f1854f753bdf938648d2b.zip",
+    "projects/resources/ela10-1-shakespeare-merchant-of-venice/_sources/supplemental/cbe-system-ela10-shakespeare.zip"
+  ],
+  "sourceOfTruthNotes": "Edit meta/english-unit.json and workspace/components or workspace/assets/custom. Factory-owned index/assets/generated output is replaced through a safe staged build; custom component paths are preserved.",
+  "injectedComponents": [],
+  "learningSource": "other",
+  "learningTrust": "auto",
+  "learningUpdatedAt": "2026-07-20T15:15:14.050Z",
+  "workspaceApprovedAt": "2026-09-22T17:29:08.690Z",
+  "authoring": {
+    "driverId": "english-factory-v1",
+    "familyId": "english-unit",
+    "qualityProfile": "english-unit",
+    "studioEditing": {
+      "enabled": true,
+      "renameCourse": true,
+      "imageAssets": true
+    },
+    "editabilityContract": {
+      "schemaVersion": 1,
+      "profileId": "studio-routine-content-v1"
+    }
+  }
+}

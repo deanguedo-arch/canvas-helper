@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "projectSlug": "math10c-unit3-textbook-1",
+  "generatedAt": "2026-09-23T16:50:30.822Z",
+  "pass": true,
+  "deviations": [
+    {
+      "ruleId": "require-interactive-shell",
+      "severity": "warn",
+      "surface": "export",
+      "location": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/math10c-unit3-textbook-1/workspace/index.html",
+      "why": "Required pattern \"lesson-shell\" is missing.",
+      "evidence": "Missing pattern: lesson-shell"
+    },
+    {
+      "ruleId": "quality-max-consecutive-paragraph-blocks",
+      "severity": "warn",
+      "surface": "export",
+      "location": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/math10c-unit3-textbook-1/workspace/index.html",
+      "why": "Detected 13 paragraph blocks but max allowed is 5.",
+      "evidence": "<p> count = 13"
+    }
+  ],
+  "acceptedDeviations": []
+}

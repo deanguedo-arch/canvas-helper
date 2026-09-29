@@ -1,0 +1,127 @@
+{
+  "$schema": "../../../e2e/project-e2e-contract.schema.json",
+  "projectSlug": "ela10-2-modern-play-dracula",
+  "requiredTestIds": [
+    "studio-shell",
+    "course-studio-tab",
+    "workspace-project-select",
+    "project-root",
+    "workspace-preview-frame"
+  ],
+  "modes": {
+    "enabled": false
+  },
+  "navigation": {
+    "enabled": false
+  },
+  "quiz": {
+    "enabled": false,
+    "lessonTitle": "Questions"
+  },
+  "fallbackPanel": {
+    "enabled": false
+  },
+  "learnerCourse": {
+    "enabled": true,
+    "routes": [
+      "overview",
+      "lessons",
+      "lesson-1-considering-language",
+      "lesson-2-how-to-respond-to-literature",
+      "lesson-3-writing-a-personal-response-to-text",
+      "literary-exploration",
+      "literary-exploration-prompt-controlling-idea",
+      "literary-exploration-introduction-thesis",
+      "literary-exploration-body-assigned-text",
+      "literary-exploration-body-studied-work",
+      "literary-exploration-body-personal-connection",
+      "literary-exploration-conclusion-revision",
+      "literary-exploration-preview",
+      "personal-response",
+      "personal-response-prompt-impression",
+      "personal-response-text-evidence",
+      "personal-response-knowledge-experience",
+      "personal-response-form-perspective",
+      "personal-response-response-plan",
+      "personal-response-draft-revise",
+      "personal-response-preview",
+      "script-reader",
+      "act-questions",
+      "character-notes",
+      "core-vocabulary",
+      "evidence-bank",
+      "resources"
+    ],
+    "hintRoutes": [
+      "literary-exploration-prompt-controlling-idea",
+      "literary-exploration-introduction-thesis",
+      "literary-exploration-body-assigned-text",
+      "literary-exploration-body-studied-work",
+      "literary-exploration-body-personal-connection",
+      "literary-exploration-conclusion-revision",
+      "personal-response-prompt-impression",
+      "personal-response-text-evidence",
+      "personal-response-knowledge-experience",
+      "personal-response-form-perspective",
+      "personal-response-response-plan",
+      "personal-response-draft-revise",
+      "act-questions",
+      "character-notes"
+    ],
+    "printRoutes": [
+      "literary-exploration-prompt-controlling-idea",
+      "literary-exploration-introduction-thesis",
+      "literary-exploration-body-assigned-text",
+      "literary-exploration-body-studied-work",
+      "literary-exploration-body-personal-connection",
+      "literary-exploration-conclusion-revision",
+      "literary-exploration-preview",
+      "personal-response-prompt-impression",
+      "personal-response-text-evidence",
+      "personal-response-knowledge-experience",
+      "personal-response-form-perspective",
+      "personal-response-response-plan",
+      "personal-response-draft-revise",
+      "personal-response-preview",
+      "act-questions",
+      "character-notes",
+      "evidence-bank"
+    ],
+    "evidenceScenarios": [
+      {
+        "route": "literary-exploration-prompt-controlling-idea",
+        "collectionId": "ela10-2-modern-play-dracula:literary-exploration:unit:prompt-controlling-idea:collection",
+        "responseId": "ela10-2-modern-play-dracula:literary-exploration:unit:prompt-controlling-idea:assigned-prompt"
+      },
+      {
+        "route": "personal-response-prompt-impression",
+        "collectionId": "ela10-2-modern-play-dracula:personal-response:unit:prompt-impression:collection",
+        "responseId": "ela10-2-modern-play-dracula:personal-response:unit:prompt-impression:prompt"
+      },
+      {
+        "route": "act-questions",
+        "collectionId": "ela10-2-modern-play-dracula:act-questions:act-1:collection",
+        "responseId": "ela10-2-modern-play-dracula:act-questions:act-1:question-1"
+      },
+      {
+        "route": "character-notes",
+        "collectionId": "ela10-2-modern-play-dracula:character-notes:dracula:dossier",
+        "responseId": "ela10-2-modern-play-dracula:character-notes:dracula:goal"
+      }
+    ],
+    "resourceChecks": [],
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "routes": [
+        "overview",
+        "lesson-1-considering-language",
+        "act-questions",
+        "literary-exploration-prompt-controlling-idea",
+        "personal-response-prompt-impression",
+        "character-notes",
+        "evidence-bank"
+      ]
+    }
+  }
+}

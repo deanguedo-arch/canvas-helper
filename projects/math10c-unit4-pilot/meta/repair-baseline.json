@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "workOrder": "CH4-REPAIR-2026-09-24",
+  "recordedAt": "2026-09-25",
+  "head": "02a9fadc9148bf26c0c93006560375a9c5c6b4ee",
+  "historicalComparisonSha256": "d88ad3bffb9fd0f3496c7bc68766c44bff6742dcf044db9e7158a220ecbc2c2c",
+  "currentWorkspaceHashes": {
+    "index.html": "1b955c954ea0c946cb69387b58504dd20d67bcc303b2fb65fccdfd9d578f1666",
+    "course.js": "d3128b84902461f5cff4329f32d131802912b5b2aa295f9450bb40b5b78cccec",
+    "styles.css": "8e5e61b513410ca889e42a6232a7170310634ce97db374b87d7d8fb7a684e856",
+    "chapter4-checkers.js": "f6067c8bee30b7c86a835458adda0e6c0891dfbf4d5a538bc7aeaa297a60eb9b",
+    "chapter4-mastery.js": "80dfa83d116cda7624a3decd50b79f29390b05daff4f458e2091876dd8b90a68",
+    "chapter4-policy.js": "f98451f006a8990d2759ca38a7ca73c3403348584c95aeb89fd06386901dd9fd",
+    "chapter4-practice-data.js": "a73f3e3d25cc5ddd9db5e991676443f28712dda81b2e7d6514cde0a466cabb67",
+    "chapter4-practice.js": "645cdb7c8059df5aea75deb8139d303124415d961c788ed44a39a8e9c6b15f21",
+    "chapter4-tools.js": "b33ff2bc4c6e7b7f379f074dd3bc253c76826f6a7caf0e7eae626d71904396ca"
+  },
+  "baselineTests": {
+    "checkers": "PASS structural suite",
+    "practice": "PASS structural suite",
+    "policy": "PASS existing 25/75/100 suite",
+    "browser": "PASS 4/4 existing broad suite",
+    "scorm": "PASS 2/2 existing exact-package simulation",
+    "auditFindings": "Q01-Q16 reproduced by supplied audit against historical fixture and confirmed in current source where applicable"
+  },
+  "policyAuthority": {
+    "reference": "projects/math10c-unit3-pilot/workspace/assets/mastery-policy.js",
+    "version": "c3-mastery-pilot-2",
+    "stages": [0, 25, 50, 75, 100],
+    "chapter4PriorDeviation": [0, 25, 75, 100]
+  },
+  "routing": {
+    "sourceInvestigation": "read-only explorer; accepted by lead",
+    "courseMathStateIntegration": "Sol lead: dirty and high consequence",
+    "generationGate": "Sol lead after agents:plan refusal authoring_context_unavailable",
+    "museUsageSavings": "unknown"
+  }
+}

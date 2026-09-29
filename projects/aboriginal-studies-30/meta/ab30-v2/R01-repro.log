@@ -1,0 +1,37 @@
+=== R1/F1: navigation save overwrites practice runs + exposure ===
+attempt submit: {"ok":true,"attemptId":"att:4addcf79","duplicate":false}
+before nav: runs = 1 exposed keys = 1
+after nav: runs = 0 exposed keys = 0
+F1 REPRODUCED: 1 run + exposure -> 0 runs + {} exposure
+
+=== R2/F2: real serializer rejects under the 60,000-char budget ===
+registered legacy keys: 102
+400 chars/response: saved 86/102, next=over-budget, stored wrapper=58046 chars
+600 chars/response: saved 66/102, next=over-budget, stored wrapper=58118 chars
+1000 chars/response: saved 45/102, next=over-budget, stored wrapper=57904 chars
+F2 REPRODUCED iff any row rejects below the full key set (60k budget path)
+
+=== R3/F3: input handler never touches criteria markup ===
+handler body references criteria/render: NO (saves + status only)
+F3 REPRODUCED: locked markup string can only change via re-render; handler performs none
+
+=== R4/F4: per-char typing pins first-char origin; no attempt preserved ===
+after typing: origins = [{"key":"indep::l7","value":"F"}] attempts = 0
+after revision: draft = "Revised complete paragraph." | first paragraph retained anywhere: false | attempts: 0
+F4 REPRODUCED: origin='F', revision overwrites draft, attempts empty
+
+=== R5: static code facts (F5/V1-V4 mechanisms; geometry NOT_RUN) ===
+V1: AB30 @font-face rules: false (donor has 2 + OFL fonts; AB30 ships none)
+V2: .teaching-block h4 size rule: NONE
+V3: unconditional 150px 1fr source grid: true
+V4: 360px nested-list cap: true | active scrollIntoView in main.js: false
+F5: Escape key handling present in main.js: false (menu/focus behavior NOT_RUN)
+Static mechanisms confirmed; rendered geometry + interaction behavior NOT_RUN (no browser)
+
+R01 MECHANISM REPRODUCTIONS COMPLETE
+
+=== R5b CORRECTION (first-hand re-check): Escape/menu facts ===
+- document keydown handler EXISTS but ONLY exits libraryReaderFullscreen (main.js:3735-3739).
+- applySidebarState (main.js:487-497) DOES set aria-expanded + aria-label on both sidebar toggles.
+- NOTHING collapses the mobile sidebar on Escape or returns focus to the toggle.
+F5 MECHANISM CONFIRMED: starter's Escape->aria-expanded=false + focus assertions will fail on current code. Behavior NOT_RUN (no browser).

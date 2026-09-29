@@ -2507,7 +2507,7 @@ export function App() {
         return;
       }
       if (!action.selection.nodeId) {
-        respond({ ok: false, message: "Select a course element before capturing a screenshot.", clearDraft: false });
+        respond({ ok: false, message: "Screenshot capture is unavailable for this selection.", clearDraft: false });
         return;
       }
       const scopeVersion = inspectionDraft.currentScopeVersion();

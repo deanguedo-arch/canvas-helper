@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "projectSlug": "ela10-2-film-study",
+  "generatedAt": "2026-09-22T16:59:47.861Z",
+  "status": "needs-review",
+  "profile": {
+    "id": "film-study",
+    "version": "next-step-english-v3-ela10-2",
+    "sha256": "c91924b398a0035d837e88486f18b3ed406bd2660a30fc23b8963d72804504a4"
+  },
+  "recipe": {
+    "path": "projects/ela10-2-film-study/meta/english-unit.json",
+    "sha256": "e840ede59eb2ddade0171b1f2514f7968a51bbbecf9f0980a55d815ebe2f1056"
+  },
+  "sources": [
+    {
+      "id": "brightspace",
+      "path": "projects/resources/ela10-2/_sources/f1319deb2ada7c4ea36d86a9fe172058daa2d9f4baf7edb541acb38c44e36e53.zip",
+      "sha256": "f1319deb2ada7c4ea36d86a9fe172058daa2d9f4baf7edb541acb38c44e36e53"
+    },
+    {
+      "id": "teacher-resources",
+      "path": "projects/resources/ela10-2/_sources/cea6d0cc7cb840c4099011f9f71e10711a996ca5f49d75c586dbc172829877be.zip",
+      "sha256": "cea6d0cc7cb840c4099011f9f71e10711a996ca5f49d75c586dbc172829877be"
+    },
+    {
+      "id": "family:supplement-90a7e3ee3452",
+      "path": "projects/resources/ela10-2/_sources/90a7e3ee34527e9c0eb9ae5ad4953f04cbc9867f881a9121e6fad0266c183fcf.doc",
+      "sha256": "90a7e3ee34527e9c0eb9ae5ad4953f04cbc9867f881a9121e6fad0266c183fcf"
+    },
+    {
+      "id": "family:supplement-425beada71fb",
+      "path": "projects/resources/ela10-2/_sources/425beada71fb9f830e58e225b22752ad75c429b7e1bbb40b50e3524089458eef.docx",
+      "sha256": "425beada71fb9f830e58e225b22752ad75c429b7e1bbb40b50e3524089458eef"
+    },
+    {
+      "id": "family:ela10-2",
+      "path": "config/english/families/ela10-2.json",
+      "sha256": "b6f0cb45ae387b564d448a2a3b6e4f5d417109d941457eb6f6eadbd9c2a02e28"
+    },
+    {
+      "id": "donor:ela10-1-film-study:recipe-v2:1:1",
+      "path": "projects/resources/ela20-1/_sources/de70945ff9b907b1d63e719c890140bd69c65051f85a47c5ef657f715138f36c.zip",
+      "sha256": "de70945ff9b907b1d63e719c890140bd69c65051f85a47c5ef657f715138f36c"
+    },
+    {
+      "id": "donor:ela10-1-film-study:recipe-v2:1:2",
+      "path": "projects/ela10-1-film-study/meta/english-unit.json",
+      "sha256": "14be3ab456256ca49750963e403bc943686026a85d587ead5e603d7951cd970b"
+    }
+  ],
+  "components": [],
+  "ownedFiles": [
+    "assets/generated/brand/nxt-ce-logo-white-with-ce.png",
+    "assets/generated/lessons/a-brief-history-of-film-11169199-ori.jpg",
+    "assets/generated/lessons/a-brief-history-of-film-51zqb3djpdl.jpg",
+    "assets/generated/lessons/a-brief-history-of-film-back-to-the-future.jpg",
+    "assets/generated/lessons/a-brief-history-of-film-cidadededeus.jpg",
+    "assets/generated/lessons/a-brief-history-of-film-download-1.jpg",
+    "assets/generated/lessons/a-brief-history-of-film-download.jpg",
+    "assets/generated/lessons/a-brief-history-of-film-general.jpg",
+    "assets/generated/lessons/a-brief-history-of-film-images-1.jpg",
+    "assets/generated/lessons/a-brief-history-of-film-images.jpg",
+    "assets/generated/lessons/a-brief-history-of-film-jaws-movie-poster.jpg",
+    "assets/generated/lessons/a-brief-history-of-film-kiq87p17yfydl5qee12r.jpg",
+    "assets/generated/lessons/a-brief-history-of-film-star-wars-force-awakens-official-poster.jpg",
+    "assets/generated/lessons/a-brief-history-of-film-superman-iv.jpg",
+    "assets/generated/lessons/a-brief-history-of-film-the-battleship-potemkin-1925.jpg",
+    "assets/generated/lessons/a-brief-history-of-film-the-breakfast-club.jpg",
+    "assets/generated/lessons/a-brief-history-of-film-the-godfather-movie-poster-1020243893.jpg",
+    "assets/generated/lessons/camera-shots-and-angles-angle-bulldog.jpg",
+    "assets/generated/lessons/composition-and-camera-movement-camera.jpg",
+    "assets/generated/lessons/film-editing-techniques-editfilm.gif",
+    "assets/generated/lessons/film-study-overview-film-study.jpg",
+    "assets/generated/lessons/formal-elements-of-film-cabinet-des-dr-caligari-01-1.jpg",
+    "assets/generated/lessons/mise-en-scene-mis-en-scene.jpg",
+    "assets/generated/lessons/sound-in-film-sound.jpg",
+    "index.html"
+  ],
+  "reviewItems": [
+    "Keep title-neutral language and validate every inherited lesson video and fallback link."
+  ]
+}

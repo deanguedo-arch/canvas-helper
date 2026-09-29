@@ -1,0 +1,60 @@
+=== T05 run log 2026-09-23 ===
+--- node --check ---
+SYNTAX_OK
+--- state suite (production adapter) ---
+✔ STATE01: fresh install migrates clean; reruns create no duplicates (1.547209ms)
+✔ STATE02-pure: lesson-only, formal-only, and identical-dual drafts resolve to one logical record (0.188292ms)
+✔ STATE03: differing drafts become an unresolved conflict; resolution preserves predecessors (0.181542ms)
+✔ STATE04: unicode, whitespace, and long text round-trip byte-exact; no timestamps invented (0.179ms)
+✔ STATE05: corrupt, unknown, and future inputs are preserved, never coerced to empty (0.150459ms)
+✔ STATE06-pure: quota/blocked writes retain last-confirmed state and the candidate; status stays truthful (0.115042ms)
+✔ STATE08: first submissions stay immutable; attempts pin versions and option order (0.166041ms)
+✔ STATE09: reset targets only the selected unfinished run (0.19575ms)
+✔ STATE10-pure: stale writers cannot silently clobber; interleavings preserve both texts (0.116209ms)
+✔ STATE11: export/import round-trips everything; failed import leaves state intact (0.39825ms)
+✔ STATE12: novel/versioned work is isolated; legacy prompt identity never remaps (0.085875ms)
+✔ STATE13: failure at any commit step keeps inputs recoverable; marker never precedes commit (0.528541ms)
+✔ STATE14-pure: save status derives from actual outcomes; LMS wording needs a receipt (0.049042ms)
+✔ STATE15: complete payloads are measured with host wrappers; overflow is explicit, never truncation (6.327667ms)
+✔ T05-1 production adapter file loads and exposes the full surface (0.053375ms)
+✔ T05-2 prefix classification agrees with the registry booklet-key oracle (0.670125ms)
+✔ T05-3 runtime smoke: init, write, read, status, re-init persistence (0.418208ms)
+✔ T05-4 memory mode is truthful when no durable storage exists (0.048584ms)
+ℹ tests 18
+ℹ pass 18
+ℹ fail 0
+--- parity suite ---
+✔ MAP03: all 50 lesson IDs survive in array display order (T00 baseline guard) (0.552208ms)
+✔ fixtures: reviewed Theme 1 map covers q1..q87 exactly once (0.110834ms)
+✔ fixtures: assignment aliases pair exactly one formal key with one lesson key (0.046167ms)
+✔ MAP01-data: every Theme 1 lesson carries explicit bookletQuestionIds matching the reviewed map (0.144667ms)
+✔ MAP01-homes: q1..q87 each resolve to exactly one primary lesson home (1.20175ms)
+✔ MAP02: mutating kicker text with Assignment 1.2 wording and numbers changes no membership (0.536583ms)
+✔ STATE02-F02: lesson-only draft restores in the formal assignment view (2.993542ms)
+✔ STATE02-F03: formal-only draft restores in the lesson view (2.230417ms)
+✔ STATE02-F04: identical dual drafts stay consistent in both views (baseline guard) (2.664083ms)
+✔ STATE02-keys: alias fixture keys match the real production key builders (0.441125ms)
+✖ COMP01: four legacy Mark Complete flags with an empty answer store must not display 100% mastery (0.519583ms)
+✔ COMP01-zero: empty flags with an empty store render 0% (baseline guard) (0.339125ms)
+✖ COMP02: one Q37 cell is not complete; twelve cells are fields-complete, never auto-correct (0.774ms)
+✔ MAP04-DOM: real renders emit unique DOM ids and shared saved keys per record (1.130334ms)
+✔ MAP05-ids: explicit row/column ids equal the legacy token derivation (zero-migration proof) (0.329208ms)
+✔ MAP05-render: relabelled and reordered tables keep keys, show new labels (real renderer) (1.500583ms)
+✔ MAP05-blanks: every fill-in blank carries an explicit stable id (0.069334ms)
+✔ MAP06: coverage manifest accounts for every required item with an allowed disposition (1.194375ms)
+ℹ tests 18
+ℹ pass 16
+ℹ fail 2
+✖ failing tests:
+✖ COMP01: four legacy Mark Complete flags with an empty answer store must not display 100% mastery (0.519583ms)
+✖ COMP02: one Q37 cell is not complete; twelve cells are fields-complete, never auto-correct (0.774ms)
+--- source suite ---
+ℹ tests 10
+ℹ pass 10
+ℹ fail 0
+--- shell file-scope (/tmp/as30_shell_filescope.test.ts) ---
+ℹ tests 10
+ℹ pass 10
+ℹ fail 0
+--- tsc touched-files ---
+TSC_TOUCHED_CLEAN

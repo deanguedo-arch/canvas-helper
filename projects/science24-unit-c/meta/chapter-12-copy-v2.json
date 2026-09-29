@@ -1,0 +1,347 @@
+{
+  "status": "authored-copy-under-review",
+  "sourceMap": "source-task-map-v2.json",
+  "chapter": 12,
+  "lessons": [
+    {
+      "route": "lesson-13",
+      "title": "DNA, chromosomes and inheritance",
+      "goal": "Relate DNA, genes and chromosomes, then read simple base pairing and karyotype evidence with accurate limits.",
+      "before": "Chapter 11 described immune cells and proteins; genes help cells make proteins, but a gene is not itself a protein.",
+      "openingTitle": "The same page viewed at three scales",
+      "opening": [
+        "A karyotype shows chromosomes arranged for inspection, but it cannot display every DNA change. A chromosome contains a long DNA molecule with many regions; a gene is a segment with information used in producing a functional product. These are related scales, not three interchangeable names.",
+        "Most human body cells typically contain 23 pairs of chromosomes, but chromosome number and structure can vary. The workbook's three karyotypes are examples for identifying particular patterns; a karyotype is not a complete prediction of a person's health or identity."
+      ],
+      "mechanismTitle": "Read sequence and chromosome evidence separately",
+      "mechanism": [
+        "DNA has two complementary strands. In a simple base-pairing task, A pairs with T and C pairs with G. If one strand reads A-G-C-T-G, the complementary letters in the aligned strand are T-C-G-A-C. Direction matters in advanced genetics, but the workbook asks for the matching letters across the rungs.",
+        "A karyotype groups chromosomes by size and pattern to make large differences visible. Trisomy 21 means an extra copy of chromosome 21; Turner and Klinefelter examples involve different sex-chromosome counts. XX and XY are common patterns, not exhaustive categories, and a chromosome picture alone should not be used to declare someone's gender."
+      ],
+      "workedExamples": [
+        {
+          "title": "Solve a complementary-strand prompt",
+          "situation": "The source strand is A-G-C-T-G.",
+          "steps": [
+            "Write the pair rules A↔T and C↔G.",
+            "Match each position in order: A→T, G→C, C→G, T→A, G→C.",
+            "Read the aligned complement as T-C-G-A-C and check that each rung is a valid pair."
+          ],
+          "interpretation": "The result is a matching strand for this simplified sequence, not an entire gene or chromosome."
+        },
+        {
+          "title": "Interpret a source karyotype",
+          "situation": "One workbook image shows three copies in the chromosome-21 pair.",
+          "steps": [
+            "Locate chromosome 21 by its labelled position, not by counting an unrelated dark shape.",
+            "Count the copies in that set and compare with the usual pair.",
+            "Name trisomy 21 as the observed chromosome pattern while noting that clinical interpretation requires more than a page image."
+          ],
+          "interpretation": "The evidence supports a chromosome-count observation; it does not describe every aspect of a person."
+        }
+      ],
+      "terms": [
+        [
+          "DNA",
+          "A molecule that carries hereditary information in a sequence of bases.",
+          "A and T pair across a DNA double strand.",
+          "DNA is the material, not the whole chromosome image."
+        ],
+        [
+          "gene",
+          "A DNA region whose information contributes to a functional product.",
+          "A gene may help specify a protein.",
+          "A complex trait is not always controlled by one gene."
+        ],
+        [
+          "chromosome",
+          "An organized DNA-containing structure visible in a karyotype during cell division.",
+          "Chromosome 21 appears in a pair in a typical body-cell set.",
+          "A chromosome contains many genes."
+        ],
+        [
+          "karyotype",
+          "An arranged image of chromosomes used to inspect number and large structural patterns.",
+          "An extra chromosome 21 is visible in a karyotype.",
+          "It does not reveal every DNA variant or a person's gender identity."
+        ]
+      ],
+      "transferPrompt": "A student says a karyotype can reveal every gene and tell exactly what a person will be like. Correct the claim with one thing it can show and two things it cannot establish.",
+      "transferModel": "A karyotype can show chromosome-number patterns such as trisomy 21. It cannot display every small DNA variant or predict every trait and health outcome. Environment and many genes may also matter.",
+      "laterPrompt": "From memory, arrange DNA, gene and chromosome by relationship and solve the complement of A-C-T.",
+      "laterModel": "A gene is a region of DNA, and chromosomes package long DNA molecules. The matching bases across A-C-T are T-G-A."
+    },
+    {
+      "route": "lesson-14",
+      "title": "Genotypes and Punnett squares",
+      "goal": "Build a two-allele Punnett square and distinguish predicted probabilities from outcomes in a small family.",
+      "before": "Lesson 13 separated DNA, genes and chromosomes; this lesson uses a simplified one-gene inheritance model.",
+      "openingTitle": "Four boxes show possibilities, not four guaranteed children",
+      "opening": [
+        "A Punnett square displays possible combinations of alleles from two parents. Each box represents a possible fertilization outcome in the simplified model. Four boxes are not a promise that a family with four offspring will show each box once.",
+        "The workbook uses tall/short pea plants, white/black sheep and brown/blue human eye colour. Plant and sheep problems can teach the model. The eye-colour question is historically simplified; actual human eye colour involves multiple genes, so use its letters as a classroom model rather than a clinical prediction."
+      ],
+      "mechanismTitle": "Separate gametes, genotype and phenotype",
+      "mechanism": [
+        "An allele is a version of a gene. A heterozygote has two different alleles in a given simple model, such as Tt; a homozygote has matching alleles, TT or tt. In a dominant/recessive model, one T can produce the dominant phenotype, while the recessive phenotype appears with tt.",
+        "To build the square, write one parent's possible alleles across the top and the other's down the side, then combine at each intersection. Count genotypes and phenotypes separately. Probability is the fraction of equally likely boxes in this model, and each new offspring is another independent opportunity under its assumptions."
+      ],
+      "workedExamples": [
+        {
+          "title": "Work the tall-plant cross Tt × tt",
+          "situation": "A heterozygous tall plant is crossed with a short plant.",
+          "steps": [
+            "Gametes are T and t from Tt, and t and t from tt.",
+            "Fill the four intersections: Tt, tt, Tt, tt.",
+            "Count two Tt tall and two tt short outcomes: 1:1 phenotype ratio, 50% each under the model."
+          ],
+          "interpretation": "This predicts chances over many offspring, not the exact heights of a particular set of two plants."
+        },
+        {
+          "title": "Work the white-wool cross Ww × Ww",
+          "situation": "White is dominant (W); black is recessive (w); two white heterozygous sheep mate.",
+          "steps": [
+            "Each parent can contribute W or w.",
+            "The square gives WW, Ww, Ww and ww.",
+            "Genotypes are 1:2:1; phenotypes are three white to one black, or 75% and 25% in the simple model."
+          ],
+          "interpretation": "The workbook's four-row table describes possible combinations, not four guaranteed lambs."
+        }
+      ],
+      "terms": [
+        [
+          "allele",
+          "A version of a gene used in an inheritance model.",
+          "T and t represent two versions for a plant-height model.",
+          "An allele is not a whole chromosome."
+        ],
+        [
+          "genotype",
+          "The allele combination assigned to an organism for the trait being modeled.",
+          "Tt is one plant genotype.",
+          "Genotype letters are not the same as observed height."
+        ],
+        [
+          "phenotype",
+          "An observable trait or characteristic produced through genes and often environment.",
+          "A Tt plant may be tall in the model.",
+          "One phenotype need not correspond to only one genotype."
+        ],
+        [
+          "Punnett square",
+          "A grid for organizing possible allele combinations from two parents.",
+          "A Tt × tt grid has two Tt and two tt cells.",
+          "Four cells are probabilities, not a family prediction."
+        ]
+      ],
+      "transferPrompt": "Two white heterozygous sheep have only two lambs, both white. Explain why that observation does not disprove the Ww × Ww square, then give its predicted genotype and phenotype ratios.",
+      "transferModel": "Each lamb is a separate possible outcome; a small family can differ from a 3:1 expectation. The simple cross predicts WW:Ww:ww = 1:2:1 and white:black = 3:1 over many outcomes.",
+      "laterPrompt": "From memory, write the four combinations from Tt × tt and state why a human eye-colour cross needs a limitation note.",
+      "laterModel": "The combinations are Tt, Tt, tt and tt. The workbook's human eye-colour model uses one gene for practice, while actual eye colour involves multiple genes."
+    },
+    {
+      "route": "lesson-15",
+      "title": "Read and construct pedigrees",
+      "goal": "Read family relationships and affected status in a pedigree, then test whether the shown evidence can distinguish inheritance models.",
+      "before": "Lesson 14 used a simplified genotype model; a pedigree shows observations across related people, not every person's genotype.",
+      "openingTitle": "Two questions use two different pedigrees",
+      "opening": [
+        "Workbook p. 31, Q11 uses a named family pedigree to practise reading generations, relationships and shaded status. Workbook p. 32, Q12 uses a different, unnamed pedigree to ask whether the modeled trait is dominant or recessive.",
+        "Keep each conclusion with its own figure. The source says 'infected,' but the genetics task uses shading as an affected trait status; an ordinary infection is not inherited through this pedigree model."
+      ],
+      "mechanismTitle": "Read what is drawn before inferring what is hidden",
+      "mechanism": [
+        "Squares and circles are the source's category symbols; shading marks the displayed status. Horizontal and branching lines represent relationships. Count generation rows and trace parent-child lines before inferring an allele. These classroom conventions do not identify a real person's gender identity or genotype.",
+        "In the separate Q12 figure, two parents who do not display the trait have a child who does. In the intended simple, fully penetrant dominant-or-recessive model, that pattern supports recessive inheritance because both parents can be unaffected carriers."
+      ],
+      "workedExamples": [
+        {
+          "title": "Read Q11 from the original page",
+          "situation": "Use the full workbook p. 31 pedigree rather than a cropped or redrawn fragment.",
+          "steps": [
+            "Count three horizontal generation levels.",
+            "Read the key: shaded shapes are affected; the named shaded people are Sue, Joe, Jim and Tim.",
+            "Follow Jim and Kay's line to their two children, Tim and Lori."
+          ],
+          "interpretation": "These observations answer Q11 without inventing unprinted relationships."
+        },
+        {
+          "title": "Read Q12 from its own figure",
+          "situation": "Use the separate pedigree printed directly above Q12 on workbook p. 32.",
+          "steps": [
+            "Locate the unshaded female and unshaded male in the second generation.",
+            "Trace their child line and identify the shaded children in the third generation.",
+            "In the intended simple model, infer that both unaffected parents can carry a recessive allele."
+          ],
+          "interpretation": "The Q12 pattern supports recessive inheritance. It does not supply every person’s genotype and should not be confused with the named Q11 family."
+        }
+      ],
+      "terms": [
+        [
+          "pedigree",
+          "A diagram showing relationships and a trait's observed status across generations.",
+          "Workbook p. 31 shows Sue, Joe, Jim and Tim shaded.",
+          "It does not automatically reveal every genotype."
+        ],
+        [
+          "generation",
+          "People placed at the same level of descent in a pedigree.",
+          "The workbook diagram has three generation rows.",
+          "A row is not a count of children for one person."
+        ],
+        [
+          "carrier",
+          "In a recessive model, a person who has one recessive allele but does not show the modeled condition.",
+          "An unshaded partner could be a carrier in a possible recessive explanation.",
+          "Unshaded status does not prove carrier status."
+        ],
+        [
+          "evidence limit",
+          "A boundary on what the given observations can establish.",
+          "Q12 supports a recessive interpretation in the intended simple model but does not reveal every genotype.",
+          "A supported model conclusion is not a complete genetic diagnosis."
+        ]
+      ],
+      "transferPrompt": "Construct the workbook Q13 family with a symbol key, but label its brown/blue eye rule as a simplified model. Then write one fact the diagram shows and one genotype it cannot prove without extra information.",
+      "transferModel": "A keyed pedigree can show the named family relationships and observed eye colours. Under its simplified rule some genotypes can be inferred, but the actual human trait is multi-gene and unobserved alleles cannot always be identified from shading alone.",
+      "laterPrompt": "From memory, state one observation from Q11 on p. 31 and the different pattern in Q12 on p. 32 that supports a recessive interpretation.",
+      "laterModel": "Q11 shows three generations and shades Sue, Joe, Jim and Tim. Q12 uses a separate pedigree in which two unaffected parents have an affected child, supporting recessive inheritance in the intended simple model."
+    },
+    {
+      "route": "lesson-16",
+      "title": "Mutations, mutagens and genetic disorders",
+      "goal": "Explain how DNA changes arise and why a change's effect depends on where it occurs and what it changes.",
+      "before": "Lesson 15 read inherited patterns; a new DNA change and an inherited allele are related but not identical ideas.",
+      "openingTitle": "A DNA change is not a superpower or a diagnosis",
+      "opening": [
+        "The source materials call many changes 'mutations' and sometimes frame them as automatically harmful. A variant is a DNA sequence difference. Some variants have no detectable effect, some change a protein or its regulation, and some contribute to disease or occasionally an advantage in a particular setting.",
+        "A change can arise during DNA copying or after exposure to certain mutagens. A change in body cells is not necessarily passed to children; one in a cell that contributes to an egg or sperm may be inherited. This distinction matters when answering the workbook's pregnancy and genetic-health prompts."
+      ],
+      "mechanismTitle": "Trace change → cell → possible consequence",
+      "mechanism": [
+        "DNA copying uses pairing and repair systems, but errors can occur. A substitution, insertion or deletion can alter sequence. The effect depends on the location and whether a functional product or its regulation changes. A chromosome-level change is another scale; do not treat all karyotype differences as the same as a one-letter mutation.",
+        "A mutagen is an exposure that can increase the chance of DNA change. Exposure does not guarantee a particular disorder in a particular person. Discuss alcohol or drug exposure in pregnancy using current health guidance rather than the workbook's deterministic phrasing. Amniocentesis and genetic testing involve possible benefits, procedural risks and personal decisions; this lesson explains the evidence and ethics without giving medical advice."
+      ],
+      "workedExamples": [
+        {
+          "title": "Follow a copying change cautiously",
+          "situation": "One DNA base is copied differently in a cell.",
+          "steps": [
+            "Locate the change in sequence and ask whether repair corrects it.",
+            "If it persists, ask whether it falls within a gene or regulatory region and changes a functional product.",
+            "Identify which cell lineage carries it before discussing inheritance."
+          ],
+          "interpretation": "A changed letter alone does not establish a disease outcome."
+        },
+        {
+          "title": "Evaluate a mutagen claim",
+          "situation": "A poster says one exposure guarantees a particular genetic disorder in a future child.",
+          "steps": [
+            "Identify the exposure and the evidence that it can increase DNA damage or other fetal risk.",
+            "Separate increased risk from a guaranteed outcome and distinguish DNA mutation from other developmental effects.",
+            "Use current, source-specific guidance for health decisions; do not infer one person's outcome from a class example."
+          ],
+          "interpretation": "Risk language is more scientifically accurate than a deterministic prediction."
+        }
+      ],
+      "terms": [
+        [
+          "mutation",
+          "A change in DNA sequence or chromosome structure/number in a specified context.",
+          "A copying error can change one DNA base.",
+          "Mutation does not always mean harmful disease."
+        ],
+        [
+          "mutagen",
+          "An agent or exposure that can increase the rate of DNA changes.",
+          "Some forms of radiation can damage DNA.",
+          "Exposure is not a guaranteed disorder."
+        ],
+        [
+          "genetic disorder",
+          "A health condition related to particular genetic changes, often with varied expression.",
+          "Trisomy 21 is a chromosome-number condition.",
+          "A genetic finding does not tell the whole story of a person."
+        ],
+        [
+          "inherited variant",
+          "A genetic difference passed through a reproductive cell from a parent.",
+          "A child can inherit an allele present in a parent's egg or sperm.",
+          "A body-cell-only change is not automatically inherited."
+        ]
+      ],
+      "transferPrompt": "A friend says every mutation is inherited and every inherited change is harmful. Correct both parts with a body-cell/germ-cell distinction and one possible effect of a variant.",
+      "transferModel": "A change confined to body cells is not automatically passed to children; changes in reproductive cells may be inherited. Many inherited variants are neutral or have context-dependent effects, while some contribute to disease.",
+      "laterPrompt": "From memory, explain why a mutagen increases risk without guaranteeing a named disorder, and why cell type matters for inheritance.",
+      "laterModel": "A mutagen can increase the chance of DNA damage, but repair, location and chance affect the result. Only changes in a lineage contributing to reproduction can normally be inherited."
+    },
+    {
+      "route": "lesson-17",
+      "title": "Genetic research and ethical decisions",
+      "goal": "Evaluate a genetic-technology claim using evidence, limitations, consent, fairness and alternatives.",
+      "before": "Lesson 16 separated a genetic change from a guaranteed outcome; use that uncertainty when evaluating research claims.",
+      "openingTitle": "A powerful tool still needs a clear purpose",
+      "opening": [
+        "Research can identify DNA variants, improve diagnosis or help design treatments. A technological capability does not answer who should use it, what evidence supports benefit, who bears risk, and whose choice matters. The workbook's chart of 'advances' should be read with dates; an old proposed use is not necessarily current practice.",
+        "Its cloning question asks whether people should be cloned to harvest organs. Treat this as a hypothetical ethical claim to assess, not as a sanctioned medical option. A person's dignity, consent, harm, fairness and existing alternatives belong in the reasoning."
+      ],
+      "mechanismTitle": "Compare a claim with what evidence could show",
+      "mechanism": [
+        "A genetic test can identify a variant or chromosome pattern, but its predictive value depends on the condition and other factors. A research result from one group may not generalize to everyone. Privacy and access matter because genomic information can affect relatives as well as the person tested.",
+        "A defensible decision states the proposed benefit, likely and uncertain harms, consent requirements, and alternatives. It also asks whether benefits and burdens are shared fairly. The course can assess the quality of this reasoning without requiring everyone to hold one ethical view."
+      ],
+      "workedExamples": [
+        {
+          "title": "Audit a genetic-screening headline",
+          "situation": "A headline says a test 'proves' a person will develop a complex disease.",
+          "steps": [
+            "Ask what variant or pattern the test measures and how strongly it predicts the outcome.",
+            "Check whether other genes, environment or age affect the condition.",
+            "Rewrite the claim to state risk and uncertainty rather than certainty."
+          ],
+          "interpretation": "Genetic information may be useful without being a complete personal forecast."
+        },
+        {
+          "title": "Structure a cloning-ethics response",
+          "situation": "The workbook proposes cloning a person solely as a source of organs.",
+          "steps": [
+            "Identify the claimed benefit and the person who would bear the harm.",
+            "Apply consent, autonomy, safety and fairness, and distinguish hypothetical technology from actual clinical practice.",
+            "Consider alternatives and evidence limits before reaching a justified position."
+          ],
+          "interpretation": "A strong answer evaluates consequences and rights explicitly; it does not treat a person as spare parts."
+        }
+      ],
+      "terms": [
+        [
+          "genetic research",
+          "Systematic study of genes, variants and their relationships to function or health.",
+          "Researchers compare variant patterns and outcomes.",
+          "A research association is not always a causal diagnosis."
+        ],
+        [
+          "genetic screening",
+          "Testing used to look for specified genetic patterns or risks.",
+          "A screen may identify a chromosome pattern needing interpretation.",
+          "A screen is not a complete prediction of a person's future."
+        ],
+        [
+          "informed consent",
+          "A person's voluntary decision after understanding purpose, risks and alternatives.",
+          "A participant agrees to a genetic study after reviewing its use of data.",
+          "A signature without understanding is not enough."
+        ],
+        [
+          "genetic privacy",
+          "Control and protection of information about a person's genetic data.",
+          "A research project limits access to individual results.",
+          "Anonymized-looking data may still carry privacy concerns."
+        ]
+      ],
+      "transferPrompt": "Choose one workbook genetic-research advance. State a plausible benefit, a limitation, whose consent is needed, one fairness question and a less harmful alternative where relevant.",
+      "transferModel": "A genetic test may help explain a condition, but its prediction can be limited and the result may affect relatives. The person tested should understand and consent to use of their data. Access and privacy should be considered, along with existing diagnostic or care options.",
+      "laterPrompt": "From memory, give four questions you would ask before accepting a claim that a genetic technology will improve health.",
+      "laterModel": "What benefit is supported by evidence? What harms and uncertainties remain? Who can consent and control data? Who has access, and what alternatives exist?"
+    }
+  ]
+}

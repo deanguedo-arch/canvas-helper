@@ -1,0 +1,2841 @@
+{
+  "schemaVersion": 1,
+  "status": "authored-packets-awaiting-teacher-review",
+  "lessons": [
+    {
+      "id": "ce1-01",
+      "title": "Find evidence about your strengths",
+      "goal": "Distinguish interests, demonstrated skills, and work values, then use evidence rather than a label to explore options.",
+      "opening": "Jordan likes drawing and is often asked to organize group work. A friend says, ‘You should be a graphic designer.’ Is that enough information to choose a pathway?",
+      "teach": [
+        {
+          "heading": "Three different clues",
+          "body": "An interest is an activity that attracts your attention. A skill is something you can do, and stronger evidence comes from a specific task and result. A work value is a condition or purpose you care about, such as variety, stability, helping others, working outdoors, or flexible hours. Liking drawing does not prove that Jordan enjoys client deadlines; organizing a group does not prove a particular occupation is the only match."
+        },
+        {
+          "heading": "Move from labels to examples",
+          "body": "Instead of writing ‘good communicator,’ name what you did: explained a complex idea to a younger student, checked whether they understood, and changed your example. That evidence can transfer to many roles. Ask what parts of the experience gave you energy and what was difficult. An interest inventory can suggest possibilities, but its results are questions to investigate, not instructions about your future."
+        },
+        {
+          "heading": "Test a first hypothesis",
+          "body": "Make a short list of possible roles, including one outside your first idea. For each, compare actual day-to-day tasks, training, work conditions, and location. A provisional career hypothesis might say, ‘I want to explore jobs that combine visual problem solving with explaining ideas.’ It remains open to change after you read profiles, meet course requirements, or try a simulated task."
+        },
+        {
+          "heading": "Check the quality of your evidence",
+          "body": "A useful evidence note has a context, an action, and an observable result. “I organized people well” is difficult to test; “I asked each group member what they could finish, put the tasks on a shared checklist, and noticed one deadline was at risk” gives a reader something concrete. Then add a boundary: the event involved classmates and one deadline, so it does not prove the learner will enjoy managing a large team. Strong reflection includes what was hard and what support helped, not only praise."
+        },
+        {
+          "heading": "Look for patterns without turning them into labels",
+          "body": "One example can suggest a question; several examples across different settings can suggest a pattern. If someone enjoys explaining a science demonstration and helping a younger cousin with a game, the shared clue may be adapting explanations, not “must become a teacher.” Ask what part of each task was satisfying, what conditions mattered, and whether the skill appeared again. A quiet learner can show communication through careful writing or listening; evidence does not need to look like public speaking. Use the pattern to choose a next experiment, such as comparing two roles’ daily tasks."
+        }
+      ],
+      "document": {
+        "title": "Jordan’s evidence notes",
+        "headers": [
+          "Observation",
+          "What it shows",
+          "What it does not prove"
+        ],
+        "rows": [
+          [
+            "Designed a school event poster",
+            "Enjoyed visual layout and revised after feedback",
+            "Enjoys every design job or client deadline"
+          ],
+          [
+            "Coordinated a three-person project",
+            "Set tasks and followed up",
+            "Wants to supervise people full time"
+          ],
+          [
+            "Prefers predictable hours",
+            "A work condition worth checking",
+            "Only one occupation can fit"
+          ]
+        ],
+        "note": "These are fictional observations. A skill claim is stronger when it names the task, action, and result."
+      },
+      "worked": [
+        {
+          "prompt": "Is ‘Jordan is creative’ strong career evidence?",
+          "steps": [
+            "Locate an observable action: Jordan redesigned a poster after feedback.",
+            "Describe the specific skill: selecting and arranging information for an audience.",
+            "List an unanswered question: would Jordan enjoy similar tasks under real workplace constraints?"
+          ],
+          "conclusion": "A general label becomes useful when it is tied to a task and a question to investigate."
+        },
+        {
+          "prompt": "A quiz lists health care first, but Jordan is uneasy with direct patient care.",
+          "steps": [
+            "Treat the quiz as a suggestion, not a verdict.",
+            "Explore different health roles and the actual duties in each.",
+            "Keep roles with suitable tasks; remove roles that conflict with a strong work preference."
+          ],
+          "conclusion": "One broad cluster can contain very different daily work."
+        }
+      ],
+      "practice": [
+        {
+          "prompt": "Which statement is the strongest evidence of a transferable skill?",
+          "choices": [
+            "I am a leader",
+            "I chaired two meetings, shared tasks, and met our deadline",
+            "A quiz says I should lead",
+            "My friends say I am talented"
+          ],
+          "correctIndex": 1,
+          "feedback": [
+            "This is a label without an observable action.",
+            "Yes. It names actions and a result that someone could discuss or verify.",
+            "A quiz result suggests a question; it is not evidence of performance.",
+            "Other people’s opinions can help, but ask for a concrete example."
+          ]
+        },
+        {
+          "prompt": "Jordan enjoys art but wants predictable hours. What should be researched next?",
+          "choices": [
+            "Only job titles containing ‘artist’",
+            "Actual duties and schedules in two related occupations",
+            "One salary number without a date",
+            "Whether a friend approves"
+          ],
+          "correctIndex": 1,
+          "feedback": [
+            "Titles alone hide important differences in work conditions.",
+            "Yes. Compare tasks and conditions against both the interest and the value.",
+            "Pay matters, but it does not answer the hours question.",
+            "A friend can offer ideas, not make the decision."
+          ]
+        },
+        {
+          "prompt": "How should an interest survey result be used?",
+          "choices": [
+            "As a final career assignment",
+            "As proof that other careers are impossible",
+            "As a starting hypothesis to test with occupation evidence",
+            "As a replacement for course planning"
+          ],
+          "correctIndex": 2,
+          "feedback": [
+            "Surveys cannot choose a career for a person.",
+            "A result cannot rule out every other pathway.",
+            "Yes. Compare suggestions with duties, training, conditions, and your own evidence.",
+            "You still need to check program requirements and options."
+          ]
+        },
+        {
+          "prompt": "Which note adds the most useful boundary to a skill claim?",
+          "choices": [
+            "“I am naturally good at leadership.”",
+            "“In one three-person class project, I set check-ins; I still need to test whether I enjoy doing that repeatedly.”",
+            "“My friend says I should lead.”",
+            "“Leadership is a high-demand skill.”"
+          ],
+          "correctIndex": 1,
+          "feedback": [
+            "This is a broad label without a task or limit.",
+            "Correct: it names context, action, and what remains untested.",
+            "Another person’s opinion is not direct evidence of task fit.",
+            "A broad labour claim does not show this learner’s experience."
+          ]
+        },
+        {
+          "prompt": "Two unrelated activities both involved explaining steps clearly. What is a careful inference?",
+          "choices": [
+            "The learner must choose teaching as a career.",
+            "Adapting explanations may be a pattern worth exploring in more tasks.",
+            "The learner has proven expertise in every communication role.",
+            "The activities are irrelevant because they were unpaid."
+          ],
+          "correctIndex": 1,
+          "feedback": [
+            "Two examples do not dictate a single career.",
+            "Correct: the repeated action supports a hypothesis, not a verdict.",
+            "The evidence is narrow and cannot establish expertise across jobs.",
+            "Paid status is not required for transferable-skill evidence."
+          ]
+        },
+        {
+          "prompt": "A learner dislikes one part of an activity but likes another. What should the evidence record do?",
+          "choices": [
+            "Hide the difficult part so the career idea looks stronger.",
+            "Name both the energizing task and the condition that made it difficult.",
+            "Discard the whole example as useless.",
+            "Treat discomfort as proof the whole occupation is unsuitable."
+          ],
+          "correctIndex": 1,
+          "feedback": [
+            "Selective evidence can distort the conclusion.",
+            "Correct: mixed evidence helps form better questions about work conditions.",
+            "An example can still show useful skills or preferences.",
+            "One activity is not equivalent to an entire occupation."
+          ]
+        }
+      ],
+      "transfer": "Amina likes repairing bicycles, explains repairs clearly, and dislikes long periods at a desk. Suggest two different roles to research and name the evidence and one missing fact for each.",
+      "evidence": "Create a fictional or personal strengths card with two specific task examples, two work values, two pathways to explore, and one question that could change the plan.",
+      "source": "https://alis.alberta.ca/plan-your-career/explore-your-occupational-options/",
+      "mediaId": "513fdc939526"
+    },
+    {
+      "id": "ce1-02",
+      "title": "Read an occupation profile like a researcher",
+      "goal": "Use duties, working conditions and entry requirements to compare roles, and recognize what a profile cannot guarantee.",
+      "opening": "Jordan is considering graphic design because it seems to use visual problem solving. Jordan also wants predictable hours. What should Jordan check before deciding this occupation is a good fit?",
+      "teach": [
+        {
+          "heading": "Start with work, not a title",
+          "body": "Career clusters group related work, but a broad label can hide major differences. An occupation profile can describe main duties, conditions, education, certifications, skills, and typical pay. Read the daily activities first: what would you spend a Tuesday doing? Then identify the entry requirement and whether it is legally required, commonly preferred, or one of several routes. The distinction affects the time and cost of a plan."
+        },
+        {
+          "heading": "Compare sources with dates",
+          "body": "A provincial profile summarizes an occupation across workplaces; a job posting describes one employer’s current opening. The two can differ without either being wrong. Record the profile’s source, region, and update date. A wage range does not promise that a new worker will receive the midpoint. A posting that asks for experience may be one route rather than the only route into the occupation."
+        },
+        {
+          "heading": "Investigate the gaps",
+          "body": "Use a profile to draft questions. Does the work require travel or shift work? Is a licence needed in Alberta? Does training need to be renewed? What related roles use the same skills? Compare at least two roles and identify what you cannot settle from the profile alone. Later, you can use program pages and current postings to test the picture."
+        },
+        {
+          "heading": "Separate typical work from entry requirements",
+          "body": "Profiles often combine tasks that occur frequently with requirements that apply only to some employers or specialties. Mark each statement as “typical task,” “legal or credential requirement,” “common preference,” or “one posting’s condition.” If the profile says a credential is required for a regulated occupation, verify that claim on the relevant Alberta regulator’s current page. If one employer prefers experience, that does not automatically make it a universal entry rule. A profile helps you build a research trail; it cannot replace checking the current rules attached to a specific role."
+        },
+        {
+          "heading": "Use source disagreement as a question",
+          "body": "When two profiles disagree, compare the occupation name and code, region, update date, and the question each source answers. A national page might summarize a broad occupation, while an Alberta employer lists a narrow specialty. Do not average the statements or choose the one that sounds more encouraging. Record the conflict and identify a source closer to the decision, such as an official regulator for licensing or the program provider for admissions. If no authoritative answer appears, write “not yet verified” and ask an advisor before paying for training."
+        }
+      ],
+      "document": {
+        "title": "Jordan’s occupation-profile research sheet",
+        "headers": [
+          "Profile field",
+          "Fact from Graphic Designer — alis",
+          "How Jordan uses it"
+        ],
+        "rows": [
+          [
+            "Duties",
+            "Graphic designers consult with clients, develop visual solutions, and revise concepts.",
+            "Test Jordan’s interest in visual problem solving and communication."
+          ],
+          [
+            "Working conditions",
+            "Designers often work with clients or teams. Overtime and weekend work can occur when deadlines are close.",
+            "Ask whether a specific employer’s schedule fits Jordan’s preference for predictable hours."
+          ],
+          [
+            "Preparation",
+            "Post-secondary design education is common, and a strong portfolio is important.",
+            "Check current program admission requirements and current employer expectations."
+          ]
+        ],
+        "note": "Use this method: fact from the page → what it supports → what remains unanswered."
+      },
+      "worked": [
+        {
+          "prompt": "What can Jordan reasonably conclude after reading one occupation profile?",
+          "steps": [
+            "Record the page title, Alberta scope, sections read, section date, and retrieval date.",
+            "Use the duties to test Jordan’s visual problem-solving interest and the working conditions to identify the schedule question.",
+            "Keep graphic design as a pathway to investigate, then check a current local posting and current program page."
+          ],
+          "conclusion": "One occupation profile can support a cautious hypothesis; it cannot decide personal fit or confirm one employer’s current conditions."
+        },
+        {
+          "prompt": "One current posting disagrees with a provincial profile about a certificate.",
+          "steps": [
+            "Check whether the certificate is mandatory by law or preferred by one employer.",
+            "Check both source dates and regions.",
+            "Record the difference and verify with the program or regulator before changing a school plan."
+          ],
+          "conclusion": "One posting does not redefine every route into an occupation."
+        }
+      ],
+      "practice": [
+        {
+          "prompt": "Which profile section best answers ‘what would I do each day?’",
+          "choices": [
+            "Duties and tasks",
+            "The occupation title",
+            "A single wage figure",
+            "The site logo"
+          ],
+          "correctIndex": 0,
+          "feedback": [
+            "Yes. Tasks reveal what the work involves.",
+            "A title can conceal very different duties.",
+            "Pay does not describe daily work.",
+            "The logo identifies a source, not the duties."
+          ]
+        },
+        {
+          "prompt": "A wage range is shown for Alberta. What can you conclude?",
+          "choices": [
+            "Every new worker receives the midpoint",
+            "The range describes reported pay, subject to source and context",
+            "The amount will be identical next year",
+            "Training is unnecessary"
+          ],
+          "correctIndex": 1,
+          "feedback": [
+            "Starting pay may differ greatly.",
+            "Yes. Keep the region, date and definition with the number.",
+            "Wages and methods can change.",
+            "Pay data does not establish entry requirements."
+          ]
+        },
+        {
+          "prompt": "A posting asks for a certificate absent from a broad profile. What should you do?",
+          "choices": [
+            "Ignore the posting",
+            "Assume the profile is fraudulent",
+            "Check whether the certificate is mandatory or employer-preferred",
+            "Abandon the pathway"
+          ],
+          "correctIndex": 2,
+          "feedback": [
+            "A real employer may have a specific need.",
+            "Different scope or timing can explain the difference.",
+            "Yes. This resolves a planning-relevant distinction.",
+            "One difference is a research question, not a verdict."
+          ]
+        },
+        {
+          "prompt": "A job profile calls a certificate “usually preferred.” A regulator page names a mandatory credential for a protected title. What should the learner do?",
+          "choices": [
+            "Treat the phrases as interchangeable.",
+            "Verify the exact role and follow the current regulator requirement for the protected title.",
+            "Ignore both and rely on a social post.",
+            "Assume all jobs in the cluster require that credential."
+          ],
+          "correctIndex": 1,
+          "feedback": [
+            "Preferred and legally required do not mean the same thing.",
+            "Correct: confirm the exact title and use the relevant regulator for a legal requirement.",
+            "A social post is not an authoritative credential source.",
+            "One title’s requirement may not apply to every role in a broad cluster."
+          ]
+        },
+        {
+          "prompt": "Two sources give different training lengths. Which comparison is most informative?",
+          "choices": [
+            "Compare their dates, program scope, and whether one describes full-time or part-time study.",
+            "Choose the shorter number.",
+            "Add the numbers and divide by two.",
+            "Assume the source with more pictures is newer."
+          ],
+          "correctIndex": 0,
+          "feedback": [
+            "Correct: scope and study mode can explain a real difference.",
+            "The shortest figure may describe a different route.",
+            "Averaging unlike programs creates a number supported by neither.",
+            "Visual design does not establish a publication date."
+          ]
+        },
+        {
+          "prompt": "A learner sees one employer preference in a current posting. What conclusion is justified?",
+          "choices": [
+            "Every employer requires it.",
+            "It is evidence about this opening; check other postings and official requirements before generalizing.",
+            "It is legally mandatory.",
+            "No one can enter the occupation without it."
+          ],
+          "correctIndex": 1,
+          "feedback": [
+            "One opening cannot establish a universal rule.",
+            "Correct: preserve the scope of the evidence and continue comparing.",
+            "A posting does not itself establish a legal requirement.",
+            "The claim exceeds the evidence from one employer."
+          ]
+        }
+      ],
+      "transfer": "A rural student finds a provincial profile for an occupation but no nearby postings this month. Explain two possible interpretations and two additional sources to check.",
+      "evidence": "Build a two-occupation comparison using current alis profiles: cite duties, conditions, entry route, date, and one unresolved question for each.",
+      "source": "https://alis.alberta.ca/occinfo/occupations-in-alberta/"
+    },
+    {
+      "id": "ce1-03",
+      "title": "Compare routes into a career",
+      "goal": "Compare more than one education or training pathway using prerequisites, cost, time, credential and flexibility.",
+      "opening": "Leah wants work involving electrical systems. A paid apprenticeship and a longer school route both sound possible. Which comparison would help without pretending one route is best for everyone?",
+      "teach": [
+        {
+          "heading": "Work backward from the destination",
+          "body": "Start with the exact role and confirm its real entry requirements. Some roles require a regulated credential; others accept different combinations of courses, work experience, portfolios, certificates or degrees. A college program, apprenticeship, direct employment and entrepreneurial route can lead to related work but not necessarily the same licence. Check the current program and regulator pages rather than relying on a friend’s memory."
+        },
+        {
+          "heading": "Calculate the whole route",
+          "body": "Tuition is only one cost. Include tools, fees, transport, housing, time without full earnings, and any paid training. Compare what is known and label uncertain estimates. For example, a $2,000 fee with $1,200 travel costs is $3,200 in direct costs; it says nothing yet about income during the program. A lower up-front cost may still take longer, and a faster route may be less flexible if the learner later changes goals."
+        },
+        {
+          "heading": "Keep alternatives live",
+          "body": "Make a primary route and a backup route. Record prerequisites to verify, a question for a school counsellor or program advisor, and a date to revisit the choice. A route map is useful when it can change with new evidence. It should not lock a student into a plan based on invented earnings or an unverified admission rule."
+        },
+        {
+          "heading": "Compare more than the first payment",
+          "body": "A route comparison should identify when each cost occurs and which items are estimates. Up-front tuition, required equipment, application fees, transportation, housing, and time away from paid work can affect different learners differently. Keep one-time and recurring costs separate; a $400 tool purchase and $40 monthly travel cost cannot be compared by simply adding them without choosing a time period. Identify scholarships or paid training only when a current, eligible source supports them. If financing is needed, make borrowing a separate decision with its own total-cost and repayment analysis."
+        },
+        {
+          "heading": "Check whether the routes reach the same destination",
+          "body": "Two programs may share a subject but lead to different credentials or scopes of practice. Trace the chain: program completion, any exam or supervised hours, registration or licence, then the actual job title. Ask the regulator or program provider which parts are mandatory, whether prior learning counts, and what happens if a learner pauses. Draw a decision point where evidence could change the plan. This protects a student from comparing one route’s introductory certificate with another route’s full qualification as if they were interchangeable."
+        }
+      ],
+      "document": {
+        "title": "Leah’s route sketch — fictional figures",
+        "headers": [
+          "Feature",
+          "Route A",
+          "Route B"
+        ],
+        "rows": [
+          [
+            "Training",
+            "Paid work plus required training blocks",
+            "Two-year program"
+          ],
+          [
+            "Known direct cost",
+            "$2,000 tools and fees",
+            "$4,500 tuition and fees"
+          ],
+          [
+            "Travel estimate",
+            "$1,200",
+            "$600"
+          ],
+          [
+            "Need to verify",
+            "Entry and employer availability",
+            "Program admission and credential relevance"
+          ]
+        ],
+        "note": "These figures and routes are teaching examples, not current program prices or credential rules."
+      },
+      "worked": [
+        {
+          "prompt": "What are the stated direct costs?",
+          "steps": [
+            "Route A: $2,000 + $1,200 = $3,200.",
+            "Route B: $4,500 + $600 = $5,100.",
+            "The $1,900 difference covers only listed costs, not earnings, living costs or future opportunity."
+          ],
+          "conclusion": "A calculation is useful only when its scope is explicit."
+        },
+        {
+          "prompt": "Leah chooses Route A only because its direct cost is lower.",
+          "steps": [
+            "Ask whether Route A actually grants access to the desired regulated role.",
+            "Check whether paid placements are available in Leah’s region.",
+            "Compare time, support needs and a backup if an employer place is unavailable."
+          ],
+          "conclusion": "Cost alone cannot establish pathway fit."
+        }
+      ],
+      "practice": [
+        {
+          "prompt": "Which cost is missing from tuition-only comparisons?",
+          "choices": [
+            "Travel and required tools",
+            "A nickname for the program",
+            "The school’s logo",
+            "A friend’s preference"
+          ],
+          "correctIndex": 0,
+          "feedback": [
+            "Yes. Direct and opportunity costs can extend beyond tuition.",
+            "The nickname does not affect the cost.",
+            "Branding is not a route cost.",
+            "Preference matters to the friend, but not as a cost figure."
+          ]
+        },
+        {
+          "prompt": "Route A costs $2,000 plus $1,200 travel. What is its stated direct cost?",
+          "choices": [
+            "$800",
+            "$3,200",
+            "$5,100",
+            "$1,200"
+          ],
+          "correctIndex": 1,
+          "feedback": [
+            "Subtracting would not total the two expenses.",
+            "Yes. Add $2,000 and $1,200.",
+            "That is Route B’s stated direct cost.",
+            "That includes travel only."
+          ]
+        },
+        {
+          "prompt": "Which question must be answered before claiming the routes lead to the same role?",
+          "choices": [
+            "Which brochure is brighter?",
+            "Who likes the teacher more?",
+            "Do both routes meet the current credential requirement?",
+            "Which is mentioned first online?"
+          ],
+          "correctIndex": 2,
+          "feedback": [
+            "Design does not establish eligibility.",
+            "Personal liking does not prove credential status.",
+            "Yes. Check the current program and regulator requirements.",
+            "Search order is not evidence of equivalence."
+          ]
+        },
+        {
+          "prompt": "Route A lists $1,800 tuition, $250 tools, and $45 monthly transit for 10 months. What is the listed first-year total?",
+          "choices": [
+            "$2,500",
+            "$2,050",
+            "$2,095",
+            "$2,300"
+          ],
+          "correctIndex": 0,
+          "feedback": [
+            "Correct: $1,800 + $250 + (10 × $45) = $2,500.",
+            "$2,050 omits all transit.",
+            "$2,095 includes only one transit month.",
+            "This does not follow the stated categories; use ten monthly costs."
+          ]
+        },
+        {
+          "prompt": "What makes an “alternate route” comparison fair?",
+          "choices": [
+            "It leads to a related field, so the credential details do not matter.",
+            "Compare the actual title, credential, time, conditions, and additional steps each route requires.",
+            "Compare only which route has the lowest tuition.",
+            "Use a friend’s experience as the full program description."
+          ],
+          "correctIndex": 1,
+          "feedback": [
+            "Related work does not prove identical qualification or scope.",
+            "Correct: compare the destination and all route conditions.",
+            "Tuition alone omits time and other costs.",
+            "One person’s experience is useful context, not a complete official description."
+          ]
+        },
+        {
+          "prompt": "A program page and regulator page appear to conflict about entry. What is the strongest next step?",
+          "choices": [
+            "Pay the application fee before asking.",
+            "Send the exact role and credential question to the program and regulator; record their current answers.",
+            "Assume the program page overrides all licensing rules.",
+            "Choose whichever answer supports the original plan."
+          ],
+          "correctIndex": 1,
+          "feedback": [
+            "Paying before resolving a key requirement risks avoidable cost.",
+            "Correct: ask the authorities responsible for the program and regulated title.",
+            "Program admissions and professional licensing are distinct.",
+            "Confirmation bias does not resolve the conflict."
+          ]
+        }
+      ],
+      "transfer": "A new route has lower fees but requires moving. Add housing, travel and lost earnings as known or unknown categories; explain what would change your recommendation.",
+      "evidence": "Use the pathway comparison to defend a primary and backup route, with current sources for admission and credential facts.",
+      "source": "https://alis.alberta.ca/explore-education-and-training/explore-school-and-program-options/",
+      "mediaId": "2d68f4c8ee26"
+    },
+    {
+      "id": "ce1-04",
+      "title": "Question a labour-market claim",
+      "goal": "Interpret labour-market evidence by occupation, measure, place and date without treating a forecast as a promise.",
+      "opening": "One report describes a growing occupation across Alberta. A search near Noor’s home finds two openings. Should Noor abandon the pathway or plan to move?",
+      "teach": [
+        {
+          "heading": "Name what was measured",
+          "body": "Labour-market sources may report employment, vacancies, wages, projections, or employer expectations. Those are different measures. A provincial forecast can describe a multi-year pattern while a job search shows advertised openings on one day. Neither directly predicts whether Noor will be hired after training. Write the measure, occupation definition, region, date, and source next to every figure so a reader can judge its relevance."
+        },
+        {
+          "heading": "Compare like with like",
+          "body": "A wage range for experienced workers should not be presented as a starting wage. A province-wide shortage does not prove that jobs are available in one town. Before comparing two reports, check whether they cover the same occupation code, geography and time period. A small number of current postings may reflect a seasonal hiring cycle, an employer that recruits another way, or a genuinely limited local market."
+        },
+        {
+          "heading": "Use uncertainty to plan",
+          "body": "The right result is usually a conditional plan. Noor can explore nearby related roles, check training and travel costs, look for recent postings over time, and ask what work is available locally. If moving is a possible option, it belongs alongside housing, support and lifestyle costs. Record what evidence would change the plan instead of labelling a pathway safe or unsafe from one graph."
+        },
+        {
+          "heading": "Read the axis before the trend",
+          "body": "Before describing a graph, read the title, units, category, time window, and geographic coverage. A rising bar could represent a count, a percentage, or a forecast score; those do not mean the same thing. Check whether the vertical axis begins at zero and whether categories use matching definitions. If a report combines several years, note that it is not a current vacancy count. Copy the source name and retrieval date into your research notes so the claim can be checked later."
+        },
+        {
+          "heading": "Triangulate without pretending to predict",
+          "body": "A second source is useful when it adds a different kind of evidence: current local postings, a provincial outlook, or an occupational profile. More sources do not automatically mean stronger evidence if all repeat the same old estimate. If one report suggests growth and current local postings are scarce, write both findings and consider season, region, commute, job title, and the date each was observed. Then state a conditional conclusion: “This is worth exploring if local opportunities and training costs remain workable.” Identify what new evidence would change that conclusion."
+        }
+      ],
+      "document": {
+        "title": "Two fictional pieces of labour-market evidence",
+        "headers": [
+          "Record",
+          "Scope",
+          "What it can show"
+        ],
+        "rows": [
+          [
+            "Provincial forecast",
+            "Alberta, five future years",
+            "A modelled broad pattern; assumptions may change"
+          ],
+          [
+            "Local job search",
+            "Noor’s town, one day",
+            "Advertised openings captured that day"
+          ],
+          [
+            "Occupation profile",
+            "Alberta, published last year",
+            "Duties and reported ranges, not Noor’s offer"
+          ]
+        ],
+        "note": "The records are invented to practise source interpretation; no real market figures are implied."
+      },
+      "worked": [
+        {
+          "prompt": "The forecast is positive and the local search is small. Are the records inconsistent?",
+          "steps": [
+            "Identify the first measure: a province-wide future model.",
+            "Identify the second measure: one day of local advertisements.",
+            "Explain how region, time and measure can produce different observations."
+          ],
+          "conclusion": "Both can be true; the comparison reveals a question to investigate."
+        },
+        {
+          "prompt": "A classmate says Noor must move immediately.",
+          "steps": [
+            "A current posting count does not describe the entire future training period.",
+            "Check related occupations, nearby regions and repeated observations.",
+            "Compare the cost and support implications of moving before recommending it."
+          ],
+          "conclusion": "A move is a conditional option, not an automatic conclusion."
+        }
+      ],
+      "practice": [
+        {
+          "prompt": "Which detail must travel with a wage figure?",
+          "choices": [
+            "Its source, date, region and worker group",
+            "The colour of the website",
+            "A friend’s guessed salary",
+            "Only the highest number"
+          ],
+          "correctIndex": 0,
+          "feedback": [
+            "Yes. These details determine what the figure actually describes.",
+            "Visual design does not define a statistic.",
+            "A guess is not a documented figure.",
+            "The high endpoint alone is misleading."
+          ]
+        },
+        {
+          "prompt": "A five-year provincial forecast and today’s local postings differ. What is the best explanation?",
+          "choices": [
+            "One must be fabricated",
+            "They measure different places and time periods",
+            "No one can work locally",
+            "The forecast guarantees a job"
+          ],
+          "correctIndex": 1,
+          "feedback": [
+            "A difference does not by itself prove fabrication.",
+            "Yes. Check measures and definitions before judging consistency.",
+            "A single search cannot establish that.",
+            "Forecasts are conditional, not guarantees."
+          ]
+        },
+        {
+          "prompt": "What would make a relocation decision stronger?",
+          "choices": [
+            "The first search result only",
+            "The provincial average wage only",
+            "Repeated local evidence plus training, housing and support costs",
+            "A confident guess"
+          ],
+          "correctIndex": 2,
+          "feedback": [
+            "One search is a narrow snapshot.",
+            "Wages alone omit costs and fit.",
+            "Yes. The decision needs multiple relevant pieces of evidence.",
+            "Confidence is not a substitute for source quality."
+          ]
+        },
+        {
+          "prompt": "A chart’s title says “projected openings,” but a learner calls the bars “jobs guaranteed to be available.” What was misread?",
+          "choices": [
+            "A projection was treated as a promise of individual vacancies.",
+            "The learner included a citation.",
+            "The report’s region was recorded.",
+            "The axis units were included."
+          ],
+          "correctIndex": 0,
+          "feedback": [
+            "Correct: projected openings estimate a broader pattern; they do not guarantee a current opening for one person.",
+            "Citations help readers verify claims.",
+            "Region is important context, not an error.",
+            "Units help interpret a chart."
+          ]
+        },
+        {
+          "prompt": "A local search shows few postings over one week. What can the learner say?",
+          "choices": [
+            "The occupation will disappear locally.",
+            "Few postings appeared in that search window; collect more evidence over time and check other channels.",
+            "The provincial forecast must be false.",
+            "No one is employed in the occupation."
+          ],
+          "correctIndex": 1,
+          "feedback": [
+            "One short search cannot establish future disappearance.",
+            "Correct: this is a scoped observation with a sensible next check.",
+            "Local postings and provincial forecasts measure different things.",
+            "A vacancy search does not count existing workers."
+          ]
+        },
+        {
+          "prompt": "Which evidence best supports a relocation question?",
+          "choices": [
+            "A province-wide wage chart by itself.",
+            "A comparison of local openings, likely commute/housing costs, and relevant role requirements.",
+            "A friend’s guess about another city.",
+            "A national shortage label without a date."
+          ],
+          "correctIndex": 1,
+          "feedback": [
+            "A wage chart alone omits access and living costs.",
+            "Correct: it combines opportunity and practical constraints.",
+            "A guess is not verifiable evidence.",
+            "An undated label lacks context and may not match a location."
+          ]
+        }
+      ],
+      "transfer": "An urban student sees many advertised openings but also long training requirements. Explain why demand alone is not a complete pathway decision and name two further checks.",
+      "evidence": "Annotate two real Alberta labour-market sources with measure, occupation, region, date, limit and the decision each can support.",
+      "source": "https://alis.alberta.ca/occinfo/"
+    },
+    {
+      "id": "ce1-05",
+      "title": "Build a high-school route with checkpoints",
+      "goal": "Use current prerequisites to draft a flexible high-school plan and identify decisions that need school guidance.",
+      "opening": "Tariq wants to keep two different post-school routes possible, but the course choices appear to diverge next year. How can a plan preserve options without inventing admission rules?",
+      "teach": [
+        {
+          "heading": "Work from current requirements",
+          "body": "A high-school plan connects a possible destination to courses and experiences available now. Start with the current admission or entry page for each pathway. Record required courses separately from recommended preparation. Note grade thresholds and deadlines only when a current source states them, because they may change. Ask the school to confirm sequencing, availability and graduation requirements rather than assuming that a program page describes your timetable."
+        },
+        {
+          "heading": "Find the shared steps",
+          "body": "Two routes often share foundational courses and skills. Place those common steps first, then mark a decision point where a specialized course or application is needed. If one course has a prerequisite, draw the chain: prerequisite, later course, program requirement. A chain reveals why delaying a course may close an option temporarily and where a summer, online or alternate route might exist if the school confirms it."
+        },
+        {
+          "heading": "Make revision part of the plan",
+          "body": "Put a date and trigger on each checkpoint. A new interest, changed grade, updated program requirement or transport issue can justify revision. A useful backup route is a researched pathway, not ‘do something else.’ Keep a note of who can verify an uncertainty. This protects students from treating an early plan as an unchangeable promise."
+        },
+        {
+          "heading": "Trace prerequisites as a sequence",
+          "body": "A prerequisite is not only a course name; it is a dependency that affects when a later option can be taken. Draw a simple chain with the source and school confirmation beside each step. If a course is unavailable in a planned term, ask about the next offering, approved equivalent, or alternate route before deleting a career goal. Keep graduation requirements distinct from a specific college admission requirement. A school timetable and a university program page answer different questions, and both may need current confirmation."
+        },
+        {
+          "heading": "Build a checkpoint around a decision",
+          "body": "Each route can have a “continue, revise, or investigate” point. For example, after reviewing the official admission page and meeting a counsellor, the learner can confirm the course sequence or identify an unresolved conflict. Record the date, evidence checked, and who can verify the next uncertainty. Avoid turning a grade threshold into a personal worth judgement: a result is information for choosing support or a different sequence. A backup route is strongest when it shares useful preparation and has been researched, not when it is simply a vague fallback."
+        }
+      ],
+      "document": {
+        "title": "Tariq’s fictional pathway map",
+        "headers": [
+          "Decision",
+          "Route A",
+          "Route B"
+        ],
+        "rows": [
+          [
+            "Shared preparation",
+            "Foundational math and communication",
+            "Foundational math and communication"
+          ],
+          [
+            "Specialized step",
+            "Advanced science course, if required",
+            "Portfolio project, if required"
+          ],
+          [
+            "Check now",
+            "Current program prerequisite page",
+            "Current entry or application page"
+          ],
+          [
+            "School confirmation",
+            "Course sequence and seat availability",
+            "Project support and course options"
+          ]
+        ],
+        "note": "No listed course is a real admission requirement. Verify actual Alberta high-school and program rules before using a plan."
+      },
+      "worked": [
+        {
+          "prompt": "A program page requires a course that Tariq cannot take until after a prerequisite.",
+          "steps": [
+            "Place the prerequisite in an earlier term.",
+            "Check whether the later course is offered when needed.",
+            "Bring the sequence and a backup question to a school counsellor."
+          ],
+          "conclusion": "A program requirement becomes a timetable decision only after school availability is checked."
+        },
+        {
+          "prompt": "Route B’s website changes its entry rule.",
+          "steps": [
+            "Record the new source and date.",
+            "Identify which part of Tariq’s plan changes and which common steps remain useful.",
+            "Update the next checkpoint rather than discarding all earlier work."
+          ],
+          "conclusion": "A revisable plan saves the reasoning behind each choice."
+        }
+      ],
+      "practice": [
+        {
+          "prompt": "What is the strongest basis for a claimed prerequisite?",
+          "choices": [
+            "A current program or regulator page",
+            "An old social post",
+            "A friend’s memory",
+            "The course with the most impressive title"
+          ],
+          "correctIndex": 0,
+          "feedback": [
+            "Yes. Record the exact page and date, then confirm local course sequencing.",
+            "Requirements can change after a post.",
+            "Memory is a lead to verify, not a rule source.",
+            "A title does not establish admission eligibility."
+          ]
+        },
+        {
+          "prompt": "Two routes share a course. Where should it appear?",
+          "choices": [
+            "Only on the favourite route",
+            "In the shared preparation before the decision point",
+            "Nowhere until graduation",
+            "As proof both careers are identical"
+          ],
+          "correctIndex": 1,
+          "feedback": [
+            "The common step supports both options.",
+            "Yes. Shared preparation can keep alternatives open.",
+            "Delaying it could restrict sequencing.",
+            "A shared course does not make occupations identical."
+          ]
+        },
+        {
+          "prompt": "A learner cannot take a needed course at the planned time. What next?",
+          "choices": [
+            "Assume admission is impossible forever",
+            "Invent an exemption",
+            "Ask the school and program about valid sequences or alternatives",
+            "Copy another student’s timetable"
+          ],
+          "correctIndex": 2,
+          "feedback": [
+            "Other valid paths may exist.",
+            "Only the responsible institution can confirm an exception.",
+            "Yes. Verify what options are actually available.",
+            "Another student’s circumstances may differ."
+          ]
+        },
+        {
+          "prompt": "A student cannot access a required course in the planned semester. What is the strongest next step?",
+          "choices": [
+            "Drop the pathway immediately.",
+            "Ask the school about later offerings, approved equivalents, and sequence effects before revising the route.",
+            "Assume an unrelated course will count.",
+            "Ignore the prerequisite."
+          ],
+          "correctIndex": 1,
+          "feedback": [
+            "A scheduling problem may have alternate solutions.",
+            "Correct: verify realistic school options and how timing affects later steps.",
+            "An equivalency requires confirmation.",
+            "Ignoring a dependency can delay eligibility."
+          ]
+        },
+        {
+          "prompt": "Why keep the source date in a high-school plan?",
+          "choices": [
+            "Requirements, course offerings, and deadlines can change.",
+            "It makes a plan impossible to revise.",
+            "It proves admission is guaranteed.",
+            "It replaces checking with a counsellor."
+          ],
+          "correctIndex": 0,
+          "feedback": [
+            "Correct: a date helps identify when evidence may need refreshing.",
+            "Dated evidence makes revision easier, not harder.",
+            "A source date cannot promise admission.",
+            "School staff can confirm local sequencing and availability."
+          ]
+        },
+        {
+          "prompt": "Which is a useful checkpoint outcome?",
+          "choices": [
+            "“I will see what happens.”",
+            "“After confirming the prerequisite and next course offering, I will keep, adjust, or research the route.”",
+            "“I must follow my first plan no matter what.”",
+            "“If I change the route, I failed.”"
+          ],
+          "correctIndex": 1,
+          "feedback": [
+            "No decision trigger is defined.",
+            "Correct: this ties a decision to evidence and allows revision.",
+            "New evidence can justify a change.",
+            "Pathway revision is a normal planning skill."
+          ]
+        }
+      ],
+      "transfer": "A new program adds a portfolio requirement. Show where it belongs in a two-year plan, what support is needed, and when the plan should be reviewed.",
+      "evidence": "Create a primary and backup high-school route with verified prerequisites, a decision date, and two questions for a teacher or counsellor.",
+      "source": "https://alis.alberta.ca/explore-education-and-training/explore-school-and-program-options/"
+    },
+    {
+      "id": "ce1-06",
+      "title": "Explore employment and entrepreneurship routes",
+      "goal": "Compare employment and entrepreneurship as routes with different responsibilities, risks and evidence needs.",
+      "opening": "Kai enjoys repairing bikes and has helped neighbours. Does that make a repair business the obvious next step, or is employment with a shop another useful route?",
+      "teach": [
+        {
+          "heading": "Separate skill from business viability",
+          "body": "Being skilled at a task is only one part of earning from it. An employee usually works within an organization’s systems; an entrepreneur also has to find customers, set prices, track costs, arrange safe work, manage records and accept income uncertainty. Neither route is automatically more independent or more secure. Kai should identify the responsibilities they want to learn and the ones they are not yet ready to take on."
+        },
+        {
+          "heading": "Test a small opportunity",
+          "body": "An opportunity claim needs evidence: who has the problem, what solution they use now, what it costs to provide a safe alternative, and whether the price leaves enough after expenses. In a fictional trial, five repairs at $30 each produce $150 in revenue. If parts cost $75 and other costs are $25, $50 remains before other obligations. Revenue is not profit, and one week cannot establish steady demand."
+        },
+        {
+          "heading": "Build an adaptable route",
+          "body": "Kai could learn in an established shop, continue a school enterprise exercise, or later test a small service under the appropriate rules and supervision. A plan should include skill development, customer evidence, safety and legal questions, start-up needs, and a fallback. Do not direct minors to solicit strangers or start a real business to complete an online lesson."
+        },
+        {
+          "heading": "Test customer need before estimating income",
+          "body": "A small business idea begins with a problem, not a guessed sales total. Identify who experiences the problem, how often it occurs, how people handle it now, and what evidence would show that a proposed service is wanted. An online poll of friends may reveal interest but not whether people will pay a sustainable price. Use a fictional trial or supplied data in this course; students should not solicit strangers, collect customer data, or spend real money to earn credit."
+        },
+        {
+          "heading": "Calculate contribution, not just sales",
+          "body": "Revenue is money received before costs. A simple contribution estimate subtracts direct costs, but it may still omit permits, insurance, equipment wear, payment fees, tax obligations, and unpaid time. If a fictional service earns $150 and listed materials and transport cost $62, the remaining $88 is not automatically personal income or profit. List which costs were included and which were not assessed. Check current rules and adult supervision before any real venture, especially where a learner is a minor or the work involves safety risks. Ask whether the customer could choose not to buy and what evidence would distinguish politeness from demand. A route remains a hypothesis until cost, safety, and repeat interest are checked."
+        }
+      ],
+      "document": {
+        "title": "Kai’s fictional one-week service test",
+        "headers": [
+          "Line",
+          "Amount",
+          "Meaning"
+        ],
+        "rows": [
+          [
+            "Five repairs at $30",
+            "$150",
+            "Revenue"
+          ],
+          [
+            "Replacement parts",
+            "$75",
+            "Expense"
+          ],
+          [
+            "Transport and supplies",
+            "$25",
+            "Expense"
+          ],
+          [
+            "Amount remaining",
+            "$50",
+            "Before other obligations or payment for time"
+          ]
+        ],
+        "note": "The numbers are invented. They do not establish actual pricing, rules, taxes or demand."
+      },
+      "worked": [
+        {
+          "prompt": "Kai says, ‘I made $150 profit.’",
+          "steps": [
+            "Identify $150 as five payments received: revenue.",
+            "Subtract $75 parts and $25 other listed expenses.",
+            "State that $50 remains before unlisted costs and time."
+          ],
+          "conclusion": "Calling revenue profit hides the resources needed to provide the service."
+        },
+        {
+          "prompt": "Kai chooses a shop job first.",
+          "steps": [
+            "The job may provide training and exposure to customer needs.",
+            "Kai can observe which tasks they enjoy and what safety systems matter.",
+            "A later business idea can use that evidence without claiming employment is a failure."
+          ],
+          "conclusion": "Employment can be a deliberate learning route toward or alongside entrepreneurship."
+        }
+      ],
+      "practice": [
+        {
+          "prompt": "In Kai’s fictional test, what is $150?",
+          "choices": [
+            "Revenue before costs",
+            "Profit after all costs",
+            "A guaranteed weekly wage",
+            "The cost of parts"
+          ],
+          "correctIndex": 0,
+          "feedback": [
+            "Yes. It is the amount paid by customers before expenses.",
+            "Costs and time have not all been accounted for.",
+            "Customer demand could vary; it is not a wage guarantee.",
+            "Parts cost $75 in the case."
+          ]
+        },
+        {
+          "prompt": "What is the stated amount remaining after listed costs?",
+          "choices": [
+            "$150",
+            "$50",
+            "$100",
+            "$25"
+          ],
+          "correctIndex": 1,
+          "feedback": [
+            "That ignores all costs.",
+            "Yes. $150 − $75 − $25 = $50.",
+            "That subtracts only one cost category.",
+            "That is one expense line."
+          ]
+        },
+        {
+          "prompt": "What would strengthen the business opportunity claim?",
+          "choices": [
+            "A single excited comment",
+            "A bigger logo",
+            "Customer need, costs, safe delivery and repeated demand evidence",
+            "An assumption that repairs are always needed"
+          ],
+          "correctIndex": 2,
+          "feedback": [
+            "One comment is a lead, not sustained evidence.",
+            "Branding does not prove viability.",
+            "Yes. Test the actual problem and costs across more than one case.",
+            "A broad claim does not establish customers or pricing."
+          ]
+        },
+        {
+          "prompt": "A fictional service receives $210 and has $84 in listed material costs. What amount remains before any unlisted costs?",
+          "choices": [
+            "$126",
+            "$210",
+            "$84",
+            "$294"
+          ],
+          "correctIndex": 0,
+          "feedback": [
+            "Correct: $210 − $84 = $126.",
+            "$210 is revenue before costs.",
+            "$84 is the listed cost, not what remains.",
+            "This adds costs to revenue rather than subtracting them."
+          ]
+        },
+        {
+          "prompt": "What does a positive remainder after listed costs establish?",
+          "choices": [
+            "That the business is guaranteed profitable.",
+            "Only that revenue exceeded the costs included in that calculation.",
+            "That customers will return.",
+            "That legal and safety checks are unnecessary."
+          ],
+          "correctIndex": 1,
+          "feedback": [
+            "Unlisted costs and demand remain unknown.",
+            "Correct: the conclusion must match the costs actually counted.",
+            "Repeat demand needs separate evidence.",
+            "Rules and safe-work questions still need checking."
+          ]
+        },
+        {
+          "prompt": "Which is the strongest low-risk way to test an idea for an online lesson?",
+          "choices": [
+            "Have students approach strangers with a sales pitch.",
+            "Use fictional customer feedback and a supplied cost sheet to compare options.",
+            "Require a real purchase.",
+            "Publish a student’s home address to attract customers."
+          ],
+          "correctIndex": 1,
+          "feedback": [
+            "Stranger solicitation is unnecessary and may be unsafe.",
+            "Correct: a simulation teaches the reasoning without exposing students.",
+            "Real spending is not needed for course evidence.",
+            "Publishing location data creates privacy and safety risks."
+          ]
+        }
+      ],
+      "transfer": "A fictional student sells handmade items for $20 each, with $8 materials and $3 selling costs per item. Explain the remaining amount for four sales and two uncertainties before calling it a viable business.",
+      "evidence": "Compare an employment route and an entrepreneurial route for the same interest, including responsibilities, evidence needed and a safe next learning step.",
+      "source": "https://alis.alberta.ca/plan-your-career/explore-your-occupational-options/",
+      "mediaId": "54963081799d"
+    },
+    {
+      "id": "ce1-07",
+      "title": "Balance a plan when life changes",
+      "goal": "Revise a career plan when time, location, wellbeing or support changes without treating revision as failure.",
+      "opening": "Maya’s plan assumes after-school travel twice a week. A family responsibility now takes that time. What should change first: the goal, the route, or the timing?",
+      "teach": [
+        {
+          "heading": "Plans use limited resources",
+          "body": "Time, energy, transport, money and support all affect a pathway. A school schedule that looks possible on paper may conflict with work or care responsibilities. Show the actual week rather than assuming that a student can ‘try harder.’ Identify fixed commitments and flexible blocks. A healthy plan includes sleep and recovery; constant overload is a signal to revise the plan, not proof of poor character."
+        },
+        {
+          "heading": "Separate destination from route",
+          "body": "A changed situation does not always change what Maya values. They may keep the same long-term interest but choose a different course sequence, online learning option, local experience or later deadline. Conversely, new experience may show that the destination itself no longer fits. Explain which piece changed and why. A backup route should protect the important goal while fitting the new constraint."
+        },
+        {
+          "heading": "Use a review trigger",
+          "body": "Write down what evidence will prompt another check: a course result, an application response, a work trial, a timetable change or a support conversation. Ask for help where a school or program decision is needed. A good revision records the old assumption, the new evidence, the change and the next test. This makes the plan useful across transitions rather than a single assignment."
+        },
+        {
+          "heading": "Use a capacity check, not a perfect-week assumption",
+          "body": "A weekly plan should include travel time, setup, transitions, meals, rest, and tasks that do not happen at a fixed hour. Mark fixed commitments first, then estimate realistic flexible time. If the plan only works when every bus is on time and no assignment takes longer than expected, it has no buffer. A simple calendar can reveal a conflict before a student interprets it as a motivation problem. Keep any personal schedule private; the lesson can use the fictional week supplied in class."
+        },
+        {
+          "heading": "Revise the constraint that changed",
+          "body": "When a new constraint appears, separate the goal, route, and schedule. If a bus route ends earlier, a learner may keep an interest in a field but choose a local course, different work hours, an online option, or a later experience. Compare consequences and ask the school to verify options that affect graduation or admission. A revision note should show the original assumption, the new evidence, the chosen change, and a date to check again. It should also name the support needed rather than implying that the learner must solve every barrier alone."
+        }
+      ],
+      "document": {
+        "title": "Maya’s fictional weekly planning board",
+        "headers": [
+          "Block",
+          "Original plan",
+          "New information"
+        ],
+        "rows": [
+          [
+            "Tuesday travel",
+            "One hour to activity",
+            "Needed for family care"
+          ],
+          [
+            "Thursday travel",
+            "One hour to activity",
+            "Still possible"
+          ],
+          [
+            "Saturday",
+            "Unassigned",
+            "Could support local or online work"
+          ],
+          [
+            "Recovery",
+            "Not planned",
+            "Needs a protected block"
+          ]
+        ],
+        "note": "The board is a reasoning aid; no learner is asked to disclose their real family responsibilities."
+      },
+      "worked": [
+        {
+          "prompt": "Maya’s goal still fits, but the Tuesday route does not.",
+          "steps": [
+            "State the goal and the new time constraint separately.",
+            "Look for a feasible alternative: Thursday plus a local or online Saturday option, if available.",
+            "Confirm the option before treating it as part of the plan."
+          ],
+          "conclusion": "A route can change while the larger goal remains."
+        },
+        {
+          "prompt": "A peer says Maya should fill every free hour with preparation.",
+          "steps": [
+            "A calendar is not evidence of sustainable capacity.",
+            "Protect required commitments and recovery.",
+            "Adjust scope or timing and ask for support rather than hiding the overload."
+          ],
+          "conclusion": "A realistic plan includes wellbeing and cannot depend on exhaustion."
+        }
+      ],
+      "practice": [
+        {
+          "prompt": "Which revision best responds to a new travel constraint?",
+          "choices": [
+            "Separate the goal from the route and test a feasible alternative",
+            "Declare the student unmotivated",
+            "Keep an impossible schedule",
+            "Delete every future option"
+          ],
+          "correctIndex": 0,
+          "feedback": [
+            "Yes. Identify what changed and which alternative preserves the aim.",
+            "The constraint is practical evidence, not a character judgement.",
+            "An unusable schedule is not a plan.",
+            "One blocked route does not erase all options."
+          ]
+        },
+        {
+          "prompt": "What belongs in a plan review note?",
+          "choices": [
+            "Only a new title",
+            "Old assumption, new evidence, change and next check",
+            "A promise never to change again",
+            "Only a grade"
+          ],
+          "correctIndex": 1,
+          "feedback": [
+            "A title cannot explain the reasoning.",
+            "Yes. The record shows why the revision is justified.",
+            "Future information may require another revision.",
+            "A grade may be relevant but is not the full explanation."
+          ]
+        },
+        {
+          "prompt": "Why include recovery time?",
+          "choices": [
+            "To make the table longer",
+            "To avoid all effort",
+            "Because a sustainable plan must fit human limits and other commitments",
+            "Because every student has identical capacity"
+          ],
+          "correctIndex": 2,
+          "feedback": [
+            "Formatting is not the reason.",
+            "The plan still includes meaningful work.",
+            "Yes. Capacity and wellbeing affect whether a route is workable.",
+            "Needs differ across learners and situations."
+          ]
+        },
+        {
+          "prompt": "A plan has no travel or transition time and fills every evening. What is the clearest problem?",
+          "choices": [
+            "It depends on a perfect week and leaves no usable buffer.",
+            "It proves the learner lacks commitment.",
+            "It will always work if the goal matters.",
+            "It should add more commitments."
+          ],
+          "correctIndex": 0,
+          "feedback": [
+            "Correct: omitted transition time makes the schedule fragile.",
+            "A plan constraint is not a character judgement.",
+            "Motivation does not remove travel or delays.",
+            "More commitments worsen an already full plan."
+          ]
+        },
+        {
+          "prompt": "A transit change makes the original route difficult. Which statement best separates goal from route?",
+          "choices": [
+            "The learner must abandon the interest.",
+            "The learner can keep the interest and test a local, later, or online route with school confirmation.",
+            "The learner should ignore the transit change.",
+            "The original timetable is still valid without checking."
+          ],
+          "correctIndex": 1,
+          "feedback": [
+            "A transport constraint does not automatically invalidate the goal.",
+            "Correct: revise the means and verify feasibility.",
+            "Ignoring a known constraint weakens the plan.",
+            "Changed conditions call for a review."
+          ]
+        },
+        {
+          "prompt": "What belongs in a useful revision record?",
+          "choices": [
+            "Only the new answer.",
+            "Old assumption, new evidence, change, reason, and next review point.",
+            "A statement that the first plan was perfect.",
+            "Private information about another family member."
+          ],
+          "correctIndex": 1,
+          "feedback": [
+            "Without the reason, the plan is hard to evaluate.",
+            "Correct: this creates a traceable decision and next step.",
+            "A plan can change when evidence changes.",
+            "Other people’s private details are not needed."
+          ]
+        }
+      ],
+      "transfer": "A fictional learner receives a new school timetable and can no longer attend a planned program visit. Revise the route without inventing program availability; name who could confirm an alternative.",
+      "evidence": "Revise an earlier fictional or personal career plan: old assumption, new evidence, updated route, review date and one support request.",
+      "source": "https://alis.alberta.ca/plan-your-career/make-your-dreams-a-reality/"
+    },
+    {
+      "id": "co2-01",
+      "title": "Check the rules before a first shift",
+      "goal": "Use current Alberta sources to investigate a young worker’s hours, conditions and pay statement without guessing a legal rule.",
+      "opening": "A fictional 15-year-old receives a late retail shift during the school term. A co-worker says that late hours are always allowed if a manager agrees. What should the student check?",
+      "teach": [
+        {
+          "heading": "Identify the worker and the work",
+          "body": "Employment rules can depend on age, industry, task, school hours and time of day. Begin a case file with those facts before looking up a rule. In Alberta, the youth employment page separates ages 13–14 from ages 15–17 and describes additional hour restrictions. Do not apply a rule from a different age group or province. For a real situation, consult the current official page and the school or workplace rather than a remembered number."
+        },
+        {
+          "heading": "Read the written record",
+          "body": "A schedule shows planned work; a pay statement shows recorded work and deductions. Keep the two distinct. Compare dates, start and end times, breaks, duties and pay period. Ask whether the hours actually worked match the record. A pay rate or break rule should be checked against the current Alberta Employment Standards page and the worker’s agreement. One missing detail can change the conclusion."
+        },
+        {
+          "heading": "Use a careful response",
+          "body": "If a shift appears to conflict with a rule, save the schedule, note the source and its date, and ask the employer for clarification in a specific, respectful way. A student can ask a trusted adult or school contact for help. A fictional lesson cannot resolve every employment arrangement; the skill is to locate the applicable rule, identify uncertainty and choose a safe next step."
+        },
+        {
+          "heading": "Check the exact category and exception",
+          "body": "A youth work rule may apply differently depending on the worker’s age, the type of work, the industry, school attendance, and the time of day. Before applying a summary, write down those facts and compare them with the scope of the current Alberta rule. Some occupations or tasks can have additional restrictions or permits. Never assume that a rule described for a 15–17-year-old also applies to someone aged 13–14, or that permission from a supervisor overrides a legal restriction."
+        },
+        {
+          "heading": "Separate a schedule concern from a pay concern",
+          "body": "A schedule shows expected hours; a time record and pay statement help establish what was recorded and paid. If they differ, first compare the same dates, breaks, and duties. Keep a copy of the record and ask a specific question, such as “The schedule shows 6–10 p.m., but the recorded end time is 9:30; can we check the closing log?” For a real concern, consult current Alberta Employment Standards guidance or a trusted adult. A lesson calculation is not a legal ruling. Age-specific exceptions and work permits may matter for particular tasks. When official guidance is unclear, preserve the schedule and ask Employment Standards or a trusted school contact before treating a shift as permitted."
+        }
+      ],
+      "document": {
+        "title": "Case file: late retail shift — fictional",
+        "headers": [
+          "Field",
+          "Record",
+          "Why it matters"
+        ],
+        "rows": [
+          [
+            "Worker age",
+            "15",
+            "Youth category"
+          ],
+          [
+            "Setting",
+            "Retail store",
+            "Industry-specific limits may apply"
+          ],
+          [
+            "Scheduled time",
+            "9:30 p.m. to 12:30 a.m.",
+            "Check current restricted hours and supervision rule"
+          ],
+          [
+            "Missing",
+            "School-day status and adult supervision",
+            "Could affect application of the rule"
+          ]
+        ],
+        "note": "This is an invented scenario; use the linked Alberta page for current legal details."
+      },
+      "worked": [
+        {
+          "prompt": "A peer says the shift is fine because the worker is 17.",
+          "steps": [
+            "The case file says the worker is 15; correct the fact first.",
+            "Locate the 15–17 section on the current Alberta youth employment page.",
+            "Check the specific retail hour and supervision rules against the scheduled interval."
+          ],
+          "conclusion": "A plausible rule for a different case is not evidence for this worker."
+        },
+        {
+          "prompt": "The posted schedule ends at midnight but the time record ends at 12:30 a.m.",
+          "steps": [
+            "Keep copies of both records and note the dates.",
+            "Ask whether the later work was directed or recorded correctly.",
+            "Check the current rules and seek school or official help if the discrepancy remains."
+          ],
+          "conclusion": "Document the observed difference before claiming a violation or a payroll error."
+        }
+      ],
+      "practice": [
+        {
+          "prompt": "Which fact is needed before applying a youth employment rule?",
+          "choices": [
+            "The worker’s age and type of work",
+            "The store’s favourite colour",
+            "The manager’s confidence",
+            "The longest shift anyone has ever worked"
+          ],
+          "correctIndex": 0,
+          "feedback": [
+            "Yes. Age, work type, school time and hours can change the applicable rule.",
+            "Colour has no bearing on the rule.",
+            "Confidence cannot replace the governing source.",
+            "A different worker’s history does not define this case."
+          ]
+        },
+        {
+          "prompt": "Which record shows the hours that were actually entered for pay?",
+          "choices": [
+            "An advertisement",
+            "A time record or pay statement",
+            "A career survey",
+            "A program brochure"
+          ],
+          "correctIndex": 1,
+          "feedback": [
+            "An ad is unrelated to this work period.",
+            "Yes. Compare that record with the schedule and worker’s notes.",
+            "A survey does not document paid hours.",
+            "A brochure is not an employment record."
+          ]
+        },
+        {
+          "prompt": "A rule summary conflicts with the current Alberta page. What should guide the case?",
+          "choices": [
+            "The older summary",
+            "The easiest sentence to remember",
+            "The current official source with its scope and date",
+            "The worker’s guess"
+          ],
+          "correctIndex": 2,
+          "feedback": [
+            "An older summary may be out of date.",
+            "Ease of recall does not determine the rule.",
+            "Yes. Verify the official rule and whether it applies to the case.",
+            "A guess is a reason to research, not a conclusion."
+          ]
+        },
+        {
+          "prompt": "Which fact is especially important when checking a youth shift rule?",
+          "choices": [
+            "Worker age and the actual work/time conditions.",
+            "The colour of the uniform.",
+            "How confident the supervisor sounds.",
+            "What a different province allows."
+          ],
+          "correctIndex": 0,
+          "feedback": [
+            "Correct: applicability can depend on age and work conditions.",
+            "Uniform colour does not determine the rule.",
+            "Confidence does not replace the applicable standard.",
+            "Rules in another jurisdiction may not apply in Alberta."
+          ]
+        },
+        {
+          "prompt": "A recorded time differs from the schedule. What is the best first evidence check?",
+          "choices": [
+            "Compare the same date, actual hours and break record.",
+            "Assume the schedule is always the final pay record.",
+            "Assume the employer intentionally changed it.",
+            "Change the pay statement yourself."
+          ],
+          "correctIndex": 0,
+          "feedback": [
+            "Correct: align the relevant records before drawing a conclusion.",
+            "A schedule is planned time, not necessarily the hours entered for pay.",
+            "A discrepancy needs investigation, not an unsupported motive claim.",
+            "Workers should not alter employer records."
+          ]
+        },
+        {
+          "prompt": "A summary conflicts with a current official Alberta page. How should a student proceed?",
+          "choices": [
+            "Use the older summary because it is shorter.",
+            "Check the official page’s scope/date and ask an appropriate adult or authority if unclear.",
+            "Average both rules.",
+            "Choose the rule that permits more hours."
+          ],
+          "correctIndex": 1,
+          "feedback": [
+            "A short summary may omit exceptions or be outdated.",
+            "Correct: verify applicability and seek help with unresolved details.",
+            "Rules are not averaged.",
+            "Convenience does not determine which rule applies."
+          ]
+        }
+      ],
+      "transfer": "A fictional 14-year-old is offered a different task at a restaurant. List the facts and official sources needed before saying whether the work is permitted.",
+      "evidence": "Create a workplace case file with dates, age, setting, records, applicable current Alberta source, remaining uncertainty and a respectful help request.",
+      "source": "https://www.alberta.ca/youth-employment-laws"
+    },
+    {
+      "id": "co2-02",
+      "title": "Stop, identify and control a hazard",
+      "goal": "Identify a hazard, use the three worker rights and choose a safe immediate and follow-up response.",
+      "opening": "On a first shift, Devin is asked to use an unlabelled cleaning liquid beside a poorly ventilated storage area. A supervisor is busy. What happens before Devin uses it?",
+      "teach": [
+        {
+          "heading": "A hazard is a source of harm",
+          "body": "A hazard is not the same as an injury that has already happened. The unlabelled liquid creates uncertainty about exposure; the ventilation condition may increase risk. Before starting, identify what could go wrong, who could be affected and what information is missing. A worker should receive the information, instruction, training and supervision needed for the task. An instruction to ‘be careful’ does not identify the substance or safe procedure."
+        },
+        {
+          "heading": "Use the three rights",
+          "body": "Canadian occupational health and safety guidance describes the rights to know about hazards, participate in health and safety decisions, and refuse work that may endanger someone. The right to know supports requesting the label, safety information and training before use. Participation includes reporting the concern and suggesting a safer method. If dangerous conditions remain, the worker should follow the applicable refusal process; the exact procedure belongs to the jurisdiction and workplace."
+        },
+        {
+          "heading": "Control the risk and document",
+          "body": "Pause the task, keep others away from the uncertain exposure if safe to do so, and ask the supervisor for guidance and the correct procedure. Do not test an unknown chemical by smelling it or mixing it with another product. Record the concern through the workplace process and follow up. If an immediate serious danger exists, move to safety and use the emergency procedure. The lesson case is fictional; a real worker should use current Alberta guidance and workplace training."
+        },
+        {
+          "heading": "Choose a control that removes or reduces exposure",
+          "body": "Risk control is strongest when it eliminates the hazard or separates people from it, rather than depending only on reminders to be careful. For the unknown cleaner in the case, a learner should not touch, smell, mix, or pour it. Keep people away if safe, report it, and wait for someone trained to identify and handle it. A glove or mask is not a substitute for knowing what the substance is and whether that equipment is appropriate."
+        },
+        {
+          "heading": "Refusal is a process, not a dare",
+          "body": "The right to refuse dangerous work is not an invitation to take risks or to confront someone alone. Tell the supervisor promptly, explain the specific hazard, and follow the current workplace and Alberta OHS process. The supervisor may investigate and take corrective action; the worker should not resume until the concern is addressed through the process. If danger is immediate, leave the danger area and follow emergency directions. The exact legal process and any exceptions must be checked against current official guidance. Never trade a worker’s safety for speed or customer convenience. A safe stop should be communicated promptly so the workplace can protect others and arrange trained assistance."
+        }
+      ],
+      "document": {
+        "title": "Devin’s hazard decision record",
+        "headers": [
+          "Observation",
+          "Information needed",
+          "Safe next action"
+        ],
+        "rows": [
+          [
+            "Container has no usable label",
+            "Identity and hazard information",
+            "Pause and ask for correctly identified product"
+          ],
+          [
+            "No task-specific training",
+            "Procedure and protective measures",
+            "Request instruction before use"
+          ],
+          [
+            "Poor ventilation",
+            "Whether area is suitable",
+            "Report and seek a safer method"
+          ]
+        ],
+        "note": "The table shows a decision sequence, not a complete legal refusal procedure."
+      },
+      "worked": [
+        {
+          "prompt": "A co-worker says, ‘I used it yesterday, so it is safe.’",
+          "steps": [
+            "Prior use does not identify the chemical or exposure risk.",
+            "Devin pauses and asks for the label, instructions and supervisor guidance.",
+            "The task resumes only when a safe procedure is established."
+          ],
+          "conclusion": "Anecdote is not hazard information."
+        },
+        {
+          "prompt": "The supervisor supplies the correct label and training but ventilation is still inadequate.",
+          "steps": [
+            "Reassess all hazards; solving one does not erase another.",
+            "Report the ventilation issue and seek a safe alternative.",
+            "Use the workplace and Alberta process if dangerous conditions remain."
+          ],
+          "conclusion": "Risk control is a sequence of decisions, not a single checkbox."
+        }
+      ],
+      "practice": [
+        {
+          "prompt": "What is Devin’s safest first move?",
+          "choices": [
+            "Pause and request hazard information and training",
+            "Use a small amount to test it",
+            "Mix it with water without instructions",
+            "Keep working because someone else did"
+          ],
+          "correctIndex": 0,
+          "feedback": [
+            "Yes. The substance and procedure must be identified before use.",
+            "Testing exposure can itself be harmful.",
+            "Mixing chemicals without instructions can increase danger.",
+            "Prior use does not establish safety."
+          ]
+        },
+        {
+          "prompt": "Reporting a hazard and suggesting a safer method uses which right?",
+          "choices": [
+            "Only the right to be paid",
+            "The right to participate",
+            "A guarantee of no future risk",
+            "Permission to ignore a supervisor"
+          ],
+          "correctIndex": 1,
+          "feedback": [
+            "Pay is a different workplace issue.",
+            "Yes. Workers can contribute to safety decisions and report concerns.",
+            "No method removes every risk automatically.",
+            "Participation uses a workplace process, not silence or defiance."
+          ]
+        },
+        {
+          "prompt": "The label is supplied but the room still lacks safe ventilation. What is the lesson?",
+          "choices": [
+            "The hazard is gone",
+            "The worker must finish quickly",
+            "Reassess each remaining hazard before proceeding",
+            "Ventilation never matters"
+          ],
+          "correctIndex": 2,
+          "feedback": [
+            "A label resolves only part of the uncertainty.",
+            "Speed does not control exposure.",
+            "Yes. Each relevant hazard needs a safe response.",
+            "Airflow can affect exposure risk."
+          ]
+        },
+        {
+          "prompt": "Why is “wear gloves” not enough for an unidentified liquid?",
+          "choices": [
+            "The correct protective equipment depends on knowing the substance and task.",
+            "Gloves make all chemicals safe.",
+            "Personal protective equipment removes the liquid.",
+            "The worker should test it by touch first."
+          ],
+          "correctIndex": 0,
+          "feedback": [
+            "Correct: without identification, you cannot know whether the glove is suitable.",
+            "Gloves do not protect against every chemical or exposure route.",
+            "PPE may reduce exposure but does not remove the source.",
+            "Touching an unknown substance creates exposure."
+          ]
+        },
+        {
+          "prompt": "What makes a control stronger than a reminder to “be careful”?",
+          "choices": [
+            "It removes the hazard or reliably separates people from it.",
+            "It blames the least experienced worker.",
+            "It hides the hazard from visitors.",
+            "It assumes an injury will not happen."
+          ],
+          "correctIndex": 0,
+          "feedback": [
+            "Correct: controls should reduce exposure at the source or by separation.",
+            "Blame does not control risk.",
+            "Hiding a hazard leaves it present.",
+            "Assumptions do not prevent harm."
+          ]
+        },
+        {
+          "prompt": "A worker has reported the hazard but it remains. What is an appropriate response?",
+          "choices": [
+            "Follow the applicable refusal process and do not resume until addressed.",
+            "Return because the supervisor heard about it.",
+            "Ask a classmate to test the substance.",
+            "Mix it with water to identify it."
+          ],
+          "correctIndex": 0,
+          "feedback": [
+            "Correct: report and follow the safe-work process; hearing a report is not itself a control.",
+            "A report does not establish that the hazard is controlled.",
+            "Another inexperienced worker should not be exposed.",
+            "Mixing unknown substances can create additional danger."
+          ]
+        }
+      ],
+      "transfer": "A fictional worker is assigned a tool with a damaged guard. Apply the identify, pause, ask, report and reassess sequence; distinguish the right to know from the right to refuse.",
+      "evidence": "Analyze a new Alberta workplace hazard case: identify sources of harm, use the three rights, and show immediate and follow-up actions with an official source.",
+      "source": "https://www.ccohs.ca/oshanswers/legisl/legislation/three_rights.html"
+    },
+    {
+      "id": "co2-03",
+      "title": "Act on responsibilities and concerns",
+      "goal": "Connect worker and employer responsibilities to a specific, documented workplace concern.",
+      "opening": "A worker notices the closing checklist skips a machine inspection. They feel awkward raising it because the team is behind schedule. How could they act responsibly?",
+      "teach": [
+        {
+          "heading": "Responsibilities are shared",
+          "body": "A safe workplace requires more than one person following rules. Employers must provide systems, information and supervision required by applicable law; workers follow safe procedures, use provided protection correctly and report hazards. Saying ‘everyone is responsible’ does not mean a new worker must solve a hazardous system alone. In the case, the worker can stop a task they cannot do safely and ask how the inspection should be completed."
+        },
+        {
+          "heading": "Make the concern specific",
+          "body": "A useful report names the task, observed condition, time and possible consequence. ‘The machine is dangerous’ is less actionable than ‘the guard was loose during the 4 p.m. closing check; I stopped using it and told the shift lead.’ Keep facts separate from assumptions about someone’s motives. Follow the workplace process and keep an appropriate record, without sharing private worker information publicly."
+        },
+        {
+          "heading": "Escalate with purpose",
+          "body": "If the first conversation does not resolve a concern, use the next workplace contact or current Alberta occupational health and safety guidance. For wage or scheduling matters, the relevant employment-standards route may differ from a safety concern. Identify the issue before selecting an agency or complaint path. Asking a trusted adult, union representative where applicable, or school contact for help can support a young worker."
+        },
+        {
+          "heading": "Choose the right reporting route for the issue",
+          "body": "A workplace can involve several distinct concerns: an immediate hazard, unpaid wages, schedule limits, harassment, or unsafe equipment. Start by naming the issue and its urgency. A safety concern belongs in the workplace OHS reporting process and may involve Alberta OHS guidance; a pay question may involve the employer’s payroll records and Employment Standards. Some situations need more than one route. Avoid sending a complaint to an agency that has no mandate for that issue, and seek a trusted adult’s help when uncertain."
+        },
+        {
+          "heading": "Close the loop after reporting",
+          "body": "A report is more useful when it states what action is requested and how the worker will know whether the risk was addressed. For example, “Please confirm the guard is secured and show me the inspection procedure before I use the saw again.” Note the response and any change to the equipment or instruction. If the hazard persists, follow the escalation path rather than treating silence as resolution. Do not photograph coworkers or publish allegations online; preserve relevant records privately and use the workplace’s appropriate channels. Keep the report factual and limited to people who need to respond. A clear record helps identify whether a control changed and prevents the same hazard from being passed to the next shift."
+        }
+      ],
+      "document": {
+        "title": "Two versions of a concern report",
+        "headers": [
+          "Version",
+          "Message",
+          "Problem or strength"
+        ],
+        "rows": [
+          [
+            "Vague",
+            "Nobody here cares about safety",
+            "Motives asserted; no checkable event"
+          ],
+          [
+            "Specific",
+            "At 4 p.m. the guard was loose; I stopped the machine and told the shift lead",
+            "Time, observation and action can be checked"
+          ]
+        ],
+        "note": "The details are fictional and use no personal or confidential information."
+      },
+      "worked": [
+        {
+          "prompt": "Rewrite the vague message for a supervisor.",
+          "steps": [
+            "Name the observed condition and when it happened.",
+            "State what work was paused or made safe.",
+            "Ask for the inspection or repair procedure and a response."
+          ],
+          "conclusion": "Specific records help the workplace act without inventing blame."
+        },
+        {
+          "prompt": "A pay error is reported only to the safety contact.",
+          "steps": [
+            "Identify that the issue concerns earnings records, not a machine hazard.",
+            "Find the payroll or employment-standards route.",
+            "Keep the pay-period evidence and request clarification from the appropriate person."
+          ],
+          "conclusion": "The correct help route depends on the type of concern."
+        }
+      ],
+      "practice": [
+        {
+          "prompt": "Which report is easiest to investigate?",
+          "choices": [
+            "The guard was loose at 4 p.m.; I stopped using the machine",
+            "Everyone is careless",
+            "This always happens",
+            "Someone must be punished"
+          ],
+          "correctIndex": 0,
+          "feedback": [
+            "Yes. It gives an observation, time and immediate action.",
+            "It assigns a broad motive without a specific event.",
+            "‘Always’ needs evidence and dates.",
+            "Punishment is not the first factual description of the hazard."
+          ]
+        },
+        {
+          "prompt": "Who must solve a workplace system hazard?",
+          "choices": [
+            "The newest worker alone",
+            "The workplace through shared responsibilities and proper processes",
+            "Only a classmate",
+            "No one if the shift is busy"
+          ],
+          "correctIndex": 1,
+          "feedback": [
+            "A new worker should report and act safely, not carry the system alone.",
+            "Yes. Roles differ, but safety work is shared.",
+            "A classmate may support but does not replace the workplace process.",
+            "Schedule pressure does not remove the hazard."
+          ]
+        },
+        {
+          "prompt": "A wage discrepancy needs which first record?",
+          "choices": [
+            "A screenshot of a rumour",
+            "A public accusation",
+            "Pay period, hours, rate and statement",
+            "An unrelated safety poster"
+          ],
+          "correctIndex": 2,
+          "feedback": [
+            "A rumour does not establish this worker’s pay.",
+            "Public accusation risks privacy and skips verification.",
+            "Yes. These details permit a focused payroll question.",
+            "Safety material will not reconcile the pay calculation."
+          ]
+        },
+        {
+          "prompt": "A worker reports an unpaid hour. What record is the most useful starting point?",
+          "choices": [
+            "The time record and pay statement for the same period.",
+            "A photo of unrelated equipment.",
+            "A public post naming a coworker.",
+            "A safety data sheet for a cleaner."
+          ],
+          "correctIndex": 0,
+          "feedback": [
+            "Correct: compare records that show the hours and pay in question.",
+            "This does not address the pay discrepancy.",
+            "Public accusations do not establish the recorded hour and can expose private information.",
+            "A chemical document is unrelated to wages."
+          ]
+        },
+        {
+          "prompt": "A hazard report receives no response and the danger remains. What should the worker do?",
+          "choices": [
+            "Treat silence as proof the risk is fixed.",
+            "Use the next appropriate workplace or official safety escalation route.",
+            "Resume the task to avoid inconvenience.",
+            "Delete the report."
+          ],
+          "correctIndex": 1,
+          "feedback": [
+            "Silence does not show the hazard was controlled.",
+            "Correct: an unresolved risk calls for the next safe reporting step.",
+            "Convenience does not make a hazard safe.",
+            "Keeping records can help a follow-up."
+          ]
+        },
+        {
+          "prompt": "Which report is easiest for a supervisor to act on?",
+          "choices": [
+            "“The place is unsafe.”",
+            "“At 4 p.m. the guard shifted during the check; I stopped the task and need inspection before resuming.”",
+            "“Everyone knows the machine is bad.”",
+            "“My coworker is careless.”"
+          ],
+          "correctIndex": 1,
+          "feedback": [
+            "This gives little detail or action.",
+            "Correct: it identifies time, observed condition, action, and requested response.",
+            "General reputation is not a checkable event.",
+            "It speculates about motive and does not describe the hazard."
+          ]
+        }
+      ],
+      "transfer": "A fictional worker finds repeated missed breaks in their time record. Draft a factual question and choose which current Alberta guidance to check, noting what facts are still missing.",
+      "evidence": "Write a short documented concern and a two-step help route for a fictional workplace issue; identify the correct source category.",
+      "source": "https://www.alberta.ca/occupational-health-safety"
+    },
+    {
+      "id": "co2-04",
+      "title": "Recognize discrimination and seek help",
+      "goal": "Distinguish an observable workplace event from an assumption, preserve relevant evidence and select a safe help route.",
+      "opening": "A supervisor repeatedly assigns training opportunities to some workers but tells another worker, ‘People like you do not do that task.’ What needs to be documented before drawing a conclusion?",
+      "teach": [
+        {
+          "heading": "Observe before labelling",
+          "body": "Discrimination concerns involve treatment connected to protected grounds under applicable human-rights law. A worker’s experience matters, but a course scenario cannot determine the legal outcome from one sentence alone. Record the actual words, dates, context, decision made, comparison with relevant opportunities and any witnesses or messages. Avoid speculating about motives as if they were proven facts."
+        },
+        {
+          "heading": "Protect privacy and safety",
+          "body": "Keep records in a private, appropriate place and avoid posting allegations or other workers’ identities online. Ask a trusted adult, school contact, workplace human-resources contact or representative for support. Where internal steps are unsuitable or do not resolve the issue, consult the current Alberta Human Rights Commission guidance for options and time limits. The right help route depends on the issue and the worker’s circumstances."
+        },
+        {
+          "heading": "Choose an actionable next step",
+          "body": "A useful request states the event and desired clarification: ‘On Tuesday I was told I could not join the training. What criteria are being used, and how can I apply?’ The response can be compared with the documented pattern. The learner’s task is not to adjudicate a real classmate’s case; use the fictional record to practise evidence, respectful communication and seeking qualified help."
+        },
+        {
+          "heading": "Record facts without exposing others",
+          "body": "When documenting a concerning incident, keep an exact note of what was said or done, when and where it happened, who was present, and what decision followed. Separate a direct quotation from your interpretation. Preserve relevant messages privately and avoid forwarding them to classmates or posting names. A comparison can be useful, but only if it is fair: compare similar roles, qualifications, timing, and circumstances rather than assuming different outcomes have the same cause."
+        },
+        {
+          "heading": "Seek a suitable and timely help route",
+          "body": "A trusted adult, school contact, workplace representative, or human-resources contact can help a young worker understand options. If the concern may involve a protected ground or a missed deadline, consult current Alberta Human Rights Commission information promptly because processes and time limits matter. An initial conversation can ask for criteria or clarification without forcing a learner to decide the legal label alone. In class, use the fictional file; do not submit a real allegation, another person’s identity, or confidential employment records. The learner does not have to confront the person alone. Preserve a copy of relevant information, note any immediate safety concern, and choose support before taking a step that feels unsafe."
+        }
+      ],
+      "document": {
+        "title": "Fictional training-opportunity timeline",
+        "headers": [
+          "Date",
+          "Observed event",
+          "Follow-up needed"
+        ],
+        "rows": [
+          [
+            "Sept. 3",
+            "Training announced to team",
+            "Written criteria, if any"
+          ],
+          [
+            "Sept. 5",
+            "Worker asked how to join",
+            "Record the response accurately"
+          ],
+          [
+            "Sept. 6",
+            "Supervisor used ‘people like you’ phrase",
+            "Exact words, context and witnesses"
+          ],
+          [
+            "Sept. 8",
+            "Two peers assigned training",
+            "Whether roles or qualifications differed"
+          ]
+        ],
+        "note": "This is a fictional teaching record and does not determine a legal finding."
+      },
+      "worked": [
+        {
+          "prompt": "A student writes ‘the supervisor hates this worker.’",
+          "steps": [
+            "Separate the inference about motive from the observed words and assignments.",
+            "Keep the dates, messages and exact phrase.",
+            "Ask about the decision criteria and seek an appropriate support route."
+          ],
+          "conclusion": "Evidence can be strong without claiming to know someone’s private motive."
+        },
+        {
+          "prompt": "The worker considers posting screenshots publicly.",
+          "steps": [
+            "Public sharing may expose private information and intensify the situation.",
+            "Preserve the evidence privately.",
+            "Consult a trusted support person and current Human Rights Commission guidance."
+          ],
+          "conclusion": "Protecting evidence and privacy can coexist."
+        }
+      ],
+      "practice": [
+        {
+          "prompt": "Which note best preserves checkable evidence?",
+          "choices": [
+            "The exact words, date, context and available messages",
+            "My guess about the supervisor’s personality",
+            "An edited public post naming peers",
+            "Nothing until a legal decision is made"
+          ],
+          "correctIndex": 0,
+          "feedback": [
+            "Yes. Specific observations are useful for clarification and support.",
+            "A personality guess is not an event record.",
+            "Publicly naming others can expose private information.",
+            "Timely factual notes can be important."
+          ]
+        },
+        {
+          "prompt": "What is a suitable first help route for a young worker unsure how to proceed?",
+          "choices": [
+            "A public accusation",
+            "A trusted school or workplace support person plus current official guidance",
+            "A stranger in a comment section",
+            "Delete the record"
+          ],
+          "correctIndex": 1,
+          "feedback": [
+            "Public allegations can create new risks and do not clarify the process.",
+            "Yes. Support and current guidance help the worker choose next steps.",
+            "An unknown commenter cannot assess the full case.",
+            "Preserve relevant evidence privately."
+          ]
+        },
+        {
+          "prompt": "What should the course conclude from the fictional sentence alone?",
+          "choices": [
+            "A final legal finding",
+            "That nothing matters",
+            "That the event raises a concern needing evidence and appropriate guidance",
+            "That every peer had identical qualifications"
+          ],
+          "correctIndex": 2,
+          "feedback": [
+            "A legal finding requires more facts and a proper process.",
+            "The language and pattern deserve careful attention.",
+            "Yes. Document, clarify and seek support.",
+            "The scenario does not establish that."
+          ]
+        },
+        {
+          "prompt": "Which note best distinguishes fact from interpretation?",
+          "choices": [
+            "“The manager hates me.”",
+            "“On Tuesday the training list was posted; my name was absent, and I was told applications closed Monday.”",
+            "“They always discriminate.”",
+            "“Everyone agrees the decision was unfair.”"
+          ],
+          "correctIndex": 1,
+          "feedback": [
+            "This asserts a motive that is not directly observed.",
+            "Correct: it records a date, event, and stated reason that can be checked.",
+            "“Always” overgeneralizes without examples.",
+            "Group agreement is not a factual record of the decision."
+          ]
+        },
+        {
+          "prompt": "Why compare similar cases carefully?",
+          "choices": [
+            "Different roles or qualifications may explain different outcomes.",
+            "Any difference proves discrimination.",
+            "Comparison is never relevant.",
+            "A comparison lets the learner publish coworkers’ records."
+          ],
+          "correctIndex": 0,
+          "feedback": [
+            "Correct: like-for-like context helps make the evidence meaningful.",
+            "A difference alone does not establish its cause.",
+            "Relevant comparisons can be useful evidence.",
+            "Private records should not be exposed."
+          ]
+        },
+        {
+          "prompt": "A young worker is unsure about a possible human-rights concern and a deadline may apply. What is wise?",
+          "choices": [
+            "Wait until the end of the school year.",
+            "Consult current Alberta Human Rights Commission guidance or a trusted support person promptly.",
+            "Ask social media to decide the legal outcome.",
+            "Delete the records to avoid conflict."
+          ],
+          "correctIndex": 1,
+          "feedback": [
+            "Delay can risk missing time limits.",
+            "Correct: current guidance and support help the worker understand options in time.",
+            "Social media cannot determine the legal result.",
+            "Records may be needed; store them privately."
+          ]
+        }
+      ],
+      "transfer": "A fictional worker is denied a schedule change after a similar request was granted to a peer. Identify what facts would help evaluate the difference and draft a respectful clarification question.",
+      "evidence": "Build a private evidence timeline for a fictional workplace treatment case and a safe, source-based help plan.",
+      "source": "https://albertahumanrights.ab.ca/issues-at-work/rights-and-responsibilities/"
+    },
+    {
+      "id": "co1-01",
+      "title": "Show what you can do at work",
+      "goal": "Translate a task example into a truthful employability-skill statement for a fictional application.",
+      "opening": "A fictional community library hub posts a part-time help-desk role. Rowan has never held a paid job but has helped organize a school event. Can that experience count as evidence?",
+      "teach": [
+        {
+          "heading": "Skills are shown through actions",
+          "body": "Employability skills such as communication, problem solving, reliability and collaboration appear in paid and unpaid settings. A first job application does not need to invent employment. Instead, connect a real or fictional task to an action and outcome: what was needed, what the learner did, and what changed. ‘Organized an event’ is a start; ‘kept a sign-up list, confirmed volunteers, and solved a scheduling conflict’ shows what the person can do."
+        },
+        {
+          "heading": "Read the role before writing",
+          "body": "A useful application responds to actual duties. The library hub needs people who can welcome visitors, keep simple records, protect private information and ask for help when unsure. Rowan should select evidence for those tasks. A long list of personality claims is weaker than two specific examples tied to the posting. Do not overstate a role, claim a credential not held, or share another person’s private information in an example."
+        },
+        {
+          "heading": "Improve with a test",
+          "body": "Read a skill sentence as if you were the employer: can you picture the action, and could you ask a follow-up question about it? If not, revise. A good first résumé or portfolio can include school projects, service, family responsibilities or personal projects when described appropriately. The course uses a fictional posting so every learner can practise without needing a real employer, résumé history or personal disclosure."
+        },
+        {
+          "heading": "Translate experience into employer evidence",
+          "body": "A posting describes needs; an application should help the reader find matching evidence quickly. Choose a skill the role actually uses, then give one example with an action and result. A student who helped with a school fundraiser might describe how they checked the count against a list, spotted a mismatch, and asked the coordinator before changing the record. That example shows care and judgement without claiming paid office experience. Keep the example truthful and remove any names or private details about other people."
+        },
+        {
+          "heading": "Make the evidence easy to verify",
+          "body": "Use specific verbs—checked, sorted, explained, repaired, planned—and avoid unsupported adjectives such as “perfect” or “expert.” If the result is not numeric, describe what changed or what feedback you received. A portfolio item can include a short reflection that names a challenge and what you would do next time. If the learner has no matching example yet, identify a safe practice task they can do in class rather than inventing experience or volunteering for an unsafe task. Use the same care when describing unpaid responsibilities: state the context and avoid suggesting that a project was a formal job. A clear boundary increases trust in the rest of the example."
+        }
+      ],
+      "document": {
+        "title": "Prairie Library Hub — fictional help-desk posting",
+        "headers": [
+          "Responsibility",
+          "Evidence an applicant could show"
+        ],
+        "rows": [
+          [
+            "Welcome visitors and explain the sign-in process",
+            "Example of clear communication"
+          ],
+          [
+            "Keep reservation records accurate",
+            "Example of careful organization"
+          ],
+          [
+            "Ask for guidance about unfamiliar requests",
+            "Example of judgement and safe help-seeking"
+          ],
+          [
+            "Protect visitor information",
+            "Example of privacy awareness"
+          ]
+        ],
+        "note": "This is a supplied simulation posting, not a real job opening."
+      },
+      "worked": [
+        {
+          "prompt": "Rowan writes, ‘I am hardworking and friendly.’",
+          "steps": [
+            "The sentence names qualities but gives no observable task.",
+            "Choose the posting duty about welcoming visitors.",
+            "Rewrite: ‘At a school event, I explained the sign-in steps to new families and checked that they knew where to go.’"
+          ],
+          "conclusion": "The improved sentence links a real action to a relevant duty without inventing a paid job."
+        },
+        {
+          "prompt": "Rowan claims to have managed confidential files, but only saw a volunteer sign-up sheet.",
+          "steps": [
+            "The claim overstates the responsibility.",
+            "Use the actual task: kept the sign-up sheet in the agreed location and did not share contact details.",
+            "Name the privacy principle learned without claiming a formal credential."
+          ],
+          "conclusion": "Accuracy makes the evidence more credible."
+        }
+      ],
+      "practice": [
+        {
+          "prompt": "Which application line gives the strongest skill evidence?",
+          "choices": [
+            "I am the best communicator",
+            "I explained event directions, answered questions and checked understanding",
+            "Everyone says I am nice",
+            "I could probably talk to visitors"
+          ],
+          "correctIndex": 1,
+          "feedback": [
+            "A ranking claim is not evidence.",
+            "Yes. It names an action and its relevance to the role.",
+            "Praise is less precise than a task example.",
+            "A possibility is weaker than a demonstrated action."
+          ]
+        },
+        {
+          "prompt": "Which experience can a first-time applicant use?",
+          "choices": [
+            "Only paid employment",
+            "Only a formal award",
+            "A truthful school or community task relevant to the duty",
+            "An invented position"
+          ],
+          "correctIndex": 2,
+          "feedback": [
+            "Skills can be learned in many settings.",
+            "Awards are optional and may not match the role.",
+            "Yes. Show the task, action and result.",
+            "Inventing experience undermines trust."
+          ]
+        },
+        {
+          "prompt": "The posting mentions private visitor records. What is a safe application example?",
+          "choices": [
+            "Describe a privacy-aware task without exposing anyone’s details",
+            "Paste a real visitor list",
+            "Name a neighbour whose file you saw",
+            "Ignore the duty because it is inconvenient"
+          ],
+          "correctIndex": 0,
+          "feedback": [
+            "Yes. Demonstrate judgement using a non-identifying example.",
+            "Do not disclose private information.",
+            "Do not reveal another person’s information.",
+            "Respond to the duty with appropriate evidence."
+          ]
+        },
+        {
+          "prompt": "A posting needs accurate record handling. Which example fits best?",
+          "choices": [
+            "“I am trustworthy.”",
+            "“For a class event, I checked the signup list against the kit count and asked the teacher about one mismatch.”",
+            "“I like computers.”",
+            "“My friend is good at records.”"
+          ],
+          "correctIndex": 1,
+          "feedback": [
+            "This is a positive claim but no evidence.",
+            "Correct: it gives a relevant task, action, and appropriate response.",
+            "An interest does not show accurate record handling.",
+            "A friend’s skill is not the applicant’s evidence."
+          ]
+        },
+        {
+          "prompt": "The student lacks paid work history. What can they include?",
+          "choices": [
+            "A truthful school, service, home, or project example described with an appropriate boundary.",
+            "A made-up employer and supervisor.",
+            "Another person’s private records.",
+            "Only a list of personality adjectives."
+          ],
+          "correctIndex": 0,
+          "feedback": [
+            "Correct: evidence can come from varied settings if accurately described.",
+            "Inventing employment is dishonest.",
+            "Private data should not be included.",
+            "Adjectives do not demonstrate the skill."
+          ]
+        },
+        {
+          "prompt": "Which verb makes a skill statement most observable?",
+          "choices": [
+            "“I am amazing.”",
+            "“I reconciled the supply list with the returned items and flagged a difference.”",
+            "“I am destined to lead.”",
+            "“I have always been responsible.”"
+          ],
+          "correctIndex": 1,
+          "feedback": [
+            "This is an unsupported evaluation.",
+            "Correct: the action can be pictured and followed up.",
+            "A prediction is not evidence.",
+            "A broad history lacks an example."
+          ]
+        }
+      ],
+      "transfer": "A second fictional posting asks for teamwork during a busy event. Revise Rowan’s school-project example to show a specific collaboration action and result without exaggerating.",
+      "evidence": "Write two evidence statements for the supplied fictional posting and annotate which duty each addresses.",
+      "source": "https://www.canada.ca/en/services/jobs/training/initiatives/skills-success.html",
+      "mediaId": "0ceef906570e"
+    },
+    {
+      "id": "co1-02",
+      "title": "Make decisions on a first shift",
+      "goal": "Use supplied onboarding information to prepare for a safe, respectful simulated first shift.",
+      "opening": "Rowan receives a first-shift note from Prairie Library Hub. It lists a start time and three tasks but does not explain who authorizes access to visitor records. What should Rowan do first?",
+      "teach": [
+        {
+          "heading": "Read instructions as a system",
+          "body": "A first-shift message should tell a worker where to arrive, who supervises, what tasks are allowed, what training is required and how to report a problem. If a piece is missing, asking before acting is part of preparation. Do not treat an access code or a casual co-worker suggestion as permission to view private records. A new worker can be reliable while saying, ‘I need the approved procedure before I do that.’"
+        },
+        {
+          "heading": "Plan for uncertainty",
+          "body": "Separate routine questions from urgent hazards. A missing visitor-sign-in instruction calls for a supervisor question; a spill across an exit may require pausing access and using the site’s safety procedure immediately. List the task, missing information, possible consequence and safe interim action. This prepares Rowan to make a good decision even when the exact case differs from the opening note."
+        },
+        {
+          "heading": "Keep the learning online",
+          "body": "You will use supplied messages, schedules and records in a simulated workday. Read them closely, choose actions and explain why. The case lets you practise preparation, communication and safe judgement without arranging an external placement or disclosing your real employment history. The teacher can assess the reasoning in your written case file; the fictional supervisor in the story provides the feedback needed for later lessons."
+        },
+        {
+          "heading": "Use permission and privacy boundaries",
+          "body": "Workplace readiness includes knowing what you are authorized to do. A visitor asking for another person’s reservation, phone number, or schedule does not create permission to disclose it. Confirm the site’s identity-check and privacy procedure with the supervisor. If the procedure is missing, explain the request and ask for direction while avoiding confirmation that the record exists. The same principle applies in a simulated course: analyze only the fictional information provided and do not enter real names or records."
+        },
+        {
+          "heading": "Match the response to urgency",
+          "body": "Classify a situation by immediate danger, privacy, deadline, and your authority. A spill blocking an exit needs an immediate safe action: warn others if safe, keep clear, and use the site emergency process. A printer delay usually needs a clear supervisor update and a proposed workaround. A learner should not improvise with unfamiliar equipment or chemicals. Tell the lead what is known, what is uncertain, what has already been done, and what decision is needed. If the supervisor is unavailable, follow the site’s escalation or emergency directions rather than guessing. The correct action depends on the urgency and the training already provided."
+        }
+      ],
+      "document": {
+        "title": "Prairie Library Hub — fictional first-shift note",
+        "headers": [
+          "Item",
+          "Message"
+        ],
+        "rows": [
+          [
+            "Arrival",
+            "Monday, 9:00 a.m., front desk"
+          ],
+          [
+            "Contact",
+            "Shift lead: Morgan"
+          ],
+          [
+            "Initial tasks",
+            "Welcome visitors, prepare activity cards, update reservation list after training"
+          ],
+          [
+            "Safety",
+            "Report blocked exits and spills to the shift lead"
+          ],
+          [
+            "Missing detail",
+            "When and how record access is granted"
+          ]
+        ],
+        "note": "All names, schedules and tasks are fictional and supplied in the course."
+      },
+      "worked": [
+        {
+          "prompt": "A peer offers Rowan their own login so the reservation list can be updated now.",
+          "steps": [
+            "The note says record updates follow training but does not grant access yet.",
+            "Rowan declines to use another person’s login and asks Morgan for the approved process.",
+            "Meanwhile Rowan can complete a permitted task such as activity cards."
+          ],
+          "conclusion": "Progress and privacy both matter; a shortcut can create a bigger problem."
+        },
+        {
+          "prompt": "A spill blocks an exit before visitors arrive.",
+          "steps": [
+            "Recognize a safety issue rather than treating it as a normal records question.",
+            "Keep visitors from the area if safe and alert Morgan through the stated process.",
+            "Do not direct visitors through the blocked exit until it is safe."
+          ],
+          "conclusion": "The urgency and consequence determine the first action."
+        }
+      ],
+      "practice": [
+        {
+          "prompt": "What should Rowan do about access to visitor records?",
+          "choices": [
+            "Ask the shift lead for the approved training and access procedure",
+            "Borrow a co-worker’s login",
+            "Open random records to learn the system",
+            "Skip all work for the shift"
+          ],
+          "correctIndex": 0,
+          "feedback": [
+            "Yes. The permission and training are missing from the note.",
+            "Shared credentials defeat accountability and privacy.",
+            "Exploration without authorization exposes private records.",
+            "Other permitted tasks can proceed while access is clarified."
+          ]
+        },
+        {
+          "prompt": "Which detail makes a spill near an exit different from a routine question?",
+          "choices": [
+            "The floor colour",
+            "Potential immediate harm and blocked movement",
+            "The day of the week",
+            "The number of activity cards"
+          ],
+          "correctIndex": 1,
+          "feedback": [
+            "Colour is not the key risk.",
+            "Yes. A hazard needs prompt action through the safety process.",
+            "The date does not remove the danger.",
+            "An unrelated task count does not describe the hazard."
+          ]
+        },
+        {
+          "prompt": "What is the purpose of this course’s workday case?",
+          "choices": [
+            "To claim a real job was completed",
+            "To require learners to contact a business",
+            "To practise decisions using complete supplied records and feedback",
+            "To collect student employment details"
+          ],
+          "correctIndex": 2,
+          "feedback": [
+            "The course does not present a fictional shift as real employment.",
+            "All essential case materials are supplied here.",
+            "Yes. Analyse the evidence and practise your response online.",
+            "Private employment history is not required."
+          ]
+        },
+        {
+          "prompt": "A visitor asks whether a named person has a reservation. What response protects privacy?",
+          "choices": [
+            "Confirm it if the visitor sounds confident.",
+            "Do not confirm or deny; follow the identity-check procedure or ask the supervisor.",
+            "Read the reservation aloud but hide the phone number.",
+            "Search personal social media for confirmation."
+          ],
+          "correctIndex": 1,
+          "feedback": [
+            "Confidence does not establish authorization.",
+            "Correct: avoid disclosure until the approved procedure is followed.",
+            "Even confirming existence can disclose private information.",
+            "Social media is not an authorized record-verification process."
+          ]
+        },
+        {
+          "prompt": "A spill blocks the only exit. What makes this different from a routine printer delay?",
+          "choices": [
+            "It creates an immediate safety concern, so follow the site emergency process and keep people away if safe.",
+            "Both can wait until the end of the shift.",
+            "The worker should clean it without knowing what it is.",
+            "The worker should ignore the spill and finish setup."
+          ],
+          "correctIndex": 0,
+          "feedback": [
+            "Correct: blocked egress can create immediate danger.",
+            "The risk and urgency differ.",
+            "Unknown substances require trained procedures, not improvisation.",
+            "Ignoring an urgent hazard exposes others."
+          ]
+        },
+        {
+          "prompt": "Which supervisor update is most useful?",
+          "choices": [
+            "“Something happened.”",
+            "“The printer stopped after one page; the 11 a.m. cards are incomplete. I can use blank cards if you approve.”",
+            "“The shift is impossible.”",
+            "“I fixed it” when no repair was made."
+          ],
+          "correctIndex": 1,
+          "feedback": [
+            "The lead lacks the task and needed response.",
+            "Correct: it gives status, consequence, and a proposed decision.",
+            "This offers no actionable detail.",
+            "Claiming a repair that did not happen is dishonest."
+          ]
+        }
+      ],
+      "transfer": "The first-shift note is changed: the activity cards now include participant phone numbers. Identify which instruction is missing and draft the question Rowan should ask before handling them.",
+      "evidence": "Create a first-shift decision record from the supplied note: permitted tasks, two missing instructions, one urgent safety response and one privacy-safe question.",
+      "source": "https://www.ccohs.ca/oshanswers/legisl/legislation/three_rights.html"
+    },
+    {
+      "id": "co1-03",
+      "title": "Practise a truthful interview",
+      "goal": "Build and revise an interview answer using a situation, action, result and relevant learning.",
+      "opening": "The fictional shift lead asks Rowan, ‘Tell me about a time you handled an unexpected change.’ Rowan has an example from a school event, but their first answer is, ‘I am good under pressure.’ How can it improve?",
+      "teach": [
+        {
+          "heading": "Answer with a small true story",
+          "body": "An interview answer is stronger when the listener can see what happened. State the situation briefly, the action you took, the result and what you learned. The story does not need to be dramatic or from paid employment. A school project, household responsibility, volunteer task or fictional practice case can demonstrate a skill if it is described honestly. For a real interview, use your own truthful experience and protect other people’s privacy."
+        },
+        {
+          "heading": "Target the question",
+          "body": "The question asks about change, so Rowan should explain the original plan, what changed, the choice made and its consequence. ‘I worked hard’ does not tell the interviewer how Rowan adapted. A strong answer might say that a volunteer cancelled, Rowan moved the sign-in table, assigned a replacement, and checked that arrivals were still greeted. The result does not need to be perfect; a useful reflection can name a limitation and a better next step."
+        },
+        {
+          "heading": "Make networking safe and purposeful",
+          "body": "Researching a role can include reading official profiles, attending school-approved events or asking a known adult about their work. No learner must contact a stranger, disclose private information or conduct a real interview for this lesson. Practise two questions for the fictional shift lead: one about daily tasks and one about support or training. A question should help you evaluate the role, not simply flatter the interviewer."
+        },
+        {
+          "heading": "Match the story to the question asked",
+          "body": "A concise interview response begins with the question’s focus, not a memorized speech. For a question about change, identify the original plan, the new information, the action, and the result. For a question about a mistake, take responsibility for the part you controlled and explain what you learned, without blaming teammates. Use an example that is true in a real interview; this course’s fictional response is for practice only. Keep other people anonymous unless their details are necessary and authorized."
+        },
+        {
+          "heading": "Turn practice into a conversation",
+          "body": "After drafting, check whether a listener could understand the context in one sentence and whether the result answers the question. Remove details that do not support the point. Practise aloud or in writing, but do not try to memorize a perfect script; follow-up questions may change the direction. Networking can also be a question-led conversation with a known adult or approved guest. Ask about ordinary tasks, training, and challenging parts. No student must contact strangers or share a personal phone number for course completion. A thoughtful answer can include a lesson learned without turning the response into an apology. Be concise enough to leave room for the interviewer’s follow-up."
+        }
+      ],
+      "document": {
+        "title": "Fictional interview notes",
+        "headers": [
+          "Answer",
+          "What the listener learns"
+        ],
+        "rows": [
+          [
+            "I am good under pressure",
+            "A claim, but no observable example"
+          ],
+          [
+            "A volunteer cancelled; I reallocated sign-in and welcomed arrivals",
+            "Situation and action"
+          ],
+          [
+            "The line stayed short; next time I would train a backup before opening",
+            "Result and learning"
+          ]
+        ],
+        "note": "The case is supplied for practice. Students may answer using this fictional record."
+      },
+      "worked": [
+        {
+          "prompt": "Turn Rowan’s one-line claim into an answer.",
+          "steps": [
+            "Situation: a volunteer cancelled before a school event.",
+            "Action: Rowan moved one helper to sign-in and explained the updated plan.",
+            "Result and learning: visitors were greeted; Rowan would prepare a backup role next time."
+          ],
+          "conclusion": "The answer is specific, relevant to change and open about improvement."
+        },
+        {
+          "prompt": "Rowan says, ‘I personally ran the whole event,’ but the record shows a team effort.",
+          "steps": [
+            "The claim cannot be supported by the supplied evidence.",
+            "Name Rowan’s own action and credit the team’s contributions.",
+            "Keep the result accurate rather than inflated."
+          ],
+          "conclusion": "Truthful detail is more convincing than exaggerated ownership."
+        }
+      ],
+      "practice": [
+        {
+          "prompt": "Which answer best addresses unexpected change?",
+          "choices": [
+            "I adapt well",
+            "When a volunteer cancelled, I reassigned sign-in and checked the visitor line",
+            "I never make mistakes",
+            "My friends say I am confident"
+          ],
+          "correctIndex": 1,
+          "feedback": [
+            "This is a claim without an example.",
+            "Yes. It names the change and Rowan’s response.",
+            "This is unrealistic and avoids the question.",
+            "A friend’s opinion is not the requested event."
+          ]
+        },
+        {
+          "prompt": "What belongs after the action in a strong answer?",
+          "choices": [
+            "An unrelated hobby",
+            "A longer job title",
+            "The result and what was learned",
+            "Another unsupported claim"
+          ],
+          "correctIndex": 2,
+          "feedback": [
+            "Hobbies matter only if relevant to the question.",
+            "A title does not show the outcome.",
+            "Yes. Explain what changed and what you would repeat or improve.",
+            "Claims need evidence, not more claims."
+          ]
+        },
+        {
+          "prompt": "Which question helps Rowan evaluate the fictional role?",
+          "choices": [
+            "What training is provided before handling visitor records?",
+            "Can I have someone’s private contact details?",
+            "Will you promise I never make an error?",
+            "Do you think I am impressive?"
+          ],
+          "correctIndex": 0,
+          "feedback": [
+            "Yes. It asks about a real responsibility and support.",
+            "Private information should not be requested.",
+            "No employer can promise that.",
+            "This does not clarify the work."
+          ]
+        },
+        {
+          "prompt": "An interviewer asks how you adapted when a plan changed. Which answer fits the question?",
+          "choices": [
+            "“I am hardworking and punctual.”",
+            "“When two volunteers cancelled, I reassigned the check-in task, updated the schedule, and we opened on time.”",
+            "“My group made me do everything.”",
+            "“I always succeed.”"
+          ],
+          "correctIndex": 1,
+          "feedback": [
+            "These are traits, not an example of adaptation.",
+            "Correct: it gives a change, action, and observable result.",
+            "Blame does not show the applicant’s response.",
+            "An absolute claim is difficult to support."
+          ]
+        },
+        {
+          "prompt": "What is a good way to improve a spoken answer?",
+          "choices": [
+            "Check that the result answers the prompt and remove details that distract.",
+            "Memorize every word and refuse follow-up questions.",
+            "Add private details about teammates.",
+            "Make the story more dramatic even if it changes the facts."
+          ],
+          "correctIndex": 0,
+          "feedback": [
+            "Correct: relevance and clarity improve the evidence.",
+            "Interviews are conversations; follow-ups are normal.",
+            "Other people’s privacy should be protected.",
+            "Changing facts undermines honesty."
+          ]
+        },
+        {
+          "prompt": "Which networking question helps a learner evaluate a role?",
+          "choices": [
+            "“Can you guarantee I will be hired?”",
+            "“What tasks take most of a typical day, and what training helps a new person?”",
+            "“What is your home address?”",
+            "“Can I have your private account password?”"
+          ],
+          "correctIndex": 1,
+          "feedback": [
+            "A contact cannot guarantee employment.",
+            "Correct: it asks about actual work and preparation.",
+            "Personal address is not needed and intrudes on privacy.",
+            "Credentials must never be requested."
+          ]
+        }
+      ],
+      "transfer": "A second interviewer asks about a team disagreement. Use the supplied event record to draft an answer that shows Rowan’s action, the team’s result and a limitation.",
+      "evidence": "Record and revise two fictional interview answers using situation, action, result and learning, then write two role-research questions.",
+      "source": "https://alis.alberta.ca/look-for-work/interviews-and-offers/how-to-succeed-at-a-job-interview/",
+      "mediaId": "331ef31a8aa7"
+    },
+    {
+      "id": "co1-04",
+      "title": "Work through a changing shift",
+      "goal": "Prioritize tasks, protect private information and respond to feedback in a fully supplied workplace simulation.",
+      "opening": "At 10:05 a.m. the fictional hub’s printer stops, a visitor asks for a private reservation record, and the shift lead asks Rowan to set up an 11 a.m. activity. Which action comes first?",
+      "teach": [
+        {
+          "heading": "Triage by consequence and authority",
+          "body": "In a busy shift, urgency is not the same as importance. Check immediate safety, deadlines, permissions and who can help. Rowan cannot disclose a visitor’s reservation merely because the person asks confidently. The activity setup has a known deadline; the printer failure may block it, but a safe alternative might exist. A good first response is to protect the record, alert the shift lead about the printer, and propose an achievable setup plan."
+        },
+        {
+          "heading": "Make the decision visible",
+          "body": "A short update to a supervisor should state the problem, what Rowan has already checked, a suggested next step and the help needed. ‘Everything is broken’ leaves the lead to investigate from scratch. ‘The printer stopped after one page; the 11 a.m. cards are not ready. I can use blank cards if you approve’ gives actionable information. Record what was decided so the next task is clear."
+        },
+        {
+          "heading": "Learn from supplied feedback",
+          "body": "The fictional shift lead notes that Rowan kept visitor information private and solved the activity setup, but waited too long to report the printer problem. Feedback is evidence about a behaviour in this scenario, not a judgement about Rowan’s worth or entire career. Compare the action with the result, choose one specific improvement, and test it in the next changed case. The complete shift record is in this lesson; no real workplace experience is needed to answer."
+        },
+        {
+          "heading": "Use a simple priority test",
+          "body": "When several tasks arrive, sort them by safety, privacy, deadline, and dependency. A task involving private records may have a strict permission boundary. An activity setup due soon may be urgent but can sometimes use an approved alternative. Ask what blocks other work and which decisions require supervisor authority. This is not a formula that replaces judgement; it gives a reasoned order and makes uncertainty visible. If safety is immediate, use the site procedure before trying to protect a deadline."
+        },
+        {
+          "heading": "Review what the outcome actually shows",
+          "body": "A busy shift can produce mixed evidence: a learner may protect confidential information and meet a setup deadline yet report equipment failure too late. Write each observation separately, then identify one behaviour to repeat and one to practise earlier. Avoid “I am bad under pressure,” which turns one case into a permanent identity. A useful next test is concrete: send a short supervisor update as soon as a blocker threatens the deadline, then record whether the new timing helped. When two tasks compete, tell the lead early if one cannot be completed safely or on time. A timely request lets the authorized person reset expectations."
+        }
+      ],
+      "document": {
+        "title": "Prairie Library Hub — 10:05 a.m. shift board",
+        "headers": [
+          "Event",
+          "Constraint",
+          "Possible action"
+        ],
+        "rows": [
+          [
+            "Printer stops",
+            "Activity begins at 11 a.m.",
+            "Report and ask about approved backup"
+          ],
+          [
+            "Visitor asks for another person’s reservation",
+            "Private record",
+            "Do not disclose; use approved identity process"
+          ],
+          [
+            "Activity cards unfinished",
+            "Thirty-five minutes remain",
+            "Prioritize safe setup with lead guidance"
+          ],
+          [
+            "Lead feedback at noon",
+            "Early report was needed",
+            "Revise communication timing"
+          ]
+        ],
+        "note": "All events and feedback are fictional. The table provides every fact needed for the simulation."
+      },
+      "worked": [
+        {
+          "prompt": "Rowan gives the visitor the record first to avoid a complaint.",
+          "steps": [
+            "A complaint is possible, but the request involves another person’s private information.",
+            "Rowan should use the approved identity and access process or refer the request to the lead.",
+            "Then report the printer problem and confirm the activity backup."
+          ],
+          "conclusion": "Pressure does not create permission to share private information."
+        },
+        {
+          "prompt": "Rowan silently switches to blank cards and tells no one about the printer.",
+          "steps": [
+            "The activity may still run, which is useful.",
+            "The printer failure can affect later work and should be reported promptly.",
+            "A better response combines the backup plan with an early, concise update."
+          ],
+          "conclusion": "Solving the immediate task and communicating the system issue are both part of the work."
+        }
+      ],
+      "practice": [
+        {
+          "prompt": "Which issue should Rowan treat as a permission boundary?",
+          "choices": [
+            "Sharing another person’s reservation",
+            "The colour of blank cards",
+            "Whether the printer has paper",
+            "The activity’s title"
+          ],
+          "correctIndex": 0,
+          "feedback": [
+            "Yes. Access and identity must be confirmed by the approved process.",
+            "Colour may matter for design but not record permission.",
+            "Paper is a task detail, not access authority.",
+            "The title does not authorize disclosure."
+          ]
+        },
+        {
+          "prompt": "Which update gives the lead usable information?",
+          "choices": [
+            "Everything is terrible",
+            "The printer stopped after one page; cards are due at 11; may I use blank cards?",
+            "I fixed it, so no one needs to know",
+            "A visitor was annoying"
+          ],
+          "correctIndex": 1,
+          "feedback": [
+            "This lacks the event, impact and request.",
+            "Yes. It describes the constraint and a proposed safe action.",
+            "Other staff may still need the printer issue reported.",
+            "This labels a person rather than describing the work problem."
+          ]
+        },
+        {
+          "prompt": "What does the fictional lead’s feedback support?",
+          "choices": [
+            "Rowan cannot work with people",
+            "The whole career plan is invalid",
+            "One specific revision: report equipment trouble sooner",
+            "Ignoring future feedback"
+          ],
+          "correctIndex": 2,
+          "feedback": [
+            "One event cannot establish that broad judgement.",
+            "A career plan needs more evidence than one shift note.",
+            "Yes. Translate feedback into an observable next action.",
+            "Feedback is most useful when tested in a later case."
+          ]
+        },
+        {
+          "prompt": "Which issue should be handled before an activity deadline?",
+          "choices": [
+            "A possible disclosure of private visitor information.",
+            "Choosing a decorative font.",
+            "Reordering unused supplies.",
+            "Writing a reflection before the shift ends."
+          ],
+          "correctIndex": 0,
+          "feedback": [
+            "Correct: privacy and authorization boundaries should not be crossed to meet a deadline.",
+            "This is a lower-priority choice.",
+            "It does not address an immediate privacy or safety concern.",
+            "Reflection can wait until the shift task is safe and authorized."
+          ]
+        },
+        {
+          "prompt": "The printer is broken and a deadline is near. What is a strong response?",
+          "choices": [
+            "Tell the lead what failed, what is delayed, and propose an approved alternative.",
+            "Hide the failure and wait.",
+            "Use a personal account to access private records.",
+            "Claim the cards are printed."
+          ],
+          "correctIndex": 0,
+          "feedback": [
+            "Correct: early factual notice allows an authorized workaround.",
+            "Waiting can make the problem harder to solve.",
+            "A personal account does not authorize record access.",
+            "False reporting prevents appropriate help."
+          ]
+        },
+        {
+          "prompt": "The fictional shift went well in two areas and poorly in one. What should the reflection say?",
+          "choices": [
+            "“I am a failure.”",
+            "Name the successful actions and a specific behaviour to change next time.",
+            "Ignore the feedback.",
+            "Assume the same result in every workplace."
+          ],
+          "correctIndex": 1,
+          "feedback": [
+            "One scenario does not support a global self-judgement.",
+            "Correct: specific evidence makes a useful improvement plan.",
+            "Feedback is evidence to examine.",
+            "Different workplaces and tasks can change performance."
+          ]
+        }
+      ],
+      "transfer": "At 10:20 the activity is moved outdoors because of a room closure. The cards are ready. Reprioritize setup, visitor notice and supervisor communication using the same decision sequence.",
+      "evidence": "Complete the supplied shift decision log: first action, privacy boundary, supervisor update, alternative plan and one improvement from feedback.",
+      "source": "https://www.canada.ca/en/services/jobs/training/initiatives/skills-success.html"
+    },
+    {
+      "id": "co1-05",
+      "title": "Use feedback to revise a career route",
+      "goal": "Connect a simulated work result to a career hypothesis and identify a next test without overgeneralizing.",
+      "opening": "Rowan enjoyed welcoming visitors but found repeated record updates tiring. The fictional shift lead praised clear explanations and suggested earlier equipment reporting. Does one shift prove which career Rowan should choose?",
+      "teach": [
+        {
+          "heading": "Read feedback in context",
+          "body": "Feedback describes a particular performance in a particular setting. Rowan’s clear explanations are evidence for a communication strength, while a late printer report identifies an action to improve. Neither is a permanent label. Compare the feedback with Rowan’s earlier strengths card and the actual tasks in the fictional posting. Look for agreement, tension and what remains unknown after one simulated shift."
+        },
+        {
+          "heading": "Revise one claim at a time",
+          "body": "A useful revision can keep the same broad interest but change the role or route. Rowan may explore visitor services, teaching support or information design while asking how much repetitive record work each requires. The plan should name the old assumption, the new evidence and the next research or practice task. ‘I am bad at administration’ overstates a preference seen in one case; ‘I want to compare roles with different amounts of record work’ is testable."
+        },
+        {
+          "heading": "Prepare a defensible portfolio",
+          "body": "Use the supplied posting, first-shift note, task board and lead feedback to make a concise evidence chain: task, action, result, interpretation, revised plan. You can quote or paraphrase the fictional records because they are provided here. You do not need a supervisor signature, real job placement, stranger interview or personal employment details to complete this online case. The teacher can assess how well your interpretation follows the evidence."
+        },
+        {
+          "heading": "Make the evidence chain traceable",
+          "body": "A portfolio claim should point to a record and explain the link. For example: “I want to explore public-facing work” can cite the fictional shift note where Rowan welcomed visitors, then note that the record also shows the learner needs to practise earlier updates when a tool fails. The next step could be comparing roles with different amounts of visitor contact and record work. A reader should be able to tell which part is observed, which is interpretation, and which is a future question."
+        },
+        {
+          "heading": "Revise the plan without overcorrecting",
+          "body": "New evidence can change a detail, not necessarily an entire goal. If one task was difficult, ask whether it was a skill gap, lack of instruction, a work-condition mismatch, or simply a one-time problem. Choose a small next test to distinguish those explanations. A useful revision is reversible: research another profile, practise a supervisor update, or compare a second role. The supplied course records are enough to demonstrate this process; no signature or real placement is needed. A portfolio is not a prediction of employability. It is a record of current evidence and next steps, which can be revised as the learner gains more information."
+        }
+      ],
+      "document": {
+        "title": "Fictional shift-lead feedback note",
+        "headers": [
+          "Observation",
+          "Evidence",
+          "Possible next test"
+        ],
+        "rows": [
+          [
+            "Clear visitor explanations",
+            "Visitors followed sign-in steps without repeat questions",
+            "Try another role requiring explanation"
+          ],
+          [
+            "Accurate reservation updates",
+            "No errors in checked entries",
+            "Compare roles with different amounts of record work"
+          ],
+          [
+            "Printer issue reported late",
+            "Lead learned of problem at noon",
+            "Practise an earlier two-sentence update"
+          ]
+        ],
+        "note": "This is simulated feedback. It describes a specific case, not a verified workplace placement."
+      },
+      "worked": [
+        {
+          "prompt": "Rowan concludes, ‘I must work at a library.’",
+          "steps": [
+            "The feedback supports communication and careful records, not one exclusive occupation.",
+            "Identify related roles using those skills.",
+            "Research actual duties and conditions before narrowing the plan."
+          ],
+          "conclusion": "A positive case result is a clue, not a career assignment."
+        },
+        {
+          "prompt": "Rowan concludes, ‘I failed because I reported the printer late.’",
+          "steps": [
+            "The record also shows strengths in privacy and visitor communication.",
+            "Isolate the behaviour that can change: timing of the update.",
+            "Write a specific next action and test it in a new case."
+          ],
+          "conclusion": "Balanced revision uses all relevant evidence rather than one critical sentence."
+        }
+      ],
+      "practice": [
+        {
+          "prompt": "What does the simulated shift evidence support most directly?",
+          "choices": [
+            "Rowan explained procedures clearly in this case",
+            "Rowan is guaranteed a library career",
+            "Rowan dislikes every office task",
+            "A real supervisor verified employment"
+          ],
+          "correctIndex": 0,
+          "feedback": [
+            "Yes. That is the observation recorded in this fictional case.",
+            "One case cannot guarantee a career route.",
+            "The record is narrower than that claim.",
+            "The shift and supervisor are fictional."
+          ]
+        },
+        {
+          "prompt": "Which revision is testable?",
+          "choices": [
+            "I am a failure",
+            "I will compare roles with different amounts of record work",
+            "I will never change my plan",
+            "Everyone else is better at this"
+          ],
+          "correctIndex": 1,
+          "feedback": [
+            "This is a broad self-judgement, not a plan.",
+            "Yes. It names a research comparison that can produce new evidence.",
+            "A plan should respond to evidence.",
+            "Comparison with others does not interpret the work case."
+          ]
+        },
+        {
+          "prompt": "What should a portfolio explanation connect?",
+          "choices": [
+            "Only the final job title",
+            "Only the most positive feedback",
+            "Task, action, result, interpretation and revision",
+            "A real account of private work"
+          ],
+          "correctIndex": 2,
+          "feedback": [
+            "A title does not show learning.",
+            "Include relevant strengths and growth areas.",
+            "Yes. The chain shows why the plan changed.",
+            "Personal employment information is unnecessary."
+          ]
+        },
+        {
+          "prompt": "Which portfolio sentence is easiest to trace to supplied evidence?",
+          "choices": [
+            "“I can work anywhere.”",
+            "“The shift record shows I kept visitor details private; I want to compare other roles with similar privacy duties.”",
+            "“I am bad at equipment.”",
+            "“My future is decided.”"
+          ],
+          "correctIndex": 1,
+          "feedback": [
+            "This claim is too broad to evaluate.",
+            "Correct: it links an observed action to a next research question.",
+            "One printer problem does not prove inability with equipment.",
+            "The course emphasizes revisable plans."
+          ]
+        },
+        {
+          "prompt": "A learner struggled once with record work. What conclusion is most careful?",
+          "choices": [
+            "All administration careers are unsuitable.",
+            "Identify whether the difficulty came from task interest, missing instruction, or a one-time circumstance and test further.",
+            "Ignore the evidence permanently.",
+            "Change every high-school course immediately."
+          ],
+          "correctIndex": 1,
+          "feedback": [
+            "One event cannot establish every role’s fit.",
+            "Correct: competing explanations lead to a better next step.",
+            "Evidence should inform further inquiry.",
+            "A large irreversible change is not justified by one event."
+          ]
+        },
+        {
+          "prompt": "What turns a reflection into useful career evidence?",
+          "choices": [
+            "Task, action, result, interpretation, and a next check.",
+            "A supervisor signature only.",
+            "A confident prediction.",
+            "A long description without links to the source records."
+          ],
+          "correctIndex": 0,
+          "feedback": [
+            "Correct: the chain lets a reader see how the conclusion follows.",
+            "A signature is not the only proof and is not required for this simulation.",
+            "Predictions are not evidence.",
+            "Length does not replace traceability."
+          ]
+        }
+      ],
+      "transfer": "A second fictional lead praises Rowan’s accurate records but notes that Rowan avoided asking visitors clarifying questions. Revise the strengths claim and design a new practice task.",
+      "evidence": "Submit a simulated experience reflection using the supplied case records, with one strength, one growth action, a revised career hypothesis and a next test.",
+      "source": "https://alis.alberta.ca/plan-your-career/explore-your-occupational-options/"
+    }
+  ]
+}

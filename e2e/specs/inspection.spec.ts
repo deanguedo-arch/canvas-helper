@@ -108,6 +108,37 @@ test("@inspection Studio uses an isolated preview origin and keeps annotation de
   await expect(workspaceFrame.locator("html")).not.toHaveAttribute("data-canvas-helper-inspect-active", "true");
 });
 
+test("@inspection Aboriginal Studies runtime lesson text can be saved as distinct annotations", async ({ page }) => {
+  await openProjectInStudio(page, "aboriginal-studies-30");
+  const workspaceFrame = page.frameLocator('[data-testid="workspace-preview-frame"]');
+  await workspaceFrame.locator("#theme-subnav button").first().evaluate((button: HTMLButtonElement) => button.click());
+  await expect(workspaceFrame.locator(".lessons-guide li")).toHaveCount(3);
+  await page.getByTestId("inspect-toggle").click();
+  await expect(workspaceFrame.locator("html")).toHaveAttribute("data-canvas-helper-inspect-active", "true");
+
+  for (const index of [0, 1]) {
+    const lessonStep = workspaceFrame.locator(".lessons-guide li").nth(index);
+    await lessonStep.evaluate((element) => element.scrollIntoView({ block: "center" }));
+    await expect(workspaceFrame.locator("html")).toHaveAttribute("data-canvas-helper-inspect-active", "true");
+    const bounds = await lessonStep.boundingBox();
+    expect(bounds).toBeTruthy();
+    await page.mouse.click((bounds?.x ?? 0) + (bounds?.width ?? 0) / 2, (bounds?.y ?? 0) + (bounds?.height ?? 0) / 2);
+    await expect(page.getByTestId("inspection-selection-summary")).toContainText(index === 0 ? "Work the lessons in order" : "Answer each lesson");
+    if (index === 0) {
+      await expect(page.getByTestId("capture-annotated-screenshot")).toBeEnabled();
+      await page.getByTestId("capture-annotated-screenshot").click();
+      await expect(page.getByTestId("screenshot-draft")).toHaveCount(1);
+    }
+    await page.getByTestId("inspection-teacher-note").fill(`Review lesson step ${index + 1}.`);
+    await expect(page.getByTestId("add-to-review-set")).toBeEnabled();
+    await page.getByTestId("add-to-review-set").click();
+    await expect(page.getByTestId("review-set-item")).toHaveCount(index + 1);
+  }
+  await expect(page.getByTestId("review-set-screenshot")).toHaveCount(1);
+  await page.getByTestId("review-set-item").nth(1).getByRole("button", { name: "Add screenshot" }).click();
+  await expect(page.getByTestId("review-set-screenshot")).toHaveCount(2);
+});
+
 test("@inspection inline reference resources bypass course-page recovery without disappearing", async ({ page }) => {
   await page.route("**/api/projects", async (route) => {
     const response = await route.fetch();

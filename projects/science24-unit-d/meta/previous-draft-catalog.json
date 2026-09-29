@@ -1,0 +1,304 @@
+{
+  "title": "Safety in Transportation",
+  "chapters": [
+    "A Need for Safety",
+    "The Nature of Speed",
+    "The Physics of Collisions",
+    "The Technology of Safety"
+  ],
+  "lessons": [
+    {
+      "title": "Recognize transport risk",
+      "question": "Why does reaction time matter before braking begins?",
+      "textbookPages": "234–240",
+      "workbookPages": "3–6",
+      "ideas": [
+        "A road collision can cause physical and emotional harm. Reaction time is the time between noticing a hazard and beginning a response. During that interval, a moving vehicle continues to travel.",
+        "Distraction and fatigue can delay detection and response. The distance travelled before braking depends on speed and reaction time. This is a physics model, not a substitute for current driving instruction."
+      ],
+      "model": "At 20 m/s, a vehicle covers 20 m during a one-second reaction interval before braking starts. If reaction takes two seconds under the same simplified conditions, that distance doubles.",
+      "check": "At 20 m/s, how far does a vehicle travel in 2 s before braking?",
+      "options": [
+        "40 m",
+        "10 m",
+        "22 m"
+      ],
+      "answer": 0,
+      "writing": "Explain why a driver can collide with a hazard even when the brakes work correctly.",
+      "words": [
+        "reaction time",
+        "distraction",
+        "fatigue",
+        "risk"
+      ],
+      "id": "s24-d-l01",
+      "chapter": "A Need for Safety",
+      "chapterNumber": 13,
+      "topic": "01",
+      "checkId": "s24-d-l01-check",
+      "writingId": "s24-d-l01-writing",
+      "textbookPdfStart": 3
+    },
+    {
+      "title": "Explain impairment and protection",
+      "question": "How can several safety layers reduce harm?",
+      "textbookPages": "240–247",
+      "workbookPages": "6–8",
+      "ideas": [
+        "Impairment changes the ability to notice, judge and respond to hazards. The source workbook includes old BAC tables and legal questions; those values are historical course material and must not be used as current driving limits.",
+        "Vehicle features, safer roads, restraint use and attentive decisions form layers of protection. A layer may reduce risk or injury but cannot eliminate every collision."
+      ],
+      "model": "A driver with a seat belt still needs attention and space to stop. The belt reduces injury during a collision; it does not shorten the reaction interval before braking.",
+      "check": "What is the best description of a seat belt?",
+      "options": [
+        "A restraint that can reduce injury in a collision",
+        "A device that makes reaction time zero",
+        "Proof that any driving condition is safe"
+      ],
+      "answer": 0,
+      "writing": "Pick a road scenario and explain how one prevention action and one injury-reduction feature work at different stages.",
+      "words": [
+        "impairment",
+        "BAC",
+        "restraint",
+        "road safety"
+      ],
+      "id": "s24-d-l02",
+      "chapter": "A Need for Safety",
+      "chapterNumber": 13,
+      "topic": "02",
+      "checkId": "s24-d-l02-check",
+      "writingId": "s24-d-l02-writing",
+      "textbookPdfStart": 6
+    },
+    {
+      "title": "Calculate and graph speed",
+      "question": "What does the slope of a distance–time graph tell us?",
+      "textbookPages": "252–261",
+      "workbookPages": "9–15",
+      "ideas": [
+        "Average speed is distance divided by elapsed time. Keep units consistent: kilometres per hour and metres per second describe the same kind of rate using different units.",
+        "On a distance–time graph, time belongs on the horizontal axis and distance on the vertical axis. The slope is change in distance divided by change in time. A horizontal segment means no change in distance."
+      ],
+      "model": "A trip covers 120 km in 2 h, so average speed is 60 km/h. On a graph, points (0 h, 0 km) and (2 h, 120 km) give the same slope: 120 ÷ 2 = 60 km/h.",
+      "check": "A line rises 30 m in 5 s. What speed does its slope represent?",
+      "options": [
+        "6 m/s",
+        "150 m/s",
+        "0.17 m/s"
+      ],
+      "answer": 0,
+      "writing": "Sketch a distance–time graph for moving, stopping, then moving again. Label both axes and explain each segment.",
+      "words": [
+        "distance",
+        "time",
+        "speed",
+        "velocity",
+        "slope"
+      ],
+      "id": "s24-d-l03",
+      "chapter": "The Nature of Speed",
+      "chapterNumber": 14,
+      "topic": "03",
+      "checkId": "s24-d-l03-check",
+      "writingId": "s24-d-l03-writing",
+      "textbookPdfStart": 14
+    },
+    {
+      "title": "Connect speed and stopping distance",
+      "question": "Why does doubling speed change more than the time available?",
+      "textbookPages": "262–267",
+      "workbookPages": "15–16",
+      "ideas": [
+        "Stopping distance includes distance travelled during reaction and distance travelled while braking. Higher speed increases the distance covered each second before braking begins.",
+        "Braking distance also depends on road and tire conditions. The textbook’s sample values illustrate a relationship; real stopping distances vary, so use current local driving guidance for decisions."
+      ],
+      "model": "At 15 m/s with a 1 s reaction interval, reaction distance is 15 m. At 30 m/s with the same interval, it is 30 m before braking. The comparison isolates reaction distance only.",
+      "check": "Which part of stopping distance occurs before the brake is applied?",
+      "options": [
+        "Reaction distance",
+        "Braking distance",
+        "Crumple distance"
+      ],
+      "answer": 0,
+      "writing": "Explain how speed and a slippery road change different parts of stopping distance.",
+      "words": [
+        "reaction distance",
+        "braking distance",
+        "stopping distance",
+        "following distance"
+      ],
+      "id": "s24-d-l04",
+      "chapter": "The Nature of Speed",
+      "chapterNumber": 14,
+      "topic": "04",
+      "checkId": "s24-d-l04-check",
+      "writingId": "s24-d-l04-writing",
+      "textbookPdfStart": 20
+    },
+    {
+      "title": "Calculate momentum",
+      "question": "How do mass and speed affect a moving object?",
+      "textbookPages": "270–273",
+      "workbookPages": "17–19",
+      "ideas": [
+        "Momentum is mass multiplied by velocity. In a straight-line model, direction matters: opposite directions can be represented with opposite signs.",
+        "Doubling mass while keeping velocity fixed doubles momentum. Doubling velocity while keeping mass fixed also doubles momentum. The units must match the formula being used."
+      ],
+      "model": "A 750 kg car moving at 20 m/s has momentum 15,000 kg·m/s. The same car at 40 m/s has 30,000 kg·m/s.",
+      "check": "A 1000 kg vehicle moves at 10 m/s. What is its momentum?",
+      "options": [
+        "10,000 kg·m/s",
+        "100 kg·m/s",
+        "1010 kg·m/s"
+      ],
+      "answer": 0,
+      "writing": "Calculate momentum for two vehicles with different masses and speeds. Explain which has more and why.",
+      "words": [
+        "momentum",
+        "mass",
+        "velocity",
+        "friction"
+      ],
+      "id": "s24-d-l05",
+      "chapter": "The Physics of Collisions",
+      "chapterNumber": 15,
+      "topic": "05",
+      "checkId": "s24-d-l05-check",
+      "writingId": "s24-d-l05-writing",
+      "textbookPdfStart": 25
+    },
+    {
+      "title": "Relate impulse, force and collision",
+      "question": "How does a longer stopping time affect the force?",
+      "textbookPages": "274–283",
+      "workbookPages": "19–21",
+      "ideas": [
+        "Impulse is change in momentum. Average force multiplied by the time it acts gives the impulse. For the same momentum change, spreading the change over more time reduces average force.",
+        "Momentum is conserved for a defined system when external effects are negligible. In real collisions, energy can move into deformation, heat and sound, so do not assume kinetic energy is conserved."
+      ],
+      "model": "If a momentum change of 1000 kg·m/s occurs over 0.1 s, average force magnitude is 10,000 N. Over 1 s, it is 1000 N. The model holds the momentum change fixed.",
+      "check": "For the same momentum change, what happens when stopping time increases?",
+      "options": [
+        "Average force decreases",
+        "Momentum change disappears",
+        "Mass becomes zero"
+      ],
+      "answer": 0,
+      "writing": "Use a crumple zone or padded landing to explain impulse, stopping time and force.",
+      "words": [
+        "impulse",
+        "force",
+        "collision",
+        "conservation of momentum"
+      ],
+      "id": "s24-d-l06",
+      "chapter": "The Physics of Collisions",
+      "chapterNumber": 15,
+      "topic": "06",
+      "checkId": "s24-d-l06-check",
+      "writingId": "s24-d-l06-writing",
+      "textbookPdfStart": 28
+    },
+    {
+      "title": "Compare vehicle and road safety designs",
+      "question": "How does a design reduce injury without preventing every crash?",
+      "textbookPages": "288–293",
+      "workbookPages": "23–26",
+      "ideas": [
+        "Crumple zones deform to lengthen the time of a collision. Restraints help prevent occupants from continuing forward unprotected. Mirrors and lights support operation before a collision.",
+        "Road features such as barriers or crash cushions can redirect or absorb some collision energy. Evaluate a feature by the hazard it addresses, the mechanism and any limitations."
+      ],
+      "model": "A crumple zone and a seat belt act together: the structure deforms and the belt restrains the occupant. Neither means a collision has no force or consequence.",
+      "check": "Which feature works mainly by increasing collision time through controlled deformation?",
+      "options": [
+        "Crumple zone",
+        "Speedometer label",
+        "Paint colour"
+      ],
+      "answer": 0,
+      "writing": "Choose two safety features from different categories and explain the physical mechanism of each.",
+      "words": [
+        "crumple zone",
+        "restraint",
+        "road feature",
+        "crash cushion"
+      ],
+      "id": "s24-d-l07",
+      "chapter": "The Technology of Safety",
+      "chapterNumber": 16,
+      "topic": "07",
+      "checkId": "s24-d-l07-check",
+      "writingId": "s24-d-l07-writing",
+      "textbookPdfStart": 36
+    },
+    {
+      "title": "Evaluate restraints and changing designs",
+      "question": "Why must a restraint match the person and situation?",
+      "textbookPages": "297–301",
+      "workbookPages": "26–27",
+      "ideas": [
+        "Seat belts, child restraints and air bags are designed to manage occupant motion in a collision. Their effectiveness depends on correct use and the design context.",
+        "The textbook describes historical designs. For real travel decisions, follow current manufacturer instructions and local safety requirements rather than treating the old course pages as current rules."
+      ],
+      "model": "An air bag is a supplemental system. It does not replace the seat belt. A suitable child restraint must be chosen and installed according to current instructions for the child and vehicle.",
+      "check": "What is the best description of an air bag?",
+      "options": [
+        "A supplemental restraint used with other protections",
+        "A replacement for every seat belt",
+        "A device that removes all momentum"
+      ],
+      "answer": 0,
+      "writing": "Explain why a safety feature should be assessed as part of a system rather than in isolation.",
+      "words": [
+        "seat belt",
+        "child restraint",
+        "air bag",
+        "safety system"
+      ],
+      "id": "s24-d-l08",
+      "chapter": "The Technology of Safety",
+      "chapterNumber": 16,
+      "topic": "08",
+      "checkId": "s24-d-l08-check",
+      "writingId": "s24-d-l08-writing",
+      "textbookPdfStart": 42
+    }
+  ],
+  "code": "D",
+  "courseId": "science24-unit-d-review-v1",
+  "sourceType": "Brightspace textbook and workbook; newly authored online explanations and formative checks",
+  "glossary": {
+    "reaction time": "Time between noticing a hazard and beginning a response.",
+    "distraction": "Attention drawn away from a task or hazard.",
+    "fatigue": "Tiredness that can reduce alertness and performance.",
+    "risk": "The chance and possible consequence of harm in a situation.",
+    "impairment": "Reduced ability to perceive, judge or respond effectively.",
+    "BAC": "Blood alcohol concentration, a measure of alcohol in the blood.",
+    "restraint": "A device that helps limit occupant motion during a collision.",
+    "road safety": "Design and behaviour intended to reduce road crashes and harm.",
+    "distance": "The amount of space travelled or separation between positions.",
+    "time": "The duration between events.",
+    "speed": "Distance travelled per unit of time.",
+    "velocity": "Speed with a stated direction.",
+    "slope": "Change in the vertical graph value divided by change in the horizontal value.",
+    "reaction distance": "Distance a vehicle travels before braking begins.",
+    "braking distance": "Distance travelled while brakes slow the vehicle.",
+    "stopping distance": "Reaction distance plus braking distance.",
+    "following distance": "Space maintained between one vehicle and the vehicle ahead.",
+    "momentum": "Mass multiplied by velocity, including direction.",
+    "mass": "A measure of the amount of matter in an object.",
+    "friction": "A force that opposes relative motion between contacting surfaces.",
+    "impulse": "Change in momentum produced by a force acting over time.",
+    "force": "A push or pull that can change motion.",
+    "collision": "An event in which objects exert forces on one another during contact.",
+    "conservation of momentum": "Total momentum of an isolated system remains the same.",
+    "crumple zone": "A vehicle structure designed to deform and extend collision time.",
+    "road feature": "A part of road design intended to guide traffic or reduce harm.",
+    "crash cushion": "A road device designed to absorb energy in certain impacts.",
+    "seat belt": "A restraint that helps keep an occupant positioned during a collision.",
+    "child restraint": "A seat or system designed to restrain a child in a vehicle.",
+    "air bag": "A supplemental restraint that inflates during certain collisions.",
+    "safety system": "A group of features and practices working together to reduce harm."
+  }
+}

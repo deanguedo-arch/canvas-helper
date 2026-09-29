@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "measuredAt": "2026-09-25",
+  "method": "Every question contains a deterministic 600-character high-entropy response; state is encoded with the production SCORM state codec and wrapped in the production SCORM 2004 envelope shape.",
+  "packages": {
+    "math10c-unit4-textbook-1": {
+      "questionCount": 28,
+      "responseCharactersPerQuestion": 600,
+      "applicationPayloadCharacters": 17076,
+      "losslessCodecOutputCharacters": 17076,
+      "scorm2004EnvelopeCharacters": 17452,
+      "applicationLimitCharacters": 55000,
+      "scorm2004SuspendDataLimitCharacters": 60000,
+      "fitsApplicationLimit": true,
+      "fitsScorm2004Envelope": true
+    },
+    "math10c-unit4-textbook-2": {
+      "questionCount": 43,
+      "responseCharactersPerQuestion": 600,
+      "applicationPayloadCharacters": 26196,
+      "losslessCodecOutputCharacters": 26196,
+      "scorm2004EnvelopeCharacters": 26602,
+      "applicationLimitCharacters": 55000,
+      "scorm2004SuspendDataLimitCharacters": 60000,
+      "fitsApplicationLimit": true,
+      "fitsScorm2004Envelope": true
+    },
+    "math10c-unit4-textbook-3": {
+      "questionCount": 81,
+      "responseCharactersPerQuestion": 600,
+      "applicationPayloadCharacters": 49300,
+      "losslessCodecOutputCharacters": 49300,
+      "scorm2004EnvelopeCharacters": 49782,
+      "applicationLimitCharacters": 55000,
+      "scorm2004SuspendDataLimitCharacters": 60000,
+      "fitsApplicationLimit": true,
+      "fitsScorm2004Envelope": true
+    }
+  }
+}
