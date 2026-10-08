@@ -2,6 +2,9 @@
 import {chromium} from 'playwright';
 import {readFile,writeFile} from 'node:fs/promises';
 import assert from 'node:assert/strict';
+const args=process.argv.slice(2);
+assert.ok(args.every(arg=>arg==='--science24-only'),'Supported option: --science24-only');
+const science24Only=args.includes('--science24-only');
 const base='https://biology30pilot.web.app',errors=[],badLocal=[],routes=[];
 const browser=await chromium.launch({headless:true});
 try{
@@ -11,7 +14,7 @@ try{
  page.on('response',r=>{if(r.url().startsWith(base)&&r.status()>=400)badLocal.push({url:r.url(),status:r.status()});});
  await page.goto(base+'/?verify='+Date.now(),{waitUntil:'networkidle'});
  assert.equal(await page.locator('#course-select option').count(),17);
- for(let ch=14;ch<=20;ch++){
+ for(let ch=14;!science24Only&&ch<=20;ch++){
   const id=`biology30-ch${ch}`;await page.selectOption('#course-select',id);
   await page.waitForFunction(id=>document.querySelector('#course-frame').contentWindow.location.pathname===`/${id}/index.html`,id);
   const f=page.frameLocator('#course-frame');
@@ -43,10 +46,13 @@ try{
  assert.deepEqual(errors,[]);assert.deepEqual(badLocal,[]);
  const receiptFile='projects/biology30-unit-a-pilot-2/meta/review-selector-deployment.json';
  const receipt=JSON.parse(await readFile(receiptFile,'utf8'));
- receipt.verification.existingBiologyPreserved=true;
- receipt.knownRisks=receipt.knownRisks.map(r=>r.startsWith('Photo upload controls')?'Chapters 11–13 retain their existing written-only textbook controls. Chapters 14–20 photos remain browser-local; cross-device/LMS attachment saving is not certified.':r);
+ if(!science24Only){
+  receipt.verification.existingBiologyPreserved=true;
+  receipt.knownRisks=receipt.knownRisks.map(r=>r.startsWith('Photo upload controls')?'Chapters 11–13 retain their existing written-only textbook controls. Chapters 14–20 photos remain browser-local; cross-device/LMS attachment saving is not certified.':r);
+ }
  receipt.verification.browserRoutes=routes;receipt.verification.browserPageErrors=errors;receipt.verification.browserMissingLocalAssets=badLocal;receipt.verification.liveSmokeAt=new Date().toISOString();
+ receipt.verification.liveSmokeScope=science24Only?'science24-only':'biology-and-science24';
  await writeFile(receiptFile,JSON.stringify(receipt,null,2)+'\n');
- for(let ch=14;ch<=20;ch++){const file=`projects/biology30-chapter-${ch}/meta/integration-receipt.json`,r=JSON.parse(await readFile(file,'utf8'));r.reviewDeployment={url:`${base}/biology30-ch${ch}/index.html`,reviewOnly:true,deployedAt:receipt.deployedAt,verifiedAt:receipt.verification.liveSmokeAt,indexSha256:receipt.files[`biology30-ch${ch}/index.html`],releaseStatusUnchanged:true};await writeFile(file,JSON.stringify(r,null,2)+'\n');}
- console.log('Live selector: 17 options; seven Biology chapter checks and four Science 24 route checks passed. External media intentionally excluded.');
+ for(let ch=14;!science24Only&&ch<=20;ch++){const file=`projects/biology30-chapter-${ch}/meta/integration-receipt.json`,r=JSON.parse(await readFile(file,'utf8'));r.reviewDeployment={url:`${base}/biology30-ch${ch}/index.html`,reviewOnly:true,deployedAt:receipt.deployedAt,verifiedAt:receipt.verification.liveSmokeAt,indexSha256:receipt.files[`biology30-ch${ch}/index.html`],releaseStatusUnchanged:true};await writeFile(file,JSON.stringify(r,null,2)+'\n');}
+ console.log(`Live selector: 17 options; ${science24Only?'four Science 24 route checks':'seven Biology chapter checks and four Science 24 route checks'} passed. External media intentionally excluded.`);
 }finally{await browser.close();}

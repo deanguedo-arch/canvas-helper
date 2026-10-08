@@ -2,12 +2,12 @@ import { getStringFlag, hasFlag, parseArgs } from "./lib/cli.js";
 import { buildProjectAuthoringContext, renderCourseDoctorReport } from "./lib/course-authoring/context.js";
 
 function usage() {
-  return "Usage: npm run context:project -- --project <exact-slug>";
+  return "Usage: npm run context:project -- --project <exact-slug> [--intent sample|continue]";
 }
 
 async function main() {
   const args = parseArgs(process.argv.slice(2));
-  const unknownFlags = Object.keys(args.flags).filter((flag) => !["project", "help", "h"].includes(flag));
+  const unknownFlags = Object.keys(args.flags).filter((flag) => !["project", "intent", "help", "h"].includes(flag));
   if (unknownFlags.length > 0 || args.positionals.length > 0) {
     throw new Error(`Unknown arguments: ${[...unknownFlags.map((flag) => `--${flag}`), ...args.positionals].join(" ")}`);
   }
@@ -19,7 +19,9 @@ async function main() {
   const slug = getStringFlag(args, "project");
   if (!slug) throw new Error("--project <exact-slug> is required.");
 
-  const { report, text } = await buildProjectAuthoringContext(slug);
+  const intent = getStringFlag(args, "intent") ?? "continue";
+  if (intent !== "sample" && intent !== "continue") throw new Error("Invalid --intent; use sample or continue.");
+  const { report, text } = await buildProjectAuthoringContext(slug, undefined, intent);
   if (!text) {
     console.error(renderCourseDoctorReport(report));
     process.exitCode = 1;

@@ -6,13 +6,15 @@ import {createHash} from 'node:crypto';
 import {spawn} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
 import {verifyLive} from './deploy-biology30-showcase.ts';
+import {currentReviewRefreshAuthorized} from './lib/review-deployment-scope.mjs';
 const repo=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const receiptPath=path.join(repo,'projects/biology30-unit-a-pilot-2/meta/review-selector-deployment.json');
 const receipt=JSON.parse(await fs.readFile(receiptPath,'utf8'));
 if(receipt.hosting.projectId!=='calm-module-one'||receipt.hosting.siteId!=='biology30pilot')throw Error('Unexpected hosting target');
 const args=process.argv.slice(2);
-if(args.some(a=>a!=='--deploy'&&a!=='--refresh-biology'))throw Error('Use --deploy [--refresh-biology] or no arguments for staging only');
-const deploy=args.includes('--deploy'),refreshBiology=args.includes('--refresh-biology');
+if(args.some(a=>!['--deploy','--refresh-biology','--refresh-science24'].includes(a)))throw Error('Use [--deploy] [--refresh-biology] [--refresh-science24]; omit --deploy for staging only');
+const deploy=args.includes('--deploy'),refreshBiology=args.includes('--refresh-biology'),refreshScience24=args.includes('--refresh-science24');
+const refreshAuthorized=id=>currentReviewRefreshAuthorized(id,{refreshBiology,refreshScience24});
 const stage=await fs.mkdtemp(path.join(os.tmpdir(),'biology30-current-review-')),files={},sources={};
 const hash=b=>createHash('sha256').update(b).digest('hex');
 const verifyWithPropagation=async filesToCheck=>{for(let attempt=0;;attempt++){try{return await verifyLive({files:filesToCheck});}catch(error){if(attempt>=2)throw error;await new Promise(resolve=>setTimeout(resolve,5000*(attempt+1)));}}};
@@ -32,7 +34,7 @@ const existingCourseIds=new Set(receipt.courses.map(c=>c.id));
 for(const c of courses)await copy(path.join(repo,'projects',c.projectSlug,'workspace'),c.id);
 await copy(path.join(repo,receipt.selector.source),'index.html');
 // Retain verified deployed course pages when local work belongs to another task.
-for(const [name,value] of Object.entries(files)){const courseId=name.split('/')[0];if(!existingCourseIds.has(courseId)||receipt.files?.[name]===value||refreshBiology&&/^biology30-/.test(courseId))continue;const expected=receipt.files?.[name];if(!expected){await fs.rm(path.join(stage,'public',name));delete files[name];delete sources[name];continue;}const response=await fetch(`${receipt.hosting.url}/${name}?preserve=${expected.slice(0,12)}`,{signal:AbortSignal.timeout(60000)});const bytes=new Uint8Array(await response.arrayBuffer());if(!response.ok||hash(bytes)!==expected)throw Error('Cannot preserve verified live course bytes '+name);await fs.writeFile(path.join(stage,'public',name),bytes);files[name]=expected;delete sources[name];}
+for(const [name,value] of Object.entries(files)){const courseId=name.split('/')[0];if(!existingCourseIds.has(courseId)||receipt.files?.[name]===value||refreshAuthorized(courseId))continue;const expected=receipt.files?.[name];if(!expected){await fs.rm(path.join(stage,'public',name));delete files[name];delete sources[name];continue;}const response=await fetch(`${receipt.hosting.url}/${name}?preserve=${expected.slice(0,12)}`,{signal:AbortSignal.timeout(60000)});const bytes=new Uint8Array(await response.arrayBuffer());if(!response.ok||hash(bytes)!==expected)throw Error('Cannot preserve verified live course bytes '+name);await fs.writeFile(path.join(stage,'public',name),bytes);files[name]=expected;delete sources[name];}
 
 for(const [name,source]of Object.entries(sources))if(hash(await fs.readFile(source))!==files[name])throw Error('Source changed during staging '+source);
 const release={schemaVersion:1,createdAt:new Date().toISOString(),purpose:'teacher-review-only',files};
@@ -40,8 +42,8 @@ await fs.writeFile(path.join(stage,'public/release.json'),JSON.stringify(release
 await fs.writeFile(path.join(stage,'firebase.json'),JSON.stringify({hosting:{site:'biology30pilot',public:'public',ignore:['firebase.json','**/.*'],headers:[{source:'**',headers:[{key:'Cache-Control',value:'no-cache, max-age=0, must-revalidate'}]}]}},null,2));
 console.log(JSON.stringify({stage,fileCount:Object.keys(files).length}));
 if(deploy){
- // Social addition: preserve every previously verified Biology/Chemistry byte.
- for(const [name,value] of Object.entries(files))if((/^chemistry30-|^social30-/.test(name)||/^biology30-/.test(name)&&!refreshBiology)&&receipt.files?.[name]!==value)throw Error('Existing course differs from deployed receipt: '+name);
+ // Every existing course outside the explicitly refreshed family stays preserved.
+ for(const [name,value] of Object.entries(files)){const id=name.split('/')[0];if(existingCourseIds.has(id)&&!refreshAuthorized(id)&&receipt.files?.[name]!==value)throw Error('Existing course differs from deployed receipt: '+name);}
  await verifyLive({files:Object.fromEntries(Object.entries(files).filter(([name])=>/^(biology30-a|biology30-ch12|biology30-ch13|chemistry30-a-pilot)\//.test(name)))});
  await new Promise((resolve,reject)=>{const child=spawn(process.execPath,[path.join(repo,'node_modules/firebase-tools/lib/bin/firebase.js'),'deploy','--project','calm-module-one','--config',path.join(stage,'firebase.json'),'--only','hosting','--non-interactive'],{cwd:stage,stdio:'inherit'});child.once('error',reject);child.once('exit',code=>code===0?resolve():reject(Error('Firebase deploy exited '+code)));});
  const reusable=receipt.verification?.allFilesMatch===true;
@@ -52,10 +54,10 @@ if(deploy){
  receipt.purpose='Shared teacher-review selector for Biology 30 Chapters 11–20, Math 10C Chapter 3 Pilot, Chemistry 30 Unit A Pilot, Science 24 Units A–D and Social 30-1 Related Issue 1 Option Two.';
  for(const c of receipt.courses)c.indexSha256=files[c.deployedPath];
  receipt.selector.indexSha256=files['index.html'];receipt.selector.reviewVersion=/const reviewVersion='([^']+)'/.exec(await fs.readFile(sources['index.html'],'utf8'))[1];
- receipt.verification={...verification,browserRoutes:[],chemistryPreserved:true,socialPreserved:true,science24Published:true,existingBiologyPreserved:!refreshBiology,biologyRefreshed:refreshBiology};
+ receipt.verification={...verification,browserRoutes:[],chemistryPreserved:true,socialPreserved:true,science24Published:true,science24Refreshed:refreshScience24,existingBiologyPreserved:!refreshBiology,biologyRefreshed:refreshBiology};
  receipt.knownRisks=receipt.knownRisks.map(r=>r.startsWith('Photo upload controls')?'Chapters 11–13 retain their existing written-only textbook controls. Chapters 14–20 photos remain browser-local; cross-device/LMS attachment saving is not certified.':r);
  if(!receipt.knownRisks.some(r=>r.startsWith('Science 24 Units A–D')))receipt.knownRisks.push('Science 24 Units A–D remain blocked teacher-review candidates; Firebase publication does not authorize export, Brightspace upload or learner release.');
- receipt.deployCommand=`npx tsx scripts/deploy-biology30-current-review.mjs --deploy${refreshBiology?' --refresh-biology':''}`;
+ receipt.deployCommand=`npx tsx scripts/deploy-biology30-current-review.mjs --deploy${refreshBiology?' --refresh-biology':''}${refreshScience24?' --refresh-science24':''}`;
  await fs.writeFile(receiptPath,JSON.stringify(receipt,null,2)+'\n');
  console.log(JSON.stringify({url:receipt.hosting.url,version:receipt.selector.reviewVersion,verification}));
 }

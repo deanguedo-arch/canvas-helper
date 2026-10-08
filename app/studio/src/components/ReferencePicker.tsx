@@ -34,7 +34,7 @@ export function ReferencePicker({
   onResourcePathChange,
   onRefreshIntake
 }: ReferencePickerProps) {
-  const projectGroups = getProjectMetadataGroups(projects);
+  const projectGroups = getProjectMetadataGroups(projects, true);
 
   return (
     <div className="picker-stack">
@@ -50,7 +50,7 @@ export function ReferencePicker({
             {projectGroups.map((group) => (
               <optgroup key={group.label} label={group.label}>
                 {group.projects.map((project) => (
-                  <option key={project.manifest.id} value={project.manifest.slug}>
+                  <option key={project.manifest.slug} value={project.manifest.slug}>
                     {getProjectLabel(project)}
                   </option>
                 ))}

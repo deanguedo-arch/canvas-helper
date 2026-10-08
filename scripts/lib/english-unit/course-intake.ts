@@ -1,4 +1,5 @@
 import { createHash } from "node:crypto";
+import { resolveProjectArchiveSource } from "../project-archive.js";
 import { execFile as execFileCallback } from "node:child_process";
 import { createReadStream } from "node:fs";
 import { access, copyFile, mkdir, readFile, rename, rm, stat, writeFile } from "node:fs/promises";
@@ -192,7 +193,7 @@ async function importArchive(input: {
   courseId: string;
   importedAt: string;
 }): Promise<LoadedArchive> {
-  const sourcePath = path.resolve(input.sourcePath);
+  const sourcePath = await resolveProjectArchiveSource(input.sourcePath, { repoRoot: input.repoRoot });
   if (!(await exists(sourcePath))) throw new Error(`Missing ${input.archiveId} ZIP: ${sourcePath}`);
   const digest = await sha256File(sourcePath);
   const sourcesDir = path.join(input.repoRoot, "projects", "resources", input.courseId, "_sources");
@@ -275,7 +276,7 @@ async function importSupplementFile(input: {
   courseId: string;
   importedAt: string;
 }): Promise<LoadedSupplement> {
-  const sourcePath = path.resolve(input.sourcePath);
+  const sourcePath = await resolveProjectArchiveSource(input.sourcePath, { repoRoot: input.repoRoot });
   if (!(await exists(sourcePath))) throw new Error(`Missing supplemental file: ${sourcePath}`);
   const sourceStats = await stat(sourcePath);
   if (!sourceStats.isFile()) throw new Error(`Supplemental source is not a file: ${sourcePath}`);

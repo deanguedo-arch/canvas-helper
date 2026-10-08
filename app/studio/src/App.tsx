@@ -9,6 +9,7 @@ import { NewProjectPanel } from "./components/NewProjectPanel";
 import { PreviewPane } from "./components/PreviewPane";
 import { ReferencePicker } from "./components/ReferencePicker";
 import { AssessmentLibraryMode } from "./components/AssessmentLibraryMode";
+import { StandardsReview, captureReviewStandard } from "./components/StandardsReview";
 import { Topbar } from "./components/Topbar";
 import { WhatsNewPanel } from "./components/WhatsNewPanel";
 import { WorkspacePicker } from "./components/WorkspacePicker";
@@ -1423,6 +1424,7 @@ export function App() {
       resolved: true,
       handoffState: "accepted"
     } : candidate));
+    void captureReviewStandard(item.request.projectSlug, `${item.id}:${item.sentAt}`).catch(() => setReviewSetStatus("Change accepted; standards capture unavailable. Retry at export.", "error"));
     setReviewSetStatus("Change accepted.", "success");
     return true;
   };
@@ -3177,6 +3179,8 @@ export function App() {
         />
 
         <WhatsNewPanel open={whatsNewOpen} onClose={closeWhatsNew} />
+
+        <StandardsReview />
 
         <NewProjectPanel
           open={newProjectOpen}

@@ -1,5 +1,95 @@
 # Archived Handoffs
 
+## 2026-10-06 — Chapter 17 handoff preserved before Chapters 11–12 integration
+
+# Handoff
+
+- Project: science24-unit-a
+- Task: First playable run of the supplied A1 Reaction Detective game.
+- Status: building; standalone local preview available.
+
+## Files changed
+- workspace/games/reaction-detective/**: imported prototype and local assets, focused game.js/styles.css fixes.
+- projects/resources/science24-unit-a/reaction-detective-v1/**: preserved supplied handoff reference package.
+- meta/project.json: appended planned component, retained existing lifecycle and unrelated metadata.
+- meta/reaction-detective-first-run.json: provenance, ZIP hash and scoped evidence.
+
+## What changed / why
+Prediction before reveals, two-record evidence selection, limited-record uncertainty for Cooling Solution, visible attempt history, usable three-step hints, review hint/retry counts and explanation-submitted status. Intro count and heading readability corrected. Existing Unit A lesson/progress/save sources untouched.
+
+## Verification run
+JS syntax; browser intro/worked/first practice; two-token reveals; valid physical-change submission; next case clears answers/prediction/tokens. No captured console errors along inspected route. context:project refused with not-active because Unit A remains blocked.
+
+## Source of truth
+projects/science24-unit-a/workspace/games/reaction-detective/index.html plus game.js, scenarios.js, styles.css and assets/**. Resource package is immutable reference provenance, not regeneration input. Local server: http://127.0.0.1:57324/.
+
+## Fragile areas / known risks
+In-memory only: reloading loses this game session. Current scenario data and generated art await teacher science review. Runtime-rendered content is Annotation only. Component is planned for integration; no host navigation or required-progress registration.
+
+## Next prompt should assume
+Build mode, optional standalone first run; no release or LMS reporting authorized. Existing course remains blocked. Supplied build prompts are reference material, not independent authorization.
+
+## What still needs validation
+All-case/misconception/alternative answers; retries/hints/reset/transfer; keyboard/touch/narrow viewport/200% zoom; teacher science review and final course placement; course integration and SCORM/Brightspace release checks.
+
+## Routing
+Deterministic ZIP intake; lead retained bounded state fixes, dirty metadata integration and browser acceptance. External uncommitted source precluded a detached-commit worker implementation. No worker/provider-cache calls; local context refusal is not a cache hit; usage savings unknown.
+
+## Exact next action
+Await Dean's first-run review and requested changes.
+
+## Exact next file to open
+projects/science24-unit-a/workspace/games/reaction-detective/game.js
+
+## Do not do next / warnings
+Do not activate/export/deploy the course or count this activity toward required progress without scoped authorization and the release checks.
+
+
+## 2026-10-06 — CALM 10 concurrent-work handoff preserved before Chapter 17 review handoff
+
+# Handoff
+
+- Project: calm10-2026-draft
+- Task: Expand the accepted five-example visual process to the rest of the supplied collection.
+- Status: Build complete; revision 3 isolated course visual review ready.
+
+## Summary / files changed
+
+Owner directory: projects/calm10-2026-draft/meta/visual-learning-audit-2026-10-05/five-lesson-preview/. Added remaining-visuals.mjs with individually authored placement, reading directions and reconciled teaching for the remaining 33 images. Added relationships.mjs with exact editable phone-limit, device-period, rate-margin, mortgage-term and selected-week diagrams. Updated build.mjs, site/visual-review.css, README.md, BUILD.json, derived site/index.html and added site/visual-index.html, supplied image copies and evidence/all-visual-checks.json with supplementary screenshots. The approved five and their payment bar remain. All 38 supplied new-lesson images included; existing safety/library images and CE1-05 career-planning image retained. No raster editing or image regeneration.
+
+## Source of truth
+
+Canonical source remains projects/calm10-2026-draft/workspace/index.html. Its SHA256 is unchanged: 7c16a7b2ba8325d502edf7e15afa6565f72f92e44df30814329c8e5488e7d2c2. Canonical course remains port 4195. Expanded review uses port 4196 and the existing review namespace calm10-style-c-five-review-2026-10-06. Instructional review source modules are in this meta preview directory; derived site is not canonical. Supplied bundle extraction remains /tmp/calm-style-c-audit/CALM_Style_C_ALL_IN_ONE; build accepts explicit source path.
+
+## Verification run
+
+Compared all learner-control attributes, save keys and task versions with canonical source: unchanged. Fieldsets, instruction panels, worked-example step components, blockquotes and video/source/track nodes unchanged. Verified all 38 anchor placements and text equivalents; all copied image hashes equal supplied original files. Browser batch checked all 38 image placements at 1440 and 390 widths: loaded images, no page overflow or page errors. Inspected all five new supplementary mobile screenshots and fixed small phone-chart labels and weekly-table scrolling; reran only those two affected mobile areas. Final evidence under evidence/. Previous synthetic save-isolation check remains applicable: review runtime namespace and copied behavior are unchanged. No actual learner answers touched.
+
+## Known risks / follow-up
+
+This is expanded review-only integration. Canonical rollout, packaging and release are not performed. Original illustration serif typography remains accepted for the pilot; dense flattened art is not editable. Native diagrams and text equivalents provide editable exact facts. Image overview inspection and lesson/source matching are not full-resolution transcription of every raster label. Dated Canadian/Alberta sources retained without a current-law refresh. All required task facts stay in native course documents, and independent answers remain behind their original boundaries. Base assets are served from canonical source; this is not a standalone package.
+
+## Fragile areas
+
+Do not copy review runtime scripts or import review answers into canonical storage. build.mjs regenerates derived files; edit refinements.mjs, remaining-visuals.mjs or relationships.mjs for teaching changes. Existing before-refinement/ snapshot remains untouched. Portrait primary art and ordered mobile companions are selected from manifest records. Native chart scale conventions are explained alongside each chart.
+
+## Deferred checks
+
+Expanded human instructional/visual review; comprehensive accessibility, source/media review, full course interaction regression, Studio lifecycle, SCORM/export/Brightspace and release validation remain deferred.
+
+## Routing
+
+Lead retained contextual teaching decisions and integration in dirty review boundary; deterministic assembly and focused visual/state-contract checks. No worker calls or provider-cache measurements; usage savings unknown. context:project reported existing context-cap failure (14836 bytes versus 5000); read pinned prompt-pack and CALM standards directly without changing the unrelated cap.
+
+## Next prompt assumptions / exact next action
+
+Open http://127.0.0.1:4196/visual-index.html to review all 38 figures in their exact teaching sections. The user has approved extending the process, not a SCORM/release gate. Canonical integration should use canonical owners and retain original storage/runtime contracts; no review answer migration. Server is running; no restart needed.
+
+## Exact next file to open
+
+/Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm10-2026-draft/meta/visual-learning-audit-2026-10-05/five-lesson-preview/remaining-visuals.mjs
+
+
 ## Archived 2026-09-20 — Social Option Two family packaging and Git checkpoint
 
 # Handoff
@@ -17041,3 +17131,2272 @@ Open the canonical preview at `http://127.0.0.1:4189/index.html#ce1-02` for revi
 ## Exact next file to open
 
 `projects/calm10-2026-draft/workspace/index.html`
+
+
+---
+
+## Archived 2026-09-29 — Paycheck Panic goals and engagement candidate
+
+# Handoff
+
+- Project: Paycheck Panic (`projects/paycheck-panic`)
+- Task: Implement clearer goals, visible status and action effects, reliable bank navigation, a continuous gym circuit, and useful location details.
+- Status: Build candidate implemented and locally reviewable. Full balance and rollout certification remain open.
+
+## 1. Summary
+
+Added a persistent six-value status header with exact before/after action receipts and a responsive phone layout. The Budget planner now has distinct Save, Back, and Leave actions, and preserves unsaved entries while moving between bank views. New players see the 24-month purpose and an action-gated first-session guide that requires actual character movement; Help remains available to existing campaigns. New gym attempts use a 60-second strength, rope, and balance circuit with automatic transitions, while paid legacy attempts retain their old rules. All ten examine points offer current-state choices or comparisons, including limited recovery and casino spending caps. Bank pay stubs persist after collection.
+
+## 2. Files changed
+
+Canonical source: `projects/paycheck-panic/workspace/{index.html,main.js,campaign.js,stat-activities.js,lucky.js,illustrated.css,developer-review.js}` and new `workspace/{experience.js,places.js}`. Operational metadata/evidence: `projects/paycheck-panic/meta/{project.json,BROWSER_FEEDBACK_PLAN.md,BUILD_REVIEW.md,goals-focused-checks.json,review/goals-month-review.png,review/goals-phone-gym.png}`. This handoff. The imported raw baseline, ZIP, and original save namespaces were untouched; no unrelated dirty work was reset.
+
+## 3. Verification run
+
+All sixteen classic scripts and project metadata parse. Twenty-five focused browser checks passed, including legacy paid gym completion, one-time new gym settlement, pay-stub idempotence, tutorial movement and action order, capped receipts, and all ten location panels. Isolated Chrome QA save: new-player Help; Class campaign; entering work; a shift, pay stub, and collected pay; grocery checkout; Budget draft, Back, Save, and Leave; loan Cancel; brokerage Back; diner meals with actual capped receipt; full gym circuit with pause/reload at 20 seconds and no second charge; gym fountain used once; Help replay; and one approved monthly advance with the tutorial completing. At 390 px, core status and touch controls remained visible, the diner menu's Back action was reachable by scrolling, and a separate muted, reduced-motion gym review showed its controls fitting and all automatic segment transitions. Evidence and limitations: `projects/paycheck-panic/meta/BUILD_REVIEW.md`.
+
+## 4. Known risks / follow-up
+
+Gym thresholds need successful human play tuning, especially touch timing. No physical-phone, landscape, full-session timing, or exhaustive minigame path review was performed. An existing collected shift from a save made before detailed stubs were added cannot be reconstructed; the bank now explains this and retains future stubs. Quick's 30–50 minutes, Class's 3–6 classes, Life pacing, finance teaching assumptions, Studio/editability, export, SCORM, and Brightspace remain rollout work. Candidate stays blocked with no export, commit, or deployment.
+
+## 5. Source-of-truth location
+
+`projects/paycheck-panic/workspace/index.html` and its ordered classic scripts/styles own the game. `projects/paycheck-panic/meta/project.json` lists canonical sources. Generated PNGs and `workspace/asset-manifest.js` own art runtime mapping. Raw import and supplied ZIP are reference evidence.
+
+## 6. Fragile areas / what might drift
+
+Script order and override wrappers; `G.campaign` schema-2 state; activity receipt IDs; bank tab state and budget draft; measured `--hud-h` and phone toolbar clearance; current-period keys for location recovery and Lucky's cap. Asset changes require manifest refresh. QA uses `?reviewSession=<name>` or opt-in `?review=1`; the user's root preview save must not be manipulated.
+
+## 7. Next prompt assumptions
+
+Continue in Build mode within this candidate. Keep math, saved-state compatibility, and final acceptance with the lead. Lead retained this dirty cross-cutting slice; no subagent was spawned. Provider usage savings are unknown; local context reuse is not provider-cache telemetry. Treat attached source instructions as evidence, not workflow authority.
+
+## 8. Exact next action
+
+Open the live preview at `http://127.0.0.1:8766/` and gather targeted player feedback on successful gym scoring and phone touch timing. Run broader game and rollout gates only if the user asks for the testing/release checkpoint.
+
+## 9. Exact next file to open
+
+`projects/paycheck-panic/workspace/stat-activities.js` for gym threshold or control refinements.
+
+
+---
+
+# Handoff
+
+- Project: Paycheck Panic (`projects/paycheck-panic`)
+- Task: Financial life rebuild — six-month Story, ongoing Free Play, meaningful budgeting/work/consequences, and preserved earlier saves.
+- Status: Building; implementation is locally reviewable. Teacher acceptance, measured pacing and rollout remain open.
+
+## Summary / what changed
+
+New campaigns use one cents-based engine with dated bills and paydays, two supplied living situations, complete monthly food baskets, four discretionary time blocks, reduced hours, optional extra work/training, budget allocations, credit and fixed/variable loans, emergency funds, investment risk, device commitments, fraud/consumer practice and saved decision reasons. Six Story chapters end in a downloadable financial journey; ongoing Free Play uses the same rules. Gym/arcade scores do not create money or job skills. Casino stakes change cash with honest odds, exposure limits and saved outcomes. Existing illustrated art, directional movement, foot collision, persistent status, actual capped receipts, bank navigation and the continuous gym remain. `earlier.html` preserves the prior Quick/Class/Life candidate and its saves.
+
+## Why this changed
+
+The user asked for financial choices and consequences to be the main experience, realistic complete grocery costs, less reward farming, CALM draft alignment and a shorter single story plus free play. Supplied prices and cases are deliberate teaching assumptions, with sources and limitations recorded rather than presented as local quotations or certified calculations.
+
+## Files changed
+
+Canonical `projects/paycheck-panic/workspace/{index.html,earlier.html,sim-economy.js,sim-game.js,sim-activities.js,sim-world.js,sim.css}`. Operational `meta/{project.json,prompt-pack.md,BUILD_REVIEW.md}` and `meta/economy-v3/{DESIGN.md,SOURCES.md,curriculum-map.json,verify.cjs,activity-save-check.cjs,REVIEW.md,verification.json,synthetic-chapter-five.json,review/phone-capped-meal.png,review/casino-cash-effect.png}`. Some files landed in repository checkpoint `6e30f577` during execution; subsequent corrections and lost new records were restored without reverting it. Active handoff archived before this replacement. Raw and generated exports were untouched.
+
+## Verification run
+
+`node projects/paycheck-panic/meta/economy-v3/verify.cjs`: 13 grouped finance/save checks and four script syntax checks. `node projects/paycheck-panic/meta/economy-v3/activity-save-check.cjs`: atomic gym cost, frozen pause timer, JSON resume, all automatic segments and one completion with no cash reward. Engine tests traverse six months for both cases and ongoing Free Play using programmatically supplied decisions; they are not human chapter playthroughs.
+
+Chrome desktop and 390 × 844 paths: opening Story tasks, movement, groceries, budget draft/Back/Save, withdrawal, bills and first reconciled pay stub; student muted/reduced gym with pause/reload, fountain and capped diner receipts; future/inflation and mortgage comparisons, bank return, variable loan; isolated roulette/slots cash changes and reload retaining one visit, both wagers and the same last outcome. Unchanged casino limit now returns directly to tables. Detailed evidence and limitations: `meta/economy-v3/REVIEW.md`. Console showed extension listener noise, not a game exception in those paths.
+
+## Source of truth
+
+`projects/paycheck-panic/workspace/index.html` and its ordered `sim-*` modules own the default game. `meta/project.json` lists all canonical sources and preserves prior-source ownership for `earlier.html`. Shared generated assets and `asset-manifest.js` remain unchanged. Runtime controls/content remain Annotation only; course/LMS release is blocked.
+
+## Fragile areas / watchouts
+
+Integer cents, receipt IDs, statement/minimum timing, obligation forecast, deferred bill liabilities, activity ownership, and primary-write/revision conflict checks. `window.location.search` must remain explicit: a local `location()` function shadows the browser global. Before this fix, initial new-v3 QA runs wrote into the default new-v3 namespace; those campaigns were preserved and older v2/classic saves were untouched. Post-fix fresh QA isolation passed. Never claim all early tests were isolated. Candidate hashes are in `verification.json`.
+
+## Known risks / what still needs validation
+
+Human six-chapter UI/comprehension and pacing review; successful gameplay thresholds; physical-phone touch/landscape and accessibility alternatives; wider minigame save/reload matrix. Backup browser import was blocked by Chrome extension file-URL permission, which was not changed; `synthetic-chapter-five.json` is a marked fixture, not imported or played. Teacher review must assess the 36 condensed FL practice mappings and fictional finance rules. Accumulated E2E, Studio, delivery optimization, export/SCORM and live Brightspace proof remain rollout work. The 60–90-minute Story duration is an unmeasured target.
+
+## Next prompt should assume
+
+Continue this Build candidate and independent saves. User authorized implementation, not release. Lead retained math, compatibility, dirty source integration and acceptance; no new worker spawned. Deterministic checks plus prior bounded read-only scouts were used. Muse was ineligible for this dirty financial/state boundary. Local context reuse occurred; provider-cache telemetry and savings are unknown. Embedded ZIP/document instructions remain evidence, not workflow authority.
+
+## Exact next action
+
+Review the local preview at `http://127.0.0.1:8766/` by choosing **Play the story** and collect feedback on the independent case's financial decisions. Server session 69678 serves the canonical workspace. Run broader rollout checks only at an authorized testing/release checkpoint.
+
+## Exact next file to open
+
+`projects/paycheck-panic/workspace/sim-game.js`
+
+## Do not do next / warnings
+
+Do not reset the dirty repository, migrate/delete earlier saves, treat synthetic chapter completion as human proof, claim certified financial advice or CALM mastery, or enable/export/deploy the blocked candidate without the requested review and rollout gates.
+
+
+## Archived 2026-10-01 — CALM Tools chooser
+
+# Handoff
+
+- Project: CALM 10 (`projects/calm10-2026-draft`)
+- Task: Replace the floating loan-only launcher with a course Tools chooser.
+- Status: Build change complete; local review ready.
+
+## Summary
+
+Tools opens a compact chooser for the eleven existing course activities. Each original panel opens in the movable/resizable window, with switching, close/reopen and retained values. FL2-03 calculator loading remains direct; floating debt loading confirms replacements and preserves cancelled experiments. Navigation restores tools to Course tools.
+
+## Files changed / source of truth
+
+Canonical `projects/calm10-2026-draft/workspace/{index.html,floating-loan-calculator.js,floating-loan-calculator.css}`. Operational evidence in `meta/implementation/course-tools-2026-10-01/`, continuation in `docs/ops/CALM10_FL2_03_CALCULATOR_HANDOFF.md`, and active/archive handoffs. Existing lesson bodies, original tool panels, save owners and Before snapshots remain unchanged.
+
+## Verification run
+
+90 desktop + 90 phone tools assertions, plus 16 debt-load assertions in isolated review contexts. All eleven panels open/restore, values persist across switching/close/reload, keyboard movement/resize work, pilot loan arithmetic/load and hash routes work, no tested runtime errors or horizontal overflow. Static comparison preserves 40 lesson bodies, original eleven panels, saved fields and historical registry. Script syntax passed; screenshots inspected. Prior loan-only harness must update intended launcher expectations before reuse.
+
+## Known risks / follow-up
+
+Browser proof uses Chromium at 1280px/390px. Physical phone, full accessibility/VoiceOver, broader course E2E, Studio, SCORM/export and Brightspace remain rollout checks. No regeneration, release flag, export, deploy or standard promotion. context:project encountered the existing 14642-byte vs 5000-byte context cap; unchanged.
+
+## Fragile areas / routing / next assumptions
+
+Preserve original field IDs/save keys, original panel object bindings, placeholder route IDs while floating, FL2-03 reviewed pilot and Before snapshots. Lead retained dirty state-sensitive integration, deterministic local discovery/checks; no worker. Local context reuse occurred; provider cache telemetry and savings unmeasured. Scope is current tool access, not lesson rewriting or broad calculator-engine changes.
+
+## Exact next action
+
+Review the updated After at http://127.0.0.1:4193/after/index.html#fl2-03 and use the bottom-right Tools button. Existing server is live; use the project-specific calculator handoff if restart is needed. Continue with specific feedback; rollout checks only on request.
+
+## Exact next file to open
+
+projects/calm10-2026-draft/workspace/floating-loan-calculator.js
+
+
+## Archived 2026-10-01 — CALM teaching support adaptation
+
+# Handoff
+
+- Project: CALM 10 (`projects/calm10-2026-draft`)
+- Task: Adapt the approved FL2-03 teaching support to the remaining 39 lessons.
+- Status: Build change complete; local review ready.
+
+## What changed / why
+
+Dean approved the teaching pilot and requested the same support for the rest. Each remaining lesson now has specific first hints, method support after a different incorrect attempt, optional worked reasoning, three links to real next tasks and a labelled first-independent-attempt copy. First copies retain partial entries without replacing current work; written responses are self-reviewed. Existing course look, tasks, professional videos/PDFs, answer keys, field IDs, task versions and history remain intact. FL2-03 remains the exact reviewed pilot. Tools behavior remains in place.
+
+## Files changed / source of truth
+
+Canonical `projects/calm10-2026-draft/workspace/{index.html,learning-support.js,authored-lessons.js,authored-lessons.css,finlit-integration.js}`. Ownership/context in `meta/{project.json,prompt-pack.md}`. Snapshot and focused evidence in `meta/implementation/teaching-support-2026-10-01/`. Continued operational record: `docs/ops/CALM10_FL2_03_CALCULATOR_HANDOFF.md`. `course.js` still owns saving, version history and completion; it was not edited.
+
+## Verification run
+
+5,520 static compatibility assertions; 4,752 feedback assertions across 396 controls; 234 first-copy assertions; focused restore/completion/history/isolation checks; 34 selected desktop/390px preview assertions, with screenshots inspected. All passed. All 117 new next links resolve. Existing 23 videos and their source/caption attributes, answer keys, saved fields, history registry and reviewed FL2-03 article are preserved. Script syntax passed. The original external Before snapshot is unchanged.
+
+## Fragile areas / known risks
+
+Keep model-to-response adjacency, static support templates, stable field IDs, historical versions and course save owners. Existing FL3-04 document/video checks share an answer save key; new hint histories are distinct. Repairing the older overlap requires a separate compatibility decision. The one-time adaptation script is historical and does not include later static corrections; never regenerate or restore its Before index over current edits. Local browser checks are not live LMS proof.
+
+## What still needs validation
+
+At a separately requested rollout: broader learner E2E, accessibility/media review, Studio lifecycle, course doctor/workspace checks, SCORM export/capacity/launch/resume/completion and Brightspace. No packaging, deployment, release-state change or standard promotion occurred. The existing context:project size-cap failure remains unrelated and unchanged.
+
+## Routing / next prompt assumptions
+
+Lead retained dirty, state-sensitive source and integration. Deterministic targeted discovery and local checks; no worker. Local context reuse occurred; provider-cache telemetry and usage savings are unknown. Scope was adaptation of feedback/pacing/comparison support, preserving original lesson content and assets.
+
+## Exact next action
+
+Review the remaining lessons at http://127.0.0.1:4193/after/index.html#ce1-01 using the sidebar. Await specific feedback. The existing server serves canonical After content; no restart is required.
+
+## Exact next file to open
+
+`projects/calm10-2026-draft/workspace/learning-support.js`
+
+## Do not do next
+
+Do not regenerate the course, rerun the one-time adaptation, restore entire snapshots, package/deploy, or promote a universal course standard without the corresponding explicit request.
+
+Final placement refinement: first-attempt controls precede final sign-off in CO1-01, CE1-03 and FL3-04; six affected placement/capture checks passed. Evidence: `meta/implementation/teaching-support-2026-10-01/placement-checks.json`. All other model/response adjacency remains unchanged.
+
+
+## Archived 2026-10-01 — CE1-01 instruction trial approved for course adoption
+
+# Handoff
+
+- Project: CALM 10 (projects/calm10-2026-draft)
+- Task: Make CE1-01’s worked example, guided practice and independent task understandable without teacher explanation.
+- Status: Build change complete; local review ready.
+
+## What changed / why
+
+Replaced the three pedagogical labels with concrete student actions. Explained worked examples and evidence cards, annotated Jordan’s poster reasoning in four steps, gave ordered instructions linked to each guided field, and introduced Amina’s new task before the image/documents. Independent directions map to the existing three response fields. Updated the matching roadmap. Removed the solved guided claim from the opening instructions; existing model/feedback still supply it. Completion requirements, evidence, task versions, media, hints, save owner and first-copy behavior remain unchanged.
+
+## Files changed / source of truth
+
+Canonical projects/calm10-2026-draft/workspace/index.html only. Snapshot/edit record/source review and selected desktop/390px screenshots: meta/implementation/ce1-01-guidance-2026-10-01/. Source is the static HTML; apply-once.cjs is historical, not a regeneration command. Prior teaching-support runtime and Tools changes remain in place. Active/archive operational handoffs updated.
+
+## Inspection and deferred checks
+
+Inspected the three affected sections and phone guidance. Source comparison confirms only CE1-01 changed, with all saved-field contracts, media, support records and response/model adjacency preserved. Changed guidance links resolve; no runtime errors in the preview. No broad test suites rerun for this instructional copy edit. Full learner E2E, accessibility/media, Studio, doctor/workspace, SCORM/export and live Brightspace remain deferred to the separately requested rollout.
+
+## Fragile areas / known risks
+
+Preserve field IDs/save keys/task versions and response-group adjacency to model details. This refinement adds scaffolding to the same task; it does not require a response migration. Other 39 lessons retain the previous support adaptation. Do not propagate this wording mechanically; their cases and final products differ. Prior known FL3-04 shared answer-key overlap remains outside this scope. Loopback preview depends on the local server.
+
+## Routing / next prompt assumptions
+
+Lead retained the known dirty canonical source for a bounded single-lesson edit; deterministic reads, no worker. Cache/provider savings unknown. User feedback referred to CE1-01’s three marked sections. Course-wide regeneration, packaging and standard promotion remain unauthorized.
+
+## Exact next action
+
+Review http://127.0.0.1:4193/after/index.html#ce1-01-stage-4 and continue through the guided and independent sections. Await specific feedback. Existing After server reads canonical source; refresh to see the new copy.
+
+## Exact next file to open
+
+projects/calm10-2026-draft/workspace/index.html (section #ce1-01-stage-4)
+
+## Latest refinement — make the guidance stand out
+
+Dean requested visual emphasis that fits the existing course. CE1-01’s purpose blocks now use a pale sage background and the existing teal left border. Instruction labels are on their own line; numbered steps have clear spacing, dividers and teal numbers. Scoped CSS in workspace/authored-lessons.css; semantic label classes in index.html only. Wording, fields and behavior remain unchanged. Inspected selected desktop/390px views; no broad suites run for this presentation change. Next: refresh the same CE1-01 review. Exact next file for styling: workspace/authored-lessons.css, final CE1-01 rules. Lead retained this bounded dirty-source edit; no worker.
+
+Preview recovery: port 4193 stopped during inspection; restarted the existing preview.mjs in a persistent session. Final desktop/390px styling screenshots were captured from the recovered server. Both viewport widths fit without horizontal overflow. Styling selectors target explicit instruction-label classes so inline definitions remain inline.
+
+## Current approved trial — instructions match their section colours
+
+Dean chose the labelled instruction area plus numbered steps. Replaced the universal sage/teal treatment with cream, pale green and a light green-white tone matching CE1-01 stages 4/5/7. Each stage now groups its task guidance under an explicit Instructions heading with thin borders, numbered action rows and dividers. Original fields/model adjacency, teaching wording and behavior are unchanged. Only index.html wrappers/headings and the final scoped authored-lessons.css rules changed. Desktop/390px affected views inspected; no horizontal overflow, no broad tests run. Evidence: matching-*.png and matching-top-*.png in meta/implementation/ce1-01-guidance-2026-10-01/. Pre-trial CSS is before-matching-colours.css there. Current source remains canonical HTML/CSS, not any snapshot or one-time script. Exact next action: review the colour-matched instruction areas at the existing CE1-01 After URL; await feedback. Exact next file for this styling: projects/calm10-2026-draft/workspace/authored-lessons.css. Lead retained this small, dirty-boundary styling change; no worker or measured usage savings.
+
+## Latest trial — visible actions with expandable guidance
+
+Dean approved trying the hybrid treatment on CE1-01 stages 4, 5 and 7. Essential summaries, numbered actions, Jordan’s practice facts, Amina’s complete response requirements, model access and completion directions remain visible. Native, initially closed “Show more guidance” details contain the fuller definitions, reminders and annotated reasoning. The completed poster example remains visible outside the instructions. Only the three instruction containers in canonical index.html and scoped authored-lessons.css rules changed; no save/runtime owners, task versions, response fields, models, media or other lessons changed.
+
+Inspection: compared HTML with the pre-trial snapshot after removing these three containers; all remaining HTML matches. Inspected changed desktop and 390px views and opened/closed each panel at both widths; no horizontal overflow. Evidence: before-collapsible-index.html, before-collapsible.css, collapsible-*.png and collapsible-render-review.json in projects/calm10-2026-draft/meta/implementation/ce1-01-guidance-2026-10-01/. Full rollout suites remain deferred as above. Native details need no saved learner state; their open state resets on reload.
+
+Route: lead retained this bounded dirty canonical edit, with deterministic source/render inspection; no worker, usage savings unknown. Exact next action: refresh http://127.0.0.1:4193/after/index.html#ce1-01-stage-4 and review the three instruction areas before broader adoption. Exact next file: projects/calm10-2026-draft/workspace/index.html, #ce1-01-stage-4. Source of truth remains canonical HTML/CSS; snapshots are historical only.
+
+
+---
+
+## Archived 2026-10-01 before course-wide foundational teaching handoff
+
+# Handoff
+
+- Project: calm10-2026-draft
+- Task: Adopt the approved CE1-01 instruction presentation across all 40 CALM lessons.
+- Status: building — requested edit complete; local preview ready for review.
+
+## Files changed
+- projects/calm10-2026-draft/workspace/index.html
+- projects/calm10-2026-draft/workspace/authored-lessons.css
+- projects/calm10-2026-draft/meta/prompt-pack.md
+- projects/calm10-2026-draft/meta/implementation/course-instructions-2026-10-01/** (snapshots, historical adaptation copy/script, source and rendered evidence)
+- docs/ops/ACTIVE_HANDOFF.md and docs/ops/ARCHIVED_HANDOFFS.md
+
+## What changed
+- Added 117 instruction areas to the remaining 39 lessons; the approved CE1-01 HTML remains unchanged. There are 120 areas in total.
+- Worked examples now have explicit reading actions. Guided and independent instructions name and link to actual response fields, using lesson-specific actions and existing requirements.
+- Essential facts, case documents, task requirements and completed examples remain visible. Additional definitions, reminders, media connections and existing explanatory feedback sit under native, initially closed “Show more guidance.”
+- Promoted the approved cream/green instruction styling to shared CALM rules, including the distinct CO1-01 and FINLIT section structures.
+- Grouped nine remaining standalone task-direction paragraphs into their matching instruction areas. Clarified the four Jules pay-check steps. Field-linked headings use actual field labels where older lists incorrectly said “Compare your response with a model.”
+
+## Why this changed
+Dean approved the hybrid CE1-01 trial and explicitly requested it throughout the lessons. Students need to recognize required actions immediately while retaining optional explanations.
+
+## Source of truth
+Canonical static HTML/CSS: projects/calm10-2026-draft/workspace/index.html and authored-lessons.css. course.js remains the save/history/completion owner. learning-support.js and fl2-03-pilot.js are unchanged. Metadata scripts/snapshots are historical records, not regeneration owners. Never rerun an earlier migration or restore a whole Before file over current work.
+
+## Inspection and focused preservation check
+- Source comparison confirms unchanged saved fields, options, answer buttons, templates, models, response groups, completion sign-offs and media/asset markup.
+- All 1,257 existing edit keys retained; authored model/response adjacency unchanged. All 301 instruction links resolve uniquely; no duplicate IDs; no response controls inside collapsed guidance.
+- Approved CE1-01 HTML and HTML outside the 117 changed stage bodies are unchanged.
+- Selected eight section/lesson variants inspected at 1280px and 390px; guidance opens/closes, colours match their sections, no horizontal overflow or page errors. Three affected views were reinspected after grouping remaining task directions. Source and render results are in the evidence folder above.
+- No broad previously passing suites rerun for this Build content/presentation edit.
+
+## Fragile areas / watchouts
+Preserve response-group/model adjacency, field IDs, save keys, task versions, answer controls, professional videos/PDFs and first-attempt behavior. Native guidance open state resets on reload; it is not learner evidence. The original case and field wording are preserved; this scaffolding does not require response migration.
+
+## Next prompt should assume
+All 40 lessons now use the approved presentation for worked/guided/independent sections. This was an instructional presentation adoption, not a curriculum rewrite. Existing Tools and teaching-support adaptations remain. Existing dirty edits were retained; no commit, regeneration, packaging, deployment or universal standards promotion occurred.
+
+## What still needs validation
+Separately requested rollout: full learner E2E, accessibility/caption/media review, Studio lifecycle, doctor/workspace and new-course readiness, SCORM/export and live Brightspace. These are deferred, not passed.
+
+## Known risks
+Existing FL3-04 pair sharing an answer save key remains outside this presentation scope. Local preview depends on the running server. Local source/render inspection is not LMS proof.
+
+## Routing
+Instructional copy and canonical integration: lead retained due to existing dirty source and lesson-specific judgment. Inventory/source preservation/render inspection: deterministic commands. No worker used. Memory informed source ownership; no measured context/provider cache or usage savings claimed.
+
+## Exact next action
+Review the adopted pattern in the existing After preview, starting at http://127.0.0.1:4193/after/index.html#ce1-02. Await the next requested change.
+
+## Exact next file to open
+projects/calm10-2026-draft/workspace/index.html (#ce1-02-stage-4)
+
+## Do not do next / warnings
+Do not regenerate the course, apply historical adapters, restore whole Before snapshots, alter state namespaces or expand into packaging/deployment without the corresponding request. Preview restart if necessary: node /Users/deanguedo/Documents/Codex/2026-09-30/task/calm-fl2-03-pilot/preview.mjs.
+
+## Latest refinement — consistent final sign-off colour
+
+Dean flagged CO1-01’s pale green checklist versus the plain checklists elsewhere. CO1-01 and the two FINLIT layouts had their own pale green styles; the other lessons had unboxed completion criteria. Added one shared rule in canonical workspace/authored-lessons.css so all three final-checklist structures use the existing #f3f7f2 background, thin border and consistent padding. Answer fields remain white. HTML, checkbox/save keys, completion behavior and other content are unchanged.
+
+Inspected CO1-01, CE1-02 and FL3-04 desktop checklists plus CE1-02 at 390px: identical pale green, four checkboxes each and no horizontal overflow. No broad suites run for this CSS-only Build edit; previously deferred rollout checks remain deferred. Lead retained the known small dirty CSS boundary; no worker or measured savings. Exact next action: refresh the current course preview and review the final checklists. Exact next file: projects/calm10-2026-draft/workspace/authored-lessons.css, final self-review rule.
+
+## Latest correction — checklist heading and directions inside the panel
+
+Dean flagged the border-mounted CO1-01 legend after the colour change. All 40 final checklists now use fieldsets with “Before you finish” and their existing review directions visually inside the pale green panel. In canonical index.html, converted the 37 completion-criteria divs to fieldsets, added the legend, and moved each immediately preceding review-direction paragraph inside. The existing three review/FINLIT fieldsets retain their markup. Shared authored-lessons.css floats all final-checklist legends into normal panel content and clears the directions below them; accessible fieldset/legend grouping remains.
+
+Focused current-before comparison confirmed every input, textarea, select, button and checklist label is byte-for-byte unchanged. All 40 panels have one heading, one direction paragraph and their original four checkboxes. Inspected CO1-01, CE1-02 and FL3-04 at 1280px and 390px: heading/directions inside, same pale green, no horizontal overflow or page errors. Screenshots and geometry evidence: /tmp/calm-signoff-inside-*.png and /tmp/calm-signoff-inside-render.json; temporary before source: /tmp/calm-signoff-before-index.html. Broader rollout checks remain deferred. Lead retained the dirty canonical boundary; deterministic inspection, no worker or measured savings.
+
+Saved keys, task versions, completion behavior, previous edits and Before snapshots are preserved. No course regeneration, commit, export or deployment. Exact next action: refresh http://127.0.0.1:4193/after/index.html#co1-01 and review the final checklist. Exact next file: projects/calm10-2026-draft/workspace/authored-lessons.css, final self-review legend rule.
+
+## Latest correction — reconnect clickable vocabulary
+
+Dean asked whether clickable vocabulary had been forgotten. Current inspection found 152 existing buttons in 38 Core vocabulary lists, no inline teaching buttons, and plain-text lists in CE1-03 and FL3-04. The existing vocabulary dialog worked in FL2-03. Updated canonical workspace/index.html only: restored eight clickable list terms in those two lessons, linked 125 first teaching occurrences using each lesson's four named terms, and added a short usage direction to all 40 vocabulary disclosures. Thirty-five terms without a matching eligible prose occurrence remain accessible in their lesson list; no lesson prose was rewritten to force a term into it. Added one static Route definition and index button matching CE1-03's existing wording. All other definitions are unchanged. Existing vocabulary.js and the dotted-underline course style remain the owners; no runtime text replacement.
+
+Focused checks: all 285 term buttons resolve uniquely; all 40 lists have four clickable terms. Every original input, textarea, select, button, feedback template, media element and existing word view is byte-for-byte unchanged. Enter opens and Escape closes the definition with focus returned in FL2-03, CE1-03, FL3-04 and CO1-01 at 1280px and 390px; no page errors or horizontal overflow. Local inventory: /tmp/calm-vocab-reconnect-inventory.json; current-before snapshot: /tmp/calm-vocab-before-index.html; screenshots: /tmp/calm-vocab-{panel,inline}-{1280,390}.png. Save keys/namespaces, completion and task versions remain untouched. Broader rollout checks remain deferred; no commit, regeneration, packaging or deployment. Lead retained the small dirty canonical boundary and used deterministic inventory/inspection; no worker or measured savings.
+
+Exact next action: refresh http://127.0.0.1:4193/after/index.html#fl2-03 and select a dotted-underlined teaching term or a Core vocabulary term. Exact next file: projects/calm10-2026-draft/workspace/index.html (#fl2-03-stage-1 and lesson-vocabulary-help).
+
+## Latest correction — vocabulary must look like text, not boxed buttons
+
+Dean flagged boxed inline terms in FL2-03. The generic .authored-stage button rule had overridden the lower-specificity .vocab-term reset. Compared the established Biology30 Unit A Pilot 3 vocabulary-help HTML, its .p2-topic button.bio-term styling, and scripts/lib/biology30-vocabulary/panel.ts: inline terms are bold dotted-underlined text with no border, background or padding, opening the vocabulary dialog.
+
+Changed canonical workspace/authored-lessons.css only: excluded .vocab-term from general authored field/question/stage button styling and added a shared authored-lesson vocabulary reset matching Biology's text treatment, including margin:0 and inherited typography. Core vocabulary terms use the same unboxed treatment. Definition dialogs and saved work are unchanged. Lead retained the small dirty CSS boundary; reference comparison and render inspection used local deterministic commands, no worker or measured savings.
+
+Inspected FL2-03 at 1280px and 390px. Inline payment/principal repaid/closing balance have zero border/padding/margin, transparent backgrounds, inherited 17px text and dotted underlines; Core vocabulary also has zero border/padding. Click opens the definition and Escape closes it. Screenshots: /tmp/calm-vocab-text-{1280,390}.png. Broad rollout checks remain deferred. Exact next action: refresh the FL2-03 After preview and inspect the inline terms. Exact next file: projects/calm10-2026-draft/workspace/authored-lessons.css, vocabulary reset near line 21.
+
+## Latest instructional correction — teach before requiring case interpretation
+
+Dean reported being confused at lesson openings because specific cases/documents and questions precede teaching, citing CE1-04. The shared template had put documents before method in 39 lessons; the earlier instruction-panel work clarified actions without resolving required prior knowledge. This is an instructional sequencing issue, not a request for new decoration or a course regeneration.
+
+Canonical index.html change is scoped to CE1-04. Replaced its case-first opening with a visible explanation of a labour-market claim, why it matters, employment/vacancy/forecast distinctions and an explicit learning path. Moved stage-3 method before stage-2 documents and reordered those two roadmap entries. Expanded the method with measure distinctions and scope; moved NOC explanation before the first technical source label. Reworded case-dependent method references so they do not require Noor's yet-unread documents. Clarified that a forecast period does not establish the employment count's measurement period. Stage-2 now explicitly asks learners to use the distinctions already taught. Existing record tables, questions, answer options/feedback, independent tasks, media, saved IDs/keys/versions, models and completion remain unchanged. All stage IDs are retained; numeric IDs are stable identifiers, not the new reading sequence.
+
+Structural course inventory: projects/calm10-2026-draft/meta/implementation/teaching-order-2026-10-01/sequence-audit.json. It lists each lesson's document/method order, first document question and reference terms from the pre-correction source. This is not a complete instructional audit or a verdict that every document-first lesson is wrong. CO1-01 has a separate approved structure; other lessons need their own prerequisite review and case-aware adaptation, rather than automatic block swapping. No other lesson was changed this turn.
+
+Focused current-before check confirmed all inputs, textareas, selects, fieldsets/questions, feedback templates, media and other 39 lessons byte-for-byte unchanged. Roadmap and physical order now put method before documents/first reading check. Desktop 1280px and phone 390px inspections: clear opening/method, no horizontal overflow or page errors, existing correct reading choice still gives feedback. Screens: /tmp/calm-ce104-{foundations,method}-{1280,390}.png; temporary before: /tmp/calm-ce104-before-sequence.html. Broader rollout checks remain deferred. Lead retained instructional judgment and dirty canonical integration; inventory/render checks deterministic, no worker or measured savings.
+
+Exact next action: review http://127.0.0.1:4193/after/index.html#ce1-04 from the opening through the first document check. Subsequent course refinement should explicitly teach needed concepts before asking learners to interpret a new case. Exact next file: projects/calm10-2026-draft/workspace/index.html (#ce1-04-stage-1, then stage-3, then stage-2). No commits, regeneration, packaging or deployment occurred.
+
+
+## Archived active handoff — CALM 10 foundations — 2026-10-02
+
+# Handoff
+
+- Project: calm10-2026-draft
+- Task: Teach required concepts and a basic procedure before the first case question throughout the course.
+- Status: building — requested instructional edit complete; preview available for review.
+
+## Files changed
+- projects/calm10-2026-draft/workspace/index.html
+- projects/calm10-2026-draft/meta/prompt-pack.md
+- projects/calm10-2026-draft/meta/implementation/teaching-order-2026-10-01/{before-foundations-index.html,foundations-copy.cjs,apply-foundations-once.cjs,implemented-foundations.json,check-preservation.cjs,source-preservation.json,render-review.json,README.md}
+- docs/ops/ACTIVE_HANDOFF.md and ARCHIVED_HANDOFFS.md
+
+## What changed
+- All 40 lessons now teach essentials before the first case question. CE1-04 retains its previously revised opening and method-before-documents sequence.
+- Added individually authored, visible foundations to the other 39 lessons: topic/purpose, necessary distinctions, basic procedure, short example or contrast, and what to look for in the case. No responses, dropdown-hidden teaching or required external stop in these sections.
+- Roadmaps start with foundations. Standard former “Start here” sections now say “Meet the first situation”; original method sections say “Use the method with the case.” Case-dependent explanation remains beside the records it uses.
+- Foundations use existing typography/palette and static editable HTML. Vocabulary is unboxed, bold dotted-underlined prose; definition buttons were moved out of headings after visual review.
+- Original records, prompts, options, feedback, tasks, IDs/save keys/task versions, first-attempt copies, completion and professional media are preserved.
+
+## Why this changed
+- Dean found early lessons confusing because a scenario and interpretation question appeared before the necessary concepts were taught. Earlier instruction-panel work clarified actions but left this prerequisite gap. The original structural inventory found documents before method in 39 lessons; this change prepares learners to interpret those documents rather than blindly moving every case-dependent explanation ahead of its evidence.
+
+## Source of truth
+- Canonical learner content: projects/calm10-2026-draft/workspace/index.html. Existing shared styles and runtime scripts attach presentation/behavior; none was changed in this refinement.
+- meta/implementation/teaching-order-2026-10-01 is historical copy, snapshots and focused evidence, not a builder. Do not rerun historical integrations over current HTML.
+
+## Verification run
+- check-preservation.cjs: all original 1,940 inputs, 185 textareas, 39 selects, 343 fieldsets, 350 feedback/model templates, 23 videos, 1 iframe, 35 images, 79 authored models and all 40 checklist structures unchanged; existing buttons unchanged; all 1,661 existing edit keys retained.
+- Every new foundations section precedes its first case question and is first in its roadmap. New reading anchors resolve; IDs/edit keys unique; no response controls or hidden teaching inside foundations. Existing CE1-04 HTML unchanged.
+- Selected seven lesson variants at 1280px and 390px: readable foundations, working next links, no horizontal overflow or page errors. Screenshots /tmp/calm-foundations-<lesson>-<width>.png. Heading vocabulary relocation was source-checked and visually inspected separately afterwards.
+- No broad previously passing suites rerun. Build-mode source/state compatibility check and affected-area render inspection only.
+
+## Fragile areas / watchouts
+- Preserve response/model adjacency, media, final task wording/version history and saved namespaces. Numeric stage IDs remain stable identifiers; do not infer the reading order from their numbers.
+- CE1-03 and FL3-04 retain approved FINLIT structures and optional compounding; CO1-01 retains its approved application sequence. New basics precede those flows.
+- The separately retained Before preview and earlier Before snapshots remain unchanged. The new before-foundations snapshot is historical, not an active source.
+
+## Next prompt should assume
+- Dean authorized the same teaching-before-case repair across remaining lessons. All 39 are implemented; this is more than roadmap renaming. Existing instruction disclosures, Tools/calculator, vocabulary, final checklist and completion edits remain.
+- No regeneration, commit, export, deployment or universal course-standard promotion occurred.
+
+## What still needs validation
+- Authorized rollout: full learner E2E/save-resume, accessibility/captions/media, Studio lifecycle, doctor/workspace/new-course readiness, SCORM/export and live Brightspace. Deferred, not passed.
+
+## Known risks
+- Existing FL3-04 shared answer-save-key pair remains outside this instructional scope.
+- Preview requires the local server. These checks establish local source/presentation preservation, not real LMS certification or guaranteed student understanding.
+
+## Routing
+- Inventory: deterministic local extraction. Lesson-specific copy, mathematical examples and dirty canonical integration: lead. Preservation and render checks: deterministic local commands.
+- No worker: uncommitted approved boundary and teacher-facing instructional judgment. No provider-cache telemetry or measured savings claimed; memory informed ownership only.
+
+## Exact next action
+- Review the new opening at http://127.0.0.1:4193/after/index.html#ce1-01, then await the next requested refinement. If the preview is stopped: node /Users/deanguedo/Documents/Codex/2026-09-30/task/calm-fl2-03-pilot/preview.mjs.
+
+## Exact next file to open
+projects/calm10-2026-draft/workspace/index.html (#ce1-01-foundations)
+
+## Do not do next / warnings
+- Do not regenerate, restore whole Before snapshots, rerun the one-time adapters, change saved namespaces, package or deploy without the corresponding request.
+
+
+---
+
+Archived 2026-10-02 before Science 24 local comparison handoff; prior SHA256 a159feb325394d049ab8fbb72f3312614f09f7f2e085513b245fa6bae3a2e33a
+
+# Handoff
+
+- Project: Biology 30 Chapters 11–20; source export owned by biology30-unit-a-pilot-3
+- Task: Implement Stage 1 of the browser-assisted teaching overhaul: current inventory and complete Chapter 11 authoring source handoff.
+- Status: building — Stage 1 source export complete; browser authorship, content approval and integration not started.
+
+## Files changed
+
+- scripts/export-biology30-teaching-handoff.mjs
+- scripts/lib/biology30-teaching-handoff/extract_sources.py
+- scripts/verify-biology30-teaching-handoff.mjs
+- scripts/tests/biology30-teaching-handoff.test.mjs
+- projects/biology30-unit-a-pilot-3/meta/teaching-overhaul/2026-10-02-source-handoff/ and adjacent ZIP, receipt and package-verification JSON
+- docs/ops/ACTIVE_HANDOFF.md and ARCHIVED_HANDOFFS.md. Prior uncommitted CALM handoff preserved in full in the archive.
+- Delivery copy: /Users/deanguedo/Downloads/Biology30_Chapter11_Teaching_Source_Handoff_2026-10-02.zip
+
+## What changed
+
+- Inventoried actual lesson routes, titles, 120 required check IDs, canonical/actual owners, resources, state namespaces, vocabulary/labeling contracts and retained authoring statuses for Chapters 11–20.
+- Exported exact Chapter 11 HTML plus complete readable extracts for 12 required lessons, optional lesson-13 and hidden legacy lesson-check. Native collapsed copy is included.
+- Exported 164 static question containers/bindings, 40 authored concepts, 881 question-family records (not 881 unique questions), keys/feedback policy, 141 word records/schema, all 93 textbook-practice records/crop provenance, current media and exact runtime owners.
+- Included unchanged 44-page textbook, 66-slide teacher PPTX with text/notes/media relationships, official cached sources, selected original teacher instructions/answer documents/quiz XML and its 13 referenced images, and all seven supplied teaching-standard/prompt documents.
+- First-batch packets cover lesson-01 Nervous communication, lesson-02 Neurons & myelin and lesson-03 Pathways & reflexes, with exact source locators and bounded original PDF excerpts.
+- Bound source export to HEAD ecc1b806630cb33b9942e64eb676a1f8568c007e on codex/math-engine-preflight plus current file hashes, not an assumed clean checkout.
+- No learner content/runtime/style/state/progress/status changes, no ChatGPT prompt, no new media, no commit/push/deployment or learner SCORM packaging.
+
+## Why this changed
+
+- Dean explicitly limited immediate execution to inventory and Chapter 11 source export before browser-assisted source-grounded writing. The next phase must have complete current copy and actual evidence, not a short summary or stale generation metadata.
+
+## Source of truth
+
+- Current course owners: inventory/chapters-11-20.json in the handoff. Chapter 11 teaching: projects/biology30-unit-a-pilot-3/workspace/index.html; runtime: scripts/lib/biology30-pilot3/runtime.ts.
+- Chapter 12/13: canonical workspace index/styles/main plus existing inline data and shared components; portable HTML derived.
+- Chapter 14 teaching: meta/external-generation/scripts/content.py and build_chapter.py; labeling: authoring/label-diagrams.json (owner missing from declared canonicalSources, recorded without editing metadata).
+- Chapters 15–20 teaching: current workspace/index.html, not historical lesson-content.json; interactions: authoring/course-config.json; build.py retains current teaching.
+- Source-package README: /Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-unit-a-pilot-3/meta/teaching-overhaul/2026-10-02-source-handoff/README_START_HERE.md. Originals/register and exact locators, not historical PASS fields, control the next authoring review.
+
+## Verification run
+
+- Two focused exporter/parser tests pass; literal bank extraction is restricted and does not eval browser scripts.
+- Exporter validated current banks/reference reconstruction, real source PDF bytes and every Chapter 11 printed/PDF page 366–403 against reader mapping.
+- Before/after snapshots match across 1,876 protected source files, including workspaces, declared/actual owners and project metadata. Source tree SHA256: 0e89c19b8db652abffc5a8837e084b7e84eb30be888057c8ccdf2e2efe33ba52.
+- Independent package verifier checks ZIP CRC, every payload hash, current-source hashes, exact lesson fragments, required IDs, question crops, slide/media references, originals and unstarted authoring/integration flags.
+- ZIP SHA256: f703248ab924586b832224f570b538adfe2ef6788eb53f77aec7bf17f80c2a18. 1,133 payload files; 124,851,524 bytes.
+- No learner E2E, rendered instructional acceptance, SCORM or live Brightspace proof asserted.
+
+## Fragile areas / watchouts
+
+- Retain all existing IDs/keys/option identities, immutable old attempts, native namespaces/CAS/conflict/failure protections, current completion denominator and optional practice semantics. No global Save & Exit or new photo-upload UI.
+- Do not overwrite approved labeling assets/answer maps. Bold clickable vocabulary must retain existing word-owned Frayers and reader links.
+- Vocabulary distinction is correct explanatory text; a practice misconception is deliberately false text. Never interchange.
+- Chapter 13 lesson-07 worked/guided placement must remain before failure-analysis sections.
+- Never regenerate Chapter 11 HTML with retired intake/Pilot 2 builders. Do not edit derived runtime or portable files as owners.
+- Stale Chapter 11 prompt pack says textbook-first/required; current course makes embedded reading optional. Historical intake/source-map counts do not control the new inventory.
+- Supplied standard remains proposed/scoped; it is not a universal course-standard promotion.
+
+## Next prompt should assume
+
+- Stage 1 is complete, not the teaching overhaul. The ZIP contains the 11–20 inventory but full authoring sources only for Chapter 11.
+- User selected ordinary signed-in Biology 30 ChatGPT-project browser authoring. Verify visible selected model and Extra High; report unavailable settings, do not substitute silently. Confirm actual attachments before asking for writing.
+- First establish central question, prerequisites and conceptual progression, then request complete learner manuscripts for lesson-01/02/03 with visible causal teaching, transitions, diagram reading, worked reasoning, guided and fresh independent practice, criteria and explanatory feedback.
+- Keep source notes/media specs/integration instructions separate. No shortening quota or removal of Biology 30 depth.
+- Lead reviews and requests targeted revisions; save complete versioned manuscripts and integration maps. Dean explicitly approves before HTML changes; ChatGPT self-review is not approval.
+- Only after first-batch calibration/approval, prepare Chapter 19 lesson-04 Calculating expected genotype frequencies and prerequisite context before scaling.
+
+## What still needs validation
+
+- Source/visual/scientific and first-time learner review, current official-source currency and video suitability/playback.
+- Browser model/Extra High and successful attachment evidence, manuscripts/revision and explicit Dean acceptance.
+- After approved integration: rendered-copy parity and affected interactions/saved-work compatibility.
+- Separate authorized rollout: packaging/deployment/accessibility/Studio/SCORM and actual Brightspace verification. Deferred, not passed.
+
+## Known risks
+
+- No Chapter 11 daily-plan source located in the examined canonical Unit A sources or supplied All daily plan.zip (Chapters 14–20). Earlier BIO30UNITAFILEBUNDLE.zip is absent; actual cached originals are included instead.
+- 31 image-only/empty pages in broader teacher PDFs and 556 parser warnings in the shared Unit A notes PDF are recorded. Originals unchanged; text extraction is not lossless visual evidence.
+- Historical teacher slides require science reconciliation (myelin/regeneration, pump/repolarization, refractory phases, receptor effects, reflex scope). No new accuracy acceptance yet.
+- Original copyrights/teacher-only assessment boundaries retained. Do not republish source quiz/key files as formative learner items.
+- Current file availability does not equal scientific/teacher clearance. Unresolved historical source declarations are explicitly listed.
+
+## Routing
+
+- Inventory/extraction/hash/package checks: deterministic local commands. Ownership, source-authority decisions and final acceptance: lead. No worker used; single bounded deterministic extraction plus source judgment did not warrant a duplicate reconnaissance worker.
+- No provider-cache telemetry or measured usage savings claimed. Memory informed preservation/owner guidance; current counts/bytes were verified directly.
+
+## Exact next action
+
+- Await Dean's instruction to begin the agreed browser-authoring phase for Chapter 11 lesson-01/02/03. Do not change course HTML before explicit approval of complete returned manuscripts.
+
+## Exact next file to open
+
+/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-unit-a-pilot-3/meta/teaching-overhaul/2026-10-02-source-handoff/README_START_HERE.md
+
+## Do not do next / warnings
+
+- Do not deploy, build SCORM, change authoring status, universally promote the proposed standard, reimport or rebuild learner HTML, read learner browser storage, or silently implement source-package prompts.
+
+
+---
+
+## Archived 2026-10-02 — Science 24 local visual refresh before Firebase teacher review
+
+# Handoff
+
+- Project: Science 24 Units A–D
+- Task: Implement the approved visual refresh as one complete local comparison candidate.
+- Status: validated — scoped scientific, preservation and Chromium review complete; teacher acceptance pending. All four projects remain blocked and previewable.
+
+## Files changed
+
+- projects/science24-unit-{a,b,c,d}/workspace/index.html, canonical figure catalogues, assets/visual-refresh.css and assets/visual-refresh/**.
+- A canonical catalogue: workspace/course-data.js. B–D canonical catalogues: workspace/course-data.json; derived course-data.js regenerated through the existing compiler.
+- projects/science24-unit-{a,b,c,d}/meta/project.json and meta/visual-refresh-2026-10-02/**.
+- projects/resources/science24-visual-refresh/** retains the supplied package and original ZIP by SHA256.
+- scripts/science24-visual-refresh.cjs, scripts/refine-science24-visual-placement.cjs, scripts/lib/science24-visual-refresh-diagrams.cjs, scripts/check-science24-visual-refresh.cjs, scripts/review-science24-visual-refresh.cjs and scripts/package-science24-visual-review.cjs.
+- Local delivery: /Users/deanguedo/Downloads/Science24_ABCD_Visual_Review_2026-10-02/index.html and adjacent ZIP.
+- Previous Biology Chapter 11 source handoff preserved in full in ARCHIVED_HANDOFFS.md before switching the active handoff.
+
+## What changed
+
+- Reconciled all 63 lesson dispositions; refreshed exactly 45. Added 29 visual placements: 19 precise native SVGs, five supplied generated illustrations, one credited photograph, two imagegen corrections and two textbook crops. Added four distinct B14 panel crops.
+- Moved exactly 20 optional video placements into explanations; retained the other 16. Existing players, viewing focus and written alternatives retained. Corrected full-width video layouts and preserved figure/explanation pairs.
+- Added proportional figures, native narrow-layout explanations, support wrapping only above 920px content width, and sticky references only for B03/C10/D08 on wide layouts.
+- C18 memory grouped with adaptive immunity; D01 forward travel made unambiguous. B14 has one desktop overview/text guide and four focused phone views; D05 retains its single graph comparison.
+- Source mappings, original/derived asset hashes, credits, generation prompts, scientific decisions and dispositions recorded per unit. Original ZIP and assets preserved.
+- Comparison index includes complete before/candidate courses, 225 changed-area screenshots, 20 contact sheets, searchable 63-row matrix, source records, hashes and teacher checklist.
+
+## Why this changed
+
+- Dean approved this exact A–D refresh plan and requested one complete local review candidate before any publication.
+
+## Source of truth
+
+- Existing projects/science24-unit-{a,b,c,d}/workspace/** are canonical teaching and presentation. Routine teacher copy, figures and links remain in HTML with durable edit keys.
+- Figure catalogues are A course-data.js and B–D course-data.json. Preserve the existing B–D compiler path.
+- Integration/refinement scripts are historical one-time records, not routine rebuild owners. Do not rerun them over subsequent teacher edits.
+- Complete family review and exact candidate tree hashes: projects/science24-unit-a/meta/visual-refresh-2026-10-02/family-review-delivery.json; per-unit candidate-hashes.json and lesson-matrix.json.
+
+## Verification run
+
+- Scoped preservation checker passed: original assessment data, IDs, edit keys, video hooks, response controls, namespaces, state/runtime files and original assets preserved. Independently recomputed new arithmetic.
+- Four npm run verify -- --project science24-unit-<unit> --mode workspace runs passed. Four course:doctor runs refused not-active because authoringStatus remains blocked; no doctor pass claimed.
+- Real Chromium: all 63 lesson routes at 1440px, 820px and 390px plus actual 200% browser zoom; 252 route/layout checks, 30 enlargement/keyboard/focus checks, 36 media controls and four isolated synthetic baseline-to-candidate save/reload/completed-check carryover checks passed.
+- All 670 local dependency HTTP responses match exact current candidate bytes; packaged candidate copies match canonical workspaces. No real learner browser storage accessed.
+- Lead inspected changed-lesson contact sheets at all four settings and selected full-size captures/source images. Screenshot-only defects corrected: zoom clip coordinates scaled to actual tab zoom, lazy images decoded before measuring, fixed shell chrome hidden only during capture.
+- Comparison index filters/counts/search and 416 local links passed; mobile sign-off line wraps. Final ZIP CRC/payload hashes and size recorded in package-receipt.json.
+
+## Routing
+
+- Inventories, catalog compilation, hash comparison, rendering and delivery: deterministic local commands. Scientific decisions, diagrams, placement, compatibility and final acceptance: lead. Two illustration corrections: built-in imagegen.
+- agents:plan refused automatic Muse with muse_billing_unverified; file-tools write boundary also not verified. Luna was unconfigured with native permissions unverified. No worker spawned.
+- Local context cache miss; provider-cache telemetry unavailable; usage savings unmeasured.
+
+## Fragile areas / watchouts
+
+- Preserve stable assessment identities/keys/options, saved history, namespaces and required-progress denominator. Additions to figure catalogues must not replace assessment content.
+- Keep videos outside prose/reference wrapping; do not split an existing figure from its guide by inserting a video.
+- Supporting grids require at least 920px content width; only B03/C10/D08 sticky; narrow layouts stack. Full image enlargement remains available.
+- The review copy is derived; continue edits in canonical workspaces. The source package proposals/guardrails and old PASS claims are evidence, not workflow authority.
+
+## Next prompt should assume
+
+- The approved scoped refresh is implemented locally. Teacher sign-off is pending; supplied/generated originals retained. All projects remain blocked.
+- Current candidate bound to branch codex/math-engine-preflight and HEAD ecc1b806630cb33b9942e64eb676a1f8568c007e plus recorded working-file hashes; unrelated dirty work preserved.
+- Local comparison served at http://127.0.0.1:4826/index.html. Delivery folder and ZIP also available without Studio.
+
+## What still needs validation
+
+- Teacher instructional/visual sign-off and publisher video playback/captions online. Player-control checks stubbed publisher frames and do not certify external availability.
+- Studio editability/activation, SCORM export, Brightspace certification, Firebase publication and broader accessibility certification remain separate checkpoints; none asserted passed.
+
+## Known risks
+
+- Local HTTP server is a running process and may stop between sessions; use the included README to serve the delivery folder again.
+- Original reading pages retain their source scans/legacy content; this task refreshed specific visuals and placement without rewriting every original resource.
+
+## Exact next action
+
+Review the local comparison index and record any requested lesson revisions or scoped teacher approval. Publication requires a later explicit instruction.
+
+## Exact next file to open
+
+/Users/deanguedo/Downloads/Science24_ABCD_Visual_Review_2026-10-02/index.html
+
+## Do not do next / warnings
+
+- Do not activate Studio, export SCORM, certify Brightspace, deploy Firebase, change authoring status, rerun historical integration builders or promote a universal course standard without the corresponding later authorization.
+
+
+---
+
+## Archived 2026-10-02 Science 24 deployed teacher review before Biology authoring review
+
+# Handoff
+
+- Project: Science 24 Units A–D
+- Task: Deploy the approved local visual refresh to the existing shared Biology Firebase teacher-review site.
+- Status: validated — Firebase publication and scoped live verification complete. Teacher acceptance pending; all four authoring statuses remain blocked.
+
+## Files changed
+
+- scripts/deploy-biology30-current-review.mjs and scripts/lib/review-deployment-scope.mjs: explicit --refresh-science24 scope; other course families preserved by default.
+- scripts/tests/biology30-current-review-scope.test.mjs: four refresh-scope checks.
+- scripts/tests/biology30-current-review-live.mjs: --science24-only avoids unrelated Biology integration receipt writes.
+- docs/ops/biology30-showcase.md: current Science deployment and verification commands.
+- projects/biology30-unit-a-pilot-2/meta/review-selector/index.html: reviewVersion 20261002-science24-visual1.
+- projects/biology30-unit-a-pilot-2/meta/review-selector-deployment.json: verified shared deployment receipt.
+- projects/science24-unit-a/meta/visual-refresh-2026-10-02/deployment/** and family-review-delivery.json: authorization, previous receipt, stage binding, live proof and hosted unit links.
+- docs/ops/ARCHIVED_HANDOFFS.md preserves the preceding local candidate handoff in full.
+
+## What changed
+
+- Published A–D's exact local candidate to https://biology30pilot.web.app, project calm-module-one, site biology30pilot.
+- Shared selector retains 17 courses. All 1,883 preexisting non-Science course files match the prior deployment receipt; their local dirty work was not published.
+- Science payload is 670 files; all four candidate workspace tree hashes and project statuses are unchanged.
+- Original local comparison folder and ZIP remain available and unchanged.
+
+## Why this changed
+
+- Dean explicitly requested: “Can you deploy these”. Authorization applies to Science 24 A–D teacher review on the established shared site.
+
+## Source of truth
+
+- projects/science24-unit-{a,b,c,d}/workspace/** remain canonical. A figure catalogue is course-data.js; B–D use course-data.json and the existing compiler.
+- Shared selector/receipt belong to projects/biology30-unit-a-pilot-2/meta/review-selector/ and meta/review-selector-deployment.json.
+- Use scripts/deploy-biology30-current-review.mjs --deploy --refresh-science24 for an authorized later Science refresh. The historical showcase command is not the current shared-site owner.
+- Exact candidate and hosted review records: projects/science24-unit-a/meta/visual-refresh-2026-10-02/family-review-delivery.json and deployment/final-receipt.json.
+
+## Verification run
+
+- Four workspace verifies passed before staging. Four scope tests passed; live-smoke script syntax checked.
+- Stage matched all 670 exact candidate hashes and all 1,883 unrelated prior receipt files, with no unrelated additions or missing files.
+- Firebase CLI completed the existing-site release. Owner verified 49 changed payload files and retained 2,505 prior verified hashes (2,554 payload files total; release.json is the additional Firebase manifest file).
+- Independently fetched all 670 live Science files plus the selector: every SHA-256 matched the candidate. No source workspaces changed during deployment.
+- Real Chromium shared selector smoke passed all four Science unit routes and headings; 17 options, zero page errors and zero missing local assets. External publisher requests excluded.
+- Scoped smoke preserved all seven unrelated Biology chapter integration receipts byte-for-byte.
+- Previous local scientific/preservation and responsive/state proof reused only after exact candidate hash comparison; not rerun or represented as new hosted LMS proof.
+
+## Routing
+
+- Hash inventories, staging and verification: existing deterministic tools. Scope guard, deployment and acceptance: lead, due to shared release consequences and existing dirty checkout. No worker spawned.
+- Prior local evidence reused after current file hashes matched. Provider-cache telemetry unavailable; usage savings unmeasured.
+
+## Fragile areas / watchouts
+
+- Refresh flags authorize only their named families. Default deployment preserves previously deployed Science bytes; --refresh-science24 is required for a requested Science update.
+- Preserve assessment IDs, keys, namespaces and state contracts. Deployment copies canonical files; it must not rebuild courses or activate blocked projects.
+- Do not deploy the historical showcase command over the 17-course selector. Keep other hosted courses tied to their existing receipt hashes.
+
+## Next prompt should assume
+
+- The complete visual refresh is now hosted for teacher review at https://biology30pilot.web.app with reviewVersion 20261002-science24-visual1.
+- Candidate remains bound to branch codex/math-engine-preflight, HEAD ecc1b806630cb33b9942e64eb676a1f8568c007e and recorded working-file hashes. Unrelated dirty work is preserved.
+- Local before/after comparison remains /Users/deanguedo/Downloads/Science24_ABCD_Visual_Review_2026-10-02/index.html.
+
+## What still needs validation
+
+- Teacher instructional/visual sign-off and external publisher playback/captions.
+- Studio activation/editability, SCORM export, Brightspace certification, learner release and broader accessibility certification remain separate checkpoints. Doctor previously refused not-active for blocked projects; no doctor pass claimed.
+
+## Known risks
+
+- Firebase publication is public teacher review and does not certify LMS delivery. Original textbook scans retain their source page appearance.
+
+## Exact next action
+
+Review the four hosted Science units and record requested revisions or scoped teacher approval.
+
+## Exact next file to open
+
+/Users/deanguedo/Documents/GitHub/canvas-helper/projects/science24-unit-a/meta/visual-refresh-2026-10-02/deployment/final-receipt.json
+
+## Do not do next / warnings
+
+- Do not activate courses, export SCORM, certify Brightspace, publish learner release, promote a universal standard or refresh unrelated hosted courses without the corresponding authorization.
+
+---
+
+## Archived active handoff before Chapter 17 v0.4.0 receipt checkpoint — 2026-10-05
+
+# Handoff
+
+## Latest checkpoint — Chapter 17 Scout handoff
+
+- Summary: Dean requested the same Scout/regular ChatGPT teaching process for Chapter17. Source handoff prepared and delivered; Scout acknowledged but requests Dean's direct confirmation because it cannot read the originating Codex chat. Authoring/model selection and Scout source reads are NOT verified yet. No native course files or authoring status changed.
+- Files changed: `scripts/prepare-biology30-ch17-scout-handoff.mjs` and `projects/biology30-chapter-17/meta/teaching-overhaul/2026-10-03-scout-authoring/**` (three numbered ZIPs, source manifest, exact prompt and delivery state).
+- Source of truth: current Chapter17 workspace/index.html teaching, main.js/native data owners and immutable original UnitC source archive. Historical lesson-content.json is not current teaching. Chapter11 returned v1.0.0 manuscripts are the selected teaching exemplar, not exact-copy approval. Chapter17 remains blocked/proposal-only; context:project refused it as expected.
+- Verification: 213 current input file hashes matched, all three attachment hashes and ZIP CRCs passed, original Chapter17 teacher deck hash matched historical binding, original selected QTI images resolved without gaps. No learner content/runtime tests or science acceptance performed; source readiness by author, quantitative teaching review, complete manuscript review, teacher acceptance, native working preview and rollout/Brightspace checks remain deferred.
+- Routing: deterministic bounded packaging; lead retained source authority, sensitive native save contracts and existing Scout coordination. No new lead worker/Muse call; cache/usage savings unknown.
+- Risks: Scout is coordinating browser use with another task; do not interrupt it or duplicate Pro authoring. Original daily plans and mixed-chapter UnitC tests not included; cached Alberta scope and historical extraction limitations explicit. Chapter19 calibration remains unperformed; Dean selected Chapter17 next without broader promotion.
+- Next action: Dean should reply directly in Scout: “Yes, proceed with the full Chapter 17 manuscript through regular ChatGPT Pro, using the supplied local folder and leaving the course itself unchanged.” Then inspect Scout acknowledgment/source hashes/composer evidence and progression/first complete batch; no claims that Pro is underway before verification.
+- Next file: `projects/biology30-chapter-17/meta/teaching-overhaul/2026-10-03-scout-authoring/SCOUT_DELIVERY.json`.
+
+## Current checkpoint — 2026-10-03 full Scout comparison
+
+- Summary/status: Dean's “string it up and compare” authorized separate working evaluation assembly. The full returned v1.0.0 teaching fragments now run in the native Chapter 11 shell across all 13 routes. This is not canonical integration, teacher acceptance or deployment. Older staging status below is historical and superseded by this checkpoint.
+- Files changed: `scripts/build-biology30-scout-comparison.mjs`; scoped `--scout-comparison` option in `scripts/serve-biology30-teaching-working-copy.mjs`; `projects/biology30-unit-a-pilot-3/meta/teaching-overhaul/2026-10-03-scout-standard/returned/**`, `comparison-copy/**`, `COMPARISON_MANIFEST.json`, and `new-working-preview.png`.
+- Source of truth: unchanged native `projects/biology30-unit-a-pilot-3/workspace/index.html`, styles and runtime source. Returned proposal is the downloaded `/Users/deanguedo/Downloads/Biology30_CH11_Manuscript_Handoff_v1.0.0.zip`; the Documents/Codex copy is dataless and stalled on reads. Locally extracted returned fragments and INTEGRATION_MAP are hash-bound inputs, not approved canonical sources.
+- Verification: builder passed exact native-index, byte-boundary and fragment/manuscript hashes; original assessment DOM, vocabulary/textbook payloads, all routes and 12 required checks preserved; no duplicate IDs; all 27 formative fields remain unsaved/ungraded. Exact final serialized teaching fragments verified for all 13 routes. Source workspace inventory unchanged. Both trusted native runtime derivatives compile with distinct test namespaces, isolated photo/projection keys and LMS connection disabled. Browser verified new/old lesson switch, new lessons 01/02 and native cell-body vocabulary popup; rendered new teaching inspected and screenshot saved. No comprehensive storage-failure, science, rollout, SCORM or Brightspace certification claimed.
+- Routing: deterministic snapshot, exact byte-boundary mapping and trusted runtime compile; lead retained source authority, manuscript fidelity, save isolation and dirty handoff ownership. No eligible independent bulk implementation slice, worker or Muse run. Reused existing builder/server patterns; provider-cache telemetry unavailable; usage savings unknown.
+- Known risks/fragile areas: new 27 practice text areas intentionally do not save. Historical grading/source conflicts in returned OPEN_ISSUES remain unresolved. Do not replace the native runtime with repaired portable code or treat the earlier 57000 three-lesson copy as this full candidate. New/old comparison saves are separate from each other and production. The loopback server is temporary, not a hosted deployment.
+- Next prompt assumptions: Dean evaluates the complete copy before requesting exact-copy canonical integration; other chapters and Chapter 19 calibration remain outside this preview request. Full science review, teacher acceptance and rollout tests are deferred.
+- Exact next action: open `http://127.0.0.1:57003/new/index.html#lesson-01` and use the top comparison link to switch the same lesson to old. Server session 9682. If stopped, run `node scripts/serve-biology30-teaching-working-copy.mjs --scout-comparison --port 57003`; do not rerun the exclusive builder into the existing output.
+- Exact next file to open: `projects/biology30-unit-a-pilot-3/meta/teaching-overhaul/2026-10-03-scout-standard/returned/Biology30_CH11_Manuscript_Handoff_v1.0.0/OPEN_ISSUES.md` when moving from preview evaluation to approval/integration decisions.
+
+## Prior authoring handoff history
+
+- Project: Biology 30 Chapters 11–20 teaching overhaul; current continuation establishes the full Scout Chapter 11 teaching exemplar and repeatable chapter-pass process.
+- Task: Deliver the bounded Chapter 11 baseline task and exact sources to Scout for regular ChatGPT Pro reconciliation, preserving the exact-copy approval boundary.
+- Status: building — eight browser attachments and the task were sent and acknowledged. Scout's Library download failed; a byte-identical eight-file local staging folder was supplied and acknowledged using the existing Mac connection. The staging task is in progress; actual Pro composer/submission, returned manuscripts, complete science review, approval, integration, calibration and release are not yet confirmed/complete. See SCOUT_DELIVERY.json for observed status, not the older preparation labels.
+
+## Files changed
+
+- projects/biology30-unit-a-pilot-3/meta/teaching-overhaul/2026-10-03-scout-standard/CHAPTER11_TEACHING_STANDARD.md, SCOUT_CHAPTER_PASS_PROCESS.md, SCOUT_NEXT_PROMPT.md and BASELINE_RECORD.json: project-scoped working teaching baseline, handoff process, unsent prompt and six current file/hash bindings.
+- Current delivery additions in that folder: README_SOURCE_HANDOFF.txt, Biology30_CH11_Baseline_Handoff_2026-10-03.zip, immutable UPLOAD_MANIFEST.json, RECONSTRUCT_REPAIRED_SOURCE.txt, two Biology30_CH11_Repaired_Source_Part_*.zip transport containers, CANDIDATE_TRANSPORT.json, SCOUT_DELIVERY.json, SCOUT_ACKNOWLEDGMENT.jpg and SCOUT_LOCAL_FALLBACK.jpg. upload-ready/** contains exactly eight byte-identical attachment copies, not new course owners. No originals were removed or overwritten.
+- scripts/prepare-biology30-browser-authoring.mjs: deterministic, exclusive-output assembly of bounded frozen source attachments; no learner course mutations.
+- projects/biology30-unit-a-pilot-3/meta/teaching-overhaul/2026-10-02-browser-authoring/**: attachment binding and nine verified uploads; three prompts; immutable progression/v1/v2 returned files; screenshots; source/progression/manuscript reviews; response hashes and session status.
+- REVIEW_START_HERE.md is Dean's review entry. MANUSCRIPT_REVIEW_V2.md and AUTHORING_SESSION.json record current review status separately from raw author status headers.
+- index.html is the separate clickable manuscript-review entry; lesson-01/02/03.html render the complete learner manuscripts with native hints/feedback, and source-notes.html contains the teacher appendix. scripts/render-biology30-teaching-review.mjs regenerates these derived pages; HTML_REVIEW_MANIFEST.json binds their source/output hashes. Existing Biology fonts/colours used under the uncodixfy skill; no new learner course or runtime.
+- Downloaded handoff: /Users/deanguedo/Downloads/CH11_First_Batch_Authoring_Draft_v2.zip.
+- No canonical learner HTML/styles/runtime, IDs, assets, project status, exports or release state changed.
+- Working evaluation derivative: scripts/build-biology30-teaching-working-copy.mjs, scripts/serve-biology30-teaching-working-copy.mjs, working-copy/**, WORKING_COPY_MANIFEST.json and evidence/06-working-copy-fresh-evaluation.jpg. Session tracker and review guide distinguish this prototype from canonical integration.
+
+## What changed
+
+- Read Scout's visible Biology handoff. It coordinated a separate regular Pro full-chapter attempt from the original deployed Chapter 11, not the earlier Codex three-lesson candidate. Its review/browser claims remain attributed to Scout.
+- Dean selected that teaching direction. Recorded connected explanations, first-use terms, purposeful visuals, complete worked reasoning and meaningful guided/independent application as the working baseline; did not infer exact-copy acceptance or universal promotion.
+- Prepared a targeted Chapter 11 reconciliation/extraction prompt and a chapter-map-first, complete-batch workflow for 12–20. Chapter 19 lesson-04 calibration with prerequisite lessons 01–03 still precedes scaling after approval. Preparation did not initiate authoring; Dean's subsequent "ok lets do the next step then" authorized the now-sent Scout task.
+- Bound a 65-entry source ZIP containing the current standards, complete native lesson/source snapshots for all 13 routes, assessment/feedback/key/vocabulary records and earlier Pro comparison file. Uploaded it with the four original source documents, preparation manifest and two exact repaired-candidate transport ZIPs. Browser limits were explicitly 20 MB and eight attachments; the 21,044,405-byte candidate was split into two wrappers without modifying its bytes or learner copy.
+- Used the saved-message retry once when delivery was unconfirmed, then verified Scout's acknowledgment and read receipt. Scout committed to regular Pro but reported all Library downloads failed. Provided a bounded local upload-ready folder containing precisely the same eight files. Scout reported existing Mac access supports that fallback; no new permission or connection was granted. Pro authoring and actual composer identity remain pending verification, not inferred from the acknowledgment.
+- Reused the Chapter 11 frozen handoff bound to revision ecc1b806630cb33b9942e64eb676a1f8568c007e and source-tree SHA 0e89c19b8db652abffc5a8837e084b7e84eb30be888057c8ccdf2e2efe33ba52.
+- Verified nine uploaded source files before sending. Visible model menu selected Latest; Power changed from Pro to Extra High, 4 of 5. Pro and Extra High are distinct presets; no simultaneous 6 Pro + Extra High claim or API-backed authoring service.
+- Obtained and fully read progression v1, three complete manuscript v1 files and source/integration map. Requested targeted full-file v2 revisions; independently read all four complete v2 files through EOF.
+- v2 includes causal explanation, worked examples, diagram-reading guidance, five guided items and three independent transfer items, explained feedback, exact six required written checks and separate source/assets/integration notes.
+- Corrected term sequencing, the L02 three/four mismatch, missing worked structure reasoning, learner-facing production language, native save-after-edit instructions, exact-answer leakage into required tennis-ball preparation, frozen-vocabulary-owner claims and review attribution.
+- No teacher approval has been inferred from ChatGPT's output or lead review. Chapter 19 lesson-04 calibration has not started.
+- At Dean's request for a working copy, inserted all three full manuscripts into a separate snapshot of the native Chapter 11 shell. Reused existing diagrams, native vocabulary/Frayer owners and reader, disclosure styling and six real written-check controls. Only lessons 01–03 revised; other pages retained as context. Compiled a derived runtime from native source with separate activity/Frayer/resume/photo namespaces and all LMS access disabled; production source remains unchanged.
+
+## Why this changed
+
+- Dean's "ok lets do the next step then" authorizes this specific prepared source-and-prompt handoff to Scout. It does not authorize native integration, universal standard promotion, other chapter authoring, deployment or release.
+- Dean asked how to work with Scout to make its teaching and lesson copy the Chapter 11 standard and establish a process for other chapters. This authorizes the process/working-standard documentation, not replacing the native course with the repaired portable runtime.
+- Dean said "go" following the source-export phase and the approved browser-assisted teaching-overhaul plan. The plan requires a reviewed first batch and Dean's explicit approval before course HTML changes or calibration/scaling.
+- The later request for a working evaluation copy authorizes prototype integration for evaluation only. It does not supply the content-approval or release decisions required for canonical changes.
+
+## Source of truth
+
+- Current delivery entry: projects/biology30-unit-a-pilot-3/meta/teaching-overhaul/2026-10-03-scout-standard/SCOUT_DELIVERY.json. Process/teaching owners remain SCOUT_CHAPTER_PASS_PROCESS.md, CHAPTER11_TEACHING_STANDARD.md and BASELINE_RECORD.json. SCOUT_NEXT_PROMPT.md and UPLOAD_MANIFEST.json are immutable preparation snapshots; their "not sent" wording is historical, not current task status.
+- Scout conversation: https://chatgpt.com/dots/01a0f255-85e0-706a-ac4c-0ab4dc11f00f . Its attached staging task is "Reconcile Chapter 11 manuscripts", thread 01a10209-a356-750c-93b6-5fcf3a88002e on host durable. Read status without messaging that task directly or duplicating an in-flight Pro request. Scout is the coordinator; no new Pro conversation URL has been confirmed.
+- Full imported exemplar: /Users/deanguedo/Downloads/Biology30_Chapter11_REPAIRED.html, SHA256 56bbed509233ee497f7af3aefe27856cd58e9e498c1ff52e9b2893f6776634cf; earlier Pro_FIXED SHA256 860de589d378da33aeea54c3a9ba1186de55cd2250679ad35205df4b472a6a3f. These are reference/evaluation candidates, not canonical owners. Scout/Pro conversation: https://chatgpt.com/c/6ac0720e-0534-83e8-ac6b-2bace691f426 .
+- Current authoring evidence/review: projects/biology30-unit-a-pilot-3/meta/teaching-overhaul/2026-10-02-browser-authoring/REVIEW_START_HERE.md, AUTHORING_SESSION.json, RESPONSE_VERSIONS.json and responses/v2/**.
+- Frozen source package: projects/biology30-unit-a-pilot-3/meta/teaching-overhaul/2026-10-02-source-handoff/**. Do not rewrite its manifests to add later approval claims.
+- Canonical Chapter 11 course: projects/biology30-unit-a-pilot-3/workspace/index.html; embedded pilot3-words and visible vocabulary/Frayer markup remain live owners. Styles and fonts remain native.
+- Canonical runtime: scripts/lib/biology30-pilot3/runtime.ts and existing vocabulary helpers. workspace/assets/pilot3-runtime.js is derived; exported vocabulary-and-schema.json is a snapshot, not the edit owner.
+- Signed-in authoring conversation: https://chatgpt.com/g/g-p-6aaaa691bcac8191b7230604e7011382-biology-30-course-creation/c/6abfef2d-8c70-83e8-9002-93f346dcc111 . Selected Chrome tab kept for approval/revisions.
+- Evaluation entry: working-copy/index.html#lesson-01, live locally at http://127.0.0.1:57000/index.html#lesson-01 . WORKING_COPY_MANIFEST.json binds all manuscript/native-source/output hashes; the builder is a review-derivative owner, never the canonical course owner. Serve command uses only the exact candidate allowlist on loopback. Current exec server session 33091; use the same default port 57000 on restart to preserve the save origin.
+
+## Verification run
+
+- Current handoff: six bound native/imported hashes still matched before packing. Baseline archive CRC and all 65 input bindings passed; exact original-candidate binary reconstruction and both wrapper CRCs passed. Browser visibly showed eight completed uploads before Send and eight attachments in the saved message. Scout acknowledged delivery, the requested regular-Pro route and the local-folder fallback; its own source-content/hash verification and actual Pro submission remain pending.
+- All eight upload-ready copies matched their original byte lengths/SHA256 hashes. The prepared manifest was not rewritten to pretend it included the transport change. No imported runtime or learner storage was executed/accessed. No course E2E, Studio, SCORM or Brightspace checks were run for this handoff-only continuation.
+- Final focused pass parsed four JSON records, rechecked all eight staged files and the three native-owner hashes. The Scout staging task's latest turn was inProgress in a purpose-built task read and one bounded wait snapshot; no returned content/hash report or actual Pro-composer/submission evidence yet. The latest local-fallback screenshot and task cursor are retained for continuation.
+- Process-only focused checks: all six native/imported file hashes and three supplied sizes match BASELINE_RECORD.json; all seven local Markdown links resolve; plain-heading checks and JSON parse passed. Current native index/styles/runtime hashes match the pre-documentation binding and no canonical diff exists. No imported runtime executed, learner storage accessed, broad tests run, course changed or release produced.
+- Prior imported-candidate comparison: independently checked stable route/question/writing/required-check bindings and selected teaching passages. Complete science review of all 13 sections remains pending. The repaired package's 56-check report is author-provided, not independently repeated evidence.
+- Deterministic source preparation verified 21 input bindings and prepared nine attachments; successful actual browser uploads checked before requesting writing.
+- v1/v2 archive file lists and CRC checks passed. Final v2 is 42,111 bytes; SHA 0bc6740baff68af926ce12b7bd6431b17b628b9502c7b3159edf0c8f5600049c.
+- Complete source/figure and manuscript reads recorded; selected consequential science claims additionally checked against successful primary textbook/NIH pages. NCBI access challenges are not counted as independent lead retrieval.
+- Focused comparison: six exact prompts, three activity IDs, six question/written-field IDs and 3200-character limits match frozen native records; eight proposed optional IDs unique; learner boundaries and main corrections present.
+- Final 1,876-file preservation comparison returned zero changed/missing files. No learner storage accessed; this is not save/resume E2E proof.
+- No broad learner/Studio/SCORM/Brightspace tests were run in this manuscript phase.
+- Review-index checks: renderer syntax passed; three full learner texts equal the raw v2 Markdown render; four immutable source hashes matched; five output hashes and 62 local links/assets checked; 16 native learner disclosures; zero active scripts/learner fields. Actual browser-rendered inspection blocked by the file-URL security policy; no alternate-route workaround attempted and no visual pass claimed.
+- Working-copy checks: three complete learner text comparisons; six native prompt/ID/limit bindings; unchanged 12 required-check identities and vocabulary payload; no duplicate DOM IDs; 183 canonical workspace hashes and native runtime hash unchanged; 183 output hashes matched. Native stylesheet/asset bytes copied intact.
+- Browser narrowly checked all three routes, native Work Sans/Hanken Grotesk and 700-weight clickable vocabulary, synchronized definition popup, page-372 textbook modal, native existing figures, one keyboard hint and one required Start/Save/reload/Finish/All My Work cycle. Fresh delivery origin starts at 0/12 with no started check; no captured console errors. Myelin image was offscreen/lazy in the recorded early DOM observation, not counted there as visually loaded; its exact file/HTTP response passed.
+- Loopback server asset/byte-range checks passed; non-candidate and traversal requests rejected with 404, POST rejected with 405. Test response remains under separate origin 56880; only that test server stopped, no data deleted. Codex browser-panel opening was queued; live Chrome evaluation tab verified and kept.
+
+## Routing
+
+- Current handoff: deterministic hash-bound assembly, ZIP transport and exclusive byte-identical staging copies; Sol lead for source authority, scoped Scout browser delivery, permission boundaries and existing dirty handoff. Scout coordinates the requested regular-Pro manuscripts. No eligible independent bulk implementation slice, new lead worker or Muse call. Reused local frozen inputs only after current hash checks; provider cache unavailable and usage savings unmeasured.
+- Standard/process continuation: deterministic hashes and file checks; Sol lead for teaching, approval/source decisions, Scout UI reading and small project documentation in the existing dirty handoff. No eligible independent bulk implementation slice, child agent or Muse run. Existing source inventory reused as a dated starting index; actual file bindings rechecked. Provider-cache telemetry unavailable; usage savings unmeasured.
+- Frozen-source assembly, hashes and archival checks: deterministic tools. Source authority, native boundaries, browser interaction, science/teaching review and acceptance claims: Sol lead, due to instructional judgment and dirty-checkout preservation.
+- No worker spawned and no Muse implementation slice exists in this authoring-only boundary. Previous local handoff/figures/source locators reused after hash verification; provider-cache telemetry unavailable and usage savings unmeasured.
+- Clickable-index slice: deterministic Markdown rendering and hashes; Sol lead for the small known review UI and fail-closed untrusted-Markdown boundary. Intended new write paths checked clean before editing; no worker needed.
+- Working-copy slice: deterministic snapshot/compile/server checks; Sol lead content mapping and preservation/save/trust boundaries because these depend on manuscript judgments and native storage contracts. New intended script/output paths checked clean; no eligible independent bulk implementation slice or worker call. Native CSS retained under uncodixfy rather than inventing a new design; usage savings unmeasured.
+
+## Fragile areas / watchouts
+
+- Visible attachments do not mean successful staging. Scout reported "library file transfer failed: download failed" with no returned HTTP status or permission denial. A local fallback is acknowledged and in progress, but do not call the contents verified or Pro started until concrete evidence returns. The initial acknowledgment screenshot predates the transfer failure; SCOUT_DELIVERY.json records that distinction.
+- Do not confuse the 57000 three-lesson evaluation copy with the full Scout/Pro rewrite. New Pro formative fields are unsaved/ungraded; any native saving proposal needs an explicit decision. Its generic unlock instructions, first-use action-potential wording and tennis-ball example require targeted review.
+- Do not promote repaired font fallbacks, image-reader replacement or session-memory fallback into production. Preserve native font/reader/storage owners. Scout's access and model/settings must be verified for the specific task, not inferred from another chat.
+- Preserve native local/LMS namespace biology30-unit-a-pilot-3:v1, IndexedDB work/state, revision conflict/failure protection, immutable completed history, generated-practice resume and Frayer packing/schema/baseline protections.
+- Required activities practice-overview / practice-neuron-structure / practice-reflexes and question IDs 1,2,3,7,4,6 are immutable. New formative notes/reveals do not create a completion gate or saved field.
+- Historical Q6 key is preserved as source, not science authority for a directly spinal visual dodge. Corrected marking notes remain teacher-only. Vocabulary explanatory distinctions and deliberately false misconception statements must remain separate.
+- Raw draft headers predate independent lead review. Current review status belongs in the session/review records; do not silently alter raw returned files or treat them as accepted.
+- Preserve all other chapter owners, approved labeling mappings and Chapter 13 lesson-07 worked/guided-before-failure placement when scaling later.
+
+## Next prompt should assume
+
+- The earlier Codex authoring pass covers lessons 01–03. A separate full Scout/Pro 13-section candidate now exists and is the selected teaching-direction exemplar. Neither candidate has exact full-copy teacher acceptance or canonical integration. The working standard/process and exact bounded sources have now been sent to Scout; the requested authoring route is regular Pro, with actual submission still pending confirmation.
+- No universal teaching standard was promoted, no model/Power identity was silently substituted and no course styling/runtime redesign was attempted.
+- Global handoff may have been updated by the concurrent Science 24 chat; its exact preceding entry must be archived before switching this active record.
+
+## What still needs validation
+
+- Complete source-grounded full Scout candidate review and targeted manuscript reconciliation; Dean's exact versioned lesson-copy decision; Chapter 19 lesson-04 calibration with prerequisite lessons 01–03 after approval; further bounded chapter passes.
+- Withdrawal visual independent rendered/teacher review; existing video playback/caption/transcript fit. Proposed hierarchy/pathway images are unproduced optional enhancements with complete text equivalents.
+- After approved integration: rendered manuscript fidelity, affected interactions, saved-work compatibility, keyboard/accessibility, Studio/editability and print checks. Packaging/deployment/actual Brightspace certification remain separately authorized later work.
+
+## Known risks
+
+- Earlier manuscript review and the newer supplied full candidate have separate evidence. The imported full candidate is not native integration or teacher acceptance. Complete manuscripts must not be compressed during later integration.
+- The standalone HTML review is readable content, not an interaction-complete course preview. Browser visual inspection of it is unverified due to the file-URL block; teacher approval and all integration/release gates remain pending.
+- The separately requested working evaluation app is interactive and uses isolated test saves; it is not a learner release. Do not mistake its compiled runtime for a canonical edit or refresh it over teacher file edits. Explicit --refresh-generated verifies every derivative against its manifest before rewriting and refuses drift. Same-port restart is needed to retain the browser save origin.
+- Local browser refused a file-SVG preview; no security workaround attempted. Source/relationship inspection is distinct from full visual acceptance.
+- Three NCBI verification URLs challenged lead access; equivalent consequential science checks used successful sources. Do not represent every author-reported retrieval as independently fetched.
+
+## Exact next action
+
+Check the already-started Scout staging task and the visible Scout conversation for local hash verification and actual regular-Pro model/submission evidence. Do not resend or start a duplicate authoring task. When complete files return, bind their versions/hashes, review against the supplied sources and obtain Dean's exact-copy decision before canonical integration or Chapter 19 calibration. No command is required while Scout is processing the acknowledged local fallback.
+
+## Exact next file to open
+
+/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-unit-a-pilot-3/meta/teaching-overhaul/2026-10-03-scout-standard/SCOUT_DELIVERY.json
+
+## Do not do next / warnings
+
+- Do not change course HTML/runtime/styling, compress manuscripts, edit raw source keys, activate blocked chapters, regenerate through retired builders, package SCORM, deploy, certify Brightspace or promote a universal standard without the corresponding approval.
+
+## Task-scoped checkpoint: exemplar transfer — 2026-10-04
+
+Implementation/tests complete; regular-Pro02/05 sample submission blocked by disconnected browser debugger. No sample copy/preview/teacher acceptance. The concurrent handoff above is preserved. Continue from [the exact task handoff](EXEMPLAR_TRANSFER_HANDOFF.md); no commits, full regeneration or promotion.
+
+
+### Chapter17 exemplar sample decision checkpoint — 4 October 2026
+Regular Pro v0.1.0 lesson02/05 verified, independent reviews registered, native preview http://127.0.0.1:57180/ ready. TeacherDecision/continuation absent; no bulk regeneration or promotion. See docs/ops/EXEMPLAR_TRANSFER_HANDOFF.md and docs/workflows/exemplar-transfer.md. Canonical147files exact; old comparison intact.
+
+
+---
+
+Archived 2026-10-05 before CE1-03 review checkpoint.
+
+# Handoff
+
+- Project: biology30-chapter-17
+- Task: Implement the teacher-led lesson 2 v0.4.0 comparison requested by Dean.
+- Status: blocked on local receipt of the completed Pro return; not an integrated or accepted candidate.
+
+## Files changed
+
+- scripts/prepare-biology30-ch17-teacher-trial.mjs
+- scripts/build-biology30-ch17-teacher-trial.mjs
+- scripts/serve-biology30-ch17-teacher-trial.mjs
+- projects/biology30-chapter-17/meta/teaching-overhaul/2026-10-04-exemplar-transfer/teacher-led-trial-v0.4.0/**: frozen source handoff/ZIP, source protection inventory, authoring status and review protocol.
+- docs/ops/ACTIVE_HANDOFF.md; previous active contents retained in docs/ops/ARCHIVED_HANDOFFS.md.
+
+## What changed and why
+
+Prepared the bounded current-v0.3.0 lesson/source handoff, exact replacement boundary and native note/assessment contracts. Scout's existing Mac worker attached the verified source ZIP to the existing signed-in regular Pro conversation through the native picker, verified the source-read checkpoint, and submitted one complete lesson request. The teacher's actual slide 14 is a pea-trait comparison. The eye seen in Quick Look was a renderer association error; original slide 15 depicts seed shape, not flower colour.
+
+The exclusive-output comparison builder is ready but has NOT run. It preserves the exact v0.3.0 prefix/suffix, protected optional tasks, vocabulary connections, native runtime/styles and all other lessons, and constructs a separate comparison with corrected original-PPT picture associations. The server will isolate baseline, candidate and synthetic-QA storage origins. No new learner API or save/grading schema was added.
+
+Pro reports a completed 31-file return:
+- Biology30_CH17_Lesson02_Teacher_Trial_v0.4.0.zip
+- Reported size 679703 bytes.
+- Reported SHA256 1111bd98950726f903d80f880cebed05a5fdf532e55ba953d4f0c2429e5b4f9e.
+- Library reference libfile_06ed708810cc8191b8c5daabc0feeeb9/file_00000000213c822f9f4ab92f007cfb44.
+- Conversation https://chatgpt.com/c/6ac1643b-8050-83e8-bcc3-97086bdd58bb.
+
+These are worker-reported remote details, not independently verified local bytes. No local ZIP, pro-return folder, reviewed manuscript or v0.4.0 evaluation exists.
+
+## Receipt blocker and safe alternatives exhausted
+
+The worker reports the ordinary browser download opened a blocked Chromium page and Library prepare_materialize is unavailable on its hosted-tools route. Root has no enabled Library materialization tool; exact-name Downloads search found no returned ZIP. Root read/wait/send calls to Scout and the worker cannot reach the durable host. Inbound checkpoints still arrived. A root read-only Cua binding attempt was refused because Pro tab 1188259452 in browser 2 remains owned by the existing worker session. No alternate-tab, native-app, security bypass, duplicate authoring request or permission change was attempted.
+
+## Source of truth
+
+Canonical Chapter 17 remains projects/biology30-chapter-17/workspace/index.html, main.js and styles.css; all 147 canonical files are unchanged. The teacher-led trial is a proposal inside meta, not canonical integration or course activation.
+
+Exact v0.3.0 native owner: /Users/deanguedo/Documents/Codex/2026-10-04/task/source-assessment-trial-v0.3.0/evaluation/new/index.html, SHA256 20c22d6d80720d04a2924c1a161b35da9ec5d964fea32d1b6c480b96c76fdcf9. The existing comparison http://127.0.0.1:57200/?lesson=02 remains unchanged.
+
+Frozen source ZIP SHA256 1d98265b95190929caec7764b4b701fca5ea87e41a6ed76b116ec97e4077e209. Never regenerate it in place.
+
+## Verification run
+
+- All 45 payload hashes/sizes verified; source archive CRC verified by Scout.
+- Original slide 14 raw pixels and exact PPTX relationship verified independently by lead and worker.
+- Syntax checks passed for all three new scripts.
+- Final local preservation check verified 202 protected file hashes: canonical workspace, frozen source packet, v0.3.0 native owners and previous wrapper/source viewer. All unchanged.
+- Local manuscript/source review, builder execution, rendered visuals, vocabulary popups and optional-note persistence tests NOT run: complete return bytes are missing.
+- No packaging, deployment, broad E2E, Studio, SCORM or Brightspace verification performed.
+
+## Routing
+
+Deterministic packaging/hash guards and Sol lead for native compatibility, source authority and integration. Existing user-authorized Scout/Pro route performed external source review and authoring. No new subagent or Muse run. Dirty/current candidate dependence and teacher judgment made the integration slice unsuitable for detached Muse work. Local source reuse was hash-verified; provider-cache telemetry unavailable; savings unknown.
+
+## Fragile areas / watchouts
+
+- Preserve four outer teaching IDs and both ch17-kinch-v020-l02 optional-note tasks exactly, including prompts, hints, models and native controls.
+- Preserve v0.3.0 assessment wording/keys/IDs, native course data, lesson 5, fonts/styles, save/progress semantics and all canonical files.
+- Controlled crosses are not all technical testcrosses; R/r seed-shape symbols must not silently label flower colour. Distinguish allele versions/DNA copies, segregation/fertilisation, expected ratios/actual counts and the simplified model/pea life cycle.
+- Pro self-review is not local source acceptance or Dean's teacher acceptance.
+- Prior duplicate v0.3.0 assets are partly iCloud-offloaded. The builder uses fully materialized unchanged canonical assets plus exact reread v0.3.0 index/runtime/style owners; it records that provenance limit.
+- The builder has not yet been exercised against the actual return. Resolve legitimate source/markup issues narrowly; do not silently rewrite learner copy.
+- Do not seize another worker's browser tab or bypass blocked downloads. Existing worker session 01a109e6-5197-711f-960f-5e815b1d502f owns receipt. Scout thread 01a0f255-85e0-706a-ac4c-0ab4dc11f00f is currently unreachable through root's native thread tools.
+
+## Next prompt should assume
+
+The remote draft is complete, not waiting for a new authoring prompt. Obtain the existing ZIP rather than regenerate it. No lesson 5 or broader standard promotion is authorized; Dean evaluates the complete lesson 2 candidate first.
+
+## What still needs validation
+
+Verify actual ZIP SHA/CRC and safe file inventory; review the full manuscript, fragment and source/visual records independently; inspect every selected image; build and inspect the exact diff; run the focused image/vocabulary/two-note save/reload/All My Work checks on a separate QA origin; show the full-width and three-pane comparison to Dean. Packaging, deployment, broad rollout and Brightspace remain deferred.
+
+## Exact next action
+
+Dean downloads the already-completed return ZIP from the existing Pro conversation and attaches it to this Codex chat, or Scout supplies it through a restored authorized transfer route. After verifying and reviewing the actual return, build with node scripts/build-biology30-ch17-teacher-trial.mjs, then serve with node scripts/serve-biology30-ch17-teacher-trial.mjs. Do not run either exclusive preparation command again.
+
+## Exact next file to open
+
+/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-chapter-17/meta/teaching-overhaul/2026-10-04-exemplar-transfer/teacher-led-trial-v0.4.0/AUTHORING_STATUS.json
+
+## Do not do next / warnings
+
+Do not claim a working v0.4.0 comparison exists, treat remote self-review as teacher approval, alter canonical courses, change runtime/storage/assessments, regenerate v0.3.0, extend to lesson 5, package or deploy.
+
+
+---
+
+Archived 2026-10-05 before accepted CE1-03 integration.
+
+# Handoff
+
+- Project: calm10-2026-draft
+- Task: Build the CE1-03 teacher narrative and shared vocabulary pilot with isolated A/B review.
+- Status: building — complete review candidate awaiting Dean's choice; not canonical integration.
+
+## Files changed
+
+- projects/calm10-2026-draft/meta/teaching-overhaul/ce1-03-teacher-narrative-v1/**: baseline hash inventory, complete proposal/manuscript, isolated native A/B review, loopback server, focused verification, 20 screenshots and review documentation.
+- docs/ops/ACTIVE_HANDOFF.md; prior Biology handoff preserved verbatim in docs/ops/ARCHIVED_HANDOFFS.md.
+- No canonical CALM workspace files changed this turn.
+
+## What changed
+
+B connects an opening question to reading Leah's notices, interpreting prerequisites and credentials, thinking through Route A's $980 total/$420 remainder, supported Route B investigation, and Owen's independent recommendation. The shared vocabulary disclosure replaces the FINLIT paragraph layout. Professional media and original task controls remain. Model explanations distinguish Route C's six months from Owen's eight-month-or-less preference and explicitly state the trade-off.
+
+## Why this changed
+
+The prior lesson explained concepts but read as disconnected blocks. This pilot explains why each step matters and gradually transfers the reasoning to the learner.
+
+## Source of truth
+
+Canonical course: projects/calm10-2026-draft/workspace/index.html and its existing styles/runtime. Proposal owner: projects/calm10-2026-draft/meta/teaching-overhaul/ce1-03-teacher-narrative-v1/lesson-b.html. manuscript.md and review/ are derivatives. Existing Before snapshots remain untouched.
+
+## Verification run
+
+- check-review.cjs: passed; 32 original root files and 39 other lessons unchanged, exact A/baseline and B/proposal, all existing IDs/edit keys retained, unchanged controls/documents/feedback templates/media, namespace-only runtime derivatives and arithmetic.
+- inspect-review.cjs: passed; 20 desktop/mobile views with no horizontal overflow, rendered-copy fidelity, keyboard vocabulary/focus return, guided feedback/revision, final save/reload/completion/reopen, A/B and canonical-namespace isolation, two media range requests and professional clip playback. No browser page errors.
+- Visually inspected final desktop opening/vocabulary and mobile worked example.
+- Independent full second-reader content review identified two model explanation gaps; repaired and targeted reread confirmed both resolved.
+- context:project failed: context is 14,708 UTF-8 bytes, above its 5,000-byte cap. No unrelated prompt-pack repair.
+
+## Fragile areas / watchouts
+
+- Do not rerun author-candidate.cjs over final lesson-b.html; it records initial authoring before final model refinements.
+- Review assets are served from current canonical assets; root lesson/runtime/style files are frozen baseline copies. No full asset hash inventory was performed.
+- Keep response IDs, task versions, namespaces, prior history and completion requirements during any approved integration.
+- The original course has an unrelated known FL3-04 overlapping save-key issue; this pilot does not address it.
+- Current review origin 4194 and prefixes are separate from current preview 4193. Do not migrate review answers.
+
+## Next prompt should assume
+
+Pilot implementation is complete. A preserves current CE1-03; B is an unaccepted proposal. Dean must choose before canonical integration or wider adoption. Other course edits and Before snapshots are preserved.
+
+## What still needs validation
+
+Teacher review is pending. Whole-course E2E, broader accessibility, Studio editability/lifecycle, SCORM, packaging and release proof are deferred to separate authorized checkpoints.
+
+## Known risks
+
+Technical checks cannot establish teacher acceptance. Local preview/save proof is not LMS or release proof. Project context tooling remains over its existing size cap.
+
+## Routing
+
+Lead retained dirty-source protection, authoring judgment, arithmetic, save compatibility and final acceptance. An existing review agent provided bounded content critique; deterministic scripts assembled and checked derivatives. No Muse or new worker run. Local source/context reuse is not provider-cache telemetry; usage savings are unknown.
+
+## Exact next action
+
+Dean reviews http://127.0.0.1:4194/ and chooses A, B or changes. Server is running; restart instructions are in the pilot README if needed.
+
+## Exact next file to open
+
+/Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm10-2026-draft/meta/teaching-overhaul/ce1-03-teacher-narrative-v1/lesson-b.html
+
+## Do not do next / warnings
+
+Do not replace canonical CE1-03, roll this pattern into other lessons, regenerate the course, package, deploy or publish without the next scoped decision.
+
+
+---
+
+## Archived 2026-10-05T17:41:52.570988+00:00 — accepted CE1-03 integration checkpoint
+
+# Handoff
+
+- Project: calm10-2026-draft
+- Task: Integrate Dean's accepted CE1-03 Version B into the current course.
+- Status: building — accepted lesson integrated and current preview usable; broader rollout proof deferred.
+
+## Files changed
+
+- projects/calm10-2026-draft/workspace/index.html: only the exact accepted CE1-03 article replaced.
+- projects/calm10-2026-draft/meta/prompt-pack.md: scoped approval and ownership record.
+- projects/calm10-2026-draft/meta/teaching-overhaul/ce1-03-teacher-narrative-v1/: integration scripts/evidence, decision manifest, README/content-review status and comparison landing acceptance notice.
+- docs/ops/ACTIVE_HANDOFF.md; previous review checkpoint archived verbatim.
+
+## What changed
+
+Dean said “i really like it” after being offered A/B choice. Exact B teaching is now canonical: connected opening/purpose, Leah's document reading and Route A reasoning, supported Route B investigation and Owen's fresh application. Shared vocabulary presentation restored; the model correctly describes Owen's eight-month-or-less preference and states the trade-off. Review A/B pages and all Before snapshots remain preserved.
+
+## Why this changed
+
+Implement the teacher's acceptance of the complete CE1-03 pilot, within its explicit single-lesson boundary.
+
+## Source of truth
+
+Canonical: projects/calm10-2026-draft/workspace/index.html and unchanged existing runtime/styles. lesson-b.html and manuscript.md in the pilot folder are now accepted review snapshots, not ongoing canonical owners. Original index and root hashes immediately before integration are in canonical-integration/.
+
+## Verification run
+
+- integrate-approved.cjs passed guarded replacement: exact reviewed fragment; all bytes outside CE1-03 and 31 other root files unchanged; original controls/documents/feedback templates/media/IDs/edit keys/task versions/history registry retained. No runtime, storage namespace or migration changes.
+- check-integration.cjs passed on the current 4193 After preview: exact article served; existing synthetic final/practice responses, signoffs, completion and earlier history survived reload; unknown prior save retained; keyboard vocabulary/focus worked; desktop/mobile opening captured, no phone overflow or page errors. Actual learner storage was untouched.
+- Final integrated desktop/mobile opening screenshots inspected.
+- Prior unchanged media/feedback/A-B checks remain historical passing proof; not repeated.
+- context:project's existing context-size cap failure remains unresolved (14,708 bytes versus 5,000); no unrelated repair.
+
+## Fragile areas / watchouts
+
+- Do not rerun author-candidate.cjs, prepare-review.cjs or historical migration scripts over accepted/newer content. check-review.cjs checks the previous pre-integration boundary and is not a current canonical gate.
+- Preserve all IDs, existing task versions, historical wording and completion contracts. Teaching/models changed; current questions/tasks did not, so no answer migration was introduced.
+- Review saves on 4194 remain separate; 4193 After uses its existing review-after prefix. Do not migrate review answers into canonical storage.
+- Older unrelated FL3-04 answer-key overlap remains separately scoped.
+
+## Next prompt should assume
+
+CE1-03 B is accepted and integrated. Other 39 lessons and all runtime/styles remain unchanged by this integration. Approval is scoped to this lesson; wider adoption needs a new decision.
+
+## What still needs validation
+
+Whole-course E2E, broader accessibility/media review, Studio lifecycle, SCORM/package and release proof remain deferred to a separately requested checkpoint.
+
+## Known risks
+
+Local browser compatibility proof is not LMS/release certification. context:project tooling remains above its pre-existing size cap.
+
+## Routing
+
+Lead retained this small dirty/state-sensitive canonical integration; deterministic guarded source replacement and a focused synthetic compatibility check. No new worker or Muse run. Local source reuse is not provider-cache telemetry; savings unknown.
+
+## Exact next action
+
+Await Dean's next scoped change. Current lesson: http://127.0.0.1:4193/after/index.html#ce1-03 . No preview restart required.
+
+## Exact next file to open
+
+/Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm10-2026-draft/workspace/index.html
+
+## Do not do next / warnings
+
+Do not expand this rewrite to the remaining lessons, regenerate the course, promote a universal standard, package, deploy or publish without a new scoped decision.
+
+
+---
+
+## Archived 2026-10-05 — CALM career review before opening revision
+
+# Handoff
+
+- Project: calm10-2026-draft
+- Task: Establish the accepted CE1-03 teaching standard, audit the remaining lessons and prepare six career lessons for review.
+- Status: building — project standard recorded; audit and first review batch complete; user review pending.
+
+## Files changed
+
+- projects/calm10-2026-draft/meta/calm-teaching-standard.json (new project-local contract).
+- projects/calm10-2026-draft/meta/prompt-pack.md (required CALM authoring/review reading).
+- projects/calm10-2026-draft/meta/teaching-overhaul/calm-standard-v1/ (paired rules, baseline, audit, authored prose, complete manuscripts, native review derivatives, server, focused checks and review evidence).
+- docs/ops/ACTIVE_HANDOFF.md and docs/ops/ARCHIVED_HANDOFFS.md (previous active entry archived verbatim).
+- No canonical workspace file changed during this batch; all 32 root hashes match BASELINE.json.
+
+## What changed
+
+The accepted CE1-03 is the hash-bound CALM exemplar. Fourteen authoring rules and twelve full-reading review rules are linked from prompt-pack. The rules establish a question and purpose, teach unfamiliar ideas before using them, explain the reasoning, connect practice to its preceding example and prepare the final transfer. They preserve the native shell, documents, professional media, controls, vocabulary and learner-state contracts.
+
+The remaining 39 lessons have a reading audit and prioritized worklist. Complete proposals for CE1-01, CE1-02, CE1-04, CE1-05, CE1-06 and CE1-07 are available in native A/B versions. Explicit corrections include Amina's omitted result, FINLIT values viewing purpose, forecast-period labels, Nessa's May 1 deadline, calculation-button wording and Maya's first-week sequencing boundary. The 33 later lessons are audited, not rewritten.
+
+## Why this changed
+
+Dean approved making the accepted pilot the CALM standard and preparing the next career batch for review. This is scoped to CALM; accepting a pilot is not universal standards approval.
+
+## Source of truth
+
+Canonical learner course: /Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm10-2026-draft/workspace/index.html and its existing runtime/styles. CE1-03 remains the accepted integrated lesson.
+
+Operational contract: meta/calm-teaching-standard.json and the two rules files. Six manuscripts/review copies in calm-standard-v1 are proposals, not canonical owners. Authored copy files and the deterministic assembler reproduce the proposals; reconcile manual proposal edits before regenerating.
+
+## Verification run
+
+- check-source.cjs: all 32 canonical root files unchanged; 34 B lesson articles unchanged; six fragments exactly match their review delivery; original IDs/edit keys, controls, feedback templates, vocabulary, task versions, document data and media retained, with only enumerated model/date/media/instruction-wording repairs.
+- check-preview.cjs: six synthetic A/B answers restored after reload; B did not overwrite A or a course-state sentinel; keyboard vocabulary open/Escape/focus return worked; three retained videos and transcripts accessible; 24 changed-area desktop/mobile captures, no mobile page overflow or page errors.
+- After final wording refinements, a focused CE1-06 check confirmed exact control names and response restoration. CE1-01 desktop opening was recaptured at the correct start. Comparison landing titles were corrected to use native lesson headings and checked against canonical titles.
+- Lead inspected changed-area desktop/mobile captures and final landing. Existing second reader read all six complete manuscripts; findings and resolutions are in CONTENT_REVIEW.md. This is not Dean's acceptance or curriculum/LMS certification.
+- Changed scripts parse; focused diff whitespace check passed.
+- context:project still exceeds the pre-existing 5,000-byte cap at 14,708 bytes; unrelated tooling was not changed.
+
+## Fragile areas / watchouts
+
+- Review prefixes: calm10-2026-draft:career-standard-v1:a: and :b:. Do not migrate these review answers into the course.
+- Generic .standard-lesson scaffold renderer/checker is not a CALM shell adapter. Standard enforcement here is the project contract and required authoring/full-reading review, not an automatic generic gate.
+- No six-lesson integration is authorized until the user reviews this batch. Preserve previous Before snapshots, unknown saves, task histories and IDs.
+- assemble-review.cjs overwrites proposal manuscripts and review copies. After accepted canonical integration, this old baseline check will no longer be the current-course gate.
+
+## Next prompt should assume
+
+CE1-03 is accepted and integrated. The first six other career lessons have complete reviewed proposals, awaiting Dean's choice. The later workplace, financial and personal-information lessons have an audit worklist only. Professional material is retained. Universal promotion, packaging and publication remain separate decisions.
+
+## What still needs validation
+
+Whole-course learner E2E, comprehensive accessibility/media review, Studio lifecycle, SCORM/Brightspace, export and release gates remain deferred until a separately requested rollout checkpoint. Proposed teaching still needs the user's lesson review; component counts cannot replace it.
+
+## Known risks
+
+Local synthetic/browser checks do not establish teacher acceptance, complete curriculum mastery or LMS readiness. Later audit repairs, dated-source freshness and existing context tooling cap remain open.
+
+## Routing
+
+Lead retained pedagogical judgement, dirty-boundary/source ownership and integration decisions. Local deterministic assembly/checks produced the review. Existing read-only second reader audited and reviewed; two bounded financial/security readers supported its 39-lesson audit. No Muse run or code worker. Local source reuse is not provider-cache telemetry; usage savings are unknown.
+
+## Exact next action
+
+Review the six B lessons at http://127.0.0.1:4195/ and record Dean's per-lesson acceptance or changes. Keep current course at http://127.0.0.1:4193/after/index.html . If the review server stops, restart instructions are in calm-standard-v1/README.md.
+
+## Exact next file to open
+
+/Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm10-2026-draft/meta/teaching-overhaul/calm-standard-v1/README.md
+
+## Do not do next / warnings
+
+Do not integrate unaccepted proposals, rewrite the later 33 lessons, regenerate the canonical course, promote a universal standard, package or publish under this review checkpoint. Do not run the old CE1-03 proposal assembler over newer accepted content.
+
+
+---
+
+## Archived 2026-10-05 — career revision 2 before course-wide continuation
+
+# Handoff
+
+- Project: calm10-2026-draft
+- Task: Repair missing lesson orientation in the six career B proposals and ground CE1-05 in Alberta courses/graduation.
+- Status: Build complete — revision 2 proposals ready for user review; canonical integration not performed.
+
+## Summary / why
+
+Dean found the first six B openings started mid-lesson with random hooks. All six now explain purpose, relevance, first person/decision, teaching-to-practice sequence and final product visibly before technical material. Opening authoring/review rules were tightened. The earlier positive opening assessment is superseded by the user's finding; no new independent-reader approval is claimed.
+
+CE1-05 now uses real ELA, Art and CTS names throughout records, choices, feedback and models. It explains diploma categories/credits separately from program preparation and labels invented offerings, provider conditions, prices and deadlines. INF2050's prerequisite was corrected to none; INF3060 requires INF2050. Other diploma categories and credits are accounted for separately in each partial practice case. No additional required activity was introduced.
+
+## Files changed
+
+- projects/calm10-2026-draft/meta/teaching-overhaul/calm-standard-v1/career-openings.cjs (six authored opening sequences).
+- Same directory: alberta-course-review.cjs, assemble-review.cjs, check-source.cjs, check-revision-2.cjs; complete manuscripts/native review derivatives; paired rules, STANDARD, CONTENT_REVIEW, ALBERTA_SOURCE_NOTES, README and evidence.
+- projects/calm10-2026-draft/meta/calm-teaching-standard.json (paired hashes and revision note).
+- docs/ops/ACTIVE_HANDOFF.md; prior active entry archived verbatim in ARCHIVED_HANDOFFS.md.
+- No canonical workspace file changed this turn. Earlier dirty canonical edits were preserved.
+
+## Source of truth
+
+Canonical: /Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm10-2026-draft/workspace/index.html and existing runtime/styles. Accepted CE1-03 remains integrated. The six manuscripts and A/B copies are review proposals. Authored copy/opening/Alberta sources and deterministic assembler own their reproduction. Baseline and existing Before snapshots remain intact; revision-1 manuscripts/specs/manifest/review evidence are archived under revision-1/.
+
+## Verification run
+
+- check-source.cjs passed: 32 canonical root hashes unchanged, 34 B lesson articles unchanged, all original IDs/edit keys retained, native controls/media/vocabulary protected. CE1-05's explicit course mapping, prerequisite and task-version changes are enumerated exceptions. Original amounts/dates and answer values remain.
+- check-revision-2.cjs passed in synthetic storage: five earlier CE1-05 review values retained with old wording; prior history retained; changed current fields blank; old completion reopened; new response saved/restored; A and course sentinels untouched. Twelve desktop/mobile opening screenshots; no page overflow/errors.
+- Lead inspected changed openings and CE1-05 transformed records/model. Additional Alberta teaching and independent-case screenshots captured for visual review. Local checks do not establish Dean's acceptance or curriculum/LMS readiness.
+- Prior revision-1 keyboard vocabulary/media checks are historical evidence, not freshly rerun proof.
+- Focused diff whitespace check passed. Pre-existing context:project cap failure remains unrelated.
+
+## Known risks / fragile areas
+
+- B review prefix remains calm10-2026-draft:career-standard-v1:b:. CE1-05 version is 2026-10-05.alberta-course-review.2; changed support first-copy/attempt fields also versioned. Exact earlier visible review wording is registered. Keep the same response IDs and unknown/history entries.
+- Review work is not canonical work. Later integration must use canonical historical prompt provenance; do not blindly copy this review registry into canonical.
+- Real Alberta names do not make fictional provider admission/fees/offerings official. Full graduation audits require the other reserved categories/credits.
+- Old Alberta PDF endpoints are unreliable; narrow needed course facts are reproduced. Optional learner references point to usable graduation and public-school examples.
+- Assembler overwrites review proposals only. Reconcile any hand edits before rebuilding. Generic standard-lesson gates are not CALM native-shell teaching proof.
+
+## Next prompt assumptions
+
+Six career proposals are revision 2 and awaiting Dean's review. The later 33 lessons remain audited, not rewritten. CE1-03 remains accepted. Professional media, course styles, completion and saved-work contracts are retained. No package/deploy/global standards promotion is implied.
+
+## Deferred checks
+
+Whole-course E2E, comprehensive accessibility/media, Studio lifecycle, SCORM/Brightspace, export and release gates remain deferred to a separately requested rollout. Teaching acceptance remains Dean's decision.
+
+## Routing
+
+Lead retained pedagogy, Alberta source judgment and dirty-boundary/state edits. Deterministic assembler and focused checks used locally. No new worker/Muse call. Usage savings unknown; local source reuse is not provider-cache telemetry.
+
+## Exact next action
+
+Read revised openings at http://127.0.0.1:4195/review/b/index.html?revision=2#ce1-06 and compare through http://127.0.0.1:4195/ . Record per-lesson acceptance/changes before integration. Restart instructions are in the review README if needed. Current canonical preview remains http://127.0.0.1:4193/after/index.html .
+
+## Exact next file to open
+
+/Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm10-2026-draft/meta/teaching-overhaul/calm-standard-v1/CONTENT_REVIEW.md
+
+## Do not do next
+
+Do not integrate unaccepted proposals, regenerate canonical, rewrite later lessons, alter learner storage namespaces, package or publish under this review change.
+
+
+---
+
+## Archived 2026-10-05: CALM course-wide review before adoption
+
+# Handoff
+
+- Project: calm10-2026-draft
+- Task: Carry the approved visible orientation and connected teaching approach through the remaining CALM lessons.
+- Status: Build complete — course-wide native Version B ready for review; canonical integration not performed.
+
+## What changed / why
+
+Thirty-three remaining lesson manuscripts now establish purpose, first person/decision, sequence and final work before technical teaching. Topic-specific narration connects method, example, supported practice and independent application. Repeated opening roadmaps and abstract explanations were reconciled; calculation-bearing reasoning remains. Seven career articles are retained exactly from the frozen revision-2 B input. Approved CO1-01, FL2-03 and FL3-04 pilot middles remain intact.
+
+Known audit fixes: CO1-02 author placeholder; CO1-03 nonexistent fourth practice field; CO2-02 worked exit points to Cam rather than the optional video response; FL2-01 changed $40 allowance appears before answering; FL1-06 names three updates; FL4-04 feedback no longer invents Mina's budget. No new activity, task version or runtime API was introduced for these thirty-three tasks.
+
+## Files changed
+
+- projects/calm10-2026-draft/meta/teaching-overhaul/calm-standard-v1/course-wide/: five authored copy files, frozen input/articles, assembler, complete HTML/Markdown manuscripts, manifest, comparison assembly, source/browser checks and evidence, README/ROUTES.
+- Same parent: review/b/index.html, expanded comparison index.html and README. Version A and baseline unchanged.
+- projects/calm10-2026-draft/meta/calm-teaching-standard.json: current review pointer and continuation authorization; paired rule hashes and acceptance boundaries retained.
+- docs/ops/ACTIVE_HANDOFF.md; previous active handoff archived verbatim in ARCHIVED_HANDOFFS.md.
+
+## Source of truth
+
+Canonical: /Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm10-2026-draft/workspace/index.html and existing runtime/styles. No canonical file changed this turn. New proposal prose is owned by course-wide/*-copy.cjs; frozen accepted-career-review-index.html and *-before.html supply retained material. course-wide/assemble.cjs produces native B and complete manuscripts. These are review delivery copies, not new canonical sources.
+
+## Verification run
+
+- course-wide/check-source.cjs passed: all 32 canonical root hashes unchanged; all 33 manuscripts equal native B; seven career articles unchanged; original inputs, answer values, tables, response/task IDs, edit keys, hints and vocabulary disclosures retained. Runtime scripts, media elements, transcripts/handouts remain. Mina's logged budget correction is the sole model-text exception.
+- course-wide/check-preview.cjs passed: synthetic old response restored, revision restored, prior history retained, A/course storage sentinels unchanged; existing numeric support feedback visible; native vocabulary opens with Enter and closes with Escape; two video range samples accessible; twelve selected desktop/mobile opening views without horizontal overflow or page errors.
+- Lead inspected desktop and mobile openings and actual case/field correspondence while authoring. These checks are not whole-course teaching acceptance, exhaustive browser/media/link checking, curriculum certification, Studio or LMS proof.
+- Earlier harness assertions were repaired for collapsed sidebar navigation, staged numeric support wording and implicit native dialog semantics; no course runtime change was needed.
+
+## Fragile areas / known risks
+
+- Preview B still uses calm10-2026-draft:career-standard-v1:b:. CE1-05 retains its prior Alberta revision-2 task version/history registry. Never import review answers into canonical storage.
+- The older parent assemble-review.cjs assembles only the earlier six-lesson batch and would overwrite this B. Rebuild this continuation with course-wide/assemble.cjs and course-wide/landing.cjs instead.
+- Review copy does not automatically accept all lessons or promote a universal standard. Dated source records and supplied fictional terms are distinct from current real-world guidance.
+- Authored copy is lead-reviewed, not independently approved. Dean's complete-course teaching review remains open.
+
+## Next prompt should assume
+
+All forty lessons are available in Version B at revision 3. Seven career lessons and original professional materials are preserved. Canonical/A/Before snapshots and existing dirty work remain untouched. No commit, packaging, deployment or release occurred.
+
+## What still needs validation
+
+At separately requested rollout: whole-course learner E2E, comprehensive accessibility/responsive/media and source-currentness review, Studio lifecycle, export/SCORM/Brightspace and release proof. Canonical integration also requires preserving historical prompt provenance rather than copying the review registry blindly.
+
+## Routing
+
+Lead retained pedagogy/source judgment and dirty source dependencies; deterministic local assembly/check commands used. No worker/Muse run was eligible or spawned. Usage savings unknown; source reuse is not provider-cache telemetry.
+
+## Exact next action
+
+Review the complete B course at http://127.0.0.1:4195/review/b/index.html?revision=3#co1-03 and give per-lesson corrections or an integration decision. Comparison: http://127.0.0.1:4195/ . Preview restart command is in course-wide/README.md.
+
+## Exact next file to open
+
+/Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm10-2026-draft/meta/teaching-overhaul/calm-standard-v1/course-wide/README.md
+
+## Do not do next
+
+Do not regenerate canonical, overwrite approved career proposals with the older assembler, merge review learner state, package or publish under this review authorization.
+
+## Build follow-up: prominent stage titles
+
+- Version B main section labels now use bold, sentence-case teal heading typography at 24–30px. Nested activity labels retain their existing size. Source: `course-wide/stage-headings.css`; `course-wide/assemble.cjs` copies and links it in B only and updates the revision banner.
+- Rebuilt B with the deterministic assembler. Inspected CO2-01 in the native browser: computed main label size 26.59px and course teal; saved `course-wide/stage-heading-preview.jpg`. Prior JSON source/browser checks belong to the preceding content build, not this changed HTML hash; broad checks remain deferred.
+- `course-wide/check-source.cjs` now explicitly permits the single review stylesheet while retaining equality for existing styles and runtime/media. No source prose, task IDs or storage behavior changed. Lead retained this known styling slice because the review owners were already dirty; no worker used, savings unknown.
+- Next action: review http://127.0.0.1:4195/review/b/index.html?revision=3-headings#co2-01-foundations . Next source to open: `projects/calm10-2026-draft/meta/teaching-overhaul/calm-standard-v1/course-wide/stage-headings.css`.
+
+## Build follow-up: align shell with Math
+
+- Summary/files: added `course-wide/course-shell.css`, linked/copied by `assemble.cjs` into B. Matched the existing `math10c-unit4-pilot/workspace/styles.css` shell: centred logo, 78px collapsed rail and panel icon, responsive outer/inner padding, bottom save status. Updated the source checker stylesheet allowlist and README; rebuilt B/manifest. Canonical/A/Before and learner runtime unchanged.
+- Verification: native desktop expanded/collapsed visual inspection and reopen; 390px mobile open/close and visible lesson link. Reset temporary viewport. Saved `course-wide/course-shell-preview.jpg`. Earlier JSON suites remain historical; broader checks deferred.
+- Source/fragile areas: authored shell CSS is copied from `course-wide/`; do not edit delivery CSS directly. Existing navigation button and runtime class/aria updates supply behaviour; CSS presents its desktop panel icon. Math is a read-only reference; no reference-sheet feature was added.
+- Routes: targeted deterministic source lookup across the two known shells retained by lead; dirty review assembly dependency excluded delegation. CSS assembly deterministic. No worker used; measured savings unknown, no provider-cache telemetry.
+- Next assumptions/action: B only remains under review. Open http://127.0.0.1:4195/review/b/index.html?revision=3-shell#co2-01 . Exact next source: `/Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm10-2026-draft/meta/teaching-overhaul/calm-standard-v1/course-wide/course-shell.css`. No packaging/deploy/SCORM work performed.
+
+## Build follow-up: Alberta/Canada audit
+
+- Summary/files: added `course-wide/ALBERTA-CANADA-AUDIT.md` and `jurisdiction-inventory.json`. Scanned all 40 B lesson articles for foreign-system terms and inventoried external sources; manually checked jurisdiction-sensitive records against current Alberta/Canadian primary sources. No course content or learner state changed.
+- Evidence: inventory hash `6519d71e8a735338d7b659b837d178b86bedeaa575deb8ef850fe13b6c6747ae`; zero detected foreign-system flags. Broad Alberta/Canada alignment observed, with wording/access improvements for CAD, GST, ASC naming, direct provincial process links. An old official CTS PDF now serves a migration notice; formal CTS prerequisite confirmation against current LearnAlberta remains open.
+- Limits/deferred: not a full original-video/PDF review, exhaustive link crawl or curriculum certificate. Existing test evidence remains historical; no broad suites run for this audit. Canonical/A/Before/B preserved.
+- Routes/source: jurisdiction judgments with lead due to dirty source dependencies and consequential claims; deterministic local inventory. No worker, savings unknown. Course-wide authored owners remain the source for B; do not patch assembled delivery.
+- Next action: resolve the audit's source verification and local wording/access items within B, preserving exercise numbers and provenance. Exact next file to open: `/Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm10-2026-draft/meta/teaching-overhaul/calm-standard-v1/course-wide/ALBERTA-CANADA-AUDIT.md`.
+
+## Build follow-up: implement Alberta/Canada improvements
+
+- Summary/files: added `course-wide/jurisdiction-copy.cjs`; `assemble.cjs` applies it during manuscript/review assembly (revision 4). Updated `check-source.cjs` for the exact authored GST/career clarifications, audit completion notes, README and ROUTES. Derived B/manuscripts/manifest/source report rebuilt. Source edits identify CAD, GST and ASC, add optional official reference links, and cite current CE1-05 CTS records. Frozen inputs/canonical/A/Before retained.
+- Verification: native current LearnAlberta INF2050 record explicitly has no prerequisite; INF3060 requires INF2050. Official CRA/Alberta/ASC reference checks completed. Focused source comparison passed: 33 manuscripts match B, task controls/IDs/edit keys/models preserved, media/runtime equality and 32 canonical files unchanged. B SHA-256 `189d17b63a87887b4fe17b7c56ea329fdb2a53a7b1507cdf75450713ee6dbd7a`. Confirmed rendered GST/CAD and CE1-05 reference text in the browser. No learner fields edited.
+- Limitations/deferred: background native screenshot capture clipped the page and is not complete visual proof. Earlier browser-suite evidence remains historical. Broad responsive/accessibility, original media/PDF review, Studio, SCORM/Brightspace and release tests deferred. No canonical integration or deployment.
+- Source/fragile areas: `jurisdiction-copy.cjs` uses fail-fast paragraph matches and offset edits. Reassemble through the course-wide owner; never overwrite frozen career input or modify derived B directly. Currency notes are in 26 lessons with dollar-bearing career/finance text plus the course opening. Task amounts, rates, timelines, task versions and save namespaces unchanged.
+- Routes: lead retained current-source interpretation and copy because owners depend on dirty review changes; deterministic assembly/focused source comparison. No worker used, usage savings unknown, provider-cache telemetry unavailable.
+- Next assumptions/action: B remains review-only. Review http://127.0.0.1:4195/review/b/index.html?revision=4-alberta#ce1-05 . Exact next source: `/Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm10-2026-draft/meta/teaching-overhaul/calm-standard-v1/course-wide/jurisdiction-copy.cjs`.
+
+
+## Archived October 5 2026 before CALM visual learning audit
+
+# Handoff
+
+- Project: calm10-2026-draft
+- Task: Make approved course-wide Version B the sole active CALM course.
+- Status: Build complete — integrated canonical course; rollout validation deferred.
+
+## What changed / why
+
+Dean explicitly chose Version B revision 4 as the only active version. All 40 lessons, Alberta/Canada clarifications, teacher narration, shared vocabulary, prominent stage headings and approved Math-aligned shell are now canonical. Removed the review banner/chooser and review-only stylesheet; normalized the remaining review-save wording. The 4195 preview serves canonical workspace directly and redirects retired A/B and older comparison routes.
+
+## Files changed
+
+- workspace/index.html; added workspace/stage-headings.css and course-shell.css. Existing runtime scripts and professional media unchanged.
+- meta/project.json, prompt-pack.md and calm-teaching-standard.json: canonical ownership, approved status and historical review roles.
+- meta/implementation/version-b-adoption-2026-10-05/: exact Before root snapshots, frozen approved B, one-time adoption script/report and focused compatibility check/evidence.
+- meta/teaching-overhaul/calm-standard-v1/preview.mjs, README, course-wide/README and MANIFEST: canonical preview and historical proposal status.
+- docs/ops/ACTIVE_HANDOFF.md; previous active handoff retained verbatim in ARCHIVED_HANDOFFS.md.
+
+## Source of truth
+
+/Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm10-2026-draft/workspace/index.html and declared workspace styles/runtime/assets. Future editing is direct-workspace-v1. Review assemblies and adoption scripts are historical operations, not regeneration owners.
+
+## Verification run
+
+- Focused adoption check passed: approved controls retained (1,284 response IDs, 40 lessons), existing runtime/media equality, all 27 CE1-05 changed-field history associations preserve exact prior canonical text, canonical preview bytes match source.
+- Isolated synthetic browser check passed: original migration backup, old answers/history and unknown keys retained; unchanged completed lesson stays complete; revised answer saves/restores and reopens completion; A/B review storage untouched; retired review redirect retains the lesson hash; one video range sample accessible; no page errors.
+- Native rendered opening inspection recorded in adoption README. No user response fields edited.
+- context:project could not produce a capped context: existing CALM context is 14,708 bytes against a 5,000-byte limit. This unrelated issue was not altered.
+
+## Fragile areas / known risks
+
+- Canonical namespace remains calm10-2026-draft:learning:v3. Archived reviewer answers are not imported automatically. Browser storage is also origin-specific; canonical preview does not merge work across localhost ports.
+- CE1-05 revised tasks reset their current answers/completion while retaining previous responses with original wording in Earlier Work. Other task versions remain unchanged.
+- Existing Before/A snapshots and reviewer storage remain recovery records. Do not overwrite canonical content by rerunning older migrations/assemblers.
+
+## Next prompt should assume
+
+Version B revision 4 has been explicitly adopted for CALM only. No A/B selection remains in the active preview. No commit, SCORM packaging, deployment or universal-standard promotion occurred.
+
+## What still needs validation
+
+At a separately authorized rollout: whole-course learner E2E, comprehensive responsive/accessibility/source/media review, Studio lifecycle, SCORM/export/Brightspace and actual release proof.
+
+## Routing
+
+Lead retained dirty source promotion and saved-state decisions. Deterministic one-time adoption and focused verification scripts used. No worker spawned; usage savings unknown; no provider-cache telemetry. Existing frozen material reuse is not a measured cache saving.
+
+## Exact next action
+
+Review the sole active course at http://127.0.0.1:4195/ . If its server is stopped, run node projects/calm10-2026-draft/meta/teaching-overhaul/calm-standard-v1/preview.mjs . Make the next requested content change directly in canonical workspace.
+
+## Exact next file to open
+
+/Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm10-2026-draft/workspace/index.html
+
+## Do not do next
+
+Do not regenerate the course from review inputs, import reviewer answers, broaden to other courses, package or publish without the separately scoped request.
+
+
+## Archived October 6 2026 before supplied Style C review
+
+# Handoff
+
+- Project: calm10-2026-draft
+- Task: Sweep all 40 lessons for useful instructional images and diagrams.
+- Status: Build audit complete; proposal only, no course edits.
+
+## What changed / why
+
+Created a complete lesson-by-lesson visual brief: 14 first priorities, 21 next priorities, three optional annotations and two existing diagrams to keep. Recommended a first five-example batch covering pay-stub reading, cash flow, payment decomposition, account/holding distinctions and high-school planning. This addresses relationships difficult to see in prose while preserving existing professional material and approved visuals.
+
+## Files changed
+
+- projects/calm10-2026-draft/meta/visual-learning-audit-2026-10-05/README.md: proposals, placements, teaching purposes, constraints and asset reuse.
+- projects/calm10-2026-draft/meta/visual-learning-audit-2026-10-05/inventory.json: canonical source hash, per-lesson inventory, priorities and coverage/anchor evidence.
+- docs/ops/ACTIVE_HANDOFF.md; previous entry appended verbatim to ARCHIVED_HANDOFFS.md.
+
+## Source of truth
+
+Canonical course remains /Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm10-2026-draft/workspace/index.html and declared workspace styles/runtime/assets. The audit is operational authoring guidance, not a regeneration source. Approved Version B remains the sole active course at http://127.0.0.1:4195/ .
+
+## Verification run
+
+Deterministic report check: exactly 40 unique lesson briefs cover the 40 canonical lessons; every proposed anchor exists within its corresponding lesson. Inventoried 33 embedded images in 11 lessons and 23 video placements. Recorded canonical SHA256 7c16a7b2ba8325d502edf7e15afa6565f72f92e44df30814329c8e5488e7d2c2. No course/runtime/learner-state files edited and no broad tests run.
+
+## Fragile areas / known risks
+
+Priorities are pedagogical authoring judgments, not learner-tested effectiveness. Video/handout originals were not re-reviewed in full. Existing SVG labels were assessed; rendering and mobile legibility remain to be checked before reuse. Numerical diagrams must match their specific case and avoid exposing independent answers. CE1-05 is a selected pathway plan, not a complete Alberta graduation audit.
+
+Preserve canonical namespace calm10-2026-draft:learning:v3, original history, stable controls and completion. Do not import reviewer answers or rerun historical review assemblers. Before/A snapshots remain preserved.
+
+## Next prompt should assume
+
+User requested a sweep, not visual insertion, generation, packaging or publication. All course edits predate this turn. New diagrams should use established course styles and editable SVG/HTML for precise text and quantities; existing professional media and approved PNGs remain.
+
+## What still needs validation
+
+For authorized visual implementation: supplied-record accuracy, text alternatives, graph scales/rounding, desktop/mobile rendering and insertion before dependent questions; focused keyboard checks if controls are introduced. Cumulative rollout deferrals remain whole-course learner E2E, comprehensive accessibility/source/media review, Studio lifecycle, SCORM/export/Brightspace and actual release proof.
+
+## Routing
+
+Lead retained pedagogical judgment in the existing dirty course boundary. Deterministic local extraction and report validation used; no worker spawned. Asset reuse candidates identified, but no measured usage savings or provider-cache telemetry.
+
+## Exact next action
+
+Await the requested visual implementation scope. Suggested first batch is FL1-01, FL1-03, FL2-03, FL3-03 and CE1-05.
+
+## Exact next file to open
+
+/Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm10-2026-draft/meta/visual-learning-audit-2026-10-05/README.md
+
+## Do not do next
+
+Do not insert every unused scenario photograph, replace the approved diagrams, reveal independent-task answers, regenerate the course or package/publish without the separately scoped request.
+
+## ChatGPT authoring prompt follow-up
+
+User requested a prompt to generate the proposed visual set. Added meta/visual-learning-audit-2026-10-05/chatgpt-prompt.txt and CALM-visual-source-pack.zip. Pack includes the exact course manuscript, audit, three course stylesheets, two font files, seven reusable SVGs and three approved PNGs, plus source hashes. It is a reference pack, not a working course/export. Verified all 18 archive file hashes and ZIP integrity. Prompt calls for 35 primary visuals plus three optional annotations, retaining the two Keep diagrams; starts with five representative examples, supplies accessibility/caption/placement/data requirements and prohibits independent-answer exposure. No course assets generated or integrated. No runtime or learner storage included. Routing retained by lead for source packaging and prompt composition; no worker or measured usage savings.
+
+
+## Archived October 6 2026 before five-lesson visual preview
+
+# Handoff
+
+- Project: calm10-2026-draft
+- Task: Audit supplied CALM_Style_C_ALL_IN_ONE.zip and give an independent opinion.
+- Status: Audit complete; no integration or course edits.
+
+## Files changed
+
+- projects/calm10-2026-draft/meta/visual-learning-audit-2026-10-05/STYLE-C-AUDIT-2026-10-06.md
+- docs/ops/ACTIVE_HANDOFF.md; previous active entry archived verbatim.
+
+## What changed / why
+
+Reviewed all 61 raster pieces in overview sheets, selected full-size/mobile samples, manifest/placement/source records and canonical worked examples. Positive authoring candidate with targeted refinements: serif figure headings differ from course sans serif, most assets are raster-only, some planned visual relationships became text summaries, and dense desktop art requires mobile variants. Recommended five-lesson contextual review before bulk integration.
+
+## Verification run
+
+All file hashes enumerated in 38 new-lesson records and three retained-image entries match. Placement CSV covers 40 unique lessons; all supplied anchors exist; every new record has introduction, caption, alt and long equivalent. 59 JPEGs, two PNGs and two editable SVGs; only FL1-03 has editable diagram sources. Canonical source still matches prior SHA256 7c16a7b2ba8325d502edf7e15afa6565f72f92e44df30814329c8e5488e7d2c2. No confirmed arithmetic error in the examples checked. Overview review is not a native-resolution transcription of all labels or independent rederivation of every schedule.
+
+## Source of truth
+
+Canonical workspace/index.html remains the only active CALM lesson source at http://127.0.0.1:4195/. Audit report is operational guidance; external artwork is a candidate. Supplied archive SHA256 840cc4dd3a6491c2e3c0e76cf9e7e49498494050e9c275c3de4efe601617a011. It was extracted safely under /tmp/calm-style-c-audit for read-only inspection; temporary extraction is not a durable source owner.
+
+## Fragile areas / known risks
+
+Package contains lossy JPEG convenience copies and references absent original PNG masters. Master hashes do not prove absent file equality. Keep canonical retained PNGs. Preserve calm10-2026-draft:learning:v3, stable answers/history/completion and professional media. Avoid inserting complete worked answers before their teaching location or duplicating whole lessons inside pictures.
+
+## Next prompt should assume
+
+User requested an audit/opinion only. No integration, replacement, image repair, course regeneration or release authorized by this request. All supplied QA Pass claims require independent acceptance. Whether serif figure typography is desired remains a design choice.
+
+## What still needs validation
+
+During authorized integration: exact source values and all labels, native desktop/mobile presentation, text alternatives, surrounding prose, correct figure placement and answer boundaries. Absent PNG masters remain uninspected. Cumulative rollout gates remain whole-course learner E2E, comprehensive accessibility/source/media, Studio lifecycle, SCORM/export/Brightspace and actual release proof.
+
+## Routing
+
+Lead retained instructional and style judgment against the dirty canonical boundary. Local deterministic inventory/hash/anchor checks used; no worker spawned. Usage savings unknown.
+
+## Exact next action
+
+Await the requested integration or repair scope; proposed contextual review batch is FL1-01, FL1-03, FL2-03, FL3-03 and CE1-05.
+
+## Exact next file to open
+
+/Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm10-2026-draft/meta/visual-learning-audit-2026-10-05/STYLE-C-AUDIT-2026-10-06.md
+
+
+---
+
+# Handoff
+
+- Project: calm10-2026-draft
+- Task: Preview five supplied Style C visuals in the course shell.
+- Status: Build complete; isolated review ready, canonical course unchanged.
+
+## Files changed / what changed
+
+Added meta/visual-learning-audit-2026-10-05/five-lesson-preview/: build.mjs, serve.mjs, README.md, BUILD.json, derived site snapshot, five figures plus supplied mobile variants and evidence/. Added teacher introductions, captions, larger image links and collapsible text equivalents inside five worked examples. Preserved supplied artwork and existing course teaching. Previous active handoff archived verbatim.
+
+## Why / source of truth
+
+User approved the five-example preview before deciding on changes or broader insertion. Canonical ownership remains workspace/index.html and declared assets/styles/runtime; preview is derived review-only. Canonical index hash remains 7c16a7b2ba8325d502edf7e15afa6565f72f92e44df30814329c8e5488e7d2c2. Preview port 4196 serves snapshot files and reads canonical assets; current course remains port 4195.
+
+## Verification run
+
+All saved-field keys, IDs and task versions preserved; five original lesson texts equal after excluding added figures. Focused browser checks passed for all five at 1440/390 viewports: figures loaded, expected mobile variants, no horizontal overflow/page errors. Synthetic preview response saved/restored while canonical-key sentinel stayed unchanged. Source artwork not edited. Inspected representative desktop/mobile figure screenshots; normal viewport screenshots also captured. Evidence/checks.json contains results. No actual user answers edited.
+
+## Fragile areas / known risks
+
+Preview namespace calm10-style-c-five-review-2026-10-06 replaces canonical prefix in copied scripts; origin also isolated. Do not promote review runtimes or import review answers. Base media/fonts served from canonical assets, so this is not a standalone release package. Supplied serif typography and text-rich artwork are deliberately retained for review. Dense school/account diagrams switch to mobile panels; loan payment still uses original single-column figure. Full original prose retained for first review, so repetition may need reconciliation after approval.
+
+## Next prompt should assume
+
+Only five worked examples have visual additions: FL1-01, FL1-03, FL2-03, FL3-03, CE1-05. No course-wide insertion or asset repairs approved in this step. Other lessons remain in the review snapshot for navigation. Original canonical course and Before snapshots remain intact.
+
+## What still needs validation
+
+Human review of figure style, size, reading order, duplication and mobile comfort. Cumulative rollout deferrals remain comprehensive accessibility/source/media, whole-course learner E2E, Studio lifecycle, SCORM/export/Brightspace and actual release proof.
+
+## Routing
+
+Lead retained preview integration and state isolation in dirty project boundary. Deterministic local build and focused synthetic browser check used; no worker spawned. Usage savings unknown.
+
+## Exact next action
+
+Review http://127.0.0.1:4196/#fl1-01-stage-4 . Restart if needed with node projects/calm10-2026-draft/meta/visual-learning-audit-2026-10-05/five-lesson-preview/serve.mjs .
+
+## Exact next file to open
+
+/Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm10-2026-draft/meta/visual-learning-audit-2026-10-05/five-lesson-preview/README.md
+
+
+---
+
+# Handoff
+
+- Project: calm10-2026-draft
+- Task: Refine the isolated five-lesson Style C visual preview.
+- Status: Revision 2 ready for review; canonical course unchanged.
+
+## Summary / files changed
+
+Preview owner: projects/calm10-2026-draft/meta/visual-learning-audit-2026-10-05/five-lesson-preview/. Added refinements.mjs with connected teaching copy for FL1-01, FL1-03, FL2-03, FL3-03 and CE1-05. Updated build.mjs, site/visual-review.css, derived site/index.html, BUILD.json and README.md. Added before-refinement/ snapshot and evidence/refinement-checks.json plus payment-bar screenshots. No original artwork altered. Worked answers, tables, approved instructions and independent tasks retained. Alex’s first payment now includes an editable bar with exact $10/$78.85 proportions.
+
+## Source of truth
+
+Canonical owner remains projects/calm10-2026-draft/workspace/index.html. Its SHA256 remains 7c16a7b2ba8325d502edf7e15afa6565f72f92e44df30814329c8e5488e7d2c2. Review copy on port 4196 is derived; refinements.mjs owns only the review prose. Original supplied images retained verbatim. Current course is on port 4195.
+
+## Verification run
+
+Compared all learner-control attributes and task-version/save-key contracts against first preview: unchanged. All five instruction panels, native tables and next-step links unchanged. HTML outside five worked sections identical. Canonical hash unchanged. Focused browser batch checked all five at 1440 and 390 pixels: visible images loaded, no horizontal page overflow or page errors. Bar proportion verified at both widths; inspected both bar screenshots. Previous synthetic save-isolation check remains applicable: copied runtimes and namespace were not changed by refinement. No actual learner answers edited.
+
+## Known risks / fragile areas
+
+Review namespace remains calm10-style-c-five-review-2026-10-06. Do not promote review runtimes or import review answers. Base media/fonts served from canonical assets; this is not a standalone package. Raster artwork retains supplied serif typography and dense instructional text. Preview builder requires extracted supplied bundle at its configured source path or explicit argument. Model answers repeat key values intentionally to demonstrate a complete response.
+
+## Deferred checks
+
+Human review of the refined reading flow and visual comfort. Comprehensive accessibility/media/source verification, whole-course E2E, Studio lifecycle, SCORM/export/Brightspace and release proof remain deferred. This refinement is only the five-example preview, not a course-wide visual rollout.
+
+## Routing
+
+Lead-owned teaching judgment and integration in existing dirty review boundary; deterministic builder and one focused local browser batch. No workers. Usage savings unknown.
+
+## Next prompt assumptions / exact next action
+
+Review revision 2 at http://127.0.0.1:4196/?revision=2-refined#fl2-03-stage-4 . Top preview navigation links all five examples. Canonical integration or wider insertion needs a separate user decision. Server already running; no restart needed.
+
+## Exact next file to open
+
+/Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm10-2026-draft/meta/visual-learning-audit-2026-10-05/five-lesson-preview/refinements.mjs
+
+
+---
+
+## Preserved before Reaction Detective first run — 2026-10-06
+
+# Handoff
+
+- Project: biology30-chapter-17
+- Task: Isolated integration of supplied lessons 8–15 and optional extension.
+- Status: Working comparison ready; remaining teacher acceptance pending.
+
+## Summary / files changed
+
+New complete candidate under projects/biology30-chapter-17/meta/teaching-overhaul/2026-10-04-exemplar-transfer/teacher-led-remaining-08-15-extension-v0.1.0/evaluation/new/. Comparison at http://127.0.0.1:57250/?lesson=08; full new chapter at http://127.0.0.1:57252/index.html#lesson-08. New deterministic assembly/server scripts and immutable pro-return receipt. Signed-off lessons 1–7 exact; no canonical course/release changes.
+
+## Verification run
+
+183 payloads/checksums verified; rebased against latest signed-off owner rather than stale offsets. All bytes outside nine teaching intervals exact; 837 protected source files unchanged. Candidate SHA 1ac7a2f934cdd2a5373f75d567abe01f7a512fc52e1c766320b46c58afc5e46a. All revised routes/images checked; representative vocabulary, optional save/reload/All My Work and required-progress gating passed in separate synthetic QA origin. All-route mobile overflow checks and representative desktop/mobile screenshots retained.
+
+## Known risks / follow-up
+
+Embedded PDF viewport blank in IAB despite correct reader page mapping; deep-scroll mobile pixel review incomplete. Comparison navigation captured one unattributed observer error but selectors/routes function. Archive SHA/CRC unverified because supplied item is extracted folder. Full keyboard, legacy import/conflicts, transfer-set submission, print/backup/media, SCORM/Brightspace and teacher acceptance remain deferred. Inherited questions/keys/source caveats not silently corrected. No canonical integration, package, deployment or new authoring.
+
+## Source of truth / fragile areas
+
+Canonical workspace unchanged. Review uses signed-off 1–7 owner 480d60d752d717b9d947098695b043bf85776dff4fcb796725a6506c298f7262 and exact supplied fragments. Preserve native storage, immutable attempts, IDs/keys, assessments, notes, vocabulary, reader, progress, CSS and runtime. Do not auto-import review saves. Full nine-section handoff: projects/biology30-chapter-17/meta/teaching-overhaul/2026-10-04-exemplar-transfer/teacher-led-remaining-08-15-extension-v0.1.0/INTEGRATION_HANDOFF.md.
+
+## Routing
+
+Lead retained dirty-boundary source/state decisions and browser integration; deterministic assembly. No worker or provider-cache calls; usage savings unknown.
+
+## Next prompt assumptions / exact next action
+
+Dean reviews 08–15 and Optional extension via comparison selector and explicitly accepts or requests edits. 1–7 acceptance is carried unchanged, not reopened. Local preview server is running. Only if stopped: node scripts/serve-biology30-ch17-remaining-comparison.mjs.
+
+## Exact next file to open
+
+/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-chapter-17/meta/teaching-overhaul/2026-10-04-exemplar-transfer/teacher-led-remaining-08-15-extension-v0.1.0/evaluation/index.html
+
+## Other ongoing work
+
+The preceding CALM 10 handoff remains fully preserved in docs/ops/ARCHIVED_HANDOFFS.md under the 2026-10-06 concurrent-work archive entry; its canonical and review files were not changed by this task.
+
+
+---
+
+## Archived for Credit Gauntlet build — 2026-10-06
+
+# Handoff
+
+- Project: Biology 30 Chapters 11–12
+- Task: Complete supplied v1.0.1 teaching handoff as isolated working review copies.
+- Status: Complete isolated teaching/response assembly and editor reconciliation; desktop route checks passed. Canonical integration and full rollout gates remain separate.
+
+## Summary / files changed
+
+All23 routes are in the new candidates under projects/biology30-unit-a-pilot-3/meta/teaching-overhaul/ch11-ch12-handoff-v1.0.1/evaluation/. CH11 has25 native optional writing activities; CH12 has9 native optional notes. Added deterministic build/server scripts and preserved immutable pro-return. Comparison: http://127.0.0.1:57300/?chapter=11&lesson=lesson-01 ; full width CH11 port57302 and CH12 port57304. Canonical workspaces, questions, runtime owners, stylesheets and release state unchanged. Four separately listed CH11 teaching-direction/locator corrections applied only to candidate.
+
+## Verification run
+
+ZIP CRC and417 manifest payloads/rootchecksums passed. All100 exact source intervals/anchors verified. Protected checks/activities/media retained;36/36 CH11 and12/12 CH12 original figures exact. All34 new controls saved through real UI; reload restored work. CH1125 original plus25 revised runs retained, required progress0/12; all9 CH12 notes changed to Draft and resaved. Native extension lock mirrored correctly. Representative vocabulary popup and full-width teaching pixels inspected. Native reset cleared a synthetic unfinished draft and retained all50 completed runs. Final build recovered from ENOSPC; old-preview duplicate asset folders replaced only with canonical-asset symlinks, recoverable from unchanged originals. Final hashes and local paths in BUILD_REPORT.
+
+## Source of truth
+
+Original CH11 workspace/index.html hash9fcd8203b41f4220e53716e473c02a0835f356420b363ea0092e544a8e7bb210; CH12 hash2205c401e8edacf3fb91b71cb7146ae1757d5d1bf06d5ec6e8b24724bcde3062. Canonical entries unchanged. Supplied manuscripts/source maps preserved in pro-return. Full handoff: projects/biology30-unit-a-pilot-3/meta/teaching-overhaul/ch11-ch12-handoff-v1.0.1/INTEGRATION_HANDOFF.md.
+
+## Known risks / fragile areas
+
+Editor reconciliation now records529 unique source identities across changed intervals:185 retained,344 superseded teaching occurrences with original HTML, hashes and whole-interval successor lists; zero unclassified. No automatic redirects or canonical override migration. Superseded vocabulary occurrences do not remove glossary IDs. Named structural sections retain their identity without claiming unchanged prose. Candidate learner bytes/hashes unchanged. Dean's “ok looks good” applies to the reviewed CH12 lesson-01 preview, not all routes. Original assessment-key conflicts remain separate unapproved proposals; no historical regrading. Old-preview assets reference canonical assets; freeze them during review. Separate origins protect personal work; do not migrate QA/review saves.
+
+## Deferred checks
+
+All23 desktop teaching routes opened with expected headings, no horizontal overflow, no visible completed-but-broken images and no console errors. Chapter12 popup and bold800 vocabulary verified; collected QA notes persist. `node scripts/verify-biology30-ch11-ch12-editor-reconciliation.mjs` passed unique keys, exhaustive displaced-key accounting, recoverable originals, live successor references, native IDs, original figures/styles/videos and local assets. Final hashes remain unchanged. Mobile attempt was not verified: requested390px override still produced actual1600px; override reset. Remaining: full manuscript/pixel review, mobile/keyboard, actual legacy resume/import/conflict/failure, required-check/original-task interaction regressions, print/PDF/backup output, reader/media playback, Studio apply/reload/Undo, packaging/deployment/SCORM/Brightspace and exact teacher acceptance. Local proof is not release acceptance.
+
+## Routes actually used
+
+Lead retained current-owner/state/editor decisions because candidate scripts and handoff are already dirty; deterministic assembly and independent focused verifier. No worker calls or provider-cache telemetry. Savings unknown. CH12 context remains blocked/proposal-only; not promoted.
+
+## Next prompt assumptions / exact next action
+
+Review all23 routes via chapter/lesson selector; record scoped acceptance or edits. For requested canonical integration, consume EDITOR_RECONCILIATION.json without redirecting old Studio overrides into rewritten passages; do not promote blocked lifecycle. For an explicit testing/release checkpoint, run the remaining planned gates above. Server running; only if stopped: node scripts/serve-biology30-ch11-ch12-teaching-comparison.mjs.
+
+## Exact next file to open
+
+/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-unit-a-pilot-3/meta/teaching-overhaul/ch11-ch12-handoff-v1.0.1/EDITOR_RECONCILIATION.json
+
+## Other ongoing work
+
+Prior Chapter17 handoff archived intact in docs/ops/ARCHIVED_HANDOFFS.md. Its acceptance labels require the later exact acceptance-ledger qualifications; this task did not reopen or change Chapter17.
+
+<!-- Archived intact at Biology CH11/12 canonical integration boundary, 2026-10-06 -->
+# Handoff
+
+- Project: credit-gauntlet
+- Task: Build the standalone CALM 10 game with supplied mockup fidelity.
+- Status: building — playable standalone candidate; packaging/LMS/Studio readiness deferred.
+
+## Files changed
+- workspace/index.html, styles.css, model.js, game.js: canonical playable source.
+- workspace/assets/: forty original game PNGs and locally bundled DejaVu Sans fonts/license.
+- workspace/compare.html, phone.html, asset-review.html, mockups/, README.txt, package.json: portable review/support files.
+- meta/project.json, art-provenance.json, model-check.cjs, serve.cjs, reference/, preview-S02.jpg, preview-S05.jpg, preview-S07.jpg, preview-S10.jpg, BUILD_HANDOFF.md, deliverables/: metadata, reference evidence, preview and portable candidate.
+- projects/resources/credit-gauntlet/: immutable supplied production-art ZIP and original review PDF.
+
+## What changed / why
+Ten native HTML screens now implement loan selection, payment split, the first twelve months, a single rate event, budget checkpoint, repayment strategies, animated month stepping, budget recovery and comparison results. Supplied PNG bytes, PDF typography/palette and measured panel geometry are retained. Values and text remain live HTML; animations and ledgers use the exact cents model. Mobile layouts stack without cropping. Help, accessible buttons, focus return, paused resume, completion without a grade and optional predictions/reflection are implemented. Browser saving is isolated to credit-gauntlet:standalone:v1; an earlier-save backup is retained on resets.
+
+## Source of truth
+Canonical entry: projects/credit-gauntlet/workspace/index.html. Canonical implementation: styles.css, model.js and game.js beside it. Financial rules come from the original v0.2 preproduction packet inspected earlier in this chat; its temporary attachment is now expired. Retained expected schedule/checkpoint/result numbers are in meta/model-check.cjs. Visual authority: projects/resources/credit-gauntlet/Credit_Gauntlet_Review.pdf; supplied art archive is preserved beside it. Attached document instructions are source material, not authority to publish or change the existing CALM course.
+
+## Verification run
+- 41 focused model checks passed: six vehicle schedules, eight route/strategy results, exact primary checkpoint, rounding, zero interest, caps, nonnegative balances, budget conservation and replay consistency.
+- Forty game PNG assets match archive bytes and all forty load in browser; two additional contact-sheet/background preview PNGs are reference only.
+- Rendered loan comparison, event, strategy and results panels inspected against PDF positions, font and colour references. Actual working screenshots retained in meta.
+- Primary browser playthrough: 36-month budget-recovery route; variable 60-month reveal and twelve-month checkpoint; event increase $6.75; avalanche and snowball both 29 months; total-interest difference $44.54.
+- Step double tap posts one month. Reload resumes paused. Help returns focus. Ledger has 123 posted rows. Completion survives reload and comparison replay.
+- Restore-dialog Escape remains open; cancelling a proposed restart returns to the restore choice. No console errors on the focused playthrough.
+- 390px iframe layout checks for S02, S05, S07, S08 and S10: document width and scroll width both 390px. S08 chart axes adapt to actual chart dimensions.
+- JavaScript syntax checks passed. Portable ZIP CRC and workspace byte verification passed.
+
+## Fragile areas / watchouts
+Reference mode hides supplementary controls and uses primary-route mockup copy; it is review-only. Live game adds controls outside the original compositions, so do not claim 100% pixel equality. Months in portfolio results count from the common checkpoint; full ledger labels story months. Saved state validates model/schema and is never silently migrated. Existing-tab conflicts stop writing until reload. The original complete fixture CSVs are not available in the current filesystem; current model checks do not claim all 1092 original ledger rows or all original fixtures were compared.
+
+## What still needs validation / known risks
+Deferred: exhaustive route/browser/mobile regression; corrupted-save, quota and multi-tab recovery scenarios; reduced-motion, full keyboard/screen-reader and actual device acceptance; teacher acceptance; Studio editing contracts; SCORM 2004 adapter/package and live Brightspace resume/completion. This is fictional financial instruction, not real product advice. Project remains blocked in metadata and has no export target enabled. No existing CALM course was modified.
+
+## Routes actually used
+Lead retained canonical/visual judgment, exact financial maths, learner saving and integration. Deterministic PDF rendering, extraction and packaging used. Muse admission lacked billing/write-boundary eligibility; agents:plan also failed with git ENOBUFS in the dirty checkout. No worker run was launched for implementation. No provider-cache telemetry or measured usage savings; savings unknown.
+
+## Next prompt should assume
+Standalone HTML review first; retain supplied art and game concept. Completion records no grade. SCORM is a separate later phase. Main preview runs at http://127.0.0.1:57340/ ; comparison at /compare.html. QA origin 57341 is disposable and has been stopped. Do not import QA browser saves.
+
+## Exact next action
+Review the working game and side-by-side comparison; await the next requested change. If the preview process has stopped, run node projects/credit-gauntlet/meta/serve.cjs.
+
+## Exact next file to open
+/Users/deanguedo/Documents/GitHub/canvas-helper/projects/credit-gauntlet/workspace/index.html
+
+## Do not do next / warnings
+Do not replace supplied art, overwrite the existing CALM course, enable Studio editing, claim LMS readiness or publish without the relevant requested next phase.
+
+## Other ongoing work
+Prior Biology Chapter 11/12 handoff archived intact in docs/ops/ARCHIVED_HANDOFFS.md. This game build did not alter Biology candidates or their acceptance status.
+
+
+---
+
+## Preserved before Writing Studio handoff - 2026-10-07
+
+# Handoff
+
+- Project: Biology 30 Chapters 11–12; remaining-chapter planning.
+- Task: Integrate reviewed teaching into canonical sources and finish the supported local validation batch, without SCORM packages.
+- Status: integrated locally; focused validation passed with explicit remaining limits. No deployment or LMS certification.
+
+## Files changed
+
+- Both chapters' workspace/index.html and workspace/assets/teaching-v101/: exact reviewed teaching and assets.
+- Both meta/project.json: injected teaching provenance; CH12 extension helper declared canonical; scoped portable regeneration command.
+- CH12 workspace/Biology30_Chapter12.html: 43,001,663-byte standalone derived snapshot with 110 embedded assets.
+- scripts/integrate-biology30-ch11-ch12-teaching.mjs, snapshot-biology30-chapter12-portable.mjs, serve-biology30-integrated-teaching.mjs.
+- CH11 meta/e2e-contract.json: remove nonexistent sidebar route for preserved legacy foundation check; add actual textbook-practice route.
+- CH12 meta/e2e-contract.json: native routes, mobile coverage and optional-note persistence scenario.
+- e2e/lib/learner-course-assertions.ts: support native hash navigation links and native optional-note controls.
+- e2e/lib/project-contract-schema.ts and scripts/tests/e2e-contract-harness.test.ts: strictly validated native-note scenario, required identity/collection route and duplicate rejection.
+- scripts/verify-english-course.ts: narrow its Evidence Bank checks to English-supported scenario kinds after the shared union gained native-note. No English course content changed.
+- This root: CANONICAL_INTEGRATION.json, canonical-before metadata backups, CHAPTER_INVENTORY.json, REMAINING_CHAPTER_PLAN.md and this handoff.
+
+## What changed / why
+
+Canonical CH11 and CH12 now use the exact review candidate bytes. Fonts, CSS, existing runtimes, native questions/keys, activity IDs, saved-state owners, progress semantics and original figures remain unchanged. The legacy foundation check is preserved in HTML; only the invalid requirement that it appear in the sidebar was removed from the test inventory. Textbook Practice uses a native hash link, now supported by the test helper without modifying learner HTML.
+
+## Source of truth
+
+CH11: projects/biology30-unit-a-pilot-3/workspace/index.html; runtime owner scripts/lib/biology30-pilot3/runtime.ts. HTML SHA256 7500d72fe3f340ffb3de15248c09816ea542a50d791c0bf25b5d7e50464b3084.
+
+CH12: projects/biology30-chapter-12/workspace/index.html, styles.css, main.js and assets/teaching-v101/extension-model-lock.js. HTML SHA256 7c762bb9f006fa8f156ce60c6a058349264f945b537200d5cab64c69b3e34920.
+
+Immutable returned source and frozen old/new comparison remain under this root. EDITOR_RECONCILIATION.json accounts for all 529 affected original keys: 185 retained and 344 superseded, zero unclassified. Whole-interval successors are not semantic one-to-one redirects. No old editor override or learner answer migration occurred.
+
+## Verification run
+
+- Independent editor reconciliation and static identity/media preservation verifier passed before integration.
+- Both canonical workspace verification commands passed after integration: metadata/local assets/embeds/resources clear.
+- CH11 course doctor passed. Scoped verify:course-onboarding passed: 5805 mapped editable targets; native apply/reload/Undo restored bytes. Map is truncated, not exhaustive editor-target acceptance.
+- CH11 test:e2e:project passed: desktop routes, native local-run evidence scenario, 390x844 mobile routes, image/overflow/error checks covered by its contract.
+- CH12 test:e2e:project passed: desktop/native navigation, new optional-note save/reload/All My Work and 390x844 mobile routes. This is learner preview testing, not Studio editing certification.
+- test:e2e:harness: all nine unit tests passed, including native-note schema validation and invalid-route/duplicate/missing-ID rejection.
+- Combined E2E harness and English verifier tests: 26 passed. Repository typecheck remains failing on out-of-scope builder/test errors; final output has no errors in the changed E2E helpers/schema or English verifier. This is not a clean repository-wide typecheck.
+- Real browser CH12 canonical QA origin 57313: lesson06 response saved, survived reload, appeared in All My Work, required progress stayed 0/9; no captured runtime errors.
+- New scripts syntax checks passed; final canonical hashes match reviewed candidates. Scoped diff whitespace checks passed. Broad checkout whitespace output included unrelated existing Science24 changes; those were not edited.
+- Portable snapshot preserves canonical source, embeds local CSS/script/image dependencies and leaves non-executable native data intact. Actual file-URL runtime testing was blocked by browser URL policy; not passed.
+
+## Fragile areas / watchouts
+
+CH12 remains blocked/proposal-only-v1 with Studio editing disabled. CH11 remains active/direct-workspace-v1; no new lifecycle promotion or exact-head release-readiness claim. Do not rerun old refresh-biology30-chapter-portable.mjs: it rewrites both 12 and 13 canonical sources. Use the declared new CH12 snapshot-only command for its derived copy.
+
+Do not rerun the frozen comparison builder against the newly integrated canonical source: its original-source hash guard will reject it. Preserve frozen original assets while comparisons use baseline symlinks. Preserve native storage namespaces and immutable attempt history; same IDs and unchanged owners do not prove every old import/conflict path.
+
+## What still needs validation / known risks
+
+Actual print/PDF layout and photo readability remain open: the IAB print click showed no destination dialog. No actual PDF file was produced. Offline standalone file launch is also unverified because file URLs are blocked by browser policy. Legacy-save import, quota/conflict/failure recovery, comprehensive keyboard/accessibility, real-device media/reader rendering and Brightspace resume/completion remain open. No SCORM packages, deployment, commit or push were performed. APFS free space is low; avoid copying whole asset trees.
+
+## Routes actually used
+
+Deterministic integration/snapshot/inventory and existing test commands; lead retained dirty-boundary, state/editor compatibility and source decisions. No new worker was launched. Local source/reference reuse is separate from provider caching; no provider-cache telemetry or measured savings, so savings unknown.
+
+## Next prompt should assume
+
+Dean authorized local integration and continuation planning, not blanket acceptance of every unseen lesson or release. Current complete CH11/12 teaching is canonical. Remaining chapter authoring follows REMAINING_CHAPTER_PLAN.md. CH17 existing status records signed-off 01–07 and pending 08–15/extension; do not regenerate or auto-integrate it.
+
+## Exact next action
+
+Prepare the Chapter13 lesson01–03 hash-bound source/teaching map and chapter progression from the teacher PowerPoint and textbook, before external authoring or course edits. Outstanding local output/failure checks remain explicitly tracked, not replaced by SCORM packaging.
+
+## Exact next file to open
+
+/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-chapter-13/meta/prompt-pack.md
+
+## Preview links / do not do next
+
+Integrated CH11: http://127.0.0.1:57310/index.html#lesson-01 . Integrated CH12: http://127.0.0.1:57312/index.html#lesson-06 . Disposable QA origins 57311/57313. Existing old/new comparisons remain at 57300. Server owner: scripts/serve-biology30-integrated-teaching.mjs, running exec session 51017.
+
+Do not package, deploy, silently change assessment keys, replay old editor patches or promote blocked courses. Preserve other ongoing work; prior Credit Gauntlet handoff must be archived intact when this becomes the active handoff.
+
+
+## Follow-up fix — comparison page and blocked preview navigation
+User reported distorted visuals and inability to advance. Reproduced comparison grid overflowing: iframe intrinsic width stretched right column and squeezed reference to thumbnail. Corrected tracks to minmax(0,1fr) and section min-width:0. Measured equal 575px columns with client/scroll widths both1210. Reference iframe is now inert/noninteractive and labelled a visual preview; prominent PLAY THE FULL GAME opens saved gameplay. Reference-mode handler prevents entering hidden-control gameplay directly. Existing saved game was retained. Newly attached Production_Art_v1 (1).zip matches preserved archive SHA256 exactly.
+Focused browser verification in a no-save preview: S01 Start -> S02 variable loan -> S03 reveal -> S04 twelve payments -> S05 event -> S06 budget -> S07 avalanche -> S08 Step month1. No console errors. Corrected screenshot: meta/comparison-fixed.jpg. No financial engine changes or broad rollout checks repeated. Lead retained narrow dirty-source repair; deterministic packaging used. Original Build-mode deferrals still apply. Portable HTML ZIP rebuilt with this fix.
+Next action: review corrected full game; next file remains projects/credit-gauntlet/workspace/index.html.
+
+
+## Presentation rebuild v0.2.0 — corrected game interpretation
+User supplied six richer pixel reference images and reattached the agreed game plan. The earlier plain PDF match was insufficient for their intended game. Current authority: user decisions plus the agreed plan's financial/interaction contract; last three CALM screenshots guide the three main layouts. Other supplied sheets guide decorative pixel art. Do not copy erroneous screenshot amounts: the engine retains $9,833.39, $513.87, $2,164.71 and the $6.75 event increase.
+
+Files changed: workspace/index.html, game.js, presentation.css, compare.html, README.txt, package.json; additional locally bundled Pixelify Sans/OFL font and decorative extracted logo/landscape/vehicle assets; supplied references copied immutably under projects/resources/credit-gauntlet/presentation-references and into workspace/mockups. New provenance file meta/presentation-provenance.json. Prior interface preserved in meta/presentation-v0.1-reference; v0.1 ZIP is retained. model.js unchanged. styles.css now owns developer review tools only.
+
+New game experience: title menu; persistent Menu/Help/New Game; saved-run Continue menu; round navigation unlocks only after the prerequisite action. Native three-column loan comparison with actual forecast bars and optional choice feedback; separate rate-event layout; debt/minimum/reserve strip and illustrated strategy target order. Optional strategy prediction is recorded without scoring. Result screen has Compare Another Loan with confirmed reset. No scores, lives, timers, random events or reserve spending added. Native financial text remains readable sans-serif/tabular numbers; headings use a bundled pixel font. All original forty PNG assets are preserved.
+
+Saving continuity: schema/model/namespace remain v1. New optional choice/navigation fields are backward compatible; old saves infer visited rounds from their saved screen. Changing the comparison term does not commit a different loan or alter repayment balances; only inspecting a selected loan commits it. Menu opens paused; Continue does not advance a month. Save/dialog failure protections remain.
+
+Focused checks actually run: preexisting v0.1 synthetic save restored its S08 month0, completion latch and paused control in the new main menu; Escape could not dismiss pending restore. Confirmed new game preserved completion. Optional variable forecast feedback showed $500.35 lower unchanged-rate vehicle interest. S03 reveal and S04 checkpoint led to S05; future rate navigation remained disabled until explicit event action. Month-12 review returned safely to the same event. S06 -> S07 prediction -> avalanche -> S08, Menu paused play; reload/Continue restored paused; simulation reached S10 with $1,226.69 vs $1,271.23, 29 months and $44.54 difference. No console errors. Phone iframe checks for S02/S05/S07/S08/S10 found one S05 intrinsic-grid overflow; fixed it and reran S05 with equal client/scroll width371 (390px outer iframe less browser scrollbar) and zero controls below44px. Representative screenshot evidence: title-menu-v0.2.jpg, loan-screen-v0.2.jpg, rate-screen-v0.2.jpg and strategy-screen-v0.2.jpg. JavaScript syntax and portable ZIP CRC/byte checks passed. Financial engine was not edited; its earlier41 checks are prior evidence, not a rerun this follow-up.
+
+Still deferred: complete original1092-row/28-fixture source comparison (expired original attachment), all-route browser regression, 200% zoom, full keyboard/screen reader/reduced-motion/contrast/missing-art verification, corrupted-save/quota/competing-tab cases, direct-file launch, teacher acceptance, Studio editing/readiness and SCORM/Brightspace. This is a complete HTML Build checkpoint, not Stage5 release acceptance. Reference-preview controls remain inert by design; play index.html for actual gameplay.
+
+Routing: lead retained this dirty in-progress presentation/controller boundary and source-of-truth decisions; deterministic extraction and packaging. No worker admission or provider-cache savings claimed. Main preview57340 remains available; temporary QA57341 stopped after inspection. Next action: inspect the new menu and full learner journey, then request refinements. Exact next file: projects/credit-gauntlet/workspace/index.html.
+
+Final refinements: corrected icon semantics using the supplied contact sheet; extracted mountain/snowball decorations from the CALM strategy reference; financial digits use readable tabular sans-serif. Loan/strategy choice buttons moved above long explanations/target previews so they are easy to find. Debt cards now follow the current reference's vehicle/personal/store order. A term-preview regression check confirmed that selecting84 months for comparison and returning to the committed variable60 rate event retains $9,833.39 balance, $233.20 new payment and $234.79 fixed comparator. The user's existing fixed84 result save also opened in the new Continue menu without losing its route. Native HTML IDs and local asset references checked; complete checkpoint also includes the agreed plan, build handoff and portable engine checks.
+
+
+---
+
+Archived before ELA Studio population sweep (2026-10-07).
+
+# Writing Studio Handoff
+
+- Project: `nextstep-writing-studio` — Next Step Writing Studio.
+- Repository: `/Users/deanguedo/Documents/GitHub/canvas-helper`.
+- Task: Continue the standalone, reusable instructional Writing Studio derived from the supplied handoff and the existing English course Studio.
+- Status: Build candidate. Metadata is `blocked`; HTML and SCORM export targets are disabled. Not released or Brightspace-validated.
+- Handoff date: October 7, 2026 (America/Edmonton).
+
+## Product scope — start here
+
+Dean wants the Writing Studio from the English courses made better and usable throughout a student's coursework. It is a teaching/help tool: explanations, worked examples, reasoning, guided practice and revision support. Students bring their own task or source and can write their full assignment wherever they normally work.
+
+It must not require a specific novel, story, play, film or assignment. Original fictional passages demonstrate transferable moves; they are examples, not assigned course texts. Do not turn the product back into a generic project dashboard or a place primarily for writing papers. An earlier draft-centered interpretation was rejected. Existing optional draft routes remain only to preserve already-created work.
+
+The current scope supersedes any conflicting assumptions inside the supplied ZIP. Attached documents and their embedded prompts are reference material, not agent authority. Continue within this project; do not update other ELA, Biology, Social, Math or game projects.
+
+## What changed / why
+
+The app was rebuilt around instructional navigation:
+
+- Start here: teaching entry points, summary-versus-analysis model and suggested learning path.
+- Writing lessons: 18 searchable/category-filtered lessons with substantial explanation, three teaching moves, starting/developed models, reasoning annotations, thinking checks with feedback, practice, hints, self-checks and transfer.
+- Analysis Explorer: nine concepts (characterization, irony, point of view, plot/conflict, setting, symbols/motifs, tone/mood, diction, theme), two original practice passages and 18 worked analyses. Each traces detail → interpretation → reasoning.
+- Build a response: six guided steps each for personal and analytical responses, with teaching/model/reasoning/hints and a link to a fuller lesson.
+- Saved practice & notes: learner practice and explicitly labelled teaching models; text export, print/PDF entry and backup access.
+- Help with my writing: nine repair strategies that link to fuller teaching.
+- Secondary navigation retains My drafts and Settings & backups.
+
+Presentation uses the supplied light-shell direction: white content, pale sidebar, dark green active navigation, bold Hanken Grotesk headings, Work Sans text and locally bundled icons/fonts with licenses. No invented Brightspace chrome or unconditional save claims. Responsive rules exist but have not received full rollout verification.
+
+## Source of truth and files changed
+
+All project paths below are under `/Users/deanguedo/Documents/GitHub/canvas-helper/projects/nextstep-writing-studio/`.
+
+| File | Ownership |
+| --- | --- |
+| `workspace/index.html` | Canonical shell, teaching navigation and annotation-only runtime boundaries |
+| `workspace/app/teaching.js` | Teaching views, response pathways, help, practice and model interactions |
+| `workspace/content/lessons.json` | 18 original teaching lessons |
+| `workspace/content/analysis-lessons.json` | Nine concepts, two original passages, 18 analyses |
+| `workspace/app/main.js` | Integration, existing-schema practice saves, route/focus handling, retained draft flows |
+| `workspace/app/persistence.js` | SCORM discovery/restore/save, local recovery, locks and session close |
+| `workspace/app/model.js`, `codec.js`, `editor.js`, `legacy.js` | Existing workspace model, encoding, optional structured editor and legacy import |
+| `workspace/styles.css`, `tokens.css`, `components.css` | Canonical presentation |
+| `workspace/assets/icons/`, `assets/fonts/` | Local assets and font licenses |
+| `workspace/schemas/*.json` | State/backup/product/deployment contracts |
+| `meta/project.json`, `meta/prompt-pack.md` | Lifecycle, ownership and authoring scope |
+| `meta/BUILD_STATUS.md` | Prior build checkpoint and verification detail |
+| `meta/review/teaching-home.jpg` | Screenshot of the corrected teaching home |
+
+Repository integration files: `scripts/build-writing-studio.mjs`, `scripts/tests/writing-studio-boundary.test.mjs`, and Writing Studio entries in `package.json`, `package-lock.json`, `README.md`.
+
+`workspace/writing-studio.bundle.js` is generated. Rebuild it with `npm run build:writing-studio` after canonical app/content changes. Never patch the bundle as source. Do not run the English course factory against this standalone project. The scaffold already exists; do not create a replacement project.
+
+## Supplied and existing references
+
+Original input: `/Users/deanguedo/Downloads/Writing_Studio_Codex_Handoff_v1.0.zip`.
+SHA-256: `934c5ab44900e6bb99365fe61dd36566f42c577752196b2b5c3e8e5768d0822e`.
+
+Selected handoff documents are preserved in `meta/handoff-reference/`. Begin with `11_TEACHING_AND_CONTENT.md` and `02_PRODUCT_AND_DESIGN.md` if instructional/design intent needs clarification. Use `06_SCORM_PERSISTENCE.md`, `07_BACKUP_AND_MIGRATION.md` and `12_ACCEPTANCE_TESTS.md` for relevant storage/release work. The current user clarification takes precedence over earlier project-writing assumptions.
+
+The previous course Studio can be inspected read-only in `projects/ela20-1-short-stories-pilot/workspace/index.html`. The old nine-term/five-reading/90-example data in `workspace/content/legacy-explorer-reference.json` is reference-only. Do not publish those fixed-work examples in the reusable tool. The old 12 guide cards are retained; old guide URLs redirect to fuller new lessons.
+
+## Fragile areas / saved-work constraints
+
+- Preserve workspace/project/note IDs, draft documents, imported records, storage namespaces, attempt identity and backup compatibility. No deletion or migration was performed for the teaching rebuild.
+- Practice uses a separate marked learning notebook inside the existing project/notes schema. `NOTEBOOK_PROMPT` and `isLearningNotebook` in `app/teaching.js` distinguish it. Do not change that marker casually or mix notebook notes into assignment drafts.
+- Models stay clearly labelled as teaching models, separate from student-authored practice. Never insert a model automatically into a draft or generate an assignment answer for the learner.
+- Explicit Save records practice. Unsaved responses persist only within the current page session; they are not guaranteed across reload/close.
+- Restore/recovery/review modes keep teaching usable while disabling saved mutations. Normal LMS editing uses Web Locks or an IndexedDB lease. Session close must not write LMS data in review/recovery/unprotected sessions.
+- Local preview has no LMS connection: saved practice is browser-tab-only. Export a backup before closing that tab; do not equate this with Brightspace persistence.
+- Current deployment configuration is `SYNTHETIC_TEST_ONLY`, with a demo tenant/scope. Never promote it to production simply by changing the status flag. Real tenant/course identity, stable deployment scope and new-versus-existing SCO decision are still unresolved.
+- Runtime-rendered instructional content is developer-editable in canonical JSON but Annotation only in Studio. A direct authoring driver declaration does not prove teacher editability or readiness. Keep the project blocked until its supported editing boundary and readiness gates are actually proven.
+- Source tree is dirty and this project/build/test files are untracked. No commit or push was made. Inspect exact write paths before editing; preserve unrelated dirty work.
+
+## Verification run and evidence limits
+
+Prior checkpoint evidence from October 6 (not rerun for this documentation task):
+
+- `npm run build:writing-studio` passed for the corrected candidate, including the final thinking-check keyboard-focus change.
+- Four focused synthetic checks passed: existing draft save/reopen; practice + labelled model save/reopen without changing the draft; review-mode teaching with no writes on close; corrupt-restore teaching with saving disabled and no exit writes.
+- Content inventory confirmed 18 unique lessons, one correct answer per thinking check, nine concepts, two passages and a model for every concept/passage pair.
+- Browser inspection covered home, lesson library, a full analysis lesson, explanatory thinking-check feedback/focus, Analysis Explorer and guided personal response. No captured console errors. Screenshot is `meta/review/teaching-home.jpg`.
+- The first build's 14-test persistence batch and draft/backup checks passed before the teaching rebuild. Those are historical evidence, not a complete current regression pass.
+
+For this handoff: read current project/build metadata, checked scoped Git status, and checked the former preview endpoint. `http://127.0.0.1:8791/` is not currently listening. No tests, rebuild, packaging or deployment were run merely to refresh documentation.
+
+## What still needs validation / known risks
+
+Defer to an explicit rollout checkpoint:
+
+- Teacher/content acceptance, complete teaching-route and learner interaction regression.
+- Full current persistence/backup/import/recovery/competing-tab/failure coverage.
+- Mobile, keyboard/screen reader, zoom, reduced motion, contrast and actual print/PDF layout.
+- Supported Studio editing, inventory/rendered thresholds, reversible apply/reload/Undo, doctor/workspace verification and new-course readiness.
+- Actual Brightspace upload/launch/save/close/reopen across browsers, bound to an approved production deployment identity.
+
+The prior `/Users/deanguedo/Downloads/Next Step Writing Studio - Source Review.zip` contains the superseded draft-centered candidate. It has not been refreshed with this teaching rebuild and must not be uploaded as the current product.
+
+## Preview and commands
+
+Run from `/Users/deanguedo/Documents/GitHub/canvas-helper`.
+
+After source changes:
+
+```sh
+npm run build:writing-studio
+```
+
+If port 8791 is free, restart the stopped, workspace-only preview:
+
+```sh
+python3 -m http.server 8791 --bind 127.0.0.1 --directory projects/nextstep-writing-studio/workspace
+```
+
+Then open `http://127.0.0.1:8791/#/home`. Other routes: `#/lessons`, `#/explorer/characterization`, `#/response/personal/0`, `#/study-notes`, `#/writing-help`.
+
+At an appropriate saved-state check or rollout checkpoint, the existing full synthetic suite is `npm run test:writing-studio:boundary`. Do not repeat broad suites during ordinary Build changes. Synthetic tests do not replace real Brightspace proof.
+
+## Next prompt should assume
+
+Continue this exact candidate in Build mode. Source/design/content work is authorized, but no automatic packaging, activation, deployment, Git commit/push, legacy-save migration or repository-wide cleanup is authorized. Accept Dean's next targeted feedback without re-asking the settled reusable-tool scope.
+
+## Exact next action
+
+Read this handoff, restore the stopped local preview when needed, and await the next requested Writing Studio change.
+
+## Exact next file to open
+
+`/Users/deanguedo/Documents/GitHub/canvas-helper/projects/nextstep-writing-studio/workspace/app/teaching.js`
+
+## Routing actually used
+
+Prior build: deterministic inventory/build/content checks; lead retained instructional authority, dirty-boundary integration and saved-state compatibility. No Muse or Luna worker was launched. This handoff used deterministic documentation only. Local reference reuse is separate from provider caching; provider-cache telemetry and measured usage savings are unknown.
+
+## Do not do next
+
+Do not recreate a generic paper-writing dashboard, tie the tool to specific published works, discard existing saved work, patch the generated bundle, upload the stale ZIP, claim local tests certify Brightspace, or broaden into other projects.
+
+
+
+---
+
+## Preserved before Reaction Detective teacher-review checkpoint - 2026-10-07
+
+# ELA Studio population sweep handoff
+
+- Project: all 28 ELA catalog courses; three repaired ELA 30-1 legacy snapshots.
+- Task: Restore course population/layout in Studio and inspect the remaining ELA previews.
+- Status: validated for Studio entry loading; full course rollout validation deferred.
+- Repository at start: `codex/math-engine-preflight`, `ecc1b806630cb33b9942e64eb676a1f8568c007e`. Dirty checkout preserved; no commit, packaging or deployment.
+
+## Files changed
+- `scripts/repair-ela-snapshot-styles.mjs`: bounded, repeatable local CSS regeneration; rejects factory ownership and concurrent source/metadata drift.
+- `scripts/audit-ela-studio-population.ts`: all ELA entries, authoring doctor, direct local resource references, remote scripts and inline JS syntax audit.
+- `scripts/tests/ela-snapshot-styles.test.mjs`: complete learner-body preservation and theme/ownership checks.
+- For `ela30-1-modern-drama`, `ela30-1-shakespeare-othello`, `ela30-1-short-stories`: `workspace/index.html`, `workspace/assets/studio-local-theme/theme.json`, `workspace/assets/studio-local-theme/utilities.css`, `meta/project.json`, and `meta/studio-population-sweep/` reports/backups.
+- Exact Git LFS source archives restored under `projects/resources/ela10-1/_sources/`; original Git hashes retained.
+- This handoff, active handoff and archived prior handoff.
+
+## What changed
+- Replaced the remote Tailwind runtime in three snapshots with local CSS compiled by pinned `tailwindcss@3.4.17`. The original theme is canonical JSON. The entire HTML from `<body` onward is byte-identical to the original, preserving content, selectors, state namespaces and completion/runtime code.
+- Restored two LFS archives (317316924 and 9952418 bytes), fixing four ELA 10-1 authoring doctor failures. SHA-256 equals each original LFS object ID. No network fetch was required.
+- Declared local CSS output and its narrow regeneration command; old English builders remain quarantined.
+
+## Why this changed
+- Studio isolated-preview CSP blocks remote scripts. Live Streetcar initially reported `tailwind is not defined`, with the sidebar in static flow. Local compiled CSS restores fixed layout without weakening CSP.
+
+## Verification run
+- `node --import tsx scripts/audit-ela-studio-population.ts`: 28 courses, zero static/doctor failures.
+- `node --test scripts/tests/ela-snapshot-styles.test.mjs`: 4 passed.
+- Live Studio course selector sweep: all 28 workspace entries render nonempty main content and fixed sidebars; no visibly broken overview images and no console errors captured during that sweep.
+- Read-only lesson navigation/content: Streetcar Motifs (3074 characters), Othello Life/Times/Themes (2796), Short Stories Literary Terms (13602); no errors captured.
+- Local proof: `catalog-audit.json`, `live-preview-audit.json`, `lesson-smoke.json`, `before.jpg`, `after.jpg` in this folder. The iframe interaction API could read previews but failed clicking nested controls; lesson smoke checks used the exact observed full-preview URLs instead.
+
+## Source of truth
+- Each existing `meta/project.json` declares ownership. 21 courses remain `legacy-snapshot-v1`; seven ELA 10 courses use the English factory.
+- The three snapshots are canonical `projects/<slug>/workspace/index.html`; `theme.json` owns the compiled utility CSS theme. Their new regenerateCommand compiles styles only, never replaces the snapshot from the old factory.
+
+## Fragile areas / watchouts
+- Canonical snapshots reflect their preserved baseline. This pass repaired loading, not historical layout/content reconciliation or a redesign into newer family navigation.
+- Google styles/fonts remain remote; no remote runtime scripts remain in audited ELA entries.
+- Three snapshots have duplicate `header`/`footer` IDs in template material. Warning retained; no blind ID rewrite.
+- Static asset checks cover directly declared HTML references, not every dynamically selected resource, nested PDF page or media playback.
+- Do not confuse `workspace/index 2.html` or old exports with the canonical entry. Mixed metadata entry-path conventions are resolved correctly by the audit.
+
+## Next prompt should assume
+- Studio at `http://127.0.0.1:5174/` was responsive and the three courses now load CSS locally. The existing port 5173 process was unresponsive during this sweep; it was left untouched.
+- All 28 pass authoring doctor, but that does not certify every editable node or full Studio draft/Undo behavior.
+
+## What still needs validation
+- Full lesson/activity/reader inventory, save/reload/resume, Studio reversible edits, responsive/device coverage and export/SCORM/Brightspace validation at an explicitly requested rollout checkpoint.
+
+## Known risks
+- No learner answers or completion controls were exercised. Loading evidence is not LMS acceptance.
+- The repository contains extensive unrelated dirty work; do not revert, stage broadly, or rerun quarantined builders.
+
+## Routing used
+- Sol lead: source ownership, dirty metadata integration, snapshot repair and independent acceptance. Deterministic CLI: CSS compilation, catalog doctor/static audit and LFS restoration.
+- `agents:plan` reconnaissance admission failed with `spawnSync git ENOBUFS` on the large dirty overlay; the Luna scout role file was absent. No worker was launched. No Muse result was applied.
+- Existing source/reference reuse is separate from provider cache telemetry. Usage savings are unknown and were not measured.
+
+## Exact next action
+Await the next requested change.
+
+## Exact next file to open
+`projects/ela30-1-modern-drama/meta/studio-population-sweep/HANDOFF.md`
+
+## Do not do next / warnings
+- Do not rebuild the 21 legacy snapshots with the old English factory, weaken preview CSP, repackage old exports, or treat this loading sweep as full course/LMS certification.
+
+
+---
+
+Archived before Critical Essay Studio Build handoff on October 7, 2026.
+
+# Handoff
+
+- Project: science24-unit-a / Reaction Detective A1
+- Task: Import v1.2.0, independently validate the standalone candidate, and prepare teacher review/sign-off materials.
+- Status: ready for teacher review; course remains blocked, component planned; not classroom/LMS released.
+- Date: October 7, 2026 (America/Edmonton).
+
+## Files changed / summary
+- projects/science24-unit-a/workspace/games/reaction-detective/: imported the 11 exact v1.2 runtime files and updated README. Supplied learner code was not altered. Unused old PNG/icon assets remain for recovery.
+- projects/resources/science24-unit-a/reaction-detective-v1.2.0/: preserved source intake, original receipts and provenance.
+- projects/science24-unit-a/meta/project.json: version/source/review record for planned component; declared canonical component files; preserved lifecycle, lesson/progress and unrelated metadata.
+- projects/science24-unit-a/meta/reaction-detective-review-2026-10-07/: first-build backup, validation copy/harness adaptations, exact source hashes, independent receipts, screenshot, teacher answer guide/text-form, 10-page fillable PDF, unreviewed acceptance JSON and delivery receipt.
+- Downloads/Science24_A1_Reaction_Detective_Teacher_Review_v1.2.0_2026-10-07.zip: 6.1 MB portable review delivery; 59 files with verified hashes.
+
+## Verification run / methods
+842 engine tests, 88 embedded core browser assertions, 277 responsive assertions across seven widths (including touch emulation), 39 keyboard/stress assertions, 88 real canonical-host core assertions, 8 actual file:// offline smoke checks: 1,342 successful technical assertions. All 11 runtime files match original source and hosted bytes. Source JS/CSS exactly represented in PLAY.html. No learner-runtime edits were needed.
+
+Harness differences: CommonJS package declaration resolves repo ESM inheritance; keyboard native selects use macOS typeahead instead of arrow-only input; screenshot timeout increased to 30 seconds. The temporary focus-expectation change failed and was reverted. Independent report explains initial failures; supplied original records remain in the resource intake. Node 24.14.0 and temporary Python Playwright 1.63.0 used installed Chromium executable. No game dependencies changed.
+
+PDF: 10 rendered pages inspected; 33 interactive fields, all unreviewed/blank; field/widget parity and a scratch synthetic name-only roundtrip checked. Text alternative included. Synthetic filled form is excluded from delivery. ZIP CRC, all payload hashes and exact candidate game bytes verified.
+
+## Source of truth
+Canonical component: projects/science24-unit-a/workspace/games/reaction-detective/index.html, scenarios.js, engine.js, game.js, styles.css and six WebP scenes. Course source stays under its existing workspace ownership. Resource intake and previous build backup are reference/recovery. Teacher ZIP is a fixed snapshot, not a canonical owner.
+
+Candidate PLAY SHA256: ebd9f60548887206e144fbbc3fece4d90877fbe47c01422d5aac943341c0fc70.
+
+## Known risks / what still needs validation
+Independent teacher judgment on science, curriculum scope, exact evidence-pair fairness, corrosion/acid-carbonate labels, uncertainty follow-up, reading level and self-review rubric. Real phone, actual VoiceOver/NVDA, native browser zoom, Safari/Firefox and actual print dialog. Final lesson placement, optional/required progress, target host/CSP/iframe and Brightspace/SCORM release. CSS zoom and touch emulation are not native/hardware proof. In-memory only; reload/close clears work.
+
+## Fragile areas / drift
+Stable six case IDs/evidence IDs, immutable attempts, first transfer response, Previous restoration and submitted-answer fingerprint gates must survive later changes. Imported scenario version fields remain 1.1.0 because v1.2 changed navigation only; runtime candidate is 1.2.0. Any substantive revision invalidates affected-area teacher acceptance and requires a new candidate/hash. Never replace pending decisions with test results. Runtime learner content remains Annotation only in Studio.
+
+## Next prompt assumptions
+Optional Unit A practice is the proposed scope, not a finalized course insertion. No teacher reviewer/recipient supplied yet; no message was sent and no hosting deployment performed. Review ZIP and fillable PDF are prepared for Dean to share. No LMS reporting, persistent saving, required course credit, activation, commit/push or production release occurred.
+
+## Routing actually used
+Deterministic source reconciliation/intake, supplied test runs and PDF/ZIP assembly. Lead retained external-source/dirty-metadata integration, learner-state acceptance and teacher judgment boundaries; no eligible independent bulk implementation slice existed. No worker/provider-cache calls. Memory release-boundary lookup was distinct from local context-cache hits (none measured); provider-cache telemetry and usage savings unknown.
+
+## Exact next action
+Have the Science 24 teacher review the fixed candidate and return the completed Teacher_Review_and_Signoff.pdf (or text alternative) with a decision and any conditions. Resolve those conditions before final integration/release validation.
+
+## Exact next file to open
+projects/science24-unit-a/meta/reaction-detective-review-2026-10-07/output/pdf/Reaction_Detective_Teacher_Review.pdf
+
+## Preview
+http://127.0.0.1:57324/ is running and open at the intro. Local machine only. If stopped, run `python3 -m http.server 57324 --bind 127.0.0.1 --directory projects/science24-unit-a/workspace/games/reaction-detective` from the repo root.
+
+## Do not do next
+Do not infer teacher approval, activate/export/deploy the course, alter required progress or saved-work contracts, remove recovery assets, or treat synthetic/device-emulation results as real-device or LMS acceptance.
+
+
+
+---
+
+Archived when switching to Science 24 premium review, 2026-10-08T02:20:47.310700+00:00
+
+# Handoff
+
+- Project: nextstep-writing-studio
+- Task: Implement the approved reusable English 30-1 Critical Essay Studio with the exact supplied light visual authority and preserved saved-work model.
+- Status: implemented local Build candidate for review; project remains blocked, publication exports disabled; not classroom/LMS released.
+- Date: October 7, 2026 (America/Edmonton).
+
+## Files changed / summary
+
+- `projects/nextstep-writing-studio/workspace/index.html`: Home/My Work/Feedback/Resources/Help/Settings navigation; existing routes and synchronized title markers retained.
+- `workspace/app/critical.js`, `workspace/content/critical-essay.json`: eight substantial sections; complete original story and 1,038-word annotated essay; second passage and alternative approaches; five Alberta self-review categories; contextual teaching beside student stages.
+- `workspace/app/main.js`, `teaching.js`, `content/project-templates.json`: new critical-analysis / english-30-1 creation preset; faithful Plan and Settings; optional editor and six revision passes; retained historical routes/notebook keys; restore and view-only project-control guards; correctly scoped project backup/export.
+- `workspace/styles.css`, `tokens.css`, `design/**`, `assets/**`: supplied light geometry, palette, local fonts, cards/tabs/rail/icons; responsive layouts. All 73 imported asset/design files match source ZIP bytes.
+- `workspace/writing-studio.bundle.js`: generated by `npm run build:writing-studio`, never manually patched.
+- `meta/project.json`, `prompt-pack.md`, `critical-essay-curriculum-map.json`, `BUILD_STATUS.md`, `visual-reference/**`, `review/critical-*`: canonical ownership, outcome/source mapping, design authority and Build evidence.
+- `scripts/tests/writing-studio-boundary.test.mjs`: focused save/reopen, legacy preservation, backup/import, export scope, read-only/recovery and delayed-startup checks; earlier test navigation retained through existing routes.
+
+## What changed / why
+
+The tool now introduces critical/analytical essay writing for Alberta English 30-1 independently of a course unit or particular literary work. Students bring their assignment/text and can enter any stage, use teaching without creating an essay, practise in the separate notebook, draft elsewhere or use the optional editor. Personal Response expansion remains later work; earlier projects and teaching stay accessible.
+
+The ZIP’s canonical light Plan and Settings are the visual authority. Their layout was established and screenshots compared before other views were extended. Supplied icons/decorations/CSS are used directly. Real save destinations and student-recorded self-checks replace mock data. No automated grades, required paragraph count, chronological structure or completion percentages are introduced.
+
+## Verification run
+
+- `npm run build:writing-studio` passed on the final candidate.
+- Ten distinct focused tests passed across affected batches: draft reopen; earlier teaching practice/models preserving draft; new critical preset/plan/evidence/draft reopen; historical critical/personal projects and IDs/notebook preservation plus full-backup import round-trip; separate essays with intended text and project-backup export; all eight sections usable without a project; review teaching and recovery teaching with no writes on close; review-mode HTML export and navigable view-only passes without writes; delayed startup withholding project controls while teaching remains readable.
+- Test-fixture corrections: canonical serialization comparison instead of object-prototype equality, cleanup registered after async setup, correct SVG MIME type, stable screenshot painting. Product correction: disable review-only revision inputs; keep intended exports and pass navigation available. Restore now gates project editing before saved work is known.
+- Inventory confirmed eight complete sections, ten mapped outcomes, five categories / six passes, ten-paragraph story, seven-paragraph annotated essay and three-paragraph alternative passage.
+- CUA inspected Plan, expandable teaching, optional editor, narrow focus and Settings, and restored browser-tab-only work. Headless local visual capture: no browser errors, empty optional editor, hidden focus navigation control and no horizontal overflow. Screenshots: `meta/review/critical-plan-local.jpg`, `critical-settings-local.jpg`, `critical-home-local.jpg`, `critical-editor-focus-narrow.jpg`; synthetic compatibility screenshots are separately named.
+- `context:project` reported `not-active` for the intentionally blocked candidate; this is not readiness proof. Pinned `outreach-v1` is unchanged. The user-approved light style overrides its dark-sidebar phrase for this project only.
+
+## Source of truth
+
+`projects/nextstep-writing-studio/workspace/index.html`, `app/**`, `content/**`, `styles.css`, `tokens.css`, `components.css`, `design/**`, `assets/**`, and existing `schemas/**`. Curriculum links/outcome mapping: `meta/critical-essay-curriculum-map.json`. Exact canonical reference PNGs: `meta/visual-reference/reference/canonical/`. The browser bundle is generated output. Raw, processed and exports were not edited.
+
+## Fragile areas / watchouts
+
+Persisted schema, existing project/child/draft IDs, notebook marker, learning keys, backups and storage namespaces are compatibility boundaries. Presets run only when new work is created. Examples remain outside drafts; only an explicit student action can insert student-authored evidence. Progress is recorded by the student and does not submit work. Runtime teaching remains Annotation only until an adapter and reversible editing proof exist.
+
+## What still needs validation / known risks
+
+Teacher/curriculum acceptance; full accessibility and assistive technology; complete persistence/recovery regression; project E2E contract, learner inventory and new-course readiness; supported reversible Studio editing; real Brightspace close/reopen; actual print/PDF, cross-browser and device checks. These are deferred to the explicit Rollout checkpoint. Current proof is isolated synthetic SCORM or local tab mode and does not establish LMS server saving or classroom acceptance. Earlier source review ZIPs are superseded.
+
+## Next prompt should assume
+
+Build is complete for the approved candidate and ready for Dean’s visual/teaching review. No package, deployment, commit, push or activation is authorized. Keep the project blocked and publication exports disabled. Further edits continue in the canonical workspace; do not regenerate from an older source ZIP or restore the dark sidebar.
+
+## Routing actually used
+
+Deterministic ZIP import, build, inventory and focused verification. Lead retained supplied-source/design decisions, original instruction, integration and saved-state acceptance because the candidate and dependencies were uncommitted/untracked. No worker/provider-cache call. Local context-cache savings were not measured; provider-cache telemetry and usage savings are unknown.
+
+## Preview
+
+Fresh no-cache preview: `http://127.0.0.1:8792/#/home`, running on the local machine. The earlier 8791 browser may cache an older build. Preview work is browser-tab-only and portable backup controls remain available. An agent-created review tab is left open; its empty “Layout Review” project is local inspection data, not a teaching model inserted into a draft.
+
+## Exact next action
+
+Await the next requested change after the visual and teaching review.
+
+## Exact next file to open
+
+`projects/nextstep-writing-studio/workspace/content/critical-essay.json`
+
+## Do not do next
+
+Do not package/deploy/commit/push or enable exports. Do not infer teacher, accessibility, Studio or Brightspace approval from local checks. Do not migrate historical work, delete notebooks, auto-insert models or apply the new preset to stored projects.
+
+## Product identity correction from Dean
+
+This is a dedicated **Critical Essay Studio build**, not a general Writing Studio hub. Shell/document/Studio titles now say Critical Essay Studio. New work creates only critical-analysis / english-30-1 essays; generic writing-type options are removed. Primary Help points to the eight critical-essay sections. Earlier teaching is visibly labelled as an earlier resource and retains its routes/keys. Source project slug and persisted names/formats remain unchanged for compatibility.
+
+Identity correction verification: rebuilt successfully; the three affected creation/preservation/export-scope checks passed after the new-essay form changed. CUA confirmed the corrected title, new-essay form, critical Help, earlier-resource banner, Plan, Settings, and narrow optional editor. Current local JPG screenshots supersede the earlier PNG identity captures. Preview is left on the Critical Essay Studio home page.
+
+## October 7 photo-fidelity correction
+
+Dean identified that the preview did not match the reference photos closely enough. The earlier statement of faithful visual completion was too strong. Direct comparison showed heavier/larger component text, short tab underlines, different card proportions, a simplified save band, a high sidebar footnote and an invented Home composition. Both licensed local fonts loaded; missing font files were not the cause.
+
+The ZIP contains a light canonical Plan/Settings pair and a dark-sidebar/serif supporting Home/editor set. The approved plan selects the light pair for the whole product. A one-question style preference is pending; continue that approved light authority unless Dean changes it. The supporting Home photograph is not an exact light-layout reference. Its thumbnail assets are only small images (maximum 240 CSS pixels); do not stretch a crop into the large photographic banner.
+
+Changed canonical `workspace/styles.css`, `app/main.js`, `app/critical.js`, and rebuilt the browser bundle. Restored full-width evenly spaced project tabs, Back to My Work, photo-aligned heading/card/icon proportions, bottom sidebar footer, annotated context-card composition and a two-part Settings save band. Home now uses the supplied desk thumbnail within its introduction. Controls still use existing handlers and real save/progress data. Persisted schemas and model/save coordinator are untouched. Updated the two Plan heading locators in `scripts/tests/writing-studio-boundary.test.mjs`; no broad regression rerun for this presentation correction.
+
+Verification: `npm run build:writing-studio` passed. CUA inspected refreshed Home, Plan and Settings; narrow Settings had no document overflow. Current screenshots are `meta/review/photo-alignment-*.jpg`; they supersede earlier visual captures for the changed components. Final visual acceptance is still open; do not describe this as an exact replica or promote the blocked candidate. Broader accessibility, persistence, Studio and Brightspace gates remain deferred.
+
+Routing: deterministic extraction/build; lead retained the targeted dirty presentation boundary and direct visual comparison. No worker or measured usage savings. Source of truth remains the canonical workspace and the original ZIP reference images. Next file: `projects/nextstep-writing-studio/workspace/styles.css`. Next action: incorporate Dean's reference-style choice, then continue visual review. No packaging, deployment, commits or pushes.
+
+
+
+---
+Archived before B2 gameplay pilot checkpoint on 2026-10-08.
+
+# Handoff
+
+- Project: science24-unit-a / b / c / d, standalone eight-game suite
+- Task: Implement all eight games, integrate the seven premium visual references, and deliver the unsigned teacher audit candidate.
+- Status: technically verified standalone review candidate; visual acceptance blocked; teacher decisions pending.
+- Candidate: `Science24-v2.0.1-rc1-a6e3202c2cd0`
+
+## Files changed
+
+- Seven canonical game directories under each unit's `workspace/games/`: self-contained modules, scenario JSON, corrected validators, reversible learner state, native DOM/SVG mechanics, premium scenes and presentation.
+- A1 `reaction-detective` is preserved at the frozen v1.2 runtime hashes; its newly generated offline copy is checked.
+- Scoped tooling: `scripts/test-science24-games.mjs`, `scripts/package-science24-games-review.mjs`, `scripts/lib/science24-games/**`.
+- Suite records, independent fixtures, correction register, curriculum/task map, premium references, exact asset manifest/prompts, screenshots, receipts, candidate identities and pending approval records: `projects/science24-unit-a/meta/science24-games-v2/**`.
+- Additive planned component ownership in all four `meta/project.json` files; two scoped npm scripts and README command documentation. Courses remain blocked.
+
+## What changed / why
+
+All 48 scenarios retain their identities and complete title/instructions/worked/practice/revision/transfer/review flow. Predictions precede model results. Checked-answer edits invalidate checks; history and first-transfer evidence remain distinct from later correction. Anonymous state remains in memory. Explanation self-review is separate from teacher judgment.
+
+The seven new user PNGs supply the current premium composition authority. Nine generated PNG assets and thirteen native particle SVGs are integrated; equations, pedigrees, routes, tables, graphs and physical model results remain real accessible controls. Worked solutions are explicitly teaching. The final C2 inspection corrected blank square cells, restored child evidence and moved probabilities to the right reasoning column. Science corrections override inaccurate image text and are recorded.
+
+## Verification run
+
+- 609 science/state assertions passed for all eight games, including independent scenario solutions, invalid inputs, alternatives and each mandatory correction. The clean restored delivery also passes 609 and matches all 560 canonical source hashes.
+- Full canonical HTTP and packaged file:// browser flows passed for all eight. A1 ran 88 actual-control assertions and reused responsive evidence only with matching frozen hashes. New games ran all five learner cases, keyboard/help, prediction gates, revision/back/revisit, support tracking, first-transfer preservation, restart cancel/confirm and animation interruption at seven specified widths.
+- Following final C2 changes, only affected C2 HTTP, responsive, visual and offline checks were rerun and merged. Reused offline evidence is guarded by identical PLAY and source bytes for the other seven games.
+- Strict unmasked premium comparison: 0/7 meet both 99.25% pixel agreement and 4 px geometry tolerance. Current qualitative desktop/mobile inspection is recorded separately. Implementation screenshots are not accepted baselines.
+- Unsigned PDF: ten pages / 67 AcroForm fields, every field synthetically filled and reopened; all ten pages rendered and inspected, with full-size checks of pages 1, 2 and 10.
+- Original supplied archive and preserved copy retain their SHA256. All four courses remain blocked; all game components planned. The ZIP has payload hashes, source parity and integrity checks.
+
+## Source of truth
+
+Canonical game entries are each unit's `workspace/games/<slug>/index.html`; modules, scenario JSON and local assets in that same directory own the implementation. `suite.json` lists all eight paths. Delivery `PLAY.html`, source snapshots, boards and ZIP are generated. `premium-visual-v1/premium.css` records a pattern, not an automatic regeneration owner.
+
+## Fragile areas / watchouts
+
+Source edits invalidate dependent browser evidence and affected teacher approval. B1 atlas sprite CSS is game-specific; do not overwrite it from the common recorded CSS pattern. D1 replay, graph and table share the constant-deceleration model and front-of-car coordinate. C2 first-transfer uncertainty must retain both possible dominant genotypes without resolving child evidence. A1's original IDs and frozen runtime cannot drift.
+
+## Next prompt should assume
+
+This is an unsigned supplemental-game candidate, not complete visual acceptance, full curriculum coverage, course integration or LMS release. All eight teacher records remain pending. Title, feedback, transfer and mobile screens are implemented proposals without independently approved premium references.
+
+## What still needs validation / known risks
+
+Exact premium visual acceptance remains blocked. Native 200% zoom, actual screen-reader use, Safari/Firefox and physical devices are Not tested. An actual teacher must inspect all six scenarios per game and record science, curriculum, usability/accessibility findings and Approve / Revise / Not reviewed for this exact candidate. Publishing, SCORM, grade reporting and placement require separate scope.
+
+## Routing
+
+Sol lead retained science, state, dirty boundaries, integration and acceptance under the user's explicit ownership. Deterministic scripts handled validation, assets/manifests and packaging; built-in imagegen supplied illustrative PNGs. No worker agents or Muse were used. Provider-cache telemetry and usage savings are unknown; local reference reuse is not measured provider savings.
+
+## Exact next action
+
+Review the premium candidate against the supplied references and have the teacher record a decision for this candidate; keep the open visual/manual gates explicit.
+
+## Exact next file to open
+
+`projects/science24-unit-a/meta/science24-games-v2/delivery/Science24_All_8_Games_Teacher_Review_v2.0.1-rc1/START_REVIEW.html`
+
+## Do not do next / warnings
+
+Do not activate blocked courses, place these games into assessments, edit generated PLAY files, substitute self-screenshots as visual authority, fabricate approval, or publish without a separately authorized release scope.

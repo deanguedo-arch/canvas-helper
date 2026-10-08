@@ -60,6 +60,7 @@ export function hasTrustedStandalonePreviewNavigation(request: IncomingMessage, 
   }
 }
 
+let standardsRouteHandler: RouteHandler | null = null;
 let projectsRouteHandler: RouteHandler | null = null;
 let commandsRouteHandler: RouteHandler | null = null;
 let sessionLogRouteHandler: RouteHandler | null = null;
@@ -265,7 +266,12 @@ async function handleRequest(
     }
   }
 
-  if (url === "/api/projects" || /^\/api\/projects\/[^/]+(?:\/course-outline)?$/.test(url)) {
+  if (url.startsWith("/api/course-standards")) {
+    standardsRouteHandler ??= await loadRouteHandler(server, "course-standards", "handleCourseStandardsRoute");
+    if (await standardsRouteHandler(url, request, response)) return;
+  }
+
+  if (url === "/api/projects" || /^\/api\/projects\/[^/]+(?:\/course-outline|\/organization\/(?:restore|archive))?$/.test(url)) {
     const projectsHandler = await getProjectsRouteHandler(server);
     if (await projectsHandler(url, request, response)) {
       return;

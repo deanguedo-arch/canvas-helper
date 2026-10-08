@@ -1,3 +1,5 @@
+import { useState } from "react";
+import { changeProjectOrganization } from "../lib/projects";
 import type { ProjectBundle } from "../lib/types";
 import { getProjectLabel, getProjectMetadataGroups } from "../lib/project-display";
 
@@ -20,7 +22,23 @@ export function WorkspacePicker({
   onHtmlChange,
   onRefresh
 }: WorkspacePickerProps) {
-  const projectGroups = getProjectMetadataGroups(projects);
+  const [showArchived, setShowArchived] = useState(false);
+  const [saving, setSaving] = useState(false);
+  const [organizationError, setOrganizationError] = useState("");
+  const archived = projects.filter((project) => project.organization?.archived);
+  const selected = projects.find((project) => project.manifest.slug === selectedSlug);
+  const listed = showArchived ? archived : projects.filter((project) => !project.organization?.archived || project.organization.role === "fixture");
+  // Keep a currently open course selected without discarding any editor state.
+  const projectGroups = getProjectMetadataGroups(selected && !listed.includes(selected) ? [selected, ...listed] : listed, true);
+  const saveOrganization = async () => {
+    if (!selected || saving) return;
+    setSaving(true); setOrganizationError("");
+    try {
+      await changeProjectOrganization(selectedSlug, !selected.organization?.archived);
+      onRefresh();
+    } catch (error) { setOrganizationError(error instanceof Error ? error.message : "Organization could not be saved."); }
+    finally { setSaving(false); }
+  };
 
   const pageLabel = (file: string) => {
     if (file === "index.html") return "Course overview";
@@ -33,7 +51,7 @@ export function WorkspacePicker({
   return (
     <div className="workspace-picker">
       <label className="mini-field">
-        <span>Course</span>
+        <span>{showArchived ? "Archived course" : "Course"}</span>
         <select
           className="mini-select"
           value={selectedSlug}
@@ -43,7 +61,7 @@ export function WorkspacePicker({
           {projectGroups.map((group) => (
             <optgroup key={group.label} label={group.label}>
               {group.projects.map((project) => (
-                <option key={project.manifest.id} value={project.manifest.slug}>
+                <option key={project.manifest.slug} value={project.manifest.slug}>
                   {getProjectLabel(project)}
                 </option>
               ))}
@@ -51,6 +69,16 @@ export function WorkspacePicker({
           ))}
         </select>
       </label>
+
+      <button type="button" className="ghost-button compact" aria-pressed={showArchived}
+        onClick={() => setShowArchived(!showArchived)} data-testid="workspace-archived-view">
+        {showArchived ? "Current courses" : `Archived (${archived.length})`}
+      </button>
+      {selected?.organization?.canArchive && <button type="button" className="ghost-button compact"
+        disabled={saving} onClick={() => void saveOrganization()} data-testid="workspace-organization-action">
+        {saving ? "Saving…" : selected.organization.archived ? "Restore" : "Archive"}
+      </button>}
+      {organizationError && <span role="alert">{organizationError}</span>}
 
       <label className="mini-field page-field">
         <span>Page</span>

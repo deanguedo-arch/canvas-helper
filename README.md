@@ -46,6 +46,8 @@ Repo-level authoring enforcement defaults live in `config/authoring-preferences.
 - `npm run agents:run -- --task <task.json>` (native host action or subscription-gated Muse execution)
 - `npm run agents:mode -- off|auto` (new-admission switch; retains cooldown and partial work)
 - `npm run course:create -- --slug <slug> --title "<title>" --course-code "<code>" --summary "<summary>"` (new Codex-authored, Studio-ready course)
+- `npm run build:writing-studio` (rebuilds the blocked Next Step Writing Studio candidate from its canonical workspace app modules)
+- `npm run test:writing-studio:boundary` (synthetic SCORM save/reopen and recovery checks; not Brightspace acceptance)
 - `npm run course:list -- --all` (all source-backed projects plus package/archive classifications)
 - `npm run course:onboard -- --all [--apply]` (audit or transactionally onboard the existing catalog)
 - `npm run verify:course-onboarding -- --all` (rendered reversible catalog acceptance)
@@ -466,3 +468,24 @@ Preference update behavior:
 ## Biology 30 teacher showcase
 
 The A Pilot2/B/C/D review site shares one unit selector at https://biology30pilot.web.app. After rebuilding changed units, redeploy with `npx tsx scripts/deploy-biology30-showcase.ts --deploy`. See [the showcase workflow](docs/ops/biology30-showcase.md). This does not build or publish SCORM packages.
+
+
+### Studio course organization
+
+Studio's course picker has an Archived view with Restore. `config/project-organization.json` stores the approved organization choices by folder slug, separately from project lifecycle and authoring metadata. Courses remain at their existing paths; archived courses stay directly openable. The two Studio fixtures remain selectable under Test fixtures. Restore and re-archive update only the organization registry and persist across reloads. Physical cleanup and standards consolidation require the separate migration/recovery gates in [the consolidation plan](docs/ops/COURSE_STANDARDS_CONSOLIDATION_PLAN.md).
+
+## Exemplar transfer calibration
+
+Deliberately adopted authoring workflows use a hash-bound representative sample before continuation. Read [the workflow](docs/workflows/exemplar-transfer.md). For proposal-only preparation: `node --import tsx scripts/exemplar-transfer.ts --project <slug> --intent sample`. Default continuation stops without recorded exact sample acceptance; unadopted courses remain unassessed.
+
+
+## Science 24 standalone game review
+
+Eight supplemental games have canonical sources under the four Science 24 unit `workspace/games/` directories. They remain planned components; course status stays blocked.
+
+- `npm run test:science24-games -- --game A2` checks one game; omit `--game` for the suite. Science/state and actual browser receipts are separate from the strict visual gate. A visual failure causes a nonzero exit.
+- `npm run package:science24-games-review` regenerates offline games, runs the packaged browser flows, and creates an unsigned teacher-review ZIP from the canonical sources. A review package may carry a blocked visual acceptance gate; it is not release approval.
+
+The current B2 gameplay pilot uses `npm run test:science24-games -- --game B2` for its focused model/state and actual-control browser checks. Its gameplay-led layout supersedes the old pixel comparison requirement. Full-suite validation and packaging are paused while the pilot awaits play review; the old rc1 package is preserved. A new versioned offline delivery follows acceptance of the redesigned games. Pilot records and teacher/learner observation forms are under `projects/science24-unit-a/meta/science24-games-v2/gameplay-redesign-v1/b2-pilot-1/`.
+
+Candidate records, corrections, curriculum limits, source hashes and review decisions are in `projects/science24-unit-a/meta/science24-games-v2/`. Teacher decisions, manual device/accessibility checks, course placement, publishing and LMS operation remain separate.

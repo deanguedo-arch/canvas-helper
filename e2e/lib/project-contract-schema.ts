@@ -128,6 +128,7 @@ const LearnerIndividualEvidenceScenarioSchema = z
   .strict();
 
 const LearnerEvidenceScenarioSchema = z.union([
+  z.object({kind:z.literal("native-note"),route:LearnerRouteId,responseId:LearnerStorageId,collectionRoute:LearnerRouteId}).strict(),
   z.object({kind:z.literal("legacy-social"),route:LearnerRouteId,responseId:LearnerStorageId,collectionRoute:LearnerRouteId,collectionId:LearnerStorageId,saveSelector:NonEmptyString}).strict(),
   z.object({kind:z.literal("pilot3-local-run"),route:LearnerRouteId,activityId:LearnerStorageId,collectionRoute:LearnerRouteId}).strict(),
   LearnerCollectionEvidenceScenarioSchema,
@@ -291,7 +292,7 @@ export function validateProjectContract(
       ...learnerCourse.hintRoutes,
       ...learnerCourse.printRoutes,
       ...evidenceScenarios.map((scenario) => scenario.route),
-      ...evidenceScenarios.flatMap((scenario) => scenario.kind === "pilot2" || scenario.kind === "legacy-social" ? [scenario.collectionRoute] : []),
+      ...evidenceScenarios.flatMap((scenario) => scenario.kind === "pilot2" || scenario.kind === "legacy-social" || scenario.kind === "native-note" ? [scenario.collectionRoute] : []),
       ...learnerCourse.resourceChecks.map((check) => check.route),
       ...learnerCourse.mobile.routes,
       ...(learnerCourse.knownMissingHooks || []).map((gap) => gap.route)
@@ -306,7 +307,7 @@ export function validateProjectContract(
       throw new Error(`Invalid e2e contract at ${contractPath}: learnerCourse.routes contains duplicate route ids.`);
     }
     const evidenceIdentities = evidenceScenarios.map((scenario) =>
-      scenario.kind === "individual" ? scenario.contributionId : scenario.kind === "pilot2" ? scenario.responseId : scenario.collectionId
+      scenario.kind === "individual" ? scenario.contributionId : scenario.kind === "pilot3-local-run" ? scenario.activityId : scenario.kind === "pilot2" || scenario.kind === "native-note" ? scenario.responseId : scenario.collectionId
     );
     if (new Set(evidenceIdentities).size !== evidenceIdentities.length) {
       throw new Error(`Invalid e2e contract at ${contractPath}: learnerCourse evidence scenarios contain duplicate identities.`);

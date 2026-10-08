@@ -181,3 +181,15 @@ test("E32 task baseline mismatch refuses stale packet", async () => {
     await assert.rejects(() => prepareContext(task({ baselineSha: "0".repeat(40) }), fx.root), /baselineSha differs/);
   } finally { fx.clean(); }
 });
+
+
+test("adopted build continuation refuses before generic worker fallback or packet writes", async () => {
+  const fx = fixture();
+  try {
+    const meta = path.join(fx.root, "projects", "biology-sample", "meta");
+    mkdirSync(meta, { recursive: true });
+    writeFileSync(path.join(meta, "exemplar-transfer.json"), JSON.stringify({ schemaVersion: 1 }));
+    await assert.rejects(prepareContext(task({ projectSlug: "biology-sample" }), fx.root), /Incomplete exemplar-transfer contract/);
+    assert.equal(existsSync(path.join(fx.root, ".runtime", "agent-delegation", "tasks")), false);
+  } finally { fx.clean(); }
+});

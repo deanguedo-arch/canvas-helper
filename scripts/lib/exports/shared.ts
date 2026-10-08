@@ -1,3 +1,4 @@
+import { exportStandardsCheckpoint } from "../course-standards.js";
 import { spawn } from "node:child_process";
 import { once } from "node:events";
 import { createWriteStream, readFileSync } from "node:fs";
@@ -52,6 +53,7 @@ export async function runExportAuthoringPreflight(
     );
   }
 
+  await exportStandardsCheckpoint(projectSlug, workspaceEntrypoint);
   return gateResult;
 }
 

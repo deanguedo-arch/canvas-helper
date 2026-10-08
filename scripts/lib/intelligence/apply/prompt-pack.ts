@@ -1,3 +1,5 @@
+import { exemplarTransferContext, ExemplarTransferGateError } from "../../exemplar-transfer.js";
+import { standardsContext } from "../../course-standards.js";
 import path from "node:path";
 import { readFile } from "node:fs/promises";
 
@@ -321,6 +323,8 @@ async function buildReferenceExcerpts(
 
 export type GeneratePromptPackOptions = {
   subagentMode?: boolean;
+  transferIntent?: "sample" | "continue";
+  deferTransferGate?: boolean;
 };
 
 export async function generatePromptPack(
@@ -328,6 +332,13 @@ export async function generatePromptPack(
   policy: IntelligencePolicy,
   options: GeneratePromptPackOptions = {}
 ) {
+  let transferContext: string;
+  try { transferContext = await exemplarTransferContext(projectSlug, undefined, options.transferIntent ?? "continue"); }
+  catch (error) {
+    // Background collection remains usable, but produces no authoring prompt when the gate stops.
+    if (!options.deferTransferGate || !(error instanceof ExemplarTransferGateError)) throw error;
+    return { outputPath: getProjectPaths(projectSlug).metaDir + "/prompt-pack.md", indexedReferenceCount: 0, patternMatchCount: 0, generationStatus: "blocked" as const, blocker: error.message };
+  }
   const paths = getProjectPaths(projectSlug);
   const subagentMode = options.subagentMode ?? readSubagentModeFromEnv();
 
@@ -535,6 +546,8 @@ export async function generatePromptPack(
     renderMarkdownSection("Session Mode", sessionModeSummary),
     renderMarkdownSection("Intelligence Policy", intelligenceSummary),
     renderMarkdownSection("Selected Benchmark", renderSelectedBenchmarkBody(resolvedBenchmark)),
+    renderMarkdownSection("Approved Course Standards", await standardsContext(undefined, projectSlug)),
+    renderMarkdownSection("Exemplar Transfer", transferContext),
     renderMarkdownSection("Project Manifest", manifestBody),
     renderMarkdownSection("Resource Authority Rules", renderResourceAuthorityRules(resourceCatalog)),
     renderMarkdownSection("Resource Catalog Summary", resourceCatalogBody),
@@ -557,6 +570,7 @@ export async function generatePromptPack(
   await writeTextFile(outputPath, `${output.trimEnd()}\n`);
 
   return {
+    generationStatus: "written" as const,
     outputPath,
     indexedReferenceCount: referenceExcerpts.length || (referenceIndex?.references ?? []).filter((reference) => reference.extractionStatus === "indexed").length,
     patternMatchCount: patternMatches.length

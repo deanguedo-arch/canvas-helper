@@ -41,7 +41,8 @@ function learnerRouteSection(target: LearnerRouteTarget, route: string) {
 }
 
 async function showLearnerRoute(target: LearnerRouteTarget, route: string) {
-  const routeTarget = target.locator(`[data-page-target="${route}"]`).first();
+  // Imported native links can retain their hash without Studio's routing hook.
+  const routeTarget = target.locator(`[data-page-target="${route}"], a.nav-link[href="#${route}"]`).first();
   await expect(routeTarget, `learner route target exists for #${route}`).toHaveCount(1);
   await routeTarget.evaluate((node) => (node as HTMLElement).click());
 
@@ -365,7 +366,7 @@ async function assertEvidenceApi(workspaceFrame: FrameLocator) {
 }
 
 async function activateEvidenceScenario(section: Locator, scenario: LearnerEvidenceScenario) {
-  if (!scenario.activateSelector) return;
+  if (!("activateSelector" in scenario) || !scenario.activateSelector) return;
   const activator = section.locator(scenario.activateSelector);
   await expect(
     activator,
@@ -602,10 +603,22 @@ async function assertEvidenceScenarios(
   learnerCourse: EnabledLearnerCourse
 ) {
   const scenarios = resolveLearnerEvidenceScenarios(learnerCourse);
-  await waitForWorkspacePreviewReady(page, projectSlug, { requireEvidenceBank: scenarios.some(scenario => scenario.kind !== "pilot2" && scenario.kind !== "pilot3-local-run" && scenario.kind !== "legacy-social") });
+  await waitForWorkspacePreviewReady(page, projectSlug, { requireEvidenceBank: scenarios.some(scenario => scenario.kind !== "pilot2" && scenario.kind !== "pilot3-local-run" && scenario.kind !== "legacy-social" && scenario.kind !== "native-note") });
   for (const [scenarioIndex, scenario] of scenarios.entries()) {
     const workspaceFrame = page.frameLocator('[data-testid="workspace-preview-frame"]');
-    if (scenario.kind === "legacy-social") {
+    if (scenario.kind === "native-note") {
+      const section=await showLearnerRoute(workspaceFrame,scenario.route);
+      const response=section.locator(`[data-note-input="${scenario.responseId}"]`);
+      const value=`Native optional note during project verification ${scenarioIndex}.`;
+      await response.fill(value);
+      await section.locator(`[data-save-note="${scenario.responseId}"]`).click();
+      await expect(section.locator(`[data-note-status="${scenario.responseId}"]`)).toContainText('Saved response collected');
+      await reloadWorkspacePreview(page,projectSlug);
+      const collection=await showLearnerRoute(workspaceFrame,scenario.collectionRoute);
+      await expect(collection.locator('[data-work-notes]')).toContainText(value);
+      const restored=await showLearnerRoute(workspaceFrame,scenario.route);
+      await expect(restored.locator(`[data-note-input="${scenario.responseId}"]`)).toHaveValue(value);
+    } else if (scenario.kind === "legacy-social") {
       const value=`Social evidence during project verification ${scenarioIndex}.`;
       const section=await showLearnerRoute(workspaceFrame,scenario.route);
       const response=section.locator(`[data-response-id="${scenario.responseId}"]`);

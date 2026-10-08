@@ -450,3 +450,7 @@ When creating or reshaping UI artifacts:
   - `npm.cmd run build:studio`
   - targeted tests
   - smoke-path verification when pipeline behavior changed
+
+## Standards inheritance and promotion checkpoint
+
+At course authoring start, run `npm run context:project -- --project <slug>` and use the pinned `meta/course-standard.json` where present. New direct courses automatically inherit the approved standard through `course:create`; its blueprint slots are draft content, not a finished lesson. Current proposed defaults do not retroactively adopt into existing courses. Review acceptance and export preflight capture student-free promotion opportunities automatically. Studio displays the durable queue on startup/focus; export/build/release commands report it nonblockingly. Only Dean's explicit scoped decision creates a new release; accepting a course edit alone is not universal approval. Never pass student answers, review excerpts or teacher notes into the queue. Arbitrary chats cannot receive a guaranteed proactive notification unless they enter these workflows.

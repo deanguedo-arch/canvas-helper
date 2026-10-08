@@ -1,3 +1,4 @@
+import { exemplarTransferContext } from "../exemplar-transfer.js";
 import { createHash } from "node:crypto";
 import { createReadStream } from "node:fs";
 import { copyFile, mkdir, readFile, readdir, stat, writeFile } from "node:fs/promises";
@@ -591,6 +592,7 @@ async function writeMetadata(input: {
 }
 
 export async function buildEnglishFactoryProject(input: { repoRoot: string; projectSlug: string }) {
+  await exemplarTransferContext(input.projectSlug, input.repoRoot);
   const projectDir = path.join(input.repoRoot, "projects", input.projectSlug);
   const workspaceDir = path.join(projectDir, "workspace");
   const metaDir = path.join(projectDir, "meta");

@@ -1,5 +1,5 @@
 import type { IncomingRefreshSummary, ProjectBundle } from "./types";
-import { getVisibleStudioProjects } from "./project-display";
+
 
 export async function fetchProjects() {
   const response = await fetch("/api/projects", {
@@ -9,7 +9,7 @@ export async function fetchProjects() {
     throw new Error("Failed to load projects.");
   }
 
-  return getVisibleStudioProjects((await response.json()) as ProjectBundle[]);
+  return (await response.json()) as ProjectBundle[];
 }
 
 export async function refreshIncomingIntake() {
@@ -28,4 +28,11 @@ export async function refreshIncomingIntake() {
 export function toCursorHref(filePath: string) {
   const normalizedPath = filePath.replace(/\\/g, "/");
   return `cursor://file/${encodeURI(normalizedPath)}`;
+}
+
+export async function changeProjectOrganization(slug: string, archived: boolean) {
+  const response = await fetch(`/api/projects/${encodeURIComponent(slug)}/organization/${archived ? "archive" : "restore"}`, { method: "POST" });
+  const payload = await response.json();
+  if (!response.ok) throw new Error(payload.error ?? "Course organization could not be saved.");
+  return payload as import("../../../shared/project-organization.js").ProjectOrganization;
 }

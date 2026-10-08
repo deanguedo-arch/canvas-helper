@@ -1,3 +1,5 @@
+import { exemplarTransferContext } from "./lib/exemplar-transfer.js";
+import { reportStandardsNotice } from "./lib/course-standards.js";
 import fs from "node:fs/promises";
 import path from "node:path";
 import process from "node:process";
@@ -1886,6 +1888,7 @@ async function buildIssue(
   sourceResource: ResolvedSocialSourceResource,
   config: IssueConfig
 ) {
+  await exemplarTransferContext(config.slug, ROOT);
   const projectDir = path.join(ROOT, "projects", config.slug);
   let summary: { slug: string; lessons: number; resources: number } | undefined;
   await stageAndPromoteSocialBuild({
@@ -1956,6 +1959,7 @@ async function buildIssue(
 }
 
 async function main() {
+  await reportStandardsNotice(undefined, "", "social");
   if (hasFlag("zip")) {
     throw new Error("--zip is no longer supported. Use a declared --resource ID instead.");
   }

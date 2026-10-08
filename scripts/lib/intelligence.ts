@@ -38,11 +38,13 @@ export async function refreshProjectIntelligence(
   }
 
   const library = policy.collectPatternBank ? await rebuildPatternBankIndex() : { index: { records: [] as unknown[] } };
-  const promptPack = await generatePromptPack(projectSlug, policy);
+  const promptPack = await generatePromptPack(projectSlug, policy, { deferTransferGate: true });
+  if (promptPack.generationStatus === "blocked") console.warn(`[Exemplar transfer] Prompt refresh deferred: ${promptPack.blocker}`);
 
   return {
     learnedProfilePath: learned?.outputPath ?? null,
-    promptPackPath: promptPack.outputPath,
+    promptPackPath: promptPack.generationStatus === "blocked" ? null : promptPack.outputPath,
+    promptPackStatus: promptPack.generationStatus,
     indexedReferences: promptPack.indexedReferenceCount,
     patternMatches: promptPack.patternMatchCount,
     libraryRecordCount: library.index.records.length,

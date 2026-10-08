@@ -68,3 +68,17 @@ test("legacy Social evidence uses actual controls and requires its save selector
   delete raw.learnerCourse.evidenceScenario.saveSelector;
   assert.throws(()=>validateProjectContract(raw,"missing-social-save.json"),/Invalid e2e contract/);
 });
+
+test("native optional notes require their response identity and collection route", async () => {
+  const raw=JSON.parse(await readFile(path.join(process.cwd(),"projects/biology30-chapter-12/meta/e2e-contract.json"),"utf8"));
+  assert.doesNotThrow(()=>validateProjectContract(raw,"biology-native-note.json"));
+  const absentRoute=structuredClone(raw);
+  absentRoute.learnerCourse.evidenceScenario.collectionRoute="not-a-real-route";
+  assert.throws(()=>validateProjectContract(absentRoute,"missing-note-route.json"),/references routes missing/);
+  const duplicate=structuredClone(raw);
+  duplicate.learnerCourse.evidenceScenarios=[duplicate.learnerCourse.evidenceScenario,duplicate.learnerCourse.evidenceScenario];
+  delete duplicate.learnerCourse.evidenceScenario;
+  assert.throws(()=>validateProjectContract(duplicate,"duplicate-native-note.json"),/duplicate identities/);
+  delete raw.learnerCourse.evidenceScenario.responseId;
+  assert.throws(()=>validateProjectContract(raw,"missing-note-id.json"),/Invalid e2e contract/);
+});

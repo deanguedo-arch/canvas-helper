@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 
 import { loadStudioSelection, saveStudioSelection } from "../lib/storage";
 import type { PreviewMode, ProjectBundle } from "../lib/types";
-import { orderProjectSlugs } from "../lib/project-display";
+import { getVisibleStudioProjects, orderProjectSlugs } from "../lib/project-display";
 
 export function useStudioSelection(projects: ProjectBundle[]) {
   const initialSelection = useMemo(() => loadStudioSelection(), []);
@@ -11,7 +11,7 @@ export function useStudioSelection(projects: ProjectBundle[]) {
 
   useEffect(() => {
     if (projects.length === 0) return;
-    const orderedSlugs = orderProjectSlugs(projects.map((project) => project.manifest.slug));
+    const orderedSlugs = orderProjectSlugs(getVisibleStudioProjects(projects).map((project) => project.manifest.slug));
     const fallbackSlug =
       selectedSlug && projects.some((project) => project.manifest.slug === selectedSlug)
         ? selectedSlug

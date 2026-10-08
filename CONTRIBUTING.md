@@ -93,3 +93,7 @@ A rollout candidate is ready when:
 - stop and document boundary pressure if the task starts to spill across unrelated domains
 
 SCORM sandbox pilots may use `npm run export:scorm -- --project <slug> --version 2004 --review-only`. Review packaging still validates source ownership and tracking contracts, but never promotes blocked projects, approves workspaces, or records release freshness. Inspect the separate review receipt and ZIP integrity. Simulated learner/photo checks do not establish organizational API permissions, live Brightspace acceptance, or Studio readiness.
+
+### Exemplar transfer verification
+
+For changes to the adopted calibration gate, run `node --import tsx --test scripts/tests/exemplar-transfer.test.ts scripts/tests/exemplar-correction.test.ts scripts/tests/course-standards.test.ts`. Record actual source/sample hashes, instructional findings separately from technical checks, and Dean’s exact decision before continuation. Do not fabricate acceptance or silently apply reusable corrections; promote paired generation/review instruction evidence through the existing scoped queue. Existing courses are unassessed until deliberate adoption.

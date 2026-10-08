@@ -1,3 +1,4 @@
+import { reportStandardsNotice } from "./lib/course-standards.js";
 import { execFile } from "node:child_process";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
@@ -35,6 +36,7 @@ async function packageVersion(packageName: string) {
 }
 
 async function main() {
+  await reportStandardsNotice(undefined, "", "general");
   const startedAt = new Date();
   const reservation = await reserveStudioReleasePort(requestedPort());
   const port = reservation.port;

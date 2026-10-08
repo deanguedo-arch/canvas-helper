@@ -3,6 +3,7 @@ import { execFileSync } from "node:child_process";
 import { existsSync, lstatSync, mkdirSync, readFileSync, realpathSync, renameSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import { buildProjectAuthoringContext } from "../course-authoring/context.js";
+import { exemplarTransferContext } from "../exemplar-transfer.js";
 import { AgentTask, assertByteBudget, MAX_WORKER_PACKET_BYTES, normalizeTaskPath } from "./contracts.js";
 
 export interface ContextPreparation {
@@ -96,6 +97,8 @@ export async function prepareContext(task: AgentTask, repoRoot: string, runtimeR
   let projectContext = "";
   let projectContextAvailable = true;
   if (task.projectSlug) {
+    // Build packets must not turn an adopted continuation stop into generic fallback.
+    if (task.mode === "build") await exemplarTransferContext(task.projectSlug, canonicalRoot);
     const result = await buildProjectAuthoringContext(task.projectSlug, canonicalRoot);
     projectContextAvailable = result.text !== null;
     projectContext = result.text ?? `Project authoring context unavailable: ${result.report.issues.map((issue) => issue.code).join(", ")}. Keep source decisions with Sol.`;

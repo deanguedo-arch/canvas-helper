@@ -1,3 +1,5 @@
+import { exemplarTransferContext, ExemplarTransferGateError } from "../exemplar-transfer.js";
+import { standardsContext } from "../course-standards.js";
 import { Buffer } from "node:buffer";
 import { lstat, open, readdir, readFile, realpath, stat } from "node:fs/promises";
 import path from "node:path";
@@ -779,14 +781,14 @@ export function renderProjectAuthoringContext(report: CourseDoctorReport) {
   return text;
 }
 
-export async function buildProjectAuthoringContext(slug: string, repoRoot = defaultRepoRoot) {
+export async function buildProjectAuthoringContext(slug: string, repoRoot = defaultRepoRoot, intent: "sample" | "continue" = "continue") {
   const report = await inspectCourseAuthoringProject(slug, repoRoot);
   if (report.status !== "pass") return { report, text: null };
 
   try {
-    return { report, text: renderProjectAuthoringContext(report) };
+    return { report, text: renderProjectAuthoringContext(report) + "\n" + await standardsContext(repoRoot, slug) + "\n" + await exemplarTransferContext(slug, repoRoot, intent) };
   } catch (error) {
-    createIssue(report, "context-cap", error instanceof Error ? error.message : String(error));
+    createIssue(report, error instanceof ExemplarTransferGateError ? "exemplar-transfer" : "context-cap", error instanceof Error ? error.message : String(error));
     report.status = "fail";
     return { report, text: null };
   }

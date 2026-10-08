@@ -9,6 +9,7 @@ import * as cheerio from "cheerio";
 import {
   resolveLearnerEvidenceScenarios,
   validateProjectContract,
+  type LearnerEvidenceScenario,
   type ProjectE2EContract
 } from "../e2e/lib/project-contract-schema.js";
 import { parseEnglishCourseManifest, parseEnglishUnitRecipe } from "./lib/english-unit/schema.js";
@@ -745,7 +746,10 @@ export function inspectLegacyEvidenceWorkspace(input: {
     return checks;
   }
 
-  const scenarios = resolveLearnerEvidenceScenarios(learnerCourse);
+  // This verifier owns English Evidence Bank hooks, not other families' native saves.
+  const scenarios = resolveLearnerEvidenceScenarios(learnerCourse).filter((scenario): scenario is Extract<LearnerEvidenceScenario, {kind?: "collection" | "individual"}> =>
+    scenario.kind === undefined || scenario.kind === "collection" || scenario.kind === "individual"
+  );
   const collectionCount = scenarios.filter((scenario) => scenario.kind !== "individual").length;
   const individualCount = scenarios.filter((scenario) => scenario.kind === "individual").length;
   add(

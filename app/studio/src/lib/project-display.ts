@@ -45,6 +45,7 @@ export function getProjectLabel(project: ProjectBundle | string) {
 }
 
 export function getProjectGroupLabel(project: ProjectBundle) {
+  if (project.organization?.role === "fixture") return "Test fixtures";
   if (project.manifest.projectType === "conversion") return "Conversion projects";
   if (project.manifest.projectType === "generated-course") return "Generated courses";
   if (project.manifest.projectType === "hybrid") return "Hybrid courses";
@@ -63,7 +64,7 @@ export function getProjectStatusLabel(project: ProjectBundle) {
 }
 
 export function isStudioProjectVisible(project: ProjectBundle) {
-  return Boolean(project.manifest.slug);
+  return Boolean(project.manifest.slug) && (!project.organization?.archived || project.organization.role === "fixture");
 }
 
 export function getVisibleStudioProjects(projects: ProjectBundle[]) {
@@ -74,9 +75,9 @@ function compareProjects(left: ProjectBundle, right: ProjectBundle) {
   return getProjectLabel(left).localeCompare(getProjectLabel(right));
 }
 
-export function getProjectMetadataGroups(projects: ProjectBundle[]) {
+export function getProjectMetadataGroups(projects: ProjectBundle[], includeArchived = false) {
   const groups = new Map<string, ProjectBundle[]>();
-  for (const project of getVisibleStudioProjects(projects)) {
+  for (const project of includeArchived ? projects : getVisibleStudioProjects(projects)) {
     const group = getProjectGroupLabel(project);
     groups.set(group, [...(groups.get(group) ?? []), project]);
   }

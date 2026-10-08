@@ -110,6 +110,7 @@ export type LearnerMode = "off" | "collect" | "apply";
 export type LearnerModeSource = "repo-default" | "project-override" | "env-override" | "cli-override" | "default";
 
 export type ProjectBundle = {
+  organization?: import("../../../shared/project-organization.js").ProjectOrganization;
   manifest: {
     id: string;
     slug: string;

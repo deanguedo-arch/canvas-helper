@@ -1,3 +1,4 @@
+import { exemplarTransferContext } from "./lib/exemplar-transfer.js";
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 
@@ -46,6 +47,7 @@ async function main() {
     throw new Error("Usage: npm run build:course-shell -- --project <slug>");
   }
 
+  await exemplarTransferContext(projectSlug);
   const manifest = await loadProjectManifest(projectSlug);
   const paths = getProjectPaths(projectSlug);
   const blueprint = await loadCourseBlueprint(projectSlug);

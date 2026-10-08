@@ -1,3 +1,5 @@
+import { resolveStandard, courseFamily, standardsContext } from "./course-standards.js";
+import { renderStandardLesson, starterLesson, standardLessonStyles, standardLessonScript, type Lesson } from "./standard-lesson.js";
 import { createHash, randomUUID } from "node:crypto";
 import { lstat, readFile, readdir, rename, rm } from "node:fs/promises";
 import path from "node:path";
@@ -24,6 +26,8 @@ export type CreateCodexStudioCourseInput = {
   courseCode?: string;
   summary?: string;
   now?: string;
+  /** Structured student-free authoring content; validated against the inherited standard. */
+  lesson?: Lesson;
   /** Internal fault-injection seam used only by the course-creation tests. */
   hooks?: {
     writeStudioChangeSignal?: (input: { target: string; value: unknown }) => void | Promise<void>;
@@ -436,6 +440,8 @@ function buildManifest(input: {
 }
 
 async function writeStagedCourse(input: {
+  standardsRepoRoot: string;
+  lesson?: Lesson;
   stageRepoRoot: string;
   slug: string;
   title: string;
@@ -447,11 +453,13 @@ async function writeStagedCourse(input: {
   const workspaceRoot = path.join(projectRoot, "workspace");
   const rawRoot = path.join(projectRoot, "raw");
   const metaRoot = path.join(projectRoot, "meta");
-  const html = renderCodexStudioCourseHtml(input);
-  const styles = renderCodexStudioCourseStyles();
-  const script = renderCodexStudioCourseScript();
+  const standard = await resolveStandard(input.standardsRepoRoot, input.slug, courseFamily(input.courseCode));
+  const html = renderCodexStudioCourseHtml(input).replace('<li><a href="#modules">Modules</a></li>', '<li><a href="#modules">Modules</a></li><li><a href="#lesson-context" data-canvas-helper-edit-key="navigation-lesson-start">Start lesson</a></li>').replace("      </main>", renderStandardLesson(input.lesson ?? starterLesson(input.title, standard), standard, !input.lesson) + "      </main>");
+  const styles = renderCodexStudioCourseStyles() + standardLessonStyles;
+  const script = renderCodexStudioCourseScript() + standardLessonScript;
   const cover = renderCodexStudioCourseCoverSvg(input.title);
   const manifest = buildManifest(input);
+  Object.assign(manifest, { googleHosted: { trackedStorageKeys: [`canvas-standard:${input.slug}`] }, courseStandard: { id: standard.id, version: standard.version, rules: standard.rules, fingerprint: createHash("sha256").update(JSON.stringify(standard)).digest("hex") } });
   const policy = validateProjectManifestPolicy(manifest);
   if (policy.status !== "valid" || policy.errors.length) {
     throw new Error(`Codex course manifest is invalid: ${policy.errors.join(" ")}`);
@@ -467,7 +475,8 @@ async function writeStagedCourse(input: {
     writeTextFile(path.join(rawRoot, "course.js"), script),
     writeTextFile(path.join(rawRoot, "assets", "course-cover.svg"), cover),
     writeJsonFile(path.join(metaRoot, "project.json"), manifest),
-    writeTextFile(path.join(metaRoot, "prompt-pack.md"), renderCodexStudioPromptPack(input))
+    writeJsonFile(path.join(metaRoot, "course-standard.json"), standard),
+    writeTextFile(path.join(metaRoot, "prompt-pack.md"), renderCodexStudioPromptPack(input) + "\n" + await standardsContext(input.standardsRepoRoot, input.slug, courseFamily(input.courseCode)))
   ]);
 
   const doctor = await inspectCourseAuthoringProject(input.slug, input.stageRepoRoot);
@@ -502,7 +511,7 @@ export async function createCodexStudioCourse(input: CreateCodexStudioCourseInpu
   let publishedFingerprint: string | null = null;
   await ensureDir(stageRepoRoot);
   try {
-    const stagedProjectRoot = await writeStagedCourse({ stageRepoRoot, slug, title, courseCode, summary, now });
+    const stagedProjectRoot = await writeStagedCourse({ standardsRepoRoot: repoRoot, stageRepoRoot, slug, title, courseCode, summary, now, lesson: input.lesson });
     await ensureDir(projectsRoot);
     if (await fileExists(targetProjectRoot)) {
       throw new Error(`Project appeared while creating it: projects/${slug}. No existing files were changed.`);

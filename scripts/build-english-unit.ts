@@ -1,3 +1,5 @@
+import { exemplarTransferContext } from "./lib/exemplar-transfer.js";
+import { reportStandardsNotice } from "./lib/course-standards.js";
 import { createHash } from "node:crypto";
 import { copyFile, mkdir, readFile, stat, writeFile } from "node:fs/promises";
 import path from "node:path";
@@ -433,6 +435,7 @@ async function writeProjectMetadata(input: {
 }
 
 export async function buildEnglishUnit(args: BuildArgs) {
+  await exemplarTransferContext(args.projectSlug, repoRoot);
   const projectDir = path.join(repoRoot, "projects", args.projectSlug);
   const workspaceDir = path.join(projectDir, "workspace");
   const metaDir = path.join(projectDir, "meta");
@@ -532,6 +535,7 @@ export async function buildEnglishUnit(args: BuildArgs) {
 }
 
 async function main() {
+  await reportStandardsNotice(undefined, "", "english");
   const result = await buildEnglishUnit(parseBuildArgs());
   console.log(`Built ${result.projectSlug}`);
   console.log(`Workspace: ${result.workspaceEntry}`);
