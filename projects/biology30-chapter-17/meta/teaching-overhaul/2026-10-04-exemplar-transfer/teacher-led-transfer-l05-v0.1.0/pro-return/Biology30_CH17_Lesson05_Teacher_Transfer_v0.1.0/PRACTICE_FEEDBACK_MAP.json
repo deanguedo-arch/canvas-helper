@@ -1,0 +1,101 @@
+{
+  "version": "0.1.0",
+  "newAssessments": [],
+  "existingOptionalActivities": [
+    {
+      "sectionId": "ch17-kinch-v020-l05-change-task",
+      "noteId": "ch17-kinch-v020-l05-change-response",
+      "title": "Change one parent and keep only the reasoning that still applies",
+      "nativeExactSectionHash": "a218d13653a95a59da2d56004ea889124992ee3903e2b0749c8f7df78c7a16cf",
+      "afterFragmentLocation": {
+        "startByte": 38226,
+        "endByteExclusive": 42429,
+        "bytes": 4203,
+        "sha256": "a218d13653a95a59da2d56004ea889124992ee3903e2b0749c8f7df78c7a16cf",
+        "coordinateSource": "AFTER proposed lesson-05.teaching-fragment.html; zero-based UTF-8, end exclusive."
+      },
+      "promptAndFeedbackOwner": "source-contracts/OPTIONAL_NOTES.json completeSection; copied byte-for-byte into native fragment",
+      "hintTitles": [
+        "Optional hint: locate the changed allele pair",
+        "Compare the retained and revised reasoning"
+      ],
+      "allHintsAndModelsIncluded": true,
+      "newTask": false,
+      "saved": true,
+      "graded": false,
+      "requiredProgress": false,
+      "instructionalJob": "Change one parent; decide which gamete list, dimensions and locus predictions survive.",
+      "essentialPreparationVisibleBeforeAttempt": true
+    },
+    {
+      "sectionId": "ch17-kinch-v020-l05-evidence-task",
+      "noteId": "ch17-kinch-v020-l05-evidence-response",
+      "title": "Decide what the new offspring settles—and what it leaves open",
+      "nativeExactSectionHash": "545343eb9be903740eda4fa5258a96eb5c82de05327de2ee734143bea75fc97d",
+      "afterFragmentLocation": {
+        "startByte": 51710,
+        "endByteExclusive": 56247,
+        "bytes": 4537,
+        "sha256": "545343eb9be903740eda4fa5258a96eb5c82de05327de2ee734143bea75fc97d",
+        "coordinateSource": "AFTER proposed lesson-05.teaching-fragment.html; zero-based UTF-8, end exclusive."
+      },
+      "promptAndFeedbackOwner": "source-contracts/OPTIONAL_NOTES.json completeSection; copied byte-for-byte into native fragment",
+      "hintTitles": [
+        "Optional hint: inspect each missing allele separately",
+        "Compare the evidence and its limit"
+      ],
+      "allHintsAndModelsIncluded": true,
+      "newTask": false,
+      "saved": true,
+      "graded": false,
+      "requiredProgress": false,
+      "instructionalJob": "Use a changed phenotype observation to distinguish forced from still-possible parental genotypes.",
+      "essentialPreparationVisibleBeforeAttempt": true
+    }
+  ],
+  "newWorkedInterpretation": {
+    "heading": "When two descriptions overlap, count each offspring once",
+    "taskOrSavedField": false,
+    "purpose": "Teach inclusive alternatives/overlap using a different tomato event and answer, not protected pea selection.",
+    "explanationAndCompleteSolutionVisible": true
+  },
+  "currentRequiredPreparation": [
+    {
+      "id": "ch17-l05-check-mc-1",
+      "preparation": [
+        "Two chromosome pairs can orient independently",
+        "Derive the gamete types and their weights",
+        "Combine the F1 gametes at fertilisation"
+      ],
+      "contract": "Unchanged suffix/data; necessary conceptual overlap."
+    },
+    {
+      "id": "ch17-l05-check-mc-2",
+      "preparation": [
+        "Choose the probability operation for the biological event",
+        "When two descriptions overlap, count each offspring once"
+      ],
+      "contract": "Unchanged inclusive pea question; exact requested event not newly solved."
+    },
+    {
+      "id": "ch17-l05-check-writing-1",
+      "preparation": [
+        "Follow the P contributions into F1",
+        "Derive the gamete types and their weights",
+        "Let the distinct gametes determine the dimensions"
+      ],
+      "contract": "Unchanged duplicate/missing header repair; original erroneous header list not reproduced as worked answer."
+    },
+    {
+      "id": "ch17-l05-check-writing-2",
+      "preparation": [
+        "Choose the starting plants and define the letters",
+        "Group genotypes by what the plant expresses",
+        "Choose the probability operation for the biological event"
+      ],
+      "contract": "Unchanged double-homozygosity task; exact aggregate not solved under renamed letters."
+    }
+  ],
+  "supportedPractice": "Both current supported items remain in untouched guided suffix; no rewrite.",
+  "readingManuscript": "Complete prompt/hint/model words retained; reading controls disabled only."
+}

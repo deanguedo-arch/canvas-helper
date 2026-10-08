@@ -1,0 +1,3258 @@
+{
+  "schema": "chapter17-remaining-12-13-preparation-v010",
+  "sourceOwnerSha256": "31447f72550c68ceb4a7cfd444f85651908a86782096dff4e4847cff4ab9e3e4",
+  "records": [
+    {
+      "lesson": 12,
+      "group": "required-mc",
+      "id": "ch17-l12-check-mc-1",
+      "sourcePointer": "lesson-12.practice.json.checks[0].mc[0]",
+      "original": {
+        "prompt": "Which statement about linked genes is correct?",
+        "answer": "Crossing over can produce recombinant combinations",
+        "explanation": "Physical association can be broken by exchange between loci.",
+        "cue": "Trace the normal mechanism before choosing an answer.",
+        "id": "ch17-l12-check-mc-1",
+        "options": [
+          "They are necessarily two alleles of one gene",
+          "They can never separate under any condition",
+          "Crossing over can produce recombinant combinations",
+          "They always produce exactly 1:1:1:1"
+        ],
+        "difficulty": "application"
+      },
+      "status": "prepared-visible-teaching",
+      "teachingAnchors": [
+        "ch17-l12-teaching-02"
+      ],
+      "reasoningPrepared": "Original slide97 figure traces nonsister exchange in prophase I, unchanged sisters and recombinant products; exchange must lie between loci and need not create a new allele.",
+      "assessmentDistinctness": "Foundational retrieval or application of explicitly taught method; no automatic fresh-transfer claim.",
+      "feedback": "Original hint/key/model/feedback retained unchanged in protected JSON and complete manuscript where learner-facing."
+    },
+    {
+      "lesson": 12,
+      "group": "required-mc",
+      "id": "ch17-l12-check-mc-2",
+      "sourcePointer": "lesson-12.practice.json.checks[0].mc[1]",
+      "original": {
+        "prompt": "What information is missing from the genotype AaBb when analysing linked loci?",
+        "answer": "Which alleles share each homologue",
+        "explanation": "AaBb does not distinguish AB/ab from Ab/aB phase.",
+        "cue": "Trace the normal mechanism before choosing an answer.",
+        "id": "ch17-l12-check-mc-2",
+        "options": [
+          "Whether there are two studied loci",
+          "Whether A and a are both present",
+          "Whether B and b are both present",
+          "Which alleles share each homologue"
+        ],
+        "difficulty": "application"
+      },
+      "status": "prepared-visible-teaching",
+      "teachingAnchors": [
+        "ch17-l12-teaching-01",
+        "ch17-l12-teaching-02"
+      ],
+      "reasoningPrepared": "AaBb versus slash notation, AB/ab and reversed Ab/aB phase, and all four offspring mappings are explicitly taught; changed-phase notes exercise explains dominance versus parental status.",
+      "assessmentDistinctness": "Foundational retrieval or application of explicitly taught method; no automatic fresh-transfer claim.",
+      "feedback": "Original hint/key/model/feedback retained unchanged in protected JSON and complete manuscript where learner-facing."
+    },
+    {
+      "lesson": 12,
+      "group": "required-writing",
+      "id": "ch17-l12-check-writing-1",
+      "sourcePointer": "lesson-12.practice.json.checks[0].writing[0]",
+      "original": {
+        "prompt": "Explain how a two-locus test cross can provide evidence about linkage.",
+        "model": "A homozygous recessive tester contributes a fixed allele combination. Offspring classes reveal the heterozygote’s gamete combinations. An excess of parental combinations over recombinants can support linkage, while equal combinations are expected under independent assortment, subject to sampling and model assumptions.",
+        "criteria": [
+          "Identifies the relevant structures or quantities.",
+          "Explains the causal relationship or calculation, not just the final result.",
+          "Uses the stated evidence and avoids a stronger conclusion than it supports."
+        ],
+        "id": "ch17-l12-check-writing-1",
+        "limit": 3200
+      },
+      "status": "prepared-visible-teaching",
+      "teachingAnchors": [
+        "ch17-l12-teaching-01",
+        "ch17-l12-teaching-02",
+        "ch17-l12-teaching-03",
+        "ch17-l12-worked"
+      ],
+      "reasoningPrepared": "Derives independent 1:1:1:1, traces fixed recessive tester and four diploid/phenotype mappings, explains unequal parental/recombinant counts with sampling, expression, survival and scoring limits.",
+      "assessmentDistinctness": "Foundational retrieval or application of explicitly taught method; no automatic fresh-transfer claim.",
+      "feedback": "Original hint/key/model/feedback retained unchanged in protected JSON and complete manuscript where learner-facing."
+    },
+    {
+      "lesson": 12,
+      "group": "required-writing",
+      "id": "ch17-l12-check-writing-2",
+      "sourcePointer": "lesson-12.practice.json.checks[0].writing[1]",
+      "original": {
+        "prompt": "For Ab/aB, identify parental and recombinant combinations and explain why capital-letter grouping is not a valid shortcut.",
+        "model": "Parental combinations are Ab and aB because those occur on the original homologues. Recombinants are AB and ab. Parental status depends on phase rather than uppercase versus lowercase notation.",
+        "criteria": [
+          "Identifies the relevant structures or quantities.",
+          "Explains the causal relationship or calculation, not just the final result.",
+          "Uses the stated evidence and avoids a stronger conclusion than it supports."
+        ],
+        "id": "ch17-l12-check-writing-2",
+        "limit": 3200
+      },
+      "status": "prepared-visible-teaching",
+      "teachingAnchors": [
+        "ch17-l12-teaching-01",
+        "ch17-l12-teaching-02"
+      ],
+      "reasoningPrepared": "AaBb versus slash notation, AB/ab and reversed Ab/aB phase, and all four offspring mappings are explicitly taught; changed-phase notes exercise explains dominance versus parental status.",
+      "assessmentDistinctness": "Exact Ab/aB relation must be taught and appears in the guided phase exercise; instructional rehearsal, not fresh transfer.",
+      "feedback": "Original hint/key/model/feedback retained unchanged in protected JSON and complete manuscript where learner-facing."
+    },
+    {
+      "lesson": 12,
+      "group": "words",
+      "id": "ch17-word-linked-genes",
+      "sourcePointer": "lesson-12.practice.json.words[0]",
+      "original": {
+        "term": "linked genes",
+        "meaning": "Genes on the same chromosome that may be inherited together, especially when close.",
+        "example": "AB is carried on one homologue and ab on the other.",
+        "importantDistinction": "Physical linkage can reduce recombinant frequency, but widely separated loci may appear independent.",
+        "aliases": [],
+        "id": "ch17-word-linked-genes",
+        "lesson": 12,
+        "whatItDoes": "AB is carried on one homologue and ab on the other.",
+        "feature": "AB is carried on one homologue and ab on the other.",
+        "confusion": "Physical linkage can reduce recombinant frequency, but widely separated loci may appear independent."
+      },
+      "status": "support-record-not-independent-demand",
+      "teachingAnchors": [
+        "ch17-l12-teaching-01",
+        "ch17-l12-teaching-02",
+        "ch17-l12-teaching-03"
+      ],
+      "reasoningPrepared": "Linked loci occupy the same chromosome; close loci tend to retain original arrangements, and crossover can separate them. Multiple possible classes do not imply equal frequencies.",
+      "assessmentDistinctness": "Foundational retrieval or application of explicitly taught method; no automatic fresh-transfer claim.",
+      "feedback": "Original hint/key/model/feedback retained unchanged in protected JSON and complete manuscript where learner-facing."
+    },
+    {
+      "lesson": 12,
+      "group": "words",
+      "id": "ch17-word-parental-combination",
+      "sourcePointer": "lesson-12.practice.json.words[1]",
+      "original": {
+        "term": "parental combination",
+        "meaning": "An allele combination matching one of the original chromosome arrangements in the heterozygous parent.",
+        "example": "For AB/ab, the combinations AB and ab are parental.",
+        "importantDistinction": "Parental depends on the specified phase, not always capital letters together.",
+        "aliases": [],
+        "id": "ch17-word-parental-combination",
+        "lesson": 12,
+        "whatItDoes": "For AB/ab, the combinations AB and ab are parental.",
+        "feature": "For AB/ab, the combinations AB and ab are parental.",
+        "confusion": "Parental depends on the specified phase, not always capital letters together."
+      },
+      "status": "support-record-not-independent-demand",
+      "teachingAnchors": [
+        "ch17-l12-teaching-01",
+        "ch17-l12-teaching-02"
+      ],
+      "reasoningPrepared": "AaBb versus slash notation, AB/ab and reversed Ab/aB phase, and all four offspring mappings are explicitly taught; changed-phase notes exercise explains dominance versus parental status.",
+      "assessmentDistinctness": "Foundational retrieval or application of explicitly taught method; no automatic fresh-transfer claim.",
+      "feedback": "Original hint/key/model/feedback retained unchanged in protected JSON and complete manuscript where learner-facing."
+    },
+    {
+      "lesson": 12,
+      "group": "words",
+      "id": "ch17-word-recombinant-combination",
+      "sourcePointer": "lesson-12.practice.json.words[2]",
+      "original": {
+        "term": "recombinant combination",
+        "meaning": "An allele combination different from the parent’s original arrangement for the loci considered.",
+        "example": "For AB/ab, crossing over can generate Ab and aB.",
+        "importantDistinction": "Recombinant does not necessarily mean a new allele was created.",
+        "aliases": [],
+        "id": "ch17-word-recombinant-combination",
+        "lesson": 12,
+        "whatItDoes": "For AB/ab, crossing over can generate Ab and aB.",
+        "feature": "For AB/ab, crossing over can generate Ab and aB.",
+        "confusion": "Recombinant does not necessarily mean a new allele was created."
+      },
+      "status": "support-record-not-independent-demand",
+      "teachingAnchors": [
+        "ch17-l12-teaching-02"
+      ],
+      "reasoningPrepared": "Original slide97 figure traces nonsister exchange in prophase I, unchanged sisters and recombinant products; exchange must lie between loci and need not create a new allele.",
+      "assessmentDistinctness": "Foundational retrieval or application of explicitly taught method; no automatic fresh-transfer claim.",
+      "feedback": "Original hint/key/model/feedback retained unchanged in protected JSON and complete manuscript where learner-facing."
+    },
+    {
+      "lesson": 12,
+      "group": "words",
+      "id": "ch17-word-linkage-phase",
+      "sourcePointer": "lesson-12.practice.json.words[3]",
+      "original": {
+        "term": "linkage phase",
+        "meaning": "The arrangement of alleles across the two homologous chromosomes.",
+        "example": "AB/ab differs from Ab/aB even though both can be written AaBb.",
+        "importantDistinction": "The compact genotype AaBb alone does not specify phase.",
+        "aliases": [],
+        "id": "ch17-word-linkage-phase",
+        "lesson": 12,
+        "whatItDoes": "AB/ab differs from Ab/aB even though both can be written AaBb.",
+        "feature": "AB/ab differs from Ab/aB even though both can be written AaBb.",
+        "confusion": "The compact genotype AaBb alone does not specify phase."
+      },
+      "status": "support-record-not-independent-demand",
+      "teachingAnchors": [
+        "ch17-l12-teaching-01",
+        "ch17-l12-teaching-02"
+      ],
+      "reasoningPrepared": "AaBb versus slash notation, AB/ab and reversed Ab/aB phase, and all four offspring mappings are explicitly taught; changed-phase notes exercise explains dominance versus parental status.",
+      "assessmentDistinctness": "Foundational retrieval or application of explicitly taught method; no automatic fresh-transfer claim.",
+      "feedback": "Original hint/key/model/feedback retained unchanged in protected JSON and complete manuscript where learner-facing."
+    },
+    {
+      "lesson": 12,
+      "group": "practiceQuestions",
+      "id": "ch17-source-OBJ_2131225",
+      "sourcePointer": "lesson-12.practice.json.practiceQuestions[0]",
+      "original": {
+        "id": "ch17-source-OBJ_2131225",
+        "lesson": 12,
+        "prompt": "A double heterozygote carries linked alleles in the phase GT/gt. What can produce Gt and gT gametes?",
+        "answer": "Crossing over between the two loci",
+        "options": [
+          "Complete dominance",
+          "Crossing over between the two loci",
+          "Independent segregation of alleles on an unchanged same chromosome",
+          "Nondisjunction alone"
+        ],
+        "cue": "Identify the relevant mechanism or quantity and apply the stated model.",
+        "explanation": "A crossover between loci can exchange chromosome segments and form nonparental allele combinations.",
+        "difficulty": "application",
+        "stimuli": [],
+        "sourceItemId": "OBJ_2131225",
+        "conceptId": "ch17-concept-allele"
+      },
+      "status": "prepared-visible-teaching",
+      "teachingAnchors": [
+        "ch17-l12-teaching-02"
+      ],
+      "reasoningPrepared": "Original slide97 figure traces nonsister exchange in prophase I, unchanged sisters and recombinant products; exchange must lie between loci and need not create a new allele.",
+      "assessmentDistinctness": "Foundational retrieval or application of explicitly taught method; no automatic fresh-transfer claim.",
+      "feedback": "Original hint/key/model/feedback retained unchanged in protected JSON and complete manuscript where learner-facing."
+    },
+    {
+      "lesson": 12,
+      "group": "practiceQuestions",
+      "id": "ch17-foundation-ch17-word-linked-genes",
+      "sourcePointer": "lesson-12.practice.json.practiceQuestions[1]",
+      "original": {
+        "id": "ch17-foundation-ch17-word-linked-genes",
+        "lesson": 12,
+        "conceptId": "ch17-concept-linked-genes",
+        "prompt": "Which term matches this description? Genes on the same chromosome that may be inherited together, especially when close.",
+        "options": [
+          "linked genes",
+          "parental combination",
+          "recombinant combination",
+          "linkage phase"
+        ],
+        "answer": "linked genes",
+        "cue": "Use the meaning of each term, not the length of its name.",
+        "explanation": "Genes on the same chromosome that may be inherited together, especially when close. Physical linkage can reduce recombinant frequency, but widely separated loci may appear independent.",
+        "difficulty": "recall",
+        "family": "definition-recognition",
+        "kind": "mc"
+      },
+      "status": "prepared-visible-teaching",
+      "teachingAnchors": [
+        "ch17-l12-teaching-01",
+        "ch17-l12-teaching-02",
+        "ch17-l12-teaching-03"
+      ],
+      "reasoningPrepared": "Linked loci occupy the same chromosome; close loci tend to retain original arrangements, and crossover can separate them. Multiple possible classes do not imply equal frequencies.",
+      "assessmentDistinctness": "Foundational retrieval or application of explicitly taught method; no automatic fresh-transfer claim.",
+      "feedback": "Original hint/key/model/feedback retained unchanged in protected JSON and complete manuscript where learner-facing."
+    },
+    {
+      "lesson": 12,
+      "group": "practiceQuestions",
+      "id": "ch17-foundation-ch17-word-parental-combination",
+      "sourcePointer": "lesson-12.practice.json.practiceQuestions[2]",
+      "original": {
+        "id": "ch17-foundation-ch17-word-parental-combination",
+        "lesson": 12,
+        "conceptId": "ch17-concept-parental-combination",
+        "prompt": "Which term matches this description? An allele combination matching one of the original chromosome arrangements in the heterozygous parent.",
+        "options": [
+          "linked genes",
+          "parental combination",
+          "recombinant combination",
+          "linkage phase"
+        ],
+        "answer": "parental combination",
+        "cue": "Use the meaning of each term, not the length of its name.",
+        "explanation": "An allele combination matching one of the original chromosome arrangements in the heterozygous parent. Parental depends on the specified phase, not always capital letters together.",
+        "difficulty": "recall",
+        "family": "definition-recognition",
+        "kind": "mc"
+      },
+      "status": "prepared-visible-teaching",
+      "teachingAnchors": [
+        "ch17-l12-teaching-01",
+        "ch17-l12-teaching-02"
+      ],
+      "reasoningPrepared": "AaBb versus slash notation, AB/ab and reversed Ab/aB phase, and all four offspring mappings are explicitly taught; changed-phase notes exercise explains dominance versus parental status.",
+      "assessmentDistinctness": "Foundational retrieval or application of explicitly taught method; no automatic fresh-transfer claim.",
+      "feedback": "Original hint/key/model/feedback retained unchanged in protected JSON and complete manuscript where learner-facing."
+    },
+    {
+      "lesson": 12,
+      "group": "practiceQuestions",
+      "id": "ch17-foundation-ch17-word-recombinant-combination",
+      "sourcePointer": "lesson-12.practice.json.practiceQuestions[3]",
+      "original": {
+        "id": "ch17-foundation-ch17-word-recombinant-combination",
+        "lesson": 12,
+        "conceptId": "ch17-concept-recombinant-combination",
+        "prompt": "Which term matches this description? An allele combination different from the parent’s original arrangement for the loci considered.",
+        "options": [
+          "linked genes",
+          "parental combination",
+          "recombinant combination",
+          "linkage phase"
+        ],
+        "answer": "recombinant combination",
+        "cue": "Use the meaning of each term, not the length of its name.",
+        "explanation": "An allele combination different from the parent’s original arrangement for the loci considered. Recombinant does not necessarily mean a new allele was created.",
+        "difficulty": "recall",
+        "family": "definition-recognition",
+        "kind": "mc"
+      },
+      "status": "prepared-visible-teaching",
+      "teachingAnchors": [
+        "ch17-l12-teaching-02"
+      ],
+      "reasoningPrepared": "Original slide97 figure traces nonsister exchange in prophase I, unchanged sisters and recombinant products; exchange must lie between loci and need not create a new allele.",
+      "assessmentDistinctness": "Foundational retrieval or application of explicitly taught method; no automatic fresh-transfer claim.",
+      "feedback": "Original hint/key/model/feedback retained unchanged in protected JSON and complete manuscript where learner-facing."
+    },
+    {
+      "lesson": 12,
+      "group": "practiceQuestions",
+      "id": "ch17-foundation-ch17-word-linkage-phase",
+      "sourcePointer": "lesson-12.practice.json.practiceQuestions[4]",
+      "original": {
+        "id": "ch17-foundation-ch17-word-linkage-phase",
+        "lesson": 12,
+        "conceptId": "ch17-concept-linkage-phase",
+        "prompt": "Which term matches this description? The arrangement of alleles across the two homologous chromosomes.",
+        "options": [
+          "linked genes",
+          "parental combination",
+          "recombinant combination",
+          "linkage phase"
+        ],
+        "answer": "linkage phase",
+        "cue": "Use the meaning of each term, not the length of its name.",
+        "explanation": "The arrangement of alleles across the two homologous chromosomes. The compact genotype AaBb alone does not specify phase.",
+        "difficulty": "recall",
+        "family": "definition-recognition",
+        "kind": "mc"
+      },
+      "status": "prepared-visible-teaching",
+      "teachingAnchors": [
+        "ch17-l12-teaching-01",
+        "ch17-l12-teaching-02"
+      ],
+      "reasoningPrepared": "AaBb versus slash notation, AB/ab and reversed Ab/aB phase, and all four offspring mappings are explicitly taught; changed-phase notes exercise explains dominance versus parental status.",
+      "assessmentDistinctness": "Foundational retrieval or application of explicitly taught method; no automatic fresh-transfer claim.",
+      "feedback": "Original hint/key/model/feedback retained unchanged in protected JSON and complete manuscript where learner-facing."
+    },
+    {
+      "lesson": 12,
+      "group": "labelDiagrams",
+      "id": "ch17-linkage-label",
+      "sourcePointer": "lesson-12.practice.json.labelDiagrams[0]",
+      "original": {
+        "id": "ch17-linkage-label",
+        "title": "Linked allele arrangements and gamete classes",
+        "lesson": 12,
+        "src": "./assets/labeling/ch17-linkage-label.png",
+        "alt": "The starting arrangement is AB/ab. Without crossing over, AB and ab are parental combinations; Ab and aB are recombinants. Lettered identification version; answer key is not drawn.",
+        "answers": {
+          "A": "Parental gamete",
+          "B": "Parental gamete",
+          "C": "Recombinant gamete",
+          "D": "Recombinant gamete"
+        },
+        "options": [
+          "Parental gamete",
+          "Recombinant gamete"
+        ],
+        "reviewNote": "Follow each letter or its leader line. Use the model assumptions and units shown."
+      },
+      "status": "prepared-visible-teaching",
+      "teachingAnchors": [
+        "ch17-l12-teaching-01"
+      ],
+      "reasoningPrepared": "Locked AB/ab figure is taught location by location: A/B parental, C/D recombinant. Classification follows phase; legend already reveals answers.",
+      "assessmentDistinctness": "Unavoidable locked-answer overlap; formative rehearsal, not answer-free identification.",
+      "feedback": "Original hint/key/model/feedback retained unchanged in protected JSON and complete manuscript where learner-facing."
+    },
+    {
+      "lesson": 12,
+      "group": "videos",
+      "id": "wrtLyLwt51o",
+      "sourcePointer": "lesson-12.practice.json.videos[0]",
+      "original": {
+        "id": "wrtLyLwt51o",
+        "lesson": 12,
+        "title": "Linked genes and recombinant offspring — video support",
+        "purpose": "Identify linked allele arrangements, parental and recombinant combinations, and use a test cross to interpret gamete frequencies.",
+        "fallback": "Cross a heterozygote with aabb. The tester contributes only ab, so the offspring's phenotype or genotype can reveal the heterozygote's gamete contribution. Under independent assortment, the four combinations are expected in equal proportions. If the heterozygote has AB/ab and the genes are linked, AB and ab gametes often occur more frequently than Ab and aB. The corresponding parental offspring classes are larger, and the recombinant classes smaller. Read the actual counts, not just the presence of four categories. Linked genes can produce all four combinations if crossing over occurs, but the proportions can differ from 1:1:1:1.",
+        "disposition": "included",
+        "sourceSlide": 95,
+        "sourceDeck": "c17",
+        "availability": "Source hyperlink resolved syntactically; external playback not certified."
+      },
+      "status": "written-equivalent-prepared-playback-untested",
+      "teachingAnchors": [
+        "ch17-l12-teaching-01",
+        "ch17-l12-teaching-02",
+        "ch17-l12-worked"
+      ],
+      "reasoningPrepared": "Written explanation supplies the contribution method without relying on video; existing clip playback is untested.",
+      "assessmentDistinctness": "Foundational retrieval or application of explicitly taught method; no automatic fresh-transfer claim.",
+      "feedback": "Original hint/key/model/feedback retained unchanged in protected JSON and complete manuscript where learner-facing."
+    },
+    {
+      "lesson": 12,
+      "group": "practiceConcepts",
+      "id": "ch17-concept-linked-genes",
+      "sourcePointer": "lesson-12.practice.json.practiceConcepts[0]",
+      "original": {
+        "id": "ch17-concept-linked-genes",
+        "term": "linked genes",
+        "lesson": 12,
+        "meaning": "Genes on the same chromosome that may be inherited together, especially when close.",
+        "example": "AB is carried on one homologue and ab on the other.",
+        "aliases": [],
+        "cue": "Identify the structure, quantity or relationship described.",
+        "correctExplanation": "Genes on the same chromosome that may be inherited together, especially when close. Physical linkage can reduce recombinant frequency, but widely separated loci may appear independent.",
+        "misconception": {
+          "statement": "Any genes on the same chromosome can never recombine.",
+          "correction": "Genes on the same chromosome that may be inherited together, especially when close. Physical linkage can reduce recombinant frequency, but widely separated loci may appear independent."
+        },
+        "reviewRoute": "lesson-12"
+      },
+      "status": "support-record-not-independent-demand",
+      "teachingAnchors": [
+        "ch17-l12-teaching-01",
+        "ch17-l12-teaching-02",
+        "ch17-l12-teaching-03"
+      ],
+      "reasoningPrepared": "Linked loci occupy the same chromosome; close loci tend to retain original arrangements, and crossover can separate them. Multiple possible classes do not imply equal frequencies.",
+      "assessmentDistinctness": "Foundational retrieval or application of explicitly taught method; no automatic fresh-transfer claim.",
+      "feedback": "Original hint/key/model/feedback retained unchanged in protected JSON and complete manuscript where learner-facing."
+    },
+    {
+      "lesson": 12,
+      "group": "practiceConcepts",
+      "id": "ch17-concept-parental-combination",
+      "sourcePointer": "lesson-12.practice.json.practiceConcepts[1]",
+      "original": {
+        "id": "ch17-concept-parental-combination",
+        "term": "parental combination",
+        "lesson": 12,
+        "meaning": "An allele combination matching one of the original chromosome arrangements in the heterozygous parent.",
+        "example": "For AB/ab, the combinations AB and ab are parental.",
+        "aliases": [],
+        "cue": "Identify the structure, quantity or relationship described.",
+        "correctExplanation": "An allele combination matching one of the original chromosome arrangements in the heterozygous parent. Parental depends on the specified phase, not always capital letters together.",
+        "misconception": {
+          "statement": "AB is always parental in every heterozygote.",
+          "correction": "An allele combination matching one of the original chromosome arrangements in the heterozygous parent. Parental depends on the specified phase, not always capital letters together."
+        },
+        "reviewRoute": "lesson-12"
+      },
+      "status": "support-record-not-independent-demand",
+      "teachingAnchors": [
+        "ch17-l12-teaching-01",
+        "ch17-l12-teaching-02"
+      ],
+      "reasoningPrepared": "AaBb versus slash notation, AB/ab and reversed Ab/aB phase, and all four offspring mappings are explicitly taught; changed-phase notes exercise explains dominance versus parental status.",
+      "assessmentDistinctness": "Foundational retrieval or application of explicitly taught method; no automatic fresh-transfer claim.",
+      "feedback": "Original hint/key/model/feedback retained unchanged in protected JSON and complete manuscript where learner-facing."
+    },
+    {
+      "lesson": 12,
+      "group": "practiceConcepts",
+      "id": "ch17-concept-recombinant-combination",
+      "sourcePointer": "lesson-12.practice.json.practiceConcepts[2]",
+      "original": {
+        "id": "ch17-concept-recombinant-combination",
+        "term": "recombinant combination",
+        "lesson": 12,
+        "meaning": "An allele combination different from the parent’s original arrangement for the loci considered.",
+        "example": "For AB/ab, crossing over can generate Ab and aB.",
+        "aliases": [],
+        "cue": "Identify the structure, quantity or relationship described.",
+        "correctExplanation": "An allele combination different from the parent’s original arrangement for the loci considered. Recombinant does not necessarily mean a new allele was created.",
+        "misconception": {
+          "statement": "A recombinant always contains a novel mutation.",
+          "correction": "An allele combination different from the parent’s original arrangement for the loci considered. Recombinant does not necessarily mean a new allele was created."
+        },
+        "reviewRoute": "lesson-12"
+      },
+      "status": "support-record-not-independent-demand",
+      "teachingAnchors": [
+        "ch17-l12-teaching-02"
+      ],
+      "reasoningPrepared": "Original slide97 figure traces nonsister exchange in prophase I, unchanged sisters and recombinant products; exchange must lie between loci and need not create a new allele.",
+      "assessmentDistinctness": "Foundational retrieval or application of explicitly taught method; no automatic fresh-transfer claim.",
+      "feedback": "Original hint/key/model/feedback retained unchanged in protected JSON and complete manuscript where learner-facing."
+    },
+    {
+      "lesson": 12,
+      "group": "practiceConcepts",
+      "id": "ch17-concept-linkage-phase",
+      "sourcePointer": "lesson-12.practice.json.practiceConcepts[3]",
+      "original": {
+        "id": "ch17-concept-linkage-phase",
+        "term": "linkage phase",
+        "lesson": 12,
+        "meaning": "The arrangement of alleles across the two homologous chromosomes.",
+        "example": "AB/ab differs from Ab/aB even though both can be written AaBb.",
+        "aliases": [],
+        "cue": "Identify the structure, quantity or relationship described.",
+        "correctExplanation": "The arrangement of alleles across the two homologous chromosomes. The compact genotype AaBb alone does not specify phase.",
+        "misconception": {
+          "statement": "AaBb always means AB and ab are together on the homologues.",
+          "correction": "The arrangement of alleles across the two homologous chromosomes. The compact genotype AaBb alone does not specify phase."
+        },
+        "reviewRoute": "lesson-12"
+      },
+      "status": "support-record-not-independent-demand",
+      "teachingAnchors": [
+        "ch17-l12-teaching-01",
+        "ch17-l12-teaching-02"
+      ],
+      "reasoningPrepared": "AaBb versus slash notation, AB/ab and reversed Ab/aB phase, and all four offspring mappings are explicitly taught; changed-phase notes exercise explains dominance versus parental status.",
+      "assessmentDistinctness": "Foundational retrieval or application of explicitly taught method; no automatic fresh-transfer claim.",
+      "feedback": "Original hint/key/model/feedback retained unchanged in protected JSON and complete manuscript where learner-facing."
+    },
+    {
+      "lesson": 12,
+      "group": "authoredPractice",
+      "id": "ch17-l12-application-1",
+      "sourcePointer": "lesson-12.practice.json.authoredPractice[0]",
+      "original": {
+        "prompt": "A linked-gene test cross produces all four phenotype classes, but two parental classes dominate. Does the presence of four classes rule out linkage?",
+        "answer": "No; crossing over can produce the smaller recombinant classes",
+        "explanation": "Linkage changes frequencies and does not necessarily eliminate recombination.",
+        "cue": "Trace the normal mechanism before choosing an answer.",
+        "id": "ch17-l12-application-1",
+        "options": [
+          "Yes; linkage permits only two classes in all cases",
+          "Yes; every recombinant is a different species",
+          "No; because the tester contributes no DNA",
+          "No; crossing over can produce the smaller recombinant classes"
+        ],
+        "difficulty": "application",
+        "lesson": 12,
+        "chapter": 17,
+        "conceptId": "ch17-concept-test-cross",
+        "family": "application",
+        "kind": "mc",
+        "reviewRoute": "lesson-12",
+        "flashVariant": {
+          "id": "ch17-l12-scenario-1",
+          "family": "scenario-explanation",
+          "prompt": "A linked-gene test cross produces all four phenotype classes, but two parental classes dominate. Does the presence of four classes rule out linkage?",
+          "model": "No; crossing over can produce the smaller recombinant classes. Linkage changes frequencies and does not necessarily eliminate recombination.",
+          "selfAssessed": true
+        }
+      },
+      "status": "prepared-visible-teaching",
+      "teachingAnchors": [
+        "ch17-l12-teaching-01",
+        "ch17-l12-teaching-02",
+        "ch17-l12-teaching-03",
+        "ch17-l12-worked"
+      ],
+      "reasoningPrepared": "Derives independent 1:1:1:1, traces fixed recessive tester and four diploid/phenotype mappings, explains unequal parental/recombinant counts with sampling, expression, survival and scoring limits.",
+      "assessmentDistinctness": "Foundational retrieval or application of explicitly taught method; no automatic fresh-transfer claim.",
+      "feedback": "Original hint/key/model/feedback retained unchanged in protected JSON and complete manuscript where learner-facing."
+    },
+    {
+      "lesson": 12,
+      "group": "flashVariant",
+      "id": "ch17-l12-scenario-1",
+      "sourcePointer": "lesson-12.practice.json.authoredPractice[0].flashVariant",
+      "original": {
+        "id": "ch17-l12-scenario-1",
+        "family": "scenario-explanation",
+        "prompt": "A linked-gene test cross produces all four phenotype classes, but two parental classes dominate. Does the presence of four classes rule out linkage?",
+        "model": "No; crossing over can produce the smaller recombinant classes. Linkage changes frequencies and does not necessarily eliminate recombination.",
+        "selfAssessed": true
+      },
+      "status": "prepared-visible-teaching",
+      "teachingAnchors": [
+        "ch17-l12-teaching-01",
+        "ch17-l12-teaching-02",
+        "ch17-l12-teaching-03",
+        "ch17-l12-worked"
+      ],
+      "reasoningPrepared": "Derives independent 1:1:1:1, traces fixed recessive tester and four diploid/phenotype mappings, explains unequal parental/recombinant counts with sampling, expression, survival and scoring limits.",
+      "assessmentDistinctness": "Foundational retrieval or application of explicitly taught method; no automatic fresh-transfer claim.",
+      "feedback": "Original hint/key/model/feedback retained unchanged in protected JSON and complete manuscript where learner-facing."
+    },
+    {
+      "lesson": 12,
+      "group": "typedPractice",
+      "id": "ch17-l12-context-linked-genes",
+      "sourcePointer": "lesson-12.practice.json.typedPractice[0]",
+      "original": {
+        "id": "ch17-l12-context-linked-genes",
+        "chapter": 17,
+        "lesson": 12,
+        "conceptId": "ch17-concept-linked-genes",
+        "family": "scenario-retrieval",
+        "kind": "blank",
+        "difficulty": "application",
+        "prompt": "Identify the term illustrated: AB is carried on one homologue and ab on the other.",
+        "answer": "linked genes",
+        "aliases": [],
+        "cue": "Use the relationship described in the example.",
+        "explanation": "Genes on the same chromosome that may be inherited together, especially when close. Physical linkage can reduce recombinant frequency, but widely separated loci may appear independent.",
+        "reviewRoute": "lesson-12"
+      },
+      "status": "prepared-visible-teaching",
+      "teachingAnchors": [
+        "ch17-l12-teaching-01",
+        "ch17-l12-teaching-02",
+        "ch17-l12-teaching-03"
+      ],
+      "reasoningPrepared": "Linked loci occupy the same chromosome; close loci tend to retain original arrangements, and crossover can separate them. Multiple possible classes do not imply equal frequencies.",
+      "assessmentDistinctness": "Foundational retrieval or application of explicitly taught method; no automatic fresh-transfer claim.",
+      "feedback": "Original hint/key/model/feedback retained unchanged in protected JSON and complete manuscript where learner-facing."
+    },
+    {
+      "lesson": 12,
+      "group": "typedPractice",
+      "id": "ch17-l12-context-parental-combination",
+      "sourcePointer": "lesson-12.practice.json.typedPractice[1]",
+      "original": {
+        "id": "ch17-l12-context-parental-combination",
+        "chapter": 17,
+        "lesson": 12,
+        "conceptId": "ch17-concept-parental-combination",
+        "family": "scenario-retrieval",
+        "kind": "blank",
+        "difficulty": "application",
+        "prompt": "Identify the term illustrated: For AB/ab, the combinations AB and ab are parental.",
+        "answer": "parental combination",
+        "aliases": [],
+        "cue": "Use the relationship described in the example.",
+        "explanation": "An allele combination matching one of the original chromosome arrangements in the heterozygous parent. Parental depends on the specified phase, not always capital letters together.",
+        "reviewRoute": "lesson-12"
+      },
+      "status": "prepared-visible-teaching",
+      "teachingAnchors": [
+        "ch17-l12-teaching-01",
+        "ch17-l12-teaching-02"
+      ],
+      "reasoningPrepared": "AaBb versus slash notation, AB/ab and reversed Ab/aB phase, and all four offspring mappings are explicitly taught; changed-phase notes exercise explains dominance versus parental status.",
+      "assessmentDistinctness": "Foundational retrieval or application of explicitly taught method; no automatic fresh-transfer claim.",
+      "feedback": "Original hint/key/model/feedback retained unchanged in protected JSON and complete manuscript where learner-facing."
+    },
+    {
+      "lesson": 12,
+      "group": "typedPractice",
+      "id": "ch17-l12-context-recombinant-combination",
+      "sourcePointer": "lesson-12.practice.json.typedPractice[2]",
+      "original": {
+        "id": "ch17-l12-context-recombinant-combination",
+        "chapter": 17,
+        "lesson": 12,
+        "conceptId": "ch17-concept-recombinant-combination",
+        "family": "scenario-retrieval",
+        "kind": "blank",
+        "difficulty": "application",
+        "prompt": "Identify the term illustrated: For AB/ab, crossing over can generate Ab and aB.",
+        "answer": "recombinant combination",
+        "aliases": [],
+        "cue": "Use the relationship described in the example.",
+        "explanation": "An allele combination different from the parent’s original arrangement for the loci considered. Recombinant does not necessarily mean a new allele was created.",
+        "reviewRoute": "lesson-12"
+      },
+      "status": "prepared-visible-teaching",
+      "teachingAnchors": [
+        "ch17-l12-teaching-02"
+      ],
+      "reasoningPrepared": "Original slide97 figure traces nonsister exchange in prophase I, unchanged sisters and recombinant products; exchange must lie between loci and need not create a new allele.",
+      "assessmentDistinctness": "Foundational retrieval or application of explicitly taught method; no automatic fresh-transfer claim.",
+      "feedback": "Original hint/key/model/feedback retained unchanged in protected JSON and complete manuscript where learner-facing."
+    },
+    {
+      "lesson": 12,
+      "group": "typedPractice",
+      "id": "ch17-l12-context-linkage-phase",
+      "sourcePointer": "lesson-12.practice.json.typedPractice[3]",
+      "original": {
+        "id": "ch17-l12-context-linkage-phase",
+        "chapter": 17,
+        "lesson": 12,
+        "conceptId": "ch17-concept-linkage-phase",
+        "family": "scenario-retrieval",
+        "kind": "blank",
+        "difficulty": "application",
+        "prompt": "Identify the term illustrated: AB/ab differs from Ab/aB even though both can be written AaBb.",
+        "answer": "linkage phase",
+        "aliases": [],
+        "cue": "Use the relationship described in the example.",
+        "explanation": "The arrangement of alleles across the two homologous chromosomes. The compact genotype AaBb alone does not specify phase.",
+        "reviewRoute": "lesson-12"
+      },
+      "status": "prepared-visible-teaching",
+      "teachingAnchors": [
+        "ch17-l12-teaching-01",
+        "ch17-l12-teaching-02"
+      ],
+      "reasoningPrepared": "AaBb versus slash notation, AB/ab and reversed Ab/aB phase, and all four offspring mappings are explicitly taught; changed-phase notes exercise explains dominance versus parental status.",
+      "assessmentDistinctness": "Foundational retrieval or application of explicitly taught method; no automatic fresh-transfer claim.",
+      "feedback": "Original hint/key/model/feedback retained unchanged in protected JSON and complete manuscript where learner-facing."
+    },
+    {
+      "lesson": 12,
+      "group": "diagramPractice",
+      "id": "ch17-linkage-label-practice-A",
+      "sourcePointer": "lesson-12.practice.json.diagramPractice[0]",
+      "original": {
+        "id": "ch17-linkage-label-practice-A",
+        "lesson": 12,
+        "conceptId": "ch17-concept-allele",
+        "diagramId": "ch17-linkage-label",
+        "letter": "A",
+        "prompt": "What does letter A identify?",
+        "options": [
+          "Parental gamete",
+          "Recombinant gamete"
+        ],
+        "cue": "Follow the leader line or the lettered feature. Read any stated model assumptions.",
+        "explanation": "Letter A identifies Parental gamete.",
+        "reviewRoute": "lesson-12"
+      },
+      "status": "prepared-visible-teaching",
+      "teachingAnchors": [
+        "ch17-l12-teaching-01"
+      ],
+      "reasoningPrepared": "Locked AB/ab figure is taught location by location: A/B parental, C/D recombinant. Classification follows phase; legend already reveals answers.",
+      "assessmentDistinctness": "Unavoidable locked-answer overlap; formative rehearsal, not answer-free identification.",
+      "feedback": "Original hint/key/model/feedback retained unchanged in protected JSON and complete manuscript where learner-facing."
+    },
+    {
+      "lesson": 12,
+      "group": "diagramPractice",
+      "id": "ch17-linkage-label-practice-B",
+      "sourcePointer": "lesson-12.practice.json.diagramPractice[1]",
+      "original": {
+        "id": "ch17-linkage-label-practice-B",
+        "lesson": 12,
+        "conceptId": "ch17-concept-allele",
+        "diagramId": "ch17-linkage-label",
+        "letter": "B",
+        "prompt": "What does letter B identify?",
+        "options": [
+          "Recombinant gamete",
+          "Parental gamete"
+        ],
+        "cue": "Follow the leader line or the lettered feature. Read any stated model assumptions.",
+        "explanation": "Letter B identifies Parental gamete.",
+        "reviewRoute": "lesson-12"
+      },
+      "status": "prepared-visible-teaching",
+      "teachingAnchors": [
+        "ch17-l12-teaching-01"
+      ],
+      "reasoningPrepared": "Locked AB/ab figure is taught location by location: A/B parental, C/D recombinant. Classification follows phase; legend already reveals answers.",
+      "assessmentDistinctness": "Unavoidable locked-answer overlap; formative rehearsal, not answer-free identification.",
+      "feedback": "Original hint/key/model/feedback retained unchanged in protected JSON and complete manuscript where learner-facing."
+    },
+    {
+      "lesson": 12,
+      "group": "diagramPractice",
+      "id": "ch17-linkage-label-practice-C",
+      "sourcePointer": "lesson-12.practice.json.diagramPractice[2]",
+      "original": {
+        "id": "ch17-linkage-label-practice-C",
+        "lesson": 12,
+        "conceptId": "ch17-concept-allele",
+        "diagramId": "ch17-linkage-label",
+        "letter": "C",
+        "prompt": "What does letter C identify?",
+        "options": [
+          "Recombinant gamete",
+          "Parental gamete"
+        ],
+        "cue": "Follow the leader line or the lettered feature. Read any stated model assumptions.",
+        "explanation": "Letter C identifies Recombinant gamete.",
+        "reviewRoute": "lesson-12"
+      },
+      "status": "prepared-visible-teaching",
+      "teachingAnchors": [
+        "ch17-l12-teaching-01"
+      ],
+      "reasoningPrepared": "Locked AB/ab figure is taught location by location: A/B parental, C/D recombinant. Classification follows phase; legend already reveals answers.",
+      "assessmentDistinctness": "Unavoidable locked-answer overlap; formative rehearsal, not answer-free identification.",
+      "feedback": "Original hint/key/model/feedback retained unchanged in protected JSON and complete manuscript where learner-facing."
+    },
+    {
+      "lesson": 12,
+      "group": "diagramPractice",
+      "id": "ch17-linkage-label-practice-D",
+      "sourcePointer": "lesson-12.practice.json.diagramPractice[3]",
+      "original": {
+        "id": "ch17-linkage-label-practice-D",
+        "lesson": 12,
+        "conceptId": "ch17-concept-allele",
+        "diagramId": "ch17-linkage-label",
+        "letter": "D",
+        "prompt": "What does letter D identify?",
+        "options": [
+          "Parental gamete",
+          "Recombinant gamete"
+        ],
+        "cue": "Follow the leader line or the lettered feature. Read any stated model assumptions.",
+        "explanation": "Letter D identifies Recombinant gamete.",
+        "reviewRoute": "lesson-12"
+      },
+      "status": "prepared-visible-teaching",
+      "teachingAnchors": [
+        "ch17-l12-teaching-01"
+      ],
+      "reasoningPrepared": "Locked AB/ab figure is taught location by location: A/B parental, C/D recombinant. Classification follows phase; legend already reveals answers.",
+      "assessmentDistinctness": "Unavoidable locked-answer overlap; formative rehearsal, not answer-free identification.",
+      "feedback": "Original hint/key/model/feedback retained unchanged in protected JSON and complete manuscript where learner-facing."
+    },
+    {
+      "lesson": 12,
+      "group": "historical-worked",
+      "id": "ch17-l12-worked",
+      "sourcePointer": "lesson-12.practice.json.guidedActivities[0].worked",
+      "original": {
+        "title": "Identify parental and recombinant classes",
+        "scenario": "An AB/ab heterozygote is crossed with ab/ab. Offspring reveal 42 AB, 40 ab, 9 Ab and 9 aB gamete contributions.",
+        "steps": [
+          "The stated parental phase is AB/ab, so AB and ab are parental.",
+          "Ab and aB are recombinant combinations.",
+          "There are 82 parental and 18 recombinant observations among 100.",
+          "The excess parental classes is consistent with linkage in this model.",
+          "The counts do not mean only 18 cells underwent any crossing over anywhere; they concern the two loci being scored."
+        ],
+        "id": "ch17-l12-worked",
+        "label": "Worked example"
+      },
+      "status": "frozen-metadata-not-new-independent-demand",
+      "teachingAnchors": [
+        "ch17-l12-teaching-01",
+        "ch17-l12-teaching-02",
+        "ch17-l12-teaching-03"
+      ],
+      "reasoningPrepared": "Linked loci occupy the same chromosome; close loci tend to retain original arrangements, and crossover can separate them. Multiple possible classes do not imply equal frequencies.",
+      "assessmentDistinctness": "Original course-data worked record is frozen; the four-block fragment owns the proposed revised learner worked copy. Runtime consumption of metadata is untested.",
+      "feedback": "Original hint/key/model/feedback retained unchanged in protected JSON and complete manuscript where learner-facing."
+    },
+    {
+      "lesson": 12,
+      "group": "guided",
+      "id": "ch17-l12-guided-q1",
+      "sourcePointer": "lesson-12.practice.json.guidedActivities[0].guided.items[0]",
+      "original": {
+        "prompt": "For Ab/aB, which gametes are parental?",
+        "answer": "Ab and aB",
+        "explanation": "Parental combinations match the stated chromosome phase.",
+        "cue": "Read the slash-separated homologues first.",
+        "id": "ch17-l12-guided-q1",
+        "options": [
+          "AA and bb",
+          "Ab and aB",
+          "AB and ab"
+        ],
+        "difficulty": "application",
+        "kind": "select",
+        "hint": "Read the slash-separated homologues first."
+      },
+      "status": "prepared-visible-teaching",
+      "teachingAnchors": [
+        "ch17-l12-teaching-01",
+        "ch17-l12-teaching-02"
+      ],
+      "reasoningPrepared": "AaBb versus slash notation, AB/ab and reversed Ab/aB phase, and all four offspring mappings are explicitly taught; changed-phase notes exercise explains dominance versus parental status.",
+      "assessmentDistinctness": "Exact Ab/aB relation must be taught and appears in the guided phase exercise; instructional rehearsal, not fresh transfer.",
+      "feedback": "Original hint/key/model/feedback retained unchanged in protected JSON and complete manuscript where learner-facing."
+    },
+    {
+      "lesson": 12,
+      "group": "guided",
+      "id": "ch17-l12-guided-q2",
+      "sourcePointer": "lesson-12.practice.json.guidedActivities[0].guided.items[1]",
+      "original": {
+        "prompt": "Why is aabb useful as the tester?",
+        "answer": "Its gamete contribution is fixed as ab",
+        "explanation": "A fixed tester makes the heterozygote’s contribution traceable.",
+        "cue": "Separate the two parents’ gamete contributions.",
+        "id": "ch17-l12-guided-q2",
+        "options": [
+          "It contributes all four gamete types equally",
+          "It prevents all meiosis",
+          "Its gamete contribution is fixed as ab"
+        ],
+        "difficulty": "application",
+        "kind": "select",
+        "hint": "Separate the two parents’ gamete contributions."
+      },
+      "status": "prepared-visible-teaching",
+      "teachingAnchors": [
+        "ch17-l12-teaching-01",
+        "ch17-l12-teaching-02",
+        "ch17-l12-teaching-03",
+        "ch17-l12-worked"
+      ],
+      "reasoningPrepared": "Derives independent 1:1:1:1, traces fixed recessive tester and four diploid/phenotype mappings, explains unequal parental/recombinant counts with sampling, expression, survival and scoring limits.",
+      "assessmentDistinctness": "Foundational retrieval or application of explicitly taught method; no automatic fresh-transfer claim.",
+      "feedback": "Original hint/key/model/feedback retained unchanged in protected JSON and complete manuscript where learner-facing."
+    },
+    {
+      "lesson": 12,
+      "group": "native-stop-and-think",
+      "id": "ch17-l12-stop-and-think",
+      "sourcePointer": "lesson-12.html protected Stop and think",
+      "original": {
+        "id": "ch17-l12-stop-and-think",
+        "prompt": "What should you establish before counting recombinant offspring?",
+        "model": "The parental chromosome arrangement or evidence identifying the parental classes."
+      },
+      "status": "prepared-visible-teaching",
+      "teachingAnchors": [
+        "ch17-l12-teaching-01",
+        "ch17-l12-teaching-02",
+        "ch17-l12-teaching-03"
+      ],
+      "reasoningPrepared": "Linked loci occupy the same chromosome; close loci tend to retain original arrangements, and crossover can separate them. Multiple possible classes do not imply equal frequencies.",
+      "assessmentDistinctness": "Foundational retrieval or application of explicitly taught method; no automatic fresh-transfer claim.",
+      "feedback": "Original hint/key/model/feedback retained unchanged in protected JSON and complete manuscript where learner-facing."
+    },
+    {
+      "lesson": 12,
+      "group": "optional-textbook",
+      "id": "ch17-p601-in-text-q18",
+      "sourcePointer": "lesson-12.textbook.json[0]",
+      "original": {
+        "id": "ch17-p601-in-text-q18",
+        "page": 601,
+        "group": "in-text",
+        "number": 18,
+        "label": "In Text · p. 601 · question 18",
+        "topics": [
+          "lesson-08",
+          "lesson-12",
+          "lesson-13"
+        ],
+        "crops": [
+          {
+            "page": 601,
+            "box": [
+              72.49490356445312,
+              480.7859802246094,
+              210.52000427246094,
+              543.0159301757812
+            ],
+            "src": "./assets/textbook-practice/ch17-p601-in-text-q18-0.png",
+            "role": "question"
+          },
+          {
+            "page": 601,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p601.jpg",
+            "role": "supporting full-page context"
+          },
+          {
+            "page": 600,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p600.jpg",
+            "role": "supporting full-page context"
+          }
+        ],
+        "sourceText": "2 \u0012\u0019  Differentiate between the  chromosome theory of  inheritance and the gene- chromosome theory.",
+        "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+      },
+      "feedback": "No new official answer key invented. Source wording/crops/instructions protected. All task text included in manuscript.",
+      "status": "prepared-visible-teaching",
+      "teachingAnchors": [
+        "ch17-l12-teaching-03"
+      ],
+      "reasoningPrepared": "Chromosome theory versus specific linear loci explicitly contrasted."
+    },
+    {
+      "lesson": 12,
+      "group": "optional-textbook",
+      "id": "ch17-p601-in-text-q19",
+      "sourcePointer": "lesson-12.textbook.json[1]",
+      "original": {
+        "id": "ch17-p601-in-text-q19",
+        "page": 601,
+        "group": "in-text",
+        "number": 19,
+        "label": "In Text · p. 601 · question 19",
+        "topics": [
+          "lesson-08",
+          "lesson-12",
+          "lesson-13"
+        ],
+        "crops": [
+          {
+            "page": 601,
+            "box": [
+              72.49490356445312,
+              540.7860107421875,
+              235.1729736328125,
+              570.803466796875
+            ],
+            "src": "./assets/textbook-practice/ch17-p601-in-text-q19-0.png",
+            "role": "question"
+          },
+          {
+            "page": 601,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p601.jpg",
+            "role": "supporting full-page context"
+          },
+          {
+            "page": 600,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p600.jpg",
+            "role": "supporting full-page context"
+          }
+        ],
+        "sourceText": "2 \u0012\u001a  What is chromosome mapping?",
+        "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+      },
+      "feedback": "No new official answer key invented. Source wording/crops/instructions protected. All task text included in manuscript.",
+      "status": "sequence-after-lesson13",
+      "teachingAnchors": [
+        "ch17-l13-teaching-01",
+        "ch17-l13-teaching-02"
+      ],
+      "reasoningPrepared": "Relative order/distance inference from recombinant offspring developed in13, with three-distance and missing-distance worked cases."
+    },
+    {
+      "lesson": 12,
+      "group": "optional-textbook",
+      "id": "ch17-p601-in-text-q21",
+      "sourcePointer": "lesson-12.textbook.json[2]",
+      "original": {
+        "id": "ch17-p601-in-text-q21",
+        "page": 601,
+        "group": "in-text",
+        "number": 21,
+        "label": "In Text · p. 601 · question 21",
+        "topics": [
+          "lesson-08",
+          "lesson-12",
+          "lesson-13"
+        ],
+        "crops": [
+          {
+            "page": 601,
+            "box": [
+              72.49490356445312,
+              579.7860107421875,
+              237.79896545410156,
+              628.5160522460938
+            ],
+            "src": "./assets/textbook-practice/ch17-p601-in-text-q21-0.png",
+            "role": "question"
+          },
+          {
+            "page": 601,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p601.jpg",
+            "role": "supporting full-page context"
+          },
+          {
+            "page": 600,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p600.jpg",
+            "role": "supporting full-page context"
+          }
+        ],
+        "sourceText": "2 \u0013\u0012  Distinguish between the terms  recombinant types and parental  types.",
+        "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+      },
+      "feedback": "No new official answer key invented. Source wording/crops/instructions protected. All task text included in manuscript.",
+      "status": "prepared-visible-teaching",
+      "teachingAnchors": [
+        "ch17-l12-teaching-01",
+        "ch17-l12-teaching-02"
+      ],
+      "reasoningPrepared": "Parental/recombinant comparison from specified original phase, including reversed phase."
+    },
+    {
+      "lesson": 12,
+      "group": "optional-textbook",
+      "id": "ch17-p598-section-17-1-q1",
+      "sourcePointer": "lesson-12.textbook.json[3]",
+      "original": {
+        "id": "ch17-p598-section-17-1-q1",
+        "page": 598,
+        "group": "section-17-1",
+        "number": 1,
+        "label": "Section 17 1 · p. 598 · question 1",
+        "topics": [
+          "lesson-06",
+          "lesson-07",
+          "lesson-12"
+        ],
+        "crops": [
+          {
+            "page": 598,
+            "box": [
+              38.0,
+              221.9306182861328,
+              285.0,
+              266.93072509765625
+            ],
+            "src": "./assets/textbook-practice/ch17-p598-section-17-1-q1-0.png",
+            "role": "question"
+          },
+          {
+            "page": 598,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p598.jpg",
+            "role": "supporting full-page context"
+          }
+        ],
+        "sourceText": "1. Explain how the Launch Lab: Coin Toss applies \nto making predictions about the genotypes and \nphenotypes of the F2 generation of a monohybrid cross.",
+        "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+      },
+      "feedback": "No new official answer key invented. Source wording/crops/instructions protected. All task text included in manuscript.",
+      "status": "retained-prerequisite-or-declared-gap",
+      "previousBoundedReview": {
+        "status": "partial-broad-textbook-prerequisite",
+        "teachingAnchorIds": [
+          "ch17-b2v010-l06-segregation",
+          "ch17-b2v010-l06-counts"
+        ],
+        "priorPrerequisiteIds": [
+          "p02-pairs",
+          "p02-counts",
+          "p03-weighting"
+        ],
+        "reasoningPrepared": "Equal alternative contributions, joined outcomes and expected versus observed counts are explained.",
+        "assessmentDistinctness": "Specific Launch Lab: Coin Toss procedure is not restated as a new assignment.",
+        "limits": [
+          "The exact laboratory activity is a source-specific demand beyond the fully taught inheritance/probability analogy; no experiment or invented observations are claimed."
+        ]
+      },
+      "previousReviewSource": "return_06_07/PRACTICE_PREPARATION_MAP.json",
+      "teachingAnchors": [
+        "ch17-l12-teaching-01",
+        "ch17-l12-teaching-02",
+        "ch17-l12-teaching-03"
+      ],
+      "currentContribution": "Reactivates segregation, independent expectations versus counts, chromosome theory and model limitations. Does not replace all historical or prior dominance teaching."
+    },
+    {
+      "lesson": 12,
+      "group": "optional-textbook",
+      "id": "ch17-p598-section-17-1-q2",
+      "sourcePointer": "lesson-12.textbook.json[4]",
+      "original": {
+        "id": "ch17-p598-section-17-1-q2",
+        "page": 598,
+        "group": "section-17-1",
+        "number": 2,
+        "label": "Section 17 1 · p. 598 · question 2",
+        "topics": [
+          "lesson-06",
+          "lesson-07",
+          "lesson-12"
+        ],
+        "crops": [
+          {
+            "page": 598,
+            "box": [
+              38.0,
+              266.93072509765625,
+              285.0,
+              298.9306945800781
+            ],
+            "src": "./assets/textbook-practice/ch17-p598-section-17-1-q2-0.png",
+            "role": "question"
+          },
+          {
+            "page": 598,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p598.jpg",
+            "role": "supporting full-page context"
+          }
+        ],
+        "sourceText": "2. Describe two aspects of Mendel’s experiments that \nwere unusual for biology experiments in the 1800s.",
+        "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+      },
+      "feedback": "No new official answer key invented. Source wording/crops/instructions protected. All task text included in manuscript.",
+      "status": "retained-prerequisite-or-declared-gap",
+      "previousBoundedReview": {
+        "status": "partial-historical-source-scope",
+        "teachingAnchorIds": [],
+        "priorPrerequisiteIds": [
+          "p02-controlled",
+          "p02-generations",
+          "p02-counts"
+        ],
+        "reasoningPrepared": "Actual retained02 explains controlled parentage, tracked generations and counts. Historical claims about why those were unusual in the1800s are not fully developed in this pair.",
+        "assessmentDistinctness": "Core method/definition preparation; no automatic fresh-transfer certification.",
+        "limits": [
+          "Historical comparison requires the original source account; no invented history or complete06/07 preparation claim."
+        ]
+      },
+      "previousReviewSource": "return_06_07/PRACTICE_PREPARATION_MAP.json",
+      "teachingAnchors": [
+        "ch17-l12-teaching-01",
+        "ch17-l12-teaching-02",
+        "ch17-l12-teaching-03"
+      ],
+      "currentContribution": "Reactivates segregation, independent expectations versus counts, chromosome theory and model limitations. Does not replace all historical or prior dominance teaching."
+    },
+    {
+      "lesson": 12,
+      "group": "optional-textbook",
+      "id": "ch17-p598-section-17-1-q3",
+      "sourcePointer": "lesson-12.textbook.json[5]",
+      "original": {
+        "id": "ch17-p598-section-17-1-q3",
+        "page": 598,
+        "group": "section-17-1",
+        "number": 3,
+        "label": "Section 17 1 · p. 598 · question 3",
+        "topics": [
+          "lesson-06",
+          "lesson-07",
+          "lesson-12"
+        ],
+        "crops": [
+          {
+            "page": 598,
+            "box": [
+              38.0,
+              298.9306945800781,
+              285.0,
+              343.9306945800781
+            ],
+            "src": "./assets/textbook-practice/ch17-p598-section-17-1-q3-0.png",
+            "role": "question"
+          },
+          {
+            "page": 598,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p598.jpg",
+            "role": "supporting full-page context"
+          }
+        ],
+        "sourceText": " 3. Compare and contrast the following terms: selective \nbreeding and true breeding. How does each term relate \nto the fi eld of genetics?",
+        "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+      },
+      "feedback": "No new official answer key invented. Source wording/crops/instructions protected. All task text included in manuscript.",
+      "status": "retained-prerequisite-or-declared-gap",
+      "previousBoundedReview": {
+        "status": "prepared-by-retained-prerequisite",
+        "teachingAnchorIds": [],
+        "priorPrerequisiteIds": [
+          "p01-selective",
+          "p02-controlled"
+        ],
+        "reasoningPrepared": "Retained01 defines selective breeding; retained02 explains true-breeding lines from breeding history. The comparison is an earlier-foundation task.",
+        "assessmentDistinctness": "Core method/definition preparation; no automatic fresh-transfer certification.",
+        "limits": []
+      },
+      "previousReviewSource": "return_06_07/PRACTICE_PREPARATION_MAP.json",
+      "teachingAnchors": [
+        "ch17-l12-teaching-01",
+        "ch17-l12-teaching-02",
+        "ch17-l12-teaching-03"
+      ],
+      "currentContribution": "Reactivates segregation, independent expectations versus counts, chromosome theory and model limitations. Does not replace all historical or prior dominance teaching."
+    },
+    {
+      "lesson": 12,
+      "group": "optional-textbook",
+      "id": "ch17-p598-section-17-1-q4",
+      "sourcePointer": "lesson-12.textbook.json[6]",
+      "original": {
+        "id": "ch17-p598-section-17-1-q4",
+        "page": 598,
+        "group": "section-17-1",
+        "number": 4,
+        "label": "Section 17 1 · p. 598 · question 4",
+        "topics": [
+          "lesson-06",
+          "lesson-07",
+          "lesson-12"
+        ],
+        "crops": [
+          {
+            "page": 598,
+            "box": [
+              38.0,
+              343.9306945800781,
+              285.0,
+              362.9306945800781
+            ],
+            "src": "./assets/textbook-practice/ch17-p598-section-17-1-q4-0.png",
+            "role": "question"
+          },
+          {
+            "page": 598,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p598.jpg",
+            "role": "supporting full-page context"
+          }
+        ],
+        "sourceText": " 4. Explain the meaning of the law of segregation.",
+        "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+      },
+      "feedback": "No new official answer key invented. Source wording/crops/instructions protected. All task text included in manuscript.",
+      "status": "retained-prerequisite-or-declared-gap",
+      "previousBoundedReview": {
+        "status": "prepared-current-and-retained-prerequisite",
+        "teachingAnchorIds": [
+          "ch17-b2v010-l06-segregation"
+        ],
+        "priorPrerequisiteIds": [
+          "p02-mechanism",
+          "p02-pairs"
+        ],
+        "reasoningPrepared": "One-allele contribution, homologue separation and fertilisation restoring a pair explain segregation. The changed phenotype model does not cancel it.",
+        "assessmentDistinctness": "Core method/definition preparation; no automatic fresh-transfer certification.",
+        "limits": []
+      },
+      "previousReviewSource": "return_06_07/PRACTICE_PREPARATION_MAP.json",
+      "teachingAnchors": [
+        "ch17-l12-teaching-01",
+        "ch17-l12-teaching-02",
+        "ch17-l12-teaching-03"
+      ],
+      "currentContribution": "Reactivates segregation, independent expectations versus counts, chromosome theory and model limitations. Does not replace all historical or prior dominance teaching."
+    },
+    {
+      "lesson": 12,
+      "group": "optional-textbook",
+      "id": "ch17-p598-section-17-1-q5",
+      "sourcePointer": "lesson-12.textbook.json[7]",
+      "original": {
+        "id": "ch17-p598-section-17-1-q5",
+        "page": 598,
+        "group": "section-17-1",
+        "number": 5,
+        "label": "Section 17 1 · p. 598 · question 5",
+        "topics": [
+          "lesson-06",
+          "lesson-07",
+          "lesson-12"
+        ],
+        "crops": [
+          {
+            "page": 598,
+            "box": [
+              38.0,
+              362.9306945800781,
+              285.0,
+              433.9306945800781
+            ],
+            "src": "./assets/textbook-practice/ch17-p598-section-17-1-q5-0.png",
+            "role": "question"
+          },
+          {
+            "page": 598,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p598.jpg",
+            "role": "supporting full-page context"
+          }
+        ],
+        "sourceText": " 5. If you did not know whether green or yellow was \ndominant for the gene for pod colour in peas, how \nwould you determine this experimentally? Describe \nyour experiment in detail, and explain how you would \ninterpret the results.",
+        "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+      },
+      "feedback": "No new official answer key invented. Source wording/crops/instructions protected. All task text included in manuscript.",
+      "status": "retained-prerequisite-or-declared-gap",
+      "previousBoundedReview": {
+        "status": "prepared-by-retained-prerequisite",
+        "teachingAnchorIds": [],
+        "priorPrerequisiteIds": [
+          "p02-controlled",
+          "p02-generations",
+          "p01-expression"
+        ],
+        "reasoningPrepared": "Controlled contrasting true-breeding parents, observed F1 expression and follow-up generations provide the design and interpretation method.",
+        "assessmentDistinctness": "Core method/definition preparation; no automatic fresh-transfer certification.",
+        "limits": [
+          "The student must state their proposed evidence/model and cannot invent actual measured counts."
+        ]
+      },
+      "previousReviewSource": "return_06_07/PRACTICE_PREPARATION_MAP.json",
+      "teachingAnchors": [
+        "ch17-l12-teaching-01",
+        "ch17-l12-teaching-02",
+        "ch17-l12-teaching-03"
+      ],
+      "currentContribution": "Reactivates segregation, independent expectations versus counts, chromosome theory and model limitations. Does not replace all historical or prior dominance teaching."
+    },
+    {
+      "lesson": 12,
+      "group": "optional-textbook",
+      "id": "ch17-p598-section-17-1-q6",
+      "sourcePointer": "lesson-12.textbook.json[8]",
+      "original": {
+        "id": "ch17-p598-section-17-1-q6",
+        "page": 598,
+        "group": "section-17-1",
+        "number": 6,
+        "label": "Section 17 1 · p. 598 · question 6",
+        "topics": [
+          "lesson-06",
+          "lesson-07",
+          "lesson-12"
+        ],
+        "crops": [
+          {
+            "page": 598,
+            "box": [
+              38.0,
+              433.9306945800781,
+              285.0,
+              578.9306030273438
+            ],
+            "src": "./assets/textbook-practice/ch17-p598-section-17-1-q6-0.png",
+            "role": "question"
+          },
+          {
+            "page": 598,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p598.jpg",
+            "role": "supporting full-page context"
+          }
+        ],
+        "sourceText": " 6. In the garden pea, infl ated pod shape (I) is dominant \nto constricted shape (i). Axial fl ower position (A) is \ndominant to terminal fl ower position (a). Start with \nthe cross IIAA × iiaa from the parental generation.\na) State the genotype and phenotype of the F1 plants.\nb) List all of the genotypes and phenotypes of the F2 \nplants, and determine the genotypic and phenotypic \nratios.\n \n c) Explain how experimental data and your ratios in \npart (b) support the law of independent assortment.",
+        "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+      },
+      "feedback": "No new official answer key invented. Source wording/crops/instructions protected. All task text included in manuscript.",
+      "status": "retained-prerequisite-or-declared-gap",
+      "previousBoundedReview": {
+        "status": "prepared-by-retained-prerequisite",
+        "teachingAnchorIds": [],
+        "priorPrerequisiteIds": [
+          "p05-gametes",
+          "p05-fertilisation",
+          "p05-grouping",
+          "p05-independent"
+        ],
+        "reasoningPrepared": "Retained05 fully works homozygous contrasting two-locus P parents, F1 gametes, F2 genotype/phenotype grouping and independent-assortment reasoning.",
+        "assessmentDistinctness": "Core method/definition preparation; no automatic fresh-transfer certification.",
+        "limits": [
+          "The source task supplies different I/A notation. Part(c) asks about experimental data without supplying a dataset; use stated model evidence and do not invent measurements."
+        ]
+      },
+      "previousReviewSource": "return_06_07/PRACTICE_PREPARATION_MAP.json",
+      "teachingAnchors": [
+        "ch17-l12-teaching-01",
+        "ch17-l12-teaching-02",
+        "ch17-l12-teaching-03"
+      ],
+      "currentContribution": "Reactivates segregation, independent expectations versus counts, chromosome theory and model limitations. Does not replace all historical or prior dominance teaching."
+    },
+    {
+      "lesson": 12,
+      "group": "optional-textbook",
+      "id": "ch17-p598-section-17-1-q7",
+      "sourcePointer": "lesson-12.textbook.json[9]",
+      "original": {
+        "id": "ch17-p598-section-17-1-q7",
+        "page": 598,
+        "group": "section-17-1",
+        "number": 7,
+        "label": "Section 17 1 · p. 598 · question 7",
+        "topics": [
+          "lesson-06",
+          "lesson-07",
+          "lesson-12"
+        ],
+        "crops": [
+          {
+            "page": 598,
+            "box": [
+              38.0,
+              578.9306030273438,
+              285.0,
+              732.0
+            ],
+            "src": "./assets/textbook-practice/ch17-p598-section-17-1-q7-0.png",
+            "role": "question"
+          },
+          {
+            "page": 598,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p598.jpg",
+            "role": "supporting full-page context"
+          }
+        ],
+        "sourceText": " 7. In fruit fl ies, long wings (L) are dominant to short wings \n(l) and gray body colour (G) is dominant to black body \ncolour (g). If fl ies that are heterozygous for both traits \nare crossed and 256 offspring are produced, how many \nof these offspring would you predict to have each \nphenotype below? \n \n a) long, gray\n \n b) long, black\n \n c) short, gray\n \n d) short, black",
+        "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+      },
+      "feedback": "No new official answer key invented. Source wording/crops/instructions protected. All task text included in manuscript.",
+      "status": "retained-prerequisite-or-declared-gap",
+      "previousBoundedReview": {
+        "status": "prepared-current-and-retained-prerequisite",
+        "teachingAnchorIds": [
+          "ch17-b2v010-l06-counts"
+        ],
+        "priorPrerequisiteIds": [
+          "p05-products",
+          "p05-grouping",
+          "p05-counts",
+          "p03-count-events"
+        ],
+        "reasoningPrepared": "Retained two-locus phenotype probabilities and expected-number scaling prepare the different256-offspring calculation without copying its numerical answers.",
+        "assessmentDistinctness": "Core method/definition preparation; no automatic fresh-transfer certification.",
+        "limits": []
+      },
+      "previousReviewSource": "return_06_07/PRACTICE_PREPARATION_MAP.json",
+      "teachingAnchors": [
+        "ch17-l12-teaching-01",
+        "ch17-l12-teaching-02",
+        "ch17-l12-teaching-03"
+      ],
+      "currentContribution": "Reactivates segregation, independent expectations versus counts, chromosome theory and model limitations. Does not replace all historical or prior dominance teaching.",
+      "additionalLimit": "Expected9:3:3:1 requires an explicit independent-assortment model. The wording names fruit-fly traits without supplying phase/recombination; after linkage, those assumptions must not be inferred from “two traits” alone."
+    },
+    {
+      "lesson": 12,
+      "group": "optional-textbook",
+      "id": "ch17-p598-section-17-1-q9",
+      "sourcePointer": "lesson-12.textbook.json[10]",
+      "original": {
+        "id": "ch17-p598-section-17-1-q9",
+        "page": 598,
+        "group": "section-17-1",
+        "number": 9,
+        "label": "Section 17 1 · p. 598 · question 9",
+        "topics": [
+          "lesson-06",
+          "lesson-07",
+          "lesson-12"
+        ],
+        "crops": [
+          {
+            "page": 598,
+            "box": [
+              287.0,
+              318.93060302734375,
+              539.0,
+              402.93060302734375
+            ],
+            "src": "./assets/textbook-practice/ch17-p598-section-17-1-q9-0.png",
+            "role": "question"
+          },
+          {
+            "page": 598,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p598.jpg",
+            "role": "supporting full-page context"
+          }
+        ],
+        "sourceText": " 9. Now imagine that you performed the cross described in \nquestion 8. Your results were 139 fl ies with long wings \nand gray bodies, 49 fl ies with long wings and black \nbodies, 53 fl ies with short wings and gray bodies, and \n15 fl ies with short wings and black bodies. Are these the \nresults you would expect? Explain your reasoning.",
+        "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+      },
+      "feedback": "No new official answer key invented. Source wording/crops/instructions protected. All task text included in manuscript.",
+      "status": "retained-prerequisite-or-declared-gap",
+      "previousBoundedReview": {
+        "status": "partial-source-context-ambiguity",
+        "teachingAnchorIds": [
+          "ch17-b2v010-l06-counts"
+        ],
+        "priorPrerequisiteIds": [
+          "p04-likelihood",
+          "p05-grouping",
+          "p05-counts"
+        ],
+        "reasoningPrepared": "The learner can distinguish expected proportions from observed variation, but Q9 inherits Q8’s cross-reference ambiguity.",
+        "assessmentDistinctness": "No historical source or answer is silently replaced.",
+        "limits": [
+          "The139/49/53/15 counts resemble a9:3:3:1 expectation, whereas an independently assorting double-heterozygote testcross predicts1:1:1:1.",
+          "These are observed finite counts; their unequal proportions are not logically impossible under a cross permitting all four groups. Review which cross is intended rather than asserting impossible data."
+        ]
+      },
+      "previousReviewSource": "return_06_07/PRACTICE_PREPARATION_MAP.json",
+      "teachingAnchors": [
+        "ch17-l12-teaching-01",
+        "ch17-l12-teaching-02",
+        "ch17-l12-teaching-03"
+      ],
+      "currentContribution": "Reactivates segregation, independent expectations versus counts, chromosome theory and model limitations. Does not replace all historical or prior dominance teaching."
+    },
+    {
+      "lesson": 12,
+      "group": "optional-textbook",
+      "id": "ch17-p598-section-17-1-q10",
+      "sourcePointer": "lesson-12.textbook.json[11]",
+      "original": {
+        "id": "ch17-p598-section-17-1-q10",
+        "page": 598,
+        "group": "section-17-1",
+        "number": 10,
+        "label": "Section 17 1 · p. 598 · question 10",
+        "topics": [
+          "lesson-06",
+          "lesson-07",
+          "lesson-12"
+        ],
+        "crops": [
+          {
+            "page": 598,
+            "box": [
+              287.0,
+              402.93060302734375,
+              539.0,
+              460.93060302734375
+            ],
+            "src": "./assets/textbook-practice/ch17-p598-section-17-1-q10-0.png",
+            "role": "question"
+          },
+          {
+            "page": 598,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p598.jpg",
+            "role": "supporting full-page context"
+          }
+        ],
+        "sourceText": " 10. Explain how incompletely dominant and co-dominant \nalleles differ from dominant and recessive alleles. What \ntype of observation would indicate that alleles are \nco-dominant?",
+        "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+      },
+      "feedback": "No new official answer key invented. Source wording/crops/instructions protected. All task text included in manuscript.",
+      "status": "retained-prerequisite-or-declared-gap",
+      "previousBoundedReview": {
+        "status": "prepared-visible-current",
+        "teachingAnchorIds": [
+          "ch17-b2v010-l06-compare",
+          "ch17-b2v010-l06-expression-comparison",
+          "ch17-l06-teaching-02"
+        ],
+        "priorPrerequisiteIds": [
+          "p01-expression"
+        ],
+        "reasoningPrepared": "The same genotype grouping is interpreted under complete dominance, incomplete dominance and codominance, using intermediate versus both-expressed evidence.",
+        "assessmentDistinctness": "Necessary comparison overlaps foundation/synthesis demands.",
+        "limits": []
+      },
+      "previousReviewSource": "return_06_07/PRACTICE_PREPARATION_MAP.json",
+      "teachingAnchors": [
+        "ch17-l12-teaching-01",
+        "ch17-l12-teaching-02",
+        "ch17-l12-teaching-03"
+      ],
+      "currentContribution": "Reactivates segregation, independent expectations versus counts, chromosome theory and model limitations. Does not replace all historical or prior dominance teaching."
+    },
+    {
+      "lesson": 12,
+      "group": "optional-textbook",
+      "id": "ch17-p598-section-17-1-q11",
+      "sourcePointer": "lesson-12.textbook.json[12]",
+      "original": {
+        "id": "ch17-p598-section-17-1-q11",
+        "page": 598,
+        "group": "section-17-1",
+        "number": 11,
+        "label": "Section 17 1 · p. 598 · question 11",
+        "topics": [
+          "lesson-06",
+          "lesson-07",
+          "lesson-12"
+        ],
+        "crops": [
+          {
+            "page": 598,
+            "box": [
+              287.0,
+              460.93060302734375,
+              539.0,
+              602.9306030273438
+            ],
+            "src": "./assets/textbook-practice/ch17-p598-section-17-1-q11-0.png",
+            "role": "question"
+          },
+          {
+            "page": 598,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p598.jpg",
+            "role": "supporting full-page context"
+          }
+        ],
+        "sourceText": " 11. A farmer crosses a black rooster with a white hen. Of the \nseven offspring, three are black, three are speckled black \nand white, and one is white.\n \n a) What could you infer about the black and white \nalleles?\n \n b) Do the ratios of characteristics among the offspring \nfollow the pattern you would expect? Why or why \nnot? What further information would you need in \norder to draw conclusions about the inheritance of \nthis trait?",
+        "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+      },
+      "feedback": "No new official answer key invented. Source wording/crops/instructions protected. All task text included in manuscript.",
+      "status": "retained-prerequisite-or-declared-gap",
+      "previousBoundedReview": {
+        "status": "prepared-model-check-method-with-source-conflict",
+        "teachingAnchorIds": [
+          "ch17-b2v010-l06-counts",
+          "ch17-l06-teaching-02",
+          "ch17-b2v010-l06-compare"
+        ],
+        "priorPrerequisiteIds": [
+          "p02-pairs"
+        ],
+        "reasoningPrepared": "Visible teaching separates unequal counts among possible outcomes from a genotype requiring an unavailable parental allele. Codominance comparison is taught.",
+        "assessmentDistinctness": "The exact chicken seven-offspring case is not worked in new teaching.",
+        "limits": [
+          "Under a simple codominant BB×WW model, onlyBW is possible; observed black/white homozygote classes need model/parentage/classification review rather than a small-sample excuse.",
+          "Do not infer a complete genetic mechanism solely from the mixed-colour photograph or source prompt."
+        ]
+      },
+      "previousReviewSource": "return_06_07/PRACTICE_PREPARATION_MAP.json",
+      "teachingAnchors": [
+        "ch17-l12-teaching-01",
+        "ch17-l12-teaching-02",
+        "ch17-l12-teaching-03"
+      ],
+      "currentContribution": "Reactivates segregation, independent expectations versus counts, chromosome theory and model limitations. Does not replace all historical or prior dominance teaching."
+    },
+    {
+      "lesson": 12,
+      "group": "optional-textbook",
+      "id": "ch17-p598-section-17-1-q12",
+      "sourcePointer": "lesson-12.textbook.json[13]",
+      "original": {
+        "id": "ch17-p598-section-17-1-q12",
+        "page": 598,
+        "group": "section-17-1",
+        "number": 12,
+        "label": "Section 17 1 · p. 598 · question 12",
+        "topics": [
+          "lesson-06",
+          "lesson-07",
+          "lesson-12"
+        ],
+        "crops": [
+          {
+            "page": 598,
+            "box": [
+              287.0,
+              602.9306030273438,
+              539.0,
+              732.0
+            ],
+            "src": "./assets/textbook-practice/ch17-p598-section-17-1-q12-0.png",
+            "role": "question"
+          },
+          {
+            "page": 598,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p598.jpg",
+            "role": "supporting full-page context"
+          }
+        ],
+        "sourceText": " 12. Describe the observations that suggested to scientists \nthat genes might be carried on chromosomes.",
+        "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+      },
+      "feedback": "No new official answer key invented. Source wording/crops/instructions protected. All task text included in manuscript.",
+      "status": "retained-prerequisite-or-declared-gap",
+      "previousBoundedReview": {
+        "status": "partial-historical-source-scope",
+        "teachingAnchorIds": [
+          "ch17-b2v010-l06-segregation"
+        ],
+        "priorPrerequisiteIds": [
+          "p02-mechanism",
+          "p05-independent"
+        ],
+        "reasoningPrepared": "Retained chromosome movements and two-allele patterns provide the conceptual correspondence, but the historical observational sequence is not fully narrated in this pair.",
+        "assessmentDistinctness": "Core method/definition preparation; no automatic fresh-transfer certification.",
+        "limits": [
+          "Read original printed596–597 for the historical account. No claim that current06/07 fully teaches every historical detail in the broad Section17.1 set."
+        ]
+      },
+      "previousReviewSource": "return_06_07/PRACTICE_PREPARATION_MAP.json",
+      "teachingAnchors": [
+        "ch17-l12-teaching-01",
+        "ch17-l12-teaching-02",
+        "ch17-l12-teaching-03"
+      ],
+      "currentContribution": "Reactivates segregation, independent expectations versus counts, chromosome theory and model limitations. Does not replace all historical or prior dominance teaching."
+    },
+    {
+      "lesson": 13,
+      "group": "required-mc",
+      "id": "ch17-l13-check-mc-1",
+      "sourcePointer": "lesson-13.practice.json.checks[0].mc[0]",
+      "original": {
+        "prompt": "Counts are 150 and 130 parental, 10 and 10 recombinant. What is the recombination frequency?",
+        "answer": "6.67% approximately",
+        "explanation": "Recombinants = 20; total = 300; 20/300 × 100 ≈ 6.67%.",
+        "cue": "Trace the normal mechanism before choosing an answer.",
+        "id": "ch17-l13-check-mc-1",
+        "options": [
+          "6.67% approximately",
+          "3.33% approximately",
+          "20%",
+          "7.14% approximately"
+        ],
+        "difficulty": "application"
+      },
+      "status": "prepared-visible-teaching",
+      "teachingAnchors": [
+        "ch17-l13-teaching-01",
+        "ch17-l13-worked"
+      ],
+      "reasoningPrepared": "Both reciprocal classes numerator, all-offspring denominator, fraction→percent, short-interval interpretation and full model examples are taught before the retained calculation; guided14+6/260 differs from required numbers.",
+      "assessmentDistinctness": "Foundational retrieval or application of explicitly taught method; no automatic fresh-transfer claim.",
+      "feedback": "Original hint/key/model/feedback retained unchanged in protected JSON and complete manuscript where learner-facing."
+    },
+    {
+      "lesson": 13,
+      "group": "required-mc",
+      "id": "ch17-l13-check-mc-2",
+      "sourcePointer": "lesson-13.practice.json.checks[0].mc[1]",
+      "original": {
+        "prompt": "Why can a two-locus estimate underestimate a long map distance?",
+        "answer": "Multiple crossovers may restore parental outside-marker combinations",
+        "explanation": "Some exchanges are hidden when only two outside loci are scored.",
+        "cue": "Trace the normal mechanism before choosing an answer.",
+        "id": "ch17-l13-check-mc-2",
+        "options": [
+          "Map units are always exact physical millimetres",
+          "Multiple crossovers may restore parental outside-marker combinations",
+          "Chromosomes cannot contain more than two genes",
+          "All recombinants die by definition"
+        ],
+        "difficulty": "application"
+      },
+      "status": "prepared-visible-teaching",
+      "teachingAnchors": [
+        "ch17-l13-teaching-03"
+      ],
+      "reasoningPrepared": "Visible ABC/abc → Abc/aBC → AbC/aBc trace follows the same two nonsister chromatids, shows restored AC/ac outside labels and explains missed events.",
+      "assessmentDistinctness": "Foundational retrieval or application of explicitly taught method; no automatic fresh-transfer claim.",
+      "feedback": "Original hint/key/model/feedback retained unchanged in protected JSON and complete manuscript where learner-facing."
+    },
+    {
+      "lesson": 13,
+      "group": "required-writing",
+      "id": "ch17-l13-check-writing-1",
+      "sourcePointer": "lesson-13.practice.json.checks[0].writing[0]",
+      "original": {
+        "prompt": "Show the calculation for 16 and 24 recombinant offspring with 90 and 70 parental offspring. Include an interpretation.",
+        "model": "Total = 16 + 24 + 90 + 70 = 200. Recombinants = 40. Frequency = 40/200 × 100% = 20%, suggesting about 20 map units in a simple short-interval model. It is an estimate based on the scored loci.",
+        "criteria": [
+          "Identifies the relevant structures or quantities.",
+          "Explains the causal relationship or calculation, not just the final result.",
+          "Uses the stated evidence and avoids a stronger conclusion than it supports."
+        ],
+        "id": "ch17-l13-check-writing-1",
+        "limit": 3200
+      },
+      "status": "prepared-visible-teaching",
+      "teachingAnchors": [
+        "ch17-l13-teaching-01",
+        "ch17-l13-worked"
+      ],
+      "reasoningPrepared": "Both reciprocal classes numerator, all-offspring denominator, fraction→percent, short-interval interpretation and full model examples are taught before the retained calculation; guided14+6/260 differs from required numbers.",
+      "assessmentDistinctness": "Protected16+24+90+70 calculation not solved in new teaching, but source-led40+40+10+10 shares20% result. Treat as a new count application with numerical-result overlap, not certified fresh transfer.",
+      "feedback": "Original hint/key/model/feedback retained unchanged in protected JSON and complete manuscript where learner-facing."
+    },
+    {
+      "lesson": 13,
+      "group": "required-writing",
+      "id": "ch17-l13-check-writing-2",
+      "sourcePointer": "lesson-13.practice.json.checks[0].writing[1]",
+      "original": {
+        "prompt": "Explain why a map unit is not a universal physical DNA length and why two-locus frequencies have limits.",
+        "model": "Map units reflect recombination probability. Recombination varies across chromosome regions and organisms, so no fixed base-pair conversion applies universally. Multiple crossovers can be undetected, and two-locus recombinant frequency approaches the independent limit of 50%.",
+        "criteria": [
+          "Identifies the relevant structures or quantities.",
+          "Explains the causal relationship or calculation, not just the final result.",
+          "Uses the stated evidence and avoids a stronger conclusion than it supports."
+        ],
+        "id": "ch17-l13-check-writing-2",
+        "limit": 3200
+      },
+      "status": "prepared-visible-teaching",
+      "teachingAnchors": [
+        "ch17-l13-teaching-01",
+        "ch17-l13-teaching-03"
+      ],
+      "reasoningPrepared": "Defines short-interval cM approximation, distinguishes base-pair length, expected r ≤ 50% from samples potentially >50%, and additive map spans above 50 cM.",
+      "assessmentDistinctness": "Foundational retrieval or application of explicitly taught method; no automatic fresh-transfer claim.",
+      "feedback": "Original hint/key/model/feedback retained unchanged in protected JSON and complete manuscript where learner-facing."
+    },
+    {
+      "lesson": 13,
+      "group": "words",
+      "id": "ch17-word-recombination-frequency",
+      "sourcePointer": "lesson-13.practice.json.words[0]",
+      "original": {
+        "term": "recombination frequency",
+        "meaning": "The fraction of scored offspring or gametes that are recombinant for the loci considered.",
+        "example": "Eighteen of 100 test-cross offspring are recombinant, giving 18%.",
+        "importantDistinction": "Use all scored offspring in the denominator and both recombinant classes in the numerator.",
+        "aliases": [],
+        "id": "ch17-word-recombination-frequency",
+        "lesson": 13,
+        "whatItDoes": "Eighteen of 100 test-cross offspring are recombinant, giving 18%.",
+        "feature": "Eighteen of 100 test-cross offspring are recombinant, giving 18%.",
+        "confusion": "Use all scored offspring in the denominator and both recombinant classes in the numerator."
+      },
+      "status": "support-record-not-independent-demand",
+      "teachingAnchors": [
+        "ch17-l13-teaching-01",
+        "ch17-l13-worked"
+      ],
+      "reasoningPrepared": "Both reciprocal classes numerator, all-offspring denominator, fraction→percent, short-interval interpretation and full model examples are taught before the retained calculation; guided14+6/260 differs from required numbers.",
+      "assessmentDistinctness": "Foundational retrieval or application of explicitly taught method; no automatic fresh-transfer claim.",
+      "feedback": "Original hint/key/model/feedback retained unchanged in protected JSON and complete manuscript where learner-facing."
+    },
+    {
+      "lesson": 13,
+      "group": "words",
+      "id": "ch17-word-map-unit",
+      "sourcePointer": "lesson-13.practice.json.words[1]",
+      "original": {
+        "term": "map unit",
+        "meaning": "A unit of genetic map distance corresponding approximately to one percent recombination over short intervals.",
+        "example": "A short interval with about 8% recombinants is estimated as about 8 map units.",
+        "importantDistinction": "A map unit is not a universal fixed number of base pairs.",
+        "aliases": [
+          "centimorgan",
+          "cM"
+        ],
+        "id": "ch17-word-map-unit",
+        "lesson": 13,
+        "whatItDoes": "A short interval with about 8% recombinants is estimated as about 8 map units.",
+        "feature": "A short interval with about 8% recombinants is estimated as about 8 map units.",
+        "confusion": "A map unit is not a universal fixed number of base pairs."
+      },
+      "status": "support-record-not-independent-demand",
+      "teachingAnchors": [
+        "ch17-l13-teaching-01",
+        "ch17-l13-teaching-03"
+      ],
+      "reasoningPrepared": "Defines short-interval cM approximation, distinguishes base-pair length, expected r ≤ 50% from samples potentially >50%, and additive map spans above 50 cM.",
+      "assessmentDistinctness": "Foundational retrieval or application of explicitly taught method; no automatic fresh-transfer claim.",
+      "feedback": "Original hint/key/model/feedback retained unchanged in protected JSON and complete manuscript where learner-facing."
+    },
+    {
+      "lesson": 13,
+      "group": "words",
+      "id": "ch17-word-linkage-map",
+      "sourcePointer": "lesson-13.practice.json.words[2]",
+      "original": {
+        "term": "linkage map",
+        "meaning": "A map of relative gene order and distances estimated from recombination data.",
+        "example": "Genes A, B and C are placed along a line with measured intervals.",
+        "importantDistinction": "A genetic map is not a direct microscopic measurement of DNA length.",
+        "aliases": [],
+        "id": "ch17-word-linkage-map",
+        "lesson": 13,
+        "whatItDoes": "Genes A, B and C are placed along a line with measured intervals.",
+        "feature": "Genes A, B and C are placed along a line with measured intervals.",
+        "confusion": "A genetic map is not a direct microscopic measurement of DNA length."
+      },
+      "status": "support-record-not-independent-demand",
+      "teachingAnchors": [
+        "ch17-l13-teaching-02",
+        "ch17-l13-worked"
+      ],
+      "reasoningPrepared": "All-three-distances middle-locus proof and reversed equivalent map; two supplied distances require both alternatives and missing comparison. Source H/E/N and new J/K/L alternatives avoid simply reproducing bank8/12.",
+      "assessmentDistinctness": "Foundational retrieval or application of explicitly taught method; no automatic fresh-transfer claim.",
+      "feedback": "Original hint/key/model/feedback retained unchanged in protected JSON and complete manuscript where learner-facing."
+    },
+    {
+      "lesson": 13,
+      "group": "words",
+      "id": "ch17-word-double-crossover",
+      "sourcePointer": "lesson-13.practice.json.words[3]",
+      "original": {
+        "term": "double crossover",
+        "meaning": "Two exchange events within a chromosome region.",
+        "example": "Two exchanges can restore the original outside-marker arrangement.",
+        "importantDistinction": "Undetected multiple crossovers can make observed two-locus recombination underestimate longer distances.",
+        "aliases": [],
+        "id": "ch17-word-double-crossover",
+        "lesson": 13,
+        "whatItDoes": "Two exchanges can restore the original outside-marker arrangement.",
+        "feature": "Two exchanges can restore the original outside-marker arrangement.",
+        "confusion": "Undetected multiple crossovers can make observed two-locus recombination underestimate longer distances."
+      },
+      "status": "support-record-not-independent-demand",
+      "teachingAnchors": [
+        "ch17-l13-teaching-03"
+      ],
+      "reasoningPrepared": "Visible ABC/abc → Abc/aBC → AbC/aBc trace follows the same two nonsister chromatids, shows restored AC/ac outside labels and explains missed events.",
+      "assessmentDistinctness": "Foundational retrieval or application of explicitly taught method; no automatic fresh-transfer claim.",
+      "feedback": "Original hint/key/model/feedback retained unchanged in protected JSON and complete manuscript where learner-facing."
+    },
+    {
+      "lesson": 13,
+      "group": "practiceQuestions",
+      "id": "ch17-source-OBJ_2131245",
+      "sourcePointer": "lesson-13.practice.json.practiceQuestions[0]",
+      "original": {
+        "id": "ch17-source-OBJ_2131245",
+        "lesson": 13,
+        "prompt": "A test cross yields 420 parental and 80 recombinant offspring. What is the approximate short-interval map distance?",
+        "answer": "16 cM",
+        "options": [
+          "16 cM",
+          "8 cM",
+          "19 cM",
+          "84 cM"
+        ],
+        "cue": "Identify the relevant mechanism or quantity and apply the stated model.",
+        "explanation": "Recombination frequency is 80/(420 + 80) × 100 = 16%, corresponding to about 16 cM in the stated approximation.",
+        "difficulty": "application",
+        "stimuli": [],
+        "sourceItemId": "OBJ_2131245",
+        "conceptId": "ch17-concept-test-cross"
+      },
+      "status": "prepared-visible-teaching",
+      "teachingAnchors": [
+        "ch17-l13-teaching-01",
+        "ch17-l13-worked"
+      ],
+      "reasoningPrepared": "Both reciprocal classes numerator, all-offspring denominator, fraction→percent, short-interval interpretation and full model examples are taught before the retained calculation; guided14+6/260 differs from required numbers.",
+      "assessmentDistinctness": "Foundational retrieval or application of explicitly taught method; no automatic fresh-transfer claim.",
+      "feedback": "Original hint/key/model/feedback retained unchanged in protected JSON and complete manuscript where learner-facing."
+    },
+    {
+      "lesson": 13,
+      "group": "practiceQuestions",
+      "id": "ch17-foundation-ch17-word-recombination-frequency",
+      "sourcePointer": "lesson-13.practice.json.practiceQuestions[1]",
+      "original": {
+        "id": "ch17-foundation-ch17-word-recombination-frequency",
+        "lesson": 13,
+        "conceptId": "ch17-concept-recombination-frequency",
+        "prompt": "Which term matches this description? The fraction of scored offspring or gametes that are recombinant for the loci considered.",
+        "options": [
+          "recombination frequency",
+          "map unit",
+          "linkage map",
+          "double crossover"
+        ],
+        "answer": "recombination frequency",
+        "cue": "Use the meaning of each term, not the length of its name.",
+        "explanation": "The fraction of scored offspring or gametes that are recombinant for the loci considered. Use all scored offspring in the denominator and both recombinant classes in the numerator.",
+        "difficulty": "recall",
+        "family": "definition-recognition",
+        "kind": "mc"
+      },
+      "status": "prepared-visible-teaching",
+      "teachingAnchors": [
+        "ch17-l13-teaching-01",
+        "ch17-l13-worked"
+      ],
+      "reasoningPrepared": "Both reciprocal classes numerator, all-offspring denominator, fraction→percent, short-interval interpretation and full model examples are taught before the retained calculation; guided14+6/260 differs from required numbers.",
+      "assessmentDistinctness": "Foundational retrieval or application of explicitly taught method; no automatic fresh-transfer claim.",
+      "feedback": "Original hint/key/model/feedback retained unchanged in protected JSON and complete manuscript where learner-facing."
+    },
+    {
+      "lesson": 13,
+      "group": "practiceQuestions",
+      "id": "ch17-foundation-ch17-word-map-unit",
+      "sourcePointer": "lesson-13.practice.json.practiceQuestions[2]",
+      "original": {
+        "id": "ch17-foundation-ch17-word-map-unit",
+        "lesson": 13,
+        "conceptId": "ch17-concept-map-unit",
+        "prompt": "Which term matches this description? A unit of genetic map distance corresponding approximately to one percent recombination over short intervals.",
+        "options": [
+          "recombination frequency",
+          "map unit",
+          "linkage map",
+          "double crossover"
+        ],
+        "answer": "map unit",
+        "cue": "Use the meaning of each term, not the length of its name.",
+        "explanation": "A unit of genetic map distance corresponding approximately to one percent recombination over short intervals. A map unit is not a universal fixed number of base pairs.",
+        "difficulty": "recall",
+        "family": "definition-recognition",
+        "kind": "mc"
+      },
+      "status": "prepared-visible-teaching",
+      "teachingAnchors": [
+        "ch17-l13-teaching-01",
+        "ch17-l13-teaching-03"
+      ],
+      "reasoningPrepared": "Defines short-interval cM approximation, distinguishes base-pair length, expected r ≤ 50% from samples potentially >50%, and additive map spans above 50 cM.",
+      "assessmentDistinctness": "Foundational retrieval or application of explicitly taught method; no automatic fresh-transfer claim.",
+      "feedback": "Original hint/key/model/feedback retained unchanged in protected JSON and complete manuscript where learner-facing."
+    },
+    {
+      "lesson": 13,
+      "group": "practiceQuestions",
+      "id": "ch17-foundation-ch17-word-linkage-map",
+      "sourcePointer": "lesson-13.practice.json.practiceQuestions[3]",
+      "original": {
+        "id": "ch17-foundation-ch17-word-linkage-map",
+        "lesson": 13,
+        "conceptId": "ch17-concept-linkage-map",
+        "prompt": "Which term matches this description? A map of relative gene order and distances estimated from recombination data.",
+        "options": [
+          "recombination frequency",
+          "map unit",
+          "linkage map",
+          "double crossover"
+        ],
+        "answer": "linkage map",
+        "cue": "Use the meaning of each term, not the length of its name.",
+        "explanation": "A map of relative gene order and distances estimated from recombination data. A genetic map is not a direct microscopic measurement of DNA length.",
+        "difficulty": "recall",
+        "family": "definition-recognition",
+        "kind": "mc"
+      },
+      "status": "prepared-visible-teaching",
+      "teachingAnchors": [
+        "ch17-l13-teaching-02",
+        "ch17-l13-worked"
+      ],
+      "reasoningPrepared": "All-three-distances middle-locus proof and reversed equivalent map; two supplied distances require both alternatives and missing comparison. Source H/E/N and new J/K/L alternatives avoid simply reproducing bank8/12.",
+      "assessmentDistinctness": "Foundational retrieval or application of explicitly taught method; no automatic fresh-transfer claim.",
+      "feedback": "Original hint/key/model/feedback retained unchanged in protected JSON and complete manuscript where learner-facing."
+    },
+    {
+      "lesson": 13,
+      "group": "practiceQuestions",
+      "id": "ch17-foundation-ch17-word-double-crossover",
+      "sourcePointer": "lesson-13.practice.json.practiceQuestions[4]",
+      "original": {
+        "id": "ch17-foundation-ch17-word-double-crossover",
+        "lesson": 13,
+        "conceptId": "ch17-concept-double-crossover",
+        "prompt": "Which term matches this description? Two exchange events within a chromosome region.",
+        "options": [
+          "recombination frequency",
+          "map unit",
+          "linkage map",
+          "double crossover"
+        ],
+        "answer": "double crossover",
+        "cue": "Use the meaning of each term, not the length of its name.",
+        "explanation": "Two exchange events within a chromosome region. Undetected multiple crossovers can make observed two-locus recombination underestimate longer distances.",
+        "difficulty": "recall",
+        "family": "definition-recognition",
+        "kind": "mc"
+      },
+      "status": "prepared-visible-teaching",
+      "teachingAnchors": [
+        "ch17-l13-teaching-03"
+      ],
+      "reasoningPrepared": "Visible ABC/abc → Abc/aBC → AbC/aBc trace follows the same two nonsister chromatids, shows restored AC/ac outside labels and explains missed events.",
+      "assessmentDistinctness": "Foundational retrieval or application of explicitly taught method; no automatic fresh-transfer claim.",
+      "feedback": "Original hint/key/model/feedback retained unchanged in protected JSON and complete manuscript where learner-facing."
+    },
+    {
+      "lesson": 13,
+      "group": "labelDiagrams",
+      "id": "ch17-map-label",
+      "sourcePointer": "lesson-13.practice.json.labelDiagrams[0]",
+      "original": {
+        "id": "ch17-map-label",
+        "title": "A short-interval chromosome map",
+        "lesson": 13,
+        "src": "./assets/labeling/ch17-map-label.png",
+        "alt": "The schematic positions are 0, 8 and 20 cM. The middle locus is 8 cM from the left locus and 12 cM from the right locus; the total map interval is 20 cM. Lettered identification version; answer key is not drawn.",
+        "answers": {
+          "A": "Locus at 0 cM",
+          "B": "Locus at 8 cM",
+          "C": "Locus at 20 cM",
+          "D": "8 cM",
+          "E": "12 cM"
+        },
+        "options": [
+          "Locus at 0 cM",
+          "Locus at 8 cM",
+          "Locus at 20 cM",
+          "8 cM",
+          "12 cM"
+        ],
+        "reviewNote": "Follow each letter or its leader line. Use the model assumptions and units shown."
+      },
+      "status": "prepared-visible-teaching",
+      "teachingAnchors": [
+        "ch17-l13-teaching-01"
+      ],
+      "reasoningPrepared": "Exact native map read by coordinate, differences and interval lines: A0, B8, C20; D8, E12. Labels already shown in locked legend.",
+      "assessmentDistinctness": "Unavoidable locked-answer overlap; formative rehearsal, not answer-free identification.",
+      "feedback": "Original hint/key/model/feedback retained unchanged in protected JSON and complete manuscript where learner-facing."
+    },
+    {
+      "lesson": 13,
+      "group": "videos",
+      "id": "3nimNyRfeWc",
+      "sourcePointer": "lesson-13.practice.json.videos[0]",
+      "original": {
+        "id": "3nimNyRfeWc",
+        "lesson": 13,
+        "title": "Recombination frequency and chromosome maps — video support",
+        "purpose": "Calculate recombination frequency, construct simple maps and distinguish map distance from a universal physical base-pair distance.",
+        "fallback": "Suppose A–B is 6 map units, B–C is 14 and A–C is 20 in a simple additive map. Since 6 + 14 = 20, B lies between A and C. Either A—6—B—14—C or its reversed orientation expresses the same relative order. Two distances alone may leave more than one order possible. Place the genes tentatively and ask what additional comparison would distinguish the alternatives. Do not invent a third distance merely to finish the drawing.",
+        "disposition": "included",
+        "sourceSlide": 107,
+        "sourceDeck": "c17",
+        "availability": "Source hyperlink resolved syntactically; external playback not certified."
+      },
+      "status": "written-equivalent-prepared-playback-untested",
+      "teachingAnchors": [
+        "ch17-l13-teaching-01",
+        "ch17-l13-teaching-02",
+        "ch17-l13-teaching-03",
+        "ch17-l13-worked"
+      ],
+      "reasoningPrepared": "Written teaching supplies full method and its limits; original video links and fallbacks unchanged, playback untested.",
+      "assessmentDistinctness": "Foundational retrieval or application of explicitly taught method; no automatic fresh-transfer claim.",
+      "feedback": "Original hint/key/model/feedback retained unchanged in protected JSON and complete manuscript where learner-facing."
+    },
+    {
+      "lesson": 13,
+      "group": "videos",
+      "id": "TU44tR0hJ8A",
+      "sourcePointer": "lesson-13.practice.json.videos[1]",
+      "original": {
+        "id": "TU44tR0hJ8A",
+        "lesson": 13,
+        "title": "Recombination frequency and chromosome maps — video support 2",
+        "purpose": "Calculate recombination frequency, construct simple maps and distinguish map distance from a universal physical base-pair distance.",
+        "fallback": "Suppose A–B is 6 map units, B–C is 14 and A–C is 20 in a simple additive map. Since 6 + 14 = 20, B lies between A and C. Either A—6—B—14—C or its reversed orientation expresses the same relative order. Two distances alone may leave more than one order possible. Place the genes tentatively and ask what additional comparison would distinguish the alternatives. Do not invent a third distance merely to finish the drawing.",
+        "disposition": "included",
+        "sourceSlide": 114,
+        "sourceDeck": "c17",
+        "availability": "Source hyperlink resolved syntactically; external playback not certified."
+      },
+      "status": "written-equivalent-prepared-playback-untested",
+      "teachingAnchors": [
+        "ch17-l13-teaching-01",
+        "ch17-l13-teaching-02",
+        "ch17-l13-teaching-03",
+        "ch17-l13-worked"
+      ],
+      "reasoningPrepared": "Written teaching supplies full method and its limits; original video links and fallbacks unchanged, playback untested.",
+      "assessmentDistinctness": "Foundational retrieval or application of explicitly taught method; no automatic fresh-transfer claim.",
+      "feedback": "Original hint/key/model/feedback retained unchanged in protected JSON and complete manuscript where learner-facing."
+    },
+    {
+      "lesson": 13,
+      "group": "practiceConcepts",
+      "id": "ch17-concept-recombination-frequency",
+      "sourcePointer": "lesson-13.practice.json.practiceConcepts[0]",
+      "original": {
+        "id": "ch17-concept-recombination-frequency",
+        "term": "recombination frequency",
+        "lesson": 13,
+        "meaning": "The fraction of scored offspring or gametes that are recombinant for the loci considered.",
+        "example": "Eighteen of 100 test-cross offspring are recombinant, giving 18%.",
+        "aliases": [],
+        "cue": "Identify the structure, quantity or relationship described.",
+        "correctExplanation": "The fraction of scored offspring or gametes that are recombinant for the loci considered. Use all scored offspring in the denominator and both recombinant classes in the numerator.",
+        "misconception": {
+          "statement": "Only the smallest recombinant class belongs in the numerator.",
+          "correction": "The fraction of scored offspring or gametes that are recombinant for the loci considered. Use all scored offspring in the denominator and both recombinant classes in the numerator."
+        },
+        "reviewRoute": "lesson-13"
+      },
+      "status": "support-record-not-independent-demand",
+      "teachingAnchors": [
+        "ch17-l13-teaching-01",
+        "ch17-l13-worked"
+      ],
+      "reasoningPrepared": "Both reciprocal classes numerator, all-offspring denominator, fraction→percent, short-interval interpretation and full model examples are taught before the retained calculation; guided14+6/260 differs from required numbers.",
+      "assessmentDistinctness": "Foundational retrieval or application of explicitly taught method; no automatic fresh-transfer claim.",
+      "feedback": "Original hint/key/model/feedback retained unchanged in protected JSON and complete manuscript where learner-facing."
+    },
+    {
+      "lesson": 13,
+      "group": "practiceConcepts",
+      "id": "ch17-concept-map-unit",
+      "sourcePointer": "lesson-13.practice.json.practiceConcepts[1]",
+      "original": {
+        "id": "ch17-concept-map-unit",
+        "term": "map unit",
+        "lesson": 13,
+        "meaning": "A unit of genetic map distance corresponding approximately to one percent recombination over short intervals.",
+        "example": "A short interval with about 8% recombinants is estimated as about 8 map units.",
+        "aliases": [
+          "centimorgan",
+          "cM"
+        ],
+        "cue": "Identify the structure, quantity or relationship described.",
+        "correctExplanation": "A unit of genetic map distance corresponding approximately to one percent recombination over short intervals. A map unit is not a universal fixed number of base pairs.",
+        "misconception": {
+          "statement": "One map unit always equals exactly one million base pairs.",
+          "correction": "A unit of genetic map distance corresponding approximately to one percent recombination over short intervals. A map unit is not a universal fixed number of base pairs."
+        },
+        "reviewRoute": "lesson-13"
+      },
+      "status": "support-record-not-independent-demand",
+      "teachingAnchors": [
+        "ch17-l13-teaching-01",
+        "ch17-l13-teaching-03"
+      ],
+      "reasoningPrepared": "Defines short-interval cM approximation, distinguishes base-pair length, expected r ≤ 50% from samples potentially >50%, and additive map spans above 50 cM.",
+      "assessmentDistinctness": "Foundational retrieval or application of explicitly taught method; no automatic fresh-transfer claim.",
+      "feedback": "Original hint/key/model/feedback retained unchanged in protected JSON and complete manuscript where learner-facing."
+    },
+    {
+      "lesson": 13,
+      "group": "practiceConcepts",
+      "id": "ch17-concept-linkage-map",
+      "sourcePointer": "lesson-13.practice.json.practiceConcepts[2]",
+      "original": {
+        "id": "ch17-concept-linkage-map",
+        "term": "linkage map",
+        "lesson": 13,
+        "meaning": "A map of relative gene order and distances estimated from recombination data.",
+        "example": "Genes A, B and C are placed along a line with measured intervals.",
+        "aliases": [],
+        "cue": "Identify the structure, quantity or relationship described.",
+        "correctExplanation": "A map of relative gene order and distances estimated from recombination data. A genetic map is not a direct microscopic measurement of DNA length.",
+        "misconception": {
+          "statement": "A linkage map is a photograph of the chromosome.",
+          "correction": "A map of relative gene order and distances estimated from recombination data. A genetic map is not a direct microscopic measurement of DNA length."
+        },
+        "reviewRoute": "lesson-13"
+      },
+      "status": "support-record-not-independent-demand",
+      "teachingAnchors": [
+        "ch17-l13-teaching-02",
+        "ch17-l13-worked"
+      ],
+      "reasoningPrepared": "All-three-distances middle-locus proof and reversed equivalent map; two supplied distances require both alternatives and missing comparison. Source H/E/N and new J/K/L alternatives avoid simply reproducing bank8/12.",
+      "assessmentDistinctness": "Foundational retrieval or application of explicitly taught method; no automatic fresh-transfer claim.",
+      "feedback": "Original hint/key/model/feedback retained unchanged in protected JSON and complete manuscript where learner-facing."
+    },
+    {
+      "lesson": 13,
+      "group": "practiceConcepts",
+      "id": "ch17-concept-double-crossover",
+      "sourcePointer": "lesson-13.practice.json.practiceConcepts[3]",
+      "original": {
+        "id": "ch17-concept-double-crossover",
+        "term": "double crossover",
+        "lesson": 13,
+        "meaning": "Two exchange events within a chromosome region.",
+        "example": "Two exchanges can restore the original outside-marker arrangement.",
+        "aliases": [],
+        "cue": "Identify the structure, quantity or relationship described.",
+        "correctExplanation": "Two exchange events within a chromosome region. Undetected multiple crossovers can make observed two-locus recombination underestimate longer distances.",
+        "misconception": {
+          "statement": "Two-locus recombination frequency increases without limit above 50%.",
+          "correction": "Two exchange events within a chromosome region. Undetected multiple crossovers can make observed two-locus recombination underestimate longer distances."
+        },
+        "reviewRoute": "lesson-13"
+      },
+      "status": "support-record-not-independent-demand",
+      "teachingAnchors": [
+        "ch17-l13-teaching-03"
+      ],
+      "reasoningPrepared": "Visible ABC/abc → Abc/aBC → AbC/aBc trace follows the same two nonsister chromatids, shows restored AC/ac outside labels and explains missed events.",
+      "assessmentDistinctness": "Foundational retrieval or application of explicitly taught method; no automatic fresh-transfer claim.",
+      "feedback": "Original hint/key/model/feedback retained unchanged in protected JSON and complete manuscript where learner-facing."
+    },
+    {
+      "lesson": 13,
+      "group": "authoredPractice",
+      "id": "ch17-l13-application-1",
+      "sourcePointer": "lesson-13.practice.json.authoredPractice[0]",
+      "original": {
+        "prompt": "Only A–B = 8 cM and B–C = 12 cM are known. What should you say about the order?",
+        "answer": "More than one order may fit; an A–C comparison can help",
+        "explanation": "Two pairwise distances may not uniquely determine which gene lies between the others.",
+        "cue": "Trace the normal mechanism before choosing an answer.",
+        "id": "ch17-l13-application-1",
+        "options": [
+          "More than one order may fit; an A–C comparison can help",
+          "A–C must be 20 without any assumptions",
+          "The chromosome must be circular",
+          "B is certainly in the middle in every case"
+        ],
+        "difficulty": "application",
+        "lesson": 13,
+        "chapter": 17,
+        "conceptId": "ch17-concept-recombination-frequency",
+        "family": "application",
+        "kind": "mc",
+        "reviewRoute": "lesson-13",
+        "flashVariant": {
+          "id": "ch17-l13-scenario-1",
+          "family": "scenario-explanation",
+          "prompt": "Only A–B = 8 cM and B–C = 12 cM are known. What should you say about the order?",
+          "model": "More than one order may fit; an A–C comparison can help. Two pairwise distances may not uniquely determine which gene lies between the others.",
+          "selfAssessed": true
+        }
+      },
+      "status": "prepared-visible-teaching",
+      "teachingAnchors": [
+        "ch17-l13-teaching-02",
+        "ch17-l13-worked"
+      ],
+      "reasoningPrepared": "All-three-distances middle-locus proof and reversed equivalent map; two supplied distances require both alternatives and missing comparison. Source H/E/N and new J/K/L alternatives avoid simply reproducing bank8/12.",
+      "assessmentDistinctness": "Foundational retrieval or application of explicitly taught method; no automatic fresh-transfer claim.",
+      "feedback": "Original hint/key/model/feedback retained unchanged in protected JSON and complete manuscript where learner-facing."
+    },
+    {
+      "lesson": 13,
+      "group": "flashVariant",
+      "id": "ch17-l13-scenario-1",
+      "sourcePointer": "lesson-13.practice.json.authoredPractice[0].flashVariant",
+      "original": {
+        "id": "ch17-l13-scenario-1",
+        "family": "scenario-explanation",
+        "prompt": "Only A–B = 8 cM and B–C = 12 cM are known. What should you say about the order?",
+        "model": "More than one order may fit; an A–C comparison can help. Two pairwise distances may not uniquely determine which gene lies between the others.",
+        "selfAssessed": true
+      },
+      "status": "prepared-visible-teaching",
+      "teachingAnchors": [
+        "ch17-l13-teaching-02",
+        "ch17-l13-worked"
+      ],
+      "reasoningPrepared": "All-three-distances middle-locus proof and reversed equivalent map; two supplied distances require both alternatives and missing comparison. Source H/E/N and new J/K/L alternatives avoid simply reproducing bank8/12.",
+      "assessmentDistinctness": "Foundational retrieval or application of explicitly taught method; no automatic fresh-transfer claim.",
+      "feedback": "Original hint/key/model/feedback retained unchanged in protected JSON and complete manuscript where learner-facing."
+    },
+    {
+      "lesson": 13,
+      "group": "typedPractice",
+      "id": "ch17-l13-context-recombination-frequency",
+      "sourcePointer": "lesson-13.practice.json.typedPractice[0]",
+      "original": {
+        "id": "ch17-l13-context-recombination-frequency",
+        "chapter": 17,
+        "lesson": 13,
+        "conceptId": "ch17-concept-recombination-frequency",
+        "family": "scenario-retrieval",
+        "kind": "blank",
+        "difficulty": "application",
+        "prompt": "Identify the term illustrated: Eighteen of 100 test-cross offspring are recombinant, giving 18%.",
+        "answer": "recombination frequency",
+        "aliases": [],
+        "cue": "Use the relationship described in the example.",
+        "explanation": "The fraction of scored offspring or gametes that are recombinant for the loci considered. Use all scored offspring in the denominator and both recombinant classes in the numerator.",
+        "reviewRoute": "lesson-13"
+      },
+      "status": "prepared-visible-teaching",
+      "teachingAnchors": [
+        "ch17-l13-teaching-01",
+        "ch17-l13-worked"
+      ],
+      "reasoningPrepared": "Both reciprocal classes numerator, all-offspring denominator, fraction→percent, short-interval interpretation and full model examples are taught before the retained calculation; guided14+6/260 differs from required numbers.",
+      "assessmentDistinctness": "Foundational retrieval or application of explicitly taught method; no automatic fresh-transfer claim.",
+      "feedback": "Original hint/key/model/feedback retained unchanged in protected JSON and complete manuscript where learner-facing."
+    },
+    {
+      "lesson": 13,
+      "group": "typedPractice",
+      "id": "ch17-l13-context-linkage-map",
+      "sourcePointer": "lesson-13.practice.json.typedPractice[1]",
+      "original": {
+        "id": "ch17-l13-context-linkage-map",
+        "chapter": 17,
+        "lesson": 13,
+        "conceptId": "ch17-concept-linkage-map",
+        "family": "scenario-retrieval",
+        "kind": "blank",
+        "difficulty": "application",
+        "prompt": "Identify the term illustrated: Genes A, B and C are placed along a line with measured intervals.",
+        "answer": "linkage map",
+        "aliases": [],
+        "cue": "Use the relationship described in the example.",
+        "explanation": "A map of relative gene order and distances estimated from recombination data. A genetic map is not a direct microscopic measurement of DNA length.",
+        "reviewRoute": "lesson-13"
+      },
+      "status": "prepared-visible-teaching",
+      "teachingAnchors": [
+        "ch17-l13-teaching-02",
+        "ch17-l13-worked"
+      ],
+      "reasoningPrepared": "All-three-distances middle-locus proof and reversed equivalent map; two supplied distances require both alternatives and missing comparison. Source H/E/N and new J/K/L alternatives avoid simply reproducing bank8/12.",
+      "assessmentDistinctness": "Foundational retrieval or application of explicitly taught method; no automatic fresh-transfer claim.",
+      "feedback": "Original hint/key/model/feedback retained unchanged in protected JSON and complete manuscript where learner-facing."
+    },
+    {
+      "lesson": 13,
+      "group": "typedPractice",
+      "id": "ch17-l13-context-double-crossover",
+      "sourcePointer": "lesson-13.practice.json.typedPractice[2]",
+      "original": {
+        "id": "ch17-l13-context-double-crossover",
+        "chapter": 17,
+        "lesson": 13,
+        "conceptId": "ch17-concept-double-crossover",
+        "family": "scenario-retrieval",
+        "kind": "blank",
+        "difficulty": "application",
+        "prompt": "Identify the term illustrated: Two exchanges can restore the original outside-marker arrangement.",
+        "answer": "double crossover",
+        "aliases": [],
+        "cue": "Use the relationship described in the example.",
+        "explanation": "Two exchange events within a chromosome region. Undetected multiple crossovers can make observed two-locus recombination underestimate longer distances.",
+        "reviewRoute": "lesson-13"
+      },
+      "status": "prepared-visible-teaching",
+      "teachingAnchors": [
+        "ch17-l13-teaching-03"
+      ],
+      "reasoningPrepared": "Visible ABC/abc → Abc/aBC → AbC/aBc trace follows the same two nonsister chromatids, shows restored AC/ac outside labels and explains missed events.",
+      "assessmentDistinctness": "Foundational retrieval or application of explicitly taught method; no automatic fresh-transfer claim.",
+      "feedback": "Original hint/key/model/feedback retained unchanged in protected JSON and complete manuscript where learner-facing."
+    },
+    {
+      "lesson": 13,
+      "group": "multiSelectPractice",
+      "id": "ch17-multiple-13",
+      "sourcePointer": "lesson-13.practice.json.multiSelectPractice[0]",
+      "original": {
+        "id": "ch17-multiple-13",
+        "chapter": 17,
+        "lesson": 13,
+        "conceptId": "ch17-concept-recombination-frequency",
+        "family": "discrimination",
+        "kind": "multi-select",
+        "difficulty": "application",
+        "prompt": "Select the TWO accurate statements about recombination frequency and chromosome maps.",
+        "options": [
+          {
+            "id": "false-1",
+            "text": "One map unit always equals exactly one million base pairs."
+          },
+          {
+            "id": "true-2",
+            "text": "A genetic map is not a direct microscopic measurement of DNA length."
+          },
+          {
+            "id": "false-2",
+            "text": "Two-locus recombination frequency increases without limit above 50%."
+          },
+          {
+            "id": "true-1",
+            "text": "Use all scored offspring in the denominator and both recombinant classes in the numerator."
+          }
+        ],
+        "answers": [
+          "true-1",
+          "true-2"
+        ],
+        "cue": "Check every statement against the mechanism; do not assume a negative statement is correct.",
+        "explanation": "Use all scored offspring in the denominator and both recombinant classes in the numerator. A genetic map is not a direct microscopic measurement of DNA length. A map unit is not a universal fixed number of base pairs. Undetected multiple crossovers can make observed two-locus recombination underestimate longer distances.",
+        "reviewRoute": "lesson-13"
+      },
+      "status": "prepared-visible-teaching",
+      "teachingAnchors": [
+        "ch17-l13-teaching-01",
+        "ch17-l13-teaching-03"
+      ],
+      "reasoningPrepared": "Defines short-interval cM approximation, distinguishes base-pair length, expected r ≤ 50% from samples potentially >50%, and additive map spans above 50 cM.",
+      "assessmentDistinctness": "Foundational retrieval or application of explicitly taught method; no automatic fresh-transfer claim.",
+      "feedback": "Original hint/key/model/feedback retained unchanged in protected JSON and complete manuscript where learner-facing."
+    },
+    {
+      "lesson": 13,
+      "group": "diagramPractice",
+      "id": "ch17-map-label-practice-A",
+      "sourcePointer": "lesson-13.practice.json.diagramPractice[0]",
+      "original": {
+        "id": "ch17-map-label-practice-A",
+        "lesson": 13,
+        "conceptId": "ch17-concept-recombination-frequency",
+        "diagramId": "ch17-map-label",
+        "letter": "A",
+        "prompt": "What does letter A identify?",
+        "options": [
+          "Locus at 0 cM",
+          "Locus at 20 cM",
+          "8 cM",
+          "12 cM",
+          "Locus at 8 cM"
+        ],
+        "cue": "Follow the leader line or the lettered feature. Read any stated model assumptions.",
+        "explanation": "Letter A identifies Locus at 0 cM.",
+        "reviewRoute": "lesson-13"
+      },
+      "status": "prepared-visible-teaching",
+      "teachingAnchors": [
+        "ch17-l13-teaching-01"
+      ],
+      "reasoningPrepared": "Exact native map read by coordinate, differences and interval lines: A0, B8, C20; D8, E12. Labels already shown in locked legend.",
+      "assessmentDistinctness": "Unavoidable locked-answer overlap; formative rehearsal, not answer-free identification.",
+      "feedback": "Original hint/key/model/feedback retained unchanged in protected JSON and complete manuscript where learner-facing."
+    },
+    {
+      "lesson": 13,
+      "group": "diagramPractice",
+      "id": "ch17-map-label-practice-B",
+      "sourcePointer": "lesson-13.practice.json.diagramPractice[1]",
+      "original": {
+        "id": "ch17-map-label-practice-B",
+        "lesson": 13,
+        "conceptId": "ch17-concept-recombination-frequency",
+        "diagramId": "ch17-map-label",
+        "letter": "B",
+        "prompt": "What does letter B identify?",
+        "options": [
+          "8 cM",
+          "Locus at 8 cM",
+          "12 cM",
+          "Locus at 0 cM",
+          "Locus at 20 cM"
+        ],
+        "cue": "Follow the leader line or the lettered feature. Read any stated model assumptions.",
+        "explanation": "Letter B identifies Locus at 8 cM.",
+        "reviewRoute": "lesson-13"
+      },
+      "status": "prepared-visible-teaching",
+      "teachingAnchors": [
+        "ch17-l13-teaching-01"
+      ],
+      "reasoningPrepared": "Exact native map read by coordinate, differences and interval lines: A0, B8, C20; D8, E12. Labels already shown in locked legend.",
+      "assessmentDistinctness": "Unavoidable locked-answer overlap; formative rehearsal, not answer-free identification.",
+      "feedback": "Original hint/key/model/feedback retained unchanged in protected JSON and complete manuscript where learner-facing."
+    },
+    {
+      "lesson": 13,
+      "group": "diagramPractice",
+      "id": "ch17-map-label-practice-C",
+      "sourcePointer": "lesson-13.practice.json.diagramPractice[2]",
+      "original": {
+        "id": "ch17-map-label-practice-C",
+        "lesson": 13,
+        "conceptId": "ch17-concept-recombination-frequency",
+        "diagramId": "ch17-map-label",
+        "letter": "C",
+        "prompt": "What does letter C identify?",
+        "options": [
+          "12 cM",
+          "Locus at 0 cM",
+          "Locus at 20 cM",
+          "Locus at 8 cM",
+          "8 cM"
+        ],
+        "cue": "Follow the leader line or the lettered feature. Read any stated model assumptions.",
+        "explanation": "Letter C identifies Locus at 20 cM.",
+        "reviewRoute": "lesson-13"
+      },
+      "status": "prepared-visible-teaching",
+      "teachingAnchors": [
+        "ch17-l13-teaching-01"
+      ],
+      "reasoningPrepared": "Exact native map read by coordinate, differences and interval lines: A0, B8, C20; D8, E12. Labels already shown in locked legend.",
+      "assessmentDistinctness": "Unavoidable locked-answer overlap; formative rehearsal, not answer-free identification.",
+      "feedback": "Original hint/key/model/feedback retained unchanged in protected JSON and complete manuscript where learner-facing."
+    },
+    {
+      "lesson": 13,
+      "group": "diagramPractice",
+      "id": "ch17-map-label-practice-D",
+      "sourcePointer": "lesson-13.practice.json.diagramPractice[3]",
+      "original": {
+        "id": "ch17-map-label-practice-D",
+        "lesson": 13,
+        "conceptId": "ch17-concept-recombination-frequency",
+        "diagramId": "ch17-map-label",
+        "letter": "D",
+        "prompt": "What does letter D identify?",
+        "options": [
+          "Locus at 0 cM",
+          "Locus at 8 cM",
+          "Locus at 20 cM",
+          "8 cM",
+          "12 cM"
+        ],
+        "cue": "Follow the leader line or the lettered feature. Read any stated model assumptions.",
+        "explanation": "Letter D identifies 8 cM.",
+        "reviewRoute": "lesson-13"
+      },
+      "status": "prepared-visible-teaching",
+      "teachingAnchors": [
+        "ch17-l13-teaching-01"
+      ],
+      "reasoningPrepared": "Exact native map read by coordinate, differences and interval lines: A0, B8, C20; D8, E12. Labels already shown in locked legend.",
+      "assessmentDistinctness": "Unavoidable locked-answer overlap; formative rehearsal, not answer-free identification.",
+      "feedback": "Original hint/key/model/feedback retained unchanged in protected JSON and complete manuscript where learner-facing."
+    },
+    {
+      "lesson": 13,
+      "group": "diagramPractice",
+      "id": "ch17-map-label-practice-E",
+      "sourcePointer": "lesson-13.practice.json.diagramPractice[4]",
+      "original": {
+        "id": "ch17-map-label-practice-E",
+        "lesson": 13,
+        "conceptId": "ch17-concept-recombination-frequency",
+        "diagramId": "ch17-map-label",
+        "letter": "E",
+        "prompt": "What does letter E identify?",
+        "options": [
+          "Locus at 8 cM",
+          "Locus at 20 cM",
+          "8 cM",
+          "Locus at 0 cM",
+          "12 cM"
+        ],
+        "cue": "Follow the leader line or the lettered feature. Read any stated model assumptions.",
+        "explanation": "Letter E identifies 12 cM.",
+        "reviewRoute": "lesson-13"
+      },
+      "status": "prepared-visible-teaching",
+      "teachingAnchors": [
+        "ch17-l13-teaching-01"
+      ],
+      "reasoningPrepared": "Exact native map read by coordinate, differences and interval lines: A0, B8, C20; D8, E12. Labels already shown in locked legend.",
+      "assessmentDistinctness": "Unavoidable locked-answer overlap; formative rehearsal, not answer-free identification.",
+      "feedback": "Original hint/key/model/feedback retained unchanged in protected JSON and complete manuscript where learner-facing."
+    },
+    {
+      "lesson": 13,
+      "group": "historical-worked",
+      "id": "ch17-l13-worked",
+      "sourcePointer": "lesson-13.practice.json.guidedActivities[0].worked",
+      "original": {
+        "title": "Calculate frequency and check the denominator",
+        "scenario": "A test cross gives parental counts 90 and 86 and recombinant counts 12 and 12.",
+        "steps": [
+          "Total offspring = 90 + 86 + 12 + 12 = 200.",
+          "Recombinants = 12 + 12 = 24.",
+          "Frequency = 24/200 = 0.12 = 12%.",
+          "Short-interval map estimate: about 12 cM.",
+          "Reasonableness check: recombinant classes are less common than parental classes, and 12% is below 50%."
+        ],
+        "id": "ch17-l13-worked",
+        "label": "Worked example"
+      },
+      "status": "frozen-metadata-not-new-independent-demand",
+      "teachingAnchors": [
+        "ch17-l13-teaching-01",
+        "ch17-l13-worked"
+      ],
+      "reasoningPrepared": "Both reciprocal classes numerator, all-offspring denominator, fraction→percent, short-interval interpretation and full model examples are taught before the retained calculation; guided14+6/260 differs from required numbers.",
+      "assessmentDistinctness": "Original course-data worked record is frozen; the four-block fragment owns the proposed revised learner worked copy. Runtime consumption of metadata is untested.",
+      "feedback": "Original hint/key/model/feedback retained unchanged in protected JSON and complete manuscript where learner-facing."
+    },
+    {
+      "lesson": 13,
+      "group": "guided",
+      "id": "ch17-l13-guided-q1",
+      "sourcePointer": "lesson-13.practice.json.guidedActivities[0].guided.items[0]",
+      "original": {
+        "prompt": "A test cross has 30 recombinants among 250 offspring. What is the frequency?",
+        "answer": "12%",
+        "explanation": "30/250 = 0.12, which is 12%.",
+        "cue": "Distinguish a fraction from its percentage.",
+        "id": "ch17-l13-guided-q1",
+        "options": [
+          "12%",
+          "0.12%",
+          "30%"
+        ],
+        "difficulty": "application",
+        "kind": "select",
+        "hint": "Distinguish a fraction from its percentage."
+      },
+      "status": "prepared-visible-teaching",
+      "teachingAnchors": [
+        "ch17-l13-teaching-01",
+        "ch17-l13-worked"
+      ],
+      "reasoningPrepared": "Both reciprocal classes numerator, all-offspring denominator, fraction→percent, short-interval interpretation and full model examples are taught before the retained calculation; guided14+6/260 differs from required numbers.",
+      "assessmentDistinctness": "Foundational retrieval or application of explicitly taught method; no automatic fresh-transfer claim.",
+      "feedback": "Original hint/key/model/feedback retained unchanged in protected JSON and complete manuscript where learner-facing."
+    },
+    {
+      "lesson": 13,
+      "group": "guided",
+      "id": "ch17-l13-guided-q2",
+      "sourcePointer": "lesson-13.practice.json.guidedActivities[0].guided.items[1]",
+      "original": {
+        "prompt": "A–B = 5, B–C = 9 and A–C = 14. Which gene is in the middle?",
+        "answer": "B",
+        "explanation": "The two shorter distances add to the longest: 5 + 9 = 14.",
+        "cue": "Try adding the intervals on each side of a proposed middle gene.",
+        "id": "ch17-l13-guided-q2",
+        "options": [
+          "A",
+          "B",
+          "C"
+        ],
+        "difficulty": "application",
+        "kind": "select",
+        "hint": "Try adding the intervals on each side of a proposed middle gene."
+      },
+      "status": "prepared-visible-teaching",
+      "teachingAnchors": [
+        "ch17-l13-teaching-02",
+        "ch17-l13-worked"
+      ],
+      "reasoningPrepared": "All-three-distances middle-locus proof and reversed equivalent map; two supplied distances require both alternatives and missing comparison. Source H/E/N and new J/K/L alternatives avoid simply reproducing bank8/12.",
+      "assessmentDistinctness": "Foundational retrieval or application of explicitly taught method; no automatic fresh-transfer claim.",
+      "feedback": "Original hint/key/model/feedback retained unchanged in protected JSON and complete manuscript where learner-facing."
+    },
+    {
+      "lesson": 13,
+      "group": "native-stop-and-think",
+      "id": "ch17-l13-stop-and-think",
+      "sourcePointer": "lesson-13.html protected Stop and think",
+      "original": {
+        "id": "ch17-l13-stop-and-think",
+        "prompt": "Does a reported two-locus frequency above 50% automatically define a longer map distance?",
+        "model": "No. Recheck parental-class assignment, counts and model assumptions; the standard two-locus limit is 50%."
+      },
+      "status": "prepared-visible-teaching",
+      "teachingAnchors": [
+        "ch17-l13-teaching-01",
+        "ch17-l13-worked"
+      ],
+      "reasoningPrepared": "Both reciprocal classes numerator, all-offspring denominator, fraction→percent, short-interval interpretation and full model examples are taught before the retained calculation; guided14+6/260 differs from required numbers.",
+      "assessmentDistinctness": "Foundational retrieval or application of explicitly taught method; no automatic fresh-transfer claim.",
+      "feedback": "Original hint/key/model/feedback retained unchanged in protected JSON and complete manuscript where learner-facing.",
+      "limits": [
+        "Frozen explanation abbreviates expected versus observed. New visible teaching explicitly allows finite samples above50% and rejects automatic >50cM interpretation; no protected edit."
+      ]
+    },
+    {
+      "lesson": 13,
+      "group": "optional-textbook",
+      "id": "ch17-p601-in-text-q18",
+      "sourcePointer": "lesson-13.textbook.json[0]",
+      "original": {
+        "id": "ch17-p601-in-text-q18",
+        "page": 601,
+        "group": "in-text",
+        "number": 18,
+        "label": "In Text · p. 601 · question 18",
+        "topics": [
+          "lesson-08",
+          "lesson-12",
+          "lesson-13"
+        ],
+        "crops": [
+          {
+            "page": 601,
+            "box": [
+              72.49490356445312,
+              480.7859802246094,
+              210.52000427246094,
+              543.0159301757812
+            ],
+            "src": "./assets/textbook-practice/ch17-p601-in-text-q18-0.png",
+            "role": "question"
+          },
+          {
+            "page": 601,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p601.jpg",
+            "role": "supporting full-page context"
+          },
+          {
+            "page": 600,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p600.jpg",
+            "role": "supporting full-page context"
+          }
+        ],
+        "sourceText": "2 \u0012\u0019  Differentiate between the  chromosome theory of  inheritance and the gene- chromosome theory.",
+        "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+      },
+      "feedback": "No new official answer key invented. Source wording/crops/instructions protected. All task text included in manuscript.",
+      "status": "prepared-visible-teaching",
+      "teachingAnchors": [
+        "ch17-l12-teaching-03"
+      ],
+      "reasoningPrepared": "Chromosome theory versus specific linear loci explicitly contrasted."
+    },
+    {
+      "lesson": 13,
+      "group": "optional-textbook",
+      "id": "ch17-p601-in-text-q19",
+      "sourcePointer": "lesson-13.textbook.json[1]",
+      "original": {
+        "id": "ch17-p601-in-text-q19",
+        "page": 601,
+        "group": "in-text",
+        "number": 19,
+        "label": "In Text · p. 601 · question 19",
+        "topics": [
+          "lesson-08",
+          "lesson-12",
+          "lesson-13"
+        ],
+        "crops": [
+          {
+            "page": 601,
+            "box": [
+              72.49490356445312,
+              540.7860107421875,
+              235.1729736328125,
+              570.803466796875
+            ],
+            "src": "./assets/textbook-practice/ch17-p601-in-text-q19-0.png",
+            "role": "question"
+          },
+          {
+            "page": 601,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p601.jpg",
+            "role": "supporting full-page context"
+          },
+          {
+            "page": 600,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p600.jpg",
+            "role": "supporting full-page context"
+          }
+        ],
+        "sourceText": "2 \u0012\u001a  What is chromosome mapping?",
+        "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+      },
+      "feedback": "No new official answer key invented. Source wording/crops/instructions protected. All task text included in manuscript.",
+      "status": "prepared-visible-teaching",
+      "teachingAnchors": [
+        "ch17-l13-teaching-01",
+        "ch17-l13-teaching-02"
+      ],
+      "reasoningPrepared": "Relative order/distance inference from recombinant offspring developed in13, with three-distance and missing-distance worked cases."
+    },
+    {
+      "lesson": 13,
+      "group": "optional-textbook",
+      "id": "ch17-p601-in-text-q20",
+      "sourcePointer": "lesson-13.textbook.json[2]",
+      "original": {
+        "id": "ch17-p601-in-text-q20",
+        "page": 601,
+        "group": "in-text",
+        "number": 20,
+        "label": "In Text · p. 601 · question 20",
+        "topics": [
+          "lesson-13"
+        ],
+        "crops": [
+          {
+            "page": 601,
+            "box": [
+              72.49490356445312,
+              560.2860107421875,
+              185.15518188476562,
+              590.303466796875
+            ],
+            "src": "./assets/textbook-practice/ch17-p601-in-text-q20-0.png",
+            "role": "question"
+          },
+          {
+            "page": 601,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p601.jpg",
+            "role": "supporting full-page context"
+          },
+          {
+            "page": 600,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p600.jpg",
+            "role": "supporting full-page context"
+          }
+        ],
+        "sourceText": "2 \u0013\u0011  What is a map unit?",
+        "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+      },
+      "feedback": "No new official answer key invented. Source wording/crops/instructions protected. All task text included in manuscript.",
+      "status": "prepared-visible-teaching",
+      "teachingAnchors": [
+        "ch17-l13-teaching-01",
+        "ch17-l13-teaching-03"
+      ],
+      "reasoningPrepared": "1cM≈1% over short intervals, not universal physical length; limits stated."
+    },
+    {
+      "lesson": 13,
+      "group": "optional-textbook",
+      "id": "ch17-p601-in-text-q21",
+      "sourcePointer": "lesson-13.textbook.json[3]",
+      "original": {
+        "id": "ch17-p601-in-text-q21",
+        "page": 601,
+        "group": "in-text",
+        "number": 21,
+        "label": "In Text · p. 601 · question 21",
+        "topics": [
+          "lesson-08",
+          "lesson-12",
+          "lesson-13"
+        ],
+        "crops": [
+          {
+            "page": 601,
+            "box": [
+              72.49490356445312,
+              579.7860107421875,
+              237.79896545410156,
+              628.5160522460938
+            ],
+            "src": "./assets/textbook-practice/ch17-p601-in-text-q21-0.png",
+            "role": "question"
+          },
+          {
+            "page": 601,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p601.jpg",
+            "role": "supporting full-page context"
+          },
+          {
+            "page": 600,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p600.jpg",
+            "role": "supporting full-page context"
+          }
+        ],
+        "sourceText": "2 \u0013\u0012  Distinguish between the terms  recombinant types and parental  types.",
+        "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+      },
+      "feedback": "No new official answer key invented. Source wording/crops/instructions protected. All task text included in manuscript.",
+      "status": "prepared-visible-teaching",
+      "teachingAnchors": [
+        "ch17-l12-teaching-01",
+        "ch17-l12-teaching-02"
+      ],
+      "reasoningPrepared": "Parental/recombinant comparison from specified original phase, including reversed phase."
+    },
+    {
+      "lesson": 13,
+      "group": "optional-textbook",
+      "id": "ch17-p602-data-analysis-q1",
+      "sourcePointer": "lesson-13.textbook.json[4]",
+      "original": {
+        "id": "ch17-p602-data-analysis-q1",
+        "page": 602,
+        "group": "data-analysis",
+        "number": 1,
+        "label": "Supplied-data analysis · p. 602",
+        "topics": [
+          "lesson-13"
+        ],
+        "crops": [
+          {
+            "page": 602,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p602.jpg",
+            "role": "question"
+          },
+          {
+            "page": 602,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p602.jpg",
+            "role": "supporting full-page context"
+          },
+          {
+            "page": 601,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p601.jpg",
+            "role": "supporting full-page context"
+          }
+        ],
+        "sourceText": "602  MHR • Unit 7  Cell Division, Genetics, and Molecular Biology\nIn Part A of this activity, you will follow a procedure to construct \na chromosome map. In preparation for future studies of \ngenetics, your teacher may choose to assign Part B to expose \nyou to the special notation geneticists use for analyzing \nlinked genes.\nPart A: Constructing a Chromosome Map\nProcedure\n 1. Using the table below as a guide, determine the map \ndistance between the linked genes for eye colour and \nwing type in the following experiment.\n You perform the following cross: PpVv × ppvv. You count \n1000 offspring in the F1 generation. You ﬁ nd that 406 of \nthe ﬂ ies have normal eyes and normal wings, 398 have \npurple eyes and vestigial wings, 96 have normal eyes \nand vestigial wings, and 100 have purple eyes and \nnormal wings. \n 2. From previous research ﬁ ndings, you know that the \ndistance between the gene for eye colour and the gene \nfor body colour is 12.2 map units, and the gene for body \ncolour is 7.4 map units away from the gene for wing \ntype. All three genes are on the same chromosome. \nDraw a chromosome map showing the relative distances \nbetween the three linked genes.\nAnalysis\n 1. You conduct the same cross again, but this time you get \nan almost exact 1:1 ratio of ﬂ ies with normal eyes and \nnormal wings to ﬂ ies with purple eyes and vestigial \nwings. There are no recombinant types. Provide two \nexplanations that might account for these results.\n 2. Linkage data has been used to map genes on the \nchromosomes of Drosophila melanogaster. Do you think \nsuch data could be used to map human chromosomes? \nExplain your reasoning.\nPart B: Using Linked Gene Notation\nIn order to describe linked genes, fruit ﬂ y geneticists \ndeveloped a different notation for genes. The normal \nallele—the allele that is nearly always found in natural \npopulations—is called the wild type allele. The wild type \nallele is represented with a plus sign (+). The mutant allele \nfor a gene is represented with lower-case italic letters. Linked \ngenes are represented with a horizontal line or a slash. \n \nFor example, the gene for purple eyes (pr) and the gene \nfor vestigial wings (vg) are on chromosome number 2. The \nhomozygous recessive genotype is represented as  prvg \n_ \nprvg  or \npr vg / pr vg to indicate that these genes are on the same \nchromosome. The homozygous dominant genotype is \nrepresented as  +    + \n_ \n +    +  or + + / + +. \nProcedure\n 1. Create a chromosome map of three linked genes based \non the research presented below.\n \n a) In fruit ﬂ ies, the mutant gene d causes short legs and \nthe mutant gene pr causes purple eyes. A geneticist \nperforms the following cross: pr d / + + × pr d / pr d. \nShe counts 1000 offspring and ﬁ nds 391 wild type, \n115 purple-eyed and normal-legged, 105 normal-\neyed and short-legged, and 389 purple-eyed and \nshort-legged. What is the map distance between \nthe genes for leg length and eye colour?\n \n b) The same geneticist then performs the following \ncross: vg d / + + × vg d / vg d. She counts 1000 \noffspring and ﬁ nds 350 wild type, 154 vestigial-\nwinged and normal-legged, 153 normal-winged and \nshort-legged, and 343 vestigial-winged and short-\nlegged. What is the map distance between the genes \nfor leg length and wing type?\n \n c) The recombination frequency for the gene for eye \ncolour and the gene for wing type is 8.7%. What is \nthe map distance between these two genes? Draw \na chromosome map showing the relative distances \nbetween all three linked genes studied in Part B.\nAnalysis\n 1. Do you think the linked gene notation used by \ngeneticists simpliﬁ es or complicates linked gene \nanalysis? Explain your reasoning.\nThought Lab\nThought Lab\n17.1\nMapping Chromosomes\nT a r g e t  S k i l l s\nAnalyzing crossover data to create a \nchromosome map\nSteps to determine map distance\nStep\nExample\nPerform a cross between a ﬂ y that is known to be heterozygous for both \ntraits and a ﬂ y that is homozygous recessive for both traits.\nPpVv × ppvv\nCollect a large number of F1 ﬂ ies from the cross. Determine the number \nof ﬂ ies with each of the possible phenotypes.\nPossible non-recombinant phenotypes:\n• purple eye, vestigial wing\n• normal eye, normal wing\nPossible recombinant phenotypes:\n• purple eye, normal wing\n• normal eye, vestigial wing\nCalculate the total number of recombinant F1 phenotypes as a percentage \nof the total number of F1 ﬂ ies. This gives you the recombination \nfrequency and the number of map units separating the two genes.\n number of recombinant types \n \n \n___ \n \n \ntotal number of offspring  × 100%\n",
+        "reviewStatus": "Original wording retained; geometric crop plus complete source context.",
+        "instructions": "Complete Part A using the supplied offspring counts. Part B is optional additional practice; its notation is explained on the page. Do not breed or collect flies."
+      },
+      "feedback": "No new official answer key invented. Source wording/crops/instructions protected. All task text included in manuscript.",
+      "status": "prepared-method-with-source-and-biological-qualifications",
+      "teachingAnchors": [
+        "ch17-l12-teaching-02",
+        "ch17-l13-teaching-01",
+        "ch17-l13-teaching-02",
+        "ch17-l13-teaching-03",
+        "ch17-l13-worked"
+      ],
+      "subtasks": [
+        {
+          "part": "A procedure1",
+          "prepared": "Tester mapping plus both reciprocal recombinant counts/all offspring and approximate cM. Actual406/398/96/100 problem is left unsolved."
+        },
+        {
+          "part": "A procedure2",
+          "prepared": "Combine all three pairwise estimates, test middle locus, and check complete additive map. Actual12.2/7.4 data left unsolved."
+        },
+        {
+          "part": "A analysis1",
+          "prepared": "Zero detection is not proof; close-loci/finite-sample generic reasoning contrasted with same-marker repeated large-sample context. Additional sourced male-Drosophila crossing-over absence explicitly supplied; switching heterozygousparent sex is plausible changed condition. Record/scoring problems remain another explanation category.",
+          "limit": "Original calls it the same cross while omitting parent sex/changed conditions. Two definitive biological explanations cannot be established from supplied record alone; do not claim closeness explains earlier19.6% versus laterzero under identical conditions."
+        },
+        {
+          "part": "A analysis2",
+          "prepared": "Human linkage principle with consenting-family marker tracing, no arranged breeding, smaller families / longer generations / informativeness and privacy caveats."
+        },
+        {
+          "part": "B notation/procedure a–c",
+          "prepared": "Explicit + reference allele, multi-letter single-allele labels, slash phase, reciprocal classes and same map method. No native numeric solutions provided.",
+          "limit": "Larger intervals such as30.7% use classroom approximation and can underestimate genetic distance."
+        },
+        {
+          "part": "B analysis1",
+          "prepared": "Advantages (phase preservation) and costs (locus-specific+ reading) support reasoned evaluation."
+        }
+      ],
+      "sourceQualification": "Extra species-specific fact verified in primary 2022 PNAS paper, https://pmc.ncbi.nlm.nih.gov/articles/PMC9704699/; original source not silently augmented as though it contained the fact."
+    }
+  ],
+  "recordCount": 87,
+  "scope": "Every native12/13 guided, required, bank, typed, multi-select, label, flash, stop-and-think, video/support and optional textbook record. Records include support metadata, not just independent assessments.",
+  "reviewStatus": "Author item-level coverage audit; independent reviewer and teacher acceptance separate."
+}

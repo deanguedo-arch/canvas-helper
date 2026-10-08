@@ -1,0 +1,59 @@
+{
+  "version": "batch1-v0.1.0-r1-comparison",
+  "sourceOwnerSha256": "0814977d9fb4ba41d611f2816e50e01d7950a0d5caaba9f422a410bf0f6e0783",
+  "candidateSha256": "31447f72550c68ceb4a7cfd444f85651908a86782096dff4e4847cff4ab9e3e4",
+  "replacements": [
+    {
+      "lesson": "lesson-01",
+      "beforeSha256": "69bc52334f25135c7bda1706cc07a963d6a85e5f8e323cf7c3cbb284da0473c6",
+      "afterSha256": "9af1936228a2f611e9338d0a72142801899802d7d86c054d2a983474ed96e72a",
+      "noteIdsUnchanged": [
+        "ch17-source-written-OBJ_2131252"
+      ]
+    },
+    {
+      "lesson": "lesson-03",
+      "beforeSha256": "85fe3e0bbe1a0c17e48449253b659135684d1fd6d50aabfa2573394776a03df8",
+      "afterSha256": "85a884113bab7fe12205c1d1567284dabc0b434fd469c0076c24da57c56edc85",
+      "noteIdsUnchanged": [
+        "ch17-source-written-OBJ_2131244",
+        "ch17-source-written-OBJ_2131248"
+      ]
+    },
+    {
+      "lesson": "lesson-04",
+      "beforeSha256": "ead977930ad7c515c69619f04284cc8623339a64f68801f17d5493d03425cfd4",
+      "afterSha256": "36dc8d9a947c45a355110cc1efed7676d2ab01162dbfa12ea628e0b393d5b97f",
+      "noteIdsUnchanged": [
+        "ch17-source-written-OBJ_2131247"
+      ]
+    }
+  ],
+  "exactNonTeachingBytesExceptApprovedTypo": true,
+  "notationCorrection": {
+    "before": "One aa offspring from B_ × bb",
+    "after": "One bb offspring from B_ × bb",
+    "count": 2,
+    "scope": [
+      "lesson04 video summary",
+      "course-data video fallback"
+    ],
+    "authority": "Dean: can you do all that? following explicit flagged-issues resolution plan"
+  },
+  "nativeDataOtherwiseExact": true,
+  "otherLessonsExact": true,
+  "unchangedNativeFiles": 157,
+  "protectedSourceFilesUnchanged": 1031,
+  "sourceImages": [
+    "./assets/teaching-batch1-v010/slide-4-image13.jpg",
+    "./assets/teaching-batch1-v010/slide-12-image18.png",
+    "./assets/teaching-batch1-v010/slide-27-image30.jpg",
+    "./assets/teaching-batch1-v010/slide-27-image31.jpg",
+    "./assets/teaching-batch1-v010/slide-27-image22.png",
+    "./assets/figures/ch17-punnett.svg",
+    "./assets/teaching-batch1-v010/slide-29-image33.png"
+  ],
+  "assessmentDistinctnessAccepted": false,
+  "teacherAccepted": false,
+  "released": false
+}

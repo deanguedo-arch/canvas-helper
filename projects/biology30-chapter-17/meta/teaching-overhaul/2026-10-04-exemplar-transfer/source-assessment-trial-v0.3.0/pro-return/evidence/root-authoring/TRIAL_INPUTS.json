@@ -1,0 +1,87 @@
+{
+  "version": "0.3.0",
+  "ownerSha256": "bc42ea52d8cf5709c0ec33c914e86450f93971f3e3144cb81b695593aa0eff3b",
+  "sourceArchiveSha256": "ddc02a762cdca9718867c3992850a766a5b0b97e0ce9614ffbf958d74667fc20",
+  "unchangedTeachingRoutes": [
+    "lesson-02"
+  ],
+  "teachingEdits": [
+    {
+      "id": "lesson-05.tomato-core",
+      "route": "lesson-05",
+      "rangeRef": "lesson-05.tomato-core",
+      "inputFile": "teaching-edits/lesson-05-tomato.html.in",
+      "purpose": "Restore actual Kinch43–45 RrTt × rrTt, contrasting parental colours, four-versus-two gametes, six genotypes and four nonzero phenotype groups; retain all surrounding source teaching."
+    },
+    {
+      "id": "lesson-05.change-task",
+      "route": "lesson-05",
+      "rangeRef": "lesson-05.change-task",
+      "inputFile": "teaching-edits/lesson-05-changed-parent-task.html.in",
+      "purpose": "Make the existing optional activity consistently change rrTt to rrtt from the restored baseline, with complete4×1 calculation, height/colour comparison and exact native note controls."
+    }
+  ],
+  "assessmentReplacements": [
+    {
+      "id": "ch17-l02-check-writing-1",
+      "route": "lesson-02",
+      "kind": "writing",
+      "itemFile": "assessments/ch17-l02-check-writing-1.json",
+      "htmlMode": "native-template",
+      "justification": {
+        "purpose": "Apply persistent-allele and segregation reasoning to a before/after DNA-copy representation.",
+        "taughtOutcome": "Explain how copying preserves allele versions and ordinary segregation supplies one allele per gamete without blending.",
+        "consequentialDifference": "Replaces the worked P/F1/F2 retelling with two connected errors about allele-version number and gamete content after copying. No parent cross or offspring ratio is requested.",
+        "levelPreservation": "Qualitative mechanism from visible native02; no mutation, chromosome-disorder diagnosis, advanced life cycle or new quantitative operation.",
+        "dependenceOnTeaching": "Uses native01 genotype/allele/dominance meanings and actual integrated02 homologue/sister-copy/gamete explanation. This is modest taught mechanism transfer, not blind recall-free assessment.",
+        "comparisonAgainstTeachingAndOptionalModels": "The existing arrow activity repairs segregation/fertilisation names and the reciprocal-cross activity evaluates the receiving-parent claim. Neither interprets the supplied four-copy/two-version record or supplies this complete required response. Visible copying explanation remains intentional prerequisite overlap."
+      }
+    },
+    {
+      "id": "ch17-l05-check-mc-2",
+      "route": "lesson-05",
+      "kind": "mc",
+      "itemFile": "assessments/ch17-l05-check-mc-2.json",
+      "htmlMode": "native-template",
+      "justification": {
+        "purpose": "Choose the probability of a newly defined set of outcomes for one offspring.",
+        "taughtOutcome": "Combine disjoint phenotype categories under a stated independent two-locus complete-dominance model.",
+        "consequentialDifference": "Replaces a direct 3/16 pea category with a union of three distinct phenotype groups. The learner must decide which groups qualify and count the double-recessive group once; retaining source pea letters makes clear that a letter swap is not the change.",
+        "levelPreservation": "Uses only the taught per-locus products and addition of mutually exclusive categories; no conditional renormalisation, combinatorics or new required complement rule.",
+        "dependenceOnTeaching": "The pea grid and category probabilities are taught and intentionally reusable. Newness lies in the requested event and its grouping, not an unfamiliar cross or blindness to the table.",
+        "comparisonAgainstTeachingAndOptionalModels": "Full pea teaching and protected video fallbacks give the four component probabilities but not this 7/16 group. Source-bank3/16 items and final aabb1/16 remain component/near-method overlap, not the complete new response. One-offspring wording avoids the different native03 multi-offspring warning."
+      }
+    },
+    {
+      "id": "ch17-l05-check-writing-1",
+      "route": "lesson-05",
+      "kind": "writing",
+      "itemFile": "assessments/ch17-l05-check-writing-1.json",
+      "htmlMode": "native-template",
+      "justification": {
+        "purpose": "Check a gamete-table representation for exhaustiveness and correct weighting.",
+        "taughtOutcome": "Derive distinct gametes from each parental genotype and use them to organize a complete probability table.",
+        "consequentialDifference": "Replaces exact tomato lists with an apparently correct-sized table that omits a possible gamete and duplicates another. A repaired complete list, not eight boxes or reversed parent order, supplies the answer.",
+        "levelPreservation": "Still two independent loci, two versus four distinct gametes and eight equal pairings. No missing-parent inference, unequal segregation, sampling test or larger grid is added.",
+        "dependenceOnTeaching": "Depends on visible definitions, one-allele-per-locus gametes, the native branch figure, distinct-type reasoning and random fertilisation. Generic method overlap is intentional.",
+        "comparisonAgainstTeachingAndOptionalModels": "The restored tomato teaches the method, and the repaired optional rrtt task discusses redundant versus impossible columns. The required case changes the error: the omitted aB is genuinely possible; weighting duplicate ab columns cannot restore it. No complete identical malformed-list case was found in the source/native scan."
+      }
+    },
+    {
+      "id": "ch17-l05-check-writing-2",
+      "route": "lesson-05",
+      "kind": "writing",
+      "itemFile": "assessments/ch17-l05-check-writing-2.json",
+      "htmlMode": "native-template",
+      "justification": {
+        "purpose": "Calculate a genotype-status event and evaluate an inappropriate phenotype shortcut.",
+        "taughtOutcome": "Distinguish genotype from phenotype and combine single-locus probabilities across independent loci.",
+        "consequentialDifference": "Replaces renamed tomato red/short arithmetic with homozygosity at each locus, combining dominant and recessive homozygotes. Neither new letters nor a new species is the freshness claim; the eligible event changes.",
+        "levelPreservation": "Same double-heterozygote 16-pairing method and elementary disjoint addition/independent multiplication already taught. No conditional probability, new inheritance model or harder population question.",
+        "dependenceOnTeaching": "Uses native01 homozygote/dominance, native03 numerator selection, and05 single-locus probabilities/grid. The familiar pea cross structure is intentionally retained; the four-genotype status group is new.",
+        "comparisonAgainstTeachingAndOptionalModels": "Teaching supplies genotype cell counts and9/16 dominant phenotype grouping but does not solve combined homozygosity at both loci. The new MC is phenotype-union grouping, whereas this writing task checks genotype status and an erroneous phenotype inference. No whole-response duplicate was found in the current native bank/fallback scan."
+      }
+    }
+  ],
+  "versionProposals": []
+}

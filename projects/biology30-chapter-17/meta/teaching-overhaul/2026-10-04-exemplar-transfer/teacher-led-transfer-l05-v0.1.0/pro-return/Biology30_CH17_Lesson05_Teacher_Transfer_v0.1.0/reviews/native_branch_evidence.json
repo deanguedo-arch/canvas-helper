@@ -1,0 +1,32 @@
+{
+  "scope": "Exact raw native-figure extraction and source markup comparison; no browser rendering, CSS/runtime execution or new interaction test.",
+  "sourceFile": "current/index.html",
+  "sourceOwnerSha256": "71518705941a86809c7f28593664763e59c7867511e3ae699ec1007bfe109bad",
+  "parentWrapper": "<div class=\"content-section\" data-canvas-edit-key=\"ch17-l05-teaching-01\" data-canvas-helper-edit-key=\"ch17-l05-teaching-01\" id=\"ch17-l05-teaching-01\">",
+  "globalBeforeStartByte": 206882,
+  "globalBeforeEndByteExclusive": 207604,
+  "fragmentBeforeLocalStartByte": 5198,
+  "fragmentBeforeLocalEndByteExclusive": 5920,
+  "bytes": 722,
+  "sha256": "fb4a4af8d132176bcfcd3f21695d97865901a1c626bbecf5e9a1d6106dc428d0",
+  "extractedFile": "/workspace/scratch/9592c268bc42/lesson05-v010-analysis/native-branch-figure.html",
+  "sourceRelativePath": "./assets/figures/ch17-two-trait.svg",
+  "alt": "Follow each branch from AaBb through one allele at the first locus and one at the second. Each endpoint is one haploid gamete, with probability one quarter.",
+  "caption": "Follow each branch from AaBb through one allele at the first locus and one at the second. Each endpoint is one haploid gamete, with probability one quarter. Schematic — not to scale.",
+  "completeRawFigure": "<figure class=\"science-figure\" data-figure-id=\"ch17-two-trait\"><div class=\"figure-toolbar\"><strong>Independent assortment: follow both allele choices</strong><button class=\"text-link\" data-enlarge-figure=\"ch17-two-trait\" type=\"button\">View larger</button></div><img alt=\"Follow each branch from AaBb through one allele at the first locus and one at the second. Each endpoint is one haploid gamete, with probability one quarter.\" decoding=\"async\" loading=\"lazy\" src=\"./assets/figures/ch17-two-trait.svg\"/><figcaption>Follow each branch from AaBb through one allele at the first locus and one at the second. Each endpoint is one haploid gamete, with probability one quarter. Schematic — not to scale.</figcaption></figure>",
+  "selectedSourceFiguresConvention": {
+    "establishedByActualSuppliedCurrentReference": [
+      "current/lesson-02.html",
+      "reference/lesson-02.teaching-fragment.html"
+    ],
+    "markup": "<figure class=\"science-figure\" id=\"a-distinct-static-visual-id\"><img alt=\"...\" decoding=\"async\" loading=\"lazy\" src=\"./assets/teaching-l05-v010/...\"/><figcaption>...</figcaption></figure>",
+    "existingStaticFigureCountInEachReference": 5,
+    "noNewControlsNeeded": true,
+    "noNewDataFigureIdOrEnlargeBindingNeeded": true,
+    "limit": "The packet supplies the full HTML owner and source figure conventions, but styles.css and runtime JS are external references rather than attached files. Existing classes may be reused without proposing CSS or controls; visual/runtime compatibility is not verified by static markup comparison."
+  },
+  "nativeStylesheetReferences": [
+    "./styles.css",
+    "./assets/textbook-practice.css"
+  ]
+}

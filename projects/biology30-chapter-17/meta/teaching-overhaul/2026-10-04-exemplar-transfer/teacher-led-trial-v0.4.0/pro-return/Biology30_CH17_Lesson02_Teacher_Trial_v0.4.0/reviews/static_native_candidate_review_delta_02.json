@@ -1,0 +1,338 @@
+{
+  "review": "Static native candidate delta following full b867daf0 review",
+  "reviewedAtUtc": "2026-10-05T16:04:16.926987+00:00",
+  "reviewer": "v040_native_read",
+  "previousFullReview": {
+    "path": "/workspace/scratch/9592c268bc42/lesson02-v040-authoring-analysis/static_native_candidate_review.json",
+    "sha256": "92ec0f6c946cec0f4f6f88d087158cf06e0c4a78a2d783db74a2d27382291471",
+    "candidateFiles": {
+      "fragment": {
+        "path": "/workspace/scratch/9592c268bc42/output/Biology30_CH17_Lesson02_Teacher_Trial_v0.4.0/lesson-02.teaching-fragment.html",
+        "bytes": 35373,
+        "sha256": "b867daf06e920b19ebaf988286aa3e75cfd962098f4dd41ebc1a43fad1c8b3f1"
+      },
+      "manuscript": {
+        "path": "/workspace/scratch/9592c268bc42/output/Biology30_CH17_Lesson02_Teacher_Trial_v0.4.0/manuscripts/lesson-02.md",
+        "bytes": 29352,
+        "sha256": "77ea0ccae6f8593d1a1c4e64307da9d611184920dc7fea453a616ac689c78504"
+      }
+    },
+    "summary": {
+      "checks": 49,
+      "satisfied": 49,
+      "notSatisfied": 0,
+      "findings": []
+    },
+    "unchanged": true
+  },
+  "reportedChanges": "Root reported first-use self-pollination/meiosis and mitosis after DNA-copying prose clarification, with strong-term placement; ordinary prose authored elsewhere. This record does not claim a line-by-line free-prose diff against an archived prior candidate.",
+  "currentCandidateFiles": {
+    "fragment": {
+      "path": "/workspace/scratch/9592c268bc42/output/Biology30_CH17_Lesson02_Teacher_Trial_v0.4.0/lesson-02.teaching-fragment.html",
+      "bytes": 35500,
+      "sha256": "c4797189771af6fbbc112b562bc300b2c2ef2433053dac02866504b463a02d23"
+    },
+    "manuscript": {
+      "path": "/workspace/scratch/9592c268bc42/output/Biology30_CH17_Lesson02_Teacher_Trial_v0.4.0/manuscripts/lesson-02.md",
+      "bytes": 29479,
+      "sha256": "1fc1dbdd7d874525fb488ab096715f7b195d73d8bc9a459b44c9edd946c79396"
+    }
+  },
+  "currentFrozenTaskRanges": [
+    {
+      "id": "ch17-kinch-v020-l02-arrow-task",
+      "byteRange": [
+        25149,
+        28111
+      ],
+      "bytes": 2962,
+      "sha256": "832a0126d0434b8068b9bb98f51a463a15e4fbf70ac59608545a258caf8998a5"
+    },
+    {
+      "id": "ch17-kinch-v020-l02-cross-task",
+      "byteRange": [
+        31456,
+        34824
+      ],
+      "bytes": 3368,
+      "sha256": "d9f059765d06ec5989aee7fb00c0a0a6c0b589d002e7a582e2532f2ecca3355b"
+    }
+  ],
+  "checks": [
+    {
+      "name": "current_fragment_and_manuscript_hashes",
+      "satisfied": true,
+      "evidence": {
+        "fragmentBytes": 35500,
+        "fragmentSha256": "c4797189771af6fbbc112b562bc300b2c2ef2433053dac02866504b463a02d23",
+        "manuscriptBytes": 29479,
+        "manuscriptSha256": "1fc1dbdd7d874525fb488ab096715f7b195d73d8bc9a459b44c9edd946c79396"
+      }
+    },
+    {
+      "name": "current_frozen_task_ch17-kinch-v020-l02-arrow-task",
+      "satisfied": true,
+      "evidence": {
+        "bytes": 2962,
+        "sha256": "832a0126d0434b8068b9bb98f51a463a15e4fbf70ac59608545a258caf8998a5",
+        "candidateFragmentByteRange": [
+          25149,
+          28111
+        ],
+        "comparedWith": "Original source task hash independently established in prior full review."
+      }
+    },
+    {
+      "name": "current_frozen_task_ch17-kinch-v020-l02-cross-task",
+      "satisfied": true,
+      "evidence": {
+        "bytes": 3368,
+        "sha256": "d9f059765d06ec5989aee7fb00c0a0a6c0b589d002e7a582e2532f2ecca3355b",
+        "candidateFragmentByteRange": [
+          31456,
+          34824
+        ],
+        "comparedWith": "Original source task hash independently established in prior full review."
+      }
+    },
+    {
+      "name": "native_saved_controls_still_exact",
+      "satisfied": true,
+      "evidence": {
+        "candidateControls": [
+          {
+            "tag": "textarea",
+            "attrs": {
+              "aria-describedby": "ch17-kinch-v020-l02-arrow-response-status",
+              "data-note-input": "ch17-kinch-v020-l02-arrow-response",
+              "id": "ch17-kinch-v020-l02-arrow-response",
+              "rows": "5"
+            }
+          },
+          {
+            "tag": "button",
+            "attrs": {
+              "data-save-note": "ch17-kinch-v020-l02-arrow-response",
+              "type": "button"
+            }
+          },
+          {
+            "tag": "textarea",
+            "attrs": {
+              "aria-describedby": "ch17-kinch-v020-l02-cross-response-status",
+              "data-note-input": "ch17-kinch-v020-l02-cross-response",
+              "id": "ch17-kinch-v020-l02-cross-response",
+              "rows": "5"
+            }
+          },
+          {
+            "tag": "button",
+            "attrs": {
+              "data-save-note": "ch17-kinch-v020-l02-cross-response",
+              "type": "button"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "markdown_controls_still_disabled_inert",
+      "satisfied": true,
+      "evidence": {
+        "controls": [
+          {
+            "tag": "textarea",
+            "attrs": {
+              "aria-describedby": "ch17-kinch-v020-l02-arrow-response-status",
+              "id": "ch17-kinch-v020-l02-arrow-response",
+              "rows": "5",
+              "disabled": null
+            }
+          },
+          {
+            "tag": "button",
+            "attrs": {
+              "type": "button",
+              "disabled": null
+            }
+          },
+          {
+            "tag": "textarea",
+            "attrs": {
+              "aria-describedby": "ch17-kinch-v020-l02-cross-response-status",
+              "id": "ch17-kinch-v020-l02-cross-response",
+              "rows": "5",
+              "disabled": null
+            }
+          },
+          {
+            "tag": "button",
+            "attrs": {
+              "type": "button",
+              "disabled": null
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "four_outer_bindings_unchanged",
+      "satisfied": true,
+      "evidence": {
+        "count": 4,
+        "mismatches": []
+      }
+    },
+    {
+      "name": "all_native_edit_bindings_unchanged",
+      "satisfied": true,
+      "evidence": {
+        "checkedBindings": 12,
+        "mismatches": []
+      }
+    },
+    {
+      "name": "native_vocabulary_targets_and_markup_unchanged",
+      "satisfied": true,
+      "evidence": {
+        "candidateTargets": [
+          "ch17-word-allele",
+          "ch17-word-f1-generation",
+          "ch17-word-f2-generation",
+          "ch17-word-genotype",
+          "ch17-word-heterozygous",
+          "ch17-word-homozygous",
+          "ch17-word-law-of-segregation",
+          "ch17-word-phenotype",
+          "ch17-word-probability",
+          "ch17-word-punnett-square",
+          "ch17-word-true-breeding"
+        ]
+      }
+    },
+    {
+      "name": "native_class_set_unchanged",
+      "satisfied": true,
+      "evidence": {
+        "classes": [
+          "bio-term",
+          "comparison-table",
+          "content-section",
+          "optional-writing",
+          "science-figure",
+          "section-label",
+          "worked-example",
+          "writing-status"
+        ]
+      }
+    },
+    {
+      "name": "no_new_shell_runtime_assessment_or_style",
+      "satisfied": true,
+      "evidence": {
+        "forbiddenElementsOrAttrs": []
+      }
+    },
+    {
+      "name": "five_asset_output_hashes_unchanged",
+      "satisfied": true,
+      "evidence": {
+        "count": 5,
+        "mismatches": [],
+        "scope": "Compared output copies with prior independently source/PPT-verified hashes; no repeated source archive reads."
+      }
+    },
+    {
+      "name": "five_image_alternatives_paths_still_match",
+      "satisfied": true,
+      "evidence": {
+        "markdownImages": [
+          [
+            "Six pea-plant contrasts: long and short stems; purple and white flowers; round and wrinkled seeds; yellow and green seeds; green and yellow pods; inflated and pinched pods. The seed-colour drawing places yellow on the left and green on the right, although its caption lists green first.",
+            "../assets/teaching-v040/slide-14-image25.png"
+          ],
+          [
+            "Seed-shape sequence with a round and a wrinkled P parent, an all-round F1 generation, and an F2 generation showing round and wrinkled seeds. The drawing labels the schematic F2 proportions three quarters round and one quarter wrinkled and describes crosses between F1 plants.",
+            "../assets/teaching-v040/slide-15-image14.png"
+          ],
+          [
+            "A meiosis schematic with two homologous chromosome pairs, distinguished by length, and two possible arrangements. In each arrangement, copied X-shaped homologues separate into two cells; sister chromatids later separate into single chromosome rods. For this lesson, follow only the long blue and long red chromosomes in the left-hand arrangement.",
+            "../assets/teaching-v040/slide-41-image44.png"
+          ],
+          [
+            "A true-breeding round parent labelled RR is crossed with a true-breeding wrinkled parent labelled rr. Arrows lead to a round F1 seed category labelled Rr and 100 percent of offspring. The drawing abbreviates the gamete and fertilisation steps.",
+            "../assets/teaching-v040/slide-18-image20.png"
+          ],
+          [
+            "A two-by-two Punnett square with R and r across the top and R and r down the left. The four interior entries are RR, Rr, Rr and rr. In the accompanying explanation, top entries are sperm contributions and left entries are egg contributions.",
+            "../assets/teaching-v040/slide-20-image36.png"
+          ]
+        ]
+      }
+    },
+    {
+      "name": "entire_current_visible_word_sequence_equal",
+      "satisfied": true,
+      "evidence": {
+        "htmlNormalizedCharacters": 26441,
+        "markdownNormalizedCharacters": 26441,
+        "htmlNormalizedSha256": "f74d37b19c26304fd19b7897ec4667d0967d2b4f4a7541f83f36058eb8163326",
+        "markdownNormalizedSha256": "f74d37b19c26304fd19b7897ec4667d0967d2b4f4a7541f83f36058eb8163326",
+        "method": "Same independently implemented visible-content normalization used in prior full review, applied to complete current files."
+      }
+    },
+    {
+      "name": "current_exact_conversion_and_strict_structure",
+      "satisfied": true,
+      "evidence": {
+        "expectedManuscriptSha256": "1fc1dbdd7d874525fb488ab096715f7b195d73d8bc9a459b44c9edd946c79396",
+        "actualManuscriptSha256": "1fc1dbdd7d874525fb488ab096715f7b195d73d8bc9a459b44c9edd946c79396",
+        "rootIds": [
+          "ch17-l02-teaching-01",
+          "ch17-l02-teaching-02",
+          "ch17-l02-worked",
+          "ch17-l02-teaching-03"
+        ],
+        "onlyReviewedDefinitionsExecuted": true
+      }
+    },
+    {
+      "name": "raw_before_and_source_contract_output_copies_unchanged",
+      "satisfied": true,
+      "evidence": {
+        "count": 9,
+        "mismatches": []
+      }
+    },
+    {
+      "name": "current_unicode_no_mojibake_indicators",
+      "satisfied": true,
+      "evidence": {
+        "fragment": [],
+        "manuscript": []
+      }
+    },
+    {
+      "name": "prior_full_review_preserved",
+      "satisfied": true,
+      "evidence": {
+        "path": "/workspace/scratch/9592c268bc42/lesson02-v040-authoring-analysis/static_native_candidate_review.json",
+        "bytes": 25972,
+        "sha256": "92ec0f6c946cec0f4f6f88d087158cf06e0c4a78a2d783db74a2d27382291471"
+      }
+    }
+  ],
+  "summary": {
+    "checks": 17,
+    "satisfied": 17,
+    "notSatisfied": 0,
+    "findings": []
+  },
+  "scopeLimits": [
+    "Delta review of current file bindings, native preservation and complete manuscript content parity. Prior full source/PPT reads are retained as prior evidence and not claimed repeated.",
+    "No browser, native runtime, CSS rendering, integration or whole-owner hash/global-offset verification.",
+    "The full20c22 owner remains absent; user reports Scout verified it.",
+    "Integration map review pending.",
+    "Pedagogical/science revisions authored and reviewed in other scopes; no teacher acceptance or quality certification."
+  ]
+}

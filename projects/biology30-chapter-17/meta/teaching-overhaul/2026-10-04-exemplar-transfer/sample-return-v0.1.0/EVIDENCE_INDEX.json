@@ -1,0 +1,630 @@
+{
+  "artifact": "Biology30_CH17_Exemplar_Transfer_Calibration_v0.1.0",
+  "version": "0.1.0",
+  "scope": "Original workspace paths retained in reviewer evidence resolve through these exact copied payload paths. Large originals remain external source references, not bundled files.",
+  "exactCopies": [
+    {
+      "originalWorkspacePath": "calibration-v0.1.0/PURPOSE_PROGRESSION_AND_DEFERRALS.md",
+      "payloadPath": "PURPOSE_PROGRESSION_AND_DEFERRALS.md",
+      "role": "Root-authored sample decision or review record",
+      "bytes": 14834,
+      "sha256": "53aebe5b430c8a6a710eeeb58579e2c8fac273a4b5f5b9bdaad67544796444e1"
+    },
+    {
+      "originalWorkspacePath": "calibration-v0.1.0/AUTHOR_SELF_REVIEW.md",
+      "payloadPath": "AUTHOR_SELF_REVIEW.md",
+      "role": "Root-authored sample decision or review record",
+      "bytes": 9759,
+      "sha256": "2b9f50cbe3d08bf11910c585034c2a89972acc873d4459631f1e8bd964efcf6a"
+    },
+    {
+      "originalWorkspacePath": "calibration-v0.1.0/README_SAMPLE_DECISION.md",
+      "payloadPath": "README_SAMPLE_DECISION.md",
+      "role": "Root-authored sample decision or review record",
+      "bytes": 6793,
+      "sha256": "81e147116a76fe8da5cfb0550eb1fd4c7b618b1f11b8c8f233cd6d7ffba608b4"
+    },
+    {
+      "originalWorkspacePath": "calibration-v0.1.0/REVIEW_STATUS.md",
+      "payloadPath": "REVIEW_STATUS.md",
+      "role": "Root-authored sample decision or review record",
+      "bytes": 7338,
+      "sha256": "ddfff6f72ad68002b2d4721e2d9a8d6e5d47b3de2a80c91a9e3bf9eaeffaf600"
+    },
+    {
+      "originalWorkspacePath": "calibration-v0.1.0/analysis/source/SOURCE_MAP.md",
+      "payloadPath": "SOURCE_MAP.md",
+      "role": "Final source-owned evidence, exact copy",
+      "bytes": 27933,
+      "sha256": "2c21986267c6cd627d1d8e62651b7166c33b4904d91025bb706237072274ad78"
+    },
+    {
+      "originalWorkspacePath": "calibration-v0.1.0/analysis/source/SOURCE_MAP.json",
+      "payloadPath": "SOURCE_MAP.json",
+      "role": "Final source-owned evidence, exact copy",
+      "bytes": 35076,
+      "sha256": "c8b287f55d60a13ac7441bc92a00d77a07f12508737e98896b7f86fefe0fbf90"
+    },
+    {
+      "originalWorkspacePath": "calibration-v0.1.0/analysis/source/SOURCE_READINESS.md",
+      "payloadPath": "SOURCE_READINESS.md",
+      "role": "Final source-owned evidence, exact copy",
+      "bytes": 6300,
+      "sha256": "9b0ea54dad18d341948f1566b109142b3e9e4db938ec0b472cfbf1987b265ae0"
+    },
+    {
+      "originalWorkspacePath": "calibration-v0.1.0/analysis/source/SOURCE_CONFLICTS.md",
+      "payloadPath": "SOURCE_CONFLICTS.md",
+      "role": "Final source-owned evidence, exact copy",
+      "bytes": 7167,
+      "sha256": "7db19e30ab3f0719c5e60cff5bb828daffe80c79004e411640d4dbc6c89fd60b"
+    },
+    {
+      "originalWorkspacePath": "calibration-v0.1.0/analysis/source/SOURCE_CONFLICTS.json",
+      "payloadPath": "SOURCE_CONFLICTS.json",
+      "role": "Final source-owned evidence, exact copy",
+      "bytes": 9164,
+      "sha256": "1b2bee7c8225c917c0b24c0a368338bbf192a90086c59522c0adc2b69814650e"
+    },
+    {
+      "originalWorkspacePath": "calibration-v0.1.0/analysis/source/TARGETED_SOURCE_LOCATORS.md",
+      "payloadPath": "TARGETED_SOURCE_LOCATORS.md",
+      "role": "Final source-owned evidence, exact copy",
+      "bytes": 19340,
+      "sha256": "c28c6f10d65f72e18e0c122386c2b57cfacc931850df33822a5dce21b41c60fe"
+    },
+    {
+      "originalWorkspacePath": "calibration-v0.1.0/analysis/source/TARGETED_SOURCE_LOCATORS.json",
+      "payloadPath": "TARGETED_SOURCE_LOCATORS.json",
+      "role": "Final source-owned evidence, exact copy",
+      "bytes": 15638,
+      "sha256": "f6ac1f22bc50b82ad0ace55fadc3ead1e4abb35d2847fe72462a6db9bfbdf846"
+    },
+    {
+      "originalWorkspacePath": "calibration-v0.1.0/analysis/source/BOUNDED_DRAFT_SOURCE_REVIEW.md",
+      "payloadPath": "evidence/source/BOUNDED_DRAFT_SOURCE_REVIEW.md",
+      "role": "Fresh source availability, original reading scope or bounded source review",
+      "bytes": 4351,
+      "sha256": "69e65d5c71c397e672d24beacd4b8933df201d5a544a0fd6a8abb46a892c4b6a"
+    },
+    {
+      "originalWorkspacePath": "calibration-v0.1.0/analysis/source/BOUNDED_DRAFT_SOURCE_REVIEW.json",
+      "payloadPath": "evidence/source/BOUNDED_DRAFT_SOURCE_REVIEW.json",
+      "role": "Fresh source availability, original reading scope or bounded source review",
+      "bytes": 5370,
+      "sha256": "cd8c6b0209ce1ab3e40e83cdc67fb912af59c7ca395ca40f0be9d8aadafc3813"
+    },
+    {
+      "originalWorkspacePath": "calibration-v0.1.0/analysis/source/CURRENT_SOURCE_GATE.md",
+      "payloadPath": "evidence/source/CURRENT_SOURCE_GATE.md",
+      "role": "Fresh source availability, original reading scope or bounded source review",
+      "bytes": 2792,
+      "sha256": "402360e358e0fae1c053e580cb5d96b0d2a118f1b58abf64eb109d1259dee153"
+    },
+    {
+      "originalWorkspacePath": "calibration-v0.1.0/analysis/source/CURRENT_SOURCE_GATE.json",
+      "payloadPath": "evidence/source/CURRENT_SOURCE_GATE.json",
+      "role": "Fresh source availability, original reading scope or bounded source review",
+      "bytes": 3441,
+      "sha256": "5221d8ad6c17bd63ee8716502f38e6f72922777693cea892a860af3ba52f39dd"
+    },
+    {
+      "originalWorkspacePath": "calibration-v0.1.0/analysis/source/CURRENT_MEMBER_VERIFICATION.json",
+      "payloadPath": "evidence/source/CURRENT_MEMBER_VERIFICATION.json",
+      "role": "Fresh source availability, original reading scope or bounded source review",
+      "bytes": 191646,
+      "sha256": "538d80c714ca8f21d6fcb0e191fa2fbdd7994ce86e9fe7519c262841398f9c86"
+    },
+    {
+      "originalWorkspacePath": "calibration-v0.1.0/analysis/source/CURRENT_ARCHIVE_VERIFICATION.json",
+      "payloadPath": "evidence/source/CURRENT_ARCHIVE_VERIFICATION.json",
+      "role": "Fresh source availability, original reading scope or bounded source review",
+      "bytes": 17864,
+      "sha256": "16c796c0f65415e9e2fb93e32c344e6aaa709ca93b7562a774f2ee22d16a8f0f"
+    },
+    {
+      "originalWorkspacePath": "calibration-v0.1.0/analysis/source/CURRENT_ARCHIVE_PROTECTED_EXTRA_MEMBERS.json",
+      "payloadPath": "evidence/source/CURRENT_ARCHIVE_PROTECTED_EXTRA_MEMBERS.json",
+      "role": "Fresh source availability, original reading scope or bounded source review",
+      "bytes": 8518,
+      "sha256": "e4547c7e6898aecbc812428a394ba9abee41482d1852ff2ef06e1cae1808b701"
+    },
+    {
+      "originalWorkspacePath": "calibration-v0.1.0/analysis/source/CURRENT_INCLUDED_CATEGORIES.json",
+      "payloadPath": "evidence/source/CURRENT_INCLUDED_CATEGORIES.json",
+      "role": "Fresh source availability, original reading scope or bounded source review",
+      "bytes": 48803,
+      "sha256": "367b75bf2ea70443dcea07716a4d1cf2a4249361ab0fe43de89024f09650638c"
+    },
+    {
+      "originalWorkspacePath": "calibration-v0.1.0/analysis/source/CURRENT_SOURCE_READ_SCOPE.json",
+      "payloadPath": "evidence/source/CURRENT_SOURCE_READ_SCOPE.json",
+      "role": "Fresh source availability, original reading scope or bounded source review",
+      "bytes": 6271,
+      "sha256": "a38bdce714d3545acddeb4095129a5be20c27d359697c030fd569e115a22d4fa"
+    },
+    {
+      "originalWorkspacePath": "calibration-v0.1.0/analysis/source/SOURCE_EVIDENCE_CHECK.json",
+      "payloadPath": "evidence/source/SOURCE_EVIDENCE_CHECK.json",
+      "role": "Fresh source availability, original reading scope or bounded source review",
+      "bytes": 10226,
+      "sha256": "9b59bb30ee20224ea9e806ce2cf286015d6239eadf2582c2dcaef16f5bf43c82"
+    },
+    {
+      "originalWorkspacePath": "calibration-v0.1.0/analysis/source/CURRENT_TARGET_REQUIRED_CHECKS.json",
+      "payloadPath": "evidence/source/CURRENT_TARGET_REQUIRED_CHECKS.json",
+      "role": "Fresh source availability, original reading scope or bounded source review",
+      "bytes": 5746,
+      "sha256": "f49a4e018f0e0dd07175cf3b33c0151dc686c3223b166e54059611c172cf9d1a"
+    },
+    {
+      "originalWorkspacePath": "calibration-v0.1.0/analysis/source/CURRENT_TARGET_NATIVE_CONTEXT.json",
+      "payloadPath": "evidence/source/CURRENT_TARGET_NATIVE_CONTEXT.json",
+      "role": "Fresh source availability, original reading scope or bounded source review",
+      "bytes": 32478,
+      "sha256": "31f35b9aadc86db2a2e1ade49c6c3a23ff7be2b4c0aa24c4fff7d1f362e3b7ab"
+    },
+    {
+      "originalWorkspacePath": "calibration-v0.1.0/analysis/source/CURRENT_ORIGINAL_QTI_TARGETS.json",
+      "payloadPath": "evidence/source/CURRENT_ORIGINAL_QTI_TARGETS.json",
+      "role": "Fresh source availability, original reading scope or bounded source review",
+      "bytes": 8529,
+      "sha256": "f63cb170a73d2f96e71eb8616feea0f6c02de981f81f1b8e635c5e26c82afcde"
+    },
+    {
+      "originalWorkspacePath": "calibration-v0.1.0/analysis/source/CURRENT_lesson-02_TEXTBOOK_TASKS.json",
+      "payloadPath": "evidence/source/CURRENT_lesson-02_TEXTBOOK_TASKS.json",
+      "role": "Fresh source availability, original reading scope or bounded source review",
+      "bytes": 7016,
+      "sha256": "3a8e1b99e321adeb73b97de9b89941b1cdc95bda9742e1fb731e05e00740307c"
+    },
+    {
+      "originalWorkspacePath": "calibration-v0.1.0/analysis/source/CURRENT_lesson-05_TEXTBOOK_TASKS.json",
+      "payloadPath": "evidence/source/CURRENT_lesson-05_TEXTBOOK_TASKS.json",
+      "role": "Fresh source availability, original reading scope or bounded source review",
+      "bytes": 6975,
+      "sha256": "23c88a80feed7e6a9365fc671c0a57f1165019840b01071f600555831ebe4055"
+    },
+    {
+      "originalWorkspacePath": "calibration-v0.1.0/analysis/source/FINAL_V100_READONLY_PINS.json",
+      "payloadPath": "evidence/source/FINAL_V100_READONLY_PINS.json",
+      "role": "Fresh source availability, original reading scope or bounded source review",
+      "bytes": 63318,
+      "sha256": "d28068f56000feca4287054a1ee816102525e2af6ea80d901061bb80d7dfdba0"
+    },
+    {
+      "originalWorkspacePath": "calibration-v0.1.0/analysis/source/pptx-read/ACTUAL_SLIDE_TEXT_01_48.json",
+      "payloadPath": "evidence/source/pptx-read/ACTUAL_SLIDE_TEXT_01_48.json",
+      "role": "Fresh source availability, original reading scope or bounded source review",
+      "bytes": 51484,
+      "sha256": "5d87032160bef614e67378bb76c63e7f8192b69abc1a4ce6d38d900161abc555"
+    },
+    {
+      "originalWorkspacePath": "calibration-v0.1.0/analysis/source/pptx-read/EVIDENCE.json",
+      "payloadPath": "evidence/source/pptx-read/EVIDENCE.json",
+      "role": "Fresh source availability, original reading scope or bounded source review",
+      "bytes": 20503,
+      "sha256": "e7929d1c7ce75f44b9c6fd95e5a7a37866e0fd61b31d6f73cfbdbe3eeb044ba7"
+    },
+    {
+      "originalWorkspacePath": "calibration-v0.1.0/analysis/source/pptx-read/EVIDENCE.md",
+      "payloadPath": "evidence/source/pptx-read/EVIDENCE.md",
+      "role": "Fresh source availability, original reading scope or bounded source review",
+      "bytes": 14817,
+      "sha256": "cddafe7d07b02f2942b883f4bf7dc45e75259c34a58921ac9c0ad827731ec0d1"
+    },
+    {
+      "originalWorkspacePath": "calibration-v0.1.0/analysis/source/pptx-read/READ_LOG.json",
+      "payloadPath": "evidence/source/pptx-read/READ_LOG.json",
+      "role": "Fresh source availability, original reading scope or bounded source review",
+      "bytes": 18727,
+      "sha256": "93516cc54495c847a0340927e8d5ee22a8c7240a5c0476e2ca664f52e3645df5"
+    },
+    {
+      "originalWorkspacePath": "calibration-v0.1.0/analysis/source/textbook-pixels/RENDER_PROVENANCE.json",
+      "payloadPath": "evidence/source/textbook-pixels/RENDER_PROVENANCE.json",
+      "role": "Fresh source availability, original reading scope or bounded source review",
+      "bytes": 1748,
+      "sha256": "49c84717ede3fb715a04eb91627a53e6d0cae1c5f9ee90b63479792d3ec411d6"
+    },
+    {
+      "originalWorkspacePath": "calibration-v0.1.0/analysis/records/EXEMPLAR_TRANSFER_DECISIONS.md",
+      "payloadPath": "EXEMPLAR_TRANSFER_DECISIONS.md",
+      "role": "Final bounded progression and actual-block decisions",
+      "bytes": 51170,
+      "sha256": "bad612ddc295c0f4d5464de1d58b5a28892274252e8ca7ba2aaf1c4b697175f0"
+    },
+    {
+      "originalWorkspacePath": "calibration-v0.1.0/analysis/records/EXEMPLAR_TRANSFER_DECISIONS.json",
+      "payloadPath": "EXEMPLAR_TRANSFER_DECISIONS.json",
+      "role": "Final bounded progression and actual-block decisions",
+      "bytes": 180195,
+      "sha256": "def59f5c65eea8b174d5d32fff05e38c18811ffa8b6592a4eeecd15f895c6392"
+    },
+    {
+      "originalWorkspacePath": "calibration-v0.1.0/analysis/records/CHAPTER_PROGRESSION.md",
+      "payloadPath": "CHAPTER_PROGRESSION.md",
+      "role": "Final bounded progression and actual-block decisions",
+      "bytes": 9675,
+      "sha256": "2acfd4827595b75cbe4412cf5726a0e0600598856107f7e1a059b92f59a579af"
+    },
+    {
+      "originalWorkspacePath": "calibration-v0.1.0/analysis/records/CONTINUITY_LEDGER.md",
+      "payloadPath": "CONTINUITY_LEDGER.md",
+      "role": "Final bounded progression and actual-block decisions",
+      "bytes": 9414,
+      "sha256": "8699df17821ed4bed6199a6f05fd507322d841e42e8c5db9fdb0fc33df8cf1d0"
+    },
+    {
+      "originalWorkspacePath": "calibration-v0.1.0/analysis/records/CHANGELOG.md",
+      "payloadPath": "CHANGELOG.md",
+      "role": "Final bounded progression and actual-block decisions",
+      "bytes": 3620,
+      "sha256": "c4ac395cd267af1a722030386683c9ba16f33a1cd840ad6a07e1c2d5c2ab6bfc"
+    },
+    {
+      "originalWorkspacePath": "calibration-v0.1.0/analysis/records/OPEN_ISSUES.md",
+      "payloadPath": "OPEN_ISSUES.md",
+      "role": "Final bounded progression and actual-block decisions",
+      "bytes": 5365,
+      "sha256": "45ff01324987562e5b7b20c42fed3c77ddfaa70466b527d2bf92761321e01eb2"
+    },
+    {
+      "originalWorkspacePath": "calibration-v0.1.0/analysis/records/EVIDENCE_REGISTER.json",
+      "payloadPath": "evidence/records/EVIDENCE_REGISTER.json",
+      "role": "Independent bounded prerequisite, draft or assembled-copy read record",
+      "bytes": 56148,
+      "sha256": "8208c9b3385ebecde55e85bb635eee6b3bfab2028218c383c090233c23a9de0d"
+    },
+    {
+      "originalWorkspacePath": "calibration-v0.1.0/analysis/records/DRAFT_READ_REGISTER.json",
+      "payloadPath": "evidence/records/DRAFT_READ_REGISTER.json",
+      "role": "Independent bounded prerequisite, draft or assembled-copy read record",
+      "bytes": 1279,
+      "sha256": "4fd05759c1b4d5ebc68833e8ce7432dea7c9b0e61224df1688daca384c408bd7"
+    },
+    {
+      "originalWorkspacePath": "calibration-v0.1.0/analysis/records/ASSEMBLED_RECORDS_REVIEW.md",
+      "payloadPath": "evidence/records/ASSEMBLED_RECORDS_REVIEW.md",
+      "role": "Independent bounded prerequisite, draft or assembled-copy read record",
+      "bytes": 4903,
+      "sha256": "cab49dfcd1ae3680897b05df74a91f7cd3527d3751a4674ba8947412b4d7ce91"
+    },
+    {
+      "originalWorkspacePath": "calibration-v0.1.0/analysis/records/ASSEMBLED_RECORDS_REVIEW.json",
+      "payloadPath": "evidence/records/ASSEMBLED_RECORDS_REVIEW.json",
+      "role": "Independent bounded prerequisite, draft or assembled-copy read record",
+      "bytes": 5497,
+      "sha256": "1419fb451c5967f852af047682f0756f9c6b695c68d01a6b95269eb6e14de952"
+    },
+    {
+      "originalWorkspacePath": "calibration-v0.1.0/analysis/records/FINAL_RECORDS_INDEX.json",
+      "payloadPath": "evidence/records/FINAL_RECORDS_INDEX.json",
+      "role": "Independent bounded prerequisite, draft or assembled-copy read record",
+      "bytes": 2097,
+      "sha256": "db3cb53bde3bf20be279dbe822fe7197c5df027f14c83ca7becd7cf455dc2157"
+    },
+    {
+      "originalWorkspacePath": "calibration-v0.1.0/analysis/exemplar/EXEMPLAR_FUNCTIONS_AND_PREREQUISITES.md",
+      "payloadPath": "evidence/exemplar/EXEMPLAR_FUNCTIONS_AND_PREREQUISITES.md",
+      "role": "Exact selected exemplar passage or separately scoped instructional review",
+      "bytes": 18516,
+      "sha256": "d9861bbd2fba4d8a2d62999db14f131fd44e08c00eddda5543ea0332d7c12d43"
+    },
+    {
+      "originalWorkspacePath": "calibration-v0.1.0/analysis/exemplar/EXEMPLAR_EXACT_PASSAGES.json",
+      "payloadPath": "evidence/exemplar/EXEMPLAR_EXACT_PASSAGES.json",
+      "role": "Exact selected exemplar passage or separately scoped instructional review",
+      "bytes": 11512,
+      "sha256": "4180ce22eb95246fcafc93acb2135d80f9a027b0606f238783b521a974f72283"
+    },
+    {
+      "originalWorkspacePath": "calibration-v0.1.0/analysis/exemplar/EXCERPT_BYTE_VERIFICATION.json",
+      "payloadPath": "evidence/exemplar/EXCERPT_BYTE_VERIFICATION.json",
+      "role": "Exact selected exemplar passage or separately scoped instructional review",
+      "bytes": 1213,
+      "sha256": "cca5acc7833d46fa32b2cbf41f72bdb9eb8034f833d9523299f602d1e495141a"
+    },
+    {
+      "originalWorkspacePath": "calibration-v0.1.0/analysis/exemplar/LESSON02_INDEPENDENT_INSTRUCTIONAL_REVIEW.md",
+      "payloadPath": "evidence/exemplar/LESSON02_INDEPENDENT_INSTRUCTIONAL_REVIEW.md",
+      "role": "Exact selected exemplar passage or separately scoped instructional review",
+      "bytes": 14252,
+      "sha256": "f663a559edb8ee6a00ddf38450d155b3ee12805220f796d17180dbd2581fc808"
+    },
+    {
+      "originalWorkspacePath": "calibration-v0.1.0/analysis/exemplar/LESSON05_INDEPENDENT_INSTRUCTIONAL_REVIEW.md",
+      "payloadPath": "evidence/exemplar/LESSON05_INDEPENDENT_INSTRUCTIONAL_REVIEW.md",
+      "role": "Exact selected exemplar passage or separately scoped instructional review",
+      "bytes": 18397,
+      "sha256": "7a2430b16c2c57e4fbf89becf957a070bbe734c44e7f6b606facdcecafbb6c67"
+    },
+    {
+      "originalWorkspacePath": "calibration-v0.1.0/analysis/exemplar/LESSON02_READ_RECORD.json",
+      "payloadPath": "evidence/exemplar/LESSON02_READ_RECORD.json",
+      "role": "Exact selected exemplar passage or separately scoped instructional review",
+      "bytes": 1615,
+      "sha256": "729f1ed529c30a296856b3a6a1b57e81ebf78755bdb99d63016010e9fdb7fd07"
+    },
+    {
+      "originalWorkspacePath": "calibration-v0.1.0/analysis/exemplar/LESSON05_READ_RECORD.json",
+      "payloadPath": "evidence/exemplar/LESSON05_READ_RECORD.json",
+      "role": "Exact selected exemplar passage or separately scoped instructional review",
+      "bytes": 1319,
+      "sha256": "3565c523bc9a99d08ab51c695789c19616557573d0e767df71707b3e60a17f1d"
+    },
+    {
+      "originalWorkspacePath": "calibration-v0.1.0/analysis/exemplar/ch11-l01-01.exact-source.html.txt",
+      "payloadPath": "evidence/exemplar/ch11-l01-01.exact-source.html.txt",
+      "role": "Exact selected exemplar passage or separately scoped instructional review",
+      "bytes": 1937,
+      "sha256": "311b15c7b22063c65f94272fc0f7d331848aba345d955dbf726e322b1e6e5694"
+    },
+    {
+      "originalWorkspacePath": "calibration-v0.1.0/analysis/exemplar/ch11-l01-01.reading.txt",
+      "payloadPath": "evidence/exemplar/ch11-l01-01.reading.txt",
+      "role": "Exact selected exemplar passage or separately scoped instructional review",
+      "bytes": 1270,
+      "sha256": "ebb120c2240e62a164c54a1ad20d7610fced30566dc4d12a56360d419a49fd9b"
+    },
+    {
+      "originalWorkspacePath": "calibration-v0.1.0/analysis/exemplar/ch11-l02-01.exact-source.html.txt",
+      "payloadPath": "evidence/exemplar/ch11-l02-01.exact-source.html.txt",
+      "role": "Exact selected exemplar passage or separately scoped instructional review",
+      "bytes": 3240,
+      "sha256": "154ebe5439913fce43d2967bf7bc71f06a27d38334cebd844d6560f3c3db085d"
+    },
+    {
+      "originalWorkspacePath": "calibration-v0.1.0/analysis/exemplar/ch11-l02-01.reading.txt",
+      "payloadPath": "evidence/exemplar/ch11-l02-01.reading.txt",
+      "role": "Exact selected exemplar passage or separately scoped instructional review",
+      "bytes": 2106,
+      "sha256": "d9a8c428d9e62522883fb62e6b8f6eaacb4d933fe482662a4ab48968cc9a2cc1"
+    },
+    {
+      "originalWorkspacePath": "calibration-v0.1.0/analysis/exemplar/ch11-l02-02.exact-source.html.txt",
+      "payloadPath": "evidence/exemplar/ch11-l02-02.exact-source.html.txt",
+      "role": "Exact selected exemplar passage or separately scoped instructional review",
+      "bytes": 2258,
+      "sha256": "f0bf34748c9e598f1862476617c6e61aef1ed6dfa506d6a3a537648bc954052e"
+    },
+    {
+      "originalWorkspacePath": "calibration-v0.1.0/analysis/exemplar/ch11-l02-02.reading.txt",
+      "payloadPath": "evidence/exemplar/ch11-l02-02.reading.txt",
+      "role": "Exact selected exemplar passage or separately scoped instructional review",
+      "bytes": 1478,
+      "sha256": "ac05010fe47db7a9ffaec3182f987e20afd9cfe129a938e03c77ca11aa09a80f"
+    },
+    {
+      "originalWorkspacePath": "calibration-v0.1.0/analysis/exemplar/ch11-l02-03.exact-source.html.txt",
+      "payloadPath": "evidence/exemplar/ch11-l02-03.exact-source.html.txt",
+      "role": "Exact selected exemplar passage or separately scoped instructional review",
+      "bytes": 1540,
+      "sha256": "0533bb2305c6042b1beee9c1fd9b883dd5b2098173ffcf2e381659fd2943a5cd"
+    },
+    {
+      "originalWorkspacePath": "calibration-v0.1.0/analysis/exemplar/ch11-l02-03.reading.txt",
+      "payloadPath": "evidence/exemplar/ch11-l02-03.reading.txt",
+      "role": "Exact selected exemplar passage or separately scoped instructional review",
+      "bytes": 889,
+      "sha256": "cf5b3976568e5a97f7bac7ebc120275cee2965ef756f9964d6e87c5b74952878"
+    },
+    {
+      "originalWorkspacePath": "calibration-v0.1.0/analysis/exemplar/ch11-l02-04.exact-source.html.txt",
+      "payloadPath": "evidence/exemplar/ch11-l02-04.exact-source.html.txt",
+      "role": "Exact selected exemplar passage or separately scoped instructional review",
+      "bytes": 1952,
+      "sha256": "5a466cc38372aff6fb85845f380ee0df707be6ed1f3013616b0bb7c6fba94d17"
+    },
+    {
+      "originalWorkspacePath": "calibration-v0.1.0/analysis/exemplar/ch11-l02-04.reading.txt",
+      "payloadPath": "evidence/exemplar/ch11-l02-04.reading.txt",
+      "role": "Exact selected exemplar passage or separately scoped instructional review",
+      "bytes": 1254,
+      "sha256": "7670b6bd3d08b2e750c3293143a99fc4c8579278e61a39f3bc3a5203fa892677"
+    },
+    {
+      "originalWorkspacePath": "calibration-v0.1.0/analysis/exemplar/ch11-l06-01.exact-source.html.txt",
+      "payloadPath": "evidence/exemplar/ch11-l06-01.exact-source.html.txt",
+      "role": "Exact selected exemplar passage or separately scoped instructional review",
+      "bytes": 2929,
+      "sha256": "8acde30f3145ab8da9ae7f9b12dca980b28640a3354bb82258831fc5f9270f8e"
+    },
+    {
+      "originalWorkspacePath": "calibration-v0.1.0/analysis/exemplar/ch11-l06-01.reading.txt",
+      "payloadPath": "evidence/exemplar/ch11-l06-01.reading.txt",
+      "role": "Exact selected exemplar passage or separately scoped instructional review",
+      "bytes": 2012,
+      "sha256": "b02f54bd1af1b6f1bfb201bddfbd11263dec739c64e6cae2c6ab042d34dad4d1"
+    },
+    {
+      "originalWorkspacePath": "calibration-v0.1.0/analysis/exemplar/ch11-l06-02.exact-source.html.txt",
+      "payloadPath": "evidence/exemplar/ch11-l06-02.exact-source.html.txt",
+      "role": "Exact selected exemplar passage or separately scoped instructional review",
+      "bytes": 1143,
+      "sha256": "68da4954914cdfb7fa01c5a32ae40b5c22dbdd965ff92c1f405e11a184ea5f3a"
+    },
+    {
+      "originalWorkspacePath": "calibration-v0.1.0/analysis/exemplar/ch11-l06-02.reading.txt",
+      "payloadPath": "evidence/exemplar/ch11-l06-02.reading.txt",
+      "role": "Exact selected exemplar passage or separately scoped instructional review",
+      "bytes": 995,
+      "sha256": "cedceb80d67ce05ab4c2c42cf307ddf80c75a903304cc0cbcae39538221ca7d4"
+    },
+    {
+      "originalWorkspacePath": "calibration-v0.1.0/analysis/exemplar/ch11-l06-03.exact-source.html.txt",
+      "payloadPath": "evidence/exemplar/ch11-l06-03.exact-source.html.txt",
+      "role": "Exact selected exemplar passage or separately scoped instructional review",
+      "bytes": 863,
+      "sha256": "b8fc61ce77cc7a7b822920f68d8988f6c2b4c866e9210ca15b3e915354070a54"
+    },
+    {
+      "originalWorkspacePath": "calibration-v0.1.0/analysis/exemplar/ch11-l06-03.reading.txt",
+      "payloadPath": "evidence/exemplar/ch11-l06-03.reading.txt",
+      "role": "Exact selected exemplar passage or separately scoped instructional review",
+      "bytes": 722,
+      "sha256": "6ae3d6e52eb0d6dca861b093f5f61e344ec5fad69ec3e75340a07b53c4f341ad"
+    },
+    {
+      "originalWorkspacePath": "calibration-v0.1.0/analysis/exemplar/lesson-01.native-reading.txt",
+      "payloadPath": "evidence/exemplar/lesson-01.native-reading.txt",
+      "role": "Exact selected exemplar passage or separately scoped instructional review",
+      "bytes": 7883,
+      "sha256": "ba283532100fd6b83e786ba5d526d47d1ec9f99be1da2abf110dd94bb2d2fc37"
+    },
+    {
+      "originalWorkspacePath": "calibration-v0.1.0/analysis/exemplar/lesson-02.native-reading.txt",
+      "payloadPath": "evidence/exemplar/lesson-02.native-reading.txt",
+      "role": "Exact selected exemplar passage or separately scoped instructional review",
+      "bytes": 7272,
+      "sha256": "df0d9fdee703ae155b83d77109f56f6d566de2e3edfbc047493952accef9c1ff"
+    },
+    {
+      "originalWorkspacePath": "calibration-v0.1.0/analysis/exemplar/lesson-03.native-reading.txt",
+      "payloadPath": "evidence/exemplar/lesson-03.native-reading.txt",
+      "role": "Exact selected exemplar passage or separately scoped instructional review",
+      "bytes": 10440,
+      "sha256": "61d030e5b44f2b6cb97608b6cbc113ddb625ab848dbb8a942daf86be46677aee"
+    },
+    {
+      "originalWorkspacePath": "calibration-v0.1.0/analysis/exemplar/lesson-04.native-reading.txt",
+      "payloadPath": "evidence/exemplar/lesson-04.native-reading.txt",
+      "role": "Exact selected exemplar passage or separately scoped instructional review",
+      "bytes": 8635,
+      "sha256": "8aac1e3afc014a82fe17bee1dfde6586ae3e4b4b55285e9a5fa99c70f927d3db"
+    },
+    {
+      "originalWorkspacePath": "calibration-v0.1.0/analysis/exemplar/lesson-05.native-reading.txt",
+      "payloadPath": "evidence/exemplar/lesson-05.native-reading.txt",
+      "role": "Exact selected exemplar passage or separately scoped instructional review",
+      "bytes": 8994,
+      "sha256": "f55ceb08efbaf32f305be61d8caebf38983f17abd601ea2381033c259f9b5725"
+    },
+    {
+      "originalWorkspacePath": "source-inspection/ch17/standards/02_TEACHING_STANDARD.md",
+      "payloadPath": "evidence/teaching-standards/02_TEACHING_STANDARD.md",
+      "role": "Complete original supplied standard, byte-identical",
+      "bytes": 11744,
+      "sha256": "aa273698aa48c983081ca9bb724dec66959ce86ea4f33049f12330715fbf89e2"
+    },
+    {
+      "originalWorkspacePath": "source-inspection/ch17/standards/CHAPTER11_TEACHING_STANDARD.md",
+      "payloadPath": "evidence/teaching-standards/CHAPTER11_TEACHING_STANDARD.md",
+      "role": "Complete original supplied standard, byte-identical",
+      "bytes": 11846,
+      "sha256": "cf7d4942a44944defd587813dcf68fc53e29773d189834c8e304bced4f530d80"
+    },
+    {
+      "originalWorkspacePath": "source-inspection/ch17/standards/SCOUT_CHAPTER_PASS_PROCESS.md",
+      "payloadPath": "evidence/teaching-standards/SCOUT_CHAPTER_PASS_PROCESS.md",
+      "role": "Complete original supplied standard, byte-identical",
+      "bytes": 14790,
+      "sha256": "3c6c69e91e87a79b3fa1d33f3c369b3cb651d475ae96d3c08cd2576a48f90bac"
+    },
+    {
+      "originalWorkspacePath": "calibration-v0.1.0/analysis/native/NATIVE_READINESS.md",
+      "payloadPath": "evidence/native/NATIVE_READINESS.md",
+      "role": "Independent native-source, protected-answer, science or final-fragment verification",
+      "bytes": 4489,
+      "sha256": "f8847f659a8ecae5dae10776f20bb24300b9f8e557d05cb1decc2b1562eb4765"
+    },
+    {
+      "originalWorkspacePath": "calibration-v0.1.0/analysis/native/dependency-register.md",
+      "payloadPath": "evidence/native/dependency-register.md",
+      "role": "Independent native-source, protected-answer, science or final-fragment verification",
+      "bytes": 8767,
+      "sha256": "c7a81a1b6f91c8ffb810ea7bc5ebf45cdbb520711dabfe4f70b73d2fcb7bd69b"
+    },
+    {
+      "originalWorkspacePath": "calibration-v0.1.0/analysis/native/dependency-register.json",
+      "payloadPath": "evidence/native/dependency-register.json",
+      "role": "Independent native-source, protected-answer, science or final-fragment verification",
+      "bytes": 79317,
+      "sha256": "3677be60fda1ef5fdbce0ea58e9473b4afda07aea1ef47ac38bb36bec3439db1"
+    },
+    {
+      "originalWorkspacePath": "calibration-v0.1.0/analysis/native/native01-05-teaching-passages.json",
+      "payloadPath": "evidence/native/native01-05-teaching-passages.json",
+      "role": "Independent native-source, protected-answer, science or final-fragment verification",
+      "bytes": 104954,
+      "sha256": "e6eb6c6b3217b6731c14f04ed64cf06e2881b115fccbbad1254fdd4573fc5d87"
+    },
+    {
+      "originalWorkspacePath": "calibration-v0.1.0/analysis/native/calibration-draft-review.md",
+      "payloadPath": "evidence/native/calibration-draft-review.md",
+      "role": "Independent native-source, protected-answer, science or final-fragment verification",
+      "bytes": 7722,
+      "sha256": "21b7650ed9cf02e137fb4978957918fe7f026107607abce42c546247ede73faf"
+    },
+    {
+      "originalWorkspacePath": "calibration-v0.1.0/analysis/native/calibration-draft-review.json",
+      "payloadPath": "evidence/native/calibration-draft-review.json",
+      "role": "Independent native-source, protected-answer, science or final-fragment verification",
+      "bytes": 21631,
+      "sha256": "83258c554e5184ec4f33cfe71962e6f8e444ae53adcaf7b926dd2b06c13750a7"
+    },
+    {
+      "originalWorkspacePath": "calibration-v0.1.0/analysis/native/calibration-reviewed-inputs.json",
+      "payloadPath": "evidence/native/calibration-reviewed-inputs.json",
+      "role": "Independent native-source, protected-answer, science or final-fragment verification",
+      "bytes": 10055,
+      "sha256": "3d799a8eebb045bc9648cf4530c58c4957526d87a49716a0289030f7eea048c4"
+    },
+    {
+      "originalWorkspacePath": "calibration-v0.1.0/analysis/native/fresh-independent-recomputation.json",
+      "payloadPath": "evidence/native/fresh-independent-recomputation.json",
+      "role": "Independent native-source, protected-answer, science or final-fragment verification",
+      "bytes": 5578,
+      "sha256": "0f5282b0ad177ab991f237920d462e27651ce4778084b97f5ee60258a65a0a04"
+    },
+    {
+      "originalWorkspacePath": "calibration-v0.1.0/analysis/native/FINAL_FRAGMENT_CONTRACT_CHECK.md",
+      "payloadPath": "evidence/native/FINAL_FRAGMENT_CONTRACT_CHECK.md",
+      "role": "Independent native-source, protected-answer, science or final-fragment verification",
+      "bytes": 3782,
+      "sha256": "bbc6b7ba7d2d810111724064f399c9767b48ab763b99f1005b1da0e5d532529b"
+    },
+    {
+      "originalWorkspacePath": "calibration-v0.1.0/analysis/native/FINAL_FRAGMENT_CONTRACT_CHECK.json",
+      "payloadPath": "evidence/native/FINAL_FRAGMENT_CONTRACT_CHECK.json",
+      "role": "Independent native-source, protected-answer, science or final-fragment verification",
+      "bytes": 30649,
+      "sha256": "b0650a416c9e97c5703f2df8c3de996a037d33e3b017f3a8ac0c84291ea15532"
+    },
+    {
+      "originalWorkspacePath": "calibration-v0.1.0/authoring/lesson-02.teaching.html.in",
+      "payloadPath": "evidence/authoring/lesson-02.teaching.html.in",
+      "role": "Exact final root-authored input reviewed before native macro expansion",
+      "bytes": 16834,
+      "sha256": "104526dfdc81d8e6aac1f56f826ea3c04ef28fe73b4c1f6d006ff5ae838808c0"
+    },
+    {
+      "originalWorkspacePath": "calibration-v0.1.0/authoring/lesson-05.teaching.html.in",
+      "payloadPath": "evidence/authoring/lesson-05.teaching.html.in",
+      "role": "Exact final root-authored input reviewed before native macro expansion",
+      "bytes": 20220,
+      "sha256": "920c21c4c658fdda5d7fc1416978c8e5a1d62adf7d221ef2fd70fa5ffc61d651"
+    },
+    {
+      "originalWorkspacePath": "upload/SOURCE_HANDOFF_MANIFEST(1).json",
+      "payloadPath": "evidence/original-manifests/SOURCE_HANDOFF_MANIFEST.json",
+      "role": "Exact original uploaded manifest",
+      "bytes": 98038,
+      "sha256": "c22193171eac93ed75085394b6edad16fbf8d292db8a0ebfead08646013bdee2"
+    },
+    {
+      "originalWorkspacePath": "source-inspection/ch17/SOURCE_BINDING_AND_PRESERVATION.json",
+      "payloadPath": "evidence/original-manifests/SOURCE_BINDING_AND_PRESERVATION.json",
+      "role": "Exact original preservation binding",
+      "bytes": 4128,
+      "sha256": "55faeed2d1000d4f5645461f5e66c12142330e046ac2379d1efcd727fd6892bf"
+    },
+    {
+      "originalWorkspacePath": "calibration-v0.1.0/analysis/prior-v1.0.0-before.json",
+      "payloadPath": "evidence/PRIOR_V100_BASELINE.json",
+      "role": "Read-only baseline before this separate calibration",
+      "bytes": 67054,
+      "sha256": "02f220cc082ba2326a08530f51cbc73c9f7e780d7162b3bdfe1f0ea5aeaa46a2"
+    }
+  ]
+}

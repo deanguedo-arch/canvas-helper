@@ -1,0 +1,72 @@
+{
+  "artifact": "Biology30_CH17_Exemplar_Transfer_Calibration_v0.1.0",
+  "version": "0.1.0",
+  "reviewer": "/root",
+  "role": "author self-review",
+  "dateUTC": "2026-10-04T15:08:14.333046+00:00",
+  "readScope": "Complete final author inputs and complete final assembled teaching manuscripts, including all hints and feedback; final integration notes and asset plan. Native prerequisite and selected exemplar/standard reads are described in the Markdown companion.",
+  "inputs": [
+    {
+      "path": "evidence/authoring/lesson-02.teaching.html.in",
+      "bytes": 16834,
+      "sha256": "104526dfdc81d8e6aac1f56f826ea3c04ef28fe73b4c1f6d006ff5ae838808c0"
+    },
+    {
+      "path": "evidence/authoring/lesson-05.teaching.html.in",
+      "bytes": 20220,
+      "sha256": "920c21c4c658fdda5d7fc1416978c8e5a1d62adf7d221ef2fd70fa5ffc61d651"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "manuscripts/lesson-02.md",
+      "bytes": 15004,
+      "sha256": "1fe8392c843c77250d23babac8d73c9c0826be2253bbd4ecb96d691b8c2a704e"
+    },
+    {
+      "path": "manuscripts/lesson-05.md",
+      "bytes": 18133,
+      "sha256": "5ce3f48d1c44ddf22932ea3bc2c4ce7045ff45c4f78511afaa421a7d1c46a1e9"
+    },
+    {
+      "path": "integration-text/lesson-02.teaching-fragment.html.txt",
+      "bytes": 17464,
+      "sha256": "5740360125376c2994bdaa1f28c4fe3d57b276232494ec7dbdb9db49ed6543fc"
+    },
+    {
+      "path": "integration-text/lesson-05.teaching-fragment.html.txt",
+      "bytes": 21630,
+      "sha256": "a78b0e51af788a1591864cd8fc3ae6a733a4b7b051b73bbe82be1787e1944e0c"
+    },
+    {
+      "path": "Biology30_CH17_Exemplar_Transfer_Calibration_Teacher_Review_v0.1.0.html",
+      "bytes": 1279267,
+      "sha256": "5553619d9c0eb503fd9efdd3a0ca079eb50148c131f11de9efae3b401d2b7e70"
+    },
+    {
+      "path": "INTEGRATION_MAP.json",
+      "bytes": 79824,
+      "sha256": "a03999a1ccc91c4d8d9f0b842a57335acd6547c95b2cbaa201a619f005627bcc"
+    },
+    {
+      "path": "PRACTICE_MAP.json",
+      "bytes": 35933,
+      "sha256": "f7c2bea054d23ab328a377e14c8564a5d23b6ea6d3be2c124a709941b1f1005f"
+    }
+  ],
+  "selfReviewRecord": {
+    "path": "AUTHOR_SELF_REVIEW.md",
+    "bytes": 9759,
+    "sha256": "2b9f50cbe3d08bf11910c585034c2a89972acc873d4459631f1e8bd964efcf6a"
+  },
+  "conclusion": "Both selected learner proposals complete; no remaining missing learner block or hidden essential procedure identified in this author self-review.",
+  "notClaimed": [
+    "independent review by the author",
+    "teacher acceptance",
+    "external specialist review",
+    "browser rendering",
+    "native runtime testing",
+    "integration",
+    "release"
+  ]
+}

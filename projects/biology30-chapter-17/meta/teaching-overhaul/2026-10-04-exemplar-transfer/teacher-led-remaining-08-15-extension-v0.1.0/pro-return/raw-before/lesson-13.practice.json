@@ -1,0 +1,584 @@
+{
+  "checks": [
+    {
+      "id": "ch17-check-13",
+      "route": "lesson-13",
+      "title": "Recombination frequency and chromosome maps",
+      "mc": [
+        {
+          "prompt": "Counts are 150 and 130 parental, 10 and 10 recombinant. What is the recombination frequency?",
+          "answer": "6.67% approximately",
+          "explanation": "Recombinants = 20; total = 300; 20/300 × 100 ≈ 6.67%.",
+          "cue": "Trace the normal mechanism before choosing an answer.",
+          "id": "ch17-l13-check-mc-1",
+          "options": [
+            "6.67% approximately",
+            "3.33% approximately",
+            "20%",
+            "7.14% approximately"
+          ],
+          "difficulty": "application"
+        },
+        {
+          "prompt": "Why can a two-locus estimate underestimate a long map distance?",
+          "answer": "Multiple crossovers may restore parental outside-marker combinations",
+          "explanation": "Some exchanges are hidden when only two outside loci are scored.",
+          "cue": "Trace the normal mechanism before choosing an answer.",
+          "id": "ch17-l13-check-mc-2",
+          "options": [
+            "Map units are always exact physical millimetres",
+            "Multiple crossovers may restore parental outside-marker combinations",
+            "Chromosomes cannot contain more than two genes",
+            "All recombinants die by definition"
+          ],
+          "difficulty": "application"
+        }
+      ],
+      "writing": [
+        {
+          "prompt": "Show the calculation for 16 and 24 recombinant offspring with 90 and 70 parental offspring. Include an interpretation.",
+          "model": "Total = 16 + 24 + 90 + 70 = 200. Recombinants = 40. Frequency = 40/200 × 100% = 20%, suggesting about 20 map units in a simple short-interval model. It is an estimate based on the scored loci.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ],
+          "id": "ch17-l13-check-writing-1",
+          "limit": 3200
+        },
+        {
+          "prompt": "Explain why a map unit is not a universal physical DNA length and why two-locus frequencies have limits.",
+          "model": "Map units reflect recombination probability. Recombination varies across chromosome regions and organisms, so no fixed base-pair conversion applies universally. Multiple crossovers can be undetected, and two-locus recombinant frequency approaches the independent limit of 50%.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ],
+          "id": "ch17-l13-check-writing-2",
+          "limit": 3200
+        }
+      ]
+    }
+  ],
+  "words": [
+    {
+      "term": "recombination frequency",
+      "meaning": "The fraction of scored offspring or gametes that are recombinant for the loci considered.",
+      "example": "Eighteen of 100 test-cross offspring are recombinant, giving 18%.",
+      "importantDistinction": "Use all scored offspring in the denominator and both recombinant classes in the numerator.",
+      "aliases": [],
+      "id": "ch17-word-recombination-frequency",
+      "lesson": 13,
+      "whatItDoes": "Eighteen of 100 test-cross offspring are recombinant, giving 18%.",
+      "feature": "Eighteen of 100 test-cross offspring are recombinant, giving 18%.",
+      "confusion": "Use all scored offspring in the denominator and both recombinant classes in the numerator."
+    },
+    {
+      "term": "map unit",
+      "meaning": "A unit of genetic map distance corresponding approximately to one percent recombination over short intervals.",
+      "example": "A short interval with about 8% recombinants is estimated as about 8 map units.",
+      "importantDistinction": "A map unit is not a universal fixed number of base pairs.",
+      "aliases": [
+        "centimorgan",
+        "cM"
+      ],
+      "id": "ch17-word-map-unit",
+      "lesson": 13,
+      "whatItDoes": "A short interval with about 8% recombinants is estimated as about 8 map units.",
+      "feature": "A short interval with about 8% recombinants is estimated as about 8 map units.",
+      "confusion": "A map unit is not a universal fixed number of base pairs."
+    },
+    {
+      "term": "linkage map",
+      "meaning": "A map of relative gene order and distances estimated from recombination data.",
+      "example": "Genes A, B and C are placed along a line with measured intervals.",
+      "importantDistinction": "A genetic map is not a direct microscopic measurement of DNA length.",
+      "aliases": [],
+      "id": "ch17-word-linkage-map",
+      "lesson": 13,
+      "whatItDoes": "Genes A, B and C are placed along a line with measured intervals.",
+      "feature": "Genes A, B and C are placed along a line with measured intervals.",
+      "confusion": "A genetic map is not a direct microscopic measurement of DNA length."
+    },
+    {
+      "term": "double crossover",
+      "meaning": "Two exchange events within a chromosome region.",
+      "example": "Two exchanges can restore the original outside-marker arrangement.",
+      "importantDistinction": "Undetected multiple crossovers can make observed two-locus recombination underestimate longer distances.",
+      "aliases": [],
+      "id": "ch17-word-double-crossover",
+      "lesson": 13,
+      "whatItDoes": "Two exchanges can restore the original outside-marker arrangement.",
+      "feature": "Two exchanges can restore the original outside-marker arrangement.",
+      "confusion": "Undetected multiple crossovers can make observed two-locus recombination underestimate longer distances."
+    }
+  ],
+  "practiceQuestions": [
+    {
+      "id": "ch17-source-OBJ_2131245",
+      "lesson": 13,
+      "prompt": "A test cross yields 420 parental and 80 recombinant offspring. What is the approximate short-interval map distance?",
+      "answer": "16 cM",
+      "options": [
+        "16 cM",
+        "8 cM",
+        "19 cM",
+        "84 cM"
+      ],
+      "cue": "Identify the relevant mechanism or quantity and apply the stated model.",
+      "explanation": "Recombination frequency is 80/(420 + 80) × 100 = 16%, corresponding to about 16 cM in the stated approximation.",
+      "difficulty": "application",
+      "stimuli": [],
+      "sourceItemId": "OBJ_2131245",
+      "conceptId": "ch17-concept-test-cross"
+    },
+    {
+      "id": "ch17-foundation-ch17-word-recombination-frequency",
+      "lesson": 13,
+      "conceptId": "ch17-concept-recombination-frequency",
+      "prompt": "Which term matches this description? The fraction of scored offspring or gametes that are recombinant for the loci considered.",
+      "options": [
+        "recombination frequency",
+        "map unit",
+        "linkage map",
+        "double crossover"
+      ],
+      "answer": "recombination frequency",
+      "cue": "Use the meaning of each term, not the length of its name.",
+      "explanation": "The fraction of scored offspring or gametes that are recombinant for the loci considered. Use all scored offspring in the denominator and both recombinant classes in the numerator.",
+      "difficulty": "recall",
+      "family": "definition-recognition",
+      "kind": "mc"
+    },
+    {
+      "id": "ch17-foundation-ch17-word-map-unit",
+      "lesson": 13,
+      "conceptId": "ch17-concept-map-unit",
+      "prompt": "Which term matches this description? A unit of genetic map distance corresponding approximately to one percent recombination over short intervals.",
+      "options": [
+        "recombination frequency",
+        "map unit",
+        "linkage map",
+        "double crossover"
+      ],
+      "answer": "map unit",
+      "cue": "Use the meaning of each term, not the length of its name.",
+      "explanation": "A unit of genetic map distance corresponding approximately to one percent recombination over short intervals. A map unit is not a universal fixed number of base pairs.",
+      "difficulty": "recall",
+      "family": "definition-recognition",
+      "kind": "mc"
+    },
+    {
+      "id": "ch17-foundation-ch17-word-linkage-map",
+      "lesson": 13,
+      "conceptId": "ch17-concept-linkage-map",
+      "prompt": "Which term matches this description? A map of relative gene order and distances estimated from recombination data.",
+      "options": [
+        "recombination frequency",
+        "map unit",
+        "linkage map",
+        "double crossover"
+      ],
+      "answer": "linkage map",
+      "cue": "Use the meaning of each term, not the length of its name.",
+      "explanation": "A map of relative gene order and distances estimated from recombination data. A genetic map is not a direct microscopic measurement of DNA length.",
+      "difficulty": "recall",
+      "family": "definition-recognition",
+      "kind": "mc"
+    },
+    {
+      "id": "ch17-foundation-ch17-word-double-crossover",
+      "lesson": 13,
+      "conceptId": "ch17-concept-double-crossover",
+      "prompt": "Which term matches this description? Two exchange events within a chromosome region.",
+      "options": [
+        "recombination frequency",
+        "map unit",
+        "linkage map",
+        "double crossover"
+      ],
+      "answer": "double crossover",
+      "cue": "Use the meaning of each term, not the length of its name.",
+      "explanation": "Two exchange events within a chromosome region. Undetected multiple crossovers can make observed two-locus recombination underestimate longer distances.",
+      "difficulty": "recall",
+      "family": "definition-recognition",
+      "kind": "mc"
+    }
+  ],
+  "labelDiagrams": [
+    {
+      "id": "ch17-map-label",
+      "title": "A short-interval chromosome map",
+      "lesson": 13,
+      "src": "./assets/labeling/ch17-map-label.png",
+      "alt": "The schematic positions are 0, 8 and 20 cM. The middle locus is 8 cM from the left locus and 12 cM from the right locus; the total map interval is 20 cM. Lettered identification version; answer key is not drawn.",
+      "answers": {
+        "A": "Locus at 0 cM",
+        "B": "Locus at 8 cM",
+        "C": "Locus at 20 cM",
+        "D": "8 cM",
+        "E": "12 cM"
+      },
+      "options": [
+        "Locus at 0 cM",
+        "Locus at 8 cM",
+        "Locus at 20 cM",
+        "8 cM",
+        "12 cM"
+      ],
+      "reviewNote": "Follow each letter or its leader line. Use the model assumptions and units shown."
+    }
+  ],
+  "videos": [
+    {
+      "id": "3nimNyRfeWc",
+      "lesson": 13,
+      "title": "Recombination frequency and chromosome maps — video support",
+      "purpose": "Calculate recombination frequency, construct simple maps and distinguish map distance from a universal physical base-pair distance.",
+      "fallback": "Suppose A–B is 6 map units, B–C is 14 and A–C is 20 in a simple additive map. Since 6 + 14 = 20, B lies between A and C. Either A—6—B—14—C or its reversed orientation expresses the same relative order. Two distances alone may leave more than one order possible. Place the genes tentatively and ask what additional comparison would distinguish the alternatives. Do not invent a third distance merely to finish the drawing.",
+      "disposition": "included",
+      "sourceSlide": 107,
+      "sourceDeck": "c17",
+      "availability": "Source hyperlink resolved syntactically; external playback not certified."
+    },
+    {
+      "id": "TU44tR0hJ8A",
+      "lesson": 13,
+      "title": "Recombination frequency and chromosome maps — video support 2",
+      "purpose": "Calculate recombination frequency, construct simple maps and distinguish map distance from a universal physical base-pair distance.",
+      "fallback": "Suppose A–B is 6 map units, B–C is 14 and A–C is 20 in a simple additive map. Since 6 + 14 = 20, B lies between A and C. Either A—6—B—14—C or its reversed orientation expresses the same relative order. Two distances alone may leave more than one order possible. Place the genes tentatively and ask what additional comparison would distinguish the alternatives. Do not invent a third distance merely to finish the drawing.",
+      "disposition": "included",
+      "sourceSlide": 114,
+      "sourceDeck": "c17",
+      "availability": "Source hyperlink resolved syntactically; external playback not certified."
+    }
+  ],
+  "practiceConcepts": [
+    {
+      "id": "ch17-concept-recombination-frequency",
+      "term": "recombination frequency",
+      "lesson": 13,
+      "meaning": "The fraction of scored offspring or gametes that are recombinant for the loci considered.",
+      "example": "Eighteen of 100 test-cross offspring are recombinant, giving 18%.",
+      "aliases": [],
+      "cue": "Identify the structure, quantity or relationship described.",
+      "correctExplanation": "The fraction of scored offspring or gametes that are recombinant for the loci considered. Use all scored offspring in the denominator and both recombinant classes in the numerator.",
+      "misconception": {
+        "statement": "Only the smallest recombinant class belongs in the numerator.",
+        "correction": "The fraction of scored offspring or gametes that are recombinant for the loci considered. Use all scored offspring in the denominator and both recombinant classes in the numerator."
+      },
+      "reviewRoute": "lesson-13"
+    },
+    {
+      "id": "ch17-concept-map-unit",
+      "term": "map unit",
+      "lesson": 13,
+      "meaning": "A unit of genetic map distance corresponding approximately to one percent recombination over short intervals.",
+      "example": "A short interval with about 8% recombinants is estimated as about 8 map units.",
+      "aliases": [
+        "centimorgan",
+        "cM"
+      ],
+      "cue": "Identify the structure, quantity or relationship described.",
+      "correctExplanation": "A unit of genetic map distance corresponding approximately to one percent recombination over short intervals. A map unit is not a universal fixed number of base pairs.",
+      "misconception": {
+        "statement": "One map unit always equals exactly one million base pairs.",
+        "correction": "A unit of genetic map distance corresponding approximately to one percent recombination over short intervals. A map unit is not a universal fixed number of base pairs."
+      },
+      "reviewRoute": "lesson-13"
+    },
+    {
+      "id": "ch17-concept-linkage-map",
+      "term": "linkage map",
+      "lesson": 13,
+      "meaning": "A map of relative gene order and distances estimated from recombination data.",
+      "example": "Genes A, B and C are placed along a line with measured intervals.",
+      "aliases": [],
+      "cue": "Identify the structure, quantity or relationship described.",
+      "correctExplanation": "A map of relative gene order and distances estimated from recombination data. A genetic map is not a direct microscopic measurement of DNA length.",
+      "misconception": {
+        "statement": "A linkage map is a photograph of the chromosome.",
+        "correction": "A map of relative gene order and distances estimated from recombination data. A genetic map is not a direct microscopic measurement of DNA length."
+      },
+      "reviewRoute": "lesson-13"
+    },
+    {
+      "id": "ch17-concept-double-crossover",
+      "term": "double crossover",
+      "lesson": 13,
+      "meaning": "Two exchange events within a chromosome region.",
+      "example": "Two exchanges can restore the original outside-marker arrangement.",
+      "aliases": [],
+      "cue": "Identify the structure, quantity or relationship described.",
+      "correctExplanation": "Two exchange events within a chromosome region. Undetected multiple crossovers can make observed two-locus recombination underestimate longer distances.",
+      "misconception": {
+        "statement": "Two-locus recombination frequency increases without limit above 50%.",
+        "correction": "Two exchange events within a chromosome region. Undetected multiple crossovers can make observed two-locus recombination underestimate longer distances."
+      },
+      "reviewRoute": "lesson-13"
+    }
+  ],
+  "authoredPractice": [
+    {
+      "prompt": "Only A–B = 8 cM and B–C = 12 cM are known. What should you say about the order?",
+      "answer": "More than one order may fit; an A–C comparison can help",
+      "explanation": "Two pairwise distances may not uniquely determine which gene lies between the others.",
+      "cue": "Trace the normal mechanism before choosing an answer.",
+      "id": "ch17-l13-application-1",
+      "options": [
+        "More than one order may fit; an A–C comparison can help",
+        "A–C must be 20 without any assumptions",
+        "The chromosome must be circular",
+        "B is certainly in the middle in every case"
+      ],
+      "difficulty": "application",
+      "lesson": 13,
+      "chapter": 17,
+      "conceptId": "ch17-concept-recombination-frequency",
+      "family": "application",
+      "kind": "mc",
+      "reviewRoute": "lesson-13",
+      "flashVariant": {
+        "id": "ch17-l13-scenario-1",
+        "family": "scenario-explanation",
+        "prompt": "Only A–B = 8 cM and B–C = 12 cM are known. What should you say about the order?",
+        "model": "More than one order may fit; an A–C comparison can help. Two pairwise distances may not uniquely determine which gene lies between the others.",
+        "selfAssessed": true
+      }
+    }
+  ],
+  "typedPractice": [
+    {
+      "id": "ch17-l13-context-recombination-frequency",
+      "chapter": 17,
+      "lesson": 13,
+      "conceptId": "ch17-concept-recombination-frequency",
+      "family": "scenario-retrieval",
+      "kind": "blank",
+      "difficulty": "application",
+      "prompt": "Identify the term illustrated: Eighteen of 100 test-cross offspring are recombinant, giving 18%.",
+      "answer": "recombination frequency",
+      "aliases": [],
+      "cue": "Use the relationship described in the example.",
+      "explanation": "The fraction of scored offspring or gametes that are recombinant for the loci considered. Use all scored offspring in the denominator and both recombinant classes in the numerator.",
+      "reviewRoute": "lesson-13"
+    },
+    {
+      "id": "ch17-l13-context-linkage-map",
+      "chapter": 17,
+      "lesson": 13,
+      "conceptId": "ch17-concept-linkage-map",
+      "family": "scenario-retrieval",
+      "kind": "blank",
+      "difficulty": "application",
+      "prompt": "Identify the term illustrated: Genes A, B and C are placed along a line with measured intervals.",
+      "answer": "linkage map",
+      "aliases": [],
+      "cue": "Use the relationship described in the example.",
+      "explanation": "A map of relative gene order and distances estimated from recombination data. A genetic map is not a direct microscopic measurement of DNA length.",
+      "reviewRoute": "lesson-13"
+    },
+    {
+      "id": "ch17-l13-context-double-crossover",
+      "chapter": 17,
+      "lesson": 13,
+      "conceptId": "ch17-concept-double-crossover",
+      "family": "scenario-retrieval",
+      "kind": "blank",
+      "difficulty": "application",
+      "prompt": "Identify the term illustrated: Two exchanges can restore the original outside-marker arrangement.",
+      "answer": "double crossover",
+      "aliases": [],
+      "cue": "Use the relationship described in the example.",
+      "explanation": "Two exchange events within a chromosome region. Undetected multiple crossovers can make observed two-locus recombination underestimate longer distances.",
+      "reviewRoute": "lesson-13"
+    }
+  ],
+  "multiSelectPractice": [
+    {
+      "id": "ch17-multiple-13",
+      "chapter": 17,
+      "lesson": 13,
+      "conceptId": "ch17-concept-recombination-frequency",
+      "family": "discrimination",
+      "kind": "multi-select",
+      "difficulty": "application",
+      "prompt": "Select the TWO accurate statements about recombination frequency and chromosome maps.",
+      "options": [
+        {
+          "id": "false-1",
+          "text": "One map unit always equals exactly one million base pairs."
+        },
+        {
+          "id": "true-2",
+          "text": "A genetic map is not a direct microscopic measurement of DNA length."
+        },
+        {
+          "id": "false-2",
+          "text": "Two-locus recombination frequency increases without limit above 50%."
+        },
+        {
+          "id": "true-1",
+          "text": "Use all scored offspring in the denominator and both recombinant classes in the numerator."
+        }
+      ],
+      "answers": [
+        "true-1",
+        "true-2"
+      ],
+      "cue": "Check every statement against the mechanism; do not assume a negative statement is correct.",
+      "explanation": "Use all scored offspring in the denominator and both recombinant classes in the numerator. A genetic map is not a direct microscopic measurement of DNA length. A map unit is not a universal fixed number of base pairs. Undetected multiple crossovers can make observed two-locus recombination underestimate longer distances.",
+      "reviewRoute": "lesson-13"
+    }
+  ],
+  "guidedActivities": [
+    {
+      "chapter": 17,
+      "lesson": 13,
+      "route": "lesson-13",
+      "worked": {
+        "title": "Calculate frequency and check the denominator",
+        "scenario": "A test cross gives parental counts 90 and 86 and recombinant counts 12 and 12.",
+        "steps": [
+          "Total offspring = 90 + 86 + 12 + 12 = 200.",
+          "Recombinants = 12 + 12 = 24.",
+          "Frequency = 24/200 = 0.12 = 12%.",
+          "Short-interval map estimate: about 12 cM.",
+          "Reasonableness check: recombinant classes are less common than parental classes, and 12% is below 50%."
+        ],
+        "id": "ch17-l13-worked",
+        "label": "Worked example"
+      },
+      "guided": {
+        "id": "ch17-l13-guided",
+        "label": "Practise with support",
+        "title": "Apply the explanation",
+        "instruction": "Try both questions. Use the hint to revise your thinking after an incorrect answer.",
+        "items": [
+          {
+            "prompt": "A test cross has 30 recombinants among 250 offspring. What is the frequency?",
+            "answer": "12%",
+            "explanation": "30/250 = 0.12, which is 12%.",
+            "cue": "Distinguish a fraction from its percentage.",
+            "id": "ch17-l13-guided-q1",
+            "options": [
+              "12%",
+              "0.12%",
+              "30%"
+            ],
+            "difficulty": "application",
+            "kind": "select",
+            "hint": "Distinguish a fraction from its percentage."
+          },
+          {
+            "prompt": "A–B = 5, B–C = 9 and A–C = 14. Which gene is in the middle?",
+            "answer": "B",
+            "explanation": "The two shorter distances add to the longest: 5 + 9 = 14.",
+            "cue": "Try adding the intervals on each side of a proposed middle gene.",
+            "id": "ch17-l13-guided-q2",
+            "options": [
+              "A",
+              "B",
+              "C"
+            ],
+            "difficulty": "application",
+            "kind": "select",
+            "hint": "Try adding the intervals on each side of a proposed middle gene."
+          }
+        ]
+      }
+    }
+  ],
+  "diagramPractice": [
+    {
+      "id": "ch17-map-label-practice-A",
+      "lesson": 13,
+      "conceptId": "ch17-concept-recombination-frequency",
+      "diagramId": "ch17-map-label",
+      "letter": "A",
+      "prompt": "What does letter A identify?",
+      "options": [
+        "Locus at 0 cM",
+        "Locus at 20 cM",
+        "8 cM",
+        "12 cM",
+        "Locus at 8 cM"
+      ],
+      "cue": "Follow the leader line or the lettered feature. Read any stated model assumptions.",
+      "explanation": "Letter A identifies Locus at 0 cM.",
+      "reviewRoute": "lesson-13"
+    },
+    {
+      "id": "ch17-map-label-practice-B",
+      "lesson": 13,
+      "conceptId": "ch17-concept-recombination-frequency",
+      "diagramId": "ch17-map-label",
+      "letter": "B",
+      "prompt": "What does letter B identify?",
+      "options": [
+        "8 cM",
+        "Locus at 8 cM",
+        "12 cM",
+        "Locus at 0 cM",
+        "Locus at 20 cM"
+      ],
+      "cue": "Follow the leader line or the lettered feature. Read any stated model assumptions.",
+      "explanation": "Letter B identifies Locus at 8 cM.",
+      "reviewRoute": "lesson-13"
+    },
+    {
+      "id": "ch17-map-label-practice-C",
+      "lesson": 13,
+      "conceptId": "ch17-concept-recombination-frequency",
+      "diagramId": "ch17-map-label",
+      "letter": "C",
+      "prompt": "What does letter C identify?",
+      "options": [
+        "12 cM",
+        "Locus at 0 cM",
+        "Locus at 20 cM",
+        "Locus at 8 cM",
+        "8 cM"
+      ],
+      "cue": "Follow the leader line or the lettered feature. Read any stated model assumptions.",
+      "explanation": "Letter C identifies Locus at 20 cM.",
+      "reviewRoute": "lesson-13"
+    },
+    {
+      "id": "ch17-map-label-practice-D",
+      "lesson": 13,
+      "conceptId": "ch17-concept-recombination-frequency",
+      "diagramId": "ch17-map-label",
+      "letter": "D",
+      "prompt": "What does letter D identify?",
+      "options": [
+        "Locus at 0 cM",
+        "Locus at 8 cM",
+        "Locus at 20 cM",
+        "8 cM",
+        "12 cM"
+      ],
+      "cue": "Follow the leader line or the lettered feature. Read any stated model assumptions.",
+      "explanation": "Letter D identifies 8 cM.",
+      "reviewRoute": "lesson-13"
+    },
+    {
+      "id": "ch17-map-label-practice-E",
+      "lesson": 13,
+      "conceptId": "ch17-concept-recombination-frequency",
+      "diagramId": "ch17-map-label",
+      "letter": "E",
+      "prompt": "What does letter E identify?",
+      "options": [
+        "Locus at 8 cM",
+        "Locus at 20 cM",
+        "8 cM",
+        "Locus at 0 cM",
+        "12 cM"
+      ],
+      "cue": "Follow the leader line or the lettered feature. Read any stated model assumptions.",
+      "explanation": "Letter E identifies 12 cM.",
+      "reviewRoute": "lesson-13"
+    }
+  ]
+}

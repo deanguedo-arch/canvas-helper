@@ -1,0 +1,64 @@
+{
+  "recordType": "Final primary static file/source/markup verification; no native execution",
+  "ownerSha256BeforeAndAfter": "31447f72550c68ceb4a7cfd444f85651908a86782096dff4e4847cff4ab9e3e4",
+  "sourceZipCrcAnd92PayloadEquality": true,
+  "newSeparatePreflightHashVerified": true,
+  "requiredAuthoringPayloadsPresent": [
+    "manuscripts/lesson-06.md",
+    "manuscripts/lesson-07.md",
+    "lesson-06.teaching-fragment.html",
+    "lesson-07.teaching-fragment.html",
+    "TEACHING_SEQUENCE.md",
+    "SOURCE_VISUAL_MAP.json",
+    "CONTENT_REVIEW.md",
+    "PRACTICE_PREPARATION_MAP.json",
+    "INTEGRATION_MAP.json",
+    "CHANGELOG.md",
+    "OPEN_ISSUES.md",
+    "AUTHORING_EVIDENCE.md"
+  ],
+  "fragments": [
+    {
+      "path": "lesson-06.teaching-fragment.html",
+      "bytes": 28702,
+      "sha256": "8f6f7d8013b8ada7841a4d843c5119f8d011fc7d6ddca6e822c871dc8555c0c4"
+    },
+    {
+      "path": "lesson-07.teaching-fragment.html",
+      "bytes": 29330,
+      "sha256": "0a9c4872e8a65813229c7f1258b154315faeb8f71f04dc8342ac50abb454527a"
+    }
+  ],
+  "completeReadingManuscripts": [
+    {
+      "path": "manuscripts/lesson-06.md",
+      "bytes": 48482,
+      "sha256": "a03d425a6fbe763297c7c09b549881538d9fd6f29d36394ec8dbe19f83815b4c"
+    },
+    {
+      "path": "manuscripts/lesson-07.md",
+      "bytes": 48681,
+      "sha256": "e8e28af60b4fd9f2727dcea81ccc9ab9d630530a5d546b495149bef2bb0250e2"
+    }
+  ],
+  "exactOuterTags": 8,
+  "exactEditKeyPairs": 24,
+  "noncollidingNewContentAnchors": 28,
+  "nativeVocabularyInventoryCount": 56,
+  "lockedFigureBytes": 675,
+  "lockedFigureExactOccurrenceIn07": 1,
+  "rawBeforeExactCopies": 27,
+  "originalByteAssetCopies": 7,
+  "disabledReadingControls": 47,
+  "practiceRecordCount": 98,
+  "practiceOriginalRecordsExact": true,
+  "practiceTeachingAnchorsVerified": 36,
+  "sourceSlideImageRecords": 13,
+  "fullRelevantPdfPageRecords": 8,
+  "nativeTeachingTables": 10,
+  "nativeAssembly": false,
+  "browserRendering": false,
+  "nativeRuntimeOrSaveCompatibilityTests": false,
+  "teacherAcceptance": "Pending",
+  "archiveVerification": "See the separately delivered complete ZIP verification receipt."
+}

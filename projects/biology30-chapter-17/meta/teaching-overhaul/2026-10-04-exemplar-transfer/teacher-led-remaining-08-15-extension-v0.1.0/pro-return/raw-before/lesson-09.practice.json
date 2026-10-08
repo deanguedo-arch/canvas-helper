@@ -1,0 +1,428 @@
+{
+  "checks": [
+    {
+      "id": "ch17-check-09",
+      "route": "lesson-09",
+      "title": "Polygenic traits and environmental influences",
+      "mc": [
+        {
+          "prompt": "Which distinction is correct?",
+          "answer": "Multiple alleles concern one locus; polygenic inheritance involves multiple loci",
+          "explanation": "Allele diversity within a locus differs from the number of loci contributing to a trait.",
+          "cue": "Trace the normal mechanism before choosing an answer.",
+          "id": "ch17-l09-check-mc-1",
+          "options": [
+            "Multiple alleles concern one locus; polygenic inheritance involves multiple loci",
+            "Multiple alleles occur only in haploid organisms",
+            "Both terms always mean three chromosome sets",
+            "Polygenic traits exclude environmental effects"
+          ],
+          "difficulty": "application"
+        },
+        {
+          "prompt": "Two populations differ in both resources and allele frequencies. What can a phenotype difference alone establish?",
+          "answer": "A difference exists, but its separate causes need more evidence",
+          "explanation": "Confounded differences do not isolate one cause.",
+          "cue": "Trace the normal mechanism before choosing an answer.",
+          "id": "ch17-l09-check-mc-2",
+          "options": [
+            "The cause must be entirely genetic",
+            "A difference exists, but its separate causes need more evidence",
+            "The cause must be entirely environmental",
+            "A single dominant allele explains every individual"
+          ],
+          "difficulty": "application"
+        }
+      ],
+      "writing": [
+        {
+          "prompt": "Explain how a trait can show continuous variation rather than a simple 3:1 pattern.",
+          "model": "Multiple genes can contribute different effects, and environmental conditions can influence expression and development. Many combinations produce a range of measurements. A single complete-dominance Punnett square is therefore not an adequate model for every trait.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ],
+          "id": "ch17-l09-check-writing-1",
+          "limit": 3200
+        },
+        {
+          "prompt": "Distinguish a change in gene expression from a change in DNA sequence.",
+          "model": "A gene-expression change affects how genetic information is used or how much product is produced. The allele sequence can remain unchanged. A mutation changes the DNA sequence itself. Either can influence phenotype, but they are not the same process.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ],
+          "id": "ch17-l09-check-writing-2",
+          "limit": 3200
+        }
+      ]
+    }
+  ],
+  "words": [
+    {
+      "term": "polygenic inheritance",
+      "meaning": "Inheritance in which multiple genes contribute to a trait.",
+      "example": "Several gene regions contribute to variation in height.",
+      "importantDistinction": "Polygenic does not mean many alleles at only one locus.",
+      "aliases": [],
+      "id": "ch17-word-polygenic-inheritance",
+      "lesson": 9,
+      "whatItDoes": "Several gene regions contribute to variation in height.",
+      "feature": "Several gene regions contribute to variation in height.",
+      "confusion": "Polygenic does not mean many alleles at only one locus."
+    },
+    {
+      "term": "continuous variation",
+      "meaning": "A range of phenotype values without only a few sharply separated categories.",
+      "example": "A class has a range of measured heights rather than only tall and short genotypes.",
+      "importantDistinction": "Continuous measurements can reflect both genetic and environmental contributions.",
+      "aliases": [],
+      "id": "ch17-word-continuous-variation",
+      "lesson": 9,
+      "whatItDoes": "A class has a range of measured heights rather than only tall and short genotypes.",
+      "feature": "A class has a range of measured heights rather than only tall and short genotypes.",
+      "confusion": "Continuous measurements can reflect both genetic and environmental contributions."
+    },
+    {
+      "term": "environmental influence",
+      "meaning": "An effect of conditions such as nutrition or temperature on phenotype.",
+      "example": "Plants with similar genotypes grow to different sizes under different resource conditions.",
+      "importantDistinction": "An environmental effect does not necessarily change the inherited DNA sequence.",
+      "aliases": [],
+      "id": "ch17-word-environmental-influence",
+      "lesson": 9,
+      "whatItDoes": "Plants with similar genotypes grow to different sizes under different resource conditions.",
+      "feature": "Plants with similar genotypes grow to different sizes under different resource conditions.",
+      "confusion": "An environmental effect does not necessarily change the inherited DNA sequence."
+    },
+    {
+      "term": "gene expression",
+      "meaning": "Use of genetic information to produce functional products in cells.",
+      "example": "Cells make different proteins under different developmental or environmental conditions.",
+      "importantDistinction": "Expression can change without changing the allele sequence.",
+      "aliases": [],
+      "id": "ch17-word-gene-expression",
+      "lesson": 9,
+      "whatItDoes": "Cells make different proteins under different developmental or environmental conditions.",
+      "feature": "Cells make different proteins under different developmental or environmental conditions.",
+      "confusion": "Expression can change without changing the allele sequence."
+    }
+  ],
+  "practiceQuestions": [
+    {
+      "id": "ch17-source-OBJ_2131232",
+      "lesson": 9,
+      "prompt": "In an explicitly additive model with equally contributing loci and no environmental variation, AABBCC is crossed with aabbcc. What is predicted?",
+      "answer": "All AaBbCc offspring with an intermediate model value",
+      "options": [
+        "All AaBbCc offspring with an intermediate model value",
+        "Every offspring is aabbcc",
+        "A 9:3:3:1 distribution",
+        "Every offspring has either extreme parental genotype"
+      ],
+      "cue": "Identify the relevant mechanism or quantity and apply the stated model.",
+      "explanation": "All F1 offspring receive the same intermediate number of contributing alleles in this simplified additive model.",
+      "difficulty": "application",
+      "stimuli": [],
+      "sourceItemId": "OBJ_2131232",
+      "conceptId": "ch17-concept-polygenic-inheritance"
+    },
+    {
+      "id": "ch17-foundation-ch17-word-polygenic-inheritance",
+      "lesson": 9,
+      "conceptId": "ch17-concept-polygenic-inheritance",
+      "prompt": "Which term matches this description? Inheritance in which multiple genes contribute to a trait.",
+      "options": [
+        "polygenic inheritance",
+        "continuous variation",
+        "environmental influence",
+        "gene expression"
+      ],
+      "answer": "polygenic inheritance",
+      "cue": "Use the meaning of each term, not the length of its name.",
+      "explanation": "Inheritance in which multiple genes contribute to a trait. Polygenic does not mean many alleles at only one locus.",
+      "difficulty": "recall",
+      "family": "definition-recognition",
+      "kind": "mc"
+    },
+    {
+      "id": "ch17-foundation-ch17-word-continuous-variation",
+      "lesson": 9,
+      "conceptId": "ch17-concept-continuous-variation",
+      "prompt": "Which term matches this description? A range of phenotype values without only a few sharply separated categories.",
+      "options": [
+        "polygenic inheritance",
+        "continuous variation",
+        "environmental influence",
+        "gene expression"
+      ],
+      "answer": "continuous variation",
+      "cue": "Use the meaning of each term, not the length of its name.",
+      "explanation": "A range of phenotype values without only a few sharply separated categories. Continuous measurements can reflect both genetic and environmental contributions.",
+      "difficulty": "recall",
+      "family": "definition-recognition",
+      "kind": "mc"
+    },
+    {
+      "id": "ch17-foundation-ch17-word-environmental-influence",
+      "lesson": 9,
+      "conceptId": "ch17-concept-environmental-influence",
+      "prompt": "Which term matches this description? An effect of conditions such as nutrition or temperature on phenotype.",
+      "options": [
+        "polygenic inheritance",
+        "continuous variation",
+        "environmental influence",
+        "gene expression"
+      ],
+      "answer": "environmental influence",
+      "cue": "Use the meaning of each term, not the length of its name.",
+      "explanation": "An effect of conditions such as nutrition or temperature on phenotype. An environmental effect does not necessarily change the inherited DNA sequence.",
+      "difficulty": "recall",
+      "family": "definition-recognition",
+      "kind": "mc"
+    },
+    {
+      "id": "ch17-foundation-ch17-word-gene-expression",
+      "lesson": 9,
+      "conceptId": "ch17-concept-gene-expression",
+      "prompt": "Which term matches this description? Use of genetic information to produce functional products in cells.",
+      "options": [
+        "polygenic inheritance",
+        "continuous variation",
+        "environmental influence",
+        "gene expression"
+      ],
+      "answer": "gene expression",
+      "cue": "Use the meaning of each term, not the length of its name.",
+      "explanation": "Use of genetic information to produce functional products in cells. Expression can change without changing the allele sequence.",
+      "difficulty": "recall",
+      "family": "definition-recognition",
+      "kind": "mc"
+    }
+  ],
+  "videos": [
+    {
+      "id": "kp1bZEUgqVI",
+      "lesson": 9,
+      "title": "Polygenic traits and environmental influences — video support",
+      "purpose": "Explain polygenic and environmental contributions, and distinguish genotype, gene expression and measured phenotype.",
+      "fallback": "Nutrition, temperature and other conditions can influence a phenotype. Plants with similar genotypes may reach different heights under different light or nutrient conditions. The measured difference does not automatically establish a difference in DNA sequence. Gene expression describes which genetic information is used and how much product is made. Cells with the same inherited genome can have different functions because they express different sets of genes. Environmental or developmental signals can change expression. Some regulatory changes involve chemical modifications associated with DNA or chromatin. These are often discussed as epigenetic changes. Do not treat every such change as a mutation or assume it is always inherited through many generations.",
+      "disposition": "included",
+      "sourceSlide": 93,
+      "sourceDeck": "c17",
+      "availability": "Source hyperlink resolved syntactically; external playback not certified."
+    }
+  ],
+  "practiceConcepts": [
+    {
+      "id": "ch17-concept-polygenic-inheritance",
+      "term": "polygenic inheritance",
+      "lesson": 9,
+      "meaning": "Inheritance in which multiple genes contribute to a trait.",
+      "example": "Several gene regions contribute to variation in height.",
+      "aliases": [],
+      "cue": "Identify the structure, quantity or relationship described.",
+      "correctExplanation": "Inheritance in which multiple genes contribute to a trait. Polygenic does not mean many alleles at only one locus.",
+      "misconception": {
+        "statement": "Polygenic inheritance and multiple alleles are identical terms.",
+        "correction": "Inheritance in which multiple genes contribute to a trait. Polygenic does not mean many alleles at only one locus."
+      },
+      "reviewRoute": "lesson-09"
+    },
+    {
+      "id": "ch17-concept-continuous-variation",
+      "term": "continuous variation",
+      "lesson": 9,
+      "meaning": "A range of phenotype values without only a few sharply separated categories.",
+      "example": "A class has a range of measured heights rather than only tall and short genotypes.",
+      "aliases": [],
+      "cue": "Identify the structure, quantity or relationship described.",
+      "correctExplanation": "A range of phenotype values without only a few sharply separated categories. Continuous measurements can reflect both genetic and environmental contributions.",
+      "misconception": {
+        "statement": "Continuous variation means genes have no influence.",
+        "correction": "A range of phenotype values without only a few sharply separated categories. Continuous measurements can reflect both genetic and environmental contributions."
+      },
+      "reviewRoute": "lesson-09"
+    },
+    {
+      "id": "ch17-concept-environmental-influence",
+      "term": "environmental influence",
+      "lesson": 9,
+      "meaning": "An effect of conditions such as nutrition or temperature on phenotype.",
+      "example": "Plants with similar genotypes grow to different sizes under different resource conditions.",
+      "aliases": [],
+      "cue": "Identify the structure, quantity or relationship described.",
+      "correctExplanation": "An effect of conditions such as nutrition or temperature on phenotype. An environmental effect does not necessarily change the inherited DNA sequence.",
+      "misconception": {
+        "statement": "Every environmental effect on phenotype is a DNA mutation.",
+        "correction": "An effect of conditions such as nutrition or temperature on phenotype. An environmental effect does not necessarily change the inherited DNA sequence."
+      },
+      "reviewRoute": "lesson-09"
+    },
+    {
+      "id": "ch17-concept-gene-expression",
+      "term": "gene expression",
+      "lesson": 9,
+      "meaning": "Use of genetic information to produce functional products in cells.",
+      "example": "Cells make different proteins under different developmental or environmental conditions.",
+      "aliases": [],
+      "cue": "Identify the structure, quantity or relationship described.",
+      "correctExplanation": "Use of genetic information to produce functional products in cells. Expression can change without changing the allele sequence.",
+      "misconception": {
+        "statement": "Possessing an allele guarantees identical expression in every cell and condition.",
+        "correction": "Use of genetic information to produce functional products in cells. Expression can change without changing the allele sequence."
+      },
+      "reviewRoute": "lesson-09"
+    }
+  ],
+  "authoredPractice": [
+    {
+      "prompt": "A temperature change alters a model organism’s pigment production without changing its DNA sequence. What is the best conclusion?",
+      "answer": "Phenotype changed through a non-sequence environmental effect",
+      "explanation": "Phenotype can change through expression or biochemical conditions without sequence change.",
+      "cue": "Trace the normal mechanism before choosing an answer.",
+      "id": "ch17-l09-application-1",
+      "options": [
+        "Phenotype changed through a non-sequence environmental effect",
+        "A mutation must have occurred",
+        "The organism has no genes for pigment",
+        "Its chromosome number must have doubled"
+      ],
+      "difficulty": "application",
+      "lesson": 9,
+      "chapter": 17,
+      "conceptId": "ch17-concept-polygenic-inheritance",
+      "family": "application",
+      "kind": "mc",
+      "reviewRoute": "lesson-09",
+      "flashVariant": {
+        "id": "ch17-l09-scenario-1",
+        "family": "scenario-explanation",
+        "prompt": "A temperature change alters a model organism’s pigment production without changing its DNA sequence. What is the best conclusion?",
+        "model": "Phenotype changed through a non-sequence environmental effect. Phenotype can change through expression or biochemical conditions without sequence change.",
+        "selfAssessed": true
+      }
+    }
+  ],
+  "typedPractice": [
+    {
+      "id": "ch17-l09-context-polygenic-inheritance",
+      "chapter": 17,
+      "lesson": 9,
+      "conceptId": "ch17-concept-polygenic-inheritance",
+      "family": "scenario-retrieval",
+      "kind": "blank",
+      "difficulty": "application",
+      "prompt": "Identify the term illustrated: Several gene regions contribute to variation in height.",
+      "answer": "polygenic inheritance",
+      "aliases": [],
+      "cue": "Use the relationship described in the example.",
+      "explanation": "Inheritance in which multiple genes contribute to a trait. Polygenic does not mean many alleles at only one locus.",
+      "reviewRoute": "lesson-09"
+    },
+    {
+      "id": "ch17-l09-context-continuous-variation",
+      "chapter": 17,
+      "lesson": 9,
+      "conceptId": "ch17-concept-continuous-variation",
+      "family": "scenario-retrieval",
+      "kind": "blank",
+      "difficulty": "application",
+      "prompt": "Identify the term illustrated: A class has a range of measured heights rather than only tall and short genotypes.",
+      "answer": "continuous variation",
+      "aliases": [],
+      "cue": "Use the relationship described in the example.",
+      "explanation": "A range of phenotype values without only a few sharply separated categories. Continuous measurements can reflect both genetic and environmental contributions.",
+      "reviewRoute": "lesson-09"
+    },
+    {
+      "id": "ch17-l09-context-environmental-influence",
+      "chapter": 17,
+      "lesson": 9,
+      "conceptId": "ch17-concept-environmental-influence",
+      "family": "scenario-retrieval",
+      "kind": "blank",
+      "difficulty": "application",
+      "prompt": "Identify the term illustrated: Plants with similar genotypes grow to different sizes under different resource conditions.",
+      "answer": "environmental influence",
+      "aliases": [],
+      "cue": "Use the relationship described in the example.",
+      "explanation": "An effect of conditions such as nutrition or temperature on phenotype. An environmental effect does not necessarily change the inherited DNA sequence.",
+      "reviewRoute": "lesson-09"
+    },
+    {
+      "id": "ch17-l09-context-gene-expression",
+      "chapter": 17,
+      "lesson": 9,
+      "conceptId": "ch17-concept-gene-expression",
+      "family": "scenario-retrieval",
+      "kind": "blank",
+      "difficulty": "application",
+      "prompt": "Identify the term illustrated: Cells make different proteins under different developmental or environmental conditions.",
+      "answer": "gene expression",
+      "aliases": [],
+      "cue": "Use the relationship described in the example.",
+      "explanation": "Use of genetic information to produce functional products in cells. Expression can change without changing the allele sequence.",
+      "reviewRoute": "lesson-09"
+    }
+  ],
+  "guidedActivities": [
+    {
+      "chapter": 17,
+      "lesson": 9,
+      "route": "lesson-09",
+      "worked": {
+        "title": "Interpret an environmental comparison",
+        "scenario": "Genetically similar cuttings are grown under high or low light, with other measured conditions kept similar. Their average growth differs.",
+        "steps": [
+          "The genetic similarity reduces one source of variation.",
+          "The light condition differs systematically, so it is a plausible contributor.",
+          "The result concerns growth under those conditions; it does not prove a new allele appeared.",
+          "Check replication and other controlled conditions before making a stronger causal claim."
+        ],
+        "id": "ch17-l09-worked",
+        "label": "Worked example"
+      },
+      "guided": {
+        "id": "ch17-l09-guided",
+        "label": "Practise with support",
+        "title": "Apply the explanation",
+        "instruction": "Try both questions. Use the hint to revise your thinking after an incorrect answer.",
+        "items": [
+          {
+            "prompt": "Many loci contribute to a measured characteristic. Which term fits?",
+            "answer": "Polygenic inheritance",
+            "explanation": "Polygenic refers to contributions from multiple genes.",
+            "cue": "Count contributing loci, not versions of one gene.",
+            "id": "ch17-l09-guided-q1",
+            "options": [
+              "A single test cross",
+              "Polygenic inheritance",
+              "Multiple alleles at one locus only"
+            ],
+            "difficulty": "application",
+            "kind": "select",
+            "hint": "Count contributing loci, not versions of one gene."
+          },
+          {
+            "prompt": "Two cells share a genome but produce different proteins. Which explanation is relevant?",
+            "answer": "Different gene expression",
+            "explanation": "Cells can use different genetic information without having unrelated genomes.",
+            "cue": "Separate possession of DNA from use of DNA.",
+            "id": "ch17-l09-guided-q2",
+            "options": [
+              "Every chromosome must be different",
+              "One cell has no genotype",
+              "Different gene expression"
+            ],
+            "difficulty": "application",
+            "kind": "select",
+            "hint": "Separate possession of DNA from use of DNA."
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,866 @@
+{
+  "schemaVersion": 1,
+  "chapter": 12,
+  "purpose": "Developer-only replacement specification; do not render this wrapper or metadata to students.",
+  "patches": [
+    {
+      "key": "ch12-l01-teaching-01",
+      "route": "lesson-01",
+      "selector": "[data-canvas-edit-key=\"ch12-l01-teaching-01\"]",
+      "expectedHeading": "Start with a change, not with a feeling",
+      "newHeading": "From a change to a sensation",
+      "paragraphs": [
+        "Imagine walking into a coffee shop. Light enters your eyes, the floor presses against your feet, and coffee molecules enter your nose. Each is a stimulus: a condition or change that a sensory receptor can detect.",
+        "Sensory reception happens when a receptor detects a stimulus. Sensation is becoming aware of the sensory information when the brain processes it. Perception is the meaning the brain gives that information. Noticing a smell is sensation; recognizing it as coffee is perception."
+      ],
+      "bodyOrder": [
+        {
+          "paragraph": 0
+        },
+        {
+          "paragraph": 1
+        }
+      ],
+      "optionalResourceLink": "preserve link destination if valid; rename using global copy rules; put last"
+    },
+    {
+      "key": "ch12-l01-teaching-02",
+      "route": "lesson-01",
+      "selector": "[data-canvas-edit-key=\"ch12-l01-teaching-02\"]",
+      "expectedHeading": "How does the brain receive so many kinds of information?",
+      "newHeading": "How does information reach the brain?",
+      "paragraphs": [
+        "A sensory receptor converts a stimulus into a change in electrical or chemical signalling. This conversion is called transduction. Light does not travel down the optic nerve, and sound waves do not travel down the auditory nerve. Neurons carry information about the stimulus.",
+        "The brain uses the active pathway and its pattern of signals to interpret the information. Visual pathways carry information for sight; auditory pathways carry information for hearing. A stronger stimulus can change how often sensory neurons fire or how many become active. It does not simply make each action potential taller."
+      ],
+      "bodyOrder": [
+        {
+          "paragraph": 0
+        },
+        {
+          "selector": "figure.science-figure",
+          "occurrence": 0,
+          "action": "preserve-existing-node"
+        },
+        {
+          "paragraph": 1
+        }
+      ],
+      "optionalResourceLink": "preserve link destination if valid; rename using global copy rules; put last"
+    },
+    {
+      "key": "ch12-l01-teaching-03",
+      "route": "lesson-01",
+      "selector": "[data-canvas-edit-key=\"ch12-l01-teaching-03\"]",
+      "expectedHeading": "Match the receptor to the stimulus",
+      "newHeading": "Match the receptor to the stimulus",
+      "paragraphs": [
+        "Learn each receptor category by connecting its name to a stimulus and an example. Photoreceptors detect light. Chemoreceptors respond to chemicals. Mechanoreceptors respond to pressure, stretch or movement. Thermoreceptors detect temperature changes.",
+        "Receptors also monitor conditions inside the body. Not all sensory information comes from the outside environment. Pain receptors, called nociceptors, respond to conditions that may damage tissue, including extreme heat, strong pressure and certain chemicals."
+      ],
+      "bodyOrder": [
+        {
+          "selector": ".comparison-table",
+          "occurrence": 0,
+          "action": "preserve-existing-node"
+        },
+        {
+          "paragraph": 0
+        },
+        {
+          "paragraph": 1
+        }
+      ],
+      "optionalResourceLink": "preserve link destination if valid; rename using global copy rules; put last"
+    },
+    {
+      "key": "ch12-l01-teaching-04",
+      "route": "lesson-01",
+      "selector": "[data-canvas-edit-key=\"ch12-l01-teaching-04\"]",
+      "expectedHeading": "Why do some sensations fade?",
+      "newHeading": "Why do some sensations fade?",
+      "paragraphs": [
+        "Do you constantly notice your clothes touching your skin? You probably noticed the contact when you got dressed, but it may no longer stand out. Sensory adaptation reduces the response to a continuing stimulus. This helps new or changing information stand out.",
+        "Attention and processing in the brain can also affect what you notice. A clock may still be ticking even when you stop noticing it. Reduced awareness does not mean the stimulus has disappeared or the receptor is damaged.",
+        "Perception also depends on context and previous experience. An optical illusion shows that the brain interprets sensory information rather than making a perfect copy of a scene."
+      ],
+      "bodyOrder": [
+        {
+          "paragraph": 0
+        },
+        {
+          "paragraph": 1
+        },
+        {
+          "paragraph": 2
+        }
+      ],
+      "optionalResourceLink": "preserve link destination if valid; rename using global copy rules; put last"
+    },
+    {
+      "key": "ch12-l02-teaching-01",
+      "route": "lesson-02",
+      "selector": "[data-canvas-edit-key=\"ch12-l02-teaching-01\"]",
+      "expectedHeading": "Follow the route before memorizing the labels",
+      "newHeading": "Follow the route before memorizing the labels",
+      "paragraphs": [
+        "Light enters the front of the eye and travels toward the retina at the back. Follow this route: cornea → aqueous humour → pupil → lens → vitreous humour → retina. The pupil is an opening, not a solid black structure.",
+        "The cornea is the clear front surface of the eye. It does much of the bending of incoming light. Bending light is called refraction. The lens makes further adjustments to focus the light on the retina. The two humours are clear materials that light passes through; they do not detect light."
+      ],
+      "bodyOrder": [
+        {
+          "paragraph": 0
+        },
+        {
+          "selector": "figure.science-figure",
+          "occurrence": 0,
+          "action": "preserve-existing-node"
+        },
+        {
+          "paragraph": 1
+        }
+      ],
+      "optionalResourceLink": "preserve link destination if valid; rename using global copy rules; put last"
+    },
+    {
+      "key": "ch12-l02-teaching-02",
+      "route": "lesson-02",
+      "selector": "[data-canvas-edit-key=\"ch12-l02-teaching-02\"]",
+      "expectedHeading": "Three layers, three connected jobs",
+      "newHeading": "Three layers, three jobs",
+      "paragraphs": [
+        "The sclera is the tough outer layer. The choroid lies beneath it and contains blood vessels and pigment. The retina is the inner sensory layer containing rods and cones.",
+        "Keep the jobs separate. A cloudy surface can interfere with light reaching the retina. Damaged photoreceptors can interfere with detection even when light reaches them. To explain a vision problem, identify which step is affected: getting light in, focusing it, detecting it or carrying the information onward."
+      ],
+      "bodyOrder": [
+        {
+          "selector": ".comparison-table",
+          "occurrence": 0,
+          "action": "preserve-existing-node"
+        },
+        {
+          "paragraph": 0
+        },
+        {
+          "paragraph": 1
+        }
+      ],
+      "optionalResourceLink": "preserve link destination if valid; rename using global copy rules; put last"
+    },
+    {
+      "key": "ch12-l02-teaching-03",
+      "route": "lesson-02",
+      "selector": "[data-canvas-edit-key=\"ch12-l02-teaching-03\"]",
+      "expectedHeading": "The iris controls amount; the lens controls focus",
+      "newHeading": "The iris controls amount; the lens controls focus",
+      "paragraphs": [
+        "The iris is the coloured ring around the pupil. Its muscles change the size of the opening. In bright light, the pupil becomes smaller and less light enters. In dim light, it becomes larger and more light enters.",
+        "The lens does a different job. It changes shape to focus on objects at different distances. This adjustment is called accommodation. Walking into brighter light changes how much light should enter. Looking from a distant sign to a nearby page changes how the light must be focused."
+      ],
+      "bodyOrder": [
+        {
+          "paragraph": 0
+        },
+        {
+          "paragraph": 1
+        }
+      ],
+      "optionalResourceLink": "preserve link destination if valid; rename using global copy rules; put last"
+    },
+    {
+      "key": "ch12-l02-teaching-04",
+      "route": "lesson-02",
+      "selector": "[data-canvas-edit-key=\"ch12-l02-teaching-04\"]",
+      "expectedHeading": "The humours support a transparent optical system",
+      "newHeading": "Connect the supporting parts to their functions",
+      "paragraphs": [
+        "Aqueous humour is the watery fluid in the front of the eye. It provides nutrients to the cornea and lens and is continually produced and drained. Vitreous humour is the clear gel behind the lens. It helps support the eye and maintain its shape.",
+        "The optic nerve is a bundle of nerve fibres carrying visual information away from the retina. The place where it leaves the eye has no rods or cones. This is the optic disc, or blind spot. The fovea centralis is different: it contains many cones and supports sharp, detailed vision.",
+        "When you label an eye, find the cornea at the front and the optic nerve at the back first. Then locate the layers and internal structures. Use their relationships, not the position of a letter on one picture."
+      ],
+      "bodyOrder": [
+        {
+          "paragraph": 0
+        },
+        {
+          "paragraph": 1
+        },
+        {
+          "paragraph": 2
+        }
+      ],
+      "optionalResourceLink": "preserve link destination if valid; rename using global copy rules; put last"
+    },
+    {
+      "key": "ch12-l03-teaching-01",
+      "route": "lesson-03",
+      "selector": "[data-canvas-edit-key=\"ch12-l03-teaching-01\"]",
+      "expectedHeading": "Near and far do not require the same lens shape",
+      "newHeading": "Near and far objects need different lens shapes",
+      "paragraphs": [
+        "When you look from a distant sign to a nearby page, the lens must bend light more strongly. The lens becomes rounder for near vision and flatter for distant vision. Accommodation is this change in lens shape.",
+        "The ciliary muscle is a ring of muscle around the lens. Suspensory ligaments connect the lens to the surrounding ciliary structure. For a nearby object, the muscle contracts, ligament tension decreases, and the lens becomes rounder. For a distant object, the muscle relaxes, the ligaments become taut, and the lens flattens."
+      ],
+      "bodyOrder": [
+        {
+          "paragraph": 0
+        },
+        {
+          "selector": "figure.science-figure",
+          "occurrence": 0,
+          "action": "preserve-existing-node"
+        },
+        {
+          "paragraph": 1
+        }
+      ],
+      "optionalResourceLink": "preserve link destination if valid; rename using global copy rules; put last"
+    },
+    {
+      "key": "ch12-l03-teaching-02",
+      "route": "lesson-03",
+      "selector": "[data-canvas-edit-key=\"ch12-l03-teaching-02\"]",
+      "expectedHeading": "Follow the tension, not just the word “contract”",
+      "newHeading": "Follow the pull on the lens",
+      "paragraphs": [
+        "Tension means how strongly the ligaments pull on the lens. When the ligaments pull more strongly, they stretch the lens flatter. When their pull decreases, the lens can become rounder.",
+        "This is why “the muscle contracts” is not a complete explanation. Trace all four steps: ciliary muscle → ligament tension → lens shape → bending of light.",
+        "The focused image on the retina is inverted relative to the object. The brain interprets the information so that you perceive the world upright. It does not receive a tiny picture that it physically turns over."
+      ],
+      "bodyOrder": [
+        {
+          "selector": ".comparison-table",
+          "occurrence": 0,
+          "action": "preserve-existing-node"
+        },
+        {
+          "paragraph": 0
+        },
+        {
+          "paragraph": 1
+        },
+        {
+          "paragraph": 2
+        }
+      ],
+      "optionalResourceLink": "preserve link destination if valid; rename using global copy rules; put last"
+    },
+    {
+      "key": "ch12-l03-teaching-03",
+      "route": "lesson-03",
+      "selector": "[data-canvas-edit-key=\"ch12-l03-teaching-03\"]",
+      "expectedHeading": "Predict the correction from the focal point",
+      "newHeading": "Use the focal point to explain the correction",
+      "paragraphs": [
+        "In myopia, or nearsightedness, distant objects are blurred because light focuses in front of the retina. An eyeball that is too long is one possible cause. A concave, or diverging, corrective lens spreads the incoming light slightly so the eye can focus it on the retina.",
+        "In hyperopia, or farsightedness, light from nearby objects tends to focus behind the retina. An eyeball that is too short is one possible cause. A convex, or converging, corrective lens bends the incoming light inward before it enters the eye.",
+        "Use the location of the focal point to explain the correction. Do not choose a lens just because its name sounds familiar."
+      ],
+      "bodyOrder": [
+        {
+          "paragraph": 0
+        },
+        {
+          "selector": "figure.science-figure",
+          "occurrence": 0,
+          "action": "preserve-existing-node"
+        },
+        {
+          "paragraph": 1
+        },
+        {
+          "paragraph": 2
+        }
+      ],
+      "optionalResourceLink": "preserve link destination if valid; rename using global copy rules; put last"
+    },
+    {
+      "key": "ch12-l03-teaching-04",
+      "route": "lesson-03",
+      "selector": "[data-canvas-edit-key=\"ch12-l03-teaching-04\"]",
+      "expectedHeading": "Different causes of blurred vision need different explanations",
+      "newHeading": "Different problems affect different structures",
+      "paragraphs": [
+        "Astigmatism involves uneven curvature of the cornea or lens, so light is not focused evenly. A cataract is a cloudy lens, which reduces clear light transmission. Glaucoma involves damage to the optic nerve; increased pressure inside the eye is an important possible cause.",
+        "As the lens becomes less flexible with age, it becomes harder to make the rounder shape needed for near vision. This loss of focusing ability is called presbyopia.",
+        "For each example, connect the affected structure to its job. These are different mechanisms, even though each can interfere with vision."
+      ],
+      "bodyOrder": [
+        {
+          "paragraph": 0
+        },
+        {
+          "paragraph": 1
+        },
+        {
+          "paragraph": 2
+        }
+      ],
+      "optionalResourceLink": "preserve link destination if valid; rename using global copy rules; put last"
+    },
+    {
+      "key": "ch12-l04-teaching-01",
+      "route": "lesson-04",
+      "selector": "[data-canvas-edit-key=\"ch12-l04-teaching-01\"]",
+      "expectedHeading": "Two photoreceptors solve different problems",
+      "newHeading": "Rods and cones work best in different conditions",
+      "paragraphs": [
+        "Rods are very sensitive to light. They help you see in dim conditions, but they do not allow colour discrimination. Many rods lie away from the centre of the retina and contribute to peripheral vision.",
+        "Cones need brighter light and provide colour vision and fine detail. They are especially concentrated in the fovea centralis. This is why reading small print in good light depends strongly on cones. Different cone types respond best to different ranges of wavelengths; the brain compares their activity to distinguish colours."
+      ],
+      "bodyOrder": [
+        {
+          "selector": ".comparison-table",
+          "occurrence": 0,
+          "action": "preserve-existing-node"
+        },
+        {
+          "paragraph": 0
+        },
+        {
+          "paragraph": 1
+        }
+      ],
+      "optionalResourceLink": "preserve link destination if valid; rename using global copy rules; put last"
+    },
+    {
+      "key": "ch12-l04-teaching-02",
+      "route": "lesson-04",
+      "selector": "[data-canvas-edit-key=\"ch12-l04-teaching-02\"]",
+      "expectedHeading": "Light entry and information flow are not the same arrow",
+      "newHeading": "Follow two routes through the retina",
+      "paragraphs": [
+        "The retina contains photoreceptors, bipolar cells and ganglion cells. Bipolar cells pass information between photoreceptors and ganglion cells. The axons of ganglion cells join to form the optic nerve.",
+        "Incoming light passes through the ganglion-cell layer and then the bipolar-cell layer before reaching rods and cones near the pigmented layer. The neural information then follows a different route: rods and cones → bipolar cells → ganglion cells → optic nerve.",
+        "On the diagram, first trace the light arrow. Then trace the information arrow. Light reaching a ganglion-cell layer is not the same as that layer detecting the light."
+      ],
+      "bodyOrder": [
+        {
+          "paragraph": 0
+        },
+        {
+          "selector": "figure.science-figure",
+          "occurrence": 0,
+          "action": "preserve-existing-node"
+        },
+        {
+          "selector": "figure.science-figure",
+          "occurrence": 1,
+          "action": "preserve-existing-node"
+        },
+        {
+          "paragraph": 1
+        },
+        {
+          "paragraph": 2
+        }
+      ],
+      "optionalResourceLink": "preserve link destination if valid; rename using global copy rules; put last"
+    },
+    {
+      "key": "ch12-l04-teaching-03",
+      "route": "lesson-04",
+      "selector": "[data-canvas-edit-key=\"ch12-l04-teaching-03\"]",
+      "expectedHeading": "A change in transmitter release starts the message",
+      "newHeading": "Light changes photoreceptor signalling",
+      "paragraphs": [
+        "Rods contain a light-sensitive pigment called rhodopsin. It is made of the protein opsin and retinal, which is derived from vitamin A. When light is absorbed, retinal changes shape and starts a series of changes inside the receptor.",
+        "The photoreceptor becomes more negative inside, a change called hyperpolarization. It releases less neurotransmitter. Bipolar cells respond to this change, and the information is passed to ganglion cells. Ganglion-cell action potentials carry information along the optic nerve.",
+        "The important sequence is light absorption → changed photoreceptor signalling → changed activity in the retinal pathway. Rods and cones do not send action potentials down the optic nerve themselves. Different retinal pathways respond differently to the change in transmitter release."
+      ],
+      "bodyOrder": [
+        {
+          "paragraph": 0
+        },
+        {
+          "paragraph": 1
+        },
+        {
+          "paragraph": 2
+        }
+      ],
+      "optionalResourceLink": "preserve link destination if valid; rename using global copy rules; put last"
+    },
+    {
+      "key": "ch12-l04-teaching-04",
+      "route": "lesson-04",
+      "selector": "[data-canvas-edit-key=\"ch12-l04-teaching-04\"]",
+      "expectedHeading": "Why some retinal locations are special",
+      "newHeading": "From the retina to a visual experience",
+      "paragraphs": [
+        "The fovea has many cones and provides high visual detail. The blind spot has no rods or cones, so it cannot detect light. These are different locations with different functions.",
+        "Visual information travels from the retina along the optic nerve, through brain pathways that include the thalamus, and to the visual cortex in the occipital lobe. The brain combines information about colour, shape, movement and depth.",
+        "The two eyes view a scene from slightly different positions. Comparing those views supports depth perception; this is binocular vision. A colour-vision deficiency can make some colours difficult to distinguish because particular cone responses are missing or altered. It does not necessarily remove all colour vision."
+      ],
+      "bodyOrder": [
+        {
+          "paragraph": 0
+        },
+        {
+          "paragraph": 1
+        },
+        {
+          "paragraph": 2
+        }
+      ],
+      "optionalResourceLink": "preserve link destination if valid; rename using global copy rules; put last"
+    },
+    {
+      "key": "ch12-l05-teaching-01",
+      "route": "lesson-05",
+      "selector": "[data-canvas-edit-key=\"ch12-l05-teaching-01\"]",
+      "expectedHeading": "Outer ear: collect and direct",
+      "newHeading": "Sound starts as a pressure wave",
+      "paragraphs": [
+        "A vibrating object creates small changes in air pressure called sound waves. The pinna, the visible outside part of the ear, helps collect sound and direct it into the auditory canal.",
+        "The waves reach the tympanum, or eardrum, and make it vibrate. At this stage, the message is still mechanical movement. The eardrum has not turned the sound into an action potential."
+      ],
+      "bodyOrder": [
+        {
+          "paragraph": 0
+        },
+        {
+          "selector": "figure.science-figure",
+          "occurrence": 0,
+          "action": "preserve-existing-node"
+        },
+        {
+          "paragraph": 1
+        }
+      ],
+      "optionalResourceLink": "preserve link destination if valid; rename using global copy rules; put last"
+    },
+    {
+      "key": "ch12-l05-teaching-02",
+      "route": "lesson-05",
+      "selector": "[data-canvas-edit-key=\"ch12-l05-teaching-02\"]",
+      "expectedHeading": "Middle ear: transfer energy efficiently",
+      "newHeading": "The middle ear passes on the vibration",
+      "paragraphs": [
+        "The eardrum moves three small bones called the ossicles: the malleus, incus and stapes. These bones transmit and concentrate the vibration. The stapes pushes against the oval window, a membrane-covered opening into the inner ear.",
+        "The Eustachian tube connects the middle ear to the throat region. It helps equalize air pressure on the two sides of the eardrum so that the eardrum can move properly. It is not the pathway carrying sound information to the brain."
+      ],
+      "bodyOrder": [
+        {
+          "paragraph": 0
+        },
+        {
+          "paragraph": 1
+        }
+      ],
+      "optionalResourceLink": "preserve link destination if valid; rename using global copy rules; put last"
+    },
+    {
+      "key": "ch12-l05-teaching-03",
+      "route": "lesson-05",
+      "selector": "[data-canvas-edit-key=\"ch12-l05-teaching-03\"]",
+      "expectedHeading": "Inner ear: move the hair cells",
+      "newHeading": "Hair cells convert movement into a signal",
+      "paragraphs": [
+        "The cochlea is a coiled, fluid-filled structure in the inner ear. Movement at the oval window creates pressure waves in this fluid. These waves move the basilar membrane, which supports the organ of Corti, the sensory organ for hearing.",
+        "The organ of Corti contains hair cells. Their tiny projections are called stereocilia. Movement of the basilar membrane relative to the nearby tectorial membrane bends these projections. Bending changes the hair cells’ electrical activity and neurotransmitter release to auditory nerve fibres.",
+        "The auditory nerve then carries action potentials toward brain regions involved in hearing, including the temporal lobe. The round window allows displacement as pressure waves move through the cochlear fluid. Keep the oval window, where vibration enters, separate from the round window."
+      ],
+      "bodyOrder": [
+        {
+          "paragraph": 0
+        },
+        {
+          "selector": "figure.science-figure",
+          "occurrence": 0,
+          "action": "preserve-existing-node"
+        },
+        {
+          "paragraph": 1
+        },
+        {
+          "paragraph": 2
+        }
+      ],
+      "optionalResourceLink": "preserve link destination if valid; rename using global copy rules; put last"
+    },
+    {
+      "key": "ch12-l05-teaching-04",
+      "route": "lesson-05",
+      "selector": "[data-canvas-edit-key=\"ch12-l05-teaching-04\"]",
+      "expectedHeading": "Make the change in energy clear",
+      "newHeading": "Track the change in the message",
+      "paragraphs": [
+        "Follow the sequence in order: air-pressure waves → eardrum vibration → ossicle movement → oval-window movement → cochlear fluid movement → bending of hair-cell projections → auditory nerve signals.",
+        "The pinna, eardrum and ossicles help sound energy reach the receptors. The hair cells perform the sensory conversion, or transduction. The auditory nerve carries the resulting information. Sound waves themselves do not travel along the nerve."
+      ],
+      "bodyOrder": [
+        {
+          "paragraph": 0
+        },
+        {
+          "selector": ".sequence-model",
+          "occurrence": 0,
+          "action": "preserve-existing-node"
+        },
+        {
+          "paragraph": 1
+        }
+      ],
+      "optionalResourceLink": "preserve link destination if valid; rename using global copy rules; put last"
+    },
+    {
+      "key": "ch12-l06-teaching-01",
+      "route": "lesson-06",
+      "selector": "[data-canvas-edit-key=\"ch12-l06-teaching-01\"]",
+      "expectedHeading": "Two independent properties of a sound",
+      "newHeading": "Pitch and loudness are different",
+      "paragraphs": [
+        "Frequency is the number of wave cycles each second. It is measured in hertz, or Hz. A higher frequency is usually heard as a higher pitch. A whistle and a low drum note differ in pitch.",
+        "Amplitude describes the size of the pressure change in a sound wave. A larger amplitude is usually heard as a louder sound. Turning up a recorded note can make it louder without changing its pitch. When comparing wave diagrams, check that they show the same time interval and use the same scale."
+      ],
+      "bodyOrder": [
+        {
+          "paragraph": 0
+        },
+        {
+          "selector": "figure.science-figure",
+          "occurrence": 0,
+          "action": "preserve-existing-node"
+        },
+        {
+          "paragraph": 1
+        }
+      ],
+      "optionalResourceLink": "preserve link destination if valid; rename using global copy rules; put last"
+    },
+    {
+      "key": "ch12-l06-teaching-02",
+      "route": "lesson-06",
+      "selector": "[data-canvas-edit-key=\"ch12-l06-teaching-02\"]",
+      "expectedHeading": "Different locations respond most strongly to different frequencies",
+      "newHeading": "Different pitches stimulate different places",
+      "paragraphs": [
+        "Different parts of the basilar membrane respond most strongly to different frequencies. High-frequency sounds produce the greatest movement near the base of the cochlea, close to the oval window. Low-frequency sounds produce the greatest movement farther along, toward the apex.",
+        "Greater sound amplitude produces more movement and changes activity in auditory nerve fibres. A louder sound does not make each action potential taller. The nervous system uses patterns of firing and the number of active fibres to represent intensity."
+      ],
+      "bodyOrder": [
+        {
+          "paragraph": 0
+        },
+        {
+          "paragraph": 1
+        }
+      ],
+      "optionalResourceLink": "preserve link destination if valid; rename using global copy rules; put last"
+    },
+    {
+      "key": "ch12-l06-teaching-03",
+      "route": "lesson-06",
+      "selector": "[data-canvas-edit-key=\"ch12-l06-teaching-03\"]",
+      "expectedHeading": "Locate the impairment before choosing the explanation",
+      "newHeading": "Locate the problem in the hearing pathway",
+      "paragraphs": [
+        "Conductive hearing loss results when sound is not transmitted effectively through the outer or middle ear. For example, a blockage in the auditory canal can reduce the movement reaching the eardrum.",
+        "Sensorineural hearing loss involves damage to hair cells, auditory nerve fibres or related neural pathways. The sound may reach the cochlea, but its conversion or transmission is affected. A cochlear implant can bypass damaged hair-cell transduction and stimulate auditory nerve fibres; it still needs a functioning neural pathway."
+      ],
+      "bodyOrder": [
+        {
+          "selector": ".comparison-table",
+          "occurrence": 0,
+          "action": "preserve-existing-node"
+        },
+        {
+          "paragraph": 0
+        },
+        {
+          "paragraph": 1
+        }
+      ],
+      "optionalResourceLink": "preserve link destination if valid; rename using global copy rules; put last"
+    },
+    {
+      "key": "ch12-l06-teaching-04",
+      "route": "lesson-06",
+      "selector": "[data-canvas-edit-key=\"ch12-l06-teaching-04\"]",
+      "expectedHeading": "Read evidence without diagnosing yourself",
+      "newHeading": "Explain what the evidence actually shows",
+      "paragraphs": [
+        "Compare two sound waves by asking two separate questions: Which has more cycles in the same time? Which has the larger amplitude? The answers tell you about pitch and loudness, respectively.",
+        "In a hearing case, identify the structure described as damaged before predicting the result. A blocked canal and damaged hair cells can both reduce hearing, but they affect different steps.",
+        "Use the provided diagrams and cases for these activities. Do not raise headphone volume or expose yourself to loud sounds to test hearing."
+      ],
+      "bodyOrder": [
+        {
+          "paragraph": 0
+        },
+        {
+          "paragraph": 1
+        },
+        {
+          "paragraph": 2
+        }
+      ],
+      "optionalResourceLink": "preserve link destination if valid; rename using global copy rules; put last"
+    },
+    {
+      "key": "ch12-l07-teaching-01",
+      "route": "lesson-07",
+      "selector": "[data-canvas-edit-key=\"ch12-l07-teaching-01\"]",
+      "expectedHeading": "The cochlea is not the entire inner ear",
+      "newHeading": "Balance receptors detect movement",
+      "paragraphs": [
+        "The cochlea is used for hearing. Nearby vestibular structures provide information about head movement and position. Both systems use hair cells, but different movements bend their projections.",
+        "When your head starts turning, the semicircular canals move with it. The fluid inside briefly lags behind. This relative movement bends a jelly-like structure called the cupula, which bends hair-cell projections and changes their signals.",
+        "The cupula sits in an enlarged region of a canal called the ampulla. The canals lie in different planes, allowing the system to detect changes in rotation in different directions. This contribution to balance is called rotational equilibrium."
+      ],
+      "bodyOrder": [
+        {
+          "paragraph": 0
+        },
+        {
+          "selector": "figure.science-figure",
+          "occurrence": 0,
+          "action": "preserve-existing-node"
+        },
+        {
+          "paragraph": 1
+        },
+        {
+          "paragraph": 2
+        }
+      ],
+      "optionalResourceLink": "preserve link destination if valid; rename using global copy rules; put last"
+    },
+    {
+      "key": "ch12-l07-teaching-02",
+      "route": "lesson-07",
+      "selector": "[data-canvas-edit-key=\"ch12-l07-teaching-02\"]",
+      "expectedHeading": "Why might you feel movement after a turn stops?",
+      "newHeading": "Why stopping can still feel like movement",
+      "paragraphs": [
+        "When your head stops turning, the fluid may continue moving briefly relative to the canals. The cupula and hair-cell projections can still bend, so the brain may receive signals of movement after the turn has stopped.",
+        "The key is relative movement: movement of the fluid compared with the canal. The rigid bony canal does not have to bend to produce the signal. Use this described case to explain the mechanism; do not deliberately make yourself dizzy."
+      ],
+      "bodyOrder": [
+        {
+          "paragraph": 0
+        },
+        {
+          "paragraph": 1
+        }
+      ],
+      "optionalResourceLink": "preserve link destination if valid; rename using global copy rules; put last"
+    },
+    {
+      "key": "ch12-l07-teaching-03",
+      "route": "lesson-07",
+      "selector": "[data-canvas-edit-key=\"ch12-l07-teaching-03\"]",
+      "expectedHeading": "Utricle and saccule: gravity and straight-line acceleration",
+      "newHeading": "Straight-line movement and gravity use a different structure",
+      "paragraphs": [
+        "The utricle and saccule detect straight-line acceleration and head position relative to gravity. Their hair-cell projections contact a jelly-like otolithic membrane. Tiny calcium-carbonate particles, called otoliths or otoconia, add weight to the membrane.",
+        "Gravity or straight-line acceleration shifts this weighted membrane relative to the hair cells. Their projections bend and signalling changes. The utricle is especially sensitive to horizontal acceleration; the saccule is especially sensitive to vertical acceleration.",
+        "Keep the two mechanisms separate: fluid movement bends a cupula during changes in rotation; gravity or straight-line acceleration shifts a weighted otolithic membrane. Information about position relative to gravity contributes to gravitational equilibrium."
+      ],
+      "bodyOrder": [
+        {
+          "paragraph": 0
+        },
+        {
+          "paragraph": 1
+        },
+        {
+          "paragraph": 2
+        }
+      ],
+      "optionalResourceLink": "preserve link destination if valid; rename using global copy rules; put last"
+    },
+    {
+      "key": "ch12-l07-teaching-04",
+      "route": "lesson-07",
+      "selector": "[data-canvas-edit-key=\"ch12-l07-teaching-04\"]",
+      "expectedHeading": "Balance is a combined answer, not a single-organ answer",
+      "newHeading": "The brain combines several sources of information",
+      "paragraphs": [
+        "Balance also uses vision and proprioception. Proprioceptors in muscles, tendons and joints provide information about body position and movement. They help you know where a limb is without looking at it.",
+        "The brain combines these signals with vestibular information to adjust posture and coordinate movement. Removing one source of information does not remove all the others, but it leaves less information to compare.",
+        "All balance activities here use diagrams and described situations. No spinning, blindfolded standing or other physical balance test is required."
+      ],
+      "bodyOrder": [
+        {
+          "paragraph": 0
+        },
+        {
+          "paragraph": 1
+        },
+        {
+          "paragraph": 2
+        }
+      ],
+      "optionalResourceLink": "preserve link destination if valid; rename using global copy rules; put last"
+    },
+    {
+      "key": "ch12-l08-teaching-01",
+      "route": "lesson-08",
+      "selector": "[data-canvas-edit-key=\"ch12-l08-teaching-01\"]",
+      "expectedHeading": "Taste begins with dissolved chemicals",
+      "newHeading": "Taste begins with dissolved chemicals",
+      "paragraphs": [
+        "Chemicals from food dissolve in saliva and reach receptor cells in taste buds. These chemoreceptors change their signalling when stimulated. Sensory pathways carry the information to the brain, where taste is experienced.",
+        "The five basic tastes are sweet, sour, salty, bitter and umami. Receptors for different tastes are distributed across the tongue. The tongue is not divided into separate regions that can each detect only one taste."
+      ],
+      "bodyOrder": [
+        {
+          "paragraph": 0
+        },
+        {
+          "selector": "figure.science-figure",
+          "occurrence": 0,
+          "action": "preserve-existing-node"
+        },
+        {
+          "paragraph": 1
+        }
+      ],
+      "optionalResourceLink": "preserve link destination if valid; rename using global copy rules; put last"
+    },
+    {
+      "key": "ch12-l08-teaching-02",
+      "route": "lesson-08",
+      "selector": "[data-canvas-edit-key=\"ch12-l08-teaching-02\"]",
+      "expectedHeading": "Smell adds another stream of chemical information",
+      "newHeading": "Smell adds to flavour",
+      "paragraphs": [
+        "Odour molecules enter the nose, dissolve in mucus and reach olfactory receptors. These receptors respond to particular chemicals. Their neurons send signals to the olfactory bulb and then to other brain regions involved in smell.",
+        "Taste and smell both use chemoreceptors, but they begin in different places. Flavour combines taste with smell, texture and temperature. A person may still detect sweetness while reduced smell makes a familiar food seem less flavourful.",
+        "A lock-and-key comparison can help you remember that receptors respond to particular molecules. A smell can involve a combination of active receptors, rather than one separate receptor for every possible odour."
+      ],
+      "bodyOrder": [
+        {
+          "paragraph": 0
+        },
+        {
+          "selector": "figure.science-figure",
+          "occurrence": 0,
+          "action": "preserve-existing-node"
+        },
+        {
+          "paragraph": 1
+        },
+        {
+          "paragraph": 2
+        }
+      ],
+      "optionalResourceLink": "preserve link destination if valid; rename using global copy rules; put last"
+    },
+    {
+      "key": "ch12-l08-teaching-03",
+      "route": "lesson-08",
+      "selector": "[data-canvas-edit-key=\"ch12-l08-teaching-03\"]",
+      "expectedHeading": "Touch precision varies across the body",
+      "newHeading": "Why are fingertips more precise than your back?",
+      "paragraphs": [
+        "Touch receptors are not spread evenly through the skin. Fingertips and lips provide more detailed touch information than many areas of the back. Receptor density and the size of receptive fields help explain this difference.",
+        "A receptive field is the area where a stimulus can affect a particular sensory neuron. Smaller fields make it easier to distinguish nearby points of contact. Receptor number, receptive fields and brain processing all contribute to touch precision.",
+        "Thermoreceptors detect temperature changes. Nociceptors respond to potentially damaging conditions, including strong mechanical forces, extreme temperatures and some chemicals. Pain is not simply another name for pressure."
+      ],
+      "bodyOrder": [
+        {
+          "paragraph": 0
+        },
+        {
+          "paragraph": 1
+        },
+        {
+          "paragraph": 2
+        }
+      ],
+      "optionalResourceLink": "preserve link destination if valid; rename using global copy rules; put last"
+    },
+    {
+      "key": "ch12-l08-teaching-04",
+      "route": "lesson-08",
+      "selector": "[data-canvas-edit-key=\"ch12-l08-teaching-04\"]",
+      "expectedHeading": "Plan a fair test without inventing results",
+      "newHeading": "Plan a fair comparison",
+      "paragraphs": [
+        "A testable question identifies what you will compare and what you will measure. For example: does the smallest separation reported as two contacts differ between a fingertip and the forearm?",
+        "The manipulated variable is what you deliberately change: the body region. The responding variable is what you measure: the smallest separation reported as two contacts. Controlled variables are conditions kept the same, such as contact method, pressure and reporting instructions. Repeated trials help reveal inconsistent results.",
+        "A prediction states what you expect before observations. A result states what was actually observed. In this activity, you will plan a comparison, not perform a physical test or invent results. No sharp objects, extreme temperatures, tasting or exposure to unknown substances is required."
+      ],
+      "bodyOrder": [
+        {
+          "paragraph": 0
+        },
+        {
+          "paragraph": 1
+        },
+        {
+          "paragraph": 2
+        }
+      ],
+      "optionalResourceLink": "preserve link destination if valid; rename using global copy rules; put last"
+    },
+    {
+      "key": "ch12-l09-teaching-01",
+      "route": "lesson-09",
+      "selector": "[data-canvas-edit-key=\"ch12-l09-teaching-01\"]",
+      "expectedHeading": "Organize the chapter around one reusable pathway",
+      "newHeading": "Use one pathway to organize the chapter",
+      "paragraphs": [
+        "For each sense, trace stimulus → receptor → transduction → sensory pathway → interpretation. Then identify the structures that help the stimulus reach the receptor. The lens focuses light and the ossicles pass on vibration, but neither is the sensory receptor.",
+        "Reconstruct the eye route, the two retinal routes, the hearing route and the two balance mechanisms. Then change one condition: the object moves closer, the sound frequency increases or the head starts moving straight upward. Explain which part responds and why."
+      ],
+      "bodyOrder": [
+        {
+          "paragraph": 0
+        },
+        {
+          "paragraph": 1
+        }
+      ],
+      "optionalResourceLink": "preserve link destination if valid; rename using global copy rules; put last"
+    },
+    {
+      "key": "ch12-l09-teaching-02",
+      "route": "lesson-09",
+      "selector": "[data-canvas-edit-key=\"ch12-l09-teaching-02\"]",
+      "expectedHeading": "Check the distinctions that matter",
+      "newHeading": "Keep the key comparisons separate",
+      "paragraphs": [
+        "Use the comparisons in the table to check your understanding. Give a function or mechanism for each side rather than just repeating two names.",
+        "You can complete this chapter using the lessons and activities here. The embedded reading and additional textbook questions are optional study support; they do not replace the explanations in these lessons."
+      ],
+      "bodyOrder": [
+        {
+          "selector": ".comparison-table",
+          "occurrence": 0,
+          "action": "preserve-existing-node"
+        },
+        {
+          "paragraph": 0
+        },
+        {
+          "paragraph": 1
+        }
+      ],
+      "optionalResourceLink": "preserve link destination if valid; rename using global copy rules; put last"
+    },
+    {
+      "key": "ch12-l09-teaching-03",
+      "route": "lesson-09",
+      "selector": "[data-canvas-edit-key=\"ch12-l09-teaching-03\"]",
+      "expectedHeading": "Use evidence to explain a failure",
+      "newHeading": "Explain a result from the affected step",
+      "paragraphs": [
+        "An eye may focus light correctly but have damaged photoreceptors. An ear may have working hair cells but poor transmission through the middle ear. Identify the affected step before predicting the consequence.",
+        "For a written explanation, name the structure, describe what changes and explain the effect on the next step. Your first multiple-choice answers are recorded separately from corrections. Saved writing records your explanation; it is not automatically marked as scientifically correct."
+      ],
+      "bodyOrder": [
+        {
+          "paragraph": 0
+        },
+        {
+          "paragraph": 1
+        }
+      ],
+      "optionalResourceLink": "preserve link destination if valid; rename using global copy rules; put last"
+    }
+  ]
+}

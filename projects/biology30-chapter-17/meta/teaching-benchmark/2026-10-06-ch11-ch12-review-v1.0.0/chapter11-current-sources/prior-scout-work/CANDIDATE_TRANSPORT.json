@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-10-03T13:47:16.306Z",
+  "originalFilename": "Biology30_Chapter11_REPAIRED (1).zip",
+  "originalBytes": 21044405,
+  "originalSha256": "6ae67ae8cbea799e66df11982e7246935d03fae8bc873874ad34e7292b5bebff",
+  "originalHtmlFilename": "Biology30_Chapter11_REPAIRED.html",
+  "originalHtmlBytes": 29002929,
+  "originalHtmlSha256": "56bbed509233ee497f7af3aefe27856cd58e9e498c1ff52e9b2893f6776634cf",
+  "transportReason": "Visible Scout rejection: Attachments must be 20 MB or smaller",
+  "reconstructionInstructions": "Extract the two wrappers, concatenate part01 followed by part02 as binary bytes, verify the original ZIP hash, then extract the original three entries. RECONSTRUCT_REPAIRED_SOURCE.txt is included in both wrappers.",
+  "wrappers": [
+    {
+      "filename": "Biology30_CH11_Repaired_Source_Part_01.zip",
+      "bytes": 12586360,
+      "sha256": "f9c1f136a4566db58e596af78fcf1d09320114a338850cbc4a333cd3ad37300f",
+      "segment": {
+        "name": "Biology30_Chapter11_REPAIRED.zip.part01",
+        "bytes": 12582912,
+        "sha256": "eeb8ddc361275aa1cac03bf22ecefc3bf680c0e017f610a4a55c1ce108de59b6"
+      }
+    },
+    {
+      "filename": "Biology30_CH11_Repaired_Source_Part_02.zip",
+      "bytes": 8464164,
+      "sha256": "2282538fb8ae3333f171d60a91a661a608b0d5f59324ded981f6c2ff1f18abc6",
+      "segment": {
+        "name": "Biology30_Chapter11_REPAIRED.zip.part02",
+        "bytes": 8461493,
+        "sha256": "30fe57dce77dbfc526c0928b9e8c4c1e8669836409ec5ca1cca5992912d751f1"
+      }
+    }
+  ],
+  "checks": {
+    "exactBinaryReconstructionSha256": "passed locally",
+    "wrapperArchiveCrc": "passed locally",
+    "originalSourcesModified": false,
+    "learnerContentModified": false,
+    "runtimeExecuted": false
+  },
+  "uploadStatus": "prepared; these transport files have not yet been attached or sent",
+  "preparationRecord": "UPLOAD_MANIFEST.json remains immutable. Its original candidate hash is still authoritative; the actual transport replaces the oversized ZIP with these two wrappers.",
+  "reviewStatus": "Teaching exemplar only. No exact-copy teacher approval, canonical integration, deployment or LMS verification implied."
+}

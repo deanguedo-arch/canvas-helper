@@ -1,0 +1,70 @@
+{
+  "owner": {
+    "path": "source-assessment-v0.3.0/analysis/native-preflight/baseline/native-v020/index.html",
+    "bytes": 3512184,
+    "sha256": "bc42ea52d8cf5709c0ec33c914e86450f93971f3e3144cb81b695593aa0eff3b"
+  },
+  "complementRanges": [
+    {
+      "startByte": 0,
+      "endByteExclusive": 130865,
+      "bytes": 130865,
+      "sha256": "a4445db67225b0d8b13763b032485cb1340409df7412ca2a8c4a1fa22115118f"
+    },
+    {
+      "startByte": 132393,
+      "endByteExclusive": 195148,
+      "bytes": 62755,
+      "sha256": "8b9d39c81027ed174af28e161d9541bde09938fea19fdea974d9d9c1e3d909bd"
+    },
+    {
+      "startByte": 204007,
+      "endByteExclusive": 221723,
+      "bytes": 17716,
+      "sha256": "2c08be06358c9708b8dc5f6253e25b9faae5c51a1b8dbe26440093e18e9f8a35"
+    },
+    {
+      "startByte": 222873,
+      "endByteExclusive": 223076,
+      "bytes": 203,
+      "sha256": "627b04acccb300513f21366cc2ebd1cbda86cc4f4edab65be971f0898f85c208"
+    },
+    {
+      "startByte": 225988,
+      "endByteExclusive": 3155226,
+      "bytes": 2929238,
+      "sha256": "8a713382a62dbb62591f37bca1589f39db6145d2e46b4a817fcd8d1f3633ee43"
+    },
+    {
+      "startByte": 3155873,
+      "endByteExclusive": 3161891,
+      "bytes": 6018,
+      "sha256": "42e9fe7464d646238d7592aabffff8c5a3853249418a38089d52a4af02350fcc"
+    },
+    {
+      "startByte": 3162219,
+      "endByteExclusive": 3162234,
+      "bytes": 15,
+      "sha256": "865ec03d20fc596b2df8100a47f501f87a94b37ef5d559209ecd2e624a6ed9ee"
+    },
+    {
+      "startByte": 3162829,
+      "endByteExclusive": 3162831,
+      "bytes": 2,
+      "sha256": "0a07f659461970d8d8dcefe4fff96a1745599810dc7d47391e95c803b7b2072c"
+    },
+    {
+      "startByte": 3163386,
+      "endByteExclusive": 3512184,
+      "bytes": 348798,
+      "sha256": "a9b00640702134e76156964edcb7434d2171ca7dbd655a16f5fa302b852ad30d"
+    }
+  ],
+  "scope": "Source bytes outside all expressly proposed edits; hashes only, no whole-index copy.",
+  "exactlyFourEmbeddedItemsProjected": true,
+  "allOtherEmbeddedCourseDataUnchanged": true,
+  "lesson02TeachingByteExact": true,
+  "actualIntegratedNoteTitlesUnchanged": true,
+  "runtimeAndCssUnchanged": true,
+  "wholeNativeIndexProjectedOrWritten": false
+}

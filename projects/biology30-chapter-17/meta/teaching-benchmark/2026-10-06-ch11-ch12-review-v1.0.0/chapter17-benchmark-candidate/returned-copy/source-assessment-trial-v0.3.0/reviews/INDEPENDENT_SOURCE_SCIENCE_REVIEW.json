@@ -1,0 +1,185 @@
+{
+  "document": "Final independent source and science review",
+  "version": "0.3.0",
+  "reviewedUTC": "2026-10-05T00:44:06.996372+00:00",
+  "reviewer": "original_source_map, independent of root author",
+  "roleDisclosure": "This reviewer also performed FINAL_QUANTITATIVE_REVIEW. These are distinct review scopes by one reviewer, not two separate people. A second subagent performed the narrower PPT-method review.",
+  "result": "No consequential source/science defect found; no learner or source repair requested.",
+  "completeFragmentPins": [
+    {
+      "path": "output/Biology30_CH17_Source_Assessment_Trial_v0.3.0/integration-text/complete-teaching/lesson-02.teaching-fragment.html.txt",
+      "bytes": 18591,
+      "sha256": "a843cc369e041e244a5cc775907979d36b906b78b2fc3b39ed26a0757d395c00"
+    },
+    {
+      "path": "output/Biology30_CH17_Source_Assessment_Trial_v0.3.0/integration-text/complete-teaching/lesson-05.teaching-fragment.html.txt",
+      "bytes": 32125,
+      "sha256": "c0c83129effd4b3268d41493f0a5a8d0bc82870453df040fe86b829078d44a3a"
+    }
+  ],
+  "authoringPins": [
+    {
+      "path": "source-assessment-v0.3.0/authoring/PRE_PROSE_PURPOSE_PLAN.md",
+      "bytes": 8343,
+      "sha256": "9b18621f5bff1256b00cddfb956ffd02eaee5c147f79b49470b536c163d34abc"
+    },
+    {
+      "path": "source-assessment-v0.3.0/authoring/TRIAL_INPUTS.json",
+      "bytes": 7239,
+      "sha256": "34a02af21e33fcb76ec19d79f16a88ff0c2b03c1a3646c8d966898a23c910cd5"
+    },
+    {
+      "path": "source-assessment-v0.3.0/authoring/assessments/ch17-l02-check-writing-1.json",
+      "bytes": 2040,
+      "sha256": "746380cf22eee10bb1acf82e246352f1dc2e425927ad4f83676d36026e25b0d5"
+    },
+    {
+      "path": "source-assessment-v0.3.0/authoring/assessments/ch17-l05-check-mc-2.json",
+      "bytes": 1374,
+      "sha256": "1d0d2b8c11e7790ba449f06acca670ad26ebc91f544d1976856e4793fb5c298b"
+    },
+    {
+      "path": "source-assessment-v0.3.0/authoring/assessments/ch17-l05-check-writing-1.json",
+      "bytes": 2218,
+      "sha256": "69c5823eea0ca6ff8576821d7921b425c6f74cd5caac6c8abecaee7970503684"
+    },
+    {
+      "path": "source-assessment-v0.3.0/authoring/assessments/ch17-l05-check-writing-2.json",
+      "bytes": 2282,
+      "sha256": "4a1006653299a24ddd914be11f676653c393d1e80888bc3c56f0a44681840a0f"
+    },
+    {
+      "path": "source-assessment-v0.3.0/authoring/teacher-review-only.css",
+      "bytes": 2185,
+      "sha256": "0099523bf5c34de1dc52977a71f02c4f0c417fa4cd54a8550e51e071a8d69a9a"
+    },
+    {
+      "path": "source-assessment-v0.3.0/authoring/teaching-edits/lesson-05-changed-parent-task.html.in",
+      "bytes": 4203,
+      "sha256": "a218d13653a95a59da2d56004ea889124992ee3903e2b0749c8f7df78c7a16cf"
+    },
+    {
+      "path": "source-assessment-v0.3.0/authoring/teaching-edits/lesson-05-tomato.html.in",
+      "bytes": 5130,
+      "sha256": "17a9cd16afb399d1897ba90c0be35b2f8b775093054d2ff5b9e214d7145b8c9c"
+    }
+  ],
+  "selectedAssessmentCollectionPin": {
+    "path": "output/Biology30_CH17_Source_Assessment_Trial_v0.3.0/SELECTED_REQUIRED_ASSESSMENTS.json",
+    "bytes": 23876,
+    "sha256": "cad1104f2264d1a65a5090b491265b40febecf40fa482cffba938446291d1607"
+  },
+  "readScope": {
+    "freshReviewerRead": [
+      "Both complete final assembled teaching fragments, all prose,12 semantic tables and4 complete optional prompt/hint/model paths.",
+      "All8 current selected required prompts/options/keys/models/criteria, their4 replacement HTML files and4 retained raw HTML files.",
+      "Root actual TRIAL_INPUTS, pre-prose plan,2 bounded teaching input files and4 assessment objects.",
+      "Fresh current textbook printed589/PDF6,593/PDF10 and597/PDF14 pixels from original PDF; exact image pins in source-review/pixels."
+    ],
+    "freshDelegatedRead": [
+      "Original PPT actual13–25 XML and35–48 XML/native tables/relationships; ten original image pixels for35–48 plus representative slide15 image.",
+      "Complete actual fragments and4 replacement assessment objects independently read for source-method fidelity."
+    ],
+    "earlierVerifiedEvidenceReused": [
+      "Precise printed587–588,590–592,595–596,599–600 locators and QTI context reads; not claimed freshly reread in full this final pass.",
+      "Existing native SVG/approved PNG visual correspondence and source-member hashes; fresh gate reverified bytes/readability, no native UI render."
+    ],
+    "structuralNotSubstantive": [
+      "All38 PDF pages readable;114 ordered actual slide XML parts parse; these are not a claim that the full book/deck was reread for this bounded trial.",
+      "20 QTI images and137 native image/SVG assets decoder/XML readable; not a claim all pixels were freshly scientifically reviewed."
+    ]
+  },
+  "coverage": {
+    "teachingAndOptionalComponents": [
+      "ch17-l02-teaching-01",
+      "ch17-l02-teaching-02",
+      "ch17-l02-worked",
+      "ch17-kinch-v020-l02-arrow-task",
+      "ch17-l02-teaching-03",
+      "ch17-kinch-v020-l02-cross-task",
+      "ch17-l05-teaching-01",
+      "ch17-l05-teaching-02",
+      "ch17-l05-worked",
+      "ch17-kinch-v020-l05-change-task",
+      "ch17-l05-teaching-03",
+      "ch17-kinch-v020-l05-evidence-task"
+    ],
+    "selectedRequiredItems": [
+      "ch17-l02-check-mc-1",
+      "ch17-l02-check-mc-2",
+      "ch17-l02-check-writing-1",
+      "ch17-l02-check-writing-2",
+      "ch17-l05-check-mc-1",
+      "ch17-l05-check-mc-2",
+      "ch17-l05-check-writing-1",
+      "ch17-l05-check-writing-2"
+    ],
+    "optionalPromptHintModelPaths": 4,
+    "completeSemanticTables": 12,
+    "newRequiredItems": 4,
+    "retainedRequiredItems": 4
+  },
+  "findings": [
+    {
+      "id": "SCI-L02",
+      "finding": "Flower-to-seed transition, parentage/generations, two allele versions versus copied chromatids, ordinary segregation and plant-life-cycle qualification are coherent. One-allele gametes precede grids. Dominance concerns phenotype, not which allele passes. Complete-dominance/seed-own-genotype and reciprocal limits are stated."
+    },
+    {
+      "id": "SCI-L02-PROB",
+      "finding": "Observed5474/1850 is correctly attributed to printed589 Figure17.5 and distinguished from expected3:1. No fixed quota or sample-size certainty is promised."
+    },
+    {
+      "id": "SCI-L05-CORE",
+      "finding": "Different homolog pairs orient at metaphaseI; four gamete types are across meioses. Independent locus contributions and random fertilisation are distinct. Full pea16 cells/nine genotypes/four phenotype classes survive, with complete dominance, penetrance and scoring assumptions."
+    },
+    {
+      "id": "SCI-L05-TOMATO",
+      "finding": "Restored RrTt×rrTt has correct source words, gametes, eight weighted cells, six genotypes and four nonzero phenotype groups. rrTt→rrtt optional change is consistent in all dependent components."
+    },
+    {
+      "id": "SCI-L05-INFERENCE",
+      "finding": "Squash evidence earns both missing alleles before forward calculation; expected N80 counts are distinguished from guarantees. V/L optional inference preserves two possible second-parent genotypes; no invented priors or family diagnosis."
+    },
+    {
+      "id": "SCI-REPLACEMENTS",
+      "finding": "Four replacement decisions are visible taught-mechanism applications: copied loci versus versions; union of phenotype groups; missing versus duplicate gametes; homozygosity versus dominant appearance. All givens, denominators and models are sufficient without advanced probability."
+    },
+    {
+      "id": "SCI-RETAINED",
+      "finding": "All four retained required items remain scientifically coherent in the stated model. The six-dominant-run item permits a qualitative inference but no unique numerical probability because the cross is unspecified."
+    },
+    {
+      "id": "SCI-ATTRIBUTION",
+      "finding": "Constructed errors, V/L and C/H parameters, and causal bridges are identified as author synthesis/applications. No live authority, video playback, unavailable source or source-independent empirical data claim is added."
+    }
+  ],
+  "sourceConflictRegister": "SOURCE_CONFLICTS.json",
+  "quantitativeReview": "FINAL_QUANTITATIVE_REVIEW.json",
+  "separatePptMethodReview": "ppt-method/CURRENT_PPT_METHOD_REVIEW.json",
+  "reviewCopyPins": [
+    {
+      "path": "output/Biology30_CH17_Source_Assessment_Trial_v0.3.0/manuscripts/lesson-02.md",
+      "bytes": 19249,
+      "sha256": "2fe26088cdc8cdccbcf71948f08ae1d6ec34e3485978d26de9bf7e7704529598"
+    },
+    {
+      "path": "output/Biology30_CH17_Source_Assessment_Trial_v0.3.0/manuscripts/lesson-05.md",
+      "bytes": 31988,
+      "sha256": "eab821b4969cd2421b6babdb39b3858a32f5fe79b083b3518f853ff9bf9b290f"
+    },
+    {
+      "path": "output/Biology30_CH17_Source_Assessment_Trial_v0.3.0/Biology30_CH17_Source_Assessment_Trial_Teacher_Review_v0.3.0.html",
+      "bytes": 81677,
+      "sha256": "84f678c04b9237fb8d1b0d78b265889aadf657f79c3615e4c5959668af59a3bb"
+    }
+  ],
+  "reviewCopyPinScope": "Final byte pins only for assembled reading copies; source/science decisions attach to actual full fragments and assessment payloads. No browser/print layout claim.",
+  "limits": [
+    "Only lessons02 and05 are currently authored/reviewed in this trial. No whole-chapter new acceptance claim.",
+    "Source/science and quantitative reviews are separate scopes by the same reviewer, independent of root author; not two people. Delegated PPT-method review is another bounded subagent read, not external specialist certification.",
+    "No browser/native runtime tests, video playback, teacher approval, integration, deployment or release.",
+    "No full daily plans, mixed UnitC tests, parent UnitC.zip or missing authority binaries read.",
+    "Source-backed explanation is not necessarily literal source wording; new errors/observations in activities are hypothetical constructions.",
+    "General method and taught component-probability overlap are intended. Native/exemplar global-bank findings are separate; this source scope does not independently certify full-bank blindness."
+  ]
+}

@@ -1,0 +1,506 @@
+{
+  "sourcePea": {
+    "parents": [
+      "TtGg",
+      "TtGg"
+    ],
+    "gametes": [
+      [
+        "TG",
+        "Tg",
+        "tG",
+        "tg"
+      ],
+      [
+        "TG",
+        "Tg",
+        "tG",
+        "tg"
+      ]
+    ],
+    "cells": [
+      {
+        "gametes": [
+          "TG",
+          "TG"
+        ],
+        "genotype": "TTGG",
+        "phenotype": [
+          true,
+          true
+        ]
+      },
+      {
+        "gametes": [
+          "TG",
+          "Tg"
+        ],
+        "genotype": "TTGg",
+        "phenotype": [
+          true,
+          true
+        ]
+      },
+      {
+        "gametes": [
+          "TG",
+          "tG"
+        ],
+        "genotype": "TtGG",
+        "phenotype": [
+          true,
+          true
+        ]
+      },
+      {
+        "gametes": [
+          "TG",
+          "tg"
+        ],
+        "genotype": "TtGg",
+        "phenotype": [
+          true,
+          true
+        ]
+      },
+      {
+        "gametes": [
+          "Tg",
+          "TG"
+        ],
+        "genotype": "TTGg",
+        "phenotype": [
+          true,
+          true
+        ]
+      },
+      {
+        "gametes": [
+          "Tg",
+          "Tg"
+        ],
+        "genotype": "TTgg",
+        "phenotype": [
+          true,
+          false
+        ]
+      },
+      {
+        "gametes": [
+          "Tg",
+          "tG"
+        ],
+        "genotype": "TtGg",
+        "phenotype": [
+          true,
+          true
+        ]
+      },
+      {
+        "gametes": [
+          "Tg",
+          "tg"
+        ],
+        "genotype": "Ttgg",
+        "phenotype": [
+          true,
+          false
+        ]
+      },
+      {
+        "gametes": [
+          "tG",
+          "TG"
+        ],
+        "genotype": "TtGG",
+        "phenotype": [
+          true,
+          true
+        ]
+      },
+      {
+        "gametes": [
+          "tG",
+          "Tg"
+        ],
+        "genotype": "TtGg",
+        "phenotype": [
+          true,
+          true
+        ]
+      },
+      {
+        "gametes": [
+          "tG",
+          "tG"
+        ],
+        "genotype": "ttGG",
+        "phenotype": [
+          false,
+          true
+        ]
+      },
+      {
+        "gametes": [
+          "tG",
+          "tg"
+        ],
+        "genotype": "ttGg",
+        "phenotype": [
+          false,
+          true
+        ]
+      },
+      {
+        "gametes": [
+          "tg",
+          "TG"
+        ],
+        "genotype": "TtGg",
+        "phenotype": [
+          true,
+          true
+        ]
+      },
+      {
+        "gametes": [
+          "tg",
+          "Tg"
+        ],
+        "genotype": "Ttgg",
+        "phenotype": [
+          true,
+          false
+        ]
+      },
+      {
+        "gametes": [
+          "tg",
+          "tG"
+        ],
+        "genotype": "ttGg",
+        "phenotype": [
+          false,
+          true
+        ]
+      },
+      {
+        "gametes": [
+          "tg",
+          "tg"
+        ],
+        "genotype": "ttgg",
+        "phenotype": [
+          false,
+          false
+        ]
+      }
+    ],
+    "phenotype_counts": {
+      "(True, True)": 9,
+      "(True, False)": 3,
+      "(False, True)": 3,
+      "(False, False)": 1
+    },
+    "total": 16
+  },
+  "sourceTomato": {
+    "parents": [
+      "RrTt",
+      "rrTt"
+    ],
+    "gametes": [
+      [
+        "RT",
+        "Rt",
+        "rT",
+        "rt"
+      ],
+      [
+        "rT",
+        "rt"
+      ]
+    ],
+    "cells": [
+      {
+        "gametes": [
+          "RT",
+          "rT"
+        ],
+        "genotype": "RrTT",
+        "phenotype": [
+          true,
+          true
+        ]
+      },
+      {
+        "gametes": [
+          "RT",
+          "rt"
+        ],
+        "genotype": "RrTt",
+        "phenotype": [
+          true,
+          true
+        ]
+      },
+      {
+        "gametes": [
+          "Rt",
+          "rT"
+        ],
+        "genotype": "RrTt",
+        "phenotype": [
+          true,
+          true
+        ]
+      },
+      {
+        "gametes": [
+          "Rt",
+          "rt"
+        ],
+        "genotype": "Rrtt",
+        "phenotype": [
+          true,
+          false
+        ]
+      },
+      {
+        "gametes": [
+          "rT",
+          "rT"
+        ],
+        "genotype": "rrTT",
+        "phenotype": [
+          false,
+          true
+        ]
+      },
+      {
+        "gametes": [
+          "rT",
+          "rt"
+        ],
+        "genotype": "rrTt",
+        "phenotype": [
+          false,
+          true
+        ]
+      },
+      {
+        "gametes": [
+          "rt",
+          "rT"
+        ],
+        "genotype": "rrTt",
+        "phenotype": [
+          false,
+          true
+        ]
+      },
+      {
+        "gametes": [
+          "rt",
+          "rt"
+        ],
+        "genotype": "rrtt",
+        "phenotype": [
+          false,
+          false
+        ]
+      }
+    ],
+    "phenotype_counts": {
+      "(True, True)": 3,
+      "(True, False)": 1,
+      "(False, True)": 3,
+      "(False, False)": 1
+    },
+    "total": 8
+  },
+  "sourceSquash": {
+    "parents": [
+      "wwDd",
+      "Wwdd"
+    ],
+    "gametes": [
+      [
+        "wD",
+        "wd"
+      ],
+      [
+        "Wd",
+        "wd"
+      ]
+    ],
+    "cells": [
+      {
+        "gametes": [
+          "wD",
+          "Wd"
+        ],
+        "genotype": "WwDd",
+        "phenotype": [
+          true,
+          true
+        ]
+      },
+      {
+        "gametes": [
+          "wD",
+          "wd"
+        ],
+        "genotype": "wwDd",
+        "phenotype": [
+          false,
+          true
+        ]
+      },
+      {
+        "gametes": [
+          "wd",
+          "Wd"
+        ],
+        "genotype": "Wwdd",
+        "phenotype": [
+          true,
+          false
+        ]
+      },
+      {
+        "gametes": [
+          "wd",
+          "wd"
+        ],
+        "genotype": "wwdd",
+        "phenotype": [
+          false,
+          false
+        ]
+      }
+    ],
+    "phenotype_counts": {
+      "(True, True)": 1,
+      "(False, True)": 1,
+      "(True, False)": 1,
+      "(False, False)": 1
+    },
+    "total": 4
+  },
+  "scope": "Private independent arithmetic check of the actual source examples; not learner prose, not new assessed answer content. Returned Pro adaptations must be checked independently.",
+  "proposedTomatoAdaptation": {
+    "parents": [
+      "RrTt",
+      "RRTt"
+    ],
+    "gametes": [
+      [
+        "RT",
+        "Rt",
+        "rT",
+        "rt"
+      ],
+      [
+        "RT",
+        "Rt"
+      ]
+    ],
+    "cells": [
+      {
+        "gametes": [
+          "RT",
+          "RT"
+        ],
+        "genotype": "RRTT",
+        "phenotype": [
+          true,
+          true
+        ]
+      },
+      {
+        "gametes": [
+          "RT",
+          "Rt"
+        ],
+        "genotype": "RRTt",
+        "phenotype": [
+          true,
+          true
+        ]
+      },
+      {
+        "gametes": [
+          "Rt",
+          "RT"
+        ],
+        "genotype": "RRTt",
+        "phenotype": [
+          true,
+          true
+        ]
+      },
+      {
+        "gametes": [
+          "Rt",
+          "Rt"
+        ],
+        "genotype": "RRtt",
+        "phenotype": [
+          true,
+          false
+        ]
+      },
+      {
+        "gametes": [
+          "rT",
+          "RT"
+        ],
+        "genotype": "RrTT",
+        "phenotype": [
+          true,
+          true
+        ]
+      },
+      {
+        "gametes": [
+          "rT",
+          "Rt"
+        ],
+        "genotype": "RrTt",
+        "phenotype": [
+          true,
+          true
+        ]
+      },
+      {
+        "gametes": [
+          "rt",
+          "RT"
+        ],
+        "genotype": "RrTt",
+        "phenotype": [
+          true,
+          true
+        ]
+      },
+      {
+        "gametes": [
+          "rt",
+          "Rt"
+        ],
+        "genotype": "Rrtt",
+        "phenotype": [
+          true,
+          false
+        ]
+      }
+    ],
+    "distinctGenotypes": 6,
+    "phenotypeCounts": {
+      "(True, True)": 6,
+      "(True, False)": 2
+    },
+    "assessmentConflict": "Unresolved, pending complete-copy review and Dean decision; changed numeric result does not remove the generic gamete-list method overlap."
+  }
+}

@@ -1,0 +1,246 @@
+{
+  "review": "Current lesson05 source-method evidence: complete6007eedc read plus bounded eac351c0 delta.",
+  "recorded_utc": "2026-10-04T21:53:27.722781+00:00",
+  "draft_pin": {
+    "path": "kinch-trial-v0.2.0/authoring/lesson-05.teaching.html.in",
+    "bytes": 30601,
+    "sha256": "eac351c08ef28c82b936cf1baa206dbfb5f14feef65338d3e196d3c5aa0f6b4e"
+  },
+  "verified_snapshot_pin": {
+    "path": "kinch-trial-v0.2.0/analysis/records/READ_03_lesson05_6007eedc.html.txt",
+    "bytes": 30224,
+    "sha256": "6007eedc1cb64cc665c04453775b6be3d23e59080aa91644ba72a22375f52e95"
+  },
+  "read_completeness": "Entire30,224-byte6007eedc initial draft was fully read. The root snapshot matches it exactly. The complete diff to current30,601-byte eac351c0 contains eight edited passages in five unified-diff hunks; every change was read. This evidence combines that full initial read and the bounded delta, not a second whole-draft read.",
+  "source_basis": {
+    "pptx_pin": {
+      "path": "source-inspection/ch17/sources/Unit C Part B Mendelian Genetics .pptx",
+      "bytes": 10153531,
+      "sha256": "da1ce1c0526da4da1aefd1fb6c0f23070f820ce24378c12f9699d1c700e1a985"
+    },
+    "ppt_scope": "Reuse fresh actual35–48 XML and byte-verified media from this same v0.2.0 task; exact pins in READ_LOG.json and ACTUAL_TARGETED_XML.json.",
+    "textbook_pin": {
+      "path": "source-inspection/ch17/native/workspace/assets/textbook/chapter-17.pdf",
+      "bytes": 2005971,
+      "sha256": "48e297aacb86275c106a02abdddaf0f0463ba47d6b17703a926aa68405755455"
+    },
+    "fresh_actual_pdf_text_reads": [
+      {
+        "pdf_page": 9,
+        "printed_page": 592,
+        "text_sha256": "070b2cafe4583b7613b307fd435b04caf0156efd4e608d78496f1c026b837880"
+      },
+      {
+        "pdf_page": 10,
+        "printed_page": 593,
+        "text_sha256": "66766dacc9af7b01f7744818bd62e0a33525208fae7aed0842a971c57d4cc8a5"
+      }
+    ],
+    "earlier_same_task_support": [
+      "printed591/PDF8",
+      "printed597/PDF14"
+    ],
+    "pixel_scope": "No fresh pixels in this draft review; earlier original embedded-media read is reused.",
+    "proof_pin": {
+      "path": "kinch-trial-v0.2.0/analysis/source/pptx-method/FOUR_BY_TWO_PROOF.json",
+      "bytes": 13522,
+      "sha256": "68f26e98bd18211f92ef472bcdaf749366526e7c3e0e816d863f9218f3e784aa"
+    }
+  },
+  "method_finding": "Source progression and instructional operations are substantially retained. The local mechanism precision issue is closed. The tomato four-to-two nonzero phenotype adaptation remains a consequential unresolved source-demand/assessment-template tradeoff; this is not an unqualified full-fidelity approval.",
+  "local_repair_status": "L05-METHOD-02 closed by inspected current delta.",
+  "unresolved_tradeoff": "L05-METHOD-07 open. Four-to-two nonzero phenotype grouping is not equivalent.",
+  "protected_overlap_scope": "The full source-required pea9:3:3:1 table/grouping directly teaches protected structures. Parent reports native05MC2 aaB_3/16 and optional2131237 A_bb3/16 overlap; this inspector did not independently reread those items. Tomato retains the general4×2 template. No assessment blindness or independentN80 clearance claimed.",
+  "findings": [
+    {
+      "id": "L05-METHOD-01",
+      "classification": "preserved",
+      "draft_locator": "ch17-l05-teaching-01; opening through pea F1",
+      "sources": "PPT35–38; printed593/PDF10",
+      "finding": "The opening question, T/G traits, TTGG × ttgg, sole TG/tg gametes and TtGg F1 are preserved. Locus, two-locus genotype and one allele from each locus per gamete are explained before calculation.",
+      "disposition": "No consequential source-method loss."
+    },
+    {
+      "id": "L05-METHOD-02",
+      "classification": "justified reorder; local precision repaired",
+      "draft_locator": "ch17-l05-teaching-01-p2",
+      "sources": "PPT39–42; printed597/PDF14",
+      "finding": "Physical independence precedes gamete multiplication/grid, earning the calculation. The initial completes-the-reduction phrase was imprecise; current wording says later sister separation completes meiosis and preserves meiosis-I reduction versus meiosis-II sister separation.",
+      "disposition": "Local issue closed on current pin; no grid or activity change."
+    },
+    {
+      "id": "L05-METHOD-03",
+      "classification": "purposeful visual-reading prose",
+      "draft_locator": "ch17-l05-teaching-01; A/a B/b branch paragraphs",
+      "sources": "PPT41–42; native-figure contract",
+      "finding": "The A then b path is read as Ab and related to T/G possibilities. Branch possibilities are distinguished from actual chromosome movement and fertilisation. Four gamete types are scoped across many meioses. The current delta also distinguishes bottom location labels from branch alleles and gives the B · Ab key-reading example.",
+      "disposition": "This review reads the placeholder/prose, not the actual rendered native figure or protected label answers."
+    },
+    {
+      "id": "L05-METHOD-04",
+      "classification": "preserved F2 method",
+      "draft_locator": "ch17-l05-teaching-02; 16-cell and grouping tables",
+      "sources": "PPT39–40; printed593/PDF10 Figure17.10",
+      "finding": "TtGg × TtGg, four gametes each, sixteen equal contribution pairs, nine genotype categories and 9:3:3:1 phenotype grouping remain. All displayed cells/counts are consistent. T_ and G_ blanks correctly remain at their own loci rather than any of four alleles.",
+      "disposition": "No table/grouping defect. Complete source-required grouping also teaches protected structural targets; not assessment blindness."
+    },
+    {
+      "id": "L05-METHOD-05",
+      "classification": "bounded explanatory addition",
+      "draft_locator": "ch17-l05-teaching-02-p3 and next paragraphs",
+      "sources": "PPT39 grouping; printed593/PDF10; stated prerequisites",
+      "finding": "Multiplication checks the grid; addition combines mutually exclusive categories; sums of one check coverage. Complete penetrance is defined as a model assumption. No reverse conditional probability, candidate weighting or selected-record denominator is added.",
+      "disposition": "These operations serve current predictions. Penetrance terminology is author synthesis, not direct PPT35–48 wording; no separate penetrance task is imposed."
+    },
+    {
+      "id": "L05-METHOD-06",
+      "classification": "tomato operations preserved",
+      "draft_locator": "ch17-l05-worked; parent translation through genotype grouping",
+      "sources": "PPT43–45; FOUR_BY_TWO_PROOF.json",
+      "finding": "RrTt × RRTt retains tomato R/T context, word-to-genotype translation, four-versus-two gametes, eight equiprobable cells, six genotypes and phenotype interpretation. All eight cells and1:2:1:1:2:1 genotype counts match the changed model.",
+      "disposition": "Correct preserved operations do not resolve the next finding’s source-demand conflict."
+    },
+    {
+      "id": "L05-METHOD-07",
+      "classification": "open consequential fidelity tradeoff",
+      "draft_locator": "ch17-l05-worked; phenotype table and3:0:1:0 interpretation",
+      "sources": "PPT43–45 original target; FOUR_BY_TWO_PROOF.json; latest correction",
+      "finding": "Original four nonzero groups3/8,3/8,1/8,1/8 become3/4,0,1/4,0. The draft states this correctly, but loses fruit-colour phenotype segregation, contrasting parental colours and four-nonzero-group demand. The4×2 template remains assessment-relevant.",
+      "disposition": "Keep explicitly unresolved. Two nonzero groups are not equivalent to four. Letter changes are not safe protection. The proof shows no ordinary independent-assortment complete-dominance4×2 alternative retains all four groups with nonisomorphic probabilities."
+    },
+    {
+      "id": "L05-METHOD-08",
+      "classification": "purposeful changed-parent transfer",
+      "draft_locator": "ch17-kinch-v020-l05-change-task; prompt/hint/model/table/criteria",
+      "sources": "PPT44–45 distinct gametes; PPT48",
+      "finding": "RrTt × RRtt preserves one list, reduces the other to Rt, gives4×1, changes short to1/2 and retains all red. The learner must explain changed versus retained predictions. Full stimulus and taught operations precede feedback. Current feedback distinguishes redundant Rt columns from an impossible retained RT column.",
+      "disposition": "Appropriate practice after the8-cell worked model, not its silent replacement. Static response markup is not evidence of working Save/reload."
+    },
+    {
+      "id": "L05-METHOD-09",
+      "classification": "squash inverse before forward preserved",
+      "draft_locator": "ch17-l05-teaching-03; blanks through2×2",
+      "sources": "PPT46–47",
+      "finding": "Phenotypes first give wwD_ × W_dd; observed wwdd forces d from the disk parent and w from the white parent. Only then are wwDd × Wwdd, gametes and grid supplied.",
+      "disposition": "Distinct inverse-inference purpose survives. Neither parent is double heterozygous, so this is not a diagnostic test of independent assortment; the draft does not explicitly present it as such."
+    },
+    {
+      "id": "L05-METHOD-10",
+      "classification": "accepted counting corrections",
+      "draft_locator": "ch17-l05-teaching-03-p2 and counting paragraphs",
+      "sources": "PPT47",
+      "finding": "W/D, N80, expected40 white and20 yellow/spherical remain. Fruit/flower drift and actual-count wording are corrected. Scored plants/no selective loss are explicit. The two white groups are combined without double-counting their subtotal.",
+      "disposition": "Same source grouping/counting demand. Parent owns exact native/printed overlap clearance; this review does not independently clearN80."
+    },
+    {
+      "id": "L05-METHOD-11",
+      "classification": "different evidence inference",
+      "draft_locator": "ch17-kinch-v020-l05-evidence-task; full stimulus/prompt/hint/model/criteria",
+      "sources": "PPT46–47; stated lesson04 prerequisite",
+      "finding": "White/smooth offspring forces Vvll for parent1 but leaves vvLL or vvLl for parent2. Full feedback traces vl/vL, explains a later lobed offspring, and explains why finite smooth-only observations do not proveLL.",
+      "disposition": "Meaningfully different inference from the fully resolving squash example. No Bayesian weights or reverse-conditional calculation. Necessary general testcross logic remains conceptually overlapping."
+    },
+    {
+      "id": "L05-METHOD-12",
+      "classification": "later scope preserved",
+      "draft_locator": "ch17-l05-teaching-03-p3 and closing paragraph",
+      "sources": "PPT42; PPT48; bounded plan",
+      "finding": "Brief linkage qualification points to12–13; changed phenotype rules remain06. Closing sequence stays genotype evidence→gametes→combination→phenotype. Printed595 practice routing follows the plan.",
+      "disposition": "No substantial topic drift. Those printed595 protected items were not independently reread in this method audit."
+    }
+  ],
+  "limits": [
+    "No learner/source/prior-output edits.",
+    "No independent native assessment clearance or answer/feedback edits.",
+    "Native figure placeholder/prose only, not protected label verification.",
+    "No browser/UI/Save/reload/All My Work/integration approval.",
+    "No source preflight, web, video playback or current-authority claim.",
+    "No teacher acceptance, general readiness or final manuscript approval.",
+    "Only current L05_DRAFT_METHOD_REVIEW.md/.json and historical FULL_READ_6007eedc.md/.json written in this review scope.",
+    "Detailed findings derive from the earlier full read plus inspected delta; no second full manuscript/source review claimed."
+  ],
+  "historical_full_review": {
+    "input_pin": {
+      "path": "kinch-trial-v0.2.0/authoring/lesson-05.teaching.html.in",
+      "bytes": 30224,
+      "sha256": "6007eedc1cb64cc665c04453775b6be3d23e59080aa91644ba72a22375f52e95"
+    },
+    "snapshot_pin": {
+      "path": "kinch-trial-v0.2.0/analysis/records/READ_03_lesson05_6007eedc.html.txt",
+      "bytes": 30224,
+      "sha256": "6007eedc1cb64cc665c04453775b6be3d23e59080aa91644ba72a22375f52e95"
+    },
+    "markdown_pin": {
+      "path": "kinch-trial-v0.2.0/analysis/source/pptx-method/L05_DRAFT_METHOD_REVIEW_FULL_READ_6007eedc.md",
+      "bytes": 8311,
+      "sha256": "d6e2adb214118867d3fac6bfb4401901923b57dc526a5449198bac3b2723d590"
+    },
+    "json_pin": {
+      "path": "kinch-trial-v0.2.0/analysis/source/pptx-method/L05_DRAFT_METHOD_REVIEW_FULL_READ_6007eedc.json",
+      "bytes": 11192,
+      "sha256": "2f2f7a9f5483b85dd71cfa8d2bc09a137011b821a4d7a706e6772ab86f34e081"
+    }
+  },
+  "bounded_delta": {
+    "changes": [
+      {
+        "id": "L05-DELTA-01",
+        "locator": "ch17-l05-teaching-01-p1",
+        "change": "Adds allele glossary token.",
+        "assessment": "No proposition or method change."
+      },
+      {
+        "id": "L05-DELTA-02",
+        "locator": "ch17-l05-teaching-01-p2",
+        "change": "Later sister separation completes meiosis rather than completes the reduction.",
+        "assessment": "Closes reported mechanism precision issue; probability model unchanged."
+      },
+      {
+        "id": "L05-DELTA-03",
+        "locator": "branch-figure reading paragraph",
+        "change": "Separates allele-letter branch circles from bottom location labelsA–D; reads locationB/key B · Ab after A then b.",
+        "assessment": "Improves representation reading and avoids confusing location labels with alleles. Exact native visual/key agreement remains the parent/root verification; this audit has not rendered or reread the native protected figure."
+      },
+      {
+        "id": "L05-DELTA-04",
+        "locator": "ch17-l05-teaching-02-p2",
+        "change": "Adds phenotype glossary token and makes genotype-rule application explicitly determine phenotype.",
+        "assessment": "Clarifies an existing operation without changing shorthand or grouping."
+      },
+      {
+        "id": "L05-DELTA-05",
+        "locator": "ch17-l05-teaching-02-p3",
+        "change": "Lesson03 single-locus method is applied separately at each locus.",
+        "assessment": "More precise prerequisite attribution; two-locus independence is still explained here."
+      },
+      {
+        "id": "L05-DELTA-06",
+        "locator": "ch17-kinch-v020-l05-change-task; final feedback sentence",
+        "change": "Distinguishes an unnecessary duplicate Rt column from the different error of retaining impossible RT for RRtt.",
+        "assessment": "Improves mathematical/representation precision. A duplicate column does not create a new gamete type; RT would contradict the parent. No cell or prediction change."
+      },
+      {
+        "id": "L05-DELTA-07",
+        "locator": "evidence-response status element",
+        "change": "data-note-status now matches response ID rather than status element ID.",
+        "assessment": "Static association repair only; no native runtime claim."
+      },
+      {
+        "id": "L05-DELTA-08",
+        "locator": "closing textbook-practice cue",
+        "change": "Removes implementation-facing word native.",
+        "assessment": "Same questions and after06 routing; no method change."
+      }
+    ],
+    "unified_diff": "--- kinch-trial-v0.2.0/analysis/records/READ_03_lesson05_6007eedc.html.txt\n+++ kinch-trial-v0.2.0/authoring/lesson-05.teaching.html.in\n@@ -1,17 +1,17 @@\n <div class=\"content-section\" data-canvas-edit-key=\"ch17-l05-teaching-01\" data-canvas-helper-edit-key=\"ch17-l05-teaching-01\" id=\"ch17-l05-teaching-01\">\n <h2>Does one allele contribution tell us the other?</h2>\n-<p data-canvas-edit-key=\"ch17-l05-teaching-01-p1\" data-canvas-helper-edit-key=\"ch17-l05-teaching-01-p1\">A pea plant passes on alleles for many genes at once. If a gamete carries an allele associated with a tall plant, must it also carry the allele for green pods? Mendel extended his one-trait crosses to ask whether the inheritance of one characteristic influenced the inheritance of another. To answer that question, we need to follow two loci through the same gamete, then through fertilisation.</p>\n+<p data-canvas-edit-key=\"ch17-l05-teaching-01-p1\" data-canvas-helper-edit-key=\"ch17-l05-teaching-01-p1\">A pea plant passes on {{v:allele|alleles}} for many genes at once. If a gamete carries an allele associated with a tall plant, must it also carry the allele for green pods? Mendel extended his one-trait crosses to ask whether the inheritance of one characteristic influenced the inheritance of another. To answer that question, we need to follow two loci through the same gamete, then through fertilisation.</p>\n <p>Keep the one-locus reasoning from lessons02–04: a diploid parent has two alleles at a locus, a gamete contributes one, and fertilisation restores a pair. A <strong>locus</strong> is a gene's position on a chromosome. Here we follow a height locus and a pod-colour locus. A two-locus genotype records both pairs; a two-locus gamete records one allele from each pair.</p>\n <h3>Begin with the true-breeding pea parents</h3>\n <p>Use <strong>T</strong> for the tall allele and <strong>t</strong> for the short allele. Use <strong>G</strong> for the green-pod allele and <strong>g</strong> for the yellow-pod allele. In this complete-dominance model, TT and Tt plants are tall, while tt plants are short; GG and Gg plants have green pods, while gg plants have yellow pods. Apply each gene's rule separately. A capital letter indicates the dominant relationship in a heterozygote, not a better or more common allele.</p>\n <p>The true-breeding tall, green-pod parent is <strong>TTGG</strong>. Its contrasting short, yellow-pod parent is <strong>ttgg</strong>. Write the parental cross as TTGG × ttgg. The first parent can contribute only <strong>TG</strong>; the second can contribute only <strong>tg</strong>. These are whole gamete labels: one letter from the height locus and one from the pod-colour locus. Combining TG with tg gives <strong>TtGg</strong>, so the F1 plants are tall with green pods.</p>\n <p>A plant heterozygous at both loci is a <strong>dihybrid</strong>. Growing the F1 generation and crossing two TtGg plants gives the next question: what combinations can their offspring inherit? We cannot answer by writing Tt or Gg on a gamete edge. Each of those is a parent's pair at one locus; neither supplies one allele at each of the two loci we are tracking.</p>\n <h3>Connect the two contributions to chromosome movement</h3>\n-<p data-canvas-edit-key=\"ch17-l05-teaching-01-p2\" data-canvas-helper-edit-key=\"ch17-l05-teaching-01-p2\">First consider two genes on different homologous chromosome pairs. During <strong>metaphase I</strong> of meiosis, those pairs line up before the homologues separate. The orientation of the pair carrying T/t does not set the orientation of the pair carrying G/g. Across many meioses, a T contribution can therefore accompany G or g; the same is true for a t contribution. The later separation of sister chromatids completes the reduction. Do not confuse the independent orientations of different pairs with the joining of two parents' gametes at fertilisation.</p>\n+<p data-canvas-edit-key=\"ch17-l05-teaching-01-p2\" data-canvas-helper-edit-key=\"ch17-l05-teaching-01-p2\">First consider two genes on different homologous chromosome pairs. During <strong>metaphase I</strong> of meiosis, those pairs line up before the homologues separate. The orientation of the pair carrying T/t does not set the orientation of the pair carrying G/g. Across many meioses, a T contribution can therefore accompany G or g; the same is true for a t contribution. The later separation of sister chromatids completes meiosis. Do not confuse the independent orientations of different pairs with the joining of two parents' gametes at fertilisation.</p>\n <p>This is {{v:independent-assortment|independent assortment}}: segregation at one locus does not determine the allele contribution at the other under this model. From TtGg, ordinary segregation gives T or t with probability ½ and G or g with probability ½. Because the two contributions are independent, the {{v:probability|probability}} of their joint occurrence in one gamete is found by multiplying. For example, <strong>P(TG) = P(T) × P(G) = ½ × ½ = ¼</strong>. The result describes one gamete containing both T and G; it does not describe two separate gametes meeting.</p>\n <p>The four distinct gamete types are <strong>TG, Tg, tG and tg</strong>, each with probability ¼. They exhaust the possibilities, so their probabilities total ¼ + ¼ + ¼ + ¼ = 1. This is a prediction for gametes across many meioses, not a claim that every individual meiosis must display all four types in that proportion.</p>\n <h3>Read the existing branch figure one path at a time</h3>\n-<p>The figure below uses A/a and B/b as general labels for two loci. Start at AaBb, follow the A branch, then the b branch: the endpoint is Ab. The first step contributes one allele at the first locus and the second contributes one at the second locus. Neither branch chooses both alleles of the same pair. Trace the other three complete paths before returning to the pea letters. Under the same independent-assortment assumption, these paths correspond to TG, Tg, tG and tg.</p>\n+<p>The figure below uses A/a and B/b as general allele labels for two loci. The large branch circles carry allele letters; the smaller circles along the bottom carry <strong>location labels A, B, C and D</strong>. Those bottom labels are not extra alleles. Start at AaBb, follow the A branch, then the b branch. You reach location B, where the bottom key reads “B · Ab”: location B represents the gamete Ab. The first branch contributes one allele at the first locus and the second contributes one at the second locus. Trace the other three complete paths and use the key to identify their gametes. Returning to the pea letters, the four paths follow the same pattern as TG, Tg, tG and tg under independent assortment.</p>\n {{native-figure:ch17-two-trait}}\n <p>The branches organize allele possibilities. They are not a picture of chromosomes splitting into four parts, and they do not show fertilisation. The reason for the equal endpoint probabilities comes from the segregation and independent orientations just explained.</p>\n </div>\n@@ -33,7 +33,7 @@\n </table>\n </div>\n <p>There are sixteen equally likely gamete pairings, not sixteen different genotypes. For instance, TtGg occurs in four cells because four different pairs of parental contributions produce it. Count those four cells when finding its probability; counting the genotype name only once would discard possible fertilisations.</p>\n-<p data-canvas-edit-key=\"ch17-l05-teaching-02-p2\" data-canvas-helper-edit-key=\"ch17-l05-teaching-02-p2\">Now apply the complete-dominance rules. The shorthand <strong>T_</strong> means TT or Tt: at least one T is present, and the blank represents the second allele at that same locus. Similarly, <strong>G_</strong> means GG or Gg. Thus T_G_ groups all genotypes that are tall with green pods. The blanks do not remove alleles from the genotype or allow letters from a different locus.</p>\n+<p data-canvas-edit-key=\"ch17-l05-teaching-02-p2\" data-canvas-helper-edit-key=\"ch17-l05-teaching-02-p2\">Now apply the complete-dominance rules to determine the {{v:phenotype|phenotype}}. The shorthand <strong>T_</strong> means TT or Tt: at least one T is present, and the blank represents the second allele at that same locus. Similarly, <strong>G_</strong> means GG or Gg. Thus T_G_ groups all genotypes that are tall with green pods. The blanks do not remove alleles from the genotype or allow letters from a different locus.</p>\n <div class=\"comparison-table\">\n <table>\n <caption>Grouping the sixteen F2 cells by phenotype</caption>\n@@ -48,7 +48,7 @@\n </div>\n <p>These counts give the <strong>9:3:3:1 phenotype ratio</strong> for this particular cross and these allele relationships. The genotype counts are the nine separate entries shown in the middle column; they have not become four genotypes. The four phenotype categories are <strong>mutually exclusive</strong>: one plant cannot belong to two of them at once. They also cover every outcome in the model, so (9 + 3 + 3 + 1)/16 = 1 is a useful check.</p>\n <h3>Use multiplication and addition for different jobs</h3>\n-<p data-canvas-edit-key=\"ch17-l05-teaching-02-p3\" data-canvas-helper-edit-key=\"ch17-l05-teaching-02-p3\">The separate-locus method from lesson03 gives the same prediction. Tt × Tt gives tall with probability ¾ and short with probability ¼. Gg × Gg gives green pods with probability ¾ and yellow pods with probability ¼. In this independent two-locus model, tall <strong>and</strong> green requires both outcomes, so ¾ × ¾ = 9/16. For tall and yellow, multiply ¾ × ¼; for short and green, multiply ¼ × ¾; for short and yellow, multiply ¼ × ¼. These products match the four groups in the grid.</p>\n+<p data-canvas-edit-key=\"ch17-l05-teaching-02-p3\" data-canvas-helper-edit-key=\"ch17-l05-teaching-02-p3\">Apply lesson03's single-locus method separately at each locus. Tt × Tt gives tall with probability ¾ and short with probability ¼. Gg × Gg gives green pods with probability ¾ and yellow pods with probability ¼. In this independent two-locus model, tall <strong>and</strong> green requires both outcomes, so ¾ × ¾ = 9/16. For tall and yellow, multiply ¾ × ¼; for short and green, multiply ¼ × ¾; for short and yellow, multiply ¼ × ¼. These products match the four groups in the grid.</p>\n <p>Add when combining alternatives that cannot happen to the same plant. For example, all tall offspring are either tall/green or tall/yellow, so their combined probability is 9/16 + 3/16 = 12/16 = ¾. Multiplication combines the independent requirements here; addition combines the non-overlapping categories. Neither operation is justified merely by seeing the word “and” or “or” without checking the events.</p>\n <p>The predictions also assume that the stated genotype produces its assigned phenotype in every counted plant, called <strong>complete penetrance</strong>, and that no phenotype group is selectively lost before counting. The ratios describe the model's probabilities. A finite set of offspring can depart from them by chance. Different parental genotypes require fresh gamete lists and calculations, as the next cross shows.</p>\n </div>\n@@ -106,7 +106,7 @@\n <p>This practice is optional and ungraded. Save your reasoning, then open the comparison deliberately. It does not count toward required chapter progress.</p>\n <div class=\"optional-writing\"><label for=\"ch17-kinch-v020-l05-change-response\">Your revised gametes and predictions</label><textarea aria-describedby=\"ch17-kinch-v020-l05-change-response-status\" data-note-input=\"ch17-kinch-v020-l05-change-response\" id=\"ch17-kinch-v020-l05-change-response\" rows=\"5\"></textarea><p class=\"writing-status\" data-note-status=\"ch17-kinch-v020-l05-change-response\" id=\"ch17-kinch-v020-l05-change-response-status\">Optional response. Select Save response to collect it. Maximum 5000 characters.</p><button data-save-note=\"ch17-kinch-v020-l05-change-response\" type=\"button\">Save response</button></div>\n <details><summary>Optional hint: locate the changed allele pair</summary><p>Only the second parent's height pair changed. Which colour allele must that parent contribute? Which height allele must it now contribute? Compare the resulting gamete with each of the first parent's four types.</p></details>\n-<details><summary>Compare the retained and revised reasoning</summary><p>The RrTt parent still produces RT, Rt, rT and rt, each with probability ¼. RRtt contributes R at the colour locus and t at the height locus, so its only distinct gamete is Rt, with probability 1. A four-row, one-column grid is sufficient.</p><div class=\"comparison-table\"><table><caption>Complete comparison for RrTt × RRtt</caption><thead><tr><th scope=\"col\">RrTt gamete</th><th scope=\"col\">RRtt gamete</th><th scope=\"col\">Offspring genotype and phenotype</th></tr></thead><tbody><tr><th scope=\"row\">RT</th><td>Rt</td><td>RRTt — red, tall</td></tr><tr><th scope=\"row\">Rt</th><td>Rt</td><td>RRtt — red, short</td></tr><tr><th scope=\"row\">rT</th><td>Rt</td><td>RrTt — red, tall</td></tr><tr><th scope=\"row\">rt</th><td>Rt</td><td>Rrtt — red, short</td></tr></tbody></table></div><p>Each genotype has probability ¼ × 1 = ¼, so the four genotype probabilities total 1. Two of the four cells are tt: the short proportion is 2/4 = ½, and the other half are tall. The old ¼ short prediction no longer applies because the second parent always supplies t instead of supplying T or t. All offspring still receive R from that parent, so all remain red. The unchanged colour conclusion and the changed height conclusion come from different loci.</p><p><strong>Check your response:</strong> keep the first parent's list; reduce the second to Rt; size the grid from those lists; show the two tt outcomes; explain why the colour conclusion survives while the height probability changes. A reused four-by-two grid would duplicate the second parent's single gamete and conceal the change you needed to make.</p></details>\n+<details><summary>Compare the retained and revised reasoning</summary><p>The RrTt parent still produces RT, Rt, rT and rt, each with probability ¼. RRtt contributes R at the colour locus and t at the height locus, so its only distinct gamete is Rt, with probability 1. A four-row, one-column grid is sufficient.</p><div class=\"comparison-table\"><table><caption>Complete comparison for RrTt × RRtt</caption><thead><tr><th scope=\"col\">RrTt gamete</th><th scope=\"col\">RRtt gamete</th><th scope=\"col\">Offspring genotype and phenotype</th></tr></thead><tbody><tr><th scope=\"row\">RT</th><td>Rt</td><td>RRTt — red, tall</td></tr><tr><th scope=\"row\">Rt</th><td>Rt</td><td>RRtt — red, short</td></tr><tr><th scope=\"row\">rT</th><td>Rt</td><td>RrTt — red, tall</td></tr><tr><th scope=\"row\">rt</th><td>Rt</td><td>Rrtt — red, short</td></tr></tbody></table></div><p>Each genotype has probability ¼ × 1 = ¼, so the four genotype probabilities total 1. Two of the four cells are tt: the short proportion is 2/4 = ½, and the other half are tall. The old ¼ short prediction no longer applies because the second parent always supplies t instead of supplying T or t. All offspring still receive R from that parent, so all remain red. The unchanged colour conclusion and the changed height conclusion come from different loci.</p><p><strong>Check your response:</strong> keep the first parent's list; reduce the second to Rt; size the grid from those lists; show the two tt outcomes; explain why the colour conclusion survives while the height probability changes. A four-by-two grid would add an unnecessary duplicate column if both columns represented Rt. It would not create another gamete type. Retaining the old RT column would be a different error: RRtt cannot contribute T.</p></details>\n </section>\n </div>\n \n@@ -143,11 +143,11 @@\n </div>\n <p>A classmate says that this offspring must fill both parental blanks, just as the yellow, spherical squash offspring did. Evaluate that claim. Identify the allele each parent had to contribute to this offspring, state which parental genotype is now forced and which possibilities remain for the other parent, and name a further offspring leaf phenotype that would settle the remaining blank. Explain whether a finite run of smooth-leaf offspring alone would settle it.</p>\n <p>This practice is optional and ungraded. Save your first explanation, then intentionally open the comparison. It does not count toward required chapter progress.</p>\n-<div class=\"optional-writing\"><label for=\"ch17-kinch-v020-l05-evidence-response\">Your evidence-based parental-genotype explanation</label><textarea aria-describedby=\"ch17-kinch-v020-l05-evidence-response-status\" data-note-input=\"ch17-kinch-v020-l05-evidence-response\" id=\"ch17-kinch-v020-l05-evidence-response\" rows=\"5\"></textarea><p class=\"writing-status\" data-note-status=\"ch17-kinch-v020-l05-evidence-response-status\" id=\"ch17-kinch-v020-l05-evidence-response-status\">Optional response. Select Save response to collect it. Maximum 5000 characters.</p><button data-save-note=\"ch17-kinch-v020-l05-evidence-response\" type=\"button\">Save response</button></div>\n+<div class=\"optional-writing\"><label for=\"ch17-kinch-v020-l05-evidence-response\">Your evidence-based parental-genotype explanation</label><textarea aria-describedby=\"ch17-kinch-v020-l05-evidence-response-status\" data-note-input=\"ch17-kinch-v020-l05-evidence-response\" id=\"ch17-kinch-v020-l05-evidence-response\" rows=\"5\"></textarea><p class=\"writing-status\" data-note-status=\"ch17-kinch-v020-l05-evidence-response\" id=\"ch17-kinch-v020-l05-evidence-response-status\">Optional response. Select Save response to collect it. Maximum 5000 characters.</p><button data-save-note=\"ch17-kinch-v020-l05-evidence-response\" type=\"button\">Save response</button></div>\n <details><summary>Optional hint: inspect each missing allele separately</summary><p>White flowers require vv, so trace one v back to each parent. For the leaves, the lobed parent can contribute only l. A smooth child must also have L, but does that tell you whether the other parent has a second L or an l?</p></details>\n <details><summary>Compare the evidence and its limit</summary><p>The white offspring is vv, so each parent supplied v. Parent 1 already showed the violet phenotype and therefore had V; supplying v forces it to be <strong>Vvll</strong>. Parent 2 was already known to be vv. For leaf shape, parent 1 supplies l. The smooth offspring must have received L from parent 2, giving the offspring <strong>vvLl</strong>. The actual gamete contributions to this offspring were vl from parent 1 and vL from parent 2.</p><p>Parent 2 could still be <strong>vvLL or vvLl</strong>. Both can supply vL, so this observed offspring does not reveal the second leaf-shape allele. The classmate's claim goes too far: in the squash example the offspring expressed the recessive form at both loci and required both recessive contributions; here smooth leaves show that L was supplied, not that parent 2 lacks l.</p><p>A further <strong>lobed-leaf offspring</strong> would be ll. Parent 1 supplies l, so the second l would have to come from parent 2, forcing that parent to be vvLl. If parent 2 is vvLL, it contributes L every time and all offspring are smooth. If it is vvLl, its L and l contributions make both smooth and lobed offspring possible. A finite run containing only smooth offspring is possible under either candidate; it does not logically force LL. You do not need to assign a probability to the two possible parents to state this limit.</p><p><strong>Check your response:</strong> force Vvll for parent 1 using the observed v contribution; retain both vvLL and vvLl for parent 2; identify the observed child's Ll pair and the vL contribution; explain why an ll child would settle the second blank but smooth-only observations do not prove it.</p></details>\n </section>\n <h3>Know when to carry this model forward</h3>\n <p data-canvas-edit-key=\"ch17-l05-teaching-03-p3\" data-canvas-helper-edit-key=\"ch17-l05-teaching-03-p3\">The answer to the opening question depends on how the loci are inherited. For genes on different chromosome pairs under independent assortment, an allele contribution at one locus does not favour a particular allele at the other. Genes close together on the same chromosome can be <strong>linked</strong>: they tend to be inherited together, so the four gamete combinations need not be equally frequent. Lessons12–13 will use that difference to study linkage and gene maps. Do not apply four equal gamete probabilities when independence has not been established or given.</p>\n-<p>For the crosses in this lesson, the useful sequence has stayed the same: establish or infer the parental genotypes, derive the gametes, combine them using the stated probabilities, then apply the phenotype rules to answer the actual question. Lesson06 changes those phenotype rules with incomplete dominance and codominance. The native textbook practice at printed page595, questions13,15 and16, includes those later relationships; return to that set after lesson06.</p>\n+<p>For the crosses in this lesson, the useful sequence has stayed the same: establish or infer the parental genotypes, derive the gametes, combine them using the stated probabilities, then apply the phenotype rules to answer the actual question. Lesson06 changes those phenotype rules with incomplete dominance and codominance. The textbook practice at printed page595, questions13,15 and16, includes those later relationships; return to that set after lesson06.</p>\n </div>\n",
+    "edited_passage_count": 8,
+    "unified_hunk_count": 5,
+    "intermediate_observed_input": {
+      "bytes": 30200,
+      "sha256": "e42c7e640e755a0bbc6db9fe2dfae2f04108fe5866b0d20c173f6ffc22c33a59",
+      "scope": "Four-edit intermediate delta was also inspected before the final four additional refinements. No independent whole-draft reread claimed."
+    },
+    "unchanged_content": "All crosses, gamete probabilities, worked-table cell values, genotype/phenotype results, N80 expected counts, activity question demands and hypothetical inference outcomes are unchanged. Branch reading and duplicate-column feedback are clarified as explicitly recorded above.",
+    "source_reread": "None for delta."
+  }
+}

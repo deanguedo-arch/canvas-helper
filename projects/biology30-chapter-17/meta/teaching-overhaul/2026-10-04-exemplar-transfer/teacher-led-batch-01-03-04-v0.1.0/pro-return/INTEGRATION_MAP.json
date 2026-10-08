@@ -1,0 +1,1119 @@
+{
+  "version": "batch-01-03-04-v0.1.0",
+  "status": "Teaching-only isolated comparison proposal; not integrated or accepted",
+  "sourceOwner": {
+    "packetPath": "current/index.html",
+    "bytes": 3566907,
+    "sha256": "0814977d9fb4ba41d611f2816e50e01d7950a0d5caaba9f422a410bf0f6e0783"
+  },
+  "sourcePacketContractPath": "contracts/REPLACEMENT_BOUNDARIES.json",
+  "deliverableContractPath": "contracts/SUPPLIED_REPLACEMENT_BOUNDARIES.json",
+  "coordinateBasis": "All unqualified stored source ranges are original-owner zero-based UTF-8 byte offsets with end exclusive; all calculated after positions are named and are arithmetic only. Fragment-local spans are explicitly marked. Paths under raw-before/ are deliverable copies; original packet paths and analysis-extraction paths are explicitly named.",
+  "replacementOrderGuidance": "Use original-byte intervals against the verified original owner, or apply in descending start-byte order. Never apply unadjusted original offsets successively to a growing file.",
+  "replacements": [
+    {
+      "lessonId": "lesson-01",
+      "title": "Genes, alleles, genotype and phenotype",
+      "fragmentPath": "lesson-01.teaching-fragment.html",
+      "originalInterval": {
+        "startByte": 87440,
+        "endByteExclusive": 91626,
+        "bytes": 4186,
+        "sha256": "69bc52334f25135c7bda1706cc07a963d6a85e5f8e323cf7c3cbb284da0473c6"
+      },
+      "originalLessonLocalInterval": {
+        "startByte": 3897,
+        "endByteExclusive": 8083
+      },
+      "proposedFragment": {
+        "bytes": 17745,
+        "sha256": "9af1936228a2f611e9338d0a72142801899802d7d86c054d2a983474ed96e72a"
+      },
+      "calculatedAfterInterval": {
+        "startByte": 87440,
+        "endByteExclusive": 105185,
+        "positionOnlyNotAssembled": true
+      },
+      "byteDelta": 13559,
+      "preservedOuterTags": [
+        "<div class=\"content-section\" data-canvas-edit-key=\"ch17-l01-teaching-01\" data-canvas-helper-edit-key=\"ch17-l01-teaching-01\" id=\"ch17-l01-teaching-01\">",
+        "<div class=\"content-section\" data-canvas-edit-key=\"ch17-l01-teaching-02\" data-canvas-helper-edit-key=\"ch17-l01-teaching-02\" id=\"ch17-l01-teaching-02\">",
+        "<div class=\"content-section\" data-canvas-edit-key=\"ch17-l01-teaching-03\" data-canvas-helper-edit-key=\"ch17-l01-teaching-03\" id=\"ch17-l01-teaching-03\">",
+        "<div class=\"worked-example\" data-canvas-edit-key=\"ch17-l01-worked\" data-canvas-helper-edit-key=\"ch17-l01-worked\" id=\"ch17-l01-worked\">"
+      ],
+      "requiredEditKeyPairs": [
+        {
+          "id": "ch17-l01-teaching-01",
+          "editKey": "ch17-l01-teaching-01"
+        },
+        {
+          "id": null,
+          "editKey": "ch17-l01-teaching-01-p1"
+        },
+        {
+          "id": null,
+          "editKey": "ch17-l01-teaching-01-p2"
+        },
+        {
+          "id": "ch17-l01-teaching-02",
+          "editKey": "ch17-l01-teaching-02"
+        },
+        {
+          "id": null,
+          "editKey": "ch17-l01-teaching-02-p1"
+        },
+        {
+          "id": null,
+          "editKey": "ch17-l01-teaching-02-p2"
+        },
+        {
+          "id": null,
+          "editKey": "ch17-l01-teaching-02-p3"
+        },
+        {
+          "id": "ch17-l01-teaching-03",
+          "editKey": "ch17-l01-teaching-03"
+        },
+        {
+          "id": null,
+          "editKey": "ch17-l01-teaching-03-p1"
+        },
+        {
+          "id": null,
+          "editKey": "ch17-l01-teaching-03-p2"
+        },
+        {
+          "id": "ch17-l01-worked",
+          "editKey": "ch17-l01-worked"
+        }
+      ],
+      "newOuterBlockFragmentLocalSpans": [
+        {
+          "tag": "div",
+          "attributes": {
+            "class": "content-section",
+            "data-canvas-edit-key": "ch17-l01-teaching-01",
+            "data-canvas-helper-edit-key": "ch17-l01-teaching-01",
+            "id": "ch17-l01-teaching-01"
+          },
+          "openingTag": "<div class=\"content-section\" data-canvas-edit-key=\"ch17-l01-teaching-01\" data-canvas-helper-edit-key=\"ch17-l01-teaching-01\" id=\"ch17-l01-teaching-01\">",
+          "fragmentStartByte": 0,
+          "fragmentEndByteExclusive": 5575,
+          "bytes": 5575,
+          "sha256": "0b13975bbd338014cfdfe3ea1968a587b9219c13ac278a3d91df7bdca0845ed5"
+        },
+        {
+          "tag": "div",
+          "attributes": {
+            "class": "content-section",
+            "data-canvas-edit-key": "ch17-l01-teaching-02",
+            "data-canvas-helper-edit-key": "ch17-l01-teaching-02",
+            "id": "ch17-l01-teaching-02"
+          },
+          "openingTag": "<div class=\"content-section\" data-canvas-edit-key=\"ch17-l01-teaching-02\" data-canvas-helper-edit-key=\"ch17-l01-teaching-02\" id=\"ch17-l01-teaching-02\">",
+          "fragmentStartByte": 5576,
+          "fragmentEndByteExclusive": 10436,
+          "bytes": 4860,
+          "sha256": "5b6f088b92059c348ba0d27a97ff6862101e516aaa00f0c88e32158d3d6d8c6c"
+        },
+        {
+          "tag": "div",
+          "attributes": {
+            "class": "content-section",
+            "data-canvas-edit-key": "ch17-l01-teaching-03",
+            "data-canvas-helper-edit-key": "ch17-l01-teaching-03",
+            "id": "ch17-l01-teaching-03"
+          },
+          "openingTag": "<div class=\"content-section\" data-canvas-edit-key=\"ch17-l01-teaching-03\" data-canvas-helper-edit-key=\"ch17-l01-teaching-03\" id=\"ch17-l01-teaching-03\">",
+          "fragmentStartByte": 10437,
+          "fragmentEndByteExclusive": 13483,
+          "bytes": 3046,
+          "sha256": "371001f5c460c81283c05d4139c2a7f76e31f232584b65f46668283e1a353693"
+        },
+        {
+          "tag": "div",
+          "attributes": {
+            "class": "worked-example",
+            "data-canvas-edit-key": "ch17-l01-worked",
+            "data-canvas-helper-edit-key": "ch17-l01-worked",
+            "id": "ch17-l01-worked"
+          },
+          "openingTag": "<div class=\"worked-example\" data-canvas-edit-key=\"ch17-l01-worked\" data-canvas-helper-edit-key=\"ch17-l01-worked\" id=\"ch17-l01-worked\">",
+          "fragmentStartByte": 13484,
+          "fragmentEndByteExclusive": 17744,
+          "bytes": 4260,
+          "sha256": "196ca4cc6dd7cb2923ec25bcadc909bb56648046e7053f84476d68597bd04dc8"
+        }
+      ],
+      "existingVocabularyIds": [
+        "ch17-word-allele",
+        "ch17-word-gene",
+        "ch17-word-genotype",
+        "ch17-word-phenotype"
+      ],
+      "protectedHeaderAndSuffixContracts": [
+        {
+          "path": "raw-before/lesson-01.teaching-fragment.html",
+          "ownerStartByte": 87440,
+          "ownerEndByteExclusive": 91626,
+          "bytes": 4186,
+          "sha256": "69bc52334f25135c7bda1706cc07a963d6a85e5f8e323cf7c3cbb284da0473c6",
+          "analysisExtractionPath": "raw_before/lesson-01.teaching-fragment.html"
+        },
+        {
+          "path": "raw-before/lesson-01.protected-header.html",
+          "ownerStartByte": 83619,
+          "ownerEndByteExclusive": 87440,
+          "bytes": 3821,
+          "sha256": "764621b70b3b6026f5be5ad50e4d85ed5a1415b90bb84a8a8ba45899388221c7",
+          "analysisExtractionPath": "raw_before/lesson-01.protected-header.html"
+        },
+        {
+          "path": "raw-before/lesson-01.protected-suffix.html",
+          "ownerStartByte": 91626,
+          "ownerEndByteExclusive": 102372,
+          "bytes": 10746,
+          "sha256": "0308998f82c47a27ccfdfdc26afd08e09229c15336312b8d3331534c8c919bf1",
+          "analysisExtractionPath": "raw_before/lesson-01.protected-suffix.html"
+        },
+        {
+          "path": "raw-before/lesson-01.lesson-prefix.html",
+          "ownerStartByte": 83543,
+          "ownerEndByteExclusive": 87440,
+          "bytes": 3897,
+          "sha256": "3166229a7e6e7f4a83f63e9d6e0b3a8c87b1a062787e92d83341bd657157f576",
+          "analysisExtractionPath": "raw_before/lesson-01.lesson-prefix.html"
+        },
+        {
+          "path": "raw-before/lesson-01.teaching-suffix-separator.bin",
+          "ownerStartByte": 91626,
+          "ownerEndByteExclusive": 91626,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "analysisExtractionPath": "raw_before/lesson-01.teaching-suffix-separator.bin"
+        }
+      ],
+      "protectedSavedNotes": [
+        {
+          "tag": "details",
+          "attributes": {
+            "class": "activity-disclosure optional-disclosure"
+          },
+          "openingTag": "<details class=\"activity-disclosure optional-disclosure\">",
+          "startByte": 100668,
+          "endByteExclusive": 101964,
+          "bytes": 1296,
+          "sha256": "93edff82ca31f8b1614fe3298a3db29106df5aa18854b97f30f94da82f9721c2",
+          "path": "raw-before/lesson-01-ch17-source-written-OBJ_2131252.html",
+          "noteIds": [
+            "ch17-source-written-OBJ_2131252"
+          ],
+          "title": "Additional written application 5",
+          "completeText": "Additional written application 5 This is optional written practice. It does not change required progress. The cross-over frequencies of four genes found on human chromosome 6 are shown below: Legend Gene Pairs Cross-over Frequencies 1 Diabetes mellitus 1 and 2 21% 2 Ovarian cancer 1 and 3 12% 3 Rh blood group 2 and 3 9% 4 Ragweed sensitivity 2 and 4 19.5% 3 and 4 10.5% The order in which the four genes listed in the legend above are located on chromosome 6 is _____, _____, _____, and _____. Show the calculation or sequence and explain your reasoning. Use only the supplied evidence; do not invent observations. Optional response. Select Save response to collect it. Maximum 5000 characters. Save response",
+          "insideProtectedSuffix": true,
+          "insideTeaching": false,
+          "controls": [
+            {
+              "aria-describedby": "ch17-source-written-OBJ_2131252-status",
+              "data-note-input": "ch17-source-written-OBJ_2131252",
+              "id": "ch17-source-written-OBJ_2131252",
+              "rows": "5"
+            },
+            {
+              "class": "writing-status",
+              "data-note-status": "ch17-source-written-OBJ_2131252",
+              "id": "ch17-source-written-OBJ_2131252-status"
+            },
+            {
+              "data-save-note": "ch17-source-written-OBJ_2131252",
+              "type": "button"
+            }
+          ],
+          "images": [],
+          "detailsCount": 0,
+          "providedHintOrModelCount": 0,
+          "analysisExtractionPath": "optional_sections/lesson-01-ch17-source-written-OBJ_2131252.html"
+        }
+      ],
+      "nativeFigures": [],
+      "headerEdits": [],
+      "guard": "Replace only when the complete owner, exact original interval and protected contracts match. No other owner bytes or runtime files are authorized to change."
+    },
+    {
+      "lessonId": "lesson-03",
+      "title": "Single-trait crosses and probability",
+      "fragmentPath": "lesson-03.teaching-fragment.html",
+      "originalInterval": {
+        "startByte": 156900,
+        "endByteExclusive": 162121,
+        "bytes": 5221,
+        "sha256": "85fe3e0bbe1a0c17e48449253b659135684d1fd6d50aabfa2573394776a03df8"
+      },
+      "originalLessonLocalInterval": {
+        "startByte": 3984,
+        "endByteExclusive": 9205
+      },
+      "proposedFragment": {
+        "bytes": 24439,
+        "sha256": "85a884113bab7fe12205c1d1567284dabc0b434fd469c0076c24da57c56edc85"
+      },
+      "calculatedAfterInterval": {
+        "startByte": 170459,
+        "endByteExclusive": 194898,
+        "positionOnlyNotAssembled": true
+      },
+      "byteDelta": 19218,
+      "preservedOuterTags": [
+        "<div class=\"content-section\" data-canvas-edit-key=\"ch17-l03-teaching-01\" data-canvas-helper-edit-key=\"ch17-l03-teaching-01\" id=\"ch17-l03-teaching-01\">",
+        "<div class=\"content-section\" data-canvas-edit-key=\"ch17-l03-teaching-02\" data-canvas-helper-edit-key=\"ch17-l03-teaching-02\" id=\"ch17-l03-teaching-02\">",
+        "<div class=\"content-section\" data-canvas-edit-key=\"ch17-l03-teaching-03\" data-canvas-helper-edit-key=\"ch17-l03-teaching-03\" id=\"ch17-l03-teaching-03\">",
+        "<div class=\"worked-example\" data-canvas-edit-key=\"ch17-l03-worked\" data-canvas-helper-edit-key=\"ch17-l03-worked\" id=\"ch17-l03-worked\">"
+      ],
+      "requiredEditKeyPairs": [
+        {
+          "id": "ch17-l03-teaching-01",
+          "editKey": "ch17-l03-teaching-01"
+        },
+        {
+          "id": null,
+          "editKey": "ch17-l03-teaching-01-p1"
+        },
+        {
+          "id": null,
+          "editKey": "ch17-l03-teaching-01-p2"
+        },
+        {
+          "id": "ch17-l03-teaching-02",
+          "editKey": "ch17-l03-teaching-02"
+        },
+        {
+          "id": null,
+          "editKey": "ch17-l03-teaching-02-p1"
+        },
+        {
+          "id": null,
+          "editKey": "ch17-l03-teaching-02-p2"
+        },
+        {
+          "id": null,
+          "editKey": "ch17-l03-teaching-02-p3"
+        },
+        {
+          "id": "ch17-l03-teaching-03",
+          "editKey": "ch17-l03-teaching-03"
+        },
+        {
+          "id": null,
+          "editKey": "ch17-l03-teaching-03-p1"
+        },
+        {
+          "id": null,
+          "editKey": "ch17-l03-teaching-03-p2"
+        },
+        {
+          "id": null,
+          "editKey": "ch17-l03-teaching-03-p3"
+        },
+        {
+          "id": "ch17-l03-worked",
+          "editKey": "ch17-l03-worked"
+        }
+      ],
+      "newOuterBlockFragmentLocalSpans": [
+        {
+          "tag": "div",
+          "attributes": {
+            "class": "content-section",
+            "data-canvas-edit-key": "ch17-l03-teaching-01",
+            "data-canvas-helper-edit-key": "ch17-l03-teaching-01",
+            "id": "ch17-l03-teaching-01"
+          },
+          "openingTag": "<div class=\"content-section\" data-canvas-edit-key=\"ch17-l03-teaching-01\" data-canvas-helper-edit-key=\"ch17-l03-teaching-01\" id=\"ch17-l03-teaching-01\">",
+          "fragmentStartByte": 0,
+          "fragmentEndByteExclusive": 7782,
+          "bytes": 7782,
+          "sha256": "75d4e5d8933a45a03d8d81882862006915255eb9b1bc5b493c395ae0483a496a"
+        },
+        {
+          "tag": "div",
+          "attributes": {
+            "class": "content-section",
+            "data-canvas-edit-key": "ch17-l03-teaching-02",
+            "data-canvas-helper-edit-key": "ch17-l03-teaching-02",
+            "id": "ch17-l03-teaching-02"
+          },
+          "openingTag": "<div class=\"content-section\" data-canvas-edit-key=\"ch17-l03-teaching-02\" data-canvas-helper-edit-key=\"ch17-l03-teaching-02\" id=\"ch17-l03-teaching-02\">",
+          "fragmentStartByte": 7783,
+          "fragmentEndByteExclusive": 13711,
+          "bytes": 5928,
+          "sha256": "9f3a3bbd5b6b79b8a1f3e414cc123b6722884499b6d8384c963f56cb00a0b85a"
+        },
+        {
+          "tag": "div",
+          "attributes": {
+            "class": "content-section",
+            "data-canvas-edit-key": "ch17-l03-teaching-03",
+            "data-canvas-helper-edit-key": "ch17-l03-teaching-03",
+            "id": "ch17-l03-teaching-03"
+          },
+          "openingTag": "<div class=\"content-section\" data-canvas-edit-key=\"ch17-l03-teaching-03\" data-canvas-helper-edit-key=\"ch17-l03-teaching-03\" id=\"ch17-l03-teaching-03\">",
+          "fragmentStartByte": 13712,
+          "fragmentEndByteExclusive": 18051,
+          "bytes": 4339,
+          "sha256": "4135ce6edcf1f01fe44310b33fdfad7d7a312d528ba425a33dad8d3c75b9d5c4"
+        },
+        {
+          "tag": "div",
+          "attributes": {
+            "class": "worked-example",
+            "data-canvas-edit-key": "ch17-l03-worked",
+            "data-canvas-helper-edit-key": "ch17-l03-worked",
+            "id": "ch17-l03-worked"
+          },
+          "openingTag": "<div class=\"worked-example\" data-canvas-edit-key=\"ch17-l03-worked\" data-canvas-helper-edit-key=\"ch17-l03-worked\" id=\"ch17-l03-worked\">",
+          "fragmentStartByte": 18052,
+          "fragmentEndByteExclusive": 24438,
+          "bytes": 6386,
+          "sha256": "80aa68dab57e3c54a288a636e393bb237419f21d30efe8e761ac4e75c87d8d36"
+        }
+      ],
+      "existingVocabularyIds": [
+        "ch17-word-expected-number",
+        "ch17-word-genotype",
+        "ch17-word-phenotype",
+        "ch17-word-probability",
+        "ch17-word-punnett-square"
+      ],
+      "protectedHeaderAndSuffixContracts": [
+        {
+          "path": "raw-before/lesson-03.teaching-fragment.html",
+          "ownerStartByte": 156900,
+          "ownerEndByteExclusive": 162121,
+          "bytes": 5221,
+          "sha256": "85fe3e0bbe1a0c17e48449253b659135684d1fd6d50aabfa2573394776a03df8",
+          "analysisExtractionPath": "raw_before/lesson-03.teaching-fragment.html"
+        },
+        {
+          "path": "raw-before/lesson-03.protected-header.html",
+          "ownerStartByte": 152992,
+          "ownerEndByteExclusive": 156900,
+          "bytes": 3908,
+          "sha256": "8be6f963501bc30434c6dc904c0efb8a045dc12b758f3418dcc9cd1f3d9e9b89",
+          "analysisExtractionPath": "raw_before/lesson-03.protected-header.html"
+        },
+        {
+          "path": "raw-before/lesson-03.protected-suffix.html",
+          "ownerStartByte": 162121,
+          "ownerEndByteExclusive": 176964,
+          "bytes": 14843,
+          "sha256": "99c89e737ac207c8158f2968e911bd086281052c2512b2e147eff46141c1d108",
+          "analysisExtractionPath": "raw_before/lesson-03.protected-suffix.html"
+        },
+        {
+          "path": "raw-before/lesson-03.lesson-prefix.html",
+          "ownerStartByte": 152916,
+          "ownerEndByteExclusive": 156900,
+          "bytes": 3984,
+          "sha256": "bcfb3b646de59272b8147f104b3c6e7ec95042318278a52cc34031ff45881be8",
+          "analysisExtractionPath": "raw_before/lesson-03.lesson-prefix.html"
+        },
+        {
+          "path": "raw-before/lesson-03.teaching-suffix-separator.bin",
+          "ownerStartByte": 162121,
+          "ownerEndByteExclusive": 162121,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "analysisExtractionPath": "raw_before/lesson-03.teaching-suffix-separator.bin"
+        }
+      ],
+      "protectedSavedNotes": [
+        {
+          "tag": "details",
+          "attributes": {
+            "class": "activity-disclosure optional-disclosure"
+          },
+          "openingTag": "<details class=\"activity-disclosure optional-disclosure\">",
+          "startByte": 173512,
+          "endByteExclusive": 175145,
+          "bytes": 1633,
+          "sha256": "47951bc9dbe8d5cd43d26939e3d6e436e5d4cd8eac6e911599e62498c0d8c8b6",
+          "path": "raw-before/lesson-03-ch17-source-written-OBJ_2131244.html",
+          "noteIds": [
+            "ch17-source-written-OBJ_2131244"
+          ],
+          "title": "Additional written application 1",
+          "completeText": "Additional written application 1 This is optional written practice. It does not change required progress. Use the diagram or data with the question. Use the diagram or data with the question. The P 1 cross is between a full colour male ( D 1 D 3 ) and dilute colour female ( D 2 D 3 ). Calculate the theoretical probability of producing the F 1 phenotypes shown below. Show the calculation or sequence and explain your reasoning. Use only the supplied evidence; do not invent observations. Optional response. Select Save response to collect it. Maximum 5000 characters. Save response",
+          "insideProtectedSuffix": true,
+          "insideTeaching": false,
+          "controls": [
+            {
+              "aria-describedby": "ch17-source-written-OBJ_2131244-status",
+              "data-note-input": "ch17-source-written-OBJ_2131244",
+              "id": "ch17-source-written-OBJ_2131244",
+              "rows": "5"
+            },
+            {
+              "class": "writing-status",
+              "data-note-status": "ch17-source-written-OBJ_2131244",
+              "id": "ch17-source-written-OBJ_2131244-status"
+            },
+            {
+              "data-save-note": "ch17-source-written-OBJ_2131244",
+              "type": "button"
+            }
+          ],
+          "images": [
+            {
+              "alt": "Original question diagram or data. Use its labels and values with the written directions.",
+              "loading": "lazy",
+              "src": "./assets/assessment/9e85ebb2ecbe95100af0.png"
+            },
+            {
+              "alt": "Original question diagram or data. Use its labels and values with the written directions.",
+              "loading": "lazy",
+              "src": "./assets/assessment/1cb36c7f022e66f1f7ff.png"
+            }
+          ],
+          "detailsCount": 0,
+          "providedHintOrModelCount": 0,
+          "analysisExtractionPath": "optional_sections/lesson-03-ch17-source-written-OBJ_2131244.html"
+        },
+        {
+          "tag": "details",
+          "attributes": {
+            "class": "activity-disclosure optional-disclosure"
+          },
+          "openingTag": "<details class=\"activity-disclosure optional-disclosure\">",
+          "startByte": 175145,
+          "endByteExclusive": 176531,
+          "bytes": 1386,
+          "sha256": "d483cb91bda51fc1c02a45b559dd62f9ca885f8d44dc9d294a0c82e36f819849",
+          "path": "raw-before/lesson-03-ch17-source-written-OBJ_2131248.html",
+          "noteIds": [
+            "ch17-source-written-OBJ_2131248"
+          ],
+          "title": "Additional written application 3",
+          "completeText": "Additional written application 3 This is optional written practice. It does not change required progress. Use the diagram or data with the question. In the second cross, a full colour rabbit ( CC a ) is mated to a light grey rabbit ( C ch C a ). Calculate the theoretical probability of this cross producing each of the following phenotypes shown below. Show the calculation or sequence and explain your reasoning. Use only the supplied evidence; do not invent observations. Optional response. Select Save response to collect it. Maximum 5000 characters. Save response",
+          "insideProtectedSuffix": true,
+          "insideTeaching": false,
+          "controls": [
+            {
+              "aria-describedby": "ch17-source-written-OBJ_2131248-status",
+              "data-note-input": "ch17-source-written-OBJ_2131248",
+              "id": "ch17-source-written-OBJ_2131248",
+              "rows": "5"
+            },
+            {
+              "class": "writing-status",
+              "data-note-status": "ch17-source-written-OBJ_2131248",
+              "id": "ch17-source-written-OBJ_2131248-status"
+            },
+            {
+              "data-save-note": "ch17-source-written-OBJ_2131248",
+              "type": "button"
+            }
+          ],
+          "images": [
+            {
+              "alt": "Original question diagram or data. Use its labels and values with the written directions.",
+              "loading": "lazy",
+              "src": "./assets/assessment/f45c6bfd939bd821e055.png"
+            }
+          ],
+          "detailsCount": 0,
+          "providedHintOrModelCount": 0,
+          "analysisExtractionPath": "optional_sections/lesson-03-ch17-source-written-OBJ_2131248.html"
+        }
+      ],
+      "nativeFigures": [
+        {
+          "tag": "figure",
+          "attributes": {
+            "class": "science-figure",
+            "data-figure-id": "ch17-punnett"
+          },
+          "openingTag": "<figure class=\"science-figure\" data-figure-id=\"ch17-punnett\">",
+          "startByte": 158035,
+          "endByteExclusive": 158731,
+          "bytes": 696,
+          "sha256": "3fc3cd697b9674574196a9c5da233ec59bf371aea3b5f51055e141995bbe31cb",
+          "path": "raw-before/lesson-03-ch17-punnett.html",
+          "completeHtml": "<figure class=\"science-figure\" data-figure-id=\"ch17-punnett\"><div class=\"figure-toolbar\"><strong>A single-trait cross: Aa × Aa</strong><button class=\"text-link\" data-enlarge-figure=\"ch17-punnett\" type=\"button\">View larger</button></div><img alt=\"Each row and column represents a gamete. Four equally likely combinations give a 1:2:1 genotype ratio under the stated model. A is completely dominant to a.\" decoding=\"async\" loading=\"lazy\" src=\"./assets/figures/ch17-punnett.svg\"/><figcaption>Each row and column represents a gamete. Four equally likely combinations give a 1:2:1 genotype ratio under the stated model. A is completely dominant to a. Schematic — not to scale.</figcaption></figure>",
+          "images": [
+            {
+              "alt": "Each row and column represents a gamete. Four equally likely combinations give a 1:2:1 genotype ratio under the stated model. A is completely dominant to a.",
+              "decoding": "async",
+              "loading": "lazy",
+              "src": "./assets/figures/ch17-punnett.svg",
+              "packetPath": "current/assets/figures/ch17-punnett.svg",
+              "bytes": 3959,
+              "sha256": "2fdc34b5f30359e927d50b1fa4781894bdb196dfccfbbabcbf831d1ec4aec6ec"
+            }
+          ],
+          "analysisExtractionPath": "native_figures/lesson-03-ch17-punnett.html"
+        }
+      ],
+      "headerEdits": [],
+      "guard": "Replace only when the complete owner, exact original interval and protected contracts match. No other owner bytes or runtime files are authorized to change."
+    },
+    {
+      "lessonId": "lesson-04",
+      "title": "Test crosses and unknown genotypes",
+      "fragmentPath": "lesson-04.teaching-fragment.html",
+      "originalInterval": {
+        "startByte": 180860,
+        "endByteExclusive": 185281,
+        "bytes": 4421,
+        "sha256": "ead977930ad7c515c69619f04284cc8623339a64f68801f17d5493d03425cfd4"
+      },
+      "originalLessonLocalInterval": {
+        "startByte": 3896,
+        "endByteExclusive": 8317
+      },
+      "proposedFragment": {
+        "bytes": 18212,
+        "sha256": "36dc8d9a947c45a355110cc1efed7676d2ab01162dbfa12ea628e0b393d5b97f"
+      },
+      "calculatedAfterInterval": {
+        "startByte": 213637,
+        "endByteExclusive": 231849,
+        "positionOnlyNotAssembled": true
+      },
+      "byteDelta": 13791,
+      "preservedOuterTags": [
+        "<div class=\"content-section\" data-canvas-edit-key=\"ch17-l04-teaching-01\" data-canvas-helper-edit-key=\"ch17-l04-teaching-01\" id=\"ch17-l04-teaching-01\">",
+        "<div class=\"content-section\" data-canvas-edit-key=\"ch17-l04-teaching-02\" data-canvas-helper-edit-key=\"ch17-l04-teaching-02\" id=\"ch17-l04-teaching-02\">",
+        "<div class=\"content-section\" data-canvas-edit-key=\"ch17-l04-teaching-03\" data-canvas-helper-edit-key=\"ch17-l04-teaching-03\" id=\"ch17-l04-teaching-03\">",
+        "<div class=\"worked-example\" data-canvas-edit-key=\"ch17-l04-worked\" data-canvas-helper-edit-key=\"ch17-l04-worked\" id=\"ch17-l04-worked\">"
+      ],
+      "requiredEditKeyPairs": [
+        {
+          "id": "ch17-l04-teaching-01",
+          "editKey": "ch17-l04-teaching-01"
+        },
+        {
+          "id": null,
+          "editKey": "ch17-l04-teaching-01-p1"
+        },
+        {
+          "id": null,
+          "editKey": "ch17-l04-teaching-01-p2"
+        },
+        {
+          "id": "ch17-l04-teaching-02",
+          "editKey": "ch17-l04-teaching-02"
+        },
+        {
+          "id": null,
+          "editKey": "ch17-l04-teaching-02-p1"
+        },
+        {
+          "id": null,
+          "editKey": "ch17-l04-teaching-02-p2"
+        },
+        {
+          "id": null,
+          "editKey": "ch17-l04-teaching-02-p3"
+        },
+        {
+          "id": "ch17-l04-teaching-03",
+          "editKey": "ch17-l04-teaching-03"
+        },
+        {
+          "id": null,
+          "editKey": "ch17-l04-teaching-03-p1"
+        },
+        {
+          "id": null,
+          "editKey": "ch17-l04-teaching-03-p2"
+        },
+        {
+          "id": "ch17-l04-worked",
+          "editKey": "ch17-l04-worked"
+        }
+      ],
+      "newOuterBlockFragmentLocalSpans": [
+        {
+          "tag": "div",
+          "attributes": {
+            "class": "content-section",
+            "data-canvas-edit-key": "ch17-l04-teaching-01",
+            "data-canvas-helper-edit-key": "ch17-l04-teaching-01",
+            "id": "ch17-l04-teaching-01"
+          },
+          "openingTag": "<div class=\"content-section\" data-canvas-edit-key=\"ch17-l04-teaching-01\" data-canvas-helper-edit-key=\"ch17-l04-teaching-01\" id=\"ch17-l04-teaching-01\">",
+          "fragmentStartByte": 0,
+          "fragmentEndByteExclusive": 5368,
+          "bytes": 5368,
+          "sha256": "701ead7496f7b190528d5994598387663b87461281cc842adde5d6b4b7d0d6fc"
+        },
+        {
+          "tag": "div",
+          "attributes": {
+            "class": "content-section",
+            "data-canvas-edit-key": "ch17-l04-teaching-02",
+            "data-canvas-helper-edit-key": "ch17-l04-teaching-02",
+            "id": "ch17-l04-teaching-02"
+          },
+          "openingTag": "<div class=\"content-section\" data-canvas-edit-key=\"ch17-l04-teaching-02\" data-canvas-helper-edit-key=\"ch17-l04-teaching-02\" id=\"ch17-l04-teaching-02\">",
+          "fragmentStartByte": 5369,
+          "fragmentEndByteExclusive": 11055,
+          "bytes": 5686,
+          "sha256": "94a6d326c62372dc30e94ee3325b8064c481a747a01da0248dcc7dfad50c5952"
+        },
+        {
+          "tag": "div",
+          "attributes": {
+            "class": "content-section",
+            "data-canvas-edit-key": "ch17-l04-teaching-03",
+            "data-canvas-helper-edit-key": "ch17-l04-teaching-03",
+            "id": "ch17-l04-teaching-03"
+          },
+          "openingTag": "<div class=\"content-section\" data-canvas-edit-key=\"ch17-l04-teaching-03\" data-canvas-helper-edit-key=\"ch17-l04-teaching-03\" id=\"ch17-l04-teaching-03\">",
+          "fragmentStartByte": 11056,
+          "fragmentEndByteExclusive": 13492,
+          "bytes": 2436,
+          "sha256": "04c7bd8820de8b7e7e69928af7f30feb006412f44ba177bdcbfb4c5e05bf5918"
+        },
+        {
+          "tag": "div",
+          "attributes": {
+            "class": "worked-example",
+            "data-canvas-edit-key": "ch17-l04-worked",
+            "data-canvas-helper-edit-key": "ch17-l04-worked",
+            "id": "ch17-l04-worked"
+          },
+          "openingTag": "<div class=\"worked-example\" data-canvas-edit-key=\"ch17-l04-worked\" data-canvas-helper-edit-key=\"ch17-l04-worked\" id=\"ch17-l04-worked\">",
+          "fragmentStartByte": 13493,
+          "fragmentEndByteExclusive": 18211,
+          "bytes": 4718,
+          "sha256": "97134c571f81417cfc6ca6959c696af9c032f7fdc7e27a89f193d68b6f97cea9"
+        }
+      ],
+      "existingVocabularyIds": [
+        "ch17-word-allele",
+        "ch17-word-genotype",
+        "ch17-word-heterozygous",
+        "ch17-word-homozygous",
+        "ch17-word-phenotype",
+        "ch17-word-probability",
+        "ch17-word-test-cross"
+      ],
+      "protectedHeaderAndSuffixContracts": [
+        {
+          "path": "raw-before/lesson-04.teaching-fragment.html",
+          "ownerStartByte": 180860,
+          "ownerEndByteExclusive": 185281,
+          "bytes": 4421,
+          "sha256": "ead977930ad7c515c69619f04284cc8623339a64f68801f17d5493d03425cfd4",
+          "analysisExtractionPath": "raw_before/lesson-04.teaching-fragment.html"
+        },
+        {
+          "path": "raw-before/lesson-04.protected-header.html",
+          "ownerStartByte": 177040,
+          "ownerEndByteExclusive": 180860,
+          "bytes": 3820,
+          "sha256": "f61d49512933f6f67b9944ba4314f558d717a7eec59adba58d8d9850ee5fffda",
+          "analysisExtractionPath": "raw_before/lesson-04.protected-header.html"
+        },
+        {
+          "path": "raw-before/lesson-04.protected-suffix.html",
+          "ownerStartByte": 185281,
+          "ownerEndByteExclusive": 197690,
+          "bytes": 12409,
+          "sha256": "efff73d2736a4d0c93ba08dffe9342d4bcea9446de8dabba0df53e6ee9aa29b1",
+          "analysisExtractionPath": "raw_before/lesson-04.protected-suffix.html"
+        },
+        {
+          "path": "raw-before/lesson-04.lesson-prefix.html",
+          "ownerStartByte": 176964,
+          "ownerEndByteExclusive": 180860,
+          "bytes": 3896,
+          "sha256": "67a324008522afe61a3e308e9490df031b3d068aad090738c681a03133e89344",
+          "analysisExtractionPath": "raw_before/lesson-04.lesson-prefix.html"
+        },
+        {
+          "path": "raw-before/lesson-04.teaching-suffix-separator.bin",
+          "ownerStartByte": 185281,
+          "ownerEndByteExclusive": 185281,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "analysisExtractionPath": "raw_before/lesson-04.teaching-suffix-separator.bin"
+        }
+      ],
+      "protectedSavedNotes": [
+        {
+          "tag": "details",
+          "attributes": {
+            "class": "activity-disclosure optional-disclosure"
+          },
+          "openingTag": "<details class=\"activity-disclosure optional-disclosure\">",
+          "startByte": 195529,
+          "endByteExclusive": 197251,
+          "bytes": 1722,
+          "sha256": "d92839a93c301d2cd81d48120a0538f888f34a6070311082dd4cb0dca3668ffa",
+          "path": "raw-before/lesson-04-ch17-source-written-OBJ_2131247.html",
+          "noteIds": [
+            "ch17-source-written-OBJ_2131247"
+          ],
+          "title": "Additional written application 2",
+          "completeText": "Additional written application 2 This is optional written practice. It does not change required progress. Use the diagram or data with the question. Use the diagram or data with the question. In the first cross, a rabbit with the chinchilla coat colour is mated to a rabbit with a Himalayan coat colour that is known to be homozygous for this trait. Calculate the theoretical probability of this cross producing each of the following phenotypes shown below. Show the calculation or sequence and explain your reasoning. Use only the supplied evidence; do not invent observations. Optional response. Select Save response to collect it. Maximum 5000 characters. Save response",
+          "insideProtectedSuffix": true,
+          "insideTeaching": false,
+          "controls": [
+            {
+              "aria-describedby": "ch17-source-written-OBJ_2131247-status",
+              "data-note-input": "ch17-source-written-OBJ_2131247",
+              "id": "ch17-source-written-OBJ_2131247",
+              "rows": "5"
+            },
+            {
+              "class": "writing-status",
+              "data-note-status": "ch17-source-written-OBJ_2131247",
+              "id": "ch17-source-written-OBJ_2131247-status"
+            },
+            {
+              "data-save-note": "ch17-source-written-OBJ_2131247",
+              "type": "button"
+            }
+          ],
+          "images": [
+            {
+              "alt": "Original question diagram or data. Use its labels and values with the written directions.",
+              "loading": "lazy",
+              "src": "./assets/assessment/eeca2d84afb814ca523d.png"
+            },
+            {
+              "alt": "Original question diagram or data. Use its labels and values with the written directions.",
+              "loading": "lazy",
+              "src": "./assets/assessment/edd29af72eeb9c646081.png"
+            }
+          ],
+          "detailsCount": 0,
+          "providedHintOrModelCount": 0,
+          "analysisExtractionPath": "optional_sections/lesson-04-ch17-source-written-OBJ_2131247.html"
+        }
+      ],
+      "nativeFigures": [],
+      "headerEdits": [],
+      "guard": "Replace only when the complete owner, exact original interval and protected contracts match. No other owner bytes or runtime files are authorized to change."
+    }
+  ],
+  "untouchedOwnerRuns": [
+    {
+      "startByte": 0,
+      "endByteExclusive": 87440,
+      "bytes": 87440,
+      "sha256": "1dd220747a58132534f007f3b98db6df043f36d9d6548e26029b59683f2ad91f",
+      "calculatedAfterStartByte": 0,
+      "calculatedAfterEndByteExclusive": 87440,
+      "coordinateNote": "Original byte range is authoritative; calculated after positions assume exactly the three listed replacements."
+    },
+    {
+      "startByte": 91626,
+      "endByteExclusive": 156900,
+      "bytes": 65274,
+      "sha256": "0fc121b98377ad74a7ee34d3c5db28a380bc7c2939657d007797f72663c326fb",
+      "calculatedAfterStartByte": 105185,
+      "calculatedAfterEndByteExclusive": 170459,
+      "coordinateNote": "Original byte range is authoritative; calculated after positions assume exactly the three listed replacements."
+    },
+    {
+      "startByte": 162121,
+      "endByteExclusive": 180860,
+      "bytes": 18739,
+      "sha256": "f32c40845457c85684661df4cbd6bd7d43ec2e9e0e70b5c47aebe03d9bb3be2c",
+      "calculatedAfterStartByte": 194898,
+      "calculatedAfterEndByteExclusive": 213637,
+      "coordinateNote": "Original byte range is authoritative; calculated after positions assume exactly the three listed replacements."
+    },
+    {
+      "startByte": 185281,
+      "endByteExclusive": 3566907,
+      "bytes": 3381626,
+      "sha256": "8b27542872b449b78cf532553f3ab0d216f3cd7e585160a78fb03c9c3ba04dfe",
+      "calculatedAfterStartByte": 231849,
+      "calculatedAfterEndByteExclusive": 3613475,
+      "coordinateNote": "Original byte range is authoritative; calculated after positions assume exactly the three listed replacements."
+    }
+  ],
+  "headerEdits": [],
+  "protectedReferenceEquality": [
+    {
+      "lessonId": "lesson-02",
+      "referencePath": "reference/lesson-02.teaching-fragment.html",
+      "ownerStartByte": 106355,
+      "ownerEndByteExclusive": 142016,
+      "fullCurrentLesson": {
+        "bytes": 50544,
+        "sha256": "2bd982f244d2557b2ab4eded30e0c310634bb426904c4d511e6646db4f4545af"
+      },
+      "fragment": {
+        "bytes": 35661,
+        "sha256": "6e274fada943ad55d663144985375828b011a381ba8a843704c333995443ce53"
+      },
+      "exactReferenceFragmentWithinCurrentLesson": true,
+      "outsideAuthorizedIntervals": true
+    },
+    {
+      "lessonId": "lesson-05",
+      "referencePath": "reference/l05/lesson-05.teaching-fragment.html",
+      "ownerStartByte": 201684,
+      "ownerEndByteExclusive": 260141,
+      "fullCurrentLesson": {
+        "bytes": 77809,
+        "sha256": "68de7eac991fbda4f17b58ccd8041bbdf5c867bd6320efa9a129b4015aa7ee4b"
+      },
+      "fragment": {
+        "bytes": 58457,
+        "sha256": "b29e83ae44ba3fd44b1f6e52a359ece8eb4933b3ee018b8964fdda5b85c97d21"
+      },
+      "exactReferenceFragmentWithinCurrentLesson": true,
+      "outsideAuthorizedIntervals": true
+    }
+  ],
+  "protectedNativeDataBlocks": [
+    {
+      "id": "course-data",
+      "nativeScript": {
+        "tag": "script",
+        "attributes": {
+          "id": "course-data",
+          "type": "application/json"
+        },
+        "openingTag": "<script id=\"course-data\" type=\"application/json\">",
+        "startByte": 3199013,
+        "endByteExclusive": 3486289,
+        "bytes": 287276,
+        "sha256": "c33b7312c4c1e92712d5f43697bf1dcdfc6d9045957a9aee671e494680b3f6ea"
+      },
+      "jsonText": {
+        "bytes": 287218,
+        "sha256": "c5927e83ed9cbee2ee1e751ec4d3703b7711ee124cf5df699b80a4bc662d235f"
+      },
+      "exactJsonTextMatch": true
+    },
+    {
+      "id": "textbook-practice-data",
+      "nativeScript": {
+        "tag": "script",
+        "attributes": {
+          "id": "textbook-practice-data",
+          "type": "application/json"
+        },
+        "openingTag": "<script id=\"textbook-practice-data\" type=\"application/json\">",
+        "startByte": 3486289,
+        "endByteExclusive": 3566422,
+        "bytes": 80133,
+        "sha256": "5cfe40379ae5fd48aa9118e1de810d8c67182ccf70329f3d3c887aceb9f2c08e"
+      },
+      "jsonText": {
+        "bytes": 80064,
+        "sha256": "88deef5908308dc351fcfc62b8515fd2fa4a8892a3537dc0d8a7b421eacadb9f"
+      },
+      "exactJsonTextMatch": true
+    }
+  ],
+  "sourceTypoLocationsAndProtection": [
+    {
+      "startByte": 182234,
+      "endByteExclusive": 182264,
+      "sourceString": "One aa offspring from B_ × bb",
+      "insideAuthorizedTeaching": true,
+      "container": {
+        "tag": "p",
+        "attributes": {
+          "data-canvas-edit-key": "ch17-l04-teaching-02-p1",
+          "data-canvas-helper-edit-key": "ch17-l04-teaching-02-p1"
+        },
+        "openingTag": "<p data-canvas-edit-key=\"ch17-l04-teaching-02-p1\" data-canvas-helper-edit-key=\"ch17-l04-teaching-02-p1\">",
+        "startByte": 182130,
+        "endByteExclusive": 182629,
+        "bytes": 499,
+        "sha256": "315b25d88e588eb8d09a8717a495e823e50288265e72ac18fa229bb3b4f9e77c"
+      }
+    },
+    {
+      "startByte": 187896,
+      "endByteExclusive": 187926,
+      "sourceString": "One aa offspring from B_ × bb",
+      "insideAuthorizedTeaching": false,
+      "container": {
+        "tag": "p",
+        "attributes": {},
+        "openingTag": "<p>",
+        "startByte": 187893,
+        "endByteExclusive": 188563,
+        "bytes": 670,
+        "sha256": "506d1d3e8b30730c698b29e28052b98a9eada0e3fd4214a1bf90941d56846f94"
+      }
+    },
+    {
+      "startByte": 3336326,
+      "endByteExclusive": 3336356,
+      "sourceString": "One aa offspring from B_ × bb",
+      "insideAuthorizedTeaching": false,
+      "container": {
+        "tag": "script",
+        "attributes": {
+          "id": "course-data",
+          "type": "application/json"
+        },
+        "openingTag": "<script id=\"course-data\" type=\"application/json\">",
+        "startByte": 3199013,
+        "endByteExclusive": 3486289,
+        "bytes": 287276,
+        "sha256": "c33b7312c4c1e92712d5f43697bf1dcdfc6d9045957a9aee671e494680b3f6ea"
+      }
+    }
+  ],
+  "authorisedTypoRepair": "The lesson04 teaching copy is corrected from aa to bb. The original protected video fallback paragraph and course-data.videos[0].fallback copies remain byte-identical and are recorded as source conflicts.",
+  "preservedRuntimeScope": [
+    "All IDs/routes/navigation and all owner bytes outside the three intervals",
+    "All headers, guided practice, checks, keys, feedback, notes and videos",
+    "All current02/05 and other lessons",
+    "CSS, fonts, runtime, reader, vocabulary definitions, label maps, namespace, saving/history/conflict/failure protection, required progress, optional practice, All My Work and print"
+  ],
+  "assets": [
+    {
+      "src": "./assets/teaching-batch1-v010/slide-4-image13.jpg",
+      "attributes": {
+        "alt": "A row of eight dogs with contrasting ear positions, coat textures and body outlines.",
+        "decoding": "async",
+        "loading": "lazy",
+        "src": "./assets/teaching-batch1-v010/slide-4-image13.jpg"
+      },
+      "present": true,
+      "bytes": 27674,
+      "sha256": "7c2c37bc887ab1b5bdf6ff3948242ba949b9d10c3ba510f27f1538c7a01525ba",
+      "matchingOriginalPacketPaths": [
+        "sources/slide-assets/slide-4-image13.jpg"
+      ]
+    },
+    {
+      "src": "./assets/teaching-batch1-v010/slide-12-image18.png",
+      "attributes": {
+        "alt": "Genotype and phenotype chart: BB, labelled homozygous dominant, produces a purple flower; Bb, labelled heterozygous, also produces a purple flower; bb, labelled homozygous recessive, produces a white flower.",
+        "decoding": "async",
+        "loading": "lazy",
+        "src": "./assets/teaching-batch1-v010/slide-12-image18.png"
+      },
+      "present": true,
+      "bytes": 159723,
+      "sha256": "6514f5d48a724cdf1fe785c24b74f44abb03b73af75c26e787b8a8adf687f26c",
+      "matchingOriginalPacketPaths": [
+        "sources/slide-assets/slide-12-image18.png"
+      ]
+    },
+    {
+      "src": "./assets/teaching-batch1-v010/slide-27-image30.jpg",
+      "attributes": {
+        "alt": "A black-furred mouse, used to illustrate the black coat category in the stated model.",
+        "decoding": "async",
+        "loading": "lazy",
+        "src": "./assets/teaching-batch1-v010/slide-27-image30.jpg"
+      },
+      "present": true,
+      "bytes": 43058,
+      "sha256": "bf6c27bfad6067528006804c139f9c2ebcc61fbe6dcc8ea21a839665583f8a8d",
+      "matchingOriginalPacketPaths": [
+        "sources/slide-assets/slide-27-image30.jpg",
+        "sources/slide-assets/slide-28-image30.jpg"
+      ]
+    },
+    {
+      "src": "./assets/teaching-batch1-v010/slide-27-image31.jpg",
+      "attributes": {
+        "alt": "A brown-furred mouse, used to illustrate the contrasting brown coat category in the stated model.",
+        "decoding": "async",
+        "loading": "lazy",
+        "src": "./assets/teaching-batch1-v010/slide-27-image31.jpg"
+      },
+      "present": true,
+      "bytes": 13590,
+      "sha256": "48accc2e9da889e71c388ffef0818fa2d37b6e68a8cda68eda4cfeef7d893d15",
+      "matchingOriginalPacketPaths": [
+        "sources/slide-assets/slide-27-image31.jpg"
+      ]
+    },
+    {
+      "src": "./assets/teaching-batch1-v010/slide-27-image22.png",
+      "attributes": {
+        "alt": "Two fully visible single-trait squares. The left has B and B across the top and b and b down the left, giving four Bb cells. The right has B and b across the top and b and b down the left, giving Bb and bb in each row.",
+        "decoding": "async",
+        "loading": "lazy",
+        "src": "./assets/teaching-batch1-v010/slide-27-image22.png"
+      },
+      "present": true,
+      "bytes": 4843,
+      "sha256": "21b521a9e6dc4d631b80ef038ec9be24dda4e4f788ce7e855932e544601f1f24",
+      "matchingOriginalPacketPaths": [
+        "sources/slide-assets/slide-27-image22.png",
+        "sources/slide-assets/slide-31-image22.png",
+        "sources/slide-assets/slide-32-image22.png"
+      ]
+    },
+    {
+      "src": "./assets/figures/ch17-punnett.svg",
+      "attributes": {
+        "alt": "Each row and column represents a gamete. Four equally likely combinations give a 1:2:1 genotype ratio under the stated model. A is completely dominant to a.",
+        "decoding": "async",
+        "loading": "lazy",
+        "src": "./assets/figures/ch17-punnett.svg"
+      },
+      "present": true,
+      "bytes": 3959,
+      "sha256": "2fdc34b5f30359e927d50b1fa4781894bdb196dfccfbbabcbf831d1ec4aec6ec",
+      "matchingOriginalPacketPaths": [
+        "current/assets/figures/ch17-punnett.svg"
+      ]
+    },
+    {
+      "src": "./assets/teaching-batch1-v010/slide-29-image33.png",
+      "attributes": {
+        "alt": "Two black-mouse photographs at the top connect by plain converging lines to one black-mouse photograph in the middle. A vertical line leads from the middle photograph to a question mark below.",
+        "decoding": "async",
+        "loading": "lazy",
+        "src": "./assets/teaching-batch1-v010/slide-29-image33.png"
+      },
+      "present": true,
+      "bytes": 54681,
+      "sha256": "fd46a25268ba516d5a9809a146f82e793883bf5f5dac84b810cc7a3a448d34a5",
+      "matchingOriginalPacketPaths": [
+        "sources/slide-assets/slide-29-image33.png",
+        "sources/slide-assets/slide-30-image33.png"
+      ]
+    },
+    {
+      "src": "./assets/teaching-batch1-v010/slide-27-image22.png",
+      "attributes": {
+        "alt": "Side-by-side testcross predictions: BB across the top with bb down the left gives only Bb offspring; Bb across the top with bb down the left gives Bb and bb offspring.",
+        "decoding": "async",
+        "loading": "lazy",
+        "src": "./assets/teaching-batch1-v010/slide-27-image22.png"
+      },
+      "present": true,
+      "bytes": 4843,
+      "sha256": "21b521a9e6dc4d631b80ef038ec9be24dda4e4f788ce7e855932e544601f1f24",
+      "matchingOriginalPacketPaths": [
+        "sources/slide-assets/slide-27-image22.png",
+        "sources/slide-assets/slide-31-image22.png",
+        "sources/slide-assets/slide-32-image22.png"
+      ]
+    }
+  ],
+  "calculatedResultOwnerBytes": 3613475,
+  "afterOwnerFileCreated": false,
+  "afterOwnerSha256": null,
+  "noteOnAfterHash": "No after-owner was assembled, so no integrated-owner hash is claimed.",
+  "staticReviewReport": "reviews/NATIVE_STATIC_REVIEW.json",
+  "reviewStatus": {
+    "authorSelfReview": "Recorded separately by author",
+    "independentAssistantStaticContractReview": "Performed on listed fragment bytes; bounded and not external human review",
+    "teacherAcceptance": "Pending",
+    "nativeAssembly": "Not performed",
+    "nativeRuntimeTesting": "Not performed",
+    "canonicalIntegration": "Not performed",
+    "release": "Not performed"
+  }
+}

@@ -1,0 +1,170 @@
+{
+  "document": "Source-example survival and adaptation — boundedv0.2.0",
+  "inputs": [
+    {
+      "path": "kinch-trial-v0.2.0/authoring/lesson-02.teaching.html.in",
+      "bytes": 17871,
+      "sha256": "c5712fcf6e33e732a3985593bdbea867749f2cfcaa38000c6a8290ee498af2af"
+    },
+    {
+      "path": "kinch-trial-v0.2.0/authoring/lesson-05.teaching.html.in",
+      "bytes": 30601,
+      "sha256": "eac351c08ef28c82b936cf1baa206dbfb5f14feef65338d3e196d3c5aa0f6b4e"
+    }
+  ],
+  "instructionSha256": "3b5e38bb4b038b94c69fcc8db2df53e41f6b4c38c27039ea52209fe74a372e59",
+  "override": "The later user correction supersedes the uploaded letter-only tomato row. The root candidate’s residual conflict is not resolved by the changed parent orevent.",
+  "records": [
+    {
+      "id": "K020-SURV-01",
+      "route": "lesson-02",
+      "source": "Actual PPTX13–16; textbook printed587–589/PDF4–6",
+      "example": "Purple/white historical entry; controlled crosses and P/F1/F2",
+      "disposition": "Retain and clarify",
+      "survives": "Contrasting source pea lines, disappearance/reappearance, controlled parentage, true-breeding history and parentage labels.",
+      "minimumChange": "Define pollination/fertilisation and distinguish historical flowers from the later seed-shape model; avoid source’s overly broad technical testcross wording.",
+      "methodDemand": "Observational phenomenon first, then the biological model needed to explain it.",
+      "costOrReservation": "No invented raw observations; actual seed counts belong to printed589 Figure17.5, not slide15 schematic.",
+      "actualBlockDecisionIds": [
+        "K020-RECORD-lesson-02-01",
+        "K020-RECORD-lesson-02-02",
+        "K020-RECORD-lesson-02-03"
+      ]
+    },
+    {
+      "id": "K020-SURV-02",
+      "route": "lesson-02",
+      "source": "Actual PPTX17–25; textbook printed589–591/PDF6–8; mechanism597/PDF14",
+      "example": "RR×rr→Rr F1; Rr×Rr F2 and return ofwrinkled",
+      "disposition": "Retain, repair and expand mechanism",
+      "survives": "R/r notation, P/F1/F2 progression, parental contribution tracing, adjacent2×2 grid,1:2:1 genotypes and3:1 phenotypes.",
+      "minimumChange": "Add short copy/separation bridge and distinguish segregation from fertilisation; define probability/autosomal before use.",
+      "methodDemand": "Explain allele persistence and one-allele contributions before combining gametes and applying dominance.",
+      "costOrReservation": "Core source mathematics necessarily supports required02 concepts. Added chromosome/plant-life-cycle bridge is explanatory synthesis, not verbatim wording on all cited slides; no blinded-task claim.",
+      "actualBlockDecisionIds": [
+        "K020-RECORD-lesson-02-03",
+        "K020-RECORD-lesson-02-04",
+        "K020-RECORD-lesson-02-05",
+        "K020-RECORD-lesson-02-06"
+      ]
+    },
+    {
+      "id": "K020-SURV-03",
+      "route": "lesson-02",
+      "source": "Textbook printed589/PDF6 Figure17.5; source laws24–25",
+      "example": "5,474round:1,850wrinkled observed counts versus expectation",
+      "disposition": "Retain source evidence and bounded expectation",
+      "survives": "Actual historical reported counts, approximately2.96:1, nonblending model and chance variation.",
+      "minimumChange": "State assumptions and distinguish Mendel’s inference from later chromosome account.",
+      "methodDemand": "Compare evidence with a model without promising exact small-sample schedules.",
+      "costOrReservation": "Not a new observed sample, formal statistical test, expected-count drill or solved protected six-dominant scenario.",
+      "actualBlockDecisionIds": [
+        "K020-RECORD-lesson-02-07",
+        "K020-RECORD-lesson-02-08"
+      ]
+    },
+    {
+      "id": "K020-SURV-04",
+      "route": "lesson-05",
+      "source": "Actual PPTX34–42; native ch17-two-trait figure",
+      "example": "TTGG×ttgg peas→TtGg F1→TtGg×TtGg F2",
+      "disposition": "Retain and explain",
+      "survives": "ActualT/G pea context, pure-parent bridge, four gametes, physical independent orientation, complete16-cell grid,9genotypes→fourphenotypes and9:3:3:1.",
+      "minimumChange": "Explain each representation and operation; retain native A/Bfigure with explicit notation bridge; qualify alternative meioses and metaphase-I location.",
+      "methodDemand": "Gametes from chromosome mechanism before fertilisation grid and complete-dominance phenotype grouping.",
+      "costOrReservation": "Necessary structural support for protected3/16 questions is explicit. New letters would not blind this model; the core teaching is not represented as assessment-independent. This is source issue SRC-BOUND-02, an unresolved acceptance decision for Dean.",
+      "actualBlockDecisionIds": [
+        "K020-RECORD-lesson-05-01",
+        "K020-RECORD-lesson-05-02",
+        "K020-RECORD-lesson-05-03",
+        "K020-RECORD-lesson-05-04",
+        "K020-RECORD-lesson-05-05",
+        "K020-RECORD-lesson-05-06"
+      ]
+    },
+    {
+      "id": "K020-SURV-05",
+      "route": "lesson-05",
+      "source": "Actual PPTX43–45; protected writing-1 andwriting-2; source SRC-BOUND-01",
+      "example": "Tomato RrTt×rrTt source → RrTt×RRTt candidate",
+      "disposition": "Substantive assessment-protection adaptation; readiness block remains",
+      "survives": "Tomato red/yellow and tall/short context,R/r,T/t notation, worded parents→genotypes→4vs2gametes→8cells→6genotypes→phenotype interpretation.",
+      "minimumChange": "Change the second parent’s fixed fruit-colour genotype from recessive rr to dominantRR; do not silently replace the method with2×2, genotype-only targets, linkage weights or altered dominance.",
+      "methodDemand": "Word-to-genotype, distinct-gamete sizing and weighted combination operations survive.",
+      "costOrReservation": "NOT source-difficulty-equivalent: red/tall×red/tall replaces contrasting colours; four nonzero groups3/8,3/8,1/8,1/8 become3/4,0,1/4,0. Red/short¼ avoids exact protected writing-2 event1/8, but first-parent list and generic4×2 response template remain shared with writing-1. Whole-answer blinding is unresolved. The conditional source-model limitation is documented separately, not waived.",
+      "actualBlockDecisionIds": [
+        "K020-RECORD-lesson-05-07",
+        "K020-RECORD-lesson-05-08",
+        "K020-RECORD-lesson-05-09",
+        "K020-RECORD-lesson-05-10"
+      ]
+    },
+    {
+      "id": "K020-SURV-06",
+      "route": "lesson-05",
+      "source": "Actual PPTX46–47; native04 prerequisite",
+      "example": "Squash wwD_×W_dd→observedwwdd→wwDd×Wwdd→2×2",
+      "disposition": "Retain source inverse inference and values; correct wording",
+      "survives": "W/w,D/d notation; phenotype constraints before genotypes; single double-recessive offspring resolves both blanks;2×2 prediction; originalN80 and40white/20yellow-spherical expectation.",
+      "minimumChange": "Use fruit-bearing/scored offspring plants rather than source flower drift; distinguish expected versus actual counts and assume all80seeds yield scored plants without selective genotype loss.",
+      "methodDemand": "A new inferential direction earns the example: evidence first resolves unknown parents, then forward prediction and disjoint-category addition.",
+      "costOrReservation": "Not disguised as a new transfer dataset; generic80×¼=20 exists in native03. Neither parent is a double heterozygote, so the case itself does not test independence; source-retained inference/count method is the purpose.",
+      "actualBlockDecisionIds": [
+        "K020-RECORD-lesson-05-11",
+        "K020-RECORD-lesson-05-12",
+        "K020-RECORD-lesson-05-13",
+        "K020-RECORD-lesson-05-14",
+        "K020-RECORD-lesson-05-15"
+      ]
+    },
+    {
+      "id": "K020-SURV-07",
+      "route": "lesson-05",
+      "source": "Actual PPTX48; native printed595 assignment",
+      "example": "Source practice and later-model boundary",
+      "disposition": "Retain protected assignment; repair timing in guidance; defer later models",
+      "survives": "Practice current Mendelian methods and return to changed dominance models in06.",
+      "minimumChange": "Explicitly direct printed595Q13/15/16 after06 while preserving original task bytes.",
+      "methodDemand": "Practice follows the operations actually taught; later models are not silently presumed known.",
+      "costOrReservation": "No conditional nursery, marginal/joint simulator, Bayesian weighting, phase/recombination class or map problem is imported merely to create a different answer.",
+      "actualBlockDecisionIds": [
+        "K020-RECORD-lesson-05-16"
+      ]
+    }
+  ],
+  "decisionStatus": "Complete candidate and bounded reading/copy checks; BOTH SRC-BOUND-01 tomato and SRC-BOUND-02 source pea3/16 support unresolved for Dean. No whole-assessment-blinding, equal-difficulty or teacher-acceptance claim.",
+  "reviewScope": "Record reviewer has read both complete actual drafts; separate source reviewers own original PPT/PDF/member/pixel verification. Exact draft-read/delta and assembled statuses are separately registered.",
+  "assembledOutputs": [
+    {
+      "route": "lesson-02",
+      "manuscript": {
+        "path": "output/Biology30_CH17_Source_Teaching_Trial_v0.2.0/manuscripts/lesson-02.md",
+        "bytes": 15070,
+        "sha256": "60df96e6b1b6bc459e477774441d5568c9e31e541d43c7d51cc30f122dfdb320"
+      },
+      "fragment": {
+        "path": "output/Biology30_CH17_Source_Teaching_Trial_v0.2.0/integration-text/lesson-02.teaching-fragment.html.txt",
+        "bytes": 18591,
+        "sha256": "a843cc369e041e244a5cc775907979d36b906b78b2fc3b39ed26a0757d395c00"
+      }
+    },
+    {
+      "route": "lesson-05",
+      "manuscript": {
+        "path": "output/Biology30_CH17_Source_Teaching_Trial_v0.2.0/manuscripts/lesson-05.md",
+        "bytes": 26936,
+        "sha256": "4b6a990549930e35ad396a61ebe7a7a0be81e83d8086e7a01f1153503b7bd255"
+      },
+      "fragment": {
+        "path": "output/Biology30_CH17_Source_Teaching_Trial_v0.2.0/integration-text/lesson-05.teaching-fragment.html.txt",
+        "bytes": 31651,
+        "sha256": "4439240ef48d2b38d50bf3e624769c03e9a79a9641d7fd25386d0d5ec4799cb8"
+      }
+    }
+  ],
+  "teacherReader": {
+    "path": "output/Biology30_CH17_Source_Teaching_Trial_v0.2.0/Biology30_CH17_Source_Teaching_Trial_Teacher_Review_v0.2.0.html",
+    "bytes": 1290101,
+    "sha256": "ffe57a4224e16286a52f98099720cc4f9b0e8310d93b940c06e514b507a4737c"
+  }
+}

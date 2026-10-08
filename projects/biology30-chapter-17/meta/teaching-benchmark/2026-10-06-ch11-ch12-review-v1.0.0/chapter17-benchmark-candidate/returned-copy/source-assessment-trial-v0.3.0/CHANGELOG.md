@@ -1,0 +1,18 @@
+# Changelog — source/assessment trial v0.3.0
+
+## New isolated candidate, 2026-10-05
+
+Dean’s latest source-teaching/assessment authorization supersedes the earlier immutable-four-question restriction for this bounded trial. It permits restoring the original tomato teaching and replacing exactly four overlapping required items with taught-level applications. It does not authorize changes to other course material, runtime, storage, progress or prior returns.
+
+- Reused the actual uploaded integrated v0.2.0 baseline, `native-v020/index.html` SHA256 `bc42ea52d8cf5709c0ec33c914e86450f93971f3e3144cb81b695593aa0eff3b`. The user corrected the expected archive hash to the actual `ddc02a762cdca9718867c3992850a766a5b0b97e0ce9614ffbf958d74667fc20`; the initial pasted-plan container mismatch is resolved. Original native9ea0… remains provenance only.
+- Retained lesson02’s entire integrated teaching byte-for-byte. Retained the source pea model, full grid and grouping, original squash inverse→forwardN80 example, all surrounding05 explanation, and three unaffected optional tasks.
+- Restored actual Kinch slides43–45 tomatoRrTt×rrTt. Restored differing parental colours, four versus two gametes, eight pairings, six genotypes, four nonzero phenotype categories and3:3:1:1. This removes the previousRRTt/all-red compromise.
+- Repaired only the directly dependent optional changed-parent task to compare rrTt withrrtt. Full stimulus,4×1 model, height/colour reasoning, optional hint and criteria remain; exact task/response/note-save IDs are unchanged.
+- Replaced `ch17-l02-check-writing-1`, `ch17-l05-check-mc-2`, `ch17-l05-check-writing-1` and `ch17-l05-check-writing-2` with the actual four applications documented in the complete old/new map. Changed their dependent model/criteria or ordered options/key/explanation/cue consistently in native question HTML and the individual course-data JSON objects. No extra required question is added.
+- Preserved all other required items and original optional source-bank content. Recorded necessary taught-method overlap, near-cues and the retained source-practice role instead of describing the new assessment as blind.
+- Produced complete manuscripts and full teaching reference fragments, with only ten disjoint integration edits: two teaching child ranges, four question HTML ranges and four JSON objects. Full reference fragments are not additional overlapping edits. No header or content/bank-version edits are proposed.
+- Separated learner prompts from the eight selected teacher solutions. No unrelated protected-answer dump was added. Teacher controls are disabled previews; voluntary optional hints/models remain readable.
+- Corrected a UTF-8 parsing/display defect in the initial assembled Markdown/teacher preview before final review. This was a static representation repair: native author inputs, fragments and assessment objects did not change. Isolated teacher-review presentation CSS was added only to the new reading artifact; native fonts/CSS remain protected. No browser rendering is claimed.
+- Added actual source/example, prerequisite, exemplar-transfer, continuity, semantic-ID and independent review records. Prior2349 returned output files are held under the root/assembler freeze; no duplicate prior return was created to evade a download restriction.
+
+No canonical index, native runtime, storage namespace/schema, history/conflict/failure logic, progress count or bank outside the four authorized objects was edited. No integration, runtime UI test, deployment, packaging of a course, Brightspace certification, standard promotion or release was performed. The output remains a teacher-decision candidate, not Dean acceptance.

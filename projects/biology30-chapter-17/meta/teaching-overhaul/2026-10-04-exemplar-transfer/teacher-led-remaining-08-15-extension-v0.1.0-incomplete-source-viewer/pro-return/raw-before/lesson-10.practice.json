@@ -1,0 +1,571 @@
+{
+  "checks": [
+    {
+      "id": "ch17-check-10",
+      "route": "lesson-10",
+      "title": "Reading autosomal pedigrees",
+      "mc": [
+        {
+          "prompt": "For Aa × Aa, what is the carrier probability among unaffected offspring?",
+          "answer": "2/3",
+          "explanation": "Removing aa leaves AA, Aa and aA; two of three are carriers.",
+          "cue": "Trace the normal mechanism before choosing an answer.",
+          "id": "ch17-l10-check-mc-1",
+          "options": [
+            "1/4",
+            "1",
+            "2/3",
+            "1/2"
+          ],
+          "difficulty": "application"
+        },
+        {
+          "prompt": "Why should an unaffected person not automatically be labelled AA in a recessive pedigree?",
+          "answer": "They may be a heterozygous carrier",
+          "explanation": "Both AA and Aa can be unaffected under the model.",
+          "cue": "Trace the normal mechanism before choosing an answer.",
+          "id": "ch17-l10-check-mc-2",
+          "options": [
+            "Recessive alleles cannot be transmitted",
+            "All unaffected people are aa",
+            "Shading identifies chromosome number only",
+            "They may be a heterozygous carrier"
+          ],
+          "difficulty": "application"
+        }
+      ],
+      "writing": [
+        {
+          "prompt": "Explain how an affected recessive child can constrain both unaffected parents’ genotypes.",
+          "model": "The child is aa and receives a from each parent. Because each parent is unaffected under the complete-penetrance recessive model, each must also have A. Thus both parents are Aa.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ],
+          "id": "ch17-l10-check-writing-1",
+          "limit": 3200
+        },
+        {
+          "prompt": "Distinguish a genotype that must be present from one that remains possible, using an unaffected sibling in Aa × Aa.",
+          "model": "An affected sibling must be aa. An unaffected sibling cannot be aa but may be AA or Aa. Without additional information, the specific genotype is unresolved; the conditional carrier probability is 2/3.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ],
+          "id": "ch17-l10-check-writing-2",
+          "limit": 3200
+        }
+      ]
+    }
+  ],
+  "words": [
+    {
+      "term": "pedigree",
+      "meaning": "A diagram tracing a specified trait through family relationships across generations.",
+      "example": "Symbols connected by parent–offspring lines show which relatives express a trait.",
+      "importantDistinction": "A pedigree is evidence to test a model, not proof that one clue is always decisive.",
+      "aliases": [],
+      "id": "ch17-word-pedigree",
+      "lesson": 10,
+      "whatItDoes": "Symbols connected by parent–offspring lines show which relatives express a trait.",
+      "feature": "Symbols connected by parent–offspring lines show which relatives express a trait.",
+      "confusion": "A pedigree is evidence to test a model, not proof that one clue is always decisive."
+    },
+    {
+      "term": "autosomal recessive",
+      "meaning": "A model in which a trait is expressed when two recessive alleles occur at an autosomal locus.",
+      "example": "Two unaffected Aa parents can have an affected aa child.",
+      "importantDistinction": "Unaffected individuals can be AA or Aa.",
+      "aliases": [],
+      "id": "ch17-word-autosomal-recessive",
+      "lesson": 10,
+      "whatItDoes": "Two unaffected Aa parents can have an affected aa child.",
+      "feature": "Two unaffected Aa parents can have an affected aa child.",
+      "confusion": "Unaffected individuals can be AA or Aa."
+    },
+    {
+      "term": "autosomal dominant",
+      "meaning": "A model in which one dominant allele at an autosomal locus is sufficient for expression under the stated assumptions.",
+      "example": "An affected Dd individual and unaffected dd partner can have affected or unaffected children.",
+      "importantDistinction": "Affected individuals can be DD or Dd unless other evidence resolves the genotype.",
+      "aliases": [],
+      "id": "ch17-word-autosomal-dominant",
+      "lesson": 10,
+      "whatItDoes": "An affected Dd individual and unaffected dd partner can have affected or unaffected children.",
+      "feature": "An affected Dd individual and unaffected dd partner can have affected or unaffected children.",
+      "confusion": "Affected individuals can be DD or Dd unless other evidence resolves the genotype."
+    },
+    {
+      "term": "generation",
+      "meaning": "A level of descent in a family diagram, commonly labelled with a Roman numeral.",
+      "example": "I, II and III distinguish successive levels in a pedigree.",
+      "importantDistinction": "Individual numbers identify people within a generation.",
+      "aliases": [],
+      "id": "ch17-word-generation",
+      "lesson": 10,
+      "whatItDoes": "I, II and III distinguish successive levels in a pedigree.",
+      "feature": "I, II and III distinguish successive levels in a pedigree.",
+      "confusion": "Individual numbers identify people within a generation."
+    }
+  ],
+  "practiceQuestions": [
+    {
+      "id": "ch17-source-OBJ_2131233",
+      "lesson": 10,
+      "prompt": "In a fully penetrant autosomal-dominant model, two affected parents have an unaffected child. What must both parents be?",
+      "answer": "Heterozygous",
+      "options": [
+        "Homozygous recessive",
+        "Heterozygous",
+        "Haploid",
+        "Homozygous dominant"
+      ],
+      "cue": "Identify the relevant mechanism or quantity and apply the stated model.",
+      "explanation": "An unaffected child is aa; both affected parents must be able to supply a, making each Aa.",
+      "difficulty": "application",
+      "stimuli": [],
+      "sourceItemId": "OBJ_2131233",
+      "conceptId": "ch17-concept-heterozygous"
+    },
+    {
+      "id": "ch17-source-OBJ_2131238",
+      "lesson": 10,
+      "prompt": "In a fully penetrant recessive model, an aa mother has an affected daughter and an unaffected son. What must their father’s genotype be?",
+      "answer": "Aa",
+      "options": [
+        "AA",
+        "aa",
+        "Aa",
+        "No genotype is compatible"
+      ],
+      "cue": "Identify the relevant mechanism or quantity and apply the stated model.",
+      "explanation": "The father supplies a to the affected child and A to the unaffected child, so he carries both alleles.",
+      "difficulty": "application",
+      "stimuli": [],
+      "sourceItemId": "OBJ_2131238",
+      "conceptId": "ch17-concept-genotype"
+    },
+    {
+      "id": "ch17-foundation-ch17-word-pedigree",
+      "lesson": 10,
+      "conceptId": "ch17-concept-pedigree",
+      "prompt": "Which term matches this description? A diagram tracing a specified trait through family relationships across generations.",
+      "options": [
+        "pedigree",
+        "autosomal recessive",
+        "autosomal dominant",
+        "generation"
+      ],
+      "answer": "pedigree",
+      "cue": "Use the meaning of each term, not the length of its name.",
+      "explanation": "A diagram tracing a specified trait through family relationships across generations. A pedigree is evidence to test a model, not proof that one clue is always decisive.",
+      "difficulty": "recall",
+      "family": "definition-recognition",
+      "kind": "mc"
+    },
+    {
+      "id": "ch17-foundation-ch17-word-autosomal-recessive",
+      "lesson": 10,
+      "conceptId": "ch17-concept-autosomal-recessive",
+      "prompt": "Which term matches this description? A model in which a trait is expressed when two recessive alleles occur at an autosomal locus.",
+      "options": [
+        "pedigree",
+        "autosomal recessive",
+        "autosomal dominant",
+        "generation"
+      ],
+      "answer": "autosomal recessive",
+      "cue": "Use the meaning of each term, not the length of its name.",
+      "explanation": "A model in which a trait is expressed when two recessive alleles occur at an autosomal locus. Unaffected individuals can be AA or Aa.",
+      "difficulty": "recall",
+      "family": "definition-recognition",
+      "kind": "mc"
+    },
+    {
+      "id": "ch17-foundation-ch17-word-autosomal-dominant",
+      "lesson": 10,
+      "conceptId": "ch17-concept-autosomal-dominant",
+      "prompt": "Which term matches this description? A model in which one dominant allele at an autosomal locus is sufficient for expression under the stated assumptions.",
+      "options": [
+        "pedigree",
+        "autosomal recessive",
+        "autosomal dominant",
+        "generation"
+      ],
+      "answer": "autosomal dominant",
+      "cue": "Use the meaning of each term, not the length of its name.",
+      "explanation": "A model in which one dominant allele at an autosomal locus is sufficient for expression under the stated assumptions. Affected individuals can be DD or Dd unless other evidence resolves the genotype.",
+      "difficulty": "recall",
+      "family": "definition-recognition",
+      "kind": "mc"
+    },
+    {
+      "id": "ch17-foundation-ch17-word-generation",
+      "lesson": 10,
+      "conceptId": "ch17-concept-generation",
+      "prompt": "Which term matches this description? A level of descent in a family diagram, commonly labelled with a Roman numeral.",
+      "options": [
+        "pedigree",
+        "autosomal recessive",
+        "autosomal dominant",
+        "generation"
+      ],
+      "answer": "generation",
+      "cue": "Use the meaning of each term, not the length of its name.",
+      "explanation": "A level of descent in a family diagram, commonly labelled with a Roman numeral. Individual numbers identify people within a generation.",
+      "difficulty": "recall",
+      "family": "definition-recognition",
+      "kind": "mc"
+    }
+  ],
+  "labelDiagrams": [
+    {
+      "id": "ch17-pedigree-label",
+      "title": "Pedigree: use the stated inheritance model",
+      "lesson": 10,
+      "src": "./assets/labeling/ch17-pedigree-label.png",
+      "alt": "In this fully penetrant autosomal recessive model, filled symbols are affected. Unaffected parents with an affected child must both be carriers. The unaffected sibling remains AA or Aa. Lettered identification version; answer key is not drawn.",
+      "answers": {
+        "A": "Aa",
+        "B": "Aa",
+        "C": "aa",
+        "D": "AA or Aa"
+      },
+      "options": [
+        "Aa",
+        "aa",
+        "AA or Aa"
+      ],
+      "reviewNote": "Follow each letter or its leader line. Use the model assumptions and units shown."
+    }
+  ],
+  "videos": [
+    {
+      "id": "Gd09V2AkZv4",
+      "lesson": 10,
+      "title": "Reading autosomal pedigrees — video support",
+      "purpose": "Read pedigree symbols and generations, infer autosomal genotypes under a stated model, and preserve unresolved alternatives.",
+      "fallback": "For an autosomal recessive model, affected individuals are aa. Two unaffected parents with an affected child must each contribute a. If both are unaffected, each is therefore Aa under the simple fully penetrant model. For an autosomal dominant model, unaffected individuals are dd. An affected parent with an unaffected child must be able to contribute d, so that affected parent is Dd rather than DD. The child's genotype constrains the parent's possible alleles. These deductions use the stated model, accurate relationships and complete expression. New mutations, reduced penetrance or other complexities can change the interpretation; do not add them silently to a simple problem.",
+      "disposition": "included",
+      "sourceSlide": 75,
+      "sourceDeck": "c17",
+      "availability": "Source hyperlink resolved syntactically; external playback not certified."
+    }
+  ],
+  "practiceConcepts": [
+    {
+      "id": "ch17-concept-pedigree",
+      "term": "pedigree",
+      "lesson": 10,
+      "meaning": "A diagram tracing a specified trait through family relationships across generations.",
+      "example": "Symbols connected by parent–offspring lines show which relatives express a trait.",
+      "aliases": [],
+      "cue": "Identify the structure, quantity or relationship described.",
+      "correctExplanation": "A diagram tracing a specified trait through family relationships across generations. A pedigree is evidence to test a model, not proof that one clue is always decisive.",
+      "misconception": {
+        "statement": "One affected symbol proves the inheritance mode.",
+        "correction": "A diagram tracing a specified trait through family relationships across generations. A pedigree is evidence to test a model, not proof that one clue is always decisive."
+      },
+      "reviewRoute": "lesson-10"
+    },
+    {
+      "id": "ch17-concept-autosomal-recessive",
+      "term": "autosomal recessive",
+      "lesson": 10,
+      "meaning": "A model in which a trait is expressed when two recessive alleles occur at an autosomal locus.",
+      "example": "Two unaffected Aa parents can have an affected aa child.",
+      "aliases": [],
+      "cue": "Identify the structure, quantity or relationship described.",
+      "correctExplanation": "A model in which a trait is expressed when two recessive alleles occur at an autosomal locus. Unaffected individuals can be AA or Aa.",
+      "misconception": {
+        "statement": "All unaffected individuals must be AA.",
+        "correction": "A model in which a trait is expressed when two recessive alleles occur at an autosomal locus. Unaffected individuals can be AA or Aa."
+      },
+      "reviewRoute": "lesson-10"
+    },
+    {
+      "id": "ch17-concept-autosomal-dominant",
+      "term": "autosomal dominant",
+      "lesson": 10,
+      "meaning": "A model in which one dominant allele at an autosomal locus is sufficient for expression under the stated assumptions.",
+      "example": "An affected Dd individual and unaffected dd partner can have affected or unaffected children.",
+      "aliases": [],
+      "cue": "Identify the structure, quantity or relationship described.",
+      "correctExplanation": "A model in which one dominant allele at an autosomal locus is sufficient for expression under the stated assumptions. Affected individuals can be DD or Dd unless other evidence resolves the genotype.",
+      "misconception": {
+        "statement": "Every affected dominant individual must be DD.",
+        "correction": "A model in which one dominant allele at an autosomal locus is sufficient for expression under the stated assumptions. Affected individuals can be DD or Dd unless other evidence resolves the genotype."
+      },
+      "reviewRoute": "lesson-10"
+    },
+    {
+      "id": "ch17-concept-generation",
+      "term": "generation",
+      "lesson": 10,
+      "meaning": "A level of descent in a family diagram, commonly labelled with a Roman numeral.",
+      "example": "I, II and III distinguish successive levels in a pedigree.",
+      "aliases": [],
+      "cue": "Identify the structure, quantity or relationship described.",
+      "correctExplanation": "A level of descent in a family diagram, commonly labelled with a Roman numeral. Individual numbers identify people within a generation.",
+      "misconception": {
+        "statement": "The Roman numeral gives the person’s chromosome count.",
+        "correction": "A level of descent in a family diagram, commonly labelled with a Roman numeral. Individual numbers identify people within a generation."
+      },
+      "reviewRoute": "lesson-10"
+    }
+  ],
+  "authoredPractice": [
+    {
+      "prompt": "Two affected parents produce an unaffected child under a fully penetrant autosomal dominant model. Which parental genotypes fit?",
+      "answer": "Dd × Dd",
+      "explanation": "Each parent must be able to contribute d, making the child dd possible.",
+      "cue": "Trace the normal mechanism before choosing an answer.",
+      "id": "ch17-l10-application-1",
+      "options": [
+        "DD × Dd",
+        "Dd × Dd",
+        "dd × dd",
+        "DD × DD"
+      ],
+      "difficulty": "application",
+      "lesson": 10,
+      "chapter": 17,
+      "conceptId": "ch17-concept-autosomal-dominant",
+      "family": "application",
+      "kind": "mc",
+      "reviewRoute": "lesson-10",
+      "flashVariant": {
+        "id": "ch17-l10-scenario-1",
+        "family": "scenario-explanation",
+        "prompt": "Two affected parents produce an unaffected child under a fully penetrant autosomal dominant model. Which parental genotypes fit?",
+        "model": "Dd × Dd. Each parent must be able to contribute d, making the child dd possible.",
+        "selfAssessed": true
+      }
+    }
+  ],
+  "typedPractice": [
+    {
+      "id": "ch17-l10-context-pedigree",
+      "chapter": 17,
+      "lesson": 10,
+      "conceptId": "ch17-concept-pedigree",
+      "family": "scenario-retrieval",
+      "kind": "blank",
+      "difficulty": "application",
+      "prompt": "Identify the term illustrated: Symbols connected by parent–offspring lines show which relatives express a trait.",
+      "answer": "pedigree",
+      "aliases": [],
+      "cue": "Use the relationship described in the example.",
+      "explanation": "A diagram tracing a specified trait through family relationships across generations. A pedigree is evidence to test a model, not proof that one clue is always decisive.",
+      "reviewRoute": "lesson-10"
+    },
+    {
+      "id": "ch17-l10-context-autosomal-recessive",
+      "chapter": 17,
+      "lesson": 10,
+      "conceptId": "ch17-concept-autosomal-recessive",
+      "family": "scenario-retrieval",
+      "kind": "blank",
+      "difficulty": "application",
+      "prompt": "Identify the term illustrated: Two unaffected Aa parents can have an affected aa child.",
+      "answer": "autosomal recessive",
+      "aliases": [],
+      "cue": "Use the relationship described in the example.",
+      "explanation": "A model in which a trait is expressed when two recessive alleles occur at an autosomal locus. Unaffected individuals can be AA or Aa.",
+      "reviewRoute": "lesson-10"
+    },
+    {
+      "id": "ch17-l10-context-autosomal-dominant",
+      "chapter": 17,
+      "lesson": 10,
+      "conceptId": "ch17-concept-autosomal-dominant",
+      "family": "scenario-retrieval",
+      "kind": "blank",
+      "difficulty": "application",
+      "prompt": "Identify the term illustrated: An affected Dd individual and unaffected dd partner can have affected or unaffected children.",
+      "answer": "autosomal dominant",
+      "aliases": [],
+      "cue": "Use the relationship described in the example.",
+      "explanation": "A model in which one dominant allele at an autosomal locus is sufficient for expression under the stated assumptions. Affected individuals can be DD or Dd unless other evidence resolves the genotype.",
+      "reviewRoute": "lesson-10"
+    },
+    {
+      "id": "ch17-l10-context-generation",
+      "chapter": 17,
+      "lesson": 10,
+      "conceptId": "ch17-concept-generation",
+      "family": "scenario-retrieval",
+      "kind": "blank",
+      "difficulty": "application",
+      "prompt": "Identify the term illustrated: I, II and III distinguish successive levels in a pedigree.",
+      "answer": "generation",
+      "aliases": [],
+      "cue": "Use the relationship described in the example.",
+      "explanation": "A level of descent in a family diagram, commonly labelled with a Roman numeral. Individual numbers identify people within a generation.",
+      "reviewRoute": "lesson-10"
+    }
+  ],
+  "multiSelectPractice": [
+    {
+      "id": "ch17-multiple-10",
+      "chapter": 17,
+      "lesson": 10,
+      "conceptId": "ch17-concept-pedigree",
+      "family": "discrimination",
+      "kind": "multi-select",
+      "difficulty": "application",
+      "prompt": "Select the TWO accurate statements about reading autosomal pedigrees.",
+      "options": [
+        {
+          "id": "true-2",
+          "text": "Affected individuals can be DD or Dd unless other evidence resolves the genotype."
+        },
+        {
+          "id": "false-2",
+          "text": "The Roman numeral gives the person’s chromosome count."
+        },
+        {
+          "id": "true-1",
+          "text": "A pedigree is evidence to test a model, not proof that one clue is always decisive."
+        },
+        {
+          "id": "false-1",
+          "text": "All unaffected individuals must be AA."
+        }
+      ],
+      "answers": [
+        "true-1",
+        "true-2"
+      ],
+      "cue": "Check every statement against the mechanism; do not assume a negative statement is correct.",
+      "explanation": "A pedigree is evidence to test a model, not proof that one clue is always decisive. Affected individuals can be DD or Dd unless other evidence resolves the genotype. Unaffected individuals can be AA or Aa. Individual numbers identify people within a generation.",
+      "reviewRoute": "lesson-10"
+    }
+  ],
+  "guidedActivities": [
+    {
+      "chapter": 17,
+      "lesson": 10,
+      "route": "lesson-10",
+      "worked": {
+        "title": "Infer both parents from a recessive child",
+        "scenario": "Two unaffected parents have an affected child in a fully penetrant autosomal recessive model.",
+        "steps": [
+          "The affected child is aa and needs a from each parent.",
+          "Each unaffected parent must also carry A.",
+          "Therefore both parents are Aa.",
+          "An unaffected sibling may be AA or Aa; do not automatically mark that sibling as a carrier.",
+          "Conditional on being unaffected, the carrier probability is 2/3 for this parental cross."
+        ],
+        "id": "ch17-l10-worked",
+        "label": "Worked example"
+      },
+      "guided": {
+        "id": "ch17-l10-guided",
+        "label": "Practise with support",
+        "title": "Apply the explanation",
+        "instruction": "Try both questions. Use the hint to revise your thinking after an incorrect answer.",
+        "items": [
+          {
+            "prompt": "In an autosomal recessive model, an affected individual has which genotype?",
+            "answer": "aa",
+            "explanation": "Two recessive alleles are required in this simple model.",
+            "cue": "Define affected before reading the shading.",
+            "id": "ch17-l10-guided-q1",
+            "options": [
+              "aa",
+              "Aa",
+              "AA"
+            ],
+            "difficulty": "application",
+            "kind": "select",
+            "hint": "Define affected before reading the shading."
+          },
+          {
+            "prompt": "An affected dominant parent has an unaffected dd child. What must that parent be?",
+            "answer": "Dd",
+            "explanation": "The parent must contribute d but also carry D to be affected.",
+            "cue": "Use the child’s required allele contribution.",
+            "id": "ch17-l10-guided-q2",
+            "options": [
+              "DD",
+              "Dd",
+              "dd"
+            ],
+            "difficulty": "application",
+            "kind": "select",
+            "hint": "Use the child’s required allele contribution."
+          }
+        ]
+      }
+    }
+  ],
+  "diagramPractice": [
+    {
+      "id": "ch17-pedigree-label-practice-A",
+      "lesson": 10,
+      "conceptId": "ch17-concept-pedigree",
+      "diagramId": "ch17-pedigree-label",
+      "letter": "A",
+      "prompt": "What does letter A identify?",
+      "options": [
+        "AA or Aa",
+        "Aa",
+        "aa"
+      ],
+      "cue": "Follow the leader line or the lettered feature. Read any stated model assumptions.",
+      "explanation": "Letter A identifies Aa.",
+      "reviewRoute": "lesson-10"
+    },
+    {
+      "id": "ch17-pedigree-label-practice-B",
+      "lesson": 10,
+      "conceptId": "ch17-concept-pedigree",
+      "diagramId": "ch17-pedigree-label",
+      "letter": "B",
+      "prompt": "What does letter B identify?",
+      "options": [
+        "aa",
+        "AA or Aa",
+        "Aa"
+      ],
+      "cue": "Follow the leader line or the lettered feature. Read any stated model assumptions.",
+      "explanation": "Letter B identifies Aa.",
+      "reviewRoute": "lesson-10"
+    },
+    {
+      "id": "ch17-pedigree-label-practice-C",
+      "lesson": 10,
+      "conceptId": "ch17-concept-pedigree",
+      "diagramId": "ch17-pedigree-label",
+      "letter": "C",
+      "prompt": "What does letter C identify?",
+      "options": [
+        "aa",
+        "AA or Aa",
+        "Aa"
+      ],
+      "cue": "Follow the leader line or the lettered feature. Read any stated model assumptions.",
+      "explanation": "Letter C identifies aa.",
+      "reviewRoute": "lesson-10"
+    },
+    {
+      "id": "ch17-pedigree-label-practice-D",
+      "lesson": 10,
+      "conceptId": "ch17-concept-pedigree",
+      "diagramId": "ch17-pedigree-label",
+      "letter": "D",
+      "prompt": "What does letter D identify?",
+      "options": [
+        "Aa",
+        "AA or Aa",
+        "aa"
+      ],
+      "cue": "Follow the leader line or the lettered feature. Read any stated model assumptions.",
+      "explanation": "Letter D identifies AA or Aa.",
+      "reviewRoute": "lesson-10"
+    }
+  ]
+}

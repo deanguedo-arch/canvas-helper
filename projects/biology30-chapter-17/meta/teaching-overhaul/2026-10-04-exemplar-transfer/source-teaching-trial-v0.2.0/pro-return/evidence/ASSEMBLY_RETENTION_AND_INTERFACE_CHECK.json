@@ -1,0 +1,135 @@
+{
+  "version": "0.2.0",
+  "role": "Assembly author self-check; not independent source/science/PPT-method/pedagogy review or native UI testing.",
+  "createdUtc": "2026-10-04T21:55:46.557339+00:00",
+  "nativeSourceSha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868",
+  "routes": [
+    "lesson-02",
+    "lesson-05"
+  ],
+  "priorReturnedTeachingCopied": false,
+  "reusedNativeBoundaryEvidence": [
+    {
+      "path": "calibration-v0.1.0/analysis/native/native-source-contract.json",
+      "bytes": 724902,
+      "sha256": "2054ee3f5981c5b220143b2c2fa17440a32879a64fef8189d593c8030e6042ed"
+    },
+    {
+      "path": "calibration-v0.1.0/analysis/native/native-style-header-feedback-contract.json",
+      "bytes": 52525,
+      "sha256": "a34c98a1cf1ba068d0077787147f0108097082078978d9ef3618df9bdeed9ca2"
+    },
+    {
+      "path": "calibration-v0.1.0/analysis/native/protected-task-register.json",
+      "bytes": 223038,
+      "sha256": "5875f28ac5264dfec865cbd0e9b31167318530d2b9992b60ff99c0bc147ea734"
+    }
+  ],
+  "inputPins": [
+    {
+      "path": "kinch-trial-v0.2.0/authoring/lesson-02.teaching.html.in",
+      "bytes": 17871,
+      "sha256": "c5712fcf6e33e732a3985593bdbea867749f2cfcaa38000c6a8290ee498af2af"
+    },
+    {
+      "path": "kinch-trial-v0.2.0/authoring/lesson-05.teaching.html.in",
+      "bytes": 30601,
+      "sha256": "eac351c08ef28c82b936cf1baa206dbfb5f14feef65338d3e196d3c5aa0f6b4e"
+    }
+  ],
+  "annotationPins": [
+    {
+      "path": "kinch-trial-v0.2.0/authoring/practice-annotations.json",
+      "bytes": 8141,
+      "sha256": "bfc24b198d0f2c87aeab24081b12880909a99b9ff477b1e32e776b4e898f4b62"
+    },
+    {
+      "path": "kinch-trial-v0.2.0/authoring/interaction-annotations.json",
+      "bytes": 1753,
+      "sha256": "7499817abccf9d426832a9e2a752add52e2e558e51d75f709f5d63cd29afaacc"
+    },
+    {
+      "path": "kinch-trial-v0.2.0/authoring/header-proposals.json",
+      "bytes": 247,
+      "sha256": "76f9c045403484f8dc01599fb0db9346dc19a84d3e034034a8933ad4ba9f1168"
+    }
+  ],
+  "teachingRetention": [
+    {
+      "route": "lesson-02",
+      "sourceWords": 2169,
+      "manuscriptWords": 2169,
+      "completeWordOrderRetained": true,
+      "mathematicalAndRatioSymbolsRetained": true,
+      "responseTextareasRetained": true,
+      "saveButtonsRetained": true,
+      "allPreviewControlsDisabled": true,
+      "firstWordDifference": null,
+      "scope": "Assembly copy retention only; no source/science/teaching approval or native UI tests.",
+      "fragmentWordsIncludingInterface": 2165
+    },
+    {
+      "route": "lesson-05",
+      "sourceWords": 3976,
+      "manuscriptWords": 3976,
+      "completeWordOrderRetained": true,
+      "mathematicalAndRatioSymbolsRetained": true,
+      "responseTextareasRetained": true,
+      "saveButtonsRetained": true,
+      "allPreviewControlsDisabled": true,
+      "firstWordDifference": null,
+      "scope": "Assembly copy retention only; no source/science/teaching approval or native UI tests.",
+      "fragmentWordsIncludingInterface": 3970
+    }
+  ],
+  "protectedAppendixRetention": [
+    {
+      "route": "lesson-02-source-appendix",
+      "sourceWords": 1105,
+      "manuscriptWords": 1105,
+      "completeWordOrderRetained": true,
+      "mathematicalAndRatioSymbolsRetained": true,
+      "responseTextareasRetained": true,
+      "saveButtonsRetained": true,
+      "allPreviewControlsDisabled": true,
+      "firstWordDifference": null,
+      "scope": "Assembly copy retention only; no source/science/teaching approval or native UI tests."
+    },
+    {
+      "route": "lesson-05-source-appendix",
+      "sourceWords": 1404,
+      "manuscriptWords": 1404,
+      "completeWordOrderRetained": true,
+      "mathematicalAndRatioSymbolsRetained": true,
+      "responseTextareasRetained": true,
+      "saveButtonsRetained": true,
+      "allPreviewControlsDisabled": true,
+      "firstWordDifference": null,
+      "scope": "Assembly copy retention only; no source/science/teaching approval or native UI tests."
+    }
+  ],
+  "newTaskCount": 4,
+  "practiceAnnotationsPending": [],
+  "friendlyNoteTitlesPending": [],
+  "teacherReading": {
+    "path": "output/Biology30_CH17_Source_Teaching_Trial_v0.2.0/Biology30_CH17_Source_Teaching_Trial_Teacher_Review_v0.2.0.html",
+    "bytes": 1290101,
+    "sha256": "ffe57a4224e16286a52f98099720cc4f9b0e8310d93b940c06e514b507a4737c"
+  },
+  "rawBeforeCopies": 85,
+  "sourceAssetCopies": 2,
+  "inertReading": {
+    "scripts": 0,
+    "styles": 0,
+    "forms": 0,
+    "disabledResponseTextareas": 4,
+    "disabledSaveButtons": 4,
+    "nativeRuntimeIncluded": false,
+    "savingFunctional": false,
+    "browserRenderingVerified": false
+  },
+  "nativeUITests": "not run",
+  "teacherAcceptance": "pending",
+  "integration": "not done",
+  "packageUpload": "not performed by this tool"
+}

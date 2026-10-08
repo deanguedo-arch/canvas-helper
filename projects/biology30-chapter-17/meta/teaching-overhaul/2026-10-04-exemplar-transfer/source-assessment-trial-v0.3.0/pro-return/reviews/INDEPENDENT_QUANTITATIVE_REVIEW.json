@@ -1,0 +1,1008 @@
+{
+  "document": "FINAL_QUANTITATIVE_REVIEW",
+  "version": "0.3.0",
+  "reviewedUTC": "2026-10-05T00:30:41.583065+00:00",
+  "reviewer": "original_source_map agent, independent of root author. The same reviewer conducted the separately recorded source/science scope; not a second person.",
+  "coverage": "Both complete final teaching fragments, all4 optional stimuli/prompts/hints/models, and all8 selected required prompts/options/keys/models/criteria. Full actual prose read plus independent exact-Fraction enumeration;36 actual displayed genotype cells individually checked.",
+  "result": "PASS within stated models. No quantitative repair requested. This is not runtime QA or Dean acceptance.",
+  "fragmentPins": [
+    {
+      "path": "output/Biology30_CH17_Source_Assessment_Trial_v0.3.0/integration-text/complete-teaching/lesson-02.teaching-fragment.html.txt",
+      "bytes": 18591,
+      "sha256": "a843cc369e041e244a5cc775907979d36b906b78b2fc3b39ed26a0757d395c00"
+    },
+    {
+      "path": "output/Biology30_CH17_Source_Assessment_Trial_v0.3.0/integration-text/complete-teaching/lesson-05.teaching-fragment.html.txt",
+      "bytes": 32125,
+      "sha256": "c0c83129effd4b3268d41493f0a5a8d0bc82870453df040fe86b829078d44a3a"
+    }
+  ],
+  "authoringPins": [
+    {
+      "path": "source-assessment-v0.3.0/authoring/PRE_PROSE_PURPOSE_PLAN.md",
+      "bytes": 8343,
+      "sha256": "9b18621f5bff1256b00cddfb956ffd02eaee5c147f79b49470b536c163d34abc"
+    },
+    {
+      "path": "source-assessment-v0.3.0/authoring/TRIAL_INPUTS.json",
+      "bytes": 7239,
+      "sha256": "34a02af21e33fcb76ec19d79f16a88ff0c2b03c1a3646c8d966898a23c910cd5"
+    },
+    {
+      "path": "source-assessment-v0.3.0/authoring/assessments/ch17-l02-check-writing-1.json",
+      "bytes": 2040,
+      "sha256": "746380cf22eee10bb1acf82e246352f1dc2e425927ad4f83676d36026e25b0d5"
+    },
+    {
+      "path": "source-assessment-v0.3.0/authoring/assessments/ch17-l05-check-mc-2.json",
+      "bytes": 1374,
+      "sha256": "1d0d2b8c11e7790ba449f06acca670ad26ebc91f544d1976856e4793fb5c298b"
+    },
+    {
+      "path": "source-assessment-v0.3.0/authoring/assessments/ch17-l05-check-writing-1.json",
+      "bytes": 2218,
+      "sha256": "69c5823eea0ca6ff8576821d7921b425c6f74cd5caac6c8abecaee7970503684"
+    },
+    {
+      "path": "source-assessment-v0.3.0/authoring/assessments/ch17-l05-check-writing-2.json",
+      "bytes": 2282,
+      "sha256": "4a1006653299a24ddd914be11f676653c393d1e80888bc3c56f0a44681840a0f"
+    },
+    {
+      "path": "source-assessment-v0.3.0/authoring/teacher-review-only.css",
+      "bytes": 2185,
+      "sha256": "0099523bf5c34de1dc52977a71f02c4f0c417fa4cd54a8550e51e071a8d69a9a"
+    },
+    {
+      "path": "source-assessment-v0.3.0/authoring/teaching-edits/lesson-05-changed-parent-task.html.in",
+      "bytes": 4203,
+      "sha256": "a218d13653a95a59da2d56004ea889124992ee3903e2b0749c8f7df78c7a16cf"
+    },
+    {
+      "path": "source-assessment-v0.3.0/authoring/teaching-edits/lesson-05-tomato.html.in",
+      "bytes": 5130,
+      "sha256": "17a9cd16afb399d1897ba90c0be35b2f8b775093054d2ff5b9e214d7145b8c9c"
+    }
+  ],
+  "assessmentObjectPins": [
+    {
+      "path": "output/Biology30_CH17_Source_Assessment_Trial_v0.3.0/integration-text/assessment-json/ch17-l02-check-writing-1.json",
+      "bytes": 2040,
+      "sha256": "746380cf22eee10bb1acf82e246352f1dc2e425927ad4f83676d36026e25b0d5"
+    },
+    {
+      "path": "output/Biology30_CH17_Source_Assessment_Trial_v0.3.0/integration-text/assessment-json/ch17-l05-check-mc-2.json",
+      "bytes": 1374,
+      "sha256": "1d0d2b8c11e7790ba449f06acca670ad26ebc91f544d1976856e4793fb5c298b"
+    },
+    {
+      "path": "output/Biology30_CH17_Source_Assessment_Trial_v0.3.0/integration-text/assessment-json/ch17-l05-check-writing-1.json",
+      "bytes": 2218,
+      "sha256": "69c5823eea0ca6ff8576821d7921b425c6f74cd5caac6c8abecaee7970503684"
+    },
+    {
+      "path": "output/Biology30_CH17_Source_Assessment_Trial_v0.3.0/integration-text/assessment-json/ch17-l05-check-writing-2.json",
+      "bytes": 2282,
+      "sha256": "4a1006653299a24ddd914be11f676653c393d1e80888bc3c56f0a44681840a0f"
+    }
+  ],
+  "actualGridChecks": [
+    {
+      "caption": "Possible F2 allele combinations from Rr × Rr",
+      "case": "L02_F2",
+      "actualGenotypeCellsVerified": 4
+    },
+    {
+      "caption": "F2 genotype combinations from TtGg × TtGg; each interior cell has probability 1/16",
+      "case": "L05_pea_F2",
+      "actualGenotypeCellsVerified": 16
+    },
+    {
+      "caption": "Eight equally likely gamete pairings from RrTt × rrTt",
+      "case": "L05_tomato",
+      "actualGenotypeCellsVerified": 8
+    },
+    {
+      "caption": "Gamete combinations after the yellow, spherical offspring resolves the squash parents",
+      "case": "L05_squash",
+      "actualGenotypeCellsVerified": 4
+    },
+    {
+      "caption": "Complete comparison for RrTt × rrtt",
+      "case": "L05_changed_parent",
+      "actualGenotypeCellsVerified": 4
+    }
+  ],
+  "crosses": {
+    "L02_parental": {
+      "parents": [
+        "RR",
+        "rr"
+      ],
+      "gametes": [
+        {
+          "R": "1"
+        },
+        {
+          "r": "1"
+        }
+      ],
+      "cells": [
+        {
+          "gamete1": "R",
+          "gamete2": "r",
+          "offspring": "Rr",
+          "probability": "1"
+        }
+      ],
+      "genotypes": {
+        "Rr": "1"
+      },
+      "phenotypeGroups": {
+        "D": "1"
+      },
+      "total": "1"
+    },
+    "L02_F2": {
+      "parents": [
+        "Rr",
+        "Rr"
+      ],
+      "gametes": [
+        {
+          "R": "1/2",
+          "r": "1/2"
+        },
+        {
+          "R": "1/2",
+          "r": "1/2"
+        }
+      ],
+      "cells": [
+        {
+          "gamete1": "R",
+          "gamete2": "R",
+          "offspring": "RR",
+          "probability": "1/4"
+        },
+        {
+          "gamete1": "R",
+          "gamete2": "r",
+          "offspring": "Rr",
+          "probability": "1/4"
+        },
+        {
+          "gamete1": "r",
+          "gamete2": "R",
+          "offspring": "Rr",
+          "probability": "1/4"
+        },
+        {
+          "gamete1": "r",
+          "gamete2": "r",
+          "offspring": "rr",
+          "probability": "1/4"
+        }
+      ],
+      "genotypes": {
+        "RR": "1/4",
+        "Rr": "1/2",
+        "rr": "1/4"
+      },
+      "phenotypeGroups": {
+        "D": "3/4",
+        "r": "1/4"
+      },
+      "total": "1"
+    },
+    "L02_reciprocal": {
+      "parents": [
+        "rr",
+        "RR"
+      ],
+      "gametes": [
+        {
+          "r": "1"
+        },
+        {
+          "R": "1"
+        }
+      ],
+      "cells": [
+        {
+          "gamete1": "r",
+          "gamete2": "R",
+          "offspring": "Rr",
+          "probability": "1"
+        }
+      ],
+      "genotypes": {
+        "Rr": "1"
+      },
+      "phenotypeGroups": {
+        "D": "1"
+      },
+      "total": "1"
+    },
+    "L05_pea_parental": {
+      "parents": [
+        "TTGG",
+        "ttgg"
+      ],
+      "gametes": [
+        {
+          "TG": "1"
+        },
+        {
+          "tg": "1"
+        }
+      ],
+      "cells": [
+        {
+          "gamete1": "TG",
+          "gamete2": "tg",
+          "offspring": "TtGg",
+          "probability": "1"
+        }
+      ],
+      "genotypes": {
+        "TtGg": "1"
+      },
+      "phenotypeGroups": {
+        "D/D": "1"
+      },
+      "total": "1"
+    },
+    "L05_pea_F2": {
+      "parents": [
+        "TtGg",
+        "TtGg"
+      ],
+      "gametes": [
+        {
+          "TG": "1/4",
+          "Tg": "1/4",
+          "tG": "1/4",
+          "tg": "1/4"
+        },
+        {
+          "TG": "1/4",
+          "Tg": "1/4",
+          "tG": "1/4",
+          "tg": "1/4"
+        }
+      ],
+      "cells": [
+        {
+          "gamete1": "TG",
+          "gamete2": "TG",
+          "offspring": "TTGG",
+          "probability": "1/16"
+        },
+        {
+          "gamete1": "TG",
+          "gamete2": "Tg",
+          "offspring": "TTGg",
+          "probability": "1/16"
+        },
+        {
+          "gamete1": "TG",
+          "gamete2": "tG",
+          "offspring": "TtGG",
+          "probability": "1/16"
+        },
+        {
+          "gamete1": "TG",
+          "gamete2": "tg",
+          "offspring": "TtGg",
+          "probability": "1/16"
+        },
+        {
+          "gamete1": "Tg",
+          "gamete2": "TG",
+          "offspring": "TTGg",
+          "probability": "1/16"
+        },
+        {
+          "gamete1": "Tg",
+          "gamete2": "Tg",
+          "offspring": "TTgg",
+          "probability": "1/16"
+        },
+        {
+          "gamete1": "Tg",
+          "gamete2": "tG",
+          "offspring": "TtGg",
+          "probability": "1/16"
+        },
+        {
+          "gamete1": "Tg",
+          "gamete2": "tg",
+          "offspring": "Ttgg",
+          "probability": "1/16"
+        },
+        {
+          "gamete1": "tG",
+          "gamete2": "TG",
+          "offspring": "TtGG",
+          "probability": "1/16"
+        },
+        {
+          "gamete1": "tG",
+          "gamete2": "Tg",
+          "offspring": "TtGg",
+          "probability": "1/16"
+        },
+        {
+          "gamete1": "tG",
+          "gamete2": "tG",
+          "offspring": "ttGG",
+          "probability": "1/16"
+        },
+        {
+          "gamete1": "tG",
+          "gamete2": "tg",
+          "offspring": "ttGg",
+          "probability": "1/16"
+        },
+        {
+          "gamete1": "tg",
+          "gamete2": "TG",
+          "offspring": "TtGg",
+          "probability": "1/16"
+        },
+        {
+          "gamete1": "tg",
+          "gamete2": "Tg",
+          "offspring": "Ttgg",
+          "probability": "1/16"
+        },
+        {
+          "gamete1": "tg",
+          "gamete2": "tG",
+          "offspring": "ttGg",
+          "probability": "1/16"
+        },
+        {
+          "gamete1": "tg",
+          "gamete2": "tg",
+          "offspring": "ttgg",
+          "probability": "1/16"
+        }
+      ],
+      "genotypes": {
+        "TTGG": "1/16",
+        "TTGg": "1/8",
+        "TtGG": "1/8",
+        "TtGg": "1/4",
+        "TTgg": "1/16",
+        "Ttgg": "1/8",
+        "ttGG": "1/16",
+        "ttGg": "1/8",
+        "ttgg": "1/16"
+      },
+      "phenotypeGroups": {
+        "D/D": "9/16",
+        "D/r": "3/16",
+        "r/D": "3/16",
+        "r/r": "1/16"
+      },
+      "total": "1"
+    },
+    "L05_tomato": {
+      "parents": [
+        "RrTt",
+        "rrTt"
+      ],
+      "gametes": [
+        {
+          "RT": "1/4",
+          "Rt": "1/4",
+          "rT": "1/4",
+          "rt": "1/4"
+        },
+        {
+          "rT": "1/2",
+          "rt": "1/2"
+        }
+      ],
+      "cells": [
+        {
+          "gamete1": "RT",
+          "gamete2": "rT",
+          "offspring": "RrTT",
+          "probability": "1/8"
+        },
+        {
+          "gamete1": "RT",
+          "gamete2": "rt",
+          "offspring": "RrTt",
+          "probability": "1/8"
+        },
+        {
+          "gamete1": "Rt",
+          "gamete2": "rT",
+          "offspring": "RrTt",
+          "probability": "1/8"
+        },
+        {
+          "gamete1": "Rt",
+          "gamete2": "rt",
+          "offspring": "Rrtt",
+          "probability": "1/8"
+        },
+        {
+          "gamete1": "rT",
+          "gamete2": "rT",
+          "offspring": "rrTT",
+          "probability": "1/8"
+        },
+        {
+          "gamete1": "rT",
+          "gamete2": "rt",
+          "offspring": "rrTt",
+          "probability": "1/8"
+        },
+        {
+          "gamete1": "rt",
+          "gamete2": "rT",
+          "offspring": "rrTt",
+          "probability": "1/8"
+        },
+        {
+          "gamete1": "rt",
+          "gamete2": "rt",
+          "offspring": "rrtt",
+          "probability": "1/8"
+        }
+      ],
+      "genotypes": {
+        "RrTT": "1/8",
+        "RrTt": "1/4",
+        "Rrtt": "1/8",
+        "rrTT": "1/8",
+        "rrTt": "1/4",
+        "rrtt": "1/8"
+      },
+      "phenotypeGroups": {
+        "D/D": "3/8",
+        "D/r": "1/8",
+        "r/D": "3/8",
+        "r/r": "1/8"
+      },
+      "total": "1"
+    },
+    "L05_changed_parent": {
+      "parents": [
+        "RrTt",
+        "rrtt"
+      ],
+      "gametes": [
+        {
+          "RT": "1/4",
+          "Rt": "1/4",
+          "rT": "1/4",
+          "rt": "1/4"
+        },
+        {
+          "rt": "1"
+        }
+      ],
+      "cells": [
+        {
+          "gamete1": "RT",
+          "gamete2": "rt",
+          "offspring": "RrTt",
+          "probability": "1/4"
+        },
+        {
+          "gamete1": "Rt",
+          "gamete2": "rt",
+          "offspring": "Rrtt",
+          "probability": "1/4"
+        },
+        {
+          "gamete1": "rT",
+          "gamete2": "rt",
+          "offspring": "rrTt",
+          "probability": "1/4"
+        },
+        {
+          "gamete1": "rt",
+          "gamete2": "rt",
+          "offspring": "rrtt",
+          "probability": "1/4"
+        }
+      ],
+      "genotypes": {
+        "RrTt": "1/4",
+        "Rrtt": "1/4",
+        "rrTt": "1/4",
+        "rrtt": "1/4"
+      },
+      "phenotypeGroups": {
+        "D/D": "1/4",
+        "D/r": "1/4",
+        "r/D": "1/4",
+        "r/r": "1/4"
+      },
+      "total": "1"
+    },
+    "L05_squash": {
+      "parents": [
+        "wwDd",
+        "Wwdd"
+      ],
+      "gametes": [
+        {
+          "wD": "1/2",
+          "wd": "1/2"
+        },
+        {
+          "Wd": "1/2",
+          "wd": "1/2"
+        }
+      ],
+      "cells": [
+        {
+          "gamete1": "wD",
+          "gamete2": "Wd",
+          "offspring": "WwDd",
+          "probability": "1/4"
+        },
+        {
+          "gamete1": "wD",
+          "gamete2": "wd",
+          "offspring": "wwDd",
+          "probability": "1/4"
+        },
+        {
+          "gamete1": "wd",
+          "gamete2": "Wd",
+          "offspring": "Wwdd",
+          "probability": "1/4"
+        },
+        {
+          "gamete1": "wd",
+          "gamete2": "wd",
+          "offspring": "wwdd",
+          "probability": "1/4"
+        }
+      ],
+      "genotypes": {
+        "WwDd": "1/4",
+        "wwDd": "1/4",
+        "Wwdd": "1/4",
+        "wwdd": "1/4"
+      },
+      "phenotypeGroups": {
+        "D/D": "1/4",
+        "r/D": "1/4",
+        "D/r": "1/4",
+        "r/r": "1/4"
+      },
+      "total": "1"
+    },
+    "L05_evidence_LL": {
+      "parents": [
+        "Vvll",
+        "vvLL"
+      ],
+      "gametes": [
+        {
+          "Vl": "1/2",
+          "vl": "1/2"
+        },
+        {
+          "vL": "1"
+        }
+      ],
+      "cells": [
+        {
+          "gamete1": "Vl",
+          "gamete2": "vL",
+          "offspring": "VvLl",
+          "probability": "1/2"
+        },
+        {
+          "gamete1": "vl",
+          "gamete2": "vL",
+          "offspring": "vvLl",
+          "probability": "1/2"
+        }
+      ],
+      "genotypes": {
+        "VvLl": "1/2",
+        "vvLl": "1/2"
+      },
+      "phenotypeGroups": {
+        "D/D": "1/2",
+        "r/D": "1/2"
+      },
+      "total": "1"
+    },
+    "L05_evidence_Ll": {
+      "parents": [
+        "Vvll",
+        "vvLl"
+      ],
+      "gametes": [
+        {
+          "Vl": "1/2",
+          "vl": "1/2"
+        },
+        {
+          "vL": "1/2",
+          "vl": "1/2"
+        }
+      ],
+      "cells": [
+        {
+          "gamete1": "Vl",
+          "gamete2": "vL",
+          "offspring": "VvLl",
+          "probability": "1/4"
+        },
+        {
+          "gamete1": "Vl",
+          "gamete2": "vl",
+          "offspring": "Vvll",
+          "probability": "1/4"
+        },
+        {
+          "gamete1": "vl",
+          "gamete2": "vL",
+          "offspring": "vvLl",
+          "probability": "1/4"
+        },
+        {
+          "gamete1": "vl",
+          "gamete2": "vl",
+          "offspring": "vvll",
+          "probability": "1/4"
+        }
+      ],
+      "genotypes": {
+        "VvLl": "1/4",
+        "Vvll": "1/4",
+        "vvLl": "1/4",
+        "vvll": "1/4"
+      },
+      "phenotypeGroups": {
+        "D/D": "1/4",
+        "D/r": "1/4",
+        "r/D": "1/4",
+        "r/r": "1/4"
+      },
+      "total": "1"
+    },
+    "new_W1_headers": {
+      "parents": [
+        "AaBB",
+        "AaBb"
+      ],
+      "gametes": [
+        {
+          "AB": "1/2",
+          "aB": "1/2"
+        },
+        {
+          "AB": "1/4",
+          "Ab": "1/4",
+          "aB": "1/4",
+          "ab": "1/4"
+        }
+      ],
+      "cells": [
+        {
+          "gamete1": "AB",
+          "gamete2": "AB",
+          "offspring": "AABB",
+          "probability": "1/8"
+        },
+        {
+          "gamete1": "AB",
+          "gamete2": "Ab",
+          "offspring": "AABb",
+          "probability": "1/8"
+        },
+        {
+          "gamete1": "AB",
+          "gamete2": "aB",
+          "offspring": "AaBB",
+          "probability": "1/8"
+        },
+        {
+          "gamete1": "AB",
+          "gamete2": "ab",
+          "offspring": "AaBb",
+          "probability": "1/8"
+        },
+        {
+          "gamete1": "aB",
+          "gamete2": "AB",
+          "offspring": "AaBB",
+          "probability": "1/8"
+        },
+        {
+          "gamete1": "aB",
+          "gamete2": "Ab",
+          "offspring": "AaBb",
+          "probability": "1/8"
+        },
+        {
+          "gamete1": "aB",
+          "gamete2": "aB",
+          "offspring": "aaBB",
+          "probability": "1/8"
+        },
+        {
+          "gamete1": "aB",
+          "gamete2": "ab",
+          "offspring": "aaBb",
+          "probability": "1/8"
+        }
+      ],
+      "genotypes": {
+        "AABB": "1/8",
+        "AABb": "1/8",
+        "AaBB": "1/4",
+        "AaBb": "1/4",
+        "aaBB": "1/8",
+        "aaBb": "1/8"
+      },
+      "phenotypeGroups": {
+        "D/D": "3/4",
+        "r/D": "1/4"
+      },
+      "total": "1"
+    },
+    "new_W2_homozygosity": {
+      "parents": [
+        "CcHh",
+        "CcHh"
+      ],
+      "gametes": [
+        {
+          "CH": "1/4",
+          "Ch": "1/4",
+          "cH": "1/4",
+          "ch": "1/4"
+        },
+        {
+          "CH": "1/4",
+          "Ch": "1/4",
+          "cH": "1/4",
+          "ch": "1/4"
+        }
+      ],
+      "cells": [
+        {
+          "gamete1": "CH",
+          "gamete2": "CH",
+          "offspring": "CCHH",
+          "probability": "1/16"
+        },
+        {
+          "gamete1": "CH",
+          "gamete2": "Ch",
+          "offspring": "CCHh",
+          "probability": "1/16"
+        },
+        {
+          "gamete1": "CH",
+          "gamete2": "cH",
+          "offspring": "CcHH",
+          "probability": "1/16"
+        },
+        {
+          "gamete1": "CH",
+          "gamete2": "ch",
+          "offspring": "CcHh",
+          "probability": "1/16"
+        },
+        {
+          "gamete1": "Ch",
+          "gamete2": "CH",
+          "offspring": "CCHh",
+          "probability": "1/16"
+        },
+        {
+          "gamete1": "Ch",
+          "gamete2": "Ch",
+          "offspring": "CChh",
+          "probability": "1/16"
+        },
+        {
+          "gamete1": "Ch",
+          "gamete2": "cH",
+          "offspring": "CcHh",
+          "probability": "1/16"
+        },
+        {
+          "gamete1": "Ch",
+          "gamete2": "ch",
+          "offspring": "Cchh",
+          "probability": "1/16"
+        },
+        {
+          "gamete1": "cH",
+          "gamete2": "CH",
+          "offspring": "CcHH",
+          "probability": "1/16"
+        },
+        {
+          "gamete1": "cH",
+          "gamete2": "Ch",
+          "offspring": "CcHh",
+          "probability": "1/16"
+        },
+        {
+          "gamete1": "cH",
+          "gamete2": "cH",
+          "offspring": "ccHH",
+          "probability": "1/16"
+        },
+        {
+          "gamete1": "cH",
+          "gamete2": "ch",
+          "offspring": "ccHh",
+          "probability": "1/16"
+        },
+        {
+          "gamete1": "ch",
+          "gamete2": "CH",
+          "offspring": "CcHh",
+          "probability": "1/16"
+        },
+        {
+          "gamete1": "ch",
+          "gamete2": "Ch",
+          "offspring": "Cchh",
+          "probability": "1/16"
+        },
+        {
+          "gamete1": "ch",
+          "gamete2": "cH",
+          "offspring": "ccHh",
+          "probability": "1/16"
+        },
+        {
+          "gamete1": "ch",
+          "gamete2": "ch",
+          "offspring": "cchh",
+          "probability": "1/16"
+        }
+      ],
+      "genotypes": {
+        "CCHH": "1/16",
+        "CCHh": "1/8",
+        "CcHH": "1/8",
+        "CcHh": "1/4",
+        "CChh": "1/16",
+        "Cchh": "1/8",
+        "ccHH": "1/16",
+        "ccHh": "1/8",
+        "cchh": "1/16"
+      },
+      "phenotypeGroups": {
+        "D/D": "9/16",
+        "D/r": "3/16",
+        "r/D": "3/16",
+        "r/r": "1/16"
+      },
+      "total": "1"
+    }
+  },
+  "additionalChecks": {
+    "MendelCounts": {
+      "round": 5474,
+      "wrinkled": 1850,
+      "exactRatio": "2737/925",
+      "decimal": 2.958918918918919,
+      "roundedTo2dp": "2.96",
+      "scope": "Reported source counts, not a new observation."
+    },
+    "squashInferenceCompatibleParents": [
+      [
+        "wwDd",
+        "Wwdd"
+      ]
+    ],
+    "squashExpected": {
+      "scoredPlants": 80,
+      "white": 40,
+      "yellowSpherical": 20,
+      "eachOf4Phenotypes": 20,
+      "sumOf4ExpectedGroups": 80
+    },
+    "VLInferenceCompatibleParents": [
+      [
+        "Vvll",
+        "vvLL"
+      ],
+      [
+        "Vvll",
+        "vvLl"
+      ]
+    ],
+    "VLfiniteSmoothOnly": "For any finite positive n, all-smooth has positive probability under bothLL andLl candidates; no prior over candidate parents is assigned.",
+    "new02CopyTask": {
+      "versions": 2,
+      "locusCopiesAfterCopying": 4,
+      "ordinaryGameteAlleleContributions": {
+        "M": "1/2",
+        "m": "1/2"
+      },
+      "copiesAreNotVersions": true
+    },
+    "newMCInclusiveUnion": {
+      "groups": [
+        "3/16",
+        "3/16",
+        "1/16"
+      ],
+      "sum": "7/16",
+      "remaining": "9/16",
+      "total": "1",
+      "doubleRecessiveCountedOnce": true
+    },
+    "newW1MalformedHeaders": {
+      "missing": "aB",
+      "duplicated": "ab",
+      "correctGrid": [
+        2,
+        4
+      ],
+      "eachCell": "1/8",
+      "total": "1"
+    },
+    "newW2Homozygotes": {
+      "CCHH": "1/16",
+      "CChh": "1/16",
+      "ccHH": "1/16",
+      "cchh": "1/16"
+    },
+    "newW2Total": "1/4",
+    "retained02MC2": "Suitable cross is not numerically specified, so no unique run probability is assigned. Six dominant offspring can occur with ordinary segregation; no mechanism-failure proof follows.",
+    "retained02Writing2": {
+      "fourOffspringExpectedDominant": 3,
+      "expectedRecessive": 1,
+      "possibleRecessiveCounts": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "reviewerOnlyDistribution": {
+        "0": "81/256",
+        "1": "27/64",
+        "2": "27/128",
+        "3": "3/64",
+        "4": "1/256"
+      },
+      "limit": "This enumeration verifies non-guarantee; combinatorics is not added to learner assessment."
+    },
+    "retained02MC1": "Two recessive contributions can yieldrr from twoRr parents at1/4; the recessive allele need not be recreated.",
+    "retained05MC1": "Independence is the stated condition justifying the separate-locus product; random fertilisation is separately taught for parental pairing."
+  },
+  "retainedRequiredItemIds": [
+    "ch17-l02-check-mc-1",
+    "ch17-l02-check-mc-2",
+    "ch17-l02-check-writing-2",
+    "ch17-l05-check-mc-1"
+  ],
+  "newRequiredItemIds": [
+    "ch17-l02-check-writing-1",
+    "ch17-l05-check-mc-2",
+    "ch17-l05-check-writing-1",
+    "ch17-l05-check-writing-2"
+  ],
+  "limits": [
+    "No claim of blind assessment; taught general method and formative overlap remain intended.",
+    "No conditional renormalisation, linkage phase, population diagnosis or new inheritance model added.",
+    "No original source/key edits; no browser/save/unlock/progress runtime test.",
+    "No external specialist or Dean acceptance."
+  ]
+}

@@ -1,0 +1,1020 @@
+Complete reading copy. Questions, options and explanations are presented as text; no work is saved in this file. All original lesson directions and protected practice are included for review, followed by the full optional routed task text.
+
+Learn · Chapter 17
+
+# Reading autosomal pedigrees
+
+How do family relationships constrain possible genotypes?
+
+Learning goal
+
+Read pedigree symbols and generations, infer autosomal genotypes under a stated model, and preserve unresolved alternatives.
+
+Before you begin
+
+An affected phenotype means different genotypes in dominant and recessive models. Define the model before assigning letters.
+
+#### **How to complete this lesson** Learn → worked example → practise → lesson check
+
+1. Read the explanation and its diagrams. Open a bold term when you need a definition.
+2. Follow the worked example, then try both supported questions. Select **Check answer** for feedback.
+3. Open the required check and select **Start**. Correct both selections to unlock writing.
+4. Write each explanation and select its **Save written response** button. Editing saved writing makes it a draft again.
+5. Select **Submit and finish** to complete the check. Find your records in **All My Work**.
+
+**Expected work:** one completed lesson check. Supported practice, videos and textbook questions are optional. Saved writing is not automatically graded.
+
+**Optional embedded reading**
+
+Chapter 17 · printed pp. 610–614
+
+[Open p. 610](#textbook-library) · [Open p. 614](#textbook-library)
+
+**Key terms:** pedigree · autosomal recessive · autosomal dominant · generation
+
+#### Vocabulary help
+
+Key terms
+
+## Words for this lesson
+
+Use these definitions when you need help with a term.
+
+**pedigree**
+
+A diagram tracing a specified trait through family relationships across generations.
+
+**autosomal recessive**
+
+A model in which a trait is expressed when two recessive alleles occur at an autosomal locus.
+
+**autosomal dominant**
+
+A model in which one dominant allele at an autosomal locus is sufficient for expression under the stated assumptions.
+
+**generation**
+
+A level of descent in a family diagram, commonly labelled with a Roman numeral.
+
+## How can an unaffected parent pass on an affected trait?
+
+Start with the family below. Both parents are unshaded, but one child is shaded. That is an observation, not yet an explanation. Is a mistake necessary, or could an allele be present in a parent without producing the recorded phenotype? The inheritance model will let us test those possibilities.
+
+A pedigree is a diagram of family relationships and one specified trait. In this figure, squares represent males and circles represent females in the stated model. A filled symbol means that the individual expresses the trait being followed; an open symbol means the trait was not observed. “Affected” is a description for this one trait, not a judgment about a person or a statement about every aspect of their health.
+
+Read the picture in two passes. First follow the relationships and shading without using the genotype answers beneath it. Then return to those answers and explain why each follows. We will use fictional classroom records, not investigate or diagnose anyone’s own family.
+
+**Pedigree: use the stated inheritance model**
+
+![In this fully penetrant autosomal recessive model, filled symbols are affected. Unaffected parents with an affected child must both be carriers. The unaffected sibling remains AA or Aa.](../assets/figures/ch17-pedigree.svg)
+
+In this fully penetrant autosomal recessive model, filled symbols are affected. Unaffected parents with an affected child must both be carriers. The unaffected sibling remains AA or Aa. Schematic — not to scale.
+
+Human geneticists cannot arrange experimental matings as a plant breeder can arrange a cross. People also have relatively few offspring and long generation times compared with fruit flies. Pedigrees organize existing family records so that relationships can constrain inheritance models despite those limits. Small samples and incomplete records make it especially important to separate a possibility from a proof.
+
+### Follow a line all the way to its person
+
+The upper horizontal line joins the two parents. Its downward line reaches the horizontal sibling line, from which separate vertical lines lead to the two children. Thus the lower filled square and lower open circle are siblings, not partners. The diagonal lines from the circled letters A, B, C and D are *label pointers*. Follow each pointer to its endpoint: A identifies the upper square, B the upper circle, C the lower square and D the lower circle. These pointer lines do not represent additional family relationships. The small dots at their endpoints are pointer marks, not carrier symbols.
+
+The letters A–D around this drawing are activity labels. They are not the alleles in a genotype. A circled “A” can point to a person whose genotype is Aa, but the label itself did not establish that genotype. Likewise, the person marked D is not automatically carrying a dominant allele called D.
+
+Other pedigrees label each generation with a Roman numeral: I is the oldest row shown, II the next, and III the next. Ordinary numbers distinguish individuals. II-3 means individual 3 in generation II. Read each diagram’s numbering convention: some drawings number people consecutively across the entire family rather than restarting each row. Neither kind of number counts chromosomes. People placed beside one another are related as partners or siblings only if the connecting lines show that relationship.
+
+In a more detailed key, a diamond may represent unspecified sex, a diagonal slash through a person may indicate that the person has died, and a special dot or half-shading may identify a known carrier. Do not transfer these conventions to an unfamiliar image without checking its key. The drawing above uses only the stated square/circle and open/filled conventions, plus its activity pointers.
+
+### Decide what shading means before assigning letters
+
+An autosome is a chromosome other than a sex chromosome. In a simple autosomal model, a child receives one allele at the locus from each parent, regardless of the child’s sex. *Dominant* and *recessive* describe how the pair of alleles relates to the phenotype. They do not mean common and rare, strong and weak, or more and less likely to be inherited.
+
+<table>
+<caption>Two different models for a shaded trait</caption>
+<thead><tr>
+<th scope="col">Stated model</th>
+<th scope="col">Genotypes with the trait</th>
+<th scope="col">Genotypes without the trait</th>
+<th scope="col">What shading alone leaves unknown</th>
+</tr></thead>
+<tbody>
+<tr>
+<th scope="row">Autosomal recessive, using A and a</th>
+<td>aa</td>
+<td>AA or Aa</td>
+<td>An open symbol does not distinguish AA from Aa</td>
+</tr>
+<tr>
+<th scope="row">Autosomal dominant, using D and d</th>
+<td>DD or Dd</td>
+<td>dd</td>
+<td>A filled symbol does not distinguish DD from Dd</td>
+</tr>
+</tbody>
+</table>
+
+Cystic fibrosis provides a familiar autosomal-recessive example. An autosomal-dominant form of polydactyly, involving additional fingers or toes, provides a contrasting example. Many different conditions can share an inheritance pattern, so identifying a pattern in a diagram does not identify a condition.
+
+These are two separate allele keys. We use different letters to keep the explanations distinct; either model could use another letter if its meaning were defined. Under the recessive model, writing **A_** means “at least one A; the other allele is unresolved.” It includes AA and Aa. The blank is not another allele, and A_ is not a synonym for Aa.
+
+For the deductions in this lesson, assume a single autosomal locus, ordinary segregation, accurate parent–offspring relationships, no new mutation, and complete expression at the time the phenotype is scored. We will return to why the last assumption matters. The caption supplies an autosomal-recessive model for the first drawing; its inheritance pattern is therefore a given to use, not something the four symbols alone uniquely prove.
+
+## Use an offspring’s required alleles to solve a parent
+
+Return to the lower filled square in the first drawing. For the stated autosomal recessive model, an affected individual must be aa. One a came through an egg and the other through a sperm. Therefore each parent carries a. Each parent is unshaded, so neither can be aa under the complete-expression assumption. Each must also carry A. Combining those two pieces of evidence gives Aa for both parents.
+
+This is the reason that the pointers A and B identify Aa and pointer C identifies aa. We did not mark the parents Aa merely because they looked unaffected. We used the affected child to establish the a contribution, then their own phenotypes to establish A. A heterozygote that carries a recessive allele without expressing its associated trait is a carrier.
+
+Now inspect the open child at pointer D. That child is not aa, but either parent could have supplied A or a. AA and Aa are both possible. The affected sibling establishes the parents’ genotypes; it does not tell us which gametes formed this other child. “Both parents must be carriers” and “the unaffected sibling might be a carrier” are different claims.
+
+### Change the model, and start from the other phenotype
+
+For an autosomal dominant trait, start with an unaffected person instead. That person is dd. An affected parent who has an unaffected dd child must have contributed d, so that parent cannot be DD. The affected phenotype establishes D and the child establishes d: together they force Dd. A child’s genotype can therefore reveal a parental allele that the parent’s appearance alone concealed.
+
+Look at the larger diagram next. It states an autosomal-dominant model. Use D for the allele producing the shaded trait and d for the alternative. The printed numbers run from 1 to 12 across the whole drawing. Start with the open symbols, then follow each necessary d contribution back one generation.
+
+![Autosomal-dominant pedigree numbered 1 through 12. Affected parents 1 and 2 have affected children 5 and 6 and unaffected child 7. Unaffected 3 and affected 4 have unaffected 8 and affected 9. Unaffected 7 and 8 have unaffected children 10, 11 and 12.](../assets/teaching-remaining-v010/slide-77-image73.png)
+
+An autosomal-dominant family. Use the printed individual numbers and the connecting lines; a filled symbol initially allows DD or Dd.
+
+1. **Write what phenotype forces.** Individuals 3, 7, 8, 10, 11 and 12 are open, so all are dd. Initially, each filled individual could be DD or Dd.
+2. **Use child 7 to test both parents.** Child 7 is dd and needs d from both 1 and 2. Because both parents are affected, both must be Dd. Two affected parents can therefore have an unaffected child in a dominant model; the cross is Dd × Dd.
+3. **Use child 8 to test parent 4.** Individual 8 is dd, so affected parent 4 supplied d and must be Dd. Parent 3 is already dd. Child 9 is affected but receives d from 3, making 9 Dd rather than DD.
+4. **Keep the unresolved pair unresolved.** Individuals 5 and 6 are affected children of Dd × Dd. Each may be DD or Dd. Nothing else in the drawing distinguishes those possibilities.
+5. **Check the last family.** Individuals 7 and 8 are dd × dd. Each contributes only d, so all their children are dd. The open symbols 10–12 agree. Under this model, a future affected child from that pair would be a contradiction, not just an unlikely draw.
+
+Notice the difference between inference and prediction. The observed dd child forced 1 and 2 to be Dd. Once we know those parents, their gametes D and d predict DD, Dd, dD and dd at 1/4 each. The expected affected fraction is 3/4, but a family with three children does not have to reproduce that ratio exactly.
+
+These deductions depend on the stated model and records. A small sample can omit a possible outcome, but it cannot produce a genotype that neither parent can supply. If a record contradicts the model, check the records and assumptions rather than quietly adding a mutation or changing the meaning of shading to rescue a favourite answer.
+
+### Try a new allele-contribution direction
+
+**Guided attempt.** In a fully expressed autosomal-recessive model, a mother is aa. She has one affected child and one unaffected child with the same father, whose phenotype was not recorded. What can you infer about the father and the unaffected child? Trace a contribution from each child rather than guessing the father from one alone.
+
+Work on paper or in your own notes before opening the hint or explanation. This optional practice is not saved or graded by this page.
+
+#### Hint: what can the mother contribute?
+
+The mother contributes a to every child. What must the father have supplied to the aa child? What must he have supplied to a child who received a from the mother but is unaffected?
+
+#### Compare the complete inference
+
+The affected child is aa, so the father supplied a. The unaffected child received a from the mother; to avoid aa, that child must have received A from the father and must be Aa. Thus the father has both A and a and is Aa. This also predicts that he is unaffected under the model, even though his phenotype was not given. Neither AA nor aa can supply both observed kinds of paternal contribution. The inferred cross aa × Aa gives 1/2 aa and 1/2 Aa among all offspring.
+
+**Check your reasoning:** name the mother’s certain a contribution, use both children, and distinguish a forced genotype from an expected frequency. This exercise practises the same inference used in some of the optional questions later.
+
+## Why an unaffected sibling has a 2/3 carrier chance
+
+Return to Aa × Aa in the first family. Each parent forms A and a gametes with probability 1/2. Assume random fertilisation: which egg type occurs does not bias which sperm type joins it. A particular pair therefore has probability 1/2 × 1/2 = 1/4. The four equally likely combinations below show the relevant sample space before we know a child’s phenotype.
+
+<table>
+<caption>All offspring combinations for Aa × Aa</caption>
+<thead><tr>
+<th scope="col">First parent’s gamete</th>
+<th scope="col">Second parent’s gamete</th>
+<th scope="col">Offspring</th>
+<th scope="col">Phenotype in the recessive model</th>
+<th scope="col">Probability among all offspring</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>A</td>
+<td>AA</td>
+<td>Unaffected, non-carrier</td>
+<td>1/4</td>
+</tr>
+<tr>
+<td>A</td>
+<td>a</td>
+<td>Aa</td>
+<td>Unaffected carrier</td>
+<td>1/4</td>
+</tr>
+<tr>
+<td>a</td>
+<td>A</td>
+<td>aA, the same genotype as Aa</td>
+<td>Unaffected carrier</td>
+<td>1/4</td>
+</tr>
+<tr>
+<td>a</td>
+<td>a</td>
+<td>aa</td>
+<td>Affected</td>
+<td>1/4</td>
+</tr>
+</tbody>
+</table>
+
+The probability of a carrier among *all* offspring is 2/4 = 1/2. But the child at pointer D is already known to be unaffected. Exclude the aa outcome because it conflicts with that information. Of the three remaining equally weighted fertilisation combinations, two produce Aa and one produces AA. Therefore P(carrier given unaffected) = (1/2)/(3/4) = **2/3**. The remaining 1/3 is the probability of AA.
+
+There are two different genotype names left, AA and Aa, but they are not equally likely. Aa can arise in two ways: A from the first parent with a from the second, or the reverse. Writing these as Aa and aA tracks parental contributions; it does not create two biologically different heterozygote genotypes. Equal weighting belongs to the four gamete combinations, not to any list of genotype names we choose to write.
+
+Use 2/3 only with the evidence that justifies it: the parents are Aa × Aa and this particular offspring is known to be unaffected in the fully penetrant recessive model. It is not a universal probability for every unaffected relative. An unaffected child of aa × Aa is certainly Aa, whereas an unaffected child of AA × Aa has a 1/2 carrier chance. Resolve the actual parental cross before choosing a denominator.
+
+### What a run of unaffected offspring can and cannot show
+
+Suppose an affected aa individual has four unaffected children with an unaffected A_ partner. AA × aa predicts only Aa, all unaffected. Aa × aa also permits four unaffected children in a row: each child has probability 1/2 of being unaffected, so the probability of all four is (1/2)<sup>4</sup> = 1/16. The observation is more expected if the partner is AA, but it does not rule out Aa.
+
+To calculate the probability that this particular partner is AA rather than Aa, we would also need information about how plausible those genotypes were before seeing the four children. We have not been given that information. We can report both compatible genotypes and the different predictions without announcing a “most likely genotype” from a small unaffected family alone. A later affected aa child would, by contrast, force the partner to be Aa.
+
+A recessive allele can persist even when affected aa individuals do not have offspring. Unaffected Aa carriers can reproduce and transmit a. The absence of affected parents therefore does not imply that the allele disappeared from the population. This is another reason to distinguish absence of a phenotype from absence of an allele.
+
+### When an open symbol is only an observation so far
+
+**Penetrance** is the proportion of people with a specified genotype who express its associated phenotype under the stated conditions. Complete penetrance means everyone with that genotype shows the phenotype. Incomplete penetrance means some do not. A condition can also have age-dependent onset: a person recorded as unaffected at age ten may develop the phenotype later. A pedigree must state what was observed and when.
+
+**Expressivity** describes the form or severity of the trait among people who express it. Mild and severe expression are not the same issue as whether the trait is expressed at all. Environmental influences, which you studied in the preceding lesson, can also affect what is observed. These complexities matter in real genetics, but do not silently substitute them for the explicit complete-expression assumptions of a classroom deduction.
+
+A well-supported conclusion states what the family evidence forces, what remains possible, and which allele contribution supplied the decisive evidence. “It skips a generation” is a clue to investigate, not a mechanism or a proof: carriers can connect affected generations in a recessive model, and incomplete or late expression can change the visible pattern in other models.
+
+Worked example
+
+### Infer both parents from a recessive child, then qualify the sibling’s result
+
+**Question.** Two unaffected parents have an affected child and an unaffected child in a fully penetrant autosomal-recessive model. What genotypes are forced, what remains unresolved, and what does this imply about another pregnancy?
+
+1. **Define the phenotype rule.** Use aa for the affected genotype and AA or Aa for unaffected genotypes. Each child receives one allele from each parent.
+2. **Start where both alleles are known.** The affected child is aa. This child needed a from each parent, establishing that both parents carry a.
+3. **Combine that contribution with each parent’s appearance.** Both parents are unaffected, so each also carries A. Both are Aa. The four possible fertilisation combinations are AA, Aa, aA and aa, each with probability 1/4.
+4. **Use the unaffected child’s own information.** Exclude aa. AA and Aa remain possible. Two of the three remaining equally weighted combinations are carriers, so the conditional carrier probability is 2/3. A probability is not a diagnosis of that individual’s genotype.
+5. **Read the next question’s population correctly.** A future child is not yet known to be unaffected. Return to all four combinations: the chance of aa is 1/4, the chance of an unaffected carrier is 1/2, and the chance of AA is 1/4. These sum to 1.
+
+The earlier affected child helped identify the parental cross; it does not use up a possible outcome. For fixed Aa parents, each conception has the same 1/4 affected probability under the model. Before either birth, the chance that two specified children are both affected is 1/4 × 1/4 = 1/16. Once the first is known to be affected, the question about the next child has a different condition and its probability is still 1/4.
+
+### Independent application: follow the evidence across three generations
+
+A fictional record concerns an autosomal-recessive trait. An affected grandmother has an unaffected daughter. The daughter has a child with a partner whose genotype has independently been established as AA. The child is unaffected. A classmate assigns the daughter’s child a 2/3 carrier probability because “an affected relative appears in the family.”
+
+Draw a three-generation pedigree with a clear key in your notes. Leave the grandmother’s partner’s genotype unresolved where appropriate. Infer the daughter’s genotype, list the daughter’s and her AA partner’s gametes, and calculate the child’s carrier probability. Explain why the classmate’s shortcut fails. Finally, if the child is later established to be Aa and has children with an aa partner, predict the affected fraction in that new cross.
+
+Work on paper or in your own notes before opening the hint or explanation. This optional practice is not saved or graded by this page.
+
+#### Compare after making your independent prediction
+
+The grandmother is aa and supplies a to her daughter. Since the daughter is unaffected, she must also have A and is therefore Aa. That A came from her other parent, who could be AA or Aa; the record does not distinguish them. The daughter’s gametes are A and a at 1/2 each. Her AA partner contributes only A. Their child is AA with probability 1/2 or Aa with probability 1/2; both possibilities are unaffected. Knowing the child is unaffected excludes nothing from this cross, so the carrier probability remains 1/2, not 2/3.
+
+The 2/3 calculation belonged to unaffected offspring of Aa × Aa, where aa outcomes had to be removed. The present cross is Aa × AA, with no aa outcomes to remove. If the child is later established as Aa and reproduces with aa, the new gamete pairings are A with a and a with a, giving 1/2 Aa and 1/2 aa. Thus the affected fraction is 1/2 in that new cross.
+
+**Marking guide:** show three generations and accurate parent–offspring lines; force Aa for the daughter; retain AA or Aa for her other parent; list correctly weighted gametes; give the 1/2 carrier result with its denominator; and justify the changed 1/2 affected prediction from the changed partner. Do not apply one family’s ratio to another cross merely because the phenotype names are the same.
+
+### What the family diagram has allowed us to explain
+
+Unaffected parents can have an affected child because their phenotype can conceal a recessive allele. A pedigree extends the same gamete-contribution reasoning you used in a Punnett square backwards through relationships. It can force a genotype, retain alternatives, or expose a contradiction under the model. It does not reveal every allele simply by displaying more relatives.
+
+The supported questions and required check that follow revisit the worked recessive inference and conditional probability. Use them to explain the reasoning in your own words. Next we will keep the parent–offspring method but change the chromosome location: an allele on X follows different routes to sons and daughters.
+
+## Practise with support
+
+### Apply the explanation
+
+Try both questions. Use the hint to revise your thinking after an incorrect answer.
+
+In an autosomal recessive model, an affected individual has which genotype?
+
+1. aa
+2. Aa
+3. AA
+
+#### Hint
+
+Define affected before reading the shading.
+
+#### Answer and explanation
+
+aa
+
+Two recessive alleles are required in this simple model.
+
+An affected dominant parent has an unaffected dd child. What must that parent be?
+
+1. DD
+2. Dd
+3. dd
+
+#### Hint
+
+Use the child’s required allele contribution.
+
+#### Answer and explanation
+
+Dd
+
+The parent must contribute d but also carry D to be affected.
+
+Stop and think
+
+## Try this before opening the explanation
+
+What does II-3 mean in a conventional pedigree?
+
+#### Show the explanation
+
+Individual 3 in generation II, not three chromosomes in the second cell.
+
+Optional video support
+
+### Reading autosomal pedigrees — video support
+
+**As you watch:** Read pedigree symbols and generations, infer autosomal genotypes under a stated model, and preserve unresolved alternatives.
+
+Optional video. Internet access is required. The explanation below covers the idea without the video.
+
+[Open on YouTube](https://www.youtube.com/watch?v=Gd09V2AkZv4)
+
+#### Read the explanation
+
+For an autosomal recessive model, affected individuals are aa. Two unaffected parents with an affected child must each contribute a. If both are unaffected, each is therefore Aa under the simple fully penetrant model. For an autosomal dominant model, unaffected individuals are dd. An affected parent with an unaffected child must be able to contribute d, so that affected parent is Dd rather than DD. The child's genotype constrains the parent's possible alleles. These deductions use the stated model, accurate relationships and complete expression. New mutations, reduced penetrance or other complexities can change the interpretation; do not add them silently to a simple problem.
+
+#### Open required check · Reading autosomal pedigrees
+
+## Explain what you have learned
+
+This check counts toward chapter progress. Correct the 2 selections to unlock 2 written explanations. Saving writing records your response; it does not grade its accuracy.
+
+Not started
+
+Required chapter check
+
+Selection 1
+
+### For Aa × Aa, what is the carrier probability among unaffected offspring?
+
+1. 1/4
+2. 1
+3. 2/3
+4. 1/2
+
+#### Hint
+
+Trace the normal mechanism before choosing an answer.
+
+#### Answer and explanation
+
+2/3
+
+Removing aa leaves AA, Aa and aA; two of three are carriers.
+
+Selection 2
+
+### Why should an unaffected person not automatically be labelled AA in a recessive pedigree?
+
+1. Recessive alleles cannot be transmitted
+2. All unaffected people are aa
+3. Shading identifies chromosome number only
+4. They may be a heterozygous carrier
+
+#### Hint
+
+Trace the normal mechanism before choosing an answer.
+
+#### Answer and explanation
+
+They may be a heterozygous carrier
+
+Both AA and Aa can be unaffected under the model.
+
+Answer the selections correctly to unlock the writing.
+
+Written explanations
+
+Written explanation 1
+
+Explain how an affected recessive child can constrain both unaffected parents’ genotypes.
+
+Maximum 3200 characters. Explain the biology in your own words.
+
+#### Compare after saving your own response
+
+The child is aa and receives a from each parent. Because each parent is unaffected under the complete-penetrance recessive model, each must also have A. Thus both parents are Aa.
+
+**Check your explanation for:**
+
+- Identifies the relevant structures or quantities.
+- Explains the causal relationship or calculation, not just the final result.
+- Uses the stated evidence and avoids a stronger conclusion than it supports.
+
+Written explanation 2
+
+Distinguish a genotype that must be present from one that remains possible, using an unaffected sibling in Aa × Aa.
+
+Maximum 3200 characters. Explain the biology in your own words.
+
+#### Compare after saving your own response
+
+An affected sibling must be aa. An unaffected sibling cannot be aa but may be AA or Aa. Without additional information, the specific genotype is unresolved; the conditional carrier probability is 2/3.
+
+**Check your explanation for:**
+
+- Identifies the relevant structures or quantities.
+- Explains the causal relationship or calculation, not just the final result.
+- Uses the stated evidence and avoids a stronger conclusion than it supports.
+
+[← Polygenic traits and environmental influences](#lesson-09)[Next: Sex-linked pedigrees and testing a model →](#lesson-11)
+
+[Optional textbook practice for Reading autosomal pedigrees](#textbook-practice)
+
+## Optional practice bank: complete reading copy
+
+These are the existing routed task texts, choices, hints and explanations. The reading copy does not score or save an attempt. The native course controls their interactive use.
+
+### Additional practice questions
+
+#### In a fully penetrant autosomal-dominant model, two affected parents have an unaffected child. What must both parents be?
+
+- Homozygous recessive
+- Heterozygous
+- Haploid
+- Homozygous dominant
+
+#### Hint
+
+Identify the relevant mechanism or quantity and apply the stated model.
+
+#### Answer and explanation
+
+Heterozygous
+
+An unaffected child is aa; both affected parents must be able to supply a, making each Aa.
+
+#### In a fully penetrant recessive model, an aa mother has an affected daughter and an unaffected son. What must their father’s genotype be?
+
+- AA
+- aa
+- Aa
+- No genotype is compatible
+
+#### Hint
+
+Identify the relevant mechanism or quantity and apply the stated model.
+
+#### Answer and explanation
+
+Aa
+
+The father supplies a to the affected child and A to the unaffected child, so he carries both alleles.
+
+#### Which term matches this description? A diagram tracing a specified trait through family relationships across generations.
+
+- pedigree
+- autosomal recessive
+- autosomal dominant
+- generation
+
+#### Hint
+
+Use the meaning of each term, not the length of its name.
+
+#### Answer and explanation
+
+pedigree
+
+A diagram tracing a specified trait through family relationships across generations. A pedigree is evidence to test a model, not proof that one clue is always decisive.
+
+#### Which term matches this description? A model in which a trait is expressed when two recessive alleles occur at an autosomal locus.
+
+- pedigree
+- autosomal recessive
+- autosomal dominant
+- generation
+
+#### Hint
+
+Use the meaning of each term, not the length of its name.
+
+#### Answer and explanation
+
+autosomal recessive
+
+A model in which a trait is expressed when two recessive alleles occur at an autosomal locus. Unaffected individuals can be AA or Aa.
+
+#### Which term matches this description? A model in which one dominant allele at an autosomal locus is sufficient for expression under the stated assumptions.
+
+- pedigree
+- autosomal recessive
+- autosomal dominant
+- generation
+
+#### Hint
+
+Use the meaning of each term, not the length of its name.
+
+#### Answer and explanation
+
+autosomal dominant
+
+A model in which one dominant allele at an autosomal locus is sufficient for expression under the stated assumptions. Affected individuals can be DD or Dd unless other evidence resolves the genotype.
+
+#### Which term matches this description? A level of descent in a family diagram, commonly labelled with a Roman numeral.
+
+- pedigree
+- autosomal recessive
+- autosomal dominant
+- generation
+
+#### Hint
+
+Use the meaning of each term, not the length of its name.
+
+#### Answer and explanation
+
+generation
+
+A level of descent in a family diagram, commonly labelled with a Roman numeral. Individual numbers identify people within a generation.
+
+### Lettered-diagram practice
+
+Pedigree: use the stated inheritance model
+
+In this fully penetrant autosomal recessive model, filled symbols are affected. Unaffected parents with an affected child must both be carriers. The unaffected sibling remains AA or Aa. Lettered identification version; answer key is not drawn.
+
+Reading-copy reference: the original teaching figure above shows the same preserved A–D mappings, with answers visible. The native course uses its separate lettered identification image for practice.
+
+#### Pedigree: use the stated inheritance model
+
+- Aa
+- aa
+- AA or Aa
+
+#### Answer and explanation
+
+- A → Aa
+- B → Aa
+- C → aa
+- D → AA or Aa
+
+### Vocabulary explanations and misconceptions
+
+#### pedigree
+
+A diagram tracing a specified trait through family relationships across generations.
+
+Symbols connected by parent–offspring lines show which relatives express a trait.
+
+A diagram tracing a specified trait through family relationships across generations. A pedigree is evidence to test a model, not proof that one clue is always decisive.
+
+Claim to evaluate: One affected symbol proves the inheritance mode.
+
+#### Compare the explanation
+
+A diagram tracing a specified trait through family relationships across generations. A pedigree is evidence to test a model, not proof that one clue is always decisive.
+
+#### autosomal recessive
+
+A model in which a trait is expressed when two recessive alleles occur at an autosomal locus.
+
+Two unaffected Aa parents can have an affected aa child.
+
+A model in which a trait is expressed when two recessive alleles occur at an autosomal locus. Unaffected individuals can be AA or Aa.
+
+Claim to evaluate: All unaffected individuals must be AA.
+
+#### Compare the explanation
+
+A model in which a trait is expressed when two recessive alleles occur at an autosomal locus. Unaffected individuals can be AA or Aa.
+
+#### autosomal dominant
+
+A model in which one dominant allele at an autosomal locus is sufficient for expression under the stated assumptions.
+
+An affected Dd individual and unaffected dd partner can have affected or unaffected children.
+
+A model in which one dominant allele at an autosomal locus is sufficient for expression under the stated assumptions. Affected individuals can be DD or Dd unless other evidence resolves the genotype.
+
+Claim to evaluate: Every affected dominant individual must be DD.
+
+#### Compare the explanation
+
+A model in which one dominant allele at an autosomal locus is sufficient for expression under the stated assumptions. Affected individuals can be DD or Dd unless other evidence resolves the genotype.
+
+#### generation
+
+A level of descent in a family diagram, commonly labelled with a Roman numeral.
+
+I, II and III distinguish successive levels in a pedigree.
+
+A level of descent in a family diagram, commonly labelled with a Roman numeral. Individual numbers identify people within a generation.
+
+Claim to evaluate: The Roman numeral gives the person’s chromosome count.
+
+#### Compare the explanation
+
+A level of descent in a family diagram, commonly labelled with a Roman numeral. Individual numbers identify people within a generation.
+
+### Application practice
+
+#### Two affected parents produce an unaffected child under a fully penetrant autosomal dominant model. Which parental genotypes fit?
+
+- DD × Dd
+- Dd × Dd
+- dd × dd
+- DD × DD
+
+#### Hint
+
+Trace the normal mechanism before choosing an answer.
+
+#### Answer and explanation
+
+Dd × Dd
+
+Each parent must be able to contribute d, making the child dd possible.
+
+#### Two affected parents produce an unaffected child under a fully penetrant autosomal dominant model. Which parental genotypes fit?
+
+#### Answer and explanation
+
+Dd × Dd. Each parent must be able to contribute d, making the child dd possible.
+
+### Term-retrieval practice
+
+#### Identify the term illustrated: Symbols connected by parent–offspring lines show which relatives express a trait.
+
+#### Hint
+
+Use the relationship described in the example.
+
+#### Answer and explanation
+
+pedigree
+
+A diagram tracing a specified trait through family relationships across generations. A pedigree is evidence to test a model, not proof that one clue is always decisive.
+
+#### Identify the term illustrated: Two unaffected Aa parents can have an affected aa child.
+
+#### Hint
+
+Use the relationship described in the example.
+
+#### Answer and explanation
+
+autosomal recessive
+
+A model in which a trait is expressed when two recessive alleles occur at an autosomal locus. Unaffected individuals can be AA or Aa.
+
+#### Identify the term illustrated: An affected Dd individual and unaffected dd partner can have affected or unaffected children.
+
+#### Hint
+
+Use the relationship described in the example.
+
+#### Answer and explanation
+
+autosomal dominant
+
+A model in which one dominant allele at an autosomal locus is sufficient for expression under the stated assumptions. Affected individuals can be DD or Dd unless other evidence resolves the genotype.
+
+#### Identify the term illustrated: I, II and III distinguish successive levels in a pedigree.
+
+#### Hint
+
+Use the relationship described in the example.
+
+#### Answer and explanation
+
+generation
+
+A level of descent in a family diagram, commonly labelled with a Roman numeral. Individual numbers identify people within a generation.
+
+### Multiple-selection practice
+
+#### Select the TWO accurate statements about reading autosomal pedigrees.
+
+- Affected individuals can be DD or Dd unless other evidence resolves the genotype.
+- The Roman numeral gives the person’s chromosome count.
+- A pedigree is evidence to test a model, not proof that one clue is always decisive.
+- All unaffected individuals must be AA.
+
+#### Hint
+
+Check every statement against the mechanism; do not assume a negative statement is correct.
+
+#### Answer and explanation
+
+A pedigree is evidence to test a model, not proof that one clue is always decisive. Affected individuals can be DD or Dd unless other evidence resolves the genotype. Unaffected individuals can be AA or Aa. Individual numbers identify people within a generation.
+
+- A pedigree is evidence to test a model, not proof that one clue is always decisive.
+- Affected individuals can be DD or Dd unless other evidence resolves the genotype.
+
+### Individual diagram-label questions
+
+#### What does letter A identify?
+
+- AA or Aa
+- Aa
+- aa
+
+#### Hint
+
+Follow the leader line or the lettered feature. Read any stated model assumptions.
+
+#### Answer and explanation
+
+Letter A identifies Aa.
+
+#### What does letter B identify?
+
+- aa
+- AA or Aa
+- Aa
+
+#### Hint
+
+Follow the leader line or the lettered feature. Read any stated model assumptions.
+
+#### Answer and explanation
+
+Letter B identifies Aa.
+
+#### What does letter C identify?
+
+- aa
+- AA or Aa
+- Aa
+
+#### Hint
+
+Follow the leader line or the lettered feature. Read any stated model assumptions.
+
+#### Answer and explanation
+
+Letter C identifies aa.
+
+#### What does letter D identify?
+
+- Aa
+- AA or Aa
+- aa
+
+#### Hint
+
+Follow the leader line or the lettered feature. Read any stated model assumptions.
+
+#### Answer and explanation
+
+Letter D identifies AA or Aa.
+
+## Optional textbook task reading copy
+
+The task words below are copied from the routed source text. Full-page images preserve diagrams, layout and continuation text that cannot be represented reliably by text extraction. Use the printed question number in the image. These pages are supplementary source readings, not additional required checks.
+
+### In Text · p. 609 · question 26
+
+2   What is the difference between a  trait that has multiple alleles and  a trait that is controlled by multiple  genes? Give an example of each.
+
+Source context: [printed page 608](../assets/source-task-pages/p608.png), [printed page 609](../assets/source-task-pages/p609.png)
+
+### In Text · p. 609 · question 27
+
+2   What is a continuous trait?
+
+Source context: [printed page 608](../assets/source-task-pages/p608.png), [printed page 609](../assets/source-task-pages/p609.png)
+
+### In Text · p. 609 · question 28
+
+2   Give an example of one way  (other than the ways described  above) that environment can  inﬂ uence the expression of  genetic traits.
+
+Source context: [printed page 608](../assets/source-task-pages/p608.png), [printed page 609](../assets/source-task-pages/p609.png)
+
+### In Text · p. 611 · question 29
+
+2   Give an example (other than  those provided in the textbook)  of how selective breeding has  developed a new species of plant  or animal.
+
+Source context: [printed page 610](../assets/source-task-pages/p610.png), [printed page 611](../assets/source-task-pages/p611.png)
+
+### In Text · p. 612 · question 30
+
+2   Distinguish between the meaning  of roman numerals and arabic  numerals in a pedigree.
+
+Source context: [printed page 611](../assets/source-task-pages/p611.png), [printed page 612](../assets/source-task-pages/p612.png)
+
+### In Text · p. 612 · question 31
+
+2   What is autosomal inheritance?
+
+Source context: [printed page 611](../assets/source-task-pages/p611.png), [printed page 612](../assets/source-task-pages/p612.png)
+
+### In Text · p. 614 · question 32
+
+2   How do pedigrees for autosomal  recessive and X-linked recessive  traits differ?
+
+Source context: [printed page 613](../assets/source-task-pages/p613.png), [printed page 614](../assets/source-task-pages/p614.png)
+
+### In Text · p. 614 · question 33
+
+2   Can a female have hemophilia?  Explain.
+
+Source context: [printed page 613](../assets/source-task-pages/p613.png), [printed page 614](../assets/source-task-pages/p614.png)
+
+### Section 17 2 · p. 609 · question 1
+
+1. Describe how the process of crossing over of non-sister 
+chromatids led to an understanding of linked genes.
+
+Source context: [printed page 609](../assets/source-task-pages/p609.png)
+
+### Section 17 2 · p. 609 · question 2
+
+2. A woman with normal vision marries a man with 
+normal vision. They have three children, and one is 
+colour blind.
+ 
+ a) What can you conclude about the genotypes of 
+the parents?
+ 
+ b) What sex is the child who is colour blind? How 
+do you know?
+
+Source context: [printed page 609](../assets/source-task-pages/p609.png)
+
+### Section 17 2 · p. 609 · question 3
+
+3. Could a person with type AB blood have a child with 
+type O blood? Explain.
+
+Source context: [printed page 609](../assets/source-task-pages/p609.png)
+
+### Section 17 2 · p. 609 · question 4
+
+4. Your friend keeps rabbits as pets. She has bred her 
+female albino rabbit with her male Himalayan rabbit. 
+“I’m hoping I’ll get some agouti rabbits,” she says. What 
+are her chances of getting an agouti rabbit? Explain.
+
+Source context: [printed page 609](../assets/source-task-pages/p609.png)
+
+### Section 17 2 · p. 609 · question 5
+
+sister 
+es.
+s 
+ 
+ 
+ith 
+ 5. In one species of bean plant, weight is infl uenced by two 
+different genes.
+ 
+ a) How many weight classes would you expect to fi nd 
+in this plant population? Explain using a Punnett 
+square or another visual representation.
+ 
+ b) When you analyze the weights of several beans 
+from the same cross, you fi nd that many beans 
+have weights between the predicted weight classes. 
+Identify two other factors that could infl uence 
+the bean phenotypes.
+
+Source context: [printed page 609](../assets/source-task-pages/p609.png)
+
+### Section 17 2 · p. 609 · question 6
+
+ith 
+bit. 
+What 
+n.
+ 6. Siamese cats that spend their lives indoors tend to 
+have lighter-coloured fur than Siamese cats that live 
+outdoors. What genetic process could account for 
+this change?
+
+Source context: [printed page 609](../assets/source-task-pages/p609.png)
+
+### Section 17 3 · p. 617 · question 3
+
+3. Examine the following pedigree.
+a) What can you deduce about the pattern of 
+inheritance of the trait?
+b) Give one example of a human genetic condition 
+that is passed on in this way.
+c) What is the genotype of individual I 1?
+�
+�
+�
+�
+�
+�
+�
+�
+�
+�
+�
+�
+���
+��
+�
+
+Source context: [printed page 617](../assets/source-task-pages/p617.png)
+
+### Section 17 3 · p. 617 · question 4
+
+ng 
+chers 
+ 4. You have discovered a new autosomal recessive genetic 
+condition. Individuals with this condition do not 
+survive long after birth, and so do not have children 
+of their own. Will the trait be eliminated from the 
+population over time? Explain.
+
+Source context: [printed page 617](../assets/source-task-pages/p617.png)
+
+### Chapter Review · p. 620 · question 5
+
+5. A cross of true-breeding purple-fl owered and true-
+breeding white-fl owered plants results in F1 plants that 
+are all lavender (light purple). A cross of two F1 plants 
+results in an F2 generation with the following numbers 
+of phenotypes: 28 purple, 52 lavender, and 19 white. 
+ 
+ a) What were the genotypes of the F1 generation? 
+Explain.
+ 
+ b) Use a Punnett square to show the predicted 
+phenotypes and genotypes of the F2 generation. 
+ 
+ c) Describe the type of inheritance that this cross reveals.
+
+Source context: [printed page 620](../assets/source-task-pages/p620.png)
+
+### Chapter Review · p. 620 · question 16
+
+16. Fruit fl ies can have normal wings or stunted wings. 
+In an experiment, you mate several normal-winged 
+females with a male that has stunted wings. In the 
+F1 generation, only the males have stunted wings. 
+ 
+ a) What can you conclude from this experiment?
+
+Source context: [printed page 620](../assets/source-task-pages/p620.png), [printed page 621](../assets/source-task-pages/p621.png)
+
+### Chapter Review · p. 621 · question 21
+
+21. Osteogenesis imperfecta (OI), also known as brittle 
+bone disease, results in extremely fragile bones that tend 
+to break for no apparent reason. The following pedigree 
+traces OI in a family. Based on the pedigree, what sort 
+of inheritance pattern does OI display? Identify the 
+phenotypes and genotypes of all the people shown in 
+this pedigree. Whose genotype can you not be sure of?
+
+Source context: [printed page 621](../assets/source-task-pages/p621.png)
+
+### Chapter Review · p. 621 · question 25
+
+le 
+at tend 
+digree 
+sort 
+e 
+n in 
+e of?
+ 25. Many breeds of dogs are known for a high incidence of 
+genetic disorders. German Shepherd and Saint Bernard 
+dogs, for example, are predisposed to develop a crippling 
+condition called hip dysplasia. Why are purebred dogs 
+more at risk for such conditions than mixed breeds are? 
+What advice would you give to dog breeders who want 
+to maintain their dogs’ purebred pedigrees, but also 
+want their dogs to be as healthy as possible?
+
+Source context: [printed page 621](../assets/source-task-pages/p621.png)
+
+## Full source pages for the routed textbook tasks
+
+![Complete textbook printed page 608, including the original question wording, figures and any question continuation.](../assets/source-task-pages/p608.png)
+
+Printed page 608; one-based PDF page 25.
+
+![Complete textbook printed page 609, including the original question wording, figures and any question continuation.](../assets/source-task-pages/p609.png)
+
+Printed page 609; one-based PDF page 26.
+
+![Complete textbook printed page 610, including the original question wording, figures and any question continuation.](../assets/source-task-pages/p610.png)
+
+Printed page 610; one-based PDF page 27.
+
+![Complete textbook printed page 611, including the original question wording, figures and any question continuation.](../assets/source-task-pages/p611.png)
+
+Printed page 611; one-based PDF page 28.
+
+![Complete textbook printed page 612, including the original question wording, figures and any question continuation.](../assets/source-task-pages/p612.png)
+
+Printed page 612; one-based PDF page 29.
+
+![Complete textbook printed page 613, including the original question wording, figures and any question continuation.](../assets/source-task-pages/p613.png)
+
+Printed page 613; one-based PDF page 30.
+
+![Complete textbook printed page 614, including the original question wording, figures and any question continuation.](../assets/source-task-pages/p614.png)
+
+Printed page 614; one-based PDF page 31.
+
+![Complete textbook printed page 617, including the original question wording, figures and any question continuation.](../assets/source-task-pages/p617.png)
+
+Printed page 617; one-based PDF page 34.
+
+![Complete textbook printed page 620, including the original question wording, figures and any question continuation.](../assets/source-task-pages/p620.png)
+
+Printed page 620; one-based PDF page 37.
+
+![Complete textbook printed page 621, including the original question wording, figures and any question continuation.](../assets/source-task-pages/p621.png)
+
+Printed page 621; one-based PDF page 38.

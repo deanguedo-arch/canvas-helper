@@ -1,0 +1,243 @@
+# Actual trial draft review
+
+Review applies only to full-read input hashes and the bounded delta history below. Static binding inspection is separate from native UI tests, teacher approval and integration.
+
+## lesson-02
+
+Input `c5712fcf6e33e732a3985593bdbea867749f2cfcaa38000c6a8290ee498af2af`, 17871 bytes. Full prior17782-byte draft read at a0238191… plus exact three-paragraph final delta to17871-byte c5712fcf…; all current content is covered by that full-read-plus-delta scope. Prior snapshot retained.
+
+Science review:
+
+```json
+{
+  "entryAndNotation": "Purple/white flower history transitions explicitly to round/wrinkled R/r seed model. The phenotype belongs to each offspring seed with its own genotype. True-breeding tied to relevant breeding history and simple one-locus model; dominance not common/better/more likely inherited.",
+  "mechanism": "Chromosome/homologue/sister-chromatid/diploid/haploid meanings precede causal use. DNA copying preserves allele versions; first division separates homologues, second separates sisters with no intervening copying. Flowering-plant gamete production is distinguished from directly calling meiotic products gametes. Egg+sperm fertilisation restores pair in zygote.",
+  "crosses": "RR×rr→Rr. F1 seeds explicitly grow into plants before F1 self-pollination or F1-to-F1 cross. Rr×Rr table has RR,Rr,rR,rr, equal contribution pairs under random fertilisation;1:2:1 genotype and3:1 phenotype groups correct.",
+  "historicalCounts": {
+    "round": 5474,
+    "wrinkled": 1850,
+    "total": 7324,
+    "ratio": 2.958918918918919,
+    "approximation": "2.96:1"
+  },
+  "assumptions": "Known genotypes, ordinary equal segregation, random fertilisation, complete dominance, reliable phenotype expression and no selective loss are explicit. Expected proportions are not an offspring schedule or guaranteed small-sample count.",
+  "arrowTask": "Full visible two-row stimulus reverses process names. Model correctly restores segregation to parental-pair→gamete contribution and fertilisation to egg+sperm→pair, and asks for causal repair beyond renaming.",
+  "reciprocalTask": "rr egg/RR pollen and RR egg/rr pollen each yield Rr, round offspring seeds under the stipulated parent-origin-invariant autosomal model. Model distinguishes seed genotype from receiving plant and limits conclusion to that model.",
+  "firstUseRepair": "Probability now defined before table probabilities. Autosomal is defined as a gene on a chromosome other than a sex chromosome before its later independent-task use."
+}
+```
+
+Protected-target comparison:
+
+- The complete source P→F1→F2 path teaches the science assessed by protected02; no blindness is claimed. It is expanded causal source teaching, not a new exercise using the exact required prompt/model.
+- New guided arrow repair diagnoses two process labels with full visible stimulus. It does not repeat protected six-run or exact-four-offspring tasks.
+- New independent reciprocal-parent-role inference reuses necessary RR×rr→Rr core/source/optional ch17-l02-application-1 content, explicitly disclosed. The full response tests whether the receiving parent alone determines seed phenotype, not the protected full F1/F2 narrative.
+- The discarded RR×Rr candidate, which directly matched protected03 MC1, is absent from the actual draft.
+- Global required08 chromosome-route tasks are not equivalent to the expressly autosomal reciprocal-role question. No new sex-linked lesson is introduced.
+
+Native binding results:
+
+```json
+{
+  "originalTeachingIdsExactlyOnce": true,
+  "originalEditOwnersPreserved": true,
+  "allIdsUnique": true,
+  "newIdsFreshNamespaced": true,
+  "onlyNativeClasses": true,
+  "allVocabularyMacrosResolve": true,
+  "originalInBodyVocabularyTargetsRetained": true,
+  "nativeFigureTokensMatch": true,
+  "noRuntimeOrStyleInjection": true,
+  "noRequiredOrHardcodedExtensionHooks": true,
+  "allNoteBindingsMatchNativeContract": true,
+  "onlyNativeNoteSaveButtonsInUnexpandedInput": true,
+  "tablesUseNativeWrapper": true
+}
+```
+
+Open findings:
+
+```json
+[]
+```
+
+## lesson-05
+
+Input `eac351c08ef28c82b936cf1baa206dbfb5f14feef65338d3e196d3c5aa0f6b4e`, 30601 bytes. Entire initial6007eedc… and revised30200-byte e42c7e64… drafts read, including every paragraph/table/task/hint/model/control. Final30601-byte eac351c0… exact four-paragraph delta read against retained full-read e42 snapshot. All current content covered; no browser/runtime test performed.
+
+Science review:
+
+```json
+{
+  "peaParentsAndGametes": "TTGG×ttgg supplies TG/tg and yields TtGg F1. Different homologous pairs orient independently in meiosis I; sister separation completes meiosis, not a second chromosome-set reduction. Gametes TG,Tg,tG,tg each1/4; not all four types promised from every individual meiosis.",
+  "figureReading": "Original A/a and B/b allele circles distinguished from bottom A–D location labels. A then b reaches locationB, and exact original SVG key is B · Ab. Full original figure remains a macro for exact-source insertion.",
+  "peaGrid": {
+    "parents": "TtGg × TtGg",
+    "dimensions": "4×4",
+    "cellProbability": "1/16",
+    "genotypeCounts": {
+      "TTGG": 1,
+      "TTGg": 2,
+      "TTgg": 1,
+      "TtGG": 2,
+      "TtGg": 4,
+      "Ttgg": 2,
+      "ttGG": 1,
+      "ttGg": 2,
+      "ttgg": 1
+    },
+    "phenotypeCounts": {
+      "tall/green": 9,
+      "tall/yellow": 3,
+      "short/green": 3,
+      "short/yellow": 1
+    },
+    "check": "Nine genotypes, four mutually exclusive/exhaustive phenotype groups; all16 table cells correct. Genotype weights and phenotype weights each total16."
+  },
+  "operations": "Gamete-locus independence distinguished from random fertilisation between parents. Multiplication requires stated independent contributions; addition combines disjoint phenotype alternatives. Tall subtotal9/16+3/16=3/4 correct. Complete dominance, complete penetrance/reliable scoring, no selective loss and finite-sample limits stated.",
+  "tomato": {
+    "parents": "RrTt × RRTt",
+    "gametes1": [
+      "RT",
+      "Rt",
+      "rT",
+      "rt"
+    ],
+    "gametes2": [
+      "RT",
+      "Rt"
+    ],
+    "gameteProbabilities": [
+      "1/4",
+      "1/2"
+    ],
+    "dimensions": "4×2",
+    "cellProbability": "1/8",
+    "genotypeCounts": {
+      "RRTT": 1,
+      "RRTt": 2,
+      "RRtt": 1,
+      "RrTT": 1,
+      "RrTt": 2,
+      "Rrtt": 1
+    },
+    "phenotypesInRequestedOrder": [
+      "3/4 red/tall",
+      "0 yellow/tall",
+      "1/4 red/short",
+      "0 yellow/short"
+    ],
+    "check": "Eight cells, six genotypes; all red because second parent suppliesR. Source source-grouping change explicitly left as administrative review conflict, not a science error."
+  },
+  "guidedTomatoChange": {
+    "parents": "RrTt × RRtt",
+    "gametes2": [
+      "Rt"
+    ],
+    "dimensions": "4×1",
+    "offspring": [
+      "RRTt",
+      "RRtt",
+      "RrTt",
+      "Rrtt"
+    ],
+    "eachProbability": "1/4",
+    "short": "1/2",
+    "yellow": "0",
+    "feedbackPrecision": "Final feedback correctly distinguishes an unnecessary duplicate Rt column from wrongly retaining RT, which RRtt cannot produce."
+  },
+  "squash": {
+    "initial": "wwD_ × W_dd",
+    "observed": "wwdd offspring",
+    "forced": "wwDd × Wwdd",
+    "gametes1": [
+      "wD",
+      "wd"
+    ],
+    "gametes2": [
+      "Wd",
+      "wd"
+    ],
+    "dimensions": "2×2",
+    "offspring": [
+      "WwDd",
+      "wwDd",
+      "Wwdd",
+      "wwdd"
+    ],
+    "eachProbability": "1/4",
+    "expectedAmong80": {
+      "eachPhenotype": 20,
+      "whiteAllShapes": 40,
+      "yellowSpherical": 20
+    },
+    "check": "Forward probability follows inverse allele inference. Counts refer to plants grown/scored with no selective loss; not actual guarantees. White subtotal overlaps two categories and is not added again to the complete four-category total."
+  },
+  "independentEvidence": {
+    "parentsInitially": "V_ll × vvL_",
+    "observed": "white/smooth offspring",
+    "childForced": "vvLl",
+    "actualGametes": [
+      "vl",
+      "vL"
+    ],
+    "parent1Forced": "Vvll",
+    "parent2Possible": [
+      "vvLL",
+      "vvLl"
+    ],
+    "discriminatingFutureEvidence": "A lobed ll child forces parent2 vvLl. Any finite smooth-only run can arise under either candidate, so it does not forceLL.",
+    "check": "No unsupported prior weights, posterior, selected denominator or family diagnosis. Trait model is hypothetical and explicit."
+  },
+  "dependencies": "Single-locus method attributed correctly to actual native03. Unknown-genotype/tester inference relies on native04; no reverse conditional probability presumed. Incomplete/codominant printedp595 questions13/15/16 explicitly return after06; linkage/maps deferred12–13."
+}
+```
+
+Protected-target comparison:
+
+- Source pea T/G core grid and9:3:3:1 necessarily teach the same structure as required05 aaB_3/16 and optional2131227/2131237. Its ttG_3/16 group is a dominance-preserving relabel of that required category. This is explicit essential core/source teaching, not claimed blinded protection.
+- Tomato RrTt×RRTt changes the dominance-bearing homozygote and phenotype result; it does not reproduce required AaBb×aaBb A_bb=1/8 under dominance-preserving relabel. Eight-cell probability1/8 is not that protected phenotype event.
+- Protected writing1 asks only gametes/4×2. The adapted tomato retains the complete generic response template; swapping which colour allele is fixed maps the segregation graph. The written-response copyability/fidelity conflict remains materially unresolved; root selected this as a flagged trial, not full answer safety.
+- Original tomato source had four nonzero phenotype groups3/8,3/8,1/8,1/8; adaptation has two nonzero groups3/4,1/4. This grouping and difficulty cost is not erased by correct math or preserved4×2 dimensions.
+- Squash source inverse inference is distinct from supplied-parent tomato calculation. It uses native04 tester principles; its1:1:1:1 result matches optional2131242 numerically, but that double-heterozygote tester has4×1 contributions rather than squash2×2. N80/20 arithmetic coincidence is disclosed.
+- Guided changed partner gives4×1 andhalf short, distinct from protected4×2/1/8 response. New independent evidence task combines a forced first parent with unresolved second-parent alternatives, rather than copying a complete required04 response.
+- Original native figure carries its own A–D answer key; teaching its reading inherently supports protected labeling. No new independent figure test is claimed.
+
+Native binding results:
+
+```json
+{
+  "originalTeachingIdsExactlyOnce": true,
+  "originalEditOwnersPreserved": true,
+  "allIdsUnique": true,
+  "newIdsFreshNamespaced": true,
+  "onlyNativeClasses": true,
+  "allVocabularyMacrosResolve": true,
+  "originalInBodyVocabularyTargetsRetained": true,
+  "nativeFigureTokensMatch": true,
+  "noRuntimeOrStyleInjection": true,
+  "noRequiredOrHardcodedExtensionHooks": true,
+  "allNoteBindingsMatchNativeContract": true,
+  "onlyNativeNoteSaveButtonsInUnexpandedInput": true,
+  "tablesUseNativeWrapper": true
+}
+```
+
+Open findings:
+
+```json
+[
+  {
+    "severity": "material unresolved trial assessment/source decision",
+    "location": "Tomato4×2 worked example versus protected ch17-l05-check-writing-1 and PPT43–45",
+    "finding": "Strong gamete-response-template copyability remains, and homozygous-dominant adaptation changes four nonzero source phenotype groups to two. Correct science/static bindings do not establish blinded assessment protection or full source-method fidelity.",
+    "status": "Explicitly retained by root as an open teacher-decision conflict; no source assessment/key edit and no acceptance inferred."
+  }
+]
+```
+
+Pending routes: none.
+
+Tomato4×2 gamete-template copyability and changed phenotype grouping/difficulty remain flagged in prospective source review; actual05 full-read-plus-delta review is complete; the disclosed tradeoff remains unresolved for teacher decision.
+
+No saved-note UI test was run. Registration titles and any configuration insertion remain separate proposals.

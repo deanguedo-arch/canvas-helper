@@ -1,0 +1,118 @@
+{
+  "document": "Targeted original-source conflict and qualification register — bounded trial v0.2.0",
+  "status": "Original sources read-only; no silent key/source revision. Both current02/05 inputs fully covered by initial reads plus bounded deltas. Closed wording repairs are distinct from unresolved assessment/source-method decisions.",
+  "items": [
+    {
+      "id": "SRC-02-01",
+      "classification": "Original wording qualification",
+      "locator": "PPT actual13 and17–20",
+      "observation": "The original uses test-cross wording broadly for parental/F1 work.",
+      "disposition": "Technical testcross means crossing to a recessive tester; current02 uses controlled cross/self-pollination and retains the intended Mendel sequence."
+    },
+    {
+      "id": "SRC-02-02",
+      "classification": "Model scope and finite-sample qualification",
+      "locator": "PPT actual15; textbook printed589/PDF6 Figure17.5",
+      "observation": "Slide15 presents schematic3:1 fractions. Actual source count5474:1850 is approximately2.96:1.",
+      "disposition": "Current02 distinguishes prediction from compulsory finite outcomes and cites real counts from Figure17.5, not slide15."
+    },
+    {
+      "id": "SRC-02-03",
+      "classification": "Mechanism wording qualification",
+      "locator": "PPT actual22–23; textbook printed589/PDF6 and597/PDF14 Figure17.14",
+      "observation": "Contribution separation and random union have distinct mechanisms; blanket two-copy wording needs an ordinary diploid-locus scope.",
+      "disposition": "Current02 separates segregation from fertilisation and explicitly bounds diploid/haploid, seed genotype and ordinary autosomal assumptions."
+    },
+    {
+      "id": "SRC-05-01",
+      "classification": "Certain typography / overbroad model statement",
+      "locator": "Textbook printed593/PDF10 Figure17.10 and adjacent dihybrid prose",
+      "observation": "One figure parent label reads TgGg where surrounding cross/grid implies TtGg; a9:3:3:1 phenotype ratio is not true of every two-trait cross.",
+      "disposition": "Original figure remains unchanged. Current05 derives9:3:3:1 only for TtGg×TtGg under independence, complete dominance, complete penetrance and equal scoring. Protected structural answer overlap is separately recorded asSRC-BOUND-02."
+    },
+    {
+      "id": "SRC-05-02",
+      "classification": "Context ambiguity, not a proven diagram-stage error",
+      "locator": "PPT actual41, original image44",
+      "observation": "Text mentions metaphaseI while referring to prior meiosisII notes; image includes more than one meiotic stage.",
+      "disposition": "Teach independent homolog orientation at meiosisI. Do not declare the full source image places the event in meiosisII solely from its context label."
+    },
+    {
+      "id": "SRC-05-03",
+      "classification": "Certain terminology error and overbroad scope",
+      "locator": "Textbook printed596/PDF13 chromosome-theory paragraph;597/PDF14",
+      "observation": "Synapsis is homolog pairing, not separation. Statements making all genes independently assort need linkage qualification.",
+      "disposition": "New source-derived account must distinguish pairing/separation and state the different/unlinked-locus model. Original text remains read-only."
+    },
+    {
+      "id": "SRC-05-04",
+      "classification": "Source wording and counting qualification",
+      "locator": "PPT actual46–47",
+      "observation": "Squash task shifts fruit to flower terminology and calls the count actual. Its80-seed denominator does not itself establish80 plants successfully grown/scored.",
+      "disposition": "Current05 retains inverse genotype reasoning before resolved parents, W/D andN80. It explicitly counts80 plants grown/scored and expected40/20, corrects fruit/flower terminology, and does not claim this cross proves independent assortment."
+    },
+    {
+      "id": "SRC-05-05",
+      "classification": "Native/printed sequencing context",
+      "locator": "Native05 optional textbook tasks: printed595/PDF12 questions13,15,16",
+      "observation": "These preserved questions require incomplete-dominance/codominance ideas beyond the simple complete-dominance05 model.",
+      "disposition": "Current05 includes the explicit return-after06 cue. Original tasks and reader bindings remain unchanged; this is a supported sequencing accommodation, not missing source availability."
+    },
+    {
+      "id": "SRC-05-06",
+      "classification": "Qualified original quiz assumptions/context",
+      "locator": "Original quiz_d2l_59230.xml itemsOBJ_2131227,OBJ_2131236,OBJ_2131237,OBJ_2131242; current native05 corresponding source-derived items",
+      "observation": "Original question assumptions and simplistic human-trait context are not reliable universal facts; current native versions use explicit simple/abstract models.",
+      "disposition": "Protected native prompt/options/keys/feedback remain authoritative and unchanged. Do not introduce original simplistic human traits as established Mendelian facts."
+    },
+    {
+      "id": "SRC-BOUND-01",
+      "classification": "Protected assessment / source-method conflict remains unresolved",
+      "locator": "PPT actual43–45; native ch17-l05-check-writing-1 and ch17-l05-check-writing-2",
+      "observation": "Original RrTt×rrTt fully solves the protected gamete-list task and is isomorphic to the protected1/8 phenotype target. Letter changes do not solve that problem.",
+      "disposition": "Completed candidate RrTt×RRTt changes the phenotype answer but keeps strong4×2 template overlap and loses two nonzero phenotype groups. This remains unresolved for Dean. Correct calculations and completed source review do not clear source-demand/assessment readiness."
+    },
+    {
+      "id": "SRC-CONTEXT-01",
+      "classification": "Relevant original printed-task reservations",
+      "locator": "Textbook printed598/PDF15 reviewQ8–9;620/PDF37 reviewQ13",
+      "observation": "Q8 appears to reference the wrong earlier problem; Q9 population/context assumptions are ambiguous; four phenotype categories alone inQ13 do not prove independence over linkage with recombination.",
+      "disposition": "These original tasks are unchanged and are not imported as solved trial tasks. Relevant-task search is not a full reread of every chapter problem."
+    },
+    {
+      "id": "SRC-BOUND-02",
+      "classification": "Source-core/protected assessment overlap, unresolved acceptance boundary",
+      "locator": "PPT actual35–40; printed593/PDF10 Figure17.10; native ch17-l05-check-mc-2 and ch17-source-OBJ_2131237",
+      "observation": "The full source pea derivation explicitly includes ttG_3/16 and T_gg3/16, structurally equivalent to the protected aaB_ and A_bb targets under dominance-preserving relabelling.",
+      "disposition": "The completed candidate retains the source-required pea method and discloses the overlap. It is not declared assessment-blind; Dean’s acceptance of this source/assessment alignment remains pending."
+    },
+    {
+      "id": "AUTHOR-05-01",
+      "classification": "Closed new-prose mechanism precision",
+      "locator": "New05 ch17-l05-teaching-01-p2; original first-read6007eedc versus finaleac351c0",
+      "observation": "Initial new sentence said sister separation completes the reduction, which could put chromosome-set reduction in meiosisII.",
+      "disposition": "Root changed it to completes meiosis. Exact bounded delta read; homolog separation in meiosisI remains the reduction mechanism. No source edit."
+    },
+    {
+      "id": "AUTHOR-05-02",
+      "classification": "Closed new-prose native figure-reading precision",
+      "locator": "Native ./assets/figures/ch17-two-trait.svg; new05 teaching-01 figure paragraph",
+      "observation": "A→b branch reaches location markerB, while the footer key decodes B·Ab. Location markers and allele letters must be distinguished.",
+      "disposition": "Current paragraph explicitly identifies the bottom marker and key. Native SVG source geometry/text read directly; no asset change or browser-render claim."
+    },
+    {
+      "id": "SRC-CONTEXT-02",
+      "classification": "Adjacent original-source reservation, not imported into current05 mechanism",
+      "locator": "Printed599–600/PDF16–17, linkage/crossing-over text",
+      "observation": "Printed599 specifies exchange between nonsister chromatids; adjacent600 says sister chromatids and overgeneralizes uniform crossover likelihood. Those source phrasings need qualification for later detailed linkage teaching.",
+      "disposition": "The current05 boundary only states close linked loci can have unequal gamete frequencies. It does not import crossover geometry, fixed physical map distances or the original broad crossover-distribution claim. These two pages were targeted-text read for that boundary only."
+    }
+  ],
+  "evidence": [
+    "ADAPTATION_RECOMMENDATION.md/.json",
+    "PROTECTED_TARGET_EVIDENCE.json",
+    "pptx-method/METHOD_EVIDENCE.md/.json",
+    "pptx-method/READ_LOG.json"
+  ],
+  "limits": "Concerns labelled ambiguity or qualification are not converted into certain source errors. No original missing-parent/daily-plan/mixed-test reading or current authority certification claimed."
+}

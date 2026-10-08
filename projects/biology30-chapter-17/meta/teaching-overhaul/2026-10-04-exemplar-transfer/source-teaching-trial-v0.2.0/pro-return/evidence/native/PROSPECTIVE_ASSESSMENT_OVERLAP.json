@@ -1,0 +1,2773 @@
+{
+  "document": "KINCH_TRIAL_V020_PROSPECTIVE_ASSESSMENT_OVERLAP",
+  "createdUtc": "2026-10-04T21:32:25.496034+00:00",
+  "scope": "Fresh read of current embedded native question/configuration records, all required prompts/models, selected optional/printed extracted records, and original PPTX XML43–47. This agent did not newly pixel-read these original PDF/PPT pages in this turn; source/pixel reviewer owns that separate evidence. No learner prose or source was edited. Candidate review precedes actual final-draft review.",
+  "nativeSource": {
+    "path": "source-inspection/ch17/native/workspace/index.html",
+    "bytes": 3471105,
+    "sha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868"
+  },
+  "instructionFileSha256": "3b5e38bb4b038b94c69fcc8db2df53e41f6b4c38c27039ea52209fe74a372e59",
+  "pptSource": {
+    "path": "source-inspection/ch17/sources/Unit C Part B Mendelian Genetics .pptx",
+    "bytes": 10153531,
+    "sha256": "da1ce1c0526da4da1aefd1fb6c0f23070f820ce24378c12f9699d1c700e1a985",
+    "slides": [
+      {
+        "slide": 43,
+        "member": "ppt/slides/slide43.xml",
+        "memberSha256": "1ec1a6a6b4bc1a781623254f50c88a1923771500fa58874f8798dfa988e2b2e4",
+        "textRuns": [
+          "TWO TRAIT CROSSES",
+          "Example 1:",
+          "In tomatoes, red fruit is dominant to yellow fruit, and tall plants are dominant to short plants. A plant that is heterozygous for both traits is crossed with a plant that is heterozygous for the gene encoding height, ",
+          "and homozygous recessive for the gene encoding fruit colour",
+          ".",
+          "What are the phenotypes & genotypes of the plants being crossed?",
+          "‘Red fruit is dominant to yellow’ so let’s use ‘R’ to represent red and ‘r’ to represent the yellow allele.",
+          "Similarly, if ‘tall is dominant to short’ let’s use ‘T’ to represent the tall allele and ‘t’ to represent the short allele. ",
+          "So the parents phenotypes and genotypes are:",
+          "genotype",
+          "phenotype",
+          "Plant that is heterozygous for both traits",
+          "RrTt",
+          "Red and tall",
+          "Plant that is heterozygous for height and homozygous recessive for color",
+          "rrTt",
+          "Yellow and tall"
+        ]
+      },
+      {
+        "slide": 44,
+        "member": "ppt/slides/slide44.xml",
+        "memberSha256": "22b9630145694ce9517e364bfe50d85e6b86ab44cd60cf541eec731800fc50e6",
+        "textRuns": [
+          "TWO TRAIT CROSSES",
+          "Example 1:",
+          "In tomatoes, red fruit is dominant to yellow fruit, and tall plants are dominant to short plants. A plant that is heterozygous for both traits is crossed with a plant that is heterozygous for the gene encoding height, and homozygous recessive for the gene encoding fruit colour.",
+          "Step 1",
+          " with a cross is to identify the genotypes of the parents. This we have already done in part a:",
+          "RrTt x rrTt",
+          "Step 2 ",
+          "is to identify the possible gametes and set up the Punnett Square. Not all two trait crosses will require a large 4x4 Punnett Square. Just identify the possible gametes and construct accordingly. ",
+          "Rr Tt x rrTt",
+          "So parent 1 can make the RT, Rt, rT, and rt gametes, while parent 2 can only make rT and rt gametes. ",
+          "There is no need to consider the other four combinations because they will be repeat and will not impact the ratio. ",
+          "b. What proportion of offspring will be… ",
+          "tall with red fruit?",
+          "tall with yellow fruit?",
+          "short with red fruit?",
+          "short with yellow fruit?"
+        ]
+      },
+      {
+        "slide": 45,
+        "member": "ppt/slides/slide45.xml",
+        "memberSha256": "746866e17a98d1645f17ba82d7c50d83f4d32d3e58785f314326326512274437",
+        "textRuns": [
+          "TWO TRAIT CROSSES",
+          "Example 1:",
+          "In tomatoes, red fruit is dominant to yellow fruit, and tall plants are dominant to short plants. A plant that is heterozygous for both traits is crossed with a plant that is heterozygous for the gene encoding height, and homozygous recessive for the gene encoding fruit colour.",
+          "Step 3",
+          " Use the gametes to set up and fill out a Punnett Square",
+          "Tip: use lots of space for your Punnett square so you can color code or fill out phenotypes directly in the boxes. ",
+          "rT",
+          "rt",
+          "RT",
+          "RrTT",
+          "Red and tall",
+          "RrTt",
+          "Red and tall",
+          "Rt",
+          "RrTt",
+          "Red and tall",
+          "Rrtt",
+          "Red and short",
+          "rT",
+          "rrTT",
+          "Yellow and tall",
+          "rrTt",
+          "Yellow",
+          " and tall",
+          "rt",
+          "rrTt",
+          "Yellow",
+          " and tall",
+          "r",
+          "rtt",
+          "Yellow and short",
+          "Step 4",
+          " Use information to ",
+          "answer",
+          " question.",
+          "b. What proportion of offspring will be… ",
+          "tall with red fruit?",
+          " ",
+          "3/8",
+          "tall with yellow fruit?",
+          " ",
+          "3/8",
+          "short with red fruit?",
+          " ",
+          "1/8",
+          "short with yellow fruit?",
+          " ",
+          "1/8"
+        ]
+      },
+      {
+        "slide": 46,
+        "member": "ppt/slides/slide46.xml",
+        "memberSha256": "18baa126ab5303116f292af294f423d3f2ae9ee4fbbc74b3ad2005d524a1c404",
+        "textRuns": [
+          "TWO TRAIT CROSSES",
+          "Example ",
+          "2",
+          ":",
+          "In summer squash, white fruit color (W) is dominant over yellow fruit color (w) and disk-shaped fruit (D) is dominant over sphere-shaped fruit (d). A plant that produces yellow, disk-shaped fruit is crossed with a plant that produces white, sphere-shaped fruit.",
+          "What are the ",
+          "potential genotypes of the plants being crossed?",
+          "We know that the parents display some of the dominant phenotypes, but we don’t know just yet whether they are homozygous dominant or heterozygous for those traits, since both cases would display the dominant phenotype. We can represent this unknown allele by the line:",
+          "wwD_ x W_dd",
+          "b) Some of the offspring have yellow, sphere-shaped fruit. What does this tell us about the genotypes of the parents?",
+          "The genotype of these ",
+          "offspring",
+          " with yellow, sphere-shaped fruit must be homozygous recessive for both traits, so wwdd. This is only possible, if BOTH parents had a copy of both w and d alleles.",
+          "So the parent cross must be:",
+          "wwD",
+          "d",
+          " x W",
+          "w",
+          "dd"
+        ]
+      },
+      {
+        "slide": 47,
+        "member": "ppt/slides/slide47.xml",
+        "memberSha256": "edda5f8fb58c2d185bd5ec134417492da7a0ebf4878a57dc6d90c5a57e4230a9",
+        "textRuns": [
+          "TWO TRAIT",
+          " CROSSES",
+          "Example ",
+          "2",
+          ":",
+          "In summer squash, white fruit color (W) is dominant over yellow fruit color (w) and disk-shaped fruit (D) is dominant over sphere-shaped fruit (d). A plant that produces yellow, disk-shaped fruit is crossed with a plant that produces white, sphere-shaped fruit.",
+          "c) If this parental cross produces 80 seeds, how many of those seeds would give rise to ",
+          "Wd",
+          "wd",
+          "wD",
+          "WwDd",
+          "White and disk",
+          "wwDd",
+          "Yellow and disk",
+          "wd",
+          "Wwdd",
+          "White and sphere",
+          "wwdd",
+          "Yellow and sphere",
+          "wwDd x Wwdd",
+          "White flowering squash?",
+          "Squash with yellow and sphere-shaped flowers?",
+          "Portion of seeds that will give rise to white flowering squash is 2/4 or ½ or 0.5. To calculate the actual number of squash, we simply multiple the total number by this decimal value:",
+          "80 x 0.50 = ",
+          "40 squash",
+          "¼ = 0.25",
+          "0.25 x 80 = ",
+          "20 squash"
+        ]
+      }
+    ]
+  },
+  "actualProtectedEvidence": [
+    {
+      "route": "lesson-01",
+      "startByte": 3111917,
+      "endByteExclusive": 3112532,
+      "bytes": 615,
+      "sha256": "1b2c062ac2e8f8e434a1547a70682779d432c72d9396fb2a390d73180abe06cb",
+      "data": {
+        "prompt": "Use a complete-dominance example to show why one phenotype can have two possible genotypes.",
+        "model": "If B is completely dominant to b, both BB and Bb can produce the dominant phenotype. A dominant appearance therefore does not distinguish those genotypes. Only bb produces the recessive phenotype in the stated simple model.",
+        "criteria": [
+          "Identifies the relevant structures or quantities.",
+          "Explains the causal relationship or calculation, not just the final result.",
+          "Uses the stated evidence and avoids a stronger conclusion than it supports."
+        ],
+        "id": "ch17-l01-check-writing-1",
+        "limit": 3200
+      }
+    },
+    {
+      "route": "lesson-02",
+      "startByte": 3113307,
+      "endByteExclusive": 3113910,
+      "bytes": 603,
+      "sha256": "906c62f4c83c6a0f2b918e856c5be8100b63ca56213c483cc17423188b99014a",
+      "data": {
+        "prompt": "Why can a recessive phenotype reappear in the F2 generation?",
+        "answer": "Each heterozygous parent can contribute the recessive allele",
+        "explanation": "Two recessive contributions can form a homozygous recessive offspring.",
+        "cue": "Trace the normal mechanism before choosing an answer.",
+        "id": "ch17-l02-check-mc-1",
+        "options": [
+          "The recessive allele is always recreated by mutation",
+          "Dominant alleles vanish after one generation",
+          "Each heterozygous parent can contribute the recessive allele",
+          "Gametes carry both parental alleles together at every locus"
+        ],
+        "difficulty": "application"
+      }
+    },
+    {
+      "route": "lesson-02",
+      "startByte": 3113912,
+      "endByteExclusive": 3114558,
+      "bytes": 646,
+      "sha256": "a0d5d4570699123b5087eb70428b752bc5c6e8dd6e9d2ed7eb28962e7540182d",
+      "data": {
+        "prompt": "A heterozygote has six dominant-phenotype offspring in succession in a suitable cross. Does that prove segregation stopped?",
+        "answer": "No; small samples can differ from expected ratios",
+        "explanation": "Probabilistic outcomes can form runs without changing the mechanism.",
+        "cue": "Trace the normal mechanism before choosing an answer.",
+        "id": "ch17-l02-check-mc-2",
+        "options": [
+          "Yes; meiosis makes only one type of gamete after the first birth",
+          "No; because alleles are not inherited",
+          "Yes; every short run must exactly match the expected ratio",
+          "No; small samples can differ from expected ratios"
+        ],
+        "difficulty": "application"
+      }
+    },
+    {
+      "route": "lesson-02",
+      "startByte": 3114573,
+      "endByteExclusive": 3115220,
+      "bytes": 647,
+      "sha256": "68ce219e2a96eddea903284408e089c3c5bd4a41689d492f4ee32273bb470dfa",
+      "data": {
+        "prompt": "Explain Mendel’s F1 and F2 pattern using alleles rather than blending.",
+        "model": "A homozygous dominant parent crossed with a homozygous recessive parent makes heterozygous F1 offspring. Their recessive alleles remain present. Segregation gives gametes one allele each, and an F2 offspring receiving two recessive alleles expresses the recessive phenotype.",
+        "criteria": [
+          "Identifies the relevant structures or quantities.",
+          "Explains the causal relationship or calculation, not just the final result.",
+          "Uses the stated evidence and avoids a stronger conclusion than it supports."
+        ],
+        "id": "ch17-l02-check-writing-1",
+        "limit": 3200
+      }
+    },
+    {
+      "route": "lesson-02",
+      "startByte": 3115222,
+      "endByteExclusive": 3115853,
+      "bytes": 631,
+      "sha256": "cec1200197c8c6f8b7b16c7ce498b222506885b169caf5ba8b1a94e110afcde3",
+      "data": {
+        "prompt": "Distinguish an expected 3:1 phenotype ratio from an exact prediction for four offspring.",
+        "model": "The ratio represents probabilities under specified assumptions. Each offspring has the same modeled probabilities, but chance can produce different counts in a sample of four. Larger samples tend to show proportions closer to the expectation.",
+        "criteria": [
+          "Identifies the relevant structures or quantities.",
+          "Explains the causal relationship or calculation, not just the final result.",
+          "Uses the stated evidence and avoids a stronger conclusion than it supports."
+        ],
+        "id": "ch17-l02-check-writing-2",
+        "limit": 3200
+      }
+    },
+    {
+      "route": "lesson-03",
+      "startByte": 3115959,
+      "endByteExclusive": 3116435,
+      "bytes": 476,
+      "sha256": "2e3674b4cd21a98d8ab33f3264d4e2342ac77ab64674e03b697e1b4b0b5fb000",
+      "data": {
+        "prompt": "Under complete dominance, AA × Aa can produce which phenotypes?",
+        "answer": "Only the dominant phenotype",
+        "explanation": "Every offspring receives A from the homozygous parent.",
+        "cue": "Trace the normal mechanism before choosing an answer.",
+        "id": "ch17-l03-check-mc-1",
+        "options": [
+          "Only the dominant phenotype",
+          "A fixed 3:1 dominant-to-recessive ratio",
+          "Only the recessive phenotype",
+          "A fixed 1:1 dominant-to-recessive ratio"
+        ],
+        "difficulty": "application"
+      }
+    },
+    {
+      "route": "lesson-03",
+      "startByte": 3116865,
+      "endByteExclusive": 3117496,
+      "bytes": 631,
+      "sha256": "c4e72aa21952c42d58e67018bcccb7916f3e77e173a0b9f702a67487f9351a56",
+      "data": {
+        "prompt": "Show how to obtain genotype and phenotype probabilities for Bb × bb when B is completely dominant.",
+        "model": "The heterozygote produces B or b gametes and bb produces b. The combinations are Bb and bb, each with probability 1/2. Therefore the expected genotype ratio is 1:1 and the expected dominant-to-recessive phenotype ratio is also 1:1.",
+        "criteria": [
+          "Identifies the relevant structures or quantities.",
+          "Explains the causal relationship or calculation, not just the final result.",
+          "Uses the stated evidence and avoids a stronger conclusion than it supports."
+        ],
+        "id": "ch17-l03-check-writing-1",
+        "limit": 3200
+      }
+    },
+    {
+      "route": "lesson-04",
+      "startByte": 3118839,
+      "endByteExclusive": 3119250,
+      "bytes": 411,
+      "sha256": "d2751e6e89b5cbb34ce10d95603ed902c24c5e3cd9884178dd964e6fc2110091",
+      "data": {
+        "prompt": "A dominant-phenotype individual has an aa parent. Under the simple model, its genotype is:",
+        "answer": "Aa",
+        "explanation": "The aa parent must supply a; the dominant phenotype requires A from the other parent.",
+        "cue": "Trace the normal mechanism before choosing an answer.",
+        "id": "ch17-l04-check-mc-2",
+        "options": [
+          "Impossible to constrain at all",
+          "AA",
+          "aa",
+          "Aa"
+        ],
+        "difficulty": "application"
+      }
+    },
+    {
+      "route": "lesson-04",
+      "startByte": 3119265,
+      "endByteExclusive": 3119917,
+      "bytes": 652,
+      "sha256": "b9e6e2a6cac08798a5c02f801fe51ebbc77aeb9c5836b1a1bbe4957350e0f20f",
+      "data": {
+        "prompt": "Explain why a recessive tester makes an unknown dominant genotype easier to investigate.",
+        "model": "The homozygous recessive tester contributes only the recessive allele. Offspring outcomes therefore reveal whether the unknown parent can contribute a recessive allele. A recessive offspring identifies the unknown dominant parent as heterozygous within the model.",
+        "criteria": [
+          "Identifies the relevant structures or quantities.",
+          "Explains the causal relationship or calculation, not just the final result.",
+          "Uses the stated evidence and avoids a stronger conclusion than it supports."
+        ],
+        "id": "ch17-l04-check-writing-1",
+        "limit": 3200
+      }
+    },
+    {
+      "route": "lesson-05",
+      "startByte": 3120690,
+      "endByteExclusive": 3121236,
+      "bytes": 546,
+      "sha256": "f0ce0cb3648abd9b325da4f4287ef4f46497e2ec5eac9ae5e165a0b1730fbf3a",
+      "data": {
+        "prompt": "What assumption is needed for multiplying separate two-locus probabilities in these examples?",
+        "answer": "The loci assort independently under the model",
+        "explanation": "Independence allows the product rule for locus outcomes.",
+        "cue": "Trace the normal mechanism before choosing an answer.",
+        "id": "ch17-l05-check-mc-1",
+        "options": [
+          "The loci assort independently under the model",
+          "The two genes must be identical",
+          "Every parent must be homozygous",
+          "Each offspring compensates for the previous one"
+        ],
+        "difficulty": "application"
+      }
+    },
+    {
+      "route": "lesson-05",
+      "startByte": 3121238,
+      "endByteExclusive": 3121566,
+      "bytes": 328,
+      "sha256": "1202627167362c8e8c520b343c9e441ec3fce39d6b20865acd7a04ff9693ebc9",
+      "data": {
+        "prompt": "For independent AaBb × AaBb with complete dominance, what is P(aaB_)?",
+        "answer": "3/16",
+        "explanation": "P(aa) = 1/4 and P(B_) = 3/4, giving 3/16.",
+        "cue": "Trace the normal mechanism before choosing an answer.",
+        "id": "ch17-l05-check-mc-2",
+        "options": [
+          "1/16",
+          "3/16",
+          "1/4",
+          "9/16"
+        ],
+        "difficulty": "application"
+      }
+    },
+    {
+      "route": "lesson-05",
+      "startByte": 3121581,
+      "endByteExclusive": 3122176,
+      "bytes": 595,
+      "sha256": "ce350aedac4355f10d7769103a837a7588986f332a3412025a7553f370d6d312",
+      "data": {
+        "prompt": "List the gametes from RrTt and rrTt under independent assortment, then explain why a 4 × 4 square is unnecessary.",
+        "model": "RrTt produces RT, Rt, rT and rt. rrTt produces rT and rt. A 4 × 2 square contains all distinct combinations; duplicating columns does not add new outcomes or change probabilities.",
+        "criteria": [
+          "Identifies the relevant structures or quantities.",
+          "Explains the causal relationship or calculation, not just the final result.",
+          "Uses the stated evidence and avoids a stronger conclusion than it supports."
+        ],
+        "id": "ch17-l05-check-writing-1",
+        "limit": 3200
+      }
+    },
+    {
+      "route": "lesson-05",
+      "startByte": 3122178,
+      "endByteExclusive": 3122733,
+      "bytes": 555,
+      "sha256": "e00e4effe0cf71b92d9ea30770e59d90c1845f09a95d8ab7f3d716c088ac9853",
+      "data": {
+        "prompt": "Calculate P(A_bb) for AaBb × aaBb under independent assortment and complete dominance.",
+        "model": "At A, Aa × aa gives P(A_) = 1/2. At B, Bb × Bb gives P(bb) = 1/4. Multiplying gives 1/8. The result depends on independent assortment and the stated phenotype rules.",
+        "criteria": [
+          "Identifies the relevant structures or quantities.",
+          "Explains the causal relationship or calculation, not just the final result.",
+          "Uses the stated evidence and avoids a stronger conclusion than it supports."
+        ],
+        "id": "ch17-l05-check-writing-2",
+        "limit": 3200
+      }
+    },
+    {
+      "route": "lesson-08",
+      "startByte": 3128330,
+      "endByteExclusive": 3129021,
+      "bytes": 691,
+      "sha256": "03bae5f84560fc43b15a74440fa9c15e7fc787e3a9e2bbac1d134070700dd7eb",
+      "data": {
+        "prompt": "Explain the difference between “probability an offspring is an affected son” and “probability a son is affected.” Use a carrier mother and unaffected father.",
+        "model": "For XAXa × XAY, one of four total offspring combinations is an affected son, so the joint probability is 1/4. Among the two son combinations, one is affected, giving a conditional probability of 1/2. The denominator differs.",
+        "criteria": [
+          "Identifies the relevant structures or quantities.",
+          "Explains the causal relationship or calculation, not just the final result.",
+          "Uses the stated evidence and avoids a stronger conclusion than it supports."
+        ],
+        "id": "ch17-l08-check-writing-1",
+        "limit": 3200
+      }
+    },
+    {
+      "route": "lesson-08",
+      "startByte": 3129023,
+      "endByteExclusive": 3129622,
+      "bytes": 599,
+      "sha256": "52b084ca0c5c1bf7e4767fe0e4831f62b7a7aa2c7ed6670c95d364f4fd8cc344",
+      "data": {
+        "prompt": "Explain why an affected father does not directly pass an X-linked allele to his sons in the typical XX/XY model.",
+        "model": "Sons receive the father’s Y chromosome, not his X. The paternal X goes to daughters. Therefore direct father-to-son transmission does not occur through an X-linked locus in this model.",
+        "criteria": [
+          "Identifies the relevant structures or quantities.",
+          "Explains the causal relationship or calculation, not just the final result.",
+          "Uses the stated evidence and avoids a stronger conclusion than it supports."
+        ],
+        "id": "ch17-l08-check-writing-2",
+        "limit": 3200
+      }
+    },
+    {
+      "route": "lesson-15",
+      "startByte": 3146988,
+      "endByteExclusive": 3147761,
+      "bytes": 773,
+      "sha256": "9a0baac4c157a62faf0a31d1a96f967c9dd1255c764ec77256ee137bc1019c44",
+      "data": {
+        "prompt": "Describe a method for solving an unfamiliar inheritance problem from phenotype information to a justified probability.",
+        "model": "Define alleles and the inheritance model. Infer parental genotypes using phenotype and family evidence, preserving unresolved alternatives. List gametes, combine them by an appropriate square or independent product rule, identify the requested subgroup and calculate with the correct denominator. Interpret the result as an expectation and state assumptions.",
+        "criteria": [
+          "Identifies the relevant structures or quantities.",
+          "Explains the causal relationship or calculation, not just the final result.",
+          "Uses the stated evidence and avoids a stronger conclusion than it supports."
+        ],
+        "id": "ch17-final-writing-1",
+        "limit": 3200
+      }
+    }
+  ],
+  "actualOptionalEvidence": [
+    {
+      "family": "practiceQuestions",
+      "startByte": 3185572,
+      "endByteExclusive": 3186163,
+      "bytes": 591,
+      "sha256": "c29eacd421a4db962f2774250949461e12a42ec63cb4868385efbf7e1bf4e25e",
+      "data": {
+        "id": "ch17-source-OBJ_2131227",
+        "lesson": 5,
+        "prompt": "Assume independent assortment and complete dominance at both loci. What phenotype ratio is predicted for TtYy × TtYy?",
+        "answer": "9:3:3:1",
+        "options": [
+          "1:1:1:1",
+          "1:2:1",
+          "3:1",
+          "9:3:3:1"
+        ],
+        "cue": "Identify the relevant mechanism or quantity and apply the stated model.",
+        "explanation": "Each locus predicts a 3:1 phenotype ratio. Multiplying independent probabilities gives 9/16, 3/16, 3/16 and 1/16.",
+        "difficulty": "application",
+        "stimuli": [],
+        "sourceItemId": "OBJ_2131227",
+        "conceptId": "ch17-concept-independent-assortment"
+      }
+    },
+    {
+      "family": "practiceQuestions",
+      "startByte": 3191663,
+      "endByteExclusive": 3192321,
+      "bytes": 658,
+      "sha256": "d02f9fbc13317aa116afc74b32bffbaf56f260c863e2e24e0a25a31be8179946",
+      "data": {
+        "id": "ch17-source-OBJ_2131236",
+        "lesson": 5,
+        "prompt": "Two independent completely dominant loci have parental genotypes AABB × aabb. What describes the F1?",
+        "answer": "All AaBb with both dominant phenotypes",
+        "options": [
+          "All AaBb with both dominant phenotypes",
+          "Four phenotype classes in a 1:1:1:1 ratio",
+          "All AABB",
+          "All aabb"
+        ],
+        "cue": "Identify the relevant mechanism or quantity and apply the stated model.",
+        "explanation": "Only AB and ab parental gametes are available, producing identical heterozygous combinations at these loci.",
+        "difficulty": "application",
+        "stimuli": [],
+        "sourceItemId": "OBJ_2131236",
+        "conceptId": "ch17-concept-genotype"
+      }
+    },
+    {
+      "family": "practiceQuestions",
+      "startByte": 3192323,
+      "endByteExclusive": 3192814,
+      "bytes": 491,
+      "sha256": "aafc72738de419e512ddeff38819d5947c0d359b7c5b54aa0ee119437b65faf2",
+      "data": {
+        "id": "ch17-source-OBJ_2131237",
+        "lesson": 5,
+        "prompt": "For independent AaBb × AaBb, what is the probability of the dominant A phenotype together with bb?",
+        "answer": "3/16",
+        "options": [
+          "15/16",
+          "3/16",
+          "1/16",
+          "9/16"
+        ],
+        "cue": "Identify the relevant mechanism or quantity and apply the stated model.",
+        "explanation": "P(A_) = 3/4 and P(bb) = 1/4; their product is 3/16.",
+        "difficulty": "application",
+        "stimuli": [],
+        "sourceItemId": "OBJ_2131237",
+        "conceptId": "ch17-concept-probability"
+      }
+    },
+    {
+      "family": "practiceQuestions",
+      "startByte": 3196128,
+      "endByteExclusive": 3196683,
+      "bytes": 555,
+      "sha256": "f7e7a2aabded8bd827fe4e3f8e73cbff1170d3cc3535732f85e958f4639e368c",
+      "data": {
+        "id": "ch17-source-OBJ_2131242",
+        "lesson": 5,
+        "prompt": "Assume independent assortment and complete dominance. What phenotype ratio is predicted for RrPp × rrpp?",
+        "answer": "1:1:1:1",
+        "options": [
+          "3:1",
+          "1:2:1",
+          "1:1:1:1",
+          "9:3:3:1"
+        ],
+        "cue": "Identify the relevant mechanism or quantity and apply the stated model.",
+        "explanation": "The double heterozygote forms RP, Rp, rP and rp gametes equally; the tester forms rp only.",
+        "difficulty": "application",
+        "stimuli": [],
+        "sourceItemId": "OBJ_2131242",
+        "conceptId": "ch17-concept-independent-assortment"
+      }
+    },
+    {
+      "family": "practiceQuestions",
+      "startByte": 3200816,
+      "endByteExclusive": 3201465,
+      "bytes": 649,
+      "sha256": "b51c32087cd7879d81a7e083a8aa86500a8c14dd5e73c462f7d275e87fb004ab",
+      "data": {
+        "id": "ch17-foundation-ch17-word-law-of-segregation",
+        "lesson": 2,
+        "conceptId": "ch17-concept-law-of-segregation",
+        "prompt": "Which term matches this description? The separation of the two alleles at a locus into different gametes.",
+        "options": [
+          "law of segregation",
+          "true-breeding",
+          "F1 generation",
+          "F2 generation"
+        ],
+        "answer": "law of segregation",
+        "cue": "Use the meaning of each term, not the length of its name.",
+        "explanation": "The separation of the two alleles at a locus into different gametes. The parent has both alleles, but an individual gamete receives one.",
+        "difficulty": "recall",
+        "family": "definition-recognition",
+        "kind": "mc"
+      }
+    },
+    {
+      "family": "practiceQuestions",
+      "startByte": 3201467,
+      "endByteExclusive": 3202172,
+      "bytes": 705,
+      "sha256": "b7611f0545ff6bc719f5680a933a19f19d230f96aa920ac6c5d0f73c78ee3907",
+      "data": {
+        "id": "ch17-foundation-ch17-word-true-breeding",
+        "lesson": 2,
+        "conceptId": "ch17-concept-true-breeding",
+        "prompt": "Which term matches this description? Producing offspring with the same trait when bred within the line under the stated conditions.",
+        "options": [
+          "law of segregation",
+          "true-breeding",
+          "F1 generation",
+          "F2 generation"
+        ],
+        "answer": "true-breeding",
+        "cue": "Use the meaning of each term, not the length of its name.",
+        "explanation": "Producing offspring with the same trait when bred within the line under the stated conditions. In Mendel’s simple models, true-breeding lines are homozygous for the studied trait.",
+        "difficulty": "recall",
+        "family": "definition-recognition",
+        "kind": "mc"
+      }
+    },
+    {
+      "family": "practiceQuestions",
+      "startByte": 3202174,
+      "endByteExclusive": 3202792,
+      "bytes": 618,
+      "sha256": "0f8c458896f6d40b091bcebc303c6a3b7060e77d2cc56a7a1ae85c7ffa18f17a",
+      "data": {
+        "id": "ch17-foundation-ch17-word-f1-generation",
+        "lesson": 2,
+        "conceptId": "ch17-concept-f1-generation",
+        "prompt": "Which term matches this description? The first offspring generation from a specified parental cross.",
+        "options": [
+          "law of segregation",
+          "true-breeding",
+          "F1 generation",
+          "F2 generation"
+        ],
+        "answer": "F1 generation",
+        "cue": "Use the meaning of each term, not the length of its name.",
+        "explanation": "The first offspring generation from a specified parental cross. F1 names a relationship to a cross, not a universal genotype.",
+        "difficulty": "recall",
+        "family": "definition-recognition",
+        "kind": "mc"
+      }
+    },
+    {
+      "family": "practiceQuestions",
+      "startByte": 3202794,
+      "endByteExclusive": 3203423,
+      "bytes": 629,
+      "sha256": "22328848e0f25361a928e4dedf6e8df0f98deeb5a781d1352433c9ffb07a54dc",
+      "data": {
+        "id": "ch17-foundation-ch17-word-f2-generation",
+        "lesson": 2,
+        "conceptId": "ch17-concept-f2-generation",
+        "prompt": "Which term matches this description? The generation produced from the F1 in the specified breeding design.",
+        "options": [
+          "law of segregation",
+          "true-breeding",
+          "F1 generation",
+          "F2 generation"
+        ],
+        "answer": "F2 generation",
+        "cue": "Use the meaning of each term, not the length of its name.",
+        "explanation": "The generation produced from the F1 in the specified breeding design. Its ratios depend on the parental genotypes and assumptions.",
+        "difficulty": "recall",
+        "family": "definition-recognition",
+        "kind": "mc"
+      }
+    },
+    {
+      "family": "practiceQuestions",
+      "startByte": 3208463,
+      "endByteExclusive": 3209117,
+      "bytes": 654,
+      "sha256": "56359fba58a1e16a94b50e68f31b2b2e1b28489bd00d880098ae9ca25e5b87bc",
+      "data": {
+        "id": "ch17-foundation-ch17-word-dihybrid-cross",
+        "lesson": 5,
+        "conceptId": "ch17-concept-dihybrid-cross",
+        "prompt": "Which term matches this description? A cross between individuals heterozygous at two studied loci.",
+        "options": [
+          "dihybrid cross",
+          "independent assortment",
+          "product rule",
+          "gamete combination"
+        ],
+        "answer": "dihybrid cross",
+        "cue": "Use the meaning of each term, not the length of its name.",
+        "explanation": "A cross between individuals heterozygous at two studied loci. The familiar 9:3:3:1 phenotype ratio needs complete dominance and independent assortment.",
+        "difficulty": "recall",
+        "family": "definition-recognition",
+        "kind": "mc"
+      }
+    },
+    {
+      "family": "practiceQuestions",
+      "startByte": 3209119,
+      "endByteExclusive": 3209841,
+      "bytes": 722,
+      "sha256": "6e43804b8ee54d58d4d0ef993daa649dabb8bb183a7cf36aad4e88cbd374b148",
+      "data": {
+        "id": "ch17-foundation-ch17-word-independent-assortment",
+        "lesson": 5,
+        "conceptId": "ch17-concept-independent-assortment",
+        "prompt": "Which term matches this description? Independent segregation of alleles at different loci when the chromosome arrangement permits it.",
+        "options": [
+          "dihybrid cross",
+          "independent assortment",
+          "product rule",
+          "gamete combination"
+        ],
+        "answer": "independent assortment",
+        "cue": "Use the meaning of each term, not the length of its name.",
+        "explanation": "Independent segregation of alleles at different loci when the chromosome arrangement permits it. Linked genes can depart from this equal-combination prediction.",
+        "difficulty": "recall",
+        "family": "definition-recognition",
+        "kind": "mc"
+      }
+    },
+    {
+      "family": "practiceQuestions",
+      "startByte": 3209843,
+      "endByteExclusive": 3210477,
+      "bytes": 634,
+      "sha256": "76eda3467751d9704320f8c745347080309979c85c59dc515debbf2ba39c1427",
+      "data": {
+        "id": "ch17-foundation-ch17-word-product-rule",
+        "lesson": 5,
+        "conceptId": "ch17-concept-product-rule",
+        "prompt": "Which term matches this description? Multiplication of probabilities for specified independent events.",
+        "options": [
+          "dihybrid cross",
+          "independent assortment",
+          "product rule",
+          "gamete combination"
+        ],
+        "answer": "product rule",
+        "cue": "Use the meaning of each term, not the length of its name.",
+        "explanation": "Multiplication of probabilities for specified independent events. Check independence before multiplying separate trait probabilities.",
+        "difficulty": "recall",
+        "family": "definition-recognition",
+        "kind": "mc"
+      }
+    },
+    {
+      "family": "practiceQuestions",
+      "startByte": 3210479,
+      "endByteExclusive": 3211147,
+      "bytes": 668,
+      "sha256": "7e660d4ac839f196fe244964226d819869c6c6b96d5a0ed14b908564c339f981",
+      "data": {
+        "id": "ch17-foundation-ch17-word-gamete-combination",
+        "lesson": 5,
+        "conceptId": "ch17-concept-gamete-combination",
+        "prompt": "Which term matches this description? The set of one allele from each studied locus carried by a gamete.",
+        "options": [
+          "dihybrid cross",
+          "independent assortment",
+          "product rule",
+          "gamete combination"
+        ],
+        "answer": "gamete combination",
+        "cue": "Use the meaning of each term, not the length of its name.",
+        "explanation": "The set of one allele from each studied locus carried by a gamete. A gamete does not receive both A and a at the same autosomal locus in this model.",
+        "difficulty": "recall",
+        "family": "definition-recognition",
+        "kind": "mc"
+      }
+    },
+    {
+      "family": "authoredPractice",
+      "startByte": 3302217,
+      "endByteExclusive": 3302976,
+      "bytes": 759,
+      "sha256": "5b60c87360652902d279fd7805681c3d4744aaf43045baae4a3c65da78d30b2f",
+      "data": {
+        "prompt": "RR × rr produces which F1 genotype under the stated model?",
+        "answer": "All Rr",
+        "explanation": "The first parent contributes only R, and the second only r.",
+        "cue": "Trace the normal mechanism before choosing an answer.",
+        "id": "ch17-l02-application-1",
+        "options": [
+          "One-quarter rr",
+          "All Rr",
+          "All RR",
+          "Half RR and half rr"
+        ],
+        "difficulty": "application",
+        "lesson": 2,
+        "chapter": 17,
+        "conceptId": "ch17-concept-genotype",
+        "family": "application",
+        "kind": "mc",
+        "reviewRoute": "lesson-02",
+        "flashVariant": {
+          "id": "ch17-l02-scenario-1",
+          "family": "scenario-explanation",
+          "prompt": "RR × rr produces which F1 genotype under the stated model?",
+          "model": "All Rr. The first parent contributes only R, and the second only r.",
+          "selfAssessed": true
+        }
+      }
+    },
+    {
+      "family": "authoredPractice",
+      "startByte": 3304824,
+      "endByteExclusive": 3305551,
+      "bytes": 727,
+      "sha256": "63554a18d0eaaa0007e0fcc7d86cce1b6a751b95306f6890e15efedc3cc1cda7",
+      "data": {
+        "prompt": "A cross is AaBb × Aabb. Under independence, what fraction is expected to be aabb?",
+        "answer": "1/8",
+        "explanation": "P(aa) = 1/4 and P(bb) = 1/2, so 1/8.",
+        "cue": "Trace the normal mechanism before choosing an answer.",
+        "id": "ch17-l05-application-1",
+        "options": [
+          "1/8",
+          "1/2",
+          "1/16",
+          "3/8"
+        ],
+        "difficulty": "application",
+        "lesson": 5,
+        "chapter": 17,
+        "conceptId": "ch17-concept-dihybrid-cross",
+        "family": "application",
+        "kind": "mc",
+        "reviewRoute": "lesson-05",
+        "flashVariant": {
+          "id": "ch17-l05-scenario-1",
+          "family": "scenario-explanation",
+          "prompt": "A cross is AaBb × Aabb. Under independence, what fraction is expected to be aabb?",
+          "model": "1/8. P(aa) = 1/4 and P(bb) = 1/2, so 1/8.",
+          "selfAssessed": true
+        }
+      }
+    },
+    {
+      "family": "typedPractice",
+      "startByte": 3317287,
+      "endByteExclusive": 3317888,
+      "bytes": 601,
+      "sha256": "5d170c491897be9165209cc8e9d85853209c19ad23904afb5dd3d36da38fe907",
+      "data": {
+        "id": "ch17-l02-context-law-of-segregation",
+        "chapter": 17,
+        "lesson": 2,
+        "conceptId": "ch17-concept-law-of-segregation",
+        "family": "scenario-retrieval",
+        "kind": "blank",
+        "difficulty": "application",
+        "prompt": "Identify the term illustrated: A heterozygous Rr parent produces R and r gametes in the simple model.",
+        "answer": "law of segregation",
+        "aliases": [],
+        "cue": "Use the relationship described in the example.",
+        "explanation": "The separation of the two alleles at a locus into different gametes. The parent has both alleles, but an individual gamete receives one.",
+        "reviewRoute": "lesson-02"
+      }
+    },
+    {
+      "family": "typedPractice",
+      "startByte": 3317890,
+      "endByteExclusive": 3318519,
+      "bytes": 629,
+      "sha256": "4223b1345821d38bec84e079382e4b10b46c1476f7f3ec6c86731c4f57a5c648",
+      "data": {
+        "id": "ch17-l02-context-true-breeding",
+        "chapter": 17,
+        "lesson": 2,
+        "conceptId": "ch17-concept-true-breeding",
+        "family": "scenario-retrieval",
+        "kind": "blank",
+        "difficulty": "application",
+        "prompt": "Identify the term illustrated: A homozygous pea line repeatedly produces the same flower phenotype.",
+        "answer": "true-breeding",
+        "aliases": [],
+        "cue": "Use the relationship described in the example.",
+        "explanation": "Producing offspring with the same trait when bred within the line under the stated conditions. In Mendel’s simple models, true-breeding lines are homozygous for the studied trait.",
+        "reviewRoute": "lesson-02"
+      }
+    },
+    {
+      "family": "typedPractice",
+      "startByte": 3318521,
+      "endByteExclusive": 3319089,
+      "bytes": 568,
+      "sha256": "9f636b067971ffa6585be494192c23e8006cace4308bc805c8f29160f3ebfc30",
+      "data": {
+        "id": "ch17-l02-context-f1-generation",
+        "chapter": 17,
+        "lesson": 2,
+        "conceptId": "ch17-concept-f1-generation",
+        "family": "scenario-retrieval",
+        "kind": "blank",
+        "difficulty": "application",
+        "prompt": "Identify the term illustrated: RR crossed with rr produces a first generation of Rr offspring.",
+        "answer": "F1 generation",
+        "aliases": [],
+        "cue": "Use the relationship described in the example.",
+        "explanation": "The first offspring generation from a specified parental cross. F1 names a relationship to a cross, not a universal genotype.",
+        "reviewRoute": "lesson-02"
+      }
+    },
+    {
+      "family": "typedPractice",
+      "startByte": 3319091,
+      "endByteExclusive": 3319665,
+      "bytes": 574,
+      "sha256": "4ecded3c731f85f18011c74d38a6b0ff3545a00ac458b17abcb71d68dc632d6b",
+      "data": {
+        "id": "ch17-l02-context-f2-generation",
+        "chapter": 17,
+        "lesson": 2,
+        "conceptId": "ch17-concept-f2-generation",
+        "family": "scenario-retrieval",
+        "kind": "blank",
+        "difficulty": "application",
+        "prompt": "Identify the term illustrated: Two F1 heterozygotes are crossed to examine the next generation.",
+        "answer": "F2 generation",
+        "aliases": [],
+        "cue": "Use the relationship described in the example.",
+        "explanation": "The generation produced from the F1 in the specified breeding design. Its ratios depend on the parental genotypes and assumptions.",
+        "reviewRoute": "lesson-02"
+      }
+    },
+    {
+      "family": "typedPractice",
+      "startByte": 3324310,
+      "endByteExclusive": 3324912,
+      "bytes": 602,
+      "sha256": "fa5307870de771a42ebfaaf9eb5dd5549846f78899192a2af05270b33a697cfd",
+      "data": {
+        "id": "ch17-l05-context-dihybrid-cross",
+        "chapter": 17,
+        "lesson": 5,
+        "conceptId": "ch17-concept-dihybrid-cross",
+        "family": "scenario-retrieval",
+        "kind": "blank",
+        "difficulty": "application",
+        "prompt": "Identify the term illustrated: AaBb × AaBb is used to examine two traits under stated assumptions.",
+        "answer": "dihybrid cross",
+        "aliases": [],
+        "cue": "Use the relationship described in the example.",
+        "explanation": "A cross between individuals heterozygous at two studied loci. The familiar 9:3:3:1 phenotype ratio needs complete dominance and independent assortment.",
+        "reviewRoute": "lesson-05"
+      }
+    },
+    {
+      "family": "typedPractice",
+      "startByte": 3324914,
+      "endByteExclusive": 3325556,
+      "bytes": 642,
+      "sha256": "7da4062ac52b9c4a15bb21764e0183c3915ae1298eb0d1307c8a0fb7d57d3abd",
+      "data": {
+        "id": "ch17-l05-context-independent-assortment",
+        "chapter": 17,
+        "lesson": 5,
+        "conceptId": "ch17-concept-independent-assortment",
+        "family": "scenario-retrieval",
+        "kind": "blank",
+        "difficulty": "application",
+        "prompt": "Identify the term illustrated: An AaBb individual produces AB, Ab, aB and ab equally in an unlinked model.",
+        "answer": "independent assortment",
+        "aliases": [],
+        "cue": "Use the relationship described in the example.",
+        "explanation": "Independent segregation of alleles at different loci when the chromosome arrangement permits it. Linked genes can depart from this equal-combination prediction.",
+        "reviewRoute": "lesson-05"
+      }
+    },
+    {
+      "family": "typedPractice",
+      "startByte": 3325558,
+      "endByteExclusive": 3326160,
+      "bytes": 602,
+      "sha256": "325a4b2a173be57d4372bd18ad8d91ecca04f7a67bf81661c70f1233652ad35e",
+      "data": {
+        "id": "ch17-l05-context-product-rule",
+        "chapter": 17,
+        "lesson": 5,
+        "conceptId": "ch17-concept-product-rule",
+        "family": "scenario-retrieval",
+        "kind": "blank",
+        "difficulty": "application",
+        "prompt": "Identify the term illustrated: Probability of aa and bb is calculated as P(aa) × P(bb) when the loci assort independently.",
+        "answer": "product rule",
+        "aliases": [],
+        "cue": "Use the relationship described in the example.",
+        "explanation": "Multiplication of probabilities for specified independent events. Check independence before multiplying separate trait probabilities.",
+        "reviewRoute": "lesson-05"
+      }
+    },
+    {
+      "family": "typedPractice",
+      "startByte": 3326162,
+      "endByteExclusive": 3326769,
+      "bytes": 607,
+      "sha256": "05fe8b09a01e3d3640304609788a482b0da75405679373d0b0313cad9b54ff0d",
+      "data": {
+        "id": "ch17-l05-context-gamete-combination",
+        "chapter": 17,
+        "lesson": 5,
+        "conceptId": "ch17-concept-gamete-combination",
+        "family": "scenario-retrieval",
+        "kind": "blank",
+        "difficulty": "application",
+        "prompt": "Identify the term illustrated: An AaBb parent can produce an Ab gamete in an independent model.",
+        "answer": "gamete combination",
+        "aliases": [],
+        "cue": "Use the relationship described in the example.",
+        "explanation": "The set of one allele from each studied locus carried by a gamete. A gamete does not receive both A and a at the same autosomal locus in this model.",
+        "reviewRoute": "lesson-05"
+      }
+    },
+    {
+      "family": "guidedActivities",
+      "startByte": 3355856,
+      "endByteExclusive": 3357464,
+      "bytes": 1608,
+      "sha256": "38e9c02d117dbcc9a7d6b686129d420806ddbee98de604c203725b963a74a28b",
+      "data": {
+        "chapter": 17,
+        "lesson": 2,
+        "route": "lesson-02",
+        "worked": {
+          "title": "Recover a hidden allele",
+          "scenario": "A true-breeding dark plant is crossed with a true-breeding pale plant. All F1 plants are dark; some F2 offspring are pale.",
+          "steps": [
+            "Under complete dominance, use DD for the true-breeding dark parent and dd for pale.",
+            "The F1 genotype is Dd. The d allele remains present despite the dark phenotype.",
+            "F1 parents can each contribute d in a gamete.",
+            "An F2 dd offspring expresses pale, explaining reappearance without blending or a new mutation."
+          ],
+          "id": "ch17-l02-worked",
+          "label": "Worked example"
+        },
+        "guided": {
+          "id": "ch17-l02-guided",
+          "label": "Practise with support",
+          "title": "Apply the explanation",
+          "instruction": "Try both questions. Use the hint to revise your thinking after an incorrect answer.",
+          "items": [
+            {
+              "prompt": "What gametes are expected from Aa in the simple segregation model?",
+              "answer": "A and a",
+              "explanation": "Each gamete gets one allele of the pair.",
+              "cue": "A gamete is haploid at this locus.",
+              "id": "ch17-l02-guided-q1",
+              "options": [
+                "AA and aa",
+                "Aa only",
+                "A and a"
+              ],
+              "difficulty": "application",
+              "kind": "select",
+              "hint": "A gamete is haploid at this locus."
+            },
+            {
+              "prompt": "What genotype ratio is expected from Aa × Aa?",
+              "answer": "1 AA : 2 Aa : 1 aa",
+              "explanation": "Four equally likely gamete combinations group into three genotypes.",
+              "cue": "Combine A/A, A/a, a/A and a/a.",
+              "id": "ch17-l02-guided-q2",
+              "options": [
+                "1 AA : 2 Aa : 1 aa",
+                "3 AA : 1 aa",
+                "All Aa"
+              ],
+              "difficulty": "application",
+              "kind": "select",
+              "hint": "Combine A/A, A/a, a/A and a/a."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "family": "guidedActivities",
+      "startByte": 3360751,
+      "endByteExclusive": 3362413,
+      "bytes": 1662,
+      "sha256": "c6c6448230ba6ccbea69f781f9876d3ef5aa5ef485ed3f7a332b4f7e4d0bec88",
+      "data": {
+        "chapter": 17,
+        "lesson": 5,
+        "route": "lesson-05",
+        "worked": {
+          "title": "Solve a two-locus cross without unnecessary boxes",
+          "scenario": "In an independent complete-dominance model, RrTt × rrTt produces offspring. Find the probability of red, short offspring: R_tt.",
+          "steps": [
+            "At the colour locus, Rr × rr gives P(R_) = 1/2.",
+            "At the height locus, Tt × Tt gives P(tt) = 1/4.",
+            "Both conditions are required, so multiply: 1/2 × 1/4 = 1/8.",
+            "For 80 offspring the expected count is 80 × 1/8 = 10.",
+            "The result relies on independence of the two loci."
+          ],
+          "id": "ch17-l05-worked",
+          "label": "Worked example"
+        },
+        "guided": {
+          "id": "ch17-l05-guided",
+          "label": "Practise with support",
+          "title": "Apply the explanation",
+          "instruction": "Try both questions. Use the hint to revise your thinking after an incorrect answer.",
+          "items": [
+            {
+              "prompt": "Which gametes can Aabb produce?",
+              "answer": "Ab and ab",
+              "explanation": "Choose one allele from each locus: B is absent and b is always present.",
+              "cue": "List the A choice and the B-locus choice separately.",
+              "id": "ch17-l05-guided-q1",
+              "options": [
+                "Aa and bb",
+                "AB and ab",
+                "Ab and ab"
+              ],
+              "difficulty": "application",
+              "kind": "select",
+              "hint": "List the A choice and the B-locus choice separately."
+            },
+            {
+              "prompt": "For independent AaBb × aabb, what is P(aabb)?",
+              "answer": "1/4",
+              "explanation": "P(aa) = 1/2 and P(bb) = 1/2; multiply to obtain 1/4.",
+              "cue": "Do not apply the heterozygote × heterozygote ratio to a test cross.",
+              "id": "ch17-l05-guided-q2",
+              "options": [
+                "1/4",
+                "1/16",
+                "3/4"
+              ],
+              "difficulty": "application",
+              "kind": "select",
+              "hint": "Do not apply the heterozygote × heterozygote ratio to a test cross."
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "actualPrintedRegisterEvidence": [
+    {
+      "startByte": 3390577,
+      "endByteExclusive": 3391361,
+      "bytes": 784,
+      "sha256": "7de6587fcbdc5b8df195d073c44994bcc9cb57c8c8cc55ee88543d26d994d304",
+      "data": {
+        "id": "ch17-p587-in-text-q1",
+        "page": 587,
+        "group": "in-text",
+        "number": 1,
+        "label": "In Text · p. 587 · question 1",
+        "topics": [
+          "lesson-01",
+          "lesson-02"
+        ],
+        "crops": [
+          {
+            "page": 587,
+            "box": [
+              267.4949951171875,
+              57.91197204589844,
+              411.183837890625,
+              93.14277648925781
+            ],
+            "src": "./assets/textbook-practice/ch17-p587-in-text-q1-0.png",
+            "role": "question"
+          },
+          {
+            "page": 587,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p587.jpg",
+            "role": "supporting full-page context"
+          },
+          {
+            "page": 586,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p586.jpg",
+            "role": "supporting full-page context"
+          }
+        ],
+        "sourceText": "2 \u0012  What is selective breeding?  Give an example.",
+        "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+      }
+    },
+    {
+      "startByte": 3391363,
+      "endByteExclusive": 3392159,
+      "bytes": 796,
+      "sha256": "3097b37932eeb8277fe0591b0427b18fc2308140d86d3cb3f8b4a5d33cd71274",
+      "data": {
+        "id": "ch17-p587-in-text-q2",
+        "page": 587,
+        "group": "in-text",
+        "number": 2,
+        "label": "In Text · p. 587 · question 2",
+        "topics": [
+          "lesson-01",
+          "lesson-02"
+        ],
+        "crops": [
+          {
+            "page": 587,
+            "box": [
+              267.4949951171875,
+              90.91197204589844,
+              416.251953125,
+              126.14326477050781
+            ],
+            "src": "./assets/textbook-practice/ch17-p587-in-text-q2-0.png",
+            "role": "question"
+          },
+          {
+            "page": 587,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p587.jpg",
+            "role": "supporting full-page context"
+          },
+          {
+            "page": 586,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p586.jpg",
+            "role": "supporting full-page context"
+          }
+        ],
+        "sourceText": "2 \u0013  Brieﬂ y describe two early  explanations of inheritance. ",
+        "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+      }
+    },
+    {
+      "startByte": 3392161,
+      "endByteExclusive": 3392982,
+      "bytes": 821,
+      "sha256": "9415a9b7f0637ca6cb822e99943f8f27dc8df6a85b46445fa7fc3722c5772e9c",
+      "data": {
+        "id": "ch17-p588-in-text-q3",
+        "page": 588,
+        "group": "in-text",
+        "number": 3,
+        "label": "In Text · p. 588 · question 3",
+        "topics": [
+          "lesson-01",
+          "lesson-02",
+          "lesson-03"
+        ],
+        "crops": [
+          {
+            "page": 588,
+            "box": [
+              360.4949951171875,
+              264.7869567871094,
+              517.138427734375,
+              313.5233154296875
+            ],
+            "src": "./assets/textbook-practice/ch17-p588-in-text-q3-0.png",
+            "role": "question"
+          },
+          {
+            "page": 588,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p588.jpg",
+            "role": "supporting full-page context"
+          },
+          {
+            "page": 587,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p587.jpg",
+            "role": "supporting full-page context"
+          }
+        ],
+        "sourceText": "2 \u0014  Explain how a hybrid plant is  different from a true breeding  plant.",
+        "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+      }
+    },
+    {
+      "startByte": 3392984,
+      "endByteExclusive": 3393793,
+      "bytes": 809,
+      "sha256": "6d61b6c782cd731c21e026e303b39ed0ad1d4b806b12844816ba1abfaec47726",
+      "data": {
+        "id": "ch17-p588-in-text-q4",
+        "page": 588,
+        "group": "in-text",
+        "number": 4,
+        "label": "In Text · p. 588 · question 4",
+        "topics": [
+          "lesson-01",
+          "lesson-02"
+        ],
+        "crops": [
+          {
+            "page": 588,
+            "box": [
+              360.4949951171875,
+              311.2869873046875,
+              529.6618041992188,
+              347.6140441894531
+            ],
+            "src": "./assets/textbook-practice/ch17-p588-in-text-q4-0.png",
+            "role": "question"
+          },
+          {
+            "page": 588,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p588.jpg",
+            "role": "supporting full-page context"
+          },
+          {
+            "page": 587,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p587.jpg",
+            "role": "supporting full-page context"
+          }
+        ],
+        "sourceText": "2 \u0015  Explain the difference between P,  F1, and F2 generations in a cross.",
+        "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+      }
+    },
+    {
+      "startByte": 3393795,
+      "endByteExclusive": 3394635,
+      "bytes": 840,
+      "sha256": "bdef89926b28bf18fca09074677dfc86c8d69894eeb13780a4d0fc726d00d196",
+      "data": {
+        "id": "ch17-p589-in-text-q5",
+        "page": 589,
+        "group": "in-text",
+        "number": 5,
+        "label": "In Text · p. 589 · question 5",
+        "topics": [
+          "lesson-03",
+          "lesson-02",
+          "lesson-04"
+        ],
+        "crops": [
+          {
+            "page": 589,
+            "box": [
+              267.4949951171875,
+              355.7869873046875,
+              431.64202880859375,
+              404.5243225097656
+            ],
+            "src": "./assets/textbook-practice/ch17-p589-in-text-q5-0.png",
+            "role": "question"
+          },
+          {
+            "page": 589,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p589.jpg",
+            "role": "supporting full-page context"
+          },
+          {
+            "page": 588,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p588.jpg",
+            "role": "supporting full-page context"
+          }
+        ],
+        "sourceText": "2 \u0016  State Mendel’s ﬁ rst law in your  own words, and use an example  to illustrate it.",
+        "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+      }
+    },
+    {
+      "startByte": 3394637,
+      "endByteExclusive": 3395446,
+      "bytes": 809,
+      "sha256": "5d2f11ad8feff2df13510caed4a151c50b115104710a9d5952ea7945994870f4",
+      "data": {
+        "id": "ch17-p590-in-text-q6",
+        "page": 590,
+        "group": "in-text",
+        "number": 6,
+        "label": "In Text · p. 590 · question 6",
+        "topics": [
+          "lesson-02",
+          "lesson-04",
+          "lesson-03"
+        ],
+        "crops": [
+          {
+            "page": 590,
+            "box": [
+              360.4949951171875,
+              129.78501892089844,
+              523.65283203125,
+              165.01832580566406
+            ],
+            "src": "./assets/textbook-practice/ch17-p590-in-text-q6-0.png",
+            "role": "question"
+          },
+          {
+            "page": 590,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p590.jpg",
+            "role": "supporting full-page context"
+          },
+          {
+            "page": 589,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p589.jpg",
+            "role": "supporting full-page context"
+          }
+        ],
+        "sourceText": "2 \u0017  State the meanings of the terms  dominant and recessive.",
+        "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+      }
+    },
+    {
+      "startByte": 3397869,
+      "endByteExclusive": 3398645,
+      "bytes": 776,
+      "sha256": "695e8ef2c3f6bca37878a3ea4807dbb8af984cdd8e34d93a5cc5967b0c5b3a8c",
+      "data": {
+        "id": "ch17-p593-in-text-q10",
+        "page": 593,
+        "group": "in-text",
+        "number": 10,
+        "label": "In Text · p. 593 · question 10",
+        "topics": [
+          "lesson-03",
+          "lesson-05"
+        ],
+        "crops": [
+          {
+            "page": 593,
+            "box": [
+              267.4949951171875,
+              301.2869873046875,
+              405.1453857421875,
+              331.30450439453125
+            ],
+            "src": "./assets/textbook-practice/ch17-p593-in-text-q10-0.png",
+            "role": "question"
+          },
+          {
+            "page": 593,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p593.jpg",
+            "role": "supporting full-page context"
+          },
+          {
+            "page": 592,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p592.jpg",
+            "role": "supporting full-page context"
+          }
+        ],
+        "sourceText": "2 \u0012\u0011  What is a Punnett square?",
+        "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+      }
+    },
+    {
+      "startByte": 3398647,
+      "endByteExclusive": 3399420,
+      "bytes": 773,
+      "sha256": "a9c4da206f89887700fb96b3781428756bdf30fb3aad5aedcfdec81bd2468c43",
+      "data": {
+        "id": "ch17-p593-in-text-q11",
+        "page": 593,
+        "group": "in-text",
+        "number": 11,
+        "label": "In Text · p. 593 · question 11",
+        "topics": [
+          "lesson-04",
+          "lesson-05"
+        ],
+        "crops": [
+          {
+            "page": 593,
+            "box": [
+              267.4949951171875,
+              320.7869873046875,
+              379.44134521484375,
+              350.80450439453125
+            ],
+            "src": "./assets/textbook-practice/ch17-p593-in-text-q11-0.png",
+            "role": "question"
+          },
+          {
+            "page": 593,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p593.jpg",
+            "role": "supporting full-page context"
+          },
+          {
+            "page": 592,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p592.jpg",
+            "role": "supporting full-page context"
+          }
+        ],
+        "sourceText": "2 \u0012\u0012  What is a test cross?",
+        "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+      }
+    },
+    {
+      "startByte": 3399422,
+      "endByteExclusive": 3400220,
+      "bytes": 798,
+      "sha256": "eb8ebdfaf5f9d09c7e65dcb7ded98348372a94243142a8cbe0747d91a70d3464",
+      "data": {
+        "id": "ch17-p593-in-text-q12",
+        "page": 593,
+        "group": "in-text",
+        "number": 12,
+        "label": "In Text · p. 593 · question 12",
+        "topics": [
+          "lesson-05",
+          "lesson-06"
+        ],
+        "crops": [
+          {
+            "page": 593,
+            "box": [
+              267.4949951171875,
+              340.2869873046875,
+              418.2283935546875,
+              375.52032470703125
+            ],
+            "src": "./assets/textbook-practice/ch17-p593-in-text-q12-0.png",
+            "role": "question"
+          },
+          {
+            "page": 593,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p593.jpg",
+            "role": "supporting full-page context"
+          },
+          {
+            "page": 592,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p592.jpg",
+            "role": "supporting full-page context"
+          }
+        ],
+        "sourceText": "2 \u0012\u0013  State Mendel’s second law in  your own words.",
+        "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+      }
+    },
+    {
+      "startByte": 3400222,
+      "endByteExclusive": 3401025,
+      "bytes": 803,
+      "sha256": "c553d828793abff7e227cdd8e02880405ec3833eab3e8c0454b2a00ab65344cb",
+      "data": {
+        "id": "ch17-p595-in-text-q13",
+        "page": 595,
+        "group": "in-text",
+        "number": 13,
+        "label": "In Text · p. 595 · question 13",
+        "topics": [
+          "lesson-06",
+          "lesson-07",
+          "lesson-05"
+        ],
+        "crops": [
+          {
+            "page": 595,
+            "box": [
+              72.49490356445312,
+              359.28497314453125,
+              209.09518432617188,
+              394.5152587890625
+            ],
+            "src": "./assets/textbook-practice/ch17-p595-in-text-q13-0.png",
+            "role": "question"
+          },
+          {
+            "page": 595,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p595.jpg",
+            "role": "supporting full-page context"
+          },
+          {
+            "page": 594,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p594.jpg",
+            "role": "supporting full-page context"
+          }
+        ],
+        "sourceText": "2 \u0012\u0014  Explain what incomplete  dominance is.",
+        "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+      }
+    },
+    {
+      "startByte": 3401027,
+      "endByteExclusive": 3401890,
+      "bytes": 863,
+      "sha256": "43a61e3c0239df26074f31414d8e0bd52ce58a695f26497ff9255280fdd9ceda",
+      "data": {
+        "id": "ch17-p595-in-text-q14",
+        "page": 595,
+        "group": "in-text",
+        "number": 14,
+        "label": "In Text · p. 595 · question 14",
+        "topics": [
+          "lesson-06"
+        ],
+        "crops": [
+          {
+            "page": 595,
+            "box": [
+              72.49490356445312,
+              392.28497314453125,
+              244.3782196044922,
+              454.5148620605469
+            ],
+            "src": "./assets/textbook-practice/ch17-p595-in-text-q14-0.png",
+            "role": "question"
+          },
+          {
+            "page": 595,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p595.jpg",
+            "role": "supporting full-page context"
+          },
+          {
+            "page": 594,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p594.jpg",
+            "role": "supporting full-page context"
+          }
+        ],
+        "sourceText": "2 \u0012\u0015  Give two examples of genetic  conditions in humans that exhibit  incomplete dominance, and  brieﬂ y describe what they are.",
+        "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+      }
+    },
+    {
+      "startByte": 3401892,
+      "endByteExclusive": 3402723,
+      "bytes": 831,
+      "sha256": "33becfab82aeac94e91ba6eef64c30e974cbc9f63ddac97ee222b811442aa570",
+      "data": {
+        "id": "ch17-p595-in-text-q15",
+        "page": 595,
+        "group": "in-text",
+        "number": 15,
+        "label": "In Text · p. 595 · question 15",
+        "topics": [
+          "lesson-06",
+          "lesson-07",
+          "lesson-05"
+        ],
+        "crops": [
+          {
+            "page": 595,
+            "box": [
+              72.49490356445312,
+              452.28497314453125,
+              221.93345642089844,
+              501.0150451660156
+            ],
+            "src": "./assets/textbook-practice/ch17-p595-in-text-q15-0.png",
+            "role": "question"
+          },
+          {
+            "page": 595,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p595.jpg",
+            "role": "supporting full-page context"
+          },
+          {
+            "page": 594,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p594.jpg",
+            "role": "supporting full-page context"
+          }
+        ],
+        "sourceText": "2 \u0012\u0016  Explain how co-dominance  is different from incomplete  dominance.",
+        "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+      }
+    },
+    {
+      "startByte": 3402725,
+      "endByteExclusive": 3403562,
+      "bytes": 837,
+      "sha256": "d1cf8e603b55d1e466f1b3d4c54dd5044db609c02f8d8d68694992681d0c1ec6",
+      "data": {
+        "id": "ch17-p595-in-text-q16",
+        "page": 595,
+        "group": "in-text",
+        "number": 16,
+        "label": "In Text · p. 595 · question 16",
+        "topics": [
+          "lesson-06",
+          "lesson-07",
+          "lesson-05"
+        ],
+        "crops": [
+          {
+            "page": 595,
+            "box": [
+              72.49490356445312,
+              498.7849426269531,
+              236.3237762451172,
+              547.5150756835938
+            ],
+            "src": "./assets/textbook-practice/ch17-p595-in-text-q16-0.png",
+            "role": "question"
+          },
+          {
+            "page": 595,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p595.jpg",
+            "role": "supporting full-page context"
+          },
+          {
+            "page": 594,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p594.jpg",
+            "role": "supporting full-page context"
+          }
+        ],
+        "sourceText": "2 \u0012\u0017  Explain why the roan colouring  of a horse is an example of  co-dominance.",
+        "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+      }
+    },
+    {
+      "startByte": 3403564,
+      "endByteExclusive": 3404415,
+      "bytes": 851,
+      "sha256": "206b2024dd20f6e1327b3241342fb0617104ddcc9fce8c52a5fd29c1e2ae120a",
+      "data": {
+        "id": "ch17-p596-in-text-q17",
+        "page": 596,
+        "group": "in-text",
+        "number": 17,
+        "label": "In Text · p. 596 · question 17",
+        "topics": [
+          "lesson-07"
+        ],
+        "crops": [
+          {
+            "page": 596,
+            "box": [
+              360.4949951171875,
+              291.7869873046875,
+              529.1632080078125,
+              354.0273132324219
+            ],
+            "src": "./assets/textbook-practice/ch17-p596-in-text-q17-0.png",
+            "role": "question"
+          },
+          {
+            "page": 596,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p596.jpg",
+            "role": "supporting full-page context"
+          },
+          {
+            "page": 595,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p595.jpg",
+            "role": "supporting full-page context"
+          }
+        ],
+        "sourceText": "2 \u0012\u0018  Give two examples of how the  movement of alleles is consistent  with the movement of  chromosomes during meiosis.",
+        "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+      }
+    },
+    {
+      "startByte": 3417672,
+      "endByteExclusive": 3418430,
+      "bytes": 758,
+      "sha256": "cd2077262a28eb5cae4c75ff5f207e9b62f23ba5193f5e2adeb7db0310f05c38",
+      "data": {
+        "id": "ch17-p598-section-17-1-q1",
+        "page": 598,
+        "group": "section-17-1",
+        "number": 1,
+        "label": "Section 17 1 · p. 598 · question 1",
+        "topics": [
+          "lesson-06",
+          "lesson-07",
+          "lesson-12"
+        ],
+        "crops": [
+          {
+            "page": 598,
+            "box": [
+              38.0,
+              221.9306182861328,
+              285.0,
+              266.93072509765625
+            ],
+            "src": "./assets/textbook-practice/ch17-p598-section-17-1-q1-0.png",
+            "role": "question"
+          },
+          {
+            "page": 598,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p598.jpg",
+            "role": "supporting full-page context"
+          }
+        ],
+        "sourceText": "1. Explain how the Launch Lab: Coin Toss applies \nto making predictions about the genotypes and \nphenotypes of the F2 generation of a monohybrid cross.",
+        "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+      }
+    },
+    {
+      "startByte": 3418432,
+      "endByteExclusive": 3419144,
+      "bytes": 712,
+      "sha256": "94c32f8192f536f8ee3c3fa976d9e802dad280119172f25763de6a20a89eb7d0",
+      "data": {
+        "id": "ch17-p598-section-17-1-q2",
+        "page": 598,
+        "group": "section-17-1",
+        "number": 2,
+        "label": "Section 17 1 · p. 598 · question 2",
+        "topics": [
+          "lesson-06",
+          "lesson-07",
+          "lesson-12"
+        ],
+        "crops": [
+          {
+            "page": 598,
+            "box": [
+              38.0,
+              266.93072509765625,
+              285.0,
+              298.9306945800781
+            ],
+            "src": "./assets/textbook-practice/ch17-p598-section-17-1-q2-0.png",
+            "role": "question"
+          },
+          {
+            "page": 598,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p598.jpg",
+            "role": "supporting full-page context"
+          }
+        ],
+        "sourceText": "2. Describe two aspects of Mendel’s experiments that \nwere unusual for biology experiments in the 1800s.",
+        "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+      }
+    },
+    {
+      "startByte": 3419146,
+      "endByteExclusive": 3419890,
+      "bytes": 744,
+      "sha256": "c28d3c3e02ff609def1ac4c7475c89f1dda4d5b68a76b016ca2b5e7f7ac066ca",
+      "data": {
+        "id": "ch17-p598-section-17-1-q3",
+        "page": 598,
+        "group": "section-17-1",
+        "number": 3,
+        "label": "Section 17 1 · p. 598 · question 3",
+        "topics": [
+          "lesson-06",
+          "lesson-07",
+          "lesson-12"
+        ],
+        "crops": [
+          {
+            "page": 598,
+            "box": [
+              38.0,
+              298.9306945800781,
+              285.0,
+              343.9306945800781
+            ],
+            "src": "./assets/textbook-practice/ch17-p598-section-17-1-q3-0.png",
+            "role": "question"
+          },
+          {
+            "page": 598,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p598.jpg",
+            "role": "supporting full-page context"
+          }
+        ],
+        "sourceText": " 3. Compare and contrast the following terms: selective \nbreeding and true breeding. How does each term relate \nto the fi eld of genetics?",
+        "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+      }
+    },
+    {
+      "startByte": 3419892,
+      "endByteExclusive": 3420546,
+      "bytes": 654,
+      "sha256": "90c31c62badadf14b27518ff2ab5499e712ff14083a4462bc38a4ac3709ba7c0",
+      "data": {
+        "id": "ch17-p598-section-17-1-q4",
+        "page": 598,
+        "group": "section-17-1",
+        "number": 4,
+        "label": "Section 17 1 · p. 598 · question 4",
+        "topics": [
+          "lesson-06",
+          "lesson-07",
+          "lesson-12"
+        ],
+        "crops": [
+          {
+            "page": 598,
+            "box": [
+              38.0,
+              343.9306945800781,
+              285.0,
+              362.9306945800781
+            ],
+            "src": "./assets/textbook-practice/ch17-p598-section-17-1-q4-0.png",
+            "role": "question"
+          },
+          {
+            "page": 598,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p598.jpg",
+            "role": "supporting full-page context"
+          }
+        ],
+        "sourceText": " 4. Explain the meaning of the law of segregation.",
+        "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+      }
+    },
+    {
+      "startByte": 3420548,
+      "endByteExclusive": 3421387,
+      "bytes": 839,
+      "sha256": "5c2f5825f3f68cc8983d2a27f48dbe093050509a90592a82560062055037925f",
+      "data": {
+        "id": "ch17-p598-section-17-1-q5",
+        "page": 598,
+        "group": "section-17-1",
+        "number": 5,
+        "label": "Section 17 1 · p. 598 · question 5",
+        "topics": [
+          "lesson-06",
+          "lesson-07",
+          "lesson-12"
+        ],
+        "crops": [
+          {
+            "page": 598,
+            "box": [
+              38.0,
+              362.9306945800781,
+              285.0,
+              433.9306945800781
+            ],
+            "src": "./assets/textbook-practice/ch17-p598-section-17-1-q5-0.png",
+            "role": "question"
+          },
+          {
+            "page": 598,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p598.jpg",
+            "role": "supporting full-page context"
+          }
+        ],
+        "sourceText": " 5. If you did not know whether green or yellow was \ndominant for the gene for pod colour in peas, how \nwould you determine this experimentally? Describe \nyour experiment in detail, and explain how you would \ninterpret the results.",
+        "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+      }
+    },
+    {
+      "startByte": 3421389,
+      "endByteExclusive": 3422504,
+      "bytes": 1115,
+      "sha256": "a14ea41d2c9f161e715f4ee1b401e3df3b5cb9be01cc6c12ba7fe68c5222848e",
+      "data": {
+        "id": "ch17-p598-section-17-1-q6",
+        "page": 598,
+        "group": "section-17-1",
+        "number": 6,
+        "label": "Section 17 1 · p. 598 · question 6",
+        "topics": [
+          "lesson-06",
+          "lesson-07",
+          "lesson-12"
+        ],
+        "crops": [
+          {
+            "page": 598,
+            "box": [
+              38.0,
+              433.9306945800781,
+              285.0,
+              578.9306030273438
+            ],
+            "src": "./assets/textbook-practice/ch17-p598-section-17-1-q6-0.png",
+            "role": "question"
+          },
+          {
+            "page": 598,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p598.jpg",
+            "role": "supporting full-page context"
+          }
+        ],
+        "sourceText": " 6. In the garden pea, infl ated pod shape (I) is dominant \nto constricted shape (i). Axial fl ower position (A) is \ndominant to terminal fl ower position (a). Start with \nthe cross IIAA × iiaa from the parental generation.\na) State the genotype and phenotype of the F1 plants.\nb) List all of the genotypes and phenotypes of the F2 \nplants, and determine the genotypic and phenotypic \nratios.\n \n c) Explain how experimental data and your ratios in \npart (b) support the law of independent assortment.",
+        "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+      }
+    },
+    {
+      "startByte": 3422506,
+      "endByteExclusive": 3423487,
+      "bytes": 981,
+      "sha256": "644f1936d30d1505eba730213f1ca71e63cc237fda28c7a6b3fdbee263a44529",
+      "data": {
+        "id": "ch17-p598-section-17-1-q7",
+        "page": 598,
+        "group": "section-17-1",
+        "number": 7,
+        "label": "Section 17 1 · p. 598 · question 7",
+        "topics": [
+          "lesson-06",
+          "lesson-07",
+          "lesson-12"
+        ],
+        "crops": [
+          {
+            "page": 598,
+            "box": [
+              38.0,
+              578.9306030273438,
+              285.0,
+              732.0
+            ],
+            "src": "./assets/textbook-practice/ch17-p598-section-17-1-q7-0.png",
+            "role": "question"
+          },
+          {
+            "page": 598,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p598.jpg",
+            "role": "supporting full-page context"
+          }
+        ],
+        "sourceText": " 7. In fruit fl ies, long wings (L) are dominant to short wings \n(l) and gray body colour (G) is dominant to black body \ncolour (g). If fl ies that are heterozygous for both traits \nare crossed and 256 offspring are produced, how many \nof these offspring would you predict to have each \nphenotype below? \n \n a) long, gray\n \n b) long, black\n \n c) short, gray\n \n d) short, black",
+        "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+      }
+    },
+    {
+      "startByte": 3423489,
+      "endByteExclusive": 3424450,
+      "bytes": 961,
+      "sha256": "4885b2605b2cf5e1f814d05813c64ffc8159eac0159cdad8623edd50f985fc42",
+      "data": {
+        "id": "ch17-p598-section-17-1-q8",
+        "page": 598,
+        "group": "section-17-1",
+        "number": 8,
+        "label": "Section 17 1 · p. 598 · question 8",
+        "topics": [
+          "lesson-06",
+          "lesson-07",
+          "lesson-04"
+        ],
+        "crops": [
+          {
+            "page": 598,
+            "box": [
+              287.0,
+              221.9306182861328,
+              539.0,
+              318.93060302734375
+            ],
+            "src": "./assets/textbook-practice/ch17-p598-section-17-1-q8-0.png",
+            "role": "question"
+          },
+          {
+            "page": 598,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p598.jpg",
+            "role": "supporting full-page context"
+          }
+        ],
+        "sourceText": " 8. Imagine that you randomly select one of the \nlong-winged gray-bodied fl ies from the offspring \ndescribed in problem 5 and perform a test cross with a \nfl y that is homozygous recessive for both traits. What is \nthe probability that the offspring will be produced in \nthe ratio 1:1:1:1 for long, gray : long, black : short, \ngray : short, black?",
+        "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+      }
+    },
+    {
+      "startByte": 3424452,
+      "endByteExclusive": 3425401,
+      "bytes": 949,
+      "sha256": "e9171477eed0ab08c49711083e256dff402a3530de4e30f55fd00a1470927897",
+      "data": {
+        "id": "ch17-p598-section-17-1-q9",
+        "page": 598,
+        "group": "section-17-1",
+        "number": 9,
+        "label": "Section 17 1 · p. 598 · question 9",
+        "topics": [
+          "lesson-06",
+          "lesson-07",
+          "lesson-12"
+        ],
+        "crops": [
+          {
+            "page": 598,
+            "box": [
+              287.0,
+              318.93060302734375,
+              539.0,
+              402.93060302734375
+            ],
+            "src": "./assets/textbook-practice/ch17-p598-section-17-1-q9-0.png",
+            "role": "question"
+          },
+          {
+            "page": 598,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p598.jpg",
+            "role": "supporting full-page context"
+          }
+        ],
+        "sourceText": " 9. Now imagine that you performed the cross described in \nquestion 8. Your results were 139 fl ies with long wings \nand gray bodies, 49 fl ies with long wings and black \nbodies, 53 fl ies with short wings and gray bodies, and \n15 fl ies with short wings and black bodies. Are these the \nresults you would expect? Explain your reasoning.",
+        "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+      }
+    },
+    {
+      "startByte": 3425403,
+      "endByteExclusive": 3426196,
+      "bytes": 793,
+      "sha256": "d9281dd3130427df8109ec57fe3e67d498ae030f1ea0f0d64a82416b05c6e85a",
+      "data": {
+        "id": "ch17-p598-section-17-1-q10",
+        "page": 598,
+        "group": "section-17-1",
+        "number": 10,
+        "label": "Section 17 1 · p. 598 · question 10",
+        "topics": [
+          "lesson-06",
+          "lesson-07",
+          "lesson-12"
+        ],
+        "crops": [
+          {
+            "page": 598,
+            "box": [
+              287.0,
+              402.93060302734375,
+              539.0,
+              460.93060302734375
+            ],
+            "src": "./assets/textbook-practice/ch17-p598-section-17-1-q10-0.png",
+            "role": "question"
+          },
+          {
+            "page": 598,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p598.jpg",
+            "role": "supporting full-page context"
+          }
+        ],
+        "sourceText": " 10. Explain how incompletely dominant and co-dominant \nalleles differ from dominant and recessive alleles. What \ntype of observation would indicate that alleles are \nco-dominant?",
+        "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+      }
+    },
+    {
+      "startByte": 3426198,
+      "endByteExclusive": 3427256,
+      "bytes": 1058,
+      "sha256": "dcb25145f77753cf9a6ea9b74fe2e04889553c69901cdfbed5a0071c1892a7c8",
+      "data": {
+        "id": "ch17-p598-section-17-1-q11",
+        "page": 598,
+        "group": "section-17-1",
+        "number": 11,
+        "label": "Section 17 1 · p. 598 · question 11",
+        "topics": [
+          "lesson-06",
+          "lesson-07",
+          "lesson-12"
+        ],
+        "crops": [
+          {
+            "page": 598,
+            "box": [
+              287.0,
+              460.93060302734375,
+              539.0,
+              602.9306030273438
+            ],
+            "src": "./assets/textbook-practice/ch17-p598-section-17-1-q11-0.png",
+            "role": "question"
+          },
+          {
+            "page": 598,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p598.jpg",
+            "role": "supporting full-page context"
+          }
+        ],
+        "sourceText": " 11. A farmer crosses a black rooster with a white hen. Of the \nseven offspring, three are black, three are speckled black \nand white, and one is white.\n \n a) What could you infer about the black and white \nalleles?\n \n b) Do the ratios of characteristics among the offspring \nfollow the pattern you would expect? Why or why \nnot? What further information would you need in \norder to draw conclusions about the inheritance of \nthis trait?",
+        "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+      }
+    },
+    {
+      "startByte": 3427258,
+      "endByteExclusive": 3427960,
+      "bytes": 702,
+      "sha256": "f13cfaaaa3eb37a129cd02b9db3e198c122a728baf8ea3181b8d25fec4838a9a",
+      "data": {
+        "id": "ch17-p598-section-17-1-q12",
+        "page": 598,
+        "group": "section-17-1",
+        "number": 12,
+        "label": "Section 17 1 · p. 598 · question 12",
+        "topics": [
+          "lesson-06",
+          "lesson-07",
+          "lesson-12"
+        ],
+        "crops": [
+          {
+            "page": 598,
+            "box": [
+              287.0,
+              602.9306030273438,
+              539.0,
+              732.0
+            ],
+            "src": "./assets/textbook-practice/ch17-p598-section-17-1-q12-0.png",
+            "role": "question"
+          },
+          {
+            "page": 598,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p598.jpg",
+            "role": "supporting full-page context"
+          }
+        ],
+        "sourceText": " 12. Describe the observations that suggested to scientists \nthat genes might be carried on chromosomes.",
+        "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+      }
+    }
+  ],
+  "independentEnumeration": {
+    "sourceTomato": {
+      "parents": [
+        "RrTt",
+        "rrTt"
+      ],
+      "gametes1": {
+        "RT": "1/4",
+        "Rt": "1/4",
+        "rT": "1/4",
+        "rt": "1/4"
+      },
+      "gametes2": {
+        "rT": "1/2",
+        "rt": "1/2"
+      },
+      "cells": [
+        {
+          "gamete1": "RT",
+          "gamete2": "rT",
+          "offspring": "RrTT",
+          "probability": "1/8"
+        },
+        {
+          "gamete1": "RT",
+          "gamete2": "rt",
+          "offspring": "RrTt",
+          "probability": "1/8"
+        },
+        {
+          "gamete1": "Rt",
+          "gamete2": "rT",
+          "offspring": "RrTt",
+          "probability": "1/8"
+        },
+        {
+          "gamete1": "Rt",
+          "gamete2": "rt",
+          "offspring": "Rrtt",
+          "probability": "1/8"
+        },
+        {
+          "gamete1": "rT",
+          "gamete2": "rT",
+          "offspring": "rrTT",
+          "probability": "1/8"
+        },
+        {
+          "gamete1": "rT",
+          "gamete2": "rt",
+          "offspring": "rrTt",
+          "probability": "1/8"
+        },
+        {
+          "gamete1": "rt",
+          "gamete2": "rT",
+          "offspring": "rrTt",
+          "probability": "1/8"
+        },
+        {
+          "gamete1": "rt",
+          "gamete2": "rt",
+          "offspring": "rrtt",
+          "probability": "1/8"
+        }
+      ],
+      "genotypes": {
+        "RrTT": "1/8",
+        "RrTt": "1/4",
+        "Rrtt": "1/8",
+        "rrTT": "1/8",
+        "rrTt": "1/4",
+        "rrtt": "1/8"
+      },
+      "phenotypes": {
+        "dominant1/dominant2": "3/8",
+        "dominant1/recessive2": "1/8",
+        "recessive1/dominant2": "3/8",
+        "recessive1/recessive2": "1/8"
+      },
+      "sum": "1"
+    },
+    "proposedTomato": {
+      "parents": [
+        "RrTt",
+        "RRTt"
+      ],
+      "gametes1": {
+        "RT": "1/4",
+        "Rt": "1/4",
+        "rT": "1/4",
+        "rt": "1/4"
+      },
+      "gametes2": {
+        "RT": "1/2",
+        "Rt": "1/2"
+      },
+      "cells": [
+        {
+          "gamete1": "RT",
+          "gamete2": "RT",
+          "offspring": "RRTT",
+          "probability": "1/8"
+        },
+        {
+          "gamete1": "RT",
+          "gamete2": "Rt",
+          "offspring": "RRTt",
+          "probability": "1/8"
+        },
+        {
+          "gamete1": "Rt",
+          "gamete2": "RT",
+          "offspring": "RRTt",
+          "probability": "1/8"
+        },
+        {
+          "gamete1": "Rt",
+          "gamete2": "Rt",
+          "offspring": "RRtt",
+          "probability": "1/8"
+        },
+        {
+          "gamete1": "rT",
+          "gamete2": "RT",
+          "offspring": "RrTT",
+          "probability": "1/8"
+        },
+        {
+          "gamete1": "rT",
+          "gamete2": "Rt",
+          "offspring": "RrTt",
+          "probability": "1/8"
+        },
+        {
+          "gamete1": "rt",
+          "gamete2": "RT",
+          "offspring": "RrTt",
+          "probability": "1/8"
+        },
+        {
+          "gamete1": "rt",
+          "gamete2": "Rt",
+          "offspring": "Rrtt",
+          "probability": "1/8"
+        }
+      ],
+      "genotypes": {
+        "RRTT": "1/8",
+        "RRTt": "1/4",
+        "RRtt": "1/8",
+        "RrTT": "1/8",
+        "RrTt": "1/4",
+        "Rrtt": "1/8"
+      },
+      "phenotypes": {
+        "dominant1/dominant2": "3/4",
+        "dominant1/recessive2": "1/4"
+      },
+      "sum": "1"
+    },
+    "changedPartnerGuided": {
+      "parents": [
+        "RrTt",
+        "RRtt"
+      ],
+      "gametes1": {
+        "RT": "1/4",
+        "Rt": "1/4",
+        "rT": "1/4",
+        "rt": "1/4"
+      },
+      "gametes2": {
+        "Rt": "1"
+      },
+      "cells": [
+        {
+          "gamete1": "RT",
+          "gamete2": "Rt",
+          "offspring": "RRTt",
+          "probability": "1/4"
+        },
+        {
+          "gamete1": "Rt",
+          "gamete2": "Rt",
+          "offspring": "RRtt",
+          "probability": "1/4"
+        },
+        {
+          "gamete1": "rT",
+          "gamete2": "Rt",
+          "offspring": "RrTt",
+          "probability": "1/4"
+        },
+        {
+          "gamete1": "rt",
+          "gamete2": "Rt",
+          "offspring": "Rrtt",
+          "probability": "1/4"
+        }
+      ],
+      "genotypes": {
+        "RRTt": "1/4",
+        "RRtt": "1/4",
+        "RrTt": "1/4",
+        "Rrtt": "1/4"
+      },
+      "phenotypes": {
+        "dominant1/dominant2": "1/2",
+        "dominant1/recessive2": "1/2"
+      },
+      "sum": "1"
+    },
+    "sourceSquashAfterInference": {
+      "parents": [
+        "wwDd",
+        "Wwdd"
+      ],
+      "gametes1": {
+        "wD": "1/2",
+        "wd": "1/2"
+      },
+      "gametes2": {
+        "Wd": "1/2",
+        "wd": "1/2"
+      },
+      "cells": [
+        {
+          "gamete1": "wD",
+          "gamete2": "Wd",
+          "offspring": "WwDd",
+          "probability": "1/4"
+        },
+        {
+          "gamete1": "wD",
+          "gamete2": "wd",
+          "offspring": "wwDd",
+          "probability": "1/4"
+        },
+        {
+          "gamete1": "wd",
+          "gamete2": "Wd",
+          "offspring": "Wwdd",
+          "probability": "1/4"
+        },
+        {
+          "gamete1": "wd",
+          "gamete2": "wd",
+          "offspring": "wwdd",
+          "probability": "1/4"
+        }
+      ],
+      "genotypes": {
+        "WwDd": "1/4",
+        "wwDd": "1/4",
+        "Wwdd": "1/4",
+        "wwdd": "1/4"
+      },
+      "phenotypes": {
+        "dominant1/dominant2": "1/4",
+        "recessive1/dominant2": "1/4",
+        "dominant1/recessive2": "1/4",
+        "recessive1/recessive2": "1/4"
+      },
+      "sum": "1"
+    }
+  },
+  "candidateDispositions": [
+    {
+      "candidate": "Letter-only CcHh × ccHh tomato",
+      "status": "rejected by latest user correction; do not use as answer-protection",
+      "reason": "Dominance-preserving C↔R,H↔T maps all gametes, complete4×2 explanation and phenotype targets directly to protected writing1 and writing2; numerical results stay3/8,3/8,1/8,1/8."
+    },
+    {
+      "candidate": "RrTt × RRTt tomato worked example",
+      "status": "root-selected bounded trial with unresolved protected-writing1 template overlap and explicit fidelity cost",
+      "retained": "Tomato context, red/yellow and tall/short dominance rules, one double heterozygote, four versus two distinct gametes, eight combinations and gamete-based dimensions.",
+      "changed": "Second parent is homozygous dominant rather than recessive for colour; all offspring red; categories red/tall3/4,yellow/tall0,red/short1/4,yellow/short0. Four nonzero source phenotype groups reduce to two.",
+      "requiredNumericalTarget": "The complete-dominance phenotype event differs from required AaBb × aaBb A_bb=1/8 under a dominance-preserving relabel. Individual grid cells can still be1/8; a repeated number alone is not the protected phenotype inference.",
+      "wholeWritingTemplate": "The protected writing1 only asks gametes and4×2. Ignoring dominance meaning, exchanging which allele is fixed maps RRTt to rrTt and transforms the entire gamete-list model; all ordinary two-biallelic-locus4×2 patterns have this segregation-graph relationship. Therefore no blinded/answer-safe claim. Under a consistent relabel that preserves upper-case dominant versus lower-case recessive meaning, the genotype arrangement is different, but the generic method and response template remain strongly reusable.",
+      "fidelityCost": "Do not say the adapted case retains the source four-nonzero-phenotype grouping or identical difficulty. Source43–45 must be cited as adapted, not reproduced."
+    },
+    {
+      "candidate": "Source squash wwD_ × W_dd, yellow/spherical child, N80",
+      "status": "retain source example with disclosed prerequisite/ratio overlap; source reviewer owns pixel confirmation",
+      "inference": "A wwdd offspring forces first parent wwDd and second Wwdd. Four cells produce WwDd,wwDd,Wwdd,wwdd each1/4. White fruit40 expected among80 plants; yellow/spherical20 expected.",
+      "overlap": "Unknown-parent inference uses protected04 tester principles. Result1:1:1:1 equals optional ch17-source-OBJ_2131242 but that task is a double-heterozygote × double-recessive4×1 cross, unlike distributed2×2 squash parents. N80 and20 arithmetic also occurs in native03 expected-number material; arithmetic coincidence is not an exact squash inverse task.",
+      "sourceCorrections": "Original47 white flowering/sphere flowers wording must refer to fruit-bearing plants; actual number must become expected number under the model. Preserve source N80 with explicit expected-versus-guaranteed interpretation."
+    },
+    {
+      "candidate": "02 independent RR × Rr/no wrinkled",
+      "status": "DROPPED after consequential global-required collision",
+      "collisionId": "ch17-l03-check-mc-1",
+      "reason": "Exact AA × Aa only-dominant phenotype task after R↔A, preserving dominance. Changing letter would not protect the required answer."
+    },
+    {
+      "candidate": "02 guided two visible mislabelled arrows",
+      "status": "bounded proposal acceptable for draft development; final actual stimulus/feedback still to review",
+      "reason": "Diagnoses incorrectly naming parent-pair→single gamete allele as fertilisation and two gametes→diploid pair as segregation. New response must explain separation versus combination using the shown arrows. No exact required prompt copying found; causal mechanism is essential core overlap."
+    },
+    {
+      "candidate": "02 independent reciprocal rr egg/RR pollen versus RR egg/rr pollen",
+      "status": "replacement proposal avoids dropped03 collision; core RR×rr overlap explicitly retained",
+      "reason": "Both offspring genotypes Rr and seed phenotypes round in the stipulated ordinary autosomal seed-own-genotype model. The distinguishing inference rejects the claim that the plant receiving pollen determines offspring seed shape.",
+      "overlap": "Native source P/F1 explanation and optional ch17-l02-application-1 already give RR×rr→Rr. Do not call genotype arithmetic novel or blinded. The whole protected02 F1/F2 model also needs F2/recessive reappearance and is not reproduced by the reciprocal-parent-role response. No global required item asks this autosomal reciprocal parent-role claim.",
+      "sexLinkedLimit": "Protected08 questions concern X/Y transmission, not this autosomal reciprocal model; do not add a new X-linked lesson or generalise reciprocal invariance beyond the stated autosomal model."
+    },
+    {
+      "candidate": "05 guided tomato partner changes to RRtt",
+      "status": "bounded proposal acceptable; final exact prompt/feedback still to review",
+      "reason": "Gametes RT,Rt,rT,rt versus Rt make4×1. RRTt,RRtt,RrTt,Rrtt each1/4; all red,half tall/half short. No extra count needed.",
+      "overlap": "Shares gamete enumeration and one-locus Tt×tt method with earlier teaching. It does not solve protected4×2 writing1 or1/8 phenotype writing2. Native guided AaBb×aabb is also4×1 but its doubly recessive tester yields four phenotypes rather than these two; do not describe every substep as unfamiliar."
+    },
+    {
+      "candidate": "05 independent violet/lobed × white/smooth, white/smooth child",
+      "status": "bounded proposal acceptable; final exact stimulus/feedback still to review",
+      "inference": "V_ ll × vv L_ initially. A white child forces first parent Vvll. Its smooth phenotype with ll first parent requires oneL from the other, leaving second parent vvLL orvvLl. A later lobed child forces vvLl. Any finite smooth-only record does not logically force LL.",
+      "overlap": "The recessive-observation inference is native04 prerequisite. New demand combines a forced genotype at one locus with unresolved alternatives at the other and names discriminating future evidence. The whole two-locus response is not a copied required04 tester explanation. No conditional probability, posterior or selected denominator is needed."
+    }
+  ],
+  "freshDraftReview": "pending actual new v0.2.0 learner files",
+  "nativeUIReview": "static specification only; save/reload/AllMyWork tests pending",
+  "teacherAcceptance": "pending"
+}

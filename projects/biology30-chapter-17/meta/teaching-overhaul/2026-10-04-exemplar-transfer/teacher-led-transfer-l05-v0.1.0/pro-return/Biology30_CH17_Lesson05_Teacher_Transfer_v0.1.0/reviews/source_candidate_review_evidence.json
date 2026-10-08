@@ -1,0 +1,102 @@
+{
+  "scope": "Complete source/science/quantitative candidate review; no native runtime or teacher acceptance",
+  "HTML": {
+    "bytes": 58457,
+    "sha256": "b29e83ae44ba3fd44b1f6e52a359ece8eb4933b3ee018b8964fdda5b85c97d21"
+  },
+  "Markdown": {
+    "bytes": 50205,
+    "sha256": "67a75c62d2fe43cd3877d6bfd9940d6558bf6cdbee35a2d266b024a102fbdb9c"
+  },
+  "assets": [
+    {
+      "src": "./assets/teaching-l05-v010/slide-35-image32.png",
+      "bytes": 77704,
+      "sha256": "8eeaa700523d536e1375231cfc9f6a6971ae29618aca18918040ea81f5502d39",
+      "sourceEqual": true
+    },
+    {
+      "src": "./assets/teaching-l05-v010/slide-36-image29.png",
+      "bytes": 84208,
+      "sha256": "1b3fd0b0ced0cc074bdfac4b3a6712392123db36e33970813c8c2ea235e6abb9",
+      "sourceEqual": true
+    },
+    {
+      "src": "./assets/teaching-l05-v010/slide-37-image46.png",
+      "bytes": 7401,
+      "sha256": "cac4ebce12f25f7afe2bae30ad8806346f8b83b6e618fdd1c90c20a6b7cce3cb",
+      "sourceEqual": true
+    },
+    {
+      "src": "./assets/teaching-l05-v010/slide-37-image37.png",
+      "bytes": 15668,
+      "sha256": "32c3c6888aee2d6573340d2cae5b177ad5a8b3c38a944b0c0f715edc65e04baf",
+      "sourceEqual": true
+    },
+    {
+      "src": "./assets/teaching-l05-v010/slide-39-image40.png",
+      "bytes": 28688,
+      "sha256": "1737c44d6e84b88174326df28f36a39ddf526d5153b33b96660e2cac00e47338",
+      "sourceEqual": true
+    },
+    {
+      "src": "./assets/teaching-l05-v010/slide-41-image44.png",
+      "bytes": 364277,
+      "sha256": "7e57deedfe727416d5536605bb4327cffd16ee88cbb13c778bd5e5039f450eb8",
+      "sourceEqual": true
+    },
+    {
+      "src": "./assets/figures/ch17-two-trait.svg",
+      "bytes": 5623,
+      "sha256": "6fdb301a963b4da131f8fe50624611fc0ff091c62e0ac99d6602019c2830c316",
+      "sourceEqual": true
+    }
+  ],
+  "optionalExact": [
+    {
+      "sectionId": "ch17-kinch-v020-l05-change-task",
+      "noteId": "ch17-kinch-v020-l05-change-response",
+      "exactOccurrenceCount": 1,
+      "bytes": 4203,
+      "sha256": "a218d13653a95a59da2d56004ea889124992ee3903e2b0749c8f7df78c7a16cf"
+    },
+    {
+      "sectionId": "ch17-kinch-v020-l05-evidence-task",
+      "noteId": "ch17-kinch-v020-l05-evidence-response",
+      "exactOccurrenceCount": 1,
+      "bytes": 4537,
+      "sha256": "545343eb9be903740eda4fa5258a96eb5c82de05327de2ee734143bea75fc97d"
+    }
+  ],
+  "newTomatoInclusiveUnion": {
+    "red": "1/2",
+    "tall": "3/4",
+    "both": "3/8",
+    "naiveSum": "5/4",
+    "correctedSum": "7/8",
+    "enumeratedUnion": "7/8",
+    "complement": "1/8",
+    "totalCheck": "1"
+  },
+  "forbiddenProseTokenMatches": {
+    "lesson0[1-9]": false,
+    "lesson-[0-9]{2}\\b": false,
+    "Scout": false,
+    "\\baudit\\b": false,
+    "\\bintegration\\b": false,
+    "\\bslides?\\b": true
+  },
+  "forbiddenVisibleProseMatches": {
+    "lesson0[1-9]": [],
+    "lesson-[0-9]{2}\\b": [],
+    "Scout": [],
+    "\\baudit\\b": [],
+    "\\bintegration\\b": [],
+    "\\bslides?\\b": []
+  },
+  "reviewOnlyKeyAbsence": {
+    "peaUnion7over16Absent": true,
+    "protectedCcHhCrossAbsent": true,
+    "protectedAaBBBadHeaderCaseAbsent": true
+  }
+}

@@ -1,0 +1,560 @@
+{
+  "schemaVersion": 1,
+  "scope": "Separate assistant static review of final integration, source visual and practice/feedback maps against actual attached owner/contracts and unchanged complete candidate; no output edits, native owner assembly or runtime/browser execution.",
+  "reviewer": "/root/l05_native_contract",
+  "performedAtUtc": "2026-10-05T18:01:44.131915+00:00",
+  "reviewedMapFiles": {
+    "INTEGRATION_MAP.json": {
+      "bytes": 17982,
+      "sha256": "2836960c3c1063b9689a5daeef8790d3a1eb9c40ecda31295f1904acf738bda0"
+    },
+    "SOURCE_VISUAL_MAP.json": {
+      "bytes": 81991,
+      "sha256": "1fa5b74f1f67ffffd0375d4435a3f7cddb6f974c332b3adb6cac8e21281eee6a"
+    },
+    "PRACTICE_FEEDBACK_MAP.json": {
+      "bytes": 4462,
+      "sha256": "35080361b086d811ebcc2531cb76c4af07572524652530bbe98ea29e660f7998"
+    }
+  },
+  "candidate": {
+    "html": {
+      "bytes": 58457,
+      "sha256": "b29e83ae44ba3fd44b1f6e52a359ece8eb4933b3ee018b8964fdda5b85c97d21"
+    },
+    "markdown": {
+      "bytes": 50205,
+      "sha256": "67a75c62d2fe43cd3877d6bfd9940d6558bf6cdbee35a2d266b024a102fbdb9c"
+    }
+  },
+  "sourceOwner": {
+    "bytes": 3540574,
+    "sha256": "71518705941a86809c7f28593664763e59c7867511e3ae699ec1007bfe109bad"
+  },
+  "checks": {
+    "ownerHashSizeAndPath": true,
+    "operativeBeforeRangeAndHash": true,
+    "characterContextOffsets": true,
+    "afterFragmentHashAndSize": true,
+    "computedAfterPositionsOnly": true,
+    "beforeRawFragmentCopy": true,
+    "currentLessonAllRanges": true,
+    "untouchedGlobalPrefix": true,
+    "untouchedGlobalSuffix": true,
+    "surroundingBeforeCoordinatesExplicit": true,
+    "allProtectedSurroundingRecordsExact": true,
+    "allFourBeforeAfterOuterRecords": true,
+    "bothFrozenActivityMapRecordsExact": true,
+    "nativeFigureContainerAssetMapping": true,
+    "sixIntegrationAssetRecords": true,
+    "integrationVocabularySets": true,
+    "staticIdsAndEditKeys": true,
+    "nativeDataHashRecord": true,
+    "requiredIdsAndNoChangeContracts": true,
+    "readerReferencesUnchanged": true,
+    "allSevenVisualRecordsBytePositionsMetadataAndDimensions": true,
+    "allThirteenOriginalImageDecisionIdentities": true,
+    "allFourteenTableRangesAndVisibility": true,
+    "allTwentyFourTeachingHeadingPositions": true,
+    "sourceZipAndLeadAttachmentIdentities": true,
+    "originalPptAndPdfIdentities": true,
+    "printedPdfPageOffsets": true,
+    "all76SourceManifestRecordsAndArchiveEquality": true,
+    "protectionLedgerEvidenceHonestAndExact": true,
+    "practiceBothActivityRecordsExact": true,
+    "practicePreparationHeadingsExistAndIdsCurrent": true,
+    "workedInterpretationHeadingExistsAndIsNotTask": true,
+    "learnerHashesStillReviewScope": true
+  },
+  "checkCount": 33,
+  "allApplicableChecksSatisfied": true,
+  "correctionHistory": [
+    {
+      "id": "MAP-01",
+      "finding": "Native source map named nonexistent course-data.labelingTasks[1].",
+      "repair": "Now names actual course-data.labelDiagrams[1], id ch17-two-trait-label, answers.",
+      "status": "closed"
+    },
+    {
+      "id": "MAP-02",
+      "finding": "Both visible frozen prompt tables were mislabeled as hidden model context.",
+      "repair": "Tables9 and14 are visible-before-attempt true and hint/model false; table10 remains voluntary-model-only.",
+      "status": "closed"
+    },
+    {
+      "id": "MAP-03",
+      "finding": "Table placement represented the containing element, including entire frozen sections, without explicit table-only bounds.",
+      "repair": "Every table now has separately identified containing placement and exact tablePlacement bytes/hash.",
+      "status": "closed"
+    },
+    {
+      "id": "MAP-04",
+      "finding": "Protected surrounding coordinates needed their explicit before-source basis.",
+      "repair": "BEFORE fullowner versus local lesson basis is explicit; AFTER positions remain computed proposal fields.",
+      "status": "closed"
+    }
+  ],
+  "openFindings": [],
+  "details": {
+    "outerRecords": [
+      {
+        "id": "ch17-l05-teaching-01",
+        "verified": true
+      },
+      {
+        "id": "ch17-l05-teaching-02",
+        "verified": true
+      },
+      {
+        "id": "ch17-l05-worked",
+        "verified": true
+      },
+      {
+        "id": "ch17-l05-teaching-03",
+        "verified": true
+      }
+    ],
+    "frozenActivities": [
+      {
+        "id": "ch17-kinch-v020-l05-change-task",
+        "verified": true
+      },
+      {
+        "id": "ch17-kinch-v020-l05-evidence-task",
+        "verified": true
+      }
+    ],
+    "figures": [
+      {
+        "id": "ch17-l05-v010-pea-contrasts",
+        "verified": true,
+        "dimensions": [
+          325,
+          349
+        ],
+        "range": [
+          1198,
+          1680
+        ]
+      },
+      {
+        "id": "ch17-l05-v010-pea-parents",
+        "verified": true,
+        "dimensions": [
+          655,
+          311
+        ],
+        "range": [
+          3059,
+          3589
+        ]
+      },
+      {
+        "id": "ch17-l05-v010-p-gametes",
+        "verified": true,
+        "dimensions": [
+          558,
+          207
+        ],
+        "range": [
+          6769,
+          7239
+        ]
+      },
+      {
+        "id": "ch17-l05-v010-f1-combinations",
+        "verified": true,
+        "dimensions": [
+          823,
+          377
+        ],
+        "range": [
+          7987,
+          8519
+        ]
+      },
+      {
+        "id": "ch17-l05-v010-f2-source",
+        "verified": true,
+        "dimensions": [
+          982,
+          437
+        ],
+        "range": [
+          10329,
+          10974
+        ]
+      },
+      {
+        "id": "ch17-l05-v010-chromosome-orientations",
+        "verified": true,
+        "dimensions": [
+          1000,
+          707
+        ],
+        "range": [
+          13377,
+          14099
+        ]
+      },
+      {
+        "id": "ch17-two-trait",
+        "verified": true,
+        "dimensions": {
+          "sourceSvg": "1400×900 viewBox"
+        },
+        "range": [
+          19550,
+          20272
+        ]
+      }
+    ],
+    "allOriginalImageDecisions": [
+      {
+        "file": "sources/slide-assets/slide-35-image32.png",
+        "verified": true
+      },
+      {
+        "file": "sources/slide-assets/slide-36-image29.png",
+        "verified": true
+      },
+      {
+        "file": "sources/slide-assets/slide-36-image35.png",
+        "verified": true
+      },
+      {
+        "file": "sources/slide-assets/slide-37-image46.png",
+        "verified": true
+      },
+      {
+        "file": "sources/slide-assets/slide-37-image37.png",
+        "verified": true
+      },
+      {
+        "file": "sources/slide-assets/slide-39-image34.png",
+        "verified": true
+      },
+      {
+        "file": "sources/slide-assets/slide-39-image40.png",
+        "verified": true
+      },
+      {
+        "file": "sources/slide-assets/slide-41-image47.png",
+        "verified": true
+      },
+      {
+        "file": "sources/slide-assets/slide-41-image44.png",
+        "verified": true
+      },
+      {
+        "file": "sources/slide-assets/slide-42-image23.png",
+        "verified": true
+      },
+      {
+        "file": "sources/slide-assets/slide-45-image43.png",
+        "verified": true
+      },
+      {
+        "file": "sources/slide-assets/slide-48-image38.jpg",
+        "verified": true
+      },
+      {
+        "file": "sources/slide-assets/slide-48-image39.jpg",
+        "verified": true
+      }
+    ],
+    "tables": [
+      {
+        "ordinal": 1,
+        "verified": true,
+        "tablePlacement": {
+          "startByte": 4042,
+          "endByteExclusive": 4553,
+          "bytes": 511,
+          "sha256": "4c5f20a00554f46fd38104a06b642b485a7d2bd3ea95664c0ce2800b63aefb7a"
+        },
+        "insideVoluntaryModelDetails": false
+      },
+      {
+        "ordinal": 2,
+        "verified": true,
+        "tablePlacement": {
+          "startByte": 17695,
+          "endByteExclusive": 18315,
+          "bytes": 620,
+          "sha256": "5bdb6e5e13348c37963548b9a3a93f3965527c54a495330c80ccbfe0a58c498f"
+        },
+        "insideVoluntaryModelDetails": false
+      },
+      {
+        "ordinal": 3,
+        "verified": true,
+        "tablePlacement": {
+          "startByte": 22067,
+          "endByteExclusive": 22739,
+          "bytes": 672,
+          "sha256": "eace9b6d9151b3537538ba3f64e4ca2be6437b6b6d86d4a2b414aa7901f185aa"
+        },
+        "insideVoluntaryModelDetails": false
+      },
+      {
+        "ordinal": 4,
+        "verified": true,
+        "tablePlacement": {
+          "startByte": 24350,
+          "endByteExclusive": 25046,
+          "bytes": 696,
+          "sha256": "e3f855374e12b91d375dcb88f0149b6b8b17b3d0ac0fbe4633d838fd57c545f1"
+        },
+        "insideVoluntaryModelDetails": false
+      },
+      {
+        "ordinal": 5,
+        "verified": true,
+        "tablePlacement": {
+          "startByte": 30423,
+          "endByteExclusive": 30879,
+          "bytes": 456,
+          "sha256": "8aae1a4522c2c3aacba6991f79bbf0179ccc2df5351247f8fca788829158b751"
+        },
+        "insideVoluntaryModelDetails": false
+      },
+      {
+        "ordinal": 6,
+        "verified": true,
+        "tablePlacement": {
+          "startByte": 31846,
+          "endByteExclusive": 32381,
+          "bytes": 535,
+          "sha256": "62c91a42eba75f9307b409c12026784a099d9dd83fad9d4376894859e8fb7a1f"
+        },
+        "insideVoluntaryModelDetails": false
+      },
+      {
+        "ordinal": 7,
+        "verified": true,
+        "tablePlacement": {
+          "startByte": 33633,
+          "endByteExclusive": 34263,
+          "bytes": 630,
+          "sha256": "f0095447709f1c1139e6e485fc3e84be9132e9617cf1f565fd5b29bfc614968a"
+        },
+        "insideVoluntaryModelDetails": false
+      },
+      {
+        "ordinal": 8,
+        "verified": true,
+        "tablePlacement": {
+          "startByte": 35390,
+          "endByteExclusive": 36021,
+          "bytes": 631,
+          "sha256": "29d02e097085a5c04c3964732ce9d6e629f8dd38c60b00ea1923f178d3238051"
+        },
+        "insideVoluntaryModelDetails": false
+      },
+      {
+        "ordinal": 9,
+        "verified": true,
+        "tablePlacement": {
+          "startByte": 38582,
+          "endByteExclusive": 38909,
+          "bytes": 327,
+          "sha256": "8e489f78d52f5ba0a7816e142d9d1208348bb8d7212d6ad7bb610d90f2090ffa"
+        },
+        "insideVoluntaryModelDetails": false
+      },
+      {
+        "ordinal": 10,
+        "verified": true,
+        "tablePlacement": {
+          "startByte": 40686,
+          "endByteExclusive": 41200,
+          "bytes": 514,
+          "sha256": "8bd9a7998ca75cfb0399bce87d14635ca5014b96cb7004ec4c4bd4a63d816658"
+        },
+        "insideVoluntaryModelDetails": true
+      },
+      {
+        "ordinal": 11,
+        "verified": true,
+        "tablePlacement": {
+          "startByte": 44539,
+          "endByteExclusive": 45104,
+          "bytes": 565,
+          "sha256": "8b4f216806f68d2df7518d2bbc8d6d1176bbc8c3d981315ac301dd82c57a5693"
+        },
+        "insideVoluntaryModelDetails": false
+      },
+      {
+        "ordinal": 12,
+        "verified": true,
+        "tablePlacement": {
+          "startByte": 47190,
+          "endByteExclusive": 47655,
+          "bytes": 465,
+          "sha256": "282cd6879b8ad3c4737a09b507fff1988cd705a40c0706cb9dddb69ff699ee1a"
+        },
+        "insideVoluntaryModelDetails": false
+      },
+      {
+        "ordinal": 13,
+        "verified": true,
+        "tablePlacement": {
+          "startByte": 49564,
+          "endByteExclusive": 50127,
+          "bytes": 563,
+          "sha256": "cf8ada38e23760148c2fd03aeaba71e2a894f0d33bba37ea3fc483602df0fca0"
+        },
+        "insideVoluntaryModelDetails": false
+      },
+      {
+        "ordinal": 14,
+        "verified": true,
+        "tablePlacement": {
+          "startByte": 52249,
+          "endByteExclusive": 52864,
+          "bytes": 615,
+          "sha256": "6ef962195626cd2704f589d74b6e01ebf29f376e823f594083d7bcdf7d34f15d"
+        },
+        "insideVoluntaryModelDetails": false
+      }
+    ],
+    "teachingHeadings": [
+      {
+        "heading": "Can two characteristics travel together?",
+        "verified": true
+      },
+      {
+        "heading": "Choose the starting plants and define the letters",
+        "verified": true
+      },
+      {
+        "heading": "Follow the P contributions into F1",
+        "verified": true
+      },
+      {
+        "heading": "Follow F1 reproduction before explaining F2",
+        "verified": true
+      },
+      {
+        "heading": "Two chromosome pairs can orient independently",
+        "verified": true
+      },
+      {
+        "heading": "Derive the gamete types and their weights",
+        "verified": true
+      },
+      {
+        "heading": "Follow a branch as a complete gamete contribution",
+        "verified": true
+      },
+      {
+        "heading": "Combine the F1 gametes at fertilisation",
+        "verified": true
+      },
+      {
+        "heading": "Group genotypes by what the plant expresses",
+        "verified": true
+      },
+      {
+        "heading": "Choose the probability operation for the biological event",
+        "verified": true
+      },
+      {
+        "heading": "A tomato cross with four gamete types from one parent and two from the other",
+        "verified": true
+      },
+      {
+        "heading": "Translate the words before drawing the grid",
+        "verified": true
+      },
+      {
+        "heading": "Let the distinct gametes determine the dimensions",
+        "verified": true
+      },
+      {
+        "heading": "Combine one row and one column in every cell",
+        "verified": true
+      },
+      {
+        "heading": "Answer the phenotype question and check the result",
+        "verified": true
+      },
+      {
+        "heading": "When two descriptions overlap, count each offspring once",
+        "verified": true
+      },
+      {
+        "heading": "Change one parent and keep only the reasoning that still applies",
+        "verified": true
+      },
+      {
+        "heading": "Use offspring evidence before predicting a squash cross",
+        "verified": true
+      },
+      {
+        "heading": "Separate what appearance forces from what it leaves open",
+        "verified": true
+      },
+      {
+        "heading": "Predict from the resolved parents",
+        "verified": true
+      },
+      {
+        "heading": "Interpret an expected count among eighty plants",
+        "verified": true
+      },
+      {
+        "heading": "Ask how much the evidence actually settles",
+        "verified": true
+      },
+      {
+        "heading": "Decide what the new offspring settles—and what it leaves open",
+        "verified": true
+      },
+      {
+        "heading": "What the two-characteristic investigation has explained",
+        "verified": true
+      }
+    ],
+    "practiceActivities": [
+      {
+        "id": "ch17-kinch-v020-l05-change-task",
+        "verified": true
+      },
+      {
+        "id": "ch17-kinch-v020-l05-evidence-task",
+        "verified": true
+      }
+    ]
+  },
+  "nativeLabelingLocatorEvidence": {
+    "scriptId": "course-data",
+    "property": "labelDiagrams",
+    "arrayIndexZeroBased": 1,
+    "id": "ch17-two-trait-label",
+    "lockedMapping": {
+      "A": "AB",
+      "B": "Ab",
+      "C": "aB",
+      "D": "ab"
+    },
+    "scriptGlobalByteRange": [
+      3172680,
+      3459956
+    ],
+    "serializedObjectUnique": true,
+    "serializedObjectRange": [
+      3305804,
+      3306381
+    ],
+    "serializedObjectHash": "2800e85dbd7b1eb7aefcf0d08962a8ab67bc7b684e9f15fa76a4ddbc0a04a356"
+  },
+  "evidenceLimits": [
+    "Metadata/ranges/hashes/source identities/declared visibility and exact source data property were checked here. This is not independent pixel observation; root author/source reviewers separately record those actual observations.",
+    "Printed/PDF offset mappings were verified; this map review is not a replacement for the separate source/science reading review.",
+    "No full after-owner file or after-owner hash was produced; computed after positions are arithmetic proposals only.",
+    "External Mac originals in563-entry ledger were not accessed.49records have byte counterparts in20packetfiles;514external-only records remain declared evidence.",
+    "No human or external specialist review, teacher acceptance, native testing, deployment, release or certification is claimed."
+  ]
+}

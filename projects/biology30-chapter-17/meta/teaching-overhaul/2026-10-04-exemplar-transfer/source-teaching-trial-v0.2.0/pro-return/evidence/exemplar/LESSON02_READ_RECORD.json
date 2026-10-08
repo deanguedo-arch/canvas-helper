@@ -1,0 +1,25 @@
+{
+  "reviewer": "/root/exemplar_functions; independent assistant from root author",
+  "inputPath": "kinch-trial-v0.2.0/authoring/lesson-02.teaching.html.in",
+  "inputBytes": 17871,
+  "inputSha256": "c5712fcf6e33e732a3985593bdbea867749f2cfcaa38000c6a8290ee498af2af",
+  "snapshot": "lesson-02.read.c5712fcf.html.txt",
+  "actualReadScope": "Entire authored input, all visible teaching, tables/figure directions, worked sequence, both complete practice stimuli, response/save/status interfaces, hints and full models/criteria",
+  "sourceReviewScope": "Governing pasted instruction and selected actual CH11 passages; prior full supplied-standard/native-prerequisite readings at unchanged source pins. Not a new complete PPT/textbook science audit.",
+  "minorIssue": "K0202-EXPL-01 resolved",
+  "consequentialExplanatoryRevisionRequested": false,
+  "teacherAcceptance": "pending",
+  "nativeUIFunctionalTesting": "not performed",
+  "assembledCopyRead": "not yet performed",
+  "initialFullRead": {
+    "inputBytes": 17782,
+    "inputSha256": "a02381918607e84c17cf1a38857e53c5ecef9a7f76801c0c1b5392a13a757b09",
+    "snapshot": "lesson-02.read.a0238191.html.txt"
+  },
+  "finalDeltaRead": {
+    "fromSha256": "a02381918607e84c17cf1a38857e53c5ecef9a7f76801c0c1b5392a13a757b09",
+    "toSha256": "c5712fcf6e33e732a3985593bdbea867749f2cfcaa38000c6a8290ee498af2af",
+    "scope": "Full exact diff and all three changed paragraphs in context: first-use probability definition moved before grid, later duplicate removed, autosomal defined before later task use. No practice/interface/hint/model/criteria change.",
+    "finding": "No new explanatory issue; no remaining scoped revision requested."
+  }
+}

@@ -1,0 +1,679 @@
+{
+  "document": "Actual-input source map: bounded Kinch-method trial v0.2.0",
+  "state": "Both02 and05 have complete bounded source/science review. Source-method/protected-assessment conflicts remain unresolved for Dean; this is not a ready/approved trial.",
+  "generated_utc": "2026-10-04T21:41:29.733407+00:00",
+  "inputs": [
+    {
+      "path": "kinch-trial-v0.2.0/authoring/lesson-02.teaching.html.in",
+      "bytes": 17871,
+      "sha256": "c5712fcf6e33e732a3985593bdbea867749f2cfcaa38000c6a8290ee498af2af"
+    },
+    {
+      "path": "kinch-trial-v0.2.0/authoring/lesson-05.teaching.html.in",
+      "bytes": 30601,
+      "sha256": "eac351c08ef28c82b936cf1baa206dbfb5f14feef65338d3e196d3c5aa0f6b4e"
+    }
+  ],
+  "sources": {
+    "textbook": {
+      "path": "source-inspection/ch17/native/workspace/assets/textbook/chapter-17.pdf",
+      "sha256": "48e297aacb86275c106a02abdddaf0f0463ba47d6b17703a926aa68405755455",
+      "page_rule": "PDF page = printed page - 583"
+    },
+    "pptx": {
+      "path": "source-inspection/ch17/sources/Unit C Part B Mendelian Genetics .pptx",
+      "sha256": "da1ce1c0526da4da1aefd1fb6c0f23070f820ce24378c12f9699d1c700e1a985",
+      "slide_rule": "Actual presentation order verified against presentation.xml relationships; not a historical lesson-builder slide claim"
+    },
+    "native": {
+      "path": "source-inspection/ch17/native/workspace/index.html",
+      "sha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868",
+      "ownership": "Current teaching owner; original required/activity/footer contracts unchanged"
+    }
+  },
+  "mapping_rule": "UTF-8 half-open input and assembled-fragment ranges are separately identified. Eight native owner blocks cover non-whitespace author input; four nested tasks intentionally overlap owners. Native replacement boundaries and untouched suffix contracts remain in the separately owned INTEGRATION_MAP.",
+  "components": [
+    {
+      "id": "ch17-l02-teaching-01",
+      "role": "Native teaching owner",
+      "input_range": {
+        "start_utf8": 0,
+        "end_utf8_exclusive": 3482,
+        "bytes": 3482,
+        "sha256": "2a0b77f482974104ff4f5129be6dea538487f59ab7a66b9fa003aed7bf510077"
+      },
+      "topics": [
+        "Purple/white entry and disappearance/return question",
+        "Phenotype/genotype/allele/locus",
+        "True-breeding history and controlled parentage",
+        "Pollination versus fertilisation; P/F1/F2 relationships",
+        "Explicit transition to R/r seed-own-genotype model; complete dominance"
+      ],
+      "locators": [
+        "PPT actual13–16;17–20;24 (ppt/slides/slide13.xml through slide20.xml and slide24.xml)",
+        "Textbook printed587/PDF4 and588/PDF5, Figure17.4 and Mendel breeding account",
+        "Printed589/PDF6, Table17.1; printed590/PDF7, Figure17.6 and genotype vocabulary; printed591/PDF8, Figure17.8"
+      ],
+      "origin": "Source-derived explanatory synthesis; source contexts and R/r model retained. No new experimental observations.",
+      "qualification": "Flower entry is not silently relabelled as seed data. Seed/plant generations and breeding-history evidence are clarified. Detailed pollen-tube contribution wording is explanatory biology context, not a quote from every cited slide."
+    },
+    {
+      "id": "ch17-l02-teaching-02",
+      "role": "Native teaching owner",
+      "input_range": {
+        "start_utf8": 3484,
+        "end_utf8_exclusive": 5742,
+        "bytes": 2258,
+        "sha256": "d83f3ed98065670319bf7682ef0053268b5c7781beec8da40355c002d58acbfd"
+      },
+      "topics": [
+        "DNA-bearing chromosomes and matching loci",
+        "Diploid/haploid, homologues, sister chromatids",
+        "Copying before meiosis; two divisions without intervening copying",
+        "Plant life-cycle qualification; one-allele contributions before grid",
+        "Probability defined before grid; equal segregation distinct from dominance"
+      ],
+      "locators": [
+        "PPT actual17–25 (simple contribution/segregation model)",
+        "Textbook printed589/PDF6 (discrete factors; one copy in gametes; random fusion)",
+        "Printed597/PDF14, Figure17.14 (homologue separation and alternative orientations)",
+        "PPT actual41, image44 (supplied chromosome-division diagram; outside02 core sequence)"
+      ],
+      "origin": "Qualified author explanatory synthesis connecting supplied Mendelian contribution model to chromosome mechanism.",
+      "qualification": "The short copying/sister-chromatid and flowering-plant life-cycle account is not all explicitly worded in PPT13–25 or Figure17.14. It does not claim plant meiosis directly produces gametes, and does not attempt the entire plant life cycle or chromosome-exchange course."
+    },
+    {
+      "id": "ch17-l02-worked",
+      "role": "Native worked owner; includes separately mapped arrow task",
+      "input_range": {
+        "start_utf8": 5744,
+        "end_utf8_exclusive": 12036,
+        "bytes": 6292,
+        "sha256": "23681683e7ad5591dfc5bdc3fdd8eb9d97250e24becc15b388d61b53493500c0"
+      },
+      "topics": [
+        "RR × rr parental contributions and all-Rr F1",
+        "F1 seed grows into Rr plant before F2 seed production",
+        "Rr × Rr visible2×2 grid and edge/interior reading",
+        "Rr/rR same genotype under explicit autosomal model",
+        "1:2:1 genotype versus3:1 phenotype; segregation versus random fertilisation"
+      ],
+      "locators": [
+        "PPT actual17–23;24–25",
+        "Textbook printed590/PDF7, Figures17.6–17.7",
+        "Printed591/PDF8, Figure17.8 (parallel flower example)",
+        "Printed589/PDF6 (one-copy gametes and random fusion)"
+      ],
+      "origin": "Source seed model re-explained; learner table is an authored rendering of source Mendelian combinations, not a new experiment or original asset.",
+      "qualification": "F2 result is expected under stated equal segregation, random fertilisation and complete dominance. Both numerical source outcome and underlying core overlap protected02 concepts; no blindness or fresh numerical calculation claim."
+    },
+    {
+      "id": "ch17-kinch-v020-l02-arrow-task",
+      "role": "New optional task, full stimulus/prompt/hint/model/criteria mapped",
+      "input_range": {
+        "start_utf8": 9067,
+        "end_utf8_exclusive": 12029,
+        "bytes": 2962,
+        "sha256": "832a0126d0434b8068b9bb98f51a463a15e4fbf70ac59608545a258caf8998a5"
+      },
+      "topics": [
+        "Repair reversed segregation/fertilisation labels",
+        "Explain homologue separation versus gamete joining",
+        "Identify restoration of allele pair"
+      ],
+      "locators": [
+        "PPT actual21–25",
+        "Textbook printed589/PDF6 and597/PDF14, Figure17.14"
+      ],
+      "origin": "Author-constructed diagram-label repair using source-derived mechanisms. No original observed student error or source question claimed.",
+      "qualification": "The two arrows intentionally omit copied/intermediate cells. Feedback accurately repairs names and causal processes. Conceptual preparation overlaps required02, but this is not the protected F1/F2 prompt or a newly solved protected numerical cross."
+    },
+    {
+      "id": "ch17-l02-teaching-03",
+      "role": "Native teaching owner; includes separately mapped reciprocal task",
+      "input_range": {
+        "start_utf8": 12038,
+        "end_utf8_exclusive": 17870,
+        "bytes": 5832,
+        "sha256": "e1e9e45a235c6abb13d5a2971b2f2af62aeb3fe46a7dbfc54c1a8af17d822be1"
+      },
+      "topics": [
+        "Probability versus compulsory offspring schedule",
+        "Actual5474 round/1850 wrinkled source counts",
+        "Model assumptions and possible mismatch",
+        "Mendel inference versus later chromosome explanation",
+        "Bridge to03 grid operations and05 two loci"
+      ],
+      "locators": [
+        "Textbook printed589/PDF6, Figure17.5:5474 round and1850 wrinkled; ratio approximately2.96",
+        "PPT actual15 schematic fractions (not the source of observed counts); actual23–25 mechanism distinction",
+        "Printed589–591/PDF6–8, Mendelian model",
+        "Printed597/PDF14, chromosome account"
+      ],
+      "origin": "Counts are source-reported Mendel data; ratio and assumptions are source-derived explanatory synthesis. No invented observed sample.",
+      "qualification": "Actual5474:1850 =2.9589189…; approximately2.96:1 is correct. Slide15 alone would not substantiate observed counts. Repeated fertilisations are modeled as ordinary independent offspring events, not quota balancing. Optional task is near transfer, separately mapped."
+    },
+    {
+      "id": "ch17-kinch-v020-l02-cross-task",
+      "role": "New optional task, full stimulus/prompt/hint/model/criteria mapped",
+      "input_range": {
+        "start_utf8": 13995,
+        "end_utf8_exclusive": 17363,
+        "bytes": 3368,
+        "sha256": "d9f059765d06ec5989aee7fb00c0a0a6c0b589d002e7a582e2532f2ecca3355b"
+      },
+      "topics": [
+        "Reciprocal known RR/rr parents",
+        "Trace egg and sperm in both directions",
+        "Evaluate receiving-plant phenotype misconception",
+        "State ordinary autosomal seed-own-genotype limit"
+      ],
+      "locators": [
+        "PPT actual17–20 and24 (RR × rr contribution/dominance model)",
+        "Textbook printed590/PDF7, Figure17.6; printed589/PDF6, discrete gamete contributions"
+      ],
+      "origin": "Author-constructed reciprocal-parent-role claim using the already taught source cross. Not an observed experiment or literal source problem.",
+      "qualification": "Both crosses are allRr/round under explicitly equal parental-origin effects. This is near transfer on parent roles and maternal-phenotype inference, not a new genotype cross or independent numerical problem. It does not repeat the abandoned RR×Rr analogue of protected03 MC1. Core RR×rr answer is already disclosed; no blind-assessment guarantee."
+    },
+    {
+      "id": "ch17-l05-teaching-01",
+      "role": "Native teaching owner",
+      "input_range": {
+        "start_utf8": 0,
+        "end_utf8_exclusive": 5239,
+        "bytes": 5239,
+        "sha256": "19b11c5a5455d986617a83c49d1c2d388040ea68de7ae47b12bd338afdf5491d"
+      },
+      "topics": [
+        "Two-locus question and notation",
+        "TTGG × ttgg → TtGg F1",
+        "One allele per locus per gamete",
+        "Independent homolog orientations at metaphase I; later sister separation",
+        "Four equiprobable gametes under independence",
+        "Read exact retained native branching figure"
+      ],
+      "locators": [
+        "PPT actual35–37 (pea question, parents and F1);40–42 (assortment/chromosome rationale); actual34 reader orientation",
+        "Textbook printed593/PDF10, dihybrid-cross explanation and Figure17.10",
+        "Printed597/PDF14, Figure17.14, alternative homolog orientations",
+        "Native ./assets/figures/ch17-two-trait.svg, data-figure-id ch17-two-trait"
+      ],
+      "origin": "Original pea model and Mendelian source progression with authored causal bridge and figure-reading instructions. Native asset retained, not transplanted or redrawn.",
+      "qualification": "Different chromosome pairs and ordinary segregation are explicit. Four gamete types apply across meioses, not necessarily within each single meiosis. Native figure endpoint markers A–D are decoded by its footer key; pathway allele labels are separate from marker labels. Original broad assortment wording is qualified."
+    },
+    {
+      "id": "ch17-l05-teaching-02",
+      "role": "Native teaching owner",
+      "input_range": {
+        "start_utf8": 5241,
+        "end_utf8_exclusive": 10714,
+        "bytes": 5473,
+        "sha256": "b1a885fb0c57624fd5c5e474877e86fe21c3fc645963527770d4f8baa4335628"
+      },
+      "topics": [
+        "TtGg × TtGg F2 sixteen-cell grid",
+        "Gametes versus offspring and random fertilisation",
+        "Nine genotype groups versus four phenotypes",
+        "Underscore notation and complete dominance",
+        "Full 9:3:3:1 derivation; multiplication versus addition",
+        "Complete penetrance, equal scoring and finite-sample assumptions"
+      ],
+      "locators": [
+        "PPT actual38–40 (F2 and9:3:3:1);42 (bounded law recap)",
+        "Textbook printed593/PDF10, Figure17.10 and dihybrid explanation",
+        "Printed591/PDF8, single-locus probability groundwork"
+      ],
+      "origin": "Source-derived worked pea derivation, rewritten with explicit arithmetic and assumptions; not newly observed experimental counts.",
+      "qualification": "Full table explicitly includes ttG_3/16 and T_gg3/16. These are dominance-preserving renamed equivalents of required05 MC2 aaB_3/16 and optional source2131237 A_bb3/16. Source-core retention therefore has genuine structural answer overlap; it is disclosed, not certified blind. Genotype categories remain nine; phenotype categories total probability1."
+    },
+    {
+      "id": "ch17-l05-worked",
+      "role": "Native worked owner; includes separately mapped changed-parent task",
+      "input_range": {
+        "start_utf8": 10716,
+        "end_utf8_exclusive": 19716,
+        "bytes": 9000,
+        "sha256": "77fedfe4d842ef8d1e9f3bc213ce3ecd44677381874a6733e8f86d3986799d23"
+      },
+      "topics": [
+        "Worded tomato parents to RrTt × RRTt",
+        "Four versus two distinct gametes",
+        "Eight equally likely combinations, six genotype categories",
+        "Two nonzero and two zero phenotype groups",
+        "3:0:1:0 in requested order; separate-locus and total-probability checks",
+        "Impossible yellow offspring versus finite-sample variation"
+      ],
+      "locators": [
+        "PPT actual43–45 (original RrTt × rrTt tomato method and requested phenotype categories)",
+        "Textbook printed593/PDF10, distinct gametes and genotype-to-phenotype method"
+      ],
+      "origin": "Root-selected structural adaptation of source tomato example; second parent changed from rrTt to RRTt. Not a verbatim source cross, new empirical tomato data or fully source-equivalent case.",
+      "qualification": "Eight cells and six genotype groups retained; contrasting parental colour and four nonzero phenotype groups lost. Candidate probabilities3/4,0,1/4,0 are correct. Protected writing-2 phenotype target changes, but writing-1 four-versus-two template and first-parent gametes overlap. This assessment/source-fidelity compromise remains unresolved for Dean (SRC-BOUND-01)."
+    },
+    {
+      "id": "ch17-kinch-v020-l05-change-task",
+      "role": "New optional task: complete visible stimulus, prompt, hint, model and criteria",
+      "input_range": {
+        "start_utf8": 15796,
+        "end_utf8_exclusive": 19709,
+        "bytes": 3913,
+        "sha256": "541be9540ef4b88a6961d5a528f0e4c9a69f3ef60dcd3f166fb049f1c71aeceb"
+      },
+      "topics": [
+        "Change RRTt to RRtt while keeping RrTt",
+        "Retain one gamete list; replace second with Rt",
+        "Four-by-one grid and four distinct offspring genotypes",
+        "Short probability changes to1/2; no-yellow conclusion persists"
+      ],
+      "locators": [
+        "PPT actual43–45 and48 (derive distinct gametes and size the needed grid)",
+        "Native protected05 relevant targets recorded in PROTECTED_TARGET_EVIDENCE.json"
+      ],
+      "origin": "Author-constructed near-transfer change to the adapted tomato case. Not an original source task or observed breeding experiment.",
+      "qualification": "All four cells and feedback agree: RRTt,RRtt,RrTt,Rrtt each1/4; tall/short each1/2; all red. A4×1 method template also exists in native optional source2131242, but that recessive tester gives four phenotype classes; this task asks which conclusions survive a parent change. It is not claimed independent of all taught/source method templates."
+    },
+    {
+      "id": "ch17-l05-teaching-03",
+      "role": "Native teaching owner; includes separately mapped evidence task",
+      "input_range": {
+        "start_utf8": 19718,
+        "end_utf8_exclusive": 30600,
+        "bytes": 10882,
+        "sha256": "25433f982ad4cf8f833daaa5b2653a56ea1ff011c3e2b41fd1cdeddff3776f01"
+      },
+      "topics": [
+        "Squash partial parents wwD_ × W_dd",
+        "Observed wwdd resolves wwDd × Wwdd before forward calculation",
+        "Two-by-two combinations and1:1:1:1 genotype/phenotype ratios",
+        "N80 scored plants: expected40 white and20 yellow/spherical",
+        "Inference from observation versus prediction",
+        "Linkage boundary and return-after06 textbook cue"
+      ],
+      "locators": [
+        "PPT actual46 (partial genotypes and inverse offspring inference);47 (grid andN80 counts);48 (simple-model practice boundary)",
+        "Textbook printed591/PDF8 Figure17.9 and printed596/PDF13 practice3 (related tester/inverse reasoning, not the identical squash task)",
+        "Printed595/PDF12 questions13,15,16 (preserved later-model practice cue)",
+        "Printed597/PDF14 assortment boundary; printed599–600/PDF16–17, targeted text read for brief linkage boundary only"
+      ],
+      "origin": "Actual source squash model, inverse-inference sequence andN80 retained; fruit/plant terminology and expected/scored-count qualification corrected in new explanation. No new observed dataset.",
+      "qualification": "Neither parent is double heterozygous, so this cross cannot itself establish two-locus independence; current prose uses it for inverse inference and forward predictions and makes no proof claim. Source flower/fruit drift and actual-number wording are not silently copied. No exact complete squash inverse/count task was found in relevant protected banks; generic inverse and80×1/4 overlap are disclosed."
+    },
+    {
+      "id": "ch17-kinch-v020-l05-evidence-task",
+      "role": "New optional task: complete visible stimulus, prompt, hint, model and criteria",
+      "input_range": {
+        "start_utf8": 24860,
+        "end_utf8_exclusive": 29397,
+        "bytes": 4537,
+        "sha256": "545343eb9be903740eda4fa5258a96eb5c82de05327de2ee734143bea75fc97d"
+      },
+      "topics": [
+        "Hypothetical V/v flowers and L/l leaves",
+        "Parent constraints V_ll × vvL_",
+        "Observed white/smooth offspring vvLl",
+        "Force parent1 Vvll while retaining vvLL/vvLl for parent2",
+        "A future lobed offspring settles the second blank; finite all-smooth run does not"
+      ],
+      "locators": [
+        "PPT actual46–47 (inverse-before-forward source purpose)",
+        "Textbook printed591/PDF8 Figure17.9; printed596/PDF13 practice3 (tester/inference family)",
+        "Native04 model-limits context, without copying the exact protected prompt or finite count"
+      ],
+      "origin": "Author-constructed two-locus evidence-limit task. Trait parameters and the single observed offspring are hypothetical, not source experimental data or universal plant genetics.",
+      "qualification": "Actual contributions vl andvL yield vvLl. Both parent2 candidates can supplyvL; furtherll forcesLl. No numerical prior is assigned over possible parents. This is transfer of the inverse-inference method with one blank left unresolved, not a duplicated source double-recessive inference."
+    }
+  ],
+  "read_evidence": [
+    "pptx-method/READ_LOG.json",
+    "pptx-method/ACTUAL_TARGETED_XML.json",
+    "pptx-method/METHOD_EVIDENCE.md/.json",
+    "textbook-pixels/printed589-PDF6.jpg",
+    "textbook-pixels/printed591-PDF8.jpg",
+    "textbook-pixels/printed597-PDF14.jpg",
+    "PROTECTED_TARGET_EVIDENCE.json"
+  ],
+  "construction_rule": "New explanatory bridges, table renderings and optional task contexts are authored synthesis/constructions, not source verbatim wording, new empirical observations or a claim all details appear on each cited slide.",
+  "availability_rule": "Verified local staging reused. No235-member verification or archive staging rerun in this pass. UnitC parent intentionally absent; full daily plans/mixed UnitC tests absent; cached authority dated, not current certification.",
+  "review": {
+    "document": "Bounded independent source/science review: lesson02 v0.2.0",
+    "reviewed_utc": "2026-10-04T21:41:29.733407+00:00",
+    "reviewer": "original_source_map agent; root authored learner prose",
+    "input": {
+      "path": "kinch-trial-v0.2.0/authoring/lesson-02.teaching.html.in",
+      "bytes": 17871,
+      "sha256": "c5712fcf6e33e732a3985593bdbea867749f2cfcaa38000c6a8290ee498af2af"
+    },
+    "coverage": "Complete original a0238191 draft read, followed by exact three-paragraph delta to current c5712fcf input; all current content is covered. No browser render or runtime test.",
+    "result": "No consequential science/source defect found in the pinned lesson02 draft. Source-method finding is separately documented; teacher acceptance pending.",
+    "checks": [
+      {
+        "id": "L02-SCI-01",
+        "result": "Consistent definitions and notation precede allele operations; complete dominance bounded; dominant does not mean frequent/better/transmission advantage."
+      },
+      {
+        "id": "L02-SCI-02",
+        "result": "Homologue/sister separation and single-allele gametes correct at this level; brief flowering-plant qualification avoids direct meiosis-to-gamete misconception."
+      },
+      {
+        "id": "L02-SCI-03",
+        "result": "RR×rr allRr; Rr×Rr 1:2:1 genotype/3:1 phenotype; visible table cells, labels and equal contribution weighting agree."
+      },
+      {
+        "id": "L02-SCI-04",
+        "result": "Source5474/1850 counts and approximately2.96 ratio correct; expected versus actual clearly distinguished."
+      },
+      {
+        "id": "L02-SCI-05",
+        "result": "Guided arrow repair correctly distinguishes segregation/fertilisation and restoration of pair; hint/model/criteria agree."
+      },
+      {
+        "id": "L02-SCI-06",
+        "result": "Reciprocal-parent task correct only within the explicitly supplied autosomal/seed-own-genotype/no parent-origin-effect model; lesson states that limit."
+      },
+      {
+        "id": "L02-SCI-07",
+        "result": "Reciprocal task is near transfer and uses the already worked all-Rr result. No claim of new numerical/genotype challenge or protected-question blindness."
+      }
+    ],
+    "source_method_review": "pptx-method/L02_DRAFT_METHOD_REVIEW.md and .json",
+    "unresolved_trial_limit": "Lesson05 ordinary4×2 template/source-fidelity conflict remains unresolved; lesson02 result does not resolve the whole-trial readiness decision.",
+    "excluded": [
+      "No learner/source/native/previous-output edits",
+      "No UI or save/runtime testing",
+      "No live authority or video access",
+      "No teacher or science acceptance of the full chapter",
+      "No integration, packaging, release or promotion performed by this review"
+    ]
+  },
+  "review_history": [
+    {
+      "review_type": "Bounded delta after complete prior draft read",
+      "before_sha256": "a02381918607e84c17cf1a38857e53c5ecef9a7f76801c0c1b5392a13a757b09",
+      "after_sha256": "c5712fcf6e33e732a3985593bdbea867749f2cfcaa38000c6a8290ee498af2af",
+      "read_utc": "2026-10-04T21:41:29.755581+00:00",
+      "changes": [
+        "Probability now defined as chance under stated conditions in block02 before grid; later duplicate definition removed.",
+        "Autosomal defined explicitly at first use as on a chromosome other than a sex chromosome."
+      ],
+      "finding": "All three changed paragraphs read. Definitions correct; no calculation, table, task, hint or model changed. No consequential science/source defect introduced.",
+      "history": "review-history/L02_a0238191_L02_SOURCE_SCIENCE_REVIEW.json preserves complete original draft review. Current review combines that complete reading with this bounded delta."
+    }
+  ],
+  "lesson_reviews": {
+    "lesson-02": {
+      "document": "Bounded independent source/science review: lesson02 v0.2.0",
+      "reviewed_utc": "2026-10-04T21:41:29.733407+00:00",
+      "reviewer": "original_source_map agent; root authored learner prose",
+      "input": {
+        "path": "kinch-trial-v0.2.0/authoring/lesson-02.teaching.html.in",
+        "bytes": 17871,
+        "sha256": "c5712fcf6e33e732a3985593bdbea867749f2cfcaa38000c6a8290ee498af2af"
+      },
+      "coverage": "Complete original a0238191 draft read, followed by exact three-paragraph delta to current c5712fcf input; all current content is covered. No browser render or runtime test.",
+      "result": "No consequential science/source defect found in the pinned lesson02 draft. Source-method finding is separately documented; teacher acceptance pending.",
+      "checks": [
+        {
+          "id": "L02-SCI-01",
+          "result": "Consistent definitions and notation precede allele operations; complete dominance bounded; dominant does not mean frequent/better/transmission advantage."
+        },
+        {
+          "id": "L02-SCI-02",
+          "result": "Homologue/sister separation and single-allele gametes correct at this level; brief flowering-plant qualification avoids direct meiosis-to-gamete misconception."
+        },
+        {
+          "id": "L02-SCI-03",
+          "result": "RR×rr allRr; Rr×Rr 1:2:1 genotype/3:1 phenotype; visible table cells, labels and equal contribution weighting agree."
+        },
+        {
+          "id": "L02-SCI-04",
+          "result": "Source5474/1850 counts and approximately2.96 ratio correct; expected versus actual clearly distinguished."
+        },
+        {
+          "id": "L02-SCI-05",
+          "result": "Guided arrow repair correctly distinguishes segregation/fertilisation and restoration of pair; hint/model/criteria agree."
+        },
+        {
+          "id": "L02-SCI-06",
+          "result": "Reciprocal-parent task correct only within the explicitly supplied autosomal/seed-own-genotype/no parent-origin-effect model; lesson states that limit."
+        },
+        {
+          "id": "L02-SCI-07",
+          "result": "Reciprocal task is near transfer and uses the already worked all-Rr result. No claim of new numerical/genotype challenge or protected-question blindness."
+        }
+      ],
+      "source_method_review": "pptx-method/L02_DRAFT_METHOD_REVIEW.md and .json",
+      "unresolved_trial_limit": "Lesson05 ordinary4×2 template/source-fidelity conflict remains unresolved; lesson02 result does not resolve the whole-trial readiness decision.",
+      "excluded": [
+        "No learner/source/native/previous-output edits",
+        "No UI or save/runtime testing",
+        "No live authority or video access",
+        "No teacher or science acceptance of the full chapter",
+        "No integration, packaging, release or promotion performed by this review"
+      ]
+    },
+    "lesson-05": {
+      "document": "Bounded independent source/science review: lesson05 v0.2.0",
+      "reviewer": "original_source_map agent; learner prose authored by root",
+      "reviewed_utc": "2026-10-04T21:53:24.527523+00:00",
+      "input": {
+        "path": "kinch-trial-v0.2.0/authoring/lesson-05.teaching.html.in",
+        "bytes": 30601,
+        "sha256": "eac351c08ef28c82b936cf1baa206dbfb5f14feef65338d3e196d3c5aa0f6b4e"
+      },
+      "coverage": "Complete initial6007eedc input read, including all tables, both task prompts, hints and full feedback/models; all eight changed locations to currenteac351c0 then read. No browser/runtime execution.",
+      "result": "Local meiosis wording repair closed. Current calculations and bounded science/source claims are coherent. Trial assessment/source-fidelity readiness remains unresolved.",
+      "closed_repair": {
+        "id": "L05-SCI-01",
+        "location": "ch17-l05-teaching-01-p2",
+        "initial": "The later separation of sister chromatids completes the reduction.",
+        "current": "The later separation of sister chromatids completes meiosis.",
+        "reason": "Chromosome-set reduction occurs through homolog separation in meiosisI; sister separation inII completes meiosis.",
+        "status": "Closed by root edit; exact delta read."
+      },
+      "review_history": [
+        {
+          "input_sha256": "6007eedc1cb64cc665c04453775b6be3d23e59080aa91644ba72a22375f52e95",
+          "bytes": 30224,
+          "scope": "Complete actual full draft read; local precision repair identified."
+        },
+        {
+          "input_sha256": "eac351c08ef28c82b936cf1baa206dbfb5f14feef65338d3e196d3c5aa0f6b4e",
+          "bytes": 30601,
+          "scope": "Eight changed locations read: allele/phenotype glossary markup; meiosis phrase; exact native figure marker/key reading;03 single-locus attribution; duplicate-column feedback distinction; note-status value; textbook cue. No numerical cross, prompt or probability changed."
+        }
+      ],
+      "findings": [
+        {
+          "id": "L05-SCI-02",
+          "finding": "All seven enumerated parental-model cases match teaching, including pea, tomato, revised-parent task, squash and both evidence-task candidate parents.",
+          "evidence": "L05_ARITHMETIC_EVIDENCE.json"
+        },
+        {
+          "id": "L05-SCI-03",
+          "finding": "Segregation, within-gamete independence and between-parent random fertilisation have distinct stated jobs; product/sum operations justified."
+        },
+        {
+          "id": "L05-SCI-04",
+          "finding": "Squash observed double-recessive offspring forces both unknown alleles before resolved cross appears;N80 is explicitly scored plants and expected40/20, not a guarantee."
+        },
+        {
+          "id": "L05-SCI-05",
+          "finding": "New evidence task correctly forces only one parent and keeps two candidates for the other; finite smooth-only observations cannot logically forceLL."
+        },
+        {
+          "id": "SRC-BOUND-01",
+          "finding": "Tomato original four-nonzero phenotype demand is reduced to two plus zeros.4×2 and first-parent gamete template still overlap protected writing-1. Unresolved teacher/source-fidelity judgment."
+        },
+        {
+          "id": "SRC-BOUND-02",
+          "finding": "Complete retained pea9:3:3:1 derivation explicitly solves dominance-preserving equivalents of protected05MC2 and optional2131237. Source-core/assessment overlap disclosed; no blind-assessment clearance."
+        }
+      ],
+      "limits": [
+        "Root author self-review is separate.",
+        "Source-method review is separately recorded in pptx-method/L05_DRAFT_METHOD_REVIEW.md/.json.",
+        "Native note-interface/static contract has a separate owner; no save/reload/UI testing here.",
+        "No teacher acceptance, original question/key edits, prior output edits, live authority/video access, integration or release."
+      ]
+    }
+  },
+  "source_core_overlap": "SRC-BOUND-02: full source pea derivation includes ttG_3/16 and T_gg3/16, structurally equivalent to protected05MC2/optional2131237. Retaining source-core demand does not certify assessment blindness.",
+  "preserved_l02_component_digest": "589c0061e82467c0e984999b9a2f2b4496cc0104f1fb1803ae67d7759781e1fd",
+  "assembled_component_bindings": [
+    {
+      "component_id": "ch17-l02-teaching-01",
+      "fragment_path": "integration-text/lesson-02.teaching-fragment.html.txt",
+      "fragment_sha256": "a843cc369e041e244a5cc775907979d36b906b78b2fc3b39ed26a0757d395c00",
+      "fragment_range": {
+        "start_utf8": 0,
+        "end_utf8_exclusive": 4022,
+        "bytes": 4022,
+        "sha256": "a1d1336941f8c16bb45da915fce489efb81941b610eaff6a9ffe6eb348f84b35"
+      }
+    },
+    {
+      "component_id": "ch17-l02-teaching-02",
+      "fragment_path": "integration-text/lesson-02.teaching-fragment.html.txt",
+      "fragment_sha256": "a843cc369e041e244a5cc775907979d36b906b78b2fc3b39ed26a0757d395c00",
+      "fragment_range": {
+        "start_utf8": 4024,
+        "end_utf8_exclusive": 6372,
+        "bytes": 2348,
+        "sha256": "76c6ce55e364faafd63ef346ed3cdc19bdeddaaf1d60c76b5b9f903801b18060"
+      }
+    },
+    {
+      "component_id": "ch17-l02-worked",
+      "fragment_path": "integration-text/lesson-02.teaching-fragment.html.txt",
+      "fragment_sha256": "a843cc369e041e244a5cc775907979d36b906b78b2fc3b39ed26a0757d395c00",
+      "fragment_range": {
+        "start_utf8": 6374,
+        "end_utf8_exclusive": 12666,
+        "bytes": 6292,
+        "sha256": "23681683e7ad5591dfc5bdc3fdd8eb9d97250e24becc15b388d61b53493500c0"
+      }
+    },
+    {
+      "component_id": "ch17-kinch-v020-l02-arrow-task",
+      "fragment_path": "integration-text/lesson-02.teaching-fragment.html.txt",
+      "fragment_sha256": "a843cc369e041e244a5cc775907979d36b906b78b2fc3b39ed26a0757d395c00",
+      "fragment_range": {
+        "start_utf8": 9697,
+        "end_utf8_exclusive": 12659,
+        "bytes": 2962,
+        "sha256": "832a0126d0434b8068b9bb98f51a463a15e4fbf70ac59608545a258caf8998a5"
+      }
+    },
+    {
+      "component_id": "ch17-l02-teaching-03",
+      "fragment_path": "integration-text/lesson-02.teaching-fragment.html.txt",
+      "fragment_sha256": "a843cc369e041e244a5cc775907979d36b906b78b2fc3b39ed26a0757d395c00",
+      "fragment_range": {
+        "start_utf8": 12668,
+        "end_utf8_exclusive": 18590,
+        "bytes": 5922,
+        "sha256": "921841db3f0d91ce693aab5ad5f769fe6cfc03475f7cafb8b78d8b4facb3a468"
+      }
+    },
+    {
+      "component_id": "ch17-kinch-v020-l02-cross-task",
+      "fragment_path": "integration-text/lesson-02.teaching-fragment.html.txt",
+      "fragment_sha256": "a843cc369e041e244a5cc775907979d36b906b78b2fc3b39ed26a0757d395c00",
+      "fragment_range": {
+        "start_utf8": 14715,
+        "end_utf8_exclusive": 18083,
+        "bytes": 3368,
+        "sha256": "d9f059765d06ec5989aee7fb00c0a0a6c0b589d002e7a582e2532f2ecca3355b"
+      }
+    },
+    {
+      "component_id": "ch17-l05-teaching-01",
+      "fragment_path": "integration-text/lesson-05.teaching-fragment.html.txt",
+      "fragment_sha256": "4439240ef48d2b38d50bf3e624769c03e9a79a9641d7fd25386d0d5ec4799cb8",
+      "fragment_range": {
+        "start_utf8": 0,
+        "end_utf8_exclusive": 6199,
+        "bytes": 6199,
+        "sha256": "2457eed3459e4bb8118e396e90900de9e8f3bd819188ba58fb8bc438f8450e1e"
+      }
+    },
+    {
+      "component_id": "ch17-l05-teaching-02",
+      "fragment_path": "integration-text/lesson-05.teaching-fragment.html.txt",
+      "fragment_sha256": "4439240ef48d2b38d50bf3e624769c03e9a79a9641d7fd25386d0d5ec4799cb8",
+      "fragment_range": {
+        "start_utf8": 6201,
+        "end_utf8_exclusive": 11764,
+        "bytes": 5563,
+        "sha256": "6b83d8c942be901c2d73b0b56fa354b03722ea8a1c3946f58960d5c6cb109b88"
+      }
+    },
+    {
+      "component_id": "ch17-l05-worked",
+      "fragment_path": "integration-text/lesson-05.teaching-fragment.html.txt",
+      "fragment_sha256": "4439240ef48d2b38d50bf3e624769c03e9a79a9641d7fd25386d0d5ec4799cb8",
+      "fragment_range": {
+        "start_utf8": 11766,
+        "end_utf8_exclusive": 20766,
+        "bytes": 9000,
+        "sha256": "77fedfe4d842ef8d1e9f3bc213ce3ecd44677381874a6733e8f86d3986799d23"
+      }
+    },
+    {
+      "component_id": "ch17-kinch-v020-l05-change-task",
+      "fragment_path": "integration-text/lesson-05.teaching-fragment.html.txt",
+      "fragment_sha256": "4439240ef48d2b38d50bf3e624769c03e9a79a9641d7fd25386d0d5ec4799cb8",
+      "fragment_range": {
+        "start_utf8": 16846,
+        "end_utf8_exclusive": 20759,
+        "bytes": 3913,
+        "sha256": "541be9540ef4b88a6961d5a528f0e4c9a69f3ef60dcd3f166fb049f1c71aeceb"
+      }
+    },
+    {
+      "component_id": "ch17-l05-teaching-03",
+      "fragment_path": "integration-text/lesson-05.teaching-fragment.html.txt",
+      "fragment_sha256": "4439240ef48d2b38d50bf3e624769c03e9a79a9641d7fd25386d0d5ec4799cb8",
+      "fragment_range": {
+        "start_utf8": 20768,
+        "end_utf8_exclusive": 31650,
+        "bytes": 10882,
+        "sha256": "25433f982ad4cf8f833daaa5b2653a56ea1ff011c3e2b41fd1cdeddff3776f01"
+      }
+    },
+    {
+      "component_id": "ch17-kinch-v020-l05-evidence-task",
+      "fragment_path": "integration-text/lesson-05.teaching-fragment.html.txt",
+      "fragment_sha256": "4439240ef48d2b38d50bf3e624769c03e9a79a9641d7fd25386d0d5ec4799cb8",
+      "fragment_range": {
+        "start_utf8": 25910,
+        "end_utf8_exclusive": 30447,
+        "bytes": 4537,
+        "sha256": "545343eb9be903740eda4fa5258a96eb5c82de05327de2ee734143bea75fc97d"
+      }
+    }
+  ],
+  "assembled_artifact_pins": [
+    {
+      "path": "output/Biology30_CH17_Source_Teaching_Trial_v0.2.0/integration-text/lesson-02.teaching-fragment.html.txt",
+      "bytes": 18591,
+      "sha256": "a843cc369e041e244a5cc775907979d36b906b78b2fc3b39ed26a0757d395c00"
+    },
+    {
+      "path": "output/Biology30_CH17_Source_Teaching_Trial_v0.2.0/manuscripts/lesson-02.md",
+      "bytes": 15070,
+      "sha256": "60df96e6b1b6bc459e477774441d5568c9e31e541d43c7d51cc30f122dfdb320"
+    },
+    {
+      "path": "output/Biology30_CH17_Source_Teaching_Trial_v0.2.0/integration-text/lesson-05.teaching-fragment.html.txt",
+      "bytes": 31651,
+      "sha256": "4439240ef48d2b38d50bf3e624769c03e9a79a9641d7fd25386d0d5ec4799cb8"
+    },
+    {
+      "path": "output/Biology30_CH17_Source_Teaching_Trial_v0.2.0/manuscripts/lesson-05.md",
+      "bytes": 26936,
+      "sha256": "4b6a990549930e35ad396a61ebe7a7a0be81e83d8086e7a01f1153503b7bd255"
+    }
+  ],
+  "assembled_scope": "All12 component IDs and their exact ranges/hash slices located in actual assembled teaching fragments. Manuscript/fragment bytes pinned. This is static source-locator binding, not a new complete visual/browser review or native runtime test."
+}

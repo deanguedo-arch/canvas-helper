@@ -1,0 +1,2862 @@
+{
+  "document": "EXEMPLAR_TRANSFER_DECISIONS",
+  "version": "0.1.0",
+  "reviewer": "/root/chapter_records",
+  "dateUTC": "2026-10-04T14:52:10.964980+00:00",
+  "scope": "Actual draft block decisions for the two-lesson calibration only. No learner/source/prior-v1.0.0 mutation. This register is administrative evidence, not a prescribed number of blocks or teacher approval.",
+  "authorPurposeRecord": {
+    "path": "calibration-v0.1.0/PURPOSE_PROGRESSION_AND_DEFERRALS.md",
+    "bytes": 14834,
+    "sha256": "53aebe5b430c8a6a710eeeb58579e2c8fac273a4b5f5b9bdaad67544796444e1",
+    "dateUTC": "2026-10-04T14:52:10.908594+00:00",
+    "scope": "Complete original preprose record read, followed by the complete bounded-refinements appendix. The original byte prefix is unchanged at the previously read hash."
+  },
+  "readRoutes": [
+    "lesson-02",
+    "lesson-05"
+  ],
+  "pendingActualDraftRead": [],
+  "blocks": [
+    {
+      "recordId": "calibration-lesson-02-01",
+      "recordIdIsNotNativeDomId": true,
+      "route": "lesson-02",
+      "actualHeadingOrMarker": "What stayed when the visible trait disappeared?",
+      "enclosingNativeTeachingId": "ch17-l02-teaching-01",
+      "actualElementIdsInRange": [],
+      "draftPath": "calibration-v0.1.0/authoring/lesson-02.teaching.html.in",
+      "draftSha256": "104526dfdc81d8e6aac1f56f826ea3c04ef28fe73b4c1f6d006ff5ae838808c0",
+      "utf8StartInclusive": 0,
+      "utf8EndExclusive": 1301,
+      "selectedBytes": 1301,
+      "blockSha256": "20a1b5c8fec1f1ada2535ddd0f26e96c732ab064f4e92167b82a16f835cc0501",
+      "selectionRule": "Exact actual headed/contained teaching run, including its complete feedback if present. Review interval only, not an integration replacement or standalone HTML fragment.",
+      "purpose": "Distinguish the visible observation from the allele state that might persist beneath it.",
+      "nativePrerequisiteOrCoverageBindings": [
+        {
+          "route": "lesson-01",
+          "nativeEditKey": "ch17-l01-teaching-01-p1",
+          "heading": "Start with a defined genetic model",
+          "sourcePath": "source-inspection/ch17/native/workspace/index.html",
+          "sourceSha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868",
+          "utf8StartInclusive": 87633,
+          "utf8EndExclusive": 88198,
+          "passageSha256": "541b642b4b1fba22421b98194593fd812318e00f23519ce853dc2f43b535c4dd"
+        },
+        {
+          "route": "lesson-01",
+          "nativeEditKey": "ch17-l01-teaching-01-p2",
+          "heading": "Start with a defined genetic model",
+          "sourcePath": "source-inspection/ch17/native/workspace/index.html",
+          "sourceSha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868",
+          "utf8StartInclusive": 88198,
+          "utf8EndExclusive": 88772,
+          "passageSha256": "e080c28365597948842e310e22f41219684ce0b54c0942d7978dc5df5e0a71df"
+        },
+        {
+          "route": "lesson-01",
+          "nativeEditKey": "ch17-l01-teaching-02-p1",
+          "heading": "Dominance describes the heterozygote",
+          "sourcePath": "source-inspection/ch17/native/workspace/index.html",
+          "sourceSha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868",
+          "utf8StartInclusive": 88973,
+          "utf8EndExclusive": 89326,
+          "passageSha256": "f0052e2716cb1cd2d31dead18fc1fdbefd9c592857606b4596a6f67b9e7df24c"
+        },
+        {
+          "route": "lesson-01",
+          "nativeEditKey": "ch17-l01-teaching-02-p2",
+          "heading": "Dominance describes the heterozygote",
+          "sourcePath": "source-inspection/ch17/native/workspace/index.html",
+          "sourceSha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868",
+          "utf8StartInclusive": 89326,
+          "utf8EndExclusive": 89693,
+          "passageSha256": "5f67a2174e09abcd806c68ae5b3184c31f0fcc55c7e79d75259b4ca66893f751"
+        }
+      ],
+      "earlierVisibleCalibrationBindings": [],
+      "exemplarFunctions": [
+        {
+          "source": {
+            "heading": "A cold hand gives us a starting point",
+            "enclosingSectionId": "pro-l01-purpose",
+            "sourcePath": "source-inspection/ch11-exemplar/integration-text/lesson-01.teaching-fragment.html.txt",
+            "sourceSha256": "49978b6180becc6fc02a57bd4e34c34d09c785f5dddfd3a22bd62ce50bb72803",
+            "utf8ByteStartInclusive": 0,
+            "utf8ByteEndExclusive": 1937,
+            "sha256": "311b15c7b22063c65f94272fc0f7d331848aba345d955dbf726e322b1e6e5694",
+            "uniqueTeachingFunction": "A concrete bodily change establishes the chapter question, then the information-flow visual distinguishes jobs and explains why input precedes processing and output."
+          },
+          "adaptation": "A concrete disappearance/reappearance makes a causal inheritance explanation necessary before introducing more machinery."
+        }
+      ],
+      "uniqueContribution": "Sets the question and activates exactly the genotype/phenotype and dominance distinctions needed next; it is not another solved F1/F2 task.",
+      "entryConnection": "Native01 supplies the terms and model language; the opening reuses them with explicit R/r meanings.",
+      "exitConnection": "The unexplained return makes reliable knowledge of the parental cross necessary.",
+      "sourceLocatorEvidence": [
+        {
+          "route": "lesson-02",
+          "component": "Question, design and generations",
+          "printed": [
+            587,
+            588
+          ],
+          "pdf": [
+            4,
+            5
+          ],
+          "figure": "17.4 on printed 588",
+          "slides": "13–20",
+          "sourceSupport": "Mendel chose contrasting pea traits, self-pollinated lines to establish true breeding, specified parental crosses, then F1 selfing and F2 counts.",
+          "boundary": "P/F1/F2 describe relationships in a design, not universal genotypes. Source history and a source model are not new experimental observations."
+        },
+        {
+          "route": "lesson-02",
+          "component": "Observed reappearance versus allele inference",
+          "printed": [
+            589
+          ],
+          "pdf": [
+            6
+          ],
+          "figure": "17.5 and Table 17.1",
+          "slides": "15,17–23",
+          "sourceSupport": "Actual displayed F2 observations5474 round and 1850 wrinkled; caption2.96:1, close to3:1. Alleles remain discrete rather than permanently blending.",
+          "boundary": "5474/1850 is a supplied source dataset, not invented fresh practice. The caption rounds the observed ratio to2.96:1; those counts do not equal an exact3:1."
+        }
+      ],
+      "sourceScopeQualification": "Exact native/exemplar passages were read by this records reviewer. Textbook/actual-slide locators and original pixel reading are separately scoped source-review evidence, not a new pixel-read claim by this reviewer. Constructed tasks and additional pedagogical explanations are author synthesis.",
+      "protectedAnswerSeparation": "Core recessive persistence necessarily prepares the protected02 concept. No six-offspring or exact four-offspring prompt is rehearsed.",
+      "boundaryOrDeferral": "Complete dominance is a stated model; dominant does not mean common, better or stronger.",
+      "decision": {
+        "action": "retain",
+        "object": "actual teaching function and its present placement",
+        "reason": "Sets the question and activates exactly the genotype/phenotype and dominance distinctions needed next; it is not another solved F1/F2 task.",
+        "status": "Bounded records review at the pinned draft; not teacher acceptance or native integration."
+      },
+      "assembledFragmentBinding": {
+        "path": "output/Biology30_CH17_Exemplar_Transfer_Calibration_v0.1.0/integration-text/lesson-02.teaching-fragment.html.txt",
+        "payloadPath": "integration-text/lesson-02.teaching-fragment.html.txt",
+        "bytes": 17464,
+        "sha256": "5740360125376c2994bdaa1f28c4fe3d57b276232494ec7dbdb9db49ed6543fc",
+        "utf8StartInclusive": 0,
+        "utf8EndExclusive": 1571,
+        "blockSha256": "347340611b02c9ef825ce553140a3465f6f1c967eb8fe97b5ddb99cd2d0d4bdc",
+        "selectionRule": "Same actual heading/element boundaries as the completely read author input; expanded native vocabulary and native figure alter byte lengths. These remain review locators, not native integration edits."
+      }
+    },
+    {
+      "recordId": "calibration-lesson-02-02",
+      "recordIdIsNotNativeDomId": true,
+      "route": "lesson-02",
+      "actualHeadingOrMarker": "Know which plants supplied the offspring",
+      "enclosingNativeTeachingId": "ch17-l02-teaching-01",
+      "actualElementIdsInRange": [],
+      "draftPath": "calibration-v0.1.0/authoring/lesson-02.teaching.html.in",
+      "draftSha256": "104526dfdc81d8e6aac1f56f826ea3c04ef28fe73b4c1f6d006ff5ae838808c0",
+      "utf8StartInclusive": 1301,
+      "utf8EndExclusive": 3131,
+      "selectedBytes": 1830,
+      "blockSha256": "b62e42e059ea14cb351e28acfe06cdae36007946c1834e7a4dc72936b9c3ec5f",
+      "selectionRule": "Exact actual headed/contained teaching run, including its complete feedback if present. Review interval only, not an integration replacement or standalone HTML fragment.",
+      "purpose": "Explain why controlled parentage and breeding history support an interpretable cross, and why P/F1/F2 name relationships.",
+      "nativePrerequisiteOrCoverageBindings": [
+        {
+          "route": "lesson-01",
+          "nativeEditKey": "ch17-l01-teaching-03-p2",
+          "heading": "Notation keeps the reasoning visible",
+          "sourcePath": "source-inspection/ch17/native/workspace/index.html",
+          "sourceSha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868",
+          "utf8StartInclusive": 90592,
+          "utf8EndExclusive": 90979,
+          "passageSha256": "1e012928fb7f272bbccb26556c3d3727fa688e1e424258e9d1e510617908ead2"
+        },
+        {
+          "route": "lesson-02",
+          "nativeEditKey": "ch17-l02-teaching-01-p1",
+          "heading": "Follow the alleles across generations",
+          "sourcePath": "source-inspection/ch17/native/workspace/index.html",
+          "sourceSha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868",
+          "utf8StartInclusive": 106551,
+          "utf8EndExclusive": 107165,
+          "passageSha256": "35da6f39037d3a7f7aa3b9727a7c16cca05ee15d38e425b5e365477d7c2b1260"
+        }
+      ],
+      "earlierVisibleCalibrationBindings": [
+        "What stayed when the visible trait disappeared?"
+      ],
+      "exemplarFunctions": [
+        {
+          "source": {
+            "heading": "How can one cell reach a distant muscle?",
+            "enclosingSectionId": "pro-l02-structure",
+            "sourcePath": "source-inspection/ch11-exemplar/integration-text/lesson-02.teaching-fragment.html.txt",
+            "sourceSha256": "09fbf95839222d95064b1d36ddf008f745c429742e621acf55cf0c323eeb7e9d",
+            "utf8ByteStartInclusive": 0,
+            "utf8ByteEndExclusive": 3240,
+            "sha256": "154ebe5439913fce43d2967bf7bc71f06a27d38334cebd844d6560f3c3db085d",
+            "uniqueTeachingFunction": "A distance problem makes morphology necessary; figure reading establishes one continuous axon, receiving branches and sending terminals before structure–function inference."
+          },
+          "adaptation": "Identifies the information and reproductive process needed to make the motivating question answerable, with the next deeper mechanism explicitly signposted."
+        }
+      ],
+      "uniqueContribution": "Adds evidence provenance and generation relationships; it does not classify the same generations again as a separate drill.",
+      "entryConnection": "The starting phenotype alone does not determine every genotype; true-breeding history and known reproductive contributors supply different evidence.",
+      "exitConnection": "The final sentence asks how the allele moves through reproductive cells, preparing the chromosome account.",
+      "sourceLocatorEvidence": [
+        {
+          "route": "lesson-02",
+          "component": "Question, design and generations",
+          "printed": [
+            587,
+            588
+          ],
+          "pdf": [
+            4,
+            5
+          ],
+          "figure": "17.4 on printed 588",
+          "slides": "13–20",
+          "sourceSupport": "Mendel chose contrasting pea traits, self-pollinated lines to establish true breeding, specified parental crosses, then F1 selfing and F2 counts.",
+          "boundary": "P/F1/F2 describe relationships in a design, not universal genotypes. Source history and a source model are not new experimental observations."
+        }
+      ],
+      "sourceScopeQualification": "Exact native/exemplar passages were read by this records reviewer. Textbook/actual-slide locators and original pixel reading are separately scoped source-review evidence, not a new pixel-read claim by this reviewer. Constructed tasks and additional pedagogical explanations are author synthesis.",
+      "protectedAnswerSeparation": "R/r and F1 are foundational source teaching, not offered as a newly solved protected written response.",
+      "boundaryOrDeferral": "Self-pollination versus fertilisation is distinguished; F1/F2 are not universal genotype labels. Formal test-cross inference remains04.",
+      "decision": {
+        "action": "retain",
+        "object": "actual teaching function and its present placement",
+        "reason": "Adds evidence provenance and generation relationships; it does not classify the same generations again as a separate drill.",
+        "status": "Bounded records review at the pinned draft; not teacher acceptance or native integration."
+      },
+      "assembledFragmentBinding": {
+        "path": "output/Biology30_CH17_Exemplar_Transfer_Calibration_v0.1.0/integration-text/lesson-02.teaching-fragment.html.txt",
+        "payloadPath": "integration-text/lesson-02.teaching-fragment.html.txt",
+        "bytes": 17464,
+        "sha256": "5740360125376c2994bdaa1f28c4fe3d57b276232494ec7dbdb9db49ed6543fc",
+        "utf8StartInclusive": 1571,
+        "utf8EndExclusive": 3671,
+        "blockSha256": "89126af90b49d7189d79dc0bd36d9f6791d4349d3a3974084f800c23f346db17",
+        "selectionRule": "Same actual heading/element boundaries as the completely read author input; expanded native vocabulary and native figure alter byte lengths. These remain review locators, not native integration edits."
+      }
+    },
+    {
+      "recordId": "calibration-lesson-02-03",
+      "recordIdIsNotNativeDomId": true,
+      "route": "lesson-02",
+      "actualHeadingOrMarker": "A chromosome can be copied without changing its allele",
+      "enclosingNativeTeachingId": "ch17-l02-teaching-02",
+      "actualElementIdsInRange": [
+        "ch17-l02-teaching-02"
+      ],
+      "draftPath": "calibration-v0.1.0/authoring/lesson-02.teaching.html.in",
+      "draftSha256": "104526dfdc81d8e6aac1f56f826ea3c04ef28fe73b4c1f6d006ff5ae838808c0",
+      "utf8StartInclusive": 3133,
+      "utf8EndExclusive": 4960,
+      "selectedBytes": 1827,
+      "blockSha256": "c0f042e939ed97d8c342f913eeb669e9c960d2111bf89d45ae0f14e86d38e8eb",
+      "selectionRule": "Exact actual headed/contained teaching run, including its complete feedback if present. Review interval only, not an integration replacement or standalone HTML fragment.",
+      "purpose": "Distinguish homologues from sister copies, allele version from DNA copy number, and diploid from haploid.",
+      "nativePrerequisiteOrCoverageBindings": [
+        {
+          "route": "lesson-01",
+          "nativeEditKey": "ch17-l01-teaching-01-p1",
+          "heading": "Start with a defined genetic model",
+          "sourcePath": "source-inspection/ch17/native/workspace/index.html",
+          "sourceSha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868",
+          "utf8StartInclusive": 87633,
+          "utf8EndExclusive": 88198,
+          "passageSha256": "541b642b4b1fba22421b98194593fd812318e00f23519ce853dc2f43b535c4dd"
+        },
+        {
+          "route": "lesson-02",
+          "nativeEditKey": "ch17-l02-teaching-02-p1",
+          "heading": "Segregation explains reappearance",
+          "sourcePath": "source-inspection/ch17/native/workspace/index.html",
+          "sourceSha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868",
+          "utf8StartInclusive": 107976,
+          "utf8EndExclusive": 108283,
+          "passageSha256": "a3130f0dd336631e08b2bad0375ac096b82b869c3ec16fb6beb267b6d5cb0848"
+        }
+      ],
+      "earlierVisibleCalibrationBindings": [
+        "Know which plants supplied the offspring"
+      ],
+      "exemplarFunctions": [
+        {
+          "source": {
+            "heading": "Follow release, diffusion, binding, and clearance",
+            "enclosingSectionId": "pro-l06-sequence",
+            "sourcePath": "source-inspection/ch11-exemplar/integration-text/lesson-06.teaching-fragment.html.txt",
+            "sourceSha256": "aa6a174e9467eb16439dead721441f22e0d969c59396f4b531a7fea29506fd6e",
+            "utf8ByteStartInclusive": 1225,
+            "utf8ByteEndExclusive": 4154,
+            "sha256": "8acde30f3145ab8da9ae7f9b12dca980b28640a3354bb82258831fc5f9270f8e",
+            "uniqueTeachingFunction": "Builds a causal sequence across two membranes, ties figure symbols to actual events, and makes new firing conditional rather than automatic."
+          },
+          "adaptation": "Defines the physical units and follows consequential stages so that each step enables the next."
+        },
+        {
+          "source": {
+            "heading": "How can one cell reach a distant muscle?",
+            "enclosingSectionId": "pro-l02-structure",
+            "sourcePath": "source-inspection/ch11-exemplar/integration-text/lesson-02.teaching-fragment.html.txt",
+            "sourceSha256": "09fbf95839222d95064b1d36ddf008f745c429742e621acf55cf0c323eeb7e9d",
+            "utf8ByteStartInclusive": 0,
+            "utf8ByteEndExclusive": 3240,
+            "sha256": "154ebe5439913fce43d2967bf7bc71f06a27d38334cebd844d6560f3c3db085d",
+            "uniqueTeachingFunction": "A distance problem makes morphology necessary; figure reading establishes one continuous axon, receiving branches and sending terminals before structure–function inference."
+          },
+          "adaptation": "Provides enough present mechanism to make the next model usable, without pretending to teach every part of plant reproduction."
+        }
+      ],
+      "uniqueContribution": "Introduces the physical entities that the worked trace will use; without these distinctions the table would be a memorized sequence of letters.",
+      "entryConnection": "The parentage block ends at reproductive cells; this block defines the chromosome units whose separation explains their contributions.",
+      "exitConnection": "The following single worked trace can now ask where each defined copy goes.",
+      "sourceLocatorEvidence": [
+        {
+          "route": "lesson-02",
+          "component": "Allele notation, true breeding, gametes and mechanism",
+          "printed": [
+            589,
+            590,
+            597
+          ],
+          "pdf": [
+            6,
+            7,
+            14
+          ],
+          "figure": "17.6,17.7;17.14 only as chromosome support",
+          "slides": "21–25",
+          "sourceSupport": "RR × rr makes Rr; each heterozygote passes one allele per gamete; meiosis separates homologues. Source17.7 then represents fertilization combinations.",
+          "boundary": "Teach allele/genotype/phenotype and complete-dominance model before symbols; segregation/gamete production before the square. Limit two-copy statement to the stated ordinary diploid autosomal model. A gamete carries one allele at each locus, not both."
+        }
+      ],
+      "sourceScopeQualification": "Exact native/exemplar passages were read by this records reviewer. Textbook/actual-slide locators and original pixel reading are separately scoped source-review evidence, not a new pixel-read claim by this reviewer. Constructed tasks and additional pedagogical explanations are author synthesis.",
+      "protectedAnswerSeparation": "Explains segregation for all subsequent work without solving a fresh clone of a protected gamete-identification prompt.",
+      "boundaryOrDeferral": "Ordinary diploid model. One allele at a locus does not mean one gene in the entire gamete; plant life-cycle detail is not the table's claim.",
+      "decision": {
+        "action": "retain",
+        "object": "actual teaching function and its present placement",
+        "reason": "Introduces the physical entities that the worked trace will use; without these distinctions the table would be a memorized sequence of letters.",
+        "status": "Bounded records review at the pinned draft; not teacher acceptance or native integration."
+      },
+      "assembledFragmentBinding": {
+        "path": "output/Biology30_CH17_Exemplar_Transfer_Calibration_v0.1.0/integration-text/lesson-02.teaching-fragment.html.txt",
+        "payloadPath": "integration-text/lesson-02.teaching-fragment.html.txt",
+        "bytes": 17464,
+        "sha256": "5740360125376c2994bdaa1f28c4fe3d57b276232494ec7dbdb9db49ed6543fc",
+        "utf8StartInclusive": 3673,
+        "utf8EndExclusive": 5500,
+        "blockSha256": "c0f042e939ed97d8c342f913eeb669e9c960d2111bf89d45ae0f14e86d38e8eb",
+        "selectionRule": "Same actual heading/element boundaries as the completely read author input; expanded native vocabulary and native figure alter byte lengths. These remain review locators, not native integration edits."
+      }
+    },
+    {
+      "recordId": "calibration-lesson-02-04",
+      "recordIdIsNotNativeDomId": true,
+      "route": "lesson-02",
+      "actualHeadingOrMarker": "Follow the copies, then the separation",
+      "enclosingNativeTeachingId": "ch17-l02-worked",
+      "actualElementIdsInRange": [],
+      "draftPath": "calibration-v0.1.0/authoring/lesson-02.teaching.html.in",
+      "draftSha256": "104526dfdc81d8e6aac1f56f826ea3c04ef28fe73b4c1f6d006ff5ae838808c0",
+      "utf8StartInclusive": 4962,
+      "utf8EndExclusive": 7715,
+      "selectedBytes": 2753,
+      "blockSha256": "eebb5d03fb1fcc45baab31d5e0ff5b7575c8d1f982379322b871ac068521a417",
+      "selectionRule": "Exact actual headed/contained teaching run, including its complete feedback if present. Review interval only, not an integration replacement or standalone HTML fragment.",
+      "purpose": "Work through why DNA copying does not send the original Rr pair into one normal gamete.",
+      "nativePrerequisiteOrCoverageBindings": [
+        {
+          "route": "lesson-02",
+          "nativeEditKey": "ch17-l02-teaching-02-p1",
+          "heading": "Segregation explains reappearance",
+          "sourcePath": "source-inspection/ch17/native/workspace/index.html",
+          "sourceSha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868",
+          "utf8StartInclusive": 107976,
+          "utf8EndExclusive": 108283,
+          "passageSha256": "a3130f0dd336631e08b2bad0375ac096b82b869c3ec16fb6beb267b6d5cb0848"
+        }
+      ],
+      "earlierVisibleCalibrationBindings": [
+        "A chromosome can be copied without changing its allele"
+      ],
+      "exemplarFunctions": [
+        {
+          "source": {
+            "heading": "Use structure to explain function",
+            "enclosingSectionId": "pro-l02-worked",
+            "sourcePath": "source-inspection/ch11-exemplar/integration-text/lesson-02.teaching-fragment.html.txt",
+            "sourceSha256": "09fbf95839222d95064b1d36ddf008f745c429742e621acf55cf0c323eeb7e9d",
+            "utf8ByteStartInclusive": 3241,
+            "utf8ByteEndExclusive": 5499,
+            "sha256": "f0bf34748c9e598f1862476617c6e61aef1ed6dfa506d6a3a537648bc954052e",
+            "uniqueTeachingFunction": "Converts a labelled shape into a causal explanation: reception surface, integration, distance and distribution each earn a distinct step."
+          },
+          "adaptation": "Turns defined chromosome structures into an action-and-consequence explanation instead of a list of labels."
+        },
+        {
+          "source": {
+            "heading": "Follow release, diffusion, binding, and clearance",
+            "enclosingSectionId": "pro-l06-sequence",
+            "sourcePath": "source-inspection/ch11-exemplar/integration-text/lesson-06.teaching-fragment.html.txt",
+            "sourceSha256": "aa6a174e9467eb16439dead721441f22e0d969c59396f4b531a7fea29506fd6e",
+            "utf8ByteStartInclusive": 1225,
+            "utf8ByteEndExclusive": 4154,
+            "sha256": "8acde30f3145ab8da9ae7f9b12dca980b28640a3354bb82258831fc5f9270f8e",
+            "uniqueTeachingFunction": "Builds a causal sequence across two membranes, ties figure symbols to actual events, and makes new firing conditional rather than automatic."
+          },
+          "adaptation": "The visual reading follows copies through successive stages and limits the simplified mechanism."
+        }
+      ],
+      "uniqueContribution": "The single table is the explanatory application of the preceding definitions; its r-copy reading instruction diagnoses loss/blending and distinguishes the two divisions. No duplicate meiosis table follows.",
+      "entryConnection": "All terms and copying/separation operations were defined visibly in the preceding block.",
+      "exitConnection": "The completed correct trace supplies the standard against which the next flawed representation can be repaired.",
+      "sourceLocatorEvidence": [
+        {
+          "route": "lesson-02",
+          "component": "Allele notation, true breeding, gametes and mechanism",
+          "printed": [
+            589,
+            590,
+            597
+          ],
+          "pdf": [
+            6,
+            7,
+            14
+          ],
+          "figure": "17.6,17.7;17.14 only as chromosome support",
+          "slides": "21–25",
+          "sourceSupport": "RR × rr makes Rr; each heterozygote passes one allele per gamete; meiosis separates homologues. Source17.7 then represents fertilization combinations.",
+          "boundary": "Teach allele/genotype/phenotype and complete-dominance model before symbols; segregation/gamete production before the square. Limit two-copy statement to the stated ordinary diploid autosomal model. A gamete carries one allele at each locus, not both."
+        }
+      ],
+      "sourceScopeQualification": "Exact native/exemplar passages were read by this records reviewer. Textbook/actual-slide locators and original pixel reading are separately scoped source-review evidence, not a new pixel-read claim by this reviewer. Constructed tasks and additional pedagogical explanations are author synthesis.",
+      "protectedAnswerSeparation": "Normal gamete inheritance is essential conceptual preparation. The new task is a copy/separation explanation, not the protected Aa choice question or its options.",
+      "boundaryOrDeferral": "Assumes no mutation and no exchange in this particular trace; does not claim all plant life-cycle stages or future linkage mechanisms are shown.",
+      "decision": {
+        "action": "retain",
+        "object": "actual teaching function and its present placement",
+        "reason": "The single table is the explanatory application of the preceding definitions; its r-copy reading instruction diagnoses loss/blending and distinguishes the two divisions. No duplicate meiosis table follows.",
+        "status": "Bounded records review at the pinned draft; not teacher acceptance or native integration."
+      },
+      "assembledFragmentBinding": {
+        "path": "output/Biology30_CH17_Exemplar_Transfer_Calibration_v0.1.0/integration-text/lesson-02.teaching-fragment.html.txt",
+        "payloadPath": "integration-text/lesson-02.teaching-fragment.html.txt",
+        "bytes": 17464,
+        "sha256": "5740360125376c2994bdaa1f28c4fe3d57b276232494ec7dbdb9db49ed6543fc",
+        "utf8StartInclusive": 5502,
+        "utf8EndExclusive": 8345,
+        "blockSha256": "443a41e425d52a35a46909151746620d84af49b10fee339eddcfb72dee0d1f70",
+        "selectionRule": "Same actual heading/element boundaries as the completely read author input; expanded native vocabulary and native figure alter byte lengths. These remain review locators, not native integration edits."
+      }
+    },
+    {
+      "recordId": "calibration-lesson-02-05",
+      "recordIdIsNotNativeDomId": true,
+      "route": "lesson-02",
+      "actualHeadingOrMarker": "Repair the drawing at the point where it goes wrong",
+      "enclosingNativeTeachingId": "ch17-l02-worked",
+      "actualElementIdsInRange": [
+        "ch17-cal-v010-l02-repair"
+      ],
+      "draftPath": "calibration-v0.1.0/authoring/lesson-02.teaching.html.in",
+      "draftSha256": "104526dfdc81d8e6aac1f56f826ea3c04ef28fe73b4c1f6d006ff5ae838808c0",
+      "utf8StartInclusive": 7715,
+      "utf8EndExclusive": 9674,
+      "selectedBytes": 1959,
+      "blockSha256": "dc93c7df5b9293356e82bf2f74681df334fcfb75bbc7218d99a36b71f8a54798",
+      "selectionRule": "Exact actual headed/contained teaching run, including its complete feedback if present. Review interval only, not an integration replacement or standalone HTML fragment.",
+      "purpose": "Locate the first wrong division in an otherwise partly correct representation and explain why relabeling only the output is insufficient.",
+      "nativePrerequisiteOrCoverageBindings": [
+        {
+          "route": "lesson-02",
+          "nativeEditKey": "ch17-l02-teaching-02-p1",
+          "heading": "Segregation explains reappearance",
+          "sourcePath": "source-inspection/ch17/native/workspace/index.html",
+          "sourceSha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868",
+          "utf8StartInclusive": 107976,
+          "utf8EndExclusive": 108283,
+          "passageSha256": "a3130f0dd336631e08b2bad0375ac096b82b869c3ec16fb6beb267b6d5cb0848"
+        }
+      ],
+      "earlierVisibleCalibrationBindings": [
+        "A chromosome can be copied without changing its allele",
+        "Follow the copies, then the separation"
+      ],
+      "exemplarFunctions": [
+        {
+          "source": {
+            "heading": "Explain a diagram error",
+            "enclosingSectionId": "pro-evaluation-2026-10-03-v1-l02-guided",
+            "sourcePath": "source-inspection/ch11-exemplar/integration-text/lesson-02.teaching-fragment.html.txt",
+            "sourceSha256": "09fbf95839222d95064b1d36ddf008f745c429742e621acf55cf0c323eeb7e9d",
+            "utf8ByteStartInclusive": 8495,
+            "utf8ByteEndExclusive": 10035,
+            "sha256": "0533bb2305c6042b1beee9c1fd9b883dd5b2098173ffcf2e381659fd2943a5cd",
+            "uniqueTeachingFunction": "Tests representation repair: separate gaps in insulation from breaks in the continuous conducting cell, rather than reciting parts."
+          },
+          "adaptation": "Diagnose the first incorrect representation of physical units and repair the movement, not just the final label."
+        }
+      ],
+      "uniqueContribution": "Changes the inference from producing a correct trace to localizing and repairing a wrong middle step while preserving the correctly copied starting material.",
+      "entryConnection": "The relevant mechanism, correct first-division grouping and second-division separation are visible in the table before the optional hint.",
+      "exitConnection": "Once one-allele gamete contributions are secure, fertilisation can restore a pair.",
+      "sourceLocatorEvidence": [
+        {
+          "route": "lesson-02",
+          "component": "Allele notation, true breeding, gametes and mechanism",
+          "printed": [
+            589,
+            590,
+            597
+          ],
+          "pdf": [
+            6,
+            7,
+            14
+          ],
+          "figure": "17.6,17.7;17.14 only as chromosome support",
+          "slides": "21–25",
+          "sourceSupport": "RR × rr makes Rr; each heterozygote passes one allele per gamete; meiosis separates homologues. Source17.7 then represents fertilization combinations.",
+          "boundary": "Teach allele/genotype/phenotype and complete-dominance model before symbols; segregation/gamete production before the square. Limit two-copy statement to the stated ordinary diploid autosomal model. A gamete carries one allele at each locus, not both."
+        }
+      ],
+      "sourceScopeQualification": "Exact native/exemplar passages were read by this records reviewer. Textbook/actual-slide locators and original pixel reading are separately scoped source-review evidence, not a new pixel-read claim by this reviewer. Constructed tasks and additional pedagogical explanations are author synthesis.",
+      "protectedAnswerSeparation": "The drawing-error stimulus and requested repair differ from the retained native gamete/genotype selections; the feedback explains the repair fully.",
+      "boundaryOrDeferral": "Actual new ID ch17-cal-v010-l02-repair. Optional, unsaved, ungraded, outside progress. The description supplies the hypothetical drawing; no unprovided rendered diagram is claimed.",
+      "decision": {
+        "action": "retain",
+        "object": "actual teaching function and its present placement",
+        "reason": "Changes the inference from producing a correct trace to localizing and repairing a wrong middle step while preserving the correctly copied starting material.",
+        "status": "Bounded records review at the pinned draft; not teacher acceptance or native integration."
+      },
+      "assembledFragmentBinding": {
+        "path": "output/Biology30_CH17_Exemplar_Transfer_Calibration_v0.1.0/integration-text/lesson-02.teaching-fragment.html.txt",
+        "payloadPath": "integration-text/lesson-02.teaching-fragment.html.txt",
+        "bytes": 17464,
+        "sha256": "5740360125376c2994bdaa1f28c4fe3d57b276232494ec7dbdb9db49ed6543fc",
+        "utf8StartInclusive": 8345,
+        "utf8EndExclusive": 10304,
+        "blockSha256": "dc93c7df5b9293356e82bf2f74681df334fcfb75bbc7218d99a36b71f8a54798",
+        "selectionRule": "Same actual heading/element boundaries as the completely read author input; expanded native vocabulary and native figure alter byte lengths. These remain review locators, not native integration edits."
+      }
+    },
+    {
+      "recordId": "calibration-lesson-02-06",
+      "recordIdIsNotNativeDomId": true,
+      "route": "lesson-02",
+      "actualHeadingOrMarker": "Fertilisation restores a pair, not a blend",
+      "enclosingNativeTeachingId": "ch17-l02-teaching-03",
+      "actualElementIdsInRange": [],
+      "draftPath": "calibration-v0.1.0/authoring/lesson-02.teaching.html.in",
+      "draftSha256": "104526dfdc81d8e6aac1f56f826ea3c04ef28fe73b4c1f6d006ff5ae838808c0",
+      "utf8StartInclusive": 9683,
+      "utf8EndExclusive": 11675,
+      "selectedBytes": 1992,
+      "blockSha256": "bab40d4ee3f0792a97d589e45fe7e1d64dba918af3fe49e04200377ece00bf55",
+      "selectionRule": "Exact actual headed/contained teaching run, including its complete feedback if present. Review interval only, not an integration replacement or standalone HTML fragment.",
+      "purpose": "Connect the controlled P/F1/F2 design to gamete contribution and explain recessive reappearance through a homozygous combination.",
+      "nativePrerequisiteOrCoverageBindings": [
+        {
+          "route": "lesson-01",
+          "nativeEditKey": "ch17-l01-teaching-02-p1",
+          "heading": "Dominance describes the heterozygote",
+          "sourcePath": "source-inspection/ch17/native/workspace/index.html",
+          "sourceSha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868",
+          "utf8StartInclusive": 88973,
+          "utf8EndExclusive": 89326,
+          "passageSha256": "f0052e2716cb1cd2d31dead18fc1fdbefd9c592857606b4596a6f67b9e7df24c"
+        },
+        {
+          "route": "lesson-02",
+          "nativeEditKey": "ch17-l02-teaching-02-p2",
+          "heading": "Segregation explains reappearance",
+          "sourcePath": "source-inspection/ch17/native/workspace/index.html",
+          "sourceSha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868",
+          "utf8StartInclusive": 108283,
+          "utf8EndExclusive": 108769,
+          "passageSha256": "2b94ba6ac9d136560e3d10dd357bd5a979cf5ecf938ca028f53e8f211636422e"
+        },
+        {
+          "route": "lesson-02",
+          "nativeEditKey": "ch17-l02-teaching-02-p3",
+          "heading": "Segregation explains reappearance",
+          "sourcePath": "source-inspection/ch17/native/workspace/index.html",
+          "sourceSha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868",
+          "utf8StartInclusive": 108769,
+          "utf8EndExclusive": 109017,
+          "passageSha256": "f4d7499baa0c44ec5cb279fcb6388de4b8db078bc9ee5658eca153f3e139a759"
+        }
+      ],
+      "earlierVisibleCalibrationBindings": [
+        "Know which plants supplied the offspring",
+        "Follow the copies, then the separation"
+      ],
+      "exemplarFunctions": [
+        {
+          "source": {
+            "heading": "Follow release, diffusion, binding, and clearance",
+            "enclosingSectionId": "pro-l06-sequence",
+            "sourcePath": "source-inspection/ch11-exemplar/integration-text/lesson-06.teaching-fragment.html.txt",
+            "sourceSha256": "aa6a174e9467eb16439dead721441f22e0d969c59396f4b531a7fea29506fd6e",
+            "utf8ByteStartInclusive": 1225,
+            "utf8ByteEndExclusive": 4154,
+            "sha256": "8acde30f3145ab8da9ae7f9b12dca980b28640a3354bb82258831fc5f9270f8e",
+            "uniqueTeachingFunction": "Builds a causal sequence across two membranes, ties figure symbols to actual events, and makes new firing conditional rather than automatic."
+          },
+          "adaptation": "Gamete separation establishes contributions; joining those contributions establishes the next cell's allele pair; the phenotype rule is applied afterward."
+        }
+      ],
+      "uniqueContribution": "Adds fertilisation and genotype-to-phenotype grouping to the earlier gamete-production mechanism; it does not repeat the chromosome-copy table.",
+      "entryConnection": "Known RR/rr parents and one-allele gametes are already taught; random fertilisation is stated before combining contributions.",
+      "exitConnection": "Four equally likely contributions make a first explanation of probability and expected proportions possible.",
+      "sourceLocatorEvidence": [
+        {
+          "route": "lesson-02",
+          "component": "Allele notation, true breeding, gametes and mechanism",
+          "printed": [
+            589,
+            590,
+            597
+          ],
+          "pdf": [
+            6,
+            7,
+            14
+          ],
+          "figure": "17.6,17.7;17.14 only as chromosome support",
+          "slides": "21–25",
+          "sourceSupport": "RR × rr makes Rr; each heterozygote passes one allele per gamete; meiosis separates homologues. Source17.7 then represents fertilization combinations.",
+          "boundary": "Teach allele/genotype/phenotype and complete-dominance model before symbols; segregation/gamete production before the square. Limit two-copy statement to the stated ordinary diploid autosomal model. A gamete carries one allele at each locus, not both."
+        },
+        {
+          "route": "lesson-02",
+          "component": "Expected ratios and evidence limits",
+          "printed": [
+            589,
+            590,
+            591
+          ],
+          "pdf": [
+            6,
+            7,
+            8
+          ],
+          "figure": "17.5–17.8",
+          "slides": "15,18–22",
+          "sourceSupport": "Observed near3:1 source counts; independent gamete contributions group1:2:1 genotypes into3:1 phenotypes under complete dominance.",
+          "boundary": "Finite-sample variation, explicit penetrance/scoring/viability assumptions and a detailed action-and-why explanation are author synthesis of the probability model. Do not present runs or four offspring as guarantees; required exact prompts remain reserved."
+        }
+      ],
+      "sourceScopeQualification": "Exact native/exemplar passages were read by this records reviewer. Textbook/actual-slide locators and original pixel reading are separately scoped source-review evidence, not a new pixel-read claim by this reviewer. Constructed tasks and additional pedagogical explanations are author synthesis.",
+      "protectedAnswerSeparation": "Necessary core teaching directly supports protected ch17-l02-check-writing-1; this unavoidable conceptual preparation is disclosed, not presented as blind assessment. No extra worked response copies its prompt.",
+      "boundaryOrDeferral": "Rr and rR are the same genotype. Complete dominance groups phenotypes after genotype accounting. Systematic Punnett-grid instruction remains03.",
+      "decision": {
+        "action": "retain",
+        "object": "actual teaching function and its present placement",
+        "reason": "Adds fertilisation and genotype-to-phenotype grouping to the earlier gamete-production mechanism; it does not repeat the chromosome-copy table.",
+        "status": "Bounded records review at the pinned draft; not teacher acceptance or native integration."
+      },
+      "assembledFragmentBinding": {
+        "path": "output/Biology30_CH17_Exemplar_Transfer_Calibration_v0.1.0/integration-text/lesson-02.teaching-fragment.html.txt",
+        "payloadPath": "integration-text/lesson-02.teaching-fragment.html.txt",
+        "bytes": 17464,
+        "sha256": "5740360125376c2994bdaa1f28c4fe3d57b276232494ec7dbdb9db49ed6543fc",
+        "utf8StartInclusive": 10313,
+        "utf8EndExclusive": 12305,
+        "blockSha256": "bab40d4ee3f0792a97d589e45fe7e1d64dba918af3fe49e04200377ece00bf55",
+        "selectionRule": "Same actual heading/element boundaries as the completely read author input; expanded native vocabulary and native figure alter byte lengths. These remain review locators, not native integration edits."
+      }
+    },
+    {
+      "recordId": "calibration-lesson-02-07",
+      "recordIdIsNotNativeDomId": true,
+      "route": "lesson-02",
+      "actualHeadingOrMarker": "An expected proportion is not an offspring schedule",
+      "enclosingNativeTeachingId": "ch17-l02-teaching-03",
+      "actualElementIdsInRange": [],
+      "draftPath": "calibration-v0.1.0/authoring/lesson-02.teaching.html.in",
+      "draftSha256": "104526dfdc81d8e6aac1f56f826ea3c04ef28fe73b4c1f6d006ff5ae838808c0",
+      "utf8StartInclusive": 11675,
+      "utf8EndExclusive": 13726,
+      "selectedBytes": 2051,
+      "blockSha256": "a0342730c7e123b1c5c84d5d5d5504df4e5f7238b521dbb272f46490ce1084f3",
+      "selectionRule": "Exact actual headed/contained teaching run, including its complete feedback if present. Review interval only, not an integration replacement or standalone HTML fragment.",
+      "purpose": "Explain probabilities as per-offspring model expectations and distinguish the actual5474/1850 source counts from an exact scheduled ratio.",
+      "nativePrerequisiteOrCoverageBindings": [
+        {
+          "route": "lesson-02",
+          "nativeEditKey": "ch17-l02-teaching-03-p1",
+          "heading": "Expected ratios are probabilities",
+          "sourcePath": "source-inspection/ch17/native/workspace/index.html",
+          "sourceSha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868",
+          "utf8StartInclusive": 109215,
+          "utf8EndExclusive": 109535,
+          "passageSha256": "258a1f8917c601f9fa15533e330076a0127b4c06250f12132255234051a321ce"
+        },
+        {
+          "route": "lesson-02",
+          "nativeEditKey": "ch17-l02-teaching-03-p2",
+          "heading": "Expected ratios are probabilities",
+          "sourcePath": "source-inspection/ch17/native/workspace/index.html",
+          "sourceSha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868",
+          "utf8StartInclusive": 109535,
+          "utf8EndExclusive": 109870,
+          "passageSha256": "3eebf0864631539d46e02ab80f0df366fbdf6e23e3f7eb7f0eefd3bb82d6dd37"
+        },
+        {
+          "route": "lesson-02",
+          "nativeEditKey": "ch17-l02-teaching-03-p3",
+          "heading": "Expected ratios are probabilities",
+          "sourcePath": "source-inspection/ch17/native/workspace/index.html",
+          "sourceSha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868",
+          "utf8StartInclusive": 109870,
+          "utf8EndExclusive": 110202,
+          "passageSha256": "097459c89f705df7892f07918d491277dbfa986d1372bf41a6fa10129c06c9e6"
+        }
+      ],
+      "earlierVisibleCalibrationBindings": [
+        "Fertilisation restores a pair, not a blend"
+      ],
+      "exemplarFunctions": [
+        {
+          "source": {
+            "heading": "Worked model: include inhibition in the calculation",
+            "enclosingSectionId": "pro-l06-summation",
+            "sourcePath": "source-inspection/ch11-exemplar/integration-text/lesson-06.teaching-fragment.html.txt",
+            "sourceSha256": "aa6a174e9467eb16439dead721441f22e0d969c59396f4b531a7fea29506fd6e",
+            "utf8ByteStartInclusive": 11244,
+            "utf8ByteEndExclusive": 12387,
+            "sha256": "68da4954914cdfb7fa01c5a32ae40b5c22dbdd965ff92c1f405e11a184ea5f3a",
+            "uniqueTeachingFunction": "Combines signed contributions, applies a net change to a starting voltage, compares with threshold, then changes inhibition while limiting what the simplified model claims."
+          },
+          "adaptation": "Interpret a model quantity and compare it with a meaningful observation while limiting the result; no numerical ritual or extra drill is copied."
+        }
+      ],
+      "uniqueContribution": "Provides the minimum chance/expectation meaning required by native02 at its point of use. The historical comparison is evidence interpretation, not another altered-count exercise.",
+      "entryConnection": "The previous block already supplies four equally likely gamete combinations and genotype/phenotype groups.",
+      "exitConnection": "The limitations of chance-based sample comparison set up the independent question about problems that extra counting cannot repair.",
+      "sourceLocatorEvidence": [
+        {
+          "route": "lesson-02",
+          "component": "Observed reappearance versus allele inference",
+          "printed": [
+            589
+          ],
+          "pdf": [
+            6
+          ],
+          "figure": "17.5 and Table 17.1",
+          "slides": "15,17–23",
+          "sourceSupport": "Actual displayed F2 observations5474 round and 1850 wrinkled; caption2.96:1, close to3:1. Alleles remain discrete rather than permanently blending.",
+          "boundary": "5474/1850 is a supplied source dataset, not invented fresh practice. The caption rounds the observed ratio to2.96:1; those counts do not equal an exact3:1."
+        },
+        {
+          "route": "lesson-02",
+          "component": "Expected ratios and evidence limits",
+          "printed": [
+            589,
+            590,
+            591
+          ],
+          "pdf": [
+            6,
+            7,
+            8
+          ],
+          "figure": "17.5–17.8",
+          "slides": "15,18–22",
+          "sourceSupport": "Observed near3:1 source counts; independent gamete contributions group1:2:1 genotypes into3:1 phenotypes under complete dominance.",
+          "boundary": "Finite-sample variation, explicit penetrance/scoring/viability assumptions and a detailed action-and-why explanation are author synthesis of the probability model. Do not present runs or four offspring as guarantees; required exact prompts remain reserved."
+        }
+      ],
+      "sourceScopeQualification": "Exact native/exemplar passages were read by this records reviewer. Textbook/actual-slide locators and original pixel reading are separately scoped source-review evidence, not a new pixel-read claim by this reviewer. Constructed tasks and additional pedagogical explanations are author synthesis.",
+      "protectedAnswerSeparation": "Does not solve the protected six-successive-offspring or exact-four-offspring scenario. It visibly teaches the distinction those tasks require.",
+      "boundaryOrDeferral": "Historical counts are sourced, not fresh invented data. Reliable expression, recording, survival, parentage and fertilisation assumptions are visible. Expected-number arithmetic remains03.",
+      "decision": {
+        "action": "retain",
+        "object": "actual teaching function and its present placement",
+        "reason": "Provides the minimum chance/expectation meaning required by native02 at its point of use. The historical comparison is evidence interpretation, not another altered-count exercise.",
+        "status": "Bounded records review at the pinned draft; not teacher acceptance or native integration."
+      },
+      "assembledFragmentBinding": {
+        "path": "output/Biology30_CH17_Exemplar_Transfer_Calibration_v0.1.0/integration-text/lesson-02.teaching-fragment.html.txt",
+        "payloadPath": "integration-text/lesson-02.teaching-fragment.html.txt",
+        "bytes": 17464,
+        "sha256": "5740360125376c2994bdaa1f28c4fe3d57b276232494ec7dbdb9db49ed6543fc",
+        "utf8StartInclusive": 12305,
+        "utf8EndExclusive": 14356,
+        "blockSha256": "a0342730c7e123b1c5c84d5d5d5504df4e5f7238b521dbb272f46490ce1084f3",
+        "selectionRule": "Same actual heading/element boundaries as the completely read author input; expanded native vocabulary and native figure alter byte lengths. These remain review locators, not native integration edits."
+      }
+    },
+    {
+      "recordId": "calibration-lesson-02-08",
+      "recordIdIsNotNativeDomId": true,
+      "route": "lesson-02",
+      "actualHeadingOrMarker": "Would more offspring repair either problem?",
+      "enclosingNativeTeachingId": "ch17-l02-teaching-03",
+      "actualElementIdsInRange": [
+        "ch17-cal-v010-l02-records"
+      ],
+      "draftPath": "calibration-v0.1.0/authoring/lesson-02.teaching.html.in",
+      "draftSha256": "104526dfdc81d8e6aac1f56f826ea3c04ef28fe73b4c1f6d006ff5ae838808c0",
+      "utf8StartInclusive": 13726,
+      "utf8EndExclusive": 16486,
+      "selectedBytes": 2760,
+      "blockSha256": "62583c86a62de1908fbbee3954ff37bc7f22ded02fbb4698b18eeb9f8b0d973c",
+      "selectionRule": "Exact actual headed/contained teaching run, including its complete feedback if present. Review interval only, not an integration replacement or standalone HTML fragment.",
+      "purpose": "Distinguish evidence required to specify a cross from correct allele accounting once the contributions are known; state the limited later role of a larger sample.",
+      "nativePrerequisiteOrCoverageBindings": [
+        {
+          "route": "lesson-01",
+          "nativeEditKey": "ch17-l01-teaching-01-p1",
+          "heading": "Start with a defined genetic model",
+          "sourcePath": "source-inspection/ch17/native/workspace/index.html",
+          "sourceSha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868",
+          "utf8StartInclusive": 87633,
+          "utf8EndExclusive": 88198,
+          "passageSha256": "541b642b4b1fba22421b98194593fd812318e00f23519ce853dc2f43b535c4dd"
+        },
+        {
+          "route": "lesson-02",
+          "nativeEditKey": "ch17-l02-teaching-03-p3",
+          "heading": "Expected ratios are probabilities",
+          "sourcePath": "source-inspection/ch17/native/workspace/index.html",
+          "sourceSha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868",
+          "utf8StartInclusive": 109870,
+          "utf8EndExclusive": 110202,
+          "passageSha256": "097459c89f705df7892f07918d491277dbfa986d1372bf41a6fa10129c06c9e6"
+        }
+      ],
+      "earlierVisibleCalibrationBindings": [
+        "Know which plants supplied the offspring",
+        "Fertilisation restores a pair, not a blend",
+        "An expected proportion is not an offspring schedule"
+      ],
+      "exemplarFunctions": [
+        {
+          "source": {
+            "heading": "Compare two different failures",
+            "enclosingSectionId": "pro-evaluation-2026-10-03-v1-l02-independent",
+            "sourcePath": "source-inspection/ch11-exemplar/integration-text/lesson-02.teaching-fragment.html.txt",
+            "sourceSha256": "09fbf95839222d95064b1d36ddf008f745c429742e621acf55cf0c323eeb7e9d",
+            "utf8ByteStartInclusive": 11386,
+            "utf8ByteEndExclusive": 13338,
+            "sha256": "5a466cc38372aff6fb85845f380ee0df707be6ed1f3013616b0bb7c6fba94d17",
+            "uniqueTeachingFunction": "Localizes two distinct failure sites and tests whether an unrelated proposed repair restores the missing function."
+          },
+          "adaptation": "Locate a missing-input-record failure and a known-contribution combination-rule failure, then judge whether a proposed shared repair addresses either."
+        },
+        {
+          "source": {
+            "heading": "Worked example: an impulse arrives but no message is released",
+            "enclosingSectionId": "pro-l06-acetylcholine",
+            "sourcePath": "source-inspection/ch11-exemplar/integration-text/lesson-06.teaching-fragment.html.txt",
+            "sourceSha256": "aa6a174e9467eb16439dead721441f22e0d969c59396f4b531a7fea29506fd6e",
+            "utf8ByteStartInclusive": 5142,
+            "utf8ByteEndExclusive": 6005,
+            "sha256": "b8fc61ce77cc7a7b822920f68d8988f6c2b4c866e9210ca15b3e915354070a54",
+            "uniqueTeachingFunction": "Holds conduction success fixed, locates the blocked calcium-trigger step and follows only its consequences while limiting the inference to the affected terminal."
+          },
+          "adaptation": "Keep known successful inputs fixed and limit the consequence to the specific failed operation."
+        }
+      ],
+      "uniqueContribution": "Transfers across two different failure locations. It is neither another parentage-label classification nor another exercise changing the observed offspring counts.",
+      "entryConnection": "Controlled parentage, the two gamete contributions and the limited sample-size benefit were all visible before the task and hint.",
+      "exitConnection": "The closing summary can now name the sound transmission chain and direct the learner to03's organization of probabilities.",
+      "sourceLocatorEvidence": [
+        {
+          "route": "lesson-02",
+          "component": "Question, design and generations",
+          "printed": [
+            587,
+            588
+          ],
+          "pdf": [
+            4,
+            5
+          ],
+          "figure": "17.4 on printed 588",
+          "slides": "13–20",
+          "sourceSupport": "Mendel chose contrasting pea traits, self-pollinated lines to establish true breeding, specified parental crosses, then F1 selfing and F2 counts.",
+          "boundary": "P/F1/F2 describe relationships in a design, not universal genotypes. Source history and a source model are not new experimental observations."
+        },
+        {
+          "route": "lesson-02",
+          "component": "Allele notation, true breeding, gametes and mechanism",
+          "printed": [
+            589,
+            590,
+            597
+          ],
+          "pdf": [
+            6,
+            7,
+            14
+          ],
+          "figure": "17.6,17.7;17.14 only as chromosome support",
+          "slides": "21–25",
+          "sourceSupport": "RR × rr makes Rr; each heterozygote passes one allele per gamete; meiosis separates homologues. Source17.7 then represents fertilization combinations.",
+          "boundary": "Teach allele/genotype/phenotype and complete-dominance model before symbols; segregation/gamete production before the square. Limit two-copy statement to the stated ordinary diploid autosomal model. A gamete carries one allele at each locus, not both."
+        },
+        {
+          "route": "lesson-02",
+          "component": "Expected ratios and evidence limits",
+          "printed": [
+            589,
+            590,
+            591
+          ],
+          "pdf": [
+            6,
+            7,
+            8
+          ],
+          "figure": "17.5–17.8",
+          "slides": "15,18–22",
+          "sourceSupport": "Observed near3:1 source counts; independent gamete contributions group1:2:1 genotypes into3:1 phenotypes under complete dominance.",
+          "boundary": "Finite-sample variation, explicit penetrance/scoring/viability assumptions and a detailed action-and-why explanation are author synthesis of the probability model. Do not present runs or four offspring as guarantees; required exact prompts remain reserved."
+        }
+      ],
+      "sourceScopeQualification": "Exact native/exemplar passages were read by this records reviewer. Textbook/actual-slide locators and original pixel reading are separately scoped source-review evidence, not a new pixel-read claim by this reviewer. Constructed tasks and additional pedagogical explanations are author synthesis.",
+      "protectedAnswerSeparation": "RecordA's unknown donor mixture and RecordB's M/m accounting error are constructed; they do not reproduce the protected F1/F2, six-run or four-offspring prompts.",
+      "boundaryOrDeferral": "Actual new ID ch17-cal-v010-l02-records. Optional, unsaved, ungraded, outside progress. Larger samples do not automatically restore missing parentage or a wrong transmission rule; complete feedback is present.",
+      "decision": {
+        "action": "retain",
+        "object": "actual teaching function and its present placement",
+        "reason": "Transfers across two different failure locations. It is neither another parentage-label classification nor another exercise changing the observed offspring counts.",
+        "status": "Bounded records review at the pinned draft; not teacher acceptance or native integration."
+      },
+      "assembledFragmentBinding": {
+        "path": "output/Biology30_CH17_Exemplar_Transfer_Calibration_v0.1.0/integration-text/lesson-02.teaching-fragment.html.txt",
+        "payloadPath": "integration-text/lesson-02.teaching-fragment.html.txt",
+        "bytes": 17464,
+        "sha256": "5740360125376c2994bdaa1f28c4fe3d57b276232494ec7dbdb9db49ed6543fc",
+        "utf8StartInclusive": 14356,
+        "utf8EndExclusive": 17116,
+        "blockSha256": "62583c86a62de1908fbbee3954ff37bc7f22ded02fbb4698b18eeb9f8b0d973c",
+        "selectionRule": "Same actual heading/element boundaries as the completely read author input; expanded native vocabulary and native figure alter byte lengths. These remain review locators, not native integration edits."
+      }
+    },
+    {
+      "recordId": "calibration-lesson-02-09",
+      "recordIdIsNotNativeDomId": true,
+      "route": "lesson-02",
+      "actualHeadingOrMarker": "Carry forward",
+      "enclosingNativeTeachingId": "ch17-l02-teaching-03",
+      "actualElementIdsInRange": [],
+      "draftPath": "calibration-v0.1.0/authoring/lesson-02.teaching.html.in",
+      "draftSha256": "104526dfdc81d8e6aac1f56f826ea3c04ef28fe73b4c1f6d006ff5ae838808c0",
+      "utf8StartInclusive": 16487,
+      "utf8EndExclusive": 16826,
+      "selectedBytes": 339,
+      "blockSha256": "2256b8b4fcf23e40c3e35410f5be9e80a0a227831dcab7f58b4f97b2121719e6",
+      "selectionRule": "Exact actual headed/contained teaching run, including its complete feedback if present. Review interval only, not an integration replacement or standalone HTML fragment.",
+      "purpose": "Consolidate persistence, separation and combination, then identify the next route's genotype-versus-phenotype prediction task.",
+      "nativePrerequisiteOrCoverageBindings": [
+        {
+          "route": "lesson-03",
+          "nativeEditKey": "ch17-l03-teaching-01-p1",
+          "heading": "Write gametes, not whole parental genotypes, on the edges",
+          "sourcePath": "source-inspection/ch17/native/workspace/index.html",
+          "sourceSha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868",
+          "utf8StartInclusive": 124632,
+          "utf8EndExclusive": 125066,
+          "passageSha256": "83d40b1d8077bf7945fdddb9f93acef46f1de650b4f2c5c7e72aaa6dc5a94f0a"
+        },
+        {
+          "route": "lesson-03",
+          "nativeEditKey": "ch17-l03-teaching-02-p2",
+          "heading": "Count the outcome that was actually asked for",
+          "sourcePath": "source-inspection/ch17/native/workspace/index.html",
+          "sourceSha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868",
+          "utf8StartInclusive": 126908,
+          "utf8EndExclusive": 127352,
+          "passageSha256": "e27edc1b7aa136d92e47eb39dcfa57f0c1c51f18e6d022e6447339ab31c72261"
+        }
+      ],
+      "earlierVisibleCalibrationBindings": [
+        "Follow the copies, then the separation",
+        "Fertilisation restores a pair, not a blend",
+        "Would more offspring repair either problem?"
+      ],
+      "exemplarFunctions": [
+        {
+          "source": {
+            "heading": "A cold hand gives us a starting point",
+            "enclosingSectionId": "pro-l01-purpose",
+            "sourcePath": "source-inspection/ch11-exemplar/integration-text/lesson-01.teaching-fragment.html.txt",
+            "sourceSha256": "49978b6180becc6fc02a57bd4e34c34d09c785f5dddfd3a22bd62ce50bb72803",
+            "utf8ByteStartInclusive": 0,
+            "utf8ByteEndExclusive": 1937,
+            "sha256": "311b15c7b22063c65f94272fc0f7d331848aba345d955dbf726e322b1e6e5694",
+            "uniqueTeachingFunction": "A concrete bodily change establishes the chapter question, then the information-flow visual distinguishes jobs and explains why input precedes processing and output."
+          },
+          "adaptation": "Returns to the motivating cause and names the next justified level of analysis."
+        }
+      ],
+      "uniqueContribution": "A short transition closes the causal question; it is not counted as another worked example or practice.",
+      "entryConnection": "The completed lesson has supplied each link named in the summary.",
+      "exitConnection": "Native03 organizes gamete combinations and requested outcomes, rather than supplying a missing02 mechanism retroactively.",
+      "sourceLocatorEvidence": [
+        {
+          "route": "lesson-02",
+          "component": "Allele notation, true breeding, gametes and mechanism",
+          "printed": [
+            589,
+            590,
+            597
+          ],
+          "pdf": [
+            6,
+            7,
+            14
+          ],
+          "figure": "17.6,17.7;17.14 only as chromosome support",
+          "slides": "21–25",
+          "sourceSupport": "RR × rr makes Rr; each heterozygote passes one allele per gamete; meiosis separates homologues. Source17.7 then represents fertilization combinations.",
+          "boundary": "Teach allele/genotype/phenotype and complete-dominance model before symbols; segregation/gamete production before the square. Limit two-copy statement to the stated ordinary diploid autosomal model. A gamete carries one allele at each locus, not both."
+        }
+      ],
+      "sourceScopeQualification": "Exact native/exemplar passages were read by this records reviewer. Textbook/actual-slide locators and original pixel reading are separately scoped source-review evidence, not a new pixel-read claim by this reviewer. Constructed tasks and additional pedagogical explanations are author synthesis.",
+      "protectedAnswerSeparation": "Names a method direction without a new required-answer rehearsal.",
+      "boundaryOrDeferral": "No change to the protected native navigation/footer is proposed.",
+      "decision": {
+        "action": "retain",
+        "object": "actual teaching function and its present placement",
+        "reason": "A short transition closes the causal question; it is not counted as another worked example or practice.",
+        "status": "Bounded records review at the pinned draft; not teacher acceptance or native integration."
+      },
+      "assembledFragmentBinding": {
+        "path": "output/Biology30_CH17_Exemplar_Transfer_Calibration_v0.1.0/integration-text/lesson-02.teaching-fragment.html.txt",
+        "payloadPath": "integration-text/lesson-02.teaching-fragment.html.txt",
+        "bytes": 17464,
+        "sha256": "5740360125376c2994bdaa1f28c4fe3d57b276232494ec7dbdb9db49ed6543fc",
+        "utf8StartInclusive": 17117,
+        "utf8EndExclusive": 17456,
+        "blockSha256": "2256b8b4fcf23e40c3e35410f5be9e80a0a227831dcab7f58b4f97b2121719e6",
+        "selectionRule": "Same actual heading/element boundaries as the completely read author input; expanded native vocabulary and native figure alter byte lengths. These remain review locators, not native integration edits."
+      }
+    },
+    {
+      "recordId": "calibration-lesson-05-10",
+      "recordIdIsNotNativeDomId": true,
+      "route": "lesson-05",
+      "actualHeadingOrMarker": "Two traits mean two allele choices to follow",
+      "enclosingNativeTeachingId": "ch17-l05-teaching-01",
+      "actualElementIdsInRange": [],
+      "draftPath": "calibration-v0.1.0/authoring/lesson-05.teaching.html.in",
+      "draftSha256": "920c21c4c658fdda5d7fc1416978c8e5a1d62adf7d221ef2fd70fa5ffc61d651",
+      "utf8StartInclusive": 0,
+      "utf8EndExclusive": 1170,
+      "selectedBytes": 1170,
+      "blockSha256": "ce0365d67cb1910d6bbac468b89952cd2450c907816aa935deae2050c250cdb1",
+      "selectionRule": "Exact actual headed/contained teaching run, including its complete feedback if present. Review interval only, not an integration replacement or standalone HTML fragment.",
+      "purpose": "Ask why four genotype possibilities need not make four phenotype groups, and distinguish a two-locus parent genotype from a valid gamete.",
+      "nativePrerequisiteOrCoverageBindings": [
+        {
+          "route": "lesson-01",
+          "nativeEditKey": "ch17-l01-teaching-01-p1",
+          "heading": "Start with a defined genetic model",
+          "sourcePath": "source-inspection/ch17/native/workspace/index.html",
+          "sourceSha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868",
+          "utf8StartInclusive": 87633,
+          "utf8EndExclusive": 88198,
+          "passageSha256": "541b642b4b1fba22421b98194593fd812318e00f23519ce853dc2f43b535c4dd"
+        },
+        {
+          "route": "lesson-01",
+          "nativeEditKey": "ch17-l01-teaching-01-p2",
+          "heading": "Start with a defined genetic model",
+          "sourcePath": "source-inspection/ch17/native/workspace/index.html",
+          "sourceSha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868",
+          "utf8StartInclusive": 88198,
+          "utf8EndExclusive": 88772,
+          "passageSha256": "e080c28365597948842e310e22f41219684ce0b54c0942d7978dc5df5e0a71df"
+        },
+        {
+          "route": "lesson-01",
+          "nativeEditKey": "ch17-l01-teaching-03-p1",
+          "heading": "Notation keeps the reasoning visible",
+          "sourcePath": "source-inspection/ch17/native/workspace/index.html",
+          "sourceSha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868",
+          "utf8StartInclusive": 90240,
+          "utf8EndExclusive": 90592,
+          "passageSha256": "e194a31b6ca4155b376d16a915bdf9c964eca1ef1a97f65c64920aa84557dfdd"
+        },
+        {
+          "route": "lesson-02",
+          "nativeEditKey": "ch17-l02-teaching-02-p1",
+          "heading": "Segregation explains reappearance",
+          "sourcePath": "source-inspection/ch17/native/workspace/index.html",
+          "sourceSha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868",
+          "utf8StartInclusive": 107976,
+          "utf8EndExclusive": 108283,
+          "passageSha256": "a3130f0dd336631e08b2bad0375ac096b82b869c3ec16fb6beb267b6d5cb0848"
+        },
+        {
+          "route": "lesson-03",
+          "nativeEditKey": "ch17-l03-teaching-01-p1",
+          "heading": "Write gametes, not whole parental genotypes, on the edges",
+          "sourcePath": "source-inspection/ch17/native/workspace/index.html",
+          "sourceSha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868",
+          "utf8StartInclusive": 124632,
+          "utf8EndExclusive": 125066,
+          "passageSha256": "83d40b1d8077bf7945fdddb9f93acef46f1de650b4f2c5c7e72aaa6dc5a94f0a"
+        }
+      ],
+      "earlierVisibleCalibrationBindings": [],
+      "exemplarFunctions": [
+        {
+          "source": {
+            "heading": "A cold hand gives us a starting point",
+            "enclosingSectionId": "pro-l01-purpose",
+            "sourcePath": "source-inspection/ch11-exemplar/integration-text/lesson-01.teaching-fragment.html.txt",
+            "sourceSha256": "49978b6180becc6fc02a57bd4e34c34d09c785f5dddfd3a22bd62ce50bb72803",
+            "utf8ByteStartInclusive": 0,
+            "utf8ByteEndExclusive": 1937,
+            "sha256": "311b15c7b22063c65f94272fc0f7d331848aba345d955dbf726e322b1e6e5694",
+            "uniqueTeachingFunction": "A concrete bodily change establishes the chapter question, then the information-flow visual distinguishes jobs and explains why input precedes processing and output."
+          },
+          "adaptation": "A concrete mismatch between genotype count and visible groups motivates the mechanism and expression reasoning needed later."
+        }
+      ],
+      "uniqueContribution": "Sets a problem the full worked cross will answer and activates the exact one-allele-per-locus prerequisite. It does not assume that naming two loci already proves independence.",
+      "entryConnection": "Current native01 defines genotype, phenotype and locus-specific symbols; native02/03 supplies one-allele gamete contribution and fertilisation.",
+      "exitConnection": "Knowing the valid contributions still leaves the relationship between the two choices to explain.",
+      "sourceLocatorEvidence": [
+        {
+          "route": "lesson-05",
+          "component": "Two loci, gamete formation and independence",
+          "printed": [
+            593,
+            596,
+            597
+          ],
+          "pdf": [
+            10,
+            13,
+            14
+          ],
+          "figure": "17.10 and 17.14",
+          "slides": "34–42",
+          "sourceSupport": "Separate choices at two loci, independent chromosome-pair orientation, four equally likely gamete combinations for a double heterozygote under the model.",
+          "boundary": "Four possible labels or half frequencies at each locus do not alone prove independence. Alternative chromosome orientations occur across meioses; one particular meiosis need not yield all four combinations. Physical chromosome mechanism is modern support, not a claim Mendel saw chromosomes."
+        }
+      ],
+      "sourceScopeQualification": "Exact native/exemplar passages were read by this records reviewer. Textbook/actual-slide locators and original pixel reading are separately scoped source-review evidence, not a new pixel-read claim by this reviewer. Constructed tasks and additional pedagogical explanations are author synthesis.",
+      "protectedAnswerSeparation": "AaBb/AB is foundational notation required by the retained figure. The forthcoming constructed HhSS cross differs from the reserved native required crosses.",
+      "boundaryOrDeferral": "Letter order is bookkeeping, not chromosome position. Earlier v1.0.0 manuscripts are not a prerequisite.",
+      "decision": {
+        "action": "retain",
+        "object": "actual teaching function and its present placement",
+        "reason": "Sets a problem the full worked cross will answer and activates the exact one-allele-per-locus prerequisite. It does not assume that naming two loci already proves independence.",
+        "status": "Bounded records review at the pinned draft; not teacher acceptance or native integration."
+      },
+      "assembledFragmentBinding": {
+        "path": "output/Biology30_CH17_Exemplar_Transfer_Calibration_v0.1.0/integration-text/lesson-05.teaching-fragment.html.txt",
+        "payloadPath": "integration-text/lesson-05.teaching-fragment.html.txt",
+        "bytes": 21630,
+        "sha256": "a78b0e51af788a1591864cd8fc3ae6a733a4b7b051b73bbe82be1787e1944e0c",
+        "utf8StartInclusive": 0,
+        "utf8EndExclusive": 1350,
+        "blockSha256": "72c73472923ade630c55682d80982cac5bef2d0aa66807c5c30dd530229876c9",
+        "selectionRule": "Same actual heading/element boundaries as the completely read author input; expanded native vocabulary and native figure alter byte lengths. These remain review locators, not native integration edits."
+      }
+    },
+    {
+      "recordId": "calibration-lesson-05-11",
+      "recordIdIsNotNativeDomId": true,
+      "route": "lesson-05",
+      "actualHeadingOrMarker": "What makes the choices independent?",
+      "enclosingNativeTeachingId": "ch17-l05-teaching-01",
+      "actualElementIdsInRange": [],
+      "draftPath": "calibration-v0.1.0/authoring/lesson-05.teaching.html.in",
+      "draftSha256": "920c21c4c658fdda5d7fc1416978c8e5a1d62adf7d221ef2fd70fa5ffc61d651",
+      "utf8StartInclusive": 1170,
+      "utf8EndExclusive": 2560,
+      "selectedBytes": 1390,
+      "blockSha256": "f274af1aaf766d2dc213dacccc93412cbc6f94ff5a74ea6e4ff83992a9a141fc",
+      "selectionRule": "Exact actual headed/contained teaching run, including its complete feedback if present. Review interval only, not an integration replacement or standalone HTML fragment.",
+      "purpose": "Separate segregation at a locus from independent orientation of different pairs, then justify a quarter as half of a half.",
+      "nativePrerequisiteOrCoverageBindings": [
+        {
+          "route": "lesson-02",
+          "nativeEditKey": "ch17-l02-teaching-02-p1",
+          "heading": "Segregation explains reappearance",
+          "sourcePath": "source-inspection/ch17/native/workspace/index.html",
+          "sourceSha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868",
+          "utf8StartInclusive": 107976,
+          "utf8EndExclusive": 108283,
+          "passageSha256": "a3130f0dd336631e08b2bad0375ac096b82b869c3ec16fb6beb267b6d5cb0848"
+        },
+        {
+          "route": "lesson-03",
+          "nativeEditKey": "ch17-l03-teaching-03-p2",
+          "heading": "Independent offspring do not compensate for earlier outcomes",
+          "sourcePath": "source-inspection/ch17/native/workspace/index.html",
+          "sourceSha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868",
+          "utf8StartInclusive": 128325,
+          "utf8EndExclusive": 128696,
+          "passageSha256": "1930ac900bd71b975ea43119c81c5590eb808205a73a5edd97522a23362eb224"
+        },
+        {
+          "route": "lesson-05",
+          "nativeEditKey": "ch17-l05-teaching-01-p1",
+          "heading": "Find possible gametes before drawing boxes",
+          "sourcePath": "source-inspection/ch17/native/workspace/index.html",
+          "sourceSha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868",
+          "utf8StartInclusive": 169401,
+          "utf8EndExclusive": 170071,
+          "passageSha256": "9a9fcdae461dba21d410cb03adfd5ad46d815024285943c041f09b9b9bdb638f"
+        }
+      ],
+      "earlierVisibleCalibrationBindings": [
+        "Two traits mean two allele choices to follow"
+      ],
+      "exemplarFunctions": [
+        {
+          "source": {
+            "heading": "Follow release, diffusion, binding, and clearance",
+            "enclosingSectionId": "pro-l06-sequence",
+            "sourcePath": "source-inspection/ch11-exemplar/integration-text/lesson-06.teaching-fragment.html.txt",
+            "sourceSha256": "aa6a174e9467eb16439dead721441f22e0d969c59396f4b531a7fea29506fd6e",
+            "utf8ByteStartInclusive": 1225,
+            "utf8ByteEndExclusive": 4154,
+            "sha256": "8acde30f3145ab8da9ae7f9b12dca980b28640a3354bb82258831fc5f9270f8e",
+            "uniqueTeachingFunction": "Builds a causal sequence across two membranes, ties figure symbols to actual events, and makes new firing conditional rather than automatic."
+          },
+          "adaptation": "Explain the physical orientation and separation before the probability consequence."
+        },
+        {
+          "source": {
+            "heading": "Use structure to explain function",
+            "enclosingSectionId": "pro-l02-worked",
+            "sourcePath": "source-inspection/ch11-exemplar/integration-text/lesson-02.teaching-fragment.html.txt",
+            "sourceSha256": "09fbf95839222d95064b1d36ddf008f745c429742e621acf55cf0c323eeb7e9d",
+            "utf8ByteStartInclusive": 3241,
+            "utf8ByteEndExclusive": 5499,
+            "sha256": "f0bf34748c9e598f1862476617c6e61aef1ed6dfa506d6a3a537648bc954052e",
+            "uniqueTeachingFunction": "Converts a labelled shape into a causal explanation: reception surface, integration, distance and distribution each earn a distinct step."
+          },
+          "adaptation": "Different chromosome-pair arrangements explain why one allele choice need not constrain the other."
+        }
+      ],
+      "uniqueContribution": "Provides the biological relationship that licenses multiplication; independent offspring from native03 is not silently substituted for independent loci.",
+      "entryConnection": "Two loci and valid single-locus contributions were established immediately above. Homologous pairs are defined again where orientation matters.",
+      "exitConnection": "The following native tree can be read as a representation of already-explained choices rather than the source of an unexplained rule.",
+      "sourceLocatorEvidence": [
+        {
+          "route": "lesson-05",
+          "component": "Two loci, gamete formation and independence",
+          "printed": [
+            593,
+            596,
+            597
+          ],
+          "pdf": [
+            10,
+            13,
+            14
+          ],
+          "figure": "17.10 and 17.14",
+          "slides": "34–42",
+          "sourceSupport": "Separate choices at two loci, independent chromosome-pair orientation, four equally likely gamete combinations for a double heterozygote under the model.",
+          "boundary": "Four possible labels or half frequencies at each locus do not alone prove independence. Alternative chromosome orientations occur across meioses; one particular meiosis need not yield all four combinations. Physical chromosome mechanism is modern support, not a claim Mendel saw chromosomes."
+        }
+      ],
+      "sourceScopeQualification": "Exact native/exemplar passages were read by this records reviewer. Textbook/actual-slide locators and original pixel reading are separately scoped source-review evidence, not a new pixel-read claim by this reviewer. Constructed tasks and additional pedagogical explanations are author synthesis.",
+      "protectedAnswerSeparation": "The general gamete tree supports the protected labeling and assortment concept. It does not solve the required AaBb self-cross phenotype event.",
+      "boundaryOrDeferral": "Across many meioses, not an assertion that one meiosis yields all four combinations. Equal marginal allele probabilities alone are not claimed to prove independence.",
+      "decision": {
+        "action": "retain",
+        "object": "actual teaching function and its present placement",
+        "reason": "Provides the biological relationship that licenses multiplication; independent offspring from native03 is not silently substituted for independent loci.",
+        "status": "Bounded records review at the pinned draft; not teacher acceptance or native integration."
+      },
+      "assembledFragmentBinding": {
+        "path": "output/Biology30_CH17_Exemplar_Transfer_Calibration_v0.1.0/integration-text/lesson-05.teaching-fragment.html.txt",
+        "payloadPath": "integration-text/lesson-05.teaching-fragment.html.txt",
+        "bytes": 21630,
+        "sha256": "a78b0e51af788a1591864cd8fc3ae6a733a4b7b051b73bbe82be1787e1944e0c",
+        "utf8StartInclusive": 1350,
+        "utf8EndExclusive": 2920,
+        "blockSha256": "d6ea9756edb2978da975aa34865d5761e9903ec48c32107fff028d18257e4d96",
+        "selectionRule": "Same actual heading/element boundaries as the completely read author input; expanded native vocabulary and native figure alter byte lengths. These remain review locators, not native integration edits."
+      }
+    },
+    {
+      "recordId": "calibration-lesson-05-12",
+      "recordIdIsNotNativeDomId": true,
+      "route": "lesson-05",
+      "actualHeadingOrMarker": "Read both choices along the tree",
+      "enclosingNativeTeachingId": "ch17-l05-teaching-01",
+      "actualElementIdsInRange": [],
+      "draftPath": "calibration-v0.1.0/authoring/lesson-05.teaching.html.in",
+      "draftSha256": "920c21c4c658fdda5d7fc1416978c8e5a1d62adf7d221ef2fd70fa5ffc61d651",
+      "utf8StartInclusive": 2560,
+      "utf8EndExclusive": 3786,
+      "selectedBytes": 1226,
+      "blockSha256": "fd20ca8aa3078617c0c3740f114e868f59a3806c189588b4a19f738b1ab396f6",
+      "selectionRule": "Exact actual headed/contained teaching run, including its complete feedback if present. Review interval only, not an integration replacement or standalone HTML fragment.",
+      "purpose": "Follow one allele at each choice level and distinguish top allele symbols from bottom location labels in the exact native figure.",
+      "nativePrerequisiteOrCoverageBindings": [
+        {
+          "route": "lesson-05",
+          "nativeEditKey": "ch17-l05-teaching-01-p1",
+          "heading": "Find possible gametes before drawing boxes",
+          "sourcePath": "source-inspection/ch17/native/workspace/index.html",
+          "sourceSha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868",
+          "utf8StartInclusive": 169401,
+          "utf8EndExclusive": 170071,
+          "passageSha256": "9a9fcdae461dba21d410cb03adfd5ad46d815024285943c041f09b9b9bdb638f"
+        },
+        {
+          "route": "lesson-05",
+          "nativeEditKey": "ch17-l05-teaching-01-p2",
+          "heading": "Find possible gametes before drawing boxes",
+          "sourcePath": "source-inspection/ch17/native/workspace/index.html",
+          "sourceSha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868",
+          "utf8StartInclusive": 170071,
+          "utf8EndExclusive": 170416,
+          "passageSha256": "e9e21a398278fa5b497cdf8f460e60c11b1c7b7f7f57319f81f8b0472b0f7ad8"
+        }
+      ],
+      "earlierVisibleCalibrationBindings": [
+        "Two traits mean two allele choices to follow",
+        "What makes the choices independent?"
+      ],
+      "exemplarFunctions": [
+        {
+          "source": {
+            "heading": "How can one cell reach a distant muscle?",
+            "enclosingSectionId": "pro-l02-structure",
+            "sourcePath": "source-inspection/ch11-exemplar/integration-text/lesson-02.teaching-fragment.html.txt",
+            "sourceSha256": "09fbf95839222d95064b1d36ddf008f745c429742e621acf55cf0c323eeb7e9d",
+            "utf8ByteStartInclusive": 0,
+            "utf8ByteEndExclusive": 3240,
+            "sha256": "154ebe5439913fce43d2967bf7bc71f06a27d38334cebd844d6560f3c3db085d",
+            "uniqueTeachingFunction": "A distance problem makes morphology necessary; figure reading establishes one continuous axon, receiving branches and sending terminals before structure–function inference."
+          },
+          "adaptation": "Direct the reader through the actual figure and distinguish adjacent graphical objects that could otherwise be confused."
+        },
+        {
+          "source": {
+            "heading": "Follow release, diffusion, binding, and clearance",
+            "enclosingSectionId": "pro-l06-sequence",
+            "sourcePath": "source-inspection/ch11-exemplar/integration-text/lesson-06.teaching-fragment.html.txt",
+            "sourceSha256": "aa6a174e9467eb16439dead721441f22e0d969c59396f4b531a7fea29506fd6e",
+            "utf8ByteStartInclusive": 1225,
+            "utf8ByteEndExclusive": 4154,
+            "sha256": "8acde30f3145ab8da9ae7f9b12dca980b28640a3354bb82258831fc5f9270f8e",
+            "uniqueTeachingFunction": "Builds a causal sequence across two membranes, ties figure symbols to actual events, and makes new firing conditional rather than automatic."
+          },
+          "adaptation": "Connect each visual path and symbol to the model while stating what its arrows do not mean."
+        }
+      ],
+      "uniqueContribution": "Adds representation literacy: a tree path is neither a fertilisation schedule nor four extra alleles. This is not a second chromosome-mechanism worked trace.",
+      "entryConnection": "The physical and probabilistic meaning of independent choices is already visible before the figure.",
+      "exitConnection": "Correctly reading gamete combinations allows the next block to define the actual event before choosing an operation.",
+      "sourceLocatorEvidence": [
+        {
+          "route": "lesson-05",
+          "component": "Two loci, gamete formation and independence",
+          "printed": [
+            593,
+            596,
+            597
+          ],
+          "pdf": [
+            10,
+            13,
+            14
+          ],
+          "figure": "17.10 and 17.14",
+          "slides": "34–42",
+          "sourceSupport": "Separate choices at two loci, independent chromosome-pair orientation, four equally likely gamete combinations for a double heterozygote under the model.",
+          "boundary": "Four possible labels or half frequencies at each locus do not alone prove independence. Alternative chromosome orientations occur across meioses; one particular meiosis need not yield all four combinations. Physical chromosome mechanism is modern support, not a claim Mendel saw chromosomes."
+        }
+      ],
+      "sourceScopeQualification": "Exact native/exemplar passages were read by this records reviewer. Textbook/actual-slide locators and original pixel reading are separately scoped source-review evidence, not a new pixel-read claim by this reviewer. Constructed tasks and additional pedagogical explanations are author synthesis.",
+      "protectedAnswerSeparation": "Retains native figure/key context, including A–D meanings; this is explanation of the already visible supplied key, not a new independent identification exercise or a changed answer map.",
+      "boundaryOrDeferral": "Actual native figure macro ch17-two-trait retains the existing asset and mappings. No new chromosome drawing or video playback is claimed; colour does not encode dominance or chromosome origin.",
+      "decision": {
+        "action": "retain",
+        "object": "actual teaching function and its present placement",
+        "reason": "Adds representation literacy: a tree path is neither a fertilisation schedule nor four extra alleles. This is not a second chromosome-mechanism worked trace.",
+        "status": "Bounded records review at the pinned draft; not teacher acceptance or native integration."
+      },
+      "assembledFragmentBinding": {
+        "path": "output/Biology30_CH17_Exemplar_Transfer_Calibration_v0.1.0/integration-text/lesson-05.teaching-fragment.html.txt",
+        "payloadPath": "integration-text/lesson-05.teaching-fragment.html.txt",
+        "bytes": 21630,
+        "sha256": "a78b0e51af788a1591864cd8fc3ae6a733a4b7b051b73bbe82be1787e1944e0c",
+        "utf8StartInclusive": 2920,
+        "utf8EndExclusive": 4836,
+        "blockSha256": "722366f972214cfc1a0bce8202c5e996fb4a0e69a04b2ba910f31b28105fd75e",
+        "selectionRule": "Same actual heading/element boundaries as the completely read author input; expanded native vocabulary and native figure alter byte lengths. These remain review locators, not native integration edits."
+      }
+    },
+    {
+      "recordId": "calibration-lesson-05-13",
+      "recordIdIsNotNativeDomId": true,
+      "route": "lesson-05",
+      "actualHeadingOrMarker": "Choose the event before choosing an operation",
+      "enclosingNativeTeachingId": "ch17-l05-teaching-02",
+      "actualElementIdsInRange": [
+        "ch17-l05-teaching-02"
+      ],
+      "draftPath": "calibration-v0.1.0/authoring/lesson-05.teaching.html.in",
+      "draftSha256": "920c21c4c658fdda5d7fc1416978c8e5a1d62adf7d221ef2fd70fa5ffc61d651",
+      "utf8StartInclusive": 3788,
+      "utf8EndExclusive": 6411,
+      "selectedBytes": 2623,
+      "blockSha256": "fda56ea85272556e6cc35b3ea8edeaf93a20422fa073342be7e4d5965247ef17",
+      "selectionRule": "Exact actual headed/contained teaching run, including its complete feedback if present. Review interval only, not an integration replacement or standalone HTML fragment.",
+      "purpose": "Distinguish joint events, product assumptions and mutually exclusive addition; preserve genotype versus phenotype meaning.",
+      "nativePrerequisiteOrCoverageBindings": [
+        {
+          "route": "lesson-01",
+          "nativeEditKey": "ch17-l01-teaching-02-p1",
+          "heading": "Dominance describes the heterozygote",
+          "sourcePath": "source-inspection/ch17/native/workspace/index.html",
+          "sourceSha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868",
+          "utf8StartInclusive": 88973,
+          "utf8EndExclusive": 89326,
+          "passageSha256": "f0052e2716cb1cd2d31dead18fc1fdbefd9c592857606b4596a6f67b9e7df24c"
+        },
+        {
+          "route": "lesson-01",
+          "nativeEditKey": "ch17-l01-teaching-03-p2",
+          "heading": "Notation keeps the reasoning visible",
+          "sourcePath": "source-inspection/ch17/native/workspace/index.html",
+          "sourceSha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868",
+          "utf8StartInclusive": 90592,
+          "utf8EndExclusive": 90979,
+          "passageSha256": "1e012928fb7f272bbccb26556c3d3727fa688e1e424258e9d1e510617908ead2"
+        },
+        {
+          "route": "lesson-03",
+          "nativeEditKey": "ch17-l03-teaching-02-p1",
+          "heading": "Count the outcome that was actually asked for",
+          "sourcePath": "source-inspection/ch17/native/workspace/index.html",
+          "sourceSha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868",
+          "utf8StartInclusive": 126457,
+          "utf8EndExclusive": 126908,
+          "passageSha256": "1b9b3c7f8bbf359957c8577d9a8db4264d21511608fc86aba57bddbe48084e40"
+        },
+        {
+          "route": "lesson-03",
+          "nativeEditKey": "ch17-l03-teaching-02-p2",
+          "heading": "Count the outcome that was actually asked for",
+          "sourcePath": "source-inspection/ch17/native/workspace/index.html",
+          "sourceSha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868",
+          "utf8StartInclusive": 126908,
+          "utf8EndExclusive": 127352,
+          "passageSha256": "e27edc1b7aa136d92e47eb39dcfa57f0c1c51f18e6d022e6447339ab31c72261"
+        },
+        {
+          "route": "lesson-03",
+          "nativeEditKey": "ch17-l03-teaching-03-p2",
+          "heading": "Independent offspring do not compensate for earlier outcomes",
+          "sourcePath": "source-inspection/ch17/native/workspace/index.html",
+          "sourceSha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868",
+          "utf8StartInclusive": 128325,
+          "utf8EndExclusive": 128696,
+          "passageSha256": "1930ac900bd71b975ea43119c81c5590eb808205a73a5edd97522a23362eb224"
+        }
+      ],
+      "earlierVisibleCalibrationBindings": [
+        "What makes the choices independent?",
+        "Read both choices along the tree"
+      ],
+      "exemplarFunctions": [
+        {
+          "source": {
+            "heading": "Worked model: include inhibition in the calculation",
+            "enclosingSectionId": "pro-l06-summation",
+            "sourcePath": "source-inspection/ch11-exemplar/integration-text/lesson-06.teaching-fragment.html.txt",
+            "sourceSha256": "aa6a174e9467eb16439dead721441f22e0d969c59396f4b531a7fea29506fd6e",
+            "utf8ByteStartInclusive": 11244,
+            "utf8ByteEndExclusive": 12387,
+            "sha256": "68da4954914cdfb7fa01c5a32ae40b5c22dbdd965ff92c1f405e11a184ea5f3a",
+            "uniqueTeachingFunction": "Combines signed contributions, applies a net change to a starting voltage, compares with threshold, then changes inhibition while limiting what the simplified model claims."
+          },
+          "adaptation": "Define the quantity being calculated and justify the operation before numerical work; interpretation determines the valid grouping."
+        }
+      ],
+      "uniqueContribution": "Teaches the added grouping operation explicitly before any task requires it, while separating locus assortment from random pairing of parental gametes.",
+      "entryConnection": "The tree gives individual gamete events; actual native03 supplies all-offspring grouping and multiplication for independent events.",
+      "exitConnection": "The worked cross now has a visible rule for both cell probabilities and phenotype-category sums.",
+      "sourceLocatorEvidence": [
+        {
+          "route": "lesson-05",
+          "component": "Joint probability and genotype/phenotype categories",
+          "printed": [
+            593
+          ],
+          "pdf": [
+            10
+          ],
+          "figure": "17.10",
+          "slides": "34–40",
+          "sourceSupport": "TTGG×ttgg then TtGg×TtGg source model;16 equally likely gamete pairings grouped by phenotype into9:3:3:1.",
+          "boundary": "Explicit complete dominance, independent assortment, random fertilization, reliable expression/scoring and equal survival are necessary boundaries. The essential derivation structurally supports protected3/16 answers; do not append a solved clone targeting aaB_ or A_bb."
+        }
+      ],
+      "sourceScopeQualification": "Exact native/exemplar passages were read by this records reviewer. Textbook/actual-slide locators and original pixel reading are separately scoped source-review evidence, not a new pixel-read claim by this reviewer. Constructed tasks and additional pedagogical explanations are author synthesis.",
+      "protectedAnswerSeparation": "Uses general symbols and operations without working the protected aaB_ or A_bb cross/event.",
+      "boundaryOrDeferral": "All-gamete/all-offspring denominators only. It does not claim native03 taught conditional subgroup renormalization. A_ reserves an allele slot at the A locus, not at another gene.",
+      "decision": {
+        "action": "retain",
+        "object": "actual teaching function and its present placement",
+        "reason": "Teaches the added grouping operation explicitly before any task requires it, while separating locus assortment from random pairing of parental gametes.",
+        "status": "Bounded records review at the pinned draft; not teacher acceptance or native integration."
+      },
+      "assembledFragmentBinding": {
+        "path": "output/Biology30_CH17_Exemplar_Transfer_Calibration_v0.1.0/integration-text/lesson-05.teaching-fragment.html.txt",
+        "payloadPath": "integration-text/lesson-05.teaching-fragment.html.txt",
+        "bytes": 21630,
+        "sha256": "a78b0e51af788a1591864cd8fc3ae6a733a4b7b051b73bbe82be1787e1944e0c",
+        "utf8StartInclusive": 4838,
+        "utf8EndExclusive": 7641,
+        "blockSha256": "e0e9a8903e184c53992d0348599600675d965ecf4edef33c04cfe34c694dff1d",
+        "selectionRule": "Same actual heading/element boundaries as the completely read author input; expanded native vocabulary and native figure alter byte lengths. These remain review locators, not native integration edits."
+      }
+    },
+    {
+      "recordId": "calibration-lesson-05-14",
+      "recordIdIsNotNativeDomId": true,
+      "route": "lesson-05",
+      "actualHeadingOrMarker": "Four genotypes, but only two visible groups — givens and model",
+      "enclosingNativeTeachingId": "ch17-l05-worked",
+      "actualElementIdsInRange": [],
+      "draftPath": "calibration-v0.1.0/authoring/lesson-05.teaching.html.in",
+      "draftSha256": "920c21c4c658fdda5d7fc1416978c8e5a1d62adf7d221ef2fd70fa5ffc61d651",
+      "utf8StartInclusive": 6413,
+      "utf8EndExclusive": 7541,
+      "selectedBytes": 1128,
+      "blockSha256": "a913112c9b4701a415b66a886651a75f24c6014002321ff2a2c98f4f1f5f8679",
+      "selectionRule": "Exact actual headed/contained teaching run, including its complete feedback if present. Review interval only, not an integration replacement or standalone HTML fragment.",
+      "purpose": "Define H/h and S/s, the two expression rules, the known HhSS × hhSs parents and the requested genotype/phenotype/count outputs.",
+      "nativePrerequisiteOrCoverageBindings": [
+        {
+          "route": "lesson-01",
+          "nativeEditKey": "ch17-l01-teaching-02-p1",
+          "heading": "Dominance describes the heterozygote",
+          "sourcePath": "source-inspection/ch17/native/workspace/index.html",
+          "sourceSha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868",
+          "utf8StartInclusive": 88973,
+          "utf8EndExclusive": 89326,
+          "passageSha256": "f0052e2716cb1cd2d31dead18fc1fdbefd9c592857606b4596a6f67b9e7df24c"
+        },
+        {
+          "route": "lesson-01",
+          "nativeEditKey": "ch17-l01-teaching-03-p1",
+          "heading": "Notation keeps the reasoning visible",
+          "sourcePath": "source-inspection/ch17/native/workspace/index.html",
+          "sourceSha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868",
+          "utf8StartInclusive": 90240,
+          "utf8EndExclusive": 90592,
+          "passageSha256": "e194a31b6ca4155b376d16a915bdf9c964eca1ef1a97f65c64920aa84557dfdd"
+        },
+        {
+          "route": "lesson-03",
+          "nativeEditKey": "ch17-l03-teaching-03-p3",
+          "heading": "Independent offspring do not compensate for earlier outcomes",
+          "sourcePath": "source-inspection/ch17/native/workspace/index.html",
+          "sourceSha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868",
+          "utf8StartInclusive": 128696,
+          "utf8EndExclusive": 128943,
+          "passageSha256": "4292883f5c0968f7e77420597c213de0ce835f36ff33d6b5ca1381d2b198b17f"
+        },
+        {
+          "route": "lesson-04",
+          "nativeEditKey": "ch17-l04-teaching-03-p2",
+          "heading": "Use family information before calculating",
+          "sourcePath": "source-inspection/ch17/native/workspace/index.html",
+          "sourceSha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868",
+          "utf8StartInclusive": 151848,
+          "utf8EndExclusive": 152196,
+          "passageSha256": "2825628e9598458e61ad312611f1599c5d3dba66aca6d17fef14697e6b9669a1"
+        }
+      ],
+      "earlierVisibleCalibrationBindings": [
+        "Choose the event before choosing an operation"
+      ],
+      "exemplarFunctions": [
+        {
+          "source": {
+            "heading": "Worked model: include inhibition in the calculation",
+            "enclosingSectionId": "pro-l06-summation",
+            "sourcePath": "source-inspection/ch11-exemplar/integration-text/lesson-06.teaching-fragment.html.txt",
+            "sourceSha256": "aa6a174e9467eb16439dead721441f22e0d969c59396f4b531a7fea29506fd6e",
+            "utf8ByteStartInclusive": 11244,
+            "utf8ByteEndExclusive": 12387,
+            "sha256": "68da4954914cdfb7fa01c5a32ae40b5c22dbdd965ff92c1f405e11a184ea5f3a",
+            "uniqueTeachingFunction": "Combines signed contributions, applies a net change to a starting voltage, compares with threshold, then changes inhibition while limiting what the simplified model claims."
+          },
+          "adaptation": "State the model, inputs and requested outputs before applying any operation."
+        }
+      ],
+      "uniqueContribution": "Supplies the complete problem conditions once so the subsequent steps can use them locally without repeating a boilerplate assumption list.",
+      "entryConnection": "Event choice and the two operations are already visible; the model now specifies exactly which biological possibilities count.",
+      "exitConnection": "The first calculation must derive each parent's contributions from these givens.",
+      "sourceLocatorEvidence": [
+        {
+          "route": "lesson-05",
+          "component": "Joint probability and genotype/phenotype categories",
+          "printed": [
+            593
+          ],
+          "pdf": [
+            10
+          ],
+          "figure": "17.10",
+          "slides": "34–40",
+          "sourceSupport": "TTGG×ttgg then TtGg×TtGg source model;16 equally likely gamete pairings grouped by phenotype into9:3:3:1.",
+          "boundary": "Explicit complete dominance, independent assortment, random fertilization, reliable expression/scoring and equal survival are necessary boundaries. The essential derivation structurally supports protected3/16 answers; do not append a solved clone targeting aaB_ or A_bb."
+        },
+        {
+          "route": "lesson-05",
+          "component": "Choose square dimensions, recompute instead of memorizing",
+          "printed": [
+            596
+          ],
+          "pdf": [
+            13
+          ],
+          "figure": "Practice Problems4–5 are original practice, not fresh independent transfer",
+          "slides": "43–47",
+          "sourceSupport": "PPT tomato RrTt×rrTt uses4×2 distinct gametes; squash wwDd×Wwdd uses2×2; expected counts are derived from cross probabilities.",
+          "boundary": "Tomato cross exactly overlaps native protected writing-1 gamete target. Its R_tt probability is isomorphic to protected writing-2; avoid using it as new solved drill. Squash1:1:1:1 does not establish two-locus independence because each parent is heterozygous at only one locus."
+        }
+      ],
+      "sourceScopeQualification": "Exact native/exemplar passages were read by this records reviewer. Textbook/actual-slide locators and original pixel reading are separately scoped source-review evidence, not a new pixel-read claim by this reviewer. Constructed tasks and additional pedagogical explanations are author synthesis.",
+      "protectedAnswerSeparation": "Fresh constructed HhSS × hhSs/120-offspring case differs in parental structure and requested complete grouping from the reserved double-heterozygote and RrTt/rrTt tasks.",
+      "boundaryOrDeferral": "Fictional model, not an actual gene/trait claim. Known genotypes are givens, not inferred from appearance. Expression and inclusion conditions are stated. This cross is not an experiment diagnosing independence.",
+      "decision": {
+        "action": "retain",
+        "object": "actual teaching function and its present placement",
+        "reason": "Supplies the complete problem conditions once so the subsequent steps can use them locally without repeating a boilerplate assumption list.",
+        "status": "Bounded records review at the pinned draft; not teacher acceptance or native integration."
+      },
+      "assembledFragmentBinding": {
+        "path": "output/Biology30_CH17_Exemplar_Transfer_Calibration_v0.1.0/integration-text/lesson-05.teaching-fragment.html.txt",
+        "payloadPath": "integration-text/lesson-05.teaching-fragment.html.txt",
+        "bytes": 21630,
+        "sha256": "a78b0e51af788a1591864cd8fc3ae6a733a4b7b051b73bbe82be1787e1944e0c",
+        "utf8StartInclusive": 7643,
+        "utf8EndExclusive": 8771,
+        "blockSha256": "a913112c9b4701a415b66a886651a75f24c6014002321ff2a2c98f4f1f5f8679",
+        "selectionRule": "Same actual heading/element boundaries as the completely read author input; expanded native vocabulary and native figure alter byte lengths. These remain review locators, not native integration edits."
+      }
+    },
+    {
+      "recordId": "calibration-lesson-05-15",
+      "recordIdIsNotNativeDomId": true,
+      "route": "lesson-05",
+      "actualHeadingOrMarker": "1. Work out each parent's contributions",
+      "enclosingNativeTeachingId": "ch17-l05-worked",
+      "actualElementIdsInRange": [],
+      "draftPath": "calibration-v0.1.0/authoring/lesson-05.teaching.html.in",
+      "draftSha256": "920c21c4c658fdda5d7fc1416978c8e5a1d62adf7d221ef2fd70fa5ffc61d651",
+      "utf8StartInclusive": 7541,
+      "utf8EndExclusive": 8206,
+      "selectedBytes": 665,
+      "blockSha256": "eff966377102bf077d6cc178892a085010603b56d82c600c5d21153767d7b5aa",
+      "selectionRule": "Exact actual headed/contained teaching run, including its complete feedback if present. Review interval only, not an integration replacement or standalone HTML fragment.",
+      "purpose": "Derive HS/hS and hS/hs, including why the fixed homozygous-locus contribution has probability one.",
+      "nativePrerequisiteOrCoverageBindings": [
+        {
+          "route": "lesson-03",
+          "nativeEditKey": "ch17-l03-teaching-01-p1",
+          "heading": "Write gametes, not whole parental genotypes, on the edges",
+          "sourcePath": "source-inspection/ch17/native/workspace/index.html",
+          "sourceSha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868",
+          "utf8StartInclusive": 124632,
+          "utf8EndExclusive": 125066,
+          "passageSha256": "83d40b1d8077bf7945fdddb9f93acef46f1de650b4f2c5c7e72aaa6dc5a94f0a"
+        },
+        {
+          "route": "lesson-05",
+          "nativeEditKey": "ch17-l05-teaching-01-p1",
+          "heading": "Find possible gametes before drawing boxes",
+          "sourcePath": "source-inspection/ch17/native/workspace/index.html",
+          "sourceSha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868",
+          "utf8StartInclusive": 169401,
+          "utf8EndExclusive": 170071,
+          "passageSha256": "9a9fcdae461dba21d410cb03adfd5ad46d815024285943c041f09b9b9bdb638f"
+        },
+        {
+          "route": "lesson-05",
+          "nativeEditKey": "ch17-l05-teaching-01-p2",
+          "heading": "Find possible gametes before drawing boxes",
+          "sourcePath": "source-inspection/ch17/native/workspace/index.html",
+          "sourceSha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868",
+          "utf8StartInclusive": 170071,
+          "utf8EndExclusive": 170416,
+          "passageSha256": "e9e21a398278fa5b497cdf8f460e60c11b1c7b7f7f57319f81f8b0472b0f7ad8"
+        }
+      ],
+      "earlierVisibleCalibrationBindings": [
+        "Four genotypes, but only two visible groups — givens and model",
+        "What makes the choices independent?"
+      ],
+      "exemplarFunctions": [
+        {
+          "source": {
+            "heading": "Follow release, diffusion, binding, and clearance",
+            "enclosingSectionId": "pro-l06-sequence",
+            "sourcePath": "source-inspection/ch11-exemplar/integration-text/lesson-06.teaching-fragment.html.txt",
+            "sourceSha256": "aa6a174e9467eb16439dead721441f22e0d969c59396f4b531a7fea29506fd6e",
+            "utf8ByteStartInclusive": 1225,
+            "utf8ByteEndExclusive": 4154,
+            "sha256": "8acde30f3145ab8da9ae7f9b12dca980b28640a3354bb82258831fc5f9270f8e",
+            "uniqueTeachingFunction": "Builds a causal sequence across two membranes, ties figure symbols to actual events, and makes new firing conditional rather than automatic."
+          },
+          "adaptation": "Establish the available inputs before considering what their combination can cause."
+        }
+      ],
+      "uniqueContribution": "Makes the actual parent, rather than a memorized four-gamete list, determine the combinations and their weights.",
+      "entryConnection": "The phenotype/parent givens are explicit; one allele per locus and justified multiplication were already taught.",
+      "exitConnection": "Two distinct gametes per parent justify the 2 × 2 table in the next step.",
+      "sourceLocatorEvidence": [
+        {
+          "route": "lesson-05",
+          "component": "Two loci, gamete formation and independence",
+          "printed": [
+            593,
+            596,
+            597
+          ],
+          "pdf": [
+            10,
+            13,
+            14
+          ],
+          "figure": "17.10 and 17.14",
+          "slides": "34–42",
+          "sourceSupport": "Separate choices at two loci, independent chromosome-pair orientation, four equally likely gamete combinations for a double heterozygote under the model.",
+          "boundary": "Four possible labels or half frequencies at each locus do not alone prove independence. Alternative chromosome orientations occur across meioses; one particular meiosis need not yield all four combinations. Physical chromosome mechanism is modern support, not a claim Mendel saw chromosomes."
+        },
+        {
+          "route": "lesson-05",
+          "component": "Choose square dimensions, recompute instead of memorizing",
+          "printed": [
+            596
+          ],
+          "pdf": [
+            13
+          ],
+          "figure": "Practice Problems4–5 are original practice, not fresh independent transfer",
+          "slides": "43–47",
+          "sourceSupport": "PPT tomato RrTt×rrTt uses4×2 distinct gametes; squash wwDd×Wwdd uses2×2; expected counts are derived from cross probabilities.",
+          "boundary": "Tomato cross exactly overlaps native protected writing-1 gamete target. Its R_tt probability is isomorphic to protected writing-2; avoid using it as new solved drill. Squash1:1:1:1 does not establish two-locus independence because each parent is heterozygous at only one locus."
+        }
+      ],
+      "sourceScopeQualification": "Exact native/exemplar passages were read by this records reviewer. Textbook/actual-slide locators and original pixel reading are separately scoped source-review evidence, not a new pixel-read claim by this reviewer. Constructed tasks and additional pedagogical explanations are author synthesis.",
+      "protectedAnswerSeparation": "Does not list the protected RrTt and rrTt gamete sets or simply rename their 4 × 2 configuration.",
+      "boundaryOrDeferral": "Each parent's probability list is checked separately; repeating an identical homozygous contribution is not another distinct gamete.",
+      "decision": {
+        "action": "retain",
+        "object": "actual teaching function and its present placement",
+        "reason": "Makes the actual parent, rather than a memorized four-gamete list, determine the combinations and their weights.",
+        "status": "Bounded records review at the pinned draft; not teacher acceptance or native integration."
+      },
+      "assembledFragmentBinding": {
+        "path": "output/Biology30_CH17_Exemplar_Transfer_Calibration_v0.1.0/integration-text/lesson-05.teaching-fragment.html.txt",
+        "payloadPath": "integration-text/lesson-05.teaching-fragment.html.txt",
+        "bytes": 21630,
+        "sha256": "a78b0e51af788a1591864cd8fc3ae6a733a4b7b051b73bbe82be1787e1944e0c",
+        "utf8StartInclusive": 8771,
+        "utf8EndExclusive": 9436,
+        "blockSha256": "eff966377102bf077d6cc178892a085010603b56d82c600c5d21153767d7b5aa",
+        "selectionRule": "Same actual heading/element boundaries as the completely read author input; expanded native vocabulary and native figure alter byte lengths. These remain review locators, not native integration edits."
+      }
+    },
+    {
+      "recordId": "calibration-lesson-05-16",
+      "recordIdIsNotNativeDomId": true,
+      "route": "lesson-05",
+      "actualHeadingOrMarker": "2. Combine one gamete from each parent",
+      "enclosingNativeTeachingId": "ch17-l05-worked",
+      "actualElementIdsInRange": [],
+      "draftPath": "calibration-v0.1.0/authoring/lesson-05.teaching.html.in",
+      "draftSha256": "920c21c4c658fdda5d7fc1416978c8e5a1d62adf7d221ef2fd70fa5ffc61d651",
+      "utf8StartInclusive": 8206,
+      "utf8EndExclusive": 9786,
+      "selectedBytes": 1580,
+      "blockSha256": "5c1854db2daf61af9d7f7b7ecb16a115f4fc8281a919258ebcd037cdf3a717b5",
+      "selectionRule": "Exact actual headed/contained teaching run, including its complete feedback if present. Review interval only, not an integration replacement or standalone HTML fragment.",
+      "purpose": "Construct all four two-locus genotypes from the actual gametes, justify each one-quarter weight and check that the probabilities sum to one.",
+      "nativePrerequisiteOrCoverageBindings": [
+        {
+          "route": "lesson-03",
+          "nativeEditKey": "ch17-l03-teaching-01-p1",
+          "heading": "Write gametes, not whole parental genotypes, on the edges",
+          "sourcePath": "source-inspection/ch17/native/workspace/index.html",
+          "sourceSha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868",
+          "utf8StartInclusive": 124632,
+          "utf8EndExclusive": 125066,
+          "passageSha256": "83d40b1d8077bf7945fdddb9f93acef46f1de650b4f2c5c7e72aaa6dc5a94f0a"
+        },
+        {
+          "route": "lesson-03",
+          "nativeEditKey": "ch17-l03-teaching-01-p2",
+          "heading": "Write gametes, not whole parental genotypes, on the edges",
+          "sourcePath": "source-inspection/ch17/native/workspace/index.html",
+          "sourceSha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868",
+          "utf8StartInclusive": 125066,
+          "utf8EndExclusive": 125551,
+          "passageSha256": "1ee83181c1a5cfec57287b95cc5abb317624ab6d6929522e3390fc1878797d5d"
+        },
+        {
+          "route": "lesson-05",
+          "nativeEditKey": "ch17-l05-teaching-01-p2",
+          "heading": "Find possible gametes before drawing boxes",
+          "sourcePath": "source-inspection/ch17/native/workspace/index.html",
+          "sourceSha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868",
+          "utf8StartInclusive": 170071,
+          "utf8EndExclusive": 170416,
+          "passageSha256": "e9e21a398278fa5b497cdf8f460e60c11b1c7b7f7f57319f81f8b0472b0f7ad8"
+        }
+      ],
+      "earlierVisibleCalibrationBindings": [
+        "1. Work out each parent's contributions",
+        "Choose the event before choosing an operation"
+      ],
+      "exemplarFunctions": [
+        {
+          "source": {
+            "heading": "Use structure to explain function",
+            "enclosingSectionId": "pro-l02-worked",
+            "sourcePath": "source-inspection/ch11-exemplar/integration-text/lesson-02.teaching-fragment.html.txt",
+            "sourceSha256": "09fbf95839222d95064b1d36ddf008f745c429742e621acf55cf0c323eeb7e9d",
+            "utf8ByteStartInclusive": 3241,
+            "utf8ByteEndExclusive": 5499,
+            "sha256": "f0bf34748c9e598f1862476617c6e61aef1ed6dfa506d6a3a537648bc954052e",
+            "uniqueTeachingFunction": "Converts a labelled shape into a causal explanation: reception surface, integration, distance and distribution each earn a distinct step."
+          },
+          "adaptation": "Read the table as a representation of fertilisation, explaining each cell rather than treating the grid as a ritual."
+        },
+        {
+          "source": {
+            "heading": "Worked model: include inhibition in the calculation",
+            "enclosingSectionId": "pro-l06-summation",
+            "sourcePath": "source-inspection/ch11-exemplar/integration-text/lesson-06.teaching-fragment.html.txt",
+            "sourceSha256": "aa6a174e9467eb16439dead721441f22e0d969c59396f4b531a7fea29506fd6e",
+            "utf8ByteStartInclusive": 11244,
+            "utf8ByteEndExclusive": 12387,
+            "sha256": "68da4954914cdfb7fa01c5a32ae40b5c22dbdd965ff92c1f405e11a184ea5f3a",
+            "uniqueTeachingFunction": "Combines signed contributions, applies a net change to a starting voltage, compares with threshold, then changes inhibition while limiting what the simplified model claims."
+          },
+          "adaptation": "Compute the modeled quantity and check the complete outcome set."
+        }
+      ],
+      "uniqueContribution": "Adds the return from one copy in each gamete to two copies per locus in the offspring, with table size justified by distinct inputs.",
+      "entryConnection": "Gamete lists/weights and random-fertilisation multiplication are established before the square is populated.",
+      "exitConnection": "The resulting genotype categories can now be grouped by the separately stated expression rules.",
+      "sourceLocatorEvidence": [
+        {
+          "route": "lesson-05",
+          "component": "Joint probability and genotype/phenotype categories",
+          "printed": [
+            593
+          ],
+          "pdf": [
+            10
+          ],
+          "figure": "17.10",
+          "slides": "34–40",
+          "sourceSupport": "TTGG×ttgg then TtGg×TtGg source model;16 equally likely gamete pairings grouped by phenotype into9:3:3:1.",
+          "boundary": "Explicit complete dominance, independent assortment, random fertilization, reliable expression/scoring and equal survival are necessary boundaries. The essential derivation structurally supports protected3/16 answers; do not append a solved clone targeting aaB_ or A_bb."
+        },
+        {
+          "route": "lesson-05",
+          "component": "Choose square dimensions, recompute instead of memorizing",
+          "printed": [
+            596
+          ],
+          "pdf": [
+            13
+          ],
+          "figure": "Practice Problems4–5 are original practice, not fresh independent transfer",
+          "slides": "43–47",
+          "sourceSupport": "PPT tomato RrTt×rrTt uses4×2 distinct gametes; squash wwDd×Wwdd uses2×2; expected counts are derived from cross probabilities.",
+          "boundary": "Tomato cross exactly overlaps native protected writing-1 gamete target. Its R_tt probability is isomorphic to protected writing-2; avoid using it as new solved drill. Squash1:1:1:1 does not establish two-locus independence because each parent is heterozygous at only one locus."
+        }
+      ],
+      "sourceScopeQualification": "Exact native/exemplar passages were read by this records reviewer. Textbook/actual-slide locators and original pixel reading are separately scoped source-review evidence, not a new pixel-read claim by this reviewer. Constructed tasks and additional pedagogical explanations are author synthesis.",
+      "protectedAnswerSeparation": "The four equal genotype cells are not represented as four equal phenotype categories; the next inference is still required.",
+      "boundaryOrDeferral": "The figure is a native-class HTML table supplied in the new prose. Its cells enumerate model possibilities, not a guaranteed sequence of observed offspring.",
+      "decision": {
+        "action": "retain",
+        "object": "actual teaching function and its present placement",
+        "reason": "Adds the return from one copy in each gamete to two copies per locus in the offspring, with table size justified by distinct inputs.",
+        "status": "Bounded records review at the pinned draft; not teacher acceptance or native integration."
+      },
+      "assembledFragmentBinding": {
+        "path": "output/Biology30_CH17_Exemplar_Transfer_Calibration_v0.1.0/integration-text/lesson-05.teaching-fragment.html.txt",
+        "payloadPath": "integration-text/lesson-05.teaching-fragment.html.txt",
+        "bytes": 21630,
+        "sha256": "a78b0e51af788a1591864cd8fc3ae6a733a4b7b051b73bbe82be1787e1944e0c",
+        "utf8StartInclusive": 9436,
+        "utf8EndExclusive": 11016,
+        "blockSha256": "5c1854db2daf61af9d7f7b7ecb16a115f4fc8281a919258ebcd037cdf3a717b5",
+        "selectionRule": "Same actual heading/element boundaries as the completely read author input; expanded native vocabulary and native figure alter byte lengths. These remain review locators, not native integration edits."
+      }
+    },
+    {
+      "recordId": "calibration-lesson-05-17",
+      "recordIdIsNotNativeDomId": true,
+      "route": "lesson-05",
+      "actualHeadingOrMarker": "3. Group genotypes by what they express",
+      "enclosingNativeTeachingId": "ch17-l05-worked",
+      "actualElementIdsInRange": [],
+      "draftPath": "calibration-v0.1.0/authoring/lesson-05.teaching.html.in",
+      "draftSha256": "920c21c4c658fdda5d7fc1416978c8e5a1d62adf7d221ef2fd70fa5ffc61d651",
+      "utf8StartInclusive": 9786,
+      "utf8EndExclusive": 10537,
+      "selectedBytes": 751,
+      "blockSha256": "e92e89e04dec668f19e376a64c8898598934438431c1bd366c7bc74412711efb",
+      "selectionRule": "Exact actual headed/contained teaching run, including its complete feedback if present. Review interval only, not an integration replacement or standalone HTML fragment.",
+      "purpose": "Add separate genotype probabilities into two phenotype groups, and explain why no ss/plain category is possible.",
+      "nativePrerequisiteOrCoverageBindings": [
+        {
+          "route": "lesson-01",
+          "nativeEditKey": "ch17-l01-teaching-02-p1",
+          "heading": "Dominance describes the heterozygote",
+          "sourcePath": "source-inspection/ch17/native/workspace/index.html",
+          "sourceSha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868",
+          "utf8StartInclusive": 88973,
+          "utf8EndExclusive": 89326,
+          "passageSha256": "f0052e2716cb1cd2d31dead18fc1fdbefd9c592857606b4596a6f67b9e7df24c"
+        },
+        {
+          "route": "lesson-03",
+          "nativeEditKey": "ch17-l03-teaching-02-p1",
+          "heading": "Count the outcome that was actually asked for",
+          "sourcePath": "source-inspection/ch17/native/workspace/index.html",
+          "sourceSha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868",
+          "utf8StartInclusive": 126457,
+          "utf8EndExclusive": 126908,
+          "passageSha256": "1b9b3c7f8bbf359957c8577d9a8db4264d21511608fc86aba57bddbe48084e40"
+        },
+        {
+          "route": "lesson-03",
+          "nativeEditKey": "ch17-l03-teaching-02-p2",
+          "heading": "Count the outcome that was actually asked for",
+          "sourcePath": "source-inspection/ch17/native/workspace/index.html",
+          "sourceSha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868",
+          "utf8StartInclusive": 126908,
+          "utf8EndExclusive": 127352,
+          "passageSha256": "e27edc1b7aa136d92e47eb39dcfa57f0c1c51f18e6d022e6447339ab31c72261"
+        }
+      ],
+      "earlierVisibleCalibrationBindings": [
+        "Choose the event before choosing an operation",
+        "2. Combine one gamete from each parent"
+      ],
+      "exemplarFunctions": [
+        {
+          "source": {
+            "heading": "Worked model: include inhibition in the calculation",
+            "enclosingSectionId": "pro-l06-summation",
+            "sourcePath": "source-inspection/ch11-exemplar/integration-text/lesson-06.teaching-fragment.html.txt",
+            "sourceSha256": "aa6a174e9467eb16439dead721441f22e0d969c59396f4b531a7fea29506fd6e",
+            "utf8ByteStartInclusive": 11244,
+            "utf8ByteEndExclusive": 12387,
+            "sha256": "68da4954914cdfb7fa01c5a32ae40b5c22dbdd965ff92c1f405e11a184ea5f3a",
+            "uniqueTeachingFunction": "Combines signed contributions, applies a net change to a starting voltage, compares with threshold, then changes inhibition while limiting what the simplified model claims."
+          },
+          "adaptation": "Interpret the computed states under the stated biological rule before making the final category claim."
+        }
+      ],
+      "uniqueContribution": "Answers the opening four-genotype/two-phenotype puzzle. This grouping is a different inference from deriving gametes or filling cells.",
+      "entryConnection": "All four genotype possibilities and both dominance rules are visible; addition of mutually exclusive categories was explained earlier.",
+      "exitConnection": "The next comparison can test whether the product method asks for the same event as the table.",
+      "sourceLocatorEvidence": [
+        {
+          "route": "lesson-05",
+          "component": "Joint probability and genotype/phenotype categories",
+          "printed": [
+            593
+          ],
+          "pdf": [
+            10
+          ],
+          "figure": "17.10",
+          "slides": "34–40",
+          "sourceSupport": "TTGG×ttgg then TtGg×TtGg source model;16 equally likely gamete pairings grouped by phenotype into9:3:3:1.",
+          "boundary": "Explicit complete dominance, independent assortment, random fertilization, reliable expression/scoring and equal survival are necessary boundaries. The essential derivation structurally supports protected3/16 answers; do not append a solved clone targeting aaB_ or A_bb."
+        }
+      ],
+      "sourceScopeQualification": "Exact native/exemplar passages were read by this records reviewer. Textbook/actual-slide locators and original pixel reading are separately scoped source-review evidence, not a new pixel-read claim by this reviewer. Constructed tasks and additional pedagogical explanations are author synthesis.",
+      "protectedAnswerSeparation": "Does not solve an isomorphic protected 1/8 or3/16 target; the main question is complete genotype-versus-phenotype grouping.",
+      "boundaryOrDeferral": "Inheritance of s need not produce a plain phenotype. The zero category follows from fixed parental contribution under the model.",
+      "decision": {
+        "action": "retain",
+        "object": "actual teaching function and its present placement",
+        "reason": "Answers the opening four-genotype/two-phenotype puzzle. This grouping is a different inference from deriving gametes or filling cells.",
+        "status": "Bounded records review at the pinned draft; not teacher acceptance or native integration."
+      },
+      "assembledFragmentBinding": {
+        "path": "output/Biology30_CH17_Exemplar_Transfer_Calibration_v0.1.0/integration-text/lesson-05.teaching-fragment.html.txt",
+        "payloadPath": "integration-text/lesson-05.teaching-fragment.html.txt",
+        "bytes": 21630,
+        "sha256": "a78b0e51af788a1591864cd8fc3ae6a733a4b7b051b73bbe82be1787e1944e0c",
+        "utf8StartInclusive": 11016,
+        "utf8EndExclusive": 11767,
+        "blockSha256": "e92e89e04dec668f19e376a64c8898598934438431c1bd366c7bc74412711efb",
+        "selectionRule": "Same actual heading/element boundaries as the completely read author input; expanded native vocabulary and native figure alter byte lengths. These remain review locators, not native integration edits."
+      }
+    },
+    {
+      "recordId": "calibration-lesson-05-18",
+      "recordIdIsNotNativeDomId": true,
+      "route": "lesson-05",
+      "actualHeadingOrMarker": "4. Check the result using the separate loci",
+      "enclosingNativeTeachingId": "ch17-l05-worked",
+      "actualElementIdsInRange": [],
+      "draftPath": "calibration-v0.1.0/authoring/lesson-05.teaching.html.in",
+      "draftSha256": "920c21c4c658fdda5d7fc1416978c8e5a1d62adf7d221ef2fd70fa5ffc61d651",
+      "utf8StartInclusive": 10537,
+      "utf8EndExclusive": 11224,
+      "selectedBytes": 687,
+      "blockSha256": "8afe28a65f2db8bcb1d9c07d38c6314282ddd2d5a2604784dfaa783fef92a10d",
+      "selectionRule": "Exact actual headed/contained teaching run, including its complete feedback if present. Review interval only, not an integration replacement or standalone HTML fragment.",
+      "purpose": "Show that the product for the exact HhSS genotype is one quarter while the product for hooked/speckled phenotype is one half.",
+      "nativePrerequisiteOrCoverageBindings": [
+        {
+          "route": "lesson-03",
+          "nativeEditKey": "ch17-l03-teaching-02-p2",
+          "heading": "Count the outcome that was actually asked for",
+          "sourcePath": "source-inspection/ch17/native/workspace/index.html",
+          "sourceSha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868",
+          "utf8StartInclusive": 126908,
+          "utf8EndExclusive": 127352,
+          "passageSha256": "e27edc1b7aa136d92e47eb39dcfa57f0c1c51f18e6d022e6447339ab31c72261"
+        },
+        {
+          "route": "lesson-05",
+          "nativeEditKey": "ch17-l05-teaching-02-p1",
+          "heading": "Solve separate loci when independence is stated",
+          "sourcePath": "source-inspection/ch17/native/workspace/index.html",
+          "sourceSha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868",
+          "utf8StartInclusive": 171350,
+          "utf8EndExclusive": 171795,
+          "passageSha256": "f434fd94b85315b5e2b8108e584d2ddca0e1eac5300f6b3865197b07ace0a192"
+        },
+        {
+          "route": "lesson-05",
+          "nativeEditKey": "ch17-l05-teaching-03-p3",
+          "heading": "Make the assumption part of the answer",
+          "sourcePath": "source-inspection/ch17/native/workspace/index.html",
+          "sourceSha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868",
+          "utf8StartInclusive": 173253,
+          "utf8EndExclusive": 173550,
+          "passageSha256": "996d0b985eddb8c481b42ccc4042ee423f80b2395b072c0d2de538f11ffd6ca1"
+        }
+      ],
+      "earlierVisibleCalibrationBindings": [
+        "3. Group genotypes by what they express",
+        "Choose the event before choosing an operation"
+      ],
+      "exemplarFunctions": [
+        {
+          "source": {
+            "heading": "Worked model: include inhibition in the calculation",
+            "enclosingSectionId": "pro-l06-summation",
+            "sourcePath": "source-inspection/ch11-exemplar/integration-text/lesson-06.teaching-fragment.html.txt",
+            "sourceSha256": "aa6a174e9467eb16439dead721441f22e0d969c59396f4b531a7fea29506fd6e",
+            "utf8ByteStartInclusive": 11244,
+            "utf8ByteEndExclusive": 12387,
+            "sha256": "68da4954914cdfb7fa01c5a32ae40b5c22dbdd965ff92c1f405e11a184ea5f3a",
+            "uniqueTeachingFunction": "Combines signed contributions, applies a net change to a starting voltage, compares with threshold, then changes inhibition while limiting what the simplified model claims."
+          },
+          "adaptation": "Check a calculation against the quantity actually requested and identify what a tempting different calculation would mean."
+        }
+      ],
+      "uniqueContribution": "The second method earns its place by explaining an event-selection error: using a single speckled genotype's half probability would answer a narrower question.",
+      "entryConnection": "The table's genotype and phenotype groups are now known and can be compared with independent single-locus predictions.",
+      "exitConnection": "Once both methods agree on the same phenotype event, its probability can be converted to an expected count.",
+      "sourceLocatorEvidence": [
+        {
+          "route": "lesson-05",
+          "component": "Joint probability and genotype/phenotype categories",
+          "printed": [
+            593
+          ],
+          "pdf": [
+            10
+          ],
+          "figure": "17.10",
+          "slides": "34–40",
+          "sourceSupport": "TTGG×ttgg then TtGg×TtGg source model;16 equally likely gamete pairings grouped by phenotype into9:3:3:1.",
+          "boundary": "Explicit complete dominance, independent assortment, random fertilization, reliable expression/scoring and equal survival are necessary boundaries. The essential derivation structurally supports protected3/16 answers; do not append a solved clone targeting aaB_ or A_bb."
+        }
+      ],
+      "sourceScopeQualification": "Exact native/exemplar passages were read by this records reviewer. Textbook/actual-slide locators and original pixel reading are separately scoped source-review evidence, not a new pixel-read claim by this reviewer. Constructed tasks and additional pedagogical explanations are author synthesis.",
+      "protectedAnswerSeparation": "General product reasoning is taught without the source tomato cross or an exact required-target letter swap.",
+      "boundaryOrDeferral": "The grid and product checks belong to one worked example; their distinct question meanings justify the comparison, not an example-count quota.",
+      "decision": {
+        "action": "retain",
+        "object": "actual teaching function and its present placement",
+        "reason": "The second method earns its place by explaining an event-selection error: using a single speckled genotype's half probability would answer a narrower question.",
+        "status": "Bounded records review at the pinned draft; not teacher acceptance or native integration."
+      },
+      "assembledFragmentBinding": {
+        "path": "output/Biology30_CH17_Exemplar_Transfer_Calibration_v0.1.0/integration-text/lesson-05.teaching-fragment.html.txt",
+        "payloadPath": "integration-text/lesson-05.teaching-fragment.html.txt",
+        "bytes": 21630,
+        "sha256": "a78b0e51af788a1591864cd8fc3ae6a733a4b7b051b73bbe82be1787e1944e0c",
+        "utf8StartInclusive": 11767,
+        "utf8EndExclusive": 12454,
+        "blockSha256": "8afe28a65f2db8bcb1d9c07d38c6314282ddd2d5a2604784dfaa783fef92a10d",
+        "selectionRule": "Same actual heading/element boundaries as the completely read author input; expanded native vocabulary and native figure alter byte lengths. These remain review locators, not native integration edits."
+      }
+    },
+    {
+      "recordId": "calibration-lesson-05-19",
+      "recordIdIsNotNativeDomId": true,
+      "route": "lesson-05",
+      "actualHeadingOrMarker": "5. Turn probabilities into expected counts",
+      "enclosingNativeTeachingId": "ch17-l05-worked",
+      "actualElementIdsInRange": [],
+      "draftPath": "calibration-v0.1.0/authoring/lesson-05.teaching.html.in",
+      "draftSha256": "920c21c4c658fdda5d7fc1416978c8e5a1d62adf7d221ef2fd70fa5ffc61d651",
+      "utf8StartInclusive": 11224,
+      "utf8EndExclusive": 12086,
+      "selectedBytes": 862,
+      "blockSha256": "19499920788aa7837bb27a86f96f103ebd87139a3b795e54f8a769e0bb235dcd",
+      "selectionRule": "Exact actual headed/contained teaching run, including its complete feedback if present. Review interval only, not an integration replacement or standalone HTML fragment.",
+      "purpose": "Convert phenotype probabilities to expected counts summing to120 and distinguish chance among allowed outcomes from an impossible ss contribution.",
+      "nativePrerequisiteOrCoverageBindings": [
+        {
+          "route": "lesson-03",
+          "nativeEditKey": "ch17-l03-teaching-02-p3",
+          "heading": "Count the outcome that was actually asked for",
+          "sourcePath": "source-inspection/ch17/native/workspace/index.html",
+          "sourceSha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868",
+          "utf8StartInclusive": 127352,
+          "utf8EndExclusive": 127764,
+          "passageSha256": "6d2b9b4f053fc7c3924d684e454cc29e624462ff9b9ed626ea3b054c71953cd0"
+        },
+        {
+          "route": "lesson-03",
+          "nativeEditKey": "ch17-l03-teaching-03-p1",
+          "heading": "Independent offspring do not compensate for earlier outcomes",
+          "sourcePath": "source-inspection/ch17/native/workspace/index.html",
+          "sourceSha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868",
+          "utf8StartInclusive": 127989,
+          "utf8EndExclusive": 128325,
+          "passageSha256": "494dbd434bd000a74ade18dda23140b8b8a482134ec35c0a53f1722b055289c1"
+        },
+        {
+          "route": "lesson-04",
+          "nativeEditKey": "ch17-l04-teaching-03-p2",
+          "heading": "Use family information before calculating",
+          "sourcePath": "source-inspection/ch17/native/workspace/index.html",
+          "sourceSha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868",
+          "utf8StartInclusive": 151848,
+          "utf8EndExclusive": 152196,
+          "passageSha256": "2825628e9598458e61ad312611f1599c5d3dba66aca6d17fef14697e6b9669a1"
+        }
+      ],
+      "earlierVisibleCalibrationBindings": [
+        "3. Group genotypes by what they express",
+        "4. Check the result using the separate loci"
+      ],
+      "exemplarFunctions": [
+        {
+          "source": {
+            "heading": "Worked model: include inhibition in the calculation",
+            "enclosingSectionId": "pro-l06-summation",
+            "sourcePath": "source-inspection/ch11-exemplar/integration-text/lesson-06.teaching-fragment.html.txt",
+            "sourceSha256": "aa6a174e9467eb16439dead721441f22e0d969c59396f4b531a7fea29506fd6e",
+            "utf8ByteStartInclusive": 11244,
+            "utf8ByteEndExclusive": 12387,
+            "sha256": "68da4954914cdfb7fa01c5a32ae40b5c22dbdd965ff92c1f405e11a184ea5f3a",
+            "uniqueTeachingFunction": "Combines signed contributions, applies a net change to a starting voltage, compares with threshold, then changes inhibition while limiting what the simplified model claims."
+          },
+          "adaptation": "Translate a model result into its requested interpretation and check its limits."
+        },
+        {
+          "source": {
+            "heading": "Worked example: an impulse arrives but no message is released",
+            "enclosingSectionId": "pro-l06-acetylcholine",
+            "sourcePath": "source-inspection/ch11-exemplar/integration-text/lesson-06.teaching-fragment.html.txt",
+            "sourceSha256": "aa6a174e9467eb16439dead721441f22e0d969c59396f4b531a7fea29506fd6e",
+            "utf8ByteStartInclusive": 5142,
+            "utf8ByteEndExclusive": 6005,
+            "sha256": "b8fc61ce77cc7a7b822920f68d8988f6c2b4c866e9210ca15b3e915354070a54",
+            "uniqueTeachingFunction": "Holds conduction success fixed, locates the blocked calcium-trigger step and follows only its consequences while limiting the inference to the affected terminal."
+          },
+          "adaptation": "Keep an established contribution constraint fixed rather than using a different explanation to erase it."
+        }
+      ],
+      "uniqueContribution": "Adds count interpretation and a model-limit inference: a zero-probability class is not just another possible small-sample fluctuation.",
+      "entryConnection": "The appropriate phenotype probabilities were derived and checked, and native03 supplies expected number as probability times total.",
+      "exitConnection": "The guided task can change the very contribution that made plain petals impossible and ask what really changes.",
+      "sourceLocatorEvidence": [
+        {
+          "route": "lesson-05",
+          "component": "Choose square dimensions, recompute instead of memorizing",
+          "printed": [
+            596
+          ],
+          "pdf": [
+            13
+          ],
+          "figure": "Practice Problems4–5 are original practice, not fresh independent transfer",
+          "slides": "43–47",
+          "sourceSupport": "PPT tomato RrTt×rrTt uses4×2 distinct gametes; squash wwDd×Wwdd uses2×2; expected counts are derived from cross probabilities.",
+          "boundary": "Tomato cross exactly overlaps native protected writing-1 gamete target. Its R_tt probability is isomorphic to protected writing-2; avoid using it as new solved drill. Squash1:1:1:1 does not establish two-locus independence because each parent is heterozygous at only one locus."
+        }
+      ],
+      "sourceScopeQualification": "Exact native/exemplar passages were read by this records reviewer. Textbook/actual-slide locators and original pixel reading are separately scoped source-review evidence, not a new pixel-read claim by this reviewer. Constructed tasks and additional pedagogical explanations are author synthesis.",
+      "protectedAnswerSeparation": "Uses a fresh120 total and the different cross, not the protected source80/red-short worked calculation.",
+      "boundaryOrDeferral": "The60/60 counts are expectations, not guarantees. An apparent ss result prompts checking evidence/model, not immediate diagnosis of a unique biological cause.",
+      "decision": {
+        "action": "retain",
+        "object": "actual teaching function and its present placement",
+        "reason": "Adds count interpretation and a model-limit inference: a zero-probability class is not just another possible small-sample fluctuation.",
+        "status": "Bounded records review at the pinned draft; not teacher acceptance or native integration."
+      },
+      "assembledFragmentBinding": {
+        "path": "output/Biology30_CH17_Exemplar_Transfer_Calibration_v0.1.0/integration-text/lesson-05.teaching-fragment.html.txt",
+        "payloadPath": "integration-text/lesson-05.teaching-fragment.html.txt",
+        "bytes": 21630,
+        "sha256": "a78b0e51af788a1591864cd8fc3ae6a733a4b7b051b73bbe82be1787e1944e0c",
+        "utf8StartInclusive": 12454,
+        "utf8EndExclusive": 13406,
+        "blockSha256": "5eff9ef82102a1ee25d8f16d67382cc8676e8113f0aac837eeefd9dd9a80291e",
+        "selectionRule": "Same actual heading/element boundaries as the completely read author input; expanded native vocabulary and native figure alter byte lengths. These remain review locators, not native integration edits."
+      }
+    },
+    {
+      "recordId": "calibration-lesson-05-20",
+      "recordIdIsNotNativeDomId": true,
+      "route": "lesson-05",
+      "actualHeadingOrMarker": "Change one contribution and keep track of what stays",
+      "enclosingNativeTeachingId": "ch17-l05-worked",
+      "actualElementIdsInRange": [
+        "ch17-cal-v010-l05-change-parent"
+      ],
+      "draftPath": "calibration-v0.1.0/authoring/lesson-05.teaching.html.in",
+      "draftSha256": "920c21c4c658fdda5d7fc1416978c8e5a1d62adf7d221ef2fd70fa5ffc61d651",
+      "utf8StartInclusive": 12086,
+      "utf8EndExclusive": 14453,
+      "selectedBytes": 2367,
+      "blockSha256": "3f470c8c9f5e611010adc09021c3be6d0b66e440fdd684a732e1140ca79abbb5",
+      "selectionRule": "Exact actual headed/contained teaching run, including its complete feedback if present. Review interval only, not an integration replacement or standalone HTML fragment.",
+      "purpose": "Replace HhSS with Hhss, retain the unchanged H-locus cross, and explain the changed S-locus gametes and phenotype grouping.",
+      "nativePrerequisiteOrCoverageBindings": [
+        {
+          "route": "lesson-03",
+          "nativeEditKey": "ch17-l03-teaching-01-p1",
+          "heading": "Write gametes, not whole parental genotypes, on the edges",
+          "sourcePath": "source-inspection/ch17/native/workspace/index.html",
+          "sourceSha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868",
+          "utf8StartInclusive": 124632,
+          "utf8EndExclusive": 125066,
+          "passageSha256": "83d40b1d8077bf7945fdddb9f93acef46f1de650b4f2c5c7e72aaa6dc5a94f0a"
+        },
+        {
+          "route": "lesson-03",
+          "nativeEditKey": "ch17-l03-teaching-02-p2",
+          "heading": "Count the outcome that was actually asked for",
+          "sourcePath": "source-inspection/ch17/native/workspace/index.html",
+          "sourceSha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868",
+          "utf8StartInclusive": 126908,
+          "utf8EndExclusive": 127352,
+          "passageSha256": "e27edc1b7aa136d92e47eb39dcfa57f0c1c51f18e6d022e6447339ab31c72261"
+        },
+        {
+          "route": "lesson-05",
+          "nativeEditKey": "ch17-l05-teaching-01-p2",
+          "heading": "Find possible gametes before drawing boxes",
+          "sourcePath": "source-inspection/ch17/native/workspace/index.html",
+          "sourceSha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868",
+          "utf8StartInclusive": 170071,
+          "utf8EndExclusive": 170416,
+          "passageSha256": "e9e21a398278fa5b497cdf8f460e60c11b1c7b7f7f57319f81f8b0472b0f7ad8"
+        }
+      ],
+      "earlierVisibleCalibrationBindings": [
+        "1. Work out each parent's contributions",
+        "3. Group genotypes by what they express",
+        "5. Turn probabilities into expected counts"
+      ],
+      "exemplarFunctions": [
+        {
+          "source": {
+            "heading": "Worked model: include inhibition in the calculation",
+            "enclosingSectionId": "pro-l06-summation",
+            "sourcePath": "source-inspection/ch11-exemplar/integration-text/lesson-06.teaching-fragment.html.txt",
+            "sourceSha256": "aa6a174e9467eb16439dead721441f22e0d969c59396f4b531a7fea29506fd6e",
+            "utf8ByteStartInclusive": 11244,
+            "utf8ByteEndExclusive": 12387,
+            "sha256": "68da4954914cdfb7fa01c5a32ae40b5c22dbdd965ff92c1f405e11a184ea5f3a",
+            "uniqueTeachingFunction": "Combines signed contributions, applies a net change to a starting voltage, compares with threshold, then changes inhibition while limiting what the simplified model claims."
+          },
+          "adaptation": "Change one consequential condition while retaining the parts of the model unaffected by it."
+        },
+        {
+          "source": {
+            "heading": "Worked example: an impulse arrives but no message is released",
+            "enclosingSectionId": "pro-l06-acetylcholine",
+            "sourcePath": "source-inspection/ch11-exemplar/integration-text/lesson-06.teaching-fragment.html.txt",
+            "sourceSha256": "aa6a174e9467eb16439dead721441f22e0d969c59396f4b531a7fea29506fd6e",
+            "utf8ByteStartInclusive": 5142,
+            "utf8ByteEndExclusive": 6005,
+            "sha256": "b8fc61ce77cc7a7b822920f68d8988f6c2b4c866e9210ca15b3e915354070a54",
+            "uniqueTeachingFunction": "Holds conduction success fixed, locates the blocked calcium-trigger step and follows only its consequences while limiting the inference to the affected terminal."
+          },
+          "adaptation": "Keep the successful/unaffected branch fixed while following the changed contribution's consequences."
+        }
+      ],
+      "uniqueContribution": "Tests selective updating rather than repeating the full previous cross with renamed values. The change removes the guaranteed S contribution and creates two additional phenotype groups.",
+      "entryConnection": "Both locus rules, gamete formation, combination, grouping and sum checks are visible in the worked model.",
+      "exitConnection": "Its demonstration that the number of traits is insufficient prepares the broader model-selection caution without requiring an untaught familiar ratio.",
+      "sourceLocatorEvidence": [
+        {
+          "route": "lesson-05",
+          "component": "Joint probability and genotype/phenotype categories",
+          "printed": [
+            593
+          ],
+          "pdf": [
+            10
+          ],
+          "figure": "17.10",
+          "slides": "34–40",
+          "sourceSupport": "TTGG×ttgg then TtGg×TtGg source model;16 equally likely gamete pairings grouped by phenotype into9:3:3:1.",
+          "boundary": "Explicit complete dominance, independent assortment, random fertilization, reliable expression/scoring and equal survival are necessary boundaries. The essential derivation structurally supports protected3/16 answers; do not append a solved clone targeting aaB_ or A_bb."
+        },
+        {
+          "route": "lesson-05",
+          "component": "Choose square dimensions, recompute instead of memorizing",
+          "printed": [
+            596
+          ],
+          "pdf": [
+            13
+          ],
+          "figure": "Practice Problems4–5 are original practice, not fresh independent transfer",
+          "slides": "43–47",
+          "sourceSupport": "PPT tomato RrTt×rrTt uses4×2 distinct gametes; squash wwDd×Wwdd uses2×2; expected counts are derived from cross probabilities.",
+          "boundary": "Tomato cross exactly overlaps native protected writing-1 gamete target. Its R_tt probability is isomorphic to protected writing-2; avoid using it as new solved drill. Squash1:1:1:1 does not establish two-locus independence because each parent is heterozygous at only one locus."
+        }
+      ],
+      "sourceScopeQualification": "Exact native/exemplar passages were read by this records reviewer. Textbook/actual-slide locators and original pixel reading are separately scoped source-review evidence, not a new pixel-read claim by this reviewer. Constructed tasks and additional pedagogical explanations are author synthesis.",
+      "protectedAnswerSeparation": "The resulting1:1:1:1 overlaps a general source ratio but the changed-parent reasoning is not the protected double-heterozygote tester task or an exact required answer clone.",
+      "boundaryOrDeferral": "Actual ID ch17-cal-v010-l05-change-parent. Optional unsaved ungraded; full hint/feedback present. The result is not presented as evidence proving independent chromosome positions.",
+      "decision": {
+        "action": "retain",
+        "object": "actual teaching function and its present placement",
+        "reason": "Tests selective updating rather than repeating the full previous cross with renamed values. The change removes the guaranteed S contribution and creates two additional phenotype groups.",
+        "status": "Bounded records review at the pinned draft; not teacher acceptance or native integration."
+      },
+      "assembledFragmentBinding": {
+        "path": "output/Biology30_CH17_Exemplar_Transfer_Calibration_v0.1.0/integration-text/lesson-05.teaching-fragment.html.txt",
+        "payloadPath": "integration-text/lesson-05.teaching-fragment.html.txt",
+        "bytes": 21630,
+        "sha256": "a78b0e51af788a1591864cd8fc3ae6a733a4b7b051b73bbe82be1787e1944e0c",
+        "utf8StartInclusive": 13406,
+        "utf8EndExclusive": 15773,
+        "blockSha256": "3f470c8c9f5e611010adc09021c3be6d0b66e440fdd684a732e1140ca79abbb5",
+        "selectionRule": "Same actual heading/element boundaries as the completely read author input; expanded native vocabulary and native figure alter byte lengths. These remain review locators, not native integration edits."
+      }
+    },
+    {
+      "recordId": "calibration-lesson-05-21",
+      "recordIdIsNotNativeDomId": true,
+      "route": "lesson-05",
+      "actualHeadingOrMarker": "Decide whether the model justifies the product",
+      "enclosingNativeTeachingId": "ch17-l05-teaching-03",
+      "actualElementIdsInRange": [],
+      "draftPath": "calibration-v0.1.0/authoring/lesson-05.teaching.html.in",
+      "draftSha256": "920c21c4c658fdda5d7fc1416978c8e5a1d62adf7d221ef2fd70fa5ffc61d651",
+      "utf8StartInclusive": 14462,
+      "utf8EndExclusive": 16550,
+      "selectedBytes": 2088,
+      "blockSha256": "ec7d357ad76e8ed19fbb0c63e5f5cab87a0a133e882d328887bf35564641c67d",
+      "selectionRule": "Exact actual headed/contained teaching run, including its complete feedback if present. Review interval only, not an integration replacement or standalone HTML fragment.",
+      "purpose": "Derive9:3:3:1 from the four products of single-locus3:1 weights, restrict it to the stated double-heterozygote model, and teach how to compare a supplied joint distribution with products of marginal totals.",
+      "nativePrerequisiteOrCoverageBindings": [
+        {
+          "route": "lesson-03",
+          "nativeEditKey": "ch17-l03-teaching-02-p1",
+          "heading": "Count the outcome that was actually asked for",
+          "sourcePath": "source-inspection/ch17/native/workspace/index.html",
+          "sourceSha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868",
+          "utf8StartInclusive": 126457,
+          "utf8EndExclusive": 126908,
+          "passageSha256": "1b9b3c7f8bbf359957c8577d9a8db4264d21511608fc86aba57bddbe48084e40"
+        },
+        {
+          "route": "lesson-05",
+          "nativeEditKey": "ch17-l05-teaching-02-p2",
+          "heading": "Solve separate loci when independence is stated",
+          "sourcePath": "source-inspection/ch17/native/workspace/index.html",
+          "sourceSha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868",
+          "utf8StartInclusive": 171795,
+          "utf8EndExclusive": 172086,
+          "passageSha256": "9dc294ae63b2f5cf2d5f635a201675d82fd8d8e80c7c92544acc8c45dbfe624c"
+        },
+        {
+          "route": "lesson-05",
+          "nativeEditKey": "ch17-l05-teaching-02-p3",
+          "heading": "Solve separate loci when independence is stated",
+          "sourcePath": "source-inspection/ch17/native/workspace/index.html",
+          "sourceSha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868",
+          "utf8StartInclusive": 172086,
+          "utf8EndExclusive": 172382,
+          "passageSha256": "fda485289d0e83af8701fd15f041a2a4e4283df597dd017726387d23d5c39779"
+        },
+        {
+          "route": "lesson-05",
+          "nativeEditKey": "ch17-l05-teaching-03-p1",
+          "heading": "Make the assumption part of the answer",
+          "sourcePath": "source-inspection/ch17/native/workspace/index.html",
+          "sourceSha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868",
+          "utf8StartInclusive": 172585,
+          "utf8EndExclusive": 172896,
+          "passageSha256": "1acbf617ec19aafa69c679df0d45977e67f107900174575b22bb56855c292185"
+        },
+        {
+          "route": "lesson-05",
+          "nativeEditKey": "ch17-l05-teaching-03-p2",
+          "heading": "Make the assumption part of the answer",
+          "sourcePath": "source-inspection/ch17/native/workspace/index.html",
+          "sourceSha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868",
+          "utf8StartInclusive": 172896,
+          "utf8EndExclusive": 173253,
+          "passageSha256": "3dd7a99a2241d2f16d6af3dd4f5015c62c2f193c2106f11912da9159b797457f"
+        }
+      ],
+      "earlierVisibleCalibrationBindings": [
+        "Choose the event before choosing an operation",
+        "Change one contribution and keep track of what stays",
+        "What makes the choices independent?"
+      ],
+      "exemplarFunctions": [
+        {
+          "source": {
+            "heading": "How can one cell reach a distant muscle?",
+            "enclosingSectionId": "pro-l02-structure",
+            "sourcePath": "source-inspection/ch11-exemplar/integration-text/lesson-02.teaching-fragment.html.txt",
+            "sourceSha256": "09fbf95839222d95064b1d36ddf008f745c429742e621acf55cf0c323eeb7e9d",
+            "utf8ByteStartInclusive": 0,
+            "utf8ByteEndExclusive": 3240,
+            "sha256": "154ebe5439913fce43d2967bf7bc71f06a27d38334cebd844d6560f3c3db085d",
+            "uniqueTeachingFunction": "A distance problem makes morphology necessary; figure reading establishes one continuous axon, receiving branches and sending terminals before structure–function inference."
+          },
+          "adaptation": "State the present useful model and its limits without importing all later machinery."
+        },
+        {
+          "source": {
+            "heading": "Worked model: include inhibition in the calculation",
+            "enclosingSectionId": "pro-l06-summation",
+            "sourcePath": "source-inspection/ch11-exemplar/integration-text/lesson-06.teaching-fragment.html.txt",
+            "sourceSha256": "aa6a174e9467eb16439dead721441f22e0d969c59396f4b531a7fea29506fd6e",
+            "utf8ByteStartInclusive": 11244,
+            "utf8ByteEndExclusive": 12387,
+            "sha256": "68da4954914cdfb7fa01c5a32ae40b5c22dbdd965ff92c1f405e11a184ea5f3a",
+            "uniqueTeachingFunction": "Combines signed contributions, applies a net change to a starting voltage, compares with threshold, then changes inhibition while limiting what the simplified model claims."
+          },
+          "adaptation": "Use the actual mathematical relationship required by the model, not a remembered label or ratio."
+        }
+      ],
+      "uniqueContribution": "Moves from choosing a cross-specific calculation to examining whether independence itself is justified. The grouping operation needed next is explicitly visible.",
+      "entryConnection": "Addition of disjoint outcomes and the reason for independent products are established before a supplied distribution is checked.",
+      "exitConnection": "The independent simulator task can now recover single-locus totals and compare one joint event without learning a new operation in the hint.",
+      "sourceLocatorEvidence": [
+        {
+          "route": "lesson-05",
+          "component": "Two loci, gamete formation and independence",
+          "printed": [
+            593,
+            596,
+            597
+          ],
+          "pdf": [
+            10,
+            13,
+            14
+          ],
+          "figure": "17.10 and 17.14",
+          "slides": "34–42",
+          "sourceSupport": "Separate choices at two loci, independent chromosome-pair orientation, four equally likely gamete combinations for a double heterozygote under the model.",
+          "boundary": "Four possible labels or half frequencies at each locus do not alone prove independence. Alternative chromosome orientations occur across meioses; one particular meiosis need not yield all four combinations. Physical chromosome mechanism is modern support, not a claim Mendel saw chromosomes."
+        },
+        {
+          "route": "lesson-05",
+          "component": "Joint probability and genotype/phenotype categories",
+          "printed": [
+            593
+          ],
+          "pdf": [
+            10
+          ],
+          "figure": "17.10",
+          "slides": "34–40",
+          "sourceSupport": "TTGG×ttgg then TtGg×TtGg source model;16 equally likely gamete pairings grouped by phenotype into9:3:3:1.",
+          "boundary": "Explicit complete dominance, independent assortment, random fertilization, reliable expression/scoring and equal survival are necessary boundaries. The essential derivation structurally supports protected3/16 answers; do not append a solved clone targeting aaB_ or A_bb."
+        }
+      ],
+      "sourceScopeQualification": "Exact native/exemplar passages were read by this records reviewer. Textbook/actual-slide locators and original pixel reading are separately scoped source-review evidence, not a new pixel-read claim by this reviewer. Constructed tasks and additional pedagogical explanations are author synthesis.",
+      "protectedAnswerSeparation": "The explicit general9:3:3:1 derivation necessarily supports a3/16 phenotype class structurally. This is disclosed essential teaching; no new complete AaBb self-cross aaB_ or A_bb solved/independent target is added.",
+      "boundaryOrDeferral": "Supplied exact probabilities differ from finite observed counts. No conditional subgroup procedure or linkage inference is smuggled in.",
+      "decision": {
+        "action": "retain",
+        "object": "actual teaching function and its present placement",
+        "reason": "Moves from choosing a cross-specific calculation to examining whether independence itself is justified. The grouping operation needed next is explicitly visible.",
+        "status": "Bounded records review at the pinned draft; not teacher acceptance or native integration."
+      },
+      "assembledFragmentBinding": {
+        "path": "output/Biology30_CH17_Exemplar_Transfer_Calibration_v0.1.0/integration-text/lesson-05.teaching-fragment.html.txt",
+        "payloadPath": "integration-text/lesson-05.teaching-fragment.html.txt",
+        "bytes": 21630,
+        "sha256": "a78b0e51af788a1591864cd8fc3ae6a733a4b7b051b73bbe82be1787e1944e0c",
+        "utf8StartInclusive": 15782,
+        "utf8EndExclusive": 17960,
+        "blockSha256": "89ca66bf5c554c7e106f655b2e4e454846fc65e7e7eaf65e616c7a29565bafde",
+        "selectionRule": "Same actual heading/element boundaries as the completely read author input; expanded native vocabulary and native figure alter byte lengths. These remain review locators, not native integration edits."
+      }
+    },
+    {
+      "recordId": "calibration-lesson-05-22",
+      "recordIdIsNotNativeDomId": true,
+      "route": "lesson-05",
+      "actualHeadingOrMarker": "Are separate halves enough?",
+      "enclosingNativeTeachingId": "ch17-l05-teaching-03",
+      "actualElementIdsInRange": [
+        "ch17-cal-v010-l05-joint-model"
+      ],
+      "draftPath": "calibration-v0.1.0/authoring/lesson-05.teaching.html.in",
+      "draftSha256": "920c21c4c658fdda5d7fc1416978c8e5a1d62adf7d221ef2fd70fa5ffc61d651",
+      "utf8StartInclusive": 16550,
+      "utf8EndExclusive": 19035,
+      "selectedBytes": 2485,
+      "blockSha256": "a50e914af699878211bc1be880a4488a053d208894cae816079acc3938250d9b",
+      "selectionRule": "Exact actual headed/contained teaching run, including its complete feedback if present. Review interval only, not an integration replacement or standalone HTML fragment.",
+      "purpose": "Recover half/half allele totals from the stipulated35/15/15/35 distribution, compare0.25 with0.35 for JK, and reject independence without claiming real chromosome location.",
+      "nativePrerequisiteOrCoverageBindings": [
+        {
+          "route": "lesson-05",
+          "nativeEditKey": "ch17-l05-teaching-01-p1",
+          "heading": "Find possible gametes before drawing boxes",
+          "sourcePath": "source-inspection/ch17/native/workspace/index.html",
+          "sourceSha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868",
+          "utf8StartInclusive": 169401,
+          "utf8EndExclusive": 170071,
+          "passageSha256": "9a9fcdae461dba21d410cb03adfd5ad46d815024285943c041f09b9b9bdb638f"
+        },
+        {
+          "route": "lesson-05",
+          "nativeEditKey": "ch17-l05-teaching-03-p1",
+          "heading": "Make the assumption part of the answer",
+          "sourcePath": "source-inspection/ch17/native/workspace/index.html",
+          "sourceSha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868",
+          "utf8StartInclusive": 172585,
+          "utf8EndExclusive": 172896,
+          "passageSha256": "1acbf617ec19aafa69c679df0d45977e67f107900174575b22bb56855c292185"
+        },
+        {
+          "route": "lesson-05",
+          "nativeEditKey": "ch17-l05-teaching-03-p2",
+          "heading": "Make the assumption part of the answer",
+          "sourcePath": "source-inspection/ch17/native/workspace/index.html",
+          "sourceSha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868",
+          "utf8StartInclusive": 172896,
+          "utf8EndExclusive": 173253,
+          "passageSha256": "3dd7a99a2241d2f16d6af3dd4f5015c62c2f193c2106f11912da9159b797457f"
+        }
+      ],
+      "earlierVisibleCalibrationBindings": [
+        "Decide whether the model justifies the product",
+        "Choose the event before choosing an operation"
+      ],
+      "exemplarFunctions": [
+        {
+          "source": {
+            "heading": "Compare two different failures",
+            "enclosingSectionId": "pro-evaluation-2026-10-03-v1-l02-independent",
+            "sourcePath": "source-inspection/ch11-exemplar/integration-text/lesson-02.teaching-fragment.html.txt",
+            "sourceSha256": "09fbf95839222d95064b1d36ddf008f745c429742e621acf55cf0c323eeb7e9d",
+            "utf8ByteStartInclusive": 11386,
+            "utf8ByteEndExclusive": 13338,
+            "sha256": "5a466cc38372aff6fb85845f380ee0df707be6ed1f3013616b0bb7c6fba94d17",
+            "uniqueTeachingFunction": "Localizes two distinct failure sites and tests whether an unrelated proposed repair restores the missing function."
+          },
+          "adaptation": "Distinguish a correct single-locus statement from a false claim about the relationship between choices."
+        },
+        {
+          "source": {
+            "heading": "Worked example: an impulse arrives but no message is released",
+            "enclosingSectionId": "pro-l06-acetylcholine",
+            "sourcePath": "source-inspection/ch11-exemplar/integration-text/lesson-06.teaching-fragment.html.txt",
+            "sourceSha256": "aa6a174e9467eb16439dead721441f22e0d969c59396f4b531a7fea29506fd6e",
+            "utf8ByteStartInclusive": 5142,
+            "utf8ByteEndExclusive": 6005,
+            "sha256": "b8fc61ce77cc7a7b822920f68d8988f6c2b4c866e9210ca15b3e915354070a54",
+            "uniqueTeachingFunction": "Holds conduction success fixed, locates the blocked calcium-trigger step and follows only its consequences while limiting the inference to the affected terminal."
+          },
+          "adaptation": "Keep the correct marginal totals fixed, locate the failed joint-model claim and limit what the evidence establishes."
+        }
+      ],
+      "uniqueContribution": "Requires a changed inference: testing a relationship among supplied probabilities rather than predicting offspring under an already accepted independence assumption.",
+      "entryConnection": "The visible paragraph immediately before the task teaches summing categories and comparing the joint probability with the proposed product.",
+      "exitConnection": "The result supports an explicit boundary: chromosome causes and mapping require different evidence and later mechanisms.",
+      "sourceLocatorEvidence": [
+        {
+          "route": "lesson-05",
+          "component": "Two loci, gamete formation and independence",
+          "printed": [
+            593,
+            596,
+            597
+          ],
+          "pdf": [
+            10,
+            13,
+            14
+          ],
+          "figure": "17.10 and 17.14",
+          "slides": "34–42",
+          "sourceSupport": "Separate choices at two loci, independent chromosome-pair orientation, four equally likely gamete combinations for a double heterozygote under the model.",
+          "boundary": "Four possible labels or half frequencies at each locus do not alone prove independence. Alternative chromosome orientations occur across meioses; one particular meiosis need not yield all four combinations. Physical chromosome mechanism is modern support, not a claim Mendel saw chromosomes."
+        }
+      ],
+      "sourceScopeQualification": "Exact native/exemplar passages were read by this records reviewer. Textbook/actual-slide locators and original pixel reading are separately scoped source-review evidence, not a new pixel-read claim by this reviewer. Constructed tasks and additional pedagogical explanations are author synthesis.",
+      "protectedAnswerSeparation": "The simulator is a new constructed information type, not a letter-swapped protected offspring cross or a question whose exact answer was worked above.",
+      "boundaryOrDeferral": "Actual ID ch17-cal-v010-l05-joint-model. Optional unsaved ungraded; complete hints/feedback. Exact stipulated probabilities are not finite sample counts, a genetic diagnosis or a map.",
+      "decision": {
+        "action": "retain",
+        "object": "actual teaching function and its present placement",
+        "reason": "Requires a changed inference: testing a relationship among supplied probabilities rather than predicting offspring under an already accepted independence assumption.",
+        "status": "Bounded records review at the pinned draft; not teacher acceptance or native integration."
+      },
+      "assembledFragmentBinding": {
+        "path": "output/Biology30_CH17_Exemplar_Transfer_Calibration_v0.1.0/integration-text/lesson-05.teaching-fragment.html.txt",
+        "payloadPath": "integration-text/lesson-05.teaching-fragment.html.txt",
+        "bytes": 21630,
+        "sha256": "a78b0e51af788a1591864cd8fc3ae6a733a4b7b051b73bbe82be1787e1944e0c",
+        "utf8StartInclusive": 17960,
+        "utf8EndExclusive": 20445,
+        "blockSha256": "a50e914af699878211bc1be880a4488a053d208894cae816079acc3938250d9b",
+        "selectionRule": "Same actual heading/element boundaries as the completely read author input; expanded native vocabulary and native figure alter byte lengths. These remain review locators, not native integration edits."
+      }
+    },
+    {
+      "recordId": "calibration-lesson-05-23",
+      "recordIdIsNotNativeDomId": true,
+      "route": "lesson-05",
+      "actualHeadingOrMarker": "Linkage boundary and carry forward",
+      "enclosingNativeTeachingId": "ch17-l05-teaching-03",
+      "actualElementIdsInRange": [],
+      "draftPath": "calibration-v0.1.0/authoring/lesson-05.teaching.html.in",
+      "draftSha256": "920c21c4c658fdda5d7fc1416978c8e5a1d62adf7d221ef2fd70fa5ffc61d651",
+      "utf8StartInclusive": 19036,
+      "utf8EndExclusive": 20219,
+      "selectedBytes": 1183,
+      "blockSha256": "ffb0bb5b3379b6990558767d157378b593917c0ae03981abc750e60218b24c57",
+      "selectionRule": "Exact actual headed/contained teaching run, including its complete feedback if present. Review interval only, not an integration replacement or standalone HTML fragment.",
+      "purpose": "Defer crossing over/classes/maps to12–13 and connect the completed phenotype-grouping reasoning to changed allele relationships in06.",
+      "nativePrerequisiteOrCoverageBindings": [
+        {
+          "route": "lesson-05",
+          "nativeEditKey": "ch17-l05-teaching-03-p1",
+          "heading": "Make the assumption part of the answer",
+          "sourcePath": "source-inspection/ch17/native/workspace/index.html",
+          "sourceSha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868",
+          "utf8StartInclusive": 172585,
+          "utf8EndExclusive": 172896,
+          "passageSha256": "1acbf617ec19aafa69c679df0d45977e67f107900174575b22bb56855c292185"
+        },
+        {
+          "route": "lesson-05",
+          "nativeEditKey": "ch17-l05-teaching-03-p3",
+          "heading": "Make the assumption part of the answer",
+          "sourcePath": "source-inspection/ch17/native/workspace/index.html",
+          "sourceSha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868",
+          "utf8StartInclusive": 173253,
+          "utf8EndExclusive": 173550,
+          "passageSha256": "996d0b985eddb8c481b42ccc4042ee423f80b2395b072c0d2de538f11ffd6ca1"
+        }
+      ],
+      "earlierVisibleCalibrationBindings": [
+        "Are separate halves enough?",
+        "3. Group genotypes by what they express"
+      ],
+      "exemplarFunctions": [
+        {
+          "source": {
+            "heading": "How can one cell reach a distant muscle?",
+            "enclosingSectionId": "pro-l02-structure",
+            "sourcePath": "source-inspection/ch11-exemplar/integration-text/lesson-02.teaching-fragment.html.txt",
+            "sourceSha256": "09fbf95839222d95064b1d36ddf008f745c429742e621acf55cf0c323eeb7e9d",
+            "utf8ByteStartInclusive": 0,
+            "utf8ByteEndExclusive": 3240,
+            "sha256": "154ebe5439913fce43d2967bf7bc71f06a27d38334cebd844d6560f3c3db085d",
+            "uniqueTeachingFunction": "A distance problem makes morphology necessary; figure reading establishes one continuous axon, receiving branches and sending terminals before structure–function inference."
+          },
+          "adaptation": "Keep the present explanation complete while naming where deeper mechanism will be taught."
+        },
+        {
+          "source": {
+            "heading": "A cold hand gives us a starting point",
+            "enclosingSectionId": "pro-l01-purpose",
+            "sourcePath": "source-inspection/ch11-exemplar/integration-text/lesson-01.teaching-fragment.html.txt",
+            "sourceSha256": "49978b6180becc6fc02a57bd4e34c34d09c785f5dddfd3a22bd62ce50bb72803",
+            "utf8ByteStartInclusive": 0,
+            "utf8ByteEndExclusive": 1937,
+            "sha256": "311b15c7b22063c65f94272fc0f7d331848aba345d955dbf726e322b1e6e5694",
+            "uniqueTeachingFunction": "A concrete bodily change establishes the chapter question, then the information-flow visual distinguishes jobs and explains why input precedes processing and output."
+          },
+          "adaptation": "Resolve the initiating genotype/phenotype question and connect to the next useful question."
+        }
+      ],
+      "uniqueContribution": "Separates a completed present inference from future mechanisms; it adds no new example or nominal practice item.",
+      "entryConnection": "The worked/guided contrasts answered why genotype categories can group differently and the independent task bounded its conclusion.",
+      "exitConnection": "Native06 changes incomplete-dominance/codominance expression; native12–13 address linkage mechanisms and maps.",
+      "sourceLocatorEvidence": [
+        {
+          "route": "lesson-05",
+          "component": "Two loci, gamete formation and independence",
+          "printed": [
+            593,
+            596,
+            597
+          ],
+          "pdf": [
+            10,
+            13,
+            14
+          ],
+          "figure": "17.10 and 17.14",
+          "slides": "34–42",
+          "sourceSupport": "Separate choices at two loci, independent chromosome-pair orientation, four equally likely gamete combinations for a double heterozygote under the model.",
+          "boundary": "Four possible labels or half frequencies at each locus do not alone prove independence. Alternative chromosome orientations occur across meioses; one particular meiosis need not yield all four combinations. Physical chromosome mechanism is modern support, not a claim Mendel saw chromosomes."
+        },
+        {
+          "route": "lesson-05",
+          "component": "Original reader questions and adjacent scope",
+          "printed": [
+            593,
+            595,
+            598
+          ],
+          "pdf": [
+            10,
+            12,
+            15
+          ],
+          "figure": "In-text593Q10–12;595Q13,15,16; sectionreview598Q6–9",
+          "slides": "48 source video hyperlinks only",
+          "sourceSupport": "Current optional native textbook topics assign six items to05. Three on595 concern incomplete dominance/codominance. Review598 offers different dihybrid problems but contains cross-reference/context defects.",
+          "boundary": "Preserve current task blocks; defer595items until06 without claiming missing sources. No video playback or timestamps. Printed 598 review tasks were read for source context but are not all native05 topic assignments."
+        }
+      ],
+      "sourceScopeQualification": "Exact native/exemplar passages were read by this records reviewer. Textbook/actual-slide locators and original pixel reading are separately scoped source-review evidence, not a new pixel-read claim by this reviewer. Constructed tasks and additional pedagogical explanations are author synthesis.",
+      "protectedAnswerSeparation": "No further protected answer calculation is introduced; native activities and footer remain separate and unchanged.",
+      "boundaryOrDeferral": "The current final paragraph explicitly directs return after06 to the existing optional textbook595 Q13,15,16. CAL-REC-01 is closed by that local timing repair; no task block or reader map changed.",
+      "decision": {
+        "action": "retain",
+        "object": "repaired local optional-textbook continuity and explicit deferrals",
+        "reason": "The final draft preserves the full current teaching while directing the already assigned printed595/PDF12 Q13,15,16 to their06 prerequisite. Detailed linkage remains12–13.",
+        "closedRepair": "CAL-REC-01: final05 now has the exact return-after06 direction; this sentence was read in the complete final input.",
+        "status": "Records-level refinement verified at final920c21c4 input; no teacher acceptance or native edit."
+      },
+      "assembledFragmentBinding": {
+        "path": "output/Biology30_CH17_Exemplar_Transfer_Calibration_v0.1.0/integration-text/lesson-05.teaching-fragment.html.txt",
+        "payloadPath": "integration-text/lesson-05.teaching-fragment.html.txt",
+        "bytes": 21630,
+        "sha256": "a78b0e51af788a1591864cd8fc3ae6a733a4b7b051b73bbe82be1787e1944e0c",
+        "utf8StartInclusive": 20446,
+        "utf8EndExclusive": 21629,
+        "blockSha256": "ffb0bb5b3379b6990558767d157378b593917c0ae03981abc750e60218b24c57",
+        "selectionRule": "Same actual heading/element boundaries as the completely read author input; expanded native vocabulary and native figure alter byte lengths. These remain review locators, not native integration edits."
+      }
+    }
+  ],
+  "sourceLocatorRegister": {
+    "path": "calibration-v0.1.0/analysis/source/TARGETED_SOURCE_LOCATORS.json",
+    "sha256": "f6ac1f22bc50b82ad0ace55fadc3ead1e4abb35d2847fe72462a6db9bfbdf846"
+  },
+  "limits": [
+    "Separate source review owns original textbook/PPTX pixel claims.",
+    "No final teacher acceptance, integration, runtime test or browser rendering.",
+    "Earlier expanded manuscripts are not treated as accepted prerequisite teaching."
+  ],
+  "deferralDecisions": [
+    {
+      "action": "defer",
+      "content": "Systematic grids/general probability and expected-number calculation after02",
+      "destination": "native lesson-03 — Single-trait crosses and probability",
+      "reason": "The02 current required expectation meaning is taught locally; detailed organization/arithmetic is the next native route.",
+      "evidence": [
+        "ch17-l02-teaching-03-p1",
+        "ch17-l03-teaching-01-p1",
+        "ch17-l03-teaching-02-p3"
+      ]
+    },
+    {
+      "action": "defer",
+      "content": "Unknown-parent test-cross and finite-likelihood inference",
+      "destination": "native lesson-04 — Test crosses and unknown genotypes",
+      "reason": "Controlled parentage is needed in02, but a separate inference procedure is not needed to answer its question.",
+      "evidence": [
+        "ch17-l04-teaching-01-p1",
+        "ch17-l04-teaching-02-p2"
+      ]
+    },
+    {
+      "action": "defer",
+      "content": "Incomplete dominance/codominance and existing optional printed595/PDF12 Q13,15,16",
+      "destination": "return after native lesson-06 — Incomplete dominance and codominance",
+      "reason": "Source CAL-SRC-14 is a local timing gap. Final05 includes the explicit learner direction without changing tasks or reader endpoints.",
+      "closedLocalRepair": "CAL-REC-01"
+    },
+    {
+      "action": "defer",
+      "content": "Conditional nursery/retained-stock denominator task",
+      "destination": "Any future separately instructed conditional-denominator sequence; outside this sample",
+      "reason": "Actual native03/04 does not teach that operation. Its omission is not a claim that earlier manuscripts were approved, nor a certification of unreviewed later teaching."
+    },
+    {
+      "action": "defer",
+      "content": "Linkage phase, parental/recombinant classes, crossing over and mapping",
+      "destination": "native lesson-12 — Linked genes and recombinant offspring; lesson-13 — Recombination frequency and chromosome maps",
+      "reason": "05 completes the current independence-model inference and explicitly limits location claims; the physical/map machinery is beyond the two-route scope."
+    }
+  ],
+  "omittedRepetition": [
+    {
+      "item": "Second repeating meiosis table",
+      "reason": "The single02 table already makes the copying/separation inference; its repair task adds diagnosis rather than another trace."
+    },
+    {
+      "item": "Separate repeated P/F1/F2 classification drill",
+      "reason": "Generation relationships are established in the controlled-parentage explanation; the independent task instead distinguishes failure locations."
+    },
+    {
+      "item": "Extra changed-count02 exercise",
+      "reason": "The historical sample already teaches observation versus expectation; a renamed short-run practice would repeat protected task demands."
+    },
+    {
+      "item": "Automatic third new practice in each route",
+      "reason": "No number of practices is required. Each actual task has a different inference and complete support/feedback."
+    }
+  ],
+  "assembledBindingsStatus": "Complete for both final expanded fragments; no native execution or source mutation."
+}

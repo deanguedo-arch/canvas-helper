@@ -1,0 +1,200 @@
+{
+  "trial": "Biology30_CH17_Source_Assessment_Trial_v0.3.0",
+  "checkedAtUTC": "2026-10-05T00:04:49.545740+00:00",
+  "scope": "Original-source preflight only. Fresh actual original ZIP/member/staging/manifest/binding/native checks; complete three standards and selected actual Chapter11 manuscript reads. No extraction/restaging, source edits, prior-output edits, prose authoring, new connection or runtime use.",
+  "originalSourceResult": "PASS",
+  "errors": [],
+  "manifest": {
+    "path": "upload/SOURCE_HANDOFF_MANIFEST(1).json",
+    "bytes": 98038,
+    "sha256": "c22193171eac93ed75085394b6edad16fbf8d292db8a0ebfead08646013bdee2"
+  },
+  "binding": {
+    "path": "source-inspection/ch17/SOURCE_BINDING_AND_PRESERVATION.json",
+    "bytes": 4128,
+    "sha256": "55faeed2d1000d4f5645461f5e66c12142330e046ac2379d1efcd727fd6892bf",
+    "parsed": true,
+    "matchesArchiveMember": true
+  },
+  "originalNativeEvidence": {
+    "path": "source-inspection/ch17/native/workspace/index.html",
+    "bytes": 3471105,
+    "sha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868",
+    "utf8Readable": true,
+    "embeddedJsonOwnersParsed": {
+      "course-data": {
+        "parsed": true,
+        "top_level_type": "dict",
+        "count": 23
+      },
+      "textbook-practice-data": {
+        "parsed": true,
+        "top_level_type": "dict",
+        "count": 4
+      }
+    },
+    "v030OwnerStatus": "Original source evidence only. Uploaded integrated native-v020/index.html atbc42ea52d8cf5709c0ec33c914e86450f93971f3e3144cb81b695593aa0eff3b is the v0.3.0 integration owner; its source gate has a separate native-review record."
+  },
+  "archives": [
+    {
+      "localPath": "upload/Biology30_CH17_Source_Handoff_2026-10-03_Part_1(1).zip",
+      "declaredFilename": "Biology30_CH17_Source_Handoff_2026-10-03_Part_1.zip",
+      "bytes": 14666563,
+      "sha256": "73520250d140ef5f7575c5d52400ba941c0a751d24fe6939776ccd28df0be7d0",
+      "declaredBytes": 14666563,
+      "declaredSha256": "73520250d140ef5f7575c5d52400ba941c0a751d24fe6939776ccd28df0be7d0",
+      "byteMatch": true,
+      "shaMatch": true,
+      "crcFirstFailure": null,
+      "fileCount": 188
+    },
+    {
+      "localPath": "upload/Biology30_CH17_Source_Handoff_2026-10-03_Part_2(1).zip",
+      "declaredFilename": "Biology30_CH17_Source_Handoff_2026-10-03_Part_2.zip",
+      "bytes": 13627472,
+      "sha256": "0ec8c4c0b46f7b25a67d02282a0893eeb359bb89d5d13173bf2024c2f62ce327",
+      "declaredBytes": 13627472,
+      "declaredSha256": "0ec8c4c0b46f7b25a67d02282a0893eeb359bb89d5d13173bf2024c2f62ce327",
+      "byteMatch": true,
+      "shaMatch": true,
+      "crcFirstFailure": null,
+      "fileCount": 32
+    },
+    {
+      "localPath": "upload/Biology30_CH11_Teaching_Exemplar_v1.0.0_Part_1(1).zip",
+      "declaredFilename": "Biology30_CH11_Teaching_Exemplar_v1.0.0_Part_1.zip",
+      "bytes": 196257,
+      "sha256": "a4351be937b320aefa8e2076ed3b5a20326c5c142111f3f2b472a8b7a91169ca",
+      "declaredBytes": 196257,
+      "declaredSha256": "a4351be937b320aefa8e2076ed3b5a20326c5c142111f3f2b472a8b7a91169ca",
+      "byteMatch": true,
+      "shaMatch": true,
+      "crcFirstFailure": null,
+      "fileCount": 32
+    }
+  ],
+  "archiveMemberCount": 252,
+  "manifestIncludedCount": 235,
+  "manifestIncludedMatches": 235,
+  "archiveProtectedUnlistedCount": 17,
+  "stagedMembersMatch": 252,
+  "duplicateChapter17Paths": [],
+  "packageMemberCounts": {
+    "chapter17": 220,
+    "chapter11-exemplar": 32
+  },
+  "qtiXmlReadability": [
+    {
+      "path": "source-inspection/ch17/sources/qti/quiz_d2l_59230.xml",
+      "bytes": 137929,
+      "sha256": "3a4731dc6571a59a55803f76139ec5000dbdb57c3606ba08b26947b7886025f3",
+      "xmlReadable": true,
+      "rootTag": "questestinterop"
+    },
+    {
+      "path": "source-inspection/ch17/sources/qti/quiz_d2l_59242.xml",
+      "bytes": 17036,
+      "sha256": "fba94d628860207a3610be7f6de1f50a96035eec627be65adf99859b4ddf3e11",
+      "xmlReadable": true,
+      "rootTag": "questestinterop"
+    }
+  ],
+  "completeStandardsRead": [
+    {
+      "path": "source-inspection/ch17/standards/02_TEACHING_STANDARD.md",
+      "bytes": 11744,
+      "sha256": "aa273698aa48c983081ca9bb724dec66959ce86ea4f33049f12330715fbf89e2",
+      "actualCurrentRead": "Complete UTF-8 teaching/process text reread in current source-preflight turn, not hash-only."
+    },
+    {
+      "path": "source-inspection/ch17/standards/CHAPTER11_TEACHING_STANDARD.md",
+      "bytes": 11846,
+      "sha256": "cf7d4942a44944defd587813dcf68fc53e29773d189834c8e304bced4f530d80",
+      "actualCurrentRead": "Complete UTF-8 teaching/process text reread in current source-preflight turn, not hash-only."
+    },
+    {
+      "path": "source-inspection/ch17/standards/SCOUT_CHAPTER_PASS_PROCESS.md",
+      "bytes": 14790,
+      "sha256": "3c6c69e91e87a79b3fa1d33f3c369b3cb651d475ae96d3c08cd2576a48f90bac",
+      "actualCurrentRead": "Complete UTF-8 teaching/process text reread in current source-preflight turn, not hash-only."
+    }
+  ],
+  "currentExemplarPassageReads": [
+    {
+      "path": "source-inspection/ch11-exemplar/manuscripts/lesson-02.md",
+      "bytes": 13621,
+      "sha256": "7ceb44e866a5efb8b90e9566a31d02748184ecf1ee22d6529134890c89135d34",
+      "actualCurrentRead": "Complete manuscript reread in current source-preflight turn; teaching prose, worked examples, optional hints/models, carry and retained checks. Exemplar not science/teacher accepted."
+    },
+    {
+      "path": "source-inspection/ch11-exemplar/manuscripts/lesson-06.md",
+      "bytes": 19711,
+      "sha256": "2e426be106001b51160abaec1c02e96d1dbf208057cceabf01c294573d0620c7",
+      "actualCurrentRead": "Complete manuscript reread in current source-preflight turn; teaching prose, worked examples, optional hints/models, carry and retained checks. Exemplar not science/teacher accepted."
+    }
+  ],
+  "exemplarManifest": {
+    "path": "source-inspection/ch11-exemplar/MANIFEST.json",
+    "bytes": 47617,
+    "sha256": "e35c9b9a7f943b1ba0b682e896b95f7990b8edd5f623ccecfcb4f92760e6dd80",
+    "parsed": true,
+    "teachingProseReadClaim": false
+  },
+  "provenanceOnly": [
+    {
+      "path": "UnitC.zip",
+      "declaredBytes": 274867532,
+      "declaredSha256": "8b4ad2b48215ed2638e81a67f6e68731601c8fd5ed21ef14e455f746b0021ea8",
+      "role": "read-only original archive; only selected original members included",
+      "availability": "Intentionally absent, not accessed or locally verified. Parent hash is provenance only."
+    }
+  ],
+  "integratedBaselineStatus": "RESOLVED by subsequent explicit user correction, conveyed by root: uploaded integrated ZIP expected hash is ddc02a762cdca9718867c3992850a766a5b0b97e0ce9614ffbf958d74667fc20; stale d6b089c69983a2c497c3a7f5f233c411b0e62c45dcf619204a4cf5552f5be433 is superseded. Native reviewer directly verified payload indexbc42ea52d8cf5709c0ec33c914e86450f93971f3e3144cb81b695593aa0eff3b. This source reviewer read its evidence but did not duplicate the integrated-ZIP gate.",
+  "limits": "Structural parsing/hashes do not mean every source document or all38 PDF pages were freshly reviewed for teaching. Target PDF/PPTX readability results are recorded separately by the delegated source reviewer. No current authority certification, missing-file read, video playback, runtime test, integration or exact-copy acceptance.",
+  "pdfPptxReadability": {
+    "status": "PASS, separate delegated current-byte structural/read-access preflight",
+    "evidence": "pptx-pdf/READABILITY.json",
+    "pptxBytes": 10153531,
+    "pptxSha256": "da1ce1c0526da4da1aefd1fb6c0f23070f820ce24378c12f9699d1c700e1a985",
+    "pptxCrcMembers": 601,
+    "actualSlidesXmlParsed": 114,
+    "pdfBytes": 2005971,
+    "pdfSha256": "48e297aacb86275c106a02abdddaf0f0463ba47d6b17703a926aa68405755455",
+    "pdfPagesReadable": 38,
+    "freshRepresentativePixels": "Actual original slide15/image14 and actual textbookPDF6/printed589 viewed by delegated reviewer. This is not a full new teaching-content review."
+  },
+  "imageStructuralReadability": {
+    "evidence": "CURRENT_IMAGE_READABILITY.json",
+    "result": "PASS",
+    "originalQtiImages": 20,
+    "nativeRasterSvgAssets": 137,
+    "freshVisualReadingClaim": false,
+    "scope": "Raster decoder verification and SVG XML parsing; no browser or new scientific visual review."
+  },
+  "targetedRestoredSourceRead": {
+    "evidence": "pptx-pdf/RESTORED_SOURCE_METHOD.md/.json",
+    "actualSlidesRead": [
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48
+    ],
+    "originalEmbeddedImagesRead": 10,
+    "scope": "Fresh actual XML/relationship/native-table and byte-matched source-image reading; every original tomato and squash table genotype independently recomputed. No currentv0.3.0 manuscript or replacement question review claimed.",
+    "restoredTargets": [
+      "PeaTTGG×ttgg→TtGgself→full9:3:3:1",
+      "Original tomatoRrTt×rrTt:8cells,sixgenotypes,fournonzero3/8,3/8,1/8,1/8groups",
+      "Squashpartialparents→offspringwwddinference→wwDd×Wwdd→N80expected40/20"
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "version": "0.4.0",
+  "baseline": "20c22d6d80720d04a2924c1a161b35da9ec5d964fea32d1b6c480b96c76fdcf9",
+  "owner": "/Users/deanguedo/Documents/Codex/2026-10-04/task/source-assessment-trial-v0.3.0/evaluation/new/index.html",
+  "startCharacter": 106299,
+  "endCharacterExclusive": 124862,
+  "startByte": 106355,
+  "endByteExclusive": 124945,
+  "beforeSha256": "0c2d3dee02b5b2413d600915a03e8c7bd72a2b03951c55f2fcd76c6c1ece4572",
+  "allowed": "Only lesson-02 teaching between its unchanged header and protected guided practice.",
+  "preserveIds": [
+    "ch17-l02-teaching-01",
+    "ch17-l02-teaching-02",
+    "ch17-l02-worked",
+    "ch17-l02-teaching-03"
+  ],
+  "optionalNoteIds": [
+    "ch17-kinch-v020-l02-arrow-response",
+    "ch17-kinch-v020-l02-cross-response"
+  ],
+  "protected": [
+    "all other routes including lesson-05",
+    "all assessments, options, keys and native embedded data",
+    "both optional note IDs, titles, controls, prompts, hints and models",
+    "styles, fonts, runtime, reader, vocabulary and progress"
+  ],
+  "saveIsolation": "Serve v0.4.0 on a fresh loopback origin; do not migrate prior saves."
+}

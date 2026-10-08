@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Chapter 17 lesson 2 — teacher-led trial v0.4.0 comparison</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f7f8f5;color:#171b1b;font:15px/1.4 "Work Sans",sans-serif;height:100vh;height:100dvh;display:flex;flex-direction:column}
+header{padding:12px 16px;border-bottom:1px solid #cbd2cb;display:flex;align-items:center;gap:16px;flex-wrap:wrap}h1{font-size:19px;margin:0}label{font-weight:600}select{font:inherit;padding:7px;border:1px solid #8c978d;border-radius:4px;background:white;color:inherit}a{color:#146c60;text-underline-offset:3px}a:focus-visible,select:focus-visible{outline:3px solid #a15c00;outline-offset:2px}
+.comparison{display:grid;grid-template-columns:repeat(3,minmax(320px,1fr));flex:1;min-height:0;overflow-x:auto}.pane{display:flex;flex-direction:column;min-width:0;min-height:0;background:white}.pane+ .pane{border-left:2px solid #8c978d}.pane-header{padding:10px 16px;border-bottom:1px solid #cbd2cb;display:flex;align-items:flex-start;justify-content:space-between;gap:12px}.version{margin:0;font-size:15px}.identity{font-size:12px;color:#4b554d;margin:3px 0 0}.pane-header a{white-space:nowrap}iframe{display:block;width:100%;flex:1;min-height:0;border:0;background:white}.note{font-size:13px;margin:0}
+.comparison.source-hidden{grid-template-columns:repeat(2,minmax(440px,1fr))}.source-hidden .source-pane{display:none}.source-toggle{font-weight:normal;font-size:14px}
+</style>
+</head>
+<body>
+<header><h1>Chapter 17 comparison</h1><label for="lesson">Lesson</label><select id="lesson"><option value="02">02 · Mendel’s experiments and segregation</option></select><label class="source-toggle"><input id="show-source" type="checkbox" checked> Show original PowerPoint</label><a href="http://127.0.0.1:57200/?lesson=02" target="_blank" rel="noopener">Earlier original comparison</a></header>
+<main class="comparison" aria-label="Trial v0.3.0, teacher-led v0.4.0 and original PowerPoint side by side">
+<section class="pane" aria-labelledby="older-label"><div class="pane-header"><div><h2 class="version" id="older-label">Previous · trial v0.3.0</h2><p class="identity">Current lesson 2 baseline</p></div><a id="older-link" href="http://127.0.0.1:57211/index.html#lesson-02" target="_blank" rel="noopener">Open full width</a></div><iframe id="older" title="Previous v0.3.0 lesson 02" src="http://127.0.0.1:57211/index.html#lesson-02"></iframe></section>
+<section class="pane" aria-labelledby="latest-label"><div class="pane-header"><div><h2 class="version" id="latest-label">New · teacher-led trial v0.4.0</h2><p class="identity">Lesson 2 teaching revision · awaiting Dean’s review</p></div><a id="latest-link" href="http://127.0.0.1:57212/index.html#lesson-02" target="_blank" rel="noopener">Open full width</a></div><iframe id="latest" title="New v0.4.0 lesson 02" src="http://127.0.0.1:57212/index.html#lesson-02"></iframe></section>
+<section class="pane source-pane" aria-labelledby="source-label"><div class="pane-header"><div><h2 class="version" id="source-label">Source · original PowerPoint</h2><p class="identity">Lesson 2 slide groups · complete 114-slide deck downloadable</p></div><a id="source-link" href="source/viewer.html?lesson=02" target="_blank" rel="noopener">Open full width</a></div><iframe id="source" title="Original PowerPoint for lesson 02" src="source/viewer.html?lesson=02"></iframe></section>
+</main>
+<script>
+const lesson=document.getElementById('lesson');
+function showLesson(value){
+ const number='02';lesson.value=number;
+ for(const [name,port,label] of [['older',57211,'Previous v0.3.0'],['latest',57212,'New v0.4.0']]){
+  const url=`http://127.0.0.1:${port}/index.html#lesson-${number}`;
+  const frame=document.getElementById(name);if(frame.getAttribute('src')!==url)frame.src=url;
+  frame.title=`${label} lesson ${number}`;document.getElementById(`${name}-link`).href=url;
+ }
+ const sourceUrl=`source/viewer.html?lesson=${number}`;const source=document.getElementById('source');if(source.getAttribute('src')!==sourceUrl)source.src=sourceUrl;source.title=`Original PowerPoint for lesson ${number}`;document.getElementById('source-link').href=sourceUrl;
+ const url=new URL(location.href);url.searchParams.set('lesson',number);history.replaceState(null,'',url);
+}
+document.getElementById('show-source').addEventListener('change',event=>document.querySelector('.comparison').classList.toggle('source-hidden',!event.target.checked));
+lesson.addEventListener('change',()=>showLesson(lesson.value));showLesson(new URL(location.href).searchParams.get('lesson'));
+</script>
+</body>
+</html>

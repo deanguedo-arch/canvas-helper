@@ -1,0 +1,53 @@
+{
+  "staticChecks": [
+    {
+      "lesson": 12,
+      "result": "PASS bounded static checks",
+      "words": 3178,
+      "outerBlockCount": 4,
+      "uniqueIds": 7,
+      "tables": 4,
+      "localImagesExist": 2,
+      "newPracticePrompts": [
+        "ch17-rem-v010-l12-phase",
+        "ch17-rem-v010-l12-tester",
+        "ch17-rem-v010-l12-evidence"
+      ],
+      "requiredAndGuidedPromptTextInManuscript": true,
+      "allOptionalSourceTextInManuscript": true,
+      "originalParagraphEditKeysRetained": true,
+      "allVocabularyIdsVerified": true
+    },
+    {
+      "lesson": 13,
+      "result": "PASS bounded static checks",
+      "words": 4090,
+      "outerBlockCount": 4,
+      "uniqueIds": 8,
+      "tables": 3,
+      "localImagesExist": 2,
+      "newPracticePrompts": [
+        "ch17-rem-v010-l13-fraction",
+        "ch17-rem-v010-l13-order",
+        "ch17-rem-v010-l13-limits",
+        "ch17-rem-v010-l13-transfer"
+      ],
+      "requiredAndGuidedPromptTextInManuscript": true,
+      "allOptionalSourceTextInManuscript": true,
+      "originalParagraphEditKeysRetained": true,
+      "allVocabularyIdsVerified": true
+    }
+  ],
+  "notTested": [
+    "Full native browser layout",
+    "keyboard",
+    "save and resume",
+    "SCORM",
+    "Brightspace",
+    "native reader links",
+    "video playback",
+    "external labeling PNGs",
+    "external textbook crop assets"
+  ],
+  "acceptance": "Author structural/content audit only; not teacher approval."
+}

@@ -1,0 +1,119 @@
+{
+  "artifact": "Biology30_CH17_Source_Assessment_Trial_v0.3.0",
+  "boundedRoutes": [
+    "lesson-02",
+    "lesson-05"
+  ],
+  "authoredContent": "complete",
+  "reviewDefinition": "Independent here means a separate assistant review of the root-authored learner material, not human or external specialist certification.",
+  "reviews": [
+    {
+      "scopeId": "source_preflight",
+      "status": "Complete within supplied-file scope",
+      "actualScope": "Actual original archives/manifest/binding and selected integrated baseline;235 manifest entries plus17 extra source members, original114-slide PPTX/38-page PDF and all supplied standards; targeted exact Chapter11 sources.",
+      "record": "evidence/source-preflight/CURRENT_SOURCE_GATE.json",
+      "recordBytes": 9108,
+      "recordSha256": "3a357972531902775765b3b3e36bb77485da50faea57b6c18c95b0c468e8a510",
+      "limit": "Source verification, not a complete114-slide science certification."
+    },
+    {
+      "scopeId": "author_self_review",
+      "status": "Complete",
+      "actualScope": "Full two-lesson teaching, four optional paths, four new required items and protected companions; purposeful sequencing, prerequisite sufficiency and source-to-preview Unicode repair.",
+      "record": "reviews/AUTHOR_SELF_REVIEW.md",
+      "recordBytes": 8167,
+      "recordSha256": "73785e1e57a307da5115566c087fa40dc962ec3c3bcd4714927377db9f35333f",
+      "limit": "Substantive author reviewed own work; not independent acceptance."
+    },
+    {
+      "scopeId": "independent_source_science",
+      "status": "Complete; no consequential repair requested",
+      "actualScope": "Both complete fragments, all12 tables, four optional prompts/hints/models, all8 selected required items; original PPT/textbook locators and bounded fresh pixels.",
+      "record": "reviews/INDEPENDENT_SOURCE_SCIENCE_REVIEW.md",
+      "recordBytes": 5464,
+      "recordSha256": "33e11d1aab18bbbee35299ad0c802529f9e025dfce18692c61678ffb43e34c45",
+      "limit": "Separate assistant reviewer from author; not an external specialist."
+    },
+    {
+      "scopeId": "independent_quantitative",
+      "status": "Complete; all enumerated values agree",
+      "actualScope": "Twelve crosses/models, all36 displayed genotype cells, genotype/phenotype groups, source counts, inverse constraints, expected counts and all new keys.",
+      "record": "reviews/INDEPENDENT_QUANTITATIVE_REVIEW.md",
+      "recordBytes": 3290,
+      "recordSha256": "e6dceec8b531a59380278e948c95c8a94d00bf0e5d3b9352b785127f99131c69",
+      "limit": "Same independent reviewer as source/science, in a separate scope; not a second person."
+    },
+    {
+      "scopeId": "independent_ppt_method",
+      "status": "Complete; no method loss found",
+      "actualScope": "Both complete candidate fragments and four replacements compared against actual Kinch13–25/35–48 method evidence; source sequence and explicit qualifications.",
+      "record": "evidence/source-review/ppt-method/CURRENT_PPT_METHOD_REVIEW.md",
+      "recordBytes": 10530,
+      "recordSha256": "840f0628b5b3e6775904fb69c8ae43ac7aa223ab1872ea8a1a96a8ea12ccacc8",
+      "limit": "Additional bounded subagent review; not whole-deck or external acceptance."
+    },
+    {
+      "scopeId": "independent_instructional",
+      "status": "Complete; no consequential defect remains within scope",
+      "actualScope": "Both complete teaching bodies, all four optional paths, eight current required items and separated solutions; actual standards/exemplar functions, freshness, prerequisite jumps, hidden-feedback dependence, repetition and current read-copy delta.",
+      "record": "reviews/INDEPENDENT_INSTRUCTIONAL_REVIEW.md",
+      "recordBytes": 17314,
+      "recordSha256": "a6f7a34f65ae6296babcad6696b27742441fad13ec334964d21119f7a5280eed",
+      "limit": "Separate assistant review, not Dean acceptance or visual/browser testing."
+    },
+    {
+      "scopeId": "independent_native_contract",
+      "status": "Complete; static contracts agree",
+      "actualScope": "Ten disjoint owner-bound edits; both assessment representations;60 other required items; unchanged02/unaffected05/three activities, note controls/titles, figure, raw copies, literal UTF-8 preview parity.",
+      "record": "reviews/INDEPENDENT_NATIVE_CONTRACT_REVIEW.md",
+      "recordBytes": 2882,
+      "recordSha256": "0a700970e98e1cc2da572a29caf2cb4308d1f555eb18e887d79b9dfbdfadf6e0",
+      "limit": "Static source/artifact inspection; no actual save/history/unlock/runtime execution."
+    },
+    {
+      "scopeId": "assembled_consistency",
+      "status": "Complete;99 recorded static comparisons agree",
+      "actualScope": "Full corrected manuscripts and reading-copy text, all8 prompts/teacher solutions, four optional interfaces, tables/math and exact exemplar/block records.",
+      "record": "reviews/RECORDS_ASSEMBLED_REVIEW.md",
+      "recordBytes": 9036,
+      "recordSha256": "30edae19a1f67c79900af0079b3b068c0b26f03f8761bc92759e45234b659cde",
+      "limit": "Separate reader of root learner content; that reviewer also authored the administrative records, so record consistency is not presented as outside review of their own prose."
+    },
+    {
+      "scopeId": "assembly_file_checks",
+      "status": "Complete for current candidate",
+      "actualScope": "Byte bounds, native templates, unchanged complements/raw-before evidence, full-word/feedback retention, Unicode and isolated reading-style parity.",
+      "record": "evidence/ASSEMBLY_STATIC_CHECK.json",
+      "recordBytes": 8527,
+      "recordSha256": "54be1a51d0458f46f1df2fbf91bc306cf2ac5c52ddb3381a806fa583bbfa9854",
+      "limit": "Assembler self-checks plus separate reviewer checks; not native browser QA."
+    }
+  ],
+  "notPerformedOrPending": {
+    "externalSpecialistReview": "not performed",
+    "deanExactTeachingAndAssessmentAcceptance": "pending",
+    "canonicalCourseEdits": "not performed",
+    "integration": "not performed",
+    "nativeRuntimeBrowserQA": "not run",
+    "desktopNarrowKeyboardPrintRendering": "not verified",
+    "localReceiptOrBrowserDownload": "not verified",
+    "wholeChapterNewReviewOrRegeneration": "not performed in this bounded trial",
+    "chapter19Calibration": "not performed",
+    "brightspaceCertification": "not performed",
+    "standardPromotion": "not performed",
+    "deploymentRelease": "not performed"
+  },
+  "resolvedFindings": {
+    "sourceZipIdentity": "User correction to ddc02a762cdca9718867c3992850a766a5b0b97e0ce9614ffbf958d74667fc20 verified; stale d6b089 note superseded.",
+    "SRC-BOUND-01": "Original tomato four-group method restored; both old directly overlapping required responses replaced with different taught demands; dependent optional task repaired.",
+    "SRC-BOUND-02": "Direct required pea category replaced by a new requested grouping; original formative source-bank overlap remains disclosed.",
+    "previewUnicode": "Only derivative previews initially misdecoded two quoted prompts. Repaired by explicit UTF-8; all8 final prompts/options compare directly with authoritative source strings; native payloads were never affected."
+  },
+  "remainingLimits": [
+    "Shared methods and exposed component probabilities are intentional; no blind-assessment claim.",
+    "Four protected selected required items and original optional practice remain unchanged, not newly certified independent.",
+    "Original-source typos/terminology outside authorized edits remain preserved and documented.",
+    "Missing full daily plans, mixed UnitC tests, intentionally absent parent archive and missing authority binaries remain unclaimed; cached authority is dated.",
+    "Same-ID semantics require the user-directed later fresh isolated origin without old-state migration."
+  ]
+}

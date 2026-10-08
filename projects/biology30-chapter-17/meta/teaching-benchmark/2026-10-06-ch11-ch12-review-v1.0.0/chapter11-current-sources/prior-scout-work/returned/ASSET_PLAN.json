@@ -1,0 +1,2561 @@
+{
+  "schema_version": "1.0.0",
+  "scope": "Chapter11 manuscript placement and asset specifications; not finished new art, course packaging or asset approval",
+  "general_rule": "Original native paths/answer art are authoritative at integration. Decoded review assets allow this static handoff to be read but are not a font/reader/runtime transplant. Any art correction needs separate Dean approval and exact source-compatible labels.",
+  "visual_assets": [
+    {
+      "asset_id": "CH11-EXISTING-01",
+      "existing_path": "assets/source/integrated-neuron.png",
+      "native_path_status": "referenced by hash-pinned native HTML; original sibling binary not supplied in baseline ZIP",
+      "review_representation": {
+        "review_path": "review-assets/integrated-neuron.webp",
+        "bytes": 236556,
+        "sha256": "c2aadb86cb01f3f3258e685a82b34e0e623bba7370cf6162c409efb503ced3e5"
+      },
+      "review_representation_origin": "decoded from full exemplar; review only, not an approved substitute for original art",
+      "lesson_id": "lesson-02",
+      "placement": {
+        "section_id": "pro-l02-structure",
+        "question_id": null,
+        "native_edit_key": "p3-integrated-41",
+        "instruction": "Retain in exact manuscript sequence with the accompanying read-the-figure explanation."
+      },
+      "structures_and_labels": [
+        "dendrites",
+        "soma (cell body)",
+        "nucleus",
+        "continuous axon",
+        "myelin sheath",
+        "nodes of Ranvier",
+        "axon terminals",
+        "Schwann cell (PNS)",
+        "oligodendrocyte (CNS)"
+      ],
+      "arrows_boundaries_and_legend": "Receiving branches → cell body/axon origin → continuous axon → terminal branches. Myelin wraps the axon; the axon itself must not be broken at nodes. Glial inset differentiates peripheral and central myelin makers.",
+      "scientific_constraints": "Typical multipolar neuron only; do not infer every sensory neuron has this shape or that only myelinated neurons can regenerate. Existing image is an explanatory model, not microscopic evidence.",
+      "caption_exact": "Read from dendrites to axon terminals. This is a simplified illustration of a typical multipolar neuron, not every neuron shape.",
+      "accessible_description_exact": "A labelled neuron showing dendrites, soma, nucleus, axon, myelin sheath, nodes of Ranvier, axon terminals, and supporting glial cells.",
+      "source_refs": [
+        {
+          "source": "textbook",
+          "printed_page": 368,
+          "pdf_page": 9
+        },
+        {
+          "source": "textbook",
+          "printed_page": 372,
+          "pdf_page": 13
+        },
+        {
+          "source": "textbook",
+          "printed_page": 378,
+          "pdf_page": 19
+        },
+        {
+          "source": "teacher-deck",
+          "slide": 7
+        },
+        {
+          "source": "teacher-deck",
+          "slide": 9
+        },
+        {
+          "source": "teacher-deck",
+          "slide": 10
+        },
+        {
+          "source": "teacher-deck",
+          "slide": 12
+        }
+      ],
+      "inspection": {
+        "pixels_reviewed": true,
+        "method": "decoded raster or SVG rendered for static image inspection; no imported HTML/runtime executed",
+        "acceptance": "not Dean-approved artwork or a complete scientific acceptance"
+      },
+      "native_assessment_asset": false,
+      "issue_ids": [
+        "C05",
+        "C06"
+      ],
+      "status": "retain with explicit issue; proposed replacement specification only"
+    },
+    {
+      "asset_id": "CH11-EXISTING-02",
+      "existing_path": "assets/source/integrated-myelin.png",
+      "native_path_status": "referenced by hash-pinned native HTML; original sibling binary not supplied in baseline ZIP",
+      "review_representation": {
+        "review_path": "review-assets/integrated-myelin.webp",
+        "bytes": 220942,
+        "sha256": "6bf2024f44cf6aa71e06854dd20353f37af5244871c9cf7692353abf6e05fe18"
+      },
+      "review_representation_origin": "decoded from full exemplar; review only, not an approved substitute for original art",
+      "lesson_id": "lesson-02",
+      "placement": {
+        "section_id": "pro-l02-myelin",
+        "question_id": null,
+        "native_edit_key": "p3-integrated-77",
+        "instruction": "Retain in exact manuscript sequence with the accompanying read-the-figure explanation."
+      },
+      "structures_and_labels": [
+        "unmyelinated axon",
+        "myelinated axon",
+        "myelin sheath",
+        "node of Ranvier",
+        "continuous conduction",
+        "saltatory conduction"
+      ],
+      "arrows_boundaries_and_legend": "Compare equal route lengths: local regeneration along unmyelinated membrane versus concentrated regeneration at nodes in a myelinated axon. Show a continuous underlying axon and current passing between nodes.",
+      "scientific_constraints": "No implication of a particle jumping empty space, teleporting over axon segments or a new stronger impulse; relative speed is qualitative, not a measurement.",
+      "caption_exact": "Compare where the impulse is regenerated. The arrows are a shorthand: the axon remains continuous beneath the sheath. Schwann cells shown here form peripheral myelin; CNS myelin is made by oligodendrocytes.",
+      "accessible_description_exact": "A comparison of continuous conduction in an unmyelinated axon and saltatory conduction in a myelinated axon.",
+      "source_refs": [
+        {
+          "source": "textbook",
+          "printed_page": 374,
+          "pdf_page": 15
+        },
+        {
+          "source": "textbook",
+          "printed_page": 377,
+          "pdf_page": 18
+        },
+        {
+          "source": "textbook",
+          "printed_page": 378,
+          "pdf_page": 19
+        },
+        {
+          "source": "teacher-deck",
+          "slide": 10
+        },
+        {
+          "source": "teacher-deck",
+          "slide": 12
+        },
+        {
+          "source": "teacher-deck",
+          "slide": 13
+        }
+      ],
+      "inspection": {
+        "pixels_reviewed": true,
+        "method": "decoded raster or SVG rendered for static image inspection; no imported HTML/runtime executed",
+        "acceptance": "not Dean-approved artwork or a complete scientific acceptance"
+      },
+      "native_assessment_asset": false,
+      "issue_ids": [
+        "C05"
+      ],
+      "status": "retain with explicit issue; proposed replacement specification only"
+    },
+    {
+      "asset_id": "CH11-EXISTING-03",
+      "existing_path": "assets/source/integrated-withdrawal.svg",
+      "native_path_status": "referenced by hash-pinned native HTML; original sibling binary not supplied in baseline ZIP",
+      "review_representation": {
+        "review_path": "review-assets/integrated-withdrawal.svg",
+        "bytes": 7407,
+        "sha256": "836f66028c014ecc28aac24ba47f1da345ef559126e5c234d67ece4dc48ddada"
+      },
+      "review_representation_origin": "decoded from full exemplar; review only, not an approved substitute for original art",
+      "lesson_id": "lesson-03",
+      "placement": {
+        "section_id": "pro-l03-reflex",
+        "question_id": null,
+        "native_edit_key": "p3-integrated-130",
+        "instruction": "Retain in exact manuscript sequence with the accompanying read-the-figure explanation."
+      },
+      "structures_and_labels": [
+        "stimulus at skin",
+        "sensory receptor",
+        "sensory neuron",
+        "spinal cord",
+        "interneuron",
+        "motor neuron",
+        "effector muscle",
+        "information toward brain"
+      ],
+      "arrows_boundaries_and_legend": "Solid arrows trace sensory input → spinal integration → motor output; separate dashed route carries information toward brain. Boundaries distinguish peripheral path from spinal CNS integration.",
+      "scientific_constraints": "A simplified spinal withdrawal circuit, not the wiring of every reflex or a spinal route for visual ball avoidance. Keep the separate brain route rather than saying the brain never receives information.",
+      "caption_exact": "Follow the spinal withdrawal circuit, then the separate path toward the brain. This is a simplified pathway, not a scale drawing or the wiring of every reflex.",
+      "accessible_description_exact": "Trace the withdrawal pathway first, then follow the separate route carrying information toward the brain.",
+      "source_refs": [
+        {
+          "source": "textbook",
+          "printed_page": 369,
+          "pdf_page": 10
+        },
+        {
+          "source": "textbook",
+          "printed_page": 370,
+          "pdf_page": 11
+        },
+        {
+          "source": "textbook",
+          "printed_page": 371,
+          "pdf_page": 12
+        },
+        {
+          "source": "teacher-deck",
+          "slide": 15
+        },
+        {
+          "source": "teacher-deck",
+          "slide": 17
+        },
+        {
+          "source": "teacher-deck",
+          "slide": 18
+        },
+        {
+          "source": "teacher-deck",
+          "slide": 20
+        }
+      ],
+      "inspection": {
+        "pixels_reviewed": true,
+        "method": "decoded raster or SVG rendered for static image inspection; no imported HTML/runtime executed",
+        "acceptance": "not Dean-approved artwork or a complete scientific acceptance"
+      },
+      "native_assessment_asset": false,
+      "issue_ids": [
+        "C04"
+      ],
+      "status": "retain with explicit issue; proposed replacement specification only",
+      "literal_svg_text_nodes": [
+        "A withdrawal reflex: follow the pathway",
+        "A spinal circuit can initiate the response before conscious processing is complete.",
+        "Spinal cord (CNS)",
+        "Receptor in skin",
+        "Sensory neuron",
+        "Interneuron",
+        "Motor neuron",
+        "Effector: muscle",
+        "Information also",
+        "travels to the brain.",
+        "Stimulus",
+        "Response: the muscle contracts",
+        "and the hand withdraws.",
+        "Receptor → sensory neuron → interneuron → motor neuron → effector."
+      ]
+    },
+    {
+      "asset_id": "CH11-EXISTING-04",
+      "existing_path": "assets/source/chapter11-resting-potential-0.png",
+      "native_path_status": "referenced by hash-pinned native HTML; original sibling binary not supplied in baseline ZIP",
+      "review_representation": {
+        "review_path": "review-assets/chapter11-resting-potential-0.webp",
+        "bytes": 233468,
+        "sha256": "a3395181f76a38b4f1906c1b28fb5e2d5dd228bf63ad72db8d0ae1dfdb12a31a"
+      },
+      "review_representation_origin": "decoded from full exemplar; review only, not an approved substitute for original art",
+      "lesson_id": "lesson-04",
+      "placement": {
+        "section_id": "pro-l04-gradients",
+        "question_id": null,
+        "native_edit_key": "p3-chapter-140",
+        "instruction": "Retain in exact manuscript sequence with the accompanying read-the-figure explanation."
+      },
+      "structures_and_labels": [
+        "extracellular fluid",
+        "cytoplasm",
+        "cell membrane",
+        "Na+",
+        "K+",
+        "large negative proteins",
+        "leak channels",
+        "Na+/K+ pump",
+        "ATP",
+        "3 Na+ out",
+        "2 K+ in",
+        "−70 mV"
+      ],
+      "arrows_boundaries_and_legend": "Membrane separates inside from outside. Pump arrows move three sodium ions out and two potassium ions in; leak-channel arrows depict passive movement. Voltage is inside relative to outside. Colour/shape legend distinguishes ions.",
+      "scientific_constraints": "Do not equate unequal Na+/K+ concentrations with the entire fluid carrying a huge net charge; pump maintains gradients and is not the sole instantaneous source of voltage. Membrane is selectively permeable; avoid the source’s trapped-chloride universal claim.",
+      "caption_exact": "Figure 6. Use the diagram to connect ion distribution, leak channels, the sodium–potassium pump, and the resting potential of about −70 mV.",
+      "accessible_description_exact": "A resting neuron membrane showing Na+ and K+ distribution, leak channels, the sodium-potassium pump, and a resting potential of −70 mV.",
+      "source_refs": [
+        {
+          "source": "textbook",
+          "printed_page": 373,
+          "pdf_page": 14
+        },
+        {
+          "source": "textbook",
+          "printed_page": 374,
+          "pdf_page": 15
+        },
+        {
+          "source": "teacher-deck",
+          "slide": 22
+        },
+        {
+          "source": "teacher-deck",
+          "slide": 23
+        }
+      ],
+      "inspection": {
+        "pixels_reviewed": true,
+        "method": "decoded raster or SVG rendered for static image inspection; no imported HTML/runtime executed",
+        "acceptance": "not Dean-approved artwork or a complete scientific acceptance"
+      },
+      "native_assessment_asset": false,
+      "issue_ids": [
+        "C07"
+      ],
+      "status": "retain with explicit issue; proposed replacement specification only"
+    },
+    {
+      "asset_id": "CH11-EXISTING-05",
+      "existing_path": "assets/source/chapter11-action-potentials-0.png",
+      "native_path_status": "referenced by hash-pinned native HTML; original sibling binary not supplied in baseline ZIP",
+      "review_representation": {
+        "review_path": "review-assets/chapter11-action-potentials-0.webp",
+        "bytes": 266686,
+        "sha256": "ffab790d54bde2ae6a056240d1c185366c02ee161f8a4249ea82ebacebd7db48"
+      },
+      "review_representation_origin": "decoded from full exemplar; review only, not an approved substitute for original art",
+      "lesson_id": "lesson-05",
+      "placement": {
+        "section_id": "pro-l05-graph",
+        "question_id": null,
+        "native_edit_key": "p3-chapter-207",
+        "instruction": "Retain in exact manuscript sequence with the accompanying read-the-figure explanation."
+      },
+      "structures_and_labels": [
+        "time (ms)",
+        "membrane potential (mV)",
+        "resting −70 mV",
+        "threshold −55 mV",
+        "peak near +30 mV",
+        "depolarization",
+        "repolarization",
+        "hyperpolarization",
+        "Na+ inward",
+        "K+ outward",
+        "refractory interval"
+      ],
+      "arrows_boundaries_and_legend": "Read left-to-right time at one membrane region. Rising phase accompanies Na+ entry; falling phase accompanies K+ exit. Channel-event panels correspond to the same phases, not to a moving physical wave depicted by the graph axis.",
+      "scientific_constraints": "Illustrative values vary: textbook uses roughly +35 mV and teacher slide +40 mV. Do not change a native key to match this artwork or imply Na+/K+ bulk concentrations reverse. Absolute/relative timing requires the text qualification.",
+      "caption_exact": "Figure 7. Follow membrane-potential changes through depolarization, repolarization, and hyperpolarization, then connect them with membrane events.",
+      "accessible_description_exact": "An action potential graph and membrane-event sequence showing depolarization, repolarization, hyperpolarization, and refractory period.",
+      "source_refs": [
+        {
+          "source": "textbook",
+          "printed_page": 376,
+          "pdf_page": 17
+        },
+        {
+          "source": "textbook",
+          "printed_page": 377,
+          "pdf_page": 18
+        },
+        {
+          "source": "teacher-deck",
+          "slide": 24
+        },
+        {
+          "source": "teacher-deck",
+          "slide": 26
+        },
+        {
+          "source": "teacher-deck",
+          "slide": 27
+        },
+        {
+          "source": "teacher-deck",
+          "slide": 29
+        }
+      ],
+      "inspection": {
+        "pixels_reviewed": true,
+        "method": "decoded raster or SVG rendered for static image inspection; no imported HTML/runtime executed",
+        "acceptance": "not Dean-approved artwork or a complete scientific acceptance"
+      },
+      "native_assessment_asset": false,
+      "issue_ids": [
+        "C07",
+        "C08",
+        "C27"
+      ],
+      "status": "retain with explicit issue; proposed replacement specification only"
+    },
+    {
+      "asset_id": "CH11-EXISTING-06",
+      "existing_path": "assets/source/chapter11-action-potentials-1.svg",
+      "native_path_status": "referenced by hash-pinned native HTML; original sibling binary not supplied in baseline ZIP",
+      "review_representation": {
+        "review_path": "review-assets/chapter11-action-potentials-1.svg",
+        "bytes": 3669,
+        "sha256": "df424718a3ed531b03792b5d93c6c97bacd9cbed9cfa61f3beef6d88391a4f24"
+      },
+      "review_representation_origin": "decoded from full exemplar; review only, not an approved substitute for original art",
+      "lesson_id": "lesson-05",
+      "placement": {
+        "section_id": "pro-l05-intensity",
+        "question_id": null,
+        "native_edit_key": "p3-chapter-230",
+        "instruction": "Retain in exact manuscript sequence with the accompanying read-the-figure explanation."
+      },
+      "structures_and_labels": [
+        "weak stimulus",
+        "strong stimulus",
+        "equal time interval",
+        "action potential"
+      ],
+      "arrows_boundaries_and_legend": "Two equal horizontal time spans contain equal-height spikes but different counts. Spike height encodes amplitude; spacing/count in the same interval encodes frequency.",
+      "scientific_constraints": "The SVG is qualitative. Do not use its spike count as the 100 ms/2/5 worked numeric dataset; do not infer changed propagation speed or stronger individual APs.",
+      "caption_exact": "Figure 8. Compare equal time intervals. The number of impulses changes while the height of each action potential remains the same.",
+      "accessible_description_exact": "Compare equal time intervals. The number of impulses changes while the height of each action potential remains the same.",
+      "source_refs": [
+        {
+          "source": "textbook",
+          "printed_page": 376,
+          "pdf_page": 17
+        },
+        {
+          "source": "textbook",
+          "printed_page": 377,
+          "pdf_page": 18
+        },
+        {
+          "source": "textbook",
+          "printed_page": 403,
+          "pdf_page": 44
+        },
+        {
+          "source": "teacher-deck",
+          "slide": 25
+        }
+      ],
+      "inspection": {
+        "pixels_reviewed": true,
+        "method": "decoded raster or SVG rendered for static image inspection; no imported HTML/runtime executed",
+        "acceptance": "not Dean-approved artwork or a complete scientific acceptance"
+      },
+      "native_assessment_asset": false,
+      "issue_ids": [
+        "C16"
+      ],
+      "status": "retain with explicit issue; proposed replacement specification only",
+      "literal_svg_text_nodes": [
+        "All-or-none signalling: frequency is not amplitude",
+        "Compare the same neuron over equal time intervals.",
+        "Lower firing frequency",
+        "Higher firing frequency",
+        "Time",
+        "Individual action potentials remain the same size. Recruitment means activating more neurons."
+      ]
+    },
+    {
+      "asset_id": "CH11-EXISTING-07",
+      "existing_path": "assets/source/chapter11-synapses-0.png",
+      "native_path_status": "referenced by hash-pinned native HTML; original sibling binary not supplied in baseline ZIP",
+      "review_representation": {
+        "review_path": "review-assets/chapter11-synapses-0.webp",
+        "bytes": 368308,
+        "sha256": "acc1a402e3e0f8d431b5c7eebcf55b0741ff93bef52d863d6059a7fb34819aa1"
+      },
+      "review_representation_origin": "decoded from full exemplar; review only, not an approved substitute for original art",
+      "lesson_id": "lesson-06",
+      "placement": {
+        "section_id": "pro-l06-sequence",
+        "question_id": null,
+        "native_edit_key": "p3-chapter-349",
+        "instruction": "Retain in exact manuscript sequence with the accompanying read-the-figure explanation."
+      },
+      "structures_and_labels": [
+        "presynaptic axon terminal",
+        "synaptic vesicles",
+        "Ca2+ channel",
+        "Ca2+ influx",
+        "neurotransmitter",
+        "synaptic cleft",
+        "postsynaptic membrane",
+        "receptor",
+        "neuromuscular junction",
+        "muscle fibre",
+        "acetylcholine"
+      ],
+      "arrows_boundaries_and_legend": "At each chemical synapse: AP arrival → terminal Ca2+ entry → vesicle fusion/release → diffusion across cleft → receptor binding on a separate cell. NMJ has muscle rather than another neuron as target.",
+      "scientific_constraints": "Axon terminal, not dendrite, releases transmitter at the NMJ. Ca2+ belongs at presynaptic release step. Cleft crossing is chemical diffusion, not an action potential jumping; receptor activation is not automatically a postsynaptic AP.",
+      "caption_exact": "Figure 9. Trace chemical transmission at a neuron-to-neuron synapse and compare it with a neuromuscular junction.",
+      "accessible_description_exact": "Chemical transmission at a neuron-to-neuron synapse compared with a neuromuscular junction.",
+      "source_refs": [
+        {
+          "source": "textbook",
+          "printed_page": 379,
+          "pdf_page": 20
+        },
+        {
+          "source": "textbook",
+          "printed_page": 380,
+          "pdf_page": 21
+        },
+        {
+          "source": "textbook",
+          "printed_page": 382,
+          "pdf_page": 23
+        },
+        {
+          "source": "teacher-deck",
+          "slide": 31
+        },
+        {
+          "source": "teacher-deck",
+          "slide": 32
+        },
+        {
+          "source": "teacher-deck",
+          "slide": 33
+        },
+        {
+          "source": "teacher-deck",
+          "slide": 34
+        }
+      ],
+      "inspection": {
+        "pixels_reviewed": true,
+        "method": "decoded raster or SVG rendered for static image inspection; no imported HTML/runtime executed",
+        "acceptance": "not Dean-approved artwork or a complete scientific acceptance"
+      },
+      "native_assessment_asset": false,
+      "issue_ids": [
+        "C10"
+      ],
+      "status": "retain with explicit issue; proposed replacement specification only"
+    },
+    {
+      "asset_id": "CH11-EXISTING-08",
+      "existing_path": "assets/source/chapter11-synapses-1.png",
+      "native_path_status": "referenced by hash-pinned native HTML; original sibling binary not supplied in baseline ZIP",
+      "review_representation": {
+        "review_path": "review-assets/chapter11-synapses-1.webp",
+        "bytes": 310148,
+        "sha256": "3272306fec2bd4e4ff2bfd72ed60826410c0dfae2503aae8c120d63de7788804"
+      },
+      "review_representation_origin": "decoded from full exemplar; review only, not an approved substitute for original art",
+      "lesson_id": "lesson-06",
+      "placement": {
+        "section_id": "pro-l06-excitation",
+        "question_id": null,
+        "native_edit_key": "p3-chapter-358",
+        "instruction": "Retain in exact manuscript sequence with the accompanying read-the-figure explanation."
+      },
+      "structures_and_labels": [
+        "excitatory synapse",
+        "inhibitory synapse",
+        "postsynaptic membrane",
+        "depolarization",
+        "hyperpolarization",
+        "threshold",
+        "summation",
+        "axon hillock"
+      ],
+      "arrows_boundaries_and_legend": "Contrast postsynaptic changes toward/away from threshold; integration occurs before a conditional AP at the axon trigger region. Local responses and the propagated spike must be visually distinguishable.",
+      "scientific_constraints": "CURRENT LIMIT: some plotted local numerical curves/threshold lines can be misread as a full axonal AP or as threshold changing. Use existing text qualification. Any redraw must separate local EPSP/IPSP axes from the axonal AP; do not use current schematic numbers for quantitative marking.",
+      "caption_exact": "Figure 10. Compare EPSPs and IPSPs, then relate them to temporal and spatial summation at the axon hillock.",
+      "accessible_description_exact": "Excitatory and inhibitory synapses compared with temporal and spatial summation at the axon hillock.",
+      "source_refs": [
+        {
+          "source": "textbook",
+          "printed_page": 379,
+          "pdf_page": 20
+        },
+        {
+          "source": "textbook",
+          "printed_page": 380,
+          "pdf_page": 21
+        },
+        {
+          "source": "textbook",
+          "printed_page": 382,
+          "pdf_page": 23
+        },
+        {
+          "source": "teacher-deck",
+          "slide": 34
+        },
+        {
+          "source": "teacher-deck",
+          "slide": 35
+        },
+        {
+          "source": "teacher-deck",
+          "slide": 36
+        },
+        {
+          "source": "teacher-deck",
+          "slide": 37
+        }
+      ],
+      "inspection": {
+        "pixels_reviewed": true,
+        "method": "decoded raster or SVG rendered for static image inspection; no imported HTML/runtime executed",
+        "acceptance": "not Dean-approved artwork or a complete scientific acceptance"
+      },
+      "native_assessment_asset": false,
+      "issue_ids": [
+        "C09",
+        "C19",
+        "C24"
+      ],
+      "status": "retain with explicit issue; proposed replacement specification only"
+    },
+    {
+      "asset_id": "CH11-EXISTING-09",
+      "existing_path": "assets/source/chapter11-synapses-2.svg",
+      "native_path_status": "referenced by hash-pinned native HTML; original sibling binary not supplied in baseline ZIP",
+      "review_representation": {
+        "review_path": "review-assets/chapter11-synapses-2.svg",
+        "bytes": 7125,
+        "sha256": "7adc6e108d028d530b24f4cb016ada506c0e23c22bc66460a036f00e5fa38640"
+      },
+      "review_representation_origin": "decoded from full exemplar; review only, not an approved substitute for original art",
+      "lesson_id": "lesson-06",
+      "placement": {
+        "section_id": "pro-l06-summation",
+        "question_id": null,
+        "native_edit_key": "p3-chapter-367",
+        "instruction": "Retain in exact manuscript sequence with the accompanying read-the-figure explanation."
+      },
+      "structures_and_labels": [
+        "spatial summation",
+        "temporal summation",
+        "different input neurons",
+        "repeated input",
+        "postsynaptic neuron",
+        "threshold"
+      ],
+      "arrows_boundaries_and_legend": "Spatial: several presynaptic sources converge close in time. Temporal: repeated input from one source overlaps before the prior effect fades. Both lead toward a threshold comparison.",
+      "scientific_constraints": "Do not imply that small APs merge into a larger AP; it is postsynaptic effects that sum. Distinguish this schematic from the explicitly labelled additive classroom-voltage model.",
+      "caption_exact": "Figure 11. Spatial summation combines different inputs; temporal summation combines repeated inputs close together in time.",
+      "accessible_description_exact": "Spatial summation combines different inputs; temporal summation combines repeated inputs close together in time.",
+      "source_refs": [
+        {
+          "source": "textbook",
+          "printed_page": 379,
+          "pdf_page": 20
+        },
+        {
+          "source": "textbook",
+          "printed_page": 380,
+          "pdf_page": 21
+        },
+        {
+          "source": "teacher-deck",
+          "slide": 36
+        },
+        {
+          "source": "teacher-deck",
+          "slide": 37
+        }
+      ],
+      "inspection": {
+        "pixels_reviewed": true,
+        "method": "decoded raster or SVG rendered for static image inspection; no imported HTML/runtime executed",
+        "acceptance": "not Dean-approved artwork or a complete scientific acceptance"
+      },
+      "native_assessment_asset": false,
+      "issue_ids": [
+        "C09"
+      ],
+      "status": "retain with explicit issue; proposed replacement specification only",
+      "literal_svg_text_nodes": [
+        "Summation: combining incoming signals",
+        "Spatial summation combines different inputs. Temporal summation combines closely spaced inputs.",
+        "Spatial summation",
+        "Temporal summation",
+        "Several presynaptic neurons",
+        "provide input at the same time.",
+        "One input fires repeatedly",
+        "before its earlier effects fade.",
+        "Combined",
+        "effect",
+        "Combined",
+        "effect",
+        "The net excitatory and inhibitory effects determine whether the postsynaptic neuron reaches threshold."
+      ]
+    },
+    {
+      "asset_id": "CH11-EXISTING-10",
+      "existing_path": "assets/source/chapter11-drugs-0.svg",
+      "native_path_status": "referenced by hash-pinned native HTML; original sibling binary not supplied in baseline ZIP",
+      "review_representation": {
+        "review_path": "review-assets/chapter11-drugs-0.svg",
+        "bytes": 4748,
+        "sha256": "dff645618ef5a14914577fff876a299766cbfea8329373c87e5bfede5312be51"
+      },
+      "review_representation_origin": "decoded from full exemplar; review only, not an approved substitute for original art",
+      "lesson_id": "lesson-07",
+      "placement": {
+        "section_id": "pro-l07-normal",
+        "question_id": null,
+        "native_edit_key": "p3-chapter-492",
+        "instruction": "Retain in exact manuscript sequence with the accompanying read-the-figure explanation."
+      },
+      "structures_and_labels": [
+        "synthesis/storage",
+        "release",
+        "receptor binding",
+        "clearance",
+        "presynaptic cell",
+        "vesicles",
+        "cleft",
+        "postsynaptic receptor"
+      ],
+      "arrows_boundaries_and_legend": "Four intervention locations identify where the normal sequence changes; arrows follow the normal release/diffusion/binding/removal route, then mark the altered step.",
+      "scientific_constraints": "A drug effect cannot be inferred merely from a stimulus/depressant category; receptor context and target matter. The illustration is not dosage, treatment or exposure guidance.",
+      "caption_exact": "Figure 12. Locate the changed step first, then predict the effect on the signal. Use it to organize the changes that can occur at a synapse.",
+      "accessible_description_exact": "Four steps at which drugs can alter synaptic transmission: synthesis and storage, release, receptor binding, and clearance.",
+      "source_refs": [
+        {
+          "source": "textbook",
+          "printed_page": 379,
+          "pdf_page": 20
+        },
+        {
+          "source": "textbook",
+          "printed_page": 380,
+          "pdf_page": 21
+        },
+        {
+          "source": "textbook",
+          "printed_page": 382,
+          "pdf_page": 23
+        },
+        {
+          "source": "textbook",
+          "printed_page": 383,
+          "pdf_page": 24
+        },
+        {
+          "source": "textbook",
+          "printed_page": 384,
+          "pdf_page": 25
+        },
+        {
+          "source": "teacher-deck",
+          "slide": 40
+        },
+        {
+          "source": "teacher-deck",
+          "slide": 41
+        },
+        {
+          "source": "teacher-deck",
+          "slide": 42
+        }
+      ],
+      "inspection": {
+        "pixels_reviewed": true,
+        "method": "decoded raster or SVG rendered for static image inspection; no imported HTML/runtime executed",
+        "acceptance": "not Dean-approved artwork or a complete scientific acceptance"
+      },
+      "native_assessment_asset": false,
+      "issue_ids": [
+        "C10",
+        "C19"
+      ],
+      "status": "retain with explicit issue; proposed replacement specification only",
+      "literal_svg_text_nodes": [
+        "Drugs can alter different steps of synaptic transmission",
+        "Understand how each mechanism changes communication at a synapse.",
+        "1",
+        "Synthesis and storage",
+        "Less transmitter may be available.",
+        "2",
+        "Release",
+        "More or less transmitter enters the",
+        "cleft.",
+        "3",
+        "Receptor binding",
+        "A drug may mimic a transmitter or",
+        "block its receptor.",
+        "4",
+        "Breakdown or reuptake",
+        "A signal may last longer or end",
+        "sooner.",
+        "Predict the effect from the step that changes. “Stimulant” does not simply mean “more transmitter.”"
+      ]
+    },
+    {
+      "asset_id": "CH11-EXISTING-11",
+      "existing_path": "assets/source/chapter11-drugs-1.png",
+      "native_path_status": "referenced by hash-pinned native HTML; original sibling binary not supplied in baseline ZIP",
+      "review_representation": {
+        "review_path": "review-assets/chapter11-drugs-1.webp",
+        "bytes": 9254,
+        "sha256": "64be53c99f3c8970b9c5be478a111c7394b4bdc81643c8a4f6ab6481867d94e2"
+      },
+      "review_representation_origin": "decoded from full exemplar; review only, not an approved substitute for original art",
+      "lesson_id": "lesson-07",
+      "placement": {
+        "section_id": null,
+        "question_id": "source-review111-q1",
+        "native_edit_key": "p3-chapter-524",
+        "instruction": "Retain in exact manuscript sequence with the accompanying read-the-figure explanation."
+      },
+      "structures_and_labels": [
+        "original letter positions A–H",
+        "original nervous-system tree"
+      ],
+      "arrows_boundaries_and_legend": "Retain all original branch positions and letters for Section11.1 Review Q1; the learner constructs the names.",
+      "scientific_constraints": "Assessment artwork: do not add answer labels, rearrange branches, crop letters or silently remap answers. Exact original sibling asset must be obtained by the integrator; this review contains the exemplar-derived representation.",
+      "caption_exact": "diagram for Section 11.1 Review, question 1. Keep these original labels when answering.",
+      "accessible_description_exact": "Original diagram for Section 11.1 Review, question 1. Keep these original labels when answering.",
+      "source_refs": [
+        {
+          "source": "textbook",
+          "printed_page": 384,
+          "pdf_page": 25
+        },
+        {
+          "source": "teacher-deck",
+          "slide": 44
+        }
+      ],
+      "inspection": {
+        "pixels_reviewed": true,
+        "method": "decoded raster or SVG rendered for static image inspection; no imported HTML/runtime executed",
+        "acceptance": "not Dean-approved artwork or a complete scientific acceptance"
+      },
+      "native_assessment_asset": true,
+      "issue_ids": [],
+      "status": "retain existing source representation; original binary verification deferred"
+    },
+    {
+      "asset_id": "CH11-EXISTING-12",
+      "existing_path": "assets/source/chapter11-drugs-2.png",
+      "native_path_status": "referenced by hash-pinned native HTML; original sibling binary not supplied in baseline ZIP",
+      "review_representation": {
+        "review_path": "review-assets/chapter11-drugs-2.webp",
+        "bytes": 23742,
+        "sha256": "d5b2593ee7004a69daaf06e6c18df8b906e65fefe5c3ac3b11e1a03692ce65ed"
+      },
+      "review_representation_origin": "decoded from full exemplar; review only, not an approved substitute for original art",
+      "lesson_id": "lesson-07",
+      "placement": {
+        "section_id": null,
+        "question_id": "source-review111-q5",
+        "native_edit_key": "p3-chapter-555",
+        "instruction": "Retain in exact manuscript sequence with the accompanying read-the-figure explanation."
+      },
+      "structures_and_labels": [
+        "time (milliseconds)",
+        "membrane potential (mV)",
+        "original markers 1–4"
+      ],
+      "arrows_boundaries_and_legend": "Retain original AP graph and numbered phase markers for Section11.1 Review Q5, including the source’s plotted scale.",
+      "scientific_constraints": "Do not substitute the teaching graph, renumber phases or infer changed whole-cell Na+ concentration from voltage alone.",
+      "caption_exact": "diagram for Section 11.1 Review, question 5. Keep these original labels when answering.",
+      "accessible_description_exact": "Original diagram for Section 11.1 Review, question 5. Keep these original labels when answering.",
+      "source_refs": [
+        {
+          "source": "textbook",
+          "printed_page": 384,
+          "pdf_page": 25
+        },
+        {
+          "source": "teacher-deck",
+          "slide": 24
+        },
+        {
+          "source": "teacher-deck",
+          "slide": 26
+        }
+      ],
+      "inspection": {
+        "pixels_reviewed": true,
+        "method": "decoded raster or SVG rendered for static image inspection; no imported HTML/runtime executed",
+        "acceptance": "not Dean-approved artwork or a complete scientific acceptance"
+      },
+      "native_assessment_asset": true,
+      "issue_ids": [
+        "C07"
+      ],
+      "status": "retain with explicit issue; proposed replacement specification only"
+    },
+    {
+      "asset_id": "CH11-EXISTING-13",
+      "existing_path": "assets/source/chapter11-pns-0.svg",
+      "native_path_status": "referenced by hash-pinned native HTML; original sibling binary not supplied in baseline ZIP",
+      "review_representation": {
+        "review_path": "review-assets/chapter11-pns-0.svg",
+        "bytes": 6995,
+        "sha256": "fbb887d91cc0b11f765420d29b765f9704716bc880858e5c5ab09157d6eb1cf9"
+      },
+      "review_representation_origin": "decoded from full exemplar; review only, not an approved substitute for original art",
+      "lesson_id": "lesson-08",
+      "placement": {
+        "section_id": "pro-l08-organization",
+        "question_id": null,
+        "native_edit_key": "p3-chapter-608",
+        "instruction": "Retain in exact manuscript sequence with the accompanying read-the-figure explanation."
+      },
+      "structures_and_labels": [
+        "nervous system",
+        "CNS",
+        "brain",
+        "spinal cord",
+        "PNS",
+        "sensory pathways",
+        "motor pathways",
+        "somatic",
+        "autonomic",
+        "sympathetic",
+        "parasympathetic"
+      ],
+      "arrows_boundaries_and_legend": "Hierarchy connectors mean “part of,” not travel direction: nervous system splits location-wise, PNS separates input/output, motor output separates somatic/autonomic, and autonomic divides sympathetic/parasympathetic.",
+      "scientific_constraints": "Do not classify all involuntary movement as autonomic or exclude visceral sensory input by copying a different organizational convention without explanation.",
+      "caption_exact": "Figure 13. Read down from nervous system to CNS and PNS, then follow the sensory and motor branches. The autonomic branch divides further into sympathetic and parasympathetic systems.",
+      "accessible_description_exact": "Read down from nervous system to CNS and PNS, then follow the sensory and motor branches. The autonomic branch divides further into sympathetic and parasympathetic systems.",
+      "source_refs": [
+        {
+          "source": "textbook",
+          "printed_page": 367,
+          "pdf_page": 8
+        },
+        {
+          "source": "textbook",
+          "printed_page": 396,
+          "pdf_page": 37
+        },
+        {
+          "source": "textbook",
+          "printed_page": 397,
+          "pdf_page": 38
+        },
+        {
+          "source": "teacher-deck",
+          "slide": 44
+        },
+        {
+          "source": "teacher-deck",
+          "slide": 46
+        }
+      ],
+      "inspection": {
+        "pixels_reviewed": true,
+        "method": "decoded raster or SVG rendered for static image inspection; no imported HTML/runtime executed",
+        "acceptance": "not Dean-approved artwork or a complete scientific acceptance"
+      },
+      "native_assessment_asset": false,
+      "issue_ids": [
+        "C12"
+      ],
+      "status": "retain with explicit issue; proposed replacement specification only",
+      "literal_svg_text_nodes": [
+        "Organization of the nervous system",
+        "Location divides CNS from PNS; function further divides the peripheral pathways.",
+        "Nervous system",
+        "Central nervous system",
+        "Brain and spinal cord",
+        "Peripheral nervous system",
+        "Sensory (afferent)",
+        "Carries information to CNS",
+        "Motor (efferent)",
+        "Carries commands from CNS",
+        "Somatic",
+        "Skeletal muscles",
+        "Autonomic",
+        "Smooth / cardiac muscle; glands",
+        "Integration",
+        "Processing sensory input",
+        "and coordinating responses",
+        "Sympathetic",
+        "Parasympathetic",
+        "Afferent: arrives at the CNS. Efferent: exits toward an effector."
+      ]
+    },
+    {
+      "asset_id": "CH11-EXISTING-14",
+      "existing_path": "assets/source/chapter11-pns-1.svg",
+      "native_path_status": "referenced by hash-pinned native HTML; original sibling binary not supplied in baseline ZIP",
+      "review_representation": {
+        "review_path": "review-assets/chapter11-pns-1.svg",
+        "bytes": 6380,
+        "sha256": "4ee2efa3219475e1e9b25e566170bc45f8174c3d9ee86a7fbc513c757fec61db"
+      },
+      "review_representation_origin": "decoded from full exemplar; review only, not an approved substitute for original art",
+      "lesson_id": "lesson-08",
+      "placement": {
+        "section_id": "pro-l08-autonomic",
+        "question_id": null,
+        "native_edit_key": "p3-chapter-630",
+        "instruction": "Retain in exact manuscript sequence with the accompanying read-the-figure explanation."
+      },
+      "structures_and_labels": [
+        "organ",
+        "sympathetic",
+        "parasympathetic",
+        "pupil",
+        "heart",
+        "bronchioles",
+        "digestive tract",
+        "bladder"
+      ],
+      "arrows_boundaries_and_legend": "Compare each organ across two columns; arrows/text denote increase/decrease or contraction/relaxation of the named structure, not a global on/off switch.",
+      "scientific_constraints": "Five-organ summary is not the larger source reviewQ4 list. Separate bladder wall from outlet sphincter; source key conflict remains unresolved.",
+      "caption_exact": "Figure 14. Compare the two responses organ by organ. Use the textbook’s Figure 11.36 for the larger organ list required by review question 4.",
+      "accessible_description_exact": "Compare the two responses organ by organ. Use the textbook’s Figure 11.36 for the larger organ list required by review question 4.",
+      "source_refs": [
+        {
+          "source": "textbook",
+          "printed_page": 397,
+          "pdf_page": 38
+        },
+        {
+          "source": "textbook",
+          "printed_page": 398,
+          "pdf_page": 39
+        },
+        {
+          "source": "textbook",
+          "printed_page": 399,
+          "pdf_page": 40
+        },
+        {
+          "source": "teacher-deck",
+          "slide": 47
+        },
+        {
+          "source": "teacher-deck",
+          "slide": 48
+        }
+      ],
+      "inspection": {
+        "pixels_reviewed": true,
+        "method": "decoded raster or SVG rendered for static image inspection; no imported HTML/runtime executed",
+        "acceptance": "not Dean-approved artwork or a complete scientific acceptance"
+      },
+      "native_assessment_asset": false,
+      "issue_ids": [
+        "C11",
+        "C12"
+      ],
+      "status": "retain with explicit issue; proposed replacement specification only",
+      "literal_svg_text_nodes": [
+        "Autonomic control: contrasting responses in the same organs",
+        "Use the chapter’s fight-or-flight and rest-and-digest comparison.",
+        "Sympathetic",
+        "Parasympathetic",
+        "Dilate",
+        "Constrict",
+        "Pupils",
+        "Rate increases",
+        "Rate decreases",
+        "Heart",
+        "Dilate",
+        "Constrict",
+        "Air passages",
+        "Activity decreases",
+        "Activity increases",
+        "Digestion",
+        "Urination inhibited",
+        "Urination promoted",
+        "Bladder",
+        "Both divisions are needed. A stress response is not evidence that a person is lying."
+      ]
+    },
+    {
+      "asset_id": "CH11-EXISTING-15",
+      "existing_path": "assets/source/chapter11-pns-2.png",
+      "native_path_status": "referenced by hash-pinned native HTML; original sibling binary not supplied in baseline ZIP",
+      "review_representation": {
+        "review_path": "review-assets/chapter11-pns-2.webp",
+        "bytes": 308964,
+        "sha256": "5d36b7354e98a310e801fabeb8564d5ef5857e18fa72708641975be2347ea616"
+      },
+      "review_representation_origin": "decoded from full exemplar; review only, not an approved substitute for original art",
+      "lesson_id": "lesson-08",
+      "placement": {
+        "section_id": "pro-l08-transmitters",
+        "question_id": null,
+        "native_edit_key": "p3-chapter-633",
+        "instruction": "Retain in exact manuscript sequence with the accompanying read-the-figure explanation."
+      },
+      "structures_and_labels": [
+        "source Figure11.36",
+        "sympathetic division",
+        "parasympathetic division",
+        "cranial/spinal regions",
+        "ganglia",
+        "vagus nerve",
+        "eyes",
+        "salivary glands",
+        "bronchioles",
+        "heart",
+        "liver",
+        "adrenal glands",
+        "kidneys",
+        "stomach",
+        "pancreas",
+        "intestines",
+        "bladder",
+        "blue ACh paths",
+        "red norepinephrine paths"
+      ],
+      "arrows_boundaries_and_legend": "Source colour legend identifies neurotransmitter for a path segment; dots mark ganglia and do not represent vesicles. Trace one path to an organ and compare labels across divisions.",
+      "scientific_constraints": "Retained source figure, not verified modern full anatomy. Do not invent a parasympathetic opposing route for every organ. Do not add sweat glands or the sweating exception to the displayed source diagram; the precise exception is a separate text verification gap.",
+      "caption_exact": "Figure 11.36, p. 398, retained for Section 11.3 review question 4. It shows the specific organ list and the source’s transmitter key.",
+      "accessible_description_exact": "Figure 11.36, p. 398, retained for Section 11.3 review question 4. It shows the specific organ list and the source’s transmitter key.",
+      "source_refs": [
+        {
+          "source": "textbook",
+          "printed_page": 398,
+          "pdf_page": 39
+        },
+        {
+          "source": "teacher-deck",
+          "slide": 48
+        }
+      ],
+      "inspection": {
+        "pixels_reviewed": true,
+        "method": "decoded raster or SVG rendered for static image inspection; no imported HTML/runtime executed",
+        "acceptance": "not Dean-approved artwork or a complete scientific acceptance"
+      },
+      "native_assessment_asset": false,
+      "issue_ids": [
+        "C11",
+        "C12",
+        "C19"
+      ],
+      "status": "retain with explicit issue; proposed replacement specification only"
+    },
+    {
+      "asset_id": "CH11-EXISTING-16",
+      "existing_path": "assets/source/chapter11-cns-0.svg",
+      "native_path_status": "referenced by hash-pinned native HTML; original sibling binary not supplied in baseline ZIP",
+      "review_representation": {
+        "review_path": "review-assets/chapter11-cns-0.svg",
+        "bytes": 5047,
+        "sha256": "d2f061f71cc31cf0b6d502fe39ebc8aad6ceb85a61f593017a92368e5f47d900"
+      },
+      "review_representation_origin": "decoded from full exemplar; review only, not an approved substitute for original art",
+      "lesson_id": "lesson-09",
+      "placement": {
+        "section_id": "pro-l09-tissue",
+        "question_id": null,
+        "native_edit_key": "p3-chapter-765",
+        "instruction": "Retain in exact manuscript sequence with the accompanying read-the-figure explanation."
+      },
+      "structures_and_labels": [
+        "grey matter",
+        "white matter",
+        "cerebral cortex",
+        "spinal cord grey core",
+        "myelinated axons",
+        "cell bodies/dendrites"
+      ],
+      "arrows_boundaries_and_legend": "Compare tissue composition, then compare where it occurs in cerebral cortex and a spinal cross-section. Connectors indicate structural contrast, not impulses.",
+      "scientific_constraints": "Grey matter is not simply a whole set of “unmyelinated neurons”; white/grey position is not a rule for every region of the brain.",
+      "caption_exact": "Figure 15. Compare tissue composition and position. The spinal cord’s grey core is not the same arrangement as the outer cerebral cortex.",
+      "accessible_description_exact": "Compare tissue composition and position. The spinal cord’s grey core is not the same arrangement as the outer cerebral cortex.",
+      "source_refs": [
+        {
+          "source": "textbook",
+          "printed_page": 385,
+          "pdf_page": 26
+        },
+        {
+          "source": "textbook",
+          "printed_page": 386,
+          "pdf_page": 27
+        },
+        {
+          "source": "teacher-deck",
+          "slide": 50
+        },
+        {
+          "source": "teacher-deck",
+          "slide": 51
+        }
+      ],
+      "inspection": {
+        "pixels_reviewed": true,
+        "method": "decoded raster or SVG rendered for static image inspection; no imported HTML/runtime executed",
+        "acceptance": "not Dean-approved artwork or a complete scientific acceptance"
+      },
+      "native_assessment_asset": false,
+      "issue_ids": [],
+      "status": "retain existing source representation; original binary verification deferred",
+      "literal_svg_text_nodes": [
+        "Grey and white matter: compare the brain and spinal cord",
+        "The tissue names describe their appearance and composition.",
+        "Cerebral cross-section",
+        "Grey matter: outer cortex",
+        "White matter: deeper tracts",
+        "Spinal cord cross-section",
+        "Grey matter: inner core",
+        "White matter: outer region",
+        "Grey matter contains many cell bodies and dendrites; white matter contains many myelinated axons."
+      ]
+    },
+    {
+      "asset_id": "CH11-EXISTING-17",
+      "existing_path": "assets/source/chapter11-cns-1.svg",
+      "native_path_status": "referenced by hash-pinned native HTML; original sibling binary not supplied in baseline ZIP",
+      "review_representation": {
+        "review_path": "review-assets/chapter11-cns-1.svg",
+        "bytes": 4959,
+        "sha256": "25e52c753840d85206b0aea6afb6516a76fb8a3943d5ff8a09fb3e8c998abbac"
+      },
+      "review_representation_origin": "decoded from full exemplar; review only, not an approved substitute for original art",
+      "lesson_id": "lesson-09",
+      "placement": {
+        "section_id": "pro-l09-protection",
+        "question_id": null,
+        "native_edit_key": "p3-chapter-778",
+        "instruction": "Retain in exact manuscript sequence with the accompanying read-the-figure explanation."
+      },
+      "structures_and_labels": [
+        "skull/bone",
+        "dura mater",
+        "arachnoid mater",
+        "pia mater",
+        "cerebrospinal fluid",
+        "brain tissue"
+      ],
+      "arrows_boundaries_and_legend": "Outer protective bone → meningeal layers → neural tissue, with CSF in the illustrated subarachnoid space. Layers are schematic, not to scale.",
+      "scientific_constraints": "Keep mechanical cushioning separate from the selective capillary blood–brain barrier. No implication that meninges themselves constitute the BBB or that fluid prevents all injury.",
+      "caption_exact": "Figure 16. The layer thicknesses are schematic. The drawing separates the mechanical protection of bone, membranes and fluid.",
+      "accessible_description_exact": "The layer thicknesses are schematic. The drawing separates the mechanical protection of bone, membranes and fluid.",
+      "source_refs": [
+        {
+          "source": "textbook",
+          "printed_page": 386,
+          "pdf_page": 27
+        },
+        {
+          "source": "textbook",
+          "printed_page": 388,
+          "pdf_page": 29
+        },
+        {
+          "source": "textbook",
+          "printed_page": 389,
+          "pdf_page": 30
+        },
+        {
+          "source": "teacher-deck",
+          "slide": 54
+        }
+      ],
+      "inspection": {
+        "pixels_reviewed": true,
+        "method": "decoded raster or SVG rendered for static image inspection; no imported HTML/runtime executed",
+        "acceptance": "not Dean-approved artwork or a complete scientific acceptance"
+      },
+      "native_assessment_asset": false,
+      "issue_ids": [
+        "C13"
+      ],
+      "status": "retain with explicit issue; proposed replacement specification only",
+      "literal_svg_text_nodes": [
+        "Protecting the central nervous system",
+        "Bone, membranes and fluid have different protective roles.",
+        "Skull / vertebral bone",
+        "Dura mater",
+        "Arachnoid layer",
+        "Cerebrospinal fluid",
+        "Pia mater",
+        "Nervous tissue",
+        "Cross-section shown schematically; layer thicknesses are not to scale.",
+        "The meninges surround the CNS. Cerebrospinal fluid cushions it; bone provides outer protection."
+      ]
+    },
+    {
+      "asset_id": "CH11-EXISTING-18",
+      "existing_path": "assets/source/chapter11-brain-0.png",
+      "native_path_status": "referenced by hash-pinned native HTML; original sibling binary not supplied in baseline ZIP",
+      "review_representation": {
+        "review_path": "review-assets/chapter11-brain-0.webp",
+        "bytes": 302372,
+        "sha256": "e642b6d1d0ff605a14e799049e3e44380a965435b05028fd14dc7c59c3c69cf8"
+      },
+      "review_representation_origin": "decoded from full exemplar; review only, not an approved substitute for original art",
+      "lesson_id": "lesson-10",
+      "placement": {
+        "section_id": "pro-l10-map",
+        "question_id": null,
+        "native_edit_key": "p3-chapter-843",
+        "instruction": "Retain in exact manuscript sequence with the accompanying read-the-figure explanation."
+      },
+      "structures_and_labels": [
+        "sagittal brain",
+        "cerebrum",
+        "corpus callosum",
+        "thalamus",
+        "hypothalamus",
+        "pituitary gland",
+        "midbrain",
+        "pons",
+        "medulla oblongata",
+        "cerebellum",
+        "spinal cord",
+        "skull",
+        "meninges",
+        "CSF",
+        "forebrain/midbrain/hindbrain brackets"
+      ],
+      "arrows_boundaries_and_legend": "Leader lines label the anatomical structure. Read the cord-to-brainstem progression and surrounding/dorsal structures before functional roles.",
+      "scientific_constraints": "CURRENT LIMIT: broad region brackets are approximate; do not treat them as exact developmental or assessment boundaries. Brainstem = midbrain + pons + medulla, not cerebellum. Do not replace original assessment A–G with this explanatory drawing.",
+      "caption_exact": "Figure 17. Identify the major brain structures in sagittal view and connect them with the protective roles of the skull, meninges, and cerebrospinal fluid.",
+      "accessible_description_exact": "A sagittal human brain diagram showing major structures and how the brain is protected by the skull, meninges, and cerebrospinal fluid.",
+      "source_refs": [
+        {
+          "source": "textbook",
+          "printed_page": 386,
+          "pdf_page": 27
+        },
+        {
+          "source": "textbook",
+          "printed_page": 387,
+          "pdf_page": 28
+        },
+        {
+          "source": "textbook",
+          "printed_page": 388,
+          "pdf_page": 29
+        },
+        {
+          "source": "teacher-deck",
+          "slide": 54
+        },
+        {
+          "source": "teacher-deck",
+          "slide": 55
+        },
+        {
+          "source": "teacher-deck",
+          "slide": 60
+        }
+      ],
+      "inspection": {
+        "pixels_reviewed": true,
+        "method": "decoded raster or SVG rendered for static image inspection; no imported HTML/runtime executed",
+        "acceptance": "not Dean-approved artwork or a complete scientific acceptance"
+      },
+      "native_assessment_asset": false,
+      "issue_ids": [
+        "C24"
+      ],
+      "status": "retain with explicit issue; proposed replacement specification only"
+    },
+    {
+      "asset_id": "CH11-EXISTING-19",
+      "existing_path": "assets/source/chapter11-brain-1.png",
+      "native_path_status": "referenced by hash-pinned native HTML; original sibling binary not supplied in baseline ZIP",
+      "review_representation": {
+        "review_path": "review-assets/chapter11-brain-1.webp",
+        "bytes": 287794,
+        "sha256": "1758e6b379a1e1e3d7a34e7305997dde69b2a85c1f1c35608d92a7a0e1197720"
+      },
+      "review_representation_origin": "decoded from full exemplar; review only, not an approved substitute for original art",
+      "lesson_id": "lesson-10",
+      "placement": {
+        "section_id": "pro-l10-lobes",
+        "question_id": null,
+        "native_edit_key": "p3-chapter-859",
+        "instruction": "Retain in exact manuscript sequence with the accompanying read-the-figure explanation."
+      },
+      "structures_and_labels": [
+        "frontal",
+        "parietal",
+        "temporal",
+        "occipital lobes",
+        "primary motor area",
+        "somatosensory area",
+        "auditory area",
+        "visual area",
+        "motor body map",
+        "hand/face/tongue representations"
+      ],
+      "arrows_boundaries_and_legend": "Lobe colours locate cooperating regions; adjacency of motor and somatosensory bands is spatial. Disproportionate body-map drawings indicate relative cortical allocation, not actual body-part size.",
+      "scientific_constraints": "No claim that a lobe acts alone; language/memory depend on networks. Do not swap left/right in native questions or use motor-map area to infer intelligence.",
+      "caption_exact": "Figure 18. Locate the lobes and key functional areas of the cerebral cortex, then compare them with the motor cortex body map.",
+      "accessible_description_exact": "The lobes and functional areas of the cerebral cortex compared with the motor cortex body map.",
+      "source_refs": [
+        {
+          "source": "textbook",
+          "printed_page": 390,
+          "pdf_page": 31
+        },
+        {
+          "source": "textbook",
+          "printed_page": 391,
+          "pdf_page": 32
+        },
+        {
+          "source": "textbook",
+          "printed_page": 392,
+          "pdf_page": 33
+        },
+        {
+          "source": "teacher-deck",
+          "slide": 57
+        },
+        {
+          "source": "teacher-deck",
+          "slide": 59
+        }
+      ],
+      "inspection": {
+        "pixels_reviewed": true,
+        "method": "decoded raster or SVG rendered for static image inspection; no imported HTML/runtime executed",
+        "acceptance": "not Dean-approved artwork or a complete scientific acceptance"
+      },
+      "native_assessment_asset": false,
+      "issue_ids": [
+        "C14"
+      ],
+      "status": "retain with explicit issue; proposed replacement specification only"
+    },
+    {
+      "asset_id": "CH11-EXISTING-20",
+      "existing_path": "assets/source/chapter11-brain-2.svg",
+      "native_path_status": "referenced by hash-pinned native HTML; original sibling binary not supplied in baseline ZIP",
+      "review_representation": {
+        "review_path": "review-assets/chapter11-brain-2.svg",
+        "bytes": 3647,
+        "sha256": "63c47c8e47d0522dad511750d58a8f25c0809c59700066c0280d5e746ce85353"
+      },
+      "review_representation_origin": "decoded from full exemplar; review only, not an approved substitute for original art",
+      "lesson_id": "lesson-10",
+      "placement": {
+        "section_id": "pro-l10-hemispheres",
+        "question_id": null,
+        "native_edit_key": "p3-chapter-868",
+        "instruction": "Retain in exact manuscript sequence with the accompanying read-the-figure explanation."
+      },
+      "structures_and_labels": [
+        "left hemisphere",
+        "right hemisphere",
+        "corpus callosum",
+        "opposite-side body movement"
+      ],
+      "arrows_boundaries_and_legend": "Horizontal two-way connection denotes interhemispheric communication; crossing motor paths illustrate opposite-side control in the textbook model.",
+      "scientific_constraints": "Do not label entire people as creative/right-brained or logical/left-brained; main motor crossing is not a rule for every pathway.",
+      "caption_exact": "Figure 19. The horizontal connection represents communication through the corpus callosum. Crossing pathways illustrate the opposite-side motor relationship described in the textbook.",
+      "accessible_description_exact": "The horizontal connection represents communication through the corpus callosum. Crossing pathways illustrate the opposite-side motor relationship described in the textbook.",
+      "source_refs": [
+        {
+          "source": "textbook",
+          "printed_page": 389,
+          "pdf_page": 30
+        },
+        {
+          "source": "textbook",
+          "printed_page": 391,
+          "pdf_page": 32
+        },
+        {
+          "source": "teacher-deck",
+          "slide": 58
+        }
+      ],
+      "inspection": {
+        "pixels_reviewed": true,
+        "method": "decoded raster or SVG rendered for static image inspection; no imported HTML/runtime executed",
+        "acceptance": "not Dean-approved artwork or a complete scientific acceptance"
+      },
+      "native_assessment_asset": false,
+      "issue_ids": [
+        "C14"
+      ],
+      "status": "retain with explicit issue; proposed replacement specification only",
+      "literal_svg_text_nodes": [
+        "Two cerebral hemispheres work together",
+        "The corpus callosum connects the hemispheres; many motor pathways cross to the opposite side.",
+        "Left hemisphere",
+        "Right hemisphere",
+        "Corpus callosum",
+        "Left side of the body",
+        "Right side of the body",
+        "The hemispheres overlap and interact; their differences are not labels for types of learners."
+      ]
+    },
+    {
+      "asset_id": "CH11-EXISTING-21",
+      "existing_path": "assets/source/chapter11-brain-investigation-0.svg",
+      "native_path_status": "referenced by hash-pinned native HTML; original sibling binary not supplied in baseline ZIP",
+      "review_representation": {
+        "review_path": "review-assets/chapter11-brain-investigation-0.svg",
+        "bytes": 5485,
+        "sha256": "42b01f66ae6853627db54fbc4cd189f3338c055ed110d46275ea5250895c8691"
+      },
+      "review_representation_origin": "decoded from full exemplar; review only, not an approved substitute for original art",
+      "lesson_id": "lesson-11",
+      "placement": {
+        "section_id": "pro-l11-imaging",
+        "question_id": null,
+        "native_edit_key": "p3-chapter-956",
+        "instruction": "Retain in exact manuscript sequence with the accompanying read-the-figure explanation."
+      },
+      "structures_and_labels": [
+        "anatomical observation",
+        "MRI",
+        "glucose-tracer PET",
+        "conceptual illustration, not a scan"
+      ],
+      "arrows_boundaries_and_legend": "Three parallel columns compare anatomical observation, structural MRI and glucose-tracer PET. They are evidence types, not steps in a single procedure; this figure does not depict electrical stimulation.",
+      "scientific_constraints": "CURRENT LIMIT: existing SVG contains overlapping method text. Any new artwork must keep labels separated and distinguish actual source scans from these icons. No measured PET values, timestamps or radiological conclusions may be invented.",
+      "caption_exact": "Figure 20. These three drawings compare types of evidence; they are not generated substitutes for actual scans or laboratory observations.",
+      "accessible_description_exact": "These three drawings compare types of evidence; they are not generated substitutes for actual scans or laboratory observations.",
+      "source_refs": [
+        {
+          "source": "textbook",
+          "printed_page": 392,
+          "pdf_page": 33
+        },
+        {
+          "source": "textbook",
+          "printed_page": 394,
+          "pdf_page": 35
+        },
+        {
+          "source": "teacher-deck",
+          "slide": 61
+        }
+      ],
+      "inspection": {
+        "pixels_reviewed": true,
+        "method": "decoded raster or SVG rendered for static image inspection; no imported HTML/runtime executed",
+        "acceptance": "not Dean-approved artwork or a complete scientific acceptance"
+      },
+      "native_assessment_asset": false,
+      "issue_ids": [
+        "C15",
+        "C24"
+      ],
+      "status": "retain with explicit issue; proposed replacement specification only",
+      "literal_svg_text_nodes": [
+        "What does a brain investigation measure?",
+        "Keep structural observations separate from inferences about activity or function.",
+        "Anatomy / dissection",
+        "Identify structures and their positions.",
+        "Observe shape and relationships.",
+        "Conceptual illustration, not a scan.",
+        "MRI",
+        "Produces detailed images of structure.",
+        "MRI provides information about brain anatomy.",
+        "Conceptual illustration, not a scan.",
+        "PET",
+        "Uses a labelled tracer to show uptake.",
+        "Tracer uptake is related to energy use.",
+        "Conceptual illustration, not a scan.",
+        "Use the photographs for observation tasks; an illustration is not experimental evidence."
+      ]
+    },
+    {
+      "asset_id": "CH11-EXISTING-22",
+      "existing_path": "assets/source/chapter11-brain-investigation-2.png",
+      "native_path_status": "referenced by hash-pinned native HTML; original sibling binary not supplied in baseline ZIP",
+      "review_representation": {
+        "review_path": "review-assets/chapter11-brain-investigation-2.webp",
+        "bytes": 36744,
+        "sha256": "540d5a2eba8011464942316dcb41881ac678369c791b0629b46d4bc7b5b4f135"
+      },
+      "review_representation_origin": "decoded from full exemplar; review only, not an approved substitute for original art",
+      "lesson_id": "lesson-11",
+      "placement": {
+        "section_id": null,
+        "question_id": "source-review112-q4",
+        "native_edit_key": "p3-chapter-1015",
+        "instruction": "Retain in exact manuscript sequence with the accompanying read-the-figure explanation."
+      },
+      "structures_and_labels": [
+        "original brain diagram letters A–G"
+      ],
+      "arrows_boundaries_and_legend": "Retain the source Section11.2 Review Q4 leader endpoints and letter locations.",
+      "scientific_constraints": "Do not add answers or remap letters based on a different sagittal diagram. The native question is written; no authoritative A–G automated key is supplied here.",
+      "caption_exact": "diagram for Section 11.2 Review, question 4. Keep these original labels when answering.",
+      "accessible_description_exact": "Original diagram for Section 11.2 Review, question 4. Keep these original labels when answering.",
+      "source_refs": [
+        {
+          "source": "textbook",
+          "printed_page": 395,
+          "pdf_page": 36
+        },
+        {
+          "source": "teacher-deck",
+          "slide": 60
+        }
+      ],
+      "inspection": {
+        "pixels_reviewed": true,
+        "method": "decoded raster or SVG rendered for static image inspection; no imported HTML/runtime executed",
+        "acceptance": "not Dean-approved artwork or a complete scientific acceptance"
+      },
+      "native_assessment_asset": true,
+      "issue_ids": [],
+      "status": "retain existing source representation; original binary verification deferred"
+    },
+    {
+      "asset_id": "CH11-EXISTING-23",
+      "existing_path": "assets/source/chapter11-chapter-review-section-0.png",
+      "native_path_status": "referenced by hash-pinned native HTML; original sibling binary not supplied in baseline ZIP",
+      "review_representation": {
+        "review_path": "review-assets/chapter11-chapter-review-section-0.webp",
+        "bytes": 109472,
+        "sha256": "45c015d42a29e034f043a5a994a658c48dd767ea9c207ff87b0af6c793a4fae7"
+      },
+      "review_representation_origin": "decoded from full exemplar; review only, not an approved substitute for original art",
+      "lesson_id": "lesson-12",
+      "placement": {
+        "section_id": "pro-l12-organizer",
+        "question_id": null,
+        "native_edit_key": "p3-chapter-1079",
+        "instruction": "Retain in exact manuscript sequence with the accompanying read-the-figure explanation."
+      },
+      "structures_and_labels": [
+        "source Chapter11 Graphic Organizer",
+        "nervous system",
+        "homeostasis",
+        "CNS",
+        "PNS",
+        "somatic",
+        "autonomic",
+        "sympathetic",
+        "parasympathetic",
+        "neurons and conduction"
+      ],
+      "arrows_boundaries_and_legend": "Read labelled relationships as a concept map and compare with the earlier input/integration/output model.",
+      "scientific_constraints": "Historical source organizer is retained. It does not make every useful response homeostatic or erase the sensory/autonomic classification explanation.",
+      "caption_exact": "Chapter 11 Graphic Organizer, textbook p. 401. Compare the connections with your own chapter notes before completing the review.",
+      "accessible_description_exact": "Original Chapter 11 Graphic Organizer, textbook p. 401. Compare the connections with your own chapter notes before completing the review.",
+      "source_refs": [
+        {
+          "source": "textbook",
+          "printed_page": 401,
+          "pdf_page": 42
+        },
+        {
+          "source": "teacher-deck",
+          "slide": 44
+        },
+        {
+          "source": "teacher-deck",
+          "slide": 66
+        }
+      ],
+      "inspection": {
+        "pixels_reviewed": true,
+        "method": "decoded raster or SVG rendered for static image inspection; no imported HTML/runtime executed",
+        "acceptance": "not Dean-approved artwork or a complete scientific acceptance"
+      },
+      "native_assessment_asset": false,
+      "issue_ids": [],
+      "status": "retain existing source representation; original binary verification deferred"
+    },
+    {
+      "asset_id": "CH11-EXISTING-24",
+      "existing_path": "assets/source/chapter11-chapter-review-section-1.png",
+      "native_path_status": "referenced by hash-pinned native HTML; original sibling binary not supplied in baseline ZIP",
+      "review_representation": {
+        "review_path": "review-assets/chapter11-chapter-review-section-1.webp",
+        "bytes": 38976,
+        "sha256": "4a841b623c20bb24326da4d5481f360fe80a94da2b495bed2dab6f9a172b2d06"
+      },
+      "review_representation_origin": "decoded from full exemplar; review only, not an approved substitute for original art",
+      "lesson_id": "lesson-12",
+      "placement": {
+        "section_id": null,
+        "question_id": "source-chapter-review-q3",
+        "native_edit_key": "p3-chapter-1125",
+        "instruction": "Retain in exact manuscript sequence with the accompanying read-the-figure explanation."
+      },
+      "structures_and_labels": [
+        "original cortical lobe letters A–D"
+      ],
+      "arrows_boundaries_and_legend": "Retain source ChapterReview Q3 cortical lobe markers and original view.",
+      "scientific_constraints": "Do not substitute labels/colours from teaching figures or turn the written task into an automatic label quiz.",
+      "caption_exact": "diagram for Chapter 11 Review, question 3. Keep these original labels when answering.",
+      "accessible_description_exact": "Original diagram for Chapter 11 Review, question 3. Keep these original labels when answering.",
+      "source_refs": [
+        {
+          "source": "textbook",
+          "printed_page": 402,
+          "pdf_page": 43
+        },
+        {
+          "source": "teacher-deck",
+          "slide": 57
+        }
+      ],
+      "inspection": {
+        "pixels_reviewed": true,
+        "method": "decoded raster or SVG rendered for static image inspection; no imported HTML/runtime executed",
+        "acceptance": "not Dean-approved artwork or a complete scientific acceptance"
+      },
+      "native_assessment_asset": true,
+      "issue_ids": [],
+      "status": "retain existing source representation; original binary verification deferred"
+    },
+    {
+      "asset_id": "CH11-EXISTING-25",
+      "existing_path": "assets/source/chapter11-chapter-review-section-2.png",
+      "native_path_status": "referenced by hash-pinned native HTML; original sibling binary not supplied in baseline ZIP",
+      "review_representation": {
+        "review_path": "review-assets/chapter11-chapter-review-section-2.webp",
+        "bytes": 40144,
+        "sha256": "5c276bd33fcfc5535589ed1a5279df53f9b6c28e201c2b44006a53cda4920e1b"
+      },
+      "review_representation_origin": "decoded from full exemplar; review only, not an approved substitute for original art",
+      "lesson_id": "lesson-12",
+      "placement": {
+        "section_id": null,
+        "question_id": "source-chapter-review-q10",
+        "native_edit_key": "p3-chapter-1163",
+        "instruction": "Retain in exact manuscript sequence with the accompanying read-the-figure explanation."
+      },
+      "structures_and_labels": [
+        "source neural circuit letters A–J",
+        "sensory/interneuron/motor pathway",
+        "receptor and muscle"
+      ],
+      "arrows_boundaries_and_legend": "Keep source Q10 exact leader endpoints: paths and different shapes are observational cues.",
+      "scientific_constraints": "Catalog’s separate label activity maps A sensory, B interneuron, C motor, D receptor, E cell body, F dendrites, G node of Ranvier, H myelin, I axon, J effector. Preserve exact native options/aliases; do not add these answer words on the learner assessment image.",
+      "caption_exact": "diagram for Chapter 11 Review, question 10. Keep these original labels when answering.",
+      "accessible_description_exact": "Original diagram for Chapter 11 Review, question 10. Keep these original labels when answering.",
+      "source_refs": [
+        {
+          "source": "textbook",
+          "printed_page": 402,
+          "pdf_page": 43
+        },
+        {
+          "source": "textbook",
+          "printed_page": 369,
+          "pdf_page": 10
+        },
+        {
+          "source": "teacher-deck",
+          "slide": 15
+        },
+        {
+          "source": "teacher-deck",
+          "slide": 16
+        },
+        {
+          "source": "teacher-deck",
+          "slide": 18
+        }
+      ],
+      "inspection": {
+        "pixels_reviewed": true,
+        "method": "decoded raster or SVG rendered for static image inspection; no imported HTML/runtime executed",
+        "acceptance": "not Dean-approved artwork or a complete scientific acceptance"
+      },
+      "native_assessment_asset": true,
+      "issue_ids": [],
+      "status": "retain existing source representation; original binary verification deferred"
+    },
+    {
+      "asset_id": "CH11-EXISTING-26",
+      "existing_path": "assets/source/chapter11-chapter-review-section-3.png",
+      "native_path_status": "referenced by hash-pinned native HTML; original sibling binary not supplied in baseline ZIP",
+      "review_representation": {
+        "review_path": "review-assets/chapter11-chapter-review-section-3.webp",
+        "bytes": 23896,
+        "sha256": "fd5438539aaa664650a8f64f5bac784781e52090f852b3df72f204ac469c4dcb"
+      },
+      "review_representation_origin": "decoded from full exemplar; review only, not an approved substitute for original art",
+      "lesson_id": "lesson-12",
+      "placement": {
+        "section_id": null,
+        "question_id": "source-chapter-review-q13",
+        "native_edit_key": "p3-chapter-1187",
+        "instruction": "Retain in exact manuscript sequence with the accompanying read-the-figure explanation."
+      },
+      "structures_and_labels": [
+        "source resting membrane diagram",
+        "extracellular fluid",
+        "cytoplasm",
+        "unlabelled ion/channel symbols"
+      ],
+      "arrows_boundaries_and_legend": "Keep Q13’s original boundary, symbols and positions so the student identifies the ions/channels and explains the distribution.",
+      "scientific_constraints": "Do not add a new colour key that gives away answers; do not treat the handful of drawn dots as measured concentrations.",
+      "caption_exact": "diagram for Chapter 11 Review, question 13. Keep these original labels when answering.",
+      "accessible_description_exact": "Original diagram for Chapter 11 Review, question 13. Keep these original labels when answering.",
+      "source_refs": [
+        {
+          "source": "textbook",
+          "printed_page": 402,
+          "pdf_page": 43
+        },
+        {
+          "source": "textbook",
+          "printed_page": 373,
+          "pdf_page": 14
+        },
+        {
+          "source": "textbook",
+          "printed_page": 374,
+          "pdf_page": 15
+        },
+        {
+          "source": "teacher-deck",
+          "slide": 22
+        },
+        {
+          "source": "teacher-deck",
+          "slide": 23
+        }
+      ],
+      "inspection": {
+        "pixels_reviewed": true,
+        "method": "decoded raster or SVG rendered for static image inspection; no imported HTML/runtime executed",
+        "acceptance": "not Dean-approved artwork or a complete scientific acceptance"
+      },
+      "native_assessment_asset": true,
+      "issue_ids": [
+        "C07"
+      ],
+      "status": "retain with explicit issue; proposed replacement specification only"
+    },
+    {
+      "asset_id": "CH11-EXISTING-27",
+      "existing_path": "assets/source/chapter11-chapter-review-section-4.png",
+      "native_path_status": "referenced by hash-pinned native HTML; original sibling binary not supplied in baseline ZIP",
+      "review_representation": {
+        "review_path": "review-assets/chapter11-chapter-review-section-4.webp",
+        "bytes": 36956,
+        "sha256": "3700b743b94cd31d8383e045b4b7ec13bae9744045d4274fd5dd8aaa90d8f501"
+      },
+      "review_representation_origin": "decoded from full exemplar; review only, not an approved substitute for original art",
+      "lesson_id": "lesson-12",
+      "placement": {
+        "section_id": null,
+        "question_id": "source-chapter-review-q19",
+        "native_edit_key": "p3-chapter-1245",
+        "instruction": "Retain in exact manuscript sequence with the accompanying read-the-figure explanation."
+      },
+      "structures_and_labels": [
+        "original photograph of monkey and robotic arm",
+        "food held by artificial hand"
+      ],
+      "arrows_boundaries_and_legend": "Source Q19 photograph supplies the described assistive-technology scenario, not a detailed wiring diagram.",
+      "scientific_constraints": "Do not infer unseen electrode locations from the photograph or turn it into evidence about every brain-controlled device. No new experiment/data claim.",
+      "caption_exact": "diagram for Chapter 11 Review, question 19. Keep these original labels when answering.",
+      "accessible_description_exact": "Original diagram for Chapter 11 Review, question 19. Keep these original labels when answering.",
+      "source_refs": [
+        {
+          "source": "textbook",
+          "printed_page": 403,
+          "pdf_page": 44
+        },
+        {
+          "source": "textbook",
+          "printed_page": 400,
+          "pdf_page": 41
+        },
+        {
+          "source": "teacher-deck",
+          "slide": 61
+        }
+      ],
+      "inspection": {
+        "pixels_reviewed": true,
+        "method": "decoded raster or SVG rendered for static image inspection; no imported HTML/runtime executed",
+        "acceptance": "not Dean-approved artwork or a complete scientific acceptance"
+      },
+      "native_assessment_asset": true,
+      "issue_ids": [],
+      "status": "retain existing source representation; original binary verification deferred"
+    },
+    {
+      "asset_id": "CH11-INLINE-INPUT-INTEGRATION-OUTPUT",
+      "existing_path": null,
+      "new_id": "ch11-teaching-input-integration-output",
+      "lesson_id": "lesson-01",
+      "placement": {
+        "section_id": "pro-l01-roles",
+        "instruction": "Keep the existing exemplar inline three-stage board model beside its full explanation; it is not an assessment."
+      },
+      "structures_and_labels": [
+        "sensory input",
+        "integration in CNS",
+        "motor output",
+        "receptor",
+        "brain/spinal cord",
+        "effector"
+      ],
+      "arrows_boundaries_and_legend": "Left-to-right arrows trace information direction. The CNS processing boundary separates the integration stage from peripheral input/output. Arrows are not blood flow or movement of a single substance.",
+      "scientific_constraints": "Motor output is not limited to skeletal movement; glands are effectors too. This is a simple initial model, not an exhaustive nervous-system diagram.",
+      "caption_exact": "Use the complete surrounding role and direction explanation in lesson-01; no new factual caption is substituted.",
+      "accessible_description": "Information about a stimulus reaches the central nervous system; processing there can direct an effector response.",
+      "source_refs": [
+        {
+          "source": "textbook",
+          "printed_page": 369,
+          "pdf_page": 10,
+          "figure": "11.6/table11.1"
+        },
+        {
+          "source": "textbook",
+          "printed_page": 370,
+          "pdf_page": 11,
+          "figure": "11.7"
+        },
+        {
+          "source": "teacher-deck",
+          "slide": 17
+        }
+      ],
+      "status": "existing inline teaching model retained; no new image generated",
+      "existing_inline_text": "Sensory input Information comes in from receptors. → Brain or spinal cord · CNS Integration Information is processed. → Motor output Instructions go out to effectors."
+    }
+  ],
+  "media": [
+    {
+      "media_id": "CH11-VIDEO-qPix_X-9t7E",
+      "lesson_id": "lesson-01",
+      "youtube_id": "qPix_X-9t7E",
+      "existing_url": "https://www.youtube.com/watch?v=qPix_X-9t7E",
+      "title_as_supplied": "The nervous system: an overview",
+      "placement_section": "pro-l01-organization",
+      "watch_for_exact": [
+        "Watch and make sense of it",
+        "Chapter 11 overview video",
+        "As you watch: Identify sensory input, integration and motor output. Do not try to memorize every term before it has been taught.",
+        "Focus: Pause after each stage and name what information enters, where it is processed and which structure responds.",
+        "If playback is unavailable, the lesson text above covers the same sensory input → integration → motor output sequence.",
+        "Choose Load video when you are ready to watch.",
+        "Video not playing? Use the written explanation on this page."
+      ],
+      "follow_through_exact": [
+        "After watching: use the cold-hand example to explain sensory input, integration, and motor output without looking at the three boxes. If you cannot yet identify the effector, return to the worked example."
+      ],
+      "teacher_slide_relationships": [
+        {
+          "slide": 5,
+          "relationship_id": "rId3",
+          "target_exact": "http://www.youtube.com/watch?v=qPix_X-9t7E"
+        }
+      ],
+      "source_identity": "same data-video ID and URL in native source; not newly discovered media",
+      "purpose": "additional representation of the adjacent taught mechanism; essential lesson explanation remains in manuscript",
+      "captions_transcript_timestamps": "not supplied or verified; none invented",
+      "playback_status": "not opened or tested in this bounded task",
+      "static_review_behavior": "link and viewing instructions only; no iframe/player/thumbnail network request",
+      "integration_behavior": "keep native loader, media identity and approved timing; do not transplant repaired player or its changed load policy"
+    },
+    {
+      "media_id": "CH11-VIDEO-A44brRGG4Ys",
+      "lesson_id": "lesson-02",
+      "youtube_id": "A44brRGG4Ys",
+      "existing_url": "https://www.youtube.com/watch?v=A44brRGG4Ys",
+      "title_as_supplied": "The structure of a neuron: recap",
+      "placement_section": "pro-l02-worked",
+      "watch_for_exact": [
+        "As you watch: Pause at each labelled structure and explain its function without looking back at the table.",
+        "Video not playing? Use the written explanation on this page."
+      ],
+      "follow_through_exact": [
+        "Follow through: cover the labels on the neuron image and draw its main outline. Add each label only after you can explain what that part contributes to communication. Include the continuous axon beneath the myelin."
+      ],
+      "teacher_slide_relationships": [
+        {
+          "slide": 11,
+          "relationship_id": "rId3",
+          "target_exact": "http://www.youtube.com/watch?v=A44brRGG4Ys"
+        }
+      ],
+      "source_identity": "same data-video ID and URL in native source; not newly discovered media",
+      "purpose": "additional representation of the adjacent taught mechanism; essential lesson explanation remains in manuscript",
+      "captions_transcript_timestamps": "not supplied or verified; none invented",
+      "playback_status": "not opened or tested in this bounded task",
+      "static_review_behavior": "link and viewing instructions only; no iframe/player/thumbnail network request",
+      "integration_behavior": "keep native loader, media identity and approved timing; do not transplant repaired player or its changed load policy"
+    },
+    {
+      "media_id": "CH11-VIDEO-aaQWxko6qmk",
+      "lesson_id": "lesson-03",
+      "youtube_id": "aaQWxko6qmk",
+      "existing_url": "https://www.youtube.com/watch?v=aaQWxko6qmk",
+      "title_as_supplied": "Reflex arcs: example 1",
+      "placement_section": "pro-l03-reflex",
+      "watch_for_exact": [
+        "As you watch: Trace the sensory route into the CNS and the motor route to the effector. Distinguish the response from conscious awareness.",
+        "Video not playing? Use the written explanation on this page."
+      ],
+      "follow_through_exact": [
+        "Follow through: redraw the two routes: one through the spinal circuit to the muscle, and one carrying information toward the brain. Explain why both routes can be active without waiting for a conscious decision."
+      ],
+      "teacher_slide_relationships": [
+        {
+          "slide": 19,
+          "relationship_id": "rId3",
+          "target_exact": "http://www.youtube.com/watch?v=aaQWxko6qmk"
+        }
+      ],
+      "source_identity": "same data-video ID and URL in native source; not newly discovered media",
+      "purpose": "additional representation of the adjacent taught mechanism; essential lesson explanation remains in manuscript",
+      "captions_transcript_timestamps": "not supplied or verified; none invented",
+      "playback_status": "not opened or tested in this bounded task",
+      "static_review_behavior": "link and viewing instructions only; no iframe/player/thumbnail network request",
+      "integration_behavior": "keep native loader, media identity and approved timing; do not transplant repaired player or its changed load policy"
+    },
+    {
+      "media_id": "CH11-VIDEO-4WcZR_k_a0I",
+      "lesson_id": "lesson-03",
+      "youtube_id": "4WcZR_k_a0I",
+      "existing_url": "https://www.youtube.com/watch?v=4WcZR_k_a0I",
+      "title_as_supplied": "Reflex arcs: example 2",
+      "placement_section": "pro-l03-comparison",
+      "watch_for_exact": [
+        "As you watch: Compare the example with the five components in the withdrawal pathway. Notice whether an interneuron is shown.",
+        "Video not playing? Use the written explanation on this page."
+      ],
+      "follow_through_exact": [
+        "Follow through: identify the receptor, input neuron, processing connection, output neuron, and effector in the example you watch. If an interneuron is not shown, explain why that does not automatically make the pathway incorrect."
+      ],
+      "teacher_slide_relationships": [
+        {
+          "slide": 19,
+          "relationship_id": "rId5",
+          "target_exact": "http://www.youtube.com/watch?v=4WcZR_k_a0I"
+        }
+      ],
+      "source_identity": "same data-video ID and URL in native source; not newly discovered media",
+      "purpose": "additional representation of the adjacent taught mechanism; essential lesson explanation remains in manuscript",
+      "captions_transcript_timestamps": "not supplied or verified; none invented",
+      "playback_status": "not opened or tested in this bounded task",
+      "static_review_behavior": "link and viewing instructions only; no iframe/player/thumbnail network request",
+      "integration_behavior": "keep native loader, media identity and approved timing; do not transplant repaired player or its changed load policy"
+    },
+    {
+      "media_id": "CH11-VIDEO-ZAmUjvgoO0A",
+      "lesson_id": "lesson-04",
+      "youtube_id": "ZAmUjvgoO0A",
+      "existing_url": "https://www.youtube.com/watch?v=ZAmUjvgoO0A",
+      "title_as_supplied": "Electrical conduction: overview",
+      "placement_section": "pro-l04-energy",
+      "watch_for_exact": [
+        "As you watch: Identify the resting state before the voltage changes. Keep ion movement separate from the voltage it produces.",
+        "Video not playing? Use the written explanation on this page."
+      ],
+      "follow_through_exact": [
+        "After watching: explain the resting part of the sequence using the words gradient, leak channel, selective permeability, and ATP. If later stages appear, use them to preview the next lesson; you do not need to substitute the video for this explanation."
+      ],
+      "teacher_slide_relationships": [
+        {
+          "slide": 21,
+          "relationship_id": "rId3",
+          "target_exact": "http://www.youtube.com/watch?v=ZAmUjvgoO0A"
+        }
+      ],
+      "source_identity": "same data-video ID and URL in native source; not newly discovered media",
+      "purpose": "additional representation of the adjacent taught mechanism; essential lesson explanation remains in manuscript",
+      "captions_transcript_timestamps": "not supplied or verified; none invented",
+      "playback_status": "not opened or tested in this bounded task",
+      "static_review_behavior": "link and viewing instructions only; no iframe/player/thumbnail network request",
+      "integration_behavior": "keep native loader, media identity and approved timing; do not transplant repaired player or its changed load policy"
+    },
+    {
+      "media_id": "CH11-VIDEO-oa6rvUJlg7o",
+      "lesson_id": "lesson-05",
+      "youtube_id": "oa6rvUJlg7o",
+      "existing_url": "https://www.youtube.com/watch?v=oa6rvUJlg7o",
+      "title_as_supplied": "Action potential recap 1",
+      "placement_section": "pro-l05-propagation",
+      "watch_for_exact": [
+        "As you watch: Track which ion moves, which direction it moves, and what happens to the inside voltage.",
+        "Video not playing? Use the written explanation on this page."
+      ],
+      "follow_through_exact": [
+        "Follow through: point to a rising and a falling region of the graph and name the ion, its direction, and the resulting voltage change. Keep that across-membrane movement separate from propagation along the axon."
+      ],
+      "teacher_slide_relationships": [
+        {
+          "slide": 30,
+          "relationship_id": "rId3",
+          "target_exact": "http://www.youtube.com/watch?v=oa6rvUJlg7o"
+        }
+      ],
+      "source_identity": "same data-video ID and URL in native source; not newly discovered media",
+      "purpose": "additional representation of the adjacent taught mechanism; essential lesson explanation remains in manuscript",
+      "captions_transcript_timestamps": "not supplied or verified; none invented",
+      "playback_status": "not opened or tested in this bounded task",
+      "static_review_behavior": "link and viewing instructions only; no iframe/player/thumbnail network request",
+      "integration_behavior": "keep native loader, media identity and approved timing; do not transplant repaired player or its changed load policy"
+    },
+    {
+      "media_id": "CH11-VIDEO-_0PFBI5K9s4",
+      "lesson_id": "lesson-05",
+      "youtube_id": "_0PFBI5K9s4",
+      "existing_url": "https://www.youtube.com/watch?v=_0PFBI5K9s4",
+      "title_as_supplied": "Action potential recap 2",
+      "placement_section": "pro-l05-intensity",
+      "watch_for_exact": [
+        "As you watch: Explain the resting state, depolarization, repolarization and recovery in order.",
+        "Video not playing? Use the written explanation on this page."
+      ],
+      "follow_through_exact": [
+        "Use this recap if the sequence is still uncertain: narrate rest, threshold, rise, fall, and recovery without relying on the stage names alone.",
+        "Use this recap for graph practice: sketch an unlabelled curve, then add the channel events. Explain why a below-threshold depolarization would not produce the same curve."
+      ],
+      "teacher_slide_relationships": [
+        {
+          "slide": 30,
+          "relationship_id": "rId5",
+          "target_exact": "http://www.youtube.com/watch?v=_0PFBI5K9s4"
+        }
+      ],
+      "source_identity": "same data-video ID and URL in native source; not newly discovered media",
+      "purpose": "additional representation of the adjacent taught mechanism; essential lesson explanation remains in manuscript",
+      "captions_transcript_timestamps": "not supplied or verified; none invented",
+      "playback_status": "not opened or tested in this bounded task",
+      "static_review_behavior": "link and viewing instructions only; no iframe/player/thumbnail network request",
+      "integration_behavior": "keep native loader, media identity and approved timing; do not transplant repaired player or its changed load policy"
+    },
+    {
+      "media_id": "CH11-VIDEO-vzA3pQB25Xk",
+      "lesson_id": "lesson-05",
+      "youtube_id": "vzA3pQB25Xk",
+      "existing_url": "https://www.youtube.com/watch?v=vzA3pQB25Xk",
+      "title_as_supplied": "Action potential recap 3",
+      "placement_section": "pro-l05-intensity",
+      "watch_for_exact": [
+        "As you watch: Match the membrane events with the rising, falling and undershoot regions of a voltage graph.",
+        "Video not playing? Use the written explanation on this page."
+      ],
+      "follow_through_exact": [
+        "Use this recap for graph practice: sketch an unlabelled curve, then add the channel events. Explain why a below-threshold depolarization would not produce the same curve."
+      ],
+      "teacher_slide_relationships": [
+        {
+          "slide": 30,
+          "relationship_id": "rId7",
+          "target_exact": "http://www.youtube.com/watch?v=vzA3pQB25Xk"
+        }
+      ],
+      "source_identity": "same data-video ID and URL in native source; not newly discovered media",
+      "purpose": "additional representation of the adjacent taught mechanism; essential lesson explanation remains in manuscript",
+      "captions_transcript_timestamps": "not supplied or verified; none invented",
+      "playback_status": "not opened or tested in this bounded task",
+      "static_review_behavior": "link and viewing instructions only; no iframe/player/thumbnail network request",
+      "integration_behavior": "keep native loader, media identity and approved timing; do not transplant repaired player or its changed load policy"
+    },
+    {
+      "media_id": "CH11-VIDEO-ecGEcj1tBBI",
+      "lesson_id": "lesson-06",
+      "youtube_id": "ecGEcj1tBBI",
+      "existing_url": "https://www.youtube.com/watch?v=ecGEcj1tBBI",
+      "title_as_supplied": "Synaptic transmission: first recap",
+      "placement_section": "pro-l06-summation",
+      "watch_for_exact": [
+        "As you watch: Explain the sequence from arrival of the action potential to binding on the postsynaptic membrane.",
+        "Video not playing? Use the written explanation on this page."
+      ],
+      "follow_through_exact": [
+        "Follow through: narrate the release sequence from the arriving action potential to receptor binding. Include Ca²⁺ and explain its role.",
+        "Follow through: explain how a message ends. Distinguish removal of an intact transmitter from its enzymatic breakdown."
+      ],
+      "teacher_slide_relationships": [
+        {
+          "slide": 39,
+          "relationship_id": "rId3",
+          "target_exact": "http://www.youtube.com/watch?v=ecGEcj1tBBI"
+        }
+      ],
+      "source_identity": "same data-video ID and URL in native source; not newly discovered media",
+      "purpose": "additional representation of the adjacent taught mechanism; essential lesson explanation remains in manuscript",
+      "captions_transcript_timestamps": "not supplied or verified; none invented",
+      "playback_status": "not opened or tested in this bounded task",
+      "static_review_behavior": "link and viewing instructions only; no iframe/player/thumbnail network request",
+      "integration_behavior": "keep native loader, media identity and approved timing; do not transplant repaired player or its changed load policy"
+    },
+    {
+      "media_id": "CH11-VIDEO-YcJy28Nnrb8",
+      "lesson_id": "lesson-06",
+      "youtube_id": "YcJy28Nnrb8",
+      "existing_url": "https://www.youtube.com/watch?v=YcJy28Nnrb8",
+      "title_as_supplied": "Synaptic transmission: second recap",
+      "placement_section": "pro-l06-summation",
+      "watch_for_exact": [
+        "As you watch: Identify what ends the signal. Compare reuptake with breakdown by an enzyme.",
+        "Video not playing? Use the written explanation on this page."
+      ],
+      "follow_through_exact": [
+        "Follow through: explain how a message ends. Distinguish removal of an intact transmitter from its enzymatic breakdown."
+      ],
+      "teacher_slide_relationships": [
+        {
+          "slide": 39,
+          "relationship_id": "rId5",
+          "target_exact": "http://www.youtube.com/watch?v=YcJy28Nnrb8"
+        }
+      ],
+      "source_identity": "same data-video ID and URL in native source; not newly discovered media",
+      "purpose": "additional representation of the adjacent taught mechanism; essential lesson explanation remains in manuscript",
+      "captions_transcript_timestamps": "not supplied or verified; none invented",
+      "playback_status": "not opened or tested in this bounded task",
+      "static_review_behavior": "link and viewing instructions only; no iframe/player/thumbnail network request",
+      "integration_behavior": "keep native loader, media identity and approved timing; do not transplant repaired player or its changed load policy"
+    },
+    {
+      "media_id": "CH11-VIDEO-GvUrdCQv3JM",
+      "lesson_id": "lesson-06",
+      "youtube_id": "GvUrdCQv3JM",
+      "existing_url": "https://www.youtube.com/watch?v=GvUrdCQv3JM",
+      "title_as_supplied": "Excitatory and inhibitory neurotransmitters",
+      "placement_section": "pro-l06-transmitters",
+      "watch_for_exact": [
+        "As you watch: Compare the effect on the postsynaptic membrane rather than memorizing only the transmitter’s name.",
+        "Video not playing? Use the written explanation on this page."
+      ],
+      "follow_through_exact": [
+        "Follow through: explain an excitatory and an inhibitory example by stating the ion movement and effect on firing. Do not stop at the transmitter's name."
+      ],
+      "teacher_slide_relationships": [
+        {
+          "slide": 36,
+          "relationship_id": "rId3",
+          "target_exact": "http://www.youtube.com/watch?v=GvUrdCQv3JM"
+        }
+      ],
+      "source_identity": "same data-video ID and URL in native source; not newly discovered media",
+      "purpose": "additional representation of the adjacent taught mechanism; essential lesson explanation remains in manuscript",
+      "captions_transcript_timestamps": "not supplied or verified; none invented",
+      "playback_status": "not opened or tested in this bounded task",
+      "static_review_behavior": "link and viewing instructions only; no iframe/player/thumbnail network request",
+      "integration_behavior": "keep native loader, media identity and approved timing; do not transplant repaired player or its changed load policy"
+    },
+    {
+      "media_id": "CH11-VIDEO-QY9NTVh-Awo",
+      "lesson_id": "lesson-08",
+      "youtube_id": "QY9NTVh-Awo",
+      "existing_url": "https://www.youtube.com/watch?v=QY9NTVh-Awo",
+      "title_as_supplied": "Peripheral nervous system: explanation 1",
+      "placement_section": "pro-l08-transmitters",
+      "watch_for_exact": [
+        "As you watch: Identify what connects to the CNS and distinguish the sensory route from the motor route.",
+        "Video not playing? Use the written explanation on this page."
+      ],
+      "follow_through_exact": [
+        "Follow through: start from a named effector and trace backward to the appropriate motor division. Then explain where sensory input belongs.",
+        "Follow through: explain why a skeletal-muscle reflex remains somatic even though it is not consciously chosen.",
+        "Follow through: select the heart, intestine, and bladder. Predict the direction of each response during increased sympathetic activity and explain the coordinated pattern."
+      ],
+      "teacher_slide_relationships": [
+        {
+          "slide": 45,
+          "relationship_id": "rId3",
+          "target_exact": "http://www.youtube.com/watch?v=QY9NTVh-Awo"
+        }
+      ],
+      "source_identity": "same data-video ID and URL in native source; not newly discovered media",
+      "purpose": "additional representation of the adjacent taught mechanism; essential lesson explanation remains in manuscript",
+      "captions_transcript_timestamps": "not supplied or verified; none invented",
+      "playback_status": "not opened or tested in this bounded task",
+      "static_review_behavior": "link and viewing instructions only; no iframe/player/thumbnail network request",
+      "integration_behavior": "keep native loader, media identity and approved timing; do not transplant repaired player or its changed load policy"
+    },
+    {
+      "media_id": "CH11-VIDEO-jaWrMYChc5A",
+      "lesson_id": "lesson-08",
+      "youtube_id": "jaWrMYChc5A",
+      "existing_url": "https://www.youtube.com/watch?v=jaWrMYChc5A",
+      "title_as_supplied": "Peripheral nervous system: explanation 2",
+      "placement_section": "pro-l08-transmitters",
+      "watch_for_exact": [
+        "As you watch: Compare somatic control of skeletal muscle with autonomic control of internal effectors.",
+        "Video not playing? Use the written explanation on this page."
+      ],
+      "follow_through_exact": [
+        "Follow through: explain why a skeletal-muscle reflex remains somatic even though it is not consciously chosen.",
+        "Follow through: select the heart, intestine, and bladder. Predict the direction of each response during increased sympathetic activity and explain the coordinated pattern."
+      ],
+      "teacher_slide_relationships": [
+        {
+          "slide": 45,
+          "relationship_id": "rId5",
+          "target_exact": "http://www.youtube.com/watch?v=jaWrMYChc5A"
+        }
+      ],
+      "source_identity": "same data-video ID and URL in native source; not newly discovered media",
+      "purpose": "additional representation of the adjacent taught mechanism; essential lesson explanation remains in manuscript",
+      "captions_transcript_timestamps": "not supplied or verified; none invented",
+      "playback_status": "not opened or tested in this bounded task",
+      "static_review_behavior": "link and viewing instructions only; no iframe/player/thumbnail network request",
+      "integration_behavior": "keep native loader, media identity and approved timing; do not transplant repaired player or its changed load policy"
+    },
+    {
+      "media_id": "CH11-VIDEO-DPWEhl7gbu4",
+      "lesson_id": "lesson-08",
+      "youtube_id": "DPWEhl7gbu4",
+      "existing_url": "https://www.youtube.com/watch?v=DPWEhl7gbu4",
+      "title_as_supplied": "Autonomic responses: recap",
+      "placement_section": "pro-l08-transmitters",
+      "watch_for_exact": [
+        "As you watch: Follow the contrasting effects on pupils, heart activity and digestion.",
+        "Video not playing? Use the written explanation on this page."
+      ],
+      "follow_through_exact": [
+        "Follow through: select the heart, intestine, and bladder. Predict the direction of each response during increased sympathetic activity and explain the coordinated pattern."
+      ],
+      "teacher_slide_relationships": [
+        {
+          "slide": 48,
+          "relationship_id": "rId3",
+          "target_exact": "http://www.youtube.com/watch?v=DPWEhl7gbu4"
+        }
+      ],
+      "source_identity": "same data-video ID and URL in native source; not newly discovered media",
+      "purpose": "additional representation of the adjacent taught mechanism; essential lesson explanation remains in manuscript",
+      "captions_transcript_timestamps": "not supplied or verified; none invented",
+      "playback_status": "not opened or tested in this bounded task",
+      "static_review_behavior": "link and viewing instructions only; no iframe/player/thumbnail network request",
+      "integration_behavior": "keep native loader, media identity and approved timing; do not transplant repaired player or its changed load policy"
+    },
+    {
+      "media_id": "CH11-VIDEO-q8NtmDrb_qo",
+      "lesson_id": "lesson-10",
+      "youtube_id": "q8NtmDrb_qo",
+      "existing_url": "https://www.youtube.com/watch?v=q8NtmDrb_qo",
+      "title_as_supplied": "Introduction to the brain",
+      "placement_section": "pro-l10-hemispheres",
+      "watch_for_exact": [
+        "As you watch: Locate the major regions before trying to recall their functions. Keep the brainstem and cerebellum distinct.",
+        "Video not playing? Use the written explanation on this page."
+      ],
+      "follow_through_exact": [
+        "Follow through: trace spinal cord → medulla → pons → midbrain, then locate the cerebellum separately.",
+        "Follow through: pick three structures and give both a location and a function for each.",
+        "Follow through: explain how a motor command, cerebellar coordination, and sensory feedback can contribute to the same movement."
+      ],
+      "teacher_slide_relationships": [
+        {
+          "slide": 54,
+          "relationship_id": "rId3",
+          "target_exact": "http://www.youtube.com/watch?v=q8NtmDrb_qo"
+        }
+      ],
+      "source_identity": "same data-video ID and URL in native source; not newly discovered media",
+      "purpose": "additional representation of the adjacent taught mechanism; essential lesson explanation remains in manuscript",
+      "captions_transcript_timestamps": "not supplied or verified; none invented",
+      "playback_status": "not opened or tested in this bounded task",
+      "static_review_behavior": "link and viewing instructions only; no iframe/player/thumbnail network request",
+      "integration_behavior": "keep native loader, media identity and approved timing; do not transplant repaired player or its changed load policy"
+    },
+    {
+      "media_id": "CH11-VIDEO-0-8PvNOdByc",
+      "lesson_id": "lesson-10",
+      "youtube_id": "0-8PvNOdByc",
+      "existing_url": "https://www.youtube.com/watch?v=0-8PvNOdByc",
+      "title_as_supplied": "Structures of the brain: first recap",
+      "placement_section": "pro-l10-hemispheres",
+      "watch_for_exact": [
+        "As you watch: Point to a structure, say its name, and state one function before continuing.",
+        "Video not playing? Use the written explanation on this page."
+      ],
+      "follow_through_exact": [
+        "Follow through: pick three structures and give both a location and a function for each.",
+        "Follow through: explain how a motor command, cerebellar coordination, and sensory feedback can contribute to the same movement."
+      ],
+      "teacher_slide_relationships": [
+        {
+          "slide": 61,
+          "relationship_id": "rId3",
+          "target_exact": "http://www.youtube.com/watch?v=0-8PvNOdByc"
+        }
+      ],
+      "source_identity": "same data-video ID and URL in native source; not newly discovered media",
+      "purpose": "additional representation of the adjacent taught mechanism; essential lesson explanation remains in manuscript",
+      "captions_transcript_timestamps": "not supplied or verified; none invented",
+      "playback_status": "not opened or tested in this bounded task",
+      "static_review_behavior": "link and viewing instructions only; no iframe/player/thumbnail network request",
+      "integration_behavior": "keep native loader, media identity and approved timing; do not transplant repaired player or its changed load policy"
+    },
+    {
+      "media_id": "CH11-VIDEO-jYlxv9gUYSs",
+      "lesson_id": "lesson-10",
+      "youtube_id": "jYlxv9gUYSs",
+      "existing_url": "https://www.youtube.com/watch?v=jYlxv9gUYSs",
+      "title_as_supplied": "Structures of the brain: second recap",
+      "placement_section": "pro-l10-hemispheres",
+      "watch_for_exact": [
+        "As you watch: Distinguish the cerebrum, cerebellum, brainstem, thalamus and hypothalamus.",
+        "Video not playing? Use the written explanation on this page."
+      ],
+      "follow_through_exact": [
+        "Follow through: explain how a motor command, cerebellar coordination, and sensory feedback can contribute to the same movement."
+      ],
+      "teacher_slide_relationships": [
+        {
+          "slide": 61,
+          "relationship_id": "rId5",
+          "target_exact": "http://www.youtube.com/watch?v=jYlxv9gUYSs"
+        }
+      ],
+      "source_identity": "same data-video ID and URL in native source; not newly discovered media",
+      "purpose": "additional representation of the adjacent taught mechanism; essential lesson explanation remains in manuscript",
+      "captions_transcript_timestamps": "not supplied or verified; none invented",
+      "playback_status": "not opened or tested in this bounded task",
+      "static_review_behavior": "link and viewing instructions only; no iframe/player/thumbnail network request",
+      "integration_behavior": "keep native loader, media identity and approved timing; do not transplant repaired player or its changed load policy"
+    },
+    {
+      "media_id": "CH11-VIDEO-RNLceVI8jcc",
+      "lesson_id": "lesson-12",
+      "youtube_id": "RNLceVI8jcc",
+      "existing_url": "https://www.youtube.com/watch?v=RNLceVI8jcc",
+      "title_as_supplied": "Nervous system: final quick review",
+      "placement_section": "pro-l12-readiness",
+      "watch_for_exact": [
+        "As you watch: Trace the connections among neurons, impulses, synapses, CNS, PNS and homeostasis. Use this as a final review, not a replacement for the chapter reading.",
+        "Video not playing? Use the written explanation on this page."
+      ],
+      "follow_through_exact": [
+        "After this final recap: choose one pathway and explain it aloud from stimulus to response, including an axon and a chemical synapse. Then complete the required final check below. Written responses are saved for review and are not automatically graded."
+      ],
+      "teacher_slide_relationships": [
+        {
+          "slide": 66,
+          "relationship_id": "rId3",
+          "target_exact": "http://www.youtube.com/watch?v=RNLceVI8jcc"
+        }
+      ],
+      "source_identity": "same data-video ID and URL in native source; not newly discovered media",
+      "purpose": "additional representation of the adjacent taught mechanism; essential lesson explanation remains in manuscript",
+      "captions_transcript_timestamps": "not supplied or verified; none invented",
+      "playback_status": "not opened or tested in this bounded task",
+      "static_review_behavior": "link and viewing instructions only; no iframe/player/thumbnail network request",
+      "integration_behavior": "keep native loader, media identity and approved timing; do not transplant repaired player or its changed load policy"
+    },
+    {
+      "media_id": "CH11-VIDEO-jEHwB1PG_-Q",
+      "lesson_id": "lesson-13",
+      "youtube_id": "jEHwB1PG_-Q",
+      "existing_url": "https://www.youtube.com/watch?v=jEHwB1PG_-Q",
+      "title_as_supplied": "Stress response and anxiety: first extra",
+      "placement_section": "pro-l13-stress",
+      "watch_for_exact": [
+        "As you watch: Connect the discussion with the autonomic response already taught. Separate a general explanation from advice for an individual.",
+        "Video not playing? Use the written explanation on this page."
+      ],
+      "follow_through_exact": [
+        "Watch for: which parts of the explanation concern autonomic physiology and which are broader claims about experience. Follow through: name one physical change and connect it to an effector and pathway.",
+        "Watch for: how the discussion describes activation and recovery. Follow through: explain why “parasympathetic” does not mean that the entire body stops being active."
+      ],
+      "teacher_slide_relationships": [
+        {
+          "slide": 49,
+          "relationship_id": "rId3",
+          "target_exact": "http://www.youtube.com/watch?v=jEHwB1PG_-Q"
+        }
+      ],
+      "source_identity": "same data-video ID and URL in native source; not newly discovered media",
+      "purpose": "additional representation of the adjacent taught mechanism; essential lesson explanation remains in manuscript",
+      "captions_transcript_timestamps": "not supplied or verified; none invented",
+      "playback_status": "not opened or tested in this bounded task",
+      "static_review_behavior": "link and viewing instructions only; no iframe/player/thumbnail network request",
+      "integration_behavior": "keep native loader, media identity and approved timing; do not transplant repaired player or its changed load policy"
+    },
+    {
+      "media_id": "CH11-VIDEO-FPH5CFSmYEU",
+      "lesson_id": "lesson-13",
+      "youtube_id": "FPH5CFSmYEU",
+      "existing_url": "https://www.youtube.com/watch?v=FPH5CFSmYEU",
+      "title_as_supplied": "Stress response and anxiety: second extra",
+      "placement_section": "pro-l13-stress",
+      "watch_for_exact": [
+        "As you watch: Identify how the discussion relates to sympathetic and parasympathetic activity.",
+        "Video not playing? Use the written explanation on this page."
+      ],
+      "follow_through_exact": [
+        "Watch for: how the discussion describes activation and recovery. Follow through: explain why “parasympathetic” does not mean that the entire body stops being active."
+      ],
+      "teacher_slide_relationships": [
+        {
+          "slide": 49,
+          "relationship_id": "rId5",
+          "target_exact": "http://www.youtube.com/watch?v=FPH5CFSmYEU"
+        }
+      ],
+      "source_identity": "same data-video ID and URL in native source; not newly discovered media",
+      "purpose": "additional representation of the adjacent taught mechanism; essential lesson explanation remains in manuscript",
+      "captions_transcript_timestamps": "not supplied or verified; none invented",
+      "playback_status": "not opened or tested in this bounded task",
+      "static_review_behavior": "link and viewing instructions only; no iframe/player/thumbnail network request",
+      "integration_behavior": "keep native loader, media identity and approved timing; do not transplant repaired player or its changed load policy"
+    },
+    {
+      "media_id": "CH11-VIDEO-qEEEu1HEtU0",
+      "lesson_id": "lesson-13",
+      "youtube_id": "qEEEu1HEtU0",
+      "existing_url": "https://www.youtube.com/watch?v=qEEEu1HEtU0",
+      "title_as_supplied": "Childhood experience and the brain: extension",
+      "placement_section": "pro-l13-experience",
+      "watch_for_exact": [
+        "As you watch: Identify the claims being made and the evidence offered. Do not infer an individual diagnosis from a general example.",
+        "Video not playing? Use the written explanation on this page."
+      ],
+      "follow_through_exact": [
+        "Watch for: the actual evidence offered for claims about experience and development. Follow through: separate one observation from the explanation proposed for it, and identify information needed to evaluate that explanation."
+      ],
+      "teacher_slide_relationships": [
+        {
+          "slide": 63,
+          "relationship_id": "rId4",
+          "target_exact": "http://www.youtube.com/watch?v=qEEEu1HEtU0"
+        }
+      ],
+      "source_identity": "same data-video ID and URL in native source; not newly discovered media",
+      "purpose": "additional representation of the adjacent taught mechanism; essential lesson explanation remains in manuscript",
+      "captions_transcript_timestamps": "not supplied or verified; none invented",
+      "playback_status": "not opened or tested in this bounded task",
+      "static_review_behavior": "link and viewing instructions only; no iframe/player/thumbnail network request",
+      "integration_behavior": "keep native loader, media identity and approved timing; do not transplant repaired player or its changed load policy"
+    },
+    {
+      "media_id": "CH11-VIDEO--w8n9UOiBxE",
+      "lesson_id": "lesson-13",
+      "youtube_id": "-w8n9UOiBxE",
+      "existing_url": "https://www.youtube.com/watch?v=-w8n9UOiBxE",
+      "title_as_supplied": "Addiction: disease, learning and the brain",
+      "placement_section": "pro-l13-addiction",
+      "watch_for_exact": [
+        "As you watch: Distinguish the presenter’s framework from the specific synaptic mechanisms taught in the chapter.",
+        "Video not playing? Use the written explanation on this page."
+      ],
+      "follow_through_exact": [
+        "Watch for: how the presenter defines disease and learning, and what evidence supports the proposed framework. Follow through: connect one claim to a specific mechanism from Lesson 7, then state what that mechanism does not establish on its own."
+      ],
+      "teacher_slide_relationships": [
+        {
+          "slide": 65,
+          "relationship_id": "rId3",
+          "target_exact": "http://www.youtube.com/watch?v=-w8n9UOiBxE"
+        }
+      ],
+      "source_identity": "same data-video ID and URL in native source; not newly discovered media",
+      "purpose": "additional representation of the adjacent taught mechanism; essential lesson explanation remains in manuscript",
+      "captions_transcript_timestamps": "not supplied or verified; none invented",
+      "playback_status": "not opened or tested in this bounded task",
+      "static_review_behavior": "link and viewing instructions only; no iframe/player/thumbnail network request",
+      "integration_behavior": "keep native loader, media identity and approved timing; do not transplant repaired player or its changed load policy"
+    }
+  ],
+  "media_summary": {
+    "unique_video_ids": 22,
+    "lesson_video_instances": 22,
+    "native_library_instances_untouched": 22,
+    "live_playback_verified": false,
+    "new_urls_added": 0
+  },
+  "new_art_created": false,
+  "font_files_in_handoff": false,
+  "reader_or_runtime_transplanted": false,
+  "review_gaps": [
+    "Source native sibling image binaries are not in the baseline archive; review derivatives are explicitly identified.",
+    "Current synaptic graph numerical cues, brain region brackets and brain-method SVG text overlap need asset-owner review.",
+    "No supplied media transcript/caption verification or newly sourced scientific publication is available.",
+    "At 390px the complete diagrams fit, but some original embedded image labels require magnification. Surrounding teaching text is readable; fitting the viewport is not label-legibility acceptance."
+  ]
+}

@@ -1,0 +1,247 @@
+{
+  "scope": "Prospective candidate collision analysis only; no candidate wording authored and no source/learner/prior-return edits.",
+  "source": "baseline/native-v020/index.html",
+  "sourceSha256": "bc42ea52d8cf5709c0ec33c914e86450f93971f3e3144cb81b695593aa0eff3b",
+  "globalRequiredBankEqualsEmbeddedChecks": true,
+  "requiredPromptsRead": 64,
+  "embeddedModelsInspected": "All required questions; optional source/authored/guided/transfer prompt-and-key inventory; targeted full explanations, concepts and videos; actual integrated teaching; all embedded textbook-source records searched, relevant two-locus records read.",
+  "candidates": [
+    {
+      "id": "prospective-lesson05-mc2",
+      "event": "At least one recessive phenotype in an independent double-heterozygote cross under complete dominance",
+      "mathematics": "P(recessive at locus1 OR recessive at locus2)=1−(3/4×3/4)=7/16; equivalently3/16+3/16+1/16. Do not use1/4+1/4 without subtracting overlap1/16.",
+      "exactExistingWholeDemandCollisionFound": false,
+      "nearestSolvedDemand": "Complement/regrouping of fully solved four-class phenotype distribution in ch17-l05-teaching-02 and both L05 video fallbacks.",
+      "additionalNearIsomorphism": "ch17-l03-teaching-03 explicitly names but does not solve at least one recessive among two successive offspring. That event is mathematically isomorphic with two independent1/4 components.",
+      "judgment": "New aggregate event, but close one-operation transfer from exposed component answers; do not claim no prior near-isomorphic cue."
+    },
+    {
+      "id": "prospective-lesson05-writing2",
+      "event": "Compare both dominant phenotypes with homozygous at both loci in an independent CcHh×CcHh cross",
+      "mathematics": "Both-dominant9/16. Homozygous at both=CCHH,CChh,ccHH,cchh; each1/16, total4/16=1/4=(1/4+1/4)^2. The latter means either homozygote at each locus, not just homozygous dominant.",
+      "exactExistingWholeDemandCollisionFound": false,
+      "exactExistingComponentCollision": "Both-dominant9/16 solved explicitly in ch17-l05-teaching-02 and videos fe5kSSs83qc/qIGXTJLrLf8.",
+      "nearestSolvedDemand": "Full16-cell grid exposes all four double-homozygote cells and their1/16 weights; grouping them by homozygosity and contrasting with phenotype is not explicitly solved. ch17-l01-check-writing-1 addresses the one-locus genotype/phenotype ambiguity prerequisite.",
+      "judgment": "Comparison adds a new classification/contrast demand; first numerical component is already solved. The new aggregate1/4 is not an exact existing two-locus target in the inspected bank/configuration."
+    }
+  ],
+  "sourceReferences": [
+    {
+      "id": "ch17-l05-teaching-02",
+      "kind": "fully solved integrated teaching",
+      "relevance": "Sixteen-cell TtGg×TtGg grid contains TTGG,TTgg,ttGG,ttgg, each once; phenotype table explicitly gives9/16,3/16,3/16,1/16. Neither candidate aggregate7/16 or homozygous-at-both1/4 is explicitly evaluated as an event.",
+      "details": [
+        {
+          "caption": "F2 genotype combinations from TtGg × TtGg; each interior cell has probability 1/16",
+          "owner": "ch17-l05-teaching-02",
+          "range": {
+            "startByte": 190658,
+            "endByteExclusive": 191345,
+            "sha256": "fb6b4fd71533db1dfd8861303bb0167597a18bc63a8868a2f642348a9a2c6210"
+          }
+        },
+        {
+          "caption": "Grouping the sixteen F2 cells by phenotype",
+          "owner": "ch17-l05-teaching-02",
+          "range": {
+            "startByte": 192332,
+            "endByteExclusive": 193025,
+            "sha256": "bc9091231679ea849cf47dd720b28414d2801bc235378bec6ba3658ff5639ca7"
+          }
+        },
+        {
+          "selectorOrOwner": [
+            "unkeyed paragraph"
+          ],
+          "range": {
+            "startByte": 194153,
+            "endByteExclusive": 194575,
+            "sha256": "5039e537569e9bba37775650d2f6454cdabcda65eb790023d40b166812258e9b"
+          },
+          "html": "<p>Add when combining alternatives that cannot happen to the same plant. For example, all tall offspring are either tall/green or tall/yellow, so their combined probability is 9/16 + 3/16 = 12/16 = ¾. Multiplication combines the independent requirements here; addition combines the non-overlapping categories. Neither operation is justified merely by seeing the word “and” or “or” without checking the events.</p>"
+        }
+      ]
+    },
+    {
+      "id": "ch17-l03-teaching-03",
+      "kind": "near-isomorphic event cue, not solved target",
+      "details": {
+        "selectorOrOwner": [
+          "ch17-l03-teaching-03-p2"
+        ],
+        "range": {
+          "startByte": 142373,
+          "endByteExclusive": 142744,
+          "sha256": "1930ac900bd71b975ea43119c81c5590eb808205a73a5edd97522a23362eb224"
+        },
+        "html": "<p data-canvas-edit-key=\"ch17-l03-teaching-03-p2\" data-canvas-helper-edit-key=\"ch17-l03-teaching-03-p2\">For specified independent events, multiply probabilities. Two recessive offspring in a row from Aa × Aa have probability 1/4 × 1/4 = 1/16. Do not confuse this ordered event with “at least one recessive among two,” which asks for a different set of outcomes.</p>"
+      },
+      "relevance": "The lesson contrasts two successive recessive offspring (solved1/16) with at least one recessive among two (named but not solved). With two independent1/4 events the latter has the same7/16 mathematics as candidateMC2; count unit differs (offspring versus loci)."
+    },
+    {
+      "id": "fe5kSSs83qc",
+      "path": "course-data.videos[3].fallback",
+      "kind": "fully solved component / source-defined video fallback, no playback",
+      "content": "For AaBb × AaBb, the A locus gives a 3/4 dominant-phenotype probability and 1/4 recessive probability. The B locus gives the same. If the loci assort independently, the probability of both dominant phenotypes is 3/4 × 3/4 = 9/16. The other phenotype combinations are 3/16, 3/16 and 1/16, producing the familiar 9:3:3:1 expectation. This ratio is specific to the stated heterozygote cross and allele relationships. For a different cross, recompute. In AaBb × aaBb, probability of A_ is 1/2 and probability of B_ is 3/4, so both dominant phenotypes have probability 3/8. A memorized 9/16 would be wrong.",
+      "relevance": "Both-dominant9/16 explicitly solved; all three other phenotype class probabilities supplied. No7/16 union or homozygous-at-both aggregate."
+    },
+    {
+      "id": "qIGXTJLrLf8",
+      "path": "course-data.videos[4].fallback",
+      "kind": "fully solved component / source-defined video fallback, no playback",
+      "content": "For AaBb × AaBb, the A locus gives a 3/4 dominant-phenotype probability and 1/4 recessive probability. The B locus gives the same. If the loci assort independently, the probability of both dominant phenotypes is 3/4 × 3/4 = 9/16. The other phenotype combinations are 3/16, 3/16 and 1/16, producing the familiar 9:3:3:1 expectation. This ratio is specific to the stated heterozygote cross and allele relationships. For a different cross, recompute. In AaBb × aaBb, probability of A_ is 1/2 and probability of B_ is 3/4, so both dominant phenotypes have probability 3/8. A memorized 9/16 would be wrong.",
+      "relevance": "Both-dominant9/16 explicitly solved; all three other phenotype class probabilities supplied. No7/16 union or homozygous-at-both aggregate."
+    },
+    {
+      "id": "ch17-source-OBJ_2131227",
+      "path": "course-data.practiceQuestions[3]",
+      "kind": "optional source-derived MC/explanatory feedback",
+      "record": {
+        "id": "ch17-source-OBJ_2131227",
+        "lesson": 5,
+        "prompt": "Assume independent assortment and complete dominance at both loci. What phenotype ratio is predicted for TtYy × TtYy?",
+        "answer": "9:3:3:1",
+        "options": [
+          "1:1:1:1",
+          "1:2:1",
+          "3:1",
+          "9:3:3:1"
+        ],
+        "cue": "Identify the relevant mechanism or quantity and apply the stated model.",
+        "explanation": "Each locus predicts a 3:1 phenotype ratio. Multiplying independent probabilities gives 9/16, 3/16, 3/16 and 1/16.",
+        "difficulty": "application",
+        "stimuli": [],
+        "sourceItemId": "OBJ_2131227",
+        "conceptId": "ch17-concept-independent-assortment"
+      }
+    },
+    {
+      "id": "ch17-source-OBJ_2131237",
+      "path": "course-data.practiceQuestions[13]",
+      "kind": "optional source-derived MC/explanatory feedback",
+      "record": {
+        "id": "ch17-source-OBJ_2131237",
+        "lesson": 5,
+        "prompt": "For independent AaBb × AaBb, what is the probability of the dominant A phenotype together with bb?",
+        "answer": "3/16",
+        "options": [
+          "15/16",
+          "3/16",
+          "1/16",
+          "9/16"
+        ],
+        "cue": "Identify the relevant mechanism or quantity and apply the stated model.",
+        "explanation": "P(A_) = 3/4 and P(bb) = 1/4; their product is 3/16.",
+        "difficulty": "application",
+        "stimuli": [],
+        "sourceItemId": "OBJ_2131237",
+        "conceptId": "ch17-concept-probability"
+      }
+    },
+    {
+      "id": "ch17-l05-check-mc-2",
+      "path": "GLOBAL_REQUIRED_BANK.json[4].mc[1] / course-data.checks[4].mc[1]",
+      "kind": "nearest current required target, not whole-demand duplicate",
+      "record": {
+        "prompt": "For independent AaBb × AaBb with complete dominance, what is P(aaB_)?",
+        "answer": "3/16",
+        "explanation": "P(aa) = 1/4 and P(B_) = 3/4, giving 3/16.",
+        "cue": "Trace the normal mechanism before choosing an answer.",
+        "id": "ch17-l05-check-mc-2",
+        "options": [
+          "1/16",
+          "3/16",
+          "1/4",
+          "9/16"
+        ],
+        "difficulty": "application"
+      }
+    },
+    {
+      "id": "ch17-final-mc-2",
+      "path": "GLOBAL_REQUIRED_BANK.json[14].mc[1] / course-data.checks[14].mc[1]",
+      "kind": "nearest current required target, not whole-demand duplicate",
+      "record": {
+        "prompt": "For independent AaBb × AaBb, what is P(aabb)?",
+        "answer": "1/16",
+        "explanation": "Multiply P(aa) = 1/4 and P(bb) = 1/4.",
+        "cue": "Trace the normal mechanism before choosing an answer.",
+        "id": "ch17-final-mc-2",
+        "options": [
+          "1/4",
+          "1/16",
+          "3/16",
+          "9/16"
+        ],
+        "difficulty": "application"
+      }
+    },
+    {
+      "id": "ch17-l01-check-writing-1",
+      "path": "GLOBAL_REQUIRED_BANK.json[0].writing[0] / course-data.checks[0].writing[0]",
+      "kind": "nearest current required target, not whole-demand duplicate",
+      "record": {
+        "prompt": "Use a complete-dominance example to show why one phenotype can have two possible genotypes.",
+        "model": "If B is completely dominant to b, both BB and Bb can produce the dominant phenotype. A dominant appearance therefore does not distinguish those genotypes. Only bb produces the recessive phenotype in the stated simple model.",
+        "criteria": [
+          "Identifies the relevant structures or quantities.",
+          "Explains the causal relationship or calculation, not just the final result.",
+          "Uses the stated evidence and avoids a stronger conclusion than it supports."
+        ],
+        "id": "ch17-l01-check-writing-1",
+        "limit": 3200
+      }
+    },
+    {
+      "id": "ch17-p598-section-17-1-q6",
+      "path": "textbook-practice-data.questions[38]",
+      "printedPage": 598,
+      "pdfPage": 15,
+      "kind": "embedded textbook-practice source text; no solved key in this record",
+      "sourceText": " 6. In the garden pea, infl ated pod shape (I) is dominant \nto constricted shape (i). Axial fl ower position (A) is \ndominant to terminal fl ower position (a). Start with \nthe cross IIAA × iiaa from the parental generation.\na) State the genotype and phenotype of the F1 plants.\nb) List all of the genotypes and phenotypes of the F2 \nplants, and determine the genotypic and phenotypic \nratios.\n \n c) Explain how experimental data and your ratios in \npart (b) support the law of independent assortment.",
+      "relevance": "Full F2 genotypes/phenotypes or all four phenotype counts requested; component/evidence overlap, but not either candidate aggregate or comparison."
+    },
+    {
+      "id": "ch17-p598-section-17-1-q7",
+      "path": "textbook-practice-data.questions[39]",
+      "printedPage": 598,
+      "pdfPage": 15,
+      "kind": "embedded textbook-practice source text; no solved key in this record",
+      "sourceText": " 7. In fruit fl ies, long wings (L) are dominant to short wings \n(l) and gray body colour (G) is dominant to black body \ncolour (g). If fl ies that are heterozygous for both traits \nare crossed and 256 offspring are produced, how many \nof these offspring would you predict to have each \nphenotype below? \n \n a) long, gray\n \n b) long, black\n \n c) short, gray\n \n d) short, black",
+      "relevance": "Full F2 genotypes/phenotypes or all four phenotype counts requested; component/evidence overlap, but not either candidate aggregate or comparison."
+    },
+    {
+      "id": "ch17-word-homozygous",
+      "path": "course-data.words[13]",
+      "kind": "definition needed for genotype classification",
+      "record": {
+        "term": "homozygous",
+        "meaning": "Having two identical alleles at a locus.",
+        "example": "An individual is AA or aa rather than Aa.",
+        "importantDistinction": "Homozygous can be dominant or recessive.",
+        "aliases": [],
+        "id": "ch17-word-homozygous",
+        "lesson": 4,
+        "whatItDoes": "An individual is AA or aa rather than Aa.",
+        "feature": "An individual is AA or aa rather than Aa.",
+        "confusion": "Homozygous can be dominant or recessive."
+      }
+    }
+  ],
+  "literalSearchNotes": {
+    "visibleHTMLSevenSixteenthsFound": false,
+    "terms": [
+      "7/16",
+      "7 / 16",
+      "seven sixteenths",
+      "43.75"
+    ],
+    "caveat": "Literal absence alone is not the collision decision; near-isomorphic event wording and full solved distributions were inspected separately."
+  },
+  "limits": [
+    "No video playback, browser or course runtime was used.",
+    "Embedded textbook sourceText records were inspected; no fresh original textbook pixel review was needed for this bounded task.",
+    "The same numeric answer elsewhere with a different event/cross is not by itself an isomorphic task.",
+    "This report is not an approval of final question wording or assessment validity."
+  ]
+}

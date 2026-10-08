@@ -1,0 +1,447 @@
+{
+  "checks": [
+    {
+      "id": "ch17-check-08",
+      "route": "lesson-08",
+      "title": "Sex-linked inheritance",
+      "mc": [
+        {
+          "prompt": "For XaXa × XAY in a recessive model, what fraction of sons is affected?",
+          "answer": "1",
+          "explanation": "Every son receives Xa from the mother and Y from the father.",
+          "cue": "Trace the normal mechanism before choosing an answer.",
+          "id": "ch17-l08-check-mc-1",
+          "options": [
+            "1/2",
+            "1/4",
+            "1",
+            "0"
+          ],
+          "difficulty": "application"
+        },
+        {
+          "prompt": "For XAXa × XAY, what is the probability of the next child being an affected son?",
+          "answer": "1/4",
+          "explanation": "Only XaY is both a son and affected among the four equal combinations.",
+          "cue": "Trace the normal mechanism before choosing an answer.",
+          "id": "ch17-l08-check-mc-2",
+          "options": [
+            "1",
+            "0",
+            "1/2",
+            "1/4"
+          ],
+          "difficulty": "application"
+        }
+      ],
+      "writing": [
+        {
+          "prompt": "Explain the difference between “probability an offspring is an affected son” and “probability a son is affected.” Use a carrier mother and unaffected father.",
+          "model": "For XAXa × XAY, one of four total offspring combinations is an affected son, so the joint probability is 1/4. Among the two son combinations, one is affected, giving a conditional probability of 1/2. The denominator differs.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ],
+          "id": "ch17-l08-check-writing-1",
+          "limit": 3200
+        },
+        {
+          "prompt": "Explain why an affected father does not directly pass an X-linked allele to his sons in the typical XX/XY model.",
+          "model": "Sons receive the father’s Y chromosome, not his X. The paternal X goes to daughters. Therefore direct father-to-son transmission does not occur through an X-linked locus in this model.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ],
+          "id": "ch17-l08-check-writing-2",
+          "limit": 3200
+        }
+      ]
+    }
+  ],
+  "words": [
+    {
+      "term": "X-linked",
+      "meaning": "Located on the X chromosome.",
+      "example": "An allele is represented as Xb rather than as an autosomal b alone.",
+      "importantDistinction": "An XY individual has only one allele at many X-linked loci.",
+      "aliases": [],
+      "id": "ch17-word-x-linked",
+      "lesson": 8,
+      "whatItDoes": "An allele is represented as Xb rather than as an autosomal b alone.",
+      "feature": "An allele is represented as Xb rather than as an autosomal b alone.",
+      "confusion": "An XY individual has only one allele at many X-linked loci."
+    },
+    {
+      "term": "hemizygous",
+      "meaning": "Having only one copy of a gene in the relevant chromosome context.",
+      "example": "A typical XY individual has one copy of many X-linked genes.",
+      "importantDistinction": "Hemizygous is not the same as homozygous.",
+      "aliases": [],
+      "id": "ch17-word-hemizygous",
+      "lesson": 8,
+      "whatItDoes": "A typical XY individual has one copy of many X-linked genes.",
+      "feature": "A typical XY individual has one copy of many X-linked genes.",
+      "confusion": "Hemizygous is not the same as homozygous."
+    },
+    {
+      "term": "conditional probability",
+      "meaning": "Probability calculated within a stated subgroup or condition.",
+      "example": "The question asks what fraction of sons are affected, not what fraction of all children are affected sons.",
+      "importantDistinction": "Changing the denominator can change the numerical answer.",
+      "aliases": [],
+      "id": "ch17-word-conditional-probability",
+      "lesson": 8,
+      "whatItDoes": "The question asks what fraction of sons are affected, not what fraction of all children are affected sons.",
+      "feature": "The question asks what fraction of sons are affected, not what fraction of all children are affected sons.",
+      "confusion": "Changing the denominator can change the numerical answer."
+    },
+    {
+      "term": "X-linked recessive",
+      "meaning": "An inheritance model in which the recessive allele is on X and is expressed in a hemizygous XY individual.",
+      "example": "A carrier XX parent can have an affected XY offspring.",
+      "importantDistinction": "An affected father does not transmit his X to sons in the typical XX/XY model.",
+      "aliases": [],
+      "id": "ch17-word-x-linked-recessive",
+      "lesson": 8,
+      "whatItDoes": "A carrier XX parent can have an affected XY offspring.",
+      "feature": "A carrier XX parent can have an affected XY offspring.",
+      "confusion": "An affected father does not transmit his X to sons in the typical XX/XY model."
+    }
+  ],
+  "practiceQuestions": [
+    {
+      "id": "ch17-source-OBJ_2131241",
+      "lesson": 8,
+      "prompt": "In fruit flies the gene for eye colour is found on the X chromosome. In these flies, red eye colour is dominant to white-eye colour. Predict the probability of producing white-eyed male offspring in a cross between a female fly that is homozygous for red eye colour and a male fly that has white eyes.",
+      "answer": "0 percent of the male offspring will have white eyes.",
+      "options": [
+        "100 percent of the male offspring will have white eyes.",
+        "0 percent of the male offspring will have white eyes.",
+        "75 percent of the male offspring will have white eyes.",
+        "25 percent of the male offspring will have white eyes."
+      ],
+      "cue": "Identify the relevant mechanism or quantity and apply the stated model.",
+      "explanation": "Every son receives a dominant red-eye X from the homozygous mother and a Y from the father, so none is white-eyed in this model.",
+      "difficulty": "application",
+      "stimuli": [],
+      "sourceItemId": "OBJ_2131241",
+      "conceptId": "ch17-concept-probability"
+    },
+    {
+      "id": "ch17-source-OBJ_2131246",
+      "lesson": 8,
+      "prompt": "A carrier mother XAXa and unaffected father XAY have a son. Under a fully penetrant X-linked recessive model, what is the probability that this son is affected?",
+      "answer": "50%",
+      "options": [
+        "0%",
+        "50%",
+        "100%",
+        "25%"
+      ],
+      "cue": "Identify the relevant mechanism or quantity and apply the stated model.",
+      "explanation": "Conditioning on a son leaves XAY and XaY equally likely. The all-children affected probability would instead be 1/4.",
+      "difficulty": "application",
+      "stimuli": [],
+      "sourceItemId": "OBJ_2131246",
+      "conceptId": "ch17-concept-x-linked-recessive"
+    },
+    {
+      "id": "ch17-foundation-ch17-word-x-linked",
+      "lesson": 8,
+      "conceptId": "ch17-concept-x-linked",
+      "prompt": "Which term matches this description? Located on the X chromosome.",
+      "options": [
+        "X-linked",
+        "hemizygous",
+        "conditional probability",
+        "X-linked recessive"
+      ],
+      "answer": "X-linked",
+      "cue": "Use the meaning of each term, not the length of its name.",
+      "explanation": "Located on the X chromosome. An XY individual has only one allele at many X-linked loci.",
+      "difficulty": "recall",
+      "family": "definition-recognition",
+      "kind": "mc"
+    },
+    {
+      "id": "ch17-foundation-ch17-word-hemizygous",
+      "lesson": 8,
+      "conceptId": "ch17-concept-hemizygous",
+      "prompt": "Which term matches this description? Having only one copy of a gene in the relevant chromosome context.",
+      "options": [
+        "X-linked",
+        "hemizygous",
+        "conditional probability",
+        "X-linked recessive"
+      ],
+      "answer": "hemizygous",
+      "cue": "Use the meaning of each term, not the length of its name.",
+      "explanation": "Having only one copy of a gene in the relevant chromosome context. Hemizygous is not the same as homozygous.",
+      "difficulty": "recall",
+      "family": "definition-recognition",
+      "kind": "mc"
+    },
+    {
+      "id": "ch17-foundation-ch17-word-conditional-probability",
+      "lesson": 8,
+      "conceptId": "ch17-concept-conditional-probability",
+      "prompt": "Which term matches this description? Probability calculated within a stated subgroup or condition.",
+      "options": [
+        "X-linked",
+        "hemizygous",
+        "conditional probability",
+        "X-linked recessive"
+      ],
+      "answer": "conditional probability",
+      "cue": "Use the meaning of each term, not the length of its name.",
+      "explanation": "Probability calculated within a stated subgroup or condition. Changing the denominator can change the numerical answer.",
+      "difficulty": "recall",
+      "family": "definition-recognition",
+      "kind": "mc"
+    },
+    {
+      "id": "ch17-foundation-ch17-word-x-linked-recessive",
+      "lesson": 8,
+      "conceptId": "ch17-concept-x-linked-recessive",
+      "prompt": "Which term matches this description? An inheritance model in which the recessive allele is on X and is expressed in a hemizygous XY individual.",
+      "options": [
+        "X-linked",
+        "hemizygous",
+        "conditional probability",
+        "X-linked recessive"
+      ],
+      "answer": "X-linked recessive",
+      "cue": "Use the meaning of each term, not the length of its name.",
+      "explanation": "An inheritance model in which the recessive allele is on X and is expressed in a hemizygous XY individual. An affected father does not transmit his X to sons in the typical XX/XY model.",
+      "difficulty": "recall",
+      "family": "definition-recognition",
+      "kind": "mc"
+    }
+  ],
+  "videos": [
+    {
+      "id": "dN9SZHO6Wjg",
+      "lesson": 8,
+      "title": "Sex-linked inheritance — video support",
+      "purpose": "Use a typical XX/XY model to solve X-linked crosses and distinguish conditional from joint probabilities.",
+      "fallback": "Consider XBXb × XBY. The four equally likely combinations are XBXB, XBXb, XBY and XbY. One of four children is expected to be affected. Among sons only, one of two is expected to be affected. The probability of “a son who is affected” is 1/4 among all children. The probability that “the next son is affected” is 1/2 conditional on being a son. The wording changes the denominator, not the biological cross. An affected father passes his X chromosome to daughters and his Y to sons in this model. Father-to-son transmission therefore is not expected for an X-linked allele through that direct chromosome path.",
+      "disposition": "included",
+      "sourceSlide": 66,
+      "sourceDeck": "c17",
+      "availability": "Source hyperlink resolved syntactically; external playback not certified."
+    }
+  ],
+  "practiceConcepts": [
+    {
+      "id": "ch17-concept-x-linked",
+      "term": "X-linked",
+      "lesson": 8,
+      "meaning": "Located on the X chromosome.",
+      "example": "An allele is represented as Xb rather than as an autosomal b alone.",
+      "aliases": [],
+      "cue": "Identify the structure, quantity or relationship described.",
+      "correctExplanation": "Located on the X chromosome. An XY individual has only one allele at many X-linked loci.",
+      "misconception": {
+        "statement": "X-linked alleles are normally passed on the Y chromosome.",
+        "correction": "Located on the X chromosome. An XY individual has only one allele at many X-linked loci."
+      },
+      "reviewRoute": "lesson-08"
+    },
+    {
+      "id": "ch17-concept-hemizygous",
+      "term": "hemizygous",
+      "lesson": 8,
+      "meaning": "Having only one copy of a gene in the relevant chromosome context.",
+      "example": "A typical XY individual has one copy of many X-linked genes.",
+      "aliases": [],
+      "cue": "Identify the structure, quantity or relationship described.",
+      "correctExplanation": "Having only one copy of a gene in the relevant chromosome context. Hemizygous is not the same as homozygous.",
+      "misconception": {
+        "statement": "An XY individual is homozygous at every X-linked locus.",
+        "correction": "Having only one copy of a gene in the relevant chromosome context. Hemizygous is not the same as homozygous."
+      },
+      "reviewRoute": "lesson-08"
+    },
+    {
+      "id": "ch17-concept-conditional-probability",
+      "term": "conditional probability",
+      "lesson": 8,
+      "meaning": "Probability calculated within a stated subgroup or condition.",
+      "example": "The question asks what fraction of sons are affected, not what fraction of all children are affected sons.",
+      "aliases": [],
+      "cue": "Identify the structure, quantity or relationship described.",
+      "correctExplanation": "Probability calculated within a stated subgroup or condition. Changing the denominator can change the numerical answer.",
+      "misconception": {
+        "statement": "Among sons and among all children always give the same probability.",
+        "correction": "Probability calculated within a stated subgroup or condition. Changing the denominator can change the numerical answer."
+      },
+      "reviewRoute": "lesson-08"
+    },
+    {
+      "id": "ch17-concept-x-linked-recessive",
+      "term": "X-linked recessive",
+      "lesson": 8,
+      "meaning": "An inheritance model in which the recessive allele is on X and is expressed in a hemizygous XY individual.",
+      "example": "A carrier XX parent can have an affected XY offspring.",
+      "aliases": [],
+      "cue": "Identify the structure, quantity or relationship described.",
+      "correctExplanation": "An inheritance model in which the recessive allele is on X and is expressed in a hemizygous XY individual. An affected father does not transmit his X to sons in the typical XX/XY model.",
+      "misconception": {
+        "statement": "Affected fathers pass their X-linked allele to every son.",
+        "correction": "An inheritance model in which the recessive allele is on X and is expressed in a hemizygous XY individual. An affected father does not transmit his X to sons in the typical XX/XY model."
+      },
+      "reviewRoute": "lesson-08"
+    }
+  ],
+  "authoredPractice": [
+    {
+      "prompt": "A father has a fully penetrant X-linked dominant trait and the mother is unaffected. What is expected for daughters?",
+      "answer": "All inherit the affected paternal X",
+      "explanation": "Every daughter receives the father’s X in the typical model.",
+      "cue": "Trace the normal mechanism before choosing an answer.",
+      "id": "ch17-l08-application-1",
+      "options": [
+        "All are unaffected carriers",
+        "None inherit the paternal X",
+        "Exactly half inherit the father’s Y",
+        "All inherit the affected paternal X"
+      ],
+      "difficulty": "application",
+      "lesson": 8,
+      "chapter": 17,
+      "conceptId": "ch17-concept-x-linked",
+      "family": "application",
+      "kind": "mc",
+      "reviewRoute": "lesson-08",
+      "flashVariant": {
+        "id": "ch17-l08-scenario-1",
+        "family": "scenario-explanation",
+        "prompt": "A father has a fully penetrant X-linked dominant trait and the mother is unaffected. What is expected for daughters?",
+        "model": "All inherit the affected paternal X. Every daughter receives the father’s X in the typical model.",
+        "selfAssessed": true
+      }
+    }
+  ],
+  "typedPractice": [
+    {
+      "id": "ch17-l08-context-x-linked",
+      "chapter": 17,
+      "lesson": 8,
+      "conceptId": "ch17-concept-x-linked",
+      "family": "scenario-retrieval",
+      "kind": "blank",
+      "difficulty": "application",
+      "prompt": "Identify the term illustrated: An allele is represented as Xb rather than as an autosomal b alone.",
+      "answer": "X-linked",
+      "aliases": [],
+      "cue": "Use the relationship described in the example.",
+      "explanation": "Located on the X chromosome. An XY individual has only one allele at many X-linked loci.",
+      "reviewRoute": "lesson-08"
+    },
+    {
+      "id": "ch17-l08-context-hemizygous",
+      "chapter": 17,
+      "lesson": 8,
+      "conceptId": "ch17-concept-hemizygous",
+      "family": "scenario-retrieval",
+      "kind": "blank",
+      "difficulty": "application",
+      "prompt": "Identify the term illustrated: A typical XY individual has one copy of many X-linked genes.",
+      "answer": "hemizygous",
+      "aliases": [],
+      "cue": "Use the relationship described in the example.",
+      "explanation": "Having only one copy of a gene in the relevant chromosome context. Hemizygous is not the same as homozygous.",
+      "reviewRoute": "lesson-08"
+    },
+    {
+      "id": "ch17-l08-context-conditional-probability",
+      "chapter": 17,
+      "lesson": 8,
+      "conceptId": "ch17-concept-conditional-probability",
+      "family": "scenario-retrieval",
+      "kind": "blank",
+      "difficulty": "application",
+      "prompt": "Identify the term illustrated: The question asks what fraction of sons are affected, not what fraction of all children are affected sons.",
+      "answer": "conditional probability",
+      "aliases": [],
+      "cue": "Use the relationship described in the example.",
+      "explanation": "Probability calculated within a stated subgroup or condition. Changing the denominator can change the numerical answer.",
+      "reviewRoute": "lesson-08"
+    },
+    {
+      "id": "ch17-l08-context-x-linked-recessive",
+      "chapter": 17,
+      "lesson": 8,
+      "conceptId": "ch17-concept-x-linked-recessive",
+      "family": "scenario-retrieval",
+      "kind": "blank",
+      "difficulty": "application",
+      "prompt": "Identify the term illustrated: A carrier XX parent can have an affected XY offspring.",
+      "answer": "X-linked recessive",
+      "aliases": [],
+      "cue": "Use the relationship described in the example.",
+      "explanation": "An inheritance model in which the recessive allele is on X and is expressed in a hemizygous XY individual. An affected father does not transmit his X to sons in the typical XX/XY model.",
+      "reviewRoute": "lesson-08"
+    }
+  ],
+  "guidedActivities": [
+    {
+      "chapter": 17,
+      "lesson": 8,
+      "route": "lesson-08",
+      "worked": {
+        "title": "Answer two similar-looking questions",
+        "scenario": "A carrier XAXa mother and unaffected XAY father have children in a simple X-linked recessive model.",
+        "steps": [
+          "List the four equally likely combinations: XAXA, XAXa, XAY and XaY.",
+          "Affected child: XaY is one of four, so probability = 1/4.",
+          "Affected among sons: XaY is one of two son outcomes, so probability = 1/2.",
+          "A son who is affected among all children: probability remains 1/4.",
+          "Write the denominator in words to show which question you answered."
+        ],
+        "id": "ch17-l08-worked",
+        "label": "Worked example"
+      },
+      "guided": {
+        "id": "ch17-l08-guided",
+        "label": "Practise with support",
+        "title": "Apply the explanation",
+        "instruction": "Try both questions. Use the hint to revise your thinking after an incorrect answer.",
+        "items": [
+          {
+            "prompt": "For XAXa × XAY, what fraction of daughters is affected?",
+            "answer": "0",
+            "explanation": "Every daughter receives XA from the father in this recessive model.",
+            "cue": "Restrict the denominator to the daughter combinations.",
+            "id": "ch17-l08-guided-q1",
+            "options": [
+              "1/2",
+              "1/4",
+              "0"
+            ],
+            "difficulty": "application",
+            "kind": "select",
+            "hint": "Restrict the denominator to the daughter combinations."
+          },
+          {
+            "prompt": "Which sex chromosome does a father transmit to a son in the typical model?",
+            "answer": "Y",
+            "explanation": "A son receives the paternal Y and a maternal X.",
+            "cue": "Trace the direct chromosome contribution.",
+            "id": "ch17-l08-guided-q2",
+            "options": [
+              "Y",
+              "His X",
+              "Both X and Y"
+            ],
+            "difficulty": "application",
+            "kind": "select",
+            "hint": "Trace the direct chromosome contribution."
+          }
+        ]
+      }
+    }
+  ]
+}

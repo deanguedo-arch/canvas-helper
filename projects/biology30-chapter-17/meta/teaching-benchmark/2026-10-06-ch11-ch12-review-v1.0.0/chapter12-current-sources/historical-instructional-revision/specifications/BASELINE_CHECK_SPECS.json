@@ -1,0 +1,1431 @@
+{
+  "purpose": "Developer-only baseline for non-destructive active-run compatibility. Not student results. Preserve answers and scores from existing learner state.",
+  "chapters": {
+    "12": {
+      "bankVersion": "2026.09.16-ch12.1",
+      "checks": [
+        {
+          "id": "ch12-check-01",
+          "route": "lesson-01",
+          "title": "Sensory receptors, sensation and adaptation",
+          "mc": [
+            {
+              "prompt": "A student recognizes a familiar voice. Which part of this description is perception?",
+              "options": [
+                "Hair cells bending",
+                "Sound waves reaching the ear",
+                "Interpreting the sound as that person’s voice",
+                "The eardrum vibrating"
+              ],
+              "answer": "Interpreting the sound as that person’s voice",
+              "explanation": "Perception assigns meaning to sensory information. Detection and transmission occur earlier.",
+              "cue": "Look for the step that gives the input meaning.",
+              "difficulty": "application",
+              "id": "ch12-l01-check-mc-1"
+            },
+            {
+              "prompt": "Which pair correctly matches a receptor with its stimulus?",
+              "options": [
+                "Thermoreceptor — air pressure waves",
+                "Chemoreceptor — light on the retina",
+                "Mechanoreceptor — movement of inner-ear fluid",
+                "Photoreceptor — sugar in saliva"
+              ],
+              "answer": "Mechanoreceptor — movement of inner-ear fluid",
+              "explanation": "Movement is a mechanical stimulus. Inner-ear hair cells are mechanoreceptors.",
+              "cue": "Match the form of energy, not the name of the organ.",
+              "difficulty": "foundation",
+              "id": "ch12-l01-check-mc-2"
+            }
+          ],
+          "writing": [
+            {
+              "prompt": "Use a different everyday example to distinguish sensory reception, sensation and perception. Name the receptor category.",
+              "model": "For a ringing bicycle bell, inner-ear mechanoreceptors respond to movement; I become aware of a sound; I interpret it as a bell warning me that a cyclist is approaching.",
+              "criteria": [
+                "An appropriate stimulus and receptor",
+                "Detection distinguished from awareness",
+                "Meaning or interpretation identified"
+              ],
+              "id": "ch12-l01-check-writing-1",
+              "limit": 3200
+            },
+            {
+              "prompt": "Explain why not noticing a constant stimulus is not proof that the sensory system has stopped working.",
+              "model": "Adaptation and changes in attention can reduce awareness of a constant stimulus. Receptors and pathways may still be active, and a change in the stimulus can become noticeable.",
+              "criteria": [
+                "Constant stimulus may remain",
+                "Reduced responsiveness or attention",
+                "New changes can still be detected"
+              ],
+              "id": "ch12-l01-check-writing-2",
+              "limit": 3200
+            }
+          ]
+        },
+        {
+          "id": "ch12-check-02",
+          "route": "lesson-02",
+          "title": "Eye structures and the path of light",
+          "mc": [
+            {
+              "prompt": "Which route correctly follows light through the eye?",
+              "options": [
+                "Cornea → pupil → lens → retina",
+                "Cornea → optic nerve → lens → retina",
+                "Pupil → retina → lens → cornea",
+                "Retina → lens → pupil → cornea"
+              ],
+              "answer": "Cornea → pupil → lens → retina",
+              "explanation": "This is the main route with the humours omitted for brevity. Neural signals leave the retina through the optic nerve.",
+              "cue": "Start at the transparent front of the eye.",
+              "difficulty": "foundation",
+              "id": "ch12-l02-check-mc-1"
+            },
+            {
+              "prompt": "A diagram labels the opening in the coloured ring as “iris.” What needs correcting?",
+              "options": [
+                "The opening is the retina; the ring is the lens",
+                "The opening is the optic nerve",
+                "The opening is the pupil; the coloured ring is the iris",
+                "Both labels refer to the cornea"
+              ],
+              "answer": "The opening is the pupil; the coloured ring is the iris",
+              "explanation": "Iris names the tissue that changes the size of the opening. Pupil names the opening.",
+              "cue": "Separate tissue from space.",
+              "difficulty": "foundation",
+              "id": "ch12-l02-check-mc-2"
+            }
+          ],
+          "writing": [
+            {
+              "prompt": "Trace a ray of light from outside the eye to the retina. Include both humours and explain the different roles of the iris and lens.",
+              "model": "Light passes through the cornea, aqueous humour, pupil, lens and vitreous humour to the retina. The iris controls pupil diameter and the amount of entering light. The lens adjusts the focus on the retina.",
+              "criteria": [
+                "Correct ordered optical route",
+                "Both humours included",
+                "Iris and lens functions distinguished"
+              ],
+              "id": "ch12-l02-check-writing-1",
+              "limit": 3200
+            },
+            {
+              "prompt": "Compare the sclera, choroid and retina. Give one function for each rather than only its location.",
+              "model": "The sclera protects and supports the eye; the choroid nourishes tissues and absorbs stray light; the retina contains photoreceptors and neurons that detect and process light information.",
+              "criteria": [
+                "Three layers distinguished",
+                "Protection/support",
+                "Nourishment/pigment and photoreception"
+              ],
+              "id": "ch12-l02-check-writing-2",
+              "limit": 3200
+            }
+          ]
+        },
+        {
+          "id": "ch12-check-03",
+          "route": "lesson-03",
+          "title": "Focusing, accommodation and vision problems",
+          "mc": [
+            {
+              "prompt": "A student looks from a distant tree to a nearby book. Which change supports the new focus?",
+              "options": [
+                "Ciliary muscle relaxes; lens becomes flatter",
+                "Ciliary muscle contracts; lens becomes rounder",
+                "Pupil becomes the photoreceptor",
+                "Optic nerve shortens to move the retina"
+              ],
+              "answer": "Ciliary muscle contracts; lens becomes rounder",
+              "explanation": "Near accommodation reduces ligament tension and allows the lens to round.",
+              "cue": "Follow muscle action to ligament tension, then lens shape.",
+              "difficulty": "application",
+              "id": "ch12-l03-check-mc-1"
+            },
+            {
+              "prompt": "Distant rays focus in front of the retina. Which correction matches this model?",
+              "options": [
+                "A concave lens for hyperopia",
+                "A convex lens for myopia",
+                "A concave lens for myopia",
+                "Removing the iris to treat a cataract"
+              ],
+              "answer": "A concave lens for myopia",
+              "explanation": "A concave lens diverges the rays before they enter the eye.",
+              "cue": "Does the correction need more or less initial convergence?",
+              "difficulty": "application",
+              "id": "ch12-l03-check-mc-2"
+            }
+          ],
+          "writing": [
+            {
+              "prompt": "Explain near accommodation as a four-step chain: muscle action, ligament tension, lens shape and optical effect.",
+              "model": "The ciliary muscle contracts, suspensory-ligament tension decreases, the lens becomes rounder, and its refractive power increases to focus a nearby object on the retina.",
+              "criteria": [
+                "Correct muscle action",
+                "Correct tension and lens shape",
+                "Near-focus consequence"
+              ],
+              "id": "ch12-l03-check-writing-1",
+              "limit": 3200
+            },
+            {
+              "prompt": "Compare myopia and hyperopia using focal position and corrective lens type. Explain one correction rather than just naming it.",
+              "model": "Myopia focuses distant light in front of the retina and is corrected with a concave lens. Hyperopia focuses behind the retina without sufficient accommodation and is corrected with a convex lens. The concave lens spreads rays so they meet farther back.",
+              "criteria": [
+                "Front versus behind",
+                "Concave versus convex",
+                "Mechanism of one correction"
+              ],
+              "id": "ch12-l03-check-writing-2",
+              "limit": 3200
+            }
+          ]
+        },
+        {
+          "id": "ch12-check-04",
+          "route": "lesson-04",
+          "title": "The retina, rods and cones",
+          "mc": [
+            {
+              "prompt": "Which sequence follows the principal retinal information pathway?",
+              "options": [
+                "Photoreceptor → iris → ciliary muscle",
+                "Photoreceptor → bipolar cell → ganglion cell",
+                "Ganglion cell → lens → photoreceptor",
+                "Pupil → choroid → ganglion cell"
+              ],
+              "answer": "Photoreceptor → bipolar cell → ganglion cell",
+              "explanation": "Information flows from photoreceptors through retinal circuits to ganglion cells.",
+              "cue": "Start with the cell that transduces light.",
+              "difficulty": "foundation",
+              "id": "ch12-l04-check-mc-1"
+            },
+            {
+              "prompt": "Why is the optic disc a blind spot?",
+              "options": [
+                "It lacks rods and cones",
+                "The lens focuses every image there",
+                "Its aqueous humour is opaque",
+                "It contains only cones"
+              ],
+              "answer": "It lacks rods and cones",
+              "explanation": "No photoreceptors occupy the location where ganglion axons leave.",
+              "cue": "Ask which cells are missing at the nerve exit.",
+              "difficulty": "application",
+              "id": "ch12-l04-check-mc-2"
+            }
+          ],
+          "writing": [
+            {
+              "prompt": "Trace light and neural information through the simplified three-layer retina. Explain why their directions differ.",
+              "model": "Light enters from the vitreous side past ganglion and bipolar layers to rods and cones. After transduction, information travels through bipolar pathways to ganglion cells, whose axons form the optic nerve.",
+              "criteria": [
+                "Optical direction correct",
+                "Neural direction correct",
+                "Ganglion-cell axons identified"
+              ],
+              "id": "ch12-l04-check-writing-1",
+              "limit": 3200
+            },
+            {
+              "prompt": "Compare the fovea centralis with the blind spot. Include the receptors present or absent and the consequence for vision.",
+              "model": "The fovea has a dense cone population supporting sharp central vision. The optic disc has no rods or cones because fibres leave as the optic nerve, so light falling there is not detected.",
+              "criteria": [
+                "Fovea and cones",
+                "Optic disc and absence of receptors",
+                "Consequences linked to structure"
+              ],
+              "id": "ch12-l04-check-writing-2",
+              "limit": 3200
+            }
+          ]
+        },
+        {
+          "id": "ch12-check-05",
+          "route": "lesson-05",
+          "title": "Ear structures and sound transmission",
+          "mc": [
+            {
+              "prompt": "Which structure immediately transfers ossicle movement into the inner-ear fluid?",
+              "options": [
+                "Oval window",
+                "Pinna",
+                "Eustachian tube",
+                "Optic disc"
+              ],
+              "answer": "Oval window",
+              "explanation": "The stapes moves at the oval window, creating pressure changes in cochlear fluid.",
+              "cue": "Follow the final ossicle.",
+              "difficulty": "foundation",
+              "id": "ch12-l05-check-mc-1"
+            },
+            {
+              "prompt": "Where does hearing transduction occur?",
+              "options": [
+                "At the outer surface of the sclera",
+                "In the pinna’s cartilage",
+                "Inside the Eustachian tube’s air",
+                "In hair cells of the cochlear sensory apparatus"
+              ],
+              "answer": "In hair cells of the cochlear sensory apparatus",
+              "explanation": "Hair-cell bending changes electrical activity and transmitter release to sensory neurons.",
+              "cue": "Look for the receptor rather than a conducting structure.",
+              "difficulty": "application",
+              "id": "ch12-l05-check-mc-2"
+            }
+          ],
+          "writing": [
+            {
+              "prompt": "Trace sound energy from the pinna to auditory-nerve activity. State where mechanical movement becomes a neural signal.",
+              "model": "Pinna → auditory canal → tympanum → malleus → incus → stapes → oval window → cochlear fluid and basilar-membrane movement → hair-cell bending → auditory sensory neurons. Hair cells transduce the movement and communicate with neurons that generate action potentials.",
+              "criteria": [
+                "Ordered structures",
+                "Mechanical stages distinguished",
+                "Hair-cell transduction identified"
+              ],
+              "id": "ch12-l05-check-writing-1",
+              "limit": 3200
+            },
+            {
+              "prompt": "Explain why the Eustachian tube is important even though it is not on the main route from the pinna to the organ of Corti.",
+              "model": "The tube links the middle ear to the throat region and helps equalize air pressure across the tympanum. That supports normal membrane vibration rather than directly carrying sound to the cochlea.",
+              "criteria": [
+                "Middle-ear pressure",
+                "Throat connection",
+                "Not the main conduction route"
+              ],
+              "id": "ch12-l05-check-writing-2",
+              "limit": 3200
+            }
+          ]
+        },
+        {
+          "id": "ch12-check-06",
+          "route": "lesson-06",
+          "title": "Pitch, loudness and hearing impairment",
+          "mc": [
+            {
+              "prompt": "The amplitude of a tone increases while its frequency stays constant. What should mainly change?",
+              "options": [
+                "Pitch increases while loudness stays similar",
+                "Loudness increases while pitch stays similar",
+                "The sound becomes light",
+                "Pitch becomes zero"
+              ],
+              "answer": "Loudness increases while pitch stays similar",
+              "explanation": "Amplitude and frequency are separate wave properties.",
+              "cue": "Which property counts cycles per second?",
+              "difficulty": "application",
+              "id": "ch12-l06-check-mc-1"
+            },
+            {
+              "prompt": "High-frequency sounds most strongly stimulate which region in the source model?",
+              "options": [
+                "The Eustachian tube’s throat opening",
+                "The pupil",
+                "The cochlear base near the oval window",
+                "The far apex only"
+              ],
+              "answer": "The cochlear base near the oval window",
+              "explanation": "The high-frequency end is closest to the oval window.",
+              "cue": "Think of position along the basilar membrane.",
+              "difficulty": "application",
+              "id": "ch12-l06-check-mc-2"
+            }
+          ],
+          "writing": [
+            {
+              "prompt": "Explain why “high sound” is ambiguous. Use frequency, amplitude, pitch and loudness correctly in your answer.",
+              "model": "High may refer to frequency and perceived pitch, or to amplitude and perceived loudness. A loud low-frequency sound is possible, so the two properties must be described separately.",
+              "criteria": [
+                "Frequency and pitch linked",
+                "Amplitude and loudness linked",
+                "Independent variation explained"
+              ],
+              "id": "ch12-l06-check-writing-1",
+              "limit": 3200
+            },
+            {
+              "prompt": "A case states that hair cells are badly damaged but some auditory nerve fibres still work. Explain the principle behind an implant without promising a guaranteed outcome.",
+              "model": "An implant can bypass some damaged hair-cell function and stimulate remaining nerve fibres electrically. Useful perception depends on the remaining pathway and adaptation; it does not regrow hair cells or reproduce all natural hearing.",
+              "criteria": [
+                "Bypasses receptor damage",
+                "Requires functional neural pathway",
+                "Limits acknowledged"
+              ],
+              "id": "ch12-l06-check-writing-2",
+              "limit": 3200
+            }
+          ]
+        },
+        {
+          "id": "ch12-check-07",
+          "route": "lesson-07",
+          "title": "Balance, body position and proprioception",
+          "mc": [
+            {
+              "prompt": "Which structure is most directly associated with detecting a change in head rotation?",
+              "options": [
+                "Cochlear organ of Corti",
+                "Lens",
+                "Thyroid gland",
+                "Semicircular canals"
+              ],
+              "answer": "Semicircular canals",
+              "explanation": "Rotational changes deflect the canal cupula through relative fluid movement.",
+              "cue": "Separate rotation from straight-line movement.",
+              "difficulty": "foundation",
+              "id": "ch12-l07-check-mc-1"
+            },
+            {
+              "prompt": "A lift begins moving upward. Which structure is particularly relevant?",
+              "options": [
+                "Pinna",
+                "Fovea",
+                "Anterior pituitary",
+                "Saccule"
+              ],
+              "answer": "Saccule",
+              "explanation": "The saccule contributes strongly to detection of vertical linear acceleration.",
+              "cue": "Identify the plane and type of movement.",
+              "difficulty": "application",
+              "id": "ch12-l07-check-mc-2"
+            }
+          ],
+          "writing": [
+            {
+              "prompt": "Compare the mechanism for a change in rotation with the mechanism for linear acceleration. Include the receptor, surrounding structure and source of movement.",
+              "model": "Rotation changes relative canal-fluid movement and deflects the cupula, bending hair cells. Linear acceleration shifts a weighted otolithic membrane in the utricle or saccule relative to hair cells. Both mechanisms alter sensory signalling.",
+              "criteria": [
+                "Canal/cupula mechanism",
+                "Otolith-organ membrane mechanism",
+                "Hair-cell bending in both"
+              ],
+              "id": "ch12-l07-check-writing-1",
+              "limit": 3200
+            },
+            {
+              "prompt": "Explain why balance can become less reliable when visual information disagrees with vestibular information.",
+              "model": "The brain normally combines vision, vestibular signals and proprioception. Conflicting signals make its estimate of motion and position less consistent, which can disturb perceived balance.",
+              "criteria": [
+                "Multiple sensory sources",
+                "Integration by the brain",
+                "Conflict linked to perception"
+              ],
+              "id": "ch12-l07-check-writing-2",
+              "limit": 3200
+            }
+          ]
+        },
+        {
+          "id": "ch12-check-08",
+          "route": "lesson-08",
+          "title": "Taste, smell, touch and temperature",
+          "mc": [
+            {
+              "prompt": "Why does food need to dissolve in saliva for taste detection?",
+              "options": [
+                "The tongue contains only photoreceptors",
+                "Dissolved chemicals can interact with taste receptor cells",
+                "Saliva sends light to the fovea",
+                "Saliva converts every taste into sound"
+              ],
+              "answer": "Dissolved chemicals can interact with taste receptor cells",
+              "explanation": "Taste is chemoreception: substances must reach receptor cells in a usable form.",
+              "cue": "Identify the kind of receptor.",
+              "difficulty": "foundation",
+              "id": "ch12-l08-check-mc-1"
+            },
+            {
+              "prompt": "Which explanation best links dense touch representation to precise discrimination?",
+              "options": [
+                "Larger action potentials always give finer detail",
+                "Small receptive fields and neural representation help separate nearby contacts",
+                "Every body region has identical receptor density",
+                "The back has no sensory receptors"
+              ],
+              "answer": "Small receptive fields and neural representation help separate nearby contacts",
+              "explanation": "Touch precision depends on receptor distribution, receptive fields and processing.",
+              "cue": "Avoid explaining acuity only with impulse height.",
+              "difficulty": "application",
+              "id": "ch12-l08-check-mc-2"
+            }
+          ],
+          "writing": [
+            {
+              "prompt": "Explain how taste and smell both use chemoreception but start at different structures. Then connect them to flavour.",
+              "model": "Dissolved food chemicals stimulate taste receptor cells in taste buds. Odour molecules stimulate olfactory receptors and signals reach the olfactory bulb. The brain combines these inputs with texture and temperature to produce flavour perception.",
+              "criteria": [
+                "Taste stimulus and structure",
+                "Olfactory stimulus and structure",
+                "Integration into flavour"
+              ],
+              "id": "ch12-l08-check-writing-1",
+              "limit": 3200
+            },
+            {
+              "prompt": "Plan, but do not perform, a fair touch-discrimination investigation. Include a question, prediction, changed variable, measured response, two controls and one safety requirement.",
+              "model": "Question: does touch discrimination differ by body region? Prediction: fingertips permit finer discrimination. Change region; measure correct discrimination using a teacher-approved method. Control contact pressure and instructions; repeat trials. Use only approved safe blunt materials under supervision, and do not invent results.",
+              "criteria": [
+                "Testable question and prediction",
+                "Changed and measured variables",
+                "Controls, repeated trials and safety"
+              ],
+              "id": "ch12-l08-check-writing-2",
+              "limit": 3200
+            }
+          ]
+        },
+        {
+          "id": "ch12-check-09",
+          "route": "lesson-09",
+          "title": "Chapter review and final check",
+          "mc": [
+            {
+              "prompt": "A clear lens forms an image on a region of retina that lacks photoreceptors. What is the immediate limitation?",
+              "options": [
+                "The image must become brighter",
+                "The ossicles stop moving",
+                "The pupil becomes a sensory neuron",
+                "There is no local photoreceptor transduction"
+              ],
+              "answer": "There is no local photoreceptor transduction",
+              "explanation": "Focusing cannot replace receptors.",
+              "cue": "Identify the step after focusing.",
+              "difficulty": "application",
+              "id": "ch12-l09-check-mc-1"
+            },
+            {
+              "prompt": "Which combination describes near accommodation?",
+              "options": [
+                "Relaxed ciliary muscle, reduced tension, rounder lens",
+                "Relaxed ciliary muscle, increased tension, rounder lens",
+                "Contracted ciliary muscle, reduced ligament tension, rounder lens",
+                "Contracted ciliary muscle, increased tension, flatter lens"
+              ],
+              "answer": "Contracted ciliary muscle, reduced ligament tension, rounder lens",
+              "explanation": "Ciliary contraction reduces the tension that flattens the lens.",
+              "cue": "Use the full four-step chain.",
+              "difficulty": "application",
+              "id": "ch12-l09-check-mc-2"
+            },
+            {
+              "prompt": "Which pair correctly distinguishes hearing and rotation receptors?",
+              "options": [
+                "Rods / cones",
+                "Pinna / iris",
+                "Cochlear hair cells / semicircular-canal hair cells",
+                "Thyroid / pancreas"
+              ],
+              "answer": "Cochlear hair cells / semicircular-canal hair cells",
+              "explanation": "Both are mechanoreceptive systems but have different structures and stimuli.",
+              "cue": "Which apparatus responds to each kind of movement?",
+              "difficulty": "application",
+              "id": "ch12-l09-check-mc-3"
+            },
+            {
+              "prompt": "A tone becomes higher in pitch without becoming louder. Which main wave property increases?",
+              "options": [
+                "Amplitude",
+                "Ligament tension",
+                "Lens curvature",
+                "Frequency"
+              ],
+              "answer": "Frequency",
+              "explanation": "Frequency is the cycles-per-second property associated with pitch.",
+              "cue": "Separate pitch from loudness.",
+              "difficulty": "foundation",
+              "id": "ch12-l09-check-mc-4"
+            },
+            {
+              "prompt": "Which route carries retinal information toward the brain?",
+              "options": [
+                "Rods/cones → bipolar pathways → ganglion cells → optic nerve",
+                "Optic nerve → iris → lens → rods",
+                "Lens → cochlea → optic nerve",
+                "Ganglion cells → pupil → cornea"
+              ],
+              "answer": "Rods/cones → bipolar pathways → ganglion cells → optic nerve",
+              "explanation": "Ganglion-cell axons form the optic nerve.",
+              "cue": "Start with transduction, not with light entry.",
+              "difficulty": "application",
+              "id": "ch12-l09-check-mc-5"
+            },
+            {
+              "prompt": "A study changes contact pressure and body region at the same time. Why is its conclusion limited?",
+              "options": [
+                "Repeated trials would erase every confound",
+                "Either change could contribute to a difference in discrimination",
+                "Pressure is unrelated to mechanoreceptors",
+                "Two variables always prove the same cause"
+              ],
+              "answer": "Either change could contribute to a difference in discrimination",
+              "explanation": "A fair comparison controls other influential variables.",
+              "cue": "Ask whether the cause of the difference is isolated.",
+              "difficulty": "application",
+              "id": "ch12-l09-check-mc-6"
+            }
+          ],
+          "writing": [
+            {
+              "prompt": "Compare vision and hearing using four headings: original stimulus, conducting/focusing structures, receptor/transduction, and route to brain interpretation.",
+              "model": "Vision begins with light guided by cornea, humours, pupil and lens to retinal rods and cones; retinal processing leads to ganglion-cell activity and visual pathways. Hearing begins with pressure waves conducted by pinna, canal, tympanum and ossicles to cochlear movement; hair cells transduce movement and sensory neurons carry information into auditory pathways.",
+              "criteria": [
+                "Both original stimuli",
+                "Correct support structures",
+                "Correct receptors and transduction",
+                "Neural transmission distinguished from original energy"
+              ],
+              "id": "ch12-l09-check-writing-1",
+              "limit": 3200
+            },
+            {
+              "prompt": "A student writes: “All balance comes from the semicircular canals, all tastes come from separate tongue regions, and the optic nerve carries light.” Correct each claim and explain the mechanism behind one correction.",
+              "model": "Balance combines semicircular canals, utricle/saccule, vision and proprioception. Taste categories are distributed, not confined to exclusive zones. The optic nerve carries ganglion-cell action potentials. For example, otolith organs use a weighted membrane to detect gravity and linear acceleration, rather than using the canal rotation mechanism.",
+              "criteria": [
+                "Three claims corrected",
+                "One causal mechanism explained",
+                "Structures named precisely"
+              ],
+              "id": "ch12-l09-check-writing-2",
+              "limit": 3200
+            }
+          ]
+        }
+      ]
+    },
+    "13": {
+      "bankVersion": "2026.09.16-ch13.1",
+      "checks": [
+        {
+          "id": "ch13-check-01",
+          "route": "lesson-01",
+          "title": "Homeostasis and endocrine communication",
+          "mc": [
+            {
+              "prompt": "Which description best captures homeostasis?",
+              "options": [
+                "Every internal variable stays exactly constant",
+                "The body stops responding to change",
+                "Only the nervous system controls internal conditions",
+                "Ongoing adjustments keep internal conditions within suitable ranges"
+              ],
+              "answer": "Ongoing adjustments keep internal conditions within suitable ranges",
+              "explanation": "Homeostasis is dynamic regulation, not complete absence of variation.",
+              "cue": "Look for regulated ranges rather than a frozen value.",
+              "difficulty": "foundation",
+              "id": "ch13-l01-check-mc-1"
+            },
+            {
+              "prompt": "What distinguishes the endocrine action of the pancreas from its exocrine action?",
+              "options": [
+                "Hormones enter the blood rather than a digestive duct",
+                "Exocrine cells release all hormones into blood",
+                "Both actions send insulin to the small intestine",
+                "Only its endocrine cells make proteins"
+              ],
+              "answer": "Hormones enter the blood rather than a digestive duct",
+              "explanation": "Endocrine and exocrine describe different routes of secretion.",
+              "cue": "Compare the delivery route.",
+              "difficulty": "application",
+              "id": "ch13-l01-check-mc-2"
+            }
+          ],
+          "writing": [
+            {
+              "prompt": "Compare nervous and endocrine communication using message type, delivery route and target specificity.",
+              "model": "Nervous communication uses electrical changes along neurons and chemical signals at junctions in defined pathways. Endocrine communication uses hormones in blood. Responsive target cells need appropriate receptors; wide hormone distribution does not mean a universal response.",
+              "criteria": [
+                "Message types",
+                "Delivery routes",
+                "Target specificity"
+              ],
+              "id": "ch13-l01-check-writing-1",
+              "limit": 3200
+            },
+            {
+              "prompt": "Choose an internal variable and explain why homeostasis does not mean that it never changes.",
+              "model": "Blood glucose can rise after a meal. Responses such as insulin secretion and glucose storage then bring it back toward a suitable range. Variation and active correction are part of homeostasis.",
+              "criteria": [
+                "Named variable",
+                "A change",
+                "An opposing regulatory response"
+              ],
+              "id": "ch13-l01-check-writing-2",
+              "limit": 3200
+            }
+          ]
+        },
+        {
+          "id": "ch13-check-02",
+          "route": "lesson-02",
+          "title": "Hormones and their target cells",
+          "mc": [
+            {
+              "prompt": "A hormone cannot readily cross the lipid bilayer. What is the most likely signalling route?",
+              "options": [
+                "Moving through the optic nerve",
+                "Entering the nucleus without a receptor",
+                "Binding a membrane receptor that activates internal signalling",
+                "Becoming a steroid after binding blood"
+              ],
+              "answer": "Binding a membrane receptor that activates internal signalling",
+              "explanation": "Cell-surface receptors allow external signals to change internal activity.",
+              "cue": "Match receptor location to membrane permeability.",
+              "difficulty": "application",
+              "id": "ch13-l02-check-mc-1"
+            },
+            {
+              "prompt": "Which statement correctly describes cortisol?",
+              "options": [
+                "It is a digestive enzyme",
+                "It is a steroid hormone with intracellular receptor action",
+                "It is a photopigment",
+                "It is the receptor for insulin"
+              ],
+              "answer": "It is a steroid hormone with intracellular receptor action",
+              "explanation": "Cortisol is produced from cholesterol and belongs to the steroid group.",
+              "cue": "Identify the chemical class.",
+              "difficulty": "foundation",
+              "id": "ch13-l02-check-mc-2"
+            }
+          ],
+          "writing": [
+            {
+              "prompt": "Compare water-soluble and steroid-hormone signalling. Include receptor location and how an internal response begins.",
+              "model": "Water-soluble hormones generally bind membrane receptors and trigger internal signalling. Steroid hormones can enter cells and bind intracellular receptors, influencing gene expression and protein production. Both require suitable target-cell machinery.",
+              "criteria": [
+                "Membrane receptor pathway",
+                "Intracellular pathway",
+                "Binding connected to response"
+              ],
+              "id": "ch13-l02-check-writing-1",
+              "limit": 3200
+            },
+            {
+              "prompt": "A hormone is present at a normal concentration, but a target cell cannot respond. Give one mechanism that could explain this and distinguish it from hormone underproduction.",
+              "model": "A defective or absent receptor could prevent the cell from recognizing or signalling the hormone. This differs from a gland releasing too little hormone, where the receiving machinery may still work.",
+              "criteria": [
+                "Plausible response defect",
+                "Normal concentration acknowledged",
+                "Production and response distinguished"
+              ],
+              "id": "ch13-l02-check-writing-2",
+              "limit": 3200
+            }
+          ]
+        },
+        {
+          "id": "ch13-check-03",
+          "route": "lesson-03",
+          "title": "Feedback and regulation",
+          "mc": [
+            {
+              "prompt": "Blood glucose falls, then glucagon-supported processes raise it. Which classification fits?",
+              "options": [
+                "Positive feedback because glucose rises",
+                "Negative feedback",
+                "No regulation because a hormone is involved",
+                "Positive feedback because the response is useful"
+              ],
+              "answer": "Negative feedback",
+              "explanation": "The return effect opposes the original fall.",
+              "cue": "Compare the response with the starting disturbance.",
+              "difficulty": "application",
+              "id": "ch13-l03-check-mc-1"
+            },
+            {
+              "prompt": "Which feature distinguishes the labour example from ordinary negative feedback?",
+              "options": [
+                "Contractions reinforce the stretch that supports further oxytocin release",
+                "The uterus makes TSH",
+                "Oxytocin is never released into blood",
+                "The response immediately eliminates the stimulus at every step"
+              ],
+              "answer": "Contractions reinforce the stretch that supports further oxytocin release",
+              "explanation": "The loop reinforces itself until an endpoint changes the conditions.",
+              "cue": "Look for reinforcement, not simply a hormone increase.",
+              "difficulty": "application",
+              "id": "ch13-l03-check-mc-2"
+            }
+          ],
+          "writing": [
+            {
+              "prompt": "Explain negative feedback using a named variable that first falls. Identify the response and why it is negative feedback.",
+              "model": "If blood glucose falls, glucagon secretion rises and promotes glucose release from the liver. Blood glucose rises, opposing the original decrease and reducing the drive for the response.",
+              "criteria": [
+                "Original decrease",
+                "Named opposing response",
+                "Feedback direction explained"
+              ],
+              "id": "ch13-l03-check-writing-1",
+              "limit": 3200
+            },
+            {
+              "prompt": "Explain the positive-feedback labour example and state what prevents it from continuing indefinitely.",
+              "model": "Cervical stretch promotes oxytocin release, which strengthens contractions and can increase stretch. Delivery changes or removes the stretch stimulus, interrupting the reinforcing loop.",
+              "criteria": [
+                "Stretch and hormone",
+                "Reinforced contraction/stretch",
+                "Endpoint stated"
+              ],
+              "id": "ch13-l03-check-writing-2",
+              "limit": 3200
+            }
+          ]
+        },
+        {
+          "id": "ch13-check-04",
+          "route": "lesson-04",
+          "title": "The hypothalamus and pituitary",
+          "mc": [
+            {
+              "prompt": "Which pairing correctly describes ADH?",
+              "options": [
+                "Made in pancreatic beta cells; released from liver",
+                "Made in posterior pituitary; released from thyroid",
+                "Made in hypothalamus; released from posterior pituitary",
+                "Made in adrenal medulla; released from kidneys"
+              ],
+              "answer": "Made in hypothalamus; released from posterior pituitary",
+              "explanation": "Production and release occur in different parts of the hypothalamic–posterior-pituitary pathway.",
+              "cue": "Pay attention to made versus released.",
+              "difficulty": "foundation",
+              "id": "ch13-l04-check-mc-1"
+            },
+            {
+              "prompt": "Which hormone pair correctly distinguishes milk production from milk ejection?",
+              "options": [
+                "Oxytocin / prolactin",
+                "Prolactin / oxytocin",
+                "Glucagon / insulin",
+                "TSH / ACTH"
+              ],
+              "answer": "Prolactin / oxytocin",
+              "explanation": "Prolactin supports synthesis of milk; oxytocin supports its ejection.",
+              "cue": "Do not treat production and release as synonyms.",
+              "difficulty": "foundation",
+              "id": "ch13-l04-check-mc-2"
+            }
+          ],
+          "writing": [
+            {
+              "prompt": "Compare the anterior and posterior pituitary using control route, hormone production and one example hormone from each.",
+              "model": "Hypothalamic regulatory hormones reach anterior-pituitary cells through portal blood; those cells make hormones such as TSH. ADH is made in hypothalamic neurons, transported along axons and released from the posterior pituitary.",
+              "criteria": [
+                "Two control routes",
+                "Production versus release",
+                "Correct examples"
+              ],
+              "id": "ch13-l04-check-writing-1",
+              "limit": 3200
+            },
+            {
+              "prompt": "A student says oxytocin and prolactin are interchangeable because both relate to milk. Explain the error.",
+              "model": "Prolactin from the anterior pituitary supports milk production. Oxytocin made in the hypothalamus and released posteriorly supports milk ejection. The related target does not mean identical functions.",
+              "criteria": [
+                "Production versus ejection",
+                "Correct hormone identity",
+                "Release sites or mechanism distinguished"
+              ],
+              "id": "ch13-l04-check-writing-2",
+              "limit": 3200
+            }
+          ]
+        },
+        {
+          "id": "ch13-check-05",
+          "route": "lesson-05",
+          "title": "Growth regulation",
+          "mc": [
+            {
+              "prompt": "Which condition makes gigantism possible in the standard hGH model?",
+              "options": [
+                "Excess ADH after growth-plate closure",
+                "Excess hGH before growth-plate closure",
+                "No liver cells",
+                "Absence of all bone tissue"
+              ],
+              "answer": "Excess hGH before growth-plate closure",
+              "explanation": "Open growth plates permit excessive linear bone growth.",
+              "cue": "Focus on target-tissue status.",
+              "difficulty": "application",
+              "id": "ch13-l05-check-mc-1"
+            },
+            {
+              "prompt": "Which relationship describes an indirect effect of hGH?",
+              "options": [
+                "hGH is stored as glycogen",
+                "hGH blocks every target receptor",
+                "hGH stimulates liver growth-factor release that supports tissue growth",
+                "hGH becomes calcium in bone"
+              ],
+              "answer": "hGH stimulates liver growth-factor release that supports tissue growth",
+              "explanation": "Growth factors mediate important effects of hGH.",
+              "cue": "Identify an intermediate signal.",
+              "difficulty": "application",
+              "id": "ch13-l05-check-mc-2"
+            }
+          ],
+          "writing": [
+            {
+              "prompt": "Explain how excess hGH can produce gigantism in one case and acromegaly in another.",
+              "model": "Before growth plates close, excess hGH supports excessive linear bone growth and gigantism. After closure, bone and soft tissue enlarge without the same height increase, producing acromegaly.",
+              "criteria": [
+                "Same hormone",
+                "Growth-plate condition",
+                "Different outcomes"
+              ],
+              "id": "ch13-l05-check-writing-1",
+              "limit": 3200
+            },
+            {
+              "prompt": "Describe a direct and an indirect part of the hGH pathway in general terms.",
+              "model": "hGH can alter metabolism directly in responsive tissues. It also stimulates liver growth-factor production, and these factors support growth in bone, cartilage and muscle.",
+              "criteria": [
+                "Direct target effect",
+                "Liver intermediate",
+                "Growth-factor consequence"
+              ],
+              "id": "ch13-l05-check-writing-2",
+              "limit": 3200
+            }
+          ]
+        },
+        {
+          "id": "ch13-check-06",
+          "route": "lesson-06",
+          "title": "ADH and water balance",
+          "mc": [
+            {
+              "prompt": "With normally responsive kidneys, increased ADH should produce…",
+              "options": [
+                "Increased insulin synthesis in the kidney",
+                "No change in water permeability",
+                "More urine with a lower concentration",
+                "Less urine with a higher concentration"
+              ],
+              "answer": "Less urine with a higher concentration",
+              "explanation": "Increased water reabsorption leaves less water in the urine.",
+              "cue": "Follow where water moves.",
+              "difficulty": "application",
+              "id": "ch13-l06-check-mc-1"
+            },
+            {
+              "prompt": "What distinguishes nephrogenic from central diabetes insipidus in this lesson?",
+              "options": [
+                "Both always mean absent posterior pituitary tissue",
+                "The retina makes ADH in nephrogenic cases",
+                "High glucose is required only in nephrogenic cases",
+                "Impaired kidney response rather than inadequate ADH availability"
+              ],
+              "answer": "Impaired kidney response rather than inadequate ADH availability",
+              "explanation": "A missing hormone and a resistant target are different mechanisms.",
+              "cue": "Distinguish signal supply from target response.",
+              "difficulty": "application",
+              "id": "ch13-l06-check-mc-2"
+            }
+          ],
+          "writing": [
+            {
+              "prompt": "Trace the response to overly concentrated body fluids from detector to urine effect and feedback.",
+              "model": "Hypothalamic osmoreceptors detect increased concentration. More ADH is released from the posterior pituitary, increasing collecting-duct water permeability. More water is reabsorbed, urine volume falls and urine becomes more concentrated. Correction of body-fluid concentration reduces the stimulus.",
+              "criteria": [
+                "Detector and release site",
+                "Kidney permeability/reabsorption",
+                "Urine changes",
+                "Return effect"
+              ],
+              "id": "ch13-l06-check-writing-1",
+              "limit": 3200
+            },
+            {
+              "prompt": "Explain why replacing a hormone could help a deficiency case but not fully solve a target-resistance case. Use ADH as the example.",
+              "model": "If ADH is deficient, replacing the signal can allow responsive kidneys to conserve water. If the kidneys are resistant, the signal may already be present but the target response is impaired, so replacement alone may not restore regulation.",
+              "criteria": [
+                "Two mechanisms distinguished",
+                "Appropriate target",
+                "No universal treatment claim"
+              ],
+              "id": "ch13-l06-check-writing-2",
+              "limit": 3200
+            }
+          ]
+        },
+        {
+          "id": "ch13-check-07",
+          "route": "lesson-07",
+          "title": "Thyroid hormones and metabolism",
+          "mc": [
+            {
+              "prompt": "Primary thyroid failure occurs while pituitary control remains intact. Which pattern is expected?",
+              "options": [
+                "Normal thyroid hormone in every case",
+                "High thyroid hormone and low TSH",
+                "Low thyroid hormone and no possible TSH rise",
+                "Low thyroid hormone and high TSH"
+              ],
+              "answer": "Low thyroid hormone and high TSH",
+              "explanation": "Low output reduces feedback inhibition, allowing TSH to rise.",
+              "cue": "Use the word primary and the intact-pituitary condition.",
+              "difficulty": "application",
+              "id": "ch13-l07-check-mc-1"
+            },
+            {
+              "prompt": "Why can inadequate iodine contribute to goitre?",
+              "options": [
+                "The pancreas moves into the neck",
+                "Low thyroid output allows persistent TSH stimulation",
+                "Low TSH always makes the thyroid expand",
+                "Iodine directly becomes the whole pituitary"
+              ],
+              "answer": "Low thyroid output allows persistent TSH stimulation",
+              "explanation": "Limited synthesis and reduced feedback can sustain gland stimulation.",
+              "cue": "Connect nutrient supply to the feedback loop.",
+              "difficulty": "application",
+              "id": "ch13-l07-check-mc-2"
+            }
+          ],
+          "writing": [
+            {
+              "prompt": "Trace the TRH–TSH–thyroid-hormone pathway and explain its negative feedback.",
+              "model": "TRH from the hypothalamus stimulates anterior-pituitary TSH, which stimulates thyroid-hormone secretion. Increased thyroid hormone inhibits upstream hypothalamic and pituitary stimulation. A fall reduces inhibition when the pathway is intact.",
+              "criteria": [
+                "Three sources/signals",
+                "Forward stimulation",
+                "Feedback direction"
+              ],
+              "id": "ch13-l07-check-writing-1",
+              "limit": 3200
+            },
+            {
+              "prompt": "Compare low thyroid hormone due to primary thyroid failure with low thyroid hormone due to pituitary failure. State the TSH distinction and your assumptions.",
+              "model": "With primary thyroid failure and intact pituitary response, TSH should rise because feedback is reduced. With pituitary failure, TSH may remain low or inappropriate for the low thyroid hormone. The same low final hormone can therefore have different causes.",
+              "criteria": [
+                "Failure location",
+                "Correct TSH predictions",
+                "Assumptions explicit"
+              ],
+              "id": "ch13-l07-check-writing-2",
+              "limit": 3200
+            }
+          ]
+        },
+        {
+          "id": "ch13-check-08",
+          "route": "lesson-08",
+          "title": "Calcium regulation: PTH and calcitonin",
+          "mc": [
+            {
+              "prompt": "Low blood calcium most directly stimulates which response?",
+              "options": [
+                "Increased PTH release",
+                "Increased TSH as the only controller",
+                "Reduced kidney calcium reabsorption",
+                "Increased insulin as the main calcium hormone"
+              ],
+              "answer": "Increased PTH release",
+              "explanation": "Parathyroid hormone acts to raise low blood calcium.",
+              "cue": "Name the gland that senses this variable.",
+              "difficulty": "foundation",
+              "id": "ch13-l08-check-mc-1"
+            },
+            {
+              "prompt": "How does PTH indirectly increase intestinal calcium absorption?",
+              "options": [
+                "By promoting activation of vitamin D",
+                "By turning insulin into calcium",
+                "By eliminating every kidney tubule",
+                "By closing the auditory canal"
+              ],
+              "answer": "By promoting activation of vitamin D",
+              "explanation": "Active vitamin D supports absorption from the intestine.",
+              "cue": "Look for an intermediate signal.",
+              "difficulty": "application",
+              "id": "ch13-l08-check-mc-2"
+            }
+          ],
+          "writing": [
+            {
+              "prompt": "Trace the response to low blood calcium. Include PTH’s source and effects involving bone, kidney and intestine.",
+              "model": "Parathyroid glands release PTH. It promotes mobilization of calcium from bone, increases kidney calcium reabsorption and supports vitamin D activation, indirectly increasing intestinal absorption. Rising blood calcium reduces the stimulus for release.",
+              "criteria": [
+                "Gland/trigger",
+                "Bone and kidney effects",
+                "Indirect intestinal effect",
+                "Negative feedback"
+              ],
+              "id": "ch13-l08-check-writing-1",
+              "limit": 3200
+            },
+            {
+              "prompt": "Explain how PTH and calcitonin are antagonistic without describing them as identical systems with reversed arrows.",
+              "model": "PTH raises blood calcium, while calcitonin can lower it. Their overall effects oppose one another, but PTH is more important in adult human regulation and their detailed targets and control are not perfect mirror images.",
+              "criteria": [
+                "Opposing effects",
+                "Blood compartment named",
+                "Physiological qualification"
+              ],
+              "id": "ch13-l08-check-writing-2",
+              "limit": 3200
+            }
+          ]
+        },
+        {
+          "id": "ch13-check-09",
+          "route": "lesson-09",
+          "title": "The rapid stress response",
+          "mc": [
+            {
+              "prompt": "Which route correctly describes rapid adrenal hormone release?",
+              "options": [
+                "Insulin → retina → epinephrine",
+                "ADH → kidney → epinephrine",
+                "TSH → thyroid → epinephrine",
+                "Sympathetic neurons → adrenal medulla → epinephrine"
+              ],
+              "answer": "Sympathetic neurons → adrenal medulla → epinephrine",
+              "explanation": "The medulla is directly stimulated by sympathetic input.",
+              "cue": "Look for the neural-to-endocrine connection.",
+              "difficulty": "foundation",
+              "id": "ch13-l09-check-mc-1"
+            },
+            {
+              "prompt": "Why does liver glycogen breakdown support an acute stress response?",
+              "options": [
+                "It converts glucose into light",
+                "It lowers every tissue’s energy needs to zero",
+                "It permanently closes the airways",
+                "It makes glucose available to the blood"
+              ],
+              "answer": "It makes glucose available to the blood",
+              "explanation": "Glucose availability helps meet increased fuel demands.",
+              "cue": "Connect the storage form to the available fuel.",
+              "difficulty": "application",
+              "id": "ch13-l09-check-mc-2"
+            }
+          ],
+          "writing": [
+            {
+              "prompt": "Trace the rapid adrenal stress pathway and explain two effects in terms of immediate action.",
+              "model": "Sympathetic neurons stimulate the adrenal medulla, which releases epinephrine and norepinephrine. Increased cardiac activity supports transport; liver glycogen breakdown increases circulating glucose for fuel.",
+              "criteria": [
+                "Neural trigger",
+                "Medulla/hormones",
+                "Two effects with purposes"
+              ],
+              "id": "ch13-l09-check-writing-1",
+              "limit": 3200
+            },
+            {
+              "prompt": "Compare the adrenal medulla with the adrenal cortex without yet listing every cortical hormone.",
+              "model": "The medulla is the inner region and responds directly to sympathetic neural input, releasing catecholamine hormones. The cortex is outer glandular tissue producing steroid hormones through other control pathways.",
+              "criteria": [
+                "Anatomical regions",
+                "Different control",
+                "Different hormone classes"
+              ],
+              "id": "ch13-l09-check-writing-2",
+              "limit": 3200
+            }
+          ]
+        },
+        {
+          "id": "ch13-check-10",
+          "route": "lesson-10",
+          "title": "Cortisol and longer-lasting stress responses",
+          "mc": [
+            {
+              "prompt": "Which sequence correctly follows cortisol regulation?",
+              "options": [
+                "Hypothalamic CRH → pituitary ACTH → adrenal-cortex cortisol",
+                "Thyroid TSH → adrenal-medulla cortisol",
+                "Pituitary ADH → pancreas insulin → cortisol",
+                "Cochlea → posterior pituitary → glucagon"
+              ],
+              "answer": "Hypothalamic CRH → pituitary ACTH → adrenal-cortex cortisol",
+              "explanation": "Each hormone has a defined source and target in the cortisol axis.",
+              "cue": "Locate the anterior-pituitary step.",
+              "difficulty": "foundation",
+              "id": "ch13-l10-check-mc-1"
+            },
+            {
+              "prompt": "If cortisol rises in an intact feedback pathway, what tends to happen upstream?",
+              "options": [
+                "Both must rise without limit",
+                "CRH and ACTH stimulation decrease",
+                "The cortex becomes the medulla",
+                "ADH becomes TSH"
+              ],
+              "answer": "CRH and ACTH stimulation decrease",
+              "explanation": "Cortisol restrains its upstream controllers by negative feedback.",
+              "cue": "Follow the inhibitory return arrows.",
+              "difficulty": "application",
+              "id": "ch13-l10-check-mc-2"
+            }
+          ],
+          "writing": [
+            {
+              "prompt": "Compare the rapid adrenal-medulla pathway with the cortisol pathway. Include the signal route and final hormones.",
+              "model": "The medulla receives direct sympathetic neural input and releases epinephrine/norepinephrine. The cortisol pathway uses hypothalamic CRH, anterior-pituitary ACTH and adrenal-cortex cortisol, with cortisol feeding back on upstream control.",
+              "criteria": [
+                "Direct neural medulla route",
+                "Three-level cortisol route",
+                "Correct final hormones/regions"
+              ],
+              "id": "ch13-l10-check-writing-1",
+              "limit": 3200
+            },
+            {
+              "prompt": "Explain how cortisol can support glucose availability and how feedback limits its own release.",
+              "model": "Cortisol supports metabolic processes that make fuel substrates available and promote liver glucose production. Increasing cortisol reduces CRH and ACTH stimulation in an intact pathway, restraining further release.",
+              "criteria": [
+                "Metabolic action without direct fat-to-glucose shortcut",
+                "Feedback hormone",
+                "Upstream inhibition"
+              ],
+              "id": "ch13-l10-check-writing-2",
+              "limit": 3200
+            }
+          ]
+        },
+        {
+          "id": "ch13-check-11",
+          "route": "lesson-11",
+          "title": "Aldosterone, sodium and water",
+          "mc": [
+            {
+              "prompt": "What is aldosterone’s major direct kidney action in this course?",
+              "options": [
+                "Make ADH in the collecting duct",
+                "Convert calcium into insulin",
+                "Increase sodium reabsorption and potassium secretion",
+                "Reduce all sodium reabsorption"
+              ],
+              "answer": "Increase sodium reabsorption and potassium secretion",
+              "explanation": "Aldosterone changes ion transport in distal kidney regions.",
+              "cue": "Identify the ion-handling mechanism.",
+              "difficulty": "application",
+              "id": "ch13-l11-check-mc-1"
+            },
+            {
+              "prompt": "Which signals are emphasized in aldosterone’s main regulation?",
+              "options": [
+                "Only TSH",
+                "Only insulin from the posterior pituitary",
+                "Only retinal light",
+                "Angiotensin II and blood potassium"
+              ],
+              "answer": "Angiotensin II and blood potassium",
+              "explanation": "Aldosterone does not simply share cortisol’s primary control pathway.",
+              "cue": "Separate two cortical hormones.",
+              "difficulty": "application",
+              "id": "ch13-l11-check-mc-2"
+            }
+          ],
+          "writing": [
+            {
+              "prompt": "Trace how aldosterone can support blood pressure. Include its source, kidney action and the connection between sodium and water.",
+              "model": "Aldosterone from the adrenal cortex increases kidney sodium reabsorption. Retaining sodium supports water retention and extracellular fluid volume, helping maintain blood volume and pressure.",
+              "criteria": [
+                "Cortex source",
+                "Sodium reabsorption",
+                "Water/volume/pressure chain"
+              ],
+              "id": "ch13-l11-check-writing-1",
+              "limit": 3200
+            },
+            {
+              "prompt": "Compare ADH with aldosterone and explain why putting them both under “saves water” is incomplete.",
+              "model": "ADH is made in the hypothalamus and released posteriorly; it increases kidney water permeability. Aldosterone comes from the cortex and increases sodium reabsorption. Both can conserve volume, but sources, immediate targets and primary regulation differ.",
+              "criteria": [
+                "Different sources",
+                "Different immediate kidney actions",
+                "Shared consequence without equivalence"
+              ],
+              "id": "ch13-l11-check-writing-2",
+              "limit": 3200
+            }
+          ]
+        },
+        {
+          "id": "ch13-check-12",
+          "route": "lesson-12",
+          "title": "Insulin, glucagon and blood glucose",
+          "mc": [
+            {
+              "prompt": "Which pairing correctly matches pancreatic cells to hormones?",
+              "options": [
+                "Alpha cells — ADH; beta cells — cortisol",
+                "Both cell types — thyroxine only",
+                "Beta cells — glucagon; alpha cells — insulin",
+                "Beta cells — insulin; alpha cells — glucagon"
+              ],
+              "answer": "Beta cells — insulin; alpha cells — glucagon",
+              "explanation": "Cell identity and hormone role must stay linked.",
+              "cue": "Remember each cell’s regulated-glucose direction.",
+              "difficulty": "foundation",
+              "id": "ch13-l12-check-mc-1"
+            },
+            {
+              "prompt": "Between meals, glucagon helps maintain blood glucose mainly by…",
+              "options": [
+                "Blocking every form of liver glucose release",
+                "Turning the thyroid into a pancreas",
+                "Promoting liver glycogen breakdown and glucose production",
+                "Moving glucose into the lens as the main storage site"
+              ],
+              "answer": "Promoting liver glycogen breakdown and glucose production",
+              "explanation": "The liver supplies glucose to circulation.",
+              "cue": "Distinguish glycogen, glucose and glucagon.",
+              "difficulty": "application",
+              "id": "ch13-l12-check-mc-2"
+            }
+          ],
+          "writing": [
+            {
+              "prompt": "Compare the response after a meal with the response between meals. Include alpha/beta cells, insulin/glucagon, liver action and feedback.",
+              "model": "After a meal, higher glucose stimulates beta-cell insulin, supporting uptake and storage and reducing glucose output. Between meals, falling glucose supports alpha-cell glucagon, promoting liver glycogen breakdown and glucose production. Each response opposes the initiating change.",
+              "criteria": [
+                "Correct cells and hormones",
+                "Meal response",
+                "Between-meal liver response",
+                "Negative feedback in both"
+              ],
+              "id": "ch13-l12-check-writing-1",
+              "limit": 3200
+            },
+            {
+              "prompt": "Compare diabetes mellitus with diabetes insipidus using their hormone mechanism rather than their shared symptoms.",
+              "model": "Diabetes mellitus involves inadequate insulin production/action and elevated glucose; glucose in the urine can increase water loss. Diabetes insipidus involves impaired water conservation, often from ADH deficiency or resistance, producing excessive dilute urine without requiring high glucose.",
+              "criteria": [
+                "Insulin/glucose mechanism",
+                "ADH/water mechanism",
+                "Shared symptoms do not imply same cause"
+              ],
+              "id": "ch13-l12-check-writing-2",
+              "limit": 3200
+            }
+          ]
+        },
+        {
+          "id": "ch13-check-13",
+          "route": "lesson-13",
+          "title": "Integrated chapter review and final check",
+          "mc": [
+            {
+              "prompt": "Which production/release pair is correct?",
+              "options": [
+                "TSH: thyroid / adrenal medulla",
+                "Insulin: liver / posterior pituitary",
+                "Cortisol: hypothalamus / pancreas",
+                "ADH: hypothalamus / posterior pituitary"
+              ],
+              "answer": "ADH: hypothalamus / posterior pituitary",
+              "explanation": "Production and release are separate parts of the ADH pathway.",
+              "cue": "Read both verbs.",
+              "difficulty": "foundation",
+              "id": "ch13-l13-check-mc-1"
+            },
+            {
+              "prompt": "Which observation best fits primary thyroid underproduction with intact control?",
+              "options": [
+                "Low T4 with elevated TSH",
+                "High T4 with low TSH proves pituitary failure",
+                "Only insulin changes",
+                "Low T4 always requires low TSH"
+              ],
+              "answer": "Low T4 with elevated TSH",
+              "explanation": "Low thyroid output reduces feedback inhibition of TSH secretion.",
+              "cue": "Use the stated location of failure.",
+              "difficulty": "application",
+              "id": "ch13-l13-check-mc-2"
+            },
+            {
+              "prompt": "Which response directly follows sympathetic stimulation of the adrenal medulla?",
+              "options": [
+                "Cortisol production in the cochlea",
+                "Insulin through ACTH",
+                "Aldosterone through TSH",
+                "Epinephrine and norepinephrine release"
+              ],
+              "answer": "Epinephrine and norepinephrine release",
+              "explanation": "The medulla links sympathetic neural signals with catecholamine hormone release.",
+              "cue": "Separate medulla from cortex.",
+              "difficulty": "foundation",
+              "id": "ch13-l13-check-mc-3"
+            },
+            {
+              "prompt": "A normally responsive kidney receives more ADH. Which urine change is expected?",
+              "options": [
+                "No possible change in water handling",
+                "Higher glucose production in the lens",
+                "Lower volume and higher concentration",
+                "Higher volume and lower concentration"
+              ],
+              "answer": "Lower volume and higher concentration",
+              "explanation": "More water is reabsorbed from the tubule.",
+              "cue": "Follow water back to blood.",
+              "difficulty": "application",
+              "id": "ch13-l13-check-mc-4"
+            },
+            {
+              "prompt": "Which explanation of low blood calcium is appropriate?",
+              "options": [
+                "Insulin is always the main correction",
+                "Calcitonin is the only response that raises calcium",
+                "The pituitary must convert glucose into calcium",
+                "Increased PTH helps conserve and mobilize calcium"
+              ],
+              "answer": "Increased PTH helps conserve and mobilize calcium",
+              "explanation": "PTH supports bone mobilization, kidney conservation and indirect intestinal absorption.",
+              "cue": "Identify the controlled ion.",
+              "difficulty": "application",
+              "id": "ch13-l13-check-mc-5"
+            },
+            {
+              "prompt": "Which statement about diabetes is most defensible?",
+              "options": [
+                "Type 1 occurs only in children",
+                "Diabetes insipidus always requires high glucose",
+                "Type 2 means no insulin is ever present",
+                "Insulin deficiency and insulin resistance can both impair glucose regulation"
+              ],
+              "answer": "Insulin deficiency and insulin resistance can both impair glucose regulation",
+              "explanation": "Mechanism is more informative than a rigid age or symptom rule.",
+              "cue": "Distinguish signal supply and response.",
+              "difficulty": "application",
+              "id": "ch13-l13-check-mc-6"
+            }
+          ],
+          "writing": [
+            {
+              "prompt": "Compare three responses: water loss, a carbohydrate-containing meal and an immediate threat. For each, name a relevant trigger, hormone source, target, effect and control relationship.",
+              "model": "Water loss/concentration change can increase posterior-pituitary ADH, changing kidney water permeability and conserving water. A meal can increase pancreatic beta-cell insulin, supporting tissue uptake and liver storage to lower glucose. Immediate threat can activate sympathetic neurons and adrenal-medulla catecholamines, supporting rapid fuel and cardiovascular responses.",
+              "criteria": [
+                "Three appropriate pathways",
+                "Accurate hormone sources and targets",
+                "Mechanisms, not just names",
+                "Control relationships distinguished"
+              ],
+              "id": "ch13-l13-check-writing-1",
+              "limit": 3200
+            },
+            {
+              "prompt": "Correct this explanation: “ACTH controls every adrenal hormone; all hormones act on every cell; and low thyroxine always means high TSH.” Include the conditions that make your corrections necessary.",
+              "model": "ACTH chiefly supports cortisol secretion; aldosterone is mainly controlled by angiotensin II and potassium, while the medulla receives sympathetic input. Targets require suitable receptors. Low thyroxine produces high TSH in primary thyroid failure only when the pituitary can respond; upstream failure can produce a different pattern.",
+              "criteria": [
+                "Adrenal pathways separated",
+                "Receptor specificity",
+                "Primary versus upstream failure",
+                "Assumptions stated"
+              ],
+              "id": "ch13-l13-check-writing-2",
+              "limit": 3200
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

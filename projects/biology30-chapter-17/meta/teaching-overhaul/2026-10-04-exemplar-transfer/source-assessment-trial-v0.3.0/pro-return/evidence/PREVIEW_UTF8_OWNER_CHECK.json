@@ -1,0 +1,109 @@
+{
+  "scope": "Actual final UTF-8-decoded HTML and each Markdown roundtrip compared with decoded source/root JSON strings.",
+  "teacherHtmlChecks": [
+    {
+      "id": "ch17-l02-check-mc-1",
+      "promptUtf8Sha256": "698c63d83dba34940dfee685671c206cfc5e8055f1d1256757fee9228d795e60",
+      "actualPreviewMatchesDecodedJsonOwner": true,
+      "orderedOptionsAndValuesMatch": true
+    },
+    {
+      "id": "ch17-l02-check-mc-2",
+      "promptUtf8Sha256": "c8ad2711f67de83955d2329e81d4c1f4c306f163697a56906ba59a5ef00c9575",
+      "actualPreviewMatchesDecodedJsonOwner": true,
+      "orderedOptionsAndValuesMatch": true
+    },
+    {
+      "id": "ch17-l02-check-writing-1",
+      "promptUtf8Sha256": "1af3e7b9131bf5c98450fe7c5d9bbe89999796b44078fb9bd355c3a7fea2f27b",
+      "actualPreviewMatchesDecodedJsonOwner": true,
+      "orderedOptionsAndValuesMatch": null
+    },
+    {
+      "id": "ch17-l02-check-writing-2",
+      "promptUtf8Sha256": "916849ed2ce263cce094ee9f194fb5970a76a52179abba46e0e1a52c211d590f",
+      "actualPreviewMatchesDecodedJsonOwner": true,
+      "orderedOptionsAndValuesMatch": null
+    },
+    {
+      "id": "ch17-l05-check-mc-1",
+      "promptUtf8Sha256": "326e32ef7283edb7ba3d52f7fd548d9bd2cabb743ff0ce1e9a59a6cfd9d96b8f",
+      "actualPreviewMatchesDecodedJsonOwner": true,
+      "orderedOptionsAndValuesMatch": true
+    },
+    {
+      "id": "ch17-l05-check-mc-2",
+      "promptUtf8Sha256": "2812dfb1ff3cfa289538fcbbde7393cc14cc386dc8391fd0aee56da09145b2f3",
+      "actualPreviewMatchesDecodedJsonOwner": true,
+      "orderedOptionsAndValuesMatch": true
+    },
+    {
+      "id": "ch17-l05-check-writing-1",
+      "promptUtf8Sha256": "74b5965aea29a0db1ed0f62c93cf1430577ceb168f17c6e3727892415bba4b0d",
+      "actualPreviewMatchesDecodedJsonOwner": true,
+      "orderedOptionsAndValuesMatch": null
+    },
+    {
+      "id": "ch17-l05-check-writing-2",
+      "promptUtf8Sha256": "56eef49beab47a35617b41c6a60ede2c4e9f173a83c9ac4371da56d25740ad7e",
+      "actualPreviewMatchesDecodedJsonOwner": true,
+      "orderedOptionsAndValuesMatch": null
+    }
+  ],
+  "markdownChecks": [
+    [
+      {
+        "id": "ch17-l02-check-mc-1",
+        "promptUtf8Sha256": "698c63d83dba34940dfee685671c206cfc5e8055f1d1256757fee9228d795e60",
+        "actualPreviewMatchesDecodedJsonOwner": true,
+        "orderedOptionsAndValuesMatch": true
+      },
+      {
+        "id": "ch17-l02-check-mc-2",
+        "promptUtf8Sha256": "c8ad2711f67de83955d2329e81d4c1f4c306f163697a56906ba59a5ef00c9575",
+        "actualPreviewMatchesDecodedJsonOwner": true,
+        "orderedOptionsAndValuesMatch": true
+      },
+      {
+        "id": "ch17-l02-check-writing-1",
+        "promptUtf8Sha256": "1af3e7b9131bf5c98450fe7c5d9bbe89999796b44078fb9bd355c3a7fea2f27b",
+        "actualPreviewMatchesDecodedJsonOwner": true,
+        "orderedOptionsAndValuesMatch": null
+      },
+      {
+        "id": "ch17-l02-check-writing-2",
+        "promptUtf8Sha256": "916849ed2ce263cce094ee9f194fb5970a76a52179abba46e0e1a52c211d590f",
+        "actualPreviewMatchesDecodedJsonOwner": true,
+        "orderedOptionsAndValuesMatch": null
+      }
+    ],
+    [
+      {
+        "id": "ch17-l05-check-mc-1",
+        "promptUtf8Sha256": "326e32ef7283edb7ba3d52f7fd548d9bd2cabb743ff0ce1e9a59a6cfd9d96b8f",
+        "actualPreviewMatchesDecodedJsonOwner": true,
+        "orderedOptionsAndValuesMatch": true
+      },
+      {
+        "id": "ch17-l05-check-mc-2",
+        "promptUtf8Sha256": "2812dfb1ff3cfa289538fcbbde7393cc14cc386dc8391fd0aee56da09145b2f3",
+        "actualPreviewMatchesDecodedJsonOwner": true,
+        "orderedOptionsAndValuesMatch": true
+      },
+      {
+        "id": "ch17-l05-check-writing-1",
+        "promptUtf8Sha256": "74b5965aea29a0db1ed0f62c93cf1430577ceb168f17c6e3727892415bba4b0d",
+        "actualPreviewMatchesDecodedJsonOwner": true,
+        "orderedOptionsAndValuesMatch": null
+      },
+      {
+        "id": "ch17-l05-check-writing-2",
+        "promptUtf8Sha256": "56eef49beab47a35617b41c6a60ede2c4e9f173a83c9ac4371da56d25740ad7e",
+        "actualPreviewMatchesDecodedJsonOwner": true,
+        "orderedOptionsAndValuesMatch": null
+      }
+    ]
+  ],
+  "allCompleteTeachingTokensMatchActualReading": true,
+  "browserRenderingVerified": false
+}

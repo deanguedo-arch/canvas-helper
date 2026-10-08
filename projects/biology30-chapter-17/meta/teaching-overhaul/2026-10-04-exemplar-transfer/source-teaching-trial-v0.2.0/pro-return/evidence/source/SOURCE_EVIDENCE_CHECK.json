@@ -1,0 +1,154 @@
+{
+  "document": "Current source-evidence consistency check — trial v0.2.0",
+  "checked_utc": "2026-10-04T21:56:48.903963+00:00",
+  "result": "PASS: current source/admin pins and locators consistent. This does not resolve teacher/source-method/assessment readiness.",
+  "checks": [
+    {
+      "route": "lesson-02",
+      "input_sha256": "c5712fcf6e33e732a3985593bdbea867749f2cfcaa38000c6a8290ee498af2af",
+      "component_ranges_checked": 6,
+      "non_whitespace_input_covered": true
+    },
+    {
+      "route": "lesson-05",
+      "input_sha256": "eac351c08ef28c82b936cf1baa206dbfb5f14feef65338d3e196d3c5aa0f6b4e",
+      "component_ranges_checked": 6,
+      "non_whitespace_input_covered": true
+    }
+  ],
+  "assembled_component_ranges_checked": 12,
+  "assembled_artifact_pins_checked": 4,
+  "l02_component_records_preserved_since05_append": true,
+  "current_source_files": [
+    {
+      "path": "SOURCE_MAP.md",
+      "bytes": 14208,
+      "sha256": "e7b394c9b8f083c94a5b8d5e45d087002e74c6fde043ebee9c428533ab5e7dac"
+    },
+    {
+      "path": "SOURCE_MAP.json",
+      "bytes": 37631,
+      "sha256": "d03071cb8479ca5cc0b476ba6035a878a6e1568c0dedf1125d3d833443eff1df"
+    },
+    {
+      "path": "SOURCE_READINESS.md",
+      "bytes": 7805,
+      "sha256": "776655606f78a8a45a22d0921c1b17b3f554253d40fe40e63b908d32f5305b22"
+    },
+    {
+      "path": "SOURCE_CONFLICTS.md",
+      "bytes": 8110,
+      "sha256": "0752b8419b6e20b65954049560a29146ac1d32c5550cc70fd59efb76604ccb6e"
+    },
+    {
+      "path": "SOURCE_CONFLICTS.json",
+      "bytes": 9281,
+      "sha256": "93cd9ae74ab4bce868413a1c031ec9cac3101a5d0bbb486d0c06c1c93a45c3fc"
+    },
+    {
+      "path": "L02_SOURCE_SCIENCE_REVIEW.md",
+      "bytes": 3230,
+      "sha256": "b4bfb6152f2095f8ff044643d79c5216708dbfce228ed321b0ccfb62cc40d0b8"
+    },
+    {
+      "path": "L02_SOURCE_SCIENCE_REVIEW.json",
+      "bytes": 3652,
+      "sha256": "6a5cc384e3031a9565462c74ac5f207ba9170da1378493ea39aa3a4fc279bbc3"
+    },
+    {
+      "path": "L02_BOUNDED_DELTA.json",
+      "bytes": 896,
+      "sha256": "f1b3e9eb1d4c82939958fc5b62c750fff6607c21fa9bef2b6fadee16f074afbe"
+    },
+    {
+      "path": "L05_SOURCE_SCIENCE_REVIEW.md",
+      "bytes": 3774,
+      "sha256": "9a6032a194073404cde28b3294b4a14070ff4f185c400c7e61f6c8dd57bdc4e2"
+    },
+    {
+      "path": "L05_SOURCE_SCIENCE_REVIEW.json",
+      "bytes": 3710,
+      "sha256": "21a0a6d92ef81f8cac3ad5dfa37fb5d2c0443672496ce9a26055361d1ccaa34c"
+    },
+    {
+      "path": "L05_ARITHMETIC_EVIDENCE.json",
+      "bytes": 4966,
+      "sha256": "7866bbcf4209803a299d48188a4e4d1dad340c0857c53dfa158673a5451f79f9"
+    },
+    {
+      "path": "FINAL_SOURCE_READ_SCOPE.json",
+      "bytes": 3035,
+      "sha256": "199c0f3b6fb0f7d37463b1b94ee36bdd8fb097159a36062f12f405db9a69fff6"
+    },
+    {
+      "path": "NATIVE_BRANCH_SOURCE_EVIDENCE.json",
+      "bytes": 541,
+      "sha256": "76aa21813038c6b3ab7976c1c771aab340ccfc8df0b2d3eb89870761d0a1c682"
+    },
+    {
+      "path": "ADAPTATION_RECOMMENDATION.md",
+      "bytes": 11268,
+      "sha256": "26072c9b7ccd237715befd1242c6ace37b5ba772524311517501cca423078a18"
+    },
+    {
+      "path": "ADAPTATION_RECOMMENDATION.json",
+      "bytes": 9772,
+      "sha256": "0611b6ffccec708e950174c9cfeb14ccc171130046324c1af32eb87df933b3c9"
+    },
+    {
+      "path": "PROTECTED_TARGET_EVIDENCE.json",
+      "bytes": 66507,
+      "sha256": "dc3610f6605976608af2b63a46a3a0237e7834db3c51dcfa94223c29050d4003"
+    },
+    {
+      "path": "pptx-method/METHOD_EVIDENCE.md",
+      "bytes": 11144,
+      "sha256": "114daf19fd032023af4b635820c317fc9947b60478d0b64d0b6a72404bf57e2b"
+    },
+    {
+      "path": "pptx-method/METHOD_EVIDENCE.json",
+      "bytes": 9122,
+      "sha256": "3e5c5e8e59d1048c10e86253d996a0f65ca2df4d9b2aa5b2528f1a94377849cc"
+    },
+    {
+      "path": "pptx-method/READ_LOG.json",
+      "bytes": 12584,
+      "sha256": "3f0b51149b121e7dcf07662096a0829fe0697c25afc4df9217dd12da3dc1fdea"
+    },
+    {
+      "path": "pptx-method/ACTUAL_TARGETED_XML.json",
+      "bytes": 34390,
+      "sha256": "feb53850bc51f35d8a5e422c52a7be3fa515a9bd5cb8684ce8f6fad54e1e0899"
+    },
+    {
+      "path": "pptx-method/L02_DRAFT_METHOD_REVIEW.md",
+      "bytes": 10561,
+      "sha256": "c5c077fbb5e7f7ad2143a78675efd92ec3303fc08ec02f1b2538480f2104d666"
+    },
+    {
+      "path": "pptx-method/L02_DRAFT_METHOD_REVIEW.json",
+      "bytes": 24264,
+      "sha256": "b21af899a21772cbdf62f68e18da6136624bc8c82d11ff49140fcb8062b87685"
+    },
+    {
+      "path": "pptx-method/L05_DRAFT_METHOD_REVIEW.md",
+      "bytes": 11097,
+      "sha256": "fcbe7af7eef47cee97b892f74448e188f23528ea594f5df73db815ba38b551f1"
+    },
+    {
+      "path": "pptx-method/L05_DRAFT_METHOD_REVIEW.json",
+      "bytes": 37779,
+      "sha256": "2c5f4b702503cc447d1431e884f3a2307ed7839e550e4aa7120e65e0fa003005"
+    }
+  ],
+  "unresolved": [
+    "SRC-BOUND-01: tomato method-template and source-demand conflict",
+    "SRC-BOUND-02: full source pea3/16 structural protected overlap"
+  ],
+  "not_performed": [
+    "Original archive gate rerun/restaging",
+    "Native runtime/save/reload/browser test",
+    "Teacher acceptance",
+    "Course integration, promotion, deployment or release"
+  ]
+}

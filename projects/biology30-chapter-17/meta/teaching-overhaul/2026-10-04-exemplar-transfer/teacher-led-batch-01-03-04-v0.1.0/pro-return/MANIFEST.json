@@ -1,0 +1,422 @@
+{
+  "artifact": "Biology30_CH17_Batch01_03_04_Teacher_Transfer_v0.1.0",
+  "version": "0.1.0",
+  "createdUtc": "2026-10-05T19:42:47+00:00",
+  "status": "Complete bounded teacher-decision comparison; exact-copy acceptance pending",
+  "scope": [
+    {
+      "route": "lesson-01",
+      "title": "Genes, alleles, genotype and phenotype"
+    },
+    {
+      "route": "lesson-03",
+      "title": "Single-trait crosses and probability"
+    },
+    {
+      "route": "lesson-04",
+      "title": "Test crosses and unknown genotypes"
+    }
+  ],
+  "sourceZip": {
+    "name": "Biology30_CH17_Batch01_03_04_Teacher_Transfer_v0.1.0_Source.zip",
+    "bytes": 18547759,
+    "sha256": "0014e32f25103d3fa8968a6fbeffe3e678d41bdcc8d5d94b4c81e1f1035e29da",
+    "memberCount": 125,
+    "manifestPayloads": 124
+  },
+  "sourceOwner": {
+    "pathInSourcePacket": "current/index.html",
+    "bytes": 3566907,
+    "sha256": "0814977d9fb4ba41d611f2816e50e01d7950a0d5caaba9f422a410bf0f6e0783",
+    "originalUtf8Intervals": {
+      "lesson-01": [
+        87440,
+        91626
+      ],
+      "lesson-03": [
+        156900,
+        162121
+      ],
+      "lesson-04": [
+        180860,
+        185281
+      ]
+    }
+  },
+  "sourceIndexUnchangedAtSealing": true,
+  "contentPolicy": {
+    "nativeTeachingFragmentsOnly": true,
+    "headerEdits": [],
+    "newQuestions": false,
+    "newSavedControls": false,
+    "scriptsOrCssAdded": false,
+    "sourceImagesUnchanged": true,
+    "requiredAssessmentsUnchanged": true,
+    "protectedSourceNotesRemainInSuffixes": true,
+    "readingCopiesContainDisabledControlsOnly": "Native replacement fragments retain original functional vocabulary and figure attributes; saved notes remain exclusively in protected suffixes.",
+    "prior02And05ReferencesUnchanged": true,
+    "later06To15AuthoredHere": false
+  },
+  "reviewStatus": {
+    "sourceVerification": "Performed on supplied archive, payloads, owner and bounded original sources",
+    "authorSelfReview": "Performed on all three complete candidates",
+    "separateAssistantSourceScienceQuantitativePedagogyStaticAndRecordReviews": "Performed with exact scopes and final-byte closures in reviews/",
+    "externalScoutCodexCompleteCopyReview": "Not performed here",
+    "teacherAcceptance": "Pending",
+    "nativeOwnerAssembly": "Not performed",
+    "nativeRuntimeOrSavedWorkCompatibilityTests": "Not performed",
+    "canonicalIntegration": "Not performed",
+    "deploymentCertificationPromotionRelease": "Not performed"
+  },
+  "openIssuePolicy": "OPEN_ISSUES.md preserves direct/isomorphic assessment overlap, protected historical errors, later prerequisites and evidence gaps. Integrity checks are not pedagogical or technical acceptance.",
+  "payloadCount": 68,
+  "payloadBytes": 1861148,
+  "files": [
+    {
+      "path": "AUTHORING_EVIDENCE.md",
+      "bytes": 11439,
+      "sha256": "7bb528a62c4b01efc59419e065f1defd1e4240ce749e45cda0546ad4d776545e"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "bytes": 3846,
+      "sha256": "f409d2f0392863ddb5950bdbe605a085414104ddc6d4a3ddf8b84e74c59227e4"
+    },
+    {
+      "path": "CONTENT_REVIEW.md",
+      "bytes": 14009,
+      "sha256": "5182e53f07c69784d3b3360e0c0d4f047e6b94c82cf95972193d9fd2ad0308d4"
+    },
+    {
+      "path": "CONTINUITY_LEDGER.md",
+      "bytes": 5186,
+      "sha256": "31284122545b51333ff5c16a582e8a2b6355db7fa35ec08cc5622cb27779a505"
+    },
+    {
+      "path": "INTEGRATION_MAP.json",
+      "bytes": 48470,
+      "sha256": "45db2d51a4736144c2678531e94d8f60b395547c916625032ab057dc6d6ab9c6"
+    },
+    {
+      "path": "OPEN_ISSUES.md",
+      "bytes": 10122,
+      "sha256": "53b995a5c9873bfb09d16d00d3056c5cff9c671213c80c3144d6feef92189344"
+    },
+    {
+      "path": "PRACTICE_PREPARATION_MAP.json",
+      "bytes": 583241,
+      "sha256": "2eef1c796885b8d27e6a04920772f0924c4bca11f953ee3b5900f4fd999dc0b1"
+    },
+    {
+      "path": "README.md",
+      "bytes": 4391,
+      "sha256": "ba12b756269c1c8c4727056b412e1ac05d88708319d345433fcaac8ddce0be2f"
+    },
+    {
+      "path": "SOURCE_VISUAL_MAP.json",
+      "bytes": 156900,
+      "sha256": "14c0b5226658fdc91f52cd1f3e9068c7f377c56aa2873dfd192512457cc75874"
+    },
+    {
+      "path": "TEACHING_SEQUENCE.md",
+      "bytes": 23105,
+      "sha256": "698707124d1a2e7083b7f7621891a4853384ec145cefee6d223d3e899b74f0be"
+    },
+    {
+      "path": "assets/assessment/1cb36c7f022e66f1f7ff.png",
+      "bytes": 9362,
+      "sha256": "1cb36c7f022e66f1f7ffd71069517342405c172e19258e72594a1b73f908d2d1"
+    },
+    {
+      "path": "assets/assessment/9e85ebb2ecbe95100af0.png",
+      "bytes": 45804,
+      "sha256": "9e85ebb2ecbe95100af02ac52108c9fb53798252a85604d1371d8358edba1dad"
+    },
+    {
+      "path": "assets/assessment/edd29af72eeb9c646081.png",
+      "bytes": 10993,
+      "sha256": "edd29af72eeb9c64608139705b844cfc0a52bf6745137ffec10d71fcaed0eb22"
+    },
+    {
+      "path": "assets/assessment/eeca2d84afb814ca523d.png",
+      "bytes": 107270,
+      "sha256": "eeca2d84afb814ca523d062ae04860a1ebbb56f5ee38b301d250995344f46a99"
+    },
+    {
+      "path": "assets/assessment/f45c6bfd939bd821e055.png",
+      "bytes": 11145,
+      "sha256": "f45c6bfd939bd821e055a82ac84c0b44b07ddfe0efcc080b606a2070eb293437"
+    },
+    {
+      "path": "assets/figures/ch17-punnett.svg",
+      "bytes": 3959,
+      "sha256": "2fdc34b5f30359e927d50b1fa4781894bdb196dfccfbbabcbf831d1ec4aec6ec"
+    },
+    {
+      "path": "assets/teaching-batch1-v010/slide-12-image18.png",
+      "bytes": 159723,
+      "sha256": "6514f5d48a724cdf1fe785c24b74f44abb03b73af75c26e787b8a8adf687f26c"
+    },
+    {
+      "path": "assets/teaching-batch1-v010/slide-27-image22.png",
+      "bytes": 4843,
+      "sha256": "21b521a9e6dc4d631b80ef038ec9be24dda4e4f788ce7e855932e544601f1f24"
+    },
+    {
+      "path": "assets/teaching-batch1-v010/slide-27-image30.jpg",
+      "bytes": 43058,
+      "sha256": "bf6c27bfad6067528006804c139f9c2ebcc61fbe6dcc8ea21a839665583f8a8d"
+    },
+    {
+      "path": "assets/teaching-batch1-v010/slide-27-image31.jpg",
+      "bytes": 13590,
+      "sha256": "48accc2e9da889e71c388ffef0818fa2d37b6e68a8cda68eda4cfeef7d893d15"
+    },
+    {
+      "path": "assets/teaching-batch1-v010/slide-29-image33.png",
+      "bytes": 54681,
+      "sha256": "fd46a25268ba516d5a9809a146f82e793883bf5f5dac84b810cc7a3a448d34a5"
+    },
+    {
+      "path": "assets/teaching-batch1-v010/slide-4-image13.jpg",
+      "bytes": 27674,
+      "sha256": "7c2c37bc887ab1b5bdf6ff3948242ba949b9d10c3ba510f27f1538c7a01525ba"
+    },
+    {
+      "path": "contracts/SUPPLIED_LEAD_SOURCE_PREFLIGHT.json",
+      "bytes": 3220,
+      "sha256": "014aa7b7e247ffa7aa2916f6582e8970fca53d1c48cb748b8d22d473a8a4a025"
+    },
+    {
+      "path": "contracts/SUPPLIED_REPLACEMENT_BOUNDARIES.json",
+      "bytes": 8044,
+      "sha256": "679d1475eed824fca46c327750495e4271493122827417ada42c8980b8473363"
+    },
+    {
+      "path": "contracts/SUPPLIED_SOURCE_HANDOFF_MANIFEST.json",
+      "bytes": 21517,
+      "sha256": "af0e81af7b12fb2db7f68fc866962a357feebc48ac2b0667a5c8e3c7bdca22d9"
+    },
+    {
+      "path": "lesson-01.teaching-fragment.html",
+      "bytes": 17745,
+      "sha256": "9af1936228a2f611e9338d0a72142801899802d7d86c054d2a983474ed96e72a"
+    },
+    {
+      "path": "lesson-03.teaching-fragment.html",
+      "bytes": 24439,
+      "sha256": "85a884113bab7fe12205c1d1567284dabc0b434fd469c0076c24da57c56edc85"
+    },
+    {
+      "path": "lesson-04.teaching-fragment.html",
+      "bytes": 18212,
+      "sha256": "36dc8d9a947c45a355110cc1efed7676d2ab01162dbfa12ea628e0b393d5b97f"
+    },
+    {
+      "path": "manuscripts/lesson-01.md",
+      "bytes": 27226,
+      "sha256": "6710454dc2cf38853a68280c60d1d078589e71a4a8fae55072c8794c38597eee"
+    },
+    {
+      "path": "manuscripts/lesson-03.md",
+      "bytes": 37449,
+      "sha256": "53aa6a08b4ba1add404ab767c491a5241204f02373f56049082f056caf9d5b37"
+    },
+    {
+      "path": "manuscripts/lesson-04.md",
+      "bytes": 29985,
+      "sha256": "277a76f9ee9a1e6231f8f1b0b447b90d7380c888d501202eae28c6953346176d"
+    },
+    {
+      "path": "raw-before/lesson-01-ch17-source-written-OBJ_2131252.html",
+      "bytes": 1296,
+      "sha256": "93edff82ca31f8b1614fe3298a3db29106df5aa18854b97f30f94da82f9721c2"
+    },
+    {
+      "path": "raw-before/lesson-01.lesson-prefix.html",
+      "bytes": 3897,
+      "sha256": "3166229a7e6e7f4a83f63e9d6e0b3a8c87b1a062787e92d83341bd657157f576"
+    },
+    {
+      "path": "raw-before/lesson-01.protected-header.html",
+      "bytes": 3821,
+      "sha256": "764621b70b3b6026f5be5ad50e4d85ed5a1415b90bb84a8a8ba45899388221c7"
+    },
+    {
+      "path": "raw-before/lesson-01.protected-suffix.html",
+      "bytes": 10746,
+      "sha256": "0308998f82c47a27ccfdfdc26afd08e09229c15336312b8d3331534c8c919bf1"
+    },
+    {
+      "path": "raw-before/lesson-01.teaching-fragment.html",
+      "bytes": 4186,
+      "sha256": "69bc52334f25135c7bda1706cc07a963d6a85e5f8e323cf7c3cbb284da0473c6"
+    },
+    {
+      "path": "raw-before/lesson-01.teaching-suffix-separator.bin",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "raw-before/lesson-03-ch17-punnett.html",
+      "bytes": 696,
+      "sha256": "3fc3cd697b9674574196a9c5da233ec59bf371aea3b5f51055e141995bbe31cb"
+    },
+    {
+      "path": "raw-before/lesson-03-ch17-source-written-OBJ_2131244.html",
+      "bytes": 1633,
+      "sha256": "47951bc9dbe8d5cd43d26939e3d6e436e5d4cd8eac6e911599e62498c0d8c8b6"
+    },
+    {
+      "path": "raw-before/lesson-03-ch17-source-written-OBJ_2131248.html",
+      "bytes": 1386,
+      "sha256": "d483cb91bda51fc1c02a45b559dd62f9ca885f8d44dc9d294a0c82e36f819849"
+    },
+    {
+      "path": "raw-before/lesson-03.lesson-prefix.html",
+      "bytes": 3984,
+      "sha256": "bcfb3b646de59272b8147f104b3c6e7ec95042318278a52cc34031ff45881be8"
+    },
+    {
+      "path": "raw-before/lesson-03.protected-header.html",
+      "bytes": 3908,
+      "sha256": "8be6f963501bc30434c6dc904c0efb8a045dc12b758f3418dcc9cd1f3d9e9b89"
+    },
+    {
+      "path": "raw-before/lesson-03.protected-suffix.html",
+      "bytes": 14843,
+      "sha256": "99c89e737ac207c8158f2968e911bd086281052c2512b2e147eff46141c1d108"
+    },
+    {
+      "path": "raw-before/lesson-03.teaching-fragment.html",
+      "bytes": 5221,
+      "sha256": "85fe3e0bbe1a0c17e48449253b659135684d1fd6d50aabfa2573394776a03df8"
+    },
+    {
+      "path": "raw-before/lesson-03.teaching-suffix-separator.bin",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "raw-before/lesson-04-ch17-source-written-OBJ_2131247.html",
+      "bytes": 1722,
+      "sha256": "d92839a93c301d2cd81d48120a0538f888f34a6070311082dd4cb0dca3668ffa"
+    },
+    {
+      "path": "raw-before/lesson-04.lesson-prefix.html",
+      "bytes": 3896,
+      "sha256": "67a324008522afe61a3e308e9490df031b3d068aad090738c681a03133e89344"
+    },
+    {
+      "path": "raw-before/lesson-04.protected-header.html",
+      "bytes": 3820,
+      "sha256": "f61d49512933f6f67b9944ba4314f558d717a7eec59adba58d8d9850ee5fffda"
+    },
+    {
+      "path": "raw-before/lesson-04.protected-suffix.html",
+      "bytes": 12409,
+      "sha256": "efff73d2736a4d0c93ba08dffe9342d4bcea9446de8dabba0df53e6ee9aa29b1"
+    },
+    {
+      "path": "raw-before/lesson-04.teaching-fragment.html",
+      "bytes": 4421,
+      "sha256": "ead977930ad7c515c69619f04284cc8623339a64f68801f17d5493d03425cfd4"
+    },
+    {
+      "path": "raw-before/lesson-04.teaching-suffix-separator.bin",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "reviews/FINAL_TEXT_REBIND.json",
+      "bytes": 1344,
+      "sha256": "51eee094e7f2b142cb659dc5ffef8f5f09282cfada8b83f8b71c9b0f738520fa"
+    },
+    {
+      "path": "reviews/NATIVE_COMPLETE_COPY_REVIEW.md",
+      "bytes": 12645,
+      "sha256": "091baba98760639d812cc423c53da6d3470f88cc7cea08d2018bf5392c0d58b0"
+    },
+    {
+      "path": "reviews/NATIVE_STATIC_REVIEW.json",
+      "bytes": 71338,
+      "sha256": "9986e1dea7ea13cf5e8631d870682d3262f793cfbec779b25b8a009ef2f95ba3"
+    },
+    {
+      "path": "reviews/PRIMARY_DELIVERABLE_INSPECTION.json",
+      "bytes": 4856,
+      "sha256": "db1666d5140a9cfec324b90c4fd86c49956d25155d27fe0048aaf89a399a38f3"
+    },
+    {
+      "path": "reviews/READING_PARITY_REVIEW.json",
+      "bytes": 10180,
+      "sha256": "7af9a3ec904e0da7a132471218e86ae3181d393594cfa738247b06120042d338"
+    },
+    {
+      "path": "reviews/SOURCE_VERIFICATION.json",
+      "bytes": 33154,
+      "sha256": "3ae945eb3d161d96ccea6d6fd66f4879b6cae4b686deff50d4dd6383a466a531"
+    },
+    {
+      "path": "reviews/assembled_record_review.md",
+      "bytes": 8239,
+      "sha256": "aa33ac4bbbc9424adb0c192c1d33ee9499ac931153f2239715149b7feebcd84d"
+    },
+    {
+      "path": "reviews/assembled_record_review_evidence.json",
+      "bytes": 3498,
+      "sha256": "48e603170a45dd636b7e55ea260ac39d4aa8f3a175a815cdeaa2463e9ccb4c06"
+    },
+    {
+      "path": "reviews/final_spacing_review.json",
+      "bytes": 1111,
+      "sha256": "038fd583a8b29b268590eca38387784bf70627e36cb339b79a451ef322bbd13a"
+    },
+    {
+      "path": "reviews/instructional_candidate_review.md",
+      "bytes": 21588,
+      "sha256": "28d8255417914b2c3bd31975ca53bb982cd0c3889e11b838d1abcb884aebfacf"
+    },
+    {
+      "path": "reviews/instructional_final_hash_closure.json",
+      "bytes": 2600,
+      "sha256": "ca7829413c944f992ddd3615145e8e1d55391d48372848b036138de6e95df012"
+    },
+    {
+      "path": "reviews/l01_candidate_review.md",
+      "bytes": 13641,
+      "sha256": "6cd1d61cef026044c04a580a7954474d03593ba8ad0b811f768aba0e725ec6f1"
+    },
+    {
+      "path": "reviews/l01_feedback_supplement_review.json",
+      "bytes": 4150,
+      "sha256": "ddbc8f448d8c0487b1991f41056646bd1044b05834e2548222cb767d919c3ff2"
+    },
+    {
+      "path": "reviews/l01_final_review_closure.json",
+      "bytes": 603,
+      "sha256": "15e361b55e38e48dec35fcb02c7bbf93035d1039ce7c748d8b49d0320f9623ea"
+    },
+    {
+      "path": "reviews/l03_l04_candidate_review.md",
+      "bytes": 14642,
+      "sha256": "81d837fdabc85f12f018071fb9d31963c3c83e1d8a19279b4234e7fe55a10617"
+    },
+    {
+      "path": "reviews/l03_l04_candidate_review_evidence.json",
+      "bytes": 34409,
+      "sha256": "3751bc363197be600cec8979ff829e2ddda3997d1aa7511ce7ed7a227f9105f8"
+    },
+    {
+      "path": "reviews/source_visual_map_validation.json",
+      "bytes": 617,
+      "sha256": "63321207d747c909bac88e506583d4ddc036102d69e9161d58281dc5103ded33"
+    }
+  ],
+  "integrityConvention": {
+    "payloads": "Every regular file in this archive except MANIFEST.json and CHECKSUMS.sha256 is listed above.",
+    "MANIFEST.json": "Its exact hash is listed in CHECKSUMS.sha256. It does not list its own hash.",
+    "CHECKSUMS.sha256": "Lists every payload plus MANIFEST.json; excludes itself to avoid self-reference. The ZIP checksum covers all members including this file.",
+    "zipSha256": "Provided in the separate .zip.sha256 download and completion response."
+  }
+}

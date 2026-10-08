@@ -1,0 +1,36 @@
+<div class="content-section" data-canvas-edit-key="ch17-l05-teaching-02" data-canvas-helper-edit-key="ch17-l05-teaching-02" id="ch17-l05-teaching-02">
+<h2>Combine the F1 gametes, then group the F2 phenotypes</h2>
+<p data-canvas-edit-key="ch17-l05-teaching-02-p1" data-canvas-helper-edit-key="ch17-l05-teaching-02-p1">The cross is now <strong>TtGg × TtGg</strong>. Both parents have the same four distinct gamete types. Assume <strong>random fertilisation</strong>: which gamete comes from one parent does not change the gamete probabilities from the other. Each pairing then has probability ¼ × ¼ = <strong>1/16</strong>. Independent assortment establishes the combinations within each parent's gametes; random fertilisation allows us to combine contributions between parents in this way.</p>
+<p>Put one parent's four gamete types down the left edge and the other's across the top. Read the TG row and tg column, for example: T meets t at the height locus, and G meets g at the pod-colour locus, giving <strong>TtGg</strong>. Keep the two alleles of each locus together when writing the offspring genotype. A box holds a possible offspring genotype, not another gamete.</p>
+<div class="comparison-table">
+<table>
+<caption>F2 genotype combinations from TtGg × TtGg; each interior cell has probability 1/16</caption>
+<thead><tr><th scope="col">Parent 1 gamete ↓ / parent 2 gamete →</th><th scope="col">TG, ¼</th><th scope="col">Tg, ¼</th><th scope="col">tG, ¼</th><th scope="col">tg, ¼</th></tr></thead>
+<tbody>
+<tr><th scope="row">TG, ¼</th><td>TTGG</td><td>TTGg</td><td>TtGG</td><td>TtGg</td></tr>
+<tr><th scope="row">Tg, ¼</th><td>TTGg</td><td>TTgg</td><td>TtGg</td><td>Ttgg</td></tr>
+<tr><th scope="row">tG, ¼</th><td>TtGG</td><td>TtGg</td><td>ttGG</td><td>ttGg</td></tr>
+<tr><th scope="row">tg, ¼</th><td>TtGg</td><td>Ttgg</td><td>ttGg</td><td>ttgg</td></tr>
+</tbody>
+</table>
+</div>
+<p>There are sixteen equally likely gamete pairings, not sixteen different genotypes. For instance, TtGg occurs in four cells because four different pairs of parental contributions produce it. Count those four cells when finding its probability; counting the genotype name only once would discard possible fertilisations.</p>
+<p data-canvas-edit-key="ch17-l05-teaching-02-p2" data-canvas-helper-edit-key="ch17-l05-teaching-02-p2">Now apply the complete-dominance rules to determine the <button aria-haspopup="dialog" class="bio-term" data-term-id="ch17-word-phenotype" type="button">phenotype</button>. The shorthand <strong>T_</strong> means TT or Tt: at least one T is present, and the blank represents the second allele at that same locus. Similarly, <strong>G_</strong> means GG or Gg. Thus T_G_ groups all genotypes that are tall with green pods. The blanks do not remove alleles from the genotype or allow letters from a different locus.</p>
+<div class="comparison-table">
+<table>
+<caption>Grouping the sixteen F2 cells by phenotype</caption>
+<thead><tr><th scope="col">Phenotype and shorthand</th><th scope="col">Genotypes, with their cell counts</th><th scope="col">Phenotype probability</th></tr></thead>
+<tbody>
+<tr><th scope="row">Tall, green pods: T_G_</th><td>TTGG (1), TTGg (2), TtGG (2), TtGg (4)</td><td>(1 + 2 + 2 + 4)/16 = 9/16</td></tr>
+<tr><th scope="row">Tall, yellow pods: T_gg</th><td>TTgg (1), Ttgg (2)</td><td>(1 + 2)/16 = 3/16</td></tr>
+<tr><th scope="row">Short, green pods: ttG_</th><td>ttGG (1), ttGg (2)</td><td>(1 + 2)/16 = 3/16</td></tr>
+<tr><th scope="row">Short, yellow pods: ttgg</th><td>ttgg (1)</td><td>1/16</td></tr>
+</tbody>
+</table>
+</div>
+<p>These counts give the <strong>9:3:3:1 phenotype ratio</strong> for this particular cross and these allele relationships. The genotype counts are the nine separate entries shown in the middle column; they have not become four genotypes. The four phenotype categories are <strong>mutually exclusive</strong>: one plant cannot belong to two of them at once. They also cover every outcome in the model, so (9 + 3 + 3 + 1)/16 = 1 is a useful check.</p>
+<h3>Use multiplication and addition for different jobs</h3>
+<p data-canvas-edit-key="ch17-l05-teaching-02-p3" data-canvas-helper-edit-key="ch17-l05-teaching-02-p3">Apply lesson03's single-locus method separately at each locus. Tt × Tt gives tall with probability ¾ and short with probability ¼. Gg × Gg gives green pods with probability ¾ and yellow pods with probability ¼. In this independent two-locus model, tall <strong>and</strong> green requires both outcomes, so ¾ × ¾ = 9/16. For tall and yellow, multiply ¾ × ¼; for short and green, multiply ¼ × ¾; for short and yellow, multiply ¼ × ¼. These products match the four groups in the grid.</p>
+<p>Add when combining alternatives that cannot happen to the same plant. For example, all tall offspring are either tall/green or tall/yellow, so their combined probability is 9/16 + 3/16 = 12/16 = ¾. Multiplication combines the independent requirements here; addition combines the non-overlapping categories. Neither operation is justified merely by seeing the word “and” or “or” without checking the events.</p>
+<p>The predictions also assume that the stated genotype produces its assigned phenotype in every counted plant, called <strong>complete penetrance</strong>, and that no phenotype group is selectively lost before counting. The ratios describe the model's probabilities. A finite set of offspring can depart from them by chance. Different parental genotypes require fresh gamete lists and calculations, as the next cross shows.</p>
+</div>

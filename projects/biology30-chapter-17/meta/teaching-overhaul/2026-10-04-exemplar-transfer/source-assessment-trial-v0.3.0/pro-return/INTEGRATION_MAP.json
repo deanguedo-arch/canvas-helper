@@ -1,0 +1,532 @@
+{
+  "version": "0.3.0",
+  "owner": {
+    "path": "source-assessment-v0.3.0/analysis/native-preflight/baseline/native-v020/index.html",
+    "bytes": 3512184,
+    "sha256": "bc42ea52d8cf5709c0ec33c914e86450f93971f3e3144cb81b695593aa0eff3b",
+    "archiveMember": "native-v020/index.html"
+  },
+  "sourceArchive": {
+    "path": "upload/Codex_CH17_v020_Integrated_Base_for_v030.zip",
+    "bytes": 2321527,
+    "sha256": "ddc02a762cdca9718867c3992850a766a5b0b97e0ce9614ffbf958d74667fc20"
+  },
+  "offsetConvention": "Zero-based UTF-8 bytes; start inclusive, end exclusive.",
+  "contentEdits": [
+    {
+      "rangeRef": "ch17-l02-check-writing-1.html",
+      "kind": "question-html",
+      "range": {
+        "startByte": 130865,
+        "endByteExclusive": 132393,
+        "bytes": 1528,
+        "sha256": "05b99f3d122bf8b20223240768319337b440998e5eee34fa1c3a8f8fddd3e844"
+      },
+      "path": "integration-text/assessment-html/ch17-l02-check-writing-1.html.txt",
+      "rootPurpose": "Apply persistent-allele and segregation reasoning to a before/after DNA-copy representation.",
+      "authoringInput": {
+        "path": "source-assessment-v0.3.0/authoring/assessments/ch17-l02-check-writing-1.json",
+        "bytes": 2040,
+        "sha256": "746380cf22eee10bb1acf82e246352f1dc2e425927ad4f83676d36026e25b0d5"
+      },
+      "ownerSha256": "bc42ea52d8cf5709c0ec33c914e86450f93971f3e3144cb81b695593aa0eff3b",
+      "rawBeforePath": "raw-before/integrated-v020/questions/ch17-l02-check-writing-1.html.txt",
+      "replacementBytes": 2893,
+      "replacementSha256": "0250f402b5fa6a5f65c9657b198369ae3dbd1873a08f794c163ca08f70b5e3ad",
+      "applied": false
+    },
+    {
+      "rangeRef": "lesson-05.tomato-core",
+      "kind": "teaching-child-sequence",
+      "range": {
+        "startByte": 195148,
+        "endByteExclusive": 200094,
+        "bytes": 4946,
+        "sha256": "5e72ac37b5a94f21e6d026487c42be7dc55bd4b28b606fd57c2534c373f7edb9"
+      },
+      "path": "integration-text/teaching-edits/lesson-05.tomato-core.html.txt",
+      "rootPurpose": "Restore actual Kinch43–45 RrTt × rrTt, contrasting parental colours, four-versus-two gametes, six genotypes and four nonzero phenotype groups; retain all surrounding source teaching.",
+      "authoringInput": {
+        "path": "source-assessment-v0.3.0/authoring/teaching-edits/lesson-05-tomato.html.in",
+        "bytes": 5130,
+        "sha256": "17a9cd16afb399d1897ba90c0be35b2f8b775093054d2ff5b9e214d7145b8c9c"
+      },
+      "ownerSha256": "bc42ea52d8cf5709c0ec33c914e86450f93971f3e3144cb81b695593aa0eff3b",
+      "rawBeforePath": "raw-before/integrated-v020/lesson-05/tomato-core.html.txt",
+      "replacementBytes": 5130,
+      "replacementSha256": "17a9cd16afb399d1897ba90c0be35b2f8b775093054d2ff5b9e214d7145b8c9c",
+      "applied": false
+    },
+    {
+      "rangeRef": "lesson-05.change-task",
+      "kind": "optional-task",
+      "range": {
+        "startByte": 200094,
+        "endByteExclusive": 204007,
+        "bytes": 3913,
+        "sha256": "541be9540ef4b88a6961d5a528f0e4c9a69f3ef60dcd3f166fb049f1c71aeceb"
+      },
+      "path": "integration-text/teaching-edits/lesson-05.change-task.html.txt",
+      "rootPurpose": "Make the existing optional activity consistently change rrTt to rrtt from the restored baseline, with complete4×1 calculation, height/colour comparison and exact native note controls.",
+      "authoringInput": {
+        "path": "source-assessment-v0.3.0/authoring/teaching-edits/lesson-05-changed-parent-task.html.in",
+        "bytes": 4203,
+        "sha256": "a218d13653a95a59da2d56004ea889124992ee3903e2b0749c8f7df78c7a16cf"
+      },
+      "ownerSha256": "bc42ea52d8cf5709c0ec33c914e86450f93971f3e3144cb81b695593aa0eff3b",
+      "rawBeforePath": "raw-before/integrated-v020/lesson-05/change-task.html.txt",
+      "replacementBytes": 4203,
+      "replacementSha256": "a218d13653a95a59da2d56004ea889124992ee3903e2b0749c8f7df78c7a16cf",
+      "applied": false
+    },
+    {
+      "rangeRef": "ch17-l05-check-mc-2.html",
+      "kind": "question-html",
+      "range": {
+        "startByte": 221723,
+        "endByteExclusive": 222873,
+        "bytes": 1150,
+        "sha256": "35015e8877690bf8f43586136bab35c2609f5594bc5f687e8f22dc3d60cb97ae"
+      },
+      "path": "integration-text/assessment-html/ch17-l05-check-mc-2.html.txt",
+      "rootPurpose": "Choose the probability of a newly defined set of outcomes for one offspring.",
+      "authoringInput": {
+        "path": "source-assessment-v0.3.0/authoring/assessments/ch17-l05-check-mc-2.json",
+        "bytes": 1374,
+        "sha256": "1d0d2b8c11e7790ba449f06acca670ad26ebc91f544d1976856e4793fb5c298b"
+      },
+      "ownerSha256": "bc42ea52d8cf5709c0ec33c914e86450f93971f3e3144cb81b695593aa0eff3b",
+      "rawBeforePath": "raw-before/integrated-v020/questions/ch17-l05-check-mc-2.html.txt",
+      "replacementBytes": 1547,
+      "replacementSha256": "b6c7799412c019fed19fe9ec0ae49fd37fb9c247713354a3b512a5d88b723efb",
+      "applied": false
+    },
+    {
+      "rangeRef": "ch17-l05-check-writing-1.html",
+      "kind": "question-html",
+      "range": {
+        "startByte": 223076,
+        "endByteExclusive": 224552,
+        "bytes": 1476,
+        "sha256": "847596093539629d0001685de7c26d51859ab4209c9b98dfe556276c21b5cb1e"
+      },
+      "path": "integration-text/assessment-html/ch17-l05-check-writing-1.html.txt",
+      "rootPurpose": "Check a gamete-table representation for exhaustiveness and correct weighting.",
+      "authoringInput": {
+        "path": "source-assessment-v0.3.0/authoring/assessments/ch17-l05-check-writing-1.json",
+        "bytes": 2218,
+        "sha256": "69c5823eea0ca6ff8576821d7921b425c6f74cd5caac6c8abecaee7970503684"
+      },
+      "ownerSha256": "bc42ea52d8cf5709c0ec33c914e86450f93971f3e3144cb81b695593aa0eff3b",
+      "rawBeforePath": "raw-before/integrated-v020/questions/ch17-l05-check-writing-1.html.txt",
+      "replacementBytes": 3071,
+      "replacementSha256": "38aed68ffcd1102959217d95cc974aa020d25d8dc5e7b317d82eb1e2782ebe7f",
+      "applied": false
+    },
+    {
+      "rangeRef": "ch17-l05-check-writing-2.html",
+      "kind": "question-html",
+      "range": {
+        "startByte": 224552,
+        "endByteExclusive": 225988,
+        "bytes": 1436,
+        "sha256": "e17b2971640c6ab6f81b09da2f993078efe5913b1b22df0b049dea5d22067457"
+      },
+      "path": "integration-text/assessment-html/ch17-l05-check-writing-2.html.txt",
+      "rootPurpose": "Calculate a genotype-status event and evaluate an inappropriate phenotype shortcut.",
+      "authoringInput": {
+        "path": "source-assessment-v0.3.0/authoring/assessments/ch17-l05-check-writing-2.json",
+        "bytes": 2282,
+        "sha256": "4a1006653299a24ddd914be11f676653c393d1e80888bc3c56f0a44681840a0f"
+      },
+      "ownerSha256": "bc42ea52d8cf5709c0ec33c914e86450f93971f3e3144cb81b695593aa0eff3b",
+      "rawBeforePath": "raw-before/integrated-v020/questions/ch17-l05-check-writing-2.html.txt",
+      "replacementBytes": 3135,
+      "replacementSha256": "49c3804388d3c25dd80b3a0366a0e28f048d7c06f6b16a8f59719c02493cf21a",
+      "applied": false
+    },
+    {
+      "rangeRef": "ch17-l02-check-writing-1.json-item",
+      "kind": "question-json-item",
+      "range": {
+        "startByte": 3155226,
+        "endByteExclusive": 3155873,
+        "bytes": 647,
+        "sha256": "68ce219e2a96eddea903284408e089c3c5bd4a41689d492f4ee32273bb470dfa"
+      },
+      "path": "integration-text/assessment-json/ch17-l02-check-writing-1.json",
+      "rootPurpose": "Apply persistent-allele and segregation reasoning to a before/after DNA-copy representation.",
+      "authoringInput": {
+        "path": "source-assessment-v0.3.0/authoring/assessments/ch17-l02-check-writing-1.json",
+        "bytes": 2040,
+        "sha256": "746380cf22eee10bb1acf82e246352f1dc2e425927ad4f83676d36026e25b0d5"
+      },
+      "ownerSha256": "bc42ea52d8cf5709c0ec33c914e86450f93971f3e3144cb81b695593aa0eff3b",
+      "rawBeforePath": "raw-before/integrated-v020/questions/ch17-l02-check-writing-1.json.txt",
+      "replacementBytes": 2040,
+      "replacementSha256": "746380cf22eee10bb1acf82e246352f1dc2e425927ad4f83676d36026e25b0d5",
+      "applied": false
+    },
+    {
+      "rangeRef": "ch17-l05-check-mc-2.json-item",
+      "kind": "question-json-item",
+      "range": {
+        "startByte": 3161891,
+        "endByteExclusive": 3162219,
+        "bytes": 328,
+        "sha256": "1202627167362c8e8c520b343c9e441ec3fce39d6b20865acd7a04ff9693ebc9"
+      },
+      "path": "integration-text/assessment-json/ch17-l05-check-mc-2.json",
+      "rootPurpose": "Choose the probability of a newly defined set of outcomes for one offspring.",
+      "authoringInput": {
+        "path": "source-assessment-v0.3.0/authoring/assessments/ch17-l05-check-mc-2.json",
+        "bytes": 1374,
+        "sha256": "1d0d2b8c11e7790ba449f06acca670ad26ebc91f544d1976856e4793fb5c298b"
+      },
+      "ownerSha256": "bc42ea52d8cf5709c0ec33c914e86450f93971f3e3144cb81b695593aa0eff3b",
+      "rawBeforePath": "raw-before/integrated-v020/questions/ch17-l05-check-mc-2.json.txt",
+      "replacementBytes": 1374,
+      "replacementSha256": "1d0d2b8c11e7790ba449f06acca670ad26ebc91f544d1976856e4793fb5c298b",
+      "applied": false
+    },
+    {
+      "rangeRef": "ch17-l05-check-writing-1.json-item",
+      "kind": "question-json-item",
+      "range": {
+        "startByte": 3162234,
+        "endByteExclusive": 3162829,
+        "bytes": 595,
+        "sha256": "ce350aedac4355f10d7769103a837a7588986f332a3412025a7553f370d6d312"
+      },
+      "path": "integration-text/assessment-json/ch17-l05-check-writing-1.json",
+      "rootPurpose": "Check a gamete-table representation for exhaustiveness and correct weighting.",
+      "authoringInput": {
+        "path": "source-assessment-v0.3.0/authoring/assessments/ch17-l05-check-writing-1.json",
+        "bytes": 2218,
+        "sha256": "69c5823eea0ca6ff8576821d7921b425c6f74cd5caac6c8abecaee7970503684"
+      },
+      "ownerSha256": "bc42ea52d8cf5709c0ec33c914e86450f93971f3e3144cb81b695593aa0eff3b",
+      "rawBeforePath": "raw-before/integrated-v020/questions/ch17-l05-check-writing-1.json.txt",
+      "replacementBytes": 2218,
+      "replacementSha256": "69c5823eea0ca6ff8576821d7921b425c6f74cd5caac6c8abecaee7970503684",
+      "applied": false
+    },
+    {
+      "rangeRef": "ch17-l05-check-writing-2.json-item",
+      "kind": "question-json-item",
+      "range": {
+        "startByte": 3162831,
+        "endByteExclusive": 3163386,
+        "bytes": 555,
+        "sha256": "e00e4effe0cf71b92d9ea30770e59d90c1845f09a95d8ab7f3d716c088ac9853"
+      },
+      "path": "integration-text/assessment-json/ch17-l05-check-writing-2.json",
+      "rootPurpose": "Calculate a genotype-status event and evaluate an inappropriate phenotype shortcut.",
+      "authoringInput": {
+        "path": "source-assessment-v0.3.0/authoring/assessments/ch17-l05-check-writing-2.json",
+        "bytes": 2282,
+        "sha256": "4a1006653299a24ddd914be11f676653c393d1e80888bc3c56f0a44681840a0f"
+      },
+      "ownerSha256": "bc42ea52d8cf5709c0ec33c914e86450f93971f3e3144cb81b695593aa0eff3b",
+      "rawBeforePath": "raw-before/integrated-v020/questions/ch17-l05-check-writing-2.json.txt",
+      "replacementBytes": 2282,
+      "replacementSha256": "4a1006653299a24ddd914be11f676653c393d1e80888bc3c56f0a44681840a0f",
+      "applied": false
+    }
+  ],
+  "versionProposals": [],
+  "allProposedRangesDisjoint": true,
+  "completeTeachingReferenceArtifacts": [
+    {
+      "route": "lesson-02",
+      "path": "integration-text/complete-teaching/lesson-02.teaching-fragment.html.txt",
+      "bytes": 18591,
+      "sha256": "a843cc369e041e244a5cc775907979d36b906b78b2fc3b39ed26a0757d395c00",
+      "referenceOnly": true,
+      "integrationEdit": false,
+      "originalCompleteTeachingRange": {
+        "startByte": 106355,
+        "endByteExclusive": 124946,
+        "bytes": 18591,
+        "sha256": "a843cc369e041e244a5cc775907979d36b906b78b2fc3b39ed26a0757d395c00"
+      }
+    },
+    {
+      "route": "lesson-05",
+      "path": "integration-text/complete-teaching/lesson-05.teaching-fragment.html.txt",
+      "bytes": 32125,
+      "sha256": "c0c83129effd4b3268d41493f0a5a8d0bc82870453df040fe86b829078d44a3a",
+      "referenceOnly": true,
+      "integrationEdit": false,
+      "originalCompleteTeachingRange": {
+        "startByte": 183248,
+        "endByteExclusive": 214899,
+        "bytes": 31651,
+        "sha256": "4439240ef48d2b38d50bf3e624769c03e9a79a9641d7fd25386d0d5ec4799cb8"
+      }
+    }
+  ],
+  "unchangedRoutePrefixes": [
+    {
+      "route": "lesson-02",
+      "range": {
+        "startByte": 102372,
+        "endByteExclusive": 106355,
+        "bytes": 3983,
+        "sha256": "db23b534c4003ebb1ff3d7ad97070bd4f8d6e4bca096209cd6de7802bd45c438"
+      }
+    },
+    {
+      "route": "lesson-05",
+      "range": {
+        "startByte": 179254,
+        "endByteExclusive": 183248,
+        "bytes": 3994,
+        "sha256": "28b986d505f43c2100034aa0bbbf76eb9c5280b5fc083011659fe82597ea77e4"
+      }
+    }
+  ],
+  "notesRegistryUnchanged": {
+    "range": {
+      "startByte": 3280396,
+      "endByteExclusive": 3281342,
+      "bytes": 946,
+      "sha256": "3890e85bb78d6b4c3d91289e9c5c4b7b64c5702b7c332dac5e42ee4c29715d7a"
+    },
+    "rawBefore": "source-assessment-v0.3.0/analysis/native-preflight/raw-before/configuration/notes.json.txt",
+    "items": [
+      {
+        "id": "ch17-source-written-OBJ_2131244",
+        "title": "Additional written application 1"
+      },
+      {
+        "id": "ch17-source-written-OBJ_2131247",
+        "title": "Additional written application 2"
+      },
+      {
+        "id": "ch17-source-written-OBJ_2131248",
+        "title": "Additional written application 3"
+      },
+      {
+        "id": "ch17-source-written-OBJ_2131251",
+        "title": "Additional written application 4"
+      },
+      {
+        "id": "ch17-source-written-OBJ_2131252",
+        "title": "Additional written application 5"
+      },
+      {
+        "id": "ch17-optional-extension",
+        "title": "Biobanks and genetic information"
+      },
+      {
+        "id": "ch17-kinch-v020-l02-arrow-response",
+        "title": "Repair the two process labels"
+      },
+      {
+        "id": "ch17-kinch-v020-l02-cross-response",
+        "title": "Does reversing the parents reverse the result?"
+      },
+      {
+        "id": "ch17-kinch-v020-l05-change-response",
+        "title": "Change one parent and keep only the reasoning that still applies"
+      },
+      {
+        "id": "ch17-kinch-v020-l05-evidence-response",
+        "title": "Decide what the new offspring settles—and what it leaves open"
+      }
+    ],
+    "preservation": "All ten integrated records and exact bytes preserved; no title registration needed for unchanged four optional note IDs."
+  },
+  "requiredStateHandling": "Fresh isolated versioned origin; no migrated old saved state.",
+  "notesRegistryRawBeforePath": "raw-before/integrated-v020/configuration/notes.json.txt",
+  "figureContracts": [
+    {
+      "route": "lesson-05",
+      "sourceRange": {
+        "startByte": 188446,
+        "endByteExclusive": 189168,
+        "bytes": 722,
+        "sha256": "fb4a4af8d132176bcfcd3f21695d97865901a1c626bbecf5e9a1d6106dc428d0"
+      },
+      "attributes": {
+        "class": "science-figure",
+        "data-figure-id": "ch17-two-trait"
+      },
+      "rawBeforePath": "raw-before/integrated-v020/lesson-05/figure-ch17-two-trait.html.txt",
+      "exactMarkupPreserved": true
+    }
+  ],
+  "protectedActivityFooterContracts": [
+    {
+      "route": "lesson-02",
+      "originalSuffixRange": {
+        "startByte": 124946,
+        "endByteExclusive": 134480,
+        "bytes": 9534,
+        "sha256": "56c917d78e4bc20d47275146afcd604ae737691cf816b485863f3d4b383766f1"
+      },
+      "rawBeforePath": "raw-before/integrated-v020/lesson-02/suffix.html.txt",
+      "wholeSuffixUnchanged": false,
+      "authorizedQuestionHtmlCarveouts": [
+        {
+          "rangeRef": "ch17-l02-check-writing-1.html",
+          "kind": "question-html",
+          "range": {
+            "startByte": 130865,
+            "endByteExclusive": 132393,
+            "bytes": 1528,
+            "sha256": "05b99f3d122bf8b20223240768319337b440998e5eee34fa1c3a8f8fddd3e844"
+          },
+          "path": "integration-text/assessment-html/ch17-l02-check-writing-1.html.txt",
+          "rootPurpose": "Apply persistent-allele and segregation reasoning to a before/after DNA-copy representation.",
+          "authoringInput": {
+            "path": "source-assessment-v0.3.0/authoring/assessments/ch17-l02-check-writing-1.json",
+            "bytes": 2040,
+            "sha256": "746380cf22eee10bb1acf82e246352f1dc2e425927ad4f83676d36026e25b0d5"
+          },
+          "ownerSha256": "bc42ea52d8cf5709c0ec33c914e86450f93971f3e3144cb81b695593aa0eff3b",
+          "rawBeforePath": "raw-before/integrated-v020/questions/ch17-l02-check-writing-1.html.txt",
+          "replacementBytes": 2893,
+          "replacementSha256": "0250f402b5fa6a5f65c9657b198369ae3dbd1873a08f794c163ca08f70b5e3ad",
+          "applied": false
+        }
+      ],
+      "remainingProtectedSegments": [
+        {
+          "startByte": 124946,
+          "endByteExclusive": 130865,
+          "bytes": 5919,
+          "sha256": "18a31e145722947e3474466b58a8598c86997c79662518a55cc7e6b5e41111b9",
+          "rawBeforePath": "raw-before/integrated-v020/lesson-02/suffix.html.txt",
+          "rawCopyStartByte": 0,
+          "rawCopyEndByteExclusive": 5919
+        },
+        {
+          "startByte": 132393,
+          "endByteExclusive": 134480,
+          "bytes": 2087,
+          "sha256": "99e67e2d0a497b4b535cde6a2a554572525caf5437f3a4dd1abd1d790e7df1e9",
+          "rawBeforePath": "raw-before/integrated-v020/lesson-02/suffix.html.txt",
+          "rawCopyStartByte": 7447,
+          "rawCopyEndByteExclusive": 9534
+        }
+      ]
+    },
+    {
+      "route": "lesson-05",
+      "originalSuffixRange": {
+        "startByte": 214899,
+        "endByteExclusive": 226565,
+        "bytes": 11666,
+        "sha256": "b096766cf85ac4a41564bcc3d6a662ba136d565469ae207203a38ec4f4859e45"
+      },
+      "rawBeforePath": "raw-before/integrated-v020/lesson-05/suffix.html.txt",
+      "wholeSuffixUnchanged": false,
+      "authorizedQuestionHtmlCarveouts": [
+        {
+          "rangeRef": "ch17-l05-check-mc-2.html",
+          "kind": "question-html",
+          "range": {
+            "startByte": 221723,
+            "endByteExclusive": 222873,
+            "bytes": 1150,
+            "sha256": "35015e8877690bf8f43586136bab35c2609f5594bc5f687e8f22dc3d60cb97ae"
+          },
+          "path": "integration-text/assessment-html/ch17-l05-check-mc-2.html.txt",
+          "rootPurpose": "Choose the probability of a newly defined set of outcomes for one offspring.",
+          "authoringInput": {
+            "path": "source-assessment-v0.3.0/authoring/assessments/ch17-l05-check-mc-2.json",
+            "bytes": 1374,
+            "sha256": "1d0d2b8c11e7790ba449f06acca670ad26ebc91f544d1976856e4793fb5c298b"
+          },
+          "ownerSha256": "bc42ea52d8cf5709c0ec33c914e86450f93971f3e3144cb81b695593aa0eff3b",
+          "rawBeforePath": "raw-before/integrated-v020/questions/ch17-l05-check-mc-2.html.txt",
+          "replacementBytes": 1547,
+          "replacementSha256": "b6c7799412c019fed19fe9ec0ae49fd37fb9c247713354a3b512a5d88b723efb",
+          "applied": false
+        },
+        {
+          "rangeRef": "ch17-l05-check-writing-1.html",
+          "kind": "question-html",
+          "range": {
+            "startByte": 223076,
+            "endByteExclusive": 224552,
+            "bytes": 1476,
+            "sha256": "847596093539629d0001685de7c26d51859ab4209c9b98dfe556276c21b5cb1e"
+          },
+          "path": "integration-text/assessment-html/ch17-l05-check-writing-1.html.txt",
+          "rootPurpose": "Check a gamete-table representation for exhaustiveness and correct weighting.",
+          "authoringInput": {
+            "path": "source-assessment-v0.3.0/authoring/assessments/ch17-l05-check-writing-1.json",
+            "bytes": 2218,
+            "sha256": "69c5823eea0ca6ff8576821d7921b425c6f74cd5caac6c8abecaee7970503684"
+          },
+          "ownerSha256": "bc42ea52d8cf5709c0ec33c914e86450f93971f3e3144cb81b695593aa0eff3b",
+          "rawBeforePath": "raw-before/integrated-v020/questions/ch17-l05-check-writing-1.html.txt",
+          "replacementBytes": 3071,
+          "replacementSha256": "38aed68ffcd1102959217d95cc974aa020d25d8dc5e7b317d82eb1e2782ebe7f",
+          "applied": false
+        },
+        {
+          "rangeRef": "ch17-l05-check-writing-2.html",
+          "kind": "question-html",
+          "range": {
+            "startByte": 224552,
+            "endByteExclusive": 225988,
+            "bytes": 1436,
+            "sha256": "e17b2971640c6ab6f81b09da2f993078efe5913b1b22df0b049dea5d22067457"
+          },
+          "path": "integration-text/assessment-html/ch17-l05-check-writing-2.html.txt",
+          "rootPurpose": "Calculate a genotype-status event and evaluate an inappropriate phenotype shortcut.",
+          "authoringInput": {
+            "path": "source-assessment-v0.3.0/authoring/assessments/ch17-l05-check-writing-2.json",
+            "bytes": 2282,
+            "sha256": "4a1006653299a24ddd914be11f676653c393d1e80888bc3c56f0a44681840a0f"
+          },
+          "ownerSha256": "bc42ea52d8cf5709c0ec33c914e86450f93971f3e3144cb81b695593aa0eff3b",
+          "rawBeforePath": "raw-before/integrated-v020/questions/ch17-l05-check-writing-2.html.txt",
+          "replacementBytes": 3135,
+          "replacementSha256": "49c3804388d3c25dd80b3a0366a0e28f048d7c06f6b16a8f59719c02493cf21a",
+          "applied": false
+        }
+      ],
+      "remainingProtectedSegments": [
+        {
+          "startByte": 214899,
+          "endByteExclusive": 221723,
+          "bytes": 6824,
+          "sha256": "87ce505a97e06bc9f30068760e519316e4777ac8e4f5c8e0940190c2dca76747",
+          "rawBeforePath": "raw-before/integrated-v020/lesson-05/suffix.html.txt",
+          "rawCopyStartByte": 0,
+          "rawCopyEndByteExclusive": 6824
+        },
+        {
+          "startByte": 222873,
+          "endByteExclusive": 223076,
+          "bytes": 203,
+          "sha256": "627b04acccb300513f21366cc2ebd1cbda86cc4f4edab65be971f0898f85c208",
+          "rawBeforePath": "raw-before/integrated-v020/lesson-05/suffix.html.txt",
+          "rawCopyStartByte": 7974,
+          "rawCopyEndByteExclusive": 8177
+        },
+        {
+          "startByte": 225988,
+          "endByteExclusive": 226565,
+          "bytes": 577,
+          "sha256": "cfdab68e77ecf4cca993b9ac57fca2439b13b7d521a4cc2dae11722ff7cf2322",
+          "rawBeforePath": "raw-before/integrated-v020/lesson-05/suffix.html.txt",
+          "rawCopyStartByte": 11089,
+          "rawCopyEndByteExclusive": 11666
+        }
+      ]
+    }
+  ],
+  "untouchedOwnerEvidence": "evidence/UNTOUCHED_OWNER_EVIDENCE.json",
+  "futureApplicationRule": "Verify the original owner and before hashes; apply descending original-byte order, or stream immutable original slices. Do not apply complete teaching references as extra edits.",
+  "headerProposals": [],
+  "nativeStyleProposals": [],
+  "wholeIndexEmitted": false,
+  "integrationPerformed": false,
+  "runtimeCssStorageNamespaceChanges": false
+}

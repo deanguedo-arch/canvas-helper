@@ -1,0 +1,2820 @@
+{
+  "document": "V030_INTEGRATED_NATIVE_OWNER_CONTRACT",
+  "createdUtc": "2026-10-05T00:12:09.248053+00:00",
+  "owner": {
+    "path": "source-assessment-v0.3.0/analysis/native-preflight/baseline/native-v020/index.html",
+    "bytes": 3512184,
+    "sha256": "bc42ea52d8cf5709c0ec33c914e86450f93971f3e3144cb81b695593aa0eff3b"
+  },
+  "offsetConvention": "Zero-based UTF-8 bytes, exclusive end. Derived directly from uploaded integrated owner.",
+  "routes": [
+    {
+      "route": "lesson-02",
+      "title": "Mendel’s experiments and segregation",
+      "routeRange": {
+        "startByte": 102372,
+        "endByteExclusive": 134480,
+        "bytes": 32108,
+        "sha256": "5a2d72db2fdd45b99d5638eeab3d1767c0652cacbdec79c4a14ba260da7f06a4"
+      },
+      "headerRange": {
+        "startByte": 102448,
+        "endByteExclusive": 106355,
+        "bytes": 3907,
+        "sha256": "afbaf8f75fd5642a59468f9b1a8f2de883a86bc0695fff7c05fb2c7029c5d4ee"
+      },
+      "fullTeachingRange": {
+        "startByte": 106355,
+        "endByteExclusive": 124946,
+        "bytes": 18591,
+        "sha256": "a843cc369e041e244a5cc775907979d36b906b78b2fc3b39ed26a0757d395c00"
+      },
+      "unchangedPrefixRange": {
+        "startByte": 102372,
+        "endByteExclusive": 106355,
+        "bytes": 3983,
+        "sha256": "db23b534c4003ebb1ff3d7ad97070bd4f8d6e4bca096209cd6de7802bd45c438"
+      },
+      "activityAndFooterRange": {
+        "startByte": 124946,
+        "endByteExclusive": 134480,
+        "bytes": 9534,
+        "sha256": "56c917d78e4bc20d47275146afcd604ae737691cf816b485863f3d4b383766f1"
+      },
+      "teachingBlocks": [
+        {
+          "id": "ch17-l02-teaching-01",
+          "attributes": {
+            "class": "content-section",
+            "data-canvas-edit-key": "ch17-l02-teaching-01",
+            "data-canvas-helper-edit-key": "ch17-l02-teaching-01",
+            "id": "ch17-l02-teaching-01"
+          },
+          "range": {
+            "startByte": 106355,
+            "endByteExclusive": 110377,
+            "bytes": 4022,
+            "sha256": "a1d1336941f8c16bb45da915fce489efb81941b610eaff6a9ffe6eb348f84b35"
+          },
+          "rawBefore": "source-assessment-v0.3.0/analysis/native-preflight/raw-before/lesson-02/ch17-l02-teaching-01.html.txt",
+          "heading": "A flower colour disappears, then returns",
+          "editOwners": [
+            {
+              "tag": "div",
+              "attributes": {
+                "class": "content-section",
+                "data-canvas-edit-key": "ch17-l02-teaching-01",
+                "data-canvas-helper-edit-key": "ch17-l02-teaching-01",
+                "id": "ch17-l02-teaching-01"
+              },
+              "range": {
+                "startByte": 106355,
+                "endByteExclusive": 110377,
+                "bytes": 4022,
+                "sha256": "a1d1336941f8c16bb45da915fce489efb81941b610eaff6a9ffe6eb348f84b35"
+              }
+            },
+            {
+              "tag": "p",
+              "attributes": {
+                "data-canvas-edit-key": "ch17-l02-teaching-01-p1",
+                "data-canvas-helper-edit-key": "ch17-l02-teaching-01-p1"
+              },
+              "range": {
+                "startByte": 106556,
+                "endByteExclusive": 107055,
+                "bytes": 499,
+                "sha256": "bb7a8ac61df5ab738f2bec7f4a1f122a67abf0356476dce9787a0858b703c78f"
+              }
+            },
+            {
+              "tag": "p",
+              "attributes": {
+                "data-canvas-edit-key": "ch17-l02-teaching-01-p2",
+                "data-canvas-helper-edit-key": "ch17-l02-teaching-01-p2"
+              },
+              "range": {
+                "startByte": 107794,
+                "endByteExclusive": 108379,
+                "bytes": 585,
+                "sha256": "82e5ad79fe2bd6397365e43b1e3677cd30b83dd0e6f7608c14999361d190df71"
+              }
+            }
+          ],
+          "vocabularyTargetIds": [
+            "ch17-word-allele",
+            "ch17-word-f1-generation",
+            "ch17-word-f2-generation",
+            "ch17-word-genotype",
+            "ch17-word-phenotype",
+            "ch17-word-true-breeding"
+          ]
+        },
+        {
+          "id": "ch17-l02-teaching-02",
+          "attributes": {
+            "class": "content-section",
+            "data-canvas-edit-key": "ch17-l02-teaching-02",
+            "data-canvas-helper-edit-key": "ch17-l02-teaching-02",
+            "id": "ch17-l02-teaching-02"
+          },
+          "range": {
+            "startByte": 110379,
+            "endByteExclusive": 112727,
+            "bytes": 2348,
+            "sha256": "76c6ce55e364faafd63ef346ed3cdc19bdeddaaf1d60c76b5b9f903801b18060"
+          },
+          "rawBefore": "source-assessment-v0.3.0/analysis/native-preflight/raw-before/lesson-02/ch17-l02-teaching-02.html.txt",
+          "heading": "Each parent contributes one allele",
+          "editOwners": [
+            {
+              "tag": "div",
+              "attributes": {
+                "class": "content-section",
+                "data-canvas-edit-key": "ch17-l02-teaching-02",
+                "data-canvas-helper-edit-key": "ch17-l02-teaching-02",
+                "id": "ch17-l02-teaching-02"
+              },
+              "range": {
+                "startByte": 110379,
+                "endByteExclusive": 112727,
+                "bytes": 2348,
+                "sha256": "76c6ce55e364faafd63ef346ed3cdc19bdeddaaf1d60c76b5b9f903801b18060"
+              }
+            },
+            {
+              "tag": "p",
+              "attributes": {
+                "data-canvas-edit-key": "ch17-l02-teaching-02-p1",
+                "data-canvas-helper-edit-key": "ch17-l02-teaching-02-p1"
+              },
+              "range": {
+                "startByte": 110574,
+                "endByteExclusive": 111076,
+                "bytes": 502,
+                "sha256": "d2cde97b3742d93457568f54215cad50bfb6aea7a0718be88074b82bcdd67043"
+              }
+            },
+            {
+              "tag": "p",
+              "attributes": {
+                "data-canvas-edit-key": "ch17-l02-teaching-02-p2",
+                "data-canvas-helper-edit-key": "ch17-l02-teaching-02-p2"
+              },
+              "range": {
+                "startByte": 111443,
+                "endByteExclusive": 112076,
+                "bytes": 633,
+                "sha256": "516b56465deda94852b7f82ec8607fadfeba907a4dd47f6107ea2ec4c21bf666"
+              }
+            },
+            {
+              "tag": "p",
+              "attributes": {
+                "data-canvas-edit-key": "ch17-l02-teaching-02-p3",
+                "data-canvas-helper-edit-key": "ch17-l02-teaching-02-p3"
+              },
+              "range": {
+                "startByte": 112077,
+                "endByteExclusive": 112720,
+                "bytes": 643,
+                "sha256": "a44d020c48bbc0f6fe84f67183e61a2251c0d4bdb07dd3db7ae3a1a817a2a4cd"
+              }
+            }
+          ],
+          "vocabularyTargetIds": [
+            "ch17-word-probability"
+          ]
+        },
+        {
+          "id": "ch17-l02-worked",
+          "attributes": {
+            "class": "worked-example",
+            "data-canvas-edit-key": "ch17-l02-worked",
+            "data-canvas-helper-edit-key": "ch17-l02-worked",
+            "id": "ch17-l02-worked"
+          },
+          "range": {
+            "startByte": 112729,
+            "endByteExclusive": 119021,
+            "bytes": 6292,
+            "sha256": "23681683e7ad5591dfc5bdc3fdd8eb9d97250e24becc15b388d61b53493500c0"
+          },
+          "rawBefore": "source-assessment-v0.3.0/analysis/native-preflight/raw-before/lesson-02/ch17-l02-worked.html.txt",
+          "heading": "From the starting cross to the second generation",
+          "editOwners": [
+            {
+              "tag": "div",
+              "attributes": {
+                "class": "worked-example",
+                "data-canvas-edit-key": "ch17-l02-worked",
+                "data-canvas-helper-edit-key": "ch17-l02-worked",
+                "id": "ch17-l02-worked"
+              },
+              "range": {
+                "startByte": 112729,
+                "endByteExclusive": 119021,
+                "bytes": 6292,
+                "sha256": "23681683e7ad5591dfc5bdc3fdd8eb9d97250e24becc15b388d61b53493500c0"
+              }
+            }
+          ],
+          "vocabularyTargetIds": []
+        },
+        {
+          "id": "ch17-l02-teaching-03",
+          "attributes": {
+            "class": "content-section",
+            "data-canvas-edit-key": "ch17-l02-teaching-03",
+            "data-canvas-helper-edit-key": "ch17-l02-teaching-03",
+            "id": "ch17-l02-teaching-03"
+          },
+          "range": {
+            "startByte": 119023,
+            "endByteExclusive": 124945,
+            "bytes": 5922,
+            "sha256": "921841db3f0d91ce693aab5ad5f769fe6cfc03475f7cafb8b78d8b4facb3a468"
+          },
+          "rawBefore": "source-assessment-v0.3.0/analysis/native-preflight/raw-before/lesson-02/ch17-l02-teaching-03.html.txt",
+          "heading": "A predicted ratio is not an offspring schedule",
+          "editOwners": [
+            {
+              "tag": "div",
+              "attributes": {
+                "class": "content-section",
+                "data-canvas-edit-key": "ch17-l02-teaching-03",
+                "data-canvas-helper-edit-key": "ch17-l02-teaching-03",
+                "id": "ch17-l02-teaching-03"
+              },
+              "range": {
+                "startByte": 119023,
+                "endByteExclusive": 124945,
+                "bytes": 5922,
+                "sha256": "921841db3f0d91ce693aab5ad5f769fe6cfc03475f7cafb8b78d8b4facb3a468"
+              }
+            },
+            {
+              "tag": "p",
+              "attributes": {
+                "data-canvas-edit-key": "ch17-l02-teaching-03-p1",
+                "data-canvas-helper-edit-key": "ch17-l02-teaching-03-p1"
+              },
+              "range": {
+                "startByte": 119230,
+                "endByteExclusive": 119682,
+                "bytes": 452,
+                "sha256": "223b10a49b213334552d3a7e7e908e61f65cfe7f95d5cede836132e8d56e1dff"
+              }
+            },
+            {
+              "tag": "p",
+              "attributes": {
+                "data-canvas-edit-key": "ch17-l02-teaching-03-p2",
+                "data-canvas-helper-edit-key": "ch17-l02-teaching-03-p2"
+              },
+              "range": {
+                "startByte": 120467,
+                "endByteExclusive": 121069,
+                "bytes": 602,
+                "sha256": "747f0485a9a5cbd88b5d6dd65d1de780cb93a1b6a76da5771c5e88d52d0d4836"
+              }
+            },
+            {
+              "tag": "p",
+              "attributes": {
+                "data-canvas-edit-key": "ch17-l02-teaching-03-p3",
+                "data-canvas-helper-edit-key": "ch17-l02-teaching-03-p3"
+              },
+              "range": {
+                "startByte": 124439,
+                "endByteExclusive": 124938,
+                "bytes": 499,
+                "sha256": "141e4c3b31f2409bd7517d0ad2f51507b4bf3751ed96ece1a46bcdaf7d79d464"
+              }
+            }
+          ],
+          "vocabularyTargetIds": [
+            "ch17-word-law-of-segregation"
+          ]
+        }
+      ],
+      "optionalActivities": [
+        {
+          "id": "ch17-kinch-v020-l02-arrow-task",
+          "responseId": "ch17-kinch-v020-l02-arrow-response",
+          "title": "Repair the two process labels",
+          "range": {
+            "startByte": 116052,
+            "endByteExclusive": 119014,
+            "bytes": 2962,
+            "sha256": "832a0126d0434b8068b9bb98f51a463a15e4fbf70ac59608545a258caf8998a5"
+          },
+          "rawBefore": "source-assessment-v0.3.0/analysis/native-preflight/raw-before/lesson-02/ch17-kinch-v020-l02-arrow-task.html.txt",
+          "controls": [
+            {
+              "tag": "label",
+              "attributes": {
+                "for": "ch17-kinch-v020-l02-arrow-response"
+              },
+              "range": {
+                "startByte": 117296,
+                "endByteExclusive": 117388,
+                "bytes": 92,
+                "sha256": "68f1f7896b868f81253fe70bf07b14db2d9ef52801f0ab310a0f99e226be65dd"
+              },
+              "exactHtml": "<label for=\"ch17-kinch-v020-l02-arrow-response\">Your repaired labels and explanation</label>"
+            },
+            {
+              "tag": "textarea",
+              "attributes": {
+                "aria-describedby": "ch17-kinch-v020-l02-arrow-response-status",
+                "data-note-input": "ch17-kinch-v020-l02-arrow-response",
+                "id": "ch17-kinch-v020-l02-arrow-response",
+                "rows": "5"
+              },
+              "range": {
+                "startByte": 117388,
+                "endByteExclusive": 117572,
+                "bytes": 184,
+                "sha256": "6db75be5258bcf12d9f4d1ec680a80c4ddd7fd3e3d951144501824f19589fb52"
+              },
+              "exactHtml": "<textarea aria-describedby=\"ch17-kinch-v020-l02-arrow-response-status\" data-note-input=\"ch17-kinch-v020-l02-arrow-response\" id=\"ch17-kinch-v020-l02-arrow-response\" rows=\"5\"></textarea>"
+            },
+            {
+              "tag": "p",
+              "attributes": {
+                "class": "writing-status",
+                "data-note-status": "ch17-kinch-v020-l02-arrow-response",
+                "id": "ch17-kinch-v020-l02-arrow-response-status"
+              },
+              "range": {
+                "startByte": 117572,
+                "endByteExclusive": 117782,
+                "bytes": 210,
+                "sha256": "167a71a79aa7d856e9e21192b03ed0f0126667aba2bc88097ff26d8d209f0433"
+              },
+              "exactHtml": "<p class=\"writing-status\" data-note-status=\"ch17-kinch-v020-l02-arrow-response\" id=\"ch17-kinch-v020-l02-arrow-response-status\">Optional response. Select Save response to collect it. Maximum 5000 characters.</p>"
+            },
+            {
+              "tag": "button",
+              "attributes": {
+                "data-save-note": "ch17-kinch-v020-l02-arrow-response",
+                "type": "button"
+              },
+              "range": {
+                "startByte": 117782,
+                "endByteExclusive": 117878,
+                "bytes": 96,
+                "sha256": "b4dea3eca38b6cc1174a58025df8679b0216e9a94184c77275e3eb787b32454f"
+              },
+              "exactHtml": "<button data-save-note=\"ch17-kinch-v020-l02-arrow-response\" type=\"button\">Save response</button>"
+            }
+          ],
+          "plainDisclosureCount": 2,
+          "automaticallySaveGated": false
+        },
+        {
+          "id": "ch17-kinch-v020-l02-cross-task",
+          "responseId": "ch17-kinch-v020-l02-cross-response",
+          "title": "Does reversing the parents reverse the result?",
+          "range": {
+            "startByte": 121070,
+            "endByteExclusive": 124438,
+            "bytes": 3368,
+            "sha256": "d9f059765d06ec5989aee7fb00c0a0a6c0b589d002e7a582e2532f2ecca3355b"
+          },
+          "rawBefore": "source-assessment-v0.3.0/analysis/native-preflight/raw-before/lesson-02/ch17-kinch-v020-l02-cross-task.html.txt",
+          "controls": [
+            {
+              "tag": "label",
+              "attributes": {
+                "for": "ch17-kinch-v020-l02-cross-response"
+              },
+              "range": {
+                "startByte": 122457,
+                "endByteExclusive": 122547,
+                "bytes": 90,
+                "sha256": "9ef2389c5c221c591ecabf790d6eba451a0c83317e62a10d03c3a68d88ca2561"
+              },
+              "exactHtml": "<label for=\"ch17-kinch-v020-l02-cross-response\">Your comparison of the two crosses</label>"
+            },
+            {
+              "tag": "textarea",
+              "attributes": {
+                "aria-describedby": "ch17-kinch-v020-l02-cross-response-status",
+                "data-note-input": "ch17-kinch-v020-l02-cross-response",
+                "id": "ch17-kinch-v020-l02-cross-response",
+                "rows": "5"
+              },
+              "range": {
+                "startByte": 122547,
+                "endByteExclusive": 122731,
+                "bytes": 184,
+                "sha256": "a2b77c91b31bc269cc959d186e13a00a144251e73c8af250621f12fa99dd618e"
+              },
+              "exactHtml": "<textarea aria-describedby=\"ch17-kinch-v020-l02-cross-response-status\" data-note-input=\"ch17-kinch-v020-l02-cross-response\" id=\"ch17-kinch-v020-l02-cross-response\" rows=\"5\"></textarea>"
+            },
+            {
+              "tag": "p",
+              "attributes": {
+                "class": "writing-status",
+                "data-note-status": "ch17-kinch-v020-l02-cross-response",
+                "id": "ch17-kinch-v020-l02-cross-response-status"
+              },
+              "range": {
+                "startByte": 122731,
+                "endByteExclusive": 122941,
+                "bytes": 210,
+                "sha256": "9be14f3418c6699a73b7429861e31b7ed966264d4608725a49bb42f8da4cc494"
+              },
+              "exactHtml": "<p class=\"writing-status\" data-note-status=\"ch17-kinch-v020-l02-cross-response\" id=\"ch17-kinch-v020-l02-cross-response-status\">Optional response. Select Save response to collect it. Maximum 5000 characters.</p>"
+            },
+            {
+              "tag": "button",
+              "attributes": {
+                "data-save-note": "ch17-kinch-v020-l02-cross-response",
+                "type": "button"
+              },
+              "range": {
+                "startByte": 122941,
+                "endByteExclusive": 123037,
+                "bytes": 96,
+                "sha256": "9323f45b8ddd1d9aecbd04575fac9e5ae543e77553e0eb6829d5c242207b9ae4"
+              },
+              "exactHtml": "<button data-save-note=\"ch17-kinch-v020-l02-cross-response\" type=\"button\">Save response</button>"
+            }
+          ],
+          "plainDisclosureCount": 2,
+          "automaticallySaveGated": false
+        }
+      ],
+      "nativeFigures": [],
+      "requiredQuestions": [
+        "ch17-l02-check-mc-1",
+        "ch17-l02-check-mc-2",
+        "ch17-l02-check-writing-1",
+        "ch17-l02-check-writing-2"
+      ]
+    },
+    {
+      "route": "lesson-05",
+      "title": "Two-trait crosses and independent assortment",
+      "routeRange": {
+        "startByte": 179254,
+        "endByteExclusive": 226565,
+        "bytes": 47311,
+        "sha256": "06c4b5c4cff3b21938ad16979cac3b96a8a20ae96bba1e11b0e5bed052aa17c2"
+      },
+      "headerRange": {
+        "startByte": 179330,
+        "endByteExclusive": 183248,
+        "bytes": 3918,
+        "sha256": "ec347589a85dc86e808c43fac459e137a51a73e8d1ba2dd812e1f764b241a340"
+      },
+      "fullTeachingRange": {
+        "startByte": 183248,
+        "endByteExclusive": 214899,
+        "bytes": 31651,
+        "sha256": "4439240ef48d2b38d50bf3e624769c03e9a79a9641d7fd25386d0d5ec4799cb8"
+      },
+      "unchangedPrefixRange": {
+        "startByte": 179254,
+        "endByteExclusive": 183248,
+        "bytes": 3994,
+        "sha256": "28b986d505f43c2100034aa0bbbf76eb9c5280b5fc083011659fe82597ea77e4"
+      },
+      "activityAndFooterRange": {
+        "startByte": 214899,
+        "endByteExclusive": 226565,
+        "bytes": 11666,
+        "sha256": "b096766cf85ac4a41564bcc3d6a662ba136d565469ae207203a38ec4f4859e45"
+      },
+      "teachingBlocks": [
+        {
+          "id": "ch17-l05-teaching-01",
+          "attributes": {
+            "class": "content-section",
+            "data-canvas-edit-key": "ch17-l05-teaching-01",
+            "data-canvas-helper-edit-key": "ch17-l05-teaching-01",
+            "id": "ch17-l05-teaching-01"
+          },
+          "range": {
+            "startByte": 183248,
+            "endByteExclusive": 189447,
+            "bytes": 6199,
+            "sha256": "2457eed3459e4bb8118e396e90900de9e8f3bd819188ba58fb8bc438f8450e1e"
+          },
+          "rawBefore": "source-assessment-v0.3.0/analysis/native-preflight/raw-before/lesson-05/ch17-l05-teaching-01.html.txt",
+          "heading": "Does one allele contribution tell us the other?",
+          "editOwners": [
+            {
+              "tag": "div",
+              "attributes": {
+                "class": "content-section",
+                "data-canvas-edit-key": "ch17-l05-teaching-01",
+                "data-canvas-helper-edit-key": "ch17-l05-teaching-01",
+                "id": "ch17-l05-teaching-01"
+              },
+              "range": {
+                "startByte": 183248,
+                "endByteExclusive": 189447,
+                "bytes": 6199,
+                "sha256": "2457eed3459e4bb8118e396e90900de9e8f3bd819188ba58fb8bc438f8450e1e"
+              }
+            },
+            {
+              "tag": "p",
+              "attributes": {
+                "data-canvas-edit-key": "ch17-l05-teaching-01-p1",
+                "data-canvas-helper-edit-key": "ch17-l05-teaching-01-p1"
+              },
+              "range": {
+                "startByte": 183456,
+                "endByteExclusive": 184061,
+                "bytes": 605,
+                "sha256": "6bce4ac0244977d83d30eb60562598651031a7b60852426899a43b4031566a3b"
+              }
+            },
+            {
+              "tag": "p",
+              "attributes": {
+                "data-canvas-edit-key": "ch17-l05-teaching-01-p2",
+                "data-canvas-helper-edit-key": "ch17-l05-teaching-01-p2"
+              },
+              "range": {
+                "startByte": 185897,
+                "endByteExclusive": 186559,
+                "bytes": 662,
+                "sha256": "838219de4161ef7d2baf931047563a536ab3e5075b6764fd0fb97d6ac0210b2e"
+              }
+            }
+          ],
+          "vocabularyTargetIds": [
+            "ch17-word-allele",
+            "ch17-word-independent-assortment",
+            "ch17-word-probability"
+          ]
+        },
+        {
+          "id": "ch17-l05-teaching-02",
+          "attributes": {
+            "class": "content-section",
+            "data-canvas-edit-key": "ch17-l05-teaching-02",
+            "data-canvas-helper-edit-key": "ch17-l05-teaching-02",
+            "id": "ch17-l05-teaching-02"
+          },
+          "range": {
+            "startByte": 189449,
+            "endByteExclusive": 195012,
+            "bytes": 5563,
+            "sha256": "6b83d8c942be901c2d73b0b56fa354b03722ea8a1c3946f58960d5c6cb109b88"
+          },
+          "rawBefore": "source-assessment-v0.3.0/analysis/native-preflight/raw-before/lesson-05/ch17-l05-teaching-02.html.txt",
+          "heading": "Combine the F1 gametes, then group the F2 phenotypes",
+          "editOwners": [
+            {
+              "tag": "div",
+              "attributes": {
+                "class": "content-section",
+                "data-canvas-edit-key": "ch17-l05-teaching-02",
+                "data-canvas-helper-edit-key": "ch17-l05-teaching-02",
+                "id": "ch17-l05-teaching-02"
+              },
+              "range": {
+                "startByte": 189449,
+                "endByteExclusive": 195012,
+                "bytes": 5563,
+                "sha256": "6b83d8c942be901c2d73b0b56fa354b03722ea8a1c3946f58960d5c6cb109b88"
+              }
+            },
+            {
+              "tag": "p",
+              "attributes": {
+                "data-canvas-edit-key": "ch17-l05-teaching-02-p1",
+                "data-canvas-helper-edit-key": "ch17-l05-teaching-02-p1"
+              },
+              "range": {
+                "startByte": 189662,
+                "endByteExclusive": 190245,
+                "bytes": 583,
+                "sha256": "2fcff5c18abb2fc9538de5a8cbf537dd5df933d6aa1a43f94b96d24face34cd3"
+              }
+            },
+            {
+              "tag": "p",
+              "attributes": {
+                "data-canvas-edit-key": "ch17-l05-teaching-02-p2",
+                "data-canvas-helper-edit-key": "ch17-l05-teaching-02-p2"
+              },
+              "range": {
+                "startByte": 191679,
+                "endByteExclusive": 192300,
+                "bytes": 621,
+                "sha256": "50003bfada1aaf4589f28891bb01b54ab383eff1915266a93a8c9fbb1f7d2ecd"
+              }
+            },
+            {
+              "tag": "p",
+              "attributes": {
+                "data-canvas-edit-key": "ch17-l05-teaching-02-p3",
+                "data-canvas-helper-edit-key": "ch17-l05-teaching-02-p3"
+              },
+              "range": {
+                "startByte": 193544,
+                "endByteExclusive": 194152,
+                "bytes": 608,
+                "sha256": "479e9396df9222fbc42ae03842e1807f812ee49ed21096a0efe2de64052c52fe"
+              }
+            }
+          ],
+          "vocabularyTargetIds": [
+            "ch17-word-phenotype"
+          ]
+        },
+        {
+          "id": "ch17-l05-worked",
+          "attributes": {
+            "class": "worked-example",
+            "data-canvas-edit-key": "ch17-l05-worked",
+            "data-canvas-helper-edit-key": "ch17-l05-worked",
+            "id": "ch17-l05-worked"
+          },
+          "range": {
+            "startByte": 195014,
+            "endByteExclusive": 204014,
+            "bytes": 9000,
+            "sha256": "77fedfe4d842ef8d1e9f3bc213ce3ecd44677381874a6733e8f86d3986799d23"
+          },
+          "rawBefore": "source-assessment-v0.3.0/analysis/native-preflight/raw-before/lesson-05/ch17-l05-worked.html.txt",
+          "heading": "A tomato cross with four gametes from one parent and two from the other",
+          "editOwners": [
+            {
+              "tag": "div",
+              "attributes": {
+                "class": "worked-example",
+                "data-canvas-edit-key": "ch17-l05-worked",
+                "data-canvas-helper-edit-key": "ch17-l05-worked",
+                "id": "ch17-l05-worked"
+              },
+              "range": {
+                "startByte": 195014,
+                "endByteExclusive": 204014,
+                "bytes": 9000,
+                "sha256": "77fedfe4d842ef8d1e9f3bc213ce3ecd44677381874a6733e8f86d3986799d23"
+              }
+            }
+          ],
+          "vocabularyTargetIds": []
+        },
+        {
+          "id": "ch17-l05-teaching-03",
+          "attributes": {
+            "class": "content-section",
+            "data-canvas-edit-key": "ch17-l05-teaching-03",
+            "data-canvas-helper-edit-key": "ch17-l05-teaching-03",
+            "id": "ch17-l05-teaching-03"
+          },
+          "range": {
+            "startByte": 204016,
+            "endByteExclusive": 214898,
+            "bytes": 10882,
+            "sha256": "25433f982ad4cf8f833daaa5b2653a56ea1ff011c3e2b41fd1cdeddff3776f01"
+          },
+          "rawBefore": "source-assessment-v0.3.0/analysis/native-preflight/raw-before/lesson-05/ch17-l05-teaching-03.html.txt",
+          "heading": "Use an offspring to resolve unknown parental alleles",
+          "editOwners": [
+            {
+              "tag": "div",
+              "attributes": {
+                "class": "content-section",
+                "data-canvas-edit-key": "ch17-l05-teaching-03",
+                "data-canvas-helper-edit-key": "ch17-l05-teaching-03",
+                "id": "ch17-l05-teaching-03"
+              },
+              "range": {
+                "startByte": 204016,
+                "endByteExclusive": 214898,
+                "bytes": 10882,
+                "sha256": "25433f982ad4cf8f833daaa5b2653a56ea1ff011c3e2b41fd1cdeddff3776f01"
+              }
+            },
+            {
+              "tag": "p",
+              "attributes": {
+                "data-canvas-edit-key": "ch17-l05-teaching-03-p1",
+                "data-canvas-helper-edit-key": "ch17-l05-teaching-03-p1"
+              },
+              "range": {
+                "startByte": 204229,
+                "endByteExclusive": 204645,
+                "bytes": 416,
+                "sha256": "9d06f0b39cf41457f8d21a8d435d78a546590a9a40a57d7cb1cf2aeb4d50ed77"
+              }
+            },
+            {
+              "tag": "p",
+              "attributes": {
+                "data-canvas-edit-key": "ch17-l05-teaching-03-p2",
+                "data-canvas-helper-edit-key": "ch17-l05-teaching-03-p2"
+              },
+              "range": {
+                "startByte": 207635,
+                "endByteExclusive": 208171,
+                "bytes": 536,
+                "sha256": "105a2597dcf80670aaf0336f88ba95b9ffc631f2da94fd854ed83c6ac407a0cf"
+              }
+            },
+            {
+              "tag": "p",
+              "attributes": {
+                "data-canvas-edit-key": "ch17-l05-teaching-03-p3",
+                "data-canvas-helper-edit-key": "ch17-l05-teaching-03-p3"
+              },
+              "range": {
+                "startByte": 213743,
+                "endByteExclusive": 214424,
+                "bytes": 681,
+                "sha256": "eb380e0b0699961b82027d1290f92072e066fb91e404a58a879177add48661fd"
+              }
+            }
+          ],
+          "vocabularyTargetIds": []
+        }
+      ],
+      "optionalActivities": [
+        {
+          "id": "ch17-kinch-v020-l05-change-task",
+          "responseId": "ch17-kinch-v020-l05-change-response",
+          "title": "Change one parent and keep only the reasoning that still applies",
+          "range": {
+            "startByte": 200094,
+            "endByteExclusive": 204007,
+            "bytes": 3913,
+            "sha256": "541be9540ef4b88a6961d5a528f0e4c9a69f3ef60dcd3f166fb049f1c71aeceb"
+          },
+          "rawBefore": "source-assessment-v0.3.0/analysis/native-preflight/raw-before/lesson-05/ch17-kinch-v020-l05-change-task.html.txt",
+          "controls": [
+            {
+              "tag": "label",
+              "attributes": {
+                "for": "ch17-kinch-v020-l05-change-response"
+              },
+              "range": {
+                "startByte": 201309,
+                "endByteExclusive": 201402,
+                "bytes": 93,
+                "sha256": "33068a9f545b7ec980ce3eb321f7e04657d2fd332da8bacd74bbb4470d6a89db"
+              },
+              "exactHtml": "<label for=\"ch17-kinch-v020-l05-change-response\">Your revised gametes and predictions</label>"
+            },
+            {
+              "tag": "textarea",
+              "attributes": {
+                "aria-describedby": "ch17-kinch-v020-l05-change-response-status",
+                "data-note-input": "ch17-kinch-v020-l05-change-response",
+                "id": "ch17-kinch-v020-l05-change-response",
+                "rows": "5"
+              },
+              "range": {
+                "startByte": 201402,
+                "endByteExclusive": 201589,
+                "bytes": 187,
+                "sha256": "35db0f9375b38d18e5c1ffecacddde122da64c396649cf9642b64754c7e1d9c9"
+              },
+              "exactHtml": "<textarea aria-describedby=\"ch17-kinch-v020-l05-change-response-status\" data-note-input=\"ch17-kinch-v020-l05-change-response\" id=\"ch17-kinch-v020-l05-change-response\" rows=\"5\"></textarea>"
+            },
+            {
+              "tag": "p",
+              "attributes": {
+                "class": "writing-status",
+                "data-note-status": "ch17-kinch-v020-l05-change-response",
+                "id": "ch17-kinch-v020-l05-change-response-status"
+              },
+              "range": {
+                "startByte": 201589,
+                "endByteExclusive": 201801,
+                "bytes": 212,
+                "sha256": "7e6671936ffccc1a5f5356e179a5e5c37c32e5f3442e6a62769d83d3be1316a5"
+              },
+              "exactHtml": "<p class=\"writing-status\" data-note-status=\"ch17-kinch-v020-l05-change-response\" id=\"ch17-kinch-v020-l05-change-response-status\">Optional response. Select Save response to collect it. Maximum 5000 characters.</p>"
+            },
+            {
+              "tag": "button",
+              "attributes": {
+                "data-save-note": "ch17-kinch-v020-l05-change-response",
+                "type": "button"
+              },
+              "range": {
+                "startByte": 201801,
+                "endByteExclusive": 201898,
+                "bytes": 97,
+                "sha256": "3bb4a3119b1855fa433415d1e3d1dd97b8012ea91ee54de7f07b52721e194601"
+              },
+              "exactHtml": "<button data-save-note=\"ch17-kinch-v020-l05-change-response\" type=\"button\">Save response</button>"
+            }
+          ],
+          "plainDisclosureCount": 2,
+          "automaticallySaveGated": false
+        },
+        {
+          "id": "ch17-kinch-v020-l05-evidence-task",
+          "responseId": "ch17-kinch-v020-l05-evidence-response",
+          "title": "Decide what the new offspring settles—and what it leaves open",
+          "range": {
+            "startByte": 209158,
+            "endByteExclusive": 213695,
+            "bytes": 4537,
+            "sha256": "545343eb9be903740eda4fa5258a96eb5c82de05327de2ee734143bea75fc97d"
+          },
+          "rawBefore": "source-assessment-v0.3.0/analysis/native-preflight/raw-before/lesson-05/ch17-kinch-v020-l05-evidence-task.html.txt",
+          "controls": [
+            {
+              "tag": "label",
+              "attributes": {
+                "for": "ch17-kinch-v020-l05-evidence-response"
+              },
+              "range": {
+                "startByte": 210993,
+                "endByteExclusive": 211101,
+                "bytes": 108,
+                "sha256": "eec2243df7dfea17d39f9aa6fa0b514f86b784bca9a1f24f97953c8fa505a8fb"
+              },
+              "exactHtml": "<label for=\"ch17-kinch-v020-l05-evidence-response\">Your evidence-based parental-genotype explanation</label>"
+            },
+            {
+              "tag": "textarea",
+              "attributes": {
+                "aria-describedby": "ch17-kinch-v020-l05-evidence-response-status",
+                "data-note-input": "ch17-kinch-v020-l05-evidence-response",
+                "id": "ch17-kinch-v020-l05-evidence-response",
+                "rows": "5"
+              },
+              "range": {
+                "startByte": 211101,
+                "endByteExclusive": 211294,
+                "bytes": 193,
+                "sha256": "fdbcac01fcf68107b32ab4716e0fce0a87fdffc846fce7bb3e2e7adec504a379"
+              },
+              "exactHtml": "<textarea aria-describedby=\"ch17-kinch-v020-l05-evidence-response-status\" data-note-input=\"ch17-kinch-v020-l05-evidence-response\" id=\"ch17-kinch-v020-l05-evidence-response\" rows=\"5\"></textarea>"
+            },
+            {
+              "tag": "p",
+              "attributes": {
+                "class": "writing-status",
+                "data-note-status": "ch17-kinch-v020-l05-evidence-response",
+                "id": "ch17-kinch-v020-l05-evidence-response-status"
+              },
+              "range": {
+                "startByte": 211294,
+                "endByteExclusive": 211510,
+                "bytes": 216,
+                "sha256": "39335eec40025972b29794126a78e3844720aeae390a69cb0d195708e2fb2544"
+              },
+              "exactHtml": "<p class=\"writing-status\" data-note-status=\"ch17-kinch-v020-l05-evidence-response\" id=\"ch17-kinch-v020-l05-evidence-response-status\">Optional response. Select Save response to collect it. Maximum 5000 characters.</p>"
+            },
+            {
+              "tag": "button",
+              "attributes": {
+                "data-save-note": "ch17-kinch-v020-l05-evidence-response",
+                "type": "button"
+              },
+              "range": {
+                "startByte": 211510,
+                "endByteExclusive": 211609,
+                "bytes": 99,
+                "sha256": "8a917f1f72535a635febb537cdacf277641f7729b875ac4afd7e5a368e23dccf"
+              },
+              "exactHtml": "<button data-save-note=\"ch17-kinch-v020-l05-evidence-response\" type=\"button\">Save response</button>"
+            }
+          ],
+          "plainDisclosureCount": 2,
+          "automaticallySaveGated": false
+        }
+      ],
+      "nativeFigures": [
+        {
+          "attributes": {
+            "class": "science-figure",
+            "data-figure-id": "ch17-two-trait"
+          },
+          "range": {
+            "startByte": 188446,
+            "endByteExclusive": 189168,
+            "bytes": 722,
+            "sha256": "fb4a4af8d132176bcfcd3f21695d97865901a1c626bbecf5e9a1d6106dc428d0"
+          },
+          "rawBefore": "source-assessment-v0.3.0/analysis/native-preflight/raw-before/lesson-05/figure-ch17-two-trait.html.txt"
+        }
+      ],
+      "requiredQuestions": [
+        "ch17-l05-check-mc-1",
+        "ch17-l05-check-mc-2",
+        "ch17-l05-check-writing-1",
+        "ch17-l05-check-writing-2"
+      ]
+    }
+  ],
+  "selectedRequiredItems": [
+    {
+      "id": "ch17-l02-check-mc-1",
+      "route": "lesson-02",
+      "type": "mc",
+      "authorizedReplacement": false,
+      "htmlRangeRef": "ch17-l02-check-mc-1.html",
+      "htmlRange": {
+        "startByte": 127533,
+        "endByteExclusive": 129073,
+        "bytes": 1540,
+        "sha256": "a36418f28981e943bd36dd064536cbccb7e2faf02cc58cd531a5278cde99f03e"
+      },
+      "htmlRawBefore": "source-assessment-v0.3.0/analysis/native-preflight/raw-before/questions/ch17-l02-check-mc-1.html.txt",
+      "jsonRangeRef": "ch17-l02-check-mc-1.json-item",
+      "jsonPath": [
+        "checks",
+        1,
+        "mc",
+        0
+      ],
+      "jsonRange": {
+        "startByte": 3153960,
+        "endByteExclusive": 3154563,
+        "bytes": 603,
+        "sha256": "906c62f4c83c6a0f2b918e856c5be8100b63ca56213c483cc17423188b99014a"
+      },
+      "jsonRawBefore": "source-assessment-v0.3.0/analysis/native-preflight/raw-before/questions/ch17-l02-check-mc-1.json.txt",
+      "item": {
+        "prompt": "Why can a recessive phenotype reappear in the F2 generation?",
+        "answer": "Each heterozygous parent can contribute the recessive allele",
+        "explanation": "Two recessive contributions can form a homozygous recessive offspring.",
+        "cue": "Trace the normal mechanism before choosing an answer.",
+        "id": "ch17-l02-check-mc-1",
+        "options": [
+          "The recessive allele is always recreated by mutation",
+          "Dominant alleles vanish after one generation",
+          "Each heterozygous parent can contribute the recessive allele",
+          "Gametes carry both parental alleles together at every locus"
+        ],
+        "difficulty": "application"
+      },
+      "questionAttributes": {
+        "class": "check-question",
+        "data-check-question": "ch17-l02-check-mc-1"
+      },
+      "descendantTagAttributes": [
+        {
+          "tag": "div",
+          "attributes": {
+            "class": "check-question",
+            "data-check-question": "ch17-l02-check-mc-1"
+          }
+        },
+        {
+          "tag": "p",
+          "attributes": {
+            "class": "eyebrow"
+          }
+        },
+        {
+          "tag": "h3",
+          "attributes": {
+            "data-canvas-edit-key": "ch17-l02-check-mc-1-prompt",
+            "data-canvas-helper-edit-key": "ch17-l02-check-mc-1-prompt",
+            "id": "ch17-l02-check-mc-1-prompt"
+          }
+        },
+        {
+          "tag": "fieldset",
+          "attributes": {
+            "aria-labelledby": "ch17-l02-check-mc-1-prompt"
+          }
+        },
+        {
+          "tag": "label",
+          "attributes": {
+            "class": "choice-row"
+          }
+        },
+        {
+          "tag": "input",
+          "attributes": {
+            "data-check-choice": "ch17-l02-check-mc-1",
+            "name": "ch17-l02-check-mc-1",
+            "type": "radio",
+            "value": "The recessive allele is always recreated by mutation"
+          }
+        },
+        {
+          "tag": "span",
+          "attributes": {}
+        },
+        {
+          "tag": "label",
+          "attributes": {
+            "class": "choice-row"
+          }
+        },
+        {
+          "tag": "input",
+          "attributes": {
+            "data-check-choice": "ch17-l02-check-mc-1",
+            "name": "ch17-l02-check-mc-1",
+            "type": "radio",
+            "value": "Dominant alleles vanish after one generation"
+          }
+        },
+        {
+          "tag": "span",
+          "attributes": {}
+        },
+        {
+          "tag": "label",
+          "attributes": {
+            "class": "choice-row"
+          }
+        },
+        {
+          "tag": "input",
+          "attributes": {
+            "data-check-choice": "ch17-l02-check-mc-1",
+            "name": "ch17-l02-check-mc-1",
+            "type": "radio",
+            "value": "Each heterozygous parent can contribute the recessive allele"
+          }
+        },
+        {
+          "tag": "span",
+          "attributes": {}
+        },
+        {
+          "tag": "label",
+          "attributes": {
+            "class": "choice-row"
+          }
+        },
+        {
+          "tag": "input",
+          "attributes": {
+            "data-check-choice": "ch17-l02-check-mc-1",
+            "name": "ch17-l02-check-mc-1",
+            "type": "radio",
+            "value": "Gametes carry both parental alleles together at every locus"
+          }
+        },
+        {
+          "tag": "span",
+          "attributes": {}
+        },
+        {
+          "tag": "button",
+          "attributes": {
+            "data-check-answer": "ch17-l02-check-mc-1",
+            "type": "button"
+          }
+        },
+        {
+          "tag": "p",
+          "attributes": {
+            "aria-live": "polite",
+            "class": "inline-feedback",
+            "data-feedback": ""
+          }
+        }
+      ],
+      "editableTextParts": {
+        "promptInnerRange": {
+          "startByte": 127780,
+          "endByteExclusive": 127840,
+          "bytes": 60,
+          "sha256": "698c63d83dba34940dfee685671c206cfc5e8055f1d1256757fee9228d795e60"
+        },
+        "orderedChoiceRows": [
+          {
+            "range": {
+              "startByte": 127900,
+              "endByteExclusive": 128148,
+              "bytes": 248,
+              "sha256": "cdf80bbd943b0ccfb8fe97a6c27860e1bb404a950e47dcab86e6ed9aac88f6f0"
+            },
+            "exactHtml": "<label class=\"choice-row\"><input data-check-choice=\"ch17-l02-check-mc-1\" name=\"ch17-l02-check-mc-1\" type=\"radio\" value=\"The recessive allele is always recreated by mutation\"/><span>The recessive allele is always recreated by mutation</span></label>",
+            "spanInnerRange": {
+              "startByte": 128081,
+              "endByteExclusive": 128133,
+              "bytes": 52,
+              "sha256": "347b39161937058b75f57796222e00c3643523ff06add35b217bec0d04db839c"
+            }
+          },
+          {
+            "range": {
+              "startByte": 128148,
+              "endByteExclusive": 128380,
+              "bytes": 232,
+              "sha256": "25f6f484a74a272ae7ec09cae74dda656f993f7cb6228f60c59e7bb466e7f8ac"
+            },
+            "exactHtml": "<label class=\"choice-row\"><input data-check-choice=\"ch17-l02-check-mc-1\" name=\"ch17-l02-check-mc-1\" type=\"radio\" value=\"Dominant alleles vanish after one generation\"/><span>Dominant alleles vanish after one generation</span></label>",
+            "spanInnerRange": {
+              "startByte": 128321,
+              "endByteExclusive": 128365,
+              "bytes": 44,
+              "sha256": "588b2b865fd2a25f857672f76cff8be8c10954f0d8267c51728973f70ee761a1"
+            }
+          },
+          {
+            "range": {
+              "startByte": 128380,
+              "endByteExclusive": 128644,
+              "bytes": 264,
+              "sha256": "50e209913de77cbfd2dc2ebb29d916b96a8c9300661926c94d2a1e4a9bd7bddc"
+            },
+            "exactHtml": "<label class=\"choice-row\"><input data-check-choice=\"ch17-l02-check-mc-1\" name=\"ch17-l02-check-mc-1\" type=\"radio\" value=\"Each heterozygous parent can contribute the recessive allele\"/><span>Each heterozygous parent can contribute the recessive allele</span></label>",
+            "spanInnerRange": {
+              "startByte": 128569,
+              "endByteExclusive": 128629,
+              "bytes": 60,
+              "sha256": "7a045b788bf6c6895efeb3bedbcc5ee9e4dfd15fe0217d18172d3b0b3dd3c5ef"
+            }
+          },
+          {
+            "range": {
+              "startByte": 128644,
+              "endByteExclusive": 128906,
+              "bytes": 262,
+              "sha256": "dfb5c16067bf5fc25c960bbd6de498ad9fdd5eb3a208d790c38e4a6353202aa2"
+            },
+            "exactHtml": "<label class=\"choice-row\"><input data-check-choice=\"ch17-l02-check-mc-1\" name=\"ch17-l02-check-mc-1\" type=\"radio\" value=\"Gametes carry both parental alleles together at every locus\"/><span>Gametes carry both parental alleles together at every locus</span></label>",
+            "spanInnerRange": {
+              "startByte": 128832,
+              "endByteExclusive": 128891,
+              "bytes": 59,
+              "sha256": "9b476364ca62d94c1eec0a2f2b72be92037bf889d8a6f802e8f76259a3e94685"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch17-l02-check-mc-2",
+      "route": "lesson-02",
+      "type": "mc",
+      "authorizedReplacement": false,
+      "htmlRangeRef": "ch17-l02-check-mc-2.html",
+      "htmlRange": {
+        "startByte": 129073,
+        "endByteExclusive": 130662,
+        "bytes": 1589,
+        "sha256": "957f799b58748d7c803065ec8f6bb4bb83ba9d576a3695c2a1615cb7a2e9b8f6"
+      },
+      "htmlRawBefore": "source-assessment-v0.3.0/analysis/native-preflight/raw-before/questions/ch17-l02-check-mc-2.html.txt",
+      "jsonRangeRef": "ch17-l02-check-mc-2.json-item",
+      "jsonPath": [
+        "checks",
+        1,
+        "mc",
+        1
+      ],
+      "jsonRange": {
+        "startByte": 3154565,
+        "endByteExclusive": 3155211,
+        "bytes": 646,
+        "sha256": "a0d5d4570699123b5087eb70428b752bc5c6e8dd6e9d2ed7eb28962e7540182d"
+      },
+      "jsonRawBefore": "source-assessment-v0.3.0/analysis/native-preflight/raw-before/questions/ch17-l02-check-mc-2.json.txt",
+      "item": {
+        "prompt": "A heterozygote has six dominant-phenotype offspring in succession in a suitable cross. Does that prove segregation stopped?",
+        "answer": "No; small samples can differ from expected ratios",
+        "explanation": "Probabilistic outcomes can form runs without changing the mechanism.",
+        "cue": "Trace the normal mechanism before choosing an answer.",
+        "id": "ch17-l02-check-mc-2",
+        "options": [
+          "Yes; meiosis makes only one type of gamete after the first birth",
+          "No; because alleles are not inherited",
+          "Yes; every short run must exactly match the expected ratio",
+          "No; small samples can differ from expected ratios"
+        ],
+        "difficulty": "application"
+      },
+      "questionAttributes": {
+        "class": "check-question",
+        "data-check-question": "ch17-l02-check-mc-2"
+      },
+      "descendantTagAttributes": [
+        {
+          "tag": "div",
+          "attributes": {
+            "class": "check-question",
+            "data-check-question": "ch17-l02-check-mc-2"
+          }
+        },
+        {
+          "tag": "p",
+          "attributes": {
+            "class": "eyebrow"
+          }
+        },
+        {
+          "tag": "h3",
+          "attributes": {
+            "data-canvas-edit-key": "ch17-l02-check-mc-2-prompt",
+            "data-canvas-helper-edit-key": "ch17-l02-check-mc-2-prompt",
+            "id": "ch17-l02-check-mc-2-prompt"
+          }
+        },
+        {
+          "tag": "fieldset",
+          "attributes": {
+            "aria-labelledby": "ch17-l02-check-mc-2-prompt"
+          }
+        },
+        {
+          "tag": "label",
+          "attributes": {
+            "class": "choice-row"
+          }
+        },
+        {
+          "tag": "input",
+          "attributes": {
+            "data-check-choice": "ch17-l02-check-mc-2",
+            "name": "ch17-l02-check-mc-2",
+            "type": "radio",
+            "value": "Yes; meiosis makes only one type of gamete after the first birth"
+          }
+        },
+        {
+          "tag": "span",
+          "attributes": {}
+        },
+        {
+          "tag": "label",
+          "attributes": {
+            "class": "choice-row"
+          }
+        },
+        {
+          "tag": "input",
+          "attributes": {
+            "data-check-choice": "ch17-l02-check-mc-2",
+            "name": "ch17-l02-check-mc-2",
+            "type": "radio",
+            "value": "No; because alleles are not inherited"
+          }
+        },
+        {
+          "tag": "span",
+          "attributes": {}
+        },
+        {
+          "tag": "label",
+          "attributes": {
+            "class": "choice-row"
+          }
+        },
+        {
+          "tag": "input",
+          "attributes": {
+            "data-check-choice": "ch17-l02-check-mc-2",
+            "name": "ch17-l02-check-mc-2",
+            "type": "radio",
+            "value": "Yes; every short run must exactly match the expected ratio"
+          }
+        },
+        {
+          "tag": "span",
+          "attributes": {}
+        },
+        {
+          "tag": "label",
+          "attributes": {
+            "class": "choice-row"
+          }
+        },
+        {
+          "tag": "input",
+          "attributes": {
+            "data-check-choice": "ch17-l02-check-mc-2",
+            "name": "ch17-l02-check-mc-2",
+            "type": "radio",
+            "value": "No; small samples can differ from expected ratios"
+          }
+        },
+        {
+          "tag": "span",
+          "attributes": {}
+        },
+        {
+          "tag": "button",
+          "attributes": {
+            "data-check-answer": "ch17-l02-check-mc-2",
+            "type": "button"
+          }
+        },
+        {
+          "tag": "p",
+          "attributes": {
+            "aria-live": "polite",
+            "class": "inline-feedback",
+            "data-feedback": ""
+          }
+        }
+      ],
+      "editableTextParts": {
+        "promptInnerRange": {
+          "startByte": 129320,
+          "endByteExclusive": 129443,
+          "bytes": 123,
+          "sha256": "c8ad2711f67de83955d2329e81d4c1f4c306f163697a56906ba59a5ef00c9575"
+        },
+        "orderedChoiceRows": [
+          {
+            "range": {
+              "startByte": 129503,
+              "endByteExclusive": 129775,
+              "bytes": 272,
+              "sha256": "5025d2c2e2ad7b66a23ebc5226c4aa586eae7b5a467b88e8b1771caa20933588"
+            },
+            "exactHtml": "<label class=\"choice-row\"><input data-check-choice=\"ch17-l02-check-mc-2\" name=\"ch17-l02-check-mc-2\" type=\"radio\" value=\"Yes; meiosis makes only one type of gamete after the first birth\"/><span>Yes; meiosis makes only one type of gamete after the first birth</span></label>",
+            "spanInnerRange": {
+              "startByte": 129696,
+              "endByteExclusive": 129760,
+              "bytes": 64,
+              "sha256": "dea3e2c9dc911a2c479b71e9b5d1f30e3056288224f09a3e679553cecbf2d799"
+            }
+          },
+          {
+            "range": {
+              "startByte": 129775,
+              "endByteExclusive": 129993,
+              "bytes": 218,
+              "sha256": "126a7681b968c22c53f7bd34615a84bb60922722ed325e7893b42e18ef01efff"
+            },
+            "exactHtml": "<label class=\"choice-row\"><input data-check-choice=\"ch17-l02-check-mc-2\" name=\"ch17-l02-check-mc-2\" type=\"radio\" value=\"No; because alleles are not inherited\"/><span>No; because alleles are not inherited</span></label>",
+            "spanInnerRange": {
+              "startByte": 129941,
+              "endByteExclusive": 129978,
+              "bytes": 37,
+              "sha256": "121209b8b62b36440799f8beeedf11e909f453ba3e6b713d35caa6cb4109041c"
+            }
+          },
+          {
+            "range": {
+              "startByte": 129993,
+              "endByteExclusive": 130253,
+              "bytes": 260,
+              "sha256": "3798548d056f56340381eafb7af845506003aa2eb2113700ca6e750732e6f45f"
+            },
+            "exactHtml": "<label class=\"choice-row\"><input data-check-choice=\"ch17-l02-check-mc-2\" name=\"ch17-l02-check-mc-2\" type=\"radio\" value=\"Yes; every short run must exactly match the expected ratio\"/><span>Yes; every short run must exactly match the expected ratio</span></label>",
+            "spanInnerRange": {
+              "startByte": 130180,
+              "endByteExclusive": 130238,
+              "bytes": 58,
+              "sha256": "1033867866a8973825e3d2a505759da0a05df746fa20ad654f924935a015a4a8"
+            }
+          },
+          {
+            "range": {
+              "startByte": 130253,
+              "endByteExclusive": 130495,
+              "bytes": 242,
+              "sha256": "2256f03fea750f5d955d47e75d56abc8e6291868f5c3d3a1306574d904942c6a"
+            },
+            "exactHtml": "<label class=\"choice-row\"><input data-check-choice=\"ch17-l02-check-mc-2\" name=\"ch17-l02-check-mc-2\" type=\"radio\" value=\"No; small samples can differ from expected ratios\"/><span>No; small samples can differ from expected ratios</span></label>",
+            "spanInnerRange": {
+              "startByte": 130431,
+              "endByteExclusive": 130480,
+              "bytes": 49,
+              "sha256": "c6fa902c0504fae312cd87f4334fd4e2da20c384ef984165ea839a8820d9d072"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch17-l02-check-writing-1",
+      "route": "lesson-02",
+      "type": "writing",
+      "authorizedReplacement": true,
+      "htmlRangeRef": "ch17-l02-check-writing-1.html",
+      "htmlRange": {
+        "startByte": 130865,
+        "endByteExclusive": 132393,
+        "bytes": 1528,
+        "sha256": "05b99f3d122bf8b20223240768319337b440998e5eee34fa1c3a8f8fddd3e844"
+      },
+      "htmlRawBefore": "source-assessment-v0.3.0/analysis/native-preflight/raw-before/questions/ch17-l02-check-writing-1.html.txt",
+      "jsonRangeRef": "ch17-l02-check-writing-1.json-item",
+      "jsonPath": [
+        "checks",
+        1,
+        "writing",
+        0
+      ],
+      "jsonRange": {
+        "startByte": 3155226,
+        "endByteExclusive": 3155873,
+        "bytes": 647,
+        "sha256": "68ce219e2a96eddea903284408e089c3c5bd4a41689d492f4ee32273bb470dfa"
+      },
+      "jsonRawBefore": "source-assessment-v0.3.0/analysis/native-preflight/raw-before/questions/ch17-l02-check-writing-1.json.txt",
+      "item": {
+        "prompt": "Explain Mendel’s F1 and F2 pattern using alleles rather than blending.",
+        "model": "A homozygous dominant parent crossed with a homozygous recessive parent makes heterozygous F1 offspring. Their recessive alleles remain present. Segregation gives gametes one allele each, and an F2 offspring receiving two recessive alleles expresses the recessive phenotype.",
+        "criteria": [
+          "Identifies the relevant structures or quantities.",
+          "Explains the causal relationship or calculation, not just the final result.",
+          "Uses the stated evidence and avoids a stronger conclusion than it supports."
+        ],
+        "id": "ch17-l02-check-writing-1",
+        "limit": 3200
+      },
+      "questionAttributes": {
+        "class": "writing-question",
+        "data-writing-question": "ch17-l02-check-writing-1"
+      },
+      "descendantTagAttributes": [
+        {
+          "tag": "div",
+          "attributes": {
+            "class": "writing-question",
+            "data-writing-question": "ch17-l02-check-writing-1"
+          }
+        },
+        {
+          "tag": "p",
+          "attributes": {
+            "class": "eyebrow"
+          }
+        },
+        {
+          "tag": "label",
+          "attributes": {
+            "data-canvas-edit-key": "ch17-l02-check-writing-1-prompt",
+            "data-canvas-helper-edit-key": "ch17-l02-check-writing-1-prompt",
+            "for": "ch17-l02-check-writing-1"
+          }
+        },
+        {
+          "tag": "textarea",
+          "attributes": {
+            "aria-describedby": "ch17-l02-check-writing-1-status",
+            "data-check-writing": "ch17-l02-check-writing-1",
+            "data-limit": "3200",
+            "id": "ch17-l02-check-writing-1",
+            "rows": "6"
+          }
+        },
+        {
+          "tag": "p",
+          "attributes": {
+            "class": "writing-status"
+          }
+        },
+        {
+          "tag": "button",
+          "attributes": {
+            "data-save-writing": "ch17-l02-check-writing-1",
+            "type": "button"
+          }
+        },
+        {
+          "tag": "p",
+          "attributes": {
+            "aria-live": "polite",
+            "class": "writing-status",
+            "data-writing-status": "",
+            "id": "ch17-l02-check-writing-1-status"
+          }
+        },
+        {
+          "tag": "details",
+          "attributes": {
+            "data-locked": "true"
+          }
+        },
+        {
+          "tag": "summary",
+          "attributes": {}
+        },
+        {
+          "tag": "p",
+          "attributes": {}
+        },
+        {
+          "tag": "div",
+          "attributes": {
+            "class": "answer-criteria"
+          }
+        },
+        {
+          "tag": "strong",
+          "attributes": {}
+        },
+        {
+          "tag": "ul",
+          "attributes": {}
+        },
+        {
+          "tag": "li",
+          "attributes": {}
+        },
+        {
+          "tag": "li",
+          "attributes": {}
+        },
+        {
+          "tag": "li",
+          "attributes": {}
+        }
+      ],
+      "editableTextParts": {
+        "promptInnerRange": {
+          "startByte": 131143,
+          "endByteExclusive": 131215,
+          "bytes": 72,
+          "sha256": "03e1bc573062edc71e691b6d122a80774967e7ad832519cd63cd9b3c0dfa7d45"
+        },
+        "lockedModelDetailsRange": {
+          "startByte": 131697,
+          "endByteExclusive": 132387,
+          "bytes": 690,
+          "sha256": "8ba508906ea3a621f9345a5a125a074c6fe4ae728b04c223d9820c1c1f7350a0"
+        },
+        "modelParagraphInnerRange": {
+          "startByte": 131785,
+          "endByteExclusive": 132059,
+          "bytes": 274,
+          "sha256": "0316ef003f0229c137e4239b15f9ae63fb70012c1241872710d6ffaa5633fe7a"
+        },
+        "criteriaListInnerRange": {
+          "startByte": 132140,
+          "endByteExclusive": 132366,
+          "bytes": 226,
+          "sha256": "fa1893e51e05b58664fbacf2c0fbd367c7b9302bf7fe913ca7bb114ac63d131c"
+        },
+        "lockedModelDetailsExactHtml": "<details data-locked=\"true\"><summary>Compare after saving your own response</summary><p>A homozygous dominant parent crossed with a homozygous recessive parent makes heterozygous F1 offspring. Their recessive alleles remain present. Segregation gives gametes one allele each, and an F2 offspring receiving two recessive alleles expresses the recessive phenotype.</p><div class=\"answer-criteria\"><strong>Check your explanation for:</strong><ul><li>Identifies the relevant structures or quantities.</li><li>Explains the causal relationship or calculation, not just the final result.</li><li>Uses the stated evidence and avoids a stronger conclusion than it supports.</li></ul></div></details>"
+      }
+    },
+    {
+      "id": "ch17-l02-check-writing-2",
+      "route": "lesson-02",
+      "type": "writing",
+      "authorizedReplacement": false,
+      "htmlRangeRef": "ch17-l02-check-writing-2.html",
+      "htmlRange": {
+        "startByte": 132393,
+        "endByteExclusive": 133905,
+        "bytes": 1512,
+        "sha256": "c4b1fbdce24ea348bdd428c75aefc94e38ed4595b3da39d546cf6006a600306f"
+      },
+      "htmlRawBefore": "source-assessment-v0.3.0/analysis/native-preflight/raw-before/questions/ch17-l02-check-writing-2.html.txt",
+      "jsonRangeRef": "ch17-l02-check-writing-2.json-item",
+      "jsonPath": [
+        "checks",
+        1,
+        "writing",
+        1
+      ],
+      "jsonRange": {
+        "startByte": 3155875,
+        "endByteExclusive": 3156506,
+        "bytes": 631,
+        "sha256": "cec1200197c8c6f8b7b16c7ce498b222506885b169caf5ba8b1a94e110afcde3"
+      },
+      "jsonRawBefore": "source-assessment-v0.3.0/analysis/native-preflight/raw-before/questions/ch17-l02-check-writing-2.json.txt",
+      "item": {
+        "prompt": "Distinguish an expected 3:1 phenotype ratio from an exact prediction for four offspring.",
+        "model": "The ratio represents probabilities under specified assumptions. Each offspring has the same modeled probabilities, but chance can produce different counts in a sample of four. Larger samples tend to show proportions closer to the expectation.",
+        "criteria": [
+          "Identifies the relevant structures or quantities.",
+          "Explains the causal relationship or calculation, not just the final result.",
+          "Uses the stated evidence and avoids a stronger conclusion than it supports."
+        ],
+        "id": "ch17-l02-check-writing-2",
+        "limit": 3200
+      },
+      "questionAttributes": {
+        "class": "writing-question",
+        "data-writing-question": "ch17-l02-check-writing-2"
+      },
+      "descendantTagAttributes": [
+        {
+          "tag": "div",
+          "attributes": {
+            "class": "writing-question",
+            "data-writing-question": "ch17-l02-check-writing-2"
+          }
+        },
+        {
+          "tag": "p",
+          "attributes": {
+            "class": "eyebrow"
+          }
+        },
+        {
+          "tag": "label",
+          "attributes": {
+            "data-canvas-edit-key": "ch17-l02-check-writing-2-prompt",
+            "data-canvas-helper-edit-key": "ch17-l02-check-writing-2-prompt",
+            "for": "ch17-l02-check-writing-2"
+          }
+        },
+        {
+          "tag": "textarea",
+          "attributes": {
+            "aria-describedby": "ch17-l02-check-writing-2-status",
+            "data-check-writing": "ch17-l02-check-writing-2",
+            "data-limit": "3200",
+            "id": "ch17-l02-check-writing-2",
+            "rows": "6"
+          }
+        },
+        {
+          "tag": "p",
+          "attributes": {
+            "class": "writing-status"
+          }
+        },
+        {
+          "tag": "button",
+          "attributes": {
+            "data-save-writing": "ch17-l02-check-writing-2",
+            "type": "button"
+          }
+        },
+        {
+          "tag": "p",
+          "attributes": {
+            "aria-live": "polite",
+            "class": "writing-status",
+            "data-writing-status": "",
+            "id": "ch17-l02-check-writing-2-status"
+          }
+        },
+        {
+          "tag": "details",
+          "attributes": {
+            "data-locked": "true"
+          }
+        },
+        {
+          "tag": "summary",
+          "attributes": {}
+        },
+        {
+          "tag": "p",
+          "attributes": {}
+        },
+        {
+          "tag": "div",
+          "attributes": {
+            "class": "answer-criteria"
+          }
+        },
+        {
+          "tag": "strong",
+          "attributes": {}
+        },
+        {
+          "tag": "ul",
+          "attributes": {}
+        },
+        {
+          "tag": "li",
+          "attributes": {}
+        },
+        {
+          "tag": "li",
+          "attributes": {}
+        },
+        {
+          "tag": "li",
+          "attributes": {}
+        }
+      ],
+      "editableTextParts": {
+        "promptInnerRange": {
+          "startByte": 132671,
+          "endByteExclusive": 132759,
+          "bytes": 88,
+          "sha256": "916849ed2ce263cce094ee9f194fb5970a76a52179abba46e0e1a52c211d590f"
+        },
+        "lockedModelDetailsRange": {
+          "startByte": 133241,
+          "endByteExclusive": 133899,
+          "bytes": 658,
+          "sha256": "3f4127d3e95a968892a9f92c77988cbb4aacb0d7def43adac361f39d7673083d"
+        },
+        "modelParagraphInnerRange": {
+          "startByte": 133329,
+          "endByteExclusive": 133571,
+          "bytes": 242,
+          "sha256": "f48d81bb0d6d91e257c2746fe3a60c14c4eb0d435d83b14d8d5a5c8f5fa067ea"
+        },
+        "criteriaListInnerRange": {
+          "startByte": 133652,
+          "endByteExclusive": 133878,
+          "bytes": 226,
+          "sha256": "fa1893e51e05b58664fbacf2c0fbd367c7b9302bf7fe913ca7bb114ac63d131c"
+        },
+        "lockedModelDetailsExactHtml": "<details data-locked=\"true\"><summary>Compare after saving your own response</summary><p>The ratio represents probabilities under specified assumptions. Each offspring has the same modeled probabilities, but chance can produce different counts in a sample of four. Larger samples tend to show proportions closer to the expectation.</p><div class=\"answer-criteria\"><strong>Check your explanation for:</strong><ul><li>Identifies the relevant structures or quantities.</li><li>Explains the causal relationship or calculation, not just the final result.</li><li>Uses the stated evidence and avoids a stronger conclusion than it supports.</li></ul></div></details>"
+      }
+    },
+    {
+      "id": "ch17-l05-check-mc-1",
+      "route": "lesson-05",
+      "type": "mc",
+      "authorizedReplacement": false,
+      "htmlRangeRef": "ch17-l05-check-mc-1.html",
+      "htmlRange": {
+        "startByte": 220272,
+        "endByteExclusive": 221723,
+        "bytes": 1451,
+        "sha256": "99ea64fda450675fd1466398a27de4c092b011424e0d1c52365c24c309112cef"
+      },
+      "htmlRawBefore": "source-assessment-v0.3.0/analysis/native-preflight/raw-before/questions/ch17-l05-check-mc-1.html.txt",
+      "jsonRangeRef": "ch17-l05-check-mc-1.json-item",
+      "jsonPath": [
+        "checks",
+        4,
+        "mc",
+        0
+      ],
+      "jsonRange": {
+        "startByte": 3161343,
+        "endByteExclusive": 3161889,
+        "bytes": 546,
+        "sha256": "f0ce0cb3648abd9b325da4f4287ef4f46497e2ec5eac9ae5e165a0b1730fbf3a"
+      },
+      "jsonRawBefore": "source-assessment-v0.3.0/analysis/native-preflight/raw-before/questions/ch17-l05-check-mc-1.json.txt",
+      "item": {
+        "prompt": "What assumption is needed for multiplying separate two-locus probabilities in these examples?",
+        "answer": "The loci assort independently under the model",
+        "explanation": "Independence allows the product rule for locus outcomes.",
+        "cue": "Trace the normal mechanism before choosing an answer.",
+        "id": "ch17-l05-check-mc-1",
+        "options": [
+          "The loci assort independently under the model",
+          "The two genes must be identical",
+          "Every parent must be homozygous",
+          "Each offspring compensates for the previous one"
+        ],
+        "difficulty": "application"
+      },
+      "questionAttributes": {
+        "class": "check-question",
+        "data-check-question": "ch17-l05-check-mc-1"
+      },
+      "descendantTagAttributes": [
+        {
+          "tag": "div",
+          "attributes": {
+            "class": "check-question",
+            "data-check-question": "ch17-l05-check-mc-1"
+          }
+        },
+        {
+          "tag": "p",
+          "attributes": {
+            "class": "eyebrow"
+          }
+        },
+        {
+          "tag": "h3",
+          "attributes": {
+            "data-canvas-edit-key": "ch17-l05-check-mc-1-prompt",
+            "data-canvas-helper-edit-key": "ch17-l05-check-mc-1-prompt",
+            "id": "ch17-l05-check-mc-1-prompt"
+          }
+        },
+        {
+          "tag": "fieldset",
+          "attributes": {
+            "aria-labelledby": "ch17-l05-check-mc-1-prompt"
+          }
+        },
+        {
+          "tag": "label",
+          "attributes": {
+            "class": "choice-row"
+          }
+        },
+        {
+          "tag": "input",
+          "attributes": {
+            "data-check-choice": "ch17-l05-check-mc-1",
+            "name": "ch17-l05-check-mc-1",
+            "type": "radio",
+            "value": "The loci assort independently under the model"
+          }
+        },
+        {
+          "tag": "span",
+          "attributes": {}
+        },
+        {
+          "tag": "label",
+          "attributes": {
+            "class": "choice-row"
+          }
+        },
+        {
+          "tag": "input",
+          "attributes": {
+            "data-check-choice": "ch17-l05-check-mc-1",
+            "name": "ch17-l05-check-mc-1",
+            "type": "radio",
+            "value": "The two genes must be identical"
+          }
+        },
+        {
+          "tag": "span",
+          "attributes": {}
+        },
+        {
+          "tag": "label",
+          "attributes": {
+            "class": "choice-row"
+          }
+        },
+        {
+          "tag": "input",
+          "attributes": {
+            "data-check-choice": "ch17-l05-check-mc-1",
+            "name": "ch17-l05-check-mc-1",
+            "type": "radio",
+            "value": "Every parent must be homozygous"
+          }
+        },
+        {
+          "tag": "span",
+          "attributes": {}
+        },
+        {
+          "tag": "label",
+          "attributes": {
+            "class": "choice-row"
+          }
+        },
+        {
+          "tag": "input",
+          "attributes": {
+            "data-check-choice": "ch17-l05-check-mc-1",
+            "name": "ch17-l05-check-mc-1",
+            "type": "radio",
+            "value": "Each offspring compensates for the previous one"
+          }
+        },
+        {
+          "tag": "span",
+          "attributes": {}
+        },
+        {
+          "tag": "button",
+          "attributes": {
+            "data-check-answer": "ch17-l05-check-mc-1",
+            "type": "button"
+          }
+        },
+        {
+          "tag": "p",
+          "attributes": {
+            "aria-live": "polite",
+            "class": "inline-feedback",
+            "data-feedback": ""
+          }
+        }
+      ],
+      "editableTextParts": {
+        "promptInnerRange": {
+          "startByte": 220519,
+          "endByteExclusive": 220612,
+          "bytes": 93,
+          "sha256": "326e32ef7283edb7ba3d52f7fd548d9bd2cabb743ff0ce1e9a59a6cfd9d96b8f"
+        },
+        "orderedChoiceRows": [
+          {
+            "range": {
+              "startByte": 220672,
+              "endByteExclusive": 220906,
+              "bytes": 234,
+              "sha256": "0db8708ec0b860a1b82b8e708928f1b75a0a3c8e09c944ceb97246394167c50f"
+            },
+            "exactHtml": "<label class=\"choice-row\"><input data-check-choice=\"ch17-l05-check-mc-1\" name=\"ch17-l05-check-mc-1\" type=\"radio\" value=\"The loci assort independently under the model\"/><span>The loci assort independently under the model</span></label>",
+            "spanInnerRange": {
+              "startByte": 220846,
+              "endByteExclusive": 220891,
+              "bytes": 45,
+              "sha256": "4f3403ef71ce1260b18d33cfdbe5b90c8eea6d888ac715249d4636c8aa64a889"
+            }
+          },
+          {
+            "range": {
+              "startByte": 220906,
+              "endByteExclusive": 221112,
+              "bytes": 206,
+              "sha256": "49e141f33ae68c56e79aa5cc8b93053aaa8425c1496f3925713720397b894966"
+            },
+            "exactHtml": "<label class=\"choice-row\"><input data-check-choice=\"ch17-l05-check-mc-1\" name=\"ch17-l05-check-mc-1\" type=\"radio\" value=\"The two genes must be identical\"/><span>The two genes must be identical</span></label>",
+            "spanInnerRange": {
+              "startByte": 221066,
+              "endByteExclusive": 221097,
+              "bytes": 31,
+              "sha256": "c9367591933c7f13f9287f34ea20688672a338cb64dd7bf26904838a4a2c2908"
+            }
+          },
+          {
+            "range": {
+              "startByte": 221112,
+              "endByteExclusive": 221318,
+              "bytes": 206,
+              "sha256": "aa1280553fab5ef505e619ab0b71d77b7e7ad82d8e7a3f8dafd373da44ca926d"
+            },
+            "exactHtml": "<label class=\"choice-row\"><input data-check-choice=\"ch17-l05-check-mc-1\" name=\"ch17-l05-check-mc-1\" type=\"radio\" value=\"Every parent must be homozygous\"/><span>Every parent must be homozygous</span></label>",
+            "spanInnerRange": {
+              "startByte": 221272,
+              "endByteExclusive": 221303,
+              "bytes": 31,
+              "sha256": "d2593a2101546769a5f16e3d0039a9d3aea5389ba2d3ef2cd2882616d270bf67"
+            }
+          },
+          {
+            "range": {
+              "startByte": 221318,
+              "endByteExclusive": 221556,
+              "bytes": 238,
+              "sha256": "673c032169c65f3733c1e648c7ceeaeac047599c3f9fef1f36b94f501e7a4b0c"
+            },
+            "exactHtml": "<label class=\"choice-row\"><input data-check-choice=\"ch17-l05-check-mc-1\" name=\"ch17-l05-check-mc-1\" type=\"radio\" value=\"Each offspring compensates for the previous one\"/><span>Each offspring compensates for the previous one</span></label>",
+            "spanInnerRange": {
+              "startByte": 221494,
+              "endByteExclusive": 221541,
+              "bytes": 47,
+              "sha256": "759eee6535d253c84766b5f8140466cee6ffb1704b8a1e5d0c7c458bac35c3b8"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch17-l05-check-mc-2",
+      "route": "lesson-05",
+      "type": "mc",
+      "authorizedReplacement": true,
+      "htmlRangeRef": "ch17-l05-check-mc-2.html",
+      "htmlRange": {
+        "startByte": 221723,
+        "endByteExclusive": 222873,
+        "bytes": 1150,
+        "sha256": "35015e8877690bf8f43586136bab35c2609f5594bc5f687e8f22dc3d60cb97ae"
+      },
+      "htmlRawBefore": "source-assessment-v0.3.0/analysis/native-preflight/raw-before/questions/ch17-l05-check-mc-2.html.txt",
+      "jsonRangeRef": "ch17-l05-check-mc-2.json-item",
+      "jsonPath": [
+        "checks",
+        4,
+        "mc",
+        1
+      ],
+      "jsonRange": {
+        "startByte": 3161891,
+        "endByteExclusive": 3162219,
+        "bytes": 328,
+        "sha256": "1202627167362c8e8c520b343c9e441ec3fce39d6b20865acd7a04ff9693ebc9"
+      },
+      "jsonRawBefore": "source-assessment-v0.3.0/analysis/native-preflight/raw-before/questions/ch17-l05-check-mc-2.json.txt",
+      "item": {
+        "prompt": "For independent AaBb × AaBb with complete dominance, what is P(aaB_)?",
+        "answer": "3/16",
+        "explanation": "P(aa) = 1/4 and P(B_) = 3/4, giving 3/16.",
+        "cue": "Trace the normal mechanism before choosing an answer.",
+        "id": "ch17-l05-check-mc-2",
+        "options": [
+          "1/16",
+          "3/16",
+          "1/4",
+          "9/16"
+        ],
+        "difficulty": "application"
+      },
+      "questionAttributes": {
+        "class": "check-question",
+        "data-check-question": "ch17-l05-check-mc-2"
+      },
+      "descendantTagAttributes": [
+        {
+          "tag": "div",
+          "attributes": {
+            "class": "check-question",
+            "data-check-question": "ch17-l05-check-mc-2"
+          }
+        },
+        {
+          "tag": "p",
+          "attributes": {
+            "class": "eyebrow"
+          }
+        },
+        {
+          "tag": "h3",
+          "attributes": {
+            "data-canvas-edit-key": "ch17-l05-check-mc-2-prompt",
+            "data-canvas-helper-edit-key": "ch17-l05-check-mc-2-prompt",
+            "id": "ch17-l05-check-mc-2-prompt"
+          }
+        },
+        {
+          "tag": "fieldset",
+          "attributes": {
+            "aria-labelledby": "ch17-l05-check-mc-2-prompt"
+          }
+        },
+        {
+          "tag": "label",
+          "attributes": {
+            "class": "choice-row"
+          }
+        },
+        {
+          "tag": "input",
+          "attributes": {
+            "data-check-choice": "ch17-l05-check-mc-2",
+            "name": "ch17-l05-check-mc-2",
+            "type": "radio",
+            "value": "1/16"
+          }
+        },
+        {
+          "tag": "span",
+          "attributes": {}
+        },
+        {
+          "tag": "label",
+          "attributes": {
+            "class": "choice-row"
+          }
+        },
+        {
+          "tag": "input",
+          "attributes": {
+            "data-check-choice": "ch17-l05-check-mc-2",
+            "name": "ch17-l05-check-mc-2",
+            "type": "radio",
+            "value": "3/16"
+          }
+        },
+        {
+          "tag": "span",
+          "attributes": {}
+        },
+        {
+          "tag": "label",
+          "attributes": {
+            "class": "choice-row"
+          }
+        },
+        {
+          "tag": "input",
+          "attributes": {
+            "data-check-choice": "ch17-l05-check-mc-2",
+            "name": "ch17-l05-check-mc-2",
+            "type": "radio",
+            "value": "1/4"
+          }
+        },
+        {
+          "tag": "span",
+          "attributes": {}
+        },
+        {
+          "tag": "label",
+          "attributes": {
+            "class": "choice-row"
+          }
+        },
+        {
+          "tag": "input",
+          "attributes": {
+            "data-check-choice": "ch17-l05-check-mc-2",
+            "name": "ch17-l05-check-mc-2",
+            "type": "radio",
+            "value": "9/16"
+          }
+        },
+        {
+          "tag": "span",
+          "attributes": {}
+        },
+        {
+          "tag": "button",
+          "attributes": {
+            "data-check-answer": "ch17-l05-check-mc-2",
+            "type": "button"
+          }
+        },
+        {
+          "tag": "p",
+          "attributes": {
+            "aria-live": "polite",
+            "class": "inline-feedback",
+            "data-feedback": ""
+          }
+        }
+      ],
+      "editableTextParts": {
+        "promptInnerRange": {
+          "startByte": 221970,
+          "endByteExclusive": 222040,
+          "bytes": 70,
+          "sha256": "f7b3a7f7650be51e6b92b6c9760aff36f2670af44a539ea0e5b235250f12ef43"
+        },
+        "orderedChoiceRows": [
+          {
+            "range": {
+              "startByte": 222100,
+              "endByteExclusive": 222252,
+              "bytes": 152,
+              "sha256": "df20c0f957149455b151f568d0dee9ef57a373aa028ff0f1795948a43b14f7cd"
+            },
+            "exactHtml": "<label class=\"choice-row\"><input data-check-choice=\"ch17-l05-check-mc-2\" name=\"ch17-l05-check-mc-2\" type=\"radio\" value=\"1/16\"/><span>1/16</span></label>",
+            "spanInnerRange": {
+              "startByte": 222233,
+              "endByteExclusive": 222237,
+              "bytes": 4,
+              "sha256": "ece2d97a690303566cb7ba329f7bf3e25baedb393c113372798d4230af8de720"
+            }
+          },
+          {
+            "range": {
+              "startByte": 222252,
+              "endByteExclusive": 222404,
+              "bytes": 152,
+              "sha256": "04a2b181422d09b7bf42f93295aa51250181390dfb141f176cbabc62c5e9bbaf"
+            },
+            "exactHtml": "<label class=\"choice-row\"><input data-check-choice=\"ch17-l05-check-mc-2\" name=\"ch17-l05-check-mc-2\" type=\"radio\" value=\"3/16\"/><span>3/16</span></label>",
+            "spanInnerRange": {
+              "startByte": 222385,
+              "endByteExclusive": 222389,
+              "bytes": 4,
+              "sha256": "b9aca0d34018cc5cd9ce0c77838edb31b92dc5f99a44ab1759ac2f703d2d4ccc"
+            }
+          },
+          {
+            "range": {
+              "startByte": 222404,
+              "endByteExclusive": 222554,
+              "bytes": 150,
+              "sha256": "01ad44738010369bfd0315f6af87214d1d3dcf965657994d713b2ae38ae583f7"
+            },
+            "exactHtml": "<label class=\"choice-row\"><input data-check-choice=\"ch17-l05-check-mc-2\" name=\"ch17-l05-check-mc-2\" type=\"radio\" value=\"1/4\"/><span>1/4</span></label>",
+            "spanInnerRange": {
+              "startByte": 222536,
+              "endByteExclusive": 222539,
+              "bytes": 3,
+              "sha256": "f70b94aeb67de2a5eb4bd8c2ea85128f13776cb545a661abe422b378a6cf3099"
+            }
+          },
+          {
+            "range": {
+              "startByte": 222554,
+              "endByteExclusive": 222706,
+              "bytes": 152,
+              "sha256": "39ad9f36330ab2b83e67f60f37f3c8b8a179663237607e38425621927c5b8c5c"
+            },
+            "exactHtml": "<label class=\"choice-row\"><input data-check-choice=\"ch17-l05-check-mc-2\" name=\"ch17-l05-check-mc-2\" type=\"radio\" value=\"9/16\"/><span>9/16</span></label>",
+            "spanInnerRange": {
+              "startByte": 222687,
+              "endByteExclusive": 222691,
+              "bytes": 4,
+              "sha256": "31540b43fa20cb275095247f6784794cecee19c0117b76238fa153964a52af5b"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch17-l05-check-writing-1",
+      "route": "lesson-05",
+      "type": "writing",
+      "authorizedReplacement": true,
+      "htmlRangeRef": "ch17-l05-check-writing-1.html",
+      "htmlRange": {
+        "startByte": 223076,
+        "endByteExclusive": 224552,
+        "bytes": 1476,
+        "sha256": "847596093539629d0001685de7c26d51859ab4209c9b98dfe556276c21b5cb1e"
+      },
+      "htmlRawBefore": "source-assessment-v0.3.0/analysis/native-preflight/raw-before/questions/ch17-l05-check-writing-1.html.txt",
+      "jsonRangeRef": "ch17-l05-check-writing-1.json-item",
+      "jsonPath": [
+        "checks",
+        4,
+        "writing",
+        0
+      ],
+      "jsonRange": {
+        "startByte": 3162234,
+        "endByteExclusive": 3162829,
+        "bytes": 595,
+        "sha256": "ce350aedac4355f10d7769103a837a7588986f332a3412025a7553f370d6d312"
+      },
+      "jsonRawBefore": "source-assessment-v0.3.0/analysis/native-preflight/raw-before/questions/ch17-l05-check-writing-1.json.txt",
+      "item": {
+        "prompt": "List the gametes from RrTt and rrTt under independent assortment, then explain why a 4 × 4 square is unnecessary.",
+        "model": "RrTt produces RT, Rt, rT and rt. rrTt produces rT and rt. A 4 × 2 square contains all distinct combinations; duplicating columns does not add new outcomes or change probabilities.",
+        "criteria": [
+          "Identifies the relevant structures or quantities.",
+          "Explains the causal relationship or calculation, not just the final result.",
+          "Uses the stated evidence and avoids a stronger conclusion than it supports."
+        ],
+        "id": "ch17-l05-check-writing-1",
+        "limit": 3200
+      },
+      "questionAttributes": {
+        "class": "writing-question",
+        "data-writing-question": "ch17-l05-check-writing-1"
+      },
+      "descendantTagAttributes": [
+        {
+          "tag": "div",
+          "attributes": {
+            "class": "writing-question",
+            "data-writing-question": "ch17-l05-check-writing-1"
+          }
+        },
+        {
+          "tag": "p",
+          "attributes": {
+            "class": "eyebrow"
+          }
+        },
+        {
+          "tag": "label",
+          "attributes": {
+            "data-canvas-edit-key": "ch17-l05-check-writing-1-prompt",
+            "data-canvas-helper-edit-key": "ch17-l05-check-writing-1-prompt",
+            "for": "ch17-l05-check-writing-1"
+          }
+        },
+        {
+          "tag": "textarea",
+          "attributes": {
+            "aria-describedby": "ch17-l05-check-writing-1-status",
+            "data-check-writing": "ch17-l05-check-writing-1",
+            "data-limit": "3200",
+            "id": "ch17-l05-check-writing-1",
+            "rows": "6"
+          }
+        },
+        {
+          "tag": "p",
+          "attributes": {
+            "class": "writing-status"
+          }
+        },
+        {
+          "tag": "button",
+          "attributes": {
+            "data-save-writing": "ch17-l05-check-writing-1",
+            "type": "button"
+          }
+        },
+        {
+          "tag": "p",
+          "attributes": {
+            "aria-live": "polite",
+            "class": "writing-status",
+            "data-writing-status": "",
+            "id": "ch17-l05-check-writing-1-status"
+          }
+        },
+        {
+          "tag": "details",
+          "attributes": {
+            "data-locked": "true"
+          }
+        },
+        {
+          "tag": "summary",
+          "attributes": {}
+        },
+        {
+          "tag": "p",
+          "attributes": {}
+        },
+        {
+          "tag": "div",
+          "attributes": {
+            "class": "answer-criteria"
+          }
+        },
+        {
+          "tag": "strong",
+          "attributes": {}
+        },
+        {
+          "tag": "ul",
+          "attributes": {}
+        },
+        {
+          "tag": "li",
+          "attributes": {}
+        },
+        {
+          "tag": "li",
+          "attributes": {}
+        },
+        {
+          "tag": "li",
+          "attributes": {}
+        }
+      ],
+      "editableTextParts": {
+        "promptInnerRange": {
+          "startByte": 223354,
+          "endByteExclusive": 223468,
+          "bytes": 114,
+          "sha256": "be5e9fb743eecdbacc295af990195370e5d6f9a5519efee8688ead89f89aecb2"
+        },
+        "lockedModelDetailsRange": {
+          "startByte": 223950,
+          "endByteExclusive": 224546,
+          "bytes": 596,
+          "sha256": "f4a20bc30eb56ce339e27a19cfedcbec57048b371d06841f5e8ed6f8a5ac8604"
+        },
+        "modelParagraphInnerRange": {
+          "startByte": 224038,
+          "endByteExclusive": 224218,
+          "bytes": 180,
+          "sha256": "1ad5b09e8de39adf3bfdf40bbfb35ec07d7f161a3da7d44a6024ac7c82a33232"
+        },
+        "criteriaListInnerRange": {
+          "startByte": 224299,
+          "endByteExclusive": 224525,
+          "bytes": 226,
+          "sha256": "fa1893e51e05b58664fbacf2c0fbd367c7b9302bf7fe913ca7bb114ac63d131c"
+        },
+        "lockedModelDetailsExactHtml": "<details data-locked=\"true\"><summary>Compare after saving your own response</summary><p>RrTt produces RT, Rt, rT and rt. rrTt produces rT and rt. A 4 × 2 square contains all distinct combinations; duplicating columns does not add new outcomes or change probabilities.</p><div class=\"answer-criteria\"><strong>Check your explanation for:</strong><ul><li>Identifies the relevant structures or quantities.</li><li>Explains the causal relationship or calculation, not just the final result.</li><li>Uses the stated evidence and avoids a stronger conclusion than it supports.</li></ul></div></details>"
+      }
+    },
+    {
+      "id": "ch17-l05-check-writing-2",
+      "route": "lesson-05",
+      "type": "writing",
+      "authorizedReplacement": true,
+      "htmlRangeRef": "ch17-l05-check-writing-2.html",
+      "htmlRange": {
+        "startByte": 224552,
+        "endByteExclusive": 225988,
+        "bytes": 1436,
+        "sha256": "e17b2971640c6ab6f81b09da2f993078efe5913b1b22df0b049dea5d22067457"
+      },
+      "htmlRawBefore": "source-assessment-v0.3.0/analysis/native-preflight/raw-before/questions/ch17-l05-check-writing-2.html.txt",
+      "jsonRangeRef": "ch17-l05-check-writing-2.json-item",
+      "jsonPath": [
+        "checks",
+        4,
+        "writing",
+        1
+      ],
+      "jsonRange": {
+        "startByte": 3162831,
+        "endByteExclusive": 3163386,
+        "bytes": 555,
+        "sha256": "e00e4effe0cf71b92d9ea30770e59d90c1845f09a95d8ab7f3d716c088ac9853"
+      },
+      "jsonRawBefore": "source-assessment-v0.3.0/analysis/native-preflight/raw-before/questions/ch17-l05-check-writing-2.json.txt",
+      "item": {
+        "prompt": "Calculate P(A_bb) for AaBb × aaBb under independent assortment and complete dominance.",
+        "model": "At A, Aa × aa gives P(A_) = 1/2. At B, Bb × Bb gives P(bb) = 1/4. Multiplying gives 1/8. The result depends on independent assortment and the stated phenotype rules.",
+        "criteria": [
+          "Identifies the relevant structures or quantities.",
+          "Explains the causal relationship or calculation, not just the final result.",
+          "Uses the stated evidence and avoids a stronger conclusion than it supports."
+        ],
+        "id": "ch17-l05-check-writing-2",
+        "limit": 3200
+      },
+      "questionAttributes": {
+        "class": "writing-question",
+        "data-writing-question": "ch17-l05-check-writing-2"
+      },
+      "descendantTagAttributes": [
+        {
+          "tag": "div",
+          "attributes": {
+            "class": "writing-question",
+            "data-writing-question": "ch17-l05-check-writing-2"
+          }
+        },
+        {
+          "tag": "p",
+          "attributes": {
+            "class": "eyebrow"
+          }
+        },
+        {
+          "tag": "label",
+          "attributes": {
+            "data-canvas-edit-key": "ch17-l05-check-writing-2-prompt",
+            "data-canvas-helper-edit-key": "ch17-l05-check-writing-2-prompt",
+            "for": "ch17-l05-check-writing-2"
+          }
+        },
+        {
+          "tag": "textarea",
+          "attributes": {
+            "aria-describedby": "ch17-l05-check-writing-2-status",
+            "data-check-writing": "ch17-l05-check-writing-2",
+            "data-limit": "3200",
+            "id": "ch17-l05-check-writing-2",
+            "rows": "6"
+          }
+        },
+        {
+          "tag": "p",
+          "attributes": {
+            "class": "writing-status"
+          }
+        },
+        {
+          "tag": "button",
+          "attributes": {
+            "data-save-writing": "ch17-l05-check-writing-2",
+            "type": "button"
+          }
+        },
+        {
+          "tag": "p",
+          "attributes": {
+            "aria-live": "polite",
+            "class": "writing-status",
+            "data-writing-status": "",
+            "id": "ch17-l05-check-writing-2-status"
+          }
+        },
+        {
+          "tag": "details",
+          "attributes": {
+            "data-locked": "true"
+          }
+        },
+        {
+          "tag": "summary",
+          "attributes": {}
+        },
+        {
+          "tag": "p",
+          "attributes": {}
+        },
+        {
+          "tag": "div",
+          "attributes": {
+            "class": "answer-criteria"
+          }
+        },
+        {
+          "tag": "strong",
+          "attributes": {}
+        },
+        {
+          "tag": "ul",
+          "attributes": {}
+        },
+        {
+          "tag": "li",
+          "attributes": {}
+        },
+        {
+          "tag": "li",
+          "attributes": {}
+        },
+        {
+          "tag": "li",
+          "attributes": {}
+        }
+      ],
+      "editableTextParts": {
+        "promptInnerRange": {
+          "startByte": 224830,
+          "endByteExclusive": 224917,
+          "bytes": 87,
+          "sha256": "e23af1c25067c6c44b75e6a0ce2dc71cc1565e048e7937fa632e358ff46f3fa6"
+        },
+        "lockedModelDetailsRange": {
+          "startByte": 225399,
+          "endByteExclusive": 225982,
+          "bytes": 583,
+          "sha256": "033b300a7ce9083d6eeb9fca1b11a6c9a65c5f8ef9547d7d4588eaffa7e7ff62"
+        },
+        "modelParagraphInnerRange": {
+          "startByte": 225487,
+          "endByteExclusive": 225654,
+          "bytes": 167,
+          "sha256": "207729997b75c81c7904786fb8ada96bbb6e425b72075d28aa7b55e892a38263"
+        },
+        "criteriaListInnerRange": {
+          "startByte": 225735,
+          "endByteExclusive": 225961,
+          "bytes": 226,
+          "sha256": "fa1893e51e05b58664fbacf2c0fbd367c7b9302bf7fe913ca7bb114ac63d131c"
+        },
+        "lockedModelDetailsExactHtml": "<details data-locked=\"true\"><summary>Compare after saving your own response</summary><p>At A, Aa × aa gives P(A_) = 1/2. At B, Bb × Bb gives P(bb) = 1/4. Multiplying gives 1/8. The result depends on independent assortment and the stated phenotype rules.</p><div class=\"answer-criteria\"><strong>Check your explanation for:</strong><ul><li>Identifies the relevant structures or quantities.</li><li>Explains the causal relationship or calculation, not just the final result.</li><li>Uses the stated evidence and avoids a stronger conclusion than it supports.</li></ul></div></details>"
+      }
+    }
+  ],
+  "authorizedRequiredReplacementIds": [
+    "ch17-l02-check-writing-1",
+    "ch17-l05-check-mc-2",
+    "ch17-l05-check-writing-1",
+    "ch17-l05-check-writing-2"
+  ],
+  "requiredQuestionHtmlContract": "Replace each complete question container using exact native attributes/classes/control IDs. MC radio value and visible option text both follow each ordered option; JSON answer equals exactly one option. Writing label text and model paragraph/criteria-list contents must match JSON prompt/model/criteria; textarea limit3200 and all save/status/locked comparison controls remain native.",
+  "notesRegistry": {
+    "range": {
+      "startByte": 3280396,
+      "endByteExclusive": 3281342,
+      "bytes": 946,
+      "sha256": "3890e85bb78d6b4c3d91289e9c5c4b7b64c5702b7c332dac5e42ee4c29715d7a"
+    },
+    "rawBefore": "source-assessment-v0.3.0/analysis/native-preflight/raw-before/configuration/notes.json.txt",
+    "items": [
+      {
+        "id": "ch17-source-written-OBJ_2131244",
+        "title": "Additional written application 1"
+      },
+      {
+        "id": "ch17-source-written-OBJ_2131247",
+        "title": "Additional written application 2"
+      },
+      {
+        "id": "ch17-source-written-OBJ_2131248",
+        "title": "Additional written application 3"
+      },
+      {
+        "id": "ch17-source-written-OBJ_2131251",
+        "title": "Additional written application 4"
+      },
+      {
+        "id": "ch17-source-written-OBJ_2131252",
+        "title": "Additional written application 5"
+      },
+      {
+        "id": "ch17-optional-extension",
+        "title": "Biobanks and genetic information"
+      },
+      {
+        "id": "ch17-kinch-v020-l02-arrow-response",
+        "title": "Repair the two process labels"
+      },
+      {
+        "id": "ch17-kinch-v020-l02-cross-response",
+        "title": "Does reversing the parents reverse the result?"
+      },
+      {
+        "id": "ch17-kinch-v020-l05-change-response",
+        "title": "Change one parent and keep only the reasoning that still applies"
+      },
+      {
+        "id": "ch17-kinch-v020-l05-evidence-response",
+        "title": "Decide what the new offspring settles—and what it leaves open"
+      }
+    ],
+    "preservation": "All ten integrated records and exact bytes preserved; no title registration needed for unchanged four optional note IDs."
+  },
+  "versionSlots": [
+    {
+      "key": "bankVersion",
+      "value": "ch17-complete-v1",
+      "range": {
+        "startByte": 3150337,
+        "endByteExclusive": 3150355,
+        "bytes": 18,
+        "sha256": "80c50ec684980f407dd754876fae2fbb970478604c8a34a84e9c71429eedce0d"
+      },
+      "rawBefore": "source-assessment-v0.3.0/analysis/native-preflight/raw-before/configuration/bankVersion.json.txt",
+      "status": "Potential separate proposal only; no version value authored or applied."
+    },
+    {
+      "key": "contentVersion",
+      "value": "2026-09-17-completed-handoff",
+      "range": {
+        "startByte": 3150375,
+        "endByteExclusive": 3150405,
+        "bytes": 30,
+        "sha256": "c30258ba081ba0f94c2a5ddba6d8df4f459e857eb81807c4034a14e81cb5ac73"
+      },
+      "rawBefore": "source-assessment-v0.3.0/analysis/native-preflight/raw-before/configuration/contentVersion.json.txt",
+      "status": "Potential separate proposal only; no version value authored or applied."
+    }
+  ],
+  "minimalSupportedEditSet": [
+    {
+      "kind": "question-html",
+      "id": "ch17-l02-check-writing-1",
+      "rangeRef": "ch17-l02-check-writing-1.html",
+      "range": {
+        "startByte": 130865,
+        "endByteExclusive": 132393,
+        "bytes": 1528,
+        "sha256": "05b99f3d122bf8b20223240768319337b440998e5eee34fa1c3a8f8fddd3e844"
+      }
+    },
+    {
+      "kind": "teaching-child-sequence",
+      "id": "lesson-05.tomato-core",
+      "rangeRef": "lesson-05.tomato-core",
+      "range": {
+        "startByte": 195148,
+        "endByteExclusive": 200094,
+        "bytes": 4946,
+        "sha256": "5e72ac37b5a94f21e6d026487c42be7dc55bd4b28b606fd57c2534c373f7edb9"
+      },
+      "rawBefore": "source-assessment-v0.3.0/analysis/native-preflight/raw-before/lesson-05/tomato-core.html.txt"
+    },
+    {
+      "kind": "optional-task",
+      "id": "lesson-05.change-task",
+      "rangeRef": "lesson-05.change-task",
+      "range": {
+        "startByte": 200094,
+        "endByteExclusive": 204007,
+        "bytes": 3913,
+        "sha256": "541be9540ef4b88a6961d5a528f0e4c9a69f3ef60dcd3f166fb049f1c71aeceb"
+      },
+      "rawBefore": "source-assessment-v0.3.0/analysis/native-preflight/raw-before/lesson-05/change-task.html.txt"
+    },
+    {
+      "kind": "question-html",
+      "id": "ch17-l05-check-mc-2",
+      "rangeRef": "ch17-l05-check-mc-2.html",
+      "range": {
+        "startByte": 221723,
+        "endByteExclusive": 222873,
+        "bytes": 1150,
+        "sha256": "35015e8877690bf8f43586136bab35c2609f5594bc5f687e8f22dc3d60cb97ae"
+      }
+    },
+    {
+      "kind": "question-html",
+      "id": "ch17-l05-check-writing-1",
+      "rangeRef": "ch17-l05-check-writing-1.html",
+      "range": {
+        "startByte": 223076,
+        "endByteExclusive": 224552,
+        "bytes": 1476,
+        "sha256": "847596093539629d0001685de7c26d51859ab4209c9b98dfe556276c21b5cb1e"
+      }
+    },
+    {
+      "kind": "question-html",
+      "id": "ch17-l05-check-writing-2",
+      "rangeRef": "ch17-l05-check-writing-2.html",
+      "range": {
+        "startByte": 224552,
+        "endByteExclusive": 225988,
+        "bytes": 1436,
+        "sha256": "e17b2971640c6ab6f81b09da2f993078efe5913b1b22df0b049dea5d22067457"
+      }
+    },
+    {
+      "kind": "question-json-item",
+      "id": "ch17-l02-check-writing-1",
+      "rangeRef": "ch17-l02-check-writing-1.json-item",
+      "range": {
+        "startByte": 3155226,
+        "endByteExclusive": 3155873,
+        "bytes": 647,
+        "sha256": "68ce219e2a96eddea903284408e089c3c5bd4a41689d492f4ee32273bb470dfa"
+      }
+    },
+    {
+      "kind": "question-json-item",
+      "id": "ch17-l05-check-mc-2",
+      "rangeRef": "ch17-l05-check-mc-2.json-item",
+      "range": {
+        "startByte": 3161891,
+        "endByteExclusive": 3162219,
+        "bytes": 328,
+        "sha256": "1202627167362c8e8c520b343c9e441ec3fce39d6b20865acd7a04ff9693ebc9"
+      }
+    },
+    {
+      "kind": "question-json-item",
+      "id": "ch17-l05-check-writing-1",
+      "rangeRef": "ch17-l05-check-writing-1.json-item",
+      "range": {
+        "startByte": 3162234,
+        "endByteExclusive": 3162829,
+        "bytes": 595,
+        "sha256": "ce350aedac4355f10d7769103a837a7588986f332a3412025a7553f370d6d312"
+      }
+    },
+    {
+      "kind": "question-json-item",
+      "id": "ch17-l05-check-writing-2",
+      "rangeRef": "ch17-l05-check-writing-2.json-item",
+      "range": {
+        "startByte": 3162831,
+        "endByteExclusive": 3163386,
+        "bytes": 555,
+        "sha256": "e00e4effe0cf71b92d9ea30770e59d90c1845f09a95d8ab7f3d716c088ac9853"
+      }
+    }
+  ],
+  "minimalSupportedEditSetDisjoint": true,
+  "teachingRecommendation": "Only ch17-l05-worked contains the changed tomato baseline and its dependent optional changed-parent task. Integrate two disjoint pieces: child sequence from worked opening-tag end to nested task start, and the complete task element. The worked outer owner and closing bytes stay unchanged. Complete worked/full-teaching ranges are reference evidence, not additional overlapping edits. Actual block order is teaching01,teaching02,worked,teaching03. Full teaching ranges include trailing whitespace through the protected guided-section start.",
+  "requiredPreservation": "Keep lesson02MC1/MC2/writing2 and lesson05MC1 byte-exact in both HTML and JSON. Keep all other checks, all optional source-bank questions, notes titles, labeling, videos, reader, CSS and runtime exact.",
+  "optionalPreservation": "Keep all four optional IDs and exact native control markup. Only lesson05 change-task prose is authorized for the restored baseline dependency; the other three activity blocks remain byte exact.",
+  "integrationState": "No source mutation or integration performed. These are proposal bounds, not applied changes.",
+  "runtimeUIState": "No UI tests run; native save/reload/unlock/completion/All My Work behavior must be tested by later integrator.",
+  "rawBeforeIndex": [
+    {
+      "path": "source-assessment-v0.3.0/analysis/native-preflight/raw-before/lesson-02/route.html.txt",
+      "range": {
+        "startByte": 102372,
+        "endByteExclusive": 134480,
+        "bytes": 32108,
+        "sha256": "5a2d72db2fdd45b99d5638eeab3d1767c0652cacbdec79c4a14ba260da7f06a4"
+      }
+    },
+    {
+      "path": "source-assessment-v0.3.0/analysis/native-preflight/raw-before/lesson-02/header.html.txt",
+      "range": {
+        "startByte": 102448,
+        "endByteExclusive": 106355,
+        "bytes": 3907,
+        "sha256": "afbaf8f75fd5642a59468f9b1a8f2de883a86bc0695fff7c05fb2c7029c5d4ee"
+      }
+    },
+    {
+      "path": "source-assessment-v0.3.0/analysis/native-preflight/raw-before/lesson-02/teaching.html.txt",
+      "range": {
+        "startByte": 106355,
+        "endByteExclusive": 124946,
+        "bytes": 18591,
+        "sha256": "a843cc369e041e244a5cc775907979d36b906b78b2fc3b39ed26a0757d395c00"
+      }
+    },
+    {
+      "path": "source-assessment-v0.3.0/analysis/native-preflight/raw-before/lesson-02/prefix.html.txt",
+      "range": {
+        "startByte": 102372,
+        "endByteExclusive": 106355,
+        "bytes": 3983,
+        "sha256": "db23b534c4003ebb1ff3d7ad97070bd4f8d6e4bca096209cd6de7802bd45c438"
+      }
+    },
+    {
+      "path": "source-assessment-v0.3.0/analysis/native-preflight/raw-before/lesson-02/suffix.html.txt",
+      "range": {
+        "startByte": 124946,
+        "endByteExclusive": 134480,
+        "bytes": 9534,
+        "sha256": "56c917d78e4bc20d47275146afcd604ae737691cf816b485863f3d4b383766f1"
+      }
+    },
+    {
+      "path": "source-assessment-v0.3.0/analysis/native-preflight/raw-before/lesson-05/route.html.txt",
+      "range": {
+        "startByte": 179254,
+        "endByteExclusive": 226565,
+        "bytes": 47311,
+        "sha256": "06c4b5c4cff3b21938ad16979cac3b96a8a20ae96bba1e11b0e5bed052aa17c2"
+      }
+    },
+    {
+      "path": "source-assessment-v0.3.0/analysis/native-preflight/raw-before/lesson-05/header.html.txt",
+      "range": {
+        "startByte": 179330,
+        "endByteExclusive": 183248,
+        "bytes": 3918,
+        "sha256": "ec347589a85dc86e808c43fac459e137a51a73e8d1ba2dd812e1f764b241a340"
+      }
+    },
+    {
+      "path": "source-assessment-v0.3.0/analysis/native-preflight/raw-before/lesson-05/teaching.html.txt",
+      "range": {
+        "startByte": 183248,
+        "endByteExclusive": 214899,
+        "bytes": 31651,
+        "sha256": "4439240ef48d2b38d50bf3e624769c03e9a79a9641d7fd25386d0d5ec4799cb8"
+      }
+    },
+    {
+      "path": "source-assessment-v0.3.0/analysis/native-preflight/raw-before/lesson-05/prefix.html.txt",
+      "range": {
+        "startByte": 179254,
+        "endByteExclusive": 183248,
+        "bytes": 3994,
+        "sha256": "28b986d505f43c2100034aa0bbbf76eb9c5280b5fc083011659fe82597ea77e4"
+      }
+    },
+    {
+      "path": "source-assessment-v0.3.0/analysis/native-preflight/raw-before/lesson-05/suffix.html.txt",
+      "range": {
+        "startByte": 214899,
+        "endByteExclusive": 226565,
+        "bytes": 11666,
+        "sha256": "b096766cf85ac4a41564bcc3d6a662ba136d565469ae207203a38ec4f4859e45"
+      }
+    }
+  ]
+}

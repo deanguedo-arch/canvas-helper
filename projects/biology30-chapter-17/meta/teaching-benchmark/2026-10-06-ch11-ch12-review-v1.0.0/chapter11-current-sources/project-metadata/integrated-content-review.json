@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "status": "historical-first-three-topic-intake; superseded in scope by chapter11-intake.json",
+  "source": "projects/resources/biology30-pilot3-review/9e9e7823d345f21ad251e7e02624d65e005eab7c2f057bca20f23418cfdc94d2/Biology30_Chapter11_Integrated.html",
+  "sourceSha256": "9e9e7823d345f21ad251e7e02624d65e005eab7c2f057bca20f23418cfdc94d2",
+  "scope": "One Neuron Structure lesson: source topics overview, neuron-structure, reflexes. Other Chapter 11 topics remain reference-only, not completed lessons.",
+  "teachingSections": 10,
+  "ownership": "One-time intake patch. Canonical visible content remains workspace/index.html. Imported JavaScript, stylesheet, notebook, completion controls and storage were excluded.",
+  "scientificAdjustments": [
+    "Qualified Schwann-cell myelination as peripheral at first mention; retained the source's CNS oligodendrocyte explanation.",
+    "Retained the source's continuous axon and node-regeneration explanation; captions clarify that jumping arrows are schematic.",
+    "Retained spinal-withdrawal scope and the warning that not every reflex includes an interneuron.",
+    "Removed full-chapter study/exam priorities from the one-lesson slice. No new promises about what will be tested."
+  ],
+  "images": [
+    {"file":"assets/source/integrated-neuron.png","sha256":"368e7a915e803f7d60e35819d6a87956724f0271bda2b97ad1d96cc1a54a68f2","review":"Viewed: readable structure labels and information-flow direction; caption limits it to a typical multipolar neuron."},
+    {"file":"assets/source/integrated-myelin.png","sha256":"87cf1aa42e91c7a544eb1f538f95df983f0abbd140c888766488c8973c0aaa82","review":"Viewed: continuous versus node regeneration; peripheral Schwann-cell example and schematic-arrow limitations stated."},
+    {"file":"assets/source/integrated-withdrawal.svg","sha256":"836f66028c014ecc28aac24ba47f1da345ef559126e5c234d67ece4dc48ddada","review":"Rendered and viewed: sensory entry, interneuron, motor cell in spinal cord, effector and ascending information path; schematic not anatomical scale."}
+  ],
+  "excludedImages": [
+    {"source":"overview image 1","reason":"Axon leader points to the myelin sheath."},
+    {"source":"reflexes image 1 / figure 4","reason":"Withdrawal diagram places motor cell body outside the spinal cord."}
+  ],
+  "videos": [
+    {"id":"qPix_X-9t7E","title":"The Nervous System, Part 1: Crash Course Anatomy & Physiology #8","provider":"CrashCourse","oembedHttpStatus":200},
+    {"id":"A44brRGG4Ys","title":"Structure of a Neuron","provider":"Shukin Science","oembedHttpStatus":200},
+    {"id":"aaQWxko6qmk","title":"Easy to understand | REFLEX ARC","provider":"Miss Angler","oembedHttpStatus":200},
+    {"id":"4WcZR_k_a0I","title":"Types of Neurons: Reflex Arcs","provider":"Shukin Science","oembedHttpStatus":200}
+  ],
+  "videoVerificationBoundary": "YouTube oEmbed returned 200 for all four on 2026-09-12. Lesson and library share IDs. Player loading is tested, but uninterrupted playback across networks/regions is not certified; external links and local explanations remain.",
+  "questionsAndSaving": "Existing Brightspace MC and textbook writing, adapted drills, response IDs, history, timers, eight Frayer slots and storage namespaces unchanged. No source notebook imported. Extra physical investigations and saved questions not stacked onto the agreed test.",
+  "releaseBoundary": "Private local review. No deployment, ZIP, SCORM, LMS reporting or rights clearance implied."
+}

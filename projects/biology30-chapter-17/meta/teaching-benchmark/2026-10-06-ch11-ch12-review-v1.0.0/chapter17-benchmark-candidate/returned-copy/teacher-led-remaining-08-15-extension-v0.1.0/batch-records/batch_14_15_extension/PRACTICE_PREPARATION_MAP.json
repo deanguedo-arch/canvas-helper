@@ -1,0 +1,3214 @@
+{
+  "version": "0.1.0",
+  "fragmentHashes": {
+    "lesson-14": "edcbbcc7ba4dc652ebbdc780d042f72bf3d4f38a9252ece5462988eb31a16b85",
+    "lesson-15": "e3d82594a3f297067ae2c28ff736d434ba0616234843c4de68cdbc0a08bed7a5",
+    "extension": "4847cdf865f0f04e504317a0370f057d2556c5f269475b2d4c6f1b6e0b792c93"
+  },
+  "items": [
+    {
+      "route": "lesson-14",
+      "id": "ch17-check-14",
+      "kind": "native-bank-or-check",
+      "sourceObject": {
+        "id": "ch17-check-14",
+        "route": "lesson-14",
+        "title": "Genetic testing, counselling and decisions",
+        "mc": [
+          {
+            "prompt": "Why must a negative genetic test be interpreted within its scope?",
+            "answer": "Untested variants or causes may still exist",
+            "explanation": "The test answers specific questions, not every possible genetic question.",
+            "cue": "Trace the normal mechanism before choosing an answer.",
+            "id": "ch17-l14-check-mc-1",
+            "options": [
+              "Negative always means no DNA is present",
+              "Tests cannot ever provide useful evidence",
+              "Untested variants or causes may still exist",
+              "All conditions have one identical allele"
+            ],
+            "difficulty": "application"
+          },
+          {
+            "prompt": "Which question is relevant to informed consent for a genetic study?",
+            "answer": "How samples and results may be used and shared",
+            "explanation": "Understanding uses, risks and options matters before agreement.",
+            "cue": "Trace the normal mechanism before choosing an answer.",
+            "id": "ch17-l14-check-mc-2",
+            "options": [
+              "Whether every participant will have the same phenotype",
+              "Whether the test can replace all medical history",
+              "Only whether the collection tube is coloured",
+              "How samples and results may be used and shared"
+            ],
+            "difficulty": "application"
+          }
+        ],
+        "writing": [
+          {
+            "prompt": "Distinguish a positive risk-associated test result from a guaranteed phenotype.",
+            "model": "A result may identify a variant associated with increased probability, but expression can depend on penetrance, other genetic factors and environment. The test’s validation and scope determine how strongly it predicts an outcome. Increased risk is not automatically certainty.",
+            "criteria": [
+              "Identifies the relevant structures or quantities.",
+              "Explains the causal relationship or calculation, not just the final result.",
+              "Uses the stated evidence and avoids a stronger conclusion than it supports."
+            ],
+            "id": "ch17-l14-check-writing-1",
+            "limit": 3200
+          },
+          {
+            "prompt": "Identify two issues a participant should understand before consenting to a genetic study and explain why.",
+            "model": "The participant should understand what is tested and what results may mean, including uncertainty. They should also understand how samples and data may be stored, used or shared, because genetic information can have personal and family implications. Consent supports an informed choice.",
+            "criteria": [
+              "Identifies the relevant structures or quantities.",
+              "Explains the causal relationship or calculation, not just the final result.",
+              "Uses the stated evidence and avoids a stronger conclusion than it supports."
+            ],
+            "id": "ch17-l14-check-writing-2",
+            "limit": 3200
+          }
+        ]
+      },
+      "preparation": "Understand the proposed choice before agreeing; Questions that clarify the fictional research invitation",
+      "status": "Prepared as formative review of explicitly taught reasoning",
+      "overlap": "Foundational/model facts recur by design; not certified fresh independent transfer",
+      "protection": "Exact native object and controls unchanged"
+    },
+    {
+      "route": "lesson-14",
+      "id": "ch17-l14-check-mc-1",
+      "kind": "native-bank-or-check",
+      "sourceObject": {
+        "prompt": "Why must a negative genetic test be interpreted within its scope?",
+        "answer": "Untested variants or causes may still exist",
+        "explanation": "The test answers specific questions, not every possible genetic question.",
+        "cue": "Trace the normal mechanism before choosing an answer.",
+        "id": "ch17-l14-check-mc-1",
+        "options": [
+          "Negative always means no DNA is present",
+          "Tests cannot ever provide useful evidence",
+          "Untested variants or causes may still exist",
+          "All conditions have one identical allele"
+        ],
+        "difficulty": "application"
+      },
+      "preparation": "A test result answers a particular question; Positive negative and uncertain results; Check the scope and privacy claims separately",
+      "status": "Prepared as formative review of explicitly taught reasoning",
+      "overlap": "Foundational/model facts recur by design; not certified fresh independent transfer",
+      "protection": "Exact native object and controls unchanged"
+    },
+    {
+      "route": "lesson-14",
+      "id": "ch17-l14-check-mc-2",
+      "kind": "native-bank-or-check",
+      "sourceObject": {
+        "prompt": "Which question is relevant to informed consent for a genetic study?",
+        "answer": "How samples and results may be used and shared",
+        "explanation": "Understanding uses, risks and options matters before agreement.",
+        "cue": "Trace the normal mechanism before choosing an answer.",
+        "id": "ch17-l14-check-mc-2",
+        "options": [
+          "Whether every participant will have the same phenotype",
+          "Whether the test can replace all medical history",
+          "Only whether the collection tube is coloured",
+          "How samples and results may be used and shared"
+        ],
+        "difficulty": "application"
+      },
+      "preparation": "Understand the proposed choice before agreeing; Questions that clarify the fictional research invitation",
+      "status": "Prepared as formative review of explicitly taught reasoning",
+      "overlap": "Foundational/model facts recur by design; not certified fresh independent transfer",
+      "protection": "Exact native object and controls unchanged"
+    },
+    {
+      "route": "lesson-14",
+      "id": "ch17-l14-check-writing-1",
+      "kind": "native-bank-or-check",
+      "sourceObject": {
+        "prompt": "Distinguish a positive risk-associated test result from a guaranteed phenotype.",
+        "model": "A result may identify a variant associated with increased probability, but expression can depend on penetrance, other genetic factors and environment. The test’s validation and scope determine how strongly it predicts an outcome. Increased risk is not automatically certainty.",
+        "criteria": [
+          "Identifies the relevant structures or quantities.",
+          "Explains the causal relationship or calculation, not just the final result.",
+          "Uses the stated evidence and avoids a stronger conclusion than it supports."
+        ],
+        "id": "ch17-l14-check-writing-1",
+        "limit": 3200
+      },
+      "preparation": "Make a risk statement precise enough to interpret; Compare the same data in two ways; Decide what a fictional report establishes",
+      "status": "Prepared as formative review of explicitly taught reasoning",
+      "overlap": "Foundational/model facts recur by design; not certified fresh independent transfer",
+      "protection": "Exact native object and controls unchanged"
+    },
+    {
+      "route": "lesson-14",
+      "id": "ch17-l14-check-writing-2",
+      "kind": "native-bank-or-check",
+      "sourceObject": {
+        "prompt": "Identify two issues a participant should understand before consenting to a genetic study and explain why.",
+        "model": "The participant should understand what is tested and what results may mean, including uncertainty. They should also understand how samples and data may be stored, used or shared, because genetic information can have personal and family implications. Consent supports an informed choice.",
+        "criteria": [
+          "Identifies the relevant structures or quantities.",
+          "Explains the causal relationship or calculation, not just the final result.",
+          "Uses the stated evidence and avoids a stronger conclusion than it supports."
+        ],
+        "id": "ch17-l14-check-writing-2",
+        "limit": 3200
+      },
+      "preparation": "Understand the proposed choice before agreeing; Questions that clarify the fictional research invitation",
+      "status": "Prepared as formative review of explicitly taught reasoning",
+      "overlap": "Foundational/model facts recur by design; not certified fresh independent transfer",
+      "protection": "Exact native object and controls unchanged"
+    },
+    {
+      "route": "lesson-14",
+      "id": "ch17-word-genetic-testing",
+      "kind": "native-bank-or-check",
+      "sourceObject": {
+        "term": "genetic testing",
+        "meaning": "Analysis of genetic material or related markers to investigate particular variants or conditions.",
+        "example": "A test checks for a specified DNA variant.",
+        "importantDistinction": "A test’s scope determines what a negative or positive result can establish.",
+        "aliases": [],
+        "id": "ch17-word-genetic-testing",
+        "lesson": 14,
+        "whatItDoes": "A test checks for a specified DNA variant.",
+        "feature": "A test checks for a specified DNA variant.",
+        "confusion": "A test’s scope determines what a negative or positive result can establish."
+      },
+      "preparation": "A test result answers a particular question; Positive negative and uncertain results; Check the scope and privacy claims separately",
+      "status": "Prepared as formative review of explicitly taught reasoning",
+      "overlap": "Foundational/model facts recur by design; not certified fresh independent transfer",
+      "protection": "Exact native object and controls unchanged"
+    },
+    {
+      "route": "lesson-14",
+      "id": "ch17-word-genetic-counselling",
+      "kind": "native-bank-or-check",
+      "sourceObject": {
+        "term": "genetic counselling",
+        "meaning": "A process helping people understand genetic information, inheritance and possible implications for their choices.",
+        "example": "A professional explains a result, its uncertainty and relevant family context.",
+        "importantDistinction": "Counselling supports informed decisions rather than dictating one choice for every family.",
+        "aliases": [],
+        "id": "ch17-word-genetic-counselling",
+        "lesson": 14,
+        "whatItDoes": "A professional explains a result, its uncertainty and relevant family context.",
+        "feature": "A professional explains a result, its uncertainty and relevant family context.",
+        "confusion": "Counselling supports informed decisions rather than dictating one choice for every family."
+      },
+      "preparation": "Use a counselling conversation to make the uncertainty usable",
+      "status": "Prepared as formative review of explicitly taught reasoning",
+      "overlap": "Foundational/model facts recur by design; not certified fresh independent transfer",
+      "protection": "Exact native object and controls unchanged"
+    },
+    {
+      "route": "lesson-14",
+      "id": "ch17-word-informed-consent",
+      "kind": "native-bank-or-check",
+      "sourceObject": {
+        "term": "informed consent",
+        "meaning": "Agreement based on understanding the purpose, potential benefits, risks and alternatives of a procedure or study.",
+        "example": "A participant considers how a genetic sample and results will be used before agreeing.",
+        "importantDistinction": "Consent involves more than the physical act of giving a sample.",
+        "aliases": [],
+        "id": "ch17-word-informed-consent",
+        "lesson": 14,
+        "whatItDoes": "A participant considers how a genetic sample and results will be used before agreeing.",
+        "feature": "A participant considers how a genetic sample and results will be used before agreeing.",
+        "confusion": "Consent involves more than the physical act of giving a sample."
+      },
+      "preparation": "Understand the proposed choice before agreeing; Questions that clarify the fictional research invitation",
+      "status": "Prepared as formative review of explicitly taught reasoning",
+      "overlap": "Foundational/model facts recur by design; not certified fresh independent transfer",
+      "protection": "Exact native object and controls unchanged"
+    },
+    {
+      "route": "lesson-14",
+      "id": "ch17-word-genetic-risk",
+      "kind": "native-bank-or-check",
+      "sourceObject": {
+        "term": "genetic risk",
+        "meaning": "A probability or increased likelihood associated with genetic information in a specified context.",
+        "example": "A variant is associated with increased probability of a condition without making it inevitable.",
+        "importantDistinction": "Risk is not the same as certainty.",
+        "aliases": [],
+        "id": "ch17-word-genetic-risk",
+        "lesson": 14,
+        "whatItDoes": "A variant is associated with increased probability of a condition without making it inevitable.",
+        "feature": "A variant is associated with increased probability of a condition without making it inevitable.",
+        "confusion": "Risk is not the same as certainty."
+      },
+      "preparation": "Make a risk statement precise enough to interpret; Compare the same data in two ways; Decide what a fictional report establishes",
+      "status": "Prepared as formative review of explicitly taught reasoning",
+      "overlap": "Foundational/model facts recur by design; not certified fresh independent transfer",
+      "protection": "Exact native object and controls unchanged"
+    },
+    {
+      "route": "lesson-14",
+      "id": "ch17-foundation-ch17-word-genetic-testing",
+      "kind": "native-bank-or-check",
+      "sourceObject": {
+        "id": "ch17-foundation-ch17-word-genetic-testing",
+        "lesson": 14,
+        "conceptId": "ch17-concept-genetic-testing",
+        "prompt": "Which term matches this description? Analysis of genetic material or related markers to investigate particular variants or conditions.",
+        "options": [
+          "genetic testing",
+          "genetic counselling",
+          "informed consent",
+          "genetic risk"
+        ],
+        "answer": "genetic testing",
+        "cue": "Use the meaning of each term, not the length of its name.",
+        "explanation": "Analysis of genetic material or related markers to investigate particular variants or conditions. A test’s scope determines what a negative or positive result can establish.",
+        "difficulty": "recall",
+        "family": "definition-recognition",
+        "kind": "mc"
+      },
+      "preparation": "Understand the proposed choice before agreeing; Questions that clarify the fictional research invitation",
+      "status": "Prepared as formative review of explicitly taught reasoning",
+      "overlap": "Foundational/model facts recur by design; not certified fresh independent transfer",
+      "protection": "Exact native object and controls unchanged"
+    },
+    {
+      "route": "lesson-14",
+      "id": "ch17-foundation-ch17-word-genetic-counselling",
+      "kind": "native-bank-or-check",
+      "sourceObject": {
+        "id": "ch17-foundation-ch17-word-genetic-counselling",
+        "lesson": 14,
+        "conceptId": "ch17-concept-genetic-counselling",
+        "prompt": "Which term matches this description? A process helping people understand genetic information, inheritance and possible implications for their choices.",
+        "options": [
+          "genetic testing",
+          "genetic counselling",
+          "informed consent",
+          "genetic risk"
+        ],
+        "answer": "genetic counselling",
+        "cue": "Use the meaning of each term, not the length of its name.",
+        "explanation": "A process helping people understand genetic information, inheritance and possible implications for their choices. Counselling supports informed decisions rather than dictating one choice for every family.",
+        "difficulty": "recall",
+        "family": "definition-recognition",
+        "kind": "mc"
+      },
+      "preparation": "Understand the proposed choice before agreeing; Questions that clarify the fictional research invitation",
+      "status": "Prepared as formative review of explicitly taught reasoning",
+      "overlap": "Foundational/model facts recur by design; not certified fresh independent transfer",
+      "protection": "Exact native object and controls unchanged"
+    },
+    {
+      "route": "lesson-14",
+      "id": "ch17-foundation-ch17-word-informed-consent",
+      "kind": "native-bank-or-check",
+      "sourceObject": {
+        "id": "ch17-foundation-ch17-word-informed-consent",
+        "lesson": 14,
+        "conceptId": "ch17-concept-informed-consent",
+        "prompt": "Which term matches this description? Agreement based on understanding the purpose, potential benefits, risks and alternatives of a procedure or study.",
+        "options": [
+          "genetic testing",
+          "genetic counselling",
+          "informed consent",
+          "genetic risk"
+        ],
+        "answer": "informed consent",
+        "cue": "Use the meaning of each term, not the length of its name.",
+        "explanation": "Agreement based on understanding the purpose, potential benefits, risks and alternatives of a procedure or study. Consent involves more than the physical act of giving a sample.",
+        "difficulty": "recall",
+        "family": "definition-recognition",
+        "kind": "mc"
+      },
+      "preparation": "Understand the proposed choice before agreeing; Questions that clarify the fictional research invitation",
+      "status": "Prepared as formative review of explicitly taught reasoning",
+      "overlap": "Foundational/model facts recur by design; not certified fresh independent transfer",
+      "protection": "Exact native object and controls unchanged"
+    },
+    {
+      "route": "lesson-14",
+      "id": "ch17-foundation-ch17-word-genetic-risk",
+      "kind": "native-bank-or-check",
+      "sourceObject": {
+        "id": "ch17-foundation-ch17-word-genetic-risk",
+        "lesson": 14,
+        "conceptId": "ch17-concept-genetic-risk",
+        "prompt": "Which term matches this description? A probability or increased likelihood associated with genetic information in a specified context.",
+        "options": [
+          "genetic testing",
+          "genetic counselling",
+          "informed consent",
+          "genetic risk"
+        ],
+        "answer": "genetic risk",
+        "cue": "Use the meaning of each term, not the length of its name.",
+        "explanation": "A probability or increased likelihood associated with genetic information in a specified context. Risk is not the same as certainty.",
+        "difficulty": "recall",
+        "family": "definition-recognition",
+        "kind": "mc"
+      },
+      "preparation": "Understand the proposed choice before agreeing; Questions that clarify the fictional research invitation",
+      "status": "Prepared as formative review of explicitly taught reasoning",
+      "overlap": "Foundational/model facts recur by design; not certified fresh independent transfer",
+      "protection": "Exact native object and controls unchanged"
+    },
+    {
+      "route": "lesson-14",
+      "id": "ch17-concept-genetic-testing",
+      "kind": "native-bank-or-check",
+      "sourceObject": {
+        "id": "ch17-concept-genetic-testing",
+        "term": "genetic testing",
+        "lesson": 14,
+        "meaning": "Analysis of genetic material or related markers to investigate particular variants or conditions.",
+        "example": "A test checks for a specified DNA variant.",
+        "aliases": [],
+        "cue": "Identify the structure, quantity or relationship described.",
+        "correctExplanation": "Analysis of genetic material or related markers to investigate particular variants or conditions. A test’s scope determines what a negative or positive result can establish.",
+        "misconception": {
+          "statement": "A negative test rules out every genetic condition.",
+          "correction": "Analysis of genetic material or related markers to investigate particular variants or conditions. A test’s scope determines what a negative or positive result can establish."
+        },
+        "reviewRoute": "lesson-14"
+      },
+      "preparation": "A test result answers a particular question; Positive negative and uncertain results; Check the scope and privacy claims separately",
+      "status": "Prepared as formative review of explicitly taught reasoning",
+      "overlap": "Foundational/model facts recur by design; not certified fresh independent transfer",
+      "protection": "Exact native object and controls unchanged"
+    },
+    {
+      "route": "lesson-14",
+      "id": "ch17-concept-genetic-counselling",
+      "kind": "native-bank-or-check",
+      "sourceObject": {
+        "id": "ch17-concept-genetic-counselling",
+        "term": "genetic counselling",
+        "lesson": 14,
+        "meaning": "A process helping people understand genetic information, inheritance and possible implications for their choices.",
+        "example": "A professional explains a result, its uncertainty and relevant family context.",
+        "aliases": [],
+        "cue": "Identify the structure, quantity or relationship described.",
+        "correctExplanation": "A process helping people understand genetic information, inheritance and possible implications for their choices. Counselling supports informed decisions rather than dictating one choice for every family.",
+        "misconception": {
+          "statement": "Genetic counselling guarantees a particular future phenotype.",
+          "correction": "A process helping people understand genetic information, inheritance and possible implications for their choices. Counselling supports informed decisions rather than dictating one choice for every family."
+        },
+        "reviewRoute": "lesson-14"
+      },
+      "preparation": "Use a counselling conversation to make the uncertainty usable",
+      "status": "Prepared as formative review of explicitly taught reasoning",
+      "overlap": "Foundational/model facts recur by design; not certified fresh independent transfer",
+      "protection": "Exact native object and controls unchanged"
+    },
+    {
+      "route": "lesson-14",
+      "id": "ch17-concept-informed-consent",
+      "kind": "native-bank-or-check",
+      "sourceObject": {
+        "id": "ch17-concept-informed-consent",
+        "term": "informed consent",
+        "lesson": 14,
+        "meaning": "Agreement based on understanding the purpose, potential benefits, risks and alternatives of a procedure or study.",
+        "example": "A participant considers how a genetic sample and results will be used before agreeing.",
+        "aliases": [],
+        "cue": "Identify the structure, quantity or relationship described.",
+        "correctExplanation": "Agreement based on understanding the purpose, potential benefits, risks and alternatives of a procedure or study. Consent involves more than the physical act of giving a sample.",
+        "misconception": {
+          "statement": "Providing a sample means agreeing to every future use automatically.",
+          "correction": "Agreement based on understanding the purpose, potential benefits, risks and alternatives of a procedure or study. Consent involves more than the physical act of giving a sample."
+        },
+        "reviewRoute": "lesson-14"
+      },
+      "preparation": "Understand the proposed choice before agreeing; Questions that clarify the fictional research invitation",
+      "status": "Prepared as formative review of explicitly taught reasoning",
+      "overlap": "Foundational/model facts recur by design; not certified fresh independent transfer",
+      "protection": "Exact native object and controls unchanged"
+    },
+    {
+      "route": "lesson-14",
+      "id": "ch17-concept-genetic-risk",
+      "kind": "native-bank-or-check",
+      "sourceObject": {
+        "id": "ch17-concept-genetic-risk",
+        "term": "genetic risk",
+        "lesson": 14,
+        "meaning": "A probability or increased likelihood associated with genetic information in a specified context.",
+        "example": "A variant is associated with increased probability of a condition without making it inevitable.",
+        "aliases": [],
+        "cue": "Identify the structure, quantity or relationship described.",
+        "correctExplanation": "A probability or increased likelihood associated with genetic information in a specified context. Risk is not the same as certainty.",
+        "misconception": {
+          "statement": "A risk-associated allele always causes the condition in every carrier.",
+          "correction": "A probability or increased likelihood associated with genetic information in a specified context. Risk is not the same as certainty."
+        },
+        "reviewRoute": "lesson-14"
+      },
+      "preparation": "Make a risk statement precise enough to interpret; Compare the same data in two ways; Decide what a fictional report establishes",
+      "status": "Prepared as formative review of explicitly taught reasoning",
+      "overlap": "Foundational/model facts recur by design; not certified fresh independent transfer",
+      "protection": "Exact native object and controls unchanged"
+    },
+    {
+      "route": "lesson-14",
+      "id": "ch17-l14-application-1",
+      "kind": "native-bank-or-check",
+      "sourceObject": {
+        "prompt": "A company claims a small marker panel precisely predicts every future disease. What is the main scientific concern?",
+        "answer": "The claim exceeds the scope and predictive evidence of the test",
+        "explanation": "A broad deterministic claim requires far more evidence than a limited panel provides.",
+        "cue": "Trace the normal mechanism before choosing an answer.",
+        "id": "ch17-l14-application-1",
+        "options": [
+          "Privacy is the only issue and evidence does not matter",
+          "The claim exceeds the scope and predictive evidence of the test",
+          "A marker panel can never detect any variant",
+          "Every disease is completely independent of genes"
+        ],
+        "difficulty": "application",
+        "lesson": 14,
+        "chapter": 17,
+        "conceptId": "ch17-concept-genetic-testing",
+        "family": "application",
+        "kind": "mc",
+        "reviewRoute": "lesson-14",
+        "flashVariant": {
+          "id": "ch17-l14-scenario-1",
+          "family": "scenario-explanation",
+          "prompt": "A company claims a small marker panel precisely predicts every future disease. What is the main scientific concern?",
+          "model": "The claim exceeds the scope and predictive evidence of the test. A broad deterministic claim requires far more evidence than a limited panel provides.",
+          "selfAssessed": true
+        }
+      },
+      "preparation": "A test result answers a particular question; Positive negative and uncertain results; Check the scope and privacy claims separately",
+      "status": "Prepared as formative review of explicitly taught reasoning",
+      "overlap": "Foundational/model facts recur by design; not certified fresh independent transfer",
+      "protection": "Exact native object and controls unchanged"
+    },
+    {
+      "route": "lesson-14",
+      "id": "ch17-l14-scenario-1",
+      "kind": "native-bank-or-check",
+      "sourceObject": {
+        "id": "ch17-l14-scenario-1",
+        "family": "scenario-explanation",
+        "prompt": "A company claims a small marker panel precisely predicts every future disease. What is the main scientific concern?",
+        "model": "The claim exceeds the scope and predictive evidence of the test. A broad deterministic claim requires far more evidence than a limited panel provides.",
+        "selfAssessed": true
+      },
+      "preparation": "A test result answers a particular question; Positive negative and uncertain results; Check the scope and privacy claims separately",
+      "status": "Prepared as formative review of explicitly taught reasoning",
+      "overlap": "Foundational/model facts recur by design; not certified fresh independent transfer",
+      "protection": "Exact native object and controls unchanged"
+    },
+    {
+      "route": "lesson-14",
+      "id": "ch17-l14-context-genetic-testing",
+      "kind": "native-bank-or-check",
+      "sourceObject": {
+        "id": "ch17-l14-context-genetic-testing",
+        "chapter": 17,
+        "lesson": 14,
+        "conceptId": "ch17-concept-genetic-testing",
+        "family": "scenario-retrieval",
+        "kind": "blank",
+        "difficulty": "application",
+        "prompt": "Identify the term illustrated: A test checks for a specified DNA variant.",
+        "answer": "genetic testing",
+        "aliases": [],
+        "cue": "Use the relationship described in the example.",
+        "explanation": "Analysis of genetic material or related markers to investigate particular variants or conditions. A test’s scope determines what a negative or positive result can establish.",
+        "reviewRoute": "lesson-14"
+      },
+      "preparation": "A test result answers a particular question; Positive negative and uncertain results; Check the scope and privacy claims separately",
+      "status": "Prepared as formative review of explicitly taught reasoning",
+      "overlap": "Foundational/model facts recur by design; not certified fresh independent transfer",
+      "protection": "Exact native object and controls unchanged"
+    },
+    {
+      "route": "lesson-14",
+      "id": "ch17-l14-context-genetic-counselling",
+      "kind": "native-bank-or-check",
+      "sourceObject": {
+        "id": "ch17-l14-context-genetic-counselling",
+        "chapter": 17,
+        "lesson": 14,
+        "conceptId": "ch17-concept-genetic-counselling",
+        "family": "scenario-retrieval",
+        "kind": "blank",
+        "difficulty": "application",
+        "prompt": "Identify the term illustrated: A professional explains a result, its uncertainty and relevant family context.",
+        "answer": "genetic counselling",
+        "aliases": [],
+        "cue": "Use the relationship described in the example.",
+        "explanation": "A process helping people understand genetic information, inheritance and possible implications for their choices. Counselling supports informed decisions rather than dictating one choice for every family.",
+        "reviewRoute": "lesson-14"
+      },
+      "preparation": "Use a counselling conversation to make the uncertainty usable",
+      "status": "Prepared as formative review of explicitly taught reasoning",
+      "overlap": "Foundational/model facts recur by design; not certified fresh independent transfer",
+      "protection": "Exact native object and controls unchanged"
+    },
+    {
+      "route": "lesson-14",
+      "id": "ch17-l14-context-informed-consent",
+      "kind": "native-bank-or-check",
+      "sourceObject": {
+        "id": "ch17-l14-context-informed-consent",
+        "chapter": 17,
+        "lesson": 14,
+        "conceptId": "ch17-concept-informed-consent",
+        "family": "scenario-retrieval",
+        "kind": "blank",
+        "difficulty": "application",
+        "prompt": "Identify the term illustrated: A participant considers how a genetic sample and results will be used before agreeing.",
+        "answer": "informed consent",
+        "aliases": [],
+        "cue": "Use the relationship described in the example.",
+        "explanation": "Agreement based on understanding the purpose, potential benefits, risks and alternatives of a procedure or study. Consent involves more than the physical act of giving a sample.",
+        "reviewRoute": "lesson-14"
+      },
+      "preparation": "Understand the proposed choice before agreeing; Questions that clarify the fictional research invitation",
+      "status": "Prepared as formative review of explicitly taught reasoning",
+      "overlap": "Foundational/model facts recur by design; not certified fresh independent transfer",
+      "protection": "Exact native object and controls unchanged"
+    },
+    {
+      "route": "lesson-14",
+      "id": "ch17-l14-context-genetic-risk",
+      "kind": "native-bank-or-check",
+      "sourceObject": {
+        "id": "ch17-l14-context-genetic-risk",
+        "chapter": 17,
+        "lesson": 14,
+        "conceptId": "ch17-concept-genetic-risk",
+        "family": "scenario-retrieval",
+        "kind": "blank",
+        "difficulty": "application",
+        "prompt": "Identify the term illustrated: A variant is associated with increased probability of a condition without making it inevitable.",
+        "answer": "genetic risk",
+        "aliases": [],
+        "cue": "Use the relationship described in the example.",
+        "explanation": "A probability or increased likelihood associated with genetic information in a specified context. Risk is not the same as certainty.",
+        "reviewRoute": "lesson-14"
+      },
+      "preparation": "Make a risk statement precise enough to interpret; Compare the same data in two ways; Decide what a fictional report establishes",
+      "status": "Prepared as formative review of explicitly taught reasoning",
+      "overlap": "Foundational/model facts recur by design; not certified fresh independent transfer",
+      "protection": "Exact native object and controls unchanged"
+    },
+    {
+      "route": "lesson-14",
+      "id": "ch17-l14-worked",
+      "kind": "native-bank-or-check",
+      "sourceObject": {
+        "title": "Interpret a limited negative result",
+        "scenario": "A fictional test detects none of three specified variants associated with one condition.",
+        "steps": [
+          "The result establishes that those tested variants were not detected under the test’s conditions.",
+          "It does not rule out every untested variant, every different genetic condition or every environmental cause.",
+          "Interpretation requires the test’s scope and limitations.",
+          "A personal decision should be informed by appropriate counselling rather than a blanket classroom rule."
+        ],
+        "id": "ch17-l14-worked",
+        "label": "Worked example"
+      },
+      "preparation": "Use a counselling conversation to make the uncertainty usable",
+      "status": "Prepared as formative review of explicitly taught reasoning",
+      "overlap": "Foundational/model facts recur by design; not certified fresh independent transfer",
+      "protection": "Exact native object and controls unchanged"
+    },
+    {
+      "route": "lesson-14",
+      "id": "ch17-l14-guided",
+      "kind": "native-bank-or-check",
+      "sourceObject": {
+        "id": "ch17-l14-guided",
+        "label": "Practise with support",
+        "title": "Apply the explanation",
+        "instruction": "Try both questions. Use the hint to revise your thinking after an incorrect answer.",
+        "items": [
+          {
+            "prompt": "A variant raises estimated risk. Does that always mean the condition is inevitable?",
+            "answer": "No",
+            "explanation": "Risk is a probability, not necessarily certainty.",
+            "cue": "Separate association or probability from a guaranteed outcome.",
+            "id": "ch17-l14-guided-q1",
+            "options": [
+              "Only if the variant has a short name",
+              "Yes in every person",
+              "No"
+            ],
+            "difficulty": "application",
+            "kind": "select",
+            "hint": "Separate association or probability from a guaranteed outcome."
+          },
+          {
+            "prompt": "What is a central purpose of genetic counselling?",
+            "answer": "Helping people understand evidence and options",
+            "explanation": "Counselling supports informed understanding and choices.",
+            "cue": "Focus on informed agency rather than a prescribed verdict.",
+            "id": "ch17-l14-guided-q2",
+            "options": [
+              "Helping people understand evidence and options",
+              "Making the same decision for every family",
+              "Guaranteeing all offspring are unaffected"
+            ],
+            "difficulty": "application",
+            "kind": "select",
+            "hint": "Focus on informed agency rather than a prescribed verdict."
+          }
+        ]
+      },
+      "preparation": "Use a counselling conversation to make the uncertainty usable",
+      "status": "Prepared as formative review of explicitly taught reasoning",
+      "overlap": "Foundational/model facts recur by design; not certified fresh independent transfer",
+      "protection": "Exact native object and controls unchanged"
+    },
+    {
+      "route": "lesson-14",
+      "id": "ch17-l14-guided-q1",
+      "kind": "native-bank-or-check",
+      "sourceObject": {
+        "prompt": "A variant raises estimated risk. Does that always mean the condition is inevitable?",
+        "answer": "No",
+        "explanation": "Risk is a probability, not necessarily certainty.",
+        "cue": "Separate association or probability from a guaranteed outcome.",
+        "id": "ch17-l14-guided-q1",
+        "options": [
+          "Only if the variant has a short name",
+          "Yes in every person",
+          "No"
+        ],
+        "difficulty": "application",
+        "kind": "select",
+        "hint": "Separate association or probability from a guaranteed outcome."
+      },
+      "preparation": "Make a risk statement precise enough to interpret; Compare the same data in two ways; Decide what a fictional report establishes",
+      "status": "Prepared as formative review of explicitly taught reasoning",
+      "overlap": "Foundational/model facts recur by design; not certified fresh independent transfer",
+      "protection": "Exact native object and controls unchanged"
+    },
+    {
+      "route": "lesson-14",
+      "id": "ch17-l14-guided-q2",
+      "kind": "native-bank-or-check",
+      "sourceObject": {
+        "prompt": "What is a central purpose of genetic counselling?",
+        "answer": "Helping people understand evidence and options",
+        "explanation": "Counselling supports informed understanding and choices.",
+        "cue": "Focus on informed agency rather than a prescribed verdict.",
+        "id": "ch17-l14-guided-q2",
+        "options": [
+          "Helping people understand evidence and options",
+          "Making the same decision for every family",
+          "Guaranteeing all offspring are unaffected"
+        ],
+        "difficulty": "application",
+        "kind": "select",
+        "hint": "Focus on informed agency rather than a prescribed verdict."
+      },
+      "preparation": "Use a counselling conversation to make the uncertainty usable",
+      "status": "Prepared as formative review of explicitly taught reasoning",
+      "overlap": "Foundational/model facts recur by design; not certified fresh independent transfer",
+      "protection": "Exact native object and controls unchanged"
+    },
+    {
+      "route": "lesson-15",
+      "id": "ch17-check-15",
+      "kind": "native-bank-or-check",
+      "sourceObject": {
+        "id": "ch17-check-15",
+        "route": "lesson-15",
+        "title": "Chapter review and final check",
+        "mc": [
+          {
+            "prompt": "For complete-dominance Aa × aa, which genotype distribution is expected?",
+            "answer": "1 Aa : 1 aa",
+            "explanation": "The heterozygote contributes A or a and the tester only a.",
+            "cue": "Trace the normal mechanism before choosing an answer.",
+            "id": "ch17-final-mc-1",
+            "options": [
+              "1 Aa : 1 aa",
+              "3 AA : 1 aa",
+              "1 AA : 2 Aa : 1 aa",
+              "All Aa"
+            ],
+            "difficulty": "application"
+          },
+          {
+            "prompt": "For independent AaBb × AaBb, what is P(aabb)?",
+            "answer": "1/16",
+            "explanation": "Multiply P(aa) = 1/4 and P(bb) = 1/4.",
+            "cue": "Trace the normal mechanism before choosing an answer.",
+            "id": "ch17-final-mc-2",
+            "options": [
+              "1/4",
+              "1/16",
+              "3/16",
+              "9/16"
+            ],
+            "difficulty": "application"
+          },
+          {
+            "prompt": "Which ABO cross can produce all four standard blood groups?",
+            "answer": "IAi × IBi",
+            "explanation": "The four equal combinations are IAIB, IAi, IBi and ii.",
+            "cue": "Trace the normal mechanism before choosing an answer.",
+            "id": "ch17-final-mc-3",
+            "options": [
+              "IAIB × ii",
+              "ii × ii",
+              "IAi × IBi",
+              "IAIA × ii"
+            ],
+            "difficulty": "application"
+          },
+          {
+            "prompt": "For carrier XAXa × unaffected XAY in a recessive model, what fraction of sons is affected?",
+            "answer": "1/2",
+            "explanation": "Among the two son combinations, one is XaY.",
+            "cue": "Trace the normal mechanism before choosing an answer.",
+            "id": "ch17-final-mc-4",
+            "options": [
+              "1",
+              "1/4",
+              "0",
+              "1/2"
+            ],
+            "difficulty": "application"
+          },
+          {
+            "prompt": "An AB/ab test cross produces 36 AB, 34 ab, 15 Ab and 15 aB offspring contributions. What is recombination frequency?",
+            "answer": "30%",
+            "explanation": "Recombinants total 30 of 100.",
+            "cue": "Trace the normal mechanism before choosing an answer.",
+            "id": "ch17-final-mc-5",
+            "options": [
+              "30%",
+              "15%",
+              "70%",
+              "42.9%"
+            ],
+            "difficulty": "application"
+          },
+          {
+            "prompt": "Which conclusion is appropriate when a small pedigree fits two inheritance models?",
+            "answer": "More evidence is needed to distinguish them",
+            "explanation": "Compatibility with limited observations is not unique proof.",
+            "cue": "Trace the normal mechanism before choosing an answer.",
+            "id": "ch17-final-mc-6",
+            "options": [
+              "Both models are biologically identical",
+              "More evidence is needed to distinguish them",
+              "The pedigree contains no useful information",
+              "One must be chosen as proven from a single clue"
+            ],
+            "difficulty": "application"
+          }
+        ],
+        "writing": [
+          {
+            "prompt": "Describe a method for solving an unfamiliar inheritance problem from phenotype information to a justified probability.",
+            "model": "Define alleles and the inheritance model. Infer parental genotypes using phenotype and family evidence, preserving unresolved alternatives. List gametes, combine them by an appropriate square or independent product rule, identify the requested subgroup and calculate with the correct denominator. Interpret the result as an expectation and state assumptions.",
+            "criteria": [
+              "Identifies the relevant structures or quantities.",
+              "Explains the causal relationship or calculation, not just the final result.",
+              "Uses the stated evidence and avoids a stronger conclusion than it supports."
+            ],
+            "id": "ch17-final-writing-1",
+            "limit": 3200
+          },
+          {
+            "prompt": "Explain how linkage can change a two-trait test-cross prediction and how the result can be used for a map estimate.",
+            "model": "Under independence a heterozygote test cross can yield four equal classes. Linked loci can produce more parental than recombinant combinations. Identify phase, sum both recombinant classes, divide by all scored offspring and multiply by 100%. For short intervals this approximates map distance, with limitations from multiple crossovers and sampling.",
+            "criteria": [
+              "Identifies the relevant structures or quantities.",
+              "Explains the causal relationship or calculation, not just the final result.",
+              "Uses the stated evidence and avoids a stronger conclusion than it supports."
+            ],
+            "id": "ch17-final-writing-2",
+            "limit": 3200
+          }
+        ]
+      },
+      "preparation": "Linked genes change gamete frequencies; A linkage map estimates genetic distance; Follow a plant cross from family evidence to a map estimate",
+      "status": "Prepared as formative review of explicitly taught reasoning",
+      "overlap": "Foundational/model facts recur by design; not certified fresh independent transfer",
+      "protection": "Exact native object and controls unchanged"
+    },
+    {
+      "route": "lesson-15",
+      "id": "ch17-final-mc-1",
+      "kind": "native-bank-or-check",
+      "sourceObject": {
+        "prompt": "For complete-dominance Aa × aa, which genotype distribution is expected?",
+        "answer": "1 Aa : 1 aa",
+        "explanation": "The heterozygote contributes A or a and the tester only a.",
+        "cue": "Trace the normal mechanism before choosing an answer.",
+        "id": "ch17-final-mc-1",
+        "options": [
+          "1 Aa : 1 aa",
+          "3 AA : 1 aa",
+          "1 AA : 2 Aa : 1 aa",
+          "All Aa"
+        ],
+        "difficulty": "application"
+      },
+      "preparation": "Use an informative contribution to resolve an unknown; A square organizes gametes already justified by the model",
+      "status": "Prepared as formative review of explicitly taught reasoning",
+      "overlap": "Foundational/model facts recur by design; not certified fresh independent transfer",
+      "protection": "Exact native object and controls unchanged"
+    },
+    {
+      "route": "lesson-15",
+      "id": "ch17-final-mc-2",
+      "kind": "native-bank-or-check",
+      "sourceObject": {
+        "prompt": "For independent AaBb × AaBb, what is P(aabb)?",
+        "answer": "1/16",
+        "explanation": "Multiply P(aa) = 1/4 and P(bb) = 1/4.",
+        "cue": "Trace the normal mechanism before choosing an answer.",
+        "id": "ch17-final-mc-2",
+        "options": [
+          "1/4",
+          "1/16",
+          "3/16",
+          "9/16"
+        ],
+        "difficulty": "application"
+      },
+      "preparation": "Two loci add a chromosome question",
+      "status": "Prepared as formative review of explicitly taught reasoning",
+      "overlap": "Foundational/model facts recur by design; not certified fresh independent transfer",
+      "protection": "Exact native object and controls unchanged"
+    },
+    {
+      "route": "lesson-15",
+      "id": "ch17-final-mc-3",
+      "kind": "native-bank-or-check",
+      "sourceObject": {
+        "prompt": "Which ABO cross can produce all four standard blood groups?",
+        "answer": "IAi × IBi",
+        "explanation": "The four equal combinations are IAIB, IAi, IBi and ii.",
+        "cue": "Trace the normal mechanism before choosing an answer.",
+        "id": "ch17-final-mc-3",
+        "options": [
+          "IAIB × ii",
+          "ii × ii",
+          "IAi × IBi",
+          "IAIA × ii"
+        ],
+        "difficulty": "application"
+      },
+      "preparation": "Population diversity does not add a third allele copy to a person; preserved complete lesson07 manuscript",
+      "status": "Prepared as formative review of explicitly taught reasoning",
+      "overlap": "Foundational/model facts recur by design; not certified fresh independent transfer",
+      "protection": "Exact native object and controls unchanged"
+    },
+    {
+      "route": "lesson-15",
+      "id": "ch17-final-mc-4",
+      "kind": "native-bank-or-check",
+      "sourceObject": {
+        "prompt": "For carrier XAXa × unaffected XAY in a recessive model, what fraction of sons is affected?",
+        "answer": "1/2",
+        "explanation": "Among the two son combinations, one is XaY.",
+        "cue": "Trace the normal mechanism before choosing an answer.",
+        "id": "ch17-final-mc-4",
+        "options": [
+          "1",
+          "1/4",
+          "0",
+          "1/2"
+        ],
+        "difficulty": "application"
+      },
+      "preparation": "X-linked inheritance follows a chromosome route; complete lesson08 manuscript",
+      "status": "Prepared as formative review of explicitly taught reasoning",
+      "overlap": "Foundational/model facts recur by design; not certified fresh independent transfer",
+      "protection": "Exact native object and controls unchanged"
+    },
+    {
+      "route": "lesson-15",
+      "id": "ch17-final-mc-5",
+      "kind": "native-bank-or-check",
+      "sourceObject": {
+        "prompt": "An AB/ab test cross produces 36 AB, 34 ab, 15 Ab and 15 aB offspring contributions. What is recombination frequency?",
+        "answer": "30%",
+        "explanation": "Recombinants total 30 of 100.",
+        "cue": "Trace the normal mechanism before choosing an answer.",
+        "id": "ch17-final-mc-5",
+        "options": [
+          "30%",
+          "15%",
+          "70%",
+          "42.9%"
+        ],
+        "difficulty": "application"
+      },
+      "preparation": "Linked genes change gamete frequencies; A linkage map estimates genetic distance; Follow a plant cross from family evidence to a map estimate",
+      "status": "Prepared as formative review of explicitly taught reasoning",
+      "overlap": "Foundational/model facts recur by design; not certified fresh independent transfer",
+      "protection": "Exact native object and controls unchanged"
+    },
+    {
+      "route": "lesson-15",
+      "id": "ch17-final-mc-6",
+      "kind": "native-bank-or-check",
+      "sourceObject": {
+        "prompt": "Which conclusion is appropriate when a small pedigree fits two inheritance models?",
+        "answer": "More evidence is needed to distinguish them",
+        "explanation": "Compatibility with limited observations is not unique proof.",
+        "cue": "Trace the normal mechanism before choosing an answer.",
+        "id": "ch17-final-mc-6",
+        "options": [
+          "Both models are biologically identical",
+          "More evidence is needed to distinguish them",
+          "The pedigree contains no useful information",
+          "One must be chosen as proven from a single clue"
+        ],
+        "difficulty": "application"
+      },
+      "preparation": "Autosomal pedigrees constrain genotypes; Test sex-linked models against every informative relationship",
+      "status": "Prepared as formative review of explicitly taught reasoning",
+      "overlap": "Foundational/model facts recur by design; not certified fresh independent transfer",
+      "protection": "Exact native object and controls unchanged"
+    },
+    {
+      "route": "lesson-15",
+      "id": "ch17-final-writing-1",
+      "kind": "native-bank-or-check",
+      "sourceObject": {
+        "prompt": "Describe a method for solving an unfamiliar inheritance problem from phenotype information to a justified probability.",
+        "model": "Define alleles and the inheritance model. Infer parental genotypes using phenotype and family evidence, preserving unresolved alternatives. List gametes, combine them by an appropriate square or independent product rule, identify the requested subgroup and calculate with the correct denominator. Interpret the result as an expectation and state assumptions.",
+        "criteria": [
+          "Identifies the relevant structures or quantities.",
+          "Explains the causal relationship or calculation, not just the final result.",
+          "Uses the stated evidence and avoids a stronger conclusion than it supports."
+        ],
+        "id": "ch17-final-writing-1",
+        "limit": 3200
+      },
+      "preparation": "Follow an allele from the evidence to the prediction; Choose the model and the group being counted; connected synthesis worked example",
+      "status": "Prepared as formative review of explicitly taught reasoning",
+      "overlap": "Foundational/model facts recur by design; not certified fresh independent transfer",
+      "protection": "Exact native object and controls unchanged"
+    },
+    {
+      "route": "lesson-15",
+      "id": "ch17-final-writing-2",
+      "kind": "native-bank-or-check",
+      "sourceObject": {
+        "prompt": "Explain how linkage can change a two-trait test-cross prediction and how the result can be used for a map estimate.",
+        "model": "Under independence a heterozygote test cross can yield four equal classes. Linked loci can produce more parental than recombinant combinations. Identify phase, sum both recombinant classes, divide by all scored offspring and multiply by 100%. For short intervals this approximates map distance, with limitations from multiple crossovers and sampling.",
+        "criteria": [
+          "Identifies the relevant structures or quantities.",
+          "Explains the causal relationship or calculation, not just the final result.",
+          "Uses the stated evidence and avoids a stronger conclusion than it supports."
+        ],
+        "id": "ch17-final-writing-2",
+        "limit": 3200
+      },
+      "preparation": "Linked genes change gamete frequencies; A linkage map estimates genetic distance; Follow a plant cross from family evidence to a map estimate",
+      "status": "Prepared as formative review of explicitly taught reasoning",
+      "overlap": "Foundational/model facts recur by design; not certified fresh independent transfer",
+      "protection": "Exact native object and controls unchanged"
+    },
+    {
+      "route": "lesson-15",
+      "id": "ch17-transfer-01",
+      "kind": "native-bank-or-check",
+      "sourceObject": {
+        "id": "ch17-transfer-01",
+        "chapter": 17,
+        "route": "lesson-15",
+        "title": "Try a new case",
+        "instruction": "Try the whole set before viewing feedback. Record whether you used help. This optional formative check does not add to required progress.",
+        "mc": [
+          {
+            "prompt": "A dominant-phenotype organism with an aa parent is crossed with aa. What is the expected recessive fraction?",
+            "answer": "1/2",
+            "explanation": "The organism must be Aa because its aa parent supplied a; Aa × aa gives 1/2 aa.",
+            "cue": "Trace the normal mechanism before choosing an answer.",
+            "id": "ch17-transfer-mc-1",
+            "options": [
+              "1/2",
+              "1/4",
+              "1",
+              "0"
+            ],
+            "difficulty": "application"
+          },
+          {
+            "prompt": "For XbXb × XBY in a recessive model, what is the probability that the next child is both a son and affected?",
+            "answer": "1/2",
+            "explanation": "All sons are affected, and sons account for half of all offspring combinations in the model.",
+            "cue": "Trace the normal mechanism before choosing an answer.",
+            "id": "ch17-transfer-mc-2",
+            "options": [
+              "0",
+              "1/2",
+              "1",
+              "1/4"
+            ],
+            "difficulty": "application"
+          },
+          {
+            "prompt": "A linkage test gives parental counts 180 and 170 and recombinant counts 25 and 25. What is the short-interval estimate?",
+            "answer": "12.5 cM",
+            "explanation": "Recombinants = 50, total = 400; 50/400 × 100 = 12.5%.",
+            "cue": "Trace the normal mechanism before choosing an answer.",
+            "id": "ch17-transfer-mc-3",
+            "options": [
+              "6.25 cM",
+              "14.3 cM",
+              "12.5 cM",
+              "50 cM"
+            ],
+            "difficulty": "application"
+          }
+        ],
+        "writing": {
+          "prompt": "Two unaffected parents have an affected child in a stated fully penetrant autosomal recessive model. Explain the parents’ genotypes and the probability an unaffected sibling is a carrier.",
+          "model": "Both parents must be Aa because each supplied a while remaining unaffected. Aa × Aa gives AA, Aa, aA and aa. Conditional on being unaffected, aa is excluded, leaving three possibilities, two of which are carriers. The probability is 2/3 under the model.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ],
+          "id": "ch17-transfer-writing",
+          "limit": 3200
+        }
+      },
+      "preparation": "Linked genes change gamete frequencies; A linkage map estimates genetic distance; Follow a plant cross from family evidence to a map estimate",
+      "status": "Prepared as formative review of explicitly taught reasoning",
+      "overlap": "Foundational/model facts recur by design; not certified fresh independent transfer",
+      "protection": "Exact native object and controls unchanged"
+    },
+    {
+      "route": "lesson-15",
+      "id": "ch17-transfer-mc-1",
+      "kind": "native-bank-or-check",
+      "sourceObject": {
+        "prompt": "A dominant-phenotype organism with an aa parent is crossed with aa. What is the expected recessive fraction?",
+        "answer": "1/2",
+        "explanation": "The organism must be Aa because its aa parent supplied a; Aa × aa gives 1/2 aa.",
+        "cue": "Trace the normal mechanism before choosing an answer.",
+        "id": "ch17-transfer-mc-1",
+        "options": [
+          "1/2",
+          "1/4",
+          "1",
+          "0"
+        ],
+        "difficulty": "application"
+      },
+      "preparation": "Use an informative contribution to resolve an unknown; A square organizes gametes already justified by the model",
+      "status": "Prepared as formative review of explicitly taught reasoning",
+      "overlap": "Foundational/model facts recur by design; not certified fresh independent transfer",
+      "protection": "Exact native object and controls unchanged"
+    },
+    {
+      "route": "lesson-15",
+      "id": "ch17-transfer-mc-2",
+      "kind": "native-bank-or-check",
+      "sourceObject": {
+        "prompt": "For XbXb × XBY in a recessive model, what is the probability that the next child is both a son and affected?",
+        "answer": "1/2",
+        "explanation": "All sons are affected, and sons account for half of all offspring combinations in the model.",
+        "cue": "Trace the normal mechanism before choosing an answer.",
+        "id": "ch17-transfer-mc-2",
+        "options": [
+          "0",
+          "1/2",
+          "1",
+          "1/4"
+        ],
+        "difficulty": "application"
+      },
+      "preparation": "X-linked inheritance follows a chromosome route; complete lesson08 manuscript",
+      "status": "Prepared as formative review of explicitly taught reasoning",
+      "overlap": "Foundational/model facts recur by design; not certified fresh independent transfer",
+      "protection": "Exact native object and controls unchanged"
+    },
+    {
+      "route": "lesson-15",
+      "id": "ch17-transfer-mc-3",
+      "kind": "native-bank-or-check",
+      "sourceObject": {
+        "prompt": "A linkage test gives parental counts 180 and 170 and recombinant counts 25 and 25. What is the short-interval estimate?",
+        "answer": "12.5 cM",
+        "explanation": "Recombinants = 50, total = 400; 50/400 × 100 = 12.5%.",
+        "cue": "Trace the normal mechanism before choosing an answer.",
+        "id": "ch17-transfer-mc-3",
+        "options": [
+          "6.25 cM",
+          "14.3 cM",
+          "12.5 cM",
+          "50 cM"
+        ],
+        "difficulty": "application"
+      },
+      "preparation": "Linked genes change gamete frequencies; A linkage map estimates genetic distance; Follow a plant cross from family evidence to a map estimate",
+      "status": "Prepared as formative review of explicitly taught reasoning",
+      "overlap": "Foundational/model facts recur by design; not certified fresh independent transfer",
+      "protection": "Exact native object and controls unchanged"
+    },
+    {
+      "route": "lesson-15",
+      "id": "ch17-transfer-writing",
+      "kind": "native-bank-or-check",
+      "sourceObject": {
+        "prompt": "Two unaffected parents have an affected child in a stated fully penetrant autosomal recessive model. Explain the parents’ genotypes and the probability an unaffected sibling is a carrier.",
+        "model": "Both parents must be Aa because each supplied a while remaining unaffected. Aa × Aa gives AA, Aa, aA and aa. Conditional on being unaffected, aa is excluded, leaving three possibilities, two of which are carriers. The probability is 2/3 under the model.",
+        "criteria": [
+          "Identifies the relevant structures or quantities.",
+          "Explains the causal relationship or calculation, not just the final result.",
+          "Uses the stated evidence and avoids a stronger conclusion than it supports."
+        ],
+        "id": "ch17-transfer-writing",
+        "limit": 3200
+      },
+      "preparation": "Autosomal pedigrees constrain genotypes; Test sex-linked models against every informative relationship",
+      "status": "Prepared as formative review of explicitly taught reasoning",
+      "overlap": "Foundational/model facts recur by design; not certified fresh independent transfer",
+      "protection": "Exact native object and controls unchanged"
+    },
+    {
+      "route": "lesson-14",
+      "id": "ch17-p609-in-text-q26",
+      "kind": "routed-optional-textbook",
+      "sourceObject": {
+        "id": "ch17-p609-in-text-q26",
+        "page": 609,
+        "group": "in-text",
+        "number": 26,
+        "label": "In Text · p. 609 · question 26",
+        "topics": [
+          "lesson-09",
+          "lesson-10",
+          "lesson-14"
+        ],
+        "crops": [
+          {
+            "page": 609,
+            "box": [
+              72.49490356445312,
+              57.91172790527344,
+              244.2175750732422,
+              120.14228820800781
+            ],
+            "src": "./assets/textbook-practice/ch17-p609-in-text-q26-0.png",
+            "role": "question"
+          },
+          {
+            "page": 609,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p609.jpg",
+            "role": "supporting full-page context"
+          },
+          {
+            "page": 608,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p608.jpg",
+            "role": "supporting full-page context"
+          }
+        ],
+        "sourceText": "2 \u0013\u0017  What is the difference between a  trait that has multiple alleles and  a trait that is controlled by multiple  genes? Give an example of each.",
+        "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+      },
+      "preparation": "lesson09 additive/environmental explanation; lesson15 Several genes and the environment can shape one measurement",
+      "status": "Cumulative optional source task",
+      "issue": null,
+      "protection": "Native reader assignment and source wording unchanged; cumulative routing does not imply lesson14 alone teaches every task"
+    },
+    {
+      "route": "lesson-14",
+      "id": "ch17-p609-in-text-q27",
+      "kind": "routed-optional-textbook",
+      "sourceObject": {
+        "id": "ch17-p609-in-text-q27",
+        "page": 609,
+        "group": "in-text",
+        "number": 27,
+        "label": "In Text · p. 609 · question 27",
+        "topics": [
+          "lesson-09",
+          "lesson-10",
+          "lesson-14"
+        ],
+        "crops": [
+          {
+            "page": 609,
+            "box": [
+              72.49490356445312,
+              117.91197204589844,
+              214.3892822265625,
+              147.92947387695312
+            ],
+            "src": "./assets/textbook-practice/ch17-p609-in-text-q27-0.png",
+            "role": "question"
+          },
+          {
+            "page": 609,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p609.jpg",
+            "role": "supporting full-page context"
+          },
+          {
+            "page": 608,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p608.jpg",
+            "role": "supporting full-page context"
+          }
+        ],
+        "sourceText": "2 \u0013\u0018  What is a continuous trait?",
+        "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+      },
+      "preparation": "lesson09 additive/environmental explanation; lesson15 Several genes and the environment can shape one measurement",
+      "status": "Cumulative optional source task",
+      "issue": null,
+      "protection": "Native reader assignment and source wording unchanged; cumulative routing does not imply lesson14 alone teaches every task"
+    },
+    {
+      "route": "lesson-14",
+      "id": "ch17-p609-in-text-q28",
+      "kind": "routed-optional-textbook",
+      "sourceObject": {
+        "id": "ch17-p609-in-text-q28",
+        "page": 609,
+        "group": "in-text",
+        "number": 28,
+        "label": "In Text · p. 609 · question 28",
+        "topics": [
+          "lesson-09",
+          "lesson-10",
+          "lesson-14"
+        ],
+        "crops": [
+          {
+            "page": 609,
+            "box": [
+              267.4949951171875,
+              57.91178894042969,
+              427.53741455078125,
+              133.6421661376953
+            ],
+            "src": "./assets/textbook-practice/ch17-p609-in-text-q28-0.png",
+            "role": "question"
+          },
+          {
+            "page": 609,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p609.jpg",
+            "role": "supporting full-page context"
+          },
+          {
+            "page": 608,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p608.jpg",
+            "role": "supporting full-page context"
+          }
+        ],
+        "sourceText": "2 \u0013\u0019  Give an example of one way  (other than the ways described  above) that environment can  inﬂ uence the expression of  genetic traits.",
+        "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+      },
+      "preparation": "lesson09 additive/environmental explanation; lesson15 Several genes and the environment can shape one measurement",
+      "status": "Cumulative optional source task",
+      "issue": null,
+      "protection": "Native reader assignment and source wording unchanged; cumulative routing does not imply lesson14 alone teaches every task"
+    },
+    {
+      "route": "lesson-14",
+      "id": "ch17-p611-in-text-q29",
+      "kind": "routed-optional-textbook",
+      "sourceObject": {
+        "id": "ch17-p611-in-text-q29",
+        "page": 611,
+        "group": "in-text",
+        "number": 29,
+        "label": "In Text · p. 611 · question 29",
+        "topics": [
+          "lesson-10",
+          "lesson-14",
+          "lesson-09"
+        ],
+        "crops": [
+          {
+            "page": 611,
+            "box": [
+              267.4949951171875,
+              228.91197204589844,
+              434.7235412597656,
+              304.6417236328125
+            ],
+            "src": "./assets/textbook-practice/ch17-p611-in-text-q29-0.png",
+            "role": "question"
+          },
+          {
+            "page": 611,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p611.jpg",
+            "role": "supporting full-page context"
+          },
+          {
+            "page": 610,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p610.jpg",
+            "role": "supporting full-page context"
+          }
+        ],
+        "sourceText": "2 \u0013\u001a  Give an example (other than  those provided in the textbook)  of how selective breeding has  developed a new species of plant  or animal.",
+        "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+      },
+      "preparation": "lesson15 Recognise when an extended problem adds an assumption",
+      "status": "Source premise requires teacher decision",
+      "issue": "Prompt asks selective breeding to develop a new species. Breeds/varieties are not automatically species. Retain wording but do not certify premise; outside primary lesson14 test/counselling scope.",
+      "protection": "Native reader assignment and source wording unchanged; cumulative routing does not imply lesson14 alone teaches every task"
+    },
+    {
+      "route": "lesson-14",
+      "id": "ch17-p612-in-text-q31",
+      "kind": "routed-optional-textbook",
+      "sourceObject": {
+        "id": "ch17-p612-in-text-q31",
+        "page": 612,
+        "group": "in-text",
+        "number": 31,
+        "label": "In Text · p. 612 · question 31",
+        "topics": [
+          "lesson-11",
+          "lesson-10",
+          "lesson-14"
+        ],
+        "crops": [
+          {
+            "page": 612,
+            "box": [
+              360.4949951171875,
+              623.2870483398438,
+              521.5991821289062,
+              653.3045043945312
+            ],
+            "src": "./assets/textbook-practice/ch17-p612-in-text-q31-0.png",
+            "role": "question"
+          },
+          {
+            "page": 612,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p612.jpg",
+            "role": "supporting full-page context"
+          },
+          {
+            "page": 611,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p611.jpg",
+            "role": "supporting full-page context"
+          }
+        ],
+        "sourceText": "2 \u0014\u0012  What is autosomal inheritance?",
+        "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+      },
+      "preparation": "lesson10 autosomal model definition; lesson15 Autosomal pedigrees constrain genotypes",
+      "status": "Cumulative optional source task",
+      "issue": null,
+      "protection": "Native reader assignment and source wording unchanged; cumulative routing does not imply lesson14 alone teaches every task"
+    },
+    {
+      "route": "lesson-14",
+      "id": "ch17-p609-section-17-2-q1",
+      "kind": "routed-optional-textbook",
+      "sourceObject": {
+        "id": "ch17-p609-section-17-2-q1",
+        "page": 609,
+        "group": "section-17-2",
+        "number": 1,
+        "label": "Section 17 2 · p. 609 · question 1",
+        "topics": [
+          "lesson-09",
+          "lesson-10",
+          "lesson-14"
+        ],
+        "crops": [
+          {
+            "page": 609,
+            "box": [
+              68.0,
+              517.9307250976562,
+              317.0,
+              549.9307250976562
+            ],
+            "src": "./assets/textbook-practice/ch17-p609-section-17-2-q1-0.png",
+            "role": "question"
+          },
+          {
+            "page": 609,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p609.jpg",
+            "role": "supporting full-page context"
+          }
+        ],
+        "sourceText": "1. Describe how the process of crossing over of non-sister \nchromatids led to an understanding of linked genes.",
+        "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+      },
+      "preparation": "lesson12 nonsister-chromatid crossing-over mechanism",
+      "status": "Cumulative optional source task",
+      "issue": null,
+      "protection": "Native reader assignment and source wording unchanged; cumulative routing does not imply lesson14 alone teaches every task"
+    },
+    {
+      "route": "lesson-14",
+      "id": "ch17-p609-section-17-2-q2",
+      "kind": "routed-optional-textbook",
+      "sourceObject": {
+        "id": "ch17-p609-section-17-2-q2",
+        "page": 609,
+        "group": "section-17-2",
+        "number": 2,
+        "label": "Section 17 2 · p. 609 · question 2",
+        "topics": [
+          "lesson-09",
+          "lesson-10",
+          "lesson-14"
+        ],
+        "crops": [
+          {
+            "page": 609,
+            "box": [
+              68.0,
+              549.9307250976562,
+              317.0,
+              652.9307250976562
+            ],
+            "src": "./assets/textbook-practice/ch17-p609-section-17-2-q2-0.png",
+            "role": "question"
+          },
+          {
+            "page": 609,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p609.jpg",
+            "role": "supporting full-page context"
+          }
+        ],
+        "sourceText": " 2. A woman with normal vision marries a man with \nnormal vision. They have three children, and one is \ncolour blind.\n \n a) What can you conclude about the genotypes of \nthe parents?\n \n b) What sex is the child who is colour blind? How \ndo you know?",
+        "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+      },
+      "preparation": "lesson08 recessive cross and forced maternal contribution",
+      "status": "Cumulative optional source task",
+      "issue": null,
+      "protection": "Native reader assignment and source wording unchanged; cumulative routing does not imply lesson14 alone teaches every task"
+    },
+    {
+      "route": "lesson-14",
+      "id": "ch17-p609-section-17-2-q3",
+      "kind": "routed-optional-textbook",
+      "sourceObject": {
+        "id": "ch17-p609-section-17-2-q3",
+        "page": 609,
+        "group": "section-17-2",
+        "number": 3,
+        "label": "Section 17 2 · p. 609 · question 3",
+        "topics": [
+          "lesson-09",
+          "lesson-10",
+          "lesson-14"
+        ],
+        "crops": [
+          {
+            "page": 609,
+            "box": [
+              68.0,
+              652.9307250976562,
+              317.0,
+              684.9307250976562
+            ],
+            "src": "./assets/textbook-practice/ch17-p609-section-17-2-q3-0.png",
+            "role": "question"
+          },
+          {
+            "page": 609,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p609.jpg",
+            "role": "supporting full-page context"
+          }
+        ],
+        "sourceText": " 3. Could a person with type AB blood have a child with \ntype O blood? Explain.",
+        "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+      },
+      "preparation": "preserved lesson07 standard ABO catalogue and gametes",
+      "status": "Cumulative optional source task",
+      "issue": null,
+      "protection": "Native reader assignment and source wording unchanged; cumulative routing does not imply lesson14 alone teaches every task"
+    },
+    {
+      "route": "lesson-14",
+      "id": "ch17-p609-section-17-2-q4",
+      "kind": "routed-optional-textbook",
+      "sourceObject": {
+        "id": "ch17-p609-section-17-2-q4",
+        "page": 609,
+        "group": "section-17-2",
+        "number": 4,
+        "label": "Section 17 2 · p. 609 · question 4",
+        "topics": [
+          "lesson-09",
+          "lesson-10",
+          "lesson-14"
+        ],
+        "crops": [
+          {
+            "page": 609,
+            "box": [
+              68.0,
+              684.9307250976562,
+              317.0,
+              732.0
+            ],
+            "src": "./assets/textbook-practice/ch17-p609-section-17-2-q4-0.png",
+            "role": "question"
+          },
+          {
+            "page": 609,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p609.jpg",
+            "role": "supporting full-page context"
+          }
+        ],
+        "sourceText": " 4. Your friend keeps rabbits as pets. She has bred her \nfemale albino rabbit with her male Himalayan rabbit. \n“I’m hoping I’ll get some agouti rabbits,” she says. What \nare her chances of getting an agouti rabbit? Explain.",
+        "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+      },
+      "preparation": "completed lesson09 explicit rabbit allele hierarchy and source supplied allele relationships",
+      "status": "Cumulative optional source task",
+      "issue": "Use the actual supplied dominance/additive assumptions; the question wording alone is insufficient to infer all probability weights without its source context.",
+      "protection": "Native reader assignment and source wording unchanged; cumulative routing does not imply lesson14 alone teaches every task"
+    },
+    {
+      "route": "lesson-14",
+      "id": "ch17-p609-section-17-2-q5",
+      "kind": "routed-optional-textbook",
+      "sourceObject": {
+        "id": "ch17-p609-section-17-2-q5",
+        "page": 609,
+        "group": "section-17-2",
+        "number": 5,
+        "label": "Section 17 2 · p. 609 · question 5",
+        "topics": [
+          "lesson-09",
+          "lesson-10",
+          "lesson-14"
+        ],
+        "crops": [
+          {
+            "page": 609,
+            "box": [
+              287.0,
+              517.9307250976562,
+              568.0,
+              659.9307250976562
+            ],
+            "src": "./assets/textbook-practice/ch17-p609-section-17-2-q5-0.png",
+            "role": "question"
+          },
+          {
+            "page": 609,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p609.jpg",
+            "role": "supporting full-page context"
+          }
+        ],
+        "sourceText": "sister \nes.\ns \n \n \nith \n 5. In one species of bean plant, weight is infl uenced by two \ndifferent genes.\n \n a) How many weight classes would you expect to fi nd \nin this plant population? Explain using a Punnett \nsquare or another visual representation.\n \n b) When you analyze the weights of several beans \nfrom the same cross, you fi nd that many beans \nhave weights between the predicted weight classes. \nIdentify two other factors that could infl uence \nthe bean phenotypes.",
+        "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+      },
+      "preparation": "lesson09 explicit equal-effect additive model and environmental variation",
+      "status": "Cumulative optional source task",
+      "issue": "Use the actual supplied dominance/additive assumptions; the question wording alone is insufficient to infer all probability weights without its source context.",
+      "protection": "Native reader assignment and source wording unchanged; cumulative routing does not imply lesson14 alone teaches every task"
+    },
+    {
+      "route": "lesson-14",
+      "id": "ch17-p609-section-17-2-q6",
+      "kind": "routed-optional-textbook",
+      "sourceObject": {
+        "id": "ch17-p609-section-17-2-q6",
+        "page": 609,
+        "group": "section-17-2",
+        "number": 6,
+        "label": "Section 17 2 · p. 609 · question 6",
+        "topics": [
+          "lesson-09",
+          "lesson-10",
+          "lesson-14"
+        ],
+        "crops": [
+          {
+            "page": 609,
+            "box": [
+              287.0,
+              659.9307250976562,
+              568.0,
+              732.0
+            ],
+            "src": "./assets/textbook-practice/ch17-p609-section-17-2-q6-0.png",
+            "role": "question"
+          },
+          {
+            "page": 609,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p609.jpg",
+            "role": "supporting full-page context"
+          }
+        ],
+        "sourceText": "ith \nbit. \nWhat \nn.\n 6. Siamese cats that spend their lives indoors tend to \nhave lighter-coloured fur than Siamese cats that live \noutdoors. What genetic process could account for \nthis change?",
+        "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+      },
+      "preparation": "lesson09 temperature-sensitive inherited enzyme activity without assumed mutation",
+      "status": "Cumulative optional source task",
+      "issue": null,
+      "protection": "Native reader assignment and source wording unchanged; cumulative routing does not imply lesson14 alone teaches every task"
+    },
+    {
+      "route": "lesson-14",
+      "id": "ch17-p617-section-17-3-q1",
+      "kind": "routed-optional-textbook",
+      "sourceObject": {
+        "id": "ch17-p617-section-17-3-q1",
+        "page": 617,
+        "group": "section-17-3",
+        "number": 1,
+        "label": "Section 17 3 · p. 617 · question 1",
+        "topics": [
+          "lesson-11",
+          "lesson-14"
+        ],
+        "crops": [
+          {
+            "page": 617,
+            "box": [
+              68.0,
+              376.93060302734375,
+              317.0,
+              408.93060302734375
+            ],
+            "src": "./assets/textbook-practice/ch17-p617-section-17-3-q1-0.png",
+            "role": "question"
+          },
+          {
+            "page": 617,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p617.jpg",
+            "role": "supporting full-page context"
+          }
+        ],
+        "sourceText": "1. Give two examples of plants that have been developed \nthrough selective breeding techniques.",
+        "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+      },
+      "preparation": "lesson15 selective-breeding extension with maize/canola and inheritance mechanism",
+      "status": "Cumulative optional source task",
+      "issue": null,
+      "protection": "Native reader assignment and source wording unchanged; cumulative routing does not imply lesson14 alone teaches every task"
+    },
+    {
+      "route": "lesson-14",
+      "id": "ch17-p617-section-17-3-q2",
+      "kind": "routed-optional-textbook",
+      "sourceObject": {
+        "id": "ch17-p617-section-17-3-q2",
+        "page": 617,
+        "group": "section-17-3",
+        "number": 2,
+        "label": "Section 17 3 · p. 617 · question 2",
+        "topics": [
+          "lesson-11",
+          "lesson-14"
+        ],
+        "crops": [
+          {
+            "page": 617,
+            "box": [
+              68.0,
+              408.93060302734375,
+              317.0,
+              453.93060302734375
+            ],
+            "src": "./assets/textbook-practice/ch17-p617-section-17-3-q2-0.png",
+            "role": "question"
+          },
+          {
+            "page": 617,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p617.jpg",
+            "role": "supporting full-page context"
+          }
+        ],
+        "sourceText": "2. In what ways do the methods of researchers studying \nhuman genetics differ from the methods of researchers \nstudying Drosophila? Explain.",
+        "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+      },
+      "preparation": "lesson15 human versus controlled reproductive crosses; textbook611 generation/sample context",
+      "status": "Cumulative optional source task",
+      "issue": null,
+      "protection": "Native reader assignment and source wording unchanged; cumulative routing does not imply lesson14 alone teaches every task"
+    },
+    {
+      "route": "lesson-14",
+      "id": "ch17-p617-section-17-3-q3",
+      "kind": "routed-optional-textbook",
+      "sourceObject": {
+        "id": "ch17-p617-section-17-3-q3",
+        "page": 617,
+        "group": "section-17-3",
+        "number": 3,
+        "label": "Section 17 3 · p. 617 · question 3",
+        "topics": [
+          "lesson-10",
+          "lesson-11",
+          "lesson-14"
+        ],
+        "crops": [
+          {
+            "page": 617,
+            "box": [
+              68.0,
+              453.93060302734375,
+              317.0,
+              732.0
+            ],
+            "src": "./assets/textbook-practice/ch17-p617-section-17-3-q3-0.png",
+            "role": "question"
+          },
+          {
+            "page": 617,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p617.jpg",
+            "role": "supporting full-page context"
+          }
+        ],
+        "sourceText": "3. Examine the following pedigree.\na) What can you deduce about the pattern of \ninheritance of the trait?\nb) Give one example of a human genetic condition \nthat is passed on in this way.\nc) What is the genotype of individual I 1?\n�\n�\n�\n�\n�\n�\n�\n�\n�\n�\n�\n�\n���\n��\n�",
+        "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+      },
+      "preparation": "lesson10/11 whole-pedigree model testing; actual source617 figure",
+      "status": "Cumulative optional source task",
+      "issue": "Specific named medical-condition example is supplementary source context, not taught as an individual diagnosis or a uniquely proven model from shading alone.",
+      "protection": "Native reader assignment and source wording unchanged; cumulative routing does not imply lesson14 alone teaches every task"
+    },
+    {
+      "route": "lesson-14",
+      "id": "ch17-p617-section-17-3-q4",
+      "kind": "routed-optional-textbook",
+      "sourceObject": {
+        "id": "ch17-p617-section-17-3-q4",
+        "page": 617,
+        "group": "section-17-3",
+        "number": 4,
+        "label": "Section 17 3 · p. 617 · question 4",
+        "topics": [
+          "lesson-10",
+          "lesson-11",
+          "lesson-14"
+        ],
+        "crops": [
+          {
+            "page": 617,
+            "box": [
+              287.0,
+              421.93060302734375,
+              568.0,
+              492.93060302734375
+            ],
+            "src": "./assets/textbook-practice/ch17-p617-section-17-3-q4-0.png",
+            "role": "question"
+          },
+          {
+            "page": 617,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p617.jpg",
+            "role": "supporting full-page context"
+          }
+        ],
+        "sourceText": "ng \nchers \n 4. You have discovered a new autosomal recessive genetic \ncondition. Individuals with this condition do not \nsurvive long after birth, and so do not have children \nof their own. Will the trait be eliminated from the \npopulation over time? Explain.",
+        "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+      },
+      "preparation": "lesson15 unaffected carrier persistence paragraph",
+      "status": "Cumulative optional source task",
+      "issue": null,
+      "protection": "Native reader assignment and source wording unchanged; cumulative routing does not imply lesson14 alone teaches every task"
+    },
+    {
+      "route": "lesson-14",
+      "id": "ch17-p617-section-17-3-q5",
+      "kind": "routed-optional-textbook",
+      "sourceObject": {
+        "id": "ch17-p617-section-17-3-q5",
+        "page": 617,
+        "group": "section-17-3",
+        "number": 5,
+        "label": "Section 17 3 · p. 617 · question 5",
+        "topics": [
+          "lesson-11",
+          "lesson-14"
+        ],
+        "crops": [
+          {
+            "page": 617,
+            "box": [
+              287.0,
+              492.93060302734375,
+              568.0,
+              732.0
+            ],
+            "src": "./assets/textbook-practice/ch17-p617-section-17-3-q5-0.png",
+            "role": "question"
+          },
+          {
+            "page": 617,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p617.jpg",
+            "role": "supporting full-page context"
+          }
+        ],
+        "sourceText": "n \n�\n�\n�\n�\n�\n�\n 5. You suspect that you may be a carrier for a serious \ngenetic condition, and you decide to consult a genetic \ncounsellor. What three characteristics would you want \nthe genetic counsellor to have?",
+        "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+      },
+      "preparation": "lesson14 Use a counselling conversation to make the uncertainty usable",
+      "status": "Cumulative optional source task",
+      "issue": null,
+      "protection": "Native reader assignment and source wording unchanged; cumulative routing does not imply lesson14 alone teaches every task"
+    },
+    {
+      "route": "lesson-14",
+      "id": "ch17-p620-chapter-review-q1",
+      "kind": "routed-optional-textbook",
+      "sourceObject": {
+        "id": "ch17-p620-chapter-review-q1",
+        "page": 620,
+        "group": "chapter-review",
+        "number": 1,
+        "label": "Chapter Review · p. 620 · question 1",
+        "topics": [
+          "lesson-11",
+          "lesson-14",
+          "chapter-review"
+        ],
+        "crops": [
+          {
+            "page": 620,
+            "box": [
+              38.0,
+              85.18061828613281,
+              285.0,
+              117.18061828613281
+            ],
+            "src": "./assets/textbook-practice/ch17-p620-chapter-review-q1-0.png",
+            "role": "question"
+          },
+          {
+            "page": 620,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p620.jpg",
+            "role": "supporting full-page context"
+          }
+        ],
+        "sourceText": " 1. Give three reasons that pea plants were an excellent \nchoice for Mendel’s research.",
+        "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+      },
+      "preparation": "preserved lesson02 pea choice and controlled generations",
+      "status": "Cumulative optional source task",
+      "issue": null,
+      "protection": "Native reader assignment and source wording unchanged; cumulative routing does not imply lesson14 alone teaches every task"
+    },
+    {
+      "route": "lesson-14",
+      "id": "ch17-p620-chapter-review-q2",
+      "kind": "routed-optional-textbook",
+      "sourceObject": {
+        "id": "ch17-p620-chapter-review-q2",
+        "page": 620,
+        "group": "chapter-review",
+        "number": 2,
+        "label": "Chapter Review · p. 620 · question 2",
+        "topics": [
+          "lesson-11",
+          "lesson-14",
+          "chapter-review"
+        ],
+        "crops": [
+          {
+            "page": 620,
+            "box": [
+              38.0,
+              117.18061828613281,
+              285.0,
+              136.1806182861328
+            ],
+            "src": "./assets/textbook-practice/ch17-p620-chapter-review-q2-0.png",
+            "role": "question"
+          },
+          {
+            "page": 620,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p620.jpg",
+            "role": "supporting full-page context"
+          }
+        ],
+        "sourceText": " 2. What is Mendel’s law of segregation? ",
+        "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+      },
+      "preparation": "preserved lesson02 meiosis/gamete reasoning; lesson15 Mendel evidence",
+      "status": "Cumulative optional source task",
+      "issue": null,
+      "protection": "Native reader assignment and source wording unchanged; cumulative routing does not imply lesson14 alone teaches every task"
+    },
+    {
+      "route": "lesson-14",
+      "id": "ch17-p620-chapter-review-q3",
+      "kind": "routed-optional-textbook",
+      "sourceObject": {
+        "id": "ch17-p620-chapter-review-q3",
+        "page": 620,
+        "group": "chapter-review",
+        "number": 3,
+        "label": "Chapter Review · p. 620 · question 3",
+        "topics": [
+          "lesson-11",
+          "lesson-14",
+          "chapter-review"
+        ],
+        "crops": [
+          {
+            "page": 620,
+            "box": [
+              38.0,
+              136.1806182861328,
+              285.0,
+              285.18060302734375
+            ],
+            "src": "./assets/textbook-practice/ch17-p620-chapter-review-q3-0.png",
+            "role": "question"
+          },
+          {
+            "page": 620,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p620.jpg",
+            "role": "supporting full-page context"
+          }
+        ],
+        "sourceText": " 3. In humans, drooping eyelids are dominant to \nnon-drooping eyelids. \n \n a) What are the two possible genotypes that a person \nwith drooping eyelids might have?\n \n b) A man who is heterozygous for both alleles marries \na woman with non-drooping eyelids. Use a Punnett \nsquare to show the expected genotypes and \nphenotypes of their children. \n \n c) A man with non-drooping eyelids and a woman with \ndrooping eyelids have three children, all with non-\ndrooping eyelids. How can you explain this outcome? ",
+        "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+      },
+      "preparation": "complete-dominance model in lesson15; treat the stated human trait as hypothetical rather than a universal clinical fact",
+      "status": "Cumulative optional source task",
+      "issue": "Retain original task but restrict inference to stated classroom model and actual evidence. Historical human-trait wording or a small family is not a universal verified biological claim.",
+      "protection": "Native reader assignment and source wording unchanged; cumulative routing does not imply lesson14 alone teaches every task"
+    },
+    {
+      "route": "lesson-14",
+      "id": "ch17-p620-chapter-review-q4",
+      "kind": "routed-optional-textbook",
+      "sourceObject": {
+        "id": "ch17-p620-chapter-review-q4",
+        "page": 620,
+        "group": "chapter-review",
+        "number": 4,
+        "label": "Chapter Review · p. 620 · question 4",
+        "topics": [
+          "lesson-11",
+          "lesson-14",
+          "chapter-review"
+        ],
+        "crops": [
+          {
+            "page": 620,
+            "box": [
+              38.0,
+              285.18060302734375,
+              285.0,
+              421.18060302734375
+            ],
+            "src": "./assets/textbook-practice/ch17-p620-chapter-review-q4-0.png",
+            "role": "question"
+          },
+          {
+            "page": 620,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p620.jpg",
+            "role": "supporting full-page context"
+          }
+        ],
+        "sourceText": " 4. In humans, the gene for albinism is recessive to the gene \nfor normal pigmentation. Your friends Milan and Aila \nboth have normal pigmentation. They have one child \nwho is an albino and are expecting a second child. Milan \ntells you, “We knew that our chance of having one \nalbino child was 1:4. This means our chance of having \ntwo albino children is only 1:16, so we can be very sure \nthat our next baby will not be albino.” How would you \nrespond? Using a specifi c example, explain to Milan \nwhether or not his reasoning is correct. ",
+        "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+      },
+      "preparation": "independent offspring reasoning in lesson15; use stated recessive model, respectful wording",
+      "status": "Cumulative optional source task",
+      "issue": "Retain original task but restrict inference to stated classroom model and actual evidence. Historical human-trait wording or a small family is not a universal verified biological claim.",
+      "protection": "Native reader assignment and source wording unchanged; cumulative routing does not imply lesson14 alone teaches every task"
+    },
+    {
+      "route": "lesson-14",
+      "id": "ch17-p620-chapter-review-q5",
+      "kind": "routed-optional-textbook",
+      "sourceObject": {
+        "id": "ch17-p620-chapter-review-q5",
+        "page": 620,
+        "group": "chapter-review",
+        "number": 5,
+        "label": "Chapter Review · p. 620 · question 5",
+        "topics": [
+          "lesson-10",
+          "lesson-11",
+          "lesson-14",
+          "chapter-review"
+        ],
+        "crops": [
+          {
+            "page": 620,
+            "box": [
+              38.0,
+              421.18060302734375,
+              285.0,
+              557.1806030273438
+            ],
+            "src": "./assets/textbook-practice/ch17-p620-chapter-review-q5-0.png",
+            "role": "question"
+          },
+          {
+            "page": 620,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p620.jpg",
+            "role": "supporting full-page context"
+          }
+        ],
+        "sourceText": " 5. A cross of true-breeding purple-fl owered and true-\nbreeding white-fl owered plants results in F1 plants that \nare all lavender (light purple). A cross of two F1 plants \nresults in an F2 generation with the following numbers \nof phenotypes: 28 purple, 52 lavender, and 19 white. \n \n a) What were the genotypes of the F1 generation? \nExplain.\n \n b) Use a Punnett square to show the predicted \nphenotypes and genotypes of the F2 generation. \n \n c) Describe the type of inheritance that this cross reveals.",
+        "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+      },
+      "preparation": "preserved lesson06 incomplete dominance; lesson15 expression rules and expected samples",
+      "status": "Cumulative optional source task",
+      "issue": null,
+      "protection": "Native reader assignment and source wording unchanged; cumulative routing does not imply lesson14 alone teaches every task"
+    },
+    {
+      "route": "lesson-14",
+      "id": "ch17-p620-chapter-review-q6",
+      "kind": "routed-optional-textbook",
+      "sourceObject": {
+        "id": "ch17-p620-chapter-review-q6",
+        "page": 620,
+        "group": "chapter-review",
+        "number": 6,
+        "label": "Chapter Review · p. 620 · question 6",
+        "topics": [
+          "lesson-11",
+          "lesson-14",
+          "chapter-review"
+        ],
+        "crops": [
+          {
+            "page": 620,
+            "box": [
+              38.0,
+              557.1806030273438,
+              285.0,
+              576.1806030273438
+            ],
+            "src": "./assets/textbook-practice/ch17-p620-chapter-review-q6-0.png",
+            "role": "question"
+          },
+          {
+            "page": 620,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p620.jpg",
+            "role": "supporting full-page context"
+          }
+        ],
+        "sourceText": " 6. What is a test cross, and when is it used?",
+        "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+      },
+      "preparation": "preserved lesson04 and lesson15 test-cross evidence",
+      "status": "Cumulative optional source task",
+      "issue": null,
+      "protection": "Native reader assignment and source wording unchanged; cumulative routing does not imply lesson14 alone teaches every task"
+    },
+    {
+      "route": "lesson-14",
+      "id": "ch17-p620-chapter-review-q7",
+      "kind": "routed-optional-textbook",
+      "sourceObject": {
+        "id": "ch17-p620-chapter-review-q7",
+        "page": 620,
+        "group": "chapter-review",
+        "number": 7,
+        "label": "Chapter Review · p. 620 · question 7",
+        "topics": [
+          "lesson-11",
+          "lesson-14",
+          "chapter-review"
+        ],
+        "crops": [
+          {
+            "page": 620,
+            "box": [
+              38.0,
+              576.1806030273438,
+              285.0,
+              621.1806030273438
+            ],
+            "src": "./assets/textbook-practice/ch17-p620-chapter-review-q7-0.png",
+            "role": "question"
+          },
+          {
+            "page": 620,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p620.jpg",
+            "role": "supporting full-page context"
+          }
+        ],
+        "sourceText": " 7. In what way does the chromosome theory of \ninheritance require a revision to Mendel’s law of \nindependent assortment? ",
+        "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+      },
+      "preparation": "lessons12/13 and lesson15 linkage limits",
+      "status": "Cumulative optional source task",
+      "issue": null,
+      "protection": "Native reader assignment and source wording unchanged; cumulative routing does not imply lesson14 alone teaches every task"
+    },
+    {
+      "route": "lesson-14",
+      "id": "ch17-p620-chapter-review-q8",
+      "kind": "routed-optional-textbook",
+      "sourceObject": {
+        "id": "ch17-p620-chapter-review-q8",
+        "page": 620,
+        "group": "chapter-review",
+        "number": 8,
+        "label": "Chapter Review · p. 620 · question 8",
+        "topics": [
+          "lesson-11",
+          "lesson-14",
+          "chapter-review"
+        ],
+        "crops": [
+          {
+            "page": 620,
+            "box": [
+              38.0,
+              621.1806030273438,
+              285.0,
+              732.0
+            ],
+            "src": "./assets/textbook-practice/ch17-p620-chapter-review-q8-0.png",
+            "role": "question"
+          },
+          {
+            "page": 620,
+            "box": [
+              287.0,
+              70.0,
+              539.0,
+              112.68061828613281
+            ],
+            "src": "./assets/textbook-practice/ch17-p620-chapter-review-q8-1.png",
+            "role": "required question continuation"
+          },
+          {
+            "page": 620,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p620.jpg",
+            "role": "supporting full-page context"
+          }
+        ],
+        "sourceText": " 8. A male mouse with a grey coat is mated with an albino \nfemale. Their six offspring all have grey fur. The albino \nfemale is then mated with a second grey male mouse. \nFour of the seven offspring in this litter are albino.\n \n a) What are the probable genotypes of the three \nparent mice?",
+        "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+      },
+      "preparation": "preserved lesson04 and lesson15 small-sample likelihood versus genotype certainty",
+      "status": "Cumulative optional source task",
+      "issue": "The native extraction includes incomplete text or a required figure; use the full original printed page rather than the OCR excerpt alone.",
+      "protection": "Native reader assignment and source wording unchanged; cumulative routing does not imply lesson14 alone teaches every task"
+    },
+    {
+      "route": "lesson-14",
+      "id": "ch17-p620-chapter-review-q9",
+      "kind": "routed-optional-textbook",
+      "sourceObject": {
+        "id": "ch17-p620-chapter-review-q9",
+        "page": 620,
+        "group": "chapter-review",
+        "number": 9,
+        "label": "Chapter Review · p. 620 · question 9",
+        "topics": [
+          "lesson-11",
+          "lesson-14",
+          "chapter-review"
+        ],
+        "crops": [
+          {
+            "page": 620,
+            "box": [
+              287.0,
+              113.68061828613281,
+              539.0,
+              171.6806182861328
+            ],
+            "src": "./assets/textbook-practice/ch17-p620-chapter-review-q9-0.png",
+            "role": "question"
+          },
+          {
+            "page": 620,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p620.jpg",
+            "role": "supporting full-page context"
+          }
+        ],
+        "sourceText": " 9. A man with type B blood marries a woman with type \nAB blood. What blood types would you expect to fi nd \namong their children? What would tell you that the man \nis heterozygous for type B blood?",
+        "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+      },
+      "preparation": "preserved lesson07 standard ABO and unresolved B genotype",
+      "status": "Cumulative optional source task",
+      "issue": null,
+      "protection": "Native reader assignment and source wording unchanged; cumulative routing does not imply lesson14 alone teaches every task"
+    },
+    {
+      "route": "lesson-14",
+      "id": "ch17-p620-chapter-review-q10",
+      "kind": "routed-optional-textbook",
+      "sourceObject": {
+        "id": "ch17-p620-chapter-review-q10",
+        "page": 620,
+        "group": "chapter-review",
+        "number": 10,
+        "label": "Chapter Review · p. 620 · question 10",
+        "topics": [
+          "lesson-11",
+          "lesson-14",
+          "chapter-review"
+        ],
+        "crops": [
+          {
+            "page": 620,
+            "box": [
+              287.0,
+              171.6806182861328,
+              539.0,
+              203.6806182861328
+            ],
+            "src": "./assets/textbook-practice/ch17-p620-chapter-review-q10-0.png",
+            "role": "question"
+          },
+          {
+            "page": 620,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p620.jpg",
+            "role": "supporting full-page context"
+          }
+        ],
+        "sourceText": " 10. A woman with type AB blood has a child with the same \nblood type. What are the possible genotypes of the father?",
+        "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+      },
+      "preparation": "preserved lesson07 gamete catalogue and required AB contributions",
+      "status": "Cumulative optional source task",
+      "issue": null,
+      "protection": "Native reader assignment and source wording unchanged; cumulative routing does not imply lesson14 alone teaches every task"
+    },
+    {
+      "route": "lesson-14",
+      "id": "ch17-p620-chapter-review-q11",
+      "kind": "routed-optional-textbook",
+      "sourceObject": {
+        "id": "ch17-p620-chapter-review-q11",
+        "page": 620,
+        "group": "chapter-review",
+        "number": 11,
+        "label": "Chapter Review · p. 620 · question 11",
+        "topics": [
+          "lesson-11",
+          "lesson-14",
+          "chapter-review"
+        ],
+        "crops": [
+          {
+            "page": 620,
+            "box": [
+              287.0,
+              203.6806182861328,
+              539.0,
+              235.6806182861328
+            ],
+            "src": "./assets/textbook-practice/ch17-p620-chapter-review-q11-0.png",
+            "role": "question"
+          },
+          {
+            "page": 620,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p620.jpg",
+            "role": "supporting full-page context"
+          }
+        ],
+        "sourceText": " 11. Explain the signifi cance of the Barr body in the \nexpression of sex-linked traits. ",
+        "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+      },
+      "preparation": "lesson08 qualified X-inactivation and cell-lineage explanation",
+      "status": "Cumulative optional source task",
+      "issue": null,
+      "protection": "Native reader assignment and source wording unchanged; cumulative routing does not imply lesson14 alone teaches every task"
+    },
+    {
+      "route": "lesson-14",
+      "id": "ch17-p620-chapter-review-q12",
+      "kind": "routed-optional-textbook",
+      "sourceObject": {
+        "id": "ch17-p620-chapter-review-q12",
+        "page": 620,
+        "group": "chapter-review",
+        "number": 12,
+        "label": "Chapter Review · p. 620 · question 12",
+        "topics": [
+          "lesson-11",
+          "lesson-14",
+          "chapter-review"
+        ],
+        "crops": [
+          {
+            "page": 620,
+            "box": [
+              287.0,
+              235.6806182861328,
+              539.0,
+              319.68060302734375
+            ],
+            "src": "./assets/textbook-practice/ch17-p620-chapter-review-q12-0.png",
+            "role": "question"
+          },
+          {
+            "page": 620,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p620.jpg",
+            "role": "supporting full-page context"
+          }
+        ],
+        "sourceText": " 12. A breeder of show horses fi nds that one of his stallions \nhas a genetic defect that affects the production of \nsperm. The gene associated with this trait is located \non the Y chromosome. What is the possibility that the \nstallion’s female offspring could pass on this trait to \ntheir sons? Explain.",
+        "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+      },
+      "preparation": "lesson08 stated Y-linked transmission model; no female Y route in this simple model",
+      "status": "Cumulative optional source task",
+      "issue": null,
+      "protection": "Native reader assignment and source wording unchanged; cumulative routing does not imply lesson14 alone teaches every task"
+    },
+    {
+      "route": "lesson-14",
+      "id": "ch17-p620-chapter-review-q13",
+      "kind": "routed-optional-textbook",
+      "sourceObject": {
+        "id": "ch17-p620-chapter-review-q13",
+        "page": 620,
+        "group": "chapter-review",
+        "number": 13,
+        "label": "Chapter Review · p. 620 · question 13",
+        "topics": [
+          "lesson-11",
+          "lesson-14",
+          "chapter-review"
+        ],
+        "crops": [
+          {
+            "page": 620,
+            "box": [
+              287.0,
+              319.68060302734375,
+              539.0,
+              515.6807250976562
+            ],
+            "src": "./assets/textbook-practice/ch17-p620-chapter-review-q13-0.png",
+            "role": "question"
+          },
+          {
+            "page": 620,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p620.jpg",
+            "role": "supporting full-page context"
+          }
+        ],
+        "sourceText": " 13. The following diagram shows the results of two crosses. \nExplain the results and the genetic principle that is \nillustrated. \nApplying Concepts",
+        "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+      },
+      "preparation": "source620 yellow-round × green-wrinkled pea figure; preserved lesson05 independent two-locus assortment and lesson15 Two loci add a chromosome question",
+      "status": "Cumulative optional source task",
+      "issue": "The native extraction includes incomplete text or a required figure; use the full original printed page rather than the OCR excerpt alone.",
+      "protection": "Native reader assignment and source wording unchanged; cumulative routing does not imply lesson14 alone teaches every task"
+    },
+    {
+      "route": "lesson-14",
+      "id": "ch17-p620-chapter-review-q14",
+      "kind": "routed-optional-textbook",
+      "sourceObject": {
+        "id": "ch17-p620-chapter-review-q14",
+        "page": 620,
+        "group": "chapter-review",
+        "number": 14,
+        "label": "Chapter Review · p. 620 · question 14",
+        "topics": [
+          "lesson-11",
+          "lesson-14",
+          "chapter-review"
+        ],
+        "crops": [
+          {
+            "page": 620,
+            "box": [
+              287.0,
+              515.6807250976562,
+              539.0,
+              586.6807250976562
+            ],
+            "src": "./assets/textbook-practice/ch17-p620-chapter-review-q14-0.png",
+            "role": "question"
+          },
+          {
+            "page": 620,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p620.jpg",
+            "role": "supporting full-page context"
+          }
+        ],
+        "sourceText": " 14. In foxes, a pair of alleles, P and p, interact as follows: \nPP is lethal, usually during the embryonic stage; Pp \nproduces platinum-coloured fur; and pp produces silver \nfoxes. Could a fox breeder establish a true-breeding \nvariety of platinum foxes? Explain.",
+        "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+      },
+      "preparation": "lesson15 fully worked LL lethal-at-fertilisation versus surviving Ll/ll model",
+      "status": "Cumulative optional source task",
+      "issue": null,
+      "protection": "Native reader assignment and source wording unchanged; cumulative routing does not imply lesson14 alone teaches every task"
+    },
+    {
+      "route": "lesson-14",
+      "id": "ch17-p620-chapter-review-q15",
+      "kind": "routed-optional-textbook",
+      "sourceObject": {
+        "id": "ch17-p620-chapter-review-q15",
+        "page": 620,
+        "group": "chapter-review",
+        "number": 15,
+        "label": "Chapter Review · p. 620 · question 15",
+        "topics": [
+          "lesson-11",
+          "lesson-14",
+          "chapter-review"
+        ],
+        "crops": [
+          {
+            "page": 620,
+            "box": [
+              287.0,
+              586.6807250976562,
+              539.0,
+              657.6807250976562
+            ],
+            "src": "./assets/textbook-practice/ch17-p620-chapter-review-q15-0.png",
+            "role": "question"
+          },
+          {
+            "page": 620,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p620.jpg",
+            "role": "supporting full-page context"
+          }
+        ],
+        "sourceText": " 15. Rudy and Sinead are expecting a baby. They have \nnormal vision, but both of their fathers are colour \nblind. Determine the chance that the baby will be \n \n a) a colour-blind girl\n \n b) a boy with normal vision ",
+        "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+      },
+      "preparation": "lesson08 family-inference and joint sex/phenotype probability",
+      "status": "Cumulative optional source task",
+      "issue": null,
+      "protection": "Native reader assignment and source wording unchanged; cumulative routing does not imply lesson14 alone teaches every task"
+    },
+    {
+      "route": "lesson-14",
+      "id": "ch17-p620-chapter-review-q16",
+      "kind": "routed-optional-textbook",
+      "sourceObject": {
+        "id": "ch17-p620-chapter-review-q16",
+        "page": 620,
+        "group": "chapter-review",
+        "number": 16,
+        "label": "Chapter Review · p. 620 · question 16",
+        "topics": [
+          "lesson-10",
+          "lesson-11",
+          "lesson-14",
+          "chapter-review"
+        ],
+        "crops": [
+          {
+            "page": 620,
+            "box": [
+              287.0,
+              657.6807250976562,
+              539.0,
+              732.0
+            ],
+            "src": "./assets/textbook-practice/ch17-p620-chapter-review-q16-0.png",
+            "role": "question"
+          },
+          {
+            "page": 621,
+            "box": [
+              68.0,
+              67.0,
+              318.0,
+              112.68061828613281
+            ],
+            "src": "./assets/textbook-practice/ch17-p620-chapter-review-q16-1.png",
+            "role": "required question continuation"
+          },
+          {
+            "page": 620,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p620.jpg",
+            "role": "supporting full-page context"
+          },
+          {
+            "page": 621,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p621.jpg",
+            "role": "supporting full-page context"
+          }
+        ],
+        "sourceText": " 16. Fruit fl ies can have normal wings or stunted wings. \nIn an experiment, you mate several normal-winged \nfemales with a male that has stunted wings. In the \nF1 generation, only the males have stunted wings. \n \n a) What can you conclude from this experiment?",
+        "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+      },
+      "preparation": "lesson08/11 model scrutiny; distinguish possible data from uniquely established sex-linkage",
+      "status": "Cumulative optional source task",
+      "issue": "Retain original task but restrict inference to stated classroom model and actual evidence. Historical human-trait wording or a small family is not a universal verified biological claim. The native extraction includes incomplete text or a required figure; use the full original printed page rather than the OCR excerpt alone.",
+      "protection": "Native reader assignment and source wording unchanged; cumulative routing does not imply lesson14 alone teaches every task"
+    },
+    {
+      "route": "lesson-14",
+      "id": "ch17-p621-chapter-review-q17",
+      "kind": "routed-optional-textbook",
+      "sourceObject": {
+        "id": "ch17-p621-chapter-review-q17",
+        "page": 621,
+        "group": "chapter-review",
+        "number": 17,
+        "label": "Chapter Review · p. 621 · question 17",
+        "topics": [
+          "lesson-11",
+          "lesson-14",
+          "chapter-review"
+        ],
+        "crops": [
+          {
+            "page": 621,
+            "box": [
+              68.0,
+              113.68061828613281,
+              317.0,
+              236.6806182861328
+            ],
+            "src": "./assets/textbook-practice/ch17-p621-chapter-review-q17-0.png",
+            "role": "question"
+          },
+          {
+            "page": 621,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p621.jpg",
+            "role": "supporting full-page context"
+          }
+        ],
+        "sourceText": " 17. Imagine that the fi rst dihybrid crosses Mendel \nperformed had involved traits controlled by closely \nlinked genes. \n \n a) How would Mendel’s results have differed from the \nresults of a dihybrid cross involving non-linked genes?\n \n b) What hypothesis might Mendel have developed to \nexplain his results?\n \n c) What experiment could Mendel have performed to \ntest this hypothesis? What would he have observed?",
+        "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+      },
+      "preparation": "lesson12 linkage/tester mechanism and lesson15 model comparison",
+      "status": "Cumulative optional source task",
+      "issue": null,
+      "protection": "Native reader assignment and source wording unchanged; cumulative routing does not imply lesson14 alone teaches every task"
+    },
+    {
+      "route": "lesson-14",
+      "id": "ch17-p621-chapter-review-q18",
+      "kind": "routed-optional-textbook",
+      "sourceObject": {
+        "id": "ch17-p621-chapter-review-q18",
+        "page": 621,
+        "group": "chapter-review",
+        "number": 18,
+        "label": "Chapter Review · p. 621 · question 18",
+        "topics": [
+          "lesson-11",
+          "lesson-14",
+          "chapter-review"
+        ],
+        "crops": [
+          {
+            "page": 621,
+            "box": [
+              68.0,
+              236.6806182861328,
+              317.0,
+              320.68060302734375
+            ],
+            "src": "./assets/textbook-practice/ch17-p621-chapter-review-q18-0.png",
+            "role": "question"
+          },
+          {
+            "page": 621,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p621.jpg",
+            "role": "supporting full-page context"
+          }
+        ],
+        "sourceText": " 18. Among some breeds of cattle, there is a trait called \npolled. Polled individuals do not develop horns. \nSuppose that a farmer breeds the same two polled \nindividuals several times and fi ve calves are born. Three \nof these calves are polled, and two are not. Is this an \nexample of dominant or recessive inheritance? Explain.",
+        "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+      },
+      "preparation": "lesson10/11 family constraints and stated simple-model limits",
+      "status": "Cumulative optional source task",
+      "issue": "Retain original task but restrict inference to stated classroom model and actual evidence. Historical human-trait wording or a small family is not a universal verified biological claim.",
+      "protection": "Native reader assignment and source wording unchanged; cumulative routing does not imply lesson14 alone teaches every task"
+    },
+    {
+      "route": "lesson-14",
+      "id": "ch17-p621-chapter-review-q19",
+      "kind": "routed-optional-textbook",
+      "sourceObject": {
+        "id": "ch17-p621-chapter-review-q19",
+        "page": 621,
+        "group": "chapter-review",
+        "number": 19,
+        "label": "Chapter Review · p. 621 · question 19",
+        "topics": [
+          "lesson-11",
+          "lesson-14",
+          "chapter-review"
+        ],
+        "crops": [
+          {
+            "page": 621,
+            "box": [
+              68.0,
+              320.68060302734375,
+              317.0,
+              508.68060302734375
+            ],
+            "src": "./assets/textbook-practice/ch17-p621-chapter-review-q19-0.png",
+            "role": "question"
+          },
+          {
+            "page": 621,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p621.jpg",
+            "role": "supporting full-page context"
+          }
+        ],
+        "sourceText": " 19. A farmer wants to breed a variety of taller corn. \n \n a) How can the farmer use variation in the height of the \ncurrent corn plants to produce taller corn plants? \n \n b) Will the farmer’s work be most effective if height in \ncorn plants is determined by polygenic inheritance, \nmultiple alleles, or co-dominant alleles? Explain.\n \n c) The farmer fi nds that many of the tallest corn plants \nare also very susceptible to a particular disease. How \ncould the farmer design an experiment to fi nd out \nif the genes for height are linked to the genes for \nresistance to the disease?\n \n d) If these genes are linked, what steps could the farmer \ntake to create a breed of corn that is taller and more \ndisease-resistant than the current corn crop? ",
+        "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+      },
+      "preparation": "lesson09 controlled environmental comparison; lesson12 linkage; lesson15 selection and inherited variation",
+      "status": "Cumulative optional source task",
+      "issue": "Part b does not support a universal ranking of selection effectiveness from polygenic, multiple-allele or codominant labels alone. Inherited variation, effect sizes, environment and the selection goal matter; state the model and limits rather than claiming one category is always best.",
+      "protection": "Native reader assignment and source wording unchanged; cumulative routing does not imply lesson14 alone teaches every task"
+    },
+    {
+      "route": "lesson-14",
+      "id": "ch17-p621-chapter-review-q20",
+      "kind": "routed-optional-textbook",
+      "sourceObject": {
+        "id": "ch17-p621-chapter-review-q20",
+        "page": 621,
+        "group": "chapter-review",
+        "number": 20,
+        "label": "Chapter Review · p. 621 · question 20",
+        "topics": [
+          "lesson-11",
+          "lesson-14",
+          "chapter-review"
+        ],
+        "crops": [
+          {
+            "page": 621,
+            "box": [
+              68.0,
+              508.68060302734375,
+              317.0,
+              553.6806030273438
+            ],
+            "src": "./assets/textbook-practice/ch17-p621-chapter-review-q20-0.png",
+            "role": "question"
+          },
+          {
+            "page": 621,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p621.jpg",
+            "role": "supporting full-page context"
+          }
+        ],
+        "sourceText": " 20. Explain why genes that are more than 50 map units \napart on a single chromosome may behave as though \nthey are on different chromosomes. ",
+        "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+      },
+      "preparation": "lesson13 double crossovers and50% ceiling versus long map",
+      "status": "Cumulative optional source task",
+      "issue": null,
+      "protection": "Native reader assignment and source wording unchanged; cumulative routing does not imply lesson14 alone teaches every task"
+    },
+    {
+      "route": "lesson-14",
+      "id": "ch17-p621-chapter-review-q21",
+      "kind": "routed-optional-textbook",
+      "sourceObject": {
+        "id": "ch17-p621-chapter-review-q21",
+        "page": 621,
+        "group": "chapter-review",
+        "number": 21,
+        "label": "Chapter Review · p. 621 · question 21",
+        "topics": [
+          "lesson-10",
+          "lesson-11",
+          "lesson-14",
+          "chapter-review"
+        ],
+        "crops": [
+          {
+            "page": 621,
+            "box": [
+              68.0,
+              553.6806030273438,
+              317.0,
+              732.0
+            ],
+            "src": "./assets/textbook-practice/ch17-p621-chapter-review-q21-0.png",
+            "role": "question"
+          },
+          {
+            "page": 621,
+            "box": [
+              318.0,
+              70.0,
+              569.0,
+              206.1806182861328
+            ],
+            "src": "./assets/textbook-practice/ch17-p621-chapter-review-q21-1.png",
+            "role": "required question continuation"
+          },
+          {
+            "page": 621,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p621.jpg",
+            "role": "supporting full-page context"
+          }
+        ],
+        "sourceText": " 21. Osteogenesis imperfecta (OI), also known as brittle \nbone disease, results in extremely fragile bones that tend \nto break for no apparent reason. The following pedigree \ntraces OI in a family. Based on the pedigree, what sort \nof inheritance pattern does OI display? Identify the \nphenotypes and genotypes of all the people shown in \nthis pedigree. Whose genotype can you not be sure of?",
+        "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+      },
+      "preparation": "lesson10/11 diagram/key inference; actual source621 pedigree; medical label is source context",
+      "status": "Cumulative optional source task",
+      "issue": "Retain original task but restrict inference to stated classroom model and actual evidence. Historical human-trait wording or a small family is not a universal verified biological claim. The native extraction includes incomplete text or a required figure; use the full original printed page rather than the OCR excerpt alone.",
+      "protection": "Native reader assignment and source wording unchanged; cumulative routing does not imply lesson14 alone teaches every task"
+    },
+    {
+      "route": "lesson-14",
+      "id": "ch17-p621-chapter-review-q22",
+      "kind": "routed-optional-textbook",
+      "sourceObject": {
+        "id": "ch17-p621-chapter-review-q22",
+        "page": 621,
+        "group": "chapter-review",
+        "number": 22,
+        "label": "Chapter Review · p. 621 · question 22",
+        "topics": [
+          "lesson-11",
+          "lesson-14",
+          "chapter-review"
+        ],
+        "crops": [
+          {
+            "page": 621,
+            "box": [
+              287.0,
+              207.1806182861328,
+              568.0,
+              343.18060302734375
+            ],
+            "src": "./assets/textbook-practice/ch17-p621-chapter-review-q22-0.png",
+            "role": "question"
+          },
+          {
+            "page": 621,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p621.jpg",
+            "role": "supporting full-page context"
+          }
+        ],
+        "sourceText": "d to \nved?\n \nThree \nn \nplain.\n of the \n 22. Imagine that you are a genetic counsellor. Brian and \nSarah come to see you. They are planning to start a \nfamily, but they want to know if their children are at \nrisk for cystic fi brosis. Brian’s sister has cystic fi brosis. \nBrian does not have the disease, nor do his parents. \n \n a) What kind of questions do you think Brian and \nSarah will ask?\n \n b) How would you answer these questions? \n \n c) What other information could you gather to help \nyou defi ne the risk?",
+        "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+      },
+      "preparation": "lesson14 counselling and lesson15 unresolved partner contribution; no numerical offspring risk without relevant partner information",
+      "status": "Cumulative optional source task",
+      "issue": null,
+      "protection": "Native reader assignment and source wording unchanged; cumulative routing does not imply lesson14 alone teaches every task"
+    },
+    {
+      "route": "lesson-14",
+      "id": "ch17-p621-chapter-review-q23",
+      "kind": "routed-optional-textbook",
+      "sourceObject": {
+        "id": "ch17-p621-chapter-review-q23",
+        "page": 621,
+        "group": "chapter-review",
+        "number": 23,
+        "label": "Chapter Review · p. 621 · question 23",
+        "topics": [
+          "lesson-11",
+          "lesson-14",
+          "chapter-review"
+        ],
+        "crops": [
+          {
+            "page": 621,
+            "box": [
+              287.0,
+              343.18060302734375,
+              568.0,
+              479.18060302734375
+            ],
+            "src": "./assets/textbook-practice/ch17-p621-chapter-review-q23-0.png",
+            "role": "question"
+          },
+          {
+            "page": 621,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p621.jpg",
+            "role": "supporting full-page context"
+          }
+        ],
+        "sourceText": " of the \nts? \nht in \nance, \nn.\nplants \n How \nout \nr \narmer \n 23. Certain populations and cultural groups interest genetic \nresearchers because they may have unique genetic \ncharacteristics. The study of these characteristics can \ncontribute to the development of genetic tests and \ntreatments that advance medical research. Who should \nhave access to the genetic information of individuals \nfrom these populations and groups? Is this private \ninformation, or does it belong to all humanity? Discuss \nthis question with a partner, and brainstorm your ideas. \nPrepare a presentation that outlines ideas on both sides. ",
+        "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+      },
+      "preparation": "extension scientific evidence versus privacy/participation and community implications",
+      "status": "Cumulative optional source task",
+      "issue": null,
+      "protection": "Native reader assignment and source wording unchanged; cumulative routing does not imply lesson14 alone teaches every task"
+    },
+    {
+      "route": "lesson-14",
+      "id": "ch17-p621-chapter-review-q24",
+      "kind": "routed-optional-textbook",
+      "sourceObject": {
+        "id": "ch17-p621-chapter-review-q24",
+        "page": 621,
+        "group": "chapter-review",
+        "number": 24,
+        "label": "Chapter Review · p. 621 · question 24",
+        "topics": [
+          "lesson-11",
+          "lesson-14",
+          "chapter-review"
+        ],
+        "crops": [
+          {
+            "page": 621,
+            "box": [
+              287.0,
+              479.18060302734375,
+              568.0,
+              550.1806030273438
+            ],
+            "src": "./assets/textbook-practice/ch17-p621-chapter-review-q24-0.png",
+            "role": "question"
+          },
+          {
+            "page": 621,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p621.jpg",
+            "role": "supporting full-page context"
+          }
+        ],
+        "sourceText": "more \ns \nugh \n 24. People who are heterozygous for a recessive trait do not \nexpress the trait, but may pass it on to their children. \nDo we have a responsibility to inform our children of \ncertain recessive traits they may have inherited from us? \nPresent your thoughts in a short essay.",
+        "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+      },
+      "preparation": "lesson14/extension family implications and values; support a reasoned position without imposing one personal choice",
+      "status": "Cumulative optional source task",
+      "issue": null,
+      "protection": "Native reader assignment and source wording unchanged; cumulative routing does not imply lesson14 alone teaches every task"
+    },
+    {
+      "route": "lesson-14",
+      "id": "ch17-p621-chapter-review-q25",
+      "kind": "routed-optional-textbook",
+      "sourceObject": {
+        "id": "ch17-p621-chapter-review-q25",
+        "page": 621,
+        "group": "chapter-review",
+        "number": 25,
+        "label": "Chapter Review · p. 621 · question 25",
+        "topics": [
+          "lesson-10",
+          "lesson-11",
+          "lesson-14",
+          "chapter-review"
+        ],
+        "crops": [
+          {
+            "page": 621,
+            "box": [
+              287.0,
+              550.1806030273438,
+              568.0,
+              732.0
+            ],
+            "src": "./assets/textbook-practice/ch17-p621-chapter-review-q25-0.png",
+            "role": "question"
+          },
+          {
+            "page": 621,
+            "box": [
+              0.0,
+              0.0,
+              603.0,
+              783.0
+            ],
+            "src": "./assets/textbook-practice/p621.jpg",
+            "role": "supporting full-page context"
+          }
+        ],
+        "sourceText": "le \nat tend \ndigree \nsort \ne \nn in \ne of?\n 25. Many breeds of dogs are known for a high incidence of \ngenetic disorders. German Shepherd and Saint Bernard \ndogs, for example, are predisposed to develop a crippling \ncondition called hip dysplasia. Why are purebred dogs \nmore at risk for such conditions than mixed breeds are? \nWhat advice would you give to dog breeders who want \nto maintain their dogs’ purebred pedigrees, but also \nwant their dogs to be as healthy as possible?",
+        "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+      },
+      "preparation": "lesson15 selection/relatedness/carrier nuance; no blanket health claim about all purebred or mixed animals",
+      "status": "Cumulative optional source task",
+      "issue": null,
+      "protection": "Native reader assignment and source wording unchanged; cumulative routing does not imply lesson14 alone teaches every task"
+    },
+    {
+      "route": "extension",
+      "id": "ch17-optional-extension",
+      "kind": "native-optional-saved-writing",
+      "prompt": "Identify one scientific limitation of the hypothetical association and one issue relevant to informed participation.",
+      "preparation": "Examine an association before calling it a cause; Why the subgroup comparison matters; Ask concrete questions about a proposed study; Prepare your own evidence-based response",
+      "status": "Prepared as reflective formative application with full unchanged native post-save model",
+      "protection": "Entire optional details activity, textarea ID, data-note-input, save button, status, and whole model subsection remain outside replacement boundary"
+    }
+  ]
+}

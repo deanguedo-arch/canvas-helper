@@ -1,0 +1,33 @@
+/* Inert teacher reading copy only. This file is not a native-course style proposal or integration payload. */
+:root { color-scheme: light; }
+body { margin: 0; color: #18232d; background: #ffffff; font-family: Georgia, 'Times New Roman', serif; font-size: 1rem; line-height: 1.65; }
+main { max-width: 68rem; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
+h1, h2, h3, h4, summary, .eyebrow, .section-label { font-family: Arial, Helvetica, sans-serif; line-height: 1.25; }
+h1 { font-size: 2rem; }
+h2 { margin-top: 2rem; font-size: 1.45rem; }
+h3 { margin-top: 1.5rem; font-size: 1.12rem; }
+p, li { max-width: 78ch; }
+article { border-top: 2px solid #37566a; margin-top: 2.5rem; padding-top: 1rem; }
+aside { border: 1px solid #b8c8d2; padding: 1rem 1.25rem; background: #f5f8fa; }
+aside h2 { margin-top: 0; }
+nav { margin: 1rem 0 2rem; }
+nav a { display: inline-block; margin-right: 1.25rem; }
+a { color: #174d76; }
+.comparison-table { max-width: 100%; overflow-x: auto; margin: 1rem 0; }
+table { border-collapse: collapse; width: 100%; line-height: 1.45; }
+caption { text-align: left; font-weight: bold; padding: .5rem 0; }
+th, td { border: 1px solid #abbac4; padding: .55rem .65rem; text-align: left; vertical-align: top; }
+th { background: #edf3f6; }
+figure { margin: 1.5rem 0; }
+img { max-width: 100%; height: auto; }
+figcaption { font-size: .95rem; margin-top: .5rem; }
+label.choice-row { display: block; padding: .35rem 0; }
+fieldset { border: 1px solid #abbac4; padding: .75rem 1rem; }
+textarea { display: block; box-sizing: border-box; width: min(100%, 48rem); margin: .75rem 0; }
+button { margin: .25rem 0; }
+.check-question, .writing-question { border-top: 1px solid #abbac4; padding-top: 1rem; margin-top: 1.5rem; }
+.writing-question > label { display: block; max-width: 78ch; }
+details { border-left: 3px solid #b8c8d2; margin: 1rem 0; padding: .65rem 1rem; }
+summary { cursor: pointer; font-weight: bold; }
+.eyebrow, .section-label { font-size: .85rem; font-weight: bold; color: #385366; }
+@media print { main { max-width: none; padding: 0; } aside, table, figure { break-inside: avoid; } article { break-before: page; } textarea { min-height: 4rem; } nav { display: none; } }

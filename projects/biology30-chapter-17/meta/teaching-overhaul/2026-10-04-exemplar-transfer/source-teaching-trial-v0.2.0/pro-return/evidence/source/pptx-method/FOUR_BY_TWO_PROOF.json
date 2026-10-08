@@ -1,0 +1,606 @@
+{
+  "purpose": "Independent exhaustive model check for proposed tomato adaptation; not protected-task clearance.",
+  "assumptions": [
+    "Diploid organism with two biallelic loci.",
+    "Ordinary Mendelian segregation with equal probabilities.",
+    "Independent assortment of the loci.",
+    "Random fertilization.",
+    "Complete dominance scored separately at each locus; no epistasis, penetrance differences, viability selection, mutation, or sampling distortion.",
+    "Four and two refer to distinct gamete types, not duplicated grid labels."
+  ],
+  "all_diploid_two_locus_genotypes": [
+    "AABB",
+    "AABb",
+    "AAbb",
+    "AaBB",
+    "AaBb",
+    "Aabb",
+    "aaBB",
+    "aaBb",
+    "aabb"
+  ],
+  "enumeration_scope": "All 81 ordered pairs of the nine genotypes, retaining four distinct gametes for parent 1 and two for parent 2. Parent reversal duplicates the same four classes.",
+  "four_by_two_classes": [
+    {
+      "parents": [
+        "AaBb",
+        "AABb"
+      ],
+      "parent_gametes": [
+        {
+          "AB": "1/4",
+          "Ab": "1/4",
+          "aB": "1/4",
+          "ab": "1/4"
+        },
+        {
+          "AB": "1/2",
+          "Ab": "1/2"
+        }
+      ],
+      "cells": [
+        {
+          "gamete_1": "AB",
+          "gamete_2": "AB",
+          "genotype": "AABB",
+          "phenotype": "A_B_",
+          "probability": "1/8"
+        },
+        {
+          "gamete_1": "AB",
+          "gamete_2": "Ab",
+          "genotype": "AABb",
+          "phenotype": "A_B_",
+          "probability": "1/8"
+        },
+        {
+          "gamete_1": "Ab",
+          "gamete_2": "AB",
+          "genotype": "AABb",
+          "phenotype": "A_B_",
+          "probability": "1/8"
+        },
+        {
+          "gamete_1": "Ab",
+          "gamete_2": "Ab",
+          "genotype": "AAbb",
+          "phenotype": "A_bb",
+          "probability": "1/8"
+        },
+        {
+          "gamete_1": "aB",
+          "gamete_2": "AB",
+          "genotype": "AaBB",
+          "phenotype": "A_B_",
+          "probability": "1/8"
+        },
+        {
+          "gamete_1": "aB",
+          "gamete_2": "Ab",
+          "genotype": "AaBb",
+          "phenotype": "A_B_",
+          "probability": "1/8"
+        },
+        {
+          "gamete_1": "ab",
+          "gamete_2": "AB",
+          "genotype": "AaBb",
+          "phenotype": "A_B_",
+          "probability": "1/8"
+        },
+        {
+          "gamete_1": "ab",
+          "gamete_2": "Ab",
+          "genotype": "Aabb",
+          "phenotype": "A_bb",
+          "probability": "1/8"
+        }
+      ],
+      "cell_count": 8,
+      "distinct_genotype_count": 6,
+      "genotypes": {
+        "AABB": "1/8",
+        "AABb": "1/4",
+        "AAbb": "1/8",
+        "AaBB": "1/8",
+        "AaBb": "1/4",
+        "Aabb": "1/8"
+      },
+      "phenotypes": {
+        "A_B_": "3/4",
+        "A_bb": "1/4",
+        "aaB_": "0",
+        "aabb": "0"
+      },
+      "nonzero_phenotype_count": 2
+    },
+    {
+      "parents": [
+        "AaBb",
+        "AaBB"
+      ],
+      "parent_gametes": [
+        {
+          "AB": "1/4",
+          "Ab": "1/4",
+          "aB": "1/4",
+          "ab": "1/4"
+        },
+        {
+          "AB": "1/2",
+          "aB": "1/2"
+        }
+      ],
+      "cells": [
+        {
+          "gamete_1": "AB",
+          "gamete_2": "AB",
+          "genotype": "AABB",
+          "phenotype": "A_B_",
+          "probability": "1/8"
+        },
+        {
+          "gamete_1": "AB",
+          "gamete_2": "aB",
+          "genotype": "AaBB",
+          "phenotype": "A_B_",
+          "probability": "1/8"
+        },
+        {
+          "gamete_1": "Ab",
+          "gamete_2": "AB",
+          "genotype": "AABb",
+          "phenotype": "A_B_",
+          "probability": "1/8"
+        },
+        {
+          "gamete_1": "Ab",
+          "gamete_2": "aB",
+          "genotype": "AaBb",
+          "phenotype": "A_B_",
+          "probability": "1/8"
+        },
+        {
+          "gamete_1": "aB",
+          "gamete_2": "AB",
+          "genotype": "AaBB",
+          "phenotype": "A_B_",
+          "probability": "1/8"
+        },
+        {
+          "gamete_1": "aB",
+          "gamete_2": "aB",
+          "genotype": "aaBB",
+          "phenotype": "aaB_",
+          "probability": "1/8"
+        },
+        {
+          "gamete_1": "ab",
+          "gamete_2": "AB",
+          "genotype": "AaBb",
+          "phenotype": "A_B_",
+          "probability": "1/8"
+        },
+        {
+          "gamete_1": "ab",
+          "gamete_2": "aB",
+          "genotype": "aaBb",
+          "phenotype": "aaB_",
+          "probability": "1/8"
+        }
+      ],
+      "cell_count": 8,
+      "distinct_genotype_count": 6,
+      "genotypes": {
+        "AABB": "1/8",
+        "AABb": "1/8",
+        "AaBB": "1/4",
+        "AaBb": "1/4",
+        "aaBB": "1/8",
+        "aaBb": "1/8"
+      },
+      "phenotypes": {
+        "A_B_": "3/4",
+        "A_bb": "0",
+        "aaB_": "1/4",
+        "aabb": "0"
+      },
+      "nonzero_phenotype_count": 2
+    },
+    {
+      "parents": [
+        "AaBb",
+        "Aabb"
+      ],
+      "parent_gametes": [
+        {
+          "AB": "1/4",
+          "Ab": "1/4",
+          "aB": "1/4",
+          "ab": "1/4"
+        },
+        {
+          "Ab": "1/2",
+          "ab": "1/2"
+        }
+      ],
+      "cells": [
+        {
+          "gamete_1": "AB",
+          "gamete_2": "Ab",
+          "genotype": "AABb",
+          "phenotype": "A_B_",
+          "probability": "1/8"
+        },
+        {
+          "gamete_1": "AB",
+          "gamete_2": "ab",
+          "genotype": "AaBb",
+          "phenotype": "A_B_",
+          "probability": "1/8"
+        },
+        {
+          "gamete_1": "Ab",
+          "gamete_2": "Ab",
+          "genotype": "AAbb",
+          "phenotype": "A_bb",
+          "probability": "1/8"
+        },
+        {
+          "gamete_1": "Ab",
+          "gamete_2": "ab",
+          "genotype": "Aabb",
+          "phenotype": "A_bb",
+          "probability": "1/8"
+        },
+        {
+          "gamete_1": "aB",
+          "gamete_2": "Ab",
+          "genotype": "AaBb",
+          "phenotype": "A_B_",
+          "probability": "1/8"
+        },
+        {
+          "gamete_1": "aB",
+          "gamete_2": "ab",
+          "genotype": "aaBb",
+          "phenotype": "aaB_",
+          "probability": "1/8"
+        },
+        {
+          "gamete_1": "ab",
+          "gamete_2": "Ab",
+          "genotype": "Aabb",
+          "phenotype": "A_bb",
+          "probability": "1/8"
+        },
+        {
+          "gamete_1": "ab",
+          "gamete_2": "ab",
+          "genotype": "aabb",
+          "phenotype": "aabb",
+          "probability": "1/8"
+        }
+      ],
+      "cell_count": 8,
+      "distinct_genotype_count": 6,
+      "genotypes": {
+        "AABb": "1/8",
+        "AAbb": "1/8",
+        "AaBb": "1/4",
+        "Aabb": "1/4",
+        "aaBb": "1/8",
+        "aabb": "1/8"
+      },
+      "phenotypes": {
+        "A_B_": "3/8",
+        "A_bb": "3/8",
+        "aaB_": "1/8",
+        "aabb": "1/8"
+      },
+      "nonzero_phenotype_count": 4
+    },
+    {
+      "parents": [
+        "AaBb",
+        "aaBb"
+      ],
+      "parent_gametes": [
+        {
+          "AB": "1/4",
+          "Ab": "1/4",
+          "aB": "1/4",
+          "ab": "1/4"
+        },
+        {
+          "aB": "1/2",
+          "ab": "1/2"
+        }
+      ],
+      "cells": [
+        {
+          "gamete_1": "AB",
+          "gamete_2": "aB",
+          "genotype": "AaBB",
+          "phenotype": "A_B_",
+          "probability": "1/8"
+        },
+        {
+          "gamete_1": "AB",
+          "gamete_2": "ab",
+          "genotype": "AaBb",
+          "phenotype": "A_B_",
+          "probability": "1/8"
+        },
+        {
+          "gamete_1": "Ab",
+          "gamete_2": "aB",
+          "genotype": "AaBb",
+          "phenotype": "A_B_",
+          "probability": "1/8"
+        },
+        {
+          "gamete_1": "Ab",
+          "gamete_2": "ab",
+          "genotype": "Aabb",
+          "phenotype": "A_bb",
+          "probability": "1/8"
+        },
+        {
+          "gamete_1": "aB",
+          "gamete_2": "aB",
+          "genotype": "aaBB",
+          "phenotype": "aaB_",
+          "probability": "1/8"
+        },
+        {
+          "gamete_1": "aB",
+          "gamete_2": "ab",
+          "genotype": "aaBb",
+          "phenotype": "aaB_",
+          "probability": "1/8"
+        },
+        {
+          "gamete_1": "ab",
+          "gamete_2": "aB",
+          "genotype": "aaBb",
+          "phenotype": "aaB_",
+          "probability": "1/8"
+        },
+        {
+          "gamete_1": "ab",
+          "gamete_2": "ab",
+          "genotype": "aabb",
+          "phenotype": "aabb",
+          "probability": "1/8"
+        }
+      ],
+      "cell_count": 8,
+      "distinct_genotype_count": 6,
+      "genotypes": {
+        "AaBB": "1/8",
+        "AaBb": "1/4",
+        "Aabb": "1/8",
+        "aaBB": "1/8",
+        "aaBb": "1/4",
+        "aabb": "1/8"
+      },
+      "phenotypes": {
+        "A_B_": "3/8",
+        "A_bb": "1/8",
+        "aaB_": "3/8",
+        "aabb": "1/8"
+      },
+      "nonzero_phenotype_count": 4
+    }
+  ],
+  "four_nonzero_classes": [
+    [
+      "AaBb",
+      "Aabb"
+    ],
+    [
+      "AaBb",
+      "aaBb"
+    ]
+  ],
+  "four_nonzero_probability_multiset": [
+    "1/8",
+    "1/8",
+    "3/8",
+    "3/8"
+  ],
+  "proposed_generic": {
+    "parents": [
+      "AaBb",
+      "AABb"
+    ],
+    "parent_gametes": [
+      {
+        "AB": "1/4",
+        "Ab": "1/4",
+        "aB": "1/4",
+        "ab": "1/4"
+      },
+      {
+        "AB": "1/2",
+        "Ab": "1/2"
+      }
+    ],
+    "cells": [
+      {
+        "gamete_1": "AB",
+        "gamete_2": "AB",
+        "genotype": "AABB",
+        "phenotype": "A_B_",
+        "probability": "1/8"
+      },
+      {
+        "gamete_1": "AB",
+        "gamete_2": "Ab",
+        "genotype": "AABb",
+        "phenotype": "A_B_",
+        "probability": "1/8"
+      },
+      {
+        "gamete_1": "Ab",
+        "gamete_2": "AB",
+        "genotype": "AABb",
+        "phenotype": "A_B_",
+        "probability": "1/8"
+      },
+      {
+        "gamete_1": "Ab",
+        "gamete_2": "Ab",
+        "genotype": "AAbb",
+        "phenotype": "A_bb",
+        "probability": "1/8"
+      },
+      {
+        "gamete_1": "aB",
+        "gamete_2": "AB",
+        "genotype": "AaBB",
+        "phenotype": "A_B_",
+        "probability": "1/8"
+      },
+      {
+        "gamete_1": "aB",
+        "gamete_2": "Ab",
+        "genotype": "AaBb",
+        "phenotype": "A_B_",
+        "probability": "1/8"
+      },
+      {
+        "gamete_1": "ab",
+        "gamete_2": "AB",
+        "genotype": "AaBb",
+        "phenotype": "A_B_",
+        "probability": "1/8"
+      },
+      {
+        "gamete_1": "ab",
+        "gamete_2": "Ab",
+        "genotype": "Aabb",
+        "phenotype": "A_bb",
+        "probability": "1/8"
+      }
+    ],
+    "cell_count": 8,
+    "distinct_genotype_count": 6,
+    "genotypes": {
+      "AABB": "1/8",
+      "AABb": "1/4",
+      "AAbb": "1/8",
+      "AaBB": "1/8",
+      "AaBb": "1/4",
+      "Aabb": "1/8"
+    },
+    "phenotypes": {
+      "A_B_": "3/4",
+      "A_bb": "1/4",
+      "aaB_": "0",
+      "aabb": "0"
+    },
+    "nonzero_phenotype_count": 2
+  },
+  "tomato_substitution": {
+    "A": "R",
+    "a": "r",
+    "B": "T",
+    "b": "t"
+  },
+  "source_original_generic": {
+    "parents": [
+      "AaBb",
+      "aaBb"
+    ],
+    "parent_gametes": [
+      {
+        "AB": "1/4",
+        "Ab": "1/4",
+        "aB": "1/4",
+        "ab": "1/4"
+      },
+      {
+        "aB": "1/2",
+        "ab": "1/2"
+      }
+    ],
+    "cells": [
+      {
+        "gamete_1": "AB",
+        "gamete_2": "aB",
+        "genotype": "AaBB",
+        "phenotype": "A_B_",
+        "probability": "1/8"
+      },
+      {
+        "gamete_1": "AB",
+        "gamete_2": "ab",
+        "genotype": "AaBb",
+        "phenotype": "A_B_",
+        "probability": "1/8"
+      },
+      {
+        "gamete_1": "Ab",
+        "gamete_2": "aB",
+        "genotype": "AaBb",
+        "phenotype": "A_B_",
+        "probability": "1/8"
+      },
+      {
+        "gamete_1": "Ab",
+        "gamete_2": "ab",
+        "genotype": "Aabb",
+        "phenotype": "A_bb",
+        "probability": "1/8"
+      },
+      {
+        "gamete_1": "aB",
+        "gamete_2": "aB",
+        "genotype": "aaBB",
+        "phenotype": "aaB_",
+        "probability": "1/8"
+      },
+      {
+        "gamete_1": "aB",
+        "gamete_2": "ab",
+        "genotype": "aaBb",
+        "phenotype": "aaB_",
+        "probability": "1/8"
+      },
+      {
+        "gamete_1": "ab",
+        "gamete_2": "aB",
+        "genotype": "aaBb",
+        "phenotype": "aaB_",
+        "probability": "1/8"
+      },
+      {
+        "gamete_1": "ab",
+        "gamete_2": "ab",
+        "genotype": "aabb",
+        "phenotype": "aabb",
+        "probability": "1/8"
+      }
+    ],
+    "cell_count": 8,
+    "distinct_genotype_count": 6,
+    "genotypes": {
+      "AaBB": "1/8",
+      "AaBb": "1/4",
+      "Aabb": "1/8",
+      "aaBB": "1/8",
+      "aaBb": "1/4",
+      "aabb": "1/8"
+    },
+    "phenotypes": {
+      "A_B_": "3/8",
+      "A_bb": "1/8",
+      "aaB_": "3/8",
+      "aabb": "1/8"
+    },
+    "nonzero_phenotype_count": 4
+  },
+  "limits": "The impossibility claim is conditional on the source model. Linkage with unequal gamete weights, altered expression rules, or selection can change predictions but would add an out-of-scope model. A common 1/8 genotype-cell probability is not itself a protected-answer copy; the prohibited structure is the original solved cross/phenotype target under an isomorphism."
+}

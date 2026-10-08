@@ -1,0 +1,275 @@
+{
+  "review": "Current lesson02 PPT-method review: earlier complete pinned read plus bounded first-use delta inspection.",
+  "review_utc": "2026-10-04T21:42:02.970191+00:00",
+  "draft_pin": {
+    "path": "kinch-trial-v0.2.0/authoring/lesson-02.teaching.html.in",
+    "bytes": 17871,
+    "sha256": "c5712fcf6e33e732a3985593bdbea867749f2cfcaa38000c6a8290ee498af2af"
+  },
+  "pinned_input_matched_parent": true,
+  "read_completeness": "All prose, tables, prompts, hints, models and criteria were fully read at the historical 17,782-byte a0238191 input. The preserved root snapshot matches that hash. Whole-file diff against current 17,871-byte c5712fcf input shows exactly the three bounded first-use edits recorded here; all remaining content is unchanged. Each changed paragraph was inspected.",
+  "source_basis": {
+    "pptx_pin": {
+      "path": "source-inspection/ch17/sources/Unit C Part B Mendelian Genetics .pptx",
+      "bytes": 10153531,
+      "sha256": "da1ce1c0526da4da1aefd1fb6c0f23070f820ce24378c12f9699d1c700e1a985"
+    },
+    "ppt_scope": "Actual13–25 XML and byte-verified media already freshly inspected in this same v0.2.0 source task; exact member pins in READ_LOG.json and ACTUAL_TARGETED_XML.json. No PPT source preflight rerun.",
+    "textbook_pin": {
+      "path": "source-inspection/ch17/native/workspace/assets/textbook/chapter-17.pdf",
+      "bytes": 2005971,
+      "sha256": "48e297aacb86275c106a02abdddaf0f0463ba47d6b17703a926aa68405755455"
+    },
+    "textbook_fresh_page_text_reads": [
+      {
+        "pdf_page": 4,
+        "printed_page": 587,
+        "fresh_text_sha256": "5a5ce6c0d1735915cc8183f347c1c5e2a0aa3f27f7ce97a72be1d4b4458b866c",
+        "read_scope": "Complete actual PDF text for this page; no new page pixel review or layout claim."
+      },
+      {
+        "pdf_page": 5,
+        "printed_page": 588,
+        "fresh_text_sha256": "8bcd1026217504eef6e38744b8ad75ace911774014021d2acae57f0a2ac3daad",
+        "read_scope": "Complete actual PDF text for this page; no new page pixel review or layout claim."
+      },
+      {
+        "pdf_page": 6,
+        "printed_page": 589,
+        "fresh_text_sha256": "af619fe97ec7b3cf25f0bb86b176c11fca1f22546cb02cd571427e46064e5085",
+        "read_scope": "Complete actual PDF text for this page; no new page pixel review or layout claim."
+      },
+      {
+        "pdf_page": 7,
+        "printed_page": 590,
+        "fresh_text_sha256": "7bf58f8a626592a8288473795cda549b0374e1e2e9a57cc6cd763b4b4ff42eb1",
+        "read_scope": "Complete actual PDF text for this page; no new page pixel review or layout claim."
+      },
+      {
+        "pdf_page": 8,
+        "printed_page": 591,
+        "fresh_text_sha256": "2921010f0c05fcf163d81cba94479f912cd4c20a79eed2c6336f49cb52da00fe",
+        "read_scope": "Complete actual PDF text for this page; no new page pixel review or layout claim."
+      },
+      {
+        "pdf_page": 14,
+        "printed_page": 597,
+        "fresh_text_sha256": "62a2162d467e4fc94b8709005c2bee29ba0597cd8ab59d3a0dab83f9b101395c",
+        "read_scope": "Complete actual PDF text for this page; no new page pixel review or layout claim."
+      }
+    ],
+    "existing_text_extractions_also_read": [
+      {
+        "path": "analysis/original-sources/textbook-pdf-04.txt",
+        "bytes": 3336,
+        "sha256": "1fffda7f345316f963a285263d2da8bb4e6bcbcf9f0798df4768440182fa641d"
+      },
+      {
+        "path": "analysis/original-sources/textbook-pdf-05.txt",
+        "bytes": 6205,
+        "sha256": "66b619143be247dd41a72300f591c29bbaf6a1bc44ee9d19fb874ec7e02416ca"
+      },
+      {
+        "path": "analysis/original-sources/textbook-pdf-06.txt",
+        "bytes": 5539,
+        "sha256": "b9394638bba85f25db80910d6b632e831b1120184390672d777865b9cf7e8c1c"
+      },
+      {
+        "path": "analysis/original-sources/textbook-pdf-07.txt",
+        "bytes": 6838,
+        "sha256": "e80c8b491d36c72502a7b07ed045c62130ff8c1b4d1d0ea809e095e82f87eaa6"
+      },
+      {
+        "path": "analysis/original-sources/textbook-pdf-08.txt",
+        "bytes": 5862,
+        "sha256": "4b294ed3343528918fc2bf73da20f0ff893ed57abcb81a283565a34eaaee2f83"
+      },
+      {
+        "path": "analysis/original-sources/textbook-pdf-14.txt",
+        "bytes": 4797,
+        "sha256": "002190c8d548665ef5b245bd18e788de32e8cc58a6c37c453e640c7dbdf54205"
+      }
+    ]
+  },
+  "method_finding": "No consequential PPT-method fidelity blocker found in the prior complete pinned read or the three bounded first-use edits. The original sequence, worked reasoning and activity purposes remain intact.",
+  "blocking_findings": [],
+  "reporting_qualification": "Reciprocal RR × rr is near transfer about parental roles using an already worked genotype result; do not overstate it as a new cross or independent numerical transfer.",
+  "findings": [
+    {
+      "id": "L02-METHOD-01",
+      "classification": "sequence_preserved",
+      "draft_locator": "ch17-l02-teaching-01; opening, Know what was crossed, Follow the same question using seed shape",
+      "sources": [
+        "PPT13–16",
+        "printed588/PDF5",
+        "printed591/PDF8 Figure17.8"
+      ],
+      "finding": "Purple/white disappearance/reappearance is the entry. The draft explicitly signals its move to the R/r seed model, defines breeding history and P/F1/F2 parentage, then poses the same persistence problem. It does not substitute a generic investigation or silently mix flower and seed alleles.",
+      "disposition": "No change required for source-method fidelity."
+    },
+    {
+      "id": "L02-METHOD-02",
+      "classification": "justified_selection",
+      "draft_locator": "ch17-l02-teaching-01",
+      "sources": [
+        "PPT14",
+        "printed588/PDF5 Figure17.4"
+      ],
+      "finding": "The seven-trait collage/list is not reproduced. Flower colour and seed shape supply the contrasting-trait idea required for this lesson. Omitting the full catalogue does not remove an essential operation or reasoning step in the bounded plan.",
+      "disposition": "Do not count omission of a seven-trait catalogue as consequential method loss."
+    },
+    {
+      "id": "L02-METHOD-03",
+      "classification": "accepted_correction_and_explanatory_addition",
+      "draft_locator": "ch17-l02-teaching-01; controlled crossing, seed scoring; ch17-l02-teaching-02",
+      "sources": [
+        "PPT13,17–23",
+        "printed588–590/PDF5–7",
+        "printed597/PDF14 Figure17.14"
+      ],
+      "finding": "Pollination versus fertilisation, seed-versus-grown-plant generation tracking, chromosome/locus first-use definitions, copying versus homologous separation, and the brief flowering-plant life-cycle qualification all serve the allele-contribution explanation. The draft avoids calling all crosses technical testcrosses or claiming that copying changes an allele. These are bounded explanatory synthesis, not verbatim steps from PPT13–25.",
+      "disposition": "No unjustified expansion identified. Map detailed sister-chromatid and plant-life-cycle wording as explanatory synthesis; printed597 directly supports homologous separation, not every added detail."
+    },
+    {
+      "id": "L02-METHOD-04",
+      "classification": "justified_reordering",
+      "draft_locator": "ch17-l02-teaching-02 before ch17-l02-worked",
+      "sources": [
+        "PPT17–25",
+        "printed590/PDF7",
+        "printed597/PDF14"
+      ],
+      "finding": "The draft places a short physical model before the worked cross, whereas the slides largely move from crosses/grid to named law. The entry phenomenon is already established, and the physical model immediately earns one allele per gamete. This is an independent-study explanation order, not a replacement of the source question or worked targets.",
+      "disposition": "Accepted reorder; do not claim exact slide-order transcription."
+    },
+    {
+      "id": "L02-METHOD-05",
+      "classification": "worked_method_preserved",
+      "draft_locator": "ch17-l02-worked; complete prose and F2 table",
+      "sources": [
+        "PPT17–22",
+        "printed590/PDF7 Figures17.6–17.7",
+        "printed591/PDF8"
+      ],
+      "finding": "RR × rr gives Rr F1; growing F1 into plants precedes self-pollination or Rr × Rr crossing; the F2 grid keeps gametes on edges and offspring genotypes inside. The prose reads rr first to answer reappearance, then groups Rr/rR as one genotype, then derives 1:2:1 and 3:1. Every grouping has its stated phenotype rule.",
+      "disposition": "No material loss. Explicit rR is a justified parental-contribution display rather than a new genotype; its equivalence to Rr is taught immediately."
+    },
+    {
+      "id": "L02-METHOD-06",
+      "classification": "accepted_scientific_correction",
+      "draft_locator": "ch17-l02-worked; paragraph beginning With equal R/r gamete probabilities and following distinction paragraph",
+      "sources": [
+        "PPT22–25",
+        "printed589/PDF6 segregation bullets"
+      ],
+      "finding": "The draft separates homologous segregation from random fertilisation and bounds equal contribution paths. This repairs PPT22’s conflation while preserving the same Punnett reasoning. Complete dominance is kept distinct from transmission and is not treated as preferential inheritance.",
+      "disposition": "Correction improves fidelity to the intended mechanism; not method drift."
+    },
+    {
+      "id": "L02-METHOD-07",
+      "classification": "purposeful_guided_application",
+      "draft_locator": "ch17-kinch-v020-l02-arrow-task, arrow-response, both details blocks",
+      "sources": [
+        "PPT21–23",
+        "printed589/PDF6",
+        "printed597/PDF14"
+      ],
+      "finding": "Full visible two-arrow stimulus, prompt, hint, model and criteria were read. The learner repairs process names and explains separation versus joining, with the restored pair assigned to fertilisation. The diagram explicitly omits copying/intermediate cells. Essential teaching precedes feedback; this is a bounded repair of the exact conflation corrected in the lesson.",
+      "disposition": "Useful guided application; no new prerequisite or advanced demand. Static Save response/textarea markup is present, but no functional UI result is claimed."
+    },
+    {
+      "id": "L02-METHOD-08",
+      "classification": "necessary_probability_boundary",
+      "draft_locator": "ch17-l02-teaching-03; first three paragraphs",
+      "sources": [
+        "PPT15 schematic versus printed589/PDF6 Figure17.5",
+        "bounded plan native02 minimum"
+      ],
+      "finding": "The draft teaches expected ratios versus finite samples without the protected six-dominant-offspring case or an expected-number exercise. Its 5474:1850 ≈2.96 evidence matches textbook Figure17.5. The no-owed-outcome explanation is qualitative; no binomial formula, reverse conditional denominator, candidate weighting or significance test is added. The brief model assumptions stay tied to interpreting this prediction.",
+      "disposition": "Required minimum is present; not unjustified probability expansion. Source alternates plants bearing seeds and seeds in nearby passages, so the draft’s explicit seed/grown-plant distinction is useful clarification."
+    },
+    {
+      "id": "L02-METHOD-09",
+      "classification": "bounded_near_transfer_reporting_limit",
+      "draft_locator": "ch17-kinch-v020-l02-cross-task, cross-response, both details blocks",
+      "sources": [
+        "PPT17–18 RR × rr",
+        "printed590/PDF7 Figure17.6",
+        "earlier draft Rr/rR contribution discussion"
+      ],
+      "finding": "The full reciprocal-role task supplies known RR/rr parents, inheritance rule and a grower’s maternal-phenotype claim. It requires egg/sperm tracing in two role assignments and evaluation of that claim. This differs from the arrow-label repair, but its genotype/phenotype result is the same all-Rr round result already worked. It is not a new genotype cross, hidden-genotype inference, new numerical target or independently blinded mathematical transfer.",
+      "disposition": "Acceptable near transfer for parent roles and offspring-versus-bearing-plant distinction. Describe its novelty narrowly. No learner change required solely for source-method fidelity; protected-prompt clearance remains the parent audit."
+    },
+    {
+      "id": "L02-METHOD-10",
+      "classification": "scope_preserved",
+      "draft_locator": "ch17-l02-teaching-03-p2 and ch17-l02-teaching-03-p3",
+      "sources": [
+        "PPT24–25",
+        "printed589–591/PDF6–8"
+      ],
+      "finding": "The close distinguishes historical inference from later chromosome explanation, allele transmission from expression, and states later homes for systematic grid operations in03 and two loci in05. It does not import testcross solving, linkage, mapping, an assortment task or advanced probability.",
+      "disposition": "No consequential scope drift identified."
+    }
+  ],
+  "limitations": [
+    "No native protected-question/answer clearance independently claimed.",
+    "No Chapter11 explanatory-function comparison beyond the source-method task was performed in this read.",
+    "Static HTML was read; no browser, rendering, keyboard, Save/reload, All My Work, native integration or runtime approval is claimed.",
+    "No teacher acceptance or final manuscript approval.",
+    "No learner, original source, older output, or prior evidence file modified.",
+    "This delta wrote only current L02_DRAFT_METHOD_REVIEW.md/.json and byte-identical historical FULL_READ_a0238191 copies in the same source-method directory.",
+    "No new source read, whole-draft full read, preflight, browser/UI test, teacher acceptance, or general readiness claim accompanies this delta."
+  ],
+  "review_mode": "Earlier complete read at a0238191 plus exact whole-file diff and inspection of all three changed paragraphs at c5712fcf; not a second complete prose/source read.",
+  "historical_full_review": {
+    "input_snapshot_pin": {
+      "path": "kinch-trial-v0.2.0/analysis/records/READ_01_lesson02_a0238191.html.txt",
+      "bytes": 17782,
+      "sha256": "a02381918607e84c17cf1a38857e53c5ecef9a7f76801c0c1b5392a13a757b09"
+    },
+    "full_review_input_pin": {
+      "path": "kinch-trial-v0.2.0/authoring/lesson-02.teaching.html.in",
+      "bytes": 17782,
+      "sha256": "a02381918607e84c17cf1a38857e53c5ecef9a7f76801c0c1b5392a13a757b09"
+    },
+    "full_review_utc": "2026-10-04T21:37:32.883002+00:00",
+    "markdown_pin": {
+      "path": "kinch-trial-v0.2.0/analysis/source/pptx-method/L02_DRAFT_METHOD_REVIEW_FULL_READ_a0238191.md",
+      "bytes": 8792,
+      "sha256": "5dc2cf763a05be4997dd1e43328d05e207e4d8c9e4cd8d7cd803318c83f742af"
+    },
+    "json_pin": {
+      "path": "kinch-trial-v0.2.0/analysis/source/pptx-method/L02_DRAFT_METHOD_REVIEW_FULL_READ_a0238191.json",
+      "bytes": 13395,
+      "sha256": "4f4e5b6125bdc6f24800510961fde730992114c7d0c6fdaf0b93bad8f7ece869"
+    }
+  },
+  "bounded_delta": {
+    "changes": [
+      {
+        "id": "L02-DELTA-01",
+        "locator": "ch17-l02-teaching-02-p3",
+        "change": "Probability definition moved from block03 to block02, before probability-labelled grid edges; the one-half gamete statement now uses the defined term probability.",
+        "method_assessment": "Improves first-use explanation. Equal segregation and the one-half value are unchanged; no new calculation or probability agenda."
+      },
+      {
+        "id": "L02-DELTA-02",
+        "locator": "ch17-l02-worked; paragraph comparing Rr and rR",
+        "change": "Autosomal is explicitly defined as being on a chromosome other than a sex chromosome before the stated model gives equivalent phenotype rules for R from either parent.",
+        "method_assessment": "Defines an existing scope term at its first use. The result and parent-role interpretation are unchanged; no sex-linked inheritance task or additional source-method branch is introduced."
+      },
+      {
+        "id": "L02-DELTA-03",
+        "locator": "ch17-l02-teaching-03-p1",
+        "change": "The later duplicate probability definition is removed, leaving expected-versus-small-sample explanation intact.",
+        "method_assessment": "No loss of teaching; the definition is available earlier when needed, and the entire later probability boundary is preserved."
+      }
+    ],
+    "unified_diff": "--- kinch-trial-v0.2.0/analysis/records/READ_01_lesson02_a0238191.html.txt\n+++ kinch-trial-v0.2.0/authoring/lesson-02.teaching.html.in\n@@ -16,7 +16,7 @@\n <p data-canvas-edit-key=\"ch17-l02-teaching-02-p1\" data-canvas-helper-edit-key=\"ch17-l02-teaching-02-p1\">A chromosome is a DNA-bearing structure carrying many genes. In an ordinary <strong>diploid</strong> cell there are two chromosome sets. The corresponding chromosomes form a <strong>homologous pair</strong>: one came from each parent, and both carry the same kinds of genes at corresponding loci. An Rr individual has R at the seed-shape locus on one homologue and r at that locus on the other.</p>\n <p>Before meiosis, DNA is copied. Each chromosome then consists of two <strong>sister chromatids</strong>, the copied versions joined together. Copying an R-bearing chromosome produces two R-bearing sister copies; it does not turn r into R or mix the two allele versions. We are following ordinary copying and separation, without a mutation changing the allele.</p>\n <p data-canvas-edit-key=\"ch17-l02-teaching-02-p2\" data-canvas-helper-edit-key=\"ch17-l02-teaching-02-p2\"><strong>Meiosis</strong> reduces the chromosome sets from two to one. The homologous chromosomes separate in the first division. The sister chromatids separate in the second division, with no further DNA copying between those divisions. A cell with one chromosome set is <strong>haploid</strong>. In a flowering plant, the reproductive life cycle produces haploid gametes after this reduction. We only need to follow the allele contribution here: an egg or sperm carries one allele at this locus, not the parent's whole pair.</p>\n-<p data-canvas-edit-key=\"ch17-l02-teaching-02-p3\" data-canvas-helper-edit-key=\"ch17-l02-teaching-02-p3\">Thus an RR parent can contribute R; an rr parent can contribute r; and an Rr parent can contribute R or r. Under ordinary segregation, either allele from the heterozygote has a one-half chance of being in a gamete. Dominance does not decide which chromosome separates into that gamete. The two allele versions remain distinct as they are passed on.</p>\n+<p data-canvas-edit-key=\"ch17-l02-teaching-02-p3\" data-canvas-helper-edit-key=\"ch17-l02-teaching-02-p3\">Thus an RR parent can contribute R; an rr parent can contribute r; and an Rr parent can contribute R or r. A {{v:probability|probability}} is the chance of an outcome under the stated conditions. Under ordinary segregation, either allele from the heterozygote has a probability of one half of being in a gamete. Dominance does not decide which chromosome separates into that gamete. The two allele versions remain distinct as they are passed on.</p>\n </div>\n \n <div class=\"worked-example\" data-canvas-edit-key=\"ch17-l02-worked\" data-canvas-helper-edit-key=\"ch17-l02-worked\" id=\"ch17-l02-worked\">\n@@ -37,7 +37,7 @@\n </table>\n </div>\n <p>Follow the lower-right entry first. The egg contributes r and the sperm contributes r, so the offspring is rr and expresses the wrinkled phenotype. Neither allele had to be recreated. Both were available in the F1 parents before they formed gametes.</p>\n-<p>Now compare the upper-right and lower-left entries. Rr and rR are the same heterozygous genotype; the written order only shows which gamete supplied which allele in this table. Under this ordinary autosomal model, the complete-dominance rule is the same whichever parent supplied R.</p>\n+<p>Now compare the upper-right and lower-left entries. Rr and rR are the same heterozygous genotype; the written order only shows which gamete supplied which allele in this table. The gene in this model is <strong>autosomal</strong>, meaning it is on a chromosome other than a sex chromosome. Here the complete-dominance rule is the same whichever parent supplied R.</p>\n <p>With equal R/r gamete probabilities and random fertilisation, the four contribution pairs are equally likely. They group into <strong>1 RR : 2 Rr : 1 rr</strong> for genotype. RR and Rr both express round seeds, so the phenotype grouping is <strong>3 round : 1 wrinkled</strong>. Grouping by appearance combines two genotype categories; it does not change the allele pairs inside them.</p>\n <p>This distinction separates two processes. <strong>Segregation</strong> produces single-allele contributions as homologous chromosomes separate during gamete production. <strong>Random fertilisation</strong> combines one parent's gamete with the other's. Chromosomes aligning in one parent's meiosis do not themselves join that parent's gamete to a gamete from another parent.</p>\n <section class=\"content-section\" id=\"ch17-kinch-v020-l02-arrow-task\">\n@@ -60,7 +60,7 @@\n \n <div class=\"content-section\" data-canvas-edit-key=\"ch17-l02-teaching-03\" data-canvas-helper-edit-key=\"ch17-l02-teaching-03\" id=\"ch17-l02-teaching-03\">\n <h2>A predicted ratio is not an offspring schedule</h2>\n-<p data-canvas-edit-key=\"ch17-l02-teaching-03-p1\" data-canvas-helper-edit-key=\"ch17-l02-teaching-03-p1\">A {{v:probability|probability}} describes how likely an outcome is under a stated model. The 3:1 phenotype ratio predicts three quarters round and one quarter wrinkled over many offspring from this cross. It does not assign a compulsory order to the offspring or guarantee those exact proportions in a small group. Each fertilisation is another event; an earlier round seed does not make a later seed owe the cross a wrinkled result.</p>\n+<p data-canvas-edit-key=\"ch17-l02-teaching-03-p1\" data-canvas-helper-edit-key=\"ch17-l02-teaching-03-p1\">The 3:1 phenotype ratio predicts three quarters round and one quarter wrinkled over many offspring from this cross. It does not assign a compulsory order to the offspring or guarantee those exact proportions in a small group. Each fertilisation is another event; an earlier round seed does not make a later seed owe the cross a wrinkled result.</p>\n <p>Mendel's reported seed-shape counts included 5,474 round and 1,850 wrinkled seeds, approximately 2.96 round for each wrinkled seed. That is close to 3:1, not exactly 3:1. The useful evidence is a repeated pattern that the inheritance model explains, not a perfect match from every small sample.</p>\n <p>For this prediction, we have used known parental genotypes, ordinary equal segregation, random fertilisation and the stated complete-dominance relationship. We also assume that the phenotypes are expressed reliably and recorded without one kind of offspring being selectively lost from the count. Chance can change the observed proportions among possible outcomes. A consistent mismatch can also mean that a starting genotype, observation or model assumption needs checking.</p>\n <p data-canvas-edit-key=\"ch17-l02-teaching-03-p2\" data-canvas-helper-edit-key=\"ch17-l02-teaching-03-p2\">Mendel inferred that inherited factors remained distinct from the breeding patterns he observed. The later chromosome account explains how those factors can be copied, separated and combined. The {{v:law-of-segregation|law of segregation}} explains the allele contributions; complete dominance explains why the Rr heterozygote looks round in this model. Neither rule says that the r allele was destroyed.</p>\n",
+    "source_reread": "None; existing source-method basis is carried forward. No preflight rerun.",
+    "method_conclusion": "Unchanged: no consequential PPT-method fidelity blocker. Near-transfer reporting qualification for reciprocal RR × rr remains unchanged.",
+    "unchanged_content": "All worked crosses, table cells, allele/phenotype results, task stimuli, prompts, hints, models, criteria and native response markup are unchanged."
+  },
+  "carried_forward_findings_scope": "The ten detailed findings below derive from the prior full read and remain applicable after the bounded delta; they are not represented as a second independent complete manuscript review."
+}

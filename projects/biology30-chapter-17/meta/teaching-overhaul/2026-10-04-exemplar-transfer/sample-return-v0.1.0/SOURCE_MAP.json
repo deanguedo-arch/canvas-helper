@@ -1,0 +1,756 @@
+{
+  "artifact": "Biology30_CH17_Exemplar_Transfer_Calibration_v0.1.0",
+  "scope": [
+    "lesson-02",
+    "lesson-05"
+  ],
+  "status": "Both complete current inputs were read. The bounded source/science review found no blocking defect. This is not teacher approval or external independent acceptance.",
+  "sourceOwner": {
+    "path": "source-inspection/ch17/native/workspace/index.html",
+    "bytes": 3471105,
+    "sha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868"
+  },
+  "inputPins": [
+    {
+      "path": "calibration-v0.1.0/authoring/lesson-02.teaching.html.in",
+      "bytes": 16834,
+      "sha256": "104526dfdc81d8e6aac1f56f826ea3c04ef28fe73b4c1f6d006ff5ae838808c0"
+    },
+    {
+      "path": "calibration-v0.1.0/authoring/lesson-05.teaching.html.in",
+      "bytes": 20220,
+      "sha256": "920c21c4c658fdda5d7fc1416978c8e5a1d62adf7d221ef2fd70fa5ffc61d651"
+    }
+  ],
+  "offsetConvention": "UTF-8 bytes; zero-based start inclusive, end exclusive in the named teaching input. These are source-map evidence ranges, not native integration replacement boundaries.",
+  "coverage": [
+    {
+      "route": "lesson-02",
+      "topLevelBlocks": 4,
+      "allTopLevelBlocksMapped": true,
+      "nonWhitespaceInputBytesCoveredExactly": true,
+      "paragraphsRead": 34,
+      "detailsRead": 4,
+      "tablesRead": 1
+    },
+    {
+      "route": "lesson-05",
+      "topLevelBlocks": 4,
+      "allTopLevelBlocksMapped": true,
+      "nonWhitespaceInputBytesCoveredExactly": true,
+      "paragraphsRead": 46,
+      "detailsRead": 4,
+      "tablesRead": 1
+    }
+  ],
+  "sourcePins": {
+    "textbook": {
+      "path": "source-inspection/ch17/native/workspace/assets/textbook/chapter-17.pdf",
+      "bytes": 2005971,
+      "sha256": "48e297aacb86275c106a02abdddaf0f0463ba47d6b17703a926aa68405755455"
+    },
+    "pptx": {
+      "path": "source-inspection/ch17/sources/Unit C Part B Mendelian Genetics .pptx",
+      "bytes": 10153531,
+      "sha256": "da1ce1c0526da4da1aefd1fb6c0f23070f820ce24378c12f9699d1c700e1a985"
+    },
+    "qti59230": {
+      "path": "source-inspection/ch17/sources/qti/quiz_d2l_59230.xml",
+      "bytes": 137929,
+      "sha256": "3a4731dc6571a59a55803f76139ec5000dbdb57c3606ba08b26947b7886025f3"
+    },
+    "qti59242": {
+      "path": "source-inspection/ch17/sources/qti/quiz_d2l_59242.xml",
+      "bytes": 17036,
+      "sha256": "fba94d628860207a3610be7f6de1f50a96035eec627be65adf99859b4ddf3e11"
+    },
+    "nativeTeachingFigure": {
+      "path": "source-inspection/ch17/native/workspace/assets/figures/ch17-two-trait.svg",
+      "bytes": 5623,
+      "sha256": "6fdb301a963b4da131f8fe50624611fc0ff091c62e0ac99d6602019c2830c316"
+    },
+    "nativeLabelingImage": {
+      "path": "source-inspection/ch17/native/workspace/assets/labeling/ch17-two-trait-label.png",
+      "bytes": 852180,
+      "sha256": "bc5115f43f636f2e35e1a9df5bcc303272ac464a4e7cb4cb27ed9538ea18c27a"
+    }
+  },
+  "locatorRegister": {
+    "TB588": {
+      "source": "original-textbook",
+      "printedPages": [
+        587,
+        588
+      ],
+      "pdfPages": [
+        4,
+        5
+      ],
+      "figure": "Figure17.4 and surrounding Mendel breeding/generation prose",
+      "read": "Original extracted text587–588 and actual pixels588."
+    },
+    "TB589": {
+      "source": "original-textbook",
+      "printedPages": [
+        589
+      ],
+      "pdfPages": [
+        6
+      ],
+      "figure": "Figure17.5, Table17.1, segregation law box",
+      "read": "Original text and pixels; F2 source counts5474/1850, caption approximately2.96:1."
+    },
+    "TB590": {
+      "source": "original-textbook",
+      "printedPages": [
+        590,
+        591
+      ],
+      "pdfPages": [
+        7,
+        8
+      ],
+      "figure": "Figures17.6–17.8 and genotype/phenotype/gamete explanation",
+      "read": "Original text590–591; actual pixels590. No new claim to view591pixels in calibration."
+    },
+    "TB593": {
+      "source": "original-textbook",
+      "printedPages": [
+        593
+      ],
+      "pdfPages": [
+        10
+      ],
+      "figure": "Figure17.10 and independent-assortment body text",
+      "read": "Original text and pixels; caption/model typographical reservations CAL-SRC-02/03 remain."
+    },
+    "TB596": {
+      "source": "original-textbook",
+      "printedPages": [
+        596,
+        597
+      ],
+      "pdfPages": [
+        13,
+        14
+      ],
+      "figure": "Chromosome-theory prose and Figure17.14; practice4–5 read as source context",
+      "read": "Original text and actual pixels both pages; synapsis and universal-linkage summary reservations retained."
+    },
+    "PPT02": {
+      "source": "original-pptx",
+      "actualSlides": [
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25
+      ],
+      "parts": "ppt/slides/slide13.xml throughslide25.xml; actual relationships/embedded media detailed in pptx-read/READ_LOG.json",
+      "read": "Fresh XML/notes read; selected original embedded images byte-verified and viewed."
+    },
+    "PPT05": {
+      "source": "original-pptx",
+      "actualSlides": [
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48
+      ],
+      "parts": "ppt/slides/slide34.xml throughslide48.xml; actual relationships/embedded media detailed in pptx-read/READ_LOG.json",
+      "read": "Fresh XML/notes read; selected original embedded images byte-verified and viewed. Slide48 hyperlinks only; no playback."
+    },
+    "PPT41": {
+      "source": "original-pptx",
+      "actualSlides": [
+        41,
+        42
+      ],
+      "parts": "ppt/slides/slide41.xml, slide42.xml and media/image44.png, image47.png, image23.png through their actual relationships",
+      "read": "Actual XML and original media read. Alternative alignments plus downstream meiotic division are source support; context label ambiguity is not a wrong-stage conclusion."
+    },
+    "NATIVEFIG": {
+      "source": "current-native-teaching-asset",
+      "path": "native/workspace/assets/figures/ch17-two-trait.svg",
+      "nativeMarker": "{{native-figure:ch17-two-trait}}",
+      "read": "Current literal SVG geometry, labels, colours and visible bottom key reread; not a browser-render claim. Separate labeling PNG/key is protected and unchanged."
+    }
+  },
+  "componentRecords": [
+    {
+      "id": "ch17-l02-teaching-01",
+      "route": "lesson-02",
+      "input": "calibration-v0.1.0/authoring/lesson-02.teaching.html.in",
+      "inputSha256": "104526dfdc81d8e6aac1f56f826ea3c04ef28fe73b4c1f6d006ff5ae838808c0",
+      "blockRange": {
+        "startByte": 0,
+        "endByteExclusive": 3131,
+        "byteLength": 3131,
+        "sha256": "57244094c9491b77fe9f6da777b3dc7c1010461b9ab826a3343b624bb583646c"
+      },
+      "recordType": "whole-native-bound teaching owner",
+      "parts": [
+        {
+          "part": "Motivating question, terms and notation",
+          "locatorIds": [
+            "TB589",
+            "TB590",
+            "PPT02"
+          ],
+          "provenanceClassification": "Source-derived explanation with author clarification",
+          "mapping": "Pea round/wrinkled reappearance; distinction between allele, genotype and phenotype; R/r complete dominance.",
+          "limits": "The seed-genotype scoring statement and warning against dominance meaning common/better/stronger are explanatory clarifications, not quoted source observations."
+        },
+        {
+          "part": "True breeding and controlled parentage",
+          "locatorIds": [
+            "TB588",
+            "PPT02"
+          ],
+          "provenanceClassification": "Source-derived breeding design plus author explanatory bridge",
+          "mapping": "True-breeding lines, specified parental cross, pollen-source tracking and distinction between pollination and fertilisation.",
+          "limits": "Pollen/sperm delivery and unknown-donor consequence are author causal explanation of controlled parentage; do not attribute that exact prose or a new experiment to a source slide."
+        },
+        {
+          "part": "P/F1/F2 design",
+          "locatorIds": [
+            "TB588",
+            "TB589",
+            "PPT02"
+          ],
+          "provenanceClassification": "Source-derived explanation",
+          "mapping": "Chosen P, F1 offspring, F1 selfing to F2; generation names do not themselves assign genotypes.",
+          "limits": "Crossing F1 plants as another specified F2 design is author explanatory context; the supplied Mendel narrative uses selfing."
+        }
+      ]
+    },
+    {
+      "id": "ch17-l02-teaching-02",
+      "route": "lesson-02",
+      "input": "calibration-v0.1.0/authoring/lesson-02.teaching.html.in",
+      "inputSha256": "104526dfdc81d8e6aac1f56f826ea3c04ef28fe73b4c1f6d006ff5ae838808c0",
+      "blockRange": {
+        "startByte": 3133,
+        "endByteExclusive": 4960,
+        "byteLength": 1827,
+        "sha256": "c0f042e939ed97d8c342f913eeb669e9c960d2111bf89d45ae0f14e86d38e8eb"
+      },
+      "recordType": "whole-native-bound teaching owner",
+      "parts": [
+        {
+          "part": "Locus, homologues and DNA copying",
+          "locatorIds": [
+            "TB590",
+            "TB596",
+            "PPT41"
+          ],
+          "provenanceClassification": "Author mechanism synthesis grounded in source chromosome model",
+          "mapping": "Corresponding loci on homologues; copying each allele-bearing chromosome creates sister copies; no blending or allele replacement.",
+          "limits": "Detailed DNA-copy explanation is expanded teaching synthesis, not a verbatim chapter17 passage. The intended trace excludes mutation and exchange explicitly in the following worked block."
+        },
+        {
+          "part": "Two divisions, haploid products and gametes",
+          "locatorIds": [
+            "TB596",
+            "PPT41"
+          ],
+          "provenanceClassification": "Author mechanism synthesis",
+          "mapping": "Homologues first, sisters second, no intervening copying; one allele at each locus does not mean one gene in the cell.",
+          "limits": "Does not present plant meiotic products as a full direct-gamete life-cycle account; the worked block expressly bounds the plant life-cycle omission."
+        }
+      ]
+    },
+    {
+      "id": "ch17-l02-worked",
+      "route": "lesson-02",
+      "input": "calibration-v0.1.0/authoring/lesson-02.teaching.html.in",
+      "inputSha256": "104526dfdc81d8e6aac1f56f826ea3c04ef28fe73b4c1f6d006ff5ae838808c0",
+      "blockRange": {
+        "startByte": 4962,
+        "endByteExclusive": 9681,
+        "byteLength": 4719,
+        "sha256": "7948f0667f6867e98c1c33586dc66188db23130acbcb7ed4f1fa955dee0527b9"
+      },
+      "recordType": "whole-native-bound teaching owner",
+      "parts": [
+        {
+          "part": "Four-stage trace and table",
+          "locatorIds": [
+            "TB596",
+            "PPT41",
+            "PPT02"
+          ],
+          "provenanceClassification": "Constructed worked representation of source-derived mechanism",
+          "mapping": "One Rr cell, no mutation/exchange, copied R/R and r/r sisters; first division separates homologues, second separates sisters; products R, R, r, r.",
+          "limits": "The table is new pedagogical construction, not a supplied source image or recorded experiment. It deliberately traces one chromosome pair and ordinary separation."
+        },
+        {
+          "part": "Table reading and segregation inference",
+          "locatorIds": [
+            "TB589",
+            "TB590",
+            "TB596",
+            "PPT02"
+          ],
+          "provenanceClassification": "Source-derived explanation plus author synthesis",
+          "mapping": "Follow only r copies; distinguish chromosome replication from homologue separation; gamete R or r; homozygote uses same process.",
+          "limits": "Gamete equality is within ordinary segregation model. Dominance does not determine transmission."
+        },
+        {
+          "part": "Embedded repair activity",
+          "locatorIds": [
+            "TB596",
+            "PPT41"
+          ],
+          "provenanceClassification": "Constructed guided formative",
+          "mapping": "See nested ch17-cal-v010-l02-repair record for full prompt/hint/feedback mapping.",
+          "limits": "Nested record is a subset of this parent range, not another replacement or progress activity."
+        }
+      ]
+    },
+    {
+      "id": "ch17-cal-v010-l02-repair",
+      "route": "lesson-02",
+      "input": "calibration-v0.1.0/authoring/lesson-02.teaching.html.in",
+      "inputSha256": "104526dfdc81d8e6aac1f56f826ea3c04ef28fe73b4c1f6d006ff5ae838808c0",
+      "blockRange": {
+        "startByte": 7715,
+        "endByteExclusive": 9674,
+        "byteLength": 1959,
+        "sha256": "dc93c7df5b9293356e82bf2f74681df334fcfb75bbc7218d99a36b71f8a54798"
+      },
+      "recordType": "nested new optional practice subset",
+      "parts": [
+        {
+          "part": "Prompt, hint, model and self-check",
+          "locatorIds": [
+            "TB596",
+            "PPT41"
+          ],
+          "provenanceClassification": "Entirely constructed formative application of source-derived mechanism",
+          "mapping": "Student drawing falsely separates sisters and distributesR/r chromatids to both first-division cells; repair first faulty stage; explain why final-label patch alone is insufficient.",
+          "limits": "No supplied observed student work is claimed. No protected required question is repeated; optional, unsaved and ungraded declaration is explicit."
+        }
+      ]
+    },
+    {
+      "id": "ch17-l02-teaching-03",
+      "route": "lesson-02",
+      "input": "calibration-v0.1.0/authoring/lesson-02.teaching.html.in",
+      "inputSha256": "104526dfdc81d8e6aac1f56f826ea3c04ef28fe73b4c1f6d006ff5ae838808c0",
+      "blockRange": {
+        "startByte": 9683,
+        "endByteExclusive": 16833,
+        "byteLength": 7150,
+        "sha256": "c45c4e1fb610da54464834f9e2dea2b300d0548168d5b18d70d4802bba25fe92"
+      },
+      "recordType": "whole-native-bound teaching owner",
+      "parts": [
+        {
+          "part": "F1 fertilisation and F2 combinations",
+          "locatorIds": [
+            "TB589",
+            "TB590",
+            "PPT02"
+          ],
+          "provenanceClassification": "Source-derived explanation",
+          "mapping": "RR×rr→Rr then single-allele contributions from F1; four equiprobable contributions; group 1:2:1 genotypes and 3:1 phenotypes.",
+          "limits": "These are essential source model explanations that support protected conceptual questions. They are not presented as a new independent solved response to an exact required prompt."
+        },
+        {
+          "part": "Probability and evidence limits",
+          "locatorIds": [
+            "TB589",
+            "TB590",
+            "PPT02"
+          ],
+          "provenanceClassification": "Source data plus author probability explanation",
+          "mapping": "5474 round /1850 wrinkled supplied seed-shape observation; caption 2.96:1; ordinary segregation, random fertilisation, known parents, complete dominance/reliable expression, unbiased recording.",
+          "limits": "Source caption speaks of plants with seed shapes while authored text clarifies the scored seed phenotype. Counts are source-derived; no new observation, exact offspring schedule or guarantee is claimed. Unequal survival is identified as a possible departure."
+        },
+        {
+          "part": "History versus mechanism and carry",
+          "locatorIds": [
+            "TB588",
+            "TB589",
+            "TB596",
+            "PPT02"
+          ],
+          "provenanceClassification": "Source-derived history with author progression bridge",
+          "mapping": "Mendel inferred discrete inheritance from breeding; chromosome mechanism came later; lesson03 will organise probabilities/grids.",
+          "limits": "This calibration does not reauthor or certify lesson03."
+        },
+        {
+          "part": "Embedded independent records task",
+          "locatorIds": [
+            "TB588",
+            "TB590"
+          ],
+          "provenanceClassification": "Constructed independent transfer",
+          "mapping": "See nested ch17-cal-v010-l02-records record.",
+          "limits": "Nested record is a subset of the parent source map range."
+        }
+      ]
+    },
+    {
+      "id": "ch17-cal-v010-l02-records",
+      "route": "lesson-02",
+      "input": "calibration-v0.1.0/authoring/lesson-02.teaching.html.in",
+      "inputSha256": "104526dfdc81d8e6aac1f56f826ea3c04ef28fe73b4c1f6d006ff5ae838808c0",
+      "blockRange": {
+        "startByte": 13726,
+        "endByteExclusive": 16486,
+        "byteLength": 2760,
+        "sha256": "62583c86a62de1908fbbee3954ff37bc7f22ded02fbb4698b18eeb9f8b0d973c"
+      },
+      "recordType": "nested new optional practice subset",
+      "parts": [
+        {
+          "part": "RecordA, RecordB, hint and explanatory feedback",
+          "locatorIds": [
+            "TB588",
+            "TB590"
+          ],
+          "provenanceClassification": "Entirely constructed independent transfer",
+          "mapping": "A pools unrecorded pollen donors; B receives known M and m but wrongly records mm; repair missing parentage versus incorrect allele accounting; explain limited role of a larger sample.",
+          "limits": "No private-family information or real experiment is requested. M/m has no phenotype rule and none is inferred. The exact known gametes yield Mm; larger sample cannot repair either evidentiary/accounting error."
+        }
+      ]
+    },
+    {
+      "id": "ch17-l05-teaching-01",
+      "route": "lesson-05",
+      "input": "calibration-v0.1.0/authoring/lesson-05.teaching.html.in",
+      "inputSha256": "920c21c4c658fdda5d7fc1416978c8e5a1d62adf7d221ef2fd70fa5ffc61d651",
+      "blockRange": {
+        "startByte": 0,
+        "endByteExclusive": 3786,
+        "byteLength": 3786,
+        "sha256": "d96f7ca7efbb1bd247ee6cece00b44a9343501e4b26f89ce695fb7fce96d2a9e"
+      },
+      "recordType": "whole-native-bound teaching owner",
+      "parts": [
+        {
+          "part": "Two loci and chromosome-pair orientation",
+          "locatorIds": [
+            "TB593",
+            "TB596",
+            "PPT05",
+            "PPT41"
+          ],
+          "provenanceClassification": "Source-derived explanation with author mechanism bridge",
+          "mapping": "AaBb is a diploid genotype; AB is one allele at each locus in a gamete. The text explicitly puts the loci on different homologous pairs and explains independent orientation across many meioses.",
+          "limits": "Notation alone does not establish chromosome position. The separately stated chromosome model precedes the equal gamete probabilities."
+        },
+        {
+          "part": "Gamete product and total",
+          "locatorIds": [
+            "TB593",
+            "PPT05",
+            "PPT41"
+          ],
+          "provenanceClassification": "Expanded source-derived probability reasoning",
+          "mapping": "A and a each have probability one half; B and b have the same probabilities along either first choice. AB, Ab, aB and ab each have probability one quarter and total one.",
+          "limits": "This is essential gamete formation, not the protected offspring phenotype calculation."
+        },
+        {
+          "part": "Existing native tree",
+          "locatorIds": [
+            "NATIVEFIG"
+          ],
+          "provenanceClassification": "Native asset with new visual-reading instructions",
+          "mapping": "The original SVG has Parent: AaBb, A/a branches, green and gold levels, endpoint location labels A–D and a visible key: A→AB, B→Ab, C→aB, D→ab. The new prose accurately distinguishes allele letters from location labels.",
+          "limits": "The key is already on the preserved teaching SVG; explaining it is not a new hidden-answer identification task. The separate labeling PNG and answer bindings remain unchanged."
+        }
+      ]
+    },
+    {
+      "id": "ch17-l05-teaching-02",
+      "route": "lesson-05",
+      "input": "calibration-v0.1.0/authoring/lesson-05.teaching.html.in",
+      "inputSha256": "920c21c4c658fdda5d7fc1416978c8e5a1d62adf7d221ef2fd70fa5ffc61d651",
+      "blockRange": {
+        "startByte": 3788,
+        "endByteExclusive": 6411,
+        "byteLength": 2623,
+        "sha256": "fda56ea85272556e6cc35b3ea8edeaf93a20422fa073342be7e4d5965247ef17"
+      },
+      "recordType": "whole-native-bound teaching owner",
+      "parts": [
+        {
+          "part": "Events and the joint-probability denominator",
+          "locatorIds": [
+            "TB593",
+            "PPT05"
+          ],
+          "provenanceClassification": "Author explanation of source probability methods",
+          "mapping": "Defines the event before calculation and states that the joint probability is measured among the whole specified gamete or offspring group.",
+          "limits": "No conditional calculation or unstated selected denominator is introduced."
+        },
+        {
+          "part": "Why multiplication applies",
+          "locatorIds": [
+            "TB593",
+            "TB596",
+            "PPT05",
+            "PPT41"
+          ],
+          "provenanceClassification": "Author causal and mathematical synthesis",
+          "mapping": "Distinguishes independence between allele choices within a gamete from random fertilisation between two parental gametes. Those assumptions support combining separate-locus predictions.",
+          "limits": "A square’s cell count is not treated as sufficient justification for equal probability."
+        },
+        {
+          "part": "Phenotype grouping and addition",
+          "locatorIds": [
+            "TB590",
+            "TB593",
+            "PPT05"
+          ],
+          "provenanceClassification": "Source-derived concepts with author clarification",
+          "mapping": "A_ means AA or Aa at the A locus; one gene’s uppercase symbol does not dominate another gene. Mutually exclusive genotype categories can be added to obtain a phenotype probability.",
+          "limits": "This corrects the explanatory scope of the original Figure17.10 underscore wording without altering that source figure."
+        }
+      ]
+    },
+    {
+      "id": "ch17-l05-worked",
+      "route": "lesson-05",
+      "input": "calibration-v0.1.0/authoring/lesson-05.teaching.html.in",
+      "inputSha256": "920c21c4c658fdda5d7fc1416978c8e5a1d62adf7d221ef2fd70fa5ffc61d651",
+      "blockRange": {
+        "startByte": 6413,
+        "endByteExclusive": 14460,
+        "byteLength": 8047,
+        "sha256": "b2c05f6fdc0841f80b28ea6afeeb160e4d9c03244d124bc88b46c8346a1d3e99"
+      },
+      "recordType": "whole-native-bound teaching owner",
+      "parts": [
+        {
+          "part": "Fictional model and assumptions",
+          "locatorIds": [
+            "TB593",
+            "PPT05"
+          ],
+          "provenanceClassification": "New constructed worked example",
+          "mapping": "H/h determine hooked/straight pods and S/s speckled/plain petals in a fictional complete-dominance model. Parents are HhSS × hhSs; the sample is120 offspring. Ordinary segregation, independent assortment, random fertilisation, reliable expression and no phenotype-dependent loss are explicit.",
+          "limits": "Trait rules, genotypes and sample size are authored teaching parameters, not observations or verified real-plant trait claims."
+        },
+        {
+          "part": "Gametes and fertilisation table",
+          "locatorIds": [
+            "TB593",
+            "PPT05"
+          ],
+          "provenanceClassification": "Constructed calculation using source-derived methods",
+          "mapping": "HS/hS and hS/hs are each parent’s two distinct gametes. The 2×2 table yields HhSS, HhSs, hhSS and hhSs with probability one quarter each.",
+          "limits": "Neither parent is heterozygous at both loci. This demonstrates contribution accounting and grouping; it does not prove two-locus independence. The stated independence assumption is stronger than necessary for this particular cross, but is not false."
+        },
+        {
+          "part": "Genotypes, phenotypes and cross-check",
+          "locatorIds": [
+            "TB590",
+            "TB593",
+            "PPT05"
+          ],
+          "provenanceClassification": "Constructed calculation",
+          "mapping": "Four genotype classes in a1:1:1:1 ratio group into hooked/speckled and straight/speckled with probability one half each. Exact HhSS has probability one quarter; hooked/speckled has probability one half. No genotype is ss.",
+          "limits": "The event distinction is explicit. This is not a letter-swapped version of the required3/16 or1/8 phenotype target."
+        },
+        {
+          "part": "Expected counts and limits",
+          "locatorIds": [
+            "TB593",
+            "PPT05"
+          ],
+          "provenanceClassification": "Constructed calculation and author probability explanation",
+          "mapping": "120 ×1/2 gives60 expected offspring in each allowed phenotype group; probabilities total one and counts total120. An ss offspring is unsupported by the stated parental contributions.",
+          "limits": "60/60 is an expectation, not a guarantee. An unsupported genotype requires rechecking givens, parentage, observation or model; ordinary sampling variation among allowed outcomes does not create it. The original squash80/40/20 values are not reused."
+        },
+        {
+          "part": "Nested guided comparison",
+          "locatorIds": [
+            "TB593",
+            "PPT05"
+          ],
+          "provenanceClassification": "Constructed guided practice",
+          "mapping": "The changed-parent prompt, hint and feedback are mapped separately as ch17-cal-v010-l05-change-parent.",
+          "limits": "Its range is a subset of this parent block, not an additional replacement or progress item."
+        }
+      ]
+    },
+    {
+      "id": "ch17-cal-v010-l05-change-parent",
+      "route": "lesson-05",
+      "input": "calibration-v0.1.0/authoring/lesson-05.teaching.html.in",
+      "inputSha256": "920c21c4c658fdda5d7fc1416978c8e5a1d62adf7d221ef2fd70fa5ffc61d651",
+      "blockRange": {
+        "startByte": 12086,
+        "endByteExclusive": 14453,
+        "byteLength": 2367,
+        "sha256": "3f470c8c9f5e611010adc09021c3be6d0b66e440fdd684a732e1140ca79abbb5"
+      },
+      "recordType": "nested new optional practice subset",
+      "parts": [
+        {
+          "part": "Prompt, hint and complete feedback",
+          "locatorIds": [
+            "TB593",
+            "PPT05"
+          ],
+          "provenanceClassification": "Constructed guided comparison",
+          "mapping": "Replace HhSS with Hhss while retaining hhSs. Hh × hh is unchanged; ss × Ss gives half Ss and half ss. Gametes Hs/hs and hS/hs combine into HhSs, Hhss, hhSs and hhss, each one quarter, now representing four distinct phenotypes.",
+          "limits": "The generic cross structure is equivalent to the original slides46–47 squash cross. Here it is explicitly guided alteration of the immediately preceding model, not claimed fresh independent transfer; the original squash story/data are not copied. The result does not establish independence, and the draft does not claim it does."
+        }
+      ]
+    },
+    {
+      "id": "ch17-l05-teaching-03",
+      "route": "lesson-05",
+      "input": "calibration-v0.1.0/authoring/lesson-05.teaching.html.in",
+      "inputSha256": "920c21c4c658fdda5d7fc1416978c8e5a1d62adf7d221ef2fd70fa5ffc61d651",
+      "blockRange": {
+        "startByte": 14462,
+        "endByteExclusive": 20219,
+        "byteLength": 5757,
+        "sha256": "5796a50d110e1a0fcf8d147e07853ccb13458288245e35147472144bafadda6d"
+      },
+      "recordType": "whole-native-bound teaching owner",
+      "parts": [
+        {
+          "part": "Derived classic ratio and its scope",
+          "locatorIds": [
+            "TB593",
+            "PPT05"
+          ],
+          "provenanceClassification": "Source-derived explanation expanded by author",
+          "mapping": "For two double heterozygotes, each complete-dominance locus gives3:1. Under independent assortment the relative weights are3×3,3×1,1×3 and1×1, totaling16 gamete pairings and giving9:3:3:1. The text names all four phenotype categories and limits the ratio to the stated parents and assumptions.",
+          "limits": "This essential derivation structurally supports the protected3/16 class. It is not represented as a new solved response to the exact AaBb × AaBb / P(aaB_) required prompt."
+        },
+        {
+          "part": "Marginal totals versus joint probabilities",
+          "locatorIds": [
+            "TB593",
+            "PPT05",
+            "PPT41"
+          ],
+          "provenanceClassification": "Author mathematical synthesis",
+          "mapping": "Knowing each allele occurs in half the gametes does not establish independent combinations. Add mutually exclusive categories to find marginal totals and compare the proposed product with the stipulated joint value.",
+          "limits": "Exact model probabilities and finite observed counts have different evidentiary roles."
+        },
+        {
+          "part": "Nested simulator transfer",
+          "locatorIds": [
+            "TB593",
+            "PPT05",
+            "PPT41"
+          ],
+          "provenanceClassification": "Constructed independent transfer",
+          "mapping": "The JjKk simulator prompt, hint and feedback are separately mapped as ch17-cal-v010-l05-joint-model.",
+          "limits": "The record is nested within this parent block."
+        },
+        {
+          "part": "Linkage, progression and protected optional practice",
+          "locatorIds": [
+            "TB596",
+            "PPT41"
+          ],
+          "provenanceClassification": "Source-derived limitation with author progression notes",
+          "mapping": "Linked genes are on the same chromosome; nearby loci may depart from the independent model. Crossing over and maps remain for12/13. The final note directs learners back to native printed595 Q13, Q15 and Q16 after lesson06.",
+          "limits": "The simulator does not establish real chromosome location or map distance. The printed595 questions are present but require the next lesson’s dominance relationships; their native assignments remain unchanged."
+        }
+      ]
+    },
+    {
+      "id": "ch17-cal-v010-l05-joint-model",
+      "route": "lesson-05",
+      "input": "calibration-v0.1.0/authoring/lesson-05.teaching.html.in",
+      "inputSha256": "920c21c4c658fdda5d7fc1416978c8e5a1d62adf7d221ef2fd70fa5ffc61d651",
+      "blockRange": {
+        "startByte": 16550,
+        "endByteExclusive": 19035,
+        "byteLength": 2485,
+        "sha256": "a50e914af699878211bc1be880a4488a053d208894cae816079acc3938250d9b"
+      },
+      "recordType": "nested new optional practice subset",
+      "parts": [
+        {
+          "part": "Prompt, hint and complete feedback",
+          "locatorIds": [
+            "TB593",
+            "PPT05",
+            "PPT41"
+          ],
+          "provenanceClassification": "Entirely constructed independent model-analysis transfer",
+          "mapping": "The simulator stipulates JK=.35, Jk=.15, jK=.15 and jk=.35. These total one; all four marginal allele probabilities are.50. Independence predicts JK=.25, which differs from the exact supplied.35.",
+          "limits": "The numbers are authored simulator rules, not experimental gamete counts, linkage measurements, recombination fractions or map data. Only independence within this mathematical model is rejected. No real chromosome location or biological cause is inferred, and no exact required cross is cloned."
+        }
+      ]
+    }
+  ],
+  "protectedTargetAssessment": {
+    "requiredPromptsRead": 8,
+    "exactPromptsOptionsKeysModelsEvidence": "CURRENT_TARGET_REQUIRED_CHECKS.json",
+    "noNewSolvedExactRequiredPrompt": true,
+    "qualification": "Core lesson02 Mendel reasoning and lesson05 gametes/classic-ratio derivation necessarily support required concepts. Structural teaching overlap is not claimed absent. No new solved exact AaBb phenotype prompt, RrTt/rrTt gamete problem or equivalent1/8 target is introduced.",
+    "nativeVisibleFigureKey": "New visual instructions accurately explain the visible key on the original teaching SVG; the separate protected labeling asset remains unchanged.",
+    "guidedOriginalStructureOverlap": "Hhss × hhSs is structurally equivalent to the original PPTX squash cross but serves as guided comparison. The independent JjKk simulator requires a different kind of reasoning."
+  },
+  "readonlyConflictRegister": "TARGETED_SOURCE_LOCATORS.json#/qualifiedConflicts",
+  "gaps": [
+    "UnitC.zip (274,867,532 declared bytes) is intentionally absent and unaccessed; only selected original members were verified.",
+    "Full All daily plan.zip and complete daily plans are absent and unread.",
+    "Original mixed UnitC tests are absent and unread; their complete filenames/content are unknown.",
+    "Registry-only performance.pdf and bulletin.pdf binaries are absent. The cached program and registry are dated evidence, not current certification."
+  ],
+  "excludedClaims": [
+    "No video played or timestamps/transcript invented.",
+    "No live course/current authority accessed.",
+    "No new experiment observed.",
+    "No earlier artifact/source/native/prose edited.",
+    "No runtime/integration/teacher acceptance/release test or approval."
+  ],
+  "readScopeEvidence": "CURRENT_SOURCE_READ_SCOPE.json",
+  "sourceGate": "CURRENT_SOURCE_GATE.json",
+  "assembledArtifactPins": [
+    {
+      "path": "output/Biology30_CH17_Exemplar_Transfer_Calibration_v0.1.0/manuscripts/lesson-02.md",
+      "bytes": 15004,
+      "sha256": "1fe8392c843c77250d23babac8d73c9c0826be2253bbd4ecb96d691b8c2a704e"
+    },
+    {
+      "path": "output/Biology30_CH17_Exemplar_Transfer_Calibration_v0.1.0/manuscripts/lesson-05.md",
+      "bytes": 18133,
+      "sha256": "5ce3f48d1c44ddf22932ea3bc2c4ce7045ff45c4f78511afaa421a7d1c46a1e9"
+    },
+    {
+      "path": "output/Biology30_CH17_Exemplar_Transfer_Calibration_v0.1.0/integration-text/lesson-02.teaching-fragment.html.txt",
+      "bytes": 17464,
+      "sha256": "5740360125376c2994bdaa1f28c4fe3d57b276232494ec7dbdb9db49ed6543fc"
+    },
+    {
+      "path": "output/Biology30_CH17_Exemplar_Transfer_Calibration_v0.1.0/integration-text/lesson-05.teaching-fragment.html.txt",
+      "bytes": 21630,
+      "sha256": "a78b0e51af788a1591864cd8fc3ae6a733a4b7b051b73bbe82be1787e1944e0c"
+    }
+  ],
+  "assembledArtifactScope": "Actual assembled manuscript/fragment bytes hashed against assembler-reported final hashes. Full scientific reading was performed on the pinned complete teaching inputs; this artifact pin is not a browser/runtime or new independent assembly review."
+}

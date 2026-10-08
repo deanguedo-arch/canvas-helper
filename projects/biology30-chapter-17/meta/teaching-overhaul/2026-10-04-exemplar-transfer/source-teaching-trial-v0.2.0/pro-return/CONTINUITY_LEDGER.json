@@ -1,0 +1,80 @@
+{
+  "scope": "Only current candidate02/05; actual native prerequisites and current input bridges. Whole-chapter prior return is not reopened.",
+  "inputs": [
+    {
+      "path": "kinch-trial-v0.2.0/authoring/lesson-02.teaching.html.in",
+      "bytes": 17871,
+      "sha256": "c5712fcf6e33e732a3985593bdbea867749f2cfcaa38000c6a8290ee498af2af"
+    },
+    {
+      "path": "kinch-trial-v0.2.0/authoring/lesson-05.teaching.html.in",
+      "bytes": 30601,
+      "sha256": "eac351c08ef28c82b936cf1baa206dbfb5f14feef65338d3e196d3c5aa0f6b4e"
+    }
+  ],
+  "exactClosingParagraphBindings": [
+    {
+      "route": "lesson-02",
+      "nativeEditKey": "ch17-l02-teaching-03-p3",
+      "input": {
+        "path": "kinch-trial-v0.2.0/authoring/lesson-02.teaching.html.in",
+        "bytes": 17871,
+        "sha256": "c5712fcf6e33e732a3985593bdbea867749f2cfcaa38000c6a8290ee498af2af"
+      },
+      "utf8StartInclusive": 17364,
+      "utf8EndExclusive": 17863,
+      "sha256": "141e4c3b31f2409bd7517d0ad2f51507b4bf3751ed96ece1a46bcdaf7d79d464",
+      "text": "<p data-canvas-edit-key=\"ch17-l02-teaching-03-p3\" data-canvas-helper-edit-key=\"ch17-l02-teaching-03-p3\">The returning phenotype now has a continuous explanation: alleles persist through copying, separate into contributions, and can meet again at fertilisation. Lesson03 will make the grid and probability operations systematic. Lesson05 will ask whether following one gene's alleles tells us anything about a second gene. For now, keep the contribution mechanism and the phenotype rule separate.</p>"
+    },
+    {
+      "route": "lesson-05",
+      "nativeEditKey": "ch17-l05-teaching-03-p3",
+      "input": {
+        "path": "kinch-trial-v0.2.0/authoring/lesson-05.teaching.html.in",
+        "bytes": 30601,
+        "sha256": "eac351c08ef28c82b936cf1baa206dbfb5f14feef65338d3e196d3c5aa0f6b4e"
+      },
+      "utf8StartInclusive": 29445,
+      "utf8EndExclusive": 30126,
+      "sha256": "eb380e0b0699961b82027d1290f92072e066fb91e404a58a879177add48661fd",
+      "text": "<p data-canvas-edit-key=\"ch17-l05-teaching-03-p3\" data-canvas-helper-edit-key=\"ch17-l05-teaching-03-p3\">The answer to the opening question depends on how the loci are inherited. For genes on different chromosome pairs under independent assortment, an allele contribution at one locus does not favour a particular allele at the other. Genes close together on the same chromosome can be <strong>linked</strong>: they tend to be inherited together, so the four gamete combinations need not be equally frequent. Lessons12–13 will use that difference to study linkage and gene maps. Do not apply four equal gamete probabilities when independence has not been established or given.</p>"
+    }
+  ],
+  "recordOwner": "EXEMPLAR_TRANSFER_DECISIONS.json gives actual block-level prerequisites/forward links and source/exemplar boundaries.",
+  "unresolved": "Both SRC-BOUND-01 tomato template/source-demand loss and SRC-BOUND-02 retained pea3/16 structural support remain teacher acceptance decisions.",
+  "functionalStatus": "Saved-note interface specified; actual integration/function tests pending.",
+  "assembledOutputs": [
+    {
+      "route": "lesson-02",
+      "manuscript": {
+        "path": "output/Biology30_CH17_Source_Teaching_Trial_v0.2.0/manuscripts/lesson-02.md",
+        "bytes": 15070,
+        "sha256": "60df96e6b1b6bc459e477774441d5568c9e31e541d43c7d51cc30f122dfdb320"
+      },
+      "fragment": {
+        "path": "output/Biology30_CH17_Source_Teaching_Trial_v0.2.0/integration-text/lesson-02.teaching-fragment.html.txt",
+        "bytes": 18591,
+        "sha256": "a843cc369e041e244a5cc775907979d36b906b78b2fc3b39ed26a0757d395c00"
+      }
+    },
+    {
+      "route": "lesson-05",
+      "manuscript": {
+        "path": "output/Biology30_CH17_Source_Teaching_Trial_v0.2.0/manuscripts/lesson-05.md",
+        "bytes": 26936,
+        "sha256": "4b6a990549930e35ad396a61ebe7a7a0be81e83d8086e7a01f1153503b7bd255"
+      },
+      "fragment": {
+        "path": "output/Biology30_CH17_Source_Teaching_Trial_v0.2.0/integration-text/lesson-05.teaching-fragment.html.txt",
+        "bytes": 31651,
+        "sha256": "4439240ef48d2b38d50bf3e624769c03e9a79a9641d7fd25386d0d5ec4799cb8"
+      }
+    }
+  ],
+  "teacherReader": {
+    "path": "output/Biology30_CH17_Source_Teaching_Trial_v0.2.0/Biology30_CH17_Source_Teaching_Trial_Teacher_Review_v0.2.0.html",
+    "bytes": 1290101,
+    "sha256": "ffe57a4224e16286a52f98099720cc4f9b0e8310d93b940c06e514b507a4737c"
+  },
+  "assembledCopyReview": "Complete actual manuscript/appendix reading plus full learner token/math/map retention check; ASSEMBLED_RECORDS_REVIEW.md/.json."
+}

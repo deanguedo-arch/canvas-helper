@@ -1,0 +1,148 @@
+{
+  "version": "0.1.0",
+  "baseline_owner_sha256": "31447f72550c68ceb4a7cfd444f85651908a86782096dff4e4847cff4ab9e3e4",
+  "sources": {
+    "pptx_sha256": "da1ce1c0526da4da1aefd1fb6c0f23070f820ce24378c12f9699d1c700e1a985",
+    "pdf_sha256": "48e297aacb86275c106a02abdddaf0f0463ba47d6b17703a926aa68405755455",
+    "pdf_mapping": "printed page = one-based PDF page + 583"
+  },
+  "figures": [
+    {
+      "asset_id": "ch17-pedigree",
+      "lesson": 10,
+      "path": "./assets/figures/ch17-pedigree.svg",
+      "sha256": "f9e47cdfaac6249924098fb976de3c1ece9b7dbdb5b2acd9b6fe551cdb6f62f3",
+      "status": "approved existing native asset retained byte-exact",
+      "caption": "In this fully penetrant autosomal recessive model, filled symbols are affected. Unaffected parents with an affected child must both be carriers. The unaffected sibling remains AA or Aa. Schematic \u2014 not to scale.",
+      "accessible_description": "In this fully penetrant autosomal recessive model, filled symbols are affected. Unaffected parents with an affected child must both be carriers. The unaffected sibling remains AA or Aa.",
+      "pixel_inspection": "Actual image opened and read, both contact-sheet and individual view; native SVG rendered with installed Inkscape and visually inspected. No pixels redrawn or altered.",
+      "source": {
+        "native_svg_sha256": "f9e47cdfaac6249924098fb976de3c1ece9b7dbdb5b2acd9b6fe551cdb6f62f3",
+        "recovery": "Lead recovered historical native raw asset; hash matches frozen SOURCE_PROTECTION"
+      },
+      "meaning_of_marks": "Open/filled squares/circles distinguish sex category and observed trait per stated key. Horizontal partnerships, vertical descent, and sibling lines are relationships. No arrows or colour coding imply allele movement.",
+      "teaching_sequence": [
+        "First inspect open parents and filled child without using printed answers.",
+        "Trace partnership, descent and sibling lines; then follow each A\u2013D pointer.",
+        "After the model is defined, L10 teaching-02 traces the two necessary a contributions; L10 teaching-03 derives conditional probability."
+      ],
+      "concept": "Read symbols and distinguish pedigree connectors from leader lines; then infer Aa, Aa, aa, AA or Aa under the supplied recessive model.",
+      "placement": "L10 teaching-01 after \u201cRead the picture in two passes.\u201d",
+      "scientific_constraints": "Preserve native SVG and figure subtree, including visible answer legend. Small endpoint dots are activity-pointer marks, not carrier notation. Circled A\u2013D are locations, not alleles. This existing answer-visible figure cannot be called a fresh independent assessment.",
+      "locked_mapping": {
+        "A": "Aa",
+        "B": "Aa",
+        "C": "aa",
+        "D": "AA or Aa"
+      }
+    },
+    {
+      "asset_id": "ch17-teaching-remaining-v010-l10-dominant-family",
+      "lesson": 10,
+      "path": "./assets/teaching-remaining-v010/slide-77-image73.png",
+      "sha256": "c6f77f53f6389602d75bb60ca8efe0ebc35f683e7a8fdd0aa02c548f0acb95a2",
+      "status": "exact supplied PPT media, extracted through slide relationship; new placement proposed",
+      "caption": "An autosomal-dominant family. Use the printed individual numbers and the connecting lines; a filled symbol initially allows DD or Dd.",
+      "accessible_description": "Autosomal-dominant pedigree numbered 1 through 12. Affected parents 1 and 2 have affected children 5 and 6 and unaffected child 7. Unaffected 3 and affected 4 have unaffected 8 and affected 9. Unaffected 7 and 8 have unaffected children 10, 11 and 12.",
+      "pixel_inspection": "Actual image opened and read, both contact-sheet and individual view; native SVG rendered with installed Inkscape and visually inspected. No pixels redrawn or altered.",
+      "source": {
+        "slide": 77,
+        "rid": "rId3",
+        "target": "../media/image73.png",
+        "extracted": "biology_remaining/batch_10_11/research/slide-77-image73.png",
+        "text": "PEDIGREES: \nPREDICTING GENOTYPE\nPedigrees can be used to predict the genotype of a given individual\n\u2026 \nWhat is the genotype of individual 3 in generation I?\nWhat must be the genotypes of individuals 1 & 2 in generation I?\nWhat are the possible genotypes of individual 6 in generation II?\nIs it possible for individuals 7 & 8 of generation II to produce an affected child? \nMode of Inheritance:\nAutosomal Dominant\ndd\nDd and Dd \u2192 only way to produce the unaffected offspring II-7\nDD or Dd are both possible\nNo, because they both must be dd \u2192 no way to pass on the dominant copy"
+      },
+      "meaning_of_marks": "Open/filled squares/circles distinguish sex category and observed trait per stated key. Horizontal partnerships, vertical descent, and sibling lines are relationships. No arrows or colour coding imply allele movement.",
+      "teaching_sequence": [
+        "Find all open dd individuals.",
+        "Use child 7 to force parents 1 and 2 to Dd.",
+        "Use child 8 to force parent 4 to Dd and parent 3 to force child 9 Dd.",
+        "Retain DD or Dd for 5 and 6; verify dd\u00d7dd produces 10\u201312."
+      ],
+      "concept": "Autosomal-dominant genotype inference through every branch, with unresolved DD/Dd alternatives.",
+      "placement": "L10 teaching-02 after \u201cLook at the larger diagram next.\u201d",
+      "scientific_constraints": "Numbers are global 1\u201312, not restarted within each generation. Printed model label is a premise, not proof. Use D/d consistently. Image remains exact."
+    },
+    {
+      "asset_id": "ch17-teaching-remaining-v010-l11-recessive-family",
+      "lesson": 11,
+      "path": "./assets/teaching-remaining-v010/slide-79-image74.png",
+      "sha256": "630d5cb33d9573eaf8e0a6037df0d44c33737050fb79039e33f0606a7943092b",
+      "status": "exact supplied PPT media, extracted through slide relationship; new placement proposed",
+      "caption": "Follow each parent\u2013offspring connection before testing a chromosome model. Open symbols mean unaffected for the trait; filled symbols mean affected. The family alone does not establish a unique mode of inheritance.",
+      "accessible_description": "Three-generation pedigree. Two unaffected parents have an unaffected daughter, an affected son, an unaffected son and another unaffected daughter. The left daughter and her unaffected partner have an unaffected daughter and two unaffected sons. The right daughter and her unaffected partner have an affected son and two unaffected daughters.",
+      "pixel_inspection": "Actual image opened and read, both contact-sheet and individual view; native SVG rendered with installed Inkscape and visually inspected. No pixels redrawn or altered.",
+      "source": {
+        "slide": 79,
+        "rid": "rId3",
+        "target": "../media/image74.png",
+        "extracted": "biology_remaining/batch_10_11/research/slide-79-image74.png",
+        "text": "Mode of Inheritance:\nX-linked Recessive\nWhat must be the genotypes of individuals 1 & 2 of generation I?\nWhat are the most likely genotypes of individuals 1 & 2 of generation II? \nPEDIGREES: \nPREDICTING GENOTYPE\nI-1: X\nR\nX\nr \n\u2192 X\nR \nbecause not affected and X\nr \nb/c she has an affected son, who must have received the X\nR \nallele from mom.\nI-2: X\nR\nY\n \u2192 not affected so must have X\nR\n as well as a Y b/c male\nI\nI-1: X\nR\nY\n \u2192 not affected so must have X\nR\n as well as a Y b/c male\nII-2:\n \nmost likely\n \nX\nR\nX\nR \nbecause none of her sons are affected."
+      },
+      "meaning_of_marks": "Open/filled squares/circles distinguish sex category and observed trait per stated key. Horizontal partnerships, vertical descent, and sibling lines are relationships. No arrows or colour coding imply allele movement.",
+      "teaching_sequence": [
+        "Read top family and distinguish daughters\u2019 partners from siblings.",
+        "Trace affected sons\u2019 X back to their mothers.",
+        "Resolve every person or retain explicit alternatives; do not infer non-carrier from unaffected sons.",
+        "Construct a compatible autosomal-recessive alternative to prevent unique-proof overclaim."
+      ],
+      "concept": "X-linked recessive chromosome path, obligate carriers and unresolved non-carrier/carrier alternatives.",
+      "placement": "L11 teaching-01 after the initial relationship walkthrough.",
+      "scientific_constraints": "No individual numbers printed: use relationship and location descriptions. Preserve visible StompOnStep1 credit. Unlike source slide text, do not call the left daughter most likely non-carrier without prior information."
+    },
+    {
+      "asset_id": "ch17-teaching-remaining-v010-l11-dominant-family",
+      "lesson": 11,
+      "path": "./assets/teaching-remaining-v010/slide-88-image72.png",
+      "sha256": "1337fdba705ee1263b92410c26d18a04f3def0b9835734c3a79cadc9acf03d8b",
+      "status": "exact supplied PPT media, extracted through slide relationship; new placement proposed",
+      "caption": "The model is supplied. Test its predictions by tracing the X to each daughter and son, not by counting shaded circles alone.",
+      "accessible_description": "X-linked-dominant pedigree numbered 1 through 11. Affected mother 1 and unaffected father 2 have affected son 3, affected daughter 4, unaffected son 5 and unaffected daughter 6. Unaffected daughter 6 and affected partner 7 have affected daughters 8 and 10 and unaffected sons 9 and 11.",
+      "pixel_inspection": "Actual image opened and read, both contact-sheet and individual view; native SVG rendered with installed Inkscape and visually inspected. No pixels redrawn or altered.",
+      "source": {
+        "slide": 88,
+        "rid": "rId3",
+        "target": "../media/image72.png",
+        "extracted": "biology_remaining/batch_10_11/research/slide-88-image72.png",
+        "text": "PEDIGREES\nPredicting mode of inheritance\nCLUES:\nFemales affected more than males\ntrait does not skip generations \u2192 likely dominant\naffected sons have an affected mother\nstill no father to son transmission\nAll daughters born to an affected father are also affected \u2192 huge clue it is x-linked dominant\nExample #\n4"
+      },
+      "meaning_of_marks": "Open/filled squares/circles distinguish sex category and observed trait per stated key. Horizontal partnerships, vertical descent, and sibling lines are relationships. No arrows or colour coding imply allele movement.",
+      "teaching_sequence": [
+        "Use unaffected son 5 to resolve mother 1 as heterozygous.",
+        "Use unaffected father 2 to constrain daughter 4.",
+        "Trace individual 7\u2019s X to daughters 8 and 10 and Y to sons 9 and 11."
+      ],
+      "concept": "X-linked-dominant affected father, all daughters versus all-offspring denominator, and heterozygous mother inference.",
+      "placement": "L11 teaching-02 after \u201cRead the dominant family one branch at a time.\u201d",
+      "scientific_constraints": "Global 1\u201311 numbering. Use correct XdY sons; do not copy slide81\u2019s incorrect XDY cell. Printed model label is supplied assumption."
+    },
+    {
+      "asset_id": "ch17-teaching-remaining-v010-l11-alternative-models",
+      "lesson": 11,
+      "path": "./assets/teaching-remaining-v010/slide-84-image82.png",
+      "sha256": "c57988402268e79257d3f4c8e88ed94e5cc0dc3f91255de35c0e26e0fda2297d",
+      "status": "exact supplied PPT media, extracted through slide relationship; new placement proposed",
+      "caption": "Several visible clues fit more than one explanation. Test every family branch and retain every compatible model under the stated assumptions.",
+      "accessible_description": "An affected mother and unaffected father have two affected children, a son and daughter, and two unaffected children, a son and daughter. The affected son and an unaffected female partner have an affected son. The unaffected daughter and an unaffected male partner have an unaffected daughter. The diagram asks for the mode of inheritance.",
+      "pixel_inspection": "Actual image opened and read, both contact-sheet and individual view; native SVG rendered with installed Inkscape and visually inspected. No pixels redrawn or altered.",
+      "source": {
+        "slide": 84,
+        "rid": "rId4",
+        "target": "../media/image82.png",
+        "extracted": "biology_remaining/batch_10_11/research/slide-84-image82.png",
+        "text": "PEDIGREES\nPredicting mode of inheritance\nCLUES:\nboth males and females are equally affected \n\u2192 not likely to be sex-linked\ntrait tends to skip generations\nunaffected parents may produce affected offspring\nExample #2\nDefinitive\n clue that it is a recessive trait."
+      },
+      "meaning_of_marks": "Open/filled squares/circles distinguish sex category and observed trait per stated key. Horizontal partnerships, vertical descent, and sibling lines are relationships. No arrows or colour coding imply allele movement.",
+      "teaching_sequence": [
+        "Identify every relative by location.",
+        "Read both complete autosomal genotype assignments.",
+        "Test the top mother/unaffected son and the left affected grandson\u2019s unaffected mother to reject X-linked candidates.",
+        "Retain both autosomal models rather than selecting one from generation/sex-count clues."
+      ],
+      "concept": "Whole-pedigree competing-model test with two compatible autosomal assignments and two contradicted X-linked assignments.",
+      "placement": "L11 teaching-03 before the complete alternative-assignment table.",
+      "scientific_constraints": "Diagram is unnumbered, and appears on both slides84 and86. No unique mode implied by its printed question. Father/son co-occurrence does not establish paternal X transmission."
+    }
+  ],
+  "source_task_page_renders": "Full PDF-page renders for reading manuscripts only, not replacements for frozen native crop assets."
+}

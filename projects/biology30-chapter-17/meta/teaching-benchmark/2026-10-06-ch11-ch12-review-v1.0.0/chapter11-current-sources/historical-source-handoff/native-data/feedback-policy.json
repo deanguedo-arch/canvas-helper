@@ -1,0 +1,22 @@
+{
+  "staticFeedback": {
+    "owner": "scripts/lib/biology30-pilot3/runtime.ts",
+    "functions": [
+      "render",
+      "complete",
+      "firstScore"
+    ],
+    "correct": "Correct",
+    "incorrect": "Not correct yet",
+    "writing": "Written response saved; not automatically graded.",
+    "note": "Existing static feedback is generic status rather than a complete scientific explanation. Paired correct response unlocks writing; writing is not auto-graded."
+  },
+  "generatedFeedback": {
+    "owner": "scripts/lib/biology30-pilot3/practice-engine.ts",
+    "authoredConcepts": "authored-practice-concepts-and-keys.json",
+    "allInstantiatedItemFamilies": "all-generated-question-families-with-keys.json",
+    "policy": "First incorrect attempt gives the authored cue; second reveals answer/explanation. Flashcards are self-assessment. Definitions are true teaching text; misconception fields are explicitly false statements."
+  },
+  "sourceAssessment": "sources/teacher-only/chapter11-source-quiz-qti.xml; preserve original XML keys/feedback, never publish source assessments as generated practice",
+  "allExactRuntimeSources": "current-course/owners/scripts/"
+}

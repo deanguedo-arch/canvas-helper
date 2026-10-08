@@ -1,0 +1,43 @@
+{
+  "status": "proposal only; not applied",
+  "jsonOwner": "course-data.notes",
+  "nativeSourceSha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868",
+  "originalArrayRange": {
+    "startByte": 3239743,
+    "endByteExclusive": 3240263,
+    "bytes": 520,
+    "sha256": "88d093c985c3a370d5011f0acbf56ce39576c3645fa28bf59fcf614a12bd9402",
+    "exactText": "[{\"id\": \"ch17-source-written-OBJ_2131244\", \"title\": \"Additional written application 1\"}, {\"id\": \"ch17-source-written-OBJ_2131247\", \"title\": \"Additional written application 2\"}, {\"id\": \"ch17-source-written-OBJ_2131248\", \"title\": \"Additional written application 3\"}, {\"id\": \"ch17-source-written-OBJ_2131251\", \"title\": \"Additional written application 4\"}, {\"id\": \"ch17-source-written-OBJ_2131252\", \"title\": \"Additional written application 5\"}, {\"id\": \"ch17-optional-extension\", \"title\": \"Biobanks and genetic information\"}]"
+  },
+  "preserveOriginalSixEntriesExactly": true,
+  "insertion": {
+    "startByte": 3240262,
+    "endByteExclusive": 3240262,
+    "beforeBytes": 0,
+    "beforeSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "newText": ", {\"id\": \"ch17-kinch-v020-l02-arrow-response\", \"title\": \"Lesson 02 — Repair the two process labels\"}, {\"id\": \"ch17-kinch-v020-l02-cross-response\", \"title\": \"Lesson 02 — Does reversing the parents reverse the result?\"}, {\"id\": \"ch17-kinch-v020-l05-change-response\", \"title\": \"Lesson 05 — Change one parent and keep only the reasoning that still applies\"}, {\"id\": \"ch17-kinch-v020-l05-evidence-response\", \"title\": \"Lesson 05 — Decide what the new offspring settles—and what it leaves open\"}",
+    "newBytes": 498,
+    "newSha256": "842df8446f22704591e4f84bc0b66fe4ce4ab6b4228569c45f036a2d6e654c03"
+  },
+  "newTitleRecords": [
+    {
+      "id": "ch17-kinch-v020-l02-arrow-response",
+      "title": "Lesson 02 — Repair the two process labels"
+    },
+    {
+      "id": "ch17-kinch-v020-l02-cross-response",
+      "title": "Lesson 02 — Does reversing the parents reverse the result?"
+    },
+    {
+      "id": "ch17-kinch-v020-l05-change-response",
+      "title": "Lesson 05 — Change one parent and keep only the reasoning that still applies"
+    },
+    {
+      "id": "ch17-kinch-v020-l05-evidence-response",
+      "title": "Lesson 05 — Decide what the new offspring settles—and what it leaves open"
+    }
+  ],
+  "pendingTitleIds": [],
+  "configurationChanged": false,
+  "metadataStatus": "Blocked/proposal-only until separately authorized integration; no outcome/course metadata change proposed."
+}

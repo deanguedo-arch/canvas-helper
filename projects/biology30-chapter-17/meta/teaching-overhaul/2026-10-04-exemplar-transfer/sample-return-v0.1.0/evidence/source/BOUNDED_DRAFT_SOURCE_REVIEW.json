@@ -1,0 +1,125 @@
+{
+  "scope": "Complete current input source/science review of the root-authored two-route calibration. This is a bounded peer source review, not teacher approval or overall independent acceptance.",
+  "reviewedAtUtc": "2026-10-04T14:52:22.287216+00:00",
+  "inputPins": [
+    {
+      "path": "calibration-v0.1.0/authoring/lesson-02.teaching.html.in",
+      "bytes": 16834,
+      "sha256": "104526dfdc81d8e6aac1f56f826ea3c04ef28fe73b4c1f6d006ff5ae838808c0"
+    },
+    {
+      "path": "calibration-v0.1.0/authoring/lesson-05.teaching.html.in",
+      "bytes": 20220,
+      "sha256": "920c21c4c658fdda5d7fc1416978c8e5a1d62adf7d221ef2fd70fa5ffc61d651"
+    }
+  ],
+  "status": "PASS within stated models; no blocking source/science defect found",
+  "completeReadCoverage": [
+    {
+      "route": "lesson-02",
+      "topLevelBlocks": 4,
+      "allTopLevelBlocksMapped": true,
+      "nonWhitespaceInputBytesCoveredExactly": true,
+      "paragraphsRead": 34,
+      "detailsRead": 4,
+      "tablesRead": 1
+    },
+    {
+      "route": "lesson-05",
+      "topLevelBlocks": 4,
+      "allTopLevelBlocksMapped": true,
+      "nonWhitespaceInputBytesCoveredExactly": true,
+      "paragraphsRead": 46,
+      "detailsRead": 4,
+      "tablesRead": 1
+    }
+  ],
+  "checks": [
+    {
+      "topic": "L02mechanism",
+      "result": "DNAcopying/sisterversushomologue distinction correct;noexchange/no mutation traceexplicit;fourhaploidproductsnotclaimedcompleteplantlife-cycle."
+    },
+    {
+      "topic": "L02protected/core relationship",
+      "result": "EssentialMendelmechanism/ratio taughtself-contained;newrepairandtwo-recordtaskschangedreasoningdemand,notexactrequiredprompts."
+    },
+    {
+      "topic": "L05worked",
+      "result": {
+        "HhSS": "1/4",
+        "HhSs": "1/4",
+        "hhSS": "1/4",
+        "hhSs": "1/4"
+      },
+      "phenotypes": {
+        "hooked speckled": "1/2;expected60of120",
+        "straight speckled": "1/2;expected60of120",
+        "plain seed categories": "0understatedparents/model"
+      }
+    },
+    {
+      "topic": "L05guided",
+      "result": {
+        "HhSs": "1/4",
+        "Hhss": "1/4",
+        "hhSs": "1/4",
+        "hhss": "1/4"
+      },
+      "qualification": "1:1:1:1doesnotdemonstrateindependence;draftdoesnotclaimthat."
+    },
+    {
+      "topic": "L05independent",
+      "exactGameteDistribution": {
+        "JK": "7/20",
+        "Jk": "3/20",
+        "jK": "3/20",
+        "jk": "7/20"
+      },
+      "marginals": {
+        "J": "1/2",
+        "j": "1/2",
+        "K": "1/2",
+        "k": "1/2"
+      },
+      "independencePredictionJK": "1/4",
+      "stipulatedJK": "7/20",
+      "conclusion": "Modeldependentchoices;notobservedchromosomelocation/recombinationevidence."
+    },
+    {
+      "topic": "Nativefigure",
+      "result": "VisibleoriginalSVGkeyandbranchgeometrymatchthereadinginstructions;no newhidden-key identificationexercise."
+    }
+  ],
+  "reviewReservations": [
+    "Fictional trait rules are explicit; no real-plant trait validation or new experiment is claimed.",
+    "The two-locus worked/guided crosses do not require independence between two heterozygous loci within one parent. Their role is contribution accounting and phenotype grouping. The separate tree and simulator teach/test independence.",
+    "The generic guided cross shares a common structural pattern with the original PPTX squash example. It is explicitly guided comparison; the independent simulator transfer is different.",
+    "Original source conflicts remain in the read-only register and are not newly attributed to the calibration drafts.",
+    "This review does not replace exemplar-function review, native-contract/inert-assembly checks or teacher decision."
+  ],
+  "currentLesson05Reread": "Input1cb0838022dd98a9d9c76d4076b597e438de7cc419415e4ba95dd55bdaa69cf5 was read in full after the earlier a0a1656f input. Final920c21c4c658fdda5d7fc1416978c8e5a1d62adf7d221ef2fd70fa5ffc61d651 changes only seed-marking terminology to petal markings; all four changed paragraphs were read and reversal of those terms reproduces the fully read1cb08380 hash exactly.",
+  "sourceMap": "SOURCE_MAP.json",
+  "assembledArtifactPins": [
+    {
+      "path": "output/Biology30_CH17_Exemplar_Transfer_Calibration_v0.1.0/manuscripts/lesson-02.md",
+      "bytes": 15004,
+      "sha256": "1fe8392c843c77250d23babac8d73c9c0826be2253bbd4ecb96d691b8c2a704e"
+    },
+    {
+      "path": "output/Biology30_CH17_Exemplar_Transfer_Calibration_v0.1.0/manuscripts/lesson-05.md",
+      "bytes": 18133,
+      "sha256": "5ce3f48d1c44ddf22932ea3bc2c4ce7045ff45c4f78511afaa421a7d1c46a1e9"
+    },
+    {
+      "path": "output/Biology30_CH17_Exemplar_Transfer_Calibration_v0.1.0/integration-text/lesson-02.teaching-fragment.html.txt",
+      "bytes": 17464,
+      "sha256": "5740360125376c2994bdaa1f28c4fe3d57b276232494ec7dbdb9db49ed6543fc"
+    },
+    {
+      "path": "output/Biology30_CH17_Exemplar_Transfer_Calibration_v0.1.0/integration-text/lesson-05.teaching-fragment.html.txt",
+      "bytes": 21630,
+      "sha256": "a78b0e51af788a1591864cd8fc3ae6a733a4b7b051b73bbe82be1787e1944e0c"
+    }
+  ],
+  "assembledArtifactScope": "Actual assembled manuscript/fragment bytes hashed against assembler-reported final hashes. Full scientific reading was performed on the pinned complete teaching inputs; this artifact pin is not a browser/runtime or new independent assembly review."
+}

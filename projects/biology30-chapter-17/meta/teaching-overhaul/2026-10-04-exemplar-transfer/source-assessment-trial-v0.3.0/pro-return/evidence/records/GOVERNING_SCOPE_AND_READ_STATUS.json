@@ -1,0 +1,63 @@
+{
+  "version": "0.3.0",
+  "stage": "Preparation before new substantive authoring; no learner text/questions authored by records agent",
+  "plan": {
+    "path": "upload/Pasted text(20261005-000036).txt",
+    "bytes": 10577,
+    "sha256": "a77c47f618642565cd0e405d73e9d979e4b437be6136218a0a9821ffdff19bb1",
+    "readScope": "Complete actual UTF-8 text read, all source, teaching, activity, assessment, integration, delivery and review clauses."
+  },
+  "archive": {
+    "path": "upload/Codex_CH17_v020_Integrated_Base_for_v030.zip",
+    "bytes": 2321527,
+    "sha256": "ddc02a762cdca9718867c3992850a766a5b0b97e0ce9614ffbf958d74667fc20",
+    "initialExpectedSha256": "d6b089c69983a2c497c3a7f5f233c411b0e62c45dcf619204a4cf5552f5be433",
+    "latestUserCorrectedExpectedSha256": "ddc02a762cdca9718867c3992850a766a5b0b97e0ce9614ffbf958d74667fc20",
+    "correctionEvidence": "Root message relays user correction to actualddc02…; this correction supersedes the uploaded plan’s earlier container value.",
+    "status": "Hash discrepancy resolved by user correction; this records reviewer independently read ZIP member and checked container/member identity. Full archive CRC/payload/source gate belongs to preflight owner."
+  },
+  "integrationOwner": {
+    "member": "native-v020/index.html",
+    "bytes": 3512184,
+    "sha256": "bc42ea52d8cf5709c0ec33c914e86450f93971f3e3144cb81b695593aa0eff3b",
+    "expectedSha256": "bc42ea52d8cf5709c0ec33c914e86450f93971f3e3144cb81b695593aa0eff3b"
+  },
+  "scopeChange": {
+    "authorized": "Restore original tomato teaching and replace up to the four named overlapping required items and their dependent HTML/JSON models/criteria/feedback in this isolated sample. Preserve unaffected questions and optional source bank.",
+    "supersedes": "Earlier blanket required-question preservation only for named bounded overlapping targets. Old SRC-BOUND-01/02 are no longer immutable design blocks; actual resolution must be demonstrated by restored teaching plus fresh assessments.",
+    "notAuthorized": [
+      "No exact sample acceptance",
+      "No canonical integration",
+      "No whole-chapter regeneration",
+      "No runtime/storage/CSS mechanism edits",
+      "No prior-return changes",
+      "No standard promotion or release"
+    ]
+  },
+  "currentReads": {
+    "nativePrerequisites": "Complete actual selected original and integrated01–04 teaching/worked blocks",
+    "exemplar": "Eight actual headed intervals including full selected feedback",
+    "standards": "Coordinated with exemplar agent for fresh full three-standard read; not claimed as current full reread by this records agent",
+    "newLearnerDrafts": "Not supplied/read yet",
+    "newRequiredQuestions": "Not authored or selected by this records agent",
+    "assembledCopy": "Not yet available",
+    "nativeBrowserUI": "Not run",
+    "DeanExactAcceptance": "Pending"
+  },
+  "coordinatedStandardsReview": [
+    {
+      "path": "source-assessment-v0.3.0/analysis/exemplar/INDEPENDENT_REVIEW_CRITERIA.md",
+      "bytes": 17236,
+      "sha256": "8963777d6afcdd82831bd046c5029d5e97bd967aaec927de8f80856c99216c90",
+      "owner": "exemplar_functions separate reviewer",
+      "scope": "Fresh full three-standard reading recorded by that reviewer; this records agent read the complete criteria memo and does not claim the original full standards as its own current reread."
+    },
+    {
+      "path": "source-assessment-v0.3.0/analysis/exemplar/REVIEW_PREPARATION_SOURCE_PINS.json",
+      "bytes": 13821,
+      "sha256": "16f4c91d22134d9f3d8b4d86ecc29dc8030f3915e7047ff769baecf4f995515e",
+      "owner": "exemplar_functions separate reviewer",
+      "scope": "Fresh full three-standard reading recorded by that reviewer; this records agent read the complete criteria memo and does not claim the original full standards as its own current reread."
+    }
+  ]
+}

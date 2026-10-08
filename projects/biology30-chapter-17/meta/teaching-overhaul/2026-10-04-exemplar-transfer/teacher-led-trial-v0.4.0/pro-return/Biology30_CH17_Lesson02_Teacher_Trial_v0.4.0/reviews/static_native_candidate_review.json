@@ -1,0 +1,780 @@
+{
+  "review": "Bounded independent static native candidate preservation review",
+  "scope": "Lesson02 teaching fragment, manuscript content preservation, original image-byte provenance, immutable source/raw copies. No learner prose authored by reviewer.",
+  "reviewedAtUtc": "2026-10-05T15:57:13.351728+00:00",
+  "reviewer": "v040_native_read",
+  "sourceRoot": "/workspace/scratch/9592c268bc42/lesson02-v040-preflight-wq4m8j4i",
+  "candidateFiles": {
+    "fragment": {
+      "path": "/workspace/scratch/9592c268bc42/output/Biology30_CH17_Lesson02_Teacher_Trial_v0.4.0/lesson-02.teaching-fragment.html",
+      "bytes": 35373,
+      "sha256": "b867daf06e920b19ebaf988286aa3e75cfd962098f4dd41ebc1a43fad1c8b3f1"
+    },
+    "manuscript": {
+      "path": "/workspace/scratch/9592c268bc42/output/Biology30_CH17_Lesson02_Teacher_Trial_v0.4.0/manuscripts/lesson-02.md",
+      "bytes": 29352,
+      "sha256": "77ea0ccae6f8593d1a1c4e64307da9d611184920dc7fea453a616ac689c78504"
+    }
+  },
+  "checks": [
+    {
+      "name": "supplied_candidate_hash",
+      "satisfied": true,
+      "evidence": {
+        "actualSha256": "b867daf06e920b19ebaf988286aa3e75cfd962098f4dd41ebc1a43fad1c8b3f1",
+        "bytes": 35373,
+        "requestedCurrentSha256": "b867daf06e920b19ebaf988286aa3e75cfd962098f4dd41ebc1a43fad1c8b3f1",
+        "coordinationNote": "The review read the final b867daf0 candidate, already current by the time its file reads ran. The initially supplied 4abe6030 expected hash had become stale during authorized prose repairs. All49 checks bind to the actual current file hashes recorded here; this is not a content repair."
+      }
+    },
+    {
+      "name": "frozen_task_ch17-kinch-v020-l02-arrow-task",
+      "satisfied": true,
+      "evidence": {
+        "originalBytes": 2962,
+        "candidateBytes": 2962,
+        "originalSha256": "832a0126d0434b8068b9bb98f51a463a15e4fbf70ac59608545a258caf8998a5",
+        "candidateSha256": "832a0126d0434b8068b9bb98f51a463a15e4fbf70ac59608545a258caf8998a5",
+        "originalFragmentByteRange": [
+          9697,
+          12659
+        ],
+        "candidateFragmentByteRange": [
+          25022,
+          27984
+        ]
+      }
+    },
+    {
+      "name": "exact_note_control_ch17-kinch-v020-l02-arrow-response",
+      "satisfied": true,
+      "evidence": {
+        "containerOccurrences": 1,
+        "textareaOccurrences": 1,
+        "nativeTitle": "Repair the two process labels"
+      }
+    },
+    {
+      "name": "frozen_task_ch17-kinch-v020-l02-cross-task",
+      "satisfied": true,
+      "evidence": {
+        "originalBytes": 3368,
+        "candidateBytes": 3368,
+        "originalSha256": "d9f059765d06ec5989aee7fb00c0a0a6c0b589d002e7a582e2532f2ecca3355b",
+        "candidateSha256": "d9f059765d06ec5989aee7fb00c0a0a6c0b589d002e7a582e2532f2ecca3355b",
+        "originalFragmentByteRange": [
+          14715,
+          18083
+        ],
+        "candidateFragmentByteRange": [
+          31329,
+          34697
+        ]
+      }
+    },
+    {
+      "name": "exact_note_control_ch17-kinch-v020-l02-cross-response",
+      "satisfied": true,
+      "evidence": {
+        "containerOccurrences": 1,
+        "textareaOccurrences": 1,
+        "nativeTitle": "Does reversing the parents reverse the result?"
+      }
+    },
+    {
+      "name": "outer_ch17-l02-teaching-01",
+      "satisfied": true,
+      "evidence": {
+        "source": [
+          {
+            "tag": "div",
+            "attrs": {
+              "class": "content-section",
+              "data-canvas-edit-key": "ch17-l02-teaching-01",
+              "data-canvas-helper-edit-key": "ch17-l02-teaching-01",
+              "id": "ch17-l02-teaching-01"
+            }
+          }
+        ],
+        "candidate": [
+          {
+            "tag": "div",
+            "attrs": {
+              "class": "content-section",
+              "data-canvas-edit-key": "ch17-l02-teaching-01",
+              "data-canvas-helper-edit-key": "ch17-l02-teaching-01",
+              "id": "ch17-l02-teaching-01"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "outer_ch17-l02-teaching-02",
+      "satisfied": true,
+      "evidence": {
+        "source": [
+          {
+            "tag": "div",
+            "attrs": {
+              "class": "content-section",
+              "data-canvas-edit-key": "ch17-l02-teaching-02",
+              "data-canvas-helper-edit-key": "ch17-l02-teaching-02",
+              "id": "ch17-l02-teaching-02"
+            }
+          }
+        ],
+        "candidate": [
+          {
+            "tag": "div",
+            "attrs": {
+              "class": "content-section",
+              "data-canvas-edit-key": "ch17-l02-teaching-02",
+              "data-canvas-helper-edit-key": "ch17-l02-teaching-02",
+              "id": "ch17-l02-teaching-02"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "outer_ch17-l02-worked",
+      "satisfied": true,
+      "evidence": {
+        "source": [
+          {
+            "tag": "div",
+            "attrs": {
+              "class": "worked-example",
+              "data-canvas-edit-key": "ch17-l02-worked",
+              "data-canvas-helper-edit-key": "ch17-l02-worked",
+              "id": "ch17-l02-worked"
+            }
+          }
+        ],
+        "candidate": [
+          {
+            "tag": "div",
+            "attrs": {
+              "class": "worked-example",
+              "data-canvas-edit-key": "ch17-l02-worked",
+              "data-canvas-helper-edit-key": "ch17-l02-worked",
+              "id": "ch17-l02-worked"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "outer_ch17-l02-teaching-03",
+      "satisfied": true,
+      "evidence": {
+        "source": [
+          {
+            "tag": "div",
+            "attrs": {
+              "class": "content-section",
+              "data-canvas-edit-key": "ch17-l02-teaching-03",
+              "data-canvas-helper-edit-key": "ch17-l02-teaching-03",
+              "id": "ch17-l02-teaching-03"
+            }
+          }
+        ],
+        "candidate": [
+          {
+            "tag": "div",
+            "attrs": {
+              "class": "content-section",
+              "data-canvas-edit-key": "ch17-l02-teaching-03",
+              "data-canvas-helper-edit-key": "ch17-l02-teaching-03",
+              "id": "ch17-l02-teaching-03"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "edit_binding_ch17-l02-teaching-01",
+      "satisfied": true,
+      "evidence": {
+        "sourceTag": "div",
+        "candidateOccurrences": 1,
+        "sameEditKeys": true
+      }
+    },
+    {
+      "name": "edit_binding_ch17-l02-teaching-01-p1",
+      "satisfied": true,
+      "evidence": {
+        "sourceTag": "p",
+        "candidateOccurrences": 1,
+        "sameEditKeys": true
+      }
+    },
+    {
+      "name": "edit_binding_ch17-l02-teaching-01-p2",
+      "satisfied": true,
+      "evidence": {
+        "sourceTag": "p",
+        "candidateOccurrences": 1,
+        "sameEditKeys": true
+      }
+    },
+    {
+      "name": "edit_binding_ch17-l02-teaching-02",
+      "satisfied": true,
+      "evidence": {
+        "sourceTag": "div",
+        "candidateOccurrences": 1,
+        "sameEditKeys": true
+      }
+    },
+    {
+      "name": "edit_binding_ch17-l02-teaching-02-p1",
+      "satisfied": true,
+      "evidence": {
+        "sourceTag": "p",
+        "candidateOccurrences": 1,
+        "sameEditKeys": true
+      }
+    },
+    {
+      "name": "edit_binding_ch17-l02-teaching-02-p2",
+      "satisfied": true,
+      "evidence": {
+        "sourceTag": "p",
+        "candidateOccurrences": 1,
+        "sameEditKeys": true
+      }
+    },
+    {
+      "name": "edit_binding_ch17-l02-teaching-02-p3",
+      "satisfied": true,
+      "evidence": {
+        "sourceTag": "p",
+        "candidateOccurrences": 1,
+        "sameEditKeys": true
+      }
+    },
+    {
+      "name": "edit_binding_ch17-l02-worked",
+      "satisfied": true,
+      "evidence": {
+        "sourceTag": "div",
+        "candidateOccurrences": 1,
+        "sameEditKeys": true
+      }
+    },
+    {
+      "name": "edit_binding_ch17-l02-teaching-03",
+      "satisfied": true,
+      "evidence": {
+        "sourceTag": "div",
+        "candidateOccurrences": 1,
+        "sameEditKeys": true
+      }
+    },
+    {
+      "name": "edit_binding_ch17-l02-teaching-03-p1",
+      "satisfied": true,
+      "evidence": {
+        "sourceTag": "p",
+        "candidateOccurrences": 1,
+        "sameEditKeys": true
+      }
+    },
+    {
+      "name": "edit_binding_ch17-l02-teaching-03-p2",
+      "satisfied": true,
+      "evidence": {
+        "sourceTag": "p",
+        "candidateOccurrences": 1,
+        "sameEditKeys": true
+      }
+    },
+    {
+      "name": "edit_binding_ch17-l02-teaching-03-p3",
+      "satisfied": true,
+      "evidence": {
+        "sourceTag": "p",
+        "candidateOccurrences": 1,
+        "sameEditKeys": true
+      }
+    },
+    {
+      "name": "vocabulary_targets_and_native_attributes",
+      "satisfied": true,
+      "evidence": {
+        "originalTargets": [
+          "ch17-word-allele",
+          "ch17-word-f1-generation",
+          "ch17-word-f2-generation",
+          "ch17-word-genotype",
+          "ch17-word-law-of-segregation",
+          "ch17-word-phenotype",
+          "ch17-word-probability",
+          "ch17-word-true-breeding"
+        ],
+        "candidateTargets": [
+          "ch17-word-allele",
+          "ch17-word-f1-generation",
+          "ch17-word-f2-generation",
+          "ch17-word-genotype",
+          "ch17-word-heterozygous",
+          "ch17-word-homozygous",
+          "ch17-word-law-of-segregation",
+          "ch17-word-phenotype",
+          "ch17-word-probability",
+          "ch17-word-punnett-square",
+          "ch17-word-true-breeding"
+        ],
+        "newExistingTargets": [
+          "ch17-word-heterozygous",
+          "ch17-word-homozygous",
+          "ch17-word-punnett-square"
+        ],
+        "missingOriginal": [],
+        "unknownTargets": []
+      }
+    },
+    {
+      "name": "native_controls_exact_no_disabled_or_novel_attributes",
+      "satisfied": true,
+      "evidence": {
+        "sourceControls": [
+          {
+            "tag": "textarea",
+            "attrs": {
+              "aria-describedby": "ch17-kinch-v020-l02-arrow-response-status",
+              "data-note-input": "ch17-kinch-v020-l02-arrow-response",
+              "id": "ch17-kinch-v020-l02-arrow-response",
+              "rows": "5"
+            }
+          },
+          {
+            "tag": "button",
+            "attrs": {
+              "data-save-note": "ch17-kinch-v020-l02-arrow-response",
+              "type": "button"
+            }
+          },
+          {
+            "tag": "textarea",
+            "attrs": {
+              "aria-describedby": "ch17-kinch-v020-l02-cross-response-status",
+              "data-note-input": "ch17-kinch-v020-l02-cross-response",
+              "id": "ch17-kinch-v020-l02-cross-response",
+              "rows": "5"
+            }
+          },
+          {
+            "tag": "button",
+            "attrs": {
+              "data-save-note": "ch17-kinch-v020-l02-cross-response",
+              "type": "button"
+            }
+          }
+        ],
+        "candidateControls": [
+          {
+            "tag": "textarea",
+            "attrs": {
+              "aria-describedby": "ch17-kinch-v020-l02-arrow-response-status",
+              "data-note-input": "ch17-kinch-v020-l02-arrow-response",
+              "id": "ch17-kinch-v020-l02-arrow-response",
+              "rows": "5"
+            }
+          },
+          {
+            "tag": "button",
+            "attrs": {
+              "data-save-note": "ch17-kinch-v020-l02-arrow-response",
+              "type": "button"
+            }
+          },
+          {
+            "tag": "textarea",
+            "attrs": {
+              "aria-describedby": "ch17-kinch-v020-l02-cross-response-status",
+              "data-note-input": "ch17-kinch-v020-l02-cross-response",
+              "id": "ch17-kinch-v020-l02-cross-response",
+              "rows": "5"
+            }
+          },
+          {
+            "tag": "button",
+            "attrs": {
+              "data-save-note": "ch17-kinch-v020-l02-cross-response",
+              "type": "button"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "markdown_controls_are_disabled_inert_preview",
+      "satisfied": true,
+      "evidence": {
+        "controls": [
+          {
+            "tag": "textarea",
+            "attrs": {
+              "aria-describedby": "ch17-kinch-v020-l02-arrow-response-status",
+              "id": "ch17-kinch-v020-l02-arrow-response",
+              "rows": "5",
+              "disabled": null
+            }
+          },
+          {
+            "tag": "button",
+            "attrs": {
+              "type": "button",
+              "disabled": null
+            }
+          },
+          {
+            "tag": "textarea",
+            "attrs": {
+              "aria-describedby": "ch17-kinch-v020-l02-cross-response-status",
+              "id": "ch17-kinch-v020-l02-cross-response",
+              "rows": "5",
+              "disabled": null
+            }
+          },
+          {
+            "tag": "button",
+            "attrs": {
+              "type": "button",
+              "disabled": null
+            }
+          }
+        ],
+        "owner": "Native teaching fragment remains owner; Markdown controls are disabled reading representations."
+      }
+    },
+    {
+      "name": "all_candidate_classes_observed_in_supplied_native_html",
+      "satisfied": true,
+      "evidence": {
+        "candidateClasses": [
+          "bio-term",
+          "comparison-table",
+          "content-section",
+          "optional-writing",
+          "science-figure",
+          "section-label",
+          "worked-example",
+          "writing-status"
+        ],
+        "unobservedClasses": [],
+        "limitation": "No full native stylesheet was supplied; this checks class convention use, not computed styling."
+      }
+    },
+    {
+      "name": "fragment_has_no_shell_runtime_style_or_event_handlers",
+      "satisfied": true,
+      "evidence": {
+        "forbiddenElementsOrAttrs": []
+      }
+    },
+    {
+      "name": "no_assessment_header_or_other_route_payload",
+      "satisfied": true,
+      "evidence": {
+        "assessmentControls": [],
+        "scope": "Candidate is a teaching fragment; protection outside it checked against raw-before copies, not absent whole owner."
+      }
+    },
+    {
+      "name": "candidate_local_ids_unique",
+      "satisfied": true,
+      "evidence": {
+        "duplicateIds": [],
+        "count": 17,
+        "limitation": "Whole-native global uniqueness cannot be independently checked without full owner."
+      }
+    },
+    {
+      "name": "asset_slide-14-image25.png",
+      "satisfied": true,
+      "evidence": {
+        "outputPath": "./assets/teaching-v040/slide-14-image25.png",
+        "slide": 14,
+        "sourceFile": "sources/slide-assets/slide-14-image25.png",
+        "originalPptMember": "ppt/media/image25.png",
+        "bytes": 149790,
+        "sha256": "4e5cd0ea4159932025b801e03faf3c32ea2c88efa906238f5cde4daeeca441dc",
+        "originalSourceSha256": "4e5cd0ea4159932025b801e03faf3c32ea2c88efa906238f5cde4daeeca441dc",
+        "originalPptMemberSha256": "4e5cd0ea4159932025b801e03faf3c32ea2c88efa906238f5cde4daeeca441dc",
+        "slideRelationshipContainsMember": true,
+        "pngWidthHeight": [
+          740,
+          483
+        ]
+      }
+    },
+    {
+      "name": "asset_slide-15-image14.png",
+      "satisfied": true,
+      "evidence": {
+        "outputPath": "./assets/teaching-v040/slide-15-image14.png",
+        "slide": 15,
+        "sourceFile": "sources/slide-assets/slide-15-image14.png",
+        "originalPptMember": "ppt/media/image14.png",
+        "bytes": 40026,
+        "sha256": "30b7f6873a81955cc3c8e64b93ebaf4f3c5bfd5b7366ef7064c7eca28087628d",
+        "originalSourceSha256": "30b7f6873a81955cc3c8e64b93ebaf4f3c5bfd5b7366ef7064c7eca28087628d",
+        "originalPptMemberSha256": "30b7f6873a81955cc3c8e64b93ebaf4f3c5bfd5b7366ef7064c7eca28087628d",
+        "slideRelationshipContainsMember": true,
+        "pngWidthHeight": [
+          844,
+          314
+        ]
+      }
+    },
+    {
+      "name": "asset_slide-41-image44.png",
+      "satisfied": true,
+      "evidence": {
+        "outputPath": "./assets/teaching-v040/slide-41-image44.png",
+        "slide": 41,
+        "sourceFile": "sources/slide-assets/slide-41-image44.png",
+        "originalPptMember": "ppt/media/image44.png",
+        "bytes": 364277,
+        "sha256": "7e57deedfe727416d5536605bb4327cffd16ee88cbb13c778bd5e5039f450eb8",
+        "originalSourceSha256": "7e57deedfe727416d5536605bb4327cffd16ee88cbb13c778bd5e5039f450eb8",
+        "originalPptMemberSha256": "7e57deedfe727416d5536605bb4327cffd16ee88cbb13c778bd5e5039f450eb8",
+        "slideRelationshipContainsMember": true,
+        "pngWidthHeight": [
+          1000,
+          707
+        ]
+      }
+    },
+    {
+      "name": "asset_slide-18-image20.png",
+      "satisfied": true,
+      "evidence": {
+        "outputPath": "./assets/teaching-v040/slide-18-image20.png",
+        "slide": 18,
+        "sourceFile": "sources/slide-assets/slide-18-image20.png",
+        "originalPptMember": "ppt/media/image20.png",
+        "bytes": 16324,
+        "sha256": "013dd2769996f9e08f19ea3e86e70ea3a69ce2a1a2bfb7a6ee1ebf2023636ec6",
+        "originalSourceSha256": "013dd2769996f9e08f19ea3e86e70ea3a69ce2a1a2bfb7a6ee1ebf2023636ec6",
+        "originalPptMemberSha256": "013dd2769996f9e08f19ea3e86e70ea3a69ce2a1a2bfb7a6ee1ebf2023636ec6",
+        "slideRelationshipContainsMember": true,
+        "pngWidthHeight": [
+          515,
+          213
+        ]
+      }
+    },
+    {
+      "name": "asset_slide-20-image36.png",
+      "satisfied": true,
+      "evidence": {
+        "outputPath": "./assets/teaching-v040/slide-20-image36.png",
+        "slide": 20,
+        "sourceFile": "sources/slide-assets/slide-20-image36.png",
+        "originalPptMember": "ppt/media/image36.png",
+        "bytes": 4001,
+        "sha256": "b8563f6f9ed748ac3880103472762ec0e05b6fbd3f1a6d1a666cb0b9877779e7",
+        "originalSourceSha256": "b8563f6f9ed748ac3880103472762ec0e05b6fbd3f1a6d1a666cb0b9877779e7",
+        "originalPptMemberSha256": "b8563f6f9ed748ac3880103472762ec0e05b6fbd3f1a6d1a666cb0b9877779e7",
+        "slideRelationshipContainsMember": true,
+        "pngWidthHeight": [
+          292,
+          279
+        ]
+      }
+    },
+    {
+      "name": "exactly_five_source_image_references",
+      "satisfied": true,
+      "evidence": {
+        "imageCount": 5
+      }
+    },
+    {
+      "name": "independent_markdown_visible_word_sequence_matches_html",
+      "satisfied": true,
+      "evidence": {
+        "htmlNormalizedCharacters": 26314,
+        "markdownNormalizedCharacters": 26314,
+        "htmlNormalizedSha256": "f9be8cc2f0f687c19d81d868aaf0c9a39ddc98aeac0fb7450901104486989a06",
+        "markdownNormalizedSha256": "f9be8cc2f0f687c19d81d868aaf0c9a39ddc98aeac0fb7450901104486989a06",
+        "method": "Remove Markdown heading/emphasis/list/table syntax and image lines; parse raw HTML controls; normalize block whitespace. Compare entire remaining visible character sequence. Image alternatives checked separately."
+      }
+    },
+    {
+      "name": "markdown_all_image_alternatives_paths_retained",
+      "satisfied": true,
+      "evidence": {
+        "markdownImages": [
+          [
+            "Six pea-plant contrasts: long and short stems; purple and white flowers; round and wrinkled seeds; yellow and green seeds; green and yellow pods; inflated and pinched pods. The seed-colour drawing places yellow on the left and green on the right, although its caption lists green first.",
+            "../assets/teaching-v040/slide-14-image25.png"
+          ],
+          [
+            "Seed-shape sequence with a round and a wrinkled P parent, an all-round F1 generation, and an F2 generation showing round and wrinkled seeds. The drawing labels the schematic F2 proportions three quarters round and one quarter wrinkled and describes crosses between F1 plants.",
+            "../assets/teaching-v040/slide-15-image14.png"
+          ],
+          [
+            "A meiosis schematic with two homologous chromosome pairs, distinguished by length, and two possible arrangements. In each arrangement, copied X-shaped homologues separate into two cells; sister chromatids later separate into single chromosome rods. For this lesson, follow only the long blue and long red chromosomes in the left-hand arrangement.",
+            "../assets/teaching-v040/slide-41-image44.png"
+          ],
+          [
+            "A true-breeding round parent labelled RR is crossed with a true-breeding wrinkled parent labelled rr. Arrows lead to a round F1 seed category labelled Rr and 100 percent of offspring. The drawing abbreviates the gamete and fertilisation steps.",
+            "../assets/teaching-v040/slide-18-image20.png"
+          ],
+          [
+            "A two-by-two Punnett square with R and r across the top and R and r down the left. The four interior entries are RR, Rr, Rr and rr. In the accompanying explanation, top entries are sperm contributions and left entries are egg contributions.",
+            "../assets/teaching-v040/slide-20-image36.png"
+          ]
+        ]
+      }
+    },
+    {
+      "name": "markdown_exact_reviewed_conversion_match",
+      "satisfied": true,
+      "evidence": {
+        "onlyDefinitionsExecuted": [
+          "Node",
+          "Tree",
+          "block",
+          "descendants",
+          "inert_note",
+          "inline"
+        ],
+        "noBuildTopLevelExecuted": true,
+        "expectedSha256": "77ea0ccae6f8593d1a1c4e64307da9d611184920dc7fea453a616ac689c78504",
+        "actualSha256": "77ea0ccae6f8593d1a1c4e64307da9d611184920dc7fea453a616ac689c78504"
+      }
+    },
+    {
+      "name": "balanced_native_fragment_tree",
+      "satisfied": true,
+      "evidence": {
+        "method": "Strict supplied Tree definition rejects mismatched end tags and unclosed nonvoid elements; parsing completed.",
+        "rootElementTags": [
+          "div",
+          "div",
+          "div",
+          "div"
+        ],
+        "rootElementIds": [
+          "ch17-l02-teaching-01",
+          "ch17-l02-teaching-02",
+          "ch17-l02-worked",
+          "ch17-l02-teaching-03"
+        ]
+      }
+    },
+    {
+      "name": "raw_before_lesson-02.teaching-fragment.html",
+      "satisfied": true,
+      "evidence": {
+        "bytes": 18590,
+        "sha256": "0c2d3dee02b5b2413d600915a03e8c7bd72a2b03951c55f2fcd76c6c1ece4572"
+      }
+    },
+    {
+      "name": "raw_before_lesson-02.protected-prefix.html",
+      "satisfied": true,
+      "evidence": {
+        "bytes": 3983,
+        "sha256": "db23b534c4003ebb1ff3d7ad97070bd4f8d6e4bca096209cd6de7802bd45c438"
+      }
+    },
+    {
+      "name": "raw_before_lesson-02.interstitial-after-fragment.txt",
+      "satisfied": true,
+      "evidence": {
+        "bytes": 1,
+        "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+      }
+    },
+    {
+      "name": "raw_before_lesson-02.protected-suffix.html",
+      "satisfied": true,
+      "evidence": {
+        "bytes": 10899,
+        "sha256": "729c331d5a8e19d4312c115c116c4870357e19f4c68d42165443a757e7487ed8"
+      }
+    },
+    {
+      "name": "raw_before_ch17-kinch-v020-l02-arrow-task.html",
+      "satisfied": true,
+      "evidence": {
+        "bytes": 2962,
+        "sha256": "832a0126d0434b8068b9bb98f51a463a15e4fbf70ac59608545a258caf8998a5"
+      }
+    },
+    {
+      "name": "raw_before_ch17-kinch-v020-l02-cross-task.html",
+      "satisfied": true,
+      "evidence": {
+        "bytes": 3368,
+        "sha256": "d9f059765d06ec5989aee7fb00c0a0a6c0b589d002e7a582e2532f2ecca3355b"
+      }
+    },
+    {
+      "name": "source_contract_REPLACEMENT_BOUNDARY.json",
+      "satisfied": true,
+      "evidence": {
+        "bytes": 1126,
+        "sha256": "a54868ce8e6ecd48ea11dbbff09702e534ad30fc1f6f03bfa447f1a29db01e91"
+      }
+    },
+    {
+      "name": "source_contract_OPTIONAL_NOTES.json",
+      "satisfied": true,
+      "evidence": {
+        "bytes": 1858,
+        "sha256": "7670cbdcab731d529e6b90c8c94464dcf89cd41e3034fec5439f86d2933e889a"
+      }
+    },
+    {
+      "name": "source_contract_SOURCE_HANDOFF_MANIFEST.json",
+      "satisfied": true,
+      "evidence": {
+        "bytes": 7837,
+        "sha256": "46e0ec932671c21097f1788cbc5de42153bfbcb664667c52297beec3ed2eab28"
+      }
+    },
+    {
+      "name": "all_manifest_source_files_still_match",
+      "satisfied": true,
+      "evidence": {
+        "manifestEntries": 45,
+        "mismatches": []
+      }
+    },
+    {
+      "name": "no_observed_mojibake_indicators",
+      "satisfied": true,
+      "evidence": {
+        "fragment": [],
+        "manuscript": []
+      }
+    }
+  ],
+  "summary": {
+    "checks": 49,
+    "satisfied": 49,
+    "notSatisfied": 0,
+    "findings": []
+  },
+  "limits": [
+    "Static file/content/source comparison only; no native application, course edits, browser preview or runtime execution.",
+    "Full-owner20c22 hash/global replacement bounds not independently reverified: complete owner absent; user reports Scout verified it.",
+    "All candidate classes observed in supplied native01/02/03 HTML; CSS computed layout not verified because stylesheet absent.",
+    "Markdown content/alt/control representation checked; rendered Markdown/browser/print presentation not verified.",
+    "Source image byte identities and original slide relationships checked; subject/science/cropping and pedagogy are reviewed in separate scopes.",
+    "Local candidate ID uniqueness checked; whole-course collision scan unavailable without full owner.",
+    "Integration map not yet available at this review time and remains a separate pending read.",
+    "Teacher acceptance, external specialist review, deployment, release and standard promotion not performed."
+  ],
+  "finalBindingReverifiedAtUtc": "2026-10-05T15:57:59.773516+00:00"
+}

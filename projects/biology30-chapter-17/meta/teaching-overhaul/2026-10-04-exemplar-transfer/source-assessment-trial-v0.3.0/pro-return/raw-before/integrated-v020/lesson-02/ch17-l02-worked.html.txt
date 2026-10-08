@@ -1,0 +1,38 @@
+<div class="worked-example" data-canvas-edit-key="ch17-l02-worked" data-canvas-helper-edit-key="ch17-l02-worked" id="ch17-l02-worked">
+<p class="section-label">Worked example</p>
+<h2>From the starting cross to the second generation</h2>
+<p>Start with the true-breeding seed-shape lines: <strong>RR × rr</strong>. The multiplication-style cross sign means these are the two parents being crossed; it is not an instruction to multiply the letters.</p>
+<p>The RR parent contributes R in its gametes. The rr parent contributes r. At fertilisation, one egg and one sperm join, restoring a pair of alleles in the <strong>zygote</strong>, the first cell of the offspring. Every combination available in this cross is therefore Rr. Applying the phenotype rule after combining the alleles gives round F1 seeds. The r allele is still present in each seed's genotype.</p>
+<p>Grow the F1 seeds into plants. When an Rr F1 plant self-pollinates, its eggs can carry R or r and its sperm can carry R or r. The same allele-combination reasoning applies to a controlled cross between two Rr F1 plants. The F2 cross is <strong>Rr × Rr</strong>.</p>
+<p>Read the small grid from its edges inward. The left edge gives an egg's allele; the top edge gives a sperm's allele. Each interior entry combines those two contributions. The edges represent gamete possibilities, and the interior entries represent offspring genotypes. They are not the same kind of cell.</p>
+<div class="comparison-table">
+<table>
+<caption>Possible F2 allele combinations from Rr × Rr</caption>
+<thead><tr><th scope="col">Egg allele ↓ / sperm allele →</th><th scope="col">R, probability ½</th><th scope="col">r, probability ½</th></tr></thead>
+<tbody>
+<tr><th scope="row">R, probability ½</th><td>RR — round</td><td>Rr — round</td></tr>
+<tr><th scope="row">r, probability ½</th><td>rR — round</td><td>rr — wrinkled</td></tr>
+</tbody>
+</table>
+</div>
+<p>Follow the lower-right entry first. The egg contributes r and the sperm contributes r, so the offspring is rr and expresses the wrinkled phenotype. Neither allele had to be recreated. Both were available in the F1 parents before they formed gametes.</p>
+<p>Now compare the upper-right and lower-left entries. Rr and rR are the same heterozygous genotype; the written order only shows which gamete supplied which allele in this table. The gene in this model is <strong>autosomal</strong>, meaning it is on a chromosome other than a sex chromosome. Here the complete-dominance rule is the same whichever parent supplied R.</p>
+<p>With equal R/r gamete probabilities and random fertilisation, the four contribution pairs are equally likely. They group into <strong>1 RR : 2 Rr : 1 rr</strong> for genotype. RR and Rr both express round seeds, so the phenotype grouping is <strong>3 round : 1 wrinkled</strong>. Grouping by appearance combines two genotype categories; it does not change the allele pairs inside them.</p>
+<p>This distinction separates two processes. <strong>Segregation</strong> produces single-allele contributions as homologous chromosomes separate during gamete production. <strong>Random fertilisation</strong> combines one parent's gamete with the other's. Chromosomes aligning in one parent's meiosis do not themselves join that parent's gamete to a gamete from another parent.</p>
+<section class="content-section" id="ch17-kinch-v020-l02-arrow-task">
+<h3>Repair the two process labels</h3>
+<p>The allele contributions below are possible, but a student's process labels are reversed. The arrows summarize allele movement; they omit DNA copying and the intermediate cells.</p>
+<div class="comparison-table">
+<table>
+<caption>A student's labelled allele diagram</caption>
+<thead><tr><th scope="col">Arrow</th><th scope="col">What the arrow shows</th><th scope="col">Student's label</th></tr></thead>
+<tbody><tr><th scope="row">A</th><td>R and r on a parent's homologous pair → R or r as the allele contribution in a gamete</td><td>Fertilisation</td></tr><tr><th scope="row">B</th><td>R in an egg + r in a sperm → Rr in the offspring's first cell</td><td>Segregation</td></tr></tbody>
+</table>
+</div>
+<p>Give each arrow its correct label. Explain what is separating or joining at each arrow, and which arrow restores an allele pair. Your explanation should repair the mechanism as well as the words.</p>
+<p>This practice is optional and ungraded. Save your first response, then intentionally open the comparison to check your explanation. It does not count toward required chapter progress.</p>
+<div class="optional-writing"><label for="ch17-kinch-v020-l02-arrow-response">Your repaired labels and explanation</label><textarea aria-describedby="ch17-kinch-v020-l02-arrow-response-status" data-note-input="ch17-kinch-v020-l02-arrow-response" id="ch17-kinch-v020-l02-arrow-response" rows="5"></textarea><p class="writing-status" data-note-status="ch17-kinch-v020-l02-arrow-response" id="ch17-kinch-v020-l02-arrow-response-status">Optional response. Select Save response to collect it. Maximum 5000 characters.</p><button data-save-note="ch17-kinch-v020-l02-arrow-response" type="button">Save response</button></div>
+<details><summary>Optional hint: follow the number of contributions</summary><p>At which arrow does one parent's pair separate into alternative contributions? At which arrow do contributions from two gametes meet? Do not use the word dominant to explain either movement.</p></details>
+<details><summary>Compare your explanation</summary><p>Arrow A summarizes segregation. The parent's homologous chromosomes separate during meiosis, so a gamete contributes R or r at this locus. Arrow B is fertilisation: the egg and sperm join, and their allele contributions give the offspring the pair Rr.</p><p>Fertilisation restores the pair. Segregation does not create the second parent's contribution, and fertilisation does not separate the two alleles that were in a parent's diploid cell. If you corrected the names but still said that meiosis joins the egg and sperm, the causal explanation still needs repair.</p><p><strong>Check your response:</strong> identify both processes correctly; name homologous separation for A and joining of gametes for B; connect the restored pair specifically to fertilisation.</p></details>
+</section>
+</div>

@@ -1,0 +1,112 @@
+{
+  "document": "V030_SOURCE_BOUND_REQUIRED_ASSESSMENT_INTERACTION",
+  "createdUtc": "2026-10-05T00:13:46.506341+00:00",
+  "source": {
+    "path": "source-assessment-v0.3.0/analysis/native-preflight/baseline/native-v020/main.js",
+    "bytes": 54365,
+    "sha256": "45b4b9c7da23646274f59415fa286873fdbdad3a2b8b16b53ccd147c0781f65f"
+  },
+  "evidence": [
+    {
+      "purpose": "requiredProgress",
+      "lineStart": 42,
+      "lineEndInclusive": 42,
+      "startByte": 4680,
+      "endByteExclusive": 5341,
+      "bytes": 661,
+      "sha256": "fe38b2857bb01b56978867f6f625f1a0b547d4caa3937b917955e350c783dcee",
+      "exactSource": "function progress(){const completed=new Set(S.history.filter(x=>x.kind==='check').map(x=>x.checkId));let count=C.checks.filter(x=>completed.has(x.id)).length;const percent=Math.round(count/C.checks.length*100);$('[data-progress-count]').textContent=`${count} of ${C.checks.length} checks`;$('[data-progress-percent]').textContent=percent+'%';$('[data-progress-fill]').style.width=percent+'%';$('[data-progress-fraction]').textContent=`${count} / ${C.checks.length}`;$$('[data-lesson-completion]').forEach(el=>{let check=C.checks.find(q=>q.route===el.dataset.lessonCompletion);el.textContent=completed.has(check?.id)?'Check completed':'Check not completed';});}\n"
+    },
+    {
+      "purpose": "snapshotOwnerAndUnlock",
+      "lineStart": 43,
+      "lineEndInclusive": 45,
+      "startByte": 5341,
+      "endByteExclusive": 5578,
+      "bytes": 237,
+      "sha256": "3552e9a5995df67cad0a1563f78397fc63c8063b8d5acb1f9f3ecf14f245b522",
+      "exactSource": "function checkSpec(id){return S.checks[id]?.spec||C.checks.find(x=>x.id===id);}\nfunction hasCorrect(run,q){return (run.mc[q.id]?.attempts||[]).some(a=>a.correct);}\nfunction unlocked(run,spec){return spec.mc.every(q=>hasCorrect(run,q));}\n"
+    },
+    {
+      "purpose": "renderRequiredFeedbackAndWriting",
+      "lineStart": 46,
+      "lineEndInclusive": 62,
+      "startByte": 5578,
+      "endByteExclusive": 7973,
+      "bytes": 2395,
+      "sha256": "3862793615046958a15a353ab7c1833ff05a876394642cb3fa1d040980f0f2d6",
+      "exactSource": "function renderCheck(section){const id=section.dataset.checkId,spec=checkSpec(id),run=S.checks[id];const ended=!!run?.endedAt;\n $('[data-start-check]',section).hidden=!!run;\n $('[data-start-check]',section).disabled=!persistenceAvailable||blocked;\n $('[data-redo-check]',section).hidden=!ended;\n const body=$('[data-check-body]',section);body.disabled=!run||ended;\n $('[data-finish-check]',section).disabled=!run||ended;\n $('[data-check-status]',section).textContent=!run?'Select Start to begin. The timer includes breaks until you finish.':ended?`Completed. First-try multiple choice: ${scoreCheck(run,spec)}. Writing saved, not automatically graded.`:'In progress. Correct the selections, save every written response, then finish.';\n if(!run)return;\n spec.mc.forEach(q=>{const node=$(`[data-check-question=\"${q.id}\"]`,section),data=run.mc[q.id]||{selected:'',attempts:[]};$$('input[type=radio]',node).forEach(input=>{input.checked=input.value===data.selected;input.disabled=ended||hasCorrect(run,q);});$('[data-check-answer]',node).disabled=ended||hasCorrect(run,q);\n const tries=data.attempts,last=tries.at(-1),out=$('[data-feedback]',node);out.className='inline-feedback'+(last&&!last.correct?' incorrect':'');out.textContent=!last?'':last.correct?`Correct. ${q.explanation}`:tries.length===1?`Not correct yet. Hint: ${q.cue}`:`Not correct yet. Answer: ${q.answer}. ${q.explanation} Select and check the correct answer to unlock the writing.`;\n });\n $('[data-writing-gate]',section).disabled=ended||!unlocked(run,spec);\n $('[data-unlock-message]',section).textContent=unlocked(run,spec)?'Writing unlocked. Save each response separately.':'Answer the multiple-choice questions correctly to unlock the writing.';\n spec.writing.forEach(w=>{const node=$(`[data-writing-question=\"${w.id}\"]`,section),data=run.writing[w.id]||{draft:'',submitted:null};const field=$('textarea',node);if(document.activeElement!==field)field.value=data.draft;\n const valid=data.submitted!==null&&data.submitted===data.draft.trim();$('[data-writing-status]',node).textContent=valid?'Written response saved. It has not been automatically graded.':data.draft.length>w.limit?`Draft exceeds ${w.limit} characters. It is stored locally but must be shortened before submission.`:'Draft only. Select Save written response.';\n $('details',node).dataset.locked=valid?'false':'true';if(!valid)$('details',node).open=false;\n });\n"
+    },
+    {
+      "purpose": "startAndFinish",
+      "lineStart": 66,
+      "lineEndInclusive": 72,
+      "startByte": 8184,
+      "endByteExclusive": 9365,
+      "bytes": 1181,
+      "sha256": "1a31e44e67c318709605954c3afbd174d5fa420507197f1c1f192c4c28e43caf",
+      "exactSource": "function startCheck(id){const spec=C.checks.find(x=>x.id===id);if(!spec)return;if(change(n=>{n.checks[id]={id:uid(),spec:clone(spec),bankVersion:C.bankVersion,startedAt:Date.now(),endedAt:null,mc:Object.fromEntries(spec.mc.map(q=>[q.id,{selected:'',attempts:[]}])),writing:Object.fromEntries(spec.writing.map(w=>[w.id,{draft:'',submitted:null,at:null}]))};},'Check started and saved in this browser.'))renderAllChecks();}\nfunction finishCheck(id){const spec=checkSpec(id),run=S.checks[id];if(!run||run.endedAt)return;\n if(!unlocked(run,spec)){status('Finish the multiple-choice corrections before completing this check.',true);return;}\n const missing=spec.writing.filter(w=>{const x=run.writing[w.id];return !x?.draft.trim()||x.draft.length>w.limit||x.submitted!==x.draft.trim();});\n if(missing.length){status('Save each valid written response before finishing. Changed drafts must be saved again.',true);return;}\n if(change(n=>{const r=n.checks[id];r.endedAt=Date.now();n.history.push({kind:'check',checkId:id,title:spec.title,spec:clone(spec),run:clone(r)});},'Check completed and stored in All My Work. Writing still requires human review.')){renderAllChecks();renderWork();}\n}\n"
+    },
+    {
+      "purpose": "lockedModelSummary",
+      "lineStart": 171,
+      "lineEndInclusive": 172,
+      "startByte": 38907,
+      "endByteExclusive": 39231,
+      "bytes": 324,
+      "sha256": "2a11fefe847c3409e512cafe5e6a4790655dd4fc1da909f1a7c95f8478acb772",
+      "exactSource": "// Prevent opening answer models before the associated writing is valid.\ndocument.addEventListener('click',e=>{const summary=e.target.closest('summary');if(summary&&summary.parentElement.dataset.locked==='true'){e.preventDefault();status('Complete and save the required writing before comparing with this model.',true);}});\n"
+    },
+    {
+      "purpose": "draftSelectionAndWriting",
+      "lineStart": 175,
+      "lineEndInclusive": 176,
+      "startByte": 39355,
+      "endByteExclusive": 40159,
+      "bytes": 804,
+      "sha256": "8f2b474eaea63ee8cd6756acf84fad475b5f6588664d4cc5b334bf15328ade11",
+      "exactSource": " if(el.matches('[data-check-choice]')){const id=el.closest('[data-check-id]').dataset.checkId,run=S.checks[id],qid=el.dataset.checkChoice;if(!run||run.endedAt)return;change(n=>{n.checks[id].mc[qid].selected=el.value;});return;}\n if(el.matches('[data-check-writing]')){const id=el.closest('[data-check-id]').dataset.checkId,wid=el.dataset.checkWriting,run=S.checks[id];if(!run||run.endedAt)return;if(change(n=>{n.checks[id].writing[wid].draft=el.value;})){const node=el.closest('[data-writing-question]');$('[data-writing-status]',node).textContent=el.value.length>Number(el.dataset.limit)?'Oversized draft saved locally. Shorten before submission.':'Draft saved locally. Select Save written response to submit this version.';$('details',node).open=false;$('details',node).dataset.locked='true';}return;}\n"
+    },
+    {
+      "purpose": "checkAndSaveActions",
+      "lineStart": 193,
+      "lineEndInclusive": 196,
+      "startByte": 43938,
+      "endByteExclusive": 45187,
+      "bytes": 1249,
+      "sha256": "90373ebfa33e99d206e8f70feed53f24494aa075eba4ac7f80ae4d4bcd4d8f77",
+      "exactSource": " if(b.hasAttribute('data-start-check')||b.hasAttribute('data-redo-check')){startCheck(b.closest('[data-check-id]').dataset.checkId);return;}\n if(b.dataset.checkAnswer){const sec=b.closest('[data-check-id]'),id=sec.dataset.checkId,run=S.checks[id],q=checkSpec(id).mc.find(x=>x.id===b.dataset.checkAnswer);if(!run||run.endedAt)return;let selected=run.mc[q.id].selected;if(!selected){status('Choose an answer before checking.',true);return;}if(change(n=>{let r=n.checks[id].mc[q.id];r.attempts.push({answer:selected,correct:selected===q.answer,at:Date.now()});}))renderCheck(sec);return;}\n if(b.dataset.saveWriting){const sec=b.closest('[data-check-id]'),id=sec.dataset.checkId,run=S.checks[id],spec=checkSpec(id),w=spec.writing.find(x=>x.id===b.dataset.saveWriting);if(!run||run.endedAt||!unlocked(run,spec))return;let txt=run.writing[w.id].draft;if(!txt.trim()||txt.length>w.limit){status(`Write a response of 1–${w.limit} characters before saving it.`,true);return;}if(change(n=>{let r=n.checks[id].writing[w.id];r.submitted=txt.trim();r.at=Date.now();},'Written response saved. It is not automatically graded.'))renderCheck(sec);return;}\n if(b.hasAttribute('data-finish-check')){finishCheck(b.closest('[data-check-id]').dataset.checkId);return;}\n"
+    },
+    {
+      "purpose": "optionalNotesRestoreAndWork",
+      "lineStart": 160,
+      "lineEndInclusive": 164,
+      "startByte": 35303,
+      "endByteExclusive": 36674,
+      "bytes": 1371,
+      "sha256": "06d89eb4cfac948d02f56abce94381d7ac7835c6b2eaf39f6a9b7f2b1a6ebf1a",
+      "exactSource": " $('[data-work-frayers]').innerHTML=Object.entries(S.frayers).map(([id,f])=>`<article class=\"history-run\"><h3>${esc(word(id).term)} — ${f.collected?'Collected':'Draft'}</h3>${['Meaning','Key features','Example','Non-example / common confusion'].map((label,i)=>`<p><strong>${label}:</strong> <span class=\"written-record\">${esc(f.answers[i]||'(not yet written)')}</span></p>`).join('')}</article>`).join('')||'<p>No Frayer words selected.</p>';\n $('[data-work-notes]').innerHTML=Object.entries(S.notes).filter(([id,n])=>n.submitted).map(([id,n])=>`<article class=\"history-run\"><h3>${esc(C.notes.find(v=>v.id===id)?.title||id)}</h3><p class=\"written-record\">${esc(n.submitted)}</p>${n.draft.trim()!==n.submitted?'<p class=\"muted\">A newer draft exists in the activity. This is the last explicitly saved response.</p>':''}</article>`).join('')||'<p>No optional written responses collected.</p>';\n const activeChecks=Object.values(S.checks).filter(x=>!x.endedAt).length,activePractice=Object.values(S.practice).filter(x=>!x.endedAt).length;$('[data-unfinished-count]').textContent=`Unfinished work: ${activeChecks} required check(s), ${activePractice} practice run(s). Resume them from their original sections; they are not counted as completed.`;\n}\nfunction restoreNotes(){ $$('[data-note-input]').forEach(el=>{let n=S.notes[el.dataset.noteInput];el.value=n?.draft||'';});}\n"
+    }
+  ],
+  "requiredMC": {
+    "answerComparison": "selected === q.answer; HTML input.value and JSON answer must match exactly.",
+    "success": "Correct. ${q.explanation}",
+    "firstIncorrect": "Not correct yet. Hint: ${q.cue}",
+    "laterIncorrect": "Not correct yet. Answer: ${q.answer}. ${q.explanation} Select and check the correct answer to unlock the writing.",
+    "unlock": "Every MC item must have a correct attempt; first-try scoring is independent from later correction."
+  },
+  "writing": {
+    "draft": "Input persists draft, closes and locks the first details in that writing-question.",
+    "save": "Only after selections unlock writing; rejects blank trim or raw draft length above3200; records trimmed submitted text and timestamp.",
+    "model": "Native render unlocks the HTML details only when submitted is non-null and equals current draft.trim(). Model/criteria are existing static HTML, so revised text must be synchronized with JSON.",
+    "completion": "Requires every writing draft nonblank, length within limit, and submitted equal current trimmed draft; then pushes a completed check history record.",
+    "grading": "Writing saved and completed for human review; never automatically correctness-graded."
+  },
+  "freshOriginRequirement": {
+    "sourceReason": "checkSpec prefers S.checks[id].spec; startCheck clones the current config spec into the new run. Prior saved runs can retain old question keys and models after same-ID semantic replacements.",
+    "authorizedMitigation": "User requires a fresh versioned isolated origin with no migration of old saved state. This source review does not create that origin or run the tests.",
+    "runtimeChangeNeededForProposal": false
+  },
+  "preservation": "No JS, storage namespace, required progress or gate behavior is altered. Optional note interfaces remain separate and do not use the required model lock.",
+  "testStatus": "Static source read only. Correct/incorrect feedback, save/reload, unlock, completion, All My Work and failure paths require later browser testing."
+}

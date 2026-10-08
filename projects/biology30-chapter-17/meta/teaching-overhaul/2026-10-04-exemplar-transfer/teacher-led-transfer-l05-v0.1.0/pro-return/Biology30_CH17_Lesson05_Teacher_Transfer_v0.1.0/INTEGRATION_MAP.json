@@ -1,0 +1,456 @@
+{
+  "version": "0.1.0",
+  "scope": "One complete lesson05 teaching replacement for an isolated comparison candidate; proposal only.",
+  "route": "lesson-05",
+  "exactNativeTitle": "Two-trait crosses and independent assortment",
+  "owner": {
+    "packetFile": "current/index.html",
+    "declaredLocalPath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-chapter-17/meta/teaching-overhaul/2026-10-04-exemplar-transfer/teacher-led-trial-v0.4.0/evaluation/new/index.html",
+    "bytes": 3540574,
+    "sha256": "71518705941a86809c7f28593664763e59c7867511e3ae699ec1007bfe109bad",
+    "fullOwnerAttached": true,
+    "fullOwnerBytesIndependentlyReadAndHashed": true
+  },
+  "replacement": {
+    "operation": "Replace exactly one UTF-8 byte interval",
+    "beforeStartByte": 201684,
+    "beforeEndByteExclusive": 233808,
+    "beforeBytes": 32124,
+    "beforeSha256": "af874700b7166abe88072fb430d33f743d0cca930a4681bb4bbe56b93ccf309f",
+    "beforeCopy": "raw-before/lesson-05.teaching-fragment.html",
+    "sourceCharacterStart": 201452,
+    "sourceCharacterEndExclusive": 233393,
+    "coordinateConvention": "Zero-based start inclusive/end exclusive. UTF-8 bytes are operative; character indices are context only.",
+    "fragment": "lesson-05.teaching-fragment.html",
+    "afterBytes": 58457,
+    "afterSha256": "b29e83ae44ba3fd44b1f6e52a359ece8eb4933b3ee018b8964fdda5b85c97d21",
+    "positionShiftBytes": 26333,
+    "computedAfterOwnerBytes": 3566907,
+    "computedAfterEndByteExclusive": 260141,
+    "nativeOwnerAfterWritten": false,
+    "nativeOwnerAfterHash": null,
+    "afterCoordinateStatus": "Calculated proposed insertion positions only; no full native owner assembled."
+  },
+  "currentLessonSlice": {
+    "packetFile": "current/lesson-05.html",
+    "bytes": 51476,
+    "sha256": "ad1e69e3c700c2048139edf6c13d7fe5e4e6c031b053c8773165d38046de577d",
+    "beforeOwnerRange": [
+      197690,
+      249166
+    ],
+    "beforeLocalTeachingRange": [
+      3994,
+      36118
+    ],
+    "beforeLocalProtectedLfRange": [
+      36118,
+      36119
+    ],
+    "beforeLocalGuidedSuffixRange": [
+      36119,
+      51476
+    ]
+  },
+  "untouchedOwnerPrefix": {
+    "beforeRange": [
+      0,
+      201684
+    ],
+    "bytes": 201684,
+    "sha256": "d43df5df3b518040f12cb1645aa12fe1733a34222dec3ee941005d38a2aae6e0",
+    "afterRange": [
+      0,
+      201684
+    ],
+    "contract": "Every original byte survives unchanged."
+  },
+  "untouchedOwnerSuffix": {
+    "beforeRange": [
+      233808,
+      3540574
+    ],
+    "bytes": 3306766,
+    "sha256": "6924964b22f9972f3c8fcf66bf3e2cb000aa5cdb99f5cc249c616a338a6cfc78",
+    "computedAfterRange": [
+      260141,
+      3566907
+    ],
+    "contract": "Every original byte, including the separating LF, survives unchanged; only its position shifts.",
+    "computedNotAssembled": true
+  },
+  "protectedLessonSurroundings": {
+    "coordinateBasis": "BEFORE attached source bytes. ownerPrefix/ownerSuffix use full current/index.html offsets; localStartByte/localEndByteExclusive use current/lesson-05.html. All ranges are zero-based UTF-8, end exclusive. Calculated AFTER owner positions appear only in the separately named computed fields; no after owner was assembled.",
+    "ownerPrefix": {
+      "startByte": 0,
+      "endByteExclusive": 201684,
+      "bytes": 201684,
+      "sha256": "d43df5df3b518040f12cb1645aa12fe1733a34222dec3ee941005d38a2aae6e0"
+    },
+    "ownerSuffix": {
+      "startByte": 233808,
+      "endByteExclusive": 3540574,
+      "bytes": 3306766,
+      "sha256": "6924964b22f9972f3c8fcf66bf3e2cb000aa5cdb99f5cc249c616a338a6cfc78"
+    },
+    "header": {
+      "localStartByte": 76,
+      "localEndByteExclusive": 3994,
+      "bytes": 3918,
+      "sha256": "ec347589a85dc86e808c43fac459e137a51a73e8d1ba2dd812e1f764b241a340"
+    },
+    "lessonPrefixIncludingWrappers": {
+      "localStartByte": 0,
+      "localEndByteExclusive": 3994,
+      "bytes": 3994,
+      "sha256": "28b986d505f43c2100034aa0bbbf76eb9c5280b5fc083011659fe82597ea77e4"
+    },
+    "oneLfBetweenFragmentAndGuidedPractice": {
+      "bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    "suffix": {
+      "localStartByte": 36119,
+      "localEndByteExclusive": 51476,
+      "bytes": 15357,
+      "sha256": "64b983b75d491d1398951c89960fe2ebc61268c60cb1c1b03bc5ef212335b066"
+    }
+  },
+  "preservedOuterBindings": [
+    {
+      "id": "ch17-l05-teaching-01",
+      "exactOpeningTagPreserved": "<div class=\"content-section\" data-canvas-edit-key=\"ch17-l05-teaching-01\" data-canvas-helper-edit-key=\"ch17-l05-teaching-01\" id=\"ch17-l05-teaching-01\">",
+      "originalCoordinates": {
+        "ownerStartByte": 201684,
+        "ownerEndByteExclusive": 207883,
+        "fragmentStartByte": 0,
+        "fragmentEndByteExclusive": 6199,
+        "bytes": 6199,
+        "sha256": "2457eed3459e4bb8118e396e90900de9e8f3bd819188ba58fb8bc438f8450e1e",
+        "basis": "BEFORE attached owner/fragment."
+      },
+      "replacementCoordinates": {
+        "startByte": 0,
+        "endByteExclusive": 11708,
+        "bytes": 11708,
+        "sha256": "98a89cabd8054b5ba8d5e8ae06aeea8de8c1cf9017734cbe67f4bb7df1269406",
+        "coordinateSource": "AFTER proposed lesson-05.teaching-fragment.html; zero-based UTF-8, end exclusive."
+      }
+    },
+    {
+      "id": "ch17-l05-teaching-02",
+      "exactOpeningTagPreserved": "<div class=\"content-section\" data-canvas-edit-key=\"ch17-l05-teaching-02\" data-canvas-helper-edit-key=\"ch17-l05-teaching-02\" id=\"ch17-l05-teaching-02\">",
+      "originalCoordinates": {
+        "ownerStartByte": 207885,
+        "ownerEndByteExclusive": 213448,
+        "fragmentStartByte": 6201,
+        "fragmentEndByteExclusive": 11764,
+        "bytes": 5563,
+        "sha256": "6b83d8c942be901c2d73b0b56fa354b03722ea8a1c3946f58960d5c6cb109b88",
+        "basis": "BEFORE attached owner/fragment."
+      },
+      "replacementCoordinates": {
+        "startByte": 11710,
+        "endByteExclusive": 28764,
+        "bytes": 17054,
+        "sha256": "ffa5e05a33c7a18275617e31fa69d608c3989edac7fb91efd104bf7ca1287f76",
+        "coordinateSource": "AFTER proposed lesson-05.teaching-fragment.html; zero-based UTF-8, end exclusive."
+      }
+    },
+    {
+      "id": "ch17-l05-worked",
+      "exactOpeningTagPreserved": "<div class=\"worked-example\" data-canvas-edit-key=\"ch17-l05-worked\" data-canvas-helper-edit-key=\"ch17-l05-worked\" id=\"ch17-l05-worked\">",
+      "originalCoordinates": {
+        "ownerStartByte": 213450,
+        "ownerEndByteExclusive": 222924,
+        "fragmentStartByte": 11766,
+        "fragmentEndByteExclusive": 21240,
+        "bytes": 9474,
+        "sha256": "2d53564c828de24f3113fc43f36ce86919f35fffae5245969611ff49071505a8",
+        "basis": "BEFORE attached owner/fragment."
+      },
+      "replacementCoordinates": {
+        "startByte": 28766,
+        "endByteExclusive": 42436,
+        "bytes": 13670,
+        "sha256": "0ea1739d43adb81de3532fa4bba0388fef560d4264e5c67528fae31797cf540c",
+        "coordinateSource": "AFTER proposed lesson-05.teaching-fragment.html; zero-based UTF-8, end exclusive."
+      }
+    },
+    {
+      "id": "ch17-l05-teaching-03",
+      "exactOpeningTagPreserved": "<div class=\"content-section\" data-canvas-edit-key=\"ch17-l05-teaching-03\" data-canvas-helper-edit-key=\"ch17-l05-teaching-03\" id=\"ch17-l05-teaching-03\">",
+      "originalCoordinates": {
+        "ownerStartByte": 222926,
+        "ownerEndByteExclusive": 233808,
+        "fragmentStartByte": 21242,
+        "fragmentEndByteExclusive": 32124,
+        "bytes": 10882,
+        "sha256": "25433f982ad4cf8f833daaa5b2653a56ea1ff011c3e2b41fd1cdeddff3776f01",
+        "basis": "BEFORE attached owner/fragment."
+      },
+      "replacementCoordinates": {
+        "startByte": 42438,
+        "endByteExclusive": 58457,
+        "bytes": 16019,
+        "sha256": "3fe71497929a8ba066d7ed99679b6b5602ee581bc80e17fc80e622d2b473ee7c",
+        "coordinateSource": "AFTER proposed lesson-05.teaching-fragment.html; zero-based UTF-8, end exclusive."
+      }
+    }
+  ],
+  "preservedEmbeddedActivities": [
+    {
+      "sectionId": "ch17-kinch-v020-l05-change-task",
+      "noteId": "ch17-kinch-v020-l05-change-response",
+      "title": "Change one parent and keep only the reasoning that still applies",
+      "bytes": 4203,
+      "sha256": "a218d13653a95a59da2d56004ea889124992ee3903e2b0749c8f7df78c7a16cf",
+      "beforeFragmentRange": [
+        17030,
+        21233
+      ],
+      "afterFragmentRange": [
+        38226,
+        42429
+      ],
+      "rangeConvention": "Each range is zero-based UTF-8, end exclusive, in the explicitly named before or after fragment.",
+      "rawCopy": "raw-before/ch17-kinch-v020-l05-change-task.html",
+      "completeContract": "source-contracts/OPTIONAL_NOTES.json",
+      "entireSectionByteIdentical": true,
+      "controlAttributesOwner": "Native fragment and original OPTIONAL_NOTES contract; never disabled Markdown reading controls.",
+      "scope": "Existing saved optional, ungraded, outside required progress; no new save namespace or field."
+    },
+    {
+      "sectionId": "ch17-kinch-v020-l05-evidence-task",
+      "noteId": "ch17-kinch-v020-l05-evidence-response",
+      "title": "Decide what the new offspring settles—and what it leaves open",
+      "bytes": 4537,
+      "sha256": "545343eb9be903740eda4fa5258a96eb5c82de05327de2ee734143bea75fc97d",
+      "beforeFragmentRange": [
+        26384,
+        30921
+      ],
+      "afterFragmentRange": [
+        51710,
+        56247
+      ],
+      "rangeConvention": "Each range is zero-based UTF-8, end exclusive, in the explicitly named before or after fragment.",
+      "rawCopy": "raw-before/ch17-kinch-v020-l05-evidence-task.html",
+      "completeContract": "source-contracts/OPTIONAL_NOTES.json",
+      "entireSectionByteIdentical": true,
+      "controlAttributesOwner": "Native fragment and original OPTIONAL_NOTES contract; never disabled Markdown reading controls.",
+      "scope": "Existing saved optional, ungraded, outside required progress; no new save namespace or field."
+    }
+  ],
+  "preservedNativeFigure": {
+    "src": "./assets/figures/ch17-two-trait.svg",
+    "completeContainerBytes": 722,
+    "completeContainerSha256": "fb4a4af8d132176bcfcd3f21695d97865901a1c626bbecf5e9a1d6106dc428d0",
+    "beforeFragmentRange": [
+      5198,
+      5920
+    ],
+    "afterFragmentRange": [
+      19550,
+      20272
+    ],
+    "rawContainerCopy": "raw-before/native-branch-figure.html",
+    "asset": {
+      "bytes": 5623,
+      "sha256": "6fdb301a963b4da131f8fe50624611fc0ff091c62e0ac99d6602019c2830c316"
+    },
+    "lockedLocationMap": {
+      "A": "AB",
+      "B": "Ab",
+      "C": "aB",
+      "D": "ab"
+    },
+    "action": "Keep existing native asset and exact complete figure/control container. Included unchanged asset copy supports handoff reading, not a request to overwrite a different asset."
+  },
+  "assetCopies": [
+    {
+      "sourcePacketFile": "sources/slide-assets/slide-35-image32.png",
+      "destination": "./assets/teaching-l05-v010/slide-35-image32.png",
+      "bytes": 77704,
+      "sha256": "8eeaa700523d536e1375231cfc9f6a6971ae29618aca18918040ea81f5502d39",
+      "action": "Add exact unchanged bytes at proposed lesson-specific destination."
+    },
+    {
+      "sourcePacketFile": "sources/slide-assets/slide-36-image29.png",
+      "destination": "./assets/teaching-l05-v010/slide-36-image29.png",
+      "bytes": 84208,
+      "sha256": "1b3fd0b0ced0cc074bdfac4b3a6712392123db36e33970813c8c2ea235e6abb9",
+      "action": "Add exact unchanged bytes at proposed lesson-specific destination."
+    },
+    {
+      "sourcePacketFile": "sources/slide-assets/slide-37-image46.png",
+      "destination": "./assets/teaching-l05-v010/slide-37-image46.png",
+      "bytes": 7401,
+      "sha256": "cac4ebce12f25f7afe2bae30ad8806346f8b83b6e618fdd1c90c20a6b7cce3cb",
+      "action": "Add exact unchanged bytes at proposed lesson-specific destination."
+    },
+    {
+      "sourcePacketFile": "sources/slide-assets/slide-37-image37.png",
+      "destination": "./assets/teaching-l05-v010/slide-37-image37.png",
+      "bytes": 15668,
+      "sha256": "32c3c6888aee2d6573340d2cae5b177ad5a8b3c38a944b0c0f715edc65e04baf",
+      "action": "Add exact unchanged bytes at proposed lesson-specific destination."
+    },
+    {
+      "sourcePacketFile": "sources/slide-assets/slide-39-image40.png",
+      "destination": "./assets/teaching-l05-v010/slide-39-image40.png",
+      "bytes": 28688,
+      "sha256": "1737c44d6e84b88174326df28f36a39ddf526d5153b33b96660e2cac00e47338",
+      "action": "Add exact unchanged bytes at proposed lesson-specific destination."
+    },
+    {
+      "sourcePacketFile": "sources/slide-assets/slide-41-image44.png",
+      "destination": "./assets/teaching-l05-v010/slide-41-image44.png",
+      "bytes": 364277,
+      "sha256": "7e57deedfe727416d5536605bb4327cffd16ee88cbb13c778bd5e5039f450eb8",
+      "action": "Add exact unchanged bytes at proposed lesson-specific destination."
+    }
+  ],
+  "vocabulary": {
+    "beforeTargets": [
+      "ch17-word-allele",
+      "ch17-word-independent-assortment",
+      "ch17-word-phenotype",
+      "ch17-word-probability"
+    ],
+    "afterExistingTargets": [
+      "ch17-word-allele",
+      "ch17-word-codominance",
+      "ch17-word-dihybrid-cross",
+      "ch17-word-expected-number",
+      "ch17-word-f1-generation",
+      "ch17-word-f2-generation",
+      "ch17-word-gamete-combination",
+      "ch17-word-genotype",
+      "ch17-word-heterozygous",
+      "ch17-word-homozygous",
+      "ch17-word-incomplete-dominance",
+      "ch17-word-independent-assortment",
+      "ch17-word-linked-genes",
+      "ch17-word-penetrance",
+      "ch17-word-phenotype",
+      "ch17-word-probability",
+      "ch17-word-product-rule",
+      "ch17-word-true-breeding"
+    ],
+    "newConnectionsToExistingTerms": [
+      "ch17-word-codominance",
+      "ch17-word-dihybrid-cross",
+      "ch17-word-expected-number",
+      "ch17-word-f1-generation",
+      "ch17-word-f2-generation",
+      "ch17-word-gamete-combination",
+      "ch17-word-genotype",
+      "ch17-word-heterozygous",
+      "ch17-word-homozygous",
+      "ch17-word-incomplete-dominance",
+      "ch17-word-linked-genes",
+      "ch17-word-penetrance",
+      "ch17-word-product-rule",
+      "ch17-word-true-breeding"
+    ],
+    "frayerDataEdits": [],
+    "markup": "Existing button.bio-term with aria-haspopup=dialog and existing data-term-id; meanings remain visible in prose."
+  },
+  "staticNewElementIds": [
+    "ch17-l05-v010-chromosome-orientations",
+    "ch17-l05-v010-f1-combinations",
+    "ch17-l05-v010-f1-gamete-weights",
+    "ch17-l05-v010-f2-groups",
+    "ch17-l05-v010-f2-source",
+    "ch17-l05-v010-f2-weighted-grid",
+    "ch17-l05-v010-p-gametes",
+    "ch17-l05-v010-pea-contrasts",
+    "ch17-l05-v010-pea-parents",
+    "ch17-l05-v010-pea-rules",
+    "ch17-l05-v010-squash-counts",
+    "ch17-l05-v010-squash-evidence",
+    "ch17-l05-v010-squash-grid",
+    "ch17-l05-v010-tomato-gametes",
+    "ch17-l05-v010-tomato-grid",
+    "ch17-l05-v010-tomato-groups",
+    "ch17-l05-v010-tomato-parents"
+  ],
+  "staticIdMeaning": "Visual/table anchors only; no saved task/progress ID.",
+  "existingEditKeysPreserved": [
+    "ch17-l05-teaching-01",
+    "ch17-l05-teaching-01-p1",
+    "ch17-l05-teaching-01-p2",
+    "ch17-l05-teaching-02",
+    "ch17-l05-teaching-02-p1",
+    "ch17-l05-teaching-02-p2",
+    "ch17-l05-teaching-02-p3",
+    "ch17-l05-teaching-03",
+    "ch17-l05-teaching-03-p1",
+    "ch17-l05-teaching-03-p2",
+    "ch17-l05-teaching-03-p3",
+    "ch17-l05-worked"
+  ],
+  "protectedNativeData": {
+    "sourcePacketFile": "contracts/NATIVE_DATA.json",
+    "bytes": 391744,
+    "sha256": "5fc07ea7be4b9a74081a602fb5e21e1ae780fefcd34a30854eec22308076009b",
+    "fullOwnerScriptTextMatchesVerified": true,
+    "dataEdits": [],
+    "historicalWorkedRecord": "Not a teaching owner and not substituted for current revised assessments."
+  },
+  "requiredAssessmentContracts": {
+    "unchanged": true,
+    "boundary": "All guided-practice-onward bytes outside replacement; exact raw suffix included.",
+    "currentRequiredIds": [
+      "ch17-l05-check-mc-1",
+      "ch17-l05-check-mc-2",
+      "ch17-l05-check-writing-1",
+      "ch17-l05-check-writing-2"
+    ],
+    "newAssessmentItems": [],
+    "assessmentFeedbackOrKeyEdits": []
+  },
+  "headerEdits": [],
+  "titleGoalReaderGuideEdits": [],
+  "metadataEdits": [],
+  "cssFontScriptRuntimeStorageEdits": [],
+  "newSaveFields": [],
+  "progressChanges": [],
+  "readerContract": {
+    "currentPrintedPages": [
+      591,
+      593
+    ],
+    "unchanged": true,
+    "optionalFooterUnchanged": true,
+    "additionalPagesReadForAuthorshipAreNotReaderChanges": [
+      595,
+      596,
+      597
+    ]
+  },
+  "applicationGate": [
+    "Rehash the actual local owner and require the exact supplied owner SHA256.",
+    "Require exact before bytes and SHA at the stated UTF-8 interval. Abort on mismatch; do not relocate by headings.",
+    "Require the exact after fragment hash and both complete saved-task hashes.",
+    "Copy only selected source asset bytes to the stated destinations and keep the existing native figure asset/mapping.",
+    "Preserve all owner prefix/suffix bytes, embedded data, other lessons, headers and assessment semantics."
+  ],
+  "receiver": {
+    "owner": "Codex/local integrator",
+    "proposedReturnDestination": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-chapter-17/meta/teaching-overhaul/2026-10-04-exemplar-transfer/teacher-led-transfer-l05-v0.1.0/pro-return",
+    "writtenHere": false,
+    "separateComparisonOnly": true,
+    "freshOriginRequiredBySourceContract": true,
+    "oldSaveMigrationPerformed": false
+  },
+  "status": {
+    "authoring": "complete candidate",
+    "teacherAcceptance": "pending",
+    "nativeAssembly": "not performed",
+    "browserRendering": "not performed",
+    "nativeRuntimeTests": "not performed",
+    "deploymentReleaseCertification": "not performed"
+  }
+}

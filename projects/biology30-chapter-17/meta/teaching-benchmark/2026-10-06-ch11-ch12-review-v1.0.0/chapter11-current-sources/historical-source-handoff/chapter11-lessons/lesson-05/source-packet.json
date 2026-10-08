@@ -1,0 +1,3309 @@
+{
+  "lessonId": "lesson-05",
+  "title": "Action potentials",
+  "locator": {
+    "path": "projects/biology30-unit-a-pilot-3/workspace/index.html",
+    "selector": "#lesson-05",
+    "startLine": 831,
+    "endLine": 1044,
+    "startOffset": 92769,
+    "endOffset": 120697,
+    "offsetUnit": "JavaScript UTF-16 code units",
+    "fragmentSha256": "d5fd660e21835cf124dbdb888b190f2c81dacb3a36349ffd3b28509417d8dff5"
+  },
+  "currentHtml": "chapter11-lessons/lesson-05/current-exact.html",
+  "completeReadableCopy": "chapter11-lessons/lesson-05/current-complete.md",
+  "chapterTextbook": "sources/original/chapter-11.pdf",
+  "printedPageOffset": 359,
+  "textbookLinks": [
+    {
+      "pdfPage": 18,
+      "text": "Open at p. 377",
+      "line": 853,
+      "printedPage": 377,
+      "textExtract": "sources/extracted/chapter11-textbook/pdf-page-018.txt"
+    },
+    {
+      "pdfPage": 18,
+      "text": "Textbook p. 377",
+      "line": 969,
+      "printedPage": 377,
+      "textExtract": "sources/extracted/chapter11-textbook/pdf-page-018.txt"
+    },
+    {
+      "pdfPage": 18,
+      "text": "Textbook p. 377",
+      "line": 999,
+      "printedPage": 377,
+      "textExtract": "sources/extracted/chapter11-textbook/pdf-page-018.txt"
+    },
+    {
+      "pdfPage": 18,
+      "text": "Textbook p. 377",
+      "line": 1012,
+      "printedPage": 377,
+      "textExtract": "sources/extracted/chapter11-textbook/pdf-page-018.txt"
+    },
+    {
+      "pdfPage": 21,
+      "text": "Textbook p. 380",
+      "line": 1025,
+      "printedPage": 380,
+      "textExtract": "sources/extracted/chapter11-textbook/pdf-page-021.txt"
+    }
+  ],
+  "teacherSlides": [
+    {
+      "slide": 21,
+      "textPath": "sources/extracted/chapter11-teacher-deck/slide-021.md",
+      "media": [
+        {
+          "id": "rId4",
+          "type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/image",
+          "target": "ppt/media/image2.jpg",
+          "external": false,
+          "packageMediaPath": "sources/teacher-deck-media/image2.jpg"
+        }
+      ]
+    },
+    {
+      "slide": 24,
+      "textPath": "sources/extracted/chapter11-teacher-deck/slide-024.md",
+      "media": [
+        {
+          "id": "rId3",
+          "type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/image",
+          "target": "ppt/media/image28.png",
+          "external": false,
+          "packageMediaPath": "sources/teacher-deck-media/image28.png"
+        }
+      ]
+    },
+    {
+      "slide": 25,
+      "textPath": "sources/extracted/chapter11-teacher-deck/slide-025.md",
+      "media": [
+        {
+          "id": "rId3",
+          "type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/image",
+          "target": "ppt/media/image22.png",
+          "external": false,
+          "packageMediaPath": "sources/teacher-deck-media/image22.png"
+        }
+      ]
+    },
+    {
+      "slide": 26,
+      "textPath": "sources/extracted/chapter11-teacher-deck/slide-026.md",
+      "media": [
+        {
+          "id": "rId3",
+          "type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/image",
+          "target": "ppt/media/image61.png",
+          "external": false,
+          "packageMediaPath": "sources/teacher-deck-media/image61.png"
+        }
+      ]
+    },
+    {
+      "slide": 27,
+      "textPath": "sources/extracted/chapter11-teacher-deck/slide-027.md",
+      "media": [
+        {
+          "id": "rId3",
+          "type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/image",
+          "target": "ppt/media/image25.png",
+          "external": false,
+          "packageMediaPath": "sources/teacher-deck-media/image25.png"
+        }
+      ]
+    },
+    {
+      "slide": 28,
+      "textPath": "sources/extracted/chapter11-teacher-deck/slide-028.md",
+      "media": [
+        {
+          "id": "rId3",
+          "type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/image",
+          "target": "ppt/media/image13.png",
+          "external": false,
+          "packageMediaPath": "sources/teacher-deck-media/image13.png"
+        }
+      ]
+    },
+    {
+      "slide": 29,
+      "textPath": "sources/extracted/chapter11-teacher-deck/slide-029.md",
+      "media": [
+        {
+          "id": "rId3",
+          "type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/image",
+          "target": "ppt/media/image20.png",
+          "external": false,
+          "packageMediaPath": "sources/teacher-deck-media/image20.png"
+        }
+      ]
+    },
+    {
+      "slide": 30,
+      "textPath": "sources/extracted/chapter11-teacher-deck/slide-030.md",
+      "media": [
+        {
+          "id": "rId4",
+          "type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/image",
+          "target": "ppt/media/image30.jpg",
+          "external": false,
+          "packageMediaPath": "sources/teacher-deck-media/image30.jpg"
+        },
+        {
+          "id": "rId6",
+          "type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/image",
+          "target": "ppt/media/image29.jpg",
+          "external": false,
+          "packageMediaPath": "sources/teacher-deck-media/image29.jpg"
+        },
+        {
+          "id": "rId8",
+          "type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/image",
+          "target": "ppt/media/image14.jpg",
+          "external": false,
+          "packageMediaPath": "sources/teacher-deck-media/image14.jpg"
+        }
+      ]
+    }
+  ],
+  "mappingStatus": "Lead topic-based source locator from inspected slide titles/text; not teacher-certified outcome coverage. Consult full deck when context is needed.",
+  "caveat": null,
+  "questions": [
+    {
+      "id": "check-action-potentials-mc",
+      "activityId": "check-action-potentials",
+      "lessonId": "lesson-05",
+      "attrs": {
+        "class": "question",
+        "data-question": "check-action-potentials-mc"
+      },
+      "originalHtml": "<div class=\"question\" data-question=\"check-action-potentials-mc\">\n<h3 data-canvas-helper-edit-key=\"p3-chapter-260\">When an action potential begins, sodium gates open, allowing Na+&nbsp;ions to cross the membrane. Now the polarity of the membrane changes to</h3>\n<label class=\"choice\" data-canvas-helper-edit-key=\"p3-chapter-261\">\n<input type=\"radio\" name=\"check-action-potentials-mc\" value=\"QUES_51676_82712_A275482\" data-answer=\"\"> neutral outside and positive inside.</label>\n<label class=\"choice\" data-canvas-helper-edit-key=\"p3-chapter-262\">\n<input type=\"radio\" name=\"check-action-potentials-mc\" value=\"QUES_51676_82712_A275483\" data-answer=\"\"> positive outside and negative inside.</label>\n<label class=\"choice\" data-canvas-helper-edit-key=\"p3-chapter-263\">\n<input type=\"radio\" name=\"check-action-potentials-mc\" value=\"QUES_51676_82712_A275484\" data-answer=\"\"> negative outside and positive inside.</label>\n<label class=\"choice\" data-canvas-helper-edit-key=\"p3-chapter-264\">\n<input type=\"radio\" name=\"check-action-potentials-mc\" value=\"QUES_51676_82712_A275485\" data-answer=\"\"> there is no difference in charge between outside and inside.</label>\n<button type=\"button\" data-check=\"\" data-canvas-helper-edit-key=\"p3-chapter-265\">Check answer</button>\n<p data-feedback=\"\" role=\"status\" data-canvas-helper-edit-key=\"p3-chapter-266\">\n</p>\n<fieldset class=\"paired-writing\" data-unlock=\"check-action-potentials-mc\" disabled=\"\">\n<legend>Explain the related idea</legend>\n<p data-canvas-helper-edit-key=\"p3-chapter-267\">\nExplain the difference between depolarization of a neuron and an action potential. </p>\n<p data-canvas-helper-edit-key=\"p3-chapter-268\">\n<a href=\"#textbook-library\" data-book-page=\"18\" data-canvas-helper-edit-key=\"p3-chapter-269\">Textbook p. 377</a>\n</p>\n<label for=\"check-action-potentials-written\" data-canvas-helper-edit-key=\"p3-chapter-270\">Written response</label>\n<textarea id=\"check-action-potentials-written\" data-writing=\"check-action-potentials-written\" data-answer-limit=\"3200\" rows=\"6\" aria-describedby=\"check-action-potentials-written-limit check-action-potentials-written-status\"></textarea>\n<p id=\"check-action-potentials-written-limit\" class=\"muted\" data-canvas-helper-edit-key=\"p3-chapter-271\">Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded.</p>\n<button type=\"button\" data-submit-writing=\"\" data-canvas-helper-edit-key=\"p3-chapter-272\">Save written response</button>\n<p data-writing-status=\"\" id=\"check-action-potentials-written-status\" role=\"status\" data-canvas-helper-edit-key=\"p3-chapter-273\">\n</p>\n</fieldset>\n</div>",
+      "completeText": "When an action potential begins, sodium gates open, allowing Na+ ions to cross the membrane. Now the polarity of the membrane changes to neutral outside and positive inside. positive outside and negative inside. negative outside and positive inside. there is no difference in charge between outside and inside. Check answer Explain the related idea Explain the difference between depolarization of a neuron and an action potential. Textbook p. 377 Written response Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded. Save written response",
+      "locator": {
+        "path": "projects/biology30-unit-a-pilot-3/workspace/index.html",
+        "line": 951,
+        "endLine": 978
+      },
+      "answerFields": [
+        {
+          "tag": "input",
+          "attrs": {
+            "type": "radio",
+            "name": "check-action-potentials-mc",
+            "value": "QUES_51676_82712_A275482",
+            "data-answer": ""
+          },
+          "text": ""
+        },
+        {
+          "tag": "input",
+          "attrs": {
+            "type": "radio",
+            "name": "check-action-potentials-mc",
+            "value": "QUES_51676_82712_A275483",
+            "data-answer": ""
+          },
+          "text": ""
+        },
+        {
+          "tag": "input",
+          "attrs": {
+            "type": "radio",
+            "name": "check-action-potentials-mc",
+            "value": "QUES_51676_82712_A275484",
+            "data-answer": ""
+          },
+          "text": ""
+        },
+        {
+          "tag": "input",
+          "attrs": {
+            "type": "radio",
+            "name": "check-action-potentials-mc",
+            "value": "QUES_51676_82712_A275485",
+            "data-answer": ""
+          },
+          "text": ""
+        },
+        {
+          "tag": "textarea",
+          "attrs": {
+            "id": "check-action-potentials-written",
+            "data-writing": "check-action-potentials-written",
+            "data-answer-limit": "3200",
+            "rows": "6",
+            "aria-describedby": "check-action-potentials-written-limit check-action-potentials-written-status"
+          },
+          "text": ""
+        }
+      ],
+      "authoredKey": {
+        "id": "check-action-potentials-mc",
+        "sourceId": "res-quiz-59222:obj-2130972",
+        "correct": "QUES_51676_82712_A275484"
+      }
+    },
+    {
+      "id": "source-checkpoint-12",
+      "activityId": "practice-action-potentials",
+      "lessonId": "lesson-05",
+      "attrs": {
+        "class": "question",
+        "data-question": "source-checkpoint-12"
+      },
+      "originalHtml": "<div class=\"question\" data-question=\"source-checkpoint-12\">\n<p data-canvas-helper-edit-key=\"p3-chapter-280\">\nDescribe the “all-or-none” response. </p>\n<p data-canvas-helper-edit-key=\"p3-chapter-281\">\n<a href=\"#textbook-library\" data-book-page=\"18\" data-canvas-helper-edit-key=\"p3-chapter-282\">Textbook p. 377</a>\n</p>\n<label for=\"source-checkpoint-12-written\" data-canvas-helper-edit-key=\"p3-chapter-283\">Written response</label>\n<textarea id=\"source-checkpoint-12-written\" data-writing=\"source-checkpoint-12-written\" data-answer-limit=\"3200\" rows=\"6\" aria-describedby=\"source-checkpoint-12-written-limit source-checkpoint-12-written-status\"></textarea>\n<p id=\"source-checkpoint-12-written-limit\" class=\"muted\" data-canvas-helper-edit-key=\"p3-chapter-284\">Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded.</p>\n<button type=\"button\" data-submit-writing=\"\" data-canvas-helper-edit-key=\"p3-chapter-285\">Save written response</button>\n<p data-writing-status=\"\" id=\"source-checkpoint-12-written-status\" role=\"status\" data-canvas-helper-edit-key=\"p3-chapter-286\">\n</p>\n</div>",
+      "completeText": "Describe the “all-or-none” response. Textbook p. 377 Written response Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded. Save written response",
+      "locator": {
+        "path": "projects/biology30-unit-a-pilot-3/workspace/index.html",
+        "line": 995,
+        "endLine": 1007
+      },
+      "answerFields": [
+        {
+          "tag": "textarea",
+          "attrs": {
+            "id": "source-checkpoint-12-written",
+            "data-writing": "source-checkpoint-12-written",
+            "data-answer-limit": "3200",
+            "rows": "6",
+            "aria-describedby": "source-checkpoint-12-written-limit source-checkpoint-12-written-status"
+          },
+          "text": ""
+        }
+      ],
+      "authoredKey": null
+    },
+    {
+      "id": "source-checkpoint-13",
+      "activityId": "practice-action-potentials",
+      "lessonId": "lesson-05",
+      "attrs": {
+        "class": "question",
+        "data-question": "source-checkpoint-13"
+      },
+      "originalHtml": "<div class=\"question\" data-question=\"source-checkpoint-13\">\n<p data-canvas-helper-edit-key=\"p3-chapter-287\">\nDescribe the process of repolarization in the neuron, and explain its importance in the transmission of a neural impulse. </p>\n<p data-canvas-helper-edit-key=\"p3-chapter-288\">\n<a href=\"#textbook-library\" data-book-page=\"18\" data-canvas-helper-edit-key=\"p3-chapter-289\">Textbook p. 377</a>\n</p>\n<label for=\"source-checkpoint-13-written\" data-canvas-helper-edit-key=\"p3-chapter-290\">Written response</label>\n<textarea id=\"source-checkpoint-13-written\" data-writing=\"source-checkpoint-13-written\" data-answer-limit=\"3200\" rows=\"6\" aria-describedby=\"source-checkpoint-13-written-limit source-checkpoint-13-written-status\"></textarea>\n<p id=\"source-checkpoint-13-written-limit\" class=\"muted\" data-canvas-helper-edit-key=\"p3-chapter-291\">Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded.</p>\n<button type=\"button\" data-submit-writing=\"\" data-canvas-helper-edit-key=\"p3-chapter-292\">Save written response</button>\n<p data-writing-status=\"\" id=\"source-checkpoint-13-written-status\" role=\"status\" data-canvas-helper-edit-key=\"p3-chapter-293\">\n</p>\n</div>",
+      "completeText": "Describe the process of repolarization in the neuron, and explain its importance in the transmission of a neural impulse. Textbook p. 377 Written response Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded. Save written response",
+      "locator": {
+        "path": "projects/biology30-unit-a-pilot-3/workspace/index.html",
+        "line": 1008,
+        "endLine": 1020
+      },
+      "answerFields": [
+        {
+          "tag": "textarea",
+          "attrs": {
+            "id": "source-checkpoint-13-written",
+            "data-writing": "source-checkpoint-13-written",
+            "data-answer-limit": "3200",
+            "rows": "6",
+            "aria-describedby": "source-checkpoint-13-written-limit source-checkpoint-13-written-status"
+          },
+          "text": ""
+        }
+      ],
+      "authoredKey": null
+    },
+    {
+      "id": "source-checkpoint-14",
+      "activityId": "practice-action-potentials",
+      "lessonId": "lesson-05",
+      "attrs": {
+        "class": "question",
+        "data-question": "source-checkpoint-14"
+      },
+      "originalHtml": "<div class=\"question\" data-question=\"source-checkpoint-14\">\n<p data-canvas-helper-edit-key=\"p3-chapter-294\">\nSummarize the events that occur as an impulse is propagated along the length of the neuron. </p>\n<p data-canvas-helper-edit-key=\"p3-chapter-295\">\n<a href=\"#textbook-library\" data-book-page=\"21\" data-canvas-helper-edit-key=\"p3-chapter-296\">Textbook p. 380</a>\n</p>\n<label for=\"source-checkpoint-14-written\" data-canvas-helper-edit-key=\"p3-chapter-297\">Written response</label>\n<textarea id=\"source-checkpoint-14-written\" data-writing=\"source-checkpoint-14-written\" data-answer-limit=\"3200\" rows=\"6\" aria-describedby=\"source-checkpoint-14-written-limit source-checkpoint-14-written-status\"></textarea>\n<p id=\"source-checkpoint-14-written-limit\" class=\"muted\" data-canvas-helper-edit-key=\"p3-chapter-298\">Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded.</p>\n<button type=\"button\" data-submit-writing=\"\" data-canvas-helper-edit-key=\"p3-chapter-299\">Save written response</button>\n<p data-writing-status=\"\" id=\"source-checkpoint-14-written-status\" role=\"status\" data-canvas-helper-edit-key=\"p3-chapter-300\">\n</p>\n</div>",
+      "completeText": "Summarize the events that occur as an impulse is propagated along the length of the neuron. Textbook p. 380 Written response Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded. Save written response",
+      "locator": {
+        "path": "projects/biology30-unit-a-pilot-3/workspace/index.html",
+        "line": 1021,
+        "endLine": 1033
+      },
+      "answerFields": [
+        {
+          "tag": "textarea",
+          "attrs": {
+            "id": "source-checkpoint-14-written",
+            "data-writing": "source-checkpoint-14-written",
+            "data-answer-limit": "3200",
+            "rows": "6",
+            "aria-describedby": "source-checkpoint-14-written-limit source-checkpoint-14-written-status"
+          },
+          "text": ""
+        }
+      ],
+      "authoredKey": null
+    }
+  ],
+  "optionalGeneratedPractice": [
+    {
+      "id": "action-potential",
+      "lessonId": "lesson-05",
+      "term": "action potential",
+      "definition": "a rapid, all-or-none reversal and restoration of membrane potential",
+      "scenario": "Once threshold is reached, a full action potential propagates along the axon.",
+      "misconception": "A stronger stimulus creates a taller action potential in the same neuron.",
+      "sequence": [
+        "threshold",
+        "depolarization",
+        "repolarization",
+        "refractory period"
+      ],
+      "answers": [
+        "action potential"
+      ],
+      "aliases": [],
+      "relationships": [
+        "threshold",
+        "depolarization",
+        "repolarization",
+        "refractory period"
+      ],
+      "contrast": [
+        "a rapid, all-or-none reversal and restoration of membrane potential",
+        "A stronger stimulus creates a taller action potential in the same neuron."
+      ],
+      "cue": "Trace where action potential belongs in the lesson mechanism or example.",
+      "explanation": "action potential: a rapid, all-or-none reversal and restoration of membrane potential",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 377"
+      ],
+      "mcVariants": [
+        {
+          "id": "term",
+          "skill": "recognize",
+          "difficulty": 1,
+          "prompt": "Which term best matches this description: a rapid, all-or-none reversal and restoration of membrane potential?",
+          "answer": "action potential",
+          "optionSource": "terms"
+        },
+        {
+          "id": "function",
+          "skill": "relate",
+          "difficulty": 2,
+          "prompt": "Which statement best describes action potential?",
+          "answer": "a rapid, all-or-none reversal and restoration of membrane potential",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "scenario",
+          "skill": "apply",
+          "difficulty": 3,
+          "prompt": "Which concept best explains this situation? Once threshold is reached, a full action potential propagates along the axon.",
+          "answer": "action potential",
+          "optionSource": "terms"
+        },
+        {
+          "id": "correction",
+          "skill": "misconception",
+          "difficulty": 3,
+          "prompt": "Which statement correctly replaces this inaccurate idea: “A stronger stimulus creates a taller action potential in the same neuron.”",
+          "answer": "a rapid, all-or-none reversal and restoration of membrane potential",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "sequence-start",
+          "skill": "sequence",
+          "difficulty": 1,
+          "prompt": "Which event begins the action potential sequence?",
+          "answer": "threshold",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-next",
+          "skill": "sequence",
+          "difficulty": 2,
+          "prompt": "In the action potential sequence, what follows threshold?",
+          "answer": "depolarization",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-end",
+          "skill": "integrate",
+          "difficulty": 4,
+          "prompt": "Which event completes the action potential sequence?",
+          "answer": "refractory period",
+          "optionSource": "sequence"
+        }
+      ]
+    },
+    {
+      "id": "depolarization",
+      "lessonId": "lesson-05",
+      "term": "depolarization",
+      "definition": "the membrane potential becomes less negative as Na+ enters through voltage-gated channels",
+      "scenario": "Opening voltage-gated sodium channels drives the rising phase.",
+      "misconception": "Depolarization is caused mainly by K+ leaving the neuron.",
+      "sequence": [
+        "threshold",
+        "Na+ channels open",
+        "Na+ enters",
+        "potential rises"
+      ],
+      "answers": [
+        "depolarization"
+      ],
+      "aliases": [],
+      "relationships": [
+        "threshold",
+        "Na+ channels open",
+        "Na+ enters",
+        "potential rises"
+      ],
+      "contrast": [
+        "the membrane potential becomes less negative as Na+ enters through voltage-gated channels",
+        "Depolarization is caused mainly by K+ leaving the neuron."
+      ],
+      "cue": "Trace where depolarization belongs in the lesson mechanism or example.",
+      "explanation": "depolarization: the membrane potential becomes less negative as Na+ enters through voltage-gated channels",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 377"
+      ],
+      "mcVariants": [
+        {
+          "id": "term",
+          "skill": "recognize",
+          "difficulty": 1,
+          "prompt": "Which term best matches this description: the membrane potential becomes less negative as Na+ enters through voltage-gated channels?",
+          "answer": "depolarization",
+          "optionSource": "terms"
+        },
+        {
+          "id": "function",
+          "skill": "relate",
+          "difficulty": 2,
+          "prompt": "Which statement best describes depolarization?",
+          "answer": "the membrane potential becomes less negative as Na+ enters through voltage-gated channels",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "scenario",
+          "skill": "apply",
+          "difficulty": 3,
+          "prompt": "Which concept best explains this situation? Opening voltage-gated sodium channels drives the rising phase.",
+          "answer": "depolarization",
+          "optionSource": "terms"
+        },
+        {
+          "id": "correction",
+          "skill": "misconception",
+          "difficulty": 3,
+          "prompt": "Which statement correctly replaces this inaccurate idea: “Depolarization is caused mainly by K+ leaving the neuron.”",
+          "answer": "the membrane potential becomes less negative as Na+ enters through voltage-gated channels",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "sequence-start",
+          "skill": "sequence",
+          "difficulty": 1,
+          "prompt": "Which event begins the depolarization sequence?",
+          "answer": "threshold",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-next",
+          "skill": "sequence",
+          "difficulty": 2,
+          "prompt": "In the depolarization sequence, what follows threshold?",
+          "answer": "Na+ channels open",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-end",
+          "skill": "integrate",
+          "difficulty": 4,
+          "prompt": "Which event completes the depolarization sequence?",
+          "answer": "potential rises",
+          "optionSource": "sequence"
+        }
+      ]
+    },
+    {
+      "id": "refractory-period",
+      "lessonId": "lesson-05",
+      "term": "refractory period",
+      "definition": "a recovery interval that limits immediate firing and supports one-way propagation",
+      "scenario": "Recently activated membrane cannot instantly produce another identical impulse.",
+      "misconception": "The refractory period makes the impulse travel backward and forward equally.",
+      "sequence": [
+        "action potential",
+        "Na+ channel inactivation",
+        "recovery",
+        "next impulse possible"
+      ],
+      "answers": [
+        "refractory period"
+      ],
+      "aliases": [],
+      "relationships": [
+        "action potential",
+        "Na+ channel inactivation",
+        "recovery",
+        "next impulse possible"
+      ],
+      "contrast": [
+        "a recovery interval that limits immediate firing and supports one-way propagation",
+        "The refractory period makes the impulse travel backward and forward equally."
+      ],
+      "cue": "Trace where refractory period belongs in the lesson mechanism or example.",
+      "explanation": "refractory period: a recovery interval that limits immediate firing and supports one-way propagation",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 380"
+      ],
+      "mcVariants": [
+        {
+          "id": "term",
+          "skill": "recognize",
+          "difficulty": 1,
+          "prompt": "Which term best matches this description: a recovery interval that limits immediate firing and supports one-way propagation?",
+          "answer": "refractory period",
+          "optionSource": "terms"
+        },
+        {
+          "id": "function",
+          "skill": "relate",
+          "difficulty": 2,
+          "prompt": "Which statement best describes refractory period?",
+          "answer": "a recovery interval that limits immediate firing and supports one-way propagation",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "scenario",
+          "skill": "apply",
+          "difficulty": 3,
+          "prompt": "Which concept best explains this situation? Recently activated membrane cannot instantly produce another identical impulse.",
+          "answer": "refractory period",
+          "optionSource": "terms"
+        },
+        {
+          "id": "correction",
+          "skill": "misconception",
+          "difficulty": 3,
+          "prompt": "Which statement correctly replaces this inaccurate idea: “The refractory period makes the impulse travel backward and forward equally.”",
+          "answer": "a recovery interval that limits immediate firing and supports one-way propagation",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "sequence-start",
+          "skill": "sequence",
+          "difficulty": 1,
+          "prompt": "Which event begins the refractory period sequence?",
+          "answer": "action potential",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-next",
+          "skill": "sequence",
+          "difficulty": 2,
+          "prompt": "In the refractory period sequence, what follows action potential?",
+          "answer": "Na+ channel inactivation",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-end",
+          "skill": "integrate",
+          "difficulty": 4,
+          "prompt": "Which event completes the refractory period sequence?",
+          "answer": "next impulse possible",
+          "optionSource": "sequence"
+        }
+      ]
+    }
+  ],
+  "generatedItemFamilies": [
+    {
+      "kind": "flashcards",
+      "conceptId": "action-potential",
+      "lessonId": "lesson-05",
+      "cue": "Trace where action potential belongs in the lesson mechanism or example.",
+      "explanation": "action potential: a rapid, all-or-none reversal and restoration of membrane potential Source: Biology 30 Chapter 11, textbook p. 377",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 377"
+      ],
+      "id": "action-potential:card-term",
+      "family": "recall",
+      "interaction": "flashcard",
+      "skill": "recall",
+      "prompt": "action potential",
+      "answers": [
+        "a rapid, all-or-none reversal and restoration of membrane potential"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "flashcards",
+      "conceptId": "action-potential",
+      "lessonId": "lesson-05",
+      "cue": "Trace where action potential belongs in the lesson mechanism or example.",
+      "explanation": "action potential: a rapid, all-or-none reversal and restoration of membrane potential Source: Biology 30 Chapter 11, textbook p. 377",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 377"
+      ],
+      "id": "action-potential:card-definition",
+      "family": "reverse-retrieval",
+      "interaction": "flashcard",
+      "skill": "recall",
+      "prompt": "a rapid, all-or-none reversal and restoration of membrane potential",
+      "answers": [
+        "action potential"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "flashcards",
+      "conceptId": "action-potential",
+      "lessonId": "lesson-05",
+      "cue": "Trace where action potential belongs in the lesson mechanism or example.",
+      "explanation": "action potential: a rapid, all-or-none reversal and restoration of membrane potential Source: Biology 30 Chapter 11, textbook p. 377",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 377"
+      ],
+      "id": "action-potential:card-scenario",
+      "family": "application",
+      "interaction": "flashcard",
+      "skill": "application",
+      "prompt": "Once threshold is reached, a full action potential propagates along the axon.",
+      "answers": [
+        "action potential — a rapid, all-or-none reversal and restoration of membrane potential"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "flashcards",
+      "conceptId": "action-potential",
+      "lessonId": "lesson-05",
+      "cue": "Trace where action potential belongs in the lesson mechanism or example.",
+      "explanation": "action potential: a rapid, all-or-none reversal and restoration of membrane potential Source: Biology 30 Chapter 11, textbook p. 377",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 377"
+      ],
+      "id": "action-potential:card-error",
+      "family": "error-correction",
+      "interaction": "flashcard",
+      "skill": "error-correction",
+      "prompt": "Correct this idea: A stronger stimulus creates a taller action potential in the same neuron.",
+      "answers": [
+        "a rapid, all-or-none reversal and restoration of membrane potential"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "blanks",
+      "conceptId": "action-potential",
+      "lessonId": "lesson-05",
+      "cue": "Trace where action potential belongs in the lesson mechanism or example.",
+      "explanation": "action potential: a rapid, all-or-none reversal and restoration of membrane potential Source: Biology 30 Chapter 11, textbook p. 377",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 377"
+      ],
+      "id": "action-potential:blank-definition",
+      "family": "definition",
+      "interaction": "typed",
+      "skill": "recall",
+      "prompt": "The term for “a rapid, all-or-none reversal and restoration of membrane potential” is _____.",
+      "answers": [
+        "action potential"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "blanks",
+      "conceptId": "action-potential",
+      "lessonId": "lesson-05",
+      "cue": "Trace where action potential belongs in the lesson mechanism or example.",
+      "explanation": "action potential: a rapid, all-or-none reversal and restoration of membrane potential Source: Biology 30 Chapter 11, textbook p. 377",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 377"
+      ],
+      "id": "action-potential:blank-scenario",
+      "family": "scenario",
+      "interaction": "typed",
+      "skill": "application",
+      "prompt": "This situation illustrates _____: Once threshold is reached, a full action potential propagates along the axon.",
+      "answers": [
+        "action potential"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "blanks",
+      "conceptId": "action-potential",
+      "lessonId": "lesson-05",
+      "cue": "Trace where action potential belongs in the lesson mechanism or example.",
+      "explanation": "action potential: a rapid, all-or-none reversal and restoration of membrane potential Source: Biology 30 Chapter 11, textbook p. 377",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 377"
+      ],
+      "id": "action-potential:blank-sequence",
+      "family": "pathway",
+      "interaction": "typed",
+      "skill": "sequencing",
+      "prompt": "Complete the pathway: threshold → depolarization → repolarization → _____.",
+      "answers": [
+        "refractory period"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "action-potential",
+      "lessonId": "lesson-05",
+      "cue": "Trace where action potential belongs in the lesson mechanism or example.",
+      "explanation": "action potential: a rapid, all-or-none reversal and restoration of membrane potential Source: Biology 30 Chapter 11, textbook p. 377",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 377"
+      ],
+      "id": "action-potential:mc-term",
+      "family": "recognize",
+      "interaction": "single",
+      "skill": "recognize",
+      "difficulty": 1,
+      "prompt": "Which term best matches this description: a rapid, all-or-none reversal and restoration of membrane potential?",
+      "answers": [
+        "action potential"
+      ],
+      "options": [
+        "action potential",
+        "depolarization",
+        "threshold",
+        "refractory period"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "action-potential",
+      "lessonId": "lesson-05",
+      "cue": "Trace where action potential belongs in the lesson mechanism or example.",
+      "explanation": "action potential: a rapid, all-or-none reversal and restoration of membrane potential Source: Biology 30 Chapter 11, textbook p. 377",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 377"
+      ],
+      "id": "action-potential:mc-function",
+      "family": "relate",
+      "interaction": "single",
+      "skill": "relate",
+      "difficulty": 2,
+      "prompt": "Which statement best describes action potential?",
+      "answers": [
+        "a rapid, all-or-none reversal and restoration of membrane potential"
+      ],
+      "options": [
+        "a rapid, all-or-none reversal and restoration of membrane potential",
+        "Depolarization is caused mainly by K+ leaving the neuron.",
+        "The refractory period makes the impulse travel backward and forward equally.",
+        "A stronger stimulus creates a taller action potential in the same neuron."
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "action-potential",
+      "lessonId": "lesson-05",
+      "cue": "Trace where action potential belongs in the lesson mechanism or example.",
+      "explanation": "action potential: a rapid, all-or-none reversal and restoration of membrane potential Source: Biology 30 Chapter 11, textbook p. 377",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 377"
+      ],
+      "id": "action-potential:mc-scenario",
+      "family": "apply",
+      "interaction": "single",
+      "skill": "apply",
+      "difficulty": 3,
+      "prompt": "Which concept best explains this situation? Once threshold is reached, a full action potential propagates along the axon.",
+      "answers": [
+        "action potential"
+      ],
+      "options": [
+        "action potential",
+        "depolarization",
+        "repolarization",
+        "refractory period"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "action-potential",
+      "lessonId": "lesson-05",
+      "cue": "Trace where action potential belongs in the lesson mechanism or example.",
+      "explanation": "action potential: a rapid, all-or-none reversal and restoration of membrane potential Source: Biology 30 Chapter 11, textbook p. 377",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 377"
+      ],
+      "id": "action-potential:mc-correction",
+      "family": "misconception",
+      "interaction": "single",
+      "skill": "misconception",
+      "difficulty": 3,
+      "prompt": "Which statement correctly replaces this inaccurate idea: “A stronger stimulus creates a taller action potential in the same neuron.”",
+      "answers": [
+        "a rapid, all-or-none reversal and restoration of membrane potential"
+      ],
+      "options": [
+        "a rapid, all-or-none reversal and restoration of membrane potential",
+        "Depolarization is caused mainly by K+ leaving the neuron.",
+        "A stronger stimulus creates a taller action potential in the same neuron.",
+        "the membrane potential becomes less negative as Na+ enters through voltage-gated channels"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "action-potential",
+      "lessonId": "lesson-05",
+      "cue": "Trace where action potential belongs in the lesson mechanism or example.",
+      "explanation": "action potential: a rapid, all-or-none reversal and restoration of membrane potential Source: Biology 30 Chapter 11, textbook p. 377",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 377"
+      ],
+      "id": "action-potential:mc-sequence-start",
+      "family": "sequence",
+      "interaction": "single",
+      "skill": "sequence",
+      "difficulty": 1,
+      "prompt": "Which event begins the action potential sequence?",
+      "answers": [
+        "threshold"
+      ],
+      "options": [
+        "potential rises",
+        "refractory period",
+        "threshold",
+        "Na+ enters"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "action-potential",
+      "lessonId": "lesson-05",
+      "cue": "Trace where action potential belongs in the lesson mechanism or example.",
+      "explanation": "action potential: a rapid, all-or-none reversal and restoration of membrane potential Source: Biology 30 Chapter 11, textbook p. 377",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 377"
+      ],
+      "id": "action-potential:mc-sequence-next",
+      "family": "sequence",
+      "interaction": "single",
+      "skill": "sequence",
+      "difficulty": 2,
+      "prompt": "In the action potential sequence, what follows threshold?",
+      "answers": [
+        "depolarization"
+      ],
+      "options": [
+        "action potential",
+        "refractory period",
+        "threshold",
+        "depolarization"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "action-potential",
+      "lessonId": "lesson-05",
+      "cue": "Trace where action potential belongs in the lesson mechanism or example.",
+      "explanation": "action potential: a rapid, all-or-none reversal and restoration of membrane potential Source: Biology 30 Chapter 11, textbook p. 377",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 377"
+      ],
+      "id": "action-potential:mc-sequence-end",
+      "family": "integrate",
+      "interaction": "single",
+      "skill": "integrate",
+      "difficulty": 4,
+      "prompt": "Which event completes the action potential sequence?",
+      "answers": [
+        "refractory period"
+      ],
+      "options": [
+        "potential rises",
+        "Na+ enters",
+        "threshold",
+        "refractory period"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "action-potential",
+      "lessonId": "lesson-05",
+      "cue": "Trace where action potential belongs in the lesson mechanism or example.",
+      "explanation": "action potential: a rapid, all-or-none reversal and restoration of membrane potential Source: Biology 30 Chapter 11, textbook p. 377",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 377"
+      ],
+      "id": "action-potential:mixed-typed",
+      "family": "retrieval",
+      "interaction": "typed",
+      "skill": "recall",
+      "prompt": "Name the concept: a rapid, all-or-none reversal and restoration of membrane potential",
+      "answers": [
+        "action potential"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "action-potential",
+      "lessonId": "lesson-05",
+      "cue": "Trace where action potential belongs in the lesson mechanism or example.",
+      "explanation": "action potential: a rapid, all-or-none reversal and restoration of membrane potential Source: Biology 30 Chapter 11, textbook p. 377",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 377"
+      ],
+      "id": "action-potential:mixed-single",
+      "family": "discrimination",
+      "interaction": "single",
+      "skill": "comparison",
+      "prompt": "Which concept means “a rapid, all-or-none reversal and restoration of membrane potential”?",
+      "answers": [
+        "action potential"
+      ],
+      "options": [
+        "depolarization",
+        "refractory period",
+        "action potential"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "action-potential",
+      "lessonId": "lesson-05",
+      "cue": "Trace where action potential belongs in the lesson mechanism or example.",
+      "explanation": "action potential: a rapid, all-or-none reversal and restoration of membrane potential Source: Biology 30 Chapter 11, textbook p. 377",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 377"
+      ],
+      "id": "action-potential:mixed-application",
+      "family": "application",
+      "interaction": "single",
+      "skill": "application",
+      "prompt": "Once threshold is reached, a full action potential propagates along the axon.",
+      "answers": [
+        "action potential"
+      ],
+      "options": [
+        "depolarization",
+        "action potential",
+        "refractory period"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "action-potential",
+      "lessonId": "lesson-05",
+      "cue": "Trace where action potential belongs in the lesson mechanism or example.",
+      "explanation": "action potential: a rapid, all-or-none reversal and restoration of membrane potential Source: Biology 30 Chapter 11, textbook p. 377",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 377"
+      ],
+      "id": "action-potential:mixed-multiple",
+      "family": "odd-one-out",
+      "interaction": "multiple",
+      "skill": "comparison",
+      "prompt": "Select both statements that belong with action potential.",
+      "answers": [
+        "a rapid, all-or-none reversal and restoration of membrane potential",
+        "Once threshold is reached, a full action potential propagates along the axon."
+      ],
+      "options": [
+        "a rapid, all-or-none reversal and restoration of membrane potential",
+        "Once threshold is reached, a full action potential propagates along the axon.",
+        "a recovery interval that limits immediate firing and supports one-way propagation",
+        "the membrane potential becomes less negative as Na+ enters through voltage-gated channels"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "action-potential",
+      "lessonId": "lesson-05",
+      "cue": "Trace where action potential belongs in the lesson mechanism or example.",
+      "explanation": "action potential: a rapid, all-or-none reversal and restoration of membrane potential Source: Biology 30 Chapter 11, textbook p. 377",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 377"
+      ],
+      "id": "action-potential:mixed-tf",
+      "family": "misconception",
+      "interaction": "true-false",
+      "skill": "error-correction",
+      "prompt": "A stronger stimulus creates a taller action potential in the same neuron.",
+      "answers": [
+        "false"
+      ],
+      "options": [
+        "true",
+        "false"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "action-potential",
+      "lessonId": "lesson-05",
+      "cue": "Trace where action potential belongs in the lesson mechanism or example.",
+      "explanation": "action potential: a rapid, all-or-none reversal and restoration of membrane potential Source: Biology 30 Chapter 11, textbook p. 377",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 377"
+      ],
+      "id": "action-potential:mixed-order",
+      "family": "sequence",
+      "interaction": "ordering",
+      "skill": "sequencing",
+      "prompt": "Put the action potential steps in order.",
+      "answers": [
+        "threshold",
+        "depolarization",
+        "repolarization",
+        "refractory period"
+      ],
+      "options": [
+        "repolarization",
+        "depolarization",
+        "refractory period",
+        "threshold"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "action-potential",
+      "lessonId": "lesson-05",
+      "cue": "Trace where action potential belongs in the lesson mechanism or example.",
+      "explanation": "action potential: a rapid, all-or-none reversal and restoration of membrane potential Source: Biology 30 Chapter 11, textbook p. 377",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 377"
+      ],
+      "id": "action-potential:mc-term",
+      "family": "recognize",
+      "interaction": "single",
+      "skill": "recognize",
+      "difficulty": 1,
+      "prompt": "Which term best matches this description: a rapid, all-or-none reversal and restoration of membrane potential?",
+      "answers": [
+        "action potential"
+      ],
+      "options": [
+        "threshold",
+        "depolarization",
+        "repolarization",
+        "action potential"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "action-potential",
+      "lessonId": "lesson-05",
+      "cue": "Trace where action potential belongs in the lesson mechanism or example.",
+      "explanation": "action potential: a rapid, all-or-none reversal and restoration of membrane potential Source: Biology 30 Chapter 11, textbook p. 377",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 377"
+      ],
+      "id": "action-potential:mc-function",
+      "family": "relate",
+      "interaction": "single",
+      "skill": "relate",
+      "difficulty": 2,
+      "prompt": "Which statement best describes action potential?",
+      "answers": [
+        "a rapid, all-or-none reversal and restoration of membrane potential"
+      ],
+      "options": [
+        "a rapid, all-or-none reversal and restoration of membrane potential",
+        "The refractory period makes the impulse travel backward and forward equally.",
+        "the membrane potential becomes less negative as Na+ enters through voltage-gated channels",
+        "Depolarization is caused mainly by K+ leaving the neuron."
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "flashcards",
+      "conceptId": "depolarization",
+      "lessonId": "lesson-05",
+      "cue": "Trace where depolarization belongs in the lesson mechanism or example.",
+      "explanation": "depolarization: the membrane potential becomes less negative as Na+ enters through voltage-gated channels Source: Biology 30 Chapter 11, textbook p. 377",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 377"
+      ],
+      "id": "depolarization:card-term",
+      "family": "recall",
+      "interaction": "flashcard",
+      "skill": "recall",
+      "prompt": "depolarization",
+      "answers": [
+        "the membrane potential becomes less negative as Na+ enters through voltage-gated channels"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "flashcards",
+      "conceptId": "depolarization",
+      "lessonId": "lesson-05",
+      "cue": "Trace where depolarization belongs in the lesson mechanism or example.",
+      "explanation": "depolarization: the membrane potential becomes less negative as Na+ enters through voltage-gated channels Source: Biology 30 Chapter 11, textbook p. 377",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 377"
+      ],
+      "id": "depolarization:card-definition",
+      "family": "reverse-retrieval",
+      "interaction": "flashcard",
+      "skill": "recall",
+      "prompt": "the membrane potential becomes less negative as Na+ enters through voltage-gated channels",
+      "answers": [
+        "depolarization"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "flashcards",
+      "conceptId": "depolarization",
+      "lessonId": "lesson-05",
+      "cue": "Trace where depolarization belongs in the lesson mechanism or example.",
+      "explanation": "depolarization: the membrane potential becomes less negative as Na+ enters through voltage-gated channels Source: Biology 30 Chapter 11, textbook p. 377",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 377"
+      ],
+      "id": "depolarization:card-scenario",
+      "family": "application",
+      "interaction": "flashcard",
+      "skill": "application",
+      "prompt": "Opening voltage-gated sodium channels drives the rising phase.",
+      "answers": [
+        "depolarization — the membrane potential becomes less negative as Na+ enters through voltage-gated channels"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "flashcards",
+      "conceptId": "depolarization",
+      "lessonId": "lesson-05",
+      "cue": "Trace where depolarization belongs in the lesson mechanism or example.",
+      "explanation": "depolarization: the membrane potential becomes less negative as Na+ enters through voltage-gated channels Source: Biology 30 Chapter 11, textbook p. 377",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 377"
+      ],
+      "id": "depolarization:card-error",
+      "family": "error-correction",
+      "interaction": "flashcard",
+      "skill": "error-correction",
+      "prompt": "Correct this idea: Depolarization is caused mainly by K+ leaving the neuron.",
+      "answers": [
+        "the membrane potential becomes less negative as Na+ enters through voltage-gated channels"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "blanks",
+      "conceptId": "depolarization",
+      "lessonId": "lesson-05",
+      "cue": "Trace where depolarization belongs in the lesson mechanism or example.",
+      "explanation": "depolarization: the membrane potential becomes less negative as Na+ enters through voltage-gated channels Source: Biology 30 Chapter 11, textbook p. 377",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 377"
+      ],
+      "id": "depolarization:blank-definition",
+      "family": "definition",
+      "interaction": "typed",
+      "skill": "recall",
+      "prompt": "The term for “the membrane potential becomes less negative as Na+ enters through voltage-gated channels” is _____.",
+      "answers": [
+        "depolarization"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "blanks",
+      "conceptId": "depolarization",
+      "lessonId": "lesson-05",
+      "cue": "Trace where depolarization belongs in the lesson mechanism or example.",
+      "explanation": "depolarization: the membrane potential becomes less negative as Na+ enters through voltage-gated channels Source: Biology 30 Chapter 11, textbook p. 377",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 377"
+      ],
+      "id": "depolarization:blank-scenario",
+      "family": "scenario",
+      "interaction": "typed",
+      "skill": "application",
+      "prompt": "This situation illustrates _____: Opening voltage-gated sodium channels drives the rising phase.",
+      "answers": [
+        "depolarization"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "blanks",
+      "conceptId": "depolarization",
+      "lessonId": "lesson-05",
+      "cue": "Trace where depolarization belongs in the lesson mechanism or example.",
+      "explanation": "depolarization: the membrane potential becomes less negative as Na+ enters through voltage-gated channels Source: Biology 30 Chapter 11, textbook p. 377",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 377"
+      ],
+      "id": "depolarization:blank-sequence",
+      "family": "pathway",
+      "interaction": "typed",
+      "skill": "sequencing",
+      "prompt": "Complete the pathway: threshold → Na+ channels open → Na+ enters → _____.",
+      "answers": [
+        "potential rises"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "depolarization",
+      "lessonId": "lesson-05",
+      "cue": "Trace where depolarization belongs in the lesson mechanism or example.",
+      "explanation": "depolarization: the membrane potential becomes less negative as Na+ enters through voltage-gated channels Source: Biology 30 Chapter 11, textbook p. 377",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 377"
+      ],
+      "id": "depolarization:mc-term",
+      "family": "recognize",
+      "interaction": "single",
+      "skill": "recognize",
+      "difficulty": 1,
+      "prompt": "Which term best matches this description: the membrane potential becomes less negative as Na+ enters through voltage-gated channels?",
+      "answers": [
+        "depolarization"
+      ],
+      "options": [
+        "Na+ enters",
+        "action potential",
+        "depolarization",
+        "potential rises"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "depolarization",
+      "lessonId": "lesson-05",
+      "cue": "Trace where depolarization belongs in the lesson mechanism or example.",
+      "explanation": "depolarization: the membrane potential becomes less negative as Na+ enters through voltage-gated channels Source: Biology 30 Chapter 11, textbook p. 377",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 377"
+      ],
+      "id": "depolarization:mc-function",
+      "family": "relate",
+      "interaction": "single",
+      "skill": "relate",
+      "difficulty": 2,
+      "prompt": "Which statement best describes depolarization?",
+      "answers": [
+        "the membrane potential becomes less negative as Na+ enters through voltage-gated channels"
+      ],
+      "options": [
+        "The refractory period makes the impulse travel backward and forward equally.",
+        "A stronger stimulus creates a taller action potential in the same neuron.",
+        "the membrane potential becomes less negative as Na+ enters through voltage-gated channels",
+        "a recovery interval that limits immediate firing and supports one-way propagation"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "depolarization",
+      "lessonId": "lesson-05",
+      "cue": "Trace where depolarization belongs in the lesson mechanism or example.",
+      "explanation": "depolarization: the membrane potential becomes less negative as Na+ enters through voltage-gated channels Source: Biology 30 Chapter 11, textbook p. 377",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 377"
+      ],
+      "id": "depolarization:mc-scenario",
+      "family": "apply",
+      "interaction": "single",
+      "skill": "apply",
+      "difficulty": 3,
+      "prompt": "Which concept best explains this situation? Opening voltage-gated sodium channels drives the rising phase.",
+      "answers": [
+        "depolarization"
+      ],
+      "options": [
+        "depolarization",
+        "refractory period",
+        "action potential",
+        "threshold"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "depolarization",
+      "lessonId": "lesson-05",
+      "cue": "Trace where depolarization belongs in the lesson mechanism or example.",
+      "explanation": "depolarization: the membrane potential becomes less negative as Na+ enters through voltage-gated channels Source: Biology 30 Chapter 11, textbook p. 377",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 377"
+      ],
+      "id": "depolarization:mc-correction",
+      "family": "misconception",
+      "interaction": "single",
+      "skill": "misconception",
+      "difficulty": 3,
+      "prompt": "Which statement correctly replaces this inaccurate idea: “Depolarization is caused mainly by K+ leaving the neuron.”",
+      "answers": [
+        "the membrane potential becomes less negative as Na+ enters through voltage-gated channels"
+      ],
+      "options": [
+        "A stronger stimulus creates a taller action potential in the same neuron.",
+        "the membrane potential becomes less negative as Na+ enters through voltage-gated channels",
+        "a recovery interval that limits immediate firing and supports one-way propagation",
+        "a rapid, all-or-none reversal and restoration of membrane potential"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "depolarization",
+      "lessonId": "lesson-05",
+      "cue": "Trace where depolarization belongs in the lesson mechanism or example.",
+      "explanation": "depolarization: the membrane potential becomes less negative as Na+ enters through voltage-gated channels Source: Biology 30 Chapter 11, textbook p. 377",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 377"
+      ],
+      "id": "depolarization:mc-sequence-start",
+      "family": "sequence",
+      "interaction": "single",
+      "skill": "sequence",
+      "difficulty": 1,
+      "prompt": "Which event begins the depolarization sequence?",
+      "answers": [
+        "threshold"
+      ],
+      "options": [
+        "threshold",
+        "refractory period",
+        "action potential",
+        "Na+ enters"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "depolarization",
+      "lessonId": "lesson-05",
+      "cue": "Trace where depolarization belongs in the lesson mechanism or example.",
+      "explanation": "depolarization: the membrane potential becomes less negative as Na+ enters through voltage-gated channels Source: Biology 30 Chapter 11, textbook p. 377",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 377"
+      ],
+      "id": "depolarization:mc-sequence-next",
+      "family": "sequence",
+      "interaction": "single",
+      "skill": "sequence",
+      "difficulty": 2,
+      "prompt": "In the depolarization sequence, what follows threshold?",
+      "answers": [
+        "Na+ channels open"
+      ],
+      "options": [
+        "repolarization",
+        "Na+ channels open",
+        "Na+ enters",
+        "refractory period"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "depolarization",
+      "lessonId": "lesson-05",
+      "cue": "Trace where depolarization belongs in the lesson mechanism or example.",
+      "explanation": "depolarization: the membrane potential becomes less negative as Na+ enters through voltage-gated channels Source: Biology 30 Chapter 11, textbook p. 377",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 377"
+      ],
+      "id": "depolarization:mc-sequence-end",
+      "family": "integrate",
+      "interaction": "single",
+      "skill": "integrate",
+      "difficulty": 4,
+      "prompt": "Which event completes the depolarization sequence?",
+      "answers": [
+        "potential rises"
+      ],
+      "options": [
+        "threshold",
+        "Na+ enters",
+        "potential rises",
+        "refractory period"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "depolarization",
+      "lessonId": "lesson-05",
+      "cue": "Trace where depolarization belongs in the lesson mechanism or example.",
+      "explanation": "depolarization: the membrane potential becomes less negative as Na+ enters through voltage-gated channels Source: Biology 30 Chapter 11, textbook p. 377",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 377"
+      ],
+      "id": "depolarization:mixed-typed",
+      "family": "retrieval",
+      "interaction": "typed",
+      "skill": "recall",
+      "prompt": "Name the concept: the membrane potential becomes less negative as Na+ enters through voltage-gated channels",
+      "answers": [
+        "depolarization"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "depolarization",
+      "lessonId": "lesson-05",
+      "cue": "Trace where depolarization belongs in the lesson mechanism or example.",
+      "explanation": "depolarization: the membrane potential becomes less negative as Na+ enters through voltage-gated channels Source: Biology 30 Chapter 11, textbook p. 377",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 377"
+      ],
+      "id": "depolarization:mixed-single",
+      "family": "discrimination",
+      "interaction": "single",
+      "skill": "comparison",
+      "prompt": "Which concept means “the membrane potential becomes less negative as Na+ enters through voltage-gated channels”?",
+      "answers": [
+        "depolarization"
+      ],
+      "options": [
+        "refractory period",
+        "action potential",
+        "depolarization"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "depolarization",
+      "lessonId": "lesson-05",
+      "cue": "Trace where depolarization belongs in the lesson mechanism or example.",
+      "explanation": "depolarization: the membrane potential becomes less negative as Na+ enters through voltage-gated channels Source: Biology 30 Chapter 11, textbook p. 377",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 377"
+      ],
+      "id": "depolarization:mixed-application",
+      "family": "application",
+      "interaction": "single",
+      "skill": "application",
+      "prompt": "Opening voltage-gated sodium channels drives the rising phase.",
+      "answers": [
+        "depolarization"
+      ],
+      "options": [
+        "refractory period",
+        "depolarization",
+        "action potential"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "depolarization",
+      "lessonId": "lesson-05",
+      "cue": "Trace where depolarization belongs in the lesson mechanism or example.",
+      "explanation": "depolarization: the membrane potential becomes less negative as Na+ enters through voltage-gated channels Source: Biology 30 Chapter 11, textbook p. 377",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 377"
+      ],
+      "id": "depolarization:mixed-multiple",
+      "family": "odd-one-out",
+      "interaction": "multiple",
+      "skill": "comparison",
+      "prompt": "Select both statements that belong with depolarization.",
+      "answers": [
+        "the membrane potential becomes less negative as Na+ enters through voltage-gated channels",
+        "Opening voltage-gated sodium channels drives the rising phase."
+      ],
+      "options": [
+        "the membrane potential becomes less negative as Na+ enters through voltage-gated channels",
+        "Opening voltage-gated sodium channels drives the rising phase.",
+        "a rapid, all-or-none reversal and restoration of membrane potential",
+        "a recovery interval that limits immediate firing and supports one-way propagation"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "depolarization",
+      "lessonId": "lesson-05",
+      "cue": "Trace where depolarization belongs in the lesson mechanism or example.",
+      "explanation": "depolarization: the membrane potential becomes less negative as Na+ enters through voltage-gated channels Source: Biology 30 Chapter 11, textbook p. 377",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 377"
+      ],
+      "id": "depolarization:mixed-tf",
+      "family": "misconception",
+      "interaction": "true-false",
+      "skill": "error-correction",
+      "prompt": "Depolarization is caused mainly by K+ leaving the neuron.",
+      "answers": [
+        "false"
+      ],
+      "options": [
+        "true",
+        "false"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "depolarization",
+      "lessonId": "lesson-05",
+      "cue": "Trace where depolarization belongs in the lesson mechanism or example.",
+      "explanation": "depolarization: the membrane potential becomes less negative as Na+ enters through voltage-gated channels Source: Biology 30 Chapter 11, textbook p. 377",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 377"
+      ],
+      "id": "depolarization:mixed-order",
+      "family": "sequence",
+      "interaction": "ordering",
+      "skill": "sequencing",
+      "prompt": "Put the depolarization steps in order.",
+      "answers": [
+        "threshold",
+        "Na+ channels open",
+        "Na+ enters",
+        "potential rises"
+      ],
+      "options": [
+        "Na+ channels open",
+        "threshold",
+        "Na+ enters",
+        "potential rises"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "depolarization",
+      "lessonId": "lesson-05",
+      "cue": "Trace where depolarization belongs in the lesson mechanism or example.",
+      "explanation": "depolarization: the membrane potential becomes less negative as Na+ enters through voltage-gated channels Source: Biology 30 Chapter 11, textbook p. 377",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 377"
+      ],
+      "id": "depolarization:mc-term",
+      "family": "recognize",
+      "interaction": "single",
+      "skill": "recognize",
+      "difficulty": 1,
+      "prompt": "Which term best matches this description: the membrane potential becomes less negative as Na+ enters through voltage-gated channels?",
+      "answers": [
+        "depolarization"
+      ],
+      "options": [
+        "depolarization",
+        "Na+ channels open",
+        "action potential",
+        "potential rises"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "depolarization",
+      "lessonId": "lesson-05",
+      "cue": "Trace where depolarization belongs in the lesson mechanism or example.",
+      "explanation": "depolarization: the membrane potential becomes less negative as Na+ enters through voltage-gated channels Source: Biology 30 Chapter 11, textbook p. 377",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 377"
+      ],
+      "id": "depolarization:mc-function",
+      "family": "relate",
+      "interaction": "single",
+      "skill": "relate",
+      "difficulty": 2,
+      "prompt": "Which statement best describes depolarization?",
+      "answers": [
+        "the membrane potential becomes less negative as Na+ enters through voltage-gated channels"
+      ],
+      "options": [
+        "a recovery interval that limits immediate firing and supports one-way propagation",
+        "Depolarization is caused mainly by K+ leaving the neuron.",
+        "the membrane potential becomes less negative as Na+ enters through voltage-gated channels",
+        "A stronger stimulus creates a taller action potential in the same neuron."
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "flashcards",
+      "conceptId": "refractory-period",
+      "lessonId": "lesson-05",
+      "cue": "Trace where refractory period belongs in the lesson mechanism or example.",
+      "explanation": "refractory period: a recovery interval that limits immediate firing and supports one-way propagation Source: Biology 30 Chapter 11, textbook p. 380",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 380"
+      ],
+      "id": "refractory-period:card-term",
+      "family": "recall",
+      "interaction": "flashcard",
+      "skill": "recall",
+      "prompt": "refractory period",
+      "answers": [
+        "a recovery interval that limits immediate firing and supports one-way propagation"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "flashcards",
+      "conceptId": "refractory-period",
+      "lessonId": "lesson-05",
+      "cue": "Trace where refractory period belongs in the lesson mechanism or example.",
+      "explanation": "refractory period: a recovery interval that limits immediate firing and supports one-way propagation Source: Biology 30 Chapter 11, textbook p. 380",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 380"
+      ],
+      "id": "refractory-period:card-definition",
+      "family": "reverse-retrieval",
+      "interaction": "flashcard",
+      "skill": "recall",
+      "prompt": "a recovery interval that limits immediate firing and supports one-way propagation",
+      "answers": [
+        "refractory period"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "flashcards",
+      "conceptId": "refractory-period",
+      "lessonId": "lesson-05",
+      "cue": "Trace where refractory period belongs in the lesson mechanism or example.",
+      "explanation": "refractory period: a recovery interval that limits immediate firing and supports one-way propagation Source: Biology 30 Chapter 11, textbook p. 380",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 380"
+      ],
+      "id": "refractory-period:card-scenario",
+      "family": "application",
+      "interaction": "flashcard",
+      "skill": "application",
+      "prompt": "Recently activated membrane cannot instantly produce another identical impulse.",
+      "answers": [
+        "refractory period — a recovery interval that limits immediate firing and supports one-way propagation"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "flashcards",
+      "conceptId": "refractory-period",
+      "lessonId": "lesson-05",
+      "cue": "Trace where refractory period belongs in the lesson mechanism or example.",
+      "explanation": "refractory period: a recovery interval that limits immediate firing and supports one-way propagation Source: Biology 30 Chapter 11, textbook p. 380",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 380"
+      ],
+      "id": "refractory-period:card-error",
+      "family": "error-correction",
+      "interaction": "flashcard",
+      "skill": "error-correction",
+      "prompt": "Correct this idea: The refractory period makes the impulse travel backward and forward equally.",
+      "answers": [
+        "a recovery interval that limits immediate firing and supports one-way propagation"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "blanks",
+      "conceptId": "refractory-period",
+      "lessonId": "lesson-05",
+      "cue": "Trace where refractory period belongs in the lesson mechanism or example.",
+      "explanation": "refractory period: a recovery interval that limits immediate firing and supports one-way propagation Source: Biology 30 Chapter 11, textbook p. 380",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 380"
+      ],
+      "id": "refractory-period:blank-definition",
+      "family": "definition",
+      "interaction": "typed",
+      "skill": "recall",
+      "prompt": "The term for “a recovery interval that limits immediate firing and supports one-way propagation” is _____.",
+      "answers": [
+        "refractory period"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "blanks",
+      "conceptId": "refractory-period",
+      "lessonId": "lesson-05",
+      "cue": "Trace where refractory period belongs in the lesson mechanism or example.",
+      "explanation": "refractory period: a recovery interval that limits immediate firing and supports one-way propagation Source: Biology 30 Chapter 11, textbook p. 380",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 380"
+      ],
+      "id": "refractory-period:blank-scenario",
+      "family": "scenario",
+      "interaction": "typed",
+      "skill": "application",
+      "prompt": "This situation illustrates _____: Recently activated membrane cannot instantly produce another identical impulse.",
+      "answers": [
+        "refractory period"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "blanks",
+      "conceptId": "refractory-period",
+      "lessonId": "lesson-05",
+      "cue": "Trace where refractory period belongs in the lesson mechanism or example.",
+      "explanation": "refractory period: a recovery interval that limits immediate firing and supports one-way propagation Source: Biology 30 Chapter 11, textbook p. 380",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 380"
+      ],
+      "id": "refractory-period:blank-sequence",
+      "family": "pathway",
+      "interaction": "typed",
+      "skill": "sequencing",
+      "prompt": "Complete the pathway: action potential → Na+ channel inactivation → recovery → _____.",
+      "answers": [
+        "next impulse possible"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "refractory-period",
+      "lessonId": "lesson-05",
+      "cue": "Trace where refractory period belongs in the lesson mechanism or example.",
+      "explanation": "refractory period: a recovery interval that limits immediate firing and supports one-way propagation Source: Biology 30 Chapter 11, textbook p. 380",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 380"
+      ],
+      "id": "refractory-period:mc-term",
+      "family": "recognize",
+      "interaction": "single",
+      "skill": "recognize",
+      "difficulty": 1,
+      "prompt": "Which term best matches this description: a recovery interval that limits immediate firing and supports one-way propagation?",
+      "answers": [
+        "refractory period"
+      ],
+      "options": [
+        "recovery",
+        "refractory period",
+        "Na+ channel inactivation",
+        "next impulse possible"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "refractory-period",
+      "lessonId": "lesson-05",
+      "cue": "Trace where refractory period belongs in the lesson mechanism or example.",
+      "explanation": "refractory period: a recovery interval that limits immediate firing and supports one-way propagation Source: Biology 30 Chapter 11, textbook p. 380",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 380"
+      ],
+      "id": "refractory-period:mc-function",
+      "family": "relate",
+      "interaction": "single",
+      "skill": "relate",
+      "difficulty": 2,
+      "prompt": "Which statement best describes refractory period?",
+      "answers": [
+        "a recovery interval that limits immediate firing and supports one-way propagation"
+      ],
+      "options": [
+        "a recovery interval that limits immediate firing and supports one-way propagation",
+        "A stronger stimulus creates a taller action potential in the same neuron.",
+        "Depolarization is caused mainly by K+ leaving the neuron.",
+        "the membrane potential becomes less negative as Na+ enters through voltage-gated channels"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "refractory-period",
+      "lessonId": "lesson-05",
+      "cue": "Trace where refractory period belongs in the lesson mechanism or example.",
+      "explanation": "refractory period: a recovery interval that limits immediate firing and supports one-way propagation Source: Biology 30 Chapter 11, textbook p. 380",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 380"
+      ],
+      "id": "refractory-period:mc-scenario",
+      "family": "apply",
+      "interaction": "single",
+      "skill": "apply",
+      "difficulty": 3,
+      "prompt": "Which concept best explains this situation? Recently activated membrane cannot instantly produce another identical impulse.",
+      "answers": [
+        "refractory period"
+      ],
+      "options": [
+        "recovery",
+        "refractory period",
+        "next impulse possible",
+        "Na+ channel inactivation"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "refractory-period",
+      "lessonId": "lesson-05",
+      "cue": "Trace where refractory period belongs in the lesson mechanism or example.",
+      "explanation": "refractory period: a recovery interval that limits immediate firing and supports one-way propagation Source: Biology 30 Chapter 11, textbook p. 380",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 380"
+      ],
+      "id": "refractory-period:mc-correction",
+      "family": "misconception",
+      "interaction": "single",
+      "skill": "misconception",
+      "difficulty": 3,
+      "prompt": "Which statement correctly replaces this inaccurate idea: “The refractory period makes the impulse travel backward and forward equally.”",
+      "answers": [
+        "a recovery interval that limits immediate firing and supports one-way propagation"
+      ],
+      "options": [
+        "a recovery interval that limits immediate firing and supports one-way propagation",
+        "the membrane potential becomes less negative as Na+ enters through voltage-gated channels",
+        "Depolarization is caused mainly by K+ leaving the neuron.",
+        "a rapid, all-or-none reversal and restoration of membrane potential"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "refractory-period",
+      "lessonId": "lesson-05",
+      "cue": "Trace where refractory period belongs in the lesson mechanism or example.",
+      "explanation": "refractory period: a recovery interval that limits immediate firing and supports one-way propagation Source: Biology 30 Chapter 11, textbook p. 380",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 380"
+      ],
+      "id": "refractory-period:mc-sequence-start",
+      "family": "sequence",
+      "interaction": "single",
+      "skill": "sequence",
+      "difficulty": 1,
+      "prompt": "Which event begins the refractory period sequence?",
+      "answers": [
+        "action potential"
+      ],
+      "options": [
+        "action potential",
+        "Na+ channel inactivation",
+        "threshold",
+        "next impulse possible"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "refractory-period",
+      "lessonId": "lesson-05",
+      "cue": "Trace where refractory period belongs in the lesson mechanism or example.",
+      "explanation": "refractory period: a recovery interval that limits immediate firing and supports one-way propagation Source: Biology 30 Chapter 11, textbook p. 380",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 380"
+      ],
+      "id": "refractory-period:mc-sequence-next",
+      "family": "sequence",
+      "interaction": "single",
+      "skill": "sequence",
+      "difficulty": 2,
+      "prompt": "In the refractory period sequence, what follows action potential?",
+      "answers": [
+        "Na+ channel inactivation"
+      ],
+      "options": [
+        "next impulse possible",
+        "refractory period",
+        "repolarization",
+        "Na+ channel inactivation"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "refractory-period",
+      "lessonId": "lesson-05",
+      "cue": "Trace where refractory period belongs in the lesson mechanism or example.",
+      "explanation": "refractory period: a recovery interval that limits immediate firing and supports one-way propagation Source: Biology 30 Chapter 11, textbook p. 380",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 380"
+      ],
+      "id": "refractory-period:mc-sequence-end",
+      "family": "integrate",
+      "interaction": "single",
+      "skill": "integrate",
+      "difficulty": 4,
+      "prompt": "Which event completes the refractory period sequence?",
+      "answers": [
+        "next impulse possible"
+      ],
+      "options": [
+        "refractory period",
+        "next impulse possible",
+        "depolarization",
+        "action potential"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "refractory-period",
+      "lessonId": "lesson-05",
+      "cue": "Trace where refractory period belongs in the lesson mechanism or example.",
+      "explanation": "refractory period: a recovery interval that limits immediate firing and supports one-way propagation Source: Biology 30 Chapter 11, textbook p. 380",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 380"
+      ],
+      "id": "refractory-period:mixed-typed",
+      "family": "retrieval",
+      "interaction": "typed",
+      "skill": "recall",
+      "prompt": "Name the concept: a recovery interval that limits immediate firing and supports one-way propagation",
+      "answers": [
+        "refractory period"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "refractory-period",
+      "lessonId": "lesson-05",
+      "cue": "Trace where refractory period belongs in the lesson mechanism or example.",
+      "explanation": "refractory period: a recovery interval that limits immediate firing and supports one-way propagation Source: Biology 30 Chapter 11, textbook p. 380",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 380"
+      ],
+      "id": "refractory-period:mixed-single",
+      "family": "discrimination",
+      "interaction": "single",
+      "skill": "comparison",
+      "prompt": "Which concept means “a recovery interval that limits immediate firing and supports one-way propagation”?",
+      "answers": [
+        "refractory period"
+      ],
+      "options": [
+        "depolarization",
+        "action potential",
+        "refractory period"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "refractory-period",
+      "lessonId": "lesson-05",
+      "cue": "Trace where refractory period belongs in the lesson mechanism or example.",
+      "explanation": "refractory period: a recovery interval that limits immediate firing and supports one-way propagation Source: Biology 30 Chapter 11, textbook p. 380",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 380"
+      ],
+      "id": "refractory-period:mixed-application",
+      "family": "application",
+      "interaction": "single",
+      "skill": "application",
+      "prompt": "Recently activated membrane cannot instantly produce another identical impulse.",
+      "answers": [
+        "refractory period"
+      ],
+      "options": [
+        "action potential",
+        "refractory period",
+        "depolarization"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "refractory-period",
+      "lessonId": "lesson-05",
+      "cue": "Trace where refractory period belongs in the lesson mechanism or example.",
+      "explanation": "refractory period: a recovery interval that limits immediate firing and supports one-way propagation Source: Biology 30 Chapter 11, textbook p. 380",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 380"
+      ],
+      "id": "refractory-period:mixed-multiple",
+      "family": "odd-one-out",
+      "interaction": "multiple",
+      "skill": "comparison",
+      "prompt": "Select both statements that belong with refractory period.",
+      "answers": [
+        "a recovery interval that limits immediate firing and supports one-way propagation",
+        "Recently activated membrane cannot instantly produce another identical impulse."
+      ],
+      "options": [
+        "the membrane potential becomes less negative as Na+ enters through voltage-gated channels",
+        "Recently activated membrane cannot instantly produce another identical impulse.",
+        "a rapid, all-or-none reversal and restoration of membrane potential",
+        "a recovery interval that limits immediate firing and supports one-way propagation"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "refractory-period",
+      "lessonId": "lesson-05",
+      "cue": "Trace where refractory period belongs in the lesson mechanism or example.",
+      "explanation": "refractory period: a recovery interval that limits immediate firing and supports one-way propagation Source: Biology 30 Chapter 11, textbook p. 380",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 380"
+      ],
+      "id": "refractory-period:mixed-tf",
+      "family": "misconception",
+      "interaction": "true-false",
+      "skill": "error-correction",
+      "prompt": "The refractory period makes the impulse travel backward and forward equally.",
+      "answers": [
+        "false"
+      ],
+      "options": [
+        "true",
+        "false"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "refractory-period",
+      "lessonId": "lesson-05",
+      "cue": "Trace where refractory period belongs in the lesson mechanism or example.",
+      "explanation": "refractory period: a recovery interval that limits immediate firing and supports one-way propagation Source: Biology 30 Chapter 11, textbook p. 380",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 380"
+      ],
+      "id": "refractory-period:mixed-order",
+      "family": "sequence",
+      "interaction": "ordering",
+      "skill": "sequencing",
+      "prompt": "Put the refractory period steps in order.",
+      "answers": [
+        "action potential",
+        "Na+ channel inactivation",
+        "recovery",
+        "next impulse possible"
+      ],
+      "options": [
+        "recovery",
+        "action potential",
+        "Na+ channel inactivation",
+        "next impulse possible"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "refractory-period",
+      "lessonId": "lesson-05",
+      "cue": "Trace where refractory period belongs in the lesson mechanism or example.",
+      "explanation": "refractory period: a recovery interval that limits immediate firing and supports one-way propagation Source: Biology 30 Chapter 11, textbook p. 380",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 380"
+      ],
+      "id": "refractory-period:mc-term",
+      "family": "recognize",
+      "interaction": "single",
+      "skill": "recognize",
+      "difficulty": 1,
+      "prompt": "Which term best matches this description: a recovery interval that limits immediate firing and supports one-way propagation?",
+      "answers": [
+        "refractory period"
+      ],
+      "options": [
+        "refractory period",
+        "depolarization",
+        "action potential",
+        "recovery"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "refractory-period",
+      "lessonId": "lesson-05",
+      "cue": "Trace where refractory period belongs in the lesson mechanism or example.",
+      "explanation": "refractory period: a recovery interval that limits immediate firing and supports one-way propagation Source: Biology 30 Chapter 11, textbook p. 380",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 380"
+      ],
+      "id": "refractory-period:mc-function",
+      "family": "relate",
+      "interaction": "single",
+      "skill": "relate",
+      "difficulty": 2,
+      "prompt": "Which statement best describes refractory period?",
+      "answers": [
+        "a recovery interval that limits immediate firing and supports one-way propagation"
+      ],
+      "options": [
+        "Depolarization is caused mainly by K+ leaving the neuron.",
+        "a recovery interval that limits immediate firing and supports one-way propagation",
+        "the membrane potential becomes less negative as Na+ enters through voltage-gated channels",
+        "a rapid, all-or-none reversal and restoration of membrane potential"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    }
+  ],
+  "textbookPractice": [
+    {
+      "id": "ch11-p375-11-b-paper-analysis-q2",
+      "page": 375,
+      "group": "11.B paper analysis",
+      "number": 2,
+      "label": "11.B Paper Analysis · p. 375 · question 2",
+      "crops": [
+        {
+          "page": 375,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ]
+        }
+      ],
+      "topics": [
+        "lesson-04",
+        "lesson-05"
+      ]
+    },
+    {
+      "id": "ch11-p375-11-b-paper-analysis-q5",
+      "page": 375,
+      "group": "11.B paper analysis",
+      "number": 5,
+      "label": "11.B Paper Analysis · p. 375 · question 5",
+      "crops": [
+        {
+          "page": 375,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ]
+        }
+      ],
+      "topics": [
+        "lesson-04",
+        "lesson-05"
+      ]
+    },
+    {
+      "id": "ch11-p377-in-text-q11",
+      "page": 377,
+      "group": "in-text",
+      "number": 11,
+      "label": "In Text · p. 377 · question 11",
+      "crops": [
+        {
+          "page": 377,
+          "box": [
+            99.995,
+            602.789,
+            275.01800000000003,
+            656.289
+          ],
+          "asset": "ch11-p377-in-text-q11.jpg",
+          "role": "selected question column; full context follows",
+          "src": "./assets/textbook-practice/ch11-p377-in-text-q11.jpg"
+        },
+        {
+          "page": 377,
+          "box": [
+            0,
+            0,
+            663,
+            843
+          ]
+        },
+        {
+          "page": 376,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "role": "referenced context / continuation"
+        },
+        {
+          "page": 378,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "role": "referenced context / continuation"
+        }
+      ],
+      "topics": [
+        "lesson-05"
+      ]
+    },
+    {
+      "id": "ch11-p377-in-text-q12",
+      "page": 377,
+      "group": "in-text",
+      "number": 12,
+      "label": "In Text · p. 377 · question 12",
+      "crops": [
+        {
+          "page": 377,
+          "box": [
+            99.995,
+            649.289,
+            275.01800000000003,
+            689.2891
+          ],
+          "asset": "ch11-p377-in-text-q12.jpg",
+          "role": "selected question column; full context follows",
+          "src": "./assets/textbook-practice/ch11-p377-in-text-q12.jpg"
+        },
+        {
+          "page": 377,
+          "box": [
+            0,
+            0,
+            663,
+            843
+          ]
+        },
+        {
+          "page": 376,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "role": "referenced context / continuation"
+        },
+        {
+          "page": 378,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "role": "referenced context / continuation"
+        }
+      ],
+      "topics": [
+        "lesson-05"
+      ]
+    },
+    {
+      "id": "ch11-p377-in-text-q13",
+      "page": 377,
+      "group": "in-text",
+      "number": 13,
+      "label": "In Text · p. 377 · question 13",
+      "crops": [
+        {
+          "page": 377,
+          "box": [
+            99.995,
+            682.2891,
+            275.01800000000003,
+            754.39
+          ],
+          "asset": "ch11-p377-in-text-q13.jpg",
+          "role": "selected question column; full context follows",
+          "src": "./assets/textbook-practice/ch11-p377-in-text-q13.jpg"
+        },
+        {
+          "page": 377,
+          "box": [
+            0,
+            0,
+            663,
+            843
+          ]
+        },
+        {
+          "page": 376,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "role": "referenced context / continuation"
+        },
+        {
+          "page": 378,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "role": "referenced context / continuation"
+        }
+      ],
+      "topics": [
+        "lesson-05"
+      ]
+    },
+    {
+      "id": "ch11-p380-in-text-q14",
+      "page": 380,
+      "group": "in-text",
+      "number": 14,
+      "label": "In Text · p. 380 · question 14",
+      "crops": [
+        {
+          "page": 380,
+          "box": [
+            358,
+            55.413400000000024,
+            533,
+            108.91300000000001
+          ],
+          "asset": "ch11-p380-in-text-q14.jpg",
+          "role": "selected question column; full context follows",
+          "src": "./assets/textbook-practice/ch11-p380-in-text-q14.jpg"
+        },
+        {
+          "page": 380,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ]
+        }
+      ],
+      "topics": [
+        "lesson-05"
+      ]
+    },
+    {
+      "id": "ch11-p384-section-11-1-q2",
+      "page": 384,
+      "group": "section-11.1",
+      "number": 2,
+      "label": "Section 11.1 · p. 384 · question 2",
+      "crops": [
+        {
+          "page": 384,
+          "box": [
+            39.849999999999994,
+            307.73,
+            286.35,
+            379.73
+          ],
+          "asset": "ch11-p384-section-11-1-q2.jpg",
+          "role": "selected question including its in-column figure",
+          "src": "./assets/textbook-practice/ch11-p384-section-11-1-q2.jpg"
+        },
+        {
+          "page": 384,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ]
+        }
+      ],
+      "topics": [
+        "lesson-05"
+      ]
+    },
+    {
+      "id": "ch11-p384-section-11-1-q5",
+      "page": 384,
+      "group": "section-11.1",
+      "number": 5,
+      "label": "Section 11.1 · p. 384 · question 5",
+      "crops": [
+        {
+          "page": 384,
+          "box": [
+            39.849999999999994,
+            455.73,
+            286.35,
+            758
+          ],
+          "asset": "ch11-p384-section-11-1-q5.jpg",
+          "role": "selected question including its in-column figure",
+          "src": "./assets/textbook-practice/ch11-p384-section-11-1-q5.jpg"
+        },
+        {
+          "page": 384,
+          "box": [
+            290.35,
+            143.60500000000002,
+            593,
+            284.73
+          ],
+          "asset": "ch11-p384-section-11-1-q5-continuation.jpg",
+          "role": "required question continuation",
+          "src": "./assets/textbook-practice/ch11-p384-section-11-1-q5-continuation.jpg"
+        },
+        {
+          "page": 384,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ]
+        }
+      ],
+      "topics": [
+        "lesson-05"
+      ]
+    },
+    {
+      "id": "ch11-p402-chapter-review-q14",
+      "page": 402,
+      "group": "chapter-review",
+      "number": 14,
+      "label": "Chapter Review · p. 402 · question 14",
+      "crops": [
+        {
+          "page": 402,
+          "box": [
+            284.8,
+            649.4929999999999,
+            593,
+            695.493
+          ],
+          "asset": "ch11-p402-chapter-review-q14.jpg",
+          "role": "selected question including its in-column figure",
+          "src": "./assets/textbook-practice/ch11-p402-chapter-review-q14.jpg"
+        },
+        {
+          "page": 402,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ]
+        },
+        {
+          "page": 403,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "role": "referenced context / continuation"
+        }
+      ],
+      "topics": [
+        "lesson-04",
+        "lesson-05"
+      ]
+    },
+    {
+      "id": "ch11-p402-chapter-review-q15",
+      "page": 402,
+      "group": "chapter-review",
+      "number": 15,
+      "label": "Chapter Review · p. 402 · question 15",
+      "crops": [
+        {
+          "page": 402,
+          "box": [
+            284.8,
+            694.493,
+            593,
+            758
+          ],
+          "asset": "ch11-p402-chapter-review-q15.jpg",
+          "role": "selected question including its in-column figure",
+          "src": "./assets/textbook-practice/ch11-p402-chapter-review-q15.jpg"
+        },
+        {
+          "page": 402,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ]
+        },
+        {
+          "page": 403,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "role": "referenced context / continuation"
+        }
+      ],
+      "topics": [
+        "lesson-02",
+        "lesson-05"
+      ]
+    },
+    {
+      "id": "ch11-p403-chapter-review-q17",
+      "page": 403,
+      "group": "chapter-review",
+      "number": 17,
+      "label": "Chapter Review · p. 403 · question 17",
+      "crops": [
+        {
+          "page": 403,
+          "box": [
+            64.3,
+            118.48000000000002,
+            310.8,
+            450.53000000000003
+          ],
+          "asset": "ch11-p403-chapter-review-q17.jpg",
+          "role": "selected question including its in-column figure",
+          "src": "./assets/textbook-practice/ch11-p403-chapter-review-q17.jpg"
+        },
+        {
+          "page": 403,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ]
+        },
+        {
+          "page": 402,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "role": "referenced context / continuation"
+        }
+      ],
+      "topics": [
+        "lesson-05"
+      ]
+    },
+    {
+      "id": "ch11-p403-chapter-review-q20",
+      "page": 403,
+      "group": "chapter-review",
+      "number": 20,
+      "label": "Chapter Review · p. 403 · question 20",
+      "crops": [
+        {
+          "page": 403,
+          "box": [
+            314.8,
+            218.48000000000002,
+            593,
+            277.48
+          ],
+          "asset": "ch11-p403-chapter-review-q20.jpg",
+          "role": "selected question including its in-column figure",
+          "src": "./assets/textbook-practice/ch11-p403-chapter-review-q20.jpg"
+        },
+        {
+          "page": 403,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ]
+        },
+        {
+          "page": 402,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "role": "referenced context / continuation"
+        }
+      ],
+      "topics": [
+        "lesson-05",
+        "lesson-06"
+      ]
+    },
+    {
+      "id": "ch11-p403-chapter-review-q21",
+      "page": 403,
+      "group": "chapter-review",
+      "number": 21,
+      "label": "Chapter Review · p. 403 · question 21",
+      "crops": [
+        {
+          "page": 403,
+          "box": [
+            314.8,
+            276.48,
+            593,
+            521.48
+          ],
+          "asset": "ch11-p403-chapter-review-q21.jpg",
+          "role": "selected question including its in-column figure",
+          "src": "./assets/textbook-practice/ch11-p403-chapter-review-q21.jpg"
+        },
+        {
+          "page": 403,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ]
+        },
+        {
+          "page": 402,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "role": "referenced context / continuation"
+        }
+      ],
+      "topics": [
+        "lesson-05"
+      ]
+    },
+    {
+      "id": "ch11-p403-chapter-review-q23",
+      "page": 403,
+      "group": "chapter-review",
+      "number": 23,
+      "label": "Chapter Review · p. 403 · question 23",
+      "crops": [
+        {
+          "page": 403,
+          "box": [
+            314.8,
+            591.48,
+            593,
+            637.48
+          ],
+          "asset": "ch11-p403-chapter-review-q23.jpg",
+          "role": "selected question including its in-column figure",
+          "src": "./assets/textbook-practice/ch11-p403-chapter-review-q23.jpg"
+        },
+        {
+          "page": 403,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ]
+        },
+        {
+          "page": 402,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "role": "referenced context / continuation"
+        }
+      ],
+      "topics": [
+        "lesson-05"
+      ]
+    }
+  ],
+  "media": [
+    {
+      "kind": "img",
+      "attrs": {
+        "alt": "An action potential graph and membrane-event sequence showing depolarization, repolarization, hyperpolarization, and refractory period.",
+        "decoding": "async",
+        "loading": "lazy",
+        "src": "assets/source/chapter11-action-potentials-0.png",
+        "data-canvas-helper-edit-key": "p3-chapter-207"
+      },
+      "caption": "Figure 7. Follow membrane-potential changes through depolarization, repolarization, and hyperpolarization, then connect them with membrane events.",
+      "locator": {
+        "path": "projects/biology30-unit-a-pilot-3/workspace/index.html",
+        "startLine": 881
+      },
+      "status": "existing source asset; no new visual/science acceptance or video playback asserted"
+    },
+    {
+      "kind": "img",
+      "attrs": {
+        "alt": "Compare equal time intervals. The number of impulses changes while the height of each action potential remains the same.",
+        "decoding": "async",
+        "loading": "lazy",
+        "src": "assets/source/chapter11-action-potentials-1.svg",
+        "data-canvas-helper-edit-key": "p3-chapter-230"
+      },
+      "caption": "Figure 8. Compare equal time intervals. The number of impulses changes while the height of each action potential remains the same.",
+      "locator": {
+        "path": "projects/biology30-unit-a-pilot-3/workspace/index.html",
+        "startLine": 903
+      },
+      "status": "existing source asset; no new visual/science acceptance or video playback asserted"
+    },
+    {
+      "kind": "section",
+      "attrs": {
+        "class": "video-support",
+        "data-video": "oa6rvUJlg7o"
+      },
+      "caption": "",
+      "locator": {
+        "path": "projects/biology30-unit-a-pilot-3/workspace/index.html",
+        "startLine": 916
+      },
+      "status": "existing source asset; no new visual/science acceptance or video playback asserted"
+    },
+    {
+      "kind": "a",
+      "attrs": {
+        "href": "https://www.youtube.com/watch?v=oa6rvUJlg7o",
+        "target": "_blank",
+        "rel": "noopener",
+        "data-canvas-helper-edit-key": "p3-chapter-245"
+      },
+      "caption": "",
+      "locator": {
+        "path": "projects/biology30-unit-a-pilot-3/workspace/index.html",
+        "startLine": 921
+      },
+      "status": "existing source asset; no new visual/science acceptance or video playback asserted"
+    },
+    {
+      "kind": "section",
+      "attrs": {
+        "class": "video-support",
+        "data-video": "_0PFBI5K9s4"
+      },
+      "caption": "",
+      "locator": {
+        "path": "projects/biology30-unit-a-pilot-3/workspace/index.html",
+        "startLine": 924
+      },
+      "status": "existing source asset; no new visual/science acceptance or video playback asserted"
+    },
+    {
+      "kind": "a",
+      "attrs": {
+        "href": "https://www.youtube.com/watch?v=_0PFBI5K9s4",
+        "target": "_blank",
+        "rel": "noopener",
+        "data-canvas-helper-edit-key": "p3-chapter-250"
+      },
+      "caption": "",
+      "locator": {
+        "path": "projects/biology30-unit-a-pilot-3/workspace/index.html",
+        "startLine": 929
+      },
+      "status": "existing source asset; no new visual/science acceptance or video playback asserted"
+    },
+    {
+      "kind": "section",
+      "attrs": {
+        "class": "video-support",
+        "data-video": "vzA3pQB25Xk"
+      },
+      "caption": "",
+      "locator": {
+        "path": "projects/biology30-unit-a-pilot-3/workspace/index.html",
+        "startLine": 932
+      },
+      "status": "existing source asset; no new visual/science acceptance or video playback asserted"
+    },
+    {
+      "kind": "a",
+      "attrs": {
+        "href": "https://www.youtube.com/watch?v=vzA3pQB25Xk",
+        "target": "_blank",
+        "rel": "noopener",
+        "data-canvas-helper-edit-key": "p3-chapter-255"
+      },
+      "caption": "",
+      "locator": {
+        "path": "projects/biology30-unit-a-pilot-3/workspace/index.html",
+        "startLine": 937
+      },
+      "status": "existing source asset; no new visual/science acceptance or video playback asserted"
+    }
+  ],
+  "vocabulary": {
+    "canonicalPayload": "current-course/data/vocabulary-and-schema.json",
+    "inlineTermLinks": [
+      {
+        "attrs": {
+          "type": "button",
+          "class": "bio-term",
+          "data-bio-term": "action potential",
+          "data-bio-term-route": "lesson-05",
+          "aria-haspopup": "dialog",
+          "data-canvas-helper-edit-key": "p3-l05-setup-11"
+        },
+        "term": "action potential"
+      },
+      {
+        "attrs": {
+          "type": "button",
+          "class": "bio-term",
+          "data-bio-term": "threshold",
+          "data-bio-term-route": "lesson-05",
+          "aria-haspopup": "dialog",
+          "data-canvas-helper-edit-key": "p3-l05-setup-13"
+        },
+        "term": "threshold"
+      },
+      {
+        "attrs": {
+          "type": "button",
+          "class": "bio-term",
+          "data-bio-term": "refractory period",
+          "data-bio-term-route": "lesson-05",
+          "aria-haspopup": "dialog",
+          "data-canvas-helper-edit-key": "p3-l05-setup-15"
+        },
+        "term": "refractory period"
+      },
+      {
+        "attrs": {
+          "type": "button",
+          "class": "bio-term",
+          "data-bio-term": "saltatory conduction",
+          "data-bio-term-route": "lesson-05",
+          "aria-haspopup": "dialog",
+          "data-canvas-helper-edit-key": "p3-l05-setup-17"
+        },
+        "term": "saltatory conduction"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "depolarization",
+          "data-canvas-helper-edit-key": "p3-chapter-190",
+          "type": "button"
+        },
+        "term": "Depolarization"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "threshold",
+          "data-canvas-helper-edit-key": "p3-chapter-191",
+          "type": "button"
+        },
+        "term": "threshold"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "stimulus",
+          "data-canvas-helper-edit-key": "p3-chapter-193",
+          "type": "button"
+        },
+        "term": "stimulus"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "action potential",
+          "data-canvas-helper-edit-key": "p3-chapter-194",
+          "type": "button"
+        },
+        "term": "action potential"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "neuron",
+          "data-canvas-helper-edit-key": "p3-chapter-195",
+          "type": "button"
+        },
+        "term": "neuron"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "action potential",
+          "data-canvas-helper-edit-key": "p3-chapter-199",
+          "type": "button"
+        },
+        "term": "action potential"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "repolarization",
+          "data-canvas-helper-edit-key": "p3-chapter-200",
+          "type": "button"
+        },
+        "term": "repolarization"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "hyperpolarization",
+          "data-canvas-helper-edit-key": "p3-chapter-202",
+          "type": "button"
+        },
+        "term": "hyperpolarization"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "refractory period",
+          "data-canvas-helper-edit-key": "p3-chapter-210",
+          "type": "button"
+        },
+        "term": "refractory period"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "propagation",
+          "data-canvas-helper-edit-key": "p3-chapter-212",
+          "type": "button"
+        },
+        "term": "propagation"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "axon",
+          "data-canvas-helper-edit-key": "p3-chapter-214",
+          "type": "button"
+        },
+        "term": "axon"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "threshold",
+          "data-canvas-helper-edit-key": "p3-chapter-213",
+          "type": "button"
+        },
+        "term": "threshold"
+      },
+      {
+        "attrs": {
+          "type": "button",
+          "class": "bio-term",
+          "data-bio-term": "absolute refractory period",
+          "aria-haspopup": "dialog",
+          "data-canvas-helper-edit-key": "p3-chapter-215"
+        },
+        "term": "absolute refractory period"
+      },
+      {
+        "attrs": {
+          "type": "button",
+          "class": "bio-term",
+          "data-bio-term": "action potential",
+          "aria-haspopup": "dialog",
+          "data-canvas-helper-edit-key": "p3-chapter-216"
+        },
+        "term": "action potential"
+      },
+      {
+        "attrs": {
+          "type": "button",
+          "class": "bio-term",
+          "data-bio-term": "relative refractory period",
+          "aria-haspopup": "dialog",
+          "data-canvas-helper-edit-key": "p3-chapter-217"
+        },
+        "term": "relative refractory period"
+      },
+      {
+        "attrs": {
+          "type": "button",
+          "class": "bio-term",
+          "data-bio-term": "stimulus",
+          "aria-haspopup": "dialog",
+          "data-canvas-helper-edit-key": "p3-chapter-218"
+        },
+        "term": "stimulus"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "action potential",
+          "data-canvas-helper-edit-key": "p3-chapter-221",
+          "type": "button"
+        },
+        "term": "action potential"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "neuron",
+          "data-canvas-helper-edit-key": "p3-chapter-224",
+          "type": "button"
+        },
+        "term": "neuron"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "threshold",
+          "data-canvas-helper-edit-key": "p3-chapter-222",
+          "type": "button"
+        },
+        "term": "threshold"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "stimulus",
+          "data-canvas-helper-edit-key": "p3-chapter-223",
+          "type": "button"
+        },
+        "term": "stimulus"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "action potential",
+          "data-canvas-helper-edit-key": "p3-chapter-233",
+          "type": "button"
+        },
+        "term": "action potential"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "axon",
+          "data-canvas-helper-edit-key": "p3-chapter-234",
+          "type": "button"
+        },
+        "term": "axon"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "node of ranvier",
+          "data-canvas-helper-edit-key": "p3-chapter-235",
+          "type": "button"
+        },
+        "term": "node of Ranvier"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "myelin",
+          "data-canvas-helper-edit-key": "p3-chapter-237",
+          "type": "button"
+        },
+        "term": "myelin"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "saltatory conduction",
+          "data-canvas-helper-edit-key": "p3-chapter-238",
+          "type": "button"
+        },
+        "term": "saltatory conduction"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "neuron",
+          "data-canvas-helper-edit-key": "p3-chapter-239",
+          "type": "button"
+        },
+        "term": "neuron"
+      }
+    ],
+    "visibleWords": [
+      "Vocabulary help Key termsWords for this lessonUse these definitions when you need help with a term. action potentiala rapid, all-or-none change in membrane voltage thresholdthe voltage at which an action potential starts refractory perioda recovery time that limits how soon a neuron can fire again saltatory conductionconduction in which the impulse is regenerated at the nodes of a myelinated axon More vocabulary for this lessonLesson vocabularyaction potential · threshold · depolarization · repolarization · hyperpolarization · refractory period · absolute refractory period · relative refractory period · channel inactivation · propagation · stimulus · neuron · axon · motor neuron · myelin · node of Ranvier · saltatory conduction · mechanismSelect an underlined term for its definition. Your vocabulary writing is saved in Process Collection."
+    ]
+  },
+  "immutablePreservationBindings": [
+    {
+      "tag": "section",
+      "attrs": {
+        "class": "activity",
+        "data-activity": "check-action-potentials",
+        "data-activity-mode": "paired",
+        "data-required-check": ""
+      },
+      "startLine": 943
+    },
+    {
+      "tag": "div",
+      "attrs": {
+        "class": "question",
+        "data-question": "check-action-potentials-mc"
+      },
+      "startLine": 951,
+      "questionText": "When an action potential begins, sodium gates open, allowing Na+ ions to cross the membrane. Now the polarity of the membrane changes to neutral outside and positive inside. positive outside and negative inside. negative outside and positive inside. there is no difference in charge between outside and inside. Check answer Explain the related idea Explain the difference between depolarization of a neuron and an action potential. Textbook p. 377 Written response Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded. Save written response"
+    },
+    {
+      "tag": "input",
+      "attrs": {
+        "type": "radio",
+        "name": "check-action-potentials-mc",
+        "value": "QUES_51676_82712_A275482",
+        "data-answer": ""
+      },
+      "startLine": 954
+    },
+    {
+      "tag": "input",
+      "attrs": {
+        "type": "radio",
+        "name": "check-action-potentials-mc",
+        "value": "QUES_51676_82712_A275483",
+        "data-answer": ""
+      },
+      "startLine": 956
+    },
+    {
+      "tag": "input",
+      "attrs": {
+        "type": "radio",
+        "name": "check-action-potentials-mc",
+        "value": "QUES_51676_82712_A275484",
+        "data-answer": ""
+      },
+      "startLine": 958
+    },
+    {
+      "tag": "input",
+      "attrs": {
+        "type": "radio",
+        "name": "check-action-potentials-mc",
+        "value": "QUES_51676_82712_A275485",
+        "data-answer": ""
+      },
+      "startLine": 960
+    },
+    {
+      "tag": "textarea",
+      "attrs": {
+        "id": "check-action-potentials-written",
+        "data-writing": "check-action-potentials-written",
+        "data-answer-limit": "3200",
+        "rows": "6",
+        "aria-describedby": "check-action-potentials-written-limit check-action-potentials-written-status"
+      },
+      "startLine": 972
+    },
+    {
+      "tag": "section",
+      "attrs": {
+        "class": "activity",
+        "data-activity": "practice-action-potentials",
+        "data-activity-mode": "writing"
+      },
+      "startLine": 987
+    },
+    {
+      "tag": "div",
+      "attrs": {
+        "class": "question",
+        "data-question": "source-checkpoint-12"
+      },
+      "startLine": 995,
+      "questionText": "Describe the “all-or-none” response. Textbook p. 377 Written response Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded. Save written response"
+    },
+    {
+      "tag": "textarea",
+      "attrs": {
+        "id": "source-checkpoint-12-written",
+        "data-writing": "source-checkpoint-12-written",
+        "data-answer-limit": "3200",
+        "rows": "6",
+        "aria-describedby": "source-checkpoint-12-written-limit source-checkpoint-12-written-status"
+      },
+      "startLine": 1002
+    },
+    {
+      "tag": "div",
+      "attrs": {
+        "class": "question",
+        "data-question": "source-checkpoint-13"
+      },
+      "startLine": 1008,
+      "questionText": "Describe the process of repolarization in the neuron, and explain its importance in the transmission of a neural impulse. Textbook p. 377 Written response Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded. Save written response"
+    },
+    {
+      "tag": "textarea",
+      "attrs": {
+        "id": "source-checkpoint-13-written",
+        "data-writing": "source-checkpoint-13-written",
+        "data-answer-limit": "3200",
+        "rows": "6",
+        "aria-describedby": "source-checkpoint-13-written-limit source-checkpoint-13-written-status"
+      },
+      "startLine": 1015
+    },
+    {
+      "tag": "div",
+      "attrs": {
+        "class": "question",
+        "data-question": "source-checkpoint-14"
+      },
+      "startLine": 1021,
+      "questionText": "Summarize the events that occur as an impulse is propagated along the length of the neuron. Textbook p. 380 Written response Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded. Save written response"
+    },
+    {
+      "tag": "textarea",
+      "attrs": {
+        "id": "source-checkpoint-14-written",
+        "data-writing": "source-checkpoint-14-written",
+        "data-answer-limit": "3200",
+        "rows": "6",
+        "aria-describedby": "source-checkpoint-14-written-limit source-checkpoint-14-written-status"
+      },
+      "startLine": 1028
+    }
+  ],
+  "status": {
+    "sourceInventory": "exported with exact locators; see explicit source gaps",
+    "authoring": "not-started",
+    "contentReview": "not-started",
+    "integration": "not-started",
+    "technicalTesting": "not-started",
+    "teacherAcceptance": "not-requested"
+  }
+}

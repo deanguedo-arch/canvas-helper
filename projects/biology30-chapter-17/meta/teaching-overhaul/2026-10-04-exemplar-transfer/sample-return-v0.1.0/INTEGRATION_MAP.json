@@ -1,0 +1,1541 @@
+{
+  "artifact": "Biology30_CH17_Exemplar_Transfer_Calibration_v0.1.0",
+  "version": "0.1.0",
+  "scope": [
+    "lesson-02",
+    "lesson-05"
+  ],
+  "offsetConvention": "UTF-8 bytes, start inclusive and end exclusive; proposals only, never reserialize native owner.",
+  "nativeSourceSha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868",
+  "routes": [
+    {
+      "route": "lesson-02",
+      "title": "Mendel’s experiments and segregation",
+      "nativeSourceSha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868",
+      "source": "source-inspection/ch17/native/workspace/index.html",
+      "routeRange": {
+        "startByte": 102372,
+        "endByteExclusive": 120432,
+        "byteLength": 18060,
+        "sha256": "d4267d90e99b5f425e4efe573434dee09888ada5827f7371d4d58618f0b4b480",
+        "startAnchor": "<section class=\"course-page\" hidden=\"\" id=\"lesson-02\"><div class=\"p2-topic\"><header class=\"page-header\"><p class=\"eyebrow\">Learn · Chapter 17</p><h1 data-canvas-edit-key=\"ch17-l02-",
+        "endAnchor": "ook-practice-lesson-link\"><a data-textbook-topic=\"lesson-02\" href=\"#textbook-practice\">Optional textbook practice for Mendel’s experiments and segregation</a></div></div></section>"
+      },
+      "headerRange": {
+        "startByte": 102448,
+        "endByteExclusive": 106355,
+        "byteLength": 3907,
+        "sha256": "afbaf8f75fd5642a59468f9b1a8f2de883a86bc0695fff7c05fb2c7029c5d4ee",
+        "startAnchor": "<header class=\"page-header\"><p class=\"eyebrow\">Learn · Chapter 17</p><h1 data-canvas-edit-key=\"ch17-l02-title\" data-canvas-helper-edit-key=\"ch17-l02-title\">Mendel’s experiments and",
+        "endAnchor": "-word-f2-generation\" type=\"button\">F2 generation</button></dt><dd>The generation produced from the F1 in the specified breeding design.</dd></div></dl></section></details></header>"
+      },
+      "replacementRange": {
+        "startByte": 106355,
+        "endByteExclusive": 110898,
+        "byteLength": 4543,
+        "sha256": "b4e64d090435f0dd8af71ce21e3d1621f11d0370b1f086b60c0b5e2df8aa5c8c",
+        "startAnchor": "<div class=\"content-section\" data-canvas-edit-key=\"ch17-l02-teaching-01\" data-canvas-helper-edit-key=\"ch17-l02-teaching-01\" id=\"ch17-l02-teaching-01\"><h2>Follow the alleles across ",
+        "endAnchor": "notype.</li><li>F1 parents can each contribute d in a gamete.</li><li>An F2 dd offspring expresses pale, explaining reappearance without blending or a new mutation.</li></ol></div>"
+      },
+      "replacementFragment": "integration-text/lesson-02.teaching-fragment.html.txt",
+      "fragmentBytes": 17464,
+      "fragmentSha256": "5740360125376c2994bdaa1f28c4fe3d57b276232494ec7dbdb9db49ed6543fc",
+      "authoringInput": {
+        "path": "calibration-v0.1.0/authoring/lesson-02.teaching.html.in",
+        "bytes": 16834,
+        "sha256": "104526dfdc81d8e6aac1f56f826ea3c04ef28fe73b4c1f6d006ff5ae838808c0"
+      },
+      "headerProposals": [],
+      "untouchedPrefix": {
+        "startByte": 102372,
+        "endByteExclusive": 106355,
+        "byteLength": 3983,
+        "sha256": "db23b534c4003ebb1ff3d7ad97070bd4f8d6e4bca096209cd6de7802bd45c438",
+        "startAnchor": "<section class=\"course-page\" hidden=\"\" id=\"lesson-02\"><div class=\"p2-topic\"><header class=\"page-header\"><p class=\"eyebrow\">Learn · Chapter 17</p><h1 data-canvas-edit-key=\"ch17-l02-",
+        "endAnchor": "-word-f2-generation\" type=\"button\">F2 generation</button></dt><dd>The generation produced from the F1 in the specified breeding design.</dd></div></dl></section></details></header>"
+      },
+      "untouchedSuffix": {
+        "startByte": 110898,
+        "endByteExclusive": 120432,
+        "byteLength": 9534,
+        "sha256": "56c917d78e4bc20d47275146afcd604ae737691cf816b485863f3d4b383766f1",
+        "startAnchor": "<section class=\"content-section guided-practice\" data-canvas-edit-key=\"ch17-l02-guided\" data-canvas-helper-edit-key=\"ch17-l02-guided\" id=\"ch17-l02-guided\"><h2>Practise with support",
+        "endAnchor": "ook-practice-lesson-link\"><a data-textbook-topic=\"lesson-02\" href=\"#textbook-practice\">Optional textbook practice for Mendel’s experiments and segregation</a></div></div></section>"
+      },
+      "untouchedActivityAndFooterContracts": [
+        {
+          "tag": "section",
+          "id": "ch17-l02-guided",
+          "attributes": {
+            "class": "content-section guided-practice",
+            "data-canvas-edit-key": "ch17-l02-guided",
+            "data-canvas-helper-edit-key": "ch17-l02-guided",
+            "id": "ch17-l02-guided"
+          },
+          "range": {
+            "startByte": 110898,
+            "endByteExclusive": 112307,
+            "byteLength": 1409,
+            "sha256": "13fe21e49becff6e44aa50aea765b6779544e8e0ce2460682313d78ffd16e56f",
+            "startAnchor": "<section class=\"content-section guided-practice\" data-canvas-edit-key=\"ch17-l02-guided\" data-canvas-helper-edit-key=\"ch17-l02-guided\" id=\"ch17-l02-guided\"><h2>Practise with support",
+            "endAnchor": "select><div class=\"actions\"><button data-guided-check=\"\" type=\"button\">Check answer</button></div><p aria-live=\"polite\" data-revision-feedback=\"\" role=\"status\"></p></div></section>"
+          }
+        },
+        {
+          "tag": "div",
+          "id": null,
+          "attributes": {
+            "class": "stop-check"
+          },
+          "range": {
+            "startByte": 112307,
+            "endByteExclusive": 112645,
+            "byteLength": 338,
+            "sha256": "4e69a80a79cacd05bd8c18bf66864d62792d36270ecac770c9cce17315378f61",
+            "startAnchor": "<div class=\"stop-check\"><p class=\"section-label\">Stop and think</p><h2>Try this before opening the explanation</h2><p>Does a recessive allele have to be visible to remain inherited",
+            "endAnchor": "le to remain inherited?</p><details><summary>Show the explanation</summary><p>No. A heterozygote can carry an allele whose recessive phenotype is not expressed.</p></details></div>"
+          }
+        },
+        {
+          "tag": "details",
+          "id": null,
+          "attributes": {
+            "class": "activity-disclosure"
+          },
+          "range": {
+            "startByte": 112645,
+            "endByteExclusive": 119995,
+            "byteLength": 7350,
+            "sha256": "e935c49df75741c0cbc4995e73056c08d4ad6ecef8acb808309b04971711a1c5",
+            "startAnchor": "<details class=\"activity-disclosure\"><summary>Open required check · Mendel’s experiments and segregation</summary><section class=\"activity\" data-check-id=\"ch17-check-02\" data-requi",
+            "endAnchor": " supports.</li></ul></div></details></div></fieldset><div class=\"actions\"><button data-finish-check=\"\" type=\"button\">Submit and finish</button></div></fieldset></section></details>"
+          }
+        },
+        {
+          "tag": "nav",
+          "id": null,
+          "attributes": {
+            "aria-label": "Previous and next topics",
+            "class": "lesson-footer"
+          },
+          "range": {
+            "startByte": 119995,
+            "endByteExclusive": 120217,
+            "byteLength": 222,
+            "sha256": "026f9055302caa714976ea27eb6c1272f18ce58d9321a60555094ae3bbb10ddb",
+            "startAnchor": "<nav aria-label=\"Previous and next topics\" class=\"lesson-footer\"><a href=\"#lesson-01\">← Genes, alleles, genotype and phenotype</a><a class=\"next\" href=\"#lesson-03\">Next: Single-tra",
+            "endAnchor": "ics\" class=\"lesson-footer\"><a href=\"#lesson-01\">← Genes, alleles, genotype and phenotype</a><a class=\"next\" href=\"#lesson-03\">Next: Single-trait crosses and probability →</a></nav>"
+          }
+        },
+        {
+          "tag": "div",
+          "id": null,
+          "attributes": {
+            "class": "content-section textbook-practice-lesson-link"
+          },
+          "range": {
+            "startByte": 120217,
+            "endByteExclusive": 120416,
+            "byteLength": 199,
+            "sha256": "976716fade18160b2fe1e7aef80612227c38b4480c63318e6b3c24903c469a41",
+            "startAnchor": "<div class=\"content-section textbook-practice-lesson-link\"><a data-textbook-topic=\"lesson-02\" href=\"#textbook-practice\">Optional textbook practice for Mendel’s experiments and segr",
+            "endAnchor": "nt-section textbook-practice-lesson-link\"><a data-textbook-topic=\"lesson-02\" href=\"#textbook-practice\">Optional textbook practice for Mendel’s experiments and segregation</a></div>"
+          }
+        }
+      ],
+      "nativeControlAttributesUnchanged": [
+        {
+          "tag": "div",
+          "attributes": {
+            "class": "practice-question",
+            "data-guided-item": "ch17-l02-guided-q1"
+          },
+          "range": {
+            "startByte": 111203,
+            "endByteExclusive": 111748,
+            "byteLength": 545,
+            "sha256": "682a7626d3fbcf3d98fe073124df18a225ea31a962a9d5ad58e0700702b5f2b5",
+            "startAnchor": "<div class=\"practice-question\" data-guided-item=\"ch17-l02-guided-q1\"><label for=\"ch17-l02-guided-q1\">What gametes are expected from Aa in the simple segregation model?</label><sele",
+            "endAnchor": "/option></select><div class=\"actions\"><button data-guided-check=\"\" type=\"button\">Check answer</button></div><p aria-live=\"polite\" data-revision-feedback=\"\" role=\"status\"></p></div>"
+          }
+        },
+        {
+          "tag": "button",
+          "attributes": {
+            "data-guided-check": "",
+            "type": "button"
+          },
+          "range": {
+            "startByte": 111606,
+            "endByteExclusive": 111670,
+            "byteLength": 64,
+            "sha256": "1ca04ec3ce145eaff721efb7e948a7712caca4257fb0a2b4dc7b5fde74a1b264",
+            "startAnchor": "<button data-guided-check=\"\" type=\"button\">Check answer</button></div><p aria-live=\"polite\" data-revision-feedback=\"\" role=\"status\"></p></div><div class=\"practice-question\" data-gu",
+            "endAnchor": "<button data-guided-check=\"\" type=\"button\">Check answer</button>"
+          }
+        },
+        {
+          "tag": "p",
+          "attributes": {
+            "aria-live": "polite",
+            "data-revision-feedback": "",
+            "role": "status"
+          },
+          "range": {
+            "startByte": 111676,
+            "endByteExclusive": 111742,
+            "byteLength": 66,
+            "sha256": "d529de022e2a7b2152e95c2611b51374e57b439611c200361988c95736fba8c2",
+            "startAnchor": "<p aria-live=\"polite\" data-revision-feedback=\"\" role=\"status\"></p></div><div class=\"practice-question\" data-guided-item=\"ch17-l02-guided-q2\"><label for=\"ch17-l02-guided-q2\">What ge",
+            "endAnchor": "<p aria-live=\"polite\" data-revision-feedback=\"\" role=\"status\"></p>"
+          }
+        },
+        {
+          "tag": "div",
+          "attributes": {
+            "class": "practice-question",
+            "data-guided-item": "ch17-l02-guided-q2"
+          },
+          "range": {
+            "startByte": 111748,
+            "endByteExclusive": 112297,
+            "byteLength": 549,
+            "sha256": "e05c223e8ad59310101e0e5fbbc8f180c8d7c2ac4650393c43cb7b118939c5f3",
+            "startAnchor": "<div class=\"practice-question\" data-guided-item=\"ch17-l02-guided-q2\"><label for=\"ch17-l02-guided-q2\">What genotype ratio is expected from Aa × Aa?</label><select id=\"ch17-l02-guide",
+            "endAnchor": "/option></select><div class=\"actions\"><button data-guided-check=\"\" type=\"button\">Check answer</button></div><p aria-live=\"polite\" data-revision-feedback=\"\" role=\"status\"></p></div>"
+          }
+        },
+        {
+          "tag": "button",
+          "attributes": {
+            "data-guided-check": "",
+            "type": "button"
+          },
+          "range": {
+            "startByte": 112155,
+            "endByteExclusive": 112219,
+            "byteLength": 64,
+            "sha256": "1ca04ec3ce145eaff721efb7e948a7712caca4257fb0a2b4dc7b5fde74a1b264",
+            "startAnchor": "<button data-guided-check=\"\" type=\"button\">Check answer</button></div><p aria-live=\"polite\" data-revision-feedback=\"\" role=\"status\"></p></div></section><div class=\"stop-check\"><p c",
+            "endAnchor": "<button data-guided-check=\"\" type=\"button\">Check answer</button>"
+          }
+        },
+        {
+          "tag": "p",
+          "attributes": {
+            "aria-live": "polite",
+            "data-revision-feedback": "",
+            "role": "status"
+          },
+          "range": {
+            "startByte": 112225,
+            "endByteExclusive": 112291,
+            "byteLength": 66,
+            "sha256": "d529de022e2a7b2152e95c2611b51374e57b439611c200361988c95736fba8c2",
+            "startAnchor": "<p aria-live=\"polite\" data-revision-feedback=\"\" role=\"status\"></p></div></section><div class=\"stop-check\"><p class=\"section-label\">Stop and think</p><h2>Try this before opening the",
+            "endAnchor": "<p aria-live=\"polite\" data-revision-feedback=\"\" role=\"status\"></p>"
+          }
+        },
+        {
+          "tag": "section",
+          "attributes": {
+            "class": "activity",
+            "data-check-id": "ch17-check-02",
+            "data-required-check": ""
+          },
+          "range": {
+            "startByte": 112762,
+            "endByteExclusive": 119985,
+            "byteLength": 7223,
+            "sha256": "3dbee42509704b45b105c18e99dde4788bfbd05d5bfcb218bbb3d3206a7f268c",
+            "startAnchor": "<section class=\"activity\" data-check-id=\"ch17-check-02\" data-required-check=\"\"><h2>Explain what you have learned</h2><p class=\"required-note\">This check counts toward chapter progr",
+            "endAnchor": "on than it supports.</li></ul></div></details></div></fieldset><div class=\"actions\"><button data-finish-check=\"\" type=\"button\">Submit and finish</button></div></fieldset></section>"
+          }
+        },
+        {
+          "tag": "button",
+          "attributes": {
+            "data-start-check": "",
+            "type": "button"
+          },
+          "range": {
+            "startByte": 113122,
+            "endByteExclusive": 113178,
+            "byteLength": 56,
+            "sha256": "f1207d95d554186a05ff8c78b9c8b0ab8d6fac2a881d6bb0f620f008af23bf38",
+            "startAnchor": "<button data-start-check=\"\" type=\"button\">Start</button><button data-redo-check=\"\" hidden=\"\" type=\"button\">Redo this check</button></div><span class=\"timer\" data-check-timer=\"\">Not",
+            "endAnchor": "<button data-start-check=\"\" type=\"button\">Start</button>"
+          }
+        },
+        {
+          "tag": "button",
+          "attributes": {
+            "data-redo-check": "",
+            "hidden": "",
+            "type": "button"
+          },
+          "range": {
+            "startByte": 113178,
+            "endByteExclusive": 113253,
+            "byteLength": 75,
+            "sha256": "c0506ff84baa9bea6a5665496aea49af4f0f7410b12bec34913745a6e8bd2c69",
+            "startAnchor": "<button data-redo-check=\"\" hidden=\"\" type=\"button\">Redo this check</button></div><span class=\"timer\" data-check-timer=\"\">Not started</span></div><p aria-live=\"polite\" class=\"run-st",
+            "endAnchor": "<button data-redo-check=\"\" hidden=\"\" type=\"button\">Redo this check</button>"
+          }
+        },
+        {
+          "tag": "span",
+          "attributes": {
+            "class": "timer",
+            "data-check-timer": ""
+          },
+          "range": {
+            "startByte": 113259,
+            "endByteExclusive": 113317,
+            "byteLength": 58,
+            "sha256": "ab2489e5bc2d8e547d4650e95ac538d368b64990a4897e1d866cc32b3c115f4a",
+            "startAnchor": "<span class=\"timer\" data-check-timer=\"\">Not started</span></div><p aria-live=\"polite\" class=\"run-status\" data-check-status=\"\"></p><fieldset data-check-body=\"\" disabled=\"\"><legend c",
+            "endAnchor": "<span class=\"timer\" data-check-timer=\"\">Not started</span>"
+          }
+        },
+        {
+          "tag": "p",
+          "attributes": {
+            "aria-live": "polite",
+            "class": "run-status",
+            "data-check-status": ""
+          },
+          "range": {
+            "startByte": 113323,
+            "endByteExclusive": 113389,
+            "byteLength": 66,
+            "sha256": "8e747a49206c560eeec119594eb3b7cd3ea1bbcb8fd2eb69f317736ab16dae4c",
+            "startAnchor": "<p aria-live=\"polite\" class=\"run-status\" data-check-status=\"\"></p><fieldset data-check-body=\"\" disabled=\"\"><legend class=\"sr-only\">Required chapter check</legend><div class=\"check-",
+            "endAnchor": "<p aria-live=\"polite\" class=\"run-status\" data-check-status=\"\"></p>"
+          }
+        },
+        {
+          "tag": "fieldset",
+          "attributes": {
+            "data-check-body": "",
+            "disabled": ""
+          },
+          "range": {
+            "startByte": 113389,
+            "endByteExclusive": 119975,
+            "byteLength": 6586,
+            "sha256": "8fe7f5f32de23fa4ff0aef15df3b97e299ec7eb12fced4e8f44e35d396802df2",
+            "startAnchor": "<fieldset data-check-body=\"\" disabled=\"\"><legend class=\"sr-only\">Required chapter check</legend><div class=\"check-question\" data-check-question=\"ch17-l02-check-mc-1\"><p class=\"eyeb",
+            "endAnchor": "r conclusion than it supports.</li></ul></div></details></div></fieldset><div class=\"actions\"><button data-finish-check=\"\" type=\"button\">Submit and finish</button></div></fieldset>"
+          }
+        },
+        {
+          "tag": "div",
+          "attributes": {
+            "class": "check-question",
+            "data-check-question": "ch17-l02-check-mc-1"
+          },
+          "range": {
+            "startByte": 113485,
+            "endByteExclusive": 115025,
+            "byteLength": 1540,
+            "sha256": "a36418f28981e943bd36dd064536cbccb7e2faf02cc58cd531a5278cde99f03e",
+            "startAnchor": "<div class=\"check-question\" data-check-question=\"ch17-l02-check-mc-1\"><p class=\"eyebrow\">Selection 1</p><h3 data-canvas-edit-key=\"ch17-l02-check-mc-1-prompt\" data-canvas-helper-edi",
+            "endAnchor": "span></label></fieldset><button data-check-answer=\"ch17-l02-check-mc-1\" type=\"button\">Check answer</button><p aria-live=\"polite\" class=\"inline-feedback\" data-feedback=\"\"></p></div>"
+          }
+        },
+        {
+          "tag": "input",
+          "attributes": {
+            "data-check-choice": "ch17-l02-check-mc-1",
+            "name": "ch17-l02-check-mc-1",
+            "type": "radio",
+            "value": "The recessive allele is always recreated by mutation"
+          },
+          "range": {
+            "startByte": 113878,
+            "endByteExclusive": 114027,
+            "byteLength": 149,
+            "sha256": "d8d808bd2c8c87ffe69d35d70d6ef6f2e6b08a5f20022b2b93880e6edc3aa37c",
+            "startAnchor": "<input data-check-choice=\"ch17-l02-check-mc-1\" name=\"ch17-l02-check-mc-1\" type=\"radio\" value=\"The recessive allele is always recreated by mutation\"/><span>The recessive allele is a",
+            "endAnchor": "<input data-check-choice=\"ch17-l02-check-mc-1\" name=\"ch17-l02-check-mc-1\" type=\"radio\" value=\"The recessive allele is always recreated by mutation\"/>"
+          }
+        },
+        {
+          "tag": "input",
+          "attributes": {
+            "data-check-choice": "ch17-l02-check-mc-1",
+            "name": "ch17-l02-check-mc-1",
+            "type": "radio",
+            "value": "Dominant alleles vanish after one generation"
+          },
+          "range": {
+            "startByte": 114126,
+            "endByteExclusive": 114267,
+            "byteLength": 141,
+            "sha256": "de928192dbc19aa070f6b114f441eb8700e2035606e8c6a8e183b0d287eb87ee",
+            "startAnchor": "<input data-check-choice=\"ch17-l02-check-mc-1\" name=\"ch17-l02-check-mc-1\" type=\"radio\" value=\"Dominant alleles vanish after one generation\"/><span>Dominant alleles vanish after one",
+            "endAnchor": "<input data-check-choice=\"ch17-l02-check-mc-1\" name=\"ch17-l02-check-mc-1\" type=\"radio\" value=\"Dominant alleles vanish after one generation\"/>"
+          }
+        },
+        {
+          "tag": "input",
+          "attributes": {
+            "data-check-choice": "ch17-l02-check-mc-1",
+            "name": "ch17-l02-check-mc-1",
+            "type": "radio",
+            "value": "Each heterozygous parent can contribute the recessive allele"
+          },
+          "range": {
+            "startByte": 114358,
+            "endByteExclusive": 114515,
+            "byteLength": 157,
+            "sha256": "e2717b77aed6ff254cd3982e447033b5ff578974963b3ef0ddb358fd275827bb",
+            "startAnchor": "<input data-check-choice=\"ch17-l02-check-mc-1\" name=\"ch17-l02-check-mc-1\" type=\"radio\" value=\"Each heterozygous parent can contribute the recessive allele\"/><span>Each heterozygous",
+            "endAnchor": "<input data-check-choice=\"ch17-l02-check-mc-1\" name=\"ch17-l02-check-mc-1\" type=\"radio\" value=\"Each heterozygous parent can contribute the recessive allele\"/>"
+          }
+        },
+        {
+          "tag": "input",
+          "attributes": {
+            "data-check-choice": "ch17-l02-check-mc-1",
+            "name": "ch17-l02-check-mc-1",
+            "type": "radio",
+            "value": "Gametes carry both parental alleles together at every locus"
+          },
+          "range": {
+            "startByte": 114622,
+            "endByteExclusive": 114778,
+            "byteLength": 156,
+            "sha256": "564fe236167a6c7d631f2ca3667fcad283bd5047d2e954b4b387dc64bdc8e46e",
+            "startAnchor": "<input data-check-choice=\"ch17-l02-check-mc-1\" name=\"ch17-l02-check-mc-1\" type=\"radio\" value=\"Gametes carry both parental alleles together at every locus\"/><span>Gametes carry both",
+            "endAnchor": "<input data-check-choice=\"ch17-l02-check-mc-1\" name=\"ch17-l02-check-mc-1\" type=\"radio\" value=\"Gametes carry both parental alleles together at every locus\"/>"
+          }
+        },
+        {
+          "tag": "button",
+          "attributes": {
+            "data-check-answer": "ch17-l02-check-mc-1",
+            "type": "button"
+          },
+          "range": {
+            "startByte": 114869,
+            "endByteExclusive": 114952,
+            "byteLength": 83,
+            "sha256": "14f1aa0f04f76e215fc249d0bfd715660348b9a53e96479df273d8937e33f90a",
+            "startAnchor": "<button data-check-answer=\"ch17-l02-check-mc-1\" type=\"button\">Check answer</button><p aria-live=\"polite\" class=\"inline-feedback\" data-feedback=\"\"></p></div><div class=\"check-questi",
+            "endAnchor": "<button data-check-answer=\"ch17-l02-check-mc-1\" type=\"button\">Check answer</button>"
+          }
+        },
+        {
+          "tag": "p",
+          "attributes": {
+            "aria-live": "polite",
+            "class": "inline-feedback",
+            "data-feedback": ""
+          },
+          "range": {
+            "startByte": 114952,
+            "endByteExclusive": 115019,
+            "byteLength": 67,
+            "sha256": "e5f6bd6b37699387e9a38929f5f22b8f1637b63d0889dadc79738812256914cb",
+            "startAnchor": "<p aria-live=\"polite\" class=\"inline-feedback\" data-feedback=\"\"></p></div><div class=\"check-question\" data-check-question=\"ch17-l02-check-mc-2\"><p class=\"eyebrow\">Selection 2</p><h3",
+            "endAnchor": "<p aria-live=\"polite\" class=\"inline-feedback\" data-feedback=\"\"></p>"
+          }
+        },
+        {
+          "tag": "div",
+          "attributes": {
+            "class": "check-question",
+            "data-check-question": "ch17-l02-check-mc-2"
+          },
+          "range": {
+            "startByte": 115025,
+            "endByteExclusive": 116614,
+            "byteLength": 1589,
+            "sha256": "957f799b58748d7c803065ec8f6bb4bb83ba9d576a3695c2a1615cb7a2e9b8f6",
+            "startAnchor": "<div class=\"check-question\" data-check-question=\"ch17-l02-check-mc-2\"><p class=\"eyebrow\">Selection 2</p><h3 data-canvas-edit-key=\"ch17-l02-check-mc-2-prompt\" data-canvas-helper-edi",
+            "endAnchor": "span></label></fieldset><button data-check-answer=\"ch17-l02-check-mc-2\" type=\"button\">Check answer</button><p aria-live=\"polite\" class=\"inline-feedback\" data-feedback=\"\"></p></div>"
+          }
+        },
+        {
+          "tag": "input",
+          "attributes": {
+            "data-check-choice": "ch17-l02-check-mc-2",
+            "name": "ch17-l02-check-mc-2",
+            "type": "radio",
+            "value": "Yes; meiosis makes only one type of gamete after the first birth"
+          },
+          "range": {
+            "startByte": 115481,
+            "endByteExclusive": 115642,
+            "byteLength": 161,
+            "sha256": "5b1fb32b88a05fb6dc5c9ad284b66a8691d5fee9109d2bfb5190da72a235f840",
+            "startAnchor": "<input data-check-choice=\"ch17-l02-check-mc-2\" name=\"ch17-l02-check-mc-2\" type=\"radio\" value=\"Yes; meiosis makes only one type of gamete after the first birth\"/><span>Yes; meiosis ",
+            "endAnchor": "<input data-check-choice=\"ch17-l02-check-mc-2\" name=\"ch17-l02-check-mc-2\" type=\"radio\" value=\"Yes; meiosis makes only one type of gamete after the first birth\"/>"
+          }
+        },
+        {
+          "tag": "input",
+          "attributes": {
+            "data-check-choice": "ch17-l02-check-mc-2",
+            "name": "ch17-l02-check-mc-2",
+            "type": "radio",
+            "value": "No; because alleles are not inherited"
+          },
+          "range": {
+            "startByte": 115753,
+            "endByteExclusive": 115887,
+            "byteLength": 134,
+            "sha256": "04fff541100800a93b16d1e2bbd3f213e3e94acbf4c11028cc9fc4971a38f282",
+            "startAnchor": "<input data-check-choice=\"ch17-l02-check-mc-2\" name=\"ch17-l02-check-mc-2\" type=\"radio\" value=\"No; because alleles are not inherited\"/><span>No; because alleles are not inherited</s",
+            "endAnchor": "<input data-check-choice=\"ch17-l02-check-mc-2\" name=\"ch17-l02-check-mc-2\" type=\"radio\" value=\"No; because alleles are not inherited\"/>"
+          }
+        },
+        {
+          "tag": "input",
+          "attributes": {
+            "data-check-choice": "ch17-l02-check-mc-2",
+            "name": "ch17-l02-check-mc-2",
+            "type": "radio",
+            "value": "Yes; every short run must exactly match the expected ratio"
+          },
+          "range": {
+            "startByte": 115971,
+            "endByteExclusive": 116126,
+            "byteLength": 155,
+            "sha256": "66891fdb1c11899f3f3b66ff59256b38e713c2db5dbaeea82ab77adbd16d7d46",
+            "startAnchor": "<input data-check-choice=\"ch17-l02-check-mc-2\" name=\"ch17-l02-check-mc-2\" type=\"radio\" value=\"Yes; every short run must exactly match the expected ratio\"/><span>Yes; every short ru",
+            "endAnchor": "<input data-check-choice=\"ch17-l02-check-mc-2\" name=\"ch17-l02-check-mc-2\" type=\"radio\" value=\"Yes; every short run must exactly match the expected ratio\"/>"
+          }
+        },
+        {
+          "tag": "input",
+          "attributes": {
+            "data-check-choice": "ch17-l02-check-mc-2",
+            "name": "ch17-l02-check-mc-2",
+            "type": "radio",
+            "value": "No; small samples can differ from expected ratios"
+          },
+          "range": {
+            "startByte": 116231,
+            "endByteExclusive": 116377,
+            "byteLength": 146,
+            "sha256": "ff7bd3cba5fd7abf2b17cfd05c795ee90ecfe5ba7c89544ba41ae7077c035116",
+            "startAnchor": "<input data-check-choice=\"ch17-l02-check-mc-2\" name=\"ch17-l02-check-mc-2\" type=\"radio\" value=\"No; small samples can differ from expected ratios\"/><span>No; small samples can differ",
+            "endAnchor": "<input data-check-choice=\"ch17-l02-check-mc-2\" name=\"ch17-l02-check-mc-2\" type=\"radio\" value=\"No; small samples can differ from expected ratios\"/>"
+          }
+        },
+        {
+          "tag": "button",
+          "attributes": {
+            "data-check-answer": "ch17-l02-check-mc-2",
+            "type": "button"
+          },
+          "range": {
+            "startByte": 116458,
+            "endByteExclusive": 116541,
+            "byteLength": 83,
+            "sha256": "c66b943b69ef53be27d74fe0d264c0867ddaadf1890ff9d2f2a479b187d6492b",
+            "startAnchor": "<button data-check-answer=\"ch17-l02-check-mc-2\" type=\"button\">Check answer</button><p aria-live=\"polite\" class=\"inline-feedback\" data-feedback=\"\"></p></div><p class=\"unlock-message",
+            "endAnchor": "<button data-check-answer=\"ch17-l02-check-mc-2\" type=\"button\">Check answer</button>"
+          }
+        },
+        {
+          "tag": "p",
+          "attributes": {
+            "aria-live": "polite",
+            "class": "inline-feedback",
+            "data-feedback": ""
+          },
+          "range": {
+            "startByte": 116541,
+            "endByteExclusive": 116608,
+            "byteLength": 67,
+            "sha256": "e5f6bd6b37699387e9a38929f5f22b8f1637b63d0889dadc79738812256914cb",
+            "startAnchor": "<p aria-live=\"polite\" class=\"inline-feedback\" data-feedback=\"\"></p></div><p class=\"unlock-message\" data-unlock-message=\"\">Answer the selections correctly to unlock the writing.</p>",
+            "endAnchor": "<p aria-live=\"polite\" class=\"inline-feedback\" data-feedback=\"\"></p>"
+          }
+        },
+        {
+          "tag": "p",
+          "attributes": {
+            "class": "unlock-message",
+            "data-unlock-message": ""
+          },
+          "range": {
+            "startByte": 116614,
+            "endByteExclusive": 116721,
+            "byteLength": 107,
+            "sha256": "e03b463637e0805f3fb3868aaee65febe8c3dd21128ee9a0aa781ce69d44d312",
+            "startAnchor": "<p class=\"unlock-message\" data-unlock-message=\"\">Answer the selections correctly to unlock the writing.</p><fieldset data-writing-gate=\"\" disabled=\"\"><legend class=\"sr-only\">Writte",
+            "endAnchor": "<p class=\"unlock-message\" data-unlock-message=\"\">Answer the selections correctly to unlock the writing.</p>"
+          }
+        },
+        {
+          "tag": "fieldset",
+          "attributes": {
+            "data-writing-gate": "",
+            "disabled": ""
+          },
+          "range": {
+            "startByte": 116721,
+            "endByteExclusive": 119868,
+            "byteLength": 3147,
+            "sha256": "7fbc147f7222e5e2c3d18141a75bc40dc6f7b22e99b1251413731aead223bc0f",
+            "startAnchor": "<fieldset data-writing-gate=\"\" disabled=\"\"><legend class=\"sr-only\">Written explanations</legend><div class=\"writing-question\" data-writing-question=\"ch17-l02-check-writing-1\"><p cl",
+            "endAnchor": "lationship or calculation, not just the final result.</li><li>Uses the stated evidence and avoids a stronger conclusion than it supports.</li></ul></div></details></div></fieldset>"
+          }
+        },
+        {
+          "tag": "div",
+          "attributes": {
+            "class": "writing-question",
+            "data-writing-question": "ch17-l02-check-writing-1"
+          },
+          "range": {
+            "startByte": 116817,
+            "endByteExclusive": 118345,
+            "byteLength": 1528,
+            "sha256": "05b99f3d122bf8b20223240768319337b440998e5eee34fa1c3a8f8fddd3e844",
+            "startAnchor": "<div class=\"writing-question\" data-writing-question=\"ch17-l02-check-writing-1\"><p class=\"eyebrow\">Written explanation 1</p><label data-canvas-edit-key=\"ch17-l02-check-writing-1-pro",
+            "endAnchor": "e causal relationship or calculation, not just the final result.</li><li>Uses the stated evidence and avoids a stronger conclusion than it supports.</li></ul></div></details></div>"
+          }
+        },
+        {
+          "tag": "textarea",
+          "attributes": {
+            "aria-describedby": "ch17-l02-check-writing-1-status",
+            "data-check-writing": "ch17-l02-check-writing-1",
+            "data-limit": "3200",
+            "id": "ch17-l02-check-writing-1",
+            "rows": "6"
+          },
+          "range": {
+            "startByte": 117175,
+            "endByteExclusive": 117350,
+            "byteLength": 175,
+            "sha256": "6ab7e36dbdd7443d4b1857f34ec98f1d8beff7c83943ef1ad8bc48bf42ceabbb",
+            "startAnchor": "<textarea aria-describedby=\"ch17-l02-check-writing-1-status\" data-check-writing=\"ch17-l02-check-writing-1\" data-limit=\"3200\" id=\"ch17-l02-check-writing-1\" rows=\"6\"></textarea><p cl",
+            "endAnchor": "<textarea aria-describedby=\"ch17-l02-check-writing-1-status\" data-check-writing=\"ch17-l02-check-writing-1\" data-limit=\"3200\" id=\"ch17-l02-check-writing-1\" rows=\"6\"></textarea>"
+          }
+        },
+        {
+          "tag": "button",
+          "attributes": {
+            "data-save-writing": "ch17-l02-check-writing-1",
+            "type": "button"
+          },
+          "range": {
+            "startByte": 117443,
+            "endByteExclusive": 117540,
+            "byteLength": 97,
+            "sha256": "a6f8b082808641604e47c5bd7287f9b32cbe000fbc4d249430509ceb9dea32b6",
+            "startAnchor": "<button data-save-writing=\"ch17-l02-check-writing-1\" type=\"button\">Save written response</button><p aria-live=\"polite\" class=\"writing-status\" data-writing-status=\"\" id=\"ch17-l02-ch",
+            "endAnchor": "<button data-save-writing=\"ch17-l02-check-writing-1\" type=\"button\">Save written response</button>"
+          }
+        },
+        {
+          "tag": "p",
+          "attributes": {
+            "aria-live": "polite",
+            "class": "writing-status",
+            "data-writing-status": "",
+            "id": "ch17-l02-check-writing-1-status"
+          },
+          "range": {
+            "startByte": 117540,
+            "endByteExclusive": 117649,
+            "byteLength": 109,
+            "sha256": "ecea0502ffc8e3406cbdf1693b73ded384c3199e8535b697a59d4a3211682fe1",
+            "startAnchor": "<p aria-live=\"polite\" class=\"writing-status\" data-writing-status=\"\" id=\"ch17-l02-check-writing-1-status\"></p><details data-locked=\"true\"><summary>Compare after saving your own resp",
+            "endAnchor": "<p aria-live=\"polite\" class=\"writing-status\" data-writing-status=\"\" id=\"ch17-l02-check-writing-1-status\"></p>"
+          }
+        },
+        {
+          "tag": "div",
+          "attributes": {
+            "class": "writing-question",
+            "data-writing-question": "ch17-l02-check-writing-2"
+          },
+          "range": {
+            "startByte": 118345,
+            "endByteExclusive": 119857,
+            "byteLength": 1512,
+            "sha256": "c4b1fbdce24ea348bdd428c75aefc94e38ed4595b3da39d546cf6006a600306f",
+            "startAnchor": "<div class=\"writing-question\" data-writing-question=\"ch17-l02-check-writing-2\"><p class=\"eyebrow\">Written explanation 2</p><label data-canvas-edit-key=\"ch17-l02-check-writing-2-pro",
+            "endAnchor": "e causal relationship or calculation, not just the final result.</li><li>Uses the stated evidence and avoids a stronger conclusion than it supports.</li></ul></div></details></div>"
+          }
+        },
+        {
+          "tag": "textarea",
+          "attributes": {
+            "aria-describedby": "ch17-l02-check-writing-2-status",
+            "data-check-writing": "ch17-l02-check-writing-2",
+            "data-limit": "3200",
+            "id": "ch17-l02-check-writing-2",
+            "rows": "6"
+          },
+          "range": {
+            "startByte": 118719,
+            "endByteExclusive": 118894,
+            "byteLength": 175,
+            "sha256": "a168f023d63f93119d96589259b23636fb74eed67ffb87beef58b11e17a76b8e",
+            "startAnchor": "<textarea aria-describedby=\"ch17-l02-check-writing-2-status\" data-check-writing=\"ch17-l02-check-writing-2\" data-limit=\"3200\" id=\"ch17-l02-check-writing-2\" rows=\"6\"></textarea><p cl",
+            "endAnchor": "<textarea aria-describedby=\"ch17-l02-check-writing-2-status\" data-check-writing=\"ch17-l02-check-writing-2\" data-limit=\"3200\" id=\"ch17-l02-check-writing-2\" rows=\"6\"></textarea>"
+          }
+        },
+        {
+          "tag": "button",
+          "attributes": {
+            "data-save-writing": "ch17-l02-check-writing-2",
+            "type": "button"
+          },
+          "range": {
+            "startByte": 118987,
+            "endByteExclusive": 119084,
+            "byteLength": 97,
+            "sha256": "855dd4e5595942bfe0ee41519be9b3bef3d55cbaf2f832a9b9bc3c921168f9fa",
+            "startAnchor": "<button data-save-writing=\"ch17-l02-check-writing-2\" type=\"button\">Save written response</button><p aria-live=\"polite\" class=\"writing-status\" data-writing-status=\"\" id=\"ch17-l02-ch",
+            "endAnchor": "<button data-save-writing=\"ch17-l02-check-writing-2\" type=\"button\">Save written response</button>"
+          }
+        },
+        {
+          "tag": "p",
+          "attributes": {
+            "aria-live": "polite",
+            "class": "writing-status",
+            "data-writing-status": "",
+            "id": "ch17-l02-check-writing-2-status"
+          },
+          "range": {
+            "startByte": 119084,
+            "endByteExclusive": 119193,
+            "byteLength": 109,
+            "sha256": "1eeb96490b03779a80033677a22a092e99e6495dfc934c6b9bc6072b3260a6c3",
+            "startAnchor": "<p aria-live=\"polite\" class=\"writing-status\" data-writing-status=\"\" id=\"ch17-l02-check-writing-2-status\"></p><details data-locked=\"true\"><summary>Compare after saving your own resp",
+            "endAnchor": "<p aria-live=\"polite\" class=\"writing-status\" data-writing-status=\"\" id=\"ch17-l02-check-writing-2-status\"></p>"
+          }
+        },
+        {
+          "tag": "button",
+          "attributes": {
+            "data-finish-check": "",
+            "type": "button"
+          },
+          "range": {
+            "startByte": 119889,
+            "endByteExclusive": 119958,
+            "byteLength": 69,
+            "sha256": "4abe22f438050285821d1e2e5ab68f85a0d42500f3963834c9917aa4aec3e6ea",
+            "startAnchor": "<button data-finish-check=\"\" type=\"button\">Submit and finish</button></div></fieldset></section></details><nav aria-label=\"Previous and next topics\" class=\"lesson-footer\"><a href=\"",
+            "endAnchor": "<button data-finish-check=\"\" type=\"button\">Submit and finish</button>"
+          }
+        }
+      ],
+      "replacementApplied": false,
+      "validation": {
+        "originalIds": [
+          "ch17-l02-teaching-01",
+          "ch17-l02-teaching-02",
+          "ch17-l02-teaching-03",
+          "ch17-l02-worked"
+        ],
+        "newIds": [
+          "ch17-cal-v010-l02-records",
+          "ch17-cal-v010-l02-repair"
+        ],
+        "nativeClasses": [
+          "bio-term",
+          "comparison-table",
+          "content-section",
+          "section-label",
+          "worked-example"
+        ],
+        "originalEditOwnersRetained": 12
+      }
+    },
+    {
+      "route": "lesson-05",
+      "title": "Two-trait crosses and independent assortment",
+      "nativeSourceSha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868",
+      "source": "source-inspection/ch17/native/workspace/index.html",
+      "routeRange": {
+        "startByte": 165206,
+        "endByteExclusive": 185912,
+        "byteLength": 20706,
+        "sha256": "ff5cd3b4654b13e16e43ba25fd20894cdce4ad76f2cbf29079be81af924c661d",
+        "startAnchor": "<section class=\"course-page\" hidden=\"\" id=\"lesson-05\"><div class=\"p2-topic\"><header class=\"page-header\"><p class=\"eyebrow\">Learn · Chapter 17</p><h1 data-canvas-edit-key=\"ch17-l05-",
+        "endAnchor": "tice-lesson-link\"><a data-textbook-topic=\"lesson-05\" href=\"#textbook-practice\">Optional textbook practice for Two-trait crosses and independent assortment</a></div></div></section>"
+      },
+      "headerRange": {
+        "startByte": 165282,
+        "endByteExclusive": 169200,
+        "byteLength": 3918,
+        "sha256": "ec347589a85dc86e808c43fac459e137a51a73e8d1ba2dd812e1f764b241a340",
+        "startAnchor": "<header class=\"page-header\"><p class=\"eyebrow\">Learn · Chapter 17</p><h1 data-canvas-edit-key=\"ch17-l05-title\" data-canvas-helper-edit-key=\"ch17-l05-title\">Two-trait crosses and in",
+        "endAnchor": "amete-combination\" type=\"button\">gamete combination</button></dt><dd>The set of one allele from each studied locus carried by a gamete.</dd></div></dl></section></details></header>"
+      },
+      "replacementRange": {
+        "startByte": 169200,
+        "endByteExclusive": 174246,
+        "byteLength": 5046,
+        "sha256": "5faeb54cab22d793d22839d25271ee3eba6f63b07057fbf17683e7197e473f46",
+        "startAnchor": "<div class=\"content-section\" data-canvas-edit-key=\"ch17-l05-teaching-01\" data-canvas-helper-edit-key=\"ch17-l05-teaching-01\" id=\"ch17-l05-teaching-01\"><h2>Find possible gametes befo",
+        "endAnchor": "are required, so multiply: 1/2 × 1/4 = 1/8.</li><li>For 80 offspring the expected count is 80 × 1/8 = 10.</li><li>The result relies on independence of the two loci.</li></ol></div>"
+      },
+      "replacementFragment": "integration-text/lesson-05.teaching-fragment.html.txt",
+      "fragmentBytes": 21630,
+      "fragmentSha256": "a78b0e51af788a1591864cd8fc3ae6a733a4b7b051b73bbe82be1787e1944e0c",
+      "authoringInput": {
+        "path": "calibration-v0.1.0/authoring/lesson-05.teaching.html.in",
+        "bytes": 20220,
+        "sha256": "920c21c4c658fdda5d7fc1416978c8e5a1d62adf7d221ef2fd70fa5ffc61d651"
+      },
+      "headerProposals": [],
+      "untouchedPrefix": {
+        "startByte": 165206,
+        "endByteExclusive": 169200,
+        "byteLength": 3994,
+        "sha256": "28b986d505f43c2100034aa0bbbf76eb9c5280b5fc083011659fe82597ea77e4",
+        "startAnchor": "<section class=\"course-page\" hidden=\"\" id=\"lesson-05\"><div class=\"p2-topic\"><header class=\"page-header\"><p class=\"eyebrow\">Learn · Chapter 17</p><h1 data-canvas-edit-key=\"ch17-l05-",
+        "endAnchor": "amete-combination\" type=\"button\">gamete combination</button></dt><dd>The set of one allele from each studied locus carried by a gamete.</dd></div></dl></section></details></header>"
+      },
+      "untouchedSuffix": {
+        "startByte": 174246,
+        "endByteExclusive": 185912,
+        "byteLength": 11666,
+        "sha256": "b096766cf85ac4a41564bcc3d6a662ba136d565469ae207203a38ec4f4859e45",
+        "startAnchor": "<section class=\"content-section guided-practice\" data-canvas-edit-key=\"ch17-l05-guided\" data-canvas-helper-edit-key=\"ch17-l05-guided\" id=\"ch17-l05-guided\"><h2>Practise with support",
+        "endAnchor": "tice-lesson-link\"><a data-textbook-topic=\"lesson-05\" href=\"#textbook-practice\">Optional textbook practice for Two-trait crosses and independent assortment</a></div></div></section>"
+      },
+      "untouchedActivityAndFooterContracts": [
+        {
+          "tag": "section",
+          "id": "ch17-l05-guided",
+          "attributes": {
+            "class": "content-section guided-practice",
+            "data-canvas-edit-key": "ch17-l05-guided",
+            "data-canvas-helper-edit-key": "ch17-l05-guided",
+            "id": "ch17-l05-guided"
+          },
+          "range": {
+            "startByte": 174246,
+            "endByteExclusive": 175578,
+            "byteLength": 1332,
+            "sha256": "3521d09f5f8bbbff7b226123b53da4aca18dcab28f86f54c88a69bcc212e0b7b",
+            "startAnchor": "<section class=\"content-section guided-practice\" data-canvas-edit-key=\"ch17-l05-guided\" data-canvas-helper-edit-key=\"ch17-l05-guided\" id=\"ch17-l05-guided\"><h2>Practise with support",
+            "endAnchor": "select><div class=\"actions\"><button data-guided-check=\"\" type=\"button\">Check answer</button></div><p aria-live=\"polite\" data-revision-feedback=\"\" role=\"status\"></p></div></section>"
+          }
+        },
+        {
+          "tag": "div",
+          "id": null,
+          "attributes": {
+            "class": "stop-check"
+          },
+          "range": {
+            "startByte": 175578,
+            "endByteExclusive": 175905,
+            "byteLength": 327,
+            "sha256": "055b2bf4853ff0ae2f983334320770f5baf78359871f55ce265948416dcbdccd",
+            "startAnchor": "<div class=\"stop-check\"><p class=\"section-label\">Stop and think</p><h2>Try this before opening the explanation</h2><p>Does “two traits” automatically mean 9:3:3:1?</p><details><sum",
+            "endAnchor": "ically mean 9:3:3:1?</p><details><summary>Show the explanation</summary><p>No. Parental genotypes, dominance relationships and linkage determine the prediction.</p></details></div>"
+          }
+        },
+        {
+          "tag": "aside",
+          "id": null,
+          "attributes": {
+            "class": "video-companion"
+          },
+          "range": {
+            "startByte": 175905,
+            "endByteExclusive": 177338,
+            "byteLength": 1433,
+            "sha256": "205aaa2ac429be7c0d078d0f3277eeeb689e4eda5e365145507b56eae55cf816",
+            "startAnchor": "<aside class=\"video-companion\"><div class=\"video-copy\"><p class=\"eyebrow\">Optional video support</p><h3>Two-trait crosses and independent assortment — video support</h3><p><strong>",
+            "endAnchor": "e. In AaBb × aaBb, probability of A_ is 1/2 and probability of B_ is 3/4, so both dominant phenotypes have probability 3/8. A memorized 9/16 would be wrong.</p></div></div></aside>"
+          }
+        },
+        {
+          "tag": "aside",
+          "id": null,
+          "attributes": {
+            "class": "video-companion"
+          },
+          "range": {
+            "startByte": 177338,
+            "endByteExclusive": 178773,
+            "byteLength": 1435,
+            "sha256": "c7d70143732b79c7bd639addc7f8f52d2af9151116ea1837a1116d3f75ccf3b3",
+            "startAnchor": "<aside class=\"video-companion\"><div class=\"video-copy\"><p class=\"eyebrow\">Optional video support</p><h3>Two-trait crosses and independent assortment — video support 2</h3><p><stron",
+            "endAnchor": "e. In AaBb × aaBb, probability of A_ is 1/2 and probability of B_ is 3/4, so both dominant phenotypes have probability 3/8. A memorized 9/16 would be wrong.</p></div></div></aside>"
+          }
+        },
+        {
+          "tag": "details",
+          "id": null,
+          "attributes": {
+            "class": "activity-disclosure"
+          },
+          "range": {
+            "startByte": 178773,
+            "endByteExclusive": 185473,
+            "byteLength": 6700,
+            "sha256": "fd2b474e2a27e8dc23ce615035a843ac6bc2e7968a0197f1c68c58c9996c0997",
+            "startAnchor": "<details class=\"activity-disclosure\"><summary>Open required check · Two-trait crosses and independent assortment</summary><section class=\"activity\" data-check-id=\"ch17-check-05\" da",
+            "endAnchor": " supports.</li></ul></div></details></div></fieldset><div class=\"actions\"><button data-finish-check=\"\" type=\"button\">Submit and finish</button></div></fieldset></section></details>"
+          }
+        },
+        {
+          "tag": "nav",
+          "id": null,
+          "attributes": {
+            "aria-label": "Previous and next topics",
+            "class": "lesson-footer"
+          },
+          "range": {
+            "startByte": 185473,
+            "endByteExclusive": 185691,
+            "byteLength": 218,
+            "sha256": "00a1dc3e3bbcf662d96ed53b45c985db0f8e067dbccc722ec8b782b774986efb",
+            "startAnchor": "<nav aria-label=\"Previous and next topics\" class=\"lesson-footer\"><a href=\"#lesson-04\">← Test crosses and unknown genotypes</a><a class=\"next\" href=\"#lesson-06\">Next: Incomplete dom",
+            "endAnchor": " topics\" class=\"lesson-footer\"><a href=\"#lesson-04\">← Test crosses and unknown genotypes</a><a class=\"next\" href=\"#lesson-06\">Next: Incomplete dominance and codominance →</a></nav>"
+          }
+        },
+        {
+          "tag": "div",
+          "id": null,
+          "attributes": {
+            "class": "content-section textbook-practice-lesson-link"
+          },
+          "range": {
+            "startByte": 185691,
+            "endByteExclusive": 185896,
+            "byteLength": 205,
+            "sha256": "feff921770c4367a28816cd82561bce964eaa5b4e0f8fab69f4c158fc36edc1e",
+            "startAnchor": "<div class=\"content-section textbook-practice-lesson-link\"><a data-textbook-topic=\"lesson-05\" href=\"#textbook-practice\">Optional textbook practice for Two-trait crosses and indepen",
+            "endAnchor": "on textbook-practice-lesson-link\"><a data-textbook-topic=\"lesson-05\" href=\"#textbook-practice\">Optional textbook practice for Two-trait crosses and independent assortment</a></div>"
+          }
+        }
+      ],
+      "nativeControlAttributesUnchanged": [
+        {
+          "tag": "div",
+          "attributes": {
+            "class": "practice-question",
+            "data-guided-item": "ch17-l05-guided-q1"
+          },
+          "range": {
+            "startByte": 174551,
+            "endByteExclusive": 175069,
+            "byteLength": 518,
+            "sha256": "4acb8fad19308646607e5241e3d700dfa387b54ba3b2c83edddb969b6e07a80c",
+            "startAnchor": "<div class=\"practice-question\" data-guided-item=\"ch17-l05-guided-q1\"><label for=\"ch17-l05-guided-q1\">Which gametes can Aabb produce?</label><select id=\"ch17-l05-guided-q1\"><option ",
+            "endAnchor": "/option></select><div class=\"actions\"><button data-guided-check=\"\" type=\"button\">Check answer</button></div><p aria-live=\"polite\" data-revision-feedback=\"\" role=\"status\"></p></div>"
+          }
+        },
+        {
+          "tag": "button",
+          "attributes": {
+            "data-guided-check": "",
+            "type": "button"
+          },
+          "range": {
+            "startByte": 174927,
+            "endByteExclusive": 174991,
+            "byteLength": 64,
+            "sha256": "1ca04ec3ce145eaff721efb7e948a7712caca4257fb0a2b4dc7b5fde74a1b264",
+            "startAnchor": "<button data-guided-check=\"\" type=\"button\">Check answer</button></div><p aria-live=\"polite\" data-revision-feedback=\"\" role=\"status\"></p></div><div class=\"practice-question\" data-gu",
+            "endAnchor": "<button data-guided-check=\"\" type=\"button\">Check answer</button>"
+          }
+        },
+        {
+          "tag": "p",
+          "attributes": {
+            "aria-live": "polite",
+            "data-revision-feedback": "",
+            "role": "status"
+          },
+          "range": {
+            "startByte": 174997,
+            "endByteExclusive": 175063,
+            "byteLength": 66,
+            "sha256": "d529de022e2a7b2152e95c2611b51374e57b439611c200361988c95736fba8c2",
+            "startAnchor": "<p aria-live=\"polite\" data-revision-feedback=\"\" role=\"status\"></p></div><div class=\"practice-question\" data-guided-item=\"ch17-l05-guided-q2\"><label for=\"ch17-l05-guided-q2\">For ind",
+            "endAnchor": "<p aria-live=\"polite\" data-revision-feedback=\"\" role=\"status\"></p>"
+          }
+        },
+        {
+          "tag": "div",
+          "attributes": {
+            "class": "practice-question",
+            "data-guided-item": "ch17-l05-guided-q2"
+          },
+          "range": {
+            "startByte": 175069,
+            "endByteExclusive": 175568,
+            "byteLength": 499,
+            "sha256": "014f3e08a47a4f55a88d26a6453ba73dc84724fe6db775d36be216467d73d340",
+            "startAnchor": "<div class=\"practice-question\" data-guided-item=\"ch17-l05-guided-q2\"><label for=\"ch17-l05-guided-q2\">For independent AaBb × aabb, what is P(aabb)?</label><select id=\"ch17-l05-guide",
+            "endAnchor": "/option></select><div class=\"actions\"><button data-guided-check=\"\" type=\"button\">Check answer</button></div><p aria-live=\"polite\" data-revision-feedback=\"\" role=\"status\"></p></div>"
+          }
+        },
+        {
+          "tag": "button",
+          "attributes": {
+            "data-guided-check": "",
+            "type": "button"
+          },
+          "range": {
+            "startByte": 175426,
+            "endByteExclusive": 175490,
+            "byteLength": 64,
+            "sha256": "1ca04ec3ce145eaff721efb7e948a7712caca4257fb0a2b4dc7b5fde74a1b264",
+            "startAnchor": "<button data-guided-check=\"\" type=\"button\">Check answer</button></div><p aria-live=\"polite\" data-revision-feedback=\"\" role=\"status\"></p></div></section><div class=\"stop-check\"><p c",
+            "endAnchor": "<button data-guided-check=\"\" type=\"button\">Check answer</button>"
+          }
+        },
+        {
+          "tag": "p",
+          "attributes": {
+            "aria-live": "polite",
+            "data-revision-feedback": "",
+            "role": "status"
+          },
+          "range": {
+            "startByte": 175496,
+            "endByteExclusive": 175562,
+            "byteLength": 66,
+            "sha256": "d529de022e2a7b2152e95c2611b51374e57b439611c200361988c95736fba8c2",
+            "startAnchor": "<p aria-live=\"polite\" data-revision-feedback=\"\" role=\"status\"></p></div></section><div class=\"stop-check\"><p class=\"section-label\">Stop and think</p><h2>Try this before opening the",
+            "endAnchor": "<p aria-live=\"polite\" data-revision-feedback=\"\" role=\"status\"></p>"
+          }
+        },
+        {
+          "tag": "section",
+          "attributes": {
+            "class": "activity",
+            "data-check-id": "ch17-check-05",
+            "data-required-check": ""
+          },
+          "range": {
+            "startByte": 178896,
+            "endByteExclusive": 185463,
+            "byteLength": 6567,
+            "sha256": "4da927a8315df55098c007dac46f84719e29483c4bfb393c55dce4f9813251f2",
+            "startAnchor": "<section class=\"activity\" data-check-id=\"ch17-check-05\" data-required-check=\"\"><h2>Explain what you have learned</h2><p class=\"required-note\">This check counts toward chapter progr",
+            "endAnchor": "on than it supports.</li></ul></div></details></div></fieldset><div class=\"actions\"><button data-finish-check=\"\" type=\"button\">Submit and finish</button></div></fieldset></section>"
+          }
+        },
+        {
+          "tag": "button",
+          "attributes": {
+            "data-start-check": "",
+            "type": "button"
+          },
+          "range": {
+            "startByte": 179256,
+            "endByteExclusive": 179312,
+            "byteLength": 56,
+            "sha256": "f1207d95d554186a05ff8c78b9c8b0ab8d6fac2a881d6bb0f620f008af23bf38",
+            "startAnchor": "<button data-start-check=\"\" type=\"button\">Start</button><button data-redo-check=\"\" hidden=\"\" type=\"button\">Redo this check</button></div><span class=\"timer\" data-check-timer=\"\">Not",
+            "endAnchor": "<button data-start-check=\"\" type=\"button\">Start</button>"
+          }
+        },
+        {
+          "tag": "button",
+          "attributes": {
+            "data-redo-check": "",
+            "hidden": "",
+            "type": "button"
+          },
+          "range": {
+            "startByte": 179312,
+            "endByteExclusive": 179387,
+            "byteLength": 75,
+            "sha256": "c0506ff84baa9bea6a5665496aea49af4f0f7410b12bec34913745a6e8bd2c69",
+            "startAnchor": "<button data-redo-check=\"\" hidden=\"\" type=\"button\">Redo this check</button></div><span class=\"timer\" data-check-timer=\"\">Not started</span></div><p aria-live=\"polite\" class=\"run-st",
+            "endAnchor": "<button data-redo-check=\"\" hidden=\"\" type=\"button\">Redo this check</button>"
+          }
+        },
+        {
+          "tag": "span",
+          "attributes": {
+            "class": "timer",
+            "data-check-timer": ""
+          },
+          "range": {
+            "startByte": 179393,
+            "endByteExclusive": 179451,
+            "byteLength": 58,
+            "sha256": "ab2489e5bc2d8e547d4650e95ac538d368b64990a4897e1d866cc32b3c115f4a",
+            "startAnchor": "<span class=\"timer\" data-check-timer=\"\">Not started</span></div><p aria-live=\"polite\" class=\"run-status\" data-check-status=\"\"></p><fieldset data-check-body=\"\" disabled=\"\"><legend c",
+            "endAnchor": "<span class=\"timer\" data-check-timer=\"\">Not started</span>"
+          }
+        },
+        {
+          "tag": "p",
+          "attributes": {
+            "aria-live": "polite",
+            "class": "run-status",
+            "data-check-status": ""
+          },
+          "range": {
+            "startByte": 179457,
+            "endByteExclusive": 179523,
+            "byteLength": 66,
+            "sha256": "8e747a49206c560eeec119594eb3b7cd3ea1bbcb8fd2eb69f317736ab16dae4c",
+            "startAnchor": "<p aria-live=\"polite\" class=\"run-status\" data-check-status=\"\"></p><fieldset data-check-body=\"\" disabled=\"\"><legend class=\"sr-only\">Required chapter check</legend><div class=\"check-",
+            "endAnchor": "<p aria-live=\"polite\" class=\"run-status\" data-check-status=\"\"></p>"
+          }
+        },
+        {
+          "tag": "fieldset",
+          "attributes": {
+            "data-check-body": "",
+            "disabled": ""
+          },
+          "range": {
+            "startByte": 179523,
+            "endByteExclusive": 185453,
+            "byteLength": 5930,
+            "sha256": "eacffccebdfe2ad03eb86a9b5c5b0c5dfe25bc007b046d2b403800099dbb493c",
+            "startAnchor": "<fieldset data-check-body=\"\" disabled=\"\"><legend class=\"sr-only\">Required chapter check</legend><div class=\"check-question\" data-check-question=\"ch17-l05-check-mc-1\"><p class=\"eyeb",
+            "endAnchor": "r conclusion than it supports.</li></ul></div></details></div></fieldset><div class=\"actions\"><button data-finish-check=\"\" type=\"button\">Submit and finish</button></div></fieldset>"
+          }
+        },
+        {
+          "tag": "div",
+          "attributes": {
+            "class": "check-question",
+            "data-check-question": "ch17-l05-check-mc-1"
+          },
+          "range": {
+            "startByte": 179619,
+            "endByteExclusive": 181070,
+            "byteLength": 1451,
+            "sha256": "99ea64fda450675fd1466398a27de4c092b011424e0d1c52365c24c309112cef",
+            "startAnchor": "<div class=\"check-question\" data-check-question=\"ch17-l05-check-mc-1\"><p class=\"eyebrow\">Selection 1</p><h3 data-canvas-edit-key=\"ch17-l05-check-mc-1-prompt\" data-canvas-helper-edi",
+            "endAnchor": "span></label></fieldset><button data-check-answer=\"ch17-l05-check-mc-1\" type=\"button\">Check answer</button><p aria-live=\"polite\" class=\"inline-feedback\" data-feedback=\"\"></p></div>"
+          }
+        },
+        {
+          "tag": "input",
+          "attributes": {
+            "data-check-choice": "ch17-l05-check-mc-1",
+            "name": "ch17-l05-check-mc-1",
+            "type": "radio",
+            "value": "The loci assort independently under the model"
+          },
+          "range": {
+            "startByte": 180045,
+            "endByteExclusive": 180187,
+            "byteLength": 142,
+            "sha256": "456c106f377c668dbaab38a42149d98bf749dcc8bb41aac4794d3673291480cc",
+            "startAnchor": "<input data-check-choice=\"ch17-l05-check-mc-1\" name=\"ch17-l05-check-mc-1\" type=\"radio\" value=\"The loci assort independently under the model\"/><span>The loci assort independently un",
+            "endAnchor": "<input data-check-choice=\"ch17-l05-check-mc-1\" name=\"ch17-l05-check-mc-1\" type=\"radio\" value=\"The loci assort independently under the model\"/>"
+          }
+        },
+        {
+          "tag": "input",
+          "attributes": {
+            "data-check-choice": "ch17-l05-check-mc-1",
+            "name": "ch17-l05-check-mc-1",
+            "type": "radio",
+            "value": "The two genes must be identical"
+          },
+          "range": {
+            "startByte": 180279,
+            "endByteExclusive": 180407,
+            "byteLength": 128,
+            "sha256": "0d411fbed84cc78df9d57c45ecc7e2d65ca508ca7232e2fad818555eb21d6821",
+            "startAnchor": "<input data-check-choice=\"ch17-l05-check-mc-1\" name=\"ch17-l05-check-mc-1\" type=\"radio\" value=\"The two genes must be identical\"/><span>The two genes must be identical</span></label>",
+            "endAnchor": "<input data-check-choice=\"ch17-l05-check-mc-1\" name=\"ch17-l05-check-mc-1\" type=\"radio\" value=\"The two genes must be identical\"/>"
+          }
+        },
+        {
+          "tag": "input",
+          "attributes": {
+            "data-check-choice": "ch17-l05-check-mc-1",
+            "name": "ch17-l05-check-mc-1",
+            "type": "radio",
+            "value": "Every parent must be homozygous"
+          },
+          "range": {
+            "startByte": 180485,
+            "endByteExclusive": 180613,
+            "byteLength": 128,
+            "sha256": "459948a467a4712316e431075ac15a730380107df53a83a006639a208544c947",
+            "startAnchor": "<input data-check-choice=\"ch17-l05-check-mc-1\" name=\"ch17-l05-check-mc-1\" type=\"radio\" value=\"Every parent must be homozygous\"/><span>Every parent must be homozygous</span></label>",
+            "endAnchor": "<input data-check-choice=\"ch17-l05-check-mc-1\" name=\"ch17-l05-check-mc-1\" type=\"radio\" value=\"Every parent must be homozygous\"/>"
+          }
+        },
+        {
+          "tag": "input",
+          "attributes": {
+            "data-check-choice": "ch17-l05-check-mc-1",
+            "name": "ch17-l05-check-mc-1",
+            "type": "radio",
+            "value": "Each offspring compensates for the previous one"
+          },
+          "range": {
+            "startByte": 180691,
+            "endByteExclusive": 180835,
+            "byteLength": 144,
+            "sha256": "bcc696e3df5074cd10651d5991abf6f5221e7099e79ea9b772f0e12ec1915d4e",
+            "startAnchor": "<input data-check-choice=\"ch17-l05-check-mc-1\" name=\"ch17-l05-check-mc-1\" type=\"radio\" value=\"Each offspring compensates for the previous one\"/><span>Each offspring compensates for",
+            "endAnchor": "<input data-check-choice=\"ch17-l05-check-mc-1\" name=\"ch17-l05-check-mc-1\" type=\"radio\" value=\"Each offspring compensates for the previous one\"/>"
+          }
+        },
+        {
+          "tag": "button",
+          "attributes": {
+            "data-check-answer": "ch17-l05-check-mc-1",
+            "type": "button"
+          },
+          "range": {
+            "startByte": 180914,
+            "endByteExclusive": 180997,
+            "byteLength": 83,
+            "sha256": "5a43a5c008743d309b9c817a6f95d3bd8f4c7310b49552b48df2bc1ea7935e85",
+            "startAnchor": "<button data-check-answer=\"ch17-l05-check-mc-1\" type=\"button\">Check answer</button><p aria-live=\"polite\" class=\"inline-feedback\" data-feedback=\"\"></p></div><div class=\"check-questi",
+            "endAnchor": "<button data-check-answer=\"ch17-l05-check-mc-1\" type=\"button\">Check answer</button>"
+          }
+        },
+        {
+          "tag": "p",
+          "attributes": {
+            "aria-live": "polite",
+            "class": "inline-feedback",
+            "data-feedback": ""
+          },
+          "range": {
+            "startByte": 180997,
+            "endByteExclusive": 181064,
+            "byteLength": 67,
+            "sha256": "e5f6bd6b37699387e9a38929f5f22b8f1637b63d0889dadc79738812256914cb",
+            "startAnchor": "<p aria-live=\"polite\" class=\"inline-feedback\" data-feedback=\"\"></p></div><div class=\"check-question\" data-check-question=\"ch17-l05-check-mc-2\"><p class=\"eyebrow\">Selection 2</p><h3",
+            "endAnchor": "<p aria-live=\"polite\" class=\"inline-feedback\" data-feedback=\"\"></p>"
+          }
+        },
+        {
+          "tag": "div",
+          "attributes": {
+            "class": "check-question",
+            "data-check-question": "ch17-l05-check-mc-2"
+          },
+          "range": {
+            "startByte": 181070,
+            "endByteExclusive": 182220,
+            "byteLength": 1150,
+            "sha256": "35015e8877690bf8f43586136bab35c2609f5594bc5f687e8f22dc3d60cb97ae",
+            "startAnchor": "<div class=\"check-question\" data-check-question=\"ch17-l05-check-mc-2\"><p class=\"eyebrow\">Selection 2</p><h3 data-canvas-edit-key=\"ch17-l05-check-mc-2-prompt\" data-canvas-helper-edi",
+            "endAnchor": "span></label></fieldset><button data-check-answer=\"ch17-l05-check-mc-2\" type=\"button\">Check answer</button><p aria-live=\"polite\" class=\"inline-feedback\" data-feedback=\"\"></p></div>"
+          }
+        },
+        {
+          "tag": "input",
+          "attributes": {
+            "data-check-choice": "ch17-l05-check-mc-2",
+            "name": "ch17-l05-check-mc-2",
+            "type": "radio",
+            "value": "1/16"
+          },
+          "range": {
+            "startByte": 181473,
+            "endByteExclusive": 181574,
+            "byteLength": 101,
+            "sha256": "4665ed49c73431774b7f06cb92dfd0f8c259c0bbcb84218c937a8179b21d8bf7",
+            "startAnchor": "<input data-check-choice=\"ch17-l05-check-mc-2\" name=\"ch17-l05-check-mc-2\" type=\"radio\" value=\"1/16\"/><span>1/16</span></label><label class=\"choice-row\"><input data-check-choice=\"ch",
+            "endAnchor": "<input data-check-choice=\"ch17-l05-check-mc-2\" name=\"ch17-l05-check-mc-2\" type=\"radio\" value=\"1/16\"/>"
+          }
+        },
+        {
+          "tag": "input",
+          "attributes": {
+            "data-check-choice": "ch17-l05-check-mc-2",
+            "name": "ch17-l05-check-mc-2",
+            "type": "radio",
+            "value": "3/16"
+          },
+          "range": {
+            "startByte": 181625,
+            "endByteExclusive": 181726,
+            "byteLength": 101,
+            "sha256": "f04802eaa5989fb60d5f889552d07506ad3259df31baa5942e1fe07607ec5860",
+            "startAnchor": "<input data-check-choice=\"ch17-l05-check-mc-2\" name=\"ch17-l05-check-mc-2\" type=\"radio\" value=\"3/16\"/><span>3/16</span></label><label class=\"choice-row\"><input data-check-choice=\"ch",
+            "endAnchor": "<input data-check-choice=\"ch17-l05-check-mc-2\" name=\"ch17-l05-check-mc-2\" type=\"radio\" value=\"3/16\"/>"
+          }
+        },
+        {
+          "tag": "input",
+          "attributes": {
+            "data-check-choice": "ch17-l05-check-mc-2",
+            "name": "ch17-l05-check-mc-2",
+            "type": "radio",
+            "value": "1/4"
+          },
+          "range": {
+            "startByte": 181777,
+            "endByteExclusive": 181877,
+            "byteLength": 100,
+            "sha256": "156c17cc0119c2e2c8aa4a927430f9130a3397544c0f5c4d926b2d44bcc1574e",
+            "startAnchor": "<input data-check-choice=\"ch17-l05-check-mc-2\" name=\"ch17-l05-check-mc-2\" type=\"radio\" value=\"1/4\"/><span>1/4</span></label><label class=\"choice-row\"><input data-check-choice=\"ch17",
+            "endAnchor": "<input data-check-choice=\"ch17-l05-check-mc-2\" name=\"ch17-l05-check-mc-2\" type=\"radio\" value=\"1/4\"/>"
+          }
+        },
+        {
+          "tag": "input",
+          "attributes": {
+            "data-check-choice": "ch17-l05-check-mc-2",
+            "name": "ch17-l05-check-mc-2",
+            "type": "radio",
+            "value": "9/16"
+          },
+          "range": {
+            "startByte": 181927,
+            "endByteExclusive": 182028,
+            "byteLength": 101,
+            "sha256": "8c01bac8a227ec5b60360189952092f8e934f3521180a1dd8d26b4fa5ef48692",
+            "startAnchor": "<input data-check-choice=\"ch17-l05-check-mc-2\" name=\"ch17-l05-check-mc-2\" type=\"radio\" value=\"9/16\"/><span>9/16</span></label></fieldset><button data-check-answer=\"ch17-l05-check-m",
+            "endAnchor": "<input data-check-choice=\"ch17-l05-check-mc-2\" name=\"ch17-l05-check-mc-2\" type=\"radio\" value=\"9/16\"/>"
+          }
+        },
+        {
+          "tag": "button",
+          "attributes": {
+            "data-check-answer": "ch17-l05-check-mc-2",
+            "type": "button"
+          },
+          "range": {
+            "startByte": 182064,
+            "endByteExclusive": 182147,
+            "byteLength": 83,
+            "sha256": "2d63663a4da3461f76654be957e74aa701fc942a020251ad50726e610784639f",
+            "startAnchor": "<button data-check-answer=\"ch17-l05-check-mc-2\" type=\"button\">Check answer</button><p aria-live=\"polite\" class=\"inline-feedback\" data-feedback=\"\"></p></div><p class=\"unlock-message",
+            "endAnchor": "<button data-check-answer=\"ch17-l05-check-mc-2\" type=\"button\">Check answer</button>"
+          }
+        },
+        {
+          "tag": "p",
+          "attributes": {
+            "aria-live": "polite",
+            "class": "inline-feedback",
+            "data-feedback": ""
+          },
+          "range": {
+            "startByte": 182147,
+            "endByteExclusive": 182214,
+            "byteLength": 67,
+            "sha256": "e5f6bd6b37699387e9a38929f5f22b8f1637b63d0889dadc79738812256914cb",
+            "startAnchor": "<p aria-live=\"polite\" class=\"inline-feedback\" data-feedback=\"\"></p></div><p class=\"unlock-message\" data-unlock-message=\"\">Answer the selections correctly to unlock the writing.</p>",
+            "endAnchor": "<p aria-live=\"polite\" class=\"inline-feedback\" data-feedback=\"\"></p>"
+          }
+        },
+        {
+          "tag": "p",
+          "attributes": {
+            "class": "unlock-message",
+            "data-unlock-message": ""
+          },
+          "range": {
+            "startByte": 182220,
+            "endByteExclusive": 182327,
+            "byteLength": 107,
+            "sha256": "e03b463637e0805f3fb3868aaee65febe8c3dd21128ee9a0aa781ce69d44d312",
+            "startAnchor": "<p class=\"unlock-message\" data-unlock-message=\"\">Answer the selections correctly to unlock the writing.</p><fieldset data-writing-gate=\"\" disabled=\"\"><legend class=\"sr-only\">Writte",
+            "endAnchor": "<p class=\"unlock-message\" data-unlock-message=\"\">Answer the selections correctly to unlock the writing.</p>"
+          }
+        },
+        {
+          "tag": "fieldset",
+          "attributes": {
+            "data-writing-gate": "",
+            "disabled": ""
+          },
+          "range": {
+            "startByte": 182327,
+            "endByteExclusive": 185346,
+            "byteLength": 3019,
+            "sha256": "fa21b858f7498ce04098343c3a46879c9baac91c100d7274a1ae7db518a7e746",
+            "startAnchor": "<fieldset data-writing-gate=\"\" disabled=\"\"><legend class=\"sr-only\">Written explanations</legend><div class=\"writing-question\" data-writing-question=\"ch17-l05-check-writing-1\"><p cl",
+            "endAnchor": "lationship or calculation, not just the final result.</li><li>Uses the stated evidence and avoids a stronger conclusion than it supports.</li></ul></div></details></div></fieldset>"
+          }
+        },
+        {
+          "tag": "div",
+          "attributes": {
+            "class": "writing-question",
+            "data-writing-question": "ch17-l05-check-writing-1"
+          },
+          "range": {
+            "startByte": 182423,
+            "endByteExclusive": 183899,
+            "byteLength": 1476,
+            "sha256": "847596093539629d0001685de7c26d51859ab4209c9b98dfe556276c21b5cb1e",
+            "startAnchor": "<div class=\"writing-question\" data-writing-question=\"ch17-l05-check-writing-1\"><p class=\"eyebrow\">Written explanation 1</p><label data-canvas-edit-key=\"ch17-l05-check-writing-1-pro",
+            "endAnchor": "e causal relationship or calculation, not just the final result.</li><li>Uses the stated evidence and avoids a stronger conclusion than it supports.</li></ul></div></details></div>"
+          }
+        },
+        {
+          "tag": "textarea",
+          "attributes": {
+            "aria-describedby": "ch17-l05-check-writing-1-status",
+            "data-check-writing": "ch17-l05-check-writing-1",
+            "data-limit": "3200",
+            "id": "ch17-l05-check-writing-1",
+            "rows": "6"
+          },
+          "range": {
+            "startByte": 182823,
+            "endByteExclusive": 182998,
+            "byteLength": 175,
+            "sha256": "29102e397945c1b97a02868816731b25e642472b462dfbbf2bacc16dbdf17403",
+            "startAnchor": "<textarea aria-describedby=\"ch17-l05-check-writing-1-status\" data-check-writing=\"ch17-l05-check-writing-1\" data-limit=\"3200\" id=\"ch17-l05-check-writing-1\" rows=\"6\"></textarea><p cl",
+            "endAnchor": "<textarea aria-describedby=\"ch17-l05-check-writing-1-status\" data-check-writing=\"ch17-l05-check-writing-1\" data-limit=\"3200\" id=\"ch17-l05-check-writing-1\" rows=\"6\"></textarea>"
+          }
+        },
+        {
+          "tag": "button",
+          "attributes": {
+            "data-save-writing": "ch17-l05-check-writing-1",
+            "type": "button"
+          },
+          "range": {
+            "startByte": 183091,
+            "endByteExclusive": 183188,
+            "byteLength": 97,
+            "sha256": "57aada58dedc4781011e4b0019fedaf3988ac57af49cde8bd63699480ad9e6af",
+            "startAnchor": "<button data-save-writing=\"ch17-l05-check-writing-1\" type=\"button\">Save written response</button><p aria-live=\"polite\" class=\"writing-status\" data-writing-status=\"\" id=\"ch17-l05-ch",
+            "endAnchor": "<button data-save-writing=\"ch17-l05-check-writing-1\" type=\"button\">Save written response</button>"
+          }
+        },
+        {
+          "tag": "p",
+          "attributes": {
+            "aria-live": "polite",
+            "class": "writing-status",
+            "data-writing-status": "",
+            "id": "ch17-l05-check-writing-1-status"
+          },
+          "range": {
+            "startByte": 183188,
+            "endByteExclusive": 183297,
+            "byteLength": 109,
+            "sha256": "204db860eebafeead3dfeea74f4d9047107cd8bcfdd361a21bee864a7feb248d",
+            "startAnchor": "<p aria-live=\"polite\" class=\"writing-status\" data-writing-status=\"\" id=\"ch17-l05-check-writing-1-status\"></p><details data-locked=\"true\"><summary>Compare after saving your own resp",
+            "endAnchor": "<p aria-live=\"polite\" class=\"writing-status\" data-writing-status=\"\" id=\"ch17-l05-check-writing-1-status\"></p>"
+          }
+        },
+        {
+          "tag": "div",
+          "attributes": {
+            "class": "writing-question",
+            "data-writing-question": "ch17-l05-check-writing-2"
+          },
+          "range": {
+            "startByte": 183899,
+            "endByteExclusive": 185335,
+            "byteLength": 1436,
+            "sha256": "e17b2971640c6ab6f81b09da2f993078efe5913b1b22df0b049dea5d22067457",
+            "startAnchor": "<div class=\"writing-question\" data-writing-question=\"ch17-l05-check-writing-2\"><p class=\"eyebrow\">Written explanation 2</p><label data-canvas-edit-key=\"ch17-l05-check-writing-2-pro",
+            "endAnchor": "e causal relationship or calculation, not just the final result.</li><li>Uses the stated evidence and avoids a stronger conclusion than it supports.</li></ul></div></details></div>"
+          }
+        },
+        {
+          "tag": "textarea",
+          "attributes": {
+            "aria-describedby": "ch17-l05-check-writing-2-status",
+            "data-check-writing": "ch17-l05-check-writing-2",
+            "data-limit": "3200",
+            "id": "ch17-l05-check-writing-2",
+            "rows": "6"
+          },
+          "range": {
+            "startByte": 184272,
+            "endByteExclusive": 184447,
+            "byteLength": 175,
+            "sha256": "f5725c408e89b2dc1fd7f2e59ec72d1d7b4e13a61b3f450464cd9d69a1b38a0b",
+            "startAnchor": "<textarea aria-describedby=\"ch17-l05-check-writing-2-status\" data-check-writing=\"ch17-l05-check-writing-2\" data-limit=\"3200\" id=\"ch17-l05-check-writing-2\" rows=\"6\"></textarea><p cl",
+            "endAnchor": "<textarea aria-describedby=\"ch17-l05-check-writing-2-status\" data-check-writing=\"ch17-l05-check-writing-2\" data-limit=\"3200\" id=\"ch17-l05-check-writing-2\" rows=\"6\"></textarea>"
+          }
+        },
+        {
+          "tag": "button",
+          "attributes": {
+            "data-save-writing": "ch17-l05-check-writing-2",
+            "type": "button"
+          },
+          "range": {
+            "startByte": 184540,
+            "endByteExclusive": 184637,
+            "byteLength": 97,
+            "sha256": "878270ff12bf6ffc1f9e83975e380478a229cdbf240cc49ebbeece11f7ade048",
+            "startAnchor": "<button data-save-writing=\"ch17-l05-check-writing-2\" type=\"button\">Save written response</button><p aria-live=\"polite\" class=\"writing-status\" data-writing-status=\"\" id=\"ch17-l05-ch",
+            "endAnchor": "<button data-save-writing=\"ch17-l05-check-writing-2\" type=\"button\">Save written response</button>"
+          }
+        },
+        {
+          "tag": "p",
+          "attributes": {
+            "aria-live": "polite",
+            "class": "writing-status",
+            "data-writing-status": "",
+            "id": "ch17-l05-check-writing-2-status"
+          },
+          "range": {
+            "startByte": 184637,
+            "endByteExclusive": 184746,
+            "byteLength": 109,
+            "sha256": "f231deeb3fd926982c6a53dc3462fe74e2ef535b893ba09b32e7f82dd48e4853",
+            "startAnchor": "<p aria-live=\"polite\" class=\"writing-status\" data-writing-status=\"\" id=\"ch17-l05-check-writing-2-status\"></p><details data-locked=\"true\"><summary>Compare after saving your own resp",
+            "endAnchor": "<p aria-live=\"polite\" class=\"writing-status\" data-writing-status=\"\" id=\"ch17-l05-check-writing-2-status\"></p>"
+          }
+        },
+        {
+          "tag": "button",
+          "attributes": {
+            "data-finish-check": "",
+            "type": "button"
+          },
+          "range": {
+            "startByte": 185367,
+            "endByteExclusive": 185436,
+            "byteLength": 69,
+            "sha256": "4abe22f438050285821d1e2e5ab68f85a0d42500f3963834c9917aa4aec3e6ea",
+            "startAnchor": "<button data-finish-check=\"\" type=\"button\">Submit and finish</button></div></fieldset></section></details><nav aria-label=\"Previous and next topics\" class=\"lesson-footer\"><a href=\"",
+            "endAnchor": "<button data-finish-check=\"\" type=\"button\">Submit and finish</button>"
+          }
+        }
+      ],
+      "replacementApplied": false,
+      "validation": {
+        "originalIds": [
+          "ch17-l05-teaching-01",
+          "ch17-l05-teaching-02",
+          "ch17-l05-teaching-03",
+          "ch17-l05-worked"
+        ],
+        "newIds": [
+          "ch17-cal-v010-l05-change-parent",
+          "ch17-cal-v010-l05-joint-model"
+        ],
+        "nativeClasses": [
+          "bio-term",
+          "comparison-table",
+          "content-section",
+          "figure-toolbar",
+          "science-figure",
+          "section-label",
+          "text-link",
+          "worked-example"
+        ],
+        "originalEditOwnersRetained": 12
+      }
+    }
+  ],
+  "nativeCssRuntimeStorageChanges": false,
+  "applied": false
+}

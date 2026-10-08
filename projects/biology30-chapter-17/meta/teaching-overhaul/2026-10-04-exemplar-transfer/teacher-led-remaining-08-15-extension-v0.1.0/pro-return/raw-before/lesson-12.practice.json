@@ -1,0 +1,511 @@
+{
+  "checks": [
+    {
+      "id": "ch17-check-12",
+      "route": "lesson-12",
+      "title": "Linked genes and recombinant offspring",
+      "mc": [
+        {
+          "prompt": "Which statement about linked genes is correct?",
+          "answer": "Crossing over can produce recombinant combinations",
+          "explanation": "Physical association can be broken by exchange between loci.",
+          "cue": "Trace the normal mechanism before choosing an answer.",
+          "id": "ch17-l12-check-mc-1",
+          "options": [
+            "They are necessarily two alleles of one gene",
+            "They can never separate under any condition",
+            "Crossing over can produce recombinant combinations",
+            "They always produce exactly 1:1:1:1"
+          ],
+          "difficulty": "application"
+        },
+        {
+          "prompt": "What information is missing from the genotype AaBb when analysing linked loci?",
+          "answer": "Which alleles share each homologue",
+          "explanation": "AaBb does not distinguish AB/ab from Ab/aB phase.",
+          "cue": "Trace the normal mechanism before choosing an answer.",
+          "id": "ch17-l12-check-mc-2",
+          "options": [
+            "Whether there are two studied loci",
+            "Whether A and a are both present",
+            "Whether B and b are both present",
+            "Which alleles share each homologue"
+          ],
+          "difficulty": "application"
+        }
+      ],
+      "writing": [
+        {
+          "prompt": "Explain how a two-locus test cross can provide evidence about linkage.",
+          "model": "A homozygous recessive tester contributes a fixed allele combination. Offspring classes reveal the heterozygote’s gamete combinations. An excess of parental combinations over recombinants can support linkage, while equal combinations are expected under independent assortment, subject to sampling and model assumptions.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ],
+          "id": "ch17-l12-check-writing-1",
+          "limit": 3200
+        },
+        {
+          "prompt": "For Ab/aB, identify parental and recombinant combinations and explain why capital-letter grouping is not a valid shortcut.",
+          "model": "Parental combinations are Ab and aB because those occur on the original homologues. Recombinants are AB and ab. Parental status depends on phase rather than uppercase versus lowercase notation.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ],
+          "id": "ch17-l12-check-writing-2",
+          "limit": 3200
+        }
+      ]
+    }
+  ],
+  "words": [
+    {
+      "term": "linked genes",
+      "meaning": "Genes on the same chromosome that may be inherited together, especially when close.",
+      "example": "AB is carried on one homologue and ab on the other.",
+      "importantDistinction": "Physical linkage can reduce recombinant frequency, but widely separated loci may appear independent.",
+      "aliases": [],
+      "id": "ch17-word-linked-genes",
+      "lesson": 12,
+      "whatItDoes": "AB is carried on one homologue and ab on the other.",
+      "feature": "AB is carried on one homologue and ab on the other.",
+      "confusion": "Physical linkage can reduce recombinant frequency, but widely separated loci may appear independent."
+    },
+    {
+      "term": "parental combination",
+      "meaning": "An allele combination matching one of the original chromosome arrangements in the heterozygous parent.",
+      "example": "For AB/ab, the combinations AB and ab are parental.",
+      "importantDistinction": "Parental depends on the specified phase, not always capital letters together.",
+      "aliases": [],
+      "id": "ch17-word-parental-combination",
+      "lesson": 12,
+      "whatItDoes": "For AB/ab, the combinations AB and ab are parental.",
+      "feature": "For AB/ab, the combinations AB and ab are parental.",
+      "confusion": "Parental depends on the specified phase, not always capital letters together."
+    },
+    {
+      "term": "recombinant combination",
+      "meaning": "An allele combination different from the parent’s original arrangement for the loci considered.",
+      "example": "For AB/ab, crossing over can generate Ab and aB.",
+      "importantDistinction": "Recombinant does not necessarily mean a new allele was created.",
+      "aliases": [],
+      "id": "ch17-word-recombinant-combination",
+      "lesson": 12,
+      "whatItDoes": "For AB/ab, crossing over can generate Ab and aB.",
+      "feature": "For AB/ab, crossing over can generate Ab and aB.",
+      "confusion": "Recombinant does not necessarily mean a new allele was created."
+    },
+    {
+      "term": "linkage phase",
+      "meaning": "The arrangement of alleles across the two homologous chromosomes.",
+      "example": "AB/ab differs from Ab/aB even though both can be written AaBb.",
+      "importantDistinction": "The compact genotype AaBb alone does not specify phase.",
+      "aliases": [],
+      "id": "ch17-word-linkage-phase",
+      "lesson": 12,
+      "whatItDoes": "AB/ab differs from Ab/aB even though both can be written AaBb.",
+      "feature": "AB/ab differs from Ab/aB even though both can be written AaBb.",
+      "confusion": "The compact genotype AaBb alone does not specify phase."
+    }
+  ],
+  "practiceQuestions": [
+    {
+      "id": "ch17-source-OBJ_2131225",
+      "lesson": 12,
+      "prompt": "A double heterozygote carries linked alleles in the phase GT/gt. What can produce Gt and gT gametes?",
+      "answer": "Crossing over between the two loci",
+      "options": [
+        "Complete dominance",
+        "Crossing over between the two loci",
+        "Independent segregation of alleles on an unchanged same chromosome",
+        "Nondisjunction alone"
+      ],
+      "cue": "Identify the relevant mechanism or quantity and apply the stated model.",
+      "explanation": "A crossover between loci can exchange chromosome segments and form nonparental allele combinations.",
+      "difficulty": "application",
+      "stimuli": [],
+      "sourceItemId": "OBJ_2131225",
+      "conceptId": "ch17-concept-allele"
+    },
+    {
+      "id": "ch17-foundation-ch17-word-linked-genes",
+      "lesson": 12,
+      "conceptId": "ch17-concept-linked-genes",
+      "prompt": "Which term matches this description? Genes on the same chromosome that may be inherited together, especially when close.",
+      "options": [
+        "linked genes",
+        "parental combination",
+        "recombinant combination",
+        "linkage phase"
+      ],
+      "answer": "linked genes",
+      "cue": "Use the meaning of each term, not the length of its name.",
+      "explanation": "Genes on the same chromosome that may be inherited together, especially when close. Physical linkage can reduce recombinant frequency, but widely separated loci may appear independent.",
+      "difficulty": "recall",
+      "family": "definition-recognition",
+      "kind": "mc"
+    },
+    {
+      "id": "ch17-foundation-ch17-word-parental-combination",
+      "lesson": 12,
+      "conceptId": "ch17-concept-parental-combination",
+      "prompt": "Which term matches this description? An allele combination matching one of the original chromosome arrangements in the heterozygous parent.",
+      "options": [
+        "linked genes",
+        "parental combination",
+        "recombinant combination",
+        "linkage phase"
+      ],
+      "answer": "parental combination",
+      "cue": "Use the meaning of each term, not the length of its name.",
+      "explanation": "An allele combination matching one of the original chromosome arrangements in the heterozygous parent. Parental depends on the specified phase, not always capital letters together.",
+      "difficulty": "recall",
+      "family": "definition-recognition",
+      "kind": "mc"
+    },
+    {
+      "id": "ch17-foundation-ch17-word-recombinant-combination",
+      "lesson": 12,
+      "conceptId": "ch17-concept-recombinant-combination",
+      "prompt": "Which term matches this description? An allele combination different from the parent’s original arrangement for the loci considered.",
+      "options": [
+        "linked genes",
+        "parental combination",
+        "recombinant combination",
+        "linkage phase"
+      ],
+      "answer": "recombinant combination",
+      "cue": "Use the meaning of each term, not the length of its name.",
+      "explanation": "An allele combination different from the parent’s original arrangement for the loci considered. Recombinant does not necessarily mean a new allele was created.",
+      "difficulty": "recall",
+      "family": "definition-recognition",
+      "kind": "mc"
+    },
+    {
+      "id": "ch17-foundation-ch17-word-linkage-phase",
+      "lesson": 12,
+      "conceptId": "ch17-concept-linkage-phase",
+      "prompt": "Which term matches this description? The arrangement of alleles across the two homologous chromosomes.",
+      "options": [
+        "linked genes",
+        "parental combination",
+        "recombinant combination",
+        "linkage phase"
+      ],
+      "answer": "linkage phase",
+      "cue": "Use the meaning of each term, not the length of its name.",
+      "explanation": "The arrangement of alleles across the two homologous chromosomes. The compact genotype AaBb alone does not specify phase.",
+      "difficulty": "recall",
+      "family": "definition-recognition",
+      "kind": "mc"
+    }
+  ],
+  "labelDiagrams": [
+    {
+      "id": "ch17-linkage-label",
+      "title": "Linked allele arrangements and gamete classes",
+      "lesson": 12,
+      "src": "./assets/labeling/ch17-linkage-label.png",
+      "alt": "The starting arrangement is AB/ab. Without crossing over, AB and ab are parental combinations; Ab and aB are recombinants. Lettered identification version; answer key is not drawn.",
+      "answers": {
+        "A": "Parental gamete",
+        "B": "Parental gamete",
+        "C": "Recombinant gamete",
+        "D": "Recombinant gamete"
+      },
+      "options": [
+        "Parental gamete",
+        "Recombinant gamete"
+      ],
+      "reviewNote": "Follow each letter or its leader line. Use the model assumptions and units shown."
+    }
+  ],
+  "videos": [
+    {
+      "id": "wrtLyLwt51o",
+      "lesson": 12,
+      "title": "Linked genes and recombinant offspring — video support",
+      "purpose": "Identify linked allele arrangements, parental and recombinant combinations, and use a test cross to interpret gamete frequencies.",
+      "fallback": "Cross a heterozygote with aabb. The tester contributes only ab, so the offspring's phenotype or genotype can reveal the heterozygote's gamete contribution. Under independent assortment, the four combinations are expected in equal proportions. If the heterozygote has AB/ab and the genes are linked, AB and ab gametes often occur more frequently than Ab and aB. The corresponding parental offspring classes are larger, and the recombinant classes smaller. Read the actual counts, not just the presence of four categories. Linked genes can produce all four combinations if crossing over occurs, but the proportions can differ from 1:1:1:1.",
+      "disposition": "included",
+      "sourceSlide": 95,
+      "sourceDeck": "c17",
+      "availability": "Source hyperlink resolved syntactically; external playback not certified."
+    }
+  ],
+  "practiceConcepts": [
+    {
+      "id": "ch17-concept-linked-genes",
+      "term": "linked genes",
+      "lesson": 12,
+      "meaning": "Genes on the same chromosome that may be inherited together, especially when close.",
+      "example": "AB is carried on one homologue and ab on the other.",
+      "aliases": [],
+      "cue": "Identify the structure, quantity or relationship described.",
+      "correctExplanation": "Genes on the same chromosome that may be inherited together, especially when close. Physical linkage can reduce recombinant frequency, but widely separated loci may appear independent.",
+      "misconception": {
+        "statement": "Any genes on the same chromosome can never recombine.",
+        "correction": "Genes on the same chromosome that may be inherited together, especially when close. Physical linkage can reduce recombinant frequency, but widely separated loci may appear independent."
+      },
+      "reviewRoute": "lesson-12"
+    },
+    {
+      "id": "ch17-concept-parental-combination",
+      "term": "parental combination",
+      "lesson": 12,
+      "meaning": "An allele combination matching one of the original chromosome arrangements in the heterozygous parent.",
+      "example": "For AB/ab, the combinations AB and ab are parental.",
+      "aliases": [],
+      "cue": "Identify the structure, quantity or relationship described.",
+      "correctExplanation": "An allele combination matching one of the original chromosome arrangements in the heterozygous parent. Parental depends on the specified phase, not always capital letters together.",
+      "misconception": {
+        "statement": "AB is always parental in every heterozygote.",
+        "correction": "An allele combination matching one of the original chromosome arrangements in the heterozygous parent. Parental depends on the specified phase, not always capital letters together."
+      },
+      "reviewRoute": "lesson-12"
+    },
+    {
+      "id": "ch17-concept-recombinant-combination",
+      "term": "recombinant combination",
+      "lesson": 12,
+      "meaning": "An allele combination different from the parent’s original arrangement for the loci considered.",
+      "example": "For AB/ab, crossing over can generate Ab and aB.",
+      "aliases": [],
+      "cue": "Identify the structure, quantity or relationship described.",
+      "correctExplanation": "An allele combination different from the parent’s original arrangement for the loci considered. Recombinant does not necessarily mean a new allele was created.",
+      "misconception": {
+        "statement": "A recombinant always contains a novel mutation.",
+        "correction": "An allele combination different from the parent’s original arrangement for the loci considered. Recombinant does not necessarily mean a new allele was created."
+      },
+      "reviewRoute": "lesson-12"
+    },
+    {
+      "id": "ch17-concept-linkage-phase",
+      "term": "linkage phase",
+      "lesson": 12,
+      "meaning": "The arrangement of alleles across the two homologous chromosomes.",
+      "example": "AB/ab differs from Ab/aB even though both can be written AaBb.",
+      "aliases": [],
+      "cue": "Identify the structure, quantity or relationship described.",
+      "correctExplanation": "The arrangement of alleles across the two homologous chromosomes. The compact genotype AaBb alone does not specify phase.",
+      "misconception": {
+        "statement": "AaBb always means AB and ab are together on the homologues.",
+        "correction": "The arrangement of alleles across the two homologous chromosomes. The compact genotype AaBb alone does not specify phase."
+      },
+      "reviewRoute": "lesson-12"
+    }
+  ],
+  "authoredPractice": [
+    {
+      "prompt": "A linked-gene test cross produces all four phenotype classes, but two parental classes dominate. Does the presence of four classes rule out linkage?",
+      "answer": "No; crossing over can produce the smaller recombinant classes",
+      "explanation": "Linkage changes frequencies and does not necessarily eliminate recombination.",
+      "cue": "Trace the normal mechanism before choosing an answer.",
+      "id": "ch17-l12-application-1",
+      "options": [
+        "Yes; linkage permits only two classes in all cases",
+        "Yes; every recombinant is a different species",
+        "No; because the tester contributes no DNA",
+        "No; crossing over can produce the smaller recombinant classes"
+      ],
+      "difficulty": "application",
+      "lesson": 12,
+      "chapter": 17,
+      "conceptId": "ch17-concept-test-cross",
+      "family": "application",
+      "kind": "mc",
+      "reviewRoute": "lesson-12",
+      "flashVariant": {
+        "id": "ch17-l12-scenario-1",
+        "family": "scenario-explanation",
+        "prompt": "A linked-gene test cross produces all four phenotype classes, but two parental classes dominate. Does the presence of four classes rule out linkage?",
+        "model": "No; crossing over can produce the smaller recombinant classes. Linkage changes frequencies and does not necessarily eliminate recombination.",
+        "selfAssessed": true
+      }
+    }
+  ],
+  "typedPractice": [
+    {
+      "id": "ch17-l12-context-linked-genes",
+      "chapter": 17,
+      "lesson": 12,
+      "conceptId": "ch17-concept-linked-genes",
+      "family": "scenario-retrieval",
+      "kind": "blank",
+      "difficulty": "application",
+      "prompt": "Identify the term illustrated: AB is carried on one homologue and ab on the other.",
+      "answer": "linked genes",
+      "aliases": [],
+      "cue": "Use the relationship described in the example.",
+      "explanation": "Genes on the same chromosome that may be inherited together, especially when close. Physical linkage can reduce recombinant frequency, but widely separated loci may appear independent.",
+      "reviewRoute": "lesson-12"
+    },
+    {
+      "id": "ch17-l12-context-parental-combination",
+      "chapter": 17,
+      "lesson": 12,
+      "conceptId": "ch17-concept-parental-combination",
+      "family": "scenario-retrieval",
+      "kind": "blank",
+      "difficulty": "application",
+      "prompt": "Identify the term illustrated: For AB/ab, the combinations AB and ab are parental.",
+      "answer": "parental combination",
+      "aliases": [],
+      "cue": "Use the relationship described in the example.",
+      "explanation": "An allele combination matching one of the original chromosome arrangements in the heterozygous parent. Parental depends on the specified phase, not always capital letters together.",
+      "reviewRoute": "lesson-12"
+    },
+    {
+      "id": "ch17-l12-context-recombinant-combination",
+      "chapter": 17,
+      "lesson": 12,
+      "conceptId": "ch17-concept-recombinant-combination",
+      "family": "scenario-retrieval",
+      "kind": "blank",
+      "difficulty": "application",
+      "prompt": "Identify the term illustrated: For AB/ab, crossing over can generate Ab and aB.",
+      "answer": "recombinant combination",
+      "aliases": [],
+      "cue": "Use the relationship described in the example.",
+      "explanation": "An allele combination different from the parent’s original arrangement for the loci considered. Recombinant does not necessarily mean a new allele was created.",
+      "reviewRoute": "lesson-12"
+    },
+    {
+      "id": "ch17-l12-context-linkage-phase",
+      "chapter": 17,
+      "lesson": 12,
+      "conceptId": "ch17-concept-linkage-phase",
+      "family": "scenario-retrieval",
+      "kind": "blank",
+      "difficulty": "application",
+      "prompt": "Identify the term illustrated: AB/ab differs from Ab/aB even though both can be written AaBb.",
+      "answer": "linkage phase",
+      "aliases": [],
+      "cue": "Use the relationship described in the example.",
+      "explanation": "The arrangement of alleles across the two homologous chromosomes. The compact genotype AaBb alone does not specify phase.",
+      "reviewRoute": "lesson-12"
+    }
+  ],
+  "guidedActivities": [
+    {
+      "chapter": 17,
+      "lesson": 12,
+      "route": "lesson-12",
+      "worked": {
+        "title": "Identify parental and recombinant classes",
+        "scenario": "An AB/ab heterozygote is crossed with ab/ab. Offspring reveal 42 AB, 40 ab, 9 Ab and 9 aB gamete contributions.",
+        "steps": [
+          "The stated parental phase is AB/ab, so AB and ab are parental.",
+          "Ab and aB are recombinant combinations.",
+          "There are 82 parental and 18 recombinant observations among 100.",
+          "The excess parental classes is consistent with linkage in this model.",
+          "The counts do not mean only 18 cells underwent any crossing over anywhere; they concern the two loci being scored."
+        ],
+        "id": "ch17-l12-worked",
+        "label": "Worked example"
+      },
+      "guided": {
+        "id": "ch17-l12-guided",
+        "label": "Practise with support",
+        "title": "Apply the explanation",
+        "instruction": "Try both questions. Use the hint to revise your thinking after an incorrect answer.",
+        "items": [
+          {
+            "prompt": "For Ab/aB, which gametes are parental?",
+            "answer": "Ab and aB",
+            "explanation": "Parental combinations match the stated chromosome phase.",
+            "cue": "Read the slash-separated homologues first.",
+            "id": "ch17-l12-guided-q1",
+            "options": [
+              "AA and bb",
+              "Ab and aB",
+              "AB and ab"
+            ],
+            "difficulty": "application",
+            "kind": "select",
+            "hint": "Read the slash-separated homologues first."
+          },
+          {
+            "prompt": "Why is aabb useful as the tester?",
+            "answer": "Its gamete contribution is fixed as ab",
+            "explanation": "A fixed tester makes the heterozygote’s contribution traceable.",
+            "cue": "Separate the two parents’ gamete contributions.",
+            "id": "ch17-l12-guided-q2",
+            "options": [
+              "It contributes all four gamete types equally",
+              "It prevents all meiosis",
+              "Its gamete contribution is fixed as ab"
+            ],
+            "difficulty": "application",
+            "kind": "select",
+            "hint": "Separate the two parents’ gamete contributions."
+          }
+        ]
+      }
+    }
+  ],
+  "diagramPractice": [
+    {
+      "id": "ch17-linkage-label-practice-A",
+      "lesson": 12,
+      "conceptId": "ch17-concept-allele",
+      "diagramId": "ch17-linkage-label",
+      "letter": "A",
+      "prompt": "What does letter A identify?",
+      "options": [
+        "Parental gamete",
+        "Recombinant gamete"
+      ],
+      "cue": "Follow the leader line or the lettered feature. Read any stated model assumptions.",
+      "explanation": "Letter A identifies Parental gamete.",
+      "reviewRoute": "lesson-12"
+    },
+    {
+      "id": "ch17-linkage-label-practice-B",
+      "lesson": 12,
+      "conceptId": "ch17-concept-allele",
+      "diagramId": "ch17-linkage-label",
+      "letter": "B",
+      "prompt": "What does letter B identify?",
+      "options": [
+        "Recombinant gamete",
+        "Parental gamete"
+      ],
+      "cue": "Follow the leader line or the lettered feature. Read any stated model assumptions.",
+      "explanation": "Letter B identifies Parental gamete.",
+      "reviewRoute": "lesson-12"
+    },
+    {
+      "id": "ch17-linkage-label-practice-C",
+      "lesson": 12,
+      "conceptId": "ch17-concept-allele",
+      "diagramId": "ch17-linkage-label",
+      "letter": "C",
+      "prompt": "What does letter C identify?",
+      "options": [
+        "Recombinant gamete",
+        "Parental gamete"
+      ],
+      "cue": "Follow the leader line or the lettered feature. Read any stated model assumptions.",
+      "explanation": "Letter C identifies Recombinant gamete.",
+      "reviewRoute": "lesson-12"
+    },
+    {
+      "id": "ch17-linkage-label-practice-D",
+      "lesson": 12,
+      "conceptId": "ch17-concept-allele",
+      "diagramId": "ch17-linkage-label",
+      "letter": "D",
+      "prompt": "What does letter D identify?",
+      "options": [
+        "Parental gamete",
+        "Recombinant gamete"
+      ],
+      "cue": "Follow the leader line or the lettered feature. Read any stated model assumptions.",
+      "explanation": "Letter D identifies Recombinant gamete.",
+      "reviewRoute": "lesson-12"
+    }
+  ]
+}

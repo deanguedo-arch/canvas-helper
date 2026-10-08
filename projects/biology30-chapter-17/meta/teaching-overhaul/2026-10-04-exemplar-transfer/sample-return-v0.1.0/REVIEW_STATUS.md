@@ -1,0 +1,36 @@
+# Review status — complete two-lesson calibration v0.1.0
+
+**The lesson-02 and lesson-05 sample is complete. Dean's acceptance is pending.** Reviews below apply only to the precisely pinned two-lesson calibration, not the rest of Chapter17 or a release. “Independent” means a separate assistant reviewer who did not author these learner drafts; it does not mean an external human specialist or a blinded acceptance process.
+
+| Activity | Actual scope and result | Evidence |
+|---|---|---|
+| Current source availability and byte verification | All three actual local ordinary source ZIPs were reopened; archive SHA256/CRC,235 included manifest entries and17 additional archive-protected members match current staged copies. Native owner, required source categories and isolated Chapter11 exemplar are available. Concrete missing sources remain declared. | `SOURCE_READINESS.md`; `evidence/source/CURRENT_SOURCE_GATE.md/.json` and member/archive inventories. |
+| Author self-review | Root authored and reread both complete final teaching inputs and both final assembled manuscripts, including full hints/feedback; reviewed adjacent-block purpose, reasoning, prerequisite fairness, repetition and deferrals. No remaining missing learner block or essential hidden procedure identified. | `AUTHOR_SELF_REVIEW.md/.json`. |
+| Independent source/science review | Separate source reviewer read both complete inputs against the bounded textbook/actual PPTX/native/QTI evidence. Final05 was fully read at its preceding revision, then every final petal-only change was read and exactly reconciled. No blocking source/science defect found. Qualified original-source reservations remain protected. | `evidence/source/BOUNDED_DRAFT_SOURCE_REVIEW.md/.json`; `SOURCE_MAP.md/.json`; `SOURCE_CONFLICTS.md/.json`. |
+| Independent science and quantitative review | Separate native-contract reviewer read the final inputs and required targets; checked chromosome accounting, gametes, phenotype grouping, arithmetic, event denominators and new-task separation. Independent enumeration and a further bounded quantitative spot review agreed. No unresolved consequential calculation/science finding remains in that scope. | `evidence/native/calibration-draft-review.md/.json`, `fresh-independent-recomputation.json` and exact input pins. |
+| Independent instructional/exemplar review | Separate exemplar reviewer read the three full standards, the exact selected Chapter11 fragments, current native prerequisites and both complete drafts. Missing-prerequisite/wording findings were repaired and reread. No further instructional revision requested within this scope. No length or example quota applied. | `evidence/exemplar/LESSON02_INDEPENDENT_INSTRUCTIONAL_REVIEW.md`, `LESSON05_INDEPENDENT_INSTRUCTIONAL_REVIEW.md` and their read records. |
+| Block decisions and bounded continuity review | Separate records reviewer read final02/05, current native01–05 teaching and all eight exact exemplar passages. Every actual review unit has exact input and expanded-fragment coordinates, prerequisite evidence, contribution and choice. Printed595/PDF12 Q13,15,16 timing item closed with a return-after06 note. | `EXEMPLAR_TRANSFER_DECISIONS.md/.json`; `CHAPTER_PROGRESSION.md`; `CONTINUITY_LEDGER.md`; `evidence/records/DRAFT_READ_REGISTER.json`. |
+| Assembly author self-check | Assembler preserved complete teaching and feedback word order and mathematical/ratio symbols, all practice records, exact figures and the separate protected-source reading. No annotation placeholder remains. This is the assembler's own verification, not independent instructional review. | `evidence/ASSEMBLY_WORD_AND_BYTE_VERIFICATION.json` and word-retention records. |
+| Independent assembled-copy review | Records reviewer fully read both actual Markdown manuscripts and both protected activity-reading appendices. Independent static comparison verifies complete prose, punctuation and mathematical-symbol sequences against the inert HTML. No consequential continuity gap or assembled-copy omission found. The additional machine-readable selected-record appendix was compared by other source/native/assembly checks, not claimed as another full prose read by this reviewer. | `evidence/records/ASSEMBLED_RECORDS_REVIEW.md/.json`. |
+| Independent native-fragment contract verification | Both final expanded fragments,96 source ranges,84 raw copies,8 original IDs,24 original edit owners,15 vocabulary occurrences,2 tables and1 exact native figure match their recorded contracts. Headers/prefixes/protected suffixes are untouched and no header change is proposed. | `evidence/native/FINAL_FRAGMENT_CONTRACT_CHECK.md/.json`; `INTEGRATION_MAP.json`. |
+| Final artifact integrity | Root checks the frozen core hashes, exact copied evidence, all raw-before source slices and previous v1.0.0 file/archive hashes before sealing; final archive CRC and each packaged member are checked after creation. These are file/source checks, not course runtime tests. | `ARTIFACT_INTEGRITY.json`; `MANIFEST.json`; `CHECKSUMS.sha256`; archive checksum sidecar. |
+| External specialist or human science review | Not performed for this calibration. | No acceptance claim. |
+| Dean/teacher sample acceptance | Pending. The returned files are a concrete sample for that decision. | `README_SAMPLE_DECISION.md`; `OPEN_ISSUES.md`. |
+| Whole-chapter fresh review | Not performed in this bounded run. The earlier full v1.0.0 return is unchanged. | Prior-artifact freeze evidence. |
+| Native runtime/technical testing | Not run. No native application, storage/history/conflict path, progress behaviour or video playback was executed. | Explicit exclusion throughout the integration and review records. |
+| Browser rendering and local receipt | Not verified. Static content/inertness checks and a successful file save do not establish either. The reported browser block is not bypassed. | Delivery boundary in `OPEN_ISSUES.md`. |
+| Canonical integration, deployment, release, certification or standard promotion | Not done. No course or metadata change is included. | Proposal-only integration map; empty header proposals. |
+
+## Final learner and reading pins
+
+| File | SHA256 |
+|---|---|
+| Lesson02 author input | `104526dfdc81d8e6aac1f56f826ea3c04ef28fe73b4c1f6d006ff5ae838808c0` |
+| Lesson05 author input | `920c21c4c658fdda5d7fc1416978c8e5a1d62adf7d221ef2fd70fa5ffc61d651` |
+| `manuscripts/lesson-02.md` | `1fe8392c843c77250d23babac8d73c9c0826be2253bbd4ecb96d691b8c2a704e` |
+| `manuscripts/lesson-05.md` | `5ce3f48d1c44ddf22932ea3bc2c4ce7045ff45c4f78511afaa421a7d1c46a1e9` |
+| `integration-text/lesson-02.teaching-fragment.html.txt` | `5740360125376c2994bdaa1f28c4fe3d57b276232494ec7dbdb9db49ed6543fc` |
+| `integration-text/lesson-05.teaching-fragment.html.txt` | `a78b0e51af788a1591864cd8fc3ae6a733a4b7b051b73bbe82be1787e1944e0c` |
+| Combined inert teacher HTML | `5553619d9c0eb503fd9efdd3a0ca079eb50148c131f11de9efae3b401d2b7e70` |
+
+The records disclose unavoidable conceptual overlap with protected questions and inherited figure/video support. No review is represented as proof of blind assessment, automatic quality certification or teacher acceptance. Chapter11 remains the selected teaching direction, and Chapter19 calibration was not performed. The stopping point is this complete two-lesson sample.

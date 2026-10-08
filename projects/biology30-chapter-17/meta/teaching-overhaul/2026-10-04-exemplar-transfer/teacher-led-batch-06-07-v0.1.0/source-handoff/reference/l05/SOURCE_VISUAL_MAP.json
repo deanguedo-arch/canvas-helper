@@ -1,0 +1,1966 @@
+{
+  "version": "0.1.0",
+  "route": "lesson-05",
+  "title": "Two-trait crosses and independent assortment",
+  "sourceAuthority": {
+    "zip": {
+      "name": "Biology30_CH17_Lesson05_Teacher_Transfer_v0.1.0_Source.zip",
+      "bytes": 15469952,
+      "sha256": "5b272d90413e283ec31b3f5f119c10d6ad3538033823eae817192e1ef6a7d352"
+    },
+    "leadReview": {
+      "name": "LEAD_SOURCE_REVIEW.json",
+      "bytes": 9062,
+      "sha256": "a2d6d92dd3a939e9f2d71d041b4b69e83f9b3485ded8a7c2f05434f9ec23c8f9",
+      "scope": "Supplied source preparation and proposed sequence; not completed-manuscript review."
+    }
+  },
+  "originalPpt": {
+    "packetFile": "sources/original-114-slides.pptx",
+    "bytes": 10153531,
+    "sha256": "da1ce1c0526da4da1aefd1fb6c0f23070f820ce24378c12f9699d1c700e1a985",
+    "slides": 114,
+    "actualReadSlides": [
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48
+    ],
+    "xmlAndRelsCopiesVerified": 15,
+    "relatedMediaVerified": 13,
+    "allRelatedPixelsViewed": true
+  },
+  "originalTextbook": {
+    "packetFile": "sources/chapter-17.pdf",
+    "bytes": 2005971,
+    "sha256": "48e297aacb86275c106a02abdddaf0f0463ba47d6b17703a926aa68405755455",
+    "pages": 38,
+    "readAndPixelViewed": [
+      {
+        "printed": 591,
+        "pdf": 8
+      },
+      {
+        "printed": 592,
+        "pdf": 9
+      },
+      {
+        "printed": 593,
+        "pdf": 10
+      },
+      {
+        "printed": 596,
+        "pdf": 13
+      },
+      {
+        "printed": 597,
+        "pdf": 14
+      }
+    ],
+    "additionalBoundedRead": {
+      "printed": 595,
+      "pdf": 12,
+      "purpose": "Verify existing optional Q13/15/16 deferral; no medical claims adopted."
+    },
+    "physicalInvestigation": "Printed592/PDF9 and top continuation593/PDF10; not assigned."
+  },
+  "readScope": {
+    "task": "complete AUTHORING_TASK.md",
+    "standards": [
+      "Complete standards/02_TEACHING_STANDARD.md",
+      "Complete standards/CHAPTER11_TEACHING_STANDARD.md"
+    ],
+    "reference": "Both complete corrected reference formats, COPY_CHANGES and REFERENCE_ACCEPTANCE read; reference is direction for this trial, not new lesson acceptance.",
+    "native": "Full current owner bytes verified; relevant current01–06 teaching and lesson05 protected tasks/data/contracts read. Not a whole-chapter instructional audit."
+  },
+  "figures": [
+    {
+      "id": "ch17-l05-v010-pea-contrasts",
+      "kind": "original-source-figure",
+      "source": {
+        "packetFile": "sources/slide-assets/slide-35-image32.png",
+        "actualSlideNumber": 35,
+        "slideMember": "ppt/slides/slide35.xml",
+        "relationshipId": "rId3",
+        "originalPptMediaMember": "ppt/media/image32.png",
+        "sourceHash": {
+          "bytes": 77704,
+          "sha256": "8eeaa700523d536e1375231cfc9f6a6971ae29618aca18918040ea81f5502d39"
+        },
+        "sourceLocators": [
+          "Original PPT slide35, ppt/media/image32.png"
+        ],
+        "status": "selected original source image; unchanged bytes; candidate use pending teacher decision"
+      },
+      "destination": "./assets/teaching-l05-v010/slide-35-image32.png",
+      "output": {
+        "bytes": 77704,
+        "sha256": "8eeaa700523d536e1375231cfc9f6a6971ae29618aca18918040ea81f5502d39"
+      },
+      "pixelRead": {
+        "performed": true,
+        "method": "Original image visually inspected; native SVG viewed through scratch rasterization only.",
+        "courseOrBrowserRendered": false
+      },
+      "dimensions": [
+        325,
+        349
+      ],
+      "placement": {
+        "startByte": 1198,
+        "endByteExclusive": 1680,
+        "bytes": 482,
+        "sha256": "5044d4397a7f698dab5563b1814eafe97b13919517420946842228034fddc577",
+        "coordinateSource": "AFTER proposed lesson-05.teaching-fragment.html; zero-based UTF-8, end exclusive."
+      },
+      "caption": "Compare plant height separately from pod colour. These contrasting forms give us two characteristics to follow in the offspring.",
+      "alt": "A tall pea plant on the left and a short plant beside it, with a separate upper-right inset showing a green pod on the left and a yellow pod on the right.",
+      "introductionAndViewingText": "Look first at the two contrasts below. Compare the height of the plant on the left with the smaller plant beside it. Then look at the pods in the upper-right inset: green on the left and yellow on the right. Height and pod colour are separate characteristics, even though one plant has both.",
+      "followingExplanation": "We can name four possible combinations of these appearances: tall with green pods, tall with yellow pods, short with green pods, and short with yellow pods. Each combination describes a phenotype, the observed characteristics. The picture alone does not tell us which combinations a particular cross will produce or how frequent they will be. For that, we need to know the parents and follow their allele contributions.",
+      "teachingQuestion": "Why track height and pod colour in the same plants?",
+      "featureAndMeaning": "The two plant heights and the green-left/yellow-right pod inset; no cross or genotype is depicted.",
+      "nativeFigureContainerPreservedExactly": false,
+      "derivedCrop": false,
+      "generatedImage": false
+    },
+    {
+      "id": "ch17-l05-v010-pea-parents",
+      "kind": "original-source-figure",
+      "source": {
+        "packetFile": "sources/slide-assets/slide-36-image29.png",
+        "actualSlideNumber": 36,
+        "slideMember": "ppt/slides/slide36.xml",
+        "relationshipId": "rId3",
+        "originalPptMediaMember": "ppt/media/image29.png",
+        "sourceHash": {
+          "bytes": 84208,
+          "sha256": "1b3fd0b0ced0cc074bdfac4b3a6712392123db36e33970813c8c2ea235e6abb9"
+        },
+        "sourceLocators": [
+          "Original PPT slide36, ppt/media/image29.png"
+        ],
+        "status": "selected original source image; unchanged bytes; candidate use pending teacher decision"
+      },
+      "destination": "./assets/teaching-l05-v010/slide-36-image29.png",
+      "output": {
+        "bytes": 84208,
+        "sha256": "1b3fd0b0ced0cc074bdfac4b3a6712392123db36e33970813c8c2ea235e6abb9"
+      },
+      "pixelRead": {
+        "performed": true,
+        "method": "Original image visually inspected; native SVG viewed through scratch rasterization only.",
+        "courseOrBrowserRendered": false
+      },
+      "dimensions": [
+        655,
+        311
+      ],
+      "placement": {
+        "startByte": 3059,
+        "endByteExclusive": 3589,
+        "bytes": 530,
+        "sha256": "074386cd71f1ed776081233dc7a2b90615a56ac4c02d89639e513dca608c60c9",
+        "coordinateSource": "AFTER proposed lesson-05.teaching-fragment.html; zero-based UTF-8, end exclusive."
+      },
+      "caption": "The starting cross uses tall, green-pod and short, yellow-pod breeding lines. Their known breeding history supplies information beyond the appearances in the picture.",
+      "alt": "The chosen P plants: a tall plant with green pods on the left crossed with a short plant with yellow pods on the right. Boxed pod details enlarge the colour contrast.",
+      "introductionAndViewingText": "The drawing below shows the chosen parents. Read the left plant's height and its enlarged pod together, then do the same for the right plant. The outlined boxes and connecting lines enlarge the pods so their colours can be compared; they do not show offspring.",
+      "followingExplanation": "Use T and t for the height gene's alleles, and G and g for the pod-colour gene's alleles. An allele is a version of a gene. A locus is that gene's position on a chromosome. Different letters keep the two loci separate; uppercase and lowercase forms of the same letter identify versions at one locus.",
+      "teachingQuestion": "Which known lines form the P cross?",
+      "featureAndMeaning": "Tall/green parent left, short/yellow right, pod callouts; breeding history supplies genotype information.",
+      "nativeFigureContainerPreservedExactly": false,
+      "derivedCrop": false,
+      "generatedImage": false
+    },
+    {
+      "id": "ch17-l05-v010-p-gametes",
+      "kind": "original-source-figure",
+      "source": {
+        "packetFile": "sources/slide-assets/slide-37-image46.png",
+        "actualSlideNumber": 37,
+        "slideMember": "ppt/slides/slide37.xml",
+        "relationshipId": "rId3",
+        "originalPptMediaMember": "ppt/media/image46.png",
+        "sourceHash": {
+          "bytes": 7401,
+          "sha256": "cac4ebce12f25f7afe2bae30ad8806346f8b83b6e618fdd1c90c20a6b7cce3cb"
+        },
+        "sourceLocators": [
+          "Original PPT slide37, ppt/media/image46.png"
+        ],
+        "status": "selected original source image; unchanged bytes; candidate use pending teacher decision"
+      },
+      "destination": "./assets/teaching-l05-v010/slide-37-image46.png",
+      "output": {
+        "bytes": 7401,
+        "sha256": "cac4ebce12f25f7afe2bae30ad8806346f8b83b6e618fdd1c90c20a6b7cce3cb"
+      },
+      "pixelRead": {
+        "performed": true,
+        "method": "Original image visually inspected; native SVG viewed through scratch rasterization only.",
+        "courseOrBrowserRendered": false
+      },
+      "dimensions": [
+        558,
+        207
+      ],
+      "placement": {
+        "startByte": 6769,
+        "endByteExclusive": 7239,
+        "bytes": 470,
+        "sha256": "b8715422361cee3fad14aa4a0299181464a61e4fd5fd6ffa3950eba904bcbc83",
+        "coordinateSource": "AFTER proposed lesson-05.teaching-fragment.html; zero-based UTF-8, end exclusive."
+      },
+      "caption": "Different choices between identical allele copies repeat the same gamete label: TTGG contributes TG and ttgg contributes tg.",
+      "alt": "Combination arrows around TTGG give TG, TG, TG, TG. Arrows around ttgg give tg, tg, tg, tg. Each repeated list contains only one distinct gamete type.",
+      "introductionAndViewingText": "Use the arrows in the next image to follow one height letter and one pod-colour letter from each parent. Then inspect the lists beneath them. The repeated TG labels on the left all name the same distinct gamete type. The repeated tg labels on the right also name just one type.",
+      "followingExplanation": "There are many physical gametes, but only one distinct allele combination from each parent at these two loci. TG has probability 1 from TTGG, and tg has probability 1 from ttgg. Joining them restores a pair at each locus: T with t gives Tt, and G with g gives Gg. Every available combination is therefore TtGg.",
+      "teachingQuestion": "Which distinct contribution can each homozygous P parent supply?",
+      "featureAndMeaning": "Repeated TG and tg are redundant labels of one distinct type per parent; arrows enumerate combinations rather than depict meiosis.",
+      "nativeFigureContainerPreservedExactly": false,
+      "derivedCrop": false,
+      "generatedImage": false
+    },
+    {
+      "id": "ch17-l05-v010-f1-combinations",
+      "kind": "original-source-figure",
+      "source": {
+        "packetFile": "sources/slide-assets/slide-37-image37.png",
+        "actualSlideNumber": 37,
+        "slideMember": "ppt/slides/slide37.xml",
+        "relationshipId": "rId4",
+        "originalPptMediaMember": "ppt/media/image37.png",
+        "sourceHash": {
+          "bytes": 15668,
+          "sha256": "32c3c6888aee2d6573340d2cae5b177ad5a8b3c38a944b0c0f715edc65e04baf"
+        },
+        "sourceLocators": [
+          "Original PPT slide37, ppt/media/image37.png"
+        ],
+        "status": "selected original source image; unchanged bytes; candidate use pending teacher decision"
+      },
+      "destination": "./assets/teaching-l05-v010/slide-37-image37.png",
+      "output": {
+        "bytes": 15668,
+        "sha256": "32c3c6888aee2d6573340d2cae5b177ad5a8b3c38a944b0c0f715edc65e04baf"
+      },
+      "pixelRead": {
+        "performed": true,
+        "method": "Original image visually inspected; native SVG viewed through scratch rasterization only.",
+        "courseOrBrowserRendered": false
+      },
+      "dimensions": [
+        823,
+        377
+      ],
+      "placement": {
+        "startByte": 7987,
+        "endByteExclusive": 8519,
+        "bytes": 532,
+        "sha256": "ac38502c41f39790875fa02edbdd51074789457993ade573e89bc4d6ef06d85f",
+        "coordinateSource": "AFTER proposed lesson-05.teaching-fragment.html; zero-based UTF-8, end exclusive."
+      },
+      "caption": "The repeated cells show the same F1 result. One TG-by-tg cell would include the only distinct contribution pair in this starting cross.",
+      "alt": "An expanded P-cross grid repeats TG in all four columns and tg in all four rows. Every cell is TtGg. Its annotation identifies all F1 offspring as heterozygous at both loci, tall with green pods.",
+      "introductionAndViewingText": "The resulting plants are the F1 generation, the offspring of the P cross. Look at the expanded display below. Read a TG label across the top and a tg label down the side, then follow them to their shared cell. Repeat that reading at another position and notice why the genotype does not change.",
+      "followingExplanation": "The sixteen drawn cells do not represent sixteen different genotypes or a requirement to grow sixteen offspring. Repeating identical row and column labels has expanded the display without adding a new possibility. With each parental contribution certain, the one distinct pairing has probability 1 × 1 = 1.",
+      "teachingQuestion": "Why are all F1 offspring TtGg?",
+      "featureAndMeaning": "Four identical row and column labels give16identical cells; the one distinct pairing is certain.",
+      "nativeFigureContainerPreservedExactly": false,
+      "derivedCrop": false,
+      "generatedImage": false
+    },
+    {
+      "id": "ch17-l05-v010-f2-source",
+      "kind": "original-source-figure",
+      "source": {
+        "packetFile": "sources/slide-assets/slide-39-image40.png",
+        "actualSlideNumber": 39,
+        "slideMember": "ppt/slides/slide39.xml",
+        "relationshipId": "rId4",
+        "originalPptMediaMember": "ppt/media/image40.png",
+        "sourceHash": {
+          "bytes": 28688,
+          "sha256": "1737c44d6e84b88174326df28f36a39ddf526d5153b33b96660e2cac00e47338"
+        },
+        "sourceLocators": [
+          "Original PPT slide39, ppt/media/image40.png"
+        ],
+        "status": "selected original source image; unchanged bytes; candidate use pending teacher decision"
+      },
+      "destination": "./assets/teaching-l05-v010/slide-39-image40.png",
+      "output": {
+        "bytes": 28688,
+        "sha256": "1737c44d6e84b88174326df28f36a39ddf526d5153b33b96660e2cac00e47338"
+      },
+      "pixelRead": {
+        "performed": true,
+        "method": "Original image visually inspected; native SVG viewed through scratch rasterization only.",
+        "courseOrBrowserRendered": false
+      },
+      "dimensions": [
+        982,
+        437
+      ],
+      "placement": {
+        "startByte": 10329,
+        "endByteExclusive": 10974,
+        "bytes": 645,
+        "sha256": "9bff868559428d08d0e7148d2a42a57cebd898dd0ad316dd17081975ae8033e5",
+        "coordinateSource": "AFTER proposed lesson-05.teaching-fragment.html; zero-based UTF-8, end exclusive."
+      },
+      "caption": "F2 includes four phenotype combinations. The diagram gives their 9:3:3:1 model expectation; it is not a photograph or a counted set of sixteen plants.",
+      "alt": "The complete TtGg by TtGg F2 grid has TG, Tg, tG and tg on both edges. Green ovals mark nine tall green-pod cells, yellow ovals three tall yellow-pod cells, green rectangles three short green-pod cells, and a yellow rectangle one short yellow-pod cell. The 9:3:3:1 ratio is already printed at right.",
+      "introductionAndViewingText": "Now examine the F2 diagram. Its whole grid and ratio are visible. Begin with the legend on the right: oval outlines mark tall plants, rectangular outlines mark short plants, and green or yellow outlines identify pod colour. Use those two features together to find the four phenotype groups before trying to explain the number of cells in each group.",
+      "followingExplanation": "The tall/green and short/yellow appearances of the original parents are present, but F2 also includes tall/yellow and short/green. Those combinations were absent from the selected P parents. The height and pod-colour forms have been brought together in new ways.",
+      "teachingQuestion": "What phenotype combinations need explaining in F2?",
+      "featureAndMeaning": "Tall ovals, short rectangles, green/yellow outlines; ratio is fully visible; original static display is not raw counts.",
+      "nativeFigureContainerPreservedExactly": false,
+      "derivedCrop": false,
+      "generatedImage": false
+    },
+    {
+      "id": "ch17-l05-v010-chromosome-orientations",
+      "kind": "original-source-figure",
+      "source": {
+        "packetFile": "sources/slide-assets/slide-41-image44.png",
+        "actualSlideNumber": 41,
+        "slideMember": "ppt/slides/slide41.xml",
+        "relationshipId": "rId4",
+        "originalPptMediaMember": "ppt/media/image44.png",
+        "sourceHash": {
+          "bytes": 364277,
+          "sha256": "7e57deedfe727416d5536605bb4327cffd16ee88cbb13c778bd5e5039f450eb8"
+        },
+        "sourceLocators": [
+          "Original PPT slide41, ppt/media/image44.png"
+        ],
+        "status": "selected original source image; unchanged bytes; candidate use pending teacher decision"
+      },
+      "destination": "./assets/teaching-l05-v010/slide-41-image44.png",
+      "output": {
+        "bytes": 364277,
+        "sha256": "7e57deedfe727416d5536605bb4327cffd16ee88cbb13c778bd5e5039f450eb8"
+      },
+      "pixelRead": {
+        "performed": true,
+        "method": "Original image visually inspected; native SVG viewed through scratch rasterization only.",
+        "courseOrBrowserRendered": false
+      },
+      "dimensions": [
+        1000,
+        707
+      ],
+      "placement": {
+        "startByte": 13377,
+        "endByteExclusive": 14099,
+        "bytes": 722,
+        "sha256": "605459b64ad2f572adec780cacdc68484be67ec9c89c561bdedc90f30e70f644",
+        "coordinateSource": "AFTER proposed lesson-05.teaching-fragment.html; zero-based UTF-8, end exclusive."
+      },
+      "caption": "Compare the two top orientations, then trace the long and short chromosomes into the lower cells. The two possibilities represent alternatives across meioses, not consecutive stages of one meiosis.",
+      "alt": "Two alternative orientations of long and short homologous chromosome pairs. The long pair retains its arrangement while the short pair reverses. Homologues separate into the middle cells, labelled Metaphase II; sisters then separate, producing four labelled chromosome-combination types across the two alternatives.",
+      "introductionAndViewingText": "At metaphase I, homologous pairs line up before separating. The direction faced by one pair does not determine the direction faced by another pair. The image below lets us compare that difference. Start with the two top cells labelled Possibility 1 and Possibility 2. Keep the long red/blue pair in view, then notice that the short pair reverses its arrangement.",
+      "followingExplanation": "Follow Possibility 1 down to the middle cells. One cell receives the two blue homologues and the other receives the two red homologues. Under Possibility 2, each middle cell instead receives one blue and one red homologue. The colours distinguish the chromosome origins in this schematic. They do not mean dominant and recessive, and the image does not print T, t, G or g on the chromosomes.",
+      "teachingQuestion": "How can different homologous pairs produce independent combinations?",
+      "featureAndMeaning": "Long pair retains arrangement while short reverses; top metaphase I, middle Metaphase II, bottom repeated combination classes; colour denotes origin, not dominance.",
+      "nativeFigureContainerPreservedExactly": false,
+      "derivedCrop": false,
+      "generatedImage": false
+    },
+    {
+      "id": "ch17-two-trait",
+      "kind": "original-source-figure",
+      "source": {
+        "packetFile": "current/assets/figures/ch17-two-trait.svg",
+        "nativeSourcePath": "./assets/figures/ch17-two-trait.svg",
+        "sourceHash": {
+          "bytes": 5623,
+          "sha256": "6fdb301a963b4da131f8fe50624611fc0ff091c62e0ac99d6602019c2830c316"
+        },
+        "sourceLocators": [
+          "current/lesson-05.teaching-fragment.html original figure",
+          "contracts/NATIVE_IMAGES.json",
+          "course-data.labelDiagrams[1], id ch17-two-trait-label, answers"
+        ],
+        "status": "approved existing native asset; unchanged bytes and complete original container"
+      },
+      "destination": "./assets/figures/ch17-two-trait.svg",
+      "output": {
+        "bytes": 5623,
+        "sha256": "6fdb301a963b4da131f8fe50624611fc0ff091c62e0ac99d6602019c2830c316"
+      },
+      "pixelRead": {
+        "performed": true,
+        "method": "Original image visually inspected; native SVG viewed through scratch rasterization only.",
+        "courseOrBrowserRendered": false
+      },
+      "dimensions": {
+        "sourceSvg": "1400×900 viewBox"
+      },
+      "placement": {
+        "startByte": 19550,
+        "endByteExclusive": 20272,
+        "bytes": 722,
+        "sha256": "fb4a4af8d132176bcfcd3f21695d97865901a1c626bbecf5e9a1d6106dc428d0",
+        "coordinateSource": "AFTER proposed lesson-05.teaching-fragment.html; zero-based UTF-8, end exclusive."
+      },
+      "caption": "Follow each branch from AaBb through one allele at the first locus and one at the second. Each endpoint is one haploid gamete, with probability one quarter. Schematic — not to scale.",
+      "alt": "Follow each branch from AaBb through one allele at the first locus and one at the second. Each endpoint is one haploid gamete, with probability one quarter.",
+      "introductionAndViewingText": "The small circles along the bottom are location labels A, B, C and D. Their job differs from the allele letters in the larger branch circles. For example, follow allele A and then allele b. The endpoint is location B, and the bottom key reads “B · Ab”: location B represents gamete Ab. Use that key when reading the other endpoints.",
+      "followingExplanation": "The arrows organize possibilities; they do not show a chromosome splitting into four parts or two parents joining. Each full path has probability ½ × ½ = ¼ in this model. Returning to the peas, the same reasoning produced TG, Tg, tG and tg. The chromosome orientations explain why the two choices can be independent; the branch diagram helps us list them without omissions.",
+      "teachingQuestion": "How does each branch path represent one allele from each locus?",
+      "featureAndMeaning": "Large A/a and B/b circles name alleles; small bottom A/B/C/D circles name locations. Locked mapping A→AB, B→Ab, C→aB, D→ab.",
+      "nativeFigureContainerPreservedExactly": true,
+      "derivedCrop": false,
+      "generatedImage": false
+    }
+  ],
+  "tables": [
+    {
+      "tableOrdinal": 1,
+      "containingId": "ch17-l05-v010-pea-rules",
+      "caption": "The complete-dominance rules for this pea model",
+      "sourceLocators": [
+        "PPT35–36",
+        "Textbook printed593/PDF10 Figure17.10 key",
+        "current/lesson-01.html ch17-l01-teaching-02/03"
+      ],
+      "status": "new native HTML text/table representation grounded in cited source; not an image or crop",
+      "placement": {
+        "startByte": 3982,
+        "endByteExclusive": 4560,
+        "bytes": 578,
+        "sha256": "8fd251ca036cd8a6239af57cd44398e2347b5c7a8ce374ccc31ff4c637c8d27e",
+        "coordinateSource": "AFTER proposed lesson-05.teaching-fragment.html; zero-based UTF-8, end exclusive."
+      },
+      "placementScope": "containing teaching or frozen-task element, not necessarily the table alone",
+      "tablePlacement": {
+        "startByte": 4042,
+        "endByteExclusive": 4553,
+        "bytes": 511,
+        "sha256": "4c5f20a00554f46fd38104a06b642b485a7d2bd3ea95664c0ce2800b63aefb7a",
+        "coordinateSource": "AFTER proposed lesson-05.teaching-fragment.html; zero-based UTF-8, end exclusive."
+      },
+      "essentialVisibleBeforeAttempt": true,
+      "withinFrozenOptionalTask": false,
+      "frozenOptionalHintModelContext": false,
+      "visibility": "visible before attempt; not inside hint/model details"
+    },
+    {
+      "tableOrdinal": 2,
+      "containingId": "ch17-l05-v010-f1-gamete-weights",
+      "caption": "Distinct gamete combinations from TtGg under independent assortment",
+      "sourceLocators": [
+        "PPT39 image34 and41 image44/text",
+        "Textbook printed593/PDF10 main prose;596–597/PDF13–14"
+      ],
+      "status": "new native HTML text/table representation grounded in cited source; not an image or crop",
+      "placement": {
+        "startByte": 17627,
+        "endByteExclusive": 18322,
+        "bytes": 695,
+        "sha256": "c015877e1a61f36ec9464f845be21de926e4264b9a232be714775fd59515486c",
+        "coordinateSource": "AFTER proposed lesson-05.teaching-fragment.html; zero-based UTF-8, end exclusive."
+      },
+      "placementScope": "containing teaching or frozen-task element, not necessarily the table alone",
+      "tablePlacement": {
+        "startByte": 17695,
+        "endByteExclusive": 18315,
+        "bytes": 620,
+        "sha256": "5bdb6e5e13348c37963548b9a3a93f3965527c54a495330c80ccbfe0a58c498f",
+        "coordinateSource": "AFTER proposed lesson-05.teaching-fragment.html; zero-based UTF-8, end exclusive."
+      },
+      "essentialVisibleBeforeAttempt": true,
+      "withinFrozenOptionalTask": false,
+      "frozenOptionalHintModelContext": false,
+      "visibility": "visible before attempt; not inside hint/model details"
+    },
+    {
+      "tableOrdinal": 3,
+      "containingId": "ch17-l05-v010-f2-weighted-grid",
+      "caption": "TtGg × TtGg: sixteen contribution pairs, each with probability 1/16",
+      "sourceLocators": [
+        "PPT39 image40",
+        "Textbook printed593/PDF10 Figure17.10"
+      ],
+      "status": "new native HTML text/table representation grounded in cited source; not an image or crop",
+      "placement": {
+        "startByte": 22000,
+        "endByteExclusive": 22746,
+        "bytes": 746,
+        "sha256": "1e2f4697a1bcec64e1b63198b2d088fae302000413edebf89f132c538b927fd4",
+        "coordinateSource": "AFTER proposed lesson-05.teaching-fragment.html; zero-based UTF-8, end exclusive."
+      },
+      "placementScope": "containing teaching or frozen-task element, not necessarily the table alone",
+      "tablePlacement": {
+        "startByte": 22067,
+        "endByteExclusive": 22739,
+        "bytes": 672,
+        "sha256": "eace9b6d9151b3537538ba3f64e4ca2be6437b6b6d86d4a2b414aa7901f185aa",
+        "coordinateSource": "AFTER proposed lesson-05.teaching-fragment.html; zero-based UTF-8, end exclusive."
+      },
+      "essentialVisibleBeforeAttempt": true,
+      "withinFrozenOptionalTask": false,
+      "frozenOptionalHintModelContext": false,
+      "visibility": "visible before attempt; not inside hint/model details"
+    },
+    {
+      "tableOrdinal": 4,
+      "containingId": "ch17-l05-v010-f2-groups",
+      "caption": "Genotype counts and phenotype groups for the F2 cross",
+      "sourceLocators": [
+        "PPT39 image40;40 text",
+        "Textbook printed593/PDF10 Figure17.10, qualified caption"
+      ],
+      "status": "new native HTML text/table representation grounded in cited source; not an image or crop",
+      "placement": {
+        "startByte": 24290,
+        "endByteExclusive": 25053,
+        "bytes": 763,
+        "sha256": "97a6fcce726a1ae6b804d9fa956d7a2ddc31b18e4e09fc2d8371933522d6f052",
+        "coordinateSource": "AFTER proposed lesson-05.teaching-fragment.html; zero-based UTF-8, end exclusive."
+      },
+      "placementScope": "containing teaching or frozen-task element, not necessarily the table alone",
+      "tablePlacement": {
+        "startByte": 24350,
+        "endByteExclusive": 25046,
+        "bytes": 696,
+        "sha256": "e3f855374e12b91d375dcb88f0149b6b8b17b3d0ac0fbe4633d838fd57c545f1",
+        "coordinateSource": "AFTER proposed lesson-05.teaching-fragment.html; zero-based UTF-8, end exclusive."
+      },
+      "essentialVisibleBeforeAttempt": true,
+      "withinFrozenOptionalTask": false,
+      "frozenOptionalHintModelContext": false,
+      "visibility": "visible before attempt; not inside hint/model details"
+    },
+    {
+      "tableOrdinal": 5,
+      "containingId": "ch17-l05-v010-tomato-parents",
+      "caption": "Parental information for the tomato cross",
+      "sourceLocators": [
+        "PPT43 original text/table"
+      ],
+      "status": "new native HTML text/table representation grounded in cited source; not an image or crop",
+      "placement": {
+        "startByte": 30358,
+        "endByteExclusive": 30886,
+        "bytes": 528,
+        "sha256": "82412245ee2511ecf6be6257621f82248cf38899e3269d31e49bf25464234985",
+        "coordinateSource": "AFTER proposed lesson-05.teaching-fragment.html; zero-based UTF-8, end exclusive."
+      },
+      "placementScope": "containing teaching or frozen-task element, not necessarily the table alone",
+      "tablePlacement": {
+        "startByte": 30423,
+        "endByteExclusive": 30879,
+        "bytes": 456,
+        "sha256": "8aae1a4522c2c3aacba6991f79bbf0179ccc2df5351247f8fca788829158b751",
+        "coordinateSource": "AFTER proposed lesson-05.teaching-fragment.html; zero-based UTF-8, end exclusive."
+      },
+      "essentialVisibleBeforeAttempt": true,
+      "withinFrozenOptionalTask": false,
+      "frozenOptionalHintModelContext": false,
+      "visibility": "visible before attempt; not inside hint/model details"
+    },
+    {
+      "tableOrdinal": 6,
+      "containingId": "ch17-l05-v010-tomato-gametes",
+      "caption": "Gamete types and probabilities for RrTt × rrTt",
+      "sourceLocators": [
+        "PPT44 original text",
+        "current/lesson-05.teaching-fragment.html original worked block"
+      ],
+      "status": "new native HTML text/table representation grounded in cited source; not an image or crop",
+      "placement": {
+        "startByte": 31781,
+        "endByteExclusive": 32388,
+        "bytes": 607,
+        "sha256": "5acf4a74341cbd51f92c27b0bfafd1f2c68e1f172db596c7bfb698f9277a791b",
+        "coordinateSource": "AFTER proposed lesson-05.teaching-fragment.html; zero-based UTF-8, end exclusive."
+      },
+      "placementScope": "containing teaching or frozen-task element, not necessarily the table alone",
+      "tablePlacement": {
+        "startByte": 31846,
+        "endByteExclusive": 32381,
+        "bytes": 535,
+        "sha256": "62c91a42eba75f9307b409c12026784a099d9dd83fad9d4376894859e8fb7a1f",
+        "coordinateSource": "AFTER proposed lesson-05.teaching-fragment.html; zero-based UTF-8, end exclusive."
+      },
+      "essentialVisibleBeforeAttempt": true,
+      "withinFrozenOptionalTask": false,
+      "frozenOptionalHintModelContext": false,
+      "visibility": "visible before attempt; not inside hint/model details"
+    },
+    {
+      "tableOrdinal": 7,
+      "containingId": "ch17-l05-v010-tomato-grid",
+      "caption": "All eight tomato contribution pairs; each cell has probability ⅛",
+      "sourceLocators": [
+        "PPT45 original OOXML table"
+      ],
+      "status": "new native HTML text/table representation grounded in cited source; not an image or crop",
+      "placement": {
+        "startByte": 33571,
+        "endByteExclusive": 34270,
+        "bytes": 699,
+        "sha256": "137abd3d0672d8aa2cfe0ea1a2c5244d96aa53735d329d7cc4851a33e415c1c5",
+        "coordinateSource": "AFTER proposed lesson-05.teaching-fragment.html; zero-based UTF-8, end exclusive."
+      },
+      "placementScope": "containing teaching or frozen-task element, not necessarily the table alone",
+      "tablePlacement": {
+        "startByte": 33633,
+        "endByteExclusive": 34263,
+        "bytes": 630,
+        "sha256": "f0095447709f1c1139e6e485fc3e84be9132e9617cf1f565fd5b29bfc614968a",
+        "coordinateSource": "AFTER proposed lesson-05.teaching-fragment.html; zero-based UTF-8, end exclusive."
+      },
+      "essentialVisibleBeforeAttempt": true,
+      "withinFrozenOptionalTask": false,
+      "frozenOptionalHintModelContext": false,
+      "visibility": "visible before attempt; not inside hint/model details"
+    },
+    {
+      "tableOrdinal": 8,
+      "containingId": "ch17-l05-v010-tomato-groups",
+      "caption": "The four requested tomato phenotype proportions",
+      "sourceLocators": [
+        "PPT45 original table and requested probabilities"
+      ],
+      "status": "new native HTML text/table representation grounded in cited source; not an image or crop",
+      "placement": {
+        "startByte": 35326,
+        "endByteExclusive": 36028,
+        "bytes": 702,
+        "sha256": "8d47a7db66d26070353817284ab6a33e881a28f87478539fb391169d5da2f1f1",
+        "coordinateSource": "AFTER proposed lesson-05.teaching-fragment.html; zero-based UTF-8, end exclusive."
+      },
+      "placementScope": "containing teaching or frozen-task element, not necessarily the table alone",
+      "tablePlacement": {
+        "startByte": 35390,
+        "endByteExclusive": 36021,
+        "bytes": 631,
+        "sha256": "29d02e097085a5c04c3964732ce9d6e629f8dd38c60b00ea1923f178d3238051",
+        "coordinateSource": "AFTER proposed lesson-05.teaching-fragment.html; zero-based UTF-8, end exclusive."
+      },
+      "essentialVisibleBeforeAttempt": true,
+      "withinFrozenOptionalTask": false,
+      "frozenOptionalHintModelContext": false,
+      "visibility": "visible before attempt; not inside hint/model details"
+    },
+    {
+      "tableOrdinal": 9,
+      "containingId": "ch17-kinch-v020-l05-change-task",
+      "caption": "The one change to the tomato cross",
+      "sourceLocators": [
+        "contracts/OPTIONAL_NOTES.json completeSection for ch17-kinch-v020-l05-change-task"
+      ],
+      "status": "original frozen optional-task table; unchanged native section",
+      "placement": {
+        "startByte": 38226,
+        "endByteExclusive": 42429,
+        "bytes": 4203,
+        "sha256": "a218d13653a95a59da2d56004ea889124992ee3903e2b0749c8f7df78c7a16cf",
+        "coordinateSource": "AFTER proposed lesson-05.teaching-fragment.html; zero-based UTF-8, end exclusive."
+      },
+      "placementScope": "containing teaching or frozen-task element, not necessarily the table alone",
+      "tablePlacement": {
+        "startByte": 38582,
+        "endByteExclusive": 38909,
+        "bytes": 327,
+        "sha256": "8e489f78d52f5ba0a7816e142d9d1208348bb8d7212d6ad7bb610d90f2090ffa",
+        "coordinateSource": "AFTER proposed lesson-05.teaching-fragment.html; zero-based UTF-8, end exclusive."
+      },
+      "essentialVisibleBeforeAttempt": true,
+      "withinFrozenOptionalTask": true,
+      "frozenOptionalHintModelContext": false,
+      "visibility": "visible before attempt; not inside hint/model details"
+    },
+    {
+      "tableOrdinal": 10,
+      "containingId": "ch17-kinch-v020-l05-change-task",
+      "caption": "Complete comparison for RrTt × rrtt",
+      "sourceLocators": [
+        "contracts/OPTIONAL_NOTES.json completeSection for ch17-kinch-v020-l05-change-task"
+      ],
+      "status": "original frozen optional-task table; unchanged native section",
+      "placement": {
+        "startByte": 38226,
+        "endByteExclusive": 42429,
+        "bytes": 4203,
+        "sha256": "a218d13653a95a59da2d56004ea889124992ee3903e2b0749c8f7df78c7a16cf",
+        "coordinateSource": "AFTER proposed lesson-05.teaching-fragment.html; zero-based UTF-8, end exclusive."
+      },
+      "placementScope": "containing teaching or frozen-task element, not necessarily the table alone",
+      "tablePlacement": {
+        "startByte": 40686,
+        "endByteExclusive": 41200,
+        "bytes": 514,
+        "sha256": "8bd9a7998ca75cfb0399bce87d14635ca5014b96cb7004ec4c4bd4a63d816658",
+        "coordinateSource": "AFTER proposed lesson-05.teaching-fragment.html; zero-based UTF-8, end exclusive."
+      },
+      "essentialVisibleBeforeAttempt": false,
+      "withinFrozenOptionalTask": true,
+      "frozenOptionalHintModelContext": true,
+      "visibility": "inside original voluntary model details"
+    },
+    {
+      "tableOrdinal": 11,
+      "containingId": "ch17-l05-v010-squash-evidence",
+      "caption": "Information available before predicting the squash offspring",
+      "sourceLocators": [
+        "PPT46 original worded problem and worked inference"
+      ],
+      "status": "new native HTML text/table representation grounded in cited source; not an image or crop",
+      "placement": {
+        "startByte": 44473,
+        "endByteExclusive": 45111,
+        "bytes": 638,
+        "sha256": "5bdc550519ed2da40803016ef820032b375a09aa7dfafd14815fec48a5c7f464",
+        "coordinateSource": "AFTER proposed lesson-05.teaching-fragment.html; zero-based UTF-8, end exclusive."
+      },
+      "placementScope": "containing teaching or frozen-task element, not necessarily the table alone",
+      "tablePlacement": {
+        "startByte": 44539,
+        "endByteExclusive": 45104,
+        "bytes": 565,
+        "sha256": "8b4f216806f68d2df7518d2bbc8d6d1176bbc8c3d981315ac301dd82c57a5693",
+        "coordinateSource": "AFTER proposed lesson-05.teaching-fragment.html; zero-based UTF-8, end exclusive."
+      },
+      "essentialVisibleBeforeAttempt": true,
+      "withinFrozenOptionalTask": false,
+      "frozenOptionalHintModelContext": false,
+      "visibility": "visible before attempt; not inside hint/model details"
+    },
+    {
+      "tableOrdinal": 12,
+      "containingId": "ch17-l05-v010-squash-grid",
+      "caption": "Offspring combinations after the evidence resolves wwDd × Wwdd",
+      "sourceLocators": [
+        "PPT47 original OOXML table, fruit interpretation"
+      ],
+      "status": "new native HTML text/table representation grounded in cited source; not an image or crop",
+      "placement": {
+        "startByte": 47128,
+        "endByteExclusive": 47662,
+        "bytes": 534,
+        "sha256": "0f12fa8036f7204a5db7009a5e7d827562dd734e5b4a49955b032e9c82d74b93",
+        "coordinateSource": "AFTER proposed lesson-05.teaching-fragment.html; zero-based UTF-8, end exclusive."
+      },
+      "placementScope": "containing teaching or frozen-task element, not necessarily the table alone",
+      "tablePlacement": {
+        "startByte": 47190,
+        "endByteExclusive": 47655,
+        "bytes": 465,
+        "sha256": "282cd6879b8ad3c4737a09b507fff1988cd705a40c0706cb9dddb69ff699ee1a",
+        "coordinateSource": "AFTER proposed lesson-05.teaching-fragment.html; zero-based UTF-8, end exclusive."
+      },
+      "essentialVisibleBeforeAttempt": true,
+      "withinFrozenOptionalTask": false,
+      "frozenOptionalHintModelContext": false,
+      "visibility": "visible before attempt; not inside hint/model details"
+    },
+    {
+      "tableOrdinal": 13,
+      "containingId": "ch17-l05-v010-squash-counts",
+      "caption": "Expected phenotype counts among eighty scored squash offspring",
+      "sourceLocators": [
+        "PPT47 total80 and expected40/20",
+        "current/lesson-03.html expected-count teaching"
+      ],
+      "status": "new native HTML text/table representation grounded in cited source; not an image or crop",
+      "placement": {
+        "startByte": 49500,
+        "endByteExclusive": 50134,
+        "bytes": 634,
+        "sha256": "0d6a2e211817e4a9050f7a6e9d100f8c4bed6ad9c1720c42bf0b6355dc5ae1f8",
+        "coordinateSource": "AFTER proposed lesson-05.teaching-fragment.html; zero-based UTF-8, end exclusive."
+      },
+      "placementScope": "containing teaching or frozen-task element, not necessarily the table alone",
+      "tablePlacement": {
+        "startByte": 49564,
+        "endByteExclusive": 50127,
+        "bytes": 563,
+        "sha256": "cf8ada38e23760148c2fd03aeaba71e2a894f0d33bba37ea3fc483602df0fca0",
+        "coordinateSource": "AFTER proposed lesson-05.teaching-fragment.html; zero-based UTF-8, end exclusive."
+      },
+      "essentialVisibleBeforeAttempt": true,
+      "withinFrozenOptionalTask": false,
+      "frozenOptionalHintModelContext": false,
+      "visibility": "visible before attempt; not inside hint/model details"
+    },
+    {
+      "tableOrdinal": 14,
+      "containingId": "ch17-kinch-v020-l05-evidence-task",
+      "caption": "A breeding record with incomplete parental genotypes",
+      "sourceLocators": [
+        "contracts/OPTIONAL_NOTES.json completeSection for ch17-kinch-v020-l05-evidence-task"
+      ],
+      "status": "original frozen optional-task table; unchanged native section",
+      "placement": {
+        "startByte": 51710,
+        "endByteExclusive": 56247,
+        "bytes": 4537,
+        "sha256": "545343eb9be903740eda4fa5258a96eb5c82de05327de2ee734143bea75fc97d",
+        "coordinateSource": "AFTER proposed lesson-05.teaching-fragment.html; zero-based UTF-8, end exclusive."
+      },
+      "placementScope": "containing teaching or frozen-task element, not necessarily the table alone",
+      "tablePlacement": {
+        "startByte": 52249,
+        "endByteExclusive": 52864,
+        "bytes": 615,
+        "sha256": "6ef962195626cd2704f589d74b6e01ebf29f376e823f594083d7bcdf7d34f15d",
+        "coordinateSource": "AFTER proposed lesson-05.teaching-fragment.html; zero-based UTF-8, end exclusive."
+      },
+      "essentialVisibleBeforeAttempt": true,
+      "withinFrozenOptionalTask": true,
+      "frozenOptionalHintModelContext": false,
+      "visibility": "visible before attempt; not inside hint/model details"
+    }
+  ],
+  "allOriginalSourceImageDecisions": [
+    {
+      "relationshipId": "rId3",
+      "member": "ppt/media/image32.png",
+      "supplied": "sources/slide-assets/slide-35-image32.png",
+      "bytes": 77704,
+      "sha256": "8eeaa700523d536e1375231cfc9f6a6971ae29618aca18918040ea81f5502d39",
+      "actualSlideNumber": 35,
+      "slideMember": "ppt/slides/slide35.xml",
+      "originalMemberEqualityVerified": true,
+      "actualPixelsViewedByAuthor": true,
+      "selected": true,
+      "selectionReason": "Distinct teaching function recorded in figures."
+    },
+    {
+      "relationshipId": "rId3",
+      "member": "ppt/media/image29.png",
+      "supplied": "sources/slide-assets/slide-36-image29.png",
+      "bytes": 84208,
+      "sha256": "1b3fd0b0ced0cc074bdfac4b3a6712392123db36e33970813c8c2ea235e6abb9",
+      "actualSlideNumber": 36,
+      "slideMember": "ppt/slides/slide36.xml",
+      "originalMemberEqualityVerified": true,
+      "actualPixelsViewedByAuthor": true,
+      "selected": true,
+      "selectionReason": "Distinct teaching function recorded in figures."
+    },
+    {
+      "relationshipId": "rId4",
+      "member": "ppt/media/image35.png",
+      "supplied": "sources/slide-assets/slide-36-image35.png",
+      "bytes": 4315,
+      "sha256": "53056ee22090ef5667e383e4ac08def5efbb682e77f9fb5c59e32ce1259272c0",
+      "actualSlideNumber": 36,
+      "slideMember": "ppt/slides/slide36.xml",
+      "originalMemberEqualityVerified": true,
+      "actualPixelsViewedByAuthor": true,
+      "selected": false,
+      "selectionReason": "Parent-genotype banner repeats the explicit P-cross text beside original parent image; no separate instructional inference."
+    },
+    {
+      "relationshipId": "rId3",
+      "member": "ppt/media/image46.png",
+      "supplied": "sources/slide-assets/slide-37-image46.png",
+      "bytes": 7401,
+      "sha256": "cac4ebce12f25f7afe2bae30ad8806346f8b83b6e618fdd1c90c20a6b7cce3cb",
+      "actualSlideNumber": 37,
+      "slideMember": "ppt/slides/slide37.xml",
+      "originalMemberEqualityVerified": true,
+      "actualPixelsViewedByAuthor": true,
+      "selected": true,
+      "selectionReason": "Distinct teaching function recorded in figures."
+    },
+    {
+      "relationshipId": "rId4",
+      "member": "ppt/media/image37.png",
+      "supplied": "sources/slide-assets/slide-37-image37.png",
+      "bytes": 15668,
+      "sha256": "32c3c6888aee2d6573340d2cae5b177ad5a8b3c38a944b0c0f715edc65e04baf",
+      "actualSlideNumber": 37,
+      "slideMember": "ppt/slides/slide37.xml",
+      "originalMemberEqualityVerified": true,
+      "actualPixelsViewedByAuthor": true,
+      "selected": true,
+      "selectionReason": "Distinct teaching function recorded in figures."
+    },
+    {
+      "relationshipId": "rId3",
+      "member": "ppt/media/image34.png",
+      "supplied": "sources/slide-assets/slide-39-image34.png",
+      "bytes": 8043,
+      "sha256": "4bf1e59355f0da0e09f03d162b86a662f6afb6768a271230f5f77b5c4fc1f8ca",
+      "actualSlideNumber": 39,
+      "slideMember": "ppt/slides/slide39.xml",
+      "originalMemberEqualityVerified": true,
+      "actualPixelsViewedByAuthor": true,
+      "selected": false,
+      "selectionReason": "The F1-gamete arrows are source evidence; weighted native table derives the same list after chromosome explanation."
+    },
+    {
+      "relationshipId": "rId4",
+      "member": "ppt/media/image40.png",
+      "supplied": "sources/slide-assets/slide-39-image40.png",
+      "bytes": 28688,
+      "sha256": "1737c44d6e84b88174326df28f36a39ddf526d5153b33b96660e2cac00e47338",
+      "actualSlideNumber": 39,
+      "slideMember": "ppt/slides/slide39.xml",
+      "originalMemberEqualityVerified": true,
+      "actualPixelsViewedByAuthor": true,
+      "selected": true,
+      "selectionReason": "Distinct teaching function recorded in figures."
+    },
+    {
+      "relationshipId": "rId3",
+      "member": "ppt/media/image47.png",
+      "supplied": "sources/slide-assets/slide-41-image47.png",
+      "bytes": 50092,
+      "sha256": "dc238c9183f4ca7f5ee062b3c4d09cdb0f0a868c8f3e5ddd735aeeb087a3eb8c",
+      "actualSlideNumber": 41,
+      "slideMember": "ppt/slides/slide41.xml",
+      "originalMemberEqualityVerified": true,
+      "actualPixelsViewedByAuthor": true,
+      "selected": false,
+      "selectionReason": "Crossover-colour segments add a different mechanism; simpler image44 supports the current orientation account without universal identical-sister claims."
+    },
+    {
+      "relationshipId": "rId4",
+      "member": "ppt/media/image44.png",
+      "supplied": "sources/slide-assets/slide-41-image44.png",
+      "bytes": 364277,
+      "sha256": "7e57deedfe727416d5536605bb4327cffd16ee88cbb13c778bd5e5039f450eb8",
+      "actualSlideNumber": 41,
+      "slideMember": "ppt/slides/slide41.xml",
+      "originalMemberEqualityVerified": true,
+      "actualPixelsViewedByAuthor": true,
+      "selected": true,
+      "selectionReason": "Distinct teaching function recorded in figures."
+    },
+    {
+      "relationshipId": "rId3",
+      "member": "ppt/media/image23.png",
+      "supplied": "sources/slide-assets/slide-42-image23.png",
+      "bytes": 293898,
+      "sha256": "bf7517ad986d2137dbcd0c133de73fa933b2153366e58598188da32479037129",
+      "actualSlideNumber": 42,
+      "slideMember": "ppt/slides/slide42.xml",
+      "originalMemberEqualityVerified": true,
+      "actualPixelsViewedByAuthor": true,
+      "selected": false,
+      "selectionReason": "Dense three-laws summary repeats connected explanations and includes broad model/plant statements requiring qualification."
+    },
+    {
+      "relationshipId": "rId3",
+      "member": "ppt/media/image43.png",
+      "supplied": "sources/slide-assets/slide-45-image43.png",
+      "bytes": 6463,
+      "sha256": "9b8552f650593188b8fc910661eb122508414ce009af3b8e5cf10a961b669a28",
+      "actualSlideNumber": 45,
+      "slideMember": "ppt/slides/slide45.xml",
+      "originalMemberEqualityVerified": true,
+      "actualPixelsViewedByAuthor": true,
+      "selected": false,
+      "selectionReason": "Small arrow aid is not the complete solution; the original full4×2 OOXML table is preserved as a readable native table."
+    },
+    {
+      "relationshipId": "rId4",
+      "member": "ppt/media/image38.jpg",
+      "supplied": "sources/slide-assets/slide-48-image38.jpg",
+      "bytes": 8723,
+      "sha256": "dde47bee6a962744f1ac5872fb37856e016e5151fe4cce7183670902995410af",
+      "actualSlideNumber": 48,
+      "slideMember": "ppt/slides/slide48.xml",
+      "originalMemberEqualityVerified": true,
+      "actualPixelsViewedByAuthor": true,
+      "selected": false,
+      "selectionReason": "Video thumbnail only; no new video, availability or playback verification."
+    },
+    {
+      "relationshipId": "rId6",
+      "member": "ppt/media/image39.jpg",
+      "supplied": "sources/slide-assets/slide-48-image39.jpg",
+      "bytes": 19550,
+      "sha256": "c1cad0f3e8b654b82fe66db9d3896b776d65bda39314e955a77f5a2a8ef3af50",
+      "actualSlideNumber": 48,
+      "slideMember": "ppt/slides/slide48.xml",
+      "originalMemberEqualityVerified": true,
+      "actualPixelsViewedByAuthor": true,
+      "selected": false,
+      "selectionReason": "Video thumbnail only; no new video, availability or playback verification."
+    }
+  ],
+  "teachingSourceComponents": [
+    {
+      "heading": "Can two characteristics travel together?",
+      "headingLocation": {
+        "startByte": 151,
+        "endByteExclusive": 200,
+        "bytes": 49,
+        "sha256": "6b995980b5383229d6e646a44c44aed4f8645e88ca2d3b6caaf6c413b018cdce",
+        "coordinateSource": "AFTER proposed lesson-05.teaching-fragment.html; zero-based UTF-8, end exclusive."
+      },
+      "sourceLocators": [
+        "PPT34–35",
+        "Textbook591/PDF8 bottom and593/PDF10 main text"
+      ]
+    },
+    {
+      "heading": "Choose the starting plants and define the letters",
+      "headingLocation": {
+        "startByte": 2215,
+        "endByteExclusive": 2273,
+        "bytes": 58,
+        "sha256": "8b8fd02bbf7e922f9d2b65384279c9665eaaf08326a2199030103521f4ebb821",
+        "coordinateSource": "AFTER proposed lesson-05.teaching-fragment.html; zero-based UTF-8, end exclusive."
+      },
+      "sourceLocators": [
+        "PPT36",
+        "Textbook593/PDF10",
+        "current native01 notation/dominance; corrected reference02 controlled crosses/true breeding"
+      ]
+    },
+    {
+      "heading": "Follow the P contributions into F1",
+      "headingLocation": {
+        "startByte": 5981,
+        "endByteExclusive": 6024,
+        "bytes": 43,
+        "sha256": "7443f4c850b5454140a1cd9930e67258bcccde2f8bcacd403c3791fc2a368d03",
+        "coordinateSource": "AFTER proposed lesson-05.teaching-fragment.html; zero-based UTF-8, end exclusive."
+      },
+      "sourceLocators": [
+        "PPT37 original image46/image37",
+        "Textbook593/PDF10 Figure17.10"
+      ]
+    },
+    {
+      "heading": "Follow F1 reproduction before explaining F2",
+      "headingLocation": {
+        "startByte": 9391,
+        "endByteExclusive": 9443,
+        "bytes": 52,
+        "sha256": "7a58026bbad55f5bfab0133d26c46ac864116927fa48580cb9a4cd910a726a6f",
+        "coordinateSource": "AFTER proposed lesson-05.teaching-fragment.html; zero-based UTF-8, end exclusive."
+      },
+      "sourceLocators": [
+        "PPT38–40",
+        "Textbook593/PDF10 self-pollination paragraph and Figure17.10"
+      ]
+    },
+    {
+      "heading": "Two chromosome pairs can orient independently",
+      "headingLocation": {
+        "startByte": 11861,
+        "endByteExclusive": 11915,
+        "bytes": 54,
+        "sha256": "f86cfa982f468b45ad89b6309a5d87a6108901cc8190720abfd80717fa54a6e2",
+        "coordinateSource": "AFTER proposed lesson-05.teaching-fragment.html; zero-based UTF-8, end exclusive."
+      },
+      "sourceLocators": [
+        "PPT41 image44/text",
+        "Textbook596–597/PDF13–14",
+        "reference/lesson-02.teaching-fragment.html chromosome/spore account"
+      ]
+    },
+    {
+      "heading": "Derive the gamete types and their weights",
+      "headingLocation": {
+        "startByte": 16305,
+        "endByteExclusive": 16355,
+        "bytes": 50,
+        "sha256": "ab5ac9138d408e6ca3e34e04d2e6be2c63e31188f487ea619415865507aae6f0",
+        "coordinateSource": "AFTER proposed lesson-05.teaching-fragment.html; zero-based UTF-8, end exclusive."
+      },
+      "sourceLocators": [
+        "PPT39/41",
+        "Textbook593/PDF10 main text",
+        "current native03 probability operations"
+      ]
+    },
+    {
+      "heading": "Follow a branch as a complete gamete contribution",
+      "headingLocation": {
+        "startByte": 18766,
+        "endByteExclusive": 18824,
+        "bytes": 58,
+        "sha256": "dfdea2e929ccd92dff9d740fc6311008c68a2bc0aee9609082a3e88f12032ed5",
+        "coordinateSource": "AFTER proposed lesson-05.teaching-fragment.html; zero-based UTF-8, end exclusive."
+      },
+      "sourceLocators": [
+        "current/assets/figures/ch17-two-trait.svg",
+        "current native05 original branch prose; locked labeling map"
+      ]
+    },
+    {
+      "heading": "Combine the F1 gametes at fertilisation",
+      "headingLocation": {
+        "startByte": 20659,
+        "endByteExclusive": 20707,
+        "bytes": 48,
+        "sha256": "3ea55e639a0969f230057d544a3b96a198a8c453cef0d86199f3a340610bef8a",
+        "coordinateSource": "AFTER proposed lesson-05.teaching-fragment.html; zero-based UTF-8, end exclusive."
+      },
+      "sourceLocators": [
+        "PPT39 image40",
+        "Textbook593/PDF10 Figure17.10",
+        "corrected reference02 random fertilisation"
+      ]
+    },
+    {
+      "heading": "Group genotypes by what the plant expresses",
+      "headingLocation": {
+        "startByte": 23525,
+        "endByteExclusive": 23577,
+        "bytes": 52,
+        "sha256": "9baed507b41593a361a7985d3e9463be5619e985eb1283f0b98479e162b40111",
+        "coordinateSource": "AFTER proposed lesson-05.teaching-fragment.html; zero-based UTF-8, end exclusive."
+      },
+      "sourceLocators": [
+        "PPT39–40",
+        "Textbook593/PDF10 Figure17.10 with same-locus underscore qualification",
+        "current native01 homozygous/heterozygous meanings"
+      ]
+    },
+    {
+      "heading": "Choose the probability operation for the biological event",
+      "headingLocation": {
+        "startByte": 26182,
+        "endByteExclusive": 26248,
+        "bytes": 66,
+        "sha256": "a05238b212501db9ead368cc856c7d4155f96fb2c0a7215ccdf8e41ea3d426ed",
+        "coordinateSource": "AFTER proposed lesson-05.teaching-fragment.html; zero-based UTF-8, end exclusive."
+      },
+      "sourceLocators": [
+        "current native03 independent products/expected counts",
+        "current native05 complete-dominance and model assumptions",
+        "PPT40 with model limits"
+      ]
+    },
+    {
+      "heading": "A tomato cross with four gamete types from one parent and two from the other",
+      "headingLocation": {
+        "startByte": 28945,
+        "endByteExclusive": 29030,
+        "bytes": 85,
+        "sha256": "26074a33c944eb3b78e863e8f192d4e88321ba484c5f0b721601afac176140c1",
+        "coordinateSource": "AFTER proposed lesson-05.teaching-fragment.html; zero-based UTF-8, end exclusive."
+      },
+      "sourceLocators": [
+        "PPT43–45 original complete tomato application"
+      ]
+    },
+    {
+      "heading": "Translate the words before drawing the grid",
+      "headingLocation": {
+        "startByte": 29972,
+        "endByteExclusive": 30024,
+        "bytes": 52,
+        "sha256": "e2100c90558fc790478d240d7aa3db78f19cdf3fadcc8020179eca35de503651",
+        "coordinateSource": "AFTER proposed lesson-05.teaching-fragment.html; zero-based UTF-8, end exclusive."
+      },
+      "sourceLocators": [
+        "PPT43 original table"
+      ]
+    },
+    {
+      "heading": "Let the distinct gametes determine the dimensions",
+      "headingLocation": {
+        "startByte": 31135,
+        "endByteExclusive": 31193,
+        "bytes": 58,
+        "sha256": "220de0148c322fc6f86793234a096642ae2ad3b89e4ee410763af0975499b3b7",
+        "coordinateSource": "AFTER proposed lesson-05.teaching-fragment.html; zero-based UTF-8, end exclusive."
+      },
+      "sourceLocators": [
+        "PPT44 original reasoning",
+        "PPT37 representational contrast"
+      ]
+    },
+    {
+      "heading": "Combine one row and one column in every cell",
+      "headingLocation": {
+        "startByte": 32863,
+        "endByteExclusive": 32916,
+        "bytes": 53,
+        "sha256": "b7a94d90d2f106019525f85b7cada385a6766503e2e980c32e2564c9298cb244",
+        "coordinateSource": "AFTER proposed lesson-05.teaching-fragment.html; zero-based UTF-8, end exclusive."
+      },
+      "sourceLocators": [
+        "PPT45 original4×2table"
+      ]
+    },
+    {
+      "heading": "Answer the phenotype question and check the result",
+      "headingLocation": {
+        "startByte": 35063,
+        "endByteExclusive": 35122,
+        "bytes": 59,
+        "sha256": "81ff8983a3199c9ee335660cef8f787c41bc39d90cef9edd30d9f01a59da960a",
+        "coordinateSource": "AFTER proposed lesson-05.teaching-fragment.html; zero-based UTF-8, end exclusive."
+      },
+      "sourceLocators": [
+        "PPT45 original requested probabilities",
+        "current native05 genotype/product checks"
+      ]
+    },
+    {
+      "heading": "When two descriptions overlap, count each offspring once",
+      "headingLocation": {
+        "startByte": 36923,
+        "endByteExclusive": 36988,
+        "bytes": 65,
+        "sha256": "9aed9c2c68ecd580cf957b9dd854d5fd878888270ddb27760efe86b83973be3c",
+        "coordinateSource": "AFTER proposed lesson-05.teaching-fragment.html; zero-based UTF-8, end exclusive."
+      },
+      "sourceLocators": [
+        "New worked interpretation of the verified PPT43–45 tomato cross",
+        "current revised assessment demands inclusive alternatives; exact protected event not solved"
+      ]
+    },
+    {
+      "heading": "Change one parent and keep only the reasoning that still applies",
+      "headingLocation": {
+        "startByte": 38297,
+        "endByteExclusive": 38370,
+        "bytes": 73,
+        "sha256": "86151bc5a0fe8b1932c66642e355bb91b77e1e8a61c7a33b8b2997ef8397ee4f",
+        "coordinateSource": "AFTER proposed lesson-05.teaching-fragment.html; zero-based UTF-8, end exclusive."
+      },
+      "sourceLocators": [
+        "contracts/OPTIONAL_NOTES.json entry0, exact completeSection"
+      ]
+    },
+    {
+      "heading": "Use offspring evidence before predicting a squash cross",
+      "headingLocation": {
+        "startByte": 42589,
+        "endByteExclusive": 42653,
+        "bytes": 64,
+        "sha256": "5de0c2bf983af4ee725ddadd49ef2a160e6847f575dc01aa145d8bf00173e6c4",
+        "coordinateSource": "AFTER proposed lesson-05.teaching-fragment.html; zero-based UTF-8, end exclusive."
+      },
+      "sourceLocators": [
+        "PPT46",
+        "current native04 evidence-before-prediction"
+      ]
+    },
+    {
+      "heading": "Separate what appearance forces from what it leaves open",
+      "headingLocation": {
+        "startByte": 44107,
+        "endByteExclusive": 44172,
+        "bytes": 65,
+        "sha256": "80bdbb6c91724f476eb2bd8e5957e4f264ceefeba985fe1a46b6788e4ec60d07",
+        "coordinateSource": "AFTER proposed lesson-05.teaching-fragment.html; zero-based UTF-8, end exclusive."
+      },
+      "sourceLocators": [
+        "PPT46 original squash inference",
+        "current native01 phenotype uncertainty"
+      ]
+    },
+    {
+      "heading": "Predict from the resolved parents",
+      "headingLocation": {
+        "startByte": 46349,
+        "endByteExclusive": 46391,
+        "bytes": 42,
+        "sha256": "a83b0e0030e793edaf8a9a5d73853ebafdb78761dc95a27b544e3cab1b769f5e",
+        "coordinateSource": "AFTER proposed lesson-05.teaching-fragment.html; zero-based UTF-8, end exclusive."
+      },
+      "sourceLocators": [
+        "PPT46–47 original solved parents/gametes/table"
+      ]
+    },
+    {
+      "heading": "Interpret an expected count among eighty plants",
+      "headingLocation": {
+        "startByte": 48330,
+        "endByteExclusive": 48386,
+        "bytes": 56,
+        "sha256": "186e0b496802eab6864de3a738365491a089094a35faa1c61df0a75d9728a0bd",
+        "coordinateSource": "AFTER proposed lesson-05.teaching-fragment.html; zero-based UTF-8, end exclusive."
+      },
+      "sourceLocators": [
+        "PPT47 original80/40/20; fruit and expectation qualifications",
+        "current native03 expected count"
+      ]
+    },
+    {
+      "heading": "Ask how much the evidence actually settles",
+      "headingLocation": {
+        "startByte": 50863,
+        "endByteExclusive": 50914,
+        "bytes": 51,
+        "sha256": "39b5a9de7807fb7c05ba73d25bd4b885dffd2f6971c97258758f88522d94a71a",
+        "coordinateSource": "AFTER proposed lesson-05.teaching-fragment.html; zero-based UTF-8, end exclusive."
+      },
+      "sourceLocators": [
+        "current native04 positive versus absent evidence",
+        "current native05 exact upcoming evidence task"
+      ]
+    },
+    {
+      "heading": "Decide what the new offspring settles—and what it leaves open",
+      "headingLocation": {
+        "startByte": 51783,
+        "endByteExclusive": 51855,
+        "bytes": 72,
+        "sha256": "181508baf9570d484638de1bed89db0ef907d45e5c42d1894fcbd9886f9f33da",
+        "coordinateSource": "AFTER proposed lesson-05.teaching-fragment.html; zero-based UTF-8, end exclusive."
+      },
+      "sourceLocators": [
+        "contracts/OPTIONAL_NOTES.json entry1, exact completeSection"
+      ]
+    },
+    {
+      "heading": "What the two-characteristic investigation has explained",
+      "headingLocation": {
+        "startByte": 56249,
+        "endByteExclusive": 56313,
+        "bytes": 64,
+        "sha256": "76f6d3a32852f5d4f5dc95f462209a4cf4611b486458e7f3b721914801533882",
+        "coordinateSource": "AFTER proposed lesson-05.teaching-fragment.html; zero-based UTF-8, end exclusive."
+      },
+      "sourceLocators": [
+        "PPT35/40/48",
+        "Textbook596/PDF13 linkage boundary",
+        "current native06 next-topic boundary",
+        "Textbook595/PDF12 Q13,15,16 verified for optional deferral"
+      ]
+    }
+  ],
+  "staticVisualContract": "Every source diagram is fully visible. Reading order guides attention; no authored dynamic reveal is claimed.",
+  "newGeneratedImages": 0,
+  "derivedRasterCrops": 0,
+  "newSavedControls": 0,
+  "manifestPayloadVerification": [
+    {
+      "file": "AUTHORING_TASK.md",
+      "bytes": 5452,
+      "sha256": "36b49525bda9f3e79135d2f3984a5d79a57288e017d8d1f0f0406a06065d1afa",
+      "sizeMatch": true,
+      "hashMatch": true,
+      "zipMemberEquality": true
+    },
+    {
+      "file": "CHAPTER_PROGRESSION.json",
+      "bytes": 5388,
+      "sha256": "1afb426aaeff0c33b9adeb788f0506447f245b292c8f59708201d6db53341521",
+      "sizeMatch": true,
+      "hashMatch": true,
+      "zipMemberEquality": true
+    },
+    {
+      "file": "contracts/NATIVE_DATA.json",
+      "bytes": 391744,
+      "sha256": "5fc07ea7be4b9a74081a602fb5e21e1ae780fefcd34a30854eec22308076009b",
+      "sizeMatch": true,
+      "hashMatch": true,
+      "zipMemberEquality": true
+    },
+    {
+      "file": "contracts/NATIVE_IMAGES.json",
+      "bytes": 390,
+      "sha256": "08d0293199c73a0e469b1b528d6acb7393e10d9bab5e31c2490367a872d39219",
+      "sizeMatch": true,
+      "hashMatch": true,
+      "zipMemberEquality": true
+    },
+    {
+      "file": "contracts/OPTIONAL_NOTES.json",
+      "bytes": 9740,
+      "sha256": "dfc541a1c0b0657fbae4dc34d4b45aa19a097a6e4d574e71cdac60b59dfa74d1",
+      "sizeMatch": true,
+      "hashMatch": true,
+      "zipMemberEquality": true
+    },
+    {
+      "file": "contracts/REPLACEMENT_BOUNDARY.json",
+      "bytes": 1325,
+      "sha256": "712686b156f376d5dcf597db5252d6626ad734bdd6c338ad2789e4e5fd3d8000",
+      "sizeMatch": true,
+      "hashMatch": true,
+      "zipMemberEquality": true
+    },
+    {
+      "file": "contracts/SOURCE_PROTECTION.json",
+      "bytes": 168875,
+      "sha256": "0b49a108bfc4a2439390c9a116653424371404511e8fd4e56ef206d5e03e6eed",
+      "sizeMatch": true,
+      "hashMatch": true,
+      "zipMemberEquality": true
+    },
+    {
+      "file": "current/assets/figures/ch17-two-trait.svg",
+      "bytes": 5623,
+      "sha256": "6fdb301a963b4da131f8fe50624611fc0ff091c62e0ac99d6602019c2830c316",
+      "sizeMatch": true,
+      "hashMatch": true,
+      "zipMemberEquality": true
+    },
+    {
+      "file": "current/index.html",
+      "bytes": 3540574,
+      "sha256": "71518705941a86809c7f28593664763e59c7867511e3ae699ec1007bfe109bad",
+      "sizeMatch": true,
+      "hashMatch": true,
+      "zipMemberEquality": true
+    },
+    {
+      "file": "current/lesson-01.html",
+      "bytes": 18829,
+      "sha256": "cc24481da9d357b19df9c7236e6f8bf62cf73be019a7a6fc73a1795d3cca0765",
+      "sizeMatch": true,
+      "hashMatch": true,
+      "zipMemberEquality": true
+    },
+    {
+      "file": "current/lesson-02.html",
+      "bytes": 50544,
+      "sha256": "2bd982f244d2557b2ab4eded30e0c310634bb426904c4d511e6646db4f4545af",
+      "sizeMatch": true,
+      "hashMatch": true,
+      "zipMemberEquality": true
+    },
+    {
+      "file": "current/lesson-03.html",
+      "bytes": 24048,
+      "sha256": "276c12c5fbb649d4f7f116eea88998a9f44f7f81892d38f8aa24f8f610b7db30",
+      "sizeMatch": true,
+      "hashMatch": true,
+      "zipMemberEquality": true
+    },
+    {
+      "file": "current/lesson-04.html",
+      "bytes": 20726,
+      "sha256": "61bf6ef76faf8a6d03ebaed54a1608c184e6a3f31a0d4226e1a254750b3c8914",
+      "sizeMatch": true,
+      "hashMatch": true,
+      "zipMemberEquality": true
+    },
+    {
+      "file": "current/lesson-05.html",
+      "bytes": 51476,
+      "sha256": "ad1e69e3c700c2048139edf6c13d7fe5e4e6c031b053c8773165d38046de577d",
+      "sizeMatch": true,
+      "hashMatch": true,
+      "zipMemberEquality": true
+    },
+    {
+      "file": "current/lesson-05.protected-header.html",
+      "bytes": 3918,
+      "sha256": "ec347589a85dc86e808c43fac459e137a51a73e8d1ba2dd812e1f764b241a340",
+      "sizeMatch": true,
+      "hashMatch": true,
+      "zipMemberEquality": true
+    },
+    {
+      "file": "current/lesson-05.protected-suffix.html",
+      "bytes": 15357,
+      "sha256": "64b983b75d491d1398951c89960fe2ebc61268c60cb1c1b03bc5ef212335b066",
+      "sizeMatch": true,
+      "hashMatch": true,
+      "zipMemberEquality": true
+    },
+    {
+      "file": "current/lesson-05.teaching-fragment.html",
+      "bytes": 32124,
+      "sha256": "af874700b7166abe88072fb430d33f743d0cca930a4681bb4bbe56b93ccf309f",
+      "sizeMatch": true,
+      "hashMatch": true,
+      "zipMemberEquality": true
+    },
+    {
+      "file": "current/lesson-06.html",
+      "bytes": 19544,
+      "sha256": "737cfdbf37a7f2f8529eb449458ba511597e03a12d82e2d96737c45d5cc19a7e",
+      "sizeMatch": true,
+      "hashMatch": true,
+      "zipMemberEquality": true
+    },
+    {
+      "file": "reference/assets/teaching-v040/slide-14-image25.png",
+      "bytes": 149790,
+      "sha256": "4e5cd0ea4159932025b801e03faf3c32ea2c88efa906238f5cde4daeeca441dc",
+      "sizeMatch": true,
+      "hashMatch": true,
+      "zipMemberEquality": true
+    },
+    {
+      "file": "reference/assets/teaching-v040/slide-15-image14.png",
+      "bytes": 40026,
+      "sha256": "30b7f6873a81955cc3c8e64b93ebaf4f3c5bfd5b7366ef7064c7eca28087628d",
+      "sizeMatch": true,
+      "hashMatch": true,
+      "zipMemberEquality": true
+    },
+    {
+      "file": "reference/assets/teaching-v040/slide-18-image20.png",
+      "bytes": 16324,
+      "sha256": "013dd2769996f9e08f19ea3e86e70ea3a69ce2a1a2bfb7a6ee1ebf2023636ec6",
+      "sizeMatch": true,
+      "hashMatch": true,
+      "zipMemberEquality": true
+    },
+    {
+      "file": "reference/assets/teaching-v040/slide-20-image36.png",
+      "bytes": 4001,
+      "sha256": "b8563f6f9ed748ac3880103472762ec0e05b6fbd3f1a6d1a666cb0b9877779e7",
+      "sizeMatch": true,
+      "hashMatch": true,
+      "zipMemberEquality": true
+    },
+    {
+      "file": "reference/assets/teaching-v040/slide-41-image44.png",
+      "bytes": 364277,
+      "sha256": "7e57deedfe727416d5536605bb4327cffd16ee88cbb13c778bd5e5039f450eb8",
+      "sizeMatch": true,
+      "hashMatch": true,
+      "zipMemberEquality": true
+    },
+    {
+      "file": "reference/COPY_CHANGES.json",
+      "bytes": 1715,
+      "sha256": "079a455f042f89cb579c5132805d3c025d9c0cb6dc9be9b72da7a5c6a2d820f7",
+      "sizeMatch": true,
+      "hashMatch": true,
+      "zipMemberEquality": true
+    },
+    {
+      "file": "reference/lesson-02.md",
+      "bytes": 29639,
+      "sha256": "dc5e1f0207ec82dfacbc9d0e299f8f48beb6b5ee1c4ddc3deb24e8ac9635db11",
+      "sizeMatch": true,
+      "hashMatch": true,
+      "zipMemberEquality": true
+    },
+    {
+      "file": "reference/lesson-02.teaching-fragment.html",
+      "bytes": 35661,
+      "sha256": "6e274fada943ad55d663144985375828b011a381ba8a843704c333995443ce53",
+      "sizeMatch": true,
+      "hashMatch": true,
+      "zipMemberEquality": true
+    },
+    {
+      "file": "REFERENCE_ACCEPTANCE.json",
+      "bytes": 840,
+      "sha256": "65fb8928d96488632135d414a3f25937171364334d62328bd5275a6da550a83d",
+      "sizeMatch": true,
+      "hashMatch": true,
+      "zipMemberEquality": true
+    },
+    {
+      "file": "sources/chapter-17.pdf",
+      "bytes": 2005971,
+      "sha256": "48e297aacb86275c106a02abdddaf0f0463ba47d6b17703a926aa68405755455",
+      "sizeMatch": true,
+      "hashMatch": true,
+      "zipMemberEquality": true
+    },
+    {
+      "file": "sources/original-114-slides.pptx",
+      "bytes": 10153531,
+      "sha256": "da1ce1c0526da4da1aefd1fb6c0f23070f820ce24378c12f9699d1c700e1a985",
+      "sizeMatch": true,
+      "hashMatch": true,
+      "zipMemberEquality": true
+    },
+    {
+      "file": "sources/slide-assets/slide-35-image32.png",
+      "bytes": 77704,
+      "sha256": "8eeaa700523d536e1375231cfc9f6a6971ae29618aca18918040ea81f5502d39",
+      "sizeMatch": true,
+      "hashMatch": true,
+      "zipMemberEquality": true
+    },
+    {
+      "file": "sources/slide-assets/slide-36-image29.png",
+      "bytes": 84208,
+      "sha256": "1b3fd0b0ced0cc074bdfac4b3a6712392123db36e33970813c8c2ea235e6abb9",
+      "sizeMatch": true,
+      "hashMatch": true,
+      "zipMemberEquality": true
+    },
+    {
+      "file": "sources/slide-assets/slide-36-image35.png",
+      "bytes": 4315,
+      "sha256": "53056ee22090ef5667e383e4ac08def5efbb682e77f9fb5c59e32ce1259272c0",
+      "sizeMatch": true,
+      "hashMatch": true,
+      "zipMemberEquality": true
+    },
+    {
+      "file": "sources/slide-assets/slide-37-image37.png",
+      "bytes": 15668,
+      "sha256": "32c3c6888aee2d6573340d2cae5b177ad5a8b3c38a944b0c0f715edc65e04baf",
+      "sizeMatch": true,
+      "hashMatch": true,
+      "zipMemberEquality": true
+    },
+    {
+      "file": "sources/slide-assets/slide-37-image46.png",
+      "bytes": 7401,
+      "sha256": "cac4ebce12f25f7afe2bae30ad8806346f8b83b6e618fdd1c90c20a6b7cce3cb",
+      "sizeMatch": true,
+      "hashMatch": true,
+      "zipMemberEquality": true
+    },
+    {
+      "file": "sources/slide-assets/slide-39-image34.png",
+      "bytes": 8043,
+      "sha256": "4bf1e59355f0da0e09f03d162b86a662f6afb6768a271230f5f77b5c4fc1f8ca",
+      "sizeMatch": true,
+      "hashMatch": true,
+      "zipMemberEquality": true
+    },
+    {
+      "file": "sources/slide-assets/slide-39-image40.png",
+      "bytes": 28688,
+      "sha256": "1737c44d6e84b88174326df28f36a39ddf526d5153b33b96660e2cac00e47338",
+      "sizeMatch": true,
+      "hashMatch": true,
+      "zipMemberEquality": true
+    },
+    {
+      "file": "sources/slide-assets/slide-41-image44.png",
+      "bytes": 364277,
+      "sha256": "7e57deedfe727416d5536605bb4327cffd16ee88cbb13c778bd5e5039f450eb8",
+      "sizeMatch": true,
+      "hashMatch": true,
+      "zipMemberEquality": true
+    },
+    {
+      "file": "sources/slide-assets/slide-41-image47.png",
+      "bytes": 50092,
+      "sha256": "dc238c9183f4ca7f5ee062b3c4d09cdb0f0a868c8f3e5ddd735aeeb087a3eb8c",
+      "sizeMatch": true,
+      "hashMatch": true,
+      "zipMemberEquality": true
+    },
+    {
+      "file": "sources/slide-assets/slide-42-image23.png",
+      "bytes": 293898,
+      "sha256": "bf7517ad986d2137dbcd0c133de73fa933b2153366e58598188da32479037129",
+      "sizeMatch": true,
+      "hashMatch": true,
+      "zipMemberEquality": true
+    },
+    {
+      "file": "sources/slide-assets/slide-45-image43.png",
+      "bytes": 6463,
+      "sha256": "9b8552f650593188b8fc910661eb122508414ce009af3b8e5cf10a961b669a28",
+      "sizeMatch": true,
+      "hashMatch": true,
+      "zipMemberEquality": true
+    },
+    {
+      "file": "sources/slide-assets/slide-48-image38.jpg",
+      "bytes": 8723,
+      "sha256": "dde47bee6a962744f1ac5872fb37856e016e5151fe4cce7183670902995410af",
+      "sizeMatch": true,
+      "hashMatch": true,
+      "zipMemberEquality": true
+    },
+    {
+      "file": "sources/slide-assets/slide-48-image39.jpg",
+      "bytes": 19550,
+      "sha256": "c1cad0f3e8b654b82fe66db9d3896b776d65bda39314e955a77f5a2a8ef3af50",
+      "sizeMatch": true,
+      "hashMatch": true,
+      "zipMemberEquality": true
+    },
+    {
+      "file": "sources/slide-xml/slide-34.xml",
+      "bytes": 6323,
+      "sha256": "5a2b1eed0faed4f4862f68425d1cebd0798cf96d638b7c53562ed7e4700d5315",
+      "sizeMatch": true,
+      "hashMatch": true,
+      "zipMemberEquality": true
+    },
+    {
+      "file": "sources/slide-xml/slide-34.xml.rels",
+      "bytes": 462,
+      "sha256": "4daa79ae9b8205cb5254a14aa2f46ea6f9b3063e48d05f6f508207a09c74012a",
+      "sizeMatch": true,
+      "hashMatch": true,
+      "zipMemberEquality": true
+    },
+    {
+      "file": "sources/slide-xml/slide-35.xml",
+      "bytes": 7027,
+      "sha256": "8ea0a6547facd5dcb908c00433bc8446c6c82173032491f1312d552b13d4bc29",
+      "sizeMatch": true,
+      "hashMatch": true,
+      "zipMemberEquality": true
+    },
+    {
+      "file": "sources/slide-xml/slide-35.xml.rels",
+      "bytes": 598,
+      "sha256": "32ac6a47b1137dab212cf6bafbd081d61ed9a7e0e539cd4158b33fb7352d4ac0",
+      "sizeMatch": true,
+      "hashMatch": true,
+      "zipMemberEquality": true
+    },
+    {
+      "file": "sources/slide-xml/slide-36.xml",
+      "bytes": 4379,
+      "sha256": "918e878efeada7fbd0768731b515102125d4465213695a21a1da8504bd529db5",
+      "sizeMatch": true,
+      "hashMatch": true,
+      "zipMemberEquality": true
+    },
+    {
+      "file": "sources/slide-xml/slide-36.xml.rels",
+      "bytes": 734,
+      "sha256": "114230e2d18250b894648517b221c339e1f987a0e0b4187cfd7d035f1b3b3b4e",
+      "sizeMatch": true,
+      "hashMatch": true,
+      "zipMemberEquality": true
+    },
+    {
+      "file": "sources/slide-xml/slide-37.xml",
+      "bytes": 3256,
+      "sha256": "60a472ff94c407ca9969f74305a1156a64bcc20088858cec6f74fde7f24f7bc2",
+      "sizeMatch": true,
+      "hashMatch": true,
+      "zipMemberEquality": true
+    },
+    {
+      "file": "sources/slide-xml/slide-37.xml.rels",
+      "bytes": 734,
+      "sha256": "81f04bc1eccaaa616c292e1d44557bf6d3fe456a53ac57bcc9fd5345cad75c12",
+      "sizeMatch": true,
+      "hashMatch": true,
+      "zipMemberEquality": true
+    },
+    {
+      "file": "sources/slide-xml/slide-38.xml",
+      "bytes": 3112,
+      "sha256": "0afe145f0e9e322a53a07cee222950a408feaf8d324f1bd91f9285a64d981a52",
+      "sizeMatch": true,
+      "hashMatch": true,
+      "zipMemberEquality": true
+    },
+    {
+      "file": "sources/slide-xml/slide-38.xml.rels",
+      "bytes": 462,
+      "sha256": "c969bee468e66c4869efd450b97da4eb13c3ff2271217e3f12153276186b7855",
+      "sizeMatch": true,
+      "hashMatch": true,
+      "zipMemberEquality": true
+    },
+    {
+      "file": "sources/slide-xml/slide-39.xml",
+      "bytes": 3255,
+      "sha256": "54d310914b2d748044d07d2db9eb124fbf3e5a8744308aba999f719573bb925f",
+      "sizeMatch": true,
+      "hashMatch": true,
+      "zipMemberEquality": true
+    },
+    {
+      "file": "sources/slide-xml/slide-39.xml.rels",
+      "bytes": 734,
+      "sha256": "1a40f126c48ec26d9062b434516a3fa7dd76642b6b1fee71c504a7280a1ba2d7",
+      "sizeMatch": true,
+      "hashMatch": true,
+      "zipMemberEquality": true
+    },
+    {
+      "file": "sources/slide-xml/slide-40.xml",
+      "bytes": 6674,
+      "sha256": "adcd6de0532aff1685def780eb6db0f8b39be534656cad10fbb5eadbb22ab5f1",
+      "sizeMatch": true,
+      "hashMatch": true,
+      "zipMemberEquality": true
+    },
+    {
+      "file": "sources/slide-xml/slide-40.xml.rels",
+      "bytes": 462,
+      "sha256": "d861b7eeece9b08717199f2c41e32a980ad04e241ae3779b6cd4360131e0abaf",
+      "sizeMatch": true,
+      "hashMatch": true,
+      "zipMemberEquality": true
+    },
+    {
+      "file": "sources/slide-xml/slide-41.xml",
+      "bytes": 7559,
+      "sha256": "def5bbbcdb70a3100d91cd65930928ca43521235c0a174dc098549cf1ac27ba9",
+      "sizeMatch": true,
+      "hashMatch": true,
+      "zipMemberEquality": true
+    },
+    {
+      "file": "sources/slide-xml/slide-41.xml.rels",
+      "bytes": 734,
+      "sha256": "770acebe8a385a0a9f6ebbf8c2b799fe426cd4e90ef476ecd35943ffc2f41fdd",
+      "sizeMatch": true,
+      "hashMatch": true,
+      "zipMemberEquality": true
+    },
+    {
+      "file": "sources/slide-xml/slide-42.xml",
+      "bytes": 4029,
+      "sha256": "85d19c689abd8a8f2e73ebcfea125cab5069adf2ebd116f2b7e8608c4116f1dc",
+      "sizeMatch": true,
+      "hashMatch": true,
+      "zipMemberEquality": true
+    },
+    {
+      "file": "sources/slide-xml/slide-42.xml.rels",
+      "bytes": 598,
+      "sha256": "1c6a4c87c1fb146f9b3d4c30d6836a63c2d594f3c42c032f4c0155fbd9682c75",
+      "sizeMatch": true,
+      "hashMatch": true,
+      "zipMemberEquality": true
+    },
+    {
+      "file": "sources/slide-xml/slide-43.xml",
+      "bytes": 17041,
+      "sha256": "1ec1a6a6b4bc1a781623254f50c88a1923771500fa58874f8798dfa988e2b2e4",
+      "sizeMatch": true,
+      "hashMatch": true,
+      "zipMemberEquality": true
+    },
+    {
+      "file": "sources/slide-xml/slide-43.xml.rels",
+      "bytes": 462,
+      "sha256": "6f1d9b22585f2b597783c0e32036aa3b6dea9b159300ed6aa6a7567b91177a78",
+      "sizeMatch": true,
+      "hashMatch": true,
+      "zipMemberEquality": true
+    },
+    {
+      "file": "sources/slide-xml/slide-44.xml",
+      "bytes": 23416,
+      "sha256": "22b9630145694ce9517e364bfe50d85e6b86ab44cd60cf541eec731800fc50e6",
+      "sizeMatch": true,
+      "hashMatch": true,
+      "zipMemberEquality": true
+    },
+    {
+      "file": "sources/slide-xml/slide-44.xml.rels",
+      "bytes": 462,
+      "sha256": "8c2936609b7140011fc81bc967fb8aabdfea33c66f670552030ea3197048b25d",
+      "sizeMatch": true,
+      "hashMatch": true,
+      "zipMemberEquality": true
+    },
+    {
+      "file": "sources/slide-xml/slide-45.xml",
+      "bytes": 28506,
+      "sha256": "746866e17a98d1645f17ba82d7c50d83f4d32d3e58785f314326326512274437",
+      "sizeMatch": true,
+      "hashMatch": true,
+      "zipMemberEquality": true
+    },
+    {
+      "file": "sources/slide-xml/slide-45.xml.rels",
+      "bytes": 598,
+      "sha256": "ce20b1bafb5d9fd4b617ccb544eaf7e83988d0373607f4449da9c340c769167e",
+      "sizeMatch": true,
+      "hashMatch": true,
+      "zipMemberEquality": true
+    },
+    {
+      "file": "sources/slide-xml/slide-46.xml",
+      "bytes": 20085,
+      "sha256": "18baa126ab5303116f292af294f423d3f2ae9ee4fbbc74b3ad2005d524a1c404",
+      "sizeMatch": true,
+      "hashMatch": true,
+      "zipMemberEquality": true
+    },
+    {
+      "file": "sources/slide-xml/slide-46.xml.rels",
+      "bytes": 462,
+      "sha256": "45f7a82bbda60f60c34ed19f3db9a861adca895c9c3c4a8aecaf25b8ae5f452f",
+      "sizeMatch": true,
+      "hashMatch": true,
+      "zipMemberEquality": true
+    },
+    {
+      "file": "sources/slide-xml/slide-47.xml",
+      "bytes": 36131,
+      "sha256": "edda5f8fb58c2d185bd5ec134417492da7a0ebf4878a57dc6d90c5a57e4230a9",
+      "sizeMatch": true,
+      "hashMatch": true,
+      "zipMemberEquality": true
+    },
+    {
+      "file": "sources/slide-xml/slide-47.xml.rels",
+      "bytes": 462,
+      "sha256": "461e8a73fa297e7e9e5673e9e8c3442627230609eb7196e242d1442300a16b28",
+      "sizeMatch": true,
+      "hashMatch": true,
+      "zipMemberEquality": true
+    },
+    {
+      "file": "sources/slide-xml/slide-48.xml",
+      "bytes": 12311,
+      "sha256": "080ebc235a227f6587307b4d2bc86f419575206be115eaf5b7a5892ac5311538",
+      "sizeMatch": true,
+      "hashMatch": true,
+      "zipMemberEquality": true
+    },
+    {
+      "file": "sources/slide-xml/slide-48.xml.rels",
+      "bytes": 1102,
+      "sha256": "912487d9c45d952f37fb26abc51b565b79277eeadab55d515081bffd61d71a04",
+      "sizeMatch": true,
+      "hashMatch": true,
+      "zipMemberEquality": true
+    },
+    {
+      "file": "sources/SLIDES_34_48.json",
+      "bytes": 13156,
+      "sha256": "faf0830fdc0132ecd907c8e5c8d292e3b4bad1cb96f4a000c929840f594e206b",
+      "sizeMatch": true,
+      "hashMatch": true,
+      "zipMemberEquality": true
+    },
+    {
+      "file": "sources/SOURCE_LOCATORS.md",
+      "bytes": 2074,
+      "sha256": "9e0d857cd698e962fb80e4e63ad8a71bd8868caa8d06155095d302c5bbe2dcf0",
+      "sizeMatch": true,
+      "hashMatch": true,
+      "zipMemberEquality": true
+    },
+    {
+      "file": "standards/02_TEACHING_STANDARD.md",
+      "bytes": 11744,
+      "sha256": "aa273698aa48c983081ca9bb724dec66959ce86ea4f33049f12330715fbf89e2",
+      "sizeMatch": true,
+      "hashMatch": true,
+      "zipMemberEquality": true
+    },
+    {
+      "file": "standards/CHAPTER11_TEACHING_STANDARD.md",
+      "bytes": 11846,
+      "sha256": "cf7d4942a44944defd587813dcf68fc53e29773d189834c8e304bced4f530d80",
+      "sizeMatch": true,
+      "hashMatch": true,
+      "zipMemberEquality": true
+    }
+  ],
+  "protectionLedgerEvidence": {
+    "file": "contracts/SOURCE_PROTECTION.json",
+    "bytes": 168875,
+    "sha256": "0b49a108bfc4a2439390c9a116653424371404511e8fd4e56ef206d5e03e6eed",
+    "records": 563,
+    "recordsWithVerifiedPacketCounterparts": 49,
+    "distinctAttachedCounterpartFiles": 20,
+    "externalRecordsNotIndependentlyReadHere": 514,
+    "reportedExternalVerification": "User reported Codex independently verified all563 original source hashes. This author verified packet counterparts and full attached owner; no Mac paths accessed."
+  }
+}

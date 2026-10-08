@@ -1,0 +1,1578 @@
+{
+  "version": "0.1.0",
+  "scope_note": "Every current identified native practice item and every textbook task routed to10/11 is listed. Earlier/later scope and ambiguous frozen prompts are flagged rather than silently changed or declared ready. New independent tasks are described separately below.",
+  "items": [
+    {
+      "lesson": 10,
+      "id": "ch17-check-10",
+      "native_path": "/checks/0",
+      "demand": "Reading autosomal pedigrees",
+      "status": "prepared",
+      "frozen": true,
+      "explanation_locations": [
+        "teaching-01: model-before-letters table",
+        "teaching-02: forced versus possible genotype",
+        "teaching-03: sample space and limits",
+        "worked: independent three-generation changed cross"
+      ],
+      "practice_relationship": "concept taught and applied; exact expected native wording remains frozen"
+    },
+    {
+      "lesson": 10,
+      "id": "ch17-l10-check-mc-1",
+      "native_path": "/checks/0/mc/0",
+      "demand": "For Aa × Aa, what is the carrier probability among unaffected offspring?",
+      "status": "prepared",
+      "frozen": true,
+      "explanation_locations": [
+        "teaching-03: four weighted combinations and conditional 2/3 derivation",
+        "worked: five-step recessive family inference"
+      ],
+      "practice_relationship": "direct required-check preparation; worked/check overlap retained and disclosed"
+    },
+    {
+      "lesson": 10,
+      "id": "ch17-l10-check-mc-2",
+      "native_path": "/checks/0/mc/1",
+      "demand": "Why should an unaffected person not automatically be labelled AA in a recessive pedigree?",
+      "status": "prepared",
+      "frozen": true,
+      "explanation_locations": [
+        "teaching-01: model-before-letters table",
+        "teaching-02: forced versus possible genotype",
+        "teaching-03: sample space and limits",
+        "worked: independent three-generation changed cross"
+      ],
+      "practice_relationship": "concept taught and applied; exact expected native wording remains frozen"
+    },
+    {
+      "lesson": 10,
+      "id": "ch17-l10-check-writing-1",
+      "native_path": "/checks/0/writing/0",
+      "demand": "Explain how an affected recessive child can constrain both unaffected parents’ genotypes.",
+      "status": "prepared",
+      "frozen": true,
+      "explanation_locations": [
+        "teaching-01: model-before-letters table",
+        "teaching-02: forced versus possible genotype",
+        "teaching-03: sample space and limits",
+        "worked: independent three-generation changed cross"
+      ],
+      "practice_relationship": "concept taught and applied; exact expected native wording remains frozen"
+    },
+    {
+      "lesson": 10,
+      "id": "ch17-l10-check-writing-2",
+      "native_path": "/checks/0/writing/1",
+      "demand": "Distinguish a genotype that must be present from one that remains possible, using an unaffected sibling in Aa × Aa.",
+      "status": "prepared",
+      "frozen": true,
+      "explanation_locations": [
+        "teaching-03: four weighted combinations and conditional 2/3 derivation",
+        "worked: five-step recessive family inference"
+      ],
+      "practice_relationship": "direct required-check preparation; worked/check overlap retained and disclosed"
+    },
+    {
+      "lesson": 10,
+      "id": "ch17-word-pedigree",
+      "native_path": "/words/0",
+      "demand": "A diagram tracing a specified trait through family relationships across generations.",
+      "status": "prepared",
+      "frozen": true,
+      "explanation_locations": [
+        "teaching-01: connector and A–D pointer walkthrough",
+        "teaching-02: recessive inference"
+      ],
+      "practice_relationship": "native figure answers and worked examples support these recognition/label tasks; no fresh-transfer claim"
+    },
+    {
+      "lesson": 10,
+      "id": "ch17-word-autosomal-recessive",
+      "native_path": "/words/1",
+      "demand": "A model in which a trait is expressed when two recessive alleles occur at an autosomal locus.",
+      "status": "prepared",
+      "frozen": true,
+      "explanation_locations": [
+        "teaching-01: model-before-letters table",
+        "teaching-02: forced versus possible genotype",
+        "teaching-03: sample space and limits",
+        "worked: independent three-generation changed cross"
+      ],
+      "practice_relationship": "concept taught and applied; exact expected native wording remains frozen"
+    },
+    {
+      "lesson": 10,
+      "id": "ch17-word-autosomal-dominant",
+      "native_path": "/words/2",
+      "demand": "A model in which one dominant allele at an autosomal locus is sufficient for expression under the stated assumptions.",
+      "status": "prepared",
+      "frozen": true,
+      "explanation_locations": [
+        "teaching-02: complete slide77 family",
+        "teaching-02: Dd×Dd genotype explanation"
+      ],
+      "practice_relationship": "explicitly formative overlap with protected dominant-parent inference"
+    },
+    {
+      "lesson": 10,
+      "id": "ch17-word-generation",
+      "native_path": "/words/3",
+      "demand": "A level of descent in a family diagram, commonly labelled with a Roman numeral.",
+      "status": "prepared",
+      "frozen": true,
+      "explanation_locations": [
+        "teaching-01: connector and A–D pointer walkthrough",
+        "teaching-02: recessive inference"
+      ],
+      "practice_relationship": "native figure answers and worked examples support these recognition/label tasks; no fresh-transfer claim"
+    },
+    {
+      "lesson": 10,
+      "id": "ch17-source-OBJ_2131233",
+      "native_path": "/practiceQuestions/0",
+      "demand": "In a fully penetrant autosomal-dominant model, two affected parents have an unaffected child. What must both parents be?",
+      "status": "prepared",
+      "frozen": true,
+      "explanation_locations": [
+        "teaching-02: complete slide77 family",
+        "teaching-02: Dd×Dd genotype explanation"
+      ],
+      "practice_relationship": "explicitly formative overlap with protected dominant-parent inference"
+    },
+    {
+      "lesson": 10,
+      "id": "ch17-source-OBJ_2131238",
+      "native_path": "/practiceQuestions/1",
+      "demand": "In a fully penetrant recessive model, an aa mother has an affected daughter and an unaffected son. What must their father’s genotype be?",
+      "status": "prepared",
+      "frozen": true,
+      "explanation_locations": [
+        "teaching-02: guided aa mother / two child phenotypes"
+      ],
+      "practice_relationship": "exact reasoning overlap with protected optional source task; intentionally formative, not independent transfer"
+    },
+    {
+      "lesson": 10,
+      "id": "ch17-foundation-ch17-word-pedigree",
+      "native_path": "/practiceQuestions/2",
+      "demand": "Which term matches this description? A diagram tracing a specified trait through family relationships across generations.",
+      "status": "prepared",
+      "frozen": true,
+      "explanation_locations": [
+        "teaching-01: connector and A–D pointer walkthrough",
+        "teaching-02: recessive inference"
+      ],
+      "practice_relationship": "native figure answers and worked examples support these recognition/label tasks; no fresh-transfer claim"
+    },
+    {
+      "lesson": 10,
+      "id": "ch17-foundation-ch17-word-autosomal-recessive",
+      "native_path": "/practiceQuestions/3",
+      "demand": "Which term matches this description? A model in which a trait is expressed when two recessive alleles occur at an autosomal locus.",
+      "status": "prepared",
+      "frozen": true,
+      "explanation_locations": [
+        "teaching-01: model-before-letters table",
+        "teaching-02: forced versus possible genotype",
+        "teaching-03: sample space and limits",
+        "worked: independent three-generation changed cross"
+      ],
+      "practice_relationship": "concept taught and applied; exact expected native wording remains frozen"
+    },
+    {
+      "lesson": 10,
+      "id": "ch17-foundation-ch17-word-autosomal-dominant",
+      "native_path": "/practiceQuestions/4",
+      "demand": "Which term matches this description? A model in which one dominant allele at an autosomal locus is sufficient for expression under the stated assumptions.",
+      "status": "prepared",
+      "frozen": true,
+      "explanation_locations": [
+        "teaching-02: complete slide77 family",
+        "teaching-02: Dd×Dd genotype explanation"
+      ],
+      "practice_relationship": "explicitly formative overlap with protected dominant-parent inference"
+    },
+    {
+      "lesson": 10,
+      "id": "ch17-foundation-ch17-word-generation",
+      "native_path": "/practiceQuestions/5",
+      "demand": "Which term matches this description? A level of descent in a family diagram, commonly labelled with a Roman numeral.",
+      "status": "prepared",
+      "frozen": true,
+      "explanation_locations": [
+        "teaching-01: connector and A–D pointer walkthrough",
+        "teaching-02: recessive inference"
+      ],
+      "practice_relationship": "native figure answers and worked examples support these recognition/label tasks; no fresh-transfer claim"
+    },
+    {
+      "lesson": 10,
+      "id": "ch17-pedigree-label",
+      "native_path": "/labelDiagrams/0",
+      "demand": "Pedigree: use the stated inheritance model",
+      "status": "prepared",
+      "frozen": true,
+      "caveat": "Native separate labeling PNG was not present in this child packet; parent must verify it in the integration owner. Recovered teaching SVG and locked A–D answers remain exact.",
+      "explanation_locations": [
+        "teaching-01: connector and A–D pointer walkthrough",
+        "teaching-02: recessive inference"
+      ],
+      "practice_relationship": "native figure answers and worked examples support these recognition/label tasks; no fresh-transfer claim"
+    },
+    {
+      "lesson": 10,
+      "id": "Gd09V2AkZv4",
+      "native_path": "/videos/0",
+      "demand": "Reading autosomal pedigrees — video support",
+      "status": "existing_supplement_playback_unverified",
+      "frozen": true,
+      "explanation_locations": [
+        "teaching-01: model-before-letters table",
+        "teaching-02: forced versus possible genotype",
+        "teaching-03: sample space and limits",
+        "worked: independent three-generation changed cross"
+      ],
+      "practice_relationship": "concept taught and applied; exact expected native wording remains frozen",
+      "caveat": "Existing URL and fallback remain frozen. External playback and LMS embedding were not tested; the complete mechanism is taught in the visible fragment and does not depend on media availability."
+    },
+    {
+      "lesson": 10,
+      "id": "ch17-concept-pedigree",
+      "native_path": "/practiceConcepts/0",
+      "demand": "A diagram tracing a specified trait through family relationships across generations.",
+      "status": "prepared",
+      "frozen": true,
+      "explanation_locations": [
+        "teaching-01: connector and A–D pointer walkthrough",
+        "teaching-02: recessive inference"
+      ],
+      "practice_relationship": "native figure answers and worked examples support these recognition/label tasks; no fresh-transfer claim"
+    },
+    {
+      "lesson": 10,
+      "id": "ch17-concept-autosomal-recessive",
+      "native_path": "/practiceConcepts/1",
+      "demand": "A model in which a trait is expressed when two recessive alleles occur at an autosomal locus.",
+      "status": "prepared",
+      "frozen": true,
+      "explanation_locations": [
+        "teaching-01: model-before-letters table",
+        "teaching-02: forced versus possible genotype",
+        "teaching-03: sample space and limits",
+        "worked: independent three-generation changed cross"
+      ],
+      "practice_relationship": "concept taught and applied; exact expected native wording remains frozen"
+    },
+    {
+      "lesson": 10,
+      "id": "ch17-concept-autosomal-dominant",
+      "native_path": "/practiceConcepts/2",
+      "demand": "A model in which one dominant allele at an autosomal locus is sufficient for expression under the stated assumptions.",
+      "status": "prepared",
+      "frozen": true,
+      "explanation_locations": [
+        "teaching-02: complete slide77 family",
+        "teaching-02: Dd×Dd genotype explanation"
+      ],
+      "practice_relationship": "explicitly formative overlap with protected dominant-parent inference"
+    },
+    {
+      "lesson": 10,
+      "id": "ch17-concept-generation",
+      "native_path": "/practiceConcepts/3",
+      "demand": "A level of descent in a family diagram, commonly labelled with a Roman numeral.",
+      "status": "prepared",
+      "frozen": true,
+      "explanation_locations": [
+        "teaching-01: connector and A–D pointer walkthrough",
+        "teaching-02: recessive inference"
+      ],
+      "practice_relationship": "native figure answers and worked examples support these recognition/label tasks; no fresh-transfer claim"
+    },
+    {
+      "lesson": 10,
+      "id": "ch17-l10-application-1",
+      "native_path": "/authoredPractice/0",
+      "demand": "Two affected parents produce an unaffected child under a fully penetrant autosomal dominant model. Which parental genotypes fit?",
+      "status": "prepared",
+      "frozen": true,
+      "explanation_locations": [
+        "teaching-02: complete slide77 family",
+        "teaching-02: Dd×Dd genotype explanation"
+      ],
+      "practice_relationship": "explicitly formative overlap with protected dominant-parent inference"
+    },
+    {
+      "lesson": 10,
+      "id": "ch17-l10-scenario-1",
+      "native_path": "/authoredPractice/0/flashVariant",
+      "demand": "Two affected parents produce an unaffected child under a fully penetrant autosomal dominant model. Which parental genotypes fit?",
+      "status": "prepared",
+      "frozen": true,
+      "explanation_locations": [
+        "teaching-02: complete slide77 family",
+        "teaching-02: Dd×Dd genotype explanation"
+      ],
+      "practice_relationship": "explicitly formative overlap with protected dominant-parent inference"
+    },
+    {
+      "lesson": 10,
+      "id": "ch17-l10-context-pedigree",
+      "native_path": "/typedPractice/0",
+      "demand": "Identify the term illustrated: Symbols connected by parent–offspring lines show which relatives express a trait.",
+      "status": "prepared",
+      "frozen": true,
+      "explanation_locations": [
+        "teaching-01: connector and A–D pointer walkthrough",
+        "teaching-02: recessive inference"
+      ],
+      "practice_relationship": "native figure answers and worked examples support these recognition/label tasks; no fresh-transfer claim"
+    },
+    {
+      "lesson": 10,
+      "id": "ch17-l10-context-autosomal-recessive",
+      "native_path": "/typedPractice/1",
+      "demand": "Identify the term illustrated: Two unaffected Aa parents can have an affected aa child.",
+      "status": "prepared",
+      "frozen": true,
+      "explanation_locations": [
+        "teaching-01: model-before-letters table",
+        "teaching-02: forced versus possible genotype",
+        "teaching-03: sample space and limits",
+        "worked: independent three-generation changed cross"
+      ],
+      "practice_relationship": "concept taught and applied; exact expected native wording remains frozen"
+    },
+    {
+      "lesson": 10,
+      "id": "ch17-l10-context-autosomal-dominant",
+      "native_path": "/typedPractice/2",
+      "demand": "Identify the term illustrated: An affected Dd individual and unaffected dd partner can have affected or unaffected children.",
+      "status": "prepared",
+      "frozen": true,
+      "explanation_locations": [
+        "teaching-02: complete slide77 family",
+        "teaching-02: Dd×Dd genotype explanation"
+      ],
+      "practice_relationship": "explicitly formative overlap with protected dominant-parent inference"
+    },
+    {
+      "lesson": 10,
+      "id": "ch17-l10-context-generation",
+      "native_path": "/typedPractice/3",
+      "demand": "Identify the term illustrated: I, II and III distinguish successive levels in a pedigree.",
+      "status": "prepared",
+      "frozen": true,
+      "explanation_locations": [
+        "teaching-01: connector and A–D pointer walkthrough",
+        "teaching-02: recessive inference"
+      ],
+      "practice_relationship": "native figure answers and worked examples support these recognition/label tasks; no fresh-transfer claim"
+    },
+    {
+      "lesson": 10,
+      "id": "ch17-multiple-10",
+      "native_path": "/multiSelectPractice/0",
+      "demand": "Select the TWO accurate statements about reading autosomal pedigrees.",
+      "status": "prepared_with_native_prompt_ambiguity",
+      "frozen": true,
+      "caveat": "Option “Affected individuals can be DD or Dd” is true for the autosomal-dominant model only; the prompt says autosomal pedigrees without stating dominance. Teaching supplies the qualification, but the immutable wording remains ambiguous.",
+      "explanation_locations": [
+        "teaching-01: model-before-letters table",
+        "teaching-02: forced versus possible genotype",
+        "teaching-03: sample space and limits",
+        "worked: independent three-generation changed cross"
+      ],
+      "practice_relationship": "concept taught and applied; exact expected native wording remains frozen"
+    },
+    {
+      "lesson": 10,
+      "id": "ch17-l10-worked",
+      "native_path": "/guidedActivities/0/worked",
+      "demand": "Two unaffected parents have an affected child in a fully penetrant autosomal recessive model.",
+      "status": "prepared",
+      "frozen": true,
+      "explanation_locations": [
+        "teaching-03: four weighted combinations and conditional 2/3 derivation",
+        "worked: five-step recessive family inference"
+      ],
+      "practice_relationship": "direct required-check preparation; worked/check overlap retained and disclosed"
+    },
+    {
+      "lesson": 10,
+      "id": "ch17-l10-guided",
+      "native_path": "/guidedActivities/0/guided",
+      "demand": "Apply the explanation",
+      "status": "prepared",
+      "frozen": true,
+      "explanation_locations": [
+        "teaching-01: model-before-letters table",
+        "teaching-02: forced versus possible genotype",
+        "teaching-03: sample space and limits",
+        "worked: independent three-generation changed cross"
+      ],
+      "practice_relationship": "concept taught and applied; exact expected native wording remains frozen"
+    },
+    {
+      "lesson": 10,
+      "id": "ch17-l10-guided-q1",
+      "native_path": "/guidedActivities/0/guided/items/0",
+      "demand": "In an autosomal recessive model, an affected individual has which genotype?",
+      "status": "prepared",
+      "frozen": true,
+      "explanation_locations": [
+        "teaching-01: model-before-letters table",
+        "teaching-02: forced versus possible genotype",
+        "teaching-03: sample space and limits",
+        "worked: independent three-generation changed cross"
+      ],
+      "practice_relationship": "concept taught and applied; exact expected native wording remains frozen"
+    },
+    {
+      "lesson": 10,
+      "id": "ch17-l10-guided-q2",
+      "native_path": "/guidedActivities/0/guided/items/1",
+      "demand": "An affected dominant parent has an unaffected dd child. What must that parent be?",
+      "status": "prepared",
+      "frozen": true,
+      "explanation_locations": [
+        "teaching-01: model-before-letters table",
+        "teaching-02: forced versus possible genotype",
+        "teaching-03: sample space and limits",
+        "worked: independent three-generation changed cross"
+      ],
+      "practice_relationship": "concept taught and applied; exact expected native wording remains frozen"
+    },
+    {
+      "lesson": 10,
+      "id": "ch17-pedigree-label-practice-A",
+      "native_path": "/diagramPractice/0",
+      "demand": "What does letter A identify?",
+      "status": "prepared",
+      "frozen": true,
+      "caveat": "Native separate labeling PNG was not present in this child packet; parent must verify it in the integration owner. Recovered teaching SVG and locked A–D answers remain exact.",
+      "explanation_locations": [
+        "teaching-01: connector and A–D pointer walkthrough",
+        "teaching-02: recessive inference"
+      ],
+      "practice_relationship": "native figure answers and worked examples support these recognition/label tasks; no fresh-transfer claim"
+    },
+    {
+      "lesson": 10,
+      "id": "ch17-pedigree-label-practice-B",
+      "native_path": "/diagramPractice/1",
+      "demand": "What does letter B identify?",
+      "status": "prepared",
+      "frozen": true,
+      "caveat": "Native separate labeling PNG was not present in this child packet; parent must verify it in the integration owner. Recovered teaching SVG and locked A–D answers remain exact.",
+      "explanation_locations": [
+        "teaching-01: connector and A–D pointer walkthrough",
+        "teaching-02: recessive inference"
+      ],
+      "practice_relationship": "native figure answers and worked examples support these recognition/label tasks; no fresh-transfer claim"
+    },
+    {
+      "lesson": 10,
+      "id": "ch17-pedigree-label-practice-C",
+      "native_path": "/diagramPractice/2",
+      "demand": "What does letter C identify?",
+      "status": "prepared",
+      "frozen": true,
+      "caveat": "Native separate labeling PNG was not present in this child packet; parent must verify it in the integration owner. Recovered teaching SVG and locked A–D answers remain exact.",
+      "explanation_locations": [
+        "teaching-01: connector and A–D pointer walkthrough",
+        "teaching-02: recessive inference"
+      ],
+      "practice_relationship": "native figure answers and worked examples support these recognition/label tasks; no fresh-transfer claim"
+    },
+    {
+      "lesson": 10,
+      "id": "ch17-pedigree-label-practice-D",
+      "native_path": "/diagramPractice/3",
+      "demand": "What does letter D identify?",
+      "status": "prepared",
+      "frozen": true,
+      "caveat": "Native separate labeling PNG was not present in this child packet; parent must verify it in the integration owner. Recovered teaching SVG and locked A–D answers remain exact.",
+      "explanation_locations": [
+        "teaching-01: connector and A–D pointer walkthrough",
+        "teaching-02: recessive inference"
+      ],
+      "practice_relationship": "native figure answers and worked examples support these recognition/label tasks; no fresh-transfer claim"
+    },
+    {
+      "lesson": 10,
+      "id": "ch17-l10-native-stop-and-think",
+      "status": "prepared",
+      "frozen": true,
+      "demand": "II-3 meaning",
+      "explanation_locations": [
+        "L10 teaching-01 generation convention"
+      ]
+    },
+    {
+      "lesson": 10,
+      "id": "ch17-p609-in-text-q26",
+      "native_path": "textbook routing",
+      "demand": "2 \u0013\u0017  What is the difference between a  trait that has multiple alleles and  a trait that is controlled by multiple  genes? Give an example of each.",
+      "status": "prior_lesson_07_09",
+      "preparation_or_precise_gap": "Multiple population alleles versus multiple genes; no new pedigree prerequisite. Use 07/09, not 10 as sole preparation.",
+      "frozen": true,
+      "complete_source_context_pages": [
+        608,
+        609
+      ]
+    },
+    {
+      "lesson": 10,
+      "id": "ch17-p609-in-text-q27",
+      "native_path": "textbook routing",
+      "demand": "2 \u0013\u0018  What is a continuous trait?",
+      "status": "prior_lesson_09",
+      "preparation_or_precise_gap": "Continuous phenotype distributions; unrelated to autosomal-pedigree goal.",
+      "frozen": true,
+      "complete_source_context_pages": [
+        608,
+        609
+      ]
+    },
+    {
+      "lesson": 10,
+      "id": "ch17-p609-in-text-q28",
+      "native_path": "textbook routing",
+      "demand": "2 \u0013\u0019  Give an example of one way  (other than the ways described  above) that environment can  inﬂ uence the expression of  genetic traits.",
+      "status": "prior_lesson_09",
+      "preparation_or_precise_gap": "Environmental influence on expression; prior 09 prepares it. 10 adds only penetrance/observation limits.",
+      "frozen": true,
+      "complete_source_context_pages": [
+        608,
+        609
+      ]
+    },
+    {
+      "lesson": 10,
+      "id": "ch17-p611-in-text-q29",
+      "native_path": "textbook routing",
+      "demand": "2 \u0013\u001a  Give an example (other than  those provided in the textbook)  of how selective breeding has  developed a new species of plant  or animal.",
+      "status": "misassigned_source_caveat",
+      "preparation_or_precise_gap": "Selective breeding does not necessarily produce a new species; source conflates breed/variety with species. No breeding-history examples taught by 10/11.",
+      "frozen": true,
+      "complete_source_context_pages": [
+        610,
+        611
+      ]
+    },
+    {
+      "lesson": 10,
+      "id": "ch17-p612-in-text-q30",
+      "native_path": "textbook routing",
+      "demand": "2 \u0014\u0011  Distinguish between the meaning  of roman numerals and arabic  numerals in a pedigree.",
+      "status": "prepared",
+      "preparation_or_precise_gap": "L10 teaching-01 explicitly contrasts Roman generations with Arabic person identifiers, including source images using continuous global numbering.",
+      "frozen": true,
+      "complete_source_context_pages": [
+        611,
+        612
+      ]
+    },
+    {
+      "lesson": 10,
+      "id": "ch17-p612-in-text-q31",
+      "native_path": "textbook routing",
+      "demand": "2 \u0014\u0012  What is autosomal inheritance?",
+      "status": "prepared",
+      "preparation_or_precise_gap": "L10 teaching-01 defines autosomes and autosomal inheritance; L11 contrasts X location.",
+      "frozen": true,
+      "complete_source_context_pages": [
+        611,
+        612
+      ]
+    },
+    {
+      "lesson": 10,
+      "id": "ch17-p614-in-text-q32",
+      "native_path": "textbook routing",
+      "demand": "2 \u0014\u0013  How do pedigrees for autosomal  recessive and X-linked recessive  traits differ?",
+      "status": "prepared_after_lesson_11",
+      "preparation_or_precise_gap": "L10 explains autosomal recessive; L11 supplies X-specific transmission and both-sex expression. Routed to 10 before this distinction is complete.",
+      "frozen": true,
+      "complete_source_context_pages": [
+        613,
+        614
+      ]
+    },
+    {
+      "lesson": 10,
+      "id": "ch17-p614-in-text-q33",
+      "native_path": "textbook routing",
+      "demand": "2 \u0014\u0014  Can a female have hemophilia?  Explain.",
+      "status": "prepared_after_lesson_11",
+      "preparation_or_precise_gap": "L11 teaching-02 affected father × carrier mother shows affected daughters and the required two Xb contributions.",
+      "frozen": true,
+      "complete_source_context_pages": [
+        613,
+        614
+      ]
+    },
+    {
+      "lesson": 10,
+      "id": "ch17-p609-section-17-2-q1",
+      "native_path": "textbook routing",
+      "demand": "1. Describe how the process of crossing over of non-sister \nchromatids led to an understanding of linked genes.",
+      "status": "future_lesson_12",
+      "preparation_or_precise_gap": "Linked genes, non-sister crossing over and chromosome evidence; not taught by pedigree lessons.",
+      "frozen": true,
+      "complete_source_context_pages": [
+        609
+      ]
+    },
+    {
+      "lesson": 10,
+      "id": "ch17-p609-section-17-2-q2",
+      "native_path": "textbook routing",
+      "demand": " 2. A woman with normal vision marries a man with \nnormal vision. They have three children, and one is \ncolour blind.\n \n a) What can you conclude about the genotypes of \nthe parents?\n \n b) What sex is the child who is colour blind? How \ndo you know?",
+      "status": "prepared_after_lesson_11",
+      "preparation_or_precise_gap": "L11 mother-carrier inference and unaffected-father X-linked-recessive daughter impossibility prepare every part under the given simple model.",
+      "frozen": true,
+      "complete_source_context_pages": [
+        609
+      ]
+    },
+    {
+      "lesson": 10,
+      "id": "ch17-p609-section-17-2-q3",
+      "native_path": "textbook routing",
+      "demand": " 3. Could a person with type AB blood have a child with \ntype O blood? Explain.",
+      "status": "prior_lesson_07",
+      "preparation_or_precise_gap": "ABO genotype possibilities, no i from AB; not a pedigree-specific demand.",
+      "frozen": true,
+      "complete_source_context_pages": [
+        609
+      ]
+    },
+    {
+      "lesson": 10,
+      "id": "ch17-p609-section-17-2-q4",
+      "native_path": "textbook routing",
+      "demand": " 4. Your friend keeps rabbits as pets. She has bred her \nfemale albino rabbit with her male Himalayan rabbit. \n“I’m hoping I’ll get some agouti rabbits,” she says. What \nare her chances of getting an agouti rabbit? Explain.",
+      "status": "prepared_by_completed_lesson_09",
+      "preparation_or_precise_gap": "Completed09 teaching-01 explicitly supplies rabbit dominance hierarchy C > cch > ch > c. General multiple-allele reasoning alone would not supply this key;09 now prepares the task before10/11.",
+      "frozen": true,
+      "complete_source_context_pages": [
+        609
+      ]
+    },
+    {
+      "lesson": 10,
+      "id": "ch17-p609-section-17-2-q5",
+      "native_path": "textbook routing",
+      "demand": "sister \nes.\ns \n \n \nith \n 5. In one species of bean plant, weight is infl uenced by two \ndifferent genes.\n \n a) How many weight classes would you expect to fi nd \nin this plant population? Explain using a Punnett \nsquare or another visual representation.\n \n b) When you analyze the weights of several beans \nfrom the same cross, you fi nd that many beans \nhave weights between the predicted weight classes. \nIdentify two other factors that could infl uence \nthe bean phenotypes.",
+      "status": "prior_lesson_09_with_assumptions",
+      "preparation_or_precise_gap": "Two additive equal-effect loci predict five classes only under a specified additive model. Prior09 preparation; 10/11 do not teach additive weight classes.",
+      "frozen": true,
+      "complete_source_context_pages": [
+        609
+      ]
+    },
+    {
+      "lesson": 10,
+      "id": "ch17-p609-section-17-2-q6",
+      "native_path": "textbook routing",
+      "demand": "ith \nbit. \nWhat \nn.\n 6. Siamese cats that spend their lives indoors tend to \nhave lighter-coloured fur than Siamese cats that live \noutdoors. What genetic process could account for \nthis change?",
+      "status": "prior_lesson_09",
+      "preparation_or_precise_gap": "Temperature-sensitive inherited pigment system, not necessarily a mutation or transcription switch. Outside pedigree focus.",
+      "frozen": true,
+      "complete_source_context_pages": [
+        609
+      ]
+    },
+    {
+      "lesson": 10,
+      "id": "ch17-p617-section-17-3-q3",
+      "native_path": "textbook routing",
+      "demand": "3. Examine the following pedigree.\na) What can you deduce about the pattern of \ninheritance of the trait?\nb) Give one example of a human genetic condition \nthat is passed on in this way.\nc) What is the genotype of individual I 1?\n�\n�\n�\n�\n�\n�\n�\n�\n�\n�\n�\n�\n���\n��\n�",
+      "status": "prepared_with_source_extraction_gap",
+      "preparation_or_precise_gap": "L10 dominant forced heterozygotes and small-sample discussion; L11 whole-model contradictions. Diagram supports autosomal dominant among four simple candidates; I-1 Dd, and 3 unaffected offspring are possible by chance. Part d is in the right-hand column but omitted from native sourceText and primary question crop; complete p617 image is necessary and supplied in reader.",
+      "frozen": true,
+      "complete_source_context_pages": [
+        617
+      ]
+    },
+    {
+      "lesson": 10,
+      "id": "ch17-p617-section-17-3-q4",
+      "native_path": "textbook routing",
+      "demand": "ng \nchers \n 4. You have discovered a new autosomal recessive genetic \ncondition. Individuals with this condition do not \nsurvive long after birth, and so do not have children \nof their own. Will the trait be eliminated from the \npopulation over time? Explain.",
+      "status": "prepared",
+      "preparation_or_precise_gap": "L10 teaching-03 explicitly explains that reproducing unaffected carriers can maintain a recessive allele even if aa individuals do not reproduce.",
+      "frozen": true,
+      "complete_source_context_pages": [
+        617
+      ]
+    },
+    {
+      "lesson": 10,
+      "id": "ch17-p620-chapter-review-q5",
+      "native_path": "textbook routing",
+      "demand": " 5. A cross of true-breeding purple-fl owered and true-\nbreeding white-fl owered plants results in F1 plants that \nare all lavender (light purple). A cross of two F1 plants \nresults in an F2 generation with the following numbers \nof phenotypes: 28 purple, 52 lavender, and 19 white. \n \n a) What were the genotypes of the F1 generation? \nExplain.\n \n b) Use a Punnett square to show the predicted \nphenotypes and genotypes of the F2 generation. \n \n c) Describe the type of inheritance that this cross reveals.",
+      "status": "prior_lesson_06",
+      "preparation_or_precise_gap": "Incomplete dominance P/F1/F2 flower reasoning and finite-sample deviation; unrelated to 10/11.",
+      "frozen": true,
+      "complete_source_context_pages": [
+        620
+      ]
+    },
+    {
+      "lesson": 10,
+      "id": "ch17-p620-chapter-review-q16",
+      "native_path": "textbook routing",
+      "demand": " 16. Fruit fl ies can have normal wings or stunted wings. \nIn an experiment, you mate several normal-winged \nfemales with a male that has stunted wings. In the \nF1 generation, only the males have stunted wings. \n \n a) What can you conclude from this experiment?",
+      "status": "partly_prepared_not_uniquely_diagnostic",
+      "preparation_or_precise_gap": "L11 warns males-only observations do not uniquely prove X linkage and teaches gamete tests. Question b experimental design continues on p621. Unknown female genotypes and small samples make a unique inference unwarranted; broader fly cross design belongs08/review.",
+      "frozen": true,
+      "complete_source_context_pages": [
+        620,
+        621
+      ]
+    },
+    {
+      "lesson": 10,
+      "id": "ch17-p621-chapter-review-q21",
+      "native_path": "textbook routing",
+      "demand": " 21. Osteogenesis imperfecta (OI), also known as brittle \nbone disease, results in extremely fragile bones that tend \nto break for no apparent reason. The following pedigree \ntraces OI in a family. Based on the pedigree, what sort \nof inheritance pattern does OI display? Identify the \nphenotypes and genotypes of all the people shown in \nthis pedigree. Whose genotype can you not be sure of?",
+      "status": "prepared_with_source_science_limit",
+      "preparation_or_precise_gap": "L10 forced/possible autosomal genotypes and L11 complete-model testing prepare the diagram. The pictured record fits autosomal recessive in the simple model; OI has genetically heterogeneous forms, so do not generalize diagram to all OI. Source continuation diagram is top-right p621 and is essential.",
+      "frozen": true,
+      "complete_source_context_pages": [
+        621
+      ]
+    },
+    {
+      "lesson": 10,
+      "id": "ch17-p621-chapter-review-q25",
+      "native_path": "textbook routing",
+      "demand": "le \nat tend \ndigree \nsort \ne \nn in \ne of?\n 25. Many breeds of dogs are known for a high incidence of \ngenetic disorders. German Shepherd and Saint Bernard \ndogs, for example, are predisposed to develop a crippling \ncondition called hip dysplasia. Why are purebred dogs \nmore at risk for such conditions than mixed breeds are? \nWhat advice would you give to dog breeders who want \nto maintain their dogs’ purebred pedigrees, but also \nwant their dogs to be as healthy as possible?",
+      "status": "prepared_by_later_lesson_15_with_science_limit",
+      "preparation_or_precise_gap": "Completed15 adds relatedness/carrier nuance, increasing homozygosity, screening limits and breeding-health reasoning. This remains later than the11 route. Hip dysplasia is not a universal simple recessive trait; breed label alone does not establish individual risk. The10/11 pedigree models alone are insufficient.",
+      "frozen": true,
+      "complete_source_context_pages": [
+        621
+      ]
+    },
+    {
+      "lesson": 11,
+      "id": "ch17-check-11",
+      "native_path": "/checks/0",
+      "demand": "Sex-linked pedigrees and testing a model",
+      "status": "prepared",
+      "frozen": true,
+      "explanation_locations": [
+        "teaching-01: X-linked versus autosomal-recessive compatibility",
+        "teaching-03: every branch tested in slide84 image82",
+        "worked: independent four-candidate family"
+      ],
+      "practice_relationship": "whole-model reasoning and contradictory contributions explicitly practised"
+    },
+    {
+      "lesson": 11,
+      "id": "ch17-l11-check-mc-1",
+      "native_path": "/checks/0/mc/0",
+      "demand": "Which relationship contradicts a simple fully penetrant X-linked dominant model with an affected father?",
+      "status": "prepared",
+      "frozen": true,
+      "explanation_locations": [
+        "teaching-02: complete dominant/recessive father comparison",
+        "teaching-02: slide88 branch deductions"
+      ],
+      "practice_relationship": "direct formative preparation for required/guided checks, not fresh independent assessment"
+    },
+    {
+      "lesson": 11,
+      "id": "ch17-l11-check-mc-2",
+      "native_path": "/checks/0/mc/1",
+      "demand": "An unaffected mother has an affected son in a simple X-linked recessive model with no new mutation. What is inferred?",
+      "status": "prepared",
+      "frozen": true,
+      "explanation_locations": [
+        "teaching-01: affected-son origin and top/right obligate-carrier deductions"
+      ],
+      "practice_relationship": "model-conditional inference explicitly taught"
+    },
+    {
+      "lesson": 11,
+      "id": "ch17-l11-check-writing-1",
+      "native_path": "/checks/0/writing/0",
+      "demand": "Explain why a pedigree analysis should use chromosome transmission as well as the number of affected males and females.",
+      "status": "prepared",
+      "frozen": true,
+      "explanation_locations": [
+        "teaching-01: X-linked versus autosomal-recessive compatibility",
+        "teaching-03: every branch tested in slide84 image82",
+        "worked: independent four-candidate family"
+      ],
+      "practice_relationship": "whole-model reasoning and contradictory contributions explicitly practised"
+    },
+    {
+      "lesson": 11,
+      "id": "ch17-l11-check-writing-2",
+      "native_path": "/checks/0/writing/1",
+      "demand": "Compare daughters of an affected father and homozygous unaffected mother in X-linked dominant and X-linked recessive models.",
+      "status": "prepared",
+      "frozen": true,
+      "explanation_locations": [
+        "teaching-02: complete dominant/recessive father comparison",
+        "teaching-02: slide88 branch deductions"
+      ],
+      "practice_relationship": "direct formative preparation for required/guided checks, not fresh independent assessment"
+    },
+    {
+      "lesson": 11,
+      "id": "ch17-word-x-linked-dominant",
+      "native_path": "/words/0",
+      "demand": "A simple model in which a dominant allele on X produces the trait under specified penetrance assumptions.",
+      "status": "prepared",
+      "frozen": true,
+      "explanation_locations": [
+        "teaching-02: complete dominant/recessive father comparison",
+        "teaching-02: slide88 branch deductions"
+      ],
+      "practice_relationship": "direct formative preparation for required/guided checks, not fresh independent assessment"
+    },
+    {
+      "lesson": 11,
+      "id": "ch17-word-penetrance",
+      "native_path": "/words/1",
+      "demand": "The proportion of individuals with a genotype who express the associated phenotype.",
+      "status": "prepared",
+      "frozen": true,
+      "explanation_locations": [
+        "L10 teaching-03: penetrance/age/expressivity distinctions",
+        "L11 teaching-03: assumptions and limits"
+      ],
+      "practice_relationship": "definition linked to an actual contradiction test"
+    },
+    {
+      "lesson": 11,
+      "id": "ch17-word-candidate-model",
+      "native_path": "/words/2",
+      "demand": "A possible inheritance explanation tested against the observed relationships and traits.",
+      "status": "prepared",
+      "frozen": true,
+      "explanation_locations": [
+        "teaching-01: X-linked versus autosomal-recessive compatibility",
+        "teaching-03: every branch tested in slide84 image82",
+        "worked: independent four-candidate family"
+      ],
+      "practice_relationship": "whole-model reasoning and contradictory contributions explicitly practised"
+    },
+    {
+      "lesson": 11,
+      "id": "ch17-word-obligate-carrier",
+      "native_path": "/words/3",
+      "demand": "An individual who must carry a recessive allele under the stated pedigree model.",
+      "status": "prepared",
+      "frozen": true,
+      "explanation_locations": [
+        "teaching-01: affected-son origin and top/right obligate-carrier deductions"
+      ],
+      "practice_relationship": "model-conditional inference explicitly taught"
+    },
+    {
+      "lesson": 11,
+      "id": "ch17-foundation-ch17-word-x-linked-dominant",
+      "native_path": "/practiceQuestions/0",
+      "demand": "Which term matches this description? A simple model in which a dominant allele on X produces the trait under specified penetrance assumptions.",
+      "status": "prepared",
+      "frozen": true,
+      "explanation_locations": [
+        "teaching-02: complete dominant/recessive father comparison",
+        "teaching-02: slide88 branch deductions"
+      ],
+      "practice_relationship": "direct formative preparation for required/guided checks, not fresh independent assessment"
+    },
+    {
+      "lesson": 11,
+      "id": "ch17-foundation-ch17-word-penetrance",
+      "native_path": "/practiceQuestions/1",
+      "demand": "Which term matches this description? The proportion of individuals with a genotype who express the associated phenotype.",
+      "status": "prepared",
+      "frozen": true,
+      "explanation_locations": [
+        "L10 teaching-03: penetrance/age/expressivity distinctions",
+        "L11 teaching-03: assumptions and limits"
+      ],
+      "practice_relationship": "definition linked to an actual contradiction test"
+    },
+    {
+      "lesson": 11,
+      "id": "ch17-foundation-ch17-word-candidate-model",
+      "native_path": "/practiceQuestions/2",
+      "demand": "Which term matches this description? A possible inheritance explanation tested against the observed relationships and traits.",
+      "status": "prepared",
+      "frozen": true,
+      "explanation_locations": [
+        "teaching-01: X-linked versus autosomal-recessive compatibility",
+        "teaching-03: every branch tested in slide84 image82",
+        "worked: independent four-candidate family"
+      ],
+      "practice_relationship": "whole-model reasoning and contradictory contributions explicitly practised"
+    },
+    {
+      "lesson": 11,
+      "id": "ch17-foundation-ch17-word-obligate-carrier",
+      "native_path": "/practiceQuestions/3",
+      "demand": "Which term matches this description? An individual who must carry a recessive allele under the stated pedigree model.",
+      "status": "prepared",
+      "frozen": true,
+      "explanation_locations": [
+        "teaching-01: affected-son origin and top/right obligate-carrier deductions"
+      ],
+      "practice_relationship": "model-conditional inference explicitly taught"
+    },
+    {
+      "lesson": 11,
+      "id": "11s5Biyi9q4",
+      "native_path": "/videos/0",
+      "demand": "Sex-linked pedigrees and testing a model — video support",
+      "status": "existing_supplement_playback_unverified",
+      "frozen": true,
+      "explanation_locations": [
+        "teaching-01: X-linked versus autosomal-recessive compatibility",
+        "teaching-03: every branch tested in slide84 image82",
+        "worked: independent four-candidate family"
+      ],
+      "practice_relationship": "whole-model reasoning and contradictory contributions explicitly practised",
+      "caveat": "Existing URL and fallback remain frozen. External playback and LMS embedding were not tested; the complete mechanism is taught in the visible fragment and does not depend on media availability."
+    },
+    {
+      "lesson": 11,
+      "id": "-Ztzi6pAh5M",
+      "native_path": "/videos/1",
+      "demand": "Sex-linked pedigrees and testing a model — video support 2",
+      "status": "existing_supplement_playback_unverified",
+      "frozen": true,
+      "explanation_locations": [
+        "teaching-01: X-linked versus autosomal-recessive compatibility",
+        "teaching-03: every branch tested in slide84 image82",
+        "worked: independent four-candidate family"
+      ],
+      "practice_relationship": "whole-model reasoning and contradictory contributions explicitly practised",
+      "caveat": "Existing URL and fallback remain frozen. External playback and LMS embedding were not tested; the complete mechanism is taught in the visible fragment and does not depend on media availability."
+    },
+    {
+      "lesson": 11,
+      "id": "ch17-concept-x-linked-dominant",
+      "native_path": "/practiceConcepts/0",
+      "demand": "A simple model in which a dominant allele on X produces the trait under specified penetrance assumptions.",
+      "status": "prepared",
+      "frozen": true,
+      "explanation_locations": [
+        "teaching-02: complete dominant/recessive father comparison",
+        "teaching-02: slide88 branch deductions"
+      ],
+      "practice_relationship": "direct formative preparation for required/guided checks, not fresh independent assessment"
+    },
+    {
+      "lesson": 11,
+      "id": "ch17-concept-penetrance",
+      "native_path": "/practiceConcepts/1",
+      "demand": "The proportion of individuals with a genotype who express the associated phenotype.",
+      "status": "prepared",
+      "frozen": true,
+      "explanation_locations": [
+        "L10 teaching-03: penetrance/age/expressivity distinctions",
+        "L11 teaching-03: assumptions and limits"
+      ],
+      "practice_relationship": "definition linked to an actual contradiction test"
+    },
+    {
+      "lesson": 11,
+      "id": "ch17-concept-candidate-model",
+      "native_path": "/practiceConcepts/2",
+      "demand": "A possible inheritance explanation tested against the observed relationships and traits.",
+      "status": "prepared",
+      "frozen": true,
+      "explanation_locations": [
+        "teaching-01: X-linked versus autosomal-recessive compatibility",
+        "teaching-03: every branch tested in slide84 image82",
+        "worked: independent four-candidate family"
+      ],
+      "practice_relationship": "whole-model reasoning and contradictory contributions explicitly practised"
+    },
+    {
+      "lesson": 11,
+      "id": "ch17-concept-obligate-carrier",
+      "native_path": "/practiceConcepts/3",
+      "demand": "An individual who must carry a recessive allele under the stated pedigree model.",
+      "status": "prepared",
+      "frozen": true,
+      "explanation_locations": [
+        "teaching-01: affected-son origin and top/right obligate-carrier deductions"
+      ],
+      "practice_relationship": "model-conditional inference explicitly taught"
+    },
+    {
+      "lesson": 11,
+      "id": "ch17-l11-application-1",
+      "native_path": "/authoredPractice/0",
+      "demand": "A small pedigree fits both an autosomal and an X-linked model. What is the appropriate conclusion?",
+      "status": "prepared",
+      "frozen": true,
+      "explanation_locations": [
+        "teaching-01: X-linked versus autosomal-recessive compatibility",
+        "teaching-03: every branch tested in slide84 image82",
+        "worked: independent four-candidate family"
+      ],
+      "practice_relationship": "whole-model reasoning and contradictory contributions explicitly practised"
+    },
+    {
+      "lesson": 11,
+      "id": "ch17-l11-scenario-1",
+      "native_path": "/authoredPractice/0/flashVariant",
+      "demand": "A small pedigree fits both an autosomal and an X-linked model. What is the appropriate conclusion?",
+      "status": "prepared",
+      "frozen": true,
+      "explanation_locations": [
+        "teaching-01: X-linked versus autosomal-recessive compatibility",
+        "teaching-03: every branch tested in slide84 image82",
+        "worked: independent four-candidate family"
+      ],
+      "practice_relationship": "whole-model reasoning and contradictory contributions explicitly practised"
+    },
+    {
+      "lesson": 11,
+      "id": "ch17-l11-context-x-linked-dominant",
+      "native_path": "/typedPractice/0",
+      "demand": "Identify the term illustrated: An affected father transmits his affected X to all daughters in the typical model.",
+      "status": "prepared_with_native_prompt_ambiguity",
+      "frozen": true,
+      "caveat": "Paternal transmission of the affected X to all daughters occurs in X-linked dominant AND recessive models. The frozen key X-linked dominant is not uniquely entailed unless daughter expression is stated. Teaching explicitly distinguishes this rather than teaching a false discriminator.",
+      "explanation_locations": [
+        "teaching-02: complete dominant/recessive father comparison",
+        "teaching-02: slide88 branch deductions"
+      ],
+      "practice_relationship": "direct formative preparation for required/guided checks, not fresh independent assessment"
+    },
+    {
+      "lesson": 11,
+      "id": "ch17-l11-context-penetrance",
+      "native_path": "/typedPractice/1",
+      "demand": "Identify the term illustrated: A simple pedigree question assumes every person with a specified genotype expresses the trait.",
+      "status": "prepared",
+      "frozen": true,
+      "explanation_locations": [
+        "L10 teaching-03: penetrance/age/expressivity distinctions",
+        "L11 teaching-03: assumptions and limits"
+      ],
+      "practice_relationship": "definition linked to an actual contradiction test"
+    },
+    {
+      "lesson": 11,
+      "id": "ch17-l11-context-candidate-model",
+      "native_path": "/typedPractice/2",
+      "demand": "Identify the term illustrated: An X-linked recessive hypothesis is checked for contradictions in every branch.",
+      "status": "prepared",
+      "frozen": true,
+      "explanation_locations": [
+        "teaching-01: X-linked versus autosomal-recessive compatibility",
+        "teaching-03: every branch tested in slide84 image82",
+        "worked: independent four-candidate family"
+      ],
+      "practice_relationship": "whole-model reasoning and contradictory contributions explicitly practised"
+    },
+    {
+      "lesson": 11,
+      "id": "ch17-l11-context-obligate-carrier",
+      "native_path": "/typedPractice/3",
+      "demand": "Identify the term illustrated: An unaffected mother of an affected son carries the relevant X-linked recessive allele when other assumptions hold.",
+      "status": "prepared",
+      "frozen": true,
+      "explanation_locations": [
+        "teaching-01: affected-son origin and top/right obligate-carrier deductions"
+      ],
+      "practice_relationship": "model-conditional inference explicitly taught"
+    },
+    {
+      "lesson": 11,
+      "id": "ch17-l11-worked",
+      "native_path": "/guidedActivities/0/worked",
+      "demand": "A fully expressed recessive trait appears in a daughter whose father is unaffected. Assume ordinary XX/XY transmission and no new mutation.",
+      "status": "prepared",
+      "frozen": true,
+      "explanation_locations": [
+        "teaching-01: X-linked versus autosomal-recessive compatibility",
+        "teaching-03: every branch tested in slide84 image82",
+        "worked: independent four-candidate family"
+      ],
+      "practice_relationship": "whole-model reasoning and contradictory contributions explicitly practised"
+    },
+    {
+      "lesson": 11,
+      "id": "ch17-l11-guided",
+      "native_path": "/guidedActivities/0/guided",
+      "demand": "Apply the explanation",
+      "status": "prepared",
+      "frozen": true,
+      "explanation_locations": [
+        "teaching-01: X-linked versus autosomal-recessive compatibility",
+        "teaching-03: every branch tested in slide84 image82",
+        "worked: independent four-candidate family"
+      ],
+      "practice_relationship": "whole-model reasoning and contradictory contributions explicitly practised"
+    },
+    {
+      "lesson": 11,
+      "id": "ch17-l11-guided-q1",
+      "native_path": "/guidedActivities/0/guided/items/0",
+      "demand": "In a simple X-linked dominant model, an affected father and unaffected mother have what expected daughter pattern?",
+      "status": "prepared",
+      "frozen": true,
+      "explanation_locations": [
+        "teaching-02: complete dominant/recessive father comparison",
+        "teaching-02: slide88 branch deductions"
+      ],
+      "practice_relationship": "direct formative preparation for required/guided checks, not fresh independent assessment"
+    },
+    {
+      "lesson": 11,
+      "id": "ch17-l11-guided-q2",
+      "native_path": "/guidedActivities/0/guided/items/1",
+      "demand": "Only males happen to be affected in a small pedigree. Does this alone prove X-linkage?",
+      "status": "prepared",
+      "frozen": true,
+      "explanation_locations": [
+        "teaching-01: X-linked versus autosomal-recessive compatibility",
+        "teaching-03: every branch tested in slide84 image82",
+        "worked: independent four-candidate family"
+      ],
+      "practice_relationship": "whole-model reasoning and contradictory contributions explicitly practised"
+    },
+    {
+      "lesson": 11,
+      "id": "ch17-l11-native-stop-and-think",
+      "status": "prepared",
+      "frozen": true,
+      "demand": "Why state penetrance assumptions?",
+      "explanation_locations": [
+        "L10 teaching-03 and L11 teaching-03 penetrance versus expressivity/age"
+      ]
+    },
+    {
+      "lesson": 11,
+      "id": "ch17-p612-in-text-q31",
+      "native_path": "textbook routing",
+      "demand": "2 \u0014\u0012  What is autosomal inheritance?",
+      "status": "prepared",
+      "preparation_or_precise_gap": "L10 teaching-01 defines autosomes and autosomal inheritance; L11 contrasts X location.",
+      "frozen": true,
+      "complete_source_context_pages": [
+        611,
+        612
+      ]
+    },
+    {
+      "lesson": 11,
+      "id": "ch17-p614-in-text-q33",
+      "native_path": "textbook routing",
+      "demand": "2 \u0014\u0014  Can a female have hemophilia?  Explain.",
+      "status": "prepared_after_lesson_11",
+      "preparation_or_precise_gap": "L11 teaching-02 affected father × carrier mother shows affected daughters and the required two Xb contributions.",
+      "frozen": true,
+      "complete_source_context_pages": [
+        613,
+        614
+      ]
+    },
+    {
+      "lesson": 11,
+      "id": "ch17-p617-section-17-3-q1",
+      "native_path": "textbook routing",
+      "demand": "1. Give two examples of plants that have been developed \nthrough selective breeding techniques.",
+      "status": "prepared_by_later_lesson_15",
+      "preparation_or_precise_gap": "Completed15 supplies actual maize/canola selective-breeding examples, as confirmed by the lead reviewer. This is still a later-route dependency for a task routed to11;10/11 alone do not supply both examples.",
+      "frozen": true,
+      "complete_source_context_pages": [
+        617
+      ]
+    },
+    {
+      "lesson": 11,
+      "id": "ch17-p617-section-17-3-q2",
+      "native_path": "textbook routing",
+      "demand": "2. In what ways do the methods of researchers studying \nhuman genetics differ from the methods of researchers \nstudying Drosophila? Explain.",
+      "status": "prepared",
+      "preparation_or_precise_gap": "L10 teaching-01 contrasts ethical inability to arrange human crosses, small offspring groups and long generations with plants/fruit flies; combined with model limitations.",
+      "frozen": true,
+      "complete_source_context_pages": [
+        617
+      ]
+    },
+    {
+      "lesson": 11,
+      "id": "ch17-p617-section-17-3-q3",
+      "native_path": "textbook routing",
+      "demand": "3. Examine the following pedigree.\na) What can you deduce about the pattern of \ninheritance of the trait?\nb) Give one example of a human genetic condition \nthat is passed on in this way.\nc) What is the genotype of individual I 1?\n�\n�\n�\n�\n�\n�\n�\n�\n�\n�\n�\n�\n���\n��\n�",
+      "status": "prepared_with_source_extraction_gap",
+      "preparation_or_precise_gap": "L10 dominant forced heterozygotes and small-sample discussion; L11 whole-model contradictions. Diagram supports autosomal dominant among four simple candidates; I-1 Dd, and 3 unaffected offspring are possible by chance. Part d is in the right-hand column but omitted from native sourceText and primary question crop; complete p617 image is necessary and supplied in reader.",
+      "frozen": true,
+      "complete_source_context_pages": [
+        617
+      ]
+    },
+    {
+      "lesson": 11,
+      "id": "ch17-p617-section-17-3-q4",
+      "native_path": "textbook routing",
+      "demand": "ng \nchers \n 4. You have discovered a new autosomal recessive genetic \ncondition. Individuals with this condition do not \nsurvive long after birth, and so do not have children \nof their own. Will the trait be eliminated from the \npopulation over time? Explain.",
+      "status": "prepared",
+      "preparation_or_precise_gap": "L10 teaching-03 explicitly explains that reproducing unaffected carriers can maintain a recessive allele even if aa individuals do not reproduce.",
+      "frozen": true,
+      "complete_source_context_pages": [
+        617
+      ]
+    },
+    {
+      "lesson": 11,
+      "id": "ch17-p617-section-17-3-q5",
+      "native_path": "textbook routing",
+      "demand": "n \n�\n�\n�\n�\n�\n�\n 5. You suspect that you may be a carrier for a serious \ngenetic condition, and you decide to consult a genetic \ncounsellor. What three characteristics would you want \nthe genetic counsellor to have?",
+      "status": "future_lesson_14",
+      "preparation_or_precise_gap": "Genetic counsellor competence/empathy/confidentiality are a counselling/ethics demand not completed by chromosome reasoning.",
+      "frozen": true,
+      "complete_source_context_pages": [
+        617
+      ]
+    },
+    {
+      "lesson": 11,
+      "id": "ch17-p620-chapter-review-q1",
+      "native_path": "textbook routing",
+      "demand": " 1. Give three reasons that pea plants were an excellent \nchoice for Mendel’s research.",
+      "status": "prior_lesson_02",
+      "preparation_or_precise_gap": "Pea experimental advantages; unrelated routing into 11.",
+      "frozen": true,
+      "complete_source_context_pages": [
+        620
+      ]
+    },
+    {
+      "lesson": 11,
+      "id": "ch17-p620-chapter-review-q2",
+      "native_path": "textbook routing",
+      "demand": " 2. What is Mendel’s law of segregation? ",
+      "status": "prior_lesson_02_reinforced",
+      "preparation_or_precise_gap": "Segregation; all new cross reasoning reinforces the previously taught law.",
+      "frozen": true,
+      "complete_source_context_pages": [
+        620
+      ]
+    },
+    {
+      "lesson": 11,
+      "id": "ch17-p620-chapter-review-q3",
+      "native_path": "textbook routing",
+      "demand": " 3. In humans, drooping eyelids are dominant to \nnon-drooping eyelids. \n \n a) What are the two possible genotypes that a person \nwith drooping eyelids might have?\n \n b) A man who is heterozygous for both alleles marries \na woman with non-drooping eyelids. Use a Punnett \nsquare to show the expected genotypes and \nphenotypes of their children. \n \n c) A man with non-drooping eyelids and a woman with \ndrooping eyelids have three children, all with non-\ndrooping eyelids. How can you explain this outcome? ",
+      "status": "prepared_under_supplied_model",
+      "preparation_or_precise_gap": "L10 phenotype-to-genotype table, Dd×dd and small finite-run reasoning prepare a–c. Drooping-eyelid condition must remain a supplied hypothetical single-gene model, not a universal clinical claim.",
+      "frozen": true,
+      "complete_source_context_pages": [
+        620
+      ]
+    },
+    {
+      "lesson": 11,
+      "id": "ch17-p620-chapter-review-q4",
+      "native_path": "textbook routing",
+      "demand": " 4. In humans, the gene for albinism is recessive to the gene \nfor normal pigmentation. Your friends Milan and Aila \nboth have normal pigmentation. They have one child \nwho is an albino and are expecting a second child. Milan \ntells you, “We knew that our chance of having one \nalbino child was 1:4. This means our chance of having \ntwo albino children is only 1:16, so we can be very sure \nthat our next baby will not be albino.” How would you \nrespond? Using a specifi c example, explain to Milan \nwhether or not his reasoning is correct. ",
+      "status": "prepared",
+      "preparation_or_precise_gap": "L10 worked explicitly distinguishes prospective two-child joint probability 1/16 from the next-child probability 1/4 after the first outcome is known.",
+      "frozen": true,
+      "complete_source_context_pages": [
+        620
+      ]
+    },
+    {
+      "lesson": 11,
+      "id": "ch17-p620-chapter-review-q5",
+      "native_path": "textbook routing",
+      "demand": " 5. A cross of true-breeding purple-fl owered and true-\nbreeding white-fl owered plants results in F1 plants that \nare all lavender (light purple). A cross of two F1 plants \nresults in an F2 generation with the following numbers \nof phenotypes: 28 purple, 52 lavender, and 19 white. \n \n a) What were the genotypes of the F1 generation? \nExplain.\n \n b) Use a Punnett square to show the predicted \nphenotypes and genotypes of the F2 generation. \n \n c) Describe the type of inheritance that this cross reveals.",
+      "status": "prior_lesson_06",
+      "preparation_or_precise_gap": "Incomplete dominance P/F1/F2 flower reasoning and finite-sample deviation; unrelated to 10/11.",
+      "frozen": true,
+      "complete_source_context_pages": [
+        620
+      ]
+    },
+    {
+      "lesson": 11,
+      "id": "ch17-p620-chapter-review-q6",
+      "native_path": "textbook routing",
+      "demand": " 6. What is a test cross, and when is it used?",
+      "status": "prior_lesson_04",
+      "preparation_or_precise_gap": "Definition and use of test cross. L10 contribution inference reinforces it but is not a replacement.",
+      "frozen": true,
+      "complete_source_context_pages": [
+        620
+      ]
+    },
+    {
+      "lesson": 11,
+      "id": "ch17-p620-chapter-review-q7",
+      "native_path": "textbook routing",
+      "demand": " 7. In what way does the chromosome theory of \ninheritance require a revision to Mendel’s law of \nindependent assortment? ",
+      "status": "future_lesson_12",
+      "preparation_or_precise_gap": "Chromosomal linkage exception to independent assortment; outside 11’s established knowledge.",
+      "frozen": true,
+      "complete_source_context_pages": [
+        620
+      ]
+    },
+    {
+      "lesson": 11,
+      "id": "ch17-p620-chapter-review-q8",
+      "native_path": "textbook routing",
+      "demand": " 8. A male mouse with a grey coat is mated with an albino \nfemale. Their six offspring all have grey fur. The albino \nfemale is then mated with a second grey male mouse. \nFour of the seven offspring in this litter are albino.\n \n a) What are the probable genotypes of the three \nparent mice?",
+      "status": "partial_preparation_source_gap",
+      "preparation_or_precise_gap": "L10 AA-or-Aa finite-unaffected-run limit and aa offspring inference are directly relevant. Exact mating-design continuation is on top-right of p620 and absent in sourceText. Full page supplied. A “probable” first male genotype needs model priors or explicitly tentative likelihood reasoning.",
+      "frozen": true,
+      "complete_source_context_pages": [
+        620
+      ]
+    },
+    {
+      "lesson": 11,
+      "id": "ch17-p620-chapter-review-q9",
+      "native_path": "textbook routing",
+      "demand": " 9. A man with type B blood marries a woman with type \nAB blood. What blood types would you expect to fi nd \namong their children? What would tell you that the man \nis heterozygous for type B blood?",
+      "status": "prior_lesson_07",
+      "preparation_or_precise_gap": "B × AB ABO probabilities and heterozygote evidence; earlier07, not current11.",
+      "frozen": true,
+      "complete_source_context_pages": [
+        620
+      ]
+    },
+    {
+      "lesson": 11,
+      "id": "ch17-p620-chapter-review-q10",
+      "native_path": "textbook routing",
+      "demand": " 10. A woman with type AB blood has a child with the same \nblood type. What are the possible genotypes of the father?",
+      "status": "prior_lesson_07",
+      "preparation_or_precise_gap": "ABO allowable paternal alleles; prior07 genotype catalogue and contribution reasoning.",
+      "frozen": true,
+      "complete_source_context_pages": [
+        620
+      ]
+    },
+    {
+      "lesson": 11,
+      "id": "ch17-p620-chapter-review-q11",
+      "native_path": "textbook routing",
+      "demand": " 11. Explain the signifi cance of the Barr body in the \nexpression of sex-linked traits. ",
+      "status": "prior_lesson_08",
+      "preparation_or_precise_gap": "Barr body and X inactivation; 11 assumes earlier mechanism but does not reteach mosaic expression.",
+      "frozen": true,
+      "complete_source_context_pages": [
+        620
+      ]
+    },
+    {
+      "lesson": 11,
+      "id": "ch17-p620-chapter-review-q12",
+      "native_path": "textbook routing",
+      "demand": " 12. A breeder of show horses fi nds that one of his stallions \nhas a genetic defect that affects the production of \nsperm. The gene associated with this trait is located \non the Y chromosome. What is the possibility that the \nstallion’s female offspring could pass on this trait to \ntheir sons? Explain.",
+      "status": "prior_lesson_08_partial_reinforcement",
+      "preparation_or_precise_gap": "Y-linked transmission requires that Y locus remain on Y and daughters receive X. L11 chromosome route reinforces it; explicit Y-linkage model is earlier08.",
+      "frozen": true,
+      "complete_source_context_pages": [
+        620
+      ]
+    },
+    {
+      "lesson": 11,
+      "id": "ch17-p620-chapter-review-q13",
+      "native_path": "textbook routing",
+      "demand": " 13. The following diagram shows the results of two crosses. \nExplain the results and the genetic principle that is \nillustrated. \nApplying Concepts",
+      "status": "prior_lesson_05_reinforced_15",
+      "preparation_or_precise_gap": "The actual printed620 diagram shows yellow-round × green-wrinkled peas, all yellow-roundF1 and fourF2 phenotypes. It tests two-locus independent assortment, taught in preserved05 and reinforced in completed15. Native sourceText omits the figure; fullp620 is supplied. It is not a reciprocal sex-linked cross.",
+      "frozen": true,
+      "complete_source_context_pages": [
+        620
+      ]
+    },
+    {
+      "lesson": 11,
+      "id": "ch17-p620-chapter-review-q14",
+      "native_path": "textbook routing",
+      "demand": " 14. In foxes, a pair of alleles, P and p, interact as follows: \nPP is lethal, usually during the embryonic stage; Pp \nproduces platinum-coloured fur; and pp produces silver \nfoxes. Could a fox breeder establish a true-breeding \nvariety of platinum foxes? Explain.",
+      "status": "prepared_by_later_lesson_15",
+      "preparation_or_precise_gap": "Completed15 teaches LL/Ll/ll survival-denominator reasoning, preparing lethalPP exclusion and inability to breed true platinum. This remains a later-route dependency for the task routed to11;10/11 do not establish this model.",
+      "frozen": true,
+      "complete_source_context_pages": [
+        620
+      ]
+    },
+    {
+      "lesson": 11,
+      "id": "ch17-p620-chapter-review-q15",
+      "native_path": "textbook routing",
+      "demand": " 15. Rudy and Sinead are expecting a baby. They have \nnormal vision, but both of their fathers are colour \nblind. Determine the chance that the baby will be \n \n a) a colour-blind girl\n \n b) a boy with normal vision ",
+      "status": "prepared",
+      "preparation_or_precise_gap": "L11 obligate carrier from affected father, paternal Y-to-son route, full gametes and all-children versus subgroup probabilities prepare it. This is educational hypothetical reasoning only.",
+      "frozen": true,
+      "complete_source_context_pages": [
+        620
+      ]
+    },
+    {
+      "lesson": 11,
+      "id": "ch17-p620-chapter-review-q16",
+      "native_path": "textbook routing",
+      "demand": " 16. Fruit fl ies can have normal wings or stunted wings. \nIn an experiment, you mate several normal-winged \nfemales with a male that has stunted wings. In the \nF1 generation, only the males have stunted wings. \n \n a) What can you conclude from this experiment?",
+      "status": "partly_prepared_not_uniquely_diagnostic",
+      "preparation_or_precise_gap": "L11 warns males-only observations do not uniquely prove X linkage and teaches gamete tests. Question b experimental design continues on p621. Unknown female genotypes and small samples make a unique inference unwarranted; broader fly cross design belongs08/review.",
+      "frozen": true,
+      "complete_source_context_pages": [
+        620,
+        621
+      ]
+    },
+    {
+      "lesson": 11,
+      "id": "ch17-p621-chapter-review-q17",
+      "native_path": "textbook routing",
+      "demand": " 17. Imagine that the fi rst dihybrid crosses Mendel \nperformed had involved traits controlled by closely \nlinked genes. \n \n a) How would Mendel’s results have differed from the \nresults of a dihybrid cross involving non-linked genes?\n \n b) What hypothesis might Mendel have developed to \nexplain his results?\n \n c) What experiment could Mendel have performed to \ntest this hypothesis? What would he have observed?",
+      "status": "future_lesson_12",
+      "preparation_or_precise_gap": "Closely linked dihybrid cross, predictions and experiment design require later linkage teaching.",
+      "frozen": true,
+      "complete_source_context_pages": [
+        621
+      ]
+    },
+    {
+      "lesson": 11,
+      "id": "ch17-p621-chapter-review-q18",
+      "native_path": "textbook routing",
+      "demand": " 18. Among some breeds of cattle, there is a trait called \npolled. Polled individuals do not develop horns. \nSuppose that a farmer breeds the same two polled \nindividuals several times and fi ve calves are born. Three \nof these calves are polled, and two are not. Is this an \nexample of dominant or recessive inheritance? Explain.",
+      "status": "prepared_under_supplied_model",
+      "preparation_or_precise_gap": "L10 two phenotype-expressing parents with a nonexpressing child force heterozygotes in a dominant model; finite counts need not be exact3:1.",
+      "frozen": true,
+      "complete_source_context_pages": [
+        621
+      ]
+    },
+    {
+      "lesson": 11,
+      "id": "ch17-p621-chapter-review-q19",
+      "native_path": "textbook routing",
+      "demand": " 19. A farmer wants to breed a variety of taller corn. \n \n a) How can the farmer use variation in the height of the \ncurrent corn plants to produce taller corn plants? \n \n b) Will the farmer’s work be most effective if height in \ncorn plants is determined by polygenic inheritance, \nmultiple alleles, or co-dominant alleles? Explain.\n \n c) The farmer fi nds that many of the tallest corn plants \nare also very susceptible to a particular disease. How \ncould the farmer design an experiment to fi nd out \nif the genes for height are linked to the genes for \nresistance to the disease?\n \n d) If these genes are linked, what steps could the farmer \ntake to create a breed of corn that is taller and more \ndisease-resistant than the current corn crop? ",
+      "status": "prepared_across_completed_09_12_15_with_question_limit",
+      "preparation_or_precise_gap": "Artificial selection, polygenic height, linkage testing and recombination breeding draw on09/12/15. Part(b) does not establish a universally most-effective breeding model from the nonexclusive labels polygenic, multiple alleles and codominance; selection response depends on relevant heritable variation and the breeding context.11 alone does not prepare every part.",
+      "frozen": true,
+      "complete_source_context_pages": [
+        621
+      ]
+    },
+    {
+      "lesson": 11,
+      "id": "ch17-p621-chapter-review-q20",
+      "native_path": "textbook routing",
+      "demand": " 20. Explain why genes that are more than 50 map units \napart on a single chromosome may behave as though \nthey are on different chromosomes. ",
+      "status": "prepared_by_completed_lesson_13_later_route",
+      "preparation_or_precise_gap": "Lesson13 explains multiple crossovers and the expected/theoretical two-locus recombination limit of50%. Finite observed samples can exceed50%. This remains a later-route prerequisite for a task shown in11;11 alone does not prepare it.",
+      "frozen": true,
+      "complete_source_context_pages": [
+        621
+      ]
+    },
+    {
+      "lesson": 11,
+      "id": "ch17-p621-chapter-review-q21",
+      "native_path": "textbook routing",
+      "demand": " 21. Osteogenesis imperfecta (OI), also known as brittle \nbone disease, results in extremely fragile bones that tend \nto break for no apparent reason. The following pedigree \ntraces OI in a family. Based on the pedigree, what sort \nof inheritance pattern does OI display? Identify the \nphenotypes and genotypes of all the people shown in \nthis pedigree. Whose genotype can you not be sure of?",
+      "status": "prepared_with_source_science_limit",
+      "preparation_or_precise_gap": "L10 forced/possible autosomal genotypes and L11 complete-model testing prepare the diagram. The pictured record fits autosomal recessive in the simple model; OI has genetically heterogeneous forms, so do not generalize diagram to all OI. Source continuation diagram is top-right p621 and is essential.",
+      "frozen": true,
+      "complete_source_context_pages": [
+        621
+      ]
+    },
+    {
+      "lesson": 11,
+      "id": "ch17-p621-chapter-review-q22",
+      "native_path": "textbook routing",
+      "demand": "d to \nved?\n \nThree \nn \nplain.\n of the \n 22. Imagine that you are a genetic counsellor. Brian and \nSarah come to see you. They are planning to start a \nfamily, but they want to know if their children are at \nrisk for cystic fi brosis. Brian’s sister has cystic fi brosis. \nBrian does not have the disease, nor do his parents. \n \n a) What kind of questions do you think Brian and \nSarah will ask?\n \n b) How would you answer these questions? \n \n c) What other information could you gather to help \nyou defi ne the risk?",
+      "status": "partial_preparation_future_lesson_14",
+      "preparation_or_precise_gap": "L10 derives unaffected sibling2/3 carrier probability, but risk to children still requires partner genotype/carrier probability. Counselling dialogue, appropriate evidence, consent and uncertainty need14; do not assign a numerical child risk without partner information.",
+      "frozen": true,
+      "complete_source_context_pages": [
+        621
+      ]
+    },
+    {
+      "lesson": 11,
+      "id": "ch17-p621-chapter-review-q23",
+      "native_path": "textbook routing",
+      "demand": " of the \nts? \nht in \nance, \nn.\nplants \n How \nout \nr \narmer \n 23. Certain populations and cultural groups interest genetic \nresearchers because they may have unique genetic \ncharacteristics. The study of these characteristics can \ncontribute to the development of genetic tests and \ntreatments that advance medical research. Who should \nhave access to the genetic information of individuals \nfrom these populations and groups? Is this private \ninformation, or does it belong to all humanity? Discuss \nthis question with a partner, and brainstorm your ideas. \nPrepare a presentation that outlines ideas on both sides. ",
+      "status": "future_lesson_14",
+      "preparation_or_precise_gap": "Genetic data rights, privacy and ethical argument/presentation; not chromosome-path content.",
+      "frozen": true,
+      "complete_source_context_pages": [
+        621
+      ]
+    },
+    {
+      "lesson": 11,
+      "id": "ch17-p621-chapter-review-q24",
+      "native_path": "textbook routing",
+      "demand": "more \ns \nugh \n 24. People who are heterozygous for a recessive trait do not \nexpress the trait, but may pass it on to their children. \nDo we have a responsibility to inform our children of \ncertain recessive traits they may have inherited from us? \nPresent your thoughts in a short essay.",
+      "status": "future_lesson_14",
+      "preparation_or_precise_gap": "Family disclosure responsibility/essay needs consent and ethics reasoning beyond carrier transmission.",
+      "frozen": true,
+      "complete_source_context_pages": [
+        621
+      ]
+    },
+    {
+      "lesson": 11,
+      "id": "ch17-p621-chapter-review-q25",
+      "native_path": "textbook routing",
+      "demand": "le \nat tend \ndigree \nsort \ne \nn in \ne of?\n 25. Many breeds of dogs are known for a high incidence of \ngenetic disorders. German Shepherd and Saint Bernard \ndogs, for example, are predisposed to develop a crippling \ncondition called hip dysplasia. Why are purebred dogs \nmore at risk for such conditions than mixed breeds are? \nWhat advice would you give to dog breeders who want \nto maintain their dogs’ purebred pedigrees, but also \nwant their dogs to be as healthy as possible?",
+      "status": "prepared_by_later_lesson_15_with_science_limit",
+      "preparation_or_precise_gap": "Completed15 adds relatedness/carrier nuance, increasing homozygosity, screening limits and breeding-health reasoning. This remains later than the11 route. Hip dysplasia is not a universal simple recessive trait; breed label alone does not establish individual risk. The10/11 pedigree models alone are insufficient.",
+      "frozen": true,
+      "complete_source_context_pages": [
+        621
+      ]
+    }
+  ],
+  "new_formative_tasks": [
+    {
+      "lesson": 10,
+      "location": "teaching-02",
+      "task": "aa mother and affected/unaffected children force fatherAa",
+      "classification": "guided; overlaps protected optional sourceOBJ_2131238 and is explicitly formative",
+      "feedback": "intentional hint and complete causal explanation"
+    },
+    {
+      "lesson": 10,
+      "location": "worked",
+      "task": "three-generation aa grandmother → unaffectedAa daughter × establishedAA partner",
+      "classification": "fresh independent; changed parental cross and denominator; then changed partneraa",
+      "feedback": "all genotypes, gametes,1/2 carrier,1/2 later affected, and marking guide"
+    },
+    {
+      "lesson": 11,
+      "location": "teaching-02",
+      "task": "carrier mother with unaffected father, then changed affected father",
+      "classification": "guided changed-case; all gamete combinations and distinct all-children/sons/daughters denominators",
+      "feedback": "full four-row table and comparison"
+    },
+    {
+      "lesson": 11,
+      "location": "worked",
+      "task": "affected mother, unaffected father, affected daughter and unaffectedson; test all four models",
+      "classification": "fresh independent multi-model inference, not isolated one-clue recognition",
+      "feedback": "three full compatible assignments, twoXLR contradictions and why another unaffectedson does not distinguish survivors"
+    }
+  ]
+}

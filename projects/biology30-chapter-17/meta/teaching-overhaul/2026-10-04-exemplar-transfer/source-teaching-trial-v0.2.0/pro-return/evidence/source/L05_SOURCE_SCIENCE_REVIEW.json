@@ -1,0 +1,65 @@
+{
+  "document": "Bounded independent source/science review: lesson05 v0.2.0",
+  "reviewer": "original_source_map agent; learner prose authored by root",
+  "reviewed_utc": "2026-10-04T21:53:24.527523+00:00",
+  "input": {
+    "path": "kinch-trial-v0.2.0/authoring/lesson-05.teaching.html.in",
+    "bytes": 30601,
+    "sha256": "eac351c08ef28c82b936cf1baa206dbfb5f14feef65338d3e196d3c5aa0f6b4e"
+  },
+  "coverage": "Complete initial6007eedc input read, including all tables, both task prompts, hints and full feedback/models; all eight changed locations to currenteac351c0 then read. No browser/runtime execution.",
+  "result": "Local meiosis wording repair closed. Current calculations and bounded science/source claims are coherent. Trial assessment/source-fidelity readiness remains unresolved.",
+  "closed_repair": {
+    "id": "L05-SCI-01",
+    "location": "ch17-l05-teaching-01-p2",
+    "initial": "The later separation of sister chromatids completes the reduction.",
+    "current": "The later separation of sister chromatids completes meiosis.",
+    "reason": "Chromosome-set reduction occurs through homolog separation in meiosisI; sister separation inII completes meiosis.",
+    "status": "Closed by root edit; exact delta read."
+  },
+  "review_history": [
+    {
+      "input_sha256": "6007eedc1cb64cc665c04453775b6be3d23e59080aa91644ba72a22375f52e95",
+      "bytes": 30224,
+      "scope": "Complete actual full draft read; local precision repair identified."
+    },
+    {
+      "input_sha256": "eac351c08ef28c82b936cf1baa206dbfb5f14feef65338d3e196d3c5aa0f6b4e",
+      "bytes": 30601,
+      "scope": "Eight changed locations read: allele/phenotype glossary markup; meiosis phrase; exact native figure marker/key reading;03 single-locus attribution; duplicate-column feedback distinction; note-status value; textbook cue. No numerical cross, prompt or probability changed."
+    }
+  ],
+  "findings": [
+    {
+      "id": "L05-SCI-02",
+      "finding": "All seven enumerated parental-model cases match teaching, including pea, tomato, revised-parent task, squash and both evidence-task candidate parents.",
+      "evidence": "L05_ARITHMETIC_EVIDENCE.json"
+    },
+    {
+      "id": "L05-SCI-03",
+      "finding": "Segregation, within-gamete independence and between-parent random fertilisation have distinct stated jobs; product/sum operations justified."
+    },
+    {
+      "id": "L05-SCI-04",
+      "finding": "Squash observed double-recessive offspring forces both unknown alleles before resolved cross appears;N80 is explicitly scored plants and expected40/20, not a guarantee."
+    },
+    {
+      "id": "L05-SCI-05",
+      "finding": "New evidence task correctly forces only one parent and keeps two candidates for the other; finite smooth-only observations cannot logically forceLL."
+    },
+    {
+      "id": "SRC-BOUND-01",
+      "finding": "Tomato original four-nonzero phenotype demand is reduced to two plus zeros.4×2 and first-parent gamete template still overlap protected writing-1. Unresolved teacher/source-fidelity judgment."
+    },
+    {
+      "id": "SRC-BOUND-02",
+      "finding": "Complete retained pea9:3:3:1 derivation explicitly solves dominance-preserving equivalents of protected05MC2 and optional2131237. Source-core/assessment overlap disclosed; no blind-assessment clearance."
+    }
+  ],
+  "limits": [
+    "Root author self-review is separate.",
+    "Source-method review is separately recorded in pptx-method/L05_DRAFT_METHOD_REVIEW.md/.json.",
+    "Native note-interface/static contract has a separate owner; no save/reload/UI testing here.",
+    "No teacher acceptance, original question/key edits, prior output edits, live authority/video access, integration or release."
+  ]
+}

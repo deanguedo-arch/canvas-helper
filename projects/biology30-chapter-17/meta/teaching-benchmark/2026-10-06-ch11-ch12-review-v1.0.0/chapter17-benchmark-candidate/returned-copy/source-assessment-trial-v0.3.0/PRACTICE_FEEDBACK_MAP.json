@@ -1,0 +1,839 @@
+{
+  "version": "0.3.0",
+  "ownerSha256": "bc42ea52d8cf5709c0ec33c914e86450f93971f3e3144cb81b695593aa0eff3b",
+  "currentTextOwnerPins": {
+    "rootAuthorInputs": [
+      {
+        "path": "source-assessment-v0.3.0/authoring/TRIAL_INPUTS.json",
+        "bytes": 7239,
+        "sha256": "34a02af21e33fcb76ec19d79f16a88ff0c2b03c1a3646c8d966898a23c910cd5"
+      },
+      {
+        "path": "source-assessment-v0.3.0/authoring/teacher-review-only.css",
+        "bytes": 2185,
+        "sha256": "0099523bf5c34de1dc52977a71f02c4f0c417fa4cd54a8550e51e071a8d69a9a"
+      },
+      {
+        "path": "source-assessment-v0.3.0/authoring/teaching-edits/lesson-05-tomato.html.in",
+        "bytes": 5130,
+        "sha256": "17a9cd16afb399d1897ba90c0be35b2f8b775093054d2ff5b9e214d7145b8c9c"
+      },
+      {
+        "path": "source-assessment-v0.3.0/authoring/teaching-edits/lesson-05-changed-parent-task.html.in",
+        "bytes": 4203,
+        "sha256": "a218d13653a95a59da2d56004ea889124992ee3903e2b0749c8f7df78c7a16cf"
+      },
+      {
+        "path": "source-assessment-v0.3.0/authoring/assessments/ch17-l02-check-writing-1.json",
+        "bytes": 2040,
+        "sha256": "746380cf22eee10bb1acf82e246352f1dc2e425927ad4f83676d36026e25b0d5"
+      },
+      {
+        "path": "source-assessment-v0.3.0/authoring/assessments/ch17-l05-check-mc-2.json",
+        "bytes": 1374,
+        "sha256": "1d0d2b8c11e7790ba449f06acca670ad26ebc91f544d1976856e4793fb5c298b"
+      },
+      {
+        "path": "source-assessment-v0.3.0/authoring/assessments/ch17-l05-check-writing-1.json",
+        "bytes": 2218,
+        "sha256": "69c5823eea0ca6ff8576821d7921b425c6f74cd5caac6c8abecaee7970503684"
+      },
+      {
+        "path": "source-assessment-v0.3.0/authoring/assessments/ch17-l05-check-writing-2.json",
+        "bytes": 2282,
+        "sha256": "4a1006653299a24ddd914be11f676653c393d1e80888bc3c56f0a44681840a0f"
+      }
+    ],
+    "completeTeachingFragments": [
+      {
+        "route": "lesson-02",
+        "path": "integration-text/complete-teaching/lesson-02.teaching-fragment.html.txt",
+        "bytes": 18591,
+        "sha256": "a843cc369e041e244a5cc775907979d36b906b78b2fc3b39ed26a0757d395c00",
+        "referenceOnly": true,
+        "integrationEdit": false,
+        "originalCompleteTeachingRange": {
+          "startByte": 106355,
+          "endByteExclusive": 124946,
+          "bytes": 18591,
+          "sha256": "a843cc369e041e244a5cc775907979d36b906b78b2fc3b39ed26a0757d395c00"
+        }
+      },
+      {
+        "route": "lesson-05",
+        "path": "integration-text/complete-teaching/lesson-05.teaching-fragment.html.txt",
+        "bytes": 32125,
+        "sha256": "c0c83129effd4b3268d41493f0a5a8d0bc82870453df040fe86b829078d44a3a",
+        "referenceOnly": true,
+        "integrationEdit": false,
+        "originalCompleteTeachingRange": {
+          "startByte": 183248,
+          "endByteExclusive": 214899,
+          "bytes": 31651,
+          "sha256": "4439240ef48d2b38d50bf3e624769c03e9a79a9641d7fd25386d0d5ec4799cb8"
+        }
+      }
+    ],
+    "selectedRequiredCollection": {
+      "path": "output/Biology30_CH17_Source_Assessment_Trial_v0.3.0/SELECTED_REQUIRED_ASSESSMENTS.json",
+      "bytes": 23876,
+      "sha256": "cad1104f2264d1a65a5090b491265b40febecf40fa482cffba938446291d1607"
+    }
+  },
+  "activities": [
+    {
+      "id": "ch17-kinch-v020-l02-arrow-task",
+      "route": "lesson-02",
+      "responseId": "ch17-kinch-v020-l02-arrow-response",
+      "title": "Repair the two process labels",
+      "visibleStimulusText": "The allele contributions below are possible, but a student's process labels are reversed. The arrows summarize allele movement; they omit DNA copying and the intermediate cells. A student's labelled allele diagram Arrow What the arrow shows Student's label A R and r on a parent's homologous pair → R or r as the allele contribution in a gamete Fertilisation B R in an egg + r in a sperm → Rr in the offspring's first cell Segregation Give each arrow its correct label. Explain what is separating or joining at each arrow, and which arrow restores an allele pair. Your explanation should repair the mechanism as well as the words. This practice is optional and ungraded. Save your first response, then intentionally open the comparison to check your explanation. It does not count toward required chapter progress.",
+      "visibleStimulusHtml": "<p>The allele contributions below are possible, but a student's process labels are reversed. The arrows summarize allele movement; they omit DNA copying and the intermediate cells.</p>\n<div class=\"comparison-table\">\n<table>\n<caption>A student's labelled allele diagram</caption>\n<thead><tr><th scope=\"col\">Arrow</th><th scope=\"col\">What the arrow shows</th><th scope=\"col\">Student's label</th></tr></thead>\n<tbody><tr><th scope=\"row\">A</th><td>R and r on a parent's homologous pair → R or r as the allele contribution in a gamete</td><td>Fertilisation</td></tr><tr><th scope=\"row\">B</th><td>R in an egg + r in a sperm → Rr in the offspring's first cell</td><td>Segregation</td></tr></tbody>\n</table>\n</div>\n<p>Give each arrow its correct label. Explain what is separating or joining at each arrow, and which arrow restores an allele pair. Your explanation should repair the mechanism as well as the words.</p>\n<p>This practice is optional and ungraded. Save your first response, then intentionally open the comparison to check your explanation. It does not count toward required chapter progress.</p>\n",
+      "responseInstruction": "Your repaired labels and explanation",
+      "completeInterfaceHtml": "<div class=\"optional-writing\"><label for=\"ch17-kinch-v020-l02-arrow-response\">Your repaired labels and explanation</label><textarea aria-describedby=\"ch17-kinch-v020-l02-arrow-response-status\" data-note-input=\"ch17-kinch-v020-l02-arrow-response\" id=\"ch17-kinch-v020-l02-arrow-response\" rows=\"5\"></textarea><p class=\"writing-status\" data-note-status=\"ch17-kinch-v020-l02-arrow-response\" id=\"ch17-kinch-v020-l02-arrow-response-status\">Optional response. Select Save response to collect it. Maximum 5000 characters.</p><button data-save-note=\"ch17-kinch-v020-l02-arrow-response\" type=\"button\">Save response</button></div>",
+      "hintText": "Optional hint: follow the number of contributions At which arrow does one parent's pair separate into alternative contributions? At which arrow do contributions from two gametes meet? Do not use the word dominant to explain either movement.",
+      "hintHtml": "<details><summary>Optional hint: follow the number of contributions</summary><p>At which arrow does one parent's pair separate into alternative contributions? At which arrow do contributions from two gametes meet? Do not use the word dominant to explain either movement.</p></details>",
+      "modelCriteriaFeedbackText": "Compare your explanation Arrow A summarizes segregation. The parent's homologous chromosomes separate during meiosis, so a gamete contributes R or r at this locus. Arrow B is fertilisation: the egg and sperm join, and their allele contributions give the offspring the pair Rr. Fertilisation restores the pair. Segregation does not create the second parent's contribution, and fertilisation does not separate the two alleles that were in a parent's diploid cell. If you corrected the names but still said that meiosis joins the egg and sperm, the causal explanation still needs repair. Check your response: identify both processes correctly; name homologous separation for A and joining of gametes for B; connect the restored pair specifically to fertilisation.",
+      "modelCriteriaFeedbackHtml": "<details><summary>Compare your explanation</summary><p>Arrow A summarizes segregation. The parent's homologous chromosomes separate during meiosis, so a gamete contributes R or r at this locus. Arrow B is fertilisation: the egg and sperm join, and their allele contributions give the offspring the pair Rr.</p><p>Fertilisation restores the pair. Segregation does not create the second parent's contribution, and fertilisation does not separate the two alleles that were in a parent's diploid cell. If you corrected the names but still said that meiosis joins the egg and sperm, the causal explanation still needs repair.</p><p><strong>Check your response:</strong> identify both processes correctly; name homologous separation for A and joining of gametes for B; connect the restored pair specifically to fertilisation.</p></details>",
+      "completeTaskHtml": "<section class=\"content-section\" id=\"ch17-kinch-v020-l02-arrow-task\">\n<h3>Repair the two process labels</h3>\n<p>The allele contributions below are possible, but a student's process labels are reversed. The arrows summarize allele movement; they omit DNA copying and the intermediate cells.</p>\n<div class=\"comparison-table\">\n<table>\n<caption>A student's labelled allele diagram</caption>\n<thead><tr><th scope=\"col\">Arrow</th><th scope=\"col\">What the arrow shows</th><th scope=\"col\">Student's label</th></tr></thead>\n<tbody><tr><th scope=\"row\">A</th><td>R and r on a parent's homologous pair → R or r as the allele contribution in a gamete</td><td>Fertilisation</td></tr><tr><th scope=\"row\">B</th><td>R in an egg + r in a sperm → Rr in the offspring's first cell</td><td>Segregation</td></tr></tbody>\n</table>\n</div>\n<p>Give each arrow its correct label. Explain what is separating or joining at each arrow, and which arrow restores an allele pair. Your explanation should repair the mechanism as well as the words.</p>\n<p>This practice is optional and ungraded. Save your first response, then intentionally open the comparison to check your explanation. It does not count toward required chapter progress.</p>\n<div class=\"optional-writing\"><label for=\"ch17-kinch-v020-l02-arrow-response\">Your repaired labels and explanation</label><textarea aria-describedby=\"ch17-kinch-v020-l02-arrow-response-status\" data-note-input=\"ch17-kinch-v020-l02-arrow-response\" id=\"ch17-kinch-v020-l02-arrow-response\" rows=\"5\"></textarea><p class=\"writing-status\" data-note-status=\"ch17-kinch-v020-l02-arrow-response\" id=\"ch17-kinch-v020-l02-arrow-response-status\">Optional response. Select Save response to collect it. Maximum 5000 characters.</p><button data-save-note=\"ch17-kinch-v020-l02-arrow-response\" type=\"button\">Save response</button></div>\n<details><summary>Optional hint: follow the number of contributions</summary><p>At which arrow does one parent's pair separate into alternative contributions? At which arrow do contributions from two gametes meet? Do not use the word dominant to explain either movement.</p></details>\n<details><summary>Compare your explanation</summary><p>Arrow A summarizes segregation. The parent's homologous chromosomes separate during meiosis, so a gamete contributes R or r at this locus. Arrow B is fertilisation: the egg and sperm join, and their allele contributions give the offspring the pair Rr.</p><p>Fertilisation restores the pair. Segregation does not create the second parent's contribution, and fertilisation does not separate the two alleles that were in a parent's diploid cell. If you corrected the names but still said that meiosis joins the egg and sperm, the causal explanation still needs repair.</p><p><strong>Check your response:</strong> identify both processes correctly; name homologous separation for A and joining of gametes for B; connect the restored pair specifically to fertilisation.</p></details>\n</section>",
+      "optional": true,
+      "savedInNativeNotes": true,
+      "graded": false,
+      "requiredProgressContribution": 0,
+      "automaticallySaveGated": false,
+      "sourceContract": {
+        "id": "ch17-kinch-v020-l02-arrow-task",
+        "responseId": "ch17-kinch-v020-l02-arrow-response",
+        "title": "Repair the two process labels",
+        "range": {
+          "startByte": 116052,
+          "endByteExclusive": 119014,
+          "bytes": 2962,
+          "sha256": "832a0126d0434b8068b9bb98f51a463a15e4fbf70ac59608545a258caf8998a5"
+        },
+        "rawBefore": "source-assessment-v0.3.0/analysis/native-preflight/raw-before/lesson-02/ch17-kinch-v020-l02-arrow-task.html.txt",
+        "controls": [
+          {
+            "tag": "label",
+            "attributes": {
+              "for": "ch17-kinch-v020-l02-arrow-response"
+            },
+            "range": {
+              "startByte": 117296,
+              "endByteExclusive": 117388,
+              "bytes": 92,
+              "sha256": "68f1f7896b868f81253fe70bf07b14db2d9ef52801f0ab310a0f99e226be65dd"
+            },
+            "exactHtml": "<label for=\"ch17-kinch-v020-l02-arrow-response\">Your repaired labels and explanation</label>"
+          },
+          {
+            "tag": "textarea",
+            "attributes": {
+              "aria-describedby": "ch17-kinch-v020-l02-arrow-response-status",
+              "data-note-input": "ch17-kinch-v020-l02-arrow-response",
+              "id": "ch17-kinch-v020-l02-arrow-response",
+              "rows": "5"
+            },
+            "range": {
+              "startByte": 117388,
+              "endByteExclusive": 117572,
+              "bytes": 184,
+              "sha256": "6db75be5258bcf12d9f4d1ec680a80c4ddd7fd3e3d951144501824f19589fb52"
+            },
+            "exactHtml": "<textarea aria-describedby=\"ch17-kinch-v020-l02-arrow-response-status\" data-note-input=\"ch17-kinch-v020-l02-arrow-response\" id=\"ch17-kinch-v020-l02-arrow-response\" rows=\"5\"></textarea>"
+          },
+          {
+            "tag": "p",
+            "attributes": {
+              "class": "writing-status",
+              "data-note-status": "ch17-kinch-v020-l02-arrow-response",
+              "id": "ch17-kinch-v020-l02-arrow-response-status"
+            },
+            "range": {
+              "startByte": 117572,
+              "endByteExclusive": 117782,
+              "bytes": 210,
+              "sha256": "167a71a79aa7d856e9e21192b03ed0f0126667aba2bc88097ff26d8d209f0433"
+            },
+            "exactHtml": "<p class=\"writing-status\" data-note-status=\"ch17-kinch-v020-l02-arrow-response\" id=\"ch17-kinch-v020-l02-arrow-response-status\">Optional response. Select Save response to collect it. Maximum 5000 characters.</p>"
+          },
+          {
+            "tag": "button",
+            "attributes": {
+              "data-save-note": "ch17-kinch-v020-l02-arrow-response",
+              "type": "button"
+            },
+            "range": {
+              "startByte": 117782,
+              "endByteExclusive": 117878,
+              "bytes": 96,
+              "sha256": "b4dea3eca38b6cc1174a58025df8679b0216e9a94184c77275e3eb787b32454f"
+            },
+            "exactHtml": "<button data-save-note=\"ch17-kinch-v020-l02-arrow-response\" type=\"button\">Save response</button>"
+          }
+        ],
+        "plainDisclosureCount": 2,
+        "automaticallySaveGated": false
+      },
+      "integratedAllMyWorkTitle": "Repair the two process labels",
+      "contentOwner": "unchanged uploaded integrated baseline",
+      "rootChangePurpose": null
+    },
+    {
+      "id": "ch17-kinch-v020-l02-cross-task",
+      "route": "lesson-02",
+      "responseId": "ch17-kinch-v020-l02-cross-response",
+      "title": "Does reversing the parents reverse the result?",
+      "visibleStimulusText": "Use the same ordinary autosomal seed-shape model: RR and Rr offspring seeds are round; rr offspring seeds are wrinkled. The allele has the same effect whether it arrives in the egg or in the sperm. The genotypes below are known from the breeding lines. Two controlled pea crosses with the parental roles reversed Cross Plant supplying eggs and receiving pollen Plant supplying pollen and sperm A rr RR B RR rr A grower says, “The offspring seeds should take their shape from the plant receiving the pollen, so reversing these parents must reverse the seed-shape result.” Is that prediction supported by this model? Follow one egg contribution and one sperm contribution in each cross, give the resulting genotype and phenotype, and use those contributions to evaluate the grower's claim. This practice is optional and ungraded. Save your reasoning before opening the model for comparison. It does not count toward required chapter progress.",
+      "visibleStimulusHtml": "<p>Use the same ordinary autosomal seed-shape model: RR and Rr offspring seeds are round; rr offspring seeds are wrinkled. The allele has the same effect whether it arrives in the egg or in the sperm. The genotypes below are known from the breeding lines.</p>\n<div class=\"comparison-table\">\n<table>\n<caption>Two controlled pea crosses with the parental roles reversed</caption>\n<thead><tr><th scope=\"col\">Cross</th><th scope=\"col\">Plant supplying eggs and receiving pollen</th><th scope=\"col\">Plant supplying pollen and sperm</th></tr></thead>\n<tbody><tr><th scope=\"row\">A</th><td>rr</td><td>RR</td></tr><tr><th scope=\"row\">B</th><td>RR</td><td>rr</td></tr></tbody>\n</table>\n</div>\n<p>A grower says, “The offspring seeds should take their shape from the plant receiving the pollen, so reversing these parents must reverse the seed-shape result.” Is that prediction supported by this model? Follow one egg contribution and one sperm contribution in each cross, give the resulting genotype and phenotype, and use those contributions to evaluate the grower's claim.</p>\n<p>This practice is optional and ungraded. Save your reasoning before opening the model for comparison. It does not count toward required chapter progress.</p>\n",
+      "responseInstruction": "Your comparison of the two crosses",
+      "completeInterfaceHtml": "<div class=\"optional-writing\"><label for=\"ch17-kinch-v020-l02-cross-response\">Your comparison of the two crosses</label><textarea aria-describedby=\"ch17-kinch-v020-l02-cross-response-status\" data-note-input=\"ch17-kinch-v020-l02-cross-response\" id=\"ch17-kinch-v020-l02-cross-response\" rows=\"5\"></textarea><p class=\"writing-status\" data-note-status=\"ch17-kinch-v020-l02-cross-response\" id=\"ch17-kinch-v020-l02-cross-response-status\">Optional response. Select Save response to collect it. Maximum 5000 characters.</p><button data-save-note=\"ch17-kinch-v020-l02-cross-response\" type=\"button\">Save response</button></div>",
+      "hintText": "Optional hint: track contributions before appearance Write the single allele available in an egg from each egg parent. Beside it, write the single allele available from the corresponding pollen donor. Which allele pair results after the two gametes join?",
+      "hintHtml": "<details><summary>Optional hint: track contributions before appearance</summary><p>Write the single allele available in an egg from each egg parent. Beside it, write the single allele available from the corresponding pollen donor. Which allele pair results after the two gametes join?</p></details>",
+      "modelCriteriaFeedbackText": "Compare your reasoning and its limit In cross A, the rr egg parent supplies r and the RR pollen parent supplies R. Their offspring are Rr and round. In cross B, the RR egg parent supplies R and the rr pollen parent supplies r. The offspring are again Rr and round. Reversing which parent supplied the alleles does not change the pair or its phenotype under the stated model. The grower's claim omits the sperm's genetic contribution and assigns the receiving plant's phenotype directly to the offspring. Fertilisation combines contributions from both parents. The conclusion concerns this specified autosomal seed-shape model; it is not a rule that every biological characteristic is unaffected by parental origin or growing conditions. Check your response: show the egg and sperm allele in both crosses; distinguish the offspring seed from the plant carrying it; apply the same complete-dominance rule to the resulting genotype; explain why the receiving plant's appearance alone does not determine the answer.",
+      "modelCriteriaFeedbackHtml": "<details><summary>Compare your reasoning and its limit</summary><p>In cross A, the rr egg parent supplies r and the RR pollen parent supplies R. Their offspring are Rr and round. In cross B, the RR egg parent supplies R and the rr pollen parent supplies r. The offspring are again Rr and round. Reversing which parent supplied the alleles does not change the pair or its phenotype under the stated model.</p><p>The grower's claim omits the sperm's genetic contribution and assigns the receiving plant's phenotype directly to the offspring. Fertilisation combines contributions from both parents. The conclusion concerns this specified autosomal seed-shape model; it is not a rule that every biological characteristic is unaffected by parental origin or growing conditions.</p><p><strong>Check your response:</strong> show the egg and sperm allele in both crosses; distinguish the offspring seed from the plant carrying it; apply the same complete-dominance rule to the resulting genotype; explain why the receiving plant's appearance alone does not determine the answer.</p></details>",
+      "completeTaskHtml": "<section class=\"content-section\" id=\"ch17-kinch-v020-l02-cross-task\">\n<h3>Does reversing the parents reverse the result?</h3>\n<p>Use the same ordinary autosomal seed-shape model: RR and Rr offspring seeds are round; rr offspring seeds are wrinkled. The allele has the same effect whether it arrives in the egg or in the sperm. The genotypes below are known from the breeding lines.</p>\n<div class=\"comparison-table\">\n<table>\n<caption>Two controlled pea crosses with the parental roles reversed</caption>\n<thead><tr><th scope=\"col\">Cross</th><th scope=\"col\">Plant supplying eggs and receiving pollen</th><th scope=\"col\">Plant supplying pollen and sperm</th></tr></thead>\n<tbody><tr><th scope=\"row\">A</th><td>rr</td><td>RR</td></tr><tr><th scope=\"row\">B</th><td>RR</td><td>rr</td></tr></tbody>\n</table>\n</div>\n<p>A grower says, “The offspring seeds should take their shape from the plant receiving the pollen, so reversing these parents must reverse the seed-shape result.” Is that prediction supported by this model? Follow one egg contribution and one sperm contribution in each cross, give the resulting genotype and phenotype, and use those contributions to evaluate the grower's claim.</p>\n<p>This practice is optional and ungraded. Save your reasoning before opening the model for comparison. It does not count toward required chapter progress.</p>\n<div class=\"optional-writing\"><label for=\"ch17-kinch-v020-l02-cross-response\">Your comparison of the two crosses</label><textarea aria-describedby=\"ch17-kinch-v020-l02-cross-response-status\" data-note-input=\"ch17-kinch-v020-l02-cross-response\" id=\"ch17-kinch-v020-l02-cross-response\" rows=\"5\"></textarea><p class=\"writing-status\" data-note-status=\"ch17-kinch-v020-l02-cross-response\" id=\"ch17-kinch-v020-l02-cross-response-status\">Optional response. Select Save response to collect it. Maximum 5000 characters.</p><button data-save-note=\"ch17-kinch-v020-l02-cross-response\" type=\"button\">Save response</button></div>\n<details><summary>Optional hint: track contributions before appearance</summary><p>Write the single allele available in an egg from each egg parent. Beside it, write the single allele available from the corresponding pollen donor. Which allele pair results after the two gametes join?</p></details>\n<details><summary>Compare your reasoning and its limit</summary><p>In cross A, the rr egg parent supplies r and the RR pollen parent supplies R. Their offspring are Rr and round. In cross B, the RR egg parent supplies R and the rr pollen parent supplies r. The offspring are again Rr and round. Reversing which parent supplied the alleles does not change the pair or its phenotype under the stated model.</p><p>The grower's claim omits the sperm's genetic contribution and assigns the receiving plant's phenotype directly to the offspring. Fertilisation combines contributions from both parents. The conclusion concerns this specified autosomal seed-shape model; it is not a rule that every biological characteristic is unaffected by parental origin or growing conditions.</p><p><strong>Check your response:</strong> show the egg and sperm allele in both crosses; distinguish the offspring seed from the plant carrying it; apply the same complete-dominance rule to the resulting genotype; explain why the receiving plant's appearance alone does not determine the answer.</p></details>\n</section>",
+      "optional": true,
+      "savedInNativeNotes": true,
+      "graded": false,
+      "requiredProgressContribution": 0,
+      "automaticallySaveGated": false,
+      "sourceContract": {
+        "id": "ch17-kinch-v020-l02-cross-task",
+        "responseId": "ch17-kinch-v020-l02-cross-response",
+        "title": "Does reversing the parents reverse the result?",
+        "range": {
+          "startByte": 121070,
+          "endByteExclusive": 124438,
+          "bytes": 3368,
+          "sha256": "d9f059765d06ec5989aee7fb00c0a0a6c0b589d002e7a582e2532f2ecca3355b"
+        },
+        "rawBefore": "source-assessment-v0.3.0/analysis/native-preflight/raw-before/lesson-02/ch17-kinch-v020-l02-cross-task.html.txt",
+        "controls": [
+          {
+            "tag": "label",
+            "attributes": {
+              "for": "ch17-kinch-v020-l02-cross-response"
+            },
+            "range": {
+              "startByte": 122457,
+              "endByteExclusive": 122547,
+              "bytes": 90,
+              "sha256": "9ef2389c5c221c591ecabf790d6eba451a0c83317e62a10d03c3a68d88ca2561"
+            },
+            "exactHtml": "<label for=\"ch17-kinch-v020-l02-cross-response\">Your comparison of the two crosses</label>"
+          },
+          {
+            "tag": "textarea",
+            "attributes": {
+              "aria-describedby": "ch17-kinch-v020-l02-cross-response-status",
+              "data-note-input": "ch17-kinch-v020-l02-cross-response",
+              "id": "ch17-kinch-v020-l02-cross-response",
+              "rows": "5"
+            },
+            "range": {
+              "startByte": 122547,
+              "endByteExclusive": 122731,
+              "bytes": 184,
+              "sha256": "a2b77c91b31bc269cc959d186e13a00a144251e73c8af250621f12fa99dd618e"
+            },
+            "exactHtml": "<textarea aria-describedby=\"ch17-kinch-v020-l02-cross-response-status\" data-note-input=\"ch17-kinch-v020-l02-cross-response\" id=\"ch17-kinch-v020-l02-cross-response\" rows=\"5\"></textarea>"
+          },
+          {
+            "tag": "p",
+            "attributes": {
+              "class": "writing-status",
+              "data-note-status": "ch17-kinch-v020-l02-cross-response",
+              "id": "ch17-kinch-v020-l02-cross-response-status"
+            },
+            "range": {
+              "startByte": 122731,
+              "endByteExclusive": 122941,
+              "bytes": 210,
+              "sha256": "9be14f3418c6699a73b7429861e31b7ed966264d4608725a49bb42f8da4cc494"
+            },
+            "exactHtml": "<p class=\"writing-status\" data-note-status=\"ch17-kinch-v020-l02-cross-response\" id=\"ch17-kinch-v020-l02-cross-response-status\">Optional response. Select Save response to collect it. Maximum 5000 characters.</p>"
+          },
+          {
+            "tag": "button",
+            "attributes": {
+              "data-save-note": "ch17-kinch-v020-l02-cross-response",
+              "type": "button"
+            },
+            "range": {
+              "startByte": 122941,
+              "endByteExclusive": 123037,
+              "bytes": 96,
+              "sha256": "9323f45b8ddd1d9aecbd04575fac9e5ae543e77553e0eb6829d5c242207b9ae4"
+            },
+            "exactHtml": "<button data-save-note=\"ch17-kinch-v020-l02-cross-response\" type=\"button\">Save response</button>"
+          }
+        ],
+        "plainDisclosureCount": 2,
+        "automaticallySaveGated": false
+      },
+      "integratedAllMyWorkTitle": "Does reversing the parents reverse the result?",
+      "contentOwner": "unchanged uploaded integrated baseline",
+      "rootChangePurpose": null
+    },
+    {
+      "id": "ch17-kinch-v020-l05-change-task",
+      "route": "lesson-05",
+      "responseId": "ch17-kinch-v020-l05-change-response",
+      "title": "Change one parent and keep only the reasoning that still applies",
+      "visibleStimulusText": "A grower now keeps the RrTt parent but replaces the rrTt parent with an rrtt plant. The allele meanings and the independent-assortment model are unchanged. The one change to the tomato cross Case Parent 1 Parent 2 Worked cross RrTt rrTt New cross RrTt rrtt Which parental gamete list stays the same, and which must change? Give both lists and the new grid dimensions. Use them to find the proportion of offspring that will be short, and decide whether the earlier red/yellow proportions still hold. Explain why each retained or revised prediction follows from the allele contributions. This practice is optional and ungraded. Save your reasoning, then open the comparison deliberately. It does not count toward required chapter progress.",
+      "visibleStimulusHtml": "<p>A grower now keeps the RrTt parent but replaces the rrTt parent with an <strong>rrtt</strong> plant. The allele meanings and the independent-assortment model are unchanged.</p>\n<div class=\"comparison-table\">\n<table>\n<caption>The one change to the tomato cross</caption>\n<thead><tr><th scope=\"col\">Case</th><th scope=\"col\">Parent 1</th><th scope=\"col\">Parent 2</th></tr></thead>\n<tbody><tr><th scope=\"row\">Worked cross</th><td>RrTt</td><td>rrTt</td></tr><tr><th scope=\"row\">New cross</th><td>RrTt</td><td>rrtt</td></tr></tbody>\n</table>\n</div>\n<p>Which parental gamete list stays the same, and which must change? Give both lists and the new grid dimensions. Use them to find the proportion of offspring that will be short, and decide whether the earlier red/yellow proportions still hold. Explain why each retained or revised prediction follows from the allele contributions.</p>\n<p>This practice is optional and ungraded. Save your reasoning, then open the comparison deliberately. It does not count toward required chapter progress.</p>\n",
+      "responseInstruction": "Your revised gametes and predictions",
+      "completeInterfaceHtml": "<div class=\"optional-writing\"><label for=\"ch17-kinch-v020-l05-change-response\">Your revised gametes and predictions</label><textarea aria-describedby=\"ch17-kinch-v020-l05-change-response-status\" data-note-input=\"ch17-kinch-v020-l05-change-response\" id=\"ch17-kinch-v020-l05-change-response\" rows=\"5\"></textarea><p class=\"writing-status\" data-note-status=\"ch17-kinch-v020-l05-change-response\" id=\"ch17-kinch-v020-l05-change-response-status\">Optional response. Select Save response to collect it. Maximum 5000 characters.</p><button data-save-note=\"ch17-kinch-v020-l05-change-response\" type=\"button\">Save response</button></div>",
+      "hintText": "Optional hint: locate the changed allele pair Only the second parent's height pair changed. Which colour allele must that parent contribute? Which height allele must it now contribute? Compare the resulting gamete with each of the first parent's four types.",
+      "hintHtml": "<details><summary>Optional hint: locate the changed allele pair</summary><p>Only the second parent's height pair changed. Which colour allele must that parent contribute? Which height allele must it now contribute? Compare the resulting gamete with each of the first parent's four types.</p></details>",
+      "modelCriteriaFeedbackText": "Compare the retained and revised reasoning The RrTt parent still produces RT, Rt, rT and rt, each with probability ¼. rrtt contributes r at the colour locus and t at the height locus, so its only distinct gamete is rt, with probability 1. A four-row, one-column grid is sufficient. Complete comparison for RrTt × rrtt RrTt gamete rrtt gamete Offspring genotype and phenotype RT rt RrTt — red, tall Rt rt Rrtt — red, short rT rt rrTt — yellow, tall rt rt rrtt — yellow, short Each genotype has probability ¼ × 1 = ¼, so the four genotype probabilities total 1. They also give four different phenotypes, each with probability ¼. Two cells are tt: the short proportion is 2/4 = ½, and the other half are tall. The old ¼ short prediction no longer applies because the second parent always supplies t instead of supplying T or t. The colour cross remains Rr × rr. Half the offspring receive R from the first parent and are Rr, red; half receive r and are rr, yellow. Thus the overall red/yellow proportions remain ½ and ½ even though the four joint colour/height probabilities have changed. The unchanged colour conclusion and the changed height conclusion come from different loci. Check your response: keep the first parent's list; reduce the second to rt; size the grid from those lists; show the two tt outcomes; explain why the overall colour proportions survive while the height probability changes. A four-by-two grid could use two identical rt columns with appropriate weights, but that would add an unnecessary duplicate, not another gamete type. Retaining the old rT column would be a different error: rrtt cannot contribute T.",
+      "modelCriteriaFeedbackHtml": "<details><summary>Compare the retained and revised reasoning</summary><p>The RrTt parent still produces RT, Rt, rT and rt, each with probability ¼. rrtt contributes r at the colour locus and t at the height locus, so its only distinct gamete is rt, with probability 1. A four-row, one-column grid is sufficient.</p><div class=\"comparison-table\"><table><caption>Complete comparison for RrTt × rrtt</caption><thead><tr><th scope=\"col\">RrTt gamete</th><th scope=\"col\">rrtt gamete</th><th scope=\"col\">Offspring genotype and phenotype</th></tr></thead><tbody><tr><th scope=\"row\">RT</th><td>rt</td><td>RrTt — red, tall</td></tr><tr><th scope=\"row\">Rt</th><td>rt</td><td>Rrtt — red, short</td></tr><tr><th scope=\"row\">rT</th><td>rt</td><td>rrTt — yellow, tall</td></tr><tr><th scope=\"row\">rt</th><td>rt</td><td>rrtt — yellow, short</td></tr></tbody></table></div><p>Each genotype has probability ¼ × 1 = ¼, so the four genotype probabilities total 1. They also give four different phenotypes, each with probability ¼. Two cells are tt: the short proportion is 2/4 = ½, and the other half are tall. The old ¼ short prediction no longer applies because the second parent always supplies t instead of supplying T or t.</p><p>The colour cross remains Rr × rr. Half the offspring receive R from the first parent and are Rr, red; half receive r and are rr, yellow. Thus the overall red/yellow proportions remain ½ and ½ even though the four joint colour/height probabilities have changed. The unchanged colour conclusion and the changed height conclusion come from different loci.</p><p><strong>Check your response:</strong> keep the first parent's list; reduce the second to rt; size the grid from those lists; show the two tt outcomes; explain why the overall colour proportions survive while the height probability changes. A four-by-two grid could use two identical rt columns with appropriate weights, but that would add an unnecessary duplicate, not another gamete type. Retaining the old rT column would be a different error: rrtt cannot contribute T.</p></details>",
+      "completeTaskHtml": "<section class=\"content-section\" id=\"ch17-kinch-v020-l05-change-task\">\n<h3>Change one parent and keep only the reasoning that still applies</h3>\n<p>A grower now keeps the RrTt parent but replaces the rrTt parent with an <strong>rrtt</strong> plant. The allele meanings and the independent-assortment model are unchanged.</p>\n<div class=\"comparison-table\">\n<table>\n<caption>The one change to the tomato cross</caption>\n<thead><tr><th scope=\"col\">Case</th><th scope=\"col\">Parent 1</th><th scope=\"col\">Parent 2</th></tr></thead>\n<tbody><tr><th scope=\"row\">Worked cross</th><td>RrTt</td><td>rrTt</td></tr><tr><th scope=\"row\">New cross</th><td>RrTt</td><td>rrtt</td></tr></tbody>\n</table>\n</div>\n<p>Which parental gamete list stays the same, and which must change? Give both lists and the new grid dimensions. Use them to find the proportion of offspring that will be short, and decide whether the earlier red/yellow proportions still hold. Explain why each retained or revised prediction follows from the allele contributions.</p>\n<p>This practice is optional and ungraded. Save your reasoning, then open the comparison deliberately. It does not count toward required chapter progress.</p>\n<div class=\"optional-writing\"><label for=\"ch17-kinch-v020-l05-change-response\">Your revised gametes and predictions</label><textarea aria-describedby=\"ch17-kinch-v020-l05-change-response-status\" data-note-input=\"ch17-kinch-v020-l05-change-response\" id=\"ch17-kinch-v020-l05-change-response\" rows=\"5\"></textarea><p class=\"writing-status\" data-note-status=\"ch17-kinch-v020-l05-change-response\" id=\"ch17-kinch-v020-l05-change-response-status\">Optional response. Select Save response to collect it. Maximum 5000 characters.</p><button data-save-note=\"ch17-kinch-v020-l05-change-response\" type=\"button\">Save response</button></div>\n<details><summary>Optional hint: locate the changed allele pair</summary><p>Only the second parent's height pair changed. Which colour allele must that parent contribute? Which height allele must it now contribute? Compare the resulting gamete with each of the first parent's four types.</p></details>\n<details><summary>Compare the retained and revised reasoning</summary><p>The RrTt parent still produces RT, Rt, rT and rt, each with probability ¼. rrtt contributes r at the colour locus and t at the height locus, so its only distinct gamete is rt, with probability 1. A four-row, one-column grid is sufficient.</p><div class=\"comparison-table\"><table><caption>Complete comparison for RrTt × rrtt</caption><thead><tr><th scope=\"col\">RrTt gamete</th><th scope=\"col\">rrtt gamete</th><th scope=\"col\">Offspring genotype and phenotype</th></tr></thead><tbody><tr><th scope=\"row\">RT</th><td>rt</td><td>RrTt — red, tall</td></tr><tr><th scope=\"row\">Rt</th><td>rt</td><td>Rrtt — red, short</td></tr><tr><th scope=\"row\">rT</th><td>rt</td><td>rrTt — yellow, tall</td></tr><tr><th scope=\"row\">rt</th><td>rt</td><td>rrtt — yellow, short</td></tr></tbody></table></div><p>Each genotype has probability ¼ × 1 = ¼, so the four genotype probabilities total 1. They also give four different phenotypes, each with probability ¼. Two cells are tt: the short proportion is 2/4 = ½, and the other half are tall. The old ¼ short prediction no longer applies because the second parent always supplies t instead of supplying T or t.</p><p>The colour cross remains Rr × rr. Half the offspring receive R from the first parent and are Rr, red; half receive r and are rr, yellow. Thus the overall red/yellow proportions remain ½ and ½ even though the four joint colour/height probabilities have changed. The unchanged colour conclusion and the changed height conclusion come from different loci.</p><p><strong>Check your response:</strong> keep the first parent's list; reduce the second to rt; size the grid from those lists; show the two tt outcomes; explain why the overall colour proportions survive while the height probability changes. A four-by-two grid could use two identical rt columns with appropriate weights, but that would add an unnecessary duplicate, not another gamete type. Retaining the old rT column would be a different error: rrtt cannot contribute T.</p></details>\n</section>",
+      "optional": true,
+      "savedInNativeNotes": true,
+      "graded": false,
+      "requiredProgressContribution": 0,
+      "automaticallySaveGated": false,
+      "sourceContract": {
+        "id": "ch17-kinch-v020-l05-change-task",
+        "responseId": "ch17-kinch-v020-l05-change-response",
+        "title": "Change one parent and keep only the reasoning that still applies",
+        "range": {
+          "startByte": 200094,
+          "endByteExclusive": 204007,
+          "bytes": 3913,
+          "sha256": "541be9540ef4b88a6961d5a528f0e4c9a69f3ef60dcd3f166fb049f1c71aeceb"
+        },
+        "rawBefore": "source-assessment-v0.3.0/analysis/native-preflight/raw-before/lesson-05/ch17-kinch-v020-l05-change-task.html.txt",
+        "controls": [
+          {
+            "tag": "label",
+            "attributes": {
+              "for": "ch17-kinch-v020-l05-change-response"
+            },
+            "range": {
+              "startByte": 201309,
+              "endByteExclusive": 201402,
+              "bytes": 93,
+              "sha256": "33068a9f545b7ec980ce3eb321f7e04657d2fd332da8bacd74bbb4470d6a89db"
+            },
+            "exactHtml": "<label for=\"ch17-kinch-v020-l05-change-response\">Your revised gametes and predictions</label>"
+          },
+          {
+            "tag": "textarea",
+            "attributes": {
+              "aria-describedby": "ch17-kinch-v020-l05-change-response-status",
+              "data-note-input": "ch17-kinch-v020-l05-change-response",
+              "id": "ch17-kinch-v020-l05-change-response",
+              "rows": "5"
+            },
+            "range": {
+              "startByte": 201402,
+              "endByteExclusive": 201589,
+              "bytes": 187,
+              "sha256": "35db0f9375b38d18e5c1ffecacddde122da64c396649cf9642b64754c7e1d9c9"
+            },
+            "exactHtml": "<textarea aria-describedby=\"ch17-kinch-v020-l05-change-response-status\" data-note-input=\"ch17-kinch-v020-l05-change-response\" id=\"ch17-kinch-v020-l05-change-response\" rows=\"5\"></textarea>"
+          },
+          {
+            "tag": "p",
+            "attributes": {
+              "class": "writing-status",
+              "data-note-status": "ch17-kinch-v020-l05-change-response",
+              "id": "ch17-kinch-v020-l05-change-response-status"
+            },
+            "range": {
+              "startByte": 201589,
+              "endByteExclusive": 201801,
+              "bytes": 212,
+              "sha256": "7e6671936ffccc1a5f5356e179a5e5c37c32e5f3442e6a62769d83d3be1316a5"
+            },
+            "exactHtml": "<p class=\"writing-status\" data-note-status=\"ch17-kinch-v020-l05-change-response\" id=\"ch17-kinch-v020-l05-change-response-status\">Optional response. Select Save response to collect it. Maximum 5000 characters.</p>"
+          },
+          {
+            "tag": "button",
+            "attributes": {
+              "data-save-note": "ch17-kinch-v020-l05-change-response",
+              "type": "button"
+            },
+            "range": {
+              "startByte": 201801,
+              "endByteExclusive": 201898,
+              "bytes": 97,
+              "sha256": "3bb4a3119b1855fa433415d1e3d1dd97b8012ea91ee54de7f07b52721e194601"
+            },
+            "exactHtml": "<button data-save-note=\"ch17-kinch-v020-l05-change-response\" type=\"button\">Save response</button>"
+          }
+        ],
+        "plainDisclosureCount": 2,
+        "automaticallySaveGated": false
+      },
+      "integratedAllMyWorkTitle": "Change one parent and keep only the reasoning that still applies",
+      "contentOwner": "root-authored changed task",
+      "rootChangePurpose": "Make the existing optional activity consistently change rrTt to rrtt from the restored baseline, with complete4×1 calculation, height/colour comparison and exact native note controls."
+    },
+    {
+      "id": "ch17-kinch-v020-l05-evidence-task",
+      "route": "lesson-05",
+      "responseId": "ch17-kinch-v020-l05-evidence-response",
+      "title": "Decide what the new offspring settles—and what it leaves open",
+      "visibleStimulusText": "Use this hypothetical plant model. V is completely dominant for violet flowers; vv gives white flowers. L is completely dominant for smooth leaves; ll gives lobed leaves. The loci assort independently, the stated parentage is known, and these genotype-to-phenotype rules apply reliably. A breeding record with incomplete parental genotypes Record Flower and leaf phenotype What is already known about the genotype Parent 1 Violet flowers, lobed leaves V_ll Parent 2 White flowers, smooth leaves vvL_ One observed offspring White flowers, smooth leaves Use the phenotype rules to determine what is forced and what remains possible. A classmate says that this offspring must fill both parental blanks, just as the yellow, spherical squash offspring did. Evaluate that claim. Identify the allele each parent had to contribute to this offspring, state which parental genotype is now forced and which possibilities remain for the other parent, and name a further offspring leaf phenotype that would settle the remaining blank. Explain whether a finite run of smooth-leaf offspring alone would settle it. This practice is optional and ungraded. Save your first explanation, then intentionally open the comparison. It does not count toward required chapter progress.",
+      "visibleStimulusHtml": "<p>Use this hypothetical plant model. <strong>V</strong> is completely dominant for violet flowers; <strong>vv</strong> gives white flowers. <strong>L</strong> is completely dominant for smooth leaves; <strong>ll</strong> gives lobed leaves. The loci assort independently, the stated parentage is known, and these genotype-to-phenotype rules apply reliably.</p>\n<div class=\"comparison-table\">\n<table>\n<caption>A breeding record with incomplete parental genotypes</caption>\n<thead><tr><th scope=\"col\">Record</th><th scope=\"col\">Flower and leaf phenotype</th><th scope=\"col\">What is already known about the genotype</th></tr></thead>\n<tbody><tr><th scope=\"row\">Parent 1</th><td>Violet flowers, lobed leaves</td><td>V_ll</td></tr><tr><th scope=\"row\">Parent 2</th><td>White flowers, smooth leaves</td><td>vvL_</td></tr><tr><th scope=\"row\">One observed offspring</th><td>White flowers, smooth leaves</td><td>Use the phenotype rules to determine what is forced and what remains possible.</td></tr></tbody>\n</table>\n</div>\n<p>A classmate says that this offspring must fill both parental blanks, just as the yellow, spherical squash offspring did. Evaluate that claim. Identify the allele each parent had to contribute to this offspring, state which parental genotype is now forced and which possibilities remain for the other parent, and name a further offspring leaf phenotype that would settle the remaining blank. Explain whether a finite run of smooth-leaf offspring alone would settle it.</p>\n<p>This practice is optional and ungraded. Save your first explanation, then intentionally open the comparison. It does not count toward required chapter progress.</p>\n",
+      "responseInstruction": "Your evidence-based parental-genotype explanation",
+      "completeInterfaceHtml": "<div class=\"optional-writing\"><label for=\"ch17-kinch-v020-l05-evidence-response\">Your evidence-based parental-genotype explanation</label><textarea aria-describedby=\"ch17-kinch-v020-l05-evidence-response-status\" data-note-input=\"ch17-kinch-v020-l05-evidence-response\" id=\"ch17-kinch-v020-l05-evidence-response\" rows=\"5\"></textarea><p class=\"writing-status\" data-note-status=\"ch17-kinch-v020-l05-evidence-response\" id=\"ch17-kinch-v020-l05-evidence-response-status\">Optional response. Select Save response to collect it. Maximum 5000 characters.</p><button data-save-note=\"ch17-kinch-v020-l05-evidence-response\" type=\"button\">Save response</button></div>",
+      "hintText": "Optional hint: inspect each missing allele separately White flowers require vv, so trace one v back to each parent. For the leaves, the lobed parent can contribute only l. A smooth child must also have L, but does that tell you whether the other parent has a second L or an l?",
+      "hintHtml": "<details><summary>Optional hint: inspect each missing allele separately</summary><p>White flowers require vv, so trace one v back to each parent. For the leaves, the lobed parent can contribute only l. A smooth child must also have L, but does that tell you whether the other parent has a second L or an l?</p></details>",
+      "modelCriteriaFeedbackText": "Compare the evidence and its limit The white offspring is vv, so each parent supplied v. Parent 1 already showed the violet phenotype and therefore had V; supplying v forces it to be Vvll . Parent 2 was already known to be vv. For leaf shape, parent 1 supplies l. The smooth offspring must have received L from parent 2, giving the offspring vvLl . The actual gamete contributions to this offspring were vl from parent 1 and vL from parent 2. Parent 2 could still be vvLL or vvLl . Both can supply vL, so this observed offspring does not reveal the second leaf-shape allele. The classmate's claim goes too far: in the squash example the offspring expressed the recessive form at both loci and required both recessive contributions; here smooth leaves show that L was supplied, not that parent 2 lacks l. A further lobed-leaf offspring would be ll. Parent 1 supplies l, so the second l would have to come from parent 2, forcing that parent to be vvLl. If parent 2 is vvLL, it contributes L every time and all offspring are smooth. If it is vvLl, its L and l contributions make both smooth and lobed offspring possible. A finite run containing only smooth offspring is possible under either candidate; it does not logically force LL. You do not need to assign a probability to the two possible parents to state this limit. Check your response: force Vvll for parent 1 using the observed v contribution; retain both vvLL and vvLl for parent 2; identify the observed child's Ll pair and the vL contribution; explain why an ll child would settle the second blank but smooth-only observations do not prove it.",
+      "modelCriteriaFeedbackHtml": "<details><summary>Compare the evidence and its limit</summary><p>The white offspring is vv, so each parent supplied v. Parent 1 already showed the violet phenotype and therefore had V; supplying v forces it to be <strong>Vvll</strong>. Parent 2 was already known to be vv. For leaf shape, parent 1 supplies l. The smooth offspring must have received L from parent 2, giving the offspring <strong>vvLl</strong>. The actual gamete contributions to this offspring were vl from parent 1 and vL from parent 2.</p><p>Parent 2 could still be <strong>vvLL or vvLl</strong>. Both can supply vL, so this observed offspring does not reveal the second leaf-shape allele. The classmate's claim goes too far: in the squash example the offspring expressed the recessive form at both loci and required both recessive contributions; here smooth leaves show that L was supplied, not that parent 2 lacks l.</p><p>A further <strong>lobed-leaf offspring</strong> would be ll. Parent 1 supplies l, so the second l would have to come from parent 2, forcing that parent to be vvLl. If parent 2 is vvLL, it contributes L every time and all offspring are smooth. If it is vvLl, its L and l contributions make both smooth and lobed offspring possible. A finite run containing only smooth offspring is possible under either candidate; it does not logically force LL. You do not need to assign a probability to the two possible parents to state this limit.</p><p><strong>Check your response:</strong> force Vvll for parent 1 using the observed v contribution; retain both vvLL and vvLl for parent 2; identify the observed child's Ll pair and the vL contribution; explain why an ll child would settle the second blank but smooth-only observations do not prove it.</p></details>",
+      "completeTaskHtml": "<section class=\"content-section\" id=\"ch17-kinch-v020-l05-evidence-task\">\n<h3>Decide what the new offspring settles—and what it leaves open</h3>\n<p>Use this hypothetical plant model. <strong>V</strong> is completely dominant for violet flowers; <strong>vv</strong> gives white flowers. <strong>L</strong> is completely dominant for smooth leaves; <strong>ll</strong> gives lobed leaves. The loci assort independently, the stated parentage is known, and these genotype-to-phenotype rules apply reliably.</p>\n<div class=\"comparison-table\">\n<table>\n<caption>A breeding record with incomplete parental genotypes</caption>\n<thead><tr><th scope=\"col\">Record</th><th scope=\"col\">Flower and leaf phenotype</th><th scope=\"col\">What is already known about the genotype</th></tr></thead>\n<tbody><tr><th scope=\"row\">Parent 1</th><td>Violet flowers, lobed leaves</td><td>V_ll</td></tr><tr><th scope=\"row\">Parent 2</th><td>White flowers, smooth leaves</td><td>vvL_</td></tr><tr><th scope=\"row\">One observed offspring</th><td>White flowers, smooth leaves</td><td>Use the phenotype rules to determine what is forced and what remains possible.</td></tr></tbody>\n</table>\n</div>\n<p>A classmate says that this offspring must fill both parental blanks, just as the yellow, spherical squash offspring did. Evaluate that claim. Identify the allele each parent had to contribute to this offspring, state which parental genotype is now forced and which possibilities remain for the other parent, and name a further offspring leaf phenotype that would settle the remaining blank. Explain whether a finite run of smooth-leaf offspring alone would settle it.</p>\n<p>This practice is optional and ungraded. Save your first explanation, then intentionally open the comparison. It does not count toward required chapter progress.</p>\n<div class=\"optional-writing\"><label for=\"ch17-kinch-v020-l05-evidence-response\">Your evidence-based parental-genotype explanation</label><textarea aria-describedby=\"ch17-kinch-v020-l05-evidence-response-status\" data-note-input=\"ch17-kinch-v020-l05-evidence-response\" id=\"ch17-kinch-v020-l05-evidence-response\" rows=\"5\"></textarea><p class=\"writing-status\" data-note-status=\"ch17-kinch-v020-l05-evidence-response\" id=\"ch17-kinch-v020-l05-evidence-response-status\">Optional response. Select Save response to collect it. Maximum 5000 characters.</p><button data-save-note=\"ch17-kinch-v020-l05-evidence-response\" type=\"button\">Save response</button></div>\n<details><summary>Optional hint: inspect each missing allele separately</summary><p>White flowers require vv, so trace one v back to each parent. For the leaves, the lobed parent can contribute only l. A smooth child must also have L, but does that tell you whether the other parent has a second L or an l?</p></details>\n<details><summary>Compare the evidence and its limit</summary><p>The white offspring is vv, so each parent supplied v. Parent 1 already showed the violet phenotype and therefore had V; supplying v forces it to be <strong>Vvll</strong>. Parent 2 was already known to be vv. For leaf shape, parent 1 supplies l. The smooth offspring must have received L from parent 2, giving the offspring <strong>vvLl</strong>. The actual gamete contributions to this offspring were vl from parent 1 and vL from parent 2.</p><p>Parent 2 could still be <strong>vvLL or vvLl</strong>. Both can supply vL, so this observed offspring does not reveal the second leaf-shape allele. The classmate's claim goes too far: in the squash example the offspring expressed the recessive form at both loci and required both recessive contributions; here smooth leaves show that L was supplied, not that parent 2 lacks l.</p><p>A further <strong>lobed-leaf offspring</strong> would be ll. Parent 1 supplies l, so the second l would have to come from parent 2, forcing that parent to be vvLl. If parent 2 is vvLL, it contributes L every time and all offspring are smooth. If it is vvLl, its L and l contributions make both smooth and lobed offspring possible. A finite run containing only smooth offspring is possible under either candidate; it does not logically force LL. You do not need to assign a probability to the two possible parents to state this limit.</p><p><strong>Check your response:</strong> force Vvll for parent 1 using the observed v contribution; retain both vvLL and vvLl for parent 2; identify the observed child's Ll pair and the vL contribution; explain why an ll child would settle the second blank but smooth-only observations do not prove it.</p></details>\n</section>",
+      "optional": true,
+      "savedInNativeNotes": true,
+      "graded": false,
+      "requiredProgressContribution": 0,
+      "automaticallySaveGated": false,
+      "sourceContract": {
+        "id": "ch17-kinch-v020-l05-evidence-task",
+        "responseId": "ch17-kinch-v020-l05-evidence-response",
+        "title": "Decide what the new offspring settles—and what it leaves open",
+        "range": {
+          "startByte": 209158,
+          "endByteExclusive": 213695,
+          "bytes": 4537,
+          "sha256": "545343eb9be903740eda4fa5258a96eb5c82de05327de2ee734143bea75fc97d"
+        },
+        "rawBefore": "source-assessment-v0.3.0/analysis/native-preflight/raw-before/lesson-05/ch17-kinch-v020-l05-evidence-task.html.txt",
+        "controls": [
+          {
+            "tag": "label",
+            "attributes": {
+              "for": "ch17-kinch-v020-l05-evidence-response"
+            },
+            "range": {
+              "startByte": 210993,
+              "endByteExclusive": 211101,
+              "bytes": 108,
+              "sha256": "eec2243df7dfea17d39f9aa6fa0b514f86b784bca9a1f24f97953c8fa505a8fb"
+            },
+            "exactHtml": "<label for=\"ch17-kinch-v020-l05-evidence-response\">Your evidence-based parental-genotype explanation</label>"
+          },
+          {
+            "tag": "textarea",
+            "attributes": {
+              "aria-describedby": "ch17-kinch-v020-l05-evidence-response-status",
+              "data-note-input": "ch17-kinch-v020-l05-evidence-response",
+              "id": "ch17-kinch-v020-l05-evidence-response",
+              "rows": "5"
+            },
+            "range": {
+              "startByte": 211101,
+              "endByteExclusive": 211294,
+              "bytes": 193,
+              "sha256": "fdbcac01fcf68107b32ab4716e0fce0a87fdffc846fce7bb3e2e7adec504a379"
+            },
+            "exactHtml": "<textarea aria-describedby=\"ch17-kinch-v020-l05-evidence-response-status\" data-note-input=\"ch17-kinch-v020-l05-evidence-response\" id=\"ch17-kinch-v020-l05-evidence-response\" rows=\"5\"></textarea>"
+          },
+          {
+            "tag": "p",
+            "attributes": {
+              "class": "writing-status",
+              "data-note-status": "ch17-kinch-v020-l05-evidence-response",
+              "id": "ch17-kinch-v020-l05-evidence-response-status"
+            },
+            "range": {
+              "startByte": 211294,
+              "endByteExclusive": 211510,
+              "bytes": 216,
+              "sha256": "39335eec40025972b29794126a78e3844720aeae390a69cb0d195708e2fb2544"
+            },
+            "exactHtml": "<p class=\"writing-status\" data-note-status=\"ch17-kinch-v020-l05-evidence-response\" id=\"ch17-kinch-v020-l05-evidence-response-status\">Optional response. Select Save response to collect it. Maximum 5000 characters.</p>"
+          },
+          {
+            "tag": "button",
+            "attributes": {
+              "data-save-note": "ch17-kinch-v020-l05-evidence-response",
+              "type": "button"
+            },
+            "range": {
+              "startByte": 211510,
+              "endByteExclusive": 211609,
+              "bytes": 99,
+              "sha256": "8a917f1f72535a635febb537cdacf277641f7729b875ac4afd7e5a368e23dccf"
+            },
+            "exactHtml": "<button data-save-note=\"ch17-kinch-v020-l05-evidence-response\" type=\"button\">Save response</button>"
+          }
+        ],
+        "plainDisclosureCount": 2,
+        "automaticallySaveGated": false
+      },
+      "integratedAllMyWorkTitle": "Decide what the new offspring settles—and what it leaves open",
+      "contentOwner": "unchanged uploaded integrated baseline",
+      "rootChangePurpose": null
+    }
+  ],
+  "optionalActivityCount": 4,
+  "selectedRequiredItems": [
+    {
+      "id": "ch17-l02-check-mc-1",
+      "route": "lesson-02",
+      "kind": "mc",
+      "changed": false,
+      "item": {
+        "prompt": "Why can a recessive phenotype reappear in the F2 generation?",
+        "answer": "Each heterozygous parent can contribute the recessive allele",
+        "explanation": "Two recessive contributions can form a homozygous recessive offspring.",
+        "cue": "Trace the normal mechanism before choosing an answer.",
+        "id": "ch17-l02-check-mc-1",
+        "options": [
+          "The recessive allele is always recreated by mutation",
+          "Dominant alleles vanish after one generation",
+          "Each heterozygous parent can contribute the recessive allele",
+          "Gametes carry both parental alleles together at every locus"
+        ],
+        "difficulty": "application"
+      },
+      "htmlOwner": {
+        "path": "output/Biology30_CH17_Source_Assessment_Trial_v0.3.0/raw-before/integrated-v020/questions/ch17-l02-check-mc-1.html.txt",
+        "bytes": 1540,
+        "sha256": "a36418f28981e943bd36dd064536cbccb7e2faf02cc58cd531a5278cde99f03e"
+      },
+      "jsonItemOwner": {
+        "path": "output/Biology30_CH17_Source_Assessment_Trial_v0.3.0/raw-before/integrated-v020/questions/ch17-l02-check-mc-1.json.txt",
+        "bytes": 603,
+        "sha256": "906c62f4c83c6a0f2b918e856c5be8100b63ca56213c483cc17423188b99014a"
+      },
+      "integratedBeforeHtmlRange": {
+        "startByte": 127533,
+        "endByteExclusive": 129073,
+        "bytes": 1540,
+        "sha256": "a36418f28981e943bd36dd064536cbccb7e2faf02cc58cd531a5278cde99f03e"
+      },
+      "integratedBeforeJsonRange": {
+        "startByte": 3153960,
+        "endByteExclusive": 3154563,
+        "bytes": 603,
+        "sha256": "906c62f4c83c6a0f2b918e856c5be8100b63ca56213c483cc17423188b99014a"
+      },
+      "resolvedNativeFeedback": {
+        "success": "Correct. Two recessive contributions can form a homozygous recessive offspring.",
+        "firstIncorrect": "Not correct yet. Hint: Trace the normal mechanism before choosing an answer.",
+        "laterIncorrect": "Not correct yet. Answer: Each heterozygous parent can contribute the recessive allele. Two recessive contributions can form a homozygous recessive offspring. Select and check the correct answer to unlock the writing."
+      },
+      "writingReview": null
+    },
+    {
+      "id": "ch17-l02-check-mc-2",
+      "route": "lesson-02",
+      "kind": "mc",
+      "changed": false,
+      "item": {
+        "prompt": "A heterozygote has six dominant-phenotype offspring in succession in a suitable cross. Does that prove segregation stopped?",
+        "answer": "No; small samples can differ from expected ratios",
+        "explanation": "Probabilistic outcomes can form runs without changing the mechanism.",
+        "cue": "Trace the normal mechanism before choosing an answer.",
+        "id": "ch17-l02-check-mc-2",
+        "options": [
+          "Yes; meiosis makes only one type of gamete after the first birth",
+          "No; because alleles are not inherited",
+          "Yes; every short run must exactly match the expected ratio",
+          "No; small samples can differ from expected ratios"
+        ],
+        "difficulty": "application"
+      },
+      "htmlOwner": {
+        "path": "output/Biology30_CH17_Source_Assessment_Trial_v0.3.0/raw-before/integrated-v020/questions/ch17-l02-check-mc-2.html.txt",
+        "bytes": 1589,
+        "sha256": "957f799b58748d7c803065ec8f6bb4bb83ba9d576a3695c2a1615cb7a2e9b8f6"
+      },
+      "jsonItemOwner": {
+        "path": "output/Biology30_CH17_Source_Assessment_Trial_v0.3.0/raw-before/integrated-v020/questions/ch17-l02-check-mc-2.json.txt",
+        "bytes": 646,
+        "sha256": "a0d5d4570699123b5087eb70428b752bc5c6e8dd6e9d2ed7eb28962e7540182d"
+      },
+      "integratedBeforeHtmlRange": {
+        "startByte": 129073,
+        "endByteExclusive": 130662,
+        "bytes": 1589,
+        "sha256": "957f799b58748d7c803065ec8f6bb4bb83ba9d576a3695c2a1615cb7a2e9b8f6"
+      },
+      "integratedBeforeJsonRange": {
+        "startByte": 3154565,
+        "endByteExclusive": 3155211,
+        "bytes": 646,
+        "sha256": "a0d5d4570699123b5087eb70428b752bc5c6e8dd6e9d2ed7eb28962e7540182d"
+      },
+      "resolvedNativeFeedback": {
+        "success": "Correct. Probabilistic outcomes can form runs without changing the mechanism.",
+        "firstIncorrect": "Not correct yet. Hint: Trace the normal mechanism before choosing an answer.",
+        "laterIncorrect": "Not correct yet. Answer: No; small samples can differ from expected ratios. Probabilistic outcomes can form runs without changing the mechanism. Select and check the correct answer to unlock the writing."
+      },
+      "writingReview": null
+    },
+    {
+      "id": "ch17-l02-check-writing-1",
+      "route": "lesson-02",
+      "kind": "writing",
+      "changed": true,
+      "item": {
+        "id": "ch17-l02-check-writing-1",
+        "prompt": "In a stated complete-dominance model, M is dominant to m. Before DNA copying, a diploid plant cell has M on one homologue and m on the other at this locus. After normal copying, there are two M-bearing sister chromatids and two m-bearing sister chromatids. A student says, ‘There are now four allele versions, and each gamete must keep both M and m because the pair was copied.’ Repair both parts of the claim. Distinguish copies from allele versions, explain the relevant separations, and state the possible allele contribution of a normal gamete. Does m have to blend with M or be recreated to enter a gamete? Assume ordinary copying and meiosis without mutation.",
+        "model": "There are still two allele versions, M and m. Copying produced four physical copies of the tracked locus, two carrying M and two carrying m; it did not produce four different versions. The homologous chromosomes separate in meiosis I, and the sister chromatids separate in meiosis II, without another round of DNA copying between them. A normal gamete receives one chromosome set and therefore one allele at this locus: M or m, not the diploid pair Mm. Under ordinary equal segregation, either contribution has probability one half. The m version remains distinct during copying and separation and can enter a gamete directly; it neither blends with M nor needs to be recreated. Complete dominance explains the phenotype of the Mm parent, not which allele survives or how many alleles a gamete carries.",
+        "criteria": [
+          "Distinguishes two allele versions, M and m, from four physical copies of the locus after copying.",
+          "Connects homologue separation and later sister-chromatid separation to one allele per normal gamete, without extra copying between the divisions.",
+          "Identifies M or m as the possible single-locus gamete contribution, rather than Mm.",
+          "Explains that m remains distinct and available; dominance does not blend, destroy or recreate the allele."
+        ],
+        "limit": 3200
+      },
+      "htmlOwner": {
+        "path": "output/Biology30_CH17_Source_Assessment_Trial_v0.3.0/integration-text/assessment-html/ch17-l02-check-writing-1.html.txt",
+        "bytes": 2893,
+        "sha256": "0250f402b5fa6a5f65c9657b198369ae3dbd1873a08f794c163ca08f70b5e3ad"
+      },
+      "jsonItemOwner": {
+        "path": "output/Biology30_CH17_Source_Assessment_Trial_v0.3.0/integration-text/assessment-json/ch17-l02-check-writing-1.json",
+        "bytes": 2040,
+        "sha256": "746380cf22eee10bb1acf82e246352f1dc2e425927ad4f83676d36026e25b0d5"
+      },
+      "integratedBeforeHtmlRange": {
+        "startByte": 130865,
+        "endByteExclusive": 132393,
+        "bytes": 1528,
+        "sha256": "05b99f3d122bf8b20223240768319337b440998e5eee34fa1c3a8f8fddd3e844"
+      },
+      "integratedBeforeJsonRange": {
+        "startByte": 3155226,
+        "endByteExclusive": 3155873,
+        "bytes": 647,
+        "sha256": "68ce219e2a96eddea903284408e089c3c5bd4a41689d492f4ee32273bb470dfa"
+      },
+      "resolvedNativeFeedback": null,
+      "writingReview": "Human review; native Save/completion is not correctness grading."
+    },
+    {
+      "id": "ch17-l02-check-writing-2",
+      "route": "lesson-02",
+      "kind": "writing",
+      "changed": false,
+      "item": {
+        "prompt": "Distinguish an expected 3:1 phenotype ratio from an exact prediction for four offspring.",
+        "model": "The ratio represents probabilities under specified assumptions. Each offspring has the same modeled probabilities, but chance can produce different counts in a sample of four. Larger samples tend to show proportions closer to the expectation.",
+        "criteria": [
+          "Identifies the relevant structures or quantities.",
+          "Explains the causal relationship or calculation, not just the final result.",
+          "Uses the stated evidence and avoids a stronger conclusion than it supports."
+        ],
+        "id": "ch17-l02-check-writing-2",
+        "limit": 3200
+      },
+      "htmlOwner": {
+        "path": "output/Biology30_CH17_Source_Assessment_Trial_v0.3.0/raw-before/integrated-v020/questions/ch17-l02-check-writing-2.html.txt",
+        "bytes": 1512,
+        "sha256": "c4b1fbdce24ea348bdd428c75aefc94e38ed4595b3da39d546cf6006a600306f"
+      },
+      "jsonItemOwner": {
+        "path": "output/Biology30_CH17_Source_Assessment_Trial_v0.3.0/raw-before/integrated-v020/questions/ch17-l02-check-writing-2.json.txt",
+        "bytes": 631,
+        "sha256": "cec1200197c8c6f8b7b16c7ce498b222506885b169caf5ba8b1a94e110afcde3"
+      },
+      "integratedBeforeHtmlRange": {
+        "startByte": 132393,
+        "endByteExclusive": 133905,
+        "bytes": 1512,
+        "sha256": "c4b1fbdce24ea348bdd428c75aefc94e38ed4595b3da39d546cf6006a600306f"
+      },
+      "integratedBeforeJsonRange": {
+        "startByte": 3155875,
+        "endByteExclusive": 3156506,
+        "bytes": 631,
+        "sha256": "cec1200197c8c6f8b7b16c7ce498b222506885b169caf5ba8b1a94e110afcde3"
+      },
+      "resolvedNativeFeedback": null,
+      "writingReview": "Human review; native Save/completion is not correctness grading."
+    },
+    {
+      "id": "ch17-l05-check-mc-1",
+      "route": "lesson-05",
+      "kind": "mc",
+      "changed": false,
+      "item": {
+        "prompt": "What assumption is needed for multiplying separate two-locus probabilities in these examples?",
+        "answer": "The loci assort independently under the model",
+        "explanation": "Independence allows the product rule for locus outcomes.",
+        "cue": "Trace the normal mechanism before choosing an answer.",
+        "id": "ch17-l05-check-mc-1",
+        "options": [
+          "The loci assort independently under the model",
+          "The two genes must be identical",
+          "Every parent must be homozygous",
+          "Each offspring compensates for the previous one"
+        ],
+        "difficulty": "application"
+      },
+      "htmlOwner": {
+        "path": "output/Biology30_CH17_Source_Assessment_Trial_v0.3.0/raw-before/integrated-v020/questions/ch17-l05-check-mc-1.html.txt",
+        "bytes": 1451,
+        "sha256": "99ea64fda450675fd1466398a27de4c092b011424e0d1c52365c24c309112cef"
+      },
+      "jsonItemOwner": {
+        "path": "output/Biology30_CH17_Source_Assessment_Trial_v0.3.0/raw-before/integrated-v020/questions/ch17-l05-check-mc-1.json.txt",
+        "bytes": 546,
+        "sha256": "f0ce0cb3648abd9b325da4f4287ef4f46497e2ec5eac9ae5e165a0b1730fbf3a"
+      },
+      "integratedBeforeHtmlRange": {
+        "startByte": 220272,
+        "endByteExclusive": 221723,
+        "bytes": 1451,
+        "sha256": "99ea64fda450675fd1466398a27de4c092b011424e0d1c52365c24c309112cef"
+      },
+      "integratedBeforeJsonRange": {
+        "startByte": 3161343,
+        "endByteExclusive": 3161889,
+        "bytes": 546,
+        "sha256": "f0ce0cb3648abd9b325da4f4287ef4f46497e2ec5eac9ae5e165a0b1730fbf3a"
+      },
+      "resolvedNativeFeedback": {
+        "success": "Correct. Independence allows the product rule for locus outcomes.",
+        "firstIncorrect": "Not correct yet. Hint: Trace the normal mechanism before choosing an answer.",
+        "laterIncorrect": "Not correct yet. Answer: The loci assort independently under the model. Independence allows the product rule for locus outcomes. Select and check the correct answer to unlock the writing."
+      },
+      "writingReview": null
+    },
+    {
+      "id": "ch17-l05-check-mc-2",
+      "route": "lesson-05",
+      "kind": "mc",
+      "changed": true,
+      "item": {
+        "id": "ch17-l05-check-mc-2",
+        "prompt": "Use the stated pea model: TT and Tt are tall, tt is short; GG and Gg give green pods, gg gives yellow pods. Two TtGg parents are crossed with ordinary segregation, independent assortment, random fertilisation and reliable phenotype expression. For one offspring, what is the probability of being short or having yellow pods, including an offspring with both characteristics? The denominator includes all possible offspring, not only those showing one of these traits.",
+        "options": [
+          "1/16",
+          "3/16",
+          "7/16",
+          "1/2"
+        ],
+        "answer": "7/16",
+        "explanation": "Count three non-overlapping phenotype groups: short/green has probability 1/4 × 3/4 = 3/16; tall/yellow has probability 3/4 × 1/4 = 3/16; short/yellow has probability 1/4 × 1/4 = 1/16. Adding these mutually exclusive groups gives 7/16. The double-recessive offspring qualifies, but counts once. The remaining tall/green group is 9/16, so all four groups total 1. Choosing 1/16 counts only the offspring with both recessive phenotypes; 3/16 counts only one single-recessive group. Adding 1/4 short to 1/4 yellow to get 1/2 would count short/yellow offspring twice.",
+        "cue": "Separate the qualifying offspring into short/green, tall/yellow and short/yellow. Count each possible offspring in only one of those groups.",
+        "difficulty": "application"
+      },
+      "htmlOwner": {
+        "path": "output/Biology30_CH17_Source_Assessment_Trial_v0.3.0/integration-text/assessment-html/ch17-l05-check-mc-2.html.txt",
+        "bytes": 1547,
+        "sha256": "b6c7799412c019fed19fe9ec0ae49fd37fb9c247713354a3b512a5d88b723efb"
+      },
+      "jsonItemOwner": {
+        "path": "output/Biology30_CH17_Source_Assessment_Trial_v0.3.0/integration-text/assessment-json/ch17-l05-check-mc-2.json",
+        "bytes": 1374,
+        "sha256": "1d0d2b8c11e7790ba449f06acca670ad26ebc91f544d1976856e4793fb5c298b"
+      },
+      "integratedBeforeHtmlRange": {
+        "startByte": 221723,
+        "endByteExclusive": 222873,
+        "bytes": 1150,
+        "sha256": "35015e8877690bf8f43586136bab35c2609f5594bc5f687e8f22dc3d60cb97ae"
+      },
+      "integratedBeforeJsonRange": {
+        "startByte": 3161891,
+        "endByteExclusive": 3162219,
+        "bytes": 328,
+        "sha256": "1202627167362c8e8c520b343c9e441ec3fce39d6b20865acd7a04ff9693ebc9"
+      },
+      "resolvedNativeFeedback": {
+        "success": "Correct. Count three non-overlapping phenotype groups: short/green has probability 1/4 × 3/4 = 3/16; tall/yellow has probability 3/4 × 1/4 = 3/16; short/yellow has probability 1/4 × 1/4 = 1/16. Adding these mutually exclusive groups gives 7/16. The double-recessive offspring qualifies, but counts once. The remaining tall/green group is 9/16, so all four groups total 1. Choosing 1/16 counts only the offspring with both recessive phenotypes; 3/16 counts only one single-recessive group. Adding 1/4 short to 1/4 yellow to get 1/2 would count short/yellow offspring twice.",
+        "firstIncorrect": "Not correct yet. Hint: Separate the qualifying offspring into short/green, tall/yellow and short/yellow. Count each possible offspring in only one of those groups.",
+        "laterIncorrect": "Not correct yet. Answer: 7/16. Count three non-overlapping phenotype groups: short/green has probability 1/4 × 3/4 = 3/16; tall/yellow has probability 3/4 × 1/4 = 3/16; short/yellow has probability 1/4 × 1/4 = 1/16. Adding these mutually exclusive groups gives 7/16. The double-recessive offspring qualifies, but counts once. The remaining tall/green group is 9/16, so all four groups total 1. Choosing 1/16 counts only the offspring with both recessive phenotypes; 3/16 counts only one single-recessive group. Adding 1/4 short to 1/4 yellow to get 1/2 would count short/yellow offspring twice. Select and check the correct answer to unlock the writing."
+      },
+      "writingReview": null
+    },
+    {
+      "id": "ch17-l05-check-writing-1",
+      "route": "lesson-05",
+      "kind": "writing",
+      "changed": true,
+      "item": {
+        "id": "ch17-l05-check-writing-1",
+        "prompt": "A/a and B/b are alleles at two independently assorting autosomal loci. For AaBB × AaBb, a student intends each table header to name one distinct possible gamete type. The two row headers for AaBB are AB and aB. The four column headers for AaBb are AB, Ab, ab and ab. The student says, ‘A two-by-four table has eight boxes, so every possible gamete pairing is included once.’ Evaluate and repair the table. Derive the complete gamete list and probabilities for each parent, identify the defect in the proposed headers, and justify the probability of each cell in the corrected table. Assume ordinary equal segregation and random fertilisation.",
+        "model": "AaBB supplies A or a at the first locus, each with probability 1/2, and B at the second with probability 1. Its distinct gametes are AB and aB, each 1/2; the proposed rows are correct. AaBb supplies A or a and B or b, each at one half. Independent assortment gives AB, Ab, aB and ab, each 1/2 × 1/2 = 1/4. The proposed columns omit aB and repeat ab. Replace one ab header with aB. The dimensions can remain two by four, but the lists now include every distinct possible contribution. Eight boxes alone did not establish that: the original arrangement omitted valid pairings involving the second parent's aB gamete. Merely adjusting the weights of the repeated ab columns would not restore that missing type. In the corrected table, random fertilisation gives each pairing probability 1/2 × 1/4 = 1/8. Each parent's gamete probabilities total 1, and the eight cell probabilities total 8 × 1/8 = 1. A transposed four-by-two table with the same correct lists and weights is equally valid.",
+        "criteria": [
+          "Derives AB and aB at 1/2 each for AaBB, using the certain B contribution.",
+          "Derives AB, Ab, aB and ab at 1/4 each for AaBb from ordinary segregation and independent assortment.",
+          "Identifies both the missing aB and the duplicated ab; repairs the list and explains why correct dimensions alone do not show completeness.",
+          "Justifies each corrected pairing as 1/2 × 1/4 = 1/8 under random fertilisation and checks the gamete and cell probabilities total 1."
+        ],
+        "limit": 3200
+      },
+      "htmlOwner": {
+        "path": "output/Biology30_CH17_Source_Assessment_Trial_v0.3.0/integration-text/assessment-html/ch17-l05-check-writing-1.html.txt",
+        "bytes": 3071,
+        "sha256": "38aed68ffcd1102959217d95cc974aa020d25d8dc5e7b317d82eb1e2782ebe7f"
+      },
+      "jsonItemOwner": {
+        "path": "output/Biology30_CH17_Source_Assessment_Trial_v0.3.0/integration-text/assessment-json/ch17-l05-check-writing-1.json",
+        "bytes": 2218,
+        "sha256": "69c5823eea0ca6ff8576821d7921b425c6f74cd5caac6c8abecaee7970503684"
+      },
+      "integratedBeforeHtmlRange": {
+        "startByte": 223076,
+        "endByteExclusive": 224552,
+        "bytes": 1476,
+        "sha256": "847596093539629d0001685de7c26d51859ab4209c9b98dfe556276c21b5cb1e"
+      },
+      "integratedBeforeJsonRange": {
+        "startByte": 3162234,
+        "endByteExclusive": 3162829,
+        "bytes": 595,
+        "sha256": "ce350aedac4355f10d7769103a837a7588986f332a3412025a7553f370d6d312"
+      },
+      "resolvedNativeFeedback": null,
+      "writingReview": "Human review; native Save/completion is not correctness grading."
+    },
+    {
+      "id": "ch17-l05-check-writing-2",
+      "route": "lesson-05",
+      "kind": "writing",
+      "changed": true,
+      "item": {
+        "id": "ch17-l05-check-writing-2",
+        "prompt": "In a hypothetical plant model, CC and Cc give coloured petals, cc gives white petals; HH and Hh give hairy stems, hh gives smooth stems. Two CcHh parents are crossed with ordinary segregation, independent assortment, random fertilisation and reliable expression. A student predicts that 9/16 of their offspring will be homozygous at each of the two loci because 9/16 have coloured petals and hairy stems. Evaluate the prediction. List the offspring genotypes that are homozygous at both loci and calculate their combined probability for one offspring, showing the allele contributions or separate-locus probabilities and justifying your operations.",
+        "model": "The prediction confuses genotype with phenotype. Each CcHh parent can make CH, Ch, cH and ch gametes, each with probability 1/4 under independent assortment. At the C locus, Cc × Cc gives 1/4 CC, 1/2 Cc and 1/4 cc. Homozygosity includes CC or cc, so add these exclusive alternatives: 1/4 + 1/4 = 1/2. At the H locus, Hh × Hh similarly gives 1/4 HH, 1/2 Hh and 1/4 hh, with homozygosity probability 1/2. The question requires homozygosity at both independent loci, so multiply 1/2 × 1/2 = 1/4. The qualifying genotypes are CCHH, CChh, ccHH and cchh. Each occurs in one of the sixteen equally likely gamete pairings, so their combined probability is 4/16, confirming 1/4. The other twelve pairings contain heterozygosity at one or both loci; 4/16 + 12/16 = 1. The 9/16 coloured/hairy group also includes CCHh, CcHH and CcHh, which are heterozygous at one or both loci. Conversely, some double-homozygous offspring express a recessive phenotype. Dominant appearance therefore does not identify the requested genotype group.",
+        "criteria": [
+          "Distinguishes homozygosity at each locus from expression of both dominant phenotypes.",
+          "Identifies all four qualifying genotypes: CCHH, CChh, ccHH and cchh.",
+          "Derives each single-locus homozygosity probability as 1/4 + 1/4 = 1/2 and multiplies the two independent requirements, or gives an equivalent correctly weighted sixteen-pairing method.",
+          "Concludes 1/4, checks the counted possibilities, and explains why the 9/16 coloured/hairy group includes genotypes that do not qualify."
+        ],
+        "limit": 3200
+      },
+      "htmlOwner": {
+        "path": "output/Biology30_CH17_Source_Assessment_Trial_v0.3.0/integration-text/assessment-html/ch17-l05-check-writing-2.html.txt",
+        "bytes": 3135,
+        "sha256": "49c3804388d3c25dd80b3a0366a0e28f048d7c06f6b16a8f59719c02493cf21a"
+      },
+      "jsonItemOwner": {
+        "path": "output/Biology30_CH17_Source_Assessment_Trial_v0.3.0/integration-text/assessment-json/ch17-l05-check-writing-2.json",
+        "bytes": 2282,
+        "sha256": "4a1006653299a24ddd914be11f676653c393d1e80888bc3c56f0a44681840a0f"
+      },
+      "integratedBeforeHtmlRange": {
+        "startByte": 224552,
+        "endByteExclusive": 225988,
+        "bytes": 1436,
+        "sha256": "e17b2971640c6ab6f81b09da2f993078efe5913b1b22df0b049dea5d22067457"
+      },
+      "integratedBeforeJsonRange": {
+        "startByte": 3162831,
+        "endByteExclusive": 3163386,
+        "bytes": 555,
+        "sha256": "e00e4effe0cf71b92d9ea30770e59d90c1845f09a95d8ab7f3d716c088ac9853"
+      },
+      "resolvedNativeFeedback": null,
+      "writingReview": "Human review; native Save/completion is not correctness grading."
+    }
+  ],
+  "selectedRequiredItemCount": 8,
+  "completeCurrentContentIncluded": true,
+  "optionalRequiredProgressContribution": 0,
+  "nativeUITests": "not run"
+}

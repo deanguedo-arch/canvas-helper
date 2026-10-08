@@ -1,0 +1,1099 @@
+{
+  "reviewedManuscript": {
+    "bytes": 48681,
+    "sha256": "e8e28af60b4fd9f2727dcea81ccc9ab9d630530a5d546b495149bef2bb0250e2"
+  },
+  "reviewedFragment": {
+    "bytes": 29330,
+    "sha256": "0a9c4872e8a65813229c7f1258b154315faeb8f71f04dc8342ac50abb454527a"
+  },
+  "authoredSemanticBlocksChecked": 136,
+  "authoredSemanticBlocksMissing": [],
+  "nativeFeedbackAndTaskRecordsChecked": 28,
+  "nativeFieldValuesChecked": 175,
+  "missingNativeFieldValues": [],
+  "recordPointers": [
+    "checks[6].mc[0]",
+    "checks[6].mc[1]",
+    "checks[6].writing[0]",
+    "checks[6].writing[1]",
+    "guidedActivities[6].guided.items[0]",
+    "guidedActivities[6].guided.items[1]",
+    "practiceQuestions[19]",
+    "practiceQuestions[46]",
+    "practiceQuestions[47]",
+    "practiceQuestions[48]",
+    "practiceQuestions[49]",
+    "authoredPractice[6]",
+    "authoredPractice[6].flashVariant",
+    "typedPractice[24]",
+    "typedPractice[25]",
+    "typedPractice[26]",
+    "typedPractice[27]",
+    "multiSelectPractice[2]",
+    "diagramPractice[8]",
+    "diagramPractice[9]",
+    "diagramPractice[10]",
+    "diagramPractice[11]",
+    "practiceConcepts[24]",
+    "practiceConcepts[25]",
+    "practiceConcepts[26]",
+    "practiceConcepts[27]",
+    "videos[6]",
+    "videos[7]"
+  ],
+  "fieldChecks": [
+    {
+      "sourceField": "checks[6].mc[0].prompt",
+      "text": "Which statement correctly describes multiple alleles?",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "checks[6].mc[0].answer",
+      "text": "A population can have more than two alleles while an individual carries two",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "checks[6].mc[0].explanation",
+      "text": "Population diversity and diploid allele count are separate.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "checks[6].mc[0].cue",
+      "text": "Trace the normal mechanism before choosing an answer.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "checks[6].mc[0].options[0]",
+      "text": "A population can have more than two alleles while an individual carries two",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "checks[6].mc[0].options[1]",
+      "text": "Each allele belongs to a different chromosome type",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "checks[6].mc[0].options[2]",
+      "text": "Multiple alleles abolish segregation",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "checks[6].mc[0].options[3]",
+      "text": "Every individual must carry every population allele",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "checks[6].mc[1].prompt",
+      "text": "For IAi × IBi, what is the probability of type AB?",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "checks[6].mc[1].answer",
+      "text": "1/4",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "checks[6].mc[1].explanation",
+      "text": "Only the IA × IB combination gives IAIB among four equally likely combinations.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "checks[6].mc[1].cue",
+      "text": "Trace the normal mechanism before choosing an answer.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "checks[6].mc[1].options[0]",
+      "text": "0",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "checks[6].mc[1].options[1]",
+      "text": "1/4",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "checks[6].mc[1].options[2]",
+      "text": "1/2",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "checks[6].mc[1].options[3]",
+      "text": "3/4",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "checks[6].writing[0].prompt",
+      "text": "List the ABO genotypes in the simplified model and explain the dominance relationships.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "checks[6].writing[0].model",
+      "text": "Type A is IAIA or IAi, type B is IBIB or IBi, type AB is IAIB, and type O is ii. IA and IB are codominant with one another and each is dominant over i.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "checks[6].writing[0].criteria[0]",
+      "text": "Identifies the relevant structures or quantities.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "checks[6].writing[0].criteria[1]",
+      "text": "Explains the causal relationship or calculation, not just the final result.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "checks[6].writing[0].criteria[2]",
+      "text": "Uses the stated evidence and avoids a stronger conclusion than it supports.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "checks[6].writing[1].prompt",
+      "text": "A type A individual has a type O parent and a type O partner. Determine the possible offspring groups and show the reasoning.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "checks[6].writing[1].model",
+      "text": "The type O parent supplied i, so the type A individual is IAi. The partner is ii. IAi × ii produces IAi and ii with equal probability, giving expected type A and type O offspring in a 1:1 ratio.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "checks[6].writing[1].criteria[0]",
+      "text": "Identifies the relevant structures or quantities.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "checks[6].writing[1].criteria[1]",
+      "text": "Explains the causal relationship or calculation, not just the final result.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "checks[6].writing[1].criteria[2]",
+      "text": "Uses the stated evidence and avoids a stronger conclusion than it supports.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "guidedActivities[6].guided.items[0].prompt",
+      "text": "What genotype corresponds to type AB?",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "guidedActivities[6].guided.items[0].answer",
+      "text": "IAIB",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "guidedActivities[6].guided.items[0].explanation",
+      "text": "Both antigen-associated alleles are present and expressed.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "guidedActivities[6].guided.items[0].cue",
+      "text": "AB represents codominant expression, not a recessive allele.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "guidedActivities[6].guided.items[0].hint",
+      "text": "AB represents codominant expression, not a recessive allele.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "guidedActivities[6].guided.items[0].options[0]",
+      "text": "IAIB",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "guidedActivities[6].guided.items[0].options[1]",
+      "text": "IBi",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "guidedActivities[6].guided.items[0].options[2]",
+      "text": "IAi",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "guidedActivities[6].guided.items[1].prompt",
+      "text": "For IAi × ii, what fraction is type O?",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "guidedActivities[6].guided.items[1].answer",
+      "text": "1/2",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "guidedActivities[6].guided.items[1].explanation",
+      "text": "The combinations are IAi and ii equally.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "guidedActivities[6].guided.items[1].cue",
+      "text": "The ii parent always supplies i.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "guidedActivities[6].guided.items[1].hint",
+      "text": "The ii parent always supplies i.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "guidedActivities[6].guided.items[1].options[0]",
+      "text": "1/4",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "guidedActivities[6].guided.items[1].options[1]",
+      "text": "1/2",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "guidedActivities[6].guided.items[1].options[2]",
+      "text": "0",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "practiceQuestions[19].prompt",
+      "text": "In the standard ABO model, what is the probability of type A from IAi × IAi?",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "practiceQuestions[19].answer",
+      "text": "75%",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "practiceQuestions[19].explanation",
+      "text": "IAIA and IAi produce type A; ii produces O. Three of four combinations are type A.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "practiceQuestions[19].cue",
+      "text": "Identify the relevant mechanism or quantity and apply the stated model.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "practiceQuestions[19].options[0]",
+      "text": "100%",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "practiceQuestions[19].options[1]",
+      "text": "25%",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "practiceQuestions[19].options[2]",
+      "text": "50%",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "practiceQuestions[19].options[3]",
+      "text": "75%",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "practiceQuestions[46].prompt",
+      "text": "Which term matches this description? More than two allele versions of one gene present in a population.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "practiceQuestions[46].answer",
+      "text": "multiple alleles",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "practiceQuestions[46].explanation",
+      "text": "More than two allele versions of one gene present in a population. An individual still usually carries only two alleles at that autosomal locus.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "practiceQuestions[46].cue",
+      "text": "Use the meaning of each term, not the length of its name.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "practiceQuestions[46].options[0]",
+      "text": "multiple alleles",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "practiceQuestions[46].options[1]",
+      "text": "ABO blood group",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "practiceQuestions[46].options[2]",
+      "text": "codominant alleles",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "practiceQuestions[46].options[3]",
+      "text": "carrier",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "practiceQuestions[47].prompt",
+      "text": "Which term matches this description? A blood-group system modeled with IA, IB and i alleles producing A, B, AB and O phenotypes.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "practiceQuestions[47].answer",
+      "text": "ABO blood group",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "practiceQuestions[47].explanation",
+      "text": "A blood-group system modeled with IA, IB and i alleles producing A, B, AB and O phenotypes. The classroom model omits rare variants and is not a transfusion decision tool.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "practiceQuestions[47].cue",
+      "text": "Use the meaning of each term, not the length of its name.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "practiceQuestions[47].options[0]",
+      "text": "multiple alleles",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "practiceQuestions[47].options[1]",
+      "text": "ABO blood group",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "practiceQuestions[47].options[2]",
+      "text": "codominant alleles",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "practiceQuestions[47].options[3]",
+      "text": "carrier",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "practiceQuestions[48].prompt",
+      "text": "Which term matches this description? Alleles whose contributions are both expressed in the heterozygote.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "practiceQuestions[48].answer",
+      "text": "codominant alleles",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "practiceQuestions[48].explanation",
+      "text": "Alleles whose contributions are both expressed in the heterozygote. Both are dominant over i in the simplified ABO model.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "practiceQuestions[48].cue",
+      "text": "Use the meaning of each term, not the length of its name.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "practiceQuestions[48].options[0]",
+      "text": "multiple alleles",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "practiceQuestions[48].options[1]",
+      "text": "ABO blood group",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "practiceQuestions[48].options[2]",
+      "text": "codominant alleles",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "practiceQuestions[48].options[3]",
+      "text": "carrier",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "practiceQuestions[49].prompt",
+      "text": "Which term matches this description? An individual who carries a recessive disease-associated allele without expressing the recessive condition in a specified simple model.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "practiceQuestions[49].answer",
+      "text": "carrier",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "practiceQuestions[49].explanation",
+      "text": "An individual who carries a recessive disease-associated allele without expressing the recessive condition in a specified simple model. Use carrier only when the inheritance model and trait make the meaning appropriate.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "practiceQuestions[49].cue",
+      "text": "Use the meaning of each term, not the length of its name.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "practiceQuestions[49].options[0]",
+      "text": "multiple alleles",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "practiceQuestions[49].options[1]",
+      "text": "ABO blood group",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "practiceQuestions[49].options[2]",
+      "text": "codominant alleles",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "practiceQuestions[49].options[3]",
+      "text": "carrier",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "authoredPractice[6].prompt",
+      "text": "A type AB parent and a type O parent have a child. Which groups are possible in the standard model?",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "authoredPractice[6].answer",
+      "text": "A or B",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "authoredPractice[6].explanation",
+      "text": "IAIB × ii produces IAi or IBi, not IAIB or ii.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "authoredPractice[6].cue",
+      "text": "Trace the normal mechanism before choosing an answer.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "authoredPractice[6].options[0]",
+      "text": "O only",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "authoredPractice[6].options[1]",
+      "text": "All four equally",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "authoredPractice[6].options[2]",
+      "text": "A or B",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "authoredPractice[6].options[3]",
+      "text": "AB or O",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "authoredPractice[6].flashVariant.prompt",
+      "text": "A type AB parent and a type O parent have a child. Which groups are possible in the standard model?",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "authoredPractice[6].flashVariant.model",
+      "text": "A or B. IAIB × ii produces IAi or IBi, not IAIB or ii.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "typedPractice[24].prompt",
+      "text": "Identify the term illustrated: The simplified ABO model includes IA, IB and i.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "typedPractice[24].answer",
+      "text": "multiple alleles",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "typedPractice[24].explanation",
+      "text": "More than two allele versions of one gene present in a population. An individual still usually carries only two alleles at that autosomal locus.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "typedPractice[24].cue",
+      "text": "Use the relationship described in the example.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "typedPractice[25].prompt",
+      "text": "Identify the term illustrated: IAIB expresses both A and B antigen types.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "typedPractice[25].answer",
+      "text": "ABO blood group",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "typedPractice[25].explanation",
+      "text": "A blood-group system modeled with IA, IB and i alleles producing A, B, AB and O phenotypes. The classroom model omits rare variants and is not a transfusion decision tool.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "typedPractice[25].cue",
+      "text": "Use the relationship described in the example.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "typedPractice[26].prompt",
+      "text": "Identify the term illustrated: IA and IB are both expressed in the IAIB genotype.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "typedPractice[26].answer",
+      "text": "codominant alleles",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "typedPractice[26].explanation",
+      "text": "Alleles whose contributions are both expressed in the heterozygote. Both are dominant over i in the simplified ABO model.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "typedPractice[26].cue",
+      "text": "Use the relationship described in the example.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "typedPractice[27].prompt",
+      "text": "Identify the term illustrated: A heterozygote passes a recessive allele to offspring while showing the dominant phenotype.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "typedPractice[27].answer",
+      "text": "carrier",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "typedPractice[27].explanation",
+      "text": "An individual who carries a recessive disease-associated allele without expressing the recessive condition in a specified simple model. Use carrier only when the inheritance model and trait make the meaning appropriate.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "typedPractice[27].cue",
+      "text": "Use the relationship described in the example.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "multiSelectPractice[2].prompt",
+      "text": "Select the TWO accurate statements about multiple alleles and abo blood groups.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "multiSelectPractice[2].explanation",
+      "text": "An individual still usually carries only two alleles at that autosomal locus. Both are dominant over i in the simplified ABO model. The classroom model omits rare variants and is not a transfusion decision tool. Use carrier only when the inheritance model and trait make the meaning appropriate.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "multiSelectPractice[2].cue",
+      "text": "Check every statement against the mechanism; do not assume a negative statement is correct.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "multiSelectPractice[2].options[0].text",
+      "text": "Every person with a dominant disease allele is an unaffected carrier.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "multiSelectPractice[2].options[1].text",
+      "text": "An individual still usually carries only two alleles at that autosomal locus.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "multiSelectPractice[2].options[2].text",
+      "text": "ABO group alone is enough for every clinical transfusion decision.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "multiSelectPractice[2].options[3].text",
+      "text": "Both are dominant over i in the simplified ABO model.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "diagramPractice[8].prompt",
+      "text": "What does letter A identify?",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "diagramPractice[8].explanation",
+      "text": "Letter A identifies AB.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "diagramPractice[8].cue",
+      "text": "Follow the leader line or the lettered feature. Read any stated model assumptions.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "diagramPractice[8].options[0]",
+      "text": "AB",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "diagramPractice[8].options[1]",
+      "text": "O",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "diagramPractice[8].options[2]",
+      "text": "B",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "diagramPractice[8].options[3]",
+      "text": "A",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "diagramPractice[9].prompt",
+      "text": "What does letter B identify?",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "diagramPractice[9].explanation",
+      "text": "Letter B identifies B.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "diagramPractice[9].cue",
+      "text": "Follow the leader line or the lettered feature. Read any stated model assumptions.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "diagramPractice[9].options[0]",
+      "text": "AB",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "diagramPractice[9].options[1]",
+      "text": "B",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "diagramPractice[9].options[2]",
+      "text": "A",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "diagramPractice[9].options[3]",
+      "text": "O",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "diagramPractice[10].prompt",
+      "text": "What does letter C identify?",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "diagramPractice[10].explanation",
+      "text": "Letter C identifies A.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "diagramPractice[10].cue",
+      "text": "Follow the leader line or the lettered feature. Read any stated model assumptions.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "diagramPractice[10].options[0]",
+      "text": "B",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "diagramPractice[10].options[1]",
+      "text": "O",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "diagramPractice[10].options[2]",
+      "text": "A",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "diagramPractice[10].options[3]",
+      "text": "AB",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "diagramPractice[11].prompt",
+      "text": "What does letter D identify?",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "diagramPractice[11].explanation",
+      "text": "Letter D identifies O.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "diagramPractice[11].cue",
+      "text": "Follow the leader line or the lettered feature. Read any stated model assumptions.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "diagramPractice[11].options[0]",
+      "text": "A",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "diagramPractice[11].options[1]",
+      "text": "AB",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "diagramPractice[11].options[2]",
+      "text": "B",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "diagramPractice[11].options[3]",
+      "text": "O",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "practiceConcepts[24].cue",
+      "text": "Identify the structure, quantity or relationship described.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "practiceConcepts[24].term",
+      "text": "multiple alleles",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "practiceConcepts[24].meaning",
+      "text": "More than two allele versions of one gene present in a population.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "practiceConcepts[24].example",
+      "text": "The simplified ABO model includes IA, IB and i.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "practiceConcepts[24].correctExplanation",
+      "text": "More than two allele versions of one gene present in a population. An individual still usually carries only two alleles at that autosomal locus.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "practiceConcepts[24].misconception.statement",
+      "text": "Multiple alleles means every person carries three ABO alleles.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "practiceConcepts[24].misconception.correction",
+      "text": "More than two allele versions of one gene present in a population. An individual still usually carries only two alleles at that autosomal locus.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "practiceConcepts[25].cue",
+      "text": "Identify the structure, quantity or relationship described.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "practiceConcepts[25].term",
+      "text": "ABO blood group",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "practiceConcepts[25].meaning",
+      "text": "A blood-group system modeled with IA, IB and i alleles producing A, B, AB and O phenotypes.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "practiceConcepts[25].example",
+      "text": "IAIB expresses both A and B antigen types.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "practiceConcepts[25].correctExplanation",
+      "text": "A blood-group system modeled with IA, IB and i alleles producing A, B, AB and O phenotypes. The classroom model omits rare variants and is not a transfusion decision tool.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "practiceConcepts[25].misconception.statement",
+      "text": "ABO group alone is enough for every clinical transfusion decision.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "practiceConcepts[25].misconception.correction",
+      "text": "A blood-group system modeled with IA, IB and i alleles producing A, B, AB and O phenotypes. The classroom model omits rare variants and is not a transfusion decision tool.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "practiceConcepts[26].cue",
+      "text": "Identify the structure, quantity or relationship described.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "practiceConcepts[26].term",
+      "text": "codominant alleles",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "practiceConcepts[26].meaning",
+      "text": "Alleles whose contributions are both expressed in the heterozygote.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "practiceConcepts[26].example",
+      "text": "IA and IB are both expressed in the IAIB genotype.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "practiceConcepts[26].correctExplanation",
+      "text": "Alleles whose contributions are both expressed in the heterozygote. Both are dominant over i in the simplified ABO model.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "practiceConcepts[26].misconception.statement",
+      "text": "IA must completely mask IB.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "practiceConcepts[26].misconception.correction",
+      "text": "Alleles whose contributions are both expressed in the heterozygote. Both are dominant over i in the simplified ABO model.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "practiceConcepts[27].cue",
+      "text": "Identify the structure, quantity or relationship described.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "practiceConcepts[27].term",
+      "text": "carrier",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "practiceConcepts[27].meaning",
+      "text": "An individual who carries a recessive disease-associated allele without expressing the recessive condition in a specified simple model.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "practiceConcepts[27].example",
+      "text": "A heterozygote passes a recessive allele to offspring while showing the dominant phenotype.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "practiceConcepts[27].correctExplanation",
+      "text": "An individual who carries a recessive disease-associated allele without expressing the recessive condition in a specified simple model. Use carrier only when the inheritance model and trait make the meaning appropriate.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "practiceConcepts[27].misconception.statement",
+      "text": "Every person with a dominant disease allele is an unaffected carrier.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "practiceConcepts[27].misconception.correction",
+      "text": "An individual who carries a recessive disease-associated allele without expressing the recessive condition in a specified simple model. Use carrier only when the inheritance model and trait make the meaning appropriate.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "videos[6].purpose",
+      "text": "Use the ABO model to distinguish population allele diversity from individual genotype and solve blood-group crosses.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "videos[6].fallback",
+      "text": "Type A can be IAIA or IAi. Type B can be IBIB or IBi. Type AB is IAIB, and type O is ii in the standard model. The phenotypes A and B leave genotype uncertainty unless additional family information is available. An individual with type B and a type O parent must have inherited i from that parent. Therefore the type B individual's genotype is IBi. This is the same constraint reasoning used in a test cross. Use clear notation. IAIB represents two alleles of one gene, not four separate genes. In plain text, write IA and IB consistently and keep the allele pairs grouped.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "videos[7].purpose",
+      "text": "Use the ABO model to distinguish population allele diversity from individual genotype and solve blood-group crosses.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    },
+    {
+      "sourceField": "videos[7].fallback",
+      "text": "Type A can be IAIA or IAi. Type B can be IBIB or IBi. Type AB is IAIB, and type O is ii in the standard model. The phenotypes A and B leave genotype uncertainty unless additional family information is available. An individual with type B and a type O parent must have inherited i from that parent. Therefore the type B individual's genotype is IBi. This is the same constraint reasoning used in a test cross. Use clear notation. IAIB represents two alleles of one gene, not four separate genes. In plain text, write IA and IB consistently and keep the allele pairs grouped.",
+      "present": true,
+      "exactStringPresentAfterEntityDecoding": true
+    }
+  ],
+  "scope": "Static visible-text retention plus complete human reading, not rendering/runtime acceptance; protected textbook data outside this manuscript not asserted reproduced.",
+  "missingExactStringValuesAfterEntityDecoding": []
+}

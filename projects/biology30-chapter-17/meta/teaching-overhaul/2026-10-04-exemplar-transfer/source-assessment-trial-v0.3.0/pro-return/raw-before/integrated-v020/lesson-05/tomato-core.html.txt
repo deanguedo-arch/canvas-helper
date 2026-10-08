@@ -1,0 +1,39 @@
+
+<p class="section-label">Worked example</p>
+<h2>A tomato cross with four gametes from one parent and two from the other</h2>
+<p>Use a tomato model in which red fruit is dominant to yellow fruit and tall plants are dominant to short plants. Use <strong>R/r</strong> for fruit colour and <strong>T/t</strong> for height. Here RR and Rr produce red fruit, rr produces yellow fruit; TT and Tt are tall, tt is short. The loci assort independently, with the same random-fertilisation and expression assumptions used above.</p>
+<p><strong>The first parent is heterozygous for both traits. The second is homozygous dominant for fruit colour and heterozygous for height.</strong> Find the genotype and phenotype of each parent, then the proportions of offspring in the four fruit-colour/height categories. Start with the words, not a memorized ratio.</p>
+<h3>Translate the parents and identify the gametes</h3>
+<p>Heterozygous for both traits means one of each allele at each locus: parent 1 is <strong>RrTt</strong>, red and tall. Homozygous dominant for colour means RR, while heterozygous for height means Tt: parent 2 is <strong>RRTt</strong>, also red and tall. Their shared appearance does not make their allele contributions identical.</p>
+<div class="comparison-table">
+<table>
+<caption>Possible gametes for RrTt × RRTt</caption>
+<thead><tr><th scope="col">Parent</th><th scope="col">One allele from each locus</th><th scope="col">Distinct gametes and probabilities</th></tr></thead>
+<tbody><tr><th scope="row">RrTt</th><td>R or r, each ½; T or t, each ½</td><td>RT, Rt, rT, rt; each ½ × ½ = ¼</td></tr><tr><th scope="row">RRTt</th><td>R with probability 1; T or t, each ½</td><td>RT, Rt; each 1 × ½ = ½</td></tr></tbody>
+</table>
+</div>
+<p>RR supplies only the R allele version at the colour locus. Listing the two chromosome copies as two different R gamete types would duplicate an identical possibility. The second parent therefore needs two columns, while the first needs four rows. The grid size follows the <strong>distinct gametes</strong>; it is not automatically four by four just because two traits are involved.</p>
+<h3>Combine one row contribution with one column contribution</h3>
+<p>Each pairing has probability ¼ × ½ = <strong>⅛</strong>. For the rT row and Rt column, combine r with R to get Rr and T with t to get Tt. The offspring is RrTt, red and tall. Use the same locus-by-locus operation in every cell.</p>
+<div class="comparison-table">
+<table>
+<caption>Eight equally likely gamete pairings from RrTt × RRTt</caption>
+<thead><tr><th scope="col">Parent 1 gamete ↓ / parent 2 gamete →</th><th scope="col">RT, ½</th><th scope="col">Rt, ½</th></tr></thead>
+<tbody>
+<tr><th scope="row">RT, ¼</th><td>RRTT — red, tall</td><td>RRTt — red, tall</td></tr>
+<tr><th scope="row">Rt, ¼</th><td>RRTt — red, tall</td><td>RRtt — red, short</td></tr>
+<tr><th scope="row">rT, ¼</th><td>RrTT — red, tall</td><td>RrTt — red, tall</td></tr>
+<tr><th scope="row">rt, ¼</th><td>RrTt — red, tall</td><td>Rrtt — red, short</td></tr>
+</tbody>
+</table>
+</div>
+<p>The six distinct genotypes have the following counts among the eight cells: <strong>1 RRTT : 2 RRTt : 1 RRtt : 1 RrTT : 2 RrTt : 1 Rrtt</strong>. Their probabilities are those counts divided by eight, and the counts total eight. Keep this genotype grouping separate from the phenotype grouping below.</p>
+<div class="comparison-table">
+<table>
+<caption>Phenotype predictions for the tomato offspring</caption>
+<thead><tr><th scope="col">Requested phenotype</th><th scope="col">Contributing genotypes</th><th scope="col">Probability</th></tr></thead>
+<tbody><tr><th scope="row">Tall with red fruit</th><td>RRTT, RRTt, RrTT, RrTt</td><td>(1 + 2 + 1 + 2)/8 = 6/8 = ¾</td></tr><tr><th scope="row">Tall with yellow fruit</th><td>None; no offspring is rr</td><td>0</td></tr><tr><th scope="row">Short with red fruit</th><td>RRtt, Rrtt</td><td>(1 + 1)/8 = 2/8 = ¼</td></tr><tr><th scope="row">Short with yellow fruit</th><td>None; no offspring is rr</td><td>0</td></tr></tbody>
+</table>
+</div>
+<p>Every offspring receives R from the RR parent, so none can be rr. The yellow categories are impossible under this model even though the other parent carries r. At the height locus, Tt × Tt gives ¾ tall and ¼ short. The separate-locus check is therefore 1 × ¾ = ¾ red/tall and 1 × ¼ = ¼ red/short. The four mutually exclusive phenotype probabilities total ¾ + 0 + ¼ + 0 = 1.</p>
+<p>Writing the ratio in the requested category order gives <strong>3:0:1:0</strong>, or 3 red/tall to 1 red/short when only possible categories are listed. It does not mean that each next group of four offspring must contain exactly three tall plants. It does mean that a yellow-fruit offspring would require us to recheck the stated parentage, genotypes or phenotype model; chance alone cannot produce an allele pair that neither gamete combination supplies.</p>

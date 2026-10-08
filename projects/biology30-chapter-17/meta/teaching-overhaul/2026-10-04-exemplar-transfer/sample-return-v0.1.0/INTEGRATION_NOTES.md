@@ -1,0 +1,5 @@
+# Isolated teaching calibration: integration contract
+
+No replacement has been applied. INTEGRATION_MAP.json pins the original native owner, exact UTF-8 teaching intervals, complete replacement fragments, separately proposed header text and untouched prefix/activity/footer contracts. Raw-before contains exact source slices. Native runtime, CSS, fonts, storage, controls, reader, vocabulary, media, progress, saving, history, failure protections and metadata are not modified.
+
+The standalone teacher reading copy uses a small isolated typography stylesheet; it is not a native stylesheet or a Chapter11 runtime. Teaching fragments contain no new stylesheet or inline CSS. Vocabulary buttons become bold reading text, other native controls become plain text or option lists, and source feedback is shown in static disclosures. Exact fragment vocabulary/figure markup remains native. Teaching-only Markdown expands all hints/feedback and retains authored SVG labels as text; the readable HTML retains diagrams. No browser rendering or native technical test is claimed.

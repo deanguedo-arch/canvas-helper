@@ -1,0 +1,105 @@
+{
+  "version": "0.1.0",
+  "mediaDecision": "No decorative image is needed for these three reasoning/evidence routes; complete accessible semantic tables perform the visual work. Original14-topic review table is retained byte-exact.",
+  "visuals": [
+    {
+      "route": "lesson-14",
+      "caption": "Three steps in interpreting the fictional report",
+      "viewingPrompt": "Read row1 detection against row3 individual prediction; each extra inference needs evidence",
+      "source": "Original authored semantic table, fictional V/Q example",
+      "assetType": "native semantic table",
+      "status": "complete authored table",
+      "accessibility": "caption and scope row/col headings; all quantitative values also interpreted in adjacent prose"
+    },
+    {
+      "route": "lesson-14",
+      "caption": "Fictional study results over the same observation period",
+      "viewingPrompt": "Read12/200vs4/200 then188withoutQ; distinguish6%,2%,3-fold and4percentagepoints",
+      "source": "Original authored synthetic data; all numbers labelled fictional",
+      "assetType": "native semantic table",
+      "status": "complete authored table",
+      "accessibility": "caption and scope row/col headings; all quantitative values also interpreted in adjacent prose"
+    },
+    {
+      "route": "lesson-14",
+      "caption": "Questions that clarify the fictional research invitation",
+      "viewingPrompt": "Read a specific question and its consequence, rather than treating a signature as understanding",
+      "source": "Textbook616/618 principles; TCPS2 Chapter13; original explanatory table",
+      "assetType": "native semantic table",
+      "status": "complete authored table",
+      "accessibility": "caption and scope row/col headings; all quantitative values also interpreted in adjacent prose"
+    },
+    {
+      "route": "lesson-15",
+      "caption": "Constructed test-cross observations",
+      "viewingPrompt": "Compare unequal classes before calculating; identify what each phenotype reveals",
+      "source": "Original fictional dataset96,94,6,4; all counts explicitly constructed",
+      "assetType": "native semantic table",
+      "status": "complete authored table",
+      "accessibility": "caption and scope row/col headings; all quantitative values also interpreted in adjacent prose"
+    },
+    {
+      "route": "lesson-15",
+      "caption": "The fixed tester contribution makes the other gamete traceable",
+      "viewingPrompt": "Trace one informative-parent gamete with fixedab into a genotype and phase-based class",
+      "source": "Original semantic table grounded in source test-cross mechanism",
+      "assetType": "native semantic table",
+      "status": "complete authored table",
+      "accessibility": "caption and scope row/col headings; all quantitative values also interpreted in adjacent prose"
+    },
+    {
+      "route": "extension",
+      "caption": "How a sample becomes evidence in a hypothetical biobank study",
+      "viewingPrompt": "Follow linked stages and identify a problem that could undermine the next stage",
+      "source": "Original explanatory table based on supplied textbook618 with current research-ethics verification",
+      "assetType": "native semantic table",
+      "status": "complete authored table",
+      "accessibility": "caption and scope row/col headings; all quantitative values also interpreted in adjacent prose"
+    },
+    {
+      "route": "extension",
+      "caption": "Age categories in the same fictional sample",
+      "viewingPrompt": "Compare within age first; verify42%vs18% pooled but50%vs50% and10%vs10% within groups",
+      "source": "Original synthetic evidence model; no real participants or data",
+      "assetType": "native semantic table",
+      "status": "complete authored table",
+      "accessibility": "caption and scope row/col headings; all quantitative values also interpreted in adjacent prose"
+    },
+    {
+      "route": "extension",
+      "caption": "Questions for informed participation in a fictional biobank",
+      "viewingPrompt": "Connect each question to the missing practical information; no universal legal claim",
+      "source": "Original question table, supplied textbook618 issues, verified TCPS2/NHGRI support",
+      "assetType": "native semantic table",
+      "status": "complete authored table",
+      "accessibility": "caption and scope row/col headings; all quantitative values also interpreted in adjacent prose"
+    }
+  ],
+  "sources": [
+    {
+      "title": "Supplied Chapter17 textbook",
+      "pages": "610–618,619–621",
+      "sha256": "48e297aacb86275c106a02abdddaf0f0463ba47d6b17703a926aa68405755455"
+    },
+    {
+      "title": "MedlinePlus genetic test interpretation",
+      "url": "https://medlineplus.gov/genetics/understanding/testing/interpretingresults/"
+    },
+    {
+      "title": "TCPS2 human biological materials",
+      "url": "https://ethics.gc.ca/eng/tcps2-eptc2_2022_chapter12-chapitre12.html"
+    },
+    {
+      "title": "TCPS2 human genetic research",
+      "url": "https://ethics.gc.ca/eng/tcps2-eptc2_2022_chapter13-chapitre13.html"
+    },
+    {
+      "title": "NHGRI genomics consent",
+      "url": "https://www.genome.gov/about-genomics/policy-issues/Informed-Consent/Special-Considerations-for-Genome-Research"
+    },
+    {
+      "title": "Canola Council breeding history",
+      "url": "https://www.canolacouncil.org/canola-encyclopedia/history-of-canola-seed-development/"
+    }
+  ]
+}

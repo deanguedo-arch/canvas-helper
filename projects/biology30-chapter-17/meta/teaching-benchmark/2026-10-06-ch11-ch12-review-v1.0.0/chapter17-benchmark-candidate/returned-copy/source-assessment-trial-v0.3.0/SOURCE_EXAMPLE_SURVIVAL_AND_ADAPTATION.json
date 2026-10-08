@@ -1,0 +1,399 @@
+{
+  "document": "Source example survival and adaptation",
+  "version": "0.3.0",
+  "completeFragmentPins": [
+    {
+      "path": "output/Biology30_CH17_Source_Assessment_Trial_v0.3.0/integration-text/complete-teaching/lesson-02.teaching-fragment.html.txt",
+      "bytes": 18591,
+      "sha256": "a843cc369e041e244a5cc775907979d36b906b78b2fc3b39ed26a0757d395c00"
+    },
+    {
+      "path": "output/Biology30_CH17_Source_Assessment_Trial_v0.3.0/integration-text/complete-teaching/lesson-05.teaching-fragment.html.txt",
+      "bytes": 32125,
+      "sha256": "c0c83129effd4b3268d41493f0a5a8d0bc82870453df040fe86b829078d44a3a"
+    }
+  ],
+  "sourceExamples": [
+    {
+      "source": "PPT13–25; printed588–591/PDF5–8",
+      "example": "Flower observation and seed RR×rr→Rr→Rr×Rr",
+      "status": "preserved",
+      "currentBindings": [
+        "ch17-l02-teaching-01",
+        "ch17-l02-teaching-02",
+        "ch17-l02-worked"
+      ],
+      "survivingDemand": "Explain disappearance/reappearance, earn one-allele gametes before grid, distinguish genotype/phenotype and segregation/fusion.",
+      "adaptation": "Modern chromosome/copy and plant-life-cycle bridge is qualified explanatory synthesis; source generations remain visible."
+    },
+    {
+      "source": "Printed589/PDF6 Figure17.5",
+      "example": "5474 round and1850 wrinkled",
+      "status": "preserved",
+      "currentBindings": [
+        "ch17-l02-teaching-03"
+      ],
+      "survivingDemand": "Compare observed approximate2.96:1 with expected3:1 without a finite quota.",
+      "adaptation": "Raw counts remain source data; illustrative finite-sample reasoning is explanation."
+    },
+    {
+      "source": "PPT35–42; printed593/PDF10 Figure17.10;597/PDF14 Figure17.14",
+      "example": "TTGG×ttgg→TtGg self",
+      "status": "preserved",
+      "currentBindings": [
+        "ch17-l05-teaching-01",
+        "ch17-l05-teaching-02"
+      ],
+      "survivingDemand": "Question cross-locus dependence, derive four gametes, full16-cell/nine-genotype/four-phenotype9:3:3:1.",
+      "adaptation": "Explicit complete-dominance, independence, penetrance/scoring and distinct-cell assumptions; original typo not copied."
+    },
+    {
+      "source": "PPT43–45",
+      "example": "RrTt red/tall×rrTt yellow/tall",
+      "status": "restored to original source method",
+      "currentBindings": [
+        "ch17-l05-worked"
+      ],
+      "survivingDemand": "Words→parents→distinct gametes→weighted4×2→six genotypes→four nonzero phenotype groups3/8,3/8,1/8,1/8.",
+      "adaptation": "The v0.2.0 RRTt compromise is removed. No claim that its former four-to-two cost was equivalent."
+    },
+    {
+      "source": "PPT46–47",
+      "example": "wwD_×W_dd plus observedwwdd; W/D; N80",
+      "status": "preserved",
+      "currentBindings": [
+        "ch17-l05-teaching-03"
+      ],
+      "survivingDemand": "Inverse evidence earns wwDd×Wwdd before grid; expected40 white/20 yellow-spherical plants.",
+      "adaptation": "Fruit terminology, scored-plant denominator and expected-versus-actual language clarified. Cross is not called proof of independence."
+    },
+    {
+      "source": "PPT17–25/46–48 mechanisms",
+      "example": "Four optional activities",
+      "status": "three retained; dependent tomato activity repaired",
+      "currentBindings": [
+        "ch17-kinch-v020-l02-arrow-task",
+        "ch17-kinch-v020-l02-cross-task",
+        "ch17-kinch-v020-l05-change-task",
+        "ch17-kinch-v020-l05-evidence-task"
+      ],
+      "survivingDemand": "Arrow labels; reciprocal roles; changed-parent comparison; unresolved-versus-forced V/L genotype evidence.",
+      "adaptation": "Only rrTt→rrtt activity dependent stimulus/hint/model changes. Original IDs and note controls remain. These are authored formative tasks, not empirical studies."
+    }
+  ],
+  "assessmentDecisions": [
+    {
+      "id": "ch17-l02-check-mc-1",
+      "route": "lesson-02",
+      "role": "Retained required item",
+      "changed": false,
+      "topics": [
+        "Recessive reappearance from heterozygous contributions"
+      ],
+      "locators": [
+        "PPT actual17–25",
+        "Printed589/PDF6 Figure17.5; printed590/PDF7 Figures17.6–17.7"
+      ],
+      "visibleTeachingBindings": [
+        "ch17-l02-teaching-02",
+        "ch17-l02-worked"
+      ],
+      "origin": "Current integrated native item retained verbatim",
+      "qualification": "Retained native required item; its answer is explicitly taught. No freshness change authorized.",
+      "htmlFilePin": {
+        "path": "output/Biology30_CH17_Source_Assessment_Trial_v0.3.0/raw-before/integrated-v020/questions/ch17-l02-check-mc-1.html.txt",
+        "bytes": 1540,
+        "sha256": "a36418f28981e943bd36dd064536cbccb7e2faf02cc58cd531a5278cde99f03e"
+      },
+      "jsonItemFilePin": {
+        "path": "output/Biology30_CH17_Source_Assessment_Trial_v0.3.0/raw-before/integrated-v020/questions/ch17-l02-check-mc-1.json.txt",
+        "bytes": 603,
+        "sha256": "906c62f4c83c6a0f2b918e856c5be8100b63ca56213c483cc17423188b99014a"
+      },
+      "htmlRange": {
+        "startByte": 0,
+        "endByteExclusive": 1540
+      },
+      "jsonItemRange": {
+        "startByte": 0,
+        "endByteExclusive": 603
+      }
+    },
+    {
+      "id": "ch17-l02-check-mc-2",
+      "route": "lesson-02",
+      "role": "Retained required item",
+      "changed": false,
+      "topics": [
+        "Finite dominant runs do not prove segregation stopped"
+      ],
+      "locators": [
+        "Printed589/PDF6 Figure17.5 observed versus expected pattern",
+        "PPT actual15 schematic ratio, with author probability qualification"
+      ],
+      "visibleTeachingBindings": [
+        "ch17-l02-teaching-03"
+      ],
+      "origin": "Current integrated native item retained verbatim",
+      "qualification": "Retained native required item. Suitable cross is not numerically specified; a unique run probability is not inferred.",
+      "htmlFilePin": {
+        "path": "output/Biology30_CH17_Source_Assessment_Trial_v0.3.0/raw-before/integrated-v020/questions/ch17-l02-check-mc-2.html.txt",
+        "bytes": 1589,
+        "sha256": "957f799b58748d7c803065ec8f6bb4bb83ba9d576a3695c2a1615cb7a2e9b8f6"
+      },
+      "jsonItemFilePin": {
+        "path": "output/Biology30_CH17_Source_Assessment_Trial_v0.3.0/raw-before/integrated-v020/questions/ch17-l02-check-mc-2.json.txt",
+        "bytes": 646,
+        "sha256": "a0d5d4570699123b5087eb70428b752bc5c6e8dd6e9d2ed7eb28962e7540182d"
+      },
+      "htmlRange": {
+        "startByte": 0,
+        "endByteExclusive": 1589
+      },
+      "jsonItemRange": {
+        "startByte": 0,
+        "endByteExclusive": 646
+      }
+    },
+    {
+      "id": "ch17-l02-check-writing-1",
+      "route": "lesson-02",
+      "role": "Authorized replacement required item",
+      "changed": true,
+      "topics": [
+        "Distinguish physical copies from allele versions; repair whole-pair-per-gamete claim"
+      ],
+      "locators": [
+        "PPT actual17–25 contribution/segregation model",
+        "Printed589/PDF6 discrete factors and one-copy gametes; printed597/PDF14 Figure17.14",
+        "PPT actual41 image44 chromosome-division support outside02 core"
+      ],
+      "visibleTeachingBindings": [
+        "ch17-l02-teaching-02",
+        "ch17-l02-worked"
+      ],
+      "origin": "Authored application from source-derived teaching",
+      "qualification": "New authored application: hypothetical Mm copied cell and student claims. Two versions/four physical copied loci, then one allele in a normal gamete. Detailed copy/sister/life-cycle wording is qualified author synthesis, not a literal quoted source question.",
+      "htmlFilePin": {
+        "path": "output/Biology30_CH17_Source_Assessment_Trial_v0.3.0/integration-text/assessment-html/ch17-l02-check-writing-1.html.txt",
+        "bytes": 2893,
+        "sha256": "0250f402b5fa6a5f65c9657b198369ae3dbd1873a08f794c163ca08f70b5e3ad"
+      },
+      "jsonItemFilePin": {
+        "path": "output/Biology30_CH17_Source_Assessment_Trial_v0.3.0/integration-text/assessment-json/ch17-l02-check-writing-1.json",
+        "bytes": 2040,
+        "sha256": "746380cf22eee10bb1acf82e246352f1dc2e425927ad4f83676d36026e25b0d5"
+      },
+      "htmlRange": {
+        "startByte": 0,
+        "endByteExclusive": 2893
+      },
+      "jsonItemRange": {
+        "startByte": 0,
+        "endByteExclusive": 2040
+      }
+    },
+    {
+      "id": "ch17-l02-check-writing-2",
+      "route": "lesson-02",
+      "role": "Retained required item",
+      "changed": false,
+      "topics": [
+        "Expected3:1 versus an exact four-offspring quota"
+      ],
+      "locators": [
+        "Printed589/PDF6 Figure17.5",
+        "Printed590/PDF7 Figures17.6–17.7; PPT actual17–23"
+      ],
+      "visibleTeachingBindings": [
+        "ch17-l02-worked",
+        "ch17-l02-teaching-03"
+      ],
+      "origin": "Current integrated native item retained verbatim",
+      "qualification": "Retained native required item. Larger samples tend to approach modeled proportions; not a monotonic or guaranteed outcome.",
+      "htmlFilePin": {
+        "path": "output/Biology30_CH17_Source_Assessment_Trial_v0.3.0/raw-before/integrated-v020/questions/ch17-l02-check-writing-2.html.txt",
+        "bytes": 1512,
+        "sha256": "c4b1fbdce24ea348bdd428c75aefc94e38ed4595b3da39d546cf6006a600306f"
+      },
+      "jsonItemFilePin": {
+        "path": "output/Biology30_CH17_Source_Assessment_Trial_v0.3.0/raw-before/integrated-v020/questions/ch17-l02-check-writing-2.json.txt",
+        "bytes": 631,
+        "sha256": "cec1200197c8c6f8b7b16c7ce498b222506885b169caf5ba8b1a94e110afcde3"
+      },
+      "htmlRange": {
+        "startByte": 0,
+        "endByteExclusive": 1512
+      },
+      "jsonItemRange": {
+        "startByte": 0,
+        "endByteExclusive": 631
+      }
+    },
+    {
+      "id": "ch17-l05-check-mc-1",
+      "route": "lesson-05",
+      "role": "Retained required item",
+      "changed": false,
+      "topics": [
+        "Independence needed to multiply separate locus probabilities"
+      ],
+      "locators": [
+        "PPT actual40–42",
+        "Printed593/PDF10 Figure17.10; printed597/PDF14 Figure17.14"
+      ],
+      "visibleTeachingBindings": [
+        "ch17-l05-teaching-01",
+        "ch17-l05-teaching-02"
+      ],
+      "origin": "Current integrated native item retained verbatim",
+      "qualification": "Retained native required item. Independence across loci is distinct from random fertilisation across parental gametes.",
+      "htmlFilePin": {
+        "path": "output/Biology30_CH17_Source_Assessment_Trial_v0.3.0/raw-before/integrated-v020/questions/ch17-l05-check-mc-1.html.txt",
+        "bytes": 1451,
+        "sha256": "99ea64fda450675fd1466398a27de4c092b011424e0d1c52365c24c309112cef"
+      },
+      "jsonItemFilePin": {
+        "path": "output/Biology30_CH17_Source_Assessment_Trial_v0.3.0/raw-before/integrated-v020/questions/ch17-l05-check-mc-1.json.txt",
+        "bytes": 546,
+        "sha256": "f0ce0cb3648abd9b325da4f4287ef4f46497e2ec5eac9ae5e165a0b1730fbf3a"
+      },
+      "htmlRange": {
+        "startByte": 0,
+        "endByteExclusive": 1451
+      },
+      "jsonItemRange": {
+        "startByte": 0,
+        "endByteExclusive": 546
+      }
+    },
+    {
+      "id": "ch17-l05-check-mc-2",
+      "route": "lesson-05",
+      "role": "Authorized replacement required item",
+      "changed": true,
+      "topics": [
+        "Select short OR yellow for one TtGg-self offspring, counting overlap once"
+      ],
+      "locators": [
+        "PPT actual38–40 source pea outcomes",
+        "Printed593/PDF10 Figure17.10 phenotype groups"
+      ],
+      "visibleTeachingBindings": [
+        "ch17-l05-teaching-02"
+      ],
+      "origin": "Authored application from source-derived teaching",
+      "qualification": "New authored grouping decision on a deliberately familiar source cross. Three disjoint groups give3/16+3/16+1/16=7/16. All-offspring denominator; no conditional sampling or untaught advanced probability. Components are taught; whole union is not already solved as this task.",
+      "htmlFilePin": {
+        "path": "output/Biology30_CH17_Source_Assessment_Trial_v0.3.0/integration-text/assessment-html/ch17-l05-check-mc-2.html.txt",
+        "bytes": 1547,
+        "sha256": "b6c7799412c019fed19fe9ec0ae49fd37fb9c247713354a3b512a5d88b723efb"
+      },
+      "jsonItemFilePin": {
+        "path": "output/Biology30_CH17_Source_Assessment_Trial_v0.3.0/integration-text/assessment-json/ch17-l05-check-mc-2.json",
+        "bytes": 1374,
+        "sha256": "1d0d2b8c11e7790ba449f06acca670ad26ebc91f544d1976856e4793fb5c298b"
+      },
+      "htmlRange": {
+        "startByte": 0,
+        "endByteExclusive": 1547
+      },
+      "jsonItemRange": {
+        "startByte": 0,
+        "endByteExclusive": 1374
+      }
+    },
+    {
+      "id": "ch17-l05-check-writing-1",
+      "route": "lesson-05",
+      "role": "Authorized replacement required item",
+      "changed": true,
+      "topics": [
+        "Find omitted possible gamete and duplicate in a plausible2×4 list; repair weights"
+      ],
+      "locators": [
+        "PPT actual43–45 distinct-gamete/grid method; actual48 repeated-column caution",
+        "Printed593/PDF10 Figure17.10 locus contributions"
+      ],
+      "visibleTeachingBindings": [
+        "ch17-l05-teaching-01",
+        "ch17-l05-worked",
+        "ch17-kinch-v020-l05-change-task"
+      ],
+      "origin": "Authored application from source-derived teaching",
+      "qualification": "New authored AaBB×AaBb error record. Missing aB and duplicate ab make correct dimensions insufficient. Reweighting duplicates cannot restore omitted possibility. General gamete derivation transfers intentionally; no letter-only novelty claim.",
+      "htmlFilePin": {
+        "path": "output/Biology30_CH17_Source_Assessment_Trial_v0.3.0/integration-text/assessment-html/ch17-l05-check-writing-1.html.txt",
+        "bytes": 3071,
+        "sha256": "38aed68ffcd1102959217d95cc974aa020d25d8dc5e7b317d82eb1e2782ebe7f"
+      },
+      "jsonItemFilePin": {
+        "path": "output/Biology30_CH17_Source_Assessment_Trial_v0.3.0/integration-text/assessment-json/ch17-l05-check-writing-1.json",
+        "bytes": 2218,
+        "sha256": "69c5823eea0ca6ff8576821d7921b425c6f74cd5caac6c8abecaee7970503684"
+      },
+      "htmlRange": {
+        "startByte": 0,
+        "endByteExclusive": 3071
+      },
+      "jsonItemRange": {
+        "startByte": 0,
+        "endByteExclusive": 2218
+      }
+    },
+    {
+      "id": "ch17-l05-check-writing-2",
+      "route": "lesson-05",
+      "role": "Authorized replacement required item",
+      "changed": true,
+      "topics": [
+        "Regroup offspring by homozygosity at both loci, rejecting dominant-phenotype shortcut"
+      ],
+      "locators": [
+        "Printed590/PDF7 homozygote/genotype language",
+        "PPT actual38–39 full F2 grid; printed593/PDF10 Figure17.10"
+      ],
+      "visibleTeachingBindings": [
+        "ch17-l02-teaching-01",
+        "ch17-l05-teaching-02"
+      ],
+      "origin": "Authored application from source-derived teaching",
+      "qualification": "New authored hypothetical CcHh-self petals/stems application. CCHH/CChh/ccHH/cchh each1/16 total1/4;9/16 dominant appearance includes heterozygotes. Trait model is constructed, not an empirical species fact.",
+      "htmlFilePin": {
+        "path": "output/Biology30_CH17_Source_Assessment_Trial_v0.3.0/integration-text/assessment-html/ch17-l05-check-writing-2.html.txt",
+        "bytes": 3135,
+        "sha256": "49c3804388d3c25dd80b3a0366a0e28f048d7c06f6b16a8f59719c02493cf21a"
+      },
+      "jsonItemFilePin": {
+        "path": "output/Biology30_CH17_Source_Assessment_Trial_v0.3.0/integration-text/assessment-json/ch17-l05-check-writing-2.json",
+        "bytes": 2282,
+        "sha256": "4a1006653299a24ddd914be11f676653c393d1e80888bc3c56f0a44681840a0f"
+      },
+      "htmlRange": {
+        "startByte": 0,
+        "endByteExclusive": 3135
+      },
+      "jsonItemRange": {
+        "startByte": 0,
+        "endByteExclusive": 2282
+      }
+    }
+  ],
+  "historicalDisposition": [
+    {
+      "id": "SRC-BOUND-01",
+      "disposition": "The authorized v0.3.0 restores original RrTt×rrTt/four nonzero phenotype groups and replaces the two related required writing decisions. The v0.2.0 compromise is not a current unresolved blocker."
+    },
+    {
+      "id": "SRC-BOUND-02",
+      "disposition": "Full source pea9:3:3:1 remains; authorized05MC2 now asks the union7/16 instead of a precomputed3/16 group. Optional source3/16 remains formative. No current forced deletion-versus-overlap blocker."
+    }
+  ],
+  "currentBoundary": "No remaining forced source-method/assessment compromise found at these pins. This is a completed review candidate, not Dean acceptance or a declaration of assessment blindness.",
+  "formativeLimits": [
+    "ReciprocalRR/rr task is near transfer with same taught genotype result.",
+    "Pea component probabilities remain visible and source-bank3/16 remains formative.",
+    "Optional4×1 change has a source-bank analogue; it is not one of the four newly required assessment decisions.",
+    "Four required items explicitly retained are not newly certified as fresh."
+  ]
+}

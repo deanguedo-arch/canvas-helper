@@ -1,0 +1,1430 @@
+{
+  "review_date": "2026-10-06",
+  "scope": "Read-only source review of remaining lessons; no curriculum acceptance or publication approval",
+  "sources": [
+    {
+      "path": "biology_remaining/source_packet/sources/original-114-slides.pptx",
+      "sha256": "da1ce1c0526da4da1aefd1fb6c0f23070f820ce24378c12f9699d1c700e1a985",
+      "bytes": 10153531
+    },
+    {
+      "path": "biology_remaining/source_packet/sources/chapter-17.pdf",
+      "sha256": "48e297aacb86275c106a02abdddaf0f0463ba47d6b17703a926aa68405755455",
+      "bytes": 2005971
+    },
+    {
+      "path": "biology_remaining/source_packet/current/index.html",
+      "sha256": "31447f72550c68ceb4a7cfd444f85651908a86782096dff4e4847cff4ab9e3e4",
+      "bytes": 3613475
+    },
+    {
+      "path": "biology_remaining/source_packet/standards/02_TEACHING_STANDARD.md",
+      "sha256": "aa273698aa48c983081ca9bb724dec66959ce86ea4f33049f12330715fbf89e2",
+      "bytes": 11744
+    },
+    {
+      "path": "biology_remaining/source_packet/standards/CHAPTER11_TEACHING_STANDARD.md",
+      "sha256": "cf7d4942a44944defd587813dcf68fc53e29773d189834c8e304bced4f530d80",
+      "bytes": 11846
+    }
+  ],
+  "pdf_page_mapping": {
+    "first_printed_page": 584,
+    "first_pdf_page_one_based": 1,
+    "pdf_page_count": 38,
+    "formula": "pdf_page_one_based = printed_page - 583",
+    "page_size_points": [
+      603,
+      783
+    ]
+  },
+  "inspection": {
+    "pptx_zip_xml": "complete 114-slide paragraphs, notes, shapes, relationships extracted",
+    "pptx_composite_render": "not performed",
+    "media_pixels": "All distinct original media from slides 59-114 inspected in 7 contact sheets; image102 inspected separately at original size",
+    "pdf_pixels": [
+      601,
+      603,
+      604,
+      607,
+      609,
+      612,
+      613,
+      614,
+      618
+    ],
+    "native_asset_missing": [
+      "./assets/figures/ch17-pedigree.svg",
+      "./assets/figures/ch17-linkage.svg",
+      "./assets/figures/ch17-map.svg"
+    ],
+    "video_playback": "not tested",
+    "browser_runtime": "not tested"
+  },
+  "lesson_sequence": [
+    {
+      "route": "lesson-08",
+      "title": "Sex-linked inheritance",
+      "ppt_slide_ranges": [
+        [
+          59,
+          66
+        ]
+      ],
+      "textbook_printed_pages": [
+        599,
+        601,
+        603,
+        604
+      ],
+      "textbook_pdf_pages_one_based": [
+        16,
+        18,
+        20,
+        21
+      ],
+      "high_value_slides": [
+        61,
+        62,
+        63,
+        64,
+        65
+      ],
+      "ppt_support_status": "source available with caveats"
+    },
+    {
+      "route": "lesson-09",
+      "title": "Polygenic traits and environmental influences",
+      "ppt_slide_ranges": [
+        [
+          72,
+          73
+        ],
+        [
+          92,
+          93
+        ]
+      ],
+      "textbook_printed_pages": [
+        606,
+        607,
+        608,
+        609
+      ],
+      "textbook_pdf_pages_one_based": [
+        23,
+        24,
+        25,
+        26
+      ],
+      "high_value_slides": [
+        72
+      ],
+      "ppt_support_status": "source available with caveats"
+    },
+    {
+      "route": "lesson-10",
+      "title": "Reading autosomal pedigrees",
+      "ppt_slide_ranges": [
+        [
+          74,
+          78
+        ],
+        [
+          82,
+          85
+        ],
+        [
+          90,
+          91
+        ]
+      ],
+      "textbook_printed_pages": [
+        611,
+        612,
+        613,
+        614
+      ],
+      "textbook_pdf_pages_one_based": [
+        28,
+        29,
+        30,
+        31
+      ],
+      "high_value_slides": [
+        75,
+        76,
+        77,
+        78,
+        82,
+        84
+      ],
+      "ppt_support_status": "source available with caveats"
+    },
+    {
+      "route": "lesson-11",
+      "title": "Sex-linked pedigrees and testing a model",
+      "ppt_slide_ranges": [
+        [
+          79,
+          81
+        ],
+        [
+          86,
+          91
+        ]
+      ],
+      "textbook_printed_pages": [
+        612,
+        613,
+        614,
+        615
+      ],
+      "textbook_pdf_pages_one_based": [
+        29,
+        30,
+        31,
+        32
+      ],
+      "high_value_slides": [
+        79,
+        80,
+        81,
+        86,
+        88,
+        90
+      ],
+      "ppt_support_status": "source available with caveats"
+    },
+    {
+      "route": "lesson-12",
+      "title": "Linked genes and recombinant offspring",
+      "ppt_slide_ranges": [
+        [
+          94,
+          105
+        ]
+      ],
+      "textbook_printed_pages": [
+        599,
+        600,
+        601
+      ],
+      "textbook_pdf_pages_one_based": [
+        16,
+        17,
+        18
+      ],
+      "high_value_slides": [
+        95,
+        96,
+        97,
+        100,
+        103,
+        104,
+        105
+      ],
+      "ppt_support_status": "source available with caveats"
+    },
+    {
+      "route": "lesson-13",
+      "title": "Recombination frequency and chromosome maps",
+      "ppt_slide_ranges": [
+        [
+          102,
+          114
+        ]
+      ],
+      "textbook_printed_pages": [
+        600,
+        601,
+        602
+      ],
+      "textbook_pdf_pages_one_based": [
+        17,
+        18,
+        19
+      ],
+      "high_value_slides": [
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        111,
+        112,
+        113
+      ],
+      "ppt_support_status": "source available with caveats"
+    },
+    {
+      "route": "lesson-14",
+      "title": "Genetic testing, counselling and decisions",
+      "ppt_slide_ranges": [],
+      "textbook_printed_pages": [
+        610,
+        611,
+        614,
+        616,
+        617,
+        618
+      ],
+      "textbook_pdf_pages_one_based": [
+        27,
+        28,
+        31,
+        33,
+        34,
+        35
+      ],
+      "high_value_slides": [],
+      "ppt_support_status": "no dedicated section; use textbook and verified primary sources"
+    },
+    {
+      "route": "lesson-15",
+      "title": "Chapter review and final check",
+      "ppt_slide_ranges": [
+        [
+          1,
+          114
+        ]
+      ],
+      "textbook_printed_pages": [
+        619,
+        620,
+        621
+      ],
+      "textbook_pdf_pages_one_based": [
+        36,
+        37,
+        38
+      ],
+      "high_value_slides": [
+        73,
+        90,
+        101,
+        111,
+        112,
+        113
+      ],
+      "ppt_support_status": "source available with caveats"
+    },
+    {
+      "route": "extension",
+      "title": "Biobanks and genetic information",
+      "ppt_slide_ranges": [],
+      "textbook_printed_pages": [
+        618
+      ],
+      "textbook_pdf_pages_one_based": [
+        35
+      ],
+      "high_value_slides": [],
+      "ppt_support_status": "no dedicated section; use textbook and verified primary sources"
+    }
+  ],
+  "asset_recommendations": [
+    {
+      "asset_id": "ch17-original-image55",
+      "source_member": "ppt/media/image55.png",
+      "extracted_path": "biology_remaining/research/extracted/ppt-media/image55.png",
+      "sha256": "d43cc4788436c09cd23026f9cb6a4bfef6cce9fb47994bbef80fc1a866e7332b",
+      "pixel_dimensions": [
+        727,
+        304
+      ],
+      "uses": [
+        {
+          "slide": 61,
+          "relationship_id": "rId3",
+          "shape_id": "853",
+          "shape_name": "Google Shape;853;p73"
+        }
+      ],
+      "recommended_routes": [
+        "lesson-08"
+      ],
+      "status": "recommended",
+      "teaching_purpose": "Genotype/phenotype reference for a simple X-linked recessive model",
+      "caveat": "Adjacent Punnett tables still required; maintain allele meanings",
+      "pixels_inspected": true
+    },
+    {
+      "asset_id": "ch17-original-image52",
+      "source_member": "ppt/media/image52.png",
+      "extracted_path": "biology_remaining/research/extracted/ppt-media/image52.png",
+      "sha256": "bdd1bc1a6066f11673127aac626d34c2be5f17d96c89c3b8a2ce298c4f037407",
+      "pixel_dimensions": [
+        1000,
+        667
+      ],
+      "uses": [
+        {
+          "slide": 65,
+          "relationship_id": "rId5",
+          "shape_id": "921",
+          "shape_name": "Google Shape;921;p77"
+        }
+      ],
+      "recommended_routes": [
+        "lesson-08"
+      ],
+      "status": "recommended_optional",
+      "teaching_purpose": "Tortoiseshell photograph for X-inactivation patches",
+      "caveat": "Explain early cell-lineage inheritance and rare male exceptions; no diagnosis from photo",
+      "pixels_inspected": true
+    },
+    {
+      "asset_id": "ch17-original-image59",
+      "source_member": "ppt/media/image59.jpg",
+      "extracted_path": "biology_remaining/research/extracted/ppt-media/image59.jpg",
+      "sha256": "91c2fb612000f8c48cf30eb921c17bdfe36c96d684ad4a7a2fbc7eaf2ab4c3c8",
+      "pixel_dimensions": [
+        530,
+        355
+      ],
+      "uses": [
+        {
+          "slide": 65,
+          "relationship_id": "rId4",
+          "shape_id": "920",
+          "shape_name": "Google Shape;920;p77"
+        }
+      ],
+      "recommended_routes": [
+        "lesson-08"
+      ],
+      "status": "optional_alternative",
+      "teaching_purpose": "Calico photograph",
+      "caveat": "White patches have a separate genetic basis; cannot attribute all colours to X-inactivation",
+      "pixels_inspected": true
+    },
+    {
+      "asset_id": "ch17-original-image57",
+      "source_member": "ppt/media/image57.jpg",
+      "extracted_path": "biology_remaining/research/extracted/ppt-media/image57.jpg",
+      "sha256": "9b3c1458b82e209923c320cc05e2e88f159537960e9539871011127eb2dc5ced",
+      "pixel_dimensions": [
+        432,
+        438
+      ],
+      "uses": [
+        {
+          "slide": 59,
+          "relationship_id": "rId3",
+          "shape_id": "838",
+          "shape_name": "Google Shape;838;p71"
+        }
+      ],
+      "recommended_routes": [
+        "lesson-08"
+      ],
+      "status": "do_not_use_as_test",
+      "teaching_purpose": "Ishihara-like visual context only",
+      "caveat": "Do not ask students to diagnose genotype or disclose their colour vision",
+      "pixels_inspected": true
+    },
+    {
+      "asset_id": "ch17-original-image64",
+      "source_member": "ppt/media/image64.jpg",
+      "extracted_path": "biology_remaining/research/extracted/ppt-media/image64.jpg",
+      "sha256": "2b82c18e0a0d27cccf59638c9317ed4a6f72e193acfb420f765aed8bf722d67b",
+      "pixel_dimensions": [
+        800,
+        600
+      ],
+      "uses": [
+        {
+          "slide": 72,
+          "relationship_id": "rId3",
+          "shape_id": "1007",
+          "shape_name": "Google Shape;1007;p84"
+        }
+      ],
+      "recommended_routes": [
+        "lesson-09"
+      ],
+      "status": "context_only",
+      "teaching_purpose": "Photograph suggesting phenotypic variation",
+      "caveat": "Does not show polygenic mechanism; do not infer ancestry/genotypes of depicted children",
+      "pixels_inspected": true
+    },
+    {
+      "asset_id": "ch17-original-image63",
+      "source_member": "ppt/media/image63.png",
+      "extracted_path": "biology_remaining/research/extracted/ppt-media/image63.png",
+      "sha256": "8118157b4a30bb98e3fa5fd9d22b1156478ee37999244dbb7eed1de03ecc2cc7",
+      "pixel_dimensions": [
+        480,
+        351
+      ],
+      "uses": [
+        {
+          "slide": 75,
+          "relationship_id": "rId5",
+          "shape_id": "1032",
+          "shape_name": "Google Shape;1032;p87"
+        }
+      ],
+      "recommended_routes": [
+        "lesson-10"
+      ],
+      "status": "recommended",
+      "teaching_purpose": "Pedigree symbol legend",
+      "caveat": "480px width; explain every used convention; do not substitute it for family-specific reading",
+      "pixels_inspected": true
+    },
+    {
+      "asset_id": "ch17-original-image73",
+      "source_member": "ppt/media/image73.png",
+      "extracted_path": "biology_remaining/research/extracted/ppt-media/image73.png",
+      "sha256": "c6f77f53f6389602d75bb60ca8efe0ebc35f683e7a8fdd0aa02c548f0acb95a2",
+      "pixel_dimensions": [
+        2007,
+        1987
+      ],
+      "uses": [
+        {
+          "slide": 77,
+          "relationship_id": "rId3",
+          "shape_id": "1055",
+          "shape_name": "Google Shape;1055;p89"
+        }
+      ],
+      "recommended_routes": [
+        "lesson-10"
+      ],
+      "status": "recommended",
+      "teaching_purpose": "High-resolution autosomal dominant pedigree for constrained genotypes",
+      "caveat": "Global individual numbering 1-12 across generations; do not silently renumber",
+      "pixels_inspected": true
+    },
+    {
+      "asset_id": "ch17-original-image68",
+      "source_member": "ppt/media/image68.png",
+      "extracted_path": "biology_remaining/research/extracted/ppt-media/image68.png",
+      "sha256": "134853bb1f23f222635e8bd3122b35f4b92b5712f43e1432c0220bda8631e291",
+      "pixel_dimensions": [
+        525,
+        326
+      ],
+      "uses": [
+        {
+          "slide": 78,
+          "relationship_id": "rId3",
+          "shape_id": "1068",
+          "shape_name": "Google Shape;1068;p90"
+        }
+      ],
+      "recommended_routes": [
+        "lesson-10"
+      ],
+      "status": "recommended",
+      "teaching_purpose": "Autosomal recessive pedigree, unaffected partner remains RR or Rr",
+      "caveat": "Transparent PNG needs suitable background; four unaffected offspring do not prove RR",
+      "pixels_inspected": true
+    },
+    {
+      "asset_id": "ch17-original-image74",
+      "source_member": "ppt/media/image74.png",
+      "extracted_path": "biology_remaining/research/extracted/ppt-media/image74.png",
+      "sha256": "630d5cb33d9573eaf8e0a6037df0d44c33737050fb79039e33f0606a7943092b",
+      "pixel_dimensions": [
+        506,
+        324
+      ],
+      "uses": [
+        {
+          "slide": 79,
+          "relationship_id": "rId3",
+          "shape_id": "1079",
+          "shape_name": "Google Shape;1079;p91"
+        },
+        {
+          "slide": 80,
+          "relationship_id": "rId3",
+          "shape_id": "1092",
+          "shape_name": "Google Shape;1092;p92"
+        }
+      ],
+      "recommended_routes": [
+        "lesson-11"
+      ],
+      "status": "recommended",
+      "teaching_purpose": "X-linked recessive pedigree and obligate carrier deductions",
+      "caveat": "No printed individual labels; identify people unambiguously; source slide80 cross typo must not be copied",
+      "pixels_inspected": true
+    },
+    {
+      "asset_id": "ch17-original-image72",
+      "source_member": "ppt/media/image72.png",
+      "extracted_path": "biology_remaining/research/extracted/ppt-media/image72.png",
+      "sha256": "1337fdba705ee1263b92410c26d18a04f3def0b9835734c3a79cadc9acf03d8b",
+      "pixel_dimensions": [
+        600,
+        600
+      ],
+      "uses": [
+        {
+          "slide": 88,
+          "relationship_id": "rId3",
+          "shape_id": "1199",
+          "shape_name": "Google Shape;1199;p100"
+        }
+      ],
+      "recommended_routes": [
+        "lesson-11"
+      ],
+      "status": "recommended",
+      "teaching_purpose": "X-linked dominant pedigree with affected father/unaffected mother comparison",
+      "caveat": "Treat title as given model; does not prove model uniquely from a tiny family",
+      "pixels_inspected": true
+    },
+    {
+      "asset_id": "ch17-original-image75",
+      "source_member": "ppt/media/image75.png",
+      "extracted_path": "biology_remaining/research/extracted/ppt-media/image75.png",
+      "sha256": "7c2b09e0a7b539e1073b65972a9e4c9fa02f07340767ac1bde40bd62265ef9e2",
+      "pixel_dimensions": [
+        524,
+        513
+      ],
+      "uses": [
+        {
+          "slide": 81,
+          "relationship_id": "rId3",
+          "shape_id": "1111",
+          "shape_name": "Google Shape;1111;p93"
+        }
+      ],
+      "recommended_routes": [
+        "lesson-11"
+      ],
+      "status": "optional_alternative",
+      "teaching_purpose": "Same X-linked dominant family at smaller size",
+      "caveat": "Model given; printed numbering continuous",
+      "pixels_inspected": true
+    },
+    {
+      "asset_id": "ch17-original-image82",
+      "source_member": "ppt/media/image82.png",
+      "extracted_path": "biology_remaining/research/extracted/ppt-media/image82.png",
+      "sha256": "c57988402268e79257d3f4c8e88ed94e5cc0dc3f91255de35c0e26e0fda2297d",
+      "pixel_dimensions": [
+        1199,
+        667
+      ],
+      "uses": [
+        {
+          "slide": 84,
+          "relationship_id": "rId4",
+          "shape_id": "1153",
+          "shape_name": "Google Shape;1153;p96"
+        },
+        {
+          "slide": 86,
+          "relationship_id": "rId4",
+          "shape_id": "1178",
+          "shape_name": "Google Shape;1178;p98"
+        }
+      ],
+      "recommended_routes": [
+        "lesson-10",
+        "lesson-11"
+      ],
+      "status": "recommended_for_ambiguity",
+      "teaching_purpose": "Same pedigree consistent with AD and AR",
+      "caveat": "Do not identify a single mode as forced",
+      "pixels_inspected": true
+    },
+    {
+      "asset_id": "ch17-original-image102",
+      "source_member": "ppt/media/image102.png",
+      "extracted_path": "biology_remaining/research/extracted/ppt-media/image102.png",
+      "sha256": "8e5a8da4322899e38294535d0bc248098282e0ee905658bea7df26087350cee4",
+      "pixel_dimensions": [
+        737,
+        468
+      ],
+      "uses": [
+        {
+          "slide": 87,
+          "relationship_id": "rId3",
+          "shape_id": "1188",
+          "shape_name": "Google Shape;1188;p99"
+        }
+      ],
+      "recommended_routes": [
+        "lesson-11"
+      ],
+      "status": "reject_as_correct_key",
+      "teaching_purpose": "Annotated X-linked recessive answer diagram",
+      "caveat": "Leftmost generation-II mother is forced carrier but image leaves second allele unknown",
+      "pixels_inspected": true
+    },
+    {
+      "asset_id": "ch17-original-image84",
+      "source_member": "ppt/media/image84.png",
+      "extracted_path": "biology_remaining/research/extracted/ppt-media/image84.png",
+      "sha256": "c278cba14dce5febc520fc22aa31985632989ad231c74772c4a9702b9895f21d",
+      "pixel_dimensions": [
+        753,
+        689
+      ],
+      "uses": [
+        {
+          "slide": 85,
+          "relationship_id": "rId3",
+          "shape_id": "1165",
+          "shape_name": "Google Shape;1165;p97"
+        }
+      ],
+      "recommended_routes": [
+        "lesson-10"
+      ],
+      "status": "worked_answer_only",
+      "teaching_purpose": "Annotated recessive pedigree",
+      "caveat": "Answers visible; not an independent inference prompt",
+      "pixels_inspected": true
+    },
+    {
+      "asset_id": "ch17-original-image61",
+      "source_member": "ppt/media/image61.png",
+      "extracted_path": "biology_remaining/research/extracted/ppt-media/image61.png",
+      "sha256": "46890a009ec2113e13441dd4b70d12f416b268b24fcb9567f621b530addc8d81",
+      "pixel_dimensions": [
+        221,
+        194
+      ],
+      "uses": [
+        {
+          "slide": 76,
+          "relationship_id": "rId3",
+          "shape_id": "1040",
+          "shape_name": "Google Shape;1040;p88"
+        }
+      ],
+      "recommended_routes": [
+        "lesson-10"
+      ],
+      "status": "low_resolution",
+      "teaching_purpose": "Pedigree reading example",
+      "caveat": "221x194 pixels; poor for full-width teaching",
+      "pixels_inspected": true
+    },
+    {
+      "asset_id": "ch17-original-image70",
+      "source_member": "ppt/media/image70.png",
+      "extracted_path": "biology_remaining/research/extracted/ppt-media/image70.png",
+      "sha256": "0c12ff68951c38cd9dab92df9ba0fc6ec9a778172271727dc4b9dd1685374f36",
+      "pixel_dimensions": [
+        221,
+        194
+      ],
+      "uses": [
+        {
+          "slide": 82,
+          "relationship_id": "rId3",
+          "shape_id": "1132",
+          "shape_name": "Google Shape;1132;p94"
+        }
+      ],
+      "recommended_routes": [
+        "lesson-10"
+      ],
+      "status": "low_resolution",
+      "teaching_purpose": "Unannotated mode-of-inheritance example",
+      "caveat": "221x194 pixels; use exact label reading only if enlarged readable",
+      "pixels_inspected": true
+    },
+    {
+      "asset_id": "ch17-original-image77",
+      "source_member": "ppt/media/image77.png",
+      "extracted_path": "biology_remaining/research/extracted/ppt-media/image77.png",
+      "sha256": "709d7466a7b0546b2e083d30b9a162fc1e6f73c9e1af34a9e8230d8b9c8e458f",
+      "pixel_dimensions": [
+        221,
+        207
+      ],
+      "uses": [
+        {
+          "slide": 83,
+          "relationship_id": "rId3",
+          "shape_id": "1142",
+          "shape_name": "Google Shape;1142;p95"
+        }
+      ],
+      "recommended_routes": [
+        "lesson-10"
+      ],
+      "status": "low_resolution_answer",
+      "teaching_purpose": "Annotated dominant pedigree",
+      "caveat": "221x207 pixels and answers already visible",
+      "pixels_inspected": true
+    },
+    {
+      "asset_id": "ch17-original-image86",
+      "source_member": "ppt/media/image86.png",
+      "extracted_path": "biology_remaining/research/extracted/ppt-media/image86.png",
+      "sha256": "f0488f7a97405baeaa87c4627bd85facd628e8df7ca1ab54fbdfbc64abab4b48",
+      "pixel_dimensions": [
+        215,
+        235
+      ],
+      "uses": [
+        {
+          "slide": 84,
+          "relationship_id": "rId3",
+          "shape_id": "1152",
+          "shape_name": "Google Shape;1152;p96"
+        }
+      ],
+      "recommended_routes": [
+        "lesson-10"
+      ],
+      "status": "low_resolution",
+      "teaching_purpose": "Unannotated recessive pedigree",
+      "caveat": "215x235 pixels",
+      "pixels_inspected": true
+    },
+    {
+      "asset_id": "ch17-original-image87",
+      "source_member": "ppt/media/image87.png",
+      "extracted_path": "biology_remaining/research/extracted/ppt-media/image87.png",
+      "sha256": "d01f2944f5da0094490fd6ae5e4a108905dfdce739b3053fcad15a63bef823c0",
+      "pixel_dimensions": [
+        271,
+        186
+      ],
+      "uses": [
+        {
+          "slide": 86,
+          "relationship_id": "rId3",
+          "shape_id": "1177",
+          "shape_name": "Google Shape;1177;p98"
+        }
+      ],
+      "recommended_routes": [
+        "lesson-11"
+      ],
+      "status": "low_resolution",
+      "teaching_purpose": "X-linked recessive pedigree",
+      "caveat": "271x186 pixels; title gives model",
+      "pixels_inspected": true
+    },
+    {
+      "asset_id": "ch17-original-image83",
+      "source_member": "ppt/media/image83.png",
+      "extracted_path": "biology_remaining/research/extracted/ppt-media/image83.png",
+      "sha256": "008815b2e926341efe9ba7730aa8d6936eecd72d60a7767b3f7f83bc32ce2314",
+      "pixel_dimensions": [
+        715,
+        672
+      ],
+      "uses": [
+        {
+          "slide": 90,
+          "relationship_id": "rId3",
+          "shape_id": "1215",
+          "shape_name": "Google Shape;1215;p102"
+        }
+      ],
+      "recommended_routes": [
+        "lesson-10",
+        "lesson-11"
+      ],
+      "status": "qualified_summary_only",
+      "teaching_purpose": "Four model-pattern comparison",
+      "caveat": "Apply only stated full-penetrance single-locus assumptions; small-family clues are not proof",
+      "pixels_inspected": true
+    },
+    {
+      "asset_id": "ch17-original-image85",
+      "source_member": "ppt/media/image85.png",
+      "extracted_path": "biology_remaining/research/extracted/ppt-media/image85.png",
+      "sha256": "f4b8696ad46ea7464048907ec57335159286c96c55b66f9ad65491a024c12e0f",
+      "pixel_dimensions": [
+        396,
+        450
+      ],
+      "uses": [
+        {
+          "slide": 96,
+          "relationship_id": "rId3",
+          "shape_id": "1265",
+          "shape_name": "Google Shape;1265;p108"
+        }
+      ],
+      "recommended_routes": [
+        "lesson-12"
+      ],
+      "status": "recommended_with_guidance",
+      "teaching_purpose": "Independent, linked without exchange, and linked with exchange panels",
+      "caveat": "396x450 pixels; original slide96 final text has wrong class ordering; diagram itself coherent",
+      "pixels_inspected": true
+    },
+    {
+      "asset_id": "ch17-original-image88",
+      "source_member": "ppt/media/image88.png",
+      "extracted_path": "biology_remaining/research/extracted/ppt-media/image88.png",
+      "sha256": "93b0ff0c1b850a6a1cff4491ab6189e9d2dc0931d9e1ce340a951a41c4ea2396",
+      "pixel_dimensions": [
+        408,
+        684
+      ],
+      "uses": [
+        {
+          "slide": 97,
+          "relationship_id": "rId3",
+          "shape_id": "1274",
+          "shape_name": "Google Shape;1274;p109"
+        }
+      ],
+      "recommended_routes": [
+        "lesson-12"
+      ],
+      "status": "recommended",
+      "teaching_purpose": "Crossing over through meiosis",
+      "caveat": "No allele loci labeled; pair with explicit phase/gamete table; only two non-sister chromatids exchange",
+      "pixels_inspected": true
+    },
+    {
+      "asset_id": "ch17-original-image95",
+      "source_member": "ppt/media/image95.png",
+      "extracted_path": "biology_remaining/research/extracted/ppt-media/image95.png",
+      "sha256": "26a46b118249a3746ce315523d9e437c30fe27bda6e2702bc2c075f6feb7d80c",
+      "pixel_dimensions": [
+        974,
+        338
+      ],
+      "uses": [
+        {
+          "slide": 95,
+          "relationship_id": "rId5",
+          "shape_id": "1258",
+          "shape_name": "Google Shape;1258;p107"
+        }
+      ],
+      "recommended_routes": [
+        "lesson-12"
+      ],
+      "status": "avoid_or_qualify",
+      "teaching_purpose": "Physical separation comparison",
+      "caveat": "Same-chromosome distant loci labeled Not Linked; needs statistical versus physical linkage qualification",
+      "pixels_inspected": true
+    },
+    {
+      "asset_id": "ch17-original-image96",
+      "source_member": "ppt/media/image96.png",
+      "extracted_path": "biology_remaining/research/extracted/ppt-media/image96.png",
+      "sha256": "9dfaac73b9f06646130da71df671c03dfd5bdbdc2db43946b7be82140e043b13",
+      "pixel_dimensions": [
+        269,
+        282
+      ],
+      "uses": [
+        {
+          "slide": 100,
+          "relationship_id": "rId3",
+          "shape_id": "1296",
+          "shape_name": "Google Shape;1296;p112"
+        },
+        {
+          "slide": 102,
+          "relationship_id": "rId3",
+          "shape_id": "1314",
+          "shape_name": "Google Shape;1314;p114"
+        }
+      ],
+      "recommended_routes": [
+        "lesson-12",
+        "lesson-13"
+      ],
+      "status": "optional_small",
+      "teaching_purpose": "Two homologues and relative B/H/d intervals",
+      "caveat": "269x282 pixels; keep B,H,d and b,h,D exactly; no numeric distances",
+      "pixels_inspected": true
+    },
+    {
+      "asset_id": "ch17-original-image90",
+      "source_member": "ppt/media/image90.png",
+      "extracted_path": "biology_remaining/research/extracted/ppt-media/image90.png",
+      "sha256": "3ff22e0b368eb966c11b91bb884f8d121950b597a6677f582c590b6b855ebac3",
+      "pixel_dimensions": [
+        560,
+        472
+      ],
+      "uses": [
+        {
+          "slide": 98,
+          "relationship_id": "rId3",
+          "shape_id": "1282",
+          "shape_name": "Google Shape;1282;p110"
+        }
+      ],
+      "recommended_routes": [
+        "lesson-13"
+      ],
+      "status": "optional_historical",
+      "teaching_purpose": "Older human X linkage-map comparison",
+      "caveat": "Do not treat as a current clinical reference; labels are historical",
+      "pixels_inspected": true
+    },
+    {
+      "asset_id": "ch17-original-image100",
+      "source_member": "ppt/media/image100.png",
+      "extracted_path": "biology_remaining/research/extracted/ppt-media/image100.png",
+      "sha256": "17dfc1c680aaacdc17563eb0f40a7a4f8cca3f37ce602feafa9e55756158904c",
+      "pixel_dimensions": [
+        901,
+        313
+      ],
+      "uses": [
+        {
+          "slide": 106,
+          "relationship_id": "rId3",
+          "shape_id": "1348",
+          "shape_name": "Google Shape;1348;p118"
+        },
+        {
+          "slide": 109,
+          "relationship_id": "rId3",
+          "shape_id": "1377",
+          "shape_name": "Google Shape;1377;p121"
+        },
+        {
+          "slide": 110,
+          "relationship_id": "rId3",
+          "shape_id": "1387",
+          "shape_name": "Google Shape;1387;p122"
+        }
+      ],
+      "recommended_routes": [
+        "lesson-13"
+      ],
+      "status": "worked_answer_only",
+      "teaching_purpose": "RF formula and source 4/16=25% calculation",
+      "caveat": "Three repeated slides reference same asset; total16 is a small sample",
+      "pixels_inspected": true
+    },
+    {
+      "asset_id": "ch17-original-image105",
+      "source_member": "ppt/media/image105.png",
+      "extracted_path": "biology_remaining/research/extracted/ppt-media/image105.png",
+      "sha256": "0efab29454a60f866c9fe9e2bca2e525a5812a3c30e10fb1bf99d34dfd8454d3",
+      "pixel_dimensions": [
+        737,
+        69
+      ],
+      "uses": [
+        {
+          "slide": 106,
+          "relationship_id": "rId4",
+          "shape_id": "1350",
+          "shape_name": "Google Shape;1350;p118"
+        },
+        {
+          "slide": 107,
+          "relationship_id": "rId4",
+          "shape_id": "1361",
+          "shape_name": "Google Shape;1361;p119"
+        }
+      ],
+      "recommended_routes": [
+        "lesson-13"
+      ],
+      "status": "worked_answer_only",
+      "teaching_purpose": "Single-line 4/16=25% formula",
+      "caveat": "Does not itself teach class identification",
+      "pixels_inspected": true
+    },
+    {
+      "asset_id": "ch17-original-image97",
+      "source_member": "ppt/media/image97.png",
+      "extracted_path": "biology_remaining/research/extracted/ppt-media/image97.png",
+      "sha256": "a6f4901073bc35eacb7dfa8fce438814972016138a44ee0ae68dca213dc1c2ae",
+      "pixel_dimensions": [
+        832,
+        217
+      ],
+      "uses": [
+        {
+          "slide": 106,
+          "relationship_id": "rId5",
+          "shape_id": "1352",
+          "shape_name": "Google Shape;1352;p118"
+        },
+        {
+          "slide": 107,
+          "relationship_id": "rId3",
+          "shape_id": "1359",
+          "shape_name": "Google Shape;1359;p119"
+        }
+      ],
+      "recommended_routes": [
+        "lesson-13"
+      ],
+      "status": "recommended_worked",
+      "teaching_purpose": "Two-locus fictional hair/nose map at25cM",
+      "caveat": "Map estimate, not physical scale or exact fraction of meiotic cells",
+      "pixels_inspected": true
+    },
+    {
+      "asset_id": "ch17-original-image107",
+      "source_member": "ppt/media/image107.png",
+      "extracted_path": "biology_remaining/research/extracted/ppt-media/image107.png",
+      "sha256": "89c5829b6472b717701357c636107367d2a86d556dcf32c58fe728bdcb69af48",
+      "pixel_dimensions": [
+        660,
+        56
+      ],
+      "uses": [
+        {
+          "slide": 109,
+          "relationship_id": "rId4",
+          "shape_id": "1378",
+          "shape_name": "Google Shape;1378;p121"
+        }
+      ],
+      "recommended_routes": [
+        "lesson-13"
+      ],
+      "status": "worked_answer_only",
+      "teaching_purpose": "Source2/16=12.5% formula",
+      "caveat": "Does not identify gene order by itself",
+      "pixels_inspected": true
+    },
+    {
+      "asset_id": "ch17-original-image109",
+      "source_member": "ppt/media/image109.png",
+      "extracted_path": "biology_remaining/research/extracted/ppt-media/image109.png",
+      "sha256": "9ca2a1569b08b640ba4badc3a299a37e29cb3067ee4b54d7999bbd1aa3d8a9f3",
+      "pixel_dimensions": [
+        814,
+        292
+      ],
+      "uses": [
+        {
+          "slide": 109,
+          "relationship_id": "rId5",
+          "shape_id": "1381",
+          "shape_name": "Google Shape;1381;p121"
+        }
+      ],
+      "recommended_routes": [
+        "lesson-13"
+      ],
+      "status": "reject_unique_inference",
+      "teaching_purpose": "Three-locus hair/eye/nose map",
+      "caveat": "Source provides only two distances; this is one possible order, not uniquely determined",
+      "pixels_inspected": true
+    },
+    {
+      "asset_id": "ch17-original-image110",
+      "source_member": "ppt/media/image110.png",
+      "extracted_path": "biology_remaining/research/extracted/ppt-media/image110.png",
+      "sha256": "a0d089e637314d048fc4bafabc963e967e52b9abf2badd4c2da3cb0dde8b40b4",
+      "pixel_dimensions": [
+        1041,
+        319
+      ],
+      "uses": [
+        {
+          "slide": 104,
+          "relationship_id": "rId3",
+          "shape_id": "1328",
+          "shape_name": "Google Shape;1328;p116"
+        }
+      ],
+      "recommended_routes": [
+        "lesson-12",
+        "lesson-13"
+      ],
+      "status": "optional_worked",
+      "teaching_purpose": "Independent test-cross Punnett table",
+      "caveat": "Four duplicated tester rows can obscure fixed-gamete logic; source fictional model only",
+      "pixels_inspected": true
+    },
+    {
+      "asset_id": "ch17-original-image93",
+      "source_member": "ppt/media/image93.jpg",
+      "extracted_path": "biology_remaining/research/extracted/ppt-media/image93.jpg",
+      "sha256": "125356ae9e70bd62791141bef6dfc162bdf1d7f92ba60a668677eb2175755a4e",
+      "pixel_dimensions": [
+        1100,
+        729
+      ],
+      "uses": [
+        {
+          "slide": 92,
+          "relationship_id": "rId3",
+          "shape_id": "1233",
+          "shape_name": "Google Shape;1233;p104"
+        }
+      ],
+      "recommended_routes": [
+        "lesson-09"
+      ],
+      "status": "omit",
+      "teaching_purpose": "Smoking photograph for epigenetics slide",
+      "caveat": "Associated source BRCA mechanism is wrong; photo adds no essential mechanism",
+      "pixels_inspected": true
+    }
+  ],
+  "pdf_asset_recommendations": [
+    {
+      "asset_id": "ch17-textbook-figure17-24",
+      "printed_page": 607,
+      "pdf_page_one_based": 24,
+      "crop_rectangle_points": [
+        65,
+        420,
+        570,
+        742
+      ],
+      "extracted_path": "biology_remaining/research/extracted/pdf-images/figure17-24.png",
+      "sha256": "0c010d659471e839560301965a52372d8b5de20db2c64acf7d395db7f0d1637c",
+      "routes": [
+        "lesson-09"
+      ],
+      "purpose": "Additive polygenic two-locus Punnett square and distributions",
+      "status": "extracted_from_source_and_pixels_verified",
+      "caveat": "Same-sized allele contributions and independence are teaching model assumptions",
+      "pixels_inspected": true
+    }
+  ],
+  "verified_source_count_tables": [
+    {
+      "locator": "slides104-106",
+      "phase": "HN/hn",
+      "tester": "hn/hn",
+      "classes": [
+        {
+          "gamete": "HN",
+          "count": 6,
+          "class": "parental"
+        },
+        {
+          "gamete": "Hn",
+          "count": 2,
+          "class": "recombinant"
+        },
+        {
+          "gamete": "hN",
+          "count": 2,
+          "class": "recombinant"
+        },
+        {
+          "gamete": "hn",
+          "count": 6,
+          "class": "parental"
+        }
+      ],
+      "total": 16,
+      "recombinants": 4,
+      "rf_percent": 25,
+      "caveat": "phase assumed from source context; small sample not proof"
+    },
+    {
+      "locator": "slide108",
+      "phase": "EN/en",
+      "tester": "en/en",
+      "classes": [
+        {
+          "gamete": "EN",
+          "count": 7,
+          "class": "parental"
+        },
+        {
+          "gamete": "En",
+          "count": 1,
+          "class": "recombinant"
+        },
+        {
+          "gamete": "eN",
+          "count": 1,
+          "class": "recombinant"
+        },
+        {
+          "gamete": "en",
+          "count": 7,
+          "class": "parental"
+        }
+      ],
+      "total": 16,
+      "recombinants": 2,
+      "rf_percent": 12.5,
+      "caveat": "third pairwise distance not supplied for unique three-locus order"
+    },
+    {
+      "locator": "slides111-113",
+      "phase": "EL/el",
+      "tester": "el/el",
+      "classes": [
+        {
+          "gamete": "EL",
+          "count": 40,
+          "class": "parental"
+        },
+        {
+          "gamete": "el",
+          "count": 40,
+          "class": "parental"
+        },
+        {
+          "gamete": "El",
+          "count": 10,
+          "class": "recombinant"
+        },
+        {
+          "gamete": "eL",
+          "count": 10,
+          "class": "recombinant"
+        }
+      ],
+      "total": 100,
+      "recombinants": 20,
+      "rf_percent": 20,
+      "map_intervals": [
+        [
+          "eye",
+          "body",
+          14
+        ],
+        [
+          "body",
+          "wing",
+          6
+        ]
+      ]
+    },
+    {
+      "locator": "textbook600-601",
+      "parental_counts": [
+        450,
+        450
+      ],
+      "recombinant_counts": [
+        50,
+        50
+      ],
+      "total": 1000,
+      "rf_percent": 10,
+      "map_intervals": [
+        [
+          "eye",
+          "body",
+          4
+        ],
+        [
+          "body",
+          "wing",
+          6
+        ]
+      ]
+    },
+    {
+      "locator": "textbook602 PartA",
+      "parental_counts": [
+        406,
+        398
+      ],
+      "recombinant_counts": [
+        96,
+        100
+      ],
+      "total": 1000,
+      "rf_percent": 19.6,
+      "map_intervals": [
+        [
+          "eye",
+          "body",
+          12.2
+        ],
+        [
+          "body",
+          "wing",
+          7.4
+        ]
+      ]
+    }
+  ],
+  "authority_sources": [
+    {
+      "url": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "title": "Biology20-30 Program of Studies",
+      "edition": "2007 updated2014",
+      "printed_pages": [
+        69,
+        70
+      ],
+      "use": "verified outcome codes and high-school scope"
+    },
+    {
+      "url": "https://www.alberta.ca/system/files/custom_downloaded_images/edc-biology-30-archived-info-bulletin.pdf",
+      "edition": "2025-2026",
+      "printed_page": 4,
+      "pdf_page_one_based": 8,
+      "use": "epistatic calculations under C2.2k/C2.3s; prefer X-linked/Y-linked terms"
+    },
+    {
+      "url": "https://www.alberta.ca/system/files/custom_downloaded_images/edc-biology-30-info-bulletin.pdf",
+      "edition": "2025-2026",
+      "printed_pages": [
+        14,
+        19
+      ],
+      "pdf_pages_one_based": [
+        18,
+        23
+      ],
+      "use": "contextual gene interaction assessment examples"
+    },
+    {
+      "url": "https://www.genome.gov/genetics-glossary/Epistasis",
+      "use": "gene interaction terminology"
+    },
+    {
+      "url": "https://medlineplus.gov/genetics/chromosome/x/",
+      "use": "X-inactivation and escape genes"
+    },
+    {
+      "url": "https://medlineplus.gov/genetics/understanding/inheritance/penetranceexpressivity/",
+      "use": "penetrance versus variable expressivity"
+    },
+    {
+      "url": "https://vgl.ucdavis.edu/test/colorpoint-restriction",
+      "use": "temperature-sensitive tyrosinase pigment production"
+    },
+    {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/15858157/",
+      "use": "primary feline TYR genotype research"
+    },
+    {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9704699/",
+      "use": "primary research supporting normally absent male Drosophila meiotic crossover"
+    },
+    {
+      "url": "https://www.cancer.gov/about-cancer/causes-prevention/genetics/brca-fact-sheet",
+      "use": "correction of slide92 BRCA mechanism"
+    },
+    {
+      "url": "https://www.genome.gov/genetics-glossary/Centimorgan-cM",
+      "use": "genetic unit versus physical length"
+    },
+    {
+      "url": "https://www.medlineplus.gov/genetics/understanding/testing/interpretingresults/",
+      "use": "result scope and uncertainty"
+    },
+    {
+      "url": "https://ethics.gc.ca/eng/tcps2-eptc2_2022_chapter13-chapitre13.html",
+      "use": "genetic research ethics and family implications"
+    },
+    {
+      "url": "https://ethics.gc.ca/eng/tcps2-eptc2_2022_chapter12-chapitre12.html",
+      "use": "biobank purposes, safeguards and governance"
+    }
+  ]
+}

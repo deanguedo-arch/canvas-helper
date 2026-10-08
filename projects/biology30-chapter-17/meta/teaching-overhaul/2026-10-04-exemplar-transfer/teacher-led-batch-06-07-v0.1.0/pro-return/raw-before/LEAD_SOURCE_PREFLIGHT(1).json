@@ -1,0 +1,76 @@
+{
+  "version": "batch-06-07-v0.1.0-lead-preflight",
+  "supersedes": "Only incorrect/tentative metadata in frozen packet; all attached source bytes and protected contracts remain immutable.",
+  "ownerSha256": "31447f72550c68ceb4a7cfd444f85651908a86782096dff4e4847cff4ab9e3e4",
+  "corrections": [
+    "Lesson07 ABO explanation is printed604–606 (PDF21–23), not current native reader links596/598. Read604–606; do not silently repair protected header links. Flag their locators for later explicitly scoped integration.",
+    "Frozen immutableTeachingSubsections omitted figure because it uses data-figure-id rather than id. The complete ch17-abo container below is locked byte-for-byte including controls, alt, caption, asset path and labels.",
+    "Slide56 image51.png draws discrete red/white patches, not fine intermixed roan hairs. Do NOT use as accurate roan illustration. Slide55 image53.jpg and textbook595 show actual blue-roan horse; explain black/white hair mixture and distinguish from the red/white cattle model. Preserve image copyright text; rights remain separate from private review.",
+    "Slide55 flower photograph demonstrates appearance, not independently verified genotype/inheritance. Do not claim the photograph proves codominance. Source50 flower model diagram is correctly paired and may support stated incomplete-dominance model.",
+    "Slide68 red-cell image does NOT resolve ABO antigens or types. Introduce as cell context only, not visual evidence of visible A/B markers. Use explicit genotype/phenotype/antigen table and locked native figure.",
+    "Lesson06 additional Labrador response includes its required B_/bb/E_/ee rule in actual source image c8e3b53a7e71256a8ebb.png. It is two-gene interaction (ee masks pigment colour), not incomplete dominance/codominance. Keep original task byte-exact and optional, but teach how to read this stated rule and relate separate probabilities to phenotype grouping, or clearly identify why it belongs after two-locus expression support. No result-only answer dump.",
+    "Slide71 multiplies sex/blood-group probabilities. Define independent classroom assumptions and distinguish joint (son AND typeB) from conditional (among sons) denominators; ABO autosomal status alone is not universal proof that every arbitrary trait/event is independent.",
+    "Historical clinical sickle-cell and cholesterol claims are not current medical authority. Retain required Biology30 non-clinical expression depth using flower/roan/ABO models; if mentioning sickle-cell, distinguish molecular expression from disease phenotype with verified science rather than repeating a blanket relationship."
+  ],
+  "lockedTeachingSubsections": [
+    {
+      "id": "ch17-abo",
+      "sha256": "53cf997cd49610e9234807c4b451f7f0bc37c0d3fdd9b83685dff0032266176d",
+      "completeSection": "<figure class=\"science-figure\" data-figure-id=\"ch17-abo\"><div class=\"figure-toolbar\"><strong>ABO inheritance: IAi × IBi</strong><button class=\"text-link\" data-enlarge-figure=\"ch17-abo\" type=\"button\">View larger</button></div><img alt=\"The standard three-allele ABO model produces four possible offspring genotypes in this cross. Each letter marks one phenotype to infer from its genotype.\" decoding=\"async\" loading=\"lazy\" src=\"./assets/figures/ch17-abo.svg\"/><figcaption>The standard three-allele ABO model produces four possible offspring genotypes in this cross. Each letter marks one phenotype to infer from its genotype. Schematic — not to scale.</figcaption></figure>"
+    }
+  ],
+  "leadReadEvidence": {
+    "completeCurrentLessons": [
+      "06",
+      "07"
+    ],
+    "actualSlideText": [
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      67,
+      68,
+      69,
+      70,
+      71
+    ],
+    "pdfText": [
+      594,
+      595,
+      596,
+      597,
+      598,
+      604,
+      605,
+      606
+    ],
+    "pdfPixels": [
+      594,
+      595,
+      604,
+      605,
+      606
+    ],
+    "sourcePixels": [
+      "slide-50-image42.png",
+      "slide-55-image53.jpg",
+      "slide-55-image50.jpg",
+      "slide-56-image51.png",
+      "slide-68-image66.jpg",
+      "slide-69-image56.png",
+      "assessment/c8e3b53a7e71256a8ebb.png",
+      "assessment/8a6e67243fbafefb4f10.png"
+    ],
+    "remainingImagePixelReview": "Pro/Scout must inspect every additional selected asset actually used; lead has not claimed all selected pixels."
+  },
+  "teacherAccepted": false,
+  "canonicalIntegrated": false,
+  "released": false
+}

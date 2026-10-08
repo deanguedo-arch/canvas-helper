@@ -1,0 +1,2725 @@
+{
+  "document": "KINCH_TRIAL_V020_NATIVE_OPTIONAL_NOTE_INTERACTION_SPEC",
+  "createdUtc": "2026-10-04T21:27:46.926393+00:00",
+  "scope": "Current native source static read. New trial analysis only; no native source/CSS/JS/config/previous-output edits. No UI/runtime tests.",
+  "instructionFile": {
+    "path": "upload/Pasted text(20261004-212001).txt",
+    "bytes": 11540,
+    "sha256": "3b5e38bb4b038b94c69fcc8db2df53e41f6b4c38c27039ea52209fe74a372e59"
+  },
+  "latestUserOverride": "The pasted-plan letter-only tomato adaptation is superseded: do not treat a letter swap as assessment protection.",
+  "sources": [
+    {
+      "path": "source-inspection/ch17/native/workspace/index.html",
+      "bytes": 3471105,
+      "sha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868"
+    },
+    {
+      "path": "source-inspection/ch17/native/workspace/main.js",
+      "bytes": 54365,
+      "sha256": "45b4b9c7da23646274f59415fa286873fdbdad3a2b8b16b53ccd147c0781f65f"
+    },
+    {
+      "path": "source-inspection/ch17/native/workspace/assets/revision-activities.js",
+      "bytes": 6138,
+      "sha256": "957583a09be13e3b0bb888928d49ed87605b154f14eeaacbea3ea569e27b60c8"
+    },
+    {
+      "path": "source-inspection/ch17/native/workspace/styles.css",
+      "bytes": 838743,
+      "sha256": "94fe523654289edd8b0f951dd6782f83dce7d08f5e18a3d903d25576fbfa0ba5"
+    }
+  ],
+  "offsetConvention": "UTF-8 bytes, start inclusive, end exclusive",
+  "canonicalNativeMarkupTemplate": "<div class=\"optional-writing\">\n  <label for=\"NOTE_ID\">AUTHOR_SUPPLIED_RESPONSE_INSTRUCTION</label>\n  <textarea aria-describedby=\"NOTE_ID-status\" data-note-input=\"NOTE_ID\" id=\"NOTE_ID\" rows=\"5\"></textarea>\n  <p class=\"writing-status\" data-note-status=\"NOTE_ID\" id=\"NOTE_ID-status\">Optional response. Select Save response to collect it. Maximum 5000 characters.</p>\n  <button data-save-note=\"NOTE_ID\" type=\"button\">Save response</button>\n</div>",
+  "markupConstraints": {
+    "freshPrefix": "ch17-kinch-v020-",
+    "oneMatchingIdPerTextareaStatusAndSaveControl": true,
+    "rows": "5",
+    "maxlengthAttribute": null,
+    "noteStatusAriaLiveAttribute": null,
+    "defaultTextareaValue": "empty",
+    "nativeWrapperClass": "optional-writing",
+    "nativeStatusClass": "writing-status",
+    "initialStatusText": "Optional response. Select Save response to collect it. Maximum 5000 characters.",
+    "saveLabel": "Save response",
+    "requiredHooksForbidden": [
+      "data-required-check",
+      "data-check-writing",
+      "data-check-choice",
+      "data-transfer",
+      "data-guided-item"
+    ],
+    "modelHooksForbiddenForNewNotes": [
+      "data-locked=true",
+      "data-extension-model"
+    ]
+  },
+  "sourceExamples": [
+    {
+      "noteId": "ch17-source-written-OBJ_2131252",
+      "nativeOptionalWritingWrapper": {
+        "startByte": 100877,
+        "endByteExclusive": 101948,
+        "bytes": 1071,
+        "sha256": "ecd3bf691d0ea031780b342e6fb69d1260f28015f05cfe8a949ce660401687c8",
+        "exactText": "<div class=\"optional-writing\"><label for=\"ch17-source-written-OBJ_2131252\">The cross-over frequencies of four genes found on human chromosome 6 are shown below: Legend Gene Pairs Cross-over Frequencies 1 Diabetes mellitus 1 and 2 21% 2 Ovarian cancer 1 and 3 12% 3 Rh blood group 2 and 3 9% 4 Ragweed sensitivity 2 and 4 19.5% 3 and 4 10.5% The order in which the four genes listed in the legend above are located on chromosome 6 is _____, _____, _____, and _____. Show the calculation or sequence and explain your reasoning. Use only the supplied evidence; do not invent observations.</label><textarea aria-describedby=\"ch17-source-written-OBJ_2131252-status\" data-note-input=\"ch17-source-written-OBJ_2131252\" id=\"ch17-source-written-OBJ_2131252\" rows=\"5\"></textarea><p class=\"writing-status\" data-note-status=\"ch17-source-written-OBJ_2131252\" id=\"ch17-source-written-OBJ_2131252-status\">Optional response. Select Save response to collect it. Maximum 5000 characters.</p><button data-save-note=\"ch17-source-written-OBJ_2131252\" type=\"button\">Save response</button></div>"
+      },
+      "textareaAttributes": {
+        "aria-describedby": "ch17-source-written-OBJ_2131252-status",
+        "data-note-input": "ch17-source-written-OBJ_2131252",
+        "id": "ch17-source-written-OBJ_2131252",
+        "rows": "5"
+      }
+    },
+    {
+      "noteId": "ch17-source-written-OBJ_2131244",
+      "nativeOptionalWritingWrapper": {
+        "startByte": 141787,
+        "endByteExclusive": 142645,
+        "bytes": 858,
+        "sha256": "8f9da2d1dd4069950b79efd24c00742d6e803f5843bd818def21d82e8018baba",
+        "exactText": "<div class=\"optional-writing\"><label for=\"ch17-source-written-OBJ_2131244\">The P 1 cross is between a full colour male ( D 1 D 3 ) and dilute colour female ( D 2 D 3 ). Calculate the theoretical probability of producing the F 1 phenotypes shown below. Show the calculation or sequence and explain your reasoning. Use only the supplied evidence; do not invent observations.</label><textarea aria-describedby=\"ch17-source-written-OBJ_2131244-status\" data-note-input=\"ch17-source-written-OBJ_2131244\" id=\"ch17-source-written-OBJ_2131244\" rows=\"5\"></textarea><p class=\"writing-status\" data-note-status=\"ch17-source-written-OBJ_2131244\" id=\"ch17-source-written-OBJ_2131244-status\">Optional response. Select Save response to collect it. Maximum 5000 characters.</p><button data-save-note=\"ch17-source-written-OBJ_2131244\" type=\"button\">Save response</button></div>"
+      },
+      "textareaAttributes": {
+        "aria-describedby": "ch17-source-written-OBJ_2131244-status",
+        "data-note-input": "ch17-source-written-OBJ_2131244",
+        "id": "ch17-source-written-OBJ_2131244",
+        "rows": "5"
+      }
+    },
+    {
+      "noteId": "ch17-source-written-OBJ_2131248",
+      "nativeOptionalWritingWrapper": {
+        "startByte": 143145,
+        "endByteExclusive": 144031,
+        "bytes": 886,
+        "sha256": "1bd74be85098eb3bc8b1dadab4355e09beb6833d28ae44f747cbf5c80b00f7bb",
+        "exactText": "<div class=\"optional-writing\"><label for=\"ch17-source-written-OBJ_2131248\">In the second cross, a full colour rabbit ( CC a ) is mated to a light grey rabbit ( C ch C a ). Calculate the theoretical probability of this cross producing each of the following phenotypes shown below. Show the calculation or sequence and explain your reasoning. Use only the supplied evidence; do not invent observations.</label><textarea aria-describedby=\"ch17-source-written-OBJ_2131248-status\" data-note-input=\"ch17-source-written-OBJ_2131248\" id=\"ch17-source-written-OBJ_2131248\" rows=\"5\"></textarea><p class=\"writing-status\" data-note-status=\"ch17-source-written-OBJ_2131248\" id=\"ch17-source-written-OBJ_2131248-status\">Optional response. Select Save response to collect it. Maximum 5000 characters.</p><button data-save-note=\"ch17-source-written-OBJ_2131248\" type=\"button\">Save response</button></div>"
+      },
+      "textareaAttributes": {
+        "aria-describedby": "ch17-source-written-OBJ_2131248-status",
+        "data-note-input": "ch17-source-written-OBJ_2131248",
+        "id": "ch17-source-written-OBJ_2131248",
+        "rows": "5"
+      }
+    },
+    {
+      "noteId": "ch17-source-written-OBJ_2131247",
+      "nativeOptionalWritingWrapper": {
+        "startByte": 163804,
+        "endByteExclusive": 164751,
+        "bytes": 947,
+        "sha256": "9732f83f393990f0358c4bc4663c8ebc966362518d9181f429940b105ecb9a3f",
+        "exactText": "<div class=\"optional-writing\"><label for=\"ch17-source-written-OBJ_2131247\">In the first cross, a rabbit with the chinchilla coat colour is mated to a rabbit with a Himalayan coat colour that is known to be homozygous for this trait. Calculate the theoretical probability of this cross producing each of the following phenotypes shown below. Show the calculation or sequence and explain your reasoning. Use only the supplied evidence; do not invent observations.</label><textarea aria-describedby=\"ch17-source-written-OBJ_2131247-status\" data-note-input=\"ch17-source-written-OBJ_2131247\" id=\"ch17-source-written-OBJ_2131247\" rows=\"5\"></textarea><p class=\"writing-status\" data-note-status=\"ch17-source-written-OBJ_2131247\" id=\"ch17-source-written-OBJ_2131247-status\">Optional response. Select Save response to collect it. Maximum 5000 characters.</p><button data-save-note=\"ch17-source-written-OBJ_2131247\" type=\"button\">Save response</button></div>"
+      },
+      "textareaAttributes": {
+        "aria-describedby": "ch17-source-written-OBJ_2131247-status",
+        "data-note-input": "ch17-source-written-OBJ_2131247",
+        "id": "ch17-source-written-OBJ_2131247",
+        "rows": "5"
+      }
+    },
+    {
+      "noteId": "ch17-source-written-OBJ_2131251",
+      "nativeOptionalWritingWrapper": {
+        "startByte": 204187,
+        "endByteExclusive": 204998,
+        "bytes": 811,
+        "sha256": "3e05e01e3f91e7fdfdfbf050ca4d2a47d31b464dc47a83317c3489ead610c26b",
+        "exactText": "<div class=\"optional-writing\"><label for=\"ch17-source-written-OBJ_2131251\">If two Labrador retrievers with the genotype BbEe were to be crossed, what phenotypic ratio would be expected in their offspring? Show the calculation or sequence and explain your reasoning. Use only the supplied evidence; do not invent observations.</label><textarea aria-describedby=\"ch17-source-written-OBJ_2131251-status\" data-note-input=\"ch17-source-written-OBJ_2131251\" id=\"ch17-source-written-OBJ_2131251\" rows=\"5\"></textarea><p class=\"writing-status\" data-note-status=\"ch17-source-written-OBJ_2131251\" id=\"ch17-source-written-OBJ_2131251-status\">Optional response. Select Save response to collect it. Maximum 5000 characters.</p><button data-save-note=\"ch17-source-written-OBJ_2131251\" type=\"button\">Save response</button></div>"
+      },
+      "textareaAttributes": {
+        "aria-describedby": "ch17-source-written-OBJ_2131251-status",
+        "data-note-input": "ch17-source-written-OBJ_2131251",
+        "id": "ch17-source-written-OBJ_2131251",
+        "rows": "5"
+      }
+    },
+    {
+      "noteId": "ch17-optional-extension",
+      "nativeOptionalWritingWrapper": {
+        "startByte": 391620,
+        "endByteExclusive": 392241,
+        "bytes": 621,
+        "sha256": "1bac3180710feb4be2bef2ea6e31b9042c0dc9cee04568598583c8d605d12db3",
+        "exactText": "<div class=\"optional-writing\"><label for=\"ch17-optional-extension\">Identify one scientific limitation of the hypothetical association and one issue relevant to informed participation.</label><textarea aria-describedby=\"ch17-optional-extension-status\" data-note-input=\"ch17-optional-extension\" id=\"ch17-optional-extension\" rows=\"5\"></textarea><p class=\"writing-status\" data-note-status=\"ch17-optional-extension\" id=\"ch17-optional-extension-status\">Optional response. Select Save response to collect it. Maximum 5000 characters.</p><button data-save-note=\"ch17-optional-extension\" type=\"button\">Save response</button></div>"
+      },
+      "textareaAttributes": {
+        "aria-describedby": "ch17-optional-extension-status",
+        "data-note-input": "ch17-optional-extension",
+        "id": "ch17-optional-extension",
+        "rows": "5"
+      }
+    }
+  ],
+  "runtimeEvidence": [
+    {
+      "purpose": "storageNamespace",
+      "file": "main.js",
+      "line": 10,
+      "range": {
+        "startByte": 479,
+        "endByteExclusive": 588,
+        "bytes": 109,
+        "sha256": "3309d524cab2fb4871e774b760e304b29ad39d32185cd39cb14a8415293c4b06",
+        "exactText": "const KEY=LMS?SC.scopeKey(`biology30-chapter-${C.chapter}:html:v1`):`biology30-chapter-${C.chapter}:html:v1`;"
+      }
+    },
+    {
+      "purpose": "stateShape",
+      "file": "main.js",
+      "line": 19,
+      "range": {
+        "startByte": 1332,
+        "endByteExclusive": 1432,
+        "bytes": 100,
+        "sha256": "77de7b2829e51fc676de964b8597c9b88576115f60206613f76ba0801b4ccc78",
+        "exactText": "let S={version:1,chapter:C.chapter,revision:0,checks:{},practice:{},history:[],frayers:{},notes:{}};"
+      }
+    },
+    {
+      "purpose": "loadValidation",
+      "file": "main.js",
+      "line": 28,
+      "range": {
+        "startByte": 2322,
+        "endByteExclusive": 2664,
+        "bytes": 342,
+        "sha256": "acd696dea8d16f1331e8933d562e0525649af0bc96477be5c70b6b0e5ee0fc54",
+        "exactText": " if(raw){const v=JSON.parse(raw);if(v.version!==1||v.chapter!==C.chapter||!Number.isInteger(v.revision)||!v.checks||!v.practice||!Array.isArray(v.history)||!v.frayers||!v.notes)throw Error('Existing save has an unsupported format.');S=v;}status('Browser saving is ready. Work stays on this browser and device; it is not sent to a teacher.');}"
+      }
+    },
+    {
+      "purpose": "saveFunction",
+      "file": "main.js",
+      "line": 30,
+      "range": {
+        "startByte": 2898,
+        "endByteExclusive": 2987,
+        "bytes": 89,
+        "sha256": "d0c0793997c35d89c9b36e29ec50999590125ce72192c5957da0d51c8ef4deef",
+        "exactText": "function save(next,message='Saved in this browser. Nothing has been sent to a teacher.'){"
+      }
+    },
+    {
+      "purpose": "revisionConflictGuard",
+      "file": "main.js",
+      "line": 32,
+      "range": {
+        "startByte": 3149,
+        "endByteExclusive": 3371,
+        "bytes": 222,
+        "sha256": "6bdbd90bdd5e743ffd0b5ac61eb41f773383d3c6bca358f1f543760634019844",
+        "exactText": " try{const raw=localStorage.getItem(KEY);const disk=raw?JSON.parse(raw):{revision:0};if(disk.revision!==S.revision){blocked=true;throw Error('Another tab changed this chapter. Copy visible unsaved writing, then reload.');}"
+      }
+    },
+    {
+      "purpose": "nativeMutation",
+      "file": "main.js",
+      "line": 39,
+      "range": {
+        "startByte": 4184,
+        "endByteExclusive": 4268,
+        "bytes": 84,
+        "sha256": "2247ac8575c7d29cea0108f2bf382318987252fe409c73e4d368dbd3d43afee5",
+        "exactText": "function change(fn,message){const next=clone(S);fn(next);return save(next,message);}"
+      }
+    },
+    {
+      "purpose": "otherTabProtection",
+      "file": "main.js",
+      "line": 40,
+      "range": {
+        "startByte": 4269,
+        "endByteExclusive": 4585,
+        "bytes": 316,
+        "sha256": "b6ba5fcd1f5499bce76fb7c87e9897f20834d707700d22ffa31998a073397ef7",
+        "exactText": "window.addEventListener('storage',e=>{if(e.key===KEY){blocked=true;if(LMS)SC.failCourseSave(Error('Another tab changed this chapter. Copy unsaved writing before reloading.'));status('Another tab changed this chapter’s work. This tab will not overwrite it. Copy any visible unsaved writing, then reload.',true);}});"
+      }
+    },
+    {
+      "purpose": "requiredProgress",
+      "file": "main.js",
+      "line": 42,
+      "range": {
+        "startByte": 4680,
+        "endByteExclusive": 5340,
+        "bytes": 660,
+        "sha256": "12fdd8bf439bf1d55f89a357bbc41112942892dec7e281e4b733479e345ff84a",
+        "exactText": "function progress(){const completed=new Set(S.history.filter(x=>x.kind==='check').map(x=>x.checkId));let count=C.checks.filter(x=>completed.has(x.id)).length;const percent=Math.round(count/C.checks.length*100);$('[data-progress-count]').textContent=`${count} of ${C.checks.length} checks`;$('[data-progress-percent]').textContent=percent+'%';$('[data-progress-fill]').style.width=percent+'%';$('[data-progress-fraction]').textContent=`${count} / ${C.checks.length}`;$$('[data-lesson-completion]').forEach(el=>{let check=C.checks.find(q=>q.route===el.dataset.lessonCompletion);el.textContent=completed.has(check?.id)?'Check completed':'Check not completed';});}"
+      }
+    },
+    {
+      "purpose": "workNotes",
+      "file": "main.js",
+      "line": 161,
+      "range": {
+        "startByte": 35748,
+        "endByteExclusive": 36195,
+        "bytes": 447,
+        "sha256": "2412afea9347b9dc090f26b6dd806c169c708b89852cfb7e4b8e5e73df67ab52",
+        "exactText": " $('[data-work-notes]').innerHTML=Object.entries(S.notes).filter(([id,n])=>n.submitted).map(([id,n])=>`<article class=\"history-run\"><h3>${esc(C.notes.find(v=>v.id===id)?.title||id)}</h3><p class=\"written-record\">${esc(n.submitted)}</p>${n.draft.trim()!==n.submitted?'<p class=\"muted\">A newer draft exists in the activity. This is the last explicitly saved response.</p>':''}</article>`).join('')||'<p>No optional written responses collected.</p>';"
+      }
+    },
+    {
+      "purpose": "restoreNotes",
+      "file": "main.js",
+      "line": 164,
+      "range": {
+        "startByte": 36549,
+        "endByteExclusive": 36673,
+        "bytes": 124,
+        "sha256": "64230d50040e204956353a65b1e0526ba18e6b2e23a5ec639c9ff86b85d142dc",
+        "exactText": "function restoreNotes(){ $$('[data-note-input]').forEach(el=>{let n=S.notes[el.dataset.noteInput];el.value=n?.draft||'';});}"
+      }
+    },
+    {
+      "purpose": "inputDraft",
+      "file": "main.js",
+      "line": 182,
+      "range": {
+        "startByte": 41629,
+        "endByteExclusive": 41967,
+        "bytes": 338,
+        "sha256": "7891f8a1a82508918e8654edf49dbe504df7b1235a8a004c1288fd5ee3c76662",
+        "exactText": " if(el.matches('[data-note-input]')){const saved=change(n=>{let v=n.notes[el.dataset.noteInput]??={draft:'',submitted:null};v.draft=el.value;});const out=$(`[data-note-status=\"${el.dataset.noteInput}\"]`);if(out)out.textContent=saved?'Draft saved locally. Select Save response to collect it.':'NOT SAVED. Copy this draft before leaving.';}"
+      }
+    },
+    {
+      "purpose": "saveResponse",
+      "file": "main.js",
+      "line": 211,
+      "range": {
+        "startByte": 48311,
+        "endByteExclusive": 48816,
+        "bytes": 505,
+        "sha256": "3d3801912587c2ecb86b01de60d8f4922df0f1154b6195fca73e56640f47ba07",
+        "exactText": " if(b.dataset.saveNote){const id=b.dataset.saveNote,v=S.notes[id];if(!v?.draft.trim()||v.draft.length>5000){status('Enter a response of 1–5000 characters before collecting it.',true);return;}if(change(n=>{n.notes[id].submitted=v.draft.trim();n.notes[id].at=Date.now();},'Optional written response collected. Required progress is unchanged.')){$(`[data-note-status=\"${id}\"]`).textContent='Saved response collected. It has not been automatically graded.';renderWork();revisionActivities.render();}return;}"
+      }
+    },
+    {
+      "purpose": "globalModelLock",
+      "file": "main.js",
+      "line": 172,
+      "range": {
+        "startByte": 38980,
+        "endByteExclusive": 39230,
+        "bytes": 250,
+        "sha256": "4a59033ceb005b0fad80c4737c933a474ec523735a3d811bbc145fe3c645b100",
+        "exactText": "document.addEventListener('click',e=>{const summary=e.target.closest('summary');if(summary&&summary.parentElement.dataset.locked==='true'){e.preventDefault();status('Complete and save the required writing before comparing with this model.',true);}});"
+      }
+    },
+    {
+      "purpose": "initialRestore",
+      "file": "main.js",
+      "line": 225,
+      "range": {
+        "startByte": 50080,
+        "endByteExclusive": 50272,
+        "bytes": 192,
+        "sha256": "8c2dc1f33cad38190722a4a9d8782a17d802fab1648196f86eda5ac983acae2e",
+        "exactText": "renderAllChecks();['flash','blanks','mc','mixed'].forEach(renderPractice);renderLabels();renderFrayers();restoreNotes();renderVideoLibrary();renderWork();route();tick();setInterval(tick,1000);"
+      }
+    },
+    {
+      "purpose": "beforePrint",
+      "file": "main.js",
+      "line": 216,
+      "range": {
+        "startByte": 49005,
+        "endByteExclusive": 49213,
+        "bytes": 208,
+        "sha256": "3b2523bfa60e0ab1b88fc86b122e9d13622890ac7541789a1e6740b242f32d5c",
+        "exactText": "window.addEventListener('beforeprint',()=>{renderWork();document.body.classList.add('print-work');printDetails=$$('#process-collection details').map(d=>[d,d.open]);printDetails.forEach(([d])=>d.open=true);});"
+      }
+    },
+    {
+      "purpose": "onlyOptionalNoteModelGateIsHardcodedExtension",
+      "file": "assets/revision-activities.js",
+      "line": 8,
+      "range": {
+        "startByte": 2892,
+        "endByteExclusive": 3083,
+        "bytes": 191,
+        "sha256": "a9e3686d517635049c3f92647ab2149e37d99420831d50a0747a291b575d8612",
+        "exactText": "  const model=$('[data-extension-model]');if(model){model.dataset.locked=String(!S.notes?.[`ch${C.chapter}-optional-extension`]?.submitted);if(model.dataset.locked==='true')model.open=false;}"
+      }
+    }
+  ],
+  "nativeCssRules": [
+    {
+      "selector": "button,input,select,textarea",
+      "range": {
+        "startByte": 407,
+        "endByteExclusive": 449,
+        "bytes": 42,
+        "sha256": "ad4a8cd7e2dba2d905038ae11eca6c94d91a1573b2ee4e57281e85d76b3ec51a",
+        "exactText": "button,input,select,textarea{font:inherit}"
+      }
+    },
+    {
+      "selector": ".nav-group>summary",
+      "range": {
+        "startByte": 2107,
+        "endByteExclusive": 2258,
+        "bytes": 151,
+        "sha256": "cfb3430306721e9ad36e3a5c69b7fc16ed0b8d82bc628d92ab3f8d370c17f5cd",
+        "exactText": ".nav-group>summary{list-style:none;display:flex;align-items:center;gap:11px;min-height:52px;padding:10px 8px;color:#fff;font-weight:800;cursor:pointer}"
+      }
+    },
+    {
+      "selector": ".nav-group>summary::-webkit-details-marker",
+      "range": {
+        "startByte": 2258,
+        "endByteExclusive": 2314,
+        "bytes": 56,
+        "sha256": "b58b5581b7d057317437177c95208880912e48345386dbaf0210797e8d973165",
+        "exactText": ".nav-group>summary::-webkit-details-marker{display:none}"
+      }
+    },
+    {
+      "selector": ".nav-group>summary::after",
+      "range": {
+        "startByte": 2314,
+        "endByteExclusive": 2400,
+        "bytes": 86,
+        "sha256": "dc05d48f86785e2f3c74a86f9fc4d6c14007f0154ac02da18e480c754fdf91ee",
+        "exactText": ".nav-group>summary::after{content:\"+\";margin-left:auto;font-size:22px;font-weight:400}"
+      }
+    },
+    {
+      "selector": ".nav-group[open]>summary::after",
+      "range": {
+        "startByte": 2400,
+        "endByteExclusive": 2446,
+        "bytes": 46,
+        "sha256": "278a8583f752f288aff9f189d2f13d599cac2c0ea0281b43fcf5385ec9d11bee",
+        "exactText": ".nav-group[open]>summary::after{content:\"−\"}"
+      }
+    },
+    {
+      "selector": ".stop-check details",
+      "range": {
+        "startByte": 6071,
+        "endByteExclusive": 6106,
+        "bytes": 35,
+        "sha256": "608a0f0340acab03e3ea9126fbebfae7ba8cbda2208e54677f2a49709fdc3203",
+        "exactText": ".stop-check details{max-width:72ch}"
+      }
+    },
+    {
+      "selector": ".stop-check summary",
+      "range": {
+        "startByte": 6106,
+        "endByteExclusive": 6206,
+        "bytes": 100,
+        "sha256": "0dd357f9d37377b357fad86ecd098f5ccb662f7499623485f9fad1e8e1aee4de",
+        "exactText": ".stop-check summary{min-height:44px;padding:9px 0;color:var(--green);font-weight:800;cursor:pointer}"
+      }
+    },
+    {
+      "selector": ".retrieve-block textarea,.evidence-slip textarea,.collection-section textarea,.frayer textarea",
+      "range": {
+        "startByte": 6944,
+        "endByteExclusive": 7151,
+        "bytes": 207,
+        "sha256": "8e47a4dc4cfafb9c1531fccfd511fce7a6fcb45416faf24e6b338d9fa722c01e",
+        "exactText": ".retrieve-block textarea,.evidence-slip textarea,.collection-section textarea,.frayer textarea{display:block;width:100%;margin-top:8px;padding:12px;border:1px solid #aeb8af;border-radius:6px;resize:vertical}"
+      }
+    },
+    {
+      "selector": ".advanced-learning>summary",
+      "range": {
+        "startByte": 9212,
+        "endByteExclusive": 9372,
+        "bytes": 160,
+        "sha256": "347f81288ce85d8a0e99157cbce609f3f445774fcfcd242ec6676f3105d01bc6",
+        "exactText": ".advanced-learning>summary{display:flex;justify-content:space-between;gap:20px;min-height:58px;padding:16px 0;color:var(--green);font-weight:850;cursor:pointer}"
+      }
+    },
+    {
+      "selector": ".concept-summary",
+      "range": {
+        "startByte": 11771,
+        "endByteExclusive": 11875,
+        "bytes": 104,
+        "sha256": "1d74c11dd1ae6d565962646986b103c411d9437171602d875b1027a391f6349b",
+        "exactText": ".concept-summary{margin-top:12px;padding:15px 17px;border-left:4px solid var(--teal);background:#f0f6f3}"
+      }
+    },
+    {
+      "selector": ".concept-summary h3",
+      "range": {
+        "startByte": 11875,
+        "endByteExclusive": 11925,
+        "bytes": 50,
+        "sha256": "e926ba9b52203cb8aaee8564de82624eb20061ecff85c60601221527206ffc14",
+        "exactText": ".concept-summary h3{margin:0 0 5px;font-size:16px}"
+      }
+    },
+    {
+      "selector": ".concept-summary p",
+      "range": {
+        "startByte": 11925,
+        "endByteExclusive": 11968,
+        "bytes": 43,
+        "sha256": "ab61b92b5793653566cb213e80dc864414cc5275231b99146302f955fef0bc8c",
+        "exactText": ".concept-summary p{margin:0;font-size:14px}"
+      }
+    },
+    {
+      "selector": ".investigation-list details",
+      "range": {
+        "startByte": 12854,
+        "endByteExclusive": 12913,
+        "bytes": 59,
+        "sha256": "8a311f002241001e41ec19fb4a7fc4e6e2b12bb4bebd0cc8e7f48bbab03ff7b2",
+        "exactText": ".investigation-list details{border:1px solid var(--border)}"
+      }
+    },
+    {
+      "selector": ".investigation-list summary",
+      "range": {
+        "startByte": 12913,
+        "endByteExclusive": 12990,
+        "bytes": 77,
+        "sha256": "f23f4a98cd88e5b8b0a3cb97fb2d607f4dc41c664116b718dafbd7ec8fa19e37",
+        "exactText": ".investigation-list summary{display:grid;gap:2px;padding:16px;cursor:pointer}"
+      }
+    },
+    {
+      "selector": ".investigation-list summary span",
+      "range": {
+        "startByte": 12990,
+        "endByteExclusive": 13057,
+        "bytes": 67,
+        "sha256": "e343ae8d5f24455c905e3903c800bcf86c91aa5161e0e108130a393018b45190",
+        "exactText": ".investigation-list summary span{color:var(--muted);font-size:14px}"
+      }
+    },
+    {
+      "selector": ".investigation-list details>div",
+      "range": {
+        "startByte": 13057,
+        "endByteExclusive": 13109,
+        "bytes": 52,
+        "sha256": "0774005797bf95c2a688b54614c41f90fbfb42c295d6faa312343d1385681624",
+        "exactText": ".investigation-list details>div{padding:0 16px 18px}"
+      }
+    },
+    {
+      "selector": ".study-task>summary",
+      "range": {
+        "startByte": 21806,
+        "endByteExclusive": 21841,
+        "bytes": 35,
+        "sha256": "755413fcbeb9ab692c9596747af7682f37f979d42f5ec308a4bbacfaab16aaf0",
+        "exactText": ".study-task>summary{cursor:pointer}"
+      }
+    },
+    {
+      "selector": ".study-task>summary h3",
+      "range": {
+        "startByte": 21841,
+        "endByteExclusive": 21897,
+        "bytes": 56,
+        "sha256": "3c24569f2f7d749a81e95a03c9e35981726c01fdcfd64274149b89f7f919e737",
+        "exactText": ".study-task>summary h3{display:inline;font-size:1.08rem}"
+      }
+    },
+    {
+      "selector": ".study-task textarea",
+      "range": {
+        "startByte": 21981,
+        "endByteExclusive": 22052,
+        "bytes": 71,
+        "sha256": "b40ce2258b6fd0cb8ece8b632b3945618c8cd2ed195e20a2e9b8f71db2909a00",
+        "exactText": ".study-task textarea{width:100%;min-height:10rem;box-sizing:border-box}"
+      }
+    },
+    {
+      "selector": ".lesson-term-inventory>summary",
+      "range": {
+        "startByte": 24241,
+        "endByteExclusive": 24356,
+        "bytes": 115,
+        "sha256": "70b2d57a60feef9d3320ab4fa89f80162f81c34f625b7940f4bc74e4ab47b6bf",
+        "exactText": "\n.lesson-term-inventory>summary{min-height:52px;padding:13px 2px;color:var(--green);font-weight:800;cursor:pointer}"
+      }
+    },
+    {
+      "selector": ".lesson-vocabulary-help>summary,.supplementary-detail>summary,.applied-detail>summary,.word-more>summary",
+      "range": {
+        "startByte": 25076,
+        "endByteExclusive": 25265,
+        "bytes": 189,
+        "sha256": "9b4a583d9b645fe34653e9b1f6e99bc29db5ae5f1081f539be1da1910368fdf9",
+        "exactText": "\n.lesson-vocabulary-help>summary,.supplementary-detail>summary,.applied-detail>summary,.word-more>summary{min-height:48px;padding:11px 2px;color:var(--green);font-weight:800;cursor:pointer}"
+      }
+    },
+    {
+      "selector": ".applied-detail>summary",
+      "range": {
+        "startByte": 25579,
+        "endByteExclusive": 25619,
+        "bytes": 40,
+        "sha256": "92b804642c9287975ba439eb44b3d0ae816297ae085126b46dbc0002825ba1df",
+        "exactText": "\n.applied-detail>summary{font-size:19px}"
+      }
+    },
+    {
+      "selector": ".illustrated-equivalent>summary",
+      "range": {
+        "startByte": 27341,
+        "endByteExclusive": 27457,
+        "bytes": 116,
+        "sha256": "2167fe76332a6d6c65b7876868fa13a4e01ba00d539d0d6097b6e3983272a56e",
+        "exactText": ".illustrated-equivalent>summary{min-height:48px;padding:11px 14px;color:var(--green);font-weight:800;cursor:pointer}"
+      }
+    },
+    {
+      "selector": ".seminar-session textarea",
+      "range": {
+        "startByte": 29091,
+        "endByteExclusive": 29143,
+        "bytes": 52,
+        "sha256": "4c0b530e660c5126298f9eab03f7b90a29c796398963a40770f89db316ef5fc4",
+        "exactText": ".seminar-session textarea{width:100%;margin-top:8px}"
+      }
+    },
+    {
+      "selector": ".model-response textarea",
+      "range": {
+        "startByte": 33421,
+        "endByteExclusive": 33560,
+        "bytes": 139,
+        "sha256": "b4a541a65999e1d896d32724aaced286588ccc692eb9cbdeb9a7ca8222e2771a",
+        "exactText": ".model-response textarea{display:block;width:100%;min-height:104px;padding:12px;border:1px solid #9fa9a1;border-radius:6px;resize:vertical}"
+      }
+    },
+    {
+      "selector": ".model-response textarea:disabled",
+      "range": {
+        "startByte": 33560,
+        "endByteExclusive": 33627,
+        "bytes": 67,
+        "sha256": "632a02f83fe900c17a3b1dc1dc1f1c5d4e3c398e4daa33c18615b9c9510ce51e",
+        "exactText": ".model-response textarea:disabled{background:#f1f3f0;color:#707772}"
+      }
+    },
+    {
+      "selector": ".model-static-equivalent>summary",
+      "range": {
+        "startByte": 37089,
+        "endByteExclusive": 37205,
+        "bytes": 116,
+        "sha256": "57c0c6ee1a8e98e793ebba0c30aed14c29c379d78d8abb7299cd5d368e8eadb8",
+        "exactText": ".model-static-equivalent>summary{min-height:50px;padding:12px 2px;color:var(--green);font-weight:800;cursor:pointer}"
+      }
+    },
+    {
+      "selector": ".advanced-learning-block>summary",
+      "range": {
+        "startByte": 37679,
+        "endByteExclusive": 37803,
+        "bytes": 124,
+        "sha256": "5b19e7c4b1681bbffa9664f5ce2ec943e4909d5dbfeb7530d92f1533d700f9c7",
+        "exactText": ".advanced-learning-block>summary{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:8px 18px}"
+      }
+    },
+    {
+      "selector": ".advanced-learning-block>summary::marker",
+      "range": {
+        "startByte": 37803,
+        "endByteExclusive": 37863,
+        "bytes": 60,
+        "sha256": "4844ce96e311da542c66bd6449d1585b9f95d0630e51996dc68535bbe6846d67",
+        "exactText": ".advanced-learning-block>summary::marker{color:var(--green)}"
+      }
+    },
+    {
+      "selector": ".advanced-summary-title",
+      "range": {
+        "startByte": 37959,
+        "endByteExclusive": 38039,
+        "bytes": 80,
+        "sha256": "500f4dfe1d4511c375217466c74ee5eb09163bc5ce8be12bfe2bb9994fdf0a9e",
+        "exactText": ".advanced-summary-title{min-width:0;color:var(--green);overflow-wrap:break-word}"
+      }
+    },
+    {
+      "selector": ".process-work-evidence summary",
+      "range": {
+        "startByte": 42052,
+        "endByteExclusive": 42163,
+        "bytes": 111,
+        "sha256": "3981cd2def415d8feef246ff4b655898593320b7f56e1f748538bd350377583f",
+        "exactText": ".process-work-evidence summary{min-height:44px;padding:8px 0;color:var(--green);font-weight:750;cursor:pointer}"
+      }
+    },
+    {
+      "selector": ".advanced-learning-block>summary",
+      "range": {
+        "startByte": 43589,
+        "endByteExclusive": 43653,
+        "bytes": 64,
+        "sha256": "879ae0d97247df0ff0ff67841114772aa3e3dbef3d618b38acd2aa2daf9c76c4",
+        "exactText": ".advanced-learning-block>summary{grid-template-columns:1fr auto}"
+      }
+    },
+    {
+      "selector": ".online-study>summary",
+      "range": {
+        "startByte": 47692,
+        "endByteExclusive": 47729,
+        "bytes": 37,
+        "sha256": "4a1cb835df16513b07323a60f368a5eec905fb616355036cb3ed0c4485553dd6",
+        "exactText": ".online-study>summary{cursor:pointer}"
+      }
+    },
+    {
+      "selector": ".online-study>summary h3",
+      "range": {
+        "startByte": 47729,
+        "endByteExclusive": 47787,
+        "bytes": 58,
+        "sha256": "ba0991ee3be99834415df2e60dcab34bc21801103abfa1bab71701ab5c80d054",
+        "exactText": ".online-study>summary h3{display:inline;font-size:1.08rem}"
+      }
+    },
+    {
+      "selector": ".online-study-body textarea",
+      "range": {
+        "startByte": 48363,
+        "endByteExclusive": 48424,
+        "bytes": 61,
+        "sha256": "006d721fb1420ad1f660860a324aaaa7ec7dd7bf41fb6a049585d62525996623",
+        "exactText": ".online-study-body textarea{width:100%;box-sizing:border-box}"
+      }
+    },
+    {
+      "selector": "[data-biology-word-details]>h2",
+      "range": {
+        "startByte": 49818,
+        "endByteExclusive": 49912,
+        "bytes": 94,
+        "sha256": "fc0ccb746291c9824d81ce7a7fdf4c60590cb1971506653addaada15fcd9f2ef",
+        "exactText": "\n[data-biology-word-details]>h2{margin:0 0 18px;font:760 34px/1.1 \"Hanken Grotesk\",sans-serif}"
+      }
+    },
+    {
+      "selector": "[data-biology-word-details]>h2",
+      "range": {
+        "startByte": 49912,
+        "endByteExclusive": 49991,
+        "bytes": 79,
+        "sha256": "4c2b2787d7b868e71189c96f8031af80e8c7db0a7a58e7533cd75983911af5f8",
+        "exactText": "\n[data-biology-word-details]>h2{scroll-margin-top:calc(var(--top,64px) + 18px)}"
+      }
+    },
+    {
+      "selector": "[data-biology-word-details]>section",
+      "range": {
+        "startByte": 50077,
+        "endByteExclusive": 50164,
+        "bytes": 87,
+        "sha256": "9ba03682f5ad64ea23b82e1598b9c04fcc459abf129a57a56d4d572d40eb8fce",
+        "exactText": "\n[data-biology-word-details]>section{padding:18px 0;border-top:1px solid var(--border)}"
+      }
+    },
+    {
+      "selector": "[data-biology-word-details] .section-label,[data-biology-word-details]>.eyebrow",
+      "range": {
+        "startByte": 50164,
+        "endByteExclusive": 50366,
+        "bytes": 202,
+        "sha256": "1c6dcee54a1e33f3dffab7be0a04d1bd11d3924ae06de668586555cca4c2c7f1",
+        "exactText": "\n[data-biology-word-details] .section-label,[data-biology-word-details]>.eyebrow{margin:0 0 7px;color:var(--teal);font:850 12px/1.5 \"Work Sans\",sans-serif;letter-spacing:.045em;text-transform:uppercase}"
+      }
+    },
+    {
+      "selector": "[data-biology-word-details]>section>p",
+      "range": {
+        "startByte": 50366,
+        "endByteExclusive": 50441,
+        "bytes": 75,
+        "sha256": "c22c586ba5c95c9240ac09fbe4cd3d4dc56b8d4cb421dda7bf8471e1d593e7ed",
+        "exactText": "\n[data-biology-word-details]>section>p{margin:18px 0 16px;line-height:1.66}"
+      }
+    },
+    {
+      "selector": "[data-biology-word-details] .concept-contrast",
+      "range": {
+        "startByte": 50441,
+        "endByteExclusive": 50540,
+        "bytes": 99,
+        "sha256": "24bb0064311941b934976c3c56451d5587a9edc96bbd1e010765a852f15de916",
+        "exactText": "\n[data-biology-word-details] .concept-contrast{display:grid;grid-template-columns:1fr 1fr;gap:22px}"
+      }
+    },
+    {
+      "selector": "[data-biology-word-details] .concept-contrast h3,[data-biology-word-details] .retrieval-mini h3",
+      "range": {
+        "startByte": 50540,
+        "endByteExclusive": 50667,
+        "bytes": 127,
+        "sha256": "75101e38885cda380010e328c65c5c86b8d25b31d69975af21302f2d2befa54b",
+        "exactText": "\n[data-biology-word-details] .concept-contrast h3,[data-biology-word-details] .retrieval-mini h3{margin:0 0 6px;font-size:17px}"
+      }
+    },
+    {
+      "selector": "[data-biology-word-details] .concept-contrast p,[data-biology-word-details] .retrieval-mini p",
+      "range": {
+        "startByte": 50667,
+        "endByteExclusive": 50788,
+        "bytes": 121,
+        "sha256": "2288800b5e19440d9930dcd5cc7bc17cd8832ac1286f3abb6f6da48c59f0a62d",
+        "exactText": "\n[data-biology-word-details] .concept-contrast p,[data-biology-word-details] .retrieval-mini p{margin:0;line-height:1.66}"
+      }
+    },
+    {
+      "selector": "[data-biology-word-details] .retrieval-mini",
+      "range": {
+        "startByte": 50788,
+        "endByteExclusive": 50879,
+        "bytes": 91,
+        "sha256": "eabd26d4489ed5ec93b1889ac383d9183782a3a0d596249fad17fdeeef25d610",
+        "exactText": "\n[data-biology-word-details] .retrieval-mini{padding:15px;background:#f1f7f4;margin:18px 0}"
+      }
+    },
+    {
+      "selector": "[data-biology-word-details] .word-parts",
+      "range": {
+        "startByte": 50879,
+        "endByteExclusive": 50976,
+        "bytes": 97,
+        "sha256": "d4a7d92db24658c153aee5bd80595b1d4898ccdc3da10c956374980a5d4e9513",
+        "exactText": "\n[data-biology-word-details] .word-parts{display:flex;flex-wrap:wrap;gap:12px 24px;margin:18px 0}"
+      }
+    },
+    {
+      "selector": "[data-biology-word-details] .word-parts>div",
+      "range": {
+        "startByte": 50976,
+        "endByteExclusive": 51042,
+        "bytes": 66,
+        "sha256": "ca1b07eed0a9c54f32912e6e10b16628f930626641ae5fadc3ff3df9dad91480",
+        "exactText": "\n[data-biology-word-details] .word-parts>div{display:flex;gap:8px}"
+      }
+    },
+    {
+      "selector": "[data-biology-word-details] .word-parts dt",
+      "range": {
+        "startByte": 51042,
+        "endByteExclusive": 51101,
+        "bytes": 59,
+        "sha256": "a859e43d551e4a2406b954671cafdd60676a279e0265a8dbc7cf18889cfd931b",
+        "exactText": "[data-biology-word-details] .word-parts dt{font-weight:800}"
+      }
+    },
+    {
+      "selector": "[data-biology-word-details] .word-parts dd",
+      "range": {
+        "startByte": 51101,
+        "endByteExclusive": 51172,
+        "bytes": 71,
+        "sha256": "f761da5be6192157df1aad17c229936fe1103c81e472abab56bb147bba91affd",
+        "exactText": "[data-biology-word-details] .word-parts dd{margin:0;color:var(--muted)}"
+      }
+    },
+    {
+      "selector": "[data-biology-word-details] .caution-line",
+      "range": {
+        "startByte": 51172,
+        "endByteExclusive": 51247,
+        "bytes": 75,
+        "sha256": "41cb0f57119d0de5944348e904b7b24b845611248fe41ecce046985a00956bf9",
+        "exactText": "\n[data-biology-word-details] .caution-line{padding:12px;background:#faf4e9}"
+      }
+    },
+    {
+      "selector": "[data-biology-word-details] .concept-contrast",
+      "range": {
+        "startByte": 51835,
+        "endByteExclusive": 51907,
+        "bytes": 72,
+        "sha256": "11f21b2b17c752670c38a24258d92bd0253fbbd4accac3343370aacdb65fa288",
+        "exactText": "[data-biology-word-details] .concept-contrast{grid-template-columns:1fr}"
+      }
+    },
+    {
+      "selector": "[data-biology-word-details]>h2",
+      "range": {
+        "startByte": 53303,
+        "endByteExclusive": 53397,
+        "bytes": 94,
+        "sha256": "fc0ccb746291c9824d81ce7a7fdf4c60590cb1971506653addaada15fcd9f2ef",
+        "exactText": "\n[data-biology-word-details]>h2{margin:0 0 18px;font:760 34px/1.1 \"Hanken Grotesk\",sans-serif}"
+      }
+    },
+    {
+      "selector": "[data-biology-word-details]>h2",
+      "range": {
+        "startByte": 53397,
+        "endByteExclusive": 53476,
+        "bytes": 79,
+        "sha256": "4c2b2787d7b868e71189c96f8031af80e8c7db0a7a58e7533cd75983911af5f8",
+        "exactText": "\n[data-biology-word-details]>h2{scroll-margin-top:calc(var(--top,64px) + 18px)}"
+      }
+    },
+    {
+      "selector": "[data-biology-word-details]>section",
+      "range": {
+        "startByte": 53562,
+        "endByteExclusive": 53649,
+        "bytes": 87,
+        "sha256": "9ba03682f5ad64ea23b82e1598b9c04fcc459abf129a57a56d4d572d40eb8fce",
+        "exactText": "\n[data-biology-word-details]>section{padding:18px 0;border-top:1px solid var(--border)}"
+      }
+    },
+    {
+      "selector": "[data-biology-word-details] .section-label,[data-biology-word-details]>.eyebrow",
+      "range": {
+        "startByte": 53649,
+        "endByteExclusive": 53851,
+        "bytes": 202,
+        "sha256": "1c6dcee54a1e33f3dffab7be0a04d1bd11d3924ae06de668586555cca4c2c7f1",
+        "exactText": "\n[data-biology-word-details] .section-label,[data-biology-word-details]>.eyebrow{margin:0 0 7px;color:var(--teal);font:850 12px/1.5 \"Work Sans\",sans-serif;letter-spacing:.045em;text-transform:uppercase}"
+      }
+    },
+    {
+      "selector": "[data-biology-word-details]>section>p",
+      "range": {
+        "startByte": 53851,
+        "endByteExclusive": 53926,
+        "bytes": 75,
+        "sha256": "c22c586ba5c95c9240ac09fbe4cd3d4dc56b8d4cb421dda7bf8471e1d593e7ed",
+        "exactText": "\n[data-biology-word-details]>section>p{margin:18px 0 16px;line-height:1.66}"
+      }
+    },
+    {
+      "selector": "[data-biology-word-details] .concept-contrast",
+      "range": {
+        "startByte": 53926,
+        "endByteExclusive": 54025,
+        "bytes": 99,
+        "sha256": "24bb0064311941b934976c3c56451d5587a9edc96bbd1e010765a852f15de916",
+        "exactText": "\n[data-biology-word-details] .concept-contrast{display:grid;grid-template-columns:1fr 1fr;gap:22px}"
+      }
+    },
+    {
+      "selector": "[data-biology-word-details] .concept-contrast h3,[data-biology-word-details] .retrieval-mini h3",
+      "range": {
+        "startByte": 54025,
+        "endByteExclusive": 54152,
+        "bytes": 127,
+        "sha256": "75101e38885cda380010e328c65c5c86b8d25b31d69975af21302f2d2befa54b",
+        "exactText": "\n[data-biology-word-details] .concept-contrast h3,[data-biology-word-details] .retrieval-mini h3{margin:0 0 6px;font-size:17px}"
+      }
+    },
+    {
+      "selector": "[data-biology-word-details] .concept-contrast p,[data-biology-word-details] .retrieval-mini p",
+      "range": {
+        "startByte": 54152,
+        "endByteExclusive": 54273,
+        "bytes": 121,
+        "sha256": "2288800b5e19440d9930dcd5cc7bc17cd8832ac1286f3abb6f6da48c59f0a62d",
+        "exactText": "\n[data-biology-word-details] .concept-contrast p,[data-biology-word-details] .retrieval-mini p{margin:0;line-height:1.66}"
+      }
+    },
+    {
+      "selector": "[data-biology-word-details] .retrieval-mini",
+      "range": {
+        "startByte": 54273,
+        "endByteExclusive": 54364,
+        "bytes": 91,
+        "sha256": "eabd26d4489ed5ec93b1889ac383d9183782a3a0d596249fad17fdeeef25d610",
+        "exactText": "\n[data-biology-word-details] .retrieval-mini{padding:15px;background:#f1f7f4;margin:18px 0}"
+      }
+    },
+    {
+      "selector": "[data-biology-word-details] .word-parts",
+      "range": {
+        "startByte": 54364,
+        "endByteExclusive": 54461,
+        "bytes": 97,
+        "sha256": "d4a7d92db24658c153aee5bd80595b1d4898ccdc3da10c956374980a5d4e9513",
+        "exactText": "\n[data-biology-word-details] .word-parts{display:flex;flex-wrap:wrap;gap:12px 24px;margin:18px 0}"
+      }
+    },
+    {
+      "selector": "[data-biology-word-details] .word-parts>div",
+      "range": {
+        "startByte": 54461,
+        "endByteExclusive": 54527,
+        "bytes": 66,
+        "sha256": "ca1b07eed0a9c54f32912e6e10b16628f930626641ae5fadc3ff3df9dad91480",
+        "exactText": "\n[data-biology-word-details] .word-parts>div{display:flex;gap:8px}"
+      }
+    },
+    {
+      "selector": "[data-biology-word-details] .word-parts dt",
+      "range": {
+        "startByte": 54527,
+        "endByteExclusive": 54586,
+        "bytes": 59,
+        "sha256": "a859e43d551e4a2406b954671cafdd60676a279e0265a8dbc7cf18889cfd931b",
+        "exactText": "[data-biology-word-details] .word-parts dt{font-weight:800}"
+      }
+    },
+    {
+      "selector": "[data-biology-word-details] .word-parts dd",
+      "range": {
+        "startByte": 54586,
+        "endByteExclusive": 54657,
+        "bytes": 71,
+        "sha256": "f761da5be6192157df1aad17c229936fe1103c81e472abab56bb147bba91affd",
+        "exactText": "[data-biology-word-details] .word-parts dd{margin:0;color:var(--muted)}"
+      }
+    },
+    {
+      "selector": "[data-biology-word-details] .caution-line",
+      "range": {
+        "startByte": 54657,
+        "endByteExclusive": 54732,
+        "bytes": 75,
+        "sha256": "41cb0f57119d0de5944348e904b7b24b845611248fe41ecce046985a00956bf9",
+        "exactText": "\n[data-biology-word-details] .caution-line{padding:12px;background:#faf4e9}"
+      }
+    },
+    {
+      "selector": "[data-biology-word-details] .concept-contrast",
+      "range": {
+        "startByte": 55320,
+        "endByteExclusive": 55392,
+        "bytes": 72,
+        "sha256": "11f21b2b17c752670c38a24258d92bd0253fbbd4accac3343370aacdb65fa288",
+        "exactText": "[data-biology-word-details] .concept-contrast{grid-template-columns:1fr}"
+      }
+    },
+    {
+      "selector": ".activity-disclosure",
+      "range": {
+        "startByte": 56517,
+        "endByteExclusive": 56592,
+        "bytes": 75,
+        "sha256": "58def925084eaacac16d9dec482d2c9038fb733678702d9064f67ea9cccf2e7a",
+        "exactText": ".activity-disclosure{border-top:1px solid var(--border);background:#fbfcfa}"
+      }
+    },
+    {
+      "selector": ".activity-disclosure>summary",
+      "range": {
+        "startByte": 56592,
+        "endByteExclusive": 56792,
+        "bytes": 200,
+        "sha256": "aefa52a8349b6505e111c6ff83fba6789e2f235ea9ee1a889dc2a1a2bc2d9a04",
+        "exactText": ".activity-disclosure>summary{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:64px;padding:14px 54px;color:var(--green);font-weight:800;cursor:pointer;list-style:none}"
+      }
+    },
+    {
+      "selector": ".activity-disclosure>summary::-webkit-details-marker",
+      "range": {
+        "startByte": 56792,
+        "endByteExclusive": 56858,
+        "bytes": 66,
+        "sha256": "0082038cea6dd97cb6e7d7cfadc1f5ab4b51f9825e1c562500308cd80c774d34",
+        "exactText": ".activity-disclosure>summary::-webkit-details-marker{display:none}"
+      }
+    },
+    {
+      "selector": ".activity-disclosure>summary::after",
+      "range": {
+        "startByte": 56858,
+        "endByteExclusive": 56937,
+        "bytes": 79,
+        "sha256": "f6cad6ece9e20b426b82f3787660656353d2e0ddaac40b9d1d96bc446fb8710e",
+        "exactText": ".activity-disclosure>summary::after{content:\"+\";font-size:24px;font-weight:500}"
+      }
+    },
+    {
+      "selector": ".activity-disclosure[open]>summary::after",
+      "range": {
+        "startByte": 56937,
+        "endByteExclusive": 56993,
+        "bytes": 56,
+        "sha256": "08d48ffab71d9ebe9ad7bfe0bef118b9bdf860f2501270a641df1f1a7cfae08b",
+        "exactText": ".activity-disclosure[open]>summary::after{content:\"−\"}"
+      }
+    },
+    {
+      "selector": ".activity-disclosure>.activity",
+      "range": {
+        "startByte": 56993,
+        "endByteExclusive": 57075,
+        "bytes": 82,
+        "sha256": "b412bcab7c39984a7ec062e4a3ddff02c65d8d678278c455f353f6c1079a1851",
+        "exactText": ".activity-disclosure>.activity{border-top:1px solid var(--border);background:#fff}"
+      }
+    },
+    {
+      "selector": ".figure-label-grid details",
+      "range": {
+        "startByte": 57911,
+        "endByteExclusive": 57953,
+        "bytes": 42,
+        "sha256": "360f9f41802fa07c57fb9a16f7980be01ed57ee927c9ce0c071a532fb14a6d21",
+        "exactText": ".figure-label-grid details{font-size:13px}"
+      }
+    },
+    {
+      "selector": ".figure-label-grid details summary",
+      "range": {
+        "startByte": 57953,
+        "endByteExclusive": 58033,
+        "bytes": 80,
+        "sha256": "bfeddaf6a3dd2af98332b0e31e18216807cf21f0fce961361e6ef568d7f3e7f9",
+        "exactText": ".figure-label-grid details summary{min-height:44px;padding:8px 0;cursor:pointer}"
+      }
+    },
+    {
+      "selector": ".neural-labeling-description>summary",
+      "range": {
+        "startByte": 59677,
+        "endByteExclusive": 59797,
+        "bytes": 120,
+        "sha256": "5568ebfb64d35affe232f5a23b44e9db17fd99d745d9271e893523827d6ce6e9",
+        "exactText": ".neural-labeling-description>summary{min-height:44px;padding:10px 2px;color:var(--green);font-weight:750;cursor:pointer}"
+      }
+    },
+    {
+      "selector": ".question input[type=text],.question textarea",
+      "range": {
+        "startByte": 60379,
+        "endByteExclusive": 60582,
+        "bytes": 203,
+        "sha256": "b49e26a0ecc442284a81628f3639ca93e42338ad13da4826f7b393d4c687e20d",
+        "exactText": "\n.question input[type=text],.question textarea{box-sizing:border-box;width:100%;font:inherit;padding:12px;border:1px solid var(--border);background:var(--surface,#fff);color:var(--ink);border-radius:4px}"
+      }
+    },
+    {
+      "selector": ".frayer textarea",
+      "range": {
+        "startByte": 64085,
+        "endByteExclusive": 64165,
+        "bytes": 80,
+        "sha256": "7dd51fd38fda60c8b2ce108a208043d7a727ac70027a5b788fb32e074ccb3105",
+        "exactText": ".frayer textarea{box-sizing:border-box;width:100%;font:inherit;min-height:110px}"
+      }
+    },
+    {
+      "selector": ".practice-summary",
+      "range": {
+        "startByte": 66186,
+        "endByteExclusive": 66270,
+        "bytes": 84,
+        "sha256": "95dfd16eb8c5a1bce91e00b6b5b561f78e1ec9271b2193a0703f8f8c2b5f9e4d",
+        "exactText": ".practice-summary{max-width:820px;padding:22px 0;border-top:1px solid var(--border)}"
+      }
+    },
+    {
+      "selector": ".practice-summary-actions",
+      "range": {
+        "startByte": 66270,
+        "endByteExclusive": 66333,
+        "bytes": 63,
+        "sha256": "ce419a7aa62858d62093605ae138fba26520593dca2926497ba04b43a66557c9",
+        "exactText": ".practice-summary-actions{display:flex;flex-wrap:wrap;gap:10px}"
+      }
+    },
+    {
+      "selector": ".activity-disclosure>summary",
+      "range": {
+        "startByte": 67936,
+        "endByteExclusive": 67983,
+        "bytes": 47,
+        "sha256": "6d304cd6a47865f12f5ecee59fc6ef9b15d8a2bf1559d0194cf8b00865ecc879",
+        "exactText": ".activity-disclosure>summary{padding:14px 22px}"
+      }
+    },
+    {
+      "selector": ".history-run details>*",
+      "range": {
+        "startByte": 69081,
+        "endByteExclusive": 69128,
+        "bytes": 47,
+        "sha256": "27d9f584ba60ff29d935c4045e5a9ff77e945dacddd7d94b384fb0c5dd54a5a7",
+        "exactText": ".history-run details>*{display:block!important}"
+      }
+    },
+    {
+      "selector": ".page-guide > summary",
+      "range": {
+        "startByte": 69232,
+        "endByteExclusive": 69434,
+        "bytes": 202,
+        "sha256": "bd1758f60a056184db8265830d77719293d0de2808230b175d25ea2ad941c95e",
+        "exactText": "\n\n.page-guide > summary {\n  position: relative;\n  min-height: 72px;\n  padding: 17px 56px 17px 20px;\n  color: var(--muted);\n  font-size: 14px;\n  line-height: 1.5;\n  list-style: none;\n  cursor: pointer;\n}"
+      }
+    },
+    {
+      "selector": ".page-guide > summary::-webkit-details-marker",
+      "range": {
+        "startByte": 69434,
+        "endByteExclusive": 69502,
+        "bytes": 68,
+        "sha256": "74af297edadb5b3bba30467c83e7cf64b02414c40559182f967e60d528b7462f",
+        "exactText": "\n\n.page-guide > summary::-webkit-details-marker {\n  display: none;\n}"
+      }
+    },
+    {
+      "selector": ".page-guide > summary:hover",
+      "range": {
+        "startByte": 69502,
+        "endByteExclusive": 69558,
+        "bytes": 56,
+        "sha256": "beee3dad026d2b0a9b1ab2ac3f0ff2f0ac4af2f34cf392f63f072d7190f0ec84",
+        "exactText": "\n\n.page-guide > summary:hover {\n  background: #e4f0eb;\n}"
+      }
+    },
+    {
+      "selector": ".page-guide > summary::after",
+      "range": {
+        "startByte": 69558,
+        "endByteExclusive": 69795,
+        "bytes": 237,
+        "sha256": "c883dbd9162292d0eec26414543d348df3d2c86853d143e0869cd159a8b32312",
+        "exactText": "\n\n.page-guide > summary::after {\n  content: \"\";\n  position: absolute;\n  top: 30px;\n  right: 24px;\n  width: 10px;\n  height: 10px;\n  border-right: 2px solid var(--teal);\n  border-bottom: 2px solid var(--teal);\n  transform: rotate(45deg);\n}"
+      }
+    },
+    {
+      "selector": ".page-guide[open] > summary::after",
+      "range": {
+        "startByte": 69795,
+        "endByteExclusive": 69864,
+        "bytes": 69,
+        "sha256": "bac826af8c24c27644bc3927b9c4357cc4cdd24fae8f464b58a9e9253fd78cdb",
+        "exactText": "\n\n.page-guide[open] > summary::after {\n  transform: rotate(225deg);\n}"
+      }
+    },
+    {
+      "selector": ".page-guide > summary strong",
+      "range": {
+        "startByte": 69864,
+        "endByteExclusive": 69989,
+        "bytes": 125,
+        "sha256": "bdc137d20d251571599c71695111950cd70640010ec526b0cb4d488c0db49738",
+        "exactText": "\n\n.page-guide > summary strong {\n  display: block;\n  color: var(--ink);\n  font: 800 22px/1.25 \"Hanken Grotesk\", sans-serif;\n}"
+      }
+    },
+    {
+      "selector": ".page-guide > summary strong::before",
+      "range": {
+        "startByte": 69989,
+        "endByteExclusive": 70218,
+        "bytes": 229,
+        "sha256": "7ecea0db186c9ee8d015925040ad7138c66944ac58d82f4d2b5ce6fcba16708a",
+        "exactText": "\n\n.page-guide > summary strong::before {\n  content: \"Page guide\";\n  display: block;\n  margin-bottom: 3px;\n  color: var(--teal);\n  font: 850 10px/1.4 \"Work Sans\", sans-serif;\n  letter-spacing: .07em;\n  text-transform: uppercase;\n}"
+      }
+    },
+    {
+      "selector": ".page-header > .page-guide > summary strong::before",
+      "range": {
+        "startByte": 70273,
+        "endByteExclusive": 70356,
+        "bytes": 83,
+        "sha256": "d84173c22b205fe782684b4bc161ab3c28d65fe9598234ce72ed81f2fa6caf94",
+        "exactText": "\n\n.page-header > .page-guide > summary strong::before {\n  content: \"Learn guide\";\n}"
+      }
+    },
+    {
+      "selector": ".page-guide > summary",
+      "range": {
+        "startByte": 70775,
+        "endByteExclusive": 70840,
+        "bytes": 65,
+        "sha256": "395c7f0a6d656742825246d607bf3c2c5ffde55be0e7f63fc6430928dd01ddb7",
+        "exactText": "\n\n  .page-guide > summary {\n    padding: 15px 48px 15px 16px;\n  }"
+      }
+    },
+    {
+      "selector": ".page-guide > summary strong",
+      "range": {
+        "startByte": 70840,
+        "endByteExclusive": 70899,
+        "bytes": 59,
+        "sha256": "1210ea70737c787a0fe370456bdf6de390f09fd27cf51de7c9396d47e098884a",
+        "exactText": "\n\n  .page-guide > summary strong {\n    font-size: 18px;\n  }"
+      }
+    },
+    {
+      "selector": ".page-guide>summary",
+      "range": {
+        "startByte": 73275,
+        "endByteExclusive": 73339,
+        "bytes": 64,
+        "sha256": "5c84e4c7ae3d0a44df25a12bbdad24cf357b0e2c40be825d15b6c3172c8055e0",
+        "exactText": ".page-guide>summary{padding:16px 18px!important;min-height:52px}"
+      }
+    },
+    {
+      "selector": ".vocab-help>summary",
+      "range": {
+        "startByte": 73958,
+        "endByteExclusive": 74058,
+        "bytes": 100,
+        "sha256": "89731adc654e5b1e4943ed96af9a6e1ebd7f05379dc37046df5072c4c6f5a93a",
+        "exactText": ".vocab-help>summary{padding:12px 0;cursor:pointer;font-size:14px;font-weight:750;color:var(--green)}"
+      }
+    },
+    {
+      "selector": ".stop-check details summary",
+      "range": {
+        "startByte": 75204,
+        "endByteExclusive": 75247,
+        "bytes": 43,
+        "sha256": "fd43285d5cbdac7a54ec8e38eccc880330528f6cc34549df7f0b7019653575d0",
+        "exactText": ".stop-check details summary{font-size:15px}"
+      }
+    },
+    {
+      "selector": ".concept-summary h3",
+      "range": {
+        "startByte": 75614,
+        "endByteExclusive": 75667,
+        "bytes": 53,
+        "sha256": "52cd2a81ff5a0675f365bba38d718aeebf542df6c47e0639b590fc96bbc8e589",
+        "exactText": ".concept-summary h3{font-size:17px;margin-bottom:8px}"
+      }
+    },
+    {
+      "selector": ".concept-summary p",
+      "range": {
+        "startByte": 75667,
+        "endByteExclusive": 75701,
+        "bytes": 34,
+        "sha256": "169b7464ac1d9fa5376f77198641a65088a35526374511a63383659d63f332bf",
+        "exactText": ".concept-summary p{font-size:15px}"
+      }
+    },
+    {
+      "selector": ".activity-disclosure",
+      "range": {
+        "startByte": 75836,
+        "endByteExclusive": 75902,
+        "bytes": 66,
+        "sha256": "2381042a6b8ae244709d6b730986e4f41266ffc2e2e65f0eb3f58e48898f92d0",
+        "exactText": "\n.activity-disclosure{margin:0;border-top:1px solid var(--border)}"
+      }
+    },
+    {
+      "selector": ".activity-disclosure>summary",
+      "range": {
+        "startByte": 75902,
+        "endByteExclusive": 76033,
+        "bytes": 131,
+        "sha256": "20268c5cd45592e066b89f7d81610db79a06068f393e0ed5cf0057cb18b8f5f5",
+        "exactText": ".activity-disclosure>summary{padding:24px 54px;cursor:pointer;font-size:19px;font-weight:750;color:var(--green);background:#f5f8f3}"
+      }
+    },
+    {
+      "selector": ".activity-disclosure.optional-disclosure>summary",
+      "range": {
+        "startByte": 76033,
+        "endByteExclusive": 76131,
+        "bytes": 98,
+        "sha256": "9ac4de708d2fa856e5d91d865b1ca5858ce6da75f4cea908bcce2c6065da860d",
+        "exactText": ".activity-disclosure.optional-disclosure>summary{background:#fff;color:var(--teal);font-size:16px}"
+      }
+    },
+    {
+      "selector": ".writing-question textarea",
+      "range": {
+        "startByte": 77280,
+        "endByteExclusive": 77435,
+        "bytes": 155,
+        "sha256": "7a980f138850300b997698b2da1f88222286e0d6ccdd068e4624d8052eca98e6",
+        "exactText": ".writing-question textarea{display:block;width:100%;padding:14px;border:1px solid #8b9c90;border-radius:5px;margin:12px 0;min-height:135px;resize:vertical}"
+      }
+    },
+    {
+      "selector": ".writing-status",
+      "range": {
+        "startByte": 77435,
+        "endByteExclusive": 77501,
+        "bytes": 66,
+        "sha256": "13b0b57d4b676c6e5cd094c81c65b04db412e54166e8a3ec576a9f091ae77a34",
+        "exactText": ".writing-status{font-size:13px;line-height:1.5;color:var(--muted)}"
+      }
+    },
+    {
+      "selector": ".writing-question details",
+      "range": {
+        "startByte": 77501,
+        "endByteExclusive": 77558,
+        "bytes": 57,
+        "sha256": "3d92d62d857dfdad661894bdb65aaef1f3ed0d60b42f374bff32741ae41a1c1d",
+        "exactText": ".writing-question details{font-size:14px;margin-top:18px}"
+      }
+    },
+    {
+      "selector": ".writing-question details>summary",
+      "range": {
+        "startByte": 77558,
+        "endByteExclusive": 77639,
+        "bytes": 81,
+        "sha256": "91902bb0d4dc81d868258d17fcb1bbc6672aa8bbc522ca74509633dd9ca0f670",
+        "exactText": ".writing-question details>summary{font-weight:700;min-height:44px;cursor:pointer}"
+      }
+    },
+    {
+      "selector": ".writing-question details[data-locked=true]>summary",
+      "range": {
+        "startByte": 77639,
+        "endByteExclusive": 77710,
+        "bytes": 71,
+        "sha256": "38d671e7222479ac3e3ce91b6a65933e02db03bb7756d4f66ea15b21d850037f",
+        "exactText": ".writing-question details[data-locked=true]>summary{color:var(--muted)}"
+      }
+    },
+    {
+      "selector": ".writing-question details p",
+      "range": {
+        "startByte": 77710,
+        "endByteExclusive": 77754,
+        "bytes": 44,
+        "sha256": "629c668fd02e51d94175c99b01c54266ab5e6630170fef278e21523a0b4bb6c2",
+        "exactText": ".writing-question details p{line-height:1.7}"
+      }
+    },
+    {
+      "selector": ".writing-question details li",
+      "range": {
+        "startByte": 77754,
+        "endByteExclusive": 77796,
+        "bytes": 42,
+        "sha256": "7c7e306311c961b7f8b749ca1995b8632ebb90eb1d7973da3cb9d79ae19bec3b",
+        "exactText": ".writing-question details li{margin:5px 0}"
+      }
+    },
+    {
+      "selector": "fieldset:disabled textarea,fieldset:disabled select",
+      "range": {
+        "startByte": 78177,
+        "endByteExclusive": 78262,
+        "bytes": 85,
+        "sha256": "9ac0cfd82024174c0f09a3f1e4691e394b97d5efc8bd978fcf87bbc33e7d2287",
+        "exactText": "fieldset:disabled textarea,fieldset:disabled select{background:#f4f5f2;color:#6d786d}"
+      }
+    },
+    {
+      "selector": ".practice-summary h3",
+      "range": {
+        "startByte": 82300,
+        "endByteExclusive": 82336,
+        "bytes": 36,
+        "sha256": "f7c939a5674770ecec50c4549a9358c2bddcb17688c53d58f34cb80041623825",
+        "exactText": ".practice-summary h3{font-size:28px}"
+      }
+    },
+    {
+      "selector": ".practice-summary details",
+      "range": {
+        "startByte": 82336,
+        "endByteExclusive": 82412,
+        "bytes": 76,
+        "sha256": "989fcd4a1c0881793026c23616027cc5fca1ba99ba8189ea5b6b37914c491ada",
+        "exactText": ".practice-summary details{border-top:1px solid var(--border);padding:14px 0}"
+      }
+    },
+    {
+      "selector": ".practice-summary details>summary",
+      "range": {
+        "startByte": 82412,
+        "endByteExclusive": 82477,
+        "bytes": 65,
+        "sha256": "230d64bab5cd65f93a8677fff9f1cb78a41c710ac3c4faaea3c7d5f1db9b8c35",
+        "exactText": ".practice-summary details>summary{font-weight:700;cursor:pointer}"
+      }
+    },
+    {
+      "selector": ".practice-summary li",
+      "range": {
+        "startByte": 82477,
+        "endByteExclusive": 82526,
+        "bytes": 49,
+        "sha256": "df0b4f7305ee7321e0eed3bd89b53ab4216386f86f98fb64a93a3ddca7281e3b",
+        "exactText": ".practice-summary li{margin:9px 0;font-size:15px}"
+      }
+    },
+    {
+      "selector": ".frayer-fields textarea",
+      "range": {
+        "startByte": 84428,
+        "endByteExclusive": 84579,
+        "bytes": 151,
+        "sha256": "e686b29720c52f28f5a3981d2fe6a7ccb68349cd5d20802fbc1ebfb8839d0c6b",
+        "exactText": ".frayer-fields textarea{display:block;width:100%;padding:13px;min-height:115px;border:1px solid #91a08f;border-radius:4px;resize:vertical;margin:8px 0}"
+      }
+    },
+    {
+      "selector": ".frayer-editor details>summary",
+      "range": {
+        "startByte": 84666,
+        "endByteExclusive": 84758,
+        "bytes": 92,
+        "sha256": "81fdffc6689f421bed4a7c659861d4edecf467f29eaa1d1353db85e97547b49e",
+        "exactText": ".frayer-editor details>summary{padding:15px 0;cursor:pointer;font-weight:750;font-size:15px}"
+      }
+    },
+    {
+      "selector": ".optional-writing textarea",
+      "range": {
+        "startByte": 84840,
+        "endByteExclusive": 84995,
+        "bytes": 155,
+        "sha256": "05efcc1c9ced867a5fb2f1a5c7e0cdf9ebcec5e54c495c43f56c22626c9a75aa",
+        "exactText": ".optional-writing textarea{display:block;width:100%;min-height:150px;padding:14px;border:1px solid #91a08f;border-radius:5px;resize:vertical;margin:12px 0}"
+      }
+    },
+    {
+      "selector": ".optional-writing label",
+      "range": {
+        "startByte": 84995,
+        "endByteExclusive": 85064,
+        "bytes": 69,
+        "sha256": "0404f1ce3d2f9dfd2c80677c4bad2cc55f5febb47f1f10896fc84f6aeee9caf6",
+        "exactText": ".optional-writing label{display:block;font-weight:750;font-size:16px}"
+      }
+    },
+    {
+      "selector": ".video-visual .concept-summary",
+      "range": {
+        "startByte": 85313,
+        "endByteExclusive": 85360,
+        "bytes": 47,
+        "sha256": "54eefb8dfb9331b261cb11c00936e7543a29a9ab9877e4a2cefb39fc41b8fc01",
+        "exactText": ".video-visual .concept-summary{margin:12px 0 0}"
+      }
+    },
+    {
+      "selector": ".video-visual .concept-summary p",
+      "range": {
+        "startByte": 85360,
+        "endByteExclusive": 85424,
+        "bytes": 64,
+        "sha256": "36780cad1da2f9e48b76a34d28b78be798d46b015478b4452842d890aa77fcff",
+        "exactText": ".video-visual .concept-summary p{font-size:14px;line-height:1.6}"
+      }
+    },
+    {
+      "selector": ".app-dialog details summary",
+      "range": {
+        "startByte": 87058,
+        "endByteExclusive": 87147,
+        "bytes": 89,
+        "sha256": "c782f6d516ba154dc069f3cc4a06f76cbdb5fd0c6a15f0a79a2babe4b0d950a3",
+        "exactText": ".app-dialog details summary{cursor:pointer;min-height:44px;padding:8px 0;font-weight:750}"
+      }
+    },
+    {
+      "selector": ".work-history details>summary",
+      "range": {
+        "startByte": 88437,
+        "endByteExclusive": 88528,
+        "bytes": 91,
+        "sha256": "b3c34f56fdfa8d12f57b93672a5c2a4264b967125cefff7cc7baf3951bcc8d20",
+        "exactText": ".work-history details>summary{cursor:pointer;font-size:15px;font-weight:750;padding:13px 0}"
+      }
+    },
+    {
+      "selector": ".activity-disclosure>summary",
+      "range": {
+        "startByte": 91715,
+        "endByteExclusive": 91772,
+        "bytes": 57,
+        "sha256": "8acc0b54dd9b6ef92136a7a836442287e2dc381cce2909b75550364f578eddb5",
+        "exactText": ".activity-disclosure>summary{padding:22px;font-size:17px}"
+      }
+    },
+    {
+      "selector": ".activity-disclosure.optional-disclosure>summary",
+      "range": {
+        "startByte": 91772,
+        "endByteExclusive": 91836,
+        "bytes": 64,
+        "sha256": "c5d71425a2d6cd3cc1cbb008a28b2a004b5610980bfbe749cec251409bb1fc7e",
+        "exactText": ".activity-disclosure.optional-disclosure>summary{font-size:15px}"
+      }
+    },
+    {
+      "selector": "#process-collection .work-history details>*",
+      "range": {
+        "startByte": 94874,
+        "endByteExclusive": 94942,
+        "bytes": 68,
+        "sha256": "5289f7733bcd653287d2ce3df55ccb5e1f63db8ba53c9ea57166c7e11dda7f8d",
+        "exactText": "#process-collection .work-history details>*{display:block!important}"
+      }
+    },
+    {
+      "selector": "#process-collection .work-history details",
+      "range": {
+        "startByte": 94942,
+        "endByteExclusive": 95008,
+        "bytes": 66,
+        "sha256": "8b1f1d8344de20f7a2a54b998e11ba93fbe5bb39b9905e8ccb3a9ad6da724588",
+        "exactText": "#process-collection .work-history details{display:block!important}"
+      }
+    },
+    {
+      "selector": "button,input,select,textarea",
+      "range": {
+        "startByte": 96071,
+        "endByteExclusive": 96113,
+        "bytes": 42,
+        "sha256": "ad4a8cd7e2dba2d905038ae11eca6c94d91a1573b2ee4e57281e85d76b3ec51a",
+        "exactText": "button,input,select,textarea{font:inherit}"
+      }
+    },
+    {
+      "selector": ".nav-group>summary",
+      "range": {
+        "startByte": 97771,
+        "endByteExclusive": 97922,
+        "bytes": 151,
+        "sha256": "cfb3430306721e9ad36e3a5c69b7fc16ed0b8d82bc628d92ab3f8d370c17f5cd",
+        "exactText": ".nav-group>summary{list-style:none;display:flex;align-items:center;gap:11px;min-height:52px;padding:10px 8px;color:#fff;font-weight:800;cursor:pointer}"
+      }
+    },
+    {
+      "selector": ".nav-group>summary::-webkit-details-marker",
+      "range": {
+        "startByte": 97922,
+        "endByteExclusive": 97978,
+        "bytes": 56,
+        "sha256": "b58b5581b7d057317437177c95208880912e48345386dbaf0210797e8d973165",
+        "exactText": ".nav-group>summary::-webkit-details-marker{display:none}"
+      }
+    },
+    {
+      "selector": ".nav-group>summary::after",
+      "range": {
+        "startByte": 97978,
+        "endByteExclusive": 98064,
+        "bytes": 86,
+        "sha256": "dc05d48f86785e2f3c74a86f9fc4d6c14007f0154ac02da18e480c754fdf91ee",
+        "exactText": ".nav-group>summary::after{content:\"+\";margin-left:auto;font-size:22px;font-weight:400}"
+      }
+    },
+    {
+      "selector": ".nav-group[open]>summary::after",
+      "range": {
+        "startByte": 98064,
+        "endByteExclusive": 98110,
+        "bytes": 46,
+        "sha256": "278a8583f752f288aff9f189d2f13d599cac2c0ea0281b43fcf5385ec9d11bee",
+        "exactText": ".nav-group[open]>summary::after{content:\"−\"}"
+      }
+    },
+    {
+      "selector": ".stop-check details",
+      "range": {
+        "startByte": 101735,
+        "endByteExclusive": 101770,
+        "bytes": 35,
+        "sha256": "608a0f0340acab03e3ea9126fbebfae7ba8cbda2208e54677f2a49709fdc3203",
+        "exactText": ".stop-check details{max-width:72ch}"
+      }
+    },
+    {
+      "selector": ".stop-check summary",
+      "range": {
+        "startByte": 101770,
+        "endByteExclusive": 101870,
+        "bytes": 100,
+        "sha256": "0dd357f9d37377b357fad86ecd098f5ccb662f7499623485f9fad1e8e1aee4de",
+        "exactText": ".stop-check summary{min-height:44px;padding:9px 0;color:var(--green);font-weight:800;cursor:pointer}"
+      }
+    },
+    {
+      "selector": ".retrieve-block textarea,.evidence-slip textarea,.collection-section textarea,.frayer textarea",
+      "range": {
+        "startByte": 102608,
+        "endByteExclusive": 102815,
+        "bytes": 207,
+        "sha256": "8e47a4dc4cfafb9c1531fccfd511fce7a6fcb45416faf24e6b338d9fa722c01e",
+        "exactText": ".retrieve-block textarea,.evidence-slip textarea,.collection-section textarea,.frayer textarea{display:block;width:100%;margin-top:8px;padding:12px;border:1px solid #aeb8af;border-radius:6px;resize:vertical}"
+      }
+    },
+    {
+      "selector": ".advanced-learning>summary",
+      "range": {
+        "startByte": 104876,
+        "endByteExclusive": 105036,
+        "bytes": 160,
+        "sha256": "347f81288ce85d8a0e99157cbce609f3f445774fcfcd242ec6676f3105d01bc6",
+        "exactText": ".advanced-learning>summary{display:flex;justify-content:space-between;gap:20px;min-height:58px;padding:16px 0;color:var(--green);font-weight:850;cursor:pointer}"
+      }
+    },
+    {
+      "selector": ".concept-summary",
+      "range": {
+        "startByte": 107435,
+        "endByteExclusive": 107539,
+        "bytes": 104,
+        "sha256": "1d74c11dd1ae6d565962646986b103c411d9437171602d875b1027a391f6349b",
+        "exactText": ".concept-summary{margin-top:12px;padding:15px 17px;border-left:4px solid var(--teal);background:#f0f6f3}"
+      }
+    },
+    {
+      "selector": ".concept-summary h3",
+      "range": {
+        "startByte": 107539,
+        "endByteExclusive": 107589,
+        "bytes": 50,
+        "sha256": "e926ba9b52203cb8aaee8564de82624eb20061ecff85c60601221527206ffc14",
+        "exactText": ".concept-summary h3{margin:0 0 5px;font-size:16px}"
+      }
+    },
+    {
+      "selector": ".concept-summary p",
+      "range": {
+        "startByte": 107589,
+        "endByteExclusive": 107632,
+        "bytes": 43,
+        "sha256": "ab61b92b5793653566cb213e80dc864414cc5275231b99146302f955fef0bc8c",
+        "exactText": ".concept-summary p{margin:0;font-size:14px}"
+      }
+    },
+    {
+      "selector": ".investigation-list details",
+      "range": {
+        "startByte": 108518,
+        "endByteExclusive": 108577,
+        "bytes": 59,
+        "sha256": "8a311f002241001e41ec19fb4a7fc4e6e2b12bb4bebd0cc8e7f48bbab03ff7b2",
+        "exactText": ".investigation-list details{border:1px solid var(--border)}"
+      }
+    },
+    {
+      "selector": ".investigation-list summary",
+      "range": {
+        "startByte": 108577,
+        "endByteExclusive": 108654,
+        "bytes": 77,
+        "sha256": "f23f4a98cd88e5b8b0a3cb97fb2d607f4dc41c664116b718dafbd7ec8fa19e37",
+        "exactText": ".investigation-list summary{display:grid;gap:2px;padding:16px;cursor:pointer}"
+      }
+    },
+    {
+      "selector": ".investigation-list summary span",
+      "range": {
+        "startByte": 108654,
+        "endByteExclusive": 108721,
+        "bytes": 67,
+        "sha256": "e343ae8d5f24455c905e3903c800bcf86c91aa5161e0e108130a393018b45190",
+        "exactText": ".investigation-list summary span{color:var(--muted);font-size:14px}"
+      }
+    },
+    {
+      "selector": ".investigation-list details>div",
+      "range": {
+        "startByte": 108721,
+        "endByteExclusive": 108773,
+        "bytes": 52,
+        "sha256": "0774005797bf95c2a688b54614c41f90fbfb42c295d6faa312343d1385681624",
+        "exactText": ".investigation-list details>div{padding:0 16px 18px}"
+      }
+    },
+    {
+      "selector": ".study-task>summary",
+      "range": {
+        "startByte": 117470,
+        "endByteExclusive": 117505,
+        "bytes": 35,
+        "sha256": "755413fcbeb9ab692c9596747af7682f37f979d42f5ec308a4bbacfaab16aaf0",
+        "exactText": ".study-task>summary{cursor:pointer}"
+      }
+    },
+    {
+      "selector": ".study-task>summary h3",
+      "range": {
+        "startByte": 117505,
+        "endByteExclusive": 117561,
+        "bytes": 56,
+        "sha256": "3c24569f2f7d749a81e95a03c9e35981726c01fdcfd64274149b89f7f919e737",
+        "exactText": ".study-task>summary h3{display:inline;font-size:1.08rem}"
+      }
+    },
+    {
+      "selector": ".study-task textarea",
+      "range": {
+        "startByte": 117645,
+        "endByteExclusive": 117716,
+        "bytes": 71,
+        "sha256": "b40ce2258b6fd0cb8ece8b632b3945618c8cd2ed195e20a2e9b8f71db2909a00",
+        "exactText": ".study-task textarea{width:100%;min-height:10rem;box-sizing:border-box}"
+      }
+    },
+    {
+      "selector": ".lesson-term-inventory>summary",
+      "range": {
+        "startByte": 119905,
+        "endByteExclusive": 120020,
+        "bytes": 115,
+        "sha256": "70b2d57a60feef9d3320ab4fa89f80162f81c34f625b7940f4bc74e4ab47b6bf",
+        "exactText": "\n.lesson-term-inventory>summary{min-height:52px;padding:13px 2px;color:var(--green);font-weight:800;cursor:pointer}"
+      }
+    },
+    {
+      "selector": ".lesson-vocabulary-help>summary,.supplementary-detail>summary,.applied-detail>summary,.word-more>summary",
+      "range": {
+        "startByte": 120740,
+        "endByteExclusive": 120929,
+        "bytes": 189,
+        "sha256": "9b4a583d9b645fe34653e9b1f6e99bc29db5ae5f1081f539be1da1910368fdf9",
+        "exactText": "\n.lesson-vocabulary-help>summary,.supplementary-detail>summary,.applied-detail>summary,.word-more>summary{min-height:48px;padding:11px 2px;color:var(--green);font-weight:800;cursor:pointer}"
+      }
+    },
+    {
+      "selector": ".applied-detail>summary",
+      "range": {
+        "startByte": 121243,
+        "endByteExclusive": 121283,
+        "bytes": 40,
+        "sha256": "92b804642c9287975ba439eb44b3d0ae816297ae085126b46dbc0002825ba1df",
+        "exactText": "\n.applied-detail>summary{font-size:19px}"
+      }
+    },
+    {
+      "selector": ".illustrated-equivalent>summary",
+      "range": {
+        "startByte": 123005,
+        "endByteExclusive": 123121,
+        "bytes": 116,
+        "sha256": "2167fe76332a6d6c65b7876868fa13a4e01ba00d539d0d6097b6e3983272a56e",
+        "exactText": ".illustrated-equivalent>summary{min-height:48px;padding:11px 14px;color:var(--green);font-weight:800;cursor:pointer}"
+      }
+    },
+    {
+      "selector": ".seminar-session textarea",
+      "range": {
+        "startByte": 124755,
+        "endByteExclusive": 124807,
+        "bytes": 52,
+        "sha256": "4c0b530e660c5126298f9eab03f7b90a29c796398963a40770f89db316ef5fc4",
+        "exactText": ".seminar-session textarea{width:100%;margin-top:8px}"
+      }
+    },
+    {
+      "selector": ".model-response textarea",
+      "range": {
+        "startByte": 129085,
+        "endByteExclusive": 129224,
+        "bytes": 139,
+        "sha256": "b4a541a65999e1d896d32724aaced286588ccc692eb9cbdeb9a7ca8222e2771a",
+        "exactText": ".model-response textarea{display:block;width:100%;min-height:104px;padding:12px;border:1px solid #9fa9a1;border-radius:6px;resize:vertical}"
+      }
+    },
+    {
+      "selector": ".model-response textarea:disabled",
+      "range": {
+        "startByte": 129224,
+        "endByteExclusive": 129291,
+        "bytes": 67,
+        "sha256": "632a02f83fe900c17a3b1dc1dc1f1c5d4e3c398e4daa33c18615b9c9510ce51e",
+        "exactText": ".model-response textarea:disabled{background:#f1f3f0;color:#707772}"
+      }
+    },
+    {
+      "selector": ".model-static-equivalent>summary",
+      "range": {
+        "startByte": 132753,
+        "endByteExclusive": 132869,
+        "bytes": 116,
+        "sha256": "57c0c6ee1a8e98e793ebba0c30aed14c29c379d78d8abb7299cd5d368e8eadb8",
+        "exactText": ".model-static-equivalent>summary{min-height:50px;padding:12px 2px;color:var(--green);font-weight:800;cursor:pointer}"
+      }
+    },
+    {
+      "selector": ".advanced-learning-block>summary",
+      "range": {
+        "startByte": 133343,
+        "endByteExclusive": 133467,
+        "bytes": 124,
+        "sha256": "5b19e7c4b1681bbffa9664f5ce2ec943e4909d5dbfeb7530d92f1533d700f9c7",
+        "exactText": ".advanced-learning-block>summary{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:8px 18px}"
+      }
+    },
+    {
+      "selector": ".advanced-learning-block>summary::marker",
+      "range": {
+        "startByte": 133467,
+        "endByteExclusive": 133527,
+        "bytes": 60,
+        "sha256": "4844ce96e311da542c66bd6449d1585b9f95d0630e51996dc68535bbe6846d67",
+        "exactText": ".advanced-learning-block>summary::marker{color:var(--green)}"
+      }
+    },
+    {
+      "selector": ".advanced-summary-title",
+      "range": {
+        "startByte": 133623,
+        "endByteExclusive": 133703,
+        "bytes": 80,
+        "sha256": "500f4dfe1d4511c375217466c74ee5eb09163bc5ce8be12bfe2bb9994fdf0a9e",
+        "exactText": ".advanced-summary-title{min-width:0;color:var(--green);overflow-wrap:break-word}"
+      }
+    },
+    {
+      "selector": ".process-work-evidence summary",
+      "range": {
+        "startByte": 137716,
+        "endByteExclusive": 137827,
+        "bytes": 111,
+        "sha256": "3981cd2def415d8feef246ff4b655898593320b7f56e1f748538bd350377583f",
+        "exactText": ".process-work-evidence summary{min-height:44px;padding:8px 0;color:var(--green);font-weight:750;cursor:pointer}"
+      }
+    },
+    {
+      "selector": ".advanced-learning-block>summary",
+      "range": {
+        "startByte": 139253,
+        "endByteExclusive": 139317,
+        "bytes": 64,
+        "sha256": "879ae0d97247df0ff0ff67841114772aa3e3dbef3d618b38acd2aa2daf9c76c4",
+        "exactText": ".advanced-learning-block>summary{grid-template-columns:1fr auto}"
+      }
+    },
+    {
+      "selector": ".online-study>summary",
+      "range": {
+        "startByte": 143356,
+        "endByteExclusive": 143393,
+        "bytes": 37,
+        "sha256": "4a1cb835df16513b07323a60f368a5eec905fb616355036cb3ed0c4485553dd6",
+        "exactText": ".online-study>summary{cursor:pointer}"
+      }
+    },
+    {
+      "selector": ".online-study>summary h3",
+      "range": {
+        "startByte": 143393,
+        "endByteExclusive": 143451,
+        "bytes": 58,
+        "sha256": "ba0991ee3be99834415df2e60dcab34bc21801103abfa1bab71701ab5c80d054",
+        "exactText": ".online-study>summary h3{display:inline;font-size:1.08rem}"
+      }
+    },
+    {
+      "selector": ".online-study-body textarea",
+      "range": {
+        "startByte": 144027,
+        "endByteExclusive": 144088,
+        "bytes": 61,
+        "sha256": "006d721fb1420ad1f660860a324aaaa7ec7dd7bf41fb6a049585d62525996623",
+        "exactText": ".online-study-body textarea{width:100%;box-sizing:border-box}"
+      }
+    },
+    {
+      "selector": "[data-biology-word-details]>h2",
+      "range": {
+        "startByte": 145482,
+        "endByteExclusive": 145576,
+        "bytes": 94,
+        "sha256": "fc0ccb746291c9824d81ce7a7fdf4c60590cb1971506653addaada15fcd9f2ef",
+        "exactText": "\n[data-biology-word-details]>h2{margin:0 0 18px;font:760 34px/1.1 \"Hanken Grotesk\",sans-serif}"
+      }
+    },
+    {
+      "selector": "[data-biology-word-details]>h2",
+      "range": {
+        "startByte": 145576,
+        "endByteExclusive": 145655,
+        "bytes": 79,
+        "sha256": "4c2b2787d7b868e71189c96f8031af80e8c7db0a7a58e7533cd75983911af5f8",
+        "exactText": "\n[data-biology-word-details]>h2{scroll-margin-top:calc(var(--top,64px) + 18px)}"
+      }
+    },
+    {
+      "selector": "[data-biology-word-details]>section",
+      "range": {
+        "startByte": 145741,
+        "endByteExclusive": 145828,
+        "bytes": 87,
+        "sha256": "9ba03682f5ad64ea23b82e1598b9c04fcc459abf129a57a56d4d572d40eb8fce",
+        "exactText": "\n[data-biology-word-details]>section{padding:18px 0;border-top:1px solid var(--border)}"
+      }
+    },
+    {
+      "selector": "[data-biology-word-details] .section-label,[data-biology-word-details]>.eyebrow",
+      "range": {
+        "startByte": 145828,
+        "endByteExclusive": 146030,
+        "bytes": 202,
+        "sha256": "1c6dcee54a1e33f3dffab7be0a04d1bd11d3924ae06de668586555cca4c2c7f1",
+        "exactText": "\n[data-biology-word-details] .section-label,[data-biology-word-details]>.eyebrow{margin:0 0 7px;color:var(--teal);font:850 12px/1.5 \"Work Sans\",sans-serif;letter-spacing:.045em;text-transform:uppercase}"
+      }
+    },
+    {
+      "selector": "[data-biology-word-details]>section>p",
+      "range": {
+        "startByte": 146030,
+        "endByteExclusive": 146105,
+        "bytes": 75,
+        "sha256": "c22c586ba5c95c9240ac09fbe4cd3d4dc56b8d4cb421dda7bf8471e1d593e7ed",
+        "exactText": "\n[data-biology-word-details]>section>p{margin:18px 0 16px;line-height:1.66}"
+      }
+    },
+    {
+      "selector": "[data-biology-word-details] .concept-contrast",
+      "range": {
+        "startByte": 146105,
+        "endByteExclusive": 146204,
+        "bytes": 99,
+        "sha256": "24bb0064311941b934976c3c56451d5587a9edc96bbd1e010765a852f15de916",
+        "exactText": "\n[data-biology-word-details] .concept-contrast{display:grid;grid-template-columns:1fr 1fr;gap:22px}"
+      }
+    },
+    {
+      "selector": "[data-biology-word-details] .concept-contrast h3,[data-biology-word-details] .retrieval-mini h3",
+      "range": {
+        "startByte": 146204,
+        "endByteExclusive": 146331,
+        "bytes": 127,
+        "sha256": "75101e38885cda380010e328c65c5c86b8d25b31d69975af21302f2d2befa54b",
+        "exactText": "\n[data-biology-word-details] .concept-contrast h3,[data-biology-word-details] .retrieval-mini h3{margin:0 0 6px;font-size:17px}"
+      }
+    },
+    {
+      "selector": "[data-biology-word-details] .concept-contrast p,[data-biology-word-details] .retrieval-mini p",
+      "range": {
+        "startByte": 146331,
+        "endByteExclusive": 146452,
+        "bytes": 121,
+        "sha256": "2288800b5e19440d9930dcd5cc7bc17cd8832ac1286f3abb6f6da48c59f0a62d",
+        "exactText": "\n[data-biology-word-details] .concept-contrast p,[data-biology-word-details] .retrieval-mini p{margin:0;line-height:1.66}"
+      }
+    },
+    {
+      "selector": "[data-biology-word-details] .retrieval-mini",
+      "range": {
+        "startByte": 146452,
+        "endByteExclusive": 146543,
+        "bytes": 91,
+        "sha256": "eabd26d4489ed5ec93b1889ac383d9183782a3a0d596249fad17fdeeef25d610",
+        "exactText": "\n[data-biology-word-details] .retrieval-mini{padding:15px;background:#f1f7f4;margin:18px 0}"
+      }
+    },
+    {
+      "selector": "[data-biology-word-details] .word-parts",
+      "range": {
+        "startByte": 146543,
+        "endByteExclusive": 146640,
+        "bytes": 97,
+        "sha256": "d4a7d92db24658c153aee5bd80595b1d4898ccdc3da10c956374980a5d4e9513",
+        "exactText": "\n[data-biology-word-details] .word-parts{display:flex;flex-wrap:wrap;gap:12px 24px;margin:18px 0}"
+      }
+    },
+    {
+      "selector": "[data-biology-word-details] .word-parts>div",
+      "range": {
+        "startByte": 146640,
+        "endByteExclusive": 146706,
+        "bytes": 66,
+        "sha256": "ca1b07eed0a9c54f32912e6e10b16628f930626641ae5fadc3ff3df9dad91480",
+        "exactText": "\n[data-biology-word-details] .word-parts>div{display:flex;gap:8px}"
+      }
+    },
+    {
+      "selector": "[data-biology-word-details] .word-parts dt",
+      "range": {
+        "startByte": 146706,
+        "endByteExclusive": 146765,
+        "bytes": 59,
+        "sha256": "a859e43d551e4a2406b954671cafdd60676a279e0265a8dbc7cf18889cfd931b",
+        "exactText": "[data-biology-word-details] .word-parts dt{font-weight:800}"
+      }
+    },
+    {
+      "selector": "[data-biology-word-details] .word-parts dd",
+      "range": {
+        "startByte": 146765,
+        "endByteExclusive": 146836,
+        "bytes": 71,
+        "sha256": "f761da5be6192157df1aad17c229936fe1103c81e472abab56bb147bba91affd",
+        "exactText": "[data-biology-word-details] .word-parts dd{margin:0;color:var(--muted)}"
+      }
+    },
+    {
+      "selector": "[data-biology-word-details] .caution-line",
+      "range": {
+        "startByte": 146836,
+        "endByteExclusive": 146911,
+        "bytes": 75,
+        "sha256": "41cb0f57119d0de5944348e904b7b24b845611248fe41ecce046985a00956bf9",
+        "exactText": "\n[data-biology-word-details] .caution-line{padding:12px;background:#faf4e9}"
+      }
+    },
+    {
+      "selector": "[data-biology-word-details] .concept-contrast",
+      "range": {
+        "startByte": 147499,
+        "endByteExclusive": 147571,
+        "bytes": 72,
+        "sha256": "11f21b2b17c752670c38a24258d92bd0253fbbd4accac3343370aacdb65fa288",
+        "exactText": "[data-biology-word-details] .concept-contrast{grid-template-columns:1fr}"
+      }
+    },
+    {
+      "selector": "[data-biology-word-details]>h2",
+      "range": {
+        "startByte": 148967,
+        "endByteExclusive": 149061,
+        "bytes": 94,
+        "sha256": "fc0ccb746291c9824d81ce7a7fdf4c60590cb1971506653addaada15fcd9f2ef",
+        "exactText": "\n[data-biology-word-details]>h2{margin:0 0 18px;font:760 34px/1.1 \"Hanken Grotesk\",sans-serif}"
+      }
+    },
+    {
+      "selector": "[data-biology-word-details]>h2",
+      "range": {
+        "startByte": 149061,
+        "endByteExclusive": 149140,
+        "bytes": 79,
+        "sha256": "4c2b2787d7b868e71189c96f8031af80e8c7db0a7a58e7533cd75983911af5f8",
+        "exactText": "\n[data-biology-word-details]>h2{scroll-margin-top:calc(var(--top,64px) + 18px)}"
+      }
+    },
+    {
+      "selector": "[data-biology-word-details]>section",
+      "range": {
+        "startByte": 149226,
+        "endByteExclusive": 149313,
+        "bytes": 87,
+        "sha256": "9ba03682f5ad64ea23b82e1598b9c04fcc459abf129a57a56d4d572d40eb8fce",
+        "exactText": "\n[data-biology-word-details]>section{padding:18px 0;border-top:1px solid var(--border)}"
+      }
+    },
+    {
+      "selector": "[data-biology-word-details] .section-label,[data-biology-word-details]>.eyebrow",
+      "range": {
+        "startByte": 149313,
+        "endByteExclusive": 149515,
+        "bytes": 202,
+        "sha256": "1c6dcee54a1e33f3dffab7be0a04d1bd11d3924ae06de668586555cca4c2c7f1",
+        "exactText": "\n[data-biology-word-details] .section-label,[data-biology-word-details]>.eyebrow{margin:0 0 7px;color:var(--teal);font:850 12px/1.5 \"Work Sans\",sans-serif;letter-spacing:.045em;text-transform:uppercase}"
+      }
+    },
+    {
+      "selector": "[data-biology-word-details]>section>p",
+      "range": {
+        "startByte": 149515,
+        "endByteExclusive": 149590,
+        "bytes": 75,
+        "sha256": "c22c586ba5c95c9240ac09fbe4cd3d4dc56b8d4cb421dda7bf8471e1d593e7ed",
+        "exactText": "\n[data-biology-word-details]>section>p{margin:18px 0 16px;line-height:1.66}"
+      }
+    },
+    {
+      "selector": "[data-biology-word-details] .concept-contrast",
+      "range": {
+        "startByte": 149590,
+        "endByteExclusive": 149689,
+        "bytes": 99,
+        "sha256": "24bb0064311941b934976c3c56451d5587a9edc96bbd1e010765a852f15de916",
+        "exactText": "\n[data-biology-word-details] .concept-contrast{display:grid;grid-template-columns:1fr 1fr;gap:22px}"
+      }
+    },
+    {
+      "selector": "[data-biology-word-details] .concept-contrast h3,[data-biology-word-details] .retrieval-mini h3",
+      "range": {
+        "startByte": 149689,
+        "endByteExclusive": 149816,
+        "bytes": 127,
+        "sha256": "75101e38885cda380010e328c65c5c86b8d25b31d69975af21302f2d2befa54b",
+        "exactText": "\n[data-biology-word-details] .concept-contrast h3,[data-biology-word-details] .retrieval-mini h3{margin:0 0 6px;font-size:17px}"
+      }
+    },
+    {
+      "selector": "[data-biology-word-details] .concept-contrast p,[data-biology-word-details] .retrieval-mini p",
+      "range": {
+        "startByte": 149816,
+        "endByteExclusive": 149937,
+        "bytes": 121,
+        "sha256": "2288800b5e19440d9930dcd5cc7bc17cd8832ac1286f3abb6f6da48c59f0a62d",
+        "exactText": "\n[data-biology-word-details] .concept-contrast p,[data-biology-word-details] .retrieval-mini p{margin:0;line-height:1.66}"
+      }
+    },
+    {
+      "selector": "[data-biology-word-details] .retrieval-mini",
+      "range": {
+        "startByte": 149937,
+        "endByteExclusive": 150028,
+        "bytes": 91,
+        "sha256": "eabd26d4489ed5ec93b1889ac383d9183782a3a0d596249fad17fdeeef25d610",
+        "exactText": "\n[data-biology-word-details] .retrieval-mini{padding:15px;background:#f1f7f4;margin:18px 0}"
+      }
+    },
+    {
+      "selector": "[data-biology-word-details] .word-parts",
+      "range": {
+        "startByte": 150028,
+        "endByteExclusive": 150125,
+        "bytes": 97,
+        "sha256": "d4a7d92db24658c153aee5bd80595b1d4898ccdc3da10c956374980a5d4e9513",
+        "exactText": "\n[data-biology-word-details] .word-parts{display:flex;flex-wrap:wrap;gap:12px 24px;margin:18px 0}"
+      }
+    },
+    {
+      "selector": "[data-biology-word-details] .word-parts>div",
+      "range": {
+        "startByte": 150125,
+        "endByteExclusive": 150191,
+        "bytes": 66,
+        "sha256": "ca1b07eed0a9c54f32912e6e10b16628f930626641ae5fadc3ff3df9dad91480",
+        "exactText": "\n[data-biology-word-details] .word-parts>div{display:flex;gap:8px}"
+      }
+    },
+    {
+      "selector": "[data-biology-word-details] .word-parts dt",
+      "range": {
+        "startByte": 150191,
+        "endByteExclusive": 150250,
+        "bytes": 59,
+        "sha256": "a859e43d551e4a2406b954671cafdd60676a279e0265a8dbc7cf18889cfd931b",
+        "exactText": "[data-biology-word-details] .word-parts dt{font-weight:800}"
+      }
+    },
+    {
+      "selector": "[data-biology-word-details] .word-parts dd",
+      "range": {
+        "startByte": 150250,
+        "endByteExclusive": 150321,
+        "bytes": 71,
+        "sha256": "f761da5be6192157df1aad17c229936fe1103c81e472abab56bb147bba91affd",
+        "exactText": "[data-biology-word-details] .word-parts dd{margin:0;color:var(--muted)}"
+      }
+    },
+    {
+      "selector": "[data-biology-word-details] .caution-line",
+      "range": {
+        "startByte": 150321,
+        "endByteExclusive": 150396,
+        "bytes": 75,
+        "sha256": "41cb0f57119d0de5944348e904b7b24b845611248fe41ecce046985a00956bf9",
+        "exactText": "\n[data-biology-word-details] .caution-line{padding:12px;background:#faf4e9}"
+      }
+    },
+    {
+      "selector": "[data-biology-word-details] .concept-contrast",
+      "range": {
+        "startByte": 150984,
+        "endByteExclusive": 151056,
+        "bytes": 72,
+        "sha256": "11f21b2b17c752670c38a24258d92bd0253fbbd4accac3343370aacdb65fa288",
+        "exactText": "[data-biology-word-details] .concept-contrast{grid-template-columns:1fr}"
+      }
+    },
+    {
+      "selector": ".activity-disclosure",
+      "range": {
+        "startByte": 152181,
+        "endByteExclusive": 152256,
+        "bytes": 75,
+        "sha256": "58def925084eaacac16d9dec482d2c9038fb733678702d9064f67ea9cccf2e7a",
+        "exactText": ".activity-disclosure{border-top:1px solid var(--border);background:#fbfcfa}"
+      }
+    },
+    {
+      "selector": ".activity-disclosure>summary",
+      "range": {
+        "startByte": 152256,
+        "endByteExclusive": 152456,
+        "bytes": 200,
+        "sha256": "aefa52a8349b6505e111c6ff83fba6789e2f235ea9ee1a889dc2a1a2bc2d9a04",
+        "exactText": ".activity-disclosure>summary{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:64px;padding:14px 54px;color:var(--green);font-weight:800;cursor:pointer;list-style:none}"
+      }
+    },
+    {
+      "selector": ".activity-disclosure>summary::-webkit-details-marker",
+      "range": {
+        "startByte": 152456,
+        "endByteExclusive": 152522,
+        "bytes": 66,
+        "sha256": "0082038cea6dd97cb6e7d7cfadc1f5ab4b51f9825e1c562500308cd80c774d34",
+        "exactText": ".activity-disclosure>summary::-webkit-details-marker{display:none}"
+      }
+    },
+    {
+      "selector": ".activity-disclosure>summary::after",
+      "range": {
+        "startByte": 152522,
+        "endByteExclusive": 152601,
+        "bytes": 79,
+        "sha256": "f6cad6ece9e20b426b82f3787660656353d2e0ddaac40b9d1d96bc446fb8710e",
+        "exactText": ".activity-disclosure>summary::after{content:\"+\";font-size:24px;font-weight:500}"
+      }
+    },
+    {
+      "selector": ".activity-disclosure[open]>summary::after",
+      "range": {
+        "startByte": 152601,
+        "endByteExclusive": 152657,
+        "bytes": 56,
+        "sha256": "08d48ffab71d9ebe9ad7bfe0bef118b9bdf860f2501270a641df1f1a7cfae08b",
+        "exactText": ".activity-disclosure[open]>summary::after{content:\"−\"}"
+      }
+    },
+    {
+      "selector": ".activity-disclosure>.activity",
+      "range": {
+        "startByte": 152657,
+        "endByteExclusive": 152739,
+        "bytes": 82,
+        "sha256": "b412bcab7c39984a7ec062e4a3ddff02c65d8d678278c455f353f6c1079a1851",
+        "exactText": ".activity-disclosure>.activity{border-top:1px solid var(--border);background:#fff}"
+      }
+    },
+    {
+      "selector": ".figure-label-grid details",
+      "range": {
+        "startByte": 153575,
+        "endByteExclusive": 153617,
+        "bytes": 42,
+        "sha256": "360f9f41802fa07c57fb9a16f7980be01ed57ee927c9ce0c071a532fb14a6d21",
+        "exactText": ".figure-label-grid details{font-size:13px}"
+      }
+    },
+    {
+      "selector": ".figure-label-grid details summary",
+      "range": {
+        "startByte": 153617,
+        "endByteExclusive": 153697,
+        "bytes": 80,
+        "sha256": "bfeddaf6a3dd2af98332b0e31e18216807cf21f0fce961361e6ef568d7f3e7f9",
+        "exactText": ".figure-label-grid details summary{min-height:44px;padding:8px 0;cursor:pointer}"
+      }
+    },
+    {
+      "selector": ".neural-labeling-description>summary",
+      "range": {
+        "startByte": 155341,
+        "endByteExclusive": 155461,
+        "bytes": 120,
+        "sha256": "5568ebfb64d35affe232f5a23b44e9db17fd99d745d9271e893523827d6ce6e9",
+        "exactText": ".neural-labeling-description>summary{min-height:44px;padding:10px 2px;color:var(--green);font-weight:750;cursor:pointer}"
+      }
+    },
+    {
+      "selector": ".question input[type=text],.question textarea",
+      "range": {
+        "startByte": 156043,
+        "endByteExclusive": 156246,
+        "bytes": 203,
+        "sha256": "b49e26a0ecc442284a81628f3639ca93e42338ad13da4826f7b393d4c687e20d",
+        "exactText": "\n.question input[type=text],.question textarea{box-sizing:border-box;width:100%;font:inherit;padding:12px;border:1px solid var(--border);background:var(--surface,#fff);color:var(--ink);border-radius:4px}"
+      }
+    },
+    {
+      "selector": ".frayer textarea",
+      "range": {
+        "startByte": 159749,
+        "endByteExclusive": 159829,
+        "bytes": 80,
+        "sha256": "7dd51fd38fda60c8b2ce108a208043d7a727ac70027a5b788fb32e074ccb3105",
+        "exactText": ".frayer textarea{box-sizing:border-box;width:100%;font:inherit;min-height:110px}"
+      }
+    },
+    {
+      "selector": ".practice-summary",
+      "range": {
+        "startByte": 161850,
+        "endByteExclusive": 161934,
+        "bytes": 84,
+        "sha256": "95dfd16eb8c5a1bce91e00b6b5b561f78e1ec9271b2193a0703f8f8c2b5f9e4d",
+        "exactText": ".practice-summary{max-width:820px;padding:22px 0;border-top:1px solid var(--border)}"
+      }
+    },
+    {
+      "selector": ".practice-summary-actions",
+      "range": {
+        "startByte": 161934,
+        "endByteExclusive": 161997,
+        "bytes": 63,
+        "sha256": "ce419a7aa62858d62093605ae138fba26520593dca2926497ba04b43a66557c9",
+        "exactText": ".practice-summary-actions{display:flex;flex-wrap:wrap;gap:10px}"
+      }
+    },
+    {
+      "selector": ".activity-disclosure>summary",
+      "range": {
+        "startByte": 163600,
+        "endByteExclusive": 163647,
+        "bytes": 47,
+        "sha256": "6d304cd6a47865f12f5ecee59fc6ef9b15d8a2bf1559d0194cf8b00865ecc879",
+        "exactText": ".activity-disclosure>summary{padding:14px 22px}"
+      }
+    },
+    {
+      "selector": ".history-run details>*",
+      "range": {
+        "startByte": 164745,
+        "endByteExclusive": 164792,
+        "bytes": 47,
+        "sha256": "27d9f584ba60ff29d935c4045e5a9ff77e945dacddd7d94b384fb0c5dd54a5a7",
+        "exactText": ".history-run details>*{display:block!important}"
+      }
+    },
+    {
+      "selector": ".page-guide > summary",
+      "range": {
+        "startByte": 164896,
+        "endByteExclusive": 165098,
+        "bytes": 202,
+        "sha256": "bd1758f60a056184db8265830d77719293d0de2808230b175d25ea2ad941c95e",
+        "exactText": "\n\n.page-guide > summary {\n  position: relative;\n  min-height: 72px;\n  padding: 17px 56px 17px 20px;\n  color: var(--muted);\n  font-size: 14px;\n  line-height: 1.5;\n  list-style: none;\n  cursor: pointer;\n}"
+      }
+    },
+    {
+      "selector": ".page-guide > summary::-webkit-details-marker",
+      "range": {
+        "startByte": 165098,
+        "endByteExclusive": 165166,
+        "bytes": 68,
+        "sha256": "74af297edadb5b3bba30467c83e7cf64b02414c40559182f967e60d528b7462f",
+        "exactText": "\n\n.page-guide > summary::-webkit-details-marker {\n  display: none;\n}"
+      }
+    },
+    {
+      "selector": ".page-guide > summary:hover",
+      "range": {
+        "startByte": 165166,
+        "endByteExclusive": 165222,
+        "bytes": 56,
+        "sha256": "beee3dad026d2b0a9b1ab2ac3f0ff2f0ac4af2f34cf392f63f072d7190f0ec84",
+        "exactText": "\n\n.page-guide > summary:hover {\n  background: #e4f0eb;\n}"
+      }
+    },
+    {
+      "selector": ".page-guide > summary::after",
+      "range": {
+        "startByte": 165222,
+        "endByteExclusive": 165459,
+        "bytes": 237,
+        "sha256": "c883dbd9162292d0eec26414543d348df3d2c86853d143e0869cd159a8b32312",
+        "exactText": "\n\n.page-guide > summary::after {\n  content: \"\";\n  position: absolute;\n  top: 30px;\n  right: 24px;\n  width: 10px;\n  height: 10px;\n  border-right: 2px solid var(--teal);\n  border-bottom: 2px solid var(--teal);\n  transform: rotate(45deg);\n}"
+      }
+    },
+    {
+      "selector": ".page-guide[open] > summary::after",
+      "range": {
+        "startByte": 165459,
+        "endByteExclusive": 165528,
+        "bytes": 69,
+        "sha256": "bac826af8c24c27644bc3927b9c4357cc4cdd24fae8f464b58a9e9253fd78cdb",
+        "exactText": "\n\n.page-guide[open] > summary::after {\n  transform: rotate(225deg);\n}"
+      }
+    },
+    {
+      "selector": ".page-guide > summary strong",
+      "range": {
+        "startByte": 165528,
+        "endByteExclusive": 165653,
+        "bytes": 125,
+        "sha256": "bdc137d20d251571599c71695111950cd70640010ec526b0cb4d488c0db49738",
+        "exactText": "\n\n.page-guide > summary strong {\n  display: block;\n  color: var(--ink);\n  font: 800 22px/1.25 \"Hanken Grotesk\", sans-serif;\n}"
+      }
+    },
+    {
+      "selector": ".page-guide > summary strong::before",
+      "range": {
+        "startByte": 165653,
+        "endByteExclusive": 165882,
+        "bytes": 229,
+        "sha256": "7ecea0db186c9ee8d015925040ad7138c66944ac58d82f4d2b5ce6fcba16708a",
+        "exactText": "\n\n.page-guide > summary strong::before {\n  content: \"Page guide\";\n  display: block;\n  margin-bottom: 3px;\n  color: var(--teal);\n  font: 850 10px/1.4 \"Work Sans\", sans-serif;\n  letter-spacing: .07em;\n  text-transform: uppercase;\n}"
+      }
+    },
+    {
+      "selector": ".page-header > .page-guide > summary strong::before",
+      "range": {
+        "startByte": 165937,
+        "endByteExclusive": 166020,
+        "bytes": 83,
+        "sha256": "d84173c22b205fe782684b4bc161ab3c28d65fe9598234ce72ed81f2fa6caf94",
+        "exactText": "\n\n.page-header > .page-guide > summary strong::before {\n  content: \"Learn guide\";\n}"
+      }
+    },
+    {
+      "selector": ".page-guide > summary",
+      "range": {
+        "startByte": 166439,
+        "endByteExclusive": 166504,
+        "bytes": 65,
+        "sha256": "395c7f0a6d656742825246d607bf3c2c5ffde55be0e7f63fc6430928dd01ddb7",
+        "exactText": "\n\n  .page-guide > summary {\n    padding: 15px 48px 15px 16px;\n  }"
+      }
+    },
+    {
+      "selector": ".page-guide > summary strong",
+      "range": {
+        "startByte": 166504,
+        "endByteExclusive": 166563,
+        "bytes": 59,
+        "sha256": "1210ea70737c787a0fe370456bdf6de390f09fd27cf51de7c9396d47e098884a",
+        "exactText": "\n\n  .page-guide > summary strong {\n    font-size: 18px;\n  }"
+      }
+    },
+    {
+      "selector": ".page-header>.page-guide>summary",
+      "range": {
+        "startByte": 168271,
+        "endByteExclusive": 168390,
+        "bytes": 119,
+        "sha256": "2bfc529ef74ce7717a1e3736dae278195e85aa3b6d6007b18036ce2f87fe1f0c",
+        "exactText": "\n.page-header>.page-guide>summary{min-height:72px;padding:17px 56px 17px 20px!important;font-size:14px;line-height:1.5}"
+      }
+    },
+    {
+      "selector": ".course-page:not([id^=\"lesson-\"]) .page-header>.page-guide>summary strong::before",
+      "range": {
+        "startByte": 168390,
+        "endByteExclusive": 168494,
+        "bytes": 104,
+        "sha256": "e939da8fdbe126eaee9beb070b471fc3ee938e759b9927b9cf75632c27c617f6",
+        "exactText": "\n.course-page:not([id^=\"lesson-\"]) .page-header>.page-guide>summary strong::before{content:\"Page guide\"}"
+      }
+    },
+    {
+      "selector": ".vocab-help>summary",
+      "range": {
+        "startByte": 168852,
+        "endByteExclusive": 168891,
+        "bytes": 39,
+        "sha256": "53126ea2064ec7f760b5b5c0e5225a16121b61f7c78f433e4bac7d7f1a4a5bf7",
+        "exactText": "\n.vocab-help>summary{font-size:inherit}"
+      }
+    },
+    {
+      "selector": ".activity-disclosure>summary,.activity-disclosure.optional-disclosure>summary",
+      "range": {
+        "startByte": 169294,
+        "endByteExclusive": 169479,
+        "bytes": 185,
+        "sha256": "60a41cd0a15e6fcfe04a0f692561bcf6e27776b2b29c3298cdca54e760342502",
+        "exactText": "\n.activity-disclosure>summary,.activity-disclosure.optional-disclosure>summary{padding:14px 54px;font-size:inherit;font-weight:800;min-height:64px;background:#fbfcfa;color:var(--green)}"
+      }
+    },
+    {
+      "selector": ".video-copy p,.video-visual .concept-summary p,.work-history p,.work-history li,.work-frayers p,.work-notes p",
+      "range": {
+        "startByte": 170537,
+        "endByteExclusive": 170686,
+        "bytes": 149,
+        "sha256": "f2e72f9a3b53859398eef00ed45e4271815f76ac7dd822e731aee5350337a443",
+        "exactText": "\n.video-copy p,.video-visual .concept-summary p,.work-history p,.work-history li,.work-frayers p,.work-notes p{font-size:inherit;line-height:inherit}"
+      }
+    },
+    {
+      "selector": ".activity-disclosure>summary,.activity-disclosure.optional-disclosure>summary",
+      "range": {
+        "startByte": 172129,
+        "endByteExclusive": 172228,
+        "bytes": 99,
+        "sha256": "87be3ba2be4e91305623200291021e058030bfa452c7bd83c0d94f8e064f6bef",
+        "exactText": "\n  .activity-disclosure>summary,.activity-disclosure.optional-disclosure>summary{padding:14px 22px}"
+      }
+    },
+    {
+      "selector": ".page-header>.page-guide>summary",
+      "range": {
+        "startByte": 172361,
+        "endByteExclusive": 172435,
+        "bytes": 74,
+        "sha256": "db3ac8920acee148fce822e831ebd6d5b4c2ffa8975028c6837a8a8052004653",
+        "exactText": "\n  .page-header>.page-guide>summary{padding:15px 48px 15px 16px!important}"
+      }
+    },
+    {
+      "selector": "[data-biology-word-details] h3",
+      "range": {
+        "startByte": 834724,
+        "endByteExclusive": 834797,
+        "bytes": 73,
+        "sha256": "843c0d464796e0f5bd902c93f4c4031177a6271b2c72149d7c2c179791df8151",
+        "exactText": "\n[data-biology-word-details] h3{font:750 17px/1.5 \"Work Sans\",sans-serif}"
+      }
+    },
+    {
+      "selector": "[data-biology-word-details] details",
+      "range": {
+        "startByte": 834797,
+        "endByteExclusive": 834886,
+        "bytes": 89,
+        "sha256": "5539db5482088ce770f0a87e3807f976b48dcaf35d84fbaaf56f0def573aff65",
+        "exactText": "\n[data-biology-word-details] details{padding:12px 0;border-block:1px solid var(--border)}"
+      }
+    },
+    {
+      "selector": "[data-biology-word-details] details>summary",
+      "range": {
+        "startByte": 834886,
+        "endByteExclusive": 834981,
+        "bytes": 95,
+        "sha256": "c482e24d7557a58c3f9939ef6862c3c967db3699a1f88874d4e6c4f8615023a2",
+        "exactText": "\n[data-biology-word-details] details>summary{color:var(--green);font-weight:800;cursor:pointer}"
+      }
+    },
+    {
+      "selector": ".vocabulary-reader .frayer-fields textarea",
+      "range": {
+        "startByte": 835182,
+        "endByteExclusive": 835250,
+        "bytes": 68,
+        "sha256": "f511703fcff979e00208fb484c9837c72ce2f416918b5c19cb7db1cb3797371e",
+        "exactText": "\n.vocabulary-reader .frayer-fields textarea{width:100%;font:inherit}"
+      }
+    },
+    {
+      "selector": "dialog.bio-vocabulary textarea",
+      "range": {
+        "startByte": 836079,
+        "endByteExclusive": 836166,
+        "bytes": 87,
+        "sha256": "f93f5ad2d792697c62dd6d62497ebfe53f04e449545d8a3786bcc0f8d986c32d",
+        "exactText": "\ndialog.bio-vocabulary textarea{display:block;width:100%;font:inherit;min-height:110px}"
+      }
+    },
+    {
+      "selector": "[data-transfer] textarea",
+      "range": {
+        "startByte": 837980,
+        "endByteExclusive": 838162,
+        "bytes": 182,
+        "sha256": "7cd674fb04b69545f7f1f71b4b92816644356dfb48797df98ee08efebf6cb56f",
+        "exactText": "\n[data-transfer] textarea { display: block; margin-block: 12px 24px; width: 100%; min-height: 150px; padding: 14px; border: 1px solid #91a08f; border-radius: 5px; resize: vertical; }"
+      }
+    }
+  ],
+  "stateContract": {
+    "draftInput": "Every input event invokes native change/save to assign S.notes[ID].draft. This is draft persistence, not explicit collection.",
+    "explicitSave": "Nonempty draft.trim() and raw draft.length <=5000 required. Successful native save writes submitted=draft.trim(), at=Date.now(); draft remains.",
+    "oversize": "Native textarea has no maxlength. Oversize draft still persists through input. Explicit collection rejects it via global native status. Do not silently truncate or invent a new limit.",
+    "reload": "Initial restoreNotes restores draft text for every data-note-input ID. It does not reconstruct a per-note saved status sentence; initial status remains generic until interaction.",
+    "allMyWork": "Only notes with nonempty submitted render. Last explicitly saved response appears; if draft.trim()!=submitted, a newer-draft notice appears. C.notes title used if registered, otherwise raw ID.",
+    "history": "Notes store current draft plus last submitted text and timestamp. They do not append practice attempts to S.history. Saving again replaces the last submitted note. Do not promise an attempt ledger or first-try grading.",
+    "progress": "Required progress counts S.history kind=check only. Notes do not count toward required checks.",
+    "failure": "Native change/save clone, revision checking, blocked state, cross-tab event and storage error handling remain owners. No bypass/direct storage writer is permitted.",
+    "print": "Existing All My Work print flow includes collected notes. Static-source inference only; print/reload/save tests pending.",
+    "namespace": "Existing biology30-chapter-17:html:v1 or native LMS-scoped key; do not add a namespace or storage schema.",
+    "hintAndModelState": "Ordinary details/summary toggles are not recorded as hint-use or first-try state. No such tracking is claimed."
+  },
+  "modelComparisonContract": {
+    "hint": "Use ordinary native details/summary for an intentional optional hint. Include all needed task stimulus before the response.",
+    "model": "Use a separate ordinary native details/summary for full model, criteria and explanatory feedback. Author instruction may ask learner to save first, then compare.",
+    "saveGate": "No generic S.notes model-unlock mechanism exists. Do not set data-locked=true: it would never unlock for a new note. data-extension-model queries only the first matching element and is hardcoded to ch17-optional-extension.",
+    "honestUIStatement": "Comparison is learner-controlled, not technically save-gated. If enforced save-gating is required later, it is a new runtime change requiring a separate integration decision and tests; not part of this teaching-only proposal."
+  },
+  "noteTitleRegistrationProposal": {
+    "status": "proposal-only; current native array unchanged; exact task IDs/titles supplied by root later",
+    "jsonOwner": "course-data.notes",
+    "schema": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "title"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^ch17-kinch-v020-"
+          },
+          "title": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "originalArray": {
+      "startByte": 3239743,
+      "endByteExclusive": 3240263,
+      "bytes": 520,
+      "sha256": "88d093c985c3a370d5011f0acbf56ce39576c3645fa28bf59fcf614a12bd9402",
+      "exactText": "[{\"id\": \"ch17-source-written-OBJ_2131244\", \"title\": \"Additional written application 1\"}, {\"id\": \"ch17-source-written-OBJ_2131247\", \"title\": \"Additional written application 2\"}, {\"id\": \"ch17-source-written-OBJ_2131248\", \"title\": \"Additional written application 3\"}, {\"id\": \"ch17-source-written-OBJ_2131251\", \"title\": \"Additional written application 4\"}, {\"id\": \"ch17-source-written-OBJ_2131252\", \"title\": \"Additional written application 5\"}, {\"id\": \"ch17-optional-extension\", \"title\": \"Biobanks and genetic information\"}]"
+    },
+    "originalEntries": [
+      {
+        "id": "ch17-source-written-OBJ_2131244",
+        "title": "Additional written application 1"
+      },
+      {
+        "id": "ch17-source-written-OBJ_2131247",
+        "title": "Additional written application 2"
+      },
+      {
+        "id": "ch17-source-written-OBJ_2131248",
+        "title": "Additional written application 3"
+      },
+      {
+        "id": "ch17-source-written-OBJ_2131251",
+        "title": "Additional written application 4"
+      },
+      {
+        "id": "ch17-source-written-OBJ_2131252",
+        "title": "Additional written application 5"
+      },
+      {
+        "id": "ch17-optional-extension",
+        "title": "Biobanks and genetic information"
+      }
+    ],
+    "appendInsertionByte": 3240262,
+    "insertionConvention": "Append only comma plus exact new {id,title} records immediately before original closing ]. Do not replace or reorder six original records; do not rewrite entire config. No edit is applied by this spec.",
+    "withoutRegistration": "Generic save/reload/All My Work still works by source logic; All My Work heading falls back to raw note ID.",
+    "friendlyTitleDependency": "Proposed new registration metadata is necessary for friendly titles. Keep this separate from teaching replacement/header edits; preserve blocked/proposal-only metadata until actual authorized integration."
+  },
+  "pendingUIVerification": [
+    "Fresh draft is blank; label targets textarea; status target exists.",
+    "Typing saves draft; reload restores it.",
+    "Blank and >5000-character explicit collection reject with native feedback; no silent truncation.",
+    "Successful collection appears in All My Work with registered title, exactly the last saved response.",
+    "Editing later changes draft; All My Work keeps last saved response and newer-draft notice until recollection.",
+    "Second collection updates last submitted note without changing required progress or existing notes/history.",
+    "Hint/model toggles work by intentional click and are not falsely described as save-gated.",
+    "Cross-tab/storage-failure behavior remains native; no new direct storage calls.",
+    "Keyboard/label/status and All My Work print behavior verified in actual integrated candidate."
+  ],
+  "reviewState": {
+    "sourceAndStaticContract": "performed",
+    "nativeUISaveReloadAllMyWork": "not run; pending Codex integration/test",
+    "teacherApproval": "pending",
+    "integration": "not done",
+    "release": "not done"
+  },
+  "proposedResponseBindings": [
+    {
+      "id": "ch17-kinch-v020-l02-arrow-response",
+      "title": null,
+      "titleStatus": "Await root final task title; response ID reserved, no native record added.",
+      "collisionInCurrentNative": false
+    },
+    {
+      "id": "ch17-kinch-v020-l02-cross-response",
+      "title": null,
+      "titleStatus": "Await root final task title; response ID reserved, no native record added.",
+      "collisionInCurrentNative": false
+    },
+    {
+      "id": "ch17-kinch-v020-l05-change-response",
+      "title": null,
+      "titleStatus": "Await root final task title; response ID reserved, no native record added.",
+      "collisionInCurrentNative": false
+    },
+    {
+      "id": "ch17-kinch-v020-l05-evidence-response",
+      "title": null,
+      "titleStatus": "Await root final task title; response ID reserved, no native record added.",
+      "collisionInCurrentNative": false
+    }
+  ]
+}

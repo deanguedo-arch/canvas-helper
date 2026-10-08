@@ -1,0 +1,179 @@
+{
+  "document": "Bounded source and review asset plan",
+  "version": "0.3.0",
+  "integrationOwner": {
+    "path": "source-assessment-v0.3.0/analysis/native-preflight/baseline/native-v020/index.html",
+    "bytes": 3512184,
+    "sha256": "bc42ea52d8cf5709c0ec33c914e86450f93971f3e3144cb81b695593aa0eff3b"
+  },
+  "assets": [
+    {
+      "id": "native-two-trait-figure",
+      "nativePath": "./assets/figures/ch17-two-trait.svg",
+      "status": "approved",
+      "statusScope": "Existing native-approved figure preserved; candidate teaching acceptance pending.",
+      "sourcePin": {
+        "path": "source-assessment-v0.3.0/analysis/native-preflight/baseline/native-v020/assets/figures/ch17-two-trait.svg",
+        "bytes": 5623,
+        "sha256": "6fdb301a963b4da131f8fe50624611fc0ff091c62e0ac99d6602019c2830c316"
+      },
+      "reviewCopyPath": "review-assets/assets/figures/ch17-two-trait.svg",
+      "purpose": "Trace one allele at each locus. Footer endpoint marker B means Ab; marker and allele labels are different.",
+      "action": "Retain exact native figure markup and asset.",
+      "verification": "Bytes/structure freshly verified; prior precise visual read reused. No native UI render."
+    },
+    {
+      "id": "native-two-trait-labeling",
+      "nativePath": "./assets/labeling/ch17-two-trait-label.png",
+      "status": "approved",
+      "statusScope": "Existing approved labeling image and answer map preserved outside edited teaching.",
+      "sourcePin": {
+        "path": "source-inspection/ch17/native/workspace/assets/labeling/ch17-two-trait-label.png",
+        "bytes": 852180,
+        "sha256": "bc5115f43f636f2e35e1a9df5bcc303272ac464a4e7cb4cb27ed9538ea18c27a"
+      },
+      "answers": {
+        "A": "AB",
+        "B": "Ab",
+        "C": "aB",
+        "D": "ab"
+      },
+      "purpose": "Native labeling practice. PNG and SVG differ in layout, so instructions must follow each exact image.",
+      "action": "Do not replace asset or labeling answers. Large PNG is not needed as a new binary in this bounded candidate.",
+      "verification": "Original source-member hash and decoder readability verified in current gate; prior pixel correspondence reused."
+    },
+    {
+      "id": "native-textbook",
+      "nativePath": "./assets/textbook/chapter-17.pdf",
+      "status": "approved",
+      "statusScope": "Existing reader source retained with documented original-source reservations.",
+      "sourcePin": {
+        "path": "source-inspection/ch17/native/workspace/assets/textbook/chapter-17.pdf",
+        "bytes": 2005971,
+        "sha256": "48e297aacb86275c106a02abdddaf0f0463ba47d6b17703a926aa68405755455"
+      },
+      "purpose": "Supplemental exact printed/PDF locators in source map; essential teaching remains self-contained.",
+      "action": "Retain exact reader maps02 printed587–590/PDF4–7 and05 printed591–593/PDF8–10. Do not include large source PDF in candidate.",
+      "verification": "Current38-page readability plus targeted original pixels; not a new cover-to-cover scientific acceptance."
+    },
+    {
+      "id": "complete-semantic-tables",
+      "nativePath": null,
+      "status": "approved",
+      "statusScope": "Author/source review complete for12 inline semantic tables; teacher and actual rendering acceptance pending.",
+      "tables": [
+        {
+          "route": "lesson-02",
+          "caption": "Possible F2 allele combinations from Rr × Rr",
+          "status": "Complete semantic teaching table; no external asset needed."
+        },
+        {
+          "route": "lesson-02",
+          "caption": "A student's labelled allele diagram",
+          "status": "Complete semantic teaching table; no external asset needed."
+        },
+        {
+          "route": "lesson-02",
+          "caption": "Two controlled pea crosses with the parental roles reversed",
+          "status": "Complete semantic teaching table; no external asset needed."
+        },
+        {
+          "route": "lesson-05",
+          "caption": "F2 genotype combinations from TtGg × TtGg; each interior cell has probability 1/16",
+          "status": "Complete semantic teaching table; no external asset needed."
+        },
+        {
+          "route": "lesson-05",
+          "caption": "Grouping the sixteen F2 cells by phenotype",
+          "status": "Complete semantic teaching table; no external asset needed."
+        },
+        {
+          "route": "lesson-05",
+          "caption": "Possible gametes for RrTt × rrTt",
+          "status": "Complete semantic teaching table; no external asset needed."
+        },
+        {
+          "route": "lesson-05",
+          "caption": "Eight equally likely gamete pairings from RrTt × rrTt",
+          "status": "Complete semantic teaching table; no external asset needed."
+        },
+        {
+          "route": "lesson-05",
+          "caption": "Phenotype predictions for the tomato offspring",
+          "status": "Complete semantic teaching table; no external asset needed."
+        },
+        {
+          "route": "lesson-05",
+          "caption": "The one change to the tomato cross",
+          "status": "Complete semantic teaching table; no external asset needed."
+        },
+        {
+          "route": "lesson-05",
+          "caption": "Complete comparison for RrTt × rrtt",
+          "status": "Complete semantic teaching table; no external asset needed."
+        },
+        {
+          "route": "lesson-05",
+          "caption": "Gamete combinations after the yellow, spherical offspring resolves the squash parents",
+          "status": "Complete semantic teaching table; no external asset needed."
+        },
+        {
+          "route": "lesson-05",
+          "caption": "A breeding record with incomplete parental genotypes",
+          "status": "Complete semantic teaching table; no external asset needed."
+        }
+      ],
+      "purpose": "All genotype grids, grouping tables, changed-parent comparison and activity records are included in teaching fragments.",
+      "action": "No new external biology graphic required. Native classes and controls retained.",
+      "verification": "All36 displayed genotype cells independently recomputed; no browser/print rendering performed."
+    },
+    {
+      "id": "teacher-review-only-formatting",
+      "nativePath": null,
+      "status": "new-needed",
+      "statusScope": "New review-format asset needed and supplied. It is explicitly outside native integration or style proposals.",
+      "sourcePin": {
+        "path": "output/Biology30_CH17_Source_Assessment_Trial_v0.3.0/review-assets/teacher-review-only.css",
+        "bytes": 2185,
+        "sha256": "0099523bf5c34de1dc52977a71f02c4f0c417fa4cd54a8550e51e071a8d69a9a"
+      },
+      "authorInputPin": {
+        "path": "source-assessment-v0.3.0/authoring/teacher-review-only.css",
+        "bytes": 2185,
+        "sha256": "0099523bf5c34de1dc52977a71f02c4f0c417fa4cd54a8550e51e071a8d69a9a"
+      },
+      "reviewCopyPath": "review-assets/teacher-review-only.css",
+      "purpose": "Readable measure, table borders, option rows and figure max width in the inert teacher reading copy.",
+      "action": "Keep only in teacher review asset and standalone review HTML. Do not install as native CSS or alter native fonts/styles.",
+      "verification": "Copied bytes match author CSS; actual browser/print layout unverified."
+    }
+  ],
+  "nativeFigureMarkup": [
+    {
+      "attributes": {
+        "class": "science-figure",
+        "data-figure-id": "ch17-two-trait"
+      },
+      "range": {
+        "startByte": 188446,
+        "endByteExclusive": 189168,
+        "bytes": 722,
+        "sha256": "fb4a4af8d132176bcfcd3f21695d97865901a1c626bbecf5e9a1d6106dc428d0"
+      },
+      "rawBefore": "source-assessment-v0.3.0/analysis/native-preflight/raw-before/lesson-05/figure-ch17-two-trait.html.txt"
+    }
+  ],
+  "newEssentialBiologyAssetNeeded": false,
+  "newReviewFormatAssetNeededAndSupplied": true,
+  "originalSourceReservationsFile": "evidence/source-review/SOURCE_CONFLICTS.json",
+  "nativeCssChanged": false,
+  "nativeFontsChanged": false,
+  "runtimeImportedIntoTeacherCopy": false,
+  "notes": [
+    "Approved is the original asset/preservation status or bounded author-source review status explicitly stated for each row; it is not new teacher/science certification.",
+    "No asset is replaced to hide a source typo or alter original question answers.",
+    "Native videos and companion prompts remain unchanged in protected shell/activity regions; no video was played and no timestamps were invented.",
+    "PPT48 external recap links are source metadata only; they were not opened or inspected as videos.",
+    "All source binary pins refer to supplied local sources, not newly downloaded material."
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "sandboxSocketObservationNotAuthoritative": {
+    "57170": "free",
+    "57171": "free",
+    "57172": "free",
+    "57180": "free",
+    "57181": "free",
+    "57182": "free",
+    "57183": "free",
+    "57190": "free",
+    "57191": "free",
+    "57192": "free",
+    "57193": "free",
+    "57200": "free",
+    "57201": "free",
+    "57202": "free",
+    "57203": "free"
+  },
+  "authoritativeUnsandboxedHttpObservation": {"57170":200,"57171":200,"57172":200,"57180":200,"57181":200,"57182":200,"57183":200,"57190":200,"57191":200,"57192":200,"57193":200},
+  "existingServicesIntact": true,
+  "note": "Sandbox connect_ex falsely reported free ports. Approved escalation revealed addresses already in use; authoritative read-only HTTP confirms all existing comparisons intact. No successful restart or old service mutation.",
+  "canonical_files_checked": 147,
+  "canonical_changed_files": []
+}

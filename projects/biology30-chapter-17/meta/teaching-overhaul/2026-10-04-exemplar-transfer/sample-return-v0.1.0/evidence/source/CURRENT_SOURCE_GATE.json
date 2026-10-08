@@ -1,0 +1,83 @@
+{
+  "calibration": "Biology30_CH17_Exemplar_Transfer_Calibration_v0.1.0",
+  "checkedAtUTC": "2026-10-04T14:23:35.507355+00:00",
+  "scope": "Fresh current local verification from the three original uploaded ordinary ZIPs and original uploaded manifest; read-only. No extraction/restaging, new connection, live course, old output modification, learner authoring or runtime testing.",
+  "result": "PASS",
+  "manifest": {
+    "path": "upload/SOURCE_HANDOFF_MANIFEST(1).json",
+    "bytes": 98038,
+    "sha256": "c22193171eac93ed75085394b6edad16fbf8d292db8a0ebfead08646013bdee2"
+  },
+  "binding": {
+    "path": "source-inspection/ch17/SOURCE_BINDING_AND_PRESERVATION.json",
+    "bytes": 4128,
+    "sha256": "55faeed2d1000d4f5645461f5e66c12142330e046ac2379d1efcd727fd6892bf",
+    "parsed": true,
+    "matchesIncludedArchiveMember": true
+  },
+  "nativeOwner": {
+    "path": "source-inspection/ch17/native/workspace/index.html",
+    "bytes": 3471105,
+    "sha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868"
+  },
+  "archives": [
+    {
+      "localPath": "upload/Biology30_CH17_Source_Handoff_2026-10-03_Part_1(1).zip",
+      "declaredFilename": "Biology30_CH17_Source_Handoff_2026-10-03_Part_1.zip",
+      "bytes": 14666563,
+      "sha256": "73520250d140ef5f7575c5d52400ba941c0a751d24fe6939776ccd28df0be7d0",
+      "declaredBytes": 14666563,
+      "declaredSha256": "73520250d140ef5f7575c5d52400ba941c0a751d24fe6939776ccd28df0be7d0",
+      "byteMatch": true,
+      "shaMatch": true,
+      "crcFirstFailure": null,
+      "fileCount": 188
+    },
+    {
+      "localPath": "upload/Biology30_CH17_Source_Handoff_2026-10-03_Part_2(1).zip",
+      "declaredFilename": "Biology30_CH17_Source_Handoff_2026-10-03_Part_2.zip",
+      "bytes": 13627472,
+      "sha256": "0ec8c4c0b46f7b25a67d02282a0893eeb359bb89d5d13173bf2024c2f62ce327",
+      "declaredBytes": 13627472,
+      "declaredSha256": "0ec8c4c0b46f7b25a67d02282a0893eeb359bb89d5d13173bf2024c2f62ce327",
+      "byteMatch": true,
+      "shaMatch": true,
+      "crcFirstFailure": null,
+      "fileCount": 32
+    },
+    {
+      "localPath": "upload/Biology30_CH11_Teaching_Exemplar_v1.0.0_Part_1(1).zip",
+      "declaredFilename": "Biology30_CH11_Teaching_Exemplar_v1.0.0_Part_1.zip",
+      "bytes": 196257,
+      "sha256": "a4351be937b320aefa8e2076ed3b5a20326c5c142111f3f2b472a8b7a91169ca",
+      "declaredBytes": 196257,
+      "declaredSha256": "a4351be937b320aefa8e2076ed3b5a20326c5c142111f3f2b472a8b7a91169ca",
+      "byteMatch": true,
+      "shaMatch": true,
+      "crcFirstFailure": null,
+      "fileCount": 32
+    }
+  ],
+  "archiveMemberCount": 252,
+  "manifestIncludedCount": 235,
+  "manifestIncludedMatches": 235,
+  "archiveProtectedUnlistedCount": 17,
+  "stagedMembersMatch": 252,
+  "duplicateChapter17Paths": [],
+  "packageMemberCounts": {
+    "chapter17": 220,
+    "chapter11-exemplar": 32
+  },
+  "provenanceOnly": [
+    {
+      "path": "UnitC.zip",
+      "declaredBytes": 274867532,
+      "declaredSha256": "8b4ad2b48215ed2638e81a67f6e68731601c8fd5ed21ef14e455f746b0021ea8",
+      "role": "read-only original archive; only selected original members included",
+      "availability": "intentionally absent; not accessed or locally hash-verified"
+    }
+  ],
+  "finalV100FilesUnchanged": true,
+  "finalV100FileCount": 410,
+  "readClaim": "Hashes/CRC and parsed manifests establish current byte availability, not a new claim that every document was read as teaching prose."
+}

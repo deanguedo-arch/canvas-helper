@@ -1,0 +1,670 @@
+{
+  "document": "V030_PROSPECTIVE_REQUIRED_DEMAND_COLLISION_REVIEW",
+  "createdUtc": "2026-10-05T00:21:13.429130+00:00",
+  "scope": "Root candidate demands only; final question wording/options/cues/models/criteria do not yet exist in this review scope. Full actual final items require separate pinned review. No learner text authored here.",
+  "nativeOwner": {
+    "path": "source-assessment-v0.3.0/analysis/native-preflight/baseline/native-v020/index.html",
+    "bytes": 3512184,
+    "sha256": "bc42ea52d8cf5709c0ec33c914e86450f93971f3e3144cb81b695593aa0eff3b"
+  },
+  "sourceCoverage": {
+    "requiredChecks": 15,
+    "requiredBank": "source-assessment-v0.3.0/analysis/native-preflight/GLOBAL_REQUIRED_BANK.json",
+    "configurationCategoriesScanned": {
+      "practiceQuestions": 78,
+      "authoredPractice": 14,
+      "typedPractice": 55,
+      "multiSelectPractice": 5,
+      "guidedActivities": 14,
+      "transferChecks": 1,
+      "videos": 15,
+      "sequences": 1
+    },
+    "manualFocus": "All selected02/05 optional prompts/keys/models and relevant01–05 mechanism paragraphs; four existing optional activities, relevant global required targets and both05 fallback texts. The complete02/05 teaching was previously fully reviewed at the returned v020 input hashes; preflight independently proved those exact fragments are present in this integrated baseline. This turn adds targeted collision reading, not a claim of a new full chapter read. Search-supported review of broader configuration; no video playback claimed.",
+    "sourceBookPixelReview": "Not performed in this collision check; separate source reviewer owns original textbook/PPT comparison."
+  },
+  "candidates": [
+    {
+      "id": "ch17-l02-check-writing-1",
+      "candidateDemand": "Repair an Mm premeiotic copying-state claim that four DNA copies are four allele versions and every gamete must remain Mm.",
+      "verdict": "Favourable provisional application; no exact existing whole-task collision found.",
+      "newConsequentialDemand": "Diagnose the difference between copy count, allele identity and the single-locus content of a gamete from a supplied state record; no F1/F2 narrated cross is requested.",
+      "necessaryTeachingOverlap": "The current lesson02 directly teaches copying without allele change and the two meiotic separations; the corrected mechanism is intentionally drawn from that teaching. Native guided/context items already say Rr/Aa gametes receive one allele.",
+      "nearestSourceIds": [
+        "ch17-l02-guided-q1",
+        "ch17-l02-context-law-of-segregation",
+        "ch17-l02-check-mc-1"
+      ],
+      "conditionsForFinalReview": [
+        "State normal segregation/no mutation and avoid four-chromosomes wording when the record shows two replicated homologues.",
+        "Four allele copies can be present while only two versions M andm are present; the copied state remains conventionally Mm.",
+        "Require the explanation that the versions remain distinct through copying and separation to preserve the segregation-versus-blending purpose; do not require a repeated F1/F2 account.",
+        "No guarantee of a finite offspring ratio is implicated."
+      ]
+    },
+    {
+      "id": "ch17-l05-check-mc-2",
+      "candidateDemand": "For a double-heterozygote cross, obtain the probability of at least one recessive phenotype.",
+      "verdict": "Favourable provisional changed event; no exact existing7/16 whole-event target found.",
+      "newConsequentialDemand": "Select and add three mutually exclusive phenotype categories, including the double-recessive category once.",
+      "necessaryTeachingOverlap": "Core pea table, source formative2131227/2131237 and both lesson05 video fallback texts provide the component9:3:3:1 values. This is one sum/complement away from the solved table and is not assessment-blind.",
+      "nearestSourceIds": [
+        "ch17-source-OBJ_2131227",
+        "ch17-source-OBJ_2131237",
+        "ch17-final-mc-2",
+        "fe5kSSs83qc",
+        "qIGXTJLrLf8"
+      ],
+      "calculation": {
+        "disjointPhenotypeTerms": [
+          "3/16",
+          "3/16",
+          "1/16"
+        ],
+        "sum": "7/16",
+        "independentEnumerationEligibleGenotypes": {
+          "AAbb": "1/16",
+          "Aabb": "1/8",
+          "aaBB": "1/16",
+          "aaBb": "1/8",
+          "aabb": "1/16"
+        },
+        "allOutcomeProbability": "1"
+      },
+      "conditionsForFinalReview": [
+        "Define at least one as one or both recessive phenotypes, so inclusive wording is not mistaken for exactly one.",
+        "Keep independent assortment, complete dominance and reliable/full expression explicit.",
+        "The model can use taught addition of disjoint categories; do not require a new formal inclusion-exclusion or complement rule.",
+        "Review all final distractors for one unambiguous answer."
+      ],
+      "additionalNearIsomorphicCue": "Native ch17-l03-teaching-03-p2 explicitly names at least one recessive among two independent offspring as different from two recessives in a row. It does not solve the named union event. Two independent1/4 events have the same7/16 mathematics, so the candidate is not the first mention of this event form; the current proposal applies and solves the grouping across loci."
+    },
+    {
+      "id": "ch17-l05-check-writing-1",
+      "candidateDemand": "For AaBB×AaBb, assess a proposed2×4 table with rowsAB,aB and columnsAB,Ab,ab,ab; repair missingaB/duplicatedab and justify gamete probabilities.",
+      "verdict": "Favourable provisional changed evidence; no exact malformed-header solved task found.",
+      "newConsequentialDemand": "Judge the actual category coverage and probabilities despite superficially correct dimensions; identify the omitted gamete and duplicate contribution.",
+      "necessaryTeachingOverlap": "The generic two-gamete/four-gamete lists and table-sizing method are source-taught. Existing tomato/optional feedback discusses redundant columns, so general duplication language is not fresh; the new missing category plus incorrect weighting must remain the demand.",
+      "nearestSourceIds": [
+        "ch17-l05-guided-q1",
+        "ch17-l05-context-independent-assortment",
+        "ch17-l05-context-gamete-combination"
+      ],
+      "calculation": {
+        "firstParentGametes": {
+          "AB": "1/2",
+          "aB": "1/2"
+        },
+        "secondParentGametes": {
+          "AB": "1/4",
+          "Ab": "1/4",
+          "aB": "1/4",
+          "ab": "1/4"
+        },
+        "correctDistinctDimensions": "2×4",
+        "correctCellProbability": "1/8",
+        "flawedEqualColumnWeights": {
+          "AB": "1/4",
+          "Ab": "1/4",
+          "aB": "0",
+          "ab": "1/2"
+        }
+      },
+      "conditionsForFinalReview": [
+        "State which parent owns rows versus columns.",
+        "A repeated column is not intrinsically impossible; hereaB is absent andab is overrepresented if all columns are weighted equally.",
+        "Reweighting duplicateab columns alone cannot restore the missingaB contribution.",
+        "Do not add phenotype calculation, linkage phase, or harder conditional analysis to this organisation task."
+      ]
+    },
+    {
+      "id": "ch17-l05-check-writing-2",
+      "candidateDemand": "For CcHh×CcHh, correct the equation of both dominant phenotypes9/16 with homozygosity at both loci, identifying all eligible genotypes and probability.",
+      "verdict": "Favourable provisional changed classification; no exact existing whole-event dual-homozygote probability model found.",
+      "newConsequentialDemand": "Use allele identity at each locus rather than dominant phenotype to build a new genotype-defined event.",
+      "necessaryTeachingOverlap": "The both-dominant9/16 claim is already solved in the core pea teaching and both video fallbacks, and the full grid includes all four eligible cells. The assessed work is the changed grouping and justification, not repeating that9/16 value.",
+      "nearestSourceIds": [
+        "ch17-l01-check-writing-1",
+        "ch17-source-OBJ_2131236",
+        "ch17-final-mc-2",
+        "fe5kSSs83qc",
+        "qIGXTJLrLf8"
+      ],
+      "calculation": {
+        "eligibleGenotypes": {
+          "CCHH": "1/16",
+          "CChh": "1/16",
+          "ccHH": "1/16",
+          "cchh": "1/16"
+        },
+        "sum": "1/4",
+        "perLocusHomozygousProbability": "1/4+1/4=1/2",
+        "product": "1/2×1/2=1/4",
+        "allOutcomeProbability": "1"
+      },
+      "conditionsForFinalReview": [
+        "Homozygous at both includes dominant/recessive combinations; it does not mean homozygous dominant at both.",
+        "Independence is required for multiplying locus probabilities. Complete dominance applies to the comparison phenotype claim, not the meaning of homozygous.",
+        "No conditional selection denominator or assumption about phenotype determining genotype."
+      ]
+    }
+  ],
+  "exactNearestConfigurationEvidence": [
+    {
+      "id": "ch17-l01-check-writing-1",
+      "jsonPath": [
+        "checks",
+        0,
+        "writing",
+        0
+      ],
+      "startByte": 3152570,
+      "endByteExclusive": 3153185,
+      "sha256": "1b2c062ac2e8f8e434a1547a70682779d432c72d9396fb2a390d73180abe06cb",
+      "record": {
+        "prompt": "Use a complete-dominance example to show why one phenotype can have two possible genotypes.",
+        "model": "If B is completely dominant to b, both BB and Bb can produce the dominant phenotype. A dominant appearance therefore does not distinguish those genotypes. Only bb produces the recessive phenotype in the stated simple model.",
+        "criteria": [
+          "Identifies the relevant structures or quantities.",
+          "Explains the causal relationship or calculation, not just the final result.",
+          "Uses the stated evidence and avoids a stronger conclusion than it supports."
+        ],
+        "id": "ch17-l01-check-writing-1",
+        "limit": 3200
+      }
+    },
+    {
+      "id": "ch17-l02-check-mc-1",
+      "jsonPath": [
+        "checks",
+        1,
+        "mc",
+        0
+      ],
+      "startByte": 3153960,
+      "endByteExclusive": 3154563,
+      "sha256": "906c62f4c83c6a0f2b918e856c5be8100b63ca56213c483cc17423188b99014a",
+      "record": {
+        "prompt": "Why can a recessive phenotype reappear in the F2 generation?",
+        "answer": "Each heterozygous parent can contribute the recessive allele",
+        "explanation": "Two recessive contributions can form a homozygous recessive offspring.",
+        "cue": "Trace the normal mechanism before choosing an answer.",
+        "id": "ch17-l02-check-mc-1",
+        "options": [
+          "The recessive allele is always recreated by mutation",
+          "Dominant alleles vanish after one generation",
+          "Each heterozygous parent can contribute the recessive allele",
+          "Gametes carry both parental alleles together at every locus"
+        ],
+        "difficulty": "application"
+      }
+    },
+    {
+      "id": "ch17-final-mc-2",
+      "jsonPath": [
+        "checks",
+        14,
+        "mc",
+        1
+      ],
+      "startByte": 3185722,
+      "endByteExclusive": 3186018,
+      "sha256": "adede9b6feb4ab64d7b2b114c0f8a85d4ade813917a9a7b1f8e2429a2dd2225f",
+      "record": {
+        "prompt": "For independent AaBb × AaBb, what is P(aabb)?",
+        "answer": "1/16",
+        "explanation": "Multiply P(aa) = 1/4 and P(bb) = 1/4.",
+        "cue": "Trace the normal mechanism before choosing an answer.",
+        "id": "ch17-final-mc-2",
+        "options": [
+          "1/4",
+          "1/16",
+          "3/16",
+          "9/16"
+        ],
+        "difficulty": "application"
+      }
+    },
+    {
+      "id": "ch17-source-OBJ_2131227",
+      "jsonPath": [
+        "practiceQuestions",
+        3
+      ],
+      "startByte": 3226225,
+      "endByteExclusive": 3226816,
+      "sha256": "c29eacd421a4db962f2774250949461e12a42ec63cb4868385efbf7e1bf4e25e",
+      "record": {
+        "id": "ch17-source-OBJ_2131227",
+        "lesson": 5,
+        "prompt": "Assume independent assortment and complete dominance at both loci. What phenotype ratio is predicted for TtYy × TtYy?",
+        "answer": "9:3:3:1",
+        "options": [
+          "1:1:1:1",
+          "1:2:1",
+          "3:1",
+          "9:3:3:1"
+        ],
+        "cue": "Identify the relevant mechanism or quantity and apply the stated model.",
+        "explanation": "Each locus predicts a 3:1 phenotype ratio. Multiplying independent probabilities gives 9/16, 3/16, 3/16 and 1/16.",
+        "difficulty": "application",
+        "stimuli": [],
+        "sourceItemId": "OBJ_2131227",
+        "conceptId": "ch17-concept-independent-assortment"
+      }
+    },
+    {
+      "id": "ch17-source-OBJ_2131236",
+      "jsonPath": [
+        "practiceQuestions",
+        12
+      ],
+      "startByte": 3232316,
+      "endByteExclusive": 3232974,
+      "sha256": "d02f9fbc13317aa116afc74b32bffbaf56f260c863e2e24e0a25a31be8179946",
+      "record": {
+        "id": "ch17-source-OBJ_2131236",
+        "lesson": 5,
+        "prompt": "Two independent completely dominant loci have parental genotypes AABB × aabb. What describes the F1?",
+        "answer": "All AaBb with both dominant phenotypes",
+        "options": [
+          "All AaBb with both dominant phenotypes",
+          "Four phenotype classes in a 1:1:1:1 ratio",
+          "All AABB",
+          "All aabb"
+        ],
+        "cue": "Identify the relevant mechanism or quantity and apply the stated model.",
+        "explanation": "Only AB and ab parental gametes are available, producing identical heterozygous combinations at these loci.",
+        "difficulty": "application",
+        "stimuli": [],
+        "sourceItemId": "OBJ_2131236",
+        "conceptId": "ch17-concept-genotype"
+      }
+    },
+    {
+      "id": "ch17-source-OBJ_2131237",
+      "jsonPath": [
+        "practiceQuestions",
+        13
+      ],
+      "startByte": 3232976,
+      "endByteExclusive": 3233467,
+      "sha256": "aafc72738de419e512ddeff38819d5947c0d359b7c5b54aa0ee119437b65faf2",
+      "record": {
+        "id": "ch17-source-OBJ_2131237",
+        "lesson": 5,
+        "prompt": "For independent AaBb × AaBb, what is the probability of the dominant A phenotype together with bb?",
+        "answer": "3/16",
+        "options": [
+          "15/16",
+          "3/16",
+          "1/16",
+          "9/16"
+        ],
+        "cue": "Identify the relevant mechanism or quantity and apply the stated model.",
+        "explanation": "P(A_) = 3/4 and P(bb) = 1/4; their product is 3/16.",
+        "difficulty": "application",
+        "stimuli": [],
+        "sourceItemId": "OBJ_2131237",
+        "conceptId": "ch17-concept-probability"
+      }
+    },
+    {
+      "id": "ch17-source-OBJ_2131242",
+      "jsonPath": [
+        "practiceQuestions",
+        18
+      ],
+      "startByte": 3236781,
+      "endByteExclusive": 3237336,
+      "sha256": "f7e7a2aabded8bd827fe4e3f8e73cbff1170d3cc3535732f85e958f4639e368c",
+      "record": {
+        "id": "ch17-source-OBJ_2131242",
+        "lesson": 5,
+        "prompt": "Assume independent assortment and complete dominance. What phenotype ratio is predicted for RrPp × rrpp?",
+        "answer": "1:1:1:1",
+        "options": [
+          "3:1",
+          "1:2:1",
+          "1:1:1:1",
+          "9:3:3:1"
+        ],
+        "cue": "Identify the relevant mechanism or quantity and apply the stated model.",
+        "explanation": "The double heterozygote forms RP, Rp, rP and rp gametes equally; the tester forms rp only.",
+        "difficulty": "application",
+        "stimuli": [],
+        "sourceItemId": "OBJ_2131242",
+        "conceptId": "ch17-concept-independent-assortment"
+      }
+    },
+    {
+      "id": "fe5kSSs83qc",
+      "jsonPath": [
+        "videos",
+        3
+      ],
+      "startByte": 3284598,
+      "endByteExclusive": 3285627,
+      "sha256": "97ad243bbd63e12908a3ff5596786e4bde8a6a995604645b73a5276656ed53ef",
+      "record": {
+        "id": "fe5kSSs83qc",
+        "lesson": 5,
+        "title": "Two-trait crosses and independent assortment — video support",
+        "purpose": "List valid gametes for two loci, use a Punnett square or product rule, and identify the assumption of independent assortment.",
+        "fallback": "For AaBb × AaBb, the A locus gives a 3/4 dominant-phenotype probability and 1/4 recessive probability. The B locus gives the same. If the loci assort independently, the probability of both dominant phenotypes is 3/4 × 3/4 = 9/16. The other phenotype combinations are 3/16, 3/16 and 1/16, producing the familiar 9:3:3:1 expectation. This ratio is specific to the stated heterozygote cross and allele relationships. For a different cross, recompute. In AaBb × aaBb, probability of A_ is 1/2 and probability of B_ is 3/4, so both dominant phenotypes have probability 3/8. A memorized 9/16 would be wrong.",
+        "disposition": "included",
+        "sourceSlide": 48,
+        "sourceDeck": "c17",
+        "availability": "Source hyperlink resolved syntactically; external playback not certified."
+      }
+    },
+    {
+      "id": "qIGXTJLrLf8",
+      "jsonPath": [
+        "videos",
+        4
+      ],
+      "startByte": 3285629,
+      "endByteExclusive": 3286660,
+      "sha256": "52f4177f4892b9ed6968cb8431335ee7ae78c7823b423df4989835e203470370",
+      "record": {
+        "id": "qIGXTJLrLf8",
+        "lesson": 5,
+        "title": "Two-trait crosses and independent assortment — video support 2",
+        "purpose": "List valid gametes for two loci, use a Punnett square or product rule, and identify the assumption of independent assortment.",
+        "fallback": "For AaBb × AaBb, the A locus gives a 3/4 dominant-phenotype probability and 1/4 recessive probability. The B locus gives the same. If the loci assort independently, the probability of both dominant phenotypes is 3/4 × 3/4 = 9/16. The other phenotype combinations are 3/16, 3/16 and 1/16, producing the familiar 9:3:3:1 expectation. This ratio is specific to the stated heterozygote cross and allele relationships. For a different cross, recompute. In AaBb × aaBb, probability of A_ is 1/2 and probability of B_ is 3/4, so both dominant phenotypes have probability 3/8. A memorized 9/16 would be wrong.",
+        "disposition": "included",
+        "sourceSlide": 48,
+        "sourceDeck": "c17",
+        "availability": "Source hyperlink resolved syntactically; external playback not certified."
+      }
+    },
+    {
+      "id": "ch17-l02-application-1",
+      "jsonPath": [
+        "authoredPractice",
+        1
+      ],
+      "startByte": 3343296,
+      "endByteExclusive": 3344055,
+      "sha256": "5b60c87360652902d279fd7805681c3d4744aaf43045baae4a3c65da78d30b2f",
+      "record": {
+        "prompt": "RR × rr produces which F1 genotype under the stated model?",
+        "answer": "All Rr",
+        "explanation": "The first parent contributes only R, and the second only r.",
+        "cue": "Trace the normal mechanism before choosing an answer.",
+        "id": "ch17-l02-application-1",
+        "options": [
+          "One-quarter rr",
+          "All Rr",
+          "All RR",
+          "Half RR and half rr"
+        ],
+        "difficulty": "application",
+        "lesson": 2,
+        "chapter": 17,
+        "conceptId": "ch17-concept-genotype",
+        "family": "application",
+        "kind": "mc",
+        "reviewRoute": "lesson-02",
+        "flashVariant": {
+          "id": "ch17-l02-scenario-1",
+          "family": "scenario-explanation",
+          "prompt": "RR × rr produces which F1 genotype under the stated model?",
+          "model": "All Rr. The first parent contributes only R, and the second only r.",
+          "selfAssessed": true
+        }
+      }
+    },
+    {
+      "id": "ch17-l05-application-1",
+      "jsonPath": [
+        "authoredPractice",
+        4
+      ],
+      "startByte": 3345903,
+      "endByteExclusive": 3346630,
+      "sha256": "63554a18d0eaaa0007e0fcc7d86cce1b6a751b95306f6890e15efedc3cc1cda7",
+      "record": {
+        "prompt": "A cross is AaBb × Aabb. Under independence, what fraction is expected to be aabb?",
+        "answer": "1/8",
+        "explanation": "P(aa) = 1/4 and P(bb) = 1/2, so 1/8.",
+        "cue": "Trace the normal mechanism before choosing an answer.",
+        "id": "ch17-l05-application-1",
+        "options": [
+          "1/8",
+          "1/2",
+          "1/16",
+          "3/8"
+        ],
+        "difficulty": "application",
+        "lesson": 5,
+        "chapter": 17,
+        "conceptId": "ch17-concept-dihybrid-cross",
+        "family": "application",
+        "kind": "mc",
+        "reviewRoute": "lesson-05",
+        "flashVariant": {
+          "id": "ch17-l05-scenario-1",
+          "family": "scenario-explanation",
+          "prompt": "A cross is AaBb × Aabb. Under independence, what fraction is expected to be aabb?",
+          "model": "1/8. P(aa) = 1/4 and P(bb) = 1/2, so 1/8.",
+          "selfAssessed": true
+        }
+      }
+    },
+    {
+      "id": "ch17-l02-context-law-of-segregation",
+      "jsonPath": [
+        "typedPractice",
+        4
+      ],
+      "startByte": 3358366,
+      "endByteExclusive": 3358967,
+      "sha256": "5d170c491897be9165209cc8e9d85853209c19ad23904afb5dd3d36da38fe907",
+      "record": {
+        "id": "ch17-l02-context-law-of-segregation",
+        "chapter": 17,
+        "lesson": 2,
+        "conceptId": "ch17-concept-law-of-segregation",
+        "family": "scenario-retrieval",
+        "kind": "blank",
+        "difficulty": "application",
+        "prompt": "Identify the term illustrated: A heterozygous Rr parent produces R and r gametes in the simple model.",
+        "answer": "law of segregation",
+        "aliases": [],
+        "cue": "Use the relationship described in the example.",
+        "explanation": "The separation of the two alleles at a locus into different gametes. The parent has both alleles, but an individual gamete receives one.",
+        "reviewRoute": "lesson-02"
+      }
+    },
+    {
+      "id": "ch17-l05-context-independent-assortment",
+      "jsonPath": [
+        "typedPractice",
+        17
+      ],
+      "startByte": 3365993,
+      "endByteExclusive": 3366635,
+      "sha256": "7da4062ac52b9c4a15bb21764e0183c3915ae1298eb0d1307c8a0fb7d57d3abd",
+      "record": {
+        "id": "ch17-l05-context-independent-assortment",
+        "chapter": 17,
+        "lesson": 5,
+        "conceptId": "ch17-concept-independent-assortment",
+        "family": "scenario-retrieval",
+        "kind": "blank",
+        "difficulty": "application",
+        "prompt": "Identify the term illustrated: An AaBb individual produces AB, Ab, aB and ab equally in an unlinked model.",
+        "answer": "independent assortment",
+        "aliases": [],
+        "cue": "Use the relationship described in the example.",
+        "explanation": "Independent segregation of alleles at different loci when the chromosome arrangement permits it. Linked genes can depart from this equal-combination prediction.",
+        "reviewRoute": "lesson-05"
+      }
+    },
+    {
+      "id": "ch17-l05-context-gamete-combination",
+      "jsonPath": [
+        "typedPractice",
+        19
+      ],
+      "startByte": 3367241,
+      "endByteExclusive": 3367848,
+      "sha256": "05fe8b09a01e3d3640304609788a482b0da75405679373d0b0313cad9b54ff0d",
+      "record": {
+        "id": "ch17-l05-context-gamete-combination",
+        "chapter": 17,
+        "lesson": 5,
+        "conceptId": "ch17-concept-gamete-combination",
+        "family": "scenario-retrieval",
+        "kind": "blank",
+        "difficulty": "application",
+        "prompt": "Identify the term illustrated: An AaBb parent can produce an Ab gamete in an independent model.",
+        "answer": "gamete combination",
+        "aliases": [],
+        "cue": "Use the relationship described in the example.",
+        "explanation": "The set of one allele from each studied locus carried by a gamete. A gamete does not receive both A and a at the same autosomal locus in this model.",
+        "reviewRoute": "lesson-05"
+      }
+    },
+    {
+      "id": "ch17-l02-guided-q1",
+      "jsonPath": [
+        "guidedActivities",
+        1,
+        "guided",
+        "items",
+        0
+      ],
+      "startByte": 3397768,
+      "endByteExclusive": 3398142,
+      "sha256": "c42a0c24df3272a573b4d204ecee22f30d4cca843ef345262db6e12a9483c567",
+      "record": {
+        "prompt": "What gametes are expected from Aa in the simple segregation model?",
+        "answer": "A and a",
+        "explanation": "Each gamete gets one allele of the pair.",
+        "cue": "A gamete is haploid at this locus.",
+        "id": "ch17-l02-guided-q1",
+        "options": [
+          "AA and aa",
+          "Aa only",
+          "A and a"
+        ],
+        "difficulty": "application",
+        "kind": "select",
+        "hint": "A gamete is haploid at this locus."
+      }
+    },
+    {
+      "id": "ch17-l05-guided-q1",
+      "jsonPath": [
+        "guidedActivities",
+        4,
+        "guided",
+        "items",
+        0
+      ],
+      "startByte": 3402658,
+      "endByteExclusive": 3403070,
+      "sha256": "67002e2d3f5f3b5e48e1eb131bfbdeacd821ca8601cde607c335e6ab9c66b798",
+      "record": {
+        "prompt": "Which gametes can Aabb produce?",
+        "answer": "Ab and ab",
+        "explanation": "Choose one allele from each locus: B is absent and b is always present.",
+        "cue": "List the A choice and the B-locus choice separately.",
+        "id": "ch17-l05-guided-q1",
+        "options": [
+          "Aa and bb",
+          "AB and ab",
+          "Ab and ab"
+        ],
+        "difficulty": "application",
+        "kind": "select",
+        "hint": "List the A choice and the B-locus choice separately."
+      }
+    },
+    {
+      "id": "ch17-l05-guided-q2",
+      "jsonPath": [
+        "guidedActivities",
+        4,
+        "guided",
+        "items",
+        1
+      ],
+      "startByte": 3403072,
+      "endByteExclusive": 3403489,
+      "sha256": "d3ebf532942ff3c010c0d454178ee4e8a9bdab5d4c94240f527ab45fc89eebd4",
+      "record": {
+        "prompt": "For independent AaBb × aabb, what is P(aabb)?",
+        "answer": "1/4",
+        "explanation": "P(aa) = 1/2 and P(bb) = 1/2; multiply to obtain 1/4.",
+        "cue": "Do not apply the heterozygote × heterozygote ratio to a test cross.",
+        "id": "ch17-l05-guided-q2",
+        "options": [
+          "1/4",
+          "1/16",
+          "3/4"
+        ],
+        "difficulty": "application",
+        "kind": "select",
+        "hint": "Do not apply the heterozygote × heterozygote ratio to a test cross."
+      }
+    }
+  ],
+  "exactNearestTeachingParagraphs": [
+    {
+      "purpose": "copying-mechanism",
+      "startByte": 111077,
+      "endByteExclusive": 111442,
+      "sha256": "c5b4129a16fe46c3d9b4342a6e6b423e5def0b5998619cf6f3484be9fcec7faf",
+      "exactHtml": "<p>Before meiosis, DNA is copied. Each chromosome then consists of two <strong>sister chromatids</strong>, the copied versions joined together. Copying an R-bearing chromosome produces two R-bearing sister copies; it does not turn r into R or mix the two allele versions. We are following ordinary copying and separation, without a mutation changing the allele.</p>"
+    },
+    {
+      "purpose": "segregation-mechanism",
+      "startByte": 111443,
+      "endByteExclusive": 112076,
+      "sha256": "516b56465deda94852b7f82ec8607fadfeba907a4dd47f6107ea2ec4c21bf666",
+      "exactHtml": "<p data-canvas-edit-key=\"ch17-l02-teaching-02-p2\" data-canvas-helper-edit-key=\"ch17-l02-teaching-02-p2\"><strong>Meiosis</strong> reduces the chromosome sets from two to one. The homologous chromosomes separate in the first division. The sister chromatids separate in the second division, with no further DNA copying between those divisions. A cell with one chromosome set is <strong>haploid</strong>. In a flowering plant, the reproductive life cycle produces haploid gametes after this reduction. We only need to follow the allele contribution here: an egg or sperm carries one allele at this locus, not the parent's whole pair.</p>"
+    },
+    {
+      "purpose": "optional-duplicate-feedback",
+      "startByte": 203532,
+      "endByteExclusive": 203986,
+      "sha256": "05c658c8d004f718b78b5cedd1d378c9c39e9d0727b6986038c72cb1dc439194",
+      "exactHtml": "<p><strong>Check your response:</strong> keep the first parent's list; reduce the second to Rt; size the grid from those lists; show the two tt outcomes; explain why the colour conclusion survives while the height probability changes. A four-by-two grid would add an unnecessary duplicate column if both columns represented Rt. It would not create another gamete type. Retaining the old RT column would be a different error: RRtt cannot contribute T.</p>"
+    },
+    {
+      "purpose": "near-isomorphic-unsolved-lesson03-event",
+      "startByte": 142373,
+      "endByteExclusive": 142744,
+      "sha256": "1930ac900bd71b975ea43119c81c5590eb808205a73a5edd97522a23362eb224",
+      "exactHtml": "<p data-canvas-edit-key=\"ch17-l03-teaching-03-p2\" data-canvas-helper-edit-key=\"ch17-l03-teaching-03-p2\">For specified independent events, multiply probabilities. Two recessive offspring in a row from Aa × Aa have probability 1/4 × 1/4 = 1/16. Do not confuse this ordered event with “at least one recessive among two,” which asks for a different set of outcomes.</p>"
+    },
+    {
+      "purpose": "exposed-full-genotype-grid",
+      "startByte": 190658,
+      "endByteExclusive": 191345,
+      "sha256": "fb6b4fd71533db1dfd8861303bb0167597a18bc63a8868a2f642348a9a2c6210",
+      "exactHtml": "<table>\n<caption>F2 genotype combinations from TtGg × TtGg; each interior cell has probability 1/16</caption>\n<thead><tr><th scope=\"col\">Parent 1 gamete ↓ / parent 2 gamete →</th><th scope=\"col\">TG, ¼</th><th scope=\"col\">Tg, ¼</th><th scope=\"col\">tG, ¼</th><th scope=\"col\">tg, ¼</th></tr></thead>\n<tbody>\n<tr><th scope=\"row\">TG, ¼</th><td>TTGG</td><td>TTGg</td><td>TtGG</td><td>TtGg</td></tr>\n<tr><th scope=\"row\">Tg, ¼</th><td>TTGg</td><td>TTgg</td><td>TtGg</td><td>Ttgg</td></tr>\n<tr><th scope=\"row\">tG, ¼</th><td>TtGG</td><td>TtGg</td><td>ttGG</td><td>ttGg</td></tr>\n<tr><th scope=\"row\">tg, ¼</th><td>TtGg</td><td>Ttgg</td><td>ttGg</td><td>ttgg</td></tr>\n</tbody>\n</table>"
+    },
+    {
+      "purpose": "exposed-phenotype-category-components",
+      "startByte": 192332,
+      "endByteExclusive": 193025,
+      "sha256": "bc9091231679ea849cf47dd720b28414d2801bc235378bec6ba3658ff5639ca7",
+      "exactHtml": "<table>\n<caption>Grouping the sixteen F2 cells by phenotype</caption>\n<thead><tr><th scope=\"col\">Phenotype and shorthand</th><th scope=\"col\">Genotypes, with their cell counts</th><th scope=\"col\">Phenotype probability</th></tr></thead>\n<tbody>\n<tr><th scope=\"row\">Tall, green pods: T_G_</th><td>TTGG (1), TTGg (2), TtGG (2), TtGg (4)</td><td>(1 + 2 + 2 + 4)/16 = 9/16</td></tr>\n<tr><th scope=\"row\">Tall, yellow pods: T_gg</th><td>TTgg (1), Ttgg (2)</td><td>(1 + 2)/16 = 3/16</td></tr>\n<tr><th scope=\"row\">Short, green pods: ttG_</th><td>ttGG (1), ttGg (2)</td><td>(1 + 2)/16 = 3/16</td></tr>\n<tr><th scope=\"row\">Short, yellow pods: ttgg</th><td>ttgg (1)</td><td>1/16</td></tr>\n</tbody>\n</table>"
+    }
+  ],
+  "overallDisposition": "All four proposed changed demands provisionally require an additional taught inference/grouping/repair beyond a simple species/letter swap. Component facts and some intermediate values are openly supported by teaching. Final acceptance remains contingent on exact full item review and same-level clarity. No claim that all retained required/source-practice items are fresh or assessment-blind.",
+  "nextReview": "Review final actual question JSON and corresponding HTML together with final restored tomato/optional models; recompute keys and check mutually exclusive MC choices, criteria and explanatory feedback.",
+  "runtimeTests": "not run",
+  "teacherAcceptance": "pending",
+  "additionalIndependentSpotCheck": {
+    "path": "source-assessment-v0.3.0/analysis/native-preflight/target-collision-support/lesson05-prospective-collision-check.json",
+    "sha256": "47314ce904c05a14f795d2a65649683071bf4110dda0c2a693a64c12e174fbb8",
+    "scope": "Two numerical candidate demands only; required bank/optional/fallback and embedded textbook-practice records. Final question text not reviewed. Parent directly re-read the reported lesson03 paragraph and two lesson05 tables before adding their evidence.",
+    "finding": "No exact whole-demand collision; component exposure and unsolved near-isomorphic lesson03 event disclosed."
+  }
+}

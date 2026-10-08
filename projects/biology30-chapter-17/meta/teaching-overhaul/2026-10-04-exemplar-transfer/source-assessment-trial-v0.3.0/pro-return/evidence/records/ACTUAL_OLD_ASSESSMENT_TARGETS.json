@@ -1,0 +1,204 @@
+{
+  "scope": "Actual eight selected original check-item objects read from both uploaded BASELINE_CHECKS.json and integrated course-data; four targeted native HTML blocks read in full. This is pre-authoring evidence, not new questions or a ready-to-copy learner answer appendix. Exact integration JSON byte bounds are separately owned by native/assembly reviewers.",
+  "integratedOwnerSha256": "bc42ea52d8cf5709c0ec33c914e86450f93971f3e3144cb81b695593aa0eff3b",
+  "standaloneBaselineChecksSha256": "a16160bd193a665e707a9c807edcffb7600e56603e3f68e678685c7c799a1bcc",
+  "records": [
+    {
+      "id": "ch17-l02-check-writing-1",
+      "disposition": "authorized bounded replacement target",
+      "integratedHtmlBinding": {
+        "utf8StartInclusive": 130865,
+        "utf8EndExclusive": 132393,
+        "sha256": "05b99f3d122bf8b20223240768319337b440998e5eee34fa1c3a8f8fddd3e844"
+      },
+      "html": "<div class=\"writing-question\" data-writing-question=\"ch17-l02-check-writing-1\"><p class=\"eyebrow\">Written explanation 1</p><label data-canvas-edit-key=\"ch17-l02-check-writing-1-prompt\" data-canvas-helper-edit-key=\"ch17-l02-check-writing-1-prompt\" for=\"ch17-l02-check-writing-1\">Explain Mendel’s F1 and F2 pattern using alleles rather than blending.</label><textarea aria-describedby=\"ch17-l02-check-writing-1-status\" data-check-writing=\"ch17-l02-check-writing-1\" data-limit=\"3200\" id=\"ch17-l02-check-writing-1\" rows=\"6\"></textarea><p class=\"writing-status\">Maximum 3200 characters. Explain the biology in your own words.</p><button data-save-writing=\"ch17-l02-check-writing-1\" type=\"button\">Save written response</button><p aria-live=\"polite\" class=\"writing-status\" data-writing-status=\"\" id=\"ch17-l02-check-writing-1-status\"></p><details data-locked=\"true\"><summary>Compare after saving your own response</summary><p>A homozygous dominant parent crossed with a homozygous recessive parent makes heterozygous F1 offspring. Their recessive alleles remain present. Segregation gives gametes one allele each, and an F2 offspring receiving two recessive alleles expresses the recessive phenotype.</p><div class=\"answer-criteria\"><strong>Check your explanation for:</strong><ul><li>Identifies the relevant structures or quantities.</li><li>Explains the causal relationship or calculation, not just the final result.</li><li>Uses the stated evidence and avoids a stronger conclusion than it supports.</li></ul></div></details></div>",
+      "courseDataChecksItem": {
+        "prompt": "Explain Mendel’s F1 and F2 pattern using alleles rather than blending.",
+        "model": "A homozygous dominant parent crossed with a homozygous recessive parent makes heterozygous F1 offspring. Their recessive alleles remain present. Segregation gives gametes one allele each, and an F2 offspring receiving two recessive alleles expresses the recessive phenotype.",
+        "criteria": [
+          "Identifies the relevant structures or quantities.",
+          "Explains the causal relationship or calculation, not just the final result.",
+          "Uses the stated evidence and avoids a stronger conclusion than it supports."
+        ],
+        "id": "ch17-l02-check-writing-1",
+        "limit": 3200
+      },
+      "standaloneBaselineChecksItemMatchesOwner": true,
+      "itemValueSha256": "51ee8d5dcbbc86ba8869d6747b6b8f0429d280d9ae89d0b468ff6128f068eaa4"
+    },
+    {
+      "id": "ch17-l05-check-mc-2",
+      "disposition": "authorized bounded replacement target",
+      "integratedHtmlBinding": {
+        "utf8StartInclusive": 221723,
+        "utf8EndExclusive": 222873,
+        "sha256": "35015e8877690bf8f43586136bab35c2609f5594bc5f687e8f22dc3d60cb97ae"
+      },
+      "html": "<div class=\"check-question\" data-check-question=\"ch17-l05-check-mc-2\"><p class=\"eyebrow\">Selection 2</p><h3 data-canvas-edit-key=\"ch17-l05-check-mc-2-prompt\" data-canvas-helper-edit-key=\"ch17-l05-check-mc-2-prompt\" id=\"ch17-l05-check-mc-2-prompt\">For independent AaBb × AaBb with complete dominance, what is P(aaB_)?</h3><fieldset aria-labelledby=\"ch17-l05-check-mc-2-prompt\"><label class=\"choice-row\"><input data-check-choice=\"ch17-l05-check-mc-2\" name=\"ch17-l05-check-mc-2\" type=\"radio\" value=\"1/16\"/><span>1/16</span></label><label class=\"choice-row\"><input data-check-choice=\"ch17-l05-check-mc-2\" name=\"ch17-l05-check-mc-2\" type=\"radio\" value=\"3/16\"/><span>3/16</span></label><label class=\"choice-row\"><input data-check-choice=\"ch17-l05-check-mc-2\" name=\"ch17-l05-check-mc-2\" type=\"radio\" value=\"1/4\"/><span>1/4</span></label><label class=\"choice-row\"><input data-check-choice=\"ch17-l05-check-mc-2\" name=\"ch17-l05-check-mc-2\" type=\"radio\" value=\"9/16\"/><span>9/16</span></label></fieldset><button data-check-answer=\"ch17-l05-check-mc-2\" type=\"button\">Check answer</button><p aria-live=\"polite\" class=\"inline-feedback\" data-feedback=\"\"></p></div>",
+      "courseDataChecksItem": {
+        "prompt": "For independent AaBb × AaBb with complete dominance, what is P(aaB_)?",
+        "answer": "3/16",
+        "explanation": "P(aa) = 1/4 and P(B_) = 3/4, giving 3/16.",
+        "cue": "Trace the normal mechanism before choosing an answer.",
+        "id": "ch17-l05-check-mc-2",
+        "options": [
+          "1/16",
+          "3/16",
+          "1/4",
+          "9/16"
+        ],
+        "difficulty": "application"
+      },
+      "standaloneBaselineChecksItemMatchesOwner": true,
+      "itemValueSha256": "c2dc34f9f5338feb6dd56a3f2a9c05d87a5d67f5c6a5283c39953a33638e7443"
+    },
+    {
+      "id": "ch17-l05-check-writing-1",
+      "disposition": "authorized bounded replacement target",
+      "integratedHtmlBinding": {
+        "utf8StartInclusive": 223076,
+        "utf8EndExclusive": 224552,
+        "sha256": "847596093539629d0001685de7c26d51859ab4209c9b98dfe556276c21b5cb1e"
+      },
+      "html": "<div class=\"writing-question\" data-writing-question=\"ch17-l05-check-writing-1\"><p class=\"eyebrow\">Written explanation 1</p><label data-canvas-edit-key=\"ch17-l05-check-writing-1-prompt\" data-canvas-helper-edit-key=\"ch17-l05-check-writing-1-prompt\" for=\"ch17-l05-check-writing-1\">List the gametes from RrTt and rrTt under independent assortment, then explain why a 4 × 4 square is unnecessary.</label><textarea aria-describedby=\"ch17-l05-check-writing-1-status\" data-check-writing=\"ch17-l05-check-writing-1\" data-limit=\"3200\" id=\"ch17-l05-check-writing-1\" rows=\"6\"></textarea><p class=\"writing-status\">Maximum 3200 characters. Explain the biology in your own words.</p><button data-save-writing=\"ch17-l05-check-writing-1\" type=\"button\">Save written response</button><p aria-live=\"polite\" class=\"writing-status\" data-writing-status=\"\" id=\"ch17-l05-check-writing-1-status\"></p><details data-locked=\"true\"><summary>Compare after saving your own response</summary><p>RrTt produces RT, Rt, rT and rt. rrTt produces rT and rt. A 4 × 2 square contains all distinct combinations; duplicating columns does not add new outcomes or change probabilities.</p><div class=\"answer-criteria\"><strong>Check your explanation for:</strong><ul><li>Identifies the relevant structures or quantities.</li><li>Explains the causal relationship or calculation, not just the final result.</li><li>Uses the stated evidence and avoids a stronger conclusion than it supports.</li></ul></div></details></div>",
+      "courseDataChecksItem": {
+        "prompt": "List the gametes from RrTt and rrTt under independent assortment, then explain why a 4 × 4 square is unnecessary.",
+        "model": "RrTt produces RT, Rt, rT and rt. rrTt produces rT and rt. A 4 × 2 square contains all distinct combinations; duplicating columns does not add new outcomes or change probabilities.",
+        "criteria": [
+          "Identifies the relevant structures or quantities.",
+          "Explains the causal relationship or calculation, not just the final result.",
+          "Uses the stated evidence and avoids a stronger conclusion than it supports."
+        ],
+        "id": "ch17-l05-check-writing-1",
+        "limit": 3200
+      },
+      "standaloneBaselineChecksItemMatchesOwner": true,
+      "itemValueSha256": "b4070e767c3f0080b4a1194a980fd563422e7176f7f5b0a49b12a3bcbb8e3f02"
+    },
+    {
+      "id": "ch17-l05-check-writing-2",
+      "disposition": "authorized bounded replacement target",
+      "integratedHtmlBinding": {
+        "utf8StartInclusive": 224552,
+        "utf8EndExclusive": 225988,
+        "sha256": "e17b2971640c6ab6f81b09da2f993078efe5913b1b22df0b049dea5d22067457"
+      },
+      "html": "<div class=\"writing-question\" data-writing-question=\"ch17-l05-check-writing-2\"><p class=\"eyebrow\">Written explanation 2</p><label data-canvas-edit-key=\"ch17-l05-check-writing-2-prompt\" data-canvas-helper-edit-key=\"ch17-l05-check-writing-2-prompt\" for=\"ch17-l05-check-writing-2\">Calculate P(A_bb) for AaBb × aaBb under independent assortment and complete dominance.</label><textarea aria-describedby=\"ch17-l05-check-writing-2-status\" data-check-writing=\"ch17-l05-check-writing-2\" data-limit=\"3200\" id=\"ch17-l05-check-writing-2\" rows=\"6\"></textarea><p class=\"writing-status\">Maximum 3200 characters. Explain the biology in your own words.</p><button data-save-writing=\"ch17-l05-check-writing-2\" type=\"button\">Save written response</button><p aria-live=\"polite\" class=\"writing-status\" data-writing-status=\"\" id=\"ch17-l05-check-writing-2-status\"></p><details data-locked=\"true\"><summary>Compare after saving your own response</summary><p>At A, Aa × aa gives P(A_) = 1/2. At B, Bb × Bb gives P(bb) = 1/4. Multiplying gives 1/8. The result depends on independent assortment and the stated phenotype rules.</p><div class=\"answer-criteria\"><strong>Check your explanation for:</strong><ul><li>Identifies the relevant structures or quantities.</li><li>Explains the causal relationship or calculation, not just the final result.</li><li>Uses the stated evidence and avoids a stronger conclusion than it supports.</li></ul></div></details></div>",
+      "courseDataChecksItem": {
+        "prompt": "Calculate P(A_bb) for AaBb × aaBb under independent assortment and complete dominance.",
+        "model": "At A, Aa × aa gives P(A_) = 1/2. At B, Bb × Bb gives P(bb) = 1/4. Multiplying gives 1/8. The result depends on independent assortment and the stated phenotype rules.",
+        "criteria": [
+          "Identifies the relevant structures or quantities.",
+          "Explains the causal relationship or calculation, not just the final result.",
+          "Uses the stated evidence and avoids a stronger conclusion than it supports."
+        ],
+        "id": "ch17-l05-check-writing-2",
+        "limit": 3200
+      },
+      "standaloneBaselineChecksItemMatchesOwner": true,
+      "itemValueSha256": "78216196ce6b0d50d14f72071ca651d7526e8916de7cb72f22dd8ec09717e184"
+    },
+    {
+      "id": "ch17-l02-check-mc-1",
+      "disposition": "unchanged required item; outside replacement scope",
+      "integratedHtmlBinding": {
+        "utf8StartInclusive": 127533,
+        "utf8EndExclusive": 129073,
+        "sha256": "a36418f28981e943bd36dd064536cbccb7e2faf02cc58cd531a5278cde99f03e"
+      },
+      "html": "<div class=\"check-question\" data-check-question=\"ch17-l02-check-mc-1\"><p class=\"eyebrow\">Selection 1</p><h3 data-canvas-edit-key=\"ch17-l02-check-mc-1-prompt\" data-canvas-helper-edit-key=\"ch17-l02-check-mc-1-prompt\" id=\"ch17-l02-check-mc-1-prompt\">Why can a recessive phenotype reappear in the F2 generation?</h3><fieldset aria-labelledby=\"ch17-l02-check-mc-1-prompt\"><label class=\"choice-row\"><input data-check-choice=\"ch17-l02-check-mc-1\" name=\"ch17-l02-check-mc-1\" type=\"radio\" value=\"The recessive allele is always recreated by mutation\"/><span>The recessive allele is always recreated by mutation</span></label><label class=\"choice-row\"><input data-check-choice=\"ch17-l02-check-mc-1\" name=\"ch17-l02-check-mc-1\" type=\"radio\" value=\"Dominant alleles vanish after one generation\"/><span>Dominant alleles vanish after one generation</span></label><label class=\"choice-row\"><input data-check-choice=\"ch17-l02-check-mc-1\" name=\"ch17-l02-check-mc-1\" type=\"radio\" value=\"Each heterozygous parent can contribute the recessive allele\"/><span>Each heterozygous parent can contribute the recessive allele</span></label><label class=\"choice-row\"><input data-check-choice=\"ch17-l02-check-mc-1\" name=\"ch17-l02-check-mc-1\" type=\"radio\" value=\"Gametes carry both parental alleles together at every locus\"/><span>Gametes carry both parental alleles together at every locus</span></label></fieldset><button data-check-answer=\"ch17-l02-check-mc-1\" type=\"button\">Check answer</button><p aria-live=\"polite\" class=\"inline-feedback\" data-feedback=\"\"></p></div>",
+      "courseDataChecksItem": {
+        "prompt": "Why can a recessive phenotype reappear in the F2 generation?",
+        "answer": "Each heterozygous parent can contribute the recessive allele",
+        "explanation": "Two recessive contributions can form a homozygous recessive offspring.",
+        "cue": "Trace the normal mechanism before choosing an answer.",
+        "id": "ch17-l02-check-mc-1",
+        "options": [
+          "The recessive allele is always recreated by mutation",
+          "Dominant alleles vanish after one generation",
+          "Each heterozygous parent can contribute the recessive allele",
+          "Gametes carry both parental alleles together at every locus"
+        ],
+        "difficulty": "application"
+      },
+      "standaloneBaselineChecksItemMatchesOwner": true,
+      "itemValueSha256": "42b0366b17913399600fd5355aa451e1d0997b3afedefdb4db99e209e4753dd4"
+    },
+    {
+      "id": "ch17-l02-check-mc-2",
+      "disposition": "unchanged required item; outside replacement scope",
+      "integratedHtmlBinding": {
+        "utf8StartInclusive": 129073,
+        "utf8EndExclusive": 130662,
+        "sha256": "957f799b58748d7c803065ec8f6bb4bb83ba9d576a3695c2a1615cb7a2e9b8f6"
+      },
+      "html": "<div class=\"check-question\" data-check-question=\"ch17-l02-check-mc-2\"><p class=\"eyebrow\">Selection 2</p><h3 data-canvas-edit-key=\"ch17-l02-check-mc-2-prompt\" data-canvas-helper-edit-key=\"ch17-l02-check-mc-2-prompt\" id=\"ch17-l02-check-mc-2-prompt\">A heterozygote has six dominant-phenotype offspring in succession in a suitable cross. Does that prove segregation stopped?</h3><fieldset aria-labelledby=\"ch17-l02-check-mc-2-prompt\"><label class=\"choice-row\"><input data-check-choice=\"ch17-l02-check-mc-2\" name=\"ch17-l02-check-mc-2\" type=\"radio\" value=\"Yes; meiosis makes only one type of gamete after the first birth\"/><span>Yes; meiosis makes only one type of gamete after the first birth</span></label><label class=\"choice-row\"><input data-check-choice=\"ch17-l02-check-mc-2\" name=\"ch17-l02-check-mc-2\" type=\"radio\" value=\"No; because alleles are not inherited\"/><span>No; because alleles are not inherited</span></label><label class=\"choice-row\"><input data-check-choice=\"ch17-l02-check-mc-2\" name=\"ch17-l02-check-mc-2\" type=\"radio\" value=\"Yes; every short run must exactly match the expected ratio\"/><span>Yes; every short run must exactly match the expected ratio</span></label><label class=\"choice-row\"><input data-check-choice=\"ch17-l02-check-mc-2\" name=\"ch17-l02-check-mc-2\" type=\"radio\" value=\"No; small samples can differ from expected ratios\"/><span>No; small samples can differ from expected ratios</span></label></fieldset><button data-check-answer=\"ch17-l02-check-mc-2\" type=\"button\">Check answer</button><p aria-live=\"polite\" class=\"inline-feedback\" data-feedback=\"\"></p></div>",
+      "courseDataChecksItem": {
+        "prompt": "A heterozygote has six dominant-phenotype offspring in succession in a suitable cross. Does that prove segregation stopped?",
+        "answer": "No; small samples can differ from expected ratios",
+        "explanation": "Probabilistic outcomes can form runs without changing the mechanism.",
+        "cue": "Trace the normal mechanism before choosing an answer.",
+        "id": "ch17-l02-check-mc-2",
+        "options": [
+          "Yes; meiosis makes only one type of gamete after the first birth",
+          "No; because alleles are not inherited",
+          "Yes; every short run must exactly match the expected ratio",
+          "No; small samples can differ from expected ratios"
+        ],
+        "difficulty": "application"
+      },
+      "standaloneBaselineChecksItemMatchesOwner": true,
+      "itemValueSha256": "2163a2f739975482567ecb0e25399800e2272169ae61bdb421e5257e7444aa73"
+    },
+    {
+      "id": "ch17-l02-check-writing-2",
+      "disposition": "unchanged required item; outside replacement scope",
+      "integratedHtmlBinding": {
+        "utf8StartInclusive": 132393,
+        "utf8EndExclusive": 133905,
+        "sha256": "c4b1fbdce24ea348bdd428c75aefc94e38ed4595b3da39d546cf6006a600306f"
+      },
+      "html": "<div class=\"writing-question\" data-writing-question=\"ch17-l02-check-writing-2\"><p class=\"eyebrow\">Written explanation 2</p><label data-canvas-edit-key=\"ch17-l02-check-writing-2-prompt\" data-canvas-helper-edit-key=\"ch17-l02-check-writing-2-prompt\" for=\"ch17-l02-check-writing-2\">Distinguish an expected 3:1 phenotype ratio from an exact prediction for four offspring.</label><textarea aria-describedby=\"ch17-l02-check-writing-2-status\" data-check-writing=\"ch17-l02-check-writing-2\" data-limit=\"3200\" id=\"ch17-l02-check-writing-2\" rows=\"6\"></textarea><p class=\"writing-status\">Maximum 3200 characters. Explain the biology in your own words.</p><button data-save-writing=\"ch17-l02-check-writing-2\" type=\"button\">Save written response</button><p aria-live=\"polite\" class=\"writing-status\" data-writing-status=\"\" id=\"ch17-l02-check-writing-2-status\"></p><details data-locked=\"true\"><summary>Compare after saving your own response</summary><p>The ratio represents probabilities under specified assumptions. Each offspring has the same modeled probabilities, but chance can produce different counts in a sample of four. Larger samples tend to show proportions closer to the expectation.</p><div class=\"answer-criteria\"><strong>Check your explanation for:</strong><ul><li>Identifies the relevant structures or quantities.</li><li>Explains the causal relationship or calculation, not just the final result.</li><li>Uses the stated evidence and avoids a stronger conclusion than it supports.</li></ul></div></details></div>",
+      "courseDataChecksItem": {
+        "prompt": "Distinguish an expected 3:1 phenotype ratio from an exact prediction for four offspring.",
+        "model": "The ratio represents probabilities under specified assumptions. Each offspring has the same modeled probabilities, but chance can produce different counts in a sample of four. Larger samples tend to show proportions closer to the expectation.",
+        "criteria": [
+          "Identifies the relevant structures or quantities.",
+          "Explains the causal relationship or calculation, not just the final result.",
+          "Uses the stated evidence and avoids a stronger conclusion than it supports."
+        ],
+        "id": "ch17-l02-check-writing-2",
+        "limit": 3200
+      },
+      "standaloneBaselineChecksItemMatchesOwner": true,
+      "itemValueSha256": "054931be56e9ac76b2db04a839bf1cde6712e0fa17b3fc6db3ddee0ea12dec09"
+    },
+    {
+      "id": "ch17-l05-check-mc-1",
+      "disposition": "unchanged required item; outside replacement scope",
+      "integratedHtmlBinding": {
+        "utf8StartInclusive": 220272,
+        "utf8EndExclusive": 221723,
+        "sha256": "99ea64fda450675fd1466398a27de4c092b011424e0d1c52365c24c309112cef"
+      },
+      "html": "<div class=\"check-question\" data-check-question=\"ch17-l05-check-mc-1\"><p class=\"eyebrow\">Selection 1</p><h3 data-canvas-edit-key=\"ch17-l05-check-mc-1-prompt\" data-canvas-helper-edit-key=\"ch17-l05-check-mc-1-prompt\" id=\"ch17-l05-check-mc-1-prompt\">What assumption is needed for multiplying separate two-locus probabilities in these examples?</h3><fieldset aria-labelledby=\"ch17-l05-check-mc-1-prompt\"><label class=\"choice-row\"><input data-check-choice=\"ch17-l05-check-mc-1\" name=\"ch17-l05-check-mc-1\" type=\"radio\" value=\"The loci assort independently under the model\"/><span>The loci assort independently under the model</span></label><label class=\"choice-row\"><input data-check-choice=\"ch17-l05-check-mc-1\" name=\"ch17-l05-check-mc-1\" type=\"radio\" value=\"The two genes must be identical\"/><span>The two genes must be identical</span></label><label class=\"choice-row\"><input data-check-choice=\"ch17-l05-check-mc-1\" name=\"ch17-l05-check-mc-1\" type=\"radio\" value=\"Every parent must be homozygous\"/><span>Every parent must be homozygous</span></label><label class=\"choice-row\"><input data-check-choice=\"ch17-l05-check-mc-1\" name=\"ch17-l05-check-mc-1\" type=\"radio\" value=\"Each offspring compensates for the previous one\"/><span>Each offspring compensates for the previous one</span></label></fieldset><button data-check-answer=\"ch17-l05-check-mc-1\" type=\"button\">Check answer</button><p aria-live=\"polite\" class=\"inline-feedback\" data-feedback=\"\"></p></div>",
+      "courseDataChecksItem": {
+        "prompt": "What assumption is needed for multiplying separate two-locus probabilities in these examples?",
+        "answer": "The loci assort independently under the model",
+        "explanation": "Independence allows the product rule for locus outcomes.",
+        "cue": "Trace the normal mechanism before choosing an answer.",
+        "id": "ch17-l05-check-mc-1",
+        "options": [
+          "The loci assort independently under the model",
+          "The two genes must be identical",
+          "Every parent must be homozygous",
+          "Each offspring compensates for the previous one"
+        ],
+        "difficulty": "application"
+      },
+      "standaloneBaselineChecksItemMatchesOwner": true,
+      "itemValueSha256": "c85ccb28679b96a699d7c9a71741755804559c8003f7df9a8fbc26dfa592030d"
+    }
+  ],
+  "semanticChangeRule": "Keep authorized native IDs by default, document changed meaning, serve on fresh isolated versioned origin with no migration of old saved state; no JS or storage change is authorized."
+}

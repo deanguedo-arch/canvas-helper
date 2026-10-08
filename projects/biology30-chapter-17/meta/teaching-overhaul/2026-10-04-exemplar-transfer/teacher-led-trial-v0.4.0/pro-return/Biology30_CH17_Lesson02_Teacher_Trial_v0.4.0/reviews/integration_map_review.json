@@ -1,0 +1,702 @@
+{
+  "review": "Bounded independent integration-map review",
+  "reviewer": "v040_native_read",
+  "reviewedAtUtc": "2026-10-05T16:11:13.319222+00:00",
+  "map": {
+    "path": "/workspace/scratch/9592c268bc42/output/Biology30_CH17_Lesson02_Teacher_Trial_v0.4.0/INTEGRATION_MAP.json",
+    "bytes": 14972,
+    "sha256": "97c3dc8b783d4ed04d1db86b606fdf8638400b9497056c62b972711d222bc035"
+  },
+  "candidate": {
+    "fragmentBytes": 35500,
+    "fragmentSha256": "c4797189771af6fbbc112b562bc300b2c2ef2433053dac02866504b463a02d23",
+    "manuscriptBytes": 29479,
+    "manuscriptSha256": "1fc1dbdd7d874525fb488ab096715f7b195d73d8bc9a459b44c9edd946c79396"
+  },
+  "sourceOwnerStatus": "20c22... baseline and global interval are source-contract declarations and reportedly Scout-verified; full owner absent and not read here. Supplied local slice/raw hashes independently compared.",
+  "checks": [
+    {
+      "name": "declared_owner_matches_source_without_read_claim",
+      "satisfied": true,
+      "evidence": {
+        "owner": {
+          "path": "/Users/deanguedo/Documents/Codex/2026-10-04/task/source-assessment-trial-v0.3.0/evaluation/new/index.html",
+          "sha256": "20c22d6d80720d04a2924c1a161b35da9ec5d964fea32d1b6c480b96c76fdcf9",
+          "sourceContract": "source-contracts/REPLACEMENT_BOUNDARY.json",
+          "fullOwnerIncluded": false,
+          "independentlyRehashedByThisAuthor": false,
+          "scoutVerification": "User reported on 2026-10-05 that Scout independently verified the local full owner and exact boundary. No local Mac owner read or write was performed here.",
+          "requiredBeforeApplication": "Integrator rechecks actual owner SHA and exact before bytes. Abort on mismatch; do not relocate by matching headings alone."
+        },
+        "independentFullOwnerReadPerformed": false
+      }
+    },
+    {
+      "name": "one_source_byte_interval_only",
+      "satisfied": true,
+      "evidence": {
+        "replacement": {
+          "operation": "Replace one UTF-8 byte interval only",
+          "startByte": 106355,
+          "endByteExclusive": 124945,
+          "sourceCharacterStart": 106299,
+          "sourceCharacterEndExclusive": 124862,
+          "sourceBoundaryConvention": "Zero-based start inclusive/end exclusive; character offsets are source-contract context, UTF-8 bytes are operative.",
+          "before": {
+            "file": "raw-before/lesson-02.teaching-fragment.html",
+            "bytes": 18590,
+            "sha256": "0c2d3dee02b5b2413d600915a03e8c7bd72a2b03951c55f2fcd76c6c1ece4572"
+          },
+          "after": {
+            "file": "lesson-02.teaching-fragment.html",
+            "bytes": 35500,
+            "sha256": "c4797189771af6fbbc112b562bc300b2c2ef2433053dac02866504b463a02d23"
+          },
+          "afterCharacters": 35457,
+          "byteLengthDelta": 16910,
+          "applied": false,
+          "terminalNewline": "Neither before nor after fragment has a terminal LF; the original LF after the interval remains outside the replacement."
+        }
+      }
+    },
+    {
+      "name": "before_file_bytes_and_hash",
+      "satisfied": true,
+      "evidence": {
+        "path": "raw-before/lesson-02.teaching-fragment.html",
+        "actualBytes": 18590,
+        "actualSha256": "0c2d3dee02b5b2413d600915a03e8c7bd72a2b03951c55f2fcd76c6c1ece4572"
+      }
+    },
+    {
+      "name": "after_file_bytes_and_hash",
+      "satisfied": true,
+      "evidence": {
+        "path": "lesson-02.teaching-fragment.html",
+        "actualBytes": 35500,
+        "actualSha256": "c4797189771af6fbbc112b562bc300b2c2ef2433053dac02866504b463a02d23"
+      }
+    },
+    {
+      "name": "after_character_count_and_length_delta",
+      "satisfied": true,
+      "evidence": {
+        "afterCharacters": 35457,
+        "byteLengthDelta": 16910,
+        "afterOwnerEndExclusiveIfApplied": 141855,
+        "afterLocalEndExclusiveIfApplied": 39483
+      }
+    },
+    {
+      "name": "actual_local_source_slice_and_boundaries",
+      "satisfied": true,
+      "evidence": {
+        "sourceLocalBeforeRange": [
+          3983,
+          22573
+        ],
+        "sourceLocalSuffixStart": 22574,
+        "sourceLocalBytes": 33473,
+        "sourceLocalSha256": "e0a6022b7abc346781dbc849d52f567440154dc8ec0501d69c16d6365fd891d3",
+        "reconstructedSourceEqualsSuppliedLesson": true
+      }
+    },
+    {
+      "name": "protected_prefix",
+      "satisfied": true,
+      "evidence": {
+        "bytes": 3983,
+        "sha256": "db23b534c4003ebb1ff3d7ad97070bd4f8d6e4bca096209cd6de7802bd45c438"
+      }
+    },
+    {
+      "name": "protected_interstitialAfterFragment",
+      "satisfied": true,
+      "evidence": {
+        "bytes": 1,
+        "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+      }
+    },
+    {
+      "name": "protected_suffix",
+      "satisfied": true,
+      "evidence": {
+        "bytes": 10899,
+        "sha256": "729c331d5a8e19d4312c115c116c4870357e19f4c68d42165443a757e7487ed8"
+      }
+    },
+    {
+      "name": "one_protected_interstitial_lf_outside_both_fragments",
+      "satisfied": true,
+      "evidence": {
+        "lfByteValue": [
+          10
+        ],
+        "beforeTerminalLf": false,
+        "afterTerminalLf": false
+      }
+    },
+    {
+      "name": "outer_binding_ch17-l02-teaching-01",
+      "satisfied": true,
+      "evidence": {
+        "source": [
+          {
+            "tag": "div",
+            "attrs": {
+              "class": "content-section",
+              "data-canvas-edit-key": "ch17-l02-teaching-01",
+              "data-canvas-helper-edit-key": "ch17-l02-teaching-01",
+              "id": "ch17-l02-teaching-01"
+            }
+          }
+        ],
+        "candidate": [
+          {
+            "tag": "div",
+            "attrs": {
+              "class": "content-section",
+              "data-canvas-edit-key": "ch17-l02-teaching-01",
+              "data-canvas-helper-edit-key": "ch17-l02-teaching-01",
+              "id": "ch17-l02-teaching-01"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "outer_binding_ch17-l02-teaching-02",
+      "satisfied": true,
+      "evidence": {
+        "source": [
+          {
+            "tag": "div",
+            "attrs": {
+              "class": "content-section",
+              "data-canvas-edit-key": "ch17-l02-teaching-02",
+              "data-canvas-helper-edit-key": "ch17-l02-teaching-02",
+              "id": "ch17-l02-teaching-02"
+            }
+          }
+        ],
+        "candidate": [
+          {
+            "tag": "div",
+            "attrs": {
+              "class": "content-section",
+              "data-canvas-edit-key": "ch17-l02-teaching-02",
+              "data-canvas-helper-edit-key": "ch17-l02-teaching-02",
+              "id": "ch17-l02-teaching-02"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "outer_binding_ch17-l02-worked",
+      "satisfied": true,
+      "evidence": {
+        "source": [
+          {
+            "tag": "div",
+            "attrs": {
+              "class": "worked-example",
+              "data-canvas-edit-key": "ch17-l02-worked",
+              "data-canvas-helper-edit-key": "ch17-l02-worked",
+              "id": "ch17-l02-worked"
+            }
+          }
+        ],
+        "candidate": [
+          {
+            "tag": "div",
+            "attrs": {
+              "class": "worked-example",
+              "data-canvas-edit-key": "ch17-l02-worked",
+              "data-canvas-helper-edit-key": "ch17-l02-worked",
+              "id": "ch17-l02-worked"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "outer_binding_ch17-l02-teaching-03",
+      "satisfied": true,
+      "evidence": {
+        "source": [
+          {
+            "tag": "div",
+            "attrs": {
+              "class": "content-section",
+              "data-canvas-edit-key": "ch17-l02-teaching-03",
+              "data-canvas-helper-edit-key": "ch17-l02-teaching-03",
+              "id": "ch17-l02-teaching-03"
+            }
+          }
+        ],
+        "candidate": [
+          {
+            "tag": "div",
+            "attrs": {
+              "class": "content-section",
+              "data-canvas-edit-key": "ch17-l02-teaching-03",
+              "data-canvas-helper-edit-key": "ch17-l02-teaching-03",
+              "id": "ch17-l02-teaching-03"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "frozen_after_range_ch17-kinch-v020-l02-arrow-task",
+      "satisfied": true,
+      "evidence": {
+        "afterFragmentRange": [
+          25149,
+          28111
+        ],
+        "bytes": 2962,
+        "sha256": "832a0126d0434b8068b9bb98f51a463a15e4fbf70ac59608545a258caf8998a5",
+        "noteId": "ch17-kinch-v020-l02-arrow-response",
+        "exactTitle": "Repair the two process labels"
+      }
+    },
+    {
+      "name": "frozen_after_range_ch17-kinch-v020-l02-cross-task",
+      "satisfied": true,
+      "evidence": {
+        "afterFragmentRange": [
+          31456,
+          34824
+        ],
+        "bytes": 3368,
+        "sha256": "d9f059765d06ec5989aee7fb00c0a0a6c0b589d002e7a582e2532f2ecca3355b",
+        "noteId": "ch17-kinch-v020-l02-cross-response",
+        "exactTitle": "Does reversing the parents reverse the result?"
+      }
+    },
+    {
+      "name": "assessment_header_metadata_style_runtime_change_lists_empty",
+      "satisfied": true,
+      "evidence": {
+        "emptyChangeFields": [
+          "assessmentChanges",
+          "headerEdits",
+          "versionMetadataEdits",
+          "cssFontRuntimeStorageChanges",
+          "vocabulary.frayerDataEdits"
+        ]
+      }
+    },
+    {
+      "name": "native_data_declared_hash_matches_supplied_source",
+      "satisfied": true,
+      "evidence": {
+        "sourcePacketFile": "contracts/NATIVE_DATA.json",
+        "bytes": 391743,
+        "sha256": "28b42d538da5b30da7d609f99824b8ed40617865cb49f5e642db8ff26fa47504",
+        "referenceScope": "This file is in the attached source packet; it is not an integration replacement."
+      }
+    },
+    {
+      "name": "guided_boundary_reader_unchanged_contract",
+      "satisfied": true,
+      "evidence": {
+        "guided": {
+          "id": "ch17-l02-guided",
+          "heading": "Practise with support",
+          "allFollowingSourceProtected": true
+        },
+        "reader": {
+          "displayedPrintedRange": "587–590",
+          "openPrintedPages": [
+            587,
+            590
+          ],
+          "changed": false,
+          "authoringSourcePagesAreNotHeaderEdits": [
+            587,
+            588,
+            589,
+            590,
+            591,
+            597
+          ]
+        }
+      }
+    },
+    {
+      "name": "static_new_element_ids_are_actual_id_attributes",
+      "satisfied": true,
+      "evidence": {
+        "declared": [
+          "ch17-v040-l02-visual-chromosome-separation",
+          "ch17-v040-l02-visual-flower-generations",
+          "ch17-v040-l02-visual-genotype-phenotype-grouping",
+          "ch17-v040-l02-visual-pea-traits",
+          "ch17-v040-l02-visual-seed-f2-square",
+          "ch17-v040-l02-visual-seed-generations",
+          "ch17-v040-l02-visual-seed-p-to-f1"
+        ],
+        "actualNewElementIds": [
+          "ch17-v040-l02-visual-chromosome-separation",
+          "ch17-v040-l02-visual-flower-generations",
+          "ch17-v040-l02-visual-genotype-phenotype-grouping",
+          "ch17-v040-l02-visual-pea-traits",
+          "ch17-v040-l02-visual-seed-f2-square",
+          "ch17-v040-l02-visual-seed-generations",
+          "ch17-v040-l02-visual-seed-p-to-f1"
+        ],
+        "incorrectExtras": [],
+        "missing": []
+      }
+    },
+    {
+      "name": "vocabulary_target_records_distinguished_from_element_ids",
+      "satisfied": true,
+      "evidence": {
+        "beforeTargetIds": [
+          "ch17-word-allele",
+          "ch17-word-f1-generation",
+          "ch17-word-f2-generation",
+          "ch17-word-genotype",
+          "ch17-word-law-of-segregation",
+          "ch17-word-phenotype",
+          "ch17-word-probability",
+          "ch17-word-true-breeding"
+        ],
+        "newTargetConnections": [
+          "ch17-word-heterozygous",
+          "ch17-word-homozygous",
+          "ch17-word-punnett-square"
+        ]
+      }
+    },
+    {
+      "name": "asset_copy_slide-14-image25.png",
+      "satisfied": true,
+      "evidence": {
+        "source": "sources/slide-assets/slide-14-image25.png",
+        "target": "./assets/teaching-v040/slide-14-image25.png",
+        "bytes": 149790,
+        "sha256": "4e5cd0ea4159932025b801e03faf3c32ea2c88efa906238f5cde4daeeca441dc"
+      }
+    },
+    {
+      "name": "asset_copy_slide-15-image14.png",
+      "satisfied": true,
+      "evidence": {
+        "source": "sources/slide-assets/slide-15-image14.png",
+        "target": "./assets/teaching-v040/slide-15-image14.png",
+        "bytes": 40026,
+        "sha256": "30b7f6873a81955cc3c8e64b93ebaf4f3c5bfd5b7366ef7064c7eca28087628d"
+      }
+    },
+    {
+      "name": "asset_copy_slide-41-image44.png",
+      "satisfied": true,
+      "evidence": {
+        "source": "sources/slide-assets/slide-41-image44.png",
+        "target": "./assets/teaching-v040/slide-41-image44.png",
+        "bytes": 364277,
+        "sha256": "7e57deedfe727416d5536605bb4327cffd16ee88cbb13c778bd5e5039f450eb8"
+      }
+    },
+    {
+      "name": "asset_copy_slide-18-image20.png",
+      "satisfied": true,
+      "evidence": {
+        "source": "sources/slide-assets/slide-18-image20.png",
+        "target": "./assets/teaching-v040/slide-18-image20.png",
+        "bytes": 16324,
+        "sha256": "013dd2769996f9e08f19ea3e86e70ea3a69ce2a1a2bfb7a6ee1ebf2023636ec6"
+      }
+    },
+    {
+      "name": "asset_copy_slide-20-image36.png",
+      "satisfied": true,
+      "evidence": {
+        "source": "sources/slide-assets/slide-20-image36.png",
+        "target": "./assets/teaching-v040/slide-20-image36.png",
+        "bytes": 4001,
+        "sha256": "b8563f6f9ed748ac3880103472762ec0e05b6fbd3f1a6d1a666cb0b9877779e7"
+      }
+    },
+    {
+      "name": "all_native_image_paths_have_one_copy_record",
+      "satisfied": true,
+      "evidence": {
+        "nativePaths": [
+          "./assets/teaching-v040/slide-14-image25.png",
+          "./assets/teaching-v040/slide-15-image14.png",
+          "./assets/teaching-v040/slide-41-image44.png",
+          "./assets/teaching-v040/slide-18-image20.png",
+          "./assets/teaching-v040/slide-20-image36.png"
+        ]
+      }
+    },
+    {
+      "name": "markdown_controls_are_disabled_non_owner",
+      "satisfied": true,
+      "evidence": {
+        "markdownControls": [
+          {
+            "tag": "textarea",
+            "attrs": {
+              "aria-describedby": "ch17-kinch-v020-l02-arrow-response-status",
+              "id": "ch17-kinch-v020-l02-arrow-response",
+              "rows": "5",
+              "disabled": null
+            }
+          },
+          {
+            "tag": "button",
+            "attrs": {
+              "type": "button",
+              "disabled": null
+            }
+          },
+          {
+            "tag": "textarea",
+            "attrs": {
+              "aria-describedby": "ch17-kinch-v020-l02-cross-response-status",
+              "id": "ch17-kinch-v020-l02-cross-response",
+              "rows": "5",
+              "disabled": null
+            }
+          },
+          {
+            "tag": "button",
+            "attrs": {
+              "type": "button",
+              "disabled": null
+            }
+          }
+        ],
+        "nativeControlOwner": "The native HTML fragment and exact OPTIONAL_NOTES source contract. Never copy disabled Markdown preview controls into native output."
+      }
+    },
+    {
+      "name": "no_assembly_runtime_or_save_migration_claim",
+      "satisfied": true,
+      "evidence": {
+        "integrationResponsibility": {
+          "owner": "Codex/local integrator",
+          "requestedReturnDestination": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-chapter-17/meta/teaching-overhaul/2026-10-04-exemplar-transfer/teacher-led-trial-v0.4.0/pro-return",
+          "writtenByThisAuthor": false,
+          "futureSaveIsolation": "Serve v0.4.0 on a fresh loopback origin; do not migrate prior saves.",
+          "oldSaveMigrationPerformed": false,
+          "nativeAssemblyPerformed": false,
+          "nativeRuntimeTestsPerformed": false,
+          "browserRenderingVerified": false
+        }
+      }
+    },
+    {
+      "name": "before_after_coordinate_basis_explicit",
+      "satisfied": true,
+      "evidence": {
+        "outerRangesCurrentlyAre": "Original BEFORE fragment/local lesson ranges, not after fragment ranges.",
+        "embeddedActivityRangesAre": "AFTER fragment ranges.",
+        "sourceGlobalSuffixRange": [
+          124945,
+          "EOF"
+        ],
+        "ifAppliedGlobalSuffixStart": 141855,
+        "labelledOuterBeforeBasis": true,
+        "labelledGlobalSuffixBeforeBasis": true,
+        "manualFinding": "The original map uses generic range names for before outer ranges and after activity ranges; label their basis explicitly. Old global suffix content remains unchanged but its position shifts by +16910."
+      }
+    },
+    {
+      "name": "repaired_before_coordinate_nesting_ch17-l02-teaching-01",
+      "satisfied": true,
+      "evidence": {
+        "coordinateSource": {
+          "sourceFragment": "current/lesson-02.teaching-fragment.html",
+          "sourceLocalLesson": "current/lesson-02.html",
+          "offsetConvention": "Zero-based UTF-8 bytes, start inclusive/end exclusive, all BEFORE replacement.",
+          "fragmentOpeningTagByteRange": [
+            0,
+            150
+          ],
+          "fragmentElementByteRange": [
+            0,
+            4022
+          ],
+          "currentLessonElementByteRange": [
+            3983,
+            8005
+          ],
+          "completeElement": {
+            "bytes": 4022,
+            "sha256": "a1d1336941f8c16bb45da915fce489efb81941b610eaff6a9ffe6eb348f84b35"
+          }
+        },
+        "actualSha256": "a1d1336941f8c16bb45da915fce489efb81941b610eaff6a9ffe6eb348f84b35",
+        "actualBytes": 4022,
+        "openingTagMatches": true,
+        "localBeforeElementMatchesFragment": true,
+        "preservationStatement": "Keep the opening binding/attributes; teaching content inside the allowed interval is rewritten."
+      }
+    },
+    {
+      "name": "repaired_before_coordinate_nesting_ch17-l02-teaching-02",
+      "satisfied": true,
+      "evidence": {
+        "coordinateSource": {
+          "sourceFragment": "current/lesson-02.teaching-fragment.html",
+          "sourceLocalLesson": "current/lesson-02.html",
+          "offsetConvention": "Zero-based UTF-8 bytes, start inclusive/end exclusive, all BEFORE replacement.",
+          "fragmentOpeningTagByteRange": [
+            4024,
+            4174
+          ],
+          "fragmentElementByteRange": [
+            4024,
+            6372
+          ],
+          "currentLessonElementByteRange": [
+            8007,
+            10355
+          ],
+          "completeElement": {
+            "bytes": 2348,
+            "sha256": "76c6ce55e364faafd63ef346ed3cdc19bdeddaaf1d60c76b5b9f903801b18060"
+          }
+        },
+        "actualSha256": "76c6ce55e364faafd63ef346ed3cdc19bdeddaaf1d60c76b5b9f903801b18060",
+        "actualBytes": 2348,
+        "openingTagMatches": true,
+        "localBeforeElementMatchesFragment": true,
+        "preservationStatement": "Keep the opening binding/attributes; teaching content inside the allowed interval is rewritten."
+      }
+    },
+    {
+      "name": "repaired_before_coordinate_nesting_ch17-l02-worked",
+      "satisfied": true,
+      "evidence": {
+        "coordinateSource": {
+          "sourceFragment": "current/lesson-02.teaching-fragment.html",
+          "sourceLocalLesson": "current/lesson-02.html",
+          "offsetConvention": "Zero-based UTF-8 bytes, start inclusive/end exclusive, all BEFORE replacement.",
+          "fragmentOpeningTagByteRange": [
+            6374,
+            6508
+          ],
+          "fragmentElementByteRange": [
+            6374,
+            12666
+          ],
+          "currentLessonElementByteRange": [
+            10357,
+            16649
+          ],
+          "completeElement": {
+            "bytes": 6292,
+            "sha256": "23681683e7ad5591dfc5bdc3fdd8eb9d97250e24becc15b388d61b53493500c0"
+          }
+        },
+        "actualSha256": "23681683e7ad5591dfc5bdc3fdd8eb9d97250e24becc15b388d61b53493500c0",
+        "actualBytes": 6292,
+        "openingTagMatches": true,
+        "localBeforeElementMatchesFragment": true,
+        "preservationStatement": "Keep the opening binding/attributes; teaching content inside the allowed interval is rewritten."
+      }
+    },
+    {
+      "name": "repaired_before_coordinate_nesting_ch17-l02-teaching-03",
+      "satisfied": true,
+      "evidence": {
+        "coordinateSource": {
+          "sourceFragment": "current/lesson-02.teaching-fragment.html",
+          "sourceLocalLesson": "current/lesson-02.html",
+          "offsetConvention": "Zero-based UTF-8 bytes, start inclusive/end exclusive, all BEFORE replacement.",
+          "fragmentOpeningTagByteRange": [
+            12668,
+            12818
+          ],
+          "fragmentElementByteRange": [
+            12668,
+            18590
+          ],
+          "currentLessonElementByteRange": [
+            16651,
+            22573
+          ],
+          "completeElement": {
+            "bytes": 5922,
+            "sha256": "921841db3f0d91ce693aab5ad5f769fe6cfc03475f7cafb8b78d8b4facb3a468"
+          }
+        },
+        "actualSha256": "921841db3f0d91ce693aab5ad5f769fe6cfc03475f7cafb8b78d8b4facb3a468",
+        "actualBytes": 5922,
+        "openingTagMatches": true,
+        "localBeforeElementMatchesFragment": true,
+        "preservationStatement": "Keep the opening binding/attributes; teaching content inside the allowed interval is rewritten."
+      }
+    },
+    {
+      "name": "repaired_activity_coordinate_source_explicit_after",
+      "satisfied": true,
+      "evidence": [
+        {
+          "id": "ch17-kinch-v020-l02-arrow-task",
+          "rangeCoordinateSource": "AFTER replacement fragment: lesson-02.teaching-fragment.html, zero-based UTF-8 bytes."
+        },
+        {
+          "id": "ch17-kinch-v020-l02-cross-task",
+          "rangeCoordinateSource": "AFTER replacement fragment: lesson-02.teaching-fragment.html, zero-based UTF-8 bytes."
+        }
+      ]
+    },
+    {
+      "name": "repaired_global_suffix_before_and_computed_after_distinguished",
+      "satisfied": true,
+      "evidence": {
+        "startByte": 124945,
+        "end": "EOF",
+        "coordinateSource": "BEFORE full native owner. The suffix bytes survive unchanged, but their positions shift after insertion of the longer fragment.",
+        "expectedAfterStartByte": 141855,
+        "positionShiftBytes": 16910,
+        "sha256": null,
+        "reason": "Full owner suffix not attached; preserve every byte. After coordinates are calculated for the proposed replacement, not read from an assembled owner."
+      }
+    }
+  ],
+  "summary": {
+    "checks": 36,
+    "satisfied": 36,
+    "notSatisfied": 0,
+    "findings": []
+  },
+  "findings": [],
+  "limits": [
+    "No native output assembled or replacement applied. No original-owner whole-file verification or source-global coordinate empirical check.",
+    "No native browser/runtime tests, layout or save/storage verification.",
+    "Image output/source-byte comparisons here rely on separately completed original-PPT-member verification; no repeated original-PPT read was necessary.",
+    "Neither sample acceptance nor release certification is implied."
+  ],
+  "status": "No unresolved bounded integration-map finding.",
+  "resolvedFindingHistory": [
+    {
+      "id": "MAP-01",
+      "initialMapSha256": "8e50cac215af6fd9efe5530ed6b36e345159d4c2cc0aa4936f02b08e5d347aa6",
+      "initialMapBytes": 12851,
+      "initialObservedIssue": "staticNewElementIds included three existing data-term-id vocabulary targets, although they are not new DOM id attributes.",
+      "repairedMapSha256": "97c3dc8b783d4ed04d1db86b606fdf8638400b9497056c62b972711d222bc035",
+      "closure": "The repaired list contains exactly the seven actual new ch17-v040-l02-visual-* element IDs. Existing Frayer target connections remain listed under the separate vocabulary contract.",
+      "status": "Resolved by root; actual repaired map read and compared."
+    },
+    {
+      "id": "MAP-02",
+      "initialMapSha256": "8e50cac215af6fd9efe5530ed6b36e345159d4c2cc0aa4936f02b08e5d347aa6",
+      "initialObservedIssue": "Before outer/source-lesson ranges and after frozen-activity ranges used generic coordinate names; old global suffix position needed explicit before basis.",
+      "repairedMapSha256": "97c3dc8b783d4ed04d1db86b606fdf8638400b9497056c62b972711d222bc035",
+      "closure": "Outer ranges and original element hashes now live under beforeCoordinates with source paths and BEFORE convention. Frozen activity intervals are expressly AFTER-fragment coordinates. Global suffix records BEFORE location124945, calculated AFTER141855 and shift16910, without claiming an assembled owner.",
+      "status": "Resolved by root; original range hashes, raw slices and coordinate arithmetic rechecked."
+    }
+  ],
+  "finalRepairedMapReadAtUtc": "2026-10-05T16:12:21.274222+00:00"
+}

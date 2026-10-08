@@ -1,0 +1,599 @@
+{
+  "peaP": {
+    "parents": [
+      "TTGG",
+      "ttgg"
+    ],
+    "gametes": [
+      {
+        "TG": "1"
+      },
+      {
+        "tg": "1"
+      }
+    ],
+    "cells": [
+      {
+        "row": "TG",
+        "column": "tg",
+        "genotype": "TtGg",
+        "probability": "1"
+      }
+    ],
+    "genotypes": {
+      "TtGg": "1"
+    },
+    "total": "1"
+  },
+  "peaF2": {
+    "parents": [
+      "TtGg",
+      "TtGg"
+    ],
+    "gametes": [
+      {
+        "TG": "1/4",
+        "Tg": "1/4",
+        "tG": "1/4",
+        "tg": "1/4"
+      },
+      {
+        "TG": "1/4",
+        "Tg": "1/4",
+        "tG": "1/4",
+        "tg": "1/4"
+      }
+    ],
+    "cells": [
+      {
+        "row": "TG",
+        "column": "TG",
+        "genotype": "TTGG",
+        "probability": "1/16"
+      },
+      {
+        "row": "TG",
+        "column": "Tg",
+        "genotype": "TTGg",
+        "probability": "1/16"
+      },
+      {
+        "row": "TG",
+        "column": "tG",
+        "genotype": "TtGG",
+        "probability": "1/16"
+      },
+      {
+        "row": "TG",
+        "column": "tg",
+        "genotype": "TtGg",
+        "probability": "1/16"
+      },
+      {
+        "row": "Tg",
+        "column": "TG",
+        "genotype": "TTGg",
+        "probability": "1/16"
+      },
+      {
+        "row": "Tg",
+        "column": "Tg",
+        "genotype": "TTgg",
+        "probability": "1/16"
+      },
+      {
+        "row": "Tg",
+        "column": "tG",
+        "genotype": "TtGg",
+        "probability": "1/16"
+      },
+      {
+        "row": "Tg",
+        "column": "tg",
+        "genotype": "Ttgg",
+        "probability": "1/16"
+      },
+      {
+        "row": "tG",
+        "column": "TG",
+        "genotype": "TtGG",
+        "probability": "1/16"
+      },
+      {
+        "row": "tG",
+        "column": "Tg",
+        "genotype": "TtGg",
+        "probability": "1/16"
+      },
+      {
+        "row": "tG",
+        "column": "tG",
+        "genotype": "ttGG",
+        "probability": "1/16"
+      },
+      {
+        "row": "tG",
+        "column": "tg",
+        "genotype": "ttGg",
+        "probability": "1/16"
+      },
+      {
+        "row": "tg",
+        "column": "TG",
+        "genotype": "TtGg",
+        "probability": "1/16"
+      },
+      {
+        "row": "tg",
+        "column": "Tg",
+        "genotype": "Ttgg",
+        "probability": "1/16"
+      },
+      {
+        "row": "tg",
+        "column": "tG",
+        "genotype": "ttGg",
+        "probability": "1/16"
+      },
+      {
+        "row": "tg",
+        "column": "tg",
+        "genotype": "ttgg",
+        "probability": "1/16"
+      }
+    ],
+    "genotypes": {
+      "TTGG": "1/16",
+      "TTGg": "1/8",
+      "TtGG": "1/8",
+      "TtGg": "1/4",
+      "TTgg": "1/16",
+      "Ttgg": "1/8",
+      "ttGG": "1/16",
+      "ttGg": "1/8",
+      "ttgg": "1/16"
+    },
+    "total": "1",
+    "phenotypes": {
+      "tall/green": "9/16",
+      "tall/yellow": "3/16",
+      "short/green": "3/16",
+      "short/yellow": "1/16"
+    }
+  },
+  "tomato": {
+    "parents": [
+      "RrTt",
+      "rrTt"
+    ],
+    "gametes": [
+      {
+        "RT": "1/4",
+        "Rt": "1/4",
+        "rT": "1/4",
+        "rt": "1/4"
+      },
+      {
+        "rT": "1/2",
+        "rt": "1/2"
+      }
+    ],
+    "cells": [
+      {
+        "row": "RT",
+        "column": "rT",
+        "genotype": "RrTT",
+        "probability": "1/8"
+      },
+      {
+        "row": "RT",
+        "column": "rt",
+        "genotype": "RrTt",
+        "probability": "1/8"
+      },
+      {
+        "row": "Rt",
+        "column": "rT",
+        "genotype": "RrTt",
+        "probability": "1/8"
+      },
+      {
+        "row": "Rt",
+        "column": "rt",
+        "genotype": "Rrtt",
+        "probability": "1/8"
+      },
+      {
+        "row": "rT",
+        "column": "rT",
+        "genotype": "rrTT",
+        "probability": "1/8"
+      },
+      {
+        "row": "rT",
+        "column": "rt",
+        "genotype": "rrTt",
+        "probability": "1/8"
+      },
+      {
+        "row": "rt",
+        "column": "rT",
+        "genotype": "rrTt",
+        "probability": "1/8"
+      },
+      {
+        "row": "rt",
+        "column": "rt",
+        "genotype": "rrtt",
+        "probability": "1/8"
+      }
+    ],
+    "genotypes": {
+      "RrTT": "1/8",
+      "RrTt": "1/4",
+      "Rrtt": "1/8",
+      "rrTT": "1/8",
+      "rrTt": "1/4",
+      "rrtt": "1/8"
+    },
+    "total": "1",
+    "phenotypes": {
+      "red/tall": "3/8",
+      "yellow/tall": "3/8",
+      "red/short": "1/8",
+      "yellow/short": "1/8"
+    }
+  },
+  "squash": {
+    "parents": [
+      "wwDd",
+      "Wwdd"
+    ],
+    "gametes": [
+      {
+        "wD": "1/2",
+        "wd": "1/2"
+      },
+      {
+        "Wd": "1/2",
+        "wd": "1/2"
+      }
+    ],
+    "cells": [
+      {
+        "row": "wD",
+        "column": "Wd",
+        "genotype": "WwDd",
+        "probability": "1/4"
+      },
+      {
+        "row": "wD",
+        "column": "wd",
+        "genotype": "wwDd",
+        "probability": "1/4"
+      },
+      {
+        "row": "wd",
+        "column": "Wd",
+        "genotype": "Wwdd",
+        "probability": "1/4"
+      },
+      {
+        "row": "wd",
+        "column": "wd",
+        "genotype": "wwdd",
+        "probability": "1/4"
+      }
+    ],
+    "genotypes": {
+      "WwDd": "1/4",
+      "wwDd": "1/4",
+      "Wwdd": "1/4",
+      "wwdd": "1/4"
+    },
+    "total": "1",
+    "possibleParentsBeforeEvidence": [
+      [
+        "wwDD",
+        "wwDd"
+      ],
+      [
+        "WWdd",
+        "Wwdd"
+      ]
+    ],
+    "parentCandidatesProducingwwdd": [
+      [
+        "wwDd",
+        "Wwdd"
+      ]
+    ],
+    "expected80": {
+      "white fruit": 40,
+      "yellow spherical fruit": 20,
+      "eachExclusivePhenotype": 20
+    }
+  },
+  "optionalChange": {
+    "parents": [
+      "RrTt",
+      "rrtt"
+    ],
+    "gametes": [
+      {
+        "RT": "1/4",
+        "Rt": "1/4",
+        "rT": "1/4",
+        "rt": "1/4"
+      },
+      {
+        "rt": "1"
+      }
+    ],
+    "cells": [
+      {
+        "row": "RT",
+        "column": "rt",
+        "genotype": "RrTt",
+        "probability": "1/4"
+      },
+      {
+        "row": "Rt",
+        "column": "rt",
+        "genotype": "Rrtt",
+        "probability": "1/4"
+      },
+      {
+        "row": "rT",
+        "column": "rt",
+        "genotype": "rrTt",
+        "probability": "1/4"
+      },
+      {
+        "row": "rt",
+        "column": "rt",
+        "genotype": "rrtt",
+        "probability": "1/4"
+      }
+    ],
+    "genotypes": {
+      "RrTt": "1/4",
+      "Rrtt": "1/4",
+      "rrTt": "1/4",
+      "rrtt": "1/4"
+    },
+    "total": "1"
+  },
+  "requiredHeaderRepair": {
+    "parents": [
+      "AaBB",
+      "AaBb"
+    ],
+    "gametes": [
+      {
+        "AB": "1/2",
+        "aB": "1/2"
+      },
+      {
+        "AB": "1/4",
+        "Ab": "1/4",
+        "aB": "1/4",
+        "ab": "1/4"
+      }
+    ],
+    "cells": [
+      {
+        "row": "AB",
+        "column": "AB",
+        "genotype": "AABB",
+        "probability": "1/8"
+      },
+      {
+        "row": "AB",
+        "column": "Ab",
+        "genotype": "AABb",
+        "probability": "1/8"
+      },
+      {
+        "row": "AB",
+        "column": "aB",
+        "genotype": "AaBB",
+        "probability": "1/8"
+      },
+      {
+        "row": "AB",
+        "column": "ab",
+        "genotype": "AaBb",
+        "probability": "1/8"
+      },
+      {
+        "row": "aB",
+        "column": "AB",
+        "genotype": "AaBB",
+        "probability": "1/8"
+      },
+      {
+        "row": "aB",
+        "column": "Ab",
+        "genotype": "AaBb",
+        "probability": "1/8"
+      },
+      {
+        "row": "aB",
+        "column": "aB",
+        "genotype": "aaBB",
+        "probability": "1/8"
+      },
+      {
+        "row": "aB",
+        "column": "ab",
+        "genotype": "aaBb",
+        "probability": "1/8"
+      }
+    ],
+    "genotypes": {
+      "AABB": "1/8",
+      "AABb": "1/8",
+      "AaBB": "1/4",
+      "AaBb": "1/4",
+      "aaBB": "1/8",
+      "aaBb": "1/8"
+    },
+    "total": "1"
+  },
+  "requiredHomozygous": {
+    "parents": [
+      "CcHh",
+      "CcHh"
+    ],
+    "gametes": [
+      {
+        "CH": "1/4",
+        "Ch": "1/4",
+        "cH": "1/4",
+        "ch": "1/4"
+      },
+      {
+        "CH": "1/4",
+        "Ch": "1/4",
+        "cH": "1/4",
+        "ch": "1/4"
+      }
+    ],
+    "cells": [
+      {
+        "row": "CH",
+        "column": "CH",
+        "genotype": "CCHH",
+        "probability": "1/16"
+      },
+      {
+        "row": "CH",
+        "column": "Ch",
+        "genotype": "CCHh",
+        "probability": "1/16"
+      },
+      {
+        "row": "CH",
+        "column": "cH",
+        "genotype": "CcHH",
+        "probability": "1/16"
+      },
+      {
+        "row": "CH",
+        "column": "ch",
+        "genotype": "CcHh",
+        "probability": "1/16"
+      },
+      {
+        "row": "Ch",
+        "column": "CH",
+        "genotype": "CCHh",
+        "probability": "1/16"
+      },
+      {
+        "row": "Ch",
+        "column": "Ch",
+        "genotype": "CChh",
+        "probability": "1/16"
+      },
+      {
+        "row": "Ch",
+        "column": "cH",
+        "genotype": "CcHh",
+        "probability": "1/16"
+      },
+      {
+        "row": "Ch",
+        "column": "ch",
+        "genotype": "Cchh",
+        "probability": "1/16"
+      },
+      {
+        "row": "cH",
+        "column": "CH",
+        "genotype": "CcHH",
+        "probability": "1/16"
+      },
+      {
+        "row": "cH",
+        "column": "Ch",
+        "genotype": "CcHh",
+        "probability": "1/16"
+      },
+      {
+        "row": "cH",
+        "column": "cH",
+        "genotype": "ccHH",
+        "probability": "1/16"
+      },
+      {
+        "row": "cH",
+        "column": "ch",
+        "genotype": "ccHh",
+        "probability": "1/16"
+      },
+      {
+        "row": "ch",
+        "column": "CH",
+        "genotype": "CcHh",
+        "probability": "1/16"
+      },
+      {
+        "row": "ch",
+        "column": "Ch",
+        "genotype": "Cchh",
+        "probability": "1/16"
+      },
+      {
+        "row": "ch",
+        "column": "cH",
+        "genotype": "ccHh",
+        "probability": "1/16"
+      },
+      {
+        "row": "ch",
+        "column": "ch",
+        "genotype": "cchh",
+        "probability": "1/16"
+      }
+    ],
+    "genotypes": {
+      "CCHH": "1/16",
+      "CCHh": "1/8",
+      "CcHH": "1/8",
+      "CcHh": "1/4",
+      "CChh": "1/16",
+      "Cchh": "1/8",
+      "ccHH": "1/16",
+      "ccHh": "1/8",
+      "cchh": "1/16"
+    },
+    "total": "1",
+    "doubleHomozygousGenotypes": [
+      "CCHH",
+      "CChh",
+      "ccHH",
+      "cchh"
+    ],
+    "combinedProbability": "1/4"
+  },
+  "requiredUnion": {
+    "notNewLearnerSolution": "Protected original task key re-derived for review only",
+    "pShortOrYellow": "7/16"
+  },
+  "optionalEvidence": {
+    "forcedParent1": "Vvll",
+    "possibleParent2": [
+      "vvLL",
+      "vvLl"
+    ],
+    "observedOffspring": "vvLl",
+    "observedGametePair": [
+      "vl",
+      "vL"
+    ],
+    "settlingLaterPhenotype": "lobed leaves -> ll, forcing parent2 vvLl",
+    "finiteSmoothOnly": "Possible under both candidates; not logical proof of LL, no prior probabilities assigned."
+  }
+}

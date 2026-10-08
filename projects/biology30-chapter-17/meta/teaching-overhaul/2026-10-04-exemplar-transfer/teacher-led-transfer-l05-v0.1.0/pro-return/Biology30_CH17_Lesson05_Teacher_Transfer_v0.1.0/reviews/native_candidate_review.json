@@ -1,0 +1,1684 @@
+{
+  "schemaVersion": 1,
+  "scope": "Bounded static candidate preservation, file equality, native markup and complete visible-copy comparison. Assistant text reading covered the entire candidate HTML, including all optional prompt/hint/model text; full Markdown visible content was independently compared algorithmically, with image alt/path checks. No assembled owner was written or executed.",
+  "reviewer": "Separate assistant reviewer task /root/l05_native_contract",
+  "performedAtUtc": "2026-10-05T17:50:43.251075+00:00",
+  "candidateFiles": {
+    "html": {
+      "file": "/workspace/scratch/9592c268bc42/output/Biology30_CH17_Lesson05_Teacher_Transfer_v0.1.0/lesson-05.teaching-fragment.html",
+      "bytes": 58457,
+      "sha256": "b29e83ae44ba3fd44b1f6e52a359ece8eb4933b3ee018b8964fdda5b85c97d21"
+    },
+    "markdown": {
+      "file": "/workspace/scratch/9592c268bc42/output/Biology30_CH17_Lesson05_Teacher_Transfer_v0.1.0/manuscripts/lesson-05.md",
+      "bytes": 50205,
+      "sha256": "67a75c62d2fe43cd3877d6bfd9940d6558bf6cdbee35a2d266b024a102fbdb9c"
+    }
+  },
+  "owner": {
+    "file": "/workspace/scratch/9592c268bc42/lesson05-v010-source-shz8aaff/current/index.html",
+    "bytes": 3540574,
+    "sha256": "71518705941a86809c7f28593664763e59c7867511e3ae699ec1007bfe109bad"
+  },
+  "checks": {
+    "candidateHashesMatchSubmittedScope": true,
+    "fourRootElementsOnly": true,
+    "nativeFragmentTagsBalanced": true,
+    "fourOuterBindingAttributesExact": true,
+    "all12EditKeyPairsExact": true,
+    "noDuplicateElementIds": true,
+    "newStaticIdsDoNotCollideOutsideInterval": true,
+    "twoFrozenOptionalWholeSectionsExact": true,
+    "completeNativeBranchFigureExact": true,
+    "candidateClassesAllExistInOwner": true,
+    "noScriptsStylesWholeHtmlOrStylesheetTags": true,
+    "noInlineStyleOrEventAttributes": true,
+    "onlyExistingNativeControlsAndTermLinks": true,
+    "noNativeDisabledControls": true,
+    "exactTwoNativeSaveNoteIds": true,
+    "noNewChecksWritingProgressOrStorageBindings": true,
+    "everyTermTargetExists": true,
+    "allOriginalTermTargetsRetained": true,
+    "termMarkupMatchesNativeConvention": true,
+    "sevenImagesPresentAndByteExact": true,
+    "sixAddedImagesOnlyAtApprovedPath": true,
+    "everyImageHasReadableAlt": true,
+    "entireVisibleManuscriptEqualsNativeText": true,
+    "allImageAltTextAndOrderEqualMarkdown": true,
+    "allMarkdownImagePathsResolveSameAssets": true,
+    "readingCopyFiveControlsDisabled": true,
+    "readingCopyNoFunctionalSaveEnlargeOrTermBindings": true,
+    "entireOptionalFeedbackRetainedInReadingCopy": true,
+    "noInternalRouteOrAuthoringProse": true,
+    "currentRequiredCasesNotSolvedInFragment": true,
+    "originalTomatoWorkedApplicationPresent": true,
+    "allEightRawBeforeFilesExact": true,
+    "allSuppliedContractCopiesExact": true,
+    "source76PayloadsRemainUnchanged": true,
+    "fullOwnerStillOriginalHash": true
+  },
+  "allApplicableChecksSatisfied": true,
+  "count": 35,
+  "findings": [],
+  "outerBindings": [
+    {
+      "id": "ch17-l05-teaching-01",
+      "before": {
+        "tag": "div",
+        "attrs": {
+          "class": "content-section",
+          "data-canvas-edit-key": "ch17-l05-teaching-01",
+          "data-canvas-helper-edit-key": "ch17-l05-teaching-01",
+          "id": "ch17-l05-teaching-01"
+        },
+        "startCharacter": 0,
+        "openEndCharacter": 150,
+        "startTag": "<div class=\"content-section\" data-canvas-edit-key=\"ch17-l05-teaching-01\" data-canvas-helper-edit-key=\"ch17-l05-teaching-01\" id=\"ch17-l05-teaching-01\">",
+        "closeStartCharacter": 6171,
+        "endCharacterExclusive": 6177,
+        "startByte": 0,
+        "endByteExclusive": 6199,
+        "bytes": 6199,
+        "sha256": "2457eed3459e4bb8118e396e90900de9e8f3bd819188ba58fb8bc438f8450e1e"
+      },
+      "after": {
+        "tag": "div",
+        "attrs": {
+          "class": "content-section",
+          "data-canvas-edit-key": "ch17-l05-teaching-01",
+          "data-canvas-helper-edit-key": "ch17-l05-teaching-01",
+          "id": "ch17-l05-teaching-01"
+        },
+        "startCharacter": 0,
+        "openEndCharacter": 150,
+        "startTag": "<div class=\"content-section\" data-canvas-edit-key=\"ch17-l05-teaching-01\" data-canvas-helper-edit-key=\"ch17-l05-teaching-01\" id=\"ch17-l05-teaching-01\">",
+        "closeStartCharacter": 11699,
+        "endCharacterExclusive": 11705,
+        "startByte": 0,
+        "endByteExclusive": 11708,
+        "bytes": 11708,
+        "sha256": "98a89cabd8054b5ba8d5e8ae06aeea8de8c1cf9017734cbe67f4bb7df1269406"
+      },
+      "exactOpeningTag": true,
+      "exactAttributes": true
+    },
+    {
+      "id": "ch17-l05-teaching-02",
+      "before": {
+        "tag": "div",
+        "attrs": {
+          "class": "content-section",
+          "data-canvas-edit-key": "ch17-l05-teaching-02",
+          "data-canvas-helper-edit-key": "ch17-l05-teaching-02",
+          "id": "ch17-l05-teaching-02"
+        },
+        "startCharacter": 6179,
+        "openEndCharacter": 6329,
+        "startTag": "<div class=\"content-section\" data-canvas-edit-key=\"ch17-l05-teaching-02\" data-canvas-helper-edit-key=\"ch17-l05-teaching-02\" id=\"ch17-l05-teaching-02\">",
+        "closeStartCharacter": 11692,
+        "endCharacterExclusive": 11698,
+        "startByte": 6201,
+        "endByteExclusive": 11764,
+        "bytes": 5563,
+        "sha256": "6b83d8c942be901c2d73b0b56fa354b03722ea8a1c3946f58960d5c6cb109b88"
+      },
+      "after": {
+        "tag": "div",
+        "attrs": {
+          "class": "content-section",
+          "data-canvas-edit-key": "ch17-l05-teaching-02",
+          "data-canvas-helper-edit-key": "ch17-l05-teaching-02",
+          "id": "ch17-l05-teaching-02"
+        },
+        "startCharacter": 11707,
+        "openEndCharacter": 11857,
+        "startTag": "<div class=\"content-section\" data-canvas-edit-key=\"ch17-l05-teaching-02\" data-canvas-helper-edit-key=\"ch17-l05-teaching-02\" id=\"ch17-l05-teaching-02\">",
+        "closeStartCharacter": 28655,
+        "endCharacterExclusive": 28661,
+        "startByte": 11710,
+        "endByteExclusive": 28764,
+        "bytes": 17054,
+        "sha256": "ffa5e05a33c7a18275617e31fa69d608c3989edac7fb91efd104bf7ca1287f76"
+      },
+      "exactOpeningTag": true,
+      "exactAttributes": true
+    },
+    {
+      "id": "ch17-l05-worked",
+      "before": {
+        "tag": "div",
+        "attrs": {
+          "class": "worked-example",
+          "data-canvas-edit-key": "ch17-l05-worked",
+          "data-canvas-helper-edit-key": "ch17-l05-worked",
+          "id": "ch17-l05-worked"
+        },
+        "startCharacter": 11700,
+        "openEndCharacter": 11834,
+        "startTag": "<div class=\"worked-example\" data-canvas-edit-key=\"ch17-l05-worked\" data-canvas-helper-edit-key=\"ch17-l05-worked\" id=\"ch17-l05-worked\">",
+        "closeStartCharacter": 21089,
+        "endCharacterExclusive": 21095,
+        "startByte": 11766,
+        "endByteExclusive": 21240,
+        "bytes": 9474,
+        "sha256": "2d53564c828de24f3113fc43f36ce86919f35fffae5245969611ff49071505a8"
+      },
+      "after": {
+        "tag": "div",
+        "attrs": {
+          "class": "worked-example",
+          "data-canvas-edit-key": "ch17-l05-worked",
+          "data-canvas-helper-edit-key": "ch17-l05-worked",
+          "id": "ch17-l05-worked"
+        },
+        "startCharacter": 28663,
+        "openEndCharacter": 28797,
+        "startTag": "<div class=\"worked-example\" data-canvas-edit-key=\"ch17-l05-worked\" data-canvas-helper-edit-key=\"ch17-l05-worked\" id=\"ch17-l05-worked\">",
+        "closeStartCharacter": 42217,
+        "endCharacterExclusive": 42223,
+        "startByte": 28766,
+        "endByteExclusive": 42436,
+        "bytes": 13670,
+        "sha256": "0ea1739d43adb81de3532fa4bba0388fef560d4264e5c67528fae31797cf540c"
+      },
+      "exactOpeningTag": true,
+      "exactAttributes": true
+    },
+    {
+      "id": "ch17-l05-teaching-03",
+      "before": {
+        "tag": "div",
+        "attrs": {
+          "class": "content-section",
+          "data-canvas-edit-key": "ch17-l05-teaching-03",
+          "data-canvas-helper-edit-key": "ch17-l05-teaching-03",
+          "id": "ch17-l05-teaching-03"
+        },
+        "startCharacter": 21097,
+        "openEndCharacter": 21247,
+        "startTag": "<div class=\"content-section\" data-canvas-edit-key=\"ch17-l05-teaching-03\" data-canvas-helper-edit-key=\"ch17-l05-teaching-03\" id=\"ch17-l05-teaching-03\">",
+        "closeStartCharacter": 31935,
+        "endCharacterExclusive": 31941,
+        "startByte": 21242,
+        "endByteExclusive": 32124,
+        "bytes": 10882,
+        "sha256": "25433f982ad4cf8f833daaa5b2653a56ea1ff011c3e2b41fd1cdeddff3776f01"
+      },
+      "after": {
+        "tag": "div",
+        "attrs": {
+          "class": "content-section",
+          "data-canvas-edit-key": "ch17-l05-teaching-03",
+          "data-canvas-helper-edit-key": "ch17-l05-teaching-03",
+          "id": "ch17-l05-teaching-03"
+        },
+        "startCharacter": 42225,
+        "openEndCharacter": 42375,
+        "startTag": "<div class=\"content-section\" data-canvas-edit-key=\"ch17-l05-teaching-03\" data-canvas-helper-edit-key=\"ch17-l05-teaching-03\" id=\"ch17-l05-teaching-03\">",
+        "closeStartCharacter": 58181,
+        "endCharacterExclusive": 58187,
+        "startByte": 42438,
+        "endByteExclusive": 58457,
+        "bytes": 16019,
+        "sha256": "3fe71497929a8ba066d7ed99679b6b5602ee581bc80e17fc80e622d2b473ee7c"
+      },
+      "exactOpeningTag": true,
+      "exactAttributes": true
+    }
+  ],
+  "editKeyPairs": [
+    [
+      "ch17-l05-teaching-01",
+      "ch17-l05-teaching-01"
+    ],
+    [
+      "ch17-l05-teaching-01-p1",
+      "ch17-l05-teaching-01-p1"
+    ],
+    [
+      "ch17-l05-teaching-01-p2",
+      "ch17-l05-teaching-01-p2"
+    ],
+    [
+      "ch17-l05-teaching-02",
+      "ch17-l05-teaching-02"
+    ],
+    [
+      "ch17-l05-teaching-02-p1",
+      "ch17-l05-teaching-02-p1"
+    ],
+    [
+      "ch17-l05-teaching-02-p2",
+      "ch17-l05-teaching-02-p2"
+    ],
+    [
+      "ch17-l05-teaching-02-p3",
+      "ch17-l05-teaching-02-p3"
+    ],
+    [
+      "ch17-l05-worked",
+      "ch17-l05-worked"
+    ],
+    [
+      "ch17-l05-teaching-03",
+      "ch17-l05-teaching-03"
+    ],
+    [
+      "ch17-l05-teaching-03-p1",
+      "ch17-l05-teaching-03-p1"
+    ],
+    [
+      "ch17-l05-teaching-03-p2",
+      "ch17-l05-teaching-03-p2"
+    ],
+    [
+      "ch17-l05-teaching-03-p3",
+      "ch17-l05-teaching-03-p3"
+    ]
+  ],
+  "optionalSections": [
+    {
+      "id": "ch17-kinch-v020-l05-change-response",
+      "sectionId": "ch17-kinch-v020-l05-change-task",
+      "before": {
+        "bytes": 4203,
+        "sha256": "a218d13653a95a59da2d56004ea889124992ee3903e2b0749c8f7df78c7a16cf"
+      },
+      "afterStartByte": 38226,
+      "afterEndByteExclusive": 42429,
+      "after": {
+        "bytes": 4203,
+        "sha256": "a218d13653a95a59da2d56004ea889124992ee3903e2b0749c8f7df78c7a16cf"
+      },
+      "exactBytes": true,
+      "oneOccurrence": true
+    },
+    {
+      "id": "ch17-kinch-v020-l05-evidence-response",
+      "sectionId": "ch17-kinch-v020-l05-evidence-task",
+      "before": {
+        "bytes": 4537,
+        "sha256": "545343eb9be903740eda4fa5258a96eb5c82de05327de2ee734143bea75fc97d"
+      },
+      "afterStartByte": 51710,
+      "afterEndByteExclusive": 56247,
+      "after": {
+        "bytes": 4537,
+        "sha256": "545343eb9be903740eda4fa5258a96eb5c82de05327de2ee734143bea75fc97d"
+      },
+      "exactBytes": true,
+      "oneOccurrence": true
+    }
+  ],
+  "nativeBranchFigure": {
+    "before": {
+      "bytes": 722,
+      "sha256": "fb4a4af8d132176bcfcd3f21695d97865901a1c626bbecf5e9a1d6106dc428d0"
+    },
+    "afterStartByte": 19550,
+    "afterEndByteExclusive": 20272,
+    "exactBytes": true
+  },
+  "newStaticIds": [
+    "ch17-l05-v010-chromosome-orientations",
+    "ch17-l05-v010-f1-combinations",
+    "ch17-l05-v010-f1-gamete-weights",
+    "ch17-l05-v010-f2-groups",
+    "ch17-l05-v010-f2-source",
+    "ch17-l05-v010-f2-weighted-grid",
+    "ch17-l05-v010-p-gametes",
+    "ch17-l05-v010-pea-contrasts",
+    "ch17-l05-v010-pea-parents",
+    "ch17-l05-v010-pea-rules",
+    "ch17-l05-v010-squash-counts",
+    "ch17-l05-v010-squash-evidence",
+    "ch17-l05-v010-squash-grid",
+    "ch17-l05-v010-tomato-gametes",
+    "ch17-l05-v010-tomato-grid",
+    "ch17-l05-v010-tomato-groups",
+    "ch17-l05-v010-tomato-parents"
+  ],
+  "candidateClasses": [
+    "bio-term",
+    "comparison-table",
+    "content-section",
+    "figure-toolbar",
+    "optional-writing",
+    "science-figure",
+    "section-label",
+    "text-link",
+    "worked-example",
+    "writing-status"
+  ],
+  "controls": [
+    {
+      "tag": "button",
+      "attrs": {
+        "aria-haspopup": "dialog",
+        "class": "bio-term",
+        "data-term-id": "ch17-word-allele",
+        "type": "button"
+      },
+      "startCharacter": 501,
+      "openEndCharacter": 595,
+      "startTag": "<button aria-haspopup=\"dialog\" class=\"bio-term\" data-term-id=\"ch17-word-allele\" type=\"button\">",
+      "closeStartCharacter": 601,
+      "endCharacterExclusive": 610
+    },
+    {
+      "tag": "button",
+      "attrs": {
+        "aria-haspopup": "dialog",
+        "class": "bio-term",
+        "data-term-id": "ch17-word-phenotype",
+        "type": "button"
+      },
+      "startCharacter": 1870,
+      "openEndCharacter": 1967,
+      "startTag": "<button aria-haspopup=\"dialog\" class=\"bio-term\" data-term-id=\"ch17-word-phenotype\" type=\"button\">",
+      "closeStartCharacter": 1976,
+      "endCharacterExclusive": 1985
+    },
+    {
+      "tag": "button",
+      "attrs": {
+        "aria-haspopup": "dialog",
+        "class": "bio-term",
+        "data-term-id": "ch17-word-true-breeding",
+        "type": "button"
+      },
+      "startCharacter": 2415,
+      "openEndCharacter": 2516,
+      "startTag": "<button aria-haspopup=\"dialog\" class=\"bio-term\" data-term-id=\"ch17-word-true-breeding\" type=\"button\">",
+      "closeStartCharacter": 2529,
+      "endCharacterExclusive": 2538
+    },
+    {
+      "tag": "button",
+      "attrs": {
+        "aria-haspopup": "dialog",
+        "class": "bio-term",
+        "data-term-id": "ch17-word-homozygous",
+        "type": "button"
+      },
+      "startCharacter": 5051,
+      "openEndCharacter": 5149,
+      "startTag": "<button aria-haspopup=\"dialog\" class=\"bio-term\" data-term-id=\"ch17-word-homozygous\" type=\"button\">",
+      "closeStartCharacter": 5159,
+      "endCharacterExclusive": 5168
+    },
+    {
+      "tag": "button",
+      "attrs": {
+        "aria-haspopup": "dialog",
+        "class": "bio-term",
+        "data-term-id": "ch17-word-genotype",
+        "type": "button"
+      },
+      "startCharacter": 5275,
+      "openEndCharacter": 5371,
+      "startTag": "<button aria-haspopup=\"dialog\" class=\"bio-term\" data-term-id=\"ch17-word-genotype\" type=\"button\">",
+      "closeStartCharacter": 5379,
+      "endCharacterExclusive": 5388
+    },
+    {
+      "tag": "button",
+      "attrs": {
+        "aria-haspopup": "dialog",
+        "class": "bio-term",
+        "data-term-id": "ch17-word-f1-generation",
+        "type": "button"
+      },
+      "startCharacter": 7606,
+      "openEndCharacter": 7707,
+      "startTag": "<button aria-haspopup=\"dialog\" class=\"bio-term\" data-term-id=\"ch17-word-f1-generation\" type=\"button\">",
+      "closeStartCharacter": 7720,
+      "endCharacterExclusive": 7729
+    },
+    {
+      "tag": "button",
+      "attrs": {
+        "aria-haspopup": "dialog",
+        "class": "bio-term",
+        "data-term-id": "ch17-word-heterozygous",
+        "type": "button"
+      },
+      "startCharacter": 8871,
+      "openEndCharacter": 8971,
+      "startTag": "<button aria-haspopup=\"dialog\" class=\"bio-term\" data-term-id=\"ch17-word-heterozygous\" type=\"button\">",
+      "closeStartCharacter": 8983,
+      "endCharacterExclusive": 8992
+    },
+    {
+      "tag": "button",
+      "attrs": {
+        "aria-haspopup": "dialog",
+        "class": "bio-term",
+        "data-term-id": "ch17-word-dihybrid-cross",
+        "type": "button"
+      },
+      "startCharacter": 9257,
+      "openEndCharacter": 9359,
+      "startTag": "<button aria-haspopup=\"dialog\" class=\"bio-term\" data-term-id=\"ch17-word-dihybrid-cross\" type=\"button\">",
+      "closeStartCharacter": 9373,
+      "endCharacterExclusive": 9382
+    },
+    {
+      "tag": "button",
+      "attrs": {
+        "aria-haspopup": "dialog",
+        "class": "bio-term",
+        "data-term-id": "ch17-word-f2-generation",
+        "type": "button"
+      },
+      "startCharacter": 9840,
+      "openEndCharacter": 9941,
+      "startTag": "<button aria-haspopup=\"dialog\" class=\"bio-term\" data-term-id=\"ch17-word-f2-generation\" type=\"button\">",
+      "closeStartCharacter": 9954,
+      "endCharacterExclusive": 9963
+    },
+    {
+      "tag": "button",
+      "attrs": {
+        "aria-haspopup": "dialog",
+        "class": "bio-term",
+        "data-term-id": "ch17-word-independent-assortment",
+        "type": "button"
+      },
+      "startCharacter": 15828,
+      "openEndCharacter": 15938,
+      "startTag": "<button aria-haspopup=\"dialog\" class=\"bio-term\" data-term-id=\"ch17-word-independent-assortment\" type=\"button\">",
+      "closeStartCharacter": 15960,
+      "endCharacterExclusive": 15969
+    },
+    {
+      "tag": "button",
+      "attrs": {
+        "aria-haspopup": "dialog",
+        "class": "bio-term",
+        "data-term-id": "ch17-word-probability",
+        "type": "button"
+      },
+      "startCharacter": 16466,
+      "openEndCharacter": 16565,
+      "startTag": "<button aria-haspopup=\"dialog\" class=\"bio-term\" data-term-id=\"ch17-word-probability\" type=\"button\">",
+      "closeStartCharacter": 16576,
+      "endCharacterExclusive": 16585
+    },
+    {
+      "tag": "button",
+      "attrs": {
+        "aria-haspopup": "dialog",
+        "class": "bio-term",
+        "data-term-id": "ch17-word-product-rule",
+        "type": "button"
+      },
+      "startCharacter": 16873,
+      "openEndCharacter": 16973,
+      "startTag": "<button aria-haspopup=\"dialog\" class=\"bio-term\" data-term-id=\"ch17-word-product-rule\" type=\"button\">",
+      "closeStartCharacter": 16985,
+      "endCharacterExclusive": 16994
+    },
+    {
+      "tag": "button",
+      "attrs": {
+        "aria-haspopup": "dialog",
+        "class": "bio-term",
+        "data-term-id": "ch17-word-gamete-combination",
+        "type": "button"
+      },
+      "startCharacter": 17423,
+      "openEndCharacter": 17529,
+      "startTag": "<button aria-haspopup=\"dialog\" class=\"bio-term\" data-term-id=\"ch17-word-gamete-combination\" type=\"button\">",
+      "closeStartCharacter": 17547,
+      "endCharacterExclusive": 17556
+    },
+    {
+      "tag": "button",
+      "attrs": {
+        "class": "text-link",
+        "data-enlarge-figure": "ch17-two-trait",
+        "type": "button"
+      },
+      "startCharacter": 19660,
+      "openEndCharacter": 19737,
+      "startTag": "<button class=\"text-link\" data-enlarge-figure=\"ch17-two-trait\" type=\"button\">",
+      "closeStartCharacter": 19748,
+      "endCharacterExclusive": 19757
+    },
+    {
+      "tag": "button",
+      "attrs": {
+        "aria-haspopup": "dialog",
+        "class": "bio-term",
+        "data-term-id": "ch17-word-penetrance",
+        "type": "button"
+      },
+      "startCharacter": 27659,
+      "openEndCharacter": 27757,
+      "startTag": "<button aria-haspopup=\"dialog\" class=\"bio-term\" data-term-id=\"ch17-word-penetrance\" type=\"button\">",
+      "closeStartCharacter": 27767,
+      "endCharacterExclusive": 27776
+    },
+    {
+      "tag": "textarea",
+      "attrs": {
+        "aria-describedby": "ch17-kinch-v020-l05-change-response-status",
+        "data-note-input": "ch17-kinch-v020-l05-change-response",
+        "id": "ch17-kinch-v020-l05-change-response",
+        "rows": "5"
+      },
+      "startCharacter": 39341,
+      "openEndCharacter": 39517,
+      "startTag": "<textarea aria-describedby=\"ch17-kinch-v020-l05-change-response-status\" data-note-input=\"ch17-kinch-v020-l05-change-response\" id=\"ch17-kinch-v020-l05-change-response\" rows=\"5\">",
+      "closeStartCharacter": 39517,
+      "endCharacterExclusive": 39528
+    },
+    {
+      "tag": "button",
+      "attrs": {
+        "data-save-note": "ch17-kinch-v020-l05-change-response",
+        "type": "button"
+      },
+      "startCharacter": 39740,
+      "openEndCharacter": 39815,
+      "startTag": "<button data-save-note=\"ch17-kinch-v020-l05-change-response\" type=\"button\">",
+      "closeStartCharacter": 39828,
+      "endCharacterExclusive": 39837
+    },
+    {
+      "tag": "button",
+      "attrs": {
+        "aria-haspopup": "dialog",
+        "class": "bio-term",
+        "data-term-id": "ch17-word-expected-number",
+        "type": "button"
+      },
+      "startCharacter": 48362,
+      "openEndCharacter": 48465,
+      "startTag": "<button aria-haspopup=\"dialog\" class=\"bio-term\" data-term-id=\"ch17-word-expected-number\" type=\"button\">",
+      "closeStartCharacter": 48480,
+      "endCharacterExclusive": 48489
+    },
+    {
+      "tag": "textarea",
+      "attrs": {
+        "aria-describedby": "ch17-kinch-v020-l05-evidence-response-status",
+        "data-note-input": "ch17-kinch-v020-l05-evidence-response",
+        "id": "ch17-kinch-v020-l05-evidence-response",
+        "rows": "5"
+      },
+      "startCharacter": 53383,
+      "openEndCharacter": 53565,
+      "startTag": "<textarea aria-describedby=\"ch17-kinch-v020-l05-evidence-response-status\" data-note-input=\"ch17-kinch-v020-l05-evidence-response\" id=\"ch17-kinch-v020-l05-evidence-response\" rows=\"5\">",
+      "closeStartCharacter": 53565,
+      "endCharacterExclusive": 53576
+    },
+    {
+      "tag": "button",
+      "attrs": {
+        "data-save-note": "ch17-kinch-v020-l05-evidence-response",
+        "type": "button"
+      },
+      "startCharacter": 53792,
+      "openEndCharacter": 53869,
+      "startTag": "<button data-save-note=\"ch17-kinch-v020-l05-evidence-response\" type=\"button\">",
+      "closeStartCharacter": 53882,
+      "endCharacterExclusive": 53891
+    },
+    {
+      "tag": "button",
+      "attrs": {
+        "aria-haspopup": "dialog",
+        "class": "bio-term",
+        "data-term-id": "ch17-word-linked-genes",
+        "type": "button"
+      },
+      "startCharacter": 57035,
+      "openEndCharacter": 57135,
+      "startTag": "<button aria-haspopup=\"dialog\" class=\"bio-term\" data-term-id=\"ch17-word-linked-genes\" type=\"button\">",
+      "closeStartCharacter": 57147,
+      "endCharacterExclusive": 57156
+    },
+    {
+      "tag": "button",
+      "attrs": {
+        "aria-haspopup": "dialog",
+        "class": "bio-term",
+        "data-term-id": "ch17-word-incomplete-dominance",
+        "type": "button"
+      },
+      "startCharacter": 57439,
+      "openEndCharacter": 57547,
+      "startTag": "<button aria-haspopup=\"dialog\" class=\"bio-term\" data-term-id=\"ch17-word-incomplete-dominance\" type=\"button\">",
+      "closeStartCharacter": 57567,
+      "endCharacterExclusive": 57576
+    },
+    {
+      "tag": "button",
+      "attrs": {
+        "aria-haspopup": "dialog",
+        "class": "bio-term",
+        "data-term-id": "ch17-word-codominance",
+        "type": "button"
+      },
+      "startCharacter": 57629,
+      "openEndCharacter": 57728,
+      "startTag": "<button aria-haspopup=\"dialog\" class=\"bio-term\" data-term-id=\"ch17-word-codominance\" type=\"button\">",
+      "closeStartCharacter": 57739,
+      "endCharacterExclusive": 57748
+    }
+  ],
+  "nativeTermLinks": [
+    {
+      "id": "ch17-word-allele",
+      "visibleText": "allele",
+      "existingTerm": {
+        "term": "allele",
+        "meaning": "An alternative version of a gene.",
+        "example": "Two versions at the same locus are represented as B and b.",
+        "importantDistinction": "A diploid individual usually carries two alleles at an autosomal locus, even when more exist in the population.",
+        "aliases": [],
+        "id": "ch17-word-allele",
+        "lesson": 1,
+        "whatItDoes": "Two versions at the same locus are represented as B and b.",
+        "feature": "Two versions at the same locus are represented as B and b.",
+        "confusion": "A diploid individual usually carries two alleles at an autosomal locus, even when more exist in the population."
+      },
+      "attrs": {
+        "aria-haspopup": "dialog",
+        "class": "bio-term",
+        "data-term-id": "ch17-word-allele",
+        "type": "button"
+      }
+    },
+    {
+      "id": "ch17-word-phenotype",
+      "visibleText": "phenotype",
+      "existingTerm": {
+        "term": "phenotype",
+        "meaning": "An observable or measurable characteristic resulting from genotype and its biological context.",
+        "example": "A model organism produces dark pigment.",
+        "importantDistinction": "Phenotypes can include physiological or behavioural traits, not only colour.",
+        "aliases": [],
+        "id": "ch17-word-phenotype",
+        "lesson": 1,
+        "whatItDoes": "A model organism produces dark pigment.",
+        "feature": "A model organism produces dark pigment.",
+        "confusion": "Phenotypes can include physiological or behavioural traits, not only colour."
+      },
+      "attrs": {
+        "aria-haspopup": "dialog",
+        "class": "bio-term",
+        "data-term-id": "ch17-word-phenotype",
+        "type": "button"
+      }
+    },
+    {
+      "id": "ch17-word-true-breeding",
+      "visibleText": "True breeding",
+      "existingTerm": {
+        "term": "true-breeding",
+        "meaning": "Producing offspring with the same trait when bred within the line under the stated conditions.",
+        "example": "A homozygous pea line repeatedly produces the same flower phenotype.",
+        "importantDistinction": "In Mendel’s simple models, true-breeding lines are homozygous for the studied trait.",
+        "aliases": [],
+        "id": "ch17-word-true-breeding",
+        "lesson": 2,
+        "whatItDoes": "A homozygous pea line repeatedly produces the same flower phenotype.",
+        "feature": "A homozygous pea line repeatedly produces the same flower phenotype.",
+        "confusion": "In Mendel’s simple models, true-breeding lines are homozygous for the studied trait."
+      },
+      "attrs": {
+        "aria-haspopup": "dialog",
+        "class": "bio-term",
+        "data-term-id": "ch17-word-true-breeding",
+        "type": "button"
+      }
+    },
+    {
+      "id": "ch17-word-homozygous",
+      "visibleText": "homozygous",
+      "existingTerm": {
+        "term": "homozygous",
+        "meaning": "Having two identical alleles at a locus.",
+        "example": "An individual is AA or aa rather than Aa.",
+        "importantDistinction": "Homozygous can be dominant or recessive.",
+        "aliases": [],
+        "id": "ch17-word-homozygous",
+        "lesson": 4,
+        "whatItDoes": "An individual is AA or aa rather than Aa.",
+        "feature": "An individual is AA or aa rather than Aa.",
+        "confusion": "Homozygous can be dominant or recessive."
+      },
+      "attrs": {
+        "aria-haspopup": "dialog",
+        "class": "bio-term",
+        "data-term-id": "ch17-word-homozygous",
+        "type": "button"
+      }
+    },
+    {
+      "id": "ch17-word-genotype",
+      "visibleText": "genotype",
+      "existingTerm": {
+        "term": "genotype",
+        "meaning": "The allele combination an organism carries at the locus or loci being considered.",
+        "example": "A model organism is Bb for a pigment gene.",
+        "importantDistinction": "Genotype records the allele combination, not just the appearance.",
+        "aliases": [],
+        "id": "ch17-word-genotype",
+        "lesson": 1,
+        "whatItDoes": "A model organism is Bb for a pigment gene.",
+        "feature": "A model organism is Bb for a pigment gene.",
+        "confusion": "Genotype records the allele combination, not just the appearance."
+      },
+      "attrs": {
+        "aria-haspopup": "dialog",
+        "class": "bio-term",
+        "data-term-id": "ch17-word-genotype",
+        "type": "button"
+      }
+    },
+    {
+      "id": "ch17-word-f1-generation",
+      "visibleText": "F1 generation",
+      "existingTerm": {
+        "term": "F1 generation",
+        "meaning": "The first offspring generation from a specified parental cross.",
+        "example": "RR crossed with rr produces a first generation of Rr offspring.",
+        "importantDistinction": "F1 names a relationship to a cross, not a universal genotype.",
+        "aliases": [],
+        "id": "ch17-word-f1-generation",
+        "lesson": 2,
+        "whatItDoes": "RR crossed with rr produces a first generation of Rr offspring.",
+        "feature": "RR crossed with rr produces a first generation of Rr offspring.",
+        "confusion": "F1 names a relationship to a cross, not a universal genotype."
+      },
+      "attrs": {
+        "aria-haspopup": "dialog",
+        "class": "bio-term",
+        "data-term-id": "ch17-word-f1-generation",
+        "type": "button"
+      }
+    },
+    {
+      "id": "ch17-word-heterozygous",
+      "visibleText": "heterozygous",
+      "existingTerm": {
+        "term": "heterozygous",
+        "meaning": "Having two different alleles at a locus.",
+        "example": "An individual has one dominant and one recessive allele in a simple model.",
+        "importantDistinction": "A heterozygote can share a phenotype with a homozygous dominant individual.",
+        "aliases": [],
+        "id": "ch17-word-heterozygous",
+        "lesson": 4,
+        "whatItDoes": "An individual has one dominant and one recessive allele in a simple model.",
+        "feature": "An individual has one dominant and one recessive allele in a simple model.",
+        "confusion": "A heterozygote can share a phenotype with a homozygous dominant individual."
+      },
+      "attrs": {
+        "aria-haspopup": "dialog",
+        "class": "bio-term",
+        "data-term-id": "ch17-word-heterozygous",
+        "type": "button"
+      }
+    },
+    {
+      "id": "ch17-word-dihybrid-cross",
+      "visibleText": "dihybrid cross",
+      "existingTerm": {
+        "term": "dihybrid cross",
+        "meaning": "A cross between individuals heterozygous at two studied loci.",
+        "example": "AaBb × AaBb is used to examine two traits under stated assumptions.",
+        "importantDistinction": "The familiar 9:3:3:1 phenotype ratio needs complete dominance and independent assortment.",
+        "aliases": [],
+        "id": "ch17-word-dihybrid-cross",
+        "lesson": 5,
+        "whatItDoes": "AaBb × AaBb is used to examine two traits under stated assumptions.",
+        "feature": "AaBb × AaBb is used to examine two traits under stated assumptions.",
+        "confusion": "The familiar 9:3:3:1 phenotype ratio needs complete dominance and independent assortment."
+      },
+      "attrs": {
+        "aria-haspopup": "dialog",
+        "class": "bio-term",
+        "data-term-id": "ch17-word-dihybrid-cross",
+        "type": "button"
+      }
+    },
+    {
+      "id": "ch17-word-f2-generation",
+      "visibleText": "F2 generation",
+      "existingTerm": {
+        "term": "F2 generation",
+        "meaning": "The generation produced from the F1 in the specified breeding design.",
+        "example": "Two F1 heterozygotes are crossed to examine the next generation.",
+        "importantDistinction": "Its ratios depend on the parental genotypes and assumptions.",
+        "aliases": [],
+        "id": "ch17-word-f2-generation",
+        "lesson": 2,
+        "whatItDoes": "Two F1 heterozygotes are crossed to examine the next generation.",
+        "feature": "Two F1 heterozygotes are crossed to examine the next generation.",
+        "confusion": "Its ratios depend on the parental genotypes and assumptions."
+      },
+      "attrs": {
+        "aria-haspopup": "dialog",
+        "class": "bio-term",
+        "data-term-id": "ch17-word-f2-generation",
+        "type": "button"
+      }
+    },
+    {
+      "id": "ch17-word-independent-assortment",
+      "visibleText": "Independent assortment",
+      "existingTerm": {
+        "term": "independent assortment",
+        "meaning": "Independent segregation of alleles at different loci when the chromosome arrangement permits it.",
+        "example": "An AaBb individual produces AB, Ab, aB and ab equally in an unlinked model.",
+        "importantDistinction": "Linked genes can depart from this equal-combination prediction.",
+        "aliases": [],
+        "id": "ch17-word-independent-assortment",
+        "lesson": 5,
+        "whatItDoes": "An AaBb individual produces AB, Ab, aB and ab equally in an unlinked model.",
+        "feature": "An AaBb individual produces AB, Ab, aB and ab equally in an unlinked model.",
+        "confusion": "Linked genes can depart from this equal-combination prediction."
+      },
+      "attrs": {
+        "aria-haspopup": "dialog",
+        "class": "bio-term",
+        "data-term-id": "ch17-word-independent-assortment",
+        "type": "button"
+      }
+    },
+    {
+      "id": "ch17-word-probability",
+      "visibleText": "probability",
+      "existingTerm": {
+        "term": "probability",
+        "meaning": "The expected proportion of an outcome under specified conditions.",
+        "example": "One of four equally likely combinations is homozygous recessive.",
+        "importantDistinction": "Use the group asked about as the denominator.",
+        "aliases": [],
+        "id": "ch17-word-probability",
+        "lesson": 3,
+        "whatItDoes": "One of four equally likely combinations is homozygous recessive.",
+        "feature": "One of four equally likely combinations is homozygous recessive.",
+        "confusion": "Use the group asked about as the denominator."
+      },
+      "attrs": {
+        "aria-haspopup": "dialog",
+        "class": "bio-term",
+        "data-term-id": "ch17-word-probability",
+        "type": "button"
+      }
+    },
+    {
+      "id": "ch17-word-product-rule",
+      "visibleText": "product rule",
+      "existingTerm": {
+        "term": "product rule",
+        "meaning": "Multiplication of probabilities for specified independent events.",
+        "example": "Probability of aa and bb is calculated as P(aa) × P(bb) when the loci assort independently.",
+        "importantDistinction": "Check independence before multiplying separate trait probabilities.",
+        "aliases": [],
+        "id": "ch17-word-product-rule",
+        "lesson": 5,
+        "whatItDoes": "Probability of aa and bb is calculated as P(aa) × P(bb) when the loci assort independently.",
+        "feature": "Probability of aa and bb is calculated as P(aa) × P(bb) when the loci assort independently.",
+        "confusion": "Check independence before multiplying separate trait probabilities."
+      },
+      "attrs": {
+        "aria-haspopup": "dialog",
+        "class": "bio-term",
+        "data-term-id": "ch17-word-product-rule",
+        "type": "button"
+      }
+    },
+    {
+      "id": "ch17-word-gamete-combination",
+      "visibleText": "gamete combination",
+      "existingTerm": {
+        "term": "gamete combination",
+        "meaning": "The set of one allele from each studied locus carried by a gamete.",
+        "example": "An AaBb parent can produce an Ab gamete in an independent model.",
+        "importantDistinction": "A gamete does not receive both A and a at the same autosomal locus in this model.",
+        "aliases": [],
+        "id": "ch17-word-gamete-combination",
+        "lesson": 5,
+        "whatItDoes": "An AaBb parent can produce an Ab gamete in an independent model.",
+        "feature": "An AaBb parent can produce an Ab gamete in an independent model.",
+        "confusion": "A gamete does not receive both A and a at the same autosomal locus in this model."
+      },
+      "attrs": {
+        "aria-haspopup": "dialog",
+        "class": "bio-term",
+        "data-term-id": "ch17-word-gamete-combination",
+        "type": "button"
+      }
+    },
+    {
+      "id": "ch17-word-penetrance",
+      "visibleText": "Penetrance",
+      "existingTerm": {
+        "term": "penetrance",
+        "meaning": "The proportion of individuals with a genotype who express the associated phenotype.",
+        "example": "A simple pedigree question assumes every person with a specified genotype expresses the trait.",
+        "importantDistinction": "Incomplete penetrance can make patterns less straightforward than classroom models.",
+        "aliases": [],
+        "id": "ch17-word-penetrance",
+        "lesson": 11,
+        "whatItDoes": "A simple pedigree question assumes every person with a specified genotype expresses the trait.",
+        "feature": "A simple pedigree question assumes every person with a specified genotype expresses the trait.",
+        "confusion": "Incomplete penetrance can make patterns less straightforward than classroom models."
+      },
+      "attrs": {
+        "aria-haspopup": "dialog",
+        "class": "bio-term",
+        "data-term-id": "ch17-word-penetrance",
+        "type": "button"
+      }
+    },
+    {
+      "id": "ch17-word-expected-number",
+      "visibleText": "expected number",
+      "existingTerm": {
+        "term": "expected number",
+        "meaning": "The predicted count obtained by multiplying a probability by the sample size.",
+        "example": "A probability of 0.25 in 80 offspring gives an expected count of 20.",
+        "importantDistinction": "An expected count need not equal an observed count.",
+        "aliases": [],
+        "id": "ch17-word-expected-number",
+        "lesson": 3,
+        "whatItDoes": "A probability of 0.25 in 80 offspring gives an expected count of 20.",
+        "feature": "A probability of 0.25 in 80 offspring gives an expected count of 20.",
+        "confusion": "An expected count need not equal an observed count."
+      },
+      "attrs": {
+        "aria-haspopup": "dialog",
+        "class": "bio-term",
+        "data-term-id": "ch17-word-expected-number",
+        "type": "button"
+      }
+    },
+    {
+      "id": "ch17-word-linked-genes",
+      "visibleText": "linked genes",
+      "existingTerm": {
+        "term": "linked genes",
+        "meaning": "Genes on the same chromosome that may be inherited together, especially when close.",
+        "example": "AB is carried on one homologue and ab on the other.",
+        "importantDistinction": "Physical linkage can reduce recombinant frequency, but widely separated loci may appear independent.",
+        "aliases": [],
+        "id": "ch17-word-linked-genes",
+        "lesson": 12,
+        "whatItDoes": "AB is carried on one homologue and ab on the other.",
+        "feature": "AB is carried on one homologue and ab on the other.",
+        "confusion": "Physical linkage can reduce recombinant frequency, but widely separated loci may appear independent."
+      },
+      "attrs": {
+        "aria-haspopup": "dialog",
+        "class": "bio-term",
+        "data-term-id": "ch17-word-linked-genes",
+        "type": "button"
+      }
+    },
+    {
+      "id": "ch17-word-incomplete-dominance",
+      "visibleText": "incomplete dominance",
+      "existingTerm": {
+        "term": "incomplete dominance",
+        "meaning": "An allele relationship in which the heterozygote has an intermediate phenotype.",
+        "example": "Red and white flower alleles produce pink flowers in the specified heterozygote model.",
+        "importantDistinction": "An intermediate phenotype does not mean the alleles permanently blend.",
+        "aliases": [],
+        "id": "ch17-word-incomplete-dominance",
+        "lesson": 6,
+        "whatItDoes": "Red and white flower alleles produce pink flowers in the specified heterozygote model.",
+        "feature": "Red and white flower alleles produce pink flowers in the specified heterozygote model.",
+        "confusion": "An intermediate phenotype does not mean the alleles permanently blend."
+      },
+      "attrs": {
+        "aria-haspopup": "dialog",
+        "class": "bio-term",
+        "data-term-id": "ch17-word-incomplete-dominance",
+        "type": "button"
+      }
+    },
+    {
+      "id": "ch17-word-codominance",
+      "visibleText": "codominance",
+      "existingTerm": {
+        "term": "codominance",
+        "meaning": "An allele relationship in which both allele-associated products or traits are expressed in a heterozygote.",
+        "example": "A roan coat contains both red and white hairs in the model.",
+        "importantDistinction": "Codominance is not limited to separate patches of cells; both products can be present in the same cells.",
+        "aliases": [],
+        "id": "ch17-word-codominance",
+        "lesson": 6,
+        "whatItDoes": "A roan coat contains both red and white hairs in the model.",
+        "feature": "A roan coat contains both red and white hairs in the model.",
+        "confusion": "Codominance is not limited to separate patches of cells; both products can be present in the same cells."
+      },
+      "attrs": {
+        "aria-haspopup": "dialog",
+        "class": "bio-term",
+        "data-term-id": "ch17-word-codominance",
+        "type": "button"
+      }
+    }
+  ],
+  "imageChecks": [
+    {
+      "src": "./assets/teaching-l05-v010/slide-35-image32.png",
+      "localOutput": "/workspace/scratch/9592c268bc42/output/Biology30_CH17_Lesson05_Teacher_Transfer_v0.1.0/assets/teaching-l05-v010/slide-35-image32.png",
+      "sourceFile": "/workspace/scratch/9592c268bc42/lesson05-v010-source-shz8aaff/sources/slide-assets/slide-35-image32.png",
+      "bytes": 77704,
+      "sha256": "8eeaa700523d536e1375231cfc9f6a6971ae29618aca18918040ea81f5502d39",
+      "sourceSha256": "8eeaa700523d536e1375231cfc9f6a6971ae29618aca18918040ea81f5502d39",
+      "originalPptMember": "ppt/media/image32.png",
+      "originalPptMemberSha256": "8eeaa700523d536e1375231cfc9f6a6971ae29618aca18918040ea81f5502d39",
+      "sourceByteEquality": true,
+      "pptMemberByteEquality": true,
+      "originalSlideRelationshipResolvesMember": true,
+      "alt": "A tall pea plant on the left and a short plant beside it, with a separate upper-right inset showing a green pod on the left and a yellow pod on the right.",
+      "decoding": "async",
+      "loading": "lazy"
+    },
+    {
+      "src": "./assets/teaching-l05-v010/slide-36-image29.png",
+      "localOutput": "/workspace/scratch/9592c268bc42/output/Biology30_CH17_Lesson05_Teacher_Transfer_v0.1.0/assets/teaching-l05-v010/slide-36-image29.png",
+      "sourceFile": "/workspace/scratch/9592c268bc42/lesson05-v010-source-shz8aaff/sources/slide-assets/slide-36-image29.png",
+      "bytes": 84208,
+      "sha256": "1b3fd0b0ced0cc074bdfac4b3a6712392123db36e33970813c8c2ea235e6abb9",
+      "sourceSha256": "1b3fd0b0ced0cc074bdfac4b3a6712392123db36e33970813c8c2ea235e6abb9",
+      "originalPptMember": "ppt/media/image29.png",
+      "originalPptMemberSha256": "1b3fd0b0ced0cc074bdfac4b3a6712392123db36e33970813c8c2ea235e6abb9",
+      "sourceByteEquality": true,
+      "pptMemberByteEquality": true,
+      "originalSlideRelationshipResolvesMember": true,
+      "alt": "The chosen P plants: a tall plant with green pods on the left crossed with a short plant with yellow pods on the right. Boxed pod details enlarge the colour contrast.",
+      "decoding": "async",
+      "loading": "lazy"
+    },
+    {
+      "src": "./assets/teaching-l05-v010/slide-37-image46.png",
+      "localOutput": "/workspace/scratch/9592c268bc42/output/Biology30_CH17_Lesson05_Teacher_Transfer_v0.1.0/assets/teaching-l05-v010/slide-37-image46.png",
+      "sourceFile": "/workspace/scratch/9592c268bc42/lesson05-v010-source-shz8aaff/sources/slide-assets/slide-37-image46.png",
+      "bytes": 7401,
+      "sha256": "cac4ebce12f25f7afe2bae30ad8806346f8b83b6e618fdd1c90c20a6b7cce3cb",
+      "sourceSha256": "cac4ebce12f25f7afe2bae30ad8806346f8b83b6e618fdd1c90c20a6b7cce3cb",
+      "originalPptMember": "ppt/media/image46.png",
+      "originalPptMemberSha256": "cac4ebce12f25f7afe2bae30ad8806346f8b83b6e618fdd1c90c20a6b7cce3cb",
+      "sourceByteEquality": true,
+      "pptMemberByteEquality": true,
+      "originalSlideRelationshipResolvesMember": true,
+      "alt": "Combination arrows around TTGG give TG, TG, TG, TG. Arrows around ttgg give tg, tg, tg, tg. Each repeated list contains only one distinct gamete type.",
+      "decoding": "async",
+      "loading": "lazy"
+    },
+    {
+      "src": "./assets/teaching-l05-v010/slide-37-image37.png",
+      "localOutput": "/workspace/scratch/9592c268bc42/output/Biology30_CH17_Lesson05_Teacher_Transfer_v0.1.0/assets/teaching-l05-v010/slide-37-image37.png",
+      "sourceFile": "/workspace/scratch/9592c268bc42/lesson05-v010-source-shz8aaff/sources/slide-assets/slide-37-image37.png",
+      "bytes": 15668,
+      "sha256": "32c3c6888aee2d6573340d2cae5b177ad5a8b3c38a944b0c0f715edc65e04baf",
+      "sourceSha256": "32c3c6888aee2d6573340d2cae5b177ad5a8b3c38a944b0c0f715edc65e04baf",
+      "originalPptMember": "ppt/media/image37.png",
+      "originalPptMemberSha256": "32c3c6888aee2d6573340d2cae5b177ad5a8b3c38a944b0c0f715edc65e04baf",
+      "sourceByteEquality": true,
+      "pptMemberByteEquality": true,
+      "originalSlideRelationshipResolvesMember": true,
+      "alt": "An expanded P-cross grid repeats TG in all four columns and tg in all four rows. Every cell is TtGg. Its annotation identifies all F1 offspring as heterozygous at both loci, tall with green pods.",
+      "decoding": "async",
+      "loading": "lazy"
+    },
+    {
+      "src": "./assets/teaching-l05-v010/slide-39-image40.png",
+      "localOutput": "/workspace/scratch/9592c268bc42/output/Biology30_CH17_Lesson05_Teacher_Transfer_v0.1.0/assets/teaching-l05-v010/slide-39-image40.png",
+      "sourceFile": "/workspace/scratch/9592c268bc42/lesson05-v010-source-shz8aaff/sources/slide-assets/slide-39-image40.png",
+      "bytes": 28688,
+      "sha256": "1737c44d6e84b88174326df28f36a39ddf526d5153b33b96660e2cac00e47338",
+      "sourceSha256": "1737c44d6e84b88174326df28f36a39ddf526d5153b33b96660e2cac00e47338",
+      "originalPptMember": "ppt/media/image40.png",
+      "originalPptMemberSha256": "1737c44d6e84b88174326df28f36a39ddf526d5153b33b96660e2cac00e47338",
+      "sourceByteEquality": true,
+      "pptMemberByteEquality": true,
+      "originalSlideRelationshipResolvesMember": true,
+      "alt": "The complete TtGg by TtGg F2 grid has TG, Tg, tG and tg on both edges. Green ovals mark nine tall green-pod cells, yellow ovals three tall yellow-pod cells, green rectangles three short green-pod cells, and a yellow rectangle one short yellow-pod cell. The 9:3:3:1 ratio is already printed at right.",
+      "decoding": "async",
+      "loading": "lazy"
+    },
+    {
+      "src": "./assets/teaching-l05-v010/slide-41-image44.png",
+      "localOutput": "/workspace/scratch/9592c268bc42/output/Biology30_CH17_Lesson05_Teacher_Transfer_v0.1.0/assets/teaching-l05-v010/slide-41-image44.png",
+      "sourceFile": "/workspace/scratch/9592c268bc42/lesson05-v010-source-shz8aaff/sources/slide-assets/slide-41-image44.png",
+      "bytes": 364277,
+      "sha256": "7e57deedfe727416d5536605bb4327cffd16ee88cbb13c778bd5e5039f450eb8",
+      "sourceSha256": "7e57deedfe727416d5536605bb4327cffd16ee88cbb13c778bd5e5039f450eb8",
+      "originalPptMember": "ppt/media/image44.png",
+      "originalPptMemberSha256": "7e57deedfe727416d5536605bb4327cffd16ee88cbb13c778bd5e5039f450eb8",
+      "sourceByteEquality": true,
+      "pptMemberByteEquality": true,
+      "originalSlideRelationshipResolvesMember": true,
+      "alt": "Two alternative orientations of long and short homologous chromosome pairs. The long pair retains its arrangement while the short pair reverses. Homologues separate into the middle cells, labelled Metaphase II; sisters then separate, producing four labelled chromosome-combination types across the two alternatives.",
+      "decoding": "async",
+      "loading": "lazy"
+    },
+    {
+      "src": "./assets/figures/ch17-two-trait.svg",
+      "localOutput": "/workspace/scratch/9592c268bc42/output/Biology30_CH17_Lesson05_Teacher_Transfer_v0.1.0/assets/figures/ch17-two-trait.svg",
+      "sourceFile": "/workspace/scratch/9592c268bc42/lesson05-v010-source-shz8aaff/current/assets/figures/ch17-two-trait.svg",
+      "bytes": 5623,
+      "sha256": "6fdb301a963b4da131f8fe50624611fc0ff091c62e0ac99d6602019c2830c316",
+      "sourceSha256": "6fdb301a963b4da131f8fe50624611fc0ff091c62e0ac99d6602019c2830c316",
+      "originalPptMember": null,
+      "originalPptMemberSha256": "6fdb301a963b4da131f8fe50624611fc0ff091c62e0ac99d6602019c2830c316",
+      "sourceByteEquality": true,
+      "pptMemberByteEquality": true,
+      "originalSlideRelationshipResolvesMember": true,
+      "alt": "Follow each branch from AaBb through one allele at the first locus and one at the second. Each endpoint is one haploid gamete, with probability one quarter.",
+      "decoding": "async",
+      "loading": "lazy"
+    }
+  ],
+  "wholeVisibleCopyComparison": {
+    "equal": true,
+    "nativeNormalizedVisibleCharacters": 42539,
+    "manuscriptNormalizedVisibleCharacters": 42539,
+    "method": "Remove only the reading-copy H1, Markdown emphasis/heading syntax and image syntactic wrappers; parse all HTML tables/controls; normalize whitespace at block/control boundaries; compare the entire visible string, including native toolbar title/button, captions, all teaching, prompts, tables, labels, status prose, hint headings, models and criteria. Independently compare all seven image alt strings and resolved asset paths. This is textual parity, not browser rendering."
+  },
+  "rawBeforeChecks": [
+    {
+      "file": "lesson-05.teaching-fragment.html",
+      "bytes": 32124,
+      "sha256": "af874700b7166abe88072fb430d33f743d0cca930a4681bb4bbe56b93ccf309f",
+      "source": "/workspace/scratch/9592c268bc42/lesson05-v010-source-shz8aaff/current/lesson-05.teaching-fragment.html",
+      "exactBytes": true
+    },
+    {
+      "file": "lesson-05.protected-header.html",
+      "bytes": 3918,
+      "sha256": "ec347589a85dc86e808c43fac459e137a51a73e8d1ba2dd812e1f764b241a340",
+      "source": "/workspace/scratch/9592c268bc42/lesson05-v010-source-shz8aaff/current/lesson-05.protected-header.html",
+      "exactBytes": true
+    },
+    {
+      "file": "lesson-05.protected-suffix.html",
+      "bytes": 15357,
+      "sha256": "64b983b75d491d1398951c89960fe2ebc61268c60cb1c1b03bc5ef212335b066",
+      "source": "/workspace/scratch/9592c268bc42/lesson05-v010-source-shz8aaff/current/lesson-05.protected-suffix.html",
+      "exactBytes": true
+    },
+    {
+      "file": "lesson-prefix-before-teaching.html",
+      "bytes": 3994,
+      "sha256": "28b986d505f43c2100034aa0bbbf76eb9c5280b5fc083011659fe82597ea77e4",
+      "source": "/workspace/scratch/9592c268bc42/lesson05-v010-analysis/raw_before/lesson-prefix-before-teaching.html",
+      "exactBytes": true
+    },
+    {
+      "file": "interstitial-after-fragment.txt",
+      "bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "source": "/workspace/scratch/9592c268bc42/lesson05-v010-analysis/raw_before/interstitial-after-fragment.txt",
+      "exactBytes": true
+    },
+    {
+      "file": "native-branch-figure.html",
+      "bytes": 722,
+      "sha256": "fb4a4af8d132176bcfcd3f21695d97865901a1c626bbecf5e9a1d6106dc428d0",
+      "source": "/workspace/scratch/9592c268bc42/lesson05-v010-analysis/native-branch-figure.html",
+      "exactBytes": true
+    },
+    {
+      "file": "ch17-kinch-v020-l05-change-task.html",
+      "bytes": 4203,
+      "sha256": "a218d13653a95a59da2d56004ea889124992ee3903e2b0749c8f7df78c7a16cf",
+      "source": "/workspace/scratch/9592c268bc42/lesson05-v010-analysis/optional_sections/ch17-kinch-v020-l05-change-task.html",
+      "exactBytes": true
+    },
+    {
+      "file": "ch17-kinch-v020-l05-evidence-task.html",
+      "bytes": 4537,
+      "sha256": "545343eb9be903740eda4fa5258a96eb5c82de05327de2ee734143bea75fc97d",
+      "source": "/workspace/scratch/9592c268bc42/lesson05-v010-analysis/optional_sections/ch17-kinch-v020-l05-evidence-task.html",
+      "exactBytes": true
+    }
+  ],
+  "contractCopyChecks": [
+    {
+      "file": "SOURCE_HANDOFF_MANIFEST.json",
+      "bytes": 13025,
+      "sha256": "3b0c91f684c49fa93b049cec6c3daaf971316ef43e7bd6ac0dd58e412e0e489a",
+      "source": "/workspace/scratch/9592c268bc42/lesson05-v010-source-shz8aaff/SOURCE_HANDOFF_MANIFEST.json",
+      "exactBytes": true
+    },
+    {
+      "file": "NATIVE_IMAGES.json",
+      "bytes": 390,
+      "sha256": "08d0293199c73a0e469b1b528d6acb7393e10d9bab5e31c2490367a872d39219",
+      "source": "/workspace/scratch/9592c268bc42/lesson05-v010-source-shz8aaff/contracts/NATIVE_IMAGES.json",
+      "exactBytes": true
+    },
+    {
+      "file": "LEAD_SOURCE_REVIEW.json",
+      "bytes": 9062,
+      "sha256": "a2d6d92dd3a939e9f2d71d041b4b69e83f9b3485ded8a7c2f05434f9ec23c8f9",
+      "source": "/workspace/scratch/9592c268bc42/upload/LEAD_SOURCE_REVIEW.json",
+      "exactBytes": true
+    },
+    {
+      "file": "OPTIONAL_NOTES.json",
+      "bytes": 9740,
+      "sha256": "dfc541a1c0b0657fbae4dc34d4b45aa19a097a6e4d574e71cdac60b59dfa74d1",
+      "source": "/workspace/scratch/9592c268bc42/lesson05-v010-source-shz8aaff/contracts/OPTIONAL_NOTES.json",
+      "exactBytes": true
+    },
+    {
+      "file": "REPLACEMENT_BOUNDARY.json",
+      "bytes": 1325,
+      "sha256": "712686b156f376d5dcf597db5252d6626ad734bdd6c338ad2789e4e5fd3d8000",
+      "source": "/workspace/scratch/9592c268bc42/lesson05-v010-source-shz8aaff/contracts/REPLACEMENT_BOUNDARY.json",
+      "exactBytes": true
+    }
+  ],
+  "sourceUnchangedChecks": [
+    {
+      "file": "AUTHORING_TASK.md",
+      "sizeMatches": true,
+      "sha256Matches": true
+    },
+    {
+      "file": "CHAPTER_PROGRESSION.json",
+      "sizeMatches": true,
+      "sha256Matches": true
+    },
+    {
+      "file": "contracts/NATIVE_DATA.json",
+      "sizeMatches": true,
+      "sha256Matches": true
+    },
+    {
+      "file": "contracts/NATIVE_IMAGES.json",
+      "sizeMatches": true,
+      "sha256Matches": true
+    },
+    {
+      "file": "contracts/OPTIONAL_NOTES.json",
+      "sizeMatches": true,
+      "sha256Matches": true
+    },
+    {
+      "file": "contracts/REPLACEMENT_BOUNDARY.json",
+      "sizeMatches": true,
+      "sha256Matches": true
+    },
+    {
+      "file": "contracts/SOURCE_PROTECTION.json",
+      "sizeMatches": true,
+      "sha256Matches": true
+    },
+    {
+      "file": "current/assets/figures/ch17-two-trait.svg",
+      "sizeMatches": true,
+      "sha256Matches": true
+    },
+    {
+      "file": "current/index.html",
+      "sizeMatches": true,
+      "sha256Matches": true
+    },
+    {
+      "file": "current/lesson-01.html",
+      "sizeMatches": true,
+      "sha256Matches": true
+    },
+    {
+      "file": "current/lesson-02.html",
+      "sizeMatches": true,
+      "sha256Matches": true
+    },
+    {
+      "file": "current/lesson-03.html",
+      "sizeMatches": true,
+      "sha256Matches": true
+    },
+    {
+      "file": "current/lesson-04.html",
+      "sizeMatches": true,
+      "sha256Matches": true
+    },
+    {
+      "file": "current/lesson-05.html",
+      "sizeMatches": true,
+      "sha256Matches": true
+    },
+    {
+      "file": "current/lesson-05.protected-header.html",
+      "sizeMatches": true,
+      "sha256Matches": true
+    },
+    {
+      "file": "current/lesson-05.protected-suffix.html",
+      "sizeMatches": true,
+      "sha256Matches": true
+    },
+    {
+      "file": "current/lesson-05.teaching-fragment.html",
+      "sizeMatches": true,
+      "sha256Matches": true
+    },
+    {
+      "file": "current/lesson-06.html",
+      "sizeMatches": true,
+      "sha256Matches": true
+    },
+    {
+      "file": "reference/assets/teaching-v040/slide-14-image25.png",
+      "sizeMatches": true,
+      "sha256Matches": true
+    },
+    {
+      "file": "reference/assets/teaching-v040/slide-15-image14.png",
+      "sizeMatches": true,
+      "sha256Matches": true
+    },
+    {
+      "file": "reference/assets/teaching-v040/slide-18-image20.png",
+      "sizeMatches": true,
+      "sha256Matches": true
+    },
+    {
+      "file": "reference/assets/teaching-v040/slide-20-image36.png",
+      "sizeMatches": true,
+      "sha256Matches": true
+    },
+    {
+      "file": "reference/assets/teaching-v040/slide-41-image44.png",
+      "sizeMatches": true,
+      "sha256Matches": true
+    },
+    {
+      "file": "reference/COPY_CHANGES.json",
+      "sizeMatches": true,
+      "sha256Matches": true
+    },
+    {
+      "file": "reference/lesson-02.md",
+      "sizeMatches": true,
+      "sha256Matches": true
+    },
+    {
+      "file": "reference/lesson-02.teaching-fragment.html",
+      "sizeMatches": true,
+      "sha256Matches": true
+    },
+    {
+      "file": "REFERENCE_ACCEPTANCE.json",
+      "sizeMatches": true,
+      "sha256Matches": true
+    },
+    {
+      "file": "sources/chapter-17.pdf",
+      "sizeMatches": true,
+      "sha256Matches": true
+    },
+    {
+      "file": "sources/original-114-slides.pptx",
+      "sizeMatches": true,
+      "sha256Matches": true
+    },
+    {
+      "file": "sources/slide-assets/slide-35-image32.png",
+      "sizeMatches": true,
+      "sha256Matches": true
+    },
+    {
+      "file": "sources/slide-assets/slide-36-image29.png",
+      "sizeMatches": true,
+      "sha256Matches": true
+    },
+    {
+      "file": "sources/slide-assets/slide-36-image35.png",
+      "sizeMatches": true,
+      "sha256Matches": true
+    },
+    {
+      "file": "sources/slide-assets/slide-37-image37.png",
+      "sizeMatches": true,
+      "sha256Matches": true
+    },
+    {
+      "file": "sources/slide-assets/slide-37-image46.png",
+      "sizeMatches": true,
+      "sha256Matches": true
+    },
+    {
+      "file": "sources/slide-assets/slide-39-image34.png",
+      "sizeMatches": true,
+      "sha256Matches": true
+    },
+    {
+      "file": "sources/slide-assets/slide-39-image40.png",
+      "sizeMatches": true,
+      "sha256Matches": true
+    },
+    {
+      "file": "sources/slide-assets/slide-41-image44.png",
+      "sizeMatches": true,
+      "sha256Matches": true
+    },
+    {
+      "file": "sources/slide-assets/slide-41-image47.png",
+      "sizeMatches": true,
+      "sha256Matches": true
+    },
+    {
+      "file": "sources/slide-assets/slide-42-image23.png",
+      "sizeMatches": true,
+      "sha256Matches": true
+    },
+    {
+      "file": "sources/slide-assets/slide-45-image43.png",
+      "sizeMatches": true,
+      "sha256Matches": true
+    },
+    {
+      "file": "sources/slide-assets/slide-48-image38.jpg",
+      "sizeMatches": true,
+      "sha256Matches": true
+    },
+    {
+      "file": "sources/slide-assets/slide-48-image39.jpg",
+      "sizeMatches": true,
+      "sha256Matches": true
+    },
+    {
+      "file": "sources/slide-xml/slide-34.xml",
+      "sizeMatches": true,
+      "sha256Matches": true
+    },
+    {
+      "file": "sources/slide-xml/slide-34.xml.rels",
+      "sizeMatches": true,
+      "sha256Matches": true
+    },
+    {
+      "file": "sources/slide-xml/slide-35.xml",
+      "sizeMatches": true,
+      "sha256Matches": true
+    },
+    {
+      "file": "sources/slide-xml/slide-35.xml.rels",
+      "sizeMatches": true,
+      "sha256Matches": true
+    },
+    {
+      "file": "sources/slide-xml/slide-36.xml",
+      "sizeMatches": true,
+      "sha256Matches": true
+    },
+    {
+      "file": "sources/slide-xml/slide-36.xml.rels",
+      "sizeMatches": true,
+      "sha256Matches": true
+    },
+    {
+      "file": "sources/slide-xml/slide-37.xml",
+      "sizeMatches": true,
+      "sha256Matches": true
+    },
+    {
+      "file": "sources/slide-xml/slide-37.xml.rels",
+      "sizeMatches": true,
+      "sha256Matches": true
+    },
+    {
+      "file": "sources/slide-xml/slide-38.xml",
+      "sizeMatches": true,
+      "sha256Matches": true
+    },
+    {
+      "file": "sources/slide-xml/slide-38.xml.rels",
+      "sizeMatches": true,
+      "sha256Matches": true
+    },
+    {
+      "file": "sources/slide-xml/slide-39.xml",
+      "sizeMatches": true,
+      "sha256Matches": true
+    },
+    {
+      "file": "sources/slide-xml/slide-39.xml.rels",
+      "sizeMatches": true,
+      "sha256Matches": true
+    },
+    {
+      "file": "sources/slide-xml/slide-40.xml",
+      "sizeMatches": true,
+      "sha256Matches": true
+    },
+    {
+      "file": "sources/slide-xml/slide-40.xml.rels",
+      "sizeMatches": true,
+      "sha256Matches": true
+    },
+    {
+      "file": "sources/slide-xml/slide-41.xml",
+      "sizeMatches": true,
+      "sha256Matches": true
+    },
+    {
+      "file": "sources/slide-xml/slide-41.xml.rels",
+      "sizeMatches": true,
+      "sha256Matches": true
+    },
+    {
+      "file": "sources/slide-xml/slide-42.xml",
+      "sizeMatches": true,
+      "sha256Matches": true
+    },
+    {
+      "file": "sources/slide-xml/slide-42.xml.rels",
+      "sizeMatches": true,
+      "sha256Matches": true
+    },
+    {
+      "file": "sources/slide-xml/slide-43.xml",
+      "sizeMatches": true,
+      "sha256Matches": true
+    },
+    {
+      "file": "sources/slide-xml/slide-43.xml.rels",
+      "sizeMatches": true,
+      "sha256Matches": true
+    },
+    {
+      "file": "sources/slide-xml/slide-44.xml",
+      "sizeMatches": true,
+      "sha256Matches": true
+    },
+    {
+      "file": "sources/slide-xml/slide-44.xml.rels",
+      "sizeMatches": true,
+      "sha256Matches": true
+    },
+    {
+      "file": "sources/slide-xml/slide-45.xml",
+      "sizeMatches": true,
+      "sha256Matches": true
+    },
+    {
+      "file": "sources/slide-xml/slide-45.xml.rels",
+      "sizeMatches": true,
+      "sha256Matches": true
+    },
+    {
+      "file": "sources/slide-xml/slide-46.xml",
+      "sizeMatches": true,
+      "sha256Matches": true
+    },
+    {
+      "file": "sources/slide-xml/slide-46.xml.rels",
+      "sizeMatches": true,
+      "sha256Matches": true
+    },
+    {
+      "file": "sources/slide-xml/slide-47.xml",
+      "sizeMatches": true,
+      "sha256Matches": true
+    },
+    {
+      "file": "sources/slide-xml/slide-47.xml.rels",
+      "sizeMatches": true,
+      "sha256Matches": true
+    },
+    {
+      "file": "sources/slide-xml/slide-48.xml",
+      "sizeMatches": true,
+      "sha256Matches": true
+    },
+    {
+      "file": "sources/slide-xml/slide-48.xml.rels",
+      "sizeMatches": true,
+      "sha256Matches": true
+    },
+    {
+      "file": "sources/SLIDES_34_48.json",
+      "sizeMatches": true,
+      "sha256Matches": true
+    },
+    {
+      "file": "sources/SOURCE_LOCATORS.md",
+      "sizeMatches": true,
+      "sha256Matches": true
+    },
+    {
+      "file": "standards/02_TEACHING_STANDARD.md",
+      "sizeMatches": true,
+      "sha256Matches": true
+    },
+    {
+      "file": "standards/CHAPTER11_TEACHING_STANDARD.md",
+      "sizeMatches": true,
+      "sha256Matches": true
+    }
+  ],
+  "assessmentPreparationScope": {
+    "currentSelection": "Inclusive-or uses a distinct tomato event (red OR tall,7/8) to teach overlap; it does not solve the protected pea short OR yellow7/16 event.",
+    "currentWritten1": "Complete gamete derivation, duplicate versus omission and weighted grid dimensions are taught; exact AaBB × AaBb malformed headers and repair are absent.",
+    "currentWritten2": "Genotype/phenotype distinction and single-locus homozygosity examples are visible; exact CcHh double-homozygosity event and four qualifying genotypes are not solved.",
+    "legacyBoundary": "Old tomato assessment boundaries were superseded by current attached tasks. Full RrTt × rrTt teaching is explicitly authorized and preserves its dependent optional changed-parent task."
+  },
+  "reviewLimits": [
+    "No browser rendering or native interaction/storage/progress testing.",
+    "No full native owner assembly or integration. All attached source bytes remain unchanged.",
+    "CSS/runtime assets are external owner references, not newly attached/reviewed executable files. Class reuse is checked against existing owner markup.",
+    "No independent pixel interpretation is claimed by this review; exact original media bytes and OOXML relationships were checked.",
+    "Not Dean acceptance, external specialist review, LMS certification or release."
+  ],
+  "pending": [
+    "Final integration-map coordinate/hash comparison, when supplied.",
+    "Teacher review and native assembly by designated owners."
+  ]
+}

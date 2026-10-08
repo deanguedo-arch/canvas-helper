@@ -1,0 +1,185 @@
+{
+  "candidate": {
+    "lesson-02.teaching-fragment.html": {
+      "bytes": 35500,
+      "sha256": "c4797189771af6fbbc112b562bc300b2c2ef2433053dac02866504b463a02d23"
+    },
+    "manuscripts/lesson-02.md": {
+      "bytes": 29479,
+      "sha256": "1fc1dbdd7d874525fb488ab096715f7b195d73d8bc9a459b44c9edd946c79396"
+    }
+  },
+  "assets": [
+    {
+      "path": "assets/teaching-v040/slide-14-image25.png",
+      "originalMember": "ppt/media/image25.png",
+      "bytes": 149790,
+      "sha256": "4e5cd0ea4159932025b801e03faf3c32ea2c88efa906238f5cde4daeeca441dc",
+      "exactOriginalBytes": true
+    },
+    {
+      "path": "assets/teaching-v040/slide-15-image14.png",
+      "originalMember": "ppt/media/image14.png",
+      "bytes": 40026,
+      "sha256": "30b7f6873a81955cc3c8e64b93ebaf4f3c5bfd5b7366ef7064c7eca28087628d",
+      "exactOriginalBytes": true
+    },
+    {
+      "path": "assets/teaching-v040/slide-18-image20.png",
+      "originalMember": "ppt/media/image20.png",
+      "bytes": 16324,
+      "sha256": "013dd2769996f9e08f19ea3e86e70ea3a69ce2a1a2bfb7a6ee1ebf2023636ec6",
+      "exactOriginalBytes": true
+    },
+    {
+      "path": "assets/teaching-v040/slide-20-image36.png",
+      "originalMember": "ppt/media/image36.png",
+      "bytes": 4001,
+      "sha256": "b8563f6f9ed748ac3880103472762ec0e05b6fbd3f1a6d1a666cb0b9877779e7",
+      "exactOriginalBytes": true
+    },
+    {
+      "path": "assets/teaching-v040/slide-41-image44.png",
+      "originalMember": "ppt/media/image44.png",
+      "bytes": 364277,
+      "sha256": "7e57deedfe727416d5536605bb4327cffd16ee88cbb13c778bd5e5039f450eb8",
+      "exactOriginalBytes": true
+    }
+  ],
+  "notes": [
+    {
+      "id": "ch17-kinch-v020-l02-arrow-task",
+      "candidateOccurrences": 1,
+      "sourceOccurrences": 1,
+      "exactFullSectionBytes": true,
+      "sectionBytes": 2962,
+      "sectionSha256": "832a0126d0434b8068b9bb98f51a463a15e4fbf70ac59608545a258caf8998a5",
+      "finalCandidateExactFullSectionBytes": true
+    },
+    {
+      "id": "ch17-kinch-v020-l02-cross-task",
+      "candidateOccurrences": 1,
+      "sourceOccurrences": 1,
+      "exactFullSectionBytes": true,
+      "sectionBytes": 3368,
+      "sectionSha256": "d9f059765d06ec5989aee7fb00c0a0a6c0b589d002e7a582e2532f2ecca3355b",
+      "finalCandidateExactFullSectionBytes": true
+    }
+  ],
+  "quantitative": {
+    "P_RR_x_rr": {
+      "cells": [
+        {
+          "egg": "R",
+          "sperm": "r",
+          "genotype": "Rr",
+          "phenotype": "round",
+          "p": "1"
+        }
+      ],
+      "genotypes": {
+        "Rr": "1"
+      },
+      "phenotypes": {
+        "round": "1"
+      },
+      "total": "1"
+    },
+    "F2_Rr_x_Rr": {
+      "cells": [
+        {
+          "egg": "R",
+          "sperm": "R",
+          "genotype": "RR",
+          "phenotype": "round",
+          "p": "1/4"
+        },
+        {
+          "egg": "R",
+          "sperm": "r",
+          "genotype": "Rr",
+          "phenotype": "round",
+          "p": "1/4"
+        },
+        {
+          "egg": "r",
+          "sperm": "R",
+          "genotype": "Rr",
+          "phenotype": "round",
+          "p": "1/4"
+        },
+        {
+          "egg": "r",
+          "sperm": "r",
+          "genotype": "rr",
+          "phenotype": "wrinkled",
+          "p": "1/4"
+        }
+      ],
+      "genotypes": {
+        "RR": "1/4",
+        "Rr": "1/2",
+        "rr": "1/4"
+      },
+      "phenotypes": {
+        "round": "3/4",
+        "wrinkled": "1/4"
+      },
+      "total": "1"
+    },
+    "reciprocal_A_rr_egg_RR_sperm": {
+      "cells": [
+        {
+          "egg": "r",
+          "sperm": "R",
+          "genotype": "Rr",
+          "phenotype": "round",
+          "p": "1"
+        }
+      ],
+      "genotypes": {
+        "Rr": "1"
+      },
+      "phenotypes": {
+        "round": "1"
+      },
+      "total": "1"
+    },
+    "reciprocal_B_RR_egg_rr_sperm": {
+      "cells": [
+        {
+          "egg": "R",
+          "sperm": "r",
+          "genotype": "Rr",
+          "phenotype": "round",
+          "p": "1"
+        }
+      ],
+      "genotypes": {
+        "Rr": "1"
+      },
+      "phenotypes": {
+        "round": "1"
+      },
+      "total": "1"
+    },
+    "countRatio": {
+      "round": 5474,
+      "wrinkled": 1850,
+      "total": 7324,
+      "roundPerWrinkledExact": "2737/925",
+      "roundPerWrinkledDecimal": 2.958918918918919,
+      "roundedTwoDecimals": 2.96
+    }
+  },
+  "finalCorrectionRead": {
+    "flowerTransitionRedundancyRemoved": true,
+    "MetaphaseIIVisibleLabelExplained": true,
+    "MitosisFirstUseMeaningAdded": true,
+    "AnimalShortcutAsideRemoved": true,
+    "MendelDiagramExpectationAttributionRemoved": true,
+    "MeiosisDefinedBeforeCopying": true,
+    "SelfPollinationGlossAtFirstUse": true,
+    "MitosisSeparatesChromatidsAfterDNACopying": true
+  }
+}

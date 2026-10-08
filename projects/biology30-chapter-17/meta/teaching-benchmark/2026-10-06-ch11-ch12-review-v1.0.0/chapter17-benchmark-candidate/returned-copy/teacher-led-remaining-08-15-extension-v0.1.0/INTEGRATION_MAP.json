@@ -1,0 +1,475 @@
+{
+  "version": "0.1.0",
+  "scope": [
+    "lesson-08",
+    "lesson-09",
+    "lesson-10",
+    "lesson-11",
+    "lesson-12",
+    "lesson-13",
+    "lesson-14",
+    "lesson-15",
+    "extension"
+  ],
+  "baselineStatus": "Frozen verified source; exact latest integrated owner comparison pending",
+  "sourceOwnerSha256": "31447f72550c68ceb4a7cfd444f85651908a86782096dff4e4847cff4ab9e3e4",
+  "replacementEncoding": "UTF-8",
+  "byteOffsets": "zero-based end-exclusive; only valid for exact owner SHA256",
+  "instructions": [
+    "Verify current owner identity; never use these offsets blindly on a changed owner.",
+    "For a changed owner, compare each complete route, teaching interval, header, suffix and locked subtree with these exact snapshots. Stop on mismatch; request a new versioned rebase.",
+    "Replace only the listed teaching intervals, preserving every byte outside them. Retain all mapped assets and IDs.",
+    "Copy only new selected teaching assets; do not overwrite differing current assets.",
+    "Keep lessons 1–7 and all native data/runtime/style/storage/assessment/save contracts unchanged.",
+    "Keep technical integration, native browser validation, saved-state/SCORM/Brightspace and Dean acceptance as separate later gates."
+  ],
+  "lessons": [
+    {
+      "route": "lesson-08",
+      "ownerSha256": "31447f72550c68ceb4a7cfd444f85651908a86782096dff4e4847cff4ab9e3e4",
+      "lessonSha256": "d9ad98141a0815423bfb2f6488bc2198433dd26cbc906b7ad7b4fc0fb14a885c",
+      "startCharacter": 365461,
+      "endCharacterExclusive": 370153,
+      "startByte": 366254,
+      "endByteExclusive": 370955,
+      "beforeSha256": "d11e374b647292c7197c3a639e529eba9f2eddcc4f9b7077a85ceabdc3c98cb3",
+      "bytes": 4701,
+      "preservedOuterTags": [
+        "<div class=\"content-section\" data-canvas-edit-key=\"ch17-l08-teaching-01\" data-canvas-helper-edit-key=\"ch17-l08-teaching-01\" id=\"ch17-l08-teaching-01\">",
+        "<div class=\"content-section\" data-canvas-edit-key=\"ch17-l08-teaching-02\" data-canvas-helper-edit-key=\"ch17-l08-teaching-02\" id=\"ch17-l08-teaching-02\">",
+        "<div class=\"content-section\" data-canvas-edit-key=\"ch17-l08-teaching-03\" data-canvas-helper-edit-key=\"ch17-l08-teaching-03\" id=\"ch17-l08-teaching-03\">",
+        "<div class=\"worked-example\" data-canvas-edit-key=\"ch17-l08-worked\" data-canvas-helper-edit-key=\"ch17-l08-worked\" id=\"ch17-l08-worked\">"
+      ],
+      "protectedHeaderSha256": "02c7efb842448090dc9b9cdf0610254e097294a99ed019df6db06cf7f2a2bb60",
+      "protectedSuffixSha256": "f0a4000cfe907d53be489a1befd4b4e58ce03a7f85f81a1d1134f07c6dcfbc18",
+      "existingIds": [
+        "ch17-l08-teaching-01",
+        "ch17-l08-teaching-02",
+        "ch17-l08-teaching-03",
+        "ch17-l08-worked"
+      ],
+      "existingEditKeys": [
+        "ch17-l08-teaching-01-p1",
+        "ch17-l08-teaching-01-p2",
+        "ch17-l08-teaching-01",
+        "ch17-l08-teaching-02-p1",
+        "ch17-l08-teaching-02-p2",
+        "ch17-l08-teaching-02-p3",
+        "ch17-l08-teaching-02",
+        "ch17-l08-teaching-03-p1",
+        "ch17-l08-teaching-03-p2",
+        "ch17-l08-teaching-03-p3",
+        "ch17-l08-teaching-03",
+        "ch17-l08-worked"
+      ],
+      "existingVocabularyIds": [
+        "ch17-word-x-linked",
+        "ch17-word-allele",
+        "ch17-word-x-linked-recessive",
+        "ch17-word-carrier",
+        "ch17-word-gene",
+        "ch17-word-probability",
+        "ch17-word-heterozygous"
+      ],
+      "fragment": "lesson-08.teaching-fragment.html",
+      "afterSha256": "7570c9d67ac56ae6d31e8937482fe1d44c2b02c6dc658ea35ffd5643530409c4",
+      "afterBytes": 34356,
+      "lockedNested": []
+    },
+    {
+      "route": "lesson-09",
+      "ownerSha256": "31447f72550c68ceb4a7cfd444f85651908a86782096dff4e4847cff4ab9e3e4",
+      "lessonSha256": "696423ebe461114fb5b1af449e820c0649b8298d774f7ba1ab93db7c5f3215f3",
+      "startCharacter": 384206,
+      "endCharacterExclusive": 389064,
+      "startByte": 385052,
+      "endByteExclusive": 389910,
+      "beforeSha256": "8711c976c0f0aa419ea07883a8a5a552f548c793a765b9c609f7634cea77fe1e",
+      "bytes": 4858,
+      "preservedOuterTags": [
+        "<div class=\"content-section\" data-canvas-edit-key=\"ch17-l09-teaching-01\" data-canvas-helper-edit-key=\"ch17-l09-teaching-01\" id=\"ch17-l09-teaching-01\">",
+        "<div class=\"content-section\" data-canvas-edit-key=\"ch17-l09-teaching-02\" data-canvas-helper-edit-key=\"ch17-l09-teaching-02\" id=\"ch17-l09-teaching-02\">",
+        "<div class=\"content-section\" data-canvas-edit-key=\"ch17-l09-teaching-03\" data-canvas-helper-edit-key=\"ch17-l09-teaching-03\" id=\"ch17-l09-teaching-03\">",
+        "<div class=\"worked-example\" data-canvas-edit-key=\"ch17-l09-worked\" data-canvas-helper-edit-key=\"ch17-l09-worked\" id=\"ch17-l09-worked\">"
+      ],
+      "protectedHeaderSha256": "bbb2f469975f820304019098d57c075fb0c2c6ecfa99b4464576bd6ecc29c0b7",
+      "protectedSuffixSha256": "aa4304c2e50dab364ac5e9394a5a2b6afafa50288430b760aa7b97dd0f97e141",
+      "existingIds": [
+        "ch17-l09-teaching-01",
+        "ch17-l09-teaching-02",
+        "ch17-l09-teaching-03",
+        "ch17-l09-worked"
+      ],
+      "existingEditKeys": [
+        "ch17-l09-teaching-01-p1",
+        "ch17-l09-teaching-01-p2",
+        "ch17-l09-teaching-01",
+        "ch17-l09-teaching-02-p1",
+        "ch17-l09-teaching-02-p2",
+        "ch17-l09-teaching-02-p3",
+        "ch17-l09-teaching-02",
+        "ch17-l09-teaching-03-p1",
+        "ch17-l09-teaching-03-p2",
+        "ch17-l09-teaching-03-p3",
+        "ch17-l09-teaching-03",
+        "ch17-l09-worked"
+      ],
+      "existingVocabularyIds": [
+        "ch17-word-allele",
+        "ch17-word-continuous-variation",
+        "ch17-word-gene",
+        "ch17-word-phenotype",
+        "ch17-word-gene-expression",
+        "ch17-word-genotype"
+      ],
+      "fragment": "lesson-09.teaching-fragment.html",
+      "afterSha256": "18a1608e03680f10a41ae94026c53a99886d48a4c76f64b16c885e57d057499e",
+      "afterBytes": 43939,
+      "lockedNested": []
+    },
+    {
+      "route": "lesson-10",
+      "ownerSha256": "31447f72550c68ceb4a7cfd444f85651908a86782096dff4e4847cff4ab9e3e4",
+      "lessonSha256": "a7a344f65bb730324a1da8896deeabc43c529873acb044a7beb6b590e48e31d7",
+      "startCharacter": 404376,
+      "endCharacterExclusive": 410017,
+      "startByte": 405243,
+      "endByteExclusive": 410897,
+      "beforeSha256": "fd8012f0177037038fbe507b5e016235bf8b7ceb56ac3e217c24752407053536",
+      "bytes": 5654,
+      "preservedOuterTags": [
+        "<div class=\"content-section\" data-canvas-edit-key=\"ch17-l10-teaching-01\" data-canvas-helper-edit-key=\"ch17-l10-teaching-01\" id=\"ch17-l10-teaching-01\">",
+        "<div class=\"content-section\" data-canvas-edit-key=\"ch17-l10-teaching-02\" data-canvas-helper-edit-key=\"ch17-l10-teaching-02\" id=\"ch17-l10-teaching-02\">",
+        "<div class=\"content-section\" data-canvas-edit-key=\"ch17-l10-teaching-03\" data-canvas-helper-edit-key=\"ch17-l10-teaching-03\" id=\"ch17-l10-teaching-03\">",
+        "<div class=\"worked-example\" data-canvas-edit-key=\"ch17-l10-worked\" data-canvas-helper-edit-key=\"ch17-l10-worked\" id=\"ch17-l10-worked\">"
+      ],
+      "protectedHeaderSha256": "d5852b74b25e852bb6caa67b43403ff4da367605e5efa49d8efd50548828de03",
+      "protectedSuffixSha256": "edd71bb542af55aa57dcf414cb0c463f9407a86deb690e913c7aa69cde466a7c",
+      "existingIds": [
+        "ch17-l10-teaching-01",
+        "ch17-l10-teaching-02",
+        "ch17-l10-teaching-03",
+        "ch17-l10-worked"
+      ],
+      "existingEditKeys": [
+        "ch17-l10-teaching-01-p1",
+        "ch17-l10-teaching-01-p2",
+        "ch17-l10-teaching-01",
+        "ch17-l10-teaching-02-p1",
+        "ch17-l10-teaching-02-p2",
+        "ch17-l10-teaching-02-p3",
+        "ch17-l10-teaching-02",
+        "ch17-l10-teaching-03-p1",
+        "ch17-l10-teaching-03-p2",
+        "ch17-l10-teaching-03-p3",
+        "ch17-l10-teaching-03",
+        "ch17-l10-worked"
+      ],
+      "existingVocabularyIds": [
+        "ch17-word-pedigree",
+        "ch17-word-generation",
+        "ch17-word-autosomal-recessive",
+        "ch17-word-autosomal-dominant",
+        "ch17-word-genotype",
+        "ch17-word-probability",
+        "ch17-word-carrier",
+        "ch17-word-allele"
+      ],
+      "fragment": "lesson-10.teaching-fragment.html",
+      "afterSha256": "a52eb896fc1e30d4a09629001f392fa2fa4f21a3db9c655d8b1f9c9202276bcb",
+      "afterBytes": 24962,
+      "lockedNested": [
+        {
+          "tag": "figure",
+          "attrs": {
+            "class": "science-figure",
+            "data-figure-id": "ch17-pedigree"
+          },
+          "sha256": "8ef675e0aaf1a017c5d7fe7ba55e54a9b17938b82d8d0b5a928ca02295c40756"
+        }
+      ]
+    },
+    {
+      "route": "lesson-11",
+      "ownerSha256": "31447f72550c68ceb4a7cfd444f85651908a86782096dff4e4847cff4ab9e3e4",
+      "lessonSha256": "d103880b9e2ff17dfc3460402d916a9d9fac5880ef3d6c7def8fb02e07917c3a",
+      "startCharacter": 424346,
+      "endCharacterExclusive": 429591,
+      "startByte": 425251,
+      "endByteExclusive": 430500,
+      "beforeSha256": "38c237b378b7ef554b30ba187cf142af825741900dccfa31a64a249f402fd056",
+      "bytes": 5249,
+      "preservedOuterTags": [
+        "<div class=\"content-section\" data-canvas-edit-key=\"ch17-l11-teaching-01\" data-canvas-helper-edit-key=\"ch17-l11-teaching-01\" id=\"ch17-l11-teaching-01\">",
+        "<div class=\"content-section\" data-canvas-edit-key=\"ch17-l11-teaching-02\" data-canvas-helper-edit-key=\"ch17-l11-teaching-02\" id=\"ch17-l11-teaching-02\">",
+        "<div class=\"content-section\" data-canvas-edit-key=\"ch17-l11-teaching-03\" data-canvas-helper-edit-key=\"ch17-l11-teaching-03\" id=\"ch17-l11-teaching-03\">",
+        "<div class=\"worked-example\" data-canvas-edit-key=\"ch17-l11-worked\" data-canvas-helper-edit-key=\"ch17-l11-worked\" id=\"ch17-l11-worked\">"
+      ],
+      "protectedHeaderSha256": "5f0a27f49896dcc0628d2b5a6ab2561a937e38b1d5962845af8e4aa44368bb5b",
+      "protectedSuffixSha256": "99ffcc7234dce9145684d30b71c4af2bbf4a484f87d309a4a1905ae4f7bf12c9",
+      "existingIds": [
+        "ch17-l11-teaching-01",
+        "ch17-l11-teaching-02",
+        "ch17-l11-teaching-03",
+        "ch17-l11-worked"
+      ],
+      "existingEditKeys": [
+        "ch17-l11-teaching-01-p1",
+        "ch17-l11-teaching-01-p2",
+        "ch17-l11-teaching-01",
+        "ch17-l11-teaching-02-p1",
+        "ch17-l11-teaching-02-p2",
+        "ch17-l11-teaching-02-p3",
+        "ch17-l11-teaching-02",
+        "ch17-l11-teaching-03-p1",
+        "ch17-l11-teaching-03-p2",
+        "ch17-l11-teaching-03-p3",
+        "ch17-l11-teaching-03",
+        "ch17-l11-worked"
+      ],
+      "existingVocabularyIds": [
+        "ch17-word-x-linked",
+        "ch17-word-allele",
+        "ch17-word-x-linked-recessive",
+        "ch17-word-genotype",
+        "ch17-word-x-linked-dominant",
+        "ch17-word-homozygous",
+        "ch17-word-carrier",
+        "ch17-word-heterozygote-phenotype",
+        "ch17-word-pedigree",
+        "ch17-word-penetrance",
+        "ch17-word-probability"
+      ],
+      "fragment": "lesson-11.teaching-fragment.html",
+      "afterSha256": "7a5a8dc438ce9dfaac23dd669fa009d05faec3c2127f72b614568c501c203dd8",
+      "afterBytes": 27848,
+      "lockedNested": []
+    },
+    {
+      "route": "lesson-12",
+      "ownerSha256": "31447f72550c68ceb4a7cfd444f85651908a86782096dff4e4847cff4ab9e3e4",
+      "lessonSha256": "1e5e9899a79e31407275db0c09a96c1cbed8c1226ec962ab095151299a7a16d4",
+      "startCharacter": 446218,
+      "endCharacterExclusive": 451376,
+      "startByte": 447158,
+      "endByteExclusive": 452318,
+      "beforeSha256": "4f6e0dd940b6736038af384e641030825affca7c96210c804b6af84ddef15ea5",
+      "bytes": 5160,
+      "preservedOuterTags": [
+        "<div class=\"content-section\" data-canvas-edit-key=\"ch17-l12-teaching-01\" data-canvas-helper-edit-key=\"ch17-l12-teaching-01\" id=\"ch17-l12-teaching-01\">",
+        "<div class=\"content-section\" data-canvas-edit-key=\"ch17-l12-teaching-02\" data-canvas-helper-edit-key=\"ch17-l12-teaching-02\" id=\"ch17-l12-teaching-02\">",
+        "<div class=\"content-section\" data-canvas-edit-key=\"ch17-l12-teaching-03\" data-canvas-helper-edit-key=\"ch17-l12-teaching-03\" id=\"ch17-l12-teaching-03\">",
+        "<div class=\"worked-example\" data-canvas-edit-key=\"ch17-l12-worked\" data-canvas-helper-edit-key=\"ch17-l12-worked\" id=\"ch17-l12-worked\">"
+      ],
+      "protectedHeaderSha256": "887ff69790c87690442ecadc6b84dd932ea1b969570dfb43bb68d4a1895a293d",
+      "protectedSuffixSha256": "d3916573c5f38691009c14a0577a504440f9abfdab0fe5f6fbdd48570474d068",
+      "existingIds": [
+        "ch17-l12-teaching-01",
+        "ch17-l12-teaching-02",
+        "ch17-l12-teaching-03",
+        "ch17-l12-worked"
+      ],
+      "existingEditKeys": [
+        "ch17-l12-teaching-01-p1",
+        "ch17-l12-teaching-01-p2",
+        "ch17-l12-teaching-01",
+        "ch17-l12-teaching-02-p1",
+        "ch17-l12-teaching-02-p2",
+        "ch17-l12-teaching-02-p3",
+        "ch17-l12-teaching-02",
+        "ch17-l12-teaching-03-p1",
+        "ch17-l12-teaching-03-p2",
+        "ch17-l12-teaching-03-p3",
+        "ch17-l12-teaching-03",
+        "ch17-l12-worked"
+      ],
+      "existingVocabularyIds": [
+        "ch17-word-linkage-phase",
+        "ch17-word-phenotype",
+        "ch17-word-genotype",
+        "ch17-word-independent-assortment",
+        "ch17-word-linked-genes"
+      ],
+      "fragment": "lesson-12.teaching-fragment.html",
+      "afterSha256": "3262ec01b1e52a185c150b9f39027b6bbf6bc67ee9baa77851e8a9510e5337d7",
+      "afterBytes": 26950,
+      "lockedNested": [
+        {
+          "tag": "figure",
+          "attrs": {
+            "class": "science-figure",
+            "data-figure-id": "ch17-linkage"
+          },
+          "sha256": "a32e9cbbb54f91cf874385167d7218f262d43ec5332dba8ef55ba15ce9de611c"
+        }
+      ]
+    },
+    {
+      "route": "lesson-13",
+      "ownerSha256": "31447f72550c68ceb4a7cfd444f85651908a86782096dff4e4847cff4ab9e3e4",
+      "lessonSha256": "3b2ed73fd16ca9ff9fa1c96eb47b68e7080e124d6ffb6c99258f3cd0471a7500",
+      "startCharacter": 466209,
+      "endCharacterExclusive": 471109,
+      "startByte": 467174,
+      "endByteExclusive": 472091,
+      "beforeSha256": "b2e7ae457edf601c83eec218f474596cfc252848b60b090a3a00e983b2f4a06e",
+      "bytes": 4917,
+      "preservedOuterTags": [
+        "<div class=\"content-section\" data-canvas-edit-key=\"ch17-l13-teaching-01\" data-canvas-helper-edit-key=\"ch17-l13-teaching-01\" id=\"ch17-l13-teaching-01\">",
+        "<div class=\"content-section\" data-canvas-edit-key=\"ch17-l13-teaching-02\" data-canvas-helper-edit-key=\"ch17-l13-teaching-02\" id=\"ch17-l13-teaching-02\">",
+        "<div class=\"content-section\" data-canvas-edit-key=\"ch17-l13-teaching-03\" data-canvas-helper-edit-key=\"ch17-l13-teaching-03\" id=\"ch17-l13-teaching-03\">",
+        "<div class=\"worked-example\" data-canvas-edit-key=\"ch17-l13-worked\" data-canvas-helper-edit-key=\"ch17-l13-worked\" id=\"ch17-l13-worked\">"
+      ],
+      "protectedHeaderSha256": "969cce37a01859ed48f1f89660b3936ee05fe83e4d054037536011c34514cf4f",
+      "protectedSuffixSha256": "f6b012477176e6f1c9526c5d08f8f160c9803b8a596d1f2cc784fcd5db3b426e",
+      "existingIds": [
+        "ch17-l13-teaching-01",
+        "ch17-l13-teaching-02",
+        "ch17-l13-teaching-03",
+        "ch17-l13-worked"
+      ],
+      "existingEditKeys": [
+        "ch17-l13-teaching-01-p1",
+        "ch17-l13-teaching-01-p2",
+        "ch17-l13-teaching-01-p3",
+        "ch17-l13-teaching-01",
+        "ch17-l13-teaching-02-p1",
+        "ch17-l13-teaching-02-p2",
+        "ch17-l13-teaching-02",
+        "ch17-l13-teaching-03-p1",
+        "ch17-l13-teaching-03-p2",
+        "ch17-l13-teaching-03-p3",
+        "ch17-l13-teaching-03",
+        "ch17-l13-worked"
+      ],
+      "existingVocabularyIds": [
+        "ch17-word-recombination-frequency",
+        "ch17-word-test-cross",
+        "ch17-word-map-unit"
+      ],
+      "fragment": "lesson-13.teaching-fragment.html",
+      "afterSha256": "0695882bd5e2747dd2095e1dcecffd80f6c3bad65c8f6b6c875142e43ac99938",
+      "afterBytes": 30885,
+      "lockedNested": [
+        {
+          "tag": "figure",
+          "attrs": {
+            "class": "science-figure",
+            "data-figure-id": "ch17-map"
+          },
+          "sha256": "e54a914f62c7e9c4422ad36cc60184c603a89404109b30a9a1d50385f0dd40e8"
+        }
+      ]
+    },
+    {
+      "route": "lesson-14",
+      "ownerSha256": "31447f72550c68ceb4a7cfd444f85651908a86782096dff4e4847cff4ab9e3e4",
+      "lessonSha256": "f294d8472657394150400ed1a572d0ef82a2760499356545cb9cb46a390eb003",
+      "startCharacter": 486950,
+      "endCharacterExclusive": 491368,
+      "startByte": 487992,
+      "endByteExclusive": 492414,
+      "beforeSha256": "aa6bb4b1bb75d1869ce99b1066036821ddc688b8115bb801a0f484e1361641c5",
+      "bytes": 4422,
+      "preservedOuterTags": [
+        "<div class=\"content-section\" data-canvas-edit-key=\"ch17-l14-teaching-01\" data-canvas-helper-edit-key=\"ch17-l14-teaching-01\" id=\"ch17-l14-teaching-01\">",
+        "<div class=\"content-section\" data-canvas-edit-key=\"ch17-l14-teaching-02\" data-canvas-helper-edit-key=\"ch17-l14-teaching-02\" id=\"ch17-l14-teaching-02\">",
+        "<div class=\"content-section\" data-canvas-edit-key=\"ch17-l14-teaching-03\" data-canvas-helper-edit-key=\"ch17-l14-teaching-03\" id=\"ch17-l14-teaching-03\">",
+        "<div class=\"worked-example\" data-canvas-edit-key=\"ch17-l14-worked\" data-canvas-helper-edit-key=\"ch17-l14-worked\" id=\"ch17-l14-worked\">"
+      ],
+      "protectedHeaderSha256": "0a96076525dc9e8102dcb836a3823e995f7ab6bc46c007471a0f14e134a21d12",
+      "protectedSuffixSha256": "8b8ec8c151cdae093292f147ab51ea5ef1dbdbf46294cfe4f3a313494a4d7297",
+      "existingIds": [
+        "ch17-l14-teaching-01",
+        "ch17-l14-teaching-02",
+        "ch17-l14-teaching-03",
+        "ch17-l14-worked"
+      ],
+      "existingEditKeys": [
+        "ch17-l14-teaching-01-p1",
+        "ch17-l14-teaching-01-p2",
+        "ch17-l14-teaching-01",
+        "ch17-l14-teaching-02-p1",
+        "ch17-l14-teaching-02-p2",
+        "ch17-l14-teaching-02-p3",
+        "ch17-l14-teaching-02",
+        "ch17-l14-teaching-03-p1",
+        "ch17-l14-teaching-03-p2",
+        "ch17-l14-teaching-03-p3",
+        "ch17-l14-teaching-03",
+        "ch17-l14-worked"
+      ],
+      "existingVocabularyIds": [
+        "ch17-word-probability",
+        "ch17-word-penetrance",
+        "ch17-word-genetic-counselling"
+      ],
+      "fragment": "lesson-14.teaching-fragment.html",
+      "afterSha256": "edcbbcc7ba4dc652ebbdc780d042f72bf3d4f38a9252ece5462988eb31a16b85",
+      "afterBytes": 20677,
+      "lockedNested": []
+    },
+    {
+      "route": "lesson-15",
+      "ownerSha256": "31447f72550c68ceb4a7cfd444f85651908a86782096dff4e4847cff4ab9e3e4",
+      "lessonSha256": "e3f75204a99e392993961412f7b1de66dc1b794ca5a49e84e4c67f66cfcb7f79",
+      "startCharacter": 504653,
+      "endCharacterExclusive": 510090,
+      "startByte": 505716,
+      "endByteExclusive": 511155,
+      "beforeSha256": "3a32e87e46d22b704cc0992ef897b5d1093a748cb6182faa6788179d0dfd91df",
+      "bytes": 5439,
+      "preservedOuterTags": [
+        "<div class=\"content-section\" data-canvas-edit-key=\"ch17-l15-teaching-01\" data-canvas-helper-edit-key=\"ch17-l15-teaching-01\" id=\"ch17-l15-teaching-01\">",
+        "<div class=\"content-section\" data-canvas-edit-key=\"ch17-l15-teaching-02\" data-canvas-helper-edit-key=\"ch17-l15-teaching-02\" id=\"ch17-l15-teaching-02\">",
+        "<div class=\"content-section\">",
+        "<div class=\"worked-example\" data-canvas-edit-key=\"ch17-review-worked\" data-canvas-helper-edit-key=\"ch17-review-worked\" id=\"ch17-review-worked\">"
+      ],
+      "protectedHeaderSha256": "10452c7f9f0b2d0cdc1c8c8262818225ad9d6d5ad32ff0c37391c859b12404cf",
+      "protectedSuffixSha256": "e22f12b04564f0f5ed368714fe9dea6e7e92b1927d14863585fc52079e76d412",
+      "existingIds": [
+        "ch17-l15-teaching-01",
+        "ch17-l15-teaching-02",
+        "ch17-review-worked"
+      ],
+      "existingEditKeys": [
+        "ch17-l15-teaching-01-p1",
+        "ch17-l15-teaching-01-p2",
+        "ch17-l15-teaching-01",
+        "ch17-l15-teaching-02-p1",
+        "ch17-l15-teaching-02-p2",
+        "ch17-l15-teaching-02",
+        "ch17-review-worked"
+      ],
+      "existingVocabularyIds": [],
+      "fragment": "lesson-15.teaching-fragment.html",
+      "afterSha256": "e3d82594a3f297067ae2c28ff736d434ba0616234843c4de68cdbc0a08bed7a5",
+      "afterBytes": 32088,
+      "lockedNested": []
+    },
+    {
+      "route": "extension",
+      "ownerSha256": "31447f72550c68ceb4a7cfd444f85651908a86782096dff4e4847cff4ab9e3e4",
+      "lessonSha256": "17c0e934a51c558893ff4354edfa8fd2219a3e666c51e9eff08282fe7c101e83",
+      "startCharacter": 525526,
+      "endCharacterExclusive": 526486,
+      "startByte": 526610,
+      "endByteExclusive": 527570,
+      "beforeSha256": "3788dbc7674152245fe4b8c11f0821dedba831fea32304bd61aeceb5124e4a97",
+      "bytes": 960,
+      "preservedOuterTags": [
+        "<div class=\"content-section\">",
+        "<div class=\"content-section\">"
+      ],
+      "protectedHeaderSha256": "93b57a82b445546a5be3132554ef9fec812b626845429826523033d1274c2b5c",
+      "protectedSuffixSha256": "c0bd907604500ed817ce8d79fb2010eb3f6118cd6be506349da37c3dab6c2789",
+      "existingIds": [],
+      "existingEditKeys": [],
+      "existingVocabularyIds": [],
+      "fragment": "extension.teaching-fragment.html",
+      "afterSha256": "4847cdf865f0f04e504317a0370f057d2556c5f269475b2d4c6f1b6e0b792c93",
+      "afterBytes": 16855,
+      "lockedNested": []
+    }
+  ]
+}

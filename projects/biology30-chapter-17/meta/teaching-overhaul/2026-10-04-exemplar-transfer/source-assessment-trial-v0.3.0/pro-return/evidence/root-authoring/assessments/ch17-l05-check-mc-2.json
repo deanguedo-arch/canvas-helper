@@ -1,0 +1,14 @@
+{
+  "id": "ch17-l05-check-mc-2",
+  "prompt": "Use the stated pea model: TT and Tt are tall, tt is short; GG and Gg give green pods, gg gives yellow pods. Two TtGg parents are crossed with ordinary segregation, independent assortment, random fertilisation and reliable phenotype expression. For one offspring, what is the probability of being short or having yellow pods, including an offspring with both characteristics? The denominator includes all possible offspring, not only those showing one of these traits.",
+  "options": [
+    "1/16",
+    "3/16",
+    "7/16",
+    "1/2"
+  ],
+  "answer": "7/16",
+  "explanation": "Count three non-overlapping phenotype groups: short/green has probability 1/4 × 3/4 = 3/16; tall/yellow has probability 3/4 × 1/4 = 3/16; short/yellow has probability 1/4 × 1/4 = 1/16. Adding these mutually exclusive groups gives 7/16. The double-recessive offspring qualifies, but counts once. The remaining tall/green group is 9/16, so all four groups total 1. Choosing 1/16 counts only the offspring with both recessive phenotypes; 3/16 counts only one single-recessive group. Adding 1/4 short to 1/4 yellow to get 1/2 would count short/yellow offspring twice.",
+  "cue": "Separate the qualifying offspring into short/green, tall/yellow and short/yellow. Count each possible offspring in only one of those groups.",
+  "difficulty": "application"
+}

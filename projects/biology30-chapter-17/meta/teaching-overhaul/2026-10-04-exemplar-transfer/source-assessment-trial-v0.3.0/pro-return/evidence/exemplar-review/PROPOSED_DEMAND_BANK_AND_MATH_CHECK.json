@@ -1,0 +1,118 @@
+{
+  "mc2": {
+    "allGenotypes": {
+      "AABB": "1/16",
+      "AABb": "1/8",
+      "AaBB": "1/8",
+      "AaBb": "1/4",
+      "AAbb": "1/16",
+      "Aabb": "1/8",
+      "aaBB": "1/16",
+      "aaBb": "1/8",
+      "aabb": "1/16"
+    },
+    "atLeastOneRecessivePhenotype": "7/16",
+    "singleRecessiveOrDoubleRecessiveGroups": {
+      "aaB_": "3/16",
+      "A_bb": "3/16",
+      "aabb": "1/16"
+    },
+    "probabilityTotal": "1"
+  },
+  "writing1": {
+    "firstGametes": {
+      "AB": "1/2",
+      "aB": "1/2"
+    },
+    "secondGametes": {
+      "AB": "1/4",
+      "Ab": "1/4",
+      "aB": "1/4",
+      "ab": "1/4"
+    },
+    "distinctHeaderDimensions": [
+      2,
+      4
+    ],
+    "eachPairProbability": "1/8",
+    "allGenotypes": {
+      "AABB": "1/8",
+      "AABb": "1/8",
+      "AaBB": "1/4",
+      "AaBb": "1/4",
+      "aaBB": "1/8",
+      "aaBb": "1/8"
+    },
+    "probabilityTotal": "1"
+  },
+  "writing2": {
+    "allGenotypes": {
+      "CCHH": "1/16",
+      "CCHh": "1/8",
+      "CcHH": "1/8",
+      "CcHh": "1/4",
+      "CChh": "1/16",
+      "Cchh": "1/8",
+      "ccHH": "1/16",
+      "ccHh": "1/8",
+      "cchh": "1/16"
+    },
+    "eligibleBothHomozygousGenotypes": {
+      "CCHH": "1/16",
+      "CChh": "1/16",
+      "ccHH": "1/16",
+      "cchh": "1/16"
+    },
+    "bothHomozygousProbability": "1/4",
+    "bothDominantPhenotypeProbability": "9/16",
+    "probabilityTotal": "1"
+  },
+  "bankSearchScope": {
+    "owners": {
+      "course-data": {
+        "serializedBytes": 281429,
+        "sha256": "f14206e29b1ea54ea489b56b67ae3933b250cf79d4b7001771639440ea07139e",
+        "containers": {
+          "lessons": 15,
+          "checks": 15,
+          "words": 56,
+          "practiceQuestions": 78,
+          "sequences": 1,
+          "labelDiagrams": 6,
+          "notes": 10,
+          "videos": 15,
+          "practiceConcepts": 56,
+          "authoredPractice": 14,
+          "typedPractice": 55,
+          "multiSelectPractice": 5,
+          "guidedActivities": 14,
+          "transferChecks": 1,
+          "transferLegacyChoices": 0,
+          "diagramPractice": 25
+        }
+      },
+      "textbook-practice-data": {
+        "serializedBytes": 80064,
+        "sha256": "88deef5908308dc351fcfc62b8515fd2fa4a8892a3537dc0d8a7b421eacadb9f",
+        "containers": {
+          "questions": 82,
+          "topics": 14
+        }
+      }
+    },
+    "mode": "All current structured containers searched recursively for candidate terms, symbols and close analogues. All selected candidate-relevant complete records inspected; native01–05 full reading done. All82 textbook sourceText records read; p620Q13 image also inspected. This is not a full science audit or an assertion that every unrelated bank feedback paragraph was independently read.",
+    "runtimeSourceStringsScreened": [
+      "native-v020/assets/revision-practice.js",
+      "native-v020/assets/revision-activities.js"
+    ],
+    "nearAnalogues": [
+      "ch17-source-OBJ_2131237: a single3/16 phenotype category",
+      "ch17-l05-application-1: AaBb×Aabb P(aabb)=1/8",
+      "ch17-final-mc-2: AaBb×AaBb P(aabb)=1/16",
+      "ch17-l05-guided-q2: AaBb×aabb P(aabb)=1/4",
+      "ch17-concept-gamete-combination: Aa is not a normal two-locus gamete",
+      "ch17-p598-section-17-1-q6/q7: full F2 genotype/phenotype enumeration, not the proposed grouped event or genotype-status selection"
+    ],
+    "conclusion": "No existing complete solved analogue of any of the four proposed demand families identified in this current-bank screening; substantial prerequisite/method and cross-structure overlap remains intentional."
+  }
+}

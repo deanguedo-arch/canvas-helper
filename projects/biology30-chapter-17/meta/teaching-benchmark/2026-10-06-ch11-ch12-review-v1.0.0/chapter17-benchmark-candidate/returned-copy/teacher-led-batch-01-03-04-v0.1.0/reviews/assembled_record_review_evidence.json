@@ -1,0 +1,103 @@
+{
+  "scope": "Final assembled-record consistency, read-only output/source check; no renewed science review, owner assembly, browser, runtime or teacher approval.",
+  "checks": {
+    "checks": 1535,
+    "finalFiles": 6,
+    "originalIntervals": 3,
+    "outerSpans": 12,
+    "headerSuffixRanges": 15,
+    "protectedNotes": 4,
+    "nativeFigures": 1,
+    "protectedOwnerRuns": 4,
+    "frozenReferences": 2,
+    "typoLocations": 3,
+    "assets": 12,
+    "teachingImagePlacements": 8,
+    "suffixImagePlacements": 5,
+    "tableSpans": 12,
+    "practiceVisibleAnchors": 200,
+    "jsonParsed": 17
+  },
+  "rawBeforeCount": 20,
+  "practiceStatuses": {
+    "confirmed_in_actual_complete_candidate": 93,
+    "partial_support_confirmed_not_full_clinical_or_molecular_preparation": 1,
+    "bounded_preparation_and_evidence_limit_confirmed": 1,
+    "partial_or_later_dependency_confirmed_not_fully_prepared_here": 5,
+    "supplementary_source_reading_needed_not_new_essential_teaching": 1,
+    "retained_reference_passages_read_and_dependency_confirmed": 3
+  },
+  "failures": [],
+  "finalFiles": {
+    "lesson-01.teaching-fragment.html": {
+      "bytes": 17745,
+      "sha256": "9af1936228a2f611e9338d0a72142801899802d7d86c054d2a983474ed96e72a"
+    },
+    "manuscripts/lesson-01.md": {
+      "bytes": 27226,
+      "sha256": "6710454dc2cf38853a68280c60d1d078589e71a4a8fae55072c8794c38597eee"
+    },
+    "lesson-03.teaching-fragment.html": {
+      "bytes": 24439,
+      "sha256": "85a884113bab7fe12205c1d1567284dabc0b434fd469c0076c24da57c56edc85"
+    },
+    "manuscripts/lesson-03.md": {
+      "bytes": 37449,
+      "sha256": "53aa6a08b4ba1add404ab767c491a5241204f02373f56049082f056caf9d5b37"
+    },
+    "lesson-04.teaching-fragment.html": {
+      "bytes": 18212,
+      "sha256": "36dc8d9a947c45a355110cc1efed7676d2ab01162dbfa12ea628e0b393d5b97f"
+    },
+    "manuscripts/lesson-04.md": {
+      "bytes": 29985,
+      "sha256": "277a76f9ee9a1e6231f8f1b0b447b90d7380c888d501202eae28c6953346176d"
+    }
+  },
+  "recordFiles": {
+    "TEACHING_SEQUENCE.md": {
+      "bytes": 23105,
+      "sha256": "698707124d1a2e7083b7f7621891a4853384ec145cefee6d223d3e899b74f0be"
+    },
+    "SOURCE_VISUAL_MAP.json": {
+      "bytes": 156900,
+      "sha256": "14c0b5226658fdc91f52cd1f3e9068c7f377c56aa2873dfd192512457cc75874"
+    },
+    "PRACTICE_PREPARATION_MAP.json": {
+      "bytes": 583241,
+      "sha256": "2eef1c796885b8d27e6a04920772f0924c4bca11f953ee3b5900f4fd999dc0b1"
+    },
+    "INTEGRATION_MAP.json": {
+      "bytes": 48470,
+      "sha256": "45db2d51a4736144c2678531e94d8f60b395547c916625032ab057dc6d6ab9c6"
+    },
+    "CONTENT_REVIEW.md": {
+      "bytes": 13430,
+      "sha256": "cdc7c00479f2b39bb1fd2528c803f5ad07774778812fecc562d4327efef1cc48"
+    },
+    "AUTHORING_EVIDENCE.md": {
+      "bytes": 11439,
+      "sha256": "7bb528a62c4b01efc59419e065f1defd1e4240ce749e45cda0546ad4d776545e"
+    },
+    "OPEN_ISSUES.md": {
+      "bytes": 10122,
+      "sha256": "53b995a5c9873bfb09d16d00d3056c5cff9c671213c80c3144d6feef92189344"
+    },
+    "CHANGELOG.md": {
+      "bytes": 3846,
+      "sha256": "f409d2f0392863ddb5950bdbe605a085414104ddc6d4a3ddf8b84e74c59227e4"
+    },
+    "README.md": {
+      "bytes": 4391,
+      "sha256": "ba12b756269c1c8c4727056b412e1ac05d88708319d345433fcaac8ddce0be2f"
+    },
+    "CONTINUITY_LEDGER.md": {
+      "bytes": 5186,
+      "sha256": "31284122545b51333ff5c16a582e8a2b6355db7fa35ec08cc5622cb27779a505"
+    }
+  },
+  "preSealOnlyExpectedMissing": [
+    "MANIFEST.json",
+    "CHECKSUMS.sha256"
+  ]
+}

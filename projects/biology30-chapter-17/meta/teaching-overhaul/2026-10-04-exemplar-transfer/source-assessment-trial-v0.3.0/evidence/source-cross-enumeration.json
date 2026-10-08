@@ -1,0 +1,316 @@
+[
+  {
+    "parents": [
+      "TtGg",
+      "TtGg"
+    ],
+    "gametes": [
+      {
+        "TG": "1/4",
+        "Tg": "1/4",
+        "tG": "1/4",
+        "tg": "1/4"
+      },
+      {
+        "TG": "1/4",
+        "Tg": "1/4",
+        "tG": "1/4",
+        "tg": "1/4"
+      }
+    ],
+    "distinct_grid": [
+      4,
+      4
+    ],
+    "genotypes": {
+      "TTGG": "1/16",
+      "TTGg": "1/8",
+      "TtGG": "1/8",
+      "TtGg": "1/4",
+      "TTgg": "1/16",
+      "Ttgg": "1/8",
+      "ttGG": "1/16",
+      "ttGg": "1/8",
+      "ttgg": "1/16"
+    },
+    "phenotypes": {
+      "T_G_": "9/16",
+      "T_gg": "3/16",
+      "ttG_": "3/16",
+      "ttgg": "1/16"
+    },
+    "cells": [
+      {
+        "first": "TG",
+        "second": "TG",
+        "genotype": "TTGG",
+        "phenotype": "T_G_",
+        "probability": "1/16"
+      },
+      {
+        "first": "TG",
+        "second": "Tg",
+        "genotype": "TTGg",
+        "phenotype": "T_G_",
+        "probability": "1/16"
+      },
+      {
+        "first": "TG",
+        "second": "tG",
+        "genotype": "TtGG",
+        "phenotype": "T_G_",
+        "probability": "1/16"
+      },
+      {
+        "first": "TG",
+        "second": "tg",
+        "genotype": "TtGg",
+        "phenotype": "T_G_",
+        "probability": "1/16"
+      },
+      {
+        "first": "Tg",
+        "second": "TG",
+        "genotype": "TTGg",
+        "phenotype": "T_G_",
+        "probability": "1/16"
+      },
+      {
+        "first": "Tg",
+        "second": "Tg",
+        "genotype": "TTgg",
+        "phenotype": "T_gg",
+        "probability": "1/16"
+      },
+      {
+        "first": "Tg",
+        "second": "tG",
+        "genotype": "TtGg",
+        "phenotype": "T_G_",
+        "probability": "1/16"
+      },
+      {
+        "first": "Tg",
+        "second": "tg",
+        "genotype": "Ttgg",
+        "phenotype": "T_gg",
+        "probability": "1/16"
+      },
+      {
+        "first": "tG",
+        "second": "TG",
+        "genotype": "TtGG",
+        "phenotype": "T_G_",
+        "probability": "1/16"
+      },
+      {
+        "first": "tG",
+        "second": "Tg",
+        "genotype": "TtGg",
+        "phenotype": "T_G_",
+        "probability": "1/16"
+      },
+      {
+        "first": "tG",
+        "second": "tG",
+        "genotype": "ttGG",
+        "phenotype": "ttG_",
+        "probability": "1/16"
+      },
+      {
+        "first": "tG",
+        "second": "tg",
+        "genotype": "ttGg",
+        "phenotype": "ttG_",
+        "probability": "1/16"
+      },
+      {
+        "first": "tg",
+        "second": "TG",
+        "genotype": "TtGg",
+        "phenotype": "T_G_",
+        "probability": "1/16"
+      },
+      {
+        "first": "tg",
+        "second": "Tg",
+        "genotype": "Ttgg",
+        "phenotype": "T_gg",
+        "probability": "1/16"
+      },
+      {
+        "first": "tg",
+        "second": "tG",
+        "genotype": "ttGg",
+        "phenotype": "ttG_",
+        "probability": "1/16"
+      },
+      {
+        "first": "tg",
+        "second": "tg",
+        "genotype": "ttgg",
+        "phenotype": "ttgg",
+        "probability": "1/16"
+      }
+    ],
+    "total_probability": "1"
+  },
+  {
+    "parents": [
+      "RrTt",
+      "rrTt"
+    ],
+    "gametes": [
+      {
+        "RT": "1/4",
+        "Rt": "1/4",
+        "rT": "1/4",
+        "rt": "1/4"
+      },
+      {
+        "rT": "1/2",
+        "rt": "1/2"
+      }
+    ],
+    "distinct_grid": [
+      4,
+      2
+    ],
+    "genotypes": {
+      "RrTT": "1/8",
+      "RrTt": "1/4",
+      "Rrtt": "1/8",
+      "rrTT": "1/8",
+      "rrTt": "1/4",
+      "rrtt": "1/8"
+    },
+    "phenotypes": {
+      "R_T_": "3/8",
+      "R_tt": "1/8",
+      "rrT_": "3/8",
+      "rrtt": "1/8"
+    },
+    "cells": [
+      {
+        "first": "RT",
+        "second": "rT",
+        "genotype": "RrTT",
+        "phenotype": "R_T_",
+        "probability": "1/8"
+      },
+      {
+        "first": "RT",
+        "second": "rt",
+        "genotype": "RrTt",
+        "phenotype": "R_T_",
+        "probability": "1/8"
+      },
+      {
+        "first": "Rt",
+        "second": "rT",
+        "genotype": "RrTt",
+        "phenotype": "R_T_",
+        "probability": "1/8"
+      },
+      {
+        "first": "Rt",
+        "second": "rt",
+        "genotype": "Rrtt",
+        "phenotype": "R_tt",
+        "probability": "1/8"
+      },
+      {
+        "first": "rT",
+        "second": "rT",
+        "genotype": "rrTT",
+        "phenotype": "rrT_",
+        "probability": "1/8"
+      },
+      {
+        "first": "rT",
+        "second": "rt",
+        "genotype": "rrTt",
+        "phenotype": "rrT_",
+        "probability": "1/8"
+      },
+      {
+        "first": "rt",
+        "second": "rT",
+        "genotype": "rrTt",
+        "phenotype": "rrT_",
+        "probability": "1/8"
+      },
+      {
+        "first": "rt",
+        "second": "rt",
+        "genotype": "rrtt",
+        "phenotype": "rrtt",
+        "probability": "1/8"
+      }
+    ],
+    "total_probability": "1"
+  },
+  {
+    "parents": [
+      "wwDd",
+      "Wwdd"
+    ],
+    "gametes": [
+      {
+        "wD": "1/2",
+        "wd": "1/2"
+      },
+      {
+        "Wd": "1/2",
+        "wd": "1/2"
+      }
+    ],
+    "distinct_grid": [
+      2,
+      2
+    ],
+    "genotypes": {
+      "WwDd": "1/4",
+      "wwDd": "1/4",
+      "Wwdd": "1/4",
+      "wwdd": "1/4"
+    },
+    "phenotypes": {
+      "W_D_": "1/4",
+      "wwD_": "1/4",
+      "W_dd": "1/4",
+      "wwdd": "1/4"
+    },
+    "cells": [
+      {
+        "first": "wD",
+        "second": "Wd",
+        "genotype": "WwDd",
+        "phenotype": "W_D_",
+        "probability": "1/4"
+      },
+      {
+        "first": "wD",
+        "second": "wd",
+        "genotype": "wwDd",
+        "phenotype": "wwD_",
+        "probability": "1/4"
+      },
+      {
+        "first": "wd",
+        "second": "Wd",
+        "genotype": "Wwdd",
+        "phenotype": "W_dd",
+        "probability": "1/4"
+      },
+      {
+        "first": "wd",
+        "second": "wd",
+        "genotype": "wwdd",
+        "phenotype": "wwdd",
+        "probability": "1/4"
+      }
+    ],
+    "total_probability": "1"
+  }
+]

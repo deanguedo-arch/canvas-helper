@@ -1,0 +1,325 @@
+{
+  "role": "Independent assistant instructional review; not root author self-review, external specialist/teacher acceptance or browser/runtime QA.",
+  "conclusion": "No consequential instructional/prerequisite/feedback/freshness defect found at reviewed final files; no revision requested within this bounded scope.",
+  "fullReadScope": [
+    "All three complete supplied standards reread.",
+    "All eight exact selected Chapter11 passage intervals reread directly with byte/hash verification.",
+    "Actual integrated native01–05 full reading and all current candidate-relevant bank models.",
+    "Complete final lesson02 and lesson05 teaching including every optional prompt/hint/model/criterion, read through baseline-plus-exact-edits reconstruction and proven byte-identical to assembled fragments.",
+    "All eight selected final required prompts/options/keys/cues/explanations or models/criteria.",
+    "All four native replacement assessment HTML blocks and all four JSON objects.",
+    "Complete separated teacher-solution Markdown; actual assembled article/manuscript visible-word/math token equality verified independently."
+  ],
+  "authorInputPins": [
+    {
+      "path": "source-assessment-v0.3.0/analysis/exemplar/reviewed-full-lesson-02.html.txt",
+      "bytes": 18591,
+      "sha256": "a843cc369e041e244a5cc775907979d36b906b78b2fc3b39ed26a0757d395c00",
+      "readScope": "Full actual reconstructed teaching incl all optional hints/models, using exact baseline teaching plus current two bounded edits only."
+    },
+    {
+      "path": "source-assessment-v0.3.0/analysis/exemplar/reviewed-full-lesson-05.html.txt",
+      "bytes": 32125,
+      "sha256": "c0c83129effd4b3268d41493f0a5a8d0bc82870453df040fe86b829078d44a3a",
+      "readScope": "Full actual reconstructed teaching incl all optional hints/models, using exact baseline teaching plus current two bounded edits only."
+    },
+    {
+      "path": "source-assessment-v0.3.0/authoring/PRE_PROSE_PURPOSE_PLAN.md",
+      "bytes": 8343,
+      "sha256": "9b18621f5bff1256b00cddfb956ffd02eaee5c147f79b49470b536c163d34abc"
+    },
+    {
+      "path": "source-assessment-v0.3.0/authoring/TRIAL_INPUTS.json",
+      "bytes": 7239,
+      "sha256": "34a02af21e33fcb76ec19d79f16a88ff0c2b03c1a3646c8d966898a23c910cd5"
+    },
+    {
+      "path": "source-assessment-v0.3.0/authoring/assessments/ch17-l02-check-writing-1.json",
+      "bytes": 2040,
+      "sha256": "746380cf22eee10bb1acf82e246352f1dc2e425927ad4f83676d36026e25b0d5"
+    },
+    {
+      "path": "source-assessment-v0.3.0/authoring/assessments/ch17-l05-check-mc-2.json",
+      "bytes": 1374,
+      "sha256": "1d0d2b8c11e7790ba449f06acca670ad26ebc91f544d1976856e4793fb5c298b"
+    },
+    {
+      "path": "source-assessment-v0.3.0/authoring/assessments/ch17-l05-check-writing-1.json",
+      "bytes": 2218,
+      "sha256": "69c5823eea0ca6ff8576821d7921b425c6f74cd5caac6c8abecaee7970503684"
+    },
+    {
+      "path": "source-assessment-v0.3.0/authoring/assessments/ch17-l05-check-writing-2.json",
+      "bytes": 2282,
+      "sha256": "4a1006653299a24ddd914be11f676653c393d1e80888bc3c56f0a44681840a0f"
+    },
+    {
+      "path": "source-assessment-v0.3.0/authoring/teaching-edits/lesson-05-changed-parent-task.html.in",
+      "bytes": 4203,
+      "sha256": "a218d13653a95a59da2d56004ea889124992ee3903e2b0749c8f7df78c7a16cf"
+    },
+    {
+      "path": "source-assessment-v0.3.0/authoring/teaching-edits/lesson-05-tomato.html.in",
+      "bytes": 5130,
+      "sha256": "17a9cd16afb399d1897ba90c0be35b2f8b775093054d2ff5b9e214d7145b8c9c"
+    }
+  ],
+  "assembledArtifactPins": [
+    {
+      "path": "output/Biology30_CH17_Source_Assessment_Trial_v0.3.0/Biology30_CH17_Source_Assessment_Trial_Teacher_Review_v0.3.0.html",
+      "bytes": 81677,
+      "sha256": "84f678c04b9237fb8d1b0d78b265889aadf657f79c3615e4c5959668af59a3bb"
+    },
+    {
+      "path": "output/Biology30_CH17_Source_Assessment_Trial_v0.3.0/integration-text/complete-teaching/lesson-02.teaching-fragment.html.txt",
+      "bytes": 18591,
+      "sha256": "a843cc369e041e244a5cc775907979d36b906b78b2fc3b39ed26a0757d395c00"
+    },
+    {
+      "path": "output/Biology30_CH17_Source_Assessment_Trial_v0.3.0/manuscripts/lesson-02.md",
+      "bytes": 19249,
+      "sha256": "2fe26088cdc8cdccbcf71948f08ae1d6ec34e3485978d26de9bf7e7704529598"
+    },
+    {
+      "path": "output/Biology30_CH17_Source_Assessment_Trial_v0.3.0/integration-text/complete-teaching/lesson-05.teaching-fragment.html.txt",
+      "bytes": 32125,
+      "sha256": "c0c83129effd4b3268d41493f0a5a8d0bc82870453df040fe86b829078d44a3a"
+    },
+    {
+      "path": "output/Biology30_CH17_Source_Assessment_Trial_v0.3.0/manuscripts/lesson-05.md",
+      "bytes": 31988,
+      "sha256": "eab821b4969cd2421b6babdb39b3858a32f5fe79b083b3518f853ff9bf9b290f"
+    },
+    {
+      "path": "source-assessment-v0.3.0/authoring/assessments/ch17-l02-check-writing-1.json",
+      "bytes": 2040,
+      "sha256": "746380cf22eee10bb1acf82e246352f1dc2e425927ad4f83676d36026e25b0d5"
+    },
+    {
+      "path": "output/Biology30_CH17_Source_Assessment_Trial_v0.3.0/integration-text/assessment-json/ch17-l02-check-writing-1.json",
+      "bytes": 2040,
+      "sha256": "746380cf22eee10bb1acf82e246352f1dc2e425927ad4f83676d36026e25b0d5"
+    },
+    {
+      "path": "output/Biology30_CH17_Source_Assessment_Trial_v0.3.0/integration-text/assessment-html/ch17-l02-check-writing-1.html.txt",
+      "bytes": 2893,
+      "sha256": "0250f402b5fa6a5f65c9657b198369ae3dbd1873a08f794c163ca08f70b5e3ad"
+    },
+    {
+      "path": "source-assessment-v0.3.0/authoring/assessments/ch17-l05-check-mc-2.json",
+      "bytes": 1374,
+      "sha256": "1d0d2b8c11e7790ba449f06acca670ad26ebc91f544d1976856e4793fb5c298b"
+    },
+    {
+      "path": "output/Biology30_CH17_Source_Assessment_Trial_v0.3.0/integration-text/assessment-json/ch17-l05-check-mc-2.json",
+      "bytes": 1374,
+      "sha256": "1d0d2b8c11e7790ba449f06acca670ad26ebc91f544d1976856e4793fb5c298b"
+    },
+    {
+      "path": "output/Biology30_CH17_Source_Assessment_Trial_v0.3.0/integration-text/assessment-html/ch17-l05-check-mc-2.html.txt",
+      "bytes": 1547,
+      "sha256": "b6c7799412c019fed19fe9ec0ae49fd37fb9c247713354a3b512a5d88b723efb"
+    },
+    {
+      "path": "source-assessment-v0.3.0/authoring/assessments/ch17-l05-check-writing-1.json",
+      "bytes": 2218,
+      "sha256": "69c5823eea0ca6ff8576821d7921b425c6f74cd5caac6c8abecaee7970503684"
+    },
+    {
+      "path": "output/Biology30_CH17_Source_Assessment_Trial_v0.3.0/integration-text/assessment-json/ch17-l05-check-writing-1.json",
+      "bytes": 2218,
+      "sha256": "69c5823eea0ca6ff8576821d7921b425c6f74cd5caac6c8abecaee7970503684"
+    },
+    {
+      "path": "output/Biology30_CH17_Source_Assessment_Trial_v0.3.0/integration-text/assessment-html/ch17-l05-check-writing-1.html.txt",
+      "bytes": 3071,
+      "sha256": "38aed68ffcd1102959217d95cc974aa020d25d8dc5e7b317d82eb1e2782ebe7f"
+    },
+    {
+      "path": "source-assessment-v0.3.0/authoring/assessments/ch17-l05-check-writing-2.json",
+      "bytes": 2282,
+      "sha256": "4a1006653299a24ddd914be11f676653c393d1e80888bc3c56f0a44681840a0f"
+    },
+    {
+      "path": "output/Biology30_CH17_Source_Assessment_Trial_v0.3.0/integration-text/assessment-json/ch17-l05-check-writing-2.json",
+      "bytes": 2282,
+      "sha256": "4a1006653299a24ddd914be11f676653c393d1e80888bc3c56f0a44681840a0f"
+    },
+    {
+      "path": "output/Biology30_CH17_Source_Assessment_Trial_v0.3.0/integration-text/assessment-html/ch17-l05-check-writing-2.html.txt",
+      "bytes": 3135,
+      "sha256": "49c3804388d3c25dd80b3a0366a0e28f048d7c06f6b16a8f59719c02493cf21a"
+    },
+    {
+      "path": "output/Biology30_CH17_Source_Assessment_Trial_v0.3.0/teacher-only/SELECTED_ASSESSMENT_SOLUTIONS.md",
+      "bytes": 12941,
+      "sha256": "6925d4bd6c61c758aed518c858f8e40c5540a6dd31af51bb7d05632fecbffc9d"
+    },
+    {
+      "path": "source-assessment-v0.3.0/authoring/teacher-review-only.css",
+      "bytes": 2185,
+      "sha256": "0099523bf5c34de1dc52977a71f02c4f0c417fa4cd54a8550e51e071a8d69a9a"
+    },
+    {
+      "path": "output/Biology30_CH17_Source_Assessment_Trial_v0.3.0/review-assets/teacher-review-only.css",
+      "bytes": 2185,
+      "sha256": "0099523bf5c34de1dc52977a71f02c4f0c417fa4cd54a8550e51e071a8d69a9a"
+    }
+  ],
+  "staticComparisons": {
+    "routes": [
+      {
+        "route": "lesson-02",
+        "reviewerFullReadReconstructionMatchesOutputBytes": true,
+        "fragmentAllVisibleWordMathPunctuationTokensMatchReading": true,
+        "manuscriptAllVisibleTokensMatchReadingArticleIncludingFourRequiredPrompts": true,
+        "tables": 3,
+        "optionalHintsAndModels": 4,
+        "optionalTextareas": 2,
+        "requiredSolutionsInLearnerArticle": false
+      },
+      {
+        "route": "lesson-05",
+        "reviewerFullReadReconstructionMatchesOutputBytes": true,
+        "fragmentAllVisibleWordMathPunctuationTokensMatchReading": true,
+        "manuscriptAllVisibleTokensMatchReadingArticleIncludingFourRequiredPrompts": true,
+        "tables": 9,
+        "optionalHintsAndModels": 4,
+        "optionalTextareas": 2,
+        "requiredSolutionsInLearnerArticle": false
+      }
+    ],
+    "replacements": [
+      {
+        "id": "ch17-l02-check-writing-1",
+        "jsonIdenticalToReviewedAuthorObject": true,
+        "htmlPromptMatches": true,
+        "htmlModelMatches": true,
+        "htmlCriteriaMatch": true,
+        "responseIdAndLimitMatch": true,
+        "teacherHasFullModelAndCriteria": true
+      },
+      {
+        "id": "ch17-l05-check-mc-2",
+        "jsonIdenticalToReviewedAuthorObject": true,
+        "htmlPromptMatches": true,
+        "orderedOptionsMatch": true,
+        "answerMatchesExactlyOneOption": true,
+        "teacherHasExplanationAndCue": true
+      },
+      {
+        "id": "ch17-l05-check-writing-1",
+        "jsonIdenticalToReviewedAuthorObject": true,
+        "htmlPromptMatches": true,
+        "htmlModelMatches": true,
+        "htmlCriteriaMatch": true,
+        "responseIdAndLimitMatch": true,
+        "teacherHasFullModelAndCriteria": true
+      },
+      {
+        "id": "ch17-l05-check-writing-2",
+        "jsonIdenticalToReviewedAuthorObject": true,
+        "htmlPromptMatches": true,
+        "htmlModelMatches": true,
+        "htmlCriteriaMatch": true,
+        "responseIdAndLimitMatch": true,
+        "teacherHasFullModelAndCriteria": true
+      }
+    ],
+    "teacherSolutionMarkdownMatchesSeparateHTMLSection": true,
+    "inertStaticStructure": {
+      "scripts": 0,
+      "styles": 1,
+      "stylesheets": 0,
+      "forms": 0,
+      "allInputsTextareasButtonsDisabled": true,
+      "requiredTeacherSolutionSections": 8,
+      "articles": [
+        "lesson-02",
+        "lesson-05",
+        "teacher-solutions"
+      ]
+    },
+    "allEightDirectPromptAndOptionComparisons": [
+      {
+        "id": "ch17-l02-check-mc-1",
+        "readerPromptEqualsSourceObjectIncludingUnicode": true,
+        "parsedMarkdownContainsExactSourcePrompt": true,
+        "readerOrderedOptionsEqualSourceObject": true
+      },
+      {
+        "id": "ch17-l02-check-mc-2",
+        "readerPromptEqualsSourceObjectIncludingUnicode": true,
+        "parsedMarkdownContainsExactSourcePrompt": true,
+        "readerOrderedOptionsEqualSourceObject": true
+      },
+      {
+        "id": "ch17-l02-check-writing-1",
+        "readerPromptEqualsSourceObjectIncludingUnicode": true,
+        "parsedMarkdownContainsExactSourcePrompt": true
+      },
+      {
+        "id": "ch17-l02-check-writing-2",
+        "readerPromptEqualsSourceObjectIncludingUnicode": true,
+        "parsedMarkdownContainsExactSourcePrompt": true
+      },
+      {
+        "id": "ch17-l05-check-mc-1",
+        "readerPromptEqualsSourceObjectIncludingUnicode": true,
+        "parsedMarkdownContainsExactSourcePrompt": true,
+        "readerOrderedOptionsEqualSourceObject": true
+      },
+      {
+        "id": "ch17-l05-check-mc-2",
+        "readerPromptEqualsSourceObjectIncludingUnicode": true,
+        "parsedMarkdownContainsExactSourcePrompt": true,
+        "readerOrderedOptionsEqualSourceObject": true
+      },
+      {
+        "id": "ch17-l05-check-writing-1",
+        "readerPromptEqualsSourceObjectIncludingUnicode": true,
+        "parsedMarkdownContainsExactSourcePrompt": true
+      },
+      {
+        "id": "ch17-l05-check-writing-2",
+        "readerPromptEqualsSourceObjectIncludingUnicode": true,
+        "parsedMarkdownContainsExactSourcePrompt": true
+      }
+    ],
+    "teacherOnlyReadingStyle": {
+      "authorAndReviewAssetByteEqual": true,
+      "singleInlineStyleEqualsAuthorCSS": true,
+      "noExternalCSSImportURLOrScript": true,
+      "noHiddenLearnerContentRule": true,
+      "scope": "Standalone inert teacher reader only; not a native CSS or integration proposal. Full stylesheet read statically; no browser/print result."
+    },
+    "previewEncodingDelta": {
+      "scope": "Root found curly-quote mojibake in two preview prompts. Native payloads and teaching fragments remained correct. Corrected preview prompts now compared directly to all eight reviewed source objects; initial cross-preview parity alone did not detect the fault.",
+      "knownMojibakeAbsent": true
+    }
+  },
+  "assessmentFindings": {
+    "ch17-l02-check-writing-1": "Modest mechanism transfer: copies versus versions and single-allele gamete contribution; complete visible prerequisites, specific criteria.",
+    "ch17-l05-check-mc-2": "Fresh one-offspring phenotype union:3/16+3/16+1/16=7/16, no conditional denominator; unique exact answer and full distractor feedback.",
+    "ch17-l05-check-writing-1": "Fresh missing/duplicated gamete diagnosis despite correct2×4 size; AB/aB at1/2, AB/Ab/aB/ab at1/4; corrected cells1/8; full criteria.",
+    "ch17-l05-check-writing-2": "Fresh genotype-status event: CCHH/CChh/ccHH/cchh each1/16, combined1/4 versus different9/16 phenotype event; equivalent method allowed."
+  },
+  "resolvedBoundaries": {
+    "SRC-BOUND-01": "Resolved in candidate instructional/assessment design by source tomato restoration plus two fresh required writing applications; original-source fidelity review separately owned.",
+    "SRC-BOUND-02": "Required direct3/16 target replaced by new7/16 grouped event. Optional source-bank3/16 overlap explicitly remains formative/source practice, not certified fresh assessment."
+  },
+  "remainingLimits": [
+    "Generic method and cross-structure overlap is intentional; no blind-assessment claim.",
+    "No browser/rendering/native interaction/print/storage/progress execution.",
+    "Final original-source fidelity and separate quantitative reviewer evidence are separate, not borrowed as this reviewer’s work.",
+    "Dean exact sample acceptance and external specialist review pending.",
+    "No integration, canonical edit, whole-chapter regeneration, release or standard promotion."
+  ],
+  "openConsequentialFindings": [],
+  "reviewerLearnerEdits": false,
+  "boundedFinalReaderDelta": {
+    "reviewed": "Corrected both manuscript/reader prompt encodings and added isolated teacher-only reading stylesheet; unchanged native assessment payloads and complete teaching fragment bytes rechecked.",
+    "detectionLimit": "Initial preview-to-preview token parity did not detect identical mojibake; final direct comparisons to all eight reviewed source objects close that limitation.",
+    "result": "All direct prompt, option, complete word/math/feedback and control-content comparisons pass. No browser/print/native-style result claimed."
+  }
+}

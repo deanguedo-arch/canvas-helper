@@ -1,0 +1,573 @@
+{
+  "version": "0.1.0",
+  "batches": {
+    "batch_08_09": {
+      "visuals": [
+        {
+          "asset_id": "ch17-l08-v010-figure-01",
+          "path": "./assets/teaching-remaining-v010/slide-61-image55.png",
+          "sha256": "d43cc4788436c09cd23026f9cb6a4bfef6cce9fb47994bbef80fc1a866e7332b",
+          "pixel_dimensions": [
+            727,
+            304
+          ],
+          "source": "ppt/slides/slide61.xml",
+          "source_relationship_id": "rId3",
+          "source_member": "ppt/media/image55.png",
+          "purpose": "Two X copies versus one copy at an X-linked locus; defined B/b notation and phenotype rule.",
+          "placement_sentence": "Start on the left of the image, where two X symbols appear in each genotype.",
+          "viewing_prompt": "Compare heterozygous XX with recessive XX, then the single X in each XY genotype.",
+          "read_order": "Complete image is visible; prose gives successive attention steps. No animation or unsupported image control.",
+          "labels_colours_symbols_boundaries": "Black X/Y and raised B/b are chromosome/allele symbols, not powers. FEMALES/MALES are the source typicalXX/XY categories. There are no process arrows.",
+          "caption": "Two-copy and one-copy expression rules for a simplified X-linked recessive colour-vision model. The image's labels “regular vision” and “colour blind” identify the two categories used in that model.",
+          "alt": "Genotype-to-phenotype table for the stated X-linked recessive colour-vision model. XX genotypes XB XB and XB Xb are labelled regular vision; Xb Xb is labelled colour blind. XY genotypes XB Y and Xb Y are labelled regular vision and colour blind respectively.",
+          "constraints_and_exclusion_caveats": "Specified common red-green colour-vision model only; no screen diagnostic; labels regular vision/colour blind quoted as image categories. Source table omits carrier label, supplied by adjacent text.",
+          "status": "Source-derived candidate, exact selected pixels visually inspected; not a claim of Dean approval",
+          "source_sha256": "da1ce1c0526da4da1aefd1fb6c0f23070f820ce24378c12f9699d1c700e1a985",
+          "copy_policy": "Exact ZIP member bytes copied, no pixel edits"
+        },
+        {
+          "asset_id": "ch17-l08-v010-figure-02",
+          "path": "./assets/teaching-remaining-v010/slide-65-image52.png",
+          "sha256": "bdd1bc1a6066f11673127aac626d34c2be5f17d96c89c3b8a2ce298c4f037407",
+          "pixel_dimensions": [
+            1000,
+            667
+          ],
+          "source": "ppt/slides/slide65.xml",
+          "source_relationship_id": "rId5",
+          "source_member": "ppt/media/image52.png",
+          "purpose": "Orange/non-orange X-inactivation mosaic and maintained descendant cell lineages.",
+          "placement_sentence": "Look at the cat’s orange and black fur.",
+          "viewing_prompt": "Compare adjoining orange and black patches; identify white muzzle/paws separately.",
+          "read_order": "Complete image is visible; prose gives successive attention steps. No animation or unsupported image control.",
+          "labels_colours_symbols_boundaries": "Colour boundaries show visible fur regions, not chromosomes or exact clone boundaries established by measurement. White spotting has separate genetic basis. No arrows or genotype labels.",
+          "caption": "Orange and black regions illustrate a mosaic coat. The white regions have a separate genetic basis and are not a third allele outcome produced by X inactivation.",
+          "alt": "A cat with orange and black patches across its head and body, and white fur around the muzzle and paws. The photograph shows patches, not chromosomes or the cat's measured genotype.",
+          "constraints_and_exclusion_caveats": "Photograph does not establish this individual’s karyotype; rare male exceptions and escape from X inactivation are explained. No blanket only-female claim.",
+          "status": "Source-derived candidate, exact selected pixels visually inspected; not a claim of Dean approval",
+          "source_sha256": "da1ce1c0526da4da1aefd1fb6c0f23070f820ce24378c12f9699d1c700e1a985",
+          "copy_policy": "Exact ZIP member bytes copied, no pixel edits"
+        },
+        {
+          "asset_id": "ch17-l09-v010-figure-01",
+          "path": "./assets/teaching-remaining-v010/textbook-p607-figure17-24.png",
+          "sha256": "9c65e61e53d50be362edc391b7a3eb5a57f335174c5ebb7f429de03637e05614",
+          "pixel_dimensions": [
+            996,
+            626
+          ],
+          "source": "chapter-17.pdf printed607 / PDF page24",
+          "source_relationship_id": null,
+          "source_member": null,
+          "purpose": "Two-locus additive five-category distribution contrasted with three-locus seven-category distribution.",
+          "placement_sentence": "Look at panel A first and match a middle-valued AaBb cell to the corresponding genotype in our table.",
+          "viewing_prompt": "Read A grid, B horizontal length/vertical relative number, then C seven-class comparison.",
+          "read_order": "Complete image is visible; prose gives successive attention steps. No animation or unsupported image control.",
+          "labels_colours_symbols_boundaries": "A–C are panel labels; A/a B/b are allele labels. Colours group phenotype classes, not chromosome origins. Bars encode relative frequency; smooth curves are schematic; no causal arrows.",
+          "caption": "A simplified additive corn model: two contributing loci give five model categories; three give seven. The smooth curves illustrate a distribution shape, not evidence that a finite genetic model by itself produces every possible length.",
+          "alt": "Figure 17.24. Panel A is an AaBb by AaBb square grouping offspring into five additive ear-length categories. Panel B has five bars in the ratio 1, 4, 6, 4, 1 from shortest to longest. Panel C extends the simplified model to three loci and seven categories with relative heights 1, 6, 15, 20, 15, 6, 1. Curves connect the distributions schematically.",
+          "constraints_and_exclusion_caveats": "Equal additive effects, ordinary segregation, independent assortment and no environmental variation for genetic class counts. A two-locus model alone has discrete values. Hypothetical10cm+2cm values appear only in authored tables, not claimed as data from figure.",
+          "status": "Source-derived candidate, exact selected pixels visually inspected; not a claim of Dean approval",
+          "source_sha256": "48e297aacb86275c106a02abdddaf0f0463ba47d6b17703a926aa68405755455",
+          "pdf_page_one_based": 24,
+          "printed_page": 607,
+          "crop_rectangle_pdf_points": [
+            69,
+            424,
+            567,
+            737
+          ],
+          "render_scale": 2,
+          "crop_policy": "Rendered directly from supplied PDF; no redraw, relabelling or diagram change. Caption retained. Full page and final crop inspected."
+        }
+      ],
+      "authored_tables": [
+        {
+          "id": "ch17-l08-v010-table-01",
+          "lesson": 8,
+          "caption": "The starting fly cross: XRXR × XrY",
+          "status": "New accessible semantic HTML table inside authorised teaching block; existing comparison-table class; no CSS, script, storage or control",
+          "interpretation_support": "Adjacent prose explicitly defines symbols, axes/header roles, units or pathway steps before using table; row and column headers scoped."
+        },
+        {
+          "id": "ch17-l08-v010-table-02",
+          "lesson": 8,
+          "caption": "XBXb × XBY: each pairing has probability ¼ among all offspring",
+          "status": "New accessible semantic HTML table inside authorised teaching block; existing comparison-table class; no CSS, script, storage or control",
+          "interpretation_support": "Adjacent prose explicitly defines symbols, axes/header roles, units or pathway steps before using table; row and column headers scoped."
+        },
+        {
+          "id": "ch17-l08-v010-table-03",
+          "lesson": 8,
+          "caption": "XBXb × XbY: each offspring pairing has probability ¼",
+          "status": "New accessible semantic HTML table inside authorised teaching block; existing comparison-table class; no CSS, script, storage or control",
+          "interpretation_support": "Adjacent prose explicitly defines symbols, axes/header roles, units or pathway steps before using table; row and column headers scoped."
+        },
+        {
+          "id": "ch17-l09-v010-table-01",
+          "lesson": 9,
+          "caption": "Count contributing copies across both loci before calculating the model length",
+          "status": "New accessible semantic HTML table inside authorised teaching block; existing comparison-table class; no CSS, script, storage or control",
+          "interpretation_support": "Adjacent prose explicitly defines symbols, axes/header roles, units or pathway steps before using table; row and column headers scoped."
+        },
+        {
+          "id": "ch17-l09-v010-table-02",
+          "lesson": 9,
+          "caption": "AaBb × AaBb: genotype followed by number of contributing copies; each cell has probability 1/16",
+          "status": "New accessible semantic HTML table inside authorised teaching block; existing comparison-table class; no CSS, script, storage or control",
+          "interpretation_support": "Adjacent prose explicitly defines symbols, axes/header roles, units or pathway steps before using table; row and column headers scoped."
+        },
+        {
+          "id": "ch17-l09-v010-table-03",
+          "lesson": 9,
+          "caption": "Group the F2 pairings by their total additive contribution",
+          "status": "New accessible semantic HTML table inside authorised teaching block; existing comparison-table class; no CSS, script, storage or control",
+          "interpretation_support": "Adjacent prose explicitly defines symbols, axes/header roles, units or pathway steps before using table; row and column headers scoped."
+        },
+        {
+          "id": "ch17-l09-v010-table-04",
+          "lesson": 9,
+          "caption": "A sequential pigment pathway in a hypothetical plant",
+          "status": "New accessible semantic HTML table inside authorised teaching block; existing comparison-table class; no CSS, script, storage or control",
+          "interpretation_support": "Adjacent prose explicitly defines symbols, axes/header roles, units or pathway steps before using table; row and column headers scoped."
+        },
+        {
+          "id": "ch17-l09-v010-table-05",
+          "lesson": 9,
+          "caption": "Interpret a flower by asking which pathway steps can occur",
+          "status": "New accessible semantic HTML table inside authorised teaching block; existing comparison-table class; no CSS, script, storage or control",
+          "interpretation_support": "Adjacent prose explicitly defines symbols, axes/header roles, units or pathway steps before using table; row and column headers scoped."
+        },
+        {
+          "id": "ch17-l09-v010-table-06",
+          "lesson": 9,
+          "caption": "CcDd × ccDd: follow both locus pairs, then the pathway; each cell has probability ⅛",
+          "status": "New accessible semantic HTML table inside authorised teaching block; existing comparison-table class; no CSS, script, storage or control",
+          "interpretation_support": "Adjacent prose explicitly defines symbols, axes/header roles, units or pathway steps before using table; row and column headers scoped."
+        },
+        {
+          "id": "ch17-l09-v010-table-07",
+          "lesson": 9,
+          "caption": "Three different observations require different conclusions",
+          "status": "New accessible semantic HTML table inside authorised teaching block; existing comparison-table class; no CSS, script, storage or control",
+          "interpretation_support": "Adjacent prose explicitly defines symbols, axes/header roles, units or pathway steps before using table; row and column headers scoped."
+        },
+        {
+          "id": "ch17-l09-v010-table-08",
+          "lesson": 9,
+          "caption": "Hypothetical chlorophyll measurements after the treatment period",
+          "status": "New accessible semantic HTML table inside authorised teaching block; existing comparison-table class; no CSS, script, storage or control",
+          "interpretation_support": "Adjacent prose explicitly defines symbols, axes/header roles, units or pathway steps before using table; row and column headers scoped."
+        },
+        {
+          "id": "ch17-l09-v010-table-09",
+          "lesson": 9,
+          "caption": "Hypothetical height means: use within-line and within-environment comparisons",
+          "status": "New accessible semantic HTML table inside authorised teaching block; existing comparison-table class; no CSS, script, storage or control",
+          "interpretation_support": "Adjacent prose explicitly defines symbols, axes/header roles, units or pathway steps before using table; row and column headers scoped."
+        }
+      ],
+      "inspected_but_excluded": [
+        {
+          "slide": 59,
+          "member": "image57.jpg",
+          "reason": "Ishihara-style plate does not prove genotype or provide an appropriate screen-based diagnosis; no essential role beyond genotype table."
+        },
+        {
+          "slide": 60,
+          "member": "image49.png",
+          "reason": "Morgan portrait is historical decoration rather than chromosome evidence."
+        },
+        {
+          "slide": 65,
+          "member": "image59.jpg",
+          "reason": "Second calico photo repeats the selected coat observation without adding an explanatory role."
+        },
+        {
+          "slide": 66,
+          "member": "image54.jpg",
+          "reason": "Video thumbnail is not a chromosome diagram or verification of playback."
+        },
+        {
+          "slide": 72,
+          "member": "image64.jpg",
+          "reason": "Group skin-colour photo cannot establish genotype, gene count, causation or an additive distribution; quantitative source Figure17.24 is more explanatory."
+        },
+        {
+          "slide": 73,
+          "member": "image67.jpg; image69.jpg",
+          "reason": "Low-resolution recap/video thumbnails concern earlier Mendelian crosses and are not polygenic mechanism evidence."
+        },
+        {
+          "slide": 74,
+          "member": null,
+          "reason": "Pedigree transition belongs to lesson10; no image."
+        },
+        {
+          "slide": 75,
+          "member": "image76.jpg; image63.png",
+          "reason": "Pedigree source belongs to later lessons; not reused in08/09."
+        }
+      ]
+    },
+    "batch_10_11": {
+      "version": "0.1.0",
+      "baseline_owner_sha256": "31447f72550c68ceb4a7cfd444f85651908a86782096dff4e4847cff4ab9e3e4",
+      "sources": {
+        "pptx_sha256": "da1ce1c0526da4da1aefd1fb6c0f23070f820ce24378c12f9699d1c700e1a985",
+        "pdf_sha256": "48e297aacb86275c106a02abdddaf0f0463ba47d6b17703a926aa68405755455",
+        "pdf_mapping": "printed page = one-based PDF page + 583"
+      },
+      "figures": [
+        {
+          "asset_id": "ch17-pedigree",
+          "lesson": 10,
+          "path": "./assets/figures/ch17-pedigree.svg",
+          "sha256": "f9e47cdfaac6249924098fb976de3c1ece9b7dbdb5b2acd9b6fe551cdb6f62f3",
+          "status": "approved existing native asset retained byte-exact",
+          "caption": "In this fully penetrant autosomal recessive model, filled symbols are affected. Unaffected parents with an affected child must both be carriers. The unaffected sibling remains AA or Aa. Schematic — not to scale.",
+          "accessible_description": "In this fully penetrant autosomal recessive model, filled symbols are affected. Unaffected parents with an affected child must both be carriers. The unaffected sibling remains AA or Aa.",
+          "pixel_inspection": "Actual image opened and read, both contact-sheet and individual view; native SVG rendered with installed Inkscape and visually inspected. No pixels redrawn or altered.",
+          "source": {
+            "native_svg_sha256": "f9e47cdfaac6249924098fb976de3c1ece9b7dbdb5b2acd9b6fe551cdb6f62f3",
+            "recovery": "Lead recovered historical native raw asset; hash matches frozen SOURCE_PROTECTION"
+          },
+          "meaning_of_marks": "Open/filled squares/circles distinguish sex category and observed trait per stated key. Horizontal partnerships, vertical descent, and sibling lines are relationships. No arrows or colour coding imply allele movement.",
+          "teaching_sequence": [
+            "First inspect open parents and filled child without using printed answers.",
+            "Trace partnership, descent and sibling lines; then follow each A–D pointer.",
+            "After the model is defined, L10 teaching-02 traces the two necessary a contributions; L10 teaching-03 derives conditional probability."
+          ],
+          "concept": "Read symbols and distinguish pedigree connectors from leader lines; then infer Aa, Aa, aa, AA or Aa under the supplied recessive model.",
+          "placement": "L10 teaching-01 after “Read the picture in two passes.”",
+          "scientific_constraints": "Preserve native SVG and figure subtree, including visible answer legend. Small endpoint dots are activity-pointer marks, not carrier notation. Circled A–D are locations, not alleles. This existing answer-visible figure cannot be called a fresh independent assessment.",
+          "locked_mapping": {
+            "A": "Aa",
+            "B": "Aa",
+            "C": "aa",
+            "D": "AA or Aa"
+          }
+        },
+        {
+          "asset_id": "ch17-teaching-remaining-v010-l10-dominant-family",
+          "lesson": 10,
+          "path": "./assets/teaching-remaining-v010/slide-77-image73.png",
+          "sha256": "c6f77f53f6389602d75bb60ca8efe0ebc35f683e7a8fdd0aa02c548f0acb95a2",
+          "status": "exact supplied PPT media, extracted through slide relationship; new placement proposed",
+          "caption": "An autosomal-dominant family. Use the printed individual numbers and the connecting lines; a filled symbol initially allows DD or Dd.",
+          "accessible_description": "Autosomal-dominant pedigree numbered 1 through 12. Affected parents 1 and 2 have affected children 5 and 6 and unaffected child 7. Unaffected 3 and affected 4 have unaffected 8 and affected 9. Unaffected 7 and 8 have unaffected children 10, 11 and 12.",
+          "pixel_inspection": "Actual image opened and read, both contact-sheet and individual view; native SVG rendered with installed Inkscape and visually inspected. No pixels redrawn or altered.",
+          "source": {
+            "slide": 77,
+            "rid": "rId3",
+            "target": "../media/image73.png",
+            "extracted": "biology_remaining/batch_10_11/research/slide-77-image73.png",
+            "text": "PEDIGREES: \nPREDICTING GENOTYPE\nPedigrees can be used to predict the genotype of a given individual\n… \nWhat is the genotype of individual 3 in generation I?\nWhat must be the genotypes of individuals 1 & 2 in generation I?\nWhat are the possible genotypes of individual 6 in generation II?\nIs it possible for individuals 7 & 8 of generation II to produce an affected child? \nMode of Inheritance:\nAutosomal Dominant\ndd\nDd and Dd → only way to produce the unaffected offspring II-7\nDD or Dd are both possible\nNo, because they both must be dd → no way to pass on the dominant copy"
+          },
+          "meaning_of_marks": "Open/filled squares/circles distinguish sex category and observed trait per stated key. Horizontal partnerships, vertical descent, and sibling lines are relationships. No arrows or colour coding imply allele movement.",
+          "teaching_sequence": [
+            "Find all open dd individuals.",
+            "Use child 7 to force parents 1 and 2 to Dd.",
+            "Use child 8 to force parent 4 to Dd and parent 3 to force child 9 Dd.",
+            "Retain DD or Dd for 5 and 6; verify dd×dd produces 10–12."
+          ],
+          "concept": "Autosomal-dominant genotype inference through every branch, with unresolved DD/Dd alternatives.",
+          "placement": "L10 teaching-02 after “Look at the larger diagram next.”",
+          "scientific_constraints": "Numbers are global 1–12, not restarted within each generation. Printed model label is a premise, not proof. Use D/d consistently. Image remains exact."
+        },
+        {
+          "asset_id": "ch17-teaching-remaining-v010-l11-recessive-family",
+          "lesson": 11,
+          "path": "./assets/teaching-remaining-v010/slide-79-image74.png",
+          "sha256": "630d5cb33d9573eaf8e0a6037df0d44c33737050fb79039e33f0606a7943092b",
+          "status": "exact supplied PPT media, extracted through slide relationship; new placement proposed",
+          "caption": "Follow each parent–offspring connection before testing a chromosome model. Open symbols mean unaffected for the trait; filled symbols mean affected. The family alone does not establish a unique mode of inheritance.",
+          "accessible_description": "Three-generation pedigree. Two unaffected parents have an unaffected daughter, an affected son, an unaffected son and another unaffected daughter. The left daughter and her unaffected partner have an unaffected daughter and two unaffected sons. The right daughter and her unaffected partner have an affected son and two unaffected daughters.",
+          "pixel_inspection": "Actual image opened and read, both contact-sheet and individual view; native SVG rendered with installed Inkscape and visually inspected. No pixels redrawn or altered.",
+          "source": {
+            "slide": 79,
+            "rid": "rId3",
+            "target": "../media/image74.png",
+            "extracted": "biology_remaining/batch_10_11/research/slide-79-image74.png",
+            "text": "Mode of Inheritance:\nX-linked Recessive\nWhat must be the genotypes of individuals 1 & 2 of generation I?\nWhat are the most likely genotypes of individuals 1 & 2 of generation II? \nPEDIGREES: \nPREDICTING GENOTYPE\nI-1: X\nR\nX\nr \n→ X\nR \nbecause not affected and X\nr \nb/c she has an affected son, who must have received the X\nR \nallele from mom.\nI-2: X\nR\nY\n → not affected so must have X\nR\n as well as a Y b/c male\nI\nI-1: X\nR\nY\n → not affected so must have X\nR\n as well as a Y b/c male\nII-2:\n \nmost likely\n \nX\nR\nX\nR \nbecause none of her sons are affected."
+          },
+          "meaning_of_marks": "Open/filled squares/circles distinguish sex category and observed trait per stated key. Horizontal partnerships, vertical descent, and sibling lines are relationships. No arrows or colour coding imply allele movement.",
+          "teaching_sequence": [
+            "Read top family and distinguish daughters’ partners from siblings.",
+            "Trace affected sons’ X back to their mothers.",
+            "Resolve every person or retain explicit alternatives; do not infer non-carrier from unaffected sons.",
+            "Construct a compatible autosomal-recessive alternative to prevent unique-proof overclaim."
+          ],
+          "concept": "X-linked recessive chromosome path, obligate carriers and unresolved non-carrier/carrier alternatives.",
+          "placement": "L11 teaching-01 after the initial relationship walkthrough.",
+          "scientific_constraints": "No individual numbers printed: use relationship and location descriptions. Preserve visible StompOnStep1 credit. Unlike source slide text, do not call the left daughter most likely non-carrier without prior information."
+        },
+        {
+          "asset_id": "ch17-teaching-remaining-v010-l11-dominant-family",
+          "lesson": 11,
+          "path": "./assets/teaching-remaining-v010/slide-88-image72.png",
+          "sha256": "1337fdba705ee1263b92410c26d18a04f3def0b9835734c3a79cadc9acf03d8b",
+          "status": "exact supplied PPT media, extracted through slide relationship; new placement proposed",
+          "caption": "The model is supplied. Test its predictions by tracing the X to each daughter and son, not by counting shaded circles alone.",
+          "accessible_description": "X-linked-dominant pedigree numbered 1 through 11. Affected mother 1 and unaffected father 2 have affected son 3, affected daughter 4, unaffected son 5 and unaffected daughter 6. Unaffected daughter 6 and affected partner 7 have affected daughters 8 and 10 and unaffected sons 9 and 11.",
+          "pixel_inspection": "Actual image opened and read, both contact-sheet and individual view; native SVG rendered with installed Inkscape and visually inspected. No pixels redrawn or altered.",
+          "source": {
+            "slide": 88,
+            "rid": "rId3",
+            "target": "../media/image72.png",
+            "extracted": "biology_remaining/batch_10_11/research/slide-88-image72.png",
+            "text": "PEDIGREES\nPredicting mode of inheritance\nCLUES:\nFemales affected more than males\ntrait does not skip generations → likely dominant\naffected sons have an affected mother\nstill no father to son transmission\nAll daughters born to an affected father are also affected → huge clue it is x-linked dominant\nExample #\n4"
+          },
+          "meaning_of_marks": "Open/filled squares/circles distinguish sex category and observed trait per stated key. Horizontal partnerships, vertical descent, and sibling lines are relationships. No arrows or colour coding imply allele movement.",
+          "teaching_sequence": [
+            "Use unaffected son 5 to resolve mother 1 as heterozygous.",
+            "Use unaffected father 2 to constrain daughter 4.",
+            "Trace individual 7’s X to daughters 8 and 10 and Y to sons 9 and 11."
+          ],
+          "concept": "X-linked-dominant affected father, all daughters versus all-offspring denominator, and heterozygous mother inference.",
+          "placement": "L11 teaching-02 after “Read the dominant family one branch at a time.”",
+          "scientific_constraints": "Global 1–11 numbering. Use correct XdY sons; do not copy slide81’s incorrect XDY cell. Printed model label is supplied assumption."
+        },
+        {
+          "asset_id": "ch17-teaching-remaining-v010-l11-alternative-models",
+          "lesson": 11,
+          "path": "./assets/teaching-remaining-v010/slide-84-image82.png",
+          "sha256": "c57988402268e79257d3f4c8e88ed94e5cc0dc3f91255de35c0e26e0fda2297d",
+          "status": "exact supplied PPT media, extracted through slide relationship; new placement proposed",
+          "caption": "Several visible clues fit more than one explanation. Test every family branch and retain every compatible model under the stated assumptions.",
+          "accessible_description": "An affected mother and unaffected father have two affected children, a son and daughter, and two unaffected children, a son and daughter. The affected son and an unaffected female partner have an affected son. The unaffected daughter and an unaffected male partner have an unaffected daughter. The diagram asks for the mode of inheritance.",
+          "pixel_inspection": "Actual image opened and read, both contact-sheet and individual view; native SVG rendered with installed Inkscape and visually inspected. No pixels redrawn or altered.",
+          "source": {
+            "slide": 84,
+            "rid": "rId4",
+            "target": "../media/image82.png",
+            "extracted": "biology_remaining/batch_10_11/research/slide-84-image82.png",
+            "text": "PEDIGREES\nPredicting mode of inheritance\nCLUES:\nboth males and females are equally affected \n→ not likely to be sex-linked\ntrait tends to skip generations\nunaffected parents may produce affected offspring\nExample #2\nDefinitive\n clue that it is a recessive trait."
+          },
+          "meaning_of_marks": "Open/filled squares/circles distinguish sex category and observed trait per stated key. Horizontal partnerships, vertical descent, and sibling lines are relationships. No arrows or colour coding imply allele movement.",
+          "teaching_sequence": [
+            "Identify every relative by location.",
+            "Read both complete autosomal genotype assignments.",
+            "Test the top mother/unaffected son and the left affected grandson’s unaffected mother to reject X-linked candidates.",
+            "Retain both autosomal models rather than selecting one from generation/sex-count clues."
+          ],
+          "concept": "Whole-pedigree competing-model test with two compatible autosomal assignments and two contradicted X-linked assignments.",
+          "placement": "L11 teaching-03 before the complete alternative-assignment table.",
+          "scientific_constraints": "Diagram is unnumbered, and appears on both slides84 and86. No unique mode implied by its printed question. Father/son co-occurrence does not establish paternal X transmission."
+        }
+      ],
+      "source_task_page_renders": "Full PDF-page renders for reading manuscripts only, not replacements for frozen native crop assets."
+    },
+    "batch_12_13": {
+      "sourceOwnerSha256": "31447f72550c68ceb4a7cfd444f85651908a86782096dff4e4847cff4ab9e3e4",
+      "assets": [
+        {
+          "asset": "assets/teaching-remaining-v010/slide-97-image88.png",
+          "slide": 97,
+          "relationship": "rId3",
+          "member": "ppt/media/image88.png",
+          "lesson": 12,
+          "anchor": "ch17-l12-teaching-02",
+          "purpose": "Explain four-chromatid starting structure, a nonsister crossover and the two recombinant products.",
+          "placement": "The image below follows one crossover between the A and B loci.",
+          "viewing": "Find blue/red copied homologues, distinguish two sisters in each, follow the two inner nonsisters and the lower segment that changes colour.",
+          "labels": "Prophase I; tetrad; nonsister chromatids; pachytene; chiasma; metaphase I; metaphase II; daughter cells; parental types; recombinants; AB, Ab, aB, ab.",
+          "semantics": "Blue/red trace homologue origin, not dominance. Downward arrows summarise meiotic progression; branch to two cells follows homologue separation; final four cells follow chromatid separation.",
+          "constraints": "One pictured crossover affects two of four chromatids. No second replication; no claim every meiosis or gamete is recombinant. Figure is a simplified stage schematic.",
+          "caption": "One illustrated crossover between the tracked loci changes two of the four chromatids. Blue and red trace chromosome origins, not dominance.",
+          "status": "Exact original source asset, selected for bounded teacher-review candidate; not newly approved artwork",
+          "pptxSha256": "da1ce1c0526da4da1aefd1fb6c0f23070f820ce24378c12f9699d1c700e1a985",
+          "slideXml": "ppt/slides/slide97.xml",
+          "rels": "ppt/slides/_rels/slide97.xml.rels",
+          "sha256": "93b0ff0c1b850a6a1cff4491ab6189e9d2dc0931d9e1ce340a951a41c4ea2396",
+          "dimensions": [
+            408,
+            684
+          ],
+          "pixelInspection": "Actual native-resolution image opened with view_image; unmodified bytes copied from identified PPT archive member.",
+          "altSource": "lesson-12.teaching-fragment.html img[src='./assets/teaching-remaining-v010/slide-97-image88.png']"
+        },
+        {
+          "asset": "assets/teaching-remaining-v010/slide-100-image96.png",
+          "slide": 100,
+          "relationship": "rId3",
+          "member": "ppt/media/image96.png",
+          "alsoUsedInSourceSlide": 102,
+          "lesson": 13,
+          "anchor": "ch17-l13-teaching-01",
+          "purpose": "Establish relative interval length before assigning map units.",
+          "placement": "The chromosome drawing below makes the interval idea visible before we assign a unit.",
+          "viewing": "Match the upper blue B/b, lower purple H/h and nearby green d/D loci across homologues; compare H/d gap with B/H gap.",
+          "labels": "B,H,d on left; b,h,D on right. Corresponding aligned loci.",
+          "semantics": "Coloured bands identify three loci. Outlined callouts connect labels to corresponding bands. Curved black outlines represent homologous chromosomes; no scale or exchange event is drawn.",
+          "constraints": "Do not infer numeric cM, chromosome identity, physical DNA length or uniform recombination rate from pixel lengths.",
+          "caption": "Compare intervals on one homologue, then match corresponding loci on the other. The colours identify loci; the drawing gives no numerical scale.",
+          "status": "Exact original source asset, selected for bounded teacher-review candidate; not newly approved artwork",
+          "pptxSha256": "da1ce1c0526da4da1aefd1fb6c0f23070f820ce24378c12f9699d1c700e1a985",
+          "slideXml": "ppt/slides/slide100.xml",
+          "rels": "ppt/slides/_rels/slide100.xml.rels",
+          "sha256": "9dfaac73b9f06646130da71df671c03dfd5bdbdc2db43946b7be82140e043b13",
+          "dimensions": [
+            269,
+            282
+          ],
+          "pixelInspection": "Actual native-resolution image opened with view_image; unmodified bytes copied from identified PPT archive member.",
+          "altSource": "lesson-13.teaching-fragment.html img[src='./assets/teaching-remaining-v010/slide-100-image96.png']"
+        },
+        {
+          "asset": "assets/figures/ch17-linkage.svg",
+          "lesson": 12,
+          "anchor": "ch17-l12-teaching-01",
+          "status": "Recovered locked native asset; exact current SOURCE_PROTECTION hash match confirmed upstream",
+          "sha256": "746eaae690538673ddf3b414887e62032c16069a5d023d856cf32c8aa457475e",
+          "dimensions": [
+            1400,
+            900
+          ],
+          "pixelInspection": "SVG rendered with installed Inkscape, then actual PNG pixels inspected using view_image. Rendered PNG is review evidence only; original SVG remains unchanged.",
+          "markup": "Complete existing nested figure including toolbar, button, image attributes, alt and caption is byte-exact.",
+          "purpose": "Linked allele arrangements and gamete classes",
+          "viewing": "Read blue AB and orange ab at left, then compare upper parental and lower recombinant boxes. Circled labels name diagram positions, not allele identities.",
+          "lockedLocationMap": {
+            "A": "Parental gamete, AB",
+            "B": "Parental gamete, ab",
+            "C": "Recombinant gamete, Ab",
+            "D": "Recombinant gamete, aB"
+          },
+          "constraints": "Native legend already reveals location answers; formative practice is not answer-free identification. No new enlarge control or runtime introduced."
+        },
+        {
+          "asset": "assets/figures/ch17-map.svg",
+          "lesson": 13,
+          "anchor": "ch17-l13-teaching-01",
+          "status": "Recovered locked native asset; exact current SOURCE_PROTECTION hash match confirmed upstream",
+          "sha256": "515d0329412115d662568d0303d8119083ecc0949b681113e40e540711c6dbea",
+          "dimensions": [
+            1400,
+            900
+          ],
+          "pixelInspection": "SVG rendered with installed Inkscape, then actual PNG pixels inspected using view_image. Rendered PNG is review evidence only; original SVG remains unchanged.",
+          "markup": "Complete existing nested figure including toolbar, button, image attributes, alt and caption is byte-exact.",
+          "purpose": "A short-interval chromosome map",
+          "viewing": "Read0/8/20 coordinates then blue0–8 and orange8–20 intervals; subtract coordinates and add adjacent intervals.",
+          "lockedLocationMap": {
+            "A": "Locus at0 cM",
+            "B": "Locus at8 cM",
+            "C": "Locus at20 cM",
+            "D": "8 cM interval",
+            "E": "12 cM interval"
+          },
+          "constraints": "Native legend already reveals location answers; formative practice is not answer-free identification. No new enlarge control or runtime introduced."
+        }
+      ],
+      "semanticTables": "All newly authored tables are native semantic HTML with captions, column headings and row headings. Adjacent prose introduces what to inspect and interprets the result; tables are textual visual explanations, not invented measurements. They cover source counts, supplied hypothetical records, contribution mappings, two missing-distance alternatives, and the concrete double-crossover trace.",
+      "sourcePreservation": "No original slide or textbook bytes were edited. Only selected source media are added at assets/teaching-remaining-v010. Neither media rights clearance nor external publishing is claimed."
+    },
+    "batch_14_15_extension": {
+      "version": "0.1.0",
+      "mediaDecision": "No decorative image is needed for these three reasoning/evidence routes; complete accessible semantic tables perform the visual work. Original14-topic review table is retained byte-exact.",
+      "visuals": [
+        {
+          "route": "lesson-14",
+          "caption": "Three steps in interpreting the fictional report",
+          "viewingPrompt": "Read row1 detection against row3 individual prediction; each extra inference needs evidence",
+          "source": "Original authored semantic table, fictional V/Q example",
+          "assetType": "native semantic table",
+          "status": "complete authored table",
+          "accessibility": "caption and scope row/col headings; all quantitative values also interpreted in adjacent prose"
+        },
+        {
+          "route": "lesson-14",
+          "caption": "Fictional study results over the same observation period",
+          "viewingPrompt": "Read12/200vs4/200 then188withoutQ; distinguish6%,2%,3-fold and4percentagepoints",
+          "source": "Original authored synthetic data; all numbers labelled fictional",
+          "assetType": "native semantic table",
+          "status": "complete authored table",
+          "accessibility": "caption and scope row/col headings; all quantitative values also interpreted in adjacent prose"
+        },
+        {
+          "route": "lesson-14",
+          "caption": "Questions that clarify the fictional research invitation",
+          "viewingPrompt": "Read a specific question and its consequence, rather than treating a signature as understanding",
+          "source": "Textbook616/618 principles; TCPS2 Chapter13; original explanatory table",
+          "assetType": "native semantic table",
+          "status": "complete authored table",
+          "accessibility": "caption and scope row/col headings; all quantitative values also interpreted in adjacent prose"
+        },
+        {
+          "route": "lesson-15",
+          "caption": "Constructed test-cross observations",
+          "viewingPrompt": "Compare unequal classes before calculating; identify what each phenotype reveals",
+          "source": "Original fictional dataset96,94,6,4; all counts explicitly constructed",
+          "assetType": "native semantic table",
+          "status": "complete authored table",
+          "accessibility": "caption and scope row/col headings; all quantitative values also interpreted in adjacent prose"
+        },
+        {
+          "route": "lesson-15",
+          "caption": "The fixed tester contribution makes the other gamete traceable",
+          "viewingPrompt": "Trace one informative-parent gamete with fixedab into a genotype and phase-based class",
+          "source": "Original semantic table grounded in source test-cross mechanism",
+          "assetType": "native semantic table",
+          "status": "complete authored table",
+          "accessibility": "caption and scope row/col headings; all quantitative values also interpreted in adjacent prose"
+        },
+        {
+          "route": "extension",
+          "caption": "How a sample becomes evidence in a hypothetical biobank study",
+          "viewingPrompt": "Follow linked stages and identify a problem that could undermine the next stage",
+          "source": "Original explanatory table based on supplied textbook618 with current research-ethics verification",
+          "assetType": "native semantic table",
+          "status": "complete authored table",
+          "accessibility": "caption and scope row/col headings; all quantitative values also interpreted in adjacent prose"
+        },
+        {
+          "route": "extension",
+          "caption": "Age categories in the same fictional sample",
+          "viewingPrompt": "Compare within age first; verify42%vs18% pooled but50%vs50% and10%vs10% within groups",
+          "source": "Original synthetic evidence model; no real participants or data",
+          "assetType": "native semantic table",
+          "status": "complete authored table",
+          "accessibility": "caption and scope row/col headings; all quantitative values also interpreted in adjacent prose"
+        },
+        {
+          "route": "extension",
+          "caption": "Questions for informed participation in a fictional biobank",
+          "viewingPrompt": "Connect each question to the missing practical information; no universal legal claim",
+          "source": "Original question table, supplied textbook618 issues, verified TCPS2/NHGRI support",
+          "assetType": "native semantic table",
+          "status": "complete authored table",
+          "accessibility": "caption and scope row/col headings; all quantitative values also interpreted in adjacent prose"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Supplied Chapter17 textbook",
+          "pages": "610–618,619–621",
+          "sha256": "48e297aacb86275c106a02abdddaf0f0463ba47d6b17703a926aa68405755455"
+        },
+        {
+          "title": "MedlinePlus genetic test interpretation",
+          "url": "https://medlineplus.gov/genetics/understanding/testing/interpretingresults/"
+        },
+        {
+          "title": "TCPS2 human biological materials",
+          "url": "https://ethics.gc.ca/eng/tcps2-eptc2_2022_chapter12-chapitre12.html"
+        },
+        {
+          "title": "TCPS2 human genetic research",
+          "url": "https://ethics.gc.ca/eng/tcps2-eptc2_2022_chapter13-chapitre13.html"
+        },
+        {
+          "title": "NHGRI genomics consent",
+          "url": "https://www.genome.gov/about-genomics/policy-issues/Informed-Consent/Special-Considerations-for-Genome-Research"
+        },
+        {
+          "title": "Canola Council breeding history",
+          "url": "https://www.canolacouncil.org/canola-encyclopedia/history-of-canola-seed-development/"
+        }
+      ]
+    }
+  }
+}

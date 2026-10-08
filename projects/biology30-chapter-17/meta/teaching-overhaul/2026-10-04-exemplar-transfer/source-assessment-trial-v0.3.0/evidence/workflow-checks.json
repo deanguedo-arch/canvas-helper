@@ -1,0 +1,11 @@
+{
+  "date": "2026-10-05",
+  "scope": "Existing repository exemplar-transfer, paired correction promotion and course standards checks; no learner build",
+  "testCommand": "node --import tsx --test scripts/tests/exemplar-transfer.test.ts scripts/tests/exemplar-correction.test.ts scripts/tests/course-standards.test.ts",
+  "tests": 15,
+  "passed": 15,
+  "failed": 0,
+  "actualSampleEntry": {"command": "node --import tsx scripts/exemplar-transfer.ts --project biology30-chapter-17 --intent sample", "exitCode": 0, "routes": ["lesson-02", "lesson-05"], "teacherAcceptance": "pending"},
+  "actualContinuationEntry": {"command": "node --import tsx scripts/exemplar-transfer.ts --project biology30-chapter-17", "exitCode": 1, "code": "exemplar-transfer-stop", "message": "STOP: pending representative sample acceptance; explicit bounded continuation lessons required."},
+  "note": "These are workflow integrity/stop checks, not certification of teaching quality or approval of v0.3.0 copy."
+}

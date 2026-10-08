@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 1,
+  "preparedAt": "2026-10-06T19:09:36.781637+00:00",
+  "status": "source review packages prepared; full Chapter17 exact-copy acceptance pending",
+  "benchmark": {
+    "schemaVersion": 1,
+    "preparedAt": "2026-10-06T19:09:36.781637+00:00",
+    "primaryTeachingBenchmark": "Chapter 17 current candidate and actual teacher-led process",
+    "latestProposalSha256": "1ac7a2f934cdd2a5373f75d567abe01f7a512fc52e1c766320b46c58afc5e46a",
+    "priorOwnerSha256": "480d60d752d717b9d947098695b043bf85776dff4fcb796725a6506c298f7262",
+    "retainedLessons1to7Exact": true,
+    "acceptance": {
+      "lessons06and07": "explicit teacher exact-copy acceptance; frozen subset included",
+      "lessons02and05": "method/reference permission; exact-copy acceptance records false",
+      "lessons01and03and04": "independently reviewed, exact-copy teacher acceptance pending",
+      "lessons08to15AndExtension": "integrated candidate, teacher acceptance pending"
+    },
+    "reviewOrder": [
+      "Chapter 11",
+      "Chapter 12",
+      "remaining chapters only after requested review"
+    ],
+    "chapter11Exempt": false,
+    "globalStandardPromoted": false,
+    "canonicalIntegrated": false,
+    "released": false,
+    "deployed": false,
+    "knownChapter17Limits": [
+      "blank embedded PDF pixels in IAB despite correct page mapping",
+      "deep-scroll mobile and keyboard review incomplete",
+      "unattributed comparison observer error",
+      "legacy save/import, transfer-set, print/backup/media, SCORM/Brightspace unverified",
+      "original incoming ZIP SHA/CRC unverified because source was extracted folder"
+    ],
+    "originalAssessmentResolutionGaps": [],
+    "historicalEvidence": "Dates and hashes in copied prior reviews remain historical; no passing suite rerun or implied current acceptance.",
+    "routing": {
+      "sourceAndAcceptance": "Sol lead, requested model; dirty proposal and exact source ownership retained",
+      "copyHashExtractionAndZIP": "deterministic local commands",
+      "workers": "none",
+      "localContextReuse": "checked-in guidance and source receipts reused; no context-cache telemetry measured",
+      "providerCache": "unavailable",
+      "usageSavings": "unknown"
+    }
+  },
+  "attachments": [
+    {
+      "group": "chapter17",
+      "path": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-chapter-17/meta/teaching-benchmark/2026-10-06-ch11-ch12-review-v1.0.0/Biology30_CH17_Benchmark_Candidate_2026-10-06_v1.0.0.zip",
+      "bytes": 32944212,
+      "sha256": "41211139b0d8d0a6d31f3cf2a84fc3fad3fcebd87e21b8affe7d7f00c1ad6bf9",
+      "payloads": 764,
+      "members": 766,
+      "zipCrcAndPayloadHashesVerified": true,
+      "library_file_id": "libfile_91beb0c567d4819183544ce440aa7802",
+      "file_id": "file_000000000fe081f8800ea45f711e7d84",
+      "library_path": "/Biology30_CH17_Benchmark_Candidate_2026-10-06_v1.0.0.zip"
+    },
+    {
+      "group": "chapter11",
+      "path": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-chapter-17/meta/teaching-benchmark/2026-10-06-ch11-ch12-review-v1.0.0/Biology30_CH11_Current_Source_Review_2026-10-06_v1.0.0.zip",
+      "bytes": 88723524,
+      "sha256": "cf8d05850672dc7b5af6f097c1680ca0af25a59c40d49f1bfba3f5e9e7517350",
+      "payloads": 553,
+      "members": 555,
+      "zipCrcAndPayloadHashesVerified": true,
+      "library_file_id": "libfile_f1ff80557db881918c9962c9cbe21af8",
+      "file_id": "file_000000000b608209afefbbce6b6903d9",
+      "library_path": "/Biology30_CH11_Current_Source_Review_2026-10-06_v1.0.0.zip"
+    },
+    {
+      "group": "chapter12",
+      "path": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-chapter-17/meta/teaching-benchmark/2026-10-06-ch11-ch12-review-v1.0.0/Biology30_CH12_Current_Source_Review_2026-10-06_v1.0.0.zip",
+      "bytes": 60684522,
+      "sha256": "c0c75c366fe7802f9f0c20985119c6d0699873023c1ab52871f05d8d4bd91e88",
+      "payloads": 280,
+      "members": 282,
+      "zipCrcAndPayloadHashesVerified": true,
+      "library_file_id": "libfile_0589939d0e5481918ceeb8f5cddb0c5b",
+      "file_id": "file_0000000097a081fb9aa199351a6a9047",
+      "library_path": "/Biology30_CH12_Current_Source_Review_2026-10-06_v1.0.0.zip"
+    }
+  ],
+  "verifiedSourceFiles": 1046,
+  "copiedSourceFilesUnchanged": true,
+  "noCanonicalRuntimeRawExportEdits": true,
+  "courseBrowserTestsRun": false,
+  "librarySave": "saved: all three Library IDs confirmed; local identity persisted",
+  "knownTransferBlocker": null,
+  "deduplication": "Original slide-media bytes are retained once inside each original PPTX, with exact member/hash access maps. Redundant before-index and old standalone teacher-review HTML omitted.",
+  "sourceMediaVerifiedInOriginalDeck": true,
+  "priorTransferBlocker": {
+    "helper": "hosted apps tools/list failed: DNS before upload preparation",
+    "approvalReview": "Network-enabled upload rejected: trusted end-user authorization for these three private source archives to Library was not recognized. No alternative route or retry attempted after rejection."
+  }
+}

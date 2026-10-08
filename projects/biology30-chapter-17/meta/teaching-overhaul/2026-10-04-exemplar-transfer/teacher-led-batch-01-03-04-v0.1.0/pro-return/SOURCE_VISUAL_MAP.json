@@ -1,0 +1,3171 @@
+{
+  "version": "Biology30_CH17_Batch01_03_04_Teacher_Transfer_v0.1.0",
+  "scope": "Source/visual identity and placement map for completed isolated teaching candidates01/03/04; not native assembly or acceptance.",
+  "coordinateConvention": "All ranges are UTF-8 byte offsets with inclusive start and exclusive end. Authorised-fragment ranges refer to each hashed returned fragment. Protected-suffix owner ranges refer to the unchanged attached original owner, not calculated proposed output coordinates.",
+  "authority": {
+    "sourceZip": {
+      "name": "Biology30_CH17_Batch01_03_04_Teacher_Transfer_v0.1.0_Source.zip",
+      "bytes": 18547759,
+      "sha256": "0014e32f25103d3fa8968a6fbeffe3e678d41bdcc8d5d94b4c81e1f1035e29da"
+    },
+    "nativeOwner": {
+      "path": "current/index.html",
+      "bytes": 3566907,
+      "sha256": "0814977d9fb4ba41d611f2816e50e01d7950a0d5caaba9f422a410bf0f6e0783"
+    },
+    "originalPpt": {
+      "path": "sources/original-114-slides.pptx",
+      "bytes": 10153531,
+      "sha256": "da1ce1c0526da4da1aefd1fb6c0f23070f820ce24378c12f9699d1c700e1a985",
+      "actualSlideCount": 114,
+      "orderMethod": "presentation.xml slide IDs resolved through presentation.xml.rels; selected slide picture blips resolved through each original slide relationships file.",
+      "scopedActualSlides": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33
+      ]
+    },
+    "originalPdf": {
+      "path": "sources/chapter-17.pdf",
+      "bytes": 2005971,
+      "sha256": "48e297aacb86275c106a02abdddaf0f0463ba47d6b17703a926aa68405755455",
+      "pageCount": 38,
+      "pageMapping": "PDF page one-based=printed page-583.",
+      "sourceTextAndPixelScopes": {
+        "rootAuthorReported": [
+          "printed584/PDF1",
+          "printed586–591/PDF3–8"
+        ],
+        "thisAssetMapReviewer": [
+          "printed584/PDF1",
+          "printed586–590/PDF3–7"
+        ],
+        "03_04SourceReviewer": [
+          "printed589–591/PDF6–8 pixels;printed586–591 text"
+        ]
+      }
+    }
+  },
+  "reviewEvidenceDistinctions": {
+    "rootReports": "Root reported direct viewing of all selected source, native and five assessment images. This reviewer does not substitute that report for own observation.",
+    "assetMapReviewer": "Independently viewed all 24 unique original media in scoped slides, all 5 exact output assessment PNGs and native SVG source/raster. Rechecked original OOXML relationships, selected asset byte hashes and exact delivered placements.",
+    "otherAssistantSourceReviews": [
+      "l01_source_preparation.md and evidenceJSON",
+      "l03_l04_source_preparation.md and evidenceJSON"
+    ],
+    "limits": [
+      "No PowerPoint or native browser application rendering claimed.",
+      "No video playback, timestamps or caption review claimed.",
+      "No external Mac protection-file reread claimed.",
+      "No teacher acceptance or automatic science certification."
+    ]
+  },
+  "fragmentBindings": [
+    {
+      "lessonId": "lesson-01",
+      "title": "Genes, alleles, genotype and phenotype",
+      "fragment": "lesson-01.teaching-fragment.html",
+      "bytes": 17745,
+      "sha256": "9af1936228a2f611e9338d0a72142801899802d7d86c054d2a983474ed96e72a",
+      "manuscript": {
+        "path": "manuscripts/lesson-01.md",
+        "bytes": 27226,
+        "sha256": "6710454dc2cf38853a68280c60d1d078589e71a4a8fae55072c8794c38597eee"
+      },
+      "originalOwnerInterval": {
+        "startByte": 87440,
+        "endByteExclusive": 91626,
+        "beforeSha256": "69bc52334f25135c7bda1706cc07a963d6a85e5f8e323cf7c3cbb284da0473c6"
+      },
+      "scope": "Only the four authorised outer teaching blocks; protected suffix supplied separately as inert Markdown reading copy."
+    },
+    {
+      "lessonId": "lesson-03",
+      "title": "Single-trait crosses and probability",
+      "fragment": "lesson-03.teaching-fragment.html",
+      "bytes": 24439,
+      "sha256": "85a884113bab7fe12205c1d1567284dabc0b434fd469c0076c24da57c56edc85",
+      "manuscript": {
+        "path": "manuscripts/lesson-03.md",
+        "bytes": 37449,
+        "sha256": "53aa6a08b4ba1add404ab767c491a5241204f02373f56049082f056caf9d5b37"
+      },
+      "originalOwnerInterval": {
+        "startByte": 156900,
+        "endByteExclusive": 162121,
+        "beforeSha256": "85fe3e0bbe1a0c17e48449253b659135684d1fd6d50aabfa2573394776a03df8"
+      },
+      "scope": "Only the four authorised outer teaching blocks; protected suffix supplied separately as inert Markdown reading copy."
+    },
+    {
+      "lessonId": "lesson-04",
+      "title": "Test crosses and unknown genotypes",
+      "fragment": "lesson-04.teaching-fragment.html",
+      "bytes": 18212,
+      "sha256": "36dc8d9a947c45a355110cc1efed7676d2ab01162dbfa12ea628e0b393d5b97f",
+      "manuscript": {
+        "path": "manuscripts/lesson-04.md",
+        "bytes": 29985,
+        "sha256": "277a76f9ee9a1e6231f8f1b0b447b90d7380c888d501202eae28c6953346176d"
+      },
+      "originalOwnerInterval": {
+        "startByte": 180860,
+        "endByteExclusive": 185281,
+        "beforeSha256": "ead977930ad7c515c69619f04284cc8623339a64f68801f17d5493d03425cfd4"
+      },
+      "scope": "Only the four authorised outer teaching blocks; protected suffix supplied separately as inert Markdown reading copy."
+    }
+  ],
+  "assets": [
+    {
+      "assetId": "source-slide-4-image13.jpg",
+      "outputPath": "assets/teaching-batch1-v010/slide-4-image13.jpg",
+      "nativeSrc": "./assets/teaching-batch1-v010/slide-4-image13.jpg",
+      "kind": "original-PPT-raster",
+      "status": "source-selected-unchanged-for-teacher-comparison",
+      "teacherAcceptance": "pending",
+      "bytes": 27674,
+      "sha256": "7c2c37bc887ab1b5bdf6ff3948242ba949b9d10c3ba510f27f1538c7a01525ba",
+      "width": 516,
+      "height": 205,
+      "sourcePacketPath": "sources/slide-assets/slide-4-image13.jpg",
+      "originalPptMember": "ppt/media/image13.jpg",
+      "actualOriginalOccurrencesInScopedSlides": [
+        {
+          "actualSlide": 4,
+          "slideMember": "ppt/slides/slide4.xml",
+          "relationshipsMember": "ppt/slides/_rels/slide4.xml.rels",
+          "relationshipId": "rId3",
+          "pictureShapeId": "281",
+          "pictureShapeName": "Google Shape;281;p16",
+          "suppliedCopy": "sources/slide-assets/slide-4-image13.jpg",
+          "copyEqualsOriginal": true
+        }
+      ],
+      "sourceBytesUnchanged": true,
+      "derivedCrop": false,
+      "pixelIdentity": "Eight-dog row with differing ear positions, coat textures and body outlines.",
+      "purpose": "Motivate inherited variation and selective breeding before the genetic definitions.",
+      "sourceSupport": [
+        {
+          "actualSlide": 4
+        },
+        {
+          "printedPage": 586,
+          "pdfPage": 3,
+          "locator": "Figure17.1 and selective-breeding text"
+        }
+      ],
+      "interpretationConstraints": [
+        "Do not infer individual genotypes, exact parentage, measured size ratios or behavioural performance from the photo."
+      ],
+      "pixelReview": {
+        "assetMapReviewer": "Direct original/identical output pixels viewed; OOXML relationship and byte equality independently checked.",
+        "rootAuthor": "Root reports direct viewing of all selected pixels during authoring; separate from this reviewer’s observation.",
+        "otherSourceReviewers": "Relevant source agents record complete original01–12 or26–33 pixel reads.",
+        "powerPointApplicationRender": false,
+        "nativeBrowserRender": false,
+        "teacherAcceptance": false
+      },
+      "placements": [
+        {
+          "lessonId": "lesson-01",
+          "path": "lesson-01.teaching-fragment.html",
+          "region": "authorised-teaching-fragment",
+          "imgByteRangeWithinFragment": {
+            "startByte": 1030,
+            "endByteExclusive": 1215,
+            "bytes": 185,
+            "sha256": "7f22eeb29aa9c841a1538bc94bd0ad00fc3859e5bb31fabbe2a0b2cc4e4201d6"
+          },
+          "originalImgAttributes": {
+            "alt": "A row of eight dogs with contrasting ear positions, coat textures and body outlines.",
+            "decoding": "async",
+            "loading": "lazy",
+            "src": "./assets/teaching-batch1-v010/slide-4-image13.jpg"
+          },
+          "outerBindingId": "ch17-l01-teaching-01",
+          "nearestPrecedingHeading": "Why choose particular parents?",
+          "precedingGuidanceText": [
+            "Why choose particular parents?",
+            "A breeder choosing dogs as parents is making a prediction about a future generation. The prediction matters only if some of the differences among the dogs can be inherited. Why might choosing particular parents influence their offspring, and how much can the parents’ appearance tell us?",
+            "Look along the row of dogs below. Compare the position of their ears, the texture of their coats and the outlines of their bodies. Several differences are visible at once. Keep those observations separate from an explanation of how each difference arose: a photograph cannot tell us which inherited information an individual carries, how it was raised, or how many genes contribute to a characteristic."
+          ],
+          "followingExplanationText": [
+            "Selective breeding means choosing which organisms reproduce because of characteristics people want in later generations. If a difference has an inherited component, choosing parents can change how often that difference occurs over generations. It does not change an existing dog into another kind of dog. Nor does choosing two parents guarantee every feature of each offspring: offspring receive inherited contributions from both parents, and development also depends on conditions such as nutrition.",
+            "The dog comparison gives us the question, but it is too complicated to treat every visible difference as a single inherited unit. We need to distinguish the information passed on from the characteristic we observe. We will then use one clearly defined flower-colour model to follow that distinction closely.",
+            "What passes from parents to offspring?"
+          ],
+          "figcaption": "Contrasting dogs provide a reason to investigate inherited variation. This composite is not a measured comparison of size or a record of the dogs’ parentage.",
+          "markdownImageLineNumbers": [
+            11
+          ],
+          "figureByteRangeWithinFragment": {
+            "startByte": 999,
+            "endByteExclusive": 1408,
+            "bytes": 409,
+            "sha256": "2c9c43591437ac6ae4f7c06e5496622f11d3bdcb23b3ccd919ef167aadac3a9a"
+          }
+        }
+      ]
+    },
+    {
+      "assetId": "source-slide-12-image18.png",
+      "outputPath": "assets/teaching-batch1-v010/slide-12-image18.png",
+      "nativeSrc": "./assets/teaching-batch1-v010/slide-12-image18.png",
+      "kind": "original-PPT-raster",
+      "status": "source-selected-unchanged-for-teacher-comparison",
+      "teacherAcceptance": "pending",
+      "bytes": 159723,
+      "sha256": "6514f5d48a724cdf1fe785c24b74f44abb03b73af75c26e787b8a8adf687f26c",
+      "width": 1500,
+      "height": 1000,
+      "sourcePacketPath": "sources/slide-assets/slide-12-image18.png",
+      "originalPptMember": "ppt/media/image18.png",
+      "actualOriginalOccurrencesInScopedSlides": [
+        {
+          "actualSlide": 12,
+          "slideMember": "ppt/slides/slide12.xml",
+          "relationshipsMember": "ppt/slides/_rels/slide12.xml.rels",
+          "relationshipId": "rId3",
+          "pictureShapeId": "368",
+          "pictureShapeName": "Google Shape;368;p24",
+          "suppliedCopy": "sources/slide-assets/slide-12-image18.png",
+          "copyEqualsOriginal": true
+        }
+      ],
+      "sourceBytesUnchanged": true,
+      "derivedCrop": false,
+      "pixelIdentity": "Three genotype/phenotype rows: BB and Bb produce purple flowers; bb produces white flowers. Pink genotype column and blue phenotype column. Embedded sciencenotes.org credit retained.",
+      "purpose": "Compare allele identity with expressed flower colour and explain complete dominance and reverse-inference uncertainty.",
+      "sourceSupport": [
+        {
+          "actualSlide": 12
+        },
+        {
+          "actualSlides": [
+            7,
+            8,
+            10,
+            11
+          ],
+          "locator": "Gene/allele, genotype/phenotype and zygosity functions, with historical human-eye model excluded"
+        },
+        {
+          "printedPage": 590,
+          "pdfPage": 7,
+          "locator": "Genotype/phenotype and homozygous/heterozygous definitions"
+        }
+      ],
+      "interpretationConstraints": [
+        "Define local B/b flower-colour notation before reading.",
+        "Rows are categories, not generations or equal probabilities.",
+        "Source definition restricts phenotype to observable physical traits; adjacent new explanation includes measurable physiological/behavioural expression.",
+        "No source pixels, labels or credit altered."
+      ],
+      "pixelReview": {
+        "assetMapReviewer": "Direct original/identical output pixels viewed; OOXML relationship and byte equality independently checked.",
+        "rootAuthor": "Root reports direct viewing of all selected pixels during authoring; separate from this reviewer’s observation.",
+        "otherSourceReviewers": "Relevant source agents record complete original01–12 or26–33 pixel reads.",
+        "powerPointApplicationRender": false,
+        "nativeBrowserRender": false,
+        "teacherAcceptance": false
+      },
+      "placements": [
+        {
+          "lessonId": "lesson-01",
+          "path": "lesson-01.teaching-fragment.html",
+          "region": "authorised-teaching-fragment",
+          "imgByteRangeWithinFragment": {
+            "startByte": 7174,
+            "endByteExclusive": 7483,
+            "bytes": 309,
+            "sha256": "7a307755d369d0ac9ccbea3051d5555fae8a2c4c90793ce24da6970e28e7c5ca"
+          },
+          "originalImgAttributes": {
+            "alt": "Genotype and phenotype chart: BB, labelled homozygous dominant, produces a purple flower; Bb, labelled heterozygous, also produces a purple flower; bb, labelled homozygous recessive, produces a white flower.",
+            "decoding": "async",
+            "loading": "lazy",
+            "src": "./assets/teaching-batch1-v010/slide-12-image18.png"
+          },
+          "outerBindingId": "ch17-l01-teaching-02",
+          "nearestPrecedingHeading": "Read an allele pair and the characteristic it produces",
+          "precedingGuidanceText": [
+            "We will now leave the many differences among dogs and examine one flower-colour model. In this model, B and b name two alleles of one gene. Plants with BB or Bb have purple flowers; plants with bb have white flowers. These are the expression rules we will use. The letters refer to this flower-colour gene, and each letter in a pair represents one allele copy.",
+            "The genotype is the allele combination at the locus or loci being considered. Here we are considering only one locus, so BB, Bb and bb are genotypes. The phenotype is the observable or measurable characteristic expressed in the organism’s biological context. Here the scored phenotype is flower colour.",
+            "Read the chart one row at a time, from the two letters on the left to the flower on the right. Then compare the first and second rows. The allele pairs change from BB to Bb, but the flower colour stays purple. Finally, compare those rows with bb and its white flower."
+          ],
+          "followingExplanationText": [
+            "The two columns answer different questions. “Bb” reports inherited information at the studied locus. “Purple flowers” reports what we can observe. A complete genotype record can support a phenotype prediction when the expression rule is known. A phenotype observation does not always let us reconstruct a complete genotype record.",
+            "Compare the versions within each pair",
+            "Homozygous means that the two alleles at a locus are the same version. Both BB and bb are homozygous. Heterozygous means that the two alleles are different versions, as in Bb. To decide between these terms, compare the alleles within the pair. Comparing the flower colours would not work: the chart shows that a purple plant can be homozygous or heterozygous."
+          ],
+          "figcaption": "The three rows relate allele combinations to flower colour in the stated model. They are categories, not three generations, three equally probable outcomes or a sample of three actual plants.",
+          "markdownImageLineNumbers": [
+            43
+          ],
+          "figureByteRangeWithinFragment": {
+            "startByte": 7143,
+            "endByteExclusive": 7708,
+            "bytes": 565,
+            "sha256": "6a76937a8c5e4c62c7b611efc82cce86befca3a7666059b064e93e19942c6c11"
+          }
+        }
+      ]
+    },
+    {
+      "assetId": "source-slide-27-image30.jpg",
+      "outputPath": "assets/teaching-batch1-v010/slide-27-image30.jpg",
+      "nativeSrc": "./assets/teaching-batch1-v010/slide-27-image30.jpg",
+      "kind": "original-PPT-raster",
+      "status": "source-selected-unchanged-for-teacher-comparison",
+      "teacherAcceptance": "pending",
+      "bytes": 43058,
+      "sha256": "bf6c27bfad6067528006804c139f9c2ebcc61fbe6dcc8ea21a839665583f8a8d",
+      "width": 1055,
+      "height": 669,
+      "sourcePacketPath": "sources/slide-assets/slide-27-image30.jpg",
+      "originalPptMember": "ppt/media/image30.jpg",
+      "actualOriginalOccurrencesInScopedSlides": [
+        {
+          "actualSlide": 27,
+          "slideMember": "ppt/slides/slide27.xml",
+          "relationshipsMember": "ppt/slides/_rels/slide27.xml.rels",
+          "relationshipId": "rId3",
+          "pictureShapeId": "492",
+          "pictureShapeName": "Google Shape;492;p39",
+          "suppliedCopy": "sources/slide-assets/slide-27-image30.jpg",
+          "copyEqualsOriginal": true
+        },
+        {
+          "actualSlide": 28,
+          "slideMember": "ppt/slides/slide28.xml",
+          "relationshipsMember": "ppt/slides/_rels/slide28.xml.rels",
+          "relationshipId": "rId3",
+          "pictureShapeId": "509",
+          "pictureShapeName": "Google Shape;509;p40",
+          "suppliedCopy": "sources/slide-assets/slide-28-image30.jpg",
+          "copyEqualsOriginal": true
+        },
+        {
+          "actualSlide": 28,
+          "slideMember": "ppt/slides/slide28.xml",
+          "relationshipsMember": "ppt/slides/_rels/slide28.xml.rels",
+          "relationshipId": "rId3",
+          "pictureShapeId": "510",
+          "pictureShapeName": "Google Shape;510;p40",
+          "suppliedCopy": "sources/slide-assets/slide-28-image30.jpg",
+          "copyEqualsOriginal": true
+        }
+      ],
+      "sourceBytesUnchanged": true,
+      "derivedCrop": false,
+      "pixelIdentity": "A dark/black-furred mouse on white, seen at an angle with a long tail.",
+      "purpose": "Make the original mouse-fur contrast visible before calculating parental contributions.",
+      "sourceSupport": [
+        {
+          "actualSlide": 27,
+          "locator": "Defined B/b mouse-fur model and parental cross"
+        },
+        {
+          "actualSlide": 28,
+          "locator": "Same original photo placed twice for two heterozygous parents"
+        }
+      ],
+      "interpretationConstraints": [
+        "The photograph illustrates a coat category; it does not prove this particular photographed animal’s genotype.",
+        "The model is scoped, not a claim that every mouse-coat difference has one cause."
+      ],
+      "pixelReview": {
+        "assetMapReviewer": "Direct original/identical output pixels viewed; OOXML relationship and byte equality independently checked.",
+        "rootAuthor": "Root reports direct viewing of all selected pixels during authoring; separate from this reviewer’s observation.",
+        "otherSourceReviewers": "Relevant source agents record complete original01–12 or26–33 pixel reads.",
+        "powerPointApplicationRender": false,
+        "nativeBrowserRender": false,
+        "teacherAcceptance": false
+      },
+      "placements": [
+        {
+          "lessonId": "lesson-03",
+          "path": "lesson-03.teaching-fragment.html",
+          "region": "authorised-teaching-fragment",
+          "imgByteRangeWithinFragment": {
+            "startByte": 1009,
+            "endByteExclusive": 1196,
+            "bytes": 187,
+            "sha256": "453a96f4801faf30dc1100c2ddd3614f438b459ffbd76afaaf7fa54f1a2b0356"
+          },
+          "originalImgAttributes": {
+            "alt": "A black-furred mouse, used to illustrate the black coat category in the stated model.",
+            "decoding": "async",
+            "loading": "lazy",
+            "src": "./assets/teaching-batch1-v010/slide-27-image30.jpg"
+          },
+          "outerBindingId": "ch17-l03-teaching-01",
+          "nearestPrecedingHeading": "What can the parents tell us about the next offspring?",
+          "precedingGuidanceText": [
+            "What can the parents tell us about the next offspring?",
+            "Knowing that offspring receive one allele at a locus from each parent gives us a way to predict. If we know the parents’ allele pairs, we can identify their possible contributions and ask which offspring combinations those contributions can produce. The important starting point is the parents, not a ratio remembered from another cross.",
+            "We will follow a single fur-colour gene in a stated mouse model. Look at the black-furred mouse and the brown-furred mouse below. Their coats illustrate the contrast we will score. The photographs alone do not identify their allele pairs; the parental genotypes used in the crosses will be given separately."
+          ],
+          "followingExplanationText": [
+            "Here B names an allele associated with black fur and b names an allele associated with brown fur. B is completely dominant to b for this characteristic: BB and Bb are black; bb is brown. These B/b symbols now describe the mouse fur-colour gene, not the flower-colour gene. The two letters of a parent’s genotype belong to one locus.",
+            "We assume an ordinary diploid autosomal model, normal segregation, random fertilisation, and reliable expression of these coat categories. We also assume that the genotypes being compared do not differ in survival before the offspring are counted. These conditions let us carry a prediction about fertilisation through to the scored offspring. They do not make every real coat-colour difference in mice a one-gene trait.",
+            "Start with the gametes, then read the square"
+          ],
+          "figcaption": "Black fur is an observable category. It does not, by itself, distinguish the two genotypes that produce black in this model.",
+          "markdownImageLineNumbers": [
+            11
+          ],
+          "figureByteRangeWithinFragment": {
+            "startByte": 978,
+            "endByteExclusive": 1354,
+            "bytes": 376,
+            "sha256": "f87622c066678e50926bd7991d0b6444b339e6c5e3cdef78f0c663d442af7629"
+          }
+        }
+      ]
+    },
+    {
+      "assetId": "source-slide-27-image31.jpg",
+      "outputPath": "assets/teaching-batch1-v010/slide-27-image31.jpg",
+      "nativeSrc": "./assets/teaching-batch1-v010/slide-27-image31.jpg",
+      "kind": "original-PPT-raster",
+      "status": "source-selected-unchanged-for-teacher-comparison",
+      "teacherAcceptance": "pending",
+      "bytes": 13590,
+      "sha256": "48accc2e9da889e71c388ffef0818fa2d37b6e68a8cda68eda4cfeef7d893d15",
+      "width": 322,
+      "height": 231,
+      "sourcePacketPath": "sources/slide-assets/slide-27-image31.jpg",
+      "originalPptMember": "ppt/media/image31.jpg",
+      "actualOriginalOccurrencesInScopedSlides": [
+        {
+          "actualSlide": 27,
+          "slideMember": "ppt/slides/slide27.xml",
+          "relationshipsMember": "ppt/slides/_rels/slide27.xml.rels",
+          "relationshipId": "rId4",
+          "pictureShapeId": "493",
+          "pictureShapeName": "Google Shape;493;p39",
+          "suppliedCopy": "sources/slide-assets/slide-27-image31.jpg",
+          "copyEqualsOriginal": true
+        }
+      ],
+      "sourceBytesUnchanged": true,
+      "derivedCrop": false,
+      "pixelIdentity": "A brown-furred mouse facing the viewer on a white background.",
+      "purpose": "Supply the contrasting brown coat category in the original cross.",
+      "sourceSupport": [
+        {
+          "actualSlide": 27,
+          "locator": "Brown-mouse contrast in the stated model"
+        }
+      ],
+      "interpretationConstraints": [
+        "Interpret as a phenotype illustration; the problem supplies genotype assumptions."
+      ],
+      "pixelReview": {
+        "assetMapReviewer": "Direct original/identical output pixels viewed; OOXML relationship and byte equality independently checked.",
+        "rootAuthor": "Root reports direct viewing of all selected pixels during authoring; separate from this reviewer’s observation.",
+        "otherSourceReviewers": "Relevant source agents record complete original01–12 or26–33 pixel reads.",
+        "powerPointApplicationRender": false,
+        "nativeBrowserRender": false,
+        "teacherAcceptance": false
+      },
+      "placements": [
+        {
+          "lessonId": "lesson-03",
+          "path": "lesson-03.teaching-fragment.html",
+          "region": "authorised-teaching-fragment",
+          "imgByteRangeWithinFragment": {
+            "startByte": 1386,
+            "endByteExclusive": 1585,
+            "bytes": 199,
+            "sha256": "f296cb0f25f7e4807736b0095c69a82c7ed06fa0dc27872bbd624fc98108ddc7"
+          },
+          "originalImgAttributes": {
+            "alt": "A brown-furred mouse, used to illustrate the contrasting brown coat category in the stated model.",
+            "decoding": "async",
+            "loading": "lazy",
+            "src": "./assets/teaching-batch1-v010/slide-27-image31.jpg"
+          },
+          "outerBindingId": "ch17-l03-teaching-01",
+          "nearestPrecedingHeading": "What can the parents tell us about the next offspring?",
+          "precedingGuidanceText": [
+            "What can the parents tell us about the next offspring?",
+            "Knowing that offspring receive one allele at a locus from each parent gives us a way to predict. If we know the parents’ allele pairs, we can identify their possible contributions and ask which offspring combinations those contributions can produce. The important starting point is the parents, not a ratio remembered from another cross.",
+            "We will follow a single fur-colour gene in a stated mouse model. Look at the black-furred mouse and the brown-furred mouse below. Their coats illustrate the contrast we will score. The photographs alone do not identify their allele pairs; the parental genotypes used in the crosses will be given separately."
+          ],
+          "followingExplanationText": [
+            "Here B names an allele associated with black fur and b names an allele associated with brown fur. B is completely dominant to b for this characteristic: BB and Bb are black; bb is brown. These B/b symbols now describe the mouse fur-colour gene, not the flower-colour gene. The two letters of a parent’s genotype belong to one locus.",
+            "We assume an ordinary diploid autosomal model, normal segregation, random fertilisation, and reliable expression of these coat categories. We also assume that the genotypes being compared do not differ in survival before the offspring are counted. These conditions let us carry a prediction about fertilisation through to the scored offspring. They do not make every real coat-colour difference in mice a one-gene trait.",
+            "Start with the gametes, then read the square"
+          ],
+          "figcaption": "Brown fur supplies the contrasting category for the crosses below. The photographs are illustrations of appearance, not records of a breeding experiment.",
+          "markdownImageLineNumbers": [
+            15
+          ],
+          "figureByteRangeWithinFragment": {
+            "startByte": 1355,
+            "endByteExclusive": 1772,
+            "bytes": 417,
+            "sha256": "114424e8c48896069bff58415f103ffba9aaf5b5c550f595b4b04103f43773ae"
+          }
+        }
+      ]
+    },
+    {
+      "assetId": "source-slide-27-image22.png",
+      "outputPath": "assets/teaching-batch1-v010/slide-27-image22.png",
+      "nativeSrc": "./assets/teaching-batch1-v010/slide-27-image22.png",
+      "kind": "original-PPT-raster",
+      "status": "source-selected-unchanged-for-teacher-comparison",
+      "teacherAcceptance": "pending",
+      "bytes": 4843,
+      "sha256": "21b521a9e6dc4d631b80ef038ec9be24dda4e4f788ce7e855932e544601f1f24",
+      "width": 468,
+      "height": 226,
+      "sourcePacketPath": "sources/slide-assets/slide-27-image22.png",
+      "originalPptMember": "ppt/media/image22.png",
+      "actualOriginalOccurrencesInScopedSlides": [
+        {
+          "actualSlide": 27,
+          "slideMember": "ppt/slides/slide27.xml",
+          "relationshipsMember": "ppt/slides/_rels/slide27.xml.rels",
+          "relationshipId": "rId5",
+          "pictureShapeId": "497",
+          "pictureShapeName": "Google Shape;497;p39",
+          "suppliedCopy": "sources/slide-assets/slide-27-image22.png",
+          "copyEqualsOriginal": true
+        },
+        {
+          "actualSlide": 31,
+          "slideMember": "ppt/slides/slide31.xml",
+          "relationshipsMember": "ppt/slides/_rels/slide31.xml.rels",
+          "relationshipId": "rId3",
+          "pictureShapeId": "575",
+          "pictureShapeName": "Google Shape;575;p43",
+          "suppliedCopy": "sources/slide-assets/slide-31-image22.png",
+          "copyEqualsOriginal": true
+        },
+        {
+          "actualSlide": 32,
+          "slideMember": "ppt/slides/slide32.xml",
+          "relationshipsMember": "ppt/slides/_rels/slide32.xml.rels",
+          "relationshipId": "rId3",
+          "pictureShapeId": "589",
+          "pictureShapeName": "Google Shape;589;p44",
+          "suppliedCopy": "sources/slide-assets/slide-32-image22.png",
+          "copyEqualsOriginal": true
+        }
+      ],
+      "sourceBytesUnchanged": true,
+      "derivedCrop": false,
+      "pixelIdentity": "Two complete squares: left BB × bb with top B,B and left b,b, giving Bb in all four cells; right Bb × bb with top B,b and left b,b, giving Bb/bb in each row.",
+      "purpose": "Trace top-plus-side allele contributions and later contrast two hypotheses with a recessive tester.",
+      "sourceSupport": [
+        {
+          "actualSlides": [
+            27,
+            31,
+            32
+          ],
+          "locator": "Same original embedded media reused for single-trait and testcross discussion"
+        },
+        {
+          "printedPage": 590,
+          "pdfPage": 7,
+          "locator": "Figure17.7:top/side allele-contribution reading"
+        },
+        {
+          "printedPage": 591,
+          "pdfPage": 8,
+          "locator": "Figure17.9 technical testcross; textbook tester is across the top, unlike this PPT image"
+        }
+      ],
+      "interpretationConstraints": [
+        "Both panels are fully visible and contain no sex labels or probability weights.",
+        "Lesson03 assigns sperm above and eggs at left explicitly rather than falsely reading printed sex labels.",
+        "Lesson04 compares the unknown parent across the top and the known tester down the left.",
+        "Repeated B or b edges show redundant copies of one distinct gamete type, not four distinct gametes or guaranteed offspring.",
+        "The full source Bb × bb solution directly overlaps protected lesson03 written explanation1; this source-fidelity and answer-separation conflict remains documented, not marked leak-free."
+      ],
+      "pixelReview": {
+        "assetMapReviewer": "Direct original/identical output pixels viewed; OOXML relationship and byte equality independently checked.",
+        "rootAuthor": "Root reports direct viewing of all selected pixels during authoring; separate from this reviewer’s observation.",
+        "otherSourceReviewers": "Relevant source agents record complete original01–12 or26–33 pixel reads.",
+        "powerPointApplicationRender": false,
+        "nativeBrowserRender": false,
+        "teacherAcceptance": false
+      },
+      "placements": [
+        {
+          "lessonId": "lesson-03",
+          "path": "lesson-03.teaching-fragment.html",
+          "region": "authorised-teaching-fragment",
+          "imgByteRangeWithinFragment": {
+            "startByte": 5027,
+            "endByteExclusive": 5347,
+            "bytes": 320,
+            "sha256": "5dfa0ed04bb955ba560fa31db712641f8b263756c5addb89e896a41222420755"
+          },
+          "originalImgAttributes": {
+            "alt": "Two fully visible single-trait squares. The left has B and B across the top and b and b down the left, giving four Bb cells. The right has B and b across the top and b and b down the left, giving Bb and bb in each row.",
+            "decoding": "async",
+            "loading": "lazy",
+            "src": "./assets/teaching-batch1-v010/slide-27-image22.png"
+          },
+          "outerBindingId": "ch17-l03-teaching-01",
+          "nearestPrecedingHeading": "Start with the gametes, then read the square",
+          "precedingGuidanceText": [
+            "A probability expresses the chance of an outcome under specified conditions. It ranges from 0, impossible within the model, to 1, certain within the model. A probability of 1/2 is 50%. The expected proportion is one half; larger independent samples are more likely to have observed proportions close to that expectation. Dominance does not change the father’s two gamete probabilities: B does not enter sperm more often merely because it determines the heterozygote’s coat colour.",
+            "A Punnett square is a table that organises possible combinations of parental gametes. Put a gamete contribution on each edge. An interior cell combines one contribution from the top with one from the side; the pair describes a possible offspring genotype. At fertilisation, the joined gametes form a zygote, the first diploid cell of the new individual. The cell in the table represents a possibility for that individual, not a third gamete.",
+            "The image below contains two complete squares. Begin with the right-hand square, which has B and b across the top and b repeated down the left. We will use the top edge for the father’s sperm and the left edge for the mother’s eggs. The image itself has no sex labels; this is the convention we are assigning to read this cross. The left-hand square changes the top parent to BB and can be compared later."
+          ],
+          "followingExplanationText": [
+            "Trace the right square’s top-left interior cell: top B joins side b, giving Bb. In the top-right cell, top b joins side b, giving bb. The second row repeats those same combinations because the mother’s other allele copy is also b. Repeating a label on a drawing does not create another biological allele version.",
+            "We can show the same cross more compactly by listing each distinct gamete type once and keeping its probability beside it. In the table below, the mother’s single b row has probability 1, while the father’s two columns each have probability 1/2.",
+            "We multiply because an offspring needs both contributions, and random fertilisation makes the sperm allele independent of the egg allele in this model. For a Bb offspring, the required event is an egg carrying b together with a sperm carrying B: 1 × 1/2 = 1/2. For a bb offspring, it is a b egg together with a b sperm: 1 × 1/2 = 1/2. These two mutually exclusive possibilities exhaust the cross, and 1/2 + 1/2 = 1."
+          ],
+          "figcaption": "Read the right square for Bb × bb. The two b labels on its left repeat the same allele type; they do not give the bb parent two different gamete types.",
+          "markdownImageLineNumbers": [
+            35
+          ],
+          "figureByteRangeWithinFragment": {
+            "startByte": 4996,
+            "endByteExclusive": 5533,
+            "bytes": 537,
+            "sha256": "fff03d029e67d3ad052446b22677487a8c62a4da31d1835e4a39c6c93d10549f"
+          }
+        },
+        {
+          "lessonId": "lesson-04",
+          "path": "lesson-04.teaching-fragment.html",
+          "region": "authorised-teaching-fragment",
+          "imgByteRangeWithinFragment": {
+            "startByte": 3207,
+            "endByteExclusive": 3476,
+            "bytes": 269,
+            "sha256": "e2860714c4b99d9b71bfff5d88bdfe78c61ed766e523120a6dbc80f84e0b65e9"
+          },
+          "originalImgAttributes": {
+            "alt": "Side-by-side testcross predictions: BB across the top with bb down the left gives only Bb offspring; Bb across the top with bb down the left gives Bb and bb offspring.",
+            "decoding": "async",
+            "loading": "lazy",
+            "src": "./assets/teaching-batch1-v010/slide-27-image22.png"
+          },
+          "outerBindingId": "ch17-l04-teaching-01",
+          "nearestPrecedingHeading": "Choose a parent that makes the difference visible",
+          "precedingGuidanceText": [
+            "A useful partner has the recessive phenotype, brown, which identifies bb under the stated expression rule. Every normal gamete from this partner carries b. Such an individual is a recessive tester: its known contribution allows us to interpret what came from the unknown parent.",
+            "A test cross uses a homozygous recessive individual to investigate an unknown genotype. The deliberate choice of tester is what makes this cross informative. Simply controlling which two individuals reproduce does not automatically make a crossing experiment a technical testcross.",
+            "Both proposed crosses are shown below. Compare the labels across the top: BB on the left, Bb on the right. In each square, the tester’s b is repeated down the left side. Keep that tester constant while comparing the unknown-parent hypotheses. Both squares and all their outcomes are already visible."
+          ],
+          "followingExplanationText": [
+            "In the left square, every top B meets a side b. Every resulting pair is Bb. In the right square, the B column produces Bb while the b column produces bb. Since the heterozygote contributes each allele with probability 1/2, the right square predicts both categories in equal proportions.",
+            "The tester contributes b with probability 1. Under the BB hypothesis, B from the unknown parent combines with that b: P(Bb) = 1 × 1 = 1, so all offspring are predicted to be black. Under the Bb hypothesis, P(Bb) = 1/2 × 1 = 1/2 and P(bb) = 1/2 × 1 = 1/2. Random fertilisation justifies combining those contributions. The genotype ratio under the second hypothesis is 1 Bb : 1 bb; its phenotype ratio is 1 black : 1 brown.",
+            "Why not use a BB tester instead? It would supply B to every offspring. Even if the unknown parent supplied b, that offspring would be Bb and therefore black. Both unknown-parent hypotheses could produce only black offspring with that tester. The recessive tester is useful because its b contribution allows an inherited b from the unknown parent to produce a distinguishable bb phenotype."
+          ],
+          "figcaption": "The unknown-parent hypotheses are across the top; the recessive tester is down the left. The repeated b rows display one distinct tester gamete type, not two different versions.",
+          "markdownImageLineNumbers": [
+            25
+          ],
+          "figureByteRangeWithinFragment": {
+            "startByte": 3176,
+            "endByteExclusive": 3687,
+            "bytes": 511,
+            "sha256": "b806243a372ab5dd470203d4db45be1750af6c6d5a8c4170660a3243ffb12b94"
+          }
+        }
+      ]
+    },
+    {
+      "assetId": "source-slide-29-image33.png",
+      "outputPath": "assets/teaching-batch1-v010/slide-29-image33.png",
+      "nativeSrc": "./assets/teaching-batch1-v010/slide-29-image33.png",
+      "kind": "original-PPT-raster",
+      "status": "source-selected-unchanged-for-teacher-comparison",
+      "teacherAcceptance": "pending",
+      "bytes": 54681,
+      "sha256": "fd46a25268ba516d5a9809a146f82e793883bf5f5dac84b810cc7a3a448d34a5",
+      "width": 471,
+      "height": 480,
+      "sourcePacketPath": "sources/slide-assets/slide-29-image33.png",
+      "originalPptMember": "ppt/media/image33.png",
+      "actualOriginalOccurrencesInScopedSlides": [
+        {
+          "actualSlide": 29,
+          "slideMember": "ppt/slides/slide29.xml",
+          "relationshipsMember": "ppt/slides/_rels/slide29.xml.rels",
+          "relationshipId": "rId3",
+          "pictureShapeId": "531",
+          "pictureShapeName": "Google Shape;531;p41",
+          "suppliedCopy": "sources/slide-assets/slide-29-image33.png",
+          "copyEqualsOriginal": true
+        },
+        {
+          "actualSlide": 30,
+          "slideMember": "ppt/slides/slide30.xml",
+          "relationshipsMember": "ppt/slides/_rels/slide30.xml.rels",
+          "relationshipId": "rId3",
+          "pictureShapeId": "556",
+          "pictureShapeName": "Google Shape;556;p42",
+          "suppliedCopy": "sources/slide-assets/slide-30-image33.png",
+          "copyEqualsOriginal": true
+        }
+      ],
+      "sourceBytesUnchanged": true,
+      "derivedCrop": false,
+      "pixelIdentity": "Two dark-mouse photos at top linked by plain converging lines to one central dark-mouse icon; one plain vertical line leads to a question mark. No arrowheads/genotypes/weights.",
+      "purpose": "Separate immediate offspring from conditional next-generation reasoning.",
+      "sourceSupport": [
+        {
+          "actualSlides": [
+            29,
+            30
+          ],
+          "locator": "BB × Bb immediate offspring and explicitly selected Bb × Bb next mating"
+        }
+      ],
+      "interpretationConstraints": [
+        "Central icon abbreviates offspring; a single mouse does not supply both parents.",
+        "A next-generation prediction requires two specified parents.",
+        "All-black immediate offspring are not all automatically Bb.",
+        "Do not call a static worked diagram an experiment observed by the learner."
+      ],
+      "pixelReview": {
+        "assetMapReviewer": "Direct original/identical output pixels viewed; OOXML relationship and byte equality independently checked.",
+        "rootAuthor": "Root reports direct viewing of all selected pixels during authoring; separate from this reviewer’s observation.",
+        "otherSourceReviewers": "Relevant source agents record complete original01–12 or26–33 pixel reads.",
+        "powerPointApplicationRender": false,
+        "nativeBrowserRender": false,
+        "teacherAcceptance": false
+      },
+      "placements": [
+        {
+          "lessonId": "lesson-03",
+          "path": "lesson-03.teaching-fragment.html",
+          "region": "authorised-teaching-fragment",
+          "imgByteRangeWithinFragment": {
+            "startByte": 15828,
+            "endByteExclusive": 16122,
+            "bytes": 294,
+            "sha256": "0c622a6aa3c98edefa961a0399fe95083dbfd7297408cc189f7df8961489af86"
+          },
+          "originalImgAttributes": {
+            "alt": "Two black-mouse photographs at the top connect by plain converging lines to one black-mouse photograph in the middle. A vertical line leads from the middle photograph to a question mark below.",
+            "decoding": "async",
+            "loading": "lazy",
+            "src": "./assets/teaching-batch1-v010/slide-29-image33.png"
+          },
+          "outerBindingId": "ch17-l03-teaching-03",
+          "nearestPrecedingHeading": "Change a parent before predicting another generation",
+          "precedingGuidanceText": [
+            "The compact table needs only one sperm column because there is only one distinct paternal allele type. Read the two possible egg rows separately.",
+            "The genotype ratio is 1 BB : 1 Bb; bb has probability 0 because the father cannot contribute b. The expected phenotype is all black: 1/2 + 1/2 = 1. A four-cell version could repeat the father’s B column, just as the earlier image repeated the recessive mother’s b row. It would repeat the same possibilities without creating a new gamete type.",
+            "Now separate the immediate offspring from a possible later generation. In the image below, follow the two mice at the top down the converging lines to the single central mouse icon, then down to the question mark. The whole diagram is visible at once. It abbreviates a question about offspring and grandchildren; it does not provide genotypes, probabilities or a complete second mating."
+          ],
+          "followingExplanationText": [
+            "For the first mating we have just analysed, BB × Bb, the immediate offspring can be BB or Bb even though all are black. We cannot assign Bb to every black offspring in that picture. We also cannot answer the question about grandchildren until the two parents of that later mating are identified.",
+            "Suppose the later mating is explicitly between two descendants known to be Bb. Each can contribute B or b with probability 1/2. A brown grandchild requires a b contribution from each, so P(bb) = 1/2 × 1/2 = 1/4 for that specified mating. Its other genotype probabilities are 1/4 BB and 1/2 Bb, and its phenotype probabilities are 3/4 black and 1/4 brown. The previously derived Bb × Bb square applies because the parental genotypes now match that square.",
+            "The b allele was not recreated when brown became possible. It was carried in some black heterozygous descendants and could meet another b at fertilisation. A characteristic may therefore be absent from the scored appearance of one generation and possible in the next, while the allele itself has remained present. If the later parents instead included a BB individual, that individual could not contribute b, and this brown-grandchild prediction would not apply."
+          ],
+          "figcaption": "The central icon abbreviates the offspring being considered. Predicting a later generation requires another stated mating; a single mouse cannot supply both parents of a sexual cross.",
+          "markdownImageLineNumbers": [
+            99
+          ],
+          "figureByteRangeWithinFragment": {
+            "startByte": 15797,
+            "endByteExclusive": 16339,
+            "bytes": 542,
+            "sha256": "0e539d18f8ad20f9555739c315b9b566d5fabd76ca0cdad315d48a9118eeb5ec"
+          }
+        }
+      ]
+    },
+    {
+      "assetId": "native-ch17-punnett-figure",
+      "outputPath": "assets/figures/ch17-punnett.svg",
+      "nativeSrc": "./assets/figures/ch17-punnett.svg",
+      "kind": "protected-native-SVG",
+      "status": "approved-existing-native-asset-preserve-exact",
+      "teacherAcceptanceOfNewTeaching": "pending",
+      "bytes": 3959,
+      "sha256": "2fdc34b5f30359e927d50b1fa4781894bdb196dfccfbbabcbf831d1ec4aec6ec",
+      "width": 1400,
+      "height": 900,
+      "viewBox": "0 0 1400 900",
+      "sourcePacketPath": "current/assets/figures/ch17-punnett.svg",
+      "sourceBytesUnchanged": true,
+      "pixelIdentity": "A/a gamete labels above and left; four cells with circled A/B/C/D location labels; bottom answer mapping already visible.",
+      "lockedLocationMapping": {
+        "A": "AA",
+        "B": "Aa",
+        "C": "Aa",
+        "D": "aa"
+      },
+      "controlContract": {
+        "dataFigureId": "ch17-punnett",
+        "buttonDataEnlargeFigure": "ch17-punnett",
+        "buttonText": "View larger",
+        "fullOriginalContainerPreserved": true,
+        "rawBeforeCopy": "raw-before/lesson-03-ch17-punnett.html"
+      },
+      "interpretationConstraints": [
+        "Circled A/B/C/D are location identifiers, not allele symbols.",
+        "Outside A/a are allele symbols; each interior genotype combines top and side.",
+        "Bottom answer key is already visible.",
+        "This figure is distinct from the missing labeling-only SVG; never substitute an answer-bearing figure for a labeling task."
+      ],
+      "sourceSupport": [
+        {
+          "printedPage": 590,
+          "pdfPage": 7,
+          "locator": "Figure17.7 contribution-pair square procedure"
+        },
+        {
+          "printedPage": 591,
+          "pdfPage": 8,
+          "locator": "Figure17.8 genotype/phenotype grouping"
+        }
+      ],
+      "pixelReview": {
+        "assetMapReviewer": "Actual SVG source and existing raster rendering viewed.",
+        "rootAuthor": "Root reports source/raster read.",
+        "nativeBrowserRender": false,
+        "teacherAcceptance": false
+      },
+      "placements": [
+        {
+          "lessonId": "lesson-03",
+          "path": "lesson-03.teaching-fragment.html",
+          "region": "authorised-teaching-fragment",
+          "imgByteRangeWithinFragment": {
+            "startByte": 12278,
+            "endByteExclusive": 12519,
+            "bytes": 241,
+            "sha256": "9887af8d97c8a2c8a8cdb84903a4b70855889122b98f26c02ee1efa7e7f11070"
+          },
+          "originalImgAttributes": {
+            "alt": "Each row and column represents a gamete. Four equally likely combinations give a 1:2:1 genotype ratio under the stated model. A is completely dominant to a.",
+            "decoding": "async",
+            "loading": "lazy",
+            "src": "./assets/figures/ch17-punnett.svg"
+          },
+          "outerBindingId": "ch17-l03-teaching-02",
+          "nearestPrecedingHeading": "Read the same pairing pattern in the labelled figure",
+          "precedingGuidanceText": [
+            "Read the same pairing pattern in the labelled figure",
+            "The next figure uses A and a for two alleles in a generic complete-dominance model, with A completely dominant to a. We are changing the notation to read a different representation, not adding another gene to the mouse cross. Both represented parents are Aa. Use the top edge for one parent’s gametes and the left edge for the other’s; the figure does not assign biological sex to either edge.",
+            "Notice the difference between letters outside the square and the circled letters inside. Outside A and a are gamete alleles. Inside A, B, C and D name four locations whose genotypes must be obtained from the edges. The interior B does not mean a B allele has appeared in this A/a model."
+          ],
+          "followingExplanationText": [
+            "At location A, side A meets top A, giving AA. At B, side A meets top a, giving Aa. At C, side a meets top A, also giving Aa. At D, side a meets top a, giving aa. The map beneath the square is already visible and confirms those readings. The two heterozygous locations represent different parental contribution routes into the same genotype.",
+            "A probability also lets us calculate an expected number: the model’s predicted count for a specified sample size, found by multiplying the probability by that size. We will use this after comparing one more parental arrangement. First make sure the probability belongs to the actual cross and the requested group; a correct multiplication cannot repair a probability taken from the wrong parents."
+          ],
+          "figcaption": "Each row and column represents a gamete. Four equally likely combinations give a 1:2:1 genotype ratio under the stated model. A is completely dominant to a. Schematic — not to scale.",
+          "markdownImageLineNumbers": [
+            79
+          ],
+          "figureByteRangeWithinFragment": {
+            "startByte": 12041,
+            "endByteExclusive": 12737,
+            "bytes": 696,
+            "sha256": "3fc3cd697b9674574196a9c5da233ec59bf371aea3b5f51055e141995bbe31cb"
+          }
+        }
+      ]
+    },
+    {
+      "assetId": "protected-assessment-9e85ebb2ecbe95100af0.png",
+      "outputPath": "assets/assessment/9e85ebb2ecbe95100af0.png",
+      "nativeSrc": "./assets/assessment/9e85ebb2ecbe95100af0.png",
+      "kind": "protected-native-assessment-raster",
+      "status": "protected-existing-source-preserve-exact",
+      "teacherAcceptanceOfSourceScience": "not implied",
+      "bytes": 45804,
+      "sha256": "9e85ebb2ecbe95100af02ac52108c9fb53798252a85604d1371d8358edba1dad",
+      "width": 950,
+      "height": 216,
+      "sourcePacketPath": "current/assets/assessment/9e85ebb2ecbe95100af0.png",
+      "sourceBytesUnchanged": true,
+      "derivedCrop": false,
+      "pixelIdentity": "Mice pigment stimulus with three allele labels D¹ (full colour), D² (dilute colour), D³ (lethal when homozygous), and hierarchy D¹ > D² > D³.",
+      "protectedNoteId": "ch17-source-written-OBJ_2131244",
+      "sourceSupport": [
+        {
+          "locator": "current/lesson-03.protected-suffix.html saved optional source task ch17-source-written-OBJ_2131244"
+        }
+      ],
+      "interpretationConstraints": [
+        "The original stimulus says Gene for allele versions; source bytes remain protected.",
+        "Counts request the dead category, so later solution must not silently restrict denominator to surviving offspring.",
+        "Requires multiple-allele and viability mapping beyond this lesson’s simple model."
+      ],
+      "originalQuizProvenanceLimit": "This batch provides the exact current source PNG and task contract, not a separately reread original quiz XML/image archive. No original-quiz binary read is claimed.",
+      "pixelReview": {
+        "assetMapReviewer": "Actual output pixels displayed and equal supplied protected source bytes.",
+        "rootAuthor": "Root reports direct viewing of all five protected assessment PNGs.",
+        "otherSourceReviewers": "03/04 source preparation records actual stimulus/response pixel reads.",
+        "nativeBrowserRender": false,
+        "teacherAcceptance": false
+      },
+      "placements": [
+        {
+          "lessonId": "lesson-03",
+          "sourcePacketFile": "current/lesson-03.protected-suffix.html",
+          "region": "protected-suffix-not-in-authorised-fragment",
+          "originalImgAttributes": {
+            "alt": "Original question diagram or data. Use its labels and values with the written directions.",
+            "loading": "lazy",
+            "src": "./assets/assessment/9e85ebb2ecbe95100af0.png"
+          },
+          "originalImgByteRangeWithinSuffix": {
+            "startByte": 11631,
+            "endByteExclusive": 11799,
+            "bytes": 168,
+            "sha256": "e60d5fef7e610884dc4de57c4e3fdd6d7d4e8421427c791591d977e0f59de09b"
+          },
+          "originalImgByteRangeWithinOwner": {
+            "startByte": 173752,
+            "endByteExclusive": 173920
+          },
+          "originalSectionTitle": "Additional written application 1",
+          "protectedNoteIds": [
+            "ch17-source-written-OBJ_2131244"
+          ],
+          "figcaption": null,
+          "guidanceStatus": "Original protected directions/alt text remain unchanged; new teaching provides explicit deferral for advanced allele/viability demands. No new visual interpretation is inserted into the protected task.",
+          "manuscript": "manuscripts/lesson-03.md",
+          "markdownImageLineNumbers": [
+            309
+          ]
+        }
+      ]
+    },
+    {
+      "assetId": "protected-assessment-1cb36c7f022e66f1f7ff.png",
+      "outputPath": "assets/assessment/1cb36c7f022e66f1f7ff.png",
+      "nativeSrc": "./assets/assessment/1cb36c7f022e66f1f7ff.png",
+      "kind": "protected-native-assessment-raster",
+      "status": "protected-existing-source-preserve-exact",
+      "teacherAcceptanceOfSourceScience": "not implied",
+      "bytes": 9362,
+      "sha256": "1cb36c7f022e66f1f7ffd71069517342405c172e19258e72594a1b73f908d2d1",
+      "width": 528,
+      "height": 76,
+      "sourcePacketPath": "current/assets/assessment/1cb36c7f022e66f1f7ff.png",
+      "sourceBytesUnchanged": true,
+      "derivedCrop": false,
+      "pixelIdentity": "Three blank answer lines labelled full colour mice, dilute colour mice, dead mice.",
+      "protectedNoteId": "ch17-source-written-OBJ_2131244",
+      "sourceSupport": [
+        {
+          "locator": "current/lesson-03.protected-suffix.html saved optional source task ch17-source-written-OBJ_2131244"
+        }
+      ],
+      "interpretationConstraints": [
+        "Original response categories retained; they determine the counted outcome categories."
+      ],
+      "originalQuizProvenanceLimit": "This batch provides the exact current source PNG and task contract, not a separately reread original quiz XML/image archive. No original-quiz binary read is claimed.",
+      "pixelReview": {
+        "assetMapReviewer": "Actual output pixels displayed and equal supplied protected source bytes.",
+        "rootAuthor": "Root reports direct viewing of all five protected assessment PNGs.",
+        "otherSourceReviewers": "03/04 source preparation records actual stimulus/response pixel reads.",
+        "nativeBrowserRender": false,
+        "teacherAcceptance": false
+      },
+      "placements": [
+        {
+          "lessonId": "lesson-03",
+          "sourcePacketFile": "current/lesson-03.protected-suffix.html",
+          "region": "protected-suffix-not-in-authorised-fragment",
+          "originalImgAttributes": {
+            "alt": "Original question diagram or data. Use its labels and values with the written directions.",
+            "loading": "lazy",
+            "src": "./assets/assessment/1cb36c7f022e66f1f7ff.png"
+          },
+          "originalImgByteRangeWithinSuffix": {
+            "startByte": 11906,
+            "endByteExclusive": 12074,
+            "bytes": 168,
+            "sha256": "df7da008d443d7760fc96eb9026071fbfdd910f8fca93092efbc1fd200000d8c"
+          },
+          "originalImgByteRangeWithinOwner": {
+            "startByte": 174027,
+            "endByteExclusive": 174195
+          },
+          "originalSectionTitle": "Additional written application 1",
+          "protectedNoteIds": [
+            "ch17-source-written-OBJ_2131244"
+          ],
+          "figcaption": null,
+          "guidanceStatus": "Original protected directions/alt text remain unchanged; new teaching provides explicit deferral for advanced allele/viability demands. No new visual interpretation is inserted into the protected task.",
+          "manuscript": "manuscripts/lesson-03.md",
+          "markdownImageLineNumbers": [
+            313
+          ]
+        }
+      ]
+    },
+    {
+      "assetId": "protected-assessment-f45c6bfd939bd821e055.png",
+      "outputPath": "assets/assessment/f45c6bfd939bd821e055.png",
+      "nativeSrc": "./assets/assessment/f45c6bfd939bd821e055.png",
+      "kind": "protected-native-assessment-raster",
+      "status": "protected-existing-source-preserve-exact",
+      "teacherAcceptanceOfSourceScience": "not implied",
+      "bytes": 11145,
+      "sha256": "f45c6bfd939bd821e055a82ac84c0b44b07ddfe0efcc080b606a2070eb293437",
+      "width": 784,
+      "height": 90,
+      "sourcePacketPath": "current/assets/assessment/f45c6bfd939bd821e055.png",
+      "sourceBytesUnchanged": true,
+      "derivedCrop": false,
+      "pixelIdentity": "Five blank answer lines labelled full colour, chinchilla, light grey, Himalayan, albino.",
+      "protectedNoteId": "ch17-source-written-OBJ_2131248",
+      "sourceSupport": [
+        {
+          "locator": "current/lesson-03.protected-suffix.html saved optional source task ch17-source-written-OBJ_2131248"
+        }
+      ],
+      "interpretationConstraints": [
+        "The protected lesson03 rabbit task does not contain its genotype-expression stimulus locally. The supplied rabbit table is in the protected lesson04 asset eeca2d84afb814ca523d.png. This dependency across routes remains documented."
+      ],
+      "originalQuizProvenanceLimit": "This batch provides the exact current source PNG and task contract, not a separately reread original quiz XML/image archive. No original-quiz binary read is claimed.",
+      "pixelReview": {
+        "assetMapReviewer": "Actual output pixels displayed and equal supplied protected source bytes.",
+        "rootAuthor": "Root reports direct viewing of all five protected assessment PNGs.",
+        "otherSourceReviewers": "03/04 source preparation records actual stimulus/response pixel reads.",
+        "nativeBrowserRender": false,
+        "teacherAcceptance": false
+      },
+      "placements": [
+        {
+          "lessonId": "lesson-03",
+          "sourcePacketFile": "current/lesson-03.protected-suffix.html",
+          "region": "protected-suffix-not-in-authorised-fragment",
+          "originalImgAttributes": {
+            "alt": "Original question diagram or data. Use its labels and values with the written directions.",
+            "loading": "lazy",
+            "src": "./assets/assessment/f45c6bfd939bd821e055.png"
+          },
+          "originalImgByteRangeWithinSuffix": {
+            "startByte": 13264,
+            "endByteExclusive": 13432,
+            "bytes": 168,
+            "sha256": "2dd856d261943cbac01a23966f831e026aa6c1db2ccde27fad7e2997717f5b9d"
+          },
+          "originalImgByteRangeWithinOwner": {
+            "startByte": 175385,
+            "endByteExclusive": 175553
+          },
+          "originalSectionTitle": "Additional written application 3",
+          "protectedNoteIds": [
+            "ch17-source-written-OBJ_2131248"
+          ],
+          "figcaption": null,
+          "guidanceStatus": "Original protected directions/alt text remain unchanged; new teaching provides explicit deferral for advanced allele/viability demands. No new visual interpretation is inserted into the protected task.",
+          "manuscript": "manuscripts/lesson-03.md",
+          "markdownImageLineNumbers": [
+            329
+          ]
+        }
+      ]
+    },
+    {
+      "assetId": "protected-assessment-eeca2d84afb814ca523d.png",
+      "outputPath": "assets/assessment/eeca2d84afb814ca523d.png",
+      "nativeSrc": "./assets/assessment/eeca2d84afb814ca523d.png",
+      "kind": "protected-native-assessment-raster",
+      "status": "protected-existing-source-preserve-exact",
+      "teacherAcceptanceOfSourceScience": "not implied",
+      "bytes": 107270,
+      "sha256": "eeca2d84afb814ca523d062ae04860a1ebbb56f5ee38b301d250995344f46a99",
+      "width": 934,
+      "height": 536,
+      "sourcePacketPath": "current/assets/assessment/eeca2d84afb814ca523d.png",
+      "sourceBytesUnchanged": true,
+      "derivedCrop": false,
+      "pixelIdentity": "Rabbit multiple-allele stimulus plus genotype/phenotype table. Using superscripts as in the original: full colour CC, CCch, CCh, CCa; chinchilla CchCch; light grey CchCh, CchCa; Himalayan ChCh, ChCa; albino CaCa. The original also prints hierarchy C > Cch > Ch > Ca. Exact superscript glyphs remain in the unchanged image.",
+      "protectedNoteId": "ch17-source-written-OBJ_2131247",
+      "sourceSupport": [
+        {
+          "locator": "current/lesson-04.protected-suffix.html saved optional source task ch17-source-written-OBJ_2131247"
+        }
+      ],
+      "interpretationConstraints": [
+        "Use the explicit protected genotype table for later work; its simple-looking dominance hierarchy does not alone capture the listed light-grey heterozygotes.",
+        "The current teaching defers this application to later allele-relationship work.",
+        "No original stimulus correction made."
+      ],
+      "originalQuizProvenanceLimit": "This batch provides the exact current source PNG and task contract, not a separately reread original quiz XML/image archive. No original-quiz binary read is claimed.",
+      "pixelReview": {
+        "assetMapReviewer": "Actual output pixels displayed and equal supplied protected source bytes.",
+        "rootAuthor": "Root reports direct viewing of all five protected assessment PNGs.",
+        "otherSourceReviewers": "03/04 source preparation records actual stimulus/response pixel reads.",
+        "nativeBrowserRender": false,
+        "teacherAcceptance": false
+      },
+      "placements": [
+        {
+          "lessonId": "lesson-04",
+          "sourcePacketFile": "current/lesson-04.protected-suffix.html",
+          "region": "protected-suffix-not-in-authorised-fragment",
+          "originalImgAttributes": {
+            "alt": "Original question diagram or data. Use its labels and values with the written directions.",
+            "loading": "lazy",
+            "src": "./assets/assessment/eeca2d84afb814ca523d.png"
+          },
+          "originalImgByteRangeWithinSuffix": {
+            "startByte": 10488,
+            "endByteExclusive": 10656,
+            "bytes": 168,
+            "sha256": "7948b446e7112e1b42beb4f24d51e50dc0d55738a2416c02b7b02730e734da74"
+          },
+          "originalImgByteRangeWithinOwner": {
+            "startByte": 195769,
+            "endByteExclusive": 195937
+          },
+          "originalSectionTitle": "Additional written application 2",
+          "protectedNoteIds": [
+            "ch17-source-written-OBJ_2131247"
+          ],
+          "figcaption": null,
+          "guidanceStatus": "Original protected directions/alt text remain unchanged; new teaching provides explicit deferral for advanced allele/viability demands. No new visual interpretation is inserted into the protected task.",
+          "manuscript": "manuscripts/lesson-04.md",
+          "markdownImageLineNumbers": [
+            243
+          ]
+        }
+      ]
+    },
+    {
+      "assetId": "protected-assessment-edd29af72eeb9c646081.png",
+      "outputPath": "assets/assessment/edd29af72eeb9c646081.png",
+      "nativeSrc": "./assets/assessment/edd29af72eeb9c646081.png",
+      "kind": "protected-native-assessment-raster",
+      "status": "protected-existing-source-preserve-exact",
+      "teacherAcceptanceOfSourceScience": "not implied",
+      "bytes": 10993,
+      "sha256": "edd29af72eeb9c64608139705b844cfc0a52bf6745137ffec10d71fcaed0eb22",
+      "width": 802,
+      "height": 78,
+      "sourcePacketPath": "current/assets/assessment/edd29af72eeb9c646081.png",
+      "sourceBytesUnchanged": true,
+      "derivedCrop": false,
+      "pixelIdentity": "Five blank answer lines labelled full colour, chinchilla, light grey, Himalayan, albino; a separate original PNG from the lesson03 response strip.",
+      "protectedNoteId": "ch17-source-written-OBJ_2131247",
+      "sourceSupport": [
+        {
+          "locator": "current/lesson-04.protected-suffix.html saved optional source task ch17-source-written-OBJ_2131247"
+        }
+      ],
+      "interpretationConstraints": [
+        "Distinct file identity preserved even though category labels resemble the03 response strip."
+      ],
+      "originalQuizProvenanceLimit": "This batch provides the exact current source PNG and task contract, not a separately reread original quiz XML/image archive. No original-quiz binary read is claimed.",
+      "pixelReview": {
+        "assetMapReviewer": "Actual output pixels displayed and equal supplied protected source bytes.",
+        "rootAuthor": "Root reports direct viewing of all five protected assessment PNGs.",
+        "otherSourceReviewers": "03/04 source preparation records actual stimulus/response pixel reads.",
+        "nativeBrowserRender": false,
+        "teacherAcceptance": false
+      },
+      "placements": [
+        {
+          "lessonId": "lesson-04",
+          "sourcePacketFile": "current/lesson-04.protected-suffix.html",
+          "region": "protected-suffix-not-in-authorised-fragment",
+          "originalImgAttributes": {
+            "alt": "Original question diagram or data. Use its labels and values with the written directions.",
+            "loading": "lazy",
+            "src": "./assets/assessment/edd29af72eeb9c646081.png"
+          },
+          "originalImgByteRangeWithinSuffix": {
+            "startByte": 10763,
+            "endByteExclusive": 10931,
+            "bytes": 168,
+            "sha256": "61d9882e446677fe25a637110c5164d636b6665c406e4898c4fe9b89a8f8ed5b"
+          },
+          "originalImgByteRangeWithinOwner": {
+            "startByte": 196044,
+            "endByteExclusive": 196212
+          },
+          "originalSectionTitle": "Additional written application 2",
+          "protectedNoteIds": [
+            "ch17-source-written-OBJ_2131247"
+          ],
+          "figcaption": null,
+          "guidanceStatus": "Original protected directions/alt text remain unchanged; new teaching provides explicit deferral for advanced allele/viability demands. No new visual interpretation is inserted into the protected task.",
+          "manuscript": "manuscripts/lesson-04.md",
+          "markdownImageLineNumbers": [
+            247
+          ]
+        }
+      ]
+    }
+  ],
+  "htmlTeachingTables": [
+    {
+      "documentationId": "lesson-01-teaching-table-01",
+      "notANewNativeId": true,
+      "lessonId": "lesson-01",
+      "fragment": "lesson-01.teaching-fragment.html",
+      "byteRangeWithinFragment": {
+        "startByte": 4156,
+        "endByteExclusive": 4658,
+        "bytes": 502,
+        "sha256": "18cbc65467ed5fd660a3d6faa57b0e6730c5517510c71ceaca8dd6cfd2e63300"
+      },
+      "status": "authored-static-HTML-table-using-existing-native-class",
+      "class": "comparison-table",
+      "sourceImage": false,
+      "essentialTeachingVisible": true,
+      "rows": [
+        [
+          {
+            "text": "Chromosome in the pair",
+            "html": "<th>Chromosome in the pair</th>"
+          },
+          {
+            "text": "Position being examined",
+            "html": "<th>Position being examined</th>"
+          },
+          {
+            "text": "What is present there?",
+            "html": "<th>What is present there?</th>"
+          }
+        ],
+        [
+          {
+            "text": "One inherited from the egg-producing parent",
+            "html": "<td>One inherited from the egg-producing parent</td>"
+          },
+          {
+            "text": "The studied locus",
+            "html": "<td>The studied locus</td>"
+          },
+          {
+            "text": "One copy of an allele of the gene",
+            "html": "<td>One copy of an allele of the gene</td>"
+          }
+        ],
+        [
+          {
+            "text": "The corresponding chromosome inherited from the sperm-producing parent",
+            "html": "<td>The corresponding chromosome inherited from the sperm-producing parent</td>"
+          },
+          {
+            "text": "The corresponding locus",
+            "html": "<td>The corresponding locus</td>"
+          },
+          {
+            "text": "One copy of an allele of the same gene; its version may match or differ",
+            "html": "<td>One copy of an allele of the same gene; its version may match or differ</td>"
+          }
+        ]
+      ],
+      "outerBindingId": "ch17-l01-teaching-01",
+      "nearestPrecedingHeading": "What passes from parents to offspring?",
+      "precedingGuidanceText": [
+        "An allele is a version of a gene. Versions can differ in their DNA sequence and in how they affect the product or its production. The gene identifies which inherited information we are studying; the allele identifies which version is present. A locus is the position of a gene on a chromosome. The plural is loci.",
+        "For the simple model we are about to use, consider an ordinary diploid body cell: it has two sets of chromosomes, one inherited from each parent. The gene is on an autosome, a chromosome other than a sex chromosome. The corresponding chromosomes from the two parents form a homologous pair. They carry the same kinds of genes at corresponding loci, although their alleles can differ.",
+        "Read the table across its rows. It follows one locus on the two chromosomes in a pair before those chromosomes have copied their DNA. The table is tracking the same gene twice, not two different genes."
+      ],
+      "followingExplanationText": [
+        "There are therefore two allele copies at this locus in the diploid cell. Two copies do not necessarily mean two different versions. Both copies might be the same version, or each might be a different version. A population can contain more than two versions of a gene even though an ordinary diploid individual has only two copies at this autosomal locus.",
+        "An egg and a sperm are gametes, reproductive cells that normally carry one chromosome set. Each contributes one allele at the studied locus. When the gametes join at fertilisation, the new individual receives a pair again. The later account of chromosome separation will explain how a cell with two copies gives rise to contributions with one. For now, the consequence is enough: to describe the inherited combination in our diploid model, we must record one contribution from each parent."
+      ],
+      "figcaption": null,
+      "sourceSupport": [
+        {
+          "actualSlides": [
+            7,
+            8,
+            10,
+            11,
+            12
+          ]
+        },
+        {
+          "printedPage": 590,
+          "pdfPage": 7,
+          "locator": "allele/genotype/phenotype definitions"
+        }
+      ],
+      "calculationProvenance": "New representation and, where present, hypothetical count/record values; not presented as source-measured observations. Full quantitative review belongs to CONTENT_REVIEW and03/04 reviewer records."
+    },
+    {
+      "documentationId": "lesson-01-teaching-table-02",
+      "notANewNativeId": true,
+      "lessonId": "lesson-01",
+      "fragment": "lesson-01.teaching-fragment.html",
+      "byteRangeWithinFragment": {
+        "startByte": 11119,
+        "endByteExclusive": 11721,
+        "bytes": 602,
+        "sha256": "203d82cc924426605af1cb0c7d16851308774fa81ad085ce29a35fd7c1b9d2b2"
+      },
+      "status": "authored-static-HTML-table-using-existing-native-class",
+      "class": "comparison-table",
+      "sourceImage": false,
+      "essentialTeachingVisible": true,
+      "rows": [
+        [
+          {
+            "text": "Record in this model",
+            "html": "<th>Record in this model</th>"
+          },
+          {
+            "text": "Meaning",
+            "html": "<th>Meaning</th>"
+          },
+          {
+            "text": "What it does not mean",
+            "html": "<th>What it does not mean</th>"
+          }
+        ],
+        [
+          {
+            "text": "B or b",
+            "html": "<td>B or b</td>"
+          },
+          {
+            "text": "One specified version of the flower-colour gene",
+            "html": "<td>One specified version of the flower-colour gene</td>"
+          },
+          {
+            "text": "A whole chromosome set or a complete diploid genotype",
+            "html": "<td>A whole chromosome set or a complete diploid genotype</td>"
+          }
+        ],
+        [
+          {
+            "text": "BB",
+            "html": "<td>BB</td>"
+          },
+          {
+            "text": "Two copies of the B version; homozygous",
+            "html": "<td>Two copies of the B version; homozygous</td>"
+          },
+          {
+            "text": "Two different genes",
+            "html": "<td>Two different genes</td>"
+          }
+        ],
+        [
+          {
+            "text": "Bb",
+            "html": "<td>Bb</td>"
+          },
+          {
+            "text": "One B and one b; heterozygous",
+            "html": "<td>One B and one b; heterozygous</td>"
+          },
+          {
+            "text": "A blend that has erased the original versions",
+            "html": "<td>A blend that has erased the original versions</td>"
+          }
+        ],
+        [
+          {
+            "text": "bb",
+            "html": "<td>bb</td>"
+          },
+          {
+            "text": "Two copies of the b version; homozygous",
+            "html": "<td>Two copies of the b version; homozygous</td>"
+          },
+          {
+            "text": "No gene at that locus",
+            "html": "<td>No gene at that locus</td>"
+          }
+        ]
+      ],
+      "outerBindingId": "ch17-l01-teaching-03",
+      "nearestPrecedingHeading": "Use the model before the letters",
+      "precedingGuidanceText": [
+        "Use the model before the letters",
+        "The letter B does not mean “purple” in every organism. It is a symbol defined for this problem. Using the same letter in uppercase and lowercase helps show that B and b are alleles of one gene. A different gene needs a different clearly defined symbol. Capital and lowercase notation is convenient for complete dominance; other allele relationships can require other notation."
+      ],
+      "followingExplanationText": [
+        "“Dominant” also does not mean common, better, stronger or healthier. To establish dominance, compare the heterozygote’s phenotype with those of the homozygotes. To establish how common an allele is, count its occurrence in a population. Those are different kinds of evidence. The expression rule by itself supplies no population frequency.",
+        "Now read the relationship in reverse. A white-flowered plant must be bb under our stated model because BB and Bb are purple. A purple-flowered plant could be BB or Bb. When only its colour is known, write B_ to keep the unresolved second allele visible. The underscore is a placeholder: it could be B or b. It is not an additional allele and does not mean the plant has only one copy of the gene.",
+        "These conclusions depend on the model. We have assumed the stated genotypes reliably produce the stated colours under the conditions being considered. If a colour is affected by another gene or cannot be scored reliably, appearance may provide less information. We should check those conditions rather than force every organism into a purple-or-white rule. Human eye colour, for example, cannot be accurately explained as a simple one-gene B/b trait."
+      ],
+      "figcaption": null,
+      "sourceSupport": [
+        {
+          "actualSlides": [
+            7,
+            8,
+            10,
+            11,
+            12
+          ]
+        },
+        {
+          "printedPage": 590,
+          "pdfPage": 7,
+          "locator": "allele/genotype/phenotype definitions"
+        }
+      ],
+      "calculationProvenance": "New representation and, where present, hypothetical count/record values; not presented as source-measured observations. Full quantitative review belongs to CONTENT_REVIEW and03/04 reviewer records."
+    },
+    {
+      "documentationId": "lesson-01-teaching-table-03",
+      "notANewNativeId": true,
+      "lessonId": "lesson-01",
+      "fragment": "lesson-01.teaching-fragment.html",
+      "byteRangeWithinFragment": {
+        "startByte": 15794,
+        "endByteExclusive": 16287,
+        "bytes": 493,
+        "sha256": "03dc58a315a2721fdfcc294e0dc5061d91f3b4a78b2d63b73a6d27733e890b05"
+      },
+      "status": "authored-static-HTML-table-using-existing-native-class",
+      "class": "comparison-table",
+      "sourceImage": false,
+      "essentialTeachingVisible": true,
+      "rows": [
+        [
+          {
+            "text": "Hypothetical record",
+            "html": "<th>Hypothetical record</th>"
+          },
+          {
+            "text": "Egg contribution",
+            "html": "<th>Egg contribution</th>"
+          },
+          {
+            "text": "Sperm contribution",
+            "html": "<th>Sperm contribution</th>"
+          },
+          {
+            "text": "Genotype and allele identity",
+            "html": "<th>Genotype and allele identity</th>"
+          },
+          {
+            "text": "Predicted flower phenotype",
+            "html": "<th>Predicted flower phenotype</th>"
+          }
+        ],
+        [
+          {
+            "text": "Plant 1",
+            "html": "<td>Plant 1</td>"
+          },
+          {
+            "text": "B",
+            "html": "<td>B</td>"
+          },
+          {
+            "text": "b",
+            "html": "<td>b</td>"
+          },
+          {
+            "text": "Bb; heterozygous",
+            "html": "<td>Bb; heterozygous</td>"
+          },
+          {
+            "text": "Purple",
+            "html": "<td>Purple</td>"
+          }
+        ],
+        [
+          {
+            "text": "Plant 2",
+            "html": "<td>Plant 2</td>"
+          },
+          {
+            "text": "b",
+            "html": "<td>b</td>"
+          },
+          {
+            "text": "B",
+            "html": "<td>B</td>"
+          },
+          {
+            "text": "Bb; heterozygous",
+            "html": "<td>Bb; heterozygous</td>"
+          },
+          {
+            "text": "Purple",
+            "html": "<td>Purple</td>"
+          }
+        ],
+        [
+          {
+            "text": "Plant 3",
+            "html": "<td>Plant 3</td>"
+          },
+          {
+            "text": "b",
+            "html": "<td>b</td>"
+          },
+          {
+            "text": "b",
+            "html": "<td>b</td>"
+          },
+          {
+            "text": "bb; homozygous recessive",
+            "html": "<td>bb; homozygous recessive</td>"
+          },
+          {
+            "text": "White",
+            "html": "<td>White</td>"
+          }
+        ]
+      ],
+      "outerBindingId": "ch17-l01-worked",
+      "nearestPrecedingHeading": "Follow a contribution record before interpreting appearance",
+      "precedingGuidanceText": [
+        "Follow a contribution record before interpreting appearance",
+        "Consider three hypothetical offspring plants in the same flower-colour model. Their inherited contributions at the studied locus have been recorded. For Plant 1, the egg contributed B and the sperm contributed b. For Plant 2, the egg contributed b and the sperm contributed B. For Plant 3, both contributed b. All three records concern the same kind of flowering plant in the model.",
+        "The task is to interpret the records without making letter order stand for a different genotype. The givens are the contributions, the diploid one-from-each-parent rule, and the expression relationship BB or Bb → purple, bb → white. No probabilities are needed because these records state which contributions actually occurred."
+      ],
+      "followingExplanationText": [
+        "The table accounts for every given contribution. It does not turn the three records into a predicted ratio for a whole population. The useful conclusion is about information: knowing both contributions can establish a genotype that appearance alone may leave unresolved.",
+        "What would breeding evidence need to show?",
+        "We can now return to the breeder’s question. Parents pass inherited information to offspring, but an observed characteristic is not a complete record of that information. Two organisms that look alike for a characteristic may carry different allele pairs, and a version can be present without producing a distinct heterozygote phenotype."
+      ],
+      "figcaption": null,
+      "sourceSupport": [
+        {
+          "actualSlides": [
+            7,
+            8,
+            10,
+            11,
+            12
+          ]
+        },
+        {
+          "printedPage": 590,
+          "pdfPage": 7,
+          "locator": "allele/genotype/phenotype definitions"
+        }
+      ],
+      "calculationProvenance": "New representation and, where present, hypothetical count/record values; not presented as source-measured observations. Full quantitative review belongs to CONTENT_REVIEW and03/04 reviewer records."
+    },
+    {
+      "documentationId": "lesson-03-teaching-table-01",
+      "notANewNativeId": true,
+      "lessonId": "lesson-03",
+      "fragment": "lesson-03.teaching-fragment.html",
+      "byteRangeWithinFragment": {
+        "startByte": 6115,
+        "endByteExclusive": 6375,
+        "bytes": 260,
+        "sha256": "2b65f457ffc00372800a79eb57f08e84c4ae5d378f5e96a813890e16c7d08820"
+      },
+      "status": "authored-static-HTML-table-using-existing-native-class",
+      "class": "comparison-table",
+      "sourceImage": false,
+      "essentialTeachingVisible": true,
+      "rows": [
+        [
+          {
+            "text": "Egg from bb mother",
+            "html": "<th>Egg from bb mother</th>"
+          },
+          {
+            "text": "Sperm B, probability 1/2",
+            "html": "<th>Sperm B, probability 1/2</th>"
+          },
+          {
+            "text": "Sperm b, probability 1/2",
+            "html": "<th>Sperm b, probability 1/2</th>"
+          }
+        ],
+        [
+          {
+            "text": "b, probability 1",
+            "html": "<th>b, probability 1</th>"
+          },
+          {
+            "text": "Bb: 1 × 1/2 = 1/2",
+            "html": "<td>Bb: 1 × 1/2 = 1/2</td>"
+          },
+          {
+            "text": "bb: 1 × 1/2 = 1/2",
+            "html": "<td>bb: 1 × 1/2 = 1/2</td>"
+          }
+        ]
+      ],
+      "outerBindingId": "ch17-l03-teaching-01",
+      "nearestPrecedingHeading": "Start with the gametes, then read the square",
+      "precedingGuidanceText": [
+        "The image below contains two complete squares. Begin with the right-hand square, which has B and b across the top and b repeated down the left. We will use the top edge for the father’s sperm and the left edge for the mother’s eggs. The image itself has no sex labels; this is the convention we are assigning to read this cross. The left-hand square changes the top parent to BB and can be compared later.",
+        "Trace the right square’s top-left interior cell: top B joins side b, giving Bb. In the top-right cell, top b joins side b, giving bb. The second row repeats those same combinations because the mother’s other allele copy is also b. Repeating a label on a drawing does not create another biological allele version.",
+        "We can show the same cross more compactly by listing each distinct gamete type once and keeping its probability beside it. In the table below, the mother’s single b row has probability 1, while the father’s two columns each have probability 1/2."
+      ],
+      "followingExplanationText": [
+        "We multiply because an offspring needs both contributions, and random fertilisation makes the sperm allele independent of the egg allele in this model. For a Bb offspring, the required event is an egg carrying b together with a sperm carrying B: 1 × 1/2 = 1/2. For a bb offspring, it is a b egg together with a b sperm: 1 × 1/2 = 1/2. These two mutually exclusive possibilities exhaust the cross, and 1/2 + 1/2 = 1.",
+        "If we use the original four-cell drawing instead, the certain b contribution is displayed as two equivalent rows, each carrying half of the total weight. Each pictured cell then has weight 1/4, and the two repeated routes to each genotype add to 1/2. The compact table and the four-cell drawing agree. Counting boxes works only when their probability weights have been accounted for.",
+        "The genotype ratio is 1 Bb : 1 bb. Applying complete dominance gives a phenotype ratio of 1 black : 1 brown. The first ratio groups allele pairs; the second groups expressed coat colours. They happen to have the same numbers in this cross. That agreement is a result to explain, not a rule to assume for every pair of parents."
+      ],
+      "figcaption": null,
+      "sourceSupport": [
+        {
+          "actualSlides": [
+            26,
+            27,
+            28,
+            29,
+            30
+          ]
+        },
+        {
+          "printedPages": [
+            589,
+            590,
+            591
+          ],
+          "pdfPages": [
+            6,
+            7,
+            8
+          ],
+          "locator": "segregation,Figure17.7 and genotype/phenotype interpretation"
+        }
+      ],
+      "calculationProvenance": "New representation and, where present, hypothetical count/record values; not presented as source-measured observations. Full quantitative review belongs to CONTENT_REVIEW and03/04 reviewer records."
+    },
+    {
+      "documentationId": "lesson-03-teaching-table-02",
+      "notANewNativeId": true,
+      "lessonId": "lesson-03",
+      "fragment": "lesson-03.teaching-fragment.html",
+      "byteRangeWithinFragment": {
+        "startByte": 8641,
+        "endByteExclusive": 9018,
+        "bytes": 377,
+        "sha256": "4a1ef6c442f85b05f400f080477a5666f28d434fca1a5e9bc025b391381ce1ab"
+      },
+      "status": "authored-static-HTML-table-using-existing-native-class",
+      "class": "comparison-table",
+      "sourceImage": false,
+      "essentialTeachingVisible": true,
+      "rows": [
+        [
+          {
+            "text": "Egg from Bb mother",
+            "html": "<th>Egg from Bb mother</th>"
+          },
+          {
+            "text": "Sperm B, probability 1/2",
+            "html": "<th>Sperm B, probability 1/2</th>"
+          },
+          {
+            "text": "Sperm b, probability 1/2",
+            "html": "<th>Sperm b, probability 1/2</th>"
+          }
+        ],
+        [
+          {
+            "text": "B, probability 1/2",
+            "html": "<th>B, probability 1/2</th>"
+          },
+          {
+            "text": "BB, probability 1/4",
+            "html": "<td>BB, probability 1/4</td>"
+          },
+          {
+            "text": "Bb, probability 1/4",
+            "html": "<td>Bb, probability 1/4</td>"
+          }
+        ],
+        [
+          {
+            "text": "b, probability 1/2",
+            "html": "<th>b, probability 1/2</th>"
+          },
+          {
+            "text": "bB, probability 1/4; normally written Bb",
+            "html": "<td>bB, probability 1/4; normally written Bb</td>"
+          },
+          {
+            "text": "bb, probability 1/4",
+            "html": "<td>bb, probability 1/4</td>"
+          }
+        ]
+      ],
+      "outerBindingId": "ch17-l03-teaching-02",
+      "nearestPrecedingHeading": "Change the second parent",
+      "precedingGuidanceText": [
+        "Change the second parent",
+        "Now the father and mother are both heterozygous black mice: Bb × Bb. The father still produces B or b sperm at 1/2 each. The changed mother now produces B or b eggs at 1/2 each, instead of only b eggs. That new possible contribution is why the offspring probabilities will change.",
+        "Keep sperm across the top and eggs down the left. Before reading an interior cell, trace its row and column labels. Each cell requires a particular egg allele and a particular sperm allele, so each has probability 1/2 × 1/2 = 1/4 under random fertilisation."
+      ],
+      "followingExplanationText": [
+        "The upper-left cell receives B from each parent and is BB. The upper-right cell receives B from the egg and b from the sperm. The lower-left receives b from the egg and B from the sperm. Those two routes both produce the genotype Bb. The lower-right receives b from each and is bb. Each cell has two allele copies because each includes two gametes’ contributions.",
+        "To group by genotype, retain the one BB route, add the two distinct routes to Bb, and retain the one bb route. Thus P(BB) = 1/4, P(Bb) = 1/4 + 1/4 = 1/2, and P(bb) = 1/4. Here P means “probability of” the outcome in parentheses. The genotype ratio is 1 BB : 2 Bb : 1 bb. Check the whole set: 1/4 + 1/2 + 1/4 = 1.",
+        "To group by phenotype, apply the expression rule. Both BB and Bb are black, so P(black) = 1/4 + 1/2 = 3/4. Only bb is brown, so P(brown) = 1/4. The phenotype ratio is therefore 3 black : 1 brown, and its probabilities also total 1. “Heterozygous” and “black” are different groups: all Bb mice are black in this model, but BB mice are black too."
+      ],
+      "figcaption": null,
+      "sourceSupport": [
+        {
+          "actualSlides": [
+            26,
+            27,
+            28,
+            29,
+            30
+          ]
+        },
+        {
+          "printedPages": [
+            589,
+            590,
+            591
+          ],
+          "pdfPages": [
+            6,
+            7,
+            8
+          ],
+          "locator": "segregation,Figure17.7 and genotype/phenotype interpretation"
+        }
+      ],
+      "calculationProvenance": "New representation and, where present, hypothetical count/record values; not presented as source-measured observations. Full quantitative review belongs to CONTENT_REVIEW and03/04 reviewer records."
+    },
+    {
+      "documentationId": "lesson-03-teaching-table-03",
+      "notANewNativeId": true,
+      "lessonId": "lesson-03",
+      "fragment": "lesson-03.teaching-fragment.html",
+      "byteRangeWithinFragment": {
+        "startByte": 14554,
+        "endByteExclusive": 14912,
+        "bytes": 358,
+        "sha256": "60043aab8ce3aeebd1d237659b6c84dcc3c4c480cdfe3b1d61ff0be593eaadf8"
+      },
+      "status": "authored-static-HTML-table-using-existing-native-class",
+      "class": "comparison-table",
+      "sourceImage": false,
+      "essentialTeachingVisible": true,
+      "rows": [
+        [
+          {
+            "text": "Egg from Bb mother",
+            "html": "<th>Egg from Bb mother</th>"
+          },
+          {
+            "text": "Sperm B from BB father, probability 1",
+            "html": "<th>Sperm B from BB father, probability 1</th>"
+          },
+          {
+            "text": "Phenotype after applying complete dominance",
+            "html": "<th>Phenotype after applying complete dominance</th>"
+          }
+        ],
+        [
+          {
+            "text": "B, probability 1/2",
+            "html": "<th>B, probability 1/2</th>"
+          },
+          {
+            "text": "BB: 1/2 × 1 = 1/2",
+            "html": "<td>BB: 1/2 × 1 = 1/2</td>"
+          },
+          {
+            "text": "Black",
+            "html": "<td>Black</td>"
+          }
+        ],
+        [
+          {
+            "text": "b, probability 1/2",
+            "html": "<th>b, probability 1/2</th>"
+          },
+          {
+            "text": "Bb: 1/2 × 1 = 1/2",
+            "html": "<td>Bb: 1/2 × 1 = 1/2</td>"
+          },
+          {
+            "text": "Black",
+            "html": "<td>Black</td>"
+          }
+        ]
+      ],
+      "outerBindingId": "ch17-l03-teaching-03",
+      "nearestPrecedingHeading": "Change a parent before predicting another generation",
+      "precedingGuidanceText": [
+        "Change a parent before predicting another generation",
+        "Return to the mouse fur-colour model, with B completely dominant to b. This time the father is homozygous black, BB, and the mother is heterozygous black, Bb. Both parents look black, but they do not produce the same range of gametes. The BB father supplies B in every normal sperm. The Bb mother supplies B or b in eggs at 1/2 each.",
+        "The compact table needs only one sperm column because there is only one distinct paternal allele type. Read the two possible egg rows separately."
+      ],
+      "followingExplanationText": [
+        "The genotype ratio is 1 BB : 1 Bb; bb has probability 0 because the father cannot contribute b. The expected phenotype is all black: 1/2 + 1/2 = 1. A four-cell version could repeat the father’s B column, just as the earlier image repeated the recessive mother’s b row. It would repeat the same possibilities without creating a new gamete type.",
+        "Now separate the immediate offspring from a possible later generation. In the image below, follow the two mice at the top down the converging lines to the single central mouse icon, then down to the question mark. The whole diagram is visible at once. It abbreviates a question about offspring and grandchildren; it does not provide genotypes, probabilities or a complete second mating.",
+        "For the first mating we have just analysed, BB × Bb, the immediate offspring can be BB or Bb even though all are black. We cannot assign Bb to every black offspring in that picture. We also cannot answer the question about grandchildren until the two parents of that later mating are identified."
+      ],
+      "figcaption": null,
+      "sourceSupport": [
+        {
+          "actualSlides": [
+            26,
+            27,
+            28,
+            29,
+            30
+          ]
+        },
+        {
+          "printedPages": [
+            589,
+            590,
+            591
+          ],
+          "pdfPages": [
+            6,
+            7,
+            8
+          ],
+          "locator": "segregation,Figure17.7 and genotype/phenotype interpretation"
+        }
+      ],
+      "calculationProvenance": "New representation and, where present, hypothetical count/record values; not presented as source-measured observations. Full quantitative review belongs to CONTENT_REVIEW and03/04 reviewer records."
+    },
+    {
+      "documentationId": "lesson-03-teaching-table-04",
+      "notANewNativeId": true,
+      "lessonId": "lesson-03",
+      "fragment": "lesson-03.teaching-fragment.html",
+      "byteRangeWithinFragment": {
+        "startByte": 19133,
+        "endByteExclusive": 19464,
+        "bytes": 331,
+        "sha256": "0493a9efa4542bf4933d7db2829f9005fa1c28c1922cf20ab8ccecd1acd61bc8"
+      },
+      "status": "authored-static-HTML-table-using-existing-native-class",
+      "class": "comparison-table",
+      "sourceImage": false,
+      "essentialTeachingVisible": true,
+      "rows": [
+        [
+          {
+            "text": "Category",
+            "html": "<th>Category</th>"
+          },
+          {
+            "text": "Probability for one offspring",
+            "html": "<th>Probability for one offspring</th>"
+          },
+          {
+            "text": "Expected count among 48",
+            "html": "<th>Expected count among 48</th>"
+          }
+        ],
+        [
+          {
+            "text": "BB",
+            "html": "<td>BB</td>"
+          },
+          {
+            "text": "1/4",
+            "html": "<td>1/4</td>"
+          },
+          {
+            "text": "48 × 1/4 = 12",
+            "html": "<td>48 × 1/4 = 12</td>"
+          }
+        ],
+        [
+          {
+            "text": "Bb",
+            "html": "<td>Bb</td>"
+          },
+          {
+            "text": "1/2",
+            "html": "<td>1/2</td>"
+          },
+          {
+            "text": "48 × 1/2 = 24",
+            "html": "<td>48 × 1/2 = 24</td>"
+          }
+        ],
+        [
+          {
+            "text": "bb",
+            "html": "<td>bb</td>"
+          },
+          {
+            "text": "1/4",
+            "html": "<td>1/4</td>"
+          },
+          {
+            "text": "48 × 1/4 = 12",
+            "html": "<td>48 × 1/4 = 12</td>"
+          }
+        ]
+      ],
+      "outerBindingId": "ch17-l03-worked",
+      "nearestPrecedingHeading": "Predict a group without scheduling its members",
+      "precedingGuidanceText": [
+        "Use Bb × Bb in the same mouse model. Each parent contributes B or b at 1/2, giving genotype probabilities 1/4 BB, 1/2 Bb and 1/4 bb. Complete dominance gives 3/4 black and 1/4 brown. We will use those probabilities for two different questions: a predicted count in a group, and a specified sequence of offspring. The question determines which outcomes belong in the calculation.",
+        "Predict a group without scheduling its members",
+        "Suppose a breeding record will contain 48 offspring from matings with these parental genotypes. This is a hypothetical total chosen for prediction, not an observed experiment. Assume each offspring is counted and that the expression and survival conditions of the model hold. An expected count is the sample size multiplied by the probability of the category."
+      ],
+      "followingExplanationText": [
+        "The genotype counts add to 12 + 24 + 12 = 48, so no genotype category has been omitted or counted twice. For phenotypes, combine the BB and Bb counts: 12 + 24 = 36 expected black. The 12 expected bb offspring are brown. The same results follow directly from 48 × 3/4 = 36 and 48 × 1/4 = 12.",
+        "Multiplying by 48 scales a proportion to the whole group. It does not assign coat colours to positions in a litter or require the observed record to contain exactly those counts. A probability is a property of the model; an observed count is the result of the particular fertilisations that occurred. Repeating the same model across many groups gives a basis for the expectation, while individual finite groups can differ.",
+        "Specify the sequence before multiplying"
+      ],
+      "figcaption": null,
+      "sourceSupport": [
+        {
+          "actualSlides": [
+            26,
+            27,
+            28,
+            29,
+            30
+          ]
+        },
+        {
+          "printedPages": [
+            589,
+            590,
+            591
+          ],
+          "pdfPages": [
+            6,
+            7,
+            8
+          ],
+          "locator": "segregation,Figure17.7 and genotype/phenotype interpretation"
+        }
+      ],
+      "calculationProvenance": "New representation and, where present, hypothetical count/record values; not presented as source-measured observations. Full quantitative review belongs to CONTENT_REVIEW and03/04 reviewer records."
+    },
+    {
+      "documentationId": "lesson-04-teaching-table-01",
+      "notANewNativeId": true,
+      "lessonId": "lesson-04",
+      "fragment": "lesson-04.teaching-fragment.html",
+      "byteRangeWithinFragment": {
+        "startByte": 1415,
+        "endByteExclusive": 1813,
+        "bytes": 398,
+        "sha256": "6d1836edbfb17047bf2a7043fef24dcb719cca5a1ff2f463ddea21ba0c633e10"
+      },
+      "status": "authored-static-HTML-table-using-existing-native-class",
+      "class": "comparison-table",
+      "sourceImage": false,
+      "essentialTeachingVisible": true,
+      "rows": [
+        [
+          {
+            "text": "Hypothesis for the black parent",
+            "html": "<th>Hypothesis for the black parent</th>"
+          },
+          {
+            "text": "Meaning of the allele pair",
+            "html": "<th>Meaning of the allele pair</th>"
+          },
+          {
+            "text": "Normal gamete contributions",
+            "html": "<th>Normal gamete contributions</th>"
+          }
+        ],
+        [
+          {
+            "text": "BB",
+            "html": "<td>BB</td>"
+          },
+          {
+            "text": "Two copies of B; homozygous dominant",
+            "html": "<td>Two copies of B; homozygous dominant</td>"
+          },
+          {
+            "text": "B only, probability 1",
+            "html": "<td>B only, probability 1</td>"
+          }
+        ],
+        [
+          {
+            "text": "Bb",
+            "html": "<td>Bb</td>"
+          },
+          {
+            "text": "One B and one b; heterozygous",
+            "html": "<td>One B and one b; heterozygous</td>"
+          },
+          {
+            "text": "B with probability 1/2; b with probability 1/2",
+            "html": "<td>B with probability 1/2; b with probability 1/2</td>"
+          }
+        ]
+      ],
+      "outerBindingId": "ch17-l04-teaching-01",
+      "nearestPrecedingHeading": "Which allele pair is hidden by a black coat?",
+      "precedingGuidanceText": [
+        "A black mouse is about to become a parent, but its full genotype is unknown. That missing information matters: a BB parent cannot contribute b, while a Bb parent can. How could offspring provide evidence about an allele that the parent’s appearance does not reveal?",
+        "Continue with the stated mouse fur-colour model: B is completely dominant to b, so BB and Bb mice are black and bb mice are brown. The gene is autosomal, and the two-allele genotypes reliably produce these phenotype categories under the conditions considered. A phenotype is the characteristic we observe or measure; it is not a complete allele record.",
+        "Write the black mouse as B_. We know that at least one allele is B, but the underscore leaves the second allele unresolved. There are two hypotheses, or possible explanations of the appearance: the parent could be BB, or it could be Bb. Listing two possibilities does not mean each automatically has a probability of one half."
+      ],
+      "followingExplanationText": [
+        "Read across each row from the proposed pair to its possible gametes. The distinction we need to investigate is whether the unknown parent can contribute b. Looking at more photographs of its black coat would not resolve that distinction in this complete-dominance model.",
+        "Choose a parent that makes the difference visible",
+        "A useful partner has the recessive phenotype, brown, which identifies bb under the stated expression rule. Every normal gamete from this partner carries b. Such an individual is a recessive tester: its known contribution allows us to interpret what came from the unknown parent."
+      ],
+      "figcaption": null,
+      "sourceSupport": [
+        {
+          "actualSlides": [
+            31,
+            32
+          ]
+        },
+        {
+          "printedPage": 591,
+          "pdfPage": 8,
+          "locator": "Figure17.9 recessive tester and possible parental genotypes"
+        }
+      ],
+      "calculationProvenance": "New representation and, where present, hypothetical count/record values; not presented as source-measured observations. Full quantitative review belongs to CONTENT_REVIEW and03/04 reviewer records."
+    },
+    {
+      "documentationId": "lesson-04-teaching-table-02",
+      "notANewNativeId": true,
+      "lessonId": "lesson-04",
+      "fragment": "lesson-04.teaching-fragment.html",
+      "byteRangeWithinFragment": {
+        "startByte": 4549,
+        "endByteExclusive": 4965,
+        "bytes": 416,
+        "sha256": "91b8d8596e41896cc6e8a607b003618d00ba67494a83c8ce9521be19c5e5bc05"
+      },
+      "status": "authored-static-HTML-table-using-existing-native-class",
+      "class": "comparison-table",
+      "sourceImage": false,
+      "essentialTeachingVisible": true,
+      "rows": [
+        [
+          {
+            "text": "Cross being predicted",
+            "html": "<th>Cross being predicted</th>"
+          },
+          {
+            "text": "Offspring genotype probabilities",
+            "html": "<th>Offspring genotype probabilities</th>"
+          },
+          {
+            "text": "Offspring phenotype probabilities",
+            "html": "<th>Offspring phenotype probabilities</th>"
+          },
+          {
+            "text": "Check",
+            "html": "<th>Check</th>"
+          }
+        ],
+        [
+          {
+            "text": "BB × bb",
+            "html": "<td>BB × bb</td>"
+          },
+          {
+            "text": "Bb: 1; BB and bb: 0",
+            "html": "<td>Bb: 1; BB and bb: 0</td>"
+          },
+          {
+            "text": "Black: 1; brown: 0",
+            "html": "<td>Black: 1; brown: 0</td>"
+          },
+          {
+            "text": "1 + 0 = 1",
+            "html": "<td>1 + 0 = 1</td>"
+          }
+        ],
+        [
+          {
+            "text": "Bb × bb",
+            "html": "<td>Bb × bb</td>"
+          },
+          {
+            "text": "Bb: 1/2; bb: 1/2; BB: 0",
+            "html": "<td>Bb: 1/2; bb: 1/2; BB: 0</td>"
+          },
+          {
+            "text": "Black: 1/2; brown: 1/2",
+            "html": "<td>Black: 1/2; brown: 1/2</td>"
+          },
+          {
+            "text": "1/2 + 1/2 = 1",
+            "html": "<td>1/2 + 1/2 = 1</td>"
+          }
+        ]
+      ],
+      "outerBindingId": "ch17-l04-teaching-01",
+      "nearestPrecedingHeading": "Choose a parent that makes the difference visible",
+      "precedingGuidanceText": [
+        "Both proposed crosses are shown below. Compare the labels across the top: BB on the left, Bb on the right. In each square, the tester’s b is repeated down the left side. Keep that tester constant while comparing the unknown-parent hypotheses. Both squares and all their outcomes are already visible.",
+        "In the left square, every top B meets a side b. Every resulting pair is Bb. In the right square, the B column produces Bb while the b column produces bb. Since the heterozygote contributes each allele with probability 1/2, the right square predicts both categories in equal proportions.",
+        "The tester contributes b with probability 1. Under the BB hypothesis, B from the unknown parent combines with that b: P(Bb) = 1 × 1 = 1, so all offspring are predicted to be black. Under the Bb hypothesis, P(Bb) = 1/2 × 1 = 1/2 and P(bb) = 1/2 × 1 = 1/2. Random fertilisation justifies combining those contributions. The genotype ratio under the second hypothesis is 1 Bb : 1 bb; its phenotype ratio is 1 black : 1 brown."
+      ],
+      "followingExplanationText": [
+        "Why not use a BB tester instead? It would supply B to every offspring. Even if the unknown parent supplied b, that offspring would be Bb and therefore black. Both unknown-parent hypotheses could produce only black offspring with that tester. The recessive tester is useful because its b contribution allows an inherited b from the unknown parent to produce a distinguishable bb phenotype."
+      ],
+      "figcaption": null,
+      "sourceSupport": [
+        {
+          "actualSlides": [
+            31,
+            32
+          ]
+        },
+        {
+          "printedPage": 591,
+          "pdfPage": 8,
+          "locator": "Figure17.9 recessive tester and possible parental genotypes"
+        }
+      ],
+      "calculationProvenance": "New representation and, where present, hypothetical count/record values; not presented as source-measured observations. Full quantitative review belongs to CONTENT_REVIEW and03/04 reviewer records."
+    },
+    {
+      "documentationId": "lesson-04-teaching-table-03",
+      "notANewNativeId": true,
+      "lessonId": "lesson-04",
+      "fragment": "lesson-04.teaching-fragment.html",
+      "byteRangeWithinFragment": {
+        "startByte": 9176,
+        "endByteExclusive": 9548,
+        "bytes": 372,
+        "sha256": "df6c230fc0bd1b84ed44fbfc1fa27383d82e4eec70f57ec50409153f7abc03ee"
+      },
+      "status": "authored-static-HTML-table-using-existing-native-class",
+      "class": "comparison-table",
+      "sourceImage": false,
+      "essentialTeachingVisible": true,
+      "rows": [
+        [
+          {
+            "text": "Specified observed record",
+            "html": "<th>Specified observed record</th>"
+          },
+          {
+            "text": "Probability if unknown parent is BB",
+            "html": "<th>Probability if unknown parent is BB</th>"
+          },
+          {
+            "text": "Probability if unknown parent is Bb",
+            "html": "<th>Probability if unknown parent is Bb</th>"
+          }
+        ],
+        [
+          {
+            "text": "Three offspring, all black",
+            "html": "<td>Three offspring, all black</td>"
+          },
+          {
+            "text": "1",
+            "html": "<td>1</td>"
+          },
+          {
+            "text": "(1/2)3 = 1/8",
+            "html": "<td>(1/2)<sup>3</sup> = 1/8</td>"
+          }
+        ],
+        [
+          {
+            "text": "Six offspring, all black",
+            "html": "<td>Six offspring, all black</td>"
+          },
+          {
+            "text": "1",
+            "html": "<td>1</td>"
+          },
+          {
+            "text": "(1/2)6 = 1/64",
+            "html": "<td>(1/2)<sup>6</sup> = 1/64</td>"
+          }
+        ]
+      ],
+      "outerBindingId": "ch17-l04-teaching-02",
+      "nearestPrecedingHeading": "Read an all-black sample more cautiously",
+      "precedingGuidanceText": [
+        "We can use probability to compare how readily the two hypotheses produce the same record. Keep the tester bb and assume offspring outcomes are independent. If the unknown parent is Bb, each offspring has probability 1/2 of being black. If it is BB, each has probability 1 of being black.",
+        "First consider the specified record three offspring, all black. Under the Bb hypothesis, the first must receive B, the second must receive B, and the third must receive B. The three independent requirements give 1/2 × 1/2 × 1/2 = 1/8. Under BB, the corresponding product is 1 × 1 × 1 = 1.",
+        "Now consider a longer specified record, six offspring, all black. Under Bb, there are six independent requirements, each with probability 1/2, so the probability is (1/2)6 = 1/64. The exponent 6 means multiply six factors of 1/2. Equivalently, the first three all-black outcomes have probability 1/8 and the next three have probability 1/8, giving 1/8 × 1/8 = 1/64. Under BB the probability remains 1."
+      ],
+      "followingExplanationText": [
+        "Read the column headings before interpreting either fraction. For example, 1/64 is the probability of that six-offspring record if the parent is Bb. It is not a statement that an observed all-black record gives the parent a 1/64 probability of being Bb. That reverse question would require more information, including how plausible the parental genotypes were before observing the record.",
+        "An all-black record is more probable under BB than under Bb, and extending that run strengthens this comparison. Nevertheless, (1/2)n remains greater than 0 for any finite positive number n of independent offspring. It therefore remains possible for a heterozygote to produce the whole run. Say that the all-black record supports the BB hypothesis over Bb under the model; do not say it proves BB.",
+        "Sampling variation is the difference that chance can produce between observed sample outcomes and expected proportions. It explains why absence of a recessive offspring in a small sample is weaker evidence than a correctly identified recessive offspring is under these two hypotheses. It does not mean that every incompatible observation should be dismissed as chance. If an observation is impossible under the assumed model, check the model and evidence."
+      ],
+      "figcaption": null,
+      "sourceSupport": [
+        {
+          "actualSlides": [
+            31,
+            32
+          ]
+        },
+        {
+          "printedPage": 591,
+          "pdfPage": 8,
+          "locator": "Figure17.9 recessive tester and possible parental genotypes"
+        }
+      ],
+      "calculationProvenance": "New representation and, where present, hypothetical count/record values; not presented as source-measured observations. Full quantitative review belongs to CONTENT_REVIEW and03/04 reviewer records."
+    },
+    {
+      "documentationId": "lesson-04-teaching-table-04",
+      "notANewNativeId": true,
+      "lessonId": "lesson-04",
+      "fragment": "lesson-04.teaching-fragment.html",
+      "byteRangeWithinFragment": {
+        "startByte": 12491,
+        "endByteExclusive": 12996,
+        "bytes": 505,
+        "sha256": "f826fd352eea2f039b895fc64e46e149c574396fa54026c953b1f2f31126703a"
+      },
+      "status": "authored-static-HTML-table-using-existing-native-class",
+      "class": "comparison-table",
+      "sourceImage": false,
+      "essentialTeachingVisible": true,
+      "rows": [
+        [
+          {
+            "text": "Known information about a black mouse",
+            "html": "<th>Known information about a black mouse</th>"
+          },
+          {
+            "text": "Contribution forced by the known parent",
+            "html": "<th>Contribution forced by the known parent</th>"
+          },
+          {
+            "text": "What the mouse’s own colour adds",
+            "html": "<th>What the mouse’s own colour adds</th>"
+          },
+          {
+            "text": "Genotype conclusion",
+            "html": "<th>Genotype conclusion</th>"
+          }
+        ],
+        [
+          {
+            "text": "One parent is brown, bb",
+            "html": "<td>One parent is brown, bb</td>"
+          },
+          {
+            "text": "b",
+            "html": "<td>b</td>"
+          },
+          {
+            "text": "Requires B as the other allele",
+            "html": "<td>Requires B as the other allele</td>"
+          },
+          {
+            "text": "Bb is forced",
+            "html": "<td>Bb is forced</td>"
+          }
+        ],
+        [
+          {
+            "text": "One parent is BB",
+            "html": "<td>One parent is BB</td>"
+          },
+          {
+            "text": "B",
+            "html": "<td>B</td>"
+          },
+          {
+            "text": "Is compatible with either B or b as the other allele",
+            "html": "<td>Is compatible with either B or b as the other allele</td>"
+          },
+          {
+            "text": "BB or Bb remains possible; retain B_",
+            "html": "<td>BB or Bb remains possible; retain B_</td>"
+          }
+        ]
+      ],
+      "outerBindingId": "ch17-l04-teaching-03",
+      "nearestPrecedingHeading": "Use a family record before choosing a cross",
+      "precedingGuidanceText": [
+        "Offspring are not the only source of information about an unknown genotype. A known parent can tell us which allele an individual must already have received. Use hypothetical breeding records supplied with a problem; the reasoning does not require anyone’s private family information.",
+        "Consider a black mouse that is known to have a brown bb parent. That parent could contribute only b, so one allele in the black mouse must be b. The black mouse’s own phenotype requires B in this model. Its pair is therefore forced to be Bb. The family record already answers the genotype question; another testcross is unnecessary for that particular inference.",
+        "Now change only the known parent to BB. It could contribute only B, so the black mouse certainly has B. But that contribution already explains a black phenotype whether the other allele is B or b. The second allele remains unresolved. A known dominant contribution and a dominant appearance are not two independent pieces of evidence for two B copies."
+      ],
+      "followingExplanationText": [
+        "In each row, work from the most informative constraint. Write the allele the known parent must supply, then use the individual’s phenotype to limit the second allele. A forced genotype fits the evidence in only one way within the model. A possible genotype is one of the ways still allowed. Do not substitute “possible” for “established” before predicting another cross."
+      ],
+      "figcaption": null,
+      "sourceSupport": [
+        {
+          "actualSlides": [
+            31,
+            32
+          ]
+        },
+        {
+          "printedPage": 591,
+          "pdfPage": 8,
+          "locator": "Figure17.9 recessive tester and possible parental genotypes"
+        }
+      ],
+      "calculationProvenance": "New representation and, where present, hypothetical count/record values; not presented as source-measured observations. Full quantitative review belongs to CONTENT_REVIEW and03/04 reviewer records."
+    },
+    {
+      "documentationId": "lesson-04-teaching-table-05",
+      "notANewNativeId": true,
+      "lessonId": "lesson-04",
+      "fragment": "lesson-04.teaching-fragment.html",
+      "byteRangeWithinFragment": {
+        "startByte": 15133,
+        "endByteExclusive": 15750,
+        "bytes": 617,
+        "sha256": "5758734e5ff655d09da15ea0b176e2f3f232af7b9b3b9f297d84c370e27508e5"
+      },
+      "status": "authored-static-HTML-table-using-existing-native-class",
+      "class": "comparison-table",
+      "sourceImage": false,
+      "essentialTeachingVisible": true,
+      "rows": [
+        [
+          {
+            "text": "Mouse 2 hypothesis",
+            "html": "<th>Mouse 2 hypothesis</th>"
+          },
+          {
+            "text": "Contributions combined with mouse 1’s B or b at 1/2 each",
+            "html": "<th>Contributions combined with mouse 1’s B or b at 1/2 each</th>"
+          },
+          {
+            "text": "Offspring genotype probabilities",
+            "html": "<th>Offspring genotype probabilities</th>"
+          },
+          {
+            "text": "Phenotype prediction",
+            "html": "<th>Phenotype prediction</th>"
+          }
+        ],
+        [
+          {
+            "text": "BB",
+            "html": "<td>BB</td>"
+          },
+          {
+            "text": "Mouse 2 supplies B only. Mouse 1’s B gives BB; mouse 1’s b gives Bb.",
+            "html": "<td>Mouse 2 supplies B only. Mouse 1’s B gives BB; mouse 1’s b gives Bb.</td>"
+          },
+          {
+            "text": "BB: 1/2 × 1 = 1/2; Bb: 1/2 × 1 = 1/2; bb: 0",
+            "html": "<td>BB: 1/2 × 1 = 1/2; Bb: 1/2 × 1 = 1/2; bb: 0</td>"
+          },
+          {
+            "text": "Black: 1; brown: 0",
+            "html": "<td>Black: 1; brown: 0</td>"
+          }
+        ],
+        [
+          {
+            "text": "Bb",
+            "html": "<td>Bb</td>"
+          },
+          {
+            "text": "Mouse 2 supplies B or b at 1/2 each. The four pairs are BB, Bb, bB and bb.",
+            "html": "<td>Mouse 2 supplies B or b at 1/2 each. The four pairs are BB, Bb, bB and bb.</td>"
+          },
+          {
+            "text": "BB: 1/4; Bb: 1/4 + 1/4 = 1/2; bb: 1/4",
+            "html": "<td>BB: 1/4; Bb: 1/4 + 1/4 = 1/2; bb: 1/4</td>"
+          },
+          {
+            "text": "Black: 1/4 + 1/2 = 3/4; brown: 1/4",
+            "html": "<td>Black: 1/4 + 1/2 = 3/4; brown: 1/4</td>"
+          }
+        ]
+      ],
+      "outerBindingId": "ch17-l04-worked",
+      "nearestPrecedingHeading": "Make the prediction the evidence supports",
+      "precedingGuidanceText": [
+        "Make the prediction the evidence supports",
+        "Two black mice are being considered as parents in a hypothetical breeding problem. Mouse 1 has a brown bb parent. Mouse 2 has a known BB parent, but no genotype information is available for its other parent. Predict what this evidence permits us to say about brown offspring from a mating between mouse 1 and mouse 2.",
+        "Use the same B/b complete-dominance rule, normal segregation, random fertilisation and reliable expression. The useful work begins before the offspring square: we must determine which parental allele pairs the records actually establish."
+      ],
+      "followingExplanationText": [
+        "In the first row, a brown offspring is impossible within the model because mouse 2 cannot provide b. In the second row, a brown offspring needs b from each parent: 1/2 × 1/2 = 1/4. The two heterozygous routes are grouped because bB and Bb are the same allele pair, giving the second row’s 1:2:1 genotype ratio and 3:1 phenotype ratio. Both rows have total genotype probability 1.",
+        "The evidence does not yet support one exact brown-offspring probability. It supports two conditional predictions: 0 if mouse 2 is BB, and 1/4 if mouse 2 is Bb. We cannot average those numbers merely because there are two rows in the table. Averaging would assume how often each parental hypothesis should be used, and that information has not been supplied.",
+        "A testcross of mouse 2 with a bb tester could provide further evidence. A brown offspring would resolve mouse 2 as Bb under the stated assumptions. A finite all-black record would favour BB without logically eliminating Bb. That additional evidence is useful because it addresses the particular allele still missing from the record, rather than repeating a question that mouse 1’s parentage has already answered."
+      ],
+      "figcaption": null,
+      "sourceSupport": [
+        {
+          "actualSlides": [
+            31,
+            32
+          ]
+        },
+        {
+          "printedPage": 591,
+          "pdfPage": 8,
+          "locator": "Figure17.9 recessive tester and possible parental genotypes"
+        }
+      ],
+      "calculationProvenance": "New representation and, where present, hypothetical count/record values; not presented as source-measured observations. Full quantitative review belongs to CONTENT_REVIEW and03/04 reviewer records."
+    }
+  ],
+  "excludedOriginalMedia": [
+    {
+      "originalMember": "ppt/media/image6.png",
+      "bytes": 573014,
+      "sha256": "3c7e8f602191fba585e45fb25ddac7c48b4075f0950b1f1c2c224fbadd705fc0",
+      "dimensions": {
+        "width": 575,
+        "height": 873
+      },
+      "occurrences": [
+        {
+          "actualSlide": 3,
+          "slideMember": "ppt/slides/slide3.xml",
+          "relationshipsMember": "ppt/slides/_rels/slide3.xml.rels",
+          "relationshipId": "rId3",
+          "pictureShapeId": "275",
+          "pictureShapeName": "Google Shape;275;p15",
+          "suppliedCopy": "sources/slide-assets/slide-3-image6.png",
+          "copyEqualsOriginal": true
+        }
+      ],
+      "pixelIdentity": "Two wheat heads with loose material above them and a white outlined arrow pointing from the left head toward the right. Black background. No original labels identify wild/domesticated, generation or a favoured strain.",
+      "decision": "exclude-from-new-learner-assets",
+      "reason": "Needs careful interpretation; not recommended as the principal source contrast because the visible arrow has no precise biological legend.",
+      "pixelReview": {
+        "assetMapReviewer": "Actual original pixels viewed; corresponding source byte identity checked.",
+        "editedOrCropped": false,
+        "teacherAcceptance": false
+      }
+    },
+    {
+      "originalMember": "ppt/media/image8.png",
+      "bytes": 1256100,
+      "sha256": "636d4d6d0fbe7c5671efd357dce72b9cc282d9fa81f9ebda4cc6a6b9d7b5d1dd",
+      "dimensions": {
+        "width": 1000,
+        "height": 783
+      },
+      "occurrences": [
+        {
+          "actualSlide": 4,
+          "slideMember": "ppt/slides/slide4.xml",
+          "relationshipsMember": "ppt/slides/_rels/slide4.xml.rels",
+          "relationshipId": "rId4",
+          "pictureShapeId": "282",
+          "pictureShapeName": "Google Shape;282;p16",
+          "suppliedCopy": "sources/slide-assets/slide-4-image8.png",
+          "copyEqualsOriginal": true
+        }
+      ],
+      "pixelIdentity": "A very large grey dog standing beside a very small tan-and-white dog. Both complete bodies are visible on a grey photographic background.",
+      "decision": "exclude-from-new-learner-assets",
+      "reason": "Suitable alternative contrast to the eight-dog row. One selective-breeding photograph is sufficient if a second supplies no distinct student inference.",
+      "pixelReview": {
+        "assetMapReviewer": "Actual original pixels viewed; corresponding source byte identity checked.",
+        "editedOrCropped": false,
+        "teacherAcceptance": false
+      }
+    },
+    {
+      "originalMember": "ppt/media/image7.jpg",
+      "bytes": 159238,
+      "sha256": "460fff5223ae7df293380ac4c28e6500a9128c6e4f8e6a1e68639a4a1adcf52f",
+      "dimensions": {
+        "width": 800,
+        "height": 513
+      },
+      "occurrences": [
+        {
+          "actualSlide": 5,
+          "slideMember": "ppt/slides/slide5.xml",
+          "relationshipsMember": "ppt/slides/_rels/slide5.xml.rels",
+          "relationshipId": "rId3",
+          "pictureShapeId": "288",
+          "pictureShapeName": "Google Shape;288;p17",
+          "suppliedCopy": "sources/slide-assets/slide-5-image7.jpg",
+          "copyEqualsOriginal": true
+        }
+      ],
+      "pixelIdentity": "A field of yellow-flowered crop plants against a blue sky.",
+      "decision": "exclude-from-new-learner-assets",
+      "reason": "Optional context only. Pixels do not establish a named cultivar, breeding history or causal allele.",
+      "pixelReview": {
+        "assetMapReviewer": "Actual original pixels viewed; corresponding source byte identity checked.",
+        "editedOrCropped": false,
+        "teacherAcceptance": false
+      }
+    },
+    {
+      "originalMember": "ppt/media/image5.jpg",
+      "bytes": 40031,
+      "sha256": "ccc0ad134df513cf7e6e7860f8a99385e8e1d76fc4307d570db2a529f9120575",
+      "dimensions": {
+        "width": 400,
+        "height": 600
+      },
+      "occurrences": [
+        {
+          "actualSlide": 5,
+          "slideMember": "ppt/slides/slide5.xml",
+          "relationshipsMember": "ppt/slides/_rels/slide5.xml.rels",
+          "relationshipId": "rId4",
+          "pictureShapeId": "289",
+          "pictureShapeName": "Google Shape;289;p17",
+          "suppliedCopy": "sources/slide-assets/slide-5-image5.jpg",
+          "copyEqualsOriginal": true
+        }
+      ],
+      "pixelIdentity": "Black-and-white cattle in a grassy field; foreground animal faces the camera.",
+      "decision": "exclude-from-new-learner-assets",
+      "reason": "Optional context only. Pixels do not establish production traits, genetic model or breeding programme.",
+      "pixelReview": {
+        "assetMapReviewer": "Actual original pixels viewed; corresponding source byte identity checked.",
+        "editedOrCropped": false,
+        "teacherAcceptance": false
+      }
+    },
+    {
+      "originalMember": "ppt/media/image10.jpg",
+      "bytes": 29733,
+      "sha256": "a313887437eca184d7bfa86d62984ddca3a92655a2d45f87f480e2fab1c88f42",
+      "dimensions": {
+        "width": 500,
+        "height": 333
+      },
+      "occurrences": [
+        {
+          "actualSlide": 5,
+          "slideMember": "ppt/slides/slide5.xml",
+          "relationshipsMember": "ppt/slides/_rels/slide5.xml.rels",
+          "relationshipId": "rId5",
+          "pictureShapeId": "290",
+          "pictureShapeName": "Google Shape;290;p17",
+          "suppliedCopy": "sources/slide-assets/slide-5-image10.jpg",
+          "copyEqualsOriginal": true
+        }
+      ],
+      "pixelIdentity": "A person holding a large fish beside water.",
+      "decision": "exclude-from-new-learner-assets",
+      "reason": "Do not infer this specimen is selectively bred or a particular stock from the image. Exclude as unnecessary context.",
+      "pixelReview": {
+        "assetMapReviewer": "Actual original pixels viewed; corresponding source byte identity checked.",
+        "editedOrCropped": false,
+        "teacherAcceptance": false
+      }
+    },
+    {
+      "originalMember": "ppt/media/image15.gif",
+      "bytes": 68966,
+      "sha256": "d2d0df0d04243979f0116e05fac22988687883dc0c5143011c5c0056c539d176",
+      "dimensions": {
+        "width": 456,
+        "height": 228
+      },
+      "occurrences": [
+        {
+          "actualSlide": 5,
+          "slideMember": "ppt/slides/slide5.xml",
+          "relationshipsMember": "ppt/slides/_rels/slide5.xml.rels",
+          "relationshipId": "rId6",
+          "pictureShapeId": "291",
+          "pictureShapeName": "Google Shape;291;p17",
+          "suppliedCopy": "sources/slide-assets/slide-5-image15.gif",
+          "copyEqualsOriginal": true
+        }
+      ],
+      "pixelIdentity": "One static frame showing two vessels with dark liquid and residue, labelled Before adding the bacteria and 7 days later, with additional non-English characters.",
+      "decision": "exclude-from-new-learner-assets",
+      "reason": "Not evidence of selective breeding by itself. Exclude; no new bacterial experiment or causal claim is authorised. GIF has one frame.",
+      "pixelReview": {
+        "assetMapReviewer": "Actual original pixels viewed; corresponding source byte identity checked.",
+        "editedOrCropped": false,
+        "teacherAcceptance": false
+      }
+    },
+    {
+      "originalMember": "ppt/media/image4.jpg",
+      "bytes": 99396,
+      "sha256": "2d66a9c8bc164dd640a72a29bb180ede83dc030ab85f80b56d7dffb8598dabb3",
+      "dimensions": {
+        "width": 609,
+        "height": 405
+      },
+      "occurrences": [
+        {
+          "actualSlide": 5,
+          "slideMember": "ppt/slides/slide5.xml",
+          "relationshipsMember": "ppt/slides/_rels/slide5.xml.rels",
+          "relationshipId": "rId7",
+          "pictureShapeId": "292",
+          "pictureShapeName": "Google Shape;292;p17",
+          "suppliedCopy": "sources/slide-assets/slide-5-image4.jpg",
+          "copyEqualsOriginal": true
+        }
+      ],
+      "pixelIdentity": "Several yellow maize cobs partly surrounded by green husks.",
+      "decision": "exclude-from-new-learner-assets",
+      "reason": "Optional crop context only. Pixels do not establish a simple kernel genotype model.",
+      "pixelReview": {
+        "assetMapReviewer": "Actual original pixels viewed; corresponding source byte identity checked.",
+        "editedOrCropped": false,
+        "teacherAcceptance": false
+      }
+    },
+    {
+      "originalMember": "ppt/media/image12.jpg",
+      "bytes": 12386,
+      "sha256": "384d4c118a9e6a773105555598aa3e0cad5e8d1d9799b2a48c052e10f66572e0",
+      "dimensions": {
+        "width": 235,
+        "height": 214
+      },
+      "occurrences": [
+        {
+          "actualSlide": 6,
+          "slideMember": "ppt/slides/slide6.xml",
+          "relationshipsMember": "ppt/slides/_rels/slide6.xml.rels",
+          "relationshipId": "rId3",
+          "pictureShapeId": "301",
+          "pictureShapeName": "Google Shape;301;p18",
+          "suppliedCopy": "sources/slide-assets/slide-6-image12.jpg",
+          "copyEqualsOriginal": true
+        },
+        {
+          "actualSlide": 6,
+          "slideMember": "ppt/slides/slide6.xml",
+          "relationshipsMember": "ppt/slides/_rels/slide6.xml.rels",
+          "relationshipId": "rId3",
+          "pictureShapeId": "307",
+          "pictureShapeName": "Google Shape;307;p18",
+          "suppliedCopy": "sources/slide-assets/slide-6-image12.jpg",
+          "copyEqualsOriginal": true
+        }
+      ],
+      "pixelIdentity": "A black horse moving within a fenced outdoor area.",
+      "decision": "exclude-from-new-learner-assets",
+      "reason": "Historical contrast only; coat inheritance cannot be read as a simple dark-versus-light single-gene model from this photograph.",
+      "pixelReview": {
+        "assetMapReviewer": "Actual original pixels viewed; corresponding source byte identity checked.",
+        "editedOrCropped": false,
+        "teacherAcceptance": false
+      }
+    },
+    {
+      "originalMember": "ppt/media/image19.jpg",
+      "bytes": 40082,
+      "sha256": "c1751e33747ab24360ba723b43ac7e22889df53df11339d3d31927642a1f4f46",
+      "dimensions": {
+        "width": 433,
+        "height": 325
+      },
+      "occurrences": [
+        {
+          "actualSlide": 6,
+          "slideMember": "ppt/slides/slide6.xml",
+          "relationshipsMember": "ppt/slides/_rels/slide6.xml.rels",
+          "relationshipId": "rId4",
+          "pictureShapeId": "302",
+          "pictureShapeName": "Google Shape;302;p18",
+          "suppliedCopy": "sources/slide-assets/slide-6-image19.jpg",
+          "copyEqualsOriginal": true
+        },
+        {
+          "actualSlide": 6,
+          "slideMember": "ppt/slides/slide6.xml",
+          "relationshipsMember": "ppt/slides/_rels/slide6.xml.rels",
+          "relationshipId": "rId4",
+          "pictureShapeId": "308",
+          "pictureShapeName": "Google Shape;308;p18",
+          "suppliedCopy": "sources/slide-assets/slide-6-image19.jpg",
+          "copyEqualsOriginal": true
+        }
+      ],
+      "pixelIdentity": "Head and neck of a light cream/white horse wearing a halter.",
+      "decision": "exclude-from-new-learner-assets",
+      "reason": "Historical contrast only; no genotype or exact colour mechanism inferred.",
+      "pixelReview": {
+        "assetMapReviewer": "Actual original pixels viewed; corresponding source byte identity checked.",
+        "editedOrCropped": false,
+        "teacherAcceptance": false
+      }
+    },
+    {
+      "originalMember": "ppt/media/image11.jpg",
+      "bytes": 52051,
+      "sha256": "9d80d5449bf04e8daa584023853e2580680f66822273d31a7ab8e68f8050cd26",
+      "dimensions": {
+        "width": 500,
+        "height": 473
+      },
+      "occurrences": [
+        {
+          "actualSlide": 6,
+          "slideMember": "ppt/slides/slide6.xml",
+          "relationshipsMember": "ppt/slides/_rels/slide6.xml.rels",
+          "relationshipId": "rId5",
+          "pictureShapeId": "303",
+          "pictureShapeName": "Google Shape;303;p18",
+          "suppliedCopy": "sources/slide-assets/slide-6-image11.jpg",
+          "copyEqualsOriginal": true
+        }
+      ],
+      "pixelIdentity": "A black-and-white patterned horse standing near fencing.",
+      "decision": "exclude-from-new-learner-assets",
+      "reason": "Historical contrast only; do not infer parental identities or blending from patterned coat.",
+      "pixelReview": {
+        "assetMapReviewer": "Actual original pixels viewed; corresponding source byte identity checked.",
+        "editedOrCropped": false,
+        "teacherAcceptance": false
+      }
+    },
+    {
+      "originalMember": "ppt/media/image3.jpg",
+      "bytes": 19644,
+      "sha256": "2435326ef64841afd1063d024fb71d4600a6eb112dc486a549543e39e34e8835",
+      "dimensions": {
+        "width": 400,
+        "height": 224
+      },
+      "occurrences": [
+        {
+          "actualSlide": 6,
+          "slideMember": "ppt/slides/slide6.xml",
+          "relationshipsMember": "ppt/slides/_rels/slide6.xml.rels",
+          "relationshipId": "rId6",
+          "pictureShapeId": "316",
+          "pictureShapeName": "Google Shape;316;p18",
+          "suppliedCopy": "sources/slide-assets/slide-6-image3.jpg",
+          "copyEqualsOriginal": true
+        }
+      ],
+      "pixelIdentity": "A brown horse grazing in a green field.",
+      "decision": "exclude-from-new-learner-assets",
+      "reason": "Historical contrast only; no simple single-locus genotype inferred.",
+      "pixelReview": {
+        "assetMapReviewer": "Actual original pixels viewed; corresponding source byte identity checked.",
+        "editedOrCropped": false,
+        "teacherAcceptance": false
+      }
+    },
+    {
+      "originalMember": "ppt/media/image1.jpg",
+      "bytes": 76801,
+      "sha256": "508ee6c2de2a4d74eb2a976214737298c960c8fb1dd519ffd66cc2c00cb5260f",
+      "dimensions": {
+        "width": 600,
+        "height": 567
+      },
+      "occurrences": [
+        {
+          "actualSlide": 7,
+          "slideMember": "ppt/slides/slide7.xml",
+          "relationshipsMember": "ppt/slides/_rels/slide7.xml.rels",
+          "relationshipId": "rId3",
+          "pictureShapeId": "324",
+          "pictureShapeName": "Google Shape;324;p19",
+          "suppliedCopy": "sources/slide-assets/slide-7-image1.jpg",
+          "copyEqualsOriginal": true
+        },
+        {
+          "actualSlide": 11,
+          "slideMember": "ppt/slides/slide11.xml",
+          "relationshipsMember": "ppt/slides/_rels/slide11.xml.rels",
+          "relationshipId": "rId4",
+          "pictureShapeId": "362",
+          "pictureShapeName": "Google Shape;362;p23",
+          "suppliedCopy": "sources/slide-assets/slide-11-image1.jpg",
+          "copyEqualsOriginal": true
+        }
+      ],
+      "pixelIdentity": "Close-up of a blue human iris and surrounding eye.",
+      "decision": "exclude-from-new-learner-assets",
+      "reason": "Excluded learner model; actual human eye colour is not accurately represented by the slide simple B/b account. No individual genotype inferred.",
+      "pixelReview": {
+        "assetMapReviewer": "Actual original pixels viewed; corresponding source byte identity checked.",
+        "editedOrCropped": false,
+        "teacherAcceptance": false
+      }
+    },
+    {
+      "originalMember": "ppt/media/image26.jpg",
+      "bytes": 29896,
+      "sha256": "006a1c500e99dd602aa6b8adc16438e7fedf3e9f947ae2c2dd890ee9dcb6c1b4",
+      "dimensions": {
+        "width": 400,
+        "height": 267
+      },
+      "occurrences": [
+        {
+          "actualSlide": 7,
+          "slideMember": "ppt/slides/slide7.xml",
+          "relationshipsMember": "ppt/slides/_rels/slide7.xml.rels",
+          "relationshipId": "rId4",
+          "pictureShapeId": "325",
+          "pictureShapeName": "Google Shape;325;p19",
+          "suppliedCopy": "sources/slide-assets/slide-7-image26.jpg",
+          "copyEqualsOriginal": true
+        },
+        {
+          "actualSlide": 11,
+          "slideMember": "ppt/slides/slide11.xml",
+          "relationshipsMember": "ppt/slides/_rels/slide11.xml.rels",
+          "relationshipId": "rId3",
+          "pictureShapeId": "360",
+          "pictureShapeName": "Google Shape;360;p23",
+          "suppliedCopy": "sources/slide-assets/slide-11-image26.jpg",
+          "copyEqualsOriginal": true
+        },
+        {
+          "actualSlide": 11,
+          "slideMember": "ppt/slides/slide11.xml",
+          "relationshipsMember": "ppt/slides/_rels/slide11.xml.rels",
+          "relationshipId": "rId3",
+          "pictureShapeId": "361",
+          "pictureShapeName": "Google Shape;361;p23",
+          "suppliedCopy": "sources/slide-assets/slide-11-image26.jpg",
+          "copyEqualsOriginal": true
+        }
+      ],
+      "pixelIdentity": "Close-up of a brown human iris and surrounding eye.",
+      "decision": "exclude-from-new-learner-assets",
+      "reason": "Excluded learner model; actual human eye colour is not accurately represented by the slide simple B/b account. No individual genotype inferred.",
+      "pixelReview": {
+        "assetMapReviewer": "Actual original pixels viewed; corresponding source byte identity checked.",
+        "editedOrCropped": false,
+        "teacherAcceptance": false
+      }
+    },
+    {
+      "originalMember": "ppt/media/image9.png",
+      "bytes": 161689,
+      "sha256": "1c8d7000d23a27ad42e007d78ff2526d1f02f36e6b97db326045c09e2632f09b",
+      "dimensions": {
+        "width": 1211,
+        "height": 769
+      },
+      "occurrences": [
+        {
+          "actualSlide": 9,
+          "slideMember": "ppt/slides/slide9.xml",
+          "relationshipsMember": "ppt/slides/_rels/slide9.xml.rels",
+          "relationshipId": "rId3",
+          "pictureShapeId": "341",
+          "pictureShapeName": "Google Shape;341;p21",
+          "suppliedCopy": "sources/slide-assets/slide-9-image9.png",
+          "copyEqualsOriginal": true
+        }
+      ],
+      "pixelIdentity": "Composite of a child photograph with an enlarged boxed eye and two illustrated chromosomes labelled Encodes brown eyes (B), Encodes blue eyes (b), resulting phenotype brown eyes and genotype Bb.",
+      "decision": "exclude-from-new-learner-assets",
+      "reason": "Excluded learner model. It embeds an inaccurate simple human-eye account and unsupported private biological assertions; do not crop out wording to imply validation.",
+      "pixelReview": {
+        "assetMapReviewer": "Actual original pixels viewed; corresponding source byte identity checked.",
+        "editedOrCropped": false,
+        "teacherAcceptance": false
+      }
+    },
+    {
+      "originalMember": "ppt/media/image2.jpg",
+      "bytes": 27583,
+      "sha256": "db6f68de30771949f282e5fadefb6751053b692e9a9f7f2a2ba7ee5410f4d8f0",
+      "dimensions": {
+        "width": 400,
+        "height": 363
+      },
+      "occurrences": [
+        {
+          "actualSlide": 10,
+          "slideMember": "ppt/slides/slide10.xml",
+          "relationshipsMember": "ppt/slides/_rels/slide10.xml.rels",
+          "relationshipId": "rId3",
+          "pictureShapeId": "349",
+          "pictureShapeName": "Google Shape;349;p22",
+          "suppliedCopy": "sources/slide-assets/slide-10-image2.jpg",
+          "copyEqualsOriginal": true
+        }
+      ],
+      "pixelIdentity": "A purple X-shaped duplicated chromosome illustration with an exposed/decorative DNA double-helix overlay.",
+      "decision": "exclude-from-new-learner-assets",
+      "reason": "Not a homologous chromosome pair. Exclude as the main two-parent locus representation to avoid confusing two sister chromatids with maternal/paternal homologues.",
+      "pixelReview": {
+        "assetMapReviewer": "Actual original pixels viewed; corresponding source byte identity checked.",
+        "editedOrCropped": false,
+        "teacherAcceptance": false
+      }
+    },
+    {
+      "originalMember": "ppt/media/image28.jpg",
+      "bytes": 7636,
+      "sha256": "55a0c44420c18dd4ee7b8f202fe9a3da4ba627353cc7330df0bc73526f918d65",
+      "dimensions": {
+        "width": 320,
+        "height": 180
+      },
+      "occurrences": [
+        {
+          "actualSlide": 32,
+          "slideMember": "ppt/slides/slide32.xml",
+          "relationshipsMember": "ppt/slides/_rels/slide32.xml.rels",
+          "relationshipId": "rId5",
+          "pictureShapeId": "598",
+          "pictureShapeName": "Google Shape;598;p44",
+          "suppliedCopy": "sources/slide-assets/slide-32-image28.jpg",
+          "copyEqualsOriginal": true
+        }
+      ],
+      "pixelIdentity": "Small static Testcross Example-Pea Color thumbnail with Y/y yellow/green diagrams.",
+      "decision": "exclude-from-new-learner-assets",
+      "reason": "No new video or source image added; not playback evidence.",
+      "pixelReview": {
+        "assetMapReviewer": "Actual original pixels viewed; corresponding source byte identity checked.",
+        "editedOrCropped": false,
+        "teacherAcceptance": false
+      }
+    },
+    {
+      "originalMember": "ppt/media/image41.jpg",
+      "bytes": 10505,
+      "sha256": "c3627837664f06267fc77d23ff590e7352b436d63e20c7e3c19ea7b57aaffd31",
+      "dimensions": {
+        "width": 320,
+        "height": 180
+      },
+      "occurrences": [
+        {
+          "actualSlide": 33,
+          "slideMember": "ppt/slides/slide33.xml",
+          "relationshipsMember": "ppt/slides/_rels/slide33.xml.rels",
+          "relationshipId": "rId4",
+          "pictureShapeId": "605",
+          "pictureShapeName": "Google Shape;605;p45",
+          "suppliedCopy": "sources/slide-assets/slide-33-image41.jpg",
+          "copyEqualsOriginal": true
+        }
+      ],
+      "pixelIdentity": "Static TED-Ed Pea Plants & Genetics thumbnail with illustrated pea plants.",
+      "decision": "exclude-from-new-learner-assets",
+      "reason": "No new video or source image added; not playback evidence.",
+      "pixelReview": {
+        "assetMapReviewer": "Actual original pixels viewed; corresponding source byte identity checked.",
+        "editedOrCropped": false,
+        "teacherAcceptance": false
+      }
+    },
+    {
+      "originalMember": "ppt/media/image45.jpg",
+      "bytes": 40836,
+      "sha256": "ab43d9d7edcbaa4ccb5057adf24975a7b95cbc5bf03b214295d01125681ef335",
+      "dimensions": {
+        "width": 480,
+        "height": 360
+      },
+      "occurrences": [
+        {
+          "actualSlide": 33,
+          "slideMember": "ppt/slides/slide33.xml",
+          "relationshipsMember": "ppt/slides/_rels/slide33.xml.rels",
+          "relationshipId": "rId6",
+          "pictureShapeId": "606",
+          "pictureShapeName": "Google Shape;606;p45",
+          "suppliedCopy": "sources/slide-assets/slide-33-image45.jpg",
+          "copyEqualsOriginal": true
+        }
+      ],
+      "pixelIdentity": "Static Amoeba Sisters Monohybrid Crosses thumbnail with H/h grid and illustrated organisms.",
+      "decision": "exclude-from-new-learner-assets",
+      "reason": "No new video or source image added; not playback evidence.",
+      "pixelReview": {
+        "assetMapReviewer": "Actual original pixels viewed; corresponding source byte identity checked.",
+        "editedOrCropped": false,
+        "teacherAcceptance": false
+      }
+    }
+  ],
+  "protectedLabelingGap": {
+    "nativeDataLocator": "course-data.labelDiagrams[0]",
+    "id": "ch17-punnett-label",
+    "title": "A single-trait cross: Aa × Aa",
+    "exactExistingSrc": "./assets/labeling/ch17-punnett.svg",
+    "lockedAnswers": {
+      "A": "AA",
+      "B": "Aa",
+      "C": "Aa",
+      "D": "aa"
+    },
+    "options": [
+      "AA",
+      "Aa",
+      "aa"
+    ],
+    "sourcePacketCandidatePath": "current/assets/labeling/ch17-punnett.svg",
+    "fileAttached": false,
+    "status": "existing-native-dependency-not-supplied-in-this-bounded-packet",
+    "interpretation": "This separate labeling-only SVG is outside rewritten teaching. Its bytes/pixels cannot be verified from this attachment. Do not replace it with the included answer-bearing figures/ch17-punnett.svg. Preserve its existing path, mapping and native controls for later root-owned comparison checks.",
+    "newAssetCreated": false,
+    "blocksEssentialAuthoredTeaching": false,
+    "nativeCompatibilityVerification": "not performed"
+  },
+  "protectedVideoRecords": [
+    {
+      "nativeDataLocator": "course-data.videos[0]",
+      "record": {
+        "id": "8y_SLtToUOA",
+        "lesson": 4,
+        "title": "Test crosses and unknown genotypes — video support",
+        "purpose": "Use a homozygous recessive tester to distinguish possible parental genotypes and explain uncertainty from small samples.",
+        "fallback": "One aa offspring from B_ × bb means the dominant-phenotype parent must carry the recessive allele, assuming the model, parentage and observations are correct. It is heterozygous. By contrast, several dominant offspring do not logically prove the parent is homozygous. An Aa parent can, by chance, produce a run of A-bearing gametes. For four independent offspring in an Aa × aa cross, the probability that all show the dominant phenotype is (1/2)⁴ = 1/16. More offspring with no recessive phenotype generally strengthen the homozygous interpretation, but finite samples still require cautious wording. Say what the evidence supports and what remains possible.",
+        "disposition": "included",
+        "sourceSlide": 32,
+        "sourceDeck": "c17",
+        "availability": "Source hyperlink resolved syntactically; external playback not certified."
+      },
+      "status": "protected-original-video-contract-unchanged",
+      "linksAccessedOrPlayed": false,
+      "sourceThumbnailIsNotPlaybackEvidence": true,
+      "sourceCaution": "The protected lesson04 fallback has the aa offspring / B_ × bb typo and the exact four-offspring answer; neither changes in this authoring scope."
+    },
+    {
+      "nativeDataLocator": "course-data.videos[1]",
+      "record": {
+        "id": "Mehz7tCxjSE",
+        "lesson": 3,
+        "title": "Single-trait crosses and probability — video support",
+        "purpose": "Construct and interpret a monohybrid Punnett square, distinguish genotype and phenotype probabilities, and state the denominator.",
+        "fallback": "For Aa × Aa, the four equally likely combinations are AA, Aa, aA and aa. Grouping the two heterozygous combinations gives probabilities of 1/4 AA, 1/2 Aa and 1/4 aa. The dominant phenotype has probability 3/4 under complete dominance. Genotype probability and phenotype probability therefore can differ. “Heterozygous” refers to two of the four combinations, while “dominant phenotype” includes three. Mark the requested group before choosing your numerator. When converting to an expected number, multiply by the total. If 80 offspring each have a 1/4 chance of aa, the expected number is 80 × 0.25 = 20. The result is an expectation, not a promise.",
+        "disposition": "included",
+        "sourceSlide": 33,
+        "sourceDeck": "c17",
+        "availability": "Source hyperlink resolved syntactically; external playback not certified."
+      },
+      "status": "protected-original-video-contract-unchanged",
+      "linksAccessedOrPlayed": false,
+      "sourceThumbnailIsNotPlaybackEvidence": true,
+      "sourceCaution": null
+    },
+    {
+      "nativeDataLocator": "course-data.videos[2]",
+      "record": {
+        "id": "i-0rSv6oxSY",
+        "lesson": 3,
+        "title": "Single-trait crosses and probability — video support 2",
+        "purpose": "Construct and interpret a monohybrid Punnett square, distinguish genotype and phenotype probabilities, and state the denominator.",
+        "fallback": "For Aa × Aa, the four equally likely combinations are AA, Aa, aA and aa. Grouping the two heterozygous combinations gives probabilities of 1/4 AA, 1/2 Aa and 1/4 aa. The dominant phenotype has probability 3/4 under complete dominance. Genotype probability and phenotype probability therefore can differ. “Heterozygous” refers to two of the four combinations, while “dominant phenotype” includes three. Mark the requested group before choosing your numerator. When converting to an expected number, multiply by the total. If 80 offspring each have a 1/4 chance of aa, the expected number is 80 × 0.25 = 20. The result is an expectation, not a promise.",
+        "disposition": "included",
+        "sourceSlide": 33,
+        "sourceDeck": "c17",
+        "availability": "Source hyperlink resolved syntactically; external playback not certified."
+      },
+      "status": "protected-original-video-contract-unchanged",
+      "linksAccessedOrPlayed": false,
+      "sourceThumbnailIsNotPlaybackEvidence": true,
+      "sourceCaution": null
+    }
+  ],
+  "originalScopedExternalHyperlinks": [
+    {
+      "actualSlide": 32,
+      "relationshipId": "rId4",
+      "relationshipsMember": "ppt/slides/_rels/slide32.xml.rels",
+      "target": "http://www.youtube.com/watch?v=8y_SLtToUOA",
+      "relationshipType": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/hyperlink",
+      "accessed": false
+    },
+    {
+      "actualSlide": 33,
+      "relationshipId": "rId3",
+      "relationshipsMember": "ppt/slides/_rels/slide33.xml.rels",
+      "target": "http://www.youtube.com/watch?v=Mehz7tCxjSE",
+      "relationshipType": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/hyperlink",
+      "accessed": false
+    },
+    {
+      "actualSlide": 33,
+      "relationshipId": "rId5",
+      "relationshipsMember": "ppt/slides/_rels/slide33.xml.rels",
+      "target": "http://www.youtube.com/watch?v=i-0rSv6oxSY",
+      "relationshipType": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/hyperlink",
+      "accessed": false
+    }
+  ],
+  "sourceDisagreementsAndGaps": [
+    {
+      "locator": "PPT7–11",
+      "issue": "Human-eye simple B/b account, private teacher/child assertions and unqualified dominance statements",
+      "treatment": "Use defined flower/mouse models and retain historical source unchanged."
+    },
+    {
+      "locator": "PPT10/image2.jpg",
+      "issue": "One duplicated X-shaped chromosome is not the two parental homologues",
+      "treatment": "Exclude; a new static table locates one gene on each corresponding chromosome."
+    },
+    {
+      "locator": "PPT12/image18.png versusPPT8",
+      "issue": "Chart says physical traits but phenotype includes physiological/behavioural expression",
+      "treatment": "Essential adjacent explanation supplies broader meaning;source image unchanged."
+    },
+    {
+      "locator": "PPT28 versusPDF588/590",
+      "issue": "Monohybrid terminology differs",
+      "treatment": "State actual parental genotypes and model;no universal ratio inferred from the label."
+    },
+    {
+      "locator": "PPT27/PPT29 versus current03 protectedcheckwriting1/mc1",
+      "issue": "Mandated original full solutions overlap protected responses directly or structurally",
+      "treatment": "Retain requested source reasoning and immutable assessments;record unresolved assessment-separation limit rather than call it leak-free."
+    },
+    {
+      "locator": "PPT31–32;PDF591Figure17.9",
+      "issue": "Finite all-dominant sample cannot prove homozygosity",
+      "treatment": "New explanation distinguishes likelihood of observed data under hypotheses from probability a hypothesis is true."
+    },
+    {
+      "locator": "current/lesson-04.protected-suffix.html video concept-summary andcourse-data.videos",
+      "issue": "Protectedaa/B_×bb typo and exact four-offspring solved answer remain",
+      "treatment": "Authorised teaching corrected to bb; protected copy unchanged; open issue recorded."
+    },
+    {
+      "locator": "protected03ch17-source-written-OBJ_2131244",
+      "issue": "Multiple alleles, lethal genotype outcome and dead-category denominator are beyond the ordinary viable two-allele model",
+      "treatment": "Preserve full stimulus and response bytes and defer; no unsupported claim of complete preparation."
+    },
+    {
+      "locator": "protected03ch17-source-written-OBJ_2131248 / protected04ch17-source-written-OBJ_2131247",
+      "issue": "The lesson03 rabbit stimulus table is supplied only in lesson04; tension remains between the explicit table and the simple hierarchy shorthand.",
+      "treatment": "Preserve cross-route dependency and explicit table;defer to later allele-relationship reasoning."
+    }
+  ],
+  "noPixelMutation": true,
+  "noGeneratedImagery": true,
+  "noNativeAssembly": true,
+  "teacherDecision": "pending",
+  "summary": {
+    "deliveredAssets": 12,
+    "originalPptAssets": 6,
+    "nativeFigureAssets": 1,
+    "protectedAssessmentPngs": 5,
+    "teachingImagePlacements": 8,
+    "protectedSuffixImagePlacements": 5,
+    "staticTeachingTables": 12,
+    "excludedUniqueOriginalMedia": 18,
+    "allDeliveredAssetsMapped": true
+  }
+}

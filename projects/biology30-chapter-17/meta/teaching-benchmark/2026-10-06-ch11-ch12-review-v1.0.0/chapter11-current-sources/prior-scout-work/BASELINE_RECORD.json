@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "recordedDate": "2026-10-03",
+  "scope": "Biology 30 Chapters 11–20 teaching and lesson copy",
+  "status": "working baseline approach selected; exact copy approval pending",
+  "userDirection": "Work with Scout to make its Chapter 11 teaching and lesson-copy approach the standard and establish a pass process for other chapters.",
+  "decisions": {
+    "approachSelected": true,
+    "exactManuscripts": "pending complete source review and Dean approval",
+    "canonicalIntegration": "not started or authorized by this process alone",
+    "universalStandardPromotion": "not authorized",
+    "packagingDeploymentAndBrightspace": "outside this authoring task",
+    "scoutMessage": "prompt prepared; not sent"
+  },
+  "scoutHandoff": {
+    "profileUrl": "https://chatgpt.com/dots/01a0f255-85e0-706a-ac4c-0ab4dc11f00f",
+    "conversationUrl": "https://chatgpt.com/c/6ac0720e-0534-83e8-ac6b-2bace691f426",
+    "visibleHandoff": "Scout coordinated a separate full-chapter Pro attempt using the original deployed source; its review and browser checks remain attributed to Scout",
+    "settings": "No model, permission or computer setting changed by Codex in this process task"
+  },
+  "importedCandidates": [
+    {
+      "path": "/Users/deanguedo/Downloads/Biology30_Chapter11_REPAIRED.html",
+      "bytes": 29002929,
+      "sha256": "56bbed509233ee497f7af3aefe27856cd58e9e498c1ff52e9b2893f6776634cf",
+      "role": "full-chapter evaluation exemplar; portable repairs are not production owners"
+    },
+    {
+      "path": "/Users/deanguedo/Downloads/Biology30_Chapter11_Pro_FIXED.html",
+      "bytes": 1454485,
+      "sha256": "860de589d378da33aeea54c3a9ba1186de55cd2250679ad35205df4b472a6a3f",
+      "role": "earlier full-chapter teaching candidate"
+    },
+    {
+      "path": "/Users/deanguedo/Downloads/Biology30_Chapter11_REPAIRED (1).zip",
+      "bytes": 21044405,
+      "sha256": "6ae67ae8cbea799e66df11982e7246935d03fae8bc873874ad34e7292b5bebff",
+      "role": "supplied repaired candidate, repair notes and author test report"
+    }
+  ],
+  "nativeBinding": [
+    {
+      "path": "projects/biology30-unit-a-pilot-3/workspace/index.html",
+      "sha256": "9fcd8203b41f4220e53716e473c02a0835f356420b363ea0092e544a8e7bb210",
+      "role": "canonical Chapter 11 learner HTML"
+    },
+    {
+      "path": "projects/biology30-unit-a-pilot-3/workspace/styles.css",
+      "sha256": "a45318415c43b025748aceb5a6d220de38c76f683ac027de84a7f689964bca55",
+      "role": "native styling owner"
+    },
+    {
+      "path": "scripts/lib/biology30-pilot3/runtime.ts",
+      "sha256": "b5cb302cbc5db9305cae3461f05ad32c5940ae7609e624c7ac3d0fed89fc6fef",
+      "role": "native runtime source, not changed"
+    }
+  ],
+  "earlierEvaluation": {
+    "path": "projects/biology30-unit-a-pilot-3/meta/teaching-overhaul/2026-10-02-browser-authoring/working-copy/index.html",
+    "url": "http://127.0.0.1:57000/index.html#lesson-01",
+    "scope": "only lessons 01–03 rewritten; not the full Scout exemplar"
+  },
+  "reviewBoundary": {
+    "priorLeadTeachingReads": ["lesson-01", "lesson-02", "lesson-03", "lesson-04", "lesson-06", "lesson-11"],
+    "fullChapterScienceAcceptance": "not performed",
+    "repairTests": "56 author-reported checks; not independently repeated as part of this process task",
+    "candidateRuntimeExecution": "not performed by Codex in this process task",
+    "nativeStorageOrStudentData": "not accessed"
+  },
+  "nextAction": "Hand the prepared prompt and exact files to Scout for complete Chapter 11 manuscript extraction and targeted reconciliation; obtain Dean's exact-copy decision before native integration.",
+  "calibrationAfterApproval": {
+    "chapter": 19,
+    "lessonId": "lesson-04",
+    "title": "Calculating expected genotype frequencies",
+    "prerequisiteLessonIds": ["lesson-01", "lesson-02", "lesson-03"],
+    "status": "not started"
+  },
+  "routesUsed": {
+    "sourceHashesAndFileChecks": "deterministic tools",
+    "standardProcessAndScoutHandoffReview": "Sol lead; instructional judgment and approval boundaries, no eligible bulk implementation slice",
+    "worker": "none",
+    "usageSavings": "unmeasured"
+  }
+}

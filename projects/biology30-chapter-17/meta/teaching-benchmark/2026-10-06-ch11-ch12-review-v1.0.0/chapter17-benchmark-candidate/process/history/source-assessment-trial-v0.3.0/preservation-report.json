@@ -1,0 +1,104 @@
+{
+  "scope": "Disposable two-lesson teaching and fresh-assessment preview only",
+  "baseline_sha256": "bc42ea52d8cf5709c0ec33c914e86450f93971f3e3144cb81b695593aa0eff3b",
+  "canonical_original_sha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868",
+  "candidate_sha256": "20c22d6d80720d04a2924c1a161b35da9ec5d964fea32d1b6c480b96c76fdcf9",
+  "bound_edits": [
+    {
+      "owner": "ch17-l02-check-writing-1",
+      "kind": "question-html",
+      "startByte": 130865,
+      "endByteExclusive": 132393,
+      "beforeSha256": "05b99f3d122bf8b20223240768319337b440998e5eee34fa1c3a8f8fddd3e844",
+      "fragment": "integration-text/assessment-html/ch17-l02-check-writing-1.html.txt",
+      "afterSha256": "0250f402b5fa6a5f65c9657b198369ae3dbd1873a08f794c163ca08f70b5e3ad"
+    },
+    {
+      "owner": "lesson-05.tomato-core",
+      "kind": "teaching",
+      "startByte": 195148,
+      "endByteExclusive": 200094,
+      "beforeSha256": "5e72ac37b5a94f21e6d026487c42be7dc55bd4b28b606fd57c2534c373f7edb9",
+      "fragment": "integration-text/teaching-edits/lesson-05.tomato-core.html.txt",
+      "afterSha256": "17a9cd16afb399d1897ba90c0be35b2f8b775093054d2ff5b9e214d7145b8c9c"
+    },
+    {
+      "owner": "lesson-05.change-task",
+      "kind": "teaching",
+      "startByte": 200094,
+      "endByteExclusive": 204007,
+      "beforeSha256": "541be9540ef4b88a6961d5a528f0e4c9a69f3ef60dcd3f166fb049f1c71aeceb",
+      "fragment": "integration-text/teaching-edits/lesson-05.change-task.html.txt",
+      "afterSha256": "a218d13653a95a59da2d56004ea889124992ee3903e2b0749c8f7df78c7a16cf"
+    },
+    {
+      "owner": "ch17-l05-check-mc-2",
+      "kind": "question-html",
+      "startByte": 221723,
+      "endByteExclusive": 222873,
+      "beforeSha256": "35015e8877690bf8f43586136bab35c2609f5594bc5f687e8f22dc3d60cb97ae",
+      "fragment": "integration-text/assessment-html/ch17-l05-check-mc-2.html.txt",
+      "afterSha256": "b6c7799412c019fed19fe9ec0ae49fd37fb9c247713354a3b512a5d88b723efb"
+    },
+    {
+      "owner": "ch17-l05-check-writing-1",
+      "kind": "question-html",
+      "startByte": 223076,
+      "endByteExclusive": 224552,
+      "beforeSha256": "847596093539629d0001685de7c26d51859ab4209c9b98dfe556276c21b5cb1e",
+      "fragment": "integration-text/assessment-html/ch17-l05-check-writing-1.html.txt",
+      "afterSha256": "38aed68ffcd1102959217d95cc974aa020d25d8dc5e7b317d82eb1e2782ebe7f"
+    },
+    {
+      "owner": "ch17-l05-check-writing-2",
+      "kind": "question-html",
+      "startByte": 224552,
+      "endByteExclusive": 225988,
+      "beforeSha256": "e17b2971640c6ab6f81b09da2f993078efe5913b1b22df0b049dea5d22067457",
+      "fragment": "integration-text/assessment-html/ch17-l05-check-writing-2.html.txt",
+      "afterSha256": "49c3804388d3c25dd80b3a0366a0e28f048d7c06f6b16a8f59719c02493cf21a"
+    },
+    {
+      "owner": "ch17-l02-check-writing-1",
+      "kind": "question-json",
+      "startByte": 3155226,
+      "endByteExclusive": 3155873,
+      "beforeSha256": "68ce219e2a96eddea903284408e089c3c5bd4a41689d492f4ee32273bb470dfa",
+      "fragment": "integration-text/assessment-json/ch17-l02-check-writing-1.json",
+      "afterSha256": "746380cf22eee10bb1acf82e246352f1dc2e425927ad4f83676d36026e25b0d5"
+    },
+    {
+      "owner": "ch17-l05-check-mc-2",
+      "kind": "question-json",
+      "startByte": 3161891,
+      "endByteExclusive": 3162219,
+      "beforeSha256": "1202627167362c8e8c520b343c9e441ec3fce39d6b20865acd7a04ff9693ebc9",
+      "fragment": "integration-text/assessment-json/ch17-l05-check-mc-2.json",
+      "afterSha256": "1d0d2b8c11e7790ba449f06acca670ad26ebc91f544d1976856e4793fb5c298b"
+    },
+    {
+      "owner": "ch17-l05-check-writing-1",
+      "kind": "question-json",
+      "startByte": 3162234,
+      "endByteExclusive": 3162829,
+      "beforeSha256": "ce350aedac4355f10d7769103a837a7588986f332a3412025a7553f370d6d312",
+      "fragment": "integration-text/assessment-json/ch17-l05-check-writing-1.json",
+      "afterSha256": "69c5823eea0ca6ff8576821d7921b425c6f74cd5caac6c8abecaee7970503684"
+    },
+    {
+      "owner": "ch17-l05-check-writing-2",
+      "kind": "question-json",
+      "startByte": 3162831,
+      "endByteExclusive": 3163386,
+      "beforeSha256": "e00e4effe0cf71b92d9ea30770e59d90c1845f09a95d8ab7f3d716c088ac9853",
+      "fragment": "integration-text/assessment-json/ch17-l05-check-writing-2.json",
+      "afterSha256": "4a1006653299a24ddd914be11f676653c393d1e80888bc3c56f0a44681840a0f"
+    }
+  ],
+  "all_unedited_segments_exact": true,
+  "native_ids": "Verified separately",
+  "runtime_styles_assets": "Copied from native baseline; verified separately",
+  "state_isolation": "57202candidate;57203syntheticQA; fresh origins; no saved-state import",
+  "teacher_acceptance": "pending",
+  "canonical_modified": false
+}

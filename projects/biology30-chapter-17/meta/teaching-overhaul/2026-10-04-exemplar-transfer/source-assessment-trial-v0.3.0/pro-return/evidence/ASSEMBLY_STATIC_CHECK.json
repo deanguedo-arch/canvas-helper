@@ -1,0 +1,246 @@
+{
+  "version": "0.3.0",
+  "role": "Assembly author static self-check; not independent source/science/pedagogy review or native browser QA.",
+  "createdUtc": "2026-10-05T00:34:25.018447+00:00",
+  "summary": {
+    "routes": [
+      "lesson-02",
+      "lesson-05"
+    ],
+    "contentEdits": 10,
+    "versionProposals": 0,
+    "optionalActivities": 4,
+    "selectedRequiredPrompts": 8,
+    "changedRequiredItems": 4,
+    "integratedRawBeforeFiles": 44,
+    "lesson02TeachingByteExact": true,
+    "previousFilesUnchanged": 2349,
+    "nativeUITests": "not run",
+    "wholeIndexWritten": false
+  },
+  "inputPins": [
+    {
+      "path": "source-assessment-v0.3.0/authoring/TRIAL_INPUTS.json",
+      "bytes": 7239,
+      "sha256": "34a02af21e33fcb76ec19d79f16a88ff0c2b03c1a3646c8d966898a23c910cd5"
+    },
+    {
+      "path": "source-assessment-v0.3.0/authoring/teacher-review-only.css",
+      "bytes": 2185,
+      "sha256": "0099523bf5c34de1dc52977a71f02c4f0c417fa4cd54a8550e51e071a8d69a9a"
+    },
+    {
+      "path": "source-assessment-v0.3.0/authoring/teaching-edits/lesson-05-tomato.html.in",
+      "bytes": 5130,
+      "sha256": "17a9cd16afb399d1897ba90c0be35b2f8b775093054d2ff5b9e214d7145b8c9c"
+    },
+    {
+      "path": "source-assessment-v0.3.0/authoring/teaching-edits/lesson-05-changed-parent-task.html.in",
+      "bytes": 4203,
+      "sha256": "a218d13653a95a59da2d56004ea889124992ee3903e2b0749c8f7df78c7a16cf"
+    },
+    {
+      "path": "source-assessment-v0.3.0/authoring/assessments/ch17-l02-check-writing-1.json",
+      "bytes": 2040,
+      "sha256": "746380cf22eee10bb1acf82e246352f1dc2e425927ad4f83676d36026e25b0d5"
+    },
+    {
+      "path": "source-assessment-v0.3.0/authoring/assessments/ch17-l05-check-mc-2.json",
+      "bytes": 1374,
+      "sha256": "1d0d2b8c11e7790ba449f06acca670ad26ebc91f544d1976856e4793fb5c298b"
+    },
+    {
+      "path": "source-assessment-v0.3.0/authoring/assessments/ch17-l05-check-writing-1.json",
+      "bytes": 2218,
+      "sha256": "69c5823eea0ca6ff8576821d7921b425c6f74cd5caac6c8abecaee7970503684"
+    },
+    {
+      "path": "source-assessment-v0.3.0/authoring/assessments/ch17-l05-check-writing-2.json",
+      "bytes": 2282,
+      "sha256": "4a1006653299a24ddd914be11f676653c393d1e80888bc3c56f0a44681840a0f"
+    }
+  ],
+  "nativeContract": {
+    "path": "source-assessment-v0.3.0/analysis/native-preflight/INTEGRATED_NATIVE_CONTRACT.json",
+    "bytes": 103379,
+    "sha256": "b53ba9d51d8b35f7a7523e9abb74e3160c0b8bf116b6751857f2c276be9b6df4"
+  },
+  "teachingAndAssessmentContractChecks": [
+    {
+      "id": "ch17-l02-check-writing-1",
+      "matchingPromptAndOptionsOrModelCriteria": true,
+      "nativeControlTemplatePreserved": true,
+      "writingRequiresHumanReview": true
+    },
+    {
+      "id": "ch17-l05-check-mc-2",
+      "matchingPromptAndOptionsOrModelCriteria": true,
+      "nativeControlTemplatePreserved": true,
+      "writingRequiresHumanReview": false
+    },
+    {
+      "id": "ch17-l05-check-writing-1",
+      "matchingPromptAndOptionsOrModelCriteria": true,
+      "nativeControlTemplatePreserved": true,
+      "writingRequiresHumanReview": true
+    },
+    {
+      "id": "ch17-l05-check-writing-2",
+      "matchingPromptAndOptionsOrModelCriteria": true,
+      "nativeControlTemplatePreserved": true,
+      "writingRequiresHumanReview": true
+    },
+    {
+      "route": "lesson-02",
+      "allExistingIdsAndEditOwnersRetained": true,
+      "allExistingFrayerTargetsRetained": [
+        "ch17-word-allele",
+        "ch17-word-f1-generation",
+        "ch17-word-f2-generation",
+        "ch17-word-genotype",
+        "ch17-word-law-of-segregation",
+        "ch17-word-phenotype",
+        "ch17-word-probability",
+        "ch17-word-true-breeding"
+      ],
+      "figureBytesUnchanged": true,
+      "unaffectedOptionalActivitiesUnchanged": true
+    },
+    {
+      "route": "lesson-05",
+      "allExistingIdsAndEditOwnersRetained": true,
+      "allExistingFrayerTargetsRetained": [
+        "ch17-word-allele",
+        "ch17-word-independent-assortment",
+        "ch17-word-phenotype",
+        "ch17-word-probability"
+      ],
+      "figureBytesUnchanged": true,
+      "unaffectedOptionalActivitiesUnchanged": true
+    }
+  ],
+  "manuscriptRetention": [
+    {
+      "label": "lesson-02",
+      "tokensIncludingMathematicalSymbols": 2468,
+      "completeWordAndSymbolOrderRetained": true,
+      "disabledControlsRetained": {
+        "textarea": 4,
+        "input": 8,
+        "button": 6
+      },
+      "decodedJsonVersusActualPreview": [
+        {
+          "id": "ch17-l02-check-mc-1",
+          "promptUtf8Sha256": "698c63d83dba34940dfee685671c206cfc5e8055f1d1256757fee9228d795e60",
+          "actualPreviewMatchesDecodedJsonOwner": true,
+          "orderedOptionsAndValuesMatch": true
+        },
+        {
+          "id": "ch17-l02-check-mc-2",
+          "promptUtf8Sha256": "c8ad2711f67de83955d2329e81d4c1f4c306f163697a56906ba59a5ef00c9575",
+          "actualPreviewMatchesDecodedJsonOwner": true,
+          "orderedOptionsAndValuesMatch": true
+        },
+        {
+          "id": "ch17-l02-check-writing-1",
+          "promptUtf8Sha256": "1af3e7b9131bf5c98450fe7c5d9bbe89999796b44078fb9bd355c3a7fea2f27b",
+          "actualPreviewMatchesDecodedJsonOwner": true,
+          "orderedOptionsAndValuesMatch": null
+        },
+        {
+          "id": "ch17-l02-check-writing-2",
+          "promptUtf8Sha256": "916849ed2ce263cce094ee9f194fb5970a76a52179abba46e0e1a52c211d590f",
+          "actualPreviewMatchesDecodedJsonOwner": true,
+          "orderedOptionsAndValuesMatch": null
+        }
+      ],
+      "scope": "Assembly copy check, not native UI execution."
+    },
+    {
+      "label": "lesson-05",
+      "tokensIncludingMathematicalSymbols": 4625,
+      "completeWordAndSymbolOrderRetained": true,
+      "disabledControlsRetained": {
+        "textarea": 4,
+        "input": 8,
+        "button": 6
+      },
+      "decodedJsonVersusActualPreview": [
+        {
+          "id": "ch17-l05-check-mc-1",
+          "promptUtf8Sha256": "326e32ef7283edb7ba3d52f7fd548d9bd2cabb743ff0ce1e9a59a6cfd9d96b8f",
+          "actualPreviewMatchesDecodedJsonOwner": true,
+          "orderedOptionsAndValuesMatch": true
+        },
+        {
+          "id": "ch17-l05-check-mc-2",
+          "promptUtf8Sha256": "2812dfb1ff3cfa289538fcbbde7393cc14cc386dc8391fd0aee56da09145b2f3",
+          "actualPreviewMatchesDecodedJsonOwner": true,
+          "orderedOptionsAndValuesMatch": true
+        },
+        {
+          "id": "ch17-l05-check-writing-1",
+          "promptUtf8Sha256": "74b5965aea29a0db1ed0f62c93cf1430577ceb168f17c6e3727892415bba4b0d",
+          "actualPreviewMatchesDecodedJsonOwner": true,
+          "orderedOptionsAndValuesMatch": null
+        },
+        {
+          "id": "ch17-l05-check-writing-2",
+          "promptUtf8Sha256": "56eef49beab47a35617b41c6a60ede2c4e9f173a83c9ac4371da56d25740ad7e",
+          "actualPreviewMatchesDecodedJsonOwner": true,
+          "orderedOptionsAndValuesMatch": null
+        }
+      ],
+      "scope": "Assembly copy check, not native UI execution."
+    }
+  ],
+  "teacherSolutionRetention": {
+    "label": "selected-teacher-solutions",
+    "tokensIncludingMathematicalSymbols": 2250,
+    "completeWordAndSymbolOrderRetained": true,
+    "disabledControlsRetained": {
+      "textarea": 0,
+      "input": 0,
+      "button": 0
+    },
+    "decodedJsonVersusActualPreview": [],
+    "scope": "Assembly copy check, not native UI execution."
+  },
+  "practiceMapRetention": {
+    "label": "complete-practice-feedback-map",
+    "tokensIncludingMathematicalSymbols": 4249,
+    "completeWordAndSymbolOrderRetained": true,
+    "disabledControlsRetained": {
+      "textarea": 4,
+      "input": 0,
+      "button": 4
+    },
+    "decodedJsonVersusActualPreview": [],
+    "scope": "Assembly copy check, not native UI execution."
+  },
+  "teacherReading": {
+    "path": "output/Biology30_CH17_Source_Assessment_Trial_v0.3.0/Biology30_CH17_Source_Assessment_Trial_Teacher_Review_v0.3.0.html",
+    "bytes": 81677,
+    "sha256": "84f678c04b9237fb8d1b0d78b265889aadf657f79c3615e4c5959668af59a3bb"
+  },
+  "rawBefore": {
+    "integrated": 44,
+    "inheritedHistorical": 85
+  },
+  "readingInertness": {
+    "styles": 1,
+    "nativeStyles": 0,
+    "scripts": 0,
+    "forms": 0,
+    "disabledTextareas": 8,
+    "disabledRadioInputs": 16,
+    "disabledButtons": 12,
+    "nativeRuntimeIncluded": false,
+    "browserRenderingVerified": false
+  },
+  "teacherAcceptance": "pending",
+  "integration": "not performed",
+  "nativeUITests": "not run",
+  "zipUpload": "not performed"
+}

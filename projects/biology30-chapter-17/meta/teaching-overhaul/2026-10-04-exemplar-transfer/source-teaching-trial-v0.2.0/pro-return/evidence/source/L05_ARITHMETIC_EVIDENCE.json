@@ -1,0 +1,218 @@
+{
+  "input_sha256": "eac351c08ef28c82b936cf1baa206dbfb5f14feef65338d3e196d3c5aa0f6b4e",
+  "input_bytes": 30601,
+  "scope": "Independent arithmetic enumeration under each supplied two-locus model, supporting full manual prose/table read. Not a course/runtime test, source experiment, or teacher approval.",
+  "cases": [
+    {
+      "parents": [
+        "TTGG",
+        "ttgg"
+      ],
+      "gametes": [
+        {
+          "TG": "1"
+        },
+        {
+          "tg": "1"
+        }
+      ],
+      "genotypes": {
+        "TtGg": "1"
+      },
+      "phenotype_classes": {
+        "dominant/dominant": "1"
+      },
+      "probability_total": "1"
+    },
+    {
+      "parents": [
+        "TtGg",
+        "TtGg"
+      ],
+      "gametes": [
+        {
+          "TG": "1/4",
+          "Tg": "1/4",
+          "tG": "1/4",
+          "tg": "1/4"
+        },
+        {
+          "TG": "1/4",
+          "Tg": "1/4",
+          "tG": "1/4",
+          "tg": "1/4"
+        }
+      ],
+      "genotypes": {
+        "TTGG": "1/16",
+        "TTGg": "1/8",
+        "TtGG": "1/8",
+        "TtGg": "1/4",
+        "TTgg": "1/16",
+        "Ttgg": "1/8",
+        "ttGG": "1/16",
+        "ttGg": "1/8",
+        "ttgg": "1/16"
+      },
+      "phenotype_classes": {
+        "dominant/dominant": "9/16",
+        "dominant/recessive": "3/16",
+        "recessive/dominant": "3/16",
+        "recessive/recessive": "1/16"
+      },
+      "probability_total": "1"
+    },
+    {
+      "parents": [
+        "RrTt",
+        "RRTt"
+      ],
+      "gametes": [
+        {
+          "RT": "1/4",
+          "Rt": "1/4",
+          "rT": "1/4",
+          "rt": "1/4"
+        },
+        {
+          "RT": "1/2",
+          "Rt": "1/2"
+        }
+      ],
+      "genotypes": {
+        "RRTT": "1/8",
+        "RRTt": "1/4",
+        "RRtt": "1/8",
+        "RrTT": "1/8",
+        "RrTt": "1/4",
+        "Rrtt": "1/8"
+      },
+      "phenotype_classes": {
+        "dominant/dominant": "3/4",
+        "dominant/recessive": "1/4"
+      },
+      "probability_total": "1"
+    },
+    {
+      "parents": [
+        "RrTt",
+        "RRtt"
+      ],
+      "gametes": [
+        {
+          "RT": "1/4",
+          "Rt": "1/4",
+          "rT": "1/4",
+          "rt": "1/4"
+        },
+        {
+          "Rt": "1"
+        }
+      ],
+      "genotypes": {
+        "RRTt": "1/4",
+        "RRtt": "1/4",
+        "RrTt": "1/4",
+        "Rrtt": "1/4"
+      },
+      "phenotype_classes": {
+        "dominant/dominant": "1/2",
+        "dominant/recessive": "1/2"
+      },
+      "probability_total": "1"
+    },
+    {
+      "parents": [
+        "wwDd",
+        "Wwdd"
+      ],
+      "gametes": [
+        {
+          "wD": "1/2",
+          "wd": "1/2"
+        },
+        {
+          "Wd": "1/2",
+          "wd": "1/2"
+        }
+      ],
+      "genotypes": {
+        "WwDd": "1/4",
+        "wwDd": "1/4",
+        "Wwdd": "1/4",
+        "wwdd": "1/4"
+      },
+      "phenotype_classes": {
+        "dominant/dominant": "1/4",
+        "recessive/dominant": "1/4",
+        "dominant/recessive": "1/4",
+        "recessive/recessive": "1/4"
+      },
+      "probability_total": "1"
+    },
+    {
+      "parents": [
+        "Vvll",
+        "vvLL"
+      ],
+      "gametes": [
+        {
+          "Vl": "1/2",
+          "vl": "1/2"
+        },
+        {
+          "vL": "1"
+        }
+      ],
+      "genotypes": {
+        "VvLl": "1/2",
+        "vvLl": "1/2"
+      },
+      "phenotype_classes": {
+        "dominant/dominant": "1/2",
+        "recessive/dominant": "1/2"
+      },
+      "probability_total": "1"
+    },
+    {
+      "parents": [
+        "Vvll",
+        "vvLl"
+      ],
+      "gametes": [
+        {
+          "Vl": "1/2",
+          "vl": "1/2"
+        },
+        {
+          "vL": "1/2",
+          "vl": "1/2"
+        }
+      ],
+      "genotypes": {
+        "VvLl": "1/4",
+        "Vvll": "1/4",
+        "vvLl": "1/4",
+        "vvll": "1/4"
+      },
+      "phenotype_classes": {
+        "dominant/dominant": "1/4",
+        "dominant/recessive": "1/4",
+        "recessive/dominant": "1/4",
+        "recessive/recessive": "1/4"
+      },
+      "probability_total": "1"
+    }
+  ],
+  "squash_expected_counts": {
+    "scored_plants": 80,
+    "white_probability": "1/2",
+    "white_expected": 40,
+    "yellow_spherical_probability": "1/4",
+    "yellow_spherical_expected": 20
+  },
+  "evidence_task": "Observed vvLl forces Vvll parent1, but both vvLL and vvLl parent2 can give vL. A further ll offspring excludes vvLL; finite all-smooth offspring possible under both. No prior over candidate genotypes assigned.",
+  "checks": "All listed gamete/genotype/phenotype totals and stated ratios match full current teaching read.",
+  "arithmetic_generated_against_sha256": "e42c7e640e755a0bbc6db9fe2dfae2f04108fe5866b0d20c173f6ffc22c33a59",
+  "final_delta_qualification": "All8 edits from the fully read initial draft were inspected; no parental cross, grid entry, requested numerical event or stated probability/count changed. Arithmetic remains applicable."
+}

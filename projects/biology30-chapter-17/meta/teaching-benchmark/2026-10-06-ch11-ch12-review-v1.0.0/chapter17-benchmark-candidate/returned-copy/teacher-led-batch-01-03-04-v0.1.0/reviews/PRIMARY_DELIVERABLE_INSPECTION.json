@@ -1,0 +1,189 @@
+{
+  "scope": "Primary author final static deliverable inspection; no owner assembly or runtime",
+  "fragments": {
+    "1": {
+      "bytes": 17745,
+      "sha256": "9af1936228a2f611e9338d0a72142801899802d7d86c054d2a983474ed96e72a",
+      "strictXmlParse": "passed",
+      "outerIds": [
+        "ch17-l01-teaching-01",
+        "ch17-l01-teaching-02",
+        "ch17-l01-teaching-03",
+        "ch17-l01-worked"
+      ],
+      "tables": 3,
+      "images": 2
+    },
+    "3": {
+      "bytes": 24439,
+      "sha256": "85a884113bab7fe12205c1d1567284dabc0b434fd469c0076c24da57c56edc85",
+      "strictXmlParse": "passed",
+      "outerIds": [
+        "ch17-l03-teaching-01",
+        "ch17-l03-teaching-02",
+        "ch17-l03-teaching-03",
+        "ch17-l03-worked"
+      ],
+      "tables": 4,
+      "images": 5
+    },
+    "4": {
+      "bytes": 18212,
+      "sha256": "36dc8d9a947c45a355110cc1efed7676d2ab01162dbfa12ea628e0b393d5b97f",
+      "strictXmlParse": "passed",
+      "outerIds": [
+        "ch17-l04-teaching-01",
+        "ch17-l04-teaching-02",
+        "ch17-l04-teaching-03",
+        "ch17-l04-worked"
+      ],
+      "tables": 5,
+      "images": 1
+    }
+  },
+  "jsonFilesParsed": [
+    "INTEGRATION_MAP.json",
+    "PRACTICE_PREPARATION_MAP.json",
+    "SOURCE_VISUAL_MAP.json",
+    "contracts/SUPPLIED_LEAD_SOURCE_PREFLIGHT.json",
+    "contracts/SUPPLIED_REPLACEMENT_BOUNDARIES.json",
+    "contracts/SUPPLIED_SOURCE_HANDOFF_MANIFEST.json",
+    "reviews/FINAL_TEXT_REBIND.json",
+    "reviews/NATIVE_STATIC_REVIEW.json",
+    "reviews/READING_PARITY_REVIEW.json",
+    "reviews/SOURCE_VERIFICATION.json",
+    "reviews/final_spacing_review.json",
+    "reviews/instructional_final_hash_closure.json",
+    "reviews/l01_feedback_supplement_review.json",
+    "reviews/l01_final_review_closure.json",
+    "reviews/l03_l04_candidate_review_evidence.json",
+    "reviews/source_visual_map_validation.json"
+  ],
+  "markdownImages": [
+    {
+      "manuscript": "lesson-01.md",
+      "target": "../assets/teaching-batch1-v010/slide-4-image13.jpg",
+      "present": true
+    },
+    {
+      "manuscript": "lesson-01.md",
+      "target": "../assets/teaching-batch1-v010/slide-12-image18.png",
+      "present": true
+    },
+    {
+      "manuscript": "lesson-03.md",
+      "target": "../assets/teaching-batch1-v010/slide-27-image30.jpg",
+      "present": true
+    },
+    {
+      "manuscript": "lesson-03.md",
+      "target": "../assets/teaching-batch1-v010/slide-27-image31.jpg",
+      "present": true
+    },
+    {
+      "manuscript": "lesson-03.md",
+      "target": "../assets/teaching-batch1-v010/slide-27-image22.png",
+      "present": true
+    },
+    {
+      "manuscript": "lesson-03.md",
+      "target": "../assets/figures/ch17-punnett.svg",
+      "present": true
+    },
+    {
+      "manuscript": "lesson-03.md",
+      "target": "../assets/teaching-batch1-v010/slide-29-image33.png",
+      "present": true
+    },
+    {
+      "manuscript": "lesson-03.md",
+      "target": "../assets/assessment/9e85ebb2ecbe95100af0.png",
+      "present": true
+    },
+    {
+      "manuscript": "lesson-03.md",
+      "target": "../assets/assessment/1cb36c7f022e66f1f7ff.png",
+      "present": true
+    },
+    {
+      "manuscript": "lesson-03.md",
+      "target": "../assets/assessment/f45c6bfd939bd821e055.png",
+      "present": true
+    },
+    {
+      "manuscript": "lesson-04.md",
+      "target": "../assets/teaching-batch1-v010/slide-27-image22.png",
+      "present": true
+    },
+    {
+      "manuscript": "lesson-04.md",
+      "target": "../assets/assessment/eeca2d84afb814ca523d.png",
+      "present": true
+    },
+    {
+      "manuscript": "lesson-04.md",
+      "target": "../assets/assessment/edd29af72eeb9c646081.png",
+      "present": true
+    }
+  ],
+  "requiredFilesPresent": [
+    {
+      "path": "manuscripts/lesson-01.md",
+      "present": true
+    },
+    {
+      "path": "manuscripts/lesson-03.md",
+      "present": true
+    },
+    {
+      "path": "manuscripts/lesson-04.md",
+      "present": true
+    },
+    {
+      "path": "lesson-01.teaching-fragment.html",
+      "present": true
+    },
+    {
+      "path": "lesson-03.teaching-fragment.html",
+      "present": true
+    },
+    {
+      "path": "lesson-04.teaching-fragment.html",
+      "present": true
+    },
+    {
+      "path": "TEACHING_SEQUENCE.md",
+      "present": true
+    },
+    {
+      "path": "SOURCE_VISUAL_MAP.json",
+      "present": true
+    },
+    {
+      "path": "CONTENT_REVIEW.md",
+      "present": true
+    },
+    {
+      "path": "PRACTICE_PREPARATION_MAP.json",
+      "present": true
+    },
+    {
+      "path": "INTEGRATION_MAP.json",
+      "present": true
+    },
+    {
+      "path": "CHANGELOG.md",
+      "present": true
+    },
+    {
+      "path": "OPEN_ISSUES.md",
+      "present": true
+    },
+    {
+      "path": "AUTHORING_EVIDENCE.md",
+      "present": true
+    }
+  ],
+  "failures": [],
+  "result": "passed"
+}

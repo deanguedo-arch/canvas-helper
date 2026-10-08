@@ -1,0 +1,120 @@
+{
+  "version": "0.1.0",
+  "createdUtc": "2026-10-04T14:52:59.580550+00:00",
+  "nativeSourceSha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868",
+  "routes": [
+    "lesson-02",
+    "lesson-05"
+  ],
+  "reviewRole": "Assembly author self-check of actual artifact bytes/text only; not independent pedagogy, science, teacher approval or browser testing.",
+  "manuscriptScope": "Teaching-only complete root-authored prose, hints and feedback. Protected original activities are separate source appendices.",
+  "teachingWordRetention": [
+    {
+      "route": "lesson-02",
+      "inputWords": 2288,
+      "manuscriptWords": 2288,
+      "allWordsInOrder": true,
+      "mathematicalAndRatioSymbolsInOrder": true,
+      "firstDifference": null,
+      "scope": "Complete teaching and feedback words, including authored SVG labels and image alt text; not a pedagogical acceptance claim.",
+      "fragmentTeachingWords": 2284,
+      "titleOrigin": "Exact native route title; teaching-only manuscript header."
+    },
+    {
+      "route": "lesson-05",
+      "inputWords": 2962,
+      "manuscriptWords": 2962,
+      "allWordsInOrder": true,
+      "mathematicalAndRatioSymbolsInOrder": true,
+      "firstDifference": null,
+      "scope": "Complete teaching and feedback words, including authored SVG labels and image alt text; not a pedagogical acceptance claim.",
+      "fragmentTeachingWords": 2956,
+      "titleOrigin": "Exact native route title; teaching-only manuscript header."
+    }
+  ],
+  "protectedAppendixWordRetention": [
+    {
+      "route": "lesson-02-protected-source",
+      "inputWords": 1105,
+      "manuscriptWords": 1105,
+      "allWordsInOrder": true,
+      "mathematicalAndRatioSymbolsInOrder": true,
+      "firstDifference": null,
+      "scope": "Complete teaching and feedback words, including authored SVG labels and image alt text; not a pedagogical acceptance claim."
+    },
+    {
+      "route": "lesson-05-protected-source",
+      "inputWords": 1404,
+      "manuscriptWords": 1404,
+      "allWordsInOrder": true,
+      "mathematicalAndRatioSymbolsInOrder": true,
+      "firstDifference": null,
+      "scope": "Complete teaching and feedback words, including authored SVG labels and image alt text; not a pedagogical acceptance claim."
+    }
+  ],
+  "newPracticeCount": 4,
+  "annotationsPending": [],
+  "inputPins": [
+    {
+      "path": "calibration-v0.1.0/authoring/lesson-02.teaching.html.in",
+      "bytes": 16834,
+      "sha256": "104526dfdc81d8e6aac1f56f826ea3c04ef28fe73b4c1f6d006ff5ae838808c0"
+    },
+    {
+      "path": "calibration-v0.1.0/authoring/lesson-05.teaching.html.in",
+      "bytes": 20220,
+      "sha256": "920c21c4c658fdda5d7fc1416978c8e5a1d62adf7d221ef2fd70fa5ffc61d651"
+    }
+  ],
+  "fragments": [
+    {
+      "route": "lesson-02",
+      "bytes": 17464,
+      "sha256": "5740360125376c2994bdaa1f28c4fe3d57b276232494ec7dbdb9db49ed6543fc"
+    },
+    {
+      "route": "lesson-05",
+      "bytes": 21630,
+      "sha256": "a78b0e51af788a1591864cd8fc3ae6a733a4b7b051b73bbe82be1787e1944e0c"
+    }
+  ],
+  "teacherReview": {
+    "path": "output/Biology30_CH17_Exemplar_Transfer_Calibration_v0.1.0/Biology30_CH17_Exemplar_Transfer_Calibration_Teacher_Review_v0.1.0.html",
+    "bytes": 1279267,
+    "sha256": "5553619d9c0eb503fd9efdd3a0ca079eb50148c131f11de9efae3b401d2b7e70"
+  },
+  "rawBeforeFiles": 84,
+  "unchangedAssetCopies": 2,
+  "isolatedReadingCssSha256": "4b279d663f33f609c9350f12af3ba28324448e7b90b6373a404947a320a5a521",
+  "nativeCssUnchanged": true,
+  "nativeRuntimeIncluded": false,
+  "inertReadingInspection": {
+    "styleElements": 1,
+    "scriptElements": 0,
+    "formOrResponseControls": 0,
+    "embeddedExecutionSurfaces": 0,
+    "remoteImageLoads": 0,
+    "semanticTables": 2,
+    "sourceImages": 2,
+    "emptyFeedbackDisclosures": 0,
+    "nativeCssRuntimeOrStorageExecuted": false,
+    "browserRenderingVerified": false
+  },
+  "annotationInputs": [
+    {
+      "path": "calibration-v0.1.0/authoring/practice-annotations.json",
+      "bytes": 5829,
+      "sha256": "2bc099c8c7a6358b1599c6972f860775524bd851a1c4fd384cf28be3ad5276fc"
+    },
+    {
+      "path": "calibration-v0.1.0/authoring/header-proposals.json",
+      "bytes": 225,
+      "sha256": "022d06d589640f27ed6c79905ea81a713f23a1fa9a99e1b53f7bbb700bc8010a"
+    }
+  ],
+  "runtimeTests": "not run",
+  "browserRendering": "not performed",
+  "teacherAcceptance": "pending",
+  "integration": "not done",
+  "packageOrUpload": "not performed by this tool"
+}

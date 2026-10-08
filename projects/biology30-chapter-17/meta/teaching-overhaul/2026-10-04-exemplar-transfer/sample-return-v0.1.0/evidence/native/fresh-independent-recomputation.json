@@ -1,0 +1,251 @@
+{
+  "method": "Fresh exact Fraction enumeration of all ordered parental allele choices under unbiased segregation and specified independent assortment; aggregation into unordered genotypes and complete-dominance phenotypes. No original key used as a computational input.",
+  "calculations": [
+    {
+      "cross": "RR × rr",
+      "firstGametes": {
+        "R": "1"
+      },
+      "secondGametes": {
+        "r": "1"
+      },
+      "genotypes": {
+        "Rr": "1"
+      },
+      "phenotypesCompleteDominance": {
+        "R_": "1"
+      },
+      "probabilitySum": "1"
+    },
+    {
+      "cross": "Rr × Rr",
+      "firstGametes": {
+        "R": "1/2",
+        "r": "1/2"
+      },
+      "secondGametes": {
+        "R": "1/2",
+        "r": "1/2"
+      },
+      "genotypes": {
+        "RR": "1/4",
+        "Rr": "1/2",
+        "rr": "1/4"
+      },
+      "phenotypesCompleteDominance": {
+        "R_": "3/4",
+        "rr": "1/4"
+      },
+      "probabilitySum": "1"
+    },
+    {
+      "cross": "AaBb × AaBb",
+      "firstGametes": {
+        "AB": "1/4",
+        "Ab": "1/4",
+        "aB": "1/4",
+        "ab": "1/4"
+      },
+      "secondGametes": {
+        "AB": "1/4",
+        "Ab": "1/4",
+        "aB": "1/4",
+        "ab": "1/4"
+      },
+      "genotypes": {
+        "AABB": "1/16",
+        "AABb": "1/8",
+        "AAbb": "1/16",
+        "AaBB": "1/8",
+        "AaBb": "1/4",
+        "Aabb": "1/8",
+        "aaBB": "1/16",
+        "aaBb": "1/8",
+        "aabb": "1/16"
+      },
+      "phenotypesCompleteDominance": {
+        "A_B_": "9/16",
+        "A_bb": "3/16",
+        "aaB_": "3/16",
+        "aabb": "1/16"
+      },
+      "probabilitySum": "1"
+    },
+    {
+      "cross": "AaBb × aaBb",
+      "firstGametes": {
+        "AB": "1/4",
+        "Ab": "1/4",
+        "aB": "1/4",
+        "ab": "1/4"
+      },
+      "secondGametes": {
+        "aB": "1/2",
+        "ab": "1/2"
+      },
+      "genotypes": {
+        "AaBB": "1/8",
+        "AaBb": "1/4",
+        "Aabb": "1/8",
+        "aaBB": "1/8",
+        "aaBb": "1/4",
+        "aabb": "1/8"
+      },
+      "phenotypesCompleteDominance": {
+        "A_B_": "3/8",
+        "A_bb": "1/8",
+        "aaB_": "3/8",
+        "aabb": "1/8"
+      },
+      "probabilitySum": "1"
+    },
+    {
+      "cross": "RrTt × rrTt",
+      "firstGametes": {
+        "RT": "1/4",
+        "Rt": "1/4",
+        "rT": "1/4",
+        "rt": "1/4"
+      },
+      "secondGametes": {
+        "rT": "1/2",
+        "rt": "1/2"
+      },
+      "genotypes": {
+        "RrTT": "1/8",
+        "RrTt": "1/4",
+        "Rrtt": "1/8",
+        "rrTT": "1/8",
+        "rrTt": "1/4",
+        "rrtt": "1/8"
+      },
+      "phenotypesCompleteDominance": {
+        "R_T_": "3/8",
+        "R_tt": "1/8",
+        "rrT_": "3/8",
+        "rrtt": "1/8"
+      },
+      "probabilitySum": "1"
+    },
+    {
+      "cross": "AaBb × aabb",
+      "firstGametes": {
+        "AB": "1/4",
+        "Ab": "1/4",
+        "aB": "1/4",
+        "ab": "1/4"
+      },
+      "secondGametes": {
+        "ab": "1"
+      },
+      "genotypes": {
+        "AaBb": "1/4",
+        "Aabb": "1/4",
+        "aaBb": "1/4",
+        "aabb": "1/4"
+      },
+      "phenotypesCompleteDominance": {
+        "A_B_": "1/4",
+        "A_bb": "1/4",
+        "aaB_": "1/4",
+        "aabb": "1/4"
+      },
+      "probabilitySum": "1"
+    },
+    {
+      "cross": "AaBb × Aabb",
+      "firstGametes": {
+        "AB": "1/4",
+        "Ab": "1/4",
+        "aB": "1/4",
+        "ab": "1/4"
+      },
+      "secondGametes": {
+        "Ab": "1/2",
+        "ab": "1/2"
+      },
+      "genotypes": {
+        "AABb": "1/8",
+        "AAbb": "1/8",
+        "AaBb": "1/4",
+        "Aabb": "1/4",
+        "aaBb": "1/8",
+        "aabb": "1/8"
+      },
+      "phenotypesCompleteDominance": {
+        "A_B_": "3/8",
+        "A_bb": "3/8",
+        "aaB_": "1/8",
+        "aabb": "1/8"
+      },
+      "probabilitySum": "1"
+    },
+    {
+      "cross": "AABB × aabb",
+      "firstGametes": {
+        "AB": "1"
+      },
+      "secondGametes": {
+        "ab": "1"
+      },
+      "genotypes": {
+        "AaBb": "1"
+      },
+      "phenotypesCompleteDominance": {
+        "A_B_": "1"
+      },
+      "probabilitySum": "1"
+    },
+    {
+      "cross": "RrPp × rrpp",
+      "firstGametes": {
+        "RP": "1/4",
+        "Rp": "1/4",
+        "rP": "1/4",
+        "rp": "1/4"
+      },
+      "secondGametes": {
+        "rp": "1"
+      },
+      "genotypes": {
+        "RrPp": "1/4",
+        "Rrpp": "1/4",
+        "rrPp": "1/4",
+        "rrpp": "1/4"
+      },
+      "phenotypesCompleteDominance": {
+        "R_P_": "1/4",
+        "R_pp": "1/4",
+        "rrP_": "1/4",
+        "rrpp": "1/4"
+      },
+      "probabilitySum": "1"
+    }
+  ],
+  "required05Checks": {
+    "aaB_givenAaBbByAaBb": "3/16",
+    "RrTtGametes": [
+      "RT",
+      "Rt",
+      "rT",
+      "rt"
+    ],
+    "rrTtGametes": [
+      "rT",
+      "rt"
+    ],
+    "distinctSquare": "4 × 2",
+    "A_bb_givenAaBbByaaBb": "1/8"
+  },
+  "worked05Expected80": "10",
+  "required02SixRunLimit": {
+    "claim": "The unspecified suitable partner prevents a unique numerical run probability. The required answer is qualitative.",
+    "ifAaByaaAllSixDominant": "1/64",
+    "ifAaByAaAllSixDominant": "729/4096",
+    "ifAaByAAAllSixDominant": "1",
+    "inference": "None of these runs proves segregation stopped. A likelihood is not a posterior without further evidence/weights."
+  },
+  "required02ExactlyThreeDominantOfFourIfAaByAa": "27/64",
+  "native04FourRunLikelihoodIfAaByaa": "1/16",
+  "selectedNativeKeyConflict": "No selected02/05 arithmetic/key contradiction found under stated assumptions."
+}

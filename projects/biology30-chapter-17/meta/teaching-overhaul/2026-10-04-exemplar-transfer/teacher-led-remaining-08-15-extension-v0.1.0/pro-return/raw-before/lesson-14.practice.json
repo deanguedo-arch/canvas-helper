@@ -1,0 +1,397 @@
+{
+  "checks": [
+    {
+      "id": "ch17-check-14",
+      "route": "lesson-14",
+      "title": "Genetic testing, counselling and decisions",
+      "mc": [
+        {
+          "prompt": "Why must a negative genetic test be interpreted within its scope?",
+          "answer": "Untested variants or causes may still exist",
+          "explanation": "The test answers specific questions, not every possible genetic question.",
+          "cue": "Trace the normal mechanism before choosing an answer.",
+          "id": "ch17-l14-check-mc-1",
+          "options": [
+            "Negative always means no DNA is present",
+            "Tests cannot ever provide useful evidence",
+            "Untested variants or causes may still exist",
+            "All conditions have one identical allele"
+          ],
+          "difficulty": "application"
+        },
+        {
+          "prompt": "Which question is relevant to informed consent for a genetic study?",
+          "answer": "How samples and results may be used and shared",
+          "explanation": "Understanding uses, risks and options matters before agreement.",
+          "cue": "Trace the normal mechanism before choosing an answer.",
+          "id": "ch17-l14-check-mc-2",
+          "options": [
+            "Whether every participant will have the same phenotype",
+            "Whether the test can replace all medical history",
+            "Only whether the collection tube is coloured",
+            "How samples and results may be used and shared"
+          ],
+          "difficulty": "application"
+        }
+      ],
+      "writing": [
+        {
+          "prompt": "Distinguish a positive risk-associated test result from a guaranteed phenotype.",
+          "model": "A result may identify a variant associated with increased probability, but expression can depend on penetrance, other genetic factors and environment. The test’s validation and scope determine how strongly it predicts an outcome. Increased risk is not automatically certainty.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ],
+          "id": "ch17-l14-check-writing-1",
+          "limit": 3200
+        },
+        {
+          "prompt": "Identify two issues a participant should understand before consenting to a genetic study and explain why.",
+          "model": "The participant should understand what is tested and what results may mean, including uncertainty. They should also understand how samples and data may be stored, used or shared, because genetic information can have personal and family implications. Consent supports an informed choice.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ],
+          "id": "ch17-l14-check-writing-2",
+          "limit": 3200
+        }
+      ]
+    }
+  ],
+  "words": [
+    {
+      "term": "genetic testing",
+      "meaning": "Analysis of genetic material or related markers to investigate particular variants or conditions.",
+      "example": "A test checks for a specified DNA variant.",
+      "importantDistinction": "A test’s scope determines what a negative or positive result can establish.",
+      "aliases": [],
+      "id": "ch17-word-genetic-testing",
+      "lesson": 14,
+      "whatItDoes": "A test checks for a specified DNA variant.",
+      "feature": "A test checks for a specified DNA variant.",
+      "confusion": "A test’s scope determines what a negative or positive result can establish."
+    },
+    {
+      "term": "genetic counselling",
+      "meaning": "A process helping people understand genetic information, inheritance and possible implications for their choices.",
+      "example": "A professional explains a result, its uncertainty and relevant family context.",
+      "importantDistinction": "Counselling supports informed decisions rather than dictating one choice for every family.",
+      "aliases": [],
+      "id": "ch17-word-genetic-counselling",
+      "lesson": 14,
+      "whatItDoes": "A professional explains a result, its uncertainty and relevant family context.",
+      "feature": "A professional explains a result, its uncertainty and relevant family context.",
+      "confusion": "Counselling supports informed decisions rather than dictating one choice for every family."
+    },
+    {
+      "term": "informed consent",
+      "meaning": "Agreement based on understanding the purpose, potential benefits, risks and alternatives of a procedure or study.",
+      "example": "A participant considers how a genetic sample and results will be used before agreeing.",
+      "importantDistinction": "Consent involves more than the physical act of giving a sample.",
+      "aliases": [],
+      "id": "ch17-word-informed-consent",
+      "lesson": 14,
+      "whatItDoes": "A participant considers how a genetic sample and results will be used before agreeing.",
+      "feature": "A participant considers how a genetic sample and results will be used before agreeing.",
+      "confusion": "Consent involves more than the physical act of giving a sample."
+    },
+    {
+      "term": "genetic risk",
+      "meaning": "A probability or increased likelihood associated with genetic information in a specified context.",
+      "example": "A variant is associated with increased probability of a condition without making it inevitable.",
+      "importantDistinction": "Risk is not the same as certainty.",
+      "aliases": [],
+      "id": "ch17-word-genetic-risk",
+      "lesson": 14,
+      "whatItDoes": "A variant is associated with increased probability of a condition without making it inevitable.",
+      "feature": "A variant is associated with increased probability of a condition without making it inevitable.",
+      "confusion": "Risk is not the same as certainty."
+    }
+  ],
+  "practiceQuestions": [
+    {
+      "id": "ch17-foundation-ch17-word-genetic-testing",
+      "lesson": 14,
+      "conceptId": "ch17-concept-genetic-testing",
+      "prompt": "Which term matches this description? Analysis of genetic material or related markers to investigate particular variants or conditions.",
+      "options": [
+        "genetic testing",
+        "genetic counselling",
+        "informed consent",
+        "genetic risk"
+      ],
+      "answer": "genetic testing",
+      "cue": "Use the meaning of each term, not the length of its name.",
+      "explanation": "Analysis of genetic material or related markers to investigate particular variants or conditions. A test’s scope determines what a negative or positive result can establish.",
+      "difficulty": "recall",
+      "family": "definition-recognition",
+      "kind": "mc"
+    },
+    {
+      "id": "ch17-foundation-ch17-word-genetic-counselling",
+      "lesson": 14,
+      "conceptId": "ch17-concept-genetic-counselling",
+      "prompt": "Which term matches this description? A process helping people understand genetic information, inheritance and possible implications for their choices.",
+      "options": [
+        "genetic testing",
+        "genetic counselling",
+        "informed consent",
+        "genetic risk"
+      ],
+      "answer": "genetic counselling",
+      "cue": "Use the meaning of each term, not the length of its name.",
+      "explanation": "A process helping people understand genetic information, inheritance and possible implications for their choices. Counselling supports informed decisions rather than dictating one choice for every family.",
+      "difficulty": "recall",
+      "family": "definition-recognition",
+      "kind": "mc"
+    },
+    {
+      "id": "ch17-foundation-ch17-word-informed-consent",
+      "lesson": 14,
+      "conceptId": "ch17-concept-informed-consent",
+      "prompt": "Which term matches this description? Agreement based on understanding the purpose, potential benefits, risks and alternatives of a procedure or study.",
+      "options": [
+        "genetic testing",
+        "genetic counselling",
+        "informed consent",
+        "genetic risk"
+      ],
+      "answer": "informed consent",
+      "cue": "Use the meaning of each term, not the length of its name.",
+      "explanation": "Agreement based on understanding the purpose, potential benefits, risks and alternatives of a procedure or study. Consent involves more than the physical act of giving a sample.",
+      "difficulty": "recall",
+      "family": "definition-recognition",
+      "kind": "mc"
+    },
+    {
+      "id": "ch17-foundation-ch17-word-genetic-risk",
+      "lesson": 14,
+      "conceptId": "ch17-concept-genetic-risk",
+      "prompt": "Which term matches this description? A probability or increased likelihood associated with genetic information in a specified context.",
+      "options": [
+        "genetic testing",
+        "genetic counselling",
+        "informed consent",
+        "genetic risk"
+      ],
+      "answer": "genetic risk",
+      "cue": "Use the meaning of each term, not the length of its name.",
+      "explanation": "A probability or increased likelihood associated with genetic information in a specified context. Risk is not the same as certainty.",
+      "difficulty": "recall",
+      "family": "definition-recognition",
+      "kind": "mc"
+    }
+  ],
+  "practiceConcepts": [
+    {
+      "id": "ch17-concept-genetic-testing",
+      "term": "genetic testing",
+      "lesson": 14,
+      "meaning": "Analysis of genetic material or related markers to investigate particular variants or conditions.",
+      "example": "A test checks for a specified DNA variant.",
+      "aliases": [],
+      "cue": "Identify the structure, quantity or relationship described.",
+      "correctExplanation": "Analysis of genetic material or related markers to investigate particular variants or conditions. A test’s scope determines what a negative or positive result can establish.",
+      "misconception": {
+        "statement": "A negative test rules out every genetic condition.",
+        "correction": "Analysis of genetic material or related markers to investigate particular variants or conditions. A test’s scope determines what a negative or positive result can establish."
+      },
+      "reviewRoute": "lesson-14"
+    },
+    {
+      "id": "ch17-concept-genetic-counselling",
+      "term": "genetic counselling",
+      "lesson": 14,
+      "meaning": "A process helping people understand genetic information, inheritance and possible implications for their choices.",
+      "example": "A professional explains a result, its uncertainty and relevant family context.",
+      "aliases": [],
+      "cue": "Identify the structure, quantity or relationship described.",
+      "correctExplanation": "A process helping people understand genetic information, inheritance and possible implications for their choices. Counselling supports informed decisions rather than dictating one choice for every family.",
+      "misconception": {
+        "statement": "Genetic counselling guarantees a particular future phenotype.",
+        "correction": "A process helping people understand genetic information, inheritance and possible implications for their choices. Counselling supports informed decisions rather than dictating one choice for every family."
+      },
+      "reviewRoute": "lesson-14"
+    },
+    {
+      "id": "ch17-concept-informed-consent",
+      "term": "informed consent",
+      "lesson": 14,
+      "meaning": "Agreement based on understanding the purpose, potential benefits, risks and alternatives of a procedure or study.",
+      "example": "A participant considers how a genetic sample and results will be used before agreeing.",
+      "aliases": [],
+      "cue": "Identify the structure, quantity or relationship described.",
+      "correctExplanation": "Agreement based on understanding the purpose, potential benefits, risks and alternatives of a procedure or study. Consent involves more than the physical act of giving a sample.",
+      "misconception": {
+        "statement": "Providing a sample means agreeing to every future use automatically.",
+        "correction": "Agreement based on understanding the purpose, potential benefits, risks and alternatives of a procedure or study. Consent involves more than the physical act of giving a sample."
+      },
+      "reviewRoute": "lesson-14"
+    },
+    {
+      "id": "ch17-concept-genetic-risk",
+      "term": "genetic risk",
+      "lesson": 14,
+      "meaning": "A probability or increased likelihood associated with genetic information in a specified context.",
+      "example": "A variant is associated with increased probability of a condition without making it inevitable.",
+      "aliases": [],
+      "cue": "Identify the structure, quantity or relationship described.",
+      "correctExplanation": "A probability or increased likelihood associated with genetic information in a specified context. Risk is not the same as certainty.",
+      "misconception": {
+        "statement": "A risk-associated allele always causes the condition in every carrier.",
+        "correction": "A probability or increased likelihood associated with genetic information in a specified context. Risk is not the same as certainty."
+      },
+      "reviewRoute": "lesson-14"
+    }
+  ],
+  "authoredPractice": [
+    {
+      "prompt": "A company claims a small marker panel precisely predicts every future disease. What is the main scientific concern?",
+      "answer": "The claim exceeds the scope and predictive evidence of the test",
+      "explanation": "A broad deterministic claim requires far more evidence than a limited panel provides.",
+      "cue": "Trace the normal mechanism before choosing an answer.",
+      "id": "ch17-l14-application-1",
+      "options": [
+        "Privacy is the only issue and evidence does not matter",
+        "The claim exceeds the scope and predictive evidence of the test",
+        "A marker panel can never detect any variant",
+        "Every disease is completely independent of genes"
+      ],
+      "difficulty": "application",
+      "lesson": 14,
+      "chapter": 17,
+      "conceptId": "ch17-concept-genetic-testing",
+      "family": "application",
+      "kind": "mc",
+      "reviewRoute": "lesson-14",
+      "flashVariant": {
+        "id": "ch17-l14-scenario-1",
+        "family": "scenario-explanation",
+        "prompt": "A company claims a small marker panel precisely predicts every future disease. What is the main scientific concern?",
+        "model": "The claim exceeds the scope and predictive evidence of the test. A broad deterministic claim requires far more evidence than a limited panel provides.",
+        "selfAssessed": true
+      }
+    }
+  ],
+  "typedPractice": [
+    {
+      "id": "ch17-l14-context-genetic-testing",
+      "chapter": 17,
+      "lesson": 14,
+      "conceptId": "ch17-concept-genetic-testing",
+      "family": "scenario-retrieval",
+      "kind": "blank",
+      "difficulty": "application",
+      "prompt": "Identify the term illustrated: A test checks for a specified DNA variant.",
+      "answer": "genetic testing",
+      "aliases": [],
+      "cue": "Use the relationship described in the example.",
+      "explanation": "Analysis of genetic material or related markers to investigate particular variants or conditions. A test’s scope determines what a negative or positive result can establish.",
+      "reviewRoute": "lesson-14"
+    },
+    {
+      "id": "ch17-l14-context-genetic-counselling",
+      "chapter": 17,
+      "lesson": 14,
+      "conceptId": "ch17-concept-genetic-counselling",
+      "family": "scenario-retrieval",
+      "kind": "blank",
+      "difficulty": "application",
+      "prompt": "Identify the term illustrated: A professional explains a result, its uncertainty and relevant family context.",
+      "answer": "genetic counselling",
+      "aliases": [],
+      "cue": "Use the relationship described in the example.",
+      "explanation": "A process helping people understand genetic information, inheritance and possible implications for their choices. Counselling supports informed decisions rather than dictating one choice for every family.",
+      "reviewRoute": "lesson-14"
+    },
+    {
+      "id": "ch17-l14-context-informed-consent",
+      "chapter": 17,
+      "lesson": 14,
+      "conceptId": "ch17-concept-informed-consent",
+      "family": "scenario-retrieval",
+      "kind": "blank",
+      "difficulty": "application",
+      "prompt": "Identify the term illustrated: A participant considers how a genetic sample and results will be used before agreeing.",
+      "answer": "informed consent",
+      "aliases": [],
+      "cue": "Use the relationship described in the example.",
+      "explanation": "Agreement based on understanding the purpose, potential benefits, risks and alternatives of a procedure or study. Consent involves more than the physical act of giving a sample.",
+      "reviewRoute": "lesson-14"
+    },
+    {
+      "id": "ch17-l14-context-genetic-risk",
+      "chapter": 17,
+      "lesson": 14,
+      "conceptId": "ch17-concept-genetic-risk",
+      "family": "scenario-retrieval",
+      "kind": "blank",
+      "difficulty": "application",
+      "prompt": "Identify the term illustrated: A variant is associated with increased probability of a condition without making it inevitable.",
+      "answer": "genetic risk",
+      "aliases": [],
+      "cue": "Use the relationship described in the example.",
+      "explanation": "A probability or increased likelihood associated with genetic information in a specified context. Risk is not the same as certainty.",
+      "reviewRoute": "lesson-14"
+    }
+  ],
+  "guidedActivities": [
+    {
+      "chapter": 17,
+      "lesson": 14,
+      "route": "lesson-14",
+      "worked": {
+        "title": "Interpret a limited negative result",
+        "scenario": "A fictional test detects none of three specified variants associated with one condition.",
+        "steps": [
+          "The result establishes that those tested variants were not detected under the test’s conditions.",
+          "It does not rule out every untested variant, every different genetic condition or every environmental cause.",
+          "Interpretation requires the test’s scope and limitations.",
+          "A personal decision should be informed by appropriate counselling rather than a blanket classroom rule."
+        ],
+        "id": "ch17-l14-worked",
+        "label": "Worked example"
+      },
+      "guided": {
+        "id": "ch17-l14-guided",
+        "label": "Practise with support",
+        "title": "Apply the explanation",
+        "instruction": "Try both questions. Use the hint to revise your thinking after an incorrect answer.",
+        "items": [
+          {
+            "prompt": "A variant raises estimated risk. Does that always mean the condition is inevitable?",
+            "answer": "No",
+            "explanation": "Risk is a probability, not necessarily certainty.",
+            "cue": "Separate association or probability from a guaranteed outcome.",
+            "id": "ch17-l14-guided-q1",
+            "options": [
+              "Only if the variant has a short name",
+              "Yes in every person",
+              "No"
+            ],
+            "difficulty": "application",
+            "kind": "select",
+            "hint": "Separate association or probability from a guaranteed outcome."
+          },
+          {
+            "prompt": "What is a central purpose of genetic counselling?",
+            "answer": "Helping people understand evidence and options",
+            "explanation": "Counselling supports informed understanding and choices.",
+            "cue": "Focus on informed agency rather than a prescribed verdict.",
+            "id": "ch17-l14-guided-q2",
+            "options": [
+              "Helping people understand evidence and options",
+              "Making the same decision for every family",
+              "Guaranteeing all offspring are unaffected"
+            ],
+            "difficulty": "application",
+            "kind": "select",
+            "hint": "Focus on informed agency rather than a prescribed verdict."
+          }
+        ]
+      }
+    }
+  ]
+}

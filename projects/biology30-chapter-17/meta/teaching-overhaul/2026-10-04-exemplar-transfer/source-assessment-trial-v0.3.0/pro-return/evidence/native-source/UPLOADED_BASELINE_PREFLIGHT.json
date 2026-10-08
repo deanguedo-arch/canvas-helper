@@ -1,0 +1,328 @@
+{
+  "document": "V030_UPLOADED_INTEGRATED_BASE_SOURCE_PREFLIGHT",
+  "createdUtc": "2026-10-05T00:07:36.769750+00:00",
+  "scope": "Source preflight only. All eight ZIP members read. No authoring, baseline changes, integration or browser/runtime tests. User hash correction resolves the stale-identity discrepancy; no inferred waiver.",
+  "instruction": {
+    "path": "upload/Pasted text(20261005-000036).txt",
+    "bytes": 10577,
+    "sha256": "a77c47f618642565cd0e405d73e9d979e4b437be6136218a0a9821ffdff19bb1"
+  },
+  "archive": {
+    "path": "upload/Codex_CH17_v020_Integrated_Base_for_v030.zip",
+    "bytes": 2321527,
+    "sha256": "ddc02a762cdca9718867c3992850a766a5b0b97e0ce9614ffbf958d74667fc20"
+  },
+  "expectedArchiveSha256": "ddc02a762cdca9718867c3992850a766a5b0b97e0ce9614ffbf958d74667fc20",
+  "archiveHashMatchesInstruction": true,
+  "zipReadability": {
+    "crcFailure": null,
+    "memberCount": 8,
+    "uniqueNames": true
+  },
+  "members": [
+    {
+      "path": "native-v020/index.html",
+      "bytes": 3512184,
+      "compressedBytes": 1965461,
+      "sha256": "bc42ea52d8cf5709c0ec33c914e86450f93971f3e3144cb81b695593aa0eff3b",
+      "crc32": "9bacc441",
+      "compressionMethod": 8,
+      "zipTimestamp": [
+        2026,
+        10,
+        4,
+        16,
+        19,
+        4
+      ]
+    },
+    {
+      "path": "native-v020/styles.css",
+      "bytes": 838743,
+      "compressedBytes": 331147,
+      "sha256": "94fe523654289edd8b0f951dd6782f83dce7d08f5e18a3d903d25576fbfa0ba5",
+      "crc32": "436a38d4",
+      "compressionMethod": 8,
+      "zipTimestamp": [
+        2026,
+        9,
+        17,
+        20,
+        36,
+        20
+      ],
+      "originalSource": {
+        "path": "source-inspection/ch17/native/workspace/styles.css",
+        "bytes": 838743,
+        "sha256": "94fe523654289edd8b0f951dd6782f83dce7d08f5e18a3d903d25576fbfa0ba5"
+      },
+      "matchesOriginalSourceBytes": true
+    },
+    {
+      "path": "native-v020/main.js",
+      "bytes": 54365,
+      "compressedBytes": 16337,
+      "sha256": "45b4b9c7da23646274f59415fa286873fdbdad3a2b8b16b53ccd147c0781f65f",
+      "crc32": "b7fee06f",
+      "compressionMethod": 8,
+      "zipTimestamp": [
+        2026,
+        9,
+        17,
+        20,
+        40,
+        40
+      ],
+      "originalSource": {
+        "path": "source-inspection/ch17/native/workspace/main.js",
+        "bytes": 54365,
+        "sha256": "45b4b9c7da23646274f59415fa286873fdbdad3a2b8b16b53ccd147c0781f65f"
+      },
+      "matchesOriginalSourceBytes": true
+    },
+    {
+      "path": "native-v020/assets/figures/ch17-two-trait.svg",
+      "bytes": 5623,
+      "compressedBytes": 1085,
+      "sha256": "6fdb301a963b4da131f8fe50624611fc0ff091c62e0ac99d6602019c2830c316",
+      "crc32": "a44d5158",
+      "compressionMethod": 8,
+      "zipTimestamp": [
+        2026,
+        9,
+        17,
+        20,
+        36,
+        20
+      ],
+      "originalSource": {
+        "path": "source-inspection/ch17/native/workspace/assets/figures/ch17-two-trait.svg",
+        "bytes": 5623,
+        "sha256": "6fdb301a963b4da131f8fe50624611fc0ff091c62e0ac99d6602019c2830c316"
+      },
+      "matchesOriginalSourceBytes": true
+    },
+    {
+      "path": "native-v020/assets/revision-activities.js",
+      "bytes": 6138,
+      "compressedBytes": 2372,
+      "sha256": "957583a09be13e3b0bb888928d49ed87605b154f14eeaacbea3ea569e27b60c8",
+      "crc32": "97361f84",
+      "compressionMethod": 8,
+      "zipTimestamp": [
+        2026,
+        9,
+        17,
+        20,
+        36,
+        20
+      ],
+      "originalSource": {
+        "path": "source-inspection/ch17/native/workspace/assets/revision-activities.js",
+        "bytes": 6138,
+        "sha256": "957583a09be13e3b0bb888928d49ed87605b154f14eeaacbea3ea569e27b60c8"
+      },
+      "matchesOriginalSourceBytes": true
+    },
+    {
+      "path": "native-v020/assets/revision-practice.js",
+      "bytes": 5721,
+      "compressedBytes": 2073,
+      "sha256": "005510731183f233e044d9f55db2e4537be73aec1bdc790263bb7861b5e589ea",
+      "crc32": "d140aa8f",
+      "compressionMethod": 8,
+      "zipTimestamp": [
+        2026,
+        9,
+        17,
+        20,
+        36,
+        20
+      ],
+      "originalSource": {
+        "path": "source-inspection/ch17/native/workspace/assets/revision-practice.js",
+        "bytes": 5721,
+        "sha256": "005510731183f233e044d9f55db2e4537be73aec1bdc790263bb7861b5e589ea"
+      },
+      "matchesOriginalSourceBytes": true
+    },
+    {
+      "path": "BASELINE_CHECKS.json",
+      "bytes": 5775,
+      "compressedBytes": 1598,
+      "sha256": "a16160bd193a665e707a9c807edcffb7600e56603e3f68e678685c7c799a1bcc",
+      "crc32": "ae6d2cb4",
+      "compressionMethod": 8,
+      "zipTimestamp": [
+        2026,
+        10,
+        4,
+        17,
+        55,
+        8
+      ]
+    },
+    {
+      "path": "V020_SAMPLE_IDENTITY.json",
+      "bytes": 530,
+      "compressedBytes": 358,
+      "sha256": "ac9e7d992b0f12b113fd289f696d4e6ba6eea7e4b8f3f4367f2a0521fb2740af",
+      "crc32": "6a334285",
+      "compressionMethod": 8,
+      "zipTimestamp": [
+        2026,
+        10,
+        4,
+        16,
+        25,
+        28
+      ]
+    }
+  ],
+  "integratedOwner": {
+    "member": "native-v020/index.html",
+    "bytes": 3512184,
+    "sha256": "bc42ea52d8cf5709c0ec33c914e86450f93971f3e3144cb81b695593aa0eff3b",
+    "expectedSha256": "bc42ea52d8cf5709c0ec33c914e86450f93971f3e3144cb81b695593aa0eff3b",
+    "matchesExplicitUserOwnerHash": true
+  },
+  "originalEvidenceOwner": {
+    "path": "source-inspection/ch17/native/workspace/index.html",
+    "bytes": 3471105,
+    "sha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868"
+  },
+  "internalChecks": {
+    "baselineChecksExactlyEqualSelectedEmbeddedChecks": true,
+    "completeEmbeddedChecksBankUnchangedFromOriginal": true,
+    "selectedCheckIds": [
+      "ch17-check-02",
+      "ch17-check-05"
+    ],
+    "selectedRequiredItemCount": 8,
+    "changedConfigKeys": [
+      "notes"
+    ]
+  },
+  "bytewisePayloadReconstruction": {
+    "description": "Original native index plus exactly the two delivered v0.2.0 teaching fragments and the actual four-title notes append reproduces every byte of the uploaded index. All bytes outside these three original-owner changes are identical to original source.",
+    "matchesUploadedIndex": true,
+    "reconstructedBytes": 3512184,
+    "reconstructedSha256": "bc42ea52d8cf5709c0ec33c914e86450f93971f3e3144cb81b695593aa0eff3b",
+    "teaching": [
+      {
+        "route": "lesson-02",
+        "returnedFragment": {
+          "path": "output/Biology30_CH17_Source_Teaching_Trial_v0.2.0/integration-text/lesson-02.teaching-fragment.html.txt",
+          "bytes": 18591,
+          "sha256": "a843cc369e041e244a5cc775907979d36b906b78b2fc3b39ed26a0757d395c00"
+        },
+        "originalRange": {
+          "startByte": 106355,
+          "endByteExclusive": 110898,
+          "byteLength": 4543,
+          "sha256": "b4e64d090435f0dd8af71ce21e3d1621f11d0370b1f086b60c0b5e2df8aa5c8c",
+          "startAnchor": "<div class=\"content-section\" data-canvas-edit-key=\"ch17-l02-teaching-01\" data-canvas-helper-edit-key=\"ch17-l02-teaching-01\" id=\"ch17-l02-teaching-01\"><h2>Follow the alleles across ",
+          "endAnchor": "notype.</li><li>F1 parents can each contribute d in a gamete.</li><li>An F2 dd offspring expresses pale, explaining reappearance without blending or a new mutation.</li></ol></div>"
+        },
+        "exactFragmentFoundInUploadedIndex": true,
+        "uploadedStartByte": 106355,
+        "uploadedEndByteExclusive": 124946
+      },
+      {
+        "route": "lesson-05",
+        "returnedFragment": {
+          "path": "output/Biology30_CH17_Source_Teaching_Trial_v0.2.0/integration-text/lesson-05.teaching-fragment.html.txt",
+          "bytes": 31651,
+          "sha256": "4439240ef48d2b38d50bf3e624769c03e9a79a9641d7fd25386d0d5ec4799cb8"
+        },
+        "originalRange": {
+          "startByte": 169200,
+          "endByteExclusive": 174246,
+          "byteLength": 5046,
+          "sha256": "5faeb54cab22d793d22839d25271ee3eba6f63b07057fbf17683e7197e473f46",
+          "startAnchor": "<div class=\"content-section\" data-canvas-edit-key=\"ch17-l05-teaching-01\" data-canvas-helper-edit-key=\"ch17-l05-teaching-01\" id=\"ch17-l05-teaching-01\"><h2>Find possible gametes befo",
+          "endAnchor": "are required, so multiply: 1/2 × 1/4 = 1/8.</li><li>For 80 offspring the expected count is 80 × 1/8 = 10.</li><li>The result relies on independence of the two loci.</li></ol></div>"
+        },
+        "exactFragmentFoundInUploadedIndex": true,
+        "uploadedStartByte": 183248,
+        "uploadedEndByteExclusive": 214899
+      }
+    ],
+    "noteAppend": {
+      "originalArrayRange": {
+        "startByte": 3239743,
+        "endByteExclusive": 3240263,
+        "bytes": 520,
+        "sha256": "88d093c985c3a370d5011f0acbf56ce39576c3645fa28bf59fcf614a12bd9402",
+        "exactText": "[{\"id\": \"ch17-source-written-OBJ_2131244\", \"title\": \"Additional written application 1\"}, {\"id\": \"ch17-source-written-OBJ_2131247\", \"title\": \"Additional written application 2\"}, {\"id\": \"ch17-source-written-OBJ_2131248\", \"title\": \"Additional written application 3\"}, {\"id\": \"ch17-source-written-OBJ_2131251\", \"title\": \"Additional written application 4\"}, {\"id\": \"ch17-source-written-OBJ_2131252\", \"title\": \"Additional written application 5\"}, {\"id\": \"ch17-optional-extension\", \"title\": \"Biobanks and genetic information\"}]"
+      },
+      "uploadedArrayStartByte": 3280396,
+      "uploadedInsertionStartByte": 3280915,
+      "uploadedInsertionEndByteExclusive": 3281341,
+      "bytes": 426,
+      "sha256": "176297c698b3ca4c1fbdd7e0753bd3562ac17033246464e3cb9e390ef2edde03",
+      "exactText": ",{\"id\":\"ch17-kinch-v020-l02-arrow-response\",\"title\":\"Repair the two process labels\"},{\"id\":\"ch17-kinch-v020-l02-cross-response\",\"title\":\"Does reversing the parents reverse the result?\"},{\"id\":\"ch17-kinch-v020-l05-change-response\",\"title\":\"Change one parent and keep only the reasoning that still applies\"},{\"id\":\"ch17-kinch-v020-l05-evidence-response\",\"title\":\"Decide what the new offspring settles—and what it leaves open\"}",
+      "originalSixEntriesAndBytesPreserved": true,
+      "titleDeltasFromReturnedProposal": [
+        {
+          "id": "ch17-kinch-v020-l02-arrow-response",
+          "returnedProposalTitle": "Lesson 02 — Repair the two process labels",
+          "uploadedIntegratedTitle": "Repair the two process labels"
+        },
+        {
+          "id": "ch17-kinch-v020-l02-cross-response",
+          "returnedProposalTitle": "Lesson 02 — Does reversing the parents reverse the result?",
+          "uploadedIntegratedTitle": "Does reversing the parents reverse the result?"
+        },
+        {
+          "id": "ch17-kinch-v020-l05-change-response",
+          "returnedProposalTitle": "Lesson 05 — Change one parent and keep only the reasoning that still applies",
+          "uploadedIntegratedTitle": "Change one parent and keep only the reasoning that still applies"
+        },
+        {
+          "id": "ch17-kinch-v020-l05-evidence-response",
+          "returnedProposalTitle": "Lesson 05 — Decide what the new offspring settles—and what it leaves open",
+          "uploadedIntegratedTitle": "Decide what the new offspring settles—and what it leaves open"
+        }
+      ],
+      "formatDifference": "Uploaded addition uses compact JSON and omits the Lesson02/05 prefix from the four display titles. This is part of the expected bc42… baseline, not evidence of a mismatch against that expected owner."
+    }
+  },
+  "identityRecord": {
+    "actual": {
+      "version": "Biology30_CH17_Source_Teaching_Trial_v0.2.0_native_integration_v0.2.0",
+      "binding": "d8ff0e1a27fa767cee1591346527756a01b019884706893ceb6130933a744ddf",
+      "supersededBinding": "9d254509185408d84258f9393065eae89ff910e06811e5e2411a5b2e7d4bf954",
+      "candidateSha256": "bc42ea52d8cf5709c0ec33c914e86450f93971f3e3144cb81b695593aa0eff3b",
+      "preview": "http://127.0.0.1:57190/",
+      "teacherDecision": "pending",
+      "instructionalUnresolved": [
+        "SRC-BOUND-01",
+        "SRC-BOUND-02"
+      ],
+      "canonicalFilesUnchanged": 147
+    },
+    "candidateSha256IndependentlyVerified": true,
+    "versionLabel": "Descriptive label only; content identity is anchored by the independently verified index SHA256.",
+    "binding": "Opaque binding and supersededBinding values have no supplied binding manifests in this eight-member packet; they were not independently verified.",
+    "canonicalFilesUnchanged": "The record claims147 canonical files unchanged. This eight-member packet does not independently establish that147-file claim.",
+    "preview": "Recorded localhost URL was not accessed.",
+    "teacherDecision": "Record says pending; no approval inferred."
+  },
+  "conclusion": {
+    "nativePayloadIdentity": "INTACT at explicitly expected index hash. All five native companion files match original bytes. All selected checks match actual embedded bank; entire index independently reconstructed.",
+    "archiveIdentity": "PASS: actual ZIP SHA256 equals the corrected expected value.",
+    "historicalMismatchCause": "Not inferred. User corrected the expected hash, so no container-only claim or waiver is needed.",
+    "detectedSubstantiveNativePayloadDiscrepancy": false,
+    "gateDisposition": "RESOLVED/PASS for this uploaded baseline after explicit user correction. Broader source readiness is separate."
+  },
+  "sourceAndPriorReturnsModified": false,
+  "authoringPerformed": false,
+  "browserOrRuntimeTests": "not run",
+  "userHashCorrection": {
+    "correctedExpectedSha256": "ddc02a762cdca9718867c3992850a766a5b0b97e0ce9614ffbf958d74667fc20",
+    "supersededExpectedSha256": "d6b089c69983a2c497c3a7f5f233c411b0e62c45dcf619204a4cf5552f5be433",
+    "evidence": "User explicitly corrected expected hash in conversation on2026-10-05, relayed by root. Uploaded instruction text retains superseded value.",
+    "resolution": "RESOLVED by corrected user instruction; retained initial-before-user-hash-correction reports are historical."
+  }
+}

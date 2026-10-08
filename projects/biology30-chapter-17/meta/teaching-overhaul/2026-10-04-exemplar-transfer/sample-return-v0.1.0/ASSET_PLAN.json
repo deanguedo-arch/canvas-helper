@@ -1,0 +1,70 @@
+{
+  "version": "0.1.0",
+  "nativeSourceSha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868",
+  "existingAssets": [
+    {
+      "path": "./assets/figures/ch17-two-trait.svg",
+      "bytes": 5623,
+      "sha256": "6fdb301a963b4da131f8fe50624611fc0ff091c62e0ac99d6602019c2830c316",
+      "readingCopyPath": "review-assets/assets/figures/ch17-two-trait.svg",
+      "unchanged": true,
+      "status": "approved",
+      "statusScope": "Existing source asset approved for preservation under the supplied native contract; this does not approve the new calibration teaching.",
+      "route": "lesson-05",
+      "purpose": "Follow one allele choice at each locus through the original independent-assortment branch diagram.",
+      "visualReadingBoundary": "The teaching SVG uses left/right first branches. Keep that reading direction distinct from the labeling PNG.",
+      "fragmentUse": "Exact original figure markup remains in the lesson05 teaching fragment.",
+      "teacherAcceptance": "pending",
+      "imageRevisionApplied": false
+    },
+    {
+      "path": "./assets/labeling/ch17-two-trait-label.png",
+      "bytes": 852180,
+      "sha256": "bc5115f43f636f2e35e1a9df5bcc303272ac464a4e7cb4cb27ed9538ea18c27a",
+      "readingCopyPath": "review-assets/assets/labeling/ch17-two-trait-label.png",
+      "unchanged": true,
+      "status": "approved",
+      "statusScope": "Existing source asset approved for preservation under the supplied native contract; this does not approve the new calibration teaching.",
+      "route": "lesson-05",
+      "purpose": "Preserve the original optional labeling task and A–D answer contract in the separate source appendix.",
+      "visualReadingBoundary": "The labeling PNG uses upper/lower first branches. Its A–D location marks are not allele symbols.",
+      "fragmentUse": "Protected optional source appendix only; native labeling task stays untouched.",
+      "teacherAcceptance": "pending",
+      "imageRevisionApplied": false
+    }
+  ],
+  "inlineTeachingVisuals": [
+    {
+      "route": "lesson-02",
+      "fragment": "integration-text/lesson-02.teaching-fragment.html.txt",
+      "tableIndexInFragment": 1,
+      "caption": "One locus through chromosome copying and the two meiotic divisions",
+      "purpose": "Follow each allele copy through chromosome copying and the two divisions.",
+      "disposition": "Complete root-authored semantic teaching table; teacher review pending.",
+      "newExternalAssetNeeded": false,
+      "nativeClassConvention": "div.comparison-table > table",
+      "nativeCssProposal": null
+    },
+    {
+      "route": "lesson-05",
+      "fragment": "integration-text/lesson-05.teaching-fragment.html.txt",
+      "tableIndexInFragment": 1,
+      "caption": "Offspring from HhSS × hhSs; rows and columns are gametes",
+      "purpose": "Read each row/column gamete pairing as fertilisation and distinguish offspring genotype from its phenotype group.",
+      "disposition": "Complete root-authored semantic teaching table; teacher review pending.",
+      "newExternalAssetNeeded": false,
+      "nativeClassConvention": "div.comparison-table > table",
+      "nativeCssProposal": null
+    }
+  ],
+  "needsRevisionAssets": [],
+  "newNeededExternalAssets": [],
+  "nativeStylesProposed": [],
+  "readingTypography": {
+    "isolated": true,
+    "nativeCssIncluded": false,
+    "chapter11ClassesOrRuntimeTransplanted": false,
+    "styleSha256": "4b279d663f33f609c9350f12af3ba28324448e7b90b6373a404947a320a5a521"
+  },
+  "scope": "Asset paths/byte preservation and explicit visual purpose only. New teaching and reader layout have not received teacher approval or browser rendering verification."
+}

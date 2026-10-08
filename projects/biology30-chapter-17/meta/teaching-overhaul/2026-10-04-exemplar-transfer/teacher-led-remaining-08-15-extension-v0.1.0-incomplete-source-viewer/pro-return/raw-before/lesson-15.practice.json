@@ -1,0 +1,183 @@
+{
+  "checks": [
+    {
+      "id": "ch17-check-15",
+      "route": "lesson-15",
+      "title": "Chapter review and final check",
+      "mc": [
+        {
+          "prompt": "For complete-dominance Aa × aa, which genotype distribution is expected?",
+          "answer": "1 Aa : 1 aa",
+          "explanation": "The heterozygote contributes A or a and the tester only a.",
+          "cue": "Trace the normal mechanism before choosing an answer.",
+          "id": "ch17-final-mc-1",
+          "options": [
+            "1 Aa : 1 aa",
+            "3 AA : 1 aa",
+            "1 AA : 2 Aa : 1 aa",
+            "All Aa"
+          ],
+          "difficulty": "application"
+        },
+        {
+          "prompt": "For independent AaBb × AaBb, what is P(aabb)?",
+          "answer": "1/16",
+          "explanation": "Multiply P(aa) = 1/4 and P(bb) = 1/4.",
+          "cue": "Trace the normal mechanism before choosing an answer.",
+          "id": "ch17-final-mc-2",
+          "options": [
+            "1/4",
+            "1/16",
+            "3/16",
+            "9/16"
+          ],
+          "difficulty": "application"
+        },
+        {
+          "prompt": "Which ABO cross can produce all four standard blood groups?",
+          "answer": "IAi × IBi",
+          "explanation": "The four equal combinations are IAIB, IAi, IBi and ii.",
+          "cue": "Trace the normal mechanism before choosing an answer.",
+          "id": "ch17-final-mc-3",
+          "options": [
+            "IAIB × ii",
+            "ii × ii",
+            "IAi × IBi",
+            "IAIA × ii"
+          ],
+          "difficulty": "application"
+        },
+        {
+          "prompt": "For carrier XAXa × unaffected XAY in a recessive model, what fraction of sons is affected?",
+          "answer": "1/2",
+          "explanation": "Among the two son combinations, one is XaY.",
+          "cue": "Trace the normal mechanism before choosing an answer.",
+          "id": "ch17-final-mc-4",
+          "options": [
+            "1",
+            "1/4",
+            "0",
+            "1/2"
+          ],
+          "difficulty": "application"
+        },
+        {
+          "prompt": "An AB/ab test cross produces 36 AB, 34 ab, 15 Ab and 15 aB offspring contributions. What is recombination frequency?",
+          "answer": "30%",
+          "explanation": "Recombinants total 30 of 100.",
+          "cue": "Trace the normal mechanism before choosing an answer.",
+          "id": "ch17-final-mc-5",
+          "options": [
+            "30%",
+            "15%",
+            "70%",
+            "42.9%"
+          ],
+          "difficulty": "application"
+        },
+        {
+          "prompt": "Which conclusion is appropriate when a small pedigree fits two inheritance models?",
+          "answer": "More evidence is needed to distinguish them",
+          "explanation": "Compatibility with limited observations is not unique proof.",
+          "cue": "Trace the normal mechanism before choosing an answer.",
+          "id": "ch17-final-mc-6",
+          "options": [
+            "Both models are biologically identical",
+            "More evidence is needed to distinguish them",
+            "The pedigree contains no useful information",
+            "One must be chosen as proven from a single clue"
+          ],
+          "difficulty": "application"
+        }
+      ],
+      "writing": [
+        {
+          "prompt": "Describe a method for solving an unfamiliar inheritance problem from phenotype information to a justified probability.",
+          "model": "Define alleles and the inheritance model. Infer parental genotypes using phenotype and family evidence, preserving unresolved alternatives. List gametes, combine them by an appropriate square or independent product rule, identify the requested subgroup and calculate with the correct denominator. Interpret the result as an expectation and state assumptions.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ],
+          "id": "ch17-final-writing-1",
+          "limit": 3200
+        },
+        {
+          "prompt": "Explain how linkage can change a two-trait test-cross prediction and how the result can be used for a map estimate.",
+          "model": "Under independence a heterozygote test cross can yield four equal classes. Linked loci can produce more parental than recombinant combinations. Identify phase, sum both recombinant classes, divide by all scored offspring and multiply by 100%. For short intervals this approximates map distance, with limitations from multiple crossovers and sampling.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ],
+          "id": "ch17-final-writing-2",
+          "limit": 3200
+        }
+      ]
+    }
+  ],
+  "transferChecks": [
+    {
+      "id": "ch17-transfer-01",
+      "chapter": 17,
+      "route": "lesson-15",
+      "title": "Try a new case",
+      "instruction": "Try the whole set before viewing feedback. Record whether you used help. This optional formative check does not add to required progress.",
+      "mc": [
+        {
+          "prompt": "A dominant-phenotype organism with an aa parent is crossed with aa. What is the expected recessive fraction?",
+          "answer": "1/2",
+          "explanation": "The organism must be Aa because its aa parent supplied a; Aa × aa gives 1/2 aa.",
+          "cue": "Trace the normal mechanism before choosing an answer.",
+          "id": "ch17-transfer-mc-1",
+          "options": [
+            "1/2",
+            "1/4",
+            "1",
+            "0"
+          ],
+          "difficulty": "application"
+        },
+        {
+          "prompt": "For XbXb × XBY in a recessive model, what is the probability that the next child is both a son and affected?",
+          "answer": "1/2",
+          "explanation": "All sons are affected, and sons account for half of all offspring combinations in the model.",
+          "cue": "Trace the normal mechanism before choosing an answer.",
+          "id": "ch17-transfer-mc-2",
+          "options": [
+            "0",
+            "1/2",
+            "1",
+            "1/4"
+          ],
+          "difficulty": "application"
+        },
+        {
+          "prompt": "A linkage test gives parental counts 180 and 170 and recombinant counts 25 and 25. What is the short-interval estimate?",
+          "answer": "12.5 cM",
+          "explanation": "Recombinants = 50, total = 400; 50/400 × 100 = 12.5%.",
+          "cue": "Trace the normal mechanism before choosing an answer.",
+          "id": "ch17-transfer-mc-3",
+          "options": [
+            "6.25 cM",
+            "14.3 cM",
+            "12.5 cM",
+            "50 cM"
+          ],
+          "difficulty": "application"
+        }
+      ],
+      "writing": {
+        "prompt": "Two unaffected parents have an affected child in a stated fully penetrant autosomal recessive model. Explain the parents’ genotypes and the probability an unaffected sibling is a carrier.",
+        "model": "Both parents must be Aa because each supplied a while remaining unaffected. Aa × Aa gives AA, Aa, aA and aa. Conditional on being unaffected, aa is excluded, leaving three possibilities, two of which are carriers. The probability is 2/3 under the model.",
+        "criteria": [
+          "Identifies the relevant structures or quantities.",
+          "Explains the causal relationship or calculation, not just the final result.",
+          "Uses the stated evidence and avoids a stronger conclusion than it supports."
+        ],
+        "id": "ch17-transfer-writing",
+        "limit": 3200
+      }
+    }
+  ]
+}

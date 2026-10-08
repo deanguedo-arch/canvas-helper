@@ -1,0 +1,63 @@
+{
+  "version": "0.3.0",
+  "checkedUtc": "2026-10-05T00:49:48.174662+00:00",
+  "scope": "Root final artifact integrity and source-to-reading consistency check; not a native browser/runtime test.",
+  "priorPreservation": {
+    "scope": "Every pre-existing return file frozen before v0.3.0 authoring; complete current source owner and integrated archive unchanged.",
+    "fileCount": 2349,
+    "allPriorFilesByteExact": true,
+    "frozenInventorySha256": "9f5075af4d854fc31ef5113a4574a0ba6ee797e39fc9b89bb714f0efa8032241",
+    "criticalPriorFiles": [
+      {
+        "path": "output/Biology30_CH17_Exemplar_Transfer_Calibration_v0.1.0.zip",
+        "bytes": 2463309,
+        "sha256": "940b902ea76d7ea068fe21cf3ba856cced571a89f012c3f9e97a89725956f068"
+      },
+      {
+        "path": "output/Biology30_CH17_Manuscript_Handoff_v1.0.0.zip",
+        "bytes": 3312061,
+        "sha256": "9ec8ac9208c131d0dbd1586e0b99ab532ab1293fae42f9478bc8669d94c270b9"
+      },
+      {
+        "path": "output/Biology30_CH17_Source_Teaching_Trial_v0.2.0.zip",
+        "bytes": 2786513,
+        "sha256": "911239761be8af6796b3bfd8e87b22c4e00c9954b4304d38fe3016621c21de5b"
+      }
+    ],
+    "integratedOwnerSha256": "bc42ea52d8cf5709c0ec33c914e86450f93971f3e3144cb81b695593aa0eff3b",
+    "integratedArchiveSha256": "ddc02a762cdca9718867c3992850a766a5b0b97e0ce9614ffbf958d74667fc20"
+  },
+  "contentEdits": 10,
+  "rawBeforeFiles": 129,
+  "completeTeachingFiles": 2,
+  "assessmentRepresentations": {
+    "html": 4,
+    "jsonItems": 4
+  },
+  "allEightDisplayedPromptsAndOrderedOptionsMatchAuthoritativeUtf8": true,
+  "checkedItemIds": [
+    "ch17-l02-check-mc-1",
+    "ch17-l02-check-mc-2",
+    "ch17-l02-check-writing-1",
+    "ch17-l02-check-writing-2",
+    "ch17-l05-check-mc-1",
+    "ch17-l05-check-mc-2",
+    "ch17-l05-check-writing-1",
+    "ch17-l05-check-writing-2"
+  ],
+  "previewEncodingFinding": "resolved; native payloads never changed for repair",
+  "teacherHtml": {
+    "path": "Biology30_CH17_Source_Assessment_Trial_Teacher_Review_v0.3.0.html",
+    "bytes": 81677,
+    "sha256": "84f678c04b9237fb8d1b0d78b265889aadf657f79c3615e4c5959668af59a3bb"
+  },
+  "isolatedReviewStylesheet": {
+    "path": "review-assets/teacher-review-only.css",
+    "bytes": 2185,
+    "sha256": "0099523bf5c34de1dc52977a71f02c4f0c417fa4cd54a8550e51e071a8d69a9a"
+  },
+  "nativeIntegrationPerformed": false,
+  "nativeRuntimeBrowserTests": "not run",
+  "externalSpecialistReview": "not performed",
+  "deanExactSampleAcceptance": "pending"
+}

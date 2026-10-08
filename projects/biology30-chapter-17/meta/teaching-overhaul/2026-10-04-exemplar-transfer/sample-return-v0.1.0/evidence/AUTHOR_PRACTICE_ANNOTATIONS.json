@@ -1,0 +1,96 @@
+{
+  "version": "Biology30_CH17_Exemplar_Transfer_Calibration_v0.1.0",
+  "count_basis": "Each practice is retained for the stated distinct inference; no number-of-practices requirement or word target was used.",
+  "items": [
+    {
+      "id": "ch17-cal-v010-l02-repair",
+      "route": "lesson-02",
+      "title": "Repair the drawing at the point where it goes wrong",
+      "kind": "guided representation repair",
+      "uniqueContribution": "Locate the first incorrect biological movement, then repair the intermediate representation instead of relabelling only its outputs.",
+      "prerequisites": [
+        "native lesson01 ch17-l01-teaching-01 and-02: allele pairs/genotype",
+        "calibration lesson02 ch17-l02-teaching-02: homologues versus copied sister chromatids",
+        "calibration lesson02 ch17-l02-worked: visible four-stage chromosome trace with no segment exchange"
+      ],
+      "exemplarPassages": [
+        "CH11 lesson02 Explain a diagram error",
+        "CH11 lesson06 Follow release, diffusion, binding, and clearance"
+      ],
+      "requiredAnswerSeparation": "Does not reproduce the complete protected F1/F2 written prompt or the six/four-offspring questions. General one-allele transmission is necessarily shared with the native guided/required concept.",
+      "optional": true,
+      "saved": false,
+      "graded": false,
+      "progressContribution": 0,
+      "responseMode": "paper/oral/thought; no new response field or save control"
+    },
+    {
+      "id": "ch17-cal-v010-l02-records",
+      "route": "lesson-02",
+      "title": "Would more offspring repair either problem?",
+      "kind": "independent evidence/model comparison",
+      "uniqueContribution": "Distinguish missing parentage evidence from incorrect gamete-to-zygote allele accounting, and judge the limits of the same proposed larger-sample repair.",
+      "prerequisites": [
+        "calibration lesson02 ch17-l02-teaching-01: known pollen source/controlled parentage",
+        "calibration lesson02 ch17-l02-teaching-03: fertilisation restores a pair and expected proportions differ from counts"
+      ],
+      "exemplarPassages": [
+        "CH11 lesson02 Compare two different failures",
+        "CH11 lesson01 A cold hand gives us a starting point"
+      ],
+      "requiredAnswerSeparation": "Uses two constructed records and identified M/m gametes, not the exact required F1/F2 response or a renamed six/four-offspring sample. No numerical run probability is invented for the native under-specified partner.",
+      "optional": true,
+      "saved": false,
+      "graded": false,
+      "progressContribution": 0,
+      "responseMode": "paper/oral/thought; no new response field or save control"
+    },
+    {
+      "id": "ch17-cal-v010-l05-change-parent",
+      "route": "lesson-05",
+      "title": "Change one contribution and keep track of what stays",
+      "kind": "guided changed-condition comparison",
+      "uniqueContribution": "Replace HhSS with Hhss, retain the unchanged H-locus prediction, then explain why S phenotype segregation changes the number of phenotype groups.",
+      "prerequisites": [
+        "native lesson03 ch17-l03-teaching-01: edges are gametes",
+        "native lesson03 ch17-l03-teaching-02: genotype/phenotype grouping",
+        "calibration lesson05 ch17-l05-teaching-01 and-02: one allele per locus, product versus addition",
+        "calibration lesson05 ch17-l05-worked: complete HhSS × hhSs model with hooked pods/speckled petals"
+      ],
+      "exemplarPassages": [
+        "CH11 lesson06 Worked model: include inhibition in the calculation",
+        "CH11 lesson02 Use structure to explain function"
+      ],
+      "requiredAnswerSeparation": "Hhss × hhSs is a different parental structure from the protected RrTt/rrTt and AaBb tasks; no 4×2 cross, A_bb=1/8, or aaB_=3/16 target is solved here. Its ordinary 1:1:1:1 structure is also present in supplied examples and is acknowledged as guided method variation, not the claimed independent transfer.",
+      "optional": true,
+      "saved": false,
+      "graded": false,
+      "progressContribution": 0,
+      "responseMode": "paper/oral/thought; no new response field or save control"
+    },
+    {
+      "id": "ch17-cal-v010-l05-joint-model",
+      "route": "lesson-05",
+      "title": "Are separate halves enough?",
+      "kind": "independent model-assumption analysis",
+      "uniqueContribution": "Regroup exact joint probabilities to verify one-half single-locus totals, then show that matching marginals do not establish independence; limit the result to a stipulated simulator.",
+      "prerequisites": [
+        "native lesson03 ch17-l03-teaching-02: collect probabilities of different genotypes",
+        "calibration lesson05 ch17-l05-teaching-02: joint event, multiplication and mutually exclusive addition",
+        "calibration lesson05 ch17-l05-worked: collect mutually exclusive cells and check a full distribution",
+        "calibration lesson05 ch17-l05-teaching-03 visible paragraphs before task: recover allele totals, compare product and joint probability, distinguish exact model from finite sample"
+      ],
+      "exemplarPassages": [
+        "CH11 lesson06 Worked model: include inhibition in the calculation",
+        "CH11 lesson06 Worked example: an impulse arrives but no message is released",
+        "CH11 lesson02 Compare two different failures"
+      ],
+      "requiredAnswerSeparation": "Uses a constructed .35/.15/.15/.35 gamete distribution and an assumption-testing inference, not a required cross calculation. Does not require subgroup renormalisation, assign linkage phase, or compute a map.",
+      "optional": true,
+      "saved": false,
+      "graded": false,
+      "progressContribution": 0,
+      "responseMode": "paper/oral/thought; no new response field or save control"
+    }
+  ]
+}

@@ -1,0 +1,301 @@
+{
+  "status": "PASS",
+  "checkedAtUtc": "2026-10-04T14:54:37.398712+00:00",
+  "scope": "Source gate, complete bounded draft source/science review, source-map coverage and prior-artifact preservation only. No runtime/integration/teacher-approval claim.",
+  "sourceGate": "CURRENT_SOURCE_GATE.json",
+  "inputPins": [
+    {
+      "path": "calibration-v0.1.0/authoring/lesson-02.teaching.html.in",
+      "bytes": 16834,
+      "sha256": "104526dfdc81d8e6aac1f56f826ea3c04ef28fe73b4c1f6d006ff5ae838808c0"
+    },
+    {
+      "path": "calibration-v0.1.0/authoring/lesson-05.teaching.html.in",
+      "bytes": 20220,
+      "sha256": "920c21c4c658fdda5d7fc1416978c8e5a1d62adf7d221ef2fd70fa5ffc61d651"
+    }
+  ],
+  "coverage": [
+    {
+      "route": "lesson-02",
+      "topLevelBlocks": 4,
+      "allTopLevelBlocksMapped": true,
+      "nonWhitespaceInputBytesCoveredExactly": true,
+      "paragraphsRead": 34,
+      "detailsRead": 4,
+      "tablesRead": 1
+    },
+    {
+      "route": "lesson-05",
+      "topLevelBlocks": 4,
+      "allTopLevelBlocksMapped": true,
+      "nonWhitespaceInputBytesCoveredExactly": true,
+      "paragraphsRead": 46,
+      "detailsRead": 4,
+      "tablesRead": 1
+    }
+  ],
+  "componentRecords": 12,
+  "qualifiedOriginalIssues": 18,
+  "priorFinalV100FilesUnchanged": 410,
+  "nativeSourceSha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868",
+  "writtenFiles": [
+    {
+      "path": "BOUNDED_DRAFT_SOURCE_REVIEW.json",
+      "bytes": 5370,
+      "sha256": "cd8c6b0209ce1ab3e40e83cdc67fb912af59c7ca395ca40f0be9d8aadafc3813"
+    },
+    {
+      "path": "BOUNDED_DRAFT_SOURCE_REVIEW.md",
+      "bytes": 4351,
+      "sha256": "69e65d5c71c397e672d24beacd4b8933df201d5a544a0fd6a8abb46a892c4b6a"
+    },
+    {
+      "path": "CURRENT_ARCHIVE_PROTECTED_EXTRA_MEMBERS.json",
+      "bytes": 8518,
+      "sha256": "e4547c7e6898aecbc812428a394ba9abee41482d1852ff2ef06e1cae1808b701"
+    },
+    {
+      "path": "CURRENT_ARCHIVE_VERIFICATION.json",
+      "bytes": 17864,
+      "sha256": "16c796c0f65415e9e2fb93e32c344e6aaa709ca93b7562a774f2ee22d16a8f0f"
+    },
+    {
+      "path": "CURRENT_INCLUDED_CATEGORIES.json",
+      "bytes": 48803,
+      "sha256": "367b75bf2ea70443dcea07716a4d1cf2a4249361ab0fe43de89024f09650638c"
+    },
+    {
+      "path": "CURRENT_MEMBER_VERIFICATION.json",
+      "bytes": 191646,
+      "sha256": "538d80c714ca8f21d6fcb0e191fa2fbdd7994ce86e9fe7519c262841398f9c86"
+    },
+    {
+      "path": "CURRENT_ORIGINAL_QTI_TARGETS.json",
+      "bytes": 8529,
+      "sha256": "f63cb170a73d2f96e71eb8616feea0f6c02de981f81f1b8e635c5e26c82afcde"
+    },
+    {
+      "path": "CURRENT_SOURCE_GATE.json",
+      "bytes": 3441,
+      "sha256": "5221d8ad6c17bd63ee8716502f38e6f72922777693cea892a860af3ba52f39dd"
+    },
+    {
+      "path": "CURRENT_SOURCE_GATE.md",
+      "bytes": 2792,
+      "sha256": "402360e358e0fae1c053e580cb5d96b0d2a118f1b58abf64eb109d1259dee153"
+    },
+    {
+      "path": "CURRENT_SOURCE_READ_SCOPE.json",
+      "bytes": 6271,
+      "sha256": "a38bdce714d3545acddeb4095129a5be20c27d359697c030fd569e115a22d4fa"
+    },
+    {
+      "path": "CURRENT_TARGET_NATIVE_CONTEXT.json",
+      "bytes": 32478,
+      "sha256": "31f35b9aadc86db2a2e1ade49c6c3a23ff7be2b4c0aa24c4fff7d1f362e3b7ab"
+    },
+    {
+      "path": "CURRENT_TARGET_REQUIRED_CHECKS.json",
+      "bytes": 5746,
+      "sha256": "f49a4e018f0e0dd07175cf3b33c0151dc686c3223b166e54059611c172cf9d1a"
+    },
+    {
+      "path": "CURRENT_course-data.json",
+      "bytes": 331036,
+      "sha256": "8a176479464eee6c3968cea2b479e0c11c24dbd1e105a1bb008497602c085a7e"
+    },
+    {
+      "path": "CURRENT_lesson-02.native-text.txt",
+      "bytes": 7335,
+      "sha256": "8a0edb8ba4d052905ae809e26f1890203e7d46a5a98984086a56473d2509ac2b"
+    },
+    {
+      "path": "CURRENT_lesson-02.native.html.txt",
+      "bytes": 18060,
+      "sha256": "d4267d90e99b5f425e4efe573434dee09888ada5827f7371d4d58618f0b4b480"
+    },
+    {
+      "path": "CURRENT_lesson-02_TEXTBOOK_TASKS.json",
+      "bytes": 7016,
+      "sha256": "3a8e1b99e321adeb73b97de9b89941b1cdc95bda9742e1fb731e05e00740307c"
+    },
+    {
+      "path": "CURRENT_lesson-05.native-text.txt",
+      "bytes": 9058,
+      "sha256": "5e5f17f32d01bc058764b624e160e98bbb356ca51071c065aebc66c6ce463697"
+    },
+    {
+      "path": "CURRENT_lesson-05.native.html.txt",
+      "bytes": 20706,
+      "sha256": "ff5cd3b4654b13e16e43ba25fd20894cdce4ad76f2cbf29079be81af924c661d"
+    },
+    {
+      "path": "CURRENT_lesson-05_TEXTBOOK_TASKS.json",
+      "bytes": 6975,
+      "sha256": "23c88a80feed7e6a9365fc671c0a57f1165019840b01071f600555831ebe4055"
+    },
+    {
+      "path": "CURRENT_textbook-practice-data.json",
+      "bytes": 114437,
+      "sha256": "a0dd231c422d1883afde5c774268f7d4b2976b5d4c30d3c1471726abd0040dc8"
+    },
+    {
+      "path": "FINAL_V100_READONLY_PINS.json",
+      "bytes": 63318,
+      "sha256": "d28068f56000feca4287054a1ee816102525e2af6ea80d901061bb80d7dfdba0"
+    },
+    {
+      "path": "SOURCE_CONFLICTS.json",
+      "bytes": 9164,
+      "sha256": "1b2bee7c8225c917c0b24c0a368338bbf192a90086c59522c0adc2b69814650e"
+    },
+    {
+      "path": "SOURCE_CONFLICTS.md",
+      "bytes": 7167,
+      "sha256": "7db19e30ab3f0719c5e60cff5bb828daffe80c79004e411640d4dbc6c89fd60b"
+    },
+    {
+      "path": "SOURCE_MAP.json",
+      "bytes": 35076,
+      "sha256": "c8b287f55d60a13ac7441bc92a00d77a07f12508737e98896b7f86fefe0fbf90"
+    },
+    {
+      "path": "SOURCE_MAP.md",
+      "bytes": 27933,
+      "sha256": "2c21986267c6cd627d1d8e62651b7166c33b4904d91025bb706237072274ad78"
+    },
+    {
+      "path": "SOURCE_READINESS.md",
+      "bytes": 6300,
+      "sha256": "9b0ea54dad18d341948f1566b109142b3e9e4db938ec0b472cfbf1987b265ae0"
+    },
+    {
+      "path": "TARGETED_SOURCE_LOCATORS.json",
+      "bytes": 15638,
+      "sha256": "f6ac1f22bc50b82ad0ace55fadc3ead1e4abb35d2847fe72462a6db9bfbdf846"
+    },
+    {
+      "path": "TARGETED_SOURCE_LOCATORS.md",
+      "bytes": 19340,
+      "sha256": "c28c6f10d65f72e18e0c122386c2b57cfacc931850df33822a5dce21b41c60fe"
+    },
+    {
+      "path": "complete-source-report.py",
+      "bytes": 25250,
+      "sha256": "06d5e4a7da13065eb71605c2783eccdfba8a9ac739a5b0d6b9fa44a0a7982870"
+    },
+    {
+      "path": "finalize-draft-map.py",
+      "bytes": 21848,
+      "sha256": "5c3b57797ff65a3bee8db9c12778431c4ba2e17ef3edb16822ffb8ef5339908c"
+    },
+    {
+      "path": "map-calibration-drafts.py",
+      "bytes": 23199,
+      "sha256": "c351feeb56ad88402e4eae00f0d368920284d634554e278dfc415739167bbfe6"
+    },
+    {
+      "path": "pptx-read/ACTUAL_SLIDE_TEXT_01_48.json",
+      "bytes": 51484,
+      "sha256": "5d87032160bef614e67378bb76c63e7f8192b69abc1a4ce6d38d900161abc555"
+    },
+    {
+      "path": "pptx-read/EVIDENCE.json",
+      "bytes": 20503,
+      "sha256": "e7929d1c7ce75f44b9c6fd95e5a7a37866e0fd61b31d6f73cfbdbe3eeb044ba7"
+    },
+    {
+      "path": "pptx-read/EVIDENCE.md",
+      "bytes": 14817,
+      "sha256": "cddafe7d07b02f2942b883f4bf7dc45e75259c34a58921ac9c0ad827731ec0d1"
+    },
+    {
+      "path": "pptx-read/READ_LOG.json",
+      "bytes": 18727,
+      "sha256": "93516cc54495c847a0340927e8d5ee22a8c7240a5c0476e2ca664f52e3645df5"
+    },
+    {
+      "path": "textbook-pixels/RENDER_PROVENANCE.json",
+      "bytes": 1748,
+      "sha256": "49c84717ede3fb715a04eb91627a53e6d0cae1c5f9ee90b63479792d3ec411d6"
+    },
+    {
+      "path": "textbook-pixels/textbook-printed588-PDF5.png",
+      "bytes": 553041,
+      "sha256": "594dbc6ddbb94b1f3d8c0ee111a8e427588d14f9a93ca4d6304a5db9ad1e3903"
+    },
+    {
+      "path": "textbook-pixels/textbook-printed589-PDF6.png",
+      "bytes": 542700,
+      "sha256": "962e4d9996e00603f90195c89b09042e4639848a11e98763147a17d039eea96d"
+    },
+    {
+      "path": "textbook-pixels/textbook-printed590-PDF7.png",
+      "bytes": 523389,
+      "sha256": "f6a56022789afd241fda0466da1a15d775ec70d870de8c4549b0210472178f58"
+    },
+    {
+      "path": "textbook-pixels/textbook-printed593-PDF10.png",
+      "bytes": 549403,
+      "sha256": "42ad97c4ec655c793e474faa644c45fef1522ba58a2026fa65f3910111afdaea"
+    },
+    {
+      "path": "textbook-pixels/textbook-printed596-PDF13.jpg",
+      "bytes": 355182,
+      "sha256": "160ed7f54670e5c0e77a08598e0b66f5ea609976f6e54caaef7b2add570dfa3b"
+    },
+    {
+      "path": "textbook-pixels/textbook-printed596-PDF13.png",
+      "bytes": 311296,
+      "sha256": "f3e3fd5472a70ebd4a5bb4f6835bc6e6989d1476ffb198515e5de3cbd16bb5b6"
+    },
+    {
+      "path": "textbook-pixels/textbook-printed597-PDF14.png",
+      "bytes": 750701,
+      "sha256": "f44a5ecb2defe9bfbf1cfd61f0800f045c2b89f01e52d0efbca3c40e3dd2c8d1"
+    },
+    {
+      "path": "textbook-pixels/textbook-printed598-PDF15.png",
+      "bytes": 521130,
+      "sha256": "14dcf7dc08a66908a51138fcf30e9f9a851bc79e9fbd8e8252e0ec3b4bf3f416"
+    },
+    {
+      "path": "textbook-printed587-588.txt",
+      "bytes": 9543,
+      "sha256": "bd4bbbfdb47ba8adf7b0f1a32667af351308fd6f784865babb33bd15d3f6bbf5"
+    },
+    {
+      "path": "textbook-printed589-598.txt",
+      "bytes": 58999,
+      "sha256": "5c7437d18f8f81ff50a95e9cf2675ca1d5adf0a39a305f3bdc4187ac9027d503"
+    },
+    {
+      "path": "verify-current-originals.py",
+      "bytes": 8645,
+      "sha256": "7c5c9b5b7ce55e45f58bb8d3005db3aea9f22ebe27eaf902a3ba546bce482567"
+    }
+  ],
+  "assembledArtifactPins": [
+    {
+      "path": "output/Biology30_CH17_Exemplar_Transfer_Calibration_v0.1.0/manuscripts/lesson-02.md",
+      "bytes": 15004,
+      "sha256": "1fe8392c843c77250d23babac8d73c9c0826be2253bbd4ecb96d691b8c2a704e"
+    },
+    {
+      "path": "output/Biology30_CH17_Exemplar_Transfer_Calibration_v0.1.0/manuscripts/lesson-05.md",
+      "bytes": 18133,
+      "sha256": "5ce3f48d1c44ddf22932ea3bc2c4ce7045ff45c4f78511afaa421a7d1c46a1e9"
+    },
+    {
+      "path": "output/Biology30_CH17_Exemplar_Transfer_Calibration_v0.1.0/integration-text/lesson-02.teaching-fragment.html.txt",
+      "bytes": 17464,
+      "sha256": "5740360125376c2994bdaa1f28c4fe3d57b276232494ec7dbdb9db49ed6543fc"
+    },
+    {
+      "path": "output/Biology30_CH17_Exemplar_Transfer_Calibration_v0.1.0/integration-text/lesson-05.teaching-fragment.html.txt",
+      "bytes": 21630,
+      "sha256": "a78b0e51af788a1591864cd8fc3ae6a733a4b7b051b73bbe82be1787e1944e0c"
+    }
+  ]
+}

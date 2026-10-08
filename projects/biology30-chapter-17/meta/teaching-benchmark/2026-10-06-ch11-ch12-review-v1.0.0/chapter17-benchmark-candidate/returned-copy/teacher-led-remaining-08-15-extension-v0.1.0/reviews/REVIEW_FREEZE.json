@@ -1,0 +1,59 @@
+{
+  "status": "FROZEN independent content-review handoff",
+  "date_utc": "2026-10-06",
+  "scope": "All nine replacement teaching routes08\u201315 plus extension; exact candidate content pass, protected-source qualifications retained, no release/integration/runtime approval",
+  "final_review_files": [
+    {
+      "file": "reviews/OVERALL_INDEPENDENT_REVIEW.md",
+      "sha256": "09456f4a03a680e4c82b590f4a3a2eb856bf7fad19c8b75b7359a6ad319e1b0e",
+      "bytes": 7066
+    },
+    {
+      "file": "reviews/batch_08_09_independent_review.md",
+      "sha256": "83ff777a9a0214dc2b7953d937eacf8be8b8bd9aa8e9d69b4a937bf3a69c8927",
+      "bytes": 7850
+    },
+    {
+      "file": "reviews/batch_10_11_independent_review.md",
+      "sha256": "5e172b226b918e85702cfdad432b51c9c2e918d12414ee43b12f6e24d37e5584",
+      "bytes": 8226
+    },
+    {
+      "file": "reviews/batch_12_13_independent_review.md",
+      "sha256": "d19dce759ab17c95512d9195b7c80279ef6bbf37d048ee60afa5063e85b570ae",
+      "bytes": 6956
+    },
+    {
+      "file": "reviews/batch_14_15_extension_independent_review.md",
+      "sha256": "ebad4224cae9f567ad195c3ca9bbaa044587e7040f974b8598ec4f98ea520538",
+      "bytes": 7418
+    },
+    {
+      "file": "reviews/INDEPENDENT_READER_COVERAGE.json",
+      "sha256": "cd28f19ade8af5487011b92239bf788293b22496594b7e7586de0d6ff2d82bb5",
+      "bytes": 27807
+    },
+    {
+      "file": "reviews/REVIEWED_ARTIFACTS.json",
+      "sha256": "3f4e3705eff69451853ba16992b7addac8dee12cfdfdfa78e8bdde965ccb6371",
+      "bytes": 2723
+    },
+    {
+      "file": "reviews/REVIEW_EVIDENCE_HASHES.json",
+      "sha256": "211c9b066973804d45dc3dee2eeb3c4e40bda2063d10062eaf8331bd894e11a7",
+      "bytes": 9946
+    },
+    {
+      "file": "reviews/REVIEW_STATIC_CHECKS.json",
+      "sha256": "a1909e68849c43f4941734a7dab91aeb170bb26e9b3932c6640f258a92dd5356",
+      "bytes": 2360
+    },
+    {
+      "file": "reviews/READER_TEXT_PARITY.json",
+      "sha256": "691060697a8a0f066a55c8c755b647d628f7dae8dbf3953f25fe784c4a0c7856",
+      "bytes": 3092
+    }
+  ],
+  "fragment_hashes_unchanged_at_freeze": true,
+  "notes": "Initial snapshot files record intermediate inputs. Only files listed here plus their referenced frozen evidence snapshots constitute final reviewer output. Do not describe earlier01\u201307 fullcopy, browser rendering, saved-state or Brightspace as independently tested by this review."
+}

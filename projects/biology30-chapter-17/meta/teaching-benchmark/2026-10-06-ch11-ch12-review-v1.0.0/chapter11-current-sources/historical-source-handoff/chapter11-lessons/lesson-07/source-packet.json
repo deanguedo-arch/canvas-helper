@@ -1,0 +1,2912 @@
+{
+  "lessonId": "lesson-07",
+  "title": "Drugs at the synapse",
+  "locator": {
+    "path": "projects/biology30-unit-a-pilot-3/workspace/index.html",
+    "selector": "#lesson-07",
+    "startLine": 1352,
+    "endLine": 1589,
+    "startOffset": 153579,
+    "endOffset": 179832,
+    "offsetUnit": "JavaScript UTF-16 code units",
+    "fragmentSha256": "daf3f2f46c7e4ba372a54ceb7914b6fe4d17ae235cf9ecb2915e936bd4943708"
+  },
+  "currentHtml": "chapter11-lessons/lesson-07/current-exact.html",
+  "completeReadableCopy": "chapter11-lessons/lesson-07/current-complete.md",
+  "chapterTextbook": "sources/original/chapter-11.pdf",
+  "printedPageOffset": 359,
+  "textbookLinks": [
+    {
+      "pdfPage": 25,
+      "text": "Open at p. 384",
+      "line": 1374,
+      "printedPage": 384,
+      "textExtract": "sources/extracted/chapter11-textbook/pdf-page-025.txt"
+    },
+    {
+      "pdfPage": 25,
+      "text": "Textbook p. 384",
+      "line": 1431,
+      "printedPage": 384,
+      "textExtract": "sources/extracted/chapter11-textbook/pdf-page-025.txt"
+    },
+    {
+      "pdfPage": 12,
+      "text": "Textbook p. 371",
+      "line": 1448,
+      "printedPage": 371,
+      "textExtract": "sources/extracted/chapter11-textbook/pdf-page-012.txt"
+    },
+    {
+      "pdfPage": 25,
+      "text": "Textbook p. 384",
+      "line": 1471,
+      "printedPage": 384,
+      "textExtract": "sources/extracted/chapter11-textbook/pdf-page-025.txt"
+    },
+    {
+      "pdfPage": 25,
+      "text": "Textbook p. 384",
+      "line": 1484,
+      "printedPage": 384,
+      "textExtract": "sources/extracted/chapter11-textbook/pdf-page-025.txt"
+    },
+    {
+      "pdfPage": 25,
+      "text": "Textbook p. 384",
+      "line": 1497,
+      "printedPage": 384,
+      "textExtract": "sources/extracted/chapter11-textbook/pdf-page-025.txt"
+    },
+    {
+      "pdfPage": 25,
+      "text": "Textbook p. 384",
+      "line": 1510,
+      "printedPage": 384,
+      "textExtract": "sources/extracted/chapter11-textbook/pdf-page-025.txt"
+    },
+    {
+      "pdfPage": 25,
+      "text": "Textbook p. 384",
+      "line": 1535,
+      "printedPage": 384,
+      "textExtract": "sources/extracted/chapter11-textbook/pdf-page-025.txt"
+    },
+    {
+      "pdfPage": 25,
+      "text": "Textbook p. 384",
+      "line": 1548,
+      "printedPage": 384,
+      "textExtract": "sources/extracted/chapter11-textbook/pdf-page-025.txt"
+    },
+    {
+      "pdfPage": 25,
+      "text": "Textbook p. 384",
+      "line": 1570,
+      "printedPage": 384,
+      "textExtract": "sources/extracted/chapter11-textbook/pdf-page-025.txt"
+    }
+  ],
+  "teacherSlides": [
+    {
+      "slide": 40,
+      "textPath": "sources/extracted/chapter11-teacher-deck/slide-040.md",
+      "media": [
+        {
+          "id": "rId4",
+          "type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/image",
+          "target": "ppt/media/image48.png",
+          "external": false,
+          "packageMediaPath": "sources/teacher-deck-media/image48.png"
+        }
+      ]
+    },
+    {
+      "slide": 41,
+      "textPath": "sources/extracted/chapter11-teacher-deck/slide-041.md",
+      "media": [
+        {
+          "id": "rId3",
+          "type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/image",
+          "target": "ppt/media/image44.png",
+          "external": false,
+          "packageMediaPath": "sources/teacher-deck-media/image44.png"
+        }
+      ]
+    },
+    {
+      "slide": 42,
+      "textPath": "sources/extracted/chapter11-teacher-deck/slide-042.md",
+      "media": [
+        {
+          "id": "rId3",
+          "type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/image",
+          "target": "ppt/media/image44.png",
+          "external": false,
+          "packageMediaPath": "sources/teacher-deck-media/image44.png"
+        }
+      ]
+    }
+  ],
+  "mappingStatus": "Lead topic-based source locator from inspected slide titles/text; not teacher-certified outcome coverage. Consult full deck when context is needed.",
+  "caveat": null,
+  "questions": [
+    {
+      "id": "check-drugs-mc",
+      "activityId": "check-drugs",
+      "lessonId": "lesson-07",
+      "attrs": {
+        "class": "question",
+        "data-question": "check-drugs-mc"
+      },
+      "originalHtml": "<div class=\"question\" data-question=\"check-drugs-mc\">\n<h3 data-canvas-helper-edit-key=\"p3-chapter-497\">The transmission of the nerve impulse across a synapse is accomplished by the release of a neurotransmitter</h3>\n<label class=\"choice\" data-canvas-helper-edit-key=\"p3-chapter-498\">\n<input type=\"radio\" name=\"check-drugs-mc\" value=\"QUES_51667_82706_A275458\" data-answer=\"\"> from the cell body of the pre-synaptic neuron to the Schwann cell of the post synaptic neuron.</label>\n<label class=\"choice\" data-canvas-helper-edit-key=\"p3-chapter-499\">\n<input type=\"radio\" name=\"check-drugs-mc\" value=\"QUES_51667_82706_A275459\" data-answer=\"\"> from the Schwann cell of the pre-synaptic neuron to the cell body of the post synaptic neuron.</label>\n<label class=\"choice\" data-canvas-helper-edit-key=\"p3-chapter-500\">\n<input type=\"radio\" name=\"check-drugs-mc\" value=\"QUES_51667_82706_A275460\" data-answer=\"\"> from the dendrite of the pre-synaptic neuron to the axon of the post synaptic neuron.</label>\n<label class=\"choice\" data-canvas-helper-edit-key=\"p3-chapter-501\">\n<input type=\"radio\" name=\"check-drugs-mc\" value=\"QUES_51667_82706_A275461\" data-answer=\"\"> from the axon of the pre-synaptic neuron to the dendrite of the post synaptic neuron.</label>\n<button type=\"button\" data-check=\"\" data-canvas-helper-edit-key=\"p3-chapter-502\">Check answer</button>\n<p data-feedback=\"\" role=\"status\" data-canvas-helper-edit-key=\"p3-chapter-503\">\n</p>\n<fieldset class=\"paired-writing\" data-unlock=\"check-drugs-mc\" disabled=\"\">\n<legend>Explain the related idea</legend>\n<p data-canvas-helper-edit-key=\"p3-chapter-504\">\nHypothesize how overproduction of cholinesterase might affect the body. Explain your answer.</p>\n<p data-canvas-helper-edit-key=\"p3-chapter-505\">\n<a href=\"#textbook-library\" data-book-page=\"25\" data-canvas-helper-edit-key=\"p3-chapter-506\">Textbook p. 384</a>\n</p>\n<label for=\"check-drugs-written\" data-canvas-helper-edit-key=\"p3-chapter-507\">Written response</label>\n<textarea id=\"check-drugs-written\" data-writing=\"check-drugs-written\" data-answer-limit=\"3200\" rows=\"6\" aria-describedby=\"check-drugs-written-limit check-drugs-written-status\"></textarea>\n<p id=\"check-drugs-written-limit\" class=\"muted\" data-canvas-helper-edit-key=\"p3-chapter-508\">Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded.</p>\n<button type=\"button\" data-submit-writing=\"\" data-canvas-helper-edit-key=\"p3-chapter-509\">Save written response</button>\n<p data-writing-status=\"\" id=\"check-drugs-written-status\" role=\"status\" data-canvas-helper-edit-key=\"p3-chapter-510\">\n</p>\n</fieldset>\n</div>",
+      "completeText": "The transmission of the nerve impulse across a synapse is accomplished by the release of a neurotransmitter from the cell body of the pre-synaptic neuron to the Schwann cell of the post synaptic neuron. from the Schwann cell of the pre-synaptic neuron to the cell body of the post synaptic neuron. from the dendrite of the pre-synaptic neuron to the axon of the post synaptic neuron. from the axon of the pre-synaptic neuron to the dendrite of the post synaptic neuron. Check answer Explain the related idea Hypothesize how overproduction of cholinesterase might affect the body. Explain your answer. Textbook p. 384 Written response Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded. Save written response",
+      "locator": {
+        "path": "projects/biology30-unit-a-pilot-3/workspace/index.html",
+        "line": 1413,
+        "endLine": 1440
+      },
+      "answerFields": [
+        {
+          "tag": "input",
+          "attrs": {
+            "type": "radio",
+            "name": "check-drugs-mc",
+            "value": "QUES_51667_82706_A275458",
+            "data-answer": ""
+          },
+          "text": ""
+        },
+        {
+          "tag": "input",
+          "attrs": {
+            "type": "radio",
+            "name": "check-drugs-mc",
+            "value": "QUES_51667_82706_A275459",
+            "data-answer": ""
+          },
+          "text": ""
+        },
+        {
+          "tag": "input",
+          "attrs": {
+            "type": "radio",
+            "name": "check-drugs-mc",
+            "value": "QUES_51667_82706_A275460",
+            "data-answer": ""
+          },
+          "text": ""
+        },
+        {
+          "tag": "input",
+          "attrs": {
+            "type": "radio",
+            "name": "check-drugs-mc",
+            "value": "QUES_51667_82706_A275461",
+            "data-answer": ""
+          },
+          "text": ""
+        },
+        {
+          "tag": "textarea",
+          "attrs": {
+            "id": "check-drugs-written",
+            "data-writing": "check-drugs-written",
+            "data-answer-limit": "3200",
+            "rows": "6",
+            "aria-describedby": "check-drugs-written-limit check-drugs-written-status"
+          },
+          "text": ""
+        }
+      ],
+      "authoredKey": {
+        "id": "check-drugs-mc",
+        "sourceId": "res-quiz-59222:obj-2130968",
+        "correct": "QUES_51667_82706_A275461"
+      }
+    },
+    {
+      "id": "source-review111-q1",
+      "activityId": "practice-drugs",
+      "lessonId": "lesson-07",
+      "attrs": {
+        "class": "question",
+        "data-question": "source-review111-q1"
+      },
+      "originalHtml": "<div class=\"question\" data-question=\"source-review111-q1\">\n<p data-canvas-helper-edit-key=\"p3-chapter-521\">\nCopy the letters A through H into your notebook. Identify the division of the nervous system that is represented by each letter.</p>\n<figure class=\"learning-figure question-figure\" data-canvas-helper-edit-key=\"p3-chapter-522\">\n<a class=\"figure-open\" rel=\"noopener\" target=\"_blank\" href=\"assets/source/chapter11-drugs-1.png\" data-canvas-helper-edit-key=\"p3-chapter-523\">\n<img alt=\"Original diagram for Section 11.1 Review, question 1. Keep these original labels when answering.\" decoding=\"async\" loading=\"lazy\" src=\"assets/source/chapter11-drugs-1.png\" data-canvas-helper-edit-key=\"p3-chapter-524\">\n</a>\n<figcaption>diagram for Section 11.1 Review, question 1. Keep these original labels when answering.</figcaption>\n</figure>\n<p data-canvas-helper-edit-key=\"p3-chapter-525\">\n<a href=\"#textbook-library\" data-book-page=\"25\" data-canvas-helper-edit-key=\"p3-chapter-526\">Textbook p. 384</a>\n</p>\n<label for=\"source-review111-q1-written\" data-canvas-helper-edit-key=\"p3-chapter-527\">Written response</label>\n<textarea id=\"source-review111-q1-written\" data-writing=\"source-review111-q1-written\" data-answer-limit=\"3200\" rows=\"6\" aria-describedby=\"source-review111-q1-written-limit source-review111-q1-written-status\"></textarea>\n<p id=\"source-review111-q1-written-limit\" class=\"muted\" data-canvas-helper-edit-key=\"p3-chapter-528\">Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded.</p>\n<button type=\"button\" data-submit-writing=\"\" data-canvas-helper-edit-key=\"p3-chapter-529\">Save written response</button>\n<p data-writing-status=\"\" id=\"source-review111-q1-written-status\" role=\"status\" data-canvas-helper-edit-key=\"p3-chapter-530\">\n</p>\n</div>",
+      "completeText": "Copy the letters A through H into your notebook. Identify the division of the nervous system that is represented by each letter. diagram for Section 11.1 Review, question 1. Keep these original labels when answering. Textbook p. 384 Written response Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded. Save written response",
+      "locator": {
+        "path": "projects/biology30-unit-a-pilot-3/workspace/index.html",
+        "line": 1461,
+        "endLine": 1479
+      },
+      "answerFields": [
+        {
+          "tag": "textarea",
+          "attrs": {
+            "id": "source-review111-q1-written",
+            "data-writing": "source-review111-q1-written",
+            "data-answer-limit": "3200",
+            "rows": "6",
+            "aria-describedby": "source-review111-q1-written-limit source-review111-q1-written-status"
+          },
+          "text": ""
+        }
+      ],
+      "authoredKey": null
+    },
+    {
+      "id": "source-review111-q2",
+      "activityId": "practice-drugs",
+      "lessonId": "lesson-07",
+      "attrs": {
+        "class": "question",
+        "data-question": "source-review111-q2"
+      },
+      "originalHtml": "<div class=\"question\" data-question=\"source-review111-q2\">\n<p data-canvas-helper-edit-key=\"p3-chapter-531\">\nAnalyze the following statement: “The neuron conducts impulses in the same way as electricity moves through a wire.” Is a nerve impulse like electricity? Prepare a table that compares a nerve impulse to the movement of an electric current along a wire.</p>\n<p data-canvas-helper-edit-key=\"p3-chapter-532\">\n<a href=\"#textbook-library\" data-book-page=\"25\" data-canvas-helper-edit-key=\"p3-chapter-533\">Textbook p. 384</a>\n</p>\n<label for=\"source-review111-q2-written\" data-canvas-helper-edit-key=\"p3-chapter-534\">Written response</label>\n<textarea id=\"source-review111-q2-written\" data-writing=\"source-review111-q2-written\" data-answer-limit=\"3200\" rows=\"6\" aria-describedby=\"source-review111-q2-written-limit source-review111-q2-written-status\"></textarea>\n<p id=\"source-review111-q2-written-limit\" class=\"muted\" data-canvas-helper-edit-key=\"p3-chapter-535\">Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded.</p>\n<button type=\"button\" data-submit-writing=\"\" data-canvas-helper-edit-key=\"p3-chapter-536\">Save written response</button>\n<p data-writing-status=\"\" id=\"source-review111-q2-written-status\" role=\"status\" data-canvas-helper-edit-key=\"p3-chapter-537\">\n</p>\n</div>",
+      "completeText": "Analyze the following statement: “The neuron conducts impulses in the same way as electricity moves through a wire.” Is a nerve impulse like electricity? Prepare a table that compares a nerve impulse to the movement of an electric current along a wire. Textbook p. 384 Written response Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded. Save written response",
+      "locator": {
+        "path": "projects/biology30-unit-a-pilot-3/workspace/index.html",
+        "line": 1480,
+        "endLine": 1492
+      },
+      "answerFields": [
+        {
+          "tag": "textarea",
+          "attrs": {
+            "id": "source-review111-q2-written",
+            "data-writing": "source-review111-q2-written",
+            "data-answer-limit": "3200",
+            "rows": "6",
+            "aria-describedby": "source-review111-q2-written-limit source-review111-q2-written-status"
+          },
+          "text": ""
+        }
+      ],
+      "authoredKey": null
+    },
+    {
+      "id": "source-review111-q3",
+      "activityId": "practice-drugs",
+      "lessonId": "lesson-07",
+      "attrs": {
+        "class": "question",
+        "data-question": "source-review111-q3"
+      },
+      "originalHtml": "<div class=\"question\" data-question=\"source-review111-q3\">\n<p data-canvas-helper-edit-key=\"p3-chapter-538\">\nCompare the structure and functions of myelinated neurons and unmyelinated neurons.</p>\n<p data-canvas-helper-edit-key=\"p3-chapter-539\">\n<a href=\"#textbook-library\" data-book-page=\"25\" data-canvas-helper-edit-key=\"p3-chapter-540\">Textbook p. 384</a>\n</p>\n<label for=\"source-review111-q3-written\" data-canvas-helper-edit-key=\"p3-chapter-541\">Written response</label>\n<textarea id=\"source-review111-q3-written\" data-writing=\"source-review111-q3-written\" data-answer-limit=\"3200\" rows=\"6\" aria-describedby=\"source-review111-q3-written-limit source-review111-q3-written-status\"></textarea>\n<p id=\"source-review111-q3-written-limit\" class=\"muted\" data-canvas-helper-edit-key=\"p3-chapter-542\">Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded.</p>\n<button type=\"button\" data-submit-writing=\"\" data-canvas-helper-edit-key=\"p3-chapter-543\">Save written response</button>\n<p data-writing-status=\"\" id=\"source-review111-q3-written-status\" role=\"status\" data-canvas-helper-edit-key=\"p3-chapter-544\">\n</p>\n</div>",
+      "completeText": "Compare the structure and functions of myelinated neurons and unmyelinated neurons. Textbook p. 384 Written response Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded. Save written response",
+      "locator": {
+        "path": "projects/biology30-unit-a-pilot-3/workspace/index.html",
+        "line": 1493,
+        "endLine": 1505
+      },
+      "answerFields": [
+        {
+          "tag": "textarea",
+          "attrs": {
+            "id": "source-review111-q3-written",
+            "data-writing": "source-review111-q3-written",
+            "data-answer-limit": "3200",
+            "rows": "6",
+            "aria-describedby": "source-review111-q3-written-limit source-review111-q3-written-status"
+          },
+          "text": ""
+        }
+      ],
+      "authoredKey": null
+    },
+    {
+      "id": "source-review111-q4",
+      "activityId": "practice-drugs",
+      "lessonId": "lesson-07",
+      "attrs": {
+        "class": "question",
+        "data-question": "source-review111-q4"
+      },
+      "originalHtml": "<div class=\"question\" data-question=\"source-review111-q4\">\n<p data-canvas-helper-edit-key=\"p3-chapter-545\">\nUsing a diagram, explain how a neuron establishes the resting membrane potential. What is the value of this in mV?</p>\n<p data-canvas-helper-edit-key=\"p3-chapter-546\">\n<a href=\"#textbook-library\" data-book-page=\"25\" data-canvas-helper-edit-key=\"p3-chapter-547\">Textbook p. 384</a>\n</p>\n<label for=\"source-review111-q4-written\" data-canvas-helper-edit-key=\"p3-chapter-548\">Written response</label>\n<textarea id=\"source-review111-q4-written\" data-writing=\"source-review111-q4-written\" data-answer-limit=\"3200\" rows=\"6\" aria-describedby=\"source-review111-q4-written-limit source-review111-q4-written-status\"></textarea>\n<p id=\"source-review111-q4-written-limit\" class=\"muted\" data-canvas-helper-edit-key=\"p3-chapter-549\">Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded.</p>\n<button type=\"button\" data-submit-writing=\"\" data-canvas-helper-edit-key=\"p3-chapter-550\">Save written response</button>\n<p data-writing-status=\"\" id=\"source-review111-q4-written-status\" role=\"status\" data-canvas-helper-edit-key=\"p3-chapter-551\">\n</p>\n</div>",
+      "completeText": "Using a diagram, explain how a neuron establishes the resting membrane potential. What is the value of this in mV? Textbook p. 384 Written response Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded. Save written response",
+      "locator": {
+        "path": "projects/biology30-unit-a-pilot-3/workspace/index.html",
+        "line": 1506,
+        "endLine": 1518
+      },
+      "answerFields": [
+        {
+          "tag": "textarea",
+          "attrs": {
+            "id": "source-review111-q4-written",
+            "data-writing": "source-review111-q4-written",
+            "data-answer-limit": "3200",
+            "rows": "6",
+            "aria-describedby": "source-review111-q4-written-limit source-review111-q4-written-status"
+          },
+          "text": ""
+        }
+      ],
+      "authoredKey": null
+    },
+    {
+      "id": "source-review111-q5",
+      "activityId": "practice-drugs",
+      "lessonId": "lesson-07",
+      "attrs": {
+        "class": "question",
+        "data-question": "source-review111-q5"
+      },
+      "originalHtml": "<div class=\"question\" data-question=\"source-review111-q5\">\n<p data-canvas-helper-edit-key=\"p3-chapter-552\">\nExamine the graph below, and answer the questions that follow.</p>\n<figure class=\"learning-figure question-figure\" data-canvas-helper-edit-key=\"p3-chapter-553\">\n<a class=\"figure-open\" rel=\"noopener\" target=\"_blank\" href=\"assets/source/chapter11-drugs-2.png\" data-canvas-helper-edit-key=\"p3-chapter-554\">\n<img alt=\"Original diagram for Section 11.1 Review, question 5. Keep these original labels when answering.\" decoding=\"async\" loading=\"lazy\" src=\"assets/source/chapter11-drugs-2.png\" data-canvas-helper-edit-key=\"p3-chapter-555\">\n</a>\n<figcaption>diagram for Section 11.1 Review, question 5. Keep these original labels when answering.</figcaption>\n</figure>\n<ol class=\"subquestions\" type=\"a\">\n<li data-canvas-helper-edit-key=\"p3-chapter-556\">In your notebook, indicate the specific events that are occurring at 1, 2, 3, and 4.</li>\n<li data-canvas-helper-edit-key=\"p3-chapter-557\">At which area of the graph are sodium ions rapidly entering the neuron?</li>\n<li data-canvas-helper-edit-key=\"p3-chapter-558\">At which area of the graph are potassium ions rapidly leaving the neuron?</li>\n<li data-canvas-helper-edit-key=\"p3-chapter-559\">At which area of the graph is the sodium ion concentration higher outside than inside the neuron?</li>\n</ol>\n<p data-canvas-helper-edit-key=\"p3-chapter-560\">\n<a href=\"#textbook-library\" data-book-page=\"25\" data-canvas-helper-edit-key=\"p3-chapter-561\">Textbook p. 384</a>\n</p>\n<label for=\"source-review111-q5-written\" data-canvas-helper-edit-key=\"p3-chapter-562\">Written response</label>\n<textarea id=\"source-review111-q5-written\" data-writing=\"source-review111-q5-written\" data-answer-limit=\"3200\" rows=\"6\" aria-describedby=\"source-review111-q5-written-limit source-review111-q5-written-status\"></textarea>\n<p id=\"source-review111-q5-written-limit\" class=\"muted\" data-canvas-helper-edit-key=\"p3-chapter-563\">Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded.</p>\n<button type=\"button\" data-submit-writing=\"\" data-canvas-helper-edit-key=\"p3-chapter-564\">Save written response</button>\n<p data-writing-status=\"\" id=\"source-review111-q5-written-status\" role=\"status\" data-canvas-helper-edit-key=\"p3-chapter-565\">\n</p>\n</div>",
+      "completeText": "Examine the graph below, and answer the questions that follow. diagram for Section 11.1 Review, question 5. Keep these original labels when answering. In your notebook, indicate the specific events that are occurring at 1, 2, 3, and 4. At which area of the graph are sodium ions rapidly entering the neuron? At which area of the graph are potassium ions rapidly leaving the neuron? At which area of the graph is the sodium ion concentration higher outside than inside the neuron? Textbook p. 384 Written response Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded. Save written response",
+      "locator": {
+        "path": "projects/biology30-unit-a-pilot-3/workspace/index.html",
+        "line": 1519,
+        "endLine": 1543
+      },
+      "answerFields": [
+        {
+          "tag": "textarea",
+          "attrs": {
+            "id": "source-review111-q5-written",
+            "data-writing": "source-review111-q5-written",
+            "data-answer-limit": "3200",
+            "rows": "6",
+            "aria-describedby": "source-review111-q5-written-limit source-review111-q5-written-status"
+          },
+          "text": ""
+        }
+      ],
+      "authoredKey": null
+    },
+    {
+      "id": "source-review111-q7",
+      "activityId": "practice-drugs",
+      "lessonId": "lesson-07",
+      "attrs": {
+        "class": "question",
+        "data-question": "source-review111-q7"
+      },
+      "originalHtml": "<div class=\"question\" data-question=\"source-review111-q7\">\n<p data-canvas-helper-edit-key=\"p3-chapter-566\">\nUse word processing or spreadsheet software to construct a table to compare an excitatory response with an inhibitory response. Give an example of where these responses are complementary in the body. ICT</p>\n<p data-canvas-helper-edit-key=\"p3-chapter-567\">\n<a href=\"#textbook-library\" data-book-page=\"25\" data-canvas-helper-edit-key=\"p3-chapter-568\">Textbook p. 384</a>\n</p>\n<label for=\"source-review111-q7-written\" data-canvas-helper-edit-key=\"p3-chapter-569\">Written response</label>\n<textarea id=\"source-review111-q7-written\" data-writing=\"source-review111-q7-written\" data-answer-limit=\"3200\" rows=\"6\" aria-describedby=\"source-review111-q7-written-limit source-review111-q7-written-status\"></textarea>\n<p id=\"source-review111-q7-written-limit\" class=\"muted\" data-canvas-helper-edit-key=\"p3-chapter-570\">Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded.</p>\n<button type=\"button\" data-submit-writing=\"\" data-canvas-helper-edit-key=\"p3-chapter-571\">Save written response</button>\n<p data-writing-status=\"\" id=\"source-review111-q7-written-status\" role=\"status\" data-canvas-helper-edit-key=\"p3-chapter-572\">\n</p>\n</div>",
+      "completeText": "Use word processing or spreadsheet software to construct a table to compare an excitatory response with an inhibitory response. Give an example of where these responses are complementary in the body. ICT Textbook p. 384 Written response Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded. Save written response",
+      "locator": {
+        "path": "projects/biology30-unit-a-pilot-3/workspace/index.html",
+        "line": 1544,
+        "endLine": 1556
+      },
+      "answerFields": [
+        {
+          "tag": "textarea",
+          "attrs": {
+            "id": "source-review111-q7-written",
+            "data-writing": "source-review111-q7-written",
+            "data-answer-limit": "3200",
+            "rows": "6",
+            "aria-describedby": "source-review111-q7-written-limit source-review111-q7-written-status"
+          },
+          "text": ""
+        }
+      ],
+      "authoredKey": null
+    },
+    {
+      "id": "source-review111-q8",
+      "activityId": "practice-drugs",
+      "lessonId": "lesson-07",
+      "attrs": {
+        "class": "question",
+        "data-question": "source-review111-q8"
+      },
+      "originalHtml": "<div class=\"question\" data-question=\"source-review111-q8\">\n<p data-canvas-helper-edit-key=\"p3-chapter-573\">\nCocaine affects a synapse by blocking the re-uptake of the neurotransmitter dopamine by the presynaptic neurons. Therefore, the levels of dopamine continue to build in the synapse, causing certain effects on the body.</p>\n<ol class=\"subquestions\" type=\"a\">\n<li data-canvas-helper-edit-key=\"p3-chapter-574\">Use word processing software to make a flowchart summarizing the usual events in the transmission of an impulse between the presynaptic and postsynaptic neurons. ICT</li>\n<li data-canvas-helper-edit-key=\"p3-chapter-575\">Explain how cocaine interferes with neural transmission across the synapse.</li>\n<li data-canvas-helper-edit-key=\"p3-chapter-576\">Describe the natural role of dopamine in the brain.</li>\n<li data-canvas-helper-edit-key=\"p3-chapter-577\">Formulate a hypothesis about how cocaine could be addictive after only one use.\n<aside class=\"learning-note insight\">\n<strong data-canvas-helper-edit-key=\"p3-chapter-493\">For question 8(d):</strong> propose a possible explanation. A hypothesis is not proof that the outcome must occur after one exposure.</aside></li>\n\n</ol>\n<p data-canvas-helper-edit-key=\"p3-chapter-578\">\n<a href=\"#textbook-library\" data-book-page=\"25\" data-canvas-helper-edit-key=\"p3-chapter-579\">Textbook p. 384</a>\n</p>\n<label for=\"source-review111-q8-written\" data-canvas-helper-edit-key=\"p3-chapter-580\">Written response</label>\n<textarea id=\"source-review111-q8-written\" data-writing=\"source-review111-q8-written\" data-answer-limit=\"3200\" rows=\"6\" aria-describedby=\"source-review111-q8-written-limit source-review111-q8-written-status\"></textarea>\n<p id=\"source-review111-q8-written-limit\" class=\"muted\" data-canvas-helper-edit-key=\"p3-chapter-581\">Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded.</p>\n<button type=\"button\" data-submit-writing=\"\" data-canvas-helper-edit-key=\"p3-chapter-582\">Save written response</button>\n<p data-writing-status=\"\" id=\"source-review111-q8-written-status\" role=\"status\" data-canvas-helper-edit-key=\"p3-chapter-583\">\n</p>\n</div>",
+      "completeText": "Cocaine affects a synapse by blocking the re-uptake of the neurotransmitter dopamine by the presynaptic neurons. Therefore, the levels of dopamine continue to build in the synapse, causing certain effects on the body. Use word processing software to make a flowchart summarizing the usual events in the transmission of an impulse between the presynaptic and postsynaptic neurons. ICT Explain how cocaine interferes with neural transmission across the synapse. Describe the natural role of dopamine in the brain. Formulate a hypothesis about how cocaine could be addictive after only one use. For question 8(d): propose a possible explanation. A hypothesis is not proof that the outcome must occur after one exposure. Textbook p. 384 Written response Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded. Save written response",
+      "locator": {
+        "path": "projects/biology30-unit-a-pilot-3/workspace/index.html",
+        "line": 1557,
+        "endLine": 1578
+      },
+      "answerFields": [
+        {
+          "tag": "textarea",
+          "attrs": {
+            "id": "source-review111-q8-written",
+            "data-writing": "source-review111-q8-written",
+            "data-answer-limit": "3200",
+            "rows": "6",
+            "aria-describedby": "source-review111-q8-written-limit source-review111-q8-written-status"
+          },
+          "text": ""
+        }
+      ],
+      "authoredKey": null
+    }
+  ],
+  "optionalGeneratedPractice": [
+    {
+      "id": "agonist",
+      "lessonId": "lesson-07",
+      "term": "agonist",
+      "definition": "a substance that activates a receptor or increases a neurotransmitter's effect",
+      "scenario": "A receptor agonist can imitate the effect of the normal transmitter.",
+      "misconception": "An agonist always blocks the receptor without activating it.",
+      "sequence": [
+        "drug reaches synapse",
+        "receptor activation",
+        "postsynaptic effect"
+      ],
+      "answers": [
+        "agonist"
+      ],
+      "aliases": [],
+      "relationships": [
+        "drug reaches synapse",
+        "receptor activation",
+        "postsynaptic effect"
+      ],
+      "contrast": [
+        "a substance that activates a receptor or increases a neurotransmitter's effect",
+        "An agonist always blocks the receptor without activating it."
+      ],
+      "cue": "Trace where agonist belongs in the lesson mechanism or example.",
+      "explanation": "agonist: a substance that activates a receptor or increases a neurotransmitter's effect",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 384"
+      ],
+      "mcVariants": [
+        {
+          "id": "term",
+          "skill": "recognize",
+          "difficulty": 1,
+          "prompt": "Which term best matches this description: a substance that activates a receptor or increases a neurotransmitter's effect?",
+          "answer": "agonist",
+          "optionSource": "terms"
+        },
+        {
+          "id": "function",
+          "skill": "relate",
+          "difficulty": 2,
+          "prompt": "Which statement best describes agonist?",
+          "answer": "a substance that activates a receptor or increases a neurotransmitter's effect",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "scenario",
+          "skill": "apply",
+          "difficulty": 3,
+          "prompt": "Which concept best explains this situation? A receptor agonist can imitate the effect of the normal transmitter.",
+          "answer": "agonist",
+          "optionSource": "terms"
+        },
+        {
+          "id": "correction",
+          "skill": "misconception",
+          "difficulty": 3,
+          "prompt": "Which statement correctly replaces this inaccurate idea: “An agonist always blocks the receptor without activating it.”",
+          "answer": "a substance that activates a receptor or increases a neurotransmitter's effect",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "sequence-start",
+          "skill": "sequence",
+          "difficulty": 1,
+          "prompt": "Which event begins the agonist sequence?",
+          "answer": "drug reaches synapse",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-next",
+          "skill": "sequence",
+          "difficulty": 2,
+          "prompt": "In the agonist sequence, what follows drug reaches synapse?",
+          "answer": "receptor activation",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-end",
+          "skill": "integrate",
+          "difficulty": 4,
+          "prompt": "Which event completes the agonist sequence?",
+          "answer": "postsynaptic effect",
+          "optionSource": "sequence"
+        }
+      ]
+    },
+    {
+      "id": "antagonist",
+      "lessonId": "lesson-07",
+      "term": "antagonist",
+      "definition": "a substance that reduces signalling by blocking receptor activation",
+      "scenario": "A competitive antagonist can occupy a receptor without producing the usual response.",
+      "misconception": "An antagonist necessarily increases neurotransmitter release.",
+      "sequence": [
+        "drug binds receptor",
+        "normal transmitter blocked",
+        "response reduced"
+      ],
+      "answers": [
+        "antagonist"
+      ],
+      "aliases": [],
+      "relationships": [
+        "drug binds receptor",
+        "normal transmitter blocked",
+        "response reduced"
+      ],
+      "contrast": [
+        "a substance that reduces signalling by blocking receptor activation",
+        "An antagonist necessarily increases neurotransmitter release."
+      ],
+      "cue": "Trace where antagonist belongs in the lesson mechanism or example.",
+      "explanation": "antagonist: a substance that reduces signalling by blocking receptor activation",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 384"
+      ],
+      "mcVariants": [
+        {
+          "id": "term",
+          "skill": "recognize",
+          "difficulty": 1,
+          "prompt": "Which term best matches this description: a substance that reduces signalling by blocking receptor activation?",
+          "answer": "antagonist",
+          "optionSource": "terms"
+        },
+        {
+          "id": "function",
+          "skill": "relate",
+          "difficulty": 2,
+          "prompt": "Which statement best describes antagonist?",
+          "answer": "a substance that reduces signalling by blocking receptor activation",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "scenario",
+          "skill": "apply",
+          "difficulty": 3,
+          "prompt": "Which concept best explains this situation? A competitive antagonist can occupy a receptor without producing the usual response.",
+          "answer": "antagonist",
+          "optionSource": "terms"
+        },
+        {
+          "id": "correction",
+          "skill": "misconception",
+          "difficulty": 3,
+          "prompt": "Which statement correctly replaces this inaccurate idea: “An antagonist necessarily increases neurotransmitter release.”",
+          "answer": "a substance that reduces signalling by blocking receptor activation",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "sequence-start",
+          "skill": "sequence",
+          "difficulty": 1,
+          "prompt": "Which event begins the antagonist sequence?",
+          "answer": "drug binds receptor",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-next",
+          "skill": "sequence",
+          "difficulty": 2,
+          "prompt": "In the antagonist sequence, what follows drug binds receptor?",
+          "answer": "normal transmitter blocked",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-end",
+          "skill": "integrate",
+          "difficulty": 4,
+          "prompt": "Which event completes the antagonist sequence?",
+          "answer": "response reduced",
+          "optionSource": "sequence"
+        }
+      ]
+    },
+    {
+      "id": "reuptake-inhibition",
+      "lessonId": "lesson-07",
+      "term": "reuptake inhibition",
+      "definition": "slower transmitter removal that can prolong its effect in the synaptic cleft",
+      "scenario": "Blocking reuptake can leave more transmitter available to bind receptors.",
+      "misconception": "Reuptake inhibition removes transmitter from the cleft faster.",
+      "sequence": [
+        "transmitter released",
+        "reuptake blocked",
+        "transmitter remains",
+        "effect prolonged"
+      ],
+      "answers": [
+        "reuptake inhibition"
+      ],
+      "aliases": [],
+      "relationships": [
+        "transmitter released",
+        "reuptake blocked",
+        "transmitter remains",
+        "effect prolonged"
+      ],
+      "contrast": [
+        "slower transmitter removal that can prolong its effect in the synaptic cleft",
+        "Reuptake inhibition removes transmitter from the cleft faster."
+      ],
+      "cue": "Trace where reuptake inhibition belongs in the lesson mechanism or example.",
+      "explanation": "reuptake inhibition: slower transmitter removal that can prolong its effect in the synaptic cleft",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 384"
+      ],
+      "mcVariants": [
+        {
+          "id": "term",
+          "skill": "recognize",
+          "difficulty": 1,
+          "prompt": "Which term best matches this description: slower transmitter removal that can prolong its effect in the synaptic cleft?",
+          "answer": "reuptake inhibition",
+          "optionSource": "terms"
+        },
+        {
+          "id": "function",
+          "skill": "relate",
+          "difficulty": 2,
+          "prompt": "Which statement best describes reuptake inhibition?",
+          "answer": "slower transmitter removal that can prolong its effect in the synaptic cleft",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "scenario",
+          "skill": "apply",
+          "difficulty": 3,
+          "prompt": "Which concept best explains this situation? Blocking reuptake can leave more transmitter available to bind receptors.",
+          "answer": "reuptake inhibition",
+          "optionSource": "terms"
+        },
+        {
+          "id": "correction",
+          "skill": "misconception",
+          "difficulty": 3,
+          "prompt": "Which statement correctly replaces this inaccurate idea: “Reuptake inhibition removes transmitter from the cleft faster.”",
+          "answer": "slower transmitter removal that can prolong its effect in the synaptic cleft",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "sequence-start",
+          "skill": "sequence",
+          "difficulty": 1,
+          "prompt": "Which event begins the reuptake inhibition sequence?",
+          "answer": "transmitter released",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-next",
+          "skill": "sequence",
+          "difficulty": 2,
+          "prompt": "In the reuptake inhibition sequence, what follows transmitter released?",
+          "answer": "reuptake blocked",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-end",
+          "skill": "integrate",
+          "difficulty": 4,
+          "prompt": "Which event completes the reuptake inhibition sequence?",
+          "answer": "effect prolonged",
+          "optionSource": "sequence"
+        }
+      ]
+    }
+  ],
+  "generatedItemFamilies": [
+    {
+      "kind": "flashcards",
+      "conceptId": "agonist",
+      "lessonId": "lesson-07",
+      "cue": "Trace where agonist belongs in the lesson mechanism or example.",
+      "explanation": "agonist: a substance that activates a receptor or increases a neurotransmitter's effect Source: Biology 30 Chapter 11, textbook p. 384",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 384"
+      ],
+      "id": "agonist:card-term",
+      "family": "recall",
+      "interaction": "flashcard",
+      "skill": "recall",
+      "prompt": "agonist",
+      "answers": [
+        "a substance that activates a receptor or increases a neurotransmitter's effect"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "flashcards",
+      "conceptId": "agonist",
+      "lessonId": "lesson-07",
+      "cue": "Trace where agonist belongs in the lesson mechanism or example.",
+      "explanation": "agonist: a substance that activates a receptor or increases a neurotransmitter's effect Source: Biology 30 Chapter 11, textbook p. 384",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 384"
+      ],
+      "id": "agonist:card-definition",
+      "family": "reverse-retrieval",
+      "interaction": "flashcard",
+      "skill": "recall",
+      "prompt": "a substance that activates a receptor or increases a neurotransmitter's effect",
+      "answers": [
+        "agonist"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "flashcards",
+      "conceptId": "agonist",
+      "lessonId": "lesson-07",
+      "cue": "Trace where agonist belongs in the lesson mechanism or example.",
+      "explanation": "agonist: a substance that activates a receptor or increases a neurotransmitter's effect Source: Biology 30 Chapter 11, textbook p. 384",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 384"
+      ],
+      "id": "agonist:card-scenario",
+      "family": "application",
+      "interaction": "flashcard",
+      "skill": "application",
+      "prompt": "A receptor agonist can imitate the effect of the normal transmitter.",
+      "answers": [
+        "agonist — a substance that activates a receptor or increases a neurotransmitter's effect"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "flashcards",
+      "conceptId": "agonist",
+      "lessonId": "lesson-07",
+      "cue": "Trace where agonist belongs in the lesson mechanism or example.",
+      "explanation": "agonist: a substance that activates a receptor or increases a neurotransmitter's effect Source: Biology 30 Chapter 11, textbook p. 384",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 384"
+      ],
+      "id": "agonist:card-error",
+      "family": "error-correction",
+      "interaction": "flashcard",
+      "skill": "error-correction",
+      "prompt": "Correct this idea: An agonist always blocks the receptor without activating it.",
+      "answers": [
+        "a substance that activates a receptor or increases a neurotransmitter's effect"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "blanks",
+      "conceptId": "agonist",
+      "lessonId": "lesson-07",
+      "cue": "Trace where agonist belongs in the lesson mechanism or example.",
+      "explanation": "agonist: a substance that activates a receptor or increases a neurotransmitter's effect Source: Biology 30 Chapter 11, textbook p. 384",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 384"
+      ],
+      "id": "agonist:blank-definition",
+      "family": "definition",
+      "interaction": "typed",
+      "skill": "recall",
+      "prompt": "The term for “a substance that activates a receptor or increases a neurotransmitter's effect” is _____.",
+      "answers": [
+        "agonist"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "blanks",
+      "conceptId": "agonist",
+      "lessonId": "lesson-07",
+      "cue": "Trace where agonist belongs in the lesson mechanism or example.",
+      "explanation": "agonist: a substance that activates a receptor or increases a neurotransmitter's effect Source: Biology 30 Chapter 11, textbook p. 384",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 384"
+      ],
+      "id": "agonist:blank-scenario",
+      "family": "scenario",
+      "interaction": "typed",
+      "skill": "application",
+      "prompt": "This situation illustrates _____: A receptor agonist can imitate the effect of the normal transmitter.",
+      "answers": [
+        "agonist"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "blanks",
+      "conceptId": "agonist",
+      "lessonId": "lesson-07",
+      "cue": "Trace where agonist belongs in the lesson mechanism or example.",
+      "explanation": "agonist: a substance that activates a receptor or increases a neurotransmitter's effect Source: Biology 30 Chapter 11, textbook p. 384",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 384"
+      ],
+      "id": "agonist:blank-sequence",
+      "family": "pathway",
+      "interaction": "typed",
+      "skill": "sequencing",
+      "prompt": "Complete the pathway: drug reaches synapse → receptor activation → _____.",
+      "answers": [
+        "postsynaptic effect"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "agonist",
+      "lessonId": "lesson-07",
+      "cue": "Trace where agonist belongs in the lesson mechanism or example.",
+      "explanation": "agonist: a substance that activates a receptor or increases a neurotransmitter's effect Source: Biology 30 Chapter 11, textbook p. 384",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 384"
+      ],
+      "id": "agonist:mc-term",
+      "family": "recognize",
+      "interaction": "single",
+      "skill": "recognize",
+      "difficulty": 1,
+      "prompt": "Which term best matches this description: a substance that activates a receptor or increases a neurotransmitter's effect?",
+      "answers": [
+        "agonist"
+      ],
+      "options": [
+        "receptor activation",
+        "agonist",
+        "antagonist",
+        "postsynaptic effect"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "agonist",
+      "lessonId": "lesson-07",
+      "cue": "Trace where agonist belongs in the lesson mechanism or example.",
+      "explanation": "agonist: a substance that activates a receptor or increases a neurotransmitter's effect Source: Biology 30 Chapter 11, textbook p. 384",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 384"
+      ],
+      "id": "agonist:mc-function",
+      "family": "relate",
+      "interaction": "single",
+      "skill": "relate",
+      "difficulty": 2,
+      "prompt": "Which statement best describes agonist?",
+      "answers": [
+        "a substance that activates a receptor or increases a neurotransmitter's effect"
+      ],
+      "options": [
+        "a substance that activates a receptor or increases a neurotransmitter's effect",
+        "Reuptake inhibition removes transmitter from the cleft faster.",
+        "An agonist always blocks the receptor without activating it.",
+        "a substance that reduces signalling by blocking receptor activation"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "agonist",
+      "lessonId": "lesson-07",
+      "cue": "Trace where agonist belongs in the lesson mechanism or example.",
+      "explanation": "agonist: a substance that activates a receptor or increases a neurotransmitter's effect Source: Biology 30 Chapter 11, textbook p. 384",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 384"
+      ],
+      "id": "agonist:mc-scenario",
+      "family": "apply",
+      "interaction": "single",
+      "skill": "apply",
+      "difficulty": 3,
+      "prompt": "Which concept best explains this situation? A receptor agonist can imitate the effect of the normal transmitter.",
+      "answers": [
+        "agonist"
+      ],
+      "options": [
+        "drug reaches synapse",
+        "reuptake inhibition",
+        "receptor activation",
+        "agonist"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "agonist",
+      "lessonId": "lesson-07",
+      "cue": "Trace where agonist belongs in the lesson mechanism or example.",
+      "explanation": "agonist: a substance that activates a receptor or increases a neurotransmitter's effect Source: Biology 30 Chapter 11, textbook p. 384",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 384"
+      ],
+      "id": "agonist:mc-correction",
+      "family": "misconception",
+      "interaction": "single",
+      "skill": "misconception",
+      "difficulty": 3,
+      "prompt": "Which statement correctly replaces this inaccurate idea: “An agonist always blocks the receptor without activating it.”",
+      "answers": [
+        "a substance that activates a receptor or increases a neurotransmitter's effect"
+      ],
+      "options": [
+        "An antagonist necessarily increases neurotransmitter release.",
+        "a substance that reduces signalling by blocking receptor activation",
+        "An agonist always blocks the receptor without activating it.",
+        "a substance that activates a receptor or increases a neurotransmitter's effect"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "agonist",
+      "lessonId": "lesson-07",
+      "cue": "Trace where agonist belongs in the lesson mechanism or example.",
+      "explanation": "agonist: a substance that activates a receptor or increases a neurotransmitter's effect Source: Biology 30 Chapter 11, textbook p. 384",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 384"
+      ],
+      "id": "agonist:mc-sequence-start",
+      "family": "sequence",
+      "interaction": "single",
+      "skill": "sequence",
+      "difficulty": 1,
+      "prompt": "Which event begins the agonist sequence?",
+      "answers": [
+        "drug reaches synapse"
+      ],
+      "options": [
+        "normal transmitter blocked",
+        "receptor activation",
+        "postsynaptic effect",
+        "drug reaches synapse"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "agonist",
+      "lessonId": "lesson-07",
+      "cue": "Trace where agonist belongs in the lesson mechanism or example.",
+      "explanation": "agonist: a substance that activates a receptor or increases a neurotransmitter's effect Source: Biology 30 Chapter 11, textbook p. 384",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 384"
+      ],
+      "id": "agonist:mc-sequence-next",
+      "family": "sequence",
+      "interaction": "single",
+      "skill": "sequence",
+      "difficulty": 2,
+      "prompt": "In the agonist sequence, what follows drug reaches synapse?",
+      "answers": [
+        "receptor activation"
+      ],
+      "options": [
+        "postsynaptic effect",
+        "drug reaches synapse",
+        "drug binds receptor",
+        "receptor activation"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "agonist",
+      "lessonId": "lesson-07",
+      "cue": "Trace where agonist belongs in the lesson mechanism or example.",
+      "explanation": "agonist: a substance that activates a receptor or increases a neurotransmitter's effect Source: Biology 30 Chapter 11, textbook p. 384",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 384"
+      ],
+      "id": "agonist:mc-sequence-end",
+      "family": "integrate",
+      "interaction": "single",
+      "skill": "integrate",
+      "difficulty": 4,
+      "prompt": "Which event completes the agonist sequence?",
+      "answers": [
+        "postsynaptic effect"
+      ],
+      "options": [
+        "reuptake blocked",
+        "postsynaptic effect",
+        "drug binds receptor",
+        "normal transmitter blocked"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "agonist",
+      "lessonId": "lesson-07",
+      "cue": "Trace where agonist belongs in the lesson mechanism or example.",
+      "explanation": "agonist: a substance that activates a receptor or increases a neurotransmitter's effect Source: Biology 30 Chapter 11, textbook p. 384",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 384"
+      ],
+      "id": "agonist:mixed-typed",
+      "family": "retrieval",
+      "interaction": "typed",
+      "skill": "recall",
+      "prompt": "Name the concept: a substance that activates a receptor or increases a neurotransmitter's effect",
+      "answers": [
+        "agonist"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "agonist",
+      "lessonId": "lesson-07",
+      "cue": "Trace where agonist belongs in the lesson mechanism or example.",
+      "explanation": "agonist: a substance that activates a receptor or increases a neurotransmitter's effect Source: Biology 30 Chapter 11, textbook p. 384",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 384"
+      ],
+      "id": "agonist:mixed-single",
+      "family": "discrimination",
+      "interaction": "single",
+      "skill": "comparison",
+      "prompt": "Which concept means “a substance that activates a receptor or increases a neurotransmitter's effect”?",
+      "answers": [
+        "agonist"
+      ],
+      "options": [
+        "agonist",
+        "reuptake inhibition",
+        "antagonist"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "agonist",
+      "lessonId": "lesson-07",
+      "cue": "Trace where agonist belongs in the lesson mechanism or example.",
+      "explanation": "agonist: a substance that activates a receptor or increases a neurotransmitter's effect Source: Biology 30 Chapter 11, textbook p. 384",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 384"
+      ],
+      "id": "agonist:mixed-application",
+      "family": "application",
+      "interaction": "single",
+      "skill": "application",
+      "prompt": "A receptor agonist can imitate the effect of the normal transmitter.",
+      "answers": [
+        "agonist"
+      ],
+      "options": [
+        "antagonist",
+        "reuptake inhibition",
+        "agonist"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "agonist",
+      "lessonId": "lesson-07",
+      "cue": "Trace where agonist belongs in the lesson mechanism or example.",
+      "explanation": "agonist: a substance that activates a receptor or increases a neurotransmitter's effect Source: Biology 30 Chapter 11, textbook p. 384",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 384"
+      ],
+      "id": "agonist:mixed-multiple",
+      "family": "odd-one-out",
+      "interaction": "multiple",
+      "skill": "comparison",
+      "prompt": "Select both statements that belong with agonist.",
+      "answers": [
+        "a substance that activates a receptor or increases a neurotransmitter's effect",
+        "A receptor agonist can imitate the effect of the normal transmitter."
+      ],
+      "options": [
+        "a substance that activates a receptor or increases a neurotransmitter's effect",
+        "A receptor agonist can imitate the effect of the normal transmitter.",
+        "a substance that reduces signalling by blocking receptor activation",
+        "slower transmitter removal that can prolong its effect in the synaptic cleft"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "agonist",
+      "lessonId": "lesson-07",
+      "cue": "Trace where agonist belongs in the lesson mechanism or example.",
+      "explanation": "agonist: a substance that activates a receptor or increases a neurotransmitter's effect Source: Biology 30 Chapter 11, textbook p. 384",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 384"
+      ],
+      "id": "agonist:mixed-tf",
+      "family": "misconception",
+      "interaction": "true-false",
+      "skill": "error-correction",
+      "prompt": "An agonist always blocks the receptor without activating it.",
+      "answers": [
+        "false"
+      ],
+      "options": [
+        "true",
+        "false"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "agonist",
+      "lessonId": "lesson-07",
+      "cue": "Trace where agonist belongs in the lesson mechanism or example.",
+      "explanation": "agonist: a substance that activates a receptor or increases a neurotransmitter's effect Source: Biology 30 Chapter 11, textbook p. 384",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 384"
+      ],
+      "id": "agonist:mixed-order",
+      "family": "sequence",
+      "interaction": "ordering",
+      "skill": "sequencing",
+      "prompt": "Put the agonist steps in order.",
+      "answers": [
+        "drug reaches synapse",
+        "receptor activation",
+        "postsynaptic effect"
+      ],
+      "options": [
+        "receptor activation",
+        "drug reaches synapse",
+        "postsynaptic effect"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "agonist",
+      "lessonId": "lesson-07",
+      "cue": "Trace where agonist belongs in the lesson mechanism or example.",
+      "explanation": "agonist: a substance that activates a receptor or increases a neurotransmitter's effect Source: Biology 30 Chapter 11, textbook p. 384",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 384"
+      ],
+      "id": "agonist:mc-term",
+      "family": "recognize",
+      "interaction": "single",
+      "skill": "recognize",
+      "difficulty": 1,
+      "prompt": "Which term best matches this description: a substance that activates a receptor or increases a neurotransmitter's effect?",
+      "answers": [
+        "agonist"
+      ],
+      "options": [
+        "drug reaches synapse",
+        "agonist",
+        "postsynaptic effect",
+        "reuptake inhibition"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "agonist",
+      "lessonId": "lesson-07",
+      "cue": "Trace where agonist belongs in the lesson mechanism or example.",
+      "explanation": "agonist: a substance that activates a receptor or increases a neurotransmitter's effect Source: Biology 30 Chapter 11, textbook p. 384",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 384"
+      ],
+      "id": "agonist:mc-function",
+      "family": "relate",
+      "interaction": "single",
+      "skill": "relate",
+      "difficulty": 2,
+      "prompt": "Which statement best describes agonist?",
+      "answers": [
+        "a substance that activates a receptor or increases a neurotransmitter's effect"
+      ],
+      "options": [
+        "Reuptake inhibition removes transmitter from the cleft faster.",
+        "An antagonist necessarily increases neurotransmitter release.",
+        "slower transmitter removal that can prolong its effect in the synaptic cleft",
+        "a substance that activates a receptor or increases a neurotransmitter's effect"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "flashcards",
+      "conceptId": "antagonist",
+      "lessonId": "lesson-07",
+      "cue": "Trace where antagonist belongs in the lesson mechanism or example.",
+      "explanation": "antagonist: a substance that reduces signalling by blocking receptor activation Source: Biology 30 Chapter 11, textbook p. 384",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 384"
+      ],
+      "id": "antagonist:card-term",
+      "family": "recall",
+      "interaction": "flashcard",
+      "skill": "recall",
+      "prompt": "antagonist",
+      "answers": [
+        "a substance that reduces signalling by blocking receptor activation"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "flashcards",
+      "conceptId": "antagonist",
+      "lessonId": "lesson-07",
+      "cue": "Trace where antagonist belongs in the lesson mechanism or example.",
+      "explanation": "antagonist: a substance that reduces signalling by blocking receptor activation Source: Biology 30 Chapter 11, textbook p. 384",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 384"
+      ],
+      "id": "antagonist:card-definition",
+      "family": "reverse-retrieval",
+      "interaction": "flashcard",
+      "skill": "recall",
+      "prompt": "a substance that reduces signalling by blocking receptor activation",
+      "answers": [
+        "antagonist"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "flashcards",
+      "conceptId": "antagonist",
+      "lessonId": "lesson-07",
+      "cue": "Trace where antagonist belongs in the lesson mechanism or example.",
+      "explanation": "antagonist: a substance that reduces signalling by blocking receptor activation Source: Biology 30 Chapter 11, textbook p. 384",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 384"
+      ],
+      "id": "antagonist:card-scenario",
+      "family": "application",
+      "interaction": "flashcard",
+      "skill": "application",
+      "prompt": "A competitive antagonist can occupy a receptor without producing the usual response.",
+      "answers": [
+        "antagonist — a substance that reduces signalling by blocking receptor activation"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "flashcards",
+      "conceptId": "antagonist",
+      "lessonId": "lesson-07",
+      "cue": "Trace where antagonist belongs in the lesson mechanism or example.",
+      "explanation": "antagonist: a substance that reduces signalling by blocking receptor activation Source: Biology 30 Chapter 11, textbook p. 384",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 384"
+      ],
+      "id": "antagonist:card-error",
+      "family": "error-correction",
+      "interaction": "flashcard",
+      "skill": "error-correction",
+      "prompt": "Correct this idea: An antagonist necessarily increases neurotransmitter release.",
+      "answers": [
+        "a substance that reduces signalling by blocking receptor activation"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "blanks",
+      "conceptId": "antagonist",
+      "lessonId": "lesson-07",
+      "cue": "Trace where antagonist belongs in the lesson mechanism or example.",
+      "explanation": "antagonist: a substance that reduces signalling by blocking receptor activation Source: Biology 30 Chapter 11, textbook p. 384",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 384"
+      ],
+      "id": "antagonist:blank-definition",
+      "family": "definition",
+      "interaction": "typed",
+      "skill": "recall",
+      "prompt": "The term for “a substance that reduces signalling by blocking receptor activation” is _____.",
+      "answers": [
+        "antagonist"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "blanks",
+      "conceptId": "antagonist",
+      "lessonId": "lesson-07",
+      "cue": "Trace where antagonist belongs in the lesson mechanism or example.",
+      "explanation": "antagonist: a substance that reduces signalling by blocking receptor activation Source: Biology 30 Chapter 11, textbook p. 384",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 384"
+      ],
+      "id": "antagonist:blank-scenario",
+      "family": "scenario",
+      "interaction": "typed",
+      "skill": "application",
+      "prompt": "This situation illustrates _____: A competitive antagonist can occupy a receptor without producing the usual response.",
+      "answers": [
+        "antagonist"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "blanks",
+      "conceptId": "antagonist",
+      "lessonId": "lesson-07",
+      "cue": "Trace where antagonist belongs in the lesson mechanism or example.",
+      "explanation": "antagonist: a substance that reduces signalling by blocking receptor activation Source: Biology 30 Chapter 11, textbook p. 384",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 384"
+      ],
+      "id": "antagonist:blank-sequence",
+      "family": "pathway",
+      "interaction": "typed",
+      "skill": "sequencing",
+      "prompt": "Complete the pathway: drug binds receptor → normal transmitter blocked → _____.",
+      "answers": [
+        "response reduced"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "antagonist",
+      "lessonId": "lesson-07",
+      "cue": "Trace where antagonist belongs in the lesson mechanism or example.",
+      "explanation": "antagonist: a substance that reduces signalling by blocking receptor activation Source: Biology 30 Chapter 11, textbook p. 384",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 384"
+      ],
+      "id": "antagonist:mc-term",
+      "family": "recognize",
+      "interaction": "single",
+      "skill": "recognize",
+      "difficulty": 1,
+      "prompt": "Which term best matches this description: a substance that reduces signalling by blocking receptor activation?",
+      "answers": [
+        "antagonist"
+      ],
+      "options": [
+        "response reduced",
+        "drug binds receptor",
+        "normal transmitter blocked",
+        "antagonist"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "antagonist",
+      "lessonId": "lesson-07",
+      "cue": "Trace where antagonist belongs in the lesson mechanism or example.",
+      "explanation": "antagonist: a substance that reduces signalling by blocking receptor activation Source: Biology 30 Chapter 11, textbook p. 384",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 384"
+      ],
+      "id": "antagonist:mc-function",
+      "family": "relate",
+      "interaction": "single",
+      "skill": "relate",
+      "difficulty": 2,
+      "prompt": "Which statement best describes antagonist?",
+      "answers": [
+        "a substance that reduces signalling by blocking receptor activation"
+      ],
+      "options": [
+        "An agonist always blocks the receptor without activating it.",
+        "a substance that activates a receptor or increases a neurotransmitter's effect",
+        "a substance that reduces signalling by blocking receptor activation",
+        "An antagonist necessarily increases neurotransmitter release."
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "antagonist",
+      "lessonId": "lesson-07",
+      "cue": "Trace where antagonist belongs in the lesson mechanism or example.",
+      "explanation": "antagonist: a substance that reduces signalling by blocking receptor activation Source: Biology 30 Chapter 11, textbook p. 384",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 384"
+      ],
+      "id": "antagonist:mc-scenario",
+      "family": "apply",
+      "interaction": "single",
+      "skill": "apply",
+      "difficulty": 3,
+      "prompt": "Which concept best explains this situation? A competitive antagonist can occupy a receptor without producing the usual response.",
+      "answers": [
+        "antagonist"
+      ],
+      "options": [
+        "drug binds receptor",
+        "antagonist",
+        "agonist",
+        "reuptake inhibition"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "antagonist",
+      "lessonId": "lesson-07",
+      "cue": "Trace where antagonist belongs in the lesson mechanism or example.",
+      "explanation": "antagonist: a substance that reduces signalling by blocking receptor activation Source: Biology 30 Chapter 11, textbook p. 384",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 384"
+      ],
+      "id": "antagonist:mc-correction",
+      "family": "misconception",
+      "interaction": "single",
+      "skill": "misconception",
+      "difficulty": 3,
+      "prompt": "Which statement correctly replaces this inaccurate idea: “An antagonist necessarily increases neurotransmitter release.”",
+      "answers": [
+        "a substance that reduces signalling by blocking receptor activation"
+      ],
+      "options": [
+        "An agonist always blocks the receptor without activating it.",
+        "Reuptake inhibition removes transmitter from the cleft faster.",
+        "slower transmitter removal that can prolong its effect in the synaptic cleft",
+        "a substance that reduces signalling by blocking receptor activation"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "antagonist",
+      "lessonId": "lesson-07",
+      "cue": "Trace where antagonist belongs in the lesson mechanism or example.",
+      "explanation": "antagonist: a substance that reduces signalling by blocking receptor activation Source: Biology 30 Chapter 11, textbook p. 384",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 384"
+      ],
+      "id": "antagonist:mc-sequence-start",
+      "family": "sequence",
+      "interaction": "single",
+      "skill": "sequence",
+      "difficulty": 1,
+      "prompt": "Which event begins the antagonist sequence?",
+      "answers": [
+        "drug binds receptor"
+      ],
+      "options": [
+        "drug reaches synapse",
+        "postsynaptic effect",
+        "transmitter released",
+        "drug binds receptor"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "antagonist",
+      "lessonId": "lesson-07",
+      "cue": "Trace where antagonist belongs in the lesson mechanism or example.",
+      "explanation": "antagonist: a substance that reduces signalling by blocking receptor activation Source: Biology 30 Chapter 11, textbook p. 384",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 384"
+      ],
+      "id": "antagonist:mc-sequence-next",
+      "family": "sequence",
+      "interaction": "single",
+      "skill": "sequence",
+      "difficulty": 2,
+      "prompt": "In the antagonist sequence, what follows drug binds receptor?",
+      "answers": [
+        "normal transmitter blocked"
+      ],
+      "options": [
+        "transmitter released",
+        "response reduced",
+        "normal transmitter blocked",
+        "postsynaptic effect"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "antagonist",
+      "lessonId": "lesson-07",
+      "cue": "Trace where antagonist belongs in the lesson mechanism or example.",
+      "explanation": "antagonist: a substance that reduces signalling by blocking receptor activation Source: Biology 30 Chapter 11, textbook p. 384",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 384"
+      ],
+      "id": "antagonist:mc-sequence-end",
+      "family": "integrate",
+      "interaction": "single",
+      "skill": "integrate",
+      "difficulty": 4,
+      "prompt": "Which event completes the antagonist sequence?",
+      "answers": [
+        "response reduced"
+      ],
+      "options": [
+        "postsynaptic effect",
+        "response reduced",
+        "receptor activation",
+        "transmitter released"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "antagonist",
+      "lessonId": "lesson-07",
+      "cue": "Trace where antagonist belongs in the lesson mechanism or example.",
+      "explanation": "antagonist: a substance that reduces signalling by blocking receptor activation Source: Biology 30 Chapter 11, textbook p. 384",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 384"
+      ],
+      "id": "antagonist:mixed-typed",
+      "family": "retrieval",
+      "interaction": "typed",
+      "skill": "recall",
+      "prompt": "Name the concept: a substance that reduces signalling by blocking receptor activation",
+      "answers": [
+        "antagonist"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "antagonist",
+      "lessonId": "lesson-07",
+      "cue": "Trace where antagonist belongs in the lesson mechanism or example.",
+      "explanation": "antagonist: a substance that reduces signalling by blocking receptor activation Source: Biology 30 Chapter 11, textbook p. 384",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 384"
+      ],
+      "id": "antagonist:mixed-single",
+      "family": "discrimination",
+      "interaction": "single",
+      "skill": "comparison",
+      "prompt": "Which concept means “a substance that reduces signalling by blocking receptor activation”?",
+      "answers": [
+        "antagonist"
+      ],
+      "options": [
+        "reuptake inhibition",
+        "antagonist",
+        "agonist"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "antagonist",
+      "lessonId": "lesson-07",
+      "cue": "Trace where antagonist belongs in the lesson mechanism or example.",
+      "explanation": "antagonist: a substance that reduces signalling by blocking receptor activation Source: Biology 30 Chapter 11, textbook p. 384",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 384"
+      ],
+      "id": "antagonist:mixed-application",
+      "family": "application",
+      "interaction": "single",
+      "skill": "application",
+      "prompt": "A competitive antagonist can occupy a receptor without producing the usual response.",
+      "answers": [
+        "antagonist"
+      ],
+      "options": [
+        "reuptake inhibition",
+        "agonist",
+        "antagonist"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "antagonist",
+      "lessonId": "lesson-07",
+      "cue": "Trace where antagonist belongs in the lesson mechanism or example.",
+      "explanation": "antagonist: a substance that reduces signalling by blocking receptor activation Source: Biology 30 Chapter 11, textbook p. 384",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 384"
+      ],
+      "id": "antagonist:mixed-multiple",
+      "family": "odd-one-out",
+      "interaction": "multiple",
+      "skill": "comparison",
+      "prompt": "Select both statements that belong with antagonist.",
+      "answers": [
+        "a substance that reduces signalling by blocking receptor activation",
+        "A competitive antagonist can occupy a receptor without producing the usual response."
+      ],
+      "options": [
+        "slower transmitter removal that can prolong its effect in the synaptic cleft",
+        "a substance that activates a receptor or increases a neurotransmitter's effect",
+        "A competitive antagonist can occupy a receptor without producing the usual response.",
+        "a substance that reduces signalling by blocking receptor activation"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "antagonist",
+      "lessonId": "lesson-07",
+      "cue": "Trace where antagonist belongs in the lesson mechanism or example.",
+      "explanation": "antagonist: a substance that reduces signalling by blocking receptor activation Source: Biology 30 Chapter 11, textbook p. 384",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 384"
+      ],
+      "id": "antagonist:mixed-tf",
+      "family": "misconception",
+      "interaction": "true-false",
+      "skill": "error-correction",
+      "prompt": "An antagonist necessarily increases neurotransmitter release.",
+      "answers": [
+        "false"
+      ],
+      "options": [
+        "true",
+        "false"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "antagonist",
+      "lessonId": "lesson-07",
+      "cue": "Trace where antagonist belongs in the lesson mechanism or example.",
+      "explanation": "antagonist: a substance that reduces signalling by blocking receptor activation Source: Biology 30 Chapter 11, textbook p. 384",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 384"
+      ],
+      "id": "antagonist:mixed-order",
+      "family": "sequence",
+      "interaction": "ordering",
+      "skill": "sequencing",
+      "prompt": "Put the antagonist steps in order.",
+      "answers": [
+        "drug binds receptor",
+        "normal transmitter blocked",
+        "response reduced"
+      ],
+      "options": [
+        "drug binds receptor",
+        "response reduced",
+        "normal transmitter blocked"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "antagonist",
+      "lessonId": "lesson-07",
+      "cue": "Trace where antagonist belongs in the lesson mechanism or example.",
+      "explanation": "antagonist: a substance that reduces signalling by blocking receptor activation Source: Biology 30 Chapter 11, textbook p. 384",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 384"
+      ],
+      "id": "antagonist:mc-term",
+      "family": "recognize",
+      "interaction": "single",
+      "skill": "recognize",
+      "difficulty": 1,
+      "prompt": "Which term best matches this description: a substance that reduces signalling by blocking receptor activation?",
+      "answers": [
+        "antagonist"
+      ],
+      "options": [
+        "antagonist",
+        "agonist",
+        "reuptake inhibition",
+        "normal transmitter blocked"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "antagonist",
+      "lessonId": "lesson-07",
+      "cue": "Trace where antagonist belongs in the lesson mechanism or example.",
+      "explanation": "antagonist: a substance that reduces signalling by blocking receptor activation Source: Biology 30 Chapter 11, textbook p. 384",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 384"
+      ],
+      "id": "antagonist:mc-function",
+      "family": "relate",
+      "interaction": "single",
+      "skill": "relate",
+      "difficulty": 2,
+      "prompt": "Which statement best describes antagonist?",
+      "answers": [
+        "a substance that reduces signalling by blocking receptor activation"
+      ],
+      "options": [
+        "Reuptake inhibition removes transmitter from the cleft faster.",
+        "a substance that activates a receptor or increases a neurotransmitter's effect",
+        "slower transmitter removal that can prolong its effect in the synaptic cleft",
+        "a substance that reduces signalling by blocking receptor activation"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "flashcards",
+      "conceptId": "reuptake-inhibition",
+      "lessonId": "lesson-07",
+      "cue": "Trace where reuptake inhibition belongs in the lesson mechanism or example.",
+      "explanation": "reuptake inhibition: slower transmitter removal that can prolong its effect in the synaptic cleft Source: Biology 30 Chapter 11, textbook p. 384",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 384"
+      ],
+      "id": "reuptake-inhibition:card-term",
+      "family": "recall",
+      "interaction": "flashcard",
+      "skill": "recall",
+      "prompt": "reuptake inhibition",
+      "answers": [
+        "slower transmitter removal that can prolong its effect in the synaptic cleft"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "flashcards",
+      "conceptId": "reuptake-inhibition",
+      "lessonId": "lesson-07",
+      "cue": "Trace where reuptake inhibition belongs in the lesson mechanism or example.",
+      "explanation": "reuptake inhibition: slower transmitter removal that can prolong its effect in the synaptic cleft Source: Biology 30 Chapter 11, textbook p. 384",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 384"
+      ],
+      "id": "reuptake-inhibition:card-definition",
+      "family": "reverse-retrieval",
+      "interaction": "flashcard",
+      "skill": "recall",
+      "prompt": "slower transmitter removal that can prolong its effect in the synaptic cleft",
+      "answers": [
+        "reuptake inhibition"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "flashcards",
+      "conceptId": "reuptake-inhibition",
+      "lessonId": "lesson-07",
+      "cue": "Trace where reuptake inhibition belongs in the lesson mechanism or example.",
+      "explanation": "reuptake inhibition: slower transmitter removal that can prolong its effect in the synaptic cleft Source: Biology 30 Chapter 11, textbook p. 384",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 384"
+      ],
+      "id": "reuptake-inhibition:card-scenario",
+      "family": "application",
+      "interaction": "flashcard",
+      "skill": "application",
+      "prompt": "Blocking reuptake can leave more transmitter available to bind receptors.",
+      "answers": [
+        "reuptake inhibition — slower transmitter removal that can prolong its effect in the synaptic cleft"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "flashcards",
+      "conceptId": "reuptake-inhibition",
+      "lessonId": "lesson-07",
+      "cue": "Trace where reuptake inhibition belongs in the lesson mechanism or example.",
+      "explanation": "reuptake inhibition: slower transmitter removal that can prolong its effect in the synaptic cleft Source: Biology 30 Chapter 11, textbook p. 384",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 384"
+      ],
+      "id": "reuptake-inhibition:card-error",
+      "family": "error-correction",
+      "interaction": "flashcard",
+      "skill": "error-correction",
+      "prompt": "Correct this idea: Reuptake inhibition removes transmitter from the cleft faster.",
+      "answers": [
+        "slower transmitter removal that can prolong its effect in the synaptic cleft"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "blanks",
+      "conceptId": "reuptake-inhibition",
+      "lessonId": "lesson-07",
+      "cue": "Trace where reuptake inhibition belongs in the lesson mechanism or example.",
+      "explanation": "reuptake inhibition: slower transmitter removal that can prolong its effect in the synaptic cleft Source: Biology 30 Chapter 11, textbook p. 384",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 384"
+      ],
+      "id": "reuptake-inhibition:blank-definition",
+      "family": "definition",
+      "interaction": "typed",
+      "skill": "recall",
+      "prompt": "The term for “slower transmitter removal that can prolong its effect in the synaptic cleft” is _____.",
+      "answers": [
+        "reuptake inhibition"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "blanks",
+      "conceptId": "reuptake-inhibition",
+      "lessonId": "lesson-07",
+      "cue": "Trace where reuptake inhibition belongs in the lesson mechanism or example.",
+      "explanation": "reuptake inhibition: slower transmitter removal that can prolong its effect in the synaptic cleft Source: Biology 30 Chapter 11, textbook p. 384",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 384"
+      ],
+      "id": "reuptake-inhibition:blank-scenario",
+      "family": "scenario",
+      "interaction": "typed",
+      "skill": "application",
+      "prompt": "This situation illustrates _____: Blocking reuptake can leave more transmitter available to bind receptors.",
+      "answers": [
+        "reuptake inhibition"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "blanks",
+      "conceptId": "reuptake-inhibition",
+      "lessonId": "lesson-07",
+      "cue": "Trace where reuptake inhibition belongs in the lesson mechanism or example.",
+      "explanation": "reuptake inhibition: slower transmitter removal that can prolong its effect in the synaptic cleft Source: Biology 30 Chapter 11, textbook p. 384",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 384"
+      ],
+      "id": "reuptake-inhibition:blank-sequence",
+      "family": "pathway",
+      "interaction": "typed",
+      "skill": "sequencing",
+      "prompt": "Complete the pathway: transmitter released → reuptake blocked → transmitter remains → _____.",
+      "answers": [
+        "effect prolonged"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "reuptake-inhibition",
+      "lessonId": "lesson-07",
+      "cue": "Trace where reuptake inhibition belongs in the lesson mechanism or example.",
+      "explanation": "reuptake inhibition: slower transmitter removal that can prolong its effect in the synaptic cleft Source: Biology 30 Chapter 11, textbook p. 384",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 384"
+      ],
+      "id": "reuptake-inhibition:mc-term",
+      "family": "recognize",
+      "interaction": "single",
+      "skill": "recognize",
+      "difficulty": 1,
+      "prompt": "Which term best matches this description: slower transmitter removal that can prolong its effect in the synaptic cleft?",
+      "answers": [
+        "reuptake inhibition"
+      ],
+      "options": [
+        "reuptake inhibition",
+        "agonist",
+        "transmitter remains",
+        "transmitter released"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "reuptake-inhibition",
+      "lessonId": "lesson-07",
+      "cue": "Trace where reuptake inhibition belongs in the lesson mechanism or example.",
+      "explanation": "reuptake inhibition: slower transmitter removal that can prolong its effect in the synaptic cleft Source: Biology 30 Chapter 11, textbook p. 384",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 384"
+      ],
+      "id": "reuptake-inhibition:mc-function",
+      "family": "relate",
+      "interaction": "single",
+      "skill": "relate",
+      "difficulty": 2,
+      "prompt": "Which statement best describes reuptake inhibition?",
+      "answers": [
+        "slower transmitter removal that can prolong its effect in the synaptic cleft"
+      ],
+      "options": [
+        "a substance that reduces signalling by blocking receptor activation",
+        "An antagonist necessarily increases neurotransmitter release.",
+        "slower transmitter removal that can prolong its effect in the synaptic cleft",
+        "An agonist always blocks the receptor without activating it."
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "reuptake-inhibition",
+      "lessonId": "lesson-07",
+      "cue": "Trace where reuptake inhibition belongs in the lesson mechanism or example.",
+      "explanation": "reuptake inhibition: slower transmitter removal that can prolong its effect in the synaptic cleft Source: Biology 30 Chapter 11, textbook p. 384",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 384"
+      ],
+      "id": "reuptake-inhibition:mc-scenario",
+      "family": "apply",
+      "interaction": "single",
+      "skill": "apply",
+      "difficulty": 3,
+      "prompt": "Which concept best explains this situation? Blocking reuptake can leave more transmitter available to bind receptors.",
+      "answers": [
+        "reuptake inhibition"
+      ],
+      "options": [
+        "reuptake inhibition",
+        "agonist",
+        "antagonist",
+        "transmitter remains"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "reuptake-inhibition",
+      "lessonId": "lesson-07",
+      "cue": "Trace where reuptake inhibition belongs in the lesson mechanism or example.",
+      "explanation": "reuptake inhibition: slower transmitter removal that can prolong its effect in the synaptic cleft Source: Biology 30 Chapter 11, textbook p. 384",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 384"
+      ],
+      "id": "reuptake-inhibition:mc-correction",
+      "family": "misconception",
+      "interaction": "single",
+      "skill": "misconception",
+      "difficulty": 3,
+      "prompt": "Which statement correctly replaces this inaccurate idea: “Reuptake inhibition removes transmitter from the cleft faster.”",
+      "answers": [
+        "slower transmitter removal that can prolong its effect in the synaptic cleft"
+      ],
+      "options": [
+        "An agonist always blocks the receptor without activating it.",
+        "a substance that activates a receptor or increases a neurotransmitter's effect",
+        "slower transmitter removal that can prolong its effect in the synaptic cleft",
+        "Reuptake inhibition removes transmitter from the cleft faster."
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "reuptake-inhibition",
+      "lessonId": "lesson-07",
+      "cue": "Trace where reuptake inhibition belongs in the lesson mechanism or example.",
+      "explanation": "reuptake inhibition: slower transmitter removal that can prolong its effect in the synaptic cleft Source: Biology 30 Chapter 11, textbook p. 384",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 384"
+      ],
+      "id": "reuptake-inhibition:mc-sequence-start",
+      "family": "sequence",
+      "interaction": "single",
+      "skill": "sequence",
+      "difficulty": 1,
+      "prompt": "Which event begins the reuptake inhibition sequence?",
+      "answers": [
+        "transmitter released"
+      ],
+      "options": [
+        "drug binds receptor",
+        "postsynaptic effect",
+        "drug reaches synapse",
+        "transmitter released"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "reuptake-inhibition",
+      "lessonId": "lesson-07",
+      "cue": "Trace where reuptake inhibition belongs in the lesson mechanism or example.",
+      "explanation": "reuptake inhibition: slower transmitter removal that can prolong its effect in the synaptic cleft Source: Biology 30 Chapter 11, textbook p. 384",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 384"
+      ],
+      "id": "reuptake-inhibition:mc-sequence-next",
+      "family": "sequence",
+      "interaction": "single",
+      "skill": "sequence",
+      "difficulty": 2,
+      "prompt": "In the reuptake inhibition sequence, what follows transmitter released?",
+      "answers": [
+        "reuptake blocked"
+      ],
+      "options": [
+        "reuptake blocked",
+        "transmitter released",
+        "drug binds receptor",
+        "drug reaches synapse"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "reuptake-inhibition",
+      "lessonId": "lesson-07",
+      "cue": "Trace where reuptake inhibition belongs in the lesson mechanism or example.",
+      "explanation": "reuptake inhibition: slower transmitter removal that can prolong its effect in the synaptic cleft Source: Biology 30 Chapter 11, textbook p. 384",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 384"
+      ],
+      "id": "reuptake-inhibition:mc-sequence-end",
+      "family": "integrate",
+      "interaction": "single",
+      "skill": "integrate",
+      "difficulty": 4,
+      "prompt": "Which event completes the reuptake inhibition sequence?",
+      "answers": [
+        "effect prolonged"
+      ],
+      "options": [
+        "drug binds receptor",
+        "receptor activation",
+        "effect prolonged",
+        "reuptake blocked"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "reuptake-inhibition",
+      "lessonId": "lesson-07",
+      "cue": "Trace where reuptake inhibition belongs in the lesson mechanism or example.",
+      "explanation": "reuptake inhibition: slower transmitter removal that can prolong its effect in the synaptic cleft Source: Biology 30 Chapter 11, textbook p. 384",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 384"
+      ],
+      "id": "reuptake-inhibition:mixed-typed",
+      "family": "retrieval",
+      "interaction": "typed",
+      "skill": "recall",
+      "prompt": "Name the concept: slower transmitter removal that can prolong its effect in the synaptic cleft",
+      "answers": [
+        "reuptake inhibition"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "reuptake-inhibition",
+      "lessonId": "lesson-07",
+      "cue": "Trace where reuptake inhibition belongs in the lesson mechanism or example.",
+      "explanation": "reuptake inhibition: slower transmitter removal that can prolong its effect in the synaptic cleft Source: Biology 30 Chapter 11, textbook p. 384",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 384"
+      ],
+      "id": "reuptake-inhibition:mixed-single",
+      "family": "discrimination",
+      "interaction": "single",
+      "skill": "comparison",
+      "prompt": "Which concept means “slower transmitter removal that can prolong its effect in the synaptic cleft”?",
+      "answers": [
+        "reuptake inhibition"
+      ],
+      "options": [
+        "antagonist",
+        "agonist",
+        "reuptake inhibition"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "reuptake-inhibition",
+      "lessonId": "lesson-07",
+      "cue": "Trace where reuptake inhibition belongs in the lesson mechanism or example.",
+      "explanation": "reuptake inhibition: slower transmitter removal that can prolong its effect in the synaptic cleft Source: Biology 30 Chapter 11, textbook p. 384",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 384"
+      ],
+      "id": "reuptake-inhibition:mixed-application",
+      "family": "application",
+      "interaction": "single",
+      "skill": "application",
+      "prompt": "Blocking reuptake can leave more transmitter available to bind receptors.",
+      "answers": [
+        "reuptake inhibition"
+      ],
+      "options": [
+        "antagonist",
+        "reuptake inhibition",
+        "agonist"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "reuptake-inhibition",
+      "lessonId": "lesson-07",
+      "cue": "Trace where reuptake inhibition belongs in the lesson mechanism or example.",
+      "explanation": "reuptake inhibition: slower transmitter removal that can prolong its effect in the synaptic cleft Source: Biology 30 Chapter 11, textbook p. 384",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 384"
+      ],
+      "id": "reuptake-inhibition:mixed-multiple",
+      "family": "odd-one-out",
+      "interaction": "multiple",
+      "skill": "comparison",
+      "prompt": "Select both statements that belong with reuptake inhibition.",
+      "answers": [
+        "slower transmitter removal that can prolong its effect in the synaptic cleft",
+        "Blocking reuptake can leave more transmitter available to bind receptors."
+      ],
+      "options": [
+        "a substance that reduces signalling by blocking receptor activation",
+        "Blocking reuptake can leave more transmitter available to bind receptors.",
+        "a substance that activates a receptor or increases a neurotransmitter's effect",
+        "slower transmitter removal that can prolong its effect in the synaptic cleft"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "reuptake-inhibition",
+      "lessonId": "lesson-07",
+      "cue": "Trace where reuptake inhibition belongs in the lesson mechanism or example.",
+      "explanation": "reuptake inhibition: slower transmitter removal that can prolong its effect in the synaptic cleft Source: Biology 30 Chapter 11, textbook p. 384",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 384"
+      ],
+      "id": "reuptake-inhibition:mixed-tf",
+      "family": "misconception",
+      "interaction": "true-false",
+      "skill": "error-correction",
+      "prompt": "Reuptake inhibition removes transmitter from the cleft faster.",
+      "answers": [
+        "false"
+      ],
+      "options": [
+        "true",
+        "false"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "reuptake-inhibition",
+      "lessonId": "lesson-07",
+      "cue": "Trace where reuptake inhibition belongs in the lesson mechanism or example.",
+      "explanation": "reuptake inhibition: slower transmitter removal that can prolong its effect in the synaptic cleft Source: Biology 30 Chapter 11, textbook p. 384",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 384"
+      ],
+      "id": "reuptake-inhibition:mixed-order",
+      "family": "sequence",
+      "interaction": "ordering",
+      "skill": "sequencing",
+      "prompt": "Put the reuptake inhibition steps in order.",
+      "answers": [
+        "transmitter released",
+        "reuptake blocked",
+        "transmitter remains",
+        "effect prolonged"
+      ],
+      "options": [
+        "reuptake blocked",
+        "transmitter released",
+        "transmitter remains",
+        "effect prolonged"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "reuptake-inhibition",
+      "lessonId": "lesson-07",
+      "cue": "Trace where reuptake inhibition belongs in the lesson mechanism or example.",
+      "explanation": "reuptake inhibition: slower transmitter removal that can prolong its effect in the synaptic cleft Source: Biology 30 Chapter 11, textbook p. 384",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 384"
+      ],
+      "id": "reuptake-inhibition:mc-term",
+      "family": "recognize",
+      "interaction": "single",
+      "skill": "recognize",
+      "difficulty": 1,
+      "prompt": "Which term best matches this description: slower transmitter removal that can prolong its effect in the synaptic cleft?",
+      "answers": [
+        "reuptake inhibition"
+      ],
+      "options": [
+        "transmitter released",
+        "reuptake inhibition",
+        "reuptake blocked",
+        "effect prolonged"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "reuptake-inhibition",
+      "lessonId": "lesson-07",
+      "cue": "Trace where reuptake inhibition belongs in the lesson mechanism or example.",
+      "explanation": "reuptake inhibition: slower transmitter removal that can prolong its effect in the synaptic cleft Source: Biology 30 Chapter 11, textbook p. 384",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 384"
+      ],
+      "id": "reuptake-inhibition:mc-function",
+      "family": "relate",
+      "interaction": "single",
+      "skill": "relate",
+      "difficulty": 2,
+      "prompt": "Which statement best describes reuptake inhibition?",
+      "answers": [
+        "slower transmitter removal that can prolong its effect in the synaptic cleft"
+      ],
+      "options": [
+        "a substance that reduces signalling by blocking receptor activation",
+        "slower transmitter removal that can prolong its effect in the synaptic cleft",
+        "a substance that activates a receptor or increases a neurotransmitter's effect",
+        "An antagonist necessarily increases neurotransmitter release."
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    }
+  ],
+  "textbookPractice": [
+    {
+      "id": "ch11-p383-drug-activity-analysis-q1",
+      "page": 383,
+      "group": "Drug activity analysis",
+      "number": 1,
+      "label": "Drug Activity Analysis · p. 383 · question 1",
+      "crops": [
+        {
+          "page": 383,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ]
+        }
+      ],
+      "topics": [
+        "lesson-07",
+        "lesson-13"
+      ]
+    },
+    {
+      "id": "ch11-p383-drug-activity-analysis-q2",
+      "page": 383,
+      "group": "Drug activity analysis",
+      "number": 2,
+      "label": "Drug Activity Analysis · p. 383 · question 2",
+      "crops": [
+        {
+          "page": 383,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ]
+        }
+      ],
+      "topics": [
+        "lesson-07",
+        "lesson-13"
+      ]
+    },
+    {
+      "id": "ch11-p384-section-11-1-q6",
+      "page": 384,
+      "group": "section-11.1",
+      "number": 6,
+      "label": "Section 11.1 · p. 384 · question 6",
+      "crops": [
+        {
+          "page": 384,
+          "box": [
+            290.35,
+            287.73,
+            593,
+            320.73
+          ],
+          "asset": "ch11-p384-section-11-1-q6.jpg",
+          "role": "selected question including its in-column figure",
+          "src": "./assets/textbook-practice/ch11-p384-section-11-1-q6.jpg"
+        },
+        {
+          "page": 384,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ]
+        }
+      ],
+      "topics": [
+        "lesson-06",
+        "lesson-07"
+      ]
+    },
+    {
+      "id": "ch11-p384-section-11-1-q8",
+      "page": 384,
+      "group": "section-11.1",
+      "number": 8,
+      "label": "Section 11.1 · p. 384 · question 8",
+      "crops": [
+        {
+          "page": 384,
+          "box": [
+            290.35,
+            377.73,
+            593,
+            758
+          ],
+          "asset": "ch11-p384-section-11-1-q8.jpg",
+          "role": "selected question including its in-column figure",
+          "src": "./assets/textbook-practice/ch11-p384-section-11-1-q8.jpg"
+        },
+        {
+          "page": 384,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ]
+        }
+      ],
+      "topics": [
+        "lesson-06",
+        "lesson-07"
+      ]
+    },
+    {
+      "id": "ch11-p399-section-11-3-q5",
+      "page": 399,
+      "group": "section-11.3",
+      "number": 5,
+      "label": "Section 11.3 · p. 399 · question 5",
+      "crops": [
+        {
+          "page": 399,
+          "box": [
+            320.35,
+            711.73,
+            593,
+            758
+          ],
+          "asset": "ch11-p399-section-11-3-q5.jpg",
+          "role": "selected question including its in-column figure",
+          "src": "./assets/textbook-practice/ch11-p399-section-11-3-q5.jpg"
+        },
+        {
+          "page": 399,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ]
+        },
+        {
+          "page": 397,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "role": "referenced context / continuation"
+        }
+      ],
+      "topics": [
+        "lesson-07",
+        "lesson-08"
+      ]
+    },
+    {
+      "id": "ch11-p400-go-further-q1",
+      "page": 400,
+      "group": "Go Further",
+      "number": 1,
+      "label": "Go Further · p. 400 · question 1",
+      "crops": [
+        {
+          "page": 400,
+          "box": [
+            0,
+            0,
+            663,
+            843
+          ]
+        }
+      ],
+      "topics": [
+        "lesson-07",
+        "lesson-13"
+      ]
+    },
+    {
+      "id": "ch11-p400-go-further-q2",
+      "page": 400,
+      "group": "Go Further",
+      "number": 2,
+      "label": "Go Further · p. 400 · question 2",
+      "crops": [
+        {
+          "page": 400,
+          "box": [
+            0,
+            0,
+            663,
+            843
+          ]
+        }
+      ],
+      "topics": [
+        "lesson-07",
+        "lesson-13"
+      ]
+    },
+    {
+      "id": "ch11-p400-go-further-q3",
+      "page": 400,
+      "group": "Go Further",
+      "number": 3,
+      "label": "Go Further · p. 400 · question 3",
+      "crops": [
+        {
+          "page": 400,
+          "box": [
+            0,
+            0,
+            663,
+            843
+          ]
+        }
+      ],
+      "topics": [
+        "lesson-07",
+        "lesson-13"
+      ]
+    },
+    {
+      "id": "ch11-p400-go-further-q4",
+      "page": 400,
+      "group": "Go Further",
+      "number": 4,
+      "label": "Go Further · p. 400 · question 4",
+      "crops": [
+        {
+          "page": 400,
+          "box": [
+            0,
+            0,
+            663,
+            843
+          ]
+        }
+      ],
+      "topics": [
+        "lesson-07",
+        "lesson-13"
+      ]
+    },
+    {
+      "id": "ch11-p403-chapter-review-q24",
+      "page": 403,
+      "group": "chapter-review",
+      "number": 24,
+      "label": "Chapter Review · p. 403 · question 24",
+      "crops": [
+        {
+          "page": 403,
+          "box": [
+            314.8,
+            636.48,
+            593,
+            758
+          ],
+          "asset": "ch11-p403-chapter-review-q24.jpg",
+          "role": "selected question including its in-column figure",
+          "src": "./assets/textbook-practice/ch11-p403-chapter-review-q24.jpg"
+        },
+        {
+          "page": 403,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ]
+        },
+        {
+          "page": 402,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "role": "referenced context / continuation"
+        }
+      ],
+      "topics": [
+        "lesson-06",
+        "lesson-07"
+      ]
+    }
+  ],
+  "media": [
+    {
+      "kind": "img",
+      "attrs": {
+        "alt": "Locate the changed step first, then predict the effect on the signal. This diagram organizes the mechanisms discussed in slides 41–42.",
+        "decoding": "async",
+        "loading": "lazy",
+        "src": "assets/source/chapter11-drugs-0.svg",
+        "data-canvas-helper-edit-key": "p3-chapter-492"
+      },
+      "caption": "Figure 12. Locate the changed step first, then predict the effect on the signal. Use it to organize the changes that can occur at a synapse.",
+      "locator": {
+        "path": "projects/biology30-unit-a-pilot-3/workspace/index.html",
+        "startLine": 1396
+      },
+      "status": "existing source asset; no new visual/science acceptance or video playback asserted"
+    },
+    {
+      "kind": "img",
+      "attrs": {
+        "alt": "Original diagram for Section 11.1 Review, question 1. Keep these original labels when answering.",
+        "decoding": "async",
+        "loading": "lazy",
+        "src": "assets/source/chapter11-drugs-1.png",
+        "data-canvas-helper-edit-key": "p3-chapter-524"
+      },
+      "caption": "diagram for Section 11.1 Review, question 1. Keep these original labels when answering.",
+      "locator": {
+        "path": "projects/biology30-unit-a-pilot-3/workspace/index.html",
+        "startLine": 1466
+      },
+      "status": "existing source asset; no new visual/science acceptance or video playback asserted"
+    },
+    {
+      "kind": "img",
+      "attrs": {
+        "alt": "Original diagram for Section 11.1 Review, question 5. Keep these original labels when answering.",
+        "decoding": "async",
+        "loading": "lazy",
+        "src": "assets/source/chapter11-drugs-2.png",
+        "data-canvas-helper-edit-key": "p3-chapter-555"
+      },
+      "caption": "diagram for Section 11.1 Review, question 5. Keep these original labels when answering.",
+      "locator": {
+        "path": "projects/biology30-unit-a-pilot-3/workspace/index.html",
+        "startLine": 1524
+      },
+      "status": "existing source asset; no new visual/science acceptance or video playback asserted"
+    }
+  ],
+  "vocabulary": {
+    "canonicalPayload": "current-course/data/vocabulary-and-schema.json",
+    "inlineTermLinks": [
+      {
+        "attrs": {
+          "type": "button",
+          "class": "bio-term",
+          "data-bio-term": "agonist",
+          "data-bio-term-route": "lesson-07",
+          "aria-haspopup": "dialog",
+          "data-canvas-helper-edit-key": "p3-l07-setup-11"
+        },
+        "term": "agonist"
+      },
+      {
+        "attrs": {
+          "type": "button",
+          "class": "bio-term",
+          "data-bio-term": "antagonist",
+          "data-bio-term-route": "lesson-07",
+          "aria-haspopup": "dialog",
+          "data-canvas-helper-edit-key": "p3-l07-setup-13"
+        },
+        "term": "antagonist"
+      },
+      {
+        "attrs": {
+          "type": "button",
+          "class": "bio-term",
+          "data-bio-term": "reuptake",
+          "data-bio-term-route": "lesson-07",
+          "aria-haspopup": "dialog",
+          "data-canvas-helper-edit-key": "p3-l07-setup-15"
+        },
+        "term": "reuptake"
+      },
+      {
+        "attrs": {
+          "type": "button",
+          "class": "bio-term",
+          "data-bio-term": "cholinesterase",
+          "data-bio-term-route": "lesson-07",
+          "aria-haspopup": "dialog",
+          "data-canvas-helper-edit-key": "p3-l07-setup-17"
+        },
+        "term": "cholinesterase"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "receptor",
+          "data-canvas-helper-edit-key": "p3-chapter-479",
+          "type": "button"
+        },
+        "term": "receptor"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "mechanism",
+          "data-canvas-helper-edit-key": "p3-chapter-480",
+          "type": "button"
+        },
+        "term": "mechanism"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "neurotransmitter",
+          "data-canvas-helper-edit-key": "p3-chapter-482",
+          "type": "button"
+        },
+        "term": "neurotransmitter"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "reuptake",
+          "data-canvas-helper-edit-key": "p3-chapter-483",
+          "type": "button"
+        },
+        "term": "reuptake"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "synapse",
+          "data-canvas-helper-edit-key": "p3-chapter-485",
+          "type": "button"
+        },
+        "term": "synapse"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "cholinesterase",
+          "data-canvas-helper-edit-key": "p3-chapter-489",
+          "type": "button"
+        },
+        "term": "cholinesterase"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "acetylcholine",
+          "data-canvas-helper-edit-key": "p3-chapter-488",
+          "type": "button"
+        },
+        "term": "acetylcholine"
+      }
+    ],
+    "visibleWords": [
+      "Vocabulary help Key termsWords for this lessonUse these definitions when you need help with a term. agonista substance that activates a receptor antagonista substance that blocks receptor activation reuptaketaking a released neurotransmitter back into a cell cholinesterasean enzyme that breaks down acetylcholine More vocabulary for this lessonLesson vocabularysynapse · neurotransmitter · receptor · agonist · antagonist · reuptake · acetylcholine · cholinesterase · mechanismSelect an underlined term for its definition. Your vocabulary writing is saved in Process Collection."
+    ]
+  },
+  "immutablePreservationBindings": [
+    {
+      "tag": "section",
+      "attrs": {
+        "class": "activity",
+        "data-activity": "check-drugs",
+        "data-activity-mode": "paired",
+        "data-required-check": ""
+      },
+      "startLine": 1405
+    },
+    {
+      "tag": "div",
+      "attrs": {
+        "class": "question",
+        "data-question": "check-drugs-mc"
+      },
+      "startLine": 1413,
+      "questionText": "The transmission of the nerve impulse across a synapse is accomplished by the release of a neurotransmitter from the cell body of the pre-synaptic neuron to the Schwann cell of the post synaptic neuron. from the Schwann cell of the pre-synaptic neuron to the cell body of the post synaptic neuron. from the dendrite of the pre-synaptic neuron to the axon of the post synaptic neuron. from the axon of the pre-synaptic neuron to the dendrite of the post synaptic neuron. Check answer Explain the related idea Hypothesize how overproduction of cholinesterase might affect the body. Explain your answer. Textbook p. 384 Written response Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded. Save written response"
+    },
+    {
+      "tag": "input",
+      "attrs": {
+        "type": "radio",
+        "name": "check-drugs-mc",
+        "value": "QUES_51667_82706_A275458",
+        "data-answer": ""
+      },
+      "startLine": 1416
+    },
+    {
+      "tag": "input",
+      "attrs": {
+        "type": "radio",
+        "name": "check-drugs-mc",
+        "value": "QUES_51667_82706_A275459",
+        "data-answer": ""
+      },
+      "startLine": 1418
+    },
+    {
+      "tag": "input",
+      "attrs": {
+        "type": "radio",
+        "name": "check-drugs-mc",
+        "value": "QUES_51667_82706_A275460",
+        "data-answer": ""
+      },
+      "startLine": 1420
+    },
+    {
+      "tag": "input",
+      "attrs": {
+        "type": "radio",
+        "name": "check-drugs-mc",
+        "value": "QUES_51667_82706_A275461",
+        "data-answer": ""
+      },
+      "startLine": 1422
+    },
+    {
+      "tag": "textarea",
+      "attrs": {
+        "id": "check-drugs-written",
+        "data-writing": "check-drugs-written",
+        "data-answer-limit": "3200",
+        "rows": "6",
+        "aria-describedby": "check-drugs-written-limit check-drugs-written-status"
+      },
+      "startLine": 1434
+    },
+    {
+      "tag": "section",
+      "attrs": {
+        "class": "activity",
+        "data-activity": "practice-drugs",
+        "data-activity-mode": "writing"
+      },
+      "startLine": 1453
+    },
+    {
+      "tag": "div",
+      "attrs": {
+        "class": "question",
+        "data-question": "source-review111-q1"
+      },
+      "startLine": 1461,
+      "questionText": "Copy the letters A through H into your notebook. Identify the division of the nervous system that is represented by each letter. diagram for Section 11.1 Review, question 1. Keep these original labels when answering. Textbook p. 384 Written response Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded. Save written response"
+    },
+    {
+      "tag": "textarea",
+      "attrs": {
+        "id": "source-review111-q1-written",
+        "data-writing": "source-review111-q1-written",
+        "data-answer-limit": "3200",
+        "rows": "6",
+        "aria-describedby": "source-review111-q1-written-limit source-review111-q1-written-status"
+      },
+      "startLine": 1474
+    },
+    {
+      "tag": "div",
+      "attrs": {
+        "class": "question",
+        "data-question": "source-review111-q2"
+      },
+      "startLine": 1480,
+      "questionText": "Analyze the following statement: “The neuron conducts impulses in the same way as electricity moves through a wire.” Is a nerve impulse like electricity? Prepare a table that compares a nerve impulse to the movement of an electric current along a wire. Textbook p. 384 Written response Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded. Save written response"
+    },
+    {
+      "tag": "textarea",
+      "attrs": {
+        "id": "source-review111-q2-written",
+        "data-writing": "source-review111-q2-written",
+        "data-answer-limit": "3200",
+        "rows": "6",
+        "aria-describedby": "source-review111-q2-written-limit source-review111-q2-written-status"
+      },
+      "startLine": 1487
+    },
+    {
+      "tag": "div",
+      "attrs": {
+        "class": "question",
+        "data-question": "source-review111-q3"
+      },
+      "startLine": 1493,
+      "questionText": "Compare the structure and functions of myelinated neurons and unmyelinated neurons. Textbook p. 384 Written response Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded. Save written response"
+    },
+    {
+      "tag": "textarea",
+      "attrs": {
+        "id": "source-review111-q3-written",
+        "data-writing": "source-review111-q3-written",
+        "data-answer-limit": "3200",
+        "rows": "6",
+        "aria-describedby": "source-review111-q3-written-limit source-review111-q3-written-status"
+      },
+      "startLine": 1500
+    },
+    {
+      "tag": "div",
+      "attrs": {
+        "class": "question",
+        "data-question": "source-review111-q4"
+      },
+      "startLine": 1506,
+      "questionText": "Using a diagram, explain how a neuron establishes the resting membrane potential. What is the value of this in mV? Textbook p. 384 Written response Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded. Save written response"
+    },
+    {
+      "tag": "textarea",
+      "attrs": {
+        "id": "source-review111-q4-written",
+        "data-writing": "source-review111-q4-written",
+        "data-answer-limit": "3200",
+        "rows": "6",
+        "aria-describedby": "source-review111-q4-written-limit source-review111-q4-written-status"
+      },
+      "startLine": 1513
+    },
+    {
+      "tag": "div",
+      "attrs": {
+        "class": "question",
+        "data-question": "source-review111-q5"
+      },
+      "startLine": 1519,
+      "questionText": "Examine the graph below, and answer the questions that follow. diagram for Section 11.1 Review, question 5. Keep these original labels when answering. In your notebook, indicate the specific events that are occurring at 1, 2, 3, and 4. At which area of the graph are sodium ions rapidly entering the neuron? At which area of the graph are potassium ions rapidly leaving the neuron? At which area of the graph is the sodium ion concentration higher outside than inside the neuron? Textbook p. 384 Written response Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded. Save written response"
+    },
+    {
+      "tag": "textarea",
+      "attrs": {
+        "id": "source-review111-q5-written",
+        "data-writing": "source-review111-q5-written",
+        "data-answer-limit": "3200",
+        "rows": "6",
+        "aria-describedby": "source-review111-q5-written-limit source-review111-q5-written-status"
+      },
+      "startLine": 1538
+    },
+    {
+      "tag": "div",
+      "attrs": {
+        "class": "question",
+        "data-question": "source-review111-q7"
+      },
+      "startLine": 1544,
+      "questionText": "Use word processing or spreadsheet software to construct a table to compare an excitatory response with an inhibitory response. Give an example of where these responses are complementary in the body. ICT Textbook p. 384 Written response Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded. Save written response"
+    },
+    {
+      "tag": "textarea",
+      "attrs": {
+        "id": "source-review111-q7-written",
+        "data-writing": "source-review111-q7-written",
+        "data-answer-limit": "3200",
+        "rows": "6",
+        "aria-describedby": "source-review111-q7-written-limit source-review111-q7-written-status"
+      },
+      "startLine": 1551
+    },
+    {
+      "tag": "div",
+      "attrs": {
+        "class": "question",
+        "data-question": "source-review111-q8"
+      },
+      "startLine": 1557,
+      "questionText": "Cocaine affects a synapse by blocking the re-uptake of the neurotransmitter dopamine by the presynaptic neurons. Therefore, the levels of dopamine continue to build in the synapse, causing certain effects on the body. Use word processing software to make a flowchart summarizing the usual events in the transmission of an impulse between the presynaptic and postsynaptic neurons. ICT Explain how cocaine interferes with neural transmission across the synapse. Describe the natural role of dopamine in the brain. Formulate a hypothesis about how cocaine could be addictive after only one use. For question 8(d): propose a possible explanation. A hypothesis is not proof that the outcome must occur after one exposure. Textbook p. 384 Written response Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded. Save written response"
+    },
+    {
+      "tag": "textarea",
+      "attrs": {
+        "id": "source-review111-q8-written",
+        "data-writing": "source-review111-q8-written",
+        "data-answer-limit": "3200",
+        "rows": "6",
+        "aria-describedby": "source-review111-q8-written-limit source-review111-q8-written-status"
+      },
+      "startLine": 1573
+    }
+  ],
+  "status": {
+    "sourceInventory": "exported with exact locators; see explicit source gaps",
+    "authoring": "not-started",
+    "contentReview": "not-started",
+    "integration": "not-started",
+    "technicalTesting": "not-started",
+    "teacherAcceptance": "not-requested"
+  }
+}

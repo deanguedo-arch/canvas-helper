@@ -1,0 +1,88 @@
+{
+  "document": "BOUNDED_ASSEMBLED_RECORDS_REVIEW",
+  "reviewer": "/root/chapter_records",
+  "dateUTC": "2026-10-04T15:01:06.185907+00:00",
+  "scope": "Full actual02/05 manuscript and native-activity-appendix reads, expanded block bindings and static complete token-order comparisons. No browser render, runtime integration/test, image pixel reread, source acceptance or whole-chapter new review.",
+  "filesRead": [
+    {
+      "path": "output/Biology30_CH17_Exemplar_Transfer_Calibration_v0.1.0/manuscripts/lesson-02.md",
+      "payloadPath": "manuscripts/lesson-02.md",
+      "bytes": 15004,
+      "sha256": "1fe8392c843c77250d23babac8d73c9c0826be2253bbd4ecb96d691b8c2a704e",
+      "actualRead": "Complete actual teaching Markdown including all table cells, prompts, hints, full feedback and final continuity directions."
+    },
+    {
+      "path": "output/Biology30_CH17_Exemplar_Transfer_Calibration_v0.1.0/protected-source/lesson-02.native-activity-reading.md",
+      "payloadPath": "protected-source/lesson-02.native-activity-reading.md",
+      "bytes": 7649,
+      "sha256": "1e8e39ec53faa615f76f10854ad9ccd6ac695b04d127b149d9da154338520316",
+      "actualRead": "Complete actual protected native activity Markdown: original header/goal/prerequisite/guide/reader/vocabulary; supported prompts/options and all feedback variants; stop-and-think; required selections/writing/models/criteria;05 video fallback paragraphs and both footers."
+    },
+    {
+      "path": "output/Biology30_CH17_Exemplar_Transfer_Calibration_v0.1.0/integration-text/lesson-02.teaching-fragment.html.txt",
+      "payloadPath": "integration-text/lesson-02.teaching-fragment.html.txt",
+      "bytes": 17464,
+      "sha256": "5740360125376c2994bdaa1f28c4fe3d57b276232494ec7dbdb9db49ed6543fc",
+      "actualRead": "Complete structure parsed and actual headings/IDs inspected alongside fully read identical manuscript teaching; all source-order text/math tokens independently compared with inert HTML. Not a second independent prose reread."
+    },
+    {
+      "path": "output/Biology30_CH17_Exemplar_Transfer_Calibration_v0.1.0/manuscripts/lesson-05.md",
+      "payloadPath": "manuscripts/lesson-05.md",
+      "bytes": 18133,
+      "sha256": "5ce3f48d1c44ddf22932ea3bc2c4ce7045ff45c4f78511afaa421a7d1c46a1e9",
+      "actualRead": "Complete actual teaching Markdown including all table cells, prompts, hints, full feedback and final continuity directions."
+    },
+    {
+      "path": "output/Biology30_CH17_Exemplar_Transfer_Calibration_v0.1.0/protected-source/lesson-05.native-activity-reading.md",
+      "payloadPath": "protected-source/lesson-05.native-activity-reading.md",
+      "bytes": 9237,
+      "sha256": "93ea0936b5cadcea90f88bccfe169ea5940cb32f26e0fba6b71f574935ceca22",
+      "actualRead": "Complete actual protected native activity Markdown: original header/goal/prerequisite/guide/reader/vocabulary; supported prompts/options and all feedback variants; stop-and-think; required selections/writing/models/criteria;05 video fallback paragraphs and both footers."
+    },
+    {
+      "path": "output/Biology30_CH17_Exemplar_Transfer_Calibration_v0.1.0/integration-text/lesson-05.teaching-fragment.html.txt",
+      "payloadPath": "integration-text/lesson-05.teaching-fragment.html.txt",
+      "bytes": 21630,
+      "sha256": "a78b0e51af788a1591864cd8fc3ae6a733a4b7b051b73bbe82be1787e1944e0c",
+      "actualRead": "Complete structure parsed and actual headings/IDs inspected alongside fully read identical manuscript teaching; all source-order text/math tokens independently compared with inert HTML. Not a second independent prose reread."
+    }
+  ],
+  "readingHtml": {
+    "path": "output/Biology30_CH17_Exemplar_Transfer_Calibration_v0.1.0/Biology30_CH17_Exemplar_Transfer_Calibration_Teacher_Review_v0.1.0.html",
+    "payloadPath": "Biology30_CH17_Exemplar_Transfer_Calibration_Teacher_Review_v0.1.0.html",
+    "bytes": 1279267,
+    "sha256": "5553619d9c0eb503fd9efdd3a0ca079eb50148c131f11de9efae3b401d2b7e70"
+  },
+  "copyChecks": [
+    {
+      "route": "lesson-02",
+      "fragmentToHtmlCompleteTokenOrder": "match",
+      "completeManuscriptToHtmlTokenOrder": "match",
+      "completeProtectedActivityMdToHtmlTokenOrder": "match",
+      "tokenMethod": "Unicode word tokens and individual non-whitespace punctuation/math symbols, in source order; not word counts alone."
+    },
+    {
+      "route": "lesson-05",
+      "fragmentToHtmlCompleteTokenOrder": "match",
+      "completeManuscriptToHtmlTokenOrder": "match",
+      "completeProtectedActivityMdToHtmlTokenOrder": "match",
+      "tokenMethod": "Unicode word tokens and individual non-whitespace punctuation/math symbols, in source order; not word counts alone."
+    }
+  ],
+  "all23ExpandedBlockBindings": true,
+  "staticInertMarkup": {
+    "scriptIframeFormControls": 0,
+    "readingStyleElements": 1,
+    "scope": "Static inspection only; reader styles are not a native CSS proposal."
+  },
+  "finding": "No consequential continuity or assembled-copy omission found within this exact scope. CAL-REC-01 is closed. Original source/answer-overlap limitations remain explicit.",
+  "notClaimed": [
+    "Full prose reread of the additional machine-readable selected-records appendix; separate source/native/assembly evidence owns its full record comparison.",
+    "Browser rendering or download receipt",
+    "Video playback",
+    "Native runtime tests",
+    "Teacher acceptance",
+    "External specialist certification",
+    "New whole-chapter review"
+  ]
+}

@@ -1,0 +1,949 @@
+{
+  "version": "0.4.0",
+  "route": "lesson-02",
+  "sourceAuthority": "Only the newly supplied v0.4.0 source packet and the user’s current instructions. Older returns are context, not content owners.",
+  "archive": {
+    "file": "Biology30_CH17_Lesson02_Teacher_Trial_v0.4.0_Source.zip",
+    "bytes": 12868625,
+    "sha256": "1d98265b95190929caec7764b4b701fca5ea87e41a6ed76b116ec97e4077e209"
+  },
+  "originalDeck": {
+    "file": "sources/original-114-slides.pptx",
+    "bytes": 10153531,
+    "sha256": "da1ce1c0526da4da1aefd1fb6c0f23070f820ce24378c12f9699d1c700e1a985"
+  },
+  "textbook": {
+    "file": "sources/chapter-17.pdf",
+    "bytes": 2005971,
+    "sha256": "48e297aacb86275c106a02abdddaf0f0463ba47d6b17703a926aa68405755455"
+  },
+  "sourceReadScope": {
+    "completeTextFiles": [
+      "SCOUT_AND_PRO_TASK.md",
+      "USER_COMMENTS.md",
+      "standards/02_TEACHING_STANDARD.md",
+      "standards/CHAPTER11_TEACHING_STANDARD.md",
+      "current/lesson-02.teaching-fragment.html",
+      "current/lesson-02.html",
+      "current/lesson-01.html",
+      "current/lesson-03.html",
+      "contracts/REPLACEMENT_BOUNDARY.json",
+      "contracts/OPTIONAL_NOTES.json"
+    ],
+    "nativeData": "Entire JSON bytes hashed/parsed; lesson02 checks, note definitions, guided records and relevant native vocabulary/reader records read.",
+    "actualSlides": [
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      41
+    ],
+    "printedPages": [
+      587,
+      588,
+      589,
+      590,
+      591,
+      597
+    ],
+    "pdfPages": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      14
+    ],
+    "sourcePixelInspection": "All unique supplied selected-slide image pixels were inspected in preflight; all six requested PDF pages rendered and inspected. Selected final assets are exact original bytes.",
+    "entire114SlideContentRead": false,
+    "entire38PageTextbookRead": false
+  },
+  "visuals": [
+    {
+      "fragmentElementId": "ch17-v040-l02-visual-pea-traits",
+      "fragmentStartByte": 1353,
+      "fragmentEndByteExclusive": 1974,
+      "bytes": 621,
+      "sha256": "8ad6e59b8f5a1fc4ee9367d5022b5eefa7ed5648a7e6f1c2838d351d7bcd2d3f",
+      "kind": "original_source_image",
+      "placement": {
+        "outerId": "ch17-l02-teaching-01",
+        "heading": "Make the contrast visible",
+        "nativePath": "./assets/teaching-v040/slide-14-image25.png",
+        "manuscriptPath": "../assets/teaching-v040/slide-14-image25.png"
+      },
+      "asset": {
+        "file": "assets/teaching-v040/slide-14-image25.png",
+        "bytes": 149790,
+        "sha256": "4e5cd0ea4159932025b801e03faf3c32ea2c88efa906238f5cde4daeeca441dc"
+      },
+      "dimensions": {
+        "width": 740,
+        "height": 483
+      },
+      "source": {
+        "suppliedPath": "sources/slide-assets/slide-14-image25.png",
+        "originalDeck": "sources/original-114-slides.pptx",
+        "actualSlide": 14,
+        "originalMember": "ppt/media/image25.png",
+        "memberSha256": "4e5cd0ea4159932025b801e03faf3c32ea2c88efa906238f5cde4daeeca441dc",
+        "bookCorroboration": [
+          {
+            "printed": 588,
+            "pdf": 5,
+            "figure": "17.4"
+          },
+          {
+            "printed": 589,
+            "pdf": 6,
+            "table": "17.1"
+          }
+        ]
+      },
+      "status": {
+        "selected": true,
+        "originalBytesPreserved": true,
+        "derivedCrop": false,
+        "authoredImagery": false,
+        "pixelIdentityInspected": true,
+        "nativeRendered": false,
+        "teacherAcceptance": "pending"
+      },
+      "instructionalPurpose": "Make observable forms concrete before reconstructing a cross.",
+      "introductionAnchor": "Before following the experiment, look at the characteristics Mendel could compare.",
+      "viewingGuidance": "Look at purple/white flowers, then round/wrinkled seeds. Keep the characteristic separate from its two forms. Read yellow-left/green-right seed pixels.",
+      "resultingExplanation": "Phenotypes can be observed and compared; a picture alone does not reveal the genotype or the result of a cross.",
+      "caption": "Six visible contrasts in pea plants. Compare the two forms within a characteristic; the picture does not show a cross or its offspring.",
+      "alt": "Six pea-plant contrasts: long and short stems; purple and white flowers; round and wrinkled seeds; yellow and green seeds; green and yellow pods; inflated and pinched pods. The seed-colour drawing places yellow on the left and green on the right, although its caption lists green first.",
+      "sourceCautions": [
+        "Image has six contrasts, not the seven in textbook Figure 17.4; flower position is absent.",
+        "Embedded seed-colour caption lists green first but pixels show yellow left, green right. Original image bytes are retained."
+      ]
+    },
+    {
+      "fragmentElementId": "ch17-v040-l02-visual-flower-generations",
+      "fragmentStartByte": 6003,
+      "fragmentEndByteExclusive": 7053,
+      "bytes": 1050,
+      "sha256": "3ba14b4435bd7cb3804c19b2dfca8c382b0c3c1ea1ffb03cb3dd5c29c3214550",
+      "kind": "native_html_table",
+      "placement": {
+        "outerId": "ch17-l02-teaching-01"
+      },
+      "source": [
+        {
+          "file": "sources/chapter-17.pdf",
+          "printed": 588,
+          "pdf": 5,
+          "section": "Mendel’s experiments and generations"
+        },
+        {
+          "file": "sources/chapter-17.pdf",
+          "printed": 591,
+          "pdf": 8,
+          "figure": "17.8"
+        },
+        {
+          "file": "sources/original-114-slides.pptx",
+          "actualSlides": [
+            13,
+            16
+          ]
+        }
+      ],
+      "instructionalPurpose": "Show the correct flower-colour experiment before any seed-shape representation or chromosome conclusion.",
+      "introductionAnchor": "The whole sequence is visible in the table. Read it from top to bottom.",
+      "viewingGuidance": "Follow P chosen purple/white true-breeding parents, F1 offspring grown to flowering, then F1 self-pollination and F2 purple/white observations. Read starting conditions before outcomes.",
+      "resultingExplanation": "F1 differs from a blending prediction; F2 observations create the reappearance problem. This is an observation sequence, not a premature P/p calculation.",
+      "caption": "The flower-colour experiment, one generation at a time",
+      "status": "New text/table representation expressly permitted by the user; grounded in source, not an extracted picture and not a derived raster crop.",
+      "derivedRaster": false,
+      "scriptedReveal": false,
+      "visibleStages": true
+    },
+    {
+      "fragmentElementId": "ch17-v040-l02-visual-seed-generations",
+      "fragmentStartByte": 9650,
+      "fragmentEndByteExclusive": 10298,
+      "bytes": 648,
+      "sha256": "672ed689abc51ad4b6b28ab17aafb2ce05e76706399ab8e9dcfc37d7bd87afa2",
+      "kind": "original_source_image",
+      "placement": {
+        "outerId": "ch17-l02-teaching-01",
+        "heading": "Take the same question from flower colour to seed shape",
+        "nativePath": "./assets/teaching-v040/slide-15-image14.png",
+        "manuscriptPath": "../assets/teaching-v040/slide-15-image14.png"
+      },
+      "asset": {
+        "file": "assets/teaching-v040/slide-15-image14.png",
+        "bytes": 40026,
+        "sha256": "30b7f6873a81955cc3c8e64b93ebaf4f3c5bfd5b7366ef7064c7eca28087628d"
+      },
+      "dimensions": {
+        "width": 844,
+        "height": 314
+      },
+      "source": {
+        "suppliedPath": "sources/slide-assets/slide-15-image14.png",
+        "originalDeck": "sources/original-114-slides.pptx",
+        "actualSlide": 15,
+        "originalMember": "ppt/media/image14.png",
+        "memberSha256": "30b7f6873a81955cc3c8e64b93ebaf4f3c5bfd5b7366ef7064c7eca28087628d",
+        "bookCorroboration": [
+          {
+            "printed": 589,
+            "pdf": 6,
+            "figure": "17.5"
+          }
+        ]
+      },
+      "status": {
+        "selected": true,
+        "originalBytesPreserved": true,
+        "derivedCrop": false,
+        "authoredImagery": false,
+        "pixelIdentityInspected": true,
+        "nativeRendered": false,
+        "teacherAcceptance": "pending"
+      },
+      "instructionalPurpose": "Show the seed-shape observation sequence after an explicit transition from the flower experiment.",
+      "introductionAnchor": "In this model, the shape being scored belongs to each offspring seed with its own genotype.",
+      "viewingGuidance": "Read P, F1 and F2 from top to bottom. One drawn seed stands for a group/category, not a sample count. Arrows abbreviate reproduction; identify the missing egg/sperm step.",
+      "resultingExplanation": "The seed-shape pattern shares the flower experiment’s explanatory problem. Fractions are model expectations; the source drawing’s F1 intercross differs in arrangement from the preceding flower self-pollination account.",
+      "caption": "Round and wrinkled seed forms followed through P, F1 and F2. The fractions summarize the model's expected proportions; they do not promise exact counts in every cross.",
+      "alt": "Seed-shape sequence with a round and a wrinkled P parent, an all-round F1 generation, and an F2 generation showing round and wrinkled seeds. The drawing labels the schematic F2 proportions three quarters round and one quarter wrinkled and describes crosses between F1 plants.",
+      "sourceCautions": [
+        "This is seed shape, never flower colour.",
+        "Original text saying F1 offspring produced smooth peas can blur offspring seeds versus plants; adjacent learner prose distinguishes these generations.",
+        "The original 3:1-each-cross wording is not an exact-count guarantee."
+      ]
+    },
+    {
+      "fragmentElementId": "ch17-v040-l02-visual-chromosome-separation",
+      "fragmentStartByte": 13874,
+      "fragmentEndByteExclusive": 14656,
+      "bytes": 782,
+      "sha256": "67775a095718832837a348cfc7578a4f42b249ec31bf4a81992b8705268d431b",
+      "kind": "original_source_image",
+      "placement": {
+        "outerId": "ch17-l02-teaching-02",
+        "heading": "Separate the pair, then separate the copies",
+        "nativePath": "./assets/teaching-v040/slide-41-image44.png",
+        "manuscriptPath": "../assets/teaching-v040/slide-41-image44.png"
+      },
+      "asset": {
+        "file": "assets/teaching-v040/slide-41-image44.png",
+        "bytes": 364277,
+        "sha256": "7e57deedfe727416d5536605bb4327cffd16ee88cbb13c778bd5e5039f450eb8"
+      },
+      "dimensions": {
+        "width": 1000,
+        "height": 707
+      },
+      "source": {
+        "suppliedPath": "sources/slide-assets/slide-41-image44.png",
+        "originalDeck": "sources/original-114-slides.pptx",
+        "actualSlide": 41,
+        "originalMember": "ppt/media/image44.png",
+        "memberSha256": "7e57deedfe727416d5536605bb4327cffd16ee88cbb13c778bd5e5039f450eb8",
+        "bookCorroboration": [
+          {
+            "printed": 597,
+            "pdf": 14,
+            "figure": "17.14"
+          }
+        ]
+      },
+      "status": {
+        "selected": true,
+        "originalBytesPreserved": true,
+        "derivedCrop": false,
+        "authoredImagery": false,
+        "pixelIdentityInspected": true,
+        "nativeRendered": false,
+        "teacherAcceptance": "pending"
+      },
+      "instructionalPurpose": "Distinguish homologue separation from later sister-chromatid separation using one deliberately selected pair.",
+      "introductionAnchor": "Use the chromosome drawing to distinguish those two separations.",
+      "viewingGuidance": "Follow only the long blue/red pair in the left-hand arrangement: two X-shaped copied homologues, one in each middle cell, then separated long rods at the bottom. Explain the Metaphase II label.",
+      "resultingExplanation": "Homologues are apart after the first division while sisters remain joined; sisters separate in the second. Colours distinguish homologues, not dominance or labelled R/r alleles. Plant gamete formation requires later reproductive stages.",
+      "caption": "Follow the long pair within the left-hand arrangement. The two-colour scheme distinguishes homologues; it does not identify a dominant or recessive allele. The comparison between arrangements belongs to two-trait inheritance.",
+      "alt": "A meiosis schematic with two homologous chromosome pairs, distinguished by length, and two possible arrangements. In each arrangement, copied X-shaped homologues separate into two cells; sister chromatids later separate into single chromosome rods. For this lesson, follow only the long blue and long red chromosomes in the left-hand arrangement.",
+      "sourceCautions": [
+        "Image shows two pairs and two arrangements. Second-pair assortment and the branch comparison are deferred to lesson05.",
+        "Image contains no R/r locus labels, no pre-copying stage and no complete pea reproductive life cycle. These limits are explicit in the teaching.",
+        "No full-identity claim about sister chromatids throughout all meiotic events is made. Image47, which includes crossover context, is not selected."
+      ]
+    },
+    {
+      "fragmentElementId": "ch17-v040-l02-visual-seed-p-to-f1",
+      "fragmentStartByte": 18372,
+      "fragmentEndByteExclusive": 18961,
+      "bytes": 589,
+      "sha256": "8e259e5182cdef604caa0e9955522005c35b8f759b8fb30ec4863f66b4271958",
+      "kind": "original_source_image",
+      "placement": {
+        "outerId": "ch17-l02-worked",
+        "heading": "Account for the F1 generation",
+        "nativePath": "./assets/teaching-v040/slide-18-image20.png",
+        "manuscriptPath": "../assets/teaching-v040/slide-18-image20.png"
+      },
+      "asset": {
+        "file": "assets/teaching-v040/slide-18-image20.png",
+        "bytes": 16324,
+        "sha256": "013dd2769996f9e08f19ea3e86e70ea3a69ce2a1a2bfb7a6ee1ebf2023636ec6"
+      },
+      "dimensions": {
+        "width": 515,
+        "height": 213
+      },
+      "source": {
+        "suppliedPath": "sources/slide-assets/slide-18-image20.png",
+        "originalDeck": "sources/original-114-slides.pptx",
+        "actualSlide": 18,
+        "originalMember": "ppt/media/image20.png",
+        "memberSha256": "013dd2769996f9e08f19ea3e86e70ea3a69ce2a1a2bfb7a6ee1ebf2023636ec6",
+        "bookCorroboration": [
+          {
+            "printed": 590,
+            "pdf": 7,
+            "figure": "17.6"
+          }
+        ]
+      },
+      "status": {
+        "selected": true,
+        "originalBytesPreserved": true,
+        "derivedCrop": false,
+        "authoredImagery": false,
+        "pixelIdentityInspected": true,
+        "nativeRendered": false,
+        "teacherAcceptance": "pending"
+      },
+      "instructionalPurpose": "Connect the known true-breeding parents to the inferred F1 genotype after gamete production has been taught.",
+      "introductionAnchor": "Look first at the parent labels in this drawing.",
+      "viewingGuidance": "Read two-letter RR and rr parent labels, then the single Rr offspring category; supply the omitted R and r gamete contributions and fertilisation step.",
+      "resultingExplanation": "Known RR×rr parentage identifies Rr even though round phenotype alone would leave RR/Rr possible. The r allele remains present.",
+      "caption": "The RR × rr starting cross produces the Rr F1 category in the stated model. One seed icon represents the shared result, not a single offspring.",
+      "alt": "A true-breeding round parent labelled RR is crossed with a true-breeding wrinkled parent labelled rr. Arrows lead to a round F1 seed category labelled Rr and 100 percent of offspring. The drawing abbreviates the gamete and fertilisation steps.",
+      "sourceCautions": [
+        "The one icon is a category, not one offspring or an exact sample size.",
+        "Same media bytes also occur on slide24, but they are selected once here at slide18’s worked position."
+      ]
+    },
+    {
+      "fragmentElementId": "ch17-v040-l02-visual-seed-f2-square",
+      "fragmentStartByte": 21063,
+      "fragmentEndByteExclusive": 21670,
+      "bytes": 607,
+      "sha256": "db3d5cdbefe0c475a157440d584ccca2ae402003b941b7c8191f47daf836592c",
+      "kind": "original_source_image",
+      "placement": {
+        "outerId": "ch17-l02-worked",
+        "heading": "Account for the F2 generation",
+        "nativePath": "./assets/teaching-v040/slide-20-image36.png",
+        "manuscriptPath": "../assets/teaching-v040/slide-20-image36.png"
+      },
+      "asset": {
+        "file": "assets/teaching-v040/slide-20-image36.png",
+        "bytes": 4001,
+        "sha256": "b8563f6f9ed748ac3880103472762ec0e05b6fbd3f1a6d1a666cb0b9877779e7"
+      },
+      "dimensions": {
+        "width": 292,
+        "height": 279
+      },
+      "source": {
+        "suppliedPath": "sources/slide-assets/slide-20-image36.png",
+        "originalDeck": "sources/original-114-slides.pptx",
+        "actualSlide": 20,
+        "originalMember": "ppt/media/image36.png",
+        "memberSha256": "b8563f6f9ed748ac3880103472762ec0e05b6fbd3f1a6d1a666cb0b9877779e7",
+        "bookCorroboration": [
+          {
+            "printed": 590,
+            "pdf": 7,
+            "figure": "17.7"
+          },
+          {
+            "printed": 591,
+            "pdf": 8,
+            "section": "Analyzing Genetic Crosses"
+          }
+        ]
+      },
+      "status": {
+        "selected": true,
+        "originalBytesPreserved": true,
+        "derivedCrop": false,
+        "authoredImagery": false,
+        "pixelIdentityInspected": true,
+        "nativeRendered": false,
+        "teacherAcceptance": "pending"
+      },
+      "instructionalPurpose": "Organize all four contribution pairs after gametes and their probabilities are derived.",
+      "introductionAnchor": "In the square below, read the letters across the top as sperm contributions and the letters down the left as egg contributions.",
+      "viewingGuidance": "Read every edge and cell: top sperm R/r, left egg R/r, then RR, Rr, Rr, rr. Distinguish single-allele edge gametes from paired-allele interior offspring.",
+      "resultingExplanation": "Two routes lead to the same heterozygous genotype; rr is possible through two existing recessive contributions. Equal segregation plus random fertilisation justifies each one-quarter probability.",
+      "caption": "Rr × Rr contribution pairs. Edges describe gametes; interior entries describe offspring. Each row and each column has probability one half under the stated model.",
+      "alt": "A two-by-two Punnett square with R and r across the top and R and r down the left. The four interior entries are RR, Rr, Rr and rr. In the accompanying explanation, top entries are sperm contributions and left entries are egg contributions.",
+      "sourceCautions": [
+        "This original grid has no maternal/paternal labels. Learner prose explicitly assigns the same top-sperm/left-egg convention as the current native worked table.",
+        "Slides21/22 image27 and textbook17.7 use the reverse parental orientation; they are read as sources but not displayed here.",
+        "Repeated cell positions are contribution categories, not a schedule for four offspring."
+      ]
+    },
+    {
+      "fragmentElementId": "ch17-v040-l02-visual-genotype-phenotype-grouping",
+      "fragmentStartByte": 23716,
+      "fragmentEndByteExclusive": 24297,
+      "bytes": 581,
+      "sha256": "2cf59b2c3bbdd2b39e5222688d547392ad8fc977ae917690fe61532395f8043e",
+      "kind": "native_html_table",
+      "placement": {
+        "outerId": "ch17-l02-worked"
+      },
+      "source": [
+        {
+          "file": "sources/chapter-17.pdf",
+          "printed": 590,
+          "pdf": 7,
+          "figure": "17.7"
+        },
+        {
+          "file": "sources/chapter-17.pdf",
+          "printed": 591,
+          "pdf": 8,
+          "section": "Analyzing Genetic Crosses"
+        },
+        {
+          "file": "sources/original-114-slides.pptx",
+          "actualSlides": [
+            20,
+            21,
+            22
+          ]
+        }
+      ],
+      "instructionalPurpose": "Show why grouping by allele pair and grouping by expression produce different ratios from the same contribution pairs.",
+      "introductionAnchor": "The same reasoning gives ¼ to each of the four positions.",
+      "viewingGuidance": "Read genotype row before phenotype row; combine the two Rr routes, then combine RR and Rr for round; verify both totals are one.",
+      "resultingExplanation": "Addition combines mutually exclusive categories. Complete dominance changes phenotype grouping, not the allele pair.",
+      "caption": "Group the same contribution pairs in two different ways",
+      "status": "New HTML worked-reasoning table using existing native comparison-table class; no new assessment or image.",
+      "derivedRaster": false,
+      "scriptedReveal": false,
+      "visibleStages": true
+    },
+    {
+      "fragmentElementId": "ch17-kinch-v020-l02-arrow-task",
+      "fragmentStartByte": 25149,
+      "fragmentEndByteExclusive": 28111,
+      "bytes": 2962,
+      "sha256": "832a0126d0434b8068b9bb98f51a463a15e4fbf70ac59608545a258caf8998a5",
+      "kind": "unchanged_optional_activity_table",
+      "source": {
+        "file": "current/lesson-02.teaching-fragment.html",
+        "sectionId": "ch17-kinch-v020-l02-arrow-task"
+      },
+      "instructionalPurpose": "Repair the meaning of two process arrows.",
+      "status": "Whole activity section preserved byte for byte, including original introduction, task table, prompts, hints, model, native save controls and title.",
+      "newPractice": false,
+      "derivedRaster": false
+    },
+    {
+      "fragmentElementId": "ch17-kinch-v020-l02-cross-task",
+      "fragmentStartByte": 31456,
+      "fragmentEndByteExclusive": 34824,
+      "bytes": 3368,
+      "sha256": "d9f059765d06ec5989aee7fb00c0a0a6c0b589d002e7a582e2532f2ecca3355b",
+      "kind": "unchanged_optional_activity_table",
+      "source": {
+        "file": "current/lesson-02.teaching-fragment.html",
+        "sectionId": "ch17-kinch-v020-l02-cross-task"
+      },
+      "instructionalPurpose": "Test a receiving-parent claim by reversing known parental roles.",
+      "status": "Whole activity section preserved byte for byte, including original introduction, task table, prompts, hints, model, native save controls and title.",
+      "newPractice": false,
+      "derivedRaster": false
+    }
+  ],
+  "allSuppliedSlideAssetDecisions": [
+    {
+      "sourcePath": "sources/slide-assets/slide-13-image24.jpg",
+      "actualSlide": 13,
+      "bytes": 18654,
+      "sha256": "eabcd7e1efaa3714aa9735b453ac2492341127958ff31757e7b27d74a9e2b673",
+      "selected": false,
+      "decision": "Portrait is not needed to understand the experimental inference."
+    },
+    {
+      "sourcePath": "sources/slide-assets/slide-14-image25.png",
+      "actualSlide": 14,
+      "bytes": 149790,
+      "sha256": "4e5cd0ea4159932025b801e03faf3c32ea2c88efa906238f5cde4daeeca441dc",
+      "selected": true,
+      "decision": "Selected; see visual entry."
+    },
+    {
+      "sourcePath": "sources/slide-assets/slide-15-image14.png",
+      "actualSlide": 15,
+      "bytes": 40026,
+      "sha256": "30b7f6873a81955cc3c8e64b93ebaf4f3c5bfd5b7366ef7064c7eca28087628d",
+      "selected": true,
+      "decision": "Selected; see visual entry."
+    },
+    {
+      "sourcePath": "sources/slide-assets/slide-17-image16.png",
+      "actualSlide": 17,
+      "bytes": 8390,
+      "sha256": "5d34f36f5c850a4573bb19f734dbe9806fd85c34ccf10335dd2100d6765a0150",
+      "selected": false,
+      "decision": "Repeated identical gamete edge labels add a second grid representation without a new current inference; known-parent contribution reasoning is supplied in full with slide18."
+    },
+    {
+      "sourcePath": "sources/slide-assets/slide-18-image20.png",
+      "actualSlide": 18,
+      "bytes": 16324,
+      "sha256": "013dd2769996f9e08f19ea3e86e70ea3a69ce2a1a2bfb7a6ee1ebf2023636ec6",
+      "selected": true,
+      "decision": "Selected; see visual entry."
+    },
+    {
+      "sourcePath": "sources/slide-assets/slide-19-image17.png",
+      "actualSlide": 19,
+      "bytes": 18355,
+      "sha256": "b514fc761980864b5c24f614093da6a67b6726645175b49e610c6d49ca844876",
+      "selected": false,
+      "decision": "The seed-generation overview is already supplied by slide15 and its abbreviated reproduction is explained; a second single-F1-icon picture is unnecessary."
+    },
+    {
+      "sourcePath": "sources/slide-assets/slide-20-image21.png",
+      "actualSlide": 20,
+      "bytes": 13601,
+      "sha256": "1ecee8d020d57b4ac11275c5ded328a841408311c59a52032a49b90c663a6fe8",
+      "selected": false,
+      "decision": "image21 phenotype legend repeats the mapping explained visibly and in the HTML grouping table; image36 is selected."
+    },
+    {
+      "sourcePath": "sources/slide-assets/slide-20-image36.png",
+      "actualSlide": 20,
+      "bytes": 4001,
+      "sha256": "b8563f6f9ed748ac3880103472762ec0e05b6fbd3f1a6d1a666cb0b9877779e7",
+      "selected": true,
+      "decision": "Selected; see visual entry."
+    },
+    {
+      "sourcePath": "sources/slide-assets/slide-21-image27.png",
+      "actualSlide": 21,
+      "bytes": 9085,
+      "sha256": "d2a6f7145e9c0545a1d88e4288b3ad1286c659a21d2bbc0ccbe3ff624059188b",
+      "selected": false,
+      "decision": "Generic grid and reversed parental-axis convention add no inference beyond the selected actual seed grid."
+    },
+    {
+      "sourcePath": "sources/slide-assets/slide-22-image27.png",
+      "actualSlide": 22,
+      "bytes": 9085,
+      "sha256": "d2a6f7145e9c0545a1d88e4288b3ad1286c659a21d2bbc0ccbe3ff624059188b",
+      "selected": false,
+      "decision": "Same generic grid as21; source text also conflates gamete production with fertilisation and is qualified in learner reasoning."
+    },
+    {
+      "sourcePath": "sources/slide-assets/slide-24-image20.png",
+      "actualSlide": 24,
+      "bytes": 16324,
+      "sha256": "013dd2769996f9e08f19ea3e86e70ea3a69ce2a1a2bfb7a6ee1ebf2023636ec6",
+      "selected": false,
+      "decision": "Repeats slide18 image20, selected once at the worked F1 position."
+    },
+    {
+      "sourcePath": "sources/slide-assets/slide-25-image23.png",
+      "actualSlide": 25,
+      "bytes": 293898,
+      "sha256": "bf7517ad986d2137dbcd0c133de73fa933b2153366e58598188da32479037129",
+      "selected": false,
+      "decision": "Three-law summary map introduces independent assortment before its lesson05 home."
+    },
+    {
+      "sourcePath": "sources/slide-assets/slide-41-image44.png",
+      "actualSlide": 41,
+      "bytes": 364277,
+      "sha256": "7e57deedfe727416d5536605bb4327cffd16ee88cbb13c778bd5e5039f450eb8",
+      "selected": true,
+      "decision": "Selected; see visual entry."
+    },
+    {
+      "sourcePath": "sources/slide-assets/slide-41-image47.png",
+      "actualSlide": 41,
+      "bytes": 50092,
+      "sha256": "dc238c9183f4ca7f5ee062b3c4d09cdb0f0a868c8f3e5ddd735aeeb087a3eb8c",
+      "selected": false,
+      "decision": "image47 includes a second-pair alignment/crossover context not needed for the focused long-pair reading; image44 is selected."
+    }
+  ],
+  "teachingSourceComponents": [
+    {
+      "nativeLocation": "ch17-l02-teaching-01 / Why Mendel compared pea plants; Make the contrast visible",
+      "sources": [
+        "PPT13–14",
+        "textbook printed587–588 / PDF4–5",
+        "current/lesson-01.html: ch17-l01-teaching-01 and ch17-l01-teaching-02"
+      ],
+      "contribution": "Orient the purpose, compare a blending prediction, distinguish observable phenotype from inferred genotype."
+    },
+    {
+      "nativeLocation": "ch17-l02-teaching-01 / Choose starting plants; Follow the flower-colour experiment",
+      "sources": [
+        "PPT13",
+        "textbook printed588 / PDF5; Figure17.8 printed591 / PDF8",
+        "current/lesson-02.teaching-fragment.html: Know what was crossed"
+      ],
+      "contribution": "Known breeding history, controlled pollen, pollination/fertilisation and visible flower P/F1/F2 sequence."
+    },
+    {
+      "nativeLocation": "ch17-l02-teaching-01 / Take the same question from flower colour to seed shape",
+      "sources": [
+        "PPT15–16",
+        "textbook printed589–590 / PDF6–7",
+        "current/lesson-02.teaching-fragment.html: Follow the same question using seed shape"
+      ],
+      "contribution": "Explicit trait transition, R/r notation and phenotype rule, seed versus carrying-plant distinction, observed pattern before derivation."
+    },
+    {
+      "nativeLocation": "ch17-l02-teaching-02 / chromosome, copying and separation subsections",
+      "sources": [
+        "PPT41 image44",
+        "textbook Figure17.14 printed597 / PDF14",
+        "current/lesson-02.teaching-fragment.html: Each parent contributes one allele",
+        "current/lesson-02.protected-suffix.html: ch17-l02-check-writing-1",
+        "user current science constraints"
+      ],
+      "contribution": "Two allele versions versus four copied loci; meiosis I then II; no interdivision replication; later plant haploid stages; one gamete contribution.",
+      "sourceLimit": "Selected chromosome figures do not depict the whole plant life cycle or a pre-copying stage. Spores/mitosis wording is an explicit scientific clarification of the supplied native plant-life-cycle safeguard and the user’s current requirement, not a claim that those full steps are drawn on PPT41 or printed597."
+    },
+    {
+      "nativeLocation": "ch17-l02-worked / F1 and F2 accounts",
+      "sources": [
+        "PPT17–22; displayed image20 from18 and image36 from20",
+        "textbook Figure17.6–17.7 printed590 / PDF7; analysis printed591 / PDF8",
+        "current/lesson-02.teaching-fragment.html: worked example"
+      ],
+      "contribution": "Known parents, gametes, fertilisation, each edge/cell, equal independent contributions, genotype and phenotype grouping and probability totals."
+    },
+    {
+      "nativeLocation": "ch17-l02-teaching-03 / Compare prediction with counted offspring",
+      "sources": [
+        "textbook Figure17.5 printed589 / PDF6: 5474 round,1850 wrinkled",
+        "current/lesson-02.teaching-fragment.html: predicted ratio / count interpretation",
+        "current/lesson-02.protected-suffix.html: both small-sample tasks"
+      ],
+      "contribution": "Work the observed count ratio and distinguish it from modeled probabilities without a new changed-count task."
+    },
+    {
+      "nativeLocation": "both saved optional task sections",
+      "sources": [
+        "current/lesson-02.teaching-fragment.html",
+        "contracts/OPTIONAL_NOTES.json",
+        "contracts/NATIVE_DATA.json: course-data.notes"
+      ],
+      "contribution": "Exact existing representation-repair and parental-role applications, full hints/models, saved optional semantics."
+    },
+    {
+      "nativeLocation": "ch17-l02-teaching-03 / closing explanation",
+      "sources": [
+        "PPT23–25",
+        "textbook printed589 and597 / PDF6 and14",
+        "current/lesson-03.html: ch17-l03-teaching-01/02/03"
+      ],
+      "contribution": "Separate historical inference from chromosome mechanism; answer the flower question; defer systematic operations and second-gene work."
+    }
+  ],
+  "nativeAssetBase": "./assets/teaching-v040/",
+  "sourceImageCount": 5,
+  "generatedImages": 0,
+  "derivedRasterCrops": 0,
+  "newHtmlRepresentations": 2,
+  "staticViewingContract": "All stages are present in static images/tables. Prose guides attention; it does not claim scripted reveals or animations.",
+  "fullManifestVerification": [
+    {
+      "file": "contracts/NATIVE_DATA.json",
+      "actualBytes": 391743,
+      "actualSha256": "28b42d538da5b30da7d609f99824b8ed40617865cb49f5e642db8ff26fa47504",
+      "matches": true
+    },
+    {
+      "file": "contracts/OPTIONAL_NOTES.json",
+      "actualBytes": 1858,
+      "actualSha256": "7670cbdcab731d529e6b90c8c94464dcf89cd41e3034fec5439f86d2933e889a",
+      "matches": true
+    },
+    {
+      "file": "contracts/REPLACEMENT_BOUNDARY.json",
+      "actualBytes": 1126,
+      "actualSha256": "a54868ce8e6ecd48ea11dbbff09702e534ad30fc1f6f03bfa447f1a29db01e91",
+      "matches": true
+    },
+    {
+      "file": "current/lesson-01.html",
+      "actualBytes": 18829,
+      "actualSha256": "cc24481da9d357b19df9c7236e6f8bf62cf73be019a7a6fc73a1795d3cca0765",
+      "matches": true
+    },
+    {
+      "file": "current/lesson-02.html",
+      "actualBytes": 33473,
+      "actualSha256": "e0a6022b7abc346781dbc849d52f567440154dc8ec0501d69c16d6365fd891d3",
+      "matches": true
+    },
+    {
+      "file": "current/lesson-02.manuscript.md",
+      "actualBytes": 19249,
+      "actualSha256": "2fe26088cdc8cdccbcf71948f08ae1d6ec34e3485978d26de9bf7e7704529598",
+      "matches": true
+    },
+    {
+      "file": "current/lesson-02.protected-suffix.html",
+      "actualBytes": 10899,
+      "actualSha256": "729c331d5a8e19d4312c115c116c4870357e19f4c68d42165443a757e7487ed8",
+      "matches": true
+    },
+    {
+      "file": "current/lesson-02.teaching-fragment.html",
+      "actualBytes": 18590,
+      "actualSha256": "0c2d3dee02b5b2413d600915a03e8c7bd72a2b03951c55f2fcd76c6c1ece4572",
+      "matches": true
+    },
+    {
+      "file": "current/lesson-03.html",
+      "actualBytes": 24048,
+      "actualSha256": "276c12c5fbb649d4f7f116eea88998a9f44f7f81892d38f8aa24f8f610b7db30",
+      "matches": true
+    },
+    {
+      "file": "SCOUT_AND_PRO_TASK.md",
+      "actualBytes": 4655,
+      "actualSha256": "5eecb2d9a9d7971a34e23cce34a9a7f44742e8b134188c634f0ac2ac0417d121",
+      "matches": true
+    },
+    {
+      "file": "sources/chapter-17.pdf",
+      "actualBytes": 2005971,
+      "actualSha256": "48e297aacb86275c106a02abdddaf0f0463ba47d6b17703a926aa68405755455",
+      "matches": true
+    },
+    {
+      "file": "sources/original-114-slides.pptx",
+      "actualBytes": 10153531,
+      "actualSha256": "da1ce1c0526da4da1aefd1fb6c0f23070f820ce24378c12f9699d1c700e1a985",
+      "matches": true
+    },
+    {
+      "file": "sources/slide-assets/slide-13-image24.jpg",
+      "actualBytes": 18654,
+      "actualSha256": "eabcd7e1efaa3714aa9735b453ac2492341127958ff31757e7b27d74a9e2b673",
+      "matches": true
+    },
+    {
+      "file": "sources/slide-assets/slide-14-image25.png",
+      "actualBytes": 149790,
+      "actualSha256": "4e5cd0ea4159932025b801e03faf3c32ea2c88efa906238f5cde4daeeca441dc",
+      "matches": true
+    },
+    {
+      "file": "sources/slide-assets/slide-15-image14.png",
+      "actualBytes": 40026,
+      "actualSha256": "30b7f6873a81955cc3c8e64b93ebaf4f3c5bfd5b7366ef7064c7eca28087628d",
+      "matches": true
+    },
+    {
+      "file": "sources/slide-assets/slide-17-image16.png",
+      "actualBytes": 8390,
+      "actualSha256": "5d34f36f5c850a4573bb19f734dbe9806fd85c34ccf10335dd2100d6765a0150",
+      "matches": true
+    },
+    {
+      "file": "sources/slide-assets/slide-18-image20.png",
+      "actualBytes": 16324,
+      "actualSha256": "013dd2769996f9e08f19ea3e86e70ea3a69ce2a1a2bfb7a6ee1ebf2023636ec6",
+      "matches": true
+    },
+    {
+      "file": "sources/slide-assets/slide-19-image17.png",
+      "actualBytes": 18355,
+      "actualSha256": "b514fc761980864b5c24f614093da6a67b6726645175b49e610c6d49ca844876",
+      "matches": true
+    },
+    {
+      "file": "sources/slide-assets/slide-20-image21.png",
+      "actualBytes": 13601,
+      "actualSha256": "1ecee8d020d57b4ac11275c5ded328a841408311c59a52032a49b90c663a6fe8",
+      "matches": true
+    },
+    {
+      "file": "sources/slide-assets/slide-20-image36.png",
+      "actualBytes": 4001,
+      "actualSha256": "b8563f6f9ed748ac3880103472762ec0e05b6fbd3f1a6d1a666cb0b9877779e7",
+      "matches": true
+    },
+    {
+      "file": "sources/slide-assets/slide-21-image27.png",
+      "actualBytes": 9085,
+      "actualSha256": "d2a6f7145e9c0545a1d88e4288b3ad1286c659a21d2bbc0ccbe3ff624059188b",
+      "matches": true
+    },
+    {
+      "file": "sources/slide-assets/slide-22-image27.png",
+      "actualBytes": 9085,
+      "actualSha256": "d2a6f7145e9c0545a1d88e4288b3ad1286c659a21d2bbc0ccbe3ff624059188b",
+      "matches": true
+    },
+    {
+      "file": "sources/slide-assets/slide-24-image20.png",
+      "actualBytes": 16324,
+      "actualSha256": "013dd2769996f9e08f19ea3e86e70ea3a69ce2a1a2bfb7a6ee1ebf2023636ec6",
+      "matches": true
+    },
+    {
+      "file": "sources/slide-assets/slide-25-image23.png",
+      "actualBytes": 293898,
+      "actualSha256": "bf7517ad986d2137dbcd0c133de73fa933b2153366e58598188da32479037129",
+      "matches": true
+    },
+    {
+      "file": "sources/slide-assets/slide-41-image44.png",
+      "actualBytes": 364277,
+      "actualSha256": "7e57deedfe727416d5536605bb4327cffd16ee88cbb13c778bd5e5039f450eb8",
+      "matches": true
+    },
+    {
+      "file": "sources/slide-assets/slide-41-image47.png",
+      "actualBytes": 50092,
+      "actualSha256": "dc238c9183f4ca7f5ee062b3c4d09cdb0f0a868c8f3e5ddd735aeeb087a3eb8c",
+      "matches": true
+    },
+    {
+      "file": "sources/slide-xml/slide-13.xml",
+      "actualBytes": 9952,
+      "actualSha256": "7b084a4c9dac7c21fedf323ca9cd983a403910b0d6ffec48c2fde47f05e6c7dd",
+      "matches": true
+    },
+    {
+      "file": "sources/slide-xml/slide-14.xml",
+      "actualBytes": 5595,
+      "actualSha256": "900738d7e4aad8f21d767d3d1deeefe753af194eae7006e9f247214c74fae8a2",
+      "matches": true
+    },
+    {
+      "file": "sources/slide-xml/slide-15.xml",
+      "actualBytes": 6351,
+      "actualSha256": "2779e755549e167532aa0d3da07374130224884f481c7861c750c007dee4d858",
+      "matches": true
+    },
+    {
+      "file": "sources/slide-xml/slide-16.xml",
+      "actualBytes": 2471,
+      "actualSha256": "fae9d9f303cd802c3ed333fc01504805f10d247aa56b31dcfa65aecce827d0b1",
+      "matches": true
+    },
+    {
+      "file": "sources/slide-xml/slide-17.xml",
+      "actualBytes": 7327,
+      "actualSha256": "d335b9f4d5ba1166eb9dd4da487b0f37582005aa510f119806c35e8977b2b72e",
+      "matches": true
+    },
+    {
+      "file": "sources/slide-xml/slide-18.xml",
+      "actualBytes": 6405,
+      "actualSha256": "76089d4f9caf71541f1be312ef034c54996c40edc666fc2c7b4bfa8db8c6bdb6",
+      "matches": true
+    },
+    {
+      "file": "sources/slide-xml/slide-19.xml",
+      "actualBytes": 3996,
+      "actualSha256": "04b2fd3a42dd55b772f9118deaec764d13a28fd259b9d098beb5acdaf5d02165",
+      "matches": true
+    },
+    {
+      "file": "sources/slide-xml/slide-20.xml",
+      "actualBytes": 6552,
+      "actualSha256": "75d7fc65ac84b2918431e28d76199b402fa9b695920b5455c0f32a1100c624ca",
+      "matches": true
+    },
+    {
+      "file": "sources/slide-xml/slide-21.xml",
+      "actualBytes": 6496,
+      "actualSha256": "52a7bc6c9d15eb2cb1ed0eaea85c4061074b047d03c6dfbbc98144d270c03250",
+      "matches": true
+    },
+    {
+      "file": "sources/slide-xml/slide-22.xml",
+      "actualBytes": 4184,
+      "actualSha256": "eae48773601f965527509fed84d26a607546c6396d8ea5be5da8f491c84e8be7",
+      "matches": true
+    },
+    {
+      "file": "sources/slide-xml/slide-23.xml",
+      "actualBytes": 7107,
+      "actualSha256": "5711e65effdfbf2b506cd3204c419760abfe0e12046229cf3b3d090e69e904b6",
+      "matches": true
+    },
+    {
+      "file": "sources/slide-xml/slide-24.xml",
+      "actualBytes": 7905,
+      "actualSha256": "e195dd8313d2fe77ee2d63fd102bee1833d4fbc6be784b005c52b0ad97183dfd",
+      "matches": true
+    },
+    {
+      "file": "sources/slide-xml/slide-25.xml",
+      "actualBytes": 4621,
+      "actualSha256": "540a309a1624d3407b5ca934706b98c0c2f3e33c28cbe632979b83092b93326c",
+      "matches": true
+    },
+    {
+      "file": "sources/slide-xml/slide-41.xml",
+      "actualBytes": 7559,
+      "actualSha256": "def5bbbcdb70a3100d91cd65930928ca43521235c0a174dc098549cf1ac27ba9",
+      "matches": true
+    },
+    {
+      "file": "sources/SLIDES_13_25_AND_41.json",
+      "actualBytes": 8216,
+      "actualSha256": "bd1e87f26de5a12544c567f312665c720918dc61f9c026b6073d1c37e296d4e1",
+      "matches": true
+    },
+    {
+      "file": "sources/SOURCE_LOCATORS.md",
+      "actualBytes": 753,
+      "actualSha256": "338c64b493fc6b4a001a3cce655820d0b499ff5432621c6d754f3228b223db70",
+      "matches": true
+    },
+    {
+      "file": "standards/02_TEACHING_STANDARD.md",
+      "actualBytes": 11744,
+      "actualSha256": "aa273698aa48c983081ca9bb724dec66959ce86ea4f33049f12330715fbf89e2",
+      "matches": true
+    },
+    {
+      "file": "standards/CHAPTER11_TEACHING_STANDARD.md",
+      "actualBytes": 11846,
+      "actualSha256": "cf7d4942a44944defd587813dcf68fc53e29773d189834c8e304bced4f530d80",
+      "matches": true
+    },
+    {
+      "file": "USER_COMMENTS.md",
+      "actualBytes": 632,
+      "actualSha256": "58e5f51b1a5d8f76fe0fdf8345bdbe08505b11f44c6fbf23ea4ae67f9c2a4eb2",
+      "matches": true
+    }
+  ]
+}

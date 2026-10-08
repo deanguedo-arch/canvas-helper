@@ -1,0 +1,21 @@
+# Bounded source/science review — calibration lessons 02 and 05
+
+**Result: no blocking source/science defect found in the complete current inputs.** This is a bounded peer review of root-authored drafts. It is not teacher approval or overall independent acceptance.
+
+All 34 lesson 02 paragraphs and 46 lesson 05 paragraphs were read, including both tables and all eight optional hint/feedback disclosures. The input hashes and byte ranges are pinned in SOURCE_MAP.json. Lesson02 is 104526df…; lesson 05 was reread in full at1cb08380…. Its final920c21c4… wording-only change to petal markings was inspected in all four changed paragraphs; reversing precisely those terms reproduces the fully read1cb08380 hash. The final fictional pod/petal traits belong to the scored individual plant.
+
+The lesson 02 chromosome-copy trace is internally consistent because ordinary separation, no mutation and no exchange are stated. It separates homologues first and sisters second, gives four haploid products with one copy at the locus, and explicitly does not claim to describe every stage of the plant reproductive life cycle. Its seed-genotype clarification keeps the seed-shape scoring unit separate from the plant grown from that seed. The supplied Mendel counts 5474/1850 are correctly near 3:1 rather than exact 3:1. The independent records task correctly distinguishes missing parentage from the impossible allele accounting of known M and m gametes recorded as mm.
+
+For lesson 05, direct recombination of the listed parental gametes verifies the four worked genotypes HhSS, HhSs, hhSS and hhSs, each with probability 1/4. They group into hooked/speckled and straight/speckled, each 1/2, with expected 60 of 120 in each group. No ss genotype is supported. The changed-parent task yields HhSs, Hhss, hhSs and hhss, each 1/4, corresponding to four phenotype classes. Genotype, phenotype and expected-count denominators remain distinct.
+
+The revised classic-ratio explanation correctly multiplies the two 3:1 relative phenotype weights to obtain 9, 3, 3, 1, totaling 16 gamete pairings. It states double-heterozygous parents, complete dominance and independent assortment. This essential derivation structurally supports a protected 3/16 class; it does not present the exact required AaBb/P(aaB_) problem as a new solved drill.
+
+The simulator probabilities 0.35/0.15/0.15/0.35 sum to 1. Every marginal allele total is 0.50, while independent JK would be 0.25 rather than the stipulated 0.35. The conclusion is correctly restricted to dependence within the supplied mathematical model. It does not turn programmed numbers into experimental gamete counts, a chromosome observation or a map result.
+
+The original teaching SVG was reread directly: endpoint A–D labels, allele branches, green/gold levels and the visible answer key match the new reading prose. That existing teaching key is distinct from the protected labeling PNG. No new hidden identification exercise or edited asset was introduced.
+
+Two nonblocking qualifications remain explicit in the source map. First, the worked and guided parental combinations each have only one heterozygous locus per parent, so they cannot experimentally demonstrate two-locus independence. Their intended role is valid contribution accounting and genotype-to-phenotype grouping; the tree and exact simulator separately address independence. Second, the guided changed-parent structure is equivalent to a generic source squash cross, but it is used as guided comparison and does not claim fresh independent transfer. The new independent simulator task requires different reasoning and does not reuse source observations.
+
+Original source reservations, including printed 593/PDF 10 Figure 17.10 and the context ambiguity on actual slide 41, remain in the read-only source-conflict register with exact locators. Printed 595/PDF 12 Q13, Q15 and Q16 are present but need lesson 06 concepts; the new return-after-06 note is accurate. No daily plans, mixed UnitC tests, parent UnitC archive or unavailable authority binary is claimed read.
+
+Only source/admin evidence was written. No learner prose, source, native runtime, metadata or prior artifact was edited. These checks are source/science and arithmetic review, not runtime testing, integration, current-authority certification, teacher acceptance or release.

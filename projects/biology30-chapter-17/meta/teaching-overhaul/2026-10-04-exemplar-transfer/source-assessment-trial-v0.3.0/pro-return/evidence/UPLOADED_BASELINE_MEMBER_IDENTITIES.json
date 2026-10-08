@@ -1,0 +1,63 @@
+{
+  "archive": {
+    "path": "upload/Codex_CH17_v020_Integrated_Base_for_v030.zip",
+    "bytes": 2321527,
+    "sha256": "ddc02a762cdca9718867c3992850a766a5b0b97e0ce9614ffbf958d74667fc20"
+  },
+  "crcPassed": true,
+  "members": [
+    {
+      "path": "native-v020/index.html",
+      "bytes": 3512184,
+      "sha256": "bc42ea52d8cf5709c0ec33c914e86450f93971f3e3144cb81b695593aa0eff3b",
+      "crc32": "9bacc441"
+    },
+    {
+      "path": "native-v020/styles.css",
+      "bytes": 838743,
+      "sha256": "94fe523654289edd8b0f951dd6782f83dce7d08f5e18a3d903d25576fbfa0ba5",
+      "crc32": "436a38d4"
+    },
+    {
+      "path": "native-v020/main.js",
+      "bytes": 54365,
+      "sha256": "45b4b9c7da23646274f59415fa286873fdbdad3a2b8b16b53ccd147c0781f65f",
+      "crc32": "b7fee06f"
+    },
+    {
+      "path": "native-v020/assets/figures/ch17-two-trait.svg",
+      "bytes": 5623,
+      "sha256": "6fdb301a963b4da131f8fe50624611fc0ff091c62e0ac99d6602019c2830c316",
+      "crc32": "a44d5158"
+    },
+    {
+      "path": "native-v020/assets/revision-activities.js",
+      "bytes": 6138,
+      "sha256": "957583a09be13e3b0bb888928d49ed87605b154f14eeaacbea3ea569e27b60c8",
+      "crc32": "97361f84"
+    },
+    {
+      "path": "native-v020/assets/revision-practice.js",
+      "bytes": 5721,
+      "sha256": "005510731183f233e044d9f55db2e4537be73aec1bdc790263bb7861b5e589ea",
+      "crc32": "d140aa8f"
+    },
+    {
+      "path": "BASELINE_CHECKS.json",
+      "bytes": 5775,
+      "sha256": "a16160bd193a665e707a9c807edcffb7600e56603e3f68e678685c7c799a1bcc",
+      "crc32": "ae6d2cb4"
+    },
+    {
+      "path": "V020_SAMPLE_IDENTITY.json",
+      "bytes": 530,
+      "sha256": "ac9e7d992b0f12b113fd289f696d4e6ba6eea7e4b8f3f4367f2a0521fb2740af",
+      "crc32": "6a334285"
+    }
+  ],
+  "integrationOwner": {
+    "path": "source-assessment-v0.3.0/analysis/native-preflight/baseline/native-v020/index.html",
+    "bytes": 3512184,
+    "sha256": "bc42ea52d8cf5709c0ec33c914e86450f93971f3e3144cb81b695593aa0eff3b"
+  }
+}

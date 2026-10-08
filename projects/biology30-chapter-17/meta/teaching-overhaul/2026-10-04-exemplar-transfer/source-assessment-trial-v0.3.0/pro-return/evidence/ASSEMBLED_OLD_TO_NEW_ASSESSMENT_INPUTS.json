@@ -1,0 +1,1309 @@
+{
+  "version": "0.3.0",
+  "replacementItems": [
+    {
+      "idBefore": "ch17-l02-check-writing-1",
+      "idAfter": "ch17-l02-check-writing-1",
+      "route": "lesson-02",
+      "kind": "writing",
+      "old": {
+        "prompt": "Explain Mendel’s F1 and F2 pattern using alleles rather than blending.",
+        "model": "A homozygous dominant parent crossed with a homozygous recessive parent makes heterozygous F1 offspring. Their recessive alleles remain present. Segregation gives gametes one allele each, and an F2 offspring receiving two recessive alleles expresses the recessive phenotype.",
+        "criteria": [
+          "Identifies the relevant structures or quantities.",
+          "Explains the causal relationship or calculation, not just the final result.",
+          "Uses the stated evidence and avoids a stronger conclusion than it supports."
+        ],
+        "id": "ch17-l02-check-writing-1",
+        "limit": 3200
+      },
+      "new": {
+        "id": "ch17-l02-check-writing-1",
+        "prompt": "In a stated complete-dominance model, M is dominant to m. Before DNA copying, a diploid plant cell has M on one homologue and m on the other at this locus. After normal copying, there are two M-bearing sister chromatids and two m-bearing sister chromatids. A student says, ‘There are now four allele versions, and each gamete must keep both M and m because the pair was copied.’ Repair both parts of the claim. Distinguish copies from allele versions, explain the relevant separations, and state the possible allele contribution of a normal gamete. Does m have to blend with M or be recreated to enter a gamete? Assume ordinary copying and meiosis without mutation.",
+        "model": "There are still two allele versions, M and m. Copying produced four physical copies of the tracked locus, two carrying M and two carrying m; it did not produce four different versions. The homologous chromosomes separate in meiosis I, and the sister chromatids separate in meiosis II, without another round of DNA copying between them. A normal gamete receives one chromosome set and therefore one allele at this locus: M or m, not the diploid pair Mm. Under ordinary equal segregation, either contribution has probability one half. The m version remains distinct during copying and separation and can enter a gamete directly; it neither blends with M nor needs to be recreated. Complete dominance explains the phenotype of the Mm parent, not which allele survives or how many alleles a gamete carries.",
+        "criteria": [
+          "Distinguishes two allele versions, M and m, from four physical copies of the locus after copying.",
+          "Connects homologue separation and later sister-chromatid separation to one allele per normal gamete, without extra copying between the divisions.",
+          "Identifies M or m as the possible single-locus gamete contribution, rather than Mm.",
+          "Explains that m remains distinct and available; dominance does not blend, destroy or recreate the allele."
+        ],
+        "limit": 3200
+      },
+      "rootJustification": {
+        "purpose": "Apply persistent-allele and segregation reasoning to a before/after DNA-copy representation.",
+        "taughtOutcome": "Explain how copying preserves allele versions and ordinary segregation supplies one allele per gamete without blending.",
+        "consequentialDifference": "Replaces the worked P/F1/F2 retelling with two connected errors about allele-version number and gamete content after copying. No parent cross or offspring ratio is requested.",
+        "levelPreservation": "Qualitative mechanism from visible native02; no mutation, chromosome-disorder diagnosis, advanced life cycle or new quantitative operation.",
+        "dependenceOnTeaching": "Uses native01 genotype/allele/dominance meanings and actual integrated02 homologue/sister-copy/gamete explanation. This is modest taught mechanism transfer, not blind recall-free assessment.",
+        "comparisonAgainstTeachingAndOptionalModels": "The existing arrow activity repairs segregation/fertilisation names and the reciprocal-cross activity evaluates the receiving-parent claim. Neither interprets the supplied four-copy/two-version record or supplies this complete required response. Visible copying explanation remains intentional prerequisite overlap."
+      },
+      "nativeHtmlReplacement": "integration-text/assessment-html/ch17-l02-check-writing-1.html.txt",
+      "nativeJsonItemReplacement": "integration-text/assessment-json/ch17-l02-check-writing-1.json",
+      "nativeHtmlBefore": {
+        "startByte": 130865,
+        "endByteExclusive": 132393,
+        "bytes": 1528,
+        "sha256": "05b99f3d122bf8b20223240768319337b440998e5eee34fa1c3a8f8fddd3e844"
+      },
+      "nativeJsonBefore": {
+        "startByte": 3155226,
+        "endByteExclusive": 3155873,
+        "bytes": 647,
+        "sha256": "68ce219e2a96eddea903284408e089c3c5bd4a41689d492f4ee32273bb470dfa"
+      },
+      "htmlTextSubstitutions": [
+        {
+          "rangeRef": "prompt",
+          "before": {
+            "startByte": 131143,
+            "endByteExclusive": 131215,
+            "bytes": 72,
+            "sha256": "03e1bc573062edc71e691b6d122a80774967e7ad832519cd63cd9b3c0dfa7d45"
+          },
+          "replacementBytes": 669,
+          "replacementSha256": "1af3e7b9131bf5c98450fe7c5d9bbe89999796b44078fb9bd355c3a7fea2f27b"
+        },
+        {
+          "rangeRef": "model",
+          "before": {
+            "startByte": 131785,
+            "endByteExclusive": 132059,
+            "bytes": 274,
+            "sha256": "0316ef003f0229c137e4239b15f9ae63fb70012c1241872710d6ffaa5633fe7a"
+          },
+          "replacementBytes": 802,
+          "replacementSha256": "7edbb927bef33ee4242e45d4e2953b56c3d7917cb41092307cb2ad60e428244d"
+        },
+        {
+          "rangeRef": "criteria",
+          "before": {
+            "startByte": 132140,
+            "endByteExclusive": 132366,
+            "bytes": 226,
+            "sha256": "fa1893e51e05b58664fbacf2c0fbd367c7b9302bf7fe913ca7bb114ac63d131c"
+          },
+          "replacementBytes": 466,
+          "replacementSha256": "c98b5503ef3b5715be1b6affa4b089dcf6f9c7ac70abce846cb1821a36e0faf7"
+        }
+      ],
+      "semanticChangeWithRetainedId": true,
+      "requiredStateHandling": "Fresh isolated versioned origin; no migrated old saved state.",
+      "freshnessLimit": "General taught method transfer is intended; not a claim of complete blindness to teaching."
+    },
+    {
+      "idBefore": "ch17-l05-check-mc-2",
+      "idAfter": "ch17-l05-check-mc-2",
+      "route": "lesson-05",
+      "kind": "mc",
+      "old": {
+        "prompt": "For independent AaBb × AaBb with complete dominance, what is P(aaB_)?",
+        "answer": "3/16",
+        "explanation": "P(aa) = 1/4 and P(B_) = 3/4, giving 3/16.",
+        "cue": "Trace the normal mechanism before choosing an answer.",
+        "id": "ch17-l05-check-mc-2",
+        "options": [
+          "1/16",
+          "3/16",
+          "1/4",
+          "9/16"
+        ],
+        "difficulty": "application"
+      },
+      "new": {
+        "id": "ch17-l05-check-mc-2",
+        "prompt": "Use the stated pea model: TT and Tt are tall, tt is short; GG and Gg give green pods, gg gives yellow pods. Two TtGg parents are crossed with ordinary segregation, independent assortment, random fertilisation and reliable phenotype expression. For one offspring, what is the probability of being short or having yellow pods, including an offspring with both characteristics? The denominator includes all possible offspring, not only those showing one of these traits.",
+        "options": [
+          "1/16",
+          "3/16",
+          "7/16",
+          "1/2"
+        ],
+        "answer": "7/16",
+        "explanation": "Count three non-overlapping phenotype groups: short/green has probability 1/4 × 3/4 = 3/16; tall/yellow has probability 3/4 × 1/4 = 3/16; short/yellow has probability 1/4 × 1/4 = 1/16. Adding these mutually exclusive groups gives 7/16. The double-recessive offspring qualifies, but counts once. The remaining tall/green group is 9/16, so all four groups total 1. Choosing 1/16 counts only the offspring with both recessive phenotypes; 3/16 counts only one single-recessive group. Adding 1/4 short to 1/4 yellow to get 1/2 would count short/yellow offspring twice.",
+        "cue": "Separate the qualifying offspring into short/green, tall/yellow and short/yellow. Count each possible offspring in only one of those groups.",
+        "difficulty": "application"
+      },
+      "rootJustification": {
+        "purpose": "Choose the probability of a newly defined set of outcomes for one offspring.",
+        "taughtOutcome": "Combine disjoint phenotype categories under a stated independent two-locus complete-dominance model.",
+        "consequentialDifference": "Replaces a direct 3/16 pea category with a union of three distinct phenotype groups. The learner must decide which groups qualify and count the double-recessive group once; retaining source pea letters makes clear that a letter swap is not the change.",
+        "levelPreservation": "Uses only the taught per-locus products and addition of mutually exclusive categories; no conditional renormalisation, combinatorics or new required complement rule.",
+        "dependenceOnTeaching": "The pea grid and category probabilities are taught and intentionally reusable. Newness lies in the requested event and its grouping, not an unfamiliar cross or blindness to the table.",
+        "comparisonAgainstTeachingAndOptionalModels": "Full pea teaching and protected video fallbacks give the four component probabilities but not this 7/16 group. Source-bank3/16 items and final aabb1/16 remain component/near-method overlap, not the complete new response. One-offspring wording avoids the different native03 multi-offspring warning."
+      },
+      "nativeHtmlReplacement": "integration-text/assessment-html/ch17-l05-check-mc-2.html.txt",
+      "nativeJsonItemReplacement": "integration-text/assessment-json/ch17-l05-check-mc-2.json",
+      "nativeHtmlBefore": {
+        "startByte": 221723,
+        "endByteExclusive": 222873,
+        "bytes": 1150,
+        "sha256": "35015e8877690bf8f43586136bab35c2609f5594bc5f687e8f22dc3d60cb97ae"
+      },
+      "nativeJsonBefore": {
+        "startByte": 3161891,
+        "endByteExclusive": 3162219,
+        "bytes": 328,
+        "sha256": "1202627167362c8e8c520b343c9e441ec3fce39d6b20865acd7a04ff9693ebc9"
+      },
+      "htmlTextSubstitutions": [
+        {
+          "rangeRef": "prompt",
+          "before": {
+            "startByte": 221970,
+            "endByteExclusive": 222040,
+            "bytes": 70,
+            "sha256": "f7b3a7f7650be51e6b92b6c9760aff36f2670af44a539ea0e5b235250f12ef43"
+          },
+          "replacementBytes": 467,
+          "replacementSha256": "2812dfb1ff3cfa289538fcbbde7393cc14cc386dc8391fd0aee56da09145b2f3"
+        },
+        {
+          "rangeRef": "option-0-value",
+          "before": {
+            "startByte": 222220,
+            "endByteExclusive": 222224,
+            "bytes": 4,
+            "sha256": "ece2d97a690303566cb7ba329f7bf3e25baedb393c113372798d4230af8de720"
+          },
+          "replacementBytes": 4,
+          "replacementSha256": "ece2d97a690303566cb7ba329f7bf3e25baedb393c113372798d4230af8de720"
+        },
+        {
+          "rangeRef": "option-0-label",
+          "before": {
+            "startByte": 222233,
+            "endByteExclusive": 222237,
+            "bytes": 4,
+            "sha256": "ece2d97a690303566cb7ba329f7bf3e25baedb393c113372798d4230af8de720"
+          },
+          "replacementBytes": 4,
+          "replacementSha256": "ece2d97a690303566cb7ba329f7bf3e25baedb393c113372798d4230af8de720"
+        },
+        {
+          "rangeRef": "option-1-value",
+          "before": {
+            "startByte": 222372,
+            "endByteExclusive": 222376,
+            "bytes": 4,
+            "sha256": "b9aca0d34018cc5cd9ce0c77838edb31b92dc5f99a44ab1759ac2f703d2d4ccc"
+          },
+          "replacementBytes": 4,
+          "replacementSha256": "b9aca0d34018cc5cd9ce0c77838edb31b92dc5f99a44ab1759ac2f703d2d4ccc"
+        },
+        {
+          "rangeRef": "option-1-label",
+          "before": {
+            "startByte": 222385,
+            "endByteExclusive": 222389,
+            "bytes": 4,
+            "sha256": "b9aca0d34018cc5cd9ce0c77838edb31b92dc5f99a44ab1759ac2f703d2d4ccc"
+          },
+          "replacementBytes": 4,
+          "replacementSha256": "b9aca0d34018cc5cd9ce0c77838edb31b92dc5f99a44ab1759ac2f703d2d4ccc"
+        },
+        {
+          "rangeRef": "option-2-value",
+          "before": {
+            "startByte": 222524,
+            "endByteExclusive": 222527,
+            "bytes": 3,
+            "sha256": "f70b94aeb67de2a5eb4bd8c2ea85128f13776cb545a661abe422b378a6cf3099"
+          },
+          "replacementBytes": 4,
+          "replacementSha256": "248fbc03282617ae5b1700d532ce64429efb261fd51b29c9d0f3dc483157d8cb"
+        },
+        {
+          "rangeRef": "option-2-label",
+          "before": {
+            "startByte": 222536,
+            "endByteExclusive": 222539,
+            "bytes": 3,
+            "sha256": "f70b94aeb67de2a5eb4bd8c2ea85128f13776cb545a661abe422b378a6cf3099"
+          },
+          "replacementBytes": 4,
+          "replacementSha256": "248fbc03282617ae5b1700d532ce64429efb261fd51b29c9d0f3dc483157d8cb"
+        },
+        {
+          "rangeRef": "option-3-value",
+          "before": {
+            "startByte": 222674,
+            "endByteExclusive": 222678,
+            "bytes": 4,
+            "sha256": "31540b43fa20cb275095247f6784794cecee19c0117b76238fa153964a52af5b"
+          },
+          "replacementBytes": 3,
+          "replacementSha256": "d939926f05444b0f4495fb9629ecbfa80d99a8ec1a20d06800ca5a3d5f4fd276"
+        },
+        {
+          "rangeRef": "option-3-label",
+          "before": {
+            "startByte": 222687,
+            "endByteExclusive": 222691,
+            "bytes": 4,
+            "sha256": "31540b43fa20cb275095247f6784794cecee19c0117b76238fa153964a52af5b"
+          },
+          "replacementBytes": 3,
+          "replacementSha256": "d939926f05444b0f4495fb9629ecbfa80d99a8ec1a20d06800ca5a3d5f4fd276"
+        }
+      ],
+      "semanticChangeWithRetainedId": true,
+      "requiredStateHandling": "Fresh isolated versioned origin; no migrated old saved state.",
+      "freshnessLimit": "General taught method transfer is intended; not a claim of complete blindness to teaching."
+    },
+    {
+      "idBefore": "ch17-l05-check-writing-1",
+      "idAfter": "ch17-l05-check-writing-1",
+      "route": "lesson-05",
+      "kind": "writing",
+      "old": {
+        "prompt": "List the gametes from RrTt and rrTt under independent assortment, then explain why a 4 × 4 square is unnecessary.",
+        "model": "RrTt produces RT, Rt, rT and rt. rrTt produces rT and rt. A 4 × 2 square contains all distinct combinations; duplicating columns does not add new outcomes or change probabilities.",
+        "criteria": [
+          "Identifies the relevant structures or quantities.",
+          "Explains the causal relationship or calculation, not just the final result.",
+          "Uses the stated evidence and avoids a stronger conclusion than it supports."
+        ],
+        "id": "ch17-l05-check-writing-1",
+        "limit": 3200
+      },
+      "new": {
+        "id": "ch17-l05-check-writing-1",
+        "prompt": "A/a and B/b are alleles at two independently assorting autosomal loci. For AaBB × AaBb, a student intends each table header to name one distinct possible gamete type. The two row headers for AaBB are AB and aB. The four column headers for AaBb are AB, Ab, ab and ab. The student says, ‘A two-by-four table has eight boxes, so every possible gamete pairing is included once.’ Evaluate and repair the table. Derive the complete gamete list and probabilities for each parent, identify the defect in the proposed headers, and justify the probability of each cell in the corrected table. Assume ordinary equal segregation and random fertilisation.",
+        "model": "AaBB supplies A or a at the first locus, each with probability 1/2, and B at the second with probability 1. Its distinct gametes are AB and aB, each 1/2; the proposed rows are correct. AaBb supplies A or a and B or b, each at one half. Independent assortment gives AB, Ab, aB and ab, each 1/2 × 1/2 = 1/4. The proposed columns omit aB and repeat ab. Replace one ab header with aB. The dimensions can remain two by four, but the lists now include every distinct possible contribution. Eight boxes alone did not establish that: the original arrangement omitted valid pairings involving the second parent's aB gamete. Merely adjusting the weights of the repeated ab columns would not restore that missing type. In the corrected table, random fertilisation gives each pairing probability 1/2 × 1/4 = 1/8. Each parent's gamete probabilities total 1, and the eight cell probabilities total 8 × 1/8 = 1. A transposed four-by-two table with the same correct lists and weights is equally valid.",
+        "criteria": [
+          "Derives AB and aB at 1/2 each for AaBB, using the certain B contribution.",
+          "Derives AB, Ab, aB and ab at 1/4 each for AaBb from ordinary segregation and independent assortment.",
+          "Identifies both the missing aB and the duplicated ab; repairs the list and explains why correct dimensions alone do not show completeness.",
+          "Justifies each corrected pairing as 1/2 × 1/4 = 1/8 under random fertilisation and checks the gamete and cell probabilities total 1."
+        ],
+        "limit": 3200
+      },
+      "rootJustification": {
+        "purpose": "Check a gamete-table representation for exhaustiveness and correct weighting.",
+        "taughtOutcome": "Derive distinct gametes from each parental genotype and use them to organize a complete probability table.",
+        "consequentialDifference": "Replaces exact tomato lists with an apparently correct-sized table that omits a possible gamete and duplicates another. A repaired complete list, not eight boxes or reversed parent order, supplies the answer.",
+        "levelPreservation": "Still two independent loci, two versus four distinct gametes and eight equal pairings. No missing-parent inference, unequal segregation, sampling test or larger grid is added.",
+        "dependenceOnTeaching": "Depends on visible definitions, one-allele-per-locus gametes, the native branch figure, distinct-type reasoning and random fertilisation. Generic method overlap is intentional.",
+        "comparisonAgainstTeachingAndOptionalModels": "The restored tomato teaches the method, and the repaired optional rrtt task discusses redundant versus impossible columns. The required case changes the error: the omitted aB is genuinely possible; weighting duplicate ab columns cannot restore it. No complete identical malformed-list case was found in the source/native scan."
+      },
+      "nativeHtmlReplacement": "integration-text/assessment-html/ch17-l05-check-writing-1.html.txt",
+      "nativeJsonItemReplacement": "integration-text/assessment-json/ch17-l05-check-writing-1.json",
+      "nativeHtmlBefore": {
+        "startByte": 223076,
+        "endByteExclusive": 224552,
+        "bytes": 1476,
+        "sha256": "847596093539629d0001685de7c26d51859ab4209c9b98dfe556276c21b5cb1e"
+      },
+      "nativeJsonBefore": {
+        "startByte": 3162234,
+        "endByteExclusive": 3162829,
+        "bytes": 595,
+        "sha256": "ce350aedac4355f10d7769103a837a7588986f332a3412025a7553f370d6d312"
+      },
+      "htmlTextSubstitutions": [
+        {
+          "rangeRef": "prompt",
+          "before": {
+            "startByte": 223354,
+            "endByteExclusive": 223468,
+            "bytes": 114,
+            "sha256": "be5e9fb743eecdbacc295af990195370e5d6f9a5519efee8688ead89f89aecb2"
+          },
+          "replacementBytes": 647,
+          "replacementSha256": "74b5965aea29a0db1ed0f62c93cf1430577ceb168f17c6e3727892415bba4b0d"
+        },
+        {
+          "rangeRef": "model",
+          "before": {
+            "startByte": 224038,
+            "endByteExclusive": 224218,
+            "bytes": 180,
+            "sha256": "1ad5b09e8de39adf3bfdf40bbfb35ec07d7f161a3da7d44a6024ac7c82a33232"
+          },
+          "replacementBytes": 988,
+          "replacementSha256": "e8c8fe98e71b38562658f17d528cd0e5f6d8121d86178c8c19deb85b03aa454f"
+        },
+        {
+          "rangeRef": "criteria",
+          "before": {
+            "startByte": 224299,
+            "endByteExclusive": 224525,
+            "bytes": 226,
+            "sha256": "fa1893e51e05b58664fbacf2c0fbd367c7b9302bf7fe913ca7bb114ac63d131c"
+          },
+          "replacementBytes": 480,
+          "replacementSha256": "cf67c0c8b9970fddbeb3d5867aa298a25578843c4f3d6a716b9ac21836d045fa"
+        }
+      ],
+      "semanticChangeWithRetainedId": true,
+      "requiredStateHandling": "Fresh isolated versioned origin; no migrated old saved state.",
+      "freshnessLimit": "General taught method transfer is intended; not a claim of complete blindness to teaching."
+    },
+    {
+      "idBefore": "ch17-l05-check-writing-2",
+      "idAfter": "ch17-l05-check-writing-2",
+      "route": "lesson-05",
+      "kind": "writing",
+      "old": {
+        "prompt": "Calculate P(A_bb) for AaBb × aaBb under independent assortment and complete dominance.",
+        "model": "At A, Aa × aa gives P(A_) = 1/2. At B, Bb × Bb gives P(bb) = 1/4. Multiplying gives 1/8. The result depends on independent assortment and the stated phenotype rules.",
+        "criteria": [
+          "Identifies the relevant structures or quantities.",
+          "Explains the causal relationship or calculation, not just the final result.",
+          "Uses the stated evidence and avoids a stronger conclusion than it supports."
+        ],
+        "id": "ch17-l05-check-writing-2",
+        "limit": 3200
+      },
+      "new": {
+        "id": "ch17-l05-check-writing-2",
+        "prompt": "In a hypothetical plant model, CC and Cc give coloured petals, cc gives white petals; HH and Hh give hairy stems, hh gives smooth stems. Two CcHh parents are crossed with ordinary segregation, independent assortment, random fertilisation and reliable expression. A student predicts that 9/16 of their offspring will be homozygous at each of the two loci because 9/16 have coloured petals and hairy stems. Evaluate the prediction. List the offspring genotypes that are homozygous at both loci and calculate their combined probability for one offspring, showing the allele contributions or separate-locus probabilities and justifying your operations.",
+        "model": "The prediction confuses genotype with phenotype. Each CcHh parent can make CH, Ch, cH and ch gametes, each with probability 1/4 under independent assortment. At the C locus, Cc × Cc gives 1/4 CC, 1/2 Cc and 1/4 cc. Homozygosity includes CC or cc, so add these exclusive alternatives: 1/4 + 1/4 = 1/2. At the H locus, Hh × Hh similarly gives 1/4 HH, 1/2 Hh and 1/4 hh, with homozygosity probability 1/2. The question requires homozygosity at both independent loci, so multiply 1/2 × 1/2 = 1/4. The qualifying genotypes are CCHH, CChh, ccHH and cchh. Each occurs in one of the sixteen equally likely gamete pairings, so their combined probability is 4/16, confirming 1/4. The other twelve pairings contain heterozygosity at one or both loci; 4/16 + 12/16 = 1. The 9/16 coloured/hairy group also includes CCHh, CcHH and CcHh, which are heterozygous at one or both loci. Conversely, some double-homozygous offspring express a recessive phenotype. Dominant appearance therefore does not identify the requested genotype group.",
+        "criteria": [
+          "Distinguishes homozygosity at each locus from expression of both dominant phenotypes.",
+          "Identifies all four qualifying genotypes: CCHH, CChh, ccHH and cchh.",
+          "Derives each single-locus homozygosity probability as 1/4 + 1/4 = 1/2 and multiplies the two independent requirements, or gives an equivalent correctly weighted sixteen-pairing method.",
+          "Concludes 1/4, checks the counted possibilities, and explains why the 9/16 coloured/hairy group includes genotypes that do not qualify."
+        ],
+        "limit": 3200
+      },
+      "rootJustification": {
+        "purpose": "Calculate a genotype-status event and evaluate an inappropriate phenotype shortcut.",
+        "taughtOutcome": "Distinguish genotype from phenotype and combine single-locus probabilities across independent loci.",
+        "consequentialDifference": "Replaces renamed tomato red/short arithmetic with homozygosity at each locus, combining dominant and recessive homozygotes. Neither new letters nor a new species is the freshness claim; the eligible event changes.",
+        "levelPreservation": "Same double-heterozygote 16-pairing method and elementary disjoint addition/independent multiplication already taught. No conditional probability, new inheritance model or harder population question.",
+        "dependenceOnTeaching": "Uses native01 homozygote/dominance, native03 numerator selection, and05 single-locus probabilities/grid. The familiar pea cross structure is intentionally retained; the four-genotype status group is new.",
+        "comparisonAgainstTeachingAndOptionalModels": "Teaching supplies genotype cell counts and9/16 dominant phenotype grouping but does not solve combined homozygosity at both loci. The new MC is phenotype-union grouping, whereas this writing task checks genotype status and an erroneous phenotype inference. No whole-response duplicate was found in the current native bank/fallback scan."
+      },
+      "nativeHtmlReplacement": "integration-text/assessment-html/ch17-l05-check-writing-2.html.txt",
+      "nativeJsonItemReplacement": "integration-text/assessment-json/ch17-l05-check-writing-2.json",
+      "nativeHtmlBefore": {
+        "startByte": 224552,
+        "endByteExclusive": 225988,
+        "bytes": 1436,
+        "sha256": "e17b2971640c6ab6f81b09da2f993078efe5913b1b22df0b049dea5d22067457"
+      },
+      "nativeJsonBefore": {
+        "startByte": 3162831,
+        "endByteExclusive": 3163386,
+        "bytes": 555,
+        "sha256": "e00e4effe0cf71b92d9ea30770e59d90c1845f09a95d8ab7f3d716c088ac9853"
+      },
+      "htmlTextSubstitutions": [
+        {
+          "rangeRef": "prompt",
+          "before": {
+            "startByte": 224830,
+            "endByteExclusive": 224917,
+            "bytes": 87,
+            "sha256": "e23af1c25067c6c44b75e6a0ce2dc71cc1565e048e7937fa632e358ff46f3fa6"
+          },
+          "replacementBytes": 648,
+          "replacementSha256": "56eef49beab47a35617b41c6a60ede2c4e9f173a83c9ac4371da56d25740ad7e"
+        },
+        {
+          "rangeRef": "model",
+          "before": {
+            "startByte": 225487,
+            "endByteExclusive": 225654,
+            "bytes": 167,
+            "sha256": "207729997b75c81c7904786fb8ada96bbb6e425b72075d28aa7b55e892a38263"
+          },
+          "replacementBytes": 1023,
+          "replacementSha256": "30bff4a55aab9a643d37b6b68002df277390da9ad11a130f9575c4d55e74a78c"
+        },
+        {
+          "rangeRef": "criteria",
+          "before": {
+            "startByte": 225735,
+            "endByteExclusive": 225961,
+            "bytes": 226,
+            "sha256": "fa1893e51e05b58664fbacf2c0fbd367c7b9302bf7fe913ca7bb114ac63d131c"
+          },
+          "replacementBytes": 508,
+          "replacementSha256": "37511b31b1b92c4db622c4a82e40668f2ec827f8128aa05ff26524b41fc59486"
+        }
+      ],
+      "semanticChangeWithRetainedId": true,
+      "requiredStateHandling": "Fresh isolated versioned origin; no migrated old saved state.",
+      "freshnessLimit": "General taught method transfer is intended; not a claim of complete blindness to teaching."
+    }
+  ],
+  "unaffectedSelectedItems": [
+    {
+      "id": "ch17-l02-check-mc-1",
+      "route": "lesson-02",
+      "type": "mc",
+      "authorizedReplacement": false,
+      "htmlRangeRef": "ch17-l02-check-mc-1.html",
+      "htmlRange": {
+        "startByte": 127533,
+        "endByteExclusive": 129073,
+        "bytes": 1540,
+        "sha256": "a36418f28981e943bd36dd064536cbccb7e2faf02cc58cd531a5278cde99f03e"
+      },
+      "htmlRawBefore": "source-assessment-v0.3.0/analysis/native-preflight/raw-before/questions/ch17-l02-check-mc-1.html.txt",
+      "jsonRangeRef": "ch17-l02-check-mc-1.json-item",
+      "jsonPath": [
+        "checks",
+        1,
+        "mc",
+        0
+      ],
+      "jsonRange": {
+        "startByte": 3153960,
+        "endByteExclusive": 3154563,
+        "bytes": 603,
+        "sha256": "906c62f4c83c6a0f2b918e856c5be8100b63ca56213c483cc17423188b99014a"
+      },
+      "jsonRawBefore": "source-assessment-v0.3.0/analysis/native-preflight/raw-before/questions/ch17-l02-check-mc-1.json.txt",
+      "item": {
+        "prompt": "Why can a recessive phenotype reappear in the F2 generation?",
+        "answer": "Each heterozygous parent can contribute the recessive allele",
+        "explanation": "Two recessive contributions can form a homozygous recessive offspring.",
+        "cue": "Trace the normal mechanism before choosing an answer.",
+        "id": "ch17-l02-check-mc-1",
+        "options": [
+          "The recessive allele is always recreated by mutation",
+          "Dominant alleles vanish after one generation",
+          "Each heterozygous parent can contribute the recessive allele",
+          "Gametes carry both parental alleles together at every locus"
+        ],
+        "difficulty": "application"
+      },
+      "questionAttributes": {
+        "class": "check-question",
+        "data-check-question": "ch17-l02-check-mc-1"
+      },
+      "descendantTagAttributes": [
+        {
+          "tag": "div",
+          "attributes": {
+            "class": "check-question",
+            "data-check-question": "ch17-l02-check-mc-1"
+          }
+        },
+        {
+          "tag": "p",
+          "attributes": {
+            "class": "eyebrow"
+          }
+        },
+        {
+          "tag": "h3",
+          "attributes": {
+            "data-canvas-edit-key": "ch17-l02-check-mc-1-prompt",
+            "data-canvas-helper-edit-key": "ch17-l02-check-mc-1-prompt",
+            "id": "ch17-l02-check-mc-1-prompt"
+          }
+        },
+        {
+          "tag": "fieldset",
+          "attributes": {
+            "aria-labelledby": "ch17-l02-check-mc-1-prompt"
+          }
+        },
+        {
+          "tag": "label",
+          "attributes": {
+            "class": "choice-row"
+          }
+        },
+        {
+          "tag": "input",
+          "attributes": {
+            "data-check-choice": "ch17-l02-check-mc-1",
+            "name": "ch17-l02-check-mc-1",
+            "type": "radio",
+            "value": "The recessive allele is always recreated by mutation"
+          }
+        },
+        {
+          "tag": "span",
+          "attributes": {}
+        },
+        {
+          "tag": "label",
+          "attributes": {
+            "class": "choice-row"
+          }
+        },
+        {
+          "tag": "input",
+          "attributes": {
+            "data-check-choice": "ch17-l02-check-mc-1",
+            "name": "ch17-l02-check-mc-1",
+            "type": "radio",
+            "value": "Dominant alleles vanish after one generation"
+          }
+        },
+        {
+          "tag": "span",
+          "attributes": {}
+        },
+        {
+          "tag": "label",
+          "attributes": {
+            "class": "choice-row"
+          }
+        },
+        {
+          "tag": "input",
+          "attributes": {
+            "data-check-choice": "ch17-l02-check-mc-1",
+            "name": "ch17-l02-check-mc-1",
+            "type": "radio",
+            "value": "Each heterozygous parent can contribute the recessive allele"
+          }
+        },
+        {
+          "tag": "span",
+          "attributes": {}
+        },
+        {
+          "tag": "label",
+          "attributes": {
+            "class": "choice-row"
+          }
+        },
+        {
+          "tag": "input",
+          "attributes": {
+            "data-check-choice": "ch17-l02-check-mc-1",
+            "name": "ch17-l02-check-mc-1",
+            "type": "radio",
+            "value": "Gametes carry both parental alleles together at every locus"
+          }
+        },
+        {
+          "tag": "span",
+          "attributes": {}
+        },
+        {
+          "tag": "button",
+          "attributes": {
+            "data-check-answer": "ch17-l02-check-mc-1",
+            "type": "button"
+          }
+        },
+        {
+          "tag": "p",
+          "attributes": {
+            "aria-live": "polite",
+            "class": "inline-feedback",
+            "data-feedback": ""
+          }
+        }
+      ],
+      "editableTextParts": {
+        "promptInnerRange": {
+          "startByte": 127780,
+          "endByteExclusive": 127840,
+          "bytes": 60,
+          "sha256": "698c63d83dba34940dfee685671c206cfc5e8055f1d1256757fee9228d795e60"
+        },
+        "orderedChoiceRows": [
+          {
+            "range": {
+              "startByte": 127900,
+              "endByteExclusive": 128148,
+              "bytes": 248,
+              "sha256": "cdf80bbd943b0ccfb8fe97a6c27860e1bb404a950e47dcab86e6ed9aac88f6f0"
+            },
+            "exactHtml": "<label class=\"choice-row\"><input data-check-choice=\"ch17-l02-check-mc-1\" name=\"ch17-l02-check-mc-1\" type=\"radio\" value=\"The recessive allele is always recreated by mutation\"/><span>The recessive allele is always recreated by mutation</span></label>",
+            "spanInnerRange": {
+              "startByte": 128081,
+              "endByteExclusive": 128133,
+              "bytes": 52,
+              "sha256": "347b39161937058b75f57796222e00c3643523ff06add35b217bec0d04db839c"
+            }
+          },
+          {
+            "range": {
+              "startByte": 128148,
+              "endByteExclusive": 128380,
+              "bytes": 232,
+              "sha256": "25f6f484a74a272ae7ec09cae74dda656f993f7cb6228f60c59e7bb466e7f8ac"
+            },
+            "exactHtml": "<label class=\"choice-row\"><input data-check-choice=\"ch17-l02-check-mc-1\" name=\"ch17-l02-check-mc-1\" type=\"radio\" value=\"Dominant alleles vanish after one generation\"/><span>Dominant alleles vanish after one generation</span></label>",
+            "spanInnerRange": {
+              "startByte": 128321,
+              "endByteExclusive": 128365,
+              "bytes": 44,
+              "sha256": "588b2b865fd2a25f857672f76cff8be8c10954f0d8267c51728973f70ee761a1"
+            }
+          },
+          {
+            "range": {
+              "startByte": 128380,
+              "endByteExclusive": 128644,
+              "bytes": 264,
+              "sha256": "50e209913de77cbfd2dc2ebb29d916b96a8c9300661926c94d2a1e4a9bd7bddc"
+            },
+            "exactHtml": "<label class=\"choice-row\"><input data-check-choice=\"ch17-l02-check-mc-1\" name=\"ch17-l02-check-mc-1\" type=\"radio\" value=\"Each heterozygous parent can contribute the recessive allele\"/><span>Each heterozygous parent can contribute the recessive allele</span></label>",
+            "spanInnerRange": {
+              "startByte": 128569,
+              "endByteExclusive": 128629,
+              "bytes": 60,
+              "sha256": "7a045b788bf6c6895efeb3bedbcc5ee9e4dfd15fe0217d18172d3b0b3dd3c5ef"
+            }
+          },
+          {
+            "range": {
+              "startByte": 128644,
+              "endByteExclusive": 128906,
+              "bytes": 262,
+              "sha256": "dfb5c16067bf5fc25c960bbd6de498ad9fdd5eb3a208d790c38e4a6353202aa2"
+            },
+            "exactHtml": "<label class=\"choice-row\"><input data-check-choice=\"ch17-l02-check-mc-1\" name=\"ch17-l02-check-mc-1\" type=\"radio\" value=\"Gametes carry both parental alleles together at every locus\"/><span>Gametes carry both parental alleles together at every locus</span></label>",
+            "spanInnerRange": {
+              "startByte": 128832,
+              "endByteExclusive": 128891,
+              "bytes": 59,
+              "sha256": "9b476364ca62d94c1eec0a2f2b72be92037bf889d8a6f802e8f76259a3e94685"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch17-l02-check-mc-2",
+      "route": "lesson-02",
+      "type": "mc",
+      "authorizedReplacement": false,
+      "htmlRangeRef": "ch17-l02-check-mc-2.html",
+      "htmlRange": {
+        "startByte": 129073,
+        "endByteExclusive": 130662,
+        "bytes": 1589,
+        "sha256": "957f799b58748d7c803065ec8f6bb4bb83ba9d576a3695c2a1615cb7a2e9b8f6"
+      },
+      "htmlRawBefore": "source-assessment-v0.3.0/analysis/native-preflight/raw-before/questions/ch17-l02-check-mc-2.html.txt",
+      "jsonRangeRef": "ch17-l02-check-mc-2.json-item",
+      "jsonPath": [
+        "checks",
+        1,
+        "mc",
+        1
+      ],
+      "jsonRange": {
+        "startByte": 3154565,
+        "endByteExclusive": 3155211,
+        "bytes": 646,
+        "sha256": "a0d5d4570699123b5087eb70428b752bc5c6e8dd6e9d2ed7eb28962e7540182d"
+      },
+      "jsonRawBefore": "source-assessment-v0.3.0/analysis/native-preflight/raw-before/questions/ch17-l02-check-mc-2.json.txt",
+      "item": {
+        "prompt": "A heterozygote has six dominant-phenotype offspring in succession in a suitable cross. Does that prove segregation stopped?",
+        "answer": "No; small samples can differ from expected ratios",
+        "explanation": "Probabilistic outcomes can form runs without changing the mechanism.",
+        "cue": "Trace the normal mechanism before choosing an answer.",
+        "id": "ch17-l02-check-mc-2",
+        "options": [
+          "Yes; meiosis makes only one type of gamete after the first birth",
+          "No; because alleles are not inherited",
+          "Yes; every short run must exactly match the expected ratio",
+          "No; small samples can differ from expected ratios"
+        ],
+        "difficulty": "application"
+      },
+      "questionAttributes": {
+        "class": "check-question",
+        "data-check-question": "ch17-l02-check-mc-2"
+      },
+      "descendantTagAttributes": [
+        {
+          "tag": "div",
+          "attributes": {
+            "class": "check-question",
+            "data-check-question": "ch17-l02-check-mc-2"
+          }
+        },
+        {
+          "tag": "p",
+          "attributes": {
+            "class": "eyebrow"
+          }
+        },
+        {
+          "tag": "h3",
+          "attributes": {
+            "data-canvas-edit-key": "ch17-l02-check-mc-2-prompt",
+            "data-canvas-helper-edit-key": "ch17-l02-check-mc-2-prompt",
+            "id": "ch17-l02-check-mc-2-prompt"
+          }
+        },
+        {
+          "tag": "fieldset",
+          "attributes": {
+            "aria-labelledby": "ch17-l02-check-mc-2-prompt"
+          }
+        },
+        {
+          "tag": "label",
+          "attributes": {
+            "class": "choice-row"
+          }
+        },
+        {
+          "tag": "input",
+          "attributes": {
+            "data-check-choice": "ch17-l02-check-mc-2",
+            "name": "ch17-l02-check-mc-2",
+            "type": "radio",
+            "value": "Yes; meiosis makes only one type of gamete after the first birth"
+          }
+        },
+        {
+          "tag": "span",
+          "attributes": {}
+        },
+        {
+          "tag": "label",
+          "attributes": {
+            "class": "choice-row"
+          }
+        },
+        {
+          "tag": "input",
+          "attributes": {
+            "data-check-choice": "ch17-l02-check-mc-2",
+            "name": "ch17-l02-check-mc-2",
+            "type": "radio",
+            "value": "No; because alleles are not inherited"
+          }
+        },
+        {
+          "tag": "span",
+          "attributes": {}
+        },
+        {
+          "tag": "label",
+          "attributes": {
+            "class": "choice-row"
+          }
+        },
+        {
+          "tag": "input",
+          "attributes": {
+            "data-check-choice": "ch17-l02-check-mc-2",
+            "name": "ch17-l02-check-mc-2",
+            "type": "radio",
+            "value": "Yes; every short run must exactly match the expected ratio"
+          }
+        },
+        {
+          "tag": "span",
+          "attributes": {}
+        },
+        {
+          "tag": "label",
+          "attributes": {
+            "class": "choice-row"
+          }
+        },
+        {
+          "tag": "input",
+          "attributes": {
+            "data-check-choice": "ch17-l02-check-mc-2",
+            "name": "ch17-l02-check-mc-2",
+            "type": "radio",
+            "value": "No; small samples can differ from expected ratios"
+          }
+        },
+        {
+          "tag": "span",
+          "attributes": {}
+        },
+        {
+          "tag": "button",
+          "attributes": {
+            "data-check-answer": "ch17-l02-check-mc-2",
+            "type": "button"
+          }
+        },
+        {
+          "tag": "p",
+          "attributes": {
+            "aria-live": "polite",
+            "class": "inline-feedback",
+            "data-feedback": ""
+          }
+        }
+      ],
+      "editableTextParts": {
+        "promptInnerRange": {
+          "startByte": 129320,
+          "endByteExclusive": 129443,
+          "bytes": 123,
+          "sha256": "c8ad2711f67de83955d2329e81d4c1f4c306f163697a56906ba59a5ef00c9575"
+        },
+        "orderedChoiceRows": [
+          {
+            "range": {
+              "startByte": 129503,
+              "endByteExclusive": 129775,
+              "bytes": 272,
+              "sha256": "5025d2c2e2ad7b66a23ebc5226c4aa586eae7b5a467b88e8b1771caa20933588"
+            },
+            "exactHtml": "<label class=\"choice-row\"><input data-check-choice=\"ch17-l02-check-mc-2\" name=\"ch17-l02-check-mc-2\" type=\"radio\" value=\"Yes; meiosis makes only one type of gamete after the first birth\"/><span>Yes; meiosis makes only one type of gamete after the first birth</span></label>",
+            "spanInnerRange": {
+              "startByte": 129696,
+              "endByteExclusive": 129760,
+              "bytes": 64,
+              "sha256": "dea3e2c9dc911a2c479b71e9b5d1f30e3056288224f09a3e679553cecbf2d799"
+            }
+          },
+          {
+            "range": {
+              "startByte": 129775,
+              "endByteExclusive": 129993,
+              "bytes": 218,
+              "sha256": "126a7681b968c22c53f7bd34615a84bb60922722ed325e7893b42e18ef01efff"
+            },
+            "exactHtml": "<label class=\"choice-row\"><input data-check-choice=\"ch17-l02-check-mc-2\" name=\"ch17-l02-check-mc-2\" type=\"radio\" value=\"No; because alleles are not inherited\"/><span>No; because alleles are not inherited</span></label>",
+            "spanInnerRange": {
+              "startByte": 129941,
+              "endByteExclusive": 129978,
+              "bytes": 37,
+              "sha256": "121209b8b62b36440799f8beeedf11e909f453ba3e6b713d35caa6cb4109041c"
+            }
+          },
+          {
+            "range": {
+              "startByte": 129993,
+              "endByteExclusive": 130253,
+              "bytes": 260,
+              "sha256": "3798548d056f56340381eafb7af845506003aa2eb2113700ca6e750732e6f45f"
+            },
+            "exactHtml": "<label class=\"choice-row\"><input data-check-choice=\"ch17-l02-check-mc-2\" name=\"ch17-l02-check-mc-2\" type=\"radio\" value=\"Yes; every short run must exactly match the expected ratio\"/><span>Yes; every short run must exactly match the expected ratio</span></label>",
+            "spanInnerRange": {
+              "startByte": 130180,
+              "endByteExclusive": 130238,
+              "bytes": 58,
+              "sha256": "1033867866a8973825e3d2a505759da0a05df746fa20ad654f924935a015a4a8"
+            }
+          },
+          {
+            "range": {
+              "startByte": 130253,
+              "endByteExclusive": 130495,
+              "bytes": 242,
+              "sha256": "2256f03fea750f5d955d47e75d56abc8e6291868f5c3d3a1306574d904942c6a"
+            },
+            "exactHtml": "<label class=\"choice-row\"><input data-check-choice=\"ch17-l02-check-mc-2\" name=\"ch17-l02-check-mc-2\" type=\"radio\" value=\"No; small samples can differ from expected ratios\"/><span>No; small samples can differ from expected ratios</span></label>",
+            "spanInnerRange": {
+              "startByte": 130431,
+              "endByteExclusive": 130480,
+              "bytes": 49,
+              "sha256": "c6fa902c0504fae312cd87f4334fd4e2da20c384ef984165ea839a8820d9d072"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch17-l02-check-writing-2",
+      "route": "lesson-02",
+      "type": "writing",
+      "authorizedReplacement": false,
+      "htmlRangeRef": "ch17-l02-check-writing-2.html",
+      "htmlRange": {
+        "startByte": 132393,
+        "endByteExclusive": 133905,
+        "bytes": 1512,
+        "sha256": "c4b1fbdce24ea348bdd428c75aefc94e38ed4595b3da39d546cf6006a600306f"
+      },
+      "htmlRawBefore": "source-assessment-v0.3.0/analysis/native-preflight/raw-before/questions/ch17-l02-check-writing-2.html.txt",
+      "jsonRangeRef": "ch17-l02-check-writing-2.json-item",
+      "jsonPath": [
+        "checks",
+        1,
+        "writing",
+        1
+      ],
+      "jsonRange": {
+        "startByte": 3155875,
+        "endByteExclusive": 3156506,
+        "bytes": 631,
+        "sha256": "cec1200197c8c6f8b7b16c7ce498b222506885b169caf5ba8b1a94e110afcde3"
+      },
+      "jsonRawBefore": "source-assessment-v0.3.0/analysis/native-preflight/raw-before/questions/ch17-l02-check-writing-2.json.txt",
+      "item": {
+        "prompt": "Distinguish an expected 3:1 phenotype ratio from an exact prediction for four offspring.",
+        "model": "The ratio represents probabilities under specified assumptions. Each offspring has the same modeled probabilities, but chance can produce different counts in a sample of four. Larger samples tend to show proportions closer to the expectation.",
+        "criteria": [
+          "Identifies the relevant structures or quantities.",
+          "Explains the causal relationship or calculation, not just the final result.",
+          "Uses the stated evidence and avoids a stronger conclusion than it supports."
+        ],
+        "id": "ch17-l02-check-writing-2",
+        "limit": 3200
+      },
+      "questionAttributes": {
+        "class": "writing-question",
+        "data-writing-question": "ch17-l02-check-writing-2"
+      },
+      "descendantTagAttributes": [
+        {
+          "tag": "div",
+          "attributes": {
+            "class": "writing-question",
+            "data-writing-question": "ch17-l02-check-writing-2"
+          }
+        },
+        {
+          "tag": "p",
+          "attributes": {
+            "class": "eyebrow"
+          }
+        },
+        {
+          "tag": "label",
+          "attributes": {
+            "data-canvas-edit-key": "ch17-l02-check-writing-2-prompt",
+            "data-canvas-helper-edit-key": "ch17-l02-check-writing-2-prompt",
+            "for": "ch17-l02-check-writing-2"
+          }
+        },
+        {
+          "tag": "textarea",
+          "attributes": {
+            "aria-describedby": "ch17-l02-check-writing-2-status",
+            "data-check-writing": "ch17-l02-check-writing-2",
+            "data-limit": "3200",
+            "id": "ch17-l02-check-writing-2",
+            "rows": "6"
+          }
+        },
+        {
+          "tag": "p",
+          "attributes": {
+            "class": "writing-status"
+          }
+        },
+        {
+          "tag": "button",
+          "attributes": {
+            "data-save-writing": "ch17-l02-check-writing-2",
+            "type": "button"
+          }
+        },
+        {
+          "tag": "p",
+          "attributes": {
+            "aria-live": "polite",
+            "class": "writing-status",
+            "data-writing-status": "",
+            "id": "ch17-l02-check-writing-2-status"
+          }
+        },
+        {
+          "tag": "details",
+          "attributes": {
+            "data-locked": "true"
+          }
+        },
+        {
+          "tag": "summary",
+          "attributes": {}
+        },
+        {
+          "tag": "p",
+          "attributes": {}
+        },
+        {
+          "tag": "div",
+          "attributes": {
+            "class": "answer-criteria"
+          }
+        },
+        {
+          "tag": "strong",
+          "attributes": {}
+        },
+        {
+          "tag": "ul",
+          "attributes": {}
+        },
+        {
+          "tag": "li",
+          "attributes": {}
+        },
+        {
+          "tag": "li",
+          "attributes": {}
+        },
+        {
+          "tag": "li",
+          "attributes": {}
+        }
+      ],
+      "editableTextParts": {
+        "promptInnerRange": {
+          "startByte": 132671,
+          "endByteExclusive": 132759,
+          "bytes": 88,
+          "sha256": "916849ed2ce263cce094ee9f194fb5970a76a52179abba46e0e1a52c211d590f"
+        },
+        "lockedModelDetailsRange": {
+          "startByte": 133241,
+          "endByteExclusive": 133899,
+          "bytes": 658,
+          "sha256": "3f4127d3e95a968892a9f92c77988cbb4aacb0d7def43adac361f39d7673083d"
+        },
+        "modelParagraphInnerRange": {
+          "startByte": 133329,
+          "endByteExclusive": 133571,
+          "bytes": 242,
+          "sha256": "f48d81bb0d6d91e257c2746fe3a60c14c4eb0d435d83b14d8d5a5c8f5fa067ea"
+        },
+        "criteriaListInnerRange": {
+          "startByte": 133652,
+          "endByteExclusive": 133878,
+          "bytes": 226,
+          "sha256": "fa1893e51e05b58664fbacf2c0fbd367c7b9302bf7fe913ca7bb114ac63d131c"
+        },
+        "lockedModelDetailsExactHtml": "<details data-locked=\"true\"><summary>Compare after saving your own response</summary><p>The ratio represents probabilities under specified assumptions. Each offspring has the same modeled probabilities, but chance can produce different counts in a sample of four. Larger samples tend to show proportions closer to the expectation.</p><div class=\"answer-criteria\"><strong>Check your explanation for:</strong><ul><li>Identifies the relevant structures or quantities.</li><li>Explains the causal relationship or calculation, not just the final result.</li><li>Uses the stated evidence and avoids a stronger conclusion than it supports.</li></ul></div></details>"
+      }
+    },
+    {
+      "id": "ch17-l05-check-mc-1",
+      "route": "lesson-05",
+      "type": "mc",
+      "authorizedReplacement": false,
+      "htmlRangeRef": "ch17-l05-check-mc-1.html",
+      "htmlRange": {
+        "startByte": 220272,
+        "endByteExclusive": 221723,
+        "bytes": 1451,
+        "sha256": "99ea64fda450675fd1466398a27de4c092b011424e0d1c52365c24c309112cef"
+      },
+      "htmlRawBefore": "source-assessment-v0.3.0/analysis/native-preflight/raw-before/questions/ch17-l05-check-mc-1.html.txt",
+      "jsonRangeRef": "ch17-l05-check-mc-1.json-item",
+      "jsonPath": [
+        "checks",
+        4,
+        "mc",
+        0
+      ],
+      "jsonRange": {
+        "startByte": 3161343,
+        "endByteExclusive": 3161889,
+        "bytes": 546,
+        "sha256": "f0ce0cb3648abd9b325da4f4287ef4f46497e2ec5eac9ae5e165a0b1730fbf3a"
+      },
+      "jsonRawBefore": "source-assessment-v0.3.0/analysis/native-preflight/raw-before/questions/ch17-l05-check-mc-1.json.txt",
+      "item": {
+        "prompt": "What assumption is needed for multiplying separate two-locus probabilities in these examples?",
+        "answer": "The loci assort independently under the model",
+        "explanation": "Independence allows the product rule for locus outcomes.",
+        "cue": "Trace the normal mechanism before choosing an answer.",
+        "id": "ch17-l05-check-mc-1",
+        "options": [
+          "The loci assort independently under the model",
+          "The two genes must be identical",
+          "Every parent must be homozygous",
+          "Each offspring compensates for the previous one"
+        ],
+        "difficulty": "application"
+      },
+      "questionAttributes": {
+        "class": "check-question",
+        "data-check-question": "ch17-l05-check-mc-1"
+      },
+      "descendantTagAttributes": [
+        {
+          "tag": "div",
+          "attributes": {
+            "class": "check-question",
+            "data-check-question": "ch17-l05-check-mc-1"
+          }
+        },
+        {
+          "tag": "p",
+          "attributes": {
+            "class": "eyebrow"
+          }
+        },
+        {
+          "tag": "h3",
+          "attributes": {
+            "data-canvas-edit-key": "ch17-l05-check-mc-1-prompt",
+            "data-canvas-helper-edit-key": "ch17-l05-check-mc-1-prompt",
+            "id": "ch17-l05-check-mc-1-prompt"
+          }
+        },
+        {
+          "tag": "fieldset",
+          "attributes": {
+            "aria-labelledby": "ch17-l05-check-mc-1-prompt"
+          }
+        },
+        {
+          "tag": "label",
+          "attributes": {
+            "class": "choice-row"
+          }
+        },
+        {
+          "tag": "input",
+          "attributes": {
+            "data-check-choice": "ch17-l05-check-mc-1",
+            "name": "ch17-l05-check-mc-1",
+            "type": "radio",
+            "value": "The loci assort independently under the model"
+          }
+        },
+        {
+          "tag": "span",
+          "attributes": {}
+        },
+        {
+          "tag": "label",
+          "attributes": {
+            "class": "choice-row"
+          }
+        },
+        {
+          "tag": "input",
+          "attributes": {
+            "data-check-choice": "ch17-l05-check-mc-1",
+            "name": "ch17-l05-check-mc-1",
+            "type": "radio",
+            "value": "The two genes must be identical"
+          }
+        },
+        {
+          "tag": "span",
+          "attributes": {}
+        },
+        {
+          "tag": "label",
+          "attributes": {
+            "class": "choice-row"
+          }
+        },
+        {
+          "tag": "input",
+          "attributes": {
+            "data-check-choice": "ch17-l05-check-mc-1",
+            "name": "ch17-l05-check-mc-1",
+            "type": "radio",
+            "value": "Every parent must be homozygous"
+          }
+        },
+        {
+          "tag": "span",
+          "attributes": {}
+        },
+        {
+          "tag": "label",
+          "attributes": {
+            "class": "choice-row"
+          }
+        },
+        {
+          "tag": "input",
+          "attributes": {
+            "data-check-choice": "ch17-l05-check-mc-1",
+            "name": "ch17-l05-check-mc-1",
+            "type": "radio",
+            "value": "Each offspring compensates for the previous one"
+          }
+        },
+        {
+          "tag": "span",
+          "attributes": {}
+        },
+        {
+          "tag": "button",
+          "attributes": {
+            "data-check-answer": "ch17-l05-check-mc-1",
+            "type": "button"
+          }
+        },
+        {
+          "tag": "p",
+          "attributes": {
+            "aria-live": "polite",
+            "class": "inline-feedback",
+            "data-feedback": ""
+          }
+        }
+      ],
+      "editableTextParts": {
+        "promptInnerRange": {
+          "startByte": 220519,
+          "endByteExclusive": 220612,
+          "bytes": 93,
+          "sha256": "326e32ef7283edb7ba3d52f7fd548d9bd2cabb743ff0ce1e9a59a6cfd9d96b8f"
+        },
+        "orderedChoiceRows": [
+          {
+            "range": {
+              "startByte": 220672,
+              "endByteExclusive": 220906,
+              "bytes": 234,
+              "sha256": "0db8708ec0b860a1b82b8e708928f1b75a0a3c8e09c944ceb97246394167c50f"
+            },
+            "exactHtml": "<label class=\"choice-row\"><input data-check-choice=\"ch17-l05-check-mc-1\" name=\"ch17-l05-check-mc-1\" type=\"radio\" value=\"The loci assort independently under the model\"/><span>The loci assort independently under the model</span></label>",
+            "spanInnerRange": {
+              "startByte": 220846,
+              "endByteExclusive": 220891,
+              "bytes": 45,
+              "sha256": "4f3403ef71ce1260b18d33cfdbe5b90c8eea6d888ac715249d4636c8aa64a889"
+            }
+          },
+          {
+            "range": {
+              "startByte": 220906,
+              "endByteExclusive": 221112,
+              "bytes": 206,
+              "sha256": "49e141f33ae68c56e79aa5cc8b93053aaa8425c1496f3925713720397b894966"
+            },
+            "exactHtml": "<label class=\"choice-row\"><input data-check-choice=\"ch17-l05-check-mc-1\" name=\"ch17-l05-check-mc-1\" type=\"radio\" value=\"The two genes must be identical\"/><span>The two genes must be identical</span></label>",
+            "spanInnerRange": {
+              "startByte": 221066,
+              "endByteExclusive": 221097,
+              "bytes": 31,
+              "sha256": "c9367591933c7f13f9287f34ea20688672a338cb64dd7bf26904838a4a2c2908"
+            }
+          },
+          {
+            "range": {
+              "startByte": 221112,
+              "endByteExclusive": 221318,
+              "bytes": 206,
+              "sha256": "aa1280553fab5ef505e619ab0b71d77b7e7ad82d8e7a3f8dafd373da44ca926d"
+            },
+            "exactHtml": "<label class=\"choice-row\"><input data-check-choice=\"ch17-l05-check-mc-1\" name=\"ch17-l05-check-mc-1\" type=\"radio\" value=\"Every parent must be homozygous\"/><span>Every parent must be homozygous</span></label>",
+            "spanInnerRange": {
+              "startByte": 221272,
+              "endByteExclusive": 221303,
+              "bytes": 31,
+              "sha256": "d2593a2101546769a5f16e3d0039a9d3aea5389ba2d3ef2cd2882616d270bf67"
+            }
+          },
+          {
+            "range": {
+              "startByte": 221318,
+              "endByteExclusive": 221556,
+              "bytes": 238,
+              "sha256": "673c032169c65f3733c1e648c7ceeaeac047599c3f9fef1f36b94f501e7a4b0c"
+            },
+            "exactHtml": "<label class=\"choice-row\"><input data-check-choice=\"ch17-l05-check-mc-1\" name=\"ch17-l05-check-mc-1\" type=\"radio\" value=\"Each offspring compensates for the previous one\"/><span>Each offspring compensates for the previous one</span></label>",
+            "spanInnerRange": {
+              "startByte": 221494,
+              "endByteExclusive": 221541,
+              "bytes": 47,
+              "sha256": "759eee6535d253c84766b5f8140466cee6ffb1704b8a1e5d0c7c458bac35c3b8"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "optionalSourcePracticeBank": "Unchanged formative/source practice; not newly certified fresh assessment.",
+  "runtimeGrading": "MC compares the selected option with the item answer. Saved writing requires human review."
+}

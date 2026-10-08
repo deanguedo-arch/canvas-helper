@@ -1,0 +1,7 @@
+Worked model: include inhibition in the calculation
+Use a simplified additive model at the trigger region. Resting voltage is −70 mV, threshold is −55 mV, and simultaneous contributions are +8 mV, +9 mV, and −5 mV.
+Add all contributions. +8 + 9 − 5 = +12 mV. Leaving out the inhibitory term would overestimate the net depolarization.
+Apply the net change to the starting value. −70 + 12 = −58 mV.
+Compare with threshold. −58 is still below −55, so no action potential is initiated in this model.
+Test the changed condition. Removing the −5 mV input would give a predicted depolarization to −53 mV, which crosses threshold and triggers an action potential. −53 mV is the model's threshold-crossing prediction, not the voltage at which the neuron would remain afterward.
+Real synapses interact in more complex ways than simple addition. The calculation is a model for reasoning about combined effects, timing, and threshold; it is not a universal equation for a real neuron.

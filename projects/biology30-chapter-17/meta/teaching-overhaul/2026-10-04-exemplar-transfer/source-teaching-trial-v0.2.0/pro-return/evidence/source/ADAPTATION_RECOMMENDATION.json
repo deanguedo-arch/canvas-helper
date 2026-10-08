@@ -1,0 +1,251 @@
+{
+  "scope": "Source-method adaptation recommendation for trial v0.2.0 before draft review; no learner prose authored.",
+  "instruction": {
+    "path": "upload/Pasted text(20261004-212001).txt",
+    "bytes": 11540,
+    "sha256": "3b5e38bb4b038b94c69fcc8db2df53e41f6b4c38c27039ea52209fe74a372e59"
+  },
+  "overridingCorrection": "Latest user correction relayed by root rejects letter-only adaptation. Preserve the 4×2 method while changing a parent/event; any unresolved conflict must remain visible.",
+  "sourcePins": {
+    "native": {
+      "path": "source-inspection/ch17/native/workspace/index.html",
+      "bytes": 3471105,
+      "sha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868"
+    },
+    "textbook": {
+      "path": "source-inspection/ch17/native/workspace/assets/textbook/chapter-17.pdf",
+      "bytes": 2005971,
+      "sha256": "48e297aacb86275c106a02abdddaf0f0463ba47d6b17703a926aa68405755455"
+    },
+    "pptx": {
+      "path": "source-inspection/ch17/sources/Unit C Part B Mendelian Genetics .pptx",
+      "bytes": 10153531,
+      "sha256": "da1ce1c0526da4da1aefd1fb6c0f23070f820ce24378c12f9699d1c700e1a985"
+    },
+    "qti59230": {
+      "path": "source-inspection/ch17/sources/qti/quiz_d2l_59230.xml",
+      "bytes": 137929,
+      "sha256": "3a4731dc6571a59a55803f76139ec5000dbdb57c3606ba08b26947b7886025f3"
+    },
+    "qti59242": {
+      "path": "source-inspection/ch17/sources/qti/quiz_d2l_59242.xml",
+      "bytes": 17036,
+      "sha256": "fba94d628860207a3610be7f6de1f50a96035eec627be65adf99859b4ddf3e11"
+    }
+  },
+  "preflight": "Accepted fresh preflight reused; no archive restaging or 235-entry re-verification in this subtask.",
+  "parentCandidateDecision": {
+    "tomato": "RrTt × RRTt",
+    "squash": "Retain W/w, D/d, inverse inference and N=80",
+    "assessmentSourceFidelityConflict": "Unresolved for Dean. Complete candidate authoring continues; no claim of full fidelity or blind assessment."
+  },
+  "tomato": {
+    "sourceSlides": [
+      43,
+      44,
+      45
+    ],
+    "sourceCross": "RrTt × rrTt",
+    "candidateCross": "RrTt × RRTt",
+    "preserved": [
+      "Tomato context and R/r,T/t notation",
+      "Worded-parent translation",
+      "Four versus two distinct gametes",
+      "Eight equally weighted cells",
+      "Six genotype classes",
+      "Genotype-to-phenotype interpretation"
+    ],
+    "sourcePhenotypes": {
+      "tall red": "3/8",
+      "tall yellow": "3/8",
+      "short red": "1/8",
+      "short yellow": "1/8"
+    },
+    "candidatePhenotypes": {
+      "tall red": "3/4",
+      "tall yellow": "0",
+      "short red": "1/4",
+      "short yellow": "0"
+    },
+    "fidelityCost": [
+      "Loss of contrasting parental fruit colour",
+      "No colour phenotype segregation",
+      "Four nonzero phenotype groups become two nonzero groups plus two justified zeros",
+      "Final phenotype grouping is simpler; full original cognitive demand is not preserved"
+    ],
+    "residualOverlap": "Native writing-1 asks original RrTt/rrTt gametes and 4×2 reasoning. Changing the fixed allele changes its literal answer but retains strong generic segregation/grid-template overlap. Do not call the candidate blind or safe merely because the homozygote changed.",
+    "changedPhenotypeTarget": "The original red/short 1/8 is equivalent to required AaBb×aaBb/A_bb. Candidate red/short is 1/4. Individual genotype cells still have 1/8; that alone is not an exact phenotype-answer copy.",
+    "proof": "pptx-method/FOUR_BY_TWO_PROOF.json",
+    "proofScope": "Ordinary diploid, two biallelic loci, equal segregation, independent assortment, random fertilisation and separate complete dominance. No broader universal claim.",
+    "minimumAlternative": "Within this model, all 4×2 crosses with four nonzero phenotype groups have the same 3/8,3/8,1/8,1/8 structure. The proposed dominant fixed allele is the smallest structural change; its fidelity cost remains unresolved."
+  },
+  "squash": {
+    "sourceSlides": [
+      46,
+      47
+    ],
+    "initialConstraints": "wwD_ × W_dd",
+    "offspringEvidence": "wwdd, yellow/spherical",
+    "forcedParents": "wwDd × Wwdd",
+    "inverseReasoning": "Observed wwdd forces d from the disc-shaped parent and w from the white-fruited parent. Their own dominant phenotypes require D and W respectively. Under the stated parentage/model, both unresolved positions are heterozygous.",
+    "sequence": [
+      "Partial parent genotypes",
+      "Offspring evidence",
+      "Forced genotype inference",
+      "Gametes",
+      "2×2",
+      "Phenotype groups",
+      "Expected counts"
+    ],
+    "gametes": [
+      [
+        "wD",
+        "wd"
+      ],
+      [
+        "Wd",
+        "wd"
+      ]
+    ],
+    "offspring": [
+      "WwDd",
+      "wwDd",
+      "Wwdd",
+      "wwdd"
+    ],
+    "probabilities": [
+      "1/4",
+      "1/4",
+      "1/4",
+      "1/4"
+    ],
+    "N": 80,
+    "expectedWhite": 40,
+    "expectedYellowSpherical": 20,
+    "countDecision": "Retain source N=80. Native03 includes generic 80×1/4=20 vocabulary/typed retrieval/fallback overlap, not this exact inverse-plus-count task. Changing N alone does not remove method overlap.",
+    "corrections": [
+      "Fruit-bearing plants, not white/sphere flowers",
+      "Expected, not guaranteed actual counts",
+      "Define 80 plants grown/scored or explicitly assume all 80 seeds yield scored plants",
+      "Do not present this cross as proof of two-locus independence"
+    ],
+    "protectionFinding": "No exact squash inverse/count task located in current structured native/QTI text or relevant original printed tasks. Conceptual overlap with native04 testcross inference and generic 1/4/count arithmetic remains."
+  },
+  "relevantPrintedTasks": [
+    {
+      "printed": 591,
+      "pdf": 8,
+      "items": [
+        "Practice1–2",
+        "Figure17.9 testcross"
+      ],
+      "finding": "Pea examples and one-locus testcross; no squash inverse/count task."
+    },
+    {
+      "printed": 596,
+      "pdf": 13,
+      "items": [
+        "Practice3 zucchini tester design",
+        "Practice4 tomato P/F1/F2",
+        "Practice5 mice double heterozygotes"
+      ],
+      "finding": "Nearest context/method neighbours differ from squash. Questions preserved."
+    },
+    {
+      "printed": 598,
+      "pdf": 15,
+      "items": [
+        "Review6 IIAA×iiaa",
+        "Review7 LlGg self-cross, N256",
+        "Review8–9 fly/testcross"
+      ],
+      "finding": "Different tasks. Original Q8 cross-reference/Q9 context reservations remain; no conditional task imported."
+    },
+    {
+      "printed": 620,
+      "pdf": 37,
+      "items": [
+        "Review8 grey/albino mice",
+        "Review13 four-category pea diagram"
+      ],
+      "finding": "One-locus inverse and different two-trait image; no N80 squash. Four categories alone do not prove independence."
+    }
+  ],
+  "readScope": {
+    "instruction": "Complete 11,540-byte file",
+    "native": "Current embedded banks freshly parsed; named required/relevant optional/context records read. Raw base64 substring matches excluded.",
+    "textbookTextReadPrinted": [
+      587,
+      588,
+      589,
+      590,
+      591,
+      593,
+      596,
+      597,
+      598,
+      620
+    ],
+    "textbookSearch": "All 38 pages extracted and searched; not a claim of reading every page anew.",
+    "textbookPixelsReadPrinted": [
+      589,
+      591,
+      593,
+      596,
+      597,
+      598,
+      620
+    ],
+    "pixelPins": [
+      {
+        "path": "kinch-trial-v0.2.0/analysis/source/textbook-pixels/printed589-PDF6.jpg",
+        "bytes": 271393,
+        "sha256": "094d13a2c2ce53d8ba3fef5b99f0ce36e907bb22c685685cce97dcd089f08c11"
+      },
+      {
+        "path": "kinch-trial-v0.2.0/analysis/source/textbook-pixels/printed591-PDF8.jpg",
+        "bytes": 358227,
+        "sha256": "64418787f4c56579decdc34d66505cb8d619d3294f38c6dad0916cc0bca2ebbc"
+      },
+      {
+        "path": "kinch-trial-v0.2.0/analysis/source/textbook-pixels/printed593-PDF10.jpg",
+        "bytes": 278903,
+        "sha256": "126e790aba6919ec04a6252af68419f682227801ab15adac2073940c0b608fce"
+      },
+      {
+        "path": "kinch-trial-v0.2.0/analysis/source/textbook-pixels/printed596-PDF13.jpg",
+        "bytes": 355182,
+        "sha256": "160ed7f54670e5c0e77a08598e0b66f5ea609976f6e54caaef7b2add570dfa3b"
+      },
+      {
+        "path": "kinch-trial-v0.2.0/analysis/source/textbook-pixels/printed597-PDF14.jpg",
+        "bytes": 249027,
+        "sha256": "a4156f83f3831fed4c903554b92535533d560423ac6fddc943264799a33fa284"
+      },
+      {
+        "path": "kinch-trial-v0.2.0/analysis/source/textbook-pixels/printed598-PDF15.jpg",
+        "bytes": 333642,
+        "sha256": "ff9f1411511b31032b8a221c1044f1f7eb0c0e3bd2625d61f7a54553dd46f1dd"
+      },
+      {
+        "path": "kinch-trial-v0.2.0/analysis/source/textbook-pixels/printed620-PDF37.jpg",
+        "bytes": 367260,
+        "sha256": "51b99dd859d10a01bbbee47afc4ca2a2f96dba3041592acb5bd3a079267a6014"
+      }
+    ],
+    "pptx": "pptx-method/READ_LOG.json: 28 actual slide XML/relationship pairs and 13 byte-verified original images; no whole-slide render/notes/video read in this pass.",
+    "qti": "Both supplied original XML exports searched for matching context; original tomato OBJ_2131242 text inspected. Not a fresh read of all 20 QTI image pixels."
+  },
+  "gaps": [
+    "UnitC.zip parent intentionally absent/unaccessed",
+    "Full daily plans absent/unread",
+    "Mixed UnitC tests absent/unread",
+    "Registry-only performance.pdf and bulletin.pdf absent; cached authority dated"
+  ],
+  "limits": [
+    "No live source or video playback",
+    "No learner prose or old-artifact edit",
+    "No actual draft reviewed yet",
+    "No native UI/runtime, integration, teacher approval or release claim"
+  ]
+}

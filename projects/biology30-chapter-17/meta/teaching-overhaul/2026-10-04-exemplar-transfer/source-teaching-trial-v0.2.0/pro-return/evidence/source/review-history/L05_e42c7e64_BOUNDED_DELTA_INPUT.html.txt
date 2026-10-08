@@ -1,0 +1,153 @@
+<div class="content-section" data-canvas-edit-key="ch17-l05-teaching-01" data-canvas-helper-edit-key="ch17-l05-teaching-01" id="ch17-l05-teaching-01">
+<h2>Does one allele contribution tell us the other?</h2>
+<p data-canvas-edit-key="ch17-l05-teaching-01-p1" data-canvas-helper-edit-key="ch17-l05-teaching-01-p1">A pea plant passes on alleles for many genes at once. If a gamete carries an allele associated with a tall plant, must it also carry the allele for green pods? Mendel extended his one-trait crosses to ask whether the inheritance of one characteristic influenced the inheritance of another. To answer that question, we need to follow two loci through the same gamete, then through fertilisation.</p>
+<p>Keep the one-locus reasoning from lessons02–04: a diploid parent has two alleles at a locus, a gamete contributes one, and fertilisation restores a pair. A <strong>locus</strong> is a gene's position on a chromosome. Here we follow a height locus and a pod-colour locus. A two-locus genotype records both pairs; a two-locus gamete records one allele from each pair.</p>
+<h3>Begin with the true-breeding pea parents</h3>
+<p>Use <strong>T</strong> for the tall allele and <strong>t</strong> for the short allele. Use <strong>G</strong> for the green-pod allele and <strong>g</strong> for the yellow-pod allele. In this complete-dominance model, TT and Tt plants are tall, while tt plants are short; GG and Gg plants have green pods, while gg plants have yellow pods. Apply each gene's rule separately. A capital letter indicates the dominant relationship in a heterozygote, not a better or more common allele.</p>
+<p>The true-breeding tall, green-pod parent is <strong>TTGG</strong>. Its contrasting short, yellow-pod parent is <strong>ttgg</strong>. Write the parental cross as TTGG × ttgg. The first parent can contribute only <strong>TG</strong>; the second can contribute only <strong>tg</strong>. These are whole gamete labels: one letter from the height locus and one from the pod-colour locus. Combining TG with tg gives <strong>TtGg</strong>, so the F1 plants are tall with green pods.</p>
+<p>A plant heterozygous at both loci is a <strong>dihybrid</strong>. Growing the F1 generation and crossing two TtGg plants gives the next question: what combinations can their offspring inherit? We cannot answer by writing Tt or Gg on a gamete edge. Each of those is a parent's pair at one locus; neither supplies one allele at each of the two loci we are tracking.</p>
+<h3>Connect the two contributions to chromosome movement</h3>
+<p data-canvas-edit-key="ch17-l05-teaching-01-p2" data-canvas-helper-edit-key="ch17-l05-teaching-01-p2">First consider two genes on different homologous chromosome pairs. During <strong>metaphase I</strong> of meiosis, those pairs line up before the homologues separate. The orientation of the pair carrying T/t does not set the orientation of the pair carrying G/g. Across many meioses, a T contribution can therefore accompany G or g; the same is true for a t contribution. The later separation of sister chromatids completes meiosis. Do not confuse the independent orientations of different pairs with the joining of two parents' gametes at fertilisation.</p>
+<p>This is {{v:independent-assortment|independent assortment}}: segregation at one locus does not determine the allele contribution at the other under this model. From TtGg, ordinary segregation gives T or t with probability ½ and G or g with probability ½. Because the two contributions are independent, the {{v:probability|probability}} of their joint occurrence in one gamete is found by multiplying. For example, <strong>P(TG) = P(T) × P(G) = ½ × ½ = ¼</strong>. The result describes one gamete containing both T and G; it does not describe two separate gametes meeting.</p>
+<p>The four distinct gamete types are <strong>TG, Tg, tG and tg</strong>, each with probability ¼. They exhaust the possibilities, so their probabilities total ¼ + ¼ + ¼ + ¼ = 1. This is a prediction for gametes across many meioses, not a claim that every individual meiosis must display all four types in that proportion.</p>
+<h3>Read the existing branch figure one path at a time</h3>
+<p>The figure below uses A/a and B/b as general labels for two loci. Start at AaBb, follow the A branch, then the b branch: the endpoint is Ab. The first step contributes one allele at the first locus and the second contributes one at the second locus. Neither branch chooses both alleles of the same pair. Trace the other three complete paths before returning to the pea letters. Under the same independent-assortment assumption, these paths correspond to TG, Tg, tG and tg.</p>
+{{native-figure:ch17-two-trait}}
+<p>The branches organize allele possibilities. They are not a picture of chromosomes splitting into four parts, and they do not show fertilisation. The reason for the equal endpoint probabilities comes from the segregation and independent orientations just explained.</p>
+</div>
+
+<div class="content-section" data-canvas-edit-key="ch17-l05-teaching-02" data-canvas-helper-edit-key="ch17-l05-teaching-02" id="ch17-l05-teaching-02">
+<h2>Combine the F1 gametes, then group the F2 phenotypes</h2>
+<p data-canvas-edit-key="ch17-l05-teaching-02-p1" data-canvas-helper-edit-key="ch17-l05-teaching-02-p1">The cross is now <strong>TtGg × TtGg</strong>. Both parents have the same four distinct gamete types. Assume <strong>random fertilisation</strong>: which gamete comes from one parent does not change the gamete probabilities from the other. Each pairing then has probability ¼ × ¼ = <strong>1/16</strong>. Independent assortment establishes the combinations within each parent's gametes; random fertilisation allows us to combine contributions between parents in this way.</p>
+<p>Put one parent's four gamete types down the left edge and the other's across the top. Read the TG row and tg column, for example: T meets t at the height locus, and G meets g at the pod-colour locus, giving <strong>TtGg</strong>. Keep the two alleles of each locus together when writing the offspring genotype. A box holds a possible offspring genotype, not another gamete.</p>
+<div class="comparison-table">
+<table>
+<caption>F2 genotype combinations from TtGg × TtGg; each interior cell has probability 1/16</caption>
+<thead><tr><th scope="col">Parent 1 gamete ↓ / parent 2 gamete →</th><th scope="col">TG, ¼</th><th scope="col">Tg, ¼</th><th scope="col">tG, ¼</th><th scope="col">tg, ¼</th></tr></thead>
+<tbody>
+<tr><th scope="row">TG, ¼</th><td>TTGG</td><td>TTGg</td><td>TtGG</td><td>TtGg</td></tr>
+<tr><th scope="row">Tg, ¼</th><td>TTGg</td><td>TTgg</td><td>TtGg</td><td>Ttgg</td></tr>
+<tr><th scope="row">tG, ¼</th><td>TtGG</td><td>TtGg</td><td>ttGG</td><td>ttGg</td></tr>
+<tr><th scope="row">tg, ¼</th><td>TtGg</td><td>Ttgg</td><td>ttGg</td><td>ttgg</td></tr>
+</tbody>
+</table>
+</div>
+<p>There are sixteen equally likely gamete pairings, not sixteen different genotypes. For instance, TtGg occurs in four cells because four different pairs of parental contributions produce it. Count those four cells when finding its probability; counting the genotype name only once would discard possible fertilisations.</p>
+<p data-canvas-edit-key="ch17-l05-teaching-02-p2" data-canvas-helper-edit-key="ch17-l05-teaching-02-p2">Now apply the complete-dominance rules. The shorthand <strong>T_</strong> means TT or Tt: at least one T is present, and the blank represents the second allele at that same locus. Similarly, <strong>G_</strong> means GG or Gg. Thus T_G_ groups all genotypes that are tall with green pods. The blanks do not remove alleles from the genotype or allow letters from a different locus.</p>
+<div class="comparison-table">
+<table>
+<caption>Grouping the sixteen F2 cells by phenotype</caption>
+<thead><tr><th scope="col">Phenotype and shorthand</th><th scope="col">Genotypes, with their cell counts</th><th scope="col">Phenotype probability</th></tr></thead>
+<tbody>
+<tr><th scope="row">Tall, green pods: T_G_</th><td>TTGG (1), TTGg (2), TtGG (2), TtGg (4)</td><td>(1 + 2 + 2 + 4)/16 = 9/16</td></tr>
+<tr><th scope="row">Tall, yellow pods: T_gg</th><td>TTgg (1), Ttgg (2)</td><td>(1 + 2)/16 = 3/16</td></tr>
+<tr><th scope="row">Short, green pods: ttG_</th><td>ttGG (1), ttGg (2)</td><td>(1 + 2)/16 = 3/16</td></tr>
+<tr><th scope="row">Short, yellow pods: ttgg</th><td>ttgg (1)</td><td>1/16</td></tr>
+</tbody>
+</table>
+</div>
+<p>These counts give the <strong>9:3:3:1 phenotype ratio</strong> for this particular cross and these allele relationships. The genotype counts are the nine separate entries shown in the middle column; they have not become four genotypes. The four phenotype categories are <strong>mutually exclusive</strong>: one plant cannot belong to two of them at once. They also cover every outcome in the model, so (9 + 3 + 3 + 1)/16 = 1 is a useful check.</p>
+<h3>Use multiplication and addition for different jobs</h3>
+<p data-canvas-edit-key="ch17-l05-teaching-02-p3" data-canvas-helper-edit-key="ch17-l05-teaching-02-p3">Apply lesson03's single-locus method separately at each locus. Tt × Tt gives tall with probability ¾ and short with probability ¼. Gg × Gg gives green pods with probability ¾ and yellow pods with probability ¼. In this independent two-locus model, tall <strong>and</strong> green requires both outcomes, so ¾ × ¾ = 9/16. For tall and yellow, multiply ¾ × ¼; for short and green, multiply ¼ × ¾; for short and yellow, multiply ¼ × ¼. These products match the four groups in the grid.</p>
+<p>Add when combining alternatives that cannot happen to the same plant. For example, all tall offspring are either tall/green or tall/yellow, so their combined probability is 9/16 + 3/16 = 12/16 = ¾. Multiplication combines the independent requirements here; addition combines the non-overlapping categories. Neither operation is justified merely by seeing the word “and” or “or” without checking the events.</p>
+<p>The predictions also assume that the stated genotype produces its assigned phenotype in every counted plant, called <strong>complete penetrance</strong>, and that no phenotype group is selectively lost before counting. The ratios describe the model's probabilities. A finite set of offspring can depart from them by chance. Different parental genotypes require fresh gamete lists and calculations, as the next cross shows.</p>
+</div>
+
+<div class="worked-example" data-canvas-edit-key="ch17-l05-worked" data-canvas-helper-edit-key="ch17-l05-worked" id="ch17-l05-worked">
+<p class="section-label">Worked example</p>
+<h2>A tomato cross with four gametes from one parent and two from the other</h2>
+<p>Use a tomato model in which red fruit is dominant to yellow fruit and tall plants are dominant to short plants. Use <strong>R/r</strong> for fruit colour and <strong>T/t</strong> for height. Here RR and Rr produce red fruit, rr produces yellow fruit; TT and Tt are tall, tt is short. The loci assort independently, with the same random-fertilisation and expression assumptions used above.</p>
+<p><strong>The first parent is heterozygous for both traits. The second is homozygous dominant for fruit colour and heterozygous for height.</strong> Find the genotype and phenotype of each parent, then the proportions of offspring in the four fruit-colour/height categories. Start with the words, not a memorized ratio.</p>
+<h3>Translate the parents and identify the gametes</h3>
+<p>Heterozygous for both traits means one of each allele at each locus: parent 1 is <strong>RrTt</strong>, red and tall. Homozygous dominant for colour means RR, while heterozygous for height means Tt: parent 2 is <strong>RRTt</strong>, also red and tall. Their shared appearance does not make their allele contributions identical.</p>
+<div class="comparison-table">
+<table>
+<caption>Possible gametes for RrTt × RRTt</caption>
+<thead><tr><th scope="col">Parent</th><th scope="col">One allele from each locus</th><th scope="col">Distinct gametes and probabilities</th></tr></thead>
+<tbody><tr><th scope="row">RrTt</th><td>R or r, each ½; T or t, each ½</td><td>RT, Rt, rT, rt; each ½ × ½ = ¼</td></tr><tr><th scope="row">RRTt</th><td>R with probability 1; T or t, each ½</td><td>RT, Rt; each 1 × ½ = ½</td></tr></tbody>
+</table>
+</div>
+<p>RR supplies only the R allele version at the colour locus. Listing the two chromosome copies as two different R gamete types would duplicate an identical possibility. The second parent therefore needs two columns, while the first needs four rows. The grid size follows the <strong>distinct gametes</strong>; it is not automatically four by four just because two traits are involved.</p>
+<h3>Combine one row contribution with one column contribution</h3>
+<p>Each pairing has probability ¼ × ½ = <strong>⅛</strong>. For the rT row and Rt column, combine r with R to get Rr and T with t to get Tt. The offspring is RrTt, red and tall. Use the same locus-by-locus operation in every cell.</p>
+<div class="comparison-table">
+<table>
+<caption>Eight equally likely gamete pairings from RrTt × RRTt</caption>
+<thead><tr><th scope="col">Parent 1 gamete ↓ / parent 2 gamete →</th><th scope="col">RT, ½</th><th scope="col">Rt, ½</th></tr></thead>
+<tbody>
+<tr><th scope="row">RT, ¼</th><td>RRTT — red, tall</td><td>RRTt — red, tall</td></tr>
+<tr><th scope="row">Rt, ¼</th><td>RRTt — red, tall</td><td>RRtt — red, short</td></tr>
+<tr><th scope="row">rT, ¼</th><td>RrTT — red, tall</td><td>RrTt — red, tall</td></tr>
+<tr><th scope="row">rt, ¼</th><td>RrTt — red, tall</td><td>Rrtt — red, short</td></tr>
+</tbody>
+</table>
+</div>
+<p>The six distinct genotypes have the following counts among the eight cells: <strong>1 RRTT : 2 RRTt : 1 RRtt : 1 RrTT : 2 RrTt : 1 Rrtt</strong>. Their probabilities are those counts divided by eight, and the counts total eight. Keep this genotype grouping separate from the phenotype grouping below.</p>
+<div class="comparison-table">
+<table>
+<caption>Phenotype predictions for the tomato offspring</caption>
+<thead><tr><th scope="col">Requested phenotype</th><th scope="col">Contributing genotypes</th><th scope="col">Probability</th></tr></thead>
+<tbody><tr><th scope="row">Tall with red fruit</th><td>RRTT, RRTt, RrTT, RrTt</td><td>(1 + 2 + 1 + 2)/8 = 6/8 = ¾</td></tr><tr><th scope="row">Tall with yellow fruit</th><td>None; no offspring is rr</td><td>0</td></tr><tr><th scope="row">Short with red fruit</th><td>RRtt, Rrtt</td><td>(1 + 1)/8 = 2/8 = ¼</td></tr><tr><th scope="row">Short with yellow fruit</th><td>None; no offspring is rr</td><td>0</td></tr></tbody>
+</table>
+</div>
+<p>Every offspring receives R from the RR parent, so none can be rr. The yellow categories are impossible under this model even though the other parent carries r. At the height locus, Tt × Tt gives ¾ tall and ¼ short. The separate-locus check is therefore 1 × ¾ = ¾ red/tall and 1 × ¼ = ¼ red/short. The four mutually exclusive phenotype probabilities total ¾ + 0 + ¼ + 0 = 1.</p>
+<p>Writing the ratio in the requested category order gives <strong>3:0:1:0</strong>, or 3 red/tall to 1 red/short when only possible categories are listed. It does not mean that each next group of four offspring must contain exactly three tall plants. It does mean that a yellow-fruit offspring would require us to recheck the stated parentage, genotypes or phenotype model; chance alone cannot produce an allele pair that neither gamete combination supplies.</p>
+<section class="content-section" id="ch17-kinch-v020-l05-change-task">
+<h3>Change one parent and keep only the reasoning that still applies</h3>
+<p>A grower now keeps the RrTt parent but replaces the RRTt parent with an <strong>RRtt</strong> plant. The allele meanings and the independent-assortment model are unchanged.</p>
+<div class="comparison-table">
+<table>
+<caption>The one change to the tomato cross</caption>
+<thead><tr><th scope="col">Case</th><th scope="col">Parent 1</th><th scope="col">Parent 2</th></tr></thead>
+<tbody><tr><th scope="row">Worked cross</th><td>RrTt</td><td>RRTt</td></tr><tr><th scope="row">New cross</th><td>RrTt</td><td>RRtt</td></tr></tbody>
+</table>
+</div>
+<p>Which parental gamete list stays the same, and which must change? Give both lists and the new grid dimensions. Use them to find the proportion of offspring that will be short, and decide whether the earlier no-yellow conclusion still holds. Explain why each retained or revised prediction follows from the allele contributions.</p>
+<p>This practice is optional and ungraded. Save your reasoning, then open the comparison deliberately. It does not count toward required chapter progress.</p>
+<div class="optional-writing"><label for="ch17-kinch-v020-l05-change-response">Your revised gametes and predictions</label><textarea aria-describedby="ch17-kinch-v020-l05-change-response-status" data-note-input="ch17-kinch-v020-l05-change-response" id="ch17-kinch-v020-l05-change-response" rows="5"></textarea><p class="writing-status" data-note-status="ch17-kinch-v020-l05-change-response" id="ch17-kinch-v020-l05-change-response-status">Optional response. Select Save response to collect it. Maximum 5000 characters.</p><button data-save-note="ch17-kinch-v020-l05-change-response" type="button">Save response</button></div>
+<details><summary>Optional hint: locate the changed allele pair</summary><p>Only the second parent's height pair changed. Which colour allele must that parent contribute? Which height allele must it now contribute? Compare the resulting gamete with each of the first parent's four types.</p></details>
+<details><summary>Compare the retained and revised reasoning</summary><p>The RrTt parent still produces RT, Rt, rT and rt, each with probability ¼. RRtt contributes R at the colour locus and t at the height locus, so its only distinct gamete is Rt, with probability 1. A four-row, one-column grid is sufficient.</p><div class="comparison-table"><table><caption>Complete comparison for RrTt × RRtt</caption><thead><tr><th scope="col">RrTt gamete</th><th scope="col">RRtt gamete</th><th scope="col">Offspring genotype and phenotype</th></tr></thead><tbody><tr><th scope="row">RT</th><td>Rt</td><td>RRTt — red, tall</td></tr><tr><th scope="row">Rt</th><td>Rt</td><td>RRtt — red, short</td></tr><tr><th scope="row">rT</th><td>Rt</td><td>RrTt — red, tall</td></tr><tr><th scope="row">rt</th><td>Rt</td><td>Rrtt — red, short</td></tr></tbody></table></div><p>Each genotype has probability ¼ × 1 = ¼, so the four genotype probabilities total 1. Two of the four cells are tt: the short proportion is 2/4 = ½, and the other half are tall. The old ¼ short prediction no longer applies because the second parent always supplies t instead of supplying T or t. All offspring still receive R from that parent, so all remain red. The unchanged colour conclusion and the changed height conclusion come from different loci.</p><p><strong>Check your response:</strong> keep the first parent's list; reduce the second to Rt; size the grid from those lists; show the two tt outcomes; explain why the colour conclusion survives while the height probability changes. A reused four-by-two grid would duplicate the second parent's single gamete and conceal the change you needed to make.</p></details>
+</section>
+</div>
+
+<div class="content-section" data-canvas-edit-key="ch17-l05-teaching-03" data-canvas-helper-edit-key="ch17-l05-teaching-03" id="ch17-l05-teaching-03">
+<h2>Use an offspring to resolve unknown parental alleles</h2>
+<p data-canvas-edit-key="ch17-l05-teaching-03-p1" data-canvas-helper-edit-key="ch17-l05-teaching-03-p1">The tomato genotypes were supplied. A different problem begins with the parents' phenotypes and asks what alleles they must carry. Lesson04 showed why a dominant phenotype can leave the second allele unknown. We can now use that same evidence-based reasoning at two loci before making the forward prediction.</p>
+<h3>A summer-squash cross starts with two blanks</h3>
+<p>For this summer-squash problem, use the stated independent two-gene model. <strong>W</strong> gives white fruit and is completely dominant to <strong>w</strong>, which gives yellow fruit in ww plants. <strong>D</strong> gives disk-shaped fruit and is completely dominant to <strong>d</strong>, which gives spherical fruit in dd plants. Colour and shape are separate characteristics; a genotype must account for both.</p>
+<p>A <strong>yellow-fruit, disk-shaped</strong> plant is crossed with a <strong>white-fruit, spherical</strong> plant. Yellow fruit forces ww, but disk shape could be DD or Dd: write the first parent as <strong>wwD_</strong>. Spherical fruit forces dd, but white fruit could be WW or Ww: write the second as <strong>W_dd</strong>. At this stage we have not earned either missing allele. The blanks mark genuine alternatives, not permission to assume heterozygosity.</p>
+<p><strong>Now an offspring with yellow, spherical fruit is observed.</strong> Under the stated phenotype rules, that offspring must be <strong>wwdd</strong>. It received one w and one d from each parent. The yellow/disk parent already had ww, and the offspring's d shows that this parent's other shape allele is d: it must be <strong>wwDd</strong>. The white/spherical parent already had dd, and the offspring's w shows that its other colour allele is w: it must be <strong>Wwdd</strong>. A single observed double-recessive offspring resolves both unknowns here, provided the stated parentage and expression model are correct.</p>
+<h3>Make the prediction from the now-resolved parents</h3>
+<p>The cross is <strong>wwDd × Wwdd</strong>. The first parent contributes wD or wd, each with probability ½: w is certain, while D or d segregates equally. The second contributes Wd or wd, each with probability ½: d is certain, while W or w segregates equally. Each list totals probability 1. Neither parent makes four distinct gametes, so this cross needs only two rows and two columns.</p>
+<div class="comparison-table">
+<table>
+<caption>Gamete combinations after the yellow, spherical offspring resolves the squash parents</caption>
+<thead><tr><th scope="col">wwDd gamete ↓ / Wwdd gamete →</th><th scope="col">Wd, ½</th><th scope="col">wd, ½</th></tr></thead>
+<tbody><tr><th scope="row">wD, ½</th><td>WwDd — white, disk</td><td>wwDd — yellow, disk</td></tr><tr><th scope="row">wd, ½</th><td>Wwdd — white, spherical</td><td>wwdd — yellow, spherical</td></tr></tbody>
+</table>
+</div>
+<p>Each interior pairing has probability ½ × ½ = ¼. Here the four cells are four different genotypes and four different phenotypes, each with probability ¼: a <strong>1:1:1:1 genotype ratio</strong> and a <strong>1:1:1:1 phenotype ratio</strong> in the table's order. Equal numbers of categories do not always occur, as the pea and tomato crosses showed. The probabilities sum to 1.</p>
+<h3>Interpret an expected count among 80 plants</h3>
+<p data-canvas-edit-key="ch17-l05-teaching-03-p2" data-canvas-helper-edit-key="ch17-l05-teaching-03-p2">Suppose 80 seeds from this cross are grown into plants whose fruit can be scored. Treat these as 80 offspring from the same parental model, with no selective loss of a genotype before scoring. An <strong>expected count</strong> is the predicted average number for a group of that size under the probability model. As in lesson03, calculate it by multiplying the total offspring count by the probability of the requested outcome.</p>
+<p>For white fruit, include both possible shapes. The white/disk and white/spherical categories cannot describe the same plant in this model, so add their probabilities: ¼ + ¼ = ½. The expected count is <strong>80 × ½ = 40 white-fruit plants</strong>. For yellow, spherical fruit, both conditions must hold; only wwdd qualifies. Its probability is ¼, giving <strong>80 × ¼ = 20 yellow, spherical-fruit plants</strong>.</p>
+<p>As a check, each of the four phenotype groups has an expected count of 80 × ¼ = 20, and their expected counts sum to 80. The 40 white-fruit plants combine two of those groups; do not add that overlapping total to the four groups again. These are expectations for the plants grown and scored, not guarantees about germination or exact numbers in one planting. Also distinguish the two directions of reasoning: the observed offspring established what parental alleles were present; the resulting model predicts probabilities for further offspring.</p>
+<section class="content-section" id="ch17-kinch-v020-l05-evidence-task">
+<h3>Decide what the new offspring settles—and what it leaves open</h3>
+<p>Use this hypothetical plant model. <strong>V</strong> is completely dominant for violet flowers; <strong>vv</strong> gives white flowers. <strong>L</strong> is completely dominant for smooth leaves; <strong>ll</strong> gives lobed leaves. The loci assort independently, the stated parentage is known, and these genotype-to-phenotype rules apply reliably.</p>
+<div class="comparison-table">
+<table>
+<caption>A breeding record with incomplete parental genotypes</caption>
+<thead><tr><th scope="col">Record</th><th scope="col">Flower and leaf phenotype</th><th scope="col">What is already known about the genotype</th></tr></thead>
+<tbody><tr><th scope="row">Parent 1</th><td>Violet flowers, lobed leaves</td><td>V_ll</td></tr><tr><th scope="row">Parent 2</th><td>White flowers, smooth leaves</td><td>vvL_</td></tr><tr><th scope="row">One observed offspring</th><td>White flowers, smooth leaves</td><td>Use the phenotype rules to determine what is forced and what remains possible.</td></tr></tbody>
+</table>
+</div>
+<p>A classmate says that this offspring must fill both parental blanks, just as the yellow, spherical squash offspring did. Evaluate that claim. Identify the allele each parent had to contribute to this offspring, state which parental genotype is now forced and which possibilities remain for the other parent, and name a further offspring leaf phenotype that would settle the remaining blank. Explain whether a finite run of smooth-leaf offspring alone would settle it.</p>
+<p>This practice is optional and ungraded. Save your first explanation, then intentionally open the comparison. It does not count toward required chapter progress.</p>
+<div class="optional-writing"><label for="ch17-kinch-v020-l05-evidence-response">Your evidence-based parental-genotype explanation</label><textarea aria-describedby="ch17-kinch-v020-l05-evidence-response-status" data-note-input="ch17-kinch-v020-l05-evidence-response" id="ch17-kinch-v020-l05-evidence-response" rows="5"></textarea><p class="writing-status" data-note-status="ch17-kinch-v020-l05-evidence-response" id="ch17-kinch-v020-l05-evidence-response-status">Optional response. Select Save response to collect it. Maximum 5000 characters.</p><button data-save-note="ch17-kinch-v020-l05-evidence-response" type="button">Save response</button></div>
+<details><summary>Optional hint: inspect each missing allele separately</summary><p>White flowers require vv, so trace one v back to each parent. For the leaves, the lobed parent can contribute only l. A smooth child must also have L, but does that tell you whether the other parent has a second L or an l?</p></details>
+<details><summary>Compare the evidence and its limit</summary><p>The white offspring is vv, so each parent supplied v. Parent 1 already showed the violet phenotype and therefore had V; supplying v forces it to be <strong>Vvll</strong>. Parent 2 was already known to be vv. For leaf shape, parent 1 supplies l. The smooth offspring must have received L from parent 2, giving the offspring <strong>vvLl</strong>. The actual gamete contributions to this offspring were vl from parent 1 and vL from parent 2.</p><p>Parent 2 could still be <strong>vvLL or vvLl</strong>. Both can supply vL, so this observed offspring does not reveal the second leaf-shape allele. The classmate's claim goes too far: in the squash example the offspring expressed the recessive form at both loci and required both recessive contributions; here smooth leaves show that L was supplied, not that parent 2 lacks l.</p><p>A further <strong>lobed-leaf offspring</strong> would be ll. Parent 1 supplies l, so the second l would have to come from parent 2, forcing that parent to be vvLl. If parent 2 is vvLL, it contributes L every time and all offspring are smooth. If it is vvLl, its L and l contributions make both smooth and lobed offspring possible. A finite run containing only smooth offspring is possible under either candidate; it does not logically force LL. You do not need to assign a probability to the two possible parents to state this limit.</p><p><strong>Check your response:</strong> force Vvll for parent 1 using the observed v contribution; retain both vvLL and vvLl for parent 2; identify the observed child's Ll pair and the vL contribution; explain why an ll child would settle the second blank but smooth-only observations do not prove it.</p></details>
+</section>
+<h3>Know when to carry this model forward</h3>
+<p data-canvas-edit-key="ch17-l05-teaching-03-p3" data-canvas-helper-edit-key="ch17-l05-teaching-03-p3">The answer to the opening question depends on how the loci are inherited. For genes on different chromosome pairs under independent assortment, an allele contribution at one locus does not favour a particular allele at the other. Genes close together on the same chromosome can be <strong>linked</strong>: they tend to be inherited together, so the four gamete combinations need not be equally frequent. Lessons12–13 will use that difference to study linkage and gene maps. Do not apply four equal gamete probabilities when independence has not been established or given.</p>
+<p>For the crosses in this lesson, the useful sequence has stayed the same: establish or infer the parental genotypes, derive the gametes, combine them using the stated probabilities, then apply the phenotype rules to answer the actual question. Lesson06 changes those phenotype rules with incomplete dominance and codominance. The textbook practice at printed page595, questions13,15 and16, includes those later relationships; return to that set after lesson06.</p>
+</div>

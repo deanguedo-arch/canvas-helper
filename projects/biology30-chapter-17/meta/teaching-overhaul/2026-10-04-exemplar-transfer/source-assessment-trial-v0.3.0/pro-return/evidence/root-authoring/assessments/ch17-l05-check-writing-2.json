@@ -1,0 +1,12 @@
+{
+  "id": "ch17-l05-check-writing-2",
+  "prompt": "In a hypothetical plant model, CC and Cc give coloured petals, cc gives white petals; HH and Hh give hairy stems, hh gives smooth stems. Two CcHh parents are crossed with ordinary segregation, independent assortment, random fertilisation and reliable expression. A student predicts that 9/16 of their offspring will be homozygous at each of the two loci because 9/16 have coloured petals and hairy stems. Evaluate the prediction. List the offspring genotypes that are homozygous at both loci and calculate their combined probability for one offspring, showing the allele contributions or separate-locus probabilities and justifying your operations.",
+  "model": "The prediction confuses genotype with phenotype. Each CcHh parent can make CH, Ch, cH and ch gametes, each with probability 1/4 under independent assortment. At the C locus, Cc × Cc gives 1/4 CC, 1/2 Cc and 1/4 cc. Homozygosity includes CC or cc, so add these exclusive alternatives: 1/4 + 1/4 = 1/2. At the H locus, Hh × Hh similarly gives 1/4 HH, 1/2 Hh and 1/4 hh, with homozygosity probability 1/2. The question requires homozygosity at both independent loci, so multiply 1/2 × 1/2 = 1/4. The qualifying genotypes are CCHH, CChh, ccHH and cchh. Each occurs in one of the sixteen equally likely gamete pairings, so their combined probability is 4/16, confirming 1/4. The other twelve pairings contain heterozygosity at one or both loci; 4/16 + 12/16 = 1. The 9/16 coloured/hairy group also includes CCHh, CcHH and CcHh, which are heterozygous at one or both loci. Conversely, some double-homozygous offspring express a recessive phenotype. Dominant appearance therefore does not identify the requested genotype group.",
+  "criteria": [
+    "Distinguishes homozygosity at each locus from expression of both dominant phenotypes.",
+    "Identifies all four qualifying genotypes: CCHH, CChh, ccHH and cchh.",
+    "Derives each single-locus homozygosity probability as 1/4 + 1/4 = 1/2 and multiplies the two independent requirements, or gives an equivalent correctly weighted sixteen-pairing method.",
+    "Concludes 1/4, checks the counted possibilities, and explains why the 9/16 coloured/hairy group includes genotypes that do not qualify."
+  ],
+  "limit": 3200
+}

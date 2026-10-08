@@ -1,0 +1,234 @@
+{
+  "scope": "Text/control comparison, not browser rendering",
+  "normalisation": "Parse HTML; remove Markdown headings/emphasis/list markers, Markdown image syntax, comments and whitespace for text comparison. Original image paths, alt strings and bytes are separately checked. No words, digits, allele underscores or mathematical symbols are removed.",
+  "lessons": [
+    {
+      "lessonId": "lesson-01",
+      "manuscript": {
+        "path": "manuscripts/lesson-01.md",
+        "bytes": 27226,
+        "sha256": "6710454dc2cf38853a68280c60d1d078589e71a4a8fae55072c8794c38597eee"
+      },
+      "fragment": {
+        "path": "lesson-01.teaching-fragment.html",
+        "bytes": 17745,
+        "sha256": "9af1936228a2f611e9338d0a72142801899802d7d86c054d2a983474ed96e72a"
+      },
+      "teachingTextMatches": true,
+      "protectedSuffixTextMatches": true,
+      "teachingNormalisedCharacters": 11488,
+      "protectedSuffixNormalisedCharacters": 3315,
+      "readingControlCount": 15,
+      "readingControlTags": {
+        "button": 10,
+        "select": 2,
+        "textarea": 3
+      },
+      "allReadingControlsDisabled": true,
+      "liveReadingAttributesOrTags": [],
+      "remainingNestedBoldMarkers": false,
+      "teachingImageAltAndPathOrderMatches": true,
+      "protectedSuffixImageAltAndPathOrderMatches": true,
+      "readingAssets": [
+        {
+          "markdownPath": "../assets/teaching-batch1-v010/slide-4-image13.jpg",
+          "alt": "A row of eight dogs with contrasting ear positions, coat textures and body outlines.",
+          "present": true,
+          "bytes": 27674,
+          "sha256": "7c2c37bc887ab1b5bdf6ff3948242ba949b9d10c3ba510f27f1538c7a01525ba",
+          "matchingPacketFiles": [
+            "sources/slide-assets/slide-4-image13.jpg"
+          ]
+        },
+        {
+          "markdownPath": "../assets/teaching-batch1-v010/slide-12-image18.png",
+          "alt": "Genotype and phenotype chart: BB, labelled homozygous dominant, produces a purple flower; Bb, labelled heterozygous, also produces a purple flower; bb, labelled homozygous recessive, produces a white flower.",
+          "present": true,
+          "bytes": 159723,
+          "sha256": "6514f5d48a724cdf1fe785c24b74f44abb03b73af75c26e787b8a8adf687f26c",
+          "matchingPacketFiles": [
+            "sources/slide-assets/slide-12-image18.png"
+          ]
+        }
+      ]
+    },
+    {
+      "lessonId": "lesson-03",
+      "manuscript": {
+        "path": "manuscripts/lesson-03.md",
+        "bytes": 37449,
+        "sha256": "53aa6a08b4ba1add404ab767c491a5241204f02373f56049082f056caf9d5b37"
+      },
+      "fragment": {
+        "path": "lesson-03.teaching-fragment.html",
+        "bytes": 24439,
+        "sha256": "85a884113bab7fe12205c1d1567284dabc0b434fd469c0076c24da57c56edc85"
+      },
+      "teachingTextMatches": true,
+      "protectedSuffixTextMatches": true,
+      "teachingNormalisedCharacters": 15515,
+      "protectedSuffixNormalisedCharacters": 5128,
+      "readingControlCount": 20,
+      "readingControlTags": {
+        "button": 14,
+        "select": 2,
+        "textarea": 4
+      },
+      "allReadingControlsDisabled": true,
+      "liveReadingAttributesOrTags": [],
+      "remainingNestedBoldMarkers": false,
+      "teachingImageAltAndPathOrderMatches": true,
+      "protectedSuffixImageAltAndPathOrderMatches": true,
+      "readingAssets": [
+        {
+          "markdownPath": "../assets/teaching-batch1-v010/slide-27-image30.jpg",
+          "alt": "A black-furred mouse, used to illustrate the black coat category in the stated model.",
+          "present": true,
+          "bytes": 43058,
+          "sha256": "bf6c27bfad6067528006804c139f9c2ebcc61fbe6dcc8ea21a839665583f8a8d",
+          "matchingPacketFiles": [
+            "sources/slide-assets/slide-27-image30.jpg",
+            "sources/slide-assets/slide-28-image30.jpg"
+          ]
+        },
+        {
+          "markdownPath": "../assets/teaching-batch1-v010/slide-27-image31.jpg",
+          "alt": "A brown-furred mouse, used to illustrate the contrasting brown coat category in the stated model.",
+          "present": true,
+          "bytes": 13590,
+          "sha256": "48accc2e9da889e71c388ffef0818fa2d37b6e68a8cda68eda4cfeef7d893d15",
+          "matchingPacketFiles": [
+            "sources/slide-assets/slide-27-image31.jpg"
+          ]
+        },
+        {
+          "markdownPath": "../assets/teaching-batch1-v010/slide-27-image22.png",
+          "alt": "Two fully visible single-trait squares. The left has B and B across the top and b and b down the left, giving four Bb cells. The right has B and b across the top and b and b down the left, giving Bb and bb in each row.",
+          "present": true,
+          "bytes": 4843,
+          "sha256": "21b521a9e6dc4d631b80ef038ec9be24dda4e4f788ce7e855932e544601f1f24",
+          "matchingPacketFiles": [
+            "sources/slide-assets/slide-31-image22.png",
+            "sources/slide-assets/slide-27-image22.png",
+            "sources/slide-assets/slide-32-image22.png"
+          ]
+        },
+        {
+          "markdownPath": "../assets/figures/ch17-punnett.svg",
+          "alt": "Each row and column represents a gamete. Four equally likely combinations give a 1:2:1 genotype ratio under the stated model. A is completely dominant to a.",
+          "present": true,
+          "bytes": 3959,
+          "sha256": "2fdc34b5f30359e927d50b1fa4781894bdb196dfccfbbabcbf831d1ec4aec6ec",
+          "matchingPacketFiles": [
+            "current/assets/figures/ch17-punnett.svg"
+          ]
+        },
+        {
+          "markdownPath": "../assets/teaching-batch1-v010/slide-29-image33.png",
+          "alt": "Two black-mouse photographs at the top connect by plain converging lines to one black-mouse photograph in the middle. A vertical line leads from the middle photograph to a question mark below.",
+          "present": true,
+          "bytes": 54681,
+          "sha256": "fd46a25268ba516d5a9809a146f82e793883bf5f5dac84b810cc7a3a448d34a5",
+          "matchingPacketFiles": [
+            "sources/slide-assets/slide-30-image33.png",
+            "sources/slide-assets/slide-29-image33.png"
+          ]
+        },
+        {
+          "markdownPath": "../assets/assessment/9e85ebb2ecbe95100af0.png",
+          "alt": "Original question diagram or data. Use its labels and values with the written directions.",
+          "present": true,
+          "bytes": 45804,
+          "sha256": "9e85ebb2ecbe95100af02ac52108c9fb53798252a85604d1371d8358edba1dad",
+          "matchingPacketFiles": [
+            "current/assets/assessment/9e85ebb2ecbe95100af0.png"
+          ]
+        },
+        {
+          "markdownPath": "../assets/assessment/1cb36c7f022e66f1f7ff.png",
+          "alt": "Original question diagram or data. Use its labels and values with the written directions.",
+          "present": true,
+          "bytes": 9362,
+          "sha256": "1cb36c7f022e66f1f7ffd71069517342405c172e19258e72594a1b73f908d2d1",
+          "matchingPacketFiles": [
+            "current/assets/assessment/1cb36c7f022e66f1f7ff.png"
+          ]
+        },
+        {
+          "markdownPath": "../assets/assessment/f45c6bfd939bd821e055.png",
+          "alt": "Original question diagram or data. Use its labels and values with the written directions.",
+          "present": true,
+          "bytes": 11145,
+          "sha256": "f45c6bfd939bd821e055a82ac84c0b44b07ddfe0efcc080b606a2070eb293437",
+          "matchingPacketFiles": [
+            "current/assets/assessment/f45c6bfd939bd821e055.png"
+          ]
+        }
+      ]
+    },
+    {
+      "lessonId": "lesson-04",
+      "manuscript": {
+        "path": "manuscripts/lesson-04.md",
+        "bytes": 29985,
+        "sha256": "277a76f9ee9a1e6231f8f1b0b447b90d7380c888d501202eae28c6953346176d"
+      },
+      "fragment": {
+        "path": "lesson-04.teaching-fragment.html",
+        "bytes": 18212,
+        "sha256": "36dc8d9a947c45a355110cc1efed7676d2ab01162dbfa12ea628e0b393d5b97f"
+      },
+      "teachingTextMatches": true,
+      "protectedSuffixTextMatches": true,
+      "teachingNormalisedCharacters": 11656,
+      "protectedSuffixNormalisedCharacters": 4084,
+      "readingControlCount": 16,
+      "readingControlTags": {
+        "button": 11,
+        "select": 2,
+        "textarea": 3
+      },
+      "allReadingControlsDisabled": true,
+      "liveReadingAttributesOrTags": [],
+      "remainingNestedBoldMarkers": false,
+      "teachingImageAltAndPathOrderMatches": true,
+      "protectedSuffixImageAltAndPathOrderMatches": true,
+      "readingAssets": [
+        {
+          "markdownPath": "../assets/teaching-batch1-v010/slide-27-image22.png",
+          "alt": "Side-by-side testcross predictions: BB across the top with bb down the left gives only Bb offspring; Bb across the top with bb down the left gives Bb and bb offspring.",
+          "present": true,
+          "bytes": 4843,
+          "sha256": "21b521a9e6dc4d631b80ef038ec9be24dda4e4f788ce7e855932e544601f1f24",
+          "matchingPacketFiles": [
+            "sources/slide-assets/slide-31-image22.png",
+            "sources/slide-assets/slide-27-image22.png",
+            "sources/slide-assets/slide-32-image22.png"
+          ]
+        },
+        {
+          "markdownPath": "../assets/assessment/eeca2d84afb814ca523d.png",
+          "alt": "Original question diagram or data. Use its labels and values with the written directions.",
+          "present": true,
+          "bytes": 107270,
+          "sha256": "eeca2d84afb814ca523d062ae04860a1ebbb56f5ee38b301d250995344f46a99",
+          "matchingPacketFiles": [
+            "current/assets/assessment/eeca2d84afb814ca523d.png"
+          ]
+        },
+        {
+          "markdownPath": "../assets/assessment/edd29af72eeb9c646081.png",
+          "alt": "Original question diagram or data. Use its labels and values with the written directions.",
+          "present": true,
+          "bytes": 10993,
+          "sha256": "edd29af72eeb9c64608139705b844cfc0a52bf6745137ffec10d71fcaed0eb22",
+          "matchingPacketFiles": [
+            "current/assets/assessment/edd29af72eeb9c646081.png"
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "status": "no_text_or_control_failure_found"
+}

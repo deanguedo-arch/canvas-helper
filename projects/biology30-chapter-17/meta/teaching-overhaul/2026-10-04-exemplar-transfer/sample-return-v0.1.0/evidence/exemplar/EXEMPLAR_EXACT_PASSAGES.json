@@ -1,0 +1,205 @@
+{
+  "boundaryConvention": "zero-based UTF-8 bytes; start inclusive, end exclusive",
+  "inputs": [
+    {
+      "path": "source-inspection/ch17/standards/02_TEACHING_STANDARD.md",
+      "bytes": 11744,
+      "sha256": "aa273698aa48c983081ca9bb724dec66959ce86ea4f33049f12330715fbf89e2",
+      "actualReadScope": "full supplied file"
+    },
+    {
+      "path": "source-inspection/ch17/standards/CHAPTER11_TEACHING_STANDARD.md",
+      "bytes": 11846,
+      "sha256": "cf7d4942a44944defd587813dcf68fc53e29773d189834c8e304bced4f530d80",
+      "actualReadScope": "full supplied file"
+    },
+    {
+      "path": "source-inspection/ch17/standards/SCOUT_CHAPTER_PASS_PROCESS.md",
+      "bytes": 14790,
+      "sha256": "3c6c69e91e87a79b3fa1d33f3c369b3cb651d475ae96d3c08cd2576a48f90bac",
+      "actualReadScope": "full supplied file"
+    },
+    {
+      "path": "source-inspection/ch11-exemplar/integration-text/lesson-01.teaching-fragment.html.txt",
+      "bytes": 16075,
+      "sha256": "49978b6180becc6fc02a57bd4e34c34d09c785f5dddfd3a22bd62ce50bb72803",
+      "actualReadScope": "full exact fragment, including retained support blocks and all hints/feedback"
+    },
+    {
+      "path": "source-inspection/ch11-exemplar/integration-text/lesson-02.teaching-fragment.html.txt",
+      "bytes": 13647,
+      "sha256": "09fbf95839222d95064b1d36ddf008f745c429742e621acf55cf0c323eeb7e9d",
+      "actualReadScope": "full exact fragment, including retained support blocks and all hints/feedback"
+    },
+    {
+      "path": "source-inspection/ch11-exemplar/integration-text/lesson-06.teaching-fragment.html.txt",
+      "bytes": 20131,
+      "sha256": "aa6a174e9467eb16439dead721441f22e0d969c59396f4b531a7fea29506fd6e",
+      "actualReadScope": "full exact fragment, including retained support blocks and all hints/feedback"
+    }
+  ],
+  "passages": [
+    {
+      "lesson": "01",
+      "heading": "A cold hand gives us a starting point",
+      "selectionMode": "section",
+      "sourcePath": "source-inspection/ch11-exemplar/integration-text/lesson-01.teaching-fragment.html.txt",
+      "sourceSha256": "49978b6180becc6fc02a57bd4e34c34d09c785f5dddfd3a22bd62ce50bb72803",
+      "utf8ByteStartInclusive": 0,
+      "utf8ByteEndExclusive": 1937,
+      "bytes": 1937,
+      "sha256": "311b15c7b22063c65f94272fc0f7d331848aba345d955dbf726e322b1e6e5694",
+      "excerptPath": "calibration-v0.1.0/analysis/exemplar/ch11-l01-01.exact-source.html.txt",
+      "enclosingSectionId": "pro-l01-purpose",
+      "uniqueTeachingFunction": "A concrete bodily change establishes the chapter question, then the information-flow visual distinguishes jobs and explains why input precedes processing and output.",
+      "boundaryRule": "Complete enclosing content section, including nested support and feedback"
+    },
+    {
+      "lesson": "02",
+      "heading": "How can one cell reach a distant muscle?",
+      "selectionMode": "section",
+      "sourcePath": "source-inspection/ch11-exemplar/integration-text/lesson-02.teaching-fragment.html.txt",
+      "sourceSha256": "09fbf95839222d95064b1d36ddf008f745c429742e621acf55cf0c323eeb7e9d",
+      "utf8ByteStartInclusive": 0,
+      "utf8ByteEndExclusive": 3240,
+      "bytes": 3240,
+      "sha256": "154ebe5439913fce43d2967bf7bc71f06a27d38334cebd844d6560f3c3db085d",
+      "excerptPath": "calibration-v0.1.0/analysis/exemplar/ch11-l02-01.exact-source.html.txt",
+      "enclosingSectionId": "pro-l02-structure",
+      "uniqueTeachingFunction": "A distance problem makes morphology necessary; figure reading establishes one continuous axon, receiving branches and sending terminals before structure\u2013function inference.",
+      "boundaryRule": "Complete enclosing content section, including nested support and feedback"
+    },
+    {
+      "lesson": "02",
+      "heading": "Use structure to explain function",
+      "selectionMode": "section",
+      "sourcePath": "source-inspection/ch11-exemplar/integration-text/lesson-02.teaching-fragment.html.txt",
+      "sourceSha256": "09fbf95839222d95064b1d36ddf008f745c429742e621acf55cf0c323eeb7e9d",
+      "utf8ByteStartInclusive": 3241,
+      "utf8ByteEndExclusive": 5499,
+      "bytes": 2258,
+      "sha256": "f0bf34748c9e598f1862476617c6e61aef1ed6dfa506d6a3a537648bc954052e",
+      "excerptPath": "calibration-v0.1.0/analysis/exemplar/ch11-l02-02.exact-source.html.txt",
+      "enclosingSectionId": "pro-l02-worked",
+      "uniqueTeachingFunction": "Converts a labelled shape into a causal explanation: reception surface, integration, distance and distribution each earn a distinct step.",
+      "boundaryRule": "Complete enclosing content section, including nested support and feedback"
+    },
+    {
+      "lesson": "02",
+      "heading": "Explain a diagram error",
+      "selectionMode": "section",
+      "sourcePath": "source-inspection/ch11-exemplar/integration-text/lesson-02.teaching-fragment.html.txt",
+      "sourceSha256": "09fbf95839222d95064b1d36ddf008f745c429742e621acf55cf0c323eeb7e9d",
+      "utf8ByteStartInclusive": 8495,
+      "utf8ByteEndExclusive": 10035,
+      "bytes": 1540,
+      "sha256": "0533bb2305c6042b1beee9c1fd9b883dd5b2098173ffcf2e381659fd2943a5cd",
+      "excerptPath": "calibration-v0.1.0/analysis/exemplar/ch11-l02-03.exact-source.html.txt",
+      "enclosingSectionId": "pro-evaluation-2026-10-03-v1-l02-guided",
+      "uniqueTeachingFunction": "Tests representation repair: separate gaps in insulation from breaks in the continuous conducting cell, rather than reciting parts.",
+      "boundaryRule": "Complete enclosing content section, including nested support and feedback"
+    },
+    {
+      "lesson": "02",
+      "heading": "Compare two different failures",
+      "selectionMode": "section",
+      "sourcePath": "source-inspection/ch11-exemplar/integration-text/lesson-02.teaching-fragment.html.txt",
+      "sourceSha256": "09fbf95839222d95064b1d36ddf008f745c429742e621acf55cf0c323eeb7e9d",
+      "utf8ByteStartInclusive": 11386,
+      "utf8ByteEndExclusive": 13338,
+      "bytes": 1952,
+      "sha256": "5a466cc38372aff6fb85845f380ee0df707be6ed1f3013616b0bb7c6fba94d17",
+      "excerptPath": "calibration-v0.1.0/analysis/exemplar/ch11-l02-04.exact-source.html.txt",
+      "enclosingSectionId": "pro-evaluation-2026-10-03-v1-l02-independent",
+      "uniqueTeachingFunction": "Localizes two distinct failure sites and tests whether an unrelated proposed repair restores the missing function.",
+      "boundaryRule": "Complete enclosing content section, including nested support and feedback"
+    },
+    {
+      "lesson": "06",
+      "heading": "Follow release, diffusion, binding, and clearance",
+      "selectionMode": "section",
+      "sourcePath": "source-inspection/ch11-exemplar/integration-text/lesson-06.teaching-fragment.html.txt",
+      "sourceSha256": "aa6a174e9467eb16439dead721441f22e0d969c59396f4b531a7fea29506fd6e",
+      "utf8ByteStartInclusive": 1225,
+      "utf8ByteEndExclusive": 4154,
+      "bytes": 2929,
+      "sha256": "8acde30f3145ab8da9ae7f9b12dca980b28640a3354bb82258831fc5f9270f8e",
+      "excerptPath": "calibration-v0.1.0/analysis/exemplar/ch11-l06-01.exact-source.html.txt",
+      "enclosingSectionId": "pro-l06-sequence",
+      "uniqueTeachingFunction": "Builds a causal sequence across two membranes, ties figure symbols to actual events, and makes new firing conditional rather than automatic.",
+      "boundaryRule": "Complete enclosing content section, including nested support and feedback"
+    },
+    {
+      "lesson": "06",
+      "heading": "Worked model: include inhibition in the calculation",
+      "selectionMode": "heading-run",
+      "sourcePath": "source-inspection/ch11-exemplar/integration-text/lesson-06.teaching-fragment.html.txt",
+      "sourceSha256": "aa6a174e9467eb16439dead721441f22e0d969c59396f4b531a7fea29506fd6e",
+      "utf8ByteStartInclusive": 11244,
+      "utf8ByteEndExclusive": 12387,
+      "bytes": 1143,
+      "sha256": "68da4954914cdfb7fa01c5a32ae40b5c22dbdd965ff92c1f405e11a184ea5f3a",
+      "excerptPath": "calibration-v0.1.0/analysis/exemplar/ch11-l06-02.exact-source.html.txt",
+      "enclosingSectionId": "pro-l06-summation",
+      "uniqueTeachingFunction": "Combines signed contributions, applies a net change to a starting voltage, compares with threshold, then changes inhibition while limiting what the simplified model claims.",
+      "boundaryRule": "Exact heading and its following complete problem/steps/conclusion; stops before next nested support section or enclosing section closing tag"
+    },
+    {
+      "lesson": "06",
+      "heading": "Worked example: an impulse arrives but no message is released",
+      "selectionMode": "heading-run",
+      "sourcePath": "source-inspection/ch11-exemplar/integration-text/lesson-06.teaching-fragment.html.txt",
+      "sourceSha256": "aa6a174e9467eb16439dead721441f22e0d969c59396f4b531a7fea29506fd6e",
+      "utf8ByteStartInclusive": 5142,
+      "utf8ByteEndExclusive": 6005,
+      "bytes": 863,
+      "sha256": "b8fc61ce77cc7a7b822920f68d8988f6c2b4c866e9210ca15b3e915354070a54",
+      "excerptPath": "calibration-v0.1.0/analysis/exemplar/ch11-l06-03.exact-source.html.txt",
+      "enclosingSectionId": "pro-l06-acetylcholine",
+      "uniqueTeachingFunction": "Holds conduction success fixed, locates the blocked calcium-trigger step and follows only its consequences while limiting the inference to the affected terminal.",
+      "boundaryRule": "Exact heading and its following complete problem/steps/conclusion; stops before next nested support section or enclosing section closing tag"
+    }
+  ],
+  "nativePrerequisiteReadings": [
+    {
+      "route": "lesson-01",
+      "sourcePath": "source-inspection/ch17/native/workspace/index.html",
+      "sourceSha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868",
+      "utf8ByteStartInclusive": 83543,
+      "utf8ByteEndExclusive": 102372,
+      "sectionSha256": "cc24481da9d357b19df9c7236e6f8bf62cf73be019a7a6fc73a1795d3cca0765",
+      "readingPath": "calibration-v0.1.0/analysis/exemplar/lesson-01.native-reading.txt",
+      "readingBytes": 7883
+    },
+    {
+      "route": "lesson-02",
+      "sourcePath": "source-inspection/ch17/native/workspace/index.html",
+      "sourceSha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868",
+      "utf8ByteStartInclusive": 102372,
+      "utf8ByteEndExclusive": 120432,
+      "sectionSha256": "d4267d90e99b5f425e4efe573434dee09888ada5827f7371d4d58618f0b4b480",
+      "readingPath": "calibration-v0.1.0/analysis/exemplar/lesson-02.native-reading.txt",
+      "readingBytes": 7272
+    },
+    {
+      "route": "lesson-03",
+      "sourcePath": "source-inspection/ch17/native/workspace/index.html",
+      "sourceSha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868",
+      "utf8ByteStartInclusive": 120432,
+      "utf8ByteEndExclusive": 144480,
+      "sectionSha256": "276c12c5fbb649d4f7f116eea88998a9f44f7f81892d38f8aa24f8f610b7db30",
+      "readingPath": "calibration-v0.1.0/analysis/exemplar/lesson-03.native-reading.txt",
+      "readingBytes": 10440
+    },
+    {
+      "route": "lesson-04",
+      "sourcePath": "source-inspection/ch17/native/workspace/index.html",
+      "sourceSha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868",
+      "utf8ByteStartInclusive": 144480,
+      "utf8ByteEndExclusive": 165206,
+      "sectionSha256": "61bf6ef76faf8a6d03ebaed54a1608c184e6a3f31a0d4226e1a254750b3c8914",
+      "readingPath": "calibration-v0.1.0/analysis/exemplar/lesson-04.native-reading.txt",
+      "readingBytes": 8635
+    }
+  ]
+}

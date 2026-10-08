@@ -1,0 +1,421 @@
+{
+  "checks": [
+    {
+      "id": "ch17-check-11",
+      "route": "lesson-11",
+      "title": "Sex-linked pedigrees and testing a model",
+      "mc": [
+        {
+          "prompt": "Which relationship contradicts a simple fully penetrant X-linked dominant model with an affected father?",
+          "answer": "An unaffected daughter under the stated ordinary transmission assumptions",
+          "explanation": "Every daughter should inherit the affected paternal X under the model.",
+          "cue": "Trace the normal mechanism before choosing an answer.",
+          "id": "ch17-l11-check-mc-1",
+          "options": [
+            "An unaffected daughter under the stated ordinary transmission assumptions",
+            "An affected daughter",
+            "An unaffected son with an unaffected mother",
+            "No sons in the family"
+          ],
+          "difficulty": "application"
+        },
+        {
+          "prompt": "An unaffected mother has an affected son in a simple X-linked recessive model with no new mutation. What is inferred?",
+          "answer": "She is a carrier",
+          "explanation": "She supplied the son’s affected X but has an unaffected phenotype, so a second unaffected allele is present.",
+          "cue": "Trace the normal mechanism before choosing an answer.",
+          "id": "ch17-l11-check-mc-2",
+          "options": [
+            "The son inherited the allele on his father’s Y",
+            "She is a carrier",
+            "Every daughter must also be affected",
+            "She must have no X chromosome"
+          ],
+          "difficulty": "application"
+        }
+      ],
+      "writing": [
+        {
+          "prompt": "Explain why a pedigree analysis should use chromosome transmission as well as the number of affected males and females.",
+          "model": "The transmission route can create required or impossible allele contributions under a model. Unequal sex counts alone can occur by chance in a small family. Checking every parent–offspring relationship provides stronger evidence than relying on one superficial pattern.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ],
+          "id": "ch17-l11-check-writing-1",
+          "limit": 3200
+        },
+        {
+          "prompt": "Compare daughters of an affected father and homozygous unaffected mother in X-linked dominant and X-linked recessive models.",
+          "model": "Every daughter receives the affected paternal X. In a dominant model they express the trait. In a recessive model they also receive an unaffected maternal X and are typically unaffected carriers under the simple assumptions. The chromosome route is the same, but expression differs.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ],
+          "id": "ch17-l11-check-writing-2",
+          "limit": 3200
+        }
+      ]
+    }
+  ],
+  "words": [
+    {
+      "term": "X-linked dominant",
+      "meaning": "A simple model in which a dominant allele on X produces the trait under specified penetrance assumptions.",
+      "example": "An affected father transmits his affected X to all daughters in the typical model.",
+      "importantDistinction": "No direct paternal X is transmitted to a son.",
+      "aliases": [],
+      "id": "ch17-word-x-linked-dominant",
+      "lesson": 11,
+      "whatItDoes": "An affected father transmits his affected X to all daughters in the typical model.",
+      "feature": "An affected father transmits his affected X to all daughters in the typical model.",
+      "confusion": "No direct paternal X is transmitted to a son."
+    },
+    {
+      "term": "penetrance",
+      "meaning": "The proportion of individuals with a genotype who express the associated phenotype.",
+      "example": "A simple pedigree question assumes every person with a specified genotype expresses the trait.",
+      "importantDistinction": "Incomplete penetrance can make patterns less straightforward than classroom models.",
+      "aliases": [],
+      "id": "ch17-word-penetrance",
+      "lesson": 11,
+      "whatItDoes": "A simple pedigree question assumes every person with a specified genotype expresses the trait.",
+      "feature": "A simple pedigree question assumes every person with a specified genotype expresses the trait.",
+      "confusion": "Incomplete penetrance can make patterns less straightforward than classroom models."
+    },
+    {
+      "term": "candidate model",
+      "meaning": "A possible inheritance explanation tested against the observed relationships and traits.",
+      "example": "An X-linked recessive hypothesis is checked for contradictions in every branch.",
+      "importantDistinction": "A model consistent with a small family need not be the only possible explanation.",
+      "aliases": [],
+      "id": "ch17-word-candidate-model",
+      "lesson": 11,
+      "whatItDoes": "An X-linked recessive hypothesis is checked for contradictions in every branch.",
+      "feature": "An X-linked recessive hypothesis is checked for contradictions in every branch.",
+      "confusion": "A model consistent with a small family need not be the only possible explanation."
+    },
+    {
+      "term": "obligate carrier",
+      "meaning": "An individual who must carry a recessive allele under the stated pedigree model.",
+      "example": "An unaffected mother of an affected son carries the relevant X-linked recessive allele when other assumptions hold.",
+      "importantDistinction": "The conclusion depends on the model and relationship information.",
+      "aliases": [],
+      "id": "ch17-word-obligate-carrier",
+      "lesson": 11,
+      "whatItDoes": "An unaffected mother of an affected son carries the relevant X-linked recessive allele when other assumptions hold.",
+      "feature": "An unaffected mother of an affected son carries the relevant X-linked recessive allele when other assumptions hold.",
+      "confusion": "The conclusion depends on the model and relationship information."
+    }
+  ],
+  "practiceQuestions": [
+    {
+      "id": "ch17-foundation-ch17-word-x-linked-dominant",
+      "lesson": 11,
+      "conceptId": "ch17-concept-x-linked-dominant",
+      "prompt": "Which term matches this description? A simple model in which a dominant allele on X produces the trait under specified penetrance assumptions.",
+      "options": [
+        "X-linked dominant",
+        "penetrance",
+        "candidate model",
+        "obligate carrier"
+      ],
+      "answer": "X-linked dominant",
+      "cue": "Use the meaning of each term, not the length of its name.",
+      "explanation": "A simple model in which a dominant allele on X produces the trait under specified penetrance assumptions. No direct paternal X is transmitted to a son.",
+      "difficulty": "recall",
+      "family": "definition-recognition",
+      "kind": "mc"
+    },
+    {
+      "id": "ch17-foundation-ch17-word-penetrance",
+      "lesson": 11,
+      "conceptId": "ch17-concept-penetrance",
+      "prompt": "Which term matches this description? The proportion of individuals with a genotype who express the associated phenotype.",
+      "options": [
+        "X-linked dominant",
+        "penetrance",
+        "candidate model",
+        "obligate carrier"
+      ],
+      "answer": "penetrance",
+      "cue": "Use the meaning of each term, not the length of its name.",
+      "explanation": "The proportion of individuals with a genotype who express the associated phenotype. Incomplete penetrance can make patterns less straightforward than classroom models.",
+      "difficulty": "recall",
+      "family": "definition-recognition",
+      "kind": "mc"
+    },
+    {
+      "id": "ch17-foundation-ch17-word-candidate-model",
+      "lesson": 11,
+      "conceptId": "ch17-concept-candidate-model",
+      "prompt": "Which term matches this description? A possible inheritance explanation tested against the observed relationships and traits.",
+      "options": [
+        "X-linked dominant",
+        "penetrance",
+        "candidate model",
+        "obligate carrier"
+      ],
+      "answer": "candidate model",
+      "cue": "Use the meaning of each term, not the length of its name.",
+      "explanation": "A possible inheritance explanation tested against the observed relationships and traits. A model consistent with a small family need not be the only possible explanation.",
+      "difficulty": "recall",
+      "family": "definition-recognition",
+      "kind": "mc"
+    },
+    {
+      "id": "ch17-foundation-ch17-word-obligate-carrier",
+      "lesson": 11,
+      "conceptId": "ch17-concept-obligate-carrier",
+      "prompt": "Which term matches this description? An individual who must carry a recessive allele under the stated pedigree model.",
+      "options": [
+        "X-linked dominant",
+        "penetrance",
+        "candidate model",
+        "obligate carrier"
+      ],
+      "answer": "obligate carrier",
+      "cue": "Use the meaning of each term, not the length of its name.",
+      "explanation": "An individual who must carry a recessive allele under the stated pedigree model. The conclusion depends on the model and relationship information.",
+      "difficulty": "recall",
+      "family": "definition-recognition",
+      "kind": "mc"
+    }
+  ],
+  "videos": [
+    {
+      "id": "11s5Biyi9q4",
+      "lesson": 11,
+      "title": "Sex-linked pedigrees and testing a model — video support",
+      "purpose": "Use chromosome transmission to evaluate X-linked models and distinguish consistency from proof in small pedigrees.",
+      "fallback": "An affected father in an X-linked dominant model passes the affected X to every daughter. With an unaffected mother, sons receive the father's Y and the mother's unaffected X, so they are unaffected under that model. For X-linked recessive inheritance, an affected father with a homozygous unaffected mother has carrier daughters and unaffected sons. The same chromosome route produces a different expressed pattern because the heterozygote phenotype differs. More affected males can be a clue to an X-linked recessive model, but sex counts alone are not decisive. A small autosomal family can also show an uneven distribution by chance.",
+      "disposition": "included",
+      "sourceSlide": 91,
+      "sourceDeck": "c17",
+      "availability": "Source hyperlink resolved syntactically; external playback not certified."
+    },
+    {
+      "id": "-Ztzi6pAh5M",
+      "lesson": 11,
+      "title": "Sex-linked pedigrees and testing a model — video support 2",
+      "purpose": "Use chromosome transmission to evaluate X-linked models and distinguish consistency from proof in small pedigrees.",
+      "fallback": "An affected father in an X-linked dominant model passes the affected X to every daughter. With an unaffected mother, sons receive the father's Y and the mother's unaffected X, so they are unaffected under that model. For X-linked recessive inheritance, an affected father with a homozygous unaffected mother has carrier daughters and unaffected sons. The same chromosome route produces a different expressed pattern because the heterozygote phenotype differs. More affected males can be a clue to an X-linked recessive model, but sex counts alone are not decisive. A small autosomal family can also show an uneven distribution by chance.",
+      "disposition": "included",
+      "sourceSlide": 91,
+      "sourceDeck": "c17",
+      "availability": "Source hyperlink resolved syntactically; external playback not certified."
+    }
+  ],
+  "practiceConcepts": [
+    {
+      "id": "ch17-concept-x-linked-dominant",
+      "term": "X-linked dominant",
+      "lesson": 11,
+      "meaning": "A simple model in which a dominant allele on X produces the trait under specified penetrance assumptions.",
+      "example": "An affected father transmits his affected X to all daughters in the typical model.",
+      "aliases": [],
+      "cue": "Identify the structure, quantity or relationship described.",
+      "correctExplanation": "A simple model in which a dominant allele on X produces the trait under specified penetrance assumptions. No direct paternal X is transmitted to a son.",
+      "misconception": {
+        "statement": "An affected father must pass his X-linked dominant allele to all sons.",
+        "correction": "A simple model in which a dominant allele on X produces the trait under specified penetrance assumptions. No direct paternal X is transmitted to a son."
+      },
+      "reviewRoute": "lesson-11"
+    },
+    {
+      "id": "ch17-concept-penetrance",
+      "term": "penetrance",
+      "lesson": 11,
+      "meaning": "The proportion of individuals with a genotype who express the associated phenotype.",
+      "example": "A simple pedigree question assumes every person with a specified genotype expresses the trait.",
+      "aliases": [],
+      "cue": "Identify the structure, quantity or relationship described.",
+      "correctExplanation": "The proportion of individuals with a genotype who express the associated phenotype. Incomplete penetrance can make patterns less straightforward than classroom models.",
+      "misconception": {
+        "statement": "Penetrance is the number of chromosomes in a gamete.",
+        "correction": "The proportion of individuals with a genotype who express the associated phenotype. Incomplete penetrance can make patterns less straightforward than classroom models."
+      },
+      "reviewRoute": "lesson-11"
+    },
+    {
+      "id": "ch17-concept-candidate-model",
+      "term": "candidate model",
+      "lesson": 11,
+      "meaning": "A possible inheritance explanation tested against the observed relationships and traits.",
+      "example": "An X-linked recessive hypothesis is checked for contradictions in every branch.",
+      "aliases": [],
+      "cue": "Identify the structure, quantity or relationship described.",
+      "correctExplanation": "A possible inheritance explanation tested against the observed relationships and traits. A model consistent with a small family need not be the only possible explanation.",
+      "misconception": {
+        "statement": "One matching clue proves a model uniquely.",
+        "correction": "A possible inheritance explanation tested against the observed relationships and traits. A model consistent with a small family need not be the only possible explanation."
+      },
+      "reviewRoute": "lesson-11"
+    },
+    {
+      "id": "ch17-concept-obligate-carrier",
+      "term": "obligate carrier",
+      "lesson": 11,
+      "meaning": "An individual who must carry a recessive allele under the stated pedigree model.",
+      "example": "An unaffected mother of an affected son carries the relevant X-linked recessive allele when other assumptions hold.",
+      "aliases": [],
+      "cue": "Identify the structure, quantity or relationship described.",
+      "correctExplanation": "An individual who must carry a recessive allele under the stated pedigree model. The conclusion depends on the model and relationship information.",
+      "misconception": {
+        "statement": "Every unaffected female in an X-linked pedigree is automatically a carrier.",
+        "correction": "An individual who must carry a recessive allele under the stated pedigree model. The conclusion depends on the model and relationship information."
+      },
+      "reviewRoute": "lesson-11"
+    }
+  ],
+  "authoredPractice": [
+    {
+      "prompt": "A small pedigree fits both an autosomal and an X-linked model. What is the appropriate conclusion?",
+      "answer": "More information is needed to distinguish the models",
+      "explanation": "Consistency with limited evidence is not unique proof.",
+      "cue": "Trace the normal mechanism before choosing an answer.",
+      "id": "ch17-l11-application-1",
+      "options": [
+        "Ignore all phenotype observations",
+        "Choose X-linked because it sounds more specific",
+        "More information is needed to distinguish the models",
+        "Both models are proven simultaneously"
+      ],
+      "difficulty": "application",
+      "lesson": 11,
+      "chapter": 17,
+      "conceptId": "ch17-concept-x-linked",
+      "family": "application",
+      "kind": "mc",
+      "reviewRoute": "lesson-11",
+      "flashVariant": {
+        "id": "ch17-l11-scenario-1",
+        "family": "scenario-explanation",
+        "prompt": "A small pedigree fits both an autosomal and an X-linked model. What is the appropriate conclusion?",
+        "model": "More information is needed to distinguish the models. Consistency with limited evidence is not unique proof.",
+        "selfAssessed": true
+      }
+    }
+  ],
+  "typedPractice": [
+    {
+      "id": "ch17-l11-context-x-linked-dominant",
+      "chapter": 17,
+      "lesson": 11,
+      "conceptId": "ch17-concept-x-linked-dominant",
+      "family": "scenario-retrieval",
+      "kind": "blank",
+      "difficulty": "application",
+      "prompt": "Identify the term illustrated: An affected father transmits his affected X to all daughters in the typical model.",
+      "answer": "X-linked dominant",
+      "aliases": [],
+      "cue": "Use the relationship described in the example.",
+      "explanation": "A simple model in which a dominant allele on X produces the trait under specified penetrance assumptions. No direct paternal X is transmitted to a son.",
+      "reviewRoute": "lesson-11"
+    },
+    {
+      "id": "ch17-l11-context-penetrance",
+      "chapter": 17,
+      "lesson": 11,
+      "conceptId": "ch17-concept-penetrance",
+      "family": "scenario-retrieval",
+      "kind": "blank",
+      "difficulty": "application",
+      "prompt": "Identify the term illustrated: A simple pedigree question assumes every person with a specified genotype expresses the trait.",
+      "answer": "penetrance",
+      "aliases": [],
+      "cue": "Use the relationship described in the example.",
+      "explanation": "The proportion of individuals with a genotype who express the associated phenotype. Incomplete penetrance can make patterns less straightforward than classroom models.",
+      "reviewRoute": "lesson-11"
+    },
+    {
+      "id": "ch17-l11-context-candidate-model",
+      "chapter": 17,
+      "lesson": 11,
+      "conceptId": "ch17-concept-candidate-model",
+      "family": "scenario-retrieval",
+      "kind": "blank",
+      "difficulty": "application",
+      "prompt": "Identify the term illustrated: An X-linked recessive hypothesis is checked for contradictions in every branch.",
+      "answer": "candidate model",
+      "aliases": [],
+      "cue": "Use the relationship described in the example.",
+      "explanation": "A possible inheritance explanation tested against the observed relationships and traits. A model consistent with a small family need not be the only possible explanation.",
+      "reviewRoute": "lesson-11"
+    },
+    {
+      "id": "ch17-l11-context-obligate-carrier",
+      "chapter": 17,
+      "lesson": 11,
+      "conceptId": "ch17-concept-obligate-carrier",
+      "family": "scenario-retrieval",
+      "kind": "blank",
+      "difficulty": "application",
+      "prompt": "Identify the term illustrated: An unaffected mother of an affected son carries the relevant X-linked recessive allele when other assumptions hold.",
+      "answer": "obligate carrier",
+      "aliases": [],
+      "cue": "Use the relationship described in the example.",
+      "explanation": "An individual who must carry a recessive allele under the stated pedigree model. The conclusion depends on the model and relationship information.",
+      "reviewRoute": "lesson-11"
+    }
+  ],
+  "guidedActivities": [
+    {
+      "chapter": 17,
+      "lesson": 11,
+      "route": "lesson-11",
+      "worked": {
+        "title": "Test a proposed X-linked recessive model",
+        "scenario": "A fully expressed recessive trait appears in a daughter whose father is unaffected. Assume ordinary XX/XY transmission and no new mutation.",
+        "steps": [
+          "An affected daughter would need XbXb in this model.",
+          "Her father must supply one of those Xb chromosomes.",
+          "An unaffected father is XBY and cannot supply Xb under the assumptions.",
+          "The proposed model is inconsistent with this relationship; another explanation or changed assumptions would be needed."
+        ],
+        "id": "ch17-l11-worked",
+        "label": "Worked example"
+      },
+      "guided": {
+        "id": "ch17-l11-guided",
+        "label": "Practise with support",
+        "title": "Apply the explanation",
+        "instruction": "Try both questions. Use the hint to revise your thinking after an incorrect answer.",
+        "items": [
+          {
+            "prompt": "In a simple X-linked dominant model, an affected father and unaffected mother have what expected daughter pattern?",
+            "answer": "All daughters affected",
+            "explanation": "Every daughter inherits the father’s affected X.",
+            "cue": "Trace the paternal chromosome given to a daughter.",
+            "id": "ch17-l11-guided-q1",
+            "options": [
+              "All daughters inherit paternal Y",
+              "All daughters unaffected",
+              "All daughters affected"
+            ],
+            "difficulty": "application",
+            "kind": "select",
+            "hint": "Trace the paternal chromosome given to a daughter."
+          },
+          {
+            "prompt": "Only males happen to be affected in a small pedigree. Does this alone prove X-linkage?",
+            "answer": "No",
+            "explanation": "Small autosomal families can also have an uneven sex distribution by chance.",
+            "cue": "A clue is not necessarily a contradiction test.",
+            "id": "ch17-l11-guided-q2",
+            "options": [
+              "No",
+              "Yes, in every possible case",
+              "Only if there are exactly three males"
+            ],
+            "difficulty": "application",
+            "kind": "select",
+            "hint": "A clue is not necessarily a contradiction test."
+          }
+        ]
+      }
+    }
+  ]
+}

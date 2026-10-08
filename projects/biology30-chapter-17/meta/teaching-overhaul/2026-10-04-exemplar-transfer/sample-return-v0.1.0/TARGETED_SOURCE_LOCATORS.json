@@ -1,0 +1,314 @@
+{
+  "artifact": "Biology30_CH17_Exemplar_Transfer_Calibration_v0.1.0",
+  "routes": [
+    {
+      "id": "lesson-02",
+      "title": "Mendel’s experiments and segregation",
+      "nativeReaderPrinted": [
+        587,
+        590
+      ],
+      "nativeReaderPdf": [
+        4,
+        7
+      ]
+    },
+    {
+      "id": "lesson-05",
+      "title": "Two-trait crosses and independent assortment",
+      "nativeReaderPrinted": [
+        591,
+        593
+      ],
+      "nativeReaderPdf": [
+        8,
+        10
+      ]
+    }
+  ],
+  "sourceGate": "PASS; CURRENT_SOURCE_GATE.json",
+  "locators": [
+    {
+      "route": "lesson-02",
+      "component": "Question, design and generations",
+      "printed": [
+        587,
+        588
+      ],
+      "pdf": [
+        4,
+        5
+      ],
+      "figure": "17.4 on printed 588",
+      "slides": "13–20",
+      "sourceSupport": "Mendel chose contrasting pea traits, self-pollinated lines to establish true breeding, specified parental crosses, then F1 selfing and F2 counts.",
+      "boundary": "P/F1/F2 describe relationships in a design, not universal genotypes. Source history and a source model are not new experimental observations."
+    },
+    {
+      "route": "lesson-02",
+      "component": "Observed reappearance versus allele inference",
+      "printed": [
+        589
+      ],
+      "pdf": [
+        6
+      ],
+      "figure": "17.5 and Table 17.1",
+      "slides": "15,17–23",
+      "sourceSupport": "Actual displayed F2 observations5474 round and 1850 wrinkled; caption2.96:1, close to3:1. Alleles remain discrete rather than permanently blending.",
+      "boundary": "5474/1850 is a supplied source dataset, not invented fresh practice. The caption rounds the observed ratio to2.96:1; those counts do not equal an exact3:1."
+    },
+    {
+      "route": "lesson-02",
+      "component": "Allele notation, true breeding, gametes and mechanism",
+      "printed": [
+        589,
+        590,
+        597
+      ],
+      "pdf": [
+        6,
+        7,
+        14
+      ],
+      "figure": "17.6,17.7;17.14 only as chromosome support",
+      "slides": "21–25",
+      "sourceSupport": "RR × rr makes Rr; each heterozygote passes one allele per gamete; meiosis separates homologues. Source17.7 then represents fertilization combinations.",
+      "boundary": "Teach allele/genotype/phenotype and complete-dominance model before symbols; segregation/gamete production before the square. Limit two-copy statement to the stated ordinary diploid autosomal model. A gamete carries one allele at each locus, not both."
+    },
+    {
+      "route": "lesson-02",
+      "component": "Expected ratios and evidence limits",
+      "printed": [
+        589,
+        590,
+        591
+      ],
+      "pdf": [
+        6,
+        7,
+        8
+      ],
+      "figure": "17.5–17.8",
+      "slides": "15,18–22",
+      "sourceSupport": "Observed near3:1 source counts; independent gamete contributions group1:2:1 genotypes into3:1 phenotypes under complete dominance.",
+      "boundary": "Finite-sample variation, explicit penetrance/scoring/viability assumptions and a detailed action-and-why explanation are author synthesis of the probability model. Do not present runs or four offspring as guarantees; required exact prompts remain reserved."
+    },
+    {
+      "route": "lesson-05",
+      "component": "Two loci, gamete formation and independence",
+      "printed": [
+        593,
+        596,
+        597
+      ],
+      "pdf": [
+        10,
+        13,
+        14
+      ],
+      "figure": "17.10 and 17.14",
+      "slides": "34–42",
+      "sourceSupport": "Separate choices at two loci, independent chromosome-pair orientation, four equally likely gamete combinations for a double heterozygote under the model.",
+      "boundary": "Four possible labels or half frequencies at each locus do not alone prove independence. Alternative chromosome orientations occur across meioses; one particular meiosis need not yield all four combinations. Physical chromosome mechanism is modern support, not a claim Mendel saw chromosomes."
+    },
+    {
+      "route": "lesson-05",
+      "component": "Joint probability and genotype/phenotype categories",
+      "printed": [
+        593
+      ],
+      "pdf": [
+        10
+      ],
+      "figure": "17.10",
+      "slides": "34–40",
+      "sourceSupport": "TTGG×ttgg then TtGg×TtGg source model;16 equally likely gamete pairings grouped by phenotype into9:3:3:1.",
+      "boundary": "Explicit complete dominance, independent assortment, random fertilization, reliable expression/scoring and equal survival are necessary boundaries. The essential derivation structurally supports protected3/16 answers; do not append a solved clone targeting aaB_ or A_bb."
+    },
+    {
+      "route": "lesson-05",
+      "component": "Choose square dimensions, recompute instead of memorizing",
+      "printed": [
+        596
+      ],
+      "pdf": [
+        13
+      ],
+      "figure": "Practice Problems4–5 are original practice, not fresh independent transfer",
+      "slides": "43–47",
+      "sourceSupport": "PPT tomato RrTt×rrTt uses4×2 distinct gametes; squash wwDd×Wwdd uses2×2; expected counts are derived from cross probabilities.",
+      "boundary": "Tomato cross exactly overlaps native protected writing-1 gamete target. Its R_tt probability is isomorphic to protected writing-2; avoid using it as new solved drill. Squash1:1:1:1 does not establish two-locus independence because each parent is heterozygous at only one locus."
+    },
+    {
+      "route": "lesson-05",
+      "component": "Original reader questions and adjacent scope",
+      "printed": [
+        593,
+        595,
+        598
+      ],
+      "pdf": [
+        10,
+        12,
+        15
+      ],
+      "figure": "In-text593Q10–12;595Q13,15,16; sectionreview598Q6–9",
+      "slides": "48 source video hyperlinks only",
+      "sourceSupport": "Current optional native textbook topics assign six items to05. Three on595 concern incomplete dominance/codominance. Review598 offers different dihybrid problems but contains cross-reference/context defects.",
+      "boundary": "Preserve current task blocks; defer595items until06 without claiming missing sources. No video playback or timestamps. Printed 598 review tasks were read for source context but are not all native05 topic assignments."
+    }
+  ],
+  "qualifiedConflicts": [
+    {
+      "id": "CAL-SRC-01",
+      "classification": "source overgeneralization",
+      "locator": "Printed 589/PDF 6 law box;590/PDF 7 prose; actual slide 23",
+      "finding": "All individuals/two copies of every factor or gene exceeds the ordinary diploid autosomal model.",
+      "disposition": "Qualify scope in authored teaching; retain source bytes."
+    },
+    {
+      "id": "CAL-SRC-02",
+      "classification": "source overgeneralization",
+      "locator": "Printed 593/PDF 10 Figure 17.10 caption;597–598/PDF 14–15 summaries",
+      "finding": "Any dihybrid cross/monohybrid cross gives9:3:3:1/3:1 overstates a result of specified parental genotypes and assumptions.",
+      "disposition": "Derive cross-specific ratios; do not generalize from the label alone."
+    },
+    {
+      "id": "CAL-SRC-03",
+      "classification": "source diagram wording/typography",
+      "locator": "Printed 593/PDF 10 Figure 17.10",
+      "finding": "The second parent label above the grid reads TgGg; body model, gamete labels and grid support intended TtGg. Caption says underscore can be any of four alleles, though it must be an allele at that locus.",
+      "disposition": "Explicitly qualify a visual-reading instruction; original figure is not silently repaired."
+    },
+    {
+      "id": "CAL-SRC-04",
+      "classification": "source terminology error",
+      "locator": "Printed 596/PDF 13 chromosome-theory prose",
+      "finding": "Synapsis is parenthetically called segregation of homologous chromosomes. Synapsis is homologous pairing, not their separation.",
+      "disposition": "Use accurate meiosis mechanism; do not repeat that parenthesis."
+    },
+    {
+      "id": "CAL-SRC-05",
+      "classification": "scope qualification",
+      "locator": "Printed 596–597/PDF 13–14 chromosome-theory/summary prose",
+      "finding": "Statements that same-chromosome genes never assort independently and that all Mendel trait genes were on different chromosomes are too absolute.",
+      "disposition": "Teach the supplied unlinked model here; linkage/distance qualifications belong to later lessons 12–13. Do not assert every studied Mendel gene lay on a distinct chromosome."
+    },
+    {
+      "id": "CAL-SRC-06",
+      "classification": "source terminology inconsistency",
+      "locator": "Actual slides 13 and 17–20 versus26–32",
+      "finding": "The PPT calls the initial RR × rr and F1 self cross test crosses in a broad sense, unlike the later specific diagnostic-test-cross definition.",
+      "disposition": "Use parental cross/F1 selfing for02 and preserve formal test-cross meaning for04."
+    },
+    {
+      "id": "CAL-SRC-07",
+      "classification": "source context-label ambiguity",
+      "locator": "Actual slide 41",
+      "finding": "Slide 41 correctly places homolog orientation at metaphaseI but points to notes on meiosisII; its original image also shows downstream meiosisII. The phrase alone is not evidence of a wrong-stage scientific claim.",
+      "disposition": "Teach the actual metaphaseI mechanism and distinguish downstream meiosisII; preserve the source context ambiguity without upgrading it to a certain error."
+    },
+    {
+      "id": "CAL-SRC-08",
+      "classification": "source schematic/data qualification",
+      "locator": "Actual slide 15/media14",
+      "finding": "Caption says3:1 in each cross; diagram is schematic, not an exact observed-count dataset.",
+      "disposition": "Distinguish expected proportions from empirical source counts printed 589."
+    },
+    {
+      "id": "CAL-SRC-09",
+      "classification": "source context/wording drift",
+      "locator": "Actual slides 46–47",
+      "finding": "Squash example switches fruit and flower descriptions;1:1:1:1 from wwDd×Wwdd does not diagnose two-locus independence within either parent.",
+      "disposition": "Do not turn this supplied example into a new independence-proof drill; describe counts as expectations."
+    },
+    {
+      "id": "CAL-SRC-10",
+      "classification": "original QTI missing assumptions and option mismatch",
+      "locator": "quiz_d2l_59230.xml OBJ_2131227/QUES_53662_85588",
+      "finding": "Original asks F2 from TtYy F1 without explicit dominance/independence. Embedded prompt optiond says1:1 while response-label optiond is3:3:1:1. Key9:3:3:1 fits the intended bounded model.",
+      "disposition": "Current native derivative explicitly states assumptions and has its own preserved options; no newly detected native key error."
+    },
+    {
+      "id": "CAL-SRC-11",
+      "classification": "original QTI hypothetical-human simplification",
+      "locator": "quiz_d2l_59230.xml OBJ_2131236 andOBJ_2131237; supplied images ozbz5… and9v09…",
+      "finding": "Source images introduce widow’s peak and short fingers as simple dominant human traits before a hypothetical model.",
+      "disposition": "Do not present as established general human biology. Native derivatives already use abstract loci; preserve them."
+    },
+    {
+      "id": "CAL-SRC-12",
+      "classification": "original QTI assumption omission",
+      "locator": "quiz_d2l_59230.xml OBJ_2131242/QUES_53686_85607",
+      "finding": "Original tomato RrPp×rrpp key1111 assumes independence; source image orders red/purple, red/green, yellow/purple, yellow/green.",
+      "disposition": "Current native derivative states independence and complete dominance; no disagreement with its bounded key."
+    },
+    {
+      "id": "CAL-SRC-13",
+      "classification": "native vocabulary convention difference",
+      "locator": "Current native lesson 05 Frayer/definition for dihybrid cross; printed 593/PDF 10",
+      "finding": "Native defines a dihybrid cross narrowly as between individuals heterozygous at two loci; textbook uses two genes involved more broadly.",
+      "disposition": "Preserve native term markup/definition; distinguish two-locus crosses generally from the classic double-heterozygote cross."
+    },
+    {
+      "id": "CAL-SRC-14",
+      "classification": "native optional-topic sequencing gap",
+      "locator": "Current textbook-practice-data lesson 05: printed 595/PDF 12 Q13,15,16",
+      "finding": "These protected optional questions require incomplete dominance/codominance taught next in06. All source items are present.",
+      "disposition": "Preserve tasks; explicit return-after 06 support is appropriate. Do not call a source file or model globally missing."
+    },
+    {
+      "id": "CAL-SRC-15",
+      "classification": "source cross-reference error",
+      "locator": "Printed 598/PDF 15 Section17.1 ReviewQ8",
+      "finding": "Q8 refers to flies in problem5, but problem5 is pea pod dominance; fly-cross context appears inQ7.",
+      "disposition": "Flag rather than silently rewrite; not a current native05 assigned item."
+    },
+    {
+      "id": "CAL-SRC-16",
+      "classification": "source/model context discrepancy",
+      "locator": "Printed 598/PDF 15 Section17.1 ReviewQ9",
+      "finding": "139/49/53/15 approximate9:3:3:1, butQ9 says use Q8’s selected-fly test cross. A double-recessive tester does not yield that9:3:3:1 expectation in the stated simple model.",
+      "disposition": "Treat as a qualified question-context conflict; do not assume counts alone repair the intended design."
+    },
+    {
+      "id": "CAL-SRC-17",
+      "classification": "source model limitation, adjacent06 scope",
+      "locator": "Printed 598/PDF 15 Section17.1 ReviewQ11",
+      "finding": "Black×white parents yield black/speckled/white offspring, inconsistent with a strict single-locus codominance model where those pure colours are homozygotes.",
+      "disposition": "Original question asks for limits/further information; flag incompatibility with that simple model, not a known unique corrected key."
+    },
+    {
+      "id": "CAL-SRC-18",
+      "classification": "protected-answer overlap, no source mutation",
+      "locator": "Current ch17-l05-check-mc-2 and native source OBJ_2131237; printed593/PDF10 core derivation",
+      "finding": "Essential 9:3:3:1 derivation structurally supports a3/16 class. This is conceptual overlap, not itself an exact new-drill prompt clone.",
+      "disposition": "Retain essential teaching; avoid a new solved or fresh-independent example that reproduces the protected target after only swapping letters."
+    }
+  ],
+  "requiredTargetEvidence": "CURRENT_TARGET_REQUIRED_CHECKS.json",
+  "nativeContextEvidence": "CURRENT_TARGET_NATIVE_CONTEXT.json",
+  "readScopeEvidence": "CURRENT_SOURCE_READ_SCOPE.json",
+  "status": "Source readiness and bounded source read only. No learner manuscript, new activity, source edit, whole-course edit, integration, runtime test, independent manuscript approval, teacher acceptance or release.",
+  "pptxEvidence": {
+    "path": "pptx-read/EVIDENCE.json",
+    "directSlides": {
+      "lesson-02": [
+        13,
+        25
+      ],
+      "lesson-05": [
+        34,
+        48
+      ]
+    },
+    "actualSlideOrderCount": 114,
+    "xmlAndNotesRead": [
+      1,
+      48
+    ],
+    "originalMediaPixelsRead": 18,
+    "wholeSlideRenderProvenance": "Supplementary existing renders39/41/45/47 were viewed by secondary inspector but derivation is unverified; primary findings rely on actual XML and byte-matched original media."
+  }
+}

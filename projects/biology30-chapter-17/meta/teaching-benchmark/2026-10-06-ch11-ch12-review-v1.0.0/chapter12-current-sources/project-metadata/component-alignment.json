@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "reference": "biology30-unit-a-pilot-3",
+  "components": [
+    "Vocabulary topic reader",
+    "Contextual vocabulary side popup",
+    "Existing Frayer editor shared with popup",
+    "Compact textbook dialog",
+    "Inline textbook library",
+    "Sidebar numeric typography"
+  ],
+  "stableWordAndStorageIdsPreserved": true,
+  "wordRoleSource": "Matching Unit A vocabulary records; otherwise existing chapter teaching sentence/example",
+  "verification": [
+    "Desktop component browser checks",
+    "Popup Frayer save/reload",
+    "Mobile no-overflow",
+    "Portable embedded library PDF",
+    "JS syntax"
+  ],
+  "deferred": [
+    "Full content/science review",
+    "Project E2E",
+    "Studio readiness",
+    "SCORM/Brightspace",
+    "Deployment"
+  ]
+}

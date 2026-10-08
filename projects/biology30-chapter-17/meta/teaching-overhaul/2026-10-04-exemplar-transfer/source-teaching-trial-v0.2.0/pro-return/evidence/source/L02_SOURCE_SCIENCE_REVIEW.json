@@ -1,0 +1,65 @@
+{
+  "document": "Bounded independent source/science review: lesson02 v0.2.0",
+  "reviewed_utc": "2026-10-04T21:41:29.733407+00:00",
+  "reviewer": "original_source_map agent; root authored learner prose",
+  "input": {
+    "path": "kinch-trial-v0.2.0/authoring/lesson-02.teaching.html.in",
+    "bytes": 17871,
+    "sha256": "c5712fcf6e33e732a3985593bdbea867749f2cfcaa38000c6a8290ee498af2af"
+  },
+  "coverage": "Complete original a0238191 draft read, followed by exact three-paragraph delta to current c5712fcf input; all current content is covered. No browser render or runtime test.",
+  "result": "No consequential science/source defect found in the pinned lesson02 draft. Source-method finding is separately documented; teacher acceptance pending.",
+  "checks": [
+    {
+      "id": "L02-SCI-01",
+      "result": "Consistent definitions and notation precede allele operations; complete dominance bounded; dominant does not mean frequent/better/transmission advantage."
+    },
+    {
+      "id": "L02-SCI-02",
+      "result": "Homologue/sister separation and single-allele gametes correct at this level; brief flowering-plant qualification avoids direct meiosis-to-gamete misconception."
+    },
+    {
+      "id": "L02-SCI-03",
+      "result": "RR×rr allRr; Rr×Rr 1:2:1 genotype/3:1 phenotype; visible table cells, labels and equal contribution weighting agree."
+    },
+    {
+      "id": "L02-SCI-04",
+      "result": "Source5474/1850 counts and approximately2.96 ratio correct; expected versus actual clearly distinguished."
+    },
+    {
+      "id": "L02-SCI-05",
+      "result": "Guided arrow repair correctly distinguishes segregation/fertilisation and restoration of pair; hint/model/criteria agree."
+    },
+    {
+      "id": "L02-SCI-06",
+      "result": "Reciprocal-parent task correct only within the explicitly supplied autosomal/seed-own-genotype/no parent-origin-effect model; lesson states that limit."
+    },
+    {
+      "id": "L02-SCI-07",
+      "result": "Reciprocal task is near transfer and uses the already worked all-Rr result. No claim of new numerical/genotype challenge or protected-question blindness."
+    }
+  ],
+  "source_method_review": "pptx-method/L02_DRAFT_METHOD_REVIEW.md and .json",
+  "unresolved_trial_limit": "Lesson05 ordinary4×2 template/source-fidelity conflict remains unresolved; lesson02 result does not resolve the whole-trial readiness decision.",
+  "excluded": [
+    "No learner/source/native/previous-output edits",
+    "No UI or save/runtime testing",
+    "No live authority or video access",
+    "No teacher or science acceptance of the full chapter",
+    "No integration, packaging, release or promotion performed by this review"
+  ],
+  "review_history": [
+    {
+      "review_type": "Bounded delta after complete prior draft read",
+      "before_sha256": "a02381918607e84c17cf1a38857e53c5ecef9a7f76801c0c1b5392a13a757b09",
+      "after_sha256": "c5712fcf6e33e732a3985593bdbea867749f2cfcaa38000c6a8290ee498af2af",
+      "read_utc": "2026-10-04T21:41:29.755581+00:00",
+      "changes": [
+        "Probability now defined as chance under stated conditions in block02 before grid; later duplicate definition removed.",
+        "Autosomal defined explicitly at first use as on a chromosome other than a sex chromosome."
+      ],
+      "finding": "All three changed paragraphs read. Definitions correct; no calculation, table, task, hint or model changed. No consequential science/source defect introduced.",
+      "history": "review-history/L02_a0238191_L02_SOURCE_SCIENCE_REVIEW.json preserves complete original draft review. Current review combines that complete reading with this bounded delta."
+    }
+  ]
+}

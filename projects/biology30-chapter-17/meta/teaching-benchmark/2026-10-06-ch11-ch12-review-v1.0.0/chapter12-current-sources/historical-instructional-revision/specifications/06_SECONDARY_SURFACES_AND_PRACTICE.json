@@ -1,0 +1,762 @@
+{
+  "schemaVersion": 1,
+  "tables": [
+    {
+      "chapter": 13,
+      "key": "ch13-l01-teaching-02",
+      "selector": ".comparison-table table",
+      "headers": [
+        "Feature",
+        "Nervous system",
+        "Endocrine system"
+      ],
+      "rows": [
+        [
+          "Message",
+          "Electrical changes along neurons; chemical signals at many junctions",
+          "Hormones"
+        ],
+        [
+          "Delivery",
+          "Along neural pathways",
+          "Through the blood"
+        ],
+        [
+          "Which cells respond?",
+          "Cells reached by the pathway that can respond to its signal",
+          "Cells with suitable hormone receptors"
+        ],
+        [
+          "Typical response",
+          "Often rapid and brief",
+          "Often slower to begin and longer lasting"
+        ]
+      ],
+      "action": "Replace table content inside the existing wrapper. Keep responsive wrapper, semantic table and heading relationships."
+    },
+    {
+      "chapter": 13,
+      "key": "ch13-l04-teaching-04",
+      "selector": ".comparison-table table",
+      "headers": [
+        "Hormone",
+        "Released from",
+        "Target and main effect"
+      ],
+      "rows": [
+        [
+          "TSH",
+          "Anterior pituitary",
+          "Thyroid: stimulates thyroid-hormone release"
+        ],
+        [
+          "ACTH",
+          "Anterior pituitary",
+          "Adrenal cortex: stimulates cortisol release"
+        ],
+        [
+          "hGH",
+          "Anterior pituitary",
+          "Many tissues: growth and fuel use; liver: growth-factor release"
+        ],
+        [
+          "Prolactin (PRO or PRL)",
+          "Anterior pituitary",
+          "Mammary glands: milk production"
+        ],
+        [
+          "FSH",
+          "Anterior pituitary",
+          "Ovaries: egg-cell development; testes: sperm production"
+        ],
+        [
+          "LH",
+          "Anterior pituitary",
+          "Ovaries: ovulation and sex-hormone production; testes: testosterone production"
+        ],
+        [
+          "ADH",
+          "Posterior pituitary",
+          "Kidneys: increased water reabsorption"
+        ],
+        [
+          "Oxytocin",
+          "Posterior pituitary",
+          "Uterus: contractions; mammary glands: milk release"
+        ]
+      ],
+      "action": "Replace table content inside the existing wrapper. Keep responsive wrapper, semantic table and heading relationships."
+    },
+    {
+      "chapter": 13,
+      "key": "ch13-l07-teaching-04",
+      "selector": ".comparison-table table",
+      "headers": [
+        "Stated problem",
+        "Thyroxine",
+        "TSH",
+        "Why?"
+      ],
+      "rows": [
+        [
+          "Thyroid cannot make enough hormone; hypothalamus and pituitary still work",
+          "Low",
+          "Usually high",
+          "Low thyroxine reduces feedback, allowing more TSH release."
+        ],
+        [
+          "Pituitary cannot release enough TSH; thyroid is capable of responding",
+          "Low",
+          "Low or not increased enough",
+          "Too little TSH stimulation limits thyroid output."
+        ]
+      ],
+      "action": "Replace table content inside the existing wrapper. Keep responsive wrapper, semantic table and heading relationships."
+    }
+  ],
+  "optionalApplication": {
+    "chapter": 13,
+    "route": "lesson-07",
+    "id": "ch13-l07-apply-feedback",
+    "placement": "After ch13-l07-teaching-04 and before the existing stop-check. Collapsed optional application; not an editorial/source note.",
+    "title": "Go further: a control gland does not respond normally",
+    "prompt": "A case states that the anterior pituitary releases excessive TSH and does not reduce this release in response to thyroxine feedback. The thyroid and hypothalamus can still respond. Predict thyroxine and TRH levels.",
+    "hint": "Trace the extra TSH forward to the thyroid. Then follow thyroxine feedback back to the functioning hypothalamus.",
+    "answer": "Thyroxine rises because excess TSH stimulates the working thyroid. TRH falls because increased thyroxine inhibits the functioning hypothalamus. TSH remains high in this case because the stated pituitary defect prevents normal feedback control.",
+    "note": "These predictions use the stated defect. Do not apply them to every pituitary problem."
+  },
+  "authoredPractice": [
+    {
+      "id": "ch12-authored-application-01",
+      "chapter": 12,
+      "lesson": 1,
+      "conceptId": "ch12-sensory-adaptation",
+      "family": "application",
+      "kind": "mc",
+      "difficulty": "application",
+      "prompt": "A person stops noticing a ring on their finger while the ring remains in place. Which conclusion is supported?",
+      "answer": "Awareness can decrease while the stimulus remains",
+      "options": [
+        "Awareness can decrease while the stimulus remains",
+        "The ring no longer touches the skin",
+        "All touch receptors are permanently damaged",
+        "The stimulus has become light"
+      ],
+      "cue": "Separate reduced awareness from removal of the stimulus.",
+      "explanation": "Adaptation and attention can reduce awareness of constant contact. That does not establish that contact has ended.",
+      "reviewRoute": "lesson-01",
+      "flashVariant": {
+        "id": "ch12-authored-application-01-flash",
+        "family": "application",
+        "prompt": "A person stops noticing a ring on their finger while the ring remains in place. Which conclusion is supported? Explain your answer without answer choices.",
+        "model": "Awareness can decrease while the stimulus remains. Adaptation and attention can reduce awareness of constant contact. That does not establish that contact has ended.",
+        "selfAssessed": true
+      }
+    },
+    {
+      "id": "ch12-authored-application-02",
+      "chapter": 12,
+      "lesson": 2,
+      "conceptId": "ch12-iris-pupil",
+      "family": "application",
+      "kind": "mc",
+      "difficulty": "application",
+      "prompt": "A lamp becomes brighter while an object stays at the same distance. Which adjustment directly limits light entry?",
+      "answer": "The iris makes the pupil smaller",
+      "options": [
+        "The iris makes the pupil smaller",
+        "The lens becomes the pupil",
+        "The optic nerve absorbs the extra incoming light",
+        "The fovea moves to the front of the eye"
+      ],
+      "cue": "Light amount and focusing distance are different demands.",
+      "explanation": "Iris muscles reduce pupil diameter, allowing less light to enter. Accommodation adjusts focus for distance.",
+      "reviewRoute": "lesson-02",
+      "flashVariant": {
+        "id": "ch12-authored-application-02-flash",
+        "family": "application",
+        "prompt": "A lamp becomes brighter while an object stays at the same distance. Which adjustment directly limits light entry? Explain your answer without answer choices.",
+        "model": "The iris makes the pupil smaller. Iris muscles reduce pupil diameter, allowing less light to enter. Accommodation adjusts focus for distance.",
+        "selfAssessed": true
+      }
+    },
+    {
+      "id": "ch12-authored-application-03",
+      "chapter": 12,
+      "lesson": 3,
+      "conceptId": "ch12-far-focus",
+      "family": "application",
+      "kind": "mc",
+      "difficulty": "application",
+      "prompt": "A person finishes reading a nearby phone and looks at a mountain. Which sequence helps the new focus?",
+      "answer": "Ciliary muscle relaxes → ligament tension rises → lens flattens",
+      "options": [
+        "Ciliary muscle relaxes → ligament tension rises → lens flattens",
+        "Ciliary muscle contracts → ligament tension falls → lens rounds",
+        "Iris contracts → optic nerve becomes shorter → lens clouds",
+        "Ligament tension rises → lens becomes rounder"
+      ],
+      "cue": "Start with the lens shape required for far vision.",
+      "explanation": "Far viewing uses a flatter lens. Relaxing the ciliary muscle increases the pull of the suspensory ligaments.",
+      "reviewRoute": "lesson-03",
+      "flashVariant": {
+        "id": "ch12-authored-application-03-flash",
+        "family": "application",
+        "prompt": "A person finishes reading a nearby phone and looks at a mountain. Which sequence helps the new focus? Explain your answer without answer choices.",
+        "model": "Ciliary muscle relaxes → ligament tension rises → lens flattens. Far viewing uses a flatter lens. Relaxing the ciliary muscle increases the pull of the suspensory ligaments.",
+        "selfAssessed": true
+      }
+    },
+    {
+      "id": "ch12-authored-application-04",
+      "chapter": 12,
+      "lesson": 4,
+      "conceptId": "ch12-cones",
+      "family": "application",
+      "kind": "mc",
+      "difficulty": "application",
+      "prompt": "A student can detect movement beside them in dim light but struggles to read small coloured print. Which explanation fits?",
+      "answer": "Rods support dim-light detection, while cones need more light for fine colour detail",
+      "options": [
+        "Rods support dim-light detection, while cones need more light for fine colour detail",
+        "Cones provide the best colour detail in total darkness",
+        "The blind spot contains the most cones",
+        "Reading small print depends only on the sclera"
+      ],
+      "cue": "Compare the working conditions and jobs of rods and cones.",
+      "explanation": "Rods are sensitive in dim conditions, while cone-based colour and fine-detail vision works best in brighter light.",
+      "reviewRoute": "lesson-04",
+      "flashVariant": {
+        "id": "ch12-authored-application-04-flash",
+        "family": "application",
+        "prompt": "A student can detect movement beside them in dim light but struggles to read small coloured print. Which explanation fits? Explain your answer without answer choices.",
+        "model": "Rods support dim-light detection, while cones need more light for fine colour detail. Rods are sensitive in dim conditions, while cone-based colour and fine-detail vision works best in brighter light.",
+        "selfAssessed": true
+      }
+    },
+    {
+      "id": "ch12-authored-application-05",
+      "chapter": 12,
+      "lesson": 5,
+      "conceptId": "ch12-oval-window",
+      "family": "application",
+      "kind": "mc",
+      "difficulty": "application",
+      "prompt": "The ossicles move, but a case states that the stapes cannot transfer its movement at the oval window. What is affected next?",
+      "answer": "Pressure-wave input into cochlear fluid is reduced",
+      "options": [
+        "Pressure-wave input into cochlear fluid is reduced",
+        "The pinna stops existing",
+        "Taste-bud signalling increases",
+        "The optic nerve carries sound instead"
+      ],
+      "cue": "Follow the structures immediately after the stapes.",
+      "explanation": "The oval window normally transfers stapes movement into cochlear-fluid pressure waves. The first problem is mechanical input, not proof that every hair cell is destroyed.",
+      "reviewRoute": "lesson-05",
+      "flashVariant": {
+        "id": "ch12-authored-application-05-flash",
+        "family": "application",
+        "prompt": "The ossicles move, but a case states that the stapes cannot transfer its movement at the oval window. What is affected next? Explain your answer without answer choices.",
+        "model": "Pressure-wave input into cochlear fluid is reduced. The oval window normally transfers stapes movement into cochlear-fluid pressure waves. The first problem is mechanical input, not proof that every hair cell is destroyed.",
+        "selfAssessed": true
+      }
+    },
+    {
+      "id": "ch12-authored-application-06",
+      "chapter": 12,
+      "lesson": 6,
+      "conceptId": "ch12-frequency-pitch",
+      "family": "application",
+      "kind": "mc",
+      "difficulty": "application",
+      "prompt": "Two tones have equal amplitude. Tone A is 300 Hz and tone B is 600 Hz. Which comparison follows?",
+      "answer": "B has higher pitch; equal amplitude does not make B necessarily louder",
+      "options": [
+        "B has higher pitch; equal amplitude does not make B necessarily louder",
+        "B must be lower in pitch",
+        "A must be louder because it has fewer cycles",
+        "Both have the same pitch"
+      ],
+      "cue": "Hertz measures cycles per second.",
+      "explanation": "The higher frequency of B supports higher pitch. Amplitude is a separate property related to loudness.",
+      "reviewRoute": "lesson-06",
+      "flashVariant": {
+        "id": "ch12-authored-application-06-flash",
+        "family": "application",
+        "prompt": "Two tones have equal amplitude. Tone A is 300 Hz and tone B is 600 Hz. Which comparison follows? Explain your answer without answer choices.",
+        "model": "B has higher pitch; equal amplitude does not make B necessarily louder. The higher frequency of B supports higher pitch. Amplitude is a separate property related to loudness.",
+        "selfAssessed": true
+      }
+    },
+    {
+      "id": "ch12-authored-application-07",
+      "chapter": 12,
+      "lesson": 7,
+      "conceptId": "ch12-proprioceptor",
+      "family": "application",
+      "kind": "mc",
+      "difficulty": "application",
+      "prompt": "With their eyes closed, a seated person can tell that their elbow is bent. Which receptors help provide this information?",
+      "answer": "Proprioceptors in muscles, tendons and joints",
+      "options": [
+        "Proprioceptors in muscles, tendons and joints",
+        "Rods at the blind spot",
+        "Taste receptors on the tongue",
+        "Hair cells in the auditory canal"
+      ],
+      "cue": "The question concerns limb position without looking.",
+      "explanation": "Proprioceptors provide information about body position and movement. Vision is not the only source of that information.",
+      "reviewRoute": "lesson-07",
+      "flashVariant": {
+        "id": "ch12-authored-application-07-flash",
+        "family": "application",
+        "prompt": "With their eyes closed, a seated person can tell that their elbow is bent. Which receptors help provide this information? Explain your answer without answer choices.",
+        "model": "Proprioceptors in muscles, tendons and joints. Proprioceptors provide information about body position and movement. Vision is not the only source of that information.",
+        "selfAssessed": true
+      }
+    },
+    {
+      "id": "ch12-authored-application-08",
+      "chapter": 12,
+      "lesson": 8,
+      "conceptId": "ch12-chemoreceptor",
+      "family": "application",
+      "kind": "mc",
+      "difficulty": "application",
+      "prompt": "A case describes normal detection of saltiness but reduced recognition of a food’s usual aroma. Which explanation best fits?",
+      "answer": "Taste and smell begin at different chemoreceptors and both contribute to flavour",
+      "options": [
+        "Taste and smell begin at different chemoreceptors and both contribute to flavour",
+        "Every taste receptor must be destroyed",
+        "The ear produces saltiness",
+        "The tongue must have lost its only salty zone"
+      ],
+      "cue": "Separate a basic taste from olfactory input.",
+      "explanation": "Taste receptors and olfactory receptors detect chemicals in different locations. Reduced smell can change flavour while some tastes remain detectable.",
+      "reviewRoute": "lesson-08",
+      "flashVariant": {
+        "id": "ch12-authored-application-08-flash",
+        "family": "application",
+        "prompt": "A case describes normal detection of saltiness but reduced recognition of a food’s usual aroma. Which explanation best fits? Explain your answer without answer choices.",
+        "model": "Taste and smell begin at different chemoreceptors and both contribute to flavour. Taste receptors and olfactory receptors detect chemicals in different locations. Reduced smell can change flavour while some tastes remain detectable.",
+        "selfAssessed": true
+      }
+    },
+    {
+      "id": "ch13-authored-application-01",
+      "chapter": 13,
+      "lesson": 1,
+      "conceptId": "ch13-endocrine-gland",
+      "family": "application",
+      "kind": "mc",
+      "difficulty": "application",
+      "prompt": "Two pancreatic cell groups are compared. One releases digestive secretions into a duct; the other releases hormones into blood. Which is endocrine?",
+      "answer": "The hormone-releasing group",
+      "options": [
+        "The hormone-releasing group",
+        "Both must be exocrine because they are in one organ",
+        "Only the duct-releasing group",
+        "Neither can be endocrine inside the pancreas"
+      ],
+      "cue": "Use the release route, not just the organ name.",
+      "explanation": "Endocrine cells release hormones into circulation. Exocrine secretions travel through ducts.",
+      "reviewRoute": "lesson-01",
+      "flashVariant": {
+        "id": "ch13-authored-application-01-flash",
+        "family": "application",
+        "prompt": "Two pancreatic cell groups are compared. One releases digestive secretions into a duct; the other releases hormones into blood. Which is endocrine? Explain your answer without answer choices.",
+        "model": "The hormone-releasing group. Endocrine cells release hormones into circulation. Exocrine secretions travel through ducts.",
+        "selfAssessed": true
+      }
+    },
+    {
+      "id": "ch13-authored-application-02",
+      "chapter": 13,
+      "lesson": 2,
+      "conceptId": "ch13-water-soluble",
+      "family": "application",
+      "kind": "mc",
+      "difficulty": "application",
+      "prompt": "An experimental hormone changes a cell’s activity even though the hormone remains outside the cell. Which mechanism can explain this?",
+      "answer": "A surface receptor passes the message to reactions inside the cell",
+      "options": [
+        "A surface receptor passes the message to reactions inside the cell",
+        "The cell cannot be responding",
+        "The hormone must become an action potential",
+        "Every responding hormone must enter the nucleus itself"
+      ],
+      "cue": "The messenger does not always cross the membrane.",
+      "explanation": "A water-soluble hormone can bind at the surface and trigger internal signalling without entering the cell.",
+      "reviewRoute": "lesson-02",
+      "flashVariant": {
+        "id": "ch13-authored-application-02-flash",
+        "family": "application",
+        "prompt": "An experimental hormone changes a cell’s activity even though the hormone remains outside the cell. Which mechanism can explain this? Explain your answer without answer choices.",
+        "model": "A surface receptor passes the message to reactions inside the cell. A water-soluble hormone can bind at the surface and trigger internal signalling without entering the cell.",
+        "selfAssessed": true
+      }
+    },
+    {
+      "id": "ch13-authored-application-03",
+      "chapter": 13,
+      "lesson": 3,
+      "conceptId": "ch13-negative-feedback",
+      "family": "application",
+      "kind": "mc",
+      "difficulty": "application",
+      "prompt": "A regulated concentration drops. A response raises it toward the usual range, then the response decreases. How is this classified?",
+      "answer": "Negative feedback",
+      "options": [
+        "Negative feedback",
+        "Positive feedback because the concentration rises",
+        "No feedback because a response occurs",
+        "Positive feedback because the outcome is useful"
+      ],
+      "cue": "Compare the response with the original drop.",
+      "explanation": "The upward response opposes the original decrease and weakens as the imbalance is corrected.",
+      "reviewRoute": "lesson-03",
+      "flashVariant": {
+        "id": "ch13-authored-application-03-flash",
+        "family": "application",
+        "prompt": "A regulated concentration drops. A response raises it toward the usual range, then the response decreases. How is this classified? Explain your answer without answer choices.",
+        "model": "Negative feedback. The upward response opposes the original decrease and weakens as the imbalance is corrected.",
+        "selfAssessed": true
+      }
+    },
+    {
+      "id": "ch13-authored-application-04",
+      "chapter": 13,
+      "lesson": 4,
+      "conceptId": "ch13-prolactin",
+      "family": "application",
+      "kind": "mc",
+      "difficulty": "application",
+      "prompt": "A case separates milk synthesis from the contraction that ejects stored milk. Which pairing is correct?",
+      "answer": "Prolactin: production; oxytocin: release",
+      "options": [
+        "Prolactin: production; oxytocin: release",
+        "Oxytocin: production; prolactin: release",
+        "TSH: both processes",
+        "ADH: both processes"
+      ],
+      "cue": "Name the job rather than grouping both as milk hormones.",
+      "explanation": "Prolactin supports milk production. Oxytocin supports milk ejection; the two processes are not interchangeable.",
+      "reviewRoute": "lesson-04",
+      "flashVariant": {
+        "id": "ch13-authored-application-04-flash",
+        "family": "application",
+        "prompt": "A case separates milk synthesis from the contraction that ejects stored milk. Which pairing is correct? Explain your answer without answer choices.",
+        "model": "Prolactin: production; oxytocin: release. Prolactin supports milk production. Oxytocin supports milk ejection; the two processes are not interchangeable.",
+        "selfAssessed": true
+      }
+    },
+    {
+      "id": "ch13-authored-application-05",
+      "chapter": 13,
+      "lesson": 5,
+      "conceptId": "ch13-growth-factors",
+      "family": "application",
+      "kind": "mc",
+      "difficulty": "application",
+      "prompt": "The anterior pituitary releases hGH, and the liver responds by releasing another signal that supports growth. What does this illustrate?",
+      "answer": "An indirect effect through growth factors",
+      "options": [
+        "An indirect effect through growth factors",
+        "ADH being made in the liver",
+        "The posterior pituitary making hGH",
+        "A feedback loop with no target tissue"
+      ],
+      "cue": "Identify the signal produced by the first target organ.",
+      "explanation": "hGH can stimulate liver growth-factor release. Those signals then contribute to growth in other tissues.",
+      "reviewRoute": "lesson-05",
+      "flashVariant": {
+        "id": "ch13-authored-application-05-flash",
+        "family": "application",
+        "prompt": "The anterior pituitary releases hGH, and the liver responds by releasing another signal that supports growth. What does this illustrate? Explain your answer without answer choices.",
+        "model": "An indirect effect through growth factors. hGH can stimulate liver growth-factor release. Those signals then contribute to growth in other tissues.",
+        "selfAssessed": true
+      }
+    },
+    {
+      "id": "ch13-authored-application-06",
+      "chapter": 13,
+      "lesson": 6,
+      "conceptId": "ch13-diabetes-insipidus",
+      "family": "application",
+      "kind": "mc",
+      "difficulty": "application",
+      "prompt": "ADH is available in a described case, but kidney collecting ducts do not respond normally. Which distinction matters?",
+      "answer": "Target resistance differs from inadequate hormone supply",
+      "options": [
+        "Target resistance differs from inadequate hormone supply",
+        "All cases must lack ADH",
+        "The thyroid must release ADH instead",
+        "Normal hormone concentration guarantees a normal response"
+      ],
+      "cue": "Check the target, not only the amount of hormone.",
+      "explanation": "Nephrogenic diabetes insipidus involves reduced kidney response to ADH. A message can be present without its target responding normally.",
+      "reviewRoute": "lesson-06",
+      "flashVariant": {
+        "id": "ch13-authored-application-06-flash",
+        "family": "application",
+        "prompt": "ADH is available in a described case, but kidney collecting ducts do not respond normally. Which distinction matters? Explain your answer without answer choices.",
+        "model": "Target resistance differs from inadequate hormone supply. Nephrogenic diabetes insipidus involves reduced kidney response to ADH. A message can be present without its target responding normally.",
+        "selfAssessed": true
+      }
+    },
+    {
+      "id": "ch13-authored-application-07",
+      "chapter": 13,
+      "lesson": 7,
+      "conceptId": "ch13-TSH-feedback",
+      "family": "application",
+      "kind": "mc",
+      "difficulty": "application",
+      "prompt": "A stated case has a thyroid unable to make enough thyroxine, but a functioning hypothalamus and pituitary. Which result is expected?",
+      "answer": "Low thyroxine and increased TSH",
+      "options": [
+        "Low thyroxine and increased TSH",
+        "Low thyroxine always shuts TSH off",
+        "High thyroxine and absent TSH in every case",
+        "The posterior pituitary releases the missing thyroxine"
+      ],
+      "cue": "Less final hormone means less feedback on functioning control glands.",
+      "explanation": "Reduced thyroxine feedback allows TSH to increase. The thyroid defect can still prevent adequate thyroxine production.",
+      "reviewRoute": "lesson-07",
+      "flashVariant": {
+        "id": "ch13-authored-application-07-flash",
+        "family": "application",
+        "prompt": "A stated case has a thyroid unable to make enough thyroxine, but a functioning hypothalamus and pituitary. Which result is expected? Explain your answer without answer choices.",
+        "model": "Low thyroxine and increased TSH. Reduced thyroxine feedback allows TSH to increase. The thyroid defect can still prevent adequate thyroxine production.",
+        "selfAssessed": true
+      }
+    },
+    {
+      "id": "ch13-authored-application-08",
+      "chapter": 13,
+      "lesson": 8,
+      "conceptId": "ch13-PTH",
+      "family": "application",
+      "kind": "mc",
+      "difficulty": "application",
+      "prompt": "Blood calcium falls in a described case. Which response helps correct the change?",
+      "answer": "PTH increases kidney calcium reabsorption",
+      "options": [
+        "PTH increases kidney calcium reabsorption",
+        "PTH removes more calcium from blood into urine",
+        "Calcitonin raises blood calcium by the same mechanism as PTH",
+        "Insulin is released by parathyroid glands"
+      ],
+      "cue": "Conserving calcium differs from losing it in urine.",
+      "explanation": "PTH conserves calcium through kidney reabsorption and also affects bone and intestinal supply, helping blood calcium rise.",
+      "reviewRoute": "lesson-08",
+      "flashVariant": {
+        "id": "ch13-authored-application-08-flash",
+        "family": "application",
+        "prompt": "Blood calcium falls in a described case. Which response helps correct the change? Explain your answer without answer choices.",
+        "model": "PTH increases kidney calcium reabsorption. PTH conserves calcium through kidney reabsorption and also affects bone and intestinal supply, helping blood calcium rise.",
+        "selfAssessed": true
+      }
+    },
+    {
+      "id": "ch13-authored-application-09",
+      "chapter": 13,
+      "lesson": 9,
+      "conceptId": "ch13-adrenal-medulla",
+      "family": "application",
+      "kind": "mc",
+      "difficulty": "application",
+      "prompt": "A signal reaches the inner adrenal region along a sympathetic neuron. Which output follows in the rapid stress pathway?",
+      "answer": "Epinephrine and norepinephrine enter the blood",
+      "options": [
+        "Epinephrine and norepinephrine enter the blood",
+        "TSH enters the thyroid duct",
+        "ADH is made by the adrenal medulla",
+        "The medulla releases only cortisol"
+      ],
+      "cue": "Locate the inner region and its hormones.",
+      "explanation": "Sympathetic signals stimulate the adrenal medulla to release epinephrine and norepinephrine.",
+      "reviewRoute": "lesson-09",
+      "flashVariant": {
+        "id": "ch13-authored-application-09-flash",
+        "family": "application",
+        "prompt": "A signal reaches the inner adrenal region along a sympathetic neuron. Which output follows in the rapid stress pathway? Explain your answer without answer choices.",
+        "model": "Epinephrine and norepinephrine enter the blood. Sympathetic signals stimulate the adrenal medulla to release epinephrine and norepinephrine.",
+        "selfAssessed": true
+      }
+    },
+    {
+      "id": "ch13-authored-application-10",
+      "chapter": 13,
+      "lesson": 10,
+      "conceptId": "ch13-cortisol-feedback",
+      "family": "application",
+      "kind": "mc",
+      "difficulty": "application",
+      "prompt": "Cortisol decreases while the hypothalamus and pituitary remain functional. What can happen as feedback inhibition weakens?",
+      "answer": "CRH and ACTH stimulation can increase",
+      "options": [
+        "CRH and ACTH stimulation can increase",
+        "ACTH must always fall with cortisol",
+        "The pathway must become positive feedback",
+        "Cortisol is replaced by auditory signals"
+      ],
+      "cue": "Follow the inhibitory effect backward through the pathway.",
+      "explanation": "Less cortisol reduces inhibition, allowing greater CRH and ACTH drive from functioning control glands.",
+      "reviewRoute": "lesson-10",
+      "flashVariant": {
+        "id": "ch13-authored-application-10-flash",
+        "family": "application",
+        "prompt": "Cortisol decreases while the hypothalamus and pituitary remain functional. What can happen as feedback inhibition weakens? Explain your answer without answer choices.",
+        "model": "CRH and ACTH stimulation can increase. Less cortisol reduces inhibition, allowing greater CRH and ACTH drive from functioning control glands.",
+        "selfAssessed": true
+      }
+    },
+    {
+      "id": "ch13-authored-application-11",
+      "chapter": 13,
+      "lesson": 11,
+      "conceptId": "ch13-aldosterone",
+      "family": "application",
+      "kind": "mc",
+      "difficulty": "application",
+      "prompt": "A hormone increases sodium return from forming urine toward the blood. Which consequence is most consistent with its normal action?",
+      "answer": "Salt conservation can support water retention and blood volume",
+      "options": [
+        "Salt conservation can support water retention and blood volume",
+        "Water retention requires sodium to be removed into urine",
+        "It has the same immediate action as ADH on duct permeability",
+        "It must be released from the posterior pituitary"
+      ],
+      "cue": "Identify aldosterone from sodium handling.",
+      "explanation": "Aldosterone increases sodium reabsorption. The resulting salt conservation can support water retention by osmosis.",
+      "reviewRoute": "lesson-11",
+      "flashVariant": {
+        "id": "ch13-authored-application-11-flash",
+        "family": "application",
+        "prompt": "A hormone increases sodium return from forming urine toward the blood. Which consequence is most consistent with its normal action? Explain your answer without answer choices.",
+        "model": "Salt conservation can support water retention and blood volume. Aldosterone increases sodium reabsorption. The resulting salt conservation can support water retention by osmosis.",
+        "selfAssessed": true
+      }
+    },
+    {
+      "id": "ch13-authored-application-12",
+      "chapter": 13,
+      "lesson": 12,
+      "conceptId": "ch13-diabetes-symptoms",
+      "family": "application",
+      "kind": "mc",
+      "difficulty": "application",
+      "prompt": "A case states that excessive glucose enters the forming urine and urine volume rises. Which mechanism explains the water loss?",
+      "answer": "Glucose holds extra water in the forming urine",
+      "options": [
+        "Glucose holds extra water in the forming urine",
+        "The case proves ADH is absent",
+        "The pancreas releases glycogen as its main hormone",
+        "PTH converts glucose into water"
+      ],
+      "cue": "Use the stated solute in the urine.",
+      "explanation": "Glucose in forming urine can cause extra water to remain there. This differs from a case caused by inadequate ADH action.",
+      "reviewRoute": "lesson-12",
+      "flashVariant": {
+        "id": "ch13-authored-application-12-flash",
+        "family": "application",
+        "prompt": "A case states that excessive glucose enters the forming urine and urine volume rises. Which mechanism explains the water loss? Explain your answer without answer choices.",
+        "model": "Glucose holds extra water in the forming urine. Glucose in forming urine can cause extra water to remain there. This differs from a case caused by inadequate ADH action.",
+        "selfAssessed": true
+      }
+    }
+  ],
+  "stopCheckReplacements": [
+    {
+      "chapter": 13,
+      "route": "lesson-02",
+      "selector": ".stop-check",
+      "prompt": "A hormone cannot enter a cell directly. How can it still change the cell’s activity?",
+      "answer": "It can bind to a surface receptor. The receptor passes the message to reactions inside the cell."
+    },
+    {
+      "chapter": 12,
+      "route": "lesson-08",
+      "selector": ".stop-check",
+      "prompt": "Why should a comparison of two body regions keep contact pressure consistent?",
+      "answer": "Changing pressure and body region together makes it unclear which change caused the result. Keeping pressure consistent makes the comparison fairer."
+    }
+  ],
+  "checkFieldPatches": [
+    {
+      "chapter": 12,
+      "checkId": "ch12-check-06",
+      "questionId": "ch12-l06-check-mc-2",
+      "field": "prompt",
+      "value": "High-frequency sounds most strongly stimulate which region of the cochlea?"
+    },
+    {
+      "chapter": 13,
+      "checkId": "ch13-check-10",
+      "questionId": "ch13-l10-check-mc-2",
+      "field": "prompt",
+      "value": "If cortisol rises in a normally functioning feedback pathway, what tends to happen to CRH and ACTH release?"
+    },
+    {
+      "chapter": 13,
+      "checkId": "ch13-check-11",
+      "questionId": "ch13-l11-check-mc-1",
+      "field": "prompt",
+      "value": "What is aldosterone’s main direct action in the kidneys?"
+    },
+    {
+      "chapter": 13,
+      "checkId": "ch13-check-11",
+      "questionId": "ch13-l11-check-mc-2",
+      "field": "prompt",
+      "value": "Which signals are major controls of aldosterone release?"
+    }
+  ],
+  "practiceQuestionFieldPatches": [
+    {
+      "chapter": 13,
+      "questionId": "ch13-mc-019",
+      "field": "prompt",
+      "value": "Which statement correctly describes cortisol?"
+    }
+  ],
+  "videoTitlePatches": {
+    "T8lKKlnnC6M": "The hearing pathway",
+    "LkGOGzpbrCk": "Pitch and loudness",
+    "98-6WfdumZY": "Hearing loss and the sensory pathway",
+    "8IUZjCSkbrc": "The cortisol pathway",
+    "v-t1Z5-oPtU": "Short-term and continuing stress responses",
+    "BYaR-JgbjCs": "Connecting endocrine responses",
+    "QHkGG4TimvQ": "Hormone production, release and targets",
+    "SCV_m91mN-Q": "Reconstructing hormone pathways",
+    "lgqbs5a6Guw": "Comparing antagonistic hormones",
+    "k_QhDbUd654": "Adrenal cortex and medulla",
+    "GYQyWYHt_vk": "Predicting feedback changes"
+  },
+  "figureTitleReplacements": {
+    "Accommodation in the source diagram": "Accommodation: near and distant focus"
+  },
+  "mediaCopy": {
+    "resourceNote": "Optional video. Internet access is required. The explanation below covers the idea without the video.",
+    "fallbackHeading": "Read the explanation",
+    "openCreditLink": "View the embedded textbook page"
+  },
+  "oldMisconceptionDisplay": {
+    "incorrectLabel": "Common misconception — incorrect",
+    "correctionLabel": "Correction",
+    "correctLabel": "Why this is correct"
+  },
+  "wordReaderHeadings": {
+    "confusion": "Important distinction",
+    "whatItDoes": "What it does"
+  },
+  "courseStartCopy": {
+    "title": "How to use this chapter",
+    "paragraphs": [
+      "Work through the lessons in order. Each lesson explains the idea, shows a worked example and gives you practice before the lesson check.",
+      "Everything needed for the lesson checks is taught here. Videos and the embedded textbook are optional support.",
+      "Try each question before checking feedback. When you make a correction, explain what changed in your thinking. Saved work and corrected choices help you track progress, but completing an activity does not by itself prove understanding."
+    ]
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "checkedAt": "2026-10-06T16:19:00Z",
+  "currentIntegration": "Awaiting current integrated index attachment; Dean reported06/07complete; no assumption of current byte identity",
+  "frozenOwnerSha256": "31447f72550c68ceb4a7cfd444f85651908a86782096dff4e4847cff4ab9e3e4",
+  "files": [
+    {
+      "path": "source_packet/current/index.html",
+      "bytes": 3613475,
+      "sha256": "31447f72550c68ceb4a7cfd444f85651908a86782096dff4e4847cff4ab9e3e4"
+    },
+    {
+      "path": "source_packet/sources/original-114-slides.pptx",
+      "bytes": 10153531,
+      "sha256": "da1ce1c0526da4da1aefd1fb6c0f23070f820ce24378c12f9699d1c700e1a985"
+    },
+    {
+      "path": "source_packet/sources/chapter-17.pdf",
+      "bytes": 2005971,
+      "sha256": "48e297aacb86275c106a02abdddaf0f0463ba47d6b17703a926aa68405755455"
+    },
+    {
+      "path": "source_packet/standards/02_TEACHING_STANDARD.md",
+      "bytes": 11744,
+      "sha256": "aa273698aa48c983081ca9bb724dec66959ce86ea4f33049f12330715fbf89e2"
+    },
+    {
+      "path": "source_packet/standards/CHAPTER11_TEACHING_STANDARD.md",
+      "bytes": 11846,
+      "sha256": "cf7d4942a44944defd587813dcf68fc53e29773d189834c8e304bced4f530d80"
+    },
+    {
+      "path": "source_packet/reference/l02/lesson-02.md",
+      "bytes": 29639,
+      "sha256": "dc5e1f0207ec82dfacbc9d0e299f8f48beb6b5ee1c4ddc3deb24e8ac9635db11"
+    },
+    {
+      "path": "source_packet/reference/l05/manuscripts/lesson-05.md",
+      "bytes": 50205,
+      "sha256": "67a75c62d2fe43cd3877d6bfd9940d6558bf6cdbee35a2d266b024a102fbdb9c"
+    },
+    {
+      "path": "return_06_07/manuscripts/lesson-06.md",
+      "bytes": 48482,
+      "sha256": "a03d425a6fbe763297c7c09b549881538d9fd6f29d36394ec8dbe19f83815b4c"
+    },
+    {
+      "path": "return_06_07/manuscripts/lesson-07.md",
+      "bytes": 48681,
+      "sha256": "e8e28af60b4fd9f2727dcea81ccc9ab9d630530a5d546b495149bef2bb0250e2"
+    }
+  ],
+  "nativeRoutes": [
+    "lesson-08",
+    "lesson-09",
+    "lesson-10",
+    "lesson-11",
+    "lesson-12",
+    "lesson-13",
+    "lesson-14",
+    "lesson-15",
+    "extension"
+  ],
+  "figureRecovery": "Three native SVGs recovered from untouched historical review-assets and verified against frozen SOURCE_PROTECTION; superseded historical manuscript not used",
+  "status": "Source ready for authoring; exact latest owner comparison pending",
+  "librarySources": [
+    {
+      "name": "Biology30_CH17_Batch06_07_Teacher_Transfer_v0.1.0_Source.zip",
+      "libraryFileId": "libfile_52bc61d9cc608191a5165b25fe3e4d1b",
+      "bytes": 16924228,
+      "sha256": "c97acc7e5e0eb43dde3e6252b6ad1a28250b91f0ce79aaf8abd5bbcdad21ea98"
+    },
+    {
+      "name": "Biology30_CH17_Batch06_07_Teacher_Transfer_v0.1.0.zip",
+      "libraryFileId": "libfile_4a5fdf66165c8191852f78aa0752fab1",
+      "bytes": 1206261,
+      "sha256": "b5783d56ff4f261affe67f158ccd0c15b85f519c4db6beacaf5fabd5930ef4f3"
+    },
+    {
+      "name": "Biology30_CH17_Manuscript_Handoff_v1.0.0.zip",
+      "libraryFileId": "libfile_4f06d0f7b5248191b187b216e95ed3e0",
+      "bytes": 3312061,
+      "sha256": "9ec8ac9208c131d0dbd1586e0b99ab532ab1293fae42f9478bc8669d94c270b9",
+      "use": "Untouched native SVG recovery only; superseded learner prose excluded"
+    }
+  ],
+  "sourceReviewAddendum": [
+    "Recovered all three missing native SVGs and matched all current frozen SOURCE_PROTECTION entries.",
+    "Slide97 image88 contains visible A/B/a/b locus labels; the independent content review corrects the earlier no-loci-label source note."
+  ]
+}

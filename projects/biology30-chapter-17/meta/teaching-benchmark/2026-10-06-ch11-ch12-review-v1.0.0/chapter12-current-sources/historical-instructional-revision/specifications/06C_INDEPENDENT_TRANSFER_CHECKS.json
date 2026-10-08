@@ -1,0 +1,127 @@
+{
+  "schemaVersion": 1,
+  "checks": [
+    {
+      "chapter": 12,
+      "id": "ch12-transfer-01",
+      "route": "lesson-09",
+      "placement": "After ch12-l09-teaching-03 and before the existing required final-check interface.",
+      "title": "Try a new case",
+      "instruction": "Try these questions without opening notes or model answers first. Submit the whole set before viewing feedback. This is an optional independent practice check, not an exam or a new completion requirement.",
+      "kind": "transfer",
+      "mc": [
+        {
+          "id": "ch12-transfer-mc-1",
+          "prompt": "A case states that light is focused normally and photoreceptors respond, but the optic nerve cannot carry signals. Which step is directly affected?",
+          "answer": "Transmission of retinal information toward the brain",
+          "options": [
+            "Transmission of retinal information toward the brain",
+            "Entry of light through the pupil",
+            "The ability of the cornea to bend light",
+            "The production of sound pressure waves"
+          ],
+          "explanation": "The stated problem occurs after retinal detection. A working optical system cannot replace the neural output pathway."
+        },
+        {
+          "id": "ch12-transfer-mc-2",
+          "prompt": "A plan compares two body regions for touch discrimination but also uses stronger pressure on one region. Why can it not isolate the effect of body region?",
+          "answer": "Both body region and contact pressure changed",
+          "options": [
+            "Both body region and contact pressure changed",
+            "A responding variable must never be measured",
+            "Repeated trials always remove every confounding variable",
+            "The prediction is automatically a result"
+          ],
+          "explanation": "More than one changed factor can explain a difference, so pressure should be controlled."
+        },
+        {
+          "id": "ch12-transfer-mc-3",
+          "prompt": "In a described movement, the head turns left and then stops. Which structure may still be bent briefly by continued relative fluid movement?",
+          "answer": "A semicircular-canal cupula",
+          "options": [
+            "A semicircular-canal cupula",
+            "The optic disc",
+            "The lens suspensory ligaments",
+            "A taste bud in the inner ear"
+          ],
+          "explanation": "Canal fluid can continue moving briefly relative to the stopped canal, bending the cupula."
+        }
+      ],
+      "writing": {
+        "id": "ch12-transfer-writing-1",
+        "prompt": "A student says, “A brighter object and a nearer object require the same eye adjustment.” Explain why this is incomplete. Name the main adjustment for each change and trace the muscle–ligament–lens sequence for the nearer object.",
+        "model": "Greater brightness mainly calls for the iris to reduce pupil size and limit light entry. A nearer object calls for accommodation: the ciliary muscle contracts, ligament tension decreases, and the lens becomes rounder to bend light more strongly. The two adjustments have different jobs and can occur together.",
+        "criteria": [
+          "Brightness linked to iris/pupil",
+          "Distance linked to lens accommodation",
+          "Contraction → reduced ligament tension → rounder lens",
+          "Optical consequence explained"
+        ],
+        "limit": 3200
+      },
+      "feedbackPolicy": "No per-item hints, correctness or model answers before whole-set submission. Do not disable normal navigation or accessibility features. Record whether the learner reports using help; do not claim secure closed-book conditions.",
+      "scoringPolicy": "MC first submission only; writing saved for review, not auto-graded. Later attempts labelled practice after feedback. No contribution to C.checks, required completion, passed status or existing gradebook score."
+    },
+    {
+      "chapter": 13,
+      "id": "ch13-transfer-01",
+      "route": "lesson-13",
+      "placement": "After ch13-l13-teaching-03 and before the existing required final-check interface.",
+      "title": "Try a new case",
+      "instruction": "Try these questions without opening notes or model answers first. Submit the whole set before viewing feedback. This is an optional independent practice check, not an exam or a new completion requirement.",
+      "kind": "transfer",
+      "mc": [
+        {
+          "id": "ch13-transfer-mc-1",
+          "prompt": "A case states that the anterior pituitary cannot release enough TSH, while the thyroid could respond to stimulation. Which prediction follows?",
+          "answer": "Thyroxine can be low because the stimulating signal is insufficient",
+          "options": [
+            "Thyroxine can be low because the stimulating signal is insufficient",
+            "Thyroxine must be high because all low hormones increase TSH",
+            "The thyroid takes over production of pituitary TSH",
+            "Aldosterone must be completely absent"
+          ],
+          "explanation": "Reduced TSH can limit thyroid output. The defect is in the stimulating signal, not necessarily the thyroid’s ability to respond."
+        },
+        {
+          "id": "ch13-transfer-mc-2",
+          "prompt": "Which observation most directly distinguishes aldosterone action from ADH action?",
+          "answer": "Increased kidney sodium reabsorption rather than a direct increase in water permeability",
+          "options": [
+            "Increased kidney sodium reabsorption rather than a direct increase in water permeability",
+            "Both can affect body fluid",
+            "Both have a hormone name",
+            "Both must be made in the posterior pituitary"
+          ],
+          "explanation": "The immediate kidney action differs: aldosterone affects sodium/potassium handling, while ADH directly affects water permeability."
+        },
+        {
+          "id": "ch13-transfer-mc-3",
+          "prompt": "A case describes high blood glucose because target tissues respond poorly to insulin, even though insulin is still present. What is the key mechanism?",
+          "answer": "Reduced target response to the hormone",
+          "options": [
+            "Reduced target response to the hormone",
+            "Complete absence of every endocrine gland",
+            "Failure of the adrenal medulla to detect light",
+            "Glucagon becoming glycogen in the pancreas"
+          ],
+          "explanation": "The stated problem is insulin resistance. Hormone presence alone does not guarantee a normal target response."
+        }
+      ],
+      "writing": {
+        "id": "ch13-transfer-writing-1",
+        "prompt": "A case states that cortisol is low because the adrenal cortex cannot respond normally, while the hypothalamus and anterior pituitary are functioning. Predict ACTH and explain the feedback. Then explain why the rapid adrenal-medulla pathway is a different route.",
+        "model": "Low cortisol reduces feedback inhibition of the functioning hypothalamus and pituitary, so ACTH tends to rise. The cortex defect can still prevent adequate cortisol output. The rapid pathway uses sympathetic neurons to stimulate the adrenal medulla, which releases epinephrine and norepinephrine; it does not use ACTH as its main incoming signal.",
+        "criteria": [
+          "Intact control glands stated",
+          "Reduced cortisol inhibition",
+          "ACTH tends to rise despite low cortical output",
+          "Sympathetic neurons → medulla → epinephrine/norepinephrine distinguished"
+        ],
+        "limit": 3200
+      },
+      "feedbackPolicy": "No per-item hints, correctness or model answers before whole-set submission. Do not disable normal navigation or accessibility features. Record whether the learner reports using help; do not claim secure closed-book conditions.",
+      "scoringPolicy": "MC first submission only; writing saved for review, not auto-graded. Later attempts labelled practice after feedback. No contribution to C.checks, required completion, passed status or existing gradebook score."
+    }
+  ]
+}

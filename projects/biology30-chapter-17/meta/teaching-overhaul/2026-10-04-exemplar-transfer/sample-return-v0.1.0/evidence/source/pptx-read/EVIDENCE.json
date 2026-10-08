@@ -1,0 +1,460 @@
+{
+  "scope": "Lessons02/05 original-PPTX source reading for calibration; source evidence only",
+  "source_pin": {
+    "path": "source-inspection/ch17/sources/Unit C Part B Mendelian Genetics .pptx",
+    "bytes": 10153531,
+    "sha256": "da1ce1c0526da4da1aefd1fb6c0f23070f820ce24378c12f9699d1c700e1a985"
+  },
+  "read_log": "READ_LOG.json",
+  "actual_slide_extraction": "ACTUAL_SLIDE_TEXT_01_48.json",
+  "records": [
+    {
+      "id": "CAL-PPT-L02-ROUTE",
+      "lesson": "lesson-02",
+      "actual_slides": [
+        2,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25
+      ],
+      "claim_scope": "Slides 13–25 are direct Mendel/segregation support. Slide 2 introduces Topic 1. Slides 1–12 are title/prerequisite context; 26–32 are adjacent single-trait/testcross applications; 33 is a recap-link slide.",
+      "evidence": "Original deck distinguishes P, F1 and F2 and follows true-breeding round/wrinkled peas through RR × rr then Rr × Rr. Source 13 additionally describes true-breeding purple×white flowers.",
+      "source_media": [
+        "image25.png",
+        "image14.png",
+        "image16.png",
+        "image20.png",
+        "image17.png",
+        "image21.png",
+        "image36.png"
+      ],
+      "avoid_cloning": [
+        "Purple/white pea-flower narrative as a newly invented example.",
+        "Exact round/wrinkled P→F1→F2 images, genotype sequence, 3:1 phenotype and 1:2:1 genotype worked target.",
+        "Original source trait collage: long/short stems, purple/white flowers, round/wrinkled seeds, green/yellow seeds and pods, inflated/pinched pods."
+      ],
+      "qualifications": [
+        "Source 13 calls the experiments test crosses; 17–20 also use that heading for the initial known-parent cross and F1 heterozygote cross. Those headings are broader than the unknown-genotype×recessive-tester use on 31–32. Preserve the source label as evidence, but use precise cross descriptions in new work.",
+        "Source 14 limits the selected traits to simple dominant/recessive relationships. Do not extend that model to all inherited traits."
+      ],
+      "locators": [
+        "ppt/slides/slide2.xml",
+        "ppt/slides/slide13.xml",
+        "ppt/slides/slide14.xml",
+        "ppt/slides/slide15.xml",
+        "ppt/slides/slide16.xml",
+        "ppt/slides/slide17.xml",
+        "ppt/slides/slide18.xml",
+        "ppt/slides/slide19.xml",
+        "ppt/slides/slide20.xml",
+        "ppt/slides/slide21.xml",
+        "ppt/slides/slide22.xml",
+        "ppt/slides/slide23.xml",
+        "ppt/slides/slide24.xml",
+        "ppt/slides/slide25.xml",
+        "ppt/media/image25.png",
+        "ppt/media/image14.png",
+        "ppt/media/image16.png",
+        "ppt/media/image20.png",
+        "ppt/media/image17.png",
+        "ppt/media/image21.png",
+        "ppt/media/image36.png"
+      ]
+    },
+    {
+      "id": "CAL-PPT-L02-PATTERNS",
+      "lesson": "lesson-02",
+      "actual_slides": [
+        15,
+        17,
+        18,
+        19,
+        20
+      ],
+      "evidence": "Media 14 identifies P and F1/F2, all-round F1 and 3/4 round: 1/4 wrinkled F2. Media 16 has R/R versus r/r gametes and four Rr boxes; media 20 labels RR × rr→Rr. Media 36 is Rr × Rr with RR, Rr, Rr, rr. Media 21 groups RR/Rr as round and rr as wrinkled. All are actual byte-matched original media.",
+      "source_media": [
+        "image14.png",
+        "image16.png",
+        "image20.png",
+        "image17.png",
+        "image21.png",
+        "image36.png"
+      ],
+      "scientific_ambiguities": [
+        {
+          "classification": "expected-ratio versus observation scope",
+          "locator": "slide 15, ppt/media/image14.png, right-hand F2 explanation",
+          "finding": "Image says Mendel consistently obtained 3:1 in each cross. The slide gives no empirical counts or sample sizes. Treat displayed fractions as a schematic expectation, not guaranteed counts in every finite family or an original numerical dataset."
+        },
+        {
+          "classification": "model-conditioned dominance inference",
+          "locator": "slide 17 explanatory text",
+          "finding": "The all-round F1 inference relies on stated true-breeding parents and the simple expression model. It is not a general inference from any all-round sample with unspecified parental genotypes."
+        }
+      ],
+      "avoid_cloning": [
+        "The same phenotype-return question, P/F1/F2 progression, identical Punnett labels, and completed 3:1/1:2:1 result as fresh transfer."
+      ],
+      "locators": [
+        "ppt/slides/slide15.xml",
+        "ppt/slides/slide17.xml",
+        "ppt/slides/slide18.xml",
+        "ppt/slides/slide19.xml",
+        "ppt/slides/slide20.xml",
+        "ppt/media/image14.png",
+        "ppt/media/image16.png",
+        "ppt/media/image20.png",
+        "ppt/media/image17.png",
+        "ppt/media/image21.png",
+        "ppt/media/image36.png"
+      ]
+    },
+    {
+      "id": "CAL-PPT-L02-SEGREGATION",
+      "lesson": "lesson-02",
+      "actual_slides": [
+        21,
+        22,
+        23,
+        24,
+        25
+      ],
+      "evidence": "Slides 21–22 display a generic Punnett-square image with one-parent alleles around edges and four possible offspring positions. Slide 23 states the segregation law. Slide 25 media 23 qualifies segregation to diploid organisms and identifies chromosome-pair separation into gametes.",
+      "source_media": [
+        "image27.png",
+        "image23.png"
+      ],
+      "scientific_ambiguities": [
+        {
+          "classification": "scope overgeneralization with narrower recap in same source",
+          "locator": "slide 23 versus slide 25 media 23",
+          "finding": "Slide 23 says all individuals have two copies of each gene and each gamete receives one copy of every gene. Use the stated simple diploid/autosomal model; the actual recap image already narrows the premise to diploid organisms."
+        },
+        {
+          "classification": "incomplete probability justification",
+          "locator": "slide 22 plus media 27",
+          "finding": "Metaphase-I alignment alone does not establish all four Punnett contribution paths as equally likely. The intended Rr × Rr calculation also uses equal allele segregation and random fertilization. Four boxes need not mean four distinct genotypes."
+        },
+        {
+          "classification": "dominance model boundary",
+          "locator": "slide 24 and slide 25 media 23",
+          "finding": "Only one parental phenotype appears in F1 under the simple complete-dominance model. Dominance concerns scored expression; it is not what makes alleles segregate or survive transmission."
+        }
+      ],
+      "avoid_cloning": [
+        "The generic four-possible-genotype box labels as a new explanatory diagram.",
+        "The three-law mind-map image/design and source textual sequence."
+      ],
+      "teaching_boundary": "No detailed chromosome-stage diagram occurs within 13–25. The source’s clearer alternative-pair-orientation media is on 41; citing it for mechanism is a cross-reference, not an image from the early Mendel sequence.",
+      "locators": [
+        "ppt/slides/slide21.xml",
+        "ppt/slides/slide22.xml",
+        "ppt/slides/slide23.xml",
+        "ppt/slides/slide24.xml",
+        "ppt/slides/slide25.xml",
+        "ppt/media/image27.png",
+        "ppt/media/image23.png"
+      ]
+    },
+    {
+      "id": "CAL-PPT-L02-ADJACENT",
+      "lesson": "lesson-02 boundary",
+      "actual_slides": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33
+      ],
+      "evidence": "Direct XML read includes prerequisite genotype/phenotype language and adjacent black/brown mouse single-locus crosses.31–32 define an unknown dominant phenotype crossed to recessive tester.32 acknowledges sample-size/chance uncertainty.",
+      "scientific_ambiguities": [
+        {
+          "classification": "prerequisite simplification not imported",
+          "locator": "slides 7–10",
+          "finding": "Human eye colour and universal dominant-expression language are oversimplified source examples. Do not adopt them as general human-genetics facts in calibration."
+        },
+        {
+          "classification": "terminology convention",
+          "locator": "slide 28",
+          "finding": "Source defines monohybrid narrowly as two heterozygotes at one trait. This is a usage/scope issue; it does not make its Bb × Bb calculation wrong."
+        },
+        {
+          "classification": "certainty versus finite sample",
+          "locator": "slides 31–32",
+          "finding": "An observed recessive offspring can exclude homozygous dominance in the unknown parent in the simple model. All-dominant finite offspring do not logically prove homozygosity; 32 itself flags the chance issue."
+        }
+      ],
+      "avoid_cloning": [
+        "BB/Bb/bb mouse examples, child/grandchild recessive reappearance, and testcross inference prompts."
+      ],
+      "scope_limit": "These adjacent examples were read to set lesson 02 boundaries; native protected questions were not re-audited. Recap hyperlinks were recorded only.",
+      "locators": [
+        "ppt/slides/slide7.xml",
+        "ppt/slides/slide8.xml",
+        "ppt/slides/slide9.xml",
+        "ppt/slides/slide10.xml",
+        "ppt/slides/slide11.xml",
+        "ppt/slides/slide12.xml",
+        "ppt/slides/slide26.xml",
+        "ppt/slides/slide27.xml",
+        "ppt/slides/slide28.xml",
+        "ppt/slides/slide29.xml",
+        "ppt/slides/slide30.xml",
+        "ppt/slides/slide31.xml",
+        "ppt/slides/slide32.xml",
+        "ppt/slides/slide33.xml"
+      ]
+    },
+    {
+      "id": "CAL-PPT-L05-ROUTE",
+      "lesson": "lesson-05",
+      "actual_slides": [
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42
+      ],
+      "evidence": "Topic 2 begins34.35 poses whether segregation for plant size affects pod colour.36–37 use TTGG × ttgg to produce TtGg.39 crosses TtGg × TtGg using TG, Tg, tG, tg and shows 9:3:3:1.40–42 name independent assortment and relate it to chromosome orientation.",
+      "source_media": [
+        "image29.png",
+        "image35.png",
+        "image46.png",
+        "image37.png",
+        "image34.png",
+        "image40.png",
+        "image47.png",
+        "image44.png",
+        "image23.png"
+      ],
+      "avoid_cloning": [
+        "Exact tall/short and green/yellow-pod P/F1/F2 story, TTGG×ttgg followed by TtGg self-cross, and same 9:3:3:1 completed table as fresh transfer."
+      ],
+      "qualifications": [
+        "Separate two-locus gamete formation from the later grouping of offspring by complete-dominance phenotype rules.",
+        "A 9:3:3:1 phenotype result requires the source’s independent-assortment and simple-expression assumptions; it is not the defining result of every two-trait cross."
+      ],
+      "locators": [
+        "ppt/slides/slide34.xml",
+        "ppt/slides/slide35.xml",
+        "ppt/slides/slide36.xml",
+        "ppt/slides/slide37.xml",
+        "ppt/slides/slide38.xml",
+        "ppt/slides/slide39.xml",
+        "ppt/slides/slide40.xml",
+        "ppt/slides/slide41.xml",
+        "ppt/slides/slide42.xml",
+        "ppt/media/image29.png",
+        "ppt/media/image35.png",
+        "ppt/media/image46.png",
+        "ppt/media/image37.png",
+        "ppt/media/image34.png",
+        "ppt/media/image40.png",
+        "ppt/media/image47.png",
+        "ppt/media/image44.png",
+        "ppt/media/image23.png"
+      ]
+    },
+    {
+      "id": "CAL-PPT-L05-GAMETES",
+      "lesson": "lesson-05",
+      "actual_slides": [
+        36,
+        37,
+        39
+      ],
+      "evidence": "Media 46 repeats sole TG and tg gametes four times for homozygous parents. Media 37 repeats TtGg in 16 identical cells. Media 34 lists four distinct gametes for each TtGg parent. Media 40’s 16 genotype cells and phenotype markers are consistent: 9 tall green, 3 tall yellow, 3 short green, 1 short yellow.",
+      "source_media": [
+        "image35.png",
+        "image46.png",
+        "image37.png",
+        "image34.png",
+        "image40.png"
+      ],
+      "scientific_ambiguities": [
+        {
+          "classification": "representation duplication, not arithmetic error",
+          "locator": "slide 37 media 46 and 37",
+          "finding": "Repeated TG/tg labels are copies of one distinct gamete type per parent. Their16-cell layout does not establish four gamete types or sixteen distinct offspring genotypes."
+        },
+        {
+          "classification": "equal-weight model requirement",
+          "locator": "slide 39 media 34 and 40",
+          "finding": "TG, Tg, tG, tg are each 1/4 only under the independent-assortment/equal-segregation model. Parent TtGg alone does not specify linked-locus phase or equal gamete weights."
+        }
+      ],
+      "avoid_cloning": [
+        "Exact 16-cell pea grid and colour/shape phenotype markings."
+      ],
+      "analysis_check": "All 16 displayed genotype cells and phenotype markings were checked against their edge gametes. No cell contradiction found.",
+      "locators": [
+        "ppt/slides/slide36.xml",
+        "ppt/slides/slide37.xml",
+        "ppt/slides/slide39.xml",
+        "ppt/media/image35.png",
+        "ppt/media/image46.png",
+        "ppt/media/image37.png",
+        "ppt/media/image34.png",
+        "ppt/media/image40.png"
+      ]
+    },
+    {
+      "id": "CAL-PPT-L05-MECHANISM",
+      "lesson": "lesson-05",
+      "actual_slides": [
+        40,
+        41,
+        42
+      ],
+      "evidence": "41 media 47 names different pairs of homologous chromosomes and independent orientation; media 44 shows two possible orientations, subsequent meiosis II cells, and four gamete combinations across the alternatives.42 media 23 explicitly states alleles on different chromosomes.",
+      "source_media": [
+        "image47.png",
+        "image44.png",
+        "image23.png"
+      ],
+      "scientific_ambiguities": [
+        {
+          "classification": "broad law wording with source-image qualification",
+          "locator": "slides 40–41 text versus42 media 23",
+          "finding": "Text is unconditional about other genes. Restrict the conclusion to independently assorting loci; media 23 supplies the different-chromosome qualification."
+        },
+        {
+          "classification": "context-label ambiguity, not a wrong stage claim",
+          "locator": "slide 41 sentence notes on meiosis II",
+          "finding": "The same sentence correctly places independent chromosome alignment at metaphase I. Media 44 includes downstream metaphase II. Do not report the phrase alone as an assertion that independent homolog orientation occurs in meiosis II."
+        },
+        {
+          "classification": "across-meioses versus within-one-meiosis scope",
+          "locator": "slide 41 media 44",
+          "finding": "The four labelled gamete combinations are distributed across two alternative alignments. This does not show all four distinct combinations necessarily emerging from one no-crossover meiosis."
+        }
+      ],
+      "avoid_cloning": [
+        "Both source chromosome-orientation image compositions and four-gamete labelling layout."
+      ],
+      "additional_boundary": "The source alternates three-laws language (25/42) and second-law naming (40). Law numbering is a naming convention; use mechanism names instead of treating this as a biological contradiction.",
+      "locators": [
+        "ppt/slides/slide40.xml",
+        "ppt/slides/slide41.xml",
+        "ppt/slides/slide42.xml",
+        "ppt/media/image47.png",
+        "ppt/media/image44.png",
+        "ppt/media/image23.png"
+      ]
+    },
+    {
+      "id": "CAL-PPT-L05-TOMATO",
+      "lesson": "lesson-05",
+      "actual_slides": [
+        43,
+        44,
+        45
+      ],
+      "evidence": "Parents RrTt (red/tall) × rrTt (yellow/tall). Gametes RT, Rt, rT, rt versus rT, rt. Actual slide 45 XML table contains RrTT/RrTt; RrTt/Rrtt; rrTT/rrTt; rrTt/rrtt. Stated target order tall red/tall yellow/short red/short yellow gives 3/8, 3/8, 1/8, 1/8.",
+      "source_media": [
+        "image43.png"
+      ],
+      "scientific_ambiguities": [
+        {
+          "classification": "unclear duplicate-count wording",
+          "locator": "slide 44 phrase other four combinations",
+          "finding": "The precise supported point is that rrTt has two distinct gamete types, not four distinct types. Duplicated labels can be collapsed without changing total probability only when their weights are combined correctly."
+        },
+        {
+          "classification": "independence assumption",
+          "locator": "slides 44–45 equal eight cells",
+          "finding": "First parent’s four gametes must be equally weighted for all eight cells to be1/8. The lesson context supplies independent assortment; a new standalone problem should state its assumption."
+        }
+      ],
+      "avoid_cloning": [
+        "Tomato colour/height scenario, RrTt×rrTt, same eight-cell grid, and 3/8: 3/8: 1/8: 1/8 target sequence."
+      ],
+      "analysis_check": "Actual native table cell genotypes and source phenotype answers recomputed; no numerical or genotype-cell error found.",
+      "locators": [
+        "ppt/slides/slide43.xml",
+        "ppt/slides/slide44.xml",
+        "ppt/slides/slide45.xml",
+        "ppt/media/image43.png"
+      ]
+    },
+    {
+      "id": "CAL-PPT-L05-SQUASH",
+      "lesson": "lesson-05",
+      "actual_slides": [
+        46,
+        47
+      ],
+      "evidence": "Initial phenotypes imply wwD_ × W_dd. Observed wwdd offspring forces wwDd × Wwdd in the source model. Actual slide 47 XML table gives WwDd, wwDd, Wwdd, wwdd, each 1/4. Source uses 80 seeds and calculates 40 white and 20 yellow-sphere.",
+      "scientific_ambiguities": [
+        {
+          "classification": "trait-name drift",
+          "locator": "slide 47 questions and answer prose",
+          "finding": "Source stem defines fruit colour and shape but switches to white flowering squash and sphere-shaped flowers. Interpret the original genetic model as fruit traits; do not transfer the flower wording."
+        },
+        {
+          "classification": "expected count versus actual count",
+          "locator": "slide 47 actual number wording",
+          "finding": "Probability multiplied by 80 yields an expected count. The values 40 and 20 are not guaranteed realized seed/plant counts; viable germination and comparable scoring are additional conditions if predicting scored plants."
+        },
+        {
+          "classification": "non-diagnostic cross for two-locus independence",
+          "locator": "slides 46–47 wwDd×Wwdd",
+          "finding": "Neither parent is heterozygous at both loci. Ordinary segregation gives wD/wd and Wd/wd even if W/D are linked. Its 1:1:1:1 result therefore does not independently demonstrate two-locus independent assortment."
+        }
+      ],
+      "avoid_cloning": [
+        "Same squash phenotypes, double-recessive offspring inference, wwDd×Wwdd grid, 80 seeds, 40/20 expected results."
+      ],
+      "analysis_check": "Unknown-genotype inference and all four table cells are consistent under the specified simple complete-dominance model. No numeric correction is indicated.",
+      "locators": [
+        "ppt/slides/slide46.xml",
+        "ppt/slides/slide47.xml"
+      ]
+    },
+    {
+      "id": "CAL-PPT-PLAYBACK-BOUNDARY",
+      "lesson": "lessons02/05 source boundary",
+      "actual_slides": [
+        32,
+        33,
+        48
+      ],
+      "evidence": "Actual XML records video hyperlinks and static thumbnails.48 includes a note about repeated columns in the second video.",
+      "avoid_cloning": [
+        "Source’s claim about the unseen second video as if independently observed or validated."
+      ],
+      "qualifications": [
+        "No video was opened or played. No transcript/timestamp or linked-content finding is claimed.",
+        "The primary inspector did not reuse whole-slide renders in this calibration pass; visual evidence comes from 18 original embedded images with direct ZIP-byte verification."
+      ],
+      "locators": [
+        "ppt/slides/slide32.xml",
+        "ppt/slides/slide33.xml",
+        "ppt/slides/slide48.xml"
+      ]
+    }
+  ]
+}

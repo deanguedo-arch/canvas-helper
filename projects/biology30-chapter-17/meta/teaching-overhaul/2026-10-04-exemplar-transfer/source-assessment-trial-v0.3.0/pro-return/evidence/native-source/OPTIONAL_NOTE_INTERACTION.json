@@ -1,0 +1,389 @@
+{
+  "document": "V030_CURRENT_OWNER_OPTIONAL_NOTE_INTERACTION",
+  "createdUtc": "2026-10-05T00:19:33.763106+00:00",
+  "integrationOwner": {
+    "path": "source-assessment-v0.3.0/analysis/native-preflight/baseline/native-v020/index.html",
+    "bytes": 3512184,
+    "sha256": "bc42ea52d8cf5709c0ec33c914e86450f93971f3e3144cb81b695593aa0eff3b"
+  },
+  "runtimeSource": {
+    "path": "source-assessment-v0.3.0/analysis/native-preflight/baseline/native-v020/main.js",
+    "bytes": 54365,
+    "sha256": "45b4b9c7da23646274f59415fa286873fdbdad3a2b8b16b53ccd147c0781f65f"
+  },
+  "sourceEvidence": [
+    {
+      "purpose": "nativeNamespace",
+      "lineStart": 10,
+      "lineEndInclusive": 10,
+      "startByte": 479,
+      "endByteExclusive": 589,
+      "bytes": 110,
+      "sha256": "273d310eb5276b7119fd0139d81d350f805ddae03336ff89943fda8e0cbb0872",
+      "exactSource": "const KEY=LMS?SC.scopeKey(`biology30-chapter-${C.chapter}:html:v1`):`biology30-chapter-${C.chapter}:html:v1`;\n"
+    },
+    {
+      "purpose": "storageFailureAndConflict",
+      "lineStart": 30,
+      "lineEndInclusive": 40,
+      "startByte": 2898,
+      "endByteExclusive": 4586,
+      "bytes": 1688,
+      "sha256": "6a885c8ac9a39577cb324f8a307353bc66ea4ac1072bf262c272697d80e92e9c",
+      "exactSource": "function save(next,message='Saved in this browser. Nothing has been sent to a teacher.'){\n if(blocked){status('Saving is paused. Another tab or a storage problem requires attention. Copy visible unsaved writing before reloading.',true);return false;}\n try{const raw=localStorage.getItem(KEY);const disk=raw?JSON.parse(raw):{revision:0};if(disk.revision!==S.revision){blocked=true;throw Error('Another tab changed this chapter. Copy visible unsaved writing, then reload.');}\n next.revision=S.revision+1;const rawNext=JSON.stringify(next);localStorage.setItem(KEY,rawNext);S=next;if(LMS)publishLms();status(LMS?'Work stored; waiting for Brightspace confirmation.':message);return true;\n }catch(e){blocked=true;if(LMS)SC.failCourseSave(e);status('NOT SAVED: '+e.message+' Copy visible writing before closing this tab.',true);return false;}\n}\nfunction publishLms(){SC.publishCourseState(S,C.checks.filter(c=>S.history.some(r=>r.kind==='check'&&r.checkId===c.id)).map(c=>c.id));}\nwindow.addEventListener('canvas-helper:scorm-status',e=>{if(LMS)status(e.detail.message,e.detail.error);});\nif(LMS&&!blocked){publishLms();SC.registerCourse({flush:async()=>{await window.biologyTextbookPractice?.flush();if(blocked)throw Error('Course saving is paused; keep this page open.');publishLms();}});}\nfunction change(fn,message){const next=clone(S);fn(next);return save(next,message);}\nwindow.addEventListener('storage',e=>{if(e.key===KEY){blocked=true;if(LMS)SC.failCourseSave(Error('Another tab changed this chapter. Copy unsaved writing before reloading.'));status('Another tab changed this chapter’s work. This tab will not overwrite it. Copy any visible unsaved writing, then reload.',true);}});\n"
+    },
+    {
+      "purpose": "requiredProgress",
+      "lineStart": 42,
+      "lineEndInclusive": 42,
+      "startByte": 4680,
+      "endByteExclusive": 5341,
+      "bytes": 661,
+      "sha256": "fe38b2857bb01b56978867f6f625f1a0b547d4caa3937b917955e350c783dcee",
+      "exactSource": "function progress(){const completed=new Set(S.history.filter(x=>x.kind==='check').map(x=>x.checkId));let count=C.checks.filter(x=>completed.has(x.id)).length;const percent=Math.round(count/C.checks.length*100);$('[data-progress-count]').textContent=`${count} of ${C.checks.length} checks`;$('[data-progress-percent]').textContent=percent+'%';$('[data-progress-fill]').style.width=percent+'%';$('[data-progress-fraction]').textContent=`${count} / ${C.checks.length}`;$$('[data-lesson-completion]').forEach(el=>{let check=C.checks.find(q=>q.route===el.dataset.lessonCompletion);el.textContent=completed.has(check?.id)?'Check completed':'Check not completed';});}\n"
+    },
+    {
+      "purpose": "allMyWork",
+      "lineStart": 161,
+      "lineEndInclusive": 161,
+      "startByte": 35748,
+      "endByteExclusive": 36196,
+      "bytes": 448,
+      "sha256": "03da0a5fceaf84a3ed0b0d71dd2fb4fef5b90894190032ee6763b37f0c0c5a84",
+      "exactSource": " $('[data-work-notes]').innerHTML=Object.entries(S.notes).filter(([id,n])=>n.submitted).map(([id,n])=>`<article class=\"history-run\"><h3>${esc(C.notes.find(v=>v.id===id)?.title||id)}</h3><p class=\"written-record\">${esc(n.submitted)}</p>${n.draft.trim()!==n.submitted?'<p class=\"muted\">A newer draft exists in the activity. This is the last explicitly saved response.</p>':''}</article>`).join('')||'<p>No optional written responses collected.</p>';\n"
+    },
+    {
+      "purpose": "restoreDraft",
+      "lineStart": 164,
+      "lineEndInclusive": 164,
+      "startByte": 36549,
+      "endByteExclusive": 36674,
+      "bytes": 125,
+      "sha256": "633c798f279fe4630738b4a811ec71135485930bc56c763575f3cf990af1b701",
+      "exactSource": "function restoreNotes(){ $$('[data-note-input]').forEach(el=>{let n=S.notes[el.dataset.noteInput];el.value=n?.draft||'';});}\n"
+    },
+    {
+      "purpose": "inputDraft",
+      "lineStart": 182,
+      "lineEndInclusive": 182,
+      "startByte": 41629,
+      "endByteExclusive": 41968,
+      "bytes": 339,
+      "sha256": "eea08f4544d0d1e1899efc3923ef995ae77107f95bbf54dc091ec8217360ae45",
+      "exactSource": " if(el.matches('[data-note-input]')){const saved=change(n=>{let v=n.notes[el.dataset.noteInput]??={draft:'',submitted:null};v.draft=el.value;});const out=$(`[data-note-status=\"${el.dataset.noteInput}\"]`);if(out)out.textContent=saved?'Draft saved locally. Select Save response to collect it.':'NOT SAVED. Copy this draft before leaving.';}\n"
+    },
+    {
+      "purpose": "explicitCollection",
+      "lineStart": 211,
+      "lineEndInclusive": 211,
+      "startByte": 48311,
+      "endByteExclusive": 48817,
+      "bytes": 506,
+      "sha256": "2129fc40f859168e051a81486bde31bef76bd0e2542781285d6e826c2f1465cc",
+      "exactSource": " if(b.dataset.saveNote){const id=b.dataset.saveNote,v=S.notes[id];if(!v?.draft.trim()||v.draft.length>5000){status('Enter a response of 1–5000 characters before collecting it.',true);return;}if(change(n=>{n.notes[id].submitted=v.draft.trim();n.notes[id].at=Date.now();},'Optional written response collected. Required progress is unchanged.')){$(`[data-note-status=\"${id}\"]`).textContent='Saved response collected. It has not been automatically graded.';renderWork();revisionActivities.render();}return;}\n"
+    }
+  ],
+  "tasks": [
+    {
+      "route": "lesson-02",
+      "taskId": "ch17-kinch-v020-l02-arrow-task",
+      "responseId": "ch17-kinch-v020-l02-arrow-response",
+      "integratedTitle": "Repair the two process labels",
+      "sourceRange": {
+        "startByte": 116052,
+        "endByteExclusive": 119014,
+        "bytes": 2962,
+        "sha256": "832a0126d0434b8068b9bb98f51a463a15e4fbf70ac59608545a258caf8998a5"
+      },
+      "controlContracts": [
+        {
+          "tag": "label",
+          "attributes": {
+            "for": "ch17-kinch-v020-l02-arrow-response"
+          },
+          "range": {
+            "startByte": 117296,
+            "endByteExclusive": 117388,
+            "bytes": 92,
+            "sha256": "68f1f7896b868f81253fe70bf07b14db2d9ef52801f0ab310a0f99e226be65dd"
+          },
+          "exactHtml": "<label for=\"ch17-kinch-v020-l02-arrow-response\">Your repaired labels and explanation</label>"
+        },
+        {
+          "tag": "textarea",
+          "attributes": {
+            "aria-describedby": "ch17-kinch-v020-l02-arrow-response-status",
+            "data-note-input": "ch17-kinch-v020-l02-arrow-response",
+            "id": "ch17-kinch-v020-l02-arrow-response",
+            "rows": "5"
+          },
+          "range": {
+            "startByte": 117388,
+            "endByteExclusive": 117572,
+            "bytes": 184,
+            "sha256": "6db75be5258bcf12d9f4d1ec680a80c4ddd7fd3e3d951144501824f19589fb52"
+          },
+          "exactHtml": "<textarea aria-describedby=\"ch17-kinch-v020-l02-arrow-response-status\" data-note-input=\"ch17-kinch-v020-l02-arrow-response\" id=\"ch17-kinch-v020-l02-arrow-response\" rows=\"5\"></textarea>"
+        },
+        {
+          "tag": "p",
+          "attributes": {
+            "class": "writing-status",
+            "data-note-status": "ch17-kinch-v020-l02-arrow-response",
+            "id": "ch17-kinch-v020-l02-arrow-response-status"
+          },
+          "range": {
+            "startByte": 117572,
+            "endByteExclusive": 117782,
+            "bytes": 210,
+            "sha256": "167a71a79aa7d856e9e21192b03ed0f0126667aba2bc88097ff26d8d209f0433"
+          },
+          "exactHtml": "<p class=\"writing-status\" data-note-status=\"ch17-kinch-v020-l02-arrow-response\" id=\"ch17-kinch-v020-l02-arrow-response-status\">Optional response. Select Save response to collect it. Maximum 5000 characters.</p>"
+        },
+        {
+          "tag": "button",
+          "attributes": {
+            "data-save-note": "ch17-kinch-v020-l02-arrow-response",
+            "type": "button"
+          },
+          "range": {
+            "startByte": 117782,
+            "endByteExclusive": 117878,
+            "bytes": 96,
+            "sha256": "b4dea3eca38b6cc1174a58025df8679b0216e9a94184c77275e3eb787b32454f"
+          },
+          "exactHtml": "<button data-save-note=\"ch17-kinch-v020-l02-arrow-response\" type=\"button\">Save response</button>"
+        }
+      ]
+    },
+    {
+      "route": "lesson-02",
+      "taskId": "ch17-kinch-v020-l02-cross-task",
+      "responseId": "ch17-kinch-v020-l02-cross-response",
+      "integratedTitle": "Does reversing the parents reverse the result?",
+      "sourceRange": {
+        "startByte": 121070,
+        "endByteExclusive": 124438,
+        "bytes": 3368,
+        "sha256": "d9f059765d06ec5989aee7fb00c0a0a6c0b589d002e7a582e2532f2ecca3355b"
+      },
+      "controlContracts": [
+        {
+          "tag": "label",
+          "attributes": {
+            "for": "ch17-kinch-v020-l02-cross-response"
+          },
+          "range": {
+            "startByte": 122457,
+            "endByteExclusive": 122547,
+            "bytes": 90,
+            "sha256": "9ef2389c5c221c591ecabf790d6eba451a0c83317e62a10d03c3a68d88ca2561"
+          },
+          "exactHtml": "<label for=\"ch17-kinch-v020-l02-cross-response\">Your comparison of the two crosses</label>"
+        },
+        {
+          "tag": "textarea",
+          "attributes": {
+            "aria-describedby": "ch17-kinch-v020-l02-cross-response-status",
+            "data-note-input": "ch17-kinch-v020-l02-cross-response",
+            "id": "ch17-kinch-v020-l02-cross-response",
+            "rows": "5"
+          },
+          "range": {
+            "startByte": 122547,
+            "endByteExclusive": 122731,
+            "bytes": 184,
+            "sha256": "a2b77c91b31bc269cc959d186e13a00a144251e73c8af250621f12fa99dd618e"
+          },
+          "exactHtml": "<textarea aria-describedby=\"ch17-kinch-v020-l02-cross-response-status\" data-note-input=\"ch17-kinch-v020-l02-cross-response\" id=\"ch17-kinch-v020-l02-cross-response\" rows=\"5\"></textarea>"
+        },
+        {
+          "tag": "p",
+          "attributes": {
+            "class": "writing-status",
+            "data-note-status": "ch17-kinch-v020-l02-cross-response",
+            "id": "ch17-kinch-v020-l02-cross-response-status"
+          },
+          "range": {
+            "startByte": 122731,
+            "endByteExclusive": 122941,
+            "bytes": 210,
+            "sha256": "9be14f3418c6699a73b7429861e31b7ed966264d4608725a49bb42f8da4cc494"
+          },
+          "exactHtml": "<p class=\"writing-status\" data-note-status=\"ch17-kinch-v020-l02-cross-response\" id=\"ch17-kinch-v020-l02-cross-response-status\">Optional response. Select Save response to collect it. Maximum 5000 characters.</p>"
+        },
+        {
+          "tag": "button",
+          "attributes": {
+            "data-save-note": "ch17-kinch-v020-l02-cross-response",
+            "type": "button"
+          },
+          "range": {
+            "startByte": 122941,
+            "endByteExclusive": 123037,
+            "bytes": 96,
+            "sha256": "9323f45b8ddd1d9aecbd04575fac9e5ae543e77553e0eb6829d5c242207b9ae4"
+          },
+          "exactHtml": "<button data-save-note=\"ch17-kinch-v020-l02-cross-response\" type=\"button\">Save response</button>"
+        }
+      ]
+    },
+    {
+      "route": "lesson-05",
+      "taskId": "ch17-kinch-v020-l05-change-task",
+      "responseId": "ch17-kinch-v020-l05-change-response",
+      "integratedTitle": "Change one parent and keep only the reasoning that still applies",
+      "sourceRange": {
+        "startByte": 200094,
+        "endByteExclusive": 204007,
+        "bytes": 3913,
+        "sha256": "541be9540ef4b88a6961d5a528f0e4c9a69f3ef60dcd3f166fb049f1c71aeceb"
+      },
+      "controlContracts": [
+        {
+          "tag": "label",
+          "attributes": {
+            "for": "ch17-kinch-v020-l05-change-response"
+          },
+          "range": {
+            "startByte": 201309,
+            "endByteExclusive": 201402,
+            "bytes": 93,
+            "sha256": "33068a9f545b7ec980ce3eb321f7e04657d2fd332da8bacd74bbb4470d6a89db"
+          },
+          "exactHtml": "<label for=\"ch17-kinch-v020-l05-change-response\">Your revised gametes and predictions</label>"
+        },
+        {
+          "tag": "textarea",
+          "attributes": {
+            "aria-describedby": "ch17-kinch-v020-l05-change-response-status",
+            "data-note-input": "ch17-kinch-v020-l05-change-response",
+            "id": "ch17-kinch-v020-l05-change-response",
+            "rows": "5"
+          },
+          "range": {
+            "startByte": 201402,
+            "endByteExclusive": 201589,
+            "bytes": 187,
+            "sha256": "35db0f9375b38d18e5c1ffecacddde122da64c396649cf9642b64754c7e1d9c9"
+          },
+          "exactHtml": "<textarea aria-describedby=\"ch17-kinch-v020-l05-change-response-status\" data-note-input=\"ch17-kinch-v020-l05-change-response\" id=\"ch17-kinch-v020-l05-change-response\" rows=\"5\"></textarea>"
+        },
+        {
+          "tag": "p",
+          "attributes": {
+            "class": "writing-status",
+            "data-note-status": "ch17-kinch-v020-l05-change-response",
+            "id": "ch17-kinch-v020-l05-change-response-status"
+          },
+          "range": {
+            "startByte": 201589,
+            "endByteExclusive": 201801,
+            "bytes": 212,
+            "sha256": "7e6671936ffccc1a5f5356e179a5e5c37c32e5f3442e6a62769d83d3be1316a5"
+          },
+          "exactHtml": "<p class=\"writing-status\" data-note-status=\"ch17-kinch-v020-l05-change-response\" id=\"ch17-kinch-v020-l05-change-response-status\">Optional response. Select Save response to collect it. Maximum 5000 characters.</p>"
+        },
+        {
+          "tag": "button",
+          "attributes": {
+            "data-save-note": "ch17-kinch-v020-l05-change-response",
+            "type": "button"
+          },
+          "range": {
+            "startByte": 201801,
+            "endByteExclusive": 201898,
+            "bytes": 97,
+            "sha256": "3bb4a3119b1855fa433415d1e3d1dd97b8012ea91ee54de7f07b52721e194601"
+          },
+          "exactHtml": "<button data-save-note=\"ch17-kinch-v020-l05-change-response\" type=\"button\">Save response</button>"
+        }
+      ]
+    },
+    {
+      "route": "lesson-05",
+      "taskId": "ch17-kinch-v020-l05-evidence-task",
+      "responseId": "ch17-kinch-v020-l05-evidence-response",
+      "integratedTitle": "Decide what the new offspring settles—and what it leaves open",
+      "sourceRange": {
+        "startByte": 209158,
+        "endByteExclusive": 213695,
+        "bytes": 4537,
+        "sha256": "545343eb9be903740eda4fa5258a96eb5c82de05327de2ee734143bea75fc97d"
+      },
+      "controlContracts": [
+        {
+          "tag": "label",
+          "attributes": {
+            "for": "ch17-kinch-v020-l05-evidence-response"
+          },
+          "range": {
+            "startByte": 210993,
+            "endByteExclusive": 211101,
+            "bytes": 108,
+            "sha256": "eec2243df7dfea17d39f9aa6fa0b514f86b784bca9a1f24f97953c8fa505a8fb"
+          },
+          "exactHtml": "<label for=\"ch17-kinch-v020-l05-evidence-response\">Your evidence-based parental-genotype explanation</label>"
+        },
+        {
+          "tag": "textarea",
+          "attributes": {
+            "aria-describedby": "ch17-kinch-v020-l05-evidence-response-status",
+            "data-note-input": "ch17-kinch-v020-l05-evidence-response",
+            "id": "ch17-kinch-v020-l05-evidence-response",
+            "rows": "5"
+          },
+          "range": {
+            "startByte": 211101,
+            "endByteExclusive": 211294,
+            "bytes": 193,
+            "sha256": "fdbcac01fcf68107b32ab4716e0fce0a87fdffc846fce7bb3e2e7adec504a379"
+          },
+          "exactHtml": "<textarea aria-describedby=\"ch17-kinch-v020-l05-evidence-response-status\" data-note-input=\"ch17-kinch-v020-l05-evidence-response\" id=\"ch17-kinch-v020-l05-evidence-response\" rows=\"5\"></textarea>"
+        },
+        {
+          "tag": "p",
+          "attributes": {
+            "class": "writing-status",
+            "data-note-status": "ch17-kinch-v020-l05-evidence-response",
+            "id": "ch17-kinch-v020-l05-evidence-response-status"
+          },
+          "range": {
+            "startByte": 211294,
+            "endByteExclusive": 211510,
+            "bytes": 216,
+            "sha256": "39335eec40025972b29794126a78e3844720aeae390a69cb0d195708e2fb2544"
+          },
+          "exactHtml": "<p class=\"writing-status\" data-note-status=\"ch17-kinch-v020-l05-evidence-response\" id=\"ch17-kinch-v020-l05-evidence-response-status\">Optional response. Select Save response to collect it. Maximum 5000 characters.</p>"
+        },
+        {
+          "tag": "button",
+          "attributes": {
+            "data-save-note": "ch17-kinch-v020-l05-evidence-response",
+            "type": "button"
+          },
+          "range": {
+            "startByte": 211510,
+            "endByteExclusive": 211609,
+            "bytes": 99,
+            "sha256": "8a917f1f72535a635febb537cdacf277641f7729b875ac4afd7e5a368e23dccf"
+          },
+          "exactHtml": "<button data-save-note=\"ch17-kinch-v020-l05-evidence-response\" type=\"button\">Save response</button>"
+        }
+      ]
+    }
+  ],
+  "semantics": {
+    "draft": "Every note input uses native change/save to assign S.notes[responseID].draft. Empty and oversized drafts can be stored; textarea has no maxlength.",
+    "collection": "Explicit Save requires nonempty trimmed draft and raw length at most5000. Native change/save writes submitted=draft.trim() and at=Date.now().",
+    "reload": "restoreNotes fills textarea from draft. It does not recreate per-note saved status sentences; initial status is generic until interaction.",
+    "allMyWork": "Only submitted notes appear. C.notes supplies existing integrated title; last submitted response remains shown if a newer unsaved-to-collection draft exists, with a newer-draft notice.",
+    "history": "A second collection replaces the last submitted note. No S.history attempt entry, automatic accuracy grade, first-try grade or hint-use record is added for notes.",
+    "progress": "Required progress uses completed kind=check records only; notes contribute zero.",
+    "hintsAndModels": "The four optional tasks use ordinary unlocked details. Asking learners to save first is an instruction, not a technical save gate. Keep separate from required-writing data-locked models and hardcoded extension model.",
+    "conflictAndFailure": "Native cloned-state writes, revision comparisons, storage-event blocking and failure status remain owner. No new storage writer/schema/namespace.",
+    "print": "All My Work output includes submitted notes; actual print behavior remains untested."
+  },
+  "preservation": "Four existing IDs, controls and actual integrated titles remain unchanged. No notes array edit or new title registration is required.",
+  "reviewStatus": "Read-only current source verification. No native UI/save/reload/print tests, integration or teacher approval."
+}

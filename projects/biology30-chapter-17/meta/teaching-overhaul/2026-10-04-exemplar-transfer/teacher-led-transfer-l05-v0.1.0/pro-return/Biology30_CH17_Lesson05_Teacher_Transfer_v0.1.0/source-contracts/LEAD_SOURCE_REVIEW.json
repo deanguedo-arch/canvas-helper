@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 1,
+  "scope": "Source preparation and proposed teaching sequence, not completed manuscript review",
+  "reviewer": "Current Codex lead",
+  "date": "2026-10-05",
+  "observed": {
+    "teacherSlideTextRead": "Actual OOXML slides 34-48, with prerequisite slides 26-33 and next-topic slides 49-51 inspected for boundary context",
+    "sourcePixelsViewed": ["slide-35-image32.png", "slide-36-image29.png", "slide-36-image35.png", "slide-37-image46.png", "slide-37-image37.png", "slide-39-image34.png", "slide-39-image40.png", "slide-41-image47.png", "slide-41-image44.png", "slide-45-image43.png"],
+    "textbookTextRead": "Printed 591-593 and 597; printed 592 identified as physical investigation, not new assigned activity",
+    "textbookPagesVisuallyViewed": [593, 596, 597],
+    "nativeBoundaryRead": "Four teaching blocks, exact note sections, header instructions and required-task demands",
+    "standardsRead": ["02_TEACHING_STANDARD.md", "CHAPTER11_TEACHING_STANDARD.md"],
+    "notClaimed": ["complete all-chapter source audit", "new manuscript authored", "new lesson teacher acceptance", "new native interaction testing", "LMS proof"]
+  },
+  "sequence": [
+    {
+      "job": "Introduce the new inheritance question",
+      "priorUnderstanding": "A gamete contributes one allele per locus; appearance can hide a recessive allele; offspring evidence constrains parental genotypes.",
+      "teacherIntroduction": "Mendel had followed one characteristic at a time. Explain why following height and pod colour together lets us ask whether inheriting one form favours another.",
+      "visual": "Actual slide35image32: tall/short plants and green/yellow pods, before the generation-result diagrams.",
+      "notice": "Compare height separately from pod colour, then identify the four possible phenotype combinations.",
+      "explanation": "Two characteristics require tracking two allele pairs, while one gamete still contributes one allele at each studied locus.",
+      "independentReadiness": "Distinguish a parent's two-locus genotype from a gamete's one-allele-per-locus label."
+    },
+    {
+      "job": "Establish and follow the experimental generations",
+      "priorUnderstanding": "True-breeding history, controlled parentage, P/F1/F2 and complete dominance.",
+      "teacherIntroduction": "Introduce the actual tall/green and short/yellow starting plants, defining T/t and G/g before reading the symbols.",
+      "visual": "Slides36-37 parental contrast, genotype banner and F1 contributions; slide39 F2 grid appears only after its question is introduced.",
+      "notice": "Read each generation in order. All F1 plants have both dominant appearances; F2 includes combinations absent from P.",
+      "explanation": "The F2 observations raise a question about how the two loci travel into gametes. Do not announce the whole solution in the first paragraph.",
+      "independentReadiness": "Trace how the known P contributions create TtGg F1 plants; describe the F2 phenotype groups before explaining their probabilities."
+    },
+    {
+      "job": "Explain the chromosome basis of independent assortment",
+      "priorUnderstanding": "Homologues separate in meiosis I, sisters in meiosis II; allele versions differ from physical copied loci.",
+      "teacherIntroduction": "Return to the two-locus question and connect independent orientations of different chromosome pairs to allele combinations.",
+      "visual": "Slide41image44, guided comparison of long and short chromosome pairs across its two orientations; optional original native branch diagram afterwards.",
+      "notice": "One pair's orientation can stay the same while the other reverses. Bottom endpoints represent allele contributions across different meioses.",
+      "explanation": "Assortment within a parent justifies the four equally likely gamete types under the stated model; fertilisation is a separate event. In plants, the haploid products precede the stages that produce gametes.",
+      "independentReadiness": "Derive TG/Tg/tG/tg and their probabilities instead of memorizing a four-letter list."
+    },
+    {
+      "job": "Connect gametes to offspring and phenotype probabilities",
+      "priorUnderstanding": "Weighted gametes, independent parental contributions, separate genotype-to-phenotype rules.",
+      "teacherIntroduction": "Explain why each edge of the F2 grid contains a gamete and each interior entry contains an offspring genotype.",
+      "visual": "Slide39image40 and readable native tables, with explicit circle/square and green/yellow legend meanings.",
+      "notice": "Locate TtGg in repeated pairings; count cells, then regroup by phenotype. Each underscore belongs to its own locus.",
+      "explanation": "Separate 16 contribution pairs from distinct genotype classes; derive 9:3:3:1 under this cross's assumptions. Explain multiplication of independent requirements and addition of mutually exclusive alternatives.",
+      "independentReadiness": "Diagnose a plausible-looking incomplete gamete list and distinguish homozygosity at both loci from two dominant phenotypes, without pre-answering the exact required tasks."
+    },
+    {
+      "job": "Transfer the method to the original tomato cross",
+      "priorUnderstanding": "The grid follows distinct weighted gametes, not a fixed 4-by-4 template.",
+      "teacherIntroduction": "Explicitly switch from pea pod colour/height to tomato fruit colour/height and redefine R/r and T/t.",
+      "visual": "Teacher slides43-45 method and native readable 4-by-2 tables; source image43 is only a small allele-combination aid, not a full worked solution.",
+      "notice": "RrTt makes four distinct gametes; rrTt makes two. Every interior pairing has probability 1/8.",
+      "explanation": "Translate worded parents, justify gamete lists, combine loci, group genotype separately from phenotype, check totals, then interpret expected proportions.",
+      "independentReadiness": "Retain the COMPLETE unchanged change-parent optional task with its existing native response, hint and model."
+    },
+    {
+      "job": "Use offspring evidence before predicting the squash cross",
+      "priorUnderstanding": "A dominant appearance leaves the second allele uncertain; a recessive offspring requires contributions from both parents.",
+      "teacherIntroduction": "Explain why this problem begins with missing parental information rather than supplied genotypes. Switch explicitly to fruit-colour and fruit-shape W/w and D/d rules.",
+      "visual": "Slides46-47 worded source problem and native allele/evidence tables; no invented squash image required to replace a clear reasoning table.",
+      "notice": "wwD_ and W_dd each contain a genuine unknown. The observed wwdd offspring supplies evidence at both loci.",
+      "explanation": "Resolve the parents before deriving two gametes each, a 2-by-2 grid, and expectations among 80 scored offspring plants. Separate the inference from the subsequent prediction.",
+      "independentReadiness": "Retain the COMPLETE unchanged flower/leaf evidence task where only one parental blank is forced; explain the limit of smooth-only observations."
+    },
+    {
+      "job": "Answer the initial question and set the next boundary",
+      "priorUnderstanding": "The method remains genotype, gametes, contributions, phenotype interpretation under stated assumptions.",
+      "teacherIntroduction": "Conclude when one allele contribution does not favour another and why two traits alone do not guarantee 9:3:3:1.",
+      "visual": "No extra decorative visual needed.",
+      "notice": "Compare pea, tomato and squash grids and the information each problem supplied.",
+      "explanation": "Briefly name linked loci as a later boundary and naturally introduce changed dominance relationships next, without internal route-code narration.",
+      "independentReadiness": "Attempt the unchanged supported and required tasks using explained methods; optional later-dominance textbook questions remain deferred."
+    }
+  ],
+  "visualCautions": [
+    "Slide37 repeats identical TG and tg labels in a 4-by-4 display. Explain that each homozygous parent has one distinct gamete type; do not teach 16 distinct outcomes from this redundant grid.",
+    "Slide39image40 is static and already displays the 9:3:3:1 result. Guide reading honestly; do not promise a scripted staged reveal.",
+    "Slide41image47 includes recombinant colour segments. Colour is parental-origin context rather than a claim that every sister chromatid remains identical after crossing over. Prefer the simpler image44 for the main orientation account.",
+    "Slide41 wording names meiosis II while describing metaphase I. The learner explanation must distinguish them correctly.",
+    "Slide47 fruit-versus-flower source typo and printed593 overbroad ratio/underscore caption are corrected only in explanatory copy, never by editing frozen sources.",
+    "Native diagram bottom A/B/C/D location labels are not four additional allele symbols; keep approved labeling mappings intact."
+  ]
+}

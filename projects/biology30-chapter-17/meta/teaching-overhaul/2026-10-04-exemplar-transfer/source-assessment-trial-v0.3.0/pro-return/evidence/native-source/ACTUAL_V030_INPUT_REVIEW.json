@@ -1,0 +1,246 @@
+{
+  "document": "V030_ACTUAL_AUTHOR_INPUT_SCIENCE_COLLISION_REVIEW",
+  "createdUtc": "2026-10-05T00:26:55.912974+00:00",
+  "ownerSha256": "bc42ea52d8cf5709c0ec33c914e86450f93971f3e3144cb81b695593aa0eff3b",
+  "actualInputPins": [
+    {
+      "path": "source-assessment-v0.3.0/authoring/assessments/ch17-l02-check-writing-1.json",
+      "bytes": 2040,
+      "sha256": "746380cf22eee10bb1acf82e246352f1dc2e425927ad4f83676d36026e25b0d5"
+    },
+    {
+      "path": "source-assessment-v0.3.0/authoring/assessments/ch17-l05-check-mc-2.json",
+      "bytes": 1374,
+      "sha256": "1d0d2b8c11e7790ba449f06acca670ad26ebc91f544d1976856e4793fb5c298b"
+    },
+    {
+      "path": "source-assessment-v0.3.0/authoring/assessments/ch17-l05-check-writing-1.json",
+      "bytes": 2218,
+      "sha256": "69c5823eea0ca6ff8576821d7921b425c6f74cd5caac6c8abecaee7970503684"
+    },
+    {
+      "path": "source-assessment-v0.3.0/authoring/assessments/ch17-l05-check-writing-2.json",
+      "bytes": 2282,
+      "sha256": "4a1006653299a24ddd914be11f676653c393d1e80888bc3c56f0a44681840a0f"
+    },
+    {
+      "path": "source-assessment-v0.3.0/authoring/teaching-edits/lesson-05-changed-parent-task.html.in",
+      "bytes": 4203,
+      "sha256": "a218d13653a95a59da2d56004ea889124992ee3903e2b0749c8f7df78c7a16cf"
+    },
+    {
+      "path": "source-assessment-v0.3.0/authoring/teaching-edits/lesson-05-tomato.html.in",
+      "bytes": 5130,
+      "sha256": "17a9cd16afb399d1897ba90c0be35b2f8b775093054d2ff5b9e214d7145b8c9c"
+    }
+  ],
+  "scope": "Full actual read of all four new required item objects and both teaching edit inputs at the listed hashes, plus independent exact-fraction enumeration and current native required/optional/fallback comparison. No learner text edits or runtime tests.",
+  "items": [
+    {
+      "id": "ch17-l02-check-writing-1",
+      "scope": "Every prompt/model/criterion sentence read.",
+      "science": "Four physical locus copies remain two allele versions after copying. Homologues separate in meiosis I and sisters in meiosis II, without intervening copying, yielding one allele per normal gamete. Persistence of M and m answers the blending/recreation claim. Plant wording does not claim meiotic products are immediately gametes.",
+      "freshness": "Changed cellular-state evidence, not P/F1/F2 reproduction; visible copying explanation is intentional prerequisite support.",
+      "findings": []
+    },
+    {
+      "id": "ch17-l05-check-mc-2",
+      "scope": "Complete prompt, ordered options, key, explanation, cue and difficulty read.",
+      "science": "The inclusive short-or-yellow event selects three disjoint categories for one offspring: 3/16 + 3/16 + 1/16 = 7/16. The remaining 9/16 makes the total 1. The incorrect 1/2 counts short/yellow twice.",
+      "freshness": "No whole-demand duplicate found. Current table/fallbacks expose component probabilities; native03 names an unsolved near-isomorphic two-offspring event. One-offspring cross-locus grouping is the actual new work.",
+      "oneExactAnswerOption": true,
+      "feedback": "Each distractor has a correct explanatory interpretation. First-error cue supplies a grouping scaffold without supplying the numerical key.",
+      "findings": []
+    },
+    {
+      "id": "ch17-l05-check-writing-1",
+      "scope": "Every prompt/model/criterion sentence read.",
+      "science": "AaBB gives AB and aB at 1/2 each; AaBb gives four types at 1/4 each. The proposed list lacks aB and repeats ab; correct dimensions do not establish coverage. Corrected cells each have probability 1/8 and sum to 1; transposing is equivalent. Reweighting duplicate columns cannot restore the omitted type.",
+      "freshness": "Complete malformed-header diagnosis is new; generic gamete derivation remains taught transfer. Does not incorrectly say duplicate columns themselves are biologically impossible.",
+      "findings": []
+    },
+    {
+      "id": "ch17-l05-check-writing-2",
+      "scope": "Every prompt/model/criterion sentence read.",
+      "science": "The event includes CCHH, CChh, ccHH and cchh, each at 1/16, totalling 1/4. At either locus, 1/4 + 1/4 = 1/2; multiplying independent requirements gives 1/4. Both dominant phenotypes at 9/16 include heterozygotes and omit three eligible double-homozygote classes. The other 12/16 plus 4/16 totals 1.",
+      "freshness": "The genotype-status group is new. The familiar cross and 9/16 comparison are exposed in teaching; letter/species changes are not the basis of freshness.",
+      "findings": []
+    },
+    {
+      "id": "lesson-05.tomato-core",
+      "scope": "All paragraphs, three tables and genotype/phenotype checks read.",
+      "science": "Restored RrTt × rrTt gives four gametes by two, with each cell at 1/8. Six genotypes occur in counts 1:2:1:1:2:1, and four phenotype groups in 3:3:1:1. All grid combinations and classifications are correct. The contrasting red/yellow parents are restored, and expected proportions are not promised as exact counts in eight offspring.",
+      "sourceScope": "The cross was checked against the verified native/PPT source model; original pixel comparison belongs to the separate source reviewer.",
+      "findings": []
+    },
+    {
+      "id": "lesson-05.change-task",
+      "scope": "All stimulus, prompt, hint, full comparison, table, criteria and controls read.",
+      "science": "Changing rrTt to rrtt changes only the second height pair. RrTt gametes remain at quarters; rrtt supplies rt with probability 1. RrTt, Rrtt, rrTt and rrtt occur at quarters. Short rises to 1/2, while Rr × rr keeps overall red/yellow at 1/2 each. The old 1/4 short expectation is correctly contrasted. Appropriately weighted duplicate rt columns are redundant; retaining rT is invalid because T is absent.",
+      "interface": "Original response ID, status and Save attributes and ordinary voluntary hint/model disclosures are retained; exact assembled verification is separate.",
+      "findings": []
+    }
+  ],
+  "independentEnumeration": [
+    {
+      "parents": [
+        "RrTt",
+        "rrTt"
+      ],
+      "gametes": [
+        {
+          "RT": "1/4",
+          "Rt": "1/4",
+          "rT": "1/4",
+          "rt": "1/4"
+        },
+        {
+          "rT": "1/2",
+          "rt": "1/2"
+        }
+      ],
+      "offspring": {
+        "RrTT": "1/8",
+        "RrTt": "1/4",
+        "Rrtt": "1/8",
+        "rrTT": "1/8",
+        "rrTt": "1/4",
+        "rrtt": "1/8"
+      },
+      "sum": "1"
+    },
+    {
+      "parents": [
+        "RrTt",
+        "rrtt"
+      ],
+      "gametes": [
+        {
+          "RT": "1/4",
+          "Rt": "1/4",
+          "rT": "1/4",
+          "rt": "1/4"
+        },
+        {
+          "rt": "1"
+        }
+      ],
+      "offspring": {
+        "RrTt": "1/4",
+        "Rrtt": "1/4",
+        "rrTt": "1/4",
+        "rrtt": "1/4"
+      },
+      "sum": "1"
+    },
+    {
+      "parents": [
+        "AaBB",
+        "AaBb"
+      ],
+      "gametes": [
+        {
+          "AB": "1/2",
+          "aB": "1/2"
+        },
+        {
+          "AB": "1/4",
+          "Ab": "1/4",
+          "aB": "1/4",
+          "ab": "1/4"
+        }
+      ],
+      "offspring": {
+        "AABB": "1/8",
+        "AABb": "1/8",
+        "AaBB": "1/4",
+        "AaBb": "1/4",
+        "aaBB": "1/8",
+        "aaBb": "1/8"
+      },
+      "sum": "1"
+    },
+    {
+      "parents": [
+        "CcHh",
+        "CcHh"
+      ],
+      "gametes": [
+        {
+          "CH": "1/4",
+          "Ch": "1/4",
+          "cH": "1/4",
+          "ch": "1/4"
+        },
+        {
+          "CH": "1/4",
+          "Ch": "1/4",
+          "cH": "1/4",
+          "ch": "1/4"
+        }
+      ],
+      "offspring": {
+        "CCHH": "1/16",
+        "CCHh": "1/8",
+        "CcHH": "1/8",
+        "CcHh": "1/4",
+        "CChh": "1/16",
+        "Cchh": "1/8",
+        "ccHH": "1/16",
+        "ccHh": "1/8",
+        "cchh": "1/16"
+      },
+      "sum": "1"
+    },
+    {
+      "parents": [
+        "TtGg",
+        "TtGg"
+      ],
+      "gametes": [
+        {
+          "TG": "1/4",
+          "Tg": "1/4",
+          "tG": "1/4",
+          "tg": "1/4"
+        },
+        {
+          "TG": "1/4",
+          "Tg": "1/4",
+          "tG": "1/4",
+          "tg": "1/4"
+        }
+      ],
+      "offspring": {
+        "TTGG": "1/16",
+        "TTGg": "1/8",
+        "TtGG": "1/8",
+        "TtGg": "1/4",
+        "TTgg": "1/16",
+        "Ttgg": "1/8",
+        "ttGG": "1/16",
+        "ttGg": "1/8",
+        "ttgg": "1/16"
+      },
+      "sum": "1"
+    }
+  ],
+  "allReviewedActualInputsHaveNoOpenConsequentialDefect": true,
+  "freshnessLimits": "Component facts and probabilities are intentionally taught. This is changed-demand application, not a claim of blindness; unchanged required/source-practice items are not newly certified fresh.",
+  "prospectiveEvidencePin": {
+    "path": "source-assessment-v0.3.0/analysis/native-preflight/PROSPECTIVE_REQUIRED_DEMAND_COLLISION_REVIEW.json",
+    "sha256": "a594d2e2a472577015c679f307b0a5a3c10ed92c6a514653d405cc7258dc5b34"
+  },
+  "assembledDualOwnerCheck": {
+    "status": "completed; all bounded independent static checks pass",
+    "evidence": "STATIC_SOURCE_CONTRACT_REVIEW.json",
+    "ownerSha256": "bc42ea52d8cf5709c0ec33c914e86450f93971f3e3144cb81b695593aa0eff3b",
+    "integrationMapSha256": "d5c22de26b8aa642b7c8d51e61a11db4190942619626a71b980c5f371ced6f4b",
+    "nativeBrowserUiTests": "not run",
+    "integrationPerformed": false,
+    "teacherAcceptance": "pending"
+  },
+  "independentSpecialistReview": "not claimed",
+  "nativeBrowserQA": "not run",
+  "teacherAcceptance": "pending"
+}

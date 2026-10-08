@@ -1,0 +1,40 @@
+{
+  "reviewer": "/root/exemplar_functions; independent assistant",
+  "initialFullRead": {
+    "bytes": 30224,
+    "sha256": "6007eedc1cb64cc665c04453775b6be3d23e59080aa91644ba72a22375f52e95",
+    "snapshot": "lesson-05.read.6007eedc.html.txt"
+  },
+  "actualFullReadScope": "All prose, tables, worked calculations, both stimuli/interfaces/hints/full models/criteria",
+  "nativeFigureSource": {
+    "path": "source-inspection/ch17/native/workspace/assets/figures/ch17-two-trait.svg",
+    "bytes": 5623,
+    "sha256": "6fdb301a963b4da131f8fe50624611fc0ff091c62e0ac99d6602019c2830c316",
+    "readScope": "Complete SVG source for actual labels/key; not rendered"
+  },
+  "findings": {
+    "K0205-EXPL-01": "resolved at finaleac: actual native location labels/key explicitly read",
+    "K0205-EXPL-02": "resolved at e42 and retained at finaleac"
+  },
+  "separateUnresolvedBoundary": "Tomato fidelity/protected-template readiness not cleared by explanatory review",
+  "teacherAcceptance": "pending",
+  "nativeUIFunctionalTesting": "not performed",
+  "assembledCopyReview": "not performed",
+  "intermediateDeltaRead": {
+    "bytes": 30200,
+    "sha256": "e42c7e640e755a0bbc6db9fe2dfae2f04108fe5866b0d20c173f6ffc22c33a59",
+    "scope": "Complete exact diff read: sister-separation wording, native03 single-locus reference, note-status key, learner-facing removal of native"
+  },
+  "finalReviewedInput": {
+    "bytes": 30601,
+    "sha256": "eac351c08ef28c82b936cf1baa206dbfb5f14feef65338d3e196d3c5aa0f6b4e",
+    "snapshot": "lesson-05.read.eac351c0.html.txt",
+    "scope": "Full initial6007 input plus complete exact diff6007\u2192finaleac, including all changed paragraphs/model feedback in context; not a second full reread claim"
+  },
+  "otherFinalDeltaRead": [
+    "restored native allele/phenotype vocabulary connections",
+    "precise redundant Rt column versus impossible RT contribution feedback",
+    "all four earlier e42 repairs retained"
+  ],
+  "scopedExplanatoryConclusion": "No remaining revision requested; separate tomato fidelity/protected-template boundary remains unresolved."
+}

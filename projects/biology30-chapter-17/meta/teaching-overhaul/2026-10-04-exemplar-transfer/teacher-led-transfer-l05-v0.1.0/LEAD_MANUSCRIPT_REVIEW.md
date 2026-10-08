@@ -1,0 +1,11 @@
+# Lesson 5 comparison review
+
+The lead read the complete 447-line returned manuscript, including both optional activities and their voluntary hints/models. The new lesson introduces the two-characteristic question, tells students what to inspect in the actual pea images, follows P/F1/F2 before explaining chromosome orientations, and connects weighted gamete contributions to genotype and phenotype groups. Tomato and squash applications retain complete reasoning rather than a ratio-only summary.
+
+The reviewed calculations are consistent: pea sixteen weighted pairings/nine genotypes/four phenotype groups; tomato RrTt × rrTt eight pairings/six genotypes/3:3:1:1 phenotypes and inclusive red-or-tall7/8; changed-parent task four-by-one; squash offspring inference wwDd × Wwdd/four outcomes/expected40white and20yellow-spherical of80. The independent-assortment, random-fertilisation, phenotype-expression and finite-sample qualifications are placed beside their use. Source traps concerning repeated identical gametes, static F2 visibility, metaphaseI versusII, plant spores, branch location letters, and fruit wording are addressed.
+
+No consequential teaching/science defect found in this lead reading. This is a review candidate, not Dean's exact-copy acceptance, an independent blind review, full curriculum certification or release. Scout's separate returned-manuscript review was requested in the existing authorized conversation and acknowledged; its report remains pending.
+
+Native assembly preserves the exact approved fragment bytes, immutable complete optional tasks, header, guided-practice onward, assessments, all other lessons, styles, runtime and assets. See evaluation/preservation-report.json for actual independently checked hashes and boundary evidence. The current teacher working origin is57222; synthetic save tests used57223, so teacher review contains no test answers.
+
+Focused browser observations: vocabulary dialog opens/closes, clickable vocabulary uses800font weight; both optional notes save and restore after reload and appear in AllMyWork; required progress remains0/15. All seven lesson images are served as byte-identical local assets. The comparison's opening pea visuals and source slide35 were visually inspected. Exhaustive responsive/media/accessibility, E2E, Studio, SCORM, Brightspace, deployment and packaging were not run.

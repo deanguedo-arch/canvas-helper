@@ -1,0 +1,102 @@
+{
+  "version": "0.3.0",
+  "existingAssets": [
+    {
+      "nativePath": "./assets/figures/ch17-two-trait.svg",
+      "readingCopy": "review-assets/assets/figures/ch17-two-trait.svg",
+      "source": {
+        "path": "source-assessment-v0.3.0/analysis/native-preflight/baseline/native-v020/assets/figures/ch17-two-trait.svg",
+        "bytes": 5623,
+        "sha256": "6fdb301a963b4da131f8fe50624611fc0ff091c62e0ac99d6602019c2830c316"
+      },
+      "status": "approved",
+      "statusScope": "Existing native visual preserved exactly; new teaching/assessment acceptance pending.",
+      "visualPurpose": "Read using the unchanged native figure caption and the preserved adjacent teaching directions."
+    }
+  ],
+  "nativeFigureMarkup": [
+    {
+      "attributes": {
+        "class": "science-figure",
+        "data-figure-id": "ch17-two-trait"
+      },
+      "range": {
+        "startByte": 188446,
+        "endByteExclusive": 189168,
+        "bytes": 722,
+        "sha256": "fb4a4af8d132176bcfcd3f21695d97865901a1c626bbecf5e9a1d6106dc428d0"
+      },
+      "rawBefore": "source-assessment-v0.3.0/analysis/native-preflight/raw-before/lesson-05/figure-ch17-two-trait.html.txt"
+    }
+  ],
+  "newExternalAssetsNeeded": [],
+  "newNativeCss": false,
+  "readerCssIncluded": true,
+  "readerOnlyStyle": {
+    "path": "output/Biology30_CH17_Source_Assessment_Trial_v0.3.0/review-assets/teacher-review-only.css",
+    "bytes": 2185,
+    "sha256": "0099523bf5c34de1dc52977a71f02c4f0c417fa4cd54a8550e51e071a8d69a9a"
+  },
+  "tables": [
+    {
+      "route": "lesson-02",
+      "caption": "Possible F2 allele combinations from Rr × Rr",
+      "status": "Complete semantic teaching table; no external asset needed."
+    },
+    {
+      "route": "lesson-02",
+      "caption": "A student's labelled allele diagram",
+      "status": "Complete semantic teaching table; no external asset needed."
+    },
+    {
+      "route": "lesson-02",
+      "caption": "Two controlled pea crosses with the parental roles reversed",
+      "status": "Complete semantic teaching table; no external asset needed."
+    },
+    {
+      "route": "lesson-05",
+      "caption": "F2 genotype combinations from TtGg × TtGg; each interior cell has probability 1/16",
+      "status": "Complete semantic teaching table; no external asset needed."
+    },
+    {
+      "route": "lesson-05",
+      "caption": "Grouping the sixteen F2 cells by phenotype",
+      "status": "Complete semantic teaching table; no external asset needed."
+    },
+    {
+      "route": "lesson-05",
+      "caption": "Possible gametes for RrTt × rrTt",
+      "status": "Complete semantic teaching table; no external asset needed."
+    },
+    {
+      "route": "lesson-05",
+      "caption": "Eight equally likely gamete pairings from RrTt × rrTt",
+      "status": "Complete semantic teaching table; no external asset needed."
+    },
+    {
+      "route": "lesson-05",
+      "caption": "Phenotype predictions for the tomato offspring",
+      "status": "Complete semantic teaching table; no external asset needed."
+    },
+    {
+      "route": "lesson-05",
+      "caption": "The one change to the tomato cross",
+      "status": "Complete semantic teaching table; no external asset needed."
+    },
+    {
+      "route": "lesson-05",
+      "caption": "Complete comparison for RrTt × rrtt",
+      "status": "Complete semantic teaching table; no external asset needed."
+    },
+    {
+      "route": "lesson-05",
+      "caption": "Gamete combinations after the yellow, spherical offspring resolves the squash parents",
+      "status": "Complete semantic teaching table; no external asset needed."
+    },
+    {
+      "route": "lesson-05",
+      "caption": "A breeding record with incomplete parental genotypes",
+      "status": "Complete semantic teaching table; no external asset needed."
+    }
+  ]
+}

@@ -1,0 +1,1758 @@
+{
+  "checks": [
+    {
+      "id": "ch17-check-02",
+      "route": "lesson-02",
+      "title": "Mendel’s experiments and segregation",
+      "mc": [
+        {
+          "prompt": "Why can a recessive phenotype reappear in the F2 generation?",
+          "answer": "Each heterozygous parent can contribute the recessive allele",
+          "explanation": "Two recessive contributions can form a homozygous recessive offspring.",
+          "cue": "Trace the normal mechanism before choosing an answer.",
+          "id": "ch17-l02-check-mc-1",
+          "options": [
+            "The recessive allele is always recreated by mutation",
+            "Dominant alleles vanish after one generation",
+            "Each heterozygous parent can contribute the recessive allele",
+            "Gametes carry both parental alleles together at every locus"
+          ],
+          "difficulty": "application"
+        },
+        {
+          "prompt": "A heterozygote has six dominant-phenotype offspring in succession in a suitable cross. Does that prove segregation stopped?",
+          "answer": "No; small samples can differ from expected ratios",
+          "explanation": "Probabilistic outcomes can form runs without changing the mechanism.",
+          "cue": "Trace the normal mechanism before choosing an answer.",
+          "id": "ch17-l02-check-mc-2",
+          "options": [
+            "Yes; meiosis makes only one type of gamete after the first birth",
+            "No; because alleles are not inherited",
+            "Yes; every short run must exactly match the expected ratio",
+            "No; small samples can differ from expected ratios"
+          ],
+          "difficulty": "application"
+        }
+      ],
+      "writing": [
+        {
+          "prompt": "Explain Mendel’s F1 and F2 pattern using alleles rather than blending.",
+          "model": "A homozygous dominant parent crossed with a homozygous recessive parent makes heterozygous F1 offspring. Their recessive alleles remain present. Segregation gives gametes one allele each, and an F2 offspring receiving two recessive alleles expresses the recessive phenotype.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ],
+          "id": "ch17-l02-check-writing-1",
+          "limit": 3200
+        },
+        {
+          "prompt": "Distinguish an expected 3:1 phenotype ratio from an exact prediction for four offspring.",
+          "model": "The ratio represents probabilities under specified assumptions. Each offspring has the same modeled probabilities, but chance can produce different counts in a sample of four. Larger samples tend to show proportions closer to the expectation.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ],
+          "id": "ch17-l02-check-writing-2",
+          "limit": 3200
+        }
+      ]
+    },
+    {
+      "id": "ch17-check-03",
+      "route": "lesson-03",
+      "title": "Single-trait crosses and probability",
+      "mc": [
+        {
+          "prompt": "Under complete dominance, AA × Aa can produce which phenotypes?",
+          "answer": "Only the dominant phenotype",
+          "explanation": "Every offspring receives A from the homozygous parent.",
+          "cue": "Trace the normal mechanism before choosing an answer.",
+          "id": "ch17-l03-check-mc-1",
+          "options": [
+            "Only the dominant phenotype",
+            "A fixed 3:1 dominant-to-recessive ratio",
+            "Only the recessive phenotype",
+            "A fixed 1:1 dominant-to-recessive ratio"
+          ],
+          "difficulty": "application"
+        },
+        {
+          "prompt": "Aa × Aa has already produced three aa offspring. What is the probability that the next is aa in the independent model?",
+          "answer": "1/4",
+          "explanation": "Previous independent outcomes do not alter the next gamete-combination probabilities.",
+          "cue": "Trace the normal mechanism before choosing an answer.",
+          "id": "ch17-l03-check-mc-2",
+          "options": [
+            "0",
+            "1/4",
+            "1",
+            "3/4"
+          ],
+          "difficulty": "application"
+        }
+      ],
+      "writing": [
+        {
+          "prompt": "Show how to obtain genotype and phenotype probabilities for Bb × bb when B is completely dominant.",
+          "model": "The heterozygote produces B or b gametes and bb produces b. The combinations are Bb and bb, each with probability 1/2. Therefore the expected genotype ratio is 1:1 and the expected dominant-to-recessive phenotype ratio is also 1:1.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ],
+          "id": "ch17-l03-check-writing-1",
+          "limit": 3200
+        },
+        {
+          "prompt": "Explain why a predicted count of 25 recessive offspring among 100 is not a guarantee.",
+          "model": "The count is an expectation from a 1/4 probability multiplied by 100. Individual gamete combinations are chance events, so the observed count can differ. The model predicts a distribution of possibilities rather than an exact scheduled sequence.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ],
+          "id": "ch17-l03-check-writing-2",
+          "limit": 3200
+        }
+      ]
+    },
+    {
+      "id": "ch17-check-04",
+      "route": "lesson-04",
+      "title": "Test crosses and unknown genotypes",
+      "mc": [
+        {
+          "prompt": "Five dominant offspring appear in a test cross. What is the most careful conclusion?",
+          "answer": "Homozygosity is supported, but heterozygosity is not logically excluded",
+          "explanation": "A finite run of dominant offspring can occur by chance from a heterozygote.",
+          "cue": "Trace the normal mechanism before choosing an answer.",
+          "id": "ch17-l04-check-mc-1",
+          "options": [
+            "The recessive allele has mutated into A in every cell",
+            "Segregation cannot operate",
+            "Homozygosity is supported, but heterozygosity is not logically excluded",
+            "The parent is certainly AA"
+          ],
+          "difficulty": "application"
+        },
+        {
+          "prompt": "A dominant-phenotype individual has an aa parent. Under the simple model, its genotype is:",
+          "answer": "Aa",
+          "explanation": "The aa parent must supply a; the dominant phenotype requires A from the other parent.",
+          "cue": "Trace the normal mechanism before choosing an answer.",
+          "id": "ch17-l04-check-mc-2",
+          "options": [
+            "Impossible to constrain at all",
+            "AA",
+            "aa",
+            "Aa"
+          ],
+          "difficulty": "application"
+        }
+      ],
+      "writing": [
+        {
+          "prompt": "Explain why a recessive tester makes an unknown dominant genotype easier to investigate.",
+          "model": "The homozygous recessive tester contributes only the recessive allele. Offspring outcomes therefore reveal whether the unknown parent can contribute a recessive allele. A recessive offspring identifies the unknown dominant parent as heterozygous within the model.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ],
+          "id": "ch17-l04-check-writing-1",
+          "limit": 3200
+        },
+        {
+          "prompt": "Calculate the probability that an Aa × aa cross produces four dominant-phenotype offspring in succession, and explain its relevance.",
+          "model": "Each offspring has probability 1/2 of the dominant phenotype. Four specified independent outcomes have probability (1/2)⁴ = 1/16. Thus an all-dominant sample of four can occur even when the unknown parent is heterozygous.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ],
+          "id": "ch17-l04-check-writing-2",
+          "limit": 3200
+        }
+      ]
+    },
+    {
+      "id": "ch17-check-05",
+      "route": "lesson-05",
+      "title": "Two-trait crosses and independent assortment",
+      "mc": [
+        {
+          "prompt": "What assumption is needed for multiplying separate two-locus probabilities in these examples?",
+          "answer": "The loci assort independently under the model",
+          "explanation": "Independence allows the product rule for locus outcomes.",
+          "cue": "Trace the normal mechanism before choosing an answer.",
+          "id": "ch17-l05-check-mc-1",
+          "options": [
+            "The loci assort independently under the model",
+            "The two genes must be identical",
+            "Every parent must be homozygous",
+            "Each offspring compensates for the previous one"
+          ],
+          "difficulty": "application"
+        },
+        {
+          "prompt": "For independent AaBb × AaBb with complete dominance, what is P(aaB_)?",
+          "answer": "3/16",
+          "explanation": "P(aa) = 1/4 and P(B_) = 3/4, giving 3/16.",
+          "cue": "Trace the normal mechanism before choosing an answer.",
+          "id": "ch17-l05-check-mc-2",
+          "options": [
+            "1/16",
+            "3/16",
+            "1/4",
+            "9/16"
+          ],
+          "difficulty": "application"
+        }
+      ],
+      "writing": [
+        {
+          "prompt": "List the gametes from RrTt and rrTt under independent assortment, then explain why a 4 × 4 square is unnecessary.",
+          "model": "RrTt produces RT, Rt, rT and rt. rrTt produces rT and rt. A 4 × 2 square contains all distinct combinations; duplicating columns does not add new outcomes or change probabilities.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ],
+          "id": "ch17-l05-check-writing-1",
+          "limit": 3200
+        },
+        {
+          "prompt": "Calculate P(A_bb) for AaBb × aaBb under independent assortment and complete dominance.",
+          "model": "At A, Aa × aa gives P(A_) = 1/2. At B, Bb × Bb gives P(bb) = 1/4. Multiplying gives 1/8. The result depends on independent assortment and the stated phenotype rules.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ],
+          "id": "ch17-l05-check-writing-2",
+          "limit": 3200
+        }
+      ]
+    }
+  ],
+  "relevantOptional": {
+    "authoredPractice": [
+      {
+        "prompt": "For Aa × Aa, what is the probability of two specified successive aa offspring?",
+        "answer": "1/16",
+        "explanation": "Multiply the independent probabilities: 1/4 × 1/4 = 1/16.",
+        "cue": "Trace the normal mechanism before choosing an answer.",
+        "id": "ch17-l03-application-1",
+        "options": [
+          "1/2",
+          "1/4",
+          "1/16",
+          "3/4"
+        ],
+        "difficulty": "application",
+        "lesson": 3,
+        "chapter": 17,
+        "conceptId": "ch17-concept-probability",
+        "family": "application",
+        "kind": "mc",
+        "reviewRoute": "lesson-03",
+        "flashVariant": {
+          "id": "ch17-l03-scenario-1",
+          "family": "scenario-explanation",
+          "prompt": "For Aa × Aa, what is the probability of two specified successive aa offspring?",
+          "model": "1/16. Multiply the independent probabilities: 1/4 × 1/4 = 1/16.",
+          "selfAssessed": true
+        }
+      },
+      {
+        "prompt": "A test cross of G_ × gg produces 12 dominant and 8 recessive offspring. Which genotype is established for the unknown parent in the stated model?",
+        "answer": "Gg",
+        "explanation": "The presence of recessive offspring establishes that the unknown parent can supply g; exact sample balance is unnecessary.",
+        "cue": "Trace the normal mechanism before choosing an answer.",
+        "id": "ch17-l04-application-1",
+        "options": [
+          "gg",
+          "No genotype can be inferred because the ratio is not exactly 1:1",
+          "GG",
+          "Gg"
+        ],
+        "difficulty": "application",
+        "lesson": 4,
+        "chapter": 17,
+        "conceptId": "ch17-concept-test-cross",
+        "family": "application",
+        "kind": "mc",
+        "reviewRoute": "lesson-04",
+        "flashVariant": {
+          "id": "ch17-l04-scenario-1",
+          "family": "scenario-explanation",
+          "prompt": "A test cross of G_ × gg produces 12 dominant and 8 recessive offspring. Which genotype is established for the unknown parent in the stated model?",
+          "model": "Gg. The presence of recessive offspring establishes that the unknown parent can supply g; exact sample balance is unnecessary.",
+          "selfAssessed": true
+        }
+      },
+      {
+        "prompt": "A cross is AaBb × Aabb. Under independence, what fraction is expected to be aabb?",
+        "answer": "1/8",
+        "explanation": "P(aa) = 1/4 and P(bb) = 1/2, so 1/8.",
+        "cue": "Trace the normal mechanism before choosing an answer.",
+        "id": "ch17-l05-application-1",
+        "options": [
+          "1/8",
+          "1/2",
+          "1/16",
+          "3/8"
+        ],
+        "difficulty": "application",
+        "lesson": 5,
+        "chapter": 17,
+        "conceptId": "ch17-concept-dihybrid-cross",
+        "family": "application",
+        "kind": "mc",
+        "reviewRoute": "lesson-05",
+        "flashVariant": {
+          "id": "ch17-l05-scenario-1",
+          "family": "scenario-explanation",
+          "prompt": "A cross is AaBb × Aabb. Under independence, what fraction is expected to be aabb?",
+          "model": "1/8. P(aa) = 1/4 and P(bb) = 1/2, so 1/8.",
+          "selfAssessed": true
+        }
+      }
+    ],
+    "guidedActivities": [
+      {
+        "chapter": 17,
+        "lesson": 3,
+        "route": "lesson-03",
+        "worked": {
+          "title": "Predict a phenotype and an expected count",
+          "scenario": "In a stated complete-dominance model, Tt is crossed with tt. Predict the fraction and expected number of recessive offspring among 60.",
+          "steps": [
+            "Tt produces T and t gametes; tt produces t gametes.",
+            "The equally likely combinations are Tt and tt.",
+            "The recessive phenotype is tt, probability 1/2.",
+            "Expected number = 60 × 1/2 = 30.",
+            "Check: the other expected 30 have the dominant phenotype; observed counts can vary."
+          ],
+          "id": "ch17-l03-worked",
+          "label": "Worked example"
+        },
+        "guided": {
+          "id": "ch17-l03-guided",
+          "label": "Practise with support",
+          "title": "Apply the explanation",
+          "instruction": "Try both questions. Use the hint to revise your thinking after an incorrect answer.",
+          "items": [
+            {
+              "prompt": "For Bb × Bb, what fraction is heterozygous?",
+              "answer": "1/2",
+              "explanation": "Bb and bB are two of four equally likely combinations.",
+              "cue": "Count genotypes, not all dominant phenotypes.",
+              "id": "ch17-l03-guided-q1",
+              "options": [
+                "1/4",
+                "1/2",
+                "3/4"
+              ],
+              "difficulty": "application",
+              "kind": "select",
+              "hint": "Count genotypes, not all dominant phenotypes."
+            },
+            {
+              "prompt": "For Aa × aa, what is the expected number of aa offspring among 100?",
+              "answer": "50",
+              "explanation": "Probability aa = 1/2; 100 × 1/2 = 50.",
+              "cue": "Use the actual parental cross before applying a ratio.",
+              "id": "ch17-l03-guided-q2",
+              "options": [
+                "25",
+                "75",
+                "50"
+              ],
+              "difficulty": "application",
+              "kind": "select",
+              "hint": "Use the actual parental cross before applying a ratio."
+            }
+          ]
+        }
+      },
+      {
+        "chapter": 17,
+        "lesson": 4,
+        "route": "lesson-04",
+        "worked": {
+          "title": "A recessive offspring resolves the unknown",
+          "scenario": "A black fictional mouse, B_, is crossed with a brown bb mouse. One offspring is brown.",
+          "steps": [
+            "The brown offspring is bb.",
+            "The known tester supplied one b.",
+            "The unknown black parent supplied the other b, so it carries b.",
+            "Its black phenotype also requires B in the complete-dominance model.",
+            "The unknown parent is Bb."
+          ],
+          "id": "ch17-l04-worked",
+          "label": "Worked example"
+        },
+        "guided": {
+          "id": "ch17-l04-guided",
+          "label": "Practise with support",
+          "title": "Apply the explanation",
+          "instruction": "Try both questions. Use the hint to revise your thinking after an incorrect answer.",
+          "items": [
+            {
+              "prompt": "Which tester is useful for distinguishing TT from Tt?",
+              "answer": "tt",
+              "explanation": "The recessive tester has a known allele contribution.",
+              "cue": "Choose a tester that contributes only the recessive allele.",
+              "id": "ch17-l04-guided-q1",
+              "options": [
+                "tt",
+                "An individual with unresolved T_ genotype",
+                "TT"
+              ],
+              "difficulty": "application",
+              "kind": "select",
+              "hint": "Choose a tester that contributes only the recessive allele."
+            },
+            {
+              "prompt": "An unknown dominant parent crossed with aa produces one aa offspring. What is the unknown genotype?",
+              "answer": "Aa",
+              "explanation": "The parent must contribute a while also carrying A for its phenotype.",
+              "cue": "Combine phenotype evidence with the offspring’s required allele.",
+              "id": "ch17-l04-guided-q2",
+              "options": [
+                "AA",
+                "Aa",
+                "aa despite its dominant phenotype"
+              ],
+              "difficulty": "application",
+              "kind": "select",
+              "hint": "Combine phenotype evidence with the offspring’s required allele."
+            }
+          ]
+        }
+      },
+      {
+        "chapter": 17,
+        "lesson": 5,
+        "route": "lesson-05",
+        "worked": {
+          "title": "Solve a two-locus cross without unnecessary boxes",
+          "scenario": "In an independent complete-dominance model, RrTt × rrTt produces offspring. Find the probability of red, short offspring: R_tt.",
+          "steps": [
+            "At the colour locus, Rr × rr gives P(R_) = 1/2.",
+            "At the height locus, Tt × Tt gives P(tt) = 1/4.",
+            "Both conditions are required, so multiply: 1/2 × 1/4 = 1/8.",
+            "For 80 offspring the expected count is 80 × 1/8 = 10.",
+            "The result relies on independence of the two loci."
+          ],
+          "id": "ch17-l05-worked",
+          "label": "Worked example"
+        },
+        "guided": {
+          "id": "ch17-l05-guided",
+          "label": "Practise with support",
+          "title": "Apply the explanation",
+          "instruction": "Try both questions. Use the hint to revise your thinking after an incorrect answer.",
+          "items": [
+            {
+              "prompt": "Which gametes can Aabb produce?",
+              "answer": "Ab and ab",
+              "explanation": "Choose one allele from each locus: B is absent and b is always present.",
+              "cue": "List the A choice and the B-locus choice separately.",
+              "id": "ch17-l05-guided-q1",
+              "options": [
+                "Aa and bb",
+                "AB and ab",
+                "Ab and ab"
+              ],
+              "difficulty": "application",
+              "kind": "select",
+              "hint": "List the A choice and the B-locus choice separately."
+            },
+            {
+              "prompt": "For independent AaBb × aabb, what is P(aabb)?",
+              "answer": "1/4",
+              "explanation": "P(aa) = 1/2 and P(bb) = 1/2; multiply to obtain 1/4.",
+              "cue": "Do not apply the heterozygote × heterozygote ratio to a test cross.",
+              "id": "ch17-l05-guided-q2",
+              "options": [
+                "1/4",
+                "1/16",
+                "3/4"
+              ],
+              "difficulty": "application",
+              "kind": "select",
+              "hint": "Do not apply the heterozygote × heterozygote ratio to a test cross."
+            }
+          ]
+        }
+      }
+    ],
+    "practiceQuestions": [
+      {
+        "id": "ch17-source-OBJ_2131224",
+        "lesson": 3,
+        "prompt": "In a completely dominant, single-locus model, which cross predicts a 3:1 dominant-to-recessive phenotype ratio?",
+        "answer": "Aa × Aa",
+        "options": [
+          "Aa × Aa",
+          "AA × aa",
+          "Aa × aa",
+          "AA × AA"
+        ],
+        "cue": "Identify the relevant mechanism or quantity and apply the stated model.",
+        "explanation": "The four equally likely outcomes are AA, Aa, Aa and aa. A sample ratio is evidence, not an exact guarantee.",
+        "difficulty": "application",
+        "stimuli": [],
+        "sourceItemId": "OBJ_2131224",
+        "conceptId": "ch17-concept-phenotype"
+      },
+      {
+        "id": "ch17-source-OBJ_2131226",
+        "lesson": 4,
+        "prompt": "A test cross is used to determine",
+        "answer": "the genotype of the parent",
+        "options": [
+          "the phenotype of the parent",
+          "the phenotype of the offspring",
+          "the genotype of the parent",
+          "if independent assortment occurred"
+        ],
+        "cue": "Identify the relevant mechanism or quantity and apply the stated model.",
+        "explanation": "A recessive tester helps distinguish the possible genotypes behind a dominant phenotype; sample size affects certainty when no recessive offspring appear.",
+        "difficulty": "application",
+        "stimuli": [],
+        "sourceItemId": "OBJ_2131226",
+        "conceptId": "ch17-concept-test-cross"
+      },
+      {
+        "id": "ch17-source-OBJ_2131227",
+        "lesson": 5,
+        "prompt": "Assume independent assortment and complete dominance at both loci. What phenotype ratio is predicted for TtYy × TtYy?",
+        "answer": "9:3:3:1",
+        "options": [
+          "1:1:1:1",
+          "1:2:1",
+          "3:1",
+          "9:3:3:1"
+        ],
+        "cue": "Identify the relevant mechanism or quantity and apply the stated model.",
+        "explanation": "Each locus predicts a 3:1 phenotype ratio. Multiplying independent probabilities gives 9/16, 3/16, 3/16 and 1/16.",
+        "difficulty": "application",
+        "stimuli": [],
+        "sourceItemId": "OBJ_2131227",
+        "conceptId": "ch17-concept-independent-assortment"
+      },
+      {
+        "id": "ch17-source-OBJ_2131230",
+        "lesson": 4,
+        "prompt": "In a hypothetical single-locus trait, B is dominant to b. An individual with the dominant phenotype has a recessive-phenotype child with a bb partner. What is the first parent’s genotype?",
+        "answer": "Bb",
+        "options": [
+          "bb",
+          "BBbb",
+          "Bb",
+          "BB"
+        ],
+        "cue": "Identify the relevant mechanism or quantity and apply the stated model.",
+        "explanation": "The recessive child is bb and must receive b from both parents; the dominant-phenotype parent must also carry B.",
+        "difficulty": "application",
+        "stimuli": [],
+        "sourceItemId": "OBJ_2131230",
+        "conceptId": "ch17-concept-phenotype"
+      },
+      {
+        "id": "ch17-source-OBJ_2131231",
+        "lesson": 3,
+        "prompt": "Under a fully penetrant autosomal-recessive model, two unaffected carriers have a child. What is the probability the child is affected?",
+        "answer": "25%",
+        "options": [
+          "75%",
+          "0%",
+          "50%",
+          "25%"
+        ],
+        "cue": "Identify the relevant mechanism or quantity and apply the stated model.",
+        "explanation": "Aa × Aa predicts aa in one of four equally likely genotype combinations. Earlier births do not change this probability.",
+        "difficulty": "application",
+        "stimuli": [],
+        "sourceItemId": "OBJ_2131231",
+        "conceptId": "ch17-concept-probability"
+      },
+      {
+        "id": "ch17-source-OBJ_2131235",
+        "lesson": 3,
+        "prompt": "In persons with sickle-cell disease, the red blood cells are shaped like a “sickle” and are not biconcave disks like normal red blood cells. Mr. and Mrs. Charleson are both carriers ( Hb A Hb S ) of sickle-cell disease. What are the chances of their having a child with sickle-cell disease?",
+        "answer": "25 percent",
+        "options": [
+          "0 percent",
+          "50 percent",
+          "100 percent",
+          "25 percent"
+        ],
+        "cue": "Identify the relevant mechanism or quantity and apply the stated model.",
+        "explanation": "For HbA/HbS × HbA/HbS, the HbS/HbS combination has probability 1/4 in each conception under the stated model.",
+        "difficulty": "application",
+        "stimuli": [],
+        "sourceItemId": "OBJ_2131235",
+        "conceptId": "ch17-concept-punnett-square"
+      },
+      {
+        "id": "ch17-source-OBJ_2131236",
+        "lesson": 5,
+        "prompt": "Two independent completely dominant loci have parental genotypes AABB × aabb. What describes the F1?",
+        "answer": "All AaBb with both dominant phenotypes",
+        "options": [
+          "All AaBb with both dominant phenotypes",
+          "Four phenotype classes in a 1:1:1:1 ratio",
+          "All AABB",
+          "All aabb"
+        ],
+        "cue": "Identify the relevant mechanism or quantity and apply the stated model.",
+        "explanation": "Only AB and ab parental gametes are available, producing identical heterozygous combinations at these loci.",
+        "difficulty": "application",
+        "stimuli": [],
+        "sourceItemId": "OBJ_2131236",
+        "conceptId": "ch17-concept-genotype"
+      },
+      {
+        "id": "ch17-source-OBJ_2131237",
+        "lesson": 5,
+        "prompt": "For independent AaBb × AaBb, what is the probability of the dominant A phenotype together with bb?",
+        "answer": "3/16",
+        "options": [
+          "15/16",
+          "3/16",
+          "1/16",
+          "9/16"
+        ],
+        "cue": "Identify the relevant mechanism or quantity and apply the stated model.",
+        "explanation": "P(A_) = 3/4 and P(bb) = 1/4; their product is 3/16.",
+        "difficulty": "application",
+        "stimuli": [],
+        "sourceItemId": "OBJ_2131237",
+        "conceptId": "ch17-concept-probability"
+      },
+      {
+        "id": "ch17-source-OBJ_2131239",
+        "lesson": 3,
+        "prompt": "A heterozygous affected parent Aa and an unaffected parent aa have offspring in a fully penetrant dominant model. What affected probability is predicted?",
+        "answer": "50%",
+        "options": [
+          "25%",
+          "100%",
+          "0%",
+          "50%"
+        ],
+        "cue": "Identify the relevant mechanism or quantity and apply the stated model.",
+        "explanation": "Aa × aa gives one-half Aa and one-half aa. The statement is conditional on the inheritance model.",
+        "difficulty": "application",
+        "stimuli": [],
+        "sourceItemId": "OBJ_2131239",
+        "conceptId": "ch17-concept-probability"
+      },
+      {
+        "id": "ch17-source-OBJ_2131242",
+        "lesson": 5,
+        "prompt": "Assume independent assortment and complete dominance. What phenotype ratio is predicted for RrPp × rrpp?",
+        "answer": "1:1:1:1",
+        "options": [
+          "3:1",
+          "1:2:1",
+          "1:1:1:1",
+          "9:3:3:1"
+        ],
+        "cue": "Identify the relevant mechanism or quantity and apply the stated model.",
+        "explanation": "The double heterozygote forms RP, Rp, rP and rp gametes equally; the tester forms rp only.",
+        "difficulty": "application",
+        "stimuli": [],
+        "sourceItemId": "OBJ_2131242",
+        "conceptId": "ch17-concept-independent-assortment"
+      },
+      {
+        "id": "ch17-foundation-ch17-word-punnett-square",
+        "lesson": 3,
+        "conceptId": "ch17-concept-punnett-square",
+        "prompt": "Which term matches this description? A table combining possible parental gametes to organize offspring genotypes.",
+        "options": [
+          "Punnett square",
+          "monohybrid cross",
+          "probability",
+          "expected number"
+        ],
+        "answer": "Punnett square",
+        "cue": "Use the meaning of each term, not the length of its name.",
+        "explanation": "A table combining possible parental gametes to organize offspring genotypes. Each cell represents a possible combination, not a separate guaranteed offspring.",
+        "difficulty": "recall",
+        "family": "definition-recognition",
+        "kind": "mc"
+      },
+      {
+        "id": "ch17-foundation-ch17-word-monohybrid-cross",
+        "lesson": 3,
+        "conceptId": "ch17-concept-monohybrid-cross",
+        "prompt": "Which term matches this description? A cross between individuals heterozygous for one studied gene.",
+        "options": [
+          "Punnett square",
+          "monohybrid cross",
+          "probability",
+          "expected number"
+        ],
+        "answer": "monohybrid cross",
+        "cue": "Use the meaning of each term, not the length of its name.",
+        "explanation": "A cross between individuals heterozygous for one studied gene. A single-trait cross is not always heterozygote × heterozygote.",
+        "difficulty": "recall",
+        "family": "definition-recognition",
+        "kind": "mc"
+      },
+      {
+        "id": "ch17-foundation-ch17-word-probability",
+        "lesson": 3,
+        "conceptId": "ch17-concept-probability",
+        "prompt": "Which term matches this description? The expected proportion of an outcome under specified conditions.",
+        "options": [
+          "Punnett square",
+          "monohybrid cross",
+          "probability",
+          "expected number"
+        ],
+        "answer": "probability",
+        "cue": "Use the meaning of each term, not the length of its name.",
+        "explanation": "The expected proportion of an outcome under specified conditions. Use the group asked about as the denominator.",
+        "difficulty": "recall",
+        "family": "definition-recognition",
+        "kind": "mc"
+      },
+      {
+        "id": "ch17-foundation-ch17-word-expected-number",
+        "lesson": 3,
+        "conceptId": "ch17-concept-expected-number",
+        "prompt": "Which term matches this description? The predicted count obtained by multiplying a probability by the sample size.",
+        "options": [
+          "Punnett square",
+          "monohybrid cross",
+          "probability",
+          "expected number"
+        ],
+        "answer": "expected number",
+        "cue": "Use the meaning of each term, not the length of its name.",
+        "explanation": "The predicted count obtained by multiplying a probability by the sample size. An expected count need not equal an observed count.",
+        "difficulty": "recall",
+        "family": "definition-recognition",
+        "kind": "mc"
+      },
+      {
+        "id": "ch17-foundation-ch17-word-test-cross",
+        "lesson": 4,
+        "conceptId": "ch17-concept-test-cross",
+        "prompt": "Which term matches this description? A cross with a homozygous recessive individual used to investigate an unknown genotype.",
+        "options": [
+          "test cross",
+          "homozygous",
+          "heterozygous",
+          "sampling variation"
+        ],
+        "answer": "test cross",
+        "cue": "Use the meaning of each term, not the length of its name.",
+        "explanation": "A cross with a homozygous recessive individual used to investigate an unknown genotype. One recessive offspring can be informative; all dominant offspring in a small sample need not prove homozygosity.",
+        "difficulty": "recall",
+        "family": "definition-recognition",
+        "kind": "mc"
+      },
+      {
+        "id": "ch17-foundation-ch17-word-homozygous",
+        "lesson": 4,
+        "conceptId": "ch17-concept-homozygous",
+        "prompt": "Which term matches this description? Having two identical alleles at a locus.",
+        "options": [
+          "test cross",
+          "homozygous",
+          "heterozygous",
+          "sampling variation"
+        ],
+        "answer": "homozygous",
+        "cue": "Use the meaning of each term, not the length of its name.",
+        "explanation": "Having two identical alleles at a locus. Homozygous can be dominant or recessive.",
+        "difficulty": "recall",
+        "family": "definition-recognition",
+        "kind": "mc"
+      },
+      {
+        "id": "ch17-foundation-ch17-word-heterozygous",
+        "lesson": 4,
+        "conceptId": "ch17-concept-heterozygous",
+        "prompt": "Which term matches this description? Having two different alleles at a locus.",
+        "options": [
+          "test cross",
+          "homozygous",
+          "heterozygous",
+          "sampling variation"
+        ],
+        "answer": "heterozygous",
+        "cue": "Use the meaning of each term, not the length of its name.",
+        "explanation": "Having two different alleles at a locus. A heterozygote can share a phenotype with a homozygous dominant individual.",
+        "difficulty": "recall",
+        "family": "definition-recognition",
+        "kind": "mc"
+      },
+      {
+        "id": "ch17-foundation-ch17-word-sampling-variation",
+        "lesson": 4,
+        "conceptId": "ch17-concept-sampling-variation",
+        "prompt": "Which term matches this description? Differences between observed sample outcomes and their expected proportions due to chance.",
+        "options": [
+          "test cross",
+          "homozygous",
+          "heterozygous",
+          "sampling variation"
+        ],
+        "answer": "sampling variation",
+        "cue": "Use the meaning of each term, not the length of its name.",
+        "explanation": "Differences between observed sample outcomes and their expected proportions due to chance. A small sample may not distinguish two models decisively.",
+        "difficulty": "recall",
+        "family": "definition-recognition",
+        "kind": "mc"
+      },
+      {
+        "id": "ch17-foundation-ch17-word-dihybrid-cross",
+        "lesson": 5,
+        "conceptId": "ch17-concept-dihybrid-cross",
+        "prompt": "Which term matches this description? A cross between individuals heterozygous at two studied loci.",
+        "options": [
+          "dihybrid cross",
+          "independent assortment",
+          "product rule",
+          "gamete combination"
+        ],
+        "answer": "dihybrid cross",
+        "cue": "Use the meaning of each term, not the length of its name.",
+        "explanation": "A cross between individuals heterozygous at two studied loci. The familiar 9:3:3:1 phenotype ratio needs complete dominance and independent assortment.",
+        "difficulty": "recall",
+        "family": "definition-recognition",
+        "kind": "mc"
+      },
+      {
+        "id": "ch17-foundation-ch17-word-independent-assortment",
+        "lesson": 5,
+        "conceptId": "ch17-concept-independent-assortment",
+        "prompt": "Which term matches this description? Independent segregation of alleles at different loci when the chromosome arrangement permits it.",
+        "options": [
+          "dihybrid cross",
+          "independent assortment",
+          "product rule",
+          "gamete combination"
+        ],
+        "answer": "independent assortment",
+        "cue": "Use the meaning of each term, not the length of its name.",
+        "explanation": "Independent segregation of alleles at different loci when the chromosome arrangement permits it. Linked genes can depart from this equal-combination prediction.",
+        "difficulty": "recall",
+        "family": "definition-recognition",
+        "kind": "mc"
+      },
+      {
+        "id": "ch17-foundation-ch17-word-product-rule",
+        "lesson": 5,
+        "conceptId": "ch17-concept-product-rule",
+        "prompt": "Which term matches this description? Multiplication of probabilities for specified independent events.",
+        "options": [
+          "dihybrid cross",
+          "independent assortment",
+          "product rule",
+          "gamete combination"
+        ],
+        "answer": "product rule",
+        "cue": "Use the meaning of each term, not the length of its name.",
+        "explanation": "Multiplication of probabilities for specified independent events. Check independence before multiplying separate trait probabilities.",
+        "difficulty": "recall",
+        "family": "definition-recognition",
+        "kind": "mc"
+      },
+      {
+        "id": "ch17-foundation-ch17-word-gamete-combination",
+        "lesson": 5,
+        "conceptId": "ch17-concept-gamete-combination",
+        "prompt": "Which term matches this description? The set of one allele from each studied locus carried by a gamete.",
+        "options": [
+          "dihybrid cross",
+          "independent assortment",
+          "product rule",
+          "gamete combination"
+        ],
+        "answer": "gamete combination",
+        "cue": "Use the meaning of each term, not the length of its name.",
+        "explanation": "The set of one allele from each studied locus carried by a gamete. A gamete does not receive both A and a at the same autosomal locus in this model.",
+        "difficulty": "recall",
+        "family": "definition-recognition",
+        "kind": "mc"
+      }
+    ],
+    "typedPractice": [
+      {
+        "id": "ch17-l03-context-punnett-square",
+        "chapter": 17,
+        "lesson": 3,
+        "conceptId": "ch17-concept-punnett-square",
+        "family": "scenario-retrieval",
+        "kind": "blank",
+        "difficulty": "application",
+        "prompt": "Identify the term illustrated: Rows list one parent’s gametes and columns the other’s.",
+        "answer": "Punnett square",
+        "aliases": [],
+        "cue": "Use the relationship described in the example.",
+        "explanation": "A table combining possible parental gametes to organize offspring genotypes. Each cell represents a possible combination, not a separate guaranteed offspring.",
+        "reviewRoute": "lesson-03"
+      },
+      {
+        "id": "ch17-l03-context-monohybrid-cross",
+        "chapter": 17,
+        "lesson": 3,
+        "conceptId": "ch17-concept-monohybrid-cross",
+        "family": "scenario-retrieval",
+        "kind": "blank",
+        "difficulty": "application",
+        "prompt": "Identify the term illustrated: Aa × Aa is used to examine segregation of one locus.",
+        "answer": "monohybrid cross",
+        "aliases": [],
+        "cue": "Use the relationship described in the example.",
+        "explanation": "A cross between individuals heterozygous for one studied gene. A single-trait cross is not always heterozygote × heterozygote.",
+        "reviewRoute": "lesson-03"
+      },
+      {
+        "id": "ch17-l03-context-probability",
+        "chapter": 17,
+        "lesson": 3,
+        "conceptId": "ch17-concept-probability",
+        "family": "scenario-retrieval",
+        "kind": "blank",
+        "difficulty": "application",
+        "prompt": "Identify the term illustrated: One of four equally likely combinations is homozygous recessive.",
+        "answer": "probability",
+        "aliases": [],
+        "cue": "Use the relationship described in the example.",
+        "explanation": "The expected proportion of an outcome under specified conditions. Use the group asked about as the denominator.",
+        "reviewRoute": "lesson-03"
+      },
+      {
+        "id": "ch17-l03-context-expected-number",
+        "chapter": 17,
+        "lesson": 3,
+        "conceptId": "ch17-concept-expected-number",
+        "family": "scenario-retrieval",
+        "kind": "blank",
+        "difficulty": "application",
+        "prompt": "Identify the term illustrated: A probability of 0.25 in 80 offspring gives an expected count of 20.",
+        "answer": "expected number",
+        "aliases": [],
+        "cue": "Use the relationship described in the example.",
+        "explanation": "The predicted count obtained by multiplying a probability by the sample size. An expected count need not equal an observed count.",
+        "reviewRoute": "lesson-03"
+      },
+      {
+        "id": "ch17-l04-context-test-cross",
+        "chapter": 17,
+        "lesson": 4,
+        "conceptId": "ch17-concept-test-cross",
+        "family": "scenario-retrieval",
+        "kind": "blank",
+        "difficulty": "application",
+        "prompt": "Identify the term illustrated: A dark B_ individual is crossed with a pale bb tester.",
+        "answer": "test cross",
+        "aliases": [],
+        "cue": "Use the relationship described in the example.",
+        "explanation": "A cross with a homozygous recessive individual used to investigate an unknown genotype. One recessive offspring can be informative; all dominant offspring in a small sample need not prove homozygosity.",
+        "reviewRoute": "lesson-04"
+      },
+      {
+        "id": "ch17-l04-context-homozygous",
+        "chapter": 17,
+        "lesson": 4,
+        "conceptId": "ch17-concept-homozygous",
+        "family": "scenario-retrieval",
+        "kind": "blank",
+        "difficulty": "application",
+        "prompt": "Identify the term illustrated: An individual is AA or aa rather than Aa.",
+        "answer": "homozygous",
+        "aliases": [],
+        "cue": "Use the relationship described in the example.",
+        "explanation": "Having two identical alleles at a locus. Homozygous can be dominant or recessive.",
+        "reviewRoute": "lesson-04"
+      },
+      {
+        "id": "ch17-l04-context-heterozygous",
+        "chapter": 17,
+        "lesson": 4,
+        "conceptId": "ch17-concept-heterozygous",
+        "family": "scenario-retrieval",
+        "kind": "blank",
+        "difficulty": "application",
+        "prompt": "Identify the term illustrated: An individual has one dominant and one recessive allele in a simple model.",
+        "answer": "heterozygous",
+        "aliases": [],
+        "cue": "Use the relationship described in the example.",
+        "explanation": "Having two different alleles at a locus. A heterozygote can share a phenotype with a homozygous dominant individual.",
+        "reviewRoute": "lesson-04"
+      },
+      {
+        "id": "ch17-l04-context-sampling-variation",
+        "chapter": 17,
+        "lesson": 4,
+        "conceptId": "ch17-concept-sampling-variation",
+        "family": "scenario-retrieval",
+        "kind": "blank",
+        "difficulty": "application",
+        "prompt": "Identify the term illustrated: A small set of offspring contains no recessive individual even though each had a one-half chance.",
+        "answer": "sampling variation",
+        "aliases": [],
+        "cue": "Use the relationship described in the example.",
+        "explanation": "Differences between observed sample outcomes and their expected proportions due to chance. A small sample may not distinguish two models decisively.",
+        "reviewRoute": "lesson-04"
+      },
+      {
+        "id": "ch17-l05-context-dihybrid-cross",
+        "chapter": 17,
+        "lesson": 5,
+        "conceptId": "ch17-concept-dihybrid-cross",
+        "family": "scenario-retrieval",
+        "kind": "blank",
+        "difficulty": "application",
+        "prompt": "Identify the term illustrated: AaBb × AaBb is used to examine two traits under stated assumptions.",
+        "answer": "dihybrid cross",
+        "aliases": [],
+        "cue": "Use the relationship described in the example.",
+        "explanation": "A cross between individuals heterozygous at two studied loci. The familiar 9:3:3:1 phenotype ratio needs complete dominance and independent assortment.",
+        "reviewRoute": "lesson-05"
+      },
+      {
+        "id": "ch17-l05-context-independent-assortment",
+        "chapter": 17,
+        "lesson": 5,
+        "conceptId": "ch17-concept-independent-assortment",
+        "family": "scenario-retrieval",
+        "kind": "blank",
+        "difficulty": "application",
+        "prompt": "Identify the term illustrated: An AaBb individual produces AB, Ab, aB and ab equally in an unlinked model.",
+        "answer": "independent assortment",
+        "aliases": [],
+        "cue": "Use the relationship described in the example.",
+        "explanation": "Independent segregation of alleles at different loci when the chromosome arrangement permits it. Linked genes can depart from this equal-combination prediction.",
+        "reviewRoute": "lesson-05"
+      },
+      {
+        "id": "ch17-l05-context-product-rule",
+        "chapter": 17,
+        "lesson": 5,
+        "conceptId": "ch17-concept-product-rule",
+        "family": "scenario-retrieval",
+        "kind": "blank",
+        "difficulty": "application",
+        "prompt": "Identify the term illustrated: Probability of aa and bb is calculated as P(aa) × P(bb) when the loci assort independently.",
+        "answer": "product rule",
+        "aliases": [],
+        "cue": "Use the relationship described in the example.",
+        "explanation": "Multiplication of probabilities for specified independent events. Check independence before multiplying separate trait probabilities.",
+        "reviewRoute": "lesson-05"
+      },
+      {
+        "id": "ch17-l05-context-gamete-combination",
+        "chapter": 17,
+        "lesson": 5,
+        "conceptId": "ch17-concept-gamete-combination",
+        "family": "scenario-retrieval",
+        "kind": "blank",
+        "difficulty": "application",
+        "prompt": "Identify the term illustrated: An AaBb parent can produce an Ab gamete in an independent model.",
+        "answer": "gamete combination",
+        "aliases": [],
+        "cue": "Use the relationship described in the example.",
+        "explanation": "The set of one allele from each studied locus carried by a gamete. A gamete does not receive both A and a at the same autosomal locus in this model.",
+        "reviewRoute": "lesson-05"
+      }
+    ]
+  },
+  "expectedNumber": [
+    {
+      "term": "expected number",
+      "meaning": "The predicted count obtained by multiplying a probability by the sample size.",
+      "example": "A probability of 0.25 in 80 offspring gives an expected count of 20.",
+      "importantDistinction": "An expected count need not equal an observed count.",
+      "aliases": [],
+      "id": "ch17-word-expected-number",
+      "lesson": 3,
+      "whatItDoes": "A probability of 0.25 in 80 offspring gives an expected count of 20.",
+      "feature": "A probability of 0.25 in 80 offspring gives an expected count of 20.",
+      "confusion": "An expected count need not equal an observed count."
+    }
+  ],
+  "nativeTextbookAssignments": [
+    {
+      "id": "ch17-p587-in-text-q1",
+      "page": 587,
+      "group": "in-text",
+      "number": 1,
+      "label": "In Text · p. 587 · question 1",
+      "topics": [
+        "lesson-01",
+        "lesson-02"
+      ],
+      "crops": [
+        {
+          "page": 587,
+          "box": [
+            267.4949951171875,
+            57.91197204589844,
+            411.183837890625,
+            93.14277648925781
+          ],
+          "src": "./assets/textbook-practice/ch17-p587-in-text-q1-0.png",
+          "role": "question"
+        },
+        {
+          "page": 587,
+          "box": [
+            0.0,
+            0.0,
+            603.0,
+            783.0
+          ],
+          "src": "./assets/textbook-practice/p587.jpg",
+          "role": "supporting full-page context"
+        },
+        {
+          "page": 586,
+          "box": [
+            0.0,
+            0.0,
+            603.0,
+            783.0
+          ],
+          "src": "./assets/textbook-practice/p586.jpg",
+          "role": "supporting full-page context"
+        }
+      ],
+      "sourceText": "2 \u0012  What is selective breeding?  Give an example.",
+      "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+    },
+    {
+      "id": "ch17-p587-in-text-q2",
+      "page": 587,
+      "group": "in-text",
+      "number": 2,
+      "label": "In Text · p. 587 · question 2",
+      "topics": [
+        "lesson-01",
+        "lesson-02"
+      ],
+      "crops": [
+        {
+          "page": 587,
+          "box": [
+            267.4949951171875,
+            90.91197204589844,
+            416.251953125,
+            126.14326477050781
+          ],
+          "src": "./assets/textbook-practice/ch17-p587-in-text-q2-0.png",
+          "role": "question"
+        },
+        {
+          "page": 587,
+          "box": [
+            0.0,
+            0.0,
+            603.0,
+            783.0
+          ],
+          "src": "./assets/textbook-practice/p587.jpg",
+          "role": "supporting full-page context"
+        },
+        {
+          "page": 586,
+          "box": [
+            0.0,
+            0.0,
+            603.0,
+            783.0
+          ],
+          "src": "./assets/textbook-practice/p586.jpg",
+          "role": "supporting full-page context"
+        }
+      ],
+      "sourceText": "2 \u0013  Brieﬂ y describe two early  explanations of inheritance. ",
+      "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+    },
+    {
+      "id": "ch17-p588-in-text-q3",
+      "page": 588,
+      "group": "in-text",
+      "number": 3,
+      "label": "In Text · p. 588 · question 3",
+      "topics": [
+        "lesson-01",
+        "lesson-02",
+        "lesson-03"
+      ],
+      "crops": [
+        {
+          "page": 588,
+          "box": [
+            360.4949951171875,
+            264.7869567871094,
+            517.138427734375,
+            313.5233154296875
+          ],
+          "src": "./assets/textbook-practice/ch17-p588-in-text-q3-0.png",
+          "role": "question"
+        },
+        {
+          "page": 588,
+          "box": [
+            0.0,
+            0.0,
+            603.0,
+            783.0
+          ],
+          "src": "./assets/textbook-practice/p588.jpg",
+          "role": "supporting full-page context"
+        },
+        {
+          "page": 587,
+          "box": [
+            0.0,
+            0.0,
+            603.0,
+            783.0
+          ],
+          "src": "./assets/textbook-practice/p587.jpg",
+          "role": "supporting full-page context"
+        }
+      ],
+      "sourceText": "2 \u0014  Explain how a hybrid plant is  different from a true breeding  plant.",
+      "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+    },
+    {
+      "id": "ch17-p588-in-text-q4",
+      "page": 588,
+      "group": "in-text",
+      "number": 4,
+      "label": "In Text · p. 588 · question 4",
+      "topics": [
+        "lesson-01",
+        "lesson-02"
+      ],
+      "crops": [
+        {
+          "page": 588,
+          "box": [
+            360.4949951171875,
+            311.2869873046875,
+            529.6618041992188,
+            347.6140441894531
+          ],
+          "src": "./assets/textbook-practice/ch17-p588-in-text-q4-0.png",
+          "role": "question"
+        },
+        {
+          "page": 588,
+          "box": [
+            0.0,
+            0.0,
+            603.0,
+            783.0
+          ],
+          "src": "./assets/textbook-practice/p588.jpg",
+          "role": "supporting full-page context"
+        },
+        {
+          "page": 587,
+          "box": [
+            0.0,
+            0.0,
+            603.0,
+            783.0
+          ],
+          "src": "./assets/textbook-practice/p587.jpg",
+          "role": "supporting full-page context"
+        }
+      ],
+      "sourceText": "2 \u0015  Explain the difference between P,  F1, and F2 generations in a cross.",
+      "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+    },
+    {
+      "id": "ch17-p589-in-text-q5",
+      "page": 589,
+      "group": "in-text",
+      "number": 5,
+      "label": "In Text · p. 589 · question 5",
+      "topics": [
+        "lesson-03",
+        "lesson-02",
+        "lesson-04"
+      ],
+      "crops": [
+        {
+          "page": 589,
+          "box": [
+            267.4949951171875,
+            355.7869873046875,
+            431.64202880859375,
+            404.5243225097656
+          ],
+          "src": "./assets/textbook-practice/ch17-p589-in-text-q5-0.png",
+          "role": "question"
+        },
+        {
+          "page": 589,
+          "box": [
+            0.0,
+            0.0,
+            603.0,
+            783.0
+          ],
+          "src": "./assets/textbook-practice/p589.jpg",
+          "role": "supporting full-page context"
+        },
+        {
+          "page": 588,
+          "box": [
+            0.0,
+            0.0,
+            603.0,
+            783.0
+          ],
+          "src": "./assets/textbook-practice/p588.jpg",
+          "role": "supporting full-page context"
+        }
+      ],
+      "sourceText": "2 \u0016  State Mendel’s ﬁ rst law in your  own words, and use an example  to illustrate it.",
+      "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+    },
+    {
+      "id": "ch17-p590-in-text-q6",
+      "page": 590,
+      "group": "in-text",
+      "number": 6,
+      "label": "In Text · p. 590 · question 6",
+      "topics": [
+        "lesson-02",
+        "lesson-04",
+        "lesson-03"
+      ],
+      "crops": [
+        {
+          "page": 590,
+          "box": [
+            360.4949951171875,
+            129.78501892089844,
+            523.65283203125,
+            165.01832580566406
+          ],
+          "src": "./assets/textbook-practice/ch17-p590-in-text-q6-0.png",
+          "role": "question"
+        },
+        {
+          "page": 590,
+          "box": [
+            0.0,
+            0.0,
+            603.0,
+            783.0
+          ],
+          "src": "./assets/textbook-practice/p590.jpg",
+          "role": "supporting full-page context"
+        },
+        {
+          "page": 589,
+          "box": [
+            0.0,
+            0.0,
+            603.0,
+            783.0
+          ],
+          "src": "./assets/textbook-practice/p589.jpg",
+          "role": "supporting full-page context"
+        }
+      ],
+      "sourceText": "2 \u0017  State the meanings of the terms  dominant and recessive.",
+      "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+    },
+    {
+      "id": "ch17-p590-in-text-q9",
+      "page": 590,
+      "group": "in-text",
+      "number": 9,
+      "label": "In Text · p. 590 · question 9",
+      "topics": [
+        "lesson-04"
+      ],
+      "crops": [
+        {
+          "page": 590,
+          "box": [
+            360.4949951171875,
+            242.28501892089844,
+            513.8184814453125,
+            304.5242919921875
+          ],
+          "src": "./assets/textbook-practice/ch17-p590-in-text-q9-0.png",
+          "role": "question"
+        },
+        {
+          "page": 590,
+          "box": [
+            0.0,
+            0.0,
+            603.0,
+            783.0
+          ],
+          "src": "./assets/textbook-practice/p590.jpg",
+          "role": "supporting full-page context"
+        },
+        {
+          "page": 589,
+          "box": [
+            0.0,
+            0.0,
+            603.0,
+            783.0
+          ],
+          "src": "./assets/textbook-practice/p589.jpg",
+          "role": "supporting full-page context"
+        }
+      ],
+      "sourceText": "2 \u001a  What does it mean to be  homozygous for a trait? How  is this different from being  heterozygous for a trait?",
+      "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+    },
+    {
+      "id": "ch17-p593-in-text-q10",
+      "page": 593,
+      "group": "in-text",
+      "number": 10,
+      "label": "In Text · p. 593 · question 10",
+      "topics": [
+        "lesson-03",
+        "lesson-05"
+      ],
+      "crops": [
+        {
+          "page": 593,
+          "box": [
+            267.4949951171875,
+            301.2869873046875,
+            405.1453857421875,
+            331.30450439453125
+          ],
+          "src": "./assets/textbook-practice/ch17-p593-in-text-q10-0.png",
+          "role": "question"
+        },
+        {
+          "page": 593,
+          "box": [
+            0.0,
+            0.0,
+            603.0,
+            783.0
+          ],
+          "src": "./assets/textbook-practice/p593.jpg",
+          "role": "supporting full-page context"
+        },
+        {
+          "page": 592,
+          "box": [
+            0.0,
+            0.0,
+            603.0,
+            783.0
+          ],
+          "src": "./assets/textbook-practice/p592.jpg",
+          "role": "supporting full-page context"
+        }
+      ],
+      "sourceText": "2 \u0012\u0011  What is a Punnett square?",
+      "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+    },
+    {
+      "id": "ch17-p593-in-text-q11",
+      "page": 593,
+      "group": "in-text",
+      "number": 11,
+      "label": "In Text · p. 593 · question 11",
+      "topics": [
+        "lesson-04",
+        "lesson-05"
+      ],
+      "crops": [
+        {
+          "page": 593,
+          "box": [
+            267.4949951171875,
+            320.7869873046875,
+            379.44134521484375,
+            350.80450439453125
+          ],
+          "src": "./assets/textbook-practice/ch17-p593-in-text-q11-0.png",
+          "role": "question"
+        },
+        {
+          "page": 593,
+          "box": [
+            0.0,
+            0.0,
+            603.0,
+            783.0
+          ],
+          "src": "./assets/textbook-practice/p593.jpg",
+          "role": "supporting full-page context"
+        },
+        {
+          "page": 592,
+          "box": [
+            0.0,
+            0.0,
+            603.0,
+            783.0
+          ],
+          "src": "./assets/textbook-practice/p592.jpg",
+          "role": "supporting full-page context"
+        }
+      ],
+      "sourceText": "2 \u0012\u0012  What is a test cross?",
+      "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+    },
+    {
+      "id": "ch17-p593-in-text-q12",
+      "page": 593,
+      "group": "in-text",
+      "number": 12,
+      "label": "In Text · p. 593 · question 12",
+      "topics": [
+        "lesson-05",
+        "lesson-06"
+      ],
+      "crops": [
+        {
+          "page": 593,
+          "box": [
+            267.4949951171875,
+            340.2869873046875,
+            418.2283935546875,
+            375.52032470703125
+          ],
+          "src": "./assets/textbook-practice/ch17-p593-in-text-q12-0.png",
+          "role": "question"
+        },
+        {
+          "page": 593,
+          "box": [
+            0.0,
+            0.0,
+            603.0,
+            783.0
+          ],
+          "src": "./assets/textbook-practice/p593.jpg",
+          "role": "supporting full-page context"
+        },
+        {
+          "page": 592,
+          "box": [
+            0.0,
+            0.0,
+            603.0,
+            783.0
+          ],
+          "src": "./assets/textbook-practice/p592.jpg",
+          "role": "supporting full-page context"
+        }
+      ],
+      "sourceText": "2 \u0012\u0013  State Mendel’s second law in  your own words.",
+      "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+    },
+    {
+      "id": "ch17-p595-in-text-q13",
+      "page": 595,
+      "group": "in-text",
+      "number": 13,
+      "label": "In Text · p. 595 · question 13",
+      "topics": [
+        "lesson-06",
+        "lesson-07",
+        "lesson-05"
+      ],
+      "crops": [
+        {
+          "page": 595,
+          "box": [
+            72.49490356445312,
+            359.28497314453125,
+            209.09518432617188,
+            394.5152587890625
+          ],
+          "src": "./assets/textbook-practice/ch17-p595-in-text-q13-0.png",
+          "role": "question"
+        },
+        {
+          "page": 595,
+          "box": [
+            0.0,
+            0.0,
+            603.0,
+            783.0
+          ],
+          "src": "./assets/textbook-practice/p595.jpg",
+          "role": "supporting full-page context"
+        },
+        {
+          "page": 594,
+          "box": [
+            0.0,
+            0.0,
+            603.0,
+            783.0
+          ],
+          "src": "./assets/textbook-practice/p594.jpg",
+          "role": "supporting full-page context"
+        }
+      ],
+      "sourceText": "2 \u0012\u0014  Explain what incomplete  dominance is.",
+      "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+    },
+    {
+      "id": "ch17-p595-in-text-q15",
+      "page": 595,
+      "group": "in-text",
+      "number": 15,
+      "label": "In Text · p. 595 · question 15",
+      "topics": [
+        "lesson-06",
+        "lesson-07",
+        "lesson-05"
+      ],
+      "crops": [
+        {
+          "page": 595,
+          "box": [
+            72.49490356445312,
+            452.28497314453125,
+            221.93345642089844,
+            501.0150451660156
+          ],
+          "src": "./assets/textbook-practice/ch17-p595-in-text-q15-0.png",
+          "role": "question"
+        },
+        {
+          "page": 595,
+          "box": [
+            0.0,
+            0.0,
+            603.0,
+            783.0
+          ],
+          "src": "./assets/textbook-practice/p595.jpg",
+          "role": "supporting full-page context"
+        },
+        {
+          "page": 594,
+          "box": [
+            0.0,
+            0.0,
+            603.0,
+            783.0
+          ],
+          "src": "./assets/textbook-practice/p594.jpg",
+          "role": "supporting full-page context"
+        }
+      ],
+      "sourceText": "2 \u0012\u0016  Explain how co-dominance  is different from incomplete  dominance.",
+      "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+    },
+    {
+      "id": "ch17-p595-in-text-q16",
+      "page": 595,
+      "group": "in-text",
+      "number": 16,
+      "label": "In Text · p. 595 · question 16",
+      "topics": [
+        "lesson-06",
+        "lesson-07",
+        "lesson-05"
+      ],
+      "crops": [
+        {
+          "page": 595,
+          "box": [
+            72.49490356445312,
+            498.7849426269531,
+            236.3237762451172,
+            547.5150756835938
+          ],
+          "src": "./assets/textbook-practice/ch17-p595-in-text-q16-0.png",
+          "role": "question"
+        },
+        {
+          "page": 595,
+          "box": [
+            0.0,
+            0.0,
+            603.0,
+            783.0
+          ],
+          "src": "./assets/textbook-practice/p595.jpg",
+          "role": "supporting full-page context"
+        },
+        {
+          "page": 594,
+          "box": [
+            0.0,
+            0.0,
+            603.0,
+            783.0
+          ],
+          "src": "./assets/textbook-practice/p594.jpg",
+          "role": "supporting full-page context"
+        }
+      ],
+      "sourceText": "2 \u0012\u0017  Explain why the roan colouring  of a horse is an example of  co-dominance.",
+      "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+    },
+    {
+      "id": "ch17-p598-section-17-1-q8",
+      "page": 598,
+      "group": "section-17-1",
+      "number": 8,
+      "label": "Section 17 1 · p. 598 · question 8",
+      "topics": [
+        "lesson-06",
+        "lesson-07",
+        "lesson-04"
+      ],
+      "crops": [
+        {
+          "page": 598,
+          "box": [
+            287.0,
+            221.9306182861328,
+            539.0,
+            318.93060302734375
+          ],
+          "src": "./assets/textbook-practice/ch17-p598-section-17-1-q8-0.png",
+          "role": "question"
+        },
+        {
+          "page": 598,
+          "box": [
+            0.0,
+            0.0,
+            603.0,
+            783.0
+          ],
+          "src": "./assets/textbook-practice/p598.jpg",
+          "role": "supporting full-page context"
+        }
+      ],
+      "sourceText": " 8. Imagine that you randomly select one of the \nlong-winged gray-bodied fl ies from the offspring \ndescribed in problem 5 and perform a test cross with a \nfl y that is homozygous recessive for both traits. What is \nthe probability that the offspring will be produced in \nthe ratio 1:1:1:1 for long, gray : long, black : short, \ngray : short, black?",
+      "reviewStatus": "Original wording retained; geometric crop plus complete source context."
+    }
+  ]
+}

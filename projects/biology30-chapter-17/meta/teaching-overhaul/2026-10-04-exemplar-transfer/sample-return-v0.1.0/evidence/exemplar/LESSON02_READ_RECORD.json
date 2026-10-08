@@ -1,0 +1,23 @@
+{
+  "reviewer": "/root/exemplar_functions; independent assistant, not Dean/external specialist",
+  "sourcePath": "calibration-v0.1.0/authoring/lesson-02.teaching.html.in",
+  "reviewedDraftBytes": 16834,
+  "reviewedDraftSha256": "104526dfdc81d8e6aac1f56f826ea3c04ef28fe73b4c1f6d006ff5ae838808c0",
+  "snapshotPath": "calibration-v0.1.0/analysis/exemplar/lesson-02.read-draft.104526df.html.txt",
+  "actualReadScope": "Complete learner input, including all visible explanation, table, worked reasoning, both practice prompts/hints/full feedback and carry-forward",
+  "planSha256": "307b5af3a59635176d4e31fea9bdda887cea6b430aafc38ffea13028fbdc06f9",
+  "finding": "No consequential missing step, untaught demand or hidden-feedback dependence found; minor referent clarification resolved after second full current-draft read",
+  "minorIssue": "CAL02-INSTR-01 resolved",
+  "initialFullReadSha256": "5f850fc3737556934340120a28264b8eee443c1952dced1403376ed4be0b292d",
+  "newDraftAfterReview": "requires bounded delta read if edited",
+  "teacherApproval": "pending",
+  "nativeRuntimeTests": "not run",
+  "browserRendering": "not performed",
+  "priorFullReadSha256": "523b0daa245650aa950b1636b54c71d6326bba89e47a509b235309f52fdc89de",
+  "priorFullReadBytes": 16865,
+  "finalDeltaRead": {
+    "scope": "Full exact diff read from523b0daa\u2026: remove premature opener term, move comparison-table class to native div wrapper, remove two unsupported muted classes; no other learner words change.",
+    "instructionalFinding": "No new issue; all practice/hint/feedback preserved.",
+    "runtimeOrRenderTest": "not performed"
+  }
+}

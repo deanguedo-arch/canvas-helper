@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-06",
+  "candidateSha256": "1ac7a2f934cdd2a5373f75d567abe01f7a512fc52e1c766320b46c58afc5e46a",
+  "browser": "Codex in-app browser",
+  "reviewOrigin": "http://127.0.0.1:57252",
+  "syntheticQaOrigin": "http://127.0.0.1:57253",
+  "scope": [
+    "lesson-08",
+    "lesson-09",
+    "lesson-10",
+    "lesson-11",
+    "lesson-12",
+    "lesson-13",
+    "lesson-14",
+    "lesson-15",
+    "extension"
+  ],
+  "checks": [
+    {
+      "id": "routes",
+      "status": "pass",
+      "evidence": "All nine revised routes show correct headings; comparison selection also checked for lesson 14 and extension."
+    },
+    {
+      "id": "images",
+      "status": "pass",
+      "evidence": "All 12 teaching image occurrences loaded, representing nine new source assets and three preserved figures. Initial lazy-load false values on 12/13 were superseded by explicit container visits and positive complete/naturalWidth reads."
+    },
+    {
+      "id": "vocabulary",
+      "status": "pass-bounded",
+      "evidence": "Representative dialogs opened and closed on lessons 08-15; existing bold term styling retained, dialog focus lands on Close. All fragment term IDs statically bind to native vocabulary. Full keyboard traversal not tested."
+    },
+    {
+      "id": "reader",
+      "status": "partial",
+      "evidence": "Native reader modal and printed/PDF page mapping verified on eight lessons. Embedded PDF pixels were blank in this browser. New-window PDF readability not verified; reader bytes unchanged."
+    },
+    {
+      "id": "optional-save",
+      "status": "pass",
+      "evidence": "Synthetic extension note saves, reloads and appears in All My Work. Newer unsaved draft reloads separately while last explicitly saved response remains collected. Required progress stays 0/15."
+    },
+    {
+      "id": "guided-save",
+      "status": "pass-bounded",
+      "evidence": "Lesson 08 guided correct answer and feedback survive reload; attempt appears in All My Work without required-progress credit."
+    },
+    {
+      "id": "required-progress",
+      "status": "pass-bounded",
+      "evidence": "Lesson 08 cannot finish prematurely; writing unlocks only after checked MC responses. Explicit completion changes 0/15 to 1/15 and persists after reload; other work remains. Written responses not automatically graded."
+    },
+    {
+      "id": "responsive",
+      "status": "pass-bounded",
+      "evidence": "All nine routes have no document overflow at actual CSS 390x843. Existing table wrappers use overflow-x:auto. Desktop teaching screenshot and mobile lesson 09 header inspected; deep-scroll mobile captures were blank, so full mobile visual/keyboard table review remains incomplete."
+    },
+    {
+      "id": "figure-enlargement",
+      "status": "pass-bounded",
+      "evidence": "Preserved linkage View larger dialog opens and closes. Other preserved figure subtrees exact; their enlargement controls not all exercised."
+    },
+    {
+      "id": "console",
+      "status": "partial",
+      "evidence": "No captured candidate/QA console errors. One unattributed MutationObserver observe non-Node error appeared during comparison navigation. No matching observer code in comparison wrapper/source context pages; selectors and course routes still function. Attribution unresolved."
+    }
+  ],
+  "deferred": [
+    "Full keyboard accessibility and horizontal-table keyboard access",
+    "Complete deep-scroll mobile visual review",
+    "Embedded PDF rendering/new-window verification",
+    "Native transfer whole-set submission",
+    "Legacy cross-version save import/conflict recovery",
+    "Print/PDF and backup",
+    "Video playback/captions",
+    "SCORM/Brightspace",
+    "Teacher acceptance of lessons 8-15 and extension",
+    "Canonical integration/package/deployment"
+  ],
+  "screenshots": [
+    "comparison-ready.png",
+    "new-teaching-ready.png",
+    "mobile-lesson-09.png"
+  ],
+  "teacherAccepted": false,
+  "released": false
+}

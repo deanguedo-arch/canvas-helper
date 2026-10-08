@@ -1,0 +1,94 @@
+{
+  "artifact": "Biology30_CH17_Exemplar_Transfer_Calibration_v0.1.0",
+  "version": "0.1.0",
+  "checkedAtUTC": "2026-10-04T15:08:14.333046+00:00",
+  "scope": "Final static file/source integrity before ZIP sealing; no native integration or runtime test.",
+  "nativeOwner": {
+    "originalPath": "source-inspection/ch17/native/workspace/index.html",
+    "bytes": 3471105,
+    "sha256": "9ea0e4532845625e7a2421b6e885fea2781ad3c1229b8499dc7c8bb967289868"
+  },
+  "coreArtifacts": [
+    {
+      "path": "manuscripts/lesson-02.md",
+      "bytes": 15004,
+      "sha256": "1fe8392c843c77250d23babac8d73c9c0826be2253bbd4ecb96d691b8c2a704e"
+    },
+    {
+      "path": "manuscripts/lesson-05.md",
+      "bytes": 18133,
+      "sha256": "5ce3f48d1c44ddf22932ea3bc2c4ce7045ff45c4f78511afaa421a7d1c46a1e9"
+    },
+    {
+      "path": "integration-text/lesson-02.teaching-fragment.html.txt",
+      "bytes": 17464,
+      "sha256": "5740360125376c2994bdaa1f28c4fe3d57b276232494ec7dbdb9db49ed6543fc"
+    },
+    {
+      "path": "integration-text/lesson-05.teaching-fragment.html.txt",
+      "bytes": 21630,
+      "sha256": "a78b0e51af788a1591864cd8fc3ae6a733a4b7b051b73bbe82be1787e1944e0c"
+    },
+    {
+      "path": "Biology30_CH17_Exemplar_Transfer_Calibration_Teacher_Review_v0.1.0.html",
+      "bytes": 1279267,
+      "sha256": "5553619d9c0eb503fd9efdd3a0ca079eb50148c131f11de9efae3b401d2b7e70"
+    },
+    {
+      "path": "INTEGRATION_MAP.json",
+      "bytes": 79824,
+      "sha256": "a03999a1ccc91c4d8d9f0b842a57335acd6547c95b2cbaa201a619f005627bcc"
+    },
+    {
+      "path": "PRACTICE_MAP.json",
+      "bytes": 35933,
+      "sha256": "f7c2bea054d23ab328a377e14c8564a5d23b6ea6d3be2c124a709941b1f1005f"
+    }
+  ],
+  "teachingReplacementProposals": [
+    {
+      "route": "lesson-02",
+      "startByte": 106355,
+      "endByteExclusive": 110898
+    },
+    {
+      "route": "lesson-05",
+      "startByte": 169200,
+      "endByteExclusive": 174246
+    }
+  ],
+  "headerProposals": [],
+  "rawBeforeFilesCheckedAgainstOriginalBytes": 84,
+  "exactCopiedEvidenceFiles": 89,
+  "exactEvidenceCopyMismatches": 0,
+  "actualBlockInputAndExpandedIntervalsChecked": 23,
+  "independentNativeContractRecord": {
+    "path": "evidence/native/FINAL_FRAGMENT_CONTRACT_CHECK.json",
+    "bytes": 30649,
+    "sha256": "b0650a416c9e97c5703f2df8c3de996a037d33e3b017f3a8ac0c84291ea15532",
+    "allCurrentChecksMatch": true,
+    "nativeRangesInIndependentCheck": 96
+  },
+  "priorFullHandoff": {
+    "directory": "/workspace/scratch/9592c268bc42/output/Biology30_CH17_Manuscript_Handoff_v1.0.0",
+    "filesCompared": 410,
+    "addedFiles": [],
+    "missingFiles": [],
+    "changedFiles": [],
+    "archive": {
+      "path": "/workspace/scratch/9592c268bc42/output/Biology30_CH17_Manuscript_Handoff_v1.0.0.zip",
+      "bytes": 3312061,
+      "sha256": "9ec8ac9208c131d0dbd1586e0b99ab532ab1293fae42f9478bc8669d94c270b9"
+    },
+    "unchanged": true
+  },
+  "archiveVerificationScope": "The sealing receipt outside the archive records final ZIP size, SHA256, CRC and exact per-member readback. The manifest and checksums inside the ZIP bind its full payload.",
+  "teacherAcceptance": "pending",
+  "externalSpecialistReview": "not performed",
+  "runtimeTests": "not run",
+  "browserRendering": "not performed",
+  "localReceipt": "not verified",
+  "canonicalIntegration": "not done",
+  "deployment": "not done",
+  "release": "not done"
+}

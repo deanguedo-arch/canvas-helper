@@ -1,0 +1,2579 @@
+{
+  "lessonId": "lesson-04",
+  "title": "The resting neuron",
+  "locator": {
+    "path": "projects/biology30-unit-a-pilot-3/workspace/index.html",
+    "selector": "#lesson-04",
+    "startLine": 680,
+    "endLine": 830,
+    "startOffset": 74020,
+    "endOffset": 92768,
+    "offsetUnit": "JavaScript UTF-16 code units",
+    "fragmentSha256": "a8196c2781da242222692339d6a535f3ed9c8607dc1e5222f92ba0b70ec7e819"
+  },
+  "currentHtml": "chapter11-lessons/lesson-04/current-exact.html",
+  "completeReadableCopy": "chapter11-lessons/lesson-04/current-complete.md",
+  "chapterTextbook": "sources/original/chapter-11.pdf",
+  "printedPageOffset": 359,
+  "textbookLinks": [
+    {
+      "pdfPage": 15,
+      "text": "Open at p. 374",
+      "line": 702,
+      "printedPage": 374,
+      "textExtract": "sources/extracted/chapter11-textbook/pdf-page-015.txt"
+    },
+    {
+      "pdfPage": 15,
+      "text": "Textbook p. 374",
+      "line": 777,
+      "printedPage": 374,
+      "textExtract": "sources/extracted/chapter11-textbook/pdf-page-015.txt"
+    },
+    {
+      "pdfPage": 16,
+      "text": "Textbook p. 375",
+      "line": 794,
+      "printedPage": 375,
+      "textExtract": "sources/extracted/chapter11-textbook/pdf-page-016.txt"
+    },
+    {
+      "pdfPage": 15,
+      "text": "Textbook p. 374",
+      "line": 811,
+      "printedPage": 374,
+      "textExtract": "sources/extracted/chapter11-textbook/pdf-page-015.txt"
+    }
+  ],
+  "teacherSlides": [
+    {
+      "slide": 21,
+      "textPath": "sources/extracted/chapter11-teacher-deck/slide-021.md",
+      "media": [
+        {
+          "id": "rId4",
+          "type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/image",
+          "target": "ppt/media/image2.jpg",
+          "external": false,
+          "packageMediaPath": "sources/teacher-deck-media/image2.jpg"
+        }
+      ]
+    },
+    {
+      "slide": 22,
+      "textPath": "sources/extracted/chapter11-teacher-deck/slide-022.md",
+      "media": [
+        {
+          "id": "rId3",
+          "type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/image",
+          "target": "ppt/media/image6.png",
+          "external": false,
+          "packageMediaPath": "sources/teacher-deck-media/image6.png"
+        }
+      ]
+    },
+    {
+      "slide": 23,
+      "textPath": "sources/extracted/chapter11-teacher-deck/slide-023.md",
+      "media": [
+        {
+          "id": "rId3",
+          "type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/image",
+          "target": "ppt/media/image8.png",
+          "external": false,
+          "packageMediaPath": "sources/teacher-deck-media/image8.png"
+        },
+        {
+          "id": "rId4",
+          "type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/image",
+          "target": "ppt/media/image35.png",
+          "external": false,
+          "packageMediaPath": "sources/teacher-deck-media/image35.png"
+        }
+      ]
+    }
+  ],
+  "mappingStatus": "Lead topic-based source locator from inspected slide titles/text; not teacher-certified outcome coverage. Consult full deck when context is needed.",
+  "caveat": null,
+  "questions": [
+    {
+      "id": "check-resting-potential-mc",
+      "activityId": "check-resting-potential",
+      "lessonId": "lesson-04",
+      "attrs": {
+        "class": "question",
+        "data-question": "check-resting-potential-mc"
+      },
+      "originalHtml": "<div class=\"question\" data-question=\"check-resting-potential-mc\">\n<h3 data-canvas-helper-edit-key=\"p3-chapter-149\">Which of these statements correctly describes the distribution of ions on the inside and outside of a neuron with a resting membrane potential of – 70 mV?</h3>\n<label class=\"choice\" data-canvas-helper-edit-key=\"p3-chapter-150\">\n<input type=\"radio\" name=\"check-resting-potential-mc\" value=\"QUES_51675_82711_A275478\" data-answer=\"\"> more positive ions outside and more negative ions inside</label>\n<label class=\"choice\" data-canvas-helper-edit-key=\"p3-chapter-151\">\n<input type=\"radio\" name=\"check-resting-potential-mc\" value=\"QUES_51675_82711_A275479\" data-answer=\"\"> more negative ions outside and more positive ions inside</label>\n<label class=\"choice\" data-canvas-helper-edit-key=\"p3-chapter-152\">\n<input type=\"radio\" name=\"check-resting-potential-mc\" value=\"QUES_51675_82711_A275480\" data-answer=\"\"> equal numbers of positive and negative ions both inside and outside</label>\n<label class=\"choice\" data-canvas-helper-edit-key=\"p3-chapter-153\">\n<input type=\"radio\" name=\"check-resting-potential-mc\" value=\"QUES_51675_82711_A275481\" data-answer=\"\"> chloride ions (Cl–) outside and Na+&nbsp;and K+&nbsp;inside</label>\n<button type=\"button\" data-check=\"\" data-canvas-helper-edit-key=\"p3-chapter-154\">Check answer</button>\n<p data-feedback=\"\" role=\"status\" data-canvas-helper-edit-key=\"p3-chapter-155\">\n</p>\n<fieldset class=\"paired-writing\" data-unlock=\"check-resting-potential-mc\" disabled=\"\">\n<legend>Explain the related idea</legend>\n<p data-canvas-helper-edit-key=\"p3-chapter-156\">\nExplain what the resting membrane potential is, and why it is significant to the functioning of neurons. </p>\n<p data-canvas-helper-edit-key=\"p3-chapter-157\">\n<a href=\"#textbook-library\" data-book-page=\"15\" data-canvas-helper-edit-key=\"p3-chapter-158\">Textbook p. 374</a>\n</p>\n<label for=\"check-resting-potential-written\" data-canvas-helper-edit-key=\"p3-chapter-159\">Written response</label>\n<textarea id=\"check-resting-potential-written\" data-writing=\"check-resting-potential-written\" data-answer-limit=\"3200\" rows=\"6\" aria-describedby=\"check-resting-potential-written-limit check-resting-potential-written-status\"></textarea>\n<p id=\"check-resting-potential-written-limit\" class=\"muted\" data-canvas-helper-edit-key=\"p3-chapter-160\">Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded.</p>\n<button type=\"button\" data-submit-writing=\"\" data-canvas-helper-edit-key=\"p3-chapter-161\">Save written response</button>\n<p data-writing-status=\"\" id=\"check-resting-potential-written-status\" role=\"status\" data-canvas-helper-edit-key=\"p3-chapter-162\">\n</p>\n</fieldset>\n</div>",
+      "completeText": "Which of these statements correctly describes the distribution of ions on the inside and outside of a neuron with a resting membrane potential of – 70 mV? more positive ions outside and more negative ions inside more negative ions outside and more positive ions inside equal numbers of positive and negative ions both inside and outside chloride ions (Cl–) outside and Na+ and K+ inside Check answer Explain the related idea Explain what the resting membrane potential is, and why it is significant to the functioning of neurons. Textbook p. 374 Written response Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded. Save written response",
+      "locator": {
+        "path": "projects/biology30-unit-a-pilot-3/workspace/index.html",
+        "line": 759,
+        "endLine": 786
+      },
+      "answerFields": [
+        {
+          "tag": "input",
+          "attrs": {
+            "type": "radio",
+            "name": "check-resting-potential-mc",
+            "value": "QUES_51675_82711_A275478",
+            "data-answer": ""
+          },
+          "text": ""
+        },
+        {
+          "tag": "input",
+          "attrs": {
+            "type": "radio",
+            "name": "check-resting-potential-mc",
+            "value": "QUES_51675_82711_A275479",
+            "data-answer": ""
+          },
+          "text": ""
+        },
+        {
+          "tag": "input",
+          "attrs": {
+            "type": "radio",
+            "name": "check-resting-potential-mc",
+            "value": "QUES_51675_82711_A275480",
+            "data-answer": ""
+          },
+          "text": ""
+        },
+        {
+          "tag": "input",
+          "attrs": {
+            "type": "radio",
+            "name": "check-resting-potential-mc",
+            "value": "QUES_51675_82711_A275481",
+            "data-answer": ""
+          },
+          "text": ""
+        },
+        {
+          "tag": "textarea",
+          "attrs": {
+            "id": "check-resting-potential-written",
+            "data-writing": "check-resting-potential-written",
+            "data-answer-limit": "3200",
+            "rows": "6",
+            "aria-describedby": "check-resting-potential-written-limit check-resting-potential-written-status"
+          },
+          "text": ""
+        }
+      ],
+      "authoredKey": {
+        "id": "check-resting-potential-mc",
+        "sourceId": "res-quiz-59222:obj-2130971",
+        "correct": "QUES_51675_82711_A275478"
+      }
+    },
+    {
+      "id": "source-checkpoint-10",
+      "activityId": "practice-resting-potential",
+      "lessonId": "lesson-04",
+      "attrs": {
+        "class": "question",
+        "data-question": "source-checkpoint-10"
+      },
+      "originalHtml": "<div class=\"question\" data-question=\"source-checkpoint-10\">\n<p data-canvas-helper-edit-key=\"p3-chapter-173\">\nIdentify and explain the three factors that contribute to the resting membrane potential. </p>\n<p data-canvas-helper-edit-key=\"p3-chapter-174\">\n<a href=\"#textbook-library\" data-book-page=\"15\" data-canvas-helper-edit-key=\"p3-chapter-175\">Textbook p. 374</a>\n</p>\n<label for=\"source-checkpoint-10-written\" data-canvas-helper-edit-key=\"p3-chapter-176\">Written response</label>\n<textarea id=\"source-checkpoint-10-written\" data-writing=\"source-checkpoint-10-written\" data-answer-limit=\"3200\" rows=\"6\" aria-describedby=\"source-checkpoint-10-written-limit source-checkpoint-10-written-status\"></textarea>\n<p id=\"source-checkpoint-10-written-limit\" class=\"muted\" data-canvas-helper-edit-key=\"p3-chapter-177\">Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded.</p>\n<button type=\"button\" data-submit-writing=\"\" data-canvas-helper-edit-key=\"p3-chapter-178\">Save written response</button>\n<p data-writing-status=\"\" id=\"source-checkpoint-10-written-status\" role=\"status\" data-canvas-helper-edit-key=\"p3-chapter-179\">\n</p>\n</div>",
+      "completeText": "Identify and explain the three factors that contribute to the resting membrane potential. Textbook p. 374 Written response Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded. Save written response",
+      "locator": {
+        "path": "projects/biology30-unit-a-pilot-3/workspace/index.html",
+        "line": 807,
+        "endLine": 819
+      },
+      "answerFields": [
+        {
+          "tag": "textarea",
+          "attrs": {
+            "id": "source-checkpoint-10-written",
+            "data-writing": "source-checkpoint-10-written",
+            "data-answer-limit": "3200",
+            "rows": "6",
+            "aria-describedby": "source-checkpoint-10-written-limit source-checkpoint-10-written-status"
+          },
+          "text": ""
+        }
+      ],
+      "authoredKey": null
+    }
+  ],
+  "optionalGeneratedPractice": [
+    {
+      "id": "resting-potential",
+      "lessonId": "lesson-04",
+      "term": "resting membrane potential",
+      "definition": "a voltage difference across a resting neuron's membrane, with the inside negative relative to outside",
+      "scenario": "Ion gradients and selective permeability maintain a resting voltage before an impulse.",
+      "misconception": "A resting neuron has equal ion concentrations on both sides of its membrane.",
+      "sequence": [
+        "ion gradients",
+        "selective permeability",
+        "resting potential"
+      ],
+      "answers": [
+        "resting membrane potential"
+      ],
+      "aliases": [],
+      "relationships": [
+        "ion gradients",
+        "selective permeability",
+        "resting potential"
+      ],
+      "contrast": [
+        "a voltage difference across a resting neuron's membrane, with the inside negative relative to outside",
+        "A resting neuron has equal ion concentrations on both sides of its membrane."
+      ],
+      "cue": "Trace where resting membrane potential belongs in the lesson mechanism or example.",
+      "explanation": "resting membrane potential: a voltage difference across a resting neuron's membrane, with the inside negative relative to outside",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 374"
+      ],
+      "mcVariants": [
+        {
+          "id": "term",
+          "skill": "recognize",
+          "difficulty": 1,
+          "prompt": "Which term best matches this description: a voltage difference across a resting neuron's membrane, with the inside negative relative to outside?",
+          "answer": "resting membrane potential",
+          "optionSource": "terms"
+        },
+        {
+          "id": "function",
+          "skill": "relate",
+          "difficulty": 2,
+          "prompt": "Which statement best describes resting membrane potential?",
+          "answer": "a voltage difference across a resting neuron's membrane, with the inside negative relative to outside",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "scenario",
+          "skill": "apply",
+          "difficulty": 3,
+          "prompt": "Which concept best explains this situation? Ion gradients and selective permeability maintain a resting voltage before an impulse.",
+          "answer": "resting membrane potential",
+          "optionSource": "terms"
+        },
+        {
+          "id": "correction",
+          "skill": "misconception",
+          "difficulty": 3,
+          "prompt": "Which statement correctly replaces this inaccurate idea: “A resting neuron has equal ion concentrations on both sides of its membrane.”",
+          "answer": "a voltage difference across a resting neuron's membrane, with the inside negative relative to outside",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "sequence-start",
+          "skill": "sequence",
+          "difficulty": 1,
+          "prompt": "Which event begins the resting membrane potential sequence?",
+          "answer": "ion gradients",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-next",
+          "skill": "sequence",
+          "difficulty": 2,
+          "prompt": "In the resting membrane potential sequence, what follows ion gradients?",
+          "answer": "selective permeability",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-end",
+          "skill": "integrate",
+          "difficulty": 4,
+          "prompt": "Which event completes the resting membrane potential sequence?",
+          "answer": "resting potential",
+          "optionSource": "sequence"
+        }
+      ]
+    },
+    {
+      "id": "sodium-potassium-pump",
+      "lessonId": "lesson-04",
+      "term": "sodium–potassium pump",
+      "definition": "active transport that moves three Na+ out for every two K+ moved in",
+      "scenario": "ATP use helps maintain the ion gradients needed for electrical signalling.",
+      "misconception": "The sodium–potassium pump opens only during depolarization and uses no energy.",
+      "sequence": [
+        "ATP binding",
+        "3 Na+ out",
+        "2 K+ in",
+        "gradient maintained"
+      ],
+      "answers": [
+        "sodium–potassium pump"
+      ],
+      "aliases": [],
+      "relationships": [
+        "ATP binding",
+        "3 Na+ out",
+        "2 K+ in",
+        "gradient maintained"
+      ],
+      "contrast": [
+        "active transport that moves three Na+ out for every two K+ moved in",
+        "The sodium–potassium pump opens only during depolarization and uses no energy."
+      ],
+      "cue": "Trace where sodium–potassium pump belongs in the lesson mechanism or example.",
+      "explanation": "sodium–potassium pump: active transport that moves three Na+ out for every two K+ moved in",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 375"
+      ],
+      "mcVariants": [
+        {
+          "id": "term",
+          "skill": "recognize",
+          "difficulty": 1,
+          "prompt": "Which term best matches this description: active transport that moves three Na+ out for every two K+ moved in?",
+          "answer": "sodium–potassium pump",
+          "optionSource": "terms"
+        },
+        {
+          "id": "function",
+          "skill": "relate",
+          "difficulty": 2,
+          "prompt": "Which statement best describes sodium–potassium pump?",
+          "answer": "active transport that moves three Na+ out for every two K+ moved in",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "scenario",
+          "skill": "apply",
+          "difficulty": 3,
+          "prompt": "Which concept best explains this situation? ATP use helps maintain the ion gradients needed for electrical signalling.",
+          "answer": "sodium–potassium pump",
+          "optionSource": "terms"
+        },
+        {
+          "id": "correction",
+          "skill": "misconception",
+          "difficulty": 3,
+          "prompt": "Which statement correctly replaces this inaccurate idea: “The sodium–potassium pump opens only during depolarization and uses no energy.”",
+          "answer": "active transport that moves three Na+ out for every two K+ moved in",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "sequence-start",
+          "skill": "sequence",
+          "difficulty": 1,
+          "prompt": "Which event begins the sodium–potassium pump sequence?",
+          "answer": "ATP binding",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-next",
+          "skill": "sequence",
+          "difficulty": 2,
+          "prompt": "In the sodium–potassium pump sequence, what follows ATP binding?",
+          "answer": "3 Na+ out",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-end",
+          "skill": "integrate",
+          "difficulty": 4,
+          "prompt": "Which event completes the sodium–potassium pump sequence?",
+          "answer": "gradient maintained",
+          "optionSource": "sequence"
+        }
+      ]
+    },
+    {
+      "id": "selective-permeability",
+      "lessonId": "lesson-04",
+      "term": "selective permeability",
+      "definition": "the membrane allows some ions to cross more readily than others",
+      "scenario": "More K+ leak than Na+ leak contributes to the resting voltage.",
+      "misconception": "Selective permeability means every ion crosses at the same rate.",
+      "sequence": [
+        "ion gradient",
+        "selective channels",
+        "unequal movement",
+        "voltage difference"
+      ],
+      "answers": [
+        "selective permeability"
+      ],
+      "aliases": [],
+      "relationships": [
+        "ion gradient",
+        "selective channels",
+        "unequal movement",
+        "voltage difference"
+      ],
+      "contrast": [
+        "the membrane allows some ions to cross more readily than others",
+        "Selective permeability means every ion crosses at the same rate."
+      ],
+      "cue": "Trace where selective permeability belongs in the lesson mechanism or example.",
+      "explanation": "selective permeability: the membrane allows some ions to cross more readily than others",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 374"
+      ],
+      "mcVariants": [
+        {
+          "id": "term",
+          "skill": "recognize",
+          "difficulty": 1,
+          "prompt": "Which term best matches this description: the membrane allows some ions to cross more readily than others?",
+          "answer": "selective permeability",
+          "optionSource": "terms"
+        },
+        {
+          "id": "function",
+          "skill": "relate",
+          "difficulty": 2,
+          "prompt": "Which statement best describes selective permeability?",
+          "answer": "the membrane allows some ions to cross more readily than others",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "scenario",
+          "skill": "apply",
+          "difficulty": 3,
+          "prompt": "Which concept best explains this situation? More K+ leak than Na+ leak contributes to the resting voltage.",
+          "answer": "selective permeability",
+          "optionSource": "terms"
+        },
+        {
+          "id": "correction",
+          "skill": "misconception",
+          "difficulty": 3,
+          "prompt": "Which statement correctly replaces this inaccurate idea: “Selective permeability means every ion crosses at the same rate.”",
+          "answer": "the membrane allows some ions to cross more readily than others",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "sequence-start",
+          "skill": "sequence",
+          "difficulty": 1,
+          "prompt": "Which event begins the selective permeability sequence?",
+          "answer": "ion gradient",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-next",
+          "skill": "sequence",
+          "difficulty": 2,
+          "prompt": "In the selective permeability sequence, what follows ion gradient?",
+          "answer": "selective channels",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-end",
+          "skill": "integrate",
+          "difficulty": 4,
+          "prompt": "Which event completes the selective permeability sequence?",
+          "answer": "voltage difference",
+          "optionSource": "sequence"
+        }
+      ]
+    }
+  ],
+  "generatedItemFamilies": [
+    {
+      "kind": "flashcards",
+      "conceptId": "resting-potential",
+      "lessonId": "lesson-04",
+      "cue": "Trace where resting membrane potential belongs in the lesson mechanism or example.",
+      "explanation": "resting membrane potential: a voltage difference across a resting neuron's membrane, with the inside negative relative to outside Source: Biology 30 Chapter 11, textbook p. 374",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 374"
+      ],
+      "id": "resting-potential:card-term",
+      "family": "recall",
+      "interaction": "flashcard",
+      "skill": "recall",
+      "prompt": "resting membrane potential",
+      "answers": [
+        "a voltage difference across a resting neuron's membrane, with the inside negative relative to outside"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "flashcards",
+      "conceptId": "resting-potential",
+      "lessonId": "lesson-04",
+      "cue": "Trace where resting membrane potential belongs in the lesson mechanism or example.",
+      "explanation": "resting membrane potential: a voltage difference across a resting neuron's membrane, with the inside negative relative to outside Source: Biology 30 Chapter 11, textbook p. 374",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 374"
+      ],
+      "id": "resting-potential:card-definition",
+      "family": "reverse-retrieval",
+      "interaction": "flashcard",
+      "skill": "recall",
+      "prompt": "a voltage difference across a resting neuron's membrane, with the inside negative relative to outside",
+      "answers": [
+        "resting membrane potential"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "flashcards",
+      "conceptId": "resting-potential",
+      "lessonId": "lesson-04",
+      "cue": "Trace where resting membrane potential belongs in the lesson mechanism or example.",
+      "explanation": "resting membrane potential: a voltage difference across a resting neuron's membrane, with the inside negative relative to outside Source: Biology 30 Chapter 11, textbook p. 374",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 374"
+      ],
+      "id": "resting-potential:card-scenario",
+      "family": "application",
+      "interaction": "flashcard",
+      "skill": "application",
+      "prompt": "Ion gradients and selective permeability maintain a resting voltage before an impulse.",
+      "answers": [
+        "resting membrane potential — a voltage difference across a resting neuron's membrane, with the inside negative relative to outside"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "flashcards",
+      "conceptId": "resting-potential",
+      "lessonId": "lesson-04",
+      "cue": "Trace where resting membrane potential belongs in the lesson mechanism or example.",
+      "explanation": "resting membrane potential: a voltage difference across a resting neuron's membrane, with the inside negative relative to outside Source: Biology 30 Chapter 11, textbook p. 374",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 374"
+      ],
+      "id": "resting-potential:card-error",
+      "family": "error-correction",
+      "interaction": "flashcard",
+      "skill": "error-correction",
+      "prompt": "Correct this idea: A resting neuron has equal ion concentrations on both sides of its membrane.",
+      "answers": [
+        "a voltage difference across a resting neuron's membrane, with the inside negative relative to outside"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "blanks",
+      "conceptId": "resting-potential",
+      "lessonId": "lesson-04",
+      "cue": "Trace where resting membrane potential belongs in the lesson mechanism or example.",
+      "explanation": "resting membrane potential: a voltage difference across a resting neuron's membrane, with the inside negative relative to outside Source: Biology 30 Chapter 11, textbook p. 374",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 374"
+      ],
+      "id": "resting-potential:blank-definition",
+      "family": "definition",
+      "interaction": "typed",
+      "skill": "recall",
+      "prompt": "The term for “a voltage difference across a resting neuron's membrane, with the inside negative relative to outside” is _____.",
+      "answers": [
+        "resting membrane potential"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "blanks",
+      "conceptId": "resting-potential",
+      "lessonId": "lesson-04",
+      "cue": "Trace where resting membrane potential belongs in the lesson mechanism or example.",
+      "explanation": "resting membrane potential: a voltage difference across a resting neuron's membrane, with the inside negative relative to outside Source: Biology 30 Chapter 11, textbook p. 374",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 374"
+      ],
+      "id": "resting-potential:blank-scenario",
+      "family": "scenario",
+      "interaction": "typed",
+      "skill": "application",
+      "prompt": "This situation illustrates _____: Ion gradients and selective permeability maintain a resting voltage before an impulse.",
+      "answers": [
+        "resting membrane potential"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "blanks",
+      "conceptId": "resting-potential",
+      "lessonId": "lesson-04",
+      "cue": "Trace where resting membrane potential belongs in the lesson mechanism or example.",
+      "explanation": "resting membrane potential: a voltage difference across a resting neuron's membrane, with the inside negative relative to outside Source: Biology 30 Chapter 11, textbook p. 374",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 374"
+      ],
+      "id": "resting-potential:blank-sequence",
+      "family": "pathway",
+      "interaction": "typed",
+      "skill": "sequencing",
+      "prompt": "Complete the pathway: ion gradients → selective permeability → _____.",
+      "answers": [
+        "resting potential"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "resting-potential",
+      "lessonId": "lesson-04",
+      "cue": "Trace where resting membrane potential belongs in the lesson mechanism or example.",
+      "explanation": "resting membrane potential: a voltage difference across a resting neuron's membrane, with the inside negative relative to outside Source: Biology 30 Chapter 11, textbook p. 374",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 374"
+      ],
+      "id": "resting-potential:mc-term",
+      "family": "recognize",
+      "interaction": "single",
+      "skill": "recognize",
+      "difficulty": 1,
+      "prompt": "Which term best matches this description: a voltage difference across a resting neuron's membrane, with the inside negative relative to outside?",
+      "answers": [
+        "resting membrane potential"
+      ],
+      "options": [
+        "resting potential",
+        "ion gradients",
+        "resting membrane potential",
+        "sodium–potassium pump"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "resting-potential",
+      "lessonId": "lesson-04",
+      "cue": "Trace where resting membrane potential belongs in the lesson mechanism or example.",
+      "explanation": "resting membrane potential: a voltage difference across a resting neuron's membrane, with the inside negative relative to outside Source: Biology 30 Chapter 11, textbook p. 374",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 374"
+      ],
+      "id": "resting-potential:mc-function",
+      "family": "relate",
+      "interaction": "single",
+      "skill": "relate",
+      "difficulty": 2,
+      "prompt": "Which statement best describes resting membrane potential?",
+      "answers": [
+        "a voltage difference across a resting neuron's membrane, with the inside negative relative to outside"
+      ],
+      "options": [
+        "a voltage difference across a resting neuron's membrane, with the inside negative relative to outside",
+        "active transport that moves three Na+ out for every two K+ moved in",
+        "Selective permeability means every ion crosses at the same rate.",
+        "the membrane allows some ions to cross more readily than others"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "resting-potential",
+      "lessonId": "lesson-04",
+      "cue": "Trace where resting membrane potential belongs in the lesson mechanism or example.",
+      "explanation": "resting membrane potential: a voltage difference across a resting neuron's membrane, with the inside negative relative to outside Source: Biology 30 Chapter 11, textbook p. 374",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 374"
+      ],
+      "id": "resting-potential:mc-scenario",
+      "family": "apply",
+      "interaction": "single",
+      "skill": "apply",
+      "difficulty": 3,
+      "prompt": "Which concept best explains this situation? Ion gradients and selective permeability maintain a resting voltage before an impulse.",
+      "answers": [
+        "resting membrane potential"
+      ],
+      "options": [
+        "resting potential",
+        "ion gradients",
+        "resting membrane potential",
+        "sodium–potassium pump"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "resting-potential",
+      "lessonId": "lesson-04",
+      "cue": "Trace where resting membrane potential belongs in the lesson mechanism or example.",
+      "explanation": "resting membrane potential: a voltage difference across a resting neuron's membrane, with the inside negative relative to outside Source: Biology 30 Chapter 11, textbook p. 374",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 374"
+      ],
+      "id": "resting-potential:mc-correction",
+      "family": "misconception",
+      "interaction": "single",
+      "skill": "misconception",
+      "difficulty": 3,
+      "prompt": "Which statement correctly replaces this inaccurate idea: “A resting neuron has equal ion concentrations on both sides of its membrane.”",
+      "answers": [
+        "a voltage difference across a resting neuron's membrane, with the inside negative relative to outside"
+      ],
+      "options": [
+        "Selective permeability means every ion crosses at the same rate.",
+        "The sodium–potassium pump opens only during depolarization and uses no energy.",
+        "a voltage difference across a resting neuron's membrane, with the inside negative relative to outside",
+        "A resting neuron has equal ion concentrations on both sides of its membrane."
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "resting-potential",
+      "lessonId": "lesson-04",
+      "cue": "Trace where resting membrane potential belongs in the lesson mechanism or example.",
+      "explanation": "resting membrane potential: a voltage difference across a resting neuron's membrane, with the inside negative relative to outside Source: Biology 30 Chapter 11, textbook p. 374",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 374"
+      ],
+      "id": "resting-potential:mc-sequence-start",
+      "family": "sequence",
+      "interaction": "single",
+      "skill": "sequence",
+      "difficulty": 1,
+      "prompt": "Which event begins the resting membrane potential sequence?",
+      "answers": [
+        "ion gradients"
+      ],
+      "options": [
+        "ATP binding",
+        "selective permeability",
+        "ion gradients",
+        "3 Na+ out"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "resting-potential",
+      "lessonId": "lesson-04",
+      "cue": "Trace where resting membrane potential belongs in the lesson mechanism or example.",
+      "explanation": "resting membrane potential: a voltage difference across a resting neuron's membrane, with the inside negative relative to outside Source: Biology 30 Chapter 11, textbook p. 374",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 374"
+      ],
+      "id": "resting-potential:mc-sequence-next",
+      "family": "sequence",
+      "interaction": "single",
+      "skill": "sequence",
+      "difficulty": 2,
+      "prompt": "In the resting membrane potential sequence, what follows ion gradients?",
+      "answers": [
+        "selective permeability"
+      ],
+      "options": [
+        "gradient maintained",
+        "selective permeability",
+        "ion gradient",
+        "ion gradients"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "resting-potential",
+      "lessonId": "lesson-04",
+      "cue": "Trace where resting membrane potential belongs in the lesson mechanism or example.",
+      "explanation": "resting membrane potential: a voltage difference across a resting neuron's membrane, with the inside negative relative to outside Source: Biology 30 Chapter 11, textbook p. 374",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 374"
+      ],
+      "id": "resting-potential:mc-sequence-end",
+      "family": "integrate",
+      "interaction": "single",
+      "skill": "integrate",
+      "difficulty": 4,
+      "prompt": "Which event completes the resting membrane potential sequence?",
+      "answers": [
+        "resting potential"
+      ],
+      "options": [
+        "ion gradient",
+        "resting potential",
+        "2 K+ in",
+        "ion gradients"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "resting-potential",
+      "lessonId": "lesson-04",
+      "cue": "Trace where resting membrane potential belongs in the lesson mechanism or example.",
+      "explanation": "resting membrane potential: a voltage difference across a resting neuron's membrane, with the inside negative relative to outside Source: Biology 30 Chapter 11, textbook p. 374",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 374"
+      ],
+      "id": "resting-potential:mixed-typed",
+      "family": "retrieval",
+      "interaction": "typed",
+      "skill": "recall",
+      "prompt": "Name the concept: a voltage difference across a resting neuron's membrane, with the inside negative relative to outside",
+      "answers": [
+        "resting membrane potential"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "resting-potential",
+      "lessonId": "lesson-04",
+      "cue": "Trace where resting membrane potential belongs in the lesson mechanism or example.",
+      "explanation": "resting membrane potential: a voltage difference across a resting neuron's membrane, with the inside negative relative to outside Source: Biology 30 Chapter 11, textbook p. 374",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 374"
+      ],
+      "id": "resting-potential:mixed-single",
+      "family": "discrimination",
+      "interaction": "single",
+      "skill": "comparison",
+      "prompt": "Which concept means “a voltage difference across a resting neuron's membrane, with the inside negative relative to outside”?",
+      "answers": [
+        "resting membrane potential"
+      ],
+      "options": [
+        "selective permeability",
+        "sodium–potassium pump",
+        "resting membrane potential"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "resting-potential",
+      "lessonId": "lesson-04",
+      "cue": "Trace where resting membrane potential belongs in the lesson mechanism or example.",
+      "explanation": "resting membrane potential: a voltage difference across a resting neuron's membrane, with the inside negative relative to outside Source: Biology 30 Chapter 11, textbook p. 374",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 374"
+      ],
+      "id": "resting-potential:mixed-application",
+      "family": "application",
+      "interaction": "single",
+      "skill": "application",
+      "prompt": "Ion gradients and selective permeability maintain a resting voltage before an impulse.",
+      "answers": [
+        "resting membrane potential"
+      ],
+      "options": [
+        "resting membrane potential",
+        "sodium–potassium pump",
+        "selective permeability"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "resting-potential",
+      "lessonId": "lesson-04",
+      "cue": "Trace where resting membrane potential belongs in the lesson mechanism or example.",
+      "explanation": "resting membrane potential: a voltage difference across a resting neuron's membrane, with the inside negative relative to outside Source: Biology 30 Chapter 11, textbook p. 374",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 374"
+      ],
+      "id": "resting-potential:mixed-multiple",
+      "family": "odd-one-out",
+      "interaction": "multiple",
+      "skill": "comparison",
+      "prompt": "Select both statements that belong with resting membrane potential.",
+      "answers": [
+        "a voltage difference across a resting neuron's membrane, with the inside negative relative to outside",
+        "Ion gradients and selective permeability maintain a resting voltage before an impulse."
+      ],
+      "options": [
+        "active transport that moves three Na+ out for every two K+ moved in",
+        "the membrane allows some ions to cross more readily than others",
+        "a voltage difference across a resting neuron's membrane, with the inside negative relative to outside",
+        "Ion gradients and selective permeability maintain a resting voltage before an impulse."
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "resting-potential",
+      "lessonId": "lesson-04",
+      "cue": "Trace where resting membrane potential belongs in the lesson mechanism or example.",
+      "explanation": "resting membrane potential: a voltage difference across a resting neuron's membrane, with the inside negative relative to outside Source: Biology 30 Chapter 11, textbook p. 374",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 374"
+      ],
+      "id": "resting-potential:mixed-tf",
+      "family": "misconception",
+      "interaction": "true-false",
+      "skill": "error-correction",
+      "prompt": "A resting neuron has equal ion concentrations on both sides of its membrane.",
+      "answers": [
+        "false"
+      ],
+      "options": [
+        "true",
+        "false"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "resting-potential",
+      "lessonId": "lesson-04",
+      "cue": "Trace where resting membrane potential belongs in the lesson mechanism or example.",
+      "explanation": "resting membrane potential: a voltage difference across a resting neuron's membrane, with the inside negative relative to outside Source: Biology 30 Chapter 11, textbook p. 374",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 374"
+      ],
+      "id": "resting-potential:mixed-order",
+      "family": "sequence",
+      "interaction": "ordering",
+      "skill": "sequencing",
+      "prompt": "Put the resting membrane potential steps in order.",
+      "answers": [
+        "ion gradients",
+        "selective permeability",
+        "resting potential"
+      ],
+      "options": [
+        "resting potential",
+        "ion gradients",
+        "selective permeability"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "resting-potential",
+      "lessonId": "lesson-04",
+      "cue": "Trace where resting membrane potential belongs in the lesson mechanism or example.",
+      "explanation": "resting membrane potential: a voltage difference across a resting neuron's membrane, with the inside negative relative to outside Source: Biology 30 Chapter 11, textbook p. 374",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 374"
+      ],
+      "id": "resting-potential:mc-term",
+      "family": "recognize",
+      "interaction": "single",
+      "skill": "recognize",
+      "difficulty": 1,
+      "prompt": "Which term best matches this description: a voltage difference across a resting neuron's membrane, with the inside negative relative to outside?",
+      "answers": [
+        "resting membrane potential"
+      ],
+      "options": [
+        "resting membrane potential",
+        "ion gradients",
+        "sodium–potassium pump",
+        "resting potential"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "resting-potential",
+      "lessonId": "lesson-04",
+      "cue": "Trace where resting membrane potential belongs in the lesson mechanism or example.",
+      "explanation": "resting membrane potential: a voltage difference across a resting neuron's membrane, with the inside negative relative to outside Source: Biology 30 Chapter 11, textbook p. 374",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 374"
+      ],
+      "id": "resting-potential:mc-function",
+      "family": "relate",
+      "interaction": "single",
+      "skill": "relate",
+      "difficulty": 2,
+      "prompt": "Which statement best describes resting membrane potential?",
+      "answers": [
+        "a voltage difference across a resting neuron's membrane, with the inside negative relative to outside"
+      ],
+      "options": [
+        "the membrane allows some ions to cross more readily than others",
+        "Selective permeability means every ion crosses at the same rate.",
+        "a voltage difference across a resting neuron's membrane, with the inside negative relative to outside",
+        "The sodium–potassium pump opens only during depolarization and uses no energy."
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "flashcards",
+      "conceptId": "sodium-potassium-pump",
+      "lessonId": "lesson-04",
+      "cue": "Trace where sodium–potassium pump belongs in the lesson mechanism or example.",
+      "explanation": "sodium–potassium pump: active transport that moves three Na+ out for every two K+ moved in Source: Biology 30 Chapter 11, textbook p. 375",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 375"
+      ],
+      "id": "sodium-potassium-pump:card-term",
+      "family": "recall",
+      "interaction": "flashcard",
+      "skill": "recall",
+      "prompt": "sodium–potassium pump",
+      "answers": [
+        "active transport that moves three Na+ out for every two K+ moved in"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "flashcards",
+      "conceptId": "sodium-potassium-pump",
+      "lessonId": "lesson-04",
+      "cue": "Trace where sodium–potassium pump belongs in the lesson mechanism or example.",
+      "explanation": "sodium–potassium pump: active transport that moves three Na+ out for every two K+ moved in Source: Biology 30 Chapter 11, textbook p. 375",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 375"
+      ],
+      "id": "sodium-potassium-pump:card-definition",
+      "family": "reverse-retrieval",
+      "interaction": "flashcard",
+      "skill": "recall",
+      "prompt": "active transport that moves three Na+ out for every two K+ moved in",
+      "answers": [
+        "sodium–potassium pump"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "flashcards",
+      "conceptId": "sodium-potassium-pump",
+      "lessonId": "lesson-04",
+      "cue": "Trace where sodium–potassium pump belongs in the lesson mechanism or example.",
+      "explanation": "sodium–potassium pump: active transport that moves three Na+ out for every two K+ moved in Source: Biology 30 Chapter 11, textbook p. 375",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 375"
+      ],
+      "id": "sodium-potassium-pump:card-scenario",
+      "family": "application",
+      "interaction": "flashcard",
+      "skill": "application",
+      "prompt": "ATP use helps maintain the ion gradients needed for electrical signalling.",
+      "answers": [
+        "sodium–potassium pump — active transport that moves three Na+ out for every two K+ moved in"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "flashcards",
+      "conceptId": "sodium-potassium-pump",
+      "lessonId": "lesson-04",
+      "cue": "Trace where sodium–potassium pump belongs in the lesson mechanism or example.",
+      "explanation": "sodium–potassium pump: active transport that moves three Na+ out for every two K+ moved in Source: Biology 30 Chapter 11, textbook p. 375",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 375"
+      ],
+      "id": "sodium-potassium-pump:card-error",
+      "family": "error-correction",
+      "interaction": "flashcard",
+      "skill": "error-correction",
+      "prompt": "Correct this idea: The sodium–potassium pump opens only during depolarization and uses no energy.",
+      "answers": [
+        "active transport that moves three Na+ out for every two K+ moved in"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "blanks",
+      "conceptId": "sodium-potassium-pump",
+      "lessonId": "lesson-04",
+      "cue": "Trace where sodium–potassium pump belongs in the lesson mechanism or example.",
+      "explanation": "sodium–potassium pump: active transport that moves three Na+ out for every two K+ moved in Source: Biology 30 Chapter 11, textbook p. 375",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 375"
+      ],
+      "id": "sodium-potassium-pump:blank-definition",
+      "family": "definition",
+      "interaction": "typed",
+      "skill": "recall",
+      "prompt": "The term for “active transport that moves three Na+ out for every two K+ moved in” is _____.",
+      "answers": [
+        "sodium–potassium pump"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "blanks",
+      "conceptId": "sodium-potassium-pump",
+      "lessonId": "lesson-04",
+      "cue": "Trace where sodium–potassium pump belongs in the lesson mechanism or example.",
+      "explanation": "sodium–potassium pump: active transport that moves three Na+ out for every two K+ moved in Source: Biology 30 Chapter 11, textbook p. 375",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 375"
+      ],
+      "id": "sodium-potassium-pump:blank-scenario",
+      "family": "scenario",
+      "interaction": "typed",
+      "skill": "application",
+      "prompt": "This situation illustrates _____: ATP use helps maintain the ion gradients needed for electrical signalling.",
+      "answers": [
+        "sodium–potassium pump"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "blanks",
+      "conceptId": "sodium-potassium-pump",
+      "lessonId": "lesson-04",
+      "cue": "Trace where sodium–potassium pump belongs in the lesson mechanism or example.",
+      "explanation": "sodium–potassium pump: active transport that moves three Na+ out for every two K+ moved in Source: Biology 30 Chapter 11, textbook p. 375",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 375"
+      ],
+      "id": "sodium-potassium-pump:blank-sequence",
+      "family": "pathway",
+      "interaction": "typed",
+      "skill": "sequencing",
+      "prompt": "Complete the pathway: ATP binding → 3 Na+ out → 2 K+ in → _____.",
+      "answers": [
+        "gradient maintained"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "sodium-potassium-pump",
+      "lessonId": "lesson-04",
+      "cue": "Trace where sodium–potassium pump belongs in the lesson mechanism or example.",
+      "explanation": "sodium–potassium pump: active transport that moves three Na+ out for every two K+ moved in Source: Biology 30 Chapter 11, textbook p. 375",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 375"
+      ],
+      "id": "sodium-potassium-pump:mc-term",
+      "family": "recognize",
+      "interaction": "single",
+      "skill": "recognize",
+      "difficulty": 1,
+      "prompt": "Which term best matches this description: active transport that moves three Na+ out for every two K+ moved in?",
+      "answers": [
+        "sodium–potassium pump"
+      ],
+      "options": [
+        "selective permeability",
+        "resting membrane potential",
+        "gradient maintained",
+        "sodium–potassium pump"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "sodium-potassium-pump",
+      "lessonId": "lesson-04",
+      "cue": "Trace where sodium–potassium pump belongs in the lesson mechanism or example.",
+      "explanation": "sodium–potassium pump: active transport that moves three Na+ out for every two K+ moved in Source: Biology 30 Chapter 11, textbook p. 375",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 375"
+      ],
+      "id": "sodium-potassium-pump:mc-function",
+      "family": "relate",
+      "interaction": "single",
+      "skill": "relate",
+      "difficulty": 2,
+      "prompt": "Which statement best describes sodium–potassium pump?",
+      "answers": [
+        "active transport that moves three Na+ out for every two K+ moved in"
+      ],
+      "options": [
+        "the membrane allows some ions to cross more readily than others",
+        "active transport that moves three Na+ out for every two K+ moved in",
+        "Selective permeability means every ion crosses at the same rate.",
+        "The sodium–potassium pump opens only during depolarization and uses no energy."
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "sodium-potassium-pump",
+      "lessonId": "lesson-04",
+      "cue": "Trace where sodium–potassium pump belongs in the lesson mechanism or example.",
+      "explanation": "sodium–potassium pump: active transport that moves three Na+ out for every two K+ moved in Source: Biology 30 Chapter 11, textbook p. 375",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 375"
+      ],
+      "id": "sodium-potassium-pump:mc-scenario",
+      "family": "apply",
+      "interaction": "single",
+      "skill": "apply",
+      "difficulty": 3,
+      "prompt": "Which concept best explains this situation? ATP use helps maintain the ion gradients needed for electrical signalling.",
+      "answers": [
+        "sodium–potassium pump"
+      ],
+      "options": [
+        "gradient maintained",
+        "2 K+ in",
+        "ATP binding",
+        "sodium–potassium pump"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "sodium-potassium-pump",
+      "lessonId": "lesson-04",
+      "cue": "Trace where sodium–potassium pump belongs in the lesson mechanism or example.",
+      "explanation": "sodium–potassium pump: active transport that moves three Na+ out for every two K+ moved in Source: Biology 30 Chapter 11, textbook p. 375",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 375"
+      ],
+      "id": "sodium-potassium-pump:mc-correction",
+      "family": "misconception",
+      "interaction": "single",
+      "skill": "misconception",
+      "difficulty": 3,
+      "prompt": "Which statement correctly replaces this inaccurate idea: “The sodium–potassium pump opens only during depolarization and uses no energy.”",
+      "answers": [
+        "active transport that moves three Na+ out for every two K+ moved in"
+      ],
+      "options": [
+        "active transport that moves three Na+ out for every two K+ moved in",
+        "A resting neuron has equal ion concentrations on both sides of its membrane.",
+        "a voltage difference across a resting neuron's membrane, with the inside negative relative to outside",
+        "the membrane allows some ions to cross more readily than others"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "sodium-potassium-pump",
+      "lessonId": "lesson-04",
+      "cue": "Trace where sodium–potassium pump belongs in the lesson mechanism or example.",
+      "explanation": "sodium–potassium pump: active transport that moves three Na+ out for every two K+ moved in Source: Biology 30 Chapter 11, textbook p. 375",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 375"
+      ],
+      "id": "sodium-potassium-pump:mc-sequence-start",
+      "family": "sequence",
+      "interaction": "single",
+      "skill": "sequence",
+      "difficulty": 1,
+      "prompt": "Which event begins the sodium–potassium pump sequence?",
+      "answers": [
+        "ATP binding"
+      ],
+      "options": [
+        "2 K+ in",
+        "3 Na+ out",
+        "ATP binding",
+        "selective permeability"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "sodium-potassium-pump",
+      "lessonId": "lesson-04",
+      "cue": "Trace where sodium–potassium pump belongs in the lesson mechanism or example.",
+      "explanation": "sodium–potassium pump: active transport that moves three Na+ out for every two K+ moved in Source: Biology 30 Chapter 11, textbook p. 375",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 375"
+      ],
+      "id": "sodium-potassium-pump:mc-sequence-next",
+      "family": "sequence",
+      "interaction": "single",
+      "skill": "sequence",
+      "difficulty": 2,
+      "prompt": "In the sodium–potassium pump sequence, what follows ATP binding?",
+      "answers": [
+        "3 Na+ out"
+      ],
+      "options": [
+        "selective permeability",
+        "ion gradient",
+        "2 K+ in",
+        "3 Na+ out"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "sodium-potassium-pump",
+      "lessonId": "lesson-04",
+      "cue": "Trace where sodium–potassium pump belongs in the lesson mechanism or example.",
+      "explanation": "sodium–potassium pump: active transport that moves three Na+ out for every two K+ moved in Source: Biology 30 Chapter 11, textbook p. 375",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 375"
+      ],
+      "id": "sodium-potassium-pump:mc-sequence-end",
+      "family": "integrate",
+      "interaction": "single",
+      "skill": "integrate",
+      "difficulty": 4,
+      "prompt": "Which event completes the sodium–potassium pump sequence?",
+      "answers": [
+        "gradient maintained"
+      ],
+      "options": [
+        "ATP binding",
+        "3 Na+ out",
+        "gradient maintained",
+        "selective permeability"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "sodium-potassium-pump",
+      "lessonId": "lesson-04",
+      "cue": "Trace where sodium–potassium pump belongs in the lesson mechanism or example.",
+      "explanation": "sodium–potassium pump: active transport that moves three Na+ out for every two K+ moved in Source: Biology 30 Chapter 11, textbook p. 375",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 375"
+      ],
+      "id": "sodium-potassium-pump:mixed-typed",
+      "family": "retrieval",
+      "interaction": "typed",
+      "skill": "recall",
+      "prompt": "Name the concept: active transport that moves three Na+ out for every two K+ moved in",
+      "answers": [
+        "sodium–potassium pump"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "sodium-potassium-pump",
+      "lessonId": "lesson-04",
+      "cue": "Trace where sodium–potassium pump belongs in the lesson mechanism or example.",
+      "explanation": "sodium–potassium pump: active transport that moves three Na+ out for every two K+ moved in Source: Biology 30 Chapter 11, textbook p. 375",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 375"
+      ],
+      "id": "sodium-potassium-pump:mixed-single",
+      "family": "discrimination",
+      "interaction": "single",
+      "skill": "comparison",
+      "prompt": "Which concept means “active transport that moves three Na+ out for every two K+ moved in”?",
+      "answers": [
+        "sodium–potassium pump"
+      ],
+      "options": [
+        "sodium–potassium pump",
+        "selective permeability",
+        "resting membrane potential"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "sodium-potassium-pump",
+      "lessonId": "lesson-04",
+      "cue": "Trace where sodium–potassium pump belongs in the lesson mechanism or example.",
+      "explanation": "sodium–potassium pump: active transport that moves three Na+ out for every two K+ moved in Source: Biology 30 Chapter 11, textbook p. 375",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 375"
+      ],
+      "id": "sodium-potassium-pump:mixed-application",
+      "family": "application",
+      "interaction": "single",
+      "skill": "application",
+      "prompt": "ATP use helps maintain the ion gradients needed for electrical signalling.",
+      "answers": [
+        "sodium–potassium pump"
+      ],
+      "options": [
+        "selective permeability",
+        "sodium–potassium pump",
+        "resting membrane potential"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "sodium-potassium-pump",
+      "lessonId": "lesson-04",
+      "cue": "Trace where sodium–potassium pump belongs in the lesson mechanism or example.",
+      "explanation": "sodium–potassium pump: active transport that moves three Na+ out for every two K+ moved in Source: Biology 30 Chapter 11, textbook p. 375",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 375"
+      ],
+      "id": "sodium-potassium-pump:mixed-multiple",
+      "family": "odd-one-out",
+      "interaction": "multiple",
+      "skill": "comparison",
+      "prompt": "Select both statements that belong with sodium–potassium pump.",
+      "answers": [
+        "active transport that moves three Na+ out for every two K+ moved in",
+        "ATP use helps maintain the ion gradients needed for electrical signalling."
+      ],
+      "options": [
+        "active transport that moves three Na+ out for every two K+ moved in",
+        "a voltage difference across a resting neuron's membrane, with the inside negative relative to outside",
+        "the membrane allows some ions to cross more readily than others",
+        "ATP use helps maintain the ion gradients needed for electrical signalling."
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "sodium-potassium-pump",
+      "lessonId": "lesson-04",
+      "cue": "Trace where sodium–potassium pump belongs in the lesson mechanism or example.",
+      "explanation": "sodium–potassium pump: active transport that moves three Na+ out for every two K+ moved in Source: Biology 30 Chapter 11, textbook p. 375",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 375"
+      ],
+      "id": "sodium-potassium-pump:mixed-tf",
+      "family": "misconception",
+      "interaction": "true-false",
+      "skill": "error-correction",
+      "prompt": "The sodium–potassium pump opens only during depolarization and uses no energy.",
+      "answers": [
+        "false"
+      ],
+      "options": [
+        "true",
+        "false"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "sodium-potassium-pump",
+      "lessonId": "lesson-04",
+      "cue": "Trace where sodium–potassium pump belongs in the lesson mechanism or example.",
+      "explanation": "sodium–potassium pump: active transport that moves three Na+ out for every two K+ moved in Source: Biology 30 Chapter 11, textbook p. 375",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 375"
+      ],
+      "id": "sodium-potassium-pump:mixed-order",
+      "family": "sequence",
+      "interaction": "ordering",
+      "skill": "sequencing",
+      "prompt": "Put the sodium–potassium pump steps in order.",
+      "answers": [
+        "ATP binding",
+        "3 Na+ out",
+        "2 K+ in",
+        "gradient maintained"
+      ],
+      "options": [
+        "ATP binding",
+        "gradient maintained",
+        "2 K+ in",
+        "3 Na+ out"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "sodium-potassium-pump",
+      "lessonId": "lesson-04",
+      "cue": "Trace where sodium–potassium pump belongs in the lesson mechanism or example.",
+      "explanation": "sodium–potassium pump: active transport that moves three Na+ out for every two K+ moved in Source: Biology 30 Chapter 11, textbook p. 375",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 375"
+      ],
+      "id": "sodium-potassium-pump:mc-term",
+      "family": "recognize",
+      "interaction": "single",
+      "skill": "recognize",
+      "difficulty": 1,
+      "prompt": "Which term best matches this description: active transport that moves three Na+ out for every two K+ moved in?",
+      "answers": [
+        "sodium–potassium pump"
+      ],
+      "options": [
+        "ATP binding",
+        "resting membrane potential",
+        "sodium–potassium pump",
+        "gradient maintained"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "sodium-potassium-pump",
+      "lessonId": "lesson-04",
+      "cue": "Trace where sodium–potassium pump belongs in the lesson mechanism or example.",
+      "explanation": "sodium–potassium pump: active transport that moves three Na+ out for every two K+ moved in Source: Biology 30 Chapter 11, textbook p. 375",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 375"
+      ],
+      "id": "sodium-potassium-pump:mc-function",
+      "family": "relate",
+      "interaction": "single",
+      "skill": "relate",
+      "difficulty": 2,
+      "prompt": "Which statement best describes sodium–potassium pump?",
+      "answers": [
+        "active transport that moves three Na+ out for every two K+ moved in"
+      ],
+      "options": [
+        "Selective permeability means every ion crosses at the same rate.",
+        "A resting neuron has equal ion concentrations on both sides of its membrane.",
+        "active transport that moves three Na+ out for every two K+ moved in",
+        "the membrane allows some ions to cross more readily than others"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "flashcards",
+      "conceptId": "selective-permeability",
+      "lessonId": "lesson-04",
+      "cue": "Trace where selective permeability belongs in the lesson mechanism or example.",
+      "explanation": "selective permeability: the membrane allows some ions to cross more readily than others Source: Biology 30 Chapter 11, textbook p. 374",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 374"
+      ],
+      "id": "selective-permeability:card-term",
+      "family": "recall",
+      "interaction": "flashcard",
+      "skill": "recall",
+      "prompt": "selective permeability",
+      "answers": [
+        "the membrane allows some ions to cross more readily than others"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "flashcards",
+      "conceptId": "selective-permeability",
+      "lessonId": "lesson-04",
+      "cue": "Trace where selective permeability belongs in the lesson mechanism or example.",
+      "explanation": "selective permeability: the membrane allows some ions to cross more readily than others Source: Biology 30 Chapter 11, textbook p. 374",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 374"
+      ],
+      "id": "selective-permeability:card-definition",
+      "family": "reverse-retrieval",
+      "interaction": "flashcard",
+      "skill": "recall",
+      "prompt": "the membrane allows some ions to cross more readily than others",
+      "answers": [
+        "selective permeability"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "flashcards",
+      "conceptId": "selective-permeability",
+      "lessonId": "lesson-04",
+      "cue": "Trace where selective permeability belongs in the lesson mechanism or example.",
+      "explanation": "selective permeability: the membrane allows some ions to cross more readily than others Source: Biology 30 Chapter 11, textbook p. 374",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 374"
+      ],
+      "id": "selective-permeability:card-scenario",
+      "family": "application",
+      "interaction": "flashcard",
+      "skill": "application",
+      "prompt": "More K+ leak than Na+ leak contributes to the resting voltage.",
+      "answers": [
+        "selective permeability — the membrane allows some ions to cross more readily than others"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "flashcards",
+      "conceptId": "selective-permeability",
+      "lessonId": "lesson-04",
+      "cue": "Trace where selective permeability belongs in the lesson mechanism or example.",
+      "explanation": "selective permeability: the membrane allows some ions to cross more readily than others Source: Biology 30 Chapter 11, textbook p. 374",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 374"
+      ],
+      "id": "selective-permeability:card-error",
+      "family": "error-correction",
+      "interaction": "flashcard",
+      "skill": "error-correction",
+      "prompt": "Correct this idea: Selective permeability means every ion crosses at the same rate.",
+      "answers": [
+        "the membrane allows some ions to cross more readily than others"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "blanks",
+      "conceptId": "selective-permeability",
+      "lessonId": "lesson-04",
+      "cue": "Trace where selective permeability belongs in the lesson mechanism or example.",
+      "explanation": "selective permeability: the membrane allows some ions to cross more readily than others Source: Biology 30 Chapter 11, textbook p. 374",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 374"
+      ],
+      "id": "selective-permeability:blank-definition",
+      "family": "definition",
+      "interaction": "typed",
+      "skill": "recall",
+      "prompt": "The term for “the membrane allows some ions to cross more readily than others” is _____.",
+      "answers": [
+        "selective permeability"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "blanks",
+      "conceptId": "selective-permeability",
+      "lessonId": "lesson-04",
+      "cue": "Trace where selective permeability belongs in the lesson mechanism or example.",
+      "explanation": "selective permeability: the membrane allows some ions to cross more readily than others Source: Biology 30 Chapter 11, textbook p. 374",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 374"
+      ],
+      "id": "selective-permeability:blank-scenario",
+      "family": "scenario",
+      "interaction": "typed",
+      "skill": "application",
+      "prompt": "This situation illustrates _____: More K+ leak than Na+ leak contributes to the resting voltage.",
+      "answers": [
+        "selective permeability"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "blanks",
+      "conceptId": "selective-permeability",
+      "lessonId": "lesson-04",
+      "cue": "Trace where selective permeability belongs in the lesson mechanism or example.",
+      "explanation": "selective permeability: the membrane allows some ions to cross more readily than others Source: Biology 30 Chapter 11, textbook p. 374",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 374"
+      ],
+      "id": "selective-permeability:blank-sequence",
+      "family": "pathway",
+      "interaction": "typed",
+      "skill": "sequencing",
+      "prompt": "Complete the pathway: ion gradient → selective channels → unequal movement → _____.",
+      "answers": [
+        "voltage difference"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "selective-permeability",
+      "lessonId": "lesson-04",
+      "cue": "Trace where selective permeability belongs in the lesson mechanism or example.",
+      "explanation": "selective permeability: the membrane allows some ions to cross more readily than others Source: Biology 30 Chapter 11, textbook p. 374",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 374"
+      ],
+      "id": "selective-permeability:mc-term",
+      "family": "recognize",
+      "interaction": "single",
+      "skill": "recognize",
+      "difficulty": 1,
+      "prompt": "Which term best matches this description: the membrane allows some ions to cross more readily than others?",
+      "answers": [
+        "selective permeability"
+      ],
+      "options": [
+        "selective permeability",
+        "ion gradient",
+        "resting membrane potential",
+        "selective channels"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "selective-permeability",
+      "lessonId": "lesson-04",
+      "cue": "Trace where selective permeability belongs in the lesson mechanism or example.",
+      "explanation": "selective permeability: the membrane allows some ions to cross more readily than others Source: Biology 30 Chapter 11, textbook p. 374",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 374"
+      ],
+      "id": "selective-permeability:mc-function",
+      "family": "relate",
+      "interaction": "single",
+      "skill": "relate",
+      "difficulty": 2,
+      "prompt": "Which statement best describes selective permeability?",
+      "answers": [
+        "the membrane allows some ions to cross more readily than others"
+      ],
+      "options": [
+        "active transport that moves three Na+ out for every two K+ moved in",
+        "Selective permeability means every ion crosses at the same rate.",
+        "the membrane allows some ions to cross more readily than others",
+        "The sodium–potassium pump opens only during depolarization and uses no energy."
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "selective-permeability",
+      "lessonId": "lesson-04",
+      "cue": "Trace where selective permeability belongs in the lesson mechanism or example.",
+      "explanation": "selective permeability: the membrane allows some ions to cross more readily than others Source: Biology 30 Chapter 11, textbook p. 374",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 374"
+      ],
+      "id": "selective-permeability:mc-scenario",
+      "family": "apply",
+      "interaction": "single",
+      "skill": "apply",
+      "difficulty": 3,
+      "prompt": "Which concept best explains this situation? More K+ leak than Na+ leak contributes to the resting voltage.",
+      "answers": [
+        "selective permeability"
+      ],
+      "options": [
+        "selective permeability",
+        "selective channels",
+        "sodium–potassium pump",
+        "resting membrane potential"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "selective-permeability",
+      "lessonId": "lesson-04",
+      "cue": "Trace where selective permeability belongs in the lesson mechanism or example.",
+      "explanation": "selective permeability: the membrane allows some ions to cross more readily than others Source: Biology 30 Chapter 11, textbook p. 374",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 374"
+      ],
+      "id": "selective-permeability:mc-correction",
+      "family": "misconception",
+      "interaction": "single",
+      "skill": "misconception",
+      "difficulty": 3,
+      "prompt": "Which statement correctly replaces this inaccurate idea: “Selective permeability means every ion crosses at the same rate.”",
+      "answers": [
+        "the membrane allows some ions to cross more readily than others"
+      ],
+      "options": [
+        "The sodium–potassium pump opens only during depolarization and uses no energy.",
+        "a voltage difference across a resting neuron's membrane, with the inside negative relative to outside",
+        "the membrane allows some ions to cross more readily than others",
+        "Selective permeability means every ion crosses at the same rate."
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "selective-permeability",
+      "lessonId": "lesson-04",
+      "cue": "Trace where selective permeability belongs in the lesson mechanism or example.",
+      "explanation": "selective permeability: the membrane allows some ions to cross more readily than others Source: Biology 30 Chapter 11, textbook p. 374",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 374"
+      ],
+      "id": "selective-permeability:mc-sequence-start",
+      "family": "sequence",
+      "interaction": "single",
+      "skill": "sequence",
+      "difficulty": 1,
+      "prompt": "Which event begins the selective permeability sequence?",
+      "answers": [
+        "ion gradient"
+      ],
+      "options": [
+        "unequal movement",
+        "voltage difference",
+        "ion gradient",
+        "resting potential"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "selective-permeability",
+      "lessonId": "lesson-04",
+      "cue": "Trace where selective permeability belongs in the lesson mechanism or example.",
+      "explanation": "selective permeability: the membrane allows some ions to cross more readily than others Source: Biology 30 Chapter 11, textbook p. 374",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 374"
+      ],
+      "id": "selective-permeability:mc-sequence-next",
+      "family": "sequence",
+      "interaction": "single",
+      "skill": "sequence",
+      "difficulty": 2,
+      "prompt": "In the selective permeability sequence, what follows ion gradient?",
+      "answers": [
+        "selective channels"
+      ],
+      "options": [
+        "selective permeability",
+        "ion gradients",
+        "selective channels",
+        "ion gradient"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "selective-permeability",
+      "lessonId": "lesson-04",
+      "cue": "Trace where selective permeability belongs in the lesson mechanism or example.",
+      "explanation": "selective permeability: the membrane allows some ions to cross more readily than others Source: Biology 30 Chapter 11, textbook p. 374",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 374"
+      ],
+      "id": "selective-permeability:mc-sequence-end",
+      "family": "integrate",
+      "interaction": "single",
+      "skill": "integrate",
+      "difficulty": 4,
+      "prompt": "Which event completes the selective permeability sequence?",
+      "answers": [
+        "voltage difference"
+      ],
+      "options": [
+        "unequal movement",
+        "ion gradient",
+        "ATP binding",
+        "voltage difference"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "selective-permeability",
+      "lessonId": "lesson-04",
+      "cue": "Trace where selective permeability belongs in the lesson mechanism or example.",
+      "explanation": "selective permeability: the membrane allows some ions to cross more readily than others Source: Biology 30 Chapter 11, textbook p. 374",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 374"
+      ],
+      "id": "selective-permeability:mixed-typed",
+      "family": "retrieval",
+      "interaction": "typed",
+      "skill": "recall",
+      "prompt": "Name the concept: the membrane allows some ions to cross more readily than others",
+      "answers": [
+        "selective permeability"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "selective-permeability",
+      "lessonId": "lesson-04",
+      "cue": "Trace where selective permeability belongs in the lesson mechanism or example.",
+      "explanation": "selective permeability: the membrane allows some ions to cross more readily than others Source: Biology 30 Chapter 11, textbook p. 374",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 374"
+      ],
+      "id": "selective-permeability:mixed-single",
+      "family": "discrimination",
+      "interaction": "single",
+      "skill": "comparison",
+      "prompt": "Which concept means “the membrane allows some ions to cross more readily than others”?",
+      "answers": [
+        "selective permeability"
+      ],
+      "options": [
+        "selective permeability",
+        "sodium–potassium pump",
+        "resting membrane potential"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "selective-permeability",
+      "lessonId": "lesson-04",
+      "cue": "Trace where selective permeability belongs in the lesson mechanism or example.",
+      "explanation": "selective permeability: the membrane allows some ions to cross more readily than others Source: Biology 30 Chapter 11, textbook p. 374",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 374"
+      ],
+      "id": "selective-permeability:mixed-application",
+      "family": "application",
+      "interaction": "single",
+      "skill": "application",
+      "prompt": "More K+ leak than Na+ leak contributes to the resting voltage.",
+      "answers": [
+        "selective permeability"
+      ],
+      "options": [
+        "selective permeability",
+        "sodium–potassium pump",
+        "resting membrane potential"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "selective-permeability",
+      "lessonId": "lesson-04",
+      "cue": "Trace where selective permeability belongs in the lesson mechanism or example.",
+      "explanation": "selective permeability: the membrane allows some ions to cross more readily than others Source: Biology 30 Chapter 11, textbook p. 374",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 374"
+      ],
+      "id": "selective-permeability:mixed-multiple",
+      "family": "odd-one-out",
+      "interaction": "multiple",
+      "skill": "comparison",
+      "prompt": "Select both statements that belong with selective permeability.",
+      "answers": [
+        "the membrane allows some ions to cross more readily than others",
+        "More K+ leak than Na+ leak contributes to the resting voltage."
+      ],
+      "options": [
+        "a voltage difference across a resting neuron's membrane, with the inside negative relative to outside",
+        "the membrane allows some ions to cross more readily than others",
+        "active transport that moves three Na+ out for every two K+ moved in",
+        "More K+ leak than Na+ leak contributes to the resting voltage."
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "selective-permeability",
+      "lessonId": "lesson-04",
+      "cue": "Trace where selective permeability belongs in the lesson mechanism or example.",
+      "explanation": "selective permeability: the membrane allows some ions to cross more readily than others Source: Biology 30 Chapter 11, textbook p. 374",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 374"
+      ],
+      "id": "selective-permeability:mixed-tf",
+      "family": "misconception",
+      "interaction": "true-false",
+      "skill": "error-correction",
+      "prompt": "Selective permeability means every ion crosses at the same rate.",
+      "answers": [
+        "false"
+      ],
+      "options": [
+        "true",
+        "false"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "selective-permeability",
+      "lessonId": "lesson-04",
+      "cue": "Trace where selective permeability belongs in the lesson mechanism or example.",
+      "explanation": "selective permeability: the membrane allows some ions to cross more readily than others Source: Biology 30 Chapter 11, textbook p. 374",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 374"
+      ],
+      "id": "selective-permeability:mixed-order",
+      "family": "sequence",
+      "interaction": "ordering",
+      "skill": "sequencing",
+      "prompt": "Put the selective permeability steps in order.",
+      "answers": [
+        "ion gradient",
+        "selective channels",
+        "unequal movement",
+        "voltage difference"
+      ],
+      "options": [
+        "unequal movement",
+        "voltage difference",
+        "selective channels",
+        "ion gradient"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "selective-permeability",
+      "lessonId": "lesson-04",
+      "cue": "Trace where selective permeability belongs in the lesson mechanism or example.",
+      "explanation": "selective permeability: the membrane allows some ions to cross more readily than others Source: Biology 30 Chapter 11, textbook p. 374",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 374"
+      ],
+      "id": "selective-permeability:mc-term",
+      "family": "recognize",
+      "interaction": "single",
+      "skill": "recognize",
+      "difficulty": 1,
+      "prompt": "Which term best matches this description: the membrane allows some ions to cross more readily than others?",
+      "answers": [
+        "selective permeability"
+      ],
+      "options": [
+        "ion gradient",
+        "selective permeability",
+        "voltage difference",
+        "selective channels"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "selective-permeability",
+      "lessonId": "lesson-04",
+      "cue": "Trace where selective permeability belongs in the lesson mechanism or example.",
+      "explanation": "selective permeability: the membrane allows some ions to cross more readily than others Source: Biology 30 Chapter 11, textbook p. 374",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 374"
+      ],
+      "id": "selective-permeability:mc-function",
+      "family": "relate",
+      "interaction": "single",
+      "skill": "relate",
+      "difficulty": 2,
+      "prompt": "Which statement best describes selective permeability?",
+      "answers": [
+        "the membrane allows some ions to cross more readily than others"
+      ],
+      "options": [
+        "a voltage difference across a resting neuron's membrane, with the inside negative relative to outside",
+        "The sodium–potassium pump opens only during depolarization and uses no energy.",
+        "the membrane allows some ions to cross more readily than others",
+        "A resting neuron has equal ion concentrations on both sides of its membrane."
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    }
+  ],
+  "textbookPractice": [
+    {
+      "id": "ch11-p374-in-text-q9",
+      "page": 374,
+      "group": "in-text",
+      "number": 9,
+      "label": "In Text · p. 374 · question 9",
+      "crops": [
+        {
+          "page": 374,
+          "box": [
+            358,
+            437.789,
+            533,
+            504.789
+          ],
+          "asset": "ch11-p374-in-text-q9.jpg",
+          "role": "selected question column; full context follows",
+          "src": "./assets/textbook-practice/ch11-p374-in-text-q9.jpg"
+        },
+        {
+          "page": 374,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ]
+        },
+        {
+          "page": 370,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "role": "referenced context / continuation"
+        },
+        {
+          "page": 372,
+          "box": [
+            0,
+            0,
+            663,
+            843
+          ],
+          "role": "referenced context / continuation"
+        }
+      ],
+      "topics": [
+        "lesson-04"
+      ]
+    },
+    {
+      "id": "ch11-p374-in-text-q10",
+      "page": 374,
+      "group": "in-text",
+      "number": 10,
+      "label": "In Text · p. 374 · question 10",
+      "crops": [
+        {
+          "page": 374,
+          "box": [
+            358,
+            497.789,
+            533,
+            556.375
+          ],
+          "asset": "ch11-p374-in-text-q10.jpg",
+          "role": "selected question column; full context follows",
+          "src": "./assets/textbook-practice/ch11-p374-in-text-q10.jpg"
+        },
+        {
+          "page": 374,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ]
+        },
+        {
+          "page": 370,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "role": "referenced context / continuation"
+        },
+        {
+          "page": 372,
+          "box": [
+            0,
+            0,
+            663,
+            843
+          ],
+          "role": "referenced context / continuation"
+        }
+      ],
+      "topics": [
+        "lesson-04"
+      ]
+    },
+    {
+      "id": "ch11-p375-11-b-paper-analysis-q2",
+      "page": 375,
+      "group": "11.B paper analysis",
+      "number": 2,
+      "label": "11.B Paper Analysis · p. 375 · question 2",
+      "crops": [
+        {
+          "page": 375,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ]
+        }
+      ],
+      "topics": [
+        "lesson-04",
+        "lesson-05"
+      ]
+    },
+    {
+      "id": "ch11-p375-11-b-paper-analysis-q5",
+      "page": 375,
+      "group": "11.B paper analysis",
+      "number": 5,
+      "label": "11.B Paper Analysis · p. 375 · question 5",
+      "crops": [
+        {
+          "page": 375,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ]
+        }
+      ],
+      "topics": [
+        "lesson-04",
+        "lesson-05"
+      ]
+    },
+    {
+      "id": "ch11-p384-section-11-1-q4",
+      "page": 384,
+      "group": "section-11.1",
+      "number": 4,
+      "label": "Section 11.1 · p. 384 · question 4",
+      "crops": [
+        {
+          "page": 384,
+          "box": [
+            39.849999999999994,
+            410.73,
+            286.35,
+            456.73
+          ],
+          "asset": "ch11-p384-section-11-1-q4.jpg",
+          "role": "selected question including its in-column figure",
+          "src": "./assets/textbook-practice/ch11-p384-section-11-1-q4.jpg"
+        },
+        {
+          "page": 384,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ]
+        }
+      ],
+      "topics": [
+        "lesson-04"
+      ]
+    },
+    {
+      "id": "ch11-p402-chapter-review-q13",
+      "page": 402,
+      "group": "chapter-review",
+      "number": 13,
+      "label": "Chapter Review · p. 402 · question 13",
+      "crops": [
+        {
+          "page": 402,
+          "box": [
+            284.8,
+            417.492,
+            593,
+            650.4929999999999
+          ],
+          "asset": "ch11-p402-chapter-review-q13.jpg",
+          "role": "selected question including its in-column figure",
+          "src": "./assets/textbook-practice/ch11-p402-chapter-review-q13.jpg"
+        },
+        {
+          "page": 402,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ]
+        },
+        {
+          "page": 403,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "role": "referenced context / continuation"
+        }
+      ],
+      "topics": [
+        "lesson-04"
+      ]
+    },
+    {
+      "id": "ch11-p402-chapter-review-q14",
+      "page": 402,
+      "group": "chapter-review",
+      "number": 14,
+      "label": "Chapter Review · p. 402 · question 14",
+      "crops": [
+        {
+          "page": 402,
+          "box": [
+            284.8,
+            649.4929999999999,
+            593,
+            695.493
+          ],
+          "asset": "ch11-p402-chapter-review-q14.jpg",
+          "role": "selected question including its in-column figure",
+          "src": "./assets/textbook-practice/ch11-p402-chapter-review-q14.jpg"
+        },
+        {
+          "page": 402,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ]
+        },
+        {
+          "page": 403,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "role": "referenced context / continuation"
+        }
+      ],
+      "topics": [
+        "lesson-04",
+        "lesson-05"
+      ]
+    }
+  ],
+  "media": [
+    {
+      "kind": "img",
+      "attrs": {
+        "alt": "A resting neuron membrane showing Na+ and K+ distribution, leak channels, the sodium-potassium pump, and a resting potential of −70 mV.",
+        "decoding": "async",
+        "loading": "lazy",
+        "src": "assets/source/chapter11-resting-potential-0.png",
+        "data-canvas-helper-edit-key": "p3-chapter-140"
+      },
+      "caption": "Figure 6. Use the diagram to connect ion distribution, leak channels, the sodium–potassium pump, and the resting potential of about −70 mV.",
+      "locator": {
+        "path": "projects/biology30-unit-a-pilot-3/workspace/index.html",
+        "startLine": 733
+      },
+      "status": "existing source asset; no new visual/science acceptance or video playback asserted"
+    },
+    {
+      "kind": "section",
+      "attrs": {
+        "class": "video-support",
+        "data-video": "ZAmUjvgoO0A"
+      },
+      "caption": "",
+      "locator": {
+        "path": "projects/biology30-unit-a-pilot-3/workspace/index.html",
+        "startLine": 740
+      },
+      "status": "existing source asset; no new visual/science acceptance or video playback asserted"
+    },
+    {
+      "kind": "a",
+      "attrs": {
+        "href": "https://www.youtube.com/watch?v=ZAmUjvgoO0A",
+        "target": "_blank",
+        "rel": "noopener",
+        "data-canvas-helper-edit-key": "p3-chapter-144"
+      },
+      "caption": "",
+      "locator": {
+        "path": "projects/biology30-unit-a-pilot-3/workspace/index.html",
+        "startLine": 745
+      },
+      "status": "existing source asset; no new visual/science acceptance or video playback asserted"
+    }
+  ],
+  "vocabulary": {
+    "canonicalPayload": "current-course/data/vocabulary-and-schema.json",
+    "inlineTermLinks": [
+      {
+        "attrs": {
+          "type": "button",
+          "class": "bio-term",
+          "data-bio-term": "resting membrane potential",
+          "data-bio-term-route": "lesson-04",
+          "aria-haspopup": "dialog",
+          "data-canvas-helper-edit-key": "p3-l04-setup-11"
+        },
+        "term": "resting membrane potential"
+      },
+      {
+        "attrs": {
+          "type": "button",
+          "class": "bio-term",
+          "data-bio-term": "selective permeability",
+          "data-bio-term-route": "lesson-04",
+          "aria-haspopup": "dialog",
+          "data-canvas-helper-edit-key": "p3-l04-setup-13"
+        },
+        "term": "selective permeability"
+      },
+      {
+        "attrs": {
+          "type": "button",
+          "class": "bio-term",
+          "data-bio-term": "depolarization",
+          "data-bio-term-route": "lesson-04",
+          "aria-haspopup": "dialog",
+          "data-canvas-helper-edit-key": "p3-l04-setup-15"
+        },
+        "term": "depolarization"
+      },
+      {
+        "attrs": {
+          "type": "button",
+          "class": "bio-term",
+          "data-bio-term": "repolarization",
+          "data-bio-term-route": "lesson-04",
+          "aria-haspopup": "dialog",
+          "data-canvas-helper-edit-key": "p3-l04-setup-17"
+        },
+        "term": "repolarization"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "axon",
+          "data-canvas-helper-edit-key": "p3-chapter-120",
+          "type": "button"
+        },
+        "term": "axon"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "depolarization",
+          "data-canvas-helper-edit-key": "p3-chapter-122",
+          "type": "button"
+        },
+        "term": "depolarization"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "repolarization",
+          "data-canvas-helper-edit-key": "p3-chapter-123",
+          "type": "button"
+        },
+        "term": "repolarization"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "refractory period",
+          "data-canvas-helper-edit-key": "p3-chapter-124",
+          "type": "button"
+        },
+        "term": "refractory period"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "neuron",
+          "data-canvas-helper-edit-key": "p3-chapter-128",
+          "type": "button"
+        },
+        "term": "neuron"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "resting membrane potential",
+          "data-canvas-helper-edit-key": "p3-chapter-129",
+          "type": "button"
+        },
+        "term": "resting membrane potential"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "action potential",
+          "data-canvas-helper-edit-key": "p3-chapter-131",
+          "type": "button"
+        },
+        "term": "action potential"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "neuron",
+          "data-canvas-helper-edit-key": "p3-chapter-134",
+          "type": "button"
+        },
+        "term": "neuron"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "selective permeability",
+          "data-canvas-helper-edit-key": "p3-chapter-137",
+          "type": "button"
+        },
+        "term": "selective permeability"
+      }
+    ],
+    "visibleWords": [
+      "Vocabulary help Key termsWords for this lessonUse these definitions when you need help with a term. resting membrane potentialthe voltage difference across a resting neuron’s membrane selective permeabilityallowing some substances across a membrane more easily than others depolarizationthe inside of the membrane becoming less negative repolarizationthe membrane voltage returning toward its resting level More vocabulary for this lessonLesson vocabularyresting membrane potential · ion gradient · selective permeability · axon · neuron · depolarization · repolarization · refractory periodSelect an underlined term for its definition. Your vocabulary writing is saved in Process Collection."
+    ]
+  },
+  "immutablePreservationBindings": [
+    {
+      "tag": "section",
+      "attrs": {
+        "class": "activity",
+        "data-activity": "check-resting-potential",
+        "data-activity-mode": "paired",
+        "data-required-check": ""
+      },
+      "startLine": 751
+    },
+    {
+      "tag": "div",
+      "attrs": {
+        "class": "question",
+        "data-question": "check-resting-potential-mc"
+      },
+      "startLine": 759,
+      "questionText": "Which of these statements correctly describes the distribution of ions on the inside and outside of a neuron with a resting membrane potential of – 70 mV? more positive ions outside and more negative ions inside more negative ions outside and more positive ions inside equal numbers of positive and negative ions both inside and outside chloride ions (Cl–) outside and Na+ and K+ inside Check answer Explain the related idea Explain what the resting membrane potential is, and why it is significant to the functioning of neurons. Textbook p. 374 Written response Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded. Save written response"
+    },
+    {
+      "tag": "input",
+      "attrs": {
+        "type": "radio",
+        "name": "check-resting-potential-mc",
+        "value": "QUES_51675_82711_A275478",
+        "data-answer": ""
+      },
+      "startLine": 762
+    },
+    {
+      "tag": "input",
+      "attrs": {
+        "type": "radio",
+        "name": "check-resting-potential-mc",
+        "value": "QUES_51675_82711_A275479",
+        "data-answer": ""
+      },
+      "startLine": 764
+    },
+    {
+      "tag": "input",
+      "attrs": {
+        "type": "radio",
+        "name": "check-resting-potential-mc",
+        "value": "QUES_51675_82711_A275480",
+        "data-answer": ""
+      },
+      "startLine": 766
+    },
+    {
+      "tag": "input",
+      "attrs": {
+        "type": "radio",
+        "name": "check-resting-potential-mc",
+        "value": "QUES_51675_82711_A275481",
+        "data-answer": ""
+      },
+      "startLine": 768
+    },
+    {
+      "tag": "textarea",
+      "attrs": {
+        "id": "check-resting-potential-written",
+        "data-writing": "check-resting-potential-written",
+        "data-answer-limit": "3200",
+        "rows": "6",
+        "aria-describedby": "check-resting-potential-written-limit check-resting-potential-written-status"
+      },
+      "startLine": 780
+    },
+    {
+      "tag": "section",
+      "attrs": {
+        "class": "activity",
+        "data-activity": "practice-resting-potential",
+        "data-activity-mode": "writing"
+      },
+      "startLine": 799
+    },
+    {
+      "tag": "div",
+      "attrs": {
+        "class": "question",
+        "data-question": "source-checkpoint-10"
+      },
+      "startLine": 807,
+      "questionText": "Identify and explain the three factors that contribute to the resting membrane potential. Textbook p. 374 Written response Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded. Save written response"
+    },
+    {
+      "tag": "textarea",
+      "attrs": {
+        "id": "source-checkpoint-10-written",
+        "data-writing": "source-checkpoint-10-written",
+        "data-answer-limit": "3200",
+        "rows": "6",
+        "aria-describedby": "source-checkpoint-10-written-limit source-checkpoint-10-written-status"
+      },
+      "startLine": 814
+    }
+  ],
+  "status": {
+    "sourceInventory": "exported with exact locators; see explicit source gaps",
+    "authoring": "not-started",
+    "contentReview": "not-started",
+    "integration": "not-started",
+    "technicalTesting": "not-started",
+    "teacherAcceptance": "not-requested"
+  }
+}

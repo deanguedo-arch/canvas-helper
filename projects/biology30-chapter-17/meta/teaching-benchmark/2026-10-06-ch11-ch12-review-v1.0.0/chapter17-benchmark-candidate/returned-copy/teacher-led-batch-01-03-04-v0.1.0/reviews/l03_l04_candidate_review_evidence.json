@@ -1,0 +1,1127 @@
+{
+  "reviewScope": {
+    "mappingPreparationRead": [
+      "AUTHORING_TASK.md",
+      "standards/02_TEACHING_STANDARD.md",
+      "standards/CHAPTER11_TEACHING_STANDARD.md",
+      "sources/SOURCE_LOCATORS.md",
+      "LEAD_SOURCE_PREFLIGHT.json",
+      "current lesson01/03/04 full protected lesson text",
+      "current_native_demands.md complete",
+      "relevant_native_data.json current record entries",
+      "textbook_native_demands.json complete",
+      "TEACHING_SEQUENCE.md complete",
+      "l01_source_preparation.md",
+      "l03_l04_source_preparation.md"
+    ],
+    "candidateInstructionalReviewPerformed": true,
+    "rootReportedSourcesDistinctFromDirectReads": true,
+    "externalTeacherAcceptance": "pending",
+    "runtimeOrSavedControlTesting": "not run",
+    "scopeLimit": "Shared-context assistant source/science/quantitative/preparation review; not blind external specialist review, Dean exact-copy acceptance, browser rendering, native saved-state compatibility or release.",
+    "candidateReviewScope": "Complete actual01/03/04 manuscript/fragment teaching and every copied current task/feedback supplement read; quantitative/source fidelity focus03/04.01 original visual/science evidence is additionally supported by its separate source reviewer. Current corrections reread against new hashes.",
+    "candidateReviewedFiles": {
+      "lesson-01.teaching-fragment.html": {
+        "bytes": 17745,
+        "sha256": "9af1936228a2f611e9338d0a72142801899802d7d86c054d2a983474ed96e72a",
+        "readScope": "Complete learner fragment text and all tables; source/quantitative detail focused on03/04."
+      },
+      "manuscripts/lesson-01.md": {
+        "bytes": 27226,
+        "sha256": "6710454dc2cf38853a68280c60d1d078589e71a4a8fae55072c8794c38597eee",
+        "readScope": "Complete manuscript including copied protected suffix, every guided hint/key/explanation, writing model/criteria and optional-bank supplement.01 read completely then targeted Plant1/2/3 revision rechecked."
+      },
+      "lesson-03.teaching-fragment.html": {
+        "bytes": 24439,
+        "sha256": "85a884113bab7fe12205c1d1567284dabc0b434fd469c0076c24da57c56edc85",
+        "readScope": "Complete learner fragment text and all tables; source/quantitative detail focused on03/04."
+      },
+      "manuscripts/lesson-03.md": {
+        "bytes": 37449,
+        "sha256": "53aa6a08b4ba1add404ab767c491a5241204f02373f56049082f056caf9d5b37",
+        "readScope": "Complete manuscript including copied protected suffix, every guided hint/key/explanation, writing model/criteria and optional-bank supplement.01 read completely then targeted Plant1/2/3 revision rechecked."
+      },
+      "lesson-04.teaching-fragment.html": {
+        "bytes": 18212,
+        "sha256": "36dc8d9a947c45a355110cc1efed7676d2ab01162dbfa12ea628e0b393d5b97f",
+        "readScope": "Complete learner fragment text and all tables; source/quantitative detail focused on03/04."
+      },
+      "manuscripts/lesson-04.md": {
+        "bytes": 29985,
+        "sha256": "277a76f9ee9a1e6231f8f1b0b447b90d7380c888d501202eae28c6953346176d",
+        "readScope": "Complete manuscript including copied protected suffix, every guided hint/key/explanation, writing model/criteria and optional-bank supplement.01 read completely then targeted Plant1/2/3 revision rechecked."
+      }
+    },
+    "all104MappedEntriesReviewed": true,
+    "visibleHeadingAndBindingMatchesConfirmed": true,
+    "originalFeedbackTextPresenceChecks": 60,
+    "allCheckedOriginalFeedbackTextPresent": true,
+    "retained02PassagesActuallyRead": [
+      "Choose starting plants whose breeding history is known",
+      "Follow the flower-colour experiment through its generations",
+      "Separate the pair, then separate the copies",
+      "Which allele can be contributed?",
+      "Explain why the four pairs are equally likely",
+      "Compare the prediction with the counted offspring"
+    ],
+    "additionalPdfReadForDeferredTask": "Printed593/PDF10 text; printed598/PDF15 text and pixels, including actual question8 source-reference error.",
+    "performedRevisionsAndRechecks": [
+      {
+        "file": "lesson-03.teaching-fragment.html",
+        "beforeHash": "c01544d0f7ac2272a142ac56b42713e9f84f6e03c0329de6f725c12fdec4d05b",
+        "finding": "Expected proportion was said to approach one half with many events, confusing fixed expectation with sample frequency.",
+        "repairObserved": "The expected proportion is one half; larger independent samples are more likely to have observed proportions close to that expectation.",
+        "rechecked": true
+      },
+      {
+        "file": "manuscripts/lesson-03.md",
+        "beforeHash": "cc6e4c8d8412d267269a49c03557e175c812b99902150e2a0ed731445afc6a4e",
+        "finding": "Nested bold vocabulary generated four asterisks around the phenotype ratio.",
+        "repairObserved": "One clean bold span: phenotype ratio of1black:1brown.",
+        "rechecked": true
+      },
+      {
+        "file": "lesson-01.teaching-fragment.html",
+        "finding": "Another reviewer/root changed botanical-sounding record names to Plant1/2/3.",
+        "reviewerOwnFinding": false,
+        "repairObserved": "Current entire01fragment and revised worked record read; no species/name ambiguity added.",
+        "rechecked": true
+      },
+      {
+        "file": "lesson-01.teaching-fragment.html",
+        "finding": "Final author spacing normalization after word/colon/comma before a number.",
+        "sourceOfBeforeAfterComparison": "Root supplied final_spacing_review.json; this reviewer independently reread and hashed the current files and confirmed the current hash matches that record.",
+        "beforeHash": "9af1936228a2f611e9338d0a72142801899802d7d86c054d2a983474ed96e72a",
+        "afterHash": "9af1936228a2f611e9338d0a72142801899802d7d86c054d2a983474ed96e72a",
+        "addedBytes": 0,
+        "rootReportedWordsAndMathUnchanged": true,
+        "reviewerScope": "Current hashes and actual heading/binding locators reconfirmed. Complete content reading occurred before this final spacing-only revision; no claim of a separate blind rereview.",
+        "rechecked": true
+      },
+      {
+        "file": "lesson-03.teaching-fragment.html",
+        "finding": "Final author spacing normalization after word/colon/comma before a number.",
+        "sourceOfBeforeAfterComparison": "Root supplied final_spacing_review.json; this reviewer independently reread and hashed the current files and confirmed the current hash matches that record.",
+        "beforeHash": "a8d2c89cb3796a7f3094d0cd95e3bcbfcb0d3f730d3bf4feeb586becc77ed11b",
+        "afterHash": "85a884113bab7fe12205c1d1567284dabc0b434fd469c0076c24da57c56edc85",
+        "addedBytes": 3,
+        "rootReportedWordsAndMathUnchanged": true,
+        "reviewerScope": "Current hashes and actual heading/binding locators reconfirmed. Complete content reading occurred before this final spacing-only revision; no claim of a separate blind rereview.",
+        "rechecked": true
+      },
+      {
+        "file": "lesson-04.teaching-fragment.html",
+        "finding": "Final author spacing normalization after word/colon/comma before a number.",
+        "sourceOfBeforeAfterComparison": "Root supplied final_spacing_review.json; this reviewer independently reread and hashed the current files and confirmed the current hash matches that record.",
+        "beforeHash": "780674c0bc379d1b74f200a9340b37a6205d7f09efdf25c3cf617d48958dcdb7",
+        "afterHash": "36dc8d9a947c45a355110cc1efed7676d2ab01162dbfa12ea628e0b393d5b97f",
+        "addedBytes": 22,
+        "rootReportedWordsAndMathUnchanged": true,
+        "reviewerScope": "Current hashes and actual heading/binding locators reconfirmed. Complete content reading occurred before this final spacing-only revision; no claim of a separate blind rereview.",
+        "rechecked": true
+      }
+    ]
+  },
+  "files": {
+    "lesson-01.teaching-fragment.html": {
+      "bytes": 17745,
+      "sha256": "9af1936228a2f611e9338d0a72142801899802d7d86c054d2a983474ed96e72a",
+      "readScope": "Complete learner fragment text and all tables; source/quantitative detail focused on03/04."
+    },
+    "manuscripts/lesson-01.md": {
+      "bytes": 27226,
+      "sha256": "6710454dc2cf38853a68280c60d1d078589e71a4a8fae55072c8794c38597eee",
+      "readScope": "Complete manuscript including copied protected suffix, every guided hint/key/explanation, writing model/criteria and optional-bank supplement.01 read completely then targeted Plant1/2/3 revision rechecked."
+    },
+    "lesson-03.teaching-fragment.html": {
+      "bytes": 24439,
+      "sha256": "85a884113bab7fe12205c1d1567284dabc0b434fd469c0076c24da57c56edc85",
+      "readScope": "Complete learner fragment text and all tables; source/quantitative detail focused on03/04."
+    },
+    "manuscripts/lesson-03.md": {
+      "bytes": 37449,
+      "sha256": "53aa6a08b4ba1add404ab767c491a5241204f02373f56049082f056caf9d5b37",
+      "readScope": "Complete manuscript including copied protected suffix, every guided hint/key/explanation, writing model/criteria and optional-bank supplement.01 read completely then targeted Plant1/2/3 revision rechecked."
+    },
+    "lesson-04.teaching-fragment.html": {
+      "bytes": 18212,
+      "sha256": "36dc8d9a947c45a355110cc1efed7676d2ab01162dbfa12ea628e0b393d5b97f",
+      "readScope": "Complete learner fragment text and all tables; source/quantitative detail focused on03/04."
+    },
+    "manuscripts/lesson-04.md": {
+      "bytes": 29985,
+      "sha256": "277a76f9ee9a1e6231f8f1b0b447b90d7380c888d501202eae28c6953346176d",
+      "readScope": "Complete manuscript including copied protected suffix, every guided hint/key/explanation, writing model/criteria and optional-bank supplement.01 read completely then targeted Plant1/2/3 revision rechecked."
+    }
+  },
+  "tables": [
+    {
+      "lesson": "lesson-01",
+      "ordinal": 1,
+      "class": "comparison-table",
+      "rows": [
+        [
+          "Chromosome in the pair",
+          "Position being examined",
+          "What is present there?"
+        ],
+        [
+          "One inherited from the egg-producing parent",
+          "The studied locus",
+          "One copy of an allele of the gene"
+        ],
+        [
+          "The corresponding chromosome inherited from the sperm-producing parent",
+          "The corresponding locus",
+          "One copy of an allele of the same gene; its version may match or differ"
+        ]
+      ],
+      "entireTableRead": true
+    },
+    {
+      "lesson": "lesson-01",
+      "ordinal": 2,
+      "class": "comparison-table",
+      "rows": [
+        [
+          "Record in this model",
+          "Meaning",
+          "What it does not mean"
+        ],
+        [
+          "B or b",
+          "One specified version of the flower-colour gene",
+          "A whole chromosome set or a complete diploid genotype"
+        ],
+        [
+          "BB",
+          "Two copies of the B version; homozygous",
+          "Two different genes"
+        ],
+        [
+          "Bb",
+          "One B and one b; heterozygous",
+          "A blend that has erased the original versions"
+        ],
+        [
+          "bb",
+          "Two copies of the b version; homozygous",
+          "No gene at that locus"
+        ]
+      ],
+      "entireTableRead": true
+    },
+    {
+      "lesson": "lesson-01",
+      "ordinal": 3,
+      "class": "comparison-table",
+      "rows": [
+        [
+          "Hypothetical record",
+          "Egg contribution",
+          "Sperm contribution",
+          "Genotype and allele identity",
+          "Predicted flower phenotype"
+        ],
+        [
+          "Plant 1",
+          "B",
+          "b",
+          "Bb; heterozygous",
+          "Purple"
+        ],
+        [
+          "Plant 2",
+          "b",
+          "B",
+          "Bb; heterozygous",
+          "Purple"
+        ],
+        [
+          "Plant 3",
+          "b",
+          "b",
+          "bb; homozygous recessive",
+          "White"
+        ]
+      ],
+      "entireTableRead": true
+    },
+    {
+      "lesson": "lesson-03",
+      "ordinal": 1,
+      "class": "comparison-table",
+      "rows": [
+        [
+          "Egg from bb mother",
+          "Sperm B, probability 1/2",
+          "Sperm b, probability 1/2"
+        ],
+        [
+          "b, probability 1",
+          "Bb: 1 × 1/2 = 1/2",
+          "bb: 1 × 1/2 = 1/2"
+        ]
+      ],
+      "entireTableRead": true
+    },
+    {
+      "lesson": "lesson-03",
+      "ordinal": 2,
+      "class": "comparison-table",
+      "rows": [
+        [
+          "Egg from Bb mother",
+          "Sperm B, probability 1/2",
+          "Sperm b, probability 1/2"
+        ],
+        [
+          "B, probability 1/2",
+          "BB, probability 1/4",
+          "Bb, probability 1/4"
+        ],
+        [
+          "b, probability 1/2",
+          "bB, probability 1/4; normally written Bb",
+          "bb, probability 1/4"
+        ]
+      ],
+      "entireTableRead": true
+    },
+    {
+      "lesson": "lesson-03",
+      "ordinal": 3,
+      "class": "comparison-table",
+      "rows": [
+        [
+          "Egg from Bb mother",
+          "Sperm B from BB father, probability 1",
+          "Phenotype after applying complete dominance"
+        ],
+        [
+          "B, probability 1/2",
+          "BB: 1/2 × 1 = 1/2",
+          "Black"
+        ],
+        [
+          "b, probability 1/2",
+          "Bb: 1/2 × 1 = 1/2",
+          "Black"
+        ]
+      ],
+      "entireTableRead": true
+    },
+    {
+      "lesson": "lesson-03",
+      "ordinal": 4,
+      "class": "comparison-table",
+      "rows": [
+        [
+          "Category",
+          "Probability for one offspring",
+          "Expected count among 48"
+        ],
+        [
+          "BB",
+          "1/4",
+          "48 × 1/4 = 12"
+        ],
+        [
+          "Bb",
+          "1/2",
+          "48 × 1/2 = 24"
+        ],
+        [
+          "bb",
+          "1/4",
+          "48 × 1/4 = 12"
+        ]
+      ],
+      "entireTableRead": true
+    },
+    {
+      "lesson": "lesson-04",
+      "ordinal": 1,
+      "class": "comparison-table",
+      "rows": [
+        [
+          "Hypothesis for the black parent",
+          "Meaning of the allele pair",
+          "Normal gamete contributions"
+        ],
+        [
+          "BB",
+          "Two copies of B; homozygous dominant",
+          "B only, probability 1"
+        ],
+        [
+          "Bb",
+          "One B and one b; heterozygous",
+          "B with probability 1/2; b with probability 1/2"
+        ]
+      ],
+      "entireTableRead": true
+    },
+    {
+      "lesson": "lesson-04",
+      "ordinal": 2,
+      "class": "comparison-table",
+      "rows": [
+        [
+          "Cross being predicted",
+          "Offspring genotype probabilities",
+          "Offspring phenotype probabilities",
+          "Check"
+        ],
+        [
+          "BB × bb",
+          "Bb: 1; BB and bb: 0",
+          "Black: 1; brown: 0",
+          "1 + 0 = 1"
+        ],
+        [
+          "Bb × bb",
+          "Bb: 1/2; bb: 1/2; BB: 0",
+          "Black: 1/2; brown: 1/2",
+          "1/2 + 1/2 = 1"
+        ]
+      ],
+      "entireTableRead": true
+    },
+    {
+      "lesson": "lesson-04",
+      "ordinal": 3,
+      "class": "comparison-table",
+      "rows": [
+        [
+          "Specified observed record",
+          "Probability if unknown parent is BB",
+          "Probability if unknown parent is Bb"
+        ],
+        [
+          "Three offspring, all black",
+          "1",
+          "(1/2) 3  = 1/8"
+        ],
+        [
+          "Six offspring, all black",
+          "1",
+          "(1/2) 6  = 1/64"
+        ]
+      ],
+      "entireTableRead": true
+    },
+    {
+      "lesson": "lesson-04",
+      "ordinal": 4,
+      "class": "comparison-table",
+      "rows": [
+        [
+          "Known information about a black mouse",
+          "Contribution forced by the known parent",
+          "What the mouse’s own colour adds",
+          "Genotype conclusion"
+        ],
+        [
+          "One parent is brown, bb",
+          "b",
+          "Requires B as the other allele",
+          "Bb is forced"
+        ],
+        [
+          "One parent is BB",
+          "B",
+          "Is compatible with either B or b as the other allele",
+          "BB or Bb remains possible; retain B_"
+        ]
+      ],
+      "entireTableRead": true
+    },
+    {
+      "lesson": "lesson-04",
+      "ordinal": 5,
+      "class": "comparison-table",
+      "rows": [
+        [
+          "Mouse 2 hypothesis",
+          "Contributions combined with mouse 1’s B or b at 1/2 each",
+          "Offspring genotype probabilities",
+          "Phenotype prediction"
+        ],
+        [
+          "BB",
+          "Mouse 2 supplies B only. Mouse 1’s B gives BB; mouse 1’s b gives Bb.",
+          "BB: 1/2 × 1 = 1/2; Bb: 1/2 × 1 = 1/2; bb: 0",
+          "Black: 1; brown: 0"
+        ],
+        [
+          "Bb",
+          "Mouse 2 supplies B or b at 1/2 each. The four pairs are BB, Bb, bB and bb.",
+          "BB: 1/4; Bb: 1/4 + 1/4 = 1/2; bb: 1/4",
+          "Black: 1/4 + 1/2 = 3/4; brown: 1/4"
+        ]
+      ],
+      "entireTableRead": true
+    }
+  ],
+  "assets": [
+    {
+      "lesson": "lesson-01",
+      "path": "./assets/teaching-batch1-v010/slide-4-image13.jpg",
+      "bytes": 27674,
+      "sha256": "7c2c37bc887ab1b5bdf6ff3948242ba949b9d10c3ba510f27f1538c7a01525ba",
+      "equalsSuppliedSource": true,
+      "sourcePath": "sources/slide-assets/slide-4-image13.jpg",
+      "reviewerPixelScope": "03/04 relevant original media and native SVG directly pixel-reviewed by this reviewer during source preparation;01 pixels were separately reviewed by the01 source reviewer."
+    },
+    {
+      "lesson": "lesson-01",
+      "path": "./assets/teaching-batch1-v010/slide-12-image18.png",
+      "bytes": 159723,
+      "sha256": "6514f5d48a724cdf1fe785c24b74f44abb03b73af75c26e787b8a8adf687f26c",
+      "equalsSuppliedSource": true,
+      "sourcePath": "sources/slide-assets/slide-12-image18.png",
+      "reviewerPixelScope": "03/04 relevant original media and native SVG directly pixel-reviewed by this reviewer during source preparation;01 pixels were separately reviewed by the01 source reviewer."
+    },
+    {
+      "lesson": "lesson-03",
+      "path": "./assets/teaching-batch1-v010/slide-27-image30.jpg",
+      "bytes": 43058,
+      "sha256": "bf6c27bfad6067528006804c139f9c2ebcc61fbe6dcc8ea21a839665583f8a8d",
+      "equalsSuppliedSource": true,
+      "sourcePath": "sources/slide-assets/slide-27-image30.jpg",
+      "reviewerPixelScope": "03/04 relevant original media and native SVG directly pixel-reviewed by this reviewer during source preparation;01 pixels were separately reviewed by the01 source reviewer."
+    },
+    {
+      "lesson": "lesson-03",
+      "path": "./assets/teaching-batch1-v010/slide-27-image31.jpg",
+      "bytes": 13590,
+      "sha256": "48accc2e9da889e71c388ffef0818fa2d37b6e68a8cda68eda4cfeef7d893d15",
+      "equalsSuppliedSource": true,
+      "sourcePath": "sources/slide-assets/slide-27-image31.jpg",
+      "reviewerPixelScope": "03/04 relevant original media and native SVG directly pixel-reviewed by this reviewer during source preparation;01 pixels were separately reviewed by the01 source reviewer."
+    },
+    {
+      "lesson": "lesson-03",
+      "path": "./assets/teaching-batch1-v010/slide-27-image22.png",
+      "bytes": 4843,
+      "sha256": "21b521a9e6dc4d631b80ef038ec9be24dda4e4f788ce7e855932e544601f1f24",
+      "equalsSuppliedSource": true,
+      "sourcePath": "sources/slide-assets/slide-27-image22.png",
+      "reviewerPixelScope": "03/04 relevant original media and native SVG directly pixel-reviewed by this reviewer during source preparation;01 pixels were separately reviewed by the01 source reviewer."
+    },
+    {
+      "lesson": "lesson-03",
+      "path": "./assets/figures/ch17-punnett.svg",
+      "bytes": 3959,
+      "sha256": "2fdc34b5f30359e927d50b1fa4781894bdb196dfccfbbabcbf831d1ec4aec6ec",
+      "equalsSuppliedSource": true,
+      "sourcePath": "current/assets/figures/ch17-punnett.svg",
+      "reviewerPixelScope": "03/04 relevant original media and native SVG directly pixel-reviewed by this reviewer during source preparation;01 pixels were separately reviewed by the01 source reviewer."
+    },
+    {
+      "lesson": "lesson-03",
+      "path": "./assets/teaching-batch1-v010/slide-29-image33.png",
+      "bytes": 54681,
+      "sha256": "fd46a25268ba516d5a9809a146f82e793883bf5f5dac84b810cc7a3a448d34a5",
+      "equalsSuppliedSource": true,
+      "sourcePath": "sources/slide-assets/slide-29-image33.png",
+      "reviewerPixelScope": "03/04 relevant original media and native SVG directly pixel-reviewed by this reviewer during source preparation;01 pixels were separately reviewed by the01 source reviewer."
+    },
+    {
+      "lesson": "lesson-04",
+      "path": "./assets/teaching-batch1-v010/slide-27-image22.png",
+      "bytes": 4843,
+      "sha256": "21b521a9e6dc4d631b80ef038ec9be24dda4e4f788ce7e855932e544601f1f24",
+      "equalsSuppliedSource": true,
+      "sourcePath": "sources/slide-assets/slide-27-image22.png",
+      "reviewerPixelScope": "03/04 relevant original media and native SVG directly pixel-reviewed by this reviewer during source preparation;01 pixels were separately reviewed by the01 source reviewer."
+    }
+  ],
+  "quantitativeRecomputation": {
+    "method": "Independent exact-fraction recomputation and complete human-language reading of every table and equation; not native runtime or course compatibility testing.",
+    "Bb_x_bb": {
+      "B_sperm": "1/2",
+      "b_sperm": "1/2",
+      "b_egg": "1",
+      "Bb": "1/2",
+      "bb": "1/2",
+      "sum": "1"
+    },
+    "Bb_x_Bb": {
+      "BB": "1/4",
+      "Bb": "1/2",
+      "bb": "1/4",
+      "black": "3/4",
+      "brown": "1/4",
+      "sum": "1"
+    },
+    "BB_x_Bb": {
+      "BB": "1/2",
+      "Bb": "1/2",
+      "bb": "0",
+      "black": "1",
+      "brown": "0"
+    },
+    "48_scored_offspring": {
+      "BB": "12",
+      "Bb": "24",
+      "bb": "12",
+      "black": "36",
+      "brown": "12"
+    },
+    "black_then_brown": "3/16",
+    "one_of_each_either_order": "3/8",
+    "same_colour_complement": "5/8",
+    "three_all_black_if_Bb": "1/8",
+    "six_all_black_if_Bb": "1/64",
+    "all_black_if_BB": "1",
+    "family_supported_prediction": "0 brown if unresolved mouse2 isBB;1/4 ifBb. No prior weighting supplied, so no averaged single probability justified.",
+    "grandchildren": "1/4 brown conditional on the explicitly stated later mating of two knownBb descendants; not inferred from the single abbreviated photo."
+  },
+  "feedbackTextChecks": [
+    {
+      "id": "ch17-l01-check-mc-1",
+      "fields": {
+        "answer": true,
+        "explanation": true,
+        "cue": true
+      },
+      "allListedTextPresent": true
+    },
+    {
+      "id": "ch17-l01-check-mc-2",
+      "fields": {
+        "answer": true,
+        "explanation": true,
+        "cue": true
+      },
+      "allListedTextPresent": true
+    },
+    {
+      "id": "ch17-l01-check-writing-1",
+      "fields": {
+        "model": true,
+        "allCriteria": true
+      },
+      "allListedTextPresent": true
+    },
+    {
+      "id": "ch17-l01-check-writing-2",
+      "fields": {
+        "model": true,
+        "allCriteria": true
+      },
+      "allListedTextPresent": true
+    },
+    {
+      "id": "ch17-l03-check-mc-1",
+      "fields": {
+        "answer": true,
+        "explanation": true,
+        "cue": true
+      },
+      "allListedTextPresent": true
+    },
+    {
+      "id": "ch17-l03-check-mc-2",
+      "fields": {
+        "answer": true,
+        "explanation": true,
+        "cue": true
+      },
+      "allListedTextPresent": true
+    },
+    {
+      "id": "ch17-l03-check-writing-1",
+      "fields": {
+        "model": true,
+        "allCriteria": true
+      },
+      "allListedTextPresent": true
+    },
+    {
+      "id": "ch17-l03-check-writing-2",
+      "fields": {
+        "model": true,
+        "allCriteria": true
+      },
+      "allListedTextPresent": true
+    },
+    {
+      "id": "ch17-l04-check-mc-1",
+      "fields": {
+        "answer": true,
+        "explanation": true,
+        "cue": true
+      },
+      "allListedTextPresent": true
+    },
+    {
+      "id": "ch17-l04-check-mc-2",
+      "fields": {
+        "answer": true,
+        "explanation": true,
+        "cue": true
+      },
+      "allListedTextPresent": true
+    },
+    {
+      "id": "ch17-l04-check-writing-1",
+      "fields": {
+        "model": true,
+        "allCriteria": true
+      },
+      "allListedTextPresent": true
+    },
+    {
+      "id": "ch17-l04-check-writing-2",
+      "fields": {
+        "model": true,
+        "allCriteria": true
+      },
+      "allListedTextPresent": true
+    },
+    {
+      "id": "ch17-l01-guided-q1",
+      "fields": {
+        "answer": true,
+        "explanation": true,
+        "cue": true,
+        "hint": true
+      },
+      "allListedTextPresent": true
+    },
+    {
+      "id": "ch17-l01-guided-q2",
+      "fields": {
+        "answer": true,
+        "explanation": true,
+        "cue": true,
+        "hint": true
+      },
+      "allListedTextPresent": true
+    },
+    {
+      "id": "ch17-l03-guided-q1",
+      "fields": {
+        "answer": true,
+        "explanation": true,
+        "cue": true,
+        "hint": true
+      },
+      "allListedTextPresent": true
+    },
+    {
+      "id": "ch17-l03-guided-q2",
+      "fields": {
+        "answer": true,
+        "explanation": true,
+        "cue": true,
+        "hint": true
+      },
+      "allListedTextPresent": true
+    },
+    {
+      "id": "ch17-l04-guided-q1",
+      "fields": {
+        "answer": true,
+        "explanation": true,
+        "cue": true,
+        "hint": true
+      },
+      "allListedTextPresent": true
+    },
+    {
+      "id": "ch17-l04-guided-q2",
+      "fields": {
+        "answer": true,
+        "explanation": true,
+        "cue": true,
+        "hint": true
+      },
+      "allListedTextPresent": true
+    },
+    {
+      "id": "ch17-source-OBJ_2131224",
+      "fields": {
+        "answer": true,
+        "cue": true,
+        "explanation": true
+      },
+      "allListedTextPresent": true
+    },
+    {
+      "id": "ch17-source-OBJ_2131226",
+      "fields": {
+        "answer": true,
+        "cue": true,
+        "explanation": true
+      },
+      "allListedTextPresent": true
+    },
+    {
+      "id": "ch17-source-OBJ_2131230",
+      "fields": {
+        "answer": true,
+        "cue": true,
+        "explanation": true
+      },
+      "allListedTextPresent": true
+    },
+    {
+      "id": "ch17-source-OBJ_2131231",
+      "fields": {
+        "answer": true,
+        "cue": true,
+        "explanation": true
+      },
+      "allListedTextPresent": true
+    },
+    {
+      "id": "ch17-source-OBJ_2131235",
+      "fields": {
+        "answer": true,
+        "cue": true,
+        "explanation": true
+      },
+      "allListedTextPresent": true
+    },
+    {
+      "id": "ch17-source-OBJ_2131239",
+      "fields": {
+        "answer": true,
+        "cue": true,
+        "explanation": true
+      },
+      "allListedTextPresent": true
+    },
+    {
+      "id": "ch17-foundation-ch17-word-gene",
+      "fields": {
+        "answer": true,
+        "cue": true,
+        "explanation": true
+      },
+      "allListedTextPresent": true
+    },
+    {
+      "id": "ch17-foundation-ch17-word-allele",
+      "fields": {
+        "answer": true,
+        "cue": true,
+        "explanation": true
+      },
+      "allListedTextPresent": true
+    },
+    {
+      "id": "ch17-foundation-ch17-word-genotype",
+      "fields": {
+        "answer": true,
+        "cue": true,
+        "explanation": true
+      },
+      "allListedTextPresent": true
+    },
+    {
+      "id": "ch17-foundation-ch17-word-phenotype",
+      "fields": {
+        "answer": true,
+        "cue": true,
+        "explanation": true
+      },
+      "allListedTextPresent": true
+    },
+    {
+      "id": "ch17-foundation-ch17-word-punnett-square",
+      "fields": {
+        "answer": true,
+        "cue": true,
+        "explanation": true
+      },
+      "allListedTextPresent": true
+    },
+    {
+      "id": "ch17-foundation-ch17-word-monohybrid-cross",
+      "fields": {
+        "answer": true,
+        "cue": true,
+        "explanation": true
+      },
+      "allListedTextPresent": true
+    },
+    {
+      "id": "ch17-foundation-ch17-word-probability",
+      "fields": {
+        "answer": true,
+        "cue": true,
+        "explanation": true
+      },
+      "allListedTextPresent": true
+    },
+    {
+      "id": "ch17-foundation-ch17-word-expected-number",
+      "fields": {
+        "answer": true,
+        "cue": true,
+        "explanation": true
+      },
+      "allListedTextPresent": true
+    },
+    {
+      "id": "ch17-foundation-ch17-word-test-cross",
+      "fields": {
+        "answer": true,
+        "cue": true,
+        "explanation": true
+      },
+      "allListedTextPresent": true
+    },
+    {
+      "id": "ch17-foundation-ch17-word-homozygous",
+      "fields": {
+        "answer": true,
+        "cue": true,
+        "explanation": true
+      },
+      "allListedTextPresent": true
+    },
+    {
+      "id": "ch17-foundation-ch17-word-heterozygous",
+      "fields": {
+        "answer": true,
+        "cue": true,
+        "explanation": true
+      },
+      "allListedTextPresent": true
+    },
+    {
+      "id": "ch17-foundation-ch17-word-sampling-variation",
+      "fields": {
+        "answer": true,
+        "cue": true,
+        "explanation": true
+      },
+      "allListedTextPresent": true
+    },
+    {
+      "id": "ch17-l01-application-1",
+      "fields": {
+        "answer": true,
+        "explanation": true,
+        "cue": true
+      },
+      "allListedTextPresent": true
+    },
+    {
+      "id": "ch17-l01-scenario-1",
+      "fields": {
+        "model": true
+      },
+      "allListedTextPresent": true
+    },
+    {
+      "id": "ch17-l03-application-1",
+      "fields": {
+        "answer": true,
+        "explanation": true,
+        "cue": true
+      },
+      "allListedTextPresent": true
+    },
+    {
+      "id": "ch17-l03-scenario-1",
+      "fields": {
+        "model": true
+      },
+      "allListedTextPresent": true
+    },
+    {
+      "id": "ch17-l04-application-1",
+      "fields": {
+        "answer": true,
+        "explanation": true,
+        "cue": true
+      },
+      "allListedTextPresent": true
+    },
+    {
+      "id": "ch17-l04-scenario-1",
+      "fields": {
+        "model": true
+      },
+      "allListedTextPresent": true
+    },
+    {
+      "id": "ch17-l01-context-gene",
+      "fields": {
+        "answer": true,
+        "cue": true,
+        "explanation": true
+      },
+      "allListedTextPresent": true
+    },
+    {
+      "id": "ch17-l01-context-allele",
+      "fields": {
+        "answer": true,
+        "cue": true,
+        "explanation": true
+      },
+      "allListedTextPresent": true
+    },
+    {
+      "id": "ch17-l01-context-genotype",
+      "fields": {
+        "answer": true,
+        "cue": true,
+        "explanation": true
+      },
+      "allListedTextPresent": true
+    },
+    {
+      "id": "ch17-l01-context-phenotype",
+      "fields": {
+        "answer": true,
+        "cue": true,
+        "explanation": true
+      },
+      "allListedTextPresent": true
+    },
+    {
+      "id": "ch17-l03-context-punnett-square",
+      "fields": {
+        "answer": true,
+        "cue": true,
+        "explanation": true
+      },
+      "allListedTextPresent": true
+    },
+    {
+      "id": "ch17-l03-context-monohybrid-cross",
+      "fields": {
+        "answer": true,
+        "cue": true,
+        "explanation": true
+      },
+      "allListedTextPresent": true
+    },
+    {
+      "id": "ch17-l03-context-probability",
+      "fields": {
+        "answer": true,
+        "cue": true,
+        "explanation": true
+      },
+      "allListedTextPresent": true
+    },
+    {
+      "id": "ch17-l03-context-expected-number",
+      "fields": {
+        "answer": true,
+        "cue": true,
+        "explanation": true
+      },
+      "allListedTextPresent": true
+    },
+    {
+      "id": "ch17-l04-context-test-cross",
+      "fields": {
+        "answer": true,
+        "cue": true,
+        "explanation": true
+      },
+      "allListedTextPresent": true
+    },
+    {
+      "id": "ch17-l04-context-homozygous",
+      "fields": {
+        "answer": true,
+        "cue": true,
+        "explanation": true
+      },
+      "allListedTextPresent": true
+    },
+    {
+      "id": "ch17-l04-context-heterozygous",
+      "fields": {
+        "answer": true,
+        "cue": true,
+        "explanation": true
+      },
+      "allListedTextPresent": true
+    },
+    {
+      "id": "ch17-l04-context-sampling-variation",
+      "fields": {
+        "answer": true,
+        "cue": true,
+        "explanation": true
+      },
+      "allListedTextPresent": true
+    },
+    {
+      "id": "ch17-multiple-01",
+      "fields": {
+        "cue": true,
+        "explanation": true
+      },
+      "allListedTextPresent": true
+    },
+    {
+      "id": "ch17-multiple-04",
+      "fields": {
+        "cue": true,
+        "explanation": true
+      },
+      "allListedTextPresent": true
+    },
+    {
+      "id": "ch17-punnett-label-practice-A",
+      "fields": {
+        "cue": true,
+        "explanation": true
+      },
+      "allListedTextPresent": true
+    },
+    {
+      "id": "ch17-punnett-label-practice-B",
+      "fields": {
+        "cue": true,
+        "explanation": true
+      },
+      "allListedTextPresent": true
+    },
+    {
+      "id": "ch17-punnett-label-practice-C",
+      "fields": {
+        "cue": true,
+        "explanation": true
+      },
+      "allListedTextPresent": true
+    },
+    {
+      "id": "ch17-punnett-label-practice-D",
+      "fields": {
+        "cue": true,
+        "explanation": true
+      },
+      "allListedTextPresent": true
+    }
+  ],
+  "remainingConflicts": [
+    "Mandatory source Bb×bb exact required writing1 overlap",
+    "Mandatory source BB×Bb isomorphic required AA×Aa MC1 overlap",
+    "Broad complete-dominance and tester/family explanation requests necessarily reuse core visible ideas; no zero-conceptual-overlap claim",
+    "Native figure already prints its locked labeling map",
+    "Protected04 video/data retain the exact required four-offspring answer and aa typo"
+  ],
+  "mapPayload": {
+    "path": "PRACTICE_PREPARATION_MAP.json",
+    "bytes": 583241,
+    "sha256": "2eef1c796885b8d27e6a04920772f0924c4bca11f953ee3b5900f4fd999dc0b1"
+  },
+  "sourceImmutable": true,
+  "teacherAcceptance": "pending",
+  "newNativeRuntimeTest": "not performed"
+}

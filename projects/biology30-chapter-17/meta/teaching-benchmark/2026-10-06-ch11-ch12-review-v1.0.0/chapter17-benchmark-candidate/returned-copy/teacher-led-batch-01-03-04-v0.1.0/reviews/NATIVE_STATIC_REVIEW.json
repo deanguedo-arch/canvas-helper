@@ -1,0 +1,1911 @@
+{
+  "scope": "Static candidate/source/native-contract verification only; no runtime, browser, native assembly or teacher acceptance",
+  "version": "batch-01-03-04-v0.1.0",
+  "status": "no_static_contract_failure_found",
+  "sourceOwnerPath": "current/index.html",
+  "sourceOwner": {
+    "bytes": 3566907,
+    "sha256": "0814977d9fb4ba41d611f2816e50e01d7950a0d5caaba9f422a410bf0f6e0783"
+  },
+  "sourcePayloadCount": 124,
+  "sourcePayloadsUnchanged": true,
+  "sourcePayloadChecks": [
+    {
+      "path": "AUTHORING_TASK.md",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 7560,
+      "sha256": "2a25b7723d74217004f04f96927c45985086270c51cc7861aa843a8829ec9732"
+    },
+    {
+      "path": "CHAPTER_INVENTORY.json",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 3269,
+      "sha256": "02476d59dc8d8236439b22bf4b651dfe7cfd965d8db8d8d961eef4aefcb8f8b7"
+    },
+    {
+      "path": "CONTINUATION_AUTHORITY.json",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 929,
+      "sha256": "1790d3e3cb626260ee233e9bb0a4d24c8aeda7b497fe1f792e551933f79a6c3d"
+    },
+    {
+      "path": "contracts/NATIVE_DATA.json",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 391744,
+      "sha256": "5fc07ea7be4b9a74081a602fb5e21e1ae780fefcd34a30854eec22308076009b"
+    },
+    {
+      "path": "contracts/REPLACEMENT_BOUNDARIES.json",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 8044,
+      "sha256": "679d1475eed824fca46c327750495e4271493122827417ada42c8980b8473363"
+    },
+    {
+      "path": "contracts/SOURCE_PROTECTION.json",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 323229,
+      "sha256": "177415e8cf3f72cc859898e79e90b4a6e31b9cd7f2dd23017b1ade7f33f54d12"
+    },
+    {
+      "path": "current/assets/assessment/1cb36c7f022e66f1f7ff.png",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 9362,
+      "sha256": "1cb36c7f022e66f1f7ffd71069517342405c172e19258e72594a1b73f908d2d1"
+    },
+    {
+      "path": "current/assets/assessment/9e85ebb2ecbe95100af0.png",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 45804,
+      "sha256": "9e85ebb2ecbe95100af02ac52108c9fb53798252a85604d1371d8358edba1dad"
+    },
+    {
+      "path": "current/assets/assessment/edd29af72eeb9c646081.png",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 10993,
+      "sha256": "edd29af72eeb9c64608139705b844cfc0a52bf6745137ffec10d71fcaed0eb22"
+    },
+    {
+      "path": "current/assets/assessment/eeca2d84afb814ca523d.png",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 107270,
+      "sha256": "eeca2d84afb814ca523d062ae04860a1ebbb56f5ee38b301d250995344f46a99"
+    },
+    {
+      "path": "current/assets/assessment/f45c6bfd939bd821e055.png",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 11145,
+      "sha256": "f45c6bfd939bd821e055a82ac84c0b44b07ddfe0efcc080b606a2070eb293437"
+    },
+    {
+      "path": "current/assets/figures/ch17-punnett.svg",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 3959,
+      "sha256": "2fdc34b5f30359e927d50b1fa4781894bdb196dfccfbbabcbf831d1ec4aec6ec"
+    },
+    {
+      "path": "current/assets/figures/ch17-two-trait.svg",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 5623,
+      "sha256": "6fdb301a963b4da131f8fe50624611fc0ff091c62e0ac99d6602019c2830c316"
+    },
+    {
+      "path": "current/assets/teaching-l05-v010/slide-35-image32.png",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 77704,
+      "sha256": "8eeaa700523d536e1375231cfc9f6a6971ae29618aca18918040ea81f5502d39"
+    },
+    {
+      "path": "current/assets/teaching-l05-v010/slide-36-image29.png",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 84208,
+      "sha256": "1b3fd0b0ced0cc074bdfac4b3a6712392123db36e33970813c8c2ea235e6abb9"
+    },
+    {
+      "path": "current/assets/teaching-l05-v010/slide-37-image37.png",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 15668,
+      "sha256": "32c3c6888aee2d6573340d2cae5b177ad5a8b3c38a944b0c0f715edc65e04baf"
+    },
+    {
+      "path": "current/assets/teaching-l05-v010/slide-37-image46.png",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 7401,
+      "sha256": "cac4ebce12f25f7afe2bae30ad8806346f8b83b6e618fdd1c90c20a6b7cce3cb"
+    },
+    {
+      "path": "current/assets/teaching-l05-v010/slide-39-image40.png",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 28688,
+      "sha256": "1737c44d6e84b88174326df28f36a39ddf526d5153b33b96660e2cac00e47338"
+    },
+    {
+      "path": "current/assets/teaching-l05-v010/slide-41-image44.png",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 364277,
+      "sha256": "7e57deedfe727416d5536605bb4327cffd16ee88cbb13c778bd5e5039f450eb8"
+    },
+    {
+      "path": "current/assets/teaching-v040/slide-14-image25.png",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 149790,
+      "sha256": "4e5cd0ea4159932025b801e03faf3c32ea2c88efa906238f5cde4daeeca441dc"
+    },
+    {
+      "path": "current/assets/teaching-v040/slide-15-image14.png",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 40026,
+      "sha256": "30b7f6873a81955cc3c8e64b93ebaf4f3c5bfd5b7366ef7064c7eca28087628d"
+    },
+    {
+      "path": "current/assets/teaching-v040/slide-18-image20.png",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 16324,
+      "sha256": "013dd2769996f9e08f19ea3e86e70ea3a69ce2a1a2bfb7a6ee1ebf2023636ec6"
+    },
+    {
+      "path": "current/assets/teaching-v040/slide-20-image36.png",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 4001,
+      "sha256": "b8563f6f9ed748ac3880103472762ec0e05b6fbd3f1a6d1a666cb0b9877779e7"
+    },
+    {
+      "path": "current/assets/teaching-v040/slide-41-image44.png",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 364277,
+      "sha256": "7e57deedfe727416d5536605bb4327cffd16ee88cbb13c778bd5e5039f450eb8"
+    },
+    {
+      "path": "current/index.html",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 3566907,
+      "sha256": "0814977d9fb4ba41d611f2816e50e01d7950a0d5caaba9f422a410bf0f6e0783"
+    },
+    {
+      "path": "current/lesson-01.html",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 18829,
+      "sha256": "cc24481da9d357b19df9c7236e6f8bf62cf73be019a7a6fc73a1795d3cca0765"
+    },
+    {
+      "path": "current/lesson-01.protected-header.html",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 3821,
+      "sha256": "764621b70b3b6026f5be5ad50e4d85ed5a1415b90bb84a8a8ba45899388221c7"
+    },
+    {
+      "path": "current/lesson-01.protected-suffix.html",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 10746,
+      "sha256": "0308998f82c47a27ccfdfdc26afd08e09229c15336312b8d3331534c8c919bf1"
+    },
+    {
+      "path": "current/lesson-01.teaching-fragment.html",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 4186,
+      "sha256": "69bc52334f25135c7bda1706cc07a963d6a85e5f8e323cf7c3cbb284da0473c6"
+    },
+    {
+      "path": "current/lesson-02.html",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 50544,
+      "sha256": "2bd982f244d2557b2ab4eded30e0c310634bb426904c4d511e6646db4f4545af"
+    },
+    {
+      "path": "current/lesson-03.html",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 24048,
+      "sha256": "276c12c5fbb649d4f7f116eea88998a9f44f7f81892d38f8aa24f8f610b7db30"
+    },
+    {
+      "path": "current/lesson-03.protected-header.html",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 3908,
+      "sha256": "8be6f963501bc30434c6dc904c0efb8a045dc12b758f3418dcc9cd1f3d9e9b89"
+    },
+    {
+      "path": "current/lesson-03.protected-suffix.html",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 14843,
+      "sha256": "99c89e737ac207c8158f2968e911bd086281052c2512b2e147eff46141c1d108"
+    },
+    {
+      "path": "current/lesson-03.teaching-fragment.html",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 5221,
+      "sha256": "85fe3e0bbe1a0c17e48449253b659135684d1fd6d50aabfa2573394776a03df8"
+    },
+    {
+      "path": "current/lesson-04.html",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 20726,
+      "sha256": "61bf6ef76faf8a6d03ebaed54a1608c184e6a3f31a0d4226e1a254750b3c8914"
+    },
+    {
+      "path": "current/lesson-04.protected-header.html",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 3820,
+      "sha256": "f61d49512933f6f67b9944ba4314f558d717a7eec59adba58d8d9850ee5fffda"
+    },
+    {
+      "path": "current/lesson-04.protected-suffix.html",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 12409,
+      "sha256": "efff73d2736a4d0c93ba08dffe9342d4bcea9446de8dabba0df53e6ee9aa29b1"
+    },
+    {
+      "path": "current/lesson-04.teaching-fragment.html",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 4421,
+      "sha256": "ead977930ad7c515c69619f04284cc8623339a64f68801f17d5493d03425cfd4"
+    },
+    {
+      "path": "current/lesson-05.html",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 77809,
+      "sha256": "68de7eac991fbda4f17b58ccd8041bbdf5c867bd6320efa9a129b4015aa7ee4b"
+    },
+    {
+      "path": "current/lesson-06.html",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 19544,
+      "sha256": "737cfdbf37a7f2f8529eb449458ba511597e03a12d82e2d96737c45d5cc19a7e"
+    },
+    {
+      "path": "reference/l05/lesson-05.teaching-fragment.html",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 58457,
+      "sha256": "b29e83ae44ba3fd44b1f6e52a359ece8eb4933b3ee018b8964fdda5b85c97d21"
+    },
+    {
+      "path": "reference/l05/manuscripts/lesson-05.md",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 50205,
+      "sha256": "67a75c62d2fe43cd3877d6bfd9940d6558bf6cdbee35a2d266b024a102fbdb9c"
+    },
+    {
+      "path": "reference/l05/SCOUT_RETURN_REVIEW.md",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 9264,
+      "sha256": "3027eef5af292c6a25251fd77322b24d68c54f3309a9d047a713016250c8a831"
+    },
+    {
+      "path": "reference/l05/SOURCE_VISUAL_MAP.json",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 81991,
+      "sha256": "1fa5b74f1f67ffffd0375d4435a3f7cddb6f974c332b3adb6cac8e21281eee6a"
+    },
+    {
+      "path": "reference/l05/TEACHING_SEQUENCE.md",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 15892,
+      "sha256": "35ef4331f226041136f8aa0223e09b5c3792322473b14e87d39dd25814aec46b"
+    },
+    {
+      "path": "reference/lesson-02-COPY_CHANGES.json",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 1715,
+      "sha256": "079a455f042f89cb579c5132805d3c025d9c0cb6dc9be9b72da7a5c6a2d820f7"
+    },
+    {
+      "path": "reference/lesson-02.md",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 29639,
+      "sha256": "dc5e1f0207ec82dfacbc9d0e299f8f48beb6b5ee1c4ddc3deb24e8ac9635db11"
+    },
+    {
+      "path": "reference/lesson-02.teaching-fragment.html",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 35661,
+      "sha256": "6e274fada943ad55d663144985375828b011a381ba8a843704c333995443ce53"
+    },
+    {
+      "path": "sources/chapter-17.pdf",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 2005971,
+      "sha256": "48e297aacb86275c106a02abdddaf0f0463ba47d6b17703a926aa68405755455"
+    },
+    {
+      "path": "sources/original-114-slides.pptx",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 10153531,
+      "sha256": "da1ce1c0526da4da1aefd1fb6c0f23070f820ce24378c12f9699d1c700e1a985"
+    },
+    {
+      "path": "sources/SELECTED_SLIDES.json",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 22534,
+      "sha256": "ee8fda6c5bd6ade40ded096f5bf0c68db94c66fe6784577175fa8e571cb0395f"
+    },
+    {
+      "path": "sources/slide-assets/slide-10-image2.jpg",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 27583,
+      "sha256": "db6f68de30771949f282e5fadefb6751053b692e9a9f7f2a2ba7ee5410f4d8f0"
+    },
+    {
+      "path": "sources/slide-assets/slide-11-image1.jpg",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 76801,
+      "sha256": "508ee6c2de2a4d74eb2a976214737298c960c8fb1dd519ffd66cc2c00cb5260f"
+    },
+    {
+      "path": "sources/slide-assets/slide-11-image26.jpg",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 29896,
+      "sha256": "006a1c500e99dd602aa6b8adc16438e7fedf3e9f947ae2c2dd890ee9dcb6c1b4"
+    },
+    {
+      "path": "sources/slide-assets/slide-12-image18.png",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 159723,
+      "sha256": "6514f5d48a724cdf1fe785c24b74f44abb03b73af75c26e787b8a8adf687f26c"
+    },
+    {
+      "path": "sources/slide-assets/slide-27-image22.png",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 4843,
+      "sha256": "21b521a9e6dc4d631b80ef038ec9be24dda4e4f788ce7e855932e544601f1f24"
+    },
+    {
+      "path": "sources/slide-assets/slide-27-image30.jpg",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 43058,
+      "sha256": "bf6c27bfad6067528006804c139f9c2ebcc61fbe6dcc8ea21a839665583f8a8d"
+    },
+    {
+      "path": "sources/slide-assets/slide-27-image31.jpg",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 13590,
+      "sha256": "48accc2e9da889e71c388ffef0818fa2d37b6e68a8cda68eda4cfeef7d893d15"
+    },
+    {
+      "path": "sources/slide-assets/slide-28-image30.jpg",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 43058,
+      "sha256": "bf6c27bfad6067528006804c139f9c2ebcc61fbe6dcc8ea21a839665583f8a8d"
+    },
+    {
+      "path": "sources/slide-assets/slide-29-image33.png",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 54681,
+      "sha256": "fd46a25268ba516d5a9809a146f82e793883bf5f5dac84b810cc7a3a448d34a5"
+    },
+    {
+      "path": "sources/slide-assets/slide-3-image6.png",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 573014,
+      "sha256": "3c7e8f602191fba585e45fb25ddac7c48b4075f0950b1f1c2c224fbadd705fc0"
+    },
+    {
+      "path": "sources/slide-assets/slide-30-image33.png",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 54681,
+      "sha256": "fd46a25268ba516d5a9809a146f82e793883bf5f5dac84b810cc7a3a448d34a5"
+    },
+    {
+      "path": "sources/slide-assets/slide-31-image22.png",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 4843,
+      "sha256": "21b521a9e6dc4d631b80ef038ec9be24dda4e4f788ce7e855932e544601f1f24"
+    },
+    {
+      "path": "sources/slide-assets/slide-32-image22.png",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 4843,
+      "sha256": "21b521a9e6dc4d631b80ef038ec9be24dda4e4f788ce7e855932e544601f1f24"
+    },
+    {
+      "path": "sources/slide-assets/slide-32-image28.jpg",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 7636,
+      "sha256": "55a0c44420c18dd4ee7b8f202fe9a3da4ba627353cc7330df0bc73526f918d65"
+    },
+    {
+      "path": "sources/slide-assets/slide-33-image41.jpg",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 10505,
+      "sha256": "c3627837664f06267fc77d23ff590e7352b436d63e20c7e3c19ea7b57aaffd31"
+    },
+    {
+      "path": "sources/slide-assets/slide-33-image45.jpg",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 40836,
+      "sha256": "ab43d9d7edcbaa4ccb5057adf24975a7b95cbc5bf03b214295d01125681ef335"
+    },
+    {
+      "path": "sources/slide-assets/slide-4-image13.jpg",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 27674,
+      "sha256": "7c2c37bc887ab1b5bdf6ff3948242ba949b9d10c3ba510f27f1538c7a01525ba"
+    },
+    {
+      "path": "sources/slide-assets/slide-4-image8.png",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 1256100,
+      "sha256": "636d4d6d0fbe7c5671efd357dce72b9cc282d9fa81f9ebda4cc6a6b9d7b5d1dd"
+    },
+    {
+      "path": "sources/slide-assets/slide-5-image10.jpg",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 29733,
+      "sha256": "a313887437eca184d7bfa86d62984ddca3a92655a2d45f87f480e2fab1c88f42"
+    },
+    {
+      "path": "sources/slide-assets/slide-5-image15.gif",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 68966,
+      "sha256": "d2d0df0d04243979f0116e05fac22988687883dc0c5143011c5c0056c539d176"
+    },
+    {
+      "path": "sources/slide-assets/slide-5-image4.jpg",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 99396,
+      "sha256": "2d66a9c8bc164dd640a72a29bb180ede83dc030ab85f80b56d7dffb8598dabb3"
+    },
+    {
+      "path": "sources/slide-assets/slide-5-image5.jpg",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 40031,
+      "sha256": "ccc0ad134df513cf7e6e7860f8a99385e8e1d76fc4307d570db2a529f9120575"
+    },
+    {
+      "path": "sources/slide-assets/slide-5-image7.jpg",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 159238,
+      "sha256": "460fff5223ae7df293380ac4c28e6500a9128c6e4f8e6a1e68639a4a1adcf52f"
+    },
+    {
+      "path": "sources/slide-assets/slide-6-image11.jpg",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 52051,
+      "sha256": "9d80d5449bf04e8daa584023853e2580680f66822273d31a7ab8e68f8050cd26"
+    },
+    {
+      "path": "sources/slide-assets/slide-6-image12.jpg",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 12386,
+      "sha256": "384d4c118a9e6a773105555598aa3e0cad5e8d1d9799b2a48c052e10f66572e0"
+    },
+    {
+      "path": "sources/slide-assets/slide-6-image19.jpg",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 40082,
+      "sha256": "c1751e33747ab24360ba723b43ac7e22889df53df11339d3d31927642a1f4f46"
+    },
+    {
+      "path": "sources/slide-assets/slide-6-image3.jpg",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 19644,
+      "sha256": "2435326ef64841afd1063d024fb71d4600a6eb112dc486a549543e39e34e8835"
+    },
+    {
+      "path": "sources/slide-assets/slide-7-image1.jpg",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 76801,
+      "sha256": "508ee6c2de2a4d74eb2a976214737298c960c8fb1dd519ffd66cc2c00cb5260f"
+    },
+    {
+      "path": "sources/slide-assets/slide-7-image26.jpg",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 29896,
+      "sha256": "006a1c500e99dd602aa6b8adc16438e7fedf3e9f947ae2c2dd890ee9dcb6c1b4"
+    },
+    {
+      "path": "sources/slide-assets/slide-9-image9.png",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 161689,
+      "sha256": "1c8d7000d23a27ad42e007d78ff2526d1f02f36e6b97db326045c09e2632f09b"
+    },
+    {
+      "path": "sources/slide-xml/slide-1.xml",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 4640,
+      "sha256": "3a882bdaf82ee99fdd776a32c61b1e28dd98d73583e4f565ec3f6c784a66525b"
+    },
+    {
+      "path": "sources/slide-xml/slide-1.xml.rels",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 461,
+      "sha256": "f97aefecee481404d7b149b3a88723ea40a2c4bc8a5835ade41eb0cdb7b1aedc"
+    },
+    {
+      "path": "sources/slide-xml/slide-10.xml",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 6325,
+      "sha256": "38a06da885ad8bbb2de227c789edc076e1b33d602848106851d1248f18436a12"
+    },
+    {
+      "path": "sources/slide-xml/slide-10.xml.rels",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 597,
+      "sha256": "1fead3026a180a6a4cd4f19405d8d627e77edb4bf369d2ac276926e65a698415"
+    },
+    {
+      "path": "sources/slide-xml/slide-11.xml",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 16894,
+      "sha256": "c111f37adf930b71e77e642baed89cfb9b1c850b6b1586ff5aff14ffd217bfa8"
+    },
+    {
+      "path": "sources/slide-xml/slide-11.xml.rels",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 733,
+      "sha256": "9580e1df41f1f40721ca7ad1d75cd91ecc3e5a2b655a9c5cfd8191d41e748af0"
+    },
+    {
+      "path": "sources/slide-xml/slide-12.xml",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 2824,
+      "sha256": "c941a290584188893ac54cfa6f6df098e3aa1c82e538b7ac2aacec26491b6187"
+    },
+    {
+      "path": "sources/slide-xml/slide-12.xml.rels",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 598,
+      "sha256": "0899ebe3757f9dff4f00e4875ad97c8ed159353fe7f3352244aa894bd13743e3"
+    },
+    {
+      "path": "sources/slide-xml/slide-2.xml",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 10761,
+      "sha256": "148b4a735fae798fd69b55c36568e701b8a36419aa3a8161c28021b3f80af0cb"
+    },
+    {
+      "path": "sources/slide-xml/slide-2.xml.rels",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 461,
+      "sha256": "0521e83a767b92c6be0aeaa4a23f520faeddf64b2144a2c751b52ea7a4e33c21"
+    },
+    {
+      "path": "sources/slide-xml/slide-26.xml",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 7137,
+      "sha256": "6fae31e736cb2d783a6471f39306cd9509cdb2070f511018e3da43769cd74dd2"
+    },
+    {
+      "path": "sources/slide-xml/slide-26.xml.rels",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 462,
+      "sha256": "cb66819717336c13243a4ef0ebd63e29687fdcc777b8cf854c38ff80aeb42d47"
+    },
+    {
+      "path": "sources/slide-xml/slide-27.xml",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 24559,
+      "sha256": "527f1ededd3e301b7f5f3b893ca32409b48bfa1fe6fc25b4c321714e5ecc5249"
+    },
+    {
+      "path": "sources/slide-xml/slide-27.xml.rels",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 870,
+      "sha256": "dfbf1f97224191d18187cd4a9f6726b0446f4b859a211bb8c5d42a41f0ca7b46"
+    },
+    {
+      "path": "sources/slide-xml/slide-28.xml",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 28759,
+      "sha256": "d06c476cccf5eabb529e77b9a5533b3ca02019609a21f63f445c367da4277357"
+    },
+    {
+      "path": "sources/slide-xml/slide-28.xml.rels",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 598,
+      "sha256": "8d8d7a82984e87ea68c2be969396925eb4784884044dbb1886f91277886a0de1"
+    },
+    {
+      "path": "sources/slide-xml/slide-29.xml",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 27008,
+      "sha256": "a162e652d49932b432c7beeaa8228f54bfb8d9460ebeefe9d271ddad49724f23"
+    },
+    {
+      "path": "sources/slide-xml/slide-29.xml.rels",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 598,
+      "sha256": "5eb7634928000f29bd719e97675b23e3be482393f06eb7b599b386b9cf098ea8"
+    },
+    {
+      "path": "sources/slide-xml/slide-3.xml",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 7100,
+      "sha256": "c7ba017520b96e134c983065fd320e0dc3b22a02369e6dbfb10f10713b306138"
+    },
+    {
+      "path": "sources/slide-xml/slide-3.xml.rels",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 596,
+      "sha256": "308a3c6222cfea8fba14107f43a80255c79f11539f50c16ed38a34db55922974"
+    },
+    {
+      "path": "sources/slide-xml/slide-30.xml",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 17295,
+      "sha256": "29baff25b14b9168f40fbbb4e0888d4824e2fd8709bef46ec6df935f70a3bc7e"
+    },
+    {
+      "path": "sources/slide-xml/slide-30.xml.rels",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 598,
+      "sha256": "c0a344f17cffaadcff48e7009f428a41b9c70487723b93fbf858c3f39f7e88fb"
+    },
+    {
+      "path": "sources/slide-xml/slide-31.xml",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 13337,
+      "sha256": "b5bcf8eccf1c2de5a576b7274bac78385a3bf79754ad910934f500749e93f522"
+    },
+    {
+      "path": "sources/slide-xml/slide-31.xml.rels",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 598,
+      "sha256": "be8ee738edb885ae0d577160bfa6be01d65be7bae2e72e4831241c19e159dca5"
+    },
+    {
+      "path": "sources/slide-xml/slide-32.xml",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 13181,
+      "sha256": "13f0aa0b8da55ccdf67da970e0399dbfe467b3adbc82eb0d709813640b71b738"
+    },
+    {
+      "path": "sources/slide-xml/slide-32.xml.rels",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 918,
+      "sha256": "03adcb46e4be64f73cf560e06cbf3fab7add6c64a81a248903be3ee7301e7338"
+    },
+    {
+      "path": "sources/slide-xml/slide-33.xml",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 7899,
+      "sha256": "13d518543331e429a34069effce6d7010bc26132d02b664e87d95916f83bc989"
+    },
+    {
+      "path": "sources/slide-xml/slide-33.xml.rels",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 1102,
+      "sha256": "adcda314280f0b645218c50e4aeae7df87216b5740e70088addd1bc492b97633"
+    },
+    {
+      "path": "sources/slide-xml/slide-4.xml",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 4013,
+      "sha256": "ccbe30c4642fbd7e02d94adf6df0ccbff0c5d80b8d46bddb70f6ed618b842878"
+    },
+    {
+      "path": "sources/slide-xml/slide-4.xml.rels",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 732,
+      "sha256": "d7ada1afcf57c1c5688c1f5597ebdd0a121c305489fcd49a1a2e6d1e819226be"
+    },
+    {
+      "path": "sources/slide-xml/slide-5.xml",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 5157,
+      "sha256": "0afdedf184808427d33cabbd8d386883bb52c3caa3221e0c8f445df188c5b110"
+    },
+    {
+      "path": "sources/slide-xml/slide-5.xml.rels",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 1138,
+      "sha256": "8be4d723f4b3a4396c0fee97f0ce55276f658c9c1d655627d90da11dd8901849"
+    },
+    {
+      "path": "sources/slide-xml/slide-6.xml",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 34635,
+      "sha256": "98fd7b6afc3ab690abfc257a217549368ab7d4bff7f7821acfb89eca1d7caba2"
+    },
+    {
+      "path": "sources/slide-xml/slide-6.xml.rels",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 1004,
+      "sha256": "4b9d2b51989dfbfaf500df7cbdd42c6b9b67b772c3d7eb734645ad15382005aa"
+    },
+    {
+      "path": "sources/slide-xml/slide-7.xml",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 11963,
+      "sha256": "5504e04c462b91d0cc3ce338be87eb651e679eb553e961921faf78fbd1e54661"
+    },
+    {
+      "path": "sources/slide-xml/slide-7.xml.rels",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 732,
+      "sha256": "afbc46a532c2d3cd3ec65f9b6c9d557c6a1aace6cc3ea2a71182d03efb2130f6"
+    },
+    {
+      "path": "sources/slide-xml/slide-8.xml",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 13308,
+      "sha256": "d9be6fc72ccd13211d047627df582bdbdcf19c4db8dec4981454e58b0340d95d"
+    },
+    {
+      "path": "sources/slide-xml/slide-8.xml.rels",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 461,
+      "sha256": "3ba47901d72202a67be3eafb52144f46a87771ca8682acdd42c632376dd6bd69"
+    },
+    {
+      "path": "sources/slide-xml/slide-9.xml",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 4845,
+      "sha256": "a70ea1507b8d58acf718ab93d31d9b67cfff2109b396d0b1160592a6bf615803"
+    },
+    {
+      "path": "sources/slide-xml/slide-9.xml.rels",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 596,
+      "sha256": "eb0a9dd2c5584e3772d50db1cfcb86bfde75e9a3737b3e80378b3efc65ceb45b"
+    },
+    {
+      "path": "sources/SOURCE_LOCATORS.md",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 3254,
+      "sha256": "d47af57a3b9762497b1d74c3baae461f2d29ba4567cfa23d622ea3a098dfb102"
+    },
+    {
+      "path": "standards/02_TEACHING_STANDARD.md",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 11744,
+      "sha256": "aa273698aa48c983081ca9bb724dec66959ce86ea4f33049f12330715fbf89e2"
+    },
+    {
+      "path": "standards/CHAPTER11_TEACHING_STANDARD.md",
+      "present": true,
+      "matchesManifest": true,
+      "bytes": 11846,
+      "sha256": "cf7d4942a44944defd587813dcf68fc53e29773d189834c8e304bced4f530d80"
+    }
+  ],
+  "baselineRawChecks": [
+    {
+      "lessonId": "lesson-01",
+      "rawChecks": [
+        {
+          "path": "raw_before/lesson-01.teaching-fragment.html",
+          "equalToOwner": true
+        },
+        {
+          "path": "raw_before/lesson-01.protected-header.html",
+          "equalToOwner": true
+        },
+        {
+          "path": "raw_before/lesson-01.protected-suffix.html",
+          "equalToOwner": true
+        },
+        {
+          "path": "raw_before/lesson-01.lesson-prefix.html",
+          "equalToOwner": true
+        },
+        {
+          "path": "raw_before/lesson-01.teaching-suffix-separator.bin",
+          "equalToOwner": true
+        }
+      ]
+    },
+    {
+      "lessonId": "lesson-03",
+      "rawChecks": [
+        {
+          "path": "raw_before/lesson-03.teaching-fragment.html",
+          "equalToOwner": true
+        },
+        {
+          "path": "raw_before/lesson-03.protected-header.html",
+          "equalToOwner": true
+        },
+        {
+          "path": "raw_before/lesson-03.protected-suffix.html",
+          "equalToOwner": true
+        },
+        {
+          "path": "raw_before/lesson-03.lesson-prefix.html",
+          "equalToOwner": true
+        },
+        {
+          "path": "raw_before/lesson-03.teaching-suffix-separator.bin",
+          "equalToOwner": true
+        }
+      ]
+    },
+    {
+      "lessonId": "lesson-04",
+      "rawChecks": [
+        {
+          "path": "raw_before/lesson-04.teaching-fragment.html",
+          "equalToOwner": true
+        },
+        {
+          "path": "raw_before/lesson-04.protected-header.html",
+          "equalToOwner": true
+        },
+        {
+          "path": "raw_before/lesson-04.protected-suffix.html",
+          "equalToOwner": true
+        },
+        {
+          "path": "raw_before/lesson-04.lesson-prefix.html",
+          "equalToOwner": true
+        },
+        {
+          "path": "raw_before/lesson-04.teaching-suffix-separator.bin",
+          "equalToOwner": true
+        }
+      ]
+    }
+  ],
+  "retainedReferenceChecks": [
+    {
+      "lessonId": "lesson-02",
+      "referencePath": "reference/lesson-02.teaching-fragment.html",
+      "ownerStartByte": 106355,
+      "ownerEndByteExclusive": 142016,
+      "fullCurrentLesson": {
+        "bytes": 50544,
+        "sha256": "2bd982f244d2557b2ab4eded30e0c310634bb426904c4d511e6646db4f4545af"
+      },
+      "fragment": {
+        "bytes": 35661,
+        "sha256": "6e274fada943ad55d663144985375828b011a381ba8a843704c333995443ce53"
+      },
+      "exactReferenceFragmentWithinCurrentLesson": true,
+      "outsideAuthorizedIntervals": true
+    },
+    {
+      "lessonId": "lesson-05",
+      "referencePath": "reference/l05/lesson-05.teaching-fragment.html",
+      "ownerStartByte": 201684,
+      "ownerEndByteExclusive": 260141,
+      "fullCurrentLesson": {
+        "bytes": 77809,
+        "sha256": "68de7eac991fbda4f17b58ccd8041bbdf5c867bd6320efa9a129b4015aa7ee4b"
+      },
+      "fragment": {
+        "bytes": 58457,
+        "sha256": "b29e83ae44ba3fd44b1f6e52a359ece8eb4933b3ee018b8964fdda5b85c97d21"
+      },
+      "exactReferenceFragmentWithinCurrentLesson": true,
+      "outsideAuthorizedIntervals": true
+    }
+  ],
+  "originalProtectedOwnerRuns": [
+    {
+      "startByte": 0,
+      "endByteExclusive": 87440,
+      "bytes": 87440,
+      "sha256": "1dd220747a58132534f007f3b98db6df043f36d9d6548e26029b59683f2ad91f"
+    },
+    {
+      "startByte": 91626,
+      "endByteExclusive": 156900,
+      "bytes": 65274,
+      "sha256": "0fc121b98377ad74a7ee34d3c5db28a380bc7c2939657d007797f72663c326fb"
+    },
+    {
+      "startByte": 162121,
+      "endByteExclusive": 180860,
+      "bytes": 18739,
+      "sha256": "f32c40845457c85684661df4cbd6bd7d43ec2e9e0e70b5c47aebe03d9bb3be2c"
+    },
+    {
+      "startByte": 185281,
+      "endByteExclusive": 3566907,
+      "bytes": 3381626,
+      "sha256": "8b27542872b449b78cf532553f3ab0d216f3cd7e585160a78fb03c9c3ba04dfe"
+    }
+  ],
+  "trueVocabularyInventoryCount": 56,
+  "lesson04VocabularyCorrection": {
+    "lessonId": "lesson-04",
+    "correctInstanceCount": 7,
+    "correctUniqueCount": 7,
+    "idsInOriginalOrder": [
+      "ch17-word-phenotype",
+      "ch17-word-allele",
+      "ch17-word-heterozygous",
+      "ch17-word-homozygous",
+      "ch17-word-probability",
+      "ch17-word-genotype",
+      "ch17-word-test-cross"
+    ],
+    "note": "Earlier assistant message incorrectly said five unique IDs; the raw extraction already contained all seven correctly. The explicit counts here supersede that prose error."
+  },
+  "candidates": [
+    {
+      "lessonId": "lesson-01",
+      "present": true,
+      "path": "lesson-01.teaching-fragment.html",
+      "bytes": 17745,
+      "sha256": "9af1936228a2f611e9338d0a72142801899802d7d86c054d2a983474ed96e72a",
+      "exactFourOuterTags": true,
+      "outerBlocks": [
+        {
+          "tag": "div",
+          "attributes": {
+            "class": "content-section",
+            "data-canvas-edit-key": "ch17-l01-teaching-01",
+            "data-canvas-helper-edit-key": "ch17-l01-teaching-01",
+            "id": "ch17-l01-teaching-01"
+          },
+          "openingTag": "<div class=\"content-section\" data-canvas-edit-key=\"ch17-l01-teaching-01\" data-canvas-helper-edit-key=\"ch17-l01-teaching-01\" id=\"ch17-l01-teaching-01\">",
+          "fragmentStartByte": 0,
+          "fragmentEndByteExclusive": 5575,
+          "bytes": 5575,
+          "sha256": "0b13975bbd338014cfdfe3ea1968a587b9219c13ac278a3d91df7bdca0845ed5"
+        },
+        {
+          "tag": "div",
+          "attributes": {
+            "class": "content-section",
+            "data-canvas-edit-key": "ch17-l01-teaching-02",
+            "data-canvas-helper-edit-key": "ch17-l01-teaching-02",
+            "id": "ch17-l01-teaching-02"
+          },
+          "openingTag": "<div class=\"content-section\" data-canvas-edit-key=\"ch17-l01-teaching-02\" data-canvas-helper-edit-key=\"ch17-l01-teaching-02\" id=\"ch17-l01-teaching-02\">",
+          "fragmentStartByte": 5576,
+          "fragmentEndByteExclusive": 10436,
+          "bytes": 4860,
+          "sha256": "5b6f088b92059c348ba0d27a97ff6862101e516aaa00f0c88e32158d3d6d8c6c"
+        },
+        {
+          "tag": "div",
+          "attributes": {
+            "class": "content-section",
+            "data-canvas-edit-key": "ch17-l01-teaching-03",
+            "data-canvas-helper-edit-key": "ch17-l01-teaching-03",
+            "id": "ch17-l01-teaching-03"
+          },
+          "openingTag": "<div class=\"content-section\" data-canvas-edit-key=\"ch17-l01-teaching-03\" data-canvas-helper-edit-key=\"ch17-l01-teaching-03\" id=\"ch17-l01-teaching-03\">",
+          "fragmentStartByte": 10437,
+          "fragmentEndByteExclusive": 13483,
+          "bytes": 3046,
+          "sha256": "371001f5c460c81283c05d4139c2a7f76e31f232584b65f46668283e1a353693"
+        },
+        {
+          "tag": "div",
+          "attributes": {
+            "class": "worked-example",
+            "data-canvas-edit-key": "ch17-l01-worked",
+            "data-canvas-helper-edit-key": "ch17-l01-worked",
+            "id": "ch17-l01-worked"
+          },
+          "openingTag": "<div class=\"worked-example\" data-canvas-edit-key=\"ch17-l01-worked\" data-canvas-helper-edit-key=\"ch17-l01-worked\" id=\"ch17-l01-worked\">",
+          "fragmentStartByte": 13484,
+          "fragmentEndByteExclusive": 17744,
+          "bytes": 4260,
+          "sha256": "196ca4cc6dd7cb2923ec25bcadc909bb56648046e7053f84476d68597bd04dc8"
+        }
+      ],
+      "editKeyCount": 11,
+      "editKeyRecords": [
+        {
+          "tag": "div",
+          "attributes": {
+            "class": "content-section",
+            "data-canvas-edit-key": "ch17-l01-teaching-01",
+            "data-canvas-helper-edit-key": "ch17-l01-teaching-01",
+            "id": "ch17-l01-teaching-01"
+          },
+          "openingTag": "<div class=\"content-section\" data-canvas-edit-key=\"ch17-l01-teaching-01\" data-canvas-helper-edit-key=\"ch17-l01-teaching-01\" id=\"ch17-l01-teaching-01\">",
+          "fragmentStartByte": 0,
+          "fragmentEndByteExclusive": 5575,
+          "bytes": 5575,
+          "sha256": "0b13975bbd338014cfdfe3ea1968a587b9219c13ac278a3d91df7bdca0845ed5"
+        },
+        {
+          "tag": "p",
+          "attributes": {
+            "data-canvas-edit-key": "ch17-l01-teaching-01-p1",
+            "data-canvas-helper-edit-key": "ch17-l01-teaching-01-p1"
+          },
+          "openingTag": "<p data-canvas-edit-key=\"ch17-l01-teaching-01-p1\" data-canvas-helper-edit-key=\"ch17-l01-teaching-01-p1\">",
+          "fragmentStartByte": 191,
+          "fragmentEndByteExclusive": 588,
+          "bytes": 397,
+          "sha256": "41324f42307d12c0af404b786023e1333a2e30456fa6a480fab8f6acdbf2b51b"
+        },
+        {
+          "tag": "p",
+          "attributes": {
+            "data-canvas-edit-key": "ch17-l01-teaching-01-p2",
+            "data-canvas-helper-edit-key": "ch17-l01-teaching-01-p2"
+          },
+          "openingTag": "<p data-canvas-edit-key=\"ch17-l01-teaching-01-p2\" data-canvas-helper-edit-key=\"ch17-l01-teaching-01-p2\">",
+          "fragmentStartByte": 1409,
+          "fragmentEndByteExclusive": 2034,
+          "bytes": 625,
+          "sha256": "236a0325bc146a3548c6e6fe0f30cdd1042e4f7590d7f9b7a5b399aad891f920"
+        },
+        {
+          "tag": "div",
+          "attributes": {
+            "class": "content-section",
+            "data-canvas-edit-key": "ch17-l01-teaching-02",
+            "data-canvas-helper-edit-key": "ch17-l01-teaching-02",
+            "id": "ch17-l01-teaching-02"
+          },
+          "openingTag": "<div class=\"content-section\" data-canvas-edit-key=\"ch17-l01-teaching-02\" data-canvas-helper-edit-key=\"ch17-l01-teaching-02\" id=\"ch17-l01-teaching-02\">",
+          "fragmentStartByte": 5576,
+          "fragmentEndByteExclusive": 10436,
+          "bytes": 4860,
+          "sha256": "5b6f088b92059c348ba0d27a97ff6862101e516aaa00f0c88e32158d3d6d8c6c"
+        },
+        {
+          "tag": "p",
+          "attributes": {
+            "data-canvas-edit-key": "ch17-l01-teaching-02-p1",
+            "data-canvas-helper-edit-key": "ch17-l01-teaching-02-p1"
+          },
+          "openingTag": "<p data-canvas-edit-key=\"ch17-l01-teaching-02-p1\" data-canvas-helper-edit-key=\"ch17-l01-teaching-02-p1\">",
+          "fragmentStartByte": 5791,
+          "fragmentEndByteExclusive": 6344,
+          "bytes": 553,
+          "sha256": "7a9994a3c61b590320c130328f3b20c3a26b613bd282f734d477a7e362479010"
+        },
+        {
+          "tag": "p",
+          "attributes": {
+            "data-canvas-edit-key": "ch17-l01-teaching-02-p2",
+            "data-canvas-helper-edit-key": "ch17-l01-teaching-02-p2"
+          },
+          "openingTag": "<p data-canvas-edit-key=\"ch17-l01-teaching-02-p2\" data-canvas-helper-edit-key=\"ch17-l01-teaching-02-p2\">",
+          "fragmentStartByte": 8102,
+          "fragmentEndByteExclusive": 8785,
+          "bytes": 683,
+          "sha256": "ec8c30e23051bc60550a22e03da400606550454b8c4b8bc0eaacc23b90cc3e13"
+        },
+        {
+          "tag": "p",
+          "attributes": {
+            "data-canvas-edit-key": "ch17-l01-teaching-02-p3",
+            "data-canvas-helper-edit-key": "ch17-l01-teaching-02-p3"
+          },
+          "openingTag": "<p data-canvas-edit-key=\"ch17-l01-teaching-02-p3\" data-canvas-helper-edit-key=\"ch17-l01-teaching-02-p3\">",
+          "fragmentStartByte": 9172,
+          "fragmentEndByteExclusive": 9671,
+          "bytes": 499,
+          "sha256": "c7046fd32d0e42b7e90e1e36063964c5f31e4d732313e1dfa9ad811e13635713"
+        },
+        {
+          "tag": "div",
+          "attributes": {
+            "class": "content-section",
+            "data-canvas-edit-key": "ch17-l01-teaching-03",
+            "data-canvas-helper-edit-key": "ch17-l01-teaching-03",
+            "id": "ch17-l01-teaching-03"
+          },
+          "openingTag": "<div class=\"content-section\" data-canvas-edit-key=\"ch17-l01-teaching-03\" data-canvas-helper-edit-key=\"ch17-l01-teaching-03\" id=\"ch17-l01-teaching-03\">",
+          "fragmentStartByte": 10437,
+          "fragmentEndByteExclusive": 13483,
+          "bytes": 3046,
+          "sha256": "371001f5c460c81283c05d4139c2a7f76e31f232584b65f46668283e1a353693"
+        },
+        {
+          "tag": "p",
+          "attributes": {
+            "data-canvas-edit-key": "ch17-l01-teaching-03-p1",
+            "data-canvas-helper-edit-key": "ch17-l01-teaching-03-p1"
+          },
+          "openingTag": "<p data-canvas-edit-key=\"ch17-l01-teaching-03-p1\" data-canvas-helper-edit-key=\"ch17-l01-teaching-03-p1\">",
+          "fragmentStartByte": 10630,
+          "fragmentEndByteExclusive": 11118,
+          "bytes": 488,
+          "sha256": "4e44f84edcf58382326b0aa5cd0562d5188fbc5e82207581bf72576dd68bb4fd"
+        },
+        {
+          "tag": "p",
+          "attributes": {
+            "data-canvas-edit-key": "ch17-l01-teaching-03-p2",
+            "data-canvas-helper-edit-key": "ch17-l01-teaching-03-p2"
+          },
+          "openingTag": "<p data-canvas-edit-key=\"ch17-l01-teaching-03-p2\" data-canvas-helper-edit-key=\"ch17-l01-teaching-03-p2\">",
+          "fragmentStartByte": 12075,
+          "fragmentEndByteExclusive": 12596,
+          "bytes": 521,
+          "sha256": "b65d11b3d593fff66e4aa1a4b50ad534744d3328c005b7d24e267723b9c09cb3"
+        },
+        {
+          "tag": "div",
+          "attributes": {
+            "class": "worked-example",
+            "data-canvas-edit-key": "ch17-l01-worked",
+            "data-canvas-helper-edit-key": "ch17-l01-worked",
+            "id": "ch17-l01-worked"
+          },
+          "openingTag": "<div class=\"worked-example\" data-canvas-edit-key=\"ch17-l01-worked\" data-canvas-helper-edit-key=\"ch17-l01-worked\" id=\"ch17-l01-worked\">",
+          "fragmentStartByte": 13484,
+          "fragmentEndByteExclusive": 17744,
+          "bytes": 4260,
+          "sha256": "196ca4cc6dd7cb2923ec25bcadc909bb56648046e7053f84476d68597bd04dc8"
+        }
+      ],
+      "originalVocabularyInstanceCount": 4,
+      "originalVocabularyUniqueCount": 4,
+      "originalVocabularyIds": [
+        "ch17-word-gene",
+        "ch17-word-allele",
+        "ch17-word-genotype",
+        "ch17-word-phenotype"
+      ],
+      "candidateVocabularyInstanceCount": 6,
+      "candidateVocabularyUniqueCount": 6,
+      "candidateVocabularyIds": [
+        "ch17-word-allele",
+        "ch17-word-gene",
+        "ch17-word-genotype",
+        "ch17-word-heterozygous",
+        "ch17-word-homozygous",
+        "ch17-word-phenotype"
+      ],
+      "allIds": [
+        "ch17-l01-teaching-01",
+        "ch17-l01-teaching-02",
+        "ch17-l01-teaching-03",
+        "ch17-l01-worked"
+      ],
+      "nativeFigures": [],
+      "images": [
+        {
+          "src": "./assets/teaching-batch1-v010/slide-4-image13.jpg",
+          "attributes": {
+            "alt": "A row of eight dogs with contrasting ear positions, coat textures and body outlines.",
+            "decoding": "async",
+            "loading": "lazy",
+            "src": "./assets/teaching-batch1-v010/slide-4-image13.jpg"
+          },
+          "present": true,
+          "bytes": 27674,
+          "sha256": "7c2c37bc887ab1b5bdf6ff3948242ba949b9d10c3ba510f27f1538c7a01525ba",
+          "matchingOriginalPacketPaths": [
+            "sources/slide-assets/slide-4-image13.jpg"
+          ]
+        },
+        {
+          "src": "./assets/teaching-batch1-v010/slide-12-image18.png",
+          "attributes": {
+            "alt": "Genotype and phenotype chart: BB, labelled homozygous dominant, produces a purple flower; Bb, labelled heterozygous, also produces a purple flower; bb, labelled homozygous recessive, produces a white flower.",
+            "decoding": "async",
+            "loading": "lazy",
+            "src": "./assets/teaching-batch1-v010/slide-12-image18.png"
+          },
+          "present": true,
+          "bytes": 159723,
+          "sha256": "6514f5d48a724cdf1fe785c24b74f44abb03b73af75c26e787b8a8adf687f26c",
+          "matchingOriginalPacketPaths": [
+            "sources/slide-assets/slide-12-image18.png"
+          ]
+        }
+      ],
+      "newSaveOrAssessmentControls": 0,
+      "staticFindings": []
+    },
+    {
+      "lessonId": "lesson-03",
+      "present": true,
+      "path": "lesson-03.teaching-fragment.html",
+      "bytes": 24439,
+      "sha256": "85a884113bab7fe12205c1d1567284dabc0b434fd469c0076c24da57c56edc85",
+      "exactFourOuterTags": true,
+      "outerBlocks": [
+        {
+          "tag": "div",
+          "attributes": {
+            "class": "content-section",
+            "data-canvas-edit-key": "ch17-l03-teaching-01",
+            "data-canvas-helper-edit-key": "ch17-l03-teaching-01",
+            "id": "ch17-l03-teaching-01"
+          },
+          "openingTag": "<div class=\"content-section\" data-canvas-edit-key=\"ch17-l03-teaching-01\" data-canvas-helper-edit-key=\"ch17-l03-teaching-01\" id=\"ch17-l03-teaching-01\">",
+          "fragmentStartByte": 0,
+          "fragmentEndByteExclusive": 7782,
+          "bytes": 7782,
+          "sha256": "75d4e5d8933a45a03d8d81882862006915255eb9b1bc5b493c395ae0483a496a"
+        },
+        {
+          "tag": "div",
+          "attributes": {
+            "class": "content-section",
+            "data-canvas-edit-key": "ch17-l03-teaching-02",
+            "data-canvas-helper-edit-key": "ch17-l03-teaching-02",
+            "id": "ch17-l03-teaching-02"
+          },
+          "openingTag": "<div class=\"content-section\" data-canvas-edit-key=\"ch17-l03-teaching-02\" data-canvas-helper-edit-key=\"ch17-l03-teaching-02\" id=\"ch17-l03-teaching-02\">",
+          "fragmentStartByte": 7783,
+          "fragmentEndByteExclusive": 13711,
+          "bytes": 5928,
+          "sha256": "9f3a3bbd5b6b79b8a1f3e414cc123b6722884499b6d8384c963f56cb00a0b85a"
+        },
+        {
+          "tag": "div",
+          "attributes": {
+            "class": "content-section",
+            "data-canvas-edit-key": "ch17-l03-teaching-03",
+            "data-canvas-helper-edit-key": "ch17-l03-teaching-03",
+            "id": "ch17-l03-teaching-03"
+          },
+          "openingTag": "<div class=\"content-section\" data-canvas-edit-key=\"ch17-l03-teaching-03\" data-canvas-helper-edit-key=\"ch17-l03-teaching-03\" id=\"ch17-l03-teaching-03\">",
+          "fragmentStartByte": 13712,
+          "fragmentEndByteExclusive": 18051,
+          "bytes": 4339,
+          "sha256": "4135ce6edcf1f01fe44310b33fdfad7d7a312d528ba425a33dad8d3c75b9d5c4"
+        },
+        {
+          "tag": "div",
+          "attributes": {
+            "class": "worked-example",
+            "data-canvas-edit-key": "ch17-l03-worked",
+            "data-canvas-helper-edit-key": "ch17-l03-worked",
+            "id": "ch17-l03-worked"
+          },
+          "openingTag": "<div class=\"worked-example\" data-canvas-edit-key=\"ch17-l03-worked\" data-canvas-helper-edit-key=\"ch17-l03-worked\" id=\"ch17-l03-worked\">",
+          "fragmentStartByte": 18052,
+          "fragmentEndByteExclusive": 24438,
+          "bytes": 6386,
+          "sha256": "80aa68dab57e3c54a288a636e393bb237419f21d30efe8e761ac4e75c87d8d36"
+        }
+      ],
+      "editKeyCount": 12,
+      "editKeyRecords": [
+        {
+          "tag": "div",
+          "attributes": {
+            "class": "content-section",
+            "data-canvas-edit-key": "ch17-l03-teaching-01",
+            "data-canvas-helper-edit-key": "ch17-l03-teaching-01",
+            "id": "ch17-l03-teaching-01"
+          },
+          "openingTag": "<div class=\"content-section\" data-canvas-edit-key=\"ch17-l03-teaching-01\" data-canvas-helper-edit-key=\"ch17-l03-teaching-01\" id=\"ch17-l03-teaching-01\">",
+          "fragmentStartByte": 0,
+          "fragmentEndByteExclusive": 7782,
+          "bytes": 7782,
+          "sha256": "75d4e5d8933a45a03d8d81882862006915255eb9b1bc5b493c395ae0483a496a"
+        },
+        {
+          "tag": "p",
+          "attributes": {
+            "data-canvas-edit-key": "ch17-l03-teaching-01-p1",
+            "data-canvas-helper-edit-key": "ch17-l03-teaching-01-p1"
+          },
+          "openingTag": "<p data-canvas-edit-key=\"ch17-l03-teaching-01-p1\" data-canvas-helper-edit-key=\"ch17-l03-teaching-01-p1\">",
+          "fragmentStartByte": 215,
+          "fragmentEndByteExclusive": 662,
+          "bytes": 447,
+          "sha256": "96ab9e1cfd61bd596bdfa87dcc6d40f285a37b3a089bd65b4fa57f63cc50c3a3"
+        },
+        {
+          "tag": "p",
+          "attributes": {
+            "data-canvas-edit-key": "ch17-l03-teaching-01-p2",
+            "data-canvas-helper-edit-key": "ch17-l03-teaching-01-p2"
+          },
+          "openingTag": "<p data-canvas-edit-key=\"ch17-l03-teaching-01-p2\" data-canvas-helper-edit-key=\"ch17-l03-teaching-01-p2\">",
+          "fragmentStartByte": 7201,
+          "fragmentEndByteExclusive": 7775,
+          "bytes": 574,
+          "sha256": "21d13e51e7fff137c0fd7c355a2b78af5cb963e2b0afb12223c244d1b70bb3f5"
+        },
+        {
+          "tag": "div",
+          "attributes": {
+            "class": "content-section",
+            "data-canvas-edit-key": "ch17-l03-teaching-02",
+            "data-canvas-helper-edit-key": "ch17-l03-teaching-02",
+            "id": "ch17-l03-teaching-02"
+          },
+          "openingTag": "<div class=\"content-section\" data-canvas-edit-key=\"ch17-l03-teaching-02\" data-canvas-helper-edit-key=\"ch17-l03-teaching-02\" id=\"ch17-l03-teaching-02\">",
+          "fragmentStartByte": 7783,
+          "fragmentEndByteExclusive": 13711,
+          "bytes": 5928,
+          "sha256": "9f3a3bbd5b6b79b8a1f3e414cc123b6722884499b6d8384c963f56cb00a0b85a"
+        },
+        {
+          "tag": "p",
+          "attributes": {
+            "data-canvas-edit-key": "ch17-l03-teaching-02-p1",
+            "data-canvas-helper-edit-key": "ch17-l03-teaching-02-p1"
+          },
+          "openingTag": "<p data-canvas-edit-key=\"ch17-l03-teaching-02-p1\" data-canvas-helper-edit-key=\"ch17-l03-teaching-02-p1\">",
+          "fragmentStartByte": 7968,
+          "fragmentEndByteExclusive": 8374,
+          "bytes": 406,
+          "sha256": "bd34a5d49dcd9d38b9e4b3895468d4f608d11b54e8640bddd2cf0abb843d5eff"
+        },
+        {
+          "tag": "p",
+          "attributes": {
+            "data-canvas-edit-key": "ch17-l03-teaching-02-p2",
+            "data-canvas-helper-edit-key": "ch17-l03-teaching-02-p2"
+          },
+          "openingTag": "<p data-canvas-edit-key=\"ch17-l03-teaching-02-p2\" data-canvas-helper-edit-key=\"ch17-l03-teaching-02-p2\">",
+          "fragmentStartByte": 9392,
+          "fragmentEndByteExclusive": 9938,
+          "bytes": 546,
+          "sha256": "77e5d460b8d74252723a29bdb9164dcf8df5001780740d5bfd73790907aab439"
+        },
+        {
+          "tag": "p",
+          "attributes": {
+            "data-canvas-edit-key": "ch17-l03-teaching-02-p3",
+            "data-canvas-helper-edit-key": "ch17-l03-teaching-02-p3"
+          },
+          "openingTag": "<p data-canvas-edit-key=\"ch17-l03-teaching-02-p3\" data-canvas-helper-edit-key=\"ch17-l03-teaching-02-p3\">",
+          "fragmentStartByte": 13086,
+          "fragmentEndByteExclusive": 13704,
+          "bytes": 618,
+          "sha256": "d9d1f6b2a2184ec1d92a1050b52f8c8bcdeb46a886d3849c72cf0fec2eea7627"
+        },
+        {
+          "tag": "div",
+          "attributes": {
+            "class": "content-section",
+            "data-canvas-edit-key": "ch17-l03-teaching-03",
+            "data-canvas-helper-edit-key": "ch17-l03-teaching-03",
+            "id": "ch17-l03-teaching-03"
+          },
+          "openingTag": "<div class=\"content-section\" data-canvas-edit-key=\"ch17-l03-teaching-03\" data-canvas-helper-edit-key=\"ch17-l03-teaching-03\" id=\"ch17-l03-teaching-03\">",
+          "fragmentStartByte": 13712,
+          "fragmentEndByteExclusive": 18051,
+          "bytes": 4339,
+          "sha256": "4135ce6edcf1f01fe44310b33fdfad7d7a312d528ba425a33dad8d3c75b9d5c4"
+        },
+        {
+          "tag": "p",
+          "attributes": {
+            "data-canvas-edit-key": "ch17-l03-teaching-03-p1",
+            "data-canvas-helper-edit-key": "ch17-l03-teaching-03-p1"
+          },
+          "openingTag": "<p data-canvas-edit-key=\"ch17-l03-teaching-03-p1\" data-canvas-helper-edit-key=\"ch17-l03-teaching-03-p1\">",
+          "fragmentStartByte": 13925,
+          "fragmentEndByteExclusive": 14400,
+          "bytes": 475,
+          "sha256": "04bb29efc6587188576266bb513598973926ed33575b20cc1b25ed38e2373501"
+        },
+        {
+          "tag": "p",
+          "attributes": {
+            "data-canvas-edit-key": "ch17-l03-teaching-03-p2",
+            "data-canvas-helper-edit-key": "ch17-l03-teaching-03-p2"
+          },
+          "openingTag": "<p data-canvas-edit-key=\"ch17-l03-teaching-03-p2\" data-canvas-helper-edit-key=\"ch17-l03-teaching-03-p2\">",
+          "fragmentStartByte": 15302,
+          "fragmentEndByteExclusive": 15796,
+          "bytes": 494,
+          "sha256": "e53e15a2b092403f01980c9547a353826db0b0e9c2dcad237528a873fae630b3"
+        },
+        {
+          "tag": "p",
+          "attributes": {
+            "data-canvas-edit-key": "ch17-l03-teaching-03-p3",
+            "data-canvas-helper-edit-key": "ch17-l03-teaching-03-p3"
+          },
+          "openingTag": "<p data-canvas-edit-key=\"ch17-l03-teaching-03-p3\" data-canvas-helper-edit-key=\"ch17-l03-teaching-03-p3\">",
+          "fragmentStartByte": 17595,
+          "fragmentEndByteExclusive": 18044,
+          "bytes": 449,
+          "sha256": "c7e1ccf9d5ef990cfb94cfa2c07f766c9cc5b40cf4cadfa6dfea155be0fead6c"
+        },
+        {
+          "tag": "div",
+          "attributes": {
+            "class": "worked-example",
+            "data-canvas-edit-key": "ch17-l03-worked",
+            "data-canvas-helper-edit-key": "ch17-l03-worked",
+            "id": "ch17-l03-worked"
+          },
+          "openingTag": "<div class=\"worked-example\" data-canvas-edit-key=\"ch17-l03-worked\" data-canvas-helper-edit-key=\"ch17-l03-worked\" id=\"ch17-l03-worked\">",
+          "fragmentStartByte": 18052,
+          "fragmentEndByteExclusive": 24438,
+          "bytes": 6386,
+          "sha256": "80aa68dab57e3c54a288a636e393bb237419f21d30efe8e761ac4e75c87d8d36"
+        }
+      ],
+      "originalVocabularyInstanceCount": 5,
+      "originalVocabularyUniqueCount": 5,
+      "originalVocabularyIds": [
+        "ch17-word-punnett-square",
+        "ch17-word-phenotype",
+        "ch17-word-probability",
+        "ch17-word-genotype",
+        "ch17-word-expected-number"
+      ],
+      "candidateVocabularyInstanceCount": 7,
+      "candidateVocabularyUniqueCount": 7,
+      "candidateVocabularyIds": [
+        "ch17-word-carrier",
+        "ch17-word-expected-number",
+        "ch17-word-genotype",
+        "ch17-word-monohybrid-cross",
+        "ch17-word-phenotype",
+        "ch17-word-probability",
+        "ch17-word-punnett-square"
+      ],
+      "allIds": [
+        "ch17-l03-teaching-01",
+        "ch17-l03-teaching-02",
+        "ch17-l03-teaching-03",
+        "ch17-l03-worked"
+      ],
+      "nativeFigures": [
+        {
+          "dataFigureId": "ch17-punnett",
+          "exactOccurrenceCount": 1,
+          "beforeSha256": "3fc3cd697b9674574196a9c5da233ec59bf371aea3b5f51055e141995bbe31cb"
+        }
+      ],
+      "images": [
+        {
+          "src": "./assets/teaching-batch1-v010/slide-27-image30.jpg",
+          "attributes": {
+            "alt": "A black-furred mouse, used to illustrate the black coat category in the stated model.",
+            "decoding": "async",
+            "loading": "lazy",
+            "src": "./assets/teaching-batch1-v010/slide-27-image30.jpg"
+          },
+          "present": true,
+          "bytes": 43058,
+          "sha256": "bf6c27bfad6067528006804c139f9c2ebcc61fbe6dcc8ea21a839665583f8a8d",
+          "matchingOriginalPacketPaths": [
+            "sources/slide-assets/slide-27-image30.jpg",
+            "sources/slide-assets/slide-28-image30.jpg"
+          ]
+        },
+        {
+          "src": "./assets/teaching-batch1-v010/slide-27-image31.jpg",
+          "attributes": {
+            "alt": "A brown-furred mouse, used to illustrate the contrasting brown coat category in the stated model.",
+            "decoding": "async",
+            "loading": "lazy",
+            "src": "./assets/teaching-batch1-v010/slide-27-image31.jpg"
+          },
+          "present": true,
+          "bytes": 13590,
+          "sha256": "48accc2e9da889e71c388ffef0818fa2d37b6e68a8cda68eda4cfeef7d893d15",
+          "matchingOriginalPacketPaths": [
+            "sources/slide-assets/slide-27-image31.jpg"
+          ]
+        },
+        {
+          "src": "./assets/teaching-batch1-v010/slide-27-image22.png",
+          "attributes": {
+            "alt": "Two fully visible single-trait squares. The left has B and B across the top and b and b down the left, giving four Bb cells. The right has B and b across the top and b and b down the left, giving Bb and bb in each row.",
+            "decoding": "async",
+            "loading": "lazy",
+            "src": "./assets/teaching-batch1-v010/slide-27-image22.png"
+          },
+          "present": true,
+          "bytes": 4843,
+          "sha256": "21b521a9e6dc4d631b80ef038ec9be24dda4e4f788ce7e855932e544601f1f24",
+          "matchingOriginalPacketPaths": [
+            "sources/slide-assets/slide-27-image22.png",
+            "sources/slide-assets/slide-31-image22.png",
+            "sources/slide-assets/slide-32-image22.png"
+          ]
+        },
+        {
+          "src": "./assets/figures/ch17-punnett.svg",
+          "attributes": {
+            "alt": "Each row and column represents a gamete. Four equally likely combinations give a 1:2:1 genotype ratio under the stated model. A is completely dominant to a.",
+            "decoding": "async",
+            "loading": "lazy",
+            "src": "./assets/figures/ch17-punnett.svg"
+          },
+          "present": true,
+          "bytes": 3959,
+          "sha256": "2fdc34b5f30359e927d50b1fa4781894bdb196dfccfbbabcbf831d1ec4aec6ec",
+          "matchingOriginalPacketPaths": [
+            "current/assets/figures/ch17-punnett.svg"
+          ]
+        },
+        {
+          "src": "./assets/teaching-batch1-v010/slide-29-image33.png",
+          "attributes": {
+            "alt": "Two black-mouse photographs at the top connect by plain converging lines to one black-mouse photograph in the middle. A vertical line leads from the middle photograph to a question mark below.",
+            "decoding": "async",
+            "loading": "lazy",
+            "src": "./assets/teaching-batch1-v010/slide-29-image33.png"
+          },
+          "present": true,
+          "bytes": 54681,
+          "sha256": "fd46a25268ba516d5a9809a146f82e793883bf5f5dac84b810cc7a3a448d34a5",
+          "matchingOriginalPacketPaths": [
+            "sources/slide-assets/slide-29-image33.png",
+            "sources/slide-assets/slide-30-image33.png"
+          ]
+        }
+      ],
+      "newSaveOrAssessmentControls": 0,
+      "staticFindings": []
+    },
+    {
+      "lessonId": "lesson-04",
+      "present": true,
+      "path": "lesson-04.teaching-fragment.html",
+      "bytes": 18212,
+      "sha256": "36dc8d9a947c45a355110cc1efed7676d2ab01162dbfa12ea628e0b393d5b97f",
+      "exactFourOuterTags": true,
+      "outerBlocks": [
+        {
+          "tag": "div",
+          "attributes": {
+            "class": "content-section",
+            "data-canvas-edit-key": "ch17-l04-teaching-01",
+            "data-canvas-helper-edit-key": "ch17-l04-teaching-01",
+            "id": "ch17-l04-teaching-01"
+          },
+          "openingTag": "<div class=\"content-section\" data-canvas-edit-key=\"ch17-l04-teaching-01\" data-canvas-helper-edit-key=\"ch17-l04-teaching-01\" id=\"ch17-l04-teaching-01\">",
+          "fragmentStartByte": 0,
+          "fragmentEndByteExclusive": 5368,
+          "bytes": 5368,
+          "sha256": "701ead7496f7b190528d5994598387663b87461281cc842adde5d6b4b7d0d6fc"
+        },
+        {
+          "tag": "div",
+          "attributes": {
+            "class": "content-section",
+            "data-canvas-edit-key": "ch17-l04-teaching-02",
+            "data-canvas-helper-edit-key": "ch17-l04-teaching-02",
+            "id": "ch17-l04-teaching-02"
+          },
+          "openingTag": "<div class=\"content-section\" data-canvas-edit-key=\"ch17-l04-teaching-02\" data-canvas-helper-edit-key=\"ch17-l04-teaching-02\" id=\"ch17-l04-teaching-02\">",
+          "fragmentStartByte": 5369,
+          "fragmentEndByteExclusive": 11055,
+          "bytes": 5686,
+          "sha256": "94a6d326c62372dc30e94ee3325b8064c481a747a01da0248dcc7dfad50c5952"
+        },
+        {
+          "tag": "div",
+          "attributes": {
+            "class": "content-section",
+            "data-canvas-edit-key": "ch17-l04-teaching-03",
+            "data-canvas-helper-edit-key": "ch17-l04-teaching-03",
+            "id": "ch17-l04-teaching-03"
+          },
+          "openingTag": "<div class=\"content-section\" data-canvas-edit-key=\"ch17-l04-teaching-03\" data-canvas-helper-edit-key=\"ch17-l04-teaching-03\" id=\"ch17-l04-teaching-03\">",
+          "fragmentStartByte": 11056,
+          "fragmentEndByteExclusive": 13492,
+          "bytes": 2436,
+          "sha256": "04c7bd8820de8b7e7e69928af7f30feb006412f44ba177bdcbfb4c5e05bf5918"
+        },
+        {
+          "tag": "div",
+          "attributes": {
+            "class": "worked-example",
+            "data-canvas-edit-key": "ch17-l04-worked",
+            "data-canvas-helper-edit-key": "ch17-l04-worked",
+            "id": "ch17-l04-worked"
+          },
+          "openingTag": "<div class=\"worked-example\" data-canvas-edit-key=\"ch17-l04-worked\" data-canvas-helper-edit-key=\"ch17-l04-worked\" id=\"ch17-l04-worked\">",
+          "fragmentStartByte": 13493,
+          "fragmentEndByteExclusive": 18211,
+          "bytes": 4718,
+          "sha256": "97134c571f81417cfc6ca6959c696af9c032f7fdc7e27a89f193d68b6f97cea9"
+        }
+      ],
+      "editKeyCount": 11,
+      "editKeyRecords": [
+        {
+          "tag": "div",
+          "attributes": {
+            "class": "content-section",
+            "data-canvas-edit-key": "ch17-l04-teaching-01",
+            "data-canvas-helper-edit-key": "ch17-l04-teaching-01",
+            "id": "ch17-l04-teaching-01"
+          },
+          "openingTag": "<div class=\"content-section\" data-canvas-edit-key=\"ch17-l04-teaching-01\" data-canvas-helper-edit-key=\"ch17-l04-teaching-01\" id=\"ch17-l04-teaching-01\">",
+          "fragmentStartByte": 0,
+          "fragmentEndByteExclusive": 5368,
+          "bytes": 5368,
+          "sha256": "701ead7496f7b190528d5994598387663b87461281cc842adde5d6b4b7d0d6fc"
+        },
+        {
+          "tag": "p",
+          "attributes": {
+            "data-canvas-edit-key": "ch17-l04-teaching-01-p1",
+            "data-canvas-helper-edit-key": "ch17-l04-teaching-01-p1"
+          },
+          "openingTag": "<p data-canvas-edit-key=\"ch17-l04-teaching-01-p1\" data-canvas-helper-edit-key=\"ch17-l04-teaching-01-p1\">",
+          "fragmentStartByte": 205,
+          "fragmentEndByteExclusive": 580,
+          "bytes": 375,
+          "sha256": "a5720aa5c46b1387eed63457f8fb70ff0b2bf970732d5e8afec970ec24453471"
+        },
+        {
+          "tag": "p",
+          "attributes": {
+            "data-canvas-edit-key": "ch17-l04-teaching-01-p2",
+            "data-canvas-helper-edit-key": "ch17-l04-teaching-01-p2"
+          },
+          "openingTag": "<p data-canvas-edit-key=\"ch17-l04-teaching-01-p2\" data-canvas-helper-edit-key=\"ch17-l04-teaching-01-p2\">",
+          "fragmentStartByte": 4016,
+          "fragmentEndByteExclusive": 4548,
+          "bytes": 532,
+          "sha256": "c47e3268be8c17cde20e74d9af8608ba8852f55cc07bcae658921a675ec0c744"
+        },
+        {
+          "tag": "div",
+          "attributes": {
+            "class": "content-section",
+            "data-canvas-edit-key": "ch17-l04-teaching-02",
+            "data-canvas-helper-edit-key": "ch17-l04-teaching-02",
+            "id": "ch17-l04-teaching-02"
+          },
+          "openingTag": "<div class=\"content-section\" data-canvas-edit-key=\"ch17-l04-teaching-02\" data-canvas-helper-edit-key=\"ch17-l04-teaching-02\" id=\"ch17-l04-teaching-02\">",
+          "fragmentStartByte": 5369,
+          "fragmentEndByteExclusive": 11055,
+          "bytes": 5686,
+          "sha256": "94a6d326c62372dc30e94ee3325b8064c481a747a01da0248dcc7dfad50c5952"
+        },
+        {
+          "tag": "p",
+          "attributes": {
+            "data-canvas-edit-key": "ch17-l04-teaching-02-p1",
+            "data-canvas-helper-edit-key": "ch17-l04-teaching-02-p1"
+          },
+          "openingTag": "<p data-canvas-edit-key=\"ch17-l04-teaching-02-p1\" data-canvas-helper-edit-key=\"ch17-l04-teaching-02-p1\">",
+          "fragmentStartByte": 5946,
+          "fragmentEndByteExclusive": 6590,
+          "bytes": 644,
+          "sha256": "2718ef2da1272c7e19ad53ade24cade2a351ab09706f129fe0c41ac96b19e1f7"
+        },
+        {
+          "tag": "p",
+          "attributes": {
+            "data-canvas-edit-key": "ch17-l04-teaching-02-p2",
+            "data-canvas-helper-edit-key": "ch17-l04-teaching-02-p2"
+          },
+          "openingTag": "<p data-canvas-edit-key=\"ch17-l04-teaching-02-p2\" data-canvas-helper-edit-key=\"ch17-l04-teaching-02-p2\">",
+          "fragmentStartByte": 7371,
+          "fragmentEndByteExclusive": 7966,
+          "bytes": 595,
+          "sha256": "eaa945237429b31676a21eb8fbde0a1ba2fb66daf6a2c51660de699b8b68ed8f"
+        },
+        {
+          "tag": "p",
+          "attributes": {
+            "data-canvas-edit-key": "ch17-l04-teaching-02-p3",
+            "data-canvas-helper-edit-key": "ch17-l04-teaching-02-p3"
+          },
+          "openingTag": "<p data-canvas-edit-key=\"ch17-l04-teaching-02-p3\" data-canvas-helper-edit-key=\"ch17-l04-teaching-02-p3\">",
+          "fragmentStartByte": 9954,
+          "fragmentEndByteExclusive": 10470,
+          "bytes": 516,
+          "sha256": "3cd676ea9d7555f73a10ec5b54b165a0cac20aaee14a5d62df564fe2d41f7872"
+        },
+        {
+          "tag": "div",
+          "attributes": {
+            "class": "content-section",
+            "data-canvas-edit-key": "ch17-l04-teaching-03",
+            "data-canvas-helper-edit-key": "ch17-l04-teaching-03",
+            "id": "ch17-l04-teaching-03"
+          },
+          "openingTag": "<div class=\"content-section\" data-canvas-edit-key=\"ch17-l04-teaching-03\" data-canvas-helper-edit-key=\"ch17-l04-teaching-03\" id=\"ch17-l04-teaching-03\">",
+          "fragmentStartByte": 11056,
+          "fragmentEndByteExclusive": 13492,
+          "bytes": 2436,
+          "sha256": "04c7bd8820de8b7e7e69928af7f30feb006412f44ba177bdcbfb4c5e05bf5918"
+        },
+        {
+          "tag": "p",
+          "attributes": {
+            "data-canvas-edit-key": "ch17-l04-teaching-03-p1",
+            "data-canvas-helper-edit-key": "ch17-l04-teaching-03-p1"
+          },
+          "openingTag": "<p data-canvas-edit-key=\"ch17-l04-teaching-03-p1\" data-canvas-helper-edit-key=\"ch17-l04-teaching-03-p1\">",
+          "fragmentStartByte": 11260,
+          "fragmentEndByteExclusive": 11759,
+          "bytes": 499,
+          "sha256": "a99f4913068bc52ecdc0f67742aeea581121d92d5eb90548b6c04cbb8755f476"
+        },
+        {
+          "tag": "p",
+          "attributes": {
+            "data-canvas-edit-key": "ch17-l04-teaching-03-p2",
+            "data-canvas-helper-edit-key": "ch17-l04-teaching-03-p2"
+          },
+          "openingTag": "<p data-canvas-edit-key=\"ch17-l04-teaching-03-p2\" data-canvas-helper-edit-key=\"ch17-l04-teaching-03-p2\">",
+          "fragmentStartByte": 12997,
+          "fragmentEndByteExclusive": 13485,
+          "bytes": 488,
+          "sha256": "8612450eca72b3094360fd33b6608d30c8083ddd44c1c4490cd865fc311eacd1"
+        },
+        {
+          "tag": "div",
+          "attributes": {
+            "class": "worked-example",
+            "data-canvas-edit-key": "ch17-l04-worked",
+            "data-canvas-helper-edit-key": "ch17-l04-worked",
+            "id": "ch17-l04-worked"
+          },
+          "openingTag": "<div class=\"worked-example\" data-canvas-edit-key=\"ch17-l04-worked\" data-canvas-helper-edit-key=\"ch17-l04-worked\" id=\"ch17-l04-worked\">",
+          "fragmentStartByte": 13493,
+          "fragmentEndByteExclusive": 18211,
+          "bytes": 4718,
+          "sha256": "97134c571f81417cfc6ca6959c696af9c032f7fdc7e27a89f193d68b6f97cea9"
+        }
+      ],
+      "originalVocabularyInstanceCount": 7,
+      "originalVocabularyUniqueCount": 7,
+      "originalVocabularyIds": [
+        "ch17-word-phenotype",
+        "ch17-word-allele",
+        "ch17-word-heterozygous",
+        "ch17-word-homozygous",
+        "ch17-word-probability",
+        "ch17-word-genotype",
+        "ch17-word-test-cross"
+      ],
+      "candidateVocabularyInstanceCount": 8,
+      "candidateVocabularyUniqueCount": 8,
+      "candidateVocabularyIds": [
+        "ch17-word-allele",
+        "ch17-word-genotype",
+        "ch17-word-heterozygous",
+        "ch17-word-homozygous",
+        "ch17-word-phenotype",
+        "ch17-word-probability",
+        "ch17-word-sampling-variation",
+        "ch17-word-test-cross"
+      ],
+      "allIds": [
+        "ch17-l04-teaching-01",
+        "ch17-l04-teaching-02",
+        "ch17-l04-teaching-03",
+        "ch17-l04-worked"
+      ],
+      "nativeFigures": [],
+      "images": [
+        {
+          "src": "./assets/teaching-batch1-v010/slide-27-image22.png",
+          "attributes": {
+            "alt": "Side-by-side testcross predictions: BB across the top with bb down the left gives only Bb offspring; Bb across the top with bb down the left gives Bb and bb offspring.",
+            "decoding": "async",
+            "loading": "lazy",
+            "src": "./assets/teaching-batch1-v010/slide-27-image22.png"
+          },
+          "present": true,
+          "bytes": 4843,
+          "sha256": "21b521a9e6dc4d631b80ef038ec9be24dda4e4f788ce7e855932e544601f1f24",
+          "matchingOriginalPacketPaths": [
+            "sources/slide-assets/slide-27-image22.png",
+            "sources/slide-assets/slide-31-image22.png",
+            "sources/slide-assets/slide-32-image22.png"
+          ]
+        }
+      ],
+      "newSaveOrAssessmentControls": 0,
+      "staticFindings": []
+    }
+  ],
+  "errors": [],
+  "warnings": [],
+  "limitations": [
+    "Only explicit source and candidate files were read.",
+    "No after-owner HTML was assembled; protected-run preservation is a recorded integration obligation plus verification of unchanged original bytes, not an executed integration test.",
+    "No CSS/runtime/browser/save-control behaviour was executed.",
+    "Scientific accuracy, learner reasoning, hidden-feedback dependence and source-pixel interpretation require separate substantive reviews.",
+    "No teacher approval or external specialist review is inferred."
+  ]
+}
