@@ -1,0 +1,519 @@
+[
+  {
+    "id": "ch15-cleavage",
+    "title": "Cleavage: more cells, little overall growth",
+    "lesson": 2,
+    "src": "./assets/figures/ch15-cleavage.svg",
+    "alt": "The sequence distinguishes a single zygote, a solid morula and a blastocyst with an inner cell mass and cavity.",
+    "caption": "The sequence distinguishes a single zygote, a solid morula and a blastocyst with an inner cell mass and cavity. Schematic — not to scale.",
+    "source": "Original course schematic; canonical editable SVG plus reproducible scripts/make_media.py.",
+    "kind": "precisely authored SVG",
+    "reviewStatus": "Construction and target identities checked; render inspection recorded in verification.",
+    "targets": {
+      "A": "Zygote",
+      "B": "Morula",
+      "C": "Blastocyst cavity",
+      "D": "Inner cell mass",
+      "E": "Trophoblast"
+    },
+    "geometry": {
+      "A": {
+        "letter": [
+          230,
+          175
+        ],
+        "endpoint": [
+          275,
+          350
+        ]
+      },
+      "B": {
+        "letter": [
+          650,
+          175
+        ],
+        "endpoint": [
+          650,
+          350
+        ]
+      },
+      "C": {
+        "letter": [
+          1200,
+          520
+        ],
+        "endpoint": [
+          1130,
+          350
+        ]
+      },
+      "D": {
+        "letter": [
+          900,
+          220
+        ],
+        "endpoint": [
+          1040,
+          320
+        ]
+      },
+      "E": {
+        "letter": [
+          1310,
+          200
+        ],
+        "endpoint": [
+          1150,
+          264
+        ]
+      }
+    }
+  },
+  {
+    "id": "ch15-germ-layers",
+    "title": "Three germ layers after gastrulation",
+    "lesson": 4,
+    "src": "./assets/figures/ch15-germ-layers.svg",
+    "alt": "Three adjacent embryonic layers provide different tissue lineages. The coloured bands compare the layers; the spaces between bands do not represent cavities.",
+    "caption": "Three adjacent embryonic layers provide different tissue lineages. The coloured bands compare the layers; the spaces between bands do not represent cavities. Schematic — not to scale.",
+    "source": "Original course schematic; canonical editable SVG plus reproducible scripts/make_media.py.",
+    "kind": "precisely authored SVG",
+    "reviewStatus": "Construction and target identities checked; render inspection recorded in verification.",
+    "targets": {
+      "A": "Ectoderm",
+      "B": "Mesoderm",
+      "C": "Endoderm"
+    },
+    "geometry": {
+      "A": {
+        "letter": [
+          125,
+          255
+        ],
+        "endpoint": [
+          300,
+          255
+        ]
+      },
+      "B": {
+        "letter": [
+          125,
+          395
+        ],
+        "endpoint": [
+          300,
+          395
+        ]
+      },
+      "C": {
+        "letter": [
+          125,
+          535
+        ],
+        "endpoint": [
+          300,
+          535
+        ]
+      }
+    }
+  },
+  {
+    "id": "ch15-support",
+    "title": "Early extraembryonic support structures",
+    "lesson": 5,
+    "src": "./assets/figures/ch15-support.svg",
+    "alt": "The amnion surrounds the embryo and amniotic cavity; the chorion lies outside it. The yolk sac is separate from the amniotic cavity, and the connecting stalk links toward the outer tissues.",
+    "caption": "The amnion surrounds the embryo and amniotic cavity; the chorion lies outside it. The yolk sac is separate from the amniotic cavity, and the connecting stalk links toward the outer tissues. Schematic — not to scale.",
+    "source": "Original course schematic; canonical editable SVG plus reproducible scripts/make_media.py.",
+    "kind": "precisely authored SVG",
+    "reviewStatus": "Construction and target identities checked; render inspection recorded in verification.",
+    "targets": {
+      "A": "Chorion",
+      "B": "Amnion",
+      "C": "Amniotic cavity",
+      "D": "Yolk sac",
+      "E": "Connecting stalk",
+      "F": "Allantois"
+    },
+    "geometry": {
+      "A": {
+        "letter": [
+          300,
+          155
+        ],
+        "endpoint": [
+          475,
+          197.4
+        ]
+      },
+      "B": {
+        "letter": [
+          880,
+          155
+        ],
+        "endpoint": [
+          800,
+          213
+        ]
+      },
+      "C": {
+        "letter": [
+          410,
+          355
+        ],
+        "endpoint": [
+          485,
+          325
+        ]
+      },
+      "D": {
+        "letter": [
+          420,
+          590
+        ],
+        "endpoint": [
+          580,
+          550
+        ]
+      },
+      "E": {
+        "letter": [
+          1235,
+          450
+        ],
+        "endpoint": [
+          1000,
+          429
+        ]
+      },
+      "F": {
+        "letter": [
+          960,
+          580
+        ],
+        "endpoint": [
+          885,
+          426
+        ]
+      }
+    }
+  },
+  {
+    "id": "ch15-placenta",
+    "title": "Placental exchange: two separate circulations",
+    "lesson": 7,
+    "src": "./assets/figures/ch15-placenta.svg",
+    "alt": "Maternal blood surrounds a chorionic villus. Fetal blood flows through vessels inside that villus. Oxygen and nutrients cross inward; carbon dioxide and wastes cross outward. The blood streams stay separate.",
+    "caption": "Maternal blood surrounds a chorionic villus. Fetal blood flows through vessels inside that villus. Oxygen and nutrients cross inward; carbon dioxide and wastes cross outward. The blood streams stay separate. Schematic — not to scale.",
+    "source": "Original course schematic; canonical editable SVG plus reproducible scripts/make_media.py.",
+    "kind": "precisely authored SVG",
+    "reviewStatus": "Construction and target identities checked; render inspection recorded in verification.",
+    "targets": {
+      "A": "Maternal blood",
+      "B": "Chorionic villus barrier",
+      "C": "Umbilical arteries",
+      "D": "Umbilical vein"
+    },
+    "geometry": {
+      "A": {
+        "letter": [
+          110,
+          160
+        ],
+        "endpoint": [
+          170,
+          290
+        ]
+      },
+      "B": {
+        "letter": [
+          865,
+          705
+        ],
+        "endpoint": [
+          745,
+          630
+        ]
+      },
+      "C": {
+        "letter": [
+          1090,
+          195
+        ],
+        "endpoint": [
+          1060,
+          330
+        ]
+      },
+      "D": {
+        "letter": [
+          1225,
+          705
+        ],
+        "endpoint": [
+          1120,
+          560
+        ]
+      }
+    }
+  },
+  {
+    "id": "ch15-birth-feedback",
+    "title": "Labour: an amplifying feedback loop",
+    "lesson": 9,
+    "src": "./assets/figures/ch15-birth-feedback.svg",
+    "alt": "The first five features reinforce cervical stretch; birth removes the principal stimulus. Prostaglandins can also support contractions.",
+    "caption": "The first five features reinforce cervical stretch; birth removes the principal stimulus. Prostaglandins can also support contractions. Schematic — arrows show the specified causal sequence.",
+    "source": "Original course schematic; canonical editable SVG plus reproducible scripts/make_media.py.",
+    "kind": "precisely authored SVG",
+    "reviewStatus": "Construction and target identities checked; render inspection recorded in verification.",
+    "targets": {
+      "A": "Cervical stretch",
+      "B": "Sensory signalling",
+      "C": "Oxytocin release",
+      "D": "Uterine contraction",
+      "E": "Increased cervical stretch",
+      "F": "Birth ends the loop"
+    },
+    "geometry": {
+      "A": {
+        "letter": [
+          125,
+          196
+        ],
+        "endpoint": [
+          125,
+          196
+        ]
+      },
+      "B": {
+        "letter": [
+          575,
+          196
+        ],
+        "endpoint": [
+          575,
+          196
+        ]
+      },
+      "C": {
+        "letter": [
+          1025,
+          196
+        ],
+        "endpoint": [
+          1025,
+          196
+        ]
+      },
+      "D": {
+        "letter": [
+          125,
+          446
+        ],
+        "endpoint": [
+          125,
+          446
+        ]
+      },
+      "E": {
+        "letter": [
+          575,
+          446
+        ],
+        "endpoint": [
+          575,
+          446
+        ]
+      },
+      "F": {
+        "letter": [
+          1025,
+          446
+        ],
+        "endpoint": [
+          1025,
+          446
+        ]
+      }
+    }
+  },
+  {
+    "id": "ch15-lactation",
+    "title": "Lactation: production is not ejection",
+    "lesson": 10,
+    "src": "./assets/figures/ch15-lactation.svg",
+    "alt": "Suckling can stimulate two hormonal responses: anterior-pituitary prolactin supports milk production, while posterior-pituitary oxytocin supports milk ejection.",
+    "caption": "Suckling can stimulate two hormonal responses: anterior-pituitary prolactin supports milk production, while posterior-pituitary oxytocin supports milk ejection. Schematic — not to scale.",
+    "source": "Original course schematic; canonical editable SVG plus reproducible scripts/make_media.py.",
+    "kind": "precisely authored SVG",
+    "reviewStatus": "Construction and target identities checked; render inspection recorded in verification.",
+    "targets": {
+      "A": "Prolactin",
+      "B": "Milk production",
+      "C": "Oxytocin",
+      "D": "Milk ejection"
+    },
+    "geometry": {
+      "A": {
+        "letter": [
+          340,
+          490
+        ],
+        "endpoint": [
+          340,
+          490
+        ]
+      },
+      "B": {
+        "letter": [
+          560,
+          615
+        ],
+        "endpoint": [
+          490,
+          615
+        ]
+      },
+      "C": {
+        "letter": [
+          1050,
+          490
+        ],
+        "endpoint": [
+          1050,
+          490
+        ]
+      },
+      "D": {
+        "letter": [
+          1270,
+          615
+        ],
+        "endpoint": [
+          1200,
+          615
+        ]
+      }
+    }
+  },
+  {
+    "id": "ch15-source-cleavage",
+    "title": "Fertilization, cleavage and implantation",
+    "lesson": 1,
+    "src": "./assets/figures/ch15-source-cleavage.png",
+    "alt": "Follow the secondary oocyte from the ovary, then trace fertilization in the uterine tube and early cell divisions before implantation. Compare cell number with overall embryo size.",
+    "caption": "Follow the secondary oocyte from the ovary, then trace fertilization in the uterine tube and early cell divisions before implantation. Compare cell number with overall embryo size. Inquiry into Biology, Chapter 15, p. 510.",
+    "source": "Provided textbook Chapter 15, p. 510",
+    "kind": "Original textbook figure crop",
+    "pdfSha256": "30b03cf91e5cf99ed0ae2a7dedf7cae2b246111b795d280b5b95ca937c56aa25",
+    "printedPage": 510,
+    "pdfPage": 5,
+    "cropCoordinates": [
+      40,
+      40,
+      552,
+      466
+    ],
+    "reviewStatus": "Full source page and resulting crop visually inspected; nearby teaching supplies the stated distinctions.",
+    "targets": {},
+    "geometry": {},
+    "maskCoordinates": [
+      [
+        158,
+        409,
+        552,
+        466
+      ]
+    ],
+    "maskReason": "Remove unrelated prose below the complete diagram; retain the complete figure caption on the left."
+  },
+  {
+    "id": "ch15-source-neurulation",
+    "title": "Formation of the neural tube",
+    "lesson": 6,
+    "src": "./assets/figures/ch15-source-neurulation.png",
+    "alt": "The neural plate folds and closes to form a tube. The neural tube contributes to the central nervous system; closure is not the same as completion of brain development.",
+    "caption": "The neural plate folds and closes to form a tube. The neural tube contributes to the central nervous system; closure is not the same as completion of brain development. Inquiry into Biology, Chapter 15, p. 514.",
+    "source": "Provided textbook Chapter 15, p. 514",
+    "kind": "Original textbook figure crop",
+    "pdfSha256": "30b03cf91e5cf99ed0ae2a7dedf7cae2b246111b795d280b5b95ca937c56aa25",
+    "printedPage": 514,
+    "pdfPage": 9,
+    "cropCoordinates": [
+      39,
+      39,
+      552,
+      348
+    ],
+    "reviewStatus": "Full source page and resulting crop visually inspected; nearby teaching supplies the stated distinctions.",
+    "targets": {},
+    "geometry": {}
+  },
+  {
+    "id": "ch15-source-membranes",
+    "title": "Membranes around the developing embryo",
+    "lesson": 5,
+    "src": "./assets/figures/ch15-source-membranes.png",
+    "alt": "Locate the amnion, amniotic cavity, chorion, yolk sac and connecting stalk. The yolk sac is outside the amniotic cavity.",
+    "caption": "Locate the amnion, amniotic cavity, chorion, yolk sac and connecting stalk. The yolk sac is outside the amniotic cavity. Inquiry into Biology, Chapter 15, p. 516.",
+    "source": "Provided textbook Chapter 15, p. 516",
+    "kind": "Original textbook figure crop",
+    "pdfSha256": "30b03cf91e5cf99ed0ae2a7dedf7cae2b246111b795d280b5b95ca937c56aa25",
+    "printedPage": 516,
+    "pdfPage": 11,
+    "cropCoordinates": [
+      39,
+      43,
+      240,
+      288
+    ],
+    "reviewStatus": "Full source page and resulting crop visually inspected; nearby teaching supplies the stated distinctions.",
+    "targets": {},
+    "geometry": {}
+  },
+  {
+    "id": "ch15-source-placenta",
+    "title": "Placenta and chorionic villi",
+    "lesson": 7,
+    "src": "./assets/figures/ch15-source-placenta.png",
+    "alt": "Fetal vessels extend into chorionic villi, next to maternal blood spaces. Substances cross the placental interface rather than both circulations becoming one continuous blood stream.",
+    "caption": "Fetal vessels extend into chorionic villi, next to maternal blood spaces. Substances cross the placental interface rather than both circulations becoming one continuous blood stream. Inquiry into Biology, Chapter 15, p. 517.",
+    "source": "Provided textbook Chapter 15, p. 517",
+    "kind": "Original textbook figure crop",
+    "pdfSha256": "30b03cf91e5cf99ed0ae2a7dedf7cae2b246111b795d280b5b95ca937c56aa25",
+    "printedPage": 517,
+    "pdfPage": 12,
+    "cropCoordinates": [
+      67,
+      353,
+      568,
+      746
+    ],
+    "reviewStatus": "Full source page and resulting crop visually inspected; nearby teaching supplies the stated distinctions.",
+    "targets": {},
+    "geometry": {}
+  },
+  {
+    "id": "ch15-source-lactation",
+    "title": "Neural and hormonal control of milk ejection",
+    "lesson": 10,
+    "src": "./assets/figures/ch15-source-lactation.png",
+    "alt": "Sensory input during suckling stimulates oxytocin release from the posterior pituitary. Myoepithelial contraction ejects milk; prolactin supports its production.",
+    "caption": "Sensory input during suckling stimulates oxytocin release from the posterior pituitary. Myoepithelial contraction ejects milk; prolactin supports its production. Inquiry into Biology, Chapter 15, p. 526.",
+    "source": "Provided textbook Chapter 15, p. 526",
+    "kind": "Original textbook figure crop",
+    "pdfSha256": "30b03cf91e5cf99ed0ae2a7dedf7cae2b246111b795d280b5b95ca937c56aa25",
+    "printedPage": 526,
+    "pdfPage": 21,
+    "cropCoordinates": [
+      37,
+      455,
+      341,
+      730
+    ],
+    "reviewStatus": "Full source page and resulting crop visually inspected; nearby teaching supplies the stated distinctions.",
+    "targets": {},
+    "geometry": {}
+  }
+]

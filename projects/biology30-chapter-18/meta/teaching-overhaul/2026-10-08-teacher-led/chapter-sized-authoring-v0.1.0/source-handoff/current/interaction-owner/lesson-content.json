@@ -1,0 +1,2420 @@
+{
+  "chapter": 18,
+  "title": "Molecular Genetics",
+  "first": 622,
+  "last": 667,
+  "lessons": [
+    {
+      "title": "Evidence that DNA carries genetic information",
+      "question": "What made DNA a stronger explanation of heredity than protein?",
+      "goal": "Connect each experiment with its observation, control and justified conclusion.",
+      "prior": "Genes are inherited units. Identifying the molecule that carries them requires evidence, not just finding a molecule inside a cell.",
+      "pages": [
+        624,
+        628
+      ],
+      "slides": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "terms": [
+        {
+          "term": "transformation",
+          "meaning": "A heritable change associated with a cell taking up external genetic material.",
+          "example": "A bacterial lineage acquires a trait after exposure to material from other cells.",
+          "importantDistinction": "Griffith demonstrated transformation without identifying DNA as the active substance.",
+          "misconception": "Griffith’s result alone identified the molecular structure of DNA.",
+          "aliases": []
+        },
+        {
+          "term": "hereditary material",
+          "meaning": "Material that stores and transmits inherited biological information.",
+          "example": "DNA carries genetic information in the cellular systems studied here.",
+          "importantDistinction": "A molecule’s presence in a cell is not sufficient evidence that it carries heredity.",
+          "misconception": "Any abundant cellular molecule must be the hereditary material.",
+          "aliases": []
+        },
+        {
+          "term": "radioactive tracer",
+          "meaning": "A detectable radioactive label used to follow the movement of material.",
+          "example": "Different labels followed phage DNA and protein in separate preparations.",
+          "importantDistinction": "A tracer follows the labelled material, not every molecule in the mixture.",
+          "misconception": "A tracer automatically proves the function of every labelled molecule.",
+          "aliases": []
+        },
+        {
+          "term": "controlled comparison",
+          "meaning": "A comparison designed to distinguish explanations by changing a relevant factor while keeping others comparable.",
+          "example": "DNA-destroying treatment is compared with other treatments of a transforming preparation.",
+          "importantDistinction": "The interpretation depends on what was changed and what was measured.",
+          "misconception": "A single observation without comparison always proves a mechanism.",
+          "aliases": []
+        }
+      ],
+      "sections": [
+        [
+          "Griffith established a transferable change",
+          [
+            "Griffith studied bacteria with different disease-causing properties. Live non-virulent bacteria could acquire a heritable virulent trait when mixed with heat-killed virulent bacteria. Material from the killed cells had changed the living bacterial lineage.",
+            "This result supported transformation. It did not identify the transforming substance. DNA and protein were among the candidates, so the next question was which component was necessary for the change."
+          ]
+        ],
+        [
+          "Remove a candidate and test the effect",
+          [
+            "Avery, MacLeod and McCarty studied transforming preparations and used treatments aimed at different components. When DNA was destroyed, transforming activity was lost. Comparable treatments directed at other components did not remove activity in the same way.",
+            "This was stronger evidence for DNA because the experiment connected an intervention with the loss of a measured function. The useful comparison is not simply that DNA was present. It is that destroying DNA disrupted transformation under the experimental conditions."
+          ]
+        ],
+        [
+          "Trace the material entering infected cells",
+          [
+            "Hershey and Chase used bacteriophages, viruses that infect bacteria. In separate preparations, phosphorus-32 labelled viral DNA and sulfur-35 labelled viral protein. After infection, they separated much of the external phage material from the bacterial cells.",
+            "The DNA label was associated much more strongly with the infected cells than the external protein label. This supported DNA as the material entering the cells and directing viral production in that system.",
+            "Together the experiments built a case for DNA as hereditary material. They did not by themselves explain its double-helical structure or every step of gene expression. Match each scientist with the specific question their evidence addressed."
+          ]
+        ]
+      ],
+      "worked": {
+        "title": "Separate observation from conclusion",
+        "scenario": "A transforming preparation stops transforming bacteria after a DNA-destroying enzyme is added; other enzyme treatments retain activity.",
+        "steps": [
+          "Identify the measured outcome: transformation of the bacterial lineage.",
+          "Identify the intervention: destroying DNA in the preparation.",
+          "Compare with other treatments so that enzyme addition alone is not the explanation.",
+          "Conclude that intact DNA is necessary for transforming activity in this assay.",
+          "Do not claim that this experiment determined the sequence of the entire bacterial genome."
+        ]
+      },
+      "guided": [
+        {
+          "prompt": "What did Griffith’s experiment establish most directly?",
+          "answer": "A heritable trait could be transferred",
+          "wrong": [
+            "The exact double helix structure",
+            "The identity of every bacterial gene"
+          ],
+          "explanation": "It demonstrated transformation, not DNA structure.",
+          "cue": "Separate the observed transfer from the later identification of its cause."
+        },
+        {
+          "prompt": "Which finding most directly supports DNA’s role in the transforming preparation?",
+          "answer": "Destroying DNA removes transforming activity",
+          "wrong": [
+            "DNA is visible somewhere in the cell",
+            "Protein is also present in the preparation"
+          ],
+          "explanation": "The intervention connects DNA with the measured activity.",
+          "cue": "Look for a change to the candidate that changes the outcome."
+        }
+      ],
+      "check": [
+        {
+          "prompt": "Why did Hershey and Chase use different radioactive labels?",
+          "answer": "To distinguish the movement of DNA from protein",
+          "wrong": [
+            "To make all viral molecules chemically identical",
+            "To prevent bacteria from containing DNA",
+            "To measure chromosome number during meiosis"
+          ],
+          "explanation": "Separate labels allowed the two materials to be followed.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        },
+        {
+          "prompt": "Which statement goes beyond Griffith’s evidence alone?",
+          "answer": "The transforming substance has a double-helical DNA structure",
+          "wrong": [
+            "Some material from killed bacteria changed a living lineage",
+            "The acquired trait could persist in descendants",
+            "Transformation required further explanation"
+          ],
+          "explanation": "Identification and structure required additional evidence.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "writing": [
+        {
+          "prompt": "Explain why destroying DNA in a transforming preparation provides stronger evidence than merely detecting DNA in the preparation.",
+          "model": "Presence shows association, not necessity. If destroying DNA removes transformation while appropriate comparison treatments retain it, the result links intact DNA with the measured transforming function. The conclusion remains tied to the assay and its controls.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        },
+        {
+          "prompt": "Compare the questions addressed by Griffith and Hershey–Chase.",
+          "model": "Griffith asked whether a heritable change could be transferred between bacterial preparations. Hershey and Chase traced DNA and protein during bacteriophage infection to determine which material was more closely associated with infected cells. Their experiments address different stages in identifying hereditary material.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        }
+      ],
+      "applications": [
+        {
+          "prompt": "A treatment destroys both DNA and protein and transformation stops. Why is this less decisive?",
+          "answer": "It does not distinguish which destroyed component was necessary",
+          "wrong": [
+            "It proves DNA has no function",
+            "It proves both molecules are the same substance",
+            "It directly identifies a DNA base sequence"
+          ],
+          "explanation": "Changing both candidates leaves their individual contributions unresolved.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "self": [
+        "Does a successful experiment answer every question about heredity?",
+        "No. Its conclusion is limited by the intervention, controls and outcome measured."
+      ],
+      "sequence": null,
+      "anchors": [
+        "transformation",
+        "hereditary material",
+        "radioactive tracer",
+        "controlled comparison"
+      ],
+      "figures": {
+        "0": "ch18-source-griffith"
+      }
+    },
+    {
+      "title": "DNA structure and complementary strands",
+      "question": "How does DNA’s structure provide a way to copy information?",
+      "goal": "Identify nucleotide components, complementary base pairing and antiparallel strand directions.",
+      "prior": "DNA carries inherited information. A structure that can be copied must provide a rule for constructing a matching strand.",
+      "pages": [
+        628,
+        631
+      ],
+      "slides": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "terms": [
+        {
+          "term": "nucleotide",
+          "meaning": "A nucleic-acid subunit containing a sugar, phosphate and nitrogenous base.",
+          "example": "A DNA nucleotide contains deoxyribose, phosphate and one of A, T, C or G.",
+          "importantDistinction": "A base is one component of a nucleotide, not the whole nucleotide.",
+          "misconception": "A nucleotide consists of three amino acids.",
+          "aliases": []
+        },
+        {
+          "term": "complementary base pairing",
+          "meaning": "Specific pairing of bases across nucleic-acid strands.",
+          "example": "In double-stranded DNA, A pairs with T and C with G.",
+          "importantDistinction": "The paired strands are complementary, not identical sequences in the same direction.",
+          "misconception": "A pairs with C in the standard DNA model.",
+          "aliases": []
+        },
+        {
+          "term": "antiparallel",
+          "meaning": "Oriented in opposite directions.",
+          "example": "One aligned DNA strand runs 5′ to 3′ while its partner runs 3′ to 5′.",
+          "importantDistinction": "Read the direction labels before copying a displayed sequence.",
+          "misconception": "Both aligned DNA strands run 5′ to 3′ from left to right.",
+          "aliases": []
+        },
+        {
+          "term": "Chargaff’s relationships",
+          "meaning": "The equality of A with T and C with G in standard double-stranded DNA.",
+          "example": "If A is 30% of a double-stranded sample, T is also 30%.",
+          "importantDistinction": "A plus T need not equal C plus G.",
+          "misconception": "Every DNA sample must have 25% of each base.",
+          "aliases": []
+        }
+      ],
+      "sections": [
+        [
+          "Build a nucleotide before building a helix",
+          [
+            "DNA is a polymer: a long chain made from nucleotide subunits. Each DNA nucleotide contains deoxyribose sugar, a phosphate group and a nitrogenous base. The four bases are adenine, thymine, cytosine and guanine, abbreviated A, T, C and G.",
+            "Sugars and phosphates form the backbone of each strand. Bases project inward and pair with bases on the other strand. Covalent bonds hold the backbone together; hydrogen bonds connect complementary bases across the strands. These are different connections and perform different structural roles."
+          ]
+        ],
+        [
+          "Pairing and direction are separate rules",
+          [
+            "In the standard double-stranded DNA model, A pairs with T and C pairs with G. A and G are double-ring purines; C and T are single-ring pyrimidines. A purine paired with a pyrimidine helps maintain a consistent width.",
+            "The strands are antiparallel. If an upper strand is written 5′-ATGC-3′, its aligned partner is 3′-TACG-5′. If you must report that partner in the 5′ to 3′ direction, reverse the displayed order: 5′-GCAT-3′.",
+            "The numbers identify positions in the sugar and therefore strand orientation. They do not identify the first and third bases in a codon. Direction becomes essential when interpreting replication and transcription."
+          ]
+        ],
+        [
+          "Use proportions without assuming equal amounts",
+          [
+            "Chargaff’s observations supported equality between A and T, and between C and G, in double-stranded DNA. If A accounts for 30% of all bases, T is 30%, leaving 40% for C and G together. Each is therefore 20%.",
+            "Franklin’s X-ray diffraction work provided important structural evidence. Watson and Crick developed a double-helix model consistent with that evidence and the base relationships. Structure, chemical composition and inherited function were connected by different lines of investigation.",
+            "Do not apply equal A/T proportions to every single strand by itself. The equalities arise from the complementary double-stranded molecule."
+          ]
+        ]
+      ],
+      "worked": {
+        "title": "Write a complement with its direction",
+        "scenario": "An upper strand is 5′-AAGTC-3′. Write the aligned complementary strand and then write that partner 5′ to 3′.",
+        "steps": [
+          "Pair A with T, A with T, G with C, T with A and C with G.",
+          "The aligned partner is 3′-TTCAG-5′.",
+          "To report the partner 5′ to 3′, read it from its 5′ end: 5′-GACTT-3′.",
+          "Check that the strands are complementary when aligned antiparallel."
+        ]
+      },
+      "guided": [
+        {
+          "prompt": "Which parts form a DNA strand’s backbone?",
+          "answer": "Sugar and phosphate",
+          "wrong": [
+            "Paired amino acids",
+            "Only nitrogenous bases"
+          ],
+          "explanation": "Sugars and phosphates repeat along the backbone.",
+          "cue": "Separate a strand’s sides from the bases between the sides."
+        },
+        {
+          "prompt": "If A is 18% in a standard double-stranded DNA sample, T is what percentage?",
+          "answer": "18%",
+          "wrong": [
+            "32%",
+            "25%"
+          ],
+          "explanation": "A and T pair, so their totals are equal in the double-stranded sample.",
+          "cue": "Apply A = T before considering C and G."
+        }
+      ],
+      "check": [
+        {
+          "prompt": "The aligned complement of 5′-CGTA-3′ is which sequence?",
+          "answer": "3′-GCAT-5′",
+          "wrong": [
+            "5′-GCAT-3′",
+            "3′-CGTA-5′",
+            "3′-GCAU-5′"
+          ],
+          "explanation": "The partner is complementary and antiparallel, and DNA uses T rather than U.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        },
+        {
+          "prompt": "Which statement follows if G is 22% of a double-stranded sample?",
+          "answer": "C is 22%, and A and T are each 28%",
+          "wrong": [
+            "Every other base is 22%",
+            "A is 22%, and C is 28%",
+            "G and C together must be 50%"
+          ],
+          "explanation": "G = C; the remaining 56% is split equally between A and T.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "writing": [
+        {
+          "prompt": "Explain why an aligned complement and a reverse complement can look different even though they describe the same partner strand.",
+          "model": "The aligned complement is displayed opposite the original with reversed direction labels. Reporting that same partner 5′ to 3′ requires reading from its other end, which reverses the displayed order. Base identities and orientation must both be tracked.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        },
+        {
+          "prompt": "Use nucleotide structure to distinguish backbone bonds from base-pair connections.",
+          "model": "Each nucleotide contains a sugar, phosphate and base. Covalent connections link sugars and phosphates along each strand. Hydrogen bonds connect complementary bases across the two strands, allowing the strands to separate without cutting every backbone bond.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        }
+      ],
+      "applications": [
+        {
+          "prompt": "A single DNA strand contains 40% A. Can its T percentage be inferred as 40% without more information?",
+          "answer": "No; the double-stranded equality does not require equality within that single strand",
+          "wrong": [
+            "Yes; every individual strand must have equal A and T",
+            "Yes; all four bases must be 40%",
+            "No; DNA has no thymine"
+          ],
+          "explanation": "Complementary totals across a double-stranded molecule do not require equal base counts in each strand.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "self": [
+        "Are the two aligned DNA strands identical?",
+        "No. They are complementary and run in opposite directions."
+      ],
+      "sequence": null,
+      "anchors": [
+        "nucleotide",
+        "complementary base pairing",
+        "antiparallel",
+        "Chargaff’s relationships"
+      ],
+      "figures": {
+        "0": "ch18-dna"
+      }
+    },
+    {
+      "title": "DNA replication and its products",
+      "question": "Why can only one side of a replication fork be copied continuously?",
+      "goal": "Trace semiconservative replication using base pairing, enzyme roles and the 5′ to 3′ synthesis rule.",
+      "prior": "DNA strands are complementary and antiparallel. During S phase, DNA amount increases before cell division.",
+      "pages": [
+        631,
+        635
+      ],
+      "slides": [
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "terms": [
+        {
+          "term": "semiconservative replication",
+          "meaning": "Replication producing DNA molecules with one parental strand and one newly synthesized strand.",
+          "example": "After one replication, both daughter molecules contain an old strand paired with a new strand.",
+          "importantDistinction": "The original strands are retained in separate daughter molecules.",
+          "misconception": "Semiconservative replication leaves both old strands together in one daughter molecule.",
+          "aliases": []
+        },
+        {
+          "term": "DNA polymerase",
+          "meaning": "An enzyme that extends a new DNA strand by adding nucleotides to its 3′ end.",
+          "example": "Complementary nucleotides extend a primed strand in the 5′ to 3′ direction.",
+          "importantDistinction": "It synthesizes 5′ to 3′ while reading an antiparallel template.",
+          "misconception": "DNA polymerase extends a new strand equally well in either direction.",
+          "aliases": []
+        },
+        {
+          "term": "Okazaki fragment",
+          "meaning": "A short newly synthesized DNA segment on the lagging strand.",
+          "example": "Several fragments are made as new lagging-strand template becomes exposed.",
+          "importantDistinction": "Each fragment is still synthesized 5′ to 3′.",
+          "misconception": "Lagging-strand fragments are synthesized 3′ to 5′.",
+          "aliases": []
+        },
+        {
+          "term": "DNA ligase",
+          "meaning": "An enzyme that seals breaks in the sugar-phosphate backbone.",
+          "example": "It joins adjacent DNA segments after primer replacement.",
+          "importantDistinction": "Ligase seals backbone connections; helicase separates paired strands.",
+          "misconception": "Ligase opens the DNA double helix by breaking base-pair hydrogen bonds.",
+          "aliases": []
+        }
+      ],
+      "sections": [
+        [
+          "Use each parental strand as a template",
+          [
+            "Replication begins at an origin and opens a region of the DNA. Helicase separates the paired strands by disrupting their hydrogen-bond interactions. It does not cut each strand’s sugar-phosphate backbone into small pieces.",
+            "Each parental strand provides a template for a complementary new strand. The two resulting DNA molecules each contain one old strand and one new strand. This is semiconservative replication.",
+            "Meselson and Stahl followed DNA density after cells moved from a heavy-nitrogen medium to a light-nitrogen medium. The first generation produced intermediate-density DNA. In the second, intermediate and light DNA appeared. This pattern supported semiconservative replication over the alternatives tested."
+          ]
+        ],
+        [
+          "A primer provides a starting point",
+          [
+            "DNA polymerase cannot begin a new strand from nothing. Primase makes a short RNA primer that supplies a starting 3′ end. DNA polymerase then extends from that end with complementary DNA nucleotides.",
+            "New DNA is always synthesized 5′ to 3′. Because the parental templates run in opposite directions, their new strands cannot both follow the moving replication fork continuously.",
+            "The leading strand is synthesized continuously toward the fork. The lagging strand is made in Okazaki fragments, each extending 5′ to 3′ away from the fork as additional template is exposed. Each fragment requires a primer."
+          ]
+        ],
+        [
+          "Finish the backbone and check the result",
+          [
+            "RNA primers are removed and replaced with DNA through the replication machinery. DNA ligase seals the remaining backbone breaks between adjacent segments. Proofreading and repair reduce errors, although some DNA changes can persist.",
+            "Use the enzyme names to explain different jobs: helicase opens, primase starts, DNA polymerase extends, and ligase joins. Do not use the word “copies” as if one enzyme performs every part.",
+            "Replication increases DNA amount but does not by itself separate sister chromatids into daughter cells. Cell division is a later process."
+          ]
+        ]
+      ],
+      "worked": {
+        "title": "Interpret the second generation",
+        "scenario": "Cells with fully heavy-labelled DNA replicate twice in light-nitrogen medium. Predict the DNA types under semiconservative replication.",
+        "steps": [
+          "After the first replication, every molecule has one heavy parental strand and one light new strand.",
+          "Each hybrid molecule then separates its strands for the second replication.",
+          "The heavy strand produces another hybrid; the light strand produces a fully light molecule.",
+          "The expected second-generation molecules are half hybrid and half light, with no fully heavy molecules."
+        ]
+      },
+      "guided": [
+        {
+          "prompt": "In which direction does each Okazaki fragment grow?",
+          "answer": "5′ to 3′",
+          "wrong": [
+            "3′ to 5′",
+            "In both directions at once"
+          ],
+          "explanation": "All new DNA uses the same synthesis direction.",
+          "cue": "Lagging changes continuity, not polymerase chemistry."
+        },
+        {
+          "prompt": "Which enzyme seals adjacent DNA segments?",
+          "answer": "DNA ligase",
+          "wrong": [
+            "Helicase",
+            "Primase"
+          ],
+          "explanation": "Ligase restores a continuous backbone.",
+          "cue": "Ask whether the task is opening, starting, extending or joining."
+        }
+      ],
+      "check": [
+        {
+          "prompt": "What is retained in each product after one semiconservative replication?",
+          "answer": "One parental strand",
+          "wrong": [
+            "Both parental strands together",
+            "No parental material",
+            "One complete parental cell"
+          ],
+          "explanation": "Each parental strand templates one new partner.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        },
+        {
+          "prompt": "Why does the lagging strand require repeated priming?",
+          "answer": "New exposed template is copied in separate fragments",
+          "wrong": [
+            "DNA polymerase switches to 3′ to 5′ synthesis",
+            "The lagging strand contains no DNA bases",
+            "Each primer is a protein that becomes a chromosome"
+          ],
+          "explanation": "Discontinuous synthesis requires multiple starting points.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "writing": [
+        {
+          "prompt": "Explain leading and lagging synthesis using both template orientation and polymerase direction.",
+          "model": "The templates are antiparallel while all new DNA extends 5′ to 3′. One new strand follows the opening fork continuously. The other must be made as fragments extending away from the fork as new template is exposed. Those fragments are joined after primer replacement.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        },
+        {
+          "prompt": "Distinguish replication from the separation of chromosomes during division.",
+          "model": "Replication copies DNA so each replicated chromosome contains sister chromatids. Chromosome count does not simply double at S phase. Later separation during mitosis or meiosis distributes genetic material into new cells.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        }
+      ],
+      "applications": [
+        {
+          "prompt": "DNA fragments have been synthesized and primers replaced, but backbone gaps remain. Which missing activity best explains this?",
+          "answer": "Ligase activity",
+          "wrong": [
+            "Base recognition by a ribosome",
+            "Homologue separation",
+            "RNA splicing"
+          ],
+          "explanation": "Ligase seals adjacent DNA fragments into a continuous strand.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "self": [
+        "Does helicase normally cut the DNA backbone to expose the bases?",
+        "No. It separates the paired strands while their backbones remain intact."
+      ],
+      "sequence": [
+        "Parental strands separate",
+        "RNA primers provide starting ends",
+        "DNA polymerase extends complementary DNA",
+        "Primers are removed and replaced",
+        "Ligase seals backbone gaps"
+      ],
+      "anchors": [
+        "semiconservative replication",
+        "DNA polymerase",
+        "Okazaki fragment",
+        "DNA ligase"
+      ],
+      "figures": {
+        "0": "ch18-replication",
+        "1": "ch18-source-replication-fork"
+      }
+    },
+    {
+      "title": "Genes, RNA and the flow of information",
+      "question": "How can cells with similar DNA perform different jobs?",
+      "goal": "Distinguish DNA storage from RNA and protein roles, and explain selective gene expression.",
+      "prior": "A DNA sequence contains information. Different cells need different combinations and amounts of functional products.",
+      "pages": [
+        636,
+        637
+      ],
+      "slides": [
+        22,
+        23,
+        24,
+        25,
+        26
+      ],
+      "terms": [
+        {
+          "term": "gene expression",
+          "meaning": "The use of genetic information to produce a functional RNA or protein product.",
+          "example": "A cell produces a particular protein by transcribing and translating the relevant gene.",
+          "importantDistinction": "Not every gene is expressed equally in every cell.",
+          "misconception": "Every cell continuously makes every possible protein.",
+          "aliases": []
+        },
+        {
+          "term": "messenger RNA",
+          "meaning": "RNA that carries a sequence used to direct protein synthesis.",
+          "example": "A processed mRNA moves from the nucleus to a ribosome.",
+          "importantDistinction": "It carries a working copy; the DNA molecule need not leave the nucleus.",
+          "misconception": "Messenger RNA is a chain of amino acids.",
+          "aliases": [
+            "mRNA"
+          ]
+        },
+        {
+          "term": "transfer RNA",
+          "meaning": "RNA that helps match an mRNA codon with its corresponding amino acid.",
+          "example": "A charged tRNA pairs its anticodon with a codon at the ribosome.",
+          "importantDistinction": "The amino acid is attached to tRNA, not directly specified by a DNA molecule at the ribosome.",
+          "misconception": "Transfer RNA carries a complete chromosome.",
+          "aliases": [
+            "tRNA"
+          ]
+        },
+        {
+          "term": "ribosomal RNA",
+          "meaning": "RNA that forms structural and catalytic parts of ribosomes.",
+          "example": "Ribosomal RNA contributes to the machinery that links amino acids.",
+          "importantDistinction": "Ribosomes also contain proteins.",
+          "misconception": "A ribosome is made only of DNA.",
+          "aliases": [
+            "rRNA"
+          ]
+        }
+      ],
+      "sections": [
+        [
+          "A shared genome does not require identical activity",
+          [
+            "Many nucleated somatic cells contain essentially the same inherited genome, yet muscle, nerve and other cells perform different tasks. They express different sets of genes and produce different amounts of particular products.",
+            "Gene expression is not the same as changing the DNA sequence. A cell can change which genes are active without replacing every gene it contains. Some genes produce functional RNA rather than a protein."
+          ]
+        ],
+        [
+          "Separate the molecules and their jobs",
+          [
+            "DNA generally stores information in a double-stranded molecule using deoxyribose and the bases A, T, C and G. RNA uses ribose and uracil, U, instead of thymine. RNA is usually single-stranded but can fold through base pairing within the molecule.",
+            "For a protein-coding gene, transcription produces RNA from a DNA template. Translation uses the mRNA sequence to assemble amino acids into a polypeptide. The commonly taught information pathway is DNA → RNA → protein.",
+            "Messenger RNA carries the sequence, transfer RNA brings matched amino acids, and ribosomal RNA forms part of the ribosome’s structure and catalytic machinery. These RNA types have different roles even though all are nucleic acids."
+          ]
+        ],
+        [
+          "Locate the processes in a eukaryotic cell",
+          [
+            "For the nuclear genes considered here, transcription occurs in the nucleus. The RNA is processed, and mature mRNA can leave through nuclear pores. Translation occurs at ribosomes in the cytoplasm, including ribosomes associated with rough endoplasmic reticulum.",
+            "A protein’s amino-acid sequence influences how it folds and functions. A different sequence may change that function, but not every sequence difference has an equally large effect.",
+            "Do not describe non-protein-coding DNA as automatically useless. Some sequences regulate expression, and some genes produce functional RNAs. This chapter focuses on protein synthesis without claiming that it explains every DNA function."
+          ]
+        ]
+      ],
+      "worked": {
+        "title": "Same inherited instructions, different output",
+        "scenario": "A muscle cell produces much more of a muscle-associated protein than another nucleated somatic cell.",
+        "steps": [
+          "Both cells can carry the relevant DNA sequence.",
+          "Different regulation changes which genes are transcribed and how much product is made.",
+          "mRNA and translation connect the expressed gene with the protein output.",
+          "The observation does not require one cell to have lost every unused gene."
+        ]
+      },
+      "guided": [
+        {
+          "prompt": "Which molecule carries codons to be read during translation?",
+          "answer": "mRNA",
+          "wrong": [
+            "tRNA",
+            "Amino acid"
+          ],
+          "explanation": "Codons are read on mRNA.",
+          "cue": "Distinguish the message from the carrier of an amino acid."
+        },
+        {
+          "prompt": "Where does translation of a nuclear gene’s mRNA occur?",
+          "answer": "At ribosomes outside the nucleus",
+          "wrong": [
+            "Inside the DNA double helix",
+            "Only inside nuclear pores"
+          ],
+          "explanation": "Ribosomes in the cytoplasm translate the message.",
+          "cue": "Follow mRNA after it leaves the nucleus."
+        }
+      ],
+      "check": [
+        {
+          "prompt": "Which statement correctly describes gene expression?",
+          "answer": "Cells can differ in gene activity without having entirely different genomes",
+          "wrong": [
+            "Every gene is active in every cell at all times",
+            "Expression always changes the base sequence of DNA",
+            "Only visible traits involve gene expression"
+          ],
+          "explanation": "Regulation affects the use of genetic information.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        },
+        {
+          "prompt": "Which comparison correctly distinguishes RNA from DNA?",
+          "answer": "RNA normally uses ribose and U; DNA uses deoxyribose and T",
+          "wrong": [
+            "RNA uses amino acids instead of nucleotides",
+            "DNA never contains phosphate",
+            "RNA must always form a double helix"
+          ],
+          "explanation": "The sugar and one base differ while both are nucleotide polymers.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "writing": [
+        {
+          "prompt": "Use DNA, mRNA, tRNA and rRNA to trace a protein-coding message into a protein.",
+          "model": "DNA provides the template information for transcription into mRNA. The mRNA reaches a ribosome containing rRNA and proteins. tRNAs pair with mRNA codons and supply amino acids, which the ribosome links into a polypeptide.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        },
+        {
+          "prompt": "Explain why two cell types can have different proteins despite similar inherited DNA.",
+          "model": "Regulatory systems control which genes are transcribed and how products are processed and translated. Different gene-expression patterns therefore produce different protein sets without requiring entirely different genomes.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        }
+      ],
+      "applications": [
+        {
+          "prompt": "A cell increases production of an enzyme without a DNA sequence change. What process most directly explains this?",
+          "answer": "Altered expression of the relevant gene",
+          "wrong": [
+            "Replacement of all chromosomes",
+            "Conversion of protein into a DNA template",
+            "Loss of all messenger RNA"
+          ],
+          "explanation": "A change in gene activity can change protein output without a mutation.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "self": [
+        "Does every functional gene have to encode a protein?",
+        "No. Some genes produce functional RNA products."
+      ],
+      "sequence": null,
+      "anchors": [
+        "gene expression",
+        "messenger RNA",
+        "transfer RNA",
+        "ribosomal RNA"
+      ],
+      "figures": {}
+    },
+    {
+      "title": "Transcription and RNA processing",
+      "question": "Which DNA strand is used to make the RNA message?",
+      "goal": "Use template and coding strand identities to construct mRNA and explain eukaryotic RNA processing.",
+      "prior": "Complementary strands are antiparallel. RNA uses U where DNA uses T.",
+      "pages": [
+        637,
+        639
+      ],
+      "slides": [
+        27,
+        28,
+        29,
+        30
+      ],
+      "terms": [
+        {
+          "term": "template strand",
+          "meaning": "The DNA strand read by RNA polymerase to construct complementary RNA.",
+          "example": "A 3′-TAC-5′ template segment produces 5′-AUG-3′ RNA.",
+          "importantDistinction": "It is complementary to the RNA, rather than matching its sequence.",
+          "misconception": "The template strand always has the same sequence as mRNA.",
+          "aliases": []
+        },
+        {
+          "term": "coding strand",
+          "meaning": "The DNA strand whose 5′ to 3′ sequence matches the RNA sequence apart from T versus U.",
+          "example": "Coding DNA 5′-ATG-3′ corresponds to mRNA 5′-AUG-3′.",
+          "importantDistinction": "It is not the strand read as the template for that transcript.",
+          "misconception": "RNA polymerase must copy the coding strand as its complementary template.",
+          "aliases": []
+        },
+        {
+          "term": "RNA polymerase",
+          "meaning": "An enzyme that synthesizes RNA using a DNA template.",
+          "example": "It reads the template 3′ to 5′ while extending RNA 5′ to 3′.",
+          "importantDistinction": "Transcription uses RNA nucleotides and does not require Okazaki fragments.",
+          "misconception": "RNA polymerase builds a polypeptide from amino acids.",
+          "aliases": []
+        },
+        {
+          "term": "RNA splicing",
+          "meaning": "Removal of introns and joining of retained exon sequences in a pre-mRNA.",
+          "example": "A eukaryotic precursor is processed before mature mRNA is exported.",
+          "importantDistinction": "Retained exon sequence can include untranslated regions as well as coding regions.",
+          "misconception": "Every sequence retained in an exon must be translated into an amino acid.",
+          "aliases": []
+        }
+      ],
+      "sections": [
+        [
+          "Read the template, not the label you remember",
+          [
+            "RNA polymerase binds at a gene’s regulatory starting region and opens a short DNA region. It reads the template strand in the 3′ to 5′ direction while building complementary RNA 5′ to 3′. Only one DNA strand serves as the template for a particular transcript.",
+            "A on the DNA template pairs with U in RNA; T pairs with A; C pairs with G; G pairs with C. The other DNA strand is called the coding strand because its 5′ to 3′ sequence matches the RNA sequence except that DNA has T and RNA has U.",
+            "For example, template 3′-TAC GGA-5′ produces mRNA 5′-AUG CCU-3′. Its coding DNA partner is 5′-ATG CCT-3′. Identify which strand you have before deciding whether to complement or simply replace T with U."
+          ]
+        ],
+        [
+          "An RNA message is not a new DNA helix",
+          [
+            "Transcription copies the information of a selected DNA region into RNA. The DNA strands close behind the enzyme and the RNA separates. It does not copy the entire genome in the same way as S-phase replication.",
+            "Because one continuous RNA molecule is synthesized from one template, transcription does not require a leading strand, lagging strand or Okazaki fragments. Those terms belong to DNA replication at a fork."
+          ]
+        ],
+        [
+          "Process the eukaryotic transcript",
+          [
+            "A newly made eukaryotic pre-mRNA is commonly processed before export. Introns are removed, and exons are joined. A cap and a poly-A tail help protect the message and support its use by the cell.",
+            "Introns are removed from the RNA, not normally cut out of the genomic DNA during this processing step. Exons are the portions retained in the mature RNA; some retained sequence is not translated.",
+            "Once processing is complete, the mature message can leave the nucleus. Keep transcription, RNA processing and translation as distinct steps even though they contribute to one overall gene-expression pathway."
+          ]
+        ]
+      ],
+      "worked": {
+        "title": "Choose the correct conversion",
+        "scenario": "You are given coding DNA 5′-ATG TTT TAA-3′. Find the corresponding mRNA.",
+        "steps": [
+          "Identify the supplied strand as coding DNA, already written 5′ to 3′.",
+          "Keep its base order and replace T with U.",
+          "The mRNA is 5′-AUG UUU UAA-3′.",
+          "Check against the template: 3′-TAC AAA ATT-5′ would give the same mRNA by complementary pairing."
+        ]
+      },
+      "guided": [
+        {
+          "prompt": "Template DNA is 3′-TAC-5′. Which mRNA segment follows?",
+          "answer": "5′-AUG-3′",
+          "wrong": [
+            "5′-UAC-3′",
+            "3′-AUG-5′"
+          ],
+          "explanation": "The RNA is complementary and antiparallel.",
+          "cue": "Use template A → RNA U and template T → RNA A."
+        },
+        {
+          "prompt": "What is removed during pre-mRNA splicing?",
+          "answer": "Introns from the RNA",
+          "wrong": [
+            "All exons from the genomic DNA",
+            "Amino acids from a finished protein"
+          ],
+          "explanation": "Splicing processes RNA by removing introns and joining exons.",
+          "cue": "Identify which molecule is being processed."
+        }
+      ],
+      "check": [
+        {
+          "prompt": "Coding DNA is 5′-GCT-3′. The matching mRNA segment is what?",
+          "answer": "5′-GCU-3′",
+          "wrong": [
+            "5′-CGA-3′",
+            "3′-CGA-5′",
+            "5′-GCT-3′"
+          ],
+          "explanation": "Coding DNA matches the RNA sequence except for T versus U.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        },
+        {
+          "prompt": "Which comparison is correct?",
+          "answer": "Replication copies DNA; transcription produces RNA from a selected DNA template",
+          "wrong": [
+            "Both always require Okazaki fragments",
+            "Transcription duplicates all chromosomes before every protein is made",
+            "Replication removes all introns from DNA"
+          ],
+          "explanation": "The products, scale and roles of the two processes differ.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "writing": [
+        {
+          "prompt": "Explain a reliable method for converting either a template or a coding DNA strand to mRNA.",
+          "model": "First identify strand type and direction. For a template, pair complementary RNA bases antiparallel and report RNA 5′ to 3′. For coding DNA already written 5′ to 3′, preserve the sequence and replace T with U. Do not apply the same conversion blindly to both strand types.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        },
+        {
+          "prompt": "Explain why a processed mRNA can be shorter than the DNA region transcribed.",
+          "model": "The primary RNA transcript can contain introns and exons. Splicing removes introns and joins the retained exons, shortening the RNA. This does not mean the corresponding introns have been deleted from the genomic DNA.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        }
+      ],
+      "applications": [
+        {
+          "prompt": "A student complements coding DNA and reports that as its mRNA. What is the error?",
+          "answer": "They treated the coding strand as the template",
+          "wrong": [
+            "They should add amino acids directly to DNA",
+            "They should change every A to T without considering direction",
+            "They should remove the entire coding sequence"
+          ],
+          "explanation": "The coding strand matches rather than complements the mRNA when both are read 5′ to 3′.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "self": [
+        "Does splicing normally delete introns from the inherited DNA molecule?",
+        "No. It removes them from the RNA transcript."
+      ],
+      "sequence": [
+        "RNA polymerase begins transcription",
+        "Complementary pre-mRNA is synthesized",
+        "Introns are removed and exons joined",
+        "Processed mRNA leaves the nucleus",
+        "A ribosome can translate the message"
+      ],
+      "anchors": [
+        "template strand",
+        "coding strand",
+        "RNA polymerase",
+        "RNA splicing"
+      ],
+      "figures": {
+        "0": "ch18-transcription"
+      }
+    },
+    {
+      "title": "Translation and the genetic code",
+      "question": "How do nucleotide triplets become an amino-acid sequence?",
+      "goal": "Use mRNA codons, tRNA anticodons and start/stop signals to explain polypeptide synthesis.",
+      "prior": "A mature mRNA is read 5′ to 3′. Its sequence differs from a DNA template and uses uracil.",
+      "pages": [
+        639,
+        642
+      ],
+      "slides": [
+        31,
+        32,
+        33,
+        34,
+        35,
+        36
+      ],
+      "terms": [
+        {
+          "term": "codon",
+          "meaning": "A three-nucleotide sequence in mRNA interpreted during translation.",
+          "example": "AUG specifies methionine and commonly serves as a start codon.",
+          "importantDistinction": "Use mRNA 5′ to 3′ to consult a codon table.",
+          "misconception": "A codon is a triplet of amino acids.",
+          "aliases": []
+        },
+        {
+          "term": "anticodon",
+          "meaning": "A tRNA triplet that pairs antiparallel with an mRNA codon.",
+          "example": "3′-UAC-5′ pairs with mRNA 5′-AUG-3′.",
+          "importantDistinction": "A codon table is organized by mRNA codons, not by anticodons.",
+          "misconception": "The anticodon is identical to its paired mRNA codon.",
+          "aliases": []
+        },
+        {
+          "term": "reading frame",
+          "meaning": "The grouping of a nucleotide sequence into successive triplets for translation.",
+          "example": "Beginning at a different position changes which bases form each codon.",
+          "importantDistinction": "The position of the start establishes which triplets are read.",
+          "misconception": "Grouping begins at any nucleotide without affecting the result.",
+          "aliases": []
+        },
+        {
+          "term": "stop codon",
+          "meaning": "An mRNA codon signalling termination rather than an amino acid.",
+          "example": "UAA, UAG and UGA are standard stop signals.",
+          "importantDistinction": "Stop is not an additional amino acid in the chain.",
+          "misconception": "Every stop codon adds one amino acid called stop.",
+          "aliases": []
+        }
+      ],
+      "sections": [
+        [
+          "Read the message in triplets",
+          [
+            "A ribosome reads mRNA in successive three-nucleotide codons. Each amino-acid codon specifies one amino acid in the standard code. Several different codons can specify the same amino acid; this redundancy does not mean one codon specifies several amino acids at once.",
+            "AUG commonly acts as a start codon and specifies methionine. Starting at the correct AUG establishes the reading frame. A sequence written for codon practice may instead be identified as an internal coding segment; follow that instruction rather than assuming every short fragment contains the beginning of a full gene."
+          ]
+        ],
+        [
+          "Match and join",
+          [
+            "A tRNA carries an amino acid and has an anticodon that can pair with a complementary mRNA codon. The strands pair antiparallel. For mRNA 5′-AUG-3′, an aligned anticodon is 3′-UAC-5′.",
+            "Ribosomes contain rRNA and proteins. As matching tRNAs enter and the ribosome moves along the mRNA, amino acids are linked by peptide bonds. The growing chain is a polypeptide, which can later fold and undergo additional processing.",
+            "The mRNA is not physically converted into protein. It is read as information while amino acids are assembled from a separate supply."
+          ]
+        ],
+        [
+          "Stop at the signal and use the right table",
+          [
+            "UAA, UAG and UGA are stop codons in the standard code. A release factor helps terminate translation and release the chain. A stop codon does not recruit a tRNA carrying a “stop amino acid.”",
+            "Always use the mRNA codon, written 5′ to 3′, when looking up an amino acid. Convert a DNA template or anticodon first. A protein chain is described by amino-acid order; it does not have DNA-style 5′ and 3′ ends.",
+            "Use the codon reference included in this course. It provides the information needed for sequence questions without requiring a separate data booklet."
+          ]
+        ]
+      ],
+      "worked": {
+        "title": "Translate a complete short message",
+        "scenario": "A coding message is 5′-AUG UUU GGC UAA-3′. Translate from the first AUG.",
+        "steps": [
+          "AUG establishes the frame and contributes methionine (Met).",
+          "UUU specifies phenylalanine (Phe).",
+          "GGC specifies glycine (Gly).",
+          "UAA terminates translation and contributes no amino acid.",
+          "The chain is Met–Phe–Gly: three amino acids, not four."
+        ]
+      },
+      "guided": [
+        {
+          "prompt": "Which sequence should be used directly in a codon table?",
+          "answer": "mRNA written 5′ to 3′",
+          "wrong": [
+            "DNA template written 3′ to 5′",
+            "tRNA anticodon written 3′ to 5′"
+          ],
+          "explanation": "The table is indexed by mRNA codons.",
+          "cue": "Convert other sequences into the message first."
+        },
+        {
+          "prompt": "What does UGA normally contribute at the end of a coding message?",
+          "answer": "A termination signal, not an amino acid",
+          "wrong": [
+            "A glycine residue",
+            "A fourth base in the previous codon"
+          ],
+          "explanation": "UGA is a standard stop codon.",
+          "cue": "Do not count stop as part of the amino-acid chain."
+        }
+      ],
+      "check": [
+        {
+          "prompt": "How many amino acids are encoded by 5′-AUG GAA CCU UAG-3′ when translation starts at AUG?",
+          "answer": "Three",
+          "wrong": [
+            "Four",
+            "Twelve",
+            "Two"
+          ],
+          "explanation": "AUG, GAA and CCU specify amino acids; UAG stops translation.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        },
+        {
+          "prompt": "Which statement describes redundancy of the genetic code?",
+          "answer": "Several codons can specify the same amino acid",
+          "wrong": [
+            "A single codon always specifies several amino acids",
+            "Every amino acid has exactly one codon",
+            "DNA and amino acids use the same alphabet"
+          ],
+          "explanation": "Different codons can produce the same amino acid without ambiguity in a given codon.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "writing": [
+        {
+          "prompt": "Explain the different roles of mRNA, tRNA and the ribosome during translation.",
+          "model": "mRNA supplies codons. tRNAs use anticodons to match those codons and bring their associated amino acids. The ribosome positions the molecules and catalyses peptide-bond formation while moving through the message until a stop signal is reached.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        },
+        {
+          "prompt": "Explain why a stop codon is included in an mRNA sequence but excluded from the amino-acid count.",
+          "model": "The stop codon is read as a termination signal by release machinery rather than specifying an amino acid. The chain therefore contains only the amino acids specified by preceding translated codons.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        }
+      ],
+      "applications": [
+        {
+          "prompt": "An anticodon is shown as 3′-CGG-5′. Which codon should be looked up?",
+          "answer": "5′-GCC-3′",
+          "wrong": [
+            "5′-CGG-3′",
+            "3′-GCC-5′",
+            "5′-CGC-3′"
+          ],
+          "explanation": "Complementary antiparallel pairing identifies mRNA GCC, which specifies alanine.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "self": [
+        "Can you always reconstruct a unique mRNA from an amino-acid sequence?",
+        "No. Code redundancy allows several possible codons for many amino acids."
+      ],
+      "sequence": [
+        "Ribosome establishes the reading frame",
+        "A matching tRNA supplies an amino acid",
+        "Peptide bonds extend the chain",
+        "Ribosome advances along mRNA",
+        "A stop codon triggers chain release"
+      ],
+      "anchors": [
+        "codon",
+        "anticodon",
+        "reading frame",
+        "stop codon"
+      ],
+      "figures": {
+        "0": "ch18-translation",
+        "1": "ch18-source-translation"
+      }
+    },
+    {
+      "title": "Solving DNA, RNA and protein problems",
+      "question": "How do you avoid losing strand direction or the reading frame?",
+      "goal": "Solve sequence problems by identifying the supplied molecule, direction, frame and requested output.",
+      "prior": "Template DNA is complementary to mRNA; coding DNA matches it apart from T/U. Translation uses mRNA codons.",
+      "pages": [
+        638,
+        642
+      ],
+      "slides": [
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43
+      ],
+      "terms": [
+        {
+          "term": "reverse complement",
+          "meaning": "The complementary strand reported in the opposite displayed order so that it is written 5′ to 3′.",
+          "example": "Template DNA supplied 5′ to 3′ must be read from its other end to construct 5′ to 3′ RNA.",
+          "importantDistinction": "Complementing letters without tracking direction can reverse the message.",
+          "misconception": "Reversing a sequence alone always produces its complementary strand.",
+          "aliases": []
+        },
+        {
+          "term": "amino-acid sequence",
+          "meaning": "The ordered amino acids in a peptide or protein.",
+          "example": "Met–Lys–Gly describes three residues in order.",
+          "importantDistinction": "It uses amino-acid names rather than 5′ and 3′ nucleotide ends.",
+          "misconception": "An amino-acid sequence is a series of RNA bases.",
+          "aliases": []
+        },
+        {
+          "term": "coding segment",
+          "meaning": "A sequence region interpreted as codons in a specified reading frame.",
+          "example": "An internal coding fragment can be translated in its given frame without a start codon.",
+          "importantDistinction": "A practice fragment must state whether it is a complete message or an internal segment.",
+          "misconception": "Every short sequence problem must contain an entire gene.",
+          "aliases": []
+        },
+        {
+          "term": "sequence validation",
+          "meaning": "Checking molecule identity, direction, pairing and code interpretation against explicit rules.",
+          "example": "A reported RNA uses U rather than T and yields the stated peptide.",
+          "importantDistinction": "A plausible-looking sequence still needs a base-by-base check.",
+          "misconception": "If a sequence has the right length, its bases and direction must be correct.",
+          "aliases": []
+        }
+      ],
+      "sections": [
+        [
+          "Write the problem’s identity line first",
+          [
+            "Before changing any letters, write four things: the supplied molecule, its strand identity if it is DNA, the displayed direction, and the requested output. “DNA” alone is insufficient when a question expects an unambiguous mRNA sequence.",
+            "For coding DNA written 5′ to 3′, replace T with U. For template DNA written 3′ to 5′, construct the complementary RNA from left to right. For template DNA written 5′ to 3′, the RNA must be constructed from the template’s opposite end and reported 5′ to 3′.",
+            "Keep the direction labels visible until the final check. Removing them early is a common reason for getting correct pairings in the wrong order."
+          ]
+        ],
+        [
+          "Establish the frame before translating",
+          [
+            "For a complete simplified message, begin at the specified start AUG and stop at the first in-frame stop codon. Divide the sequence into triplets only after establishing the start. Bases before the start are not automatically translated.",
+            "For an explicitly stated internal coding segment, use the supplied reading frame. Such an exercise can ask for amino-acid identities without including the beginning of the protein. Do not invent a start or stop that the question does not provide.",
+            "A stretch coding for five amino acids contains fifteen coding nucleotides. An additional stop codon requires three more nucleotides but does not add an amino acid. State whether the question includes that signal."
+          ]
+        ],
+        [
+          "Check the result in both directions",
+          [
+            "Compare each RNA base with the template and compare the RNA with the coding DNA partner. Then consult the codon table one triplet at a time. Check that a stop has not been counted as an amino acid.",
+            "Several RNA sequences can produce the same peptide because of code redundancy. From a protein sequence alone, you can often give a possible RNA sequence, but not a unique original sequence.",
+            "The short sequences in these exercises are constructed teaching examples, not complete human genes or laboratory protocols."
+          ]
+        ]
+      ],
+      "worked": {
+        "title": "Handle a template supplied 5′ to 3′",
+        "scenario": "Template DNA is 5′-TTA CCC TTT CAT-3′. Find mRNA 5′ to 3′ and translate from its start.",
+        "steps": [
+          "Reverse the template’s displayed order before constructing the 5′ to 3′ RNA.",
+          "Complement the reversed template: the RNA is 5′-AUG AAA GGG UAA-3′.",
+          "Group from AUG: AUG / AAA / GGG / UAA.",
+          "The chain is Met–Lys–Gly; UAA stops translation.",
+          "Check that the RNA pairs antiparallel with the original template."
+        ]
+      },
+      "guided": [
+        {
+          "prompt": "Coding DNA is 5′-ATG AAA-3′. Which RNA follows?",
+          "answer": "5′-AUG AAA-3′",
+          "wrong": [
+            "5′-UAC UUU-3′",
+            "3′-AUG AAA-5′"
+          ],
+          "explanation": "The coding strand matches RNA after T/U replacement.",
+          "cue": "Do not complement a coding strand."
+        },
+        {
+          "prompt": "A region contains codons for four amino acids plus a stop codon. How many nucleotides are in that region?",
+          "answer": "15",
+          "wrong": [
+            "12",
+            "5"
+          ],
+          "explanation": "There are five triplets, although only four specify amino acids.",
+          "cue": "Count nucleotide triplets separately from amino acids."
+        }
+      ],
+      "check": [
+        {
+          "prompt": "Template DNA is 3′-TAC CTT AGG ATT-5′. Which peptide results?",
+          "answer": "Met–Glu–Ser",
+          "wrong": [
+            "Met–Gln–Ser",
+            "Tyr–Leu–Arg–Ile",
+            "Met–Glu–Ser–Stop"
+          ],
+          "explanation": "The RNA AUG GAA UCC UAA gives Met, Glu and Ser, then termination.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        },
+        {
+          "prompt": "Why can two different mRNAs encode the same peptide?",
+          "answer": "Several codons can specify the same amino acid",
+          "wrong": [
+            "The ribosome ignores every third codon",
+            "All mutations are removed during translation",
+            "Each codon has several unrelated meanings"
+          ],
+          "explanation": "The genetic code is redundant.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "writing": [
+        {
+          "prompt": "Solve this explicitly framed internal coding segment: coding DNA 5′-GCT TTT GGT-3′. Give mRNA and amino acids, and explain each conversion.",
+          "model": "Coding DNA matches RNA apart from T/U, giving 5′-GCU UUU GGU-3′. In the stated internal frame, GCU is Ala, UUU is Phe and GGU is Gly. No start is required because the question identifies an internal coding segment.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        },
+        {
+          "prompt": "A student translates an anticodon directly with the mRNA table. Explain how to correct the method.",
+          "model": "First construct the complementary antiparallel mRNA codon and report it 5′ to 3′. Use that codon in the table. For example, anticodon 3′-UAC-5′ pairs with codon 5′-AUG-3′, which specifies methionine.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        }
+      ],
+      "applications": [
+        {
+          "prompt": "Template DNA 5′-CTA TTC CAT-3′ is supplied. Which 5′ to 3′ mRNA is correct?",
+          "answer": "5′-AUG GAA UAG-3′",
+          "wrong": [
+            "5′-GAU AAG GUA-3′",
+            "5′-CUA UUC CAU-3′",
+            "5′-UAC CUU AUC-3′"
+          ],
+          "explanation": "Reverse-complementing the 5′ to 3′ template gives AUG GAA UAG.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "self": [
+        "Can a five-amino-acid chain uniquely reveal its original DNA coding sequence?",
+        "Usually not. Several codons can encode many amino acids."
+      ],
+      "sequence": null,
+      "anchors": [
+        "reverse complement",
+        "amino-acid sequence",
+        "coding segment",
+        "sequence validation"
+      ],
+      "figures": {}
+    },
+    {
+      "title": "Mutations and their effects on proteins",
+      "question": "Why can a one-base change have no effect, a small effect or a major effect?",
+      "goal": "Distinguish a DNA mutation from expression errors and explain substitution, frameshift and inheritance consequences.",
+      "prior": "Protein sequence depends on the mRNA reading frame and the genetic code. Several codons can specify the same amino acid.",
+      "pages": [
+        643,
+        647
+      ],
+      "slides": [
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50
+      ],
+      "terms": [
+        {
+          "term": "mutation",
+          "meaning": "A persistent change in a DNA sequence.",
+          "example": "A DNA base substitution remains after replication and repair.",
+          "importantDistinction": "An error in one RNA or protein molecule is not automatically a DNA mutation.",
+          "misconception": "Every temporary translation mistake changes the inherited DNA.",
+          "aliases": []
+        },
+        {
+          "term": "silent substitution",
+          "meaning": "A coding substitution that leaves the specified amino acid unchanged.",
+          "example": "mRNA UUA changing to UUG can still specify leucine.",
+          "importantDistinction": "Its classification concerns the specified coding effect, not a guarantee that every biological effect is absent.",
+          "misconception": "Every base substitution changes an amino acid.",
+          "aliases": []
+        },
+        {
+          "term": "nonsense mutation",
+          "meaning": "A coding change that introduces a premature stop codon.",
+          "example": "A translated UAU codon becomes UAA.",
+          "importantDistinction": "Its effect depends on where the stop occurs and the product involved.",
+          "misconception": "A premature stop always creates a longer protein.",
+          "aliases": []
+        },
+        {
+          "term": "frameshift",
+          "meaning": "A shift in reading frame caused by an insertion or deletion not divisible by three in a coding region.",
+          "example": "Deleting one coding nucleotide changes downstream triplets.",
+          "importantDistinction": "An insertion or deletion of three bases is not automatically a frameshift.",
+          "misconception": "Every three-base deletion shifts all downstream triplets.",
+          "aliases": []
+        }
+      ],
+      "sections": [
+        [
+          "Locate the change in DNA",
+          [
+            "A mutation is a persistent DNA sequence change. It may arise from replication errors or DNA damage that is not accurately repaired. An error during transcription or translation can alter an individual product without changing the DNA template itself.",
+            "A substitution replaces one base with another. In a coding region, its consequence depends on the resulting mRNA codon. A silent substitution leaves the amino acid unchanged; a missense substitution changes an amino acid; a nonsense mutation introduces a premature stop."
+          ]
+        ],
+        [
+          "Check the code rather than guessing severity",
+          [
+            "Consider the internal mRNA coding segment CAG UUA CCC. It specifies Gln–Leu–Pro. Changing UUA to UUG still gives leucine, a silent substitution. Changing UUA to UCA gives serine, a missense change. Changing it to UAA creates a stop signal.",
+            "The size of a change in DNA does not by itself determine the effect on the organism. Protein location, function, remaining sequence and other biological factors matter. A missense change can be important or relatively minor; a premature stop can remove a critical region."
+          ]
+        ],
+        [
+          "Track the frame and the lineage",
+          [
+            "An insertion or deletion of one nucleotide shifts the downstream triplet grouping. Insertions or deletions not divisible by three can therefore cause a frameshift in a translated region. Removing exactly three bases may remove an amino acid without shifting later codons.",
+            "A somatic mutation occurs in a body-cell lineage. It can affect that organism and descendant cells without usually entering its gametes. A germ-line mutation can be transmitted if it is present in a gamete that contributes to an offspring. “Can be inherited” does not mean every offspring receives it.",
+            "Mutations create new sequence variants. Selection and other population processes determine how their frequencies change; organisms do not produce the exact mutation they need on demand."
+          ]
+        ]
+      ],
+      "worked": {
+        "title": "Classify the actual coding effect",
+        "scenario": "An internal coding RNA sequence changes from 5′-CAG UUA CCC-3′ to 5′-CAG UUG CCC-3′ as a result of a DNA substitution.",
+        "steps": [
+          "The changed codon is UUA → UUG.",
+          "Use the mRNA table: both specify leucine.",
+          "The peptide remains Gln–Leu–Pro.",
+          "Classify the coding substitution as silent rather than assuming every base change alters the protein."
+        ]
+      },
+      "guided": [
+        {
+          "prompt": "UAU changes to UAA within a translated sequence. What is the coding effect?",
+          "answer": "Premature stop",
+          "wrong": [
+            "An unchanged tyrosine",
+            "An extra amino acid is added"
+          ],
+          "explanation": "UAU is Tyr and UAA is stop.",
+          "cue": "Look up both codons."
+        },
+        {
+          "prompt": "Which deletion necessarily shifts downstream triplets in an ordinary coding region?",
+          "answer": "One nucleotide",
+          "wrong": [
+            "Three nucleotides",
+            "Six nucleotides"
+          ],
+          "explanation": "One is not divisible by three.",
+          "cue": "Compare deletion size with codon length."
+        }
+      ],
+      "check": [
+        {
+          "prompt": "Which event is a DNA mutation rather than only an expression error?",
+          "answer": "A base substitution persists in the DNA sequence",
+          "wrong": [
+            "One ribosome inserts the wrong amino acid without a DNA change",
+            "One RNA has an incorrect base while DNA remains unchanged",
+            "A protein folds differently without any sequence change"
+          ],
+          "explanation": "A mutation changes DNA sequence.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        },
+        {
+          "prompt": "Which statement about inheritance is most accurate?",
+          "answer": "A germ-line mutation may be inherited if its gamete contributes to an offspring",
+          "wrong": [
+            "Every somatic mutation reaches every child",
+            "Every mutation is beneficial",
+            "A germ-line mutation must occur in all offspring"
+          ],
+          "explanation": "Transmission depends on the affected lineage and actual gamete contribution.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "writing": [
+        {
+          "prompt": "Use codon meanings to compare silent, missense and nonsense substitutions.",
+          "model": "A silent substitution changes a codon without changing its amino acid, such as UUA to UUG for leucine. A missense substitution changes the amino acid, such as UUA to UCA for serine. A nonsense change creates a premature stop, such as UUA to UAA. The biological effect depends on context.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        },
+        {
+          "prompt": "Explain why deleting three nucleotides can have a different effect from deleting one.",
+          "model": "A three-base deletion can remove one codon while leaving the downstream triplet grouping intact. A one-base deletion shifts that grouping, changing subsequent codons and potentially introducing an early stop. Both can matter, but they are not the same sequence event.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        }
+      ],
+      "applications": [
+        {
+          "prompt": "A mutation removes the last three bases of an internal coding region without changing its later frame. Which description is justified?",
+          "answer": "An in-frame deletion, not automatically a frameshift",
+          "wrong": [
+            "A guaranteed silent change",
+            "A frameshift because every deletion is one",
+            "A change to chromosome number rather than sequence"
+          ],
+          "explanation": "A multiple-of-three deletion can preserve the later reading frame.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "self": [
+        "Does natural selection create a needed mutation when an organism is challenged?",
+        "No. It can change the reproductive success of variants already present or arising independently."
+      ],
+      "sequence": null,
+      "anchors": [
+        "mutation",
+        "silent substitution",
+        "nonsense mutation",
+        "frameshift"
+      ],
+      "figures": {}
+    },
+    {
+      "title": "Recombination and sources of variation",
+      "question": "How can new allele combinations arise without a new mutation at every gene?",
+      "goal": "Distinguish mutation, recombination and transfer of existing genetic material.",
+      "prior": "Mutations change sequences. Meiosis can rearrange existing alleles among chromosomes and gametes.",
+      "pages": [
+        647,
+        651
+      ],
+      "slides": [
+        50,
+        51,
+        52,
+        53
+      ],
+      "terms": [
+        {
+          "term": "genetic recombination",
+          "meaning": "The production of new combinations of genetic material.",
+          "example": "Crossing over creates chromosomes carrying new combinations of existing alleles.",
+          "importantDistinction": "A new combination does not require every allele to be newly mutated.",
+          "misconception": "Every recombinant chromosome contains only new mutations.",
+          "aliases": []
+        },
+        {
+          "term": "conjugation",
+          "meaning": "Transfer of genetic material between bacterial cells through direct contact.",
+          "example": "A plasmid can be transferred from a donor to another bacterium.",
+          "importantDistinction": "Transfer changes genetic combinations without itself producing two daughter cells.",
+          "misconception": "Conjugation is the same event as binary fission.",
+          "aliases": []
+        },
+        {
+          "term": "transduction",
+          "meaning": "Transfer of bacterial genetic material mediated by a virus.",
+          "example": "A bacteriophage carries bacterial DNA between cells.",
+          "importantDistinction": "The carrier is a virus, unlike uptake of free DNA in transformation.",
+          "misconception": "Transduction always requires the fusion of sperm and egg.",
+          "aliases": []
+        },
+        {
+          "term": "mitochondrial DNA",
+          "meaning": "DNA located in mitochondria rather than in the nuclear chromosomes.",
+          "example": "Mitochondrial sequences can be compared in studies of maternal lineages.",
+          "importantDistinction": "The usual human inheritance model is predominantly maternal, and it represents only one part of ancestry.",
+          "misconception": "Mitochondrial DNA alone describes every ancestor of an individual.",
+          "aliases": [
+            "mtDNA"
+          ]
+        }
+      ],
+      "sections": [
+        [
+          "Separate new sequences from new combinations",
+          [
+            "A mutation can create a new allele. Recombination can bring existing alleles together in new arrangements. During meiosis, crossing over exchanges corresponding DNA between non-sister chromatids, and independent assortment distributes homologues into gametes.",
+            "Random fertilization adds another level of combination. An offspring can therefore differ from both parents without every difference requiring a new mutation. Keep the origin of a sequence variant separate from its reassortment."
+          ]
+        ],
+        [
+          "Bacteria exchange genetic material in several ways",
+          [
+            "Bacteria normally reproduce by binary fission, but they can also acquire DNA from other sources. Transformation involves uptake of external DNA. Conjugation involves direct contact and transfer, often including plasmids. Transduction involves a virus carrying bacterial genetic material.",
+            "These mechanisms can introduce traits into a bacterial lineage. They are not the same as mitosis or the production and fusion of animal gametes. The important question is how the DNA enters and how it can persist in descendants.",
+            "A transferred sequence must be maintained and expressed in an appropriate context to affect a phenotype. Detecting DNA outside a cell is not enough to establish a stable inherited change."
+          ]
+        ],
+        [
+          "Mitochondrial DNA records a particular lineage",
+          [
+            "Mitochondria contain their own DNA, consistent with their evolutionary origin through endosymbiosis. In the usual human model, mitochondrial inheritance is predominantly maternal because the egg contributes the mitochondria retained in the embryo.",
+            "Comparing mtDNA can inform relationships along maternal lineages. It does not represent the entire nuclear genome or all branches of ancestry. Similarity of a short sequence is evidence to interpret, not a complete family history.",
+            "Do not assume mitochondrial variants are always harmless. Like other sequence changes, their effects depend on the genes and biological processes involved."
+          ]
+        ]
+      ],
+      "worked": {
+        "title": "Identify the route of transfer",
+        "scenario": "A bacterium acquires DNA carried by a bacteriophage, and its descendants retain an associated trait.",
+        "steps": [
+          "The carrier is a virus, which identifies transduction.",
+          "Retention in descendants supports a heritable genetic change rather than temporary external contamination.",
+          "This is distinct from transformation by free DNA or conjugation through contact.",
+          "The transferred allele may already have existed in another bacterium; transfer need not create it by mutation."
+        ]
+      },
+      "guided": [
+        {
+          "prompt": "Which event rearranges existing alleles between homologues?",
+          "answer": "Crossing over",
+          "wrong": [
+            "Translation",
+            "Cytokinesis alone"
+          ],
+          "explanation": "Crossing over exchanges corresponding chromatid segments.",
+          "cue": "Look for exchange of DNA, not just division of cytoplasm."
+        },
+        {
+          "prompt": "Which transfer mechanism uses a virus?",
+          "answer": "Transduction",
+          "wrong": [
+            "Transformation by free DNA",
+            "Conjugation"
+          ],
+          "explanation": "A viral carrier distinguishes transduction.",
+          "cue": "Identify the carrier or route."
+        }
+      ],
+      "check": [
+        {
+          "prompt": "A bacterium takes up free DNA from its environment. What is the process?",
+          "answer": "Transformation",
+          "wrong": [
+            "Meiosis",
+            "Transduction",
+            "Fertilization"
+          ],
+          "explanation": "Transformation involves uptake of external free DNA.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        },
+        {
+          "prompt": "Why is mtDNA not a complete record of all human ancestry?",
+          "answer": "It follows a particular predominantly maternal inheritance route",
+          "wrong": [
+            "It contains every nuclear chromosome",
+            "It is inherited equally from every past relative",
+            "It never changes over generations"
+          ],
+          "explanation": "One genetic lineage is not every branch of ancestry.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "writing": [
+        {
+          "prompt": "Explain how mutation and recombination contribute differently to variation.",
+          "model": "Mutation creates sequence changes that can produce new alleles. Recombination rearranges genetic material, including existing alleles, into new combinations. Both can generate variation, but the origin of an allele differs from reshuffling its combinations.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        },
+        {
+          "prompt": "Compare transformation, conjugation and transduction by the route of DNA transfer.",
+          "model": "Transformation involves uptake of free external DNA. Conjugation uses direct contact between cells to transfer material. Transduction uses a virus as a carrier. None should be described as the same event as bacterial cell division.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        }
+      ],
+      "applications": [
+        {
+          "prompt": "A new bacterial lineage contains a resistance allele identical to one in another population. Does this alone prove a new mutation occurred in the recipient?",
+          "answer": "No; transfer of an existing allele is another explanation",
+          "wrong": [
+            "Yes; DNA cannot move between bacteria",
+            "Yes; every inherited trait requires a new mutation",
+            "No; because bacteria have no genetic material"
+          ],
+          "explanation": "Existing alleles can move through horizontal transfer mechanisms.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "self": [
+        "Does a recombinant organism necessarily have a larger chromosome number?",
+        "No. New allele combinations can arise without changing chromosome number."
+      ],
+      "sequence": null,
+      "anchors": [
+        "genetic recombination",
+        "conjugation",
+        "transduction",
+        "mitochondrial DNA"
+      ],
+      "figures": {}
+    },
+    {
+      "title": "Recombinant DNA and genetic engineering",
+      "question": "What must happen for a transferred gene to produce a useful product?",
+      "goal": "Explain the conceptual roles of restriction enzymes, ligase, vectors and expression in recombinant-DNA technology.",
+      "prior": "Genes carry sequences, but a cell must have a compatible expression system to use them.",
+      "pages": [
+        652,
+        655
+      ],
+      "slides": [
+        54,
+        55,
+        56,
+        57,
+        58
+      ],
+      "terms": [
+        {
+          "term": "recombinant DNA",
+          "meaning": "A DNA molecule assembled from genetic material from different sources.",
+          "example": "A plasmid carries an inserted coding sequence.",
+          "importantDistinction": "Recombinant DNA describes the assembled molecule, not a guarantee of protein production.",
+          "misconception": "Any mixture of separate DNA molecules is automatically a functional recombinant gene.",
+          "aliases": []
+        },
+        {
+          "term": "restriction enzyme",
+          "meaning": "An enzyme that cuts DNA at particular recognition sequences.",
+          "example": "Matching cuts can create compatible ends on an insert and vector.",
+          "importantDistinction": "Different enzymes recognize different sequences.",
+          "misconception": "Restriction enzymes cut every DNA molecule at an arbitrary identical distance.",
+          "aliases": []
+        },
+        {
+          "term": "plasmid vector",
+          "meaning": "A small DNA molecule used to carry an inserted sequence into a host.",
+          "example": "An engineered bacterial plasmid carries a coding sequence and appropriate regulatory elements.",
+          "importantDistinction": "A plasmid is not the whole bacterial chromosome.",
+          "misconception": "A plasmid is a membrane-bounded nucleus.",
+          "aliases": []
+        },
+        {
+          "term": "gene expression system",
+          "meaning": "The regulatory and cellular context that allows a gene’s product to be made.",
+          "example": "A host requires suitable signals to transcribe and translate an inserted sequence.",
+          "importantDistinction": "An inserted DNA sequence is not automatically expressed in every host.",
+          "misconception": "Every host expresses every inserted sequence without compatible signals.",
+          "aliases": []
+        }
+      ],
+      "sections": [
+        [
+          "Join a sequence with a carrier",
+          [
+            "Genetic engineering can assemble DNA from different sources. A vector carries a sequence into a host where it may be maintained and expressed. Plasmids are one type of vector; they are small DNA molecules separate from the main bacterial chromosome.",
+            "Restriction enzymes recognize particular DNA sequences and cut the backbone. Some cuts leave overhanging “sticky ends” that can pair with complementary ends. DNA ligase seals the backbone connections to form a joined molecule.",
+            "Matching ends help the pieces fit, but simply mixing DNA is not enough to guarantee the correct arrangement or a functional product."
+          ]
+        ],
+        [
+          "Make the information usable by the host",
+          [
+            "A transferred gene must be linked to appropriate expression signals and interpreted by the host machinery. Many human genes contain introns. Bacteria do not normally process human introns in the same way as human cells, so a suitable intron-free coding sequence may be used.",
+            "Complementary DNA, or cDNA, can be made from a processed RNA template. This provides one route to an intron-free sequence. The conceptual point is that the host must receive usable coding information, not just any piece cut from a human chromosome.",
+            "Production of a human protein in bacteria therefore depends on both the sequence and the expression context. The insulin example illustrates a biological manufacturing principle rather than a complete laboratory protocol."
+          ]
+        ],
+        [
+          "Verify several different claims",
+          [
+            "Finding an insert shows that DNA is present. Detecting its RNA supports transcription. Detecting the intended protein supports expression, while demonstrating its biological activity tests function. These are related but distinct claims.",
+            "A useful evaluation asks what was changed, what product was measured, how it was compared with a control and whether unintended effects were examined. Avoid treating “genetically modified” as a single guaranteed outcome shared by all organisms and technologies.",
+            "Use the mechanism to interpret evidence. Do not infer safety, effectiveness or environmental performance solely from a technology’s name."
+          ]
+        ]
+      ],
+      "worked": {
+        "title": "DNA presence is not protein function",
+        "scenario": "A host contains an inserted coding sequence, but no protein measurement is provided.",
+        "steps": [
+          "The DNA result supports successful presence of the insert.",
+          "It does not establish that the host transcribed or translated it.",
+          "Further measurements would be needed to demonstrate the intended protein and its function.",
+          "A compatible regulatory context helps explain why insertion and expression are different steps."
+        ]
+      },
+      "guided": [
+        {
+          "prompt": "Which enzyme seals a joined DNA backbone?",
+          "answer": "DNA ligase",
+          "wrong": [
+            "A ribosome",
+            "Helicase"
+          ],
+          "explanation": "Ligase creates the continuous backbone connection.",
+          "cue": "Distinguish joining DNA from joining amino acids."
+        },
+        {
+          "prompt": "Why might intron-free coding DNA be useful in a bacterial expression system?",
+          "answer": "Bacteria do not normally splice human introns in the same way",
+          "wrong": [
+            "Bacteria have no ribosomes",
+            "Introns are required to be translated as amino acids"
+          ],
+          "explanation": "The host must receive an interpretable coding sequence.",
+          "cue": "Consider RNA processing differences between the host and donor."
+        }
+      ],
+      "check": [
+        {
+          "prompt": "Which statement best describes a vector?",
+          "answer": "A carrier for a sequence introduced into a host",
+          "wrong": [
+            "An amino acid that replaces DNA",
+            "A guarantee that an inserted gene will be expressed",
+            "A copy of every chromosome in the donor"
+          ],
+          "explanation": "A vector carries DNA; function also depends on context.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        },
+        {
+          "prompt": "Which evidence most directly tests whether a produced protein performs its intended role?",
+          "answer": "An appropriate activity measurement compared with controls",
+          "wrong": [
+            "Only detecting an unrelated plasmid sequence",
+            "Only counting the host cells",
+            "Only observing that DNA fragments were mixed"
+          ],
+          "explanation": "Protein presence and biological activity are separate claims.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "writing": [
+        {
+          "prompt": "Trace the conceptual roles of a restriction enzyme, a vector and ligase in making recombinant DNA.",
+          "model": "Restriction enzymes cut DNA at specific recognition sites, potentially producing compatible ends. A vector carries the inserted sequence. Ligase seals the backbone after compatible fragments are arranged. Host entry and expression are additional requirements, not automatic consequences of joining.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        },
+        {
+          "prompt": "Explain why a human gene placed in a bacterium may need an intron-free coding sequence and suitable regulatory elements.",
+          "model": "Bacteria do not normally perform human RNA splicing, so introns can interfere with producing the intended coding message. Suitable regulatory elements are also needed for transcription and translation in the host. Sequence presence alone does not guarantee a functional protein.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        }
+      ],
+      "applications": [
+        {
+          "prompt": "Two hosts receive the same coding insert, but only one produces the protein. Which explanation is consistent with gene expression?",
+          "answer": "The hosts differ in whether their regulatory and cellular context supports expression",
+          "wrong": [
+            "DNA base pairing must have stopped existing in one host",
+            "The genetic code contains no information",
+            "Protein production depends only on the length of the plasmid"
+          ],
+          "explanation": "Expression requires compatible regulation and cellular machinery.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "self": [
+        "Does a recombinant-DNA label alone establish an organism’s environmental impact?",
+        "No. Specific traits, exposure and measured outcomes must be evaluated."
+      ],
+      "sequence": [
+        "A suitable coding sequence and vector are prepared",
+        "Compatible DNA ends are brought together",
+        "Ligase seals the recombinant molecule",
+        "The vector enters a compatible host",
+        "Expression and product function are evaluated"
+      ],
+      "anchors": [
+        "recombinant DNA",
+        "restriction enzyme",
+        "plasmid vector",
+        "gene expression system"
+      ],
+      "figures": {
+        "0": "ch18-recombinant"
+      }
+    },
+    {
+      "title": "PCR, gels and interpreting DNA profiles",
+      "question": "What can a banding pattern support, and what can it not prove?",
+      "goal": "Explain DNA amplification and fragment separation, then interpret profiles within their limits.",
+      "prior": "DNA is a negatively charged nucleotide polymer. A measured pattern must be linked with the method that produced it.",
+      "pages": [
+        655,
+        660
+      ],
+      "slides": [
+        59,
+        60,
+        61
+      ],
+      "terms": [
+        {
+          "term": "polymerase chain reaction",
+          "meaning": "A method that amplifies a selected DNA region through repeated cycles.",
+          "example": "A defined region is copied many times using primers and a heat-stable polymerase.",
+          "importantDistinction": "Amplification increases copies of a selected region, not automatically every chromosome.",
+          "misconception": "PCR is a method for translating DNA directly into protein.",
+          "aliases": [
+            "PCR"
+          ]
+        },
+        {
+          "term": "gel electrophoresis",
+          "meaning": "Separation of molecules by movement through a gel under an electric field.",
+          "example": "DNA fragments move toward the positive electrode.",
+          "importantDistinction": "Fragment size affects movement through the gel.",
+          "misconception": "DNA normally migrates toward the negative electrode in a standard DNA gel.",
+          "aliases": []
+        },
+        {
+          "term": "DNA ladder",
+          "meaning": "A set of DNA fragments of known sizes used as a reference in a gel.",
+          "example": "A sample band is compared with reference bands to estimate fragment length.",
+          "importantDistinction": "The ladder provides a size reference, not an individual’s entire genome.",
+          "misconception": "The ladder is the direction of DNA synthesis.",
+          "aliases": []
+        },
+        {
+          "term": "DNA profile",
+          "meaning": "A pattern based on selected variable DNA regions used for comparison.",
+          "example": "Bands or marker results are compared between samples.",
+          "importantDistinction": "A compatible profile is evidence, not by itself a complete explanation of how material arrived.",
+          "misconception": "A matching profile alone proves the circumstances of a crime.",
+          "aliases": []
+        }
+      ],
+      "sections": [
+        [
+          "Amplify a selected region",
+          [
+            "PCR increases the amount of a selected DNA region. Repeated cycles separate the strands, allow primers to bind, and use a heat-stable DNA polymerase to extend new strands. Primers define the region to be copied.",
+            "In an idealized model, each complete cycle doubles the number of target molecules. Starting from one target molecule, three ideal cycles produce eight. Real reactions may not double perfectly throughout, so the model is a calculation aid rather than a guarantee about every experiment."
+          ]
+        ],
+        [
+          "Read a gel from wells toward the positive end",
+          [
+            "DNA has a negative charge because of its phosphate backbone. In a standard DNA gel, an electric field draws fragments toward the positive electrode. Smaller fragments usually travel farther through the gel than larger fragments under the same conditions.",
+            "Samples are loaded into separate lanes. A DNA ladder provides fragments of known sizes for comparison. Identify the wells, migration direction and ladder before interpreting a band position.",
+            "A band represents many molecules of similar length, not one whole cell. Two fragments can have the same length without necessarily having identical sequences."
+          ]
+        ],
+        [
+          "Compare patterns without overstating identity",
+          [
+            "DNA profiling compares selected markers rather than reading every nucleotide in the genome. In a simplified classroom matching problem, compare the complete supplied pattern, not just one shared band. Excluding a sample that lacks required bands differs from proving every circumstance associated with a compatible sample.",
+            "In a simplified parentage exercise, each child marker must be explainable by inheritance from the proposed parents. Account for the maternal contributions before comparing the remaining markers with possible paternal contributions.",
+            "Actual interpretation also considers laboratory quality, contamination, relatedness and statistical evidence. A classroom gel cannot by itself establish guilt, consent or the circumstances in which material was deposited."
+          ]
+        ]
+      ],
+      "worked": {
+        "title": "Read distance as fragment size",
+        "scenario": "In one lane, band A remains near the wells and band B travels farther toward the positive electrode.",
+        "steps": [
+          "Identify the wells as the loading end.",
+          "Confirm that DNA moved toward the positive electrode.",
+          "Under the same run conditions, the farther band B corresponds to smaller fragments than A.",
+          "Use a ladder to estimate sizes; distance alone does not identify the full sequence."
+        ]
+      },
+      "guided": [
+        {
+          "prompt": "Which direction does DNA move in a standard electrophoresis gel?",
+          "answer": "Toward the positive electrode",
+          "wrong": [
+            "Toward the negative electrode",
+            "Only back into the wells"
+          ],
+          "explanation": "Its negative charge drives movement toward the positive end.",
+          "cue": "Link molecular charge with attraction."
+        },
+        {
+          "prompt": "From two target molecules, three ideal doubling cycles yield how many?",
+          "answer": "16",
+          "wrong": [
+            "6",
+            "8"
+          ],
+          "explanation": "Two × 2³ = 16.",
+          "cue": "Multiply the initial count by a power of two."
+        }
+      ],
+      "check": [
+        {
+          "prompt": "Under equal gel conditions, which DNA fragments normally travel farthest?",
+          "answer": "The smaller fragments",
+          "wrong": [
+            "The largest fragments",
+            "The fragments with the most chromosomes",
+            "All fragments travel the same distance"
+          ],
+          "explanation": "Smaller fragments move through the gel matrix more readily.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        },
+        {
+          "prompt": "A sample profile matches a reference in the markers tested. Which conclusion is justified?",
+          "answer": "The profiles are compatible at the tested markers",
+          "wrong": [
+            "The result alone proves how the DNA was deposited",
+            "Every nucleotide in both genomes has been sequenced",
+            "No other evidence is needed for any investigation"
+          ],
+          "explanation": "A marker match has a defined evidentiary scope.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "writing": [
+        {
+          "prompt": "Explain the purpose of PCR and distinguish it from gel electrophoresis.",
+          "model": "PCR amplifies a selected DNA region by repeated copying. Gel electrophoresis separates fragments according to their movement through a gel under an electric field, commonly reflecting size. Amplifying material and separating it are different tasks that can be used together.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        },
+        {
+          "prompt": "Describe how to examine a simplified child–parent DNA profile without relying on one shared band.",
+          "model": "Compare the whole supplied marker set. Identify child markers explainable by the known parent, then test whether the proposed other parent accounts for the remaining contributions. A partial match does not satisfy the complete simplified inheritance model, and real conclusions require additional quality and statistical context.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        }
+      ],
+      "applications": [
+        {
+          "prompt": "A sample band aligns with a 400-base-pair ladder band. What does this most directly support?",
+          "answer": "An approximate fragment length of 400 base pairs",
+          "wrong": [
+            "Proof that the sample is from one particular person",
+            "A protein chain of 400 amino acids",
+            "The exact sequence of all 400 base pairs"
+          ],
+          "explanation": "A ladder estimates size, not complete identity or sequence.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "self": [
+        "Does a same-size DNA band necessarily mean the full sequences are identical?",
+        "No. Different sequences can have the same fragment length."
+      ],
+      "sequence": [
+        "Identify wells and electrode direction",
+        "Compare a sample lane with the size ladder",
+        "Estimate fragment sizes",
+        "Compare all relevant marker positions",
+        "State compatibility and limits of the evidence"
+      ],
+      "anchors": [
+        "polymerase chain reaction",
+        "gel electrophoresis",
+        "DNA ladder",
+        "DNA profile"
+      ],
+      "figures": {
+        "0": "ch18-gel"
+      }
+    },
+    {
+      "title": "Genetic technologies and evidence-based decisions",
+      "question": "How do we distinguish a promising result from an unsupported claim?",
+      "goal": "Compare sequencing, cloning and gene-based interventions by their mechanism, evidence and limits.",
+      "prior": "Finding DNA, expressing a product and demonstrating a useful effect are different evidentiary steps.",
+      "pages": [
+        660,
+        661
+      ],
+      "slides": [
+        53,
+        54,
+        58,
+        59,
+        60,
+        61
+      ],
+      "terms": [
+        {
+          "term": "DNA sequencing",
+          "meaning": "Determining the order of nucleotides in a DNA molecule.",
+          "example": "A region is read to identify sequence differences.",
+          "importantDistinction": "Knowing sequence does not automatically explain every functional effect.",
+          "misconception": "Sequencing directly guarantees a cure for every condition.",
+          "aliases": []
+        },
+        {
+          "term": "cloning",
+          "meaning": "Producing genetically very similar copies of a DNA molecule, cell or organism by a specified method.",
+          "example": "A DNA region is copied, or an organism develops from transferred nuclear material.",
+          "importantDistinction": "Cloning DNA and cloning an entire organism are different tasks.",
+          "misconception": "Every use of the word cloning means producing a whole animal.",
+          "aliases": []
+        },
+        {
+          "term": "gene-based intervention",
+          "meaning": "An intervention intended to change, replace or alter the use of genetic information.",
+          "example": "A proposed approach aims to restore a missing cellular function.",
+          "importantDistinction": "Delivery, target specificity and functional outcomes require testing.",
+          "misconception": "Changing one DNA sequence guarantees that all tissues function normally.",
+          "aliases": []
+        },
+        {
+          "term": "evidence limitation",
+          "meaning": "A boundary on what a study or observation can establish.",
+          "example": "A result in cultured cells does not by itself prove whole-organism benefit.",
+          "importantDistinction": "Limitations help specify the next test rather than making evidence worthless.",
+          "misconception": "Any limitation means an experiment provides no information.",
+          "aliases": []
+        }
+      ],
+      "sections": [
+        [
+          "Identify what the technology actually does",
+          [
+            "Sequencing determines base order. PCR increases copies of a selected region. Recombinant-DNA methods assemble genetic material, while cloning may refer to copies of DNA, cells or whole organisms. These terms are related but not interchangeable.",
+            "A proposed gene-based intervention might replace missing function, alter expression or change a sequence in target cells. Its success depends on reaching the appropriate cells, achieving the intended change and avoiding unacceptable unintended effects.",
+            "A result in one cell type or experimental system cannot automatically be generalized to every tissue or organism."
+          ]
+        ],
+        [
+          "Separate a measured result from a broad claim",
+          [
+            "Suppose a hypothetical intervention increases production of a protein in cultured cells. That supports a change in expression under those conditions. It does not alone demonstrate improved organ function, long-term benefit or acceptable safety in a whole organism.",
+            "A stronger evaluation would ask about comparison groups, reproducibility, functional measurements, unintended changes and duration. These are questions about the evidence needed, not a prediction that every promising technology will succeed or fail.",
+            "The examples here teach how to evaluate mechanisms and claims. They are not recommendations for personal testing, treatment or laboratory work."
+          ]
+        ],
+        [
+          "Include people and environments in the question",
+          [
+            "Genetic information can affect individuals and biological relatives. Research and applications raise questions about informed consent, privacy, access and how benefits and uncertainties are communicated. Environmental applications also require evidence about the affected populations and ecological setting.",
+            "A clear response distinguishes scientific findings from value-based choices. Explain what a technology does, what outcomes have actually been measured in the supplied case, and what remains unknown. Do not replace evidence with either enthusiasm about a label or fear of the label.",
+            "No personal DNA or family medical information is required for these activities."
+          ]
+        ]
+      ],
+      "worked": {
+        "title": "Evaluate a culture-to-organ claim",
+        "scenario": "A hypothetical company observes increased enzyme production in a dish and advertises that it has restored normal organ function.",
+        "steps": [
+          "The measured result is enzyme production in cultured cells.",
+          "The advertised conclusion concerns whole-organ function, a different level.",
+          "Ask for evidence that the enzyme is functional and that relevant tissue processes improve.",
+          "Long-term and unintended effects also need evaluation.",
+          "The culture result can be useful without supporting the complete advertised claim."
+        ]
+      },
+      "guided": [
+        {
+          "prompt": "Which method determines nucleotide order?",
+          "answer": "DNA sequencing",
+          "wrong": [
+            "Gel distance alone",
+            "Counting chromosomes by eye"
+          ],
+          "explanation": "Sequencing reads base order.",
+          "cue": "Distinguish size comparison from sequence determination."
+        },
+        {
+          "prompt": "What additional result most directly strengthens a claim of restored enzyme function?",
+          "answer": "A controlled measurement of enzyme activity",
+          "wrong": [
+            "Only a new name for the DNA construct",
+            "Only a picture of the culture dish"
+          ],
+          "explanation": "Function must be measured, not inferred from appearance alone.",
+          "cue": "Match the measurement with the specific claim."
+        }
+      ],
+      "check": [
+        {
+          "prompt": "A useful result is found in one cell type. Which statement is appropriate?",
+          "answer": "Generalization to other tissues needs evidence",
+          "wrong": [
+            "Every tissue must respond identically",
+            "The result contains no information at all",
+            "All safety questions are already resolved"
+          ],
+          "explanation": "Cell type and biological context can affect outcomes.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        },
+        {
+          "prompt": "Which distinction should an evidence-based technology evaluation preserve?",
+          "answer": "What was measured versus what is proposed or hoped for",
+          "wrong": [
+            "Technology names versus all biological mechanisms",
+            "A guaranteed benefit versus an impossible risk",
+            "Only the size of a research institution"
+          ],
+          "explanation": "Claims should match the measured evidence.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "writing": [
+        {
+          "prompt": "Compare PCR, sequencing and cloning without treating the terms as synonyms.",
+          "model": "PCR amplifies a selected DNA region. Sequencing determines nucleotide order. Cloning produces copies of a specified DNA molecule, cell or organism depending on the method. They can be used in related work but answer different technical questions.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        },
+        {
+          "prompt": "Evaluate the hypothetical company’s culture-to-organ claim using two additional kinds of evidence.",
+          "model": "Increased protein in cultured cells does not establish normal organ function. A functional activity measurement would test whether the product works, and relevant tissue or organ measurements would test the larger outcome. Duration, reproducibility and unintended effects would also matter. The current evidence supports a narrower claim.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        }
+      ],
+      "applications": [
+        {
+          "prompt": "A genetic intervention changes a target sequence but the intended biological function remains unmeasured. What is established?",
+          "answer": "The sequence change, not yet the intended functional benefit",
+          "wrong": [
+            "A guaranteed complete cure",
+            "No genetic change of any kind",
+            "That every tissue has the same response"
+          ],
+          "explanation": "Molecular modification and functional outcome are separate evidence levels.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "self": [
+        "Is a limitation the same as proof that a result is useless?",
+        "No. It defines the scope of the result and what still needs testing."
+      ],
+      "sequence": null,
+      "anchors": [
+        "DNA sequencing",
+        "cloning",
+        "gene-based intervention",
+        "evidence limitation"
+      ],
+      "figures": {}
+    }
+  ],
+  "final": {
+    "mc": [
+      {
+        "prompt": "Which finding connected DNA with transforming activity?",
+        "answer": "DNA-destroying treatment removed transformation",
+        "wrong": [
+          "All killed bacteria always caused disease",
+          "Every protein entered an infected cell",
+          "A codon table identified the bacterium"
+        ],
+        "explanation": "Avery and colleagues used selective treatments to test the active component.",
+        "cue": "Trace the normal mechanism before choosing an answer."
+      },
+      {
+        "prompt": "What does semiconservative replication produce?",
+        "answer": "DNA molecules each containing one parental and one new strand",
+        "wrong": [
+          "One entirely old molecule and one entirely new molecule",
+          "RNA molecules with no parental information",
+          "Four homologous chromosome sets"
+        ],
+        "explanation": "Each parental strand templates a complementary new strand.",
+        "cue": "Trace the normal mechanism before choosing an answer."
+      },
+      {
+        "prompt": "Coding DNA 5′-ATG CAA TGA-3′ corresponds to which mRNA?",
+        "answer": "5′-AUG CAA UGA-3′",
+        "wrong": [
+          "5′-UAC GUU ACU-3′",
+          "3′-AUG CAA UGA-5′",
+          "5′-ATG CAA TGA-3′"
+        ],
+        "explanation": "Coding DNA matches RNA apart from T/U.",
+        "cue": "Trace the normal mechanism before choosing an answer."
+      },
+      {
+        "prompt": "Translation of 5′-AUG CAA UGA-3′ yields which chain?",
+        "answer": "Met–Gln",
+        "wrong": [
+          "Met–Glu",
+          "Met–Gln–Stop",
+          "Tyr–Val–Thr"
+        ],
+        "explanation": "CAA specifies glutamine; UGA terminates.",
+        "cue": "Trace the normal mechanism before choosing an answer."
+      },
+      {
+        "prompt": "A one-base deletion in an ordinary coding region most directly changes what?",
+        "answer": "The downstream reading frame",
+        "wrong": [
+          "The number of homologous chromosome pairs automatically",
+          "Every RNA molecule into DNA",
+          "All codons before the deletion"
+        ],
+        "explanation": "Deleting one nucleotide changes downstream triplet grouping.",
+        "cue": "Trace the normal mechanism before choosing an answer."
+      },
+      {
+        "prompt": "What does a matching band length in a gel establish most directly?",
+        "answer": "Similar fragment length under the run conditions",
+        "wrong": [
+          "Identical entire genomes",
+          "Proof of the circumstances of sample deposition",
+          "An exact protein sequence"
+        ],
+        "explanation": "Size similarity is narrower than complete identity.",
+        "cue": "Trace the normal mechanism before choosing an answer."
+      }
+    ],
+    "writing": [
+      {
+        "prompt": "Starting from a labelled DNA strand, explain how to obtain an mRNA sequence and a peptide while avoiding the main errors.",
+        "model": "Identify coding versus template strand and direction. Coding DNA 5′ to 3′ matches RNA with U instead of T; a template requires complementary antiparallel RNA. Establish the start or specified internal frame, use mRNA codons in the table and stop at an in-frame stop without counting it as an amino acid. Validate every conversion.",
+        "criteria": [
+          "Identifies the relevant structures or quantities.",
+          "Explains the causal relationship or calculation, not just the final result.",
+          "Uses the stated evidence and avoids a stronger conclusion than it supports."
+        ]
+      },
+      {
+        "prompt": "Compare evidence for a DNA sequence, a protein product and a biological effect in a genetic-technology case.",
+        "model": "A DNA measurement establishes sequence presence or change. RNA or protein measurements test expression, while activity and organism-level measurements address function and benefit. Each supports a different claim; the largest claim needs evidence at the relevant biological level and suitable controls.",
+        "criteria": [
+          "Identifies the relevant structures or quantities.",
+          "Explains the causal relationship or calculation, not just the final result.",
+          "Uses the stated evidence and avoids a stronger conclusion than it supports."
+        ]
+      }
+    ]
+  },
+  "transfer": {
+    "mc": [
+      {
+        "prompt": "Template DNA is 3′-TAC AAA CCG ACT-5′. What peptide is produced from its start?",
+        "answer": "Met–Phe–Gly",
+        "wrong": [
+          "Met–Lys–Pro",
+          "Tyr–Lys–Pro–Thr",
+          "Met–Phe–Gly–Stop"
+        ],
+        "explanation": "RNA AUG UUU GGC UGA yields Met–Phe–Gly, then stop.",
+        "cue": "Trace the normal mechanism before choosing an answer."
+      },
+      {
+        "prompt": "A coding substitution changes RNA GAA to GAG. Both specify glutamate. How is its coding effect classified?",
+        "answer": "Silent",
+        "wrong": [
+          "Nonsense",
+          "Frameshift",
+          "Missense"
+        ],
+        "explanation": "The amino acid is unchanged.",
+        "cue": "Trace the normal mechanism before choosing an answer."
+      },
+      {
+        "prompt": "A proposed DNA treatment produces a target protein in cells, but organ performance is untested. Which claim is supported?",
+        "answer": "Protein production in the tested cells",
+        "wrong": [
+          "Normal organ function is fully restored",
+          "Long-term safety is established",
+          "Every tissue received the DNA"
+        ],
+        "explanation": "The evidence directly concerns expression in the tested cells.",
+        "cue": "Trace the normal mechanism before choosing an answer."
+      }
+    ],
+    "writing": {
+      "prompt": "A student says the farther band in a DNA gel must be a larger molecule because it travelled more. Correct the explanation and state a limit of the conclusion.",
+      "model": "Under comparable standard conditions, smaller DNA fragments move farther through the gel toward the positive electrode. A ladder supports a size estimate. Distance does not by itself establish the complete base sequence, a unique identity or the circumstances associated with a sample.",
+      "criteria": [
+        "Identifies the relevant structures or quantities.",
+        "Explains the causal relationship or calculation, not just the final result.",
+        "Uses the stated evidence and avoids a stronger conclusion than it supports."
+      ]
+    }
+  },
+  "extension": {
+    "title": "Biotechnology and unintended consequences",
+    "question": "How can a useful intended effect be evaluated alongside other effects?",
+    "sections": [
+      [
+        "A bounded hypothetical case",
+        [
+          "A hypothetical plant line is engineered to produce a protein that reduces feeding by one insect. In a controlled plot, leaf damage is lower than in an otherwise comparable line. No measurements of other organisms or long-term population changes are supplied.",
+          "The result supports reduced damage in the tested conditions. It does not yet answer every question about ecological effects or performance elsewhere."
+        ]
+      ],
+      [
+        "Identify the next evidence",
+        [
+          "An evaluation can distinguish the intended trait from unintended changes, compare appropriate controls and consider effects on other organisms. The important measurements depend on the proposed use and exposure.",
+          "This is a paper-based evidence exercise. It does not ask you to grow modified organisms or to make a policy decision from incomplete information."
+        ]
+      ]
+    ],
+    "writing": {
+      "prompt": "State the supported finding and identify two additional measurements that would address a broader ecological claim.",
+      "model": "Reduced leaf damage was observed under the tested conditions. Measurements of non-target organisms and longer-term population or environmental outcomes would address broader effects. Appropriate comparisons and replication are needed; the short plot result should not be treated as universal evidence of either safety or harm.",
+      "criteria": [
+        "Identifies the relevant structures or quantities.",
+        "Explains the causal relationship or calculation, not just the final result.",
+        "Uses the stated evidence and avoids a stronger conclusion than it supports."
+      ]
+    }
+  },
+  "overview": [
+    "Connect experimental evidence with DNA’s hereditary role.",
+    "Use structure and direction to explain replication and gene expression.",
+    "Solve explicit DNA, RNA and protein sequence problems.",
+    "Interpret mutations and genetic technologies without exceeding the evidence."
+  ],
+  "review": {
+    "question": "Can you connect a DNA sequence with its copying, expression and evidence?",
+    "goal": "Integrate molecular mechanisms, sequence reasoning and interpretation of technology results.",
+    "prior": "Identify the molecule, direction and measured outcome before drawing a conclusion.",
+    "pages": [
+      663,
+      665
+    ],
+    "anchors": [
+      "template strand",
+      "codon",
+      "mutation",
+      "DNA profile"
+    ],
+    "sections": [
+      [
+        "Follow information without confusing the molecules",
+        [
+          "Replication copies DNA through complementary semiconservative synthesis. Transcription uses one template to make RNA, and translation reads mRNA codons to assemble a polypeptide. RNA processing modifies the message without normally deleting introns from the genomic DNA.",
+          "A sequence answer should identify the strand and direction, preserve antiparallel pairing and use the correct reading frame. A stop codon is a signal, not an amino acid."
+        ]
+      ],
+      [
+        "Connect a change with the relevant measurement",
+        [
+          "A DNA mutation may alter a product, but its effect must be traced through the sequence and biological context. Recombination can create new combinations without a new mutation at every locus.",
+          "PCR, gels, sequencing and recombinant-DNA methods provide different kinds of evidence. A complete explanation identifies what each method measures and separates compatibility, expression and function from stronger unsupported claims."
+        ]
+      ]
+    ],
+    "worked": {
+      "title": "Trace a sequence change without overstating its effect",
+      "scenario": "Coding DNA changes from 5′-ATG CAA TAA-3′ to 5′-ATG CAG TAA-3′.",
+      "steps": [
+        "The corresponding RNA changes CAA to CAG in the second codon.",
+        "Both CAA and CAG specify glutamine.",
+        "Both simplified messages produce Met–Gln, then stop.",
+        "Classify the substitution’s amino-acid effect as silent.",
+        "Do not infer an organism-level effect without additional context or measurements."
+      ]
+    }
+  }
+}

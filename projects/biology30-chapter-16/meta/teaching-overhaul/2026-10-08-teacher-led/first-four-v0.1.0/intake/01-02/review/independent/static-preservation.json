@@ -1,0 +1,64 @@
+{
+  "lesson-01": {
+    "originalRawSHA256": "15004bf28c2c88dae38d9cb06bcdc5158688f7dbb9a4468989de2e8aea46b564",
+    "candidateSHA256": "6f6c6c0e1e5f977cad897b877a58ae2414b94907170a38b19c7003836fe469c2",
+    "frozenBaseExactOriginalRoute": true,
+    "outsideEightBodiesExact": true,
+    "maskedOriginalSHA256": "e6dd78e5fe7f06a145d04426beabbe505e626dcc141a4903a0004ced7f977e3b",
+    "maskedCandidateSHA256": "e6dd78e5fe7f06a145d04426beabbe505e626dcc141a4903a0004ced7f977e3b",
+    "originalFiguresCount": 2,
+    "candidateFiguresCount": 3,
+    "everyOriginalFigureElementPreservedExactly": true,
+    "allowedBodyIds": [
+      "ch16-l01-teaching-01",
+      "ch16-l01-teaching-02",
+      "ch16-l01-teaching-03",
+      "ch16-l01-worked"
+    ],
+    "imagePaths": [
+      "./assets/assessment/8a730ed608e092886404.png",
+      "./assets/figures/ch16-source-karyotype.png",
+      "./assets/figures/ch16-teacher-replication-slide16.png"
+    ],
+    "figureElements": [
+      {
+        "sha256": "d3ea36928976e024797ea66c68f4a04312e489a337f38ee3955a4ce0fd287bd3",
+        "originalFigure": true
+      },
+      {
+        "sha256": "b98ca867b83cf3940a4243260e3f51883000833ea1235f00778343fb7e033834",
+        "originalFigure": false
+      },
+      {
+        "sha256": "300a624100f3b5fb380cec9cd029be81c27087091f681ed5ba0e2d558159a753",
+        "originalFigure": true
+      }
+    ]
+  },
+  "lesson-02": {
+    "originalRawSHA256": "a9320366e29761a79aa22a605b5f7cedd06cbb2deddc0cd931bf037ad04440f4",
+    "candidateSHA256": "1d0350517134602021d4a18d33a45523db3cf5d308dcfaf33304a15ab5ebc289",
+    "frozenBaseExactOriginalRoute": true,
+    "outsideEightBodiesExact": true,
+    "maskedOriginalSHA256": "15a0f50a94b0eeec700d98b5a605fc076f30178ea2bf5a1aa4f72e3b6ed1fd22",
+    "maskedCandidateSHA256": "15a0f50a94b0eeec700d98b5a605fc076f30178ea2bf5a1aa4f72e3b6ed1fd22",
+    "originalFiguresCount": 0,
+    "candidateFiguresCount": 1,
+    "everyOriginalFigureElementPreservedExactly": true,
+    "allowedBodyIds": [
+      "ch16-l02-teaching-01",
+      "ch16-l02-teaching-02",
+      "ch16-l02-teaching-03",
+      "ch16-l02-worked"
+    ],
+    "imagePaths": [
+      "./assets/figures/ch16-source-cell-cycle-fig16-5.png"
+    ],
+    "figureElements": [
+      {
+        "sha256": "dcc01ee8106efa0601ccee372b86a787df2b380721a46810fba863a2f1159a79",
+        "originalFigure": false
+      }
+    ]
+  }
+}

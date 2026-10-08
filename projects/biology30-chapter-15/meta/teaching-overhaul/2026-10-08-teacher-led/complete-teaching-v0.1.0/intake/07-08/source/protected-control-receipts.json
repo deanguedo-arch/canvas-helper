@@ -1,0 +1,863 @@
+{
+  "lesson-07": {
+    "elementIds": [
+      "lesson-07",
+      "lesson-07-anchor-words",
+      "ch15-l07-teaching-01",
+      "ch15-l07-teaching-02",
+      "ch15-l07-teaching-03",
+      "ch15-l07-worked",
+      "ch15-l07-guided",
+      "ch15-l07-guided-q1",
+      "ch15-l07-guided-q2",
+      "ch15-l07-check-mc-1-prompt",
+      "ch15-l07-check-mc-2-prompt",
+      "ch15-l07-check-writing-1",
+      "ch15-l07-check-writing-1-status",
+      "ch15-l07-check-writing-2",
+      "ch15-l07-check-writing-2-status"
+    ],
+    "figures": [
+      {
+        "class": "science-figure",
+        "data-figure-id": "ch15-placenta"
+      },
+      {
+        "class": "science-figure",
+        "data-figure-id": "ch15-source-placenta"
+      }
+    ],
+    "controls": [
+      {
+        "tag": "summary",
+        "attributes": {},
+        "text": "How to complete this lesson Learn \u2192 worked example \u2192 practise \u2192 lesson check"
+      },
+      {
+        "tag": "a",
+        "attributes": {
+          "data-open-pdf": "514",
+          "href": "#textbook-library"
+        },
+        "text": "Open p. 514"
+      },
+      {
+        "tag": "a",
+        "attributes": {
+          "data-open-pdf": "516",
+          "href": "#textbook-library"
+        },
+        "text": "Open p. 516"
+      },
+      {
+        "tag": "button",
+        "attributes": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-term-id": "ch15-word-placenta",
+          "type": "button"
+        },
+        "text": "placenta"
+      },
+      {
+        "tag": "button",
+        "attributes": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-term-id": "ch15-word-chorionic-villus",
+          "type": "button"
+        },
+        "text": "chorionic villus"
+      },
+      {
+        "tag": "button",
+        "attributes": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-term-id": "ch15-word-umbilical-artery",
+          "type": "button"
+        },
+        "text": "umbilical artery"
+      },
+      {
+        "tag": "button",
+        "attributes": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-term-id": "ch15-word-umbilical-vein",
+          "type": "button"
+        },
+        "text": "umbilical vein"
+      },
+      {
+        "tag": "summary",
+        "attributes": {},
+        "text": "Vocabulary help"
+      },
+      {
+        "tag": "button",
+        "attributes": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-term-id": "ch15-word-placenta",
+          "type": "button"
+        },
+        "text": "placenta"
+      },
+      {
+        "tag": "button",
+        "attributes": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-term-id": "ch15-word-chorionic-villus",
+          "type": "button"
+        },
+        "text": "chorionic villus"
+      },
+      {
+        "tag": "button",
+        "attributes": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-term-id": "ch15-word-umbilical-artery",
+          "type": "button"
+        },
+        "text": "umbilical artery"
+      },
+      {
+        "tag": "button",
+        "attributes": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-term-id": "ch15-word-umbilical-vein",
+          "type": "button"
+        },
+        "text": "umbilical vein"
+      },
+      {
+        "tag": "button",
+        "attributes": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-term-id": "ch15-word-placenta",
+          "type": "button"
+        },
+        "text": "placenta"
+      },
+      {
+        "tag": "button",
+        "attributes": {
+          "class": "text-link",
+          "data-enlarge-figure": "ch15-placenta",
+          "type": "button"
+        },
+        "text": "View larger"
+      },
+      {
+        "tag": "button",
+        "attributes": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-term-id": "ch15-word-umbilical-vein",
+          "type": "button"
+        },
+        "text": "umbilical vein"
+      },
+      {
+        "tag": "button",
+        "attributes": {
+          "class": "text-link",
+          "data-enlarge-figure": "ch15-source-placenta",
+          "type": "button"
+        },
+        "text": "View larger"
+      },
+      {
+        "tag": "button",
+        "attributes": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-term-id": "ch15-word-progesterone",
+          "type": "button"
+        },
+        "text": "progesterone"
+      },
+      {
+        "tag": "select",
+        "attributes": {
+          "id": "ch15-l07-guided-q1"
+        },
+        "text": "Choose an answerUmbilical veinMaternal uterine arteryUmbilical artery"
+      },
+      {
+        "tag": "button",
+        "attributes": {
+          "data-guided-check": "",
+          "type": "button"
+        },
+        "text": "Check answer"
+      },
+      {
+        "tag": "select",
+        "attributes": {
+          "id": "ch15-l07-guided-q2"
+        },
+        "text": "Choose an answerA shorter diffusion distanceReduced functional villus surface areaMaintained blood flow"
+      },
+      {
+        "tag": "button",
+        "attributes": {
+          "data-guided-check": "",
+          "type": "button"
+        },
+        "text": "Check answer"
+      },
+      {
+        "tag": "summary",
+        "attributes": {},
+        "text": "Show the explanation"
+      },
+      {
+        "tag": "summary",
+        "attributes": {},
+        "text": "Open required check \u00b7 The placenta and exchange"
+      },
+      {
+        "tag": "button",
+        "attributes": {
+          "data-start-check": "",
+          "type": "button"
+        },
+        "text": "Start"
+      },
+      {
+        "tag": "button",
+        "attributes": {
+          "data-redo-check": "",
+          "hidden": "",
+          "type": "button"
+        },
+        "text": "Redo this check"
+      },
+      {
+        "tag": "input",
+        "attributes": {
+          "data-check-choice": "ch15-l07-check-mc-1",
+          "name": "ch15-l07-check-mc-1",
+          "type": "radio",
+          "value": "It returns blood from the placenta toward the fetal heart"
+        },
+        "text": ""
+      },
+      {
+        "tag": "input",
+        "attributes": {
+          "data-check-choice": "ch15-l07-check-mc-1",
+          "name": "ch15-l07-check-mc-1",
+          "type": "radio",
+          "value": "The placenta creates oxygen from carbon dioxide"
+        },
+        "text": ""
+      },
+      {
+        "tag": "input",
+        "attributes": {
+          "data-check-choice": "ch15-l07-check-mc-1",
+          "name": "ch15-l07-check-mc-1",
+          "type": "radio",
+          "value": "Maternal arteries empty directly into it"
+        },
+        "text": ""
+      },
+      {
+        "tag": "input",
+        "attributes": {
+          "data-check-choice": "ch15-l07-check-mc-1",
+          "name": "ch15-l07-check-mc-1",
+          "type": "radio",
+          "value": "Veins are defined by low oxygen concentration"
+        },
+        "text": ""
+      },
+      {
+        "tag": "button",
+        "attributes": {
+          "data-check-answer": "ch15-l07-check-mc-1",
+          "type": "button"
+        },
+        "text": "Check answer"
+      },
+      {
+        "tag": "input",
+        "attributes": {
+          "data-check-choice": "ch15-l07-check-mc-2",
+          "name": "ch15-l07-check-mc-2",
+          "type": "radio",
+          "value": "It is only a structural attachment with no endocrine role"
+        },
+        "text": ""
+      },
+      {
+        "tag": "input",
+        "attributes": {
+          "data-check-choice": "ch15-l07-check-mc-2",
+          "name": "ch15-l07-check-mc-2",
+          "type": "radio",
+          "value": "It permits selective exchange but does not exclude all harmful substances"
+        },
+        "text": ""
+      },
+      {
+        "tag": "input",
+        "attributes": {
+          "data-check-choice": "ch15-l07-check-mc-2",
+          "name": "ch15-l07-check-mc-2",
+          "type": "radio",
+          "value": "It prevents every pathogen and chemical from reaching fetal tissues"
+        },
+        "text": ""
+      },
+      {
+        "tag": "input",
+        "attributes": {
+          "data-check-choice": "ch15-l07-check-mc-2",
+          "name": "ch15-l07-check-mc-2",
+          "type": "radio",
+          "value": "It normally mixes the two blood supplies completely"
+        },
+        "text": ""
+      },
+      {
+        "tag": "button",
+        "attributes": {
+          "data-check-answer": "ch15-l07-check-mc-2",
+          "type": "button"
+        },
+        "text": "Check answer"
+      },
+      {
+        "tag": "textarea",
+        "attributes": {
+          "aria-describedby": "ch15-l07-check-writing-1-status",
+          "data-check-writing": "ch15-l07-check-writing-1",
+          "data-limit": "3200",
+          "id": "ch15-l07-check-writing-1",
+          "rows": "6"
+        },
+        "text": ""
+      },
+      {
+        "tag": "button",
+        "attributes": {
+          "data-save-writing": "ch15-l07-check-writing-1",
+          "type": "button"
+        },
+        "text": "Save written response"
+      },
+      {
+        "tag": "summary",
+        "attributes": {},
+        "text": "Compare after saving your own response"
+      },
+      {
+        "tag": "textarea",
+        "attributes": {
+          "aria-describedby": "ch15-l07-check-writing-2-status",
+          "data-check-writing": "ch15-l07-check-writing-2",
+          "data-limit": "3200",
+          "id": "ch15-l07-check-writing-2",
+          "rows": "6"
+        },
+        "text": ""
+      },
+      {
+        "tag": "button",
+        "attributes": {
+          "data-save-writing": "ch15-l07-check-writing-2",
+          "type": "button"
+        },
+        "text": "Save written response"
+      },
+      {
+        "tag": "summary",
+        "attributes": {},
+        "text": "Compare after saving your own response"
+      },
+      {
+        "tag": "button",
+        "attributes": {
+          "data-finish-check": "",
+          "type": "button"
+        },
+        "text": "Submit and finish"
+      },
+      {
+        "tag": "a",
+        "attributes": {
+          "href": "#lesson-06"
+        },
+        "text": "\u2190 Organogenesis and neurulation"
+      },
+      {
+        "tag": "a",
+        "attributes": {
+          "class": "next",
+          "href": "#lesson-08"
+        },
+        "text": "Next: Fetal development and developmental influences \u2192"
+      },
+      {
+        "tag": "a",
+        "attributes": {
+          "data-textbook-topic": "lesson-07",
+          "href": "#textbook-practice"
+        },
+        "text": "Optional textbook practice for The placenta and exchange"
+      }
+    ]
+  },
+  "lesson-08": {
+    "elementIds": [
+      "lesson-08",
+      "lesson-08-anchor-words",
+      "ch15-l08-teaching-01",
+      "ch15-l08-teaching-02",
+      "ch15-l08-teaching-03",
+      "ch15-l08-worked",
+      "ch15-l08-guided",
+      "ch15-l08-guided-q1",
+      "ch15-l08-guided-q2",
+      "ch15-l08-check-mc-1-prompt",
+      "ch15-l08-check-mc-2-prompt",
+      "ch15-l08-check-writing-1",
+      "ch15-l08-check-writing-1-status",
+      "ch15-l08-check-writing-2",
+      "ch15-l08-check-writing-2-status"
+    ],
+    "figures": [],
+    "controls": [
+      {
+        "tag": "summary",
+        "attributes": {},
+        "text": "How to complete this lesson Learn \u2192 worked example \u2192 practise \u2192 lesson check"
+      },
+      {
+        "tag": "a",
+        "attributes": {
+          "data-open-pdf": "520",
+          "href": "#textbook-library"
+        },
+        "text": "Open p. 520"
+      },
+      {
+        "tag": "a",
+        "attributes": {
+          "data-open-pdf": "523",
+          "href": "#textbook-library"
+        },
+        "text": "Open p. 523"
+      },
+      {
+        "tag": "button",
+        "attributes": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-term-id": "ch15-word-embryonic-period",
+          "type": "button"
+        },
+        "text": "embryonic period"
+      },
+      {
+        "tag": "button",
+        "attributes": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-term-id": "ch15-word-fetal-period",
+          "type": "button"
+        },
+        "text": "fetal period"
+      },
+      {
+        "tag": "button",
+        "attributes": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-term-id": "ch15-word-gestational-age",
+          "type": "button"
+        },
+        "text": "gestational age"
+      },
+      {
+        "tag": "button",
+        "attributes": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-term-id": "ch15-word-teratogen",
+          "type": "button"
+        },
+        "text": "teratogen"
+      },
+      {
+        "tag": "summary",
+        "attributes": {},
+        "text": "Vocabulary help"
+      },
+      {
+        "tag": "button",
+        "attributes": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-term-id": "ch15-word-embryonic-period",
+          "type": "button"
+        },
+        "text": "embryonic period"
+      },
+      {
+        "tag": "button",
+        "attributes": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-term-id": "ch15-word-fetal-period",
+          "type": "button"
+        },
+        "text": "fetal period"
+      },
+      {
+        "tag": "button",
+        "attributes": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-term-id": "ch15-word-gestational-age",
+          "type": "button"
+        },
+        "text": "gestational age"
+      },
+      {
+        "tag": "button",
+        "attributes": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-term-id": "ch15-word-teratogen",
+          "type": "button"
+        },
+        "text": "teratogen"
+      },
+      {
+        "tag": "button",
+        "attributes": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-term-id": "ch15-word-fertilization",
+          "type": "button"
+        },
+        "text": "fertilization"
+      },
+      {
+        "tag": "button",
+        "attributes": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-term-id": "ch15-word-gestational-age",
+          "type": "button"
+        },
+        "text": "gestational age"
+      },
+      {
+        "tag": "button",
+        "attributes": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-term-id": "ch15-word-embryonic-period",
+          "type": "button"
+        },
+        "text": "embryonic period"
+      },
+      {
+        "tag": "button",
+        "attributes": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-term-id": "ch15-word-fetal-period",
+          "type": "button"
+        },
+        "text": "fetal period"
+      },
+      {
+        "tag": "button",
+        "attributes": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-term-id": "ch15-word-teratogen",
+          "type": "button"
+        },
+        "text": "teratogen"
+      },
+      {
+        "tag": "select",
+        "attributes": {
+          "id": "ch15-l08-guided-q1"
+        },
+        "text": "Choose an answerOvulation phaseCleavage onlyFetal period"
+      },
+      {
+        "tag": "button",
+        "attributes": {
+          "data-guided-check": "",
+          "type": "button"
+        },
+        "text": "Check answer"
+      },
+      {
+        "tag": "select",
+        "attributes": {
+          "id": "ch15-l08-guided-q2"
+        },
+        "text": "Choose an answerGestational ageChromosome ageAge since implantation only"
+      },
+      {
+        "tag": "button",
+        "attributes": {
+          "data-guided-check": "",
+          "type": "button"
+        },
+        "text": "Check answer"
+      },
+      {
+        "tag": "summary",
+        "attributes": {},
+        "text": "Show the explanation"
+      },
+      {
+        "tag": "a",
+        "attributes": {
+          "href": "https://www.youtube.com/watch?v=izOa3-AX8zQ",
+          "rel": "noopener noreferrer",
+          "target": "_blank"
+        },
+        "text": "Open on YouTube"
+      },
+      {
+        "tag": "button",
+        "attributes": {
+          "data-play-video": "izOa3-AX8zQ",
+          "type": "button"
+        },
+        "text": "Load video"
+      },
+      {
+        "tag": "a",
+        "attributes": {
+          "href": "https://www.youtube.com/watch?v=BtsSbZ85yiQ",
+          "rel": "noopener noreferrer",
+          "target": "_blank"
+        },
+        "text": "Open on YouTube"
+      },
+      {
+        "tag": "button",
+        "attributes": {
+          "data-play-video": "BtsSbZ85yiQ",
+          "type": "button"
+        },
+        "text": "Load video"
+      },
+      {
+        "tag": "summary",
+        "attributes": {},
+        "text": "Open required check \u00b7 Fetal development and developmental influences"
+      },
+      {
+        "tag": "button",
+        "attributes": {
+          "data-start-check": "",
+          "type": "button"
+        },
+        "text": "Start"
+      },
+      {
+        "tag": "button",
+        "attributes": {
+          "data-redo-check": "",
+          "hidden": "",
+          "type": "button"
+        },
+        "text": "Redo this check"
+      },
+      {
+        "tag": "input",
+        "attributes": {
+          "data-check-choice": "ch15-l08-check-mc-1",
+          "name": "ch15-l08-check-mc-1",
+          "type": "radio",
+          "value": "The placenta becomes completely impermeable after week eight"
+        },
+        "text": ""
+      },
+      {
+        "tag": "input",
+        "attributes": {
+          "data-check-choice": "ch15-l08-check-mc-1",
+          "name": "ch15-l08-check-mc-1",
+          "type": "radio",
+          "value": "All differentiation ends immediately after implantation"
+        },
+        "text": ""
+      },
+      {
+        "tag": "input",
+        "attributes": {
+          "data-check-choice": "ch15-l08-check-mc-1",
+          "name": "ch15-l08-check-mc-1",
+          "type": "radio",
+          "value": "Different tissues and developmental processes are active at those stages"
+        },
+        "text": ""
+      },
+      {
+        "tag": "input",
+        "attributes": {
+          "data-check-choice": "ch15-l08-check-mc-1",
+          "name": "ch15-l08-check-mc-1",
+          "type": "radio",
+          "value": "Every fetus has identical susceptibility"
+        },
+        "text": ""
+      },
+      {
+        "tag": "button",
+        "attributes": {
+          "data-check-answer": "ch15-l08-check-mc-1",
+          "type": "button"
+        },
+        "text": "Check answer"
+      },
+      {
+        "tag": "input",
+        "attributes": {
+          "data-check-choice": "ch15-l08-check-mc-2",
+          "name": "ch15-l08-check-mc-2",
+          "type": "radio",
+          "value": "Week twelve ends all fetal development"
+        },
+        "text": ""
+      },
+      {
+        "tag": "input",
+        "attributes": {
+          "data-check-choice": "ch15-l08-check-mc-2",
+          "name": "ch15-l08-check-mc-2",
+          "type": "radio",
+          "value": "A late exposure cannot affect the nervous system"
+        },
+        "text": ""
+      },
+      {
+        "tag": "input",
+        "attributes": {
+          "data-check-choice": "ch15-l08-check-mc-2",
+          "name": "ch15-l08-check-mc-2",
+          "type": "radio",
+          "value": "Visible limb buds show adult muscle strength"
+        },
+        "text": ""
+      },
+      {
+        "tag": "input",
+        "attributes": {
+          "data-check-choice": "ch15-l08-check-mc-2",
+          "name": "ch15-l08-check-mc-2",
+          "type": "radio",
+          "value": "Basic organs may form before they are mature enough for life outside the uterus"
+        },
+        "text": ""
+      },
+      {
+        "tag": "button",
+        "attributes": {
+          "data-check-answer": "ch15-l08-check-mc-2",
+          "type": "button"
+        },
+        "text": "Check answer"
+      },
+      {
+        "tag": "textarea",
+        "attributes": {
+          "aria-describedby": "ch15-l08-check-writing-1-status",
+          "data-check-writing": "ch15-l08-check-writing-1",
+          "data-limit": "3200",
+          "id": "ch15-l08-check-writing-1",
+          "rows": "6"
+        },
+        "text": ""
+      },
+      {
+        "tag": "button",
+        "attributes": {
+          "data-save-writing": "ch15-l08-check-writing-1",
+          "type": "button"
+        },
+        "text": "Save written response"
+      },
+      {
+        "tag": "summary",
+        "attributes": {},
+        "text": "Compare after saving your own response"
+      },
+      {
+        "tag": "textarea",
+        "attributes": {
+          "aria-describedby": "ch15-l08-check-writing-2-status",
+          "data-check-writing": "ch15-l08-check-writing-2",
+          "data-limit": "3200",
+          "id": "ch15-l08-check-writing-2",
+          "rows": "6"
+        },
+        "text": ""
+      },
+      {
+        "tag": "button",
+        "attributes": {
+          "data-save-writing": "ch15-l08-check-writing-2",
+          "type": "button"
+        },
+        "text": "Save written response"
+      },
+      {
+        "tag": "summary",
+        "attributes": {},
+        "text": "Compare after saving your own response"
+      },
+      {
+        "tag": "button",
+        "attributes": {
+          "data-finish-check": "",
+          "type": "button"
+        },
+        "text": "Submit and finish"
+      },
+      {
+        "tag": "a",
+        "attributes": {
+          "href": "#lesson-07"
+        },
+        "text": "\u2190 The placenta and exchange"
+      },
+      {
+        "tag": "a",
+        "attributes": {
+          "class": "next",
+          "href": "#lesson-09"
+        },
+        "text": "Next: Labour and birth as positive feedback \u2192"
+      },
+      {
+        "tag": "a",
+        "attributes": {
+          "data-textbook-topic": "lesson-08",
+          "href": "#textbook-practice"
+        },
+        "text": "Optional textbook practice for Fetal development and developmental influences"
+      }
+    ]
+  }
+}

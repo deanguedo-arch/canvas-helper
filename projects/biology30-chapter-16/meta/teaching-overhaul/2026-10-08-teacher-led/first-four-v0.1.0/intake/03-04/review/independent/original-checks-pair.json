@@ -1,0 +1,120 @@
+[
+  {
+    "id": "ch16-check-03",
+    "route": "lesson-03",
+    "title": "Reading chromosome number and DNA amount",
+    "mc": [
+      {
+        "prompt": "A replicated homologous pair contains how many chromosomes and chromatids?",
+        "answer": "2 chromosomes and 4 chromatids",
+        "explanation": "Each of the two homologues has replicated into two chromatids.",
+        "cue": "Trace the normal mechanism before choosing an answer.",
+        "id": "ch16-l03-check-mc-1",
+        "options": [
+          "2 chromosomes and 4 chromatids",
+          "2 chromosomes and 2 chromatids",
+          "4 chromosomes and 2 chromatids",
+          "1 chromosome and 4 chromatids"
+        ],
+        "difficulty": "application"
+      },
+      {
+        "prompt": "A 2n = 8 cell has separated sister chromatids but not completed cytokinesis. What is its whole-cell chromosome count?",
+        "answer": "16",
+        "explanation": "Separated chromatids each count as chromosomes; eight move to each pole.",
+        "cue": "Trace the normal mechanism before choosing an answer.",
+        "id": "ch16-l03-check-mc-2",
+        "options": [
+          "8",
+          "16",
+          "4",
+          "32"
+        ],
+        "difficulty": "application"
+      }
+    ],
+    "writing": [
+      {
+        "prompt": "Describe the chromosome and chromatid counts in a 2n = 12 cell immediately before and immediately after S phase.",
+        "model": "Before S phase there are 12 unreplicated chromosomes, each with one DNA molecule. After S phase there are still 12 chromosomes but 24 sister chromatids. DNA amount has doubled without chromosome separation.",
+        "criteria": [
+          "Identifies the relevant structures or quantities.",
+          "Explains the causal relationship or calculation, not just the final result.",
+          "Uses the stated evidence and avoids a stronger conclusion than it supports."
+        ],
+        "id": "ch16-l03-check-writing-1",
+        "limit": 3200
+      },
+      {
+        "prompt": "Explain why a whole-cell count during anaphase can differ from the count in each daughter cell.",
+        "model": "In anaphase sister chromatids have separated into individual chromosomes, so the undivided cell contains both future chromosome groups. Cytokinesis separates these groups into two cells. Each daughter receives the original diploid chromosome number.",
+        "criteria": [
+          "Identifies the relevant structures or quantities.",
+          "Explains the causal relationship or calculation, not just the final result.",
+          "Uses the stated evidence and avoids a stronger conclusion than it supports."
+        ],
+        "id": "ch16-l03-check-writing-2",
+        "limit": 3200
+      }
+    ]
+  },
+  {
+    "id": "ch16-check-04",
+    "route": "lesson-04",
+    "title": "Mitosis: chromosome movement through the stages",
+    "mc": [
+      {
+        "prompt": "Which observation best identifies telophase?",
+        "answer": "New nuclei form around chromosome groups at opposite poles",
+        "explanation": "Telophase reorganizes nuclei after chromosome separation.",
+        "cue": "Trace the normal mechanism before choosing an answer.",
+        "id": "ch16-l04-check-mc-1",
+        "options": [
+          "Tetrads cross over at the cell equator",
+          "Gametes fuse to form a zygote",
+          "New nuclei form around chromosome groups at opposite poles",
+          "DNA is being replicated in an intact interphase nucleus"
+        ],
+        "difficulty": "application"
+      },
+      {
+        "prompt": "Why is attachment of sister chromatids to opposite poles important?",
+        "answer": "It supports delivery of one replicated copy to each daughter nucleus",
+        "explanation": "Opposite-pole attachment helps distribute copied chromosomes accurately.",
+        "cue": "Trace the normal mechanism before choosing an answer.",
+        "id": "ch16-l04-check-mc-2",
+        "options": [
+          "It creates alleles needed by the organism",
+          "It halves chromosome number in every body cell",
+          "It ensures one daughter receives only maternal chromosomes",
+          "It supports delivery of one replicated copy to each daughter nucleus"
+        ],
+        "difficulty": "application"
+      }
+    ],
+    "writing": [
+      {
+        "prompt": "Trace chromosome behaviour through the four stages of mitosis.",
+        "model": "In prophase chromosomes condense and the spindle becomes organized. In metaphase replicated chromosomes align individually at the equator. In anaphase sister chromatids separate and move to opposite poles. In telophase nuclei reform around the chromosome groups as chromosomes become less condensed.",
+        "criteria": [
+          "Identifies the relevant structures or quantities.",
+          "Explains the causal relationship or calculation, not just the final result.",
+          "Uses the stated evidence and avoids a stronger conclusion than it supports."
+        ],
+        "id": "ch16-l04-check-writing-1",
+        "limit": 3200
+      },
+      {
+        "prompt": "Contrast what separates in mitosis with the separation of a maternal and paternal homologue.",
+        "model": "Mitosis separates sister chromatids, the replicated copies of one chromosome. A maternal and paternal chromosome are homologues, not sister chromatids. Their separation as intact replicated chromosomes occurs in meiosis I, which reduces chromosome sets.",
+        "criteria": [
+          "Identifies the relevant structures or quantities.",
+          "Explains the causal relationship or calculation, not just the final result.",
+          "Uses the stated evidence and avoids a stronger conclusion than it supports."
+        ],
+        "id": "ch16-l04-check-writing-2",
+        "limit": 3200
+      }
+    ]
+  }
+]

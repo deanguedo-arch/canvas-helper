@@ -1,0 +1,13 @@
+# Sources, ownership and continuity
+
+Historical CH15 source archive: Library libfile_4c4e0b4f5b708191abe6d96c567e4491, SHA256f7fecc282381a94da1aa3f271b94430a9dbe70629dedb028aa0f034992b690e2. Original chapter PDF SHA25630b03cf91e5cf99ed0ae2a7dedf7cae2b246111b795d280b5b95ca937c56aa25. Actual42-slide teacher PPTX SHA25638149b6f562425a0b49bed3d0ad4369c5c5eef48f44d9099ea673cc888c2eb84. Both are retained unchanged. Exact raw route inputs are in source/lesson-11-base.html and lesson-12-base.html.
+
+Actual technology teaching: teacher36–42, textbook529–534; final review535–537 with dependencies in earlier chapter teaching. Teacher35 is a separate sex-development discussion, not required technology teaching. All relevant text, task prompts/options/keys and source pixels were inspected in preflight; scope/limits are in source/source-preflight-11-12.md and source-task-coverage.json. Full-slide PowerPoint rendering and external video playback were not performed.
+
+Accepted CH17 exact-copy06–07 and acceptance record are frozen under source/ch17-accepted, as a method reference only. The new examples identify a changed condition, preserve an intact function and bound a conclusion. No CH17 teacher acceptance transfers automatically to this candidate.
+
+Earlier01–10 candidates supply development, support structures, exchange, dating and hormones. For the fresh final review, exact earlier teaching and worked examples, without assessment feedback, are included under review/prior-ch15-teaching with their original images. A preparation selector initially missed the nested native wrapper and produced empty exports; both reviewers detected this before keys were opened. It was repaired and validated as five teaching/header/worked sections per lesson, nonempty01–10 text and14 image files. Retained input hashes identify the corrected packet; the initial empty packet is not counted as a complete attempt.
+
+The cumulative46-item unit-review bank is24CH14+22CH15 and separately optional. CH14 learner teaching is not part of this packet, so any prerequisite gap there is a packet limitation, not evidence that this final lesson should reteach an entire earlier chapter. All identities remain exact.
+
+Kept: all native assessments, four source-written images, final synthesis worked example/table, control/term/reader/navigation and response semantics. Adapted: six teaching/worked bodies. Added: one exact-source instructional drawing. Uncertain: current local drift, real layout/runtime and protected optional-source validity. The chapter completeness index separates candidate delivery from integration/acceptance.

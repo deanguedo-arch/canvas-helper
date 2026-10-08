@@ -1,0 +1,31 @@
+{
+  "courseDataEqualsFullConfig": true,
+  "activeOptionalFieldsEqualAuthoring": [
+    "chapter",
+    "questions",
+    "pages",
+    "topics"
+  ],
+  "authoringOnlyMetadata": [
+    "contextPolicy",
+    "coordinateSystem",
+    "excluded",
+    "schemaVersion",
+    "sourcePdfSha256"
+  ],
+  "routes": [
+    {
+      "lesson": 7,
+      "originalIdsRetained": true,
+      "editableKeysExactMultisets": true,
+      "selectTextareaMarkupExactOriginalCandidateBlind": true
+    },
+    {
+      "lesson": 8,
+      "originalIdsRetained": true,
+      "editableKeysExactMultisets": true,
+      "selectTextareaMarkupExactOriginalCandidateBlind": true
+    }
+  ],
+  "runtime": "Not verified"
+}

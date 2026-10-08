@@ -1,0 +1,40 @@
+{
+  "repair_content_version": "0.1.1",
+  "prior_content_version": "0.1.0",
+  "prior_package_library_id": "libfile_960691ba2a688191839a4f59976a323e",
+  "prior_package_sha256": "a469332f25ca69f5aeda3f18b8d6019220d43f79ce557c8bc6fa4f62f5de06b6",
+  "consumed_repair_standard": "0.4",
+  "prior_batch_standard": "0.3",
+  "standard_sha256": "db8a04bcd7620d9ecf64ec6dc86c046cb3075b9b09cc51dac41936c391379e1e",
+  "target_selector": "p[data-canvas-edit-key=\"ch14-l03-teaching-02-p2\"]",
+  "containing_section": "#ch14-l03-teaching-02",
+  "actual_owner": "scripts/content.py LESSONS[2].sections[1][1][1], second paragraph string in second teaching section of lesson03",
+  "operation": "Append the supplied three sentences to the existing second paragraph, without renumbering or adding paragraph/edit keys. No other text or binding change.",
+  "inserted_text": "After meiosis I, each secondary spermatocyte has one chromosome set, so it is already haploid. Each chromosome still has two attached copied parts, called sister chromatids. These separate during meiosis II without another round of DNA copying.",
+  "old_paragraph_visible_text": "Meiosis is a process with two successive divisions. Meiosis I takes one primary spermatocyte to two secondary spermatocytes. Meiosis II divides each secondary spermatocyte, giving four spermatids in total. Count the cells at each step: one becomes two, then each of those two becomes two, so 2 × 2 = 4. There is no extra DNA-copying stage between meiosis I and meiosis II.",
+  "new_paragraph_visible_text": "Meiosis is a process with two successive divisions. Meiosis I takes one primary spermatocyte to two secondary spermatocytes. Meiosis II divides each secondary spermatocyte, giving four spermatids in total. Count the cells at each step: one becomes two, then each of those two becomes two, so 2 × 2 = 4. There is no extra DNA-copying stage between meiosis I and meiosis II. After meiosis I, each secondary spermatocyte has one chromosome set, so it is already haploid. Each chromosome still has two attached copied parts, called sister chromatids. These separate during meiosis II without another round of DNA copying.",
+  "hash_contract": "SHA256 of lxml.html.tostring(selected paragraph, encoding=\"utf-8\", method=\"html\", with_tail=False). Source is the frozen prior standalone candidate, including its inactive-control attributes; do not confuse this with an unnormalized native-owner node.",
+  "prior_candidate_reading_sha256": "4f4b76d1a52f702b966a1847fb23b5d0a30145b97242454ea91e4c8a150378e5",
+  "prior_owner_paragraph_text_sha256": "a692553a3cc5d25133f735bfc7d9292f0216f36724605a2f698f9eb738629439",
+  "new_owner_paragraph_text_sha256": "2efbe6dd5e0022e076a66de6dd09a0ea7fa5a8cf1f2f2511a7d40405772b70d7",
+  "prior_native_fragment_sha256": "5f5ea1f77a3781879d46edc2a914cd420c00f7333517ce0c0f0d98e4d2156da5",
+  "new_native_fragment_sha256": "93b2d614bcf1cd24e707906fe728cb06d7c0be165b372b23652ee52b173f57c4",
+  "fragment_contract": "UTF-8 HTML serialization without tail; actual prior native teaching fragment is the baseline. Original term-button attributes are retained, with no review-added disabled flags. The source-owner plain paragraph string hashes are the primary content-field guard.",
+  "prior_paragraph_static_dom_sha256": "b94dc05c0b44ad13e14ab574b8125df04d2335a4f354a6629d110ef58008d01e",
+  "new_paragraph_static_dom_sha256": "7f4ba0032dcb951b589c1cd867dc0fe35fac1f2beb2802732db07dbac8bea121",
+  "historical_base_files": {
+    "scripts/content.py": "15f3e496a739a40f7de85ccfa8a8dcaadfb0a4ebb4274f4c36c272244d542a2e",
+    "scripts/build_chapter.py": "915625267d4ea0a5a2bbd5cb86c62d3a9767f1d5aebcadcfb7b0169ee0eb704a",
+    "workspace/index.html": "4ce8de9382426b07de164b5de82ab6c25cd2471f41f309f7208311d3b523d1d0",
+    "authoring/course-config.json": "22a968d603d78dd5cd12e81324f8f4df4fbd29161413de20873884c714d1ffe8"
+  },
+  "current_owner_gate": "This is a conditional content repair, not an apply script. Reconcile the actual current owner against the unchanged historical base and exact prior visible paragraph. Preserve any newer local edits and every existing paragraph/assessment ID. A mismatch requires reconciliation, not force application.",
+  "protected_assessment_changes": false,
+  "affected_feedback_records": [
+    "ch14-concept-secondary-spermatocyte-flash",
+    "ch14-concept-secondary-spermatocyte-reverse",
+    "ch14-concept-secondary-spermatocyte-misconception",
+    "ch14-concept-secondary-spermatocyte-blank"
+  ],
+  "protected_feedback_status": "Retained unchanged; prompt-specific misconception feedback omission remains a separate owner decision."
+}

@@ -1,0 +1,507 @@
+{
+  "title": "Biology30 CH15 03–04 conditional content handoff",
+  "version": "0.1.0",
+  "dateUtc": "2026-10-08",
+  "integrated": false,
+  "teacherAccepted": false,
+  "standardsVersion": "0.3",
+  "review": {
+    "teachingSufficiency": "Pass for14 local items",
+    "science": "Pass for final teaching",
+    "protectedAssessment": "Needs owner decision:03 selection2 ambiguous option",
+    "optionalRoutingAndReader": "Needs owner review",
+    "runtimeAndTargetSizeLayout": "Not verified"
+  },
+  "files": [
+    {
+      "path": "INTEGRATION_MAP.md",
+      "bytes": 2349,
+      "sha256": "c5197b5b2c8d4cc892de7b4eb1c8419f70ff63df6fcf76077f8c63283cc386f6"
+    },
+    {
+      "path": "PRACTICE_PREPARATION_MAP.md",
+      "bytes": 2227,
+      "sha256": "32e6e8f330ea2a1814ff694ab5aec4a033d0d8e11c5dc87676ae0d838ea245f2"
+    },
+    {
+      "path": "PROTECTED_ASSESSMENT_ISSUE.md",
+      "bytes": 2307,
+      "sha256": "589b40a7d2f936ddbb17e87e1d9ff2711e363e9912c9576c35f989a905e13803"
+    },
+    {
+      "path": "PROTECTION_RECHECK.json",
+      "bytes": 460,
+      "sha256": "f610d70511e2a04a674d2a02d745556db70f77c861289c3484468eaca49d084c"
+    },
+    {
+      "path": "READER_NAVIGATION_REPAIR.md",
+      "bytes": 845,
+      "sha256": "4ef6343802671cabf5d0381104292a04b39301864eb4712a62e8364c409430cd"
+    },
+    {
+      "path": "README.md",
+      "bytes": 1709,
+      "sha256": "8080c8d44a9b46916eb1b2815aee3261612e637def8696b461d5244ceb515142"
+    },
+    {
+      "path": "REPAIR_LOG.md",
+      "bytes": 1583,
+      "sha256": "e9a2a15df928cdeda9320013714b06c92a1a2301dda6746bf268fbe72e92c135"
+    },
+    {
+      "path": "REVIEW_SUMMARY.md",
+      "bytes": 1760,
+      "sha256": "5f2f1ce86a54dd0fd340d02d37b438fa2c6edde1ff5e84d43787b4d4919de0b9"
+    },
+    {
+      "path": "SCIENCE_AND_SOURCE_RECONCILIATION.md",
+      "bytes": 7541,
+      "sha256": "1773937f02798bfecb4bfbdf7aa3c3e107c0f6b3180ead4da13d45459a43e8ec"
+    },
+    {
+      "path": "SOURCE_AND_CONTINUITY.md",
+      "bytes": 2425,
+      "sha256": "2027d1f0784bb43cbbefc8481593ce725639eefd9d890aa8334a438c3d946ba4"
+    },
+    {
+      "path": "SOURCE_HASHES.json",
+      "bytes": 9244,
+      "sha256": "95650e709b4b2402d165eda21cc2e51d33244b30c97ca3c1065b8407e8fb99c2"
+    },
+    {
+      "path": "STANDARDS_APPLICATION.md",
+      "bytes": 3390,
+      "sha256": "48652f2b3a1d1bc03b9a7fd80acf1c6a2e234423c16f0858a88270dc0a7305ec"
+    },
+    {
+      "path": "STATIC_VALIDATION.json",
+      "bytes": 5763,
+      "sha256": "38ba6af18b123a9a6b12c73a3eaaace9c589cca4cf324d26ee69a04b4df04ebc"
+    },
+    {
+      "path": "VISUAL_AND_ACCESSIBILITY_BRIEF.md",
+      "bytes": 2049,
+      "sha256": "821bb954a9d644a1692f110e7afb883294089699b92e1fe4de8752e4d1399b62"
+    },
+    {
+      "path": "bodies.json",
+      "bytes": 15792,
+      "sha256": "c99c19a8c73e612543edaf7e4dedad69a369f7b6ba098c145757f0df7ef071a5"
+    },
+    {
+      "path": "fragments/ch15-l03-teaching-01.html",
+      "bytes": 2147,
+      "sha256": "fe0eba281b46e1343e7f0b142d5672541d9e9971d6dd32d16d240c3348c748d0"
+    },
+    {
+      "path": "fragments/ch15-l03-teaching-02.html",
+      "bytes": 3785,
+      "sha256": "cb6072742e83fe6213bc515baa30ec4c79a4b6adc5ddbaf6b9e5e0698cf016e0"
+    },
+    {
+      "path": "fragments/ch15-l03-teaching-03.html",
+      "bytes": 2513,
+      "sha256": "ce23e23dc465225036fe9259ded84f0ce4e6df9a5a1cdd499d65afb94bcaacd7"
+    },
+    {
+      "path": "fragments/ch15-l03-worked.html",
+      "bytes": 2001,
+      "sha256": "8c4e6bba709408ce2072f924169cf04f3ba3d1b3684b94b25bbb6bba9a14b733"
+    },
+    {
+      "path": "fragments/ch15-l04-teaching-01.html",
+      "bytes": 3966,
+      "sha256": "d18214bd3c13ad89e6ec7733c82abc901b0f822e550874e2c1f9a30cd9e7da86"
+    },
+    {
+      "path": "fragments/ch15-l04-teaching-02.html",
+      "bytes": 2044,
+      "sha256": "21778d35a2572c89047f1be8cd5943cb07b03ef41fc743373c3cf54e87d1a597"
+    },
+    {
+      "path": "fragments/ch15-l04-teaching-03.html",
+      "bytes": 2532,
+      "sha256": "e727a100b9593be7c67fe1740d06b054c408baefad9bfb1b5f07a8a7e60b0b7d"
+    },
+    {
+      "path": "fragments/ch15-l04-worked.html",
+      "bytes": 1932,
+      "sha256": "b3dea48a192d8a98345062be8c810c0771708afa6f422a8fa244aeb87b1dad5f"
+    },
+    {
+      "path": "learner/assets/figures/ch15-germ-layers.svg",
+      "bytes": 3176,
+      "sha256": "0967aa32d16b535b8f9c5fe7ae336df2068f37bf6bb2dfdf612a82a95e3a4db1"
+    },
+    {
+      "path": "learner/assets/figures/ch15-source-hormones-figure15-5.png",
+      "bytes": 267701,
+      "sha256": "15f4bc616fc7b371a2f7c7ee54e7f78f8d1329037333574548e587fe7301b25e"
+    },
+    {
+      "path": "learner/lesson-03-manuscript.txt",
+      "bytes": 13254,
+      "sha256": "f8c9a4a19dc384ac31cc3d95d4bc9c31bf10d04e5e7223d8b5e833b3485b15c7"
+    },
+    {
+      "path": "learner/lesson-03.html",
+      "bytes": 24135,
+      "sha256": "94bcd5c0fee0c67b096a1f74765b682d910c9a5eff70207063174bb6bb869253"
+    },
+    {
+      "path": "learner/lesson-04-manuscript.txt",
+      "bytes": 12717,
+      "sha256": "e26d30a3e632b02fd439a4e208ecf82443c5820c723134e0acf878b996e114e5"
+    },
+    {
+      "path": "learner/lesson-04.html",
+      "bytes": 23793,
+      "sha256": "a13915dd43a9829b9fd90c12464ae5e425d9683284d5b38adb992ac3aa72611f"
+    },
+    {
+      "path": "review/first-attempts.md",
+      "bytes": 12319,
+      "sha256": "9b654e78c1b7cca7d0e50624e99d2e776a5c8fd840c39cbfd2b7e3bed4935576"
+    },
+    {
+      "path": "review/initial-before-repair/lesson-03-blind.txt",
+      "bytes": 11844,
+      "sha256": "36182a2fe80aa5362419375c3a833b6affeca6510c3bc037048462901010328a"
+    },
+    {
+      "path": "review/initial-before-repair/lesson-03-manuscript.txt",
+      "bytes": 12954,
+      "sha256": "769f952c159f8bb18c04ed0fad9fb1d3ea48b33099362a1bfdae3076d892ff6a"
+    },
+    {
+      "path": "review/initial-before-repair/lesson-03.html",
+      "bytes": 23835,
+      "sha256": "7e0613dd79427d20ff942b90a9d4a811e861e1a83956d8eb984807f3d9ca316c"
+    },
+    {
+      "path": "review/initial-before-repair/lesson-04-blind.txt",
+      "bytes": 11185,
+      "sha256": "48e342e746dcc5002a97ece017b6184475fdb875ae5d311c850d05fbe63f4c7f"
+    },
+    {
+      "path": "review/initial-before-repair/lesson-04-manuscript.txt",
+      "bytes": 12382,
+      "sha256": "3dc9d318e1df7d2bc7d74cf0b55b68e922a251466e11a1751b735137891bc205"
+    },
+    {
+      "path": "review/initial-before-repair/lesson-04.html",
+      "bytes": 23458,
+      "sha256": "0d64f46770618337ed8a2e27fee191119549397707b8a30aefb2a8751cf6e55d"
+    },
+    {
+      "path": "review/lesson-03-blind.html",
+      "bytes": 22673,
+      "sha256": "ad4cb2de8e0d013de7ab4c75a29901d0b25af16370ad89291464c93ba1efcea3"
+    },
+    {
+      "path": "review/lesson-03-blind.txt",
+      "bytes": 12144,
+      "sha256": "84e3e7982d428b3a235a4bbf610a0b933bd52d4df9d1a1dd769118ac6d0014ae"
+    },
+    {
+      "path": "review/lesson-04-blind.html",
+      "bytes": 22244,
+      "sha256": "bb1996bb34931cb1e10f1dacb51d757229d394925802ffa9f33e6516f0b21c83"
+    },
+    {
+      "path": "review/lesson-04-blind.txt",
+      "bytes": 11520,
+      "sha256": "748578589a260188b5948af856a403d7b7169138d81acf4c66fff3605159d2a5"
+    },
+    {
+      "path": "review/review-result.md",
+      "bytes": 15140,
+      "sha256": "126c44146443a3c9abaa86412d98964d4afa6caebd317d1b5db082cdd531d336"
+    },
+    {
+      "path": "review/reviewed-hashes.json",
+      "bytes": 5381,
+      "sha256": "805c702604efe50abd8a27d55c426da5d64b939eeb23b4a9a3d613ca7f79bbc9"
+    },
+    {
+      "path": "source/Course_Production_Standards_v0.3.txt",
+      "bytes": 54557,
+      "sha256": "ac1d791f49e8d0b488eb54897de0a039149c9e5d325b32b7d7a1fd21f1e1a7a5"
+    },
+    {
+      "path": "source/ch17-accepted/BENCHMARK_STATUS_AND_ACCEPTANCE.json",
+      "bytes": 1971,
+      "sha256": "becf8ac84525a589cbe903b4d774472aaf76b937d5c74e025e0813b83fa98c31"
+    },
+    {
+      "path": "source/ch17-accepted/lesson-06.html",
+      "bytes": 43821,
+      "sha256": "44004f8f3beb34119ca276b184a614bf4b098238b802555119964a29bc400c18"
+    },
+    {
+      "path": "source/ch17-accepted/lesson-06.txt",
+      "bytes": 26246,
+      "sha256": "17b9d45520ff70fdabb68e6dafd1a4a432e37fa737a3fee8928a64033f990a54"
+    },
+    {
+      "path": "source/ch17-accepted/lesson-07.html",
+      "bytes": 44942,
+      "sha256": "f0c0a0bb78f7fee7d021d4364281b2d17bd39ef22f0e3772104eb01ce5507608"
+    },
+    {
+      "path": "source/ch17-accepted/lesson-07.txt",
+      "bytes": 27429,
+      "sha256": "757ec71c95b8d6bc385aafa06178b575f4a971b796e2946b53d7dd58f86a2998"
+    },
+    {
+      "path": "source/course-config-lessons03-04-evidence.json",
+      "bytes": 46859,
+      "sha256": "426ecc85b698fe342b109471c7873dad4462ca48cee336b535859fd5200352f5"
+    },
+    {
+      "path": "source/figure15-5-source.png",
+      "bytes": 267701,
+      "sha256": "15f4bc616fc7b371a2f7c7ee54e7f78f8d1329037333574548e587fe7301b25e"
+    },
+    {
+      "path": "source/frozen-inputs/baseline-SHA256SUMS.txt",
+      "bytes": 24012,
+      "sha256": "9ead1416d6b9225c04abddbb8384fbe2381dc9ce3c0f769c9266519875b56572"
+    },
+    {
+      "path": "source/frozen-inputs/chapter-15.pdf",
+      "bytes": 1486822,
+      "sha256": "30b03cf91e5cf99ed0ae2a7dedf7cae2b246111b795d280b5b95ca937c56aa25"
+    },
+    {
+      "path": "source/frozen-inputs/course-config.json",
+      "bytes": 320379,
+      "sha256": "4d023c61ee9b83dd4ea4488b5a518406b2309b059c7d1c46f272c98e28dc4441"
+    },
+    {
+      "path": "source/frozen-inputs/lesson-source-map.json",
+      "bytes": 2148,
+      "sha256": "75558292e88c23552e0b2c9c50f0f49624ac82f7330e4f2d28f5cc51a7dc76ed"
+    },
+    {
+      "path": "source/frozen-inputs/optional-source-responses.json",
+      "bytes": 2909,
+      "sha256": "6b70c99adc8a80ff5dfaa74e08e2f705fe98ed30267e03a2845731ecd943b145"
+    },
+    {
+      "path": "source/frozen-inputs/source-discrepancies.md",
+      "bytes": 2545,
+      "sha256": "f97f54787088077de3581bc2e82508644e02a976747a8fc76ec1b380b1dfc386"
+    },
+    {
+      "path": "source/frozen-inputs/source-inventory.json",
+      "bytes": 1118,
+      "sha256": "30d21fe158edf4ba8c422a1c53d5fcf8a44672c6fc67b056f13f26ba99b5c17f"
+    },
+    {
+      "path": "source/frozen-inputs/teacher-chapter-15.pptx",
+      "bytes": 6976589,
+      "sha256": "38149b6f562425a0b49bed3d0ad4369c5c5eef48f44d9099ea673cc888c2eb84"
+    },
+    {
+      "path": "source/frozen-inputs/teacher-slide-transcript.json",
+      "bytes": 15476,
+      "sha256": "9be230f26b5550e7f7c4972e3596ebef13636aa5276596a6bd1dd63bff34bc60"
+    },
+    {
+      "path": "source/frozen-inputs/textbook-question-manifest.json",
+      "bytes": 108698,
+      "sha256": "aedfe442b493c0f0a091a8fb5b5b213ff8b9bd84a7ba24bf5c0b329f114a430d"
+    },
+    {
+      "path": "source/germ-layers-preview.png",
+      "bytes": 67467,
+      "sha256": "519ab79978302f60b0cccc1cd6c3c57911cee4b4058c0cd9f67d852a791f92e6"
+    },
+    {
+      "path": "source/lesson-03-base.html",
+      "bytes": 18246,
+      "sha256": "9815e6ab191be15a4e88b761ab1704ead7c053ac7403a7d815114e1a2a11636a"
+    },
+    {
+      "path": "source/lesson-03-original-readable.html",
+      "bytes": 18392,
+      "sha256": "f4e53f5b03182e42ee868da4fe4d3e91918ada7605c1f23c9eeae638ae3494ec"
+    },
+    {
+      "path": "source/lesson-03-original.txt",
+      "bytes": 7522,
+      "sha256": "beabb6936090f1942df80d64d4d55df88cf388cb01feeebd647c463459bf4722"
+    },
+    {
+      "path": "source/lesson-04-base.html",
+      "bytes": 18637,
+      "sha256": "b92cd69de60e348acbbc51f8d04fc278845974b38584be7c36f338eda224b797"
+    },
+    {
+      "path": "source/lesson-04-original-readable.html",
+      "bytes": 18785,
+      "sha256": "cb2c447469e046832b28d2449444e98bed65eba8ad065db2b139c4e5b8334f86"
+    },
+    {
+      "path": "source/lesson-04-original.txt",
+      "bytes": 7443,
+      "sha256": "0d924433f67c7e1f8e813a9834568dfdf2d4d26df24ac4c7e99f3b20c94b58eb"
+    },
+    {
+      "path": "source/lessons03-04-source-preflight.md",
+      "bytes": 25962,
+      "sha256": "be82cc8a4f0855d17e9ca2d14081d94ecebe9c94777a6cfe6776b8180e542f8a"
+    },
+    {
+      "path": "source/preflight-media/native-germ-layers.png",
+      "bytes": 67467,
+      "sha256": "519ab79978302f60b0cccc1cd6c3c57911cee4b4058c0cd9f67d852a791f92e6"
+    },
+    {
+      "path": "source/preflight-media/teacher-image10.jpg",
+      "bytes": 14027,
+      "sha256": "8749a625718debb58e67aa6a56eda9c3a346b52e2460be965afd38a26d54efb5"
+    },
+    {
+      "path": "source/preflight-media/teacher-image11.png",
+      "bytes": 102067,
+      "sha256": "6d338dfd690cfd39c75c78b038d64e1190172931b15bc462b12a48ffa94d744a"
+    },
+    {
+      "path": "source/preflight-media/teacher-image15.png",
+      "bytes": 770350,
+      "sha256": "c87d3ef428859ff72a8ee4d43e20dc9b55c2e4c1e6f6726f3e0750464cd6dbfe"
+    },
+    {
+      "path": "source/preflight-media/teacher-image19.png",
+      "bytes": 320053,
+      "sha256": "2ceb0b5660f1768581158ee94407f2fda78c3935d4738a19f6fe38f93845c2e9"
+    },
+    {
+      "path": "source/preflight-media/teacher-image21.png",
+      "bytes": 269668,
+      "sha256": "e29ac4bee71b44867a114a0af92e74fc97713827560b8339c7db24e42165557f"
+    },
+    {
+      "path": "source/preflight-media/teacher-image31.png",
+      "bytes": 481964,
+      "sha256": "75d26a31240412d6fb40a26ec5314a9598ae32233be3a4286d05aae2b77c2455"
+    },
+    {
+      "path": "source/preflight-media/teacher-image37.png",
+      "bytes": 403991,
+      "sha256": "5dce4b85bd2f02fb49e839795b283b0b3806bccf8eb2c2732d566f760931be5a"
+    },
+    {
+      "path": "source/preflight-media/teacher-image6.png",
+      "bytes": 544580,
+      "sha256": "9d3cd1167f35fa3a173b44f32066fda157c43227740b5be8a2bfb43923243f5b"
+    },
+    {
+      "path": "source/preflight-media/teacher-image7.png",
+      "bytes": 120652,
+      "sha256": "a6e846d9911a8a0b1529c5f98a9b01a70101c55e4dd17e8d9b9e99b1a35f629a"
+    },
+    {
+      "path": "source/preflight-media/textbook510.png",
+      "bytes": 574633,
+      "sha256": "ccc8d2f475b23255b1c20699713b815bb452787ee7103cc1075de77a31883b61"
+    },
+    {
+      "path": "source/preflight-media/textbook511.png",
+      "bytes": 831352,
+      "sha256": "165b86e027c4906dc0a75d4155165e03a95c112c3b8245a4310af55cedfeefbd"
+    },
+    {
+      "path": "source/preflight-media/textbook512.png",
+      "bytes": 341199,
+      "sha256": "95b9548f89e8ed509f5cf41e629cc3cac3a6386d09d2b76a37a2337678480183"
+    },
+    {
+      "path": "source/preflight-media/textbook513.png",
+      "bytes": 667308,
+      "sha256": "826b2dac65ab931601a048216705cc82bfbe2dd33cd8d9dc20a303718d05f518"
+    },
+    {
+      "path": "source/preservation-preflight.json",
+      "bytes": 53559,
+      "sha256": "e7417da55df63137e5faaabf6f87f01704d02fd09dc6a3ac1dfacc5c74fa3ed1"
+    },
+    {
+      "path": "source/teacher-media/slide10-image6.png",
+      "bytes": 544580,
+      "sha256": "9d3cd1167f35fa3a173b44f32066fda157c43227740b5be8a2bfb43923243f5b"
+    },
+    {
+      "path": "source/teacher-media/slide11-image10.jpg",
+      "bytes": 14027,
+      "sha256": "8749a625718debb58e67aa6a56eda9c3a346b52e2460be965afd38a26d54efb5"
+    },
+    {
+      "path": "source/teacher-media/slide11-image31.png",
+      "bytes": 481964,
+      "sha256": "75d26a31240412d6fb40a26ec5314a9598ae32233be3a4286d05aae2b77c2455"
+    },
+    {
+      "path": "source/teacher-media/slide12-image21.png",
+      "bytes": 269668,
+      "sha256": "e29ac4bee71b44867a114a0af92e74fc97713827560b8339c7db24e42165557f"
+    },
+    {
+      "path": "source/teacher-media/slide13-image19.png",
+      "bytes": 320053,
+      "sha256": "2ceb0b5660f1768581158ee94407f2fda78c3935d4738a19f6fe38f93845c2e9"
+    },
+    {
+      "path": "source/teacher-media/slide13-image7.png",
+      "bytes": 120652,
+      "sha256": "a6e846d9911a8a0b1529c5f98a9b01a70101c55e4dd17e8d9b9e99b1a35f629a"
+    },
+    {
+      "path": "source/teacher-media/slide14-image11.png",
+      "bytes": 102067,
+      "sha256": "6d338dfd690cfd39c75c78b038d64e1190172931b15bc462b12a48ffa94d744a"
+    },
+    {
+      "path": "source/teacher-media/slide15-image37.png",
+      "bytes": 403991,
+      "sha256": "5dce4b85bd2f02fb49e839795b283b0b3806bccf8eb2c2732d566f760931be5a"
+    },
+    {
+      "path": "source/teacher-media/slide16-image15.png",
+      "bytes": 770350,
+      "sha256": "c87d3ef428859ff72a8ee4d43e20dc9b55c2e4c1e6f6726f3e0750464cd6dbfe"
+    },
+    {
+      "path": "source/teacher-slides08-17.txt",
+      "bytes": 3575,
+      "sha256": "4463c9a87a4d8d0c40843f1ccab7d34a564c13acf63a779fb065ed30927f0214"
+    },
+    {
+      "path": "source/textbook-07.png",
+      "bytes": 572179,
+      "sha256": "be592ad417ac4e0ca7700c2e9ad7dff10716838ba36bb0500e38ee19f1feef32"
+    },
+    {
+      "path": "source/textbook-08.png",
+      "bytes": 812595,
+      "sha256": "2456a49229d301ae66c2a63e113d37331c466bb20b5eff70ad3b746ca38f9d3f"
+    },
+    {
+      "path": "source/textbook-question-contexts.txt",
+      "bytes": 22857,
+      "sha256": "411d77eb2b49731cd3acb98f05dd2191c7d4bc664c1e1b6dd3468535a3189e98"
+    },
+    {
+      "path": "source/textbook-question-givens-lessons03-04.json",
+      "bytes": 14347,
+      "sha256": "f8f9729008c505c7ddb5db11261ef76d6291c5a2596ca75bf2d652c6c1599c3d"
+    },
+    {
+      "path": "source/textbook510-513.txt",
+      "bytes": 10690,
+      "sha256": "a00aebe29e2a451b08ddf7cad39fa6ed194b1b02bcc8433c92832012a8ab4c18"
+    }
+  ]
+}

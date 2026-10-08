@@ -1,0 +1,11 @@
+# Repair and recheck
+
+R1, review packet: initial prerequisite extraction missed nested .p2-topic wrappers and yielded empty01–10 exports. Both fresh workers detected this before keys. Exact earlier candidate teaching/glossary/worked content and14 images were restored; five selected sections and nonempty text were asserted for each lesson. Corrected packet input hashes are in first-attempt records. No missing-source gap was filled with expert guesses.
+
+R2, source report: a preflight claim that native course-data omitted arrays in authoring config was erroneous. Direct complete comparisons show exact equality across24keys and nested values. Source worker corrected report and added native-authoring-config-comparison.json/preflight-correction-01.json; source input bytes unchanged. Earlier report hash is retained in correction receipt, not silently treated as current.
+
+R3, learner teaching: cumulative blind attempt could not identify the precise third-trimester contrast from earlier08 general later-maturation language. Source521/teacher22–24 and primary in-utero brain studies support a concise final12 teaching01 paragraph about rapid third-trimester brain growth/neural connections following earlier skeletal beginnings. Added that paragraph after organogenesis, avoiding the overclaim that all neurons first form then. All first attempts remain unchanged and initial candidate files retained here. Recheck evidence is a post-repair attempt, not another blind result.
+
+The inherited first-three-days nutrient key remains a protected assessment/source decision. No misleading exclusive claim was inserted to match it. No source question, key, image, control or required scope was changed.
+
+R4, exact source pixels: reviewer found that Figure15.18B visibly marks an interruption on the left-hand drawn oviduct, while the opposite tube appears continuous. Candidate alt incorrectly claimed both interruptions were shown. Corrected the alt to “B illustrates an interrupted oviduct while the ovaries and uterus remain” and the viewing cue to locate the labelled interruption. General procedure teaching remains separate; source image bytes unchanged. Final pixel/alt/cue recheck is independent.

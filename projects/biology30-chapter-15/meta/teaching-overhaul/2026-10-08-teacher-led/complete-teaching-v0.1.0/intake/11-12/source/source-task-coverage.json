@@ -1,0 +1,194 @@
+{
+  "status": "Read-only source preflight complete with explicit protected-source and provenance limitations; no blanket learner/runtime pass",
+  "nativeBaseline": {
+    "source": "/workspace/scratch/6f97d4e841e3/biology_prep/ch15-source/unpacked/chapter-15/workspace/index.html",
+    "sha256": "2770ecce23a9fb2b8253466b712cbfaa982fc7342c476d940f07f40c95a326b4",
+    "contentVersion": "2026-09-17-completed-handoff",
+    "bankVersion": "ch15-complete-v1"
+  },
+  "standards": {
+    "version": "0.4",
+    "sha256": "db8a04bcd7620d9ecf64ec6dc86c046cb3075b9b09cc51dac41936c391379e1e",
+    "frozenBeforeReview": true,
+    "applicable": "D01-D08 U01-U15 B01-B05 V01, with runtime/teacher acceptance/release not performed"
+  },
+  "nativeLessonReads": [
+    11,
+    12
+  ],
+  "required": {
+    "lesson11Selections": 2,
+    "lesson11Written": 2,
+    "lesson12Selections": 6,
+    "lesson12Written": 2
+  },
+  "guidedSelections": 2,
+  "independentTransfer": {
+    "selections": 3,
+    "written": 1,
+    "optional": true
+  },
+  "sourceWritten": {
+    "lesson12": 3,
+    "images": 4,
+    "limits": 5000,
+    "originalKeys": "2413,53142,4213; not exposed as current auto-graded keys"
+  },
+  "lesson11PracticePool": {
+    "sourceAdaptedMC": 5,
+    "foundationMC": 4,
+    "authoredApplicationMC": 1,
+    "typedContext": 4,
+    "generatedVocabulary": 16,
+    "scenarioFlash": 1,
+    "uniqueTotal": 31
+  },
+  "lesson12RegularPracticePool": 0,
+  "pairSequences": 0,
+  "pairDiagramPractice": 0,
+  "pairLabeling": 0,
+  "pairMultiSelect": 0,
+  "cumulativeUnitReview": {
+    "chapter14": 24,
+    "chapter15": 22,
+    "total": 46,
+    "scope": "separate optional mixed-practice unit-review topic, not the final required check"
+  },
+  "textbook": {
+    "lesson11TopicTasks": 41,
+    "chapterReviewTopicTasks": 26,
+    "uniqueUnion": 41,
+    "questionContinuationCrops": 42,
+    "fullTextReadPrintedPages": [
+      508,
+      509,
+      510,
+      511,
+      512,
+      513,
+      514,
+      515,
+      516,
+      517,
+      518,
+      519,
+      520,
+      521,
+      522,
+      523,
+      524,
+      525,
+      526,
+      527,
+      528,
+      529,
+      530,
+      531,
+      532,
+      533,
+      534,
+      535,
+      536,
+      537
+    ],
+    "fullPagePixelReadPrintedPages": [
+      528,
+      529,
+      530,
+      531,
+      532,
+      533,
+      534,
+      535,
+      536,
+      537
+    ],
+    "renderedOnlyNotReadPages": [
+      538,
+      539
+    ],
+    "sourcePdfPages": 34
+  },
+  "teacher": {
+    "allNativeSlideTextRead": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42
+    ],
+    "allSlideNotesRead": "42, empty or slide-number placeholder only",
+    "allEmbeddedImagesReadInSlides": [
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42
+    ],
+    "uniqueImagesRead": 10,
+    "wholeSlideRender": "Not performed; actual PPTX XML text, relationships and media pixels inspected"
+  },
+  "historicalOriginals": {
+    "itemsRead": 49,
+    "missingUnusedOriginalStimulusImages": 11,
+    "catalogueAndDispositionsPreserved": true
+  },
+  "runtime": "Not run. Static runtime task templates read only",
+  "noMutations": "No source/assessment/native figure/control or live course changed",
+  "optionalStopAndThink": 1,
+  "frayer": {
+    "pairVisibleTerms": 8,
+    "newLesson11Terms": 4,
+    "lesson12EarlierAnchorTerms": 4,
+    "fieldsPerTerm": 4,
+    "limitPerField": 240,
+    "chapterSelectedWordLimit": 8,
+    "runtimeSource": "main.js lines130-138 statically inspected; not executed"
+  },
+  "nativeAuthoringConfigParity": {
+    "completeParsedEquality": true,
+    "topLevelKeys": 24,
+    "sourceConfigSha256": "4d023c61ee9b83dd4ea4488b5a518406b2309b059c7d1c46f272c98e28dc4441",
+    "receipt": "native-authoring-config-comparison.json"
+  }
+}

@@ -1,0 +1,521 @@
+{
+  "stage": "Complete first attempts frozen before source/config/keys review",
+  "created_utc": "2026-10-08T20:29:55.406971+00:00",
+  "independence": "Read only pair blind teaching HTML/text, blind prompt JSON, actual five learner images and empty prior-teaching files. No keys, original-source documents, configs, preflight or author rationale read. A tool-level agent status inadvertently exposed cumulative Q21/Q24/Q26 and contraception preflight flags, without local task answers. Initial native prompt read included cumulative prompts, but no cumulative answers were attempted; all46 excluded and delegated separately.",
+  "records": [
+    {
+      "identity": "ch15-l11-check-mc-1",
+      "prompt": "An embryo is transferred to the uterus after IVF. Which statement is justified?",
+      "scope": "ch15-check-11",
+      "answer": "Fertilization has occurred, but implantation is not guaranteed",
+      "support": "L11 teaching01: embryo transfer follows laboratory fertilization; placement is not attachment",
+      "note": ""
+    },
+    {
+      "identity": "ch15-l11-check-mc-2",
+      "prompt": "Why can a duct-based contraceptive procedure leave hormone production largely intact?",
+      "scope": "ch15-check-11",
+      "answer": "The duct and the hormone-producing tissue have different functions",
+      "support": "L11 teaching02: sperm transport and testosterone release into blood are different routes",
+      "note": ""
+    },
+    {
+      "identity": "ch15-l11-check-writing-1",
+      "prompt": "Compare IVF and artificial insemination using the locations of gamete placement and fertilization.",
+      "scope": "ch15-check-11",
+      "answer": "Artificial insemination places prepared sperm into the reproductive tract, and any fertilization still occurs inside the body, usually in an oviduct. IVF brings eggs and sperm together in a laboratory outside the body. A resulting embryo may later be placed in the uterus, but transfer does not guarantee implantation.",
+      "support": "L11 teaching01",
+      "note": ""
+    },
+    {
+      "identity": "ch15-l11-check-writing-2",
+      "prompt": "Explain why evaluating reproductive technology requires more than naming its mechanism.",
+      "scope": "ch15-check-11",
+      "answer": "A mechanism identifies the step affected; it does not give a success rate or show that every later stage will succeed. Evidence should specify an outcome, population and time period, and distinguish correct from typical use where relevant. Safety, uncertainty, informed consent, access, cost and preferences also matter. Evidence can estimate an outcome but cannot decide everyone's values.",
+      "support": "L11 teaching03",
+      "note": ""
+    },
+    {
+      "identity": "ch15-final-mc-1",
+      "prompt": "A structure in the uterus has trophoblast, a cavity and an inner cell mass. What is it?",
+      "scope": "ch15-check-12",
+      "answer": "Blastocyst",
+      "support": "L12 teaching01: cavity, trophoblast, inner cell mass",
+      "note": ""
+    },
+    {
+      "identity": "ch15-final-mc-2",
+      "prompt": "What is the correct early hormonal chain?",
+      "scope": "ch15-check-12",
+      "answer": "Trophoblast-derived hCG → corpus luteum → progesterone support of endometrium",
+      "support": "L12 teaching02 first paragraph",
+      "note": ""
+    },
+    {
+      "identity": "ch15-final-mc-3",
+      "prompt": "Which tissue and germ-layer pairing is correct?",
+      "scope": "ch15-check-12",
+      "answer": "Respiratory epithelial lining—endoderm",
+      "support": "L12 teaching01 germ-layer examples",
+      "note": ""
+    },
+    {
+      "identity": "ch15-final-mc-4",
+      "prompt": "In the normal fetal circuit, blood returning from placenta to fetus travels through the:",
+      "scope": "ch15-check-12",
+      "answer": "Umbilical vein",
+      "support": "L12 teaching02 exchange paragraph",
+      "note": ""
+    },
+    {
+      "identity": "ch15-final-mc-5",
+      "prompt": "Which combination correctly distinguishes the two lactation functions?",
+      "scope": "ch15-check-12",
+      "answer": "Prolactin supports production; oxytocin supports ejection",
+      "support": "L12 teaching02 lactation paragraph",
+      "note": ""
+    },
+    {
+      "identity": "ch15-final-mc-6",
+      "prompt": "Why should a developmental timeline state its age convention?",
+      "scope": "ch15-check-12",
+      "answer": "Gestational age and age from fertilization have different starting points",
+      "support": "L12 teaching01 clock paragraph",
+      "note": ""
+    },
+    {
+      "identity": "ch15-final-writing-1",
+      "prompt": "Trace development from fertilization to the beginning of organ formation. Connect cell number, organization, implantation and germ layers.",
+      "scope": "ch15-check-12",
+      "answer": "Fertilization normally occurs in an oviduct, where haploid contributions of 23 chromosomes from each gamete restore 46 in a zygote. Cleavage increases cell number with little overall growth; cells become smaller. A compact morula develops into a blastocyst with a cavity, outer trophoblast and inner cell mass. Implantation attaches the blastocyst to the uterine endometrium. Gastrulation reorganizes embryonic cells into ectoderm, mesoderm and endoderm. These cells differentiate, take shape through morphogenesis and begin organogenesis; neurulation forms the neural tube from ectoderm. Early structures still require maturation.",
+      "support": "L12 teaching01",
+      "note": ""
+    },
+    {
+      "identity": "ch15-final-writing-2",
+      "prompt": "Compare the feedback supporting early pregnancy with the feedback reinforcing labour.",
+      "scope": "ch15-check-12",
+      "answer": "Early trophoblast-derived hCG supports the corpus luteum, whose progesterone and estrogen help maintain the endometrium. The placenta later contributes these hormones. That support chain is not by itself proof of negative feedback because no return effect on the starting signal is given. Labour explicitly has positive feedback: cervical stretch signals the hypothalamus, posterior-pituitary oxytocin reaches uterine muscle, stronger contractions increase stretch, and the cycle reinforces itself until delivery reduces its main stimulus.",
+      "support": "L12 teaching02 first paragraph; repaired prior L03 confirms the hormonal support chain, but does not add a return loop classifiable as negative feedback.",
+      "note": "Prompt calls both situations feedback. This is a valid qualified answer to the teaching provided, not a claim that the hCG chain alone is a negative-feedback loop. Prior L03 requested to clarify fuller ovarian feedback context."
+    },
+    {
+      "identity": "ch15-l11-guided-q1",
+      "prompt": "Which process explicitly includes fertilization outside the body?",
+      "scope": "lesson11-guided",
+      "answer": "IVF",
+      "support": "L11 teaching01: eggs and sperm together in laboratory",
+      "note": ""
+    },
+    {
+      "identity": "ch15-l11-guided-q2",
+      "prompt": "Which action most directly describes vasectomy?",
+      "scope": "lesson11-guided",
+      "answer": "Interrupting sperm transport",
+      "support": "L11 teaching02: vasa deferentia carry sperm; exact source transport figure A",
+      "note": ""
+    },
+    {
+      "identity": "ch15-transfer-mc-1",
+      "prompt": "An experimental tissue model forms a normal blastocyst but its trophoblast cannot interact with endometrial tissue. Which step is most directly threatened?",
+      "scope": "lesson12-independent-transfer",
+      "answer": "Implantation",
+      "support": "L12 teaching01 attachment/endometrium; worked example case A",
+      "note": ""
+    },
+    {
+      "identity": "ch15-transfer-mc-2",
+      "prompt": "A placental model retains blood flow but doubles the thickness of the exchange barrier. Which prediction is most defensible?",
+      "scope": "lesson12-independent-transfer",
+      "answer": "Diffusive exchange may become less efficient",
+      "support": "L12 teaching02 barrier thickness",
+      "note": ""
+    },
+    {
+      "identity": "ch15-transfer-mc-3",
+      "prompt": "A model shows normal milk production but reduced response to oxytocin in mammary contractile cells. Which function is impaired most directly?",
+      "scope": "lesson12-independent-transfer",
+      "answer": "Milk ejection",
+      "support": "L12 teaching02 hormone-specific functions and target response",
+      "note": ""
+    },
+    {
+      "identity": "ch15-transfer-writing",
+      "prompt": "A developmental report gives only “week ten” and a visible early organ. Explain two reasons this is insufficient to conclude that the organ is fully functional.",
+      "scope": "lesson12-independent-transfer",
+      "answer": "First, “week ten” has no stated clock: gestational age starts at the last menstrual period, whereas age from fertilization starts later, conventionally by about two weeks. Second, a visible early organ shows that a structure is forming, not that its cells and connections can yet perform a mature function. Continued development and functional evidence are needed.",
+      "support": "L12 teaching01 clock and organogenesis paragraphs",
+      "note": ""
+    },
+    {
+      "identity": "ch15-source-OBJ_2131141",
+      "prompt": "Surgical sterilizations in men and women are called",
+      "scope": "lesson11-optional-practiceQuestions",
+      "answer": "vasectomy and tubal ligation, respectively.",
+      "support": "L11 teaching01 for IVF/location/implantation; teaching02 and worked example for transport, tubal ligation and LH/ovulation",
+      "note": ""
+    },
+    {
+      "identity": "ch15-source-OBJ_2131142",
+      "prompt": "A model has normal sperm production, but both vasa deferentia are completely blocked. What is affected directly?",
+      "scope": "lesson11-optional-practiceQuestions",
+      "answer": "Transport of sperm into the ejaculatory pathway",
+      "support": "L11 teaching01 for IVF/location/implantation; teaching02 and worked example for transport, tubal ligation and LH/ovulation",
+      "note": ""
+    },
+    {
+      "identity": "ch15-source-OBJ_2131143",
+      "prompt": "During IVF, the laboratory fertilization environment replaces the usual setting in which structure?",
+      "scope": "lesson11-optional-practiceQuestions",
+      "answer": "Oviduct",
+      "support": "L11 teaching01 for IVF/location/implantation; teaching02 and worked example for transport, tubal ligation and LH/ovulation",
+      "note": ""
+    },
+    {
+      "identity": "ch15-source-OBJ_2131144",
+      "prompt": "A blastocyst is transferred into a uterus during an IVF procedure. Which event must still occur for continued normal pregnancy?",
+      "scope": "lesson11-optional-practiceQuestions",
+      "answer": "Implantation in the endometrium",
+      "support": "L11 teaching01 for IVF/location/implantation; teaching02 and worked example for transport, tubal ligation and LH/ovulation",
+      "note": ""
+    },
+    {
+      "identity": "ch15-source-OBJ_2131146",
+      "prompt": "A combined hormonal contraceptive suppresses FSH and the LH surge in a model cycle. Which event is less likely?",
+      "scope": "lesson11-optional-practiceQuestions",
+      "answer": "Ovulation",
+      "support": "L11 teaching01 for IVF/location/implantation; teaching02 and worked example for transport, tubal ligation and LH/ovulation",
+      "note": ""
+    },
+    {
+      "identity": "ch15-foundation-ch15-word-in-vitro-fertilization-ivf",
+      "prompt": "Which term matches this description? A process in which eggs and sperm are brought together outside the body and resulting embryos may be transferred to the uterus.",
+      "scope": "lesson11-optional-practiceQuestions",
+      "answer": "in vitro fertilization (IVF)",
+      "support": "L11 vocabulary and teaching01",
+      "note": ""
+    },
+    {
+      "identity": "ch15-foundation-ch15-word-artificial-insemination",
+      "prompt": "Which term matches this description? Placement of sperm in the reproductive tract to support the chance of fertilization.",
+      "scope": "lesson11-optional-practiceQuestions",
+      "answer": "artificial insemination",
+      "support": "L11 vocabulary and teaching01",
+      "note": ""
+    },
+    {
+      "identity": "ch15-foundation-ch15-word-hormonal-contraception",
+      "prompt": "Which term matches this description? Use of hormone-like signals to reduce the chance of pregnancy through effects such as suppressing ovulation or changing cervical mucus.",
+      "scope": "lesson11-optional-practiceQuestions",
+      "answer": "hormonal contraception",
+      "support": "L11 vocabulary and teaching02",
+      "note": ""
+    },
+    {
+      "identity": "ch15-foundation-ch15-word-vasectomy",
+      "prompt": "Which term matches this description? A procedure that interrupts sperm transport through the vasa deferentia.",
+      "scope": "lesson11-optional-practiceQuestions",
+      "answer": "vasectomy",
+      "support": "L11 vocabulary, teaching02, source figure A and worked example",
+      "note": ""
+    },
+    {
+      "identity": "ch15-l11-application-1",
+      "prompt": "A model contraceptive method thickens cervical mucus while ovulation continues. Which conclusion follows?",
+      "scope": "lesson11-optional-authoredPractice",
+      "answer": "It can act by making sperm passage more difficult without necessarily suppressing ovulation",
+      "support": "L11 teaching02 mucus paragraph and final paragraph of worked example",
+      "note": ""
+    },
+    {
+      "identity": "ch15-l11-context-in-vitro-fertilization-ivf",
+      "prompt": "Identify the term illustrated: Fertilization takes place in a laboratory before an embryo is transferred.",
+      "scope": "lesson11-optional-typedPractice",
+      "answer": "in vitro fertilization (IVF)",
+      "support": "L11 vocabulary and teaching01",
+      "note": ""
+    },
+    {
+      "identity": "ch15-l11-context-artificial-insemination",
+      "prompt": "Identify the term illustrated: Prepared sperm are introduced into the reproductive tract without intercourse.",
+      "scope": "lesson11-optional-typedPractice",
+      "answer": "artificial insemination",
+      "support": "L11 vocabulary and teaching01",
+      "note": ""
+    },
+    {
+      "identity": "ch15-l11-context-hormonal-contraception",
+      "prompt": "Identify the term illustrated: A method alters reproductive feedback and/or conditions for sperm passage.",
+      "scope": "lesson11-optional-typedPractice",
+      "answer": "hormonal contraception",
+      "support": "L11 vocabulary and teaching02",
+      "note": "The hormonal-contraception scenario uses “and/or conditions for sperm passage”; this alone also admits some nonhormonal barriers. Intended term is clear within the four-term lesson bank, but prompt wording is broader than the category."
+    },
+    {
+      "identity": "ch15-l11-context-vasectomy",
+      "prompt": "Identify the term illustrated: Sperm transport is interrupted while testes can still produce hormones.",
+      "scope": "lesson11-optional-typedPractice",
+      "answer": "vasectomy",
+      "support": "L11 vocabulary, teaching02, source figure A and worked example",
+      "note": ""
+    },
+    {
+      "identity": "ch15-source-written-OBJ_2131148",
+      "prompt": "The order of these events from earliest to the latest is _____, _____, _____, and _____. Show the calculation or sequence and explain your reasoning. Use only the supplied evidence; do not invent observations.",
+      "scope": "lesson12-optional-source-writing",
+      "answer": "2, 4, 1, 3. The zygote comes first, cleavage produces the compact morula, and the blastocyst develops afterward. Gastrulation subsequently establishes the germ layers.",
+      "support": "L12 teaching01 plus actual pixels of be3283cf513d711f.png",
+      "note": "Source image heading says events from ovulation to implantation, but it includes gastrulation, which is later. The order is still determinable; heading is a protected source ambiguity."
+    },
+    {
+      "identity": "ch15-source-written-OBJ_2131149",
+      "prompt": "The order of these events would be _____, _____, _____, _____, and _____. Show the calculation or sequence and explain your reasoning. Use only the supplied evidence; do not invent observations.",
+      "scope": "lesson12-optional-source-writing",
+      "answer": "5, 3, 1, 4, 2. Suckling stimulates the nerve endings; neural pathways carry the stimulus to the hypothalamus; oxytocin is released from the posterior pituitary; it causes mammary contractile tissue to contract; milk letdown follows.",
+      "support": "Actual supplied numbered events in fabf4f2941ef763d.png plus L12 teaching02 lactation distinctions; repaired prior L10 explanation and actual source/schematic pixels independently confirm neural input, posterior release, contractile cells and letdown.",
+      "note": "The diagram bundles hypothalamic production with posterior-pituitary release as one event; ordering applies to the simplified release reflex, not synthesis of new hormone after every suckle."
+    },
+    {
+      "identity": "ch15-source-written-OBJ_2131151",
+      "prompt": "Using the preceding diagram, correctly match the number that corresponds to the extra-embryonic membranes named below. Show the calculation or sequence and explain your reasoning. Use only the supplied evidence; do not invent observations.",
+      "scope": "lesson12-optional-source-writing",
+      "answer": "4, 2, 1, 3. Chorion is the outer membrane at 4. The small allantoic outgrowth near the stalk is 2. Amnion is the inner membrane surrounding the amniotic cavity at 1. The separate small yolk sac beside the embryo is 3.",
+      "support": "Repaired prior L05 teaching, ch15-source-membranes.png pixels, ch15-support.svg raster pixels, and actual d66857afed549d75.png plus 3b87413c605fe16b.png assessment pixels.",
+      "note": "Could not complete from pair12 summary alone; after restoring legitimate prior teaching, the labels and relationships support the answer. No expert-only fill or key used."
+    },
+    {
+      "identity": "#lesson-11 .stop-check",
+      "prompt": "Does a normal hormone concentration prove that reproductive transport is unobstructed?",
+      "scope": "lesson11-stop-and-think",
+      "answer": "No. A duct can be blocked while hormone-producing tissue still releases hormones into blood. Hormone concentration alone does not show that sperm or oocytes can follow their transport pathway.",
+      "support": "L11 teaching02 and worked example A",
+      "note": ""
+    },
+    {
+      "identity": "ch15-concept-in-vitro-fertilization-ivf-flash",
+      "prompt": "Explain in vitro fertilization (IVF).",
+      "scope": "explain-term",
+      "answer": "Eggs and sperm are brought together outside the body in a laboratory. An embryo may later be transferred into the uterus.",
+      "support": "L11 vocabulary and teaching01",
+      "note": ""
+    },
+    {
+      "identity": "ch15-concept-in-vitro-fertilization-ivf-reverse",
+      "prompt": "Which term fits this definition? A process in which eggs and sperm are brought together outside the body and resulting embryos may be transferred to the uterus.",
+      "scope": "reverse-retrieval",
+      "answer": "in vitro fertilization (IVF)",
+      "support": "L11 vocabulary and teaching01",
+      "note": ""
+    },
+    {
+      "identity": "ch15-concept-in-vitro-fertilization-ivf-misconception",
+      "prompt": "Correct this incorrect statement: IVF places an unfertilized egg directly into the bloodstream.",
+      "scope": "misconception-correction",
+      "answer": "IVF involves laboratory fertilization and possible embryo transfer into the uterus, not placing an unfertilized egg into blood.",
+      "support": "L11 vocabulary and teaching01",
+      "note": ""
+    },
+    {
+      "identity": "ch15-concept-in-vitro-fertilization-ivf-blank",
+      "prompt": "Name the term described: A process in which eggs and sperm are brought together outside the body and resulting embryos may be transferred to the uterus.",
+      "scope": "term-from-definition",
+      "answer": "in vitro fertilization (IVF)",
+      "support": "L11 vocabulary and teaching01",
+      "note": ""
+    },
+    {
+      "identity": "ch15-concept-artificial-insemination-flash",
+      "prompt": "Explain artificial insemination.",
+      "scope": "explain-term",
+      "answer": "Prepared sperm are placed into the reproductive tract without intercourse to improve the chance of fertilization.",
+      "support": "L11 vocabulary and teaching01",
+      "note": ""
+    },
+    {
+      "identity": "ch15-concept-artificial-insemination-reverse",
+      "prompt": "Which term fits this definition? Placement of sperm in the reproductive tract to support the chance of fertilization.",
+      "scope": "reverse-retrieval",
+      "answer": "artificial insemination",
+      "support": "L11 vocabulary and teaching01",
+      "note": ""
+    },
+    {
+      "identity": "ch15-concept-artificial-insemination-misconception",
+      "prompt": "Correct this incorrect statement: Artificial insemination always means fertilization outside the body.",
+      "scope": "misconception-correction",
+      "answer": "Artificial insemination places sperm inside the reproductive tract; any fertilization occurs inside the body, usually in an oviduct.",
+      "support": "L11 vocabulary and teaching01",
+      "note": ""
+    },
+    {
+      "identity": "ch15-concept-artificial-insemination-blank",
+      "prompt": "Name the term described: Placement of sperm in the reproductive tract to support the chance of fertilization.",
+      "scope": "term-from-definition",
+      "answer": "artificial insemination",
+      "support": "L11 vocabulary and teaching01",
+      "note": ""
+    },
+    {
+      "identity": "ch15-concept-hormonal-contraception-flash",
+      "prompt": "Explain hormonal contraception.",
+      "scope": "explain-term",
+      "answer": "Hormone-like signals reduce the chance of pregnancy, for example by reducing ovulation or thickening cervical mucus.",
+      "support": "L11 vocabulary and teaching02",
+      "note": ""
+    },
+    {
+      "identity": "ch15-concept-hormonal-contraception-reverse",
+      "prompt": "Which term fits this definition? Use of hormone-like signals to reduce the chance of pregnancy through effects such as suppressing ovulation or changing cervical mucus.",
+      "scope": "reverse-retrieval",
+      "answer": "hormonal contraception",
+      "support": "L11 vocabulary and teaching02",
+      "note": ""
+    },
+    {
+      "identity": "ch15-concept-hormonal-contraception-misconception",
+      "prompt": "Correct this incorrect statement: Every hormonal method has exactly the same action.",
+      "scope": "misconception-correction",
+      "answer": "Different hormonal methods can have different actions. Some suppress ovulation; others act substantially on cervical mucus even when ovulation continues.",
+      "support": "L11 vocabulary and teaching02",
+      "note": ""
+    },
+    {
+      "identity": "ch15-concept-hormonal-contraception-blank",
+      "prompt": "Name the term described: Use of hormone-like signals to reduce the chance of pregnancy through effects such as suppressing ovulation or changing cervical mucus.",
+      "scope": "term-from-definition",
+      "answer": "hormonal contraception",
+      "support": "L11 vocabulary and teaching02",
+      "note": ""
+    },
+    {
+      "identity": "ch15-concept-vasectomy-flash",
+      "prompt": "Explain vasectomy.",
+      "scope": "explain-term",
+      "answer": "A procedure that interrupts sperm transport through the vasa deferentia.",
+      "support": "L11 vocabulary, teaching02, source figure A and worked example",
+      "note": ""
+    },
+    {
+      "identity": "ch15-concept-vasectomy-reverse",
+      "prompt": "Which term fits this definition? A procedure that interrupts sperm transport through the vasa deferentia.",
+      "scope": "reverse-retrieval",
+      "answer": "vasectomy",
+      "support": "L11 vocabulary, teaching02, source figure A and worked example",
+      "note": ""
+    },
+    {
+      "identity": "ch15-concept-vasectomy-misconception",
+      "prompt": "Correct this incorrect statement: A vasectomy removes the pituitary gland.",
+      "scope": "misconception-correction",
+      "answer": "A vasectomy interrupts the vasa deferentia; it does not remove the pituitary gland and does not by itself stop testosterone release into blood.",
+      "support": "L11 vocabulary, teaching02, source figure A and worked example",
+      "note": ""
+    },
+    {
+      "identity": "ch15-concept-vasectomy-blank",
+      "prompt": "Name the term described: A procedure that interrupts sperm transport through the vasa deferentia.",
+      "scope": "term-from-definition",
+      "answer": "vasectomy",
+      "support": "L11 vocabulary, teaching02, source figure A and worked example",
+      "note": ""
+    },
+    {
+      "identity": "ch15-l11-scenario-1",
+      "prompt": "A model contraceptive method thickens cervical mucus while ovulation continues. Which conclusion follows?",
+      "scope": "scenario-explanation",
+      "answer": "It can act by making sperm passage more difficult without necessarily suppressing ovulation",
+      "support": "L11 teaching02 mucus paragraph and final paragraph of worked example",
+      "note": "Exact prompt repeat of ch15-l11-application-1, but this identity has no supplied options and is self-assessed. Same first response reused explicitly."
+    }
+  ],
+  "frayer": [
+    {
+      "term": "fertilization",
+      "fields": [
+        "The joining of sperm and oocyte contributions to make a zygote.",
+        "Haploid 23 + 23 restores a diploid 46-chromosome complement.",
+        "A sperm and oocyte join in an oviduct.",
+        "Implantation is attachment to the uterus, not fertilization."
+      ],
+      "support": "L12 teaching01"
+    },
+    {
+      "term": "gastrulation",
+      "fields": [
+        "Cell movements organize the embryo into three germ layers.",
+        "Establishes ectoderm, mesoderm and endoderm, which contribute different tissues.",
+        "Formation of ectoderm that later contributes nervous tissue.",
+        "Cleavage increases cell number; it does not mean germ layers have formed."
+      ],
+      "support": "L12 teaching01"
+    },
+    {
+      "term": "placenta",
+      "fields": [
+        "An exchange and hormone-producing organ with fetal and maternal contributions.",
+        "Supports exchange across an interface while the circulations normally remain separate.",
+        "Transfer across the interface between maternal and fetal circulations.",
+        "Normal bulk mixing of maternal and fetal blood is not placental exchange."
+      ],
+      "support": "L12 vocabulary and teaching02"
+    },
+    {
+      "term": "positive feedback",
+      "fields": [
+        "A response reinforces its initiating change.",
+        "A return effect increases the original stimulus.",
+        "Cervical stretch promotes oxytocin and stronger contractions, increasing stretch.",
+        "The hCG support chain alone does not establish a positive or negative return loop."
+      ],
+      "support": "L12 vocabulary and teaching02"
+    },
+    {
+      "term": "in vitro fertilization (IVF)",
+      "fields": [
+        "Egg and sperm meet outside the body in a laboratory.",
+        "A resulting embryo may be transferred into the uterus; implantation is still required.",
+        "Laboratory fertilization can bypass blocked oviducts.",
+        "Artificial insemination places sperm in the tract before fertilization inside the body."
+      ],
+      "support": "L11 vocabulary and teaching01"
+    },
+    {
+      "term": "artificial insemination",
+      "fields": [
+        "Prepared sperm are introduced into the reproductive tract without intercourse.",
+        "Any fertilization still occurs inside the body, usually in an oviduct.",
+        "Placing prepared sperm into the reproductive tract before fertilization.",
+        "Transferring a laboratory-produced embryo into the uterus is not insemination."
+      ],
+      "support": "L11 vocabulary and teaching01"
+    },
+    {
+      "term": "hormonal contraception",
+      "fields": [
+        "Hormone-like signals change reproductive signalling or sperm passage to reduce pregnancy chance.",
+        "Methods can suppress ovulation or change cervical mucus; their mechanisms differ.",
+        "Combined signals reduce FSH/LH stimulation and the usual LH surge.",
+        "A copper IUD is nonhormonal; a vasectomy interrupts a duct."
+      ],
+      "support": "L11 vocabulary and teaching02"
+    },
+    {
+      "term": "vasectomy",
+      "fields": [
+        "A procedure that interrupts sperm transport in the vasa deferentia.",
+        "Sperm transport can stop while testicular hormones still reach blood.",
+        "The model completely blocks both vasa deferentia but leaves hormone release intact.",
+        "Suppressing the ovarian LH surge acts on ovulation, not the sperm ducts."
+      ],
+      "support": "L11 vocabulary, teaching02 and worked example"
+    }
+  ],
+  "counts": {
+    "task_identities": 53,
+    "practice_identities": 31,
+    "frayer_forms": 8
+  },
+  "deduplication": "HTML/text/native JSON repeats of the same identity are represented once. Exact prompt repeat across different identities: ch15-l11-application-1 and ch15-l11-scenario-1, answered once and explicitly reused. Definition questions with different lead-ins are not exact repeats and every identity is preserved.",
+  "completed_utc": "2026-10-08T20:30:54.203098+00:00",
+  "prior_packet_repair": "Initial prerequisite text files were zero bytes and HTML files were <article></article>. After parent regenerated extracts, reviewed L03,L05,L10 and their five supporting figures. Completed outstanding membrane item before any keys. Initial pending response retained separately."
+}

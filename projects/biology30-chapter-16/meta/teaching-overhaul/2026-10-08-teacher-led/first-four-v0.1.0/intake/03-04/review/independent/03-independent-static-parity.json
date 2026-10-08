@@ -1,0 +1,156 @@
+{
+  "method": "Direct raw original index sections; independent balanced div extraction. No browser/runtime/test execution. Figures compared independently inside allowed replacement divs; entire supplied learner asset set compared bytewise to original owner.",
+  "routes": [
+    {
+      "route": "lesson-03",
+      "baseSha256": "c6ab0f42f8ba9123096edabc1f6c8d89a2c5bea34fa30a246efde501c4764dc7",
+      "candidateSha256": "dd16c2d86fd3d81fabd1e3f6fc85b4b95c9e11aebcf33dfa4d0bfc3141fcd655",
+      "protectedOutsideEightDivsByteEqual": true,
+      "replacementDivs": [
+        {
+          "id": "ch16-l03-teaching-01",
+          "changed": true
+        },
+        {
+          "id": "ch16-l03-teaching-02",
+          "changed": true
+        },
+        {
+          "id": "ch16-l03-teaching-03",
+          "changed": true
+        },
+        {
+          "id": "ch16-l03-worked",
+          "changed": true
+        }
+      ],
+      "figureNodesByteEqual": true,
+      "figures": 1
+    },
+    {
+      "route": "lesson-04",
+      "baseSha256": "603caa1fd26ddfdd5d54d704eb4be9539fc5263ae77a0b4fae955d922e19ae25",
+      "candidateSha256": "46d3ec80806a96db26d03ff5b32488552e9847e8667176afae6afff81633d10d",
+      "protectedOutsideEightDivsByteEqual": true,
+      "replacementDivs": [
+        {
+          "id": "ch16-l04-teaching-01",
+          "changed": true
+        },
+        {
+          "id": "ch16-l04-teaching-02",
+          "changed": true
+        },
+        {
+          "id": "ch16-l04-teaching-03",
+          "changed": true
+        },
+        {
+          "id": "ch16-l04-worked",
+          "changed": true
+        }
+      ],
+      "figureNodesByteEqual": true,
+      "figures": 2
+    }
+  ],
+  "assets": [
+    {
+      "path": "assets/figures/ch16-chromosome.svg",
+      "sourceExists": true,
+      "byteEqual": true,
+      "sha256": "867213b2eeb81be008c544b9858fefd6c24e1ed5350f556fb54a79d5b018574d"
+    },
+    {
+      "path": "assets/figures/ch16-mitosis.svg",
+      "sourceExists": true,
+      "byteEqual": true,
+      "sha256": "3f47b45fad7759b5a21eab5024593cc28d315a0e964a3d80a99b86c64d7a91d2"
+    },
+    {
+      "path": "assets/figures/ch16-source-mitosis.png",
+      "sourceExists": true,
+      "byteEqual": true,
+      "sha256": "a8d1d4022aa2064dcf3446cfa3cd789658209668b3030633cd00895ad8acc57c"
+    },
+    {
+      "path": "assets/labeling/ch16-chromosome.svg",
+      "sourceExists": true,
+      "byteEqual": true,
+      "sha256": "34ce72592f270ee4d5872ba8bcda3d9519726373fd026fb342a4437589b28fee"
+    },
+    {
+      "path": "assets/labeling/ch16-mitosis.svg",
+      "sourceExists": true,
+      "byteEqual": true,
+      "sha256": "da11d74e9bde2524e49a9ddeafe15784870c59885af3e83e8e37df465c9922e2"
+    }
+  ],
+  "frozenOriginalFiles": [
+    {
+      "path": "/workspace/scratch/6f97d4e841e3/biology_prep/ch16-source-preflight/unpacked/chapter-16/workspace/index.html",
+      "actualSha256": "2c0b57b85b7842410358ed1b99fb264aa72e23889974b8b9f6083b241090e09b",
+      "matchesFrozen": true
+    },
+    {
+      "path": "/workspace/scratch/6f97d4e841e3/biology_prep/ch16-source-preflight/unpacked/chapter-16/workspace/main.js",
+      "actualSha256": "d5bd1f23265f2442a277c7c2b75caf8d9953f98be6a3794c7ba1fb3fb321e719",
+      "matchesFrozen": true
+    },
+    {
+      "path": "/workspace/scratch/6f97d4e841e3/biology_prep/ch16-source-preflight/unpacked/chapter-16/workspace/styles.css",
+      "actualSha256": "94fe523654289edd8b0f951dd6782f83dce7d08f5e18a3d903d25576fbfa0ba5",
+      "matchesFrozen": true
+    },
+    {
+      "path": "/workspace/scratch/6f97d4e841e3/biology_prep/ch16-source-preflight/unpacked/chapter-16/workspace/assets/revision-practice.js",
+      "actualSha256": "005510731183f233e044d9f55db2e4537be73aec1bdc790263bb7861b5e589ea",
+      "matchesFrozen": true
+    },
+    {
+      "path": "/workspace/scratch/6f97d4e841e3/biology_prep/ch16-source-preflight/unpacked/chapter-16/workspace/assets/revision-activities.js",
+      "actualSha256": "957583a09be13e3b0bb888928d49ed87605b154f14eeaacbea3ea569e27b60c8",
+      "matchesFrozen": true
+    },
+    {
+      "path": "/workspace/scratch/6f97d4e841e3/biology_prep/ch16-source-preflight/unpacked/chapter-16/workspace/assets/textbook-practice.js",
+      "actualSha256": "8f85bef99b50f27f06f49bb5e5c411ac56f0b803a6c39f91dd67bfa06c8375b5",
+      "matchesFrozen": true
+    },
+    {
+      "path": "/workspace/scratch/6f97d4e841e3/biology_prep/ch16-source-preflight/unpacked/chapter-16/workspace/assets/textbook-practice.css",
+      "actualSha256": "4101415cce977a4a8553754a01cea3d33ad194add1198db00ddc0ba99bfeea12",
+      "matchesFrozen": true
+    },
+    {
+      "path": "/workspace/scratch/6f97d4e841e3/biology_prep/ch16-source-preflight/unpacked/chapter-16/workspace/assets/textbook/chapter-16.pdf",
+      "actualSha256": "6f109455a9a5aa8d9ee03bc6b224baf68b973675f0b62b1eec0aa294de48d526",
+      "matchesFrozen": true
+    },
+    {
+      "path": "/workspace/scratch/6f97d4e841e3/biology_prep/ch16-source-preflight/materialized/BIOLOGY 30 COURSE CREATION/Unit C Chapter 16 Notes.pptx",
+      "actualSha256": "a7af5a3b552995d835261eb490c56aa4d05dc26b31ab0afd7993184deb611061",
+      "matchesFrozen": true
+    },
+    {
+      "path": "/workspace/scratch/6f97d4e841e3/biology_prep/ch16-source-preflight/evidence/original-sources/quiz_d2l_59229.xml",
+      "actualSha256": "f0e30c37d0970625185c47b4f7919cc9d783af5425f573c72acf197b855eb8e9",
+      "matchesFrozen": true
+    },
+    {
+      "path": "/workspace/scratch/6f97d4e841e3/biology_prep/ch16-source-preflight/evidence/Chapter 16 Daily Plans.docx",
+      "actualSha256": "6bc9eedffe4324bc9690cc612ad96cd7c299e567816f8f06919c7efa382db251",
+      "matchesFrozen": true
+    }
+  ],
+  "notVerified": [
+    "target integration",
+    "target desktop/mobile layout",
+    "interactive keyboard use",
+    "runtime",
+    "save/reopen/export",
+    "LMS",
+    "teacher acceptance",
+    "release"
+  ]
+}

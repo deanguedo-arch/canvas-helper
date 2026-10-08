@@ -1,0 +1,1192 @@
+{
+  "checked_utc": "2026-10-08T22:21:01.531676+00:00",
+  "scope": "Static evidence only. No browser/course runtime, save, recovery, keyboard/mobile/accessibility, teacher acceptance or release tested or claimed.",
+  "baseline": {
+    "index": "biology_prep/ch16-source-preflight/unpacked/chapter-16/workspace/index.html",
+    "index_sha256": "2c0b57b85b7842410358ed1b99fb264aa72e23889974b8b9f6083b241090e09b",
+    "pdf_sha256": "6f109455a9a5aa8d9ee03bc6b224baf68b973675f0b62b1eec0aa294de48d526",
+    "standards_sha256": "db8a04bcd7620d9ecf64ec6dc86c046cb3075b9b09cc51dac41936c391379e1e"
+  },
+  "lessons": [
+    {
+      "lesson": "05",
+      "candidate_sha256": "54a49fe7374c8e568a9607808b59aa90c550c2eaf15a64641146f5fe1a7f37d9",
+      "candidate_bytes": 21971,
+      "direct_original_route_sha256": "7202fdee5f80ba5a107e7bf914bddb52c2f0891bb2da4955e6c7052beb2e7734",
+      "base_equals_direct_original": true,
+      "raw_equals_direct_original": true,
+      "outside_four_allowed_divs_byte_equal": true,
+      "protected_sha256": "bf71afbe8b8361ea17222e2140c089427e7fd33d162a819a0a98b26a2a8f1d2a",
+      "headings": [
+        {
+          "id": "ch16-l05-teaching-01",
+          "required_native_structure": true,
+          "heading": "Separate the cytoplasm, then compare the boundaries",
+          "blind_candidate_teaching_bytes_equal": false,
+          "blind_candidate_equal_after_only_img_void_tag_closure_normalization": true,
+          "serialization_note": "The first teaching block differs only in img /> versus img > serialization; text, attributes, figure references and pixels are unchanged.",
+          "word_count": 295
+        },
+        {
+          "id": "ch16-l05-teaching-02",
+          "required_native_structure": true,
+          "heading": "More cells must become useful tissue",
+          "blind_candidate_teaching_bytes_equal": true,
+          "blind_candidate_equal_after_only_img_void_tag_closure_normalization": true,
+          "serialization_note": "Exact byte match.",
+          "word_count": 181
+        },
+        {
+          "id": "ch16-l05-teaching-03",
+          "required_native_structure": true,
+          "heading": "Control determines whether division helps",
+          "blind_candidate_teaching_bytes_equal": true,
+          "blind_candidate_equal_after_only_img_void_tag_closure_normalization": true,
+          "serialization_note": "Exact byte match.",
+          "word_count": 171
+        },
+        {
+          "id": "ch16-l05-worked",
+          "required_native_structure": true,
+          "heading": "Use the two images to explain a mechanism",
+          "blind_candidate_teaching_bytes_equal": true,
+          "blind_candidate_equal_after_only_img_void_tag_closure_normalization": true,
+          "serialization_note": "Exact byte match.",
+          "word_count": 152
+        }
+      ],
+      "figure_sources": [
+        "./assets/figures/ch16-teacher-animal-cytokinesis-slide29.png",
+        "./assets/figures/ch16-source-cell-plate.png"
+      ]
+    },
+    {
+      "lesson": "06",
+      "candidate_sha256": "c01167f2dbef78743076449ff165978e8da3059761732fcd53061d2f4df68309",
+      "candidate_bytes": 23487,
+      "direct_original_route_sha256": "3b51ace59e8701304751b45f8df7780598b5fffd9d8fabf33a75cc76378eb97d",
+      "base_equals_direct_original": true,
+      "raw_equals_direct_original": true,
+      "outside_four_allowed_divs_byte_equal": true,
+      "protected_sha256": "c96a5005cec1d1a8ad5d03520821c68a66ba7385135365c1749e0ab2352cdbbe",
+      "headings": [
+        {
+          "id": "ch16-l06-teaching-01",
+          "required_native_structure": true,
+          "heading": "Pair homologues after one round of replication",
+          "blind_candidate_teaching_bytes_equal": false,
+          "blind_candidate_equal_after_only_img_void_tag_closure_normalization": true,
+          "serialization_note": "The first teaching block differs only in img /> versus img > serialization; text, attributes, figure references and pixels are unchanged.",
+          "word_count": 273
+        },
+        {
+          "id": "ch16-l06-teaching-02",
+          "required_native_structure": true,
+          "heading": "Align the pairs, then send one of each type to each pole",
+          "blind_candidate_teaching_bytes_equal": true,
+          "blind_candidate_equal_after_only_img_void_tag_closure_normalization": true,
+          "serialization_note": "Exact byte match.",
+          "word_count": 233
+        },
+        {
+          "id": "ch16-l06-teaching-03",
+          "required_native_structure": true,
+          "heading": "Count sets separately from copies",
+          "blind_candidate_teaching_bytes_equal": true,
+          "blind_candidate_equal_after_only_img_void_tag_closure_normalization": true,
+          "serialization_note": "Exact byte match.",
+          "word_count": 190
+        },
+        {
+          "id": "ch16-l06-worked",
+          "required_native_structure": true,
+          "heading": "Trace the actual 2n = 4 model",
+          "blind_candidate_teaching_bytes_equal": true,
+          "blind_candidate_equal_after_only_img_void_tag_closure_normalization": true,
+          "serialization_note": "Exact byte match.",
+          "word_count": 192
+        }
+      ],
+      "figure_sources": [
+        "./assets/figures/ch16-source-meiosis.png"
+      ]
+    }
+  ],
+  "frozen_source_files": {
+    "checked": 182,
+    "drift": []
+  },
+  "protected_full_config_matches_original_embedded": true,
+  "pair_protected_config_is_exact_original_subset": false,
+  "pair_config_differences": [
+    {
+      "key": "lessons",
+      "item": {
+        "lesson": 5,
+        "title": "Cytokinesis, growth and tissue maintenance"
+      }
+    },
+    {
+      "key": "lessons",
+      "item": {
+        "lesson": 6,
+        "title": "Meiosis I and separation of homologous chromosomes"
+      }
+    }
+  ],
+  "pair_protected_config_content_matches_original_with_documented_lesson_number_annotation": true,
+  "pair_config_resolution": "The only structural differences are two added lesson-number annotations (5,6) on title-only source lesson metadata. Every original title matches its indexed source lesson, all other subset objects match exactly, and the full authoritative course-data JSON is exactly equal to the original embedded config. No owner-config change.",
+  "pair_config_unresolved_differences": [],
+  "preserved_assets": [
+    {
+      "src": "./assets/figures/ch16-source-cell-plate.png",
+      "sha256": "58b803628ee76b129070980e12d505e6b77799f7f80aa9e8243f09fed86a67a8",
+      "matches_frozen_hash": true,
+      "source_copy_byte_equal": true
+    },
+    {
+      "src": "./assets/figures/ch16-source-meiosis.png",
+      "sha256": "e8ee0d42a360ca10ca3859a2baf480c0b8a1b049664b1ea2d626232f7a8a367e",
+      "matches_frozen_hash": true,
+      "source_copy_byte_equal": true
+    },
+    {
+      "src": "./assets/textbook-practice/ch16-p556-in-text-q15-0.png",
+      "sha256": "d873fe2d74f8a60020f5e9e5da1b9bbe1cf9358362910deb9a5c2abcdf483d05",
+      "matches_frozen_hash": true,
+      "source_copy_byte_equal": true
+    },
+    {
+      "src": "./assets/textbook-practice/ch16-p558-in-text-q17-0.png",
+      "sha256": "6ac7e5447796ce2de7e06bfede6709706ee0431f340779fdf99fbca9a41e0e82",
+      "matches_frozen_hash": true,
+      "source_copy_byte_equal": true
+    },
+    {
+      "src": "./assets/textbook-practice/ch16-p558-in-text-q18-0.png",
+      "sha256": "f5194e77b1236b658e6eff4bfbce3c7241c105abdbdfa9a78a70b9b537d4380b",
+      "matches_frozen_hash": true,
+      "source_copy_byte_equal": true
+    },
+    {
+      "src": "./assets/textbook-practice/ch16-p559-in-text-q19-0.png",
+      "sha256": "1304cc85e71e1973a6fc896760593292ae09dbf9291527dcc48612e28aa13b14",
+      "matches_frozen_hash": true,
+      "source_copy_byte_equal": true
+    },
+    {
+      "src": "./assets/textbook-practice/ch16-p561-section-16-2-q1-0.png",
+      "sha256": "bacae7b09dfe9c1ec186fc4ae8cbede64412a3839fed868ed9586c7568aa6631",
+      "matches_frozen_hash": true,
+      "source_copy_byte_equal": true
+    },
+    {
+      "src": "./assets/textbook-practice/ch16-p561-section-16-2-q2-0.png",
+      "sha256": "4361494f9599f8126ff8c81c3345335b2f01002b5c8531fe2e929b1799c628f6",
+      "matches_frozen_hash": true,
+      "source_copy_byte_equal": true
+    },
+    {
+      "src": "./assets/textbook-practice/ch16-p561-section-16-2-q3-0.png",
+      "sha256": "bd512fc926589564f4bd8e9f597bd0c690d1ab28a67a0c9498abcdf180eb2e6a",
+      "matches_frozen_hash": true,
+      "source_copy_byte_equal": true
+    },
+    {
+      "src": "./assets/textbook-practice/ch16-p561-section-16-2-q4-0.png",
+      "sha256": "3905adcd3fe24bf4e3ea40163e0bd144e3088f03512a646527c06ba68bb7ed42",
+      "matches_frozen_hash": true,
+      "source_copy_byte_equal": true
+    },
+    {
+      "src": "./assets/textbook-practice/ch16-p561-section-16-2-q5-0.png",
+      "sha256": "f2940fd60d60cdcad13ef10012122b15ee43d2448c4a958d5a997ccc883c4b0f",
+      "matches_frozen_hash": true,
+      "source_copy_byte_equal": true
+    },
+    {
+      "src": "./assets/textbook-practice/ch16-p561-section-16-2-q6-0.png",
+      "sha256": "d5a6e5f24f952d506edbf2d57007537b67f615648f560b5f4ac5c35bcfe5a32e",
+      "matches_frozen_hash": true,
+      "source_copy_byte_equal": true
+    },
+    {
+      "src": "./assets/textbook-practice/ch16-p561-section-16-2-q7-0.png",
+      "sha256": "166830227846a05005a4a52419877cd3d3107ffbc0ad09ba44bd60019cd831e4",
+      "matches_frozen_hash": true,
+      "source_copy_byte_equal": true
+    },
+    {
+      "src": "./assets/textbook-practice/ch16-p563-in-text-q20-0.png",
+      "sha256": "1d37be6202df3dd9b9ccac8bd88b21312487a6c36ec9a42777ffaa663f1b7e06",
+      "matches_frozen_hash": true,
+      "source_copy_byte_equal": true
+    },
+    {
+      "src": "./assets/textbook-practice/ch16-p563-in-text-q21-0.png",
+      "sha256": "de943a4a874b999759f840f493ca37b50068bd5aca1c3c0a6cb7a0552d4724af",
+      "matches_frozen_hash": true,
+      "source_copy_byte_equal": true
+    },
+    {
+      "src": "./assets/textbook-practice/ch16-p563-in-text-q22-0.png",
+      "sha256": "dd57e6579ebca042b1fad8b6d111ff4ab680adf2ca3d774357c3db4f78534ce5",
+      "matches_frozen_hash": true,
+      "source_copy_byte_equal": true
+    },
+    {
+      "src": "./assets/textbook-practice/ch16-p566-in-text-q23-0.png",
+      "sha256": "ae276c1b677772f453267ec7b1be248ac1b0e69b14c4df3aa9cae53c4c545e83",
+      "matches_frozen_hash": true,
+      "source_copy_byte_equal": true
+    },
+    {
+      "src": "./assets/textbook-practice/ch16-p566-in-text-q25-0.png",
+      "sha256": "3c7427ec9094bb32637f545e3ac8fbe9f806fa2b687a538adbcb89763a3a0dc4",
+      "matches_frozen_hash": true,
+      "source_copy_byte_equal": true
+    },
+    {
+      "src": "./assets/textbook-practice/p555.jpg",
+      "sha256": "1d5e727a51784c89a1ecfc63130acc84026a7a28464374db05cdfa6b53464055",
+      "matches_frozen_hash": true,
+      "source_copy_byte_equal": true
+    },
+    {
+      "src": "./assets/textbook-practice/p556.jpg",
+      "sha256": "37d24646cfaa72cbd246dde28fdb3028325c61821cd6c945087db770867c6dc4",
+      "matches_frozen_hash": true,
+      "source_copy_byte_equal": true
+    },
+    {
+      "src": "./assets/textbook-practice/p557.jpg",
+      "sha256": "7b5e1952faf9add2817dcf96b29a0d88307f20e2c7bfe6cdd2baeab967792fe1",
+      "matches_frozen_hash": true,
+      "source_copy_byte_equal": true
+    },
+    {
+      "src": "./assets/textbook-practice/p558.jpg",
+      "sha256": "b7079ff170d3adb367b2c3b2322ca34d47e7531080193cc4f7219c0acdacfeb3",
+      "matches_frozen_hash": true,
+      "source_copy_byte_equal": true
+    },
+    {
+      "src": "./assets/textbook-practice/p559.jpg",
+      "sha256": "2bf2ede9ae0a7a98c8adcd1960f9f3e9516e7ba32b02e83b152857c3d12d83a2",
+      "matches_frozen_hash": true,
+      "source_copy_byte_equal": true
+    },
+    {
+      "src": "./assets/textbook-practice/p561.jpg",
+      "sha256": "df4e19230a08f1e347f4f877dc9cb6ddfa14780e2819e962faf1f5f584c84eee",
+      "matches_frozen_hash": true,
+      "source_copy_byte_equal": true
+    },
+    {
+      "src": "./assets/textbook-practice/p562.jpg",
+      "sha256": "af1e5bd940e77c2b2cf7509f82625e1eca54bc6117faf5c94d2b80fea19090b8",
+      "matches_frozen_hash": true,
+      "source_copy_byte_equal": true
+    },
+    {
+      "src": "./assets/textbook-practice/p563.jpg",
+      "sha256": "87abe703648464af1baaf643ade519347cee8280960c26360ac19a139ea1a68c",
+      "matches_frozen_hash": true,
+      "source_copy_byte_equal": true
+    },
+    {
+      "src": "./assets/textbook-practice/p565.jpg",
+      "sha256": "d63dbcb82032bb9a22f716f8d41ed88fe3a52c505e35faf103684e2e21415789",
+      "matches_frozen_hash": true,
+      "source_copy_byte_equal": true
+    },
+    {
+      "src": "./assets/textbook-practice/p566.jpg",
+      "sha256": "551b21791b90afbb82e2b73ad760b791bf75010a96a1947709747a2709a5d0d4",
+      "matches_frozen_hash": true,
+      "source_copy_byte_equal": true
+    }
+  ],
+  "optional_pdf_matches_original": true,
+  "all16_optional_tasks_exact_original_objects": true,
+  "optional_input_assets": [
+    {
+      "path": "biology_prep/ch16-batch05-06/review/optional-textbook/assets/textbook-practice/ch16-p556-in-text-q15-0.png",
+      "same_as_original": true
+    },
+    {
+      "path": "biology_prep/ch16-batch05-06/review/optional-textbook/assets/textbook-practice/ch16-p558-in-text-q17-0.png",
+      "same_as_original": true
+    },
+    {
+      "path": "biology_prep/ch16-batch05-06/review/optional-textbook/assets/textbook-practice/ch16-p558-in-text-q18-0.png",
+      "same_as_original": true
+    },
+    {
+      "path": "biology_prep/ch16-batch05-06/review/optional-textbook/assets/textbook-practice/ch16-p559-in-text-q19-0.png",
+      "same_as_original": true
+    },
+    {
+      "path": "biology_prep/ch16-batch05-06/review/optional-textbook/assets/textbook-practice/ch16-p561-section-16-2-q1-0.png",
+      "same_as_original": true
+    },
+    {
+      "path": "biology_prep/ch16-batch05-06/review/optional-textbook/assets/textbook-practice/ch16-p561-section-16-2-q2-0.png",
+      "same_as_original": true
+    },
+    {
+      "path": "biology_prep/ch16-batch05-06/review/optional-textbook/assets/textbook-practice/ch16-p561-section-16-2-q3-0.png",
+      "same_as_original": true
+    },
+    {
+      "path": "biology_prep/ch16-batch05-06/review/optional-textbook/assets/textbook-practice/ch16-p561-section-16-2-q4-0.png",
+      "same_as_original": true
+    },
+    {
+      "path": "biology_prep/ch16-batch05-06/review/optional-textbook/assets/textbook-practice/ch16-p561-section-16-2-q5-0.png",
+      "same_as_original": true
+    },
+    {
+      "path": "biology_prep/ch16-batch05-06/review/optional-textbook/assets/textbook-practice/ch16-p561-section-16-2-q6-0.png",
+      "same_as_original": true
+    },
+    {
+      "path": "biology_prep/ch16-batch05-06/review/optional-textbook/assets/textbook-practice/ch16-p561-section-16-2-q7-0.png",
+      "same_as_original": true
+    },
+    {
+      "path": "biology_prep/ch16-batch05-06/review/optional-textbook/assets/textbook-practice/ch16-p563-in-text-q20-0.png",
+      "same_as_original": true
+    },
+    {
+      "path": "biology_prep/ch16-batch05-06/review/optional-textbook/assets/textbook-practice/ch16-p563-in-text-q21-0.png",
+      "same_as_original": true
+    },
+    {
+      "path": "biology_prep/ch16-batch05-06/review/optional-textbook/assets/textbook-practice/ch16-p563-in-text-q22-0.png",
+      "same_as_original": true
+    },
+    {
+      "path": "biology_prep/ch16-batch05-06/review/optional-textbook/assets/textbook-practice/ch16-p566-in-text-q23-0.png",
+      "same_as_original": true
+    },
+    {
+      "path": "biology_prep/ch16-batch05-06/review/optional-textbook/assets/textbook-practice/ch16-p566-in-text-q25-0.png",
+      "same_as_original": true
+    },
+    {
+      "path": "biology_prep/ch16-batch05-06/review/optional-textbook/assets/textbook-practice/p555.jpg",
+      "same_as_original": true
+    },
+    {
+      "path": "biology_prep/ch16-batch05-06/review/optional-textbook/assets/textbook-practice/p556.jpg",
+      "same_as_original": true
+    },
+    {
+      "path": "biology_prep/ch16-batch05-06/review/optional-textbook/assets/textbook-practice/p557.jpg",
+      "same_as_original": true
+    },
+    {
+      "path": "biology_prep/ch16-batch05-06/review/optional-textbook/assets/textbook-practice/p558.jpg",
+      "same_as_original": true
+    },
+    {
+      "path": "biology_prep/ch16-batch05-06/review/optional-textbook/assets/textbook-practice/p559.jpg",
+      "same_as_original": true
+    },
+    {
+      "path": "biology_prep/ch16-batch05-06/review/optional-textbook/assets/textbook-practice/p561.jpg",
+      "same_as_original": true
+    },
+    {
+      "path": "biology_prep/ch16-batch05-06/review/optional-textbook/assets/textbook-practice/p562.jpg",
+      "same_as_original": true
+    },
+    {
+      "path": "biology_prep/ch16-batch05-06/review/optional-textbook/assets/textbook-practice/p563.jpg",
+      "same_as_original": true
+    },
+    {
+      "path": "biology_prep/ch16-batch05-06/review/optional-textbook/assets/textbook-practice/p565.jpg",
+      "same_as_original": true
+    },
+    {
+      "path": "biology_prep/ch16-batch05-06/review/optional-textbook/assets/textbook-practice/p566.jpg",
+      "same_as_original": true
+    }
+  ],
+  "teacher_figure": {
+    "deck_sha256": "a7af5a3b552995d835261eb490c56aa4d05dc26b31ab0afd7993184deb611061",
+    "candidate_sha256": "7c89bbb57c65e75fc50bbed3a5bb19cfb45778a46f1eb3bb83323d42a9e59619",
+    "exact_media_matches": [
+      "ppt/media/image35.png"
+    ],
+    "slide29_image_relationship_verified": true,
+    "original_pixel_dimensions": [
+      707,
+      733
+    ],
+    "qualification": "The source image itself crops the lower edges of daughter-cell drawings; it clearly separates drawings, but does not show complete closed outlines."
+  },
+  "learner_original_figures": [
+    {
+      "name": "ch16-source-cell-plate.png",
+      "equal_original_bytes": true
+    },
+    {
+      "name": "ch16-source-meiosis.png",
+      "equal_original_bytes": true
+    }
+  ],
+  "native_direct_reconstruction": {
+    "count": 58,
+    "same_id_set": true,
+    "content_differences": []
+  },
+  "blind_native_packet_integrity": {
+    "count": 58,
+    "differences": [],
+    "unique_neutral_ids": 58
+  },
+  "native_first_answer_comparison": [
+    {
+      "reviewId": "N001",
+      "nativeId": "ch16-concept-cytokinesis-flash",
+      "kind": "flash",
+      "first_response": "Cytokinesis is division of the cytoplasm into separate daughter cells.",
+      "stored_answer": "Division of the cytoplasm into separate daughter cells.",
+      "aliases": [],
+      "comparison": "manual semantic comparison: consistent"
+    },
+    {
+      "reviewId": "N002",
+      "nativeId": "ch16-concept-cytokinesis-reverse",
+      "kind": "flash",
+      "first_response": "cytokinesis",
+      "stored_answer": "cytokinesis",
+      "aliases": [],
+      "comparison": "manual semantic comparison: consistent"
+    },
+    {
+      "reviewId": "N003",
+      "nativeId": "ch16-concept-cytokinesis-misconception",
+      "kind": "flash",
+      "first_response": "Cytokinesis separates cytoplasm; DNA is duplicated earlier during S phase.",
+      "stored_answer": "Division of the cytoplasm into separate daughter cells. Nuclear division and cytoplasmic division are related but not identical.",
+      "aliases": [],
+      "comparison": "manual semantic comparison: consistent"
+    },
+    {
+      "reviewId": "N004",
+      "nativeId": "ch16-concept-cytokinesis-blank",
+      "kind": "blank",
+      "first_response": "cytokinesis",
+      "stored_answer": "cytokinesis",
+      "aliases": [],
+      "comparison": "accepted by stored normalized answer/aliases"
+    },
+    {
+      "reviewId": "N005",
+      "nativeId": "ch16-concept-cleavage-furrow-flash",
+      "kind": "flash",
+      "first_response": "A cleavage furrow is the animal cell membrane constricting inward as a contractile ring tightens during cytokinesis.",
+      "stored_answer": "An inward constriction of an animal cell during cytokinesis.",
+      "aliases": [],
+      "comparison": "manual semantic comparison: consistent"
+    },
+    {
+      "reviewId": "N006",
+      "nativeId": "ch16-concept-cleavage-furrow-reverse",
+      "kind": "flash",
+      "first_response": "cleavage furrow",
+      "stored_answer": "cleavage furrow",
+      "aliases": [],
+      "comparison": "manual semantic comparison: consistent"
+    },
+    {
+      "reviewId": "N007",
+      "nativeId": "ch16-concept-cleavage-furrow-misconception",
+      "kind": "flash",
+      "first_response": "A cleavage furrow is an inward membrane constriction in animal cytokinesis. A plant cell plate contributes to a new wall.",
+      "stored_answer": "An inward constriction of an animal cell during cytokinesis. A rigid plant cell wall prevents this same pinching mechanism.",
+      "aliases": [],
+      "comparison": "manual semantic comparison: consistent"
+    },
+    {
+      "reviewId": "N008",
+      "nativeId": "ch16-concept-cleavage-furrow-blank",
+      "kind": "blank",
+      "first_response": "cleavage furrow",
+      "stored_answer": "cleavage furrow",
+      "aliases": [],
+      "comparison": "accepted by stored normalized answer/aliases"
+    },
+    {
+      "reviewId": "N009",
+      "nativeId": "ch16-concept-cell-plate-flash",
+      "kind": "flash",
+      "first_response": "A cell plate is the developing partition formed by fusing vesicles between the daughter nuclei of a dividing plant cell; it contributes membranes and a new wall.",
+      "stored_answer": "A developing partition that contributes to the new wall between dividing plant cells.",
+      "aliases": [],
+      "comparison": "manual semantic comparison: consistent"
+    },
+    {
+      "reviewId": "N010",
+      "nativeId": "ch16-concept-cell-plate-reverse",
+      "kind": "flash",
+      "first_response": "cell plate",
+      "stored_answer": "cell plate",
+      "aliases": [],
+      "comparison": "manual semantic comparison: consistent"
+    },
+    {
+      "reviewId": "N011",
+      "nativeId": "ch16-concept-cell-plate-misconception",
+      "kind": "flash",
+      "first_response": "A cell plate develops between daughter nuclei during plant cytokinesis. The chromosome alignment position is an equator, not a cell plate.",
+      "stored_answer": "A developing partition that contributes to the new wall between dividing plant cells. Plant cytokinesis builds a partition rather than simply pinching a rigid wall inward.",
+      "aliases": [],
+      "comparison": "manual semantic comparison: consistent"
+    },
+    {
+      "reviewId": "N012",
+      "nativeId": "ch16-concept-cell-plate-blank",
+      "kind": "blank",
+      "first_response": "cell plate",
+      "stored_answer": "cell plate",
+      "aliases": [],
+      "comparison": "accepted by stored normalized answer/aliases"
+    },
+    {
+      "reviewId": "N013",
+      "nativeId": "ch16-concept-cell-cycle-checkpoint-flash",
+      "kind": "flash",
+      "first_response": "A cell-cycle checkpoint is a control that can delay movement to a later stage when conditions such as DNA integrity are unsuitable.",
+      "stored_answer": "A control mechanism that helps determine whether a cell proceeds to a later stage.",
+      "aliases": [],
+      "comparison": "manual semantic comparison: consistent"
+    },
+    {
+      "reviewId": "N014",
+      "nativeId": "ch16-concept-cell-cycle-checkpoint-reverse",
+      "kind": "flash",
+      "first_response": "cell-cycle checkpoint",
+      "stored_answer": "cell-cycle checkpoint",
+      "aliases": [],
+      "comparison": "manual semantic comparison: consistent"
+    },
+    {
+      "reviewId": "N015",
+      "nativeId": "ch16-concept-cell-cycle-checkpoint-misconception",
+      "kind": "flash",
+      "first_response": "Rapid division can be normal controlled growth, as in a root tip. Cancer involves abnormal loss of growth control; speed alone does not establish it.",
+      "stored_answer": "A control mechanism that helps determine whether a cell proceeds to a later stage. Checkpoint failure can contribute to uncontrolled division; rapid normal growth is not automatically cancer.",
+      "aliases": [],
+      "comparison": "manual semantic comparison: consistent"
+    },
+    {
+      "reviewId": "N016",
+      "nativeId": "ch16-concept-cell-cycle-checkpoint-blank",
+      "kind": "blank",
+      "first_response": "cell-cycle checkpoint",
+      "stored_answer": "cell-cycle checkpoint",
+      "aliases": [],
+      "comparison": "accepted by stored normalized answer/aliases"
+    },
+    {
+      "reviewId": "N017",
+      "nativeId": "ch16-concept-meiosis-i-flash",
+      "kind": "flash",
+      "first_response": "Meiosis I separates homologous chromosomes into haploid groups, with sister chromatids remaining joined.",
+      "stored_answer": "The first meiotic division, in which homologous chromosomes separate.",
+      "aliases": [],
+      "comparison": "manual semantic comparison: consistent"
+    },
+    {
+      "reviewId": "N018",
+      "nativeId": "ch16-concept-meiosis-i-reverse",
+      "kind": "flash",
+      "first_response": "meiosis I",
+      "stored_answer": "meiosis I",
+      "aliases": [],
+      "comparison": "manual semantic comparison: consistent"
+    },
+    {
+      "reviewId": "N019",
+      "nativeId": "ch16-concept-meiosis-i-misconception",
+      "kind": "flash",
+      "first_response": "Meiosis I separates homologues while sister chromatids normally remain joined. Sister chromatids separate in meiosis II.",
+      "stored_answer": "The first meiotic division, in which homologous chromosomes separate. Sister chromatids normally remain together during this division.",
+      "aliases": [],
+      "comparison": "manual semantic comparison: consistent"
+    },
+    {
+      "reviewId": "N020",
+      "nativeId": "ch16-concept-meiosis-i-blank",
+      "kind": "blank",
+      "first_response": "meiosis I",
+      "stored_answer": "meiosis I",
+      "aliases": [],
+      "comparison": "accepted by stored normalized answer/aliases"
+    },
+    {
+      "reviewId": "N021",
+      "nativeId": "ch16-concept-synapsis-flash",
+      "kind": "flash",
+      "first_response": "Synapsis is the close pairing of corresponding homologous chromosomes during prophase I.",
+      "stored_answer": "Pairing of homologous chromosomes during prophase I.",
+      "aliases": [],
+      "comparison": "manual semantic comparison: consistent"
+    },
+    {
+      "reviewId": "N022",
+      "nativeId": "ch16-concept-synapsis-reverse",
+      "kind": "flash",
+      "first_response": "synapsis",
+      "stored_answer": "synapsis",
+      "aliases": [],
+      "comparison": "manual semantic comparison: consistent"
+    },
+    {
+      "reviewId": "N023",
+      "nativeId": "ch16-concept-synapsis-misconception",
+      "kind": "flash",
+      "first_response": "Synapsis pairs homologous chromosomes within one cell; fusion of sperm and egg is fertilization.",
+      "stored_answer": "Pairing of homologous chromosomes during prophase I. This pairing differs from individual chromosome alignment in mitosis.",
+      "aliases": [],
+      "comparison": "manual semantic comparison: consistent"
+    },
+    {
+      "reviewId": "N024",
+      "nativeId": "ch16-concept-synapsis-blank",
+      "kind": "blank",
+      "first_response": "synapsis",
+      "stored_answer": "synapsis",
+      "aliases": [],
+      "comparison": "accepted by stored normalized answer/aliases"
+    },
+    {
+      "reviewId": "N025",
+      "nativeId": "ch16-concept-tetrad-flash",
+      "kind": "flash",
+      "first_response": "A tetrad is two paired, replicated homologous chromosomes: two chromosomes and four chromatids.",
+      "stored_answer": "A paired set of two replicated homologous chromosomes containing four chromatids.",
+      "aliases": [],
+      "comparison": "manual semantic comparison: consistent"
+    },
+    {
+      "reviewId": "N026",
+      "nativeId": "ch16-concept-tetrad-reverse",
+      "kind": "flash",
+      "first_response": "tetrad",
+      "stored_answer": "tetrad",
+      "aliases": [],
+      "comparison": "manual semantic comparison: consistent"
+    },
+    {
+      "reviewId": "N027",
+      "nativeId": "ch16-concept-tetrad-misconception",
+      "kind": "flash",
+      "first_response": "A tetrad has four chromatids in two homologous chromosomes. It is not four chromosome sets.",
+      "stored_answer": "A paired set of two replicated homologous chromosomes containing four chromatids. A tetrad contains two chromosomes, not four independently counted chromosomes.",
+      "aliases": [],
+      "comparison": "manual semantic comparison: consistent"
+    },
+    {
+      "reviewId": "N028",
+      "nativeId": "ch16-concept-tetrad-blank",
+      "kind": "blank",
+      "first_response": "tetrad",
+      "stored_answer": "tetrad",
+      "aliases": [],
+      "comparison": "accepted by stored normalized answer/aliases"
+    },
+    {
+      "reviewId": "N029",
+      "nativeId": "ch16-concept-reduction-division-flash",
+      "kind": "flash",
+      "first_response": "Reduction division separates homologues so that daughter cells contain one chromosome set instead of two; meiosis I is the example.",
+      "stored_answer": "A division that reduces chromosome sets from diploid to haploid, as in meiosis I.",
+      "aliases": [],
+      "comparison": "manual semantic comparison: consistent"
+    },
+    {
+      "reviewId": "N030",
+      "nativeId": "ch16-concept-reduction-division-reverse",
+      "kind": "flash",
+      "first_response": "reduction division",
+      "stored_answer": "reduction division",
+      "aliases": [],
+      "comparison": "manual semantic comparison: consistent"
+    },
+    {
+      "reviewId": "N031",
+      "nativeId": "ch16-concept-reduction-division-misconception",
+      "kind": "flash",
+      "first_response": "A cell after meiosis I is haploid but still has replicated chromosomes. Ploidy counts homologous sets, not joined copies.",
+      "stored_answer": "A division that reduces chromosome sets from diploid to haploid, as in meiosis I. Reduced sets can coexist with chromosomes still having two chromatids.",
+      "aliases": [],
+      "comparison": "manual semantic comparison: consistent"
+    },
+    {
+      "reviewId": "N032",
+      "nativeId": "ch16-concept-reduction-division-blank",
+      "kind": "blank",
+      "first_response": "reduction division",
+      "stored_answer": "reduction division",
+      "aliases": [],
+      "comparison": "accepted by stored normalized answer/aliases"
+    },
+    {
+      "reviewId": "N033",
+      "nativeId": "ch16-source-OBJ_2131203",
+      "kind": "mc",
+      "first_response": "cytokinesis.",
+      "stored_answer": "cytokinesis.",
+      "aliases": [],
+      "comparison": "matches stored selection"
+    },
+    {
+      "reviewId": "N034",
+      "nativeId": "ch16-source-OBJ_2131204",
+      "kind": "mc",
+      "first_response": "Damaged genetic information passes into daughter cells",
+      "stored_answer": "Damaged genetic information passes into daughter cells",
+      "aliases": [],
+      "comparison": "matches stored selection"
+    },
+    {
+      "reviewId": "N035",
+      "nativeId": "ch16-source-OBJ_2131207",
+      "kind": "mc",
+      "first_response": "centrioles.",
+      "stored_answer": "centrioles.",
+      "aliases": [],
+      "comparison": "matches stored selection"
+    },
+    {
+      "reviewId": "N036",
+      "nativeId": "ch16-source-OBJ_2131209",
+      "kind": "mc",
+      "first_response": "homologous pairs of chromosomes.",
+      "stored_answer": "homologous pairs of chromosomes.",
+      "aliases": [],
+      "comparison": "matches stored selection"
+    },
+    {
+      "reviewId": "N037",
+      "nativeId": "ch16-source-OBJ_2131211",
+      "kind": "mc",
+      "first_response": "Anaphase I",
+      "stored_answer": "Anaphase I",
+      "aliases": [],
+      "comparison": "matches stored selection"
+    },
+    {
+      "reviewId": "N038",
+      "nativeId": "ch16-foundation-ch16-word-cytokinesis",
+      "kind": "mc",
+      "first_response": "cytokinesis",
+      "stored_answer": "cytokinesis",
+      "aliases": [],
+      "comparison": "matches stored selection"
+    },
+    {
+      "reviewId": "N039",
+      "nativeId": "ch16-foundation-ch16-word-cleavage-furrow",
+      "kind": "mc",
+      "first_response": "cleavage furrow",
+      "stored_answer": "cleavage furrow",
+      "aliases": [],
+      "comparison": "matches stored selection"
+    },
+    {
+      "reviewId": "N040",
+      "nativeId": "ch16-foundation-ch16-word-cell-plate",
+      "kind": "mc",
+      "first_response": "cell plate",
+      "stored_answer": "cell plate",
+      "aliases": [],
+      "comparison": "matches stored selection"
+    },
+    {
+      "reviewId": "N041",
+      "nativeId": "ch16-foundation-ch16-word-cell-cycle-checkpoint",
+      "kind": "mc",
+      "first_response": "cell-cycle checkpoint",
+      "stored_answer": "cell-cycle checkpoint",
+      "aliases": [],
+      "comparison": "matches stored selection"
+    },
+    {
+      "reviewId": "N042",
+      "nativeId": "ch16-foundation-ch16-word-meiosis-i",
+      "kind": "mc",
+      "first_response": "meiosis I",
+      "stored_answer": "meiosis I",
+      "aliases": [],
+      "comparison": "matches stored selection"
+    },
+    {
+      "reviewId": "N043",
+      "nativeId": "ch16-foundation-ch16-word-synapsis",
+      "kind": "mc",
+      "first_response": "synapsis",
+      "stored_answer": "synapsis",
+      "aliases": [],
+      "comparison": "matches stored selection"
+    },
+    {
+      "reviewId": "N044",
+      "nativeId": "ch16-foundation-ch16-word-tetrad",
+      "kind": "mc",
+      "first_response": "tetrad",
+      "stored_answer": "tetrad",
+      "aliases": [],
+      "comparison": "matches stored selection"
+    },
+    {
+      "reviewId": "N045",
+      "nativeId": "ch16-foundation-ch16-word-reduction-division",
+      "kind": "mc",
+      "first_response": "reduction division",
+      "stored_answer": "reduction division",
+      "aliases": [],
+      "comparison": "matches stored selection"
+    },
+    {
+      "reviewId": "N046",
+      "nativeId": "ch16-sequence-06",
+      "kind": "order",
+      "first_response": [
+        "Replicated homologues pair in prophase I",
+        "Tetrads align at metaphase I",
+        "Homologues separate at anaphase I",
+        "Two haploid cells retain replicated chromosomes"
+      ],
+      "stored_answer": [
+        "Replicated homologues pair in prophase I",
+        "Tetrads align at metaphase I",
+        "Homologues separate at anaphase I",
+        "Two haploid cells retain replicated chromosomes"
+      ],
+      "aliases": [],
+      "comparison": "matches stored order"
+    },
+    {
+      "reviewId": "N047",
+      "nativeId": "ch16-l05-application-1",
+      "kind": "mc",
+      "first_response": "Errors may be propagated while growth control is impaired",
+      "stored_answer": "Errors may be propagated while growth control is impaired",
+      "aliases": [],
+      "comparison": "matches stored selection"
+    },
+    {
+      "reviewId": "N048",
+      "nativeId": "ch16-l05-scenario-1",
+      "kind": "flash",
+      "first_response": "Damaged DNA may be passed into daughter cells while impaired growth control allows that damaged lineage to keep multiplying.",
+      "stored_answer": "Errors may be propagated while growth control is impaired. Loss of checkpoint control can allow damaged information and abnormal proliferation to continue.",
+      "aliases": [],
+      "comparison": "manual semantic comparison: consistent"
+    },
+    {
+      "reviewId": "N049",
+      "nativeId": "ch16-l06-application-1",
+      "kind": "mc",
+      "first_response": "Each daughter should receive one chromosome of each type",
+      "stored_answer": "Each daughter should receive one chromosome of each type",
+      "aliases": [],
+      "comparison": "matches stored selection"
+    },
+    {
+      "reviewId": "N050",
+      "nativeId": "ch16-l06-scenario-1",
+      "kind": "flash",
+      "first_response": "The model separates chromosome types instead of members of each homologous pair. Each daughter needs one long and one short chromosome, retaining a complete haploid set.",
+      "stored_answer": "Each daughter should receive one chromosome of each type. Normal segregation gives each daughter a complete haploid set, not a random assortment missing whole types.",
+      "aliases": [],
+      "comparison": "manual semantic comparison: consistent"
+    },
+    {
+      "reviewId": "N051",
+      "nativeId": "ch16-l05-context-cytokinesis",
+      "kind": "blank",
+      "first_response": "cytokinesis",
+      "stored_answer": "cytokinesis",
+      "aliases": [],
+      "comparison": "accepted by stored normalized answer/aliases"
+    },
+    {
+      "reviewId": "N052",
+      "nativeId": "ch16-l05-context-cleavage-furrow",
+      "kind": "blank",
+      "first_response": "cleavage furrow",
+      "stored_answer": "cleavage furrow",
+      "aliases": [],
+      "comparison": "accepted by stored normalized answer/aliases"
+    },
+    {
+      "reviewId": "N053",
+      "nativeId": "ch16-l05-context-cell-plate",
+      "kind": "blank",
+      "first_response": "cell plate",
+      "stored_answer": "cell plate",
+      "aliases": [],
+      "comparison": "accepted by stored normalized answer/aliases"
+    },
+    {
+      "reviewId": "N054",
+      "nativeId": "ch16-l05-context-cell-cycle-checkpoint",
+      "kind": "blank",
+      "first_response": "cell-cycle checkpoint",
+      "stored_answer": "cell-cycle checkpoint",
+      "aliases": [],
+      "comparison": "accepted by stored normalized answer/aliases"
+    },
+    {
+      "reviewId": "N055",
+      "nativeId": "ch16-l06-context-meiosis-i",
+      "kind": "blank",
+      "first_response": "anaphase I",
+      "stored_answer": "meiosis I",
+      "aliases": [],
+      "comparison": "valid scientific first answer excluded by stored answer/aliases"
+    },
+    {
+      "reviewId": "N056",
+      "nativeId": "ch16-l06-context-synapsis",
+      "kind": "blank",
+      "first_response": "synapsis",
+      "stored_answer": "synapsis",
+      "aliases": [],
+      "comparison": "accepted by stored normalized answer/aliases"
+    },
+    {
+      "reviewId": "N057",
+      "nativeId": "ch16-l06-context-tetrad",
+      "kind": "blank",
+      "first_response": "tetrad",
+      "stored_answer": "tetrad",
+      "aliases": [],
+      "comparison": "accepted by stored normalized answer/aliases"
+    },
+    {
+      "reviewId": "N058",
+      "nativeId": "ch16-l06-context-reduction-division",
+      "kind": "blank",
+      "first_response": "reduction division",
+      "stored_answer": "reduction division",
+      "aliases": [],
+      "comparison": "accepted by stored normalized answer/aliases"
+    }
+  ],
+  "original_D2L_reconciliation": {
+    "original_xml_sha256": "f0e30c37d0970625185c47b4f7919cc9d783af5425f573c72acf197b855eb8e9",
+    "items": [
+      {
+        "source_id": "OBJ_2131203",
+        "original_prompt": "The division of the cytoplasm in a dividing stem cell is called",
+        "original_options": [
+          "the S phase.",
+          "spermatogenesis.",
+          "oogenesis.",
+          "cytokinesis."
+        ],
+        "original_key": [
+          "cytokinesis."
+        ],
+        "current_native_prompt": "The division of the cytoplasm in a dividing stem cell is called",
+        "current_options": [
+          "the S phase.",
+          "cytokinesis.",
+          "spermatogenesis.",
+          "oogenesis."
+        ],
+        "current_key": "cytokinesis.",
+        "prompt_exact": true,
+        "option_set_exact": true,
+        "original_stimulus_image": false,
+        "interpretation": "Prompt/options/key preserved, option order changed."
+      },
+      {
+        "source_id": "OBJ_2131204",
+        "original_prompt": "Predict what happens when genetic abnormalities develop in the p53 gene leading to loss of its normal function.",
+        "original_options": [
+          "Tumours develop more readily because cells with genetic mistakes are allowed to divide and pass the mistake on to daughter cells.",
+          "Tumours are suppressed because cells with genetic mistakes are destroyed.",
+          "Tumours develop more readily because the surrounding normal, somatic cells are allowed to divide more rapidly.",
+          "Tumours develop more readily because abnormal cytokinesis takes place in these cells."
+        ],
+        "original_key": [
+          "Tumours develop more readily because cells with genetic mistakes are allowed to divide and pass the mistake on to daughter cells."
+        ],
+        "current_native_prompt": "In a cell model, a checkpoint fails to stop cells with damaged DNA from dividing. What consequence becomes more likely?",
+        "current_options": [
+          "Cytokinesis becomes the same process as fertilization",
+          "All cell growth permanently stops",
+          "Damaged genetic information passes into daughter cells",
+          "Every damaged chromosome is automatically repaired"
+        ],
+        "current_key": "Damaged genetic information passes into daughter cells",
+        "prompt_exact": false,
+        "option_set_exact": false,
+        "original_stimulus_image": true,
+        "interpretation": "Inherited rewrite from p53 loss-of-function with an image stimulus to a generic checkpoint model; mechanism is consistent but specific gene/stimulus/options are not preserved. Same source-linked native ID, so historical response meaning must not be claimed equivalent."
+      },
+      {
+        "source_id": "OBJ_2131207",
+        "original_prompt": "The structures that you would see in a dividing animal cell but NOT in a dividing onion cell are the",
+        "original_options": [
+          "spindles.",
+          "cell membranes.",
+          "centrioles.",
+          "chloroplasts."
+        ],
+        "original_key": [
+          "centrioles."
+        ],
+        "current_native_prompt": "The structures that you would see in a dividing animal cell but NOT in a dividing onion cell are the",
+        "current_options": [
+          "cell membranes.",
+          "centrioles.",
+          "chloroplasts.",
+          "spindles."
+        ],
+        "current_key": "centrioles.",
+        "prompt_exact": true,
+        "option_set_exact": true,
+        "original_stimulus_image": false,
+        "interpretation": "Prompt/options/key preserved, option order changed."
+      },
+      {
+        "source_id": "OBJ_2131209",
+        "original_prompt": "If you were observing the chromosomes during metaphase I of meiosis, you would see that the chromosomes are arranged as",
+        "original_options": [
+          "single chromosomes.",
+          "unpaired duplicated chromosomes.",
+          "homologous pairs of chromosomes.",
+          "unwound, thin strands of chromatin."
+        ],
+        "original_key": [
+          "homologous pairs of chromosomes."
+        ],
+        "current_native_prompt": "If you were observing the chromosomes during metaphase I of meiosis, you would see that the chromosomes are arranged as",
+        "current_options": [
+          "single chromosomes.",
+          "unpaired duplicated chromosomes.",
+          "unwound, thin strands of chromatin.",
+          "homologous pairs of chromosomes."
+        ],
+        "current_key": "homologous pairs of chromosomes.",
+        "prompt_exact": true,
+        "option_set_exact": true,
+        "original_stimulus_image": false,
+        "interpretation": "Prompt/options/key preserved, option order changed."
+      },
+      {
+        "source_id": "OBJ_2131211",
+        "original_prompt": "During which meiotic division do cells become haploid?",
+        "original_options": [
+          "anaphase I of meiosis I",
+          "anaphase II of meiosis II",
+          "metaphase I of meiosis I",
+          "metaphase II of meiosis II"
+        ],
+        "original_key": [
+          "anaphase I of meiosis I"
+        ],
+        "current_native_prompt": "Which event separates homologous chromosomes and establishes one homologue of each pair at each pole?",
+        "current_options": [
+          "Metaphase II",
+          "Anaphase I",
+          "Anaphase II",
+          "Prophase II"
+        ],
+        "current_key": "Anaphase I",
+        "prompt_exact": false,
+        "option_set_exact": false,
+        "original_stimulus_image": false,
+        "interpretation": "Inherited rewrite replaces become-haploid wording with pole-specific homologue separation; options partly changed, answer remains anaphase I. Original wording conflated pole groups with a not-yet-divided whole cell. This batch did not make that change."
+      }
+    ]
+  },
+  "flags": [
+    {
+      "id": "P1",
+      "severity": "protected assessment ambiguity",
+      "location": "N045 / ch16-foundation-ch16-word-reduction-division",
+      "finding": "Both meiosis I and reduction division satisfy the description. Only reduction division is keyed."
+    },
+    {
+      "id": "P2",
+      "severity": "protected valid-answer rejection",
+      "location": "N055 / ch16-l06-context-meiosis-i",
+      "finding": "The blind first response anaphase I is the exact taught stage. Stored answer meiosis I has no aliases, so the static matcher excludes that valid response."
+    },
+    {
+      "id": "P3",
+      "severity": "protected assessment ambiguity",
+      "location": "N058 / ch16-l06-context-reduction-division",
+      "finding": "First response reduction division matches; meiosis I is also valid but absent from aliases."
+    },
+    {
+      "id": "P4",
+      "severity": "protected alias limitations",
+      "location": "N016/N054 cell-cycle checkpoint blanks",
+      "finding": "No aliases and normalization does not remove an internal hyphen: cell cycle checkpoint and checkpoint are excluded. The first response used exact term and matches."
+    },
+    {
+      "id": "P5",
+      "severity": "protected regeneration dependency",
+      "location": "course-data.guidedActivities lesson6 worked.steps[0]",
+      "finding": "The stored teaching-only mirror says pairing occurs at metaphase I. Current visible ch16-l06-worked correctly teaches synapsis in prophase I followed by alignment at metaphase I. Owner must reconcile the teaching-only mirror before any rebuild; no protected config was changed."
+    },
+    {
+      "id": "P6",
+      "severity": "inherited assessment provenance",
+      "location": "OBJ_2131204 and OBJ_2131211",
+      "finding": "Current native source-linked tasks are rewrites of original D2L prompts/options (p53 stimulus removed; haploidy prompt clarified). Preserved against owner; not exact original-question preservation."
+    },
+    {
+      "id": "P7",
+      "severity": "protected textbook crop quality",
+      "location": "section16.2 q5/q6/q7",
+      "finding": "Complete prompts remain readable, but crops/sourceText include neighboring-column fragments."
+    },
+    {
+      "id": "P8",
+      "severity": "protected textbook inference limit",
+      "location": "section16.2 q7",
+      "finding": "Anaphase is the expected segregation-stage explanation. A 0/92 endpoint alone does not uniquely establish causal timing; species and normal starting number are unstated."
+    }
+  ],
+  "local_answer_comparison": {
+    "guided_selections": 4,
+    "required_selections": 4,
+    "required_writings": 4,
+    "stop_and_think": 2,
+    "result": "All14 first answers are consistent with protected keys/models and the visible lesson. Writing and flash comparisons are reviewer semantic checks, not automatic grading or demonstrated student mastery."
+  },
+  "frayer_comparison": {
+    "forms": 8,
+    "fields": 32,
+    "all_within240": true,
+    "result": "All32 first responses are consistent with their models. Models repeat identical key-feature/example text and often give a distinction rather than a concrete non-example; scientifically usable, limited diagnostic richness."
+  },
+  "frozen_attempt_input_recheck": [
+    {
+      "phase_file": "phase1-frozen-attempts.json",
+      "artifact_sha256": "7f79122ca7d7226f23a6e7d6957493c83833e9df95d2a681f109244d48d797d2",
+      "inputs_checked": 9,
+      "changed_inputs": []
+    },
+    {
+      "phase_file": "phase2-frozen-attempts.json",
+      "artifact_sha256": "d31ba14ad792032c1e1f364e5951a293c58a2e5978f13424a2ddd91747178157",
+      "inputs_checked": 28,
+      "changed_inputs": []
+    }
+  ]
+}

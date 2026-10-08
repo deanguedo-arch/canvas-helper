@@ -1,0 +1,48 @@
+{
+  "activeConfigEqualsAuthoringConfig": true,
+  "allPresentActiveOptionalManifestFieldsEqualAuthoring": [
+    "chapter",
+    "questions",
+    "pages",
+    "topics"
+  ],
+  "authoringOnlyOptionalFields": [
+    "contextPolicy",
+    "coordinateSystem",
+    "excluded",
+    "schemaVersion",
+    "sourcePdfSha256"
+  ],
+  "routes": [
+    {
+      "lesson": 5,
+      "originalIdsRetained": true,
+      "editKeyMultisetsExact": true,
+      "selectTextareaMarkupExactAcrossOriginalCandidateBlind": true,
+      "originalFigureAssets": [
+        {
+          "src": "./assets/figures/ch15-support.svg",
+          "sha256": "4bc7edc9b6e8cf25c9ea08fe0e910ffe33d33f15fff631027eb1946823cc601e"
+        },
+        {
+          "src": "./assets/figures/ch15-source-membranes.png",
+          "sha256": "2671a9672b6c552ab29bff5754a9579282bc0a66a1ecfd9774e01c1fb7abd31b"
+        }
+      ]
+    },
+    {
+      "lesson": 6,
+      "originalIdsRetained": true,
+      "editKeyMultisetsExact": true,
+      "selectTextareaMarkupExactAcrossOriginalCandidateBlind": true,
+      "originalFigureAssets": [
+        {
+          "src": "./assets/figures/ch15-source-neurulation.png",
+          "sha256": "789c5760a304172bb7b369d671538b9e759ca0609707fa3556d57b3d0b13534a"
+        }
+      ]
+    }
+  ],
+  "runtime": "Not verified",
+  "postRepairRechecked": true
+}

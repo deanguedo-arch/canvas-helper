@@ -1,0 +1,32 @@
+import fs from 'node:fs';
+import assert from 'node:assert/strict';
+
+// Guarded additive continuation from the first-four candidate. No canonical writes.
+let source=fs.readFileSync('scripts/build-biology30-ch15-reviewed-complete.mjs','utf8');
+const replace=(before,after)=>{assert(source.includes(before),`Adapter drift: ${before.slice(0,90)}`);source=source.replace(before,after);};
+replace("const project=path.resolve('projects/biology30-chapter-15');","const project=path.resolve('projects/biology30-chapter-16');");
+replace("const root=path.join(parent,'complete-teaching-v0.1.0');","const root=path.join(parent,'first-six-v0.1.0');");
+replace("const previous=path.join(parent,'first-pair-v0.1.0/evaluation/new');","const previous=path.join(parent,'first-four-v0.1.0/evaluation/new');");
+const start=source.indexOf('const packages=['),end=source.indexOf('const current=',start);
+assert(start>=0&&end>start);
+source=source.slice(0,start)+`const packages=[{span:'05-06',hash:'b8072dc6d1e43cdec0d8861ad7568610501ee698cbb69f328fd80c06a8d2adb2',name:'Biology30_CH16_05-06_Conditional_Content_Handoff_v0.1.0.zip'}];\n`+source.slice(end);
+replace("'workspace/index.html':'7ff098c0763a1eedbe8c7e562e13082aa7a832582f9c73fd1739eaa4c31f0109'","'workspace/index.html':'6def7f770f78263613c52cc59d64ef40c82857cad39227ff2008afc8ba09872b'");
+replace("'meta/external-generation/authoring/course-config.json':'8ae42534366bf744c39a584059d2b1be871bbdd6ffae2954d1384ad7e802faaf'","'meta/external-generation/authoring/course-config.json':'eadae7629c9a7e45f83c9055f6dfd32e96bb49660f4d0f53505c6acecb7a7e8e'");
+replace("'9df5d0862c281fac3f23438be46e0828c962a6c14508fbb66b1936e1ac7d58d7','Previous candidate drift'","'d226930bc4894746c582c65725101b03aead01745a46a1a127a05a2bfee9a806','Previous candidate drift'");
+replace("const guards=JSON.parse(read(path.join(root,'intake/headings/REPAIR_GUARDS.json')));","const guards=[];\nassert.equal(config.guidedActivities.find(x=>x.route==='lesson-06').worked.steps[0], 'At metaphase I, the long homologues pair and the short homologues pair.', 'Reconcile changed lesson06 teaching mirror');");
+replace("if(spec.supplement){\n    const asset=(spec.supplement.asset||spec.supplement.path).replace(/^.*?learner\\//,'learner/');\n    const b=fs.readFileSync(path.join(intake,asset));assert.equal(sha(b),spec.supplement.sha256);","if(spec.supplement){\n    const receipt=JSON.parse(read(path.join(intake,'source/SUPPLEMENT_SOURCE_RECEIPT.json')));\n    const asset=receipt.target;\n    const b=fs.readFileSync(path.join(intake,asset));assert.equal(b.length,receipt.bytes);assert.equal(sha(b),receipt.imageSha256);");
+replace("g.batch.startsWith('ch15-')","g.batch.startsWith('ch16-')");
+replace('assert.equal(replacements.length,38);assert.equal(newIDs.size,3);assert.equal(supplements.length,3);','assert.equal(replacements.length,8);assert.equal(newIDs.size,1);assert.equal(supplements.length,1);');
+replace('assert.equal(newTree.length,oldTree.length+4);','assert.equal(newTree.length,oldTree.length+3);');
+replace("integratedLessons:'01–12'","integratedLessons:'01–06 only'");
+replace('cumulativeBlocks:46','cumulativeBlocks:24');
+replace('cumulativeSourceSupplements:4','cumulativeSourceSupplements:3');
+replace("guidedActivities[route=lesson-03 through lesson-11].worked teaching mirror","guidedActivities[route=lesson-05 through lesson-06].worked teaching mirror; exact original06 pairing sentence reconciled with visible reviewed teaching");
+replace("let comparison=read(path.join(parent,'first-pair-v0.1.0/evaluation/index.html'));","let comparison=read(path.resolve('projects/biology30-chapter-15/meta/teaching-overhaul/2026-10-08-teacher-led/first-pair-v0.1.0/evaluation/index.html'));");
+replace("out('.course-page[id^=\"lesson-\"]').toArray().map","out('.course-page[id^=\"lesson-\"]').toArray().filter(e=>Number(e.attribs.id.slice(-2))<=6).map");
+replace("replaceAll('57623','57643').replaceAll('57621','57641')","replaceAll('57623','57663').replaceAll('57621','57661')");
+replace("replaceAll('lessons 1–2','complete chapter').replace('Lessons 1–2:','Lessons 1–12:').replace('One exact teacher-source image added.','Four exact source supplements added.')","replaceAll('Chapter 15','Chapter 16').replaceAll('lessons 1–2','lessons 1–6').replace('Lessons 1–2:','Lessons 1–6:').replace('One exact teacher-source image added.','Three exact source supplements added. Later lessons retain existing teaching.')");
+replace('length,12);','length,6);');
+replace('blocks:38,cumulativeBlocks:46','blocks:8,cumulativeBlocks:24');
+replace("from 'cheerio'",`from ${JSON.stringify(import.meta.resolve('cheerio'))}`);
+await import('data:text/javascript;base64,'+Buffer.from(source).toString('base64'));

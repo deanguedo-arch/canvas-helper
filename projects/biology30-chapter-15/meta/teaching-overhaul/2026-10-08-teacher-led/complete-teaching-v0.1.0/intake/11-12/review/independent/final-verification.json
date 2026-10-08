@@ -1,0 +1,758 @@
+{
+  "reviewed_utc": "2026-10-08T20:41:49.232624+00:00",
+  "first_attempts_unchanged": true,
+  "native_equals_authoring": true,
+  "protected_dom": [
+    {
+      "lesson": 11,
+      "equal": true,
+      "normalized_sha256": "16d70335aedf968fb9d9dc6c13e69610121022def3ad1f50d0686f0fd6451c7d"
+    },
+    {
+      "lesson": 12,
+      "equal": true,
+      "normalized_sha256": "5b974688b137ea3dd53387c42e19e6e97144d7c31adce45a102c71a784464693"
+    }
+  ],
+  "assessment_images": [
+    {
+      "path": "ch15-batch11-12/learner/assets/assessment/d66857afed549d75.png",
+      "sha256": "d66857afed549d7568028a8b93e2195fbf54bbf1b3d701fba10633f2da01242a",
+      "matches_native": true
+    },
+    {
+      "path": "ch15-batch11-12/learner/assets/assessment/be3283cf513d711f.png",
+      "sha256": "be3283cf513d711f35b1fabe4ca06d8739c707d4b38c7f1346fb7015fa69f585",
+      "matches_native": true
+    },
+    {
+      "path": "ch15-batch11-12/learner/assets/assessment/3b87413c605fe16b.png",
+      "sha256": "3b87413c605fe16b8a335c6193157ff3aa8981ff98e092aa6ea4c73532ac4c80",
+      "matches_native": true
+    },
+    {
+      "path": "ch15-batch11-12/learner/assets/assessment/fabf4f2941ef763d.png",
+      "sha256": "fabf4f2941ef763db2bd6343c874bf986bb99107bb1d36a488b3d1e835749acf",
+      "matches_native": true
+    }
+  ],
+  "source_figure_unchanged": true,
+  "frozen_originals": [
+    {
+      "file": "practice-coverage.json",
+      "source": "ch15-source/unpacked/chapter-15/authoring/practice-coverage.json",
+      "sha256": "e8dac1b424acc6e01f3467b8a6fe2584f7ff1325c02698f67a65b580ba23b8fb",
+      "equal": true
+    },
+    {
+      "file": "lesson-content.json",
+      "source": "ch15-source/unpacked/chapter-15/authoring/lesson-content.json",
+      "sha256": "b3197cc2c96b2aff3669a937e7d17b72bc5f2c63df44e91334947c63cf9b0b29",
+      "equal": true
+    },
+    {
+      "file": "index.html",
+      "source": "ch15-source/unpacked/chapter-15/workspace/index.html",
+      "sha256": "2770ecce23a9fb2b8253466b712cbfaa982fc7342c476d940f07f40c95a326b4",
+      "equal": true
+    },
+    {
+      "file": "assessment-dispositions.json",
+      "source": "ch15-source/unpacked/chapter-15/authoring/assessment-dispositions.json",
+      "sha256": "713bb0ad2d0bac218815c70017713bc67f644f92ab74cd99ea17e5e9b7c1a463",
+      "equal": true
+    },
+    {
+      "file": "label-diagrams.json",
+      "source": "ch15-source/unpacked/chapter-15/authoring/label-diagrams.json",
+      "sha256": "4c1d438d1b6947fbc9b1e7768098c29bd8c95682833f0352c0d0fcc93e3e6ba7",
+      "equal": true
+    },
+    {
+      "file": "lesson-source-map.json",
+      "source": "ch15-source/unpacked/chapter-15/authoring/lesson-source-map.json",
+      "sha256": "75558292e88c23552e0b2c9c50f0f49624ac82f7330e4f2d28f5cc51a7dc76ed",
+      "equal": true
+    },
+    {
+      "file": "chapter-15.pdf",
+      "source": "ch15-source/unpacked/chapter-15/workspace/assets/textbook/chapter-15.pdf",
+      "sha256": "30b03cf91e5cf99ed0ae2a7dedf7cae2b246111b795d280b5b95ca937c56aa25",
+      "equal": true
+    },
+    {
+      "file": "build-summary.json",
+      "source": "ch15-source/unpacked/chapter-15/authoring/build-summary.json",
+      "sha256": "fab2b0f1398849a1454539fe51d0b103e7a14a0571d3d706faa53189f1973477",
+      "equal": true
+    },
+    {
+      "file": "initial-chapter-15-authoring.py",
+      "source": "ch15-source/unpacked/chapter-15/authoring/initial-chapter-15-authoring.py",
+      "sha256": "fd3382283a6b8d5b57dace999a481673f970c7d24ed1e50e9fd48c54ece23d3d",
+      "equal": true
+    },
+    {
+      "file": "template-lock.json",
+      "source": "ch15-source/unpacked/chapter-15/authoring/template-lock.json",
+      "sha256": "6f9c20dfa0879869cb53e1af2fd17135e3765ba119f59ebc9288b6b3d98eccd6",
+      "equal": true
+    },
+    {
+      "file": "course-config.json",
+      "source": "ch15-source/unpacked/chapter-15/authoring/course-config.json",
+      "sha256": "4d023c61ee9b83dd4ea4488b5a518406b2309b059c7d1c46f272c98e28dc4441",
+      "equal": true
+    },
+    {
+      "file": "teacher-slide-transcript.json",
+      "source": "ch15-source/unpacked/chapter-15/authoring/teacher-slide-transcript.json",
+      "sha256": "9be230f26b5550e7f7c4972e3596ebef13636aa5276596a6bd1dd63bff34bc60",
+      "equal": true
+    },
+    {
+      "file": "diagram-review.json",
+      "source": "ch15-source/unpacked/chapter-15/authoring/diagram-review.json",
+      "sha256": "9519e3bde607b25d8847ab724a6e072c0a8009b7a163b2fd6be0f60168ffe5ba",
+      "equal": true
+    },
+    {
+      "file": "source-discrepancies.md",
+      "source": "ch15-source/unpacked/chapter-15/authoring/source-discrepancies.md",
+      "sha256": "f97f54787088077de3581bc2e82508644e02a976747a8fc76ec1b380b1dfc386",
+      "equal": true
+    },
+    {
+      "file": "question-context-audit.json",
+      "source": "ch15-source/unpacked/chapter-15/authoring/question-context-audit.json",
+      "sha256": "061c275545c89dc1f69bcd4fa5c2a29e6418ce956d99ef7896579b05f43a2a90",
+      "equal": true
+    },
+    {
+      "file": "revision-activities.js",
+      "source": "ch15-source/unpacked/chapter-15/workspace/assets/revision-activities.js",
+      "sha256": "957583a09be13e3b0bb888928d49ed87605b154f14eeaacbea3ea569e27b60c8",
+      "equal": true
+    },
+    {
+      "file": "source-assessment-catalogue.json",
+      "source": "ch15-source/unpacked/chapter-15/authoring/source-assessment-catalogue.json",
+      "sha256": "b0a6e33645a76ced93843d1d6ef73bc293d28417e39f635bdb8764350f16630b",
+      "equal": true
+    },
+    {
+      "file": "option-position-audit.json",
+      "source": "ch15-source/unpacked/chapter-15/authoring/option-position-audit.json",
+      "sha256": "1e943f4b8acb194239d20b1ecc3737af1d33f2d670ab1466881eab07541bde00",
+      "equal": true
+    },
+    {
+      "file": "vocabulary.json",
+      "source": "ch15-source/unpacked/chapter-15/authoring/vocabulary.json",
+      "sha256": "d86b873f921859411c090b25f20de33b7ccbd33c4b7ec6f1d4dde20968d0f785",
+      "equal": true
+    },
+    {
+      "file": "foundation-practice.json",
+      "source": "ch15-source/unpacked/chapter-15/authoring/foundation-practice.json",
+      "sha256": "a79cb9a0446e1fde1374b58961de8614795809b98295a2f49060412e37b6e4d2",
+      "equal": true
+    },
+    {
+      "file": "video-map.json",
+      "source": "ch15-source/unpacked/chapter-15/authoring/video-map.json",
+      "sha256": "66ca241db88b72b16a9ca2666832d5cbf354bbf68e2e300614e8d4a53d0315ca",
+      "equal": true
+    },
+    {
+      "file": "optional-source-responses.json",
+      "source": "ch15-source/unpacked/chapter-15/authoring/optional-source-responses.json",
+      "sha256": "6b70c99adc8a80ff5dfaa74e08e2f705fe98ed30267e03a2845731ecd943b145",
+      "equal": true
+    },
+    {
+      "file": "imported-practice.json",
+      "source": "ch15-source/unpacked/chapter-15/authoring/imported-practice.json",
+      "sha256": "fc789a89dea6b5422b40d4d0b39765a17318bc93a176867438161dc32deaa751",
+      "equal": true
+    },
+    {
+      "file": "initial-authoring-helpers.py",
+      "source": "ch15-source/unpacked/chapter-15/authoring/initial-authoring-helpers.py",
+      "sha256": "33899b48a9217599f8693f288614f50eba4b2bc170b3d870210533362e6de912",
+      "equal": true
+    },
+    {
+      "file": "textbook-question-index.txt",
+      "source": "ch15-source/unpacked/chapter-15/authoring/textbook-question-index.txt",
+      "sha256": "bd5601c624aad1a23aa299804916e6691beb41d11c1b945bd8abb89fcb075708",
+      "equal": true
+    },
+    {
+      "file": "video-dispositions.json",
+      "source": "ch15-source/unpacked/chapter-15/authoring/video-dispositions.json",
+      "sha256": "ea840cb9eb335d031599a571359151e2f2a205998f774f20a6dd77902054b6b1",
+      "equal": true
+    },
+    {
+      "file": "textbook-question-manifest.json",
+      "source": "ch15-source/unpacked/chapter-15/authoring/textbook-question-manifest.json",
+      "sha256": "aedfe442b493c0f0a091a8fb5b5b213ff8b9bd84a7ba24bf5c0b329f114a430d",
+      "equal": true
+    },
+    {
+      "file": "portable-assets.json",
+      "source": "ch15-source/unpacked/chapter-15/authoring/portable-assets.json",
+      "sha256": "46276d4422416d1f509915ee65d9f7bf956be938f2aaa4c0c9c6e71348787622",
+      "equal": true
+    },
+    {
+      "file": "teacher-chapter-15.pptx",
+      "source": "ch15-source/teacher/BIOLOGY 30 COURSE CREATION/Unit B Chapter 15 Notes.pptx",
+      "sha256": "38149b6f562425a0b49bed3d0ad4369c5c5eef48f44d9099ea673cc888c2eb84",
+      "equal": true
+    },
+    {
+      "file": "main.js",
+      "source": "ch15-source/unpacked/chapter-15/workspace/main.js",
+      "sha256": "d5bd1f23265f2442a277c7c2b75caf8d9953f98be6a3794c7ba1fb3fb321e719",
+      "equal": true
+    },
+    {
+      "file": "unit-review-map.json",
+      "source": "ch15-source/unpacked/chapter-15/authoring/unit-review-map.json",
+      "sha256": "bca6f8842ab00f660c19d722a699095d104c283c5efbba3c82afad98ee71b2da",
+      "equal": true
+    },
+    {
+      "file": "outcome-coverage.json",
+      "source": "ch15-source/unpacked/chapter-15/authoring/outcome-coverage.json",
+      "sha256": "77e8cf5636a01a35cdb59d69d33eb6a85ca2680f4e1ff9f7535f3557bc1ccdf6",
+      "equal": true
+    },
+    {
+      "file": "revision-practice.js",
+      "source": "ch15-source/unpacked/chapter-15/workspace/assets/revision-practice.js",
+      "sha256": "005510731183f233e044d9f55db2e4537be73aec1bdc790263bb7861b5e589ea",
+      "equal": true
+    },
+    {
+      "file": "source-inventory.json",
+      "source": "ch15-source/unpacked/chapter-15/authoring/source-inventory.json",
+      "sha256": "30d21fe158edf4ba8c422a1c53d5fcf8a44672c6fc67b056f13f26ba99b5c17f",
+      "equal": true
+    },
+    {
+      "file": "component-catalogue.json",
+      "source": "ch15-source/unpacked/chapter-15/authoring/component-catalogue.json",
+      "sha256": "f58b62b7fa4342dc3d024f8e94519c20fe40755cd97b013cca19bcbe09d9685f",
+      "equal": true
+    }
+  ],
+  "assessment_records": [
+    {
+      "identity": "ch15-l11-check-mc-1",
+      "category": "selection",
+      "expected": "Fertilization has occurred, but implantation is not guaranteed",
+      "exact": true,
+      "review_result": "Pass: exact answer",
+      "note": ""
+    },
+    {
+      "identity": "ch15-l11-check-mc-2",
+      "category": "selection",
+      "expected": "The duct and the hormone-producing tissue have different functions",
+      "exact": true,
+      "review_result": "Pass: exact answer",
+      "note": ""
+    },
+    {
+      "identity": "ch15-l11-check-writing-1",
+      "category": "native-writing",
+      "expected": "Artificial insemination introduces sperm into the reproductive tract and fertilization occurs inside the body. IVF involves fertilization outside the body in a laboratory, followed by possible embryo transfer to the uterus. Neither transfer nor fertilization guarantees implantation or birth.",
+      "exact": false,
+      "review_result": "Pass: semantic valid response",
+      "note": ""
+    },
+    {
+      "identity": "ch15-l11-check-writing-2",
+      "category": "native-writing",
+      "expected": "A mechanism identifies the step altered, but decisions also depend on evidence about benefits, risks and uncertainty, plus values such as consent, access and preferences. Different families may weigh these differently. Scientific evidence should not be confused with a universal personal decision.",
+      "exact": false,
+      "review_result": "Pass: semantic valid response",
+      "note": ""
+    },
+    {
+      "identity": "ch15-final-mc-1",
+      "category": "selection",
+      "expected": "Blastocyst",
+      "exact": true,
+      "review_result": "Pass: exact answer",
+      "note": ""
+    },
+    {
+      "identity": "ch15-final-mc-2",
+      "category": "selection",
+      "expected": "Trophoblast-derived hCG → corpus luteum → progesterone support of endometrium",
+      "exact": true,
+      "review_result": "Pass: exact answer",
+      "note": ""
+    },
+    {
+      "identity": "ch15-final-mc-3",
+      "category": "selection",
+      "expected": "Respiratory epithelial lining—endoderm",
+      "exact": true,
+      "review_result": "Pass: exact answer",
+      "note": ""
+    },
+    {
+      "identity": "ch15-final-mc-4",
+      "category": "selection",
+      "expected": "Umbilical vein",
+      "exact": true,
+      "review_result": "Pass: exact answer",
+      "note": ""
+    },
+    {
+      "identity": "ch15-final-mc-5",
+      "category": "selection",
+      "expected": "Prolactin supports production; oxytocin supports ejection",
+      "exact": true,
+      "review_result": "Pass: exact answer",
+      "note": ""
+    },
+    {
+      "identity": "ch15-final-mc-6",
+      "category": "selection",
+      "expected": "Gestational age and age from fertilization have different starting points",
+      "exact": true,
+      "review_result": "Pass: exact answer",
+      "note": ""
+    },
+    {
+      "identity": "ch15-final-writing-1",
+      "category": "native-writing",
+      "expected": "Fertilization forms a diploid zygote. Cleavage increases cell number with little total growth, producing a morula and then a blastocyst with distinct regions. The blastocyst implants in the endometrium. Gastrulation establishes ectoderm, mesoderm and endoderm; differentiation and morphogenesis then contribute to organogenesis, including neurulation.",
+      "exact": false,
+      "review_result": "Pass: semantic valid response",
+      "note": ""
+    },
+    {
+      "identity": "ch15-final-writing-2",
+      "category": "native-writing",
+      "expected": "Early trophoblast-derived hCG maintains the corpus luteum and its progesterone/estrogen support of the endometrium; later the placenta contributes hormones. In labour, cervical stretch promotes oxytocin release and stronger contractions, which reinforce stretch. Delivery reduces the stretch stimulus. The pathways differ in signals, targets and relationships.",
+      "exact": false,
+      "review_result": "Pass: semantic valid response",
+      "note": "Prompt calls both situations feedback. This is a valid qualified answer to the teaching provided, not a claim that the hCG chain alone is a negative-feedback loop. Prior L03 requested to clarify fuller ovarian feedback context."
+    },
+    {
+      "identity": "ch15-l11-guided-q1",
+      "category": "selection",
+      "expected": "IVF",
+      "exact": true,
+      "review_result": "Pass: exact answer",
+      "note": ""
+    },
+    {
+      "identity": "ch15-l11-guided-q2",
+      "category": "selection",
+      "expected": "Interrupting sperm transport",
+      "exact": true,
+      "review_result": "Pass: exact answer",
+      "note": ""
+    },
+    {
+      "identity": "ch15-transfer-mc-1",
+      "category": "selection",
+      "expected": "Implantation",
+      "exact": true,
+      "review_result": "Pass: exact answer",
+      "note": ""
+    },
+    {
+      "identity": "ch15-transfer-mc-2",
+      "category": "selection",
+      "expected": "Diffusive exchange may become less efficient",
+      "exact": true,
+      "review_result": "Pass: exact answer",
+      "note": ""
+    },
+    {
+      "identity": "ch15-transfer-mc-3",
+      "category": "selection",
+      "expected": "Milk ejection",
+      "exact": true,
+      "review_result": "Pass: exact answer",
+      "note": ""
+    },
+    {
+      "identity": "ch15-transfer-writing",
+      "category": "native-writing",
+      "expected": "The report must identify whether the age is gestational or counted from fertilization. Visible structure also does not establish mature function: growth and functional maturation continue. More specific evidence about the organ’s performance is required.",
+      "exact": false,
+      "review_result": "Pass: semantic valid response",
+      "note": ""
+    },
+    {
+      "identity": "ch15-source-OBJ_2131141",
+      "category": "selection",
+      "expected": "vasectomy and tubal ligation, respectively.",
+      "exact": true,
+      "review_result": "Pass: exact answer",
+      "note": ""
+    },
+    {
+      "identity": "ch15-source-OBJ_2131142",
+      "category": "selection",
+      "expected": "Transport of sperm into the ejaculatory pathway",
+      "exact": true,
+      "review_result": "Pass: exact answer",
+      "note": ""
+    },
+    {
+      "identity": "ch15-source-OBJ_2131143",
+      "category": "selection",
+      "expected": "Oviduct",
+      "exact": true,
+      "review_result": "Pass: exact answer",
+      "note": ""
+    },
+    {
+      "identity": "ch15-source-OBJ_2131144",
+      "category": "selection",
+      "expected": "Implantation in the endometrium",
+      "exact": true,
+      "review_result": "Pass: exact answer",
+      "note": ""
+    },
+    {
+      "identity": "ch15-source-OBJ_2131146",
+      "category": "selection",
+      "expected": "Ovulation",
+      "exact": true,
+      "review_result": "Pass: exact answer",
+      "note": ""
+    },
+    {
+      "identity": "ch15-foundation-ch15-word-in-vitro-fertilization-ivf",
+      "category": "selection",
+      "expected": "in vitro fertilization (IVF)",
+      "exact": true,
+      "review_result": "Pass: exact answer",
+      "note": ""
+    },
+    {
+      "identity": "ch15-foundation-ch15-word-artificial-insemination",
+      "category": "selection",
+      "expected": "artificial insemination",
+      "exact": true,
+      "review_result": "Pass: exact answer",
+      "note": ""
+    },
+    {
+      "identity": "ch15-foundation-ch15-word-hormonal-contraception",
+      "category": "selection",
+      "expected": "hormonal contraception",
+      "exact": true,
+      "review_result": "Pass: exact answer",
+      "note": ""
+    },
+    {
+      "identity": "ch15-foundation-ch15-word-vasectomy",
+      "category": "selection",
+      "expected": "vasectomy",
+      "exact": true,
+      "review_result": "Pass: exact answer",
+      "note": ""
+    },
+    {
+      "identity": "ch15-l11-application-1",
+      "category": "selection",
+      "expected": "It can act by making sperm passage more difficult without necessarily suppressing ovulation",
+      "exact": true,
+      "review_result": "Pass: exact answer",
+      "note": ""
+    },
+    {
+      "identity": "ch15-l11-context-in-vitro-fertilization-ivf",
+      "category": "term",
+      "expected": "in vitro fertilization (IVF)",
+      "exact": true,
+      "review_result": "Pass: exact answer",
+      "note": ""
+    },
+    {
+      "identity": "ch15-l11-context-artificial-insemination",
+      "category": "term",
+      "expected": "artificial insemination",
+      "exact": true,
+      "review_result": "Pass: exact answer",
+      "note": ""
+    },
+    {
+      "identity": "ch15-l11-context-hormonal-contraception",
+      "category": "term",
+      "expected": "hormonal contraception",
+      "exact": true,
+      "review_result": "Pass: exact answer",
+      "note": "The hormonal-contraception scenario uses “and/or conditions for sperm passage”; this alone also admits some nonhormonal barriers. Intended term is clear within the four-term lesson bank, but prompt wording is broader than the category."
+    },
+    {
+      "identity": "ch15-l11-context-vasectomy",
+      "category": "term",
+      "expected": "vasectomy",
+      "exact": true,
+      "review_result": "Pass: exact answer",
+      "note": ""
+    },
+    {
+      "identity": "ch15-source-written-OBJ_2131148",
+      "category": "source-writing",
+      "expected": null,
+      "exact": null,
+      "review_result": "Pass: independent sequence/labels agree with historical key; current writing remains manually reviewed",
+      "note": "Source image heading says events from ovulation to implantation, but it includes gastrulation, which is later. The order is still determinable; heading is a protected source ambiguity.",
+      "original_historical_key": [
+        "2413"
+      ]
+    },
+    {
+      "identity": "ch15-source-written-OBJ_2131149",
+      "category": "source-writing",
+      "expected": null,
+      "exact": null,
+      "review_result": "Pass: independent sequence/labels agree with historical key; current writing remains manually reviewed",
+      "note": "The diagram bundles hypothalamic production with posterior-pituitary release as one event; ordering applies to the simplified release reflex, not synthesis of new hormone after every suckle.",
+      "original_historical_key": [
+        "53142"
+      ]
+    },
+    {
+      "identity": "ch15-source-written-OBJ_2131151",
+      "category": "source-writing",
+      "expected": null,
+      "exact": null,
+      "review_result": "Pass: independent sequence/labels agree with historical key; current writing remains manually reviewed",
+      "note": "Could not complete from pair12 summary alone; after restoring legitimate prior teaching, the labels and relationships support the answer. No expert-only fill or key used.",
+      "original_historical_key": [
+        "4213"
+      ]
+    },
+    {
+      "identity": "#lesson-11 .stop-check",
+      "category": "stop",
+      "expected": null,
+      "exact": null,
+      "review_result": "Pass: semantic valid response",
+      "note": ""
+    },
+    {
+      "identity": "ch15-concept-in-vitro-fertilization-ivf-flash",
+      "category": "flash",
+      "expected": "A process in which eggs and sperm are brought together outside the body and resulting embryos may be transferred to the uterus.",
+      "exact": false,
+      "review_result": "Pass: semantic valid response",
+      "note": ""
+    },
+    {
+      "identity": "ch15-concept-in-vitro-fertilization-ivf-reverse",
+      "category": "term",
+      "expected": "in vitro fertilization (IVF)",
+      "exact": true,
+      "review_result": "Pass: exact answer",
+      "note": ""
+    },
+    {
+      "identity": "ch15-concept-in-vitro-fertilization-ivf-misconception",
+      "category": "flash",
+      "expected": "A process in which eggs and sperm are brought together outside the body and resulting embryos may be transferred to the uterus. Embryo transfer does not guarantee implantation or birth.",
+      "exact": false,
+      "review_result": "Pass: semantic valid response",
+      "note": ""
+    },
+    {
+      "identity": "ch15-concept-in-vitro-fertilization-ivf-blank",
+      "category": "term",
+      "expected": "in vitro fertilization (IVF)",
+      "exact": true,
+      "review_result": "Pass: exact answer",
+      "note": ""
+    },
+    {
+      "identity": "ch15-concept-artificial-insemination-flash",
+      "category": "flash",
+      "expected": "Placement of sperm in the reproductive tract to support the chance of fertilization.",
+      "exact": false,
+      "review_result": "Pass: semantic valid response",
+      "note": ""
+    },
+    {
+      "identity": "ch15-concept-artificial-insemination-reverse",
+      "category": "term",
+      "expected": "artificial insemination",
+      "exact": true,
+      "review_result": "Pass: exact answer",
+      "note": ""
+    },
+    {
+      "identity": "ch15-concept-artificial-insemination-misconception",
+      "category": "flash",
+      "expected": "Placement of sperm in the reproductive tract to support the chance of fertilization. Fertilization still occurs inside the reproductive tract, unlike laboratory fertilization in IVF.",
+      "exact": false,
+      "review_result": "Pass: semantic valid response",
+      "note": ""
+    },
+    {
+      "identity": "ch15-concept-artificial-insemination-blank",
+      "category": "term",
+      "expected": "artificial insemination",
+      "exact": true,
+      "review_result": "Pass: exact answer",
+      "note": ""
+    },
+    {
+      "identity": "ch15-concept-hormonal-contraception-flash",
+      "category": "flash",
+      "expected": "Use of hormone-like signals to reduce the chance of pregnancy through effects such as suppressing ovulation or changing cervical mucus.",
+      "exact": false,
+      "review_result": "Pass: semantic valid response",
+      "note": ""
+    },
+    {
+      "identity": "ch15-concept-hormonal-contraception-reverse",
+      "category": "term",
+      "expected": "hormonal contraception",
+      "exact": true,
+      "review_result": "Pass: exact answer",
+      "note": ""
+    },
+    {
+      "identity": "ch15-concept-hormonal-contraception-misconception",
+      "category": "flash",
+      "expected": "Use of hormone-like signals to reduce the chance of pregnancy through effects such as suppressing ovulation or changing cervical mucus. Different hormonal methods do not all act identically.",
+      "exact": false,
+      "review_result": "Pass: semantic valid response",
+      "note": ""
+    },
+    {
+      "identity": "ch15-concept-hormonal-contraception-blank",
+      "category": "term",
+      "expected": "hormonal contraception",
+      "exact": true,
+      "review_result": "Pass: exact answer",
+      "note": ""
+    },
+    {
+      "identity": "ch15-concept-vasectomy-flash",
+      "category": "flash",
+      "expected": "A procedure that interrupts sperm transport through the vasa deferentia.",
+      "exact": true,
+      "review_result": "Pass: exact answer",
+      "note": ""
+    },
+    {
+      "identity": "ch15-concept-vasectomy-reverse",
+      "category": "term",
+      "expected": "vasectomy",
+      "exact": true,
+      "review_result": "Pass: exact answer",
+      "note": ""
+    },
+    {
+      "identity": "ch15-concept-vasectomy-misconception",
+      "category": "flash",
+      "expected": "A procedure that interrupts sperm transport through the vasa deferentia. A transport interruption does not by itself stop testosterone production.",
+      "exact": false,
+      "review_result": "Pass: semantic valid response",
+      "note": ""
+    },
+    {
+      "identity": "ch15-concept-vasectomy-blank",
+      "category": "term",
+      "expected": "vasectomy",
+      "exact": true,
+      "review_result": "Pass: exact answer",
+      "note": ""
+    },
+    {
+      "identity": "ch15-l11-scenario-1",
+      "category": "flash",
+      "expected": "It can act by making sperm passage more difficult without necessarily suppressing ovulation. Different methods can act on distinct reproductive steps.",
+      "exact": false,
+      "review_result": "Pass: semantic valid response",
+      "note": "Exact prompt repeat of ch15-l11-application-1, but this identity has no supplied options and is self-assessed. Same first response reused explicitly."
+    }
+  ],
+  "frayer_forms": 8,
+  "frayer_fields": 32,
+  "frayer_field_lengths_within_240": true,
+  "final_hashes": [
+    {
+      "path": "ch15-batch11-12/fragments/ch15-l11-teaching-01.html",
+      "bytes": 2340,
+      "sha256": "0f07725b56723c0cca24d79008601e22b8384cb693f418f4a97436ee3412d14b"
+    },
+    {
+      "path": "ch15-batch11-12/fragments/ch15-l11-worked.html",
+      "bytes": 1592,
+      "sha256": "0cae3bb6752f38fc8bc78ab21e2b34a305956d98cc5e8cdf6df94cb4dca1d7e4"
+    },
+    {
+      "path": "ch15-batch11-12/fragments/ch15-l12-teaching-01.html",
+      "bytes": 2423,
+      "sha256": "fe7790a193998f77e05ea43ad1615ecddc47b8000181f86dde12a82673fcf01a"
+    },
+    {
+      "path": "ch15-batch11-12/fragments/ch15-l12-teaching-02.html",
+      "bytes": 2445,
+      "sha256": "c57cdeb1a59b9674b370bb77b76465349672f84d7938668f0cbcefba2d65d5f1"
+    },
+    {
+      "path": "ch15-batch11-12/fragments/ch15-l11-teaching-03.html",
+      "bytes": 1741,
+      "sha256": "4786965efca51e3539f5a689490c28997d6113b2c3d47f9b3d61d3196046b924"
+    },
+    {
+      "path": "ch15-batch11-12/fragments/ch15-l11-teaching-02.html",
+      "bytes": 3561,
+      "sha256": "1d1cf23469eea1785981e05eec2140465cf1d5eff6dec5a7f930961e79937847"
+    },
+    {
+      "path": "ch15-batch11-12/learner/lesson-11-manuscript.txt",
+      "bytes": 12162,
+      "sha256": "66869beebc0b44e4928291c009ce132125942a021aa3dfd9939f24573b33afe6"
+    },
+    {
+      "path": "ch15-batch11-12/learner/lesson-11.html",
+      "bytes": 23267,
+      "sha256": "f863979bb22b913f3bb37be1e9f138a74ce194e42894186cfe7939b339e3ed50"
+    },
+    {
+      "path": "ch15-batch11-12/learner/lesson-12.html",
+      "bytes": 32927,
+      "sha256": "e9f69d6ce55b2e286f39b7f8ccd13d39c45b68ffaa5ef4abd56302b143ebcc87"
+    },
+    {
+      "path": "ch15-batch11-12/learner/lesson-12-manuscript.txt",
+      "bytes": 14988,
+      "sha256": "49a341f391a01897681137e6e9f1fe8992094a588fd91f610b1d5466012508f2"
+    },
+    {
+      "path": "ch15-batch11-12/learner/assets/figures/ch15-source-transport-figure15-18.png",
+      "bytes": 421653,
+      "sha256": "b9cd7e34c1a5982973612f5b468b22eb21d9de691b27b137b458147b7d6b30eb"
+    },
+    {
+      "path": "ch15-review11-12/first-attempts.json",
+      "bytes": 29866,
+      "sha256": "9212b257396b35489f0f118dd317b881e3e82aa87cd6b8bc4ad74b3c4d6c443f"
+    },
+    {
+      "path": "ch15-batch11-12/source/Course_Production_Standards_v0.4.txt",
+      "bytes": 65442,
+      "sha256": "db8a04bcd7620d9ecf64ec6dc86c046cb3075b9b09cc51dac41936c391379e1e"
+    }
+  ],
+  "limits": "Static file review only. No target rendering, browser/runtime, saved-work operation, LMS check, teacher acceptance or release."
+}

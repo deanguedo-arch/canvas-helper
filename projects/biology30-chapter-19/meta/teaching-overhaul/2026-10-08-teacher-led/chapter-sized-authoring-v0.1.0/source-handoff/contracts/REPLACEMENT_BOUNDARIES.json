@@ -1,0 +1,476 @@
+{
+  "chapter": 19,
+  "canonicalOwnerSHA256": "2f0dcc173b8fd605cccb9c547718aaedbb903dabfefd5dbdfd2cbc31c8ab343c",
+  "authoringBaselineSHA256": "2f0dcc173b8fd605cccb9c547718aaedbb903dabfefd5dbdfd2cbc31c8ab343c",
+  "integration": "Separate comparison only",
+  "boundaries": [
+    {
+      "route": "lesson-01",
+      "selector": "#ch19-l01-teaching-01",
+      "id": "ch19-l01-teaching-01",
+      "beforeSha256": "ac5aba3a4304f4db71d515071dfdffe78ac1c9b777f73b39b40a463d85bdf683",
+      "openingTag": "<div class=\"content-section\" data-canvas-edit-key=\"ch19-l01-teaching-01\" data-canvas-helper-edit-key=\"ch19-l01-teaching-01\" id=\"ch19-l01-teaching-01\">",
+      "lockedFigures": [],
+      "termButtons": [
+        "<button aria-haspopup=\"dialog\" class=\"bio-term\" data-term-id=\"ch19-word-population\" type=\"button\">Population</button>",
+        "<button aria-haspopup=\"dialog\" class=\"bio-term\" data-term-id=\"ch19-word-gene-pool\" type=\"button\">gene pool</button>"
+      ]
+    },
+    {
+      "route": "lesson-01",
+      "selector": "#ch19-l01-teaching-02",
+      "id": "ch19-l01-teaching-02",
+      "beforeSha256": "c46b5cc407591e2ef4e1f493a0d16a367b5b6aa454057d0752e258f2f9d37ea3",
+      "openingTag": "<div class=\"content-section\" data-canvas-edit-key=\"ch19-l01-teaching-02\" data-canvas-helper-edit-key=\"ch19-l01-teaching-02\" id=\"ch19-l01-teaching-02\">",
+      "lockedFigures": [],
+      "termButtons": [
+        "<button aria-haspopup=\"dialog\" class=\"bio-term\" data-term-id=\"ch19-word-microevolution\" type=\"button\">Microevolution</button>"
+      ]
+    },
+    {
+      "route": "lesson-01",
+      "selector": "#ch19-l01-teaching-03",
+      "id": "ch19-l01-teaching-03",
+      "beforeSha256": "4e1b92fc925c1c88440da028f8895d47259633e72341179788ca31441d3f51b4",
+      "openingTag": "<div class=\"content-section\" data-canvas-edit-key=\"ch19-l01-teaching-03\" data-canvas-helper-edit-key=\"ch19-l01-teaching-03\" id=\"ch19-l01-teaching-03\">",
+      "lockedFigures": [],
+      "termButtons": [
+        "<button aria-haspopup=\"dialog\" class=\"bio-term\" data-term-id=\"ch19-word-genetic-variation\" type=\"button\">Genetic variation</button>"
+      ]
+    },
+    {
+      "route": "lesson-01",
+      "selector": "#ch19-l01-worked",
+      "id": "ch19-l01-worked",
+      "beforeSha256": "47e67b7d6480efa4db17f190b87c3ca2952a1f0808b7463f52bc504a8ba43078",
+      "openingTag": "<div class=\"worked-example\" data-canvas-edit-key=\"ch19-l01-worked\" data-canvas-helper-edit-key=\"ch19-l01-worked\" id=\"ch19-l01-worked\">",
+      "lockedFigures": [],
+      "termButtons": []
+    },
+    {
+      "route": "lesson-02",
+      "selector": "#ch19-l02-teaching-01",
+      "id": "ch19-l02-teaching-01",
+      "beforeSha256": "fec93749a2a84651368c2940b82885d3df6ba5a2f45a7d706d13a467050d3e72",
+      "openingTag": "<div class=\"content-section\" data-canvas-edit-key=\"ch19-l02-teaching-01\" data-canvas-helper-edit-key=\"ch19-l02-teaching-01\" id=\"ch19-l02-teaching-01\">",
+      "lockedFigures": [
+        {
+          "sha256": "154b346dff3b54875d67e13b3b12283d1c3607b77705773e619d3d130fa6ecdc",
+          "html": "<figure class=\"science-figure\" data-figure-id=\"ch19-allele-counts\"><div class=\"figure-toolbar\"><strong>Count individuals and allele copies separately</strong><button class=\"text-link\" data-enlarge-figure=\"ch19-allele-counts\" type=\"button\">View larger</button></div><img alt=\"This constructed sample contains 3 AA, 5 Aa and 2 aa individuals. Its A frequency is 11/20 and its a frequency is 9/20.\" decoding=\"async\" loading=\"lazy\" src=\"./assets/figures/ch19-allele-counts.svg\"/><figcaption>This constructed sample contains 3 AA, 5 Aa and 2 aa individuals. Its A frequency is 11/20 and its a frequency is 9/20. Constructed diploid sample: N = 10; allele copies = 20.</figcaption></figure>"
+        }
+      ],
+      "termButtons": [
+        "<button aria-haspopup=\"dialog\" class=\"bio-term\" data-term-id=\"ch19-word-genotype-frequency\" type=\"button\">Genotype frequency</button>",
+        "<button class=\"text-link\" data-enlarge-figure=\"ch19-allele-counts\" type=\"button\">View larger</button>"
+      ]
+    },
+    {
+      "route": "lesson-02",
+      "selector": "#ch19-l02-teaching-02",
+      "id": "ch19-l02-teaching-02",
+      "beforeSha256": "c514b0d5789698d1dc8b203746ca30bfed98100a761b8a4b8a2bdea3becaa2f5",
+      "openingTag": "<div class=\"content-section\" data-canvas-edit-key=\"ch19-l02-teaching-02\" data-canvas-helper-edit-key=\"ch19-l02-teaching-02\" id=\"ch19-l02-teaching-02\">",
+      "lockedFigures": [],
+      "termButtons": []
+    },
+    {
+      "route": "lesson-02",
+      "selector": "#ch19-l02-teaching-03",
+      "id": "ch19-l02-teaching-03",
+      "beforeSha256": "b99e1c8ed1a65faba2da9eede916b356b5db319fdec54c81e2c69d15d4abfd91",
+      "openingTag": "<div class=\"content-section\" data-canvas-edit-key=\"ch19-l02-teaching-03\" data-canvas-helper-edit-key=\"ch19-l02-teaching-03\" id=\"ch19-l02-teaching-03\">",
+      "lockedFigures": [],
+      "termButtons": []
+    },
+    {
+      "route": "lesson-02",
+      "selector": "#ch19-l02-worked",
+      "id": "ch19-l02-worked",
+      "beforeSha256": "ebb71bf863a0705f27c7674d5b1ba45c695201b497c0629ff6b572309468f0bf",
+      "openingTag": "<div class=\"worked-example\" data-canvas-edit-key=\"ch19-l02-worked\" data-canvas-helper-edit-key=\"ch19-l02-worked\" id=\"ch19-l02-worked\">",
+      "lockedFigures": [],
+      "termButtons": []
+    },
+    {
+      "route": "lesson-03",
+      "selector": "#ch19-l03-teaching-01",
+      "id": "ch19-l03-teaching-01",
+      "beforeSha256": "79368df279eb830e7818e8834785e9018611bc231210ced1e760a95bc1782b38",
+      "openingTag": "<div class=\"content-section\" data-canvas-edit-key=\"ch19-l03-teaching-01\" data-canvas-helper-edit-key=\"ch19-l03-teaching-01\" id=\"ch19-l03-teaching-01\">",
+      "lockedFigures": [
+        {
+          "sha256": "c1bcb92e4263187b958356bda51761e9eed08b4f5bd6e02a4cfc6f585850e57e",
+          "html": "<figure class=\"science-figure\" data-figure-id=\"ch19-hw-square\"><div class=\"figure-toolbar\"><strong>Random pairing from an allele pool</strong><button class=\"text-link\" data-enlarge-figure=\"ch19-hw-square\" type=\"button\">View larger</button></div><img alt=\"Under Hardy–Weinberg assumptions, allele frequencies p and q combine into p², pq, qp and q²; the two heterozygous outcomes add to 2pq.\" decoding=\"async\" loading=\"lazy\" src=\"./assets/figures/ch19-hw-square.svg\"/><figcaption>Under Hardy–Weinberg assumptions, allele frequencies p and q combine into p², pq, qp and q²; the two heterozygous outcomes add to 2pq. Schematic — not to scale.</figcaption></figure>"
+        }
+      ],
+      "termButtons": [
+        "<button aria-haspopup=\"dialog\" class=\"bio-term\" data-term-id=\"ch19-word-2pq\" type=\"button\">2pq</button>",
+        "<button class=\"text-link\" data-enlarge-figure=\"ch19-hw-square\" type=\"button\">View larger</button>"
+      ]
+    },
+    {
+      "route": "lesson-03",
+      "selector": "#ch19-l03-teaching-02",
+      "id": "ch19-l03-teaching-02",
+      "beforeSha256": "955ad1711f82a6d67db9b56199c47f137815525954b6537671c7b452bb14092f",
+      "openingTag": "<div class=\"content-section\" data-canvas-edit-key=\"ch19-l03-teaching-02\" data-canvas-helper-edit-key=\"ch19-l03-teaching-02\" id=\"ch19-l03-teaching-02\">",
+      "lockedFigures": [],
+      "termButtons": [
+        "<button aria-haspopup=\"dialog\" class=\"bio-term\" data-term-id=\"ch19-word-population\" type=\"button\">population</button>",
+        "<button aria-haspopup=\"dialog\" class=\"bio-term\" data-term-id=\"ch19-word-random-mating\" type=\"button\">random mating</button>"
+      ]
+    },
+    {
+      "route": "lesson-03",
+      "selector": "#ch19-l03-teaching-03",
+      "id": "ch19-l03-teaching-03",
+      "beforeSha256": "a7f8edbd89500c701aa9695858244324c9e1bead6d36720037490e57eba894e8",
+      "openingTag": "<div class=\"content-section\" data-canvas-edit-key=\"ch19-l03-teaching-03\" data-canvas-helper-edit-key=\"ch19-l03-teaching-03\" id=\"ch19-l03-teaching-03\">",
+      "lockedFigures": [],
+      "termButtons": []
+    },
+    {
+      "route": "lesson-03",
+      "selector": "#ch19-l03-worked",
+      "id": "ch19-l03-worked",
+      "beforeSha256": "0e8f63bec24070defbd531933e158d2fb500428befe1043aec01245bda667524",
+      "openingTag": "<div class=\"worked-example\" data-canvas-edit-key=\"ch19-l03-worked\" data-canvas-helper-edit-key=\"ch19-l03-worked\" id=\"ch19-l03-worked\">",
+      "lockedFigures": [],
+      "termButtons": []
+    },
+    {
+      "route": "lesson-04",
+      "selector": "#ch19-l04-teaching-01",
+      "id": "ch19-l04-teaching-01",
+      "beforeSha256": "9282d3815038e454a7d06214a8123b15581eb0cb4461f8e1f4670ad63da6a45c",
+      "openingTag": "<div class=\"content-section\" data-canvas-edit-key=\"ch19-l04-teaching-01\" data-canvas-helper-edit-key=\"ch19-l04-teaching-01\" id=\"ch19-l04-teaching-01\">",
+      "lockedFigures": [
+        {
+          "sha256": "b762a22a115f003bd6ceb859a17bb21bc245800978ba628be4f7c47becc5c9ba",
+          "html": "<figure class=\"science-figure\" data-figure-id=\"ch19-hw-method\"><div class=\"figure-toolbar\"><strong>From recessive phenotype to expected counts</strong><button class=\"text-link\" data-enlarge-figure=\"ch19-hw-method\" type=\"button\">View larger</button></div><img alt=\"The square-root inference requires the stated complete-dominance and Hardy–Weinberg assumptions.\" decoding=\"async\" loading=\"lazy\" src=\"./assets/figures/ch19-hw-method.svg\"/><figcaption>The square-root inference requires the stated complete-dominance and Hardy–Weinberg assumptions. Constructed example — assume Hardy–Weinberg equilibrium.</figcaption></figure>"
+        }
+      ],
+      "termButtons": [
+        "<button aria-haspopup=\"dialog\" class=\"bio-term\" data-term-id=\"ch19-word-hardy-weinberg-equilibrium\" type=\"button\">Hardy–Weinberg equilibrium</button>",
+        "<button aria-haspopup=\"dialog\" class=\"bio-term\" data-term-id=\"ch19-word-allele-frequency\" type=\"button\">allele frequency</button>",
+        "<button class=\"text-link\" data-enlarge-figure=\"ch19-hw-method\" type=\"button\">View larger</button>"
+      ]
+    },
+    {
+      "route": "lesson-04",
+      "selector": "#ch19-l04-teaching-02",
+      "id": "ch19-l04-teaching-02",
+      "beforeSha256": "d0618d0d3e773fc54bcb4d988a5214c517b6daf9cadb78e8c8fce62864ba29a3",
+      "openingTag": "<div class=\"content-section\" data-canvas-edit-key=\"ch19-l04-teaching-02\" data-canvas-helper-edit-key=\"ch19-l04-teaching-02\" id=\"ch19-l04-teaching-02\">",
+      "lockedFigures": [],
+      "termButtons": [
+        "<button aria-haspopup=\"dialog\" class=\"bio-term\" data-term-id=\"ch19-word-2pq\" type=\"button\">2pq</button>"
+      ]
+    },
+    {
+      "route": "lesson-04",
+      "selector": "#ch19-l04-teaching-03",
+      "id": "ch19-l04-teaching-03",
+      "beforeSha256": "d3ade2e5759f426ef2f1e2765b07068867e5fe8a949696b16d54399dca9b4782",
+      "openingTag": "<div class=\"content-section\" data-canvas-edit-key=\"ch19-l04-teaching-03\" data-canvas-helper-edit-key=\"ch19-l04-teaching-03\" id=\"ch19-l04-teaching-03\">",
+      "lockedFigures": [],
+      "termButtons": []
+    },
+    {
+      "route": "lesson-04",
+      "selector": "#ch19-l04-worked",
+      "id": "ch19-l04-worked",
+      "beforeSha256": "f34eabfeb4cf67da3beaa1bb19e95a2fe929016b79699c90a0430ac9c4bc19b0",
+      "openingTag": "<div class=\"worked-example\" data-canvas-edit-key=\"ch19-l04-worked\" data-canvas-helper-edit-key=\"ch19-l04-worked\" id=\"ch19-l04-worked\">",
+      "lockedFigures": [],
+      "termButtons": []
+    },
+    {
+      "route": "lesson-05",
+      "selector": "#ch19-l05-teaching-01",
+      "id": "ch19-l05-teaching-01",
+      "beforeSha256": "a0dedb657cae2925b52a23c23e2d1d237c6236807af3a8c67eaff51b1226a883",
+      "openingTag": "<div class=\"content-section\" data-canvas-edit-key=\"ch19-l05-teaching-01\" data-canvas-helper-edit-key=\"ch19-l05-teaching-01\" id=\"ch19-l05-teaching-01\">",
+      "lockedFigures": [
+        {
+          "sha256": "00b74685d8699ef83b588d5fe36112f61ce92bd8d6ddf5f34aef8fe52c0ff992",
+          "html": "<figure class=\"science-figure\" data-figure-id=\"ch19-observed-expected\"><div class=\"figure-toolbar\"><strong>Same allele frequencies, different genotype pattern</strong><button class=\"text-link\" data-enlarge-figure=\"ch19-observed-expected\" type=\"button\">View larger</button></div><img alt=\"Observed counts of 40 AA, 20 Aa and 40 aa give p = q = 0.50. Hardy–Weinberg predicts 25, 50 and 25; the mismatch alone does not identify its cause.\" decoding=\"async\" loading=\"lazy\" src=\"./assets/figures/ch19-observed-expected.svg\"/><figcaption>Observed counts of 40 AA, 20 Aa and 40 aa give p = q = 0.50. Hardy–Weinberg predicts 25, 50 and 25; the mismatch alone does not identify its cause. Constructed counts — observed and model-predicted values are distinct.</figcaption></figure>"
+        }
+      ],
+      "termButtons": [
+        "<button class=\"text-link\" data-enlarge-figure=\"ch19-observed-expected\" type=\"button\">View larger</button>"
+      ]
+    },
+    {
+      "route": "lesson-05",
+      "selector": "#ch19-l05-teaching-02",
+      "id": "ch19-l05-teaching-02",
+      "beforeSha256": "52eba7676c3ee1caee74e5177e2968eec998b8551723416d4dd867875a7da1ed",
+      "openingTag": "<div class=\"content-section\" data-canvas-edit-key=\"ch19-l05-teaching-02\" data-canvas-helper-edit-key=\"ch19-l05-teaching-02\" id=\"ch19-l05-teaching-02\">",
+      "lockedFigures": [],
+      "termButtons": [
+        "<button aria-haspopup=\"dialog\" class=\"bio-term\" data-term-id=\"ch19-word-random-mating\" type=\"button\">random mating</button>",
+        "<button aria-haspopup=\"dialog\" class=\"bio-term\" data-term-id=\"ch19-word-population\" type=\"button\">population</button>"
+      ]
+    },
+    {
+      "route": "lesson-05",
+      "selector": "#ch19-l05-teaching-03",
+      "id": "ch19-l05-teaching-03",
+      "beforeSha256": "1fba16eb360d476d833791792ed1069dedb1005d89a128f0980e83f5da45bb3e",
+      "openingTag": "<div class=\"content-section\" data-canvas-edit-key=\"ch19-l05-teaching-03\" data-canvas-helper-edit-key=\"ch19-l05-teaching-03\" id=\"ch19-l05-teaching-03\">",
+      "lockedFigures": [],
+      "termButtons": []
+    },
+    {
+      "route": "lesson-05",
+      "selector": "#ch19-l05-worked",
+      "id": "ch19-l05-worked",
+      "beforeSha256": "963aabe29579d3415938ce306826ef6245a21eabe3938a868bdce8942dc99c1b",
+      "openingTag": "<div class=\"worked-example\" data-canvas-edit-key=\"ch19-l05-worked\" data-canvas-helper-edit-key=\"ch19-l05-worked\" id=\"ch19-l05-worked\">",
+      "lockedFigures": [],
+      "termButtons": []
+    },
+    {
+      "route": "lesson-06",
+      "selector": "#ch19-l06-teaching-01",
+      "id": "ch19-l06-teaching-01",
+      "beforeSha256": "0aea9c3078ab0071db99f400c84ae2fa2e14970644a20b1c0ee7206a2ac19a9b",
+      "openingTag": "<div class=\"content-section\" data-canvas-edit-key=\"ch19-l06-teaching-01\" data-canvas-helper-edit-key=\"ch19-l06-teaching-01\" id=\"ch19-l06-teaching-01\">",
+      "lockedFigures": [],
+      "termButtons": [
+        "<button aria-haspopup=\"dialog\" class=\"bio-term\" data-term-id=\"ch19-word-natural-selection\" type=\"button\">Natural selection</button>"
+      ]
+    },
+    {
+      "route": "lesson-06",
+      "selector": "#ch19-l06-teaching-02",
+      "id": "ch19-l06-teaching-02",
+      "beforeSha256": "b3ebd49fb2bcab067dc4b88a357a1348f5b1445308ab5c3165a5e7950e6a4f88",
+      "openingTag": "<div class=\"content-section\" data-canvas-edit-key=\"ch19-l06-teaching-02\" data-canvas-helper-edit-key=\"ch19-l06-teaching-02\" id=\"ch19-l06-teaching-02\">",
+      "lockedFigures": [],
+      "termButtons": [
+        "<button aria-haspopup=\"dialog\" class=\"bio-term\" data-term-id=\"ch19-word-sexual-selection\" type=\"button\">Sexual selection</button>"
+      ]
+    },
+    {
+      "route": "lesson-06",
+      "selector": "#ch19-l06-teaching-03",
+      "id": "ch19-l06-teaching-03",
+      "beforeSha256": "18a62b39c9c13e4df85079dba79082f5f8a9c4fef3f24ea1553f90a76bed1f90",
+      "openingTag": "<div class=\"content-section\" data-canvas-edit-key=\"ch19-l06-teaching-03\" data-canvas-helper-edit-key=\"ch19-l06-teaching-03\" id=\"ch19-l06-teaching-03\">",
+      "lockedFigures": [],
+      "termButtons": [
+        "<button aria-haspopup=\"dialog\" class=\"bio-term\" data-term-id=\"ch19-word-non-random-mating\" type=\"button\">Non-random mating</button>",
+        "<button aria-haspopup=\"dialog\" class=\"bio-term\" data-term-id=\"ch19-word-random-mating\" type=\"button\">random mating</button>"
+      ]
+    },
+    {
+      "route": "lesson-06",
+      "selector": "#ch19-l06-worked",
+      "id": "ch19-l06-worked",
+      "beforeSha256": "f872bcbf244eb8b26069787ba04b724a59f73c1267372506df951ef5e745ff95",
+      "openingTag": "<div class=\"worked-example\" data-canvas-edit-key=\"ch19-l06-worked\" data-canvas-helper-edit-key=\"ch19-l06-worked\" id=\"ch19-l06-worked\">",
+      "lockedFigures": [],
+      "termButtons": []
+    },
+    {
+      "route": "lesson-07",
+      "selector": "#ch19-l07-teaching-01",
+      "id": "ch19-l07-teaching-01",
+      "beforeSha256": "93252bcfcc52ef4012884174602dd8656d1bec9cb750209c968061eecb056731",
+      "openingTag": "<div class=\"content-section\" data-canvas-edit-key=\"ch19-l07-teaching-01\" data-canvas-helper-edit-key=\"ch19-l07-teaching-01\" id=\"ch19-l07-teaching-01\">",
+      "lockedFigures": [
+        {
+          "sha256": "976ba440ddde5487c8f001e42ec4e06fad7aff9545fcd293db9d5fb7312975d5",
+          "html": "<figure class=\"science-figure\" data-figure-id=\"ch19-drift\"><div class=\"figure-toolbar\"><strong>Bottleneck and founder effect: different histories</strong><button class=\"text-link\" data-enlarge-figure=\"ch19-drift\" type=\"button\">View larger</button></div><img alt=\"A bottleneck reduces an existing population; a founder event starts a new population from a small subset while the source can remain. Dot colours represent alleles, not fitness.\" decoding=\"async\" loading=\"lazy\" src=\"./assets/figures/ch19-drift.svg\"/><figcaption>A bottleneck reduces an existing population; a founder event starts a new population from a small subset while the source can remain. Dot colours represent alleles, not fitness. Schematic — not to scale.</figcaption></figure>"
+        }
+      ],
+      "termButtons": [
+        "<button aria-haspopup=\"dialog\" class=\"bio-term\" data-term-id=\"ch19-word-population\" type=\"button\">population</button>",
+        "<button aria-haspopup=\"dialog\" class=\"bio-term\" data-term-id=\"ch19-word-genetic-drift\" type=\"button\">genetic drift</button>",
+        "<button aria-haspopup=\"dialog\" class=\"bio-term\" data-term-id=\"ch19-word-gene-pool\" type=\"button\">gene pool</button>",
+        "<button class=\"text-link\" data-enlarge-figure=\"ch19-drift\" type=\"button\">View larger</button>"
+      ]
+    },
+    {
+      "route": "lesson-07",
+      "selector": "#ch19-l07-teaching-02",
+      "id": "ch19-l07-teaching-02",
+      "beforeSha256": "a87330538278fae7dffde31f60578ebb8e7d09f92ab2ca81bfc9ea77ce57d4c5",
+      "openingTag": "<div class=\"content-section\" data-canvas-edit-key=\"ch19-l07-teaching-02\" data-canvas-helper-edit-key=\"ch19-l07-teaching-02\" id=\"ch19-l07-teaching-02\">",
+      "lockedFigures": [],
+      "termButtons": []
+    },
+    {
+      "route": "lesson-07",
+      "selector": "#ch19-l07-teaching-03",
+      "id": "ch19-l07-teaching-03",
+      "beforeSha256": "5f496b6c3ca10c40630fb0d9815ac9c8263a25848f313a9d7788c82e98e10b55",
+      "openingTag": "<div class=\"content-section\" data-canvas-edit-key=\"ch19-l07-teaching-03\" data-canvas-helper-edit-key=\"ch19-l07-teaching-03\" id=\"ch19-l07-teaching-03\">",
+      "lockedFigures": [],
+      "termButtons": [
+        "<button aria-haspopup=\"dialog\" class=\"bio-term\" data-term-id=\"ch19-word-founder-effect\" type=\"button\">founder effect</button>"
+      ]
+    },
+    {
+      "route": "lesson-07",
+      "selector": "#ch19-l07-worked",
+      "id": "ch19-l07-worked",
+      "beforeSha256": "e728c1b16f48184b610b5eaece46c053c7657fe04613f9f48f7fc3b4d0a51afb",
+      "openingTag": "<div class=\"worked-example\" data-canvas-edit-key=\"ch19-l07-worked\" data-canvas-helper-edit-key=\"ch19-l07-worked\" id=\"ch19-l07-worked\">",
+      "lockedFigures": [],
+      "termButtons": []
+    },
+    {
+      "route": "lesson-08",
+      "selector": "#ch19-l08-teaching-01",
+      "id": "ch19-l08-teaching-01",
+      "beforeSha256": "454ecc6eaf6e11c620071d245257dc7de7ecea69c7ef12dc5c9f40cb53e289f0",
+      "openingTag": "<div class=\"content-section\" data-canvas-edit-key=\"ch19-l08-teaching-01\" data-canvas-helper-edit-key=\"ch19-l08-teaching-01\" id=\"ch19-l08-teaching-01\">",
+      "lockedFigures": [
+        {
+          "sha256": "b3088d4cbc1606590ef7e7fa55fc8edbc47fd412f557c7d974122dd4e8a3423f",
+          "html": "<figure class=\"science-figure\" data-figure-id=\"ch19-geneflow\"><div class=\"figure-toolbar\"><strong>Combine allele pools using their contributions</strong><button class=\"text-link\" data-enlarge-figure=\"ch19-geneflow\" type=\"button\">View larger</button></div><img alt=\"Eighty residents at p = 0.25 and twenty immigrants at p = 0.75 contribute equally per breeder. Their combined A frequency is 70/200 = 0.35.\" decoding=\"async\" loading=\"lazy\" src=\"./assets/figures/ch19-geneflow.svg\"/><figcaption>Eighty residents at p = 0.25 and twenty immigrants at p = 0.75 contribute equally per breeder. Their combined A frequency is 70/200 = 0.35. Constructed equal-contribution model — diploid autosomal locus.</figcaption></figure>"
+        }
+      ],
+      "termButtons": [
+        "<button aria-haspopup=\"dialog\" class=\"bio-term\" data-term-id=\"ch19-word-gene-flow\" type=\"button\">Gene flow</button>",
+        "<button aria-haspopup=\"dialog\" class=\"bio-term\" data-term-id=\"ch19-word-population\" type=\"button\">population</button>",
+        "<button class=\"text-link\" data-enlarge-figure=\"ch19-geneflow\" type=\"button\">View larger</button>"
+      ]
+    },
+    {
+      "route": "lesson-08",
+      "selector": "#ch19-l08-teaching-02",
+      "id": "ch19-l08-teaching-02",
+      "beforeSha256": "ec3c3f989f9c4d338f485e948c3fd3ecac7ace6e563080849186e0eb806bb82c",
+      "openingTag": "<div class=\"content-section\" data-canvas-edit-key=\"ch19-l08-teaching-02\" data-canvas-helper-edit-key=\"ch19-l08-teaching-02\" id=\"ch19-l08-teaching-02\">",
+      "lockedFigures": [],
+      "termButtons": []
+    },
+    {
+      "route": "lesson-08",
+      "selector": "#ch19-l08-teaching-03",
+      "id": "ch19-l08-teaching-03",
+      "beforeSha256": "df93d838d669e0315ccb88b23f925e2aefce142adcc5eab1c94c66e917a8a0d0",
+      "openingTag": "<div class=\"content-section\" data-canvas-edit-key=\"ch19-l08-teaching-03\" data-canvas-helper-edit-key=\"ch19-l08-teaching-03\" id=\"ch19-l08-teaching-03\">",
+      "lockedFigures": [],
+      "termButtons": []
+    },
+    {
+      "route": "lesson-08",
+      "selector": "#ch19-l08-worked",
+      "id": "ch19-l08-worked",
+      "beforeSha256": "e7842c676950477370d75461db4e408e31e6e4ab23b2ee17271bac29201bd1a7",
+      "openingTag": "<div class=\"worked-example\" data-canvas-edit-key=\"ch19-l08-worked\" data-canvas-helper-edit-key=\"ch19-l08-worked\" id=\"ch19-l08-worked\">",
+      "lockedFigures": [],
+      "termButtons": []
+    },
+    {
+      "route": "lesson-09",
+      "selector": "#ch19-l09-teaching-01",
+      "id": "ch19-l09-teaching-01",
+      "beforeSha256": "c3f311a25c09e5337ef8782b8e620e6babcb836d7f61adadc357f882a9867011",
+      "openingTag": "<div class=\"content-section\" data-canvas-edit-key=\"ch19-l09-teaching-01\" data-canvas-helper-edit-key=\"ch19-l09-teaching-01\" id=\"ch19-l09-teaching-01\">",
+      "lockedFigures": [],
+      "termButtons": [
+        "<button aria-haspopup=\"dialog\" class=\"bio-term\" data-term-id=\"ch19-word-population\" type=\"button\">population</button>",
+        "<button aria-haspopup=\"dialog\" class=\"bio-term\" data-term-id=\"ch19-word-genetic-variation\" type=\"button\">genetic variation</button>",
+        "<button aria-haspopup=\"dialog\" class=\"bio-term\" data-term-id=\"ch19-word-genetic-diversity\" type=\"button\">genetic diversity</button>",
+        "<button aria-haspopup=\"dialog\" class=\"bio-term\" data-term-id=\"ch19-word-inbreeding\" type=\"button\">Inbreeding</button>"
+      ]
+    },
+    {
+      "route": "lesson-09",
+      "selector": "#ch19-l09-teaching-02",
+      "id": "ch19-l09-teaching-02",
+      "beforeSha256": "3b78de06300d0c25a015e35eba4d2e7fcb232310493fc62d937cd21caa6a2392",
+      "openingTag": "<div class=\"content-section\" data-canvas-edit-key=\"ch19-l09-teaching-02\" data-canvas-helper-edit-key=\"ch19-l09-teaching-02\" id=\"ch19-l09-teaching-02\">",
+      "lockedFigures": [],
+      "termButtons": [
+        "<button aria-haspopup=\"dialog\" class=\"bio-term\" data-term-id=\"ch19-word-gene-flow\" type=\"button\">gene flow</button>"
+      ]
+    },
+    {
+      "route": "lesson-09",
+      "selector": "#ch19-l09-teaching-03",
+      "id": "ch19-l09-teaching-03",
+      "beforeSha256": "05674bfb5030d89c57f17bc59d341abb1fed9d7ea78e5e0ce9b60cdadae92c11",
+      "openingTag": "<div class=\"content-section\" data-canvas-edit-key=\"ch19-l09-teaching-03\" data-canvas-helper-edit-key=\"ch19-l09-teaching-03\" id=\"ch19-l09-teaching-03\">",
+      "lockedFigures": [],
+      "termButtons": [
+        "<button aria-haspopup=\"dialog\" class=\"bio-term\" data-term-id=\"ch19-word-adaptive-potential\" type=\"button\">adaptive potential</button>"
+      ]
+    },
+    {
+      "route": "lesson-09",
+      "selector": "#ch19-l09-worked",
+      "id": "ch19-l09-worked",
+      "beforeSha256": "593579c3d0f5b8a2f0785010be4c629707299205666ca7261e969428a3cbfb56",
+      "openingTag": "<div class=\"worked-example\" data-canvas-edit-key=\"ch19-l09-worked\" data-canvas-helper-edit-key=\"ch19-l09-worked\" id=\"ch19-l09-worked\">",
+      "lockedFigures": [],
+      "termButtons": []
+    },
+    {
+      "route": "lesson-10",
+      "selector": "#ch19-l10-teaching-01",
+      "id": "ch19-l10-teaching-01",
+      "beforeSha256": "63d9f3527a909113d534cf50146c6ecbbc242c2bd698cb715ff12951704ed12e",
+      "openingTag": "<div class=\"content-section\" data-canvas-edit-key=\"ch19-l10-teaching-01\" data-canvas-helper-edit-key=\"ch19-l10-teaching-01\" id=\"ch19-l10-teaching-01\">",
+      "lockedFigures": [],
+      "termButtons": []
+    },
+    {
+      "route": "lesson-10",
+      "selector": "#ch19-l10-teaching-02",
+      "id": "ch19-l10-teaching-02",
+      "beforeSha256": "d5d61cb85f9216fe542c7f826c361ea9fabb170d0feca72deefb686bb649400c",
+      "openingTag": "<div class=\"content-section\" data-canvas-edit-key=\"ch19-l10-teaching-02\" data-canvas-helper-edit-key=\"ch19-l10-teaching-02\" id=\"ch19-l10-teaching-02\">",
+      "lockedFigures": [],
+      "termButtons": []
+    },
+    {
+      "route": "extension",
+      "selector": "#extension > .p2-topic > div.content-section:nth-of-type(1)",
+      "id": null,
+      "fragmentName": "ch19-extension-teaching-1",
+      "beforeSha256": "b74c261e423b9eb9476ec1f01864ef39772974b18c7b6f349a5003ec80772f2f",
+      "openingTag": "<div class=\"content-section\">",
+      "lockedFigures": [],
+      "termButtons": []
+    },
+    {
+      "route": "extension",
+      "selector": "#extension > .p2-topic > div.content-section:nth-of-type(2)",
+      "id": null,
+      "fragmentName": "ch19-extension-teaching-2",
+      "beforeSha256": "34af9b658e9df8324aab9fa9bcd973c8599be9c27541ea75ee9f053013573824",
+      "openingTag": "<div class=\"content-section\">",
+      "lockedFigures": [],
+      "termButtons": []
+    }
+  ],
+  "protectedFiles": [
+    {
+      "path": "workspace/index.html",
+      "sha256": "2f0dcc173b8fd605cccb9c547718aaedbb903dabfefd5dbdfd2cbc31c8ab343c"
+    },
+    {
+      "path": "workspace/main.js",
+      "sha256": "45b4b9c7da23646274f59415fa286873fdbdad3a2b8b16b53ccd147c0781f65f"
+    },
+    {
+      "path": "workspace/styles.css",
+      "sha256": "94fe523654289edd8b0f951dd6782f83dce7d08f5e18a3d903d25576fbfa0ba5"
+    },
+    {
+      "path": "meta/project.json",
+      "sha256": "c3637aa1addb5111b296b3034678f0c63c2bf0292dee6b8c68b7af6ac5094846"
+    },
+    {
+      "path": "meta/external-generation/authoring/course-config.json",
+      "sha256": "35f31e2ef2982ffcf5bf872efb99d7930ca72e9d480918d7d6ac60d94e9eceaa"
+    }
+  ]
+}

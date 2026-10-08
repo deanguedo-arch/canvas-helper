@@ -1,0 +1,214 @@
+{
+  "recheckedAtUTC": "2026-10-08T21:47:58.504760+00:00",
+  "repair": "H01: restore native heading structure only",
+  "routes": [
+    {
+      "route": "lesson-03",
+      "initialCandidateRetainedMatchesPriorReview": true,
+      "initialSha256": "dd16c2d86fd3d81fabd1e3f6fc85b4b95c9e11aebcf33dfa4d0bfc3141fcd655",
+      "revisedSha256": "fe61393dc0f7f1b29b38cae9fd2d1957f584196223de990d691f2cad28adba48",
+      "wholeCandidateEqualsExactHeadingTransformation": true,
+      "textContentUnchanged": true,
+      "outsideEightDivsEqualsOriginal": true,
+      "originalFigureNodesUnchanged": true,
+      "controlMarkupUnchangedFromInitial": true
+    },
+    {
+      "route": "lesson-04",
+      "initialCandidateRetainedMatchesPriorReview": true,
+      "initialSha256": "46d3ec80806a96db26d03ff5b32488552e9847e8667176afae6afff81633d10d",
+      "revisedSha256": "a19939b91ad4f668096e13d9848f35a6e5512cee04b2a1c1d60b90908efa5c9b",
+      "wholeCandidateEqualsExactHeadingTransformation": true,
+      "textContentUnchanged": true,
+      "outsideEightDivsEqualsOriginal": true,
+      "originalFigureNodesUnchanged": true,
+      "controlMarkupUnchangedFromInitial": true
+    }
+  ],
+  "fragments": [
+    {
+      "id": "ch16-l03-teaching-01",
+      "exactHeadingOnlyChange": true,
+      "proseUnchanged": true,
+      "fragmentMatchesCandidateBlock": true,
+      "revisedSha256": "e99ddfca20d6a9f18b9f0448ee478dec5ea27965be4c219ebd3122fd7f1c3415",
+      "firstChildTag": "h2",
+      "firstChildClass": null
+    },
+    {
+      "id": "ch16-l03-teaching-02",
+      "exactHeadingOnlyChange": true,
+      "proseUnchanged": true,
+      "fragmentMatchesCandidateBlock": true,
+      "revisedSha256": "72b490daa7851de32332e4f3f7a56720cd3718b44ef0f6015e7bceed11dd383b",
+      "firstChildTag": "h2",
+      "firstChildClass": null
+    },
+    {
+      "id": "ch16-l03-teaching-03",
+      "exactHeadingOnlyChange": true,
+      "proseUnchanged": true,
+      "fragmentMatchesCandidateBlock": true,
+      "revisedSha256": "610bfda6d80908bb176aca564bd90bec598bb8f3ca784dc31a9d1edfaa0453b5",
+      "firstChildTag": "h2",
+      "firstChildClass": null
+    },
+    {
+      "id": "ch16-l03-worked",
+      "exactHeadingOnlyChange": true,
+      "proseUnchanged": true,
+      "fragmentMatchesCandidateBlock": true,
+      "revisedSha256": "92418da74b666ec632c4cafa9f574cb270c0b03a4f681f9a1f9077d11a3f7325",
+      "firstChildTag": "p",
+      "firstChildClass": "section-label"
+    },
+    {
+      "id": "ch16-l04-teaching-01",
+      "exactHeadingOnlyChange": true,
+      "proseUnchanged": true,
+      "fragmentMatchesCandidateBlock": true,
+      "revisedSha256": "406c78f7eb96ea8d826c91feaf9dd2bbc914322ba0e62a7ac54475ebddf1b028",
+      "firstChildTag": "h2",
+      "firstChildClass": null
+    },
+    {
+      "id": "ch16-l04-teaching-02",
+      "exactHeadingOnlyChange": true,
+      "proseUnchanged": true,
+      "fragmentMatchesCandidateBlock": true,
+      "revisedSha256": "ad6c67d2a0b629137568c3b9607b16d12c2fbf69748bb2dcecf188b6ddb5f87b",
+      "firstChildTag": "h2",
+      "firstChildClass": null
+    },
+    {
+      "id": "ch16-l04-teaching-03",
+      "exactHeadingOnlyChange": true,
+      "proseUnchanged": true,
+      "fragmentMatchesCandidateBlock": true,
+      "revisedSha256": "c65009883e164746440687b8c50c8e31030b1e07078c788bb76ea3c8ff93dd36",
+      "firstChildTag": "h2",
+      "firstChildClass": null
+    },
+    {
+      "id": "ch16-l04-worked",
+      "exactHeadingOnlyChange": true,
+      "proseUnchanged": true,
+      "fragmentMatchesCandidateBlock": true,
+      "revisedSha256": "180c1e1d77603f4a9172204ba8f2d12a219366ff08ae6e3da0f847970bc13ba1",
+      "firstChildTag": "p",
+      "firstChildClass": "section-label"
+    }
+  ],
+  "freezes": [
+    {
+      "path": "01-learner-first-responses-FROZEN.json",
+      "intact": true
+    },
+    {
+      "path": "02-textbook-first-responses-FROZEN.json",
+      "intact": true
+    },
+    {
+      "path": "02-textbook-q3-first-sketch.svg",
+      "intact": true
+    }
+  ],
+  "assets": [
+    {
+      "path": "assets/figures/ch16-chromosome.svg",
+      "sameAsInitialAndOriginal": true
+    },
+    {
+      "path": "assets/figures/ch16-mitosis.svg",
+      "sameAsInitialAndOriginal": true
+    },
+    {
+      "path": "assets/figures/ch16-source-mitosis.png",
+      "sameAsInitialAndOriginal": true
+    },
+    {
+      "path": "assets/labeling/ch16-chromosome.svg",
+      "sameAsInitialAndOriginal": true
+    },
+    {
+      "path": "assets/labeling/ch16-mitosis.svg",
+      "sameAsInitialAndOriginal": true
+    }
+  ],
+  "execution": "Static document/code reading and comparisons only; no target browser/course runtime/tests executed.",
+  "result": "PASS: H01 resolved, unchanged learner responses remain valid; no new teaching/science or protected-content change.",
+  "firstInputRetention": [
+    {
+      "originalInputPath": "ch16-batch03-04/review/lesson-03-blind.txt",
+      "retainedOriginalInputPath": "ch16-batch03-04/review/lesson-03-blind.txt",
+      "frozenSha256": "3c7b1b7f8fc6462edffaf0d87ef0d83536164d340bf055afbb40156cbaa0da9e",
+      "matchesFirstFreeze": true
+    },
+    {
+      "originalInputPath": "ch16-batch03-04/review/lesson-04-blind.txt",
+      "retainedOriginalInputPath": "ch16-batch03-04/review/lesson-04-blind.txt",
+      "frozenSha256": "882a5864bced4f1e0be230dfa881739216dc4155fb3c7ca3a90ee96799f0ecd7",
+      "matchesFirstFreeze": true
+    },
+    {
+      "originalInputPath": "ch16-batch03-04/review/lesson-03-blind.html",
+      "retainedOriginalInputPath": "ch16-batch03-04/review/initial-before-heading-repair/review/lesson-03-blind.html",
+      "frozenSha256": "ec74a9f260c14a1ac7a43f566c2f68a844b9958f471f1a63910329d56eb67659",
+      "matchesFirstFreeze": true
+    },
+    {
+      "originalInputPath": "ch16-batch03-04/review/lesson-04-blind.html",
+      "retainedOriginalInputPath": "ch16-batch03-04/review/initial-before-heading-repair/review/lesson-04-blind.html",
+      "frozenSha256": "7a90e103d5b448fffd7ff1f9b39ad70714891e7c457eea1dd44f25c7bed117e7",
+      "matchesFirstFreeze": true
+    },
+    {
+      "originalInputPath": "ch16-batch03-04/review/native-practice-blind.json",
+      "retainedOriginalInputPath": "ch16-batch03-04/review/native-practice-blind.json",
+      "frozenSha256": "85deb66b6a5dac1396c5e0508ad0b27dff6179e919d67d199823eeac4408bc19",
+      "matchesFirstFreeze": true
+    },
+    {
+      "originalInputPath": "ch16-batch03-04/review/full-labeling-blind.json",
+      "retainedOriginalInputPath": "ch16-batch03-04/review/full-labeling-blind.json",
+      "frozenSha256": "5c20c971a904c2b99f400b89d3d07c1fb9be14f20de3f51bb2af2c5a2b313142",
+      "matchesFirstFreeze": true
+    },
+    {
+      "originalInputPath": "ch16-batch03-04/review/frayer-prompts-blind.json",
+      "retainedOriginalInputPath": "ch16-batch03-04/review/frayer-prompts-blind.json",
+      "frozenSha256": "b46dc1e734583555b42f4221425c7c787a240a996f7adf7d43e1dede3bebc17b",
+      "matchesFirstFreeze": true
+    },
+    {
+      "originalInputPath": "ch16-batch03-04/learner/assets/figures/ch16-mitosis.svg",
+      "retainedOriginalInputPath": "ch16-batch03-04/learner/assets/figures/ch16-mitosis.svg",
+      "frozenSha256": "3f47b45fad7759b5a21eab5024593cc28d315a0e964a3d80a99b86c64d7a91d2",
+      "matchesFirstFreeze": true
+    },
+    {
+      "originalInputPath": "ch16-batch03-04/learner/assets/figures/ch16-chromosome.svg",
+      "retainedOriginalInputPath": "ch16-batch03-04/learner/assets/figures/ch16-chromosome.svg",
+      "frozenSha256": "867213b2eeb81be008c544b9858fefd6c24e1ed5350f556fb54a79d5b018574d",
+      "matchesFirstFreeze": true
+    },
+    {
+      "originalInputPath": "ch16-batch03-04/learner/assets/figures/ch16-source-mitosis.png",
+      "retainedOriginalInputPath": "ch16-batch03-04/learner/assets/figures/ch16-source-mitosis.png",
+      "frozenSha256": "a8d1d4022aa2064dcf3446cfa3cd789658209668b3030633cd00895ad8acc57c",
+      "matchesFirstFreeze": true
+    },
+    {
+      "originalInputPath": "ch16-batch03-04/learner/assets/labeling/ch16-mitosis.svg",
+      "retainedOriginalInputPath": "ch16-batch03-04/learner/assets/labeling/ch16-mitosis.svg",
+      "frozenSha256": "da11d74e9bde2524e49a9ddeafe15784870c59885af3e83e8e37df465c9922e2",
+      "matchesFirstFreeze": true
+    },
+    {
+      "originalInputPath": "ch16-batch03-04/learner/assets/labeling/ch16-chromosome.svg",
+      "retainedOriginalInputPath": "ch16-batch03-04/learner/assets/labeling/ch16-chromosome.svg",
+      "frozenSha256": "34ce72592f270ee4d5872ba8bcda3d9519726373fd026fb342a4437589b28fee",
+      "matchesFirstFreeze": true
+    }
+  ]
+}

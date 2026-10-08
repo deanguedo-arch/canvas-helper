@@ -1,0 +1,11 @@
+# Local practice preparation
+
+Fourteen local items: four supported selections, two stop questions, four required selections and four required writings. No optional written application is present in either route.
+
+03 guided corpus-luteum target and later placenta: teaching02 explicitly follows the two-stage signal and later source. Stop hCG versus progesterone: teaching02 distinguishes molecules/source/target. Required inability to respond: teaching02 defines functioning receptor and carries a stated limitation downstream; worked changed condition applies it. Required limits of detection: teaching03 distinguishes hormone measurement from anatomical evidence. Required source–target trace: teaching01/02 supply ovarian location, trophoblast source, hCG, corpus luteum, progesterone/estrogen and endometrium. Required hCG decline: actual Figure15.5 with walkthrough and worked source-change explanation.
+
+04 guided epidermis/heart muscle and required shared ectodermal tissues: teaching02 supplies representative lineages and a visible A/B/C comparison. Stop adult location: nervous system example and diagram-limit text. Required whole digestive-system overstatement: tissue-versus-organ and epithelial/muscle/connective distinctions. Required gastrulation explanation: teaching01 contrasts cell organization with cleavage, names layers and stage. Required selective intestinal tissue effect: teaching03 and worked multi-tissue skin example transfer the same distinction without changing the protected intestinal task.
+
+The optional practice bank has close application questions about nonfunctional hCG receptors and differentiation under shared DNA; these mechanisms are now explicitly visible. This is supported near application, not independent far-transfer evidence. The entire chapter bank was not freshly attempted. Optional cross-topic textbook routing is flagged without altering it.
+
+Observation/interpretation limits: Figure15.5 is qualitative and cannot provide exact hormone values. Layer bands are a summary, not a literal embryo section. A hormone sample cannot establish pregnancy location, and tissue-origin knowledge is not diagnosis. No real learner performance or long-term retention is established.

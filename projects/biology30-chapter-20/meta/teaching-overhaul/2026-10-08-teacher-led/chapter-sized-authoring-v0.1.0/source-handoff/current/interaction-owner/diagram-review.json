@@ -1,0 +1,386 @@
+[
+  {
+    "id": "ch20-distribution",
+    "title": "Equal counts, different spatial patterns",
+    "lesson": 1,
+    "src": "./assets/figures/ch20-distribution.svg",
+    "alt": "Each panel contains twelve individuals in the same area. The arrangements differ even though their average densities are equal.",
+    "caption": "Each panel contains twelve individuals in the same area. The arrangements differ even though their average densities are equal. Constructed spatial examples — 12 individuals per equal-area panel.",
+    "source": "Original course schematic; canonical editable SVG plus reproducible scripts/make_media.py.",
+    "kind": "precisely authored SVG",
+    "reviewStatus": "Construction and target identities checked; render inspection recorded in verification.",
+    "targets": {
+      "A": "Clumped",
+      "B": "Uniform",
+      "C": "Random"
+    },
+    "geometry": {
+      "A": {
+        "letter": [
+          270,
+          180
+        ],
+        "endpoint": [
+          270,
+          180
+        ]
+      },
+      "B": {
+        "letter": [
+          725,
+          180
+        ],
+        "endpoint": [
+          725,
+          180
+        ]
+      },
+      "C": {
+        "letter": [
+          1180,
+          180
+        ],
+        "endpoint": [
+          1180,
+          180
+        ]
+      }
+    }
+  },
+  {
+    "id": "ch20-change",
+    "title": "Population accounting across a boundary",
+    "lesson": 2,
+    "src": "./assets/figures/ch20-change.svg",
+    "alt": "Births and immigration add individuals; deaths and emigration remove individuals. The totals must describe the same population and interval.",
+    "caption": "Births and immigration add individuals; deaths and emigration remove individuals. The totals must describe the same population and interval. Schematic — not to scale.",
+    "source": "Original course schematic; canonical editable SVG plus reproducible scripts/make_media.py.",
+    "kind": "precisely authored SVG",
+    "reviewStatus": "Construction and target identities checked; render inspection recorded in verification.",
+    "targets": {
+      "A": "Births",
+      "B": "Immigration",
+      "C": "Deaths",
+      "D": "Emigration"
+    },
+    "geometry": {
+      "A": {
+        "letter": [
+          225,
+          145
+        ],
+        "endpoint": [
+          225,
+          145
+        ]
+      },
+      "B": {
+        "letter": [
+          225,
+          710
+        ],
+        "endpoint": [
+          225,
+          710
+        ]
+      },
+      "C": {
+        "letter": [
+          1170,
+          145
+        ],
+        "endpoint": [
+          1170,
+          145
+        ]
+      },
+      "D": {
+        "letter": [
+          1170,
+          710
+        ],
+        "endpoint": [
+          1170,
+          710
+        ]
+      }
+    }
+  },
+  {
+    "id": "ch20-rates",
+    "title": "Choose the denominator that answers the question",
+    "lesson": 3,
+    "src": "./assets/figures/ch20-rates.svg",
+    "alt": "For N₀ = 200 and N₁ = 260 over three years, change is 60, average rate is 20 individuals/year and interval per-capita change is 0.30.",
+    "caption": "For N₀ = 200 and N₁ = 260 over three years, change is 60, average rate is 20 individuals/year and interval per-capita change is 0.30. Constructed example — a three-year interval is not one year.",
+    "source": "Original course schematic; canonical editable SVG plus reproducible scripts/make_media.py.",
+    "kind": "precisely authored SVG",
+    "reviewStatus": "Construction and target identities checked; render inspection recorded in verification.",
+    "targets": {
+      "A": "Net change",
+      "B": "Average growth rate",
+      "C": "Interval per-capita change"
+    },
+    "geometry": {
+      "A": {
+        "letter": [
+          1275,
+          250
+        ],
+        "endpoint": [
+          1275,
+          250
+        ]
+      },
+      "B": {
+        "letter": [
+          1275,
+          420
+        ],
+        "endpoint": [
+          1275,
+          420
+        ]
+      },
+      "C": {
+        "letter": [
+          1275,
+          590
+        ],
+        "endpoint": [
+          1275,
+          590
+        ]
+      }
+    }
+  },
+  {
+    "id": "ch20-growth",
+    "title": "Population growth: compare the curve and its slope",
+    "lesson": 4,
+    "src": "./assets/figures/ch20-growth.svg",
+    "alt": "The exponential curve steepens while the logistic curve slows near K. Both are constructed models, not measured population observations.",
+    "caption": "The exponential curve steepens while the logistic curve slows near K. Both are constructed models, not measured population observations. Constructed model curves — arbitrary population units.",
+    "source": "Original course schematic; canonical editable SVG plus reproducible scripts/make_media.py.",
+    "kind": "precisely authored SVG",
+    "reviewStatus": "Construction and target identities checked; render inspection recorded in verification.",
+    "targets": {
+      "A": "Carrying capacity K",
+      "B": "Logistic model",
+      "C": "Exponential model"
+    },
+    "geometry": {
+      "A": {
+        "letter": [
+          1085,
+          145
+        ],
+        "endpoint": [
+          1090,
+          245
+        ]
+      },
+      "B": {
+        "letter": [
+          630,
+          315
+        ],
+        "endpoint": [
+          700,
+          372.0791423717607
+        ]
+      },
+      "C": {
+        "letter": [
+          1150,
+          505
+        ],
+        "endpoint": [
+          1070,
+          408.2387832672079
+        ]
+      }
+    }
+  },
+  {
+    "id": "ch20-survivorship",
+    "title": "Survivorship is not population size through time",
+    "lesson": 6,
+    "src": "./assets/figures/ch20-survivorship.svg",
+    "alt": "The curves compare survival across age: Type I has greater late loss, Type II a steadier risk on a log-survivor plot, and Type III strong early loss.",
+    "caption": "The curves compare survival across age: Type I has greater late loss, Type II a steadier risk on a log-survivor plot, and Type III strong early loss. Constructed patterns — vertical axis is log survivors.",
+    "source": "Original course schematic; canonical editable SVG plus reproducible scripts/make_media.py.",
+    "kind": "precisely authored SVG",
+    "reviewStatus": "Construction and target identities checked; render inspection recorded in verification.",
+    "targets": {
+      "A": "Type I",
+      "B": "Type II",
+      "C": "Type III"
+    },
+    "geometry": {
+      "A": {
+        "letter": [
+          780,
+          170
+        ],
+        "endpoint": [
+          720,
+          250
+        ]
+      },
+      "B": {
+        "letter": [
+          820,
+          390
+        ],
+        "endpoint": [
+          740,
+          457
+        ]
+      },
+      "C": {
+        "letter": [
+          430,
+          660
+        ],
+        "endpoint": [
+          420,
+          545
+        ]
+      }
+    }
+  },
+  {
+    "id": "ch20-predator-prey",
+    "title": "Predator response can lag behind prey",
+    "lesson": 7,
+    "src": "./assets/figures/ch20-predator-prey.svg",
+    "alt": "The constructed predator series peaks after the prey series. This is consistent with a delayed demographic response, but the curves alone do not prove a unique cause.",
+    "caption": "The constructed predator series peaks after the prey series. This is consistent with a delayed demographic response, but the curves alone do not prove a unique cause. Constructed time series — independently scaled relative abundance.",
+    "source": "Original course schematic; canonical editable SVG plus reproducible scripts/make_media.py.",
+    "kind": "precisely authored SVG",
+    "reviewStatus": "Construction and target identities checked; render inspection recorded in verification.",
+    "targets": {
+      "A": "Prey curve",
+      "B": "Predator curve",
+      "C": "Time lag"
+    },
+    "geometry": {
+      "A": {
+        "letter": [
+          320,
+          185
+        ],
+        "endpoint": [
+          308,
+          285
+        ]
+      },
+      "B": {
+        "letter": [
+          510,
+          225
+        ],
+        "endpoint": [
+          378,
+          285
+        ]
+      },
+      "C": {
+        "letter": [
+          695,
+          160
+        ],
+        "endpoint": [
+          342.08,
+          235
+        ]
+      }
+    }
+  },
+  {
+    "id": "ch20-symbiosis",
+    "title": "Classify the effects on both partners",
+    "lesson": 9,
+    "src": "./assets/figures/ch20-symbiosis.svg",
+    "alt": "Each pair of signs records the effects on the two partners in the stated setting, not moral value. A plus indicates benefit, zero no appreciable effect and minus harm.",
+    "caption": "Each pair of signs records the effects on the two partners in the stated setting, not moral value. A plus indicates benefit, zero no appreciable effect and minus harm. Schematic — not to scale.",
+    "source": "Original course schematic; canonical editable SVG plus reproducible scripts/make_media.py.",
+    "kind": "precisely authored SVG",
+    "reviewStatus": "Construction and target identities checked; render inspection recorded in verification.",
+    "targets": {
+      "A": "Mutualism",
+      "B": "Commensalism",
+      "C": "Parasitism"
+    },
+    "geometry": {
+      "A": {
+        "letter": [
+          288,
+          610
+        ],
+        "endpoint": [
+          288,
+          610
+        ]
+      },
+      "B": {
+        "letter": [
+          738,
+          610
+        ],
+        "endpoint": [
+          738,
+          610
+        ]
+      },
+      "C": {
+        "letter": [
+          1188,
+          610
+        ],
+        "endpoint": [
+          1188,
+          610
+        ]
+      }
+    }
+  },
+  {
+    "id": "ch20-succession",
+    "title": "Succession depends on what remains",
+    "lesson": 10,
+    "src": "./assets/figures/ch20-succession.svg",
+    "alt": "The upper case starts on exposed rock without developed soil. The lower case retains soil, seeds and roots after disturbance. Local conditions influence the subsequent pathway.",
+    "caption": "The upper case starts on exposed rock without developed soil. The lower case retains soil, seeds and roots after disturbance. Local conditions influence the subsequent pathway. Schematic — not to scale.",
+    "source": "Original course schematic; canonical editable SVG plus reproducible scripts/make_media.py.",
+    "kind": "precisely authored SVG",
+    "reviewStatus": "Construction and target identities checked; render inspection recorded in verification.",
+    "targets": {
+      "A": "Primary succession",
+      "B": "Secondary succession"
+    },
+    "geometry": {
+      "A": {
+        "letter": [
+          1180,
+          245
+        ],
+        "endpoint": [
+          1180,
+          245
+        ]
+      },
+      "B": {
+        "letter": [
+          1180,
+          535
+        ],
+        "endpoint": [
+          1180,
+          535
+        ]
+      }
+    }
+  }
+]

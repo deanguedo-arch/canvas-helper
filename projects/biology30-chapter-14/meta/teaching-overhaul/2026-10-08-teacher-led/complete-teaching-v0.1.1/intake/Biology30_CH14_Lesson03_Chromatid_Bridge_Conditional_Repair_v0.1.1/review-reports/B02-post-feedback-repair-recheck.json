@@ -1,0 +1,256 @@
+{
+  "title": "B02 post-feedback teaching-repair recheck",
+  "reviewed_at_utc": "2026-10-08T22:04:10.882232+00:00",
+  "review_status": "PASS for the targeted teaching bridge and static eight-page layout",
+  "review_type": "Post-feedback targeted repair recheck; explicitly not a fresh blinded first attempt",
+  "scope": "Three appended sentences in existing lesson03 teaching02 paragraph2; four previously reviewed secondary-spermatocyte variants; neighbouring meiosis/differentiation teaching; all eight supplied rendered pages.",
+  "answer_to_request": "Yes. The visible bridge now distinguishes haploid chromosome-set number from the two sister chromatids in each still-copied chromosome, and states their meiosis-II separation without another DNA-copying round. All four retained explanations can now be understood from the visible lesson.",
+  "exact_bridge": "After meiosis I, each secondary spermatocyte has one chromosome set, so it is already haploid. Each chromosome still has two attached copied parts, called sister chromatids. These separate during meiosis II without another round of DNA copying.",
+  "bridge_location": "candidate/lesson-03.reading.html: [data-canvas-edit-key=\"ch14-l03-teaching-02-p2\"]; review-rendered-final/lesson-03.pdf page 4, first paragraph. The paragraph begins on page 3.",
+  "source_boundary": "This recheck evaluates the supplied source-verified teaching wording against the previously released B02 records and visible neighbouring lesson. It does not claim a new external scientific-source verification.",
+  "unchanged_content_check": {
+    "finding": "The lesson content equals the frozen reading after removing the one exact appended bridge. All existing IDs and both edit-key sequences are unchanged.",
+    "full_html_byte_identity_caution": "There is also a serialization wrapper difference: candidate adds <html><head> and closing </head></html> around the prior fragment. After removing those wrappers and the bridge, the files match exactly. This is disclosed rather than claiming that the complete HTML file has only one byte-level insertion; browser DOM parsing is outside this static recheck.",
+    "attribute_checks": {
+      "id": {
+        "count": 16,
+        "values_and_order_unchanged": true
+      },
+      "data-canvas-edit-key": {
+        "count": 29,
+        "values_and_order_unchanged": true
+      },
+      "data-canvas-helper-edit-key": {
+        "count": 29,
+        "values_and_order_unchanged": true
+      }
+    },
+    "protected_lesson_content": "Every remaining byte of the lesson fragment, including assessment prompts, choices, comparison text and other existing teaching, matches the supplied frozen reading after those removals. No protected content was edited by this reviewer."
+  },
+  "neighbouring_teaching_recheck": [
+    {
+      "location": "teaching-02-p1; PDF page 3",
+      "finding": "Replication remains before primary-spermatocyte meiosis I; the new bridge does not create a second copying interval."
+    },
+    {
+      "location": "teaching-02-p2; PDF pages 3–4",
+      "finding": "Cell counts remain one primary → two secondary → four spermatids. One chromosome set and two sister chromatids are explicitly different attributes, not a claim of two chromosome sets."
+    },
+    {
+      "location": "teaching-02-p3; PDF page 4",
+      "finding": "Spermatids remain haploid with one set of 23 chromosomes. The statement that equal counts do not imply genetic identity is unchanged. Detailed movements/variation can still be deferred; the bridge only defines the limited copied-parts relation needed here."
+    },
+    {
+      "location": "teaching-02-p4/p5; PDF page 4",
+      "finding": "Differentiation remains a change of form after meiosis, not a third meiotic division or further halving. Four spermatids become four specialised sperm. The existing sequence summary is consistent."
+    },
+    {
+      "location": "teaching-03; PDF pages 4–5",
+      "finding": "Head/nuclear set, acrosome, mitochondrial middle piece and flagellum functions remain intact; the added chromosome explanation does not conflate parts, cell count or cell shape."
+    }
+  ],
+  "remaining_limits": [
+    "T019’s protected answer/model still omits an explicit no-extra-copying correction. The lesson now makes its explanation comprehensible; the model itself was not repaired.",
+    "The earlier T023 prompt/feedback mismatch and other B02 feedback/cue/metadata cautions were not targets of this repair and are not cleared by it.",
+    "No new independent mastery or unfamiliar-transfer evidence is claimed. The four items share one biological account.",
+    "No native runtime, save/resume, input normalization, accessibility, user editing or integration test was performed."
+  ],
+  "item_rechecks": [
+    {
+      "review_id": "B02-T019",
+      "original_id": "ch14-concept-secondary-spermatocyte-misconception",
+      "prompt": "Correct this incorrect statement: A secondary spermatocyte must copy its DNA again before meiosis II.",
+      "retained_key_or_model": "A cell produced by meiosis I during spermatogenesis. It has one chromosome set but the chromosomes have not yet completed sister-chromatid separation.",
+      "retained_explanation": "A cell produced by meiosis I during spermatogenesis. It has one chromosome set but the chromosomes have not yet completed sister-chromatid separation.",
+      "post_feedback_recheck_response": "A secondary spermatocyte does not copy its DNA again before meiosis II. DNA was copied before meiosis I. It is already haploid, with one chromosome set, while each chromosome still has two attached sister chromatids; those separate during meiosis II.",
+      "status": "PASS: retained explanation now fully understandable from visible ordinary teaching",
+      "support_map": [
+        {
+          "claim": "A secondary spermatocyte is a product of meiosis I.",
+          "location": "candidate/lesson-03.reading.html, ch14-l03-teaching-02-p2, existing first two sentences; PDF pages 3–4",
+          "visible_support": "Meiosis I takes one primary spermatocyte to two secondary spermatocytes."
+        },
+        {
+          "claim": "One chromosome set means the secondary spermatocyte is already haploid.",
+          "location": "ch14-l03-teaching-02-p2, appended sentence 1; PDF page 4, top paragraph",
+          "visible_support": "After meiosis I, each secondary spermatocyte has one chromosome set, so it is already haploid."
+        },
+        {
+          "claim": "A chromosome can still consist of two attached copied parts despite that haploid set number; those parts are sister chromatids.",
+          "location": "ch14-l03-teaching-02-p2, appended sentence 2; PDF page 4, top paragraph",
+          "visible_support": "Each chromosome still has two attached copied parts, called sister chromatids."
+        },
+        {
+          "claim": "Sister chromatids separate in meiosis II without another round of DNA copying.",
+          "location": "ch14-l03-teaching-02-p2, appended sentence 3; PDF page 4, top paragraph",
+          "visible_support": "These separate during meiosis II without another round of DNA copying."
+        }
+      ],
+      "boundary": "This is a post-feedback comprehension recheck, not a new blind first attempt, a changed original response, automatic grading, or runtime acceptance.",
+      "remaining_protected_feedback_caution": "The retained misconception model still does not explicitly state that no extra DNA copying occurs; the new teaching supplies that connection, so comprehension is repaired but the model’s prompt-specific omission remains."
+    },
+    {
+      "review_id": "B02-T034",
+      "original_id": "ch14-concept-secondary-spermatocyte-blank",
+      "prompt": "Name the term described: A cell produced by meiosis I during spermatogenesis.",
+      "retained_key_or_model": "secondary spermatocyte",
+      "retained_explanation": "A cell produced by meiosis I during spermatogenesis. It has one chromosome set but the chromosomes have not yet completed sister-chromatid separation.",
+      "post_feedback_recheck_response": "Secondary spermatocyte",
+      "status": "PASS: retained explanation now fully understandable from visible ordinary teaching",
+      "support_map": [
+        {
+          "claim": "A secondary spermatocyte is a product of meiosis I.",
+          "location": "candidate/lesson-03.reading.html, ch14-l03-teaching-02-p2, existing first two sentences; PDF pages 3–4",
+          "visible_support": "Meiosis I takes one primary spermatocyte to two secondary spermatocytes."
+        },
+        {
+          "claim": "One chromosome set means the secondary spermatocyte is already haploid.",
+          "location": "ch14-l03-teaching-02-p2, appended sentence 1; PDF page 4, top paragraph",
+          "visible_support": "After meiosis I, each secondary spermatocyte has one chromosome set, so it is already haploid."
+        },
+        {
+          "claim": "A chromosome can still consist of two attached copied parts despite that haploid set number; those parts are sister chromatids.",
+          "location": "ch14-l03-teaching-02-p2, appended sentence 2; PDF page 4, top paragraph",
+          "visible_support": "Each chromosome still has two attached copied parts, called sister chromatids."
+        },
+        {
+          "claim": "Sister chromatids separate in meiosis II without another round of DNA copying.",
+          "location": "ch14-l03-teaching-02-p2, appended sentence 3; PDF page 4, top paragraph",
+          "visible_support": "These separate during meiosis II without another round of DNA copying."
+        }
+      ],
+      "boundary": "This is a post-feedback comprehension recheck, not a new blind first attempt, a changed original response, automatic grading, or runtime acceptance.",
+      "remaining_protected_feedback_caution": "No additional required change identified for this variant."
+    },
+    {
+      "review_id": "B02-T035",
+      "original_id": "ch14-concept-secondary-spermatocyte-flash",
+      "prompt": "Explain secondary spermatocyte.",
+      "retained_key_or_model": "A cell produced by meiosis I during spermatogenesis.",
+      "retained_explanation": "A cell produced by meiosis I during spermatogenesis. It has one chromosome set but the chromosomes have not yet completed sister-chromatid separation.",
+      "post_feedback_recheck_response": "A secondary spermatocyte is produced by meiosis I during spermatogenesis. It already has one chromosome set and is haploid. Each chromosome still has two attached copied parts called sister chromatids; they separate during meiosis II without new DNA copying. Two secondary spermatocytes produce four spermatids in total.",
+      "status": "PASS: retained explanation now fully understandable from visible ordinary teaching",
+      "support_map": [
+        {
+          "claim": "A secondary spermatocyte is a product of meiosis I.",
+          "location": "candidate/lesson-03.reading.html, ch14-l03-teaching-02-p2, existing first two sentences; PDF pages 3–4",
+          "visible_support": "Meiosis I takes one primary spermatocyte to two secondary spermatocytes."
+        },
+        {
+          "claim": "One chromosome set means the secondary spermatocyte is already haploid.",
+          "location": "ch14-l03-teaching-02-p2, appended sentence 1; PDF page 4, top paragraph",
+          "visible_support": "After meiosis I, each secondary spermatocyte has one chromosome set, so it is already haploid."
+        },
+        {
+          "claim": "A chromosome can still consist of two attached copied parts despite that haploid set number; those parts are sister chromatids.",
+          "location": "ch14-l03-teaching-02-p2, appended sentence 2; PDF page 4, top paragraph",
+          "visible_support": "Each chromosome still has two attached copied parts, called sister chromatids."
+        },
+        {
+          "claim": "Sister chromatids separate in meiosis II without another round of DNA copying.",
+          "location": "ch14-l03-teaching-02-p2, appended sentence 3; PDF page 4, top paragraph",
+          "visible_support": "These separate during meiosis II without another round of DNA copying."
+        }
+      ],
+      "boundary": "This is a post-feedback comprehension recheck, not a new blind first attempt, a changed original response, automatic grading, or runtime acceptance.",
+      "remaining_protected_feedback_caution": "No additional required change identified for this variant."
+    },
+    {
+      "review_id": "B02-T076",
+      "original_id": "ch14-concept-secondary-spermatocyte-reverse",
+      "prompt": "Which term fits this definition? A cell produced by meiosis I during spermatogenesis.",
+      "retained_key_or_model": "secondary spermatocyte",
+      "retained_explanation": "A cell produced by meiosis I during spermatogenesis. It has one chromosome set but the chromosomes have not yet completed sister-chromatid separation.",
+      "post_feedback_recheck_response": "Secondary spermatocyte",
+      "status": "PASS: retained explanation now fully understandable from visible ordinary teaching",
+      "support_map": [
+        {
+          "claim": "A secondary spermatocyte is a product of meiosis I.",
+          "location": "candidate/lesson-03.reading.html, ch14-l03-teaching-02-p2, existing first two sentences; PDF pages 3–4",
+          "visible_support": "Meiosis I takes one primary spermatocyte to two secondary spermatocytes."
+        },
+        {
+          "claim": "One chromosome set means the secondary spermatocyte is already haploid.",
+          "location": "ch14-l03-teaching-02-p2, appended sentence 1; PDF page 4, top paragraph",
+          "visible_support": "After meiosis I, each secondary spermatocyte has one chromosome set, so it is already haploid."
+        },
+        {
+          "claim": "A chromosome can still consist of two attached copied parts despite that haploid set number; those parts are sister chromatids.",
+          "location": "ch14-l03-teaching-02-p2, appended sentence 2; PDF page 4, top paragraph",
+          "visible_support": "Each chromosome still has two attached copied parts, called sister chromatids."
+        },
+        {
+          "claim": "Sister chromatids separate in meiosis II without another round of DNA copying.",
+          "location": "ch14-l03-teaching-02-p2, appended sentence 3; PDF page 4, top paragraph",
+          "visible_support": "These separate during meiosis II without another round of DNA copying."
+        }
+      ],
+      "boundary": "This is a post-feedback comprehension recheck, not a new blind first attempt, a changed original response, automatic grading, or runtime acceptance.",
+      "remaining_protected_feedback_caution": "No additional required change identified for this variant."
+    }
+  ],
+  "page_review": [
+    {
+      "page": 1,
+      "out_of_page_text_boxes": 0,
+      "visual_review": "Title, goals, completion guide and start of vocabulary remain readable; no clipping or overlap."
+    },
+    {
+      "page": 2,
+      "out_of_page_text_boxes": 0,
+      "visual_review": "Definitions and cell-role introduction fit on page; the final paragraph remains above the footer without overlap."
+    },
+    {
+      "page": 3,
+      "out_of_page_text_boxes": 0,
+      "visual_review": "Testis/cell figure and caption are legible. Meiosis heading and paragraph 1 are together. Paragraph 2 begins near the foot and continues naturally onto page 4; no text is missing."
+    },
+    {
+      "page": 4,
+      "out_of_page_text_boxes": 0,
+      "visual_review": "All three bridge sentences are visible together in the top paragraph. Haploid-spermatid, differentiation and sequence paragraphs follow in order. The sperm-parts section moves down but stays completely within the page, with no clipping or collision."
+    },
+    {
+      "page": 5,
+      "out_of_page_text_boxes": 0,
+      "visual_review": "The full sperm illustration, labels, caption and first-affected-job explanation are legible. Worked-example prompt fits below them."
+    },
+    {
+      "page": 6,
+      "out_of_page_text_boxes": 0,
+      "visual_review": "Worked steps, optional application, guided choices and stop-and-think prompt remain readable and in order; no clipped last line."
+    },
+    {
+      "page": 7,
+      "out_of_page_text_boxes": 0,
+      "visual_review": "Both local video explanations and required selection 1 are visible. No image/text overlap or lost question options."
+    },
+    {
+      "page": 8,
+      "out_of_page_text_boxes": 0,
+      "visual_review": "Required selection 2, both writing prompts and footer navigation fit with ample space. No clipped controls/text or displaced answer options in this static view."
+    }
+  ],
+  "first_attempt_integrity": {
+    "unchanged": true,
+    "json_sha256": "b3a74dd6c9b6d6183765dae5030129dda4465183b3fc75ff95461ee978e8cf04",
+    "md_sha256": "fec88685d9e782bc29934011e5683ac28eaa846713bd7b8751082dd2b495377c",
+    "original_SHA256SUMS_verified": true
+  },
+  "input_sha256": {
+    "CHANGE.txt": "e930d11cc5338b73a6f92a28ad27afab0f321d34aff8a86f6653e8048202c70d",
+    "candidate/lesson-03.reading.html": "6a253f9523dc4ec943a7a68d0709af121d183ea03ac5149539597138875798b5",
+    "frozen/lesson-03.reading.v0.1.0.html": "4f4b76d1a52f702b966a1847fb23b5d0a30145b97242454ea91e4c8a150378e5",
+    "review-rendered-final/lesson-03.pdf": "321ef9cc6bf7415be30219ba36b86cfdc75f2b48aebd3c66ae96b072aea96ebf",
+    "review-rendered-final/lesson-03-page-01.png": "6823c330876a3409d1f07b6edb8387fdbadb4b6e7e07374b83adb80684b87a36",
+    "review-rendered-final/lesson-03-page-02.png": "15fe1fa573edb1bc9426420b4e22bf8272554238b5403dfb98f4b4422c0e06d1",
+    "review-rendered-final/lesson-03-page-03.png": "b65776f16b8fecf08d28a2b3b0ea2495fce8a419f6db6535894a64f624a7daed",
+    "review-rendered-final/lesson-03-page-04.png": "b498ec685d0c8dc9d6a0ac98a781309c42f54bede080100ac88c11ec84c0f24e",
+    "review-rendered-final/lesson-03-page-05.png": "11e1340a1d4e0f65a26e3217eea5004ba394f718db12afb0809150807f40c820",
+    "review-rendered-final/lesson-03-page-06.png": "dedf994aa607aed644bcda4315f4ce1cb116e4f4a472c1a728d2bbd0ca774cdb",
+    "review-rendered-final/lesson-03-page-07.png": "d739cac2dabdfac664fbccc0bc132e86dd3ad9ee77f6b6ce7b4beedfd4cc47b8",
+    "review-rendered-final/lesson-03-page-08.png": "ee665a1566a9354150c2703335b2bf07c00d6af5ec1e36965d10b89817387796"
+  },
+  "previously_released_B02_map_sha256": "828f0730299f4d7523575badf3a15676d399b617a022f9fa3a597afffeb20c6e",
+  "edits_performed": "Only report-generation files, this recheck report and its hash manifest were written under review-reports; no teaching, protected content, original first-attempt or runtime files were changed."
+}

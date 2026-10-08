@@ -1,0 +1,794 @@
+[
+  {
+    "id": "ch20-foundation-ch20-word-population-density",
+    "lesson": 1,
+    "conceptId": "ch20-concept-population-density",
+    "prompt": "Which term matches this description? The number of individuals per unit area or volume.",
+    "options": [
+      "population density",
+      "clumped distribution",
+      "uniform distribution",
+      "random distribution"
+    ],
+    "answer": "population density",
+    "cue": "Use the meaning of each term, not the length of its name.",
+    "explanation": "The number of individuals per unit area or volume. Density includes a spatial denominator; abundance is a total count.",
+    "difficulty": "recall",
+    "family": "definition-recognition",
+    "kind": "mc"
+  },
+  {
+    "id": "ch20-foundation-ch20-word-clumped-distribution",
+    "lesson": 1,
+    "conceptId": "ch20-concept-clumped-distribution",
+    "prompt": "Which term matches this description? Individuals occurring in groups rather than evenly across the area.",
+    "options": [
+      "population density",
+      "clumped distribution",
+      "uniform distribution",
+      "random distribution"
+    ],
+    "answer": "clumped distribution",
+    "cue": "Use the meaning of each term, not the length of its name.",
+    "explanation": "Individuals occurring in groups rather than evenly across the area. A clumped pattern is different from high average density.",
+    "difficulty": "recall",
+    "family": "definition-recognition",
+    "kind": "mc"
+  },
+  {
+    "id": "ch20-foundation-ch20-word-uniform-distribution",
+    "lesson": 1,
+    "conceptId": "ch20-concept-uniform-distribution",
+    "prompt": "Which term matches this description? Individuals spaced relatively evenly across a defined area.",
+    "options": [
+      "population density",
+      "clumped distribution",
+      "uniform distribution",
+      "random distribution"
+    ],
+    "answer": "uniform distribution",
+    "cue": "Use the meaning of each term, not the length of its name.",
+    "explanation": "Individuals spaced relatively evenly across a defined area. Uniform describes a spatial pattern, not identical genotypes.",
+    "difficulty": "recall",
+    "family": "definition-recognition",
+    "kind": "mc"
+  },
+  {
+    "id": "ch20-foundation-ch20-word-random-distribution",
+    "lesson": 1,
+    "conceptId": "ch20-concept-random-distribution",
+    "prompt": "Which term matches this description? A spatial pattern without a strong regular or clustered arrangement at the scale considered.",
+    "options": [
+      "population density",
+      "clumped distribution",
+      "uniform distribution",
+      "random distribution"
+    ],
+    "answer": "random distribution",
+    "cue": "Use the meaning of each term, not the length of its name.",
+    "explanation": "A spatial pattern without a strong regular or clustered arrangement at the scale considered. A random-looking pattern depends on the spatial scale and evidence.",
+    "difficulty": "recall",
+    "family": "definition-recognition",
+    "kind": "mc"
+  },
+  {
+    "id": "ch20-foundation-ch20-word-natality",
+    "lesson": 2,
+    "conceptId": "ch20-concept-natality",
+    "prompt": "Which term matches this description? Births adding individuals to a population during the interval considered.",
+    "options": [
+      "natality",
+      "mortality",
+      "immigration",
+      "emigration"
+    ],
+    "answer": "natality",
+    "cue": "Use the meaning of each term, not the length of its name.",
+    "explanation": "Births adding individuals to a population during the interval considered. A birth count over an interval is not automatically an annual rate.",
+    "difficulty": "recall",
+    "family": "definition-recognition",
+    "kind": "mc"
+  },
+  {
+    "id": "ch20-foundation-ch20-word-mortality",
+    "lesson": 2,
+    "conceptId": "ch20-concept-mortality",
+    "prompt": "Which term matches this description? Deaths removing individuals from a population during the interval considered.",
+    "options": [
+      "natality",
+      "mortality",
+      "immigration",
+      "emigration"
+    ],
+    "answer": "mortality",
+    "cue": "Use the meaning of each term, not the length of its name.",
+    "explanation": "Deaths removing individuals from a population during the interval considered. Deaths are losses, not emigration.",
+    "difficulty": "recall",
+    "family": "definition-recognition",
+    "kind": "mc"
+  },
+  {
+    "id": "ch20-foundation-ch20-word-immigration",
+    "lesson": 2,
+    "conceptId": "ch20-concept-immigration",
+    "prompt": "Which term matches this description? Movement of individuals into the defined population.",
+    "options": [
+      "natality",
+      "mortality",
+      "immigration",
+      "emigration"
+    ],
+    "answer": "immigration",
+    "cue": "Use the meaning of each term, not the length of its name.",
+    "explanation": "Movement of individuals into the defined population. The sign depends on the defined population boundary.",
+    "difficulty": "recall",
+    "family": "definition-recognition",
+    "kind": "mc"
+  },
+  {
+    "id": "ch20-foundation-ch20-word-emigration",
+    "lesson": 2,
+    "conceptId": "ch20-concept-emigration",
+    "prompt": "Which term matches this description? Movement of individuals out of the defined population.",
+    "options": [
+      "natality",
+      "mortality",
+      "immigration",
+      "emigration"
+    ],
+    "answer": "emigration",
+    "cue": "Use the meaning of each term, not the length of its name.",
+    "explanation": "Movement of individuals out of the defined population. Movement is an addition to one population and a loss from another.",
+    "difficulty": "recall",
+    "family": "definition-recognition",
+    "kind": "mc"
+  },
+  {
+    "id": "ch20-foundation-ch20-word-average-growth-rate",
+    "lesson": 3,
+    "conceptId": "ch20-concept-average-growth-rate",
+    "prompt": "Which term matches this description? Population change divided by elapsed time.",
+    "options": [
+      "average growth rate",
+      "per-capita change",
+      "initial population",
+      "time interval"
+    ],
+    "answer": "average growth rate",
+    "cue": "Use the meaning of each term, not the length of its name.",
+    "explanation": "Population change divided by elapsed time. Its units include time.",
+    "difficulty": "recall",
+    "family": "definition-recognition",
+    "kind": "mc"
+  },
+  {
+    "id": "ch20-foundation-ch20-word-per-capita-change",
+    "lesson": 3,
+    "conceptId": "ch20-concept-per-capita-change",
+    "prompt": "Which term matches this description? Population change divided by the initial population for a specified interval.",
+    "options": [
+      "average growth rate",
+      "per-capita change",
+      "initial population",
+      "time interval"
+    ],
+    "answer": "per-capita change",
+    "cue": "Use the meaning of each term, not the length of its name.",
+    "explanation": "Population change divided by the initial population for a specified interval. The course cgr = ΔN/N₀ is an interval proportion, not automatically a per-year rate.",
+    "difficulty": "recall",
+    "family": "definition-recognition",
+    "kind": "mc"
+  },
+  {
+    "id": "ch20-foundation-ch20-word-initial-population",
+    "lesson": 3,
+    "conceptId": "ch20-concept-initial-population",
+    "prompt": "Which term matches this description? The population count at the start of the stated interval.",
+    "options": [
+      "average growth rate",
+      "per-capita change",
+      "initial population",
+      "time interval"
+    ],
+    "answer": "initial population",
+    "cue": "Use the meaning of each term, not the length of its name.",
+    "explanation": "The population count at the start of the stated interval. Using the final count changes the question being answered.",
+    "difficulty": "recall",
+    "family": "definition-recognition",
+    "kind": "mc"
+  },
+  {
+    "id": "ch20-foundation-ch20-word-time-interval",
+    "lesson": 3,
+    "conceptId": "ch20-concept-time-interval",
+    "prompt": "Which term matches this description? The elapsed time between the starting and ending observations.",
+    "options": [
+      "average growth rate",
+      "per-capita change",
+      "initial population",
+      "time interval"
+    ],
+    "answer": "time interval",
+    "cue": "Use the meaning of each term, not the length of its name.",
+    "explanation": "The elapsed time between the starting and ending observations. The time basis must remain explicit when comparing rates.",
+    "difficulty": "recall",
+    "family": "definition-recognition",
+    "kind": "mc"
+  },
+  {
+    "id": "ch20-foundation-ch20-word-exponential-growth",
+    "lesson": 4,
+    "conceptId": "ch20-concept-exponential-growth",
+    "prompt": "Which term matches this description? Growth in which a constant positive per-capita rate produces increasing numerical additions as population size rises.",
+    "options": [
+      "exponential growth",
+      "logistic growth",
+      "carrying capacity",
+      "graph slope"
+    ],
+    "answer": "exponential growth",
+    "cue": "Use the meaning of each term, not the length of its name.",
+    "explanation": "Growth in which a constant positive per-capita rate produces increasing numerical additions as population size rises. It cannot continue indefinitely in a finite environment.",
+    "difficulty": "recall",
+    "family": "definition-recognition",
+    "kind": "mc"
+  },
+  {
+    "id": "ch20-foundation-ch20-word-logistic-growth",
+    "lesson": 4,
+    "conceptId": "ch20-concept-logistic-growth",
+    "prompt": "Which term matches this description? A model in which population growth slows as resource limits become important near carrying capacity.",
+    "options": [
+      "exponential growth",
+      "logistic growth",
+      "carrying capacity",
+      "graph slope"
+    ],
+    "answer": "logistic growth",
+    "cue": "Use the meaning of each term, not the length of its name.",
+    "explanation": "A model in which population growth slows as resource limits become important near carrying capacity. Real populations can fluctuate rather than follow a perfectly smooth curve.",
+    "difficulty": "recall",
+    "family": "definition-recognition",
+    "kind": "mc"
+  },
+  {
+    "id": "ch20-foundation-ch20-word-carrying-capacity",
+    "lesson": 4,
+    "conceptId": "ch20-concept-carrying-capacity",
+    "prompt": "Which term matches this description? The population size an environment can sustain under the prevailing conditions.",
+    "options": [
+      "exponential growth",
+      "logistic growth",
+      "carrying capacity",
+      "graph slope"
+    ],
+    "answer": "carrying capacity",
+    "cue": "Use the meaning of each term, not the length of its name.",
+    "explanation": "The population size an environment can sustain under the prevailing conditions. K can change when environmental conditions change.",
+    "difficulty": "recall",
+    "family": "definition-recognition",
+    "kind": "mc"
+  },
+  {
+    "id": "ch20-foundation-ch20-word-graph-slope",
+    "lesson": 4,
+    "conceptId": "ch20-concept-graph-slope",
+    "prompt": "Which term matches this description? The rate of change of the vertical quantity with respect to the horizontal quantity.",
+    "options": [
+      "exponential growth",
+      "logistic growth",
+      "carrying capacity",
+      "graph slope"
+    ],
+    "answer": "graph slope",
+    "cue": "Use the meaning of each term, not the length of its name.",
+    "explanation": "The rate of change of the vertical quantity with respect to the horizontal quantity. A high population and a high growth rate are not the same graph feature.",
+    "difficulty": "recall",
+    "family": "definition-recognition",
+    "kind": "mc"
+  },
+  {
+    "id": "ch20-foundation-ch20-word-density-dependent-factor",
+    "lesson": 5,
+    "conceptId": "ch20-concept-density-dependent-factor",
+    "prompt": "Which term matches this description? A factor whose per-capita effect changes with population density.",
+    "options": [
+      "density-dependent factor",
+      "density-independent factor",
+      "environmental resistance",
+      "overshoot"
+    ],
+    "answer": "density-dependent factor",
+    "cue": "Use the meaning of each term, not the length of its name.",
+    "explanation": "A factor whose per-capita effect changes with population density. The definition concerns dependence on density, not simply whether the factor is living.",
+    "difficulty": "recall",
+    "family": "definition-recognition",
+    "kind": "mc"
+  },
+  {
+    "id": "ch20-foundation-ch20-word-density-independent-factor",
+    "lesson": 5,
+    "conceptId": "ch20-concept-density-independent-factor",
+    "prompt": "Which term matches this description? A factor whose effect is not primarily determined by the population’s density in the stated case.",
+    "options": [
+      "density-dependent factor",
+      "density-independent factor",
+      "environmental resistance",
+      "overshoot"
+    ],
+    "answer": "density-independent factor",
+    "cue": "Use the meaning of each term, not the length of its name.",
+    "explanation": "A factor whose effect is not primarily determined by the population’s density in the stated case. Real effects can interact with density and habitat; use the case evidence.",
+    "difficulty": "recall",
+    "family": "definition-recognition",
+    "kind": "mc"
+  },
+  {
+    "id": "ch20-foundation-ch20-word-environmental-resistance",
+    "lesson": 5,
+    "conceptId": "ch20-concept-environmental-resistance",
+    "prompt": "Which term matches this description? The combined constraints limiting population increase.",
+    "options": [
+      "density-dependent factor",
+      "density-independent factor",
+      "environmental resistance",
+      "overshoot"
+    ],
+    "answer": "environmental resistance",
+    "cue": "Use the meaning of each term, not the length of its name.",
+    "explanation": "The combined constraints limiting population increase. Several constraints can operate together.",
+    "difficulty": "recall",
+    "family": "definition-recognition",
+    "kind": "mc"
+  },
+  {
+    "id": "ch20-foundation-ch20-word-overshoot",
+    "lesson": 5,
+    "conceptId": "ch20-concept-overshoot",
+    "prompt": "Which term matches this description? Population size temporarily exceeding the level current resources can support sustainably.",
+    "options": [
+      "density-dependent factor",
+      "density-independent factor",
+      "environmental resistance",
+      "overshoot"
+    ],
+    "answer": "overshoot",
+    "cue": "Use the meaning of each term, not the length of its name.",
+    "explanation": "Population size temporarily exceeding the level current resources can support sustainably. The consequences depend on resource depletion and response delays.",
+    "difficulty": "recall",
+    "family": "definition-recognition",
+    "kind": "mc"
+  },
+  {
+    "id": "ch20-foundation-ch20-word-biotic-potential",
+    "lesson": 6,
+    "conceptId": "ch20-concept-biotic-potential",
+    "prompt": "Which term matches this description? The maximum reproductive increase possible under favourable conditions for the organism.",
+    "options": [
+      "biotic potential",
+      "life history",
+      "r-associated strategy",
+      "K-associated strategy"
+    ],
+    "answer": "biotic potential",
+    "cue": "Use the meaning of each term, not the length of its name.",
+    "explanation": "The maximum reproductive increase possible under favourable conditions for the organism. Realized growth can be much lower because of environmental constraints.",
+    "difficulty": "recall",
+    "family": "definition-recognition",
+    "kind": "mc"
+  },
+  {
+    "id": "ch20-foundation-ch20-word-life-history",
+    "lesson": 6,
+    "conceptId": "ch20-concept-life-history",
+    "prompt": "Which term matches this description? A pattern of growth, survival and reproduction across an organism’s life.",
+    "options": [
+      "biotic potential",
+      "life history",
+      "r-associated strategy",
+      "K-associated strategy"
+    ],
+    "answer": "life history",
+    "cue": "Use the meaning of each term, not the length of its name.",
+    "explanation": "A pattern of growth, survival and reproduction across an organism’s life. Traits can combine in different ways rather than fitting one rigid category.",
+    "difficulty": "recall",
+    "family": "definition-recognition",
+    "kind": "mc"
+  },
+  {
+    "id": "ch20-foundation-ch20-word-r-associated-strategy",
+    "lesson": 6,
+    "conceptId": "ch20-concept-r-associated-strategy",
+    "prompt": "Which term matches this description? A teaching description of traits often associated with rapid reproduction and many offspring.",
+    "options": [
+      "biotic potential",
+      "life history",
+      "r-associated strategy",
+      "K-associated strategy"
+    ],
+    "answer": "r-associated strategy",
+    "cue": "Use the meaning of each term, not the length of its name.",
+    "explanation": "A teaching description of traits often associated with rapid reproduction and many offspring. This is a comparative pattern, not a guarantee of an exponential graph in every habitat.",
+    "difficulty": "recall",
+    "family": "definition-recognition",
+    "kind": "mc"
+  },
+  {
+    "id": "ch20-foundation-ch20-word-k-associated-strategy",
+    "lesson": 6,
+    "conceptId": "ch20-concept-k-associated-strategy",
+    "prompt": "Which term matches this description? A teaching description of traits often associated with slower reproduction and greater investment per offspring.",
+    "options": [
+      "biotic potential",
+      "life history",
+      "r-associated strategy",
+      "K-associated strategy"
+    ],
+    "answer": "K-associated strategy",
+    "cue": "Use the meaning of each term, not the length of its name.",
+    "explanation": "A teaching description of traits often associated with slower reproduction and greater investment per offspring. Species can combine traits from both ends of the continuum.",
+    "difficulty": "recall",
+    "family": "definition-recognition",
+    "kind": "mc"
+  },
+  {
+    "id": "ch20-foundation-ch20-word-producer",
+    "lesson": 7,
+    "conceptId": "ch20-concept-producer",
+    "prompt": "Which term matches this description? An organism that builds organic material from inorganic sources using an energy source.",
+    "options": [
+      "producer",
+      "consumer",
+      "predation",
+      "time lag"
+    ],
+    "answer": "producer",
+    "cue": "Use the meaning of each term, not the length of its name.",
+    "explanation": "An organism that builds organic material from inorganic sources using an energy source. Producers transform energy; they do not create it.",
+    "difficulty": "recall",
+    "family": "definition-recognition",
+    "kind": "mc"
+  },
+  {
+    "id": "ch20-foundation-ch20-word-consumer",
+    "lesson": 7,
+    "conceptId": "ch20-concept-consumer",
+    "prompt": "Which term matches this description? An organism that obtains organic material by feeding on other organisms or their products.",
+    "options": [
+      "producer",
+      "consumer",
+      "predation",
+      "time lag"
+    ],
+    "answer": "consumer",
+    "cue": "Use the meaning of each term, not the length of its name.",
+    "explanation": "An organism that obtains organic material by feeding on other organisms or their products. Consumers depend on transferred chemical energy and matter.",
+    "difficulty": "recall",
+    "family": "definition-recognition",
+    "kind": "mc"
+  },
+  {
+    "id": "ch20-foundation-ch20-word-predation",
+    "lesson": 7,
+    "conceptId": "ch20-concept-predation",
+    "prompt": "Which term matches this description? An interaction in which one organism consumes another as prey.",
+    "options": [
+      "producer",
+      "consumer",
+      "predation",
+      "time lag"
+    ],
+    "answer": "predation",
+    "cue": "Use the meaning of each term, not the length of its name.",
+    "explanation": "An interaction in which one organism consumes another as prey. Predation can affect both populations but is not their only influence.",
+    "difficulty": "recall",
+    "family": "definition-recognition",
+    "kind": "mc"
+  },
+  {
+    "id": "ch20-foundation-ch20-word-time-lag",
+    "lesson": 7,
+    "conceptId": "ch20-concept-time-lag",
+    "prompt": "Which term matches this description? A delay between one change and a related response.",
+    "options": [
+      "producer",
+      "consumer",
+      "predation",
+      "time lag"
+    ],
+    "answer": "time lag",
+    "cue": "Use the meaning of each term, not the length of its name.",
+    "explanation": "A delay between one change and a related response. A lagged pattern can support a hypothesis without uniquely proving its cause.",
+    "difficulty": "recall",
+    "family": "definition-recognition",
+    "kind": "mc"
+  },
+  {
+    "id": "ch20-foundation-ch20-word-intraspecific-competition",
+    "lesson": 8,
+    "conceptId": "ch20-concept-intraspecific-competition",
+    "prompt": "Which term matches this description? Competition among individuals of the same species.",
+    "options": [
+      "intraspecific competition",
+      "interspecific competition",
+      "ecological niche",
+      "resource partitioning"
+    ],
+    "answer": "intraspecific competition",
+    "cue": "Use the meaning of each term, not the length of its name.",
+    "explanation": "Competition among individuals of the same species. The competitors need not fight directly.",
+    "difficulty": "recall",
+    "family": "definition-recognition",
+    "kind": "mc"
+  },
+  {
+    "id": "ch20-foundation-ch20-word-interspecific-competition",
+    "lesson": 8,
+    "conceptId": "ch20-concept-interspecific-competition",
+    "prompt": "Which term matches this description? Competition between individuals of different species.",
+    "options": [
+      "intraspecific competition",
+      "interspecific competition",
+      "ecological niche",
+      "resource partitioning"
+    ],
+    "answer": "interspecific competition",
+    "cue": "Use the meaning of each term, not the length of its name.",
+    "explanation": "Competition between individuals of different species. Sharing a resource matters when access is limiting.",
+    "difficulty": "recall",
+    "family": "definition-recognition",
+    "kind": "mc"
+  },
+  {
+    "id": "ch20-foundation-ch20-word-ecological-niche",
+    "lesson": 8,
+    "conceptId": "ch20-concept-ecological-niche",
+    "prompt": "Which term matches this description? The resources, conditions and interactions associated with a species’ role and persistence.",
+    "options": [
+      "intraspecific competition",
+      "interspecific competition",
+      "ecological niche",
+      "resource partitioning"
+    ],
+    "answer": "ecological niche",
+    "cue": "Use the meaning of each term, not the length of its name.",
+    "explanation": "The resources, conditions and interactions associated with a species’ role and persistence. Niche is more than a location on a map.",
+    "difficulty": "recall",
+    "family": "definition-recognition",
+    "kind": "mc"
+  },
+  {
+    "id": "ch20-foundation-ch20-word-resource-partitioning",
+    "lesson": 8,
+    "conceptId": "ch20-concept-resource-partitioning",
+    "prompt": "Which term matches this description? Differences in resource use that reduce overlap among competitors.",
+    "options": [
+      "intraspecific competition",
+      "interspecific competition",
+      "ecological niche",
+      "resource partitioning"
+    ],
+    "answer": "resource partitioning",
+    "cue": "Use the meaning of each term, not the length of its name.",
+    "explanation": "Differences in resource use that reduce overlap among competitors. Reduced overlap can support coexistence without eliminating all competition.",
+    "difficulty": "recall",
+    "family": "definition-recognition",
+    "kind": "mc"
+  },
+  {
+    "id": "ch20-foundation-ch20-word-symbiosis",
+    "lesson": 9,
+    "conceptId": "ch20-concept-symbiosis",
+    "prompt": "Which term matches this description? A close association between organisms of different species.",
+    "options": [
+      "symbiosis",
+      "mutualism",
+      "commensalism",
+      "parasitism"
+    ],
+    "answer": "symbiosis",
+    "cue": "Use the meaning of each term, not the length of its name.",
+    "explanation": "A close association between organisms of different species. Symbiosis does not always mean both partners benefit.",
+    "difficulty": "recall",
+    "family": "definition-recognition",
+    "kind": "mc"
+  },
+  {
+    "id": "ch20-foundation-ch20-word-mutualism",
+    "lesson": 9,
+    "conceptId": "ch20-concept-mutualism",
+    "prompt": "Which term matches this description? An interaction in which both partners benefit in the stated conditions.",
+    "options": [
+      "symbiosis",
+      "mutualism",
+      "commensalism",
+      "parasitism"
+    ],
+    "answer": "mutualism",
+    "cue": "Use the meaning of each term, not the length of its name.",
+    "explanation": "An interaction in which both partners benefit in the stated conditions. The effects need to be evaluated for both partners.",
+    "difficulty": "recall",
+    "family": "definition-recognition",
+    "kind": "mc"
+  },
+  {
+    "id": "ch20-foundation-ch20-word-commensalism",
+    "lesson": 9,
+    "conceptId": "ch20-concept-commensalism",
+    "prompt": "Which term matches this description? An interaction in which one partner benefits and the other has no appreciable effect in the stated model.",
+    "options": [
+      "symbiosis",
+      "mutualism",
+      "commensalism",
+      "parasitism"
+    ],
+    "answer": "commensalism",
+    "cue": "Use the meaning of each term, not the length of its name.",
+    "explanation": "An interaction in which one partner benefits and the other has no appreciable effect in the stated model. No detected effect depends on the measures and conditions used.",
+    "difficulty": "recall",
+    "family": "definition-recognition",
+    "kind": "mc"
+  },
+  {
+    "id": "ch20-foundation-ch20-word-parasitism",
+    "lesson": 9,
+    "conceptId": "ch20-concept-parasitism",
+    "prompt": "Which term matches this description? An interaction in which a parasite benefits while harming its host.",
+    "options": [
+      "symbiosis",
+      "mutualism",
+      "commensalism",
+      "parasitism"
+    ],
+    "answer": "parasitism",
+    "cue": "Use the meaning of each term, not the length of its name.",
+    "explanation": "An interaction in which a parasite benefits while harming its host. A parasite’s benefit and the host’s cost distinguish this from mutualism.",
+    "difficulty": "recall",
+    "family": "definition-recognition",
+    "kind": "mc"
+  },
+  {
+    "id": "ch20-foundation-ch20-word-ecological-succession",
+    "lesson": 10,
+    "conceptId": "ch20-concept-ecological-succession",
+    "prompt": "Which term matches this description? Change in community composition through time following establishment or disturbance.",
+    "options": [
+      "ecological succession",
+      "primary succession",
+      "secondary succession",
+      "pioneer community"
+    ],
+    "answer": "ecological succession",
+    "cue": "Use the meaning of each term, not the length of its name.",
+    "explanation": "Change in community composition through time following establishment or disturbance. Succession is not always a single fixed ladder to one permanent endpoint.",
+    "difficulty": "recall",
+    "family": "definition-recognition",
+    "kind": "mc"
+  },
+  {
+    "id": "ch20-foundation-ch20-word-primary-succession",
+    "lesson": 10,
+    "conceptId": "ch20-concept-primary-succession",
+    "prompt": "Which term matches this description? Community development on a surface initially lacking developed soil and much biological legacy.",
+    "options": [
+      "ecological succession",
+      "primary succession",
+      "secondary succession",
+      "pioneer community"
+    ],
+    "answer": "primary succession",
+    "cue": "Use the meaning of each term, not the length of its name.",
+    "explanation": "Community development on a surface initially lacking developed soil and much biological legacy. The starting substrate distinguishes it from soil-retaining recovery.",
+    "difficulty": "recall",
+    "family": "definition-recognition",
+    "kind": "mc"
+  },
+  {
+    "id": "ch20-foundation-ch20-word-secondary-succession",
+    "lesson": 10,
+    "conceptId": "ch20-concept-secondary-succession",
+    "prompt": "Which term matches this description? Community change after disturbance where soil and some biological legacy remain.",
+    "options": [
+      "ecological succession",
+      "primary succession",
+      "secondary succession",
+      "pioneer community"
+    ],
+    "answer": "secondary succession",
+    "cue": "Use the meaning of each term, not the length of its name.",
+    "explanation": "Community change after disturbance where soil and some biological legacy remain. The amount of surviving soil and organisms matters more than the disturbance name alone.",
+    "difficulty": "recall",
+    "family": "definition-recognition",
+    "kind": "mc"
+  },
+  {
+    "id": "ch20-foundation-ch20-word-pioneer-community",
+    "lesson": 10,
+    "conceptId": "ch20-concept-pioneer-community",
+    "prompt": "Which term matches this description? Early colonizers able to establish in the initial conditions.",
+    "options": [
+      "ecological succession",
+      "primary succession",
+      "secondary succession",
+      "pioneer community"
+    ],
+    "answer": "pioneer community",
+    "cue": "Use the meaning of each term, not the length of its name.",
+    "explanation": "Early colonizers able to establish in the initial conditions. Later communities depend on local conditions and further disturbances.",
+    "difficulty": "recall",
+    "family": "definition-recognition",
+    "kind": "mc"
+  },
+  {
+    "id": "ch20-foundation-ch20-word-age-structure",
+    "lesson": 11,
+    "conceptId": "ch20-concept-age-structure",
+    "prompt": "Which term matches this description? The distribution of individuals among age groups in a population.",
+    "options": [
+      "age structure",
+      "demographic transition",
+      "resource demand",
+      "sustainability"
+    ],
+    "answer": "age structure",
+    "cue": "Use the meaning of each term, not the length of its name.",
+    "explanation": "The distribution of individuals among age groups in a population. Age structure informs a projection but does not guarantee a single future.",
+    "difficulty": "recall",
+    "family": "definition-recognition",
+    "kind": "mc"
+  },
+  {
+    "id": "ch20-foundation-ch20-word-demographic-transition",
+    "lesson": 11,
+    "conceptId": "ch20-concept-demographic-transition",
+    "prompt": "Which term matches this description? A model describing changes in birth and death patterns associated with changing social and economic conditions.",
+    "options": [
+      "age structure",
+      "demographic transition",
+      "resource demand",
+      "sustainability"
+    ],
+    "answer": "demographic transition",
+    "cue": "Use the meaning of each term, not the length of its name.",
+    "explanation": "A model describing changes in birth and death patterns associated with changing social and economic conditions. It describes patterns with variation, not an inevitable timetable for every population.",
+    "difficulty": "recall",
+    "family": "definition-recognition",
+    "kind": "mc"
+  },
+  {
+    "id": "ch20-foundation-ch20-word-resource-demand",
+    "lesson": 11,
+    "conceptId": "ch20-concept-resource-demand",
+    "prompt": "Which term matches this description? The quantity of resources used by a population under stated conditions.",
+    "options": [
+      "age structure",
+      "demographic transition",
+      "resource demand",
+      "sustainability"
+    ],
+    "answer": "resource demand",
+    "cue": "Use the meaning of each term, not the length of its name.",
+    "explanation": "The quantity of resources used by a population under stated conditions. Head count alone does not determine every environmental impact.",
+    "difficulty": "recall",
+    "family": "definition-recognition",
+    "kind": "mc"
+  },
+  {
+    "id": "ch20-foundation-ch20-word-sustainability",
+    "lesson": 11,
+    "conceptId": "ch20-concept-sustainability",
+    "prompt": "Which term matches this description? The capacity to maintain ecological and human systems over time without undermining the conditions they depend on.",
+    "options": [
+      "age structure",
+      "demographic transition",
+      "resource demand",
+      "sustainability"
+    ],
+    "answer": "sustainability",
+    "cue": "Use the meaning of each term, not the length of its name.",
+    "explanation": "The capacity to maintain ecological and human systems over time without undermining the conditions they depend on. A sustainability claim requires a specified system, time frame and evidence.",
+    "difficulty": "recall",
+    "family": "definition-recognition",
+    "kind": "mc"
+  }
+]

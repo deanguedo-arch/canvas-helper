@@ -1,0 +1,978 @@
+{
+  "checks": [
+    {
+      "id": "ch15-check-03",
+      "route": "lesson-03",
+      "title": "hCG and maintaining early pregnancy",
+      "mc": [
+        {
+          "prompt": "In an early-pregnancy model, hCG cannot act on the corpus luteum. Which consequence is most directly predicted?",
+          "answer": "Reduced corpus-luteum hormone support for the endometrium",
+          "explanation": "Without the supporting signal, luteal hormone production may decline, affecting the lining.",
+          "cue": "Trace the normal mechanism before choosing an answer.",
+          "id": "ch15-l03-check-mc-1",
+          "options": [
+            "Reduced corpus-luteum hormone support for the endometrium",
+            "Direct conversion of progesterone into sperm",
+            "Immediate production of four gametes",
+            "An LH surge caused by increased milk secretion"
+          ],
+          "difficulty": "application"
+        },
+        {
+          "prompt": "Which conclusion is not established by detecting hCG alone?",
+          "answer": "That implantation is definitely in the normal uterine location",
+          "explanation": "A hormone test is not an anatomical image and does not establish implantation location.",
+          "cue": "Trace the normal mechanism before choosing an answer.",
+          "id": "ch15-l03-check-mc-2",
+          "options": [
+            "That the tested sample contains detectable hCG",
+            "That implantation is definitely in the normal uterine location",
+            "That hCG is being used as a pregnancy-associated signal",
+            "That the measurement concerns a hormone rather than chromosome number"
+          ],
+          "difficulty": "application"
+        }
+      ],
+      "writing": [
+        {
+          "prompt": "Trace the role of hCG in maintaining the endometrium. Include the hormone\u2019s source, its direct target and the next hormones in the chain.",
+          "model": "Trophoblast-derived tissue releases hCG. hCG maintains the ovarian corpus luteum, which continues secreting progesterone and estrogen. These hormones support the endometrium and help prevent the normal menstrual shedding associated with falling ovarian hormones.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ],
+          "id": "ch15-l03-check-writing-1",
+          "limit": 3200
+        },
+        {
+          "prompt": "Explain why a decline in hCG after its early peak need not mean a loss of all progesterone support.",
+          "model": "The placenta increasingly produces progesterone and estrogen during the first trimester. The hormonal source changes over development, so progesterone can remain supported even when hCG falls from an earlier peak.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ],
+          "id": "ch15-l03-check-writing-2",
+          "limit": 3200
+        }
+      ]
+    },
+    {
+      "id": "ch15-check-04",
+      "route": "lesson-04",
+      "title": "Gastrulation and the three germ layers",
+      "mc": [
+        {
+          "prompt": "Which pair shares an ectodermal origin?",
+          "answer": "Epidermis and nervous tissue",
+          "explanation": "Ectoderm contributes both outer epidermis and nervous tissue.",
+          "cue": "Trace the normal mechanism before choosing an answer.",
+          "id": "ch15-l04-check-mc-1",
+          "options": [
+            "Skeletal muscle and epidermis",
+            "Respiratory lining and bone",
+            "Epidermis and nervous tissue",
+            "Blood and digestive lining"
+          ],
+          "difficulty": "application"
+        },
+        {
+          "prompt": "Why is \u201cthe entire digestive system comes from endoderm\u201d too broad?",
+          "answer": "Digestive organs include muscle and connective tissue with other germ-layer origins",
+          "explanation": "Endoderm contributes important linings and glandular tissues, not every tissue in the organ.",
+          "cue": "Trace the normal mechanism before choosing an answer.",
+          "id": "ch15-l04-check-mc-2",
+          "options": [
+            "Germ layers appear only after birth",
+            "Endoderm never contributes to the digestive system",
+            "Every digestive cell has a unique genome",
+            "Digestive organs include muscle and connective tissue with other germ-layer origins"
+          ],
+          "difficulty": "application"
+        }
+      ],
+      "writing": [
+        {
+          "prompt": "Explain what gastrulation changes and identify the three layers it establishes.",
+          "model": "Gastrulation reorganizes embryonic cells through movement and produces ectoderm, mesoderm and endoderm. Each layer contributes to particular tissue lineages as development continues. This is a change in organization and developmental pathways, not just an increase in cell number.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ],
+          "id": "ch15-l04-check-writing-1",
+          "limit": 3200
+        },
+        {
+          "prompt": "A damaged developmental process affects intestinal muscle but not its epithelial lining. Explain why the two tissues need not share the same germ-layer origin.",
+          "model": "Intestinal smooth muscle is a mesodermal derivative, whereas much of the intestinal epithelial lining is endodermal. One organ contains several tissue types, so a change can affect one developmental contribution without identically affecting the other.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ],
+          "id": "ch15-l04-check-writing-2",
+          "limit": 3200
+        }
+      ]
+    }
+  ],
+  "words": [
+    {
+      "term": "human chorionic gonadotropin (hCG)",
+      "meaning": "A hormone released by developing trophoblast-derived tissue that helps maintain the corpus luteum in early pregnancy.",
+      "example": "An early pregnancy signal keeps a temporary ovarian gland active.",
+      "importantDistinction": "hCG acts on the corpus luteum; progesterone is a major signal supporting the endometrium.",
+      "aliases": [
+        "hCG"
+      ],
+      "id": "ch15-word-human-chorionic-gonadotropin-hcg",
+      "lesson": 3,
+      "whatItDoes": "An early pregnancy signal keeps a temporary ovarian gland active.",
+      "feature": "An early pregnancy signal keeps a temporary ovarian gland active.",
+      "confusion": "hCG acts on the corpus luteum; progesterone is a major signal supporting the endometrium."
+    },
+    {
+      "term": "trophoblast",
+      "meaning": "The outer cell layer of the blastocyst that contributes to implantation and fetal support tissues.",
+      "example": "Outer cells interact with the uterine lining and contribute to chorionic tissues.",
+      "importantDistinction": "The trophoblast is not the inner cell mass.",
+      "aliases": [],
+      "id": "ch15-word-trophoblast",
+      "lesson": 3,
+      "whatItDoes": "Outer cells interact with the uterine lining and contribute to chorionic tissues.",
+      "feature": "Outer cells interact with the uterine lining and contribute to chorionic tissues.",
+      "confusion": "The trophoblast is not the inner cell mass."
+    },
+    {
+      "term": "corpus luteum",
+      "meaning": "The temporary ovarian endocrine structure formed after ovulation.",
+      "example": "Remaining follicular tissue continues releasing progesterone when supported by an early pregnancy signal.",
+      "importantDistinction": "It is in the ovary, not inside the blastocyst.",
+      "aliases": [],
+      "id": "ch15-word-corpus-luteum",
+      "lesson": 3,
+      "whatItDoes": "Remaining follicular tissue continues releasing progesterone when supported by an early pregnancy signal.",
+      "feature": "Remaining follicular tissue continues releasing progesterone when supported by an early pregnancy signal.",
+      "confusion": "It is in the ovary, not inside the blastocyst."
+    },
+    {
+      "term": "progesterone",
+      "meaning": "A hormone that helps maintain a supportive uterine lining during pregnancy.",
+      "example": "Endometrial tissue remains supported instead of being shed as a normal menstrual period.",
+      "importantDistinction": "A hormone must reach responsive target tissues to produce its effect.",
+      "aliases": [],
+      "id": "ch15-word-progesterone",
+      "lesson": 3,
+      "whatItDoes": "Endometrial tissue remains supported instead of being shed as a normal menstrual period.",
+      "feature": "Endometrial tissue remains supported instead of being shed as a normal menstrual period.",
+      "confusion": "A hormone must reach responsive target tissues to produce its effect."
+    },
+    {
+      "term": "gastrulation",
+      "meaning": "The cell movements that establish three primary germ layers in the embryo.",
+      "example": "An early embryonic disc is reorganized into outer, middle and inner tissue-forming layers.",
+      "importantDistinction": "Gastrulation changes organization; it is not simply another name for cleavage.",
+      "aliases": [],
+      "id": "ch15-word-gastrulation",
+      "lesson": 4,
+      "whatItDoes": "An early embryonic disc is reorganized into outer, middle and inner tissue-forming layers.",
+      "feature": "An early embryonic disc is reorganized into outer, middle and inner tissue-forming layers.",
+      "confusion": "Gastrulation changes organization; it is not simply another name for cleavage."
+    },
+    {
+      "term": "ectoderm",
+      "meaning": "The germ layer that gives rise to the nervous system and epidermis, among other tissues.",
+      "example": "Neural tissue and the outer skin layer develop from the same primary germ layer.",
+      "importantDistinction": "Epidermis is not the same as every tissue in the skin.",
+      "aliases": [],
+      "id": "ch15-word-ectoderm",
+      "lesson": 4,
+      "whatItDoes": "Neural tissue and the outer skin layer develop from the same primary germ layer.",
+      "feature": "Neural tissue and the outer skin layer develop from the same primary germ layer.",
+      "confusion": "Epidermis is not the same as every tissue in the skin."
+    },
+    {
+      "term": "mesoderm",
+      "meaning": "The middle germ layer that contributes to muscle, skeleton, blood and many reproductive and urinary structures.",
+      "example": "Developing muscle and circulatory tissues share a middle-layer origin.",
+      "importantDistinction": "Whole organs often contain tissues from more than one germ layer.",
+      "aliases": [],
+      "id": "ch15-word-mesoderm",
+      "lesson": 4,
+      "whatItDoes": "Developing muscle and circulatory tissues share a middle-layer origin.",
+      "feature": "Developing muscle and circulatory tissues share a middle-layer origin.",
+      "confusion": "Whole organs often contain tissues from more than one germ layer."
+    },
+    {
+      "term": "endoderm",
+      "meaning": "The germ layer that forms much of the epithelial lining of digestive and respiratory passages and parts of associated glands.",
+      "example": "The epithelial lining of the gut develops from the inner germ layer.",
+      "importantDistinction": "The gut wall also contains muscle and connective tissues from other layers.",
+      "aliases": [],
+      "id": "ch15-word-endoderm",
+      "lesson": 4,
+      "whatItDoes": "The epithelial lining of the gut develops from the inner germ layer.",
+      "feature": "The epithelial lining of the gut develops from the inner germ layer.",
+      "confusion": "The gut wall also contains muscle and connective tissues from other layers."
+    }
+  ],
+  "practiceQuestions": [
+    {
+      "id": "ch15-source-OBJ_2131127",
+      "lesson": 3,
+      "prompt": "Which early blastocyst-derived tissue releases hCG?",
+      "answer": "Trophoblast-derived tissue",
+      "options": [
+        "Trophoblast-derived tissue",
+        "Maternal adrenal cortex",
+        "Corpus luteum",
+        "Anterior pituitary"
+      ],
+      "cue": "Identify the relevant mechanism or quantity and apply the stated model.",
+      "explanation": "The early signal supports the ovarian corpus luteum; the source and target are different tissues.",
+      "difficulty": "application",
+      "stimuli": [],
+      "sourceItemId": "OBJ_2131127",
+      "conceptId": "ch15-concept-blastocyst"
+    },
+    {
+      "id": "ch15-source-OBJ_2131128",
+      "lesson": 3,
+      "prompt": "The function of hCG is to",
+      "answer": "maintain the corpus luteum past the time when it would otherwise degenerate.",
+      "options": [
+        "stimulate cleavage and the formation of the morula.",
+        "maintain the corpus luteum past the time when it would otherwise degenerate.",
+        "digest some of the tissues and blood vessels of the endometrium.",
+        "stimulate gastrulation and the formation of the three germ layers."
+      ],
+      "cue": "Identify the relevant mechanism or quantity and apply the stated model.",
+      "explanation": "hCG supports the corpus luteum, allowing continuing progesterone and estrogen release early in pregnancy.",
+      "difficulty": "application",
+      "stimuli": [],
+      "sourceItemId": "OBJ_2131128",
+      "conceptId": "ch15-concept-human-chorionic-gonadotropin-hcg"
+    },
+    {
+      "id": "ch15-source-OBJ_2131129",
+      "lesson": 3,
+      "prompt": "Early in a normal pregnancy, which relationship maintains the endometrium?",
+      "answer": "hCG supports corpus-luteum progesterone release",
+      "options": [
+        "FSH causes repeated ovulation every day",
+        "Loss of progesterone maintains the lining",
+        "hCG supports corpus-luteum progesterone release",
+        "hCG replaces every ovarian hormone directly"
+      ],
+      "cue": "Identify the relevant mechanism or quantity and apply the stated model.",
+      "explanation": "hCG supports the corpus luteum rather than directly becoming progesterone.",
+      "difficulty": "application",
+      "stimuli": [],
+      "sourceItemId": "OBJ_2131129",
+      "conceptId": "ch15-concept-human-chorionic-gonadotropin-hcg"
+    },
+    {
+      "id": "ch15-source-OBJ_2131131",
+      "lesson": 4,
+      "prompt": "Which tissue and embryonic layer are correctly paired?",
+      "answer": "Nervous system \u2014 ectoderm",
+      "options": [
+        "Nervous system \u2014 ectoderm",
+        "Skeletal muscle \u2014 endoderm",
+        "Epidermis \u2014 mesoderm",
+        "Digestive epithelial lining \u2014 ectoderm"
+      ],
+      "cue": "Identify the relevant mechanism or quantity and apply the stated model.",
+      "explanation": "Ectoderm contributes nervous tissue and epidermis; mesoderm contributes muscle and skeleton; endoderm contributes digestive and respiratory epithelia.",
+      "difficulty": "application",
+      "stimuli": [],
+      "sourceItemId": "OBJ_2131131",
+      "conceptId": "ch15-concept-gastrulation"
+    },
+    {
+      "id": "ch15-foundation-ch15-word-human-chorionic-gonadotropin-hcg",
+      "lesson": 3,
+      "conceptId": "ch15-concept-human-chorionic-gonadotropin-hcg",
+      "prompt": "Which term matches this description? A hormone released by developing trophoblast-derived tissue that helps maintain the corpus luteum in early pregnancy.",
+      "options": [
+        "human chorionic gonadotropin (hCG)",
+        "trophoblast",
+        "corpus luteum",
+        "progesterone"
+      ],
+      "answer": "human chorionic gonadotropin (hCG)",
+      "cue": "Use the meaning of each term, not the length of its name.",
+      "explanation": "A hormone released by developing trophoblast-derived tissue that helps maintain the corpus luteum in early pregnancy. hCG acts on the corpus luteum; progesterone is a major signal supporting the endometrium.",
+      "difficulty": "recall",
+      "family": "definition-recognition",
+      "kind": "mc"
+    },
+    {
+      "id": "ch15-foundation-ch15-word-trophoblast",
+      "lesson": 3,
+      "conceptId": "ch15-concept-trophoblast",
+      "prompt": "Which term matches this description? The outer cell layer of the blastocyst that contributes to implantation and fetal support tissues.",
+      "options": [
+        "human chorionic gonadotropin (hCG)",
+        "trophoblast",
+        "corpus luteum",
+        "progesterone"
+      ],
+      "answer": "trophoblast",
+      "cue": "Use the meaning of each term, not the length of its name.",
+      "explanation": "The outer cell layer of the blastocyst that contributes to implantation and fetal support tissues. The trophoblast is not the inner cell mass.",
+      "difficulty": "recall",
+      "family": "definition-recognition",
+      "kind": "mc"
+    },
+    {
+      "id": "ch15-foundation-ch15-word-corpus-luteum",
+      "lesson": 3,
+      "conceptId": "ch15-concept-corpus-luteum",
+      "prompt": "Which term matches this description? The temporary ovarian endocrine structure formed after ovulation.",
+      "options": [
+        "human chorionic gonadotropin (hCG)",
+        "trophoblast",
+        "corpus luteum",
+        "progesterone"
+      ],
+      "answer": "corpus luteum",
+      "cue": "Use the meaning of each term, not the length of its name.",
+      "explanation": "The temporary ovarian endocrine structure formed after ovulation. It is in the ovary, not inside the blastocyst.",
+      "difficulty": "recall",
+      "family": "definition-recognition",
+      "kind": "mc"
+    },
+    {
+      "id": "ch15-foundation-ch15-word-progesterone",
+      "lesson": 3,
+      "conceptId": "ch15-concept-progesterone",
+      "prompt": "Which term matches this description? A hormone that helps maintain a supportive uterine lining during pregnancy.",
+      "options": [
+        "human chorionic gonadotropin (hCG)",
+        "trophoblast",
+        "corpus luteum",
+        "progesterone"
+      ],
+      "answer": "progesterone",
+      "cue": "Use the meaning of each term, not the length of its name.",
+      "explanation": "A hormone that helps maintain a supportive uterine lining during pregnancy. A hormone must reach responsive target tissues to produce its effect.",
+      "difficulty": "recall",
+      "family": "definition-recognition",
+      "kind": "mc"
+    },
+    {
+      "id": "ch15-foundation-ch15-word-gastrulation",
+      "lesson": 4,
+      "conceptId": "ch15-concept-gastrulation",
+      "prompt": "Which term matches this description? The cell movements that establish three primary germ layers in the embryo.",
+      "options": [
+        "gastrulation",
+        "ectoderm",
+        "mesoderm",
+        "endoderm"
+      ],
+      "answer": "gastrulation",
+      "cue": "Use the meaning of each term, not the length of its name.",
+      "explanation": "The cell movements that establish three primary germ layers in the embryo. Gastrulation changes organization; it is not simply another name for cleavage.",
+      "difficulty": "recall",
+      "family": "definition-recognition",
+      "kind": "mc"
+    },
+    {
+      "id": "ch15-foundation-ch15-word-ectoderm",
+      "lesson": 4,
+      "conceptId": "ch15-concept-ectoderm",
+      "prompt": "Which term matches this description? The germ layer that gives rise to the nervous system and epidermis, among other tissues.",
+      "options": [
+        "gastrulation",
+        "ectoderm",
+        "mesoderm",
+        "endoderm"
+      ],
+      "answer": "ectoderm",
+      "cue": "Use the meaning of each term, not the length of its name.",
+      "explanation": "The germ layer that gives rise to the nervous system and epidermis, among other tissues. Epidermis is not the same as every tissue in the skin.",
+      "difficulty": "recall",
+      "family": "definition-recognition",
+      "kind": "mc"
+    },
+    {
+      "id": "ch15-foundation-ch15-word-mesoderm",
+      "lesson": 4,
+      "conceptId": "ch15-concept-mesoderm",
+      "prompt": "Which term matches this description? The middle germ layer that contributes to muscle, skeleton, blood and many reproductive and urinary structures.",
+      "options": [
+        "gastrulation",
+        "ectoderm",
+        "mesoderm",
+        "endoderm"
+      ],
+      "answer": "mesoderm",
+      "cue": "Use the meaning of each term, not the length of its name.",
+      "explanation": "The middle germ layer that contributes to muscle, skeleton, blood and many reproductive and urinary structures. Whole organs often contain tissues from more than one germ layer.",
+      "difficulty": "recall",
+      "family": "definition-recognition",
+      "kind": "mc"
+    },
+    {
+      "id": "ch15-foundation-ch15-word-endoderm",
+      "lesson": 4,
+      "conceptId": "ch15-concept-endoderm",
+      "prompt": "Which term matches this description? The germ layer that forms much of the epithelial lining of digestive and respiratory passages and parts of associated glands.",
+      "options": [
+        "gastrulation",
+        "ectoderm",
+        "mesoderm",
+        "endoderm"
+      ],
+      "answer": "endoderm",
+      "cue": "Use the meaning of each term, not the length of its name.",
+      "explanation": "The germ layer that forms much of the epithelial lining of digestive and respiratory passages and parts of associated glands. The gut wall also contains muscle and connective tissues from other layers.",
+      "difficulty": "recall",
+      "family": "definition-recognition",
+      "kind": "mc"
+    }
+  ],
+  "sequences": [
+    {
+      "id": "ch15-sequence-03",
+      "lesson": 3,
+      "conceptId": "ch15-concept-corpus-luteum",
+      "title": "hCG and maintaining early pregnancy",
+      "steps": [
+        "Trophoblast-derived tissue releases hCG",
+        "hCG maintains the corpus luteum",
+        "Corpus luteum continues progesterone and estrogen secretion",
+        "Endometrial support continues"
+      ]
+    }
+  ],
+  "labelDiagrams": [
+    {
+      "id": "ch15-germ-layers-label",
+      "title": "Three germ layers after gastrulation",
+      "lesson": 4,
+      "src": "./assets/labeling/ch15-germ-layers.svg",
+      "alt": "Three adjacent embryonic layers provide different tissue lineages. The coloured bands compare the layers; the spaces between bands do not represent cavities. Lettered identification version; answer key is not drawn.",
+      "answers": {
+        "A": "Ectoderm",
+        "B": "Mesoderm",
+        "C": "Endoderm"
+      },
+      "options": [
+        "Ectoderm",
+        "Mesoderm",
+        "Endoderm"
+      ],
+      "reviewNote": "Follow each letter or its leader line. Use the model assumptions and units shown."
+    }
+  ],
+  "practiceConcepts": [
+    {
+      "id": "ch15-concept-human-chorionic-gonadotropin-hcg",
+      "term": "human chorionic gonadotropin (hCG)",
+      "lesson": 3,
+      "meaning": "A hormone released by developing trophoblast-derived tissue that helps maintain the corpus luteum in early pregnancy.",
+      "example": "An early pregnancy signal keeps a temporary ovarian gland active.",
+      "aliases": [
+        "hCG"
+      ],
+      "cue": "Identify the structure, quantity or relationship described.",
+      "correctExplanation": "A hormone released by developing trophoblast-derived tissue that helps maintain the corpus luteum in early pregnancy. hCG acts on the corpus luteum; progesterone is a major signal supporting the endometrium.",
+      "misconception": {
+        "statement": "hCG is made by the corpus luteum.",
+        "correction": "A hormone released by developing trophoblast-derived tissue that helps maintain the corpus luteum in early pregnancy. hCG acts on the corpus luteum; progesterone is a major signal supporting the endometrium."
+      },
+      "reviewRoute": "lesson-03"
+    },
+    {
+      "id": "ch15-concept-trophoblast",
+      "term": "trophoblast",
+      "lesson": 3,
+      "meaning": "The outer cell layer of the blastocyst that contributes to implantation and fetal support tissues.",
+      "example": "Outer cells interact with the uterine lining and contribute to chorionic tissues.",
+      "aliases": [],
+      "cue": "Identify the structure, quantity or relationship described.",
+      "correctExplanation": "The outer cell layer of the blastocyst that contributes to implantation and fetal support tissues. The trophoblast is not the inner cell mass.",
+      "misconception": {
+        "statement": "The trophoblast becomes only the embryo\u2019s brain.",
+        "correction": "The outer cell layer of the blastocyst that contributes to implantation and fetal support tissues. The trophoblast is not the inner cell mass."
+      },
+      "reviewRoute": "lesson-03"
+    },
+    {
+      "id": "ch15-concept-corpus-luteum",
+      "term": "corpus luteum",
+      "lesson": 3,
+      "meaning": "The temporary ovarian endocrine structure formed after ovulation.",
+      "example": "Remaining follicular tissue continues releasing progesterone when supported by an early pregnancy signal.",
+      "aliases": [],
+      "cue": "Identify the structure, quantity or relationship described.",
+      "correctExplanation": "The temporary ovarian endocrine structure formed after ovulation. It is in the ovary, not inside the blastocyst.",
+      "misconception": {
+        "statement": "The corpus luteum is part of the embryo.",
+        "correction": "The temporary ovarian endocrine structure formed after ovulation. It is in the ovary, not inside the blastocyst."
+      },
+      "reviewRoute": "lesson-03"
+    },
+    {
+      "id": "ch15-concept-progesterone",
+      "term": "progesterone",
+      "lesson": 3,
+      "meaning": "A hormone that helps maintain a supportive uterine lining during pregnancy.",
+      "example": "Endometrial tissue remains supported instead of being shed as a normal menstrual period.",
+      "aliases": [],
+      "cue": "Identify the structure, quantity or relationship described.",
+      "correctExplanation": "A hormone that helps maintain a supportive uterine lining during pregnancy. A hormone must reach responsive target tissues to produce its effect.",
+      "misconception": {
+        "statement": "Progesterone is the cell layer that implants.",
+        "correction": "A hormone that helps maintain a supportive uterine lining during pregnancy. A hormone must reach responsive target tissues to produce its effect."
+      },
+      "reviewRoute": "lesson-03"
+    },
+    {
+      "id": "ch15-concept-gastrulation",
+      "term": "gastrulation",
+      "lesson": 4,
+      "meaning": "The cell movements that establish three primary germ layers in the embryo.",
+      "example": "An early embryonic disc is reorganized into outer, middle and inner tissue-forming layers.",
+      "aliases": [],
+      "cue": "Identify the structure, quantity or relationship described.",
+      "correctExplanation": "The cell movements that establish three primary germ layers in the embryo. Gastrulation changes organization; it is not simply another name for cleavage.",
+      "misconception": {
+        "statement": "Gastrulation is the joining of sperm and egg.",
+        "correction": "The cell movements that establish three primary germ layers in the embryo. Gastrulation changes organization; it is not simply another name for cleavage."
+      },
+      "reviewRoute": "lesson-04"
+    },
+    {
+      "id": "ch15-concept-ectoderm",
+      "term": "ectoderm",
+      "lesson": 4,
+      "meaning": "The germ layer that gives rise to the nervous system and epidermis, among other tissues.",
+      "example": "Neural tissue and the outer skin layer develop from the same primary germ layer.",
+      "aliases": [],
+      "cue": "Identify the structure, quantity or relationship described.",
+      "correctExplanation": "The germ layer that gives rise to the nervous system and epidermis, among other tissues. Epidermis is not the same as every tissue in the skin.",
+      "misconception": {
+        "statement": "Ectoderm forms only skin and never nervous tissue.",
+        "correction": "The germ layer that gives rise to the nervous system and epidermis, among other tissues. Epidermis is not the same as every tissue in the skin."
+      },
+      "reviewRoute": "lesson-04"
+    },
+    {
+      "id": "ch15-concept-mesoderm",
+      "term": "mesoderm",
+      "lesson": 4,
+      "meaning": "The middle germ layer that contributes to muscle, skeleton, blood and many reproductive and urinary structures.",
+      "example": "Developing muscle and circulatory tissues share a middle-layer origin.",
+      "aliases": [],
+      "cue": "Identify the structure, quantity or relationship described.",
+      "correctExplanation": "The middle germ layer that contributes to muscle, skeleton, blood and many reproductive and urinary structures. Whole organs often contain tissues from more than one germ layer.",
+      "misconception": {
+        "statement": "Mesoderm becomes the lining of every body cavity.",
+        "correction": "The middle germ layer that contributes to muscle, skeleton, blood and many reproductive and urinary structures. Whole organs often contain tissues from more than one germ layer."
+      },
+      "reviewRoute": "lesson-04"
+    },
+    {
+      "id": "ch15-concept-endoderm",
+      "term": "endoderm",
+      "lesson": 4,
+      "meaning": "The germ layer that forms much of the epithelial lining of digestive and respiratory passages and parts of associated glands.",
+      "example": "The epithelial lining of the gut develops from the inner germ layer.",
+      "aliases": [],
+      "cue": "Identify the structure, quantity or relationship described.",
+      "correctExplanation": "The germ layer that forms much of the epithelial lining of digestive and respiratory passages and parts of associated glands. The gut wall also contains muscle and connective tissues from other layers.",
+      "misconception": {
+        "statement": "The entire intestine, including all its muscle, comes only from endoderm.",
+        "correction": "The germ layer that forms much of the epithelial lining of digestive and respiratory passages and parts of associated glands. The gut wall also contains muscle and connective tissues from other layers."
+      },
+      "reviewRoute": "lesson-04"
+    }
+  ],
+  "authoredPractice": [
+    {
+      "prompt": "Two models contain the same hCG concentration, but one has non-functional hCG receptors on luteal cells. What differs most directly?",
+      "answer": "The corpus luteum\u2019s response to the signal",
+      "explanation": "Signal concentration and receptor response are separate requirements.",
+      "cue": "Trace the normal mechanism before choosing an answer.",
+      "id": "ch15-l03-application-1",
+      "options": [
+        "The chromosome set of the original sperm",
+        "The name of the measured hormone",
+        "The corpus luteum\u2019s response to the signal",
+        "The chemical identity of the zona pellucida"
+      ],
+      "difficulty": "application",
+      "lesson": 3,
+      "chapter": 15,
+      "conceptId": "ch15-concept-human-chorionic-gonadotropin-hcg",
+      "family": "application",
+      "kind": "mc",
+      "reviewRoute": "lesson-03",
+      "flashVariant": {
+        "id": "ch15-l03-scenario-1",
+        "family": "scenario-explanation",
+        "prompt": "Two models contain the same hCG concentration, but one has non-functional hCG receptors on luteal cells. What differs most directly?",
+        "model": "The corpus luteum\u2019s response to the signal. Signal concentration and receptor response are separate requirements.",
+        "selfAssessed": true
+      }
+    },
+    {
+      "prompt": "Cells with the same inherited DNA become neurons or muscle cells. Which explanation best fits differentiation?",
+      "answer": "Different patterns of gene expression and responses to developmental signals",
+      "explanation": "Cell specialization generally uses different parts of shared genetic information.",
+      "cue": "Trace the normal mechanism before choosing an answer.",
+      "id": "ch15-l04-application-1",
+      "options": [
+        "All neurons lose every gene found in muscle",
+        "Differentiation requires another fertilization event",
+        "Each cell gains an entirely new set of chromosomes",
+        "Different patterns of gene expression and responses to developmental signals"
+      ],
+      "difficulty": "application",
+      "lesson": 4,
+      "chapter": 15,
+      "conceptId": "ch15-concept-gastrulation",
+      "family": "application",
+      "kind": "mc",
+      "reviewRoute": "lesson-04",
+      "flashVariant": {
+        "id": "ch15-l04-scenario-1",
+        "family": "scenario-explanation",
+        "prompt": "Cells with the same inherited DNA become neurons or muscle cells. Which explanation best fits differentiation?",
+        "model": "Different patterns of gene expression and responses to developmental signals. Cell specialization generally uses different parts of shared genetic information.",
+        "selfAssessed": true
+      }
+    }
+  ],
+  "typedPractice": [
+    {
+      "id": "ch15-l03-context-human-chorionic-gonadotropin-hcg",
+      "chapter": 15,
+      "lesson": 3,
+      "conceptId": "ch15-concept-human-chorionic-gonadotropin-hcg",
+      "family": "scenario-retrieval",
+      "kind": "blank",
+      "difficulty": "application",
+      "prompt": "Identify the term illustrated: An early pregnancy signal keeps a temporary ovarian gland active.",
+      "answer": "human chorionic gonadotropin (hCG)",
+      "aliases": [
+        "hCG"
+      ],
+      "cue": "Use the relationship described in the example.",
+      "explanation": "A hormone released by developing trophoblast-derived tissue that helps maintain the corpus luteum in early pregnancy. hCG acts on the corpus luteum; progesterone is a major signal supporting the endometrium.",
+      "reviewRoute": "lesson-03"
+    },
+    {
+      "id": "ch15-l03-context-trophoblast",
+      "chapter": 15,
+      "lesson": 3,
+      "conceptId": "ch15-concept-trophoblast",
+      "family": "scenario-retrieval",
+      "kind": "blank",
+      "difficulty": "application",
+      "prompt": "Identify the term illustrated: Outer cells interact with the uterine lining and contribute to chorionic tissues.",
+      "answer": "trophoblast",
+      "aliases": [],
+      "cue": "Use the relationship described in the example.",
+      "explanation": "The outer cell layer of the blastocyst that contributes to implantation and fetal support tissues. The trophoblast is not the inner cell mass.",
+      "reviewRoute": "lesson-03"
+    },
+    {
+      "id": "ch15-l03-context-corpus-luteum",
+      "chapter": 15,
+      "lesson": 3,
+      "conceptId": "ch15-concept-corpus-luteum",
+      "family": "scenario-retrieval",
+      "kind": "blank",
+      "difficulty": "application",
+      "prompt": "Identify the term illustrated: Remaining follicular tissue continues releasing progesterone when supported by an early pregnancy signal.",
+      "answer": "corpus luteum",
+      "aliases": [],
+      "cue": "Use the relationship described in the example.",
+      "explanation": "The temporary ovarian endocrine structure formed after ovulation. It is in the ovary, not inside the blastocyst.",
+      "reviewRoute": "lesson-03"
+    },
+    {
+      "id": "ch15-l03-context-progesterone",
+      "chapter": 15,
+      "lesson": 3,
+      "conceptId": "ch15-concept-progesterone",
+      "family": "scenario-retrieval",
+      "kind": "blank",
+      "difficulty": "application",
+      "prompt": "Identify the term illustrated: Endometrial tissue remains supported instead of being shed as a normal menstrual period.",
+      "answer": "progesterone",
+      "aliases": [],
+      "cue": "Use the relationship described in the example.",
+      "explanation": "A hormone that helps maintain a supportive uterine lining during pregnancy. A hormone must reach responsive target tissues to produce its effect.",
+      "reviewRoute": "lesson-03"
+    },
+    {
+      "id": "ch15-l04-context-gastrulation",
+      "chapter": 15,
+      "lesson": 4,
+      "conceptId": "ch15-concept-gastrulation",
+      "family": "scenario-retrieval",
+      "kind": "blank",
+      "difficulty": "application",
+      "prompt": "Identify the term illustrated: An early embryonic disc is reorganized into outer, middle and inner tissue-forming layers.",
+      "answer": "gastrulation",
+      "aliases": [],
+      "cue": "Use the relationship described in the example.",
+      "explanation": "The cell movements that establish three primary germ layers in the embryo. Gastrulation changes organization; it is not simply another name for cleavage.",
+      "reviewRoute": "lesson-04"
+    },
+    {
+      "id": "ch15-l04-context-ectoderm",
+      "chapter": 15,
+      "lesson": 4,
+      "conceptId": "ch15-concept-ectoderm",
+      "family": "scenario-retrieval",
+      "kind": "blank",
+      "difficulty": "application",
+      "prompt": "Identify the term illustrated: Neural tissue and the outer skin layer develop from the same primary germ layer.",
+      "answer": "ectoderm",
+      "aliases": [],
+      "cue": "Use the relationship described in the example.",
+      "explanation": "The germ layer that gives rise to the nervous system and epidermis, among other tissues. Epidermis is not the same as every tissue in the skin.",
+      "reviewRoute": "lesson-04"
+    },
+    {
+      "id": "ch15-l04-context-mesoderm",
+      "chapter": 15,
+      "lesson": 4,
+      "conceptId": "ch15-concept-mesoderm",
+      "family": "scenario-retrieval",
+      "kind": "blank",
+      "difficulty": "application",
+      "prompt": "Identify the term illustrated: Developing muscle and circulatory tissues share a middle-layer origin.",
+      "answer": "mesoderm",
+      "aliases": [],
+      "cue": "Use the relationship described in the example.",
+      "explanation": "The middle germ layer that contributes to muscle, skeleton, blood and many reproductive and urinary structures. Whole organs often contain tissues from more than one germ layer.",
+      "reviewRoute": "lesson-04"
+    },
+    {
+      "id": "ch15-l04-context-endoderm",
+      "chapter": 15,
+      "lesson": 4,
+      "conceptId": "ch15-concept-endoderm",
+      "family": "scenario-retrieval",
+      "kind": "blank",
+      "difficulty": "application",
+      "prompt": "Identify the term illustrated: The epithelial lining of the gut develops from the inner germ layer.",
+      "answer": "endoderm",
+      "aliases": [],
+      "cue": "Use the relationship described in the example.",
+      "explanation": "The germ layer that forms much of the epithelial lining of digestive and respiratory passages and parts of associated glands. The gut wall also contains muscle and connective tissues from other layers.",
+      "reviewRoute": "lesson-04"
+    }
+  ],
+  "multiSelectPractice": [
+    {
+      "id": "ch15-multiple-04",
+      "chapter": 15,
+      "lesson": 4,
+      "conceptId": "ch15-concept-gastrulation",
+      "family": "discrimination",
+      "kind": "multi-select",
+      "difficulty": "application",
+      "prompt": "Select the TWO accurate statements about gastrulation and the three germ layers.",
+      "options": [
+        {
+          "id": "true-1",
+          "text": "Gastrulation changes organization; it is not simply another name for cleavage."
+        },
+        {
+          "id": "false-1",
+          "text": "Ectoderm forms only skin and never nervous tissue."
+        },
+        {
+          "id": "true-2",
+          "text": "Whole organs often contain tissues from more than one germ layer."
+        },
+        {
+          "id": "false-2",
+          "text": "The entire intestine, including all its muscle, comes only from endoderm."
+        }
+      ],
+      "answers": [
+        "true-1",
+        "true-2"
+      ],
+      "cue": "Check every statement against the mechanism; do not assume a negative statement is correct.",
+      "explanation": "Gastrulation changes organization; it is not simply another name for cleavage. Whole organs often contain tissues from more than one germ layer. Epidermis is not the same as every tissue in the skin. The gut wall also contains muscle and connective tissues from other layers.",
+      "reviewRoute": "lesson-04"
+    }
+  ],
+  "guidedActivities": [
+    {
+      "chapter": 15,
+      "lesson": 3,
+      "route": "lesson-03",
+      "worked": {
+        "title": "Explain a changing graph",
+        "scenario": "A schematic shows an early hCG peak followed by a decline while progesterone remains high.",
+        "steps": [
+          "Identify both curves; do not treat every pregnancy hormone as the same signal.",
+          "Early hCG supports the corpus luteum, which contributes progesterone.",
+          "The developing placenta increasingly contributes progesterone and estrogen.",
+          "Continued progesterone support can therefore occur while hCG decreases from its early peak.",
+          "The graph alone does not determine the health of an individual pregnancy."
+        ],
+        "id": "ch15-l03-worked",
+        "label": "Worked example"
+      },
+      "guided": {
+        "id": "ch15-l03-guided",
+        "label": "Practise with support",
+        "title": "Apply the explanation",
+        "instruction": "Try both questions. Use the hint to revise your thinking after an incorrect answer.",
+        "items": [
+          {
+            "prompt": "Which tissue responds to hCG by continuing early ovarian hormone production?",
+            "answer": "Corpus luteum",
+            "explanation": "The corpus luteum is maintained by hCG and continues its endocrine role.",
+            "cue": "Name the temporary ovarian gland after ovulation.",
+            "id": "ch15-l03-guided-q1",
+            "options": [
+              "Inner cell mass",
+              "Corpus luteum",
+              "Pituitary stalk"
+            ],
+            "difficulty": "application",
+            "kind": "select",
+            "hint": "Name the temporary ovarian gland after ovulation."
+          },
+          {
+            "prompt": "Which later tissue can maintain substantial progesterone production as early hCG levels fall?",
+            "answer": "Placenta",
+            "explanation": "Placental hormone production becomes increasingly important during the first trimester.",
+            "cue": "Separate the early ovarian source from the developing support organ.",
+            "id": "ch15-l03-guided-q2",
+            "options": [
+              "Acrosome",
+              "Zona pellucida",
+              "Placenta"
+            ],
+            "difficulty": "application",
+            "kind": "select",
+            "hint": "Separate the early ovarian source from the developing support organ."
+          }
+        ]
+      }
+    },
+    {
+      "chapter": 15,
+      "lesson": 4,
+      "route": "lesson-04",
+      "worked": {
+        "title": "Read the tissue named",
+        "scenario": "Match three developing tissues: spinal-cord neurons, intestinal smooth muscle and respiratory lining.",
+        "steps": [
+          "Spinal-cord neurons are nervous tissue: ectoderm.",
+          "Smooth muscle is muscle tissue: mesoderm, even when it surrounds the gut.",
+          "Respiratory epithelial lining: endoderm.",
+          "Check that you classified the named tissue, not the entire organ as one uniform material."
+        ],
+        "id": "ch15-l04-worked",
+        "label": "Worked example"
+      },
+      "guided": {
+        "id": "ch15-l04-guided",
+        "label": "Practise with support",
+        "title": "Apply the explanation",
+        "instruction": "Try both questions. Use the hint to revise your thinking after an incorrect answer.",
+        "items": [
+          {
+            "prompt": "Which layer gives rise to the epidermis?",
+            "answer": "Ectoderm",
+            "explanation": "The epidermis is an ectodermal derivative.",
+            "cue": "Separate outer epidermis from deeper skin tissues.",
+            "id": "ch15-l04-guided-q1",
+            "options": [
+              "Ectoderm",
+              "Endoderm",
+              "Mesoderm"
+            ],
+            "difficulty": "application",
+            "kind": "select",
+            "hint": "Separate outer epidermis from deeper skin tissues."
+          },
+          {
+            "prompt": "A question names heart muscle. Which layer fits?",
+            "answer": "Mesoderm",
+            "explanation": "Muscle and circulatory tissues are major mesodermal derivatives.",
+            "cue": "Classify the tissue type: muscle.",
+            "id": "ch15-l04-guided-q2",
+            "options": [
+              "Ectoderm",
+              "Mesoderm",
+              "Endoderm"
+            ],
+            "difficulty": "application",
+            "kind": "select",
+            "hint": "Classify the tissue type: muscle."
+          }
+        ]
+      }
+    }
+  ],
+  "diagramPractice": [
+    {
+      "id": "ch15-germ-layers-label-practice-A",
+      "lesson": 4,
+      "conceptId": "ch15-concept-gastrulation",
+      "diagramId": "ch15-germ-layers-label",
+      "letter": "A",
+      "prompt": "What does letter A identify?",
+      "options": [
+        "Ectoderm",
+        "Endoderm",
+        "Mesoderm"
+      ],
+      "cue": "Follow the leader line or the lettered feature. Read any stated model assumptions.",
+      "explanation": "Letter A identifies Ectoderm.",
+      "reviewRoute": "lesson-04"
+    },
+    {
+      "id": "ch15-germ-layers-label-practice-B",
+      "lesson": 4,
+      "conceptId": "ch15-concept-gastrulation",
+      "diagramId": "ch15-germ-layers-label",
+      "letter": "B",
+      "prompt": "What does letter B identify?",
+      "options": [
+        "Ectoderm",
+        "Mesoderm",
+        "Endoderm"
+      ],
+      "cue": "Follow the leader line or the lettered feature. Read any stated model assumptions.",
+      "explanation": "Letter B identifies Mesoderm.",
+      "reviewRoute": "lesson-04"
+    },
+    {
+      "id": "ch15-germ-layers-label-practice-C",
+      "lesson": 4,
+      "conceptId": "ch15-concept-gastrulation",
+      "diagramId": "ch15-germ-layers-label",
+      "letter": "C",
+      "prompt": "What does letter C identify?",
+      "options": [
+        "Mesoderm",
+        "Ectoderm",
+        "Endoderm"
+      ],
+      "cue": "Follow the leader line or the lettered feature. Read any stated model assumptions.",
+      "explanation": "Letter C identifies Endoderm.",
+      "reviewRoute": "lesson-04"
+    }
+  ]
+}

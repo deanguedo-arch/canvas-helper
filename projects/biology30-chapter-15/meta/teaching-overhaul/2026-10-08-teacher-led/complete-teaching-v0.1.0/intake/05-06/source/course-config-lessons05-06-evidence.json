@@ -1,0 +1,970 @@
+{
+  "checks": [
+    {
+      "id": "ch15-check-05",
+      "route": "lesson-05",
+      "title": "Extraembryonic membranes and support structures",
+      "mc": [
+        {
+          "prompt": "Which statement correctly describes the human yolk sac?",
+          "answer": "It has early developmental roles, including blood-cell formation",
+          "explanation": "The name does not imply a large food-yolk store in humans.",
+          "cue": "Trace the normal mechanism before choosing an answer.",
+          "id": "ch15-l05-check-mc-1",
+          "options": [
+            "It has early developmental roles, including blood-cell formation",
+            "It is the main store of food for the entire pregnancy",
+            "It is the fetal urinary bladder after birth",
+            "It is another name for maternal blood"
+          ],
+          "difficulty": "application"
+        },
+        {
+          "prompt": "Which relationship is correct?",
+          "answer": "Fetal blood travels through the umbilical cord to and from the placenta",
+          "explanation": "The cord is a fetal vascular connection; it does not merge the circulations.",
+          "cue": "Trace the normal mechanism before choosing an answer.",
+          "id": "ch15-l05-check-mc-2",
+          "options": [
+            "The chorion is identical to the amniotic fluid",
+            "Fetal blood travels through the umbilical cord to and from the placenta",
+            "The allantois is the adult ovary",
+            "The amnion pumps maternal blood directly into the fetal heart"
+          ],
+          "difficulty": "application"
+        }
+      ],
+      "writing": [
+        {
+          "prompt": "Compare the amnion and chorion using their positions and functions.",
+          "model": "The amnion encloses the fluid-filled cavity around the embryo or fetus and helps provide physical protection. The chorion is an outer extraembryonic membrane; its villi contribute to the fetal portion of the placenta and provide a large exchange interface.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ],
+          "id": "ch15-l05-check-writing-1",
+          "limit": 3200
+        },
+        {
+          "prompt": "Explain why “the human yolk sac is a bag of food that lasts until birth” is not an adequate description.",
+          "model": "Unlike the yolk-rich egg of many other animals, a human yolk sac is not a large long-term nutrient store. It has early developmental roles including early blood-cell formation. The placenta becomes the major exchange interface supporting later development.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ],
+          "id": "ch15-l05-check-writing-2",
+          "limit": 3200
+        }
+      ]
+    },
+    {
+      "id": "ch15-check-06",
+      "route": "lesson-06",
+      "title": "Organogenesis and neurulation",
+      "mc": [
+        {
+          "prompt": "Two embryonic cells express different proteins and acquire different functions. Which process is most directly described?",
+          "answer": "Differentiation",
+          "explanation": "Specialization of cell function is differentiation.",
+          "cue": "Trace the normal mechanism before choosing an answer.",
+          "id": "ch15-l06-check-mc-1",
+          "options": [
+            "Ovulation",
+            "Fertilization",
+            "Differentiation",
+            "Implantation"
+          ],
+          "difficulty": "application"
+        },
+        {
+          "prompt": "What is the major future contribution of the neural tube?",
+          "answer": "Brain and spinal cord",
+          "explanation": "The neural tube is the developmental foundation of the central nervous system.",
+          "cue": "Trace the normal mechanism before choosing an answer.",
+          "id": "ch15-l06-check-mc-2",
+          "options": [
+            "Placental villi and maternal blood",
+            "Uterine endometrium",
+            "The entire intestinal lining",
+            "Brain and spinal cord"
+          ],
+          "difficulty": "application"
+        }
+      ],
+      "writing": [
+        {
+          "prompt": "Describe neurulation in order and name the germ layer and major structures involved.",
+          "model": "Specialized ectoderm forms a neural plate. The edges rise into neural folds with a groove between them. The folds move together and close to form the neural tube. The tube develops into the brain and spinal cord.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ],
+          "id": "ch15-l06-check-writing-1",
+          "limit": 3200
+        },
+        {
+          "prompt": "Explain why an early lung structure does not mean that an embryo could breathe air independently.",
+          "model": "Organogenesis establishes basic structures, but growth, differentiation and functional maturation continue. Early lung tissue is not yet a fully functioning gas-exchange system for life outside the uterus. Prenatal oxygen supply depends on placental exchange.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ],
+          "id": "ch15-l06-check-writing-2",
+          "limit": 3200
+        }
+      ]
+    }
+  ],
+  "words": [
+    {
+      "term": "amnion",
+      "meaning": "The membrane enclosing the fluid-filled amniotic cavity around the developing embryo or fetus.",
+      "example": "A thin membrane surrounds the space in which the fetus moves.",
+      "importantDistinction": "The amnion is the membrane; amniotic fluid is its contents.",
+      "aliases": [],
+      "id": "ch15-word-amnion",
+      "lesson": 5,
+      "whatItDoes": "A thin membrane surrounds the space in which the fetus moves.",
+      "feature": "A thin membrane surrounds the space in which the fetus moves.",
+      "confusion": "The amnion is the membrane; amniotic fluid is its contents."
+    },
+    {
+      "term": "chorion",
+      "meaning": "The outer extraembryonic membrane whose villi contribute to the fetal portion of the placenta.",
+      "example": "Finger-like projections from an outer membrane increase contact area for exchange.",
+      "importantDistinction": "Chorion and amnion are distinct membranes.",
+      "aliases": [],
+      "id": "ch15-word-chorion",
+      "lesson": 5,
+      "whatItDoes": "Finger-like projections from an outer membrane increase contact area for exchange.",
+      "feature": "Finger-like projections from an outer membrane increase contact area for exchange.",
+      "confusion": "Chorion and amnion are distinct membranes."
+    },
+    {
+      "term": "yolk sac",
+      "meaning": "An early extraembryonic structure involved in early blood-cell formation and development, without a large food-yolk store in humans.",
+      "example": "An early sac beneath the embryo contributes to early blood-cell formation.",
+      "importantDistinction": "The human yolk sac is not a large nutrient-filled egg yolk.",
+      "aliases": [],
+      "id": "ch15-word-yolk-sac",
+      "lesson": 5,
+      "whatItDoes": "An early sac beneath the embryo contributes to early blood-cell formation.",
+      "feature": "An early sac beneath the embryo contributes to early blood-cell formation.",
+      "confusion": "The human yolk sac is not a large nutrient-filled egg yolk."
+    },
+    {
+      "term": "allantois",
+      "meaning": "An early extraembryonic outgrowth associated with the connecting stalk and development of the bladder connection.",
+      "example": "A small outgrowth extends into the stalk of an early embryo.",
+      "importantDistinction": "In humans it is not a large waste-storage sac like that in some egg-laying animals.",
+      "aliases": [],
+      "id": "ch15-word-allantois",
+      "lesson": 5,
+      "whatItDoes": "A small outgrowth extends into the stalk of an early embryo.",
+      "feature": "A small outgrowth extends into the stalk of an early embryo.",
+      "confusion": "In humans it is not a large waste-storage sac like that in some egg-laying animals."
+    },
+    {
+      "term": "differentiation",
+      "meaning": "The development of specialized cell structures and functions.",
+      "example": "Cells become specialized for contraction or electrical signalling.",
+      "importantDistinction": "Specialization generally involves different gene expression, not a completely different genome.",
+      "aliases": [],
+      "id": "ch15-word-differentiation",
+      "lesson": 6,
+      "whatItDoes": "Cells become specialized for contraction or electrical signalling.",
+      "feature": "Cells become specialized for contraction or electrical signalling.",
+      "confusion": "Specialization generally involves different gene expression, not a completely different genome."
+    },
+    {
+      "term": "morphogenesis",
+      "meaning": "The development of the shape and organization of body structures.",
+      "example": "An initially flatter embryonic structure folds into a three-dimensional body form.",
+      "importantDistinction": "Changes in shape and arrangement are distinct from simply making more cells.",
+      "aliases": [],
+      "id": "ch15-word-morphogenesis",
+      "lesson": 6,
+      "whatItDoes": "An initially flatter embryonic structure folds into a three-dimensional body form.",
+      "feature": "An initially flatter embryonic structure folds into a three-dimensional body form.",
+      "confusion": "Changes in shape and arrangement are distinct from simply making more cells."
+    },
+    {
+      "term": "organogenesis",
+      "meaning": "The formation of early organ structures from developing tissues.",
+      "example": "Early heart, limb and nervous-system structures are established during embryonic development.",
+      "importantDistinction": "An organ’s early appearance does not mean it is mature.",
+      "aliases": [],
+      "id": "ch15-word-organogenesis",
+      "lesson": 6,
+      "whatItDoes": "Early heart, limb and nervous-system structures are established during embryonic development.",
+      "feature": "Early heart, limb and nervous-system structures are established during embryonic development.",
+      "confusion": "An organ’s early appearance does not mean it is mature."
+    },
+    {
+      "term": "neurulation",
+      "meaning": "Formation of the neural tube from specialized ectoderm.",
+      "example": "Neural folds move toward one another and enclose a tube.",
+      "importantDistinction": "The neural tube gives rise to the brain and spinal cord.",
+      "aliases": [],
+      "id": "ch15-word-neurulation",
+      "lesson": 6,
+      "whatItDoes": "Neural folds move toward one another and enclose a tube.",
+      "feature": "Neural folds move toward one another and enclose a tube.",
+      "confusion": "The neural tube gives rise to the brain and spinal cord."
+    }
+  ],
+  "practiceQuestions": [
+    {
+      "id": "ch15-source-OBJ_2131130",
+      "lesson": 6,
+      "prompt": "The series of events that form distinct structures of the developing organism is called",
+      "answer": "morphogenesis.",
+      "options": [
+        "parturition.",
+        "gastrulation.",
+        "neurulation.",
+        "morphogenesis."
+      ],
+      "cue": "Identify the relevant mechanism or quantity and apply the stated model.",
+      "explanation": "Morphogenesis describes the formation of body shape and structures. Gastrulation establishes germ layers; neurulation forms the neural tube.",
+      "difficulty": "application",
+      "stimuli": [],
+      "sourceItemId": "OBJ_2131130",
+      "conceptId": "ch15-concept-differentiation"
+    },
+    {
+      "id": "ch15-source-OBJ_2131133",
+      "lesson": 5,
+      "prompt": "Which extra-embryonic membrane is described by the following statement? “This fluid-filled sac protects the embryo from trauma as well as allowing freedom of movement and prevents limbs from sticking to the body.”",
+      "answer": "amnion",
+      "options": [
+        "placenta",
+        "amnion",
+        "allantois",
+        "chorion"
+      ],
+      "cue": "Identify the relevant mechanism or quantity and apply the stated model.",
+      "explanation": "The amnion encloses the amniotic cavity and its cushioning fluid. The chorion is the more external membrane.",
+      "difficulty": "application",
+      "stimuli": [],
+      "sourceItemId": "OBJ_2131133",
+      "conceptId": "ch15-concept-amnion"
+    },
+    {
+      "id": "ch15-foundation-ch15-word-amnion",
+      "lesson": 5,
+      "conceptId": "ch15-concept-amnion",
+      "prompt": "Which term matches this description? The membrane enclosing the fluid-filled amniotic cavity around the developing embryo or fetus.",
+      "options": [
+        "amnion",
+        "chorion",
+        "yolk sac",
+        "allantois"
+      ],
+      "answer": "amnion",
+      "cue": "Use the meaning of each term, not the length of its name.",
+      "explanation": "The membrane enclosing the fluid-filled amniotic cavity around the developing embryo or fetus. The amnion is the membrane; amniotic fluid is its contents.",
+      "difficulty": "recall",
+      "family": "definition-recognition",
+      "kind": "mc"
+    },
+    {
+      "id": "ch15-foundation-ch15-word-chorion",
+      "lesson": 5,
+      "conceptId": "ch15-concept-chorion",
+      "prompt": "Which term matches this description? The outer extraembryonic membrane whose villi contribute to the fetal portion of the placenta.",
+      "options": [
+        "amnion",
+        "chorion",
+        "yolk sac",
+        "allantois"
+      ],
+      "answer": "chorion",
+      "cue": "Use the meaning of each term, not the length of its name.",
+      "explanation": "The outer extraembryonic membrane whose villi contribute to the fetal portion of the placenta. Chorion and amnion are distinct membranes.",
+      "difficulty": "recall",
+      "family": "definition-recognition",
+      "kind": "mc"
+    },
+    {
+      "id": "ch15-foundation-ch15-word-yolk-sac",
+      "lesson": 5,
+      "conceptId": "ch15-concept-yolk-sac",
+      "prompt": "Which term matches this description? An early extraembryonic structure involved in early blood-cell formation and development, without a large food-yolk store in humans.",
+      "options": [
+        "amnion",
+        "chorion",
+        "yolk sac",
+        "allantois"
+      ],
+      "answer": "yolk sac",
+      "cue": "Use the meaning of each term, not the length of its name.",
+      "explanation": "An early extraembryonic structure involved in early blood-cell formation and development, without a large food-yolk store in humans. The human yolk sac is not a large nutrient-filled egg yolk.",
+      "difficulty": "recall",
+      "family": "definition-recognition",
+      "kind": "mc"
+    },
+    {
+      "id": "ch15-foundation-ch15-word-allantois",
+      "lesson": 5,
+      "conceptId": "ch15-concept-allantois",
+      "prompt": "Which term matches this description? An early extraembryonic outgrowth associated with the connecting stalk and development of the bladder connection.",
+      "options": [
+        "amnion",
+        "chorion",
+        "yolk sac",
+        "allantois"
+      ],
+      "answer": "allantois",
+      "cue": "Use the meaning of each term, not the length of its name.",
+      "explanation": "An early extraembryonic outgrowth associated with the connecting stalk and development of the bladder connection. In humans it is not a large waste-storage sac like that in some egg-laying animals.",
+      "difficulty": "recall",
+      "family": "definition-recognition",
+      "kind": "mc"
+    },
+    {
+      "id": "ch15-foundation-ch15-word-differentiation",
+      "lesson": 6,
+      "conceptId": "ch15-concept-differentiation",
+      "prompt": "Which term matches this description? The development of specialized cell structures and functions.",
+      "options": [
+        "differentiation",
+        "morphogenesis",
+        "organogenesis",
+        "neurulation"
+      ],
+      "answer": "differentiation",
+      "cue": "Use the meaning of each term, not the length of its name.",
+      "explanation": "The development of specialized cell structures and functions. Specialization generally involves different gene expression, not a completely different genome.",
+      "difficulty": "recall",
+      "family": "definition-recognition",
+      "kind": "mc"
+    },
+    {
+      "id": "ch15-foundation-ch15-word-morphogenesis",
+      "lesson": 6,
+      "conceptId": "ch15-concept-morphogenesis",
+      "prompt": "Which term matches this description? The development of the shape and organization of body structures.",
+      "options": [
+        "differentiation",
+        "morphogenesis",
+        "organogenesis",
+        "neurulation"
+      ],
+      "answer": "morphogenesis",
+      "cue": "Use the meaning of each term, not the length of its name.",
+      "explanation": "The development of the shape and organization of body structures. Changes in shape and arrangement are distinct from simply making more cells.",
+      "difficulty": "recall",
+      "family": "definition-recognition",
+      "kind": "mc"
+    },
+    {
+      "id": "ch15-foundation-ch15-word-organogenesis",
+      "lesson": 6,
+      "conceptId": "ch15-concept-organogenesis",
+      "prompt": "Which term matches this description? The formation of early organ structures from developing tissues.",
+      "options": [
+        "differentiation",
+        "morphogenesis",
+        "organogenesis",
+        "neurulation"
+      ],
+      "answer": "organogenesis",
+      "cue": "Use the meaning of each term, not the length of its name.",
+      "explanation": "The formation of early organ structures from developing tissues. An organ’s early appearance does not mean it is mature.",
+      "difficulty": "recall",
+      "family": "definition-recognition",
+      "kind": "mc"
+    },
+    {
+      "id": "ch15-foundation-ch15-word-neurulation",
+      "lesson": 6,
+      "conceptId": "ch15-concept-neurulation",
+      "prompt": "Which term matches this description? Formation of the neural tube from specialized ectoderm.",
+      "options": [
+        "differentiation",
+        "morphogenesis",
+        "organogenesis",
+        "neurulation"
+      ],
+      "answer": "neurulation",
+      "cue": "Use the meaning of each term, not the length of its name.",
+      "explanation": "Formation of the neural tube from specialized ectoderm. The neural tube gives rise to the brain and spinal cord.",
+      "difficulty": "recall",
+      "family": "definition-recognition",
+      "kind": "mc"
+    }
+  ],
+  "sequences": [
+    {
+      "id": "ch15-sequence-06",
+      "lesson": 6,
+      "conceptId": "ch15-concept-differentiation",
+      "title": "Organogenesis and neurulation",
+      "steps": [
+        "Ectoderm forms a neural plate",
+        "Neural folds rise beside a groove",
+        "Folds meet and fuse",
+        "Neural tube develops into brain and spinal cord"
+      ]
+    }
+  ],
+  "labelDiagrams": [
+    {
+      "id": "ch15-support-label",
+      "title": "Early extraembryonic support structures",
+      "lesson": 5,
+      "src": "./assets/labeling/ch15-support.svg",
+      "alt": "The amnion surrounds the embryo and amniotic cavity; the chorion lies outside it. The yolk sac is separate from the amniotic cavity, and the connecting stalk links toward the outer tissues. Lettered identification version; answer key is not drawn.",
+      "answers": {
+        "A": "Chorion",
+        "B": "Amnion",
+        "C": "Amniotic cavity",
+        "D": "Yolk sac",
+        "E": "Connecting stalk",
+        "F": "Allantois"
+      },
+      "options": [
+        "Chorion",
+        "Amnion",
+        "Amniotic cavity",
+        "Yolk sac",
+        "Connecting stalk",
+        "Allantois"
+      ],
+      "reviewNote": "Follow each letter or its leader line. Use the model assumptions and units shown."
+    }
+  ],
+  "practiceConcepts": [
+    {
+      "id": "ch15-concept-amnion",
+      "term": "amnion",
+      "lesson": 5,
+      "meaning": "The membrane enclosing the fluid-filled amniotic cavity around the developing embryo or fetus.",
+      "example": "A thin membrane surrounds the space in which the fetus moves.",
+      "aliases": [],
+      "cue": "Identify the structure, quantity or relationship described.",
+      "correctExplanation": "The membrane enclosing the fluid-filled amniotic cavity around the developing embryo or fetus. The amnion is the membrane; amniotic fluid is its contents.",
+      "misconception": {
+        "statement": "The amnion is the maternal uterine muscle.",
+        "correction": "The membrane enclosing the fluid-filled amniotic cavity around the developing embryo or fetus. The amnion is the membrane; amniotic fluid is its contents."
+      },
+      "reviewRoute": "lesson-05"
+    },
+    {
+      "id": "ch15-concept-chorion",
+      "term": "chorion",
+      "lesson": 5,
+      "meaning": "The outer extraembryonic membrane whose villi contribute to the fetal portion of the placenta.",
+      "example": "Finger-like projections from an outer membrane increase contact area for exchange.",
+      "aliases": [],
+      "cue": "Identify the structure, quantity or relationship described.",
+      "correctExplanation": "The outer extraembryonic membrane whose villi contribute to the fetal portion of the placenta. Chorion and amnion are distinct membranes.",
+      "misconception": {
+        "statement": "The chorion is the inner fluid of the amniotic cavity.",
+        "correction": "The outer extraembryonic membrane whose villi contribute to the fetal portion of the placenta. Chorion and amnion are distinct membranes."
+      },
+      "reviewRoute": "lesson-05"
+    },
+    {
+      "id": "ch15-concept-yolk-sac",
+      "term": "yolk sac",
+      "lesson": 5,
+      "meaning": "An early extraembryonic structure involved in early blood-cell formation and development, without a large food-yolk store in humans.",
+      "example": "An early sac beneath the embryo contributes to early blood-cell formation.",
+      "aliases": [],
+      "cue": "Identify the structure, quantity or relationship described.",
+      "correctExplanation": "An early extraembryonic structure involved in early blood-cell formation and development, without a large food-yolk store in humans. The human yolk sac is not a large nutrient-filled egg yolk.",
+      "misconception": {
+        "statement": "The human yolk sac supplies all nutrition throughout pregnancy.",
+        "correction": "An early extraembryonic structure involved in early blood-cell formation and development, without a large food-yolk store in humans. The human yolk sac is not a large nutrient-filled egg yolk."
+      },
+      "reviewRoute": "lesson-05"
+    },
+    {
+      "id": "ch15-concept-allantois",
+      "term": "allantois",
+      "lesson": 5,
+      "meaning": "An early extraembryonic outgrowth associated with the connecting stalk and development of the bladder connection.",
+      "example": "A small outgrowth extends into the stalk of an early embryo.",
+      "aliases": [],
+      "cue": "Identify the structure, quantity or relationship described.",
+      "correctExplanation": "An early extraembryonic outgrowth associated with the connecting stalk and development of the bladder connection. In humans it is not a large waste-storage sac like that in some egg-laying animals.",
+      "misconception": {
+        "statement": "The human allantois is the mature placenta.",
+        "correction": "An early extraembryonic outgrowth associated with the connecting stalk and development of the bladder connection. In humans it is not a large waste-storage sac like that in some egg-laying animals."
+      },
+      "reviewRoute": "lesson-05"
+    },
+    {
+      "id": "ch15-concept-differentiation",
+      "term": "differentiation",
+      "lesson": 6,
+      "meaning": "The development of specialized cell structures and functions.",
+      "example": "Cells become specialized for contraction or electrical signalling.",
+      "aliases": [],
+      "cue": "Identify the structure, quantity or relationship described.",
+      "correctExplanation": "The development of specialized cell structures and functions. Specialization generally involves different gene expression, not a completely different genome.",
+      "misconception": {
+        "statement": "Differentiation gives every cell a new unrelated genome.",
+        "correction": "The development of specialized cell structures and functions. Specialization generally involves different gene expression, not a completely different genome."
+      },
+      "reviewRoute": "lesson-06"
+    },
+    {
+      "id": "ch15-concept-morphogenesis",
+      "term": "morphogenesis",
+      "lesson": 6,
+      "meaning": "The development of the shape and organization of body structures.",
+      "example": "An initially flatter embryonic structure folds into a three-dimensional body form.",
+      "aliases": [],
+      "cue": "Identify the structure, quantity or relationship described.",
+      "correctExplanation": "The development of the shape and organization of body structures. Changes in shape and arrangement are distinct from simply making more cells.",
+      "misconception": {
+        "statement": "Morphogenesis means only an increase in cell number.",
+        "correction": "The development of the shape and organization of body structures. Changes in shape and arrangement are distinct from simply making more cells."
+      },
+      "reviewRoute": "lesson-06"
+    },
+    {
+      "id": "ch15-concept-organogenesis",
+      "term": "organogenesis",
+      "lesson": 6,
+      "meaning": "The formation of early organ structures from developing tissues.",
+      "example": "Early heart, limb and nervous-system structures are established during embryonic development.",
+      "aliases": [],
+      "cue": "Identify the structure, quantity or relationship described.",
+      "correctExplanation": "The formation of early organ structures from developing tissues. An organ’s early appearance does not mean it is mature.",
+      "misconception": {
+        "statement": "Every organ functions at adult capacity as soon as it first appears.",
+        "correction": "The formation of early organ structures from developing tissues. An organ’s early appearance does not mean it is mature."
+      },
+      "reviewRoute": "lesson-06"
+    },
+    {
+      "id": "ch15-concept-neurulation",
+      "term": "neurulation",
+      "lesson": 6,
+      "meaning": "Formation of the neural tube from specialized ectoderm.",
+      "example": "Neural folds move toward one another and enclose a tube.",
+      "aliases": [],
+      "cue": "Identify the structure, quantity or relationship described.",
+      "correctExplanation": "Formation of the neural tube from specialized ectoderm. The neural tube gives rise to the brain and spinal cord.",
+      "misconception": {
+        "statement": "The neural tube comes from the amniotic fluid.",
+        "correction": "Formation of the neural tube from specialized ectoderm. The neural tube gives rise to the brain and spinal cord."
+      },
+      "reviewRoute": "lesson-06"
+    }
+  ],
+  "authoredPractice": [
+    {
+      "prompt": "A learner labels fluid inside a sac as “amnion.” What distinction is needed?",
+      "answer": "Amnion is the membrane; amniotic fluid is inside it",
+      "explanation": "Closely neighbouring structures still need separate labels.",
+      "cue": "Trace the normal mechanism before choosing an answer.",
+      "id": "ch15-l05-application-1",
+      "options": [
+        "Amnion is the membrane; amniotic fluid is inside it",
+        "The space must be maternal uterine muscle",
+        "Amnion is always a blood vessel",
+        "All sacs in development are yolk sacs"
+      ],
+      "difficulty": "application",
+      "lesson": 5,
+      "chapter": 15,
+      "conceptId": "ch15-concept-amnion",
+      "family": "application",
+      "kind": "mc",
+      "reviewRoute": "lesson-05",
+      "flashVariant": {
+        "id": "ch15-l05-scenario-1",
+        "family": "scenario-explanation",
+        "prompt": "A learner labels fluid inside a sac as “amnion.” What distinction is needed?",
+        "model": "Amnion is the membrane; amniotic fluid is inside it. Closely neighbouring structures still need separate labels.",
+        "selfAssessed": true
+      }
+    },
+    {
+      "prompt": "A model embryo has the usual cell number but an abnormal arrangement of tissues. Which developmental process is most directly implicated?",
+      "answer": "Morphogenesis",
+      "explanation": "The issue is organization and shape rather than cell number alone.",
+      "cue": "Trace the normal mechanism before choosing an answer.",
+      "id": "ch15-l06-application-1",
+      "options": [
+        "An increase in haploid chromosome sets",
+        "Morphogenesis",
+        "Milk ejection",
+        "Gamete transport"
+      ],
+      "difficulty": "application",
+      "lesson": 6,
+      "chapter": 15,
+      "conceptId": "ch15-concept-morphogenesis",
+      "family": "application",
+      "kind": "mc",
+      "reviewRoute": "lesson-06",
+      "flashVariant": {
+        "id": "ch15-l06-scenario-1",
+        "family": "scenario-explanation",
+        "prompt": "A model embryo has the usual cell number but an abnormal arrangement of tissues. Which developmental process is most directly implicated?",
+        "model": "Morphogenesis. The issue is organization and shape rather than cell number alone.",
+        "selfAssessed": true
+      }
+    }
+  ],
+  "typedPractice": [
+    {
+      "id": "ch15-l05-context-amnion",
+      "chapter": 15,
+      "lesson": 5,
+      "conceptId": "ch15-concept-amnion",
+      "family": "scenario-retrieval",
+      "kind": "blank",
+      "difficulty": "application",
+      "prompt": "Identify the term illustrated: A thin membrane surrounds the space in which the fetus moves.",
+      "answer": "amnion",
+      "aliases": [],
+      "cue": "Use the relationship described in the example.",
+      "explanation": "The membrane enclosing the fluid-filled amniotic cavity around the developing embryo or fetus. The amnion is the membrane; amniotic fluid is its contents.",
+      "reviewRoute": "lesson-05"
+    },
+    {
+      "id": "ch15-l05-context-chorion",
+      "chapter": 15,
+      "lesson": 5,
+      "conceptId": "ch15-concept-chorion",
+      "family": "scenario-retrieval",
+      "kind": "blank",
+      "difficulty": "application",
+      "prompt": "Identify the term illustrated: Finger-like projections from an outer membrane increase contact area for exchange.",
+      "answer": "chorion",
+      "aliases": [],
+      "cue": "Use the relationship described in the example.",
+      "explanation": "The outer extraembryonic membrane whose villi contribute to the fetal portion of the placenta. Chorion and amnion are distinct membranes.",
+      "reviewRoute": "lesson-05"
+    },
+    {
+      "id": "ch15-l05-context-yolk-sac",
+      "chapter": 15,
+      "lesson": 5,
+      "conceptId": "ch15-concept-yolk-sac",
+      "family": "scenario-retrieval",
+      "kind": "blank",
+      "difficulty": "application",
+      "prompt": "Identify the term illustrated: An early sac beneath the embryo contributes to early blood-cell formation.",
+      "answer": "yolk sac",
+      "aliases": [],
+      "cue": "Use the relationship described in the example.",
+      "explanation": "An early extraembryonic structure involved in early blood-cell formation and development, without a large food-yolk store in humans. The human yolk sac is not a large nutrient-filled egg yolk.",
+      "reviewRoute": "lesson-05"
+    },
+    {
+      "id": "ch15-l05-context-allantois",
+      "chapter": 15,
+      "lesson": 5,
+      "conceptId": "ch15-concept-allantois",
+      "family": "scenario-retrieval",
+      "kind": "blank",
+      "difficulty": "application",
+      "prompt": "Identify the term illustrated: A small outgrowth extends into the stalk of an early embryo.",
+      "answer": "allantois",
+      "aliases": [],
+      "cue": "Use the relationship described in the example.",
+      "explanation": "An early extraembryonic outgrowth associated with the connecting stalk and development of the bladder connection. In humans it is not a large waste-storage sac like that in some egg-laying animals.",
+      "reviewRoute": "lesson-05"
+    },
+    {
+      "id": "ch15-l06-context-differentiation",
+      "chapter": 15,
+      "lesson": 6,
+      "conceptId": "ch15-concept-differentiation",
+      "family": "scenario-retrieval",
+      "kind": "blank",
+      "difficulty": "application",
+      "prompt": "Identify the term illustrated: Cells become specialized for contraction or electrical signalling.",
+      "answer": "differentiation",
+      "aliases": [],
+      "cue": "Use the relationship described in the example.",
+      "explanation": "The development of specialized cell structures and functions. Specialization generally involves different gene expression, not a completely different genome.",
+      "reviewRoute": "lesson-06"
+    },
+    {
+      "id": "ch15-l06-context-morphogenesis",
+      "chapter": 15,
+      "lesson": 6,
+      "conceptId": "ch15-concept-morphogenesis",
+      "family": "scenario-retrieval",
+      "kind": "blank",
+      "difficulty": "application",
+      "prompt": "Identify the term illustrated: An initially flatter embryonic structure folds into a three-dimensional body form.",
+      "answer": "morphogenesis",
+      "aliases": [],
+      "cue": "Use the relationship described in the example.",
+      "explanation": "The development of the shape and organization of body structures. Changes in shape and arrangement are distinct from simply making more cells.",
+      "reviewRoute": "lesson-06"
+    },
+    {
+      "id": "ch15-l06-context-organogenesis",
+      "chapter": 15,
+      "lesson": 6,
+      "conceptId": "ch15-concept-organogenesis",
+      "family": "scenario-retrieval",
+      "kind": "blank",
+      "difficulty": "application",
+      "prompt": "Identify the term illustrated: Early heart, limb and nervous-system structures are established during embryonic development.",
+      "answer": "organogenesis",
+      "aliases": [],
+      "cue": "Use the relationship described in the example.",
+      "explanation": "The formation of early organ structures from developing tissues. An organ’s early appearance does not mean it is mature.",
+      "reviewRoute": "lesson-06"
+    },
+    {
+      "id": "ch15-l06-context-neurulation",
+      "chapter": 15,
+      "lesson": 6,
+      "conceptId": "ch15-concept-neurulation",
+      "family": "scenario-retrieval",
+      "kind": "blank",
+      "difficulty": "application",
+      "prompt": "Identify the term illustrated: Neural folds move toward one another and enclose a tube.",
+      "answer": "neurulation",
+      "aliases": [],
+      "cue": "Use the relationship described in the example.",
+      "explanation": "Formation of the neural tube from specialized ectoderm. The neural tube gives rise to the brain and spinal cord.",
+      "reviewRoute": "lesson-06"
+    }
+  ],
+  "guidedActivities": [
+    {
+      "chapter": 15,
+      "lesson": 5,
+      "route": "lesson-05",
+      "worked": {
+        "title": "Distinguish a membrane from a vessel",
+        "scenario": "A diagram shows a fluid-filled space around the fetus and a separate cord connecting it with the placenta.",
+        "steps": [
+          "The boundary around the fluid-filled space is the amnion.",
+          "The contents are amniotic fluid, not the membrane itself.",
+          "The cord contains fetal vessels for transport to and from the placenta.",
+          "The placenta is the exchange organ at the uterine interface; the cord is the connection to it."
+        ],
+        "id": "ch15-l05-worked",
+        "label": "Worked example"
+      },
+      "guided": {
+        "id": "ch15-l05-guided",
+        "label": "Practise with support",
+        "title": "Apply the explanation",
+        "instruction": "Try both questions. Use the hint to revise your thinking after an incorrect answer.",
+        "items": [
+          {
+            "prompt": "A pointer ends on the membrane enclosing the fluid around the fetus. What is labelled?",
+            "answer": "Amnion",
+            "explanation": "The enclosing membrane is the amnion; the space inside is the amniotic cavity.",
+            "cue": "Check whether the pointer ends on a boundary or inside a space.",
+            "id": "ch15-l05-guided-q1",
+            "options": [
+              "Chorionic villus",
+              "Yolk sac",
+              "Amnion"
+            ],
+            "difficulty": "application",
+            "kind": "select",
+            "hint": "Check whether the pointer ends on a boundary or inside a space."
+          },
+          {
+            "prompt": "Which structure has finger-like villi contributing to placental exchange?",
+            "answer": "Chorion",
+            "explanation": "Chorionic villi increase surface area at the maternal–fetal interface.",
+            "cue": "Connect villi with the outer membrane.",
+            "id": "ch15-l05-guided-q2",
+            "options": [
+              "Chorion",
+              "Amniotic fluid",
+              "Embryonic spinal cord"
+            ],
+            "difficulty": "application",
+            "kind": "select",
+            "hint": "Connect villi with the outer membrane."
+          }
+        ]
+      }
+    },
+    {
+      "chapter": 15,
+      "lesson": 6,
+      "route": "lesson-06",
+      "worked": {
+        "title": "Explain the origin of an internal structure",
+        "scenario": "A student says the spinal cord cannot arise from ectoderm because ectoderm is the outer layer.",
+        "steps": [
+          "Begin with early position: neural tissue begins in a specialized region of ectoderm.",
+          "Follow the movement: the neural plate forms folds, which meet and close.",
+          "The resulting neural tube lies below the surface.",
+          "Therefore an initially outer layer can give rise to an internal structure through morphogenesis."
+        ],
+        "id": "ch15-l06-worked",
+        "label": "Worked example"
+      },
+      "guided": {
+        "id": "ch15-l06-guided",
+        "label": "Practise with support",
+        "title": "Apply the explanation",
+        "instruction": "Try both questions. Use the hint to revise your thinking after an incorrect answer.",
+        "items": [
+          {
+            "prompt": "Which event directly describes neurulation?",
+            "answer": "Neural folds close to form a tube",
+            "explanation": "Neurulation establishes the neural tube that develops into the central nervous system.",
+            "cue": "Look for the folding and closure event.",
+            "id": "ch15-l06-guided-q1",
+            "options": [
+              "The placenta is expelled",
+              "Neural folds close to form a tube",
+              "Sperm and egg join"
+            ],
+            "difficulty": "application",
+            "kind": "select",
+            "hint": "Look for the folding and closure event."
+          },
+          {
+            "prompt": "A limb bud is visible in an embryo. Which conclusion is justified?",
+            "answer": "Limb development has begun",
+            "explanation": "An early structure does not establish mature function.",
+            "cue": "Distinguish appearance from completion.",
+            "id": "ch15-l06-guided-q2",
+            "options": [
+              "Every hand muscle is fully mature",
+              "Fetal growth has finished",
+              "Limb development has begun"
+            ],
+            "difficulty": "application",
+            "kind": "select",
+            "hint": "Distinguish appearance from completion."
+          }
+        ]
+      }
+    }
+  ],
+  "diagramPractice": [
+    {
+      "id": "ch15-support-label-practice-A",
+      "lesson": 5,
+      "conceptId": "ch15-concept-chorion",
+      "diagramId": "ch15-support-label",
+      "letter": "A",
+      "prompt": "What does letter A identify?",
+      "options": [
+        "Chorion",
+        "Amniotic cavity",
+        "Yolk sac",
+        "Connecting stalk",
+        "Allantois",
+        "Amnion"
+      ],
+      "cue": "Follow the leader line or the lettered feature. Read any stated model assumptions.",
+      "explanation": "Letter A identifies Chorion.",
+      "reviewRoute": "lesson-05"
+    },
+    {
+      "id": "ch15-support-label-practice-B",
+      "lesson": 5,
+      "conceptId": "ch15-concept-amnion",
+      "diagramId": "ch15-support-label",
+      "letter": "B",
+      "prompt": "What does letter B identify?",
+      "options": [
+        "Yolk sac",
+        "Amnion",
+        "Connecting stalk",
+        "Allantois",
+        "Chorion",
+        "Amniotic cavity"
+      ],
+      "cue": "Follow the leader line or the lettered feature. Read any stated model assumptions.",
+      "explanation": "Letter B identifies Amnion.",
+      "reviewRoute": "lesson-05"
+    },
+    {
+      "id": "ch15-support-label-practice-C",
+      "lesson": 5,
+      "conceptId": "ch15-concept-amnion",
+      "diagramId": "ch15-support-label",
+      "letter": "C",
+      "prompt": "What does letter C identify?",
+      "options": [
+        "Connecting stalk",
+        "Allantois",
+        "Amniotic cavity",
+        "Chorion",
+        "Amnion",
+        "Yolk sac"
+      ],
+      "cue": "Follow the leader line or the lettered feature. Read any stated model assumptions.",
+      "explanation": "Letter C identifies Amniotic cavity.",
+      "reviewRoute": "lesson-05"
+    },
+    {
+      "id": "ch15-support-label-practice-D",
+      "lesson": 5,
+      "conceptId": "ch15-concept-yolk-sac",
+      "diagramId": "ch15-support-label",
+      "letter": "D",
+      "prompt": "What does letter D identify?",
+      "options": [
+        "Allantois",
+        "Chorion",
+        "Amnion",
+        "Yolk sac",
+        "Amniotic cavity",
+        "Connecting stalk"
+      ],
+      "cue": "Follow the leader line or the lettered feature. Read any stated model assumptions.",
+      "explanation": "Letter D identifies Yolk sac.",
+      "reviewRoute": "lesson-05"
+    },
+    {
+      "id": "ch15-support-label-practice-E",
+      "lesson": 5,
+      "conceptId": "ch15-concept-amnion",
+      "diagramId": "ch15-support-label",
+      "letter": "E",
+      "prompt": "What does letter E identify?",
+      "options": [
+        "Chorion",
+        "Amnion",
+        "Amniotic cavity",
+        "Yolk sac",
+        "Connecting stalk",
+        "Allantois"
+      ],
+      "cue": "Follow the leader line or the lettered feature. Read any stated model assumptions.",
+      "explanation": "Letter E identifies Connecting stalk.",
+      "reviewRoute": "lesson-05"
+    },
+    {
+      "id": "ch15-support-label-practice-F",
+      "lesson": 5,
+      "conceptId": "ch15-concept-allantois",
+      "diagramId": "ch15-support-label",
+      "letter": "F",
+      "prompt": "What does letter F identify?",
+      "options": [
+        "Amnion",
+        "Amniotic cavity",
+        "Yolk sac",
+        "Connecting stalk",
+        "Chorion",
+        "Allantois"
+      ],
+      "cue": "Follow the leader line or the lettered feature. Read any stated model assumptions.",
+      "explanation": "Letter F identifies Allantois.",
+      "reviewRoute": "lesson-05"
+    }
+  ]
+}

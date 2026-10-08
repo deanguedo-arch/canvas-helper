@@ -1,0 +1,37 @@
+[
+  {
+    "id": "ch16-multiple-04",
+    "chapter": 16,
+    "lesson": 4,
+    "conceptId": "ch16-concept-prophase",
+    "family": "discrimination",
+    "kind": "multi-select",
+    "difficulty": "application",
+    "prompt": "Select the TWO accurate statements about mitosis: chromosome movement through the stages.",
+    "options": [
+      {
+        "id": "true-1",
+        "text": "DNA replication precedes prophase in the normal cycle."
+      },
+      {
+        "id": "false-1",
+        "text": "Mitosis always pairs homologues into tetrads at metaphase."
+      },
+      {
+        "id": "true-2",
+        "text": "Spindle attachment guides chromosome movement; it does not create new DNA."
+      },
+      {
+        "id": "false-2",
+        "text": "Telophase is another name for S phase."
+      }
+    ],
+    "answers": [
+      "true-1",
+      "true-2"
+    ],
+    "cue": "Check every statement against the mechanism; do not assume a negative statement is correct.",
+    "explanation": "DNA replication precedes prophase in the normal cycle. Spindle attachment guides chromosome movement; it does not create new DNA. Homologous pairs do not normally align as tetrads in mitotic metaphase. Cytokinesis is a separate, coordinated division of the cytoplasm.",
+    "reviewRoute": "lesson-04"
+  }
+]

@@ -1,0 +1,967 @@
+{
+  "phase": "Optional textbook source-assisted first attempts, frozen before original-source/config/key/model inspection",
+  "frozen_utc": "2026-10-08T21:59:37.568654+00:00",
+  "evidence_boundary": "Read tasks.json; all16 complete question crops at original pixels; all10 supplied full-page contexts at original pixels; relevant PDF pp560 and564 text and rendered pages. Read no task keys/models/config or author/reviewer reports. This phase is source-assisted and is not counted as proof that lessons05–06 alone teach all textbook tasks. No prior-teaching files used.",
+  "unique_tasks": 16,
+  "inputs": [
+    {
+      "path": "biology_prep/ch16-batch05-06/review/optional-textbook/assets/textbook-practice/ch16-p556-in-text-q15-0.png",
+      "bytes": 7058,
+      "sha256": "d873fe2d74f8a60020f5e9e5da1b9bbe1cf9358362910deb9a5c2abcdf483d05"
+    },
+    {
+      "path": "biology_prep/ch16-batch05-06/review/optional-textbook/assets/textbook-practice/ch16-p558-in-text-q17-0.png",
+      "bytes": 5269,
+      "sha256": "6ac7e5447796ce2de7e06bfede6709706ee0431f340779fdf99fbca9a41e0e82"
+    },
+    {
+      "path": "biology_prep/ch16-batch05-06/review/optional-textbook/assets/textbook-practice/ch16-p558-in-text-q18-0.png",
+      "bytes": 6827,
+      "sha256": "f5194e77b1236b658e6eff4bfbce3c7241c105abdbdfa9a78a70b9b537d4380b"
+    },
+    {
+      "path": "biology_prep/ch16-batch05-06/review/optional-textbook/assets/textbook-practice/ch16-p559-in-text-q19-0.png",
+      "bytes": 7441,
+      "sha256": "1304cc85e71e1973a6fc896760593292ae09dbf9291527dcc48612e28aa13b14"
+    },
+    {
+      "path": "biology_prep/ch16-batch05-06/review/optional-textbook/assets/textbook-practice/ch16-p561-section-16-2-q1-0.png",
+      "bytes": 4900,
+      "sha256": "bacae7b09dfe9c1ec186fc4ae8cbede64412a3839fed868ed9586c7568aa6631"
+    },
+    {
+      "path": "biology_prep/ch16-batch05-06/review/optional-textbook/assets/textbook-practice/ch16-p561-section-16-2-q2-0.png",
+      "bytes": 24480,
+      "sha256": "4361494f9599f8126ff8c81c3345335b2f01002b5c8531fe2e929b1799c628f6"
+    },
+    {
+      "path": "biology_prep/ch16-batch05-06/review/optional-textbook/assets/textbook-practice/ch16-p561-section-16-2-q3-0.png",
+      "bytes": 8666,
+      "sha256": "bd512fc926589564f4bd8e9f597bd0c690d1ab28a67a0c9498abcdf180eb2e6a"
+    },
+    {
+      "path": "biology_prep/ch16-batch05-06/review/optional-textbook/assets/textbook-practice/ch16-p561-section-16-2-q4-0.png",
+      "bytes": 6032,
+      "sha256": "3905adcd3fe24bf4e3ea40163e0bd144e3088f03512a646527c06ba68bb7ed42"
+    },
+    {
+      "path": "biology_prep/ch16-batch05-06/review/optional-textbook/assets/textbook-practice/ch16-p561-section-16-2-q5-0.png",
+      "bytes": 7026,
+      "sha256": "f2940fd60d60cdcad13ef10012122b15ee43d2448c4a958d5a997ccc883c4b0f"
+    },
+    {
+      "path": "biology_prep/ch16-batch05-06/review/optional-textbook/assets/textbook-practice/ch16-p561-section-16-2-q6-0.png",
+      "bytes": 14549,
+      "sha256": "d5a6e5f24f952d506edbf2d57007537b67f615648f560b5f4ac5c35bcfe5a32e"
+    },
+    {
+      "path": "biology_prep/ch16-batch05-06/review/optional-textbook/assets/textbook-practice/ch16-p561-section-16-2-q7-0.png",
+      "bytes": 25064,
+      "sha256": "166830227846a05005a4a52419877cd3d3107ffbc0ad09ba44bd60019cd831e4"
+    },
+    {
+      "path": "biology_prep/ch16-batch05-06/review/optional-textbook/assets/textbook-practice/ch16-p563-in-text-q20-0.png",
+      "bytes": 5514,
+      "sha256": "1d37be6202df3dd9b9ccac8bd88b21312487a6c36ec9a42777ffaa663f1b7e06"
+    },
+    {
+      "path": "biology_prep/ch16-batch05-06/review/optional-textbook/assets/textbook-practice/ch16-p563-in-text-q21-0.png",
+      "bytes": 7008,
+      "sha256": "de943a4a874b999759f840f493ca37b50068bd5aca1c3c0a6cb7a0552d4724af"
+    },
+    {
+      "path": "biology_prep/ch16-batch05-06/review/optional-textbook/assets/textbook-practice/ch16-p563-in-text-q22-0.png",
+      "bytes": 5037,
+      "sha256": "dd57e6579ebca042b1fad8b6d111ff4ab680adf2ca3d774357c3db4f78534ce5"
+    },
+    {
+      "path": "biology_prep/ch16-batch05-06/review/optional-textbook/assets/textbook-practice/ch16-p566-in-text-q23-0.png",
+      "bytes": 5770,
+      "sha256": "ae276c1b677772f453267ec7b1be248ac1b0e69b14c4df3aa9cae53c4c545e83"
+    },
+    {
+      "path": "biology_prep/ch16-batch05-06/review/optional-textbook/assets/textbook-practice/ch16-p566-in-text-q25-0.png",
+      "bytes": 7077,
+      "sha256": "3c7427ec9094bb32637f545e3ac8fbe9f806fa2b687a538adbcb89763a3a0dc4"
+    },
+    {
+      "path": "biology_prep/ch16-batch05-06/review/optional-textbook/assets/textbook-practice/p555.jpg",
+      "bytes": 222463,
+      "sha256": "1d5e727a51784c89a1ecfc63130acc84026a7a28464374db05cdfa6b53464055"
+    },
+    {
+      "path": "biology_prep/ch16-batch05-06/review/optional-textbook/assets/textbook-practice/p556.jpg",
+      "bytes": 277796,
+      "sha256": "37d24646cfaa72cbd246dde28fdb3028325c61821cd6c945087db770867c6dc4"
+    },
+    {
+      "path": "biology_prep/ch16-batch05-06/review/optional-textbook/assets/textbook-practice/p557.jpg",
+      "bytes": 214457,
+      "sha256": "7b5e1952faf9add2817dcf96b29a0d88307f20e2c7bfe6cdd2baeab967792fe1"
+    },
+    {
+      "path": "biology_prep/ch16-batch05-06/review/optional-textbook/assets/textbook-practice/p558.jpg",
+      "bytes": 296330,
+      "sha256": "b7079ff170d3adb367b2c3b2322ca34d47e7531080193cc4f7219c0acdacfeb3"
+    },
+    {
+      "path": "biology_prep/ch16-batch05-06/review/optional-textbook/assets/textbook-practice/p559.jpg",
+      "bytes": 250934,
+      "sha256": "2bf2ede9ae0a7a98c8adcd1960f9f3e9516e7ba32b02e83b152857c3d12d83a2"
+    },
+    {
+      "path": "biology_prep/ch16-batch05-06/review/optional-textbook/assets/textbook-practice/p561.jpg",
+      "bytes": 246058,
+      "sha256": "df4e19230a08f1e347f4f877dc9cb6ddfa14780e2819e962faf1f5f584c84eee"
+    },
+    {
+      "path": "biology_prep/ch16-batch05-06/review/optional-textbook/assets/textbook-practice/p562.jpg",
+      "bytes": 332602,
+      "sha256": "af1e5bd940e77c2b2cf7509f82625e1eca54bc6117faf5c94d2b80fea19090b8"
+    },
+    {
+      "path": "biology_prep/ch16-batch05-06/review/optional-textbook/assets/textbook-practice/p563.jpg",
+      "bytes": 292926,
+      "sha256": "87abe703648464af1baaf643ade519347cee8280960c26360ac19a139ea1a68c"
+    },
+    {
+      "path": "biology_prep/ch16-batch05-06/review/optional-textbook/assets/textbook-practice/p565.jpg",
+      "bytes": 294241,
+      "sha256": "d63dbcb82032bb9a22f716f8d41ed88fe3a52c505e35faf103684e2e21415789"
+    },
+    {
+      "path": "biology_prep/ch16-batch05-06/review/optional-textbook/assets/textbook-practice/p566.jpg",
+      "bytes": 243709,
+      "sha256": "551b21791b90afbb82e2b73ad760b791bf75010a96a1947709747a2709a5d0d4"
+    },
+    {
+      "path": "biology_prep/ch16-batch05-06/review/optional-textbook/chapter-16.pdf",
+      "bytes": 4140841,
+      "sha256": "6f109455a9a5aa8d9ee03bc6b224baf68b973675f0b62b1eec0aa294de48d526"
+    },
+    {
+      "path": "biology_prep/ch16-batch05-06/review/optional-textbook/tasks.json",
+      "bytes": 17652,
+      "sha256": "7b836c57f66254657db8b197054821c18b8e7019be742a9ad6897c45ec27eab8"
+    }
+  ],
+  "attempts": [
+    {
+      "id": "ch16-p556-in-text-q15",
+      "page": 556,
+      "group": "in-text",
+      "number": 15,
+      "label": "In Text · p. 556 · question 15",
+      "topics": [
+        "lesson-04",
+        "lesson-05",
+        "lesson-02"
+      ],
+      "crops": [
+        {
+          "page": 556,
+          "box": [
+            360.4949951171875,
+            439.7869873046875,
+            502.5290222167969,
+            488.5170593261719
+          ],
+          "src": "./assets/textbook-practice/ch16-p556-in-text-q15-0.png",
+          "role": "question"
+        },
+        {
+          "page": 556,
+          "box": [
+            0.0,
+            0.0,
+            603.0,
+            783.0
+          ],
+          "src": "./assets/textbook-practice/p556.jpg",
+          "role": "supporting full-page context"
+        },
+        {
+          "page": 555,
+          "box": [
+            0.0,
+            0.0,
+            603.0,
+            783.0
+          ],
+          "src": "./assets/textbook-practice/p555.jpg",
+          "role": "supporting full-page context"
+        }
+      ],
+      "sourceText": "2 \u0012\u0016  Name the three important  functions of mitosis and  cytokinesis.",
+      "reviewStatus": "Original wording retained; geometric crop plus complete source context.",
+      "complete_prompt_transcribed_from_pixels": "Name the three important functions of mitosis and cytokinesis.",
+      "first_response": "Growth: increase cell number as the body develops; maintenance: replace worn-out/dead cells; repair: replace cells in damaged tissues.",
+      "visible_evidence": "p556 lists and explains all three functions.",
+      "alternatives_and_limits": [],
+      "unsupported_steps": []
+    },
+    {
+      "id": "ch16-p558-in-text-q17",
+      "page": 558,
+      "group": "in-text",
+      "number": 17,
+      "label": "In Text · p. 558 · question 17",
+      "topics": [
+        "lesson-03",
+        "lesson-04",
+        "lesson-05"
+      ],
+      "crops": [
+        {
+          "page": 558,
+          "box": [
+            360.4949951171875,
+            346.7869873046875,
+            507.0545349121094,
+            382.02032470703125
+          ],
+          "src": "./assets/textbook-practice/ch16-p558-in-text-q17-0.png",
+          "role": "question"
+        },
+        {
+          "page": 558,
+          "box": [
+            0.0,
+            0.0,
+            603.0,
+            783.0
+          ],
+          "src": "./assets/textbook-practice/p558.jpg",
+          "role": "supporting full-page context"
+        },
+        {
+          "page": 557,
+          "box": [
+            0.0,
+            0.0,
+            603.0,
+            783.0
+          ],
+          "src": "./assets/textbook-practice/p557.jpg",
+          "role": "supporting full-page context"
+        }
+      ],
+      "sourceText": "2 \u0012\u0018  What are the four phases of  mitosis?",
+      "reviewStatus": "Original wording retained; geometric crop plus complete source context.",
+      "complete_prompt_transcribed_from_pixels": "What are the four phases of mitosis?",
+      "first_response": "Prophase, metaphase, anaphase and telophase, in that order.",
+      "visible_evidence": "pp557–558 explicitly name the four phases.",
+      "alternatives_and_limits": [],
+      "unsupported_steps": []
+    },
+    {
+      "id": "ch16-p558-in-text-q18",
+      "page": 558,
+      "group": "in-text",
+      "number": 18,
+      "label": "In Text · p. 558 · question 18",
+      "topics": [
+        "lesson-03",
+        "lesson-04",
+        "lesson-05"
+      ],
+      "crops": [
+        {
+          "page": 558,
+          "box": [
+            360.4949951171875,
+            379.7869873046875,
+            520.64990234375,
+            415.02032470703125
+          ],
+          "src": "./assets/textbook-practice/ch16-p558-in-text-q18-0.png",
+          "role": "question"
+        },
+        {
+          "page": 558,
+          "box": [
+            0.0,
+            0.0,
+            603.0,
+            783.0
+          ],
+          "src": "./assets/textbook-practice/p558.jpg",
+          "role": "supporting full-page context"
+        },
+        {
+          "page": 557,
+          "box": [
+            0.0,
+            0.0,
+            603.0,
+            783.0
+          ],
+          "src": "./assets/textbook-practice/p557.jpg",
+          "role": "supporting full-page context"
+        }
+      ],
+      "sourceText": "2 \u0012\u0019  List the key events that happen  to chromosomes in each phase.",
+      "reviewStatus": "Original wording retained; geometric crop plus complete source context.",
+      "complete_prompt_transcribed_from_pixels": "List the key events that happen to chromosomes in each phase.",
+      "first_response": {
+        "prophase": "Chromatin condenses into compact replicated chromosomes.",
+        "metaphase": "Replicated chromosomes align singly at the equator; sisters are connected toward opposite poles.",
+        "anaphase": "Sister chromatids separate, becoming daughter chromosomes that move to opposite poles.",
+        "telophase": "Chromosomes reach the poles and decondense; a nuclear envelope forms around each set."
+      },
+      "visible_evidence": "pp557–558 and Figure16.8 give the sequence and chromosome behavior.",
+      "alternatives_and_limits": [],
+      "unsupported_steps": []
+    },
+    {
+      "id": "ch16-p559-in-text-q19",
+      "page": 559,
+      "group": "in-text",
+      "number": 19,
+      "label": "In Text · p. 559 · question 19",
+      "topics": [
+        "lesson-05"
+      ],
+      "crops": [
+        {
+          "page": 559,
+          "box": [
+            72.49490356445312,
+            129.78697204589844,
+            237.05455017089844,
+            178.51808166503906
+          ],
+          "src": "./assets/textbook-practice/ch16-p559-in-text-q19-0.png",
+          "role": "question"
+        },
+        {
+          "page": 559,
+          "box": [
+            0.0,
+            0.0,
+            603.0,
+            783.0
+          ],
+          "src": "./assets/textbook-practice/p559.jpg",
+          "role": "supporting full-page context"
+        },
+        {
+          "page": 558,
+          "box": [
+            0.0,
+            0.0,
+            603.0,
+            783.0
+          ],
+          "src": "./assets/textbook-practice/p558.jpg",
+          "role": "supporting full-page context"
+        }
+      ],
+      "sourceText": "2 \u0012\u001a  How do mitosis and cytokinesis  differ in plant cells and animal  cells?",
+      "reviewStatus": "Original wording retained; geometric crop plus complete source context.",
+      "complete_prompt_transcribed_from_pixels": "How do mitosis and cytokinesis differ in plant cells and animal cells?",
+      "first_response": "The mitotic chromosome-distribution sequence and spindle microtubules occur in both. Typical animal cells have centrioles; dividing onion/ordinary higher-plant cells lack them but still form spindles. In animal cytokinesis an inward furrow divides the cell; the rigid plant wall does not pinch. Instead, an internal cell plate extends to partition the cell and contributes the new wall.",
+      "visible_evidence": "pp558–559; Figure16.9 shows the plant partition. The source generalizes absence of centrioles to all plants; I state its intended onion/higher-plant context.",
+      "alternatives_and_limits": [],
+      "unsupported_steps": []
+    },
+    {
+      "id": "ch16-p563-in-text-q20",
+      "page": 563,
+      "group": "in-text",
+      "number": 20,
+      "label": "In Text · p. 563 · question 20",
+      "topics": [
+        "lesson-06",
+        "lesson-05",
+        "lesson-08"
+      ],
+      "crops": [
+        {
+          "page": 563,
+          "box": [
+            390.4949951171875,
+            105.91197204589844,
+            552.1165161132812,
+            141.1422882080078
+          ],
+          "src": "./assets/textbook-practice/ch16-p563-in-text-q20-0.png",
+          "role": "question"
+        },
+        {
+          "page": 563,
+          "box": [
+            0.0,
+            0.0,
+            603.0,
+            783.0
+          ],
+          "src": "./assets/textbook-practice/p563.jpg",
+          "role": "supporting full-page context"
+        },
+        {
+          "page": 562,
+          "box": [
+            0.0,
+            0.0,
+            603.0,
+            783.0
+          ],
+          "src": "./assets/textbook-practice/p562.jpg",
+          "role": "supporting full-page context"
+        }
+      ],
+      "sourceText": "2 \u0013\u0011  Describe the two key outcomes  of meiosis.",
+      "reviewStatus": "Original wording retained; geometric crop plus complete source context.",
+      "complete_prompt_transcribed_from_pixels": "Describe the two key outcomes of meiosis.",
+      "first_response": "Reduction: diploid cells give rise to haploid products with one chromosome set. Recombination: products carry new combinations of genetic information, contributing to genetic variation.",
+      "visible_evidence": "p563 lists reduction division and recombination.",
+      "alternatives_and_limits": [],
+      "unsupported_steps": []
+    },
+    {
+      "id": "ch16-p563-in-text-q21",
+      "page": 563,
+      "group": "in-text",
+      "number": 21,
+      "label": "In Text · p. 563 · question 21",
+      "topics": [
+        "lesson-09",
+        "lesson-06"
+      ],
+      "crops": [
+        {
+          "page": 563,
+          "box": [
+            390.4949951171875,
+            138.91197204589844,
+            558.86181640625,
+            174.1422882080078
+          ],
+          "src": "./assets/textbook-practice/ch16-p563-in-text-q21-0.png",
+          "role": "question"
+        },
+        {
+          "page": 563,
+          "box": [
+            0.0,
+            0.0,
+            603.0,
+            783.0
+          ],
+          "src": "./assets/textbook-practice/p563.jpg",
+          "role": "supporting full-page context"
+        },
+        {
+          "page": 562,
+          "box": [
+            0.0,
+            0.0,
+            603.0,
+            783.0
+          ],
+          "src": "./assets/textbook-practice/p562.jpg",
+          "role": "supporting full-page context"
+        }
+      ],
+      "sourceText": "2 \u0013\u0012  In what ways does meiosis serve  a different function than mitosis?",
+      "reviewStatus": "Original wording retained; geometric crop plus complete source context.",
+      "complete_prompt_transcribed_from_pixels": "In what ways does meiosis serve a different function than mitosis?",
+      "first_response": "Meiosis supports sexual reproduction by reducing chromosome sets for gamete formation and generating new combinations. Mitosis normally preserves chromosome number/genetic information while supporting growth, maintenance and repair. Fertilization of haploid gametes restores the diploid number.",
+      "visible_evidence": "p563 contrasts somatic reproduction and gamete production; p556 gives mitotic functions.",
+      "alternatives_and_limits": [],
+      "unsupported_steps": []
+    },
+    {
+      "id": "ch16-p563-in-text-q22",
+      "page": 563,
+      "group": "in-text",
+      "number": 22,
+      "label": "In Text · p. 563 · question 22",
+      "topics": [
+        "lesson-06",
+        "lesson-05",
+        "lesson-08"
+      ],
+      "crops": [
+        {
+          "page": 563,
+          "box": [
+            390.4949951171875,
+            171.91197204589844,
+            549.7596435546875,
+            201.92947387695312
+          ],
+          "src": "./assets/textbook-practice/ch16-p563-in-text-q22-0.png",
+          "role": "question"
+        },
+        {
+          "page": 563,
+          "box": [
+            0.0,
+            0.0,
+            603.0,
+            783.0
+          ],
+          "src": "./assets/textbook-practice/p563.jpg",
+          "role": "supporting full-page context"
+        },
+        {
+          "page": 562,
+          "box": [
+            0.0,
+            0.0,
+            603.0,
+            783.0
+          ],
+          "src": "./assets/textbook-practice/p562.jpg",
+          "role": "supporting full-page context"
+        }
+      ],
+      "sourceText": "2 \u0013\u0013  Where does meiosis take place?",
+      "reviewStatus": "Original wording retained; geometric crop plus complete source context.",
+      "complete_prompt_transcribed_from_pixels": "Where does meiosis take place?",
+      "first_response": "In the human/animal context of this section, germ-cell lineages in the ovaries and testes undergo meiosis as part of gamete formation.",
+      "visible_evidence": "p563 explicitly names ovaries and testes and identifies germ cells; location is not universal across all life cycles.",
+      "alternatives_and_limits": [],
+      "unsupported_steps": []
+    },
+    {
+      "id": "ch16-p566-in-text-q23",
+      "page": 566,
+      "group": "in-text",
+      "number": 23,
+      "label": "In Text · p. 566 · question 23",
+      "topics": [
+        "lesson-06",
+        "lesson-07"
+      ],
+      "crops": [
+        {
+          "page": 566,
+          "box": [
+            360.4949951171875,
+            373.7859802246094,
+            523.0840454101562,
+            409.0172424316406
+          ],
+          "src": "./assets/textbook-practice/ch16-p566-in-text-q23-0.png",
+          "role": "question"
+        },
+        {
+          "page": 566,
+          "box": [
+            0.0,
+            0.0,
+            603.0,
+            783.0
+          ],
+          "src": "./assets/textbook-practice/p566.jpg",
+          "role": "supporting full-page context"
+        },
+        {
+          "page": 565,
+          "box": [
+            0.0,
+            0.0,
+            603.0,
+            783.0
+          ],
+          "src": "./assets/textbook-practice/p565.jpg",
+          "role": "supporting full-page context"
+        }
+      ],
+      "sourceText": "2 \u0013\u0014  Describe the phases of meiosis I  and meiosis II.",
+      "reviewStatus": "Original wording retained; geometric crop plus complete source context.",
+      "complete_prompt_transcribed_from_pixels": "Describe the phases of meiosis I and meiosis II.",
+      "first_response": {
+        "before_division": "One S phase replicates the chromosomes before meiosis I. No replication occurs between I and II.",
+        "prophase_I": "Replicated homologues pair through synapsis to form tetrads; crossing over between non-sister chromatids can occur.",
+        "metaphase_I": "Homologous pairs align at the equator, with the homologues facing opposite poles.",
+        "anaphase_I": "Homologues separate, retaining joined sister chromatids.",
+        "telophase_I": "Each pole has one homologue of every type. Two haploid groups/cells result; nuclear-envelope/decondensation details vary.",
+        "prophase_II": "Within each haploid cell, chromosomes remain replicated and spindle apparatus forms/reorganizes.",
+        "metaphase_II": "Replicated chromosomes align singly with sisters directed toward opposite poles.",
+        "anaphase_II": "Sister chromatids separate and move toward opposite poles.",
+        "telophase_II": "Chromosomes arrive, nuclei reform and cytokinesis yields haploid products with unreplicated chromosomes."
+      },
+      "visible_evidence": "pp563–566; complete Figure16.11 on PDF p564 provides the meiosis-II stage sequence as pp565 gives a concise description.",
+      "alternatives_and_limits": [],
+      "unsupported_steps": []
+    },
+    {
+      "id": "ch16-p566-in-text-q25",
+      "page": 566,
+      "group": "in-text",
+      "number": 25,
+      "label": "In Text · p. 566 · question 25",
+      "topics": [
+        "lesson-08",
+        "lesson-06",
+        "lesson-07"
+      ],
+      "crops": [
+        {
+          "page": 566,
+          "box": [
+            360.4949951171875,
+            453.2859802246094,
+            519.1881103515625,
+            488.5172424316406
+          ],
+          "src": "./assets/textbook-practice/ch16-p566-in-text-q25-0.png",
+          "role": "question"
+        },
+        {
+          "page": 566,
+          "box": [
+            0.0,
+            0.0,
+            603.0,
+            783.0
+          ],
+          "src": "./assets/textbook-practice/p566.jpg",
+          "role": "supporting full-page context"
+        },
+        {
+          "page": 565,
+          "box": [
+            0.0,
+            0.0,
+            603.0,
+            783.0
+          ],
+          "src": "./assets/textbook-practice/p565.jpg",
+          "role": "supporting full-page context"
+        }
+      ],
+      "sourceText": "2 \u0013\u0016  Distinguish independent  assortment from crossing over.",
+      "reviewStatus": "Original wording retained; geometric crop plus complete source context.",
+      "complete_prompt_transcribed_from_pixels": "Distinguish independent assortment from crossing over.",
+      "first_response": "Independent assortment comes from each homologous pair orienting independently at metaphase I, so whole maternal/paternal homologues are distributed in different combinations. Crossing over is exchange of DNA segments between non-sister chromatids of paired homologues in prophase I, making recombinant chromatids. Both contribute variation through distinct mechanisms.",
+      "visible_evidence": "pp565–566; Figures16.13 and16.14 show assortment and segment exchange.",
+      "alternatives_and_limits": [],
+      "unsupported_steps": []
+    },
+    {
+      "id": "ch16-p561-section-16-2-q1",
+      "page": 561,
+      "group": "section-16-2",
+      "number": 1,
+      "label": "Section 16 2 · p. 561 · question 1",
+      "topics": [
+        "lesson-05",
+        "lesson-04",
+        "lesson-06"
+      ],
+      "crops": [
+        {
+          "page": 561,
+          "box": [
+            68.0,
+            492.93060302734375,
+            317.0,
+            511.93060302734375
+          ],
+          "src": "./assets/textbook-practice/ch16-p561-section-16-2-q1-0.png",
+          "role": "question"
+        },
+        {
+          "page": 561,
+          "box": [
+            0.0,
+            0.0,
+            603.0,
+            783.0
+          ],
+          "src": "./assets/textbook-practice/p561.jpg",
+          "role": "supporting full-page context"
+        }
+      ],
+      "sourceText": "1. What three functions does mitosis serve in your body?",
+      "reviewStatus": "Original wording retained; geometric crop plus complete source context.",
+      "complete_prompt_transcribed_from_pixels": "What three functions does mitosis serve in your body?",
+      "first_response": "Growth, maintenance/replacement of worn-out or dead cells, and repair of damaged tissues.",
+      "visible_evidence": "p556 lists the three; p561 summary concerns mitosis.",
+      "alternatives_and_limits": [],
+      "unsupported_steps": []
+    },
+    {
+      "id": "ch16-p561-section-16-2-q2",
+      "page": 561,
+      "group": "section-16-2",
+      "number": 2,
+      "label": "Section 16 2 · p. 561 · question 2",
+      "topics": [
+        "lesson-05",
+        "lesson-04",
+        "lesson-06"
+      ],
+      "crops": [
+        {
+          "page": 561,
+          "box": [
+            68.0,
+            511.93060302734375,
+            317.0,
+            620.9306030273438
+          ],
+          "src": "./assets/textbook-practice/ch16-p561-section-16-2-q2-0.png",
+          "role": "question"
+        },
+        {
+          "page": 561,
+          "box": [
+            0.0,
+            0.0,
+            603.0,
+            783.0
+          ],
+          "src": "./assets/textbook-practice/p561.jpg",
+          "role": "supporting full-page context"
+        }
+      ],
+      "sourceText": "2. In which phase of mitosis does each of the following \nevents occur?\na) migration of sister chromatids to opposite poles\nb) condensation of chromatin into compact \nchromosomes \nc) formation of a nuclear membrane\nd) alignment of chromosomes along the cell equator",
+      "reviewStatus": "Original wording retained; geometric crop plus complete source context.",
+      "complete_prompt_transcribed_from_pixels": "In which phase of mitosis does each of the following events occur? a) migration of sister chromatids to opposite poles b) condensation of chromatin into compact chromosomes c) formation of a nuclear membrane d) alignment of chromosomes along the cell equator",
+      "first_response": {
+        "a": "Anaphase",
+        "b": "Prophase",
+        "c": "Telophase",
+        "d": "Metaphase"
+      },
+      "visible_evidence": "pp557–558 give the four event-to-phase matches.",
+      "alternatives_and_limits": [],
+      "unsupported_steps": []
+    },
+    {
+      "id": "ch16-p561-section-16-2-q3",
+      "page": 561,
+      "group": "section-16-2",
+      "number": 3,
+      "label": "Section 16 2 · p. 561 · question 3",
+      "topics": [
+        "lesson-05",
+        "lesson-04",
+        "lesson-06"
+      ],
+      "crops": [
+        {
+          "page": 561,
+          "box": [
+            68.0,
+            620.9306030273438,
+            317.0,
+            652.9306030273438
+          ],
+          "src": "./assets/textbook-practice/ch16-p561-section-16-2-q3-0.png",
+          "role": "question"
+        },
+        {
+          "page": 561,
+          "box": [
+            0.0,
+            0.0,
+            603.0,
+            783.0
+          ],
+          "src": "./assets/textbook-practice/p561.jpg",
+          "role": "supporting full-page context"
+        }
+      ],
+      "sourceText": "3. Sketch the four phases of mitosis. Include labels to \nexplain what is happening in each phase.",
+      "reviewStatus": "Original wording retained; geometric crop plus complete source context.",
+      "complete_prompt_transcribed_from_pixels": "Sketch the four phases of mitosis. Include labels to explain what is happening in each phase.",
+      "first_response": "See phase2-q3-first-response-sketch.png: four drawn, labelled panels; 4 replicated chromosomes become 4 daughter chromosomes at each pole, then two nuclei.",
+      "visible_evidence": "Figure16.8 and pp557–558; sketch is an independent first-response drawing, not a copied answer image.",
+      "alternatives_and_limits": [],
+      "unsupported_steps": []
+    },
+    {
+      "id": "ch16-p561-section-16-2-q4",
+      "page": 561,
+      "group": "section-16-2",
+      "number": 4,
+      "label": "Section 16 2 · p. 561 · question 4",
+      "topics": [
+        "lesson-05",
+        "lesson-04",
+        "lesson-06"
+      ],
+      "crops": [
+        {
+          "page": 561,
+          "box": [
+            68.0,
+            652.9306030273438,
+            317.0,
+            732.0
+          ],
+          "src": "./assets/textbook-practice/ch16-p561-section-16-2-q4-0.png",
+          "role": "question"
+        },
+        {
+          "page": 561,
+          "box": [
+            0.0,
+            0.0,
+            603.0,
+            783.0
+          ],
+          "src": "./assets/textbook-practice/p561.jpg",
+          "role": "supporting full-page context"
+        }
+      ],
+      "sourceText": "4. What role does the spindle apparatus play in cell division?",
+      "reviewStatus": "Original wording retained; geometric crop plus complete source context.",
+      "complete_prompt_transcribed_from_pixels": "What role does the spindle apparatus play in cell division?",
+      "first_response": "Its microtubules attach to chromosome-associated structures, position chromosomes at the equator and separate chromosome copies to opposite poles. This distributes a complete chromosome set to each daughter nucleus.",
+      "visible_evidence": "p558 explains spindle microtubules and their roles in metaphase/anaphase.",
+      "alternatives_and_limits": [],
+      "unsupported_steps": []
+    },
+    {
+      "id": "ch16-p561-section-16-2-q5",
+      "page": 561,
+      "group": "section-16-2",
+      "number": 5,
+      "label": "Section 16 2 · p. 561 · question 5",
+      "topics": [
+        "lesson-05",
+        "lesson-04",
+        "lesson-06"
+      ],
+      "crops": [
+        {
+          "page": 561,
+          "box": [
+            287.0,
+            492.93060302734375,
+            568.0,
+            524.9306030273438
+          ],
+          "src": "./assets/textbook-practice/ch16-p561-section-16-2-q5-0.png",
+          "role": "question"
+        },
+        {
+          "page": 561,
+          "box": [
+            0.0,
+            0.0,
+            603.0,
+            783.0
+          ],
+          "src": "./assets/textbook-practice/p561.jpg",
+          "role": "supporting full-page context"
+        }
+      ],
+      "sourceText": "ody?\nng \n 5. Briefl y explain the link between cell cycle regulation \nand cancer.",
+      "reviewStatus": "Original wording retained; geometric crop plus complete source context.",
+      "complete_prompt_transcribed_from_pixels": "Briefly explain the link between cell cycle regulation and cancer.",
+      "first_response": "Regulatory signals normally control when cells divide and stop. Interference with these controls can allow uncontrolled division and tumor formation. Rapid division alone does not establish cancer; the loss of appropriate control is the important link.",
+      "visible_evidence": "PDF pp560–561 describes regulatory signals, disrupted control and cancer; p561 summary states the link.",
+      "alternatives_and_limits": [],
+      "unsupported_steps": []
+    },
+    {
+      "id": "ch16-p561-section-16-2-q6",
+      "page": 561,
+      "group": "section-16-2",
+      "number": 6,
+      "label": "Section 16 2 · p. 561 · question 6",
+      "topics": [
+        "lesson-05",
+        "lesson-04",
+        "lesson-06"
+      ],
+      "crops": [
+        {
+          "page": 561,
+          "box": [
+            287.0,
+            524.9306030273438,
+            568.0,
+            569.9306030273438
+          ],
+          "src": "./assets/textbook-practice/ch16-p561-section-16-2-q6-0.png",
+          "role": "question"
+        },
+        {
+          "page": 561,
+          "box": [
+            0.0,
+            0.0,
+            603.0,
+            783.0
+          ],
+          "src": "./assets/textbook-practice/p561.jpg",
+          "role": "supporting full-page context"
+        }
+      ],
+      "sourceText": "ng \ns\n 6. The scientists in a lab have isolated a substance that \nprevents cells from synthesizing microtubules. What \nimpact would this substance have on cell division? Explain.",
+      "reviewStatus": "Original wording retained; geometric crop plus complete source context.",
+      "complete_prompt_transcribed_from_pixels": "The scientists in a lab have isolated a substance that prevents cells from synthesizing microtubules. What impact would this substance have on cell division? Explain.",
+      "first_response": "Cells would be unable to build/maintain the normal spindle adequately, impairing chromosome alignment and separation. Thus normal nuclear division would be blocked or produce errors, rather than reliably delivering a complete set to each daughter. The exact arrest point or residual function depends on when treatment occurs and any microtubules already present.",
+      "visible_evidence": "p558 identifies spindle fibres as microtubules, explains growth through added subunits, and connects them to alignment and separation; impact is an inference from that mechanism.",
+      "alternatives_and_limits": [
+        "Does not justify claiming every pre-existing microtubule vanishes immediately or an exact arrest phase without timing/dose information."
+      ],
+      "unsupported_steps": []
+    },
+    {
+      "id": "ch16-p561-section-16-2-q7",
+      "page": 561,
+      "group": "section-16-2",
+      "number": 7,
+      "label": "Section 16 2 · p. 561 · question 7",
+      "topics": [
+        "lesson-05",
+        "lesson-09",
+        "lesson-04"
+      ],
+      "crops": [
+        {
+          "page": 561,
+          "box": [
+            287.0,
+            569.9306030273438,
+            568.0,
+            732.0
+          ],
+          "src": "./assets/textbook-practice/ch16-p561-section-16-2-q7-0.png",
+          "role": "question"
+        },
+        {
+          "page": 561,
+          "box": [
+            0.0,
+            0.0,
+            603.0,
+            783.0
+          ],
+          "src": "./assets/textbook-practice/p561.jpg",
+          "role": "supporting full-page context"
+        }
+      ],
+      "sourceText": "tor\n \nvision?\n 7. A scientist studying a group of somatic cells notices that \nupon the completion of the cell cycle half of the daughter \ncells have no chromosomes and the other half have \n92 chromosomes. In what phase of mitosis did an \nerror most likely occur? Explain your reasoning.",
+      "reviewStatus": "Original wording retained; geometric crop plus complete source context.",
+      "complete_prompt_transcribed_from_pixels": "A scientist studying a group of somatic cells notices that upon the completion of the cell cycle half of the daughter cells have no chromosomes and the other half have 92 chromosomes. In what phase of mitosis did an error most likely occur? Explain your reasoning.",
+      "first_response": "Anaphase is the most direct stage implicated: daughter chromosomes should segregate to opposite poles, whereas this outcome suggests all chromosome copies ended up on one side. If the parent was a normal human somatic cell, replication supplied 92 chromatids, which should yield 46 chromosomes to each daughter after separation; the reported 0/92 split is unequal distribution. An earlier spindle-attachment failure could cause the anaphase outcome, and the endpoint alone cannot prove the timing or exclude abnormal cytokinesis.",
+      "visible_evidence": "pp557–558 connect anaphase to distribution; the question supplies the 0/92 counts but does not explicitly name the species. Human46 is an explicit contextual assumption, not a given.",
+      "alternatives_and_limits": [
+        "Endpoint does not uniquely identify causal stage. Anaphase is the intended distribution stage; an earlier spindle error or abnormal partition can create a similar outcome. Species is unstated."
+      ],
+      "unsupported_steps": []
+    }
+  ],
+  "sketch": {
+    "path": "biology_prep/ch16-review05-06/phase2-q3-first-response-sketch.png",
+    "sha256": "bd752f10e3ad105af409f0f08b92ab13253021ce93b5a0d63fd3ebc04c3fba15"
+  },
+  "crop_findings": [
+    "All16 prompts and every subpart are readable and complete.",
+    "Section16.2 q5,q6,q7 crops include extraneous fragments from the left column. Full-page context makes the intended prompt clear; sourceText also includes those artifacts.",
+    "The q18 word each refers to mitotic phases established by q17; full-page context resolves it.",
+    "Textbook practice includes prior mitosis and later meiosisII/variation content. It is explicitly a source-assisted extension, not a self-contained test of just the two current teaching lessons."
+  ]
+}

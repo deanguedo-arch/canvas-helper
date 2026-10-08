@@ -1,0 +1,1773 @@
+[
+  {
+    "slide": 1,
+    "text": [
+      "UNIT D: ",
+      "Population Dynamics",
+      "",
+      "BIOLOGY 30"
+    ],
+    "images": []
+  },
+  {
+    "slide": 2,
+    "text": [
+      "Chapter 19",
+      "Population Genetics"
+    ],
+    "images": []
+  },
+  {
+    "slide": 3,
+    "text": [
+      "",
+      "TOPICS",
+      "Gene Pool, Genotype vs. allele frequency",
+      "The Hardy-Weinberg principle",
+      "Calculating genotype and phenotype frequency (p",
+      "2",
+      " + 2pq + q",
+      "2",
+      " = 1) ",
+      "Calculating allele frequency (p + q = 1)",
+      "Conditions of Hardy-Weinberg equilibrium",
+      "Genetic drift vs. founder effect vs. bottleneck effect",
+      "Gene flow & mutations",
+      "Natural selection vs. sexual selection",
+      "",
+      "Textbook pgs. 672-701"
+    ],
+    "images": []
+  },
+  {
+    "slide": 4,
+    "text": [
+      "What is evolution?",
+      "Evolution simply means change. In a biological context, evolution refers to the fact that life has changed over the course of Earth’s history and present forms of life and not the same as previous forms. ",
+      "",
+      "",
+      "How do we know it has and is ",
+      "occurring",
+      "?",
+      "We have a vast array of evidence from various fields that support that fact that organisms and species have changed over time. These areas include ",
+      "paleontology",
+      " and analysis of the fossil record, biogeography, embryology, biogeography, ",
+      "molecular",
+      " biology and genetics. Furthermore, we can look at how artificial selection is used to develop desired traits and strains of organisms. ",
+      "",
+      "Some Background Review from Bio 20"
+    ],
+    "images": [
+      {
+        "path": "sources/slide-assets/slide-4-image28.png",
+        "archiveMember": "ppt/media/image28.png",
+        "sha256": "b90ae132c90660353aae20664bcdb0e96fd3ac1a412a6108c6435b9cc218e620",
+        "pixelReview": "Not performed during export"
+      }
+    ]
+  },
+  {
+    "slide": 5,
+    "text": [
+      "What is out best explanation for how evolution occurs?",
+      "The theory of evolution by natural selection is a well-supported, widely accepted explanation of how life has and continues to change over time. In a nutshell, there is a struggle for survival, and individuals with desirable traits are more likely to survive and reproduce, therefore passing on their traits to their offspring. In turn, these desirable traits should increase in proportions over time, leading to cumulative change. ",
+      "",
+      "Some Background Review from Bio 20",
+      "What is population genetics?",
+      "Population genetics is a field of biology that studies the genetic composition of biological populations, and the changes in genetic composition that result from various factors, including natural selection.",
+      "In this unit, we will look at what allele frequencies can tell us about whether a population and/or species is changing or evolving."
+    ],
+    "images": [
+      {
+        "path": "sources/slide-assets/slide-5-image18.jpg",
+        "archiveMember": "ppt/media/image18.jpg",
+        "sha256": "e9b319211cb114d7da63dfdfda81e943798c0f37bb0361721afb0806224e2126",
+        "pixelReview": "Not performed during export"
+      },
+      {
+        "path": "sources/slide-assets/slide-5-image20.jpg",
+        "archiveMember": "ppt/media/image20.jpg",
+        "sha256": "5b9bcc69b157215b4e80f5bc1feaadd241c962a00038e4cb7105da6a1f6146be",
+        "pixelReview": "Not performed during export"
+      }
+    ]
+  },
+  {
+    "slide": 6,
+    "text": [
+      "Some Terminology",
+      "A ",
+      "gene pool",
+      " is the total collection of all alleles for every gene present in a population. It represents the genetic diversity within that population, which influences its ability to adapt and evolve over time.",
+      ""
+    ],
+    "images": [
+      {
+        "path": "sources/slide-assets/slide-6-image15.png",
+        "archiveMember": "ppt/media/image15.png",
+        "sha256": "525a1e0604b1cd6c932d6c552c982b22289e8214c50c6a9e9266219ed9fa9883",
+        "pixelReview": "Not performed during export"
+      },
+      {
+        "path": "sources/slide-assets/slide-6-image12.png",
+        "archiveMember": "ppt/media/image12.png",
+        "sha256": "75392b7a078615e4637a76e1922ac5179d9464417fe58020f47c77fb2dd49579",
+        "pixelReview": "Not performed during export"
+      }
+    ]
+  },
+  {
+    "slide": 7,
+    "text": [
+      "Some Terminology",
+      "Genotype frequency",
+      " is the proportion of a population with a particular ",
+      "genotype",
+      ". Eg. frequency of bunnies that are..",
+      "Homozygous dominant = 3/10 = 0.3",
+      "Heterozygous = 5/10 = 0.5",
+      "Homozygous recessive = 2/10 = 0.2",
+      "Allele frequency",
+      " is the rate of occurrence of a particular ",
+      "allele ",
+      "within a population. E.g. frequency of …",
+      "Dominant allele = 11/20 = 0.55",
+      "Recessive allele = 9/20 = 0.45",
+      "Changes in the allele frequency of a population are indicative of evolutionary change, and very gradual changes are referred to as ",
+      "microevolution",
+      ".  ",
+      "Note: Frequency is always expressed as a decimal between 0 and 1"
+    ],
+    "images": [
+      {
+        "path": "sources/slide-assets/slide-7-image5.png",
+        "archiveMember": "ppt/media/image5.png",
+        "sha256": "449eaf00792d32e15bd2ddb3311ffcdb7728fe60ee2b4e16f0260632cae9cb15",
+        "pixelReview": "Not performed during export"
+      }
+    ]
+  },
+  {
+    "slide": 8,
+    "text": [
+      "The ",
+      "Hardy-Weinberg Principle",
+      " is a mathematical model used to study genetic variation in a population. ",
+      "It ",
+      "describes a population that is NOT evolving",
+      ", meaning allele and genotype frequencies remain constant from generation to generation",
+      "There are two key equations that we will use:",
+      "The Hardy-Weinberg Principle",
+      "Where:",
+      "p",
+      " = frequency of the dominant allele (e.g., A)",
+      "q",
+      " = frequency of the recessive allele (e.g., a)",
+      "p",
+      "2",
+      " = frequency of the homozygous dominant genotype (AA)",
+      "2pq",
+      " ",
+      "= frequency of the heterozygous genotype (Aa)",
+      "q",
+      "2",
+      " = frequency of the homozygous recessive genotype (aa)",
+      "",
+      ""
+    ],
+    "images": [
+      {
+        "path": "sources/slide-assets/slide-8-image4.png",
+        "archiveMember": "ppt/media/image4.png",
+        "sha256": "f3455d8caa43b4201a682a197087b9013180f88c3827b4c7386fa97033129fc3",
+        "pixelReview": "Not performed during export"
+      },
+      {
+        "path": "sources/slide-assets/slide-8-image3.png",
+        "archiveMember": "ppt/media/image3.png",
+        "sha256": "ab1603bb7d48ef2c2708258a492030c93b2f74b220c956ed7d2e14b34bd74ea3",
+        "pixelReview": "Not performed during export"
+      }
+    ]
+  },
+  {
+    "slide": 9,
+    "text": [
+      "The Hardy-Weinberg Principle",
+      "The Hardy-Weinberg principle allows us to study one trait at a time. Consider the simplest case, a trait that is controlled by a dominant allele, represented by ",
+      "p",
+      ",",
+      " ",
+      "and a recessive allele, represented by ",
+      "q",
+      ". Since there are only two alleles, when their frequencies are added together, the sum must be 1.00, or 100 percent of the alleles.",
+      ""
+    ],
+    "images": [
+      {
+        "path": "sources/slide-assets/slide-9-image13.png",
+        "archiveMember": "ppt/media/image13.png",
+        "sha256": "384481d9da2ba65048992577b538af33398afb6dcaa861645e1bd6e947db9a1f",
+        "pixelReview": "Not performed during export"
+      }
+    ]
+  },
+  {
+    "slide": 10,
+    "text": [
+      "The Hardy-Weinberg Principle",
+      "Let’s suppose the frequency of the dominant allele(e.g. A) is 0.7 and the frequency of the recessive allele (eg. a) is 0.3. From this, we can calculate the frequencies of all possible genotypes. Since there are only three possible genotypes, their frequencies must also add up to one. ",
+      "",
+      "p",
+      "2",
+      " = 0.7 x 0.7 = 0.49 → frequency of the homozygous dominant genotype (e.g. AA) is 0.49. (49% of individuals in the population have this genotype)",
+      "2",
+      "pq",
+      " = 2 x 0.7 x 0.3 = 0.42 → frequency of the heterozygous genotype (e.g. Aa) is 0.42. (42% of individuals in the population have this genotype)",
+      "",
+      "q",
+      "2",
+      " = 0.3 x 0.3 = 0.09 → frequency of the homozygous recessive genotype is 0.09. (9% of individuals in the population have this genotype)",
+      ""
+    ],
+    "images": [
+      {
+        "path": "sources/slide-assets/slide-10-image14.png",
+        "archiveMember": "ppt/media/image14.png",
+        "sha256": "d3d5689740495da43b7703b28b785e6f6b11e12d62964bffcbefc82bf8ae9944",
+        "pixelReview": "Not performed during export"
+      }
+    ]
+  },
+  {
+    "slide": 11,
+    "text": [
+      "The population is large enough that chance events will not alter allele frequencies.",
+      "Mates are chosen on a random basis.",
+      "There are no new mutations.",
+      "There is no migration.",
+      "There is no natural selection against any of the phenotypes. ",
+      "",
+      "",
+      "",
+      "Five conditions must be met for the Hardy-Weinberg principle to apply",
+      "If all five conditions are met, the population is said to be in a ",
+      "Hardy-Weinberg Equilibrium."
+    ],
+    "images": [
+      {
+        "path": "sources/slide-assets/slide-11-image8.jpg",
+        "archiveMember": "ppt/media/image8.jpg",
+        "sha256": "f97fa934203623ed8919458596ee2058802c6bc356da2ea3d7e9f5af1e267b42",
+        "pixelReview": "Not performed during export"
+      }
+    ]
+  },
+  {
+    "slide": 12,
+    "text": [
+      "",
+      "Case Study The California Ground Squirrel",
+      "In ground-squirrels, some individuals are resistant to snake venom, while others are ",
+      "susceptible",
+      " ",
+      "If the venom-resistant trait is encoded by a recessive allele, then the genotype of ground squirrels with that trait is “aa”.",
+      "In a population of 200 squirrels, 32 are resistant to rattlesnake venom.",
+      "What is the proportion of ground squirrels with each genotype? "
+    ],
+    "images": [
+      {
+        "path": "sources/slide-assets/slide-12-image17.jpg",
+        "archiveMember": "ppt/media/image17.jpg",
+        "sha256": "7bf15da09e8676bfccfaa1713f5a1253ba625299c6bb788cacc78a1b2ca823e0",
+        "pixelReview": "Not performed during export"
+      }
+    ]
+  },
+  {
+    "slide": 13,
+    "text": [
+      "",
+      "We (almost) always start with ",
+      "q",
+      "2",
+      "q",
+      "2 ",
+      "= 32/200 = 0.16 (so 16% of squirrels are ‘aa’ or homozygous recessive)",
+      "",
+      "If q",
+      "2 ",
+      "= 0.16, then q = √0.16 = 0.40 (frequency of allele ",
+      "a",
+      ")",
+      "",
+      "Because we know q, we can then determine p:",
+      "p + q = 1",
+      "p + 0.4 = 1",
+      "p = 1 – 0.4",
+      "p = 0.60",
+      "",
+      "So, the frequency of the “a” allele (q)  is 0.40, and the frequency of the “A” allele (p) is 0.60",
+      "",
+      "Recall that p+q=1 and p",
+      "2",
+      "+2pq+q",
+      "2",
+      "=1… "
+    ],
+    "images": []
+  },
+  {
+    "slide": 14,
+    "text": [
+      "I",
+      "f we know p and q, we can determine the frequency of other genotypes within the population:",
+      "p",
+      "2",
+      " + 2pq + q",
+      "2",
+      " = 1",
+      "(0.60)",
+      "2",
+      " + 2(0.60)(0.40) + (0.40)",
+      "2",
+      " = 1",
+      "0.36 + 0.48 + 0.16 = 1",
+      "",
+      "So, the frequency of the “AA” genotype is 0.36. This means that 36%, or 0.36 x 200 = 72 squirrels in the population are homozygous dominant. → Susceptible to snake venom",
+      "The frequency of the “Aa” genotype is 0.48. This means that 48%, or 0.48 x 200 = 96 squirrels in the population are heterozygous.",
+      "→ Susceptible to snake venom",
+      "And the frequency of the “aa” genotype is 0.16. This means that 16%, or 0.16 x 200 = 32 squirrels in the population are homozygous recessive.  ",
+      "→ Resistant to snake venom"
+    ],
+    "images": []
+  },
+  {
+    "slide": 15,
+    "text": [
+      "If the population is not evolving, the frequency of alleles A & a will remain constant through future generations. ",
+      "Note that this does not mean that the number of individuals with the trait must remain constant. ",
+      "",
+      "",
+      "",
+      "Case Study Cont’d: The California Ground Squirrel"
+    ],
+    "images": []
+  },
+  {
+    "slide": 16,
+    "text": [
+      "",
+      "The next generation of ground squirrels contains 800 individuals, 128 of which are resistant to rattlesnake venom. Is the population evolving? ",
+      "The proportion of “aa” individuals within generation two, or q",
+      "2",
+      ", is 128/800 or 0.16. If q",
+      "2",
+      "=0.16, then q=√0.16 = 0.40.",
+      "If q=0.40, and p+q=1, then p=0.60",
+      "",
+      "Although the number of ground squirrels with the venom-resistant trait differed between generations 1 and 2, the frequency of the recessive allele did not change. Thus, the population is not evolving. ",
+      "Since the ",
+      "allele frequencies did not change from one generation to the next, the population is said to be at Hardy-Weinberg equilibrium, and evolution is not occurring. ",
+      "",
+      "",
+      ""
+    ],
+    "images": [
+      {
+        "path": "sources/slide-assets/slide-16-image2.jpg",
+        "archiveMember": "ppt/media/image2.jpg",
+        "sha256": "d237beaf289cf5a462292cd56de5621051ba2c9c0ec37708c726189ea2772ed5",
+        "pixelReview": "Not performed during export"
+      }
+    ]
+  },
+  {
+    "slide": 17,
+    "text": [
+      "Practice Problem #1",
+      "",
+      "In a type of rabbit, brown fur is dominant to white fur. In a population of these rabbits, 25% have white fur. What are the frequencies of the brown and white alleles?",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "Answer:",
+      "The frequency of the dominant, brown allele (p) is 0.5, and the frequency of the recessive, white allele (q) is also 0.5.",
+      "",
+      "",
+      "",
+      "Solution",
+      "",
+      "Watch this video, if you would like to be walked through some more examples, before doing practice on your own. ",
+      "",
+      "",
+      ""
+    ],
+    "images": [
+      {
+        "path": "sources/slide-assets/slide-17-image9.png",
+        "archiveMember": "ppt/media/image9.png",
+        "sha256": "c1f6509031fa2bb4d187d56f78798e24a1cc19d7ac9613c0e40ab5d9aed3689e",
+        "pixelReview": "Not performed during export"
+      },
+      {
+        "path": "sources/slide-assets/slide-17-image1.jpg",
+        "archiveMember": "ppt/media/image1.jpg",
+        "sha256": "297b0a2be97cd7075c336ef23ade68aba4b17e3cb2b7b783fd1d70b28dc0c239",
+        "pixelReview": "Not performed during export"
+      }
+    ]
+  },
+  {
+    "slide": 18,
+    "text": [
+      "Practice Problem #",
+      "2",
+      "",
+      "In a population of humans, 1 in 10,000 babies is born with a rare recessive genetic disorder . What percentage of the population are carriers?",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "Answer:",
+      "1.98% of the population are carriers.",
+      "",
+      "",
+      "",
+      "Solution",
+      ""
+    ],
+    "images": [
+      {
+        "path": "sources/slide-assets/slide-18-image7.png",
+        "archiveMember": "ppt/media/image7.png",
+        "sha256": "7dd3c8e814e40359af44d3c6f28266db4272ce9335628bfbd29cb5dd4cd710e1",
+        "pixelReview": "Not performed during export"
+      }
+    ]
+  },
+  {
+    "slide": 19,
+    "text": [
+      "Practice Problem #3",
+      "",
+      "In a population of 1500 frogs, 450 have a recessive phenotype (spotted skin). Assuming Hardy-Weinberg equilibrium, how many individuals in this population are homozygous dominant?",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "Answer:",
+      "Approximately 308 individuals would be homozygous dominant.",
+      "",
+      "",
+      "",
+      "Solution",
+      ""
+    ],
+    "images": [
+      {
+        "path": "sources/slide-assets/slide-19-image10.png",
+        "archiveMember": "ppt/media/image10.png",
+        "sha256": "327e61072bafff4aee895fcbf1f9a2e74ac98c99537f955c76d90ff98ffc85bf",
+        "pixelReview": "Not performed during export"
+      }
+    ]
+  },
+  {
+    "slide": 20,
+    "text": [
+      ""
+    ],
+    "images": [
+      {
+        "path": "sources/slide-assets/slide-20-image23.png",
+        "archiveMember": "ppt/media/image23.png",
+        "sha256": "1026bbe29cbdbfb6b1509b0028a3194c248d7a827181a15fabcbde0efaac92db",
+        "pixelReview": "Not performed during export"
+      }
+    ]
+  },
+  {
+    "slide": 21,
+    "text": [
+      "Changes in allele frequencies (aka evolution) may be caused by a number of factors… ",
+      "Natural selection",
+      "Sexual selection",
+      "Genetic drift",
+      "Bottleneck effect",
+      "Founder effect",
+      "Gene flow",
+      "Mutations",
+      "",
+      "If any of these occur, the population will ",
+      "not",
+      " be in Hardy-Weinberg equilibrium."
+    ],
+    "images": [
+      {
+        "path": "sources/slide-assets/slide-21-image16.jpg",
+        "archiveMember": "ppt/media/image16.jpg",
+        "sha256": "564e998bf123031517466a7f57f03290d0e49b5bdee5646f19caf644b5495570",
+        "pixelReview": "Not performed during export"
+      }
+    ]
+  },
+  {
+    "slide": 22,
+    "text": [
+      "Natural Selection",
+      "process by which organisms with traits better suited to their environment are more likely to survive and and therefore reproduce, passing those beneficial traits to the next generation. Over time, this can lead to a change in the frequency of alleles (gene variations) within a population. ",
+      "E.g. ",
+      "Before the Industrial Revolution, light-colored moths were common because they blended with light tree bark, avoiding predators. Pollution darkened the trees, giving dark-colored moths a survival advantage. Over time, the dark moths became more common as their allele frequency increased."
+    ],
+    "images": [
+      {
+        "path": "sources/slide-assets/slide-22-image6.png",
+        "archiveMember": "ppt/media/image6.png",
+        "sha256": "6d7420c53b68aacf99526fa7a261751a2e2f64a14f3f1efb67771b35087bf685",
+        "pixelReview": "Not performed during export"
+      }
+    ]
+  },
+  {
+    "slide": 23,
+    "text": [
+      "Sexual Selection (i.e. non-random mating)",
+      "Sexual selection (non-random mating) occurs when certain traits increase an individual’s chances of mating and reproducing. This can happen through:",
+      "Mate Choice: Individuals prefer mates with specific traits (e.g., colorful feathers in peacocks).",
+      "Competition: Individuals compete for access to mates (e.g., antlers in male deer for fighting rivals).",
+      "These traits may not always help survival but are favored because they boost reproductive success"
+    ],
+    "images": [
+      {
+        "path": "sources/slide-assets/slide-23-image16.jpg",
+        "archiveMember": "ppt/media/image16.jpg",
+        "sha256": "564e998bf123031517466a7f57f03290d0e49b5bdee5646f19caf644b5495570",
+        "pixelReview": "Not performed during export"
+      },
+      {
+        "path": "sources/slide-assets/slide-23-image26.png",
+        "archiveMember": "ppt/media/image26.png",
+        "sha256": "2dd14a02dab5e7f287f80189a461aeb5f639fd5c62e61e9542360909cd0781ae",
+        "pixelReview": "Not performed during export"
+      },
+      {
+        "path": "sources/slide-assets/slide-23-image31.jpg",
+        "archiveMember": "ppt/media/image31.jpg",
+        "sha256": "964fdfb88939939a988fc4c86fa2eb26c35718e223a0423b1afc37ffd801a74d",
+        "pixelReview": "Not performed during export"
+      }
+    ]
+  },
+  {
+    "slide": 24,
+    "text": [
+      "Genetic drift",
+      "Refers to",
+      " random",
+      " changes in the frequency of alleles in a population over time. Unlike natural selection, which depends on an advantage in survival or reproduction, genetic drift ",
+      "happens purely by chance",
+      ". It’s ",
+      "especially significant in small populations",
+      ".",
+      "E.g. Imagine a population of 50 beetles. A third of them are green, and the rest are brown, and the color doesn't affect survival. By random chance, more green beetles are accidentally stepped on by humans one year, so only a few green beetles reproduce. Over generations, the green allele might disappear entirely, not because brown beetles are better adapted, but just due to random fluctuations in reproduction."
+    ],
+    "images": [
+      {
+        "path": "sources/slide-assets/slide-24-image11.png",
+        "archiveMember": "ppt/media/image11.png",
+        "sha256": "1790f967d625db760224a601ea97e15f9fa1deff40021254d44911a93045cdb5",
+        "pixelReview": "Not performed during export"
+      }
+    ]
+  },
+  {
+    "slide": 25,
+    "text": [
+      "Bottleneck Effect",
+      "A type of genetic drift that occurs when a ",
+      "population is ",
+      "drastically",
+      " reduced",
+      " in size due to a random event, such as a natural disaster, disease, or environmental change. ",
+      "This sudden decrease in population size results in a loss of genetic diversity, as only a small, random subset of the original population survives and passes on their genes. The surviving population may have different allele frequencies compared to the original population, and this can lead to changes in the genetic makeup of future generations. ",
+      "E.g. ",
+      " In the 1800s, hunting brought the population of Northern elephant seals to the brink of extinction, with only about 20 individuals remaining. This severe bottleneck resulted in a loss of genetic diversity, and although their population has rebounded, the seals today have very low genetic variation, making them more vulnerable to diseases."
+    ],
+    "images": [
+      {
+        "path": "sources/slide-assets/slide-25-image42.png",
+        "archiveMember": "ppt/media/image42.png",
+        "sha256": "aaebdc3eda133d5026e6f44148d6d32b88d7893b1947d4ecbb82e53bb5aeda08",
+        "pixelReview": "Not performed during export"
+      },
+      {
+        "path": "sources/slide-assets/slide-25-image44.png",
+        "archiveMember": "ppt/media/image44.png",
+        "sha256": "5118d6ffbea6ac465f093a0e353aacefeac47de5db5644b5acf0c1d15fa78bd1",
+        "pixelReview": "Not performed during export"
+      }
+    ]
+  },
+  {
+    "slide": 26,
+    "text": [
+      "Founder Effect",
+      "Type of genetic drift where a ",
+      "small group of individuals breaks away from a larger population to start a new group in a different area",
+      ". Because this new group is formed by just a few individuals, it doesn’t have the full range of genetic diversity of the original population. As a result, certain traits may become more common or rare in the new group by chance. ",
+      "Over time, this can lead to changes in the population's genetic makeup and may affect its ability to adapt or survive in the future.",
+      "E.g. ",
+      "An example of the ",
+      "founder effect",
+      " in animals is the Galápagos finches. When a small group of finches colonized the islands, they carried only a limited variety of genetic traits from the larger mainland population. Over time, these traits became more common in the island population, and the finches evolved differently from their mainland relatives. This limited genetic diversity due to the small founding group is a clear case of the ",
+      "founder effect",
+      ".",
+      ""
+    ],
+    "images": [
+      {
+        "path": "sources/slide-assets/slide-26-image41.png",
+        "archiveMember": "ppt/media/image41.png",
+        "sha256": "d5f4a396395fd59925716f6a0f73870aadc8ceda1dc74a1ebda267e929625b80",
+        "pixelReview": "Not performed during export"
+      },
+      {
+        "path": "sources/slide-assets/slide-26-image19.png",
+        "archiveMember": "ppt/media/image19.png",
+        "sha256": "c96af57d7e6b008758523e1dac8ece9c6c3c4b0503ce81495ef856bb0bff0ee5",
+        "pixelReview": "Not performed during export"
+      }
+    ]
+  },
+  {
+    "slide": 27,
+    "text": [
+      "What’s the difference?",
+      "You may be thinking that genetic drift, bottleneck effect and founder effect sound very similar. In fact they are similar. Bottleneck and founder effect are more ‘extreme’ versions of genetic drift, where the population is ",
+      "drastically",
+      " reduced. ",
+      "Key Difference:",
+      "Genetic drift",
+      " refers broadly to random changes in allele frequencies within a population over time due to chance.",
+      "The ",
+      "bottleneck effect",
+      " is a ",
+      "specific type",
+      " of genetic drift that occurs when a population is drastically reduced in size (e.g., typically due to a disaster), limiting genetic diversity.",
+      "The ",
+      "founder effect",
+      " is a ",
+      "specific type",
+      " of genetic drift that occurs when a small number of individuals leave the original population to start a new one, carrying only a small portion of the original population's genetic diversity."
+    ],
+    "images": [
+      {
+        "path": "sources/slide-assets/slide-27-image22.jpg",
+        "archiveMember": "ppt/media/image22.jpg",
+        "sha256": "52f49b6131121cef4ceae7841e13b825d8dbbdb9627a618de4e51bdadd3c7f33",
+        "pixelReview": "Not performed during export"
+      }
+    ]
+  },
+  {
+    "slide": 28,
+    "text": [
+      "Gene Flow",
+      "Gene flow is the ",
+      "transfer of genetic material between populations",
+      ", ",
+      "usually through migration",
+      ". It introduces new alleles into a population, increasing genetic diversity and potentially altering allele frequencies. ",
+      "E.g. ",
+      "Gene flow occurred when European settlers and Indigenous populations in the Americas interbred. This exchange of genetic material introduced new alleles into both populations, increasing genetic diversity and shaping traits in future generations. For example, the ",
+      "Métis are ",
+      "people of mixed European and Indigenous ancestry, and one of the three recognized Indigenous peoples in Canada",
+      "."
+    ],
+    "images": [
+      {
+        "path": "sources/slide-assets/slide-28-image43.png",
+        "archiveMember": "ppt/media/image43.png",
+        "sha256": "7e1da0c03c597c96e45c94aa9d9b0fde96787447c6944416338e23c4a6035a2f",
+        "pixelReview": "Not performed during export"
+      }
+    ]
+  },
+  {
+    "slide": 29,
+    "text": [
+      "Mutations",
+      "A mutation is a ",
+      "random change in an organism’s DNA",
+      " that can create new alleles. If a mutation provides an advantage (e.g., resistance to disease), individuals with the mutation are more likely to survive and reproduce. Over time, this can increase the frequency of the beneficial allele in the population. Mutations, in this regard, go hand in hand ",
+      "with",
+      " natural selection.",
+      "E.g. ",
+      "Mutations are one way for bacteria to become resistant to antibiotics. Some spontaneous mutations may make the bacterium resistant to an antibiotic. If we were to treat the bacterial population with that specific antibiotic, only the resistant bacteria will be able to multiply; the antibiotic selects for them. These bacteria can now increase in numbers and the end result is a population of mainly resistant bacteria."
+    ],
+    "images": [
+      {
+        "path": "sources/slide-assets/slide-29-image21.png",
+        "archiveMember": "ppt/media/image21.png",
+        "sha256": "34ae97a397c5c3036a653b876478fc6afc0152b3830f2b7e8e75dbe917a53dbc",
+        "pixelReview": "Not performed during export"
+      }
+    ]
+  },
+  {
+    "slide": 30,
+    "text": [
+      "Human Impact",
+      "Human activities like",
+      " habitat fragmentation",
+      " ",
+      "can prevent gene flow",
+      " between split population, ultimately leading to decreased genetic diversity.",
+      "Pollution, and overhunting can reduce population sizes",
+      ", leading to significant bottlenecks that can result in lower genetic diversity. ",
+      "A r",
+      "educed gene pool and lower genetic diversity makes populations more vulnerable",
+      " to diseases, environmental changes and other threats. With fewer alleles in the gene pool, the population has less ability to adapt, increase the risk of extinction. ",
+      "",
+      "Wildlife crossings are key strategies to help mitigate impacts of habitat fragmentation."
+    ],
+    "images": [
+      {
+        "path": "sources/slide-assets/slide-30-image35.png",
+        "archiveMember": "ppt/media/image35.png",
+        "sha256": "bdbc8a8be5ef533e99bea42c09deb30966c7655158f2ee1afa15cd9b4c6ae8e4",
+        "pixelReview": "Not performed during export"
+      },
+      {
+        "path": "sources/slide-assets/slide-30-image25.jpg",
+        "archiveMember": "ppt/media/image25.jpg",
+        "sha256": "0f9a39004fa37d3d0b4a184e2967f28a29beba6582001fa64f3b9da2a97b9e16",
+        "pixelReview": "Not performed during export"
+      }
+    ]
+  },
+  {
+    "slide": 31,
+    "text": [
+      "Chapter 20",
+      "Population Growth and Interactions"
+    ],
+    "images": []
+  },
+  {
+    "slide": 32,
+    "text": [
+      "",
+      "TOPICS",
+      "Species, populations & communities",
+      "Population density and distribution",
+      "Change in population size",
+      "Growth rate vs. per capita growth rate",
+      "Carrying capacity",
+      "Logistic vs. exponential growth",
+      "R-selected vs. K-selected life strategies",
+      "Defense mechanisms",
+      "Symbiotic relationships (mutualism vs. commensalism vs. parasitism)",
+      "Primary vs. secondary succession",
+      "Pioneer vs. climax community ",
+      " ",
+      "Textbook pgs. 702-741"
+    ],
+    "images": []
+  },
+  {
+    "slide": 33,
+    "text": [
+      "",
+      "Analyzing Populations",
+      "Recall that..",
+      "a ",
+      "species ",
+      "is a group of organisms that can interbreed and produce fertile ",
+      "offspring",
+      "a ",
+      "population",
+      " is a group of organisms belonging to the same species within a defined area at ",
+      "the same time",
+      "A ",
+      "community",
+      " is a group of different species living and interacting in the same area",
+      "Populations may be assessed according to their size (total number of organisms) or density (number of organisms per unit area).",
+      ""
+    ],
+    "images": [
+      {
+        "path": "sources/slide-assets/slide-33-image27.png",
+        "archiveMember": "ppt/media/image27.png",
+        "sha256": "fdf6251951489ddbded75c34be4698f55606a2d8ad886987bc9b4f37a267e6aa",
+        "pixelReview": "Not performed during export"
+      }
+    ]
+  },
+  {
+    "slide": 34,
+    "text": [
+      "Calculating Population Density",
+      "D",
+      "p",
+      " = N / A or D",
+      "p",
+      " = N / V",
+      "Population density is defined as the number of individual organisms in a given area (or volume for organisms exclusively living in water or air)"
+    ],
+    "images": [
+      {
+        "path": "sources/slide-assets/slide-34-image29.png",
+        "archiveMember": "ppt/media/image29.png",
+        "sha256": "e10770093d0bcbd48097bc09ec71c64587edc87d5ac2eabf6d199799f8d51da3",
+        "pixelReview": "Not performed during export"
+      },
+      {
+        "path": "sources/slide-assets/slide-34-image32.png",
+        "archiveMember": "ppt/media/image32.png",
+        "sha256": "f064924591a8c6ca9a71d2b4755addd38ccc48716369b1da9a356137501b1816",
+        "pixelReview": "Not performed during export"
+      }
+    ]
+  },
+  {
+    "slide": 35,
+    "text": [
+      "Practice",
+      " problems",
+      "A park has a population of 500 rabbits spread across an area of 25 square kilometers. What is the population density of rabbits per square kilometer?",
+      "",
+      "Example: A field with an area of 100 m",
+      "2",
+      " is populated by an average of 155 gophers. What is the population density of gophers in the field?"
+    ],
+    "images": [
+      {
+        "path": "sources/slide-assets/slide-35-image46.png",
+        "archiveMember": "ppt/media/image46.png",
+        "sha256": "3f2ff97c071b7c91eefd67991ac427c58215d423e1801f4f44e645d011c490a2",
+        "pixelReview": "Not performed during export"
+      },
+      {
+        "path": "sources/slide-assets/slide-35-image24.png",
+        "archiveMember": "ppt/media/image24.png",
+        "sha256": "1944f05cc46db75bee1ab906b35efe924414f00544e1f3ad6db63b69e1eb0265",
+        "pixelReview": "Not performed during export"
+      }
+    ]
+  },
+  {
+    "slide": 36,
+    "text": [
+      "Practice problems",
+      "A fish tank contains 120 fish in a water volume of 60 cubic meters. What is the population density of fish per cubic meter?",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "The density of a population of bears is 2.3 bears/km",
+      "2",
+      ". If the bears are distributed over an area of 50 km",
+      "2",
+      ", then what is their total population size?"
+    ],
+    "images": [
+      {
+        "path": "sources/slide-assets/slide-36-image40.png",
+        "archiveMember": "ppt/media/image40.png",
+        "sha256": "2adc81d4a4934497538c5037c402e0ae638a47cfbffc8afb9575e9c8f5dd6f00",
+        "pixelReview": "Not performed during export"
+      },
+      {
+        "path": "sources/slide-assets/slide-36-image33.png",
+        "archiveMember": "ppt/media/image33.png",
+        "sha256": "68d51db9295a0b792538d5fd5c90168958ad533c6747de089d83de33e6c2f183",
+        "pixelReview": "Not performed during export"
+      },
+      {
+        "path": "sources/slide-assets/slide-36-image39.png",
+        "archiveMember": "ppt/media/image39.png",
+        "sha256": "d7d8e2f66ea3ed3164cc13d382ed5cc9cd8fa3fa7cf3150bea236231a04c5f42",
+        "pixelReview": "Not performed during export"
+      },
+      {
+        "path": "sources/slide-assets/slide-36-image45.png",
+        "archiveMember": "ppt/media/image45.png",
+        "sha256": "3641f140efe3495fd33284bbd00b902796f90d61967228fb2c70eac78a9f0648",
+        "pixelReview": "Not performed during export"
+      },
+      {
+        "path": "sources/slide-assets/slide-36-image36.png",
+        "archiveMember": "ppt/media/image36.png",
+        "sha256": "e324c00375c033566d7e6413798ae55261fd37ba44b230ee93deb0232e6f7580",
+        "pixelReview": "Not performed during export"
+      }
+    ]
+  },
+  {
+    "slide": 37,
+    "text": [
+      "Patterns of ",
+      "Population Distribution",
+      "Population distribution refers to the patterns of distribution of a population in a given area. There are three main patterns:",
+      "Clumped",
+      "Random",
+      "Uniform  ",
+      "",
+      ""
+    ],
+    "images": [
+      {
+        "path": "sources/slide-assets/slide-37-image37.png",
+        "archiveMember": "ppt/media/image37.png",
+        "sha256": "61bdcd2962be2e2d5e40a5f58a21ddbe96773f1714ff3e556efdf1ccd05c4b34",
+        "pixelReview": "Not performed during export"
+      }
+    ]
+  },
+  {
+    "slide": 38,
+    "text": [
+      "Change in Population Size",
+      "Four processes influence the number of individuals in a given population:",
+      "Birth rate or natality (n)",
+      "Immigration (i) (moving into the population)",
+      "Death rate or mortality (m)",
+      "Emigration (e) (moving out of the population)",
+      "Δ",
+      "N = [",
+      "n",
+      "+i] - [",
+      "m",
+      "+e]",
+      "",
+      "The change in population over time (ΔN) may be determined by subtracting the number of individuals that leave a population  (m+e) from the number of individuals that join (n+i). "
+    ],
+    "images": []
+  },
+  {
+    "slide": 39,
+    "text": [
+      "Open population",
+      ": A population where individuals can move in and out through immigration and emigration, influencing population size and genetic diversity.",
+      "E.g A herd of wildebeest in the savanna, where individuals can migrate in and out of the group, influencing the population size.",
+      "",
+      "Closed population",
+      ": A population where there is no immigration or emigration, so changes in size depend only on births and deaths.",
+      "A population of fish in a remote, isolated pond, where no individuals can enter or leave, and the population size is determined by births and deaths within the pond.",
+      "Open vs. Closed Populations"
+    ],
+    "images": [
+      {
+        "path": "sources/slide-assets/slide-39-image38.png",
+        "archiveMember": "ppt/media/image38.png",
+        "sha256": "09952d5a947939b418ff9607d516a538a4db6b8281480467b14dc6d51d54ab83",
+        "pixelReview": "Not performed during export"
+      }
+    ]
+  },
+  {
+    "slide": 40,
+    "text": [
+      "Growth Rate",
+      "E.g. In 2012, the population of gophers in a field was 170. By 2018, the population had grown to 245.",
+      "",
+      "The growth rate of this gopher population is (245-170 gophers)/6 years or ",
+      "12.5",
+      " gophers",
+      "/year",
+      ".",
+      "gr = ΔN / Δt",
+      "The rate at which a population grows can be determined by comparing the change in number of individuals over a defined period of time. ",
+      "Where:",
+      "g",
+      "r = growth rate",
+      "ΔN = change in population size ",
+      " Δt = change in time "
+    ],
+    "images": []
+  },
+  {
+    "slide": 41,
+    "text": [
+      "Per Capita ",
+      "Growth Rate",
+      "E.g. In 2012, the population of gophers in a field was 170. By 2018, the population had grown to 245.",
+      "The per capita growth rate of this gopher population between 2012-2018 is (245-170 gophers)/170 gophers or 0.441.",
+      "The rate at which a population changes per individual over a given time period. It measures the average contribution of each individual to the overall population growth.",
+      "c",
+      "gr = ΔN / N",
+      "Where:",
+      "cgr = per capita growth rate",
+      "ΔN = change in population size ",
+      " N = ",
+      "initial",
+      " population size"
+    ],
+    "images": []
+  },
+  {
+    "slide": 42,
+    "text": [
+      "Practice:",
+      "In 1995, the population of beavers in Red Deer was determined to be 205. Red Deer covers an area of approximately 70 km",
+      "2",
+      ". By 2015, 195 of those beavers had died, and 240 beavers were born. 8 beavers left the area, and 11 joined. ",
+      "",
+      "Determine the population density of beavers in Red Deer in 1995.",
+      "",
+      "Determine the change in beaver population size between 1995 and 2015.",
+      "",
+      "Determine the new beaver population size in 2015.",
+      "D = N/A = 205/70 = 2.9 gophers/km",
+      "2",
+      "ΔN = [n+i] - [m+e]",
+      "ΔN  = [240+11] - [195+8] = 251-203 = +48 → population increased by 48 gophers",
+      "",
+      "205+48 = 253 gophers"
+    ],
+    "images": []
+  },
+  {
+    "slide": 43,
+    "text": [
+      "Practice:",
+      "In 1995, the population of beavers in Red Deer was determined to be 205. Red Deer covers an area of approximately 70 km",
+      "2",
+      ". By 2015, 195 of those beavers had died, and 240 beavers were born. 8 beavers left the area, and 11 joined. ",
+      "4. Determine the growth rate of the beaver population between 1995 and 2015.",
+      "",
+      "5. Determine the per capita growth rate of beavers between 1995 and 2015.",
+      "",
+      "6. Determine the new population density of beavers in 2015.",
+      "",
+      "gr = ΔN / Δt",
+      "gr = 48 gophers/20 years = 2.4 gophers/year",
+      "c",
+      "gr = ΔN / N",
+      "gr = 48 gophers/205 gophers = 0.23",
+      "D = N/A = 251/70 = 3.6 gophers/km",
+      "2"
+    ],
+    "images": []
+  },
+  {
+    "slide": 44,
+    "text": [
+      "The ",
+      "carrying capacity",
+      " (K) of a population is the ",
+      "theoretical ",
+      "maximum number of individuals that can be supported in a given area with a limited number of resources (i.e. ",
+      "environmental resistance",
+      "): ",
+      "",
+      "Carrying Capacity & ",
+      "Growth Models",
+      "T",
+      "he pattern of population growth ",
+      "that results from ",
+      " carrying capacity is a ",
+      "sigmoidal",
+      " ",
+      "curve (",
+      "S-shaped",
+      ") known as a ",
+      "logistical growth pattern",
+      "Causes ",
+      "of ",
+      "fluctuations include ",
+      "density-dependent factors",
+      " ",
+      "(biotic factors such as competition, predation and disease) and ",
+      "density-independent factors",
+      " ",
+      "(typically abiotic ",
+      "factors such as ",
+      "floods, drought)",
+      "Lag phase vs. log phase vs. stationary phase?",
+      "",
+      ""
+    ],
+    "images": [
+      {
+        "path": "sources/slide-assets/slide-44-image34.png",
+        "archiveMember": "ppt/media/image34.png",
+        "sha256": "2cc219b6398ee4ac72e165abb85a981cd3a1a1d869554e2b3d5ff0ecd2ddcee4",
+        "pixelReview": "Not performed during export"
+      }
+    ]
+  },
+  {
+    "slide": 45,
+    "text": [
+      "S-Shaped/Logistic Growth",
+      "We can observe three key phases during ",
+      "logistic",
+      " growth:",
+      "Lag phase:",
+      " The period of slow or no population growth as organisms adapt to their environment.",
+      "log/exponential phase",
+      ":The period of exponential growth where the population increases rapidly due to abundant resources.",
+      "Stationary phase",
+      ": The period where population growth stabilizes as resources become limited and birth rates equal death rates."
+    ],
+    "images": [
+      {
+        "path": "sources/slide-assets/slide-45-image30.png",
+        "archiveMember": "ppt/media/image30.png",
+        "sha256": "51a51e043528792f4bb56f45b246f3051b2aa292716929452178c8e5010af152",
+        "pixelReview": "Not performed during export"
+      }
+    ]
+  },
+  {
+    "slide": 46,
+    "text": [
+      "S-Shaped/Logistic Growth",
+      "Density-dependent limiting factors, ",
+      "that become stronger as the population size increases, such as competition for resources, predation, disease, and overcrowding. Typically biotic factors. ",
+      "Density-independent limiting factors",
+      ", that affect populations regardless of their size, such as natural disasters, weather events, and human activities. TYpically abiotic factors.",
+      "",
+      "",
+      "Fluctuations in the stationary phase are caused by changes in the ",
+      "limiting factors ",
+      "such as resources, waste buildup, and interactions like competition, which affect birth and death rates. These can be categorized as:"
+    ],
+    "images": [
+      {
+        "path": "sources/slide-assets/slide-46-image30.png",
+        "archiveMember": "ppt/media/image30.png",
+        "sha256": "51a51e043528792f4bb56f45b246f3051b2aa292716929452178c8e5010af152",
+        "pixelReview": "Not performed during export"
+      }
+    ]
+  },
+  {
+    "slide": 47,
+    "text": [],
+    "images": [
+      {
+        "path": "sources/slide-assets/slide-47-image54.png",
+        "archiveMember": "ppt/media/image54.png",
+        "sha256": "23295246d0c03f8039888c4453d918dbc9fa6f90bf690b81f945fa37bd8e87db",
+        "pixelReview": "Not performed during export"
+      }
+    ]
+  },
+  {
+    "slide": 48,
+    "text": [
+      "",
+      "The pattern of population growth that results from a lack of carrying capacity (unlimited resources or low environmental resistance) is a",
+      " J-shaped",
+      " curve known as ",
+      "exponential growth.",
+      "There is a lag phase, and a log phase, without a stationary phase. ",
+      "These populations often grow ",
+      "indefinitely, until a resource runs out at which point they crash. ",
+      "",
+      "",
+      "",
+      "",
+      "J-Shaped",
+      "/Exponential Growth"
+    ],
+    "images": [
+      {
+        "path": "sources/slide-assets/slide-48-image78.png",
+        "archiveMember": "ppt/media/image78.png",
+        "sha256": "462dbe46c93bc38c1532b27a02b97d5148079c97d75035b668e18d3c6b1cd7b1",
+        "pixelReview": "Not performed during export"
+      }
+    ]
+  },
+  {
+    "slide": 49,
+    "text": [
+      "",
+      "https://ed.ted.com/lessons/what-is-the-tragedy-of-the-commons-nicholas-amendolare?utm_source=TED-Ed+Subscribers&utm_campaign=cad2e3b2a8-2013_09_219_19_2013&utm_medium=email&utm_term=0_1aaccced48-cad2e3b2a8-48544029&mc_cid=cad2e3b2a8&mc_eid=19c2ac3d40",
+      " ",
+      "Extra: ",
+      "Human Population Growth"
+    ],
+    "images": [
+      {
+        "path": "sources/slide-assets/slide-49-image62.jpg",
+        "archiveMember": "ppt/media/image62.jpg",
+        "sha256": "921d6fe2726c63dc38146ff4574d4147a3dc218a906dff2034a87e19edfef4d3",
+        "pixelReview": "Not performed during export"
+      }
+    ]
+  },
+  {
+    "slide": 50,
+    "text": [
+      "Biotic potential (r)",
+      " is the maximum rate at which a population can grow under ideal conditions, with unlimited resources and no limiting factors like disease or predation.",
+      "Based on the resources available and adaptations an organism has to its environment, species tend to invest energy differently",
+      ", leading to two types of",
+      " predictable life strategies",
+      ": ",
+      "r-selected ",
+      "and ",
+      "K-selected.",
+      "",
+      "",
+      "Life Strategies",
+      "As well, organisms tend to fall in one of three ",
+      "survivorship",
+      " categories:"
+    ],
+    "images": [
+      {
+        "path": "sources/slide-assets/slide-50-image47.png",
+        "archiveMember": "ppt/media/image47.png",
+        "sha256": "312f3e87da068420f35e00761a27a99e68ba6d5bd8e4431e0ed0367f03766db0",
+        "pixelReview": "Not performed during export"
+      }
+    ]
+  },
+  {
+    "slide": 51,
+    "text": [
+      "R-selected strategies",
+      "Goes for quantity over quality",
+      "short lifespan & early reproductive age",
+      "small body size",
+      "produce large numbers of offspring",
+      "reproduce quickly",
+      "often display exponential growth (J-shaped",
+      ")",
+      "High biotic potential",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "images": [
+      {
+        "path": "sources/slide-assets/slide-51-image49.png",
+        "archiveMember": "ppt/media/image49.png",
+        "sha256": "98ee5bd8a2cc8dd8e143373cebe91bd8686c9fa9f31ed4715f01f03620b025e2",
+        "pixelReview": "Not performed during export"
+      },
+      {
+        "path": "sources/slide-assets/slide-51-image59.png",
+        "archiveMember": "ppt/media/image59.png",
+        "sha256": "1c746aa970dc2f81abf9f613cca2961d142e16bcab49e31265e46708bb8a222c",
+        "pixelReview": "Not performed during export"
+      },
+      {
+        "path": "sources/slide-assets/slide-51-image52.png",
+        "archiveMember": "ppt/media/image52.png",
+        "sha256": "e28b791f4b6ae52cd267fdf12b3abe23b3c57da8e53bdee91e0a53b00bbb16a6",
+        "pixelReview": "Not performed during export"
+      }
+    ]
+  },
+  {
+    "slide": 52,
+    "text": [
+      "",
+      "Goes for quality over quantity",
+      "long lifespan & late reproductive age",
+      "large body size",
+      "produce small numbers of offspring ",
+      "often display logistic growth (S-shaped)",
+      "reproduce less often",
+      "long gestation periods",
+      "Low biotic potential",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "K",
+      "-selected strategies"
+    ],
+    "images": [
+      {
+        "path": "sources/slide-assets/slide-52-image48.png",
+        "archiveMember": "ppt/media/image48.png",
+        "sha256": "09a2678cdd3a3c9c2aa2bc35ddd9398e9adf3becfb29b0e3ac7d88f7fbb2c345",
+        "pixelReview": "Not performed during export"
+      },
+      {
+        "path": "sources/slide-assets/slide-52-image60.png",
+        "archiveMember": "ppt/media/image60.png",
+        "sha256": "76c779e772bae378b58c991011ced011b821fc472937bc79afe41da2c6d4efa0",
+        "pixelReview": "Not performed during export"
+      },
+      {
+        "path": "sources/slide-assets/slide-52-image52.png",
+        "archiveMember": "ppt/media/image52.png",
+        "sha256": "e28b791f4b6ae52cd267fdf12b3abe23b3c57da8e53bdee91e0a53b00bbb16a6",
+        "pixelReview": "Not performed during export"
+      }
+    ]
+  },
+  {
+    "slide": 53,
+    "text": [
+      "‘Quantity over quality’",
+      "‘Quality over quantity’"
+    ],
+    "images": [
+      {
+        "path": "sources/slide-assets/slide-53-image58.png",
+        "archiveMember": "ppt/media/image58.png",
+        "sha256": "c9d26d0e13fd2b65ae71ca1d5bb520d3170956be87c0f5410c8574812c64aa4d",
+        "pixelReview": "Not performed during export"
+      }
+    ]
+  },
+  {
+    "slide": 54,
+    "text": [
+      "It is a Continuum",
+      "S",
+      "pecies often display traits from both ",
+      "r-selected",
+      " and ",
+      "K-selected ",
+      "strategies depending on their environment and life history.",
+      "For example:",
+      "Sea turtles",
+      " lay many eggs (r-selected), but only a few survive to adulthood, where they live long and reproduce multiple times (K-selected).",
+      "This blend allows species to adapt and survive across different ecological conditions.",
+      "Don’t worry, on an assessment it should be fairly obvious which category the species belongs in, and there should be a ",
+      "best ",
+      "answer",
+      ". "
+    ],
+    "images": [
+      {
+        "path": "sources/slide-assets/slide-54-image55.png",
+        "archiveMember": "ppt/media/image55.png",
+        "sha256": "089a4ce2aaf5b62dc1137ac674cc0c5c396b68d4591782fe307ba3d215ede83d",
+        "pixelReview": "Not performed during export"
+      }
+    ]
+  },
+  {
+    "slide": 55,
+    "text": [
+      " Re-cap",
+      "Population Ecology",
+      "r and K selection"
+    ],
+    "images": [
+      {
+        "path": "sources/slide-assets/slide-55-image57.jpg",
+        "archiveMember": "ppt/media/image57.jpg",
+        "sha256": "df9860d902c1c23c2e5f27dc64b1d6fe75a729a0631c12f4622f633810412ba1",
+        "pixelReview": "Not performed during export"
+      },
+      {
+        "path": "sources/slide-assets/slide-55-image75.jpg",
+        "archiveMember": "ppt/media/image75.jpg",
+        "sha256": "677e98035a25e4dd3ce4ac89ad4b49771ed527b55c6aa2b619a6b64d969ec2c6",
+        "pixelReview": "Not performed during export"
+      }
+    ]
+  },
+  {
+    "slide": 56,
+    "text": [
+      "Interactions and relationships between species play an important role in population dynamics by affecting birth rates, death rates, migration, and resource availability, ultimately shaping the size and structure of populations over time. We will look at the following:",
+      "producer-consumer relationships",
+      "predator-prey relationships",
+      "Symbiotic relationships:",
+      "Commensalism, mutualism and parasitism",
+      "Competition:",
+      "Intraspecific and interspecific",
+      "Species Interactions and Relationships"
+    ],
+    "images": [
+      {
+        "path": "sources/slide-assets/slide-56-image66.png",
+        "archiveMember": "ppt/media/image66.png",
+        "sha256": "c69789de42ce18da6cb792c2e0ebe9ce6a89a7b11e04fd6604ce9eb06beecfe9",
+        "pixelReview": "Not performed during export"
+      }
+    ]
+  },
+  {
+    "slide": 57,
+    "text": [
+      "Consumer-producer",
+      " relationship",
+      "involves producers, like plants, creating energy through photosynthesis, which consumers, such as animals, rely on for food. ",
+      "interaction drives energy transfer within ecosystems and supports the survival of all organisms. It establishes the base of food chains, connecting primary energy sources to higher trophic levels."
+    ],
+    "images": [
+      {
+        "path": "sources/slide-assets/slide-57-image53.png",
+        "archiveMember": "ppt/media/image53.png",
+        "sha256": "61859d21e0a779625aca17d5c0870ad8d45f73ae688200edc1e12645e3c44b1f",
+        "pixelReview": "Not performed during export"
+      }
+    ]
+  },
+  {
+    "slide": 58,
+    "text": [
+      "Predator-prey relationship",
+      "O",
+      "ne organism, the ",
+      "predator,",
+      " hunts and feeds on another organism, the ",
+      "prey",
+      "Predator-prey relationships ",
+      "play a critical role in maintaining ecosystem balance, as predators regulate prey populations, preventing overgrazing or overpopulation. ",
+      "also drives natural selection, as both predators and prey evolve adaptations to outcompete each other."
+    ],
+    "images": [
+      {
+        "path": "sources/slide-assets/slide-58-image64.png",
+        "archiveMember": "ppt/media/image64.png",
+        "sha256": "40215c8cdde9c03191dfe8733fa9f586c0380a392f003036046ade1d1c2e8260",
+        "pixelReview": "Not performed during export"
+      },
+      {
+        "path": "sources/slide-assets/slide-58-image51.png",
+        "archiveMember": "ppt/media/image51.png",
+        "sha256": "f69a7a4ac1a468c25f9757145b9d37563e99d9da36d2b72fc865822ccb06a6fe",
+        "pixelReview": "Not performed during export"
+      },
+      {
+        "path": "sources/slide-assets/slide-58-image70.jpg",
+        "archiveMember": "ppt/media/image70.jpg",
+        "sha256": "5ecc6764d3544d8fede511f4ba9bf6b169c644cb1ea0460b3908b2ee610e3ba8",
+        "pixelReview": "Not performed during export"
+      }
+    ]
+  },
+  {
+    "slide": 59,
+    "text": [
+      "Species do not live and evolve in isolation. Predation and interspecific competition for resources can help shape evolutionary change in many ways, e.g.:",
+      "",
+      "Defense Mechanisms",
+      "*",
+      "You don’t have to memorize specific defense mechanisms. Just appreciate their existence and be able to analyze and answer questions that may describe these for you.",
+      "            Get protection               Get big/scary                 Get fast                     Camouflage\t\tMimicry"
+    ],
+    "images": [
+      {
+        "path": "sources/slide-assets/slide-59-image71.png",
+        "archiveMember": "ppt/media/image71.png",
+        "sha256": "c3b346ca18ed7e4e2c223c63c7690518e2c931471931720dade68cda8ed3e123",
+        "pixelReview": "Not performed during export"
+      },
+      {
+        "path": "sources/slide-assets/slide-59-image56.png",
+        "archiveMember": "ppt/media/image56.png",
+        "sha256": "61fe7616d00b32dae6211b9b1db596e57790f294b903966abe2802701a8e2fd0",
+        "pixelReview": "Not performed during export"
+      },
+      {
+        "path": "sources/slide-assets/slide-59-image67.png",
+        "archiveMember": "ppt/media/image67.png",
+        "sha256": "8333dd771aeec2129f657fdcf866bc751eb2da7ee83d4e81fa60fe9c466755a0",
+        "pixelReview": "Not performed during export"
+      },
+      {
+        "path": "sources/slide-assets/slide-59-image68.png",
+        "archiveMember": "ppt/media/image68.png",
+        "sha256": "c5382c8670d6bab861f331e5bb3b8f67c1304eacd74e358a2761b5b66f3c9df6",
+        "pixelReview": "Not performed during export"
+      },
+      {
+        "path": "sources/slide-assets/slide-59-image65.png",
+        "archiveMember": "ppt/media/image65.png",
+        "sha256": "2da728327c9694a084c844c7a011351488d7ab94b19c8925b5e712b6104b99ef",
+        "pixelReview": "Not performed during export"
+      },
+      {
+        "path": "sources/slide-assets/slide-59-image63.jpg",
+        "archiveMember": "ppt/media/image63.jpg",
+        "sha256": "e11e3374ff49585eb51a02b37ffcfff16c9f792f77125c48af85dec073e7c920",
+        "pixelReview": "Not performed during export"
+      },
+      {
+        "path": "sources/slide-assets/slide-59-image61.png",
+        "archiveMember": "ppt/media/image61.png",
+        "sha256": "5d4bccb95c7324bae5f2417f12879a427d9c93a33afc6f138684a9ec0d302fc6",
+        "pixelReview": "Not performed during export"
+      }
+    ]
+  },
+  {
+    "slide": 60,
+    "text": [
+      "Competition for resources (food, shelter, mates) is one of the main factors that limits population growth. ",
+      "Competition ",
+      "Competition may exist:",
+      "",
+      "within",
+      " a species → ",
+      "intra",
+      "specific competition",
+      "E.g. Two lions competing for a mate",
+      "",
+      "between",
+      " ",
+      "different species → ",
+      "inter",
+      "specific competition",
+      "E.g. a cedar tree and a spruce tree competing for sunlight ",
+      ""
+    ],
+    "images": [
+      {
+        "path": "sources/slide-assets/slide-60-image72.png",
+        "archiveMember": "ppt/media/image72.png",
+        "sha256": "f535b38959dab4c5122fd722a887ba22cc448e4ff791f88cba46755439404490",
+        "pixelReview": "Not performed during export"
+      },
+      {
+        "path": "sources/slide-assets/slide-60-image76.png",
+        "archiveMember": "ppt/media/image76.png",
+        "sha256": "4216c8559d103997142519a87baff3e2ebaf8ffdaf2e84e6882e8ddc5b3ba708",
+        "pixelReview": "Not performed during export"
+      }
+    ]
+  },
+  {
+    "slide": 61,
+    "text": [
+      "The word ",
+      "symbiosis",
+      " comes from the Greek language and can be broken down into two main components:",
+      "\"Sym-\"",
+      " – meaning ",
+      "\"together\"",
+      " or ",
+      "\"with\"",
+      ". ",
+      "\"-biosis\"",
+      " – meaning ",
+      "\"living\"",
+      " or ",
+      "\"life\"",
+      ". ",
+      "Thus, ",
+      "symbiosis",
+      " essentially refers to \"living together\" or \"coexistence,\" especially in a context where two organisms of different species live in close physical proximity, often to the mutual benefit (though not always).",
+      " Symbiotic Relationships"
+    ],
+    "images": [
+      {
+        "path": "sources/slide-assets/slide-61-image69.png",
+        "archiveMember": "ppt/media/image69.png",
+        "sha256": "b811010b121cd419b29c44beacd1302604e7fb73cfc56261e0a4a2ac78ddacf3",
+        "pixelReview": "Not performed during export"
+      }
+    ]
+  },
+  {
+    "slide": 62,
+    "text": [
+      " Three Types of Symbiotic Relationships",
+      "Mutualism (++)",
+      " ",
+      "Both organisms benefit from the relationship. ",
+      "Example: Bees and flowers. Bees get nectar, and flowers get pollinated.",
+      "Commensalism ",
+      "(+0) ",
+      " One organism benefits, and the other is neither helped nor harmed. ",
+      "Example",
+      ": ",
+      "Small plants called epiphytes and grow on large tree branches. ",
+      "Epiphytes depend on their hosts for structural support but do not derive nourishment from them or harm them in any way.",
+      "Parasitism (+–) ",
+      " One organism benefits at the expense of the other. ",
+      "Example: A tick feeding on a dog. The tick benefits, while the dog is harmed."
+    ],
+    "images": [
+      {
+        "path": "sources/slide-assets/slide-62-image74.png",
+        "archiveMember": "ppt/media/image74.png",
+        "sha256": "009877d9256dac831deabb344c0610f54939997d10cba93937d640fbac01bf54",
+        "pixelReview": "Not performed during export"
+      },
+      {
+        "path": "sources/slide-assets/slide-62-image87.png",
+        "archiveMember": "ppt/media/image87.png",
+        "sha256": "908d716b32a11e442df5b17fc8a5852d933a0c3d56427233210a21fd84aa8f35",
+        "pixelReview": "Not performed during export"
+      },
+      {
+        "path": "sources/slide-assets/slide-62-image84.png",
+        "archiveMember": "ppt/media/image84.png",
+        "sha256": "4dd1841be23171c212939f04935569d198e2861a5c5c22129fbd39f4ddc041a3",
+        "pixelReview": "Not performed during export"
+      },
+      {
+        "path": "sources/slide-assets/slide-62-image82.png",
+        "archiveMember": "ppt/media/image82.png",
+        "sha256": "1f52711153ed5e452536b516f907c1c066ab36a9f373f85ed162b1c4a0568608",
+        "pixelReview": "Not performed during export"
+      }
+    ]
+  },
+  {
+    "slide": 63,
+    "text": [
+      "                ",
+      "Mutualism\t \t\tCommensalism\t\t       Parasitism ",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "images": [
+      {
+        "path": "sources/slide-assets/slide-63-image77.png",
+        "archiveMember": "ppt/media/image77.png",
+        "sha256": "be271b84dcca91435585d08b8ef5e15da3bd84efe0e95d5119f8748d7bc3ccb2",
+        "pixelReview": "Not performed during export"
+      },
+      {
+        "path": "sources/slide-assets/slide-63-image73.jpg",
+        "archiveMember": "ppt/media/image73.jpg",
+        "sha256": "acfa6d5a727389a995d741ea61c7a44428580eae8095e71962c3370df38390e4",
+        "pixelReview": "Not performed during export"
+      }
+    ]
+  },
+  {
+    "slide": 64,
+    "text": [
+      "Succession",
+      "Succession",
+      " is the process by which ecosystems change and develop over time. ",
+      "It involves a series of stages where different communities of organisms replace one another until a stable, mature ecosystem, known as a ",
+      "climax community",
+      ", is established.",
+      "Two types: Primary Succession and Secondary Succession"
+    ],
+    "images": [
+      {
+        "path": "sources/slide-assets/slide-64-image83.png",
+        "archiveMember": "ppt/media/image83.png",
+        "sha256": "67cba1ee31f0b32b5fa2c48dfedf02e022231ba15361f74bdbfa816b478048f8",
+        "pixelReview": "Not performed during export"
+      }
+    ]
+  },
+  {
+    "slide": 65,
+    "text": [
+      "Primary succession ",
+      "occurs in an area where ",
+      "no previous community existed (i..e. starting from scratch)",
+      "Typically happens in places where the ",
+      "land is newly formed or exposed",
+      ", such as after a volcanic eruption that creates new land, on a newly exposed area due to a receding glacier, or on bare rock where ",
+      "soil hasn’t formed yet.",
+      " ",
+      "First species to colonize the area are usually ",
+      "pioneer species",
+      ", like ",
+      "lichens",
+      " or ",
+      "mosses",
+      ", which can grow on bare rock and help break it down into soil. Over time, this soil becomes thick enough to support larger plants like grasses, followed by shrubs and eventually trees. As the environment develops, the ecosystem becomes more complex, with a variety of species.",
+      "Overall",
+      " slower process",
+      "Primary Succession"
+    ],
+    "images": [
+      {
+        "path": "sources/slide-assets/slide-65-image80.png",
+        "archiveMember": "ppt/media/image80.png",
+        "sha256": "ff157f7a578fbd9c3b6c7707cfa7498647d57972e17e03b823e0dd409515856e",
+        "pixelReview": "Not performed during export"
+      }
+    ]
+  },
+  {
+    "slide": 66,
+    "text": [
+      "",
+      "Secondary succession occurs in an area where",
+      " previous community existed, but has been destroyed",
+      ", such as by fire (",
+      "i.e. starting over)",
+      "Happens in places where ",
+      "soil is already present.",
+      "Process begins with grasses and small plants growing back, follow by shrubs, larger trees, etc. ",
+      "Overall",
+      " faster process",
+      "Secondary",
+      " Succession"
+    ],
+    "images": [
+      {
+        "path": "sources/slide-assets/slide-66-image85.png",
+        "archiveMember": "ppt/media/image85.png",
+        "sha256": "372fe2dd2b8c30c44e3315b64b178aa76f2b8f8b339eeded0a6e4e2c8aed89ed",
+        "pixelReview": "Not performed during export"
+      }
+    ]
+  },
+  {
+    "slide": 67,
+    "text": [],
+    "images": [
+      {
+        "path": "sources/slide-assets/slide-67-image79.png",
+        "archiveMember": "ppt/media/image79.png",
+        "sha256": "bd43b69687b8ee6886e1d62e87981a7e77696690f28934907add6053b6588093",
+        "pixelReview": "Not performed during export"
+      },
+      {
+        "path": "sources/slide-assets/slide-67-image89.png",
+        "archiveMember": "ppt/media/image89.png",
+        "sha256": "e105ae97abf9e2f74523b6b06f4e1be413cb771d3e74ff32dfcadfe46fd42a37",
+        "pixelReview": "Not performed during export"
+      },
+      {
+        "path": "sources/slide-assets/slide-67-image88.jpg",
+        "archiveMember": "ppt/media/image88.jpg",
+        "sha256": "2c04f45afcfd45f35d460502453620de82f07c707cac65813b4d93add544db20",
+        "pixelReview": "Not performed during export"
+      }
+    ]
+  },
+  {
+    "slide": 68,
+    "text": [
+      "Congratulations! You have gone through all the learning for Bio 30!! ",
+      "",
+      "Almost at the finish line!"
+    ],
+    "images": [
+      {
+        "path": "sources/slide-assets/slide-68-image86.gif",
+        "archiveMember": "ppt/media/image86.gif",
+        "sha256": "2aa6e7e7a955cdaa8fd415a0cb35d73c05494ffadf5dbe67b55284ef715671a0",
+        "pixelReview": "Not performed during export"
+      },
+      {
+        "path": "sources/slide-assets/slide-68-image81.png",
+        "archiveMember": "ppt/media/image81.png",
+        "sha256": "47c21ce02c643f51d92e7ed3823c480874cf8a11a39c2872a733b8daaf5ec991",
+        "pixelReview": "Not performed during export"
+      }
+    ]
+  }
+]

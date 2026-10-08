@@ -1,0 +1,433 @@
+[
+  {
+    "id": "ch16-chromosome",
+    "title": "One chromosome before and after replication",
+    "lesson": 3,
+    "src": "./assets/figures/ch16-chromosome.svg",
+    "alt": "Replication doubles DNA amount without initially doubling chromosome number. The two sister chromatids remain one replicated chromosome until they separate.",
+    "caption": "Replication doubles DNA amount without initially doubling chromosome number. The two sister chromatids remain one replicated chromosome until they separate. Schematic — not to scale.",
+    "source": "Original course schematic; canonical editable SVG plus reproducible scripts/make_media.py.",
+    "kind": "precisely authored SVG",
+    "reviewStatus": "Construction and target identities checked; render inspection recorded in verification.",
+    "targets": {
+      "A": "One unreplicated chromosome",
+      "B": "Sister chromatid",
+      "C": "Sister chromatid",
+      "D": "Centromere region"
+    },
+    "geometry": {
+      "A": {
+        "letter": [
+          120,
+          350
+        ],
+        "endpoint": [
+          290,
+          330
+        ]
+      },
+      "B": {
+        "letter": [
+          820,
+          310
+        ],
+        "endpoint": [
+          986,
+          300
+        ]
+      },
+      "C": {
+        "letter": [
+          1220,
+          310
+        ],
+        "endpoint": [
+          1054,
+          300
+        ]
+      },
+      "D": {
+        "letter": [
+          1210,
+          485
+        ],
+        "endpoint": [
+          1020,
+          380
+        ]
+      }
+    }
+  },
+  {
+    "id": "ch16-mitosis",
+    "title": "Mitosis in a model cell: 2n = 4",
+    "lesson": 4,
+    "src": "./assets/figures/ch16-mitosis.svg",
+    "alt": "Four replicated chromosomes align individually; sister chromatids separate. Each daughter nucleus receives four chromosomes. Blue and orange identify parental origins, not different cell types.",
+    "caption": "Four replicated chromosomes align individually; sister chromatids separate. Each daughter nucleus receives four chromosomes. Blue and orange identify parental origins, not different cell types. Schematic — not to scale.",
+    "source": "Original course schematic; canonical editable SVG plus reproducible scripts/make_media.py.",
+    "kind": "precisely authored SVG",
+    "reviewStatus": "Construction and target identities checked; render inspection recorded in verification.",
+    "targets": {
+      "A": "Prophase",
+      "B": "Metaphase",
+      "C": "Anaphase",
+      "D": "Telophase"
+    },
+    "geometry": {
+      "A": {
+        "letter": [
+          180,
+          175
+        ],
+        "endpoint": [
+          180,
+          175
+        ]
+      },
+      "B": {
+        "letter": [
+          525,
+          175
+        ],
+        "endpoint": [
+          525,
+          175
+        ]
+      },
+      "C": {
+        "letter": [
+          870,
+          175
+        ],
+        "endpoint": [
+          870,
+          175
+        ]
+      },
+      "D": {
+        "letter": [
+          1215,
+          175
+        ],
+        "endpoint": [
+          1215,
+          175
+        ]
+      }
+    }
+  },
+  {
+    "id": "ch16-meiosis",
+    "title": "Meiosis: separate homologues, then sisters",
+    "lesson": 7,
+    "src": "./assets/figures/ch16-meiosis.svg",
+    "alt": "A diploid 2n = 4 model begins after replication. Meiosis I produces two haploid cells with replicated chromosomes. Meiosis II separates sisters into four haploid products.",
+    "caption": "A diploid 2n = 4 model begins after replication. Meiosis I produces two haploid cells with replicated chromosomes. Meiosis II separates sisters into four haploid products. Schematic — not to scale.",
+    "source": "Original course schematic; canonical editable SVG plus reproducible scripts/make_media.py.",
+    "kind": "precisely authored SVG",
+    "reviewStatus": "Construction and target identities checked; render inspection recorded in verification.",
+    "targets": {
+      "A": "Replicated diploid cell",
+      "B": "Haploid cells after meiosis I",
+      "C": "Haploid cells after meiosis II"
+    },
+    "geometry": {
+      "A": {
+        "letter": [
+          215,
+          145
+        ],
+        "endpoint": [
+          215,
+          145
+        ]
+      },
+      "B": {
+        "letter": [
+          650,
+          140
+        ],
+        "endpoint": [
+          650,
+          140
+        ]
+      },
+      "C": {
+        "letter": [
+          1170,
+          140
+        ],
+        "endpoint": [
+          1170,
+          140
+        ]
+      }
+    }
+  },
+  {
+    "id": "ch16-crossing-over",
+    "title": "Crossing over involves non-sister chromatids",
+    "lesson": 8,
+    "src": "./assets/figures/ch16-crossing-over.svg",
+    "alt": "Two replicated homologues contain four chromatids. Exchange between one chromatid from each homologue can produce two recombinant and two unchanged chromatids.",
+    "caption": "Two replicated homologues contain four chromatids. Exchange between one chromatid from each homologue can produce two recombinant and two unchanged chromatids. Schematic — not to scale.",
+    "source": "Original course schematic; canonical editable SVG plus reproducible scripts/make_media.py.",
+    "kind": "precisely authored SVG",
+    "reviewStatus": "Construction and target identities checked; render inspection recorded in verification.",
+    "targets": {
+      "A": "Non-sister chromatids",
+      "B": "Parental chromatid",
+      "C": "Recombinant chromatid",
+      "D": "Parental chromatid"
+    },
+    "geometry": {
+      "A": {
+        "letter": [
+          420,
+          650
+        ],
+        "endpoint": [
+          400,
+          385
+        ]
+      },
+      "B": {
+        "letter": [
+          1010,
+          160
+        ],
+        "endpoint": [
+          1030,
+          240
+        ]
+      },
+      "C": {
+        "letter": [
+          1235,
+          385
+        ],
+        "endpoint": [
+          1150,
+          315
+        ]
+      },
+      "D": {
+        "letter": [
+          1020,
+          650
+        ],
+        "endpoint": [
+          1080,
+          535
+        ]
+      }
+    }
+  },
+  {
+    "id": "ch16-nondisjunction",
+    "title": "Nondisjunction: compare the gamete outcomes",
+    "lesson": 10,
+    "src": "./assets/figures/ch16-nondisjunction.svg",
+    "alt": "For one affected chromosome, a meiosis I error produces two n + 1 and two n − 1 gametes; a one-cell meiosis II error produces two normal, one n + 1 and one n − 1 gamete.",
+    "caption": "For one affected chromosome, a meiosis I error produces two n + 1 and two n − 1 gametes; a one-cell meiosis II error produces two normal, one n + 1 and one n − 1 gamete. Schematic — not to scale.",
+    "source": "Original course schematic; canonical editable SVG plus reproducible scripts/make_media.py.",
+    "kind": "precisely authored SVG",
+    "reviewStatus": "Construction and target identities checked; render inspection recorded in verification.",
+    "targets": {
+      "A": "Meiosis I nondisjunction",
+      "B": "Meiosis II nondisjunction"
+    },
+    "geometry": {
+      "A": {
+        "letter": [
+          100,
+          250
+        ],
+        "endpoint": [
+          100,
+          250
+        ]
+      },
+      "B": {
+        "letter": [
+          100,
+          535
+        ],
+        "endpoint": [
+          100,
+          535
+        ]
+      }
+    }
+  },
+  {
+    "id": "ch16-alternation",
+    "title": "Alternation of generations",
+    "lesson": 12,
+    "src": "./assets/figures/ch16-alternation.svg",
+    "alt": "Spores grow into gametophytes by mitosis. Fertilization restores diploidy, and mitosis grows the zygote into a sporophyte.",
+    "caption": "Spores grow into gametophytes by mitosis. Fertilization restores diploidy, and mitosis grows the zygote into a sporophyte. Schematic — arrows show the specified causal sequence.",
+    "source": "Original course schematic; canonical editable SVG plus reproducible scripts/make_media.py.",
+    "kind": "precisely authored SVG",
+    "reviewStatus": "Construction and target identities checked; render inspection recorded in verification.",
+    "targets": {
+      "A": "Sporophyte (2n)",
+      "B": "Meiosis",
+      "C": "Spore (n)",
+      "D": "Gametophyte (n)",
+      "E": "Gametes (n)",
+      "F": "Fertilization"
+    },
+    "geometry": {
+      "A": {
+        "letter": [
+          125,
+          196
+        ],
+        "endpoint": [
+          125,
+          196
+        ]
+      },
+      "B": {
+        "letter": [
+          575,
+          196
+        ],
+        "endpoint": [
+          575,
+          196
+        ]
+      },
+      "C": {
+        "letter": [
+          1025,
+          196
+        ],
+        "endpoint": [
+          1025,
+          196
+        ]
+      },
+      "D": {
+        "letter": [
+          125,
+          446
+        ],
+        "endpoint": [
+          125,
+          446
+        ]
+      },
+      "E": {
+        "letter": [
+          575,
+          446
+        ],
+        "endpoint": [
+          575,
+          446
+        ]
+      },
+      "F": {
+        "letter": [
+          1025,
+          446
+        ],
+        "endpoint": [
+          1025,
+          446
+        ]
+      }
+    }
+  },
+  {
+    "id": "ch16-source-karyotype",
+    "title": "A human karyotype",
+    "lesson": 1,
+    "src": "./assets/figures/ch16-source-karyotype.png",
+    "alt": "Chromosomes are arranged in pairs using size and banding patterns. Homologues share gene positions but can carry different alleles.",
+    "caption": "Chromosomes are arranged in pairs using size and banding patterns. Homologues share gene positions but can carry different alleles. Inquiry into Biology, Chapter 16, p. 553.",
+    "source": "Provided textbook Chapter 16, p. 553",
+    "kind": "Original textbook figure crop",
+    "pdfSha256": "6f109455a9a5aa8d9ee03bc6b224baf68b973675f0b62b1eec0aa294de48d526",
+    "printedPage": 553,
+    "pdfPage": 6,
+    "cropCoordinates": [
+      264,
+      43,
+      566,
+      244
+    ],
+    "reviewStatus": "Full source page and resulting crop visually inspected; nearby teaching supplies the stated distinctions.",
+    "targets": {},
+    "geometry": {}
+  },
+  {
+    "id": "ch16-source-mitosis",
+    "title": "Mitosis in diagrams and microscope images",
+    "lesson": 4,
+    "src": "./assets/figures/ch16-source-mitosis.png",
+    "alt": "Use chromosome condensation, alignment, separation and nuclear re-formation to identify stages. Interphase belongs to the cell cycle but is not a stage of mitosis.",
+    "caption": "Use chromosome condensation, alignment, separation and nuclear re-formation to identify stages. Interphase belongs to the cell cycle but is not a stage of mitosis. Inquiry into Biology, Chapter 16, p. 557.",
+    "source": "Provided textbook Chapter 16, p. 557",
+    "kind": "Original textbook figure crop",
+    "pdfSha256": "6f109455a9a5aa8d9ee03bc6b224baf68b973675f0b62b1eec0aa294de48d526",
+    "printedPage": 557,
+    "pdfPage": 10,
+    "cropCoordinates": [
+      66,
+      180,
+      570,
+      745
+    ],
+    "reviewStatus": "Full source page and resulting crop visually inspected; nearby teaching supplies the stated distinctions.",
+    "targets": {},
+    "geometry": {}
+  },
+  {
+    "id": "ch16-source-cell-plate",
+    "title": "Cytokinesis in a plant cell",
+    "lesson": 5,
+    "src": "./assets/figures/ch16-source-cell-plate.png",
+    "alt": "A cell plate develops between the daughter nuclei. Plant cytokinesis differs from an animal cell membrane pinching inward.",
+    "caption": "A cell plate develops between the daughter nuclei. Plant cytokinesis differs from an animal cell membrane pinching inward. Inquiry into Biology, Chapter 16, p. 559.",
+    "source": "Provided textbook Chapter 16, p. 559",
+    "kind": "Original textbook figure crop",
+    "pdfSha256": "6f109455a9a5aa8d9ee03bc6b224baf68b973675f0b62b1eec0aa294de48d526",
+    "printedPage": 559,
+    "pdfPage": 12,
+    "cropCoordinates": [
+      263,
+      43,
+      568,
+      241
+    ],
+    "reviewStatus": "Full source page and resulting crop visually inspected; nearby teaching supplies the stated distinctions.",
+    "targets": {},
+    "geometry": {}
+  },
+  {
+    "id": "ch16-source-meiosis",
+    "title": "The two divisions of meiosis",
+    "lesson": 6,
+    "src": "./assets/figures/ch16-source-meiosis.png",
+    "alt": "First trace homologous chromosome separation, then sister-chromatid separation. There is one premeiotic replication, not a second S phase between the two divisions.",
+    "caption": "First trace homologous chromosome separation, then sister-chromatid separation. There is one premeiotic replication, not a second S phase between the two divisions. Inquiry into Biology, Chapter 16, p. 564.",
+    "source": "Provided textbook Chapter 16, p. 564",
+    "kind": "Original textbook figure crop",
+    "pdfSha256": "6f109455a9a5aa8d9ee03bc6b224baf68b973675f0b62b1eec0aa294de48d526",
+    "printedPage": 564,
+    "pdfPage": 17,
+    "cropCoordinates": [
+      39,
+      43,
+      552,
+      599
+    ],
+    "reviewStatus": "Full source page and resulting crop visually inspected; nearby teaching supplies the stated distinctions.",
+    "targets": {},
+    "geometry": {}
+  }
+]

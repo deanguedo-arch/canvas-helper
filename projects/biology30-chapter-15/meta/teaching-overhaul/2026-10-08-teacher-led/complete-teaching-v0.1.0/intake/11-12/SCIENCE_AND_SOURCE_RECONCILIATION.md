@@ -1,0 +1,17 @@
+# Bounded scientific reconciliation
+
+The learner source PDF/PPTX remain unchanged. Candidate explanations preserve corrected physiology and identify source disagreements without clinical instructions.
+
+Textbook531 incorrectly excludes emergency hormone treatment from contraception and attributes an implantation-preventing action. Official WHO identifies emergency contraception and its ovulation-based pill mechanism. FDA's levonorgestrel/Plan B evidence review supports preventing or delaying ovulation and no direct implantation effect. The candidate states that specific mechanism, not a claim about every drug/device, and supplies no doses, timing schedules or success rates.
+Sources inspected8October2026: https://www.who.int/news-room/fact-sheets/detail/emergency-contraception and https://www.fda.gov/drugs/postmarket-drug-safety-information-patients-and-providers/plan-b-one-step-15-mg-levonorgestrel-information .
+
+Teacher41's universal IUD/hormone/ovulation account is overbroad. WHO distinguishes hormone-free copper IUDs from hormonal devices and their local effects; the FDA Mirena label supplies a mechanistic counterexample with ovulatory cycles. The candidate explains method-specific mucus/local action rather than treating every hormonal method as identical.
+Sources: https://www.who.int/news-room/fact-sheets/detail/intrauterine-devices ; https://www.accessdata.fda.gov/drugsatfda_docs/label/2022/021225s043lbl.pdf ,§12.1–12.2, used as a stable mechanistic source, not current prescribing guidance.
+
+Figure15.18 transport anatomy supports identifying the interrupted duct and retained gonad. The candidate separately explains testosterone in blood and accessory-gland fluid contribution; the source picture itself does not show the endocrine route. No blanket immediate effectiveness or zero-failure inference is taught.
+
+Final synthesis preserves hCG source→corpus luteum→progesterone/estrogen→endometrial support, distinct from the closed reinforcing cervical-stretch loop. It does not invent an hCG negative-feedback return path. Placental area and diffusion distance, umbilical direction, tissue-specific germ layers, production/ejection and age-reference/structure-function limits remain explicit.
+
+Protected optional-source limitations: monozygotic twins have several membrane arrangements, so537Q26 describes one model, not every case (https://www.nhs.uk/pregnancy/your-pregnancy-care/antenatal-care-with-twins/). Human labour involves functional progesterone withdrawal, not a universal sharp serum decline required by536Q14a (https://www.ncbi.nlm.nih.gov/books/NBK278962/). Unspecified milk-production drug536Q22 is not uniquely diagnostic. These are recorded as task/source limits; the final review does not become a clinical unit.
+
+Post-attempt review clarification: actual teacher22/24 and textbook521 distinguish earlier skeletal formation from later rapid brain development. Primary in-utero studies show continuing third-trimester tract/network development; a short paragraph supplies that comparison in final12 without claiming all brain cells begin then or that imaging counts new neurons. Author retrieved full primary abstracts/results via web search after direct NCBI opens returned empty/browser-check pages. Sources: https://pubmed.ncbi.nlm.nih.gov/32399686/ (longitudinal31–36 gestational weeks) and https://pmc.ncbi.nlm.nih.gov/articles/PMC11255424/ (26–38week structural-network analysis).

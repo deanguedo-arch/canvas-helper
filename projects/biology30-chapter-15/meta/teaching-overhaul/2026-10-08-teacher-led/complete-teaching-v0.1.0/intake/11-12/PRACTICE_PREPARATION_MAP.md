@@ -1,0 +1,9 @@
+# Preparation and scope
+
+11: teaching01 distinguishes gamete placement, in-body/laboratory fertilization and transfer versus implantation; supports guided1, requiredMC1 and writing1. Teaching02 defines duct versus endocrine routes and interprets actual anatomy; supports guided2, stop-check, requiredMC2 and transport-related practice. Its method-specific mucus example and changed-condition worked ending support application/scenario variants. Teaching03 models outcome definitions, evidence comparisons and values; supports writing2. Visible glossary/teaching supports four concepts and all sixteen derived vocabulary forms; exact prompt/support results are in fresh review.
+
+12: teaching01 connects23+23, cleavage/morula/blastocyst/implantation/germ layers/organogenesis and clocks/function limits; supports finalMC1/3/6,writing1 and independent writing. Teaching02 traces hCG support versus reinforcing labour, exchange structure and vessel direction, lactation signal/target distinction; supports finalMC2/4/5,writing2 and independent three MC. Existing worked two-barrier comparison and eleven-topic table remain exact.
+
+The three optional source-written applications use original image givens and earlier01–10 teaching. Their full figure-based attempts are recorded separately from text-only tasks. Eight optional Frayer forms use the four displayed fields, their native240-character limits and previously taught concepts. The separate46-item unit bank has CH14 prerequisites not supplied here; its fresh reader must record that limit rather than fill gaps from expertise.
+
+All41 unique textbook task prompts and42 crops/continuations were source-inspected. This is source/task coverage, not a claim that the final pair alone teaches all optional research dimensions or that every inherited question is scientifically current. Consult protected decision index.

@@ -1,0 +1,1033 @@
+{
+  "manifest": {
+    "frozenAtUTC": "2026-10-08T21:33:32.695457+00:00",
+    "phase": "Learner-only first responses, before source/keys/reports/semantic map",
+    "inputs": [
+      {
+        "path": "ch16-batch03-04/review/lesson-03-blind.txt",
+        "sha256": "3c7b1b7f8fc6462edffaf0d87ef0d83536164d340bf055afbb40156cbaa0da9e",
+        "bytes": 9077
+      },
+      {
+        "path": "ch16-batch03-04/review/lesson-04-blind.txt",
+        "sha256": "882a5864bced4f1e0be230dfa881739216dc4155fb3c7ca3a90ee96799f0ecd7",
+        "bytes": 11985
+      },
+      {
+        "path": "ch16-batch03-04/review/lesson-03-blind.html",
+        "sha256": "ec74a9f260c14a1ac7a43f566c2f68a844b9958f471f1a63910329d56eb67659",
+        "bytes": 20038
+      },
+      {
+        "path": "ch16-batch03-04/review/lesson-04-blind.html",
+        "sha256": "7a90e103d5b448fffd7ff1f9b39ad70714891e7c457eea1dd44f25c7bed117e7",
+        "bytes": 24251
+      },
+      {
+        "path": "ch16-batch03-04/review/native-practice-blind.json",
+        "sha256": "85deb66b6a5dac1396c5e0508ad0b27dff6179e919d67d199823eeac4408bc19",
+        "bytes": 18748
+      },
+      {
+        "path": "ch16-batch03-04/review/full-labeling-blind.json",
+        "sha256": "5c20c971a904c2b99f400b89d3d07c1fb9be14f20de3f51bb2af2c5a2b313142",
+        "bytes": 1198
+      },
+      {
+        "path": "ch16-batch03-04/review/frayer-prompts-blind.json",
+        "sha256": "b46dc1e734583555b42f4221425c7c787a240a996f7adf7d43e1dede3bebc17b",
+        "bytes": 2318
+      },
+      {
+        "path": "ch16-batch03-04/learner/assets/figures/ch16-mitosis.svg",
+        "sha256": "3f47b45fad7759b5a21eab5024593cc28d315a0e964a3d80a99b86c64d7a91d2",
+        "bytes": 8450
+      },
+      {
+        "path": "ch16-batch03-04/learner/assets/figures/ch16-chromosome.svg",
+        "sha256": "867213b2eeb81be008c544b9858fefd6c24e1ed5350f556fb54a79d5b018574d",
+        "bytes": 4243
+      },
+      {
+        "path": "ch16-batch03-04/learner/assets/figures/ch16-source-mitosis.png",
+        "sha256": "a8d1d4022aa2064dcf3446cfa3cd789658209668b3030633cd00895ad8acc57c",
+        "bytes": 518534
+      },
+      {
+        "path": "ch16-batch03-04/learner/assets/labeling/ch16-mitosis.svg",
+        "sha256": "da11d74e9bde2524e49a9ddeafe15784870c59885af3e83e8e37df465c9922e2",
+        "bytes": 8187
+      },
+      {
+        "path": "ch16-batch03-04/learner/assets/labeling/ch16-chromosome.svg",
+        "sha256": "34ce72592f270ee4d5872ba8bcda3d9519726373fd026fb342a4437589b28fee",
+        "bytes": 3938
+      }
+    ],
+    "rendering": "Four SVGs rendered using installed Inkscape at intrinsic dimensions; three teaching figures and both full-labeling images directly viewed. No runtime/browser/course/test execution."
+  },
+  "local": [
+    {
+      "id": "L03-P1",
+      "firstResponse": "20 chromatids",
+      "visibleSupport": "L03 worked 2n=6 example: after S, twice as many chromatids as chromosomes; 10\u00d72.",
+      "alternativeOrCaveat": "",
+      "gap": "None affecting completion"
+    },
+    {
+      "id": "L03-P2",
+      "firstResponse": "4 chromosomes toward one pole",
+      "visibleSupport": "L03 2n=4 table: anaphase group to one pole=4; whole-cell=8.",
+      "alternativeOrCaveat": "",
+      "gap": "None affecting completion"
+    },
+    {
+      "id": "L03-T",
+      "firstResponse": "State the stage, boundary being counted, and quantity (chromosomes, chromatids, or DNA amount).",
+      "visibleSupport": "L03 opening three questions and worked example final check.",
+      "alternativeOrCaveat": "",
+      "gap": "None affecting completion"
+    },
+    {
+      "id": "L03-S1",
+      "firstResponse": "2 chromosomes and 4 chromatids",
+      "visibleSupport": "L03 Count complete structures paragraph: two whole X homologues = 2 chromosomes and 4 chromatids.",
+      "alternativeOrCaveat": "",
+      "gap": "None affecting completion"
+    },
+    {
+      "id": "L03-S2",
+      "firstResponse": "16",
+      "visibleSupport": "L03 table and 2n=6 worked example: separated sisters each count independently; whole undivided cell has twice original chromosome count.",
+      "alternativeOrCaveat": "",
+      "gap": "None affecting completion"
+    },
+    {
+      "id": "L03-W1",
+      "firstResponse": "Before S: 12 unreplicated chromosomes, each with one DNA molecule; no sister-chromatid pairs. Under the single-chromatid convention this is 12 chromatids. Immediately after S, before separation: 12 replicated chromosomes containing 24 sister chromatids, with twice the earlier DNA amount.",
+      "visibleSupport": "L03 table, explicit pre-S convention paragraph and worked example.",
+      "alternativeOrCaveat": "Accept pre-S wording of 12 single chromatids or 12 unreplicated chromosomes/no sister pairs, if convention is explicit; do not demand zero DNA or reject an internally consistent convention.",
+      "gap": "None affecting completion"
+    },
+    {
+      "id": "L03-W2",
+      "firstResponse": "Anaphase counts depend on boundary. Once sisters separate, each is an individual chromosome. The undivided cell contains both future daughter groups, so its total is twice that delivered to one daughter. For 2n=4, there are 8 in the whole cell and 4 in each daughter; no extra replication occurs during separation.",
+      "visibleSupport": "L03 table, following paragraphs, worked example.",
+      "alternativeOrCaveat": "",
+      "gap": "None affecting completion"
+    },
+    {
+      "id": "L04-P1",
+      "firstResponse": "Metaphase",
+      "visibleSupport": "L04 first section: replicated chromosomes align individually along equator.",
+      "alternativeOrCaveat": "",
+      "gap": "None affecting completion"
+    },
+    {
+      "id": "L04-P2",
+      "firstResponse": "Sister chromatids",
+      "visibleSupport": "L04 second section and worked example: sisters separate and become chromosomes.",
+      "alternativeOrCaveat": "",
+      "gap": "None affecting completion"
+    },
+    {
+      "id": "L04-T",
+      "firstResponse": "PMAT gives names/order but stage identification needs evidence such as condensation, single equatorial alignment, separated groups, or new nuclei. A blurred still image may not show enough to decide.",
+      "visibleSupport": "L04 final teaching section and worked-example caution.",
+      "alternativeOrCaveat": "",
+      "gap": "None affecting completion"
+    },
+    {
+      "id": "L04-S1",
+      "firstResponse": "New nuclei form around chromosome groups at opposite poles",
+      "visibleSupport": "L04 telophase teaching and schematic D with two envelopes.",
+      "alternativeOrCaveat": "",
+      "gap": "None affecting completion"
+    },
+    {
+      "id": "L04-S2",
+      "firstResponse": "It supports delivery of one replicated copy to each daughter nucleus",
+      "visibleSupport": "L04 metaphase opposite attachment paragraph and distribution explanation.",
+      "alternativeOrCaveat": "",
+      "gap": "None affecting completion"
+    },
+    {
+      "id": "L04-W1",
+      "firstResponse": "Prophase: already-replicated chromosomes condense, spindle organizes and nuclear envelope breaks down in the grouped early stage. Metaphase: replicated chromosomes align singly at the equator, with sister attachment toward opposite poles. Anaphase: sisters separate, each becomes a chromosome and the copies move toward opposite poles. Telophase: chromosomes reach poles and decondense, envelopes form around the two groups and spindle breaks down. Cytokinesis divides cytoplasm and may overlap the end of mitosis.",
+      "visibleSupport": "L04 three teaching sections, both figures, worked example.",
+      "alternativeOrCaveat": "",
+      "gap": "None affecting completion"
+    },
+    {
+      "id": "L04-W2",
+      "firstResponse": "Mitosis separates the sister copies of each chromosome, distributing a matching complement to both nuclei, including both parental origins in the diploid model. Separating a maternal from its paternal homologue instead moves the two members of a homologous pair, as in meiosis I; each remains replicated and this reduces chromosome sets.",
+      "visibleSupport": "L04 homologues-versus-sisters paragraph and figure C containing both colours at each pole.",
+      "alternativeOrCaveat": "",
+      "gap": "None affecting completion"
+    }
+  ],
+  "native": [
+    {
+      "id": "N001",
+      "firstResponse": "A chromosome region involved in keeping sister chromatids associated and, through kinetochore attachment, their separation.",
+      "visibleSupport": "L03 vocabulary plus counting/structure explanations",
+      "alternativeOrCaveat": "",
+      "gap": "None affecting completion",
+      "prompt": "Explain centromere.",
+      "kind": "flash"
+    },
+    {
+      "id": "N002",
+      "firstResponse": "centromere",
+      "visibleSupport": "L03 vocabulary plus counting/structure explanations",
+      "alternativeOrCaveat": "",
+      "gap": "None affecting completion",
+      "prompt": "Which term fits this definition? The chromosome region associated with the attachment and separation of sister chromatids.",
+      "kind": "flash"
+    },
+    {
+      "id": "N003",
+      "firstResponse": "A centromere is a region of a chromosome, not a whole homologous pair of two chromosomes.",
+      "visibleSupport": "L03 vocabulary plus counting/structure explanations",
+      "alternativeOrCaveat": "",
+      "gap": "None affecting completion",
+      "prompt": "Correct this incorrect statement: A centromere is a whole homologous pair.",
+      "kind": "flash"
+    },
+    {
+      "id": "N004",
+      "firstResponse": "centromere",
+      "visibleSupport": "L03 vocabulary plus counting/structure explanations",
+      "alternativeOrCaveat": "",
+      "gap": "None affecting completion",
+      "prompt": "Name the term described: The chromosome region associated with the attachment and separation of sister chromatids.",
+      "kind": "blank"
+    },
+    {
+      "id": "N005",
+      "firstResponse": "The count of individual chromosomes within the specified cell, nucleus or other stated boundary.",
+      "visibleSupport": "L03 vocabulary plus counting/structure explanations",
+      "alternativeOrCaveat": "",
+      "gap": "None affecting completion",
+      "prompt": "Explain chromosome number.",
+      "kind": "flash"
+    },
+    {
+      "id": "N006",
+      "firstResponse": "chromosome number",
+      "visibleSupport": "L03 vocabulary plus counting/structure explanations",
+      "alternativeOrCaveat": "",
+      "gap": "None affecting completion",
+      "prompt": "Which term fits this definition? The count of individual chromosomes in a specified cell or nucleus.",
+      "kind": "flash"
+    },
+    {
+      "id": "N007",
+      "firstResponse": "They do not always change together. S phase doubles DNA amount but joined sisters are still one chromosome, so chromosome number initially stays the same.",
+      "visibleSupport": "L03 vocabulary plus counting/structure explanations",
+      "alternativeOrCaveat": "",
+      "gap": "None affecting completion",
+      "prompt": "Correct this incorrect statement: Chromosome number and DNA amount always change together.",
+      "kind": "flash"
+    },
+    {
+      "id": "N008",
+      "firstResponse": "chromosome number",
+      "visibleSupport": "L03 vocabulary plus counting/structure explanations",
+      "alternativeOrCaveat": "",
+      "gap": "None affecting completion",
+      "prompt": "Name the term described: The count of individual chromosomes in a specified cell or nucleus.",
+      "kind": "blank"
+    },
+    {
+      "id": "N009",
+      "firstResponse": "The quantity of DNA in the stated cell or nucleus; it can change without a change in chromosome number.",
+      "visibleSupport": "L03 vocabulary plus counting/structure explanations",
+      "alternativeOrCaveat": "",
+      "gap": "None affecting completion",
+      "prompt": "Explain DNA amount.",
+      "kind": "flash"
+    },
+    {
+      "id": "N010",
+      "firstResponse": "DNA amount",
+      "visibleSupport": "L03 vocabulary plus counting/structure explanations",
+      "alternativeOrCaveat": "",
+      "gap": "None affecting completion",
+      "prompt": "Which term fits this definition? The quantity of DNA in the specified cell or nucleus.",
+      "kind": "flash"
+    },
+    {
+      "id": "N011",
+      "firstResponse": "DNA amount is not the number of chromosome sets. A diploid cell remains diploid after S even though its DNA amount has doubled.",
+      "visibleSupport": "L03 vocabulary plus counting/structure explanations",
+      "alternativeOrCaveat": "",
+      "gap": "None affecting completion",
+      "prompt": "Correct this incorrect statement: DNA amount is always equal to the number of chromosome sets.",
+      "kind": "flash"
+    },
+    {
+      "id": "N012",
+      "firstResponse": "DNA amount",
+      "visibleSupport": "L03 vocabulary plus counting/structure explanations",
+      "alternativeOrCaveat": "",
+      "gap": "None affecting completion",
+      "prompt": "Name the term described: The quantity of DNA in the specified cell or nucleus.",
+      "kind": "blank"
+    },
+    {
+      "id": "N013",
+      "firstResponse": "The mitotic stage when sister chromatids separate, become individual chromosomes and move toward opposite poles.",
+      "visibleSupport": "L03 vocabulary plus counting/structure explanations",
+      "alternativeOrCaveat": "",
+      "gap": "None affecting completion",
+      "prompt": "Explain anaphase.",
+      "kind": "flash"
+    },
+    {
+      "id": "N014",
+      "firstResponse": "anaphase",
+      "visibleSupport": "L03 vocabulary plus counting/structure explanations",
+      "alternativeOrCaveat": "",
+      "gap": "None affecting completion",
+      "prompt": "Which term fits this definition? The mitotic stage in which sister chromatids separate and move toward opposite poles.",
+      "kind": "flash"
+    },
+    {
+      "id": "N015",
+      "firstResponse": "Sister chromatids separate in mitotic anaphase, and each separated copy is then a chromosome.",
+      "visibleSupport": "L03 vocabulary plus counting/structure explanations",
+      "alternativeOrCaveat": "",
+      "gap": "None affecting completion",
+      "prompt": "Correct this incorrect statement: Sister chromatids stay joined throughout mitotic anaphase.",
+      "kind": "flash"
+    },
+    {
+      "id": "N016",
+      "firstResponse": "anaphase",
+      "visibleSupport": "L03 vocabulary plus counting/structure explanations",
+      "alternativeOrCaveat": "",
+      "gap": "None affecting completion",
+      "prompt": "Name the term described: The mitotic stage in which sister chromatids separate and move toward opposite poles.",
+      "kind": "blank"
+    },
+    {
+      "id": "N017",
+      "firstResponse": "The early mitotic stage in which already-replicated chromosomes condense and the spindle organizes; early envelope breakdown is grouped here.",
+      "visibleSupport": "L04 vocabulary plus stage/mechanism explanations",
+      "alternativeOrCaveat": "",
+      "gap": "None affecting completion",
+      "prompt": "Explain prophase.",
+      "kind": "flash"
+    },
+    {
+      "id": "N018",
+      "firstResponse": "prophase",
+      "visibleSupport": "L04 vocabulary plus stage/mechanism explanations",
+      "alternativeOrCaveat": "",
+      "gap": "None affecting completion",
+      "prompt": "Which term fits this definition? The mitotic stage in which chromosomes condense and the division machinery becomes organized.",
+      "kind": "flash"
+    },
+    {
+      "id": "N019",
+      "firstResponse": "DNA is copied in S phase before mitosis; prophase condenses and organizes already-replicated chromosomes.",
+      "visibleSupport": "L04 vocabulary plus stage/mechanism explanations",
+      "alternativeOrCaveat": "",
+      "gap": "None affecting completion",
+      "prompt": "Correct this incorrect statement: The cell first copies its DNA during prophase.",
+      "kind": "flash"
+    },
+    {
+      "id": "N020",
+      "firstResponse": "prophase",
+      "visibleSupport": "L04 vocabulary plus stage/mechanism explanations",
+      "alternativeOrCaveat": "",
+      "gap": "None affecting completion",
+      "prompt": "Name the term described: The mitotic stage in which chromosomes condense and the division machinery becomes organized.",
+      "kind": "blank"
+    },
+    {
+      "id": "N021",
+      "firstResponse": "The mitotic stage in which replicated chromosomes align individually at the equator, with sisters attached toward opposite poles.",
+      "visibleSupport": "L04 vocabulary plus stage/mechanism explanations",
+      "alternativeOrCaveat": "",
+      "gap": "None affecting completion",
+      "prompt": "Explain metaphase.",
+      "kind": "flash"
+    },
+    {
+      "id": "N022",
+      "firstResponse": "metaphase",
+      "visibleSupport": "L04 vocabulary plus stage/mechanism explanations",
+      "alternativeOrCaveat": "",
+      "gap": "None affecting completion",
+      "prompt": "Which term fits this definition? The mitotic stage in which replicated chromosomes align at the cell equator.",
+      "kind": "flash"
+    },
+    {
+      "id": "N023",
+      "firstResponse": "Mitotic metaphase aligns replicated chromosomes individually. Tetrads of paired homologues belong to meiosis I.",
+      "visibleSupport": "L04 vocabulary plus stage/mechanism explanations",
+      "alternativeOrCaveat": "",
+      "gap": "None affecting completion",
+      "prompt": "Correct this incorrect statement: Mitosis always pairs homologues into tetrads at metaphase.",
+      "kind": "flash"
+    },
+    {
+      "id": "N024",
+      "firstResponse": "metaphase",
+      "visibleSupport": "L04 vocabulary plus stage/mechanism explanations",
+      "alternativeOrCaveat": "",
+      "gap": "None affecting completion",
+      "prompt": "Name the term described: The mitotic stage in which replicated chromosomes align at the cell equator.",
+      "kind": "blank"
+    },
+    {
+      "id": "N025",
+      "firstResponse": "A protein microtubule structure involved in attaching to and moving chromosomes during division.",
+      "visibleSupport": "L04 vocabulary plus stage/mechanism explanations",
+      "alternativeOrCaveat": "",
+      "gap": "None affecting completion",
+      "prompt": "Explain spindle fibre.",
+      "kind": "flash"
+    },
+    {
+      "id": "N026",
+      "firstResponse": "spindle fibre",
+      "visibleSupport": "L04 vocabulary plus stage/mechanism explanations",
+      "alternativeOrCaveat": "",
+      "gap": "None affecting completion",
+      "prompt": "Which term fits this definition? A microtubule structure involved in chromosome attachment and movement during division.",
+      "kind": "flash"
+    },
+    {
+      "id": "N027",
+      "firstResponse": "Spindle fibres guide attachment and movement of chromosomes; they do not manufacture nucleotides or new DNA.",
+      "visibleSupport": "L04 vocabulary plus stage/mechanism explanations",
+      "alternativeOrCaveat": "",
+      "gap": "None affecting completion",
+      "prompt": "Correct this incorrect statement: Spindle fibres manufacture DNA nucleotides.",
+      "kind": "flash"
+    },
+    {
+      "id": "N028",
+      "firstResponse": "spindle fibre",
+      "visibleSupport": "L04 vocabulary plus stage/mechanism explanations",
+      "alternativeOrCaveat": "",
+      "gap": "None affecting completion",
+      "prompt": "Name the term described: A microtubule structure involved in chromosome attachment and movement during division.",
+      "kind": "blank"
+    },
+    {
+      "id": "N029",
+      "firstResponse": "The stage when separated chromosome groups reach opposite poles, decondense and become enclosed by forming nuclear envelopes.",
+      "visibleSupport": "L04 vocabulary plus stage/mechanism explanations",
+      "alternativeOrCaveat": "",
+      "gap": "None affecting completion",
+      "prompt": "Explain telophase.",
+      "kind": "flash"
+    },
+    {
+      "id": "N030",
+      "firstResponse": "telophase",
+      "visibleSupport": "L04 vocabulary plus stage/mechanism explanations",
+      "alternativeOrCaveat": "",
+      "gap": "None affecting completion",
+      "prompt": "Which term fits this definition? The mitotic stage in which chromosome groups reach the poles and daughter nuclei form.",
+      "kind": "flash"
+    },
+    {
+      "id": "N031",
+      "firstResponse": "Telophase reforms nuclei at the end of mitosis. S phase is earlier DNA replication.",
+      "visibleSupport": "L04 vocabulary plus stage/mechanism explanations",
+      "alternativeOrCaveat": "",
+      "gap": "None affecting completion",
+      "prompt": "Correct this incorrect statement: Telophase is another name for S phase.",
+      "kind": "flash"
+    },
+    {
+      "id": "N032",
+      "firstResponse": "telophase",
+      "visibleSupport": "L04 vocabulary plus stage/mechanism explanations",
+      "alternativeOrCaveat": "",
+      "gap": "None affecting completion",
+      "prompt": "Name the term described: The mitotic stage in which chromosome groups reach the poles and daughter nuclei form.",
+      "kind": "blank"
+    },
+    {
+      "id": "N033",
+      "firstResponse": "12",
+      "visibleSupport": "L03 table/2n=6 worked example and complete-structure counting; vocabulary",
+      "alternativeOrCaveat": "",
+      "gap": "None affecting completion",
+      "prompt": "A typical diploid cell contains 12 chromosomes before S phase. Immediately after S phase, what is its chromosome count?",
+      "kind": "mc"
+    },
+    {
+      "id": "N034",
+      "firstResponse": "prophase",
+      "visibleSupport": "L04 early-stage explanation explicitly groups envelope breakdown into prophase; actual source-mitosis image B shows disappearing envelope and centrioles migrating to poles.",
+      "alternativeOrCaveat": "Prometaphase can describe envelope breakdown in a finer model; provided four options and lesson grouping support prophase. Nucleolus disappearance itself is not explicitly taught in prose; remaining diagnostic features suffice.",
+      "gap": "None affecting completion",
+      "prompt": "Identify the phase of mitosis that is described below: \u201cDuring this phase, the nuclear membrane breaks down, releasing the chromosomes into the cytoplasm. The nucleolus disappears and the centrioles move to opposite poles of the cell.\u201d",
+      "kind": "mc"
+    },
+    {
+      "id": "N035",
+      "firstResponse": "Accurate separation of chromosomes",
+      "visibleSupport": "L04 visible vocabulary, stage/mechanism teaching, PMAT explanation and figures",
+      "alternativeOrCaveat": "",
+      "gap": "None affecting completion",
+      "prompt": "A hypothetical agent prevents a functional mitotic spindle from forming. Which event is directly disrupted?",
+      "kind": "mc"
+    },
+    {
+      "id": "N036",
+      "firstResponse": "centromere",
+      "visibleSupport": "L03 chromosome structure explanation and actual chromosome SVG centromere feature",
+      "alternativeOrCaveat": "",
+      "gap": "None affecting completion",
+      "prompt": "Which term matches this description? The chromosome region associated with the attachment and separation of sister chromatids.",
+      "kind": "mc"
+    },
+    {
+      "id": "N037",
+      "firstResponse": "chromosome number",
+      "visibleSupport": "L03 table/2n=6 worked example and complete-structure counting; vocabulary",
+      "alternativeOrCaveat": "",
+      "gap": "None affecting completion",
+      "prompt": "Which term matches this description? The count of individual chromosomes in a specified cell or nucleus.",
+      "kind": "mc"
+    },
+    {
+      "id": "N038",
+      "firstResponse": "DNA amount",
+      "visibleSupport": "L03 table/2n=6 worked example and complete-structure counting; vocabulary",
+      "alternativeOrCaveat": "",
+      "gap": "None affecting completion",
+      "prompt": "Which term matches this description? The quantity of DNA in the specified cell or nucleus.",
+      "kind": "mc"
+    },
+    {
+      "id": "N039",
+      "firstResponse": "anaphase",
+      "visibleSupport": "L04 visible vocabulary, stage/mechanism teaching, PMAT explanation and figures",
+      "alternativeOrCaveat": "",
+      "gap": "None affecting completion",
+      "prompt": "Which term matches this description? The mitotic stage in which sister chromatids separate and move toward opposite poles.",
+      "kind": "mc"
+    },
+    {
+      "id": "N040",
+      "firstResponse": "prophase",
+      "visibleSupport": "L04 visible vocabulary, stage/mechanism teaching, PMAT explanation and figures",
+      "alternativeOrCaveat": "",
+      "gap": "None affecting completion",
+      "prompt": "Which term matches this description? The mitotic stage in which chromosomes condense and the division machinery becomes organized.",
+      "kind": "mc"
+    },
+    {
+      "id": "N041",
+      "firstResponse": "metaphase",
+      "visibleSupport": "L04 visible vocabulary, stage/mechanism teaching, PMAT explanation and figures",
+      "alternativeOrCaveat": "",
+      "gap": "None affecting completion",
+      "prompt": "Which term matches this description? The mitotic stage in which replicated chromosomes align at the cell equator.",
+      "kind": "mc"
+    },
+    {
+      "id": "N042",
+      "firstResponse": "spindle fibre",
+      "visibleSupport": "L04 visible vocabulary, stage/mechanism teaching, PMAT explanation and figures",
+      "alternativeOrCaveat": "",
+      "gap": "None affecting completion",
+      "prompt": "Which term matches this description? A microtubule structure involved in chromosome attachment and movement during division.",
+      "kind": "mc"
+    },
+    {
+      "id": "N043",
+      "firstResponse": "telophase",
+      "visibleSupport": "L04 visible vocabulary, stage/mechanism teaching, PMAT explanation and figures",
+      "alternativeOrCaveat": "",
+      "gap": "None affecting completion",
+      "prompt": "Which term matches this description? The mitotic stage in which chromosome groups reach the poles and daughter nuclei form.",
+      "kind": "mc"
+    },
+    {
+      "id": "N044",
+      "firstResponse": [
+        "Prophase: chromosomes condense and spindle organizes",
+        "Metaphase: replicated chromosomes align individually",
+        "Anaphase: sister chromatids separate",
+        "Telophase: daughter nuclei form"
+      ],
+      "visibleSupport": "L04 visible vocabulary, stage/mechanism teaching, PMAT explanation and figures",
+      "alternativeOrCaveat": "",
+      "gap": "None affecting completion",
+      "prompt": "Put these steps in order: Mitosis: chromosome movement through the stages",
+      "kind": "order"
+    },
+    {
+      "id": "N045",
+      "firstResponse": "Arms are not the unit used to count chromosomes",
+      "visibleSupport": "L03 table/2n=6 worked example and complete-structure counting; vocabulary",
+      "alternativeOrCaveat": "",
+      "gap": "None affecting completion",
+      "prompt": "A student counts four visible arms on a single replicated chromosome and reports four chromosomes. What should be corrected?",
+      "kind": "mc"
+    },
+    {
+      "id": "N046",
+      "firstResponse": "A whole replicated chromosome is one chromosome with two complete sister chromatids; its four visible arms are not four chromosomes.",
+      "visibleSupport": "L03 table/2n=6 worked example and complete-structure counting; vocabulary",
+      "alternativeOrCaveat": "",
+      "gap": "None affecting completion",
+      "prompt": "A student counts four visible arms on a single replicated chromosome and reports four chromosomes. What should be corrected?",
+      "kind": "flash"
+    },
+    {
+      "id": "N047",
+      "firstResponse": "It confuses homologue segregation with distribution of replicated copies",
+      "visibleSupport": "L04 homologues-versus-sisters explanation; actual mitosis schematic shows both colours in each future nucleus",
+      "alternativeOrCaveat": "",
+      "gap": "None affecting completion",
+      "prompt": "A mitotic daughter receives only maternal homologues while the other receives only paternal homologues. What is wrong with this normal-mitosis model?",
+      "kind": "mc"
+    },
+    {
+      "id": "N048",
+      "firstResponse": "Each normal diploid mitotic daughter needs a sister copy from each chromosome, so both receive maternal and paternal homologues; segregating parental sets does not model ordinary mitosis.",
+      "visibleSupport": "L04 homologues-versus-sisters explanation; actual mitosis schematic shows both colours in each future nucleus",
+      "alternativeOrCaveat": "",
+      "gap": "None affecting completion",
+      "prompt": "A mitotic daughter receives only maternal homologues while the other receives only paternal homologues. What is wrong with this normal-mitosis model?",
+      "kind": "flash"
+    },
+    {
+      "id": "N049",
+      "firstResponse": "centromere",
+      "visibleSupport": "L03 chromosome structure explanation and actual chromosome SVG centromere feature",
+      "alternativeOrCaveat": "Free text can validly express the concept using related wording; automated exact-term fairness remains to inspect only after freeze.",
+      "gap": "None affecting completion",
+      "prompt": "Identify the term illustrated: Sister chromatids remain linked at a constricted chromosome region before division.",
+      "kind": "blank"
+    },
+    {
+      "id": "N050",
+      "firstResponse": "chromosome number",
+      "visibleSupport": "L03 table/2n=6 worked example and complete-structure counting; vocabulary",
+      "alternativeOrCaveat": "Free text can validly express the concept using related wording; automated exact-term fairness remains to inspect only after freeze.",
+      "gap": "None affecting completion",
+      "prompt": "Identify the term illustrated: A diploid model cell retains four chromosomes after replication until sister chromatids separate.",
+      "kind": "blank"
+    },
+    {
+      "id": "N051",
+      "firstResponse": "DNA amount",
+      "visibleSupport": "L03 table/2n=6 worked example and complete-structure counting; vocabulary",
+      "alternativeOrCaveat": "Free text can validly express the concept using related wording; automated exact-term fairness remains to inspect only after freeze.",
+      "gap": "None affecting completion",
+      "prompt": "Identify the term illustrated: The DNA quantity doubles during S phase before the cell divides.",
+      "kind": "blank"
+    },
+    {
+      "id": "N052",
+      "firstResponse": "anaphase",
+      "visibleSupport": "L04 visible vocabulary, stage/mechanism teaching, PMAT explanation and figures",
+      "alternativeOrCaveat": "Free text can validly express the concept using related wording; automated exact-term fairness remains to inspect only after freeze.",
+      "gap": "None affecting completion",
+      "prompt": "Identify the term illustrated: Copied chromosome units become independent chromosomes as they separate.",
+      "kind": "blank"
+    },
+    {
+      "id": "N053",
+      "firstResponse": "prophase",
+      "visibleSupport": "L04 visible vocabulary, stage/mechanism teaching, PMAT explanation and figures",
+      "alternativeOrCaveat": "",
+      "gap": "None affecting completion",
+      "prompt": "Identify the term illustrated: Condensed replicated chromosomes become visible as spindle structures develop.",
+      "kind": "blank"
+    },
+    {
+      "id": "N054",
+      "firstResponse": "metaphase",
+      "visibleSupport": "L04 visible vocabulary, stage/mechanism teaching, PMAT explanation and figures",
+      "alternativeOrCaveat": "",
+      "gap": "None affecting completion",
+      "prompt": "Identify the term illustrated: Replicated chromosomes line up individually across the middle of the cell.",
+      "kind": "blank"
+    },
+    {
+      "id": "N055",
+      "firstResponse": "spindle fibre",
+      "visibleSupport": "L04 visible vocabulary, stage/mechanism teaching, PMAT explanation and figures",
+      "alternativeOrCaveat": "Free text can validly express the concept using related wording; automated exact-term fairness remains to inspect only after freeze.",
+      "gap": "None affecting completion",
+      "prompt": "Identify the term illustrated: Fibres from opposite poles attach to the replicated chromosome\u2019s kinetochore regions.",
+      "kind": "blank"
+    },
+    {
+      "id": "N056",
+      "firstResponse": "telophase",
+      "visibleSupport": "L04 visible vocabulary, stage/mechanism teaching, PMAT explanation and figures",
+      "alternativeOrCaveat": "",
+      "gap": "None affecting completion",
+      "prompt": "Identify the term illustrated: Nuclear envelopes reform around the two chromosome groups.",
+      "kind": "blank"
+    },
+    {
+      "id": "N057",
+      "firstResponse": [
+        "DNA replication precedes prophase in the normal cycle.",
+        "Spindle attachment guides chromosome movement; it does not create new DNA."
+      ],
+      "visibleSupport": "L04 visible vocabulary, stage/mechanism teaching, PMAT explanation and figures",
+      "alternativeOrCaveat": "",
+      "gap": "None affecting completion",
+      "prompt": "Select the TWO accurate statements about mitosis: chromosome movement through the stages.",
+      "kind": "multi-select"
+    },
+    {
+      "id": "N058",
+      "firstResponse": "One unreplicated chromosome",
+      "visibleSupport": "Actual labeling chromosome SVG: A lead to unreplicated rod; B/C to ends of whole sister chromatids; D to black centromere. L03 explicitly explains complete chromatids versus arms.",
+      "alternativeOrCaveat": "",
+      "gap": "None affecting completion",
+      "prompt": "What does letter A identify?",
+      "kind": "diagram"
+    },
+    {
+      "id": "N059",
+      "firstResponse": "Sister chromatid",
+      "visibleSupport": "Actual labeling chromosome SVG: A lead to unreplicated rod; B/C to ends of whole sister chromatids; D to black centromere. L03 explicitly explains complete chromatids versus arms.",
+      "alternativeOrCaveat": "",
+      "gap": "None affecting completion",
+      "prompt": "What does letter B identify?",
+      "kind": "diagram"
+    },
+    {
+      "id": "N060",
+      "firstResponse": "Sister chromatid",
+      "visibleSupport": "Actual labeling chromosome SVG: A lead to unreplicated rod; B/C to ends of whole sister chromatids; D to black centromere. L03 explicitly explains complete chromatids versus arms.",
+      "alternativeOrCaveat": "",
+      "gap": "None affecting completion",
+      "prompt": "What does letter C identify?",
+      "kind": "diagram"
+    },
+    {
+      "id": "N061",
+      "firstResponse": "Centromere region",
+      "visibleSupport": "Actual labeling chromosome SVG: A lead to unreplicated rod; B/C to ends of whole sister chromatids; D to black centromere. L03 explicitly explains complete chromatids versus arms.",
+      "alternativeOrCaveat": "",
+      "gap": "None affecting completion",
+      "prompt": "What does letter D identify?",
+      "kind": "diagram"
+    },
+    {
+      "id": "N062",
+      "firstResponse": "Prophase",
+      "visibleSupport": "Actual labeling mitosis SVG A condensed Xs, B single equatorial alignment, C separate rod groups, D enclosed groups; L04 explains each and differs from textbook letters.",
+      "alternativeOrCaveat": "",
+      "gap": "None affecting completion",
+      "prompt": "What does letter A identify?",
+      "kind": "diagram"
+    },
+    {
+      "id": "N063",
+      "firstResponse": "Metaphase",
+      "visibleSupport": "Actual labeling mitosis SVG A condensed Xs, B single equatorial alignment, C separate rod groups, D enclosed groups; L04 explains each and differs from textbook letters.",
+      "alternativeOrCaveat": "",
+      "gap": "None affecting completion",
+      "prompt": "What does letter B identify?",
+      "kind": "diagram"
+    },
+    {
+      "id": "N064",
+      "firstResponse": "Anaphase",
+      "visibleSupport": "Actual labeling mitosis SVG A condensed Xs, B single equatorial alignment, C separate rod groups, D enclosed groups; L04 explains each and differs from textbook letters.",
+      "alternativeOrCaveat": "",
+      "gap": "None affecting completion",
+      "prompt": "What does letter C identify?",
+      "kind": "diagram"
+    },
+    {
+      "id": "N065",
+      "firstResponse": "Telophase",
+      "visibleSupport": "Actual labeling mitosis SVG A condensed Xs, B single equatorial alignment, C separate rod groups, D enclosed groups; L04 explains each and differs from textbook letters.",
+      "alternativeOrCaveat": "",
+      "gap": "None affecting completion",
+      "prompt": "What does letter D identify?",
+      "kind": "diagram"
+    }
+  ],
+  "fullLabeling": [
+    {
+      "id": "D1",
+      "firstResponse": {
+        "A": "One unreplicated chromosome",
+        "B": "Sister chromatid",
+        "C": "Sister chromatid",
+        "D": "Centromere region"
+      },
+      "visibleSupport": "Actual full labeling SVG inspected at intrinsic 1400\u00d7900; L03 complete-structures paragraph explicitly resolves upper-arm leader-line ambiguity.",
+      "alternativeOrCaveat": "",
+      "gap": "None affecting completion"
+    },
+    {
+      "id": "D2",
+      "firstResponse": {
+        "A": "Prophase",
+        "B": "Metaphase",
+        "C": "Anaphase",
+        "D": "Telophase"
+      },
+      "visibleSupport": "Actual full labeling SVG inspected at intrinsic 1400\u00d7900; condensed Xs, alignment, separated groups, new envelopes with stated 2n=4 model.",
+      "alternativeOrCaveat": "",
+      "gap": "None affecting completion"
+    }
+  ],
+  "frayer": [
+    {
+      "id": "F01",
+      "term": "centromere",
+      "fields": [
+        {
+          "field": "Meaning in your own words",
+          "response": "A region of a chromosome associated with joined sisters and their separation.",
+          "characters": 77,
+          "visibleSupport": "L03 counting/structure teaching and actual replication figure"
+        },
+        {
+          "field": "Key features or what it does",
+          "response": "Spindle attachment uses kinetochores at the centromere region; it is not the whole chromosome.",
+          "characters": 94,
+          "visibleSupport": "L03 counting/structure teaching and actual replication figure"
+        },
+        {
+          "field": "A specific example",
+          "response": "D marks the black centromere region in the replication model.",
+          "characters": 61,
+          "visibleSupport": "L03 counting/structure teaching and actual replication figure"
+        },
+        {
+          "field": "A non-example or common confusion",
+          "response": "A whole homologous pair contains two chromosomes; it is not a centromere.",
+          "characters": 73,
+          "visibleSupport": "L03 counting/structure teaching and actual replication figure"
+        }
+      ]
+    },
+    {
+      "id": "F02",
+      "term": "chromosome number",
+      "fields": [
+        {
+          "field": "Meaning in your own words",
+          "response": "The number of individual chromosomes inside a specified boundary.",
+          "characters": 65,
+          "visibleSupport": "L03 counting/structure teaching and actual replication figure"
+        },
+        {
+          "field": "Key features or what it does",
+          "response": "State stage, boundary and quantity. Joined sisters count as one chromosome; separated copies each count as a chromosome.",
+          "characters": 120,
+          "visibleSupport": "L03 counting/structure teaching and actual replication figure"
+        },
+        {
+          "field": "A specific example",
+          "response": "A 2n=4 cell has 4 chromosomes after S, 8 during whole-cell anaphase, and 4 per daughter.",
+          "characters": 88,
+          "visibleSupport": "L03 counting/structure teaching and actual replication figure"
+        },
+        {
+          "field": "A non-example or common confusion",
+          "response": "Four visible arms of an X are not four chromosomes.",
+          "characters": 51,
+          "visibleSupport": "L03 counting/structure teaching and actual replication figure"
+        }
+      ]
+    },
+    {
+      "id": "F03",
+      "term": "DNA amount",
+      "fields": [
+        {
+          "field": "Meaning in your own words",
+          "response": "How much DNA is present in a specified cell or nucleus.",
+          "characters": 55,
+          "visibleSupport": "L03 counting/structure teaching and actual replication figure"
+        },
+        {
+          "field": "Key features or what it does",
+          "response": "It doubles during S but remains unchanged across sister separation within the still-undivided cell.",
+          "characters": 99,
+          "visibleSupport": "L03 counting/structure teaching and actual replication figure"
+        },
+        {
+          "field": "A specific example",
+          "response": "If whole-cell G1 DNA is 1 unit, post-S DNA is 2 units and each normal daughter returns to 1.",
+          "characters": 92,
+          "visibleSupport": "L03 counting/structure teaching and actual replication figure"
+        },
+        {
+          "field": "A non-example or common confusion",
+          "response": "DNA amount is not the count of chromosome sets or automatically the chromosome number.",
+          "characters": 86,
+          "visibleSupport": "L03 counting/structure teaching and actual replication figure"
+        }
+      ]
+    },
+    {
+      "id": "F04",
+      "term": "anaphase",
+      "fields": [
+        {
+          "field": "Meaning in your own words",
+          "response": "The mitotic stage in which sisters separate and move toward opposite poles.",
+          "characters": 75,
+          "visibleSupport": "L03 counting/structure teaching and actual replication figure"
+        },
+        {
+          "field": "Key features or what it does",
+          "response": "Each separated sister becomes an individual chromosome; no second DNA replication occurs.",
+          "characters": 89,
+          "visibleSupport": "L03 counting/structure teaching and actual replication figure"
+        },
+        {
+          "field": "A specific example",
+          "response": "Panel C has 8 chromosomes in the undivided 2n=4 model and 4 going toward each pole.",
+          "characters": 83,
+          "visibleSupport": "L03 counting/structure teaching and actual replication figure"
+        },
+        {
+          "field": "A non-example or common confusion",
+          "response": "Single equatorial alignment of joined sisters is metaphase, not anaphase.",
+          "characters": 73,
+          "visibleSupport": "L03 counting/structure teaching and actual replication figure"
+        }
+      ]
+    },
+    {
+      "id": "F05",
+      "term": "prophase",
+      "fields": [
+        {
+          "field": "Meaning in your own words",
+          "response": "Early mitosis, when replicated chromosomes condense and division machinery organizes.",
+          "characters": 85,
+          "visibleSupport": "L04 stage/mechanism teaching and actual mitosis figures"
+        },
+        {
+          "field": "Key features or what it does",
+          "response": "DNA has already copied. The four-stage model groups early nuclear-envelope breakdown here.",
+          "characters": 90,
+          "visibleSupport": "L04 stage/mechanism teaching and actual mitosis figures"
+        },
+        {
+          "field": "A specific example",
+          "response": "Panel A shows four condensed replicated chromosomes in the 2n=4 model.",
+          "characters": 70,
+          "visibleSupport": "L04 stage/mechanism teaching and actual mitosis figures"
+        },
+        {
+          "field": "A non-example or common confusion",
+          "response": "S phase copies DNA before mitosis; it is not prophase.",
+          "characters": 54,
+          "visibleSupport": "L04 stage/mechanism teaching and actual mitosis figures"
+        }
+      ]
+    },
+    {
+      "id": "F06",
+      "term": "metaphase",
+      "fields": [
+        {
+          "field": "Meaning in your own words",
+          "response": "Mitosis stage when replicated chromosomes align singly at the cell equator.",
+          "characters": 75,
+          "visibleSupport": "L04 stage/mechanism teaching and actual mitosis figures"
+        },
+        {
+          "field": "Key features or what it does",
+          "response": "Sisters attach toward opposite poles, preparing one copy for each future nucleus.",
+          "characters": 81,
+          "visibleSupport": "L04 stage/mechanism teaching and actual mitosis figures"
+        },
+        {
+          "field": "A specific example",
+          "response": "Panel B shows four separate X-shaped chromosomes in one line.",
+          "characters": 61,
+          "visibleSupport": "L04 stage/mechanism teaching and actual mitosis figures"
+        },
+        {
+          "field": "A non-example or common confusion",
+          "response": "Pairing homologues into tetrads is associated with meiosis I, not ordinary mitotic metaphase.",
+          "characters": 93,
+          "visibleSupport": "L04 stage/mechanism teaching and actual mitosis figures"
+        }
+      ]
+    },
+    {
+      "id": "F07",
+      "term": "spindle fibre",
+      "fields": [
+        {
+          "field": "Meaning in your own words",
+          "response": "A microtubule structure involved in chromosome attachment and movement.",
+          "characters": 71,
+          "visibleSupport": "L04 stage/mechanism teaching and actual mitosis figures"
+        },
+        {
+          "field": "Key features or what it does",
+          "response": "Made of protein; interacts with kinetochores at centromere regions and helps distribute copies.",
+          "characters": 95,
+          "visibleSupport": "L04 stage/mechanism teaching and actual mitosis figures"
+        },
+        {
+          "field": "A specific example",
+          "response": "The textbook mitosis figure shows fibres from poles reaching chromosome attachment regions.",
+          "characters": 91,
+          "visibleSupport": "L04 stage/mechanism teaching and actual mitosis figures"
+        },
+        {
+          "field": "A non-example or common confusion",
+          "response": "Spindle fibres do not make DNA or manufacture its nucleotides.",
+          "characters": 62,
+          "visibleSupport": "L04 stage/mechanism teaching and actual mitosis figures"
+        }
+      ]
+    },
+    {
+      "id": "F08",
+      "term": "telophase",
+      "fields": [
+        {
+          "field": "Meaning in your own words",
+          "response": "The stage when chromosome groups arrive at the poles and daughter nuclei form.",
+          "characters": 78,
+          "visibleSupport": "L04 stage/mechanism teaching and actual mitosis figures"
+        },
+        {
+          "field": "Key features or what it does",
+          "response": "Chromosomes decondense, envelopes form and spindle breaks down. Cytokinesis is division of cytoplasm.",
+          "characters": 101,
+          "visibleSupport": "L04 stage/mechanism teaching and actual mitosis figures"
+        },
+        {
+          "field": "A specific example",
+          "response": "Panel D shows two envelopes containing four chromosomes each inside the original cell boundary.",
+          "characters": 95,
+          "visibleSupport": "L04 stage/mechanism teaching and actual mitosis figures"
+        },
+        {
+          "field": "A non-example or common confusion",
+          "response": "Telophase is not DNA-copying S phase, and it is not simply another name for cytokinesis.",
+          "characters": 88,
+          "visibleSupport": "L04 stage/mechanism teaching and actual mitosis figures"
+        }
+      ]
+    }
+  ],
+  "learnerConclusion": "All local tasks, native forms and full labeling activities answerable from visible teaching and actual figures. Convention caveat for pre-S chromatids and open-answer terminology flexibility retained. Figure source-size pixel inspection passed for visible information; target layout remains untested."
+}

@@ -1,0 +1,7 @@
+# Task preparation and blind evidence
+
+05 required cytokinesis and checkpoint selections: teaching01 separates cytoplasmic from chromosome/DNA events; teaching03 explicitly names checkpoint pausing. Written plant/animal comparison has two actual source images plus structure→mechanism→outcome worked steps. Written repair inference has explicit specialization/organization/function requirements and a bounded sensory-tissue example. Native centrioles/onion optional item is taught explicitly in teaching01.
+
+06 required haploidy/tetrad selections: teaching01 distinguishes homologues and sisters,2chromosomes/4chromatids per tetrad; teaching03 distinguishes sets from copies. Required written segregation and2n=8 counts use visible per-daughter reasoning and the worked2n=4 example. Guided2n=12 uses the same stated rule, not an unstated species count. Native all-long/all-short error is addressed through the actual figure and complete-set reasoning.
+
+Fresh local packet contains14 tasks,58 native forms (26flash,16blank,15MC,1order),8Frayer forms/32fields and no pair-specific labeling activities. Blank/reverse-term forms have neutral IDs and no answer-bearing term/concept/alias metadata; explicit Frayer terms remain legitimate task givens. The complete source-assisted optional phase has16 unique questions, attempted separately before keys. Prior01–04 teaching-only excerpts are nonempty and preserve images; no assessment feedback is in them. Repeated forms do not prove independent transfer or learning gains.

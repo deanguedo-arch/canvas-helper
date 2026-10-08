@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "preparedAt": "2026-10-06T19:09:36.781637+00:00",
+  "primaryTeachingBenchmark": "Chapter 17 current candidate and actual teacher-led process",
+  "latestProposalSha256": "1ac7a2f934cdd2a5373f75d567abe01f7a512fc52e1c766320b46c58afc5e46a",
+  "priorOwnerSha256": "480d60d752d717b9d947098695b043bf85776dff4fcb796725a6506c298f7262",
+  "retainedLessons1to7Exact": true,
+  "acceptance": {
+    "lessons06and07": "explicit teacher exact-copy acceptance; frozen subset included",
+    "lessons02and05": "method/reference permission; exact-copy acceptance records false",
+    "lessons01and03and04": "independently reviewed, exact-copy teacher acceptance pending",
+    "lessons08to15AndExtension": "integrated candidate, teacher acceptance pending"
+  },
+  "reviewOrder": [
+    "Chapter 11",
+    "Chapter 12",
+    "remaining chapters only after requested review"
+  ],
+  "chapter11Exempt": false,
+  "globalStandardPromoted": false,
+  "canonicalIntegrated": false,
+  "released": false,
+  "deployed": false,
+  "knownChapter17Limits": [
+    "blank embedded PDF pixels in IAB despite correct page mapping",
+    "deep-scroll mobile and keyboard review incomplete",
+    "unattributed comparison observer error",
+    "legacy save/import, transfer-set, print/backup/media, SCORM/Brightspace unverified",
+    "original incoming ZIP SHA/CRC unverified because source was extracted folder"
+  ],
+  "originalAssessmentResolutionGaps": [],
+  "historicalEvidence": "Dates and hashes in copied prior reviews remain historical; no passing suite rerun or implied current acceptance.",
+  "routing": {
+    "sourceAndAcceptance": "Sol lead, requested model; dirty proposal and exact source ownership retained",
+    "copyHashExtractionAndZIP": "deterministic local commands",
+    "workers": "none",
+    "localContextReuse": "checked-in guidance and source receipts reused; no context-cache telemetry measured",
+    "providerCache": "unavailable",
+    "usageSavings": "unknown"
+  }
+}

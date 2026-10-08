@@ -1,0 +1,928 @@
+{
+  "chapter": 16,
+  "courseTitle": "Cellular Reproduction",
+  "pdfPages": 36,
+  "pdf": {
+    "firstPrintedPage": 548,
+    "lastPrintedPage": 583,
+    "filename": "./assets/textbook/chapter-16.pdf"
+  },
+  "bankVersion": "ch16-complete-v1",
+  "contentVersion": "2026-09-17-completed-handoff",
+  "lessons": [
+    {
+      "lesson": 5,
+      "title": "Cytokinesis, growth and tissue maintenance"
+    },
+    {
+      "lesson": 6,
+      "title": "Meiosis I and separation of homologous chromosomes"
+    }
+  ],
+  "checks": [
+    {
+      "id": "ch16-check-05",
+      "route": "lesson-05",
+      "title": "Cytokinesis, growth and tissue maintenance",
+      "mc": [
+        {
+          "prompt": "Which event is cytokinesis rather than mitosis?",
+          "answer": "Separation of cytoplasm into daughter cells",
+          "explanation": "Cytokinesis divides cytoplasm; mitosis distributes nuclear chromosomes.",
+          "cue": "Trace the normal mechanism before choosing an answer.",
+          "id": "ch16-l05-check-mc-1",
+          "options": [
+            "Separation of cytoplasm into daughter cells",
+            "Alignment of chromosomes at the equator",
+            "Condensation of chromatin",
+            "Separation of sister chromatids"
+          ],
+          "difficulty": "application"
+        },
+        {
+          "prompt": "A cell detects DNA damage and delays division. Which function is illustrated?",
+          "answer": "A cell-cycle checkpoint",
+          "explanation": "A checkpoint can delay progression while conditions are evaluated.",
+          "cue": "Trace the normal mechanism before choosing an answer.",
+          "id": "ch16-l05-check-mc-2",
+          "options": [
+            "Independent assortment",
+            "A cell-cycle checkpoint",
+            "Formation of a homologous pair",
+            "Fertilization"
+          ],
+          "difficulty": "application"
+        }
+      ],
+      "writing": [
+        {
+          "prompt": "Compare animal and plant cytokinesis and explain how their structures affect the mechanism.",
+          "model": "Animal cells commonly constrict through a cleavage furrow. Plant cells have a rigid wall, so vesicles establish a cell plate that grows into a partition and new wall. Both separate cytoplasm into daughter cells after nuclear genetic material has been distributed.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ],
+          "id": "ch16-l05-check-writing-1",
+          "limit": 3200
+        },
+        {
+          "prompt": "Explain why an experiment showing more cells does not by itself prove successful tissue repair.",
+          "model": "The cells must also be appropriately specialized, organized and functional, with controlled growth. Increased number alone does not establish integration or restoration of the tissue’s normal role.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ],
+          "id": "ch16-l05-check-writing-2",
+          "limit": 3200
+        }
+      ]
+    },
+    {
+      "id": "ch16-check-06",
+      "route": "lesson-06",
+      "title": "Meiosis I and separation of homologous chromosomes",
+      "mc": [
+        {
+          "prompt": "Why is a cell after meiosis I haploid even though its chromosomes remain replicated?",
+          "answer": "It has one homologue of each chromosome type",
+          "explanation": "Ploidy counts sets; replication state is a separate property.",
+          "cue": "Trace the normal mechanism before choosing an answer.",
+          "id": "ch16-l06-check-mc-1",
+          "options": [
+            "It has already completed fertilization",
+            "It has no centromeres",
+            "It has one homologue of each chromosome type",
+            "It contains only one DNA molecule total"
+          ],
+          "difficulty": "application"
+        },
+        {
+          "prompt": "What makes a tetrad different from one replicated chromosome?",
+          "answer": "A tetrad contains two replicated homologues and four chromatids",
+          "explanation": "Pairing two replicated homologues brings four chromatids together.",
+          "cue": "Trace the normal mechanism before choosing an answer.",
+          "id": "ch16-l06-check-mc-2",
+          "options": [
+            "A tetrad contains no DNA",
+            "A tetrad is always four unreplicated gametes",
+            "A tetrad is a single RNA molecule",
+            "A tetrad contains two replicated homologues and four chromatids"
+          ],
+          "difficulty": "application"
+        }
+      ],
+      "writing": [
+        {
+          "prompt": "Explain how meiosis I reduces chromosome number without separating sister chromatids.",
+          "model": "Homologous pairs align and the two homologues move to opposite poles during anaphase I. Each future daughter receives one chromosome of each pair, so it is haploid. The sister chromatids within each chromosome remain together until meiosis II.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ],
+          "id": "ch16-l06-check-writing-1",
+          "limit": 3200
+        },
+        {
+          "prompt": "For a 2n = 8 species, describe chromosome and chromatid counts after meiosis I.",
+          "model": "Each cell has n = 4 chromosomes. Each chromosome is still replicated, so there are 8 chromatids per cell. The cell is haploid because it has one homologue of each type, not because the chromatids have separated.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ],
+          "id": "ch16-l06-check-writing-2",
+          "limit": 3200
+        }
+      ]
+    }
+  ],
+  "words": [
+    {
+      "term": "cytokinesis",
+      "meaning": "Division of the cytoplasm into separate daughter cells.",
+      "example": "Two daughter nuclei become enclosed within separate cells.",
+      "importantDistinction": "Nuclear division and cytoplasmic division are related but not identical.",
+      "aliases": [],
+      "id": "ch16-word-cytokinesis",
+      "lesson": 5,
+      "whatItDoes": "Two daughter nuclei become enclosed within separate cells.",
+      "feature": "Two daughter nuclei become enclosed within separate cells.",
+      "confusion": "Nuclear division and cytoplasmic division are related but not identical."
+    },
+    {
+      "term": "cleavage furrow",
+      "meaning": "An inward constriction of an animal cell during cytokinesis.",
+      "example": "A dividing animal cell pinches inward at its middle.",
+      "importantDistinction": "A rigid plant cell wall prevents this same pinching mechanism.",
+      "aliases": [],
+      "id": "ch16-word-cleavage-furrow",
+      "lesson": 5,
+      "whatItDoes": "A dividing animal cell pinches inward at its middle.",
+      "feature": "A dividing animal cell pinches inward at its middle.",
+      "confusion": "A rigid plant cell wall prevents this same pinching mechanism."
+    },
+    {
+      "term": "cell plate",
+      "meaning": "A developing partition that contributes to the new wall between dividing plant cells.",
+      "example": "Vesicles fuse in the middle of a plant cell to establish a separating partition.",
+      "importantDistinction": "Plant cytokinesis builds a partition rather than simply pinching a rigid wall inward.",
+      "aliases": [],
+      "id": "ch16-word-cell-plate",
+      "lesson": 5,
+      "whatItDoes": "Vesicles fuse in the middle of a plant cell to establish a separating partition.",
+      "feature": "Vesicles fuse in the middle of a plant cell to establish a separating partition.",
+      "confusion": "Plant cytokinesis builds a partition rather than simply pinching a rigid wall inward."
+    },
+    {
+      "term": "cell-cycle checkpoint",
+      "meaning": "A control mechanism that helps determine whether a cell proceeds to a later stage.",
+      "example": "A cell with damaged DNA pauses instead of immediately entering division.",
+      "importantDistinction": "Checkpoint failure can contribute to uncontrolled division; rapid normal growth is not automatically cancer.",
+      "aliases": [],
+      "id": "ch16-word-cell-cycle-checkpoint",
+      "lesson": 5,
+      "whatItDoes": "A cell with damaged DNA pauses instead of immediately entering division.",
+      "feature": "A cell with damaged DNA pauses instead of immediately entering division.",
+      "confusion": "Checkpoint failure can contribute to uncontrolled division; rapid normal growth is not automatically cancer."
+    },
+    {
+      "term": "meiosis I",
+      "meaning": "The first meiotic division, in which homologous chromosomes separate.",
+      "example": "Members of each replicated homologous pair move to opposite poles.",
+      "importantDistinction": "Sister chromatids normally remain together during this division.",
+      "aliases": [],
+      "id": "ch16-word-meiosis-i",
+      "lesson": 6,
+      "whatItDoes": "Members of each replicated homologous pair move to opposite poles.",
+      "feature": "Members of each replicated homologous pair move to opposite poles.",
+      "confusion": "Sister chromatids normally remain together during this division."
+    },
+    {
+      "term": "synapsis",
+      "meaning": "Pairing of homologous chromosomes during prophase I.",
+      "example": "Maternal and paternal homologues align closely along corresponding regions.",
+      "importantDistinction": "This pairing differs from individual chromosome alignment in mitosis.",
+      "aliases": [],
+      "id": "ch16-word-synapsis",
+      "lesson": 6,
+      "whatItDoes": "Maternal and paternal homologues align closely along corresponding regions.",
+      "feature": "Maternal and paternal homologues align closely along corresponding regions.",
+      "confusion": "This pairing differs from individual chromosome alignment in mitosis."
+    },
+    {
+      "term": "tetrad",
+      "meaning": "A paired set of two replicated homologous chromosomes containing four chromatids.",
+      "example": "Two replicated homologues align as a four-chromatid unit.",
+      "importantDistinction": "A tetrad contains two chromosomes, not four independently counted chromosomes.",
+      "aliases": [],
+      "id": "ch16-word-tetrad",
+      "lesson": 6,
+      "whatItDoes": "Two replicated homologues align as a four-chromatid unit.",
+      "feature": "Two replicated homologues align as a four-chromatid unit.",
+      "confusion": "A tetrad contains two chromosomes, not four independently counted chromosomes."
+    },
+    {
+      "term": "reduction division",
+      "meaning": "A division that reduces chromosome sets from diploid to haploid, as in meiosis I.",
+      "example": "One homologue of each pair enters each daughter cell.",
+      "importantDistinction": "Reduced sets can coexist with chromosomes still having two chromatids.",
+      "aliases": [],
+      "id": "ch16-word-reduction-division",
+      "lesson": 6,
+      "whatItDoes": "One homologue of each pair enters each daughter cell.",
+      "feature": "One homologue of each pair enters each daughter cell.",
+      "confusion": "Reduced sets can coexist with chromosomes still having two chromatids."
+    }
+  ],
+  "practiceQuestions": [
+    {
+      "id": "ch16-source-OBJ_2131203",
+      "lesson": 5,
+      "prompt": "The division of the cytoplasm in a dividing stem cell is called",
+      "answer": "cytokinesis.",
+      "options": [
+        "the S phase.",
+        "cytokinesis.",
+        "spermatogenesis.",
+        "oogenesis."
+      ],
+      "cue": "Identify the relevant mechanism or quantity and apply the stated model.",
+      "explanation": "Cytokinesis divides the cytoplasm, while mitosis divides the nuclear chromosome complement.",
+      "difficulty": "application",
+      "stimuli": [],
+      "sourceItemId": "OBJ_2131203",
+      "conceptId": "ch16-concept-cytokinesis"
+    },
+    {
+      "id": "ch16-source-OBJ_2131204",
+      "lesson": 5,
+      "prompt": "In a cell model, a checkpoint fails to stop cells with damaged DNA from dividing. What consequence becomes more likely?",
+      "answer": "Damaged genetic information passes into daughter cells",
+      "options": [
+        "Cytokinesis becomes the same process as fertilization",
+        "All cell growth permanently stops",
+        "Damaged genetic information passes into daughter cells",
+        "Every damaged chromosome is automatically repaired"
+      ],
+      "cue": "Identify the relevant mechanism or quantity and apply the stated model.",
+      "explanation": "Checkpoints help control progression; failure can let damaged lineages continue proliferating.",
+      "difficulty": "application",
+      "stimuli": [],
+      "sourceItemId": "OBJ_2131204",
+      "conceptId": "ch16-concept-cytokinesis"
+    },
+    {
+      "id": "ch16-source-OBJ_2131207",
+      "lesson": 5,
+      "prompt": "The structures that you would see in a dividing animal cell but NOT in a dividing onion cell are the",
+      "answer": "centrioles.",
+      "options": [
+        "cell membranes.",
+        "centrioles.",
+        "chloroplasts.",
+        "spindles."
+      ],
+      "cue": "Identify the relevant mechanism or quantity and apply the stated model.",
+      "explanation": "Typical animal cells contain centrioles; typical onion cells can organize a spindle without centrioles.",
+      "difficulty": "application",
+      "stimuli": [],
+      "sourceItemId": "OBJ_2131207",
+      "conceptId": "ch16-concept-cytokinesis"
+    },
+    {
+      "id": "ch16-source-OBJ_2131209",
+      "lesson": 6,
+      "prompt": "If you were observing the chromosomes during metaphase I of meiosis, you would see that the chromosomes are arranged as",
+      "answer": "homologous pairs of chromosomes.",
+      "options": [
+        "single chromosomes.",
+        "unpaired duplicated chromosomes.",
+        "unwound, thin strands of chromatin.",
+        "homologous pairs of chromosomes."
+      ],
+      "cue": "Identify the relevant mechanism or quantity and apply the stated model.",
+      "explanation": "Homologous pairs align during metaphase I. Individual duplicated chromosomes align in metaphase II.",
+      "difficulty": "application",
+      "stimuli": [],
+      "sourceItemId": "OBJ_2131209",
+      "conceptId": "ch16-concept-chromosome"
+    },
+    {
+      "id": "ch16-source-OBJ_2131211",
+      "lesson": 6,
+      "prompt": "Which event separates homologous chromosomes and establishes one homologue of each pair at each pole?",
+      "answer": "Anaphase I",
+      "options": [
+        "Metaphase II",
+        "Anaphase I",
+        "Anaphase II",
+        "Prophase II"
+      ],
+      "cue": "Identify the relevant mechanism or quantity and apply the stated model.",
+      "explanation": "Anaphase I is the reductional separation; completed meiosis-I products are haploid even though chromosomes remain duplicated.",
+      "difficulty": "application",
+      "stimuli": [],
+      "sourceItemId": "OBJ_2131211",
+      "conceptId": "ch16-concept-homologous-chromosomes"
+    },
+    {
+      "id": "ch16-foundation-ch16-word-cytokinesis",
+      "lesson": 5,
+      "conceptId": "ch16-concept-cytokinesis",
+      "prompt": "Which term matches this description? Division of the cytoplasm into separate daughter cells.",
+      "options": [
+        "cytokinesis",
+        "cleavage furrow",
+        "cell plate",
+        "cell-cycle checkpoint"
+      ],
+      "answer": "cytokinesis",
+      "cue": "Use the meaning of each term, not the length of its name.",
+      "explanation": "Division of the cytoplasm into separate daughter cells. Nuclear division and cytoplasmic division are related but not identical.",
+      "difficulty": "recall",
+      "family": "definition-recognition",
+      "kind": "mc"
+    },
+    {
+      "id": "ch16-foundation-ch16-word-cleavage-furrow",
+      "lesson": 5,
+      "conceptId": "ch16-concept-cleavage-furrow",
+      "prompt": "Which term matches this description? An inward constriction of an animal cell during cytokinesis.",
+      "options": [
+        "cytokinesis",
+        "cleavage furrow",
+        "cell plate",
+        "cell-cycle checkpoint"
+      ],
+      "answer": "cleavage furrow",
+      "cue": "Use the meaning of each term, not the length of its name.",
+      "explanation": "An inward constriction of an animal cell during cytokinesis. A rigid plant cell wall prevents this same pinching mechanism.",
+      "difficulty": "recall",
+      "family": "definition-recognition",
+      "kind": "mc"
+    },
+    {
+      "id": "ch16-foundation-ch16-word-cell-plate",
+      "lesson": 5,
+      "conceptId": "ch16-concept-cell-plate",
+      "prompt": "Which term matches this description? A developing partition that contributes to the new wall between dividing plant cells.",
+      "options": [
+        "cytokinesis",
+        "cleavage furrow",
+        "cell plate",
+        "cell-cycle checkpoint"
+      ],
+      "answer": "cell plate",
+      "cue": "Use the meaning of each term, not the length of its name.",
+      "explanation": "A developing partition that contributes to the new wall between dividing plant cells. Plant cytokinesis builds a partition rather than simply pinching a rigid wall inward.",
+      "difficulty": "recall",
+      "family": "definition-recognition",
+      "kind": "mc"
+    },
+    {
+      "id": "ch16-foundation-ch16-word-cell-cycle-checkpoint",
+      "lesson": 5,
+      "conceptId": "ch16-concept-cell-cycle-checkpoint",
+      "prompt": "Which term matches this description? A control mechanism that helps determine whether a cell proceeds to a later stage.",
+      "options": [
+        "cytokinesis",
+        "cleavage furrow",
+        "cell plate",
+        "cell-cycle checkpoint"
+      ],
+      "answer": "cell-cycle checkpoint",
+      "cue": "Use the meaning of each term, not the length of its name.",
+      "explanation": "A control mechanism that helps determine whether a cell proceeds to a later stage. Checkpoint failure can contribute to uncontrolled division; rapid normal growth is not automatically cancer.",
+      "difficulty": "recall",
+      "family": "definition-recognition",
+      "kind": "mc"
+    },
+    {
+      "id": "ch16-foundation-ch16-word-meiosis-i",
+      "lesson": 6,
+      "conceptId": "ch16-concept-meiosis-i",
+      "prompt": "Which term matches this description? The first meiotic division, in which homologous chromosomes separate.",
+      "options": [
+        "meiosis I",
+        "synapsis",
+        "tetrad",
+        "reduction division"
+      ],
+      "answer": "meiosis I",
+      "cue": "Use the meaning of each term, not the length of its name.",
+      "explanation": "The first meiotic division, in which homologous chromosomes separate. Sister chromatids normally remain together during this division.",
+      "difficulty": "recall",
+      "family": "definition-recognition",
+      "kind": "mc"
+    },
+    {
+      "id": "ch16-foundation-ch16-word-synapsis",
+      "lesson": 6,
+      "conceptId": "ch16-concept-synapsis",
+      "prompt": "Which term matches this description? Pairing of homologous chromosomes during prophase I.",
+      "options": [
+        "meiosis I",
+        "synapsis",
+        "tetrad",
+        "reduction division"
+      ],
+      "answer": "synapsis",
+      "cue": "Use the meaning of each term, not the length of its name.",
+      "explanation": "Pairing of homologous chromosomes during prophase I. This pairing differs from individual chromosome alignment in mitosis.",
+      "difficulty": "recall",
+      "family": "definition-recognition",
+      "kind": "mc"
+    },
+    {
+      "id": "ch16-foundation-ch16-word-tetrad",
+      "lesson": 6,
+      "conceptId": "ch16-concept-tetrad",
+      "prompt": "Which term matches this description? A paired set of two replicated homologous chromosomes containing four chromatids.",
+      "options": [
+        "meiosis I",
+        "synapsis",
+        "tetrad",
+        "reduction division"
+      ],
+      "answer": "tetrad",
+      "cue": "Use the meaning of each term, not the length of its name.",
+      "explanation": "A paired set of two replicated homologous chromosomes containing four chromatids. A tetrad contains two chromosomes, not four independently counted chromosomes.",
+      "difficulty": "recall",
+      "family": "definition-recognition",
+      "kind": "mc"
+    },
+    {
+      "id": "ch16-foundation-ch16-word-reduction-division",
+      "lesson": 6,
+      "conceptId": "ch16-concept-reduction-division",
+      "prompt": "Which term matches this description? A division that reduces chromosome sets from diploid to haploid, as in meiosis I.",
+      "options": [
+        "meiosis I",
+        "synapsis",
+        "tetrad",
+        "reduction division"
+      ],
+      "answer": "reduction division",
+      "cue": "Use the meaning of each term, not the length of its name.",
+      "explanation": "A division that reduces chromosome sets from diploid to haploid, as in meiosis I. Reduced sets can coexist with chromosomes still having two chromatids.",
+      "difficulty": "recall",
+      "family": "definition-recognition",
+      "kind": "mc"
+    }
+  ],
+  "sequences": [
+    {
+      "id": "ch16-sequence-06",
+      "lesson": 6,
+      "conceptId": "ch16-concept-chromosome",
+      "title": "Meiosis I and separation of homologous chromosomes",
+      "steps": [
+        "Replicated homologues pair in prophase I",
+        "Tetrads align at metaphase I",
+        "Homologues separate at anaphase I",
+        "Two haploid cells retain replicated chromosomes"
+      ]
+    }
+  ],
+  "labelDiagrams": [],
+  "notes": [],
+  "videos": [
+    {
+      "id": "VzDMG7ke69g",
+      "lesson": 6,
+      "title": "Meiosis I and separation of homologous chromosomes — video support",
+      "purpose": "Trace meiosis I and explain why separation of homologues produces haploid chromosome sets while chromatids remain paired.",
+      "fallback": "At metaphase I, homologous pairs align at the equator. Their orientation relative to other pairs can vary. A replicated maternal homologue faces one pole and its paternal partner faces the other, but different pairs can orient independently. During anaphase I, the homologues separate. The sister chromatids of each chromosome normally remain joined. The event is therefore different from mitotic anaphase, which separates sister chromatids. After this distribution, each future daughter receives one chromosome of each homologous pair. It has one set rather than two. That is the reduction in ploidy.",
+      "disposition": "included",
+      "sourceSlide": 41,
+      "sourceDeck": "c16",
+      "availability": "Source hyperlink resolved syntactically; external playback not certified."
+    }
+  ],
+  "modeNames": {
+    "flash": "Flash cards",
+    "blanks": "Fill in the blanks",
+    "mc": "Multiple choice",
+    "mixed": "Mixed practice"
+  },
+  "practiceConcepts": [
+    {
+      "id": "ch16-concept-cytokinesis",
+      "term": "cytokinesis",
+      "lesson": 5,
+      "meaning": "Division of the cytoplasm into separate daughter cells.",
+      "example": "Two daughter nuclei become enclosed within separate cells.",
+      "aliases": [],
+      "cue": "Identify the structure, quantity or relationship described.",
+      "correctExplanation": "Division of the cytoplasm into separate daughter cells. Nuclear division and cytoplasmic division are related but not identical.",
+      "misconception": {
+        "statement": "Cytokinesis is the process that duplicates DNA.",
+        "correction": "Division of the cytoplasm into separate daughter cells. Nuclear division and cytoplasmic division are related but not identical."
+      },
+      "reviewRoute": "lesson-05"
+    },
+    {
+      "id": "ch16-concept-cleavage-furrow",
+      "term": "cleavage furrow",
+      "lesson": 5,
+      "meaning": "An inward constriction of an animal cell during cytokinesis.",
+      "example": "A dividing animal cell pinches inward at its middle.",
+      "aliases": [],
+      "cue": "Identify the structure, quantity or relationship described.",
+      "correctExplanation": "An inward constriction of an animal cell during cytokinesis. A rigid plant cell wall prevents this same pinching mechanism.",
+      "misconception": {
+        "statement": "A cleavage furrow is a new plant cell wall.",
+        "correction": "An inward constriction of an animal cell during cytokinesis. A rigid plant cell wall prevents this same pinching mechanism."
+      },
+      "reviewRoute": "lesson-05"
+    },
+    {
+      "id": "ch16-concept-cell-plate",
+      "term": "cell plate",
+      "lesson": 5,
+      "meaning": "A developing partition that contributes to the new wall between dividing plant cells.",
+      "example": "Vesicles fuse in the middle of a plant cell to establish a separating partition.",
+      "aliases": [],
+      "cue": "Identify the structure, quantity or relationship described.",
+      "correctExplanation": "A developing partition that contributes to the new wall between dividing plant cells. Plant cytokinesis builds a partition rather than simply pinching a rigid wall inward.",
+      "misconception": {
+        "statement": "A cell plate is the equator where animal chromosomes align.",
+        "correction": "A developing partition that contributes to the new wall between dividing plant cells. Plant cytokinesis builds a partition rather than simply pinching a rigid wall inward."
+      },
+      "reviewRoute": "lesson-05"
+    },
+    {
+      "id": "ch16-concept-cell-cycle-checkpoint",
+      "term": "cell-cycle checkpoint",
+      "lesson": 5,
+      "meaning": "A control mechanism that helps determine whether a cell proceeds to a later stage.",
+      "example": "A cell with damaged DNA pauses instead of immediately entering division.",
+      "aliases": [],
+      "cue": "Identify the structure, quantity or relationship described.",
+      "correctExplanation": "A control mechanism that helps determine whether a cell proceeds to a later stage. Checkpoint failure can contribute to uncontrolled division; rapid normal growth is not automatically cancer.",
+      "misconception": {
+        "statement": "All rapidly dividing cells are cancerous.",
+        "correction": "A control mechanism that helps determine whether a cell proceeds to a later stage. Checkpoint failure can contribute to uncontrolled division; rapid normal growth is not automatically cancer."
+      },
+      "reviewRoute": "lesson-05"
+    },
+    {
+      "id": "ch16-concept-meiosis-i",
+      "term": "meiosis I",
+      "lesson": 6,
+      "meaning": "The first meiotic division, in which homologous chromosomes separate.",
+      "example": "Members of each replicated homologous pair move to opposite poles.",
+      "aliases": [],
+      "cue": "Identify the structure, quantity or relationship described.",
+      "correctExplanation": "The first meiotic division, in which homologous chromosomes separate. Sister chromatids normally remain together during this division.",
+      "misconception": {
+        "statement": "Meiosis I separates all sister chromatids first.",
+        "correction": "The first meiotic division, in which homologous chromosomes separate. Sister chromatids normally remain together during this division."
+      },
+      "reviewRoute": "lesson-06"
+    },
+    {
+      "id": "ch16-concept-synapsis",
+      "term": "synapsis",
+      "lesson": 6,
+      "meaning": "Pairing of homologous chromosomes during prophase I.",
+      "example": "Maternal and paternal homologues align closely along corresponding regions.",
+      "aliases": [],
+      "cue": "Identify the structure, quantity or relationship described.",
+      "correctExplanation": "Pairing of homologous chromosomes during prophase I. This pairing differs from individual chromosome alignment in mitosis.",
+      "misconception": {
+        "statement": "Synapsis means fusion of sperm and egg.",
+        "correction": "Pairing of homologous chromosomes during prophase I. This pairing differs from individual chromosome alignment in mitosis."
+      },
+      "reviewRoute": "lesson-06"
+    },
+    {
+      "id": "ch16-concept-tetrad",
+      "term": "tetrad",
+      "lesson": 6,
+      "meaning": "A paired set of two replicated homologous chromosomes containing four chromatids.",
+      "example": "Two replicated homologues align as a four-chromatid unit.",
+      "aliases": [],
+      "cue": "Identify the structure, quantity or relationship described.",
+      "correctExplanation": "A paired set of two replicated homologous chromosomes containing four chromatids. A tetrad contains two chromosomes, not four independently counted chromosomes.",
+      "misconception": {
+        "statement": "A tetrad contains four chromosome sets.",
+        "correction": "A paired set of two replicated homologous chromosomes containing four chromatids. A tetrad contains two chromosomes, not four independently counted chromosomes."
+      },
+      "reviewRoute": "lesson-06"
+    },
+    {
+      "id": "ch16-concept-reduction-division",
+      "term": "reduction division",
+      "lesson": 6,
+      "meaning": "A division that reduces chromosome sets from diploid to haploid, as in meiosis I.",
+      "example": "One homologue of each pair enters each daughter cell.",
+      "aliases": [],
+      "cue": "Identify the structure, quantity or relationship described.",
+      "correctExplanation": "A division that reduces chromosome sets from diploid to haploid, as in meiosis I. Reduced sets can coexist with chromosomes still having two chromatids.",
+      "misconception": {
+        "statement": "Haploid cells can never contain replicated chromosomes.",
+        "correction": "A division that reduces chromosome sets from diploid to haploid, as in meiosis I. Reduced sets can coexist with chromosomes still having two chromatids."
+      },
+      "reviewRoute": "lesson-06"
+    }
+  ],
+  "authoredPractice": [
+    {
+      "prompt": "A checkpoint-defective model divides despite severe DNA damage. What is the main concern?",
+      "answer": "Errors may be propagated while growth control is impaired",
+      "explanation": "Loss of checkpoint control can allow damaged information and abnormal proliferation to continue.",
+      "cue": "Trace the normal mechanism before choosing an answer.",
+      "id": "ch16-l05-application-1",
+      "options": [
+        "Errors may be propagated while growth control is impaired",
+        "All daughter cells must be harmless",
+        "The cell has necessarily become a normal gamete",
+        "DNA amount can no longer increase"
+      ],
+      "difficulty": "application",
+      "lesson": 5,
+      "chapter": 16,
+      "conceptId": "ch16-concept-cytokinesis",
+      "family": "application",
+      "kind": "mc",
+      "reviewRoute": "lesson-05",
+      "flashVariant": {
+        "id": "ch16-l05-scenario-1",
+        "family": "scenario-explanation",
+        "prompt": "A checkpoint-defective model divides despite severe DNA damage. What is the main concern?",
+        "model": "Errors may be propagated while growth control is impaired. Loss of checkpoint control can allow damaged information and abnormal proliferation to continue.",
+        "selfAssessed": true
+      }
+    },
+    {
+      "prompt": "A model places all long homologues in one cell and all short homologues in the other after meiosis I. What is the error?",
+      "answer": "Each daughter should receive one chromosome of each type",
+      "explanation": "Normal segregation gives each daughter a complete haploid set, not a random assortment missing whole types.",
+      "cue": "Trace the normal mechanism before choosing an answer.",
+      "id": "ch16-l06-application-1",
+      "options": [
+        "All daughters should receive every homologue",
+        "Each daughter should receive one chromosome of each type",
+        "Long chromosomes must always be destroyed",
+        "Chromosome size determines the daughter’s species"
+      ],
+      "difficulty": "application",
+      "lesson": 6,
+      "chapter": 16,
+      "conceptId": "ch16-concept-meiosis-i",
+      "family": "application",
+      "kind": "mc",
+      "reviewRoute": "lesson-06",
+      "flashVariant": {
+        "id": "ch16-l06-scenario-1",
+        "family": "scenario-explanation",
+        "prompt": "A model places all long homologues in one cell and all short homologues in the other after meiosis I. What is the error?",
+        "model": "Each daughter should receive one chromosome of each type. Normal segregation gives each daughter a complete haploid set, not a random assortment missing whole types.",
+        "selfAssessed": true
+      }
+    }
+  ],
+  "typedPractice": [
+    {
+      "id": "ch16-l05-context-cytokinesis",
+      "chapter": 16,
+      "lesson": 5,
+      "conceptId": "ch16-concept-cytokinesis",
+      "family": "scenario-retrieval",
+      "kind": "blank",
+      "difficulty": "application",
+      "prompt": "Identify the term illustrated: Two daughter nuclei become enclosed within separate cells.",
+      "answer": "cytokinesis",
+      "aliases": [],
+      "cue": "Use the relationship described in the example.",
+      "explanation": "Division of the cytoplasm into separate daughter cells. Nuclear division and cytoplasmic division are related but not identical.",
+      "reviewRoute": "lesson-05"
+    },
+    {
+      "id": "ch16-l05-context-cleavage-furrow",
+      "chapter": 16,
+      "lesson": 5,
+      "conceptId": "ch16-concept-cleavage-furrow",
+      "family": "scenario-retrieval",
+      "kind": "blank",
+      "difficulty": "application",
+      "prompt": "Identify the term illustrated: A dividing animal cell pinches inward at its middle.",
+      "answer": "cleavage furrow",
+      "aliases": [],
+      "cue": "Use the relationship described in the example.",
+      "explanation": "An inward constriction of an animal cell during cytokinesis. A rigid plant cell wall prevents this same pinching mechanism.",
+      "reviewRoute": "lesson-05"
+    },
+    {
+      "id": "ch16-l05-context-cell-plate",
+      "chapter": 16,
+      "lesson": 5,
+      "conceptId": "ch16-concept-cell-plate",
+      "family": "scenario-retrieval",
+      "kind": "blank",
+      "difficulty": "application",
+      "prompt": "Identify the term illustrated: Vesicles fuse in the middle of a plant cell to establish a separating partition.",
+      "answer": "cell plate",
+      "aliases": [],
+      "cue": "Use the relationship described in the example.",
+      "explanation": "A developing partition that contributes to the new wall between dividing plant cells. Plant cytokinesis builds a partition rather than simply pinching a rigid wall inward.",
+      "reviewRoute": "lesson-05"
+    },
+    {
+      "id": "ch16-l05-context-cell-cycle-checkpoint",
+      "chapter": 16,
+      "lesson": 5,
+      "conceptId": "ch16-concept-cell-cycle-checkpoint",
+      "family": "scenario-retrieval",
+      "kind": "blank",
+      "difficulty": "application",
+      "prompt": "Identify the term illustrated: A cell with damaged DNA pauses instead of immediately entering division.",
+      "answer": "cell-cycle checkpoint",
+      "aliases": [],
+      "cue": "Use the relationship described in the example.",
+      "explanation": "A control mechanism that helps determine whether a cell proceeds to a later stage. Checkpoint failure can contribute to uncontrolled division; rapid normal growth is not automatically cancer.",
+      "reviewRoute": "lesson-05"
+    },
+    {
+      "id": "ch16-l06-context-meiosis-i",
+      "chapter": 16,
+      "lesson": 6,
+      "conceptId": "ch16-concept-meiosis-i",
+      "family": "scenario-retrieval",
+      "kind": "blank",
+      "difficulty": "application",
+      "prompt": "Identify the term illustrated: Members of each replicated homologous pair move to opposite poles.",
+      "answer": "meiosis I",
+      "aliases": [],
+      "cue": "Use the relationship described in the example.",
+      "explanation": "The first meiotic division, in which homologous chromosomes separate. Sister chromatids normally remain together during this division.",
+      "reviewRoute": "lesson-06"
+    },
+    {
+      "id": "ch16-l06-context-synapsis",
+      "chapter": 16,
+      "lesson": 6,
+      "conceptId": "ch16-concept-synapsis",
+      "family": "scenario-retrieval",
+      "kind": "blank",
+      "difficulty": "application",
+      "prompt": "Identify the term illustrated: Maternal and paternal homologues align closely along corresponding regions.",
+      "answer": "synapsis",
+      "aliases": [],
+      "cue": "Use the relationship described in the example.",
+      "explanation": "Pairing of homologous chromosomes during prophase I. This pairing differs from individual chromosome alignment in mitosis.",
+      "reviewRoute": "lesson-06"
+    },
+    {
+      "id": "ch16-l06-context-tetrad",
+      "chapter": 16,
+      "lesson": 6,
+      "conceptId": "ch16-concept-tetrad",
+      "family": "scenario-retrieval",
+      "kind": "blank",
+      "difficulty": "application",
+      "prompt": "Identify the term illustrated: Two replicated homologues align as a four-chromatid unit.",
+      "answer": "tetrad",
+      "aliases": [],
+      "cue": "Use the relationship described in the example.",
+      "explanation": "A paired set of two replicated homologous chromosomes containing four chromatids. A tetrad contains two chromosomes, not four independently counted chromosomes.",
+      "reviewRoute": "lesson-06"
+    },
+    {
+      "id": "ch16-l06-context-reduction-division",
+      "chapter": 16,
+      "lesson": 6,
+      "conceptId": "ch16-concept-reduction-division",
+      "family": "scenario-retrieval",
+      "kind": "blank",
+      "difficulty": "application",
+      "prompt": "Identify the term illustrated: One homologue of each pair enters each daughter cell.",
+      "answer": "reduction division",
+      "aliases": [],
+      "cue": "Use the relationship described in the example.",
+      "explanation": "A division that reduces chromosome sets from diploid to haploid, as in meiosis I. Reduced sets can coexist with chromosomes still having two chromatids.",
+      "reviewRoute": "lesson-06"
+    }
+  ],
+  "multiSelectPractice": [],
+  "guidedActivities": [
+    {
+      "chapter": 16,
+      "lesson": 5,
+      "route": "lesson-05",
+      "worked": {
+        "title": "Explain the shape of cytokinesis",
+        "scenario": "Two images show an animal cell pinching inward and a plant cell developing a partition through its centre.",
+        "steps": [
+          "Both show cytoplasmic separation after or during nuclear division.",
+          "The animal cell can constrict its flexible boundary, forming a cleavage furrow.",
+          "The plant cell builds a cell plate because a rigid wall prevents the same pinching mechanism.",
+          "Different mechanisms accomplish the same broad task of separating daughter cells."
+        ],
+        "id": "ch16-l05-worked",
+        "label": "Worked example"
+      },
+      "guided": {
+        "id": "ch16-l05-guided",
+        "label": "Practise with support",
+        "title": "Apply the explanation",
+        "instruction": "Try both questions. Use the hint to revise your thinking after an incorrect answer.",
+        "items": [
+          {
+            "prompt": "Which structure is expected during plant cytokinesis?",
+            "answer": "Cell plate",
+            "explanation": "The cell plate contributes to a partition and new wall.",
+            "cue": "Consider the constraint imposed by the existing wall.",
+            "id": "ch16-l05-guided-q1",
+            "options": [
+              "Acrosome",
+              "Cleavage furrow as the only mechanism",
+              "Cell plate"
+            ],
+            "difficulty": "application",
+            "kind": "select",
+            "hint": "Consider the constraint imposed by the existing wall."
+          },
+          {
+            "prompt": "Why is rapid cell division in a root tip not sufficient evidence of cancer?",
+            "answer": "Rapid division can be part of normal controlled growth",
+            "explanation": "Rate alone does not establish loss of regulation.",
+            "cue": "Separate growth rate from control of growth.",
+            "id": "ch16-l05-guided-q2",
+            "options": [
+              "Rapid division can be part of normal controlled growth",
+              "Plant cells never contain DNA",
+              "Cancer means any cell in metaphase"
+            ],
+            "difficulty": "application",
+            "kind": "select",
+            "hint": "Separate growth rate from control of growth."
+          }
+        ]
+      }
+    },
+    {
+      "chapter": 16,
+      "lesson": 6,
+      "route": "lesson-06",
+      "worked": {
+        "title": "Follow a 2n = 4 model through meiosis I",
+        "scenario": "The starting cell contains one long homologous pair and one short homologous pair, both replicated.",
+        "steps": [
+          "At metaphase I, the long homologues pair and the short homologues pair.",
+          "At anaphase I, one long homologue and one short homologue move to each pole.",
+          "Each resulting cell has one of each chromosome type: n = 2.",
+          "Each chromosome still has two sister chromatids, so each cell has two chromosomes and four chromatids.",
+          "The reduction concerns homologous sets, not immediate separation of every chromatid."
+        ],
+        "id": "ch16-l06-worked",
+        "label": "Worked example"
+      },
+      "guided": {
+        "id": "ch16-l06-guided",
+        "label": "Practise with support",
+        "title": "Apply the explanation",
+        "instruction": "Try both questions. Use the hint to revise your thinking after an incorrect answer.",
+        "items": [
+          {
+            "prompt": "What separates during anaphase I?",
+            "answer": "Homologous chromosomes",
+            "explanation": "The homologues separate while sister chromatids normally remain paired.",
+            "cue": "Identify the paired units at metaphase I.",
+            "id": "ch16-l06-guided-q1",
+            "options": [
+              "DNA bases from their sugars",
+              "Homologous chromosomes",
+              "Sister chromatids in every chromosome"
+            ],
+            "difficulty": "application",
+            "kind": "select",
+            "hint": "Identify the paired units at metaphase I."
+          },
+          {
+            "prompt": "For a species with 2n = 12, how many chromosomes are in each normal cell after meiosis I?",
+            "answer": "6",
+            "explanation": "Each cell receives one of each homologous pair.",
+            "cue": "Halve the chromosome sets, not the number of chromatid arms.",
+            "id": "ch16-l06-guided-q2",
+            "options": [
+              "12",
+              "24",
+              "6"
+            ],
+            "difficulty": "application",
+            "kind": "select",
+            "hint": "Halve the chromosome sets, not the number of chromatid arms."
+          }
+        ]
+      }
+    }
+  ],
+  "transferChecks": [],
+  "transferLegacyChoices": [],
+  "diagramPractice": []
+}

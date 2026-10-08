@@ -1,0 +1,1262 @@
+{
+  "phase": "learner-first; frozen before textbook/source/keys/models/config/other reports",
+  "frozen_utc": "2026-10-08T21:56:33.825414+00:00",
+  "evidence_boundary": "Only six blind learner files and the three referenced learner images were read. No prior-teaching files used. No browser runtime, feedback, source, keys, model responses, author reports, other reviewers or agent status inspected. Responses are reviewer-authored, not recorded learner performance.",
+  "counts": {
+    "local_tasks": 14,
+    "native_forms": 58,
+    "frayer_forms": 8,
+    "frayer_fields": 32
+  },
+  "inputs": [
+    {
+      "path": "biology_prep/ch16-batch05-06/review/lesson-05-blind.html",
+      "sha256": "ff20fdc9e9feeba17d6bafc5a387f8982c9d59449e1c950da5dd39246d044899",
+      "bytes": 20536
+    },
+    {
+      "path": "biology_prep/ch16-batch05-06/review/lesson-05-blind.txt",
+      "sha256": "2b90c5acc84f84f62f8fe1c0527c845695cd5ffa526102638227f440cd2f2cd3",
+      "bytes": 9652
+    },
+    {
+      "path": "biology_prep/ch16-batch05-06/review/lesson-06-blind.html",
+      "sha256": "b657eca53cf9f1ef372357d3d463ef51f36134af63ebeabf6a62b6a47cfd3ac7",
+      "bytes": 22047
+    },
+    {
+      "path": "biology_prep/ch16-batch05-06/review/lesson-06-blind.txt",
+      "sha256": "e82c8d2e5d996836a3f7411e5df64a82aaea48628400038230c2c6244c5c7305",
+      "bytes": 10553
+    },
+    {
+      "path": "biology_prep/ch16-batch05-06/review/native-practice-blind.json",
+      "sha256": "502f83d7b63b01147ff51bd33062a0ed5094f4add14786a06b24e83678fe431b",
+      "bytes": 11639
+    },
+    {
+      "path": "biology_prep/ch16-batch05-06/review/frayer-prompts-blind.json",
+      "sha256": "0f55703eaff210a29005846d47990bf3cff129fc1c33d8822d7f951061cfd6cf",
+      "bytes": 2332
+    },
+    {
+      "path": "biology_prep/ch16-batch05-06/learner/assets/figures/ch16-teacher-animal-cytokinesis-slide29.png",
+      "sha256": "7c89bbb57c65e75fc50bbed3a5bb19cfb45778a46f1eb3bb83323d42a9e59619",
+      "bytes": 358473,
+      "pixel_dimensions": [
+        707,
+        733
+      ],
+      "viewed_actual_pixels": "view_image detail=original; inspected 2026-10-08 before this freeze"
+    },
+    {
+      "path": "biology_prep/ch16-batch05-06/learner/assets/figures/ch16-source-cell-plate.png",
+      "sha256": "58b803628ee76b129070980e12d505e6b77799f7f80aa9e8243f09fed86a67a8",
+      "bytes": 161363,
+      "pixel_dimensions": [
+        610,
+        396
+      ],
+      "viewed_actual_pixels": "view_image detail=original; inspected 2026-10-08 before this freeze"
+    },
+    {
+      "path": "biology_prep/ch16-batch05-06/learner/assets/figures/ch16-source-meiosis.png",
+      "sha256": "e8ee0d42a360ca10ca3859a2baf480c0b8a1b049664b1ea2d626232f7a8a367e",
+      "bytes": 514317,
+      "pixel_dimensions": [
+        1026,
+        1112
+      ],
+      "viewed_actual_pixels": "view_image detail=original; inspected 2026-10-08 before this freeze"
+    }
+  ],
+  "local_attempts": [
+    {
+      "reviewId": "L05-1",
+      "kind": "guided",
+      "prompt": "Which structure is expected during plant cytokinesis?",
+      "options": [
+        "Acrosome",
+        "Cleavage furrow as the only mechanism",
+        "Cell plate"
+      ],
+      "first_response": "Cell plate",
+      "visible_evidence": "L05 teaching-01: vesicles fuse between daughter nuclei; the plate grows outward; a rigid wall cannot pinch like an animal membrane. Actual plant pixels show two dark groups and a faint central partition.",
+      "meaningful_alternatives": [],
+      "unsupported_steps": []
+    },
+    {
+      "reviewId": "L05-2",
+      "kind": "guided",
+      "prompt": "Why is rapid cell division in a root tip not sufficient evidence of cancer?",
+      "options": [
+        "Rapid division can be part of normal controlled growth",
+        "Plant cells never contain DNA",
+        "Cancer means any cell in metaphase"
+      ],
+      "first_response": "Rapid division can be part of normal controlled growth",
+      "visible_evidence": "L05 teaching-03: checkpoints can delay progression for unsuitable conditions, including DNA damage; failed control can pass damage to daughters; rapid normal root-tip growth is not sufficient evidence of cancer.",
+      "meaningful_alternatives": [],
+      "unsupported_steps": []
+    },
+    {
+      "reviewId": "L05-3",
+      "kind": "stop-and-think",
+      "prompt": "Does every adult cell divide continuously?",
+      "options": [],
+      "first_response": "No. Many mature cells do not divide continuously, and tissues differ in replacement capacity. Stem cells can produce specialized descendants, with possibilities depending on cell type and surroundings.",
+      "visible_evidence": "L05 teaching-02: more cells alone do not establish the correct cell types, organization, connections, function and controlled growth.",
+      "meaningful_alternatives": [],
+      "unsupported_steps": []
+    },
+    {
+      "reviewId": "L05-4",
+      "kind": "required-selection",
+      "prompt": "Which event is cytokinesis rather than mitosis?",
+      "options": [
+        "Separation of cytoplasm into daughter cells",
+        "Alignment of chromosomes at the equator",
+        "Condensation of chromatin",
+        "Separation of sister chromatids"
+      ],
+      "first_response": "Separation of cytoplasm into daughter cells",
+      "visible_evidence": "L05 teaching-01: cytokinesis divides cytoplasm; mitosis distributes nuclear chromosomes; DNA copying happened in S phase.",
+      "meaningful_alternatives": [],
+      "unsupported_steps": []
+    },
+    {
+      "reviewId": "L05-5",
+      "kind": "required-selection",
+      "prompt": "A cell detects DNA damage and delays division. Which function is illustrated?",
+      "options": [
+        "Independent assortment",
+        "A cell-cycle checkpoint",
+        "Formation of a homologous pair",
+        "Fertilization"
+      ],
+      "first_response": "A cell-cycle checkpoint",
+      "visible_evidence": "L05 teaching-03: checkpoints can delay progression for unsuitable conditions, including DNA damage; failed control can pass damage to daughters; rapid normal root-tip growth is not sufficient evidence of cancer.",
+      "meaningful_alternatives": [],
+      "unsupported_steps": []
+    },
+    {
+      "reviewId": "L05-6",
+      "kind": "required-writing",
+      "prompt": "Compare animal and plant cytokinesis and explain how their structures affect the mechanism.",
+      "options": [],
+      "first_response": "Animal cytokinesis uses a contractile ring to pull the flexible membrane inward, making a deepening cleavage furrow. In a plant cell, the rigid wall remains in place while vesicles fuse between the nuclei and form a cell plate that grows outward; membranes and new wall material partition the daughters. Both mechanisms separate cytoplasm and do not copy DNA.",
+      "visible_evidence": "L05 teaching-01: vesicles fuse between daughter nuclei; the plate grows outward; a rigid wall cannot pinch like an animal membrane. Actual plant pixels show two dark groups and a faint central partition.",
+      "meaningful_alternatives": [],
+      "unsupported_steps": []
+    },
+    {
+      "reviewId": "L05-7",
+      "kind": "required-writing",
+      "prompt": "Explain why an experiment showing more cells does not by itself prove successful tissue repair.",
+      "options": [],
+      "first_response": "An increased cell count demonstrates proliferation, but repair also requires the right specialized cells arranged and connected to perform the lost function. For sensory tissue, useful signal transmission and appropriate connections, plus controlled growth, would support restoration. Extra cells alone could be disorganized or poorly functioning.",
+      "visible_evidence": "L05 teaching-02: more cells alone do not establish the correct cell types, organization, connections, function and controlled growth.",
+      "meaningful_alternatives": [],
+      "unsupported_steps": []
+    },
+    {
+      "reviewId": "L06-1",
+      "kind": "guided",
+      "prompt": "What separates during anaphase I?",
+      "options": [
+        "DNA bases from their sugars",
+        "Homologous chromosomes",
+        "Sister chromatids in every chromosome"
+      ],
+      "first_response": "Homologous chromosomes",
+      "visible_evidence": "L06 teaching-01/02/03: homologues pair in prophase I, align as tetrads in metaphase I, and separate in anaphase I while sisters remain together, reducing two sets to one.",
+      "meaningful_alternatives": [],
+      "unsupported_steps": []
+    },
+    {
+      "reviewId": "L06-2",
+      "kind": "guided",
+      "prompt": "For a species with 2n = 12, how many chromosomes are in each normal cell after meiosis I?",
+      "options": [
+        "12",
+        "24",
+        "6"
+      ],
+      "first_response": "6",
+      "visible_evidence": "L06 teaching-03: one homologue of every type is one haploid set after meiosis I, despite chromosomes remaining replicated.",
+      "meaningful_alternatives": [],
+      "unsupported_steps": []
+    },
+    {
+      "reviewId": "L06-3",
+      "kind": "stop-and-think",
+      "prompt": "Is meiosis I just mitosis performed on a diploid cell?",
+      "options": [],
+      "first_response": "No. Meiosis I pairs homologues and separates homologous chromosomes, retaining sister chromatids together and reducing two sets to one. Mitosis aligns individual replicated chromosomes and separates sisters, normally maintaining ploidy.",
+      "visible_evidence": "L06 teaching-01/02/03: homologues pair in prophase I, align as tetrads in metaphase I, and separate in anaphase I while sisters remain together, reducing two sets to one.",
+      "meaningful_alternatives": [],
+      "unsupported_steps": []
+    },
+    {
+      "reviewId": "L06-4",
+      "kind": "required-selection",
+      "prompt": "Why is a cell after meiosis I haploid even though its chromosomes remain replicated?",
+      "options": [
+        "It has already completed fertilization",
+        "It has no centromeres",
+        "It has one homologue of each chromosome type",
+        "It contains only one DNA molecule total"
+      ],
+      "first_response": "It has one homologue of each chromosome type",
+      "visible_evidence": "L06 teaching-03: one homologue of every type is one haploid set after meiosis I, despite chromosomes remaining replicated.",
+      "meaningful_alternatives": [],
+      "unsupported_steps": []
+    },
+    {
+      "reviewId": "L06-5",
+      "kind": "required-selection",
+      "prompt": "What makes a tetrad different from one replicated chromosome?",
+      "options": [
+        "A tetrad contains no DNA",
+        "A tetrad is always four unreplicated gametes",
+        "A tetrad is a single RNA molecule",
+        "A tetrad contains two replicated homologues and four chromatids"
+      ],
+      "first_response": "A tetrad contains two replicated homologues and four chromatids",
+      "visible_evidence": "L06 teaching-01 and worked: two replicated homologues form a tetrad with two chromosomes and four chromatids.",
+      "meaningful_alternatives": [],
+      "unsupported_steps": []
+    },
+    {
+      "reviewId": "L06-6",
+      "kind": "required-writing",
+      "prompt": "Explain how meiosis I reduces chromosome number without separating sister chromatids.",
+      "options": [],
+      "first_response": "Each replicated homologue pairs with its corresponding partner in prophase I; the pairs line up in metaphase I. Anaphase I sends the two homologues to opposite poles while sister chromatids remain joined. Each daughter therefore receives one chromosome of each type, one complete set instead of two. Replicated copies remain, but the number of sets and chromosomes per daughter is halved.",
+      "visible_evidence": "L06 teaching-01/02/03: homologues pair in prophase I, align as tetrads in metaphase I, and separate in anaphase I while sisters remain together, reducing two sets to one.",
+      "meaningful_alternatives": [],
+      "unsupported_steps": []
+    },
+    {
+      "reviewId": "L06-7",
+      "kind": "required-writing",
+      "prompt": "For a 2n = 8 species, describe chromosome and chromatid counts after meiosis I.",
+      "options": [],
+      "first_response": "A 2n = 8 cell starts meiosis I with 8 chromosomes and 16 chromatids after replication. Each normal daughter after meiosis I has n = 4 chromosomes and 8 chromatids, one homologue of each type with two joined sister chromatids. Across both daughters the total remains 8 chromosomes and 16 chromatids.",
+      "visible_evidence": "L06 teaching-03: one homologue of every type is one haploid set after meiosis I, despite chromosomes remaining replicated.",
+      "meaningful_alternatives": [],
+      "unsupported_steps": []
+    }
+  ],
+  "native_attempts": [
+    {
+      "prompt": "Explain cytokinesis.",
+      "kind": "flash",
+      "reviewId": "N001",
+      "first_response": "Cytokinesis is division of the cytoplasm into separate daughter cells.",
+      "visible_evidence": "L05 teaching-01: cytokinesis divides cytoplasm; mitosis distributes nuclear chromosomes; DNA copying happened in S phase.",
+      "unsupported_steps": [],
+      "meaningful_alternatives": []
+    },
+    {
+      "prompt": "Which term fits this definition? Division of the cytoplasm into separate daughter cells.",
+      "kind": "flash",
+      "reviewId": "N002",
+      "first_response": "cytokinesis",
+      "visible_evidence": "L05 teaching-01: cytokinesis divides cytoplasm; mitosis distributes nuclear chromosomes; DNA copying happened in S phase.",
+      "unsupported_steps": [],
+      "meaningful_alternatives": []
+    },
+    {
+      "prompt": "Correct this incorrect statement: Cytokinesis is the process that duplicates DNA.",
+      "kind": "flash",
+      "reviewId": "N003",
+      "first_response": "Cytokinesis separates cytoplasm; DNA is duplicated earlier during S phase.",
+      "visible_evidence": "L05 teaching-01: cytokinesis divides cytoplasm; mitosis distributes nuclear chromosomes; DNA copying happened in S phase.",
+      "unsupported_steps": [],
+      "meaningful_alternatives": []
+    },
+    {
+      "prompt": "Name the term described: Division of the cytoplasm into separate daughter cells.",
+      "kind": "blank",
+      "reviewId": "N004",
+      "first_response": "cytokinesis",
+      "visible_evidence": "L05 teaching-01: cytokinesis divides cytoplasm; mitosis distributes nuclear chromosomes; DNA copying happened in S phase.",
+      "unsupported_steps": [],
+      "meaningful_alternatives": []
+    },
+    {
+      "prompt": "Explain cleavage furrow.",
+      "kind": "flash",
+      "reviewId": "N005",
+      "first_response": "A cleavage furrow is the animal cell membrane constricting inward as a contractile ring tightens during cytokinesis.",
+      "visible_evidence": "L05 teaching-01: a contractile ring draws the membrane inward, making a cleavage furrow; teacher image shows the narrow middle.",
+      "unsupported_steps": [],
+      "meaningful_alternatives": []
+    },
+    {
+      "prompt": "Which term fits this definition? An inward constriction of an animal cell during cytokinesis.",
+      "kind": "flash",
+      "reviewId": "N006",
+      "first_response": "cleavage furrow",
+      "visible_evidence": "L05 teaching-01: a contractile ring draws the membrane inward, making a cleavage furrow; teacher image shows the narrow middle.",
+      "unsupported_steps": [],
+      "meaningful_alternatives": []
+    },
+    {
+      "prompt": "Correct this incorrect statement: A cleavage furrow is a new plant cell wall.",
+      "kind": "flash",
+      "reviewId": "N007",
+      "first_response": "A cleavage furrow is an inward membrane constriction in animal cytokinesis. A plant cell plate contributes to a new wall.",
+      "visible_evidence": "L05 teaching-01: a contractile ring draws the membrane inward, making a cleavage furrow; teacher image shows the narrow middle.",
+      "unsupported_steps": [],
+      "meaningful_alternatives": []
+    },
+    {
+      "prompt": "Name the term described: An inward constriction of an animal cell during cytokinesis.",
+      "kind": "blank",
+      "reviewId": "N008",
+      "first_response": "cleavage furrow",
+      "visible_evidence": "L05 teaching-01: a contractile ring draws the membrane inward, making a cleavage furrow; teacher image shows the narrow middle.",
+      "unsupported_steps": [],
+      "meaningful_alternatives": []
+    },
+    {
+      "prompt": "Explain cell plate.",
+      "kind": "flash",
+      "reviewId": "N009",
+      "first_response": "A cell plate is the developing partition formed by fusing vesicles between the daughter nuclei of a dividing plant cell; it contributes membranes and a new wall.",
+      "visible_evidence": "L05 teaching-01: vesicles fuse between daughter nuclei; the plate grows outward; a rigid wall cannot pinch like an animal membrane. Actual plant pixels show two dark groups and a faint central partition.",
+      "unsupported_steps": [],
+      "meaningful_alternatives": []
+    },
+    {
+      "prompt": "Which term fits this definition? A developing partition that contributes to the new wall between dividing plant cells.",
+      "kind": "flash",
+      "reviewId": "N010",
+      "first_response": "cell plate",
+      "visible_evidence": "L05 teaching-01: vesicles fuse between daughter nuclei; the plate grows outward; a rigid wall cannot pinch like an animal membrane. Actual plant pixels show two dark groups and a faint central partition.",
+      "unsupported_steps": [],
+      "meaningful_alternatives": []
+    },
+    {
+      "prompt": "Correct this incorrect statement: A cell plate is the equator where animal chromosomes align.",
+      "kind": "flash",
+      "reviewId": "N011",
+      "first_response": "A cell plate develops between daughter nuclei during plant cytokinesis. The chromosome alignment position is an equator, not a cell plate.",
+      "visible_evidence": "L05 teaching-01: vesicles fuse between daughter nuclei; the plate grows outward; a rigid wall cannot pinch like an animal membrane. Actual plant pixels show two dark groups and a faint central partition.",
+      "unsupported_steps": [],
+      "meaningful_alternatives": []
+    },
+    {
+      "prompt": "Name the term described: A developing partition that contributes to the new wall between dividing plant cells.",
+      "kind": "blank",
+      "reviewId": "N012",
+      "first_response": "cell plate",
+      "visible_evidence": "L05 teaching-01: vesicles fuse between daughter nuclei; the plate grows outward; a rigid wall cannot pinch like an animal membrane. Actual plant pixels show two dark groups and a faint central partition.",
+      "unsupported_steps": [],
+      "meaningful_alternatives": []
+    },
+    {
+      "prompt": "Explain cell-cycle checkpoint.",
+      "kind": "flash",
+      "reviewId": "N013",
+      "first_response": "A cell-cycle checkpoint is a control that can delay movement to a later stage when conditions such as DNA integrity are unsuitable.",
+      "visible_evidence": "L05 teaching-03: checkpoints can delay progression for unsuitable conditions, including DNA damage; failed control can pass damage to daughters; rapid normal root-tip growth is not sufficient evidence of cancer.",
+      "unsupported_steps": [],
+      "meaningful_alternatives": []
+    },
+    {
+      "prompt": "Which term fits this definition? A control mechanism that helps determine whether a cell proceeds to a later stage.",
+      "kind": "flash",
+      "reviewId": "N014",
+      "first_response": "cell-cycle checkpoint",
+      "visible_evidence": "L05 teaching-03: checkpoints can delay progression for unsuitable conditions, including DNA damage; failed control can pass damage to daughters; rapid normal root-tip growth is not sufficient evidence of cancer.",
+      "unsupported_steps": [],
+      "meaningful_alternatives": []
+    },
+    {
+      "prompt": "Correct this incorrect statement: All rapidly dividing cells are cancerous.",
+      "kind": "flash",
+      "reviewId": "N015",
+      "first_response": "Rapid division can be normal controlled growth, as in a root tip. Cancer involves abnormal loss of growth control; speed alone does not establish it.",
+      "visible_evidence": "L05 teaching-03: checkpoints can delay progression for unsuitable conditions, including DNA damage; failed control can pass damage to daughters; rapid normal root-tip growth is not sufficient evidence of cancer.",
+      "unsupported_steps": [],
+      "meaningful_alternatives": []
+    },
+    {
+      "prompt": "Name the term described: A control mechanism that helps determine whether a cell proceeds to a later stage.",
+      "kind": "blank",
+      "reviewId": "N016",
+      "first_response": "cell-cycle checkpoint",
+      "visible_evidence": "L05 teaching-03: checkpoints can delay progression for unsuitable conditions, including DNA damage; failed control can pass damage to daughters; rapid normal root-tip growth is not sufficient evidence of cancer.",
+      "unsupported_steps": [],
+      "meaningful_alternatives": []
+    },
+    {
+      "prompt": "Explain meiosis I.",
+      "kind": "flash",
+      "reviewId": "N017",
+      "first_response": "Meiosis I separates homologous chromosomes into haploid groups, with sister chromatids remaining joined.",
+      "visible_evidence": "L06 teaching-01/02/03: homologues pair in prophase I, align as tetrads in metaphase I, and separate in anaphase I while sisters remain together, reducing two sets to one.",
+      "unsupported_steps": [],
+      "meaningful_alternatives": []
+    },
+    {
+      "prompt": "Which term fits this definition? The first meiotic division, in which homologous chromosomes separate.",
+      "kind": "flash",
+      "reviewId": "N018",
+      "first_response": "meiosis I",
+      "visible_evidence": "L06 teaching-01/02/03: homologues pair in prophase I, align as tetrads in metaphase I, and separate in anaphase I while sisters remain together, reducing two sets to one.",
+      "unsupported_steps": [],
+      "meaningful_alternatives": []
+    },
+    {
+      "prompt": "Correct this incorrect statement: Meiosis I separates all sister chromatids first.",
+      "kind": "flash",
+      "reviewId": "N019",
+      "first_response": "Meiosis I separates homologues while sister chromatids normally remain joined. Sister chromatids separate in meiosis II.",
+      "visible_evidence": "L06 teaching-01/02/03: homologues pair in prophase I, align as tetrads in metaphase I, and separate in anaphase I while sisters remain together, reducing two sets to one.",
+      "unsupported_steps": [],
+      "meaningful_alternatives": []
+    },
+    {
+      "prompt": "Name the term described: The first meiotic division, in which homologous chromosomes separate.",
+      "kind": "blank",
+      "reviewId": "N020",
+      "first_response": "meiosis I",
+      "visible_evidence": "L06 teaching-01/02/03: homologues pair in prophase I, align as tetrads in metaphase I, and separate in anaphase I while sisters remain together, reducing two sets to one.",
+      "unsupported_steps": [],
+      "meaningful_alternatives": []
+    },
+    {
+      "prompt": "Explain synapsis.",
+      "kind": "flash",
+      "reviewId": "N021",
+      "first_response": "Synapsis is the close pairing of corresponding homologous chromosomes during prophase I.",
+      "visible_evidence": "L06 teaching-01: synapsis is close pairing of homologues in prophase I, not fusion of gametes.",
+      "unsupported_steps": [],
+      "meaningful_alternatives": []
+    },
+    {
+      "prompt": "Which term fits this definition? Pairing of homologous chromosomes during prophase I.",
+      "kind": "flash",
+      "reviewId": "N022",
+      "first_response": "synapsis",
+      "visible_evidence": "L06 teaching-01: synapsis is close pairing of homologues in prophase I, not fusion of gametes.",
+      "unsupported_steps": [],
+      "meaningful_alternatives": []
+    },
+    {
+      "prompt": "Correct this incorrect statement: Synapsis means fusion of sperm and egg.",
+      "kind": "flash",
+      "reviewId": "N023",
+      "first_response": "Synapsis pairs homologous chromosomes within one cell; fusion of sperm and egg is fertilization.",
+      "visible_evidence": "L06 teaching-01: synapsis is close pairing of homologues in prophase I, not fusion of gametes.",
+      "unsupported_steps": [],
+      "meaningful_alternatives": []
+    },
+    {
+      "prompt": "Name the term described: Pairing of homologous chromosomes during prophase I.",
+      "kind": "blank",
+      "reviewId": "N024",
+      "first_response": "synapsis",
+      "visible_evidence": "L06 teaching-01: synapsis is close pairing of homologues in prophase I, not fusion of gametes.",
+      "unsupported_steps": [],
+      "meaningful_alternatives": []
+    },
+    {
+      "prompt": "Explain tetrad.",
+      "kind": "flash",
+      "reviewId": "N025",
+      "first_response": "A tetrad is two paired, replicated homologous chromosomes: two chromosomes and four chromatids.",
+      "visible_evidence": "L06 teaching-01 and worked: two replicated homologues form a tetrad with two chromosomes and four chromatids.",
+      "unsupported_steps": [],
+      "meaningful_alternatives": []
+    },
+    {
+      "prompt": "Which term fits this definition? A paired set of two replicated homologous chromosomes containing four chromatids.",
+      "kind": "flash",
+      "reviewId": "N026",
+      "first_response": "tetrad",
+      "visible_evidence": "L06 teaching-01 and worked: two replicated homologues form a tetrad with two chromosomes and four chromatids.",
+      "unsupported_steps": [],
+      "meaningful_alternatives": []
+    },
+    {
+      "prompt": "Correct this incorrect statement: A tetrad contains four chromosome sets.",
+      "kind": "flash",
+      "reviewId": "N027",
+      "first_response": "A tetrad has four chromatids in two homologous chromosomes. It is not four chromosome sets.",
+      "visible_evidence": "L06 teaching-01 and worked: two replicated homologues form a tetrad with two chromosomes and four chromatids.",
+      "unsupported_steps": [],
+      "meaningful_alternatives": []
+    },
+    {
+      "prompt": "Name the term described: A paired set of two replicated homologous chromosomes containing four chromatids.",
+      "kind": "blank",
+      "reviewId": "N028",
+      "first_response": "tetrad",
+      "visible_evidence": "L06 teaching-01 and worked: two replicated homologues form a tetrad with two chromosomes and four chromatids.",
+      "unsupported_steps": [],
+      "meaningful_alternatives": []
+    },
+    {
+      "prompt": "Explain reduction division.",
+      "kind": "flash",
+      "reviewId": "N029",
+      "first_response": "Reduction division separates homologues so that daughter cells contain one chromosome set instead of two; meiosis I is the example.",
+      "visible_evidence": "L06 teaching-03: one homologue of every type is one haploid set after meiosis I, despite chromosomes remaining replicated.",
+      "unsupported_steps": [],
+      "meaningful_alternatives": []
+    },
+    {
+      "prompt": "Which term fits this definition? A division that reduces chromosome sets from diploid to haploid, as in meiosis I.",
+      "kind": "flash",
+      "reviewId": "N030",
+      "first_response": "reduction division",
+      "visible_evidence": "L06 teaching-03: one homologue of every type is one haploid set after meiosis I, despite chromosomes remaining replicated.",
+      "unsupported_steps": [],
+      "meaningful_alternatives": []
+    },
+    {
+      "prompt": "Correct this incorrect statement: Haploid cells can never contain replicated chromosomes.",
+      "kind": "flash",
+      "reviewId": "N031",
+      "first_response": "A cell after meiosis I is haploid but still has replicated chromosomes. Ploidy counts homologous sets, not joined copies.",
+      "visible_evidence": "L06 teaching-03: one homologue of every type is one haploid set after meiosis I, despite chromosomes remaining replicated.",
+      "unsupported_steps": [],
+      "meaningful_alternatives": []
+    },
+    {
+      "prompt": "Name the term described: A division that reduces chromosome sets from diploid to haploid, as in meiosis I.",
+      "kind": "blank",
+      "reviewId": "N032",
+      "first_response": "reduction division",
+      "visible_evidence": "L06 teaching-03: one homologue of every type is one haploid set after meiosis I, despite chromosomes remaining replicated.",
+      "unsupported_steps": [],
+      "meaningful_alternatives": []
+    },
+    {
+      "prompt": "The division of the cytoplasm in a dividing stem cell is called",
+      "options": [
+        "the S phase.",
+        "cytokinesis.",
+        "spermatogenesis.",
+        "oogenesis."
+      ],
+      "stimuli": [],
+      "kind": "mc",
+      "reviewId": "N033",
+      "first_response": "cytokinesis.",
+      "visible_evidence": "L05 teaching-01: cytokinesis divides cytoplasm; mitosis distributes nuclear chromosomes; DNA copying happened in S phase.",
+      "unsupported_steps": [],
+      "meaningful_alternatives": []
+    },
+    {
+      "prompt": "In a cell model, a checkpoint fails to stop cells with damaged DNA from dividing. What consequence becomes more likely?",
+      "options": [
+        "Cytokinesis becomes the same process as fertilization",
+        "All cell growth permanently stops",
+        "Damaged genetic information passes into daughter cells",
+        "Every damaged chromosome is automatically repaired"
+      ],
+      "stimuli": [],
+      "kind": "mc",
+      "reviewId": "N034",
+      "first_response": "Damaged genetic information passes into daughter cells",
+      "visible_evidence": "L05 teaching-03: checkpoints can delay progression for unsuitable conditions, including DNA damage; failed control can pass damage to daughters; rapid normal root-tip growth is not sufficient evidence of cancer.",
+      "unsupported_steps": [],
+      "meaningful_alternatives": []
+    },
+    {
+      "prompt": "The structures that you would see in a dividing animal cell but NOT in a dividing onion cell are the",
+      "options": [
+        "cell membranes.",
+        "centrioles.",
+        "chloroplasts.",
+        "spindles."
+      ],
+      "stimuli": [],
+      "kind": "mc",
+      "reviewId": "N035",
+      "first_response": "centrioles.",
+      "visible_evidence": "L05 teaching-01: both animal and onion cells have membranes and spindle microtubules; typical animal cells have centrioles, onion cells form a spindle without them.",
+      "unsupported_steps": [],
+      "meaningful_alternatives": []
+    },
+    {
+      "prompt": "If you were observing the chromosomes during metaphase I of meiosis, you would see that the chromosomes are arranged as",
+      "options": [
+        "single chromosomes.",
+        "unpaired duplicated chromosomes.",
+        "unwound, thin strands of chromatin.",
+        "homologous pairs of chromosomes."
+      ],
+      "stimuli": [],
+      "kind": "mc",
+      "reviewId": "N036",
+      "first_response": "homologous pairs of chromosomes.",
+      "visible_evidence": "L06 teaching-01/02/03: homologues pair in prophase I, align as tetrads in metaphase I, and separate in anaphase I while sisters remain together, reducing two sets to one.",
+      "unsupported_steps": [],
+      "meaningful_alternatives": []
+    },
+    {
+      "prompt": "Which event separates homologous chromosomes and establishes one homologue of each pair at each pole?",
+      "options": [
+        "Metaphase II",
+        "Anaphase I",
+        "Anaphase II",
+        "Prophase II"
+      ],
+      "stimuli": [],
+      "kind": "mc",
+      "reviewId": "N037",
+      "first_response": "Anaphase I",
+      "visible_evidence": "L06 teaching-01/02/03: homologues pair in prophase I, align as tetrads in metaphase I, and separate in anaphase I while sisters remain together, reducing two sets to one.",
+      "unsupported_steps": [],
+      "meaningful_alternatives": []
+    },
+    {
+      "prompt": "Which term matches this description? Division of the cytoplasm into separate daughter cells.",
+      "options": [
+        "cytokinesis",
+        "cleavage furrow",
+        "cell plate",
+        "cell-cycle checkpoint"
+      ],
+      "kind": "mc",
+      "reviewId": "N038",
+      "first_response": "cytokinesis",
+      "visible_evidence": "L05 teaching-01: cytokinesis divides cytoplasm; mitosis distributes nuclear chromosomes; DNA copying happened in S phase.",
+      "unsupported_steps": [],
+      "meaningful_alternatives": []
+    },
+    {
+      "prompt": "Which term matches this description? An inward constriction of an animal cell during cytokinesis.",
+      "options": [
+        "cytokinesis",
+        "cleavage furrow",
+        "cell plate",
+        "cell-cycle checkpoint"
+      ],
+      "kind": "mc",
+      "reviewId": "N039",
+      "first_response": "cleavage furrow",
+      "visible_evidence": "L05 teaching-01: a contractile ring draws the membrane inward, making a cleavage furrow; teacher image shows the narrow middle.",
+      "unsupported_steps": [],
+      "meaningful_alternatives": []
+    },
+    {
+      "prompt": "Which term matches this description? A developing partition that contributes to the new wall between dividing plant cells.",
+      "options": [
+        "cytokinesis",
+        "cleavage furrow",
+        "cell plate",
+        "cell-cycle checkpoint"
+      ],
+      "kind": "mc",
+      "reviewId": "N040",
+      "first_response": "cell plate",
+      "visible_evidence": "L05 teaching-01: vesicles fuse between daughter nuclei; the plate grows outward; a rigid wall cannot pinch like an animal membrane. Actual plant pixels show two dark groups and a faint central partition.",
+      "unsupported_steps": [],
+      "meaningful_alternatives": []
+    },
+    {
+      "prompt": "Which term matches this description? A control mechanism that helps determine whether a cell proceeds to a later stage.",
+      "options": [
+        "cytokinesis",
+        "cleavage furrow",
+        "cell plate",
+        "cell-cycle checkpoint"
+      ],
+      "kind": "mc",
+      "reviewId": "N041",
+      "first_response": "cell-cycle checkpoint",
+      "visible_evidence": "L05 teaching-03: checkpoints can delay progression for unsuitable conditions, including DNA damage; failed control can pass damage to daughters; rapid normal root-tip growth is not sufficient evidence of cancer.",
+      "unsupported_steps": [],
+      "meaningful_alternatives": []
+    },
+    {
+      "prompt": "Which term matches this description? The first meiotic division, in which homologous chromosomes separate.",
+      "options": [
+        "meiosis I",
+        "synapsis",
+        "tetrad",
+        "reduction division"
+      ],
+      "kind": "mc",
+      "reviewId": "N042",
+      "first_response": "meiosis I",
+      "visible_evidence": "L06 teaching-01/02/03: homologues pair in prophase I, align as tetrads in metaphase I, and separate in anaphase I while sisters remain together, reducing two sets to one.",
+      "unsupported_steps": [],
+      "meaningful_alternatives": []
+    },
+    {
+      "prompt": "Which term matches this description? Pairing of homologous chromosomes during prophase I.",
+      "options": [
+        "meiosis I",
+        "synapsis",
+        "tetrad",
+        "reduction division"
+      ],
+      "kind": "mc",
+      "reviewId": "N043",
+      "first_response": "synapsis",
+      "visible_evidence": "L06 teaching-01: synapsis is close pairing of homologues in prophase I, not fusion of gametes.",
+      "unsupported_steps": [],
+      "meaningful_alternatives": []
+    },
+    {
+      "prompt": "Which term matches this description? A paired set of two replicated homologous chromosomes containing four chromatids.",
+      "options": [
+        "meiosis I",
+        "synapsis",
+        "tetrad",
+        "reduction division"
+      ],
+      "kind": "mc",
+      "reviewId": "N044",
+      "first_response": "tetrad",
+      "visible_evidence": "L06 teaching-01 and worked: two replicated homologues form a tetrad with two chromosomes and four chromatids.",
+      "unsupported_steps": [],
+      "meaningful_alternatives": []
+    },
+    {
+      "prompt": "Which term matches this description? A division that reduces chromosome sets from diploid to haploid, as in meiosis I.",
+      "options": [
+        "meiosis I",
+        "synapsis",
+        "tetrad",
+        "reduction division"
+      ],
+      "kind": "mc",
+      "reviewId": "N045",
+      "first_response": "reduction division",
+      "visible_evidence": "L06 teaching-03: one homologue of every type is one haploid set after meiosis I, despite chromosomes remaining replicated.",
+      "unsupported_steps": [],
+      "meaningful_alternatives": [
+        "Meiosis I also fits the description biologically and appears among the options; reduction division is the closest definition/term match. The prompt is not exclusive without a wording constraint."
+      ]
+    },
+    {
+      "prompt": "Put these steps in order: Meiosis I and separation of homologous chromosomes",
+      "kind": "order",
+      "reviewId": "N046",
+      "stepChoices": [
+        "Homologues separate at anaphase I",
+        "Replicated homologues pair in prophase I",
+        "Tetrads align at metaphase I",
+        "Two haploid cells retain replicated chromosomes"
+      ],
+      "presentationNote": "Exact steps alphabetized to withhold stored order.",
+      "first_response": [
+        "Replicated homologues pair in prophase I",
+        "Tetrads align at metaphase I",
+        "Homologues separate at anaphase I",
+        "Two haploid cells retain replicated chromosomes"
+      ],
+      "visible_evidence": "L06 teaching-01/02/03: homologues pair in prophase I, align as tetrads in metaphase I, and separate in anaphase I while sisters remain together, reducing two sets to one.",
+      "unsupported_steps": [],
+      "meaningful_alternatives": []
+    },
+    {
+      "prompt": "A checkpoint-defective model divides despite severe DNA damage. What is the main concern?",
+      "options": [
+        "Errors may be propagated while growth control is impaired",
+        "All daughter cells must be harmless",
+        "The cell has necessarily become a normal gamete",
+        "DNA amount can no longer increase"
+      ],
+      "kind": "mc",
+      "reviewId": "N047",
+      "first_response": "Errors may be propagated while growth control is impaired",
+      "visible_evidence": "L05 teaching-03: checkpoints can delay progression for unsuitable conditions, including DNA damage; failed control can pass damage to daughters; rapid normal root-tip growth is not sufficient evidence of cancer.",
+      "unsupported_steps": [],
+      "meaningful_alternatives": []
+    },
+    {
+      "prompt": "A checkpoint-defective model divides despite severe DNA damage. What is the main concern?",
+      "kind": "flash",
+      "reviewId": "N048",
+      "first_response": "Damaged DNA may be passed into daughter cells while impaired growth control allows that damaged lineage to keep multiplying.",
+      "visible_evidence": "L05 teaching-03: checkpoints can delay progression for unsuitable conditions, including DNA damage; failed control can pass damage to daughters; rapid normal root-tip growth is not sufficient evidence of cancer.",
+      "unsupported_steps": [],
+      "meaningful_alternatives": []
+    },
+    {
+      "prompt": "A model places all long homologues in one cell and all short homologues in the other after meiosis I. What is the error?",
+      "options": [
+        "All daughters should receive every homologue",
+        "Each daughter should receive one chromosome of each type",
+        "Long chromosomes must always be destroyed",
+        "Chromosome size determines the daughter’s species"
+      ],
+      "kind": "mc",
+      "reviewId": "N049",
+      "first_response": "Each daughter should receive one chromosome of each type",
+      "visible_evidence": "L06 figure pixels and teaching-02: top receives mostly blue short and green long chromosomes; bottom receives yellow short and red long chromosomes. Each destination needs one of each type.",
+      "unsupported_steps": [],
+      "meaningful_alternatives": []
+    },
+    {
+      "prompt": "A model places all long homologues in one cell and all short homologues in the other after meiosis I. What is the error?",
+      "kind": "flash",
+      "reviewId": "N050",
+      "first_response": "The model separates chromosome types instead of members of each homologous pair. Each daughter needs one long and one short chromosome, retaining a complete haploid set.",
+      "visible_evidence": "L06 figure pixels and teaching-02: top receives mostly blue short and green long chromosomes; bottom receives yellow short and red long chromosomes. Each destination needs one of each type.",
+      "unsupported_steps": [],
+      "meaningful_alternatives": []
+    },
+    {
+      "prompt": "Identify the term illustrated: Two daughter nuclei become enclosed within separate cells.",
+      "kind": "blank",
+      "reviewId": "N051",
+      "first_response": "cytokinesis",
+      "visible_evidence": "L05 teaching-01: cytokinesis divides cytoplasm; mitosis distributes nuclear chromosomes; DNA copying happened in S phase.",
+      "unsupported_steps": [],
+      "meaningful_alternatives": [
+        "The two nuclear groups are formed by mitosis, but enclosure in separate cells identifies cytoplasmic division."
+      ]
+    },
+    {
+      "prompt": "Identify the term illustrated: A dividing animal cell pinches inward at its middle.",
+      "kind": "blank",
+      "reviewId": "N052",
+      "first_response": "cleavage furrow",
+      "visible_evidence": "L05 teaching-01: a contractile ring draws the membrane inward, making a cleavage furrow; teacher image shows the narrow middle.",
+      "unsupported_steps": [],
+      "meaningful_alternatives": [
+        "Animal cytokinesis names the broader process. Cleavage furrow is the specific visible feature."
+      ]
+    },
+    {
+      "prompt": "Identify the term illustrated: Vesicles fuse in the middle of a plant cell to establish a separating partition.",
+      "kind": "blank",
+      "reviewId": "N053",
+      "first_response": "cell plate",
+      "visible_evidence": "L05 teaching-01: vesicles fuse between daughter nuclei; the plate grows outward; a rigid wall cannot pinch like an animal membrane. Actual plant pixels show two dark groups and a faint central partition.",
+      "unsupported_steps": [],
+      "meaningful_alternatives": []
+    },
+    {
+      "prompt": "Identify the term illustrated: A cell with damaged DNA pauses instead of immediately entering division.",
+      "kind": "blank",
+      "reviewId": "N054",
+      "first_response": "cell-cycle checkpoint",
+      "visible_evidence": "L05 teaching-03: checkpoints can delay progression for unsuitable conditions, including DNA damage; failed control can pass damage to daughters; rapid normal root-tip growth is not sufficient evidence of cancer.",
+      "unsupported_steps": [],
+      "meaningful_alternatives": [
+        "checkpoint; DNA-damage checkpoint. These are scientifically reasonable shorter or more specific descriptions."
+      ]
+    },
+    {
+      "prompt": "Identify the term illustrated: Members of each replicated homologous pair move to opposite poles.",
+      "kind": "blank",
+      "reviewId": "N055",
+      "first_response": "anaphase I",
+      "visible_evidence": "L06 teaching-01/02/03: homologues pair in prophase I, align as tetrads in metaphase I, and separate in anaphase I while sisters remain together, reducing two sets to one.",
+      "unsupported_steps": [],
+      "meaningful_alternatives": [
+        "meiosis I; reduction division. Both name the broader process; anaphase I is the exact event described and explicitly taught. No fixed vocabulary word list is supplied in this blank prompt."
+      ]
+    },
+    {
+      "prompt": "Identify the term illustrated: Maternal and paternal homologues align closely along corresponding regions.",
+      "kind": "blank",
+      "reviewId": "N056",
+      "first_response": "synapsis",
+      "visible_evidence": "L06 teaching-01: synapsis is close pairing of homologues in prophase I, not fusion of gametes.",
+      "unsupported_steps": [],
+      "meaningful_alternatives": []
+    },
+    {
+      "prompt": "Identify the term illustrated: Two replicated homologues align as a four-chromatid unit.",
+      "kind": "blank",
+      "reviewId": "N057",
+      "first_response": "tetrad",
+      "visible_evidence": "L06 teaching-01 and worked: two replicated homologues form a tetrad with two chromosomes and four chromatids.",
+      "unsupported_steps": [],
+      "meaningful_alternatives": []
+    },
+    {
+      "prompt": "Identify the term illustrated: One homologue of each pair enters each daughter cell.",
+      "kind": "blank",
+      "reviewId": "N058",
+      "first_response": "reduction division",
+      "visible_evidence": "L06 teaching-03: one homologue of every type is one haploid set after meiosis I, despite chromosomes remaining replicated.",
+      "unsupported_steps": [],
+      "meaningful_alternatives": [
+        "meiosis I; homologous chromosome segregation. The described distribution also occurs during anaphase I; the text does not uniquely require the term reduction division."
+      ]
+    }
+  ],
+  "frayer_attempts": [
+    {
+      "reviewId": "F01",
+      "term": "cytokinesis",
+      "fields": [
+        "Meaning in your own words",
+        "Key features or what it does",
+        "A specific example",
+        "A non-example or common confusion"
+      ],
+      "limits": [
+        240,
+        240,
+        240,
+        240
+      ],
+      "first_responses": [
+        {
+          "field": "Meaning in your own words",
+          "response": "Splitting one cell’s cytoplasm into separate daughter cells.",
+          "characters": 60,
+          "visible_evidence": "L05 teaching-01: cytokinesis divides cytoplasm; mitosis distributes nuclear chromosomes; DNA copying happened in S phase."
+        },
+        {
+          "field": "Key features or what it does",
+          "response": "Produces separate cell boundaries; can overlap the end of mitosis.",
+          "characters": 66,
+          "visible_evidence": "L05 teaching-01: cytokinesis divides cytoplasm; mitosis distributes nuclear chromosomes; DNA copying happened in S phase."
+        },
+        {
+          "field": "A specific example",
+          "response": "An animal cell pinches into two daughters after its nuclear chromosomes are distributed.",
+          "characters": 88,
+          "visible_evidence": "L05 teaching-01: cytokinesis divides cytoplasm; mitosis distributes nuclear chromosomes; DNA copying happened in S phase."
+        },
+        {
+          "field": "A non-example or common confusion",
+          "response": "DNA replication is S phase; it is not cytokinesis.",
+          "characters": 50,
+          "visible_evidence": "L05 teaching-01: cytokinesis divides cytoplasm; mitosis distributes nuclear chromosomes; DNA copying happened in S phase."
+        }
+      ],
+      "unsupported_steps": []
+    },
+    {
+      "reviewId": "F02",
+      "term": "cleavage furrow",
+      "fields": [
+        "Meaning in your own words",
+        "Key features or what it does",
+        "A specific example",
+        "A non-example or common confusion"
+      ],
+      "limits": [
+        240,
+        240,
+        240,
+        240
+      ],
+      "first_responses": [
+        {
+          "field": "Meaning in your own words",
+          "response": "The inward constriction of an animal cell membrane during cytokinesis.",
+          "characters": 70,
+          "visible_evidence": "L05 teaching-01: a contractile ring draws the membrane inward, making a cleavage furrow; teacher image shows the narrow middle."
+        },
+        {
+          "field": "Key features or what it does",
+          "response": "A contractile ring pulls the flexible membrane inward around the middle.",
+          "characters": 72,
+          "visible_evidence": "L05 teaching-01: a contractile ring draws the membrane inward, making a cleavage furrow; teacher image shows the narrow middle."
+        },
+        {
+          "field": "A specific example",
+          "response": "The narrowed middle between two nuclei in the teacher animal-cell image.",
+          "characters": 72,
+          "visible_evidence": "L05 teaching-01: a contractile ring draws the membrane inward, making a cleavage furrow; teacher image shows the narrow middle."
+        },
+        {
+          "field": "A non-example or common confusion",
+          "response": "A plant cell plate grows outward; it is not a cleavage furrow.",
+          "characters": 62,
+          "visible_evidence": "L05 teaching-01: a contractile ring draws the membrane inward, making a cleavage furrow; teacher image shows the narrow middle."
+        }
+      ],
+      "unsupported_steps": []
+    },
+    {
+      "reviewId": "F03",
+      "term": "cell plate",
+      "fields": [
+        "Meaning in your own words",
+        "Key features or what it does",
+        "A specific example",
+        "A non-example or common confusion"
+      ],
+      "limits": [
+        240,
+        240,
+        240,
+        240
+      ],
+      "first_responses": [
+        {
+          "field": "Meaning in your own words",
+          "response": "A partition developing between daughter nuclei in a plant cell.",
+          "characters": 63,
+          "visible_evidence": "L05 teaching-01: vesicles fuse between daughter nuclei; the plate grows outward; a rigid wall cannot pinch like an animal membrane. Actual plant pixels show two dark groups and a faint central partition."
+        },
+        {
+          "field": "Key features or what it does",
+          "response": "Fused vesicles supply membranes; wall material is deposited while the plate grows outward.",
+          "characters": 90,
+          "visible_evidence": "L05 teaching-01: vesicles fuse between daughter nuclei; the plate grows outward; a rigid wall cannot pinch like an animal membrane. Actual plant pixels show two dark groups and a faint central partition."
+        },
+        {
+          "field": "A specific example",
+          "response": "The central partition between dark chromosome groups in the plant micrograph.",
+          "characters": 77,
+          "visible_evidence": "L05 teaching-01: vesicles fuse between daughter nuclei; the plate grows outward; a rigid wall cannot pinch like an animal membrane. Actual plant pixels show two dark groups and a faint central partition."
+        },
+        {
+          "field": "A non-example or common confusion",
+          "response": "The metaphase equator is an alignment position, not the cell plate.",
+          "characters": 67,
+          "visible_evidence": "L05 teaching-01: vesicles fuse between daughter nuclei; the plate grows outward; a rigid wall cannot pinch like an animal membrane. Actual plant pixels show two dark groups and a faint central partition."
+        }
+      ],
+      "unsupported_steps": []
+    },
+    {
+      "reviewId": "F04",
+      "term": "cell-cycle checkpoint",
+      "fields": [
+        "Meaning in your own words",
+        "Key features or what it does",
+        "A specific example",
+        "A non-example or common confusion"
+      ],
+      "limits": [
+        240,
+        240,
+        240,
+        240
+      ],
+      "first_responses": [
+        {
+          "field": "Meaning in your own words",
+          "response": "A control that helps decide whether a cell progresses to a later stage.",
+          "characters": 71,
+          "visible_evidence": "L05 teaching-03: checkpoints can delay progression for unsuitable conditions, including DNA damage; failed control can pass damage to daughters; rapid normal root-tip growth is not sufficient evidence of cancer."
+        },
+        {
+          "field": "Key features or what it does",
+          "response": "Can pause progression if DNA is damaged; a pause does not guarantee repair.",
+          "characters": 75,
+          "visible_evidence": "L05 teaching-03: checkpoints can delay progression for unsuitable conditions, including DNA damage; failed control can pass damage to daughters; rapid normal root-tip growth is not sufficient evidence of cancer."
+        },
+        {
+          "field": "A specific example",
+          "response": "A cell delays division after DNA damage is detected.",
+          "characters": 52,
+          "visible_evidence": "L05 teaching-03: checkpoints can delay progression for unsuitable conditions, including DNA damage; failed control can pass damage to daughters; rapid normal root-tip growth is not sufficient evidence of cancer."
+        },
+        {
+          "field": "A non-example or common confusion",
+          "response": "Fast root-tip division can be normal; speed alone does not mean checkpoint failure or cancer.",
+          "characters": 93,
+          "visible_evidence": "L05 teaching-03: checkpoints can delay progression for unsuitable conditions, including DNA damage; failed control can pass damage to daughters; rapid normal root-tip growth is not sufficient evidence of cancer."
+        }
+      ],
+      "unsupported_steps": []
+    },
+    {
+      "reviewId": "F05",
+      "term": "meiosis I",
+      "fields": [
+        "Meaning in your own words",
+        "Key features or what it does",
+        "A specific example",
+        "A non-example or common confusion"
+      ],
+      "limits": [
+        240,
+        240,
+        240,
+        240
+      ],
+      "first_responses": [
+        {
+          "field": "Meaning in your own words",
+          "response": "The first meiotic division, separating homologues into haploid groups.",
+          "characters": 70,
+          "visible_evidence": "L06 teaching-01/02/03: homologues pair in prophase I, align as tetrads in metaphase I, and separate in anaphase I while sisters remain together, reducing two sets to one."
+        },
+        {
+          "field": "Key features or what it does",
+          "response": "One of each chromosome type goes to each daughter; sister chromatids remain joined.",
+          "characters": 83,
+          "visible_evidence": "L06 teaching-01/02/03: homologues pair in prophase I, align as tetrads in metaphase I, and separate in anaphase I while sisters remain together, reducing two sets to one."
+        },
+        {
+          "field": "A specific example",
+          "response": "In the 2n = 4 figure, each daughter has one long and one short replicated chromosome.",
+          "characters": 85,
+          "visible_evidence": "L06 teaching-01/02/03: homologues pair in prophase I, align as tetrads in metaphase I, and separate in anaphase I while sisters remain together, reducing two sets to one."
+        },
+        {
+          "field": "A non-example or common confusion",
+          "response": "Mitosis separates sister chromatids rather than pairing and separating homologues.",
+          "characters": 82,
+          "visible_evidence": "L06 teaching-01/02/03: homologues pair in prophase I, align as tetrads in metaphase I, and separate in anaphase I while sisters remain together, reducing two sets to one."
+        }
+      ],
+      "unsupported_steps": []
+    },
+    {
+      "reviewId": "F06",
+      "term": "synapsis",
+      "fields": [
+        "Meaning in your own words",
+        "Key features or what it does",
+        "A specific example",
+        "A non-example or common confusion"
+      ],
+      "limits": [
+        240,
+        240,
+        240,
+        240
+      ],
+      "first_responses": [
+        {
+          "field": "Meaning in your own words",
+          "response": "Close pairing of corresponding homologous chromosomes in prophase I.",
+          "characters": 68,
+          "visible_evidence": "L06 teaching-01: synapsis is close pairing of homologues in prophase I, not fusion of gametes."
+        },
+        {
+          "field": "Key features or what it does",
+          "response": "Pairs the maternal and paternal homologue; replicated homologues make a tetrad.",
+          "characters": 79,
+          "visible_evidence": "L06 teaching-01: synapsis is close pairing of homologues in prophase I, not fusion of gametes."
+        },
+        {
+          "field": "A specific example",
+          "response": "The long homologues pair in the figure’s prophase-I cell.",
+          "characters": 57,
+          "visible_evidence": "L06 teaching-01: synapsis is close pairing of homologues in prophase I, not fusion of gametes."
+        },
+        {
+          "field": "A non-example or common confusion",
+          "response": "Fusion of sperm and egg is fertilization, not synapsis.",
+          "characters": 55,
+          "visible_evidence": "L06 teaching-01: synapsis is close pairing of homologues in prophase I, not fusion of gametes."
+        }
+      ],
+      "unsupported_steps": []
+    },
+    {
+      "reviewId": "F07",
+      "term": "tetrad",
+      "fields": [
+        "Meaning in your own words",
+        "Key features or what it does",
+        "A specific example",
+        "A non-example or common confusion"
+      ],
+      "limits": [
+        240,
+        240,
+        240,
+        240
+      ],
+      "first_responses": [
+        {
+          "field": "Meaning in your own words",
+          "response": "A paired unit of two replicated homologues containing four chromatids.",
+          "characters": 70,
+          "visible_evidence": "L06 teaching-01 and worked: two replicated homologues form a tetrad with two chromosomes and four chromatids."
+        },
+        {
+          "field": "Key features or what it does",
+          "response": "Two chromosomes, four chromatids; it is not four sets.",
+          "characters": 54,
+          "visible_evidence": "L06 teaching-01 and worked: two replicated homologues form a tetrad with two chromosomes and four chromatids."
+        },
+        {
+          "field": "A specific example",
+          "response": "A paired long green and long red homologue in the meiosis-I model.",
+          "characters": 66,
+          "visible_evidence": "L06 teaching-01 and worked: two replicated homologues form a tetrad with two chromosomes and four chromatids."
+        },
+        {
+          "field": "A non-example or common confusion",
+          "response": "One X-shaped replicated chromosome has only two chromatids and is not a tetrad.",
+          "characters": 79,
+          "visible_evidence": "L06 teaching-01 and worked: two replicated homologues form a tetrad with two chromosomes and four chromatids."
+        }
+      ],
+      "unsupported_steps": []
+    },
+    {
+      "reviewId": "F08",
+      "term": "reduction division",
+      "fields": [
+        "Meaning in your own words",
+        "Key features or what it does",
+        "A specific example",
+        "A non-example or common confusion"
+      ],
+      "limits": [
+        240,
+        240,
+        240,
+        240
+      ],
+      "first_responses": [
+        {
+          "field": "Meaning in your own words",
+          "response": "A division reducing two homologous chromosome sets to one.",
+          "characters": 58,
+          "visible_evidence": "L06 teaching-03: one homologue of every type is one haploid set after meiosis I, despite chromosomes remaining replicated."
+        },
+        {
+          "field": "Key features or what it does",
+          "response": "Homologues separate; retaining replicated chromosomes does not prevent haploidy.",
+          "characters": 80,
+          "visible_evidence": "L06 teaching-03: one homologue of every type is one haploid set after meiosis I, despite chromosomes remaining replicated."
+        },
+        {
+          "field": "A specific example",
+          "response": "After meiosis I in a 2n = 4 species, each daughter is n = 2 with four chromatids.",
+          "characters": 81,
+          "visible_evidence": "L06 teaching-03: one homologue of every type is one haploid set after meiosis I, despite chromosomes remaining replicated."
+        },
+        {
+          "field": "A non-example or common confusion",
+          "response": "Meiosis II separates sisters without a second reduction in chromosome sets.",
+          "characters": 75,
+          "visible_evidence": "L06 teaching-03: one homologue of every type is one haploid set after meiosis I, despite chromosomes remaining replicated."
+        }
+      ],
+      "unsupported_steps": []
+    }
+  ],
+  "figure_observations": [
+    {
+      "image": "biology_prep/ch16-batch05-06/learner/assets/figures/ch16-teacher-animal-cytokinesis-slide29.png",
+      "observation": "Top animal cell narrows centrally; arrows point to two separate daughter-cell drawings. The lower edge of both daughter drawings is cropped flat; the complete outer outlines are not visible. Ring mechanism and genetic equality require text/model interpretation, not a photo of molecular events."
+    },
+    {
+      "image": "biology_prep/ch16-batch05-06/learner/assets/figures/ch16-source-cell-plate.png",
+      "observation": "Two dark chromosome groups lie left and right of a faint vertical central partition; the rigid outer wall does not constrict centrally. Vesicles and outward growth are taught mechanisms, not directly resolved in this still micrograph."
+    },
+    {
+      "image": "biology_prep/ch16-batch05-06/learner/assets/figures/ch16-source-meiosis.png",
+      "observation": "Pale upper/right semicircle is meiosis I. Metaphase I has blue short above yellow short at left and green long above red long at right; poles are top and bottom. Anaphase I moves blue+green up and yellow+red down with exchanged tips and joined sister pairs. Figure is consistent with 2n=4; colors do not establish a whole-genome parental color key."
+    }
+  ],
+  "incidental_figure_caption_response": "Figure 16.11 asks which phases are most like mitosis: meiosis II, because sister chromatids separate. It begins in haploid cells with no intervening S phase; earlier crossing over means sisters need not be identical. This is extra to the 14 local tasks.",
+  "first_pass_concerns": [
+    "N045 has overlapping meiosis I/reduction division options.",
+    "N055 naturally elicits anaphase I; a broader vocabulary-only key could reject a more precise taught answer.",
+    "N058 does not distinguish reduction division from meiosis I.",
+    "The teacher animal illustration crops the lower cell outlines; lesson wording about separate boundaries should not be construed as a complete-outline observation."
+  ],
+  "unsupported_steps_policy": "No task was left unanswered. Every substantive answer is tied to the allowed lesson text/pixels; alternative valid readings are preserved before exposure to keys."
+}

@@ -1,0 +1,2434 @@
+{
+  "chapter": 16,
+  "date": "2026-10-08",
+  "gitRevision": "2ba36091bda522935703efbe28b1e2a90420b72c",
+  "canonicalSHA256": "6def7f770f78263613c52cc59d64ef40c82857cad39227ff2008afc8ba09872b",
+  "authoringBaselineSHA256": "d226930bc4894746c582c65725101b03aead01745a46a1a127a05a2bfee9a806",
+  "targets": [
+    "lesson-05",
+    "lesson-06",
+    "lesson-07",
+    "lesson-08",
+    "lesson-09",
+    "lesson-10",
+    "lesson-11",
+    "lesson-12",
+    "lesson-13"
+  ],
+  "extensionBlocks": 2,
+  "boundaries": 36,
+  "files": [
+    {
+      "path": "current/workspace/assets/assessment/8a730ed608e092886404.png",
+      "bytes": 6206,
+      "sha256": "8a730ed608e092886404112015de10b33ec601c570f3b08027a8b9a88d9f5cf4"
+    },
+    {
+      "path": "current/workspace/assets/figures/ch16-alternation.svg",
+      "bytes": 6583,
+      "sha256": "5cd9454fe14fc0cc9b9a0c2171e87b04cce854b00106c2ab351ea2b2d6f4a61a"
+    },
+    {
+      "path": "current/workspace/assets/figures/ch16-chromosome.svg",
+      "bytes": 4243,
+      "sha256": "867213b2eeb81be008c544b9858fefd6c24e1ed5350f556fb54a79d5b018574d"
+    },
+    {
+      "path": "current/workspace/assets/figures/ch16-crossing-over.svg",
+      "bytes": 6075,
+      "sha256": "eea64d46237e7228ead6cb2baefd2a002f392603b791b9dde86bb16376b9f683"
+    },
+    {
+      "path": "current/workspace/assets/figures/ch16-meiosis.svg",
+      "bytes": 7076,
+      "sha256": "295cc3cf6445263120cdb4a458ef0fddf866ede9de8d9f28666044f4cd20efb7"
+    },
+    {
+      "path": "current/workspace/assets/figures/ch16-mitosis.svg",
+      "bytes": 8450,
+      "sha256": "3f47b45fad7759b5a21eab5024593cc28d315a0e964a3d80a99b86c64d7a91d2"
+    },
+    {
+      "path": "current/workspace/assets/figures/ch16-nondisjunction.svg",
+      "bytes": 4791,
+      "sha256": "a210d2a0ea07d740b928877c3ff8e4aa6e5ccfec1719e98cb0d5363b3172aa87"
+    },
+    {
+      "path": "current/workspace/assets/figures/ch16-source-cell-cycle-fig16-5.png",
+      "bytes": 93243,
+      "sha256": "6fd0a6d9595bf8bc9fa7b994cdddb1ffa6fe8e3e400a93d6d0ab930c6cffea68"
+    },
+    {
+      "path": "current/workspace/assets/figures/ch16-source-cell-plate.png",
+      "bytes": 161363,
+      "sha256": "58b803628ee76b129070980e12d505e6b77799f7f80aa9e8243f09fed86a67a8"
+    },
+    {
+      "path": "current/workspace/assets/figures/ch16-source-karyotype.png",
+      "bytes": 97801,
+      "sha256": "e532de9abad60283e8221367dfc04795232f8eb4e4f5d1e03571cb29d0ecc5e0"
+    },
+    {
+      "path": "current/workspace/assets/figures/ch16-source-meiosis.png",
+      "bytes": 514317,
+      "sha256": "e8ee0d42a360ca10ca3859a2baf480c0b8a1b049664b1ea2d626232f7a8a367e"
+    },
+    {
+      "path": "current/workspace/assets/figures/ch16-source-mitosis.png",
+      "bytes": 518534,
+      "sha256": "a8d1d4022aa2064dcf3446cfa3cd789658209668b3030633cd00895ad8acc57c"
+    },
+    {
+      "path": "current/workspace/assets/figures/ch16-teacher-replication-slide16.png",
+      "bytes": 118542,
+      "sha256": "fbad3bfca0fa245beaec5b792baf3a3e41816de8dfa186abe4fd6be70cf2a46e"
+    },
+    {
+      "path": "current/workspace/assets/labeling/ch16-alternation-label.png",
+      "bytes": 1695119,
+      "sha256": "46116a5e5b8cd625214e474d5c1315ae3dd84b9cd970e9dee39c412481b5dc14"
+    },
+    {
+      "path": "current/workspace/assets/labeling/ch16-alternation.svg",
+      "bytes": 6094,
+      "sha256": "1e413590c1f19657365d4ebbda39d22c4d05e271fd896d994897eee04c308cf8"
+    },
+    {
+      "path": "current/workspace/assets/labeling/ch16-chromosome-label.png",
+      "bytes": 959239,
+      "sha256": "5e8ee9bb6148a99a59f97660b4f81221dcd0e00127c8f5e2f294358e2d6eae01"
+    },
+    {
+      "path": "current/workspace/assets/labeling/ch16-chromosome.svg",
+      "bytes": 3938,
+      "sha256": "34ce72592f270ee4d5872ba8bcda3d9519726373fd026fb342a4437589b28fee"
+    },
+    {
+      "path": "current/workspace/assets/labeling/ch16-crossing-over-label.png",
+      "bytes": 32035,
+      "sha256": "902f6b0c82f8d4f193b8d874cd7dd84dbbdc73357806250b37195e67780d6bf2"
+    },
+    {
+      "path": "current/workspace/assets/labeling/ch16-crossing-over.svg",
+      "bytes": 5768,
+      "sha256": "a759530f8139cba7c6abf081da93c08ea671cec28e4fc1ae240bd2302a826eea"
+    },
+    {
+      "path": "current/workspace/assets/labeling/ch16-meiosis-label.png",
+      "bytes": 39310,
+      "sha256": "24af3713d362dfa48293d54d7aa510c8545503cc20953653fbc4f8a11901623f"
+    },
+    {
+      "path": "current/workspace/assets/labeling/ch16-meiosis.svg",
+      "bytes": 6859,
+      "sha256": "979ec0fcdffda36f13cffe0749c5dc914445bc78faa7ed0c99a4562a9902c5de"
+    },
+    {
+      "path": "current/workspace/assets/labeling/ch16-mitosis.svg",
+      "bytes": 8187,
+      "sha256": "da11d74e9bde2524e49a9ddeafe15784870c59885af3e83e8e37df465c9922e2"
+    },
+    {
+      "path": "current/workspace/assets/labeling/ch16-nondisjunction.svg",
+      "bytes": 4702,
+      "sha256": "3ddd946371480f6b7e9b384ddd80cdaeeca5de622c3fe8b73d6d1f6bb3c014cf"
+    },
+    {
+      "path": "current/workspace/assets/revision-activities.js",
+      "bytes": 6138,
+      "sha256": "957583a09be13e3b0bb888928d49ed87605b154f14eeaacbea3ea569e27b60c8"
+    },
+    {
+      "path": "current/workspace/assets/revision-practice.js",
+      "bytes": 5721,
+      "sha256": "005510731183f233e044d9f55db2e4537be73aec1bdc790263bb7861b5e589ea"
+    },
+    {
+      "path": "current/workspace/assets/textbook/chapter-16.pdf",
+      "bytes": 4140841,
+      "sha256": "6f109455a9a5aa8d9ee03bc6b224baf68b973675f0b62b1eec0aa294de48d526"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p551-in-text-q1-0.png",
+      "bytes": 6838,
+      "sha256": "2f7c415af37ac34942cf004890f62990e5551010baf0f02fc9f418aa79706adb"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p551-in-text-q2-0.png",
+      "bytes": 5013,
+      "sha256": "dcf9380289e8810d49cc72815cfeb813981ccce97cc83625a5c4b83e66d369e0"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p551-in-text-q3-0.png",
+      "bytes": 9883,
+      "sha256": "2b13a50329b05a811f239c0fa4aaf44f6d6d8e75f956d6909748c93e51411b92"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p551-in-text-q4-0.png",
+      "bytes": 5257,
+      "sha256": "f53dc598f7e018f8d7b1200f1a9bbec0c1ce5602abba6d8cd335e03356780b35"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p552-in-text-q10-0.png",
+      "bytes": 8390,
+      "sha256": "76a9746fa9b65b505587b0b46a7c182c974e5a3de33ee71f67d80e2b3269fc25"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p552-in-text-q5-0.png",
+      "bytes": 10006,
+      "sha256": "058205f8908d2df10222cd691d7036615eb852bdefb8aafc8c265f22b14e6cc7"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p552-in-text-q6-0.png",
+      "bytes": 6751,
+      "sha256": "c7b178822be5705af83c8704a45f4d198023746b939cd9eff47de6399d3bebe1"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p552-in-text-q7-0.png",
+      "bytes": 7067,
+      "sha256": "5e73cf0f090cbd8795d5c87d379c8763a799d33c50f5ca2678a281df4ecb7f6a"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p552-in-text-q8-0.png",
+      "bytes": 5533,
+      "sha256": "31d6ab0d307e56e781663a45a372d12450e8474615a7842e7620decbb76fb78b"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p552-in-text-q9-0.png",
+      "bytes": 7448,
+      "sha256": "741af5a68a7bdb7f68e06bc1e9ef4518a3eed79d7972fbe89fe68b9166391d48"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p553-in-text-q11-0.png",
+      "bytes": 4385,
+      "sha256": "5fa694e6d7fc252a03463d161bdf194bc8df5cf71b335bc3e7c0403402f50f2d"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p553-in-text-q12-0.png",
+      "bytes": 8630,
+      "sha256": "bdd955e58c6ac0a767d164b4c53cd7a4e0316273aede6fd9a51dc4c2e9decbae"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p555-in-text-q13-0.png",
+      "bytes": 5524,
+      "sha256": "e2849c02e0fd8f9f91e6bf2ad3a843af6ebe32815c9d3f75e83f21cff87850a8"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p555-in-text-q14-0.png",
+      "bytes": 4676,
+      "sha256": "ef68a0688de8ae7893edcf038665c5418f3848625b37f400a2152175b8673749"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p555-section-16-1-q1-0.png",
+      "bytes": 8393,
+      "sha256": "1f3bfbe94ec031793a4d5c18417470cb1a995894c7c365c9776b09873036c6ed"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p555-section-16-1-q2-0.png",
+      "bytes": 7834,
+      "sha256": "15cdfe607c443f0b72046806a95a0775af7308354241e4f3ec87aad3f3aedace"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p555-section-16-1-q3-0.png",
+      "bytes": 6389,
+      "sha256": "bfbbbcbe5fab61aa7e0e396ca83d7294060d7f1c110c023c4a9aed340c230649"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p555-section-16-1-q4-0.png",
+      "bytes": 10875,
+      "sha256": "ea700ea2775846e5ec7c1f2e694132cef37adcd85eb260e88c68280e1c4e68da"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p555-section-16-1-q5-0.png",
+      "bytes": 7552,
+      "sha256": "e6b5e258a37b669c16bfba57e7b28a0ecf9e844df78bcf3ffb04cbe642f84943"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p555-section-16-1-q6-0.png",
+      "bytes": 6881,
+      "sha256": "ffcc9c0019aa3dfa4fa48d0e286a28c8e512c230ac2c1d607ccd6df0c3fe6f0e"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p555-section-16-1-q7-0.png",
+      "bytes": 19740,
+      "sha256": "b391ab17afec5406b014a1f9cb31f6a3053ad5c3d652ff1b2cc8fec9aff87db7"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p556-in-text-q15-0.png",
+      "bytes": 7058,
+      "sha256": "d873fe2d74f8a60020f5e9e5da1b9bbe1cf9358362910deb9a5c2abcdf483d05"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p556-in-text-q16-0.png",
+      "bytes": 7488,
+      "sha256": "bf7971a50b88e29140f25a7f4e56694f6229edfd01e9395948cb758ebf542c55"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p558-in-text-q17-0.png",
+      "bytes": 5269,
+      "sha256": "6ac7e5447796ce2de7e06bfede6709706ee0431f340779fdf99fbca9a41e0e82"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p558-in-text-q18-0.png",
+      "bytes": 6827,
+      "sha256": "f5194e77b1236b658e6eff4bfbce3c7241c105abdbdfa9a78a70b9b537d4380b"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p559-in-text-q19-0.png",
+      "bytes": 7441,
+      "sha256": "1304cc85e71e1973a6fc896760593292ae09dbf9291527dcc48612e28aa13b14"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p561-section-16-2-q1-0.png",
+      "bytes": 4900,
+      "sha256": "bacae7b09dfe9c1ec186fc4ae8cbede64412a3839fed868ed9586c7568aa6631"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p561-section-16-2-q2-0.png",
+      "bytes": 24480,
+      "sha256": "4361494f9599f8126ff8c81c3345335b2f01002b5c8531fe2e929b1799c628f6"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p561-section-16-2-q3-0.png",
+      "bytes": 8666,
+      "sha256": "bd512fc926589564f4bd8e9f597bd0c690d1ab28a67a0c9498abcdf180eb2e6a"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p561-section-16-2-q4-0.png",
+      "bytes": 6032,
+      "sha256": "3905adcd3fe24bf4e3ea40163e0bd144e3088f03512a646527c06ba68bb7ed42"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p561-section-16-2-q5-0.png",
+      "bytes": 7026,
+      "sha256": "f2940fd60d60cdcad13ef10012122b15ee43d2448c4a958d5a997ccc883c4b0f"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p561-section-16-2-q6-0.png",
+      "bytes": 14549,
+      "sha256": "d5a6e5f24f952d506edbf2d57007537b67f615648f560b5f4ac5c35bcfe5a32e"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p561-section-16-2-q7-0.png",
+      "bytes": 25064,
+      "sha256": "166830227846a05005a4a52419877cd3d3107ffbc0ad09ba44bd60019cd831e4"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p563-in-text-q20-0.png",
+      "bytes": 5514,
+      "sha256": "1d37be6202df3dd9b9ccac8bd88b21312487a6c36ec9a42777ffaa663f1b7e06"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p563-in-text-q21-0.png",
+      "bytes": 7008,
+      "sha256": "de943a4a874b999759f840f493ca37b50068bd5aca1c3c0a6cb7a0552d4724af"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p563-in-text-q22-0.png",
+      "bytes": 5037,
+      "sha256": "dd57e6579ebca042b1fad8b6d111ff4ab680adf2ca3d774357c3db4f78534ce5"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p566-in-text-q23-0.png",
+      "bytes": 5770,
+      "sha256": "ae276c1b677772f453267ec7b1be248ac1b0e69b14c4df3aa9cae53c4c545e83"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p566-in-text-q24-0.png",
+      "bytes": 7102,
+      "sha256": "499452ed762b37ba8179e010fd22e9aaa62704f0abd68fed439039279dfdbf6f"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p566-in-text-q25-0.png",
+      "bytes": 7077,
+      "sha256": "3c7427ec9094bb32637f545e3ac8fbe9f806fa2b687a538adbcb89763a3a0dc4"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p568-in-text-q26-0.png",
+      "bytes": 9147,
+      "sha256": "8f9154436f85f3897036ebd7b2c56cf06927ed27cd36fc84dae0a04bb6200bff"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p570-in-text-q27-0.png",
+      "bytes": 8730,
+      "sha256": "470ce91eb7386e90bffdc9b358bc72ff5d2138a8c6e540dfeeba9a92689b97b4"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p570-in-text-q28-0.png",
+      "bytes": 9255,
+      "sha256": "b1612d4a33230cf3800c1ddde61f1e969b9ad321f14227ef85fe5fa764fb5793"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p570-in-text-q29-0.png",
+      "bytes": 13705,
+      "sha256": "1d226055735e760c8918635192d3751e0f4f2789c62b9d938a66be3c1103b122"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p571-in-text-q30-0.png",
+      "bytes": 10118,
+      "sha256": "7bd6c16ca23643b69975ac928242423d62c7e150e88910e89a6e367b1f68db20"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p572-section-16-3-q1-0.png",
+      "bytes": 4699,
+      "sha256": "798e421c6cab9d833a1462a91c4281effccf1e9278d55be7f509ae6954f8d8b6"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p572-section-16-3-q10-0.png",
+      "bytes": 14545,
+      "sha256": "47d54a4b67cfc066b761fad7367b4082e85e24b3b259c025fb7e88e7520fb3e0"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p572-section-16-3-q2-0.png",
+      "bytes": 3657,
+      "sha256": "c86a1f264096a1436d960f74e47af6ba35cea12f75d9f1670ae6626aae83401c"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p572-section-16-3-q3-0.png",
+      "bytes": 8813,
+      "sha256": "e1eea429e28a9d3009a5f5be1690e58f6c5efd29e84fad044e5f286ce4262f4c"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p572-section-16-3-q4-0.png",
+      "bytes": 15729,
+      "sha256": "383cfa751c872b21226bd43bd7f2a8e182051aa9b36206b5b4a23481b3292897"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p572-section-16-3-q5-0.png",
+      "bytes": 133243,
+      "sha256": "24ad106fb7c39d2cd7f12fc11384d7adf7dfce99791e5b485edf75d444dd6416"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p572-section-16-3-q6-0.png",
+      "bytes": 19148,
+      "sha256": "2e102d2b716b118a7eedad450994852f0c9cbb15916203af7fdf0e6fcc2830bb"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p572-section-16-3-q7-0.png",
+      "bytes": 33093,
+      "sha256": "32e6545251163c8aefad6b3fc91724cf91386feff25f99b16b02709482cec933"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p572-section-16-3-q8-0.png",
+      "bytes": 11218,
+      "sha256": "d71ac849f69bb6c4379ef5bb161e8043cbf7e981ef13ec30f55a88a3b5a5b797"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p572-section-16-3-q9-0.png",
+      "bytes": 12334,
+      "sha256": "3ffa57e266dcf759bd5bb92d56769faab9f9ae086b55a2baa2b08c6371a2301e"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p573-in-text-q31-0.png",
+      "bytes": 7464,
+      "sha256": "34b964b0f5cce7f1bdbc9d7ead315fd5458540302b8377cbe41ae0354808f646"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p574-in-text-q32-0.png",
+      "bytes": 8989,
+      "sha256": "d088a30ce7cdaa0d7a89502b3391be97b268f7fd122c790d349bbc67e2a01b69"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p574-in-text-q33-0.png",
+      "bytes": 7502,
+      "sha256": "f8b4705bd2c91ac2ab2dbb4d187117b625fea4508f676819184c7c6a2736950f"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p575-in-text-q34-0.png",
+      "bytes": 6662,
+      "sha256": "1d0a379d7660458dd631cf03f51deaecaf7ed61ba41a6af7e3d1638b49f7e101"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p575-in-text-q35-0.png",
+      "bytes": 7098,
+      "sha256": "0e9c2635345b18ecda0c2bb6ca4cc6b6ca08f7cb3bd6b308a583343253b7831e"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p575-in-text-q36-0.png",
+      "bytes": 3888,
+      "sha256": "e9454701098bfc80eb017fa4c3741c74f156d4fd54cdabe0bb49ce7e7938a641"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p577-in-text-q37-0.png",
+      "bytes": 10612,
+      "sha256": "7857e56f7f0de5e932c37313d9b16c579e639aeb115436a7ac95a9dac7c0f5b0"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p580-section-16-4-q1-0.png",
+      "bytes": 6392,
+      "sha256": "479030354b972fceee9b1a0bc0ac2dbf6e79e965c553e3770f1793db7bad8906"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p580-section-16-4-q2-0.png",
+      "bytes": 88058,
+      "sha256": "1cb45660eda0313c8e69efff038e7a972a2da6b0e31b9bed6672abb0fc0c9311"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p580-section-16-4-q3-0.png",
+      "bytes": 9653,
+      "sha256": "c1b3cfaa704735c9b6bff48efc16bfc5ebc92e595e7b6a367d80a8dacf57d16b"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p580-section-16-4-q4-0.png",
+      "bytes": 20124,
+      "sha256": "5172d933ec887eb5fe0a576c00bd178ced9145f5c4879614920ebd5d3506be2f"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p580-section-16-4-q5-0.png",
+      "bytes": 19983,
+      "sha256": "de9847d2aef8950197ea2f8666f8f396310e8d512cb789aa9fa9fd9fbfab3550"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p580-section-16-4-q6-0.png",
+      "bytes": 8572,
+      "sha256": "baee810fbe675fbe2c7940690401f2253bf06e104fdf97ab377f8aed82e3a886"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p580-section-16-4-q7-0.png",
+      "bytes": 8123,
+      "sha256": "36c4682e5ac72c1f5059d735f0b6ac6752484463b16bdbee0dcac74a6fb7c551"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p580-section-16-4-q8-0.png",
+      "bytes": 9651,
+      "sha256": "722cdc0f4589b4d3636bbc5b476ae8796c9db875211d681f25e097ea93d7e877"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p580-section-16-4-q9-0.png",
+      "bytes": 29794,
+      "sha256": "2a6b191c84c8cbcf751c930af0527d13b0bd2792ddad130c318ea56620925167"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p582-chapter-review-q1-0.png",
+      "bytes": 11413,
+      "sha256": "b68de9a9fe026c318e7bcce4de826d369de62926d15554308602f616bfab473c"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p582-chapter-review-q10-0.png",
+      "bytes": 34560,
+      "sha256": "e84bd4aa016cc45003b0907b6f1369869d7fb5147b256d9dde42c0a40496695b"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p582-chapter-review-q11-0.png",
+      "bytes": 8978,
+      "sha256": "b0fce3d203ab6fc8e9810e4534002fbee0135725af2ac363a82cd4f26d930ea9"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p582-chapter-review-q12-0.png",
+      "bytes": 9459,
+      "sha256": "502b62239baad5ac32bed8e20b4203fc7221acdf12d4909f0bda6a15648867c8"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p582-chapter-review-q13-0.png",
+      "bytes": 11132,
+      "sha256": "f9f2f16be396c8dd294fc0eea88a4e9dfc70d5df9e11d48d5364d3be42d2a968"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p582-chapter-review-q14-0.png",
+      "bytes": 53074,
+      "sha256": "35e12f0e21e01a4e797066d25c6a31939f2f1116c268b4131a67c2510549ff76"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p582-chapter-review-q2-0.png",
+      "bytes": 7159,
+      "sha256": "3ed0c2235d128689d46716ad1f6eaa1ed2cb71114b2c08faf8b4e00361b75c47"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p582-chapter-review-q3-0.png",
+      "bytes": 6961,
+      "sha256": "aeaa484b11068e499af526898fc1b1b99c4021559e9639ab66d479912bc22d6d"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p582-chapter-review-q4-0.png",
+      "bytes": 58152,
+      "sha256": "be872293dbb74b7a8a7caa216ccfdcfb65c4590670b6a03cb7b2ba8c9ee52b10"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p582-chapter-review-q5-0.png",
+      "bytes": 10691,
+      "sha256": "c0def712839a7d045fd1bf35a9b045ee9959452d4d715eca8ba0fb32ad091d3e"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p582-chapter-review-q6-0.png",
+      "bytes": 16146,
+      "sha256": "9bf0950d4fdffd670a11ee4cf1062b16abe3fd7bb8ed909a2bc01a16dda1a50b"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p582-chapter-review-q7-0.png",
+      "bytes": 12933,
+      "sha256": "2ae3d0841f40c2c16cbb25a714e75d42b151b2233ffe7e28030f7f2f31282442"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p582-chapter-review-q8-0.png",
+      "bytes": 7681,
+      "sha256": "7ad93fd8bceed03e0c4d3dcea747a2222424222f0a2b255dfe5b01322d2dc4a0"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p582-chapter-review-q9-0.png",
+      "bytes": 77570,
+      "sha256": "d8b38133da1d6c48c113ddb500e048e89732e01242406259d4713fa1cd0a0a7f"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p583-chapter-review-q15-0.png",
+      "bytes": 129851,
+      "sha256": "d1c68c9b12ed5620c8914f70c79206214d2b996a7058170b03402a3dfa86d2c3"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p583-chapter-review-q16-0.png",
+      "bytes": 15672,
+      "sha256": "f6bd9d3d416194483b21bc753d976980469dc20e7083cd02534b06bcf0b51d0d"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p583-chapter-review-q17-0.png",
+      "bytes": 29357,
+      "sha256": "6d4ef8c900e8bd79b88b13d8e9f95359e0c6958b6dc8ec7cfa882518d27c83f5"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p583-chapter-review-q18-0.png",
+      "bytes": 12357,
+      "sha256": "1bcf12b911c83761d1250b018b75acea96ed6dc6e680197bcf5a432c9c7b5315"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p583-chapter-review-q19-0.png",
+      "bytes": 11782,
+      "sha256": "6c5e0a190db7954113494b6d8aa51977f03602ca1c90d438fc16140e09ed7be6"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p583-chapter-review-q20-0.png",
+      "bytes": 21123,
+      "sha256": "2014f18d6fd3f271a564d174161c69145261649ea303b7b20c2647fd80b5a876"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p583-chapter-review-q21-0.png",
+      "bytes": 15943,
+      "sha256": "760c8fc083957d966bae3003eb626cef044ce9a361cae7d490d5373c51220b22"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p583-chapter-review-q22-0.png",
+      "bytes": 9335,
+      "sha256": "f78eb72d9e65627d6217937a2fd75fbd9848edf47485baa25270ae2e59a3be95"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p583-chapter-review-q23-0.png",
+      "bytes": 83441,
+      "sha256": "b07627b6276f15787d1dbb4525447a386abac42b7c68fd71e8f3085cc135a3eb"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p583-chapter-review-q24-0.png",
+      "bytes": 28602,
+      "sha256": "eac7c7a25e2b9402bf8197f418747fa0aa613f7da22fd1f60b010e1143415508"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p583-chapter-review-q25-0.png",
+      "bytes": 29578,
+      "sha256": "0adb6c0a1e0b25bc5b67398cced9b1a3b9428ba3b03cee1ca435356edbc6e5c8"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p583-chapter-review-q26-0.png",
+      "bytes": 22322,
+      "sha256": "2fa191aaf3e56f60c889f13819f3948f06c7d2a3d92f6a8a102e1105d21a2df2"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p583-chapter-review-q27-0.png",
+      "bytes": 20090,
+      "sha256": "ce76de6aa22c2e8bf2eca89bce4223b65c19256ebf97e9a1ee7cad597f822def"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/ch16-p583-chapter-review-q28-0.png",
+      "bytes": 17755,
+      "sha256": "3e324a50434edf8455971f3c7291c97fed039881d10a9bccf0bea9a14ecea531"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/p550.jpg",
+      "bytes": 314258,
+      "sha256": "53ea28a6e3e549906b9a43e1cea19cb2fd772b487792f3fedab8e1d0d8ef331a"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/p551.jpg",
+      "bytes": 290282,
+      "sha256": "a30c6fa2ea0c669ada5c03c31e879621f626d18fc08d9ebd2692f22020e23ae8"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/p552.jpg",
+      "bytes": 295971,
+      "sha256": "6f3ab86566c5a5782ad6138c45d561c086949b3dadaff781d8041ebc39fb0d2b"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/p553.jpg",
+      "bytes": 271928,
+      "sha256": "158ce7886707e9b88b4539bc95d3c5ad0d9c327a0ea7d4549d4ea15ae37844ec"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/p554.jpg",
+      "bytes": 273308,
+      "sha256": "740935d82c2794c1622c16b041a8b3855c16ca164aab4ab0039f53d7f0383385"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/p555.jpg",
+      "bytes": 222463,
+      "sha256": "1d5e727a51784c89a1ecfc63130acc84026a7a28464374db05cdfa6b53464055"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/p556.jpg",
+      "bytes": 277796,
+      "sha256": "37d24646cfaa72cbd246dde28fdb3028325c61821cd6c945087db770867c6dc4"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/p557.jpg",
+      "bytes": 214457,
+      "sha256": "7b5e1952faf9add2817dcf96b29a0d88307f20e2c7bfe6cdd2baeab967792fe1"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/p558.jpg",
+      "bytes": 296330,
+      "sha256": "b7079ff170d3adb367b2c3b2322ca34d47e7531080193cc4f7219c0acdacfeb3"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/p559.jpg",
+      "bytes": 250934,
+      "sha256": "2bf2ede9ae0a7a98c8adcd1960f9f3e9516e7ba32b02e83b152857c3d12d83a2"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/p561.jpg",
+      "bytes": 246058,
+      "sha256": "df4e19230a08f1e347f4f877dc9cb6ddfa14780e2819e962faf1f5f584c84eee"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/p562.jpg",
+      "bytes": 332602,
+      "sha256": "af1e5bd940e77c2b2cf7509f82625e1eca54bc6117faf5c94d2b80fea19090b8"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/p563.jpg",
+      "bytes": 292926,
+      "sha256": "87abe703648464af1baaf643ade519347cee8280960c26360ac19a139ea1a68c"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/p565.jpg",
+      "bytes": 294241,
+      "sha256": "d63dbcb82032bb9a22f716f8d41ed88fe3a52c505e35faf103684e2e21415789"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/p566.jpg",
+      "bytes": 243709,
+      "sha256": "551b21791b90afbb82e2b73ad760b791bf75010a96a1947709747a2709a5d0d4"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/p567.jpg",
+      "bytes": 274984,
+      "sha256": "d4761cc153bfda88653d68d8024b425d25427d45ad79935dfc7cc9048b148a90"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/p568.jpg",
+      "bytes": 258239,
+      "sha256": "d8b9b654b2ea93f87b08dbfa5c8565a1680f29a877033571eb6561a0b1328072"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/p569.jpg",
+      "bytes": 260586,
+      "sha256": "97a9352ec2f173d74bc987bdadf1f2dad1772e6b87c3837e9e55d6065321006b"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/p570.jpg",
+      "bytes": 284474,
+      "sha256": "78dee5b6b731472522af19673f48394fc63ccbfe80aede68a8da4ba1fa68daaf"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/p571.jpg",
+      "bytes": 243435,
+      "sha256": "6048164d3ed3e31dd25f4a68eef85fd7d757b76b7c18e35644e40a2692f5e00a"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/p572.jpg",
+      "bytes": 209576,
+      "sha256": "9cd772f3e3321b22709b86019172c1b2fb82c073a71786c08615a677925082c2"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/p573.jpg",
+      "bytes": 275757,
+      "sha256": "cc46cc0d7450df72b1e01b22f90c4908ff3aec8afc761f64317f10eefdb1247d"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/p574.jpg",
+      "bytes": 254378,
+      "sha256": "3d6672e10d706048f1821c9e3e97e21cdf83c549f98e68fce8abaeb44028acf0"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/p575.jpg",
+      "bytes": 261775,
+      "sha256": "fbe16697a8cd781b22fd1ed525aaa21248d9194e60f00a72ea6aba2c1909a474"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/p576.jpg",
+      "bytes": 277823,
+      "sha256": "0526b40ad02dabda344802a4e4d4acc84cc0e866fd91bdbe5fadff208b00f864"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/p577.jpg",
+      "bytes": 198153,
+      "sha256": "179085331ed02bdfb07a351ffe4d0540e848bb0915fc84893e0f4bfc777b7d27"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/p578.jpg",
+      "bytes": 203015,
+      "sha256": "f7f35d25ad178fb9b5e429135e39ea34d6fc1742d5fa8ce96552e5ca602ab100"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/p579.jpg",
+      "bytes": 252197,
+      "sha256": "a80bd1dfdc01a89c6a33d54508f3e109d7a743481273ae4773b4f1c454766062"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/p580.jpg",
+      "bytes": 252031,
+      "sha256": "7e393d87448e3e36eec49ce5624600faab164b9e8d33a88824b946ca8d286b6b"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/p582.jpg",
+      "bytes": 216360,
+      "sha256": "13972318390b7b861d06d58be90aa47b580b0e3f3ff9e09090c91ce0763812e2"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice/p583.jpg",
+      "bytes": 284993,
+      "sha256": "84e1337f3860cfd49db1460df7681dc2ad66584928c105bdc4cb6aed8504ecad"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice.css",
+      "bytes": 14156,
+      "sha256": "4101415cce977a4a8553754a01cea3d33ad194add1198db00ddc0ba99bfeea12"
+    },
+    {
+      "path": "current/workspace/assets/textbook-practice.js",
+      "bytes": 14248,
+      "sha256": "cd3b7b0a0bd5982fa7a08b7480675de63b6a315017b7db868fb1835f7129fb76"
+    },
+    {
+      "path": "current/workspace/index.html",
+      "bytes": 6247376,
+      "sha256": "d226930bc4894746c582c65725101b03aead01745a46a1a127a05a2bfee9a806"
+    },
+    {
+      "path": "current/workspace/main.js",
+      "bytes": 54365,
+      "sha256": "45b4b9c7da23646274f59415fa286873fdbdad3a2b8b16b53ccd147c0781f65f"
+    },
+    {
+      "path": "current/workspace/portable/Biology30_Chapter16.html",
+      "bytes": 25662585,
+      "sha256": "578370652dd61df2104eb1e9a3e5b8f2a33fac2a5a5fe362a7b27ab6b8a8fa37"
+    },
+    {
+      "path": "current/workspace/scorm-tracking.json",
+      "bytes": 1054,
+      "sha256": "9fc34d497f5cc5f540509d60b03197dd64287ad3592dfea3a0fade8c9f7d5871"
+    },
+    {
+      "path": "current/workspace/styles.css",
+      "bytes": 838743,
+      "sha256": "94fe523654289edd8b0f951dd6782f83dce7d08f5e18a3d903d25576fbfa0ba5"
+    },
+    {
+      "path": "current/interaction-owner/assessment-dispositions.json",
+      "bytes": 293821,
+      "sha256": "c3c51e535e342c65a3e4194e13b217aa5dd456f021cc2a9d344f78e45d8f331f"
+    },
+    {
+      "path": "current/interaction-owner/build-summary.json",
+      "bytes": 405,
+      "sha256": "09ce4e25ce94effbe0d2f264a156aa929d2ca8a2b6c1f0766905c065d22fae61"
+    },
+    {
+      "path": "current/interaction-owner/component-catalogue.json",
+      "bytes": 7775,
+      "sha256": "f58b62b7fa4342dc3d024f8e94519c20fe40755cd97b013cca19bcbe09d9685f"
+    },
+    {
+      "path": "current/interaction-owner/course-config.json",
+      "bytes": 290473,
+      "sha256": "eadae7629c9a7e45f83c9055f6dfd32e96bb49660f4d0f53505c6acecb7a7e8e"
+    },
+    {
+      "path": "current/interaction-owner/diagram-review.json",
+      "bytes": 13164,
+      "sha256": "a5e9fb4f050a780038c0f1c35c0b6c3cd72a4dd2f22ec8beee613022379e2a87"
+    },
+    {
+      "path": "current/interaction-owner/foundation-practice.json",
+      "bytes": 34646,
+      "sha256": "b3696fe9f9f7e2677f8667048c3a8d2e1c17bb657ddeb9263973a76eeb267bfd"
+    },
+    {
+      "path": "current/interaction-owner/imported-practice.json",
+      "bytes": 16165,
+      "sha256": "00bb92c54124ab94f1a8c6db797a62ac5101b7b42926e50ddb22e6fe4667dd56"
+    },
+    {
+      "path": "current/interaction-owner/initial-authoring-helpers.py",
+      "bytes": 2283,
+      "sha256": "33899b48a9217599f8693f288614f50eba4b2bc170b3d870210533362e6de912"
+    },
+    {
+      "path": "current/interaction-owner/initial-chapter-16-authoring.py",
+      "bytes": 86868,
+      "sha256": "c12a71bcb8a1fa8e81d66f5ab4cc590f466473ec9e6cccb25f83f7e8188874ed"
+    },
+    {
+      "path": "current/interaction-owner/label-diagrams.json",
+      "bytes": 4616,
+      "sha256": "34c73c6e216ec80e117a7c6f088cfb0db40e219287545611964b5c41d9877ca6"
+    },
+    {
+      "path": "current/interaction-owner/lesson-content.json",
+      "bytes": 130533,
+      "sha256": "aec4dae8cb74b7bee4e9d855413089363ab2e825b113e053d260974251023c3a"
+    },
+    {
+      "path": "current/interaction-owner/lesson-source-map.json",
+      "bytes": 2857,
+      "sha256": "70d02b58c8905a7514ef39e8c40219f8bc3b3631163ec076b7d16e9c55996e45"
+    },
+    {
+      "path": "current/interaction-owner/option-position-audit.json",
+      "bytes": 4911,
+      "sha256": "b5b0a2180c841185ccb548092c08ea0ac190acae176c7c52e6e859305425efd0"
+    },
+    {
+      "path": "current/interaction-owner/optional-source-responses.json",
+      "bytes": 1323,
+      "sha256": "9ed6ad022652fefe992ea5953f4bcf36b77469c0cf85b4e189bd1f5343f5cae5"
+    },
+    {
+      "path": "current/interaction-owner/outcome-coverage.json",
+      "bytes": 6897,
+      "sha256": "53025b92f1d88e296c61cb1e2749b0f1bf3f9982ff2b20a37ac09b5f0ca3d0a5"
+    },
+    {
+      "path": "current/interaction-owner/portable-assets.json",
+      "bytes": 8588,
+      "sha256": "601a8c85dda71b235ff01b438c319e381bb997d2f429f289614e829f48912536"
+    },
+    {
+      "path": "current/interaction-owner/practice-coverage.json",
+      "bytes": 39296,
+      "sha256": "8c123b59bcaa55c831c1673c1dea9c7cb96f4a9ac17ec52ab15857ee1aeaa4a9"
+    },
+    {
+      "path": "current/interaction-owner/question-context-audit.json",
+      "bytes": 37,
+      "sha256": "061c275545c89dc1f69bcd4fa5c2a29e6418ce956d99ef7896579b05f43a2a90"
+    },
+    {
+      "path": "current/interaction-owner/source-assessment-catalogue.json",
+      "bytes": 626346,
+      "sha256": "85f859c953086b327ea5b0182c88d5e6b46b6338b1a37b7d8326130048b20b43"
+    },
+    {
+      "path": "current/interaction-owner/source-discrepancies.md",
+      "bytes": 2409,
+      "sha256": "d410ae8d0d60e16d8ed85b46a19e3c59ee82dc1aadc0939da26d790ae1b56c9b"
+    },
+    {
+      "path": "current/interaction-owner/source-inventory.json",
+      "bytes": 1118,
+      "sha256": "54b0b7c60f8adbaa8c0ddb1b5159a5847dd2d76d28a25a5c3e89b9511bba6963"
+    },
+    {
+      "path": "current/interaction-owner/teacher-slide-transcript.json",
+      "bytes": 25433,
+      "sha256": "c9a59913ebe09000823b7dd897bb199f6d41ea2786568a529e013319d40a6376"
+    },
+    {
+      "path": "current/interaction-owner/template-lock.json",
+      "bytes": 471,
+      "sha256": "6f9c20dfa0879869cb53e1af2fd17135e3765ba119f59ebc9288b6b3d98eccd6"
+    },
+    {
+      "path": "current/interaction-owner/textbook-question-index.txt",
+      "bytes": 15775,
+      "sha256": "59c79948d60c05223d283d0c25c4f3a609e1bc8b4f4b9affbdb128a1cbfeb1ba"
+    },
+    {
+      "path": "current/interaction-owner/textbook-question-manifest.json",
+      "bytes": 123076,
+      "sha256": "636c5d985d088fe01793455393c55c5925c0c6c02f14ffb892f7c3fdf124f541"
+    },
+    {
+      "path": "current/interaction-owner/video-dispositions.json",
+      "bytes": 2623,
+      "sha256": "ef8c1ee694d3abe7784aa3d0323c415f41e78935c13519a5a6a56528d2a48bc5"
+    },
+    {
+      "path": "current/interaction-owner/video-map.json",
+      "bytes": 10272,
+      "sha256": "b20698e07d0a3ac9a2d23f3d618ef0c72e0d3b7203f4a3061655a2da80da837b"
+    },
+    {
+      "path": "current/interaction-owner/vocabulary.json",
+      "bytes": 32198,
+      "sha256": "9496e499d792a4e6c996443fd5e1b14197415b2908c8cfafaff6b5483dd0c6f6"
+    },
+    {
+      "path": "current/routes/lesson-01.html",
+      "bytes": 27234,
+      "sha256": "4d420ef5ef37de2136cfe339cd355e5ca0bcf8aee08c91370b91b31304e5b954"
+    },
+    {
+      "path": "current/routes/lesson-02.html",
+      "bytes": 21361,
+      "sha256": "e35e2f5e8e4d69be489963571d0e9852a935f2d117ba17be38208bad57e934d9"
+    },
+    {
+      "path": "current/routes/lesson-03.html",
+      "bytes": 21504,
+      "sha256": "fe61393dc0f7f1b29b38cae9fd2d1957f584196223de990d691f2cad28adba48"
+    },
+    {
+      "path": "current/routes/lesson-04.html",
+      "bytes": 25798,
+      "sha256": "a19939b91ad4f668096e13d9848f35a6e5512cee04b2a1c1d60b90908efa5c9b"
+    },
+    {
+      "path": "current/routes/lesson-05.html",
+      "bytes": 18833,
+      "sha256": "7202fdee5f80ba5a107e7bf914bddb52c2f0891bb2da4955e6c7052beb2e7734"
+    },
+    {
+      "path": "current/routes/lesson-06.html",
+      "bytes": 20312,
+      "sha256": "3b51ace59e8701304751b45f8df7780598b5fffd9d8fabf33a75cc76378eb97d"
+    },
+    {
+      "path": "current/routes/lesson-07.html",
+      "bytes": 20604,
+      "sha256": "64a24370aafb38501f71238d72b45181480d204ed2c256081d84f5d41039ae20"
+    },
+    {
+      "path": "current/routes/lesson-08.html",
+      "bytes": 19485,
+      "sha256": "d223a56abf5207948d6c5df5f95993cd742d563f07a285e64f1b30b3d84c70ec"
+    },
+    {
+      "path": "current/routes/lesson-09.html",
+      "bytes": 19643,
+      "sha256": "7e8b38014b0aad3eaf1c761152a4820b8ccc2bcbf2ca0b775899e5ed3369980a"
+    },
+    {
+      "path": "current/routes/lesson-10.html",
+      "bytes": 20100,
+      "sha256": "739fcce6dab3ed15fae5233ee10dab20c1fab1214c22693cc5ce29460614f1d5"
+    },
+    {
+      "path": "current/routes/lesson-11.html",
+      "bytes": 20168,
+      "sha256": "2e0dc91e351a83ab5d842508b4eadc6e08e0bc511614e57b1dcda632c4157298"
+    },
+    {
+      "path": "current/routes/lesson-12.html",
+      "bytes": 20529,
+      "sha256": "15cbf36d70fdcadf7ab582ef17cacfc48e82e2ba2d17fe7f9ec306031912d49a"
+    },
+    {
+      "path": "current/routes/lesson-13.html",
+      "bytes": 24803,
+      "sha256": "f5cdf3f56ef4c085abaea39120f948465e34c47ab2ef6dbbc9baf056d7d23b9a"
+    },
+    {
+      "path": "contracts/REPLACEMENT_BOUNDARIES.json",
+      "bytes": 31702,
+      "sha256": "70409aeae16999660be3e79ed29bdbf2dc143b519df81a1e71b1de4ff6398ae2"
+    },
+    {
+      "path": "current/ROUTE_INVENTORY.json",
+      "bytes": 2474,
+      "sha256": "aa6637ccbcfa9aae2838807f512b6aba671bfe300154e9c9849e78b1a36702e8"
+    },
+    {
+      "path": "sources/teacher-original.pptx",
+      "bytes": 28854026,
+      "sha256": "a7af5a3b552995d835261eb490c56aa4d05dc26b31ab0afd7993184deb611061"
+    },
+    {
+      "path": "sources/slides/slide-1.xml",
+      "bytes": 4635,
+      "sha256": "c5b74257bedad3603efdf3e83808154b269d90d1d906c5cbfc173b6b375380c1"
+    },
+    {
+      "path": "sources/slides/slide-1.xml.rels",
+      "bytes": 461,
+      "sha256": "f97aefecee481404d7b149b3a88723ea40a2c4bc8a5835ade41eb0cdb7b1aedc"
+    },
+    {
+      "path": "sources/slides/slide-2.xml",
+      "bytes": 11745,
+      "sha256": "72fe0957c85af3d8453d98e32f42d43e705bafe70b1854a044ef6515961dc3c6"
+    },
+    {
+      "path": "sources/slides/slide-2.xml.rels",
+      "bytes": 461,
+      "sha256": "4aa0fa00b021269ccd972076db7d1f744d6e26ea6fc1d38043f18ace59791997"
+    },
+    {
+      "path": "sources/slides/slide-3.xml",
+      "bytes": 9726,
+      "sha256": "c58790e0e9618c0c18545e700079320f6334015cba049a0c33ed00e2e8a92ffc"
+    },
+    {
+      "path": "sources/slides/slide-3.xml.rels",
+      "bytes": 732,
+      "sha256": "a24dccedb1cd3ff931486d63b4b1b80ad45bc15491c3ddd0c10aca077ffe73e6"
+    },
+    {
+      "path": "sources/slide-assets/slide-3-image25.jpg",
+      "bytes": 57402,
+      "sha256": "b86857243e7f1d356f4bd823b4937444600673b3dc558ee10f876bc45173b9af"
+    },
+    {
+      "path": "sources/slide-assets/slide-3-image7.png",
+      "bytes": 42686,
+      "sha256": "18b57096660b39854f83137b89c21d4c131b8222783a9efaf28cdf7cc542d7ef"
+    },
+    {
+      "path": "sources/slides/slide-4.xml",
+      "bytes": 4169,
+      "sha256": "b2127528a1ba7ab795366913a9449148cbb172423fb8d1a9539ce80b241c2ced"
+    },
+    {
+      "path": "sources/slides/slide-4.xml.rels",
+      "bytes": 597,
+      "sha256": "9f18cb466d6461827f2f4b61b108617c83c1711a785fce1f2092686ce2bbd52f"
+    },
+    {
+      "path": "sources/slide-assets/slide-4-image16.jpg",
+      "bytes": 11965,
+      "sha256": "9f83b83d109426eb42343fa39682557b21c45e8eb00094973e78c168c5248ac5"
+    },
+    {
+      "path": "sources/slides/slide-5.xml",
+      "bytes": 7464,
+      "sha256": "87fd147e6864376208ade320274555156f7d5d94e2c73045f34c0a1cffa53b11"
+    },
+    {
+      "path": "sources/slides/slide-5.xml.rels",
+      "bytes": 597,
+      "sha256": "22a78724271a5a92518765a342c5d65fa2799683a343f60c81b34fafb15e81e4"
+    },
+    {
+      "path": "sources/slide-assets/slide-5-image14.png",
+      "bytes": 774414,
+      "sha256": "40ceb9f2419667bd1cdbc6d080fc3bfbe0f46244e742815057cbb6f117001c05"
+    },
+    {
+      "path": "sources/slides/slide-6.xml",
+      "bytes": 13088,
+      "sha256": "10b069b6be3a54e16a7857e5675636c8cdc1d04f1e1b1d74208e104311af8252"
+    },
+    {
+      "path": "sources/slides/slide-6.xml.rels",
+      "bytes": 596,
+      "sha256": "47ccc95516742ade6177f037cf9933eac3c941ccc99bf1fbb8e2bff3405e2469"
+    },
+    {
+      "path": "sources/slide-assets/slide-6-image8.png",
+      "bytes": 255635,
+      "sha256": "ba098707e8202679ed8e8da9d24e9a669f457d2146dee52ebe3d23a1e6d66d2b"
+    },
+    {
+      "path": "sources/slides/slide-7.xml",
+      "bytes": 4394,
+      "sha256": "32e1a4805ac9400a0a536ef47fff48030b8da294f627dc32691f69a5756bf15c"
+    },
+    {
+      "path": "sources/slides/slide-7.xml.rels",
+      "bytes": 732,
+      "sha256": "3bb0af18f3c71aea3bc0fe0ad50d286473aa345310411ac9d9dd5ea2bf28f58d"
+    },
+    {
+      "path": "sources/slide-assets/slide-7-image3.png",
+      "bytes": 74515,
+      "sha256": "eb146050f1b900aca3b26383a5ba83436557ab75002f26e1058964992164842d"
+    },
+    {
+      "path": "sources/slide-assets/slide-7-image11.png",
+      "bytes": 3118398,
+      "sha256": "30b525f98437d5f91790cc80563577e60a93f86a7f725e77301962002e513d7e"
+    },
+    {
+      "path": "sources/slides/slide-8.xml",
+      "bytes": 7548,
+      "sha256": "5f72d236ad0b30c922dbb35c6cbdb8fa47e3ba4340e0ee9645e3e7bc14b583e3"
+    },
+    {
+      "path": "sources/slides/slide-8.xml.rels",
+      "bytes": 597,
+      "sha256": "54bee4e4f6a8c076eb39b9f89c8cce5d49dddb6c5f07b0f36733e42d28bfe3ed"
+    },
+    {
+      "path": "sources/slide-assets/slide-8-image17.jpg",
+      "bytes": 27101,
+      "sha256": "4d151ae88263a964ae3ea465322fc641abcf2f1790a2fd49c81934d1d30dd63b"
+    },
+    {
+      "path": "sources/slides/slide-9.xml",
+      "bytes": 3205,
+      "sha256": "9fde2697fffb826aacf03187062ce63365bd5c67f769140faa64b74d36ca2c7d"
+    },
+    {
+      "path": "sources/slides/slide-9.xml.rels",
+      "bytes": 597,
+      "sha256": "2e7fd5fa3465befd09f4bd26deb4fa514a8f1e7acaf1c0d31416cf8fc56e9c67"
+    },
+    {
+      "path": "sources/slide-assets/slide-9-image15.jpg",
+      "bytes": 31717,
+      "sha256": "e4acd06e73587733a1a7520f936a55d710749c298c2a5c0963a599d6a3531ad5"
+    },
+    {
+      "path": "sources/slides/slide-10.xml",
+      "bytes": 2687,
+      "sha256": "bbdafc16be8d0b47691f7be1e35fc5eb25e78663ddefdee2c45c5bf569210547"
+    },
+    {
+      "path": "sources/slides/slide-10.xml.rels",
+      "bytes": 597,
+      "sha256": "15a6fef246ba87649ac2932e4009d1608cb534685b91d20049cb9a97e7cbb115"
+    },
+    {
+      "path": "sources/slide-assets/slide-10-image1.png",
+      "bytes": 198533,
+      "sha256": "d6cd3664c4148ae5ae5b7fe19981d8eaabd0b0f69f543b381f03f379835d52b2"
+    },
+    {
+      "path": "sources/slides/slide-11.xml",
+      "bytes": 61962,
+      "sha256": "a5699cd72d96e5d5c90cb7e838ab87939921d7cbe7a3768b96054c0389ec52fb"
+    },
+    {
+      "path": "sources/slides/slide-11.xml.rels",
+      "bytes": 1004,
+      "sha256": "12bd047eb1c7a9aa4ff6d072d63a420d2c0145101961b6968765ca4344cd080d"
+    },
+    {
+      "path": "sources/slide-assets/slide-11-image9.jpg",
+      "bytes": 30892,
+      "sha256": "acba7ad26cdb08bc5c63830a08b3f5a8302e6953f3b3960c5a709d14100ec78b"
+    },
+    {
+      "path": "sources/slide-assets/slide-11-image6.jpg",
+      "bytes": 119920,
+      "sha256": "a305c68a4e94521ca42d2936c55d983d4a72780a8301c6bfd4d3404e721520a3"
+    },
+    {
+      "path": "sources/slide-assets/slide-11-image34.jpg",
+      "bytes": 41520,
+      "sha256": "28893d7f9352c89a66687c0f58d7d4012ca6cc2dbbf48d926bc6bc5e43b19706"
+    },
+    {
+      "path": "sources/slide-assets/slide-11-image58.jpg",
+      "bytes": 944398,
+      "sha256": "cf001e34be3c43441341d7ae5d2afb05a13c34176ab2d3e1be98570495f3ab6c"
+    },
+    {
+      "path": "sources/slides/slide-12.xml",
+      "bytes": 21888,
+      "sha256": "85c37652f5b26d7c401d738e828bd962959905d66b2528af7a35b32ade4f9279"
+    },
+    {
+      "path": "sources/slides/slide-12.xml.rels",
+      "bytes": 597,
+      "sha256": "232efa92dfd34091a9feb8a16f2958c0f25328f70ea5bc39d95ffcc0262b9159"
+    },
+    {
+      "path": "sources/slide-assets/slide-12-image4.png",
+      "bytes": 515366,
+      "sha256": "750ec1bbecefebf64e44a9b11d3375b307ab950600da2c274a1f712f9fac6a34"
+    },
+    {
+      "path": "sources/slides/slide-13.xml",
+      "bytes": 6351,
+      "sha256": "73df15ff72f552e8573478e9755dd8b23a5725e0f61d238f937ad0b3ddd1cf6b"
+    },
+    {
+      "path": "sources/slides/slide-13.xml.rels",
+      "bytes": 1100,
+      "sha256": "0544aac55b6720ec9c8168d1054cdcab0b8b51892397f43a463d0c62bc4f1a08"
+    },
+    {
+      "path": "sources/slide-assets/slide-13-image5.jpg",
+      "bytes": 9071,
+      "sha256": "0bbfef9cf0eabbe5936881a5d5b55e25ccfebf071f2d94a693d4ea58e5bff55e"
+    },
+    {
+      "path": "sources/slide-assets/slide-13-image2.jpg",
+      "bytes": 11791,
+      "sha256": "3fe02e0ff1065b79e184ba7a0fd8381c180cb02c728b94ac45115135fd96a88e"
+    },
+    {
+      "path": "sources/slides/slide-14.xml",
+      "bytes": 2676,
+      "sha256": "bce05db518c490489d214ccfbf2b1382a3d6a85151543e9661c824cbd974e08a"
+    },
+    {
+      "path": "sources/slides/slide-14.xml.rels",
+      "bytes": 598,
+      "sha256": "5896adb61559af6fd58c20299fe5612c4e933803905b7402d0766b1ea78604fa"
+    },
+    {
+      "path": "sources/slide-assets/slide-14-image13.png",
+      "bytes": 356333,
+      "sha256": "157956d7b2469823570757f02bf6aa3cc7a5b2f1387ecf813fe7e45e8ac764fe"
+    },
+    {
+      "path": "sources/slides/slide-15.xml",
+      "bytes": 19571,
+      "sha256": "481b6fdf4a04248075f10b82a84d13732116973909b353bedcf08af82ff897f8"
+    },
+    {
+      "path": "sources/slides/slide-15.xml.rels",
+      "bytes": 598,
+      "sha256": "586e7e7e791b1dbf5d8ec654f6ee27172accfd88a4d5971a2bbc70347b6314d0"
+    },
+    {
+      "path": "sources/slide-assets/slide-15-image12.png",
+      "bytes": 934896,
+      "sha256": "1e5b4a6eab455a863799e42d5fd8b8b77360cd641c8591d6af2621bebec5adcf"
+    },
+    {
+      "path": "sources/slides/slide-16.xml",
+      "bytes": 10950,
+      "sha256": "a9bb9d1bcb1bf30b797cd3fab416882208e4054d0425abb77d893de267c20852"
+    },
+    {
+      "path": "sources/slides/slide-16.xml.rels",
+      "bytes": 598,
+      "sha256": "be52a540fa0d3d27abb8a22bfee8694ff1d55a3306be7a9d92051cdd2a22a454"
+    },
+    {
+      "path": "sources/slide-assets/slide-16-image10.png",
+      "bytes": 118542,
+      "sha256": "fbad3bfca0fa245beaec5b792baf3a3e41816de8dfa186abe4fd6be70cf2a46e"
+    },
+    {
+      "path": "sources/slides/slide-17.xml",
+      "bytes": 5604,
+      "sha256": "c56e4a74215854c2c7e3ecb78e0c37bc8f8e04e20645798f87382d04067ca22f"
+    },
+    {
+      "path": "sources/slides/slide-17.xml.rels",
+      "bytes": 598,
+      "sha256": "ac0aa1842c794f61c19a27c575a0a2daf9c78c1f9827e12e0e585b0bf253be85"
+    },
+    {
+      "path": "sources/slide-assets/slide-17-image20.png",
+      "bytes": 333638,
+      "sha256": "166c9f03445526ca1fe271917a7a95cf6f9d12ff4ab0d5b1639bd26492620a11"
+    },
+    {
+      "path": "sources/slides/slide-18.xml",
+      "bytes": 8285,
+      "sha256": "275470d06704ab654769711e792230949b15fe899a14f48a1b217a40a7d5a567"
+    },
+    {
+      "path": "sources/slides/slide-18.xml.rels",
+      "bytes": 734,
+      "sha256": "41d328b7acbb896199bafe12b52cd615ed75f901a92a3df911b269a0a4e55ef9"
+    },
+    {
+      "path": "sources/slide-assets/slide-18-image18.png",
+      "bytes": 998451,
+      "sha256": "0c31eb2806669d1d1eabdf995e5824606ceb6d0b9af23351bc6fa57a076eee60"
+    },
+    {
+      "path": "sources/slide-assets/slide-18-image26.png",
+      "bytes": 576283,
+      "sha256": "81822c0f4b7e9d1637ffa977072601bd25434747438044f0d96734f6ca51e9f1"
+    },
+    {
+      "path": "sources/slides/slide-19.xml",
+      "bytes": 5668,
+      "sha256": "779d5e749a0c5af0b0812d343b6d6701504c27023cee69f0c34ca98594825566"
+    },
+    {
+      "path": "sources/slides/slide-19.xml.rels",
+      "bytes": 598,
+      "sha256": "2b3ea612e76ef8cbfaa69b25f6570282770766a6fc8611f741fd41ce28b15f92"
+    },
+    {
+      "path": "sources/slide-assets/slide-19-image19.jpg",
+      "bytes": 202205,
+      "sha256": "c2c7316e5059476b9dc4e8419de1b8f3c818f46342cfe759c981a86a382c002c"
+    },
+    {
+      "path": "sources/slides/slide-20.xml",
+      "bytes": 7773,
+      "sha256": "77e75ccdc41e0193a26e70fd4691b8b028653b4b8dc9996ff8a9bdc8db3d88e3"
+    },
+    {
+      "path": "sources/slides/slide-20.xml.rels",
+      "bytes": 870,
+      "sha256": "6696b33166df461e1025751219b3ecf12f050a238bcaf1222cb93f6047794f48"
+    },
+    {
+      "path": "sources/slide-assets/slide-20-image21.png",
+      "bytes": 58417,
+      "sha256": "5b1899299414cd856403e89b775785fa1d0446942708707205f42bd6317513ef"
+    },
+    {
+      "path": "sources/slide-assets/slide-20-image27.png",
+      "bytes": 447599,
+      "sha256": "ac8757a5c5b3251ad626da7bfd7e059d2366f7b966cbdc43e9eb7653a27b0bf5"
+    },
+    {
+      "path": "sources/slide-assets/slide-20-image33.png",
+      "bytes": 31209,
+      "sha256": "183e4af5809f4338adba26dfd41e8f41ca88a98fe752d9950b3caa36ad8b6a6d"
+    },
+    {
+      "path": "sources/slides/slide-21.xml",
+      "bytes": 8208,
+      "sha256": "1b5cebdd91436d9274b72e31a27f7a06e7608a8965c57acbe348058e4fbca3bf"
+    },
+    {
+      "path": "sources/slides/slide-21.xml.rels",
+      "bytes": 1143,
+      "sha256": "f4406f8b9ff43182bae0b2bc9cfa61d4a4fe7eec004900c8db17ec391d2ccf76"
+    },
+    {
+      "path": "sources/slide-assets/slide-21-image28.png",
+      "bytes": 10466,
+      "sha256": "968882ddc4c5cd3705222b246181a4725875595c18abde1658d5525ae71da349"
+    },
+    {
+      "path": "sources/slide-assets/slide-21-image29.jpg",
+      "bytes": 72893,
+      "sha256": "3ae60781d965c26eb86221316b72a30c385d6bb287290e01952d1e76165f4979"
+    },
+    {
+      "path": "sources/slide-assets/slide-21-image22.png",
+      "bytes": 91670,
+      "sha256": "9d4e82a353473d0663bf2c58754bb06840efcbde46accb3b386563da28931359"
+    },
+    {
+      "path": "sources/slide-assets/slide-21-image105.png",
+      "bytes": 7074212,
+      "sha256": "ba92df07a28c57ee85e44aa4bd2bf573e3aa7b1fd322bd4b70807a9a9d13ad17"
+    },
+    {
+      "path": "sources/slide-assets/slide-21-image55.jpg",
+      "bytes": 454811,
+      "sha256": "b0155be584d78dca16b6563425d5dbae07c03e223ef179729c623cc062fb3d55"
+    },
+    {
+      "path": "sources/slides/slide-22.xml",
+      "bytes": 4297,
+      "sha256": "ae773b544c0c7bb197ad33f3a34eef3c1f08559ae957df994db95b8b32799772"
+    },
+    {
+      "path": "sources/slides/slide-22.xml.rels",
+      "bytes": 735,
+      "sha256": "b06780971fda639335815ac8ebbaf45e9bf9ff0f3ef6867c26be2fa2707daa75"
+    },
+    {
+      "path": "sources/slide-assets/slide-22-image105.png",
+      "bytes": 7074212,
+      "sha256": "ba92df07a28c57ee85e44aa4bd2bf573e3aa7b1fd322bd4b70807a9a9d13ad17"
+    },
+    {
+      "path": "sources/slide-assets/slide-22-image55.jpg",
+      "bytes": 454811,
+      "sha256": "b0155be584d78dca16b6563425d5dbae07c03e223ef179729c623cc062fb3d55"
+    },
+    {
+      "path": "sources/slides/slide-23.xml",
+      "bytes": 5358,
+      "sha256": "1e517574ee7faaae3d25ac3115f0e21847915e014711b420d6b87269a2583a55"
+    },
+    {
+      "path": "sources/slides/slide-23.xml.rels",
+      "bytes": 598,
+      "sha256": "9dc5ea4bc2969dc0bb391ffad71b7867c1ae4db39d2c527706e40b3aca2a2803"
+    },
+    {
+      "path": "sources/slide-assets/slide-23-image23.png",
+      "bytes": 347999,
+      "sha256": "a89b92f3bb25f0b70fe3e27abc8e8d50430c4ad0aa94ff013454279285a4be4c"
+    },
+    {
+      "path": "sources/slides/slide-24.xml",
+      "bytes": 8944,
+      "sha256": "f03b416a4c9a579157600c6b705f65e0348f40c73d4e88f1efeb8b91234967f0"
+    },
+    {
+      "path": "sources/slides/slide-24.xml.rels",
+      "bytes": 598,
+      "sha256": "bad2f8f3430a23213a75b8d5d38645023d29f56cb81b1903c2f3d620098c360f"
+    },
+    {
+      "path": "sources/slide-assets/slide-24-image24.png",
+      "bytes": 149269,
+      "sha256": "8b4029dde6227e99a6317e5b2fa82ba7de3d88f11615468982c2d4325de90a51"
+    },
+    {
+      "path": "sources/slides/slide-25.xml",
+      "bytes": 7630,
+      "sha256": "38a09254bec05fd33abee86728b326eb6585086dd45d85378c3d79bc12a87dc5"
+    },
+    {
+      "path": "sources/slides/slide-25.xml.rels",
+      "bytes": 598,
+      "sha256": "9c0cd45304322544f6fabe0ef464f5e93f4d8e189a504289e5611c472999090e"
+    },
+    {
+      "path": "sources/slide-assets/slide-25-image32.png",
+      "bytes": 70259,
+      "sha256": "50121b627353802ecee51d2d1c10c00ad787fa95f3d739f3b9b98816c1456bbe"
+    },
+    {
+      "path": "sources/slides/slide-26.xml",
+      "bytes": 6319,
+      "sha256": "7d24daf31bb3280c801e98326688377c586e258910e8d6861e869dfca7a37eda"
+    },
+    {
+      "path": "sources/slides/slide-26.xml.rels",
+      "bytes": 598,
+      "sha256": "2417521f82801738f772e2eb828d9c004171a600767113317af731eade851ce0"
+    },
+    {
+      "path": "sources/slide-assets/slide-26-image30.png",
+      "bytes": 67451,
+      "sha256": "a7cca8f054e9ff40808f0a8fb9d124388b125558d8e9b28f8eaeceec53ab47e3"
+    },
+    {
+      "path": "sources/slides/slide-27.xml",
+      "bytes": 2962,
+      "sha256": "98eebd06bc0cadd530b0b581c6d8ba22e5ec7b59bc5e70a8ee3cc146caf104b2"
+    },
+    {
+      "path": "sources/slides/slide-27.xml.rels",
+      "bytes": 598,
+      "sha256": "2a36ea30c52cf766b3f42b889b87cb3f13fb7f0629c6e1994b63d2b88eb56268"
+    },
+    {
+      "path": "sources/slide-assets/slide-27-image36.png",
+      "bytes": 51426,
+      "sha256": "1b164bb3fc36295af464e2ec8f457bcfac0f07230d8076d16b856356240b3bec"
+    },
+    {
+      "path": "sources/slides/slide-28.xml",
+      "bytes": 6544,
+      "sha256": "b83d791aedb1465a89c2277732a5b7bfb832629ab896d5c107ca7d3074902d3e"
+    },
+    {
+      "path": "sources/slides/slide-28.xml.rels",
+      "bytes": 598,
+      "sha256": "d314be6f8570d58d95b43f6e5362b42d909304ab6372e1ed53a74a309191fac2"
+    },
+    {
+      "path": "sources/slide-assets/slide-28-image43.png",
+      "bytes": 60545,
+      "sha256": "1fb0c9692a8b6a0851bd0a29a1e756e7b78c89766b13deae6a92850f8804260e"
+    },
+    {
+      "path": "sources/slides/slide-29.xml",
+      "bytes": 6182,
+      "sha256": "0f238a79c64b6634afbd9d88ea27d5e73d28c90a78eb63d88057076b0cab63b1"
+    },
+    {
+      "path": "sources/slides/slide-29.xml.rels",
+      "bytes": 870,
+      "sha256": "d880e38483a70dfc90d1d7e0e2b87ef89f9891d67336f079dcd3e4f01e8fef47"
+    },
+    {
+      "path": "sources/slide-assets/slide-29-image35.png",
+      "bytes": 358473,
+      "sha256": "7c89bbb57c65e75fc50bbed3a5bb19cfb45778a46f1eb3bb83323d42a9e59619"
+    },
+    {
+      "path": "sources/slide-assets/slide-29-image31.jpg",
+      "bytes": 7737,
+      "sha256": "439f008f0c1b32c304473c60115548b5d6b897db34a8be668b68769ef9e77d78"
+    },
+    {
+      "path": "sources/slide-assets/slide-29-image47.gif",
+      "bytes": 1998841,
+      "sha256": "2c1c7a51df4e1aed48c46007960197154e40fcfd965345a0713c03ba26ffe99f"
+    },
+    {
+      "path": "sources/slides/slide-30.xml",
+      "bytes": 4761,
+      "sha256": "8984a3fe291a43248642c95657e7a0250cbd2b5bae0e9f4974aa0b200d07b8d5"
+    },
+    {
+      "path": "sources/slides/slide-30.xml.rels",
+      "bytes": 598,
+      "sha256": "625ff9910657c2da4a9530d5dd077c403f7349df370e15ce59feaf01f7778412"
+    },
+    {
+      "path": "sources/slide-assets/slide-30-image41.png",
+      "bytes": 110396,
+      "sha256": "8301f4b51f5aa9fa39ae2fc97a39048c2300ac087971e8a4cf352f4d20d37c1e"
+    },
+    {
+      "path": "sources/slides/slide-31.xml",
+      "bytes": 2850,
+      "sha256": "114f02b01c0dd5ecd98aea9376fe5e62d22ef8449fed12bc3217316956878cf5"
+    },
+    {
+      "path": "sources/slides/slide-31.xml.rels",
+      "bytes": 598,
+      "sha256": "d1502e9200f8b226990cf4ae255b30f981b54cefd807838af92bfbdd02642606"
+    },
+    {
+      "path": "sources/slide-assets/slide-31-image38.jpg",
+      "bytes": 130692,
+      "sha256": "c56907d2d513fa69310686f0d23c5077ea8285efa0cd0208431974e6e9a4aa60"
+    },
+    {
+      "path": "sources/slides/slide-32.xml",
+      "bytes": 14273,
+      "sha256": "72d08ec58aa4a884de08330d86d098a439db5c34c345092ba74f4e620b2e212e"
+    },
+    {
+      "path": "sources/slides/slide-32.xml.rels",
+      "bytes": 1238,
+      "sha256": "621f03eea1b5fa4da2234626a3bde86669286204bee98d7db556298c41b76cd0"
+    },
+    {
+      "path": "sources/slide-assets/slide-32-image37.jpg",
+      "bytes": 11405,
+      "sha256": "423f4096a8f7ca984c6292ab50cdfb613605ae8c8ec3664a23091ae9abd0a196"
+    },
+    {
+      "path": "sources/slide-assets/slide-32-image42.png",
+      "bytes": 243995,
+      "sha256": "2977d53bda69598bd3741867f7c5b13bed2a9588e0684fbce57e4d84575cc4b6"
+    },
+    {
+      "path": "sources/slide-assets/slide-32-image48.jpg",
+      "bytes": 5381,
+      "sha256": "6c0057a8f287032b810d2a83de5cf99fdf4a5ecdaa3c30894f2a34c5476ee504"
+    },
+    {
+      "path": "sources/slides/slide-33.xml",
+      "bytes": 6162,
+      "sha256": "2087924115484c83933c0516ba45012bd9f1e290af6ab5f0cfecc85f1d66ed50"
+    },
+    {
+      "path": "sources/slides/slide-33.xml.rels",
+      "bytes": 1326,
+      "sha256": "2263d7ffcfcb4a92e9f62345a792c5870406b11f7f18457d0e7f37860db04b42"
+    },
+    {
+      "path": "sources/slide-assets/slide-33-image40.png",
+      "bytes": 19049,
+      "sha256": "940fb26d4cbd5bc8a2b55f5514513c65cdb000fa8586b6b4bb476930ae4c9f0e"
+    },
+    {
+      "path": "sources/slide-assets/slide-33-image49.png",
+      "bytes": 4794,
+      "sha256": "b60e183cdfd2b5f56140fae6c3e6ac7f5a4b463ea02488f081fecd11bb77e40c"
+    },
+    {
+      "path": "sources/slide-assets/slide-33-image39.png",
+      "bytes": 1122,
+      "sha256": "d572485b2ca2750c5bd064f3bc8956b06e7db1bbe806c750387f9af2cf216e33"
+    },
+    {
+      "path": "sources/slide-assets/slide-33-image50.png",
+      "bytes": 26018,
+      "sha256": "9eca5cfc7a184afeaa9df1ca2a531043f9dcd8c5a09aa619c71f325522a0118f"
+    },
+    {
+      "path": "sources/slide-assets/slide-33-image45.jpg",
+      "bytes": 29273,
+      "sha256": "2f5f8019016026fa9f8ed7b4794cf0111186f778dbe2ba9f44c6ccccb438b8e4"
+    },
+    {
+      "path": "sources/slides/slide-34.xml",
+      "bytes": 11110,
+      "sha256": "532f1e5be7ae182e781eb64181ebdf7a47cd96949470b6a3321a6dba3c1673cf"
+    },
+    {
+      "path": "sources/slides/slide-34.xml.rels",
+      "bytes": 782,
+      "sha256": "6d8cf2edd4fe7f59466b7853a2ef589e4e2f39f566260c7bc976fed5e8406327"
+    },
+    {
+      "path": "sources/slide-assets/slide-34-image46.jpg",
+      "bytes": 28617,
+      "sha256": "3cc2bd41e1970a06060a5a1df1e1a85dbd48fcb8dd5b036263f1e10e5dc43049"
+    },
+    {
+      "path": "sources/slides/slide-35.xml",
+      "bytes": 6528,
+      "sha256": "0063c53b2f993e215f5133285fe188c503496512c404195103095354661ce28b"
+    },
+    {
+      "path": "sources/slides/slide-35.xml.rels",
+      "bytes": 791,
+      "sha256": "f684ef173d8932409749e407708042e992f93613f6efa860f7eb8bed757cf707"
+    },
+    {
+      "path": "sources/slide-assets/slide-35-image44.png",
+      "bytes": 220200,
+      "sha256": "4cf67206ef1071af0829871a9bee6680aacd90d42bf76b58c07c13a29c7e8818"
+    },
+    {
+      "path": "sources/slides/slide-36.xml",
+      "bytes": 6692,
+      "sha256": "62921a9733915f8ca3ea26f9ade2d9a0bb16f2689b44686269d5b1062c60ec53"
+    },
+    {
+      "path": "sources/slides/slide-36.xml.rels",
+      "bytes": 598,
+      "sha256": "ff4b7c075fb3ad8420b4ffd64066d6746953947ce00b6937efc7602884946fff"
+    },
+    {
+      "path": "sources/slide-assets/slide-36-image51.png",
+      "bytes": 298196,
+      "sha256": "69071e1514d46482d842eaae8ce2e4863449ad3282e3a12c55c442a970fe0a77"
+    },
+    {
+      "path": "sources/slides/slide-37.xml",
+      "bytes": 3760,
+      "sha256": "77239c02d398f6530a2e2235b43980d6ac11b66d8aa29b602e39b33934205977"
+    },
+    {
+      "path": "sources/slides/slide-37.xml.rels",
+      "bytes": 812,
+      "sha256": "4e2de1da7102ebd2b2b4a1e2f3bcb72c421375d44ae5ba19c197e1a335d803de"
+    },
+    {
+      "path": "sources/slide-assets/slide-37-image103.png",
+      "bytes": 97064,
+      "sha256": "a374656f56d19fa1b8f119caa6e4812c2eb1cb20bf9dfdff431f00665ae91bd8"
+    },
+    {
+      "path": "sources/slides/slide-38.xml",
+      "bytes": 8630,
+      "sha256": "29066cfc845ad7dd8d44b19767aaa6473e051f337ebbd3b11cb02479c77e0bd4"
+    },
+    {
+      "path": "sources/slides/slide-38.xml.rels",
+      "bytes": 462,
+      "sha256": "c969bee468e66c4869efd450b97da4eb13c3ff2271217e3f12153276186b7855"
+    },
+    {
+      "path": "sources/slides/slide-39.xml",
+      "bytes": 7997,
+      "sha256": "9bc28398b0c52f57bef16cf6d8245de44f86f2f7b1e95927fb78a32056e39ca1"
+    },
+    {
+      "path": "sources/slides/slide-39.xml.rels",
+      "bytes": 598,
+      "sha256": "e3d6b93542bcba6c87880029471e962d613591d04852eeeb7dbc2117e158cb71"
+    },
+    {
+      "path": "sources/slide-assets/slide-39-image53.png",
+      "bytes": 90349,
+      "sha256": "a5a31899fb8a6e2ebbce8a443cd32700f1c1703a4ae8168ba81603bf58d37677"
+    },
+    {
+      "path": "sources/slides/slide-40.xml",
+      "bytes": 12093,
+      "sha256": "9c89333ea7cd31689d87d6a2a259ae9406ad3ced28fa50aa5993b0704fe2c075"
+    },
+    {
+      "path": "sources/slides/slide-40.xml.rels",
+      "bytes": 462,
+      "sha256": "d861b7eeece9b08717199f2c41e32a980ad04e241ae3779b6cd4360131e0abaf"
+    },
+    {
+      "path": "sources/slides/slide-41.xml",
+      "bytes": 9681,
+      "sha256": "e6050768f3dfad889d5e7016d43a4acc27a17aacc252eb3d9001a09bdd0760fb"
+    },
+    {
+      "path": "sources/slides/slide-41.xml.rels",
+      "bytes": 918,
+      "sha256": "45d2b659b196dc5af8f5fd49aaed890466acde005e8954b0a97bd817e22bc2e0"
+    },
+    {
+      "path": "sources/slide-assets/slide-41-image56.png",
+      "bytes": 622571,
+      "sha256": "089dd370e031b1560946935792e9b5411fc7579e43990e9190daa7b5db23dda7"
+    },
+    {
+      "path": "sources/slide-assets/slide-41-image61.jpg",
+      "bytes": 16572,
+      "sha256": "cf87fa773f57db126b3d8c76d2bcc784375499f4874f9e04dd5814b5fa622810"
+    },
+    {
+      "path": "sources/slides/slide-42.xml",
+      "bytes": 10514,
+      "sha256": "b467d2b7140baafc87b81e14171d541291a6cc2e3123dc24403ba42bd06d2fc5"
+    },
+    {
+      "path": "sources/slides/slide-42.xml.rels",
+      "bytes": 598,
+      "sha256": "9a46af2b3e1554dcec2d3d5db091996e8c2e9ae67a30979298d008e43141e76a"
+    },
+    {
+      "path": "sources/slide-assets/slide-42-image63.png",
+      "bytes": 67974,
+      "sha256": "674d38c50cf29886a82c72b1755eab414c5838181874c30357a474e6ea905b22"
+    },
+    {
+      "path": "sources/slides/slide-43.xml",
+      "bytes": 5418,
+      "sha256": "ceb36d626e0b1d988112023212b0314780f3b2ba49bdd6a4c04c52bba811e332"
+    },
+    {
+      "path": "sources/slides/slide-43.xml.rels",
+      "bytes": 598,
+      "sha256": "baea7bedd606dfc934ae41443248b6a7dc65734b0cb60755ad176c6b82431fba"
+    },
+    {
+      "path": "sources/slide-assets/slide-43-image67.png",
+      "bytes": 293413,
+      "sha256": "c51b708327310c1e90021fa2246477309a0f6ff9d194b64d6df7563297e498e9"
+    },
+    {
+      "path": "sources/slides/slide-44.xml",
+      "bytes": 7745,
+      "sha256": "0102fdaa7d99145a85f9c37a00f8d69b49562960d00a5d8a5e27557bfda06ac6"
+    },
+    {
+      "path": "sources/slides/slide-44.xml.rels",
+      "bytes": 598,
+      "sha256": "0f459c275cfd7dbb6f9348894c49be98226e3940da87b20768bf8c7bd9b5ee24"
+    },
+    {
+      "path": "sources/slide-assets/slide-44-image67.png",
+      "bytes": 293413,
+      "sha256": "c51b708327310c1e90021fa2246477309a0f6ff9d194b64d6df7563297e498e9"
+    },
+    {
+      "path": "sources/slides/slide-45.xml",
+      "bytes": 7405,
+      "sha256": "02e9806cded5014aa9921eccf176bede4280e4c7f457a46249351a11d29c9f92"
+    },
+    {
+      "path": "sources/slides/slide-45.xml.rels",
+      "bytes": 598,
+      "sha256": "c7808af00da89157a963277777f7d1a4da611f0b03291df84f93ff9271d47fce"
+    },
+    {
+      "path": "sources/slide-assets/slide-45-image66.png",
+      "bytes": 74190,
+      "sha256": "b927f8f7843540966bdfbba43fe9991cf0f32f7e4f77cba6a7a6f86835dd6113"
+    },
+    {
+      "path": "sources/slides/slide-46.xml",
+      "bytes": 4925,
+      "sha256": "13893e61918f59dd91739cd0df75551da61503c782e270e612afed8f860fe652"
+    },
+    {
+      "path": "sources/slides/slide-46.xml.rels",
+      "bytes": 598,
+      "sha256": "706976b43ef5627ea5fbeab1083ead6d519230de56f7c2a73749244f7d8b8cc3"
+    },
+    {
+      "path": "sources/slide-assets/slide-46-image52.png",
+      "bytes": 50092,
+      "sha256": "dc238c9183f4ca7f5ee062b3c4d09cdb0f0a868c8f3e5ddd735aeeb087a3eb8c"
+    },
+    {
+      "path": "sources/slides/slide-47.xml",
+      "bytes": 7253,
+      "sha256": "d63e12c7cda576957786adabb8d9c185290af89c414188e868cde1623bdeb262"
+    },
+    {
+      "path": "sources/slides/slide-47.xml.rels",
+      "bytes": 598,
+      "sha256": "22eb847aa44874a5c643d5c33df520e21af575c7fc64fed7ebdbccdd2ee94366"
+    },
+    {
+      "path": "sources/slide-assets/slide-47-image64.png",
+      "bytes": 364277,
+      "sha256": "7e57deedfe727416d5536605bb4327cffd16ee88cbb13c778bd5e5039f450eb8"
+    },
+    {
+      "path": "sources/slides/slide-48.xml",
+      "bytes": 8339,
+      "sha256": "99e59f8bb9dec3419e8523e8d31fad4041aa7f75eebb1b44a4dbee9297237b8d"
+    },
+    {
+      "path": "sources/slides/slide-48.xml.rels",
+      "bytes": 598,
+      "sha256": "7c5f342457795c6e53b4e7a38c4fb3010fb83c6b1f937c726e02ded812291180"
+    },
+    {
+      "path": "sources/slide-assets/slide-48-image59.png",
+      "bytes": 72593,
+      "sha256": "d0aecaf6ddf5d016df010caef22cdba430a9b7aababd0ca1ce93af0f2035f67f"
+    },
+    {
+      "path": "sources/slides/slide-49.xml",
+      "bytes": 8752,
+      "sha256": "7ec5aed85953e35d0778e6c057f81ac58ea321d59e04d168de9e49d141c11a05"
+    },
+    {
+      "path": "sources/slides/slide-49.xml.rels",
+      "bytes": 598,
+      "sha256": "71306acef9c082e29c4a4195ceda5d2540154d66a3ff528cfe424b3c9bea972c"
+    },
+    {
+      "path": "sources/slide-assets/slide-49-image54.png",
+      "bytes": 72363,
+      "sha256": "2369aff3e168727d021c881357d4a72388ad335d967a222ec28fa1d5398c35f0"
+    },
+    {
+      "path": "sources/slides/slide-50.xml",
+      "bytes": 8415,
+      "sha256": "2b8d2fe30c87df1ed1b30651c95c7bf300c8d0d885e174a89010b058b0fd7809"
+    },
+    {
+      "path": "sources/slides/slide-50.xml.rels",
+      "bytes": 598,
+      "sha256": "b43950309c3c75602f6a28de26e80b5ace745fe05c1c7ad1fbada9692302a30a"
+    },
+    {
+      "path": "sources/slide-assets/slide-50-image57.png",
+      "bytes": 271481,
+      "sha256": "25729d74fbb4f9b294b88d0bfbff32063c8a1805e366418d64cfc8fdf0d38db5"
+    },
+    {
+      "path": "sources/slides/slide-51.xml",
+      "bytes": 4580,
+      "sha256": "65a012c6f69651f5045af4f1cd2bd06f1887797712af39ac161bc031b4b07ffb"
+    },
+    {
+      "path": "sources/slides/slide-51.xml.rels",
+      "bytes": 598,
+      "sha256": "5a14a3be61beaad22f469a845a75a807f555ea983680ea56a06783818d29396f"
+    },
+    {
+      "path": "sources/slide-assets/slide-51-image69.png",
+      "bytes": 70263,
+      "sha256": "8129fb23fdb4686b446f897d09d2c96595d7cecf86255f1fab4cd9dadaf0bf13"
+    },
+    {
+      "path": "sources/slides/slide-52.xml",
+      "bytes": 6557,
+      "sha256": "6fd86bc508526b3133f4c7eb92c80afc39a4dde3fbc1c780fbcdafa3b8a80029"
+    },
+    {
+      "path": "sources/slides/slide-52.xml.rels",
+      "bytes": 598,
+      "sha256": "4cb218b87c47885411adb58d7fdda1105cd093a17f23666d7bac78755e81bd3f"
+    },
+    {
+      "path": "sources/slide-assets/slide-52-image62.png",
+      "bytes": 23409,
+      "sha256": "7b73612addee9c153338a1071cf1de15bb41263a96ecc811c6920672f54e0847"
+    },
+    {
+      "path": "sources/slides/slide-53.xml",
+      "bytes": 4029,
+      "sha256": "ed4abc4e628aea41c7feda139d936260cd47f3e992459889ac9cf011301dd7a2"
+    },
+    {
+      "path": "sources/slides/slide-53.xml.rels",
+      "bytes": 598,
+      "sha256": "4d1f57fc39f8d4da18557faf71a3277dd8356d337ac05e74cc705eeb23caa825"
+    },
+    {
+      "path": "sources/slide-assets/slide-53-image60.png",
+      "bytes": 69636,
+      "sha256": "084589d0587bc68d95279e44c1d317b6d8be909be1e2d53eaeab03aac4416579"
+    },
+    {
+      "path": "sources/slides/slide-54.xml",
+      "bytes": 6738,
+      "sha256": "faa9831c19bb1501a467f96e48ca5278b885bf08592b71bb6eaaedfdff61b3c3"
+    },
+    {
+      "path": "sources/slides/slide-54.xml.rels",
+      "bytes": 598,
+      "sha256": "7d71cd3dc6e090970119cd4108fdab644a40d243e5486552131b5dd78d696f30"
+    },
+    {
+      "path": "sources/slide-assets/slide-54-image65.png",
+      "bytes": 29927,
+      "sha256": "51ef9ceaeea58736f050f49293cea9f753b64dfbb1d18d3fdece871540cf0e08"
+    },
+    {
+      "path": "sources/slides/slide-55.xml",
+      "bytes": 1691,
+      "sha256": "41dda77780fa96845e3e6c58824690ddec72639650afe33712a1bc66dcca543f"
+    },
+    {
+      "path": "sources/slides/slide-55.xml.rels",
+      "bytes": 598,
+      "sha256": "17896a017530f5c914819213ebab4e960f377fcfa73d366017a591677f50f684"
+    },
+    {
+      "path": "sources/slide-assets/slide-55-image72.png",
+      "bytes": 329583,
+      "sha256": "726b4de5ee2914cf8b4333bc63b2c4a9fbb1987ba75f13c2c2725df69ffb26f8"
+    },
+    {
+      "path": "sources/slides/slide-56.xml",
+      "bytes": 5423,
+      "sha256": "f36bfc44c34113036914674f0f4133cb2b8520cfe1a85dafa586dc4d4b95f8b7"
+    },
+    {
+      "path": "sources/slides/slide-56.xml.rels",
+      "bytes": 598,
+      "sha256": "f49f587c604ce917369351a068f03263f69c3df8e5f79d0276ffba93749136dd"
+    },
+    {
+      "path": "sources/slide-assets/slide-56-image80.png",
+      "bytes": 244000,
+      "sha256": "10e5ed30659289512a218dd7aeb41d50f16f043a2218429e061c35e999c23d37"
+    },
+    {
+      "path": "sources/slides/slide-57.xml",
+      "bytes": 9439,
+      "sha256": "84d5229ab347000860ad68c032cc7b469a5cdd7a211cbf582336c55943df98ee"
+    },
+    {
+      "path": "sources/slides/slide-57.xml.rels",
+      "bytes": 918,
+      "sha256": "0599c02f0518818f69e77f4f145783faaf7aac80a7ca2a901d49aefd4616a973"
+    },
+    {
+      "path": "sources/slide-assets/slide-57-image73.png",
+      "bytes": 211875,
+      "sha256": "2c9cba4168f909b4ba3ef9d4c1cecf974ed9288bc9e00d65daa32ef2201b1328"
+    },
+    {
+      "path": "sources/slide-assets/slide-57-image70.jpg",
+      "bytes": 6355,
+      "sha256": "f1b4ede9a6beac7998218d93c51ee710b0a71931e12600654846e179d11df253"
+    },
+    {
+      "path": "sources/slides/slide-58.xml",
+      "bytes": 12076,
+      "sha256": "4fbf320136f0c76e9699044691428de84accc02395d235c12c67c6543e0c2541"
+    },
+    {
+      "path": "sources/slides/slide-58.xml.rels",
+      "bytes": 598,
+      "sha256": "ac513650e62f7125d554ca7ab5c72dbdd5b6f4dd828530497de80626ca1ccc33"
+    },
+    {
+      "path": "sources/slide-assets/slide-58-image74.jpg",
+      "bytes": 55221,
+      "sha256": "4383eed996315d2c1db0c3c0fd980dd011b33825fdea6080ac0379c7447ee9ee"
+    },
+    {
+      "path": "sources/slides/slide-59.xml",
+      "bytes": 5860,
+      "sha256": "e5df988ece9f3734f9dde4eab9b6eaefa870061d95415f5f510bd1455dbf9ec4"
+    },
+    {
+      "path": "sources/slides/slide-59.xml.rels",
+      "bytes": 734,
+      "sha256": "0b118a0e82b6a96630ba2a8da4198ee98b19eb3d064ced638b164a669acee4af"
+    },
+    {
+      "path": "sources/slide-assets/slide-59-image75.png",
+      "bytes": 12578,
+      "sha256": "801fc5705ba3a94d51e0f36f13b1479e350bb4b9ccafba75c59d1bd9665a75ce"
+    },
+    {
+      "path": "sources/slide-assets/slide-59-image71.png",
+      "bytes": 31518,
+      "sha256": "b854d17d4ce4b25cef9892914543b0338d2ccc8d159d373f6ea6a260f8413ece"
+    },
+    {
+      "path": "sources/slides/slide-60.xml",
+      "bytes": 5907,
+      "sha256": "a9fecd4da9a9d1d7c3d09548f0b3f2ee584aa3d3c816469ebdde3afd3a2f00cb"
+    },
+    {
+      "path": "sources/slides/slide-60.xml.rels",
+      "bytes": 734,
+      "sha256": "49bacc8137179bc675140ee60918e6dc692362007198f087eed8b1147a5ee21e"
+    },
+    {
+      "path": "sources/slide-assets/slide-60-image68.png",
+      "bytes": 12934,
+      "sha256": "56af608b4adb5c2da94ada2b7fb9c4ae647f13afbc61c2d73a9d8cbe55023ea7"
+    },
+    {
+      "path": "sources/slide-assets/slide-60-image78.jpg",
+      "bytes": 20531,
+      "sha256": "a8581b23af7295e797e2080a7433edac5ebb6a955d7438761b4db46af7dc3ac8"
+    },
+    {
+      "path": "sources/slides/slide-61.xml",
+      "bytes": 34338,
+      "sha256": "7c6cebbed551cae82e097f9305f41347f092ac07a5cc0670b24389244f232e50"
+    },
+    {
+      "path": "sources/slides/slide-61.xml.rels",
+      "bytes": 598,
+      "sha256": "7338730f8c055c9df3a304982d0052adc9afd0d2854451f5c21c218ab329653c"
+    },
+    {
+      "path": "sources/slide-assets/slide-61-image89.gif",
+      "bytes": 14387,
+      "sha256": "d1c62e758b2bd63a6f0b37e5a23cfe1ecaad2cb90c7a69c47389a0106cbe93b9"
+    },
+    {
+      "path": "sources/slides/slide-62.xml",
+      "bytes": 3634,
+      "sha256": "4cfd4198d4acf03637b01647324217b44d53e889ffa46488e3263a26fec12837"
+    },
+    {
+      "path": "sources/slides/slide-62.xml.rels",
+      "bytes": 782,
+      "sha256": "3c97f7ce9d32e1e42ab32b0f677d5e063bc2fe340725011ae658666871a6318d"
+    },
+    {
+      "path": "sources/slide-assets/slide-62-image76.jpg",
+      "bytes": 16864,
+      "sha256": "a11a3873e7778825c97bb2536671a54e20c6b1db6017f8f59ab644160cfc9fdc"
+    },
+    {
+      "path": "sources/slides/slide-63.xml",
+      "bytes": 9937,
+      "sha256": "78bef5f49b46470ac9749773fea9e03854ead368e25025d5eccafcc9c21e20dd"
+    },
+    {
+      "path": "sources/slides/slide-63.xml.rels",
+      "bytes": 598,
+      "sha256": "e119cd67f03526b6654eea4d35c9963573e39ea82f4d5af71ff45db107b08788"
+    },
+    {
+      "path": "sources/slide-assets/slide-63-image77.png",
+      "bytes": 409045,
+      "sha256": "85ad9b8c76af7cef45f45301e84eee36e120c99358175797957f4c4b8c48a4f6"
+    },
+    {
+      "path": "sources/slides/slide-64.xml",
+      "bytes": 4722,
+      "sha256": "d5d940381bbfff23593e17f2191901822d04e8631f4b3c59f6d5a62200a224ac"
+    },
+    {
+      "path": "sources/slides/slide-64.xml.rels",
+      "bytes": 598,
+      "sha256": "fb59afa0ae9f9be0f3c29a37203e9700fef0580ddfbfb52c8b37c25ab1056b53"
+    },
+    {
+      "path": "sources/slide-assets/slide-64-image83.png",
+      "bytes": 52895,
+      "sha256": "7dcb5f8fd6c6dcc416f57f2bb9522531441767656a0bfb3779ab756f817ce247"
+    },
+    {
+      "path": "sources/slides/slide-65.xml",
+      "bytes": 7339,
+      "sha256": "9f13d7556ef23b13459611d716bdaeb2a2e35dbaa409fff4d65f05589287ab2e"
+    },
+    {
+      "path": "sources/slides/slide-65.xml.rels",
+      "bytes": 462,
+      "sha256": "3ec1d9b2afc855db494b7a58f44691d59095950e75d8fd1b530d7ba10118ffb7"
+    },
+    {
+      "path": "sources/slides/slide-66.xml",
+      "bytes": 12407,
+      "sha256": "6c28bb1bf885f94e6fe4ffd9cb7ade9036d84e6eca6f4efb500d53df48d99bfe"
+    },
+    {
+      "path": "sources/slides/slide-66.xml.rels",
+      "bytes": 918,
+      "sha256": "93184fd0d8dd15753ab747a71eb33c525d9209d265650c9d92409c4809fa3d0c"
+    },
+    {
+      "path": "sources/slide-assets/slide-66-image81.jpg",
+      "bytes": 36328,
+      "sha256": "cfa8e4321c4207890d83dadf5f0eda3a85b66e073d25d7e74a7a0dcda998b5f5"
+    },
+    {
+      "path": "sources/slide-assets/slide-66-image82.jpg",
+      "bytes": 15297,
+      "sha256": "4909f3f6c6c1cf7f98807db99ce213d6b757c690b32fce8fb4c0277b0eb26168"
+    },
+    {
+      "path": "sources/slides/slide-67.xml",
+      "bytes": 8125,
+      "sha256": "96b8a3fbe82065d23214b2ee7e6bf52ea8fccea8c05f3f3b2eafb64b50954ee0"
+    },
+    {
+      "path": "sources/slides/slide-67.xml.rels",
+      "bytes": 598,
+      "sha256": "3fd77bb02375727f8813220045f7db5273f2cef535940bce49307260461abf3f"
+    },
+    {
+      "path": "sources/slide-assets/slide-67-image84.png",
+      "bytes": 73512,
+      "sha256": "8b5192eea09656597187b87514181e8130de0c4487efaf62c045c49eb389ab54"
+    },
+    {
+      "path": "sources/slides/slide-68.xml",
+      "bytes": 7017,
+      "sha256": "0cf051dc6cd60de8af941e526cd38988476aeeb09bbc3cb02cfa90a6d05be94b"
+    },
+    {
+      "path": "sources/slides/slide-68.xml.rels",
+      "bytes": 735,
+      "sha256": "f1876a70ac3363d694e32afebca04156bb29cdd2272dba091f392040707c0dc0"
+    },
+    {
+      "path": "sources/slide-assets/slide-68-image104.png",
+      "bytes": 240136,
+      "sha256": "125eac36f028893426b3ca23f057d71f917f95cb039907b5f2f4c7ed3d0551f8"
+    },
+    {
+      "path": "sources/slide-assets/slide-68-image88.png",
+      "bytes": 576572,
+      "sha256": "ecd52b5a361ad081b1373e30b02af7176c860fbe77458c7d411ea73ae4423ef5"
+    },
+    {
+      "path": "sources/slides/slide-69.xml",
+      "bytes": 6225,
+      "sha256": "4c23e06fea1cd5cef39352c4b7a61c006215e9c00c3b669c9ade02f3aa005996"
+    },
+    {
+      "path": "sources/slides/slide-69.xml.rels",
+      "bytes": 870,
+      "sha256": "2f4552e3d6d2ea052d5440c36836459a12b12f729fd4fdc4af8df9bd3fff68b3"
+    },
+    {
+      "path": "sources/slide-assets/slide-69-image87.jpg",
+      "bytes": 41629,
+      "sha256": "d97a66220743c521994289bf93c238c887ebf6a276247188b2eb0ab64a75c248"
+    },
+    {
+      "path": "sources/slide-assets/slide-69-image96.jpg",
+      "bytes": 43128,
+      "sha256": "a78546eb8b6bcbec73e931b73e867996dc0a14844d21503d6ef6ab9b581be9bf"
+    },
+    {
+      "path": "sources/slide-assets/slide-69-image79.jpg",
+      "bytes": 37649,
+      "sha256": "7990bab2d2c80d2f9953c143a18499a6311dd8bd315409f2c2af99745f2f28f4"
+    },
+    {
+      "path": "sources/slides/slide-70.xml",
+      "bytes": 6043,
+      "sha256": "12481bfcf1f4b2134444d5169a3a7284ca36eb63d1887679a62a9d264fc865de"
+    },
+    {
+      "path": "sources/slides/slide-70.xml.rels",
+      "bytes": 734,
+      "sha256": "682ba1a7ffca973ed2f4e8206de5b65e1e4cea8d867f5a8393c915f296fb6d3a"
+    },
+    {
+      "path": "sources/slide-assets/slide-70-image85.jpg",
+      "bytes": 30523,
+      "sha256": "3860b07184243dc060e00a98d0d7e60342815212da1e9c6fd65da682a21a28da"
+    },
+    {
+      "path": "sources/slide-assets/slide-70-image90.jpg",
+      "bytes": 49998,
+      "sha256": "b3a119e9134d89e669830923b72356f90dda87928dca211f56b0a7b25815255d"
+    },
+    {
+      "path": "sources/slides/slide-71.xml",
+      "bytes": 6757,
+      "sha256": "7ead2eeae818a2c26fd539dd7e3b4198de4dbc10eeb458afa659d1da42b0c5a7"
+    },
+    {
+      "path": "sources/slides/slide-71.xml.rels",
+      "bytes": 598,
+      "sha256": "68b7bd4aee4777f621547ee3fce884a81f7f3e8b42ce65a6b102e49a9a7da860"
+    },
+    {
+      "path": "sources/slide-assets/slide-71-image91.jpg",
+      "bytes": 27346,
+      "sha256": "d551149628fa524a1ab4b91ab97c6a73cc5f06de960585632e9784b8a607d5cd"
+    },
+    {
+      "path": "sources/slides/slide-72.xml",
+      "bytes": 6809,
+      "sha256": "cbe92a571d30c1127636372e1010b7856d92b4fa2cd5c498883c4bf80424315b"
+    },
+    {
+      "path": "sources/slides/slide-72.xml.rels",
+      "bytes": 598,
+      "sha256": "dee54908e9b714ef28c3009413d51d7c1e0e37f709649874026116c63bff0abf"
+    },
+    {
+      "path": "sources/slide-assets/slide-72-image86.jpg",
+      "bytes": 13105,
+      "sha256": "64c1da6ac84cb1c9d52f1abae7d36d02847b1993309bc14418ecf08e1c11ddc9"
+    },
+    {
+      "path": "sources/slides/slide-73.xml",
+      "bytes": 8497,
+      "sha256": "096475e946aa9eec9ea0524b8f3a3dbc4f84356be586f6c12e26683e25513ed3"
+    },
+    {
+      "path": "sources/slides/slide-73.xml.rels",
+      "bytes": 462,
+      "sha256": "67bdc0842d723d195f3d966eec0c4578b3955d95868b44ca929f6350e842ae40"
+    },
+    {
+      "path": "sources/slides/slide-74.xml",
+      "bytes": 6261,
+      "sha256": "c698f2c4885e9e483ca7108eb2c102e19e601dc5fc674190d7e7212fa10f4925"
+    },
+    {
+      "path": "sources/slides/slide-74.xml.rels",
+      "bytes": 918,
+      "sha256": "6fa87f36070fb38c43d8692b9bc2c8f63d876062b358e1889f76038e1922899b"
+    },
+    {
+      "path": "sources/slide-assets/slide-74-image95.jpg",
+      "bytes": 35908,
+      "sha256": "0156a24b85aea4871b81610719f1ba8527c92f228f0810389d06b1cdae0405f5"
+    },
+    {
+      "path": "sources/slide-assets/slide-74-image94.jpg",
+      "bytes": 16442,
+      "sha256": "ea5a661252010b728c3404ef113af0465d9ebe5a60be36154860d9cb189f6583"
+    },
+    {
+      "path": "sources/slides/slide-75.xml",
+      "bytes": 4784,
+      "sha256": "00108d21b8d0b750b60d134b358c9af189e90ae9eecf73741109aedb1c4c17d6"
+    },
+    {
+      "path": "sources/slides/slide-75.xml.rels",
+      "bytes": 735,
+      "sha256": "13a0f50b4c7ab827e330194199395347c3f412ab9509ef79e8b924f276f2d007"
+    },
+    {
+      "path": "sources/slide-assets/slide-75-image92.jpg",
+      "bytes": 128773,
+      "sha256": "629f258962fa7e84d16ff01a5614fc3f1f01cd377f81c603c9ef1011ce375e67"
+    },
+    {
+      "path": "sources/slide-assets/slide-75-image100.jpg",
+      "bytes": 85001,
+      "sha256": "f00fe691b68b75e4eff380c5224021ae6055662135bd7f334855e7bba37740eb"
+    },
+    {
+      "path": "sources/slides/slide-76.xml",
+      "bytes": 1722,
+      "sha256": "a30670d8107a8adc4263f3866106998755d2a257f8bac742f7f36cd40ab73e3c"
+    },
+    {
+      "path": "sources/slides/slide-76.xml.rels",
+      "bytes": 598,
+      "sha256": "aa4aeb7d5c3177c638c4f29d7775a340952ee0ed689c50cd515561a9dc98fdce"
+    },
+    {
+      "path": "sources/slide-assets/slide-76-image97.png",
+      "bytes": 427135,
+      "sha256": "c26a710893df656fb1ec19156422cb93b261c0195b018d3bd13d447cbf1c6b36"
+    },
+    {
+      "path": "sources/slides/slide-77.xml",
+      "bytes": 4867,
+      "sha256": "72c03e3ee8d95815d4011d3035ec35d5f6e2e4eaf7e8a39d99bf9e68fcd68852"
+    },
+    {
+      "path": "sources/slides/slide-77.xml.rels",
+      "bytes": 598,
+      "sha256": "70b5e817138e0764102956fee8f30de8c8febbd33ca42c9eebaa66f03d5207a7"
+    },
+    {
+      "path": "sources/slide-assets/slide-77-image93.png",
+      "bytes": 318133,
+      "sha256": "3970945937c42dbc7794a9387b57a78e9453c21f23a009092c4d93215c1032f9"
+    },
+    {
+      "path": "sources/slides/slide-78.xml",
+      "bytes": 6445,
+      "sha256": "25664bc870c69049019e487c9e04e6a815ec2daa290369fca3e6d4092b923def"
+    },
+    {
+      "path": "sources/slides/slide-78.xml.rels",
+      "bytes": 735,
+      "sha256": "51175b15719c6a415430f2cf5d7680d1b6602e0aabf35c651e5be3c5d2b56f86"
+    },
+    {
+      "path": "sources/slide-assets/slide-78-image102.png",
+      "bytes": 271682,
+      "sha256": "918e826f357dab3f57148e7d9e1e6bcd6d22c73f77d7cc86127ea9cc11ef147d"
+    },
+    {
+      "path": "sources/slide-assets/slide-78-image99.png",
+      "bytes": 1565,
+      "sha256": "e23b64dc78f21da875aa50bf58163f3975d8dbb2e5d0c3cdf255e9a79b0c904f"
+    },
+    {
+      "path": "sources/slides/slide-79.xml",
+      "bytes": 4974,
+      "sha256": "57fb1f73ce8aa8f0071f53ad4975986fc4c10b998b97b9732fc06c0d7e38b25e"
+    },
+    {
+      "path": "sources/slides/slide-79.xml.rels",
+      "bytes": 735,
+      "sha256": "ad953bacb163b07f3c200ade56eb0b7e926fd13fbddf7c56d79ded121db480e8"
+    },
+    {
+      "path": "sources/slide-assets/slide-79-image101.png",
+      "bytes": 282344,
+      "sha256": "a259481eebdc156748efe92a497425131826547e0dafe1ad2c33fa5f242d7d89"
+    },
+    {
+      "path": "sources/slide-assets/slide-79-image99.png",
+      "bytes": 1565,
+      "sha256": "e23b64dc78f21da875aa50bf58163f3975d8dbb2e5d0c3cdf255e9a79b0c904f"
+    },
+    {
+      "path": "sources/ACTUAL_TEACHER_SLIDES.json",
+      "bytes": 59424,
+      "sha256": "1600262affe17f431f24e60d6bccfb5235d9fdecaec8a620afd3d0a56aa90cd4"
+    },
+    {
+      "path": "sources/All daily plan.zip",
+      "bytes": 58984,
+      "sha256": "8d4a3fe57e938ab45318ce2b140055559f87fc36553ce34839ef0ca52a615f10"
+    },
+    {
+      "path": "standards/Course_Production_Standards_v0.4.txt",
+      "bytes": 65442,
+      "sha256": "db8a04bcd7620d9ecf64ec6dc86c046cb3075b9b09cc51dac41936c391379e1e"
+    },
+    {
+      "path": "standards/accepted-ch17-method/BENCHMARK_STATUS_AND_ACCEPTANCE.json",
+      "bytes": 1971,
+      "sha256": "becf8ac84525a589cbe903b4d774472aaf76b937d5c74e025e0813b83fa98c31"
+    },
+    {
+      "path": "standards/accepted-ch17-method/lesson-06.html",
+      "bytes": 43821,
+      "sha256": "44004f8f3beb34119ca276b184a614bf4b098238b802555119964a29bc400c18"
+    },
+    {
+      "path": "standards/accepted-ch17-method/lesson-06.txt",
+      "bytes": 26246,
+      "sha256": "17b9d45520ff70fdabb68e6dafd1a4a432e37fa737a3fee8928a64033f990a54"
+    },
+    {
+      "path": "standards/accepted-ch17-method/lesson-07.html",
+      "bytes": 44942,
+      "sha256": "f0c0a0bb78f7fee7d021d4364281b2d17bd39ef22f0e3772104eb01ce5507608"
+    },
+    {
+      "path": "standards/accepted-ch17-method/lesson-07.txt",
+      "bytes": 27429,
+      "sha256": "757ec71c95b8d6bc385aafa06178b575f4a971b796e2946b53d7dd58f86a2998"
+    },
+    {
+      "path": "sources/SOURCE_BINDING.json",
+      "bytes": 1798,
+      "sha256": "9f65f614068004cfd29d43067b7c2e7452e33df188bcd940b26c45ef42a78373"
+    },
+    {
+      "path": "START_HERE.md",
+      "bytes": 4602,
+      "sha256": "e31c978b93463fbeb5ba16df97117c811f411fcc30d813eaedb14c4f8233020a"
+    }
+  ],
+  "role": "Source-only author handoff; no new learner teaching",
+  "reviewStatus": "Export integrity verified, sources/pixels/tasks not freshly reviewed"
+}

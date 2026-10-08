@@ -1,0 +1,64 @@
+{
+  "manifest": {
+    "schemaVersion": 1,
+    "chapter": 18,
+    "originalName": "Biology30_CH18_Chapter_Sized_Source_Handoff_v0.1.0.zip",
+    "originalBytes": 64905239,
+    "originalSha256": "d7734137bc9b1d9c8cd3d59b78120e47e2ee8c984e8d74f3f13d192ba8c3fef7",
+    "parts": [
+      {
+        "order": 1,
+        "archive": "Biology30_CH18_Source_Part01_of04.zip",
+        "payload": "archive.part01",
+        "bytes": 18000000,
+        "sha256": "ac99820503aec4d7c3e9ce9d88065c1969d7ddda765e6bd32770d336d37c77c4"
+      },
+      {
+        "order": 2,
+        "archive": "Biology30_CH18_Source_Part02_of04.zip",
+        "payload": "archive.part02",
+        "bytes": 18000000,
+        "sha256": "9298f61f311f775ba0f25f99aa5373de2410d2903455d8c4047e9788ece09626"
+      },
+      {
+        "order": 3,
+        "archive": "Biology30_CH18_Source_Part03_of04.zip",
+        "payload": "archive.part03",
+        "bytes": 18000000,
+        "sha256": "060fa3cb260987ea8ee195fd9453f22f9397f22a9ad08f47f5937e94d60b0bff"
+      },
+      {
+        "order": 4,
+        "archive": "Biology30_CH18_Source_Part04_of04.zip",
+        "payload": "archive.part04",
+        "bytes": 10905239,
+        "sha256": "510299ca92593eeff49b85f72f4be193d63a2240e0e520956fa9820e963f06a8"
+      }
+    ],
+    "role": "source handoff only; not runnable course or authoring approval"
+  },
+  "archives": [
+    {
+      "file": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-chapter-18/meta/teaching-overhaul/2026-10-08-teacher-led/chapter-sized-authoring-v0.1.0/scout-parts/Biology30_CH18_Source_Part01_of04.zip",
+      "bytes": 18002231,
+      "sha256": "d37202ed0cb6fea7e339272ca2194bed4bc09b2bd37628ca30d84c7c4b72cf64"
+    },
+    {
+      "file": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-chapter-18/meta/teaching-overhaul/2026-10-08-teacher-led/chapter-sized-authoring-v0.1.0/scout-parts/Biology30_CH18_Source_Part02_of04.zip",
+      "bytes": 18002231,
+      "sha256": "6958b43578475462e17d3cbaed9a423005b7f3304f05b3d0f356cc496c1907b9"
+    },
+    {
+      "file": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-chapter-18/meta/teaching-overhaul/2026-10-08-teacher-led/chapter-sized-authoring-v0.1.0/scout-parts/Biology30_CH18_Source_Part03_of04.zip",
+      "bytes": 18002231,
+      "sha256": "55d83522db0bb0fa5951103ce3d0bc5309d16cb098fef83516085315d7d53492"
+    },
+    {
+      "file": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-chapter-18/meta/teaching-overhaul/2026-10-08-teacher-led/chapter-sized-authoring-v0.1.0/scout-parts/Biology30_CH18_Source_Part04_of04.zip",
+      "bytes": 10907470,
+      "sha256": "82a74afe265817f8795324db3b1b4b7f16a13b4f1c6e25fa2c69ab92e379bc9b"
+    }
+  ],
+  "reconstructionVerified": true,
+  "uploaded": false
+}

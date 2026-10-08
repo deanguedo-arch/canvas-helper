@@ -1,0 +1,9 @@
+# Visible teaching-to-task preparation
+
+01requiredMC1/writing2,multiselect and term variants: teaching02 defines corresponding loci/alleles versus copying one chromosome, using exact rod/Xsource art; teaching01qualifies the one-DNA definition.01requiredMC2,guidedset count and coffee response: teaching03 explains n/2n, multiplication/division and4/8complete sets with labelled calculations; worked models type/pair/set separation.01writing1: teaching01distinguishes material, visibility/condensation and replication. Centromere MC and karyotype application: teaching02names region/attachment and limits of count/bands.
+
+02guidedS/count,requiredwriting1/2,sourceMC and sequence: teaching01phase order/sourcecycle; teaching02count boundary andDNAamount; worked tracks6→6replicatedchromosomes with12chromatids andnormaldaughter6.02requiredMC1/application: teaching03nuclei versus cytoplasmic separation andtwo-nuclei counterexample.02requiredMC2/stop: interphasework andboundedtime/snapshot explanation. Growth, maintenance, repair andsurface-area/volume support associated optional source questions without teaching the later mitotic-stage unit.
+
+Full review packet contains15local identities plus58native optional forms including32generated vocabulary, and8Frayerforms. Semantic native IDs are mapped to opaque reviewIDs to reduce answer-cue leakage; source/BLIND_TASK_ID_MAP is held until first answers are saved. Exact native templates/Frayerfields were read statically; no course execution.
+
+22optional textbook tasks have their original crop/full-page givens and complete sourcePDF. Their fresh source-assisted attempt is separate from the lesson-only first attempt. Source reading is legitimate learner support for those optional tasks; original answer/config/teacher keys remain withheld until attempts are saved. The22task count does not collapse multipart demands.

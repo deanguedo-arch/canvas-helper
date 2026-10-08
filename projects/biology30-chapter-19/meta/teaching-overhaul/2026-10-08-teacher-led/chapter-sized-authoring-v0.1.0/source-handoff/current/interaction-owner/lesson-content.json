@@ -1,0 +1,1839 @@
+{
+  "chapter": 19,
+  "title": "Genetic Diversity in Populations",
+  "first": 676,
+  "last": 701,
+  "lessons": [
+    {
+      "title": "Populations, gene pools and genetic variation",
+      "question": "What changes when a population evolves?",
+      "goal": "Define a gene pool and distinguish change in a population from change within an individual.",
+      "prior": "Individuals carry alleles. Inheritance passes alleles between generations, while population size can also change.",
+      "pages": [
+        678,
+        679
+      ],
+      "slides": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "terms": [
+        {
+          "term": "population",
+          "meaning": "Individuals of the same species occupying a defined area during a defined time.",
+          "example": "The breeding rabbits in a specified valley during one season form the study population.",
+          "importantDistinction": "A population boundary must be stated before counting frequencies.",
+          "misconception": "A population is every organism of every species in an ecosystem.",
+          "aliases": []
+        },
+        {
+          "term": "gene pool",
+          "meaning": "All the alleles present in the reproductive population being considered.",
+          "example": "A population contains several alleles at many different loci.",
+          "importantDistinction": "A gene pool describes a population, not only one individual’s genotype.",
+          "misconception": "A gene pool is the set of organs inside one organism.",
+          "aliases": []
+        },
+        {
+          "term": "genetic variation",
+          "meaning": "Differences in genetic information among individuals or lineages.",
+          "example": "Individuals carry different alleles at a pigment locus.",
+          "importantDistinction": "Not all phenotypic variation is genetic.",
+          "misconception": "Every visible difference must be caused by a different allele.",
+          "aliases": []
+        },
+        {
+          "term": "microevolution",
+          "meaning": "A change in allele frequencies in a population across generations.",
+          "example": "An allele’s proportion changes from 0.30 to 0.45 between sampled generations.",
+          "importantDistinction": "A larger population can retain the same allele frequencies.",
+          "misconception": "Any increase in population size is automatically an allele-frequency change.",
+          "aliases": []
+        }
+      ],
+      "sections": [
+        [
+          "Define the population you are studying",
+          [
+            "Population genetics studies the genetic composition of populations and how that composition changes. A population consists of individuals of the same species within a defined place and time. Those boundaries matter: counting one breeding colony is not the same as counting every colony across a continent.",
+            "The gene pool is the collection of alleles present in that population. An individual carries only part of the population’s variation. At an ordinary diploid autosomal locus, each individual contributes two allele copies."
+          ]
+        ],
+        [
+          "Track proportions across generations",
+          [
+            "Microevolution is a change in allele frequencies across generations. An allele frequency is its share of all allele copies at the locus. It is a proportion, not simply the number of individuals showing a trait.",
+            "Suppose a population doubles in size while every allele’s proportion stays the same. The number of copies increases, but the allele frequencies have not changed. Conversely, frequencies can change even if the total population size remains constant.",
+            "An individual’s body can grow, develop or adjust to conditions. Those changes are not themselves evidence that a population’s inherited allele frequencies have changed."
+          ]
+        ],
+        [
+          "Distinguish genetic and environmental differences",
+          [
+            "Genetic variation can influence phenotypes, but environment and gene regulation also matter. A plant grown in shade may differ from a genetically similar plant grown in bright light. That observation alone does not identify an allele-frequency change.",
+            "To study evolution at a locus, specify the alleles and measure or infer their frequencies with appropriate evidence. Later lessons explain when genotype counts permit direct counting and when a mathematical model is required.",
+            "Do not assume every genetic difference is advantageous, or that evolution always moves toward greater size or complexity. The mechanisms can include selection and chance."
+          ]
+        ]
+      ],
+      "worked": {
+        "title": "Count change versus frequency change",
+        "scenario": "A population grows from 100 to 200 diploid individuals. Allele A rises from 60 of 200 copies to 120 of 400 copies.",
+        "steps": [
+          "At the first sampling, A frequency is 60/200 = 0.30.",
+          "At the second, it is 120/400 = 0.30.",
+          "The number of A copies doubled but its proportion did not.",
+          "These measurements show no allele-frequency change at this locus over the interval."
+        ]
+      },
+      "guided": [
+        {
+          "prompt": "Which unit has a gene pool?",
+          "answer": "A population",
+          "wrong": [
+            "A single protein",
+            "One organelle only"
+          ],
+          "explanation": "A gene pool is a population-level collection of alleles.",
+          "cue": "Identify the level of biological organization."
+        },
+        {
+          "prompt": "Population size doubles while allele proportions stay equal. Has this alone shown microevolution at the locus?",
+          "answer": "No",
+          "wrong": [
+            "Yes, because all growth is evolution",
+            "Yes, because allele counts cannot rise"
+          ],
+          "explanation": "Microevolution is about frequencies, not count alone.",
+          "cue": "Compare the numerator with the denominator at both times."
+        }
+      ],
+      "check": [
+        {
+          "prompt": "Which observation directly indicates microevolution at a locus?",
+          "answer": "A change in allele frequency across generations",
+          "wrong": [
+            "One individual gains body mass",
+            "The same allele proportions occur in a larger sample",
+            "Plants differ in height after receiving different amounts of water"
+          ],
+          "explanation": "An inherited population proportion is the relevant quantity.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        },
+        {
+          "prompt": "Why must the population boundary be defined?",
+          "answer": "It determines which individuals and allele copies belong in the sample",
+          "wrong": [
+            "It makes all individuals genetically identical",
+            "It prevents any future mutation",
+            "It guarantees Hardy–Weinberg equilibrium"
+          ],
+          "explanation": "Frequencies depend on the population and sampling frame.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "writing": [
+        {
+          "prompt": "Use an example to distinguish an allele count from an allele frequency.",
+          "model": "If A occurs 20 times among 100 copies, its frequency is 0.20. If it later occurs 40 times among 200 copies, its count increased but frequency remains 0.20. Frequency compares copies with the relevant total.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        },
+        {
+          "prompt": "Explain why a change in an individual’s phenotype does not automatically demonstrate population evolution.",
+          "model": "Development or environmental conditions can change a phenotype without altering inherited allele frequencies. Population evolution must be evaluated across the defined population and generations, using evidence of changes in allele proportions.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        }
+      ],
+      "applications": [
+        {
+          "prompt": "A plant population’s mean height changes after fertilization of the soil, but no genetic data are supplied. What is justified?",
+          "answer": "An environmental explanation remains possible",
+          "wrong": [
+            "A new allele must have reached frequency 1",
+            "The population has definitely undergone genetic drift",
+            "Every short plant must have died"
+          ],
+          "explanation": "Phenotypic change does not alone establish an allele-frequency change.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "self": [
+        "Can population size remain constant while allele frequencies change?",
+        "Yes. The composition can change even when the total number does not."
+      ],
+      "sequence": null,
+      "anchors": [
+        "population",
+        "gene pool",
+        "genetic variation",
+        "microevolution"
+      ],
+      "figures": {}
+    },
+    {
+      "title": "Allele frequencies and genotype frequencies",
+      "question": "Why do allele calculations usually use twice as many copies as individuals?",
+      "goal": "Calculate genotype and allele frequencies directly from diploid genotype counts.",
+      "prior": "At a diploid autosomal locus, an individual carries two allele copies, even when both are the same.",
+      "pages": [
+        679,
+        682
+      ],
+      "slides": [
+        6,
+        7,
+        8
+      ],
+      "terms": [
+        {
+          "term": "genotype frequency",
+          "meaning": "The proportion of individuals with a specified genotype.",
+          "example": "Thirty AA individuals in a population of 100 give frequency 0.30.",
+          "importantDistinction": "Its denominator is the number of individuals sampled.",
+          "misconception": "Genotype frequency always divides by twice the population size.",
+          "aliases": []
+        },
+        {
+          "term": "allele frequency",
+          "meaning": "The proportion of allele copies represented by a particular allele at a locus.",
+          "example": "Twenty A copies among 50 copies give frequency 0.40.",
+          "importantDistinction": "For an ordinary diploid autosomal sample, the denominator is 2N.",
+          "misconception": "An AA individual contributes only one A copy.",
+          "aliases": []
+        },
+        {
+          "term": "heterozygote contribution",
+          "meaning": "The contribution of one copy of each allele from a heterozygous individual.",
+          "example": "Each Aa individual contributes one A and one a to the allele count.",
+          "importantDistinction": "Count both copies, not half an individual.",
+          "misconception": "A heterozygote contributes two dominant alleles.",
+          "aliases": []
+        },
+        {
+          "term": "frequency sum",
+          "meaning": "The requirement that mutually exclusive complete categories account for the whole sample.",
+          "example": "At a two-allele locus, p + q = 1.",
+          "importantDistinction": "The relevant categories and denominator must be consistent.",
+          "misconception": "Genotype frequencies and allele frequencies may be mixed in one sum without distinction.",
+          "aliases": []
+        }
+      ],
+      "sections": [
+        [
+          "Count individuals for genotype frequencies",
+          [
+            "Let N be the number of diploid individuals sampled at a two-allele autosomal locus. The possible genotypes are AA, Aa and aa. Genotype frequency is the number with one genotype divided by N.",
+            "For 30 AA, 50 Aa and 20 aa individuals, N = 100. The frequencies are 0.30, 0.50 and 0.20. They add to 1 because every sampled individual belongs to exactly one of these genotype categories."
+          ]
+        ],
+        [
+          "Count copies for allele frequencies",
+          [
+            "The same sample contains 2N = 200 allele copies. Each AA contributes two A copies, each Aa contributes one A and one a, and each aa contributes two a copies.",
+            "The A count is 2(30) + 50 = 110, so p = 110/200 = 0.55. The a count is 2(20) + 50 = 90, so q = 90/200 = 0.45. The allele frequencies also add to 1.",
+            "The general relationships are p = [2(AA) + Aa]/2N and q = [2(aa) + Aa]/2N, where the genotype symbols inside the brackets represent counts. Write units or category names beside the numbers so that individuals are not mistaken for allele copies."
+          ]
+        ],
+        [
+          "Direct counting does not need equilibrium",
+          [
+            "When all genotype counts are known, allele frequencies can be calculated directly. You do not need to assume Hardy–Weinberg equilibrium to count copies.",
+            "A recessive phenotype alone provides different information. Under a simple complete-dominance model, it identifies aa individuals but does not separate AA from Aa among dominant-phenotype individuals. Additional assumptions would be needed to infer all allele frequencies from that phenotype count alone.",
+            "Check every calculation: genotype counts total N, allele counts total 2N, and both sets of frequencies separately sum to 1."
+          ]
+        ]
+      ],
+      "worked": {
+        "title": "Use all genotype counts",
+        "scenario": "A sample has 40 AA, 40 Aa and 20 aa individuals. Find p and q.",
+        "steps": [
+          "Total individuals N = 100; total allele copies = 200.",
+          "A copies = 2(40) + 40 = 120, so p = 120/200 = 0.60.",
+          "a copies = 2(20) + 40 = 80, so q = 80/200 = 0.40.",
+          "Check: 0.60 + 0.40 = 1.",
+          "These are direct counts, not an inference from equilibrium."
+        ]
+      },
+      "guided": [
+        {
+          "prompt": "How many A copies do 12 AA individuals contribute?",
+          "answer": "24",
+          "wrong": [
+            "12",
+            "6"
+          ],
+          "explanation": "Each homozygote contributes two A copies.",
+          "cue": "Count copies per individual."
+        },
+        {
+          "prompt": "A sample has 50 diploid individuals. What is the allele-copy denominator at one autosomal locus?",
+          "answer": "100",
+          "wrong": [
+            "50",
+            "25"
+          ],
+          "explanation": "There are two copies per individual.",
+          "cue": "Multiply N by ploidy for the stated locus."
+        }
+      ],
+      "check": [
+        {
+          "prompt": "In 20 AA, 60 Aa and 20 aa individuals, what is p?",
+          "answer": "0.50",
+          "wrong": [
+            "0.20",
+            "0.60",
+            "0.80"
+          ],
+          "explanation": "A copies = 40 + 60 = 100 of 200.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        },
+        {
+          "prompt": "Which calculation is a genotype frequency?",
+          "answer": "Number of Aa individuals divided by N",
+          "wrong": [
+            "Number of A copies divided by 2N",
+            "Twice the number of AA plus the number of Aa",
+            "The square root of every observed proportion"
+          ],
+          "explanation": "Genotype frequency counts individuals in a genotype category.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "writing": [
+        {
+          "prompt": "Calculate genotype frequencies and allele frequencies for 25 AA, 50 Aa and 25 aa individuals. Explain the denominators.",
+          "model": "N = 100, giving genotype frequencies 0.25, 0.50 and 0.25. There are 200 allele copies. A copies = 50 + 50 = 100, and a copies = 50 + 50 = 100, giving p = q = 0.50. Genotypes use individuals; alleles use copies.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        },
+        {
+          "prompt": "Explain why directly known genotype counts do not require a Hardy–Weinberg assumption to determine p and q.",
+          "model": "Every genotype explicitly specifies its two allele copies. Summing those contributions yields the observed allele totals directly. Equilibrium becomes relevant when predicting genotype frequencies from alleles or inferring unobserved genotypes from limited phenotype information.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        }
+      ],
+      "applications": [
+        {
+          "prompt": "A sample contains 10 AA, 20 Aa and 20 aa individuals. What is the a frequency?",
+          "answer": "0.60",
+          "wrong": [
+            "0.40",
+            "0.20",
+            "0.80"
+          ],
+          "explanation": "a copies = 20 + 40 = 60 of 100.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "self": [
+        "Can the dominant phenotype always distinguish AA from Aa?",
+        "No. Under complete dominance, both can have the same phenotype."
+      ],
+      "sequence": null,
+      "anchors": [
+        "genotype frequency",
+        "allele frequency",
+        "heterozygote contribution",
+        "frequency sum"
+      ],
+      "figures": {
+        "0": "ch19-allele-counts"
+      }
+    },
+    {
+      "title": "The Hardy–Weinberg model and its assumptions",
+      "question": "What does a non-evolving reference model allow us to predict?",
+      "goal": "Explain the model’s conditions and distinguish allele totals from expected genotype frequencies.",
+      "prior": "For two alleles, p + q = 1 by definition. Direct allele counts are possible when genotypes are known.",
+      "pages": [
+        681,
+        684
+      ],
+      "slides": [
+        7,
+        8,
+        9,
+        10
+      ],
+      "terms": [
+        {
+          "term": "Hardy–Weinberg equilibrium",
+          "meaning": "A model in which allele frequencies remain constant and genotype frequencies follow p², 2pq and q² under stated conditions.",
+          "example": "A large randomly mating population with no selection, migration or mutation is the reference model.",
+          "importantDistinction": "The model is a baseline to test, not an automatic property of every population.",
+          "misconception": "Any population with a recessive phenotype must be in equilibrium.",
+          "aliases": []
+        },
+        {
+          "term": "random mating",
+          "meaning": "Mating that is independent of the genotype being considered.",
+          "example": "Gamete combinations can be modelled from allele frequencies without genotype-based mate preference.",
+          "importantDistinction": "Random mating at one locus does not mean every behaviour is random.",
+          "misconception": "Random mating means every pair produces an identical number and genotype of offspring.",
+          "aliases": []
+        },
+        {
+          "term": "p²",
+          "meaning": "The expected frequency of one homozygous genotype under a two-allele Hardy–Weinberg model.",
+          "example": "If p = 0.70, the expected AA frequency is 0.49.",
+          "importantDistinction": "It is an expected genotype frequency, not another allele frequency.",
+          "misconception": "p² is always the frequency of the A allele itself.",
+          "aliases": []
+        },
+        {
+          "term": "2pq",
+          "meaning": "The expected heterozygote frequency under the two-allele Hardy–Weinberg model.",
+          "example": "Aa can form from A then a or a then A.",
+          "importantDistinction": "The factor two counts the two ways to form a heterozygote.",
+          "misconception": "The heterozygote frequency is pq because only one parental direction is possible.",
+          "aliases": []
+        }
+      ],
+      "sections": [
+        [
+          "Start with the allele pool",
+          [
+            "At a locus with two alleles, let p be the frequency of A and q the frequency of a. Because these are the complete allele categories, p + q = 1. This identity does not require equilibrium.",
+            "If gametes combine randomly with those frequencies, AA has expected frequency p × p = p² and aa has q × q = q². A heterozygote can arise as A from one gamete and a from the other, or the reverse. Its total expected frequency is pq + qp = 2pq."
+          ]
+        ],
+        [
+          "Name the conditions rather than hiding them",
+          [
+            "The Hardy–Weinberg reference model assumes a very large population, random mating with respect to the locus, no mutation, no migration and no natural selection affecting the alleles or genotypes. A very large population minimizes chance fluctuations from sampling.",
+            "Under these idealized conditions, allele frequencies remain constant across generations and genotype proportions follow p² + 2pq + q² = 1. The model gives a baseline for asking whether observed data fit the prediction.",
+            "A real population need not satisfy every condition perfectly. A mismatch can suggest that assumptions need investigation, but the mismatch alone does not identify which mechanism caused it."
+          ]
+        ],
+        [
+          "Dominance is not the cause of frequency",
+          [
+            "The letters p and q can represent the two alleles whether or not one is dominant. In familiar complete-dominance problems, p often names the dominant allele and q the recessive allele. This notation does not make p larger than q.",
+            "Dominance determines the heterozygote’s phenotype. It does not determine the allele’s frequency or guarantee that the dominant allele is favoured by selection.",
+            "When only the recessive phenotype count is given, identifying q² and taking its square root requires the stated equilibrium and phenotype-model assumptions. Without them, do not silently infer the unobserved genotypes."
+          ]
+        ]
+      ],
+      "worked": {
+        "title": "Derive a heterozygote prediction",
+        "scenario": "At a two-allele locus, p = 0.70 and q = 0.30. Assume Hardy–Weinberg conditions.",
+        "steps": [
+          "AA expectation is 0.70 × 0.70 = 0.49.",
+          "aa expectation is 0.30 × 0.30 = 0.09.",
+          "Aa expectation is 2 × 0.70 × 0.30 = 0.42.",
+          "Check: 0.49 + 0.42 + 0.09 = 1.",
+          "These genotype predictions depend on the model, unlike the allele total p + q = 1."
+        ]
+      },
+      "guided": [
+        {
+          "prompt": "Why does heterozygote frequency contain a factor of two?",
+          "answer": "A and a can combine in two parental orders",
+          "wrong": [
+            "A heterozygote has four alleles",
+            "Dominant alleles are counted twice in every genotype"
+          ],
+          "explanation": "Both A/a and a/A combinations contribute.",
+          "cue": "Count the two ways gametes can combine."
+        },
+        {
+          "prompt": "Which relationship is a two-allele identity even without equilibrium?",
+          "answer": "p + q = 1",
+          "wrong": [
+            "Observed AA must equal p²",
+            "Observed Aa must always equal 2pq"
+          ],
+          "explanation": "The two allele proportions account for all copies.",
+          "cue": "Separate a category total from a model prediction."
+        }
+      ],
+      "check": [
+        {
+          "prompt": "Which population condition conflicts with the simplest Hardy–Weinberg assumptions?",
+          "answer": "Persistent genotype-dependent differences in reproductive success",
+          "wrong": [
+            "A very large population",
+            "No migration",
+            "Random mating at the locus"
+          ],
+          "explanation": "Genotype-dependent selection violates the no-selection condition.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        },
+        {
+          "prompt": "Can a dominant allele have frequency 0.10?",
+          "answer": "Yes; dominance and frequency describe different things",
+          "wrong": [
+            "No; a dominant allele must exceed 0.50",
+            "No; p is always exactly 1",
+            "Yes, but then all individuals must be homozygous"
+          ],
+          "explanation": "The heterozygote phenotype does not determine population prevalence.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "writing": [
+        {
+          "prompt": "Explain how p² + 2pq + q² is obtained from gamete frequencies.",
+          "model": "Random combination of A with frequency p and a with frequency q produces AA with p² and aa with q². Aa can form in two orders, each pq, giving 2pq. The three expected genotype categories sum to 1.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        },
+        {
+          "prompt": "List the five ideal conditions and explain why the model is useful even when real populations differ from it.",
+          "model": "The model assumes a very large population, random mating, no mutation, no migration and no selection. It creates a reference prediction. Comparing real observations with it can reveal a mismatch and guide investigation of assumptions without automatically identifying one cause.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        }
+      ],
+      "applications": [
+        {
+          "prompt": "Only the proportion of recessive-phenotype individuals is known, with no equilibrium statement. What is missing before inferring q by a square root?",
+          "answer": "Justification for the genotype-frequency model",
+          "wrong": [
+            "The colour of the counting sheet",
+            "A rule that recessive alleles are uncommon",
+            "The maximum possible adult body size"
+          ],
+          "explanation": "The observed recessive fraction is an aa frequency, but equating it with q² needs the model.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "self": [
+        "Does p² + 2pq + q² = 1 prove that a real population satisfies all five assumptions?",
+        "No. A calculation using the formula is not evidence that the assumptions hold."
+      ],
+      "sequence": null,
+      "anchors": [
+        "Hardy–Weinberg equilibrium",
+        "random mating",
+        "p²",
+        "2pq"
+      ],
+      "figures": {
+        "0": "ch19-hw-square"
+      }
+    },
+    {
+      "title": "Calculating expected genotype frequencies",
+      "question": "How do you move from a recessive phenotype count to expected carrier numbers?",
+      "goal": "Solve Hardy–Weinberg problems with explicit assumptions, separate quantities and reasonableness checks.",
+      "prior": "Under the stated model, recessive phenotype aa has frequency q², not q.",
+      "pages": [
+        683,
+        688
+      ],
+      "slides": [
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "terms": [
+        {
+          "term": "q²",
+          "meaning": "The expected aa genotype frequency under a two-allele Hardy–Weinberg model.",
+          "example": "If q is 0.40, q² is 0.16.",
+          "importantDistinction": "A recessive phenotype fraction can be used as q² only with the appropriate model.",
+          "misconception": "The recessive phenotype fraction always equals q directly.",
+          "aliases": []
+        },
+        {
+          "term": "carrier frequency",
+          "meaning": "The proportion of heterozygotes carrying a recessive allele in the stated model.",
+          "example": "For Hardy–Weinberg p = 0.60 and q = 0.40, carriers have frequency 0.48.",
+          "importantDistinction": "For this simple recessive model, carriers are heterozygotes, not all individuals with a.",
+          "misconception": "Every carrier is homozygous recessive.",
+          "aliases": []
+        },
+        {
+          "term": "expected count",
+          "meaning": "A model-predicted number obtained by multiplying a frequency by population size.",
+          "example": "A frequency of 0.48 in N = 200 gives 96 expected individuals.",
+          "importantDistinction": "Expected counts need not be exactly realized in a finite sample.",
+          "misconception": "An expected count guarantees the exact outcome in every sample.",
+          "aliases": []
+        },
+        {
+          "term": "square-root step",
+          "meaning": "Recovering q from q² when the Hardy–Weinberg assumptions apply.",
+          "example": "If q² = 0.09, q = 0.30.",
+          "importantDistinction": "Taking a square root is not the same as dividing the frequency by two.",
+          "misconception": "If q² is 0.16, q must be 0.08.",
+          "aliases": []
+        }
+      ],
+      "sections": [
+        [
+          "Identify the given quantity",
+          [
+            "Suppose a recessive phenotype occurs in 32 of 200 individuals and the problem explicitly assumes Hardy–Weinberg equilibrium with complete dominance. The observed aa fraction is 32/200 = 0.16, which is used as q².",
+            "Take the square root to obtain the recessive allele frequency: q = √0.16 = 0.40. Then p = 1 − q = 0.60. Do not call 0.16 the allele frequency; it describes individuals with two recessive copies."
+          ]
+        ],
+        [
+          "Predict genotypes and convert to counts",
+          [
+            "Use the allele frequencies to calculate the expected genotype frequencies: p² = 0.36, 2pq = 0.48 and q² = 0.16. These are the expected fractions of AA, Aa and aa individuals.",
+            "To obtain counts, multiply each frequency by N = 200. The expected numbers are 72 AA, 96 Aa and 32 aa. Check that the counts total 200 and the frequencies total 1.",
+            "The heterozygotes are carriers in this simple recessive model. The dominant-phenotype fraction includes AA and Aa together, so it is 0.36 + 0.48 = 0.84, not p alone."
+          ]
+        ],
+        [
+          "Keep precision until the final answer",
+          [
+            "Carry sufficient decimal precision through square roots and multiplication. Round the final expected number to an appropriate whole individual only after completing the calculation. Rounding q too early can noticeably change a carrier estimate.",
+            "If allele frequency is already given, start with that value instead of taking another square root. If all genotype counts are given, direct allele counting may be the appropriate first method.",
+            "A strong answer states the model, labels each quantity, shows the calculation and interprets the result. A bare number makes it difficult to see whether the correct denominator and assumption were used."
+          ]
+        ]
+      ],
+      "worked": {
+        "title": "Estimate carriers for a rare recessive condition",
+        "scenario": "In a hypothetical population at Hardy–Weinberg equilibrium, 1 in 10 000 individuals has a fully recessive phenotype.",
+        "steps": [
+          "q² = 1/10 000 = 0.0001.",
+          "q = √0.0001 = 0.01, so p = 0.99.",
+          "Carrier frequency = 2pq = 2(0.99)(0.01) = 0.0198.",
+          "As a percentage, this is 1.98%, not 0.0198%.",
+          "The inference depends on the stated model; it is not a personal medical-risk estimate."
+        ]
+      },
+      "guided": [
+        {
+          "prompt": "Under Hardy–Weinberg, q² = 0.25. What is q?",
+          "answer": "0.50",
+          "wrong": [
+            "0.25",
+            "0.125"
+          ],
+          "explanation": "The square root of 0.25 is 0.50.",
+          "cue": "You are moving from an aa frequency to an allele frequency."
+        },
+        {
+          "prompt": "If carrier frequency is 0.42 in N = 500, what is the expected count?",
+          "answer": "210",
+          "wrong": [
+            "42",
+            "21"
+          ],
+          "explanation": "Multiply 0.42 by 500.",
+          "cue": "Keep frequency and count distinct."
+        }
+      ],
+      "check": [
+        {
+          "prompt": "Under the model, 9% show the recessive phenotype. What is the carrier frequency?",
+          "answer": "42%",
+          "wrong": [
+            "9%",
+            "30%",
+            "49%"
+          ],
+          "explanation": "q = 0.30 and p = 0.70; 2pq = 0.42.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        },
+        {
+          "prompt": "If p = 0.80 is already given, what is the expected AA frequency?",
+          "answer": "0.64",
+          "wrong": [
+            "0.80",
+            "0.20",
+            "0.40"
+          ],
+          "explanation": "AA is p² = 0.80² = 0.64.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "writing": [
+        {
+          "prompt": "Assume Hardy–Weinberg equilibrium. In N = 400, 64 individuals have the recessive phenotype. Calculate p, q and the expected carrier count.",
+          "model": "q² = 64/400 = 0.16, so q = 0.40 and p = 0.60. Carrier frequency is 2(0.60)(0.40) = 0.48, giving 0.48 × 400 = 192 expected carriers. The inference uses the stated equilibrium and phenotype model.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        },
+        {
+          "prompt": "Explain why the dominant phenotype fraction is not generally p.",
+          "model": "p counts A allele copies among all allele copies. Under complete dominance, the dominant phenotype includes both AA and Aa individuals. Under Hardy–Weinberg its fraction is p² + 2pq, whereas p is an allele frequency.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        }
+      ],
+      "applications": [
+        {
+          "prompt": "Assume equilibrium with q = 0.20 and N = 250. How many aa individuals are expected?",
+          "answer": "10",
+          "wrong": [
+            "50",
+            "80",
+            "200"
+          ],
+          "explanation": "q² = 0.04; 0.04 × 250 = 10.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "self": [
+        "Should you automatically take a square root whenever q is mentioned?",
+        "No. Take it when the given quantity is q² and the model justifies that interpretation."
+      ],
+      "sequence": [
+        "Identify the observed or supplied quantity",
+        "State the equilibrium and phenotype assumptions",
+        "Determine p and q",
+        "Calculate expected genotype frequencies",
+        "Convert frequencies to counts if requested",
+        "Check totals and interpret the result"
+      ],
+      "anchors": [
+        "q²",
+        "carrier frequency",
+        "expected count",
+        "square-root step"
+      ],
+      "figures": {
+        "0": "ch19-hw-method"
+      }
+    },
+    {
+      "title": "Using population data to test a prediction",
+      "question": "How can the same allele frequencies produce different genotype patterns?",
+      "goal": "Compare observed and expected genotype counts without claiming that one mismatch identifies its cause.",
+      "prior": "Direct counts yield observed allele frequencies. The Hardy–Weinberg model predicts genotype proportions from those frequencies.",
+      "pages": [
+        685,
+        688
+      ],
+      "slides": [
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "terms": [
+        {
+          "term": "observed count",
+          "meaning": "A count actually supplied or measured in the sample.",
+          "example": "A sample contains 40 AA, 20 Aa and 40 aa individuals.",
+          "importantDistinction": "Observed and expected values must be kept separate.",
+          "misconception": "An observed count is whatever the formula predicts.",
+          "aliases": []
+        },
+        {
+          "term": "expected genotype distribution",
+          "meaning": "The genotype proportions predicted by the selected model.",
+          "example": "For p = q = 0.50, Hardy–Weinberg predicts 0.25 AA, 0.50 Aa and 0.25 aa.",
+          "importantDistinction": "A prediction can be compared with observations rather than substituted for them.",
+          "misconception": "Expected proportions must equal every observed sample exactly.",
+          "aliases": []
+        },
+        {
+          "term": "sampling variation",
+          "meaning": "Differences that arise because a finite sample does not reproduce population proportions perfectly.",
+          "example": "Two small samples can show different counts by chance.",
+          "importantDistinction": "A small mismatch is not automatically strong evidence of a specific mechanism.",
+          "misconception": "Every difference between samples proves natural selection.",
+          "aliases": []
+        },
+        {
+          "term": "model comparison",
+          "meaning": "Evaluation of how well observations fit a model’s predictions.",
+          "example": "Observed heterozygotes are compared with the expected 2pq fraction.",
+          "importantDistinction": "Agreement does not prove every assumption; mismatch does not identify one cause alone.",
+          "misconception": "A mismatch uniquely identifies mutation as the cause.",
+          "aliases": []
+        }
+      ],
+      "sections": [
+        [
+          "Calculate the observed allele pool first",
+          [
+            "Suppose a sample has 40 AA, 20 Aa and 40 aa individuals. There are 100 individuals and 200 allele copies. A copies total 80 + 20 = 100, so p = 0.50; q is also 0.50.",
+            "These allele frequencies are directly observed from genotype counts. Under Hardy–Weinberg, they predict 25 AA, 50 Aa and 25 aa individuals in a sample of 100. The observed sample contains fewer heterozygotes than that prediction."
+          ]
+        ],
+        [
+          "A genotype mismatch is not a unique explanation",
+          [
+            "A shortage of heterozygotes could be associated with non-random mating, population structure or other processes. The counts alone do not uniquely establish which mechanism acted. Sampling and measurement also need consideration.",
+            "Notice that the observed sample and the predicted distribution have the same p and q. Genotype proportions can differ while allele frequencies remain the same. Non-random mating can alter genotype proportions without necessarily changing allele frequencies by itself.",
+            "Keep two questions separate: do genotype proportions fit the random-mating model, and have allele frequencies changed across generations? They require related but different comparisons."
+          ]
+        ],
+        [
+          "Use consistent sampling and restrained conclusions",
+          [
+            "To compare generations, sample the same defined population and locus using comparable methods. A change in p or q supports allele-frequency change at that locus, but a different sampling location or age group can complicate interpretation.",
+            "Agreement with a prediction is not proof that every Hardy–Weinberg condition is perfectly satisfied. Opposing effects can sometimes balance, and finite samples have limited resolution. A visible mismatch is a reason to investigate, not permission to name a mechanism without evidence.",
+            "These activities use direct comparisons and arithmetic. Formal statistical testing may be useful in research, but no unsupported significance claim is needed here."
+          ]
+        ]
+      ],
+      "worked": {
+        "title": "Same alleles, different pairing",
+        "scenario": "Population A has 25 AA, 50 Aa and 25 aa individuals. Population B has 50 AA, 0 Aa and 50 aa.",
+        "steps": [
+          "Both populations have N = 100 and 200 allele copies.",
+          "Both contain 100 A and 100 a copies, so p = q = 0.50.",
+          "Population A matches the 1:2:1 genotype prediction for p = q = 0.50.",
+          "Population B has the same allele frequencies but no heterozygotes.",
+          "Allele totals alone do not establish random genotype pairing."
+        ]
+      },
+      "guided": [
+        {
+          "prompt": "For p = q = 0.50, what fraction of heterozygotes is expected under the model?",
+          "answer": "0.50",
+          "wrong": [
+            "0.25",
+            "1.00"
+          ],
+          "explanation": "2pq = 2 × 0.50 × 0.50 = 0.50.",
+          "cue": "Use the heterozygote expression."
+        },
+        {
+          "prompt": "A genotype mismatch alone tells you what?",
+          "answer": "The data do not exactly match the selected prediction",
+          "wrong": [
+            "Natural selection is uniquely proven",
+            "Mutation must be the only cause"
+          ],
+          "explanation": "More evidence is needed to identify a mechanism.",
+          "cue": "Separate detection of a mismatch from explaining it."
+        }
+      ],
+      "check": [
+        {
+          "prompt": "Can two populations have identical p and q but different genotype frequencies?",
+          "answer": "Yes; alleles can be paired differently among individuals",
+          "wrong": [
+            "No; allele frequencies uniquely determine observed genotypes without assumptions",
+            "Only if DNA has no bases",
+            "Only if both populations contain one individual"
+          ],
+          "explanation": "Random-mating assumptions connect allele frequencies with expected genotype proportions.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        },
+        {
+          "prompt": "Which comparison most directly evaluates allele-frequency change over time?",
+          "answer": "p and q from comparable samples of successive generations",
+          "wrong": [
+            "Only the number of organisms",
+            "Only adult body size",
+            "Only whether the dominant phenotype is visible"
+          ],
+          "explanation": "Microevolution concerns allele proportions across generations.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "writing": [
+        {
+          "prompt": "For 36 AA, 48 Aa and 16 aa individuals, find p and q and compare the genotype counts with Hardy–Weinberg expectations.",
+          "model": "A copies = 72 + 48 = 120 of 200, so p = 0.60 and q = 0.40. Expected frequencies are 0.36, 0.48 and 0.16, giving 36, 48 and 16 in N = 100. These observations match the prediction, but do not prove every assumption exactly holds.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        },
+        {
+          "prompt": "Explain why a heterozygote deficit does not by itself prove that allele frequencies changed between generations.",
+          "model": "A heterozygote deficit describes genotype pairing relative to a model. The same A and a copies can be distributed among more homozygotes without changing their total frequencies. To establish a temporal allele-frequency change, comparable allele estimates from generations are needed.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        }
+      ],
+      "applications": [
+        {
+          "prompt": "One sample is taken from one valley and a later sample from a different valley. Why is an apparent temporal change difficult to interpret?",
+          "answer": "Sampling different populations can confound the comparison",
+          "wrong": [
+            "Alleles have no frequencies in valleys",
+            "Only the second sample contains DNA",
+            "Genotype counts cannot ever be compared"
+          ],
+          "explanation": "Geographic population structure can differ from change within one population.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "self": [
+        "Does an exact model match prove that no evolutionary process operates anywhere in the genome?",
+        "No. It concerns the sampled locus and conditions, not every locus or mechanism."
+      ],
+      "sequence": null,
+      "anchors": [
+        "observed count",
+        "expected genotype distribution",
+        "sampling variation",
+        "model comparison"
+      ],
+      "figures": {
+        "0": "ch19-observed-expected"
+      }
+    },
+    {
+      "title": "Natural selection and non-random mating",
+      "question": "How do survival and mating success affect inherited variation?",
+      "goal": "Explain selection through differential reproductive success and distinguish it from mate-pairing effects.",
+      "prior": "Allele frequency describes copies in a population. A phenotype can affect survival or reproduction in a particular environment.",
+      "pages": [
+        689,
+        692
+      ],
+      "slides": [
+        21,
+        22,
+        23
+      ],
+      "terms": [
+        {
+          "term": "natural selection",
+          "meaning": "Differential reproductive success associated with heritable variation in a particular environment.",
+          "example": "A heritable resistance trait improves survival and subsequent reproduction under a specific challenge.",
+          "importantDistinction": "The environment influences which variants contribute more descendants.",
+          "misconception": "Selection gives organisms the exact new mutation they need.",
+          "aliases": []
+        },
+        {
+          "term": "relative fitness",
+          "meaning": "Reproductive contribution compared with other genotypes or phenotypes in the relevant setting.",
+          "example": "One genotype leaves more surviving reproductive descendants under the stated conditions.",
+          "importantDistinction": "Fitness is not simply physical strength or long life.",
+          "misconception": "The largest individual must always have the highest fitness.",
+          "aliases": []
+        },
+        {
+          "term": "sexual selection",
+          "meaning": "Selection associated with differences in mating success.",
+          "example": "A heritable courtship trait affects the probability of obtaining mates.",
+          "importantDistinction": "A mating advantage can occur even when a trait has survival costs.",
+          "misconception": "A sexually selected trait must always improve survival in every environment.",
+          "aliases": []
+        },
+        {
+          "term": "non-random mating",
+          "meaning": "Mating patterns that depend on characteristics related to the genotype being studied.",
+          "example": "Individuals preferentially mate with others having a similar phenotype.",
+          "importantDistinction": "It can alter genotype proportions without automatically changing allele frequencies by itself.",
+          "misconception": "Non-random pairing must always change p and q immediately.",
+          "aliases": []
+        }
+      ],
+      "sections": [
+        [
+          "Follow reproduction, not intention",
+          [
+            "Individuals vary, and some variation is heritable. If a heritable trait affects survival or reproduction, the associated alleles may be represented differently in the next generation. Natural selection describes that differential reproductive contribution.",
+            "The environment matters. A trait advantageous in one setting may have little benefit or a cost elsewhere. Fitness therefore refers to contribution to future generations in context, not simply strength, speed or size.",
+            "Selection does not make an organism deliberately produce a needed mutation. Variation must exist or arise independently before its consequences can affect reproductive success."
+          ]
+        ],
+        [
+          "Distinguish survival from mating success",
+          [
+            "A trait can increase survival but reduce mating opportunities, or increase mating success while imposing a survival cost. Sexual selection focuses on differences in obtaining mates and reproducing.",
+            "For example, a conspicuous display might attract mates while also increasing exposure to predators. The overall evolutionary effect depends on the balance of reproductive consequences, not on whether the display appears efficient to an observer.",
+            "A claim that selection occurred needs evidence relating heritable differences to reproductive outcomes. A change in frequency alone can also arise through chance or movement between populations."
+          ]
+        ],
+        [
+          "Pairing patterns and allele totals are different",
+          [
+            "Non-random mating changes who pairs with whom. It can change genotype frequencies, such as increasing homozygosity, without directly changing allele frequencies if all alleles retain the same overall reproductive contribution.",
+            "Sexual selection and non-random mating are related but not identical statements. When mating success differs, some individuals contribute more offspring. When only pairing patterns differ, allele totals need not immediately change.",
+            "Use the information in the case to identify what varies: pairing, survival, number of offspring, or several together."
+          ]
+        ]
+      ],
+      "worked": {
+        "title": "A mating advantage with a survival cost",
+        "scenario": "A hypothetical heritable display makes males more visible to predators but substantially increases successful mating.",
+        "steps": [
+          "The survival effect is a possible cost.",
+          "The mating effect is a possible advantage.",
+          "Assess overall reproductive contribution rather than judging only survival.",
+          "If display-associated variants contribute more descendants, sexual selection can favour them.",
+          "The conclusion depends on measured reproductive outcomes in the stated environment."
+        ]
+      },
+      "guided": [
+        {
+          "prompt": "Which measure best reflects evolutionary fitness?",
+          "answer": "Relative contribution to future generations",
+          "wrong": [
+            "Body mass alone",
+            "Age alone"
+          ],
+          "explanation": "Fitness concerns reproductive contribution.",
+          "cue": "Ask which variants leave descendants."
+        },
+        {
+          "prompt": "Does non-random pairing always change allele frequencies by itself?",
+          "answer": "No",
+          "wrong": [
+            "Yes, by definition in every case",
+            "Only because dominant alleles disappear"
+          ],
+          "explanation": "Pairing can change genotype proportions without changing allele totals.",
+          "cue": "Distinguish distribution among genotypes from total copies."
+        }
+      ],
+      "check": [
+        {
+          "prompt": "A resistant variant already exists before an antibiotic challenge. Its descendants become more common. Which explanation is appropriate?",
+          "answer": "Selection favoured existing resistant variation",
+          "wrong": [
+            "The antibiotic intentionally created the needed allele in each cell",
+            "All individuals changed their genotype because they needed to",
+            "Dominance alone caused the population change"
+          ],
+          "explanation": "Differential survival and reproduction can change representation of existing variants.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        },
+        {
+          "prompt": "Which evidence most strongly distinguishes selection from pure chance in a case?",
+          "answer": "A repeatable association between a heritable trait and reproductive success",
+          "wrong": [
+            "Only that population size is small",
+            "Only that a rare allele exists",
+            "Only a single frequency change without trait information"
+          ],
+          "explanation": "Trait-linked reproductive differences support selection.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "writing": [
+        {
+          "prompt": "Explain natural selection using variation, heritability and reproductive success.",
+          "model": "Individuals differ, some differences are heritable, and those differences can affect how many descendants contribute to later generations. Alleles associated with higher reproductive contribution can increase in frequency in the relevant environment. Selection does not generate directed needed mutations.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        },
+        {
+          "prompt": "Explain why a trait with a survival cost can still be favoured through sexual selection.",
+          "model": "If the trait increases mating success enough to increase total reproductive contribution despite a survival cost, associated alleles may become more common. Survival alone is not the complete measure of fitness.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        }
+      ],
+      "applications": [
+        {
+          "prompt": "Individuals mate preferentially with similar genotypes, but all genotypes make equal overall allele contributions. Which immediate effect is possible?",
+          "answer": "Changed genotype proportions without changed allele frequencies",
+          "wrong": [
+            "Guaranteed loss of every recessive allele",
+            "A new allele created at each mating",
+            "No possible effect on genotype frequencies"
+          ],
+          "explanation": "Non-random pairing can redistribute existing alleles among genotypes.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "self": [
+        "Does dominant mean selectively advantageous?",
+        "No. Dominance describes the heterozygote phenotype, while advantage depends on reproductive consequences."
+      ],
+      "sequence": null,
+      "anchors": [
+        "natural selection",
+        "relative fitness",
+        "sexual selection",
+        "non-random mating"
+      ],
+      "figures": {}
+    },
+    {
+      "title": "Genetic drift, bottlenecks and founder effects",
+      "question": "How can an allele become common without providing an advantage?",
+      "goal": "Distinguish chance sampling from selection and compare bottleneck and founder cases.",
+      "prior": "Finite populations pass on only a sample of existing allele copies in each generation.",
+      "pages": [
+        691,
+        694
+      ],
+      "slides": [
+        24,
+        25,
+        26,
+        27
+      ],
+      "terms": [
+        {
+          "term": "genetic drift",
+          "meaning": "Random change in allele frequencies caused by chance sampling in finite populations.",
+          "example": "By chance, carriers of one allele leave fewer descendants in a small population.",
+          "importantDistinction": "Drift does not require the allele to affect survival or mating success.",
+          "misconception": "Every frequency increase proves the allele is beneficial.",
+          "aliases": []
+        },
+        {
+          "term": "bottleneck effect",
+          "meaning": "A change in genetic composition associated with a sharp reduction in population size.",
+          "example": "A small surviving subset carries only part of the earlier variation.",
+          "importantDistinction": "A demographic recovery does not automatically restore lost alleles.",
+          "misconception": "Returning to the original population size automatically restores every lost allele.",
+          "aliases": []
+        },
+        {
+          "term": "founder effect",
+          "meaning": "A change in allele representation when a small subset establishes a new population.",
+          "example": "A few colonists carry frequencies different from the source population by chance.",
+          "importantDistinction": "The original large population need not be destroyed.",
+          "misconception": "Founder effects require the original population to go extinct.",
+          "aliases": []
+        },
+        {
+          "term": "allele fixation",
+          "meaning": "An allele reaching frequency 1 at the locus in the population considered.",
+          "example": "Only A remains among sampled reproductive copies.",
+          "importantDistinction": "Fixation describes the locus and population, not the absence of variation everywhere.",
+          "misconception": "Fixation of one allele means every gene in the species is identical.",
+          "aliases": []
+        }
+      ],
+      "sections": [
+        [
+          "Chance can change the sample",
+          [
+            "Not every individual leaves the same number of descendants. In a finite population, chance differences can change allele frequencies even when the alleles have no effect on survival or reproduction. This is genetic drift.",
+            "Drift has a stronger relative effect in small populations because a small number of births, deaths or reproductive events can represent a large fraction of the gene pool. An allele may be lost or become fixed by chance.",
+            "A useful distinction is whether the case links reproductive success with a heritable trait. Trait-related differences support selection; random sampling independent of the trait supports drift. Both processes can operate together."
+          ]
+        ],
+        [
+          "A bottleneck samples the original population",
+          [
+            "A bottleneck occurs when population size falls sharply. The survivors may carry a smaller and unrepresentative sample of the earlier alleles. If the reduction is random with respect to a studied allele, drift can strongly change that allele’s frequency.",
+            "If the population later increases, descendants reproduce the variation that survived. Recovery in numbers does not automatically bring back alleles that were lost. Mutation or gene flow might introduce variation later, but population growth alone does not guarantee restoration."
+          ]
+        ],
+        [
+          "Founders establish a new gene pool",
+          [
+            "A founder effect occurs when a small group starts a new population. The founders may carry allele frequencies different from those of the source population simply because they are a small sample.",
+            "The source population can remain large and intact. That separates the founder case from a bottleneck that reduces an existing population. Both involve sampling, but the demographic history differs.",
+            "Do not infer that a newly common allele must be adaptive. A small island population can have unusual allele frequencies because of its founders even before evidence of local selection is available."
+          ]
+        ]
+      ],
+      "worked": {
+        "title": "Name the demographic event",
+        "scenario": "Five individuals leave a large population to establish an isolated colony. By chance, they carry an uncommon allele at a high frequency.",
+        "steps": [
+          "The original population remains large.",
+          "The new population begins from a small sample of its allele pool.",
+          "This is a founder effect, a form of genetic drift.",
+          "No selective advantage is needed to explain the initial frequency difference."
+        ]
+      },
+      "guided": [
+        {
+          "prompt": "Which population is generally more affected by chance sampling?",
+          "answer": "A small population",
+          "wrong": [
+            "An infinitely large population",
+            "Only populations without DNA"
+          ],
+          "explanation": "Individual reproductive events have larger proportional effects in small populations.",
+          "cue": "Compare one event with the size of the whole pool."
+        },
+        {
+          "prompt": "After a bottleneck, population size recovers. Must every lost allele return?",
+          "answer": "No",
+          "wrong": [
+            "Yes, because size determines every allele",
+            "Yes, because mitosis creates all missing variants"
+          ],
+          "explanation": "Growth copies surviving variation rather than reconstructing all earlier alleles.",
+          "cue": "Separate demographic recovery from genetic recovery."
+        }
+      ],
+      "check": [
+        {
+          "prompt": "Which example best fits a bottleneck?",
+          "answer": "A large population is reduced to a small surviving subset",
+          "wrong": [
+            "A few colonists establish a new population while the original remains large",
+            "All individuals mate randomly in an infinite population",
+            "An allele increases because it consistently improves mating success"
+          ],
+          "explanation": "A bottleneck is a sharp reduction of an existing population.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        },
+        {
+          "prompt": "An allele becomes common after random deaths unrelated to its phenotype. Which mechanism is supported?",
+          "answer": "Genetic drift",
+          "wrong": [
+            "Directed mutation",
+            "Sexual selection necessarily",
+            "Independent assortment alone guarantees it"
+          ],
+          "explanation": "The event samples allele copies by chance rather than trait advantage.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "writing": [
+        {
+          "prompt": "Compare founder and bottleneck effects using the history of the populations involved.",
+          "model": "A founder effect begins a new population from a small subset while the source may remain intact. A bottleneck reduces an existing population to a small survivor group. Both can change frequencies and reduce variation through chance sampling.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        },
+        {
+          "prompt": "Explain why allele-frequency increase does not alone prove natural selection.",
+          "model": "Drift can raise an allele’s frequency by chance, and gene flow can introduce copies. To specifically support selection, evidence should connect heritable variation with differential reproductive success rather than only documenting a frequency change.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        }
+      ],
+      "applications": [
+        {
+          "prompt": "A neutral allele disappears from a small isolated population over generations. What conclusion is supported?",
+          "answer": "Drift is a plausible explanation without a selective disadvantage",
+          "wrong": [
+            "The allele must have been harmful",
+            "The population must have stopped reproducing",
+            "All loci must now be fixed"
+          ],
+          "explanation": "Chance sampling can eliminate neutral alleles in finite populations.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "self": [
+        "Does fixation at one locus prove that every individual is identical across the whole genome?",
+        "No. Other loci can still vary."
+      ],
+      "sequence": null,
+      "anchors": [
+        "genetic drift",
+        "bottleneck effect",
+        "founder effect",
+        "allele fixation"
+      ],
+      "figures": {
+        "0": "ch19-drift"
+      }
+    },
+    {
+      "title": "Gene flow and mutation",
+      "question": "How do alleles enter a population or arise for the first time?",
+      "goal": "Distinguish movement of existing alleles from the creation of new sequence variants.",
+      "prior": "A founder event samples a source population. Continued movement and new mutations can also alter genetic composition.",
+      "pages": [
+        694,
+        697
+      ],
+      "slides": [
+        28,
+        29,
+        30
+      ],
+      "terms": [
+        {
+          "term": "gene flow",
+          "meaning": "Transfer of alleles between populations through successful genetic contribution.",
+          "example": "Migrants reproduce in another population, introducing allele copies.",
+          "importantDistinction": "Movement without reproduction does not necessarily change the next generation’s gene pool.",
+          "misconception": "Every visit by an individual is automatically inherited gene flow.",
+          "aliases": []
+        },
+        {
+          "term": "mutation input",
+          "meaning": "The introduction of new sequence variants through mutation.",
+          "example": "A heritable DNA change creates an allele not previously present at that locus.",
+          "importantDistinction": "Mutation is a source of new alleles; selection acts on their consequences.",
+          "misconception": "All mutations arise because they are needed.",
+          "aliases": []
+        },
+        {
+          "term": "genetic connectivity",
+          "meaning": "The degree to which populations exchange genetic contributions.",
+          "example": "Reproductive movement connects two habitat patches.",
+          "importantDistinction": "Physical connection is not the same as demonstrated successful gene flow.",
+          "misconception": "A visible corridor proves every population exchanges alleles equally.",
+          "aliases": []
+        },
+        {
+          "term": "population differentiation",
+          "meaning": "Differences in genetic composition among populations.",
+          "example": "Two isolated populations have different allele frequencies.",
+          "importantDistinction": "Gene flow can reduce differences, while isolation can allow them to increase.",
+          "misconception": "All separated populations must immediately have identical frequencies.",
+          "aliases": []
+        }
+      ],
+      "sections": [
+        [
+          "Track successful contributions, not movement alone",
+          [
+            "Gene flow transfers alleles between populations. It can occur when individuals migrate and reproduce, or when gametes such as pollen move between populations. The important event is a genetic contribution to the recipient population.",
+            "An animal passing through a habitat without reproducing does not necessarily alter the next generation’s allele pool. Movement can create an opportunity, but successful reproduction connects that movement with inherited change."
+          ]
+        ],
+        [
+          "Combine copies with the correct weights",
+          [
+            "Suppose 80 resident diploid breeders have A frequency 0.25 and 20 immigrant breeders have A frequency 0.75. If all contribute equally, residents supply 160 copies including 40 A; immigrants supply 40 copies including 30 A. The combined frequency is 70/200 = 0.35.",
+            "Do not take a simple average of 0.25 and 0.75 when the groups differ in size. Weight each frequency by the number of allele copies contributed. The equal-contribution assumption also matters: different reproductive success would change the weights.",
+            "Gene flow can add variation within a population and reduce genetic differences between populations, although the actual effect depends on their starting allele pools and contributions."
+          ]
+        ],
+        [
+          "Mutation supplies new variants",
+          [
+            "Mutation changes DNA sequence and can create new alleles. A heritable mutation must enter the reproductive lineage to affect later generations. Many mutations have little effect in a particular setting; others can be harmful or beneficial.",
+            "Mutation and selection play different roles. Mutation generates sequence differences without knowing future need. Selection can favour or remove variants according to their reproductive consequences. Drift can also alter their frequencies, especially when a new variant is rare.",
+            "Isolation and habitat fragmentation can reduce opportunities for gene flow. A conservation argument about connectivity should therefore look for movement, successful reproduction and genetic evidence rather than assuming that a structure’s presence proves its effect."
+          ]
+        ]
+      ],
+      "worked": {
+        "title": "Weight two contributing groups",
+        "scenario": "A recipient population has 60 breeders at p = 0.20. Forty immigrants have p = 0.70. Assume equal contribution per diploid breeder.",
+        "steps": [
+          "Residents contribute 120 allele copies, including 24 A.",
+          "Immigrants contribute 80 copies, including 56 A.",
+          "Combined A copies = 80 of 200, so p = 0.40.",
+          "The larger resident group receives the larger weight.",
+          "The result predicts the combined contribution pool under the equal-contribution assumption."
+        ]
+      },
+      "guided": [
+        {
+          "prompt": "Which event most directly demonstrates gene flow?",
+          "answer": "A migrant reproduces and contributes alleles",
+          "wrong": [
+            "An animal visits without breeding",
+            "A rock moves between habitats"
+          ],
+          "explanation": "Inherited contribution distinguishes gene flow from movement alone.",
+          "cue": "Follow the alleles into descendants."
+        },
+        {
+          "prompt": "What process can create a genuinely new allele sequence?",
+          "answer": "Mutation",
+          "wrong": [
+            "Only random pairing of unchanged alleles",
+            "Counting the same genotypes again"
+          ],
+          "explanation": "Mutation changes the sequence.",
+          "cue": "Separate new sequences from new combinations."
+        }
+      ],
+      "check": [
+        {
+          "prompt": "Why can averaging two allele frequencies without group sizes be wrong?",
+          "answer": "The groups may contribute different numbers of allele copies",
+          "wrong": [
+            "Frequencies can never be averaged in any way",
+            "Every immigrant contributes exactly one copy regardless of ploidy",
+            "The dominant allele must always receive the larger weight"
+          ],
+          "explanation": "The combination must be weighted by relevant contributions.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        },
+        {
+          "prompt": "Which statement separates mutation from selection?",
+          "answer": "Mutation creates sequence variants; selection changes their reproductive representation",
+          "wrong": [
+            "Selection always produces the precise needed mutation",
+            "Mutation is the same as migration",
+            "Every mutation is immediately fixed"
+          ],
+          "explanation": "Origin of variation and differential contribution are distinct mechanisms.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "writing": [
+        {
+          "prompt": "Calculate the combined A frequency for 75 equally contributing diploid residents at p = 0.40 and 25 immigrants at p = 0.80.",
+          "model": "Residents contribute 150 copies including 60 A. Immigrants contribute 50 copies including 40 A. Combined p = 100/200 = 0.50. This is weighted by group size under equal reproductive contribution.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        },
+        {
+          "prompt": "Explain what evidence would distinguish an opportunity for gene flow from actual gene flow.",
+          "model": "A corridor or observed movement demonstrates an opportunity for exchange. Evidence that migrants or their gametes contribute to reproduction, or appropriate genetic evidence in descendants, supports actual gene flow. The claim should match the measured outcome.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        }
+      ],
+      "applications": [
+        {
+          "prompt": "Two populations become genetically more similar after repeated successful interbreeding. Which process is directly implicated?",
+          "answer": "Gene flow",
+          "wrong": [
+            "Only a bottleneck",
+            "Only loss of every mutation",
+            "Only independent assortment within one isolated population"
+          ],
+          "explanation": "Alleles are exchanged through reproductive contributions.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "self": [
+        "Can a new rare mutation be lost even if it is not harmful?",
+        "Yes. Chance sampling can eliminate a rare allele."
+      ],
+      "sequence": null,
+      "anchors": [
+        "gene flow",
+        "mutation input",
+        "genetic connectivity",
+        "population differentiation"
+      ],
+      "figures": {
+        "0": "ch19-geneflow"
+      }
+    },
+    {
+      "title": "Genetic diversity and conservation evidence",
+      "question": "Why should population size and genetic variation be measured separately?",
+      "goal": "Use population-genetic mechanisms to evaluate conservation evidence without assuming a universal outcome.",
+      "prior": "Drift, selection, mutation and gene flow can act together. No single measurement describes every aspect of a population.",
+      "pages": [
+        695,
+        697
+      ],
+      "slides": [
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "terms": [
+        {
+          "term": "genetic diversity",
+          "meaning": "The variety of genetic variants represented in a population or set of populations.",
+          "example": "A population contains several alleles at the loci examined.",
+          "importantDistinction": "A larger head count does not guarantee recovery of previously lost variants.",
+          "misconception": "Population size alone precisely measures all genetic diversity.",
+          "aliases": []
+        },
+        {
+          "term": "inbreeding",
+          "meaning": "Mating between genetically related individuals.",
+          "example": "Relatives are more likely to share copies inherited from a common ancestor.",
+          "importantDistinction": "It can increase homozygosity without creating harmful alleles on demand.",
+          "misconception": "Inbreeding creates every harmful allele from nothing.",
+          "aliases": []
+        },
+        {
+          "term": "conservation evidence",
+          "meaning": "Observations used to evaluate a population’s condition and response to an action.",
+          "example": "Breeding success, survival, connectivity and genetic markers are measured together.",
+          "importantDistinction": "Several measures are needed to distinguish mechanisms and outcomes.",
+          "misconception": "A single attractive photograph proves a population is genetically secure.",
+          "aliases": []
+        },
+        {
+          "term": "adaptive potential",
+          "meaning": "The capacity for heritable variation to support responses to changing conditions.",
+          "example": "Standing variation can provide different responses to a new challenge.",
+          "importantDistinction": "Genetic diversity can matter without guaranteeing survival under every change.",
+          "misconception": "A genetically diverse population cannot become extinct.",
+          "aliases": []
+        }
+      ],
+      "sections": [
+        [
+          "A head count is only one measurement",
+          [
+            "A population can recover numerically after a bottleneck while retaining reduced genetic variation. Descendants multiply surviving allele copies; they do not automatically restore every lost variant. Population size and genetic diversity therefore answer different questions.",
+            "Small isolated populations may experience strong drift and increased mating among relatives. Inbreeding can increase homozygosity and expose effects of recessive alleles already present. It does not mean related individuals deliberately create new harmful alleles."
+          ]
+        ],
+        [
+          "Connect a proposed action with its mechanism",
+          [
+            "A connection between habitats may permit movement and gene flow. If migrants reproduce, new alleles can enter a population and genetic differentiation may decline. Whether this happens depends on actual movement, survival and reproduction.",
+            "A population-management proposal should specify its biological mechanism and the evidence needed to evaluate it. Adding individuals, improving habitat and connecting populations are different interventions with potentially different effects.",
+            "The effects can include trade-offs. For example, introduced individuals may carry genetic variants suited to a different environment. An evidence-based evaluation considers both genetic contribution and the ecological setting rather than assuming that every transfer is beneficial."
+          ]
+        ],
+        [
+          "Use cautious conclusions from limited data",
+          [
+            "Suppose a hypothetical monitoring report records more animals using a crossing structure and a rise in population size. That supports use of the structure and a demographic change. It does not alone establish increased gene flow or restored diversity at every locus.",
+            "Useful additional evidence might include successful breeding between populations, marker diversity, survival and the persistence of changes over generations. Sampling should be comparable across time.",
+            "Genetic diversity can support adaptive potential, but it is not a guarantee against extinction. Habitat, environmental change, population size and many other factors also matter."
+          ]
+        ]
+      ],
+      "worked": {
+        "title": "Evaluate a recovery claim",
+        "scenario": "A population rises from 30 to 300 after a bottleneck. A report calls its original genetic diversity fully restored without genetic measurements.",
+        "steps": [
+          "The head count supports numerical recovery.",
+          "A bottleneck may have removed alleles that population growth alone cannot recover.",
+          "Genetic measurements are needed to assess current diversity relative to earlier or comparison samples.",
+          "The report’s genetic conclusion exceeds its demographic evidence."
+        ]
+      },
+      "guided": [
+        {
+          "prompt": "Does population growth alone prove lost alleles returned?",
+          "answer": "No",
+          "wrong": [
+            "Yes, because every birth recreates the original gene pool",
+            "Yes, because diversity is identical to head count"
+          ],
+          "explanation": "Numerical and genetic recovery are different measurements.",
+          "cue": "Ask what biological process would reintroduce the missing alleles."
+        },
+        {
+          "prompt": "What tends to increase with inbreeding at relevant loci?",
+          "answer": "Homozygosity",
+          "wrong": [
+            "The number of homologous chromosome sets in every cell",
+            "A guaranteed new mutation at each locus"
+          ],
+          "explanation": "Related parents more often share allele copies from ancestors.",
+          "cue": "Think about shared alleles rather than chromosome-number changes."
+        }
+      ],
+      "check": [
+        {
+          "prompt": "Which measurement most directly supports genetic exchange after habitat reconnection?",
+          "answer": "Evidence of reproductive contributions between formerly separated populations",
+          "wrong": [
+            "Only the width of the crossing",
+            "Only the colour of the vegetation",
+            "Only a photograph of one animal near the structure"
+          ],
+          "explanation": "Successful contribution connects movement with gene flow.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        },
+        {
+          "prompt": "Why is genetic diversity not a guarantee of persistence?",
+          "answer": "Environmental and demographic factors also affect survival",
+          "wrong": [
+            "Variation has no biological relevance",
+            "All diverse populations have identical habitats",
+            "Mutation stops permanently in diverse populations"
+          ],
+          "explanation": "Several interacting factors determine population outcomes.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "writing": [
+        {
+          "prompt": "Explain why a conservation report should distinguish population size, breeding success and genetic diversity.",
+          "model": "Size describes abundance, breeding success concerns contribution to future generations, and genetic diversity describes represented variation. A change in one does not guarantee the same change in the others. Together they provide a more informative picture of population condition.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        },
+        {
+          "prompt": "Design a paper-based monitoring comparison for a proposed habitat connection without inventing results.",
+          "model": "Compare similar sampling periods before and after connection, measuring movement and successful reproduction as well as genetic markers and population size. Use suitable comparison populations where possible and account for other environmental changes. State that these are proposed measurements, not observed outcomes.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ]
+        }
+      ],
+      "applications": [
+        {
+          "prompt": "A population retains many alleles but loses its habitat. Which conclusion is reasonable?",
+          "answer": "Genetic diversity alone does not remove the habitat threat",
+          "wrong": [
+            "The population cannot decline because it is diverse",
+            "Habitat has no effect on allele transmission",
+            "Every allele must immediately become advantageous"
+          ],
+          "explanation": "Genetics is one part of the ecological and demographic context.",
+          "cue": "Trace the normal mechanism before choosing an answer."
+        }
+      ],
+      "self": [
+        "Does inbreeding require new harmful mutations to produce a problem?",
+        "No. Increased homozygosity can expose effects of existing recessive alleles."
+      ],
+      "sequence": null,
+      "anchors": [
+        "genetic diversity",
+        "inbreeding",
+        "conservation evidence",
+        "adaptive potential"
+      ],
+      "figures": {}
+    }
+  ],
+  "final": {
+    "mc": [
+      {
+        "prompt": "A sample has 20 AA, 40 Aa and 40 aa. What is p?",
+        "answer": "0.40",
+        "wrong": [
+          "0.20",
+          "0.60",
+          "0.80"
+        ],
+        "explanation": "A copies = 40 + 40 = 80 of 200.",
+        "cue": "Trace the normal mechanism before choosing an answer."
+      },
+      {
+        "prompt": "Under Hardy–Weinberg, q² = 0.04. What is 2pq?",
+        "answer": "0.32",
+        "wrong": [
+          "0.04",
+          "0.20",
+          "0.64"
+        ],
+        "explanation": "q = 0.20, p = 0.80 and 2pq = 0.32.",
+        "cue": "Trace the normal mechanism before choosing an answer."
+      },
+      {
+        "prompt": "Which statement does not require equilibrium at a two-allele locus?",
+        "answer": "p + q = 1",
+        "wrong": [
+          "Observed AA must equal p²",
+          "Observed Aa must equal 2pq",
+          "A recessive phenotype fraction always uniquely determines q"
+        ],
+        "explanation": "The allele categories sum to 1 by definition.",
+        "cue": "Trace the normal mechanism before choosing an answer."
+      },
+      {
+        "prompt": "A random small survivor group follows a major population reduction. Which mechanism is highlighted?",
+        "answer": "Bottleneck-associated drift",
+        "wrong": [
+          "Directed mutation",
+          "Mate choice necessarily",
+          "Gene flow without any movement"
+        ],
+        "explanation": "A bottleneck samples the earlier gene pool.",
+        "cue": "Trace the normal mechanism before choosing an answer."
+      },
+      {
+        "prompt": "What distinguishes gene flow from movement alone?",
+        "answer": "Successful genetic contribution to another population",
+        "wrong": [
+          "Only distance travelled",
+          "Only a change in body mass",
+          "Only temporary presence in a habitat"
+        ],
+        "explanation": "Alleles must enter the recipient reproductive pool.",
+        "cue": "Trace the normal mechanism before choosing an answer."
+      },
+      {
+        "prompt": "A genotype pattern differs from Hardy–Weinberg predictions. What conclusion is justified?",
+        "answer": "The model’s fit or assumptions need investigation",
+        "wrong": [
+          "Natural selection is uniquely proven",
+          "Every locus in the species is evolving identically",
+          "No useful allele frequency can be calculated from genotype counts"
+        ],
+        "explanation": "A mismatch does not uniquely identify its cause.",
+        "cue": "Trace the normal mechanism before choosing an answer."
+      }
+    ],
+    "writing": [
+      {
+        "prompt": "Compare direct allele counting with inferring frequencies from a recessive phenotype under Hardy–Weinberg.",
+        "model": "Known genotype counts allow direct summing of two copies per homozygote and one of each per heterozygote over 2N. A recessive phenotype count identifies aa but does not reveal the split between AA and Aa. Inferring q by √q² then requires the stated equilibrium and phenotype assumptions.",
+        "criteria": [
+          "Identifies the relevant structures or quantities.",
+          "Explains the causal relationship or calculation, not just the final result.",
+          "Uses the stated evidence and avoids a stronger conclusion than it supports."
+        ]
+      },
+      {
+        "prompt": "Explain how selection, drift and gene flow could each change an allele frequency, and identify evidence useful for distinguishing them.",
+        "model": "Selection involves heritable differences associated with reproductive success. Drift involves chance sampling, often strong in small populations. Gene flow transfers alleles through successful contributions between populations. Trait-linked reproductive data, demographic history and migration/breeding evidence help distinguish the mechanisms.",
+        "criteria": [
+          "Identifies the relevant structures or quantities.",
+          "Explains the causal relationship or calculation, not just the final result.",
+          "Uses the stated evidence and avoids a stronger conclusion than it supports."
+        ]
+      }
+    ]
+  },
+  "transfer": {
+    "mc": [
+      {
+        "prompt": "A sample contains 12 AA, 36 Aa and 12 aa. What is q?",
+        "answer": "0.50",
+        "wrong": [
+          "0.20",
+          "0.30",
+          "0.60"
+        ],
+        "explanation": "a copies = 36 + 24 = 60 of 120.",
+        "cue": "Trace the normal mechanism before choosing an answer."
+      },
+      {
+        "prompt": "Assume equilibrium. In 500 individuals, 20 show a recessive phenotype. How many carriers are expected?",
+        "answer": "160",
+        "wrong": [
+          "20",
+          "100",
+          "320"
+        ],
+        "explanation": "q² = 0.04, q = 0.20, p = 0.80 and 2pqN = 0.32 × 500 = 160.",
+        "cue": "Trace the normal mechanism before choosing an answer."
+      },
+      {
+        "prompt": "A small founder group carries a neutral allele at unusually high frequency. What is the appropriate initial explanation?",
+        "answer": "Chance sampling can explain the difference without a selective advantage",
+        "wrong": [
+          "The allele must be beneficial in every habitat",
+          "The original population must have gone extinct",
+          "The founders necessarily created a new allele"
+        ],
+        "explanation": "A founder effect can change representation by chance.",
+        "cue": "Trace the normal mechanism before choosing an answer."
+      }
+    ],
+    "writing": {
+      "prompt": "Two samples both have p = q = 0.50, but only one has 25% AA, 50% Aa and 25% aa. Explain what is and is not established.",
+      "model": "Both samples share allele frequencies. The 1:2:1 sample matches the Hardy–Weinberg genotype prediction for those values, while the other has a different pairing pattern. This alone does not prove temporal allele change or identify a unique cause of the genotype mismatch, nor does a match prove all assumptions perfectly hold.",
+      "criteria": [
+        "Identifies the relevant structures or quantities.",
+        "Explains the causal relationship or calculation, not just the final result.",
+        "Uses the stated evidence and avoids a stronger conclusion than it supports."
+      ]
+    }
+  },
+  "extension": {
+    "title": "Biotechnology and gene pools",
+    "question": "How could a new trait spread, and what evidence would track it?",
+    "sections": [
+      [
+        "A hypothetical trait enters a breeding population",
+        [
+          "A hypothetical crop line carries an introduced allele. Nearby compatible plants can potentially receive pollen, but no offspring genotypes have yet been measured.",
+          "Pollen movement creates an opportunity for gene flow. Establishing inherited spread requires evidence that the pollen contributed to viable offspring and that the allele persists in the recipient population."
+        ]
+      ],
+      [
+        "Separate movement, inheritance and consequences",
+        [
+          "A marker can track allele presence while reproductive data evaluate contribution. Frequency change over generations can be measured separately from the allele’s ecological effects.",
+          "This paper-based case does not assume that movement is always beneficial or always harmful. It asks what observations would support each specific biological claim."
+        ]
+      ]
+    ],
+    "writing": {
+      "prompt": "Identify the observations needed to distinguish pollen movement, gene flow and an ecological effect.",
+      "model": "Pollen detection supports movement. Genotypes in viable recipient offspring support successful genetic contribution. Repeated sampling can track frequency change, while separate measurements of survival, reproduction or ecological interactions assess consequences. One observation should not be substituted for all three claims.",
+      "criteria": [
+        "Identifies the relevant structures or quantities.",
+        "Explains the causal relationship or calculation, not just the final result.",
+        "Uses the stated evidence and avoids a stronger conclusion than it supports."
+      ]
+    }
+  },
+  "overview": [
+    "Calculate allele and genotype frequencies with the correct denominators.",
+    "Use Hardy–Weinberg as an explicit reference model rather than an automatic assumption.",
+    "Distinguish selection, drift, gene flow and mutation.",
+    "Evaluate genetic and demographic evidence in population cases."
+  ],
+  "review": {
+    "question": "Can you distinguish a counted frequency, a model prediction and a causal explanation?",
+    "goal": "Integrate allele arithmetic, model assumptions and mechanisms of population change.",
+    "prior": "Identify the population, locus, denominator and assumptions before calculating.",
+    "pages": [
+      699,
+      701
+    ],
+    "anchors": [
+      "allele frequency",
+      "genotype frequency",
+      "Hardy–Weinberg equilibrium",
+      "genetic drift"
+    ],
+    "sections": [
+      [
+        "Use the right method for the information",
+        [
+          "Genotype counts permit direct allele counting over 2N. Recessive phenotype information alone leaves some genotypes unknown, so a Hardy–Weinberg inference needs explicit assumptions. Expected genotype frequencies are p², 2pq and q² only within the model.",
+          "Keep frequencies distinct from counts. Multiply by population size only when an expected number is requested, and check that the complete categories total 1 or N as appropriate."
+        ]
+      ],
+      [
+        "Interpret change without choosing a cause too soon",
+        [
+          "Selection links heritable variation with reproductive contribution; drift reflects chance; gene flow moves existing alleles between populations; mutation creates sequence variants. Non-random pairing can change genotype proportions without necessarily changing allele totals by itself.",
+          "A good population explanation uses the given evidence to distinguish these mechanisms. A small sample, an unexplained phenotype change or numerical recovery alone supports less than a complete claim about evolution or genetic diversity."
+        ]
+      ]
+    ],
+    "worked": {
+      "title": "Compare counts across population growth",
+      "scenario": "Generation one has 16 aa individuals of 100 and generation two has 64 aa of 400. Assume the same complete-dominance Hardy–Weinberg model for both.",
+      "steps": [
+        "The aa fractions are both 0.16.",
+        "Under the stated model, q = 0.40 and p = 0.60 in both generations.",
+        "Counts increased while inferred allele frequencies stayed equal.",
+        "This supports no detected change at the studied locus under the assumptions.",
+        "Without those assumptions, the recessive fractions alone would not determine every allele frequency."
+      ]
+    }
+  }
+}

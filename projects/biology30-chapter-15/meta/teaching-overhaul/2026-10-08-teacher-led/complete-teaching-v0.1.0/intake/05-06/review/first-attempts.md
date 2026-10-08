@@ -1,0 +1,43 @@
+# Independent blind learner attempt: Chapter 15 lessons 05–06
+
+Saved before consulting source packets, assessment keys, baseline, author notes, standards, or outside biology. Inputs were only the two blind learner text files and the actual three visible figure images (the permitted exact `support-preview.png` raster for the SVG). This is a reading/pixel attempt, not an installed runtime test. No answers were entered in an app.
+
+## Lesson 05: all seven local items
+
+1. Guided selection, membrane enclosing fluid: **Amnion**. The paragraph beginning “Start at the embryo” explicitly calls the amnion the membrane enclosing the cavity and distinguishes cavity from contents. Visible B points to the blue boundary; C points inside it. No missing step.
+2. Guided selection, finger-like villi: **Chorion**. “Farther outward” names chorionic villi and the fetal placental contribution. The source image shows the outer chorion adjoining the villous placental region. No missing step.
+3. Stop question: **No. Extraembryonic membranes lie outside the embryo’s body and support development. Ectoderm, mesoderm and endoderm are its primary tissue-forming layers.** The first paragraph makes this comparison directly. No missing step.
+4. Required selection 1: **It has early developmental roles, including blood-cell formation**. “Early support is more than a food store” directly teaches this. The other options contradict the same section’s no-large-food-store explanation and allantois/bladder discussion. No missing step.
+5. Required selection 2: **Fetal blood travels through the umbilical cord to and from the placenta**. “Protection, exchange and transport” directly supplies the route and separation of circulations. No missing step.
+6. Required writing 1: **The amnion is the membrane enclosing the fluid-filled amniotic cavity around the embryo. Its fluid provides cushioning, allows movement and helps keep surfaces from sticking. The chorion is farther outward. Its villi increase the exchange interface and contribute to the fetal part of the placenta, while the uterine lining provides a maternal part. The chorion is not the entire placenta.** Every consequential step is in “Which boundary surrounds which space?”; actual A/B/C endpoints support the relative positions. No missing step.
+7. Required writing 2: **Humans do not have a large yolk reserve supplying food until birth. The small yolk sac supports early development, including early blood-cell formation and nutritional or metabolic support. Helping process or transfer nutrients is different from holding a pregnancy-long food supply. Later placental exchange becomes the major support for the fetus.** Every consequential step is in “Early support is more than a food store.” No missing step.
+
+### Worked figure reasoning
+
+- B’s leader ends on the blue boundary, so it is the amnion; C ends inside that blue space, so it is the amniotic cavity. The pixels resolve the distinction without relying only on the answer legend.
+- A ends on the red outer boundary, matching chorion. D ends inside the yellow sac outside the blue cavity, matching yolk sac.
+- E ends in the broad connecting stalk and F in the thinner green associated allantoic structure. The legend and taught E/F explanation make the intended separation clear. The picture is schematic and does not itself establish blood flow.
+- E cannot be identified as a pathway for maternal blood straight into the embryo. The prose teaches fetal blood transport via the later cord and exchange across placental tissues between separate maternal/fetal circulations.
+- On the source membrane image I can follow labels for amnion, amniotic cavity, chorion, yolk sac, allantois and developing placenta. Its caption also asks me to locate the “connecting stalk,” but that exact label is absent from these pixels. A connecting region is visible, yet identification would require inference from the schematic. This is a minor figure-task ambiguity, not a blocker for these seven items.
+
+## Lesson 06: all seven local items
+
+8. Guided selection, neurulation: **Neural folds close to form a tube**. “How does an outer tissue become an internal tube?” supplies plate → raised folds/groove → fusion/hollow tube → separation. The image sequence visibly supports the shape change. No missing step.
+9. Guided selection, limb bud: **Limb development has begun**. “An early structure still has to mature” and the worked example directly limit the conclusion to development under way. No missing step.
+10. Stop question: **No. Forming early organ structures still leaves growth, differentiation and functional maturation to occur, including during the fetal period.** The early-structure section explicitly states this. No missing step.
+11. Required selection 1: **Differentiation**. The first section defines specialization and different protein expression/functions; the worked example repeats precisely this evidence. No missing step.
+12. Required selection 2: **Brain and spinal cord**. The neurulation explanation names these as the neural tube’s future central-nervous-system contribution, and the image caption repeats it. No missing step.
+13. Required writing 1: **A region of ectoderm specializes as the neural plate. Beneath it, the mesodermal notochord helps organize development through signals. The plate’s edges rise into neural folds, leaving a groove. The folds move together and fuse around a hollow space, forming the neural tube. The tube separates from surface ectoderm and later gives rise to the brain and spinal cord. In humans this occurs mainly during the third and fourth weeks after fertilization, with closure progressing along the structure.** Germ-layer origin, notochord, order, final structures and timing are all explicitly taught. The A-to-enlarged-sequence image shows plate/folds/tube below surface ectoderm; it does not independently establish human timing, which comes from prose. No missing step for the response asked.
+14. Required writing 2: **An early lung bud shows lung formation has begun, not that mature air-exchange surfaces and coordinated breathing function exist. Later growth, differentiation and maturation are required. Before birth, oxygen reaches fetal blood by exchange across the placenta and is carried toward the fetus through the umbilical circulation; the developing lungs are not breathing outside air.** All steps are supplied in the early-lung paragraph and the preceding early-structure explanation. No missing step.
+
+### Worked reasoning and figure follow-through
+
+- Folding a sheet into a hollow tube changes shape/organization: morphogenesis. Calling this neurulation additionally requires identifying the tissue as the neural plate; the worked example explicitly supplies that caution.
+- Different proteins and functions indicate differentiation, supported directly in the opening section. A limb bud indicates organogenesis under way; it does not prove mature coordination. No observation establishes completion.
+- A’s red box marks the upper ectodermal region; the notochord is separately labelled below. B enlarges the plate and raised edges. C shows the folds converging. The next unlettered image shows a closed blue tube beneath continuous surface ectoderm. D and the final whole cross-section keep the tube internal and distinct from notochord.
+- The changed position does not imply a new tissue origin. This follows from continuity through the visible sequence and the taught ectodermal origin.
+- Pixel caution: the source figure labels migrating cells “cells that form bones and muscle,” and its embedded caption says they form “other organs, bone, and muscles.” The learner explanation cautions against concluding that *all* bones/muscles come from the neural tube but does not explicitly settle which migrating cells or which contributions are meant. A learner can answer every assessed item without resolving this, yet the picture and explanation leave a potentially important developmental claim open. This observation records the visible tension; no outside biology was used here to adjudicate it.
+
+## Provisional teaching-sufficiency result
+
+All 14 local items are answerable from visible teaching. Both worked examples have visible support for their consequential steps. No outside knowledge was needed to produce the above answers. The main points for later independent source/science review are the migrating-cell bone/muscle wording inside the neurulation image and the unlabelled connecting-stalk task in the source membrane caption. Assessment correctness/feedback, protected baseline preservation, scientific accuracy, standard compliance and installed layout/runtime remain untested at this stage.

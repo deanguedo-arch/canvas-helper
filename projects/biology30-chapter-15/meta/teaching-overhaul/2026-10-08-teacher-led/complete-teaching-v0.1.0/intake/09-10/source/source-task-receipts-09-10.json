@@ -1,0 +1,732 @@
+{
+  "completedUtc": "2026-10-08T20:11:00Z",
+  "scope": "Read-only source preflight for lessons09–10; evidence derivatives and reports saved, no native mutation",
+  "report": "source-preflight-09-10.md",
+  "frozenRuleVersion": "Course Production Standards v0.4",
+  "nativeContentVersion": "2026-09-17-completed-handoff",
+  "nativeBankVersion": "ch15-complete-v1",
+  "coreRequiredCounts": {
+    "checks": 2,
+    "mc": 4,
+    "writing": 4
+  },
+  "pairBankRecordCounts": {
+    "checks": 2,
+    "words": 8,
+    "practiceQuestions": 11,
+    "sequences": 2,
+    "labelDiagrams": 2,
+    "videos": 1,
+    "practiceConcepts": 8,
+    "authoredPractice": 2,
+    "typedPractice": 8,
+    "multiSelectPractice": 1,
+    "guidedActivities": 2,
+    "diagramPractice": 10
+  },
+  "nativeDomSourcesMatchedSuppliedExtracts": true,
+  "textbookUniqueTaskCount": 11,
+  "textbookFilterAppearances": {
+    "lesson-09": 6,
+    "lesson-10": 7
+  },
+  "inputFiles": [
+    {
+      "path": "biology_prep/ch15-source/unpacked/chapter-15/workspace/index.html",
+      "bytes": 2692694,
+      "sha256": "2770ecce23a9fb2b8253466b712cbfaa982fc7342c476d940f07f40c95a326b4"
+    },
+    {
+      "path": "biology_prep/ch15-source/teacher/BIOLOGY 30 COURSE CREATION/Unit B Chapter 15 Notes.pptx",
+      "bytes": 6976589,
+      "sha256": "38149b6f562425a0b49bed3d0ad4369c5c5eef48f44d9099ea673cc888c2eb84"
+    },
+    {
+      "path": "biology_prep/ch15-source/unpacked/chapter-15/workspace/assets/textbook/chapter-15.pdf",
+      "bytes": 1486822,
+      "sha256": "30b03cf91e5cf99ed0ae2a7dedf7cae2b246111b795d280b5b95ca937c56aa25"
+    },
+    {
+      "path": "biology_prep/ch15-batch09-10/source/Course_Production_Standards_v0.4.txt",
+      "bytes": 65442,
+      "sha256": "db8a04bcd7620d9ecf64ec6dc86c046cb3075b9b09cc51dac41936c391379e1e"
+    },
+    {
+      "path": "biology_prep/ch15-source/unpacked/chapter-15/authoring/lesson-content.json",
+      "bytes": 124388,
+      "sha256": "b3197cc2c96b2aff3669a937e7d17b72bc5f2c63df44e91334947c63cf9b0b29"
+    },
+    {
+      "path": "biology_prep/ch15-source/unpacked/chapter-15/authoring/textbook-question-manifest.json",
+      "bytes": 108698,
+      "sha256": "aedfe442b493c0f0a091a8fb5b5b213ff8b9bd84a7ba24bf5c0b329f114a430d"
+    },
+    {
+      "path": "biology_prep/ch15-source/unpacked/chapter-15/authoring/source-assessment-catalogue.json",
+      "bytes": 340773,
+      "sha256": "b0a6e33645a76ced93843d1d6ef73bc293d28417e39f635bdb8764350f16630b"
+    },
+    {
+      "path": "biology_prep/ch15-source/unpacked/chapter-15/authoring/assessment-dispositions.json",
+      "bytes": 178773,
+      "sha256": "713bb0ad2d0bac218815c70017713bc67f644f92ab74cd99ea17e5e9b7c1a463"
+    },
+    {
+      "path": "biology_prep/ch15-source/unpacked/chapter-15/authoring/optional-source-responses.json",
+      "bytes": 2909,
+      "sha256": "6b70c99adc8a80ff5dfaa74e08e2f705fe98ed30267e03a2845731ecd943b145"
+    },
+    {
+      "path": "biology_prep/ch15-source/unpacked/chapter-15/authoring/video-map.json",
+      "bytes": 6269,
+      "sha256": "66ca241db88b72b16a9ca2666832d5cbf354bbf68e2e300614e8d4a53d0315ca"
+    },
+    {
+      "path": "biology_prep/ch15-source/unpacked/chapter-15/authoring/label-diagrams.json",
+      "bytes": 4735,
+      "sha256": "4c1d438d1b6947fbc9b1e7768098c29bd8c95682833f0352c0d0fcc93e3e6ba7"
+    },
+    {
+      "path": "biology_prep/ch15-source/unpacked/chapter-15/authoring/lesson-source-map.json",
+      "bytes": 2148,
+      "sha256": "75558292e88c23552e0b2c9c50f0f49624ac82f7330e4f2d28f5cc51a7dc76ed"
+    },
+    {
+      "path": "biology_prep/ch15-source/unpacked/chapter-15/workspace/assets/figures/ch15-birth-feedback.svg",
+      "bytes": 6674,
+      "sha256": "cc1b7b9bb43da47dd778e5e350ac9489c159a0646eb9e0b8341d142612915d81"
+    },
+    {
+      "path": "biology_prep/ch15-source/unpacked/chapter-15/workspace/assets/figures/ch15-lactation.svg",
+      "bytes": 4550,
+      "sha256": "54ce093a2a6c9bc97e6cc360bf3b63e6180afcd6cd70f4d8316249b4126d7164"
+    },
+    {
+      "path": "biology_prep/ch15-source/unpacked/chapter-15/workspace/assets/labeling/ch15-birth-feedback.svg",
+      "bytes": 6141,
+      "sha256": "7d54629c67b4939b2824811191a1cf40bdf8d19f154a384c0dfd112cd9edd287"
+    },
+    {
+      "path": "biology_prep/ch15-source/unpacked/chapter-15/workspace/assets/labeling/ch15-lactation.svg",
+      "bytes": 4276,
+      "sha256": "2c1407bdf87893befcec94bd9bde64a60279130d93481e837dca01d0d49cf33d"
+    },
+    {
+      "path": "biology_prep/ch15-source/unpacked/chapter-15/workspace/assets/figures/ch15-source-lactation.png",
+      "bytes": 98791,
+      "sha256": "6edec8433145d712528932884db7004c46c922b129e9712980e54f0edb677fe0",
+      "dimensions": [
+        608,
+        550
+      ]
+    }
+  ],
+  "optionalTaskReceipts": [
+    {
+      "id": "ch15-p526-in-text-q29",
+      "topics": [
+        "lesson-09"
+      ],
+      "questionAndContext": [
+        {
+          "role": "question",
+          "path": "biology_prep/ch15-source/unpacked/chapter-15/workspace/assets/textbook-practice/ch15-p526-in-text-q29-0.png",
+          "bytes": 6987,
+          "sha256": "eca24bcc0ae366842ea02f92014e8671d240ab3f7d658f2e80a1dc8702851e39",
+          "dimensions": [
+            308,
+            72
+          ]
+        },
+        {
+          "role": "supporting full-page context",
+          "path": "biology_prep/ch15-source/unpacked/chapter-15/workspace/assets/textbook-practice/p526.jpg",
+          "bytes": 276899,
+          "sha256": "031d93bd8e6e1a8b3f82748ce171356a7424fd0f81b151f6cd1b39c5fcb05a19",
+          "dimensions": [
+            1026,
+            1332
+          ]
+        },
+        {
+          "role": "supporting full-page context",
+          "path": "biology_prep/ch15-source/unpacked/chapter-15/workspace/assets/textbook-practice/p525.jpg",
+          "bytes": 249411,
+          "sha256": "e52170f8329cef4598028bc54ca5b96083ac8dcf619a6509a43e6aaa7bc0dffc",
+          "dimensions": [
+            1026,
+            1332
+          ]
+        }
+      ],
+      "questionCropInspected": true,
+      "fullQuestionPresent": true
+    },
+    {
+      "id": "ch15-p526-in-text-q30",
+      "topics": [
+        "lesson-10",
+        "lesson-09"
+      ],
+      "questionAndContext": [
+        {
+          "role": "question",
+          "path": "biology_prep/ch15-source/unpacked/chapter-15/workspace/assets/textbook-practice/ch15-p526-in-text-q30-0.png",
+          "bytes": 4777,
+          "sha256": "0adac0f6011b2272d7394b2b51d9021e68eae7d73c767d5d546f7ebf5b3e7bae",
+          "dimensions": [
+            299,
+            61
+          ]
+        },
+        {
+          "role": "supporting full-page context",
+          "path": "biology_prep/ch15-source/unpacked/chapter-15/workspace/assets/textbook-practice/p526.jpg",
+          "bytes": 276899,
+          "sha256": "031d93bd8e6e1a8b3f82748ce171356a7424fd0f81b151f6cd1b39c5fcb05a19",
+          "dimensions": [
+            1026,
+            1332
+          ]
+        },
+        {
+          "role": "supporting full-page context",
+          "path": "biology_prep/ch15-source/unpacked/chapter-15/workspace/assets/textbook-practice/p525.jpg",
+          "bytes": 249411,
+          "sha256": "e52170f8329cef4598028bc54ca5b96083ac8dcf619a6509a43e6aaa7bc0dffc",
+          "dimensions": [
+            1026,
+            1332
+          ]
+        }
+      ],
+      "questionCropInspected": true,
+      "fullQuestionPresent": true
+    },
+    {
+      "id": "ch15-p526-in-text-q31",
+      "topics": [
+        "lesson-10"
+      ],
+      "questionAndContext": [
+        {
+          "role": "question",
+          "path": "biology_prep/ch15-source/unpacked/chapter-15/workspace/assets/textbook-practice/ch15-p526-in-text-q31-0.png",
+          "bytes": 3977,
+          "sha256": "c57d23a4f330fa209527b46e8ed662a09051372189903e501423f7d12731b23b",
+          "dimensions": [
+            210,
+            61
+          ]
+        },
+        {
+          "role": "supporting full-page context",
+          "path": "biology_prep/ch15-source/unpacked/chapter-15/workspace/assets/textbook-practice/p526.jpg",
+          "bytes": 276899,
+          "sha256": "031d93bd8e6e1a8b3f82748ce171356a7424fd0f81b151f6cd1b39c5fcb05a19",
+          "dimensions": [
+            1026,
+            1332
+          ]
+        },
+        {
+          "role": "supporting full-page context",
+          "path": "biology_prep/ch15-source/unpacked/chapter-15/workspace/assets/textbook-practice/p525.jpg",
+          "bytes": 249411,
+          "sha256": "e52170f8329cef4598028bc54ca5b96083ac8dcf619a6509a43e6aaa7bc0dffc",
+          "dimensions": [
+            1026,
+            1332
+          ]
+        }
+      ],
+      "questionCropInspected": true,
+      "fullQuestionPresent": true
+    },
+    {
+      "id": "ch15-p526-in-text-q32",
+      "topics": [
+        "lesson-10",
+        "lesson-09"
+      ],
+      "questionAndContext": [
+        {
+          "role": "question",
+          "path": "biology_prep/ch15-source/unpacked/chapter-15/workspace/assets/textbook-practice/ch15-p526-in-text-q32-0.png",
+          "bytes": 5675,
+          "sha256": "c213e9f15672534abb0691d0bc73d4acef221efdd3100fffbc5bcc74f63996ff",
+          "dimensions": [
+            307,
+            72
+          ]
+        },
+        {
+          "role": "supporting full-page context",
+          "path": "biology_prep/ch15-source/unpacked/chapter-15/workspace/assets/textbook-practice/p526.jpg",
+          "bytes": 276899,
+          "sha256": "031d93bd8e6e1a8b3f82748ce171356a7424fd0f81b151f6cd1b39c5fcb05a19",
+          "dimensions": [
+            1026,
+            1332
+          ]
+        },
+        {
+          "role": "supporting full-page context",
+          "path": "biology_prep/ch15-source/unpacked/chapter-15/workspace/assets/textbook-practice/p525.jpg",
+          "bytes": 249411,
+          "sha256": "e52170f8329cef4598028bc54ca5b96083ac8dcf619a6509a43e6aaa7bc0dffc",
+          "dimensions": [
+            1026,
+            1332
+          ]
+        }
+      ],
+      "questionCropInspected": true,
+      "fullQuestionPresent": true
+    },
+    {
+      "id": "ch15-p528-section-15-2-q2",
+      "topics": [
+        "lesson-11",
+        "lesson-10"
+      ],
+      "questionAndContext": [
+        {
+          "role": "question",
+          "path": "biology_prep/ch15-source/unpacked/chapter-15/workspace/assets/textbook-practice/ch15-p528-section-15-2-q2-0.png",
+          "bytes": 66539,
+          "sha256": "32079c26e0c24fb92cfb619f3eadc9d557f8c86c59b216c1c3cba14d1ee89014",
+          "dimensions": [
+            494,
+            849
+          ]
+        },
+        {
+          "role": "supporting full-page context",
+          "path": "biology_prep/ch15-source/unpacked/chapter-15/workspace/assets/textbook-practice/p528.jpg",
+          "bytes": 201588,
+          "sha256": "112430dea6a521057aff92ac89eff4bc8351686a45aa7c0b89af103412103c31",
+          "dimensions": [
+            1026,
+            1332
+          ]
+        }
+      ],
+      "questionCropInspected": true,
+      "fullQuestionPresent": true
+    },
+    {
+      "id": "ch15-p528-section-15-2-q3",
+      "topics": [
+        "lesson-11",
+        "lesson-08",
+        "lesson-10"
+      ],
+      "questionAndContext": [
+        {
+          "role": "question",
+          "path": "biology_prep/ch15-source/unpacked/chapter-15/workspace/assets/textbook-practice/ch15-p528-section-15-2-q3-0.png",
+          "bytes": 20405,
+          "sha256": "f5b21a83b8c331248934d28ebc638039e93bbae959cff886e9e04a56800fd193",
+          "dimensions": [
+            504,
+            149
+          ]
+        },
+        {
+          "role": "supporting full-page context",
+          "path": "biology_prep/ch15-source/unpacked/chapter-15/workspace/assets/textbook-practice/p528.jpg",
+          "bytes": 201588,
+          "sha256": "112430dea6a521057aff92ac89eff4bc8351686a45aa7c0b89af103412103c31",
+          "dimensions": [
+            1026,
+            1332
+          ]
+        }
+      ],
+      "questionCropInspected": true,
+      "fullQuestionPresent": true
+    },
+    {
+      "id": "ch15-p528-section-15-2-q4",
+      "topics": [
+        "lesson-09",
+        "lesson-11"
+      ],
+      "questionAndContext": [
+        {
+          "role": "question",
+          "path": "biology_prep/ch15-source/unpacked/chapter-15/workspace/assets/textbook-practice/ch15-p528-section-15-2-q4-0.png",
+          "bytes": 2886,
+          "sha256": "2f98954c1dfd87b70914e486ea6dc629034107af21074a906935dfc92d2b545a",
+          "dimensions": [
+            504,
+            39
+          ]
+        },
+        {
+          "role": "supporting full-page context",
+          "path": "biology_prep/ch15-source/unpacked/chapter-15/workspace/assets/textbook-practice/p528.jpg",
+          "bytes": 201588,
+          "sha256": "112430dea6a521057aff92ac89eff4bc8351686a45aa7c0b89af103412103c31",
+          "dimensions": [
+            1026,
+            1332
+          ]
+        }
+      ],
+      "questionCropInspected": true,
+      "fullQuestionPresent": true
+    },
+    {
+      "id": "ch15-p528-section-15-2-q5",
+      "topics": [
+        "lesson-09",
+        "lesson-11"
+      ],
+      "questionAndContext": [
+        {
+          "role": "question",
+          "path": "biology_prep/ch15-source/unpacked/chapter-15/workspace/assets/textbook-practice/ch15-p528-section-15-2-q5-0.png",
+          "bytes": 9285,
+          "sha256": "882ef3e59256fe0b15c61cd32ce6282ccf4b6fe7f139ea15d01291586e4c325f",
+          "dimensions": [
+            504,
+            71
+          ]
+        },
+        {
+          "role": "supporting full-page context",
+          "path": "biology_prep/ch15-source/unpacked/chapter-15/workspace/assets/textbook-practice/p528.jpg",
+          "bytes": 201588,
+          "sha256": "112430dea6a521057aff92ac89eff4bc8351686a45aa7c0b89af103412103c31",
+          "dimensions": [
+            1026,
+            1332
+          ]
+        }
+      ],
+      "questionCropInspected": true,
+      "fullQuestionPresent": true
+    },
+    {
+      "id": "ch15-p528-section-15-2-q6",
+      "topics": [
+        "lesson-09",
+        "lesson-11"
+      ],
+      "questionAndContext": [
+        {
+          "role": "question",
+          "path": "biology_prep/ch15-source/unpacked/chapter-15/workspace/assets/textbook-practice/ch15-p528-section-15-2-q6-0.png",
+          "bytes": 8150,
+          "sha256": "0397b8b03ac69437868d1678c49dbf97d043bc1d935fb13b2682b72125bd460f",
+          "dimensions": [
+            504,
+            65
+          ]
+        },
+        {
+          "role": "supporting full-page context",
+          "path": "biology_prep/ch15-source/unpacked/chapter-15/workspace/assets/textbook-practice/p528.jpg",
+          "bytes": 201588,
+          "sha256": "112430dea6a521057aff92ac89eff4bc8351686a45aa7c0b89af103412103c31",
+          "dimensions": [
+            1026,
+            1332
+          ]
+        }
+      ],
+      "questionCropInspected": true,
+      "fullQuestionPresent": true
+    },
+    {
+      "id": "ch15-p528-section-15-2-q7",
+      "topics": [
+        "lesson-10"
+      ],
+      "questionAndContext": [
+        {
+          "role": "question",
+          "path": "biology_prep/ch15-source/unpacked/chapter-15/workspace/assets/textbook-practice/ch15-p528-section-15-2-q7-0.png",
+          "bytes": 7576,
+          "sha256": "ece40018e7779ab8336c1d3beadf899167d29ead90cd4590e2d5a4d48c18d62c",
+          "dimensions": [
+            504,
+            65
+          ]
+        },
+        {
+          "role": "supporting full-page context",
+          "path": "biology_prep/ch15-source/unpacked/chapter-15/workspace/assets/textbook-practice/p528.jpg",
+          "bytes": 201588,
+          "sha256": "112430dea6a521057aff92ac89eff4bc8351686a45aa7c0b89af103412103c31",
+          "dimensions": [
+            1026,
+            1332
+          ]
+        }
+      ],
+      "questionCropInspected": true,
+      "fullQuestionPresent": true
+    },
+    {
+      "id": "ch15-p528-section-15-2-q8",
+      "topics": [
+        "lesson-11",
+        "lesson-10"
+      ],
+      "questionAndContext": [
+        {
+          "role": "question",
+          "path": "biology_prep/ch15-source/unpacked/chapter-15/workspace/assets/textbook-practice/ch15-p528-section-15-2-q8-0.png",
+          "bytes": 37293,
+          "sha256": "77acef6b47216b2eba2cfac82e6e8977b3cf1284e2e034fb512954b7bfd1276e",
+          "dimensions": [
+            504,
+            529
+          ]
+        },
+        {
+          "role": "supporting full-page context",
+          "path": "biology_prep/ch15-source/unpacked/chapter-15/workspace/assets/textbook-practice/p528.jpg",
+          "bytes": 201588,
+          "sha256": "112430dea6a521057aff92ac89eff4bc8351686a45aa7c0b89af103412103c31",
+          "dimensions": [
+            1026,
+            1332
+          ]
+        }
+      ],
+      "questionCropInspected": true,
+      "fullQuestionPresent": true
+    }
+  ],
+  "directEvidenceFiles": [
+    {
+      "path": "biology_prep/ch15-batch09-10/source/preflight-source-evidence/figures-ch15-birth-feedback-direct.png",
+      "bytes": 92388,
+      "sha256": "da48bcee0bb665e49f6747dc0ef772c72dc885c594b5105f73a18ab6ef1f7af6",
+      "dimensions": [
+        1400,
+        900
+      ]
+    },
+    {
+      "path": "biology_prep/ch15-batch09-10/source/preflight-source-evidence/figures-ch15-lactation-direct.png",
+      "bytes": 57827,
+      "sha256": "856cf39f6e202be8e33ca7e2a4196367e53d5ce0e48026f9c36f7207e3945a37",
+      "dimensions": [
+        1400,
+        900
+      ]
+    },
+    {
+      "path": "biology_prep/ch15-batch09-10/source/preflight-source-evidence/image22.png",
+      "bytes": 172839,
+      "sha256": "7cb01a865e01a4f190ef2b796ba10f42c9653368531783b5560680ae5a2b3986",
+      "dimensions": [
+        689,
+        353
+      ]
+    },
+    {
+      "path": "biology_prep/ch15-batch09-10/source/preflight-source-evidence/image23.png",
+      "bytes": 243307,
+      "sha256": "30c0596bf7e5382d409176d53173f6520d727abfb5c4590a2c9b09e6f21b1c58",
+      "dimensions": [
+        873,
+        429
+      ]
+    },
+    {
+      "path": "biology_prep/ch15-batch09-10/source/preflight-source-evidence/image24.png",
+      "bytes": 518483,
+      "sha256": "50e5e5efa9846cc3765515424071b0db700736338ce1020d9c509ee48dcd8437",
+      "dimensions": [
+        948,
+        914
+      ]
+    },
+    {
+      "path": "biology_prep/ch15-batch09-10/source/preflight-source-evidence/labeling-ch15-birth-feedback-direct.png",
+      "bytes": 85489,
+      "sha256": "2e8b3bcc9b4cbc73e5e6f4dabdea46ba3536262bf92e321641a90fd0a9bf14d8",
+      "dimensions": [
+        1400,
+        900
+      ]
+    },
+    {
+      "path": "biology_prep/ch15-batch09-10/source/preflight-source-evidence/labeling-ch15-lactation-direct.png",
+      "bytes": 58304,
+      "sha256": "d0a5040934a84c41aaee7945b705979d7e46261570ab0bd327bd2f01506fd062",
+      "dimensions": [
+        1400,
+        900
+      ]
+    },
+    {
+      "path": "biology_prep/ch15-batch09-10/source/preflight-source-evidence/native-lesson-09-direct.html",
+      "bytes": 20547,
+      "sha256": "0210c90d969379c2d2f01017d028afac6bea01d1b78a9ec741ac30e3c5b1f9a7"
+    },
+    {
+      "path": "biology_prep/ch15-batch09-10/source/preflight-source-evidence/native-lesson-09-direct.txt",
+      "bytes": 8773,
+      "sha256": "e14f7f462c78239cb2283c2be1c9154d92d4a8a82626d44152002cb64a919405"
+    },
+    {
+      "path": "biology_prep/ch15-batch09-10/source/preflight-source-evidence/native-lesson-10-direct.html",
+      "bytes": 19531,
+      "sha256": "3ceab73403b6ba0307179bca27ca3fcfc84dd36091f6251b937fb51acb5665b6"
+    },
+    {
+      "path": "biology_prep/ch15-batch09-10/source/preflight-source-evidence/native-lesson-10-direct.txt",
+      "bytes": 7929,
+      "sha256": "680beb8b455760d4d315625e3104f38c394786c352ccb5aed2864f27a120d8f1"
+    },
+    {
+      "path": "biology_prep/ch15-batch09-10/source/preflight-source-evidence/native-optional-textbook-tasks.json",
+      "bytes": 12185,
+      "sha256": "f6b0290d3c6f5fa8f81dff4229d785aac1b2f12531a7eb064850cc02216604c2"
+    },
+    {
+      "path": "biology_prep/ch15-batch09-10/source/preflight-source-evidence/native-pair-task-inventory.json",
+      "bytes": 51196,
+      "sha256": "0a0cd1680edcde12a02b8273dd9638259231e5a2a0396463c49d9b498b89ad98"
+    },
+    {
+      "path": "biology_prep/ch15-batch09-10/source/preflight-source-evidence/optional-crops-contact.png",
+      "bytes": 288773,
+      "sha256": "1e5f82966b17096b5bbf2f3df2860990d5993f69a3101bf843df38cc1643597e",
+      "dimensions": [
+        1500,
+        1801
+      ]
+    },
+    {
+      "path": "biology_prep/ch15-batch09-10/source/preflight-source-evidence/original-teacher-slides24-30-direct.json",
+      "bytes": 7436,
+      "sha256": "567115eb3bb9a1a27b94bcda0c4b5cfeac02396b874f2a933f33101513051348"
+    },
+    {
+      "path": "biology_prep/ch15-batch09-10/source/preflight-source-evidence/textbook-519-direct.txt",
+      "bytes": 2983,
+      "sha256": "8213935c8e8809eaec8336733d5aaf21b11f6341826f1c0936d851d1030b3ef8"
+    },
+    {
+      "path": "biology_prep/ch15-batch09-10/source/preflight-source-evidence/textbook-520-direct.txt",
+      "bytes": 4092,
+      "sha256": "60ceffb67a43283a5c61e052ec9e0f71cf46a2f5dcd379f72cd7e13a6f4dfb2c"
+    },
+    {
+      "path": "biology_prep/ch15-batch09-10/source/preflight-source-evidence/textbook-521-direct.txt",
+      "bytes": 3151,
+      "sha256": "5d869bfdd24f89151e1d73fb8212c60f80e2558ebcc530b588cc232b6f6476bf"
+    },
+    {
+      "path": "biology_prep/ch15-batch09-10/source/preflight-source-evidence/textbook-522-direct.txt",
+      "bytes": 3303,
+      "sha256": "78067c2775eac96aca8abcc96797b9552c80f96727c3ee6dfc8a2e4e7e3c3060"
+    },
+    {
+      "path": "biology_prep/ch15-batch09-10/source/preflight-source-evidence/textbook-523-direct.png",
+      "bytes": 617102,
+      "sha256": "c322073792ca8577914d752801e363b024846c7a9f4ed880f5bd89547c832534",
+      "dimensions": [
+        1026,
+        1332
+      ]
+    },
+    {
+      "path": "biology_prep/ch15-batch09-10/source/preflight-source-evidence/textbook-523-direct.txt",
+      "bytes": 3185,
+      "sha256": "8bcfbde7ec290301ce2129560a255f64b80e4e8507e9981b6bed2edf053a5d57"
+    },
+    {
+      "path": "biology_prep/ch15-batch09-10/source/preflight-source-evidence/textbook-524-direct.png",
+      "bytes": 297648,
+      "sha256": "13a46bac0b4f442aa137553e775bc6a2ab8a673c876c70569058bb82a96c823d",
+      "dimensions": [
+        1026,
+        1332
+      ]
+    },
+    {
+      "path": "biology_prep/ch15-batch09-10/source/preflight-source-evidence/textbook-524-direct.txt",
+      "bytes": 4733,
+      "sha256": "60436404173b3df0b0e8c2c0b3be022e7f9afa49a81928e606c1d7c0bc8017a8"
+    },
+    {
+      "path": "biology_prep/ch15-batch09-10/source/preflight-source-evidence/textbook-525-direct.png",
+      "bytes": 872210,
+      "sha256": "adcf51a7d255c8b0fcb0b11582e26bae5428f8a10e7749cbbe927987bfed182f",
+      "dimensions": [
+        1026,
+        1332
+      ]
+    },
+    {
+      "path": "biology_prep/ch15-batch09-10/source/preflight-source-evidence/textbook-525-direct.txt",
+      "bytes": 2708,
+      "sha256": "38c198f7b28ab5a04b90874732869f8be560ede16b3c3916b7d646f870e5499d"
+    },
+    {
+      "path": "biology_prep/ch15-batch09-10/source/preflight-source-evidence/textbook-526-direct.png",
+      "bytes": 395515,
+      "sha256": "1f8f4d77cfc963c281323432435c410e2f70b9d763f768c96a7d975fa1507d19",
+      "dimensions": [
+        1026,
+        1332
+      ]
+    },
+    {
+      "path": "biology_prep/ch15-batch09-10/source/preflight-source-evidence/textbook-526-direct.txt",
+      "bytes": 3457,
+      "sha256": "2ed71229d1c18985da3f8a442bf6339429ed9d227efe6f7759715784ecd10317"
+    },
+    {
+      "path": "biology_prep/ch15-batch09-10/source/preflight-source-evidence/textbook-527-direct.png",
+      "bytes": 302170,
+      "sha256": "06772ec46485b0fdb5df0567279b8985e8800f0f51faa75ddb34fe4de3522896",
+      "dimensions": [
+        1026,
+        1332
+      ]
+    },
+    {
+      "path": "biology_prep/ch15-batch09-10/source/preflight-source-evidence/textbook-527-direct.txt",
+      "bytes": 4682,
+      "sha256": "7ef55d66e74d691a25b227fd4a5536ecd04db1cb34ea1a04a6317bf4cae465ab"
+    },
+    {
+      "path": "biology_prep/ch15-batch09-10/source/preflight-source-evidence/textbook-528-direct.png",
+      "bytes": 204179,
+      "sha256": "1c2a565819548ec420aa9eaa1c5a626ced07d4a42ee5f029890a27fb23013b16",
+      "dimensions": [
+        1026,
+        1332
+      ]
+    },
+    {
+      "path": "biology_prep/ch15-batch09-10/source/preflight-source-evidence/textbook-528-direct.txt",
+      "bytes": 2679,
+      "sha256": "0e8df7201806c410444c4183de108dfc2a620d291ff4104264e3914e7d2dfdaf"
+    }
+  ],
+  "sourceLimits": [
+    "Original quiz diagrams and quiz XML referenced by historical catalogue not present; current adaptations independent of those stimuli",
+    "Original teacher slide text/relationship/media inspected; whole-slide PowerPoint rendering not performed",
+    "Actual source SVG intrinsic rasterizations inspected; no candidate/mobile/target-size/runtime claims",
+    "External video playback/content not reverified",
+    "NAHO2004 relevant p24 text inspected; no reasons for food choices supplied there",
+    "Bounded source preflight only; fresh learner review remains separate"
+  ],
+  "protectedDecisionItems": [
+    "Assessment meaning/wording/keys/feedback/IDs",
+    "Reader/task route/source crop or asset changes",
+    "Historical quiz restoration/rekeying",
+    "Clinical/nutrition/cultural-scope expansion"
+  ]
+}

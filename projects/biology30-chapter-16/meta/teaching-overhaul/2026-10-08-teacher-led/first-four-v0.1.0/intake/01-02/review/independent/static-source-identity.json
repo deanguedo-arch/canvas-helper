@@ -1,0 +1,36 @@
+{
+  "ownerIndexSHA256": "2c0b57b85b7842410358ed1b99fb264aa72e23889974b8b9f6083b241090e09b",
+  "courseConfigEqualsEmbedded": true,
+  "frozenCourseConfigEqualsOwner": true,
+  "assets": [
+    {
+      "asset": "assets/figures/ch16-source-karyotype.png",
+      "exactOriginalBytes": true,
+      "sha256": "e532de9abad60283e8221367dfc04795232f8eb4e4f5d1e03571cb29d0ecc5e0"
+    },
+    {
+      "asset": "assets/assessment/8a730ed608e092886404.png",
+      "exactOriginalBytes": true,
+      "sha256": "8a730ed608e092886404112015de10b33ec601c570f3b08027a8b9a88d9f5cf4"
+    },
+    {
+      "asset": "assets/figures/ch16-teacher-replication-slide16.png",
+      "exactOriginalMemberBytes": true,
+      "sha256": "fbad3bfca0fa245beaec5b792baf3a3e41816de8dfa186abe4fd6be70cf2a46e",
+      "originalPPTXSHA256": "a7af5a3b552995d835261eb490c56aa4d05dc26b31ab0afd7993184deb611061",
+      "slide16Relationship": [
+        {
+          "Id": "rId3",
+          "Type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/image",
+          "Target": "../media/image10.png"
+        }
+      ]
+    },
+    {
+      "asset": "assets/figures/ch16-source-cell-cycle-fig16-5.png",
+      "exactFrozenOriginalCropBytes": true,
+      "sha256": "6fd0a6d9595bf8bc9fa7b994cdddb1ffa6fe8e3e400a93d6d0ab930c6cffea68"
+    }
+  ],
+  "reviewScope": "Static reads, hashes and element comparison only; no runtime, tests, app/browser, saves, integration, user-computer work or release."
+}

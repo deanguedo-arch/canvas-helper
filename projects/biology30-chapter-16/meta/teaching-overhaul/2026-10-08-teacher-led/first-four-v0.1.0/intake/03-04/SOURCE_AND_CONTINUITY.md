@@ -1,0 +1,11 @@
+# Source and continuity
+
+Historical native indexSHA2562c0b57b85b7842410358ed1b99fb264aa72e23889974b8b9f6083b241090e09b, from verified CH16complete source archiveSHA2567d9f75046e9b5328cd5a342e90c59eb2c505700a77277b455e098fa2cd939411. Actual current local owner was not inspected. Native index owns teaching and matches reviewed taskconfig; initial generators/lesson-content are provenance only.
+
+Full source readiness and exact records are under source/SOURCE_READINESS.md and PREFLIGHT_RECEIPT.json. Original teacher has79slides; this pair uses replication16 and mitosis23–28 within the directly inspected13–36range. Day41 assigns20–36 but its cancer/cloning/stem-cell/aging extras do not automatically enlarge04. Textbook550–561 was source-read; direct core03count convention552/554/556–558,04PMAT556–559, original Figure16.8 on557. Figure16.7 is sea-star regeneration on556, not the mitosis panel.
+
+03reader's endpoint557 omits the decisive explicit counting convention on558; source mapping here supplies that locator without modifying protected reader fields. The complete chapterPDF is included as legitimate optional reading. All22selected question crops and full context, three teaching figures, two labeling variants and relevant original quiz stimuli were inspected. Textbook555Q14 depends on precedingQ13 and must retain that full-page context.
+
+01–02prepared sisters/homologues, sets and replication; their exact teaching-only excerpts are included as permitted prerequisites, with nonempty five-section checks and actual images.03adds quantitative boundaries and conservation;04explains the movement mechanisms. Next05owns cytoplasmic separation/growth and06begins meiosisI; current04only introduces the sister-versus-homologue contrast needed by its protected task. CH17accepted06–07 supplies method reference, not acceptance of this copy.
+
+Original OBJ_2131200/1206 have images and are present in the sourceD2Larchive. Current owner explicitly adapts them into a post-S count and hypothetical spindle problem. Preserve current task identity/meaning and historical linkage; do not claim verbatim original wording or restore old prompts. OBJ_2131205's prophase meaning/key matches. No new clinical chemotherapy instruction is introduced.

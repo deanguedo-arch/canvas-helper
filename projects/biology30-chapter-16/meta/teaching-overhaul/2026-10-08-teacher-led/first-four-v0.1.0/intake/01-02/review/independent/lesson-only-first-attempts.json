@@ -1,0 +1,1014 @@
+{
+  "phase": "FIRST ATTEMPTS FROZEN BEFORE OPTIONAL TEXTBOOK OR ANY ANSWER KEYS/SOURCE MAPPING/CONFIG/ORIGINAL OWNER",
+  "createdUTC": "2026-10-08T21:04:20.310345+00:00",
+  "counts": {
+    "localIdentities": 15,
+    "nativeForms": 58,
+    "frayerForms": 8,
+    "frayerFields": 32
+  },
+  "sourceAccess": "Only blind lesson txt/HTML, native task prompts, Frayer prompts and four actual learner image pixels. No source mapping, course config, answer keys, author rationale or preflight read.",
+  "inputSHA256": {
+    "ch16-batch01-02/review/lesson-01-blind.txt": "73b406e38e129c656fcc88ebeba836e36c1c55f730ec41128b525936596a3c3b",
+    "ch16-batch01-02/review/lesson-02-blind.txt": "3b104bd3751d80787624c72e1a4661c787381263816c6a5ab78c947a6851de60",
+    "ch16-batch01-02/review/lesson-01-blind.html": "95e46c866811efe5d1285ad8c1c25a184e6a7bb99dee0e3c6c1bee794dc2f659",
+    "ch16-batch01-02/review/lesson-02-blind.html": "8de13130eb0a0a3476c449ea37b7926cb7987f65e8836196df2a8a92f84239ce",
+    "ch16-batch01-02/review/additional-native-tasks-blind.json": "cbd733a45761aae36d52209c1277088a228ecd8c4ba3b4cf851d618ec7e0ff0e",
+    "ch16-batch01-02/review/frayer-prompts-blind.json": "aa84b40cb6c5b916703b94b5bdefd8a6397641c9fd3cebc1fa063c74db97c071",
+    "ch16-batch01-02/learner/assets/figures/ch16-source-karyotype.png": "e532de9abad60283e8221367dfc04795232f8eb4e4f5d1e03571cb29d0ecc5e0",
+    "ch16-batch01-02/learner/assets/assessment/8a730ed608e092886404.png": "8a730ed608e092886404112015de10b33ec601c570f3b08027a8b9a88d9f5cf4",
+    "ch16-batch01-02/learner/assets/figures/ch16-teacher-replication-slide16.png": "fbad3bfca0fa245beaec5b792baf3a3e41816de8dfa186abe4fd6be70cf2a46e",
+    "ch16-batch01-02/learner/assets/figures/ch16-source-cell-cycle-fig16-5.png": "6fd0a6d9595bf8bc9fa7b994cdddb1ffa6fe8e3e400a93d6d0ab930c6cffea68"
+  },
+  "localAttempts": [
+    {
+      "reviewId": "L1-guided1",
+      "prompt": "A model has three chromosome types and two of each type. What is 2n?",
+      "firstAnswer": "6; two sets of three gives 2 \u00d7 3 = 6.",
+      "lessonSupport": "L1 count sets"
+    },
+    {
+      "reviewId": "L1-guided2",
+      "prompt": "Two matching-length chromosomes came from different parents. What is their relationship?",
+      "firstAnswer": "Homologous chromosomes, as intended within the model. Matching length and parental origin alone would not prove homology outside this constrained question.",
+      "lessonSupport": "L1 homologues"
+    },
+    {
+      "reviewId": "L1-stop",
+      "prompt": "Does an X-shaped drawing automatically show a homologous pair?",
+      "firstAnswer": "No. In this model one X is one replicated chromosome with two sister chromatids. A homologous pair comprises two chromosomes of the same type.",
+      "lessonSupport": "L1 teacher figure and adjacent explanation"
+    },
+    {
+      "reviewId": "L1-required-selection1",
+      "prompt": "Which statement best describes homologous chromosomes?",
+      "firstAnswer": "They have corresponding genes but may carry different alleles",
+      "lessonSupport": "L1 homologues"
+    },
+    {
+      "reviewId": "L1-required-selection2",
+      "prompt": "A diploid species has 2n = 10. How many chromosome types are present in one normal gamete?",
+      "firstAnswer": "5; 10 \u00f7 2 = 5.",
+      "lessonSupport": "L1 count sets"
+    },
+    {
+      "reviewId": "L1-required-writing1",
+      "prompt": "Compare chromatin and condensed chromosomes without suggesting that a cell gains DNA only when it divides.",
+      "firstAnswer": "Chromatin is DNA associated with proteins. Its distinct chromosomes are relatively spread out during much of interphase and become more condensed for division. The DNA was already present. Condensation changes packaging; replication, a separate process, copies DNA.",
+      "lessonSupport": "L1 material remains"
+    },
+    {
+      "reviewId": "L1-required-writing2",
+      "prompt": "Explain why a homologous chromosome pair is not the same as a pair of sister chromatids.",
+      "firstAnswer": "Homologues are two chromosomes of the same type, typically one inherited from each parent, with corresponding genes and possibly different alleles. Sisters arise by copying one chromosome and remain associated as one replicated chromosome until they separate.",
+      "lessonSupport": "L1 homologues and teacher figure"
+    },
+    {
+      "reviewId": "L1-coffee",
+      "prompt": "Species of polyploid coffee plants are known. Calculate the diploid, tetraploid, and octoploid number of chromosomes for this species if its haploid number is 11 chromosomes. Show the calculation or sequence and explain your reasoning. Use only the supplied evidence; do not invent observations.",
+      "firstAnswer": "Diploid 2n = 2 \u00d7 11 = 22; tetraploid 4n = 4 \u00d7 11 = 44; octoploid 8n = 8 \u00d7 11 = 88. The picture order is 2n, 8n, 4n, so its blanks would be 22, 88, 44. Multipliers count complete sets, not replication.",
+      "lessonSupport": "L1 polyploid paragraph and viewed original coffee image"
+    },
+    {
+      "reviewId": "L2-guided1",
+      "prompt": "Which phase copies the DNA?",
+      "firstAnswer": "S phase",
+      "lessonSupport": "L2 preparation"
+    },
+    {
+      "reviewId": "L2-guided2",
+      "prompt": "A G1 cell has 8 chromosomes. After S phase and before chromatid separation, how many chromosomes does it have?",
+      "firstAnswer": "8 chromosomes; DNA amount doubles but joined sisters have not separated.",
+      "lessonSupport": "L2 counts"
+    },
+    {
+      "reviewId": "L2-stop",
+      "prompt": "Why should interphase not be called a time when nothing happens?",
+      "firstAnswer": "The cell grows and performs metabolism in G1, replicates DNA in S, and prepares materials for division in G2.",
+      "lessonSupport": "L2 preparation and actual cycle figure"
+    },
+    {
+      "reviewId": "L2-required-selection1",
+      "prompt": "What distinguishes mitosis from cytokinesis?",
+      "firstAnswer": "Mitosis divides nuclear genetic material; cytokinesis divides the cytoplasm",
+      "lessonSupport": "L2 nuclear versus cytoplasmic division"
+    },
+    {
+      "reviewId": "L2-required-selection2",
+      "prompt": "Most cells in a sampled tissue are in interphase. Which explanation is reasonable for an actively cycling population?",
+      "firstAnswer": "Cells spend much of the cycle in interphase. This snapshot inference presumes a representative unsynchronized cycling population.",
+      "lessonSupport": "L2 cycle timing paragraph"
+    },
+    {
+      "reviewId": "L2-required-writing1",
+      "prompt": "Trace the cell cycle from G1 through production of daughter cells. Explain why S phase must precede normal mitosis.",
+      "firstAnswer": "G1 includes growth and normal metabolism. S copies each chromosome into sister chromatids; G2 prepares for division. Mitosis distributes the copied chromosomes into two nuclei, and cytokinesis divides the cytoplasm into daughter cells. They may overlap. S must precede normal mitosis so each daughter nucleus can receive a full chromosome complement.",
+      "lessonSupport": "L2 preparation and nuclear/cytoplasmic division"
+    },
+    {
+      "reviewId": "L2-required-writing2",
+      "prompt": "Explain why a replicated chromosome is still counted as one chromosome before its sister chromatids separate.",
+      "firstAnswer": "The sisters are two DNA copies produced from one chromosome and remain associated as one replicated chromosome before separation. S doubles DNA content, not the count of independently counted chromosomes or the number of homologous sets. Each sister becomes a chromosome when it separates.",
+      "lessonSupport": "L2 counts"
+    }
+  ],
+  "nativeAttempts": [
+    {
+      "reviewId": "N001",
+      "kind": "practiceQuestions",
+      "prompt": "The sequence of events from one cell division to the next cell division is called",
+      "given": {
+        "lesson": 2,
+        "options": [
+          "cell cycle.",
+          "mitosis.",
+          "cytokinesis.",
+          "meiosis."
+        ],
+        "stimuli": []
+      },
+      "firstAnswer": "cell cycle.",
+      "lessonSupport": "L2: preparation; chromosome count versus DNA amount; nuclear versus cytoplasmic division",
+      "qualification": "Supported; no extra source required."
+    },
+    {
+      "reviewId": "N002",
+      "kind": "practiceQuestions",
+      "prompt": "What is the constricted chromosome region where sister chromatids are joined and spindle attachment is organized?",
+      "given": {
+        "lesson": 1,
+        "options": [
+          "Cell plate",
+          "Centromere",
+          "Telomere",
+          "Nucleolus"
+        ],
+        "stimuli": []
+      },
+      "firstAnswer": "Centromere",
+      "lessonSupport": "L1: material remains; homologues versus sisters; sets; karyotype limits",
+      "qualification": "Supported; no extra source required."
+    },
+    {
+      "reviewId": "N003",
+      "kind": "practiceQuestions",
+      "prompt": "A species has six chromosomes in a normal gamete. What is its diploid chromosome number?",
+      "given": {
+        "lesson": 1,
+        "options": [
+          "3",
+          "6",
+          "12",
+          "24"
+        ],
+        "stimuli": []
+      },
+      "firstAnswer": "12",
+      "lessonSupport": "L1: material remains; homologues versus sisters; sets; karyotype limits",
+      "qualification": "Supported; no extra source required."
+    },
+    {
+      "reviewId": "N004",
+      "kind": "practiceQuestions",
+      "prompt": "In a stem cell, identify the phase in interphase in which the DNA is replicated to form an identical chromosome.",
+      "given": {
+        "lesson": 2,
+        "options": [
+          "S phase",
+          "prophase",
+          "Gap 1 (G1) phase",
+          "Gap 2 (G2) phase"
+        ],
+        "stimuli": []
+      },
+      "firstAnswer": "S phase",
+      "lessonSupport": "L2: preparation; chromosome count versus DNA amount; nuclear versus cytoplasmic division",
+      "qualification": "Source wording says identical chromosome; lesson explicitly supplies sister-chromatid counting qualification."
+    },
+    {
+      "reviewId": "N005",
+      "kind": "practiceQuestions",
+      "prompt": "Which term matches this description? A DNA molecule with associated proteins, organized as a distinct genetic unit.",
+      "given": {
+        "lesson": 1,
+        "options": [
+          "chromosome",
+          "chromatin",
+          "homologous chromosomes",
+          "chromosome set"
+        ]
+      },
+      "firstAnswer": "chromosome",
+      "lessonSupport": "L1: material remains; homologues versus sisters; sets; karyotype limits",
+      "qualification": "Supported; no extra source required."
+    },
+    {
+      "reviewId": "N006",
+      "kind": "practiceQuestions",
+      "prompt": "Which term matches this description? DNA and its associated proteins in the nucleus, often less condensed between divisions.",
+      "given": {
+        "lesson": 1,
+        "options": [
+          "chromosome",
+          "chromatin",
+          "homologous chromosomes",
+          "chromosome set"
+        ]
+      },
+      "firstAnswer": "chromatin",
+      "lessonSupport": "L1: material remains; homologues versus sisters; sets; karyotype limits",
+      "qualification": "Supported; no extra source required."
+    },
+    {
+      "reviewId": "N007",
+      "kind": "practiceQuestions",
+      "prompt": "Which term matches this description? A pair of chromosomes with the same genes at corresponding loci, one typically inherited from each parent.",
+      "given": {
+        "lesson": 1,
+        "options": [
+          "chromosome",
+          "chromatin",
+          "homologous chromosomes",
+          "chromosome set"
+        ]
+      },
+      "firstAnswer": "homologous chromosomes",
+      "lessonSupport": "L1: material remains; homologues versus sisters; sets; karyotype limits",
+      "qualification": "Supported; no extra source required."
+    },
+    {
+      "reviewId": "N008",
+      "kind": "practiceQuestions",
+      "prompt": "Which term matches this description? One of each type of chromosome characteristic of a species.",
+      "given": {
+        "lesson": 1,
+        "options": [
+          "chromosome",
+          "chromatin",
+          "homologous chromosomes",
+          "chromosome set"
+        ]
+      },
+      "firstAnswer": "chromosome set",
+      "lessonSupport": "L1: material remains; homologues versus sisters; sets; karyotype limits",
+      "qualification": "Supported; no extra source required."
+    },
+    {
+      "reviewId": "N009",
+      "kind": "practiceQuestions",
+      "prompt": "Which term matches this description? The ordered sequence of growth, DNA replication and division in a dividing cell.",
+      "given": {
+        "lesson": 2,
+        "options": [
+          "cell cycle",
+          "interphase",
+          "S phase",
+          "sister chromatids"
+        ]
+      },
+      "firstAnswer": "cell cycle",
+      "lessonSupport": "L2: preparation; chromosome count versus DNA amount; nuclear versus cytoplasmic division",
+      "qualification": "Supported; no extra source required."
+    },
+    {
+      "reviewId": "N010",
+      "kind": "practiceQuestions",
+      "prompt": "Which term matches this description? The G1, S and G2 parts of the cycle between divisions.",
+      "given": {
+        "lesson": 2,
+        "options": [
+          "cell cycle",
+          "interphase",
+          "S phase",
+          "sister chromatids"
+        ]
+      },
+      "firstAnswer": "interphase",
+      "lessonSupport": "L2: preparation; chromosome count versus DNA amount; nuclear versus cytoplasmic division",
+      "qualification": "Supported; no extra source required."
+    },
+    {
+      "reviewId": "N011",
+      "kind": "practiceQuestions",
+      "prompt": "Which term matches this description? The part of interphase during which DNA is replicated.",
+      "given": {
+        "lesson": 2,
+        "options": [
+          "cell cycle",
+          "interphase",
+          "S phase",
+          "sister chromatids"
+        ]
+      },
+      "firstAnswer": "S phase",
+      "lessonSupport": "L2: preparation; chromosome count versus DNA amount; nuclear versus cytoplasmic division",
+      "qualification": "Supported; no extra source required."
+    },
+    {
+      "reviewId": "N012",
+      "kind": "practiceQuestions",
+      "prompt": "Which term matches this description? The two replicated copies of a chromosome before their separation.",
+      "given": {
+        "lesson": 2,
+        "options": [
+          "cell cycle",
+          "interphase",
+          "S phase",
+          "sister chromatids"
+        ]
+      },
+      "firstAnswer": "sister chromatids",
+      "lessonSupport": "L2: preparation; chromosome count versus DNA amount; nuclear versus cytoplasmic division",
+      "qualification": "Supported; no extra source required."
+    },
+    {
+      "reviewId": "N013",
+      "kind": "authoredPractice",
+      "prompt": "A karyotype shows the expected number of chromosomes. Which conclusion goes beyond this evidence?",
+      "given": {
+        "lesson": 1,
+        "options": [
+          "Every DNA sequence in the person is normal",
+          "Large chromosome differences may be investigated",
+          "The image can be organized into chromosome pairs",
+          "The observed chromosome count matches the expected count"
+        ]
+      },
+      "firstAnswer": "Every DNA sequence in the person is normal",
+      "lessonSupport": "L1: material remains; homologues versus sisters; sets; karyotype limits",
+      "qualification": "Supported; no extra source required."
+    },
+    {
+      "reviewId": "N014",
+      "kind": "flashVariant",
+      "prompt": "A karyotype shows the expected number of chromosomes. Which conclusion goes beyond this evidence?",
+      "firstAnswer": "The expected count does not establish that every DNA sequence is normal; a claim that every genetic condition is absent also exceeds the evidence.",
+      "lessonSupport": "L1: material remains; homologues versus sisters; sets; karyotype limits",
+      "qualification": "Open form supplies no options; numerous valid conclusions could exceed evidence. My example is valid, not uniquely forced."
+    },
+    {
+      "reviewId": "N015",
+      "kind": "authoredPractice",
+      "prompt": "A model cell completes nuclear division but not cytokinesis. What is most directly possible?",
+      "given": {
+        "lesson": 2,
+        "options": [
+          "Loss of all copied DNA",
+          "Two nuclei within a shared cytoplasm",
+          "Two cells with no nuclei",
+          "Four haploid gametes immediately"
+        ]
+      },
+      "firstAnswer": "Two nuclei within a shared cytoplasm",
+      "lessonSupport": "L2: preparation; chromosome count versus DNA amount; nuclear versus cytoplasmic division",
+      "qualification": "Supported; no extra source required."
+    },
+    {
+      "reviewId": "N016",
+      "kind": "flashVariant",
+      "prompt": "A model cell completes nuclear division but not cytokinesis. What is most directly possible?",
+      "firstAnswer": "Two nuclei within a shared cytoplasm",
+      "lessonSupport": "L2: preparation; chromosome count versus DNA amount; nuclear versus cytoplasmic division",
+      "qualification": "Supported; no extra source required."
+    },
+    {
+      "reviewId": "N017",
+      "kind": "typedPractice",
+      "prompt": "Identify the term illustrated: A condensed genetic structure becomes visible as a cell prepares to divide.",
+      "given": {
+        "lesson": 1
+      },
+      "firstAnswer": "chromosome",
+      "lessonSupport": "L1: material remains; homologues versus sisters; sets; karyotype limits",
+      "qualification": "Prompt uses a visible condensed structure; chromosome is directly supported."
+    },
+    {
+      "reviewId": "N018",
+      "kind": "typedPractice",
+      "prompt": "Identify the term illustrated: Genetic material appears less individually distinguishable during much of interphase.",
+      "given": {
+        "lesson": 1
+      },
+      "firstAnswer": "chromatin",
+      "lessonSupport": "L1: material remains; homologues versus sisters; sets; karyotype limits",
+      "qualification": "Supported; no extra source required."
+    },
+    {
+      "reviewId": "N019",
+      "kind": "typedPractice",
+      "prompt": "Identify the term illustrated: A maternal and paternal chromosome carry the same gene positions but may carry different alleles.",
+      "given": {
+        "lesson": 1
+      },
+      "firstAnswer": "homologous chromosomes",
+      "lessonSupport": "L1: material remains; homologues versus sisters; sets; karyotype limits",
+      "qualification": "Supported; no extra source required."
+    },
+    {
+      "reviewId": "N020",
+      "kind": "typedPractice",
+      "prompt": "Identify the term illustrated: A human gamete contains one set of 23 chromosomes.",
+      "given": {
+        "lesson": 1
+      },
+      "firstAnswer": "haploid cell / haploid chromosome set",
+      "lessonSupport": "L1: material remains; homologues versus sisters; sets; karyotype limits",
+      "qualification": "Prompt naturally illustrates haploid as well as chromosome set. Without a displayed term bank the intended single term is not uniquely determined."
+    },
+    {
+      "reviewId": "N021",
+      "kind": "typedPractice",
+      "prompt": "Identify the term illustrated: A cell grows, copies DNA, prepares for division and then divides.",
+      "given": {
+        "lesson": 2
+      },
+      "firstAnswer": "cell cycle",
+      "lessonSupport": "L2: preparation; chromosome count versus DNA amount; nuclear versus cytoplasmic division",
+      "qualification": "Supported; no extra source required."
+    },
+    {
+      "reviewId": "N022",
+      "kind": "typedPractice",
+      "prompt": "Identify the term illustrated: A cell carries out metabolism and replicates its DNA before mitosis.",
+      "given": {
+        "lesson": 2
+      },
+      "firstAnswer": "interphase",
+      "lessonSupport": "L2: preparation; chromosome count versus DNA amount; nuclear versus cytoplasmic division",
+      "qualification": "Supported; no extra source required."
+    },
+    {
+      "reviewId": "N023",
+      "kind": "typedPractice",
+      "prompt": "Identify the term illustrated: Each chromosome is copied before its chromatids are separated.",
+      "given": {
+        "lesson": 2
+      },
+      "firstAnswer": "DNA replication (during S phase)",
+      "lessonSupport": "L2: preparation; chromosome count versus DNA amount; nuclear versus cytoplasmic division",
+      "qualification": "Prompt naturally illustrates DNA replication; S phase is its timing. Without term bank, accepting only S phase would reject valid science."
+    },
+    {
+      "reviewId": "N024",
+      "kind": "typedPractice",
+      "prompt": "Identify the term illustrated: Two copied DNA structures remain associated at the centromere region.",
+      "given": {
+        "lesson": 2
+      },
+      "firstAnswer": "sister chromatids",
+      "lessonSupport": "L2: preparation; chromosome count versus DNA amount; nuclear versus cytoplasmic division",
+      "qualification": "Supported; no extra source required."
+    },
+    {
+      "reviewId": "N025",
+      "kind": "multiSelectPractice",
+      "prompt": "Select the TWO accurate statements about chromosomes, dna and chromosome sets.",
+      "given": {
+        "lesson": 1,
+        "options": [
+          "Chromatin is a different hereditary molecule from DNA.",
+          "Homologues are not the same as two copies made by DNA replication.",
+          "A chromosome set means two sister chromatids.",
+          "An unreplicated chromosome has one DNA molecule; a replicated chromosome has two sister chromatids until they separate."
+        ]
+      },
+      "firstAnswer": [
+        "Homologues are not the same as two copies made by DNA replication.",
+        "An unreplicated chromosome has one DNA molecule; a replicated chromosome has two sister chromatids until they separate."
+      ],
+      "lessonSupport": "L1: material remains; homologues versus sisters; sets; karyotype limits",
+      "qualification": "Supported; no extra source required."
+    },
+    {
+      "reviewId": "N026",
+      "kind": "sequences",
+      "prompt": "Arrange exact steps in causal order; alphabetical presentation here withholds stored order.",
+      "given": {
+        "title": "The cell cycle and DNA replication",
+        "instruction": "Arrange exact steps in causal order; alphabetical presentation here withholds stored order.",
+        "stepsToOrder": [
+          "Cytokinesis: cytoplasmic division",
+          "G1: cell growth and normal activity",
+          "G2: preparation for division",
+          "Mitosis: nuclear chromosome distribution",
+          "S: DNA replication"
+        ]
+      },
+      "firstAnswer": [
+        "G1: cell growth and normal activity",
+        "S: DNA replication",
+        "G2: preparation for division",
+        "Mitosis: nuclear chromosome distribution",
+        "Cytokinesis: cytoplasmic division"
+      ],
+      "lessonSupport": "L2: preparation; chromosome count versus DNA amount; nuclear versus cytoplasmic division",
+      "qualification": "Pedagogical linear ordering is available, but mitosis and cytokinesis can overlap as lesson correctly explains."
+    },
+    {
+      "reviewId": "N027",
+      "kind": "derivedVocabulary",
+      "prompt": "Explain chromosome.",
+      "given": {},
+      "firstAnswer": "A distinct unit of DNA with associated proteins. Before replication it contains one DNA molecule; after replication it has two joined sister chromatids until they separate.",
+      "lessonSupport": "L1: material remains; homologues versus sisters; sets; karyotype limits",
+      "qualification": "Supported; no extra source required."
+    },
+    {
+      "reviewId": "N028",
+      "kind": "derivedVocabulary",
+      "prompt": "Which term fits this definition? A DNA molecule with associated proteins, organized as a distinct genetic unit.",
+      "given": {},
+      "firstAnswer": "chromosome",
+      "lessonSupport": "L1: material remains; homologues versus sisters; sets; karyotype limits",
+      "qualification": "Supported; no extra source required."
+    },
+    {
+      "reviewId": "N029",
+      "kind": "derivedVocabulary",
+      "prompt": "Correct this incorrect statement: Every chromosome is always X-shaped.",
+      "given": {},
+      "firstAnswer": "Chromosomes are not always X-shaped. The X is a schematic condensed replicated chromosome; an unreplicated condensed chromosome is rod-like and interphase chromatin is less condensed.",
+      "lessonSupport": "L1: material remains; homologues versus sisters; sets; karyotype limits",
+      "qualification": "Supported; no extra source required."
+    },
+    {
+      "reviewId": "N030",
+      "kind": "derivedVocabulary",
+      "prompt": "Name the term described: A DNA molecule with associated proteins, organized as a distinct genetic unit.",
+      "given": {},
+      "firstAnswer": "chromosome",
+      "lessonSupport": "L1: material remains; homologues versus sisters; sets; karyotype limits",
+      "qualification": "Supported; no extra source required."
+    },
+    {
+      "reviewId": "N031",
+      "kind": "derivedVocabulary",
+      "prompt": "Explain chromatin.",
+      "given": {},
+      "firstAnswer": "DNA with its associated proteins, including histones, in the nucleus. It can be more or less condensed.",
+      "lessonSupport": "L1: material remains; homologues versus sisters; sets; karyotype limits",
+      "qualification": "Supported; no extra source required."
+    },
+    {
+      "reviewId": "N032",
+      "kind": "derivedVocabulary",
+      "prompt": "Which term fits this definition? DNA and its associated proteins in the nucleus, often less condensed between divisions.",
+      "given": {},
+      "firstAnswer": "chromatin",
+      "lessonSupport": "L1: material remains; homologues versus sisters; sets; karyotype limits",
+      "qualification": "Supported; no extra source required."
+    },
+    {
+      "reviewId": "N033",
+      "kind": "derivedVocabulary",
+      "prompt": "Correct this incorrect statement: Chromatin is a different hereditary molecule from DNA.",
+      "given": {},
+      "firstAnswer": "Chromatin is DNA together with associated proteins, not a different hereditary molecule.",
+      "lessonSupport": "L1: material remains; homologues versus sisters; sets; karyotype limits",
+      "qualification": "Supported; no extra source required."
+    },
+    {
+      "reviewId": "N034",
+      "kind": "derivedVocabulary",
+      "prompt": "Name the term described: DNA and its associated proteins in the nucleus, often less condensed between divisions.",
+      "given": {},
+      "firstAnswer": "chromatin",
+      "lessonSupport": "L1: material remains; homologues versus sisters; sets; karyotype limits",
+      "qualification": "Supported; no extra source required."
+    },
+    {
+      "reviewId": "N035",
+      "kind": "derivedVocabulary",
+      "prompt": "Explain homologous chromosomes.",
+      "given": {},
+      "firstAnswer": "Chromosomes of the same type, typically one from each parent, carrying corresponding gene positions but potentially different alleles.",
+      "lessonSupport": "L1: material remains; homologues versus sisters; sets; karyotype limits",
+      "qualification": "Supported; no extra source required."
+    },
+    {
+      "reviewId": "N036",
+      "kind": "derivedVocabulary",
+      "prompt": "Which term fits this definition? A pair of chromosomes with the same genes at corresponding loci, one typically inherited from each parent.",
+      "given": {},
+      "firstAnswer": "homologous chromosomes",
+      "lessonSupport": "L1: material remains; homologues versus sisters; sets; karyotype limits",
+      "qualification": "Supported; no extra source required."
+    },
+    {
+      "reviewId": "N037",
+      "kind": "derivedVocabulary",
+      "prompt": "Correct this incorrect statement: Homologous chromosomes must carry identical alleles.",
+      "given": {},
+      "firstAnswer": "Homologous chromosomes have the same genes at corresponding positions but may have different alleles.",
+      "lessonSupport": "L1: material remains; homologues versus sisters; sets; karyotype limits",
+      "qualification": "Supported; no extra source required."
+    },
+    {
+      "reviewId": "N038",
+      "kind": "derivedVocabulary",
+      "prompt": "Name the term described: A pair of chromosomes with the same genes at corresponding loci, one typically inherited from each parent.",
+      "given": {},
+      "firstAnswer": "homologous chromosomes",
+      "lessonSupport": "L1: material remains; homologues versus sisters; sets; karyotype limits",
+      "qualification": "Supported; no extra source required."
+    },
+    {
+      "reviewId": "N039",
+      "kind": "derivedVocabulary",
+      "prompt": "Explain chromosome set.",
+      "given": {},
+      "firstAnswer": "One chromosome of each type in the species model. A haploid cell has one such set; a diploid cell has two.",
+      "lessonSupport": "L1: material remains; homologues versus sisters; sets; karyotype limits",
+      "qualification": "Supported; no extra source required."
+    },
+    {
+      "reviewId": "N040",
+      "kind": "derivedVocabulary",
+      "prompt": "Which term fits this definition? One of each type of chromosome characteristic of a species.",
+      "given": {},
+      "firstAnswer": "chromosome set",
+      "lessonSupport": "L1: material remains; homologues versus sisters; sets; karyotype limits",
+      "qualification": "Supported; no extra source required."
+    },
+    {
+      "reviewId": "N041",
+      "kind": "derivedVocabulary",
+      "prompt": "Correct this incorrect statement: A chromosome set means two sister chromatids.",
+      "given": {},
+      "firstAnswer": "A chromosome set is one of each chromosome type. Two sister chromatids are copied parts of one replicated chromosome before separation.",
+      "lessonSupport": "L1: material remains; homologues versus sisters; sets; karyotype limits",
+      "qualification": "Supported; no extra source required."
+    },
+    {
+      "reviewId": "N042",
+      "kind": "derivedVocabulary",
+      "prompt": "Name the term described: One of each type of chromosome characteristic of a species.",
+      "given": {},
+      "firstAnswer": "chromosome set",
+      "lessonSupport": "L1: material remains; homologues versus sisters; sets; karyotype limits",
+      "qualification": "Supported; no extra source required."
+    },
+    {
+      "reviewId": "N043",
+      "kind": "derivedVocabulary",
+      "prompt": "Explain cell cycle.",
+      "given": {},
+      "firstAnswer": "The ordered sequence of growth, DNA copying, preparation and division from one division to the next in an actively dividing cell.",
+      "lessonSupport": "L2: preparation; chromosome count versus DNA amount; nuclear versus cytoplasmic division",
+      "qualification": "Supported; no extra source required."
+    },
+    {
+      "reviewId": "N044",
+      "kind": "derivedVocabulary",
+      "prompt": "Which term fits this definition? The ordered sequence of growth, DNA replication and division in a dividing cell.",
+      "given": {},
+      "firstAnswer": "cell cycle",
+      "lessonSupport": "L2: preparation; chromosome count versus DNA amount; nuclear versus cytoplasmic division",
+      "qualification": "Supported; no extra source required."
+    },
+    {
+      "reviewId": "N045",
+      "kind": "derivedVocabulary",
+      "prompt": "Correct this incorrect statement: Every cell divides at the same constant rate.",
+      "given": {},
+      "firstAnswer": "Cells do not all divide at one constant rate. Some divide rarely or leave the active cycle; different tissues and conditions have different timing.",
+      "lessonSupport": "L2: preparation; chromosome count versus DNA amount; nuclear versus cytoplasmic division",
+      "qualification": "Supported; no extra source required."
+    },
+    {
+      "reviewId": "N046",
+      "kind": "derivedVocabulary",
+      "prompt": "Name the term described: The ordered sequence of growth, DNA replication and division in a dividing cell.",
+      "given": {},
+      "firstAnswer": "cell cycle",
+      "lessonSupport": "L2: preparation; chromosome count versus DNA amount; nuclear versus cytoplasmic division",
+      "qualification": "Supported; no extra source required."
+    },
+    {
+      "reviewId": "N047",
+      "kind": "derivedVocabulary",
+      "prompt": "Explain interphase.",
+      "given": {},
+      "firstAnswer": "The G1, S and G2 portion of the cell cycle, during which a cell carries out metabolism, copies DNA and prepares to divide.",
+      "lessonSupport": "L2: preparation; chromosome count versus DNA amount; nuclear versus cytoplasmic division",
+      "qualification": "Supported; no extra source required."
+    },
+    {
+      "reviewId": "N048",
+      "kind": "derivedVocabulary",
+      "prompt": "Which term fits this definition? The G1, S and G2 parts of the cycle between divisions.",
+      "given": {},
+      "firstAnswer": "interphase",
+      "lessonSupport": "L2: preparation; chromosome count versus DNA amount; nuclear versus cytoplasmic division",
+      "qualification": "Supported; no extra source required."
+    },
+    {
+      "reviewId": "N049",
+      "kind": "derivedVocabulary",
+      "prompt": "Correct this incorrect statement: Interphase is an inactive resting period.",
+      "given": {},
+      "firstAnswer": "Interphase is active: G1 includes growth and metabolism, S replicates DNA, and G2 prepares for division.",
+      "lessonSupport": "L2: preparation; chromosome count versus DNA amount; nuclear versus cytoplasmic division",
+      "qualification": "Supported; no extra source required."
+    },
+    {
+      "reviewId": "N050",
+      "kind": "derivedVocabulary",
+      "prompt": "Name the term described: The G1, S and G2 parts of the cycle between divisions.",
+      "given": {},
+      "firstAnswer": "interphase",
+      "lessonSupport": "L2: preparation; chromosome count versus DNA amount; nuclear versus cytoplasmic division",
+      "qualification": "Supported; no extra source required."
+    },
+    {
+      "reviewId": "N051",
+      "kind": "derivedVocabulary",
+      "prompt": "Explain S phase.",
+      "given": {},
+      "firstAnswer": "The DNA synthesis portion of interphase, when chromosomes are copied into joined sister chromatids.",
+      "lessonSupport": "L2: preparation; chromosome count versus DNA amount; nuclear versus cytoplasmic division",
+      "qualification": "Supported; no extra source required."
+    },
+    {
+      "reviewId": "N052",
+      "kind": "derivedVocabulary",
+      "prompt": "Which term fits this definition? The part of interphase during which DNA is replicated.",
+      "given": {},
+      "firstAnswer": "S phase",
+      "lessonSupport": "L2: preparation; chromosome count versus DNA amount; nuclear versus cytoplasmic division",
+      "qualification": "Supported; no extra source required."
+    },
+    {
+      "reviewId": "N053",
+      "kind": "derivedVocabulary",
+      "prompt": "Correct this incorrect statement: S phase immediately doubles the chromosome count.",
+      "given": {},
+      "firstAnswer": "S phase doubles DNA amount, but chromosome count stays the same until the sister chromatids separate.",
+      "lessonSupport": "L2: preparation; chromosome count versus DNA amount; nuclear versus cytoplasmic division",
+      "qualification": "Supported; no extra source required."
+    },
+    {
+      "reviewId": "N054",
+      "kind": "derivedVocabulary",
+      "prompt": "Name the term described: The part of interphase during which DNA is replicated.",
+      "given": {},
+      "firstAnswer": "S phase",
+      "lessonSupport": "L2: preparation; chromosome count versus DNA amount; nuclear versus cytoplasmic division",
+      "qualification": "Supported; no extra source required."
+    },
+    {
+      "reviewId": "N055",
+      "kind": "derivedVocabulary",
+      "prompt": "Explain sister chromatids.",
+      "given": {},
+      "firstAnswer": "The two DNA copies of one chromosome that remain associated before their separation.",
+      "lessonSupport": "L2: preparation; chromosome count versus DNA amount; nuclear versus cytoplasmic division",
+      "qualification": "Supported; no extra source required."
+    },
+    {
+      "reviewId": "N056",
+      "kind": "derivedVocabulary",
+      "prompt": "Which term fits this definition? The two replicated copies of a chromosome before their separation.",
+      "given": {},
+      "firstAnswer": "sister chromatids",
+      "lessonSupport": "L2: preparation; chromosome count versus DNA amount; nuclear versus cytoplasmic division",
+      "qualification": "Supported; no extra source required."
+    },
+    {
+      "reviewId": "N057",
+      "kind": "derivedVocabulary",
+      "prompt": "Correct this incorrect statement: Sister chromatids are maternal and paternal homologues.",
+      "given": {},
+      "firstAnswer": "Sister chromatids are copies produced by replication of one chromosome. Maternal and paternal homologues are two chromosomes inherited from different parents.",
+      "lessonSupport": "L2: preparation; chromosome count versus DNA amount; nuclear versus cytoplasmic division",
+      "qualification": "Supported; no extra source required."
+    },
+    {
+      "reviewId": "N058",
+      "kind": "derivedVocabulary",
+      "prompt": "Name the term described: The two replicated copies of a chromosome before their separation.",
+      "given": {},
+      "firstAnswer": "sister chromatids",
+      "lessonSupport": "L2: preparation; chromosome count versus DNA amount; nuclear versus cytoplasmic division",
+      "qualification": "Supported; no extra source required."
+    }
+  ],
+  "frayerAttempts": [
+    {
+      "term": "chromosome",
+      "fields": [
+        {
+          "prompt": "Meaning in your own words",
+          "firstAnswer": "A distinct genetic unit of DNA and proteins; replicated chromosomes have two joined sister chromatids.",
+          "characters": 102
+        },
+        {
+          "prompt": "Key features or what it does",
+          "firstAnswer": "Carries genes; condenses for division. Count one before joined sisters separate.",
+          "characters": 80
+        },
+        {
+          "prompt": "A specific example",
+          "firstAnswer": "One maternal chromosome 1 in the human karyotype.",
+          "characters": 49
+        },
+        {
+          "prompt": "A non-example or common confusion",
+          "firstAnswer": "An X is not automatically two chromosomes or a homologous pair.",
+          "characters": 63
+        }
+      ],
+      "support": "Corresponding lesson explanation and worked example; examples chosen only from visible lesson material."
+    },
+    {
+      "term": "chromatin",
+      "fields": [
+        {
+          "prompt": "Meaning in your own words",
+          "firstAnswer": "DNA and its associated proteins in the nucleus.",
+          "characters": 47
+        },
+        {
+          "prompt": "Key features or what it does",
+          "firstAnswer": "Can be spread out or condensed; its packaging changes without DNA appearing from nothing.",
+          "characters": 89
+        },
+        {
+          "prompt": "A specific example",
+          "firstAnswer": "Less condensed nuclear DNA and histones during much of interphase.",
+          "characters": 66
+        },
+        {
+          "prompt": "A non-example or common confusion",
+          "firstAnswer": "Not a separate hereditary molecule replacing DNA.",
+          "characters": 49
+        }
+      ],
+      "support": "Corresponding lesson explanation and worked example; examples chosen only from visible lesson material."
+    },
+    {
+      "term": "homologous chromosomes",
+      "fields": [
+        {
+          "prompt": "Meaning in your own words",
+          "firstAnswer": "Two chromosomes of the same type with corresponding gene positions.",
+          "characters": 67
+        },
+        {
+          "prompt": "Key features or what it does",
+          "firstAnswer": "Typically one from each parent; alleles can differ. Size, centromere and bands help identify them.",
+          "characters": 98
+        },
+        {
+          "prompt": "A specific example",
+          "firstAnswer": "The maternal and paternal chromosome 1 shown together in a human karyotype.",
+          "characters": 75
+        },
+        {
+          "prompt": "A non-example or common confusion",
+          "firstAnswer": "Two sister chromatids of one copied chromosome are not maternal and paternal homologues.",
+          "characters": 88
+        }
+      ],
+      "support": "Corresponding lesson explanation and worked example; examples chosen only from visible lesson material."
+    },
+    {
+      "term": "chromosome set",
+      "fields": [
+        {
+          "prompt": "Meaning in your own words",
+          "firstAnswer": "One chromosome of each type characteristic of the species model.",
+          "characters": 64
+        },
+        {
+          "prompt": "Key features or what it does",
+          "firstAnswer": "One set is haploid; two complete sets are diploid. Copying DNA does not add a set.",
+          "characters": 82
+        },
+        {
+          "prompt": "A specific example",
+          "firstAnswer": "The 23 chromosomes in a normal human gamete make one set.",
+          "characters": 57
+        },
+        {
+          "prompt": "A non-example or common confusion",
+          "firstAnswer": "Two sister chromatids do not by themselves make a complete chromosome set.",
+          "characters": 74
+        }
+      ],
+      "support": "Corresponding lesson explanation and worked example; examples chosen only from visible lesson material."
+    },
+    {
+      "term": "cell cycle",
+      "fields": [
+        {
+          "prompt": "Meaning in your own words",
+          "firstAnswer": "The sequence from one cell division to the next in an actively dividing cell.",
+          "characters": 77
+        },
+        {
+          "prompt": "Key features or what it does",
+          "firstAnswer": "G1 growth, S DNA replication, G2 preparation, nuclear division and cytoplasmic division.",
+          "characters": 88
+        },
+        {
+          "prompt": "A specific example",
+          "firstAnswer": "The model cell with six chromosomes grows, copies its DNA and divides into two cells.",
+          "characters": 85
+        },
+        {
+          "prompt": "A non-example or common confusion",
+          "firstAnswer": "Mitosis alone is only part of the cycle, not the whole sequence.",
+          "characters": 64
+        }
+      ],
+      "support": "Corresponding lesson explanation and worked example; examples chosen only from visible lesson material."
+    },
+    {
+      "term": "interphase",
+      "fields": [
+        {
+          "prompt": "Meaning in your own words",
+          "firstAnswer": "G1, S and G2 between cell divisions.",
+          "characters": 36
+        },
+        {
+          "prompt": "Key features or what it does",
+          "firstAnswer": "Includes metabolism, growth, DNA copying and preparation; often occupies much of the active cycle.",
+          "characters": 98
+        },
+        {
+          "prompt": "A specific example",
+          "firstAnswer": "The six-chromosome model cell goes from six to twelve DNA molecules during its S phase.",
+          "characters": 87
+        },
+        {
+          "prompt": "A non-example or common confusion",
+          "firstAnswer": "Not an inactive resting period or a cell without DNA.",
+          "characters": 53
+        }
+      ],
+      "support": "Corresponding lesson explanation and worked example; examples chosen only from visible lesson material."
+    },
+    {
+      "term": "S phase",
+      "fields": [
+        {
+          "prompt": "Meaning in your own words",
+          "firstAnswer": "The part of interphase when the DNA is copied.",
+          "characters": 46
+        },
+        {
+          "prompt": "Key features or what it does",
+          "firstAnswer": "Makes sister chromatids and doubles DNA amount before separation, while chromosome count stays fixed.",
+          "characters": 101
+        },
+        {
+          "prompt": "A specific example",
+          "firstAnswer": "The six-chromosome model has twelve chromatids after S phase but still six chromosomes.",
+          "characters": 87
+        },
+        {
+          "prompt": "A non-example or common confusion",
+          "firstAnswer": "Cytokinesis divides cytoplasm; it does not copy DNA.",
+          "characters": 52
+        }
+      ],
+      "support": "Corresponding lesson explanation and worked example; examples chosen only from visible lesson material."
+    },
+    {
+      "term": "sister chromatids",
+      "fields": [
+        {
+          "prompt": "Meaning in your own words",
+          "firstAnswer": "The two copies made by replication of one chromosome before they separate.",
+          "characters": 74
+        },
+        {
+          "prompt": "Key features or what it does",
+          "firstAnswer": "Remain associated, especially near the centromere; each whole side of the drawn X is one sister.",
+          "characters": 96
+        },
+        {
+          "prompt": "A specific example",
+          "firstAnswer": "The two complete sides of the replicated chromosome in the teacher illustration.",
+          "characters": 80
+        },
+        {
+          "prompt": "A non-example or common confusion",
+          "firstAnswer": "Not the maternal and paternal homologues, and not individual upper and lower arms.",
+          "characters": 82
+        }
+      ],
+      "support": "Corresponding lesson explanation and worked example; examples chosen only from visible lesson material."
+    }
+  ],
+  "learnerFindings": [
+    "All 15 local identities can be answered using lesson-only material.",
+    "N020 and N023 have scientifically valid alternative terms; an exact single-term checker could reject a valid answer.",
+    "N014 open flash variant admits multiple valid overclaims.",
+    "Actual four images viewed. Labels readable at their native source dimensions; no target course layout, zoom control, runtime, save behavior or release checked.",
+    "Karyotype image is small and blurry but numbered groups and XX are discernible; do not infer exact sequences or subtle abnormalities.",
+    "Coffee image order 2n,8n,4n differs from prose order diploid,tetraploid,octoploid; lesson explicitly warns and supports labelled responses."
+  ]
+}

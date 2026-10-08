@@ -1,0 +1,1083 @@
+{
+  "checks": [
+    {
+      "id": "ch16-check-03",
+      "route": "lesson-03",
+      "title": "Reading chromosome number and DNA amount",
+      "mc": [
+        {
+          "prompt": "A replicated homologous pair contains how many chromosomes and chromatids?",
+          "answer": "2 chromosomes and 4 chromatids",
+          "explanation": "Each of the two homologues has replicated into two chromatids.",
+          "cue": "Trace the normal mechanism before choosing an answer.",
+          "id": "ch16-l03-check-mc-1",
+          "options": [
+            "2 chromosomes and 4 chromatids",
+            "2 chromosomes and 2 chromatids",
+            "4 chromosomes and 2 chromatids",
+            "1 chromosome and 4 chromatids"
+          ],
+          "difficulty": "application"
+        },
+        {
+          "prompt": "A 2n = 8 cell has separated sister chromatids but not completed cytokinesis. What is its whole-cell chromosome count?",
+          "answer": "16",
+          "explanation": "Separated chromatids each count as chromosomes; eight move to each pole.",
+          "cue": "Trace the normal mechanism before choosing an answer.",
+          "id": "ch16-l03-check-mc-2",
+          "options": [
+            "8",
+            "16",
+            "4",
+            "32"
+          ],
+          "difficulty": "application"
+        }
+      ],
+      "writing": [
+        {
+          "prompt": "Describe the chromosome and chromatid counts in a 2n = 12 cell immediately before and immediately after S phase.",
+          "model": "Before S phase there are 12 unreplicated chromosomes, each with one DNA molecule. After S phase there are still 12 chromosomes but 24 sister chromatids. DNA amount has doubled without chromosome separation.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ],
+          "id": "ch16-l03-check-writing-1",
+          "limit": 3200
+        },
+        {
+          "prompt": "Explain why a whole-cell count during anaphase can differ from the count in each daughter cell.",
+          "model": "In anaphase sister chromatids have separated into individual chromosomes, so the undivided cell contains both future chromosome groups. Cytokinesis separates these groups into two cells. Each daughter receives the original diploid chromosome number.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ],
+          "id": "ch16-l03-check-writing-2",
+          "limit": 3200
+        }
+      ]
+    },
+    {
+      "id": "ch16-check-04",
+      "route": "lesson-04",
+      "title": "Mitosis: chromosome movement through the stages",
+      "mc": [
+        {
+          "prompt": "Which observation best identifies telophase?",
+          "answer": "New nuclei form around chromosome groups at opposite poles",
+          "explanation": "Telophase reorganizes nuclei after chromosome separation.",
+          "cue": "Trace the normal mechanism before choosing an answer.",
+          "id": "ch16-l04-check-mc-1",
+          "options": [
+            "Tetrads cross over at the cell equator",
+            "Gametes fuse to form a zygote",
+            "New nuclei form around chromosome groups at opposite poles",
+            "DNA is being replicated in an intact interphase nucleus"
+          ],
+          "difficulty": "application"
+        },
+        {
+          "prompt": "Why is attachment of sister chromatids to opposite poles important?",
+          "answer": "It supports delivery of one replicated copy to each daughter nucleus",
+          "explanation": "Opposite-pole attachment helps distribute copied chromosomes accurately.",
+          "cue": "Trace the normal mechanism before choosing an answer.",
+          "id": "ch16-l04-check-mc-2",
+          "options": [
+            "It creates alleles needed by the organism",
+            "It halves chromosome number in every body cell",
+            "It ensures one daughter receives only maternal chromosomes",
+            "It supports delivery of one replicated copy to each daughter nucleus"
+          ],
+          "difficulty": "application"
+        }
+      ],
+      "writing": [
+        {
+          "prompt": "Trace chromosome behaviour through the four stages of mitosis.",
+          "model": "In prophase chromosomes condense and the spindle becomes organized. In metaphase replicated chromosomes align individually at the equator. In anaphase sister chromatids separate and move to opposite poles. In telophase nuclei reform around the chromosome groups as chromosomes become less condensed.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ],
+          "id": "ch16-l04-check-writing-1",
+          "limit": 3200
+        },
+        {
+          "prompt": "Contrast what separates in mitosis with the separation of a maternal and paternal homologue.",
+          "model": "Mitosis separates sister chromatids, the replicated copies of one chromosome. A maternal and paternal chromosome are homologues, not sister chromatids. Their separation as intact replicated chromosomes occurs in meiosis I, which reduces chromosome sets.",
+          "criteria": [
+            "Identifies the relevant structures or quantities.",
+            "Explains the causal relationship or calculation, not just the final result.",
+            "Uses the stated evidence and avoids a stronger conclusion than it supports."
+          ],
+          "id": "ch16-l04-check-writing-2",
+          "limit": 3200
+        }
+      ]
+    }
+  ],
+  "words": [
+    {
+      "term": "centromere",
+      "meaning": "The chromosome region associated with the attachment and separation of sister chromatids.",
+      "example": "Sister chromatids remain linked at a constricted chromosome region before division.",
+      "importantDistinction": "Counting separated centromere units helps distinguish chromosomes from chromatids.",
+      "aliases": [],
+      "id": "ch16-word-centromere",
+      "lesson": 3,
+      "whatItDoes": "Sister chromatids remain linked at a constricted chromosome region before division.",
+      "feature": "Sister chromatids remain linked at a constricted chromosome region before division.",
+      "confusion": "Counting separated centromere units helps distinguish chromosomes from chromatids."
+    },
+    {
+      "term": "chromosome number",
+      "meaning": "The count of individual chromosomes in a specified cell or nucleus.",
+      "example": "A diploid model cell retains four chromosomes after replication until sister chromatids separate.",
+      "importantDistinction": "Always state which cell, nucleus or pole is being counted.",
+      "aliases": [],
+      "id": "ch16-word-chromosome-number",
+      "lesson": 3,
+      "whatItDoes": "A diploid model cell retains four chromosomes after replication until sister chromatids separate.",
+      "feature": "A diploid model cell retains four chromosomes after replication until sister chromatids separate.",
+      "confusion": "Always state which cell, nucleus or pole is being counted."
+    },
+    {
+      "term": "DNA amount",
+      "meaning": "The quantity of DNA in the specified cell or nucleus.",
+      "example": "The DNA quantity doubles during S phase before the cell divides.",
+      "importantDistinction": "DNA amount can change while chromosome number stays the same.",
+      "aliases": [],
+      "id": "ch16-word-dna-amount",
+      "lesson": 3,
+      "whatItDoes": "The DNA quantity doubles during S phase before the cell divides.",
+      "feature": "The DNA quantity doubles during S phase before the cell divides.",
+      "confusion": "DNA amount can change while chromosome number stays the same."
+    },
+    {
+      "term": "anaphase",
+      "meaning": "The mitotic stage in which sister chromatids separate and move toward opposite poles.",
+      "example": "Copied chromosome units become independent chromosomes as they separate.",
+      "importantDistinction": "The whole-cell chromosome count briefly increases before cytokinesis.",
+      "aliases": [],
+      "id": "ch16-word-anaphase",
+      "lesson": 3,
+      "whatItDoes": "Copied chromosome units become independent chromosomes as they separate.",
+      "feature": "Copied chromosome units become independent chromosomes as they separate.",
+      "confusion": "The whole-cell chromosome count briefly increases before cytokinesis."
+    },
+    {
+      "term": "prophase",
+      "meaning": "The mitotic stage in which chromosomes condense and the division machinery becomes organized.",
+      "example": "Condensed replicated chromosomes become visible as spindle structures develop.",
+      "importantDistinction": "DNA replication precedes prophase in the normal cycle.",
+      "aliases": [],
+      "id": "ch16-word-prophase",
+      "lesson": 4,
+      "whatItDoes": "Condensed replicated chromosomes become visible as spindle structures develop.",
+      "feature": "Condensed replicated chromosomes become visible as spindle structures develop.",
+      "confusion": "DNA replication precedes prophase in the normal cycle."
+    },
+    {
+      "term": "metaphase",
+      "meaning": "The mitotic stage in which replicated chromosomes align at the cell equator.",
+      "example": "Replicated chromosomes line up individually across the middle of the cell.",
+      "importantDistinction": "Homologous pairs do not normally align as tetrads in mitotic metaphase.",
+      "aliases": [],
+      "id": "ch16-word-metaphase",
+      "lesson": 4,
+      "whatItDoes": "Replicated chromosomes line up individually across the middle of the cell.",
+      "feature": "Replicated chromosomes line up individually across the middle of the cell.",
+      "confusion": "Homologous pairs do not normally align as tetrads in mitotic metaphase."
+    },
+    {
+      "term": "spindle fibre",
+      "meaning": "A microtubule structure involved in chromosome attachment and movement during division.",
+      "example": "Fibres from opposite poles attach to the replicated chromosome’s kinetochore regions.",
+      "importantDistinction": "Spindle attachment guides chromosome movement; it does not create new DNA.",
+      "aliases": [],
+      "id": "ch16-word-spindle-fibre",
+      "lesson": 4,
+      "whatItDoes": "Fibres from opposite poles attach to the replicated chromosome’s kinetochore regions.",
+      "feature": "Fibres from opposite poles attach to the replicated chromosome’s kinetochore regions.",
+      "confusion": "Spindle attachment guides chromosome movement; it does not create new DNA."
+    },
+    {
+      "term": "telophase",
+      "meaning": "The mitotic stage in which chromosome groups reach the poles and daughter nuclei form.",
+      "example": "Nuclear envelopes reform around the two chromosome groups.",
+      "importantDistinction": "Cytokinesis is a separate, coordinated division of the cytoplasm.",
+      "aliases": [],
+      "id": "ch16-word-telophase",
+      "lesson": 4,
+      "whatItDoes": "Nuclear envelopes reform around the two chromosome groups.",
+      "feature": "Nuclear envelopes reform around the two chromosome groups.",
+      "confusion": "Cytokinesis is a separate, coordinated division of the cytoplasm."
+    }
+  ],
+  "practiceQuestions": [
+    {
+      "id": "ch16-source-OBJ_2131200",
+      "lesson": 3,
+      "prompt": "A typical diploid cell contains 12 chromosomes before S phase. Immediately after S phase, what is its chromosome count?",
+      "answer": "12",
+      "options": [
+        "24",
+        "48",
+        "6",
+        "12"
+      ],
+      "cue": "Identify the relevant mechanism or quantity and apply the stated model.",
+      "explanation": "Replication increases DNA and chromatid number; joined sisters still count as one chromosome.",
+      "difficulty": "application",
+      "stimuli": [],
+      "sourceItemId": "OBJ_2131200",
+      "conceptId": "ch16-concept-chromosome"
+    },
+    {
+      "id": "ch16-source-OBJ_2131205",
+      "lesson": 4,
+      "prompt": "Identify the phase of mitosis that is described below: “During this phase, the nuclear membrane breaks down, releasing the chromosomes into the cytoplasm. The nucleolus disappears and the centrioles move to opposite poles of the cell.”",
+      "answer": "prophase",
+      "options": [
+        "metaphase",
+        "telophase",
+        "anaphase",
+        "prophase"
+      ],
+      "cue": "Identify the relevant mechanism or quantity and apply the stated model.",
+      "explanation": "These changes belong to the prophase/prometaphase part of the school-level mitotic sequence.",
+      "difficulty": "application",
+      "stimuli": [],
+      "sourceItemId": "OBJ_2131205",
+      "conceptId": "ch16-concept-chromosome"
+    },
+    {
+      "id": "ch16-source-OBJ_2131206",
+      "lesson": 4,
+      "prompt": "A hypothetical agent prevents a functional mitotic spindle from forming. Which event is directly disrupted?",
+      "answer": "Accurate separation of chromosomes",
+      "options": [
+        "Accurate separation of chromosomes",
+        "Base pairing during every earlier S phase",
+        "Formation of gametes by fertilization",
+        "All copying of cytoplasmic proteins"
+      ],
+      "cue": "Identify the relevant mechanism or quantity and apply the stated model.",
+      "explanation": "Spindle function is required for chromosome attachment and segregation. This is a mechanism model, not treatment advice.",
+      "difficulty": "application",
+      "stimuli": [],
+      "sourceItemId": "OBJ_2131206",
+      "conceptId": "ch16-concept-prophase"
+    },
+    {
+      "id": "ch16-foundation-ch16-word-centromere",
+      "lesson": 3,
+      "conceptId": "ch16-concept-centromere",
+      "prompt": "Which term matches this description? The chromosome region associated with the attachment and separation of sister chromatids.",
+      "options": [
+        "centromere",
+        "chromosome number",
+        "DNA amount",
+        "anaphase"
+      ],
+      "answer": "centromere",
+      "cue": "Use the meaning of each term, not the length of its name.",
+      "explanation": "The chromosome region associated with the attachment and separation of sister chromatids. Counting separated centromere units helps distinguish chromosomes from chromatids.",
+      "difficulty": "recall",
+      "family": "definition-recognition",
+      "kind": "mc"
+    },
+    {
+      "id": "ch16-foundation-ch16-word-chromosome-number",
+      "lesson": 3,
+      "conceptId": "ch16-concept-chromosome-number",
+      "prompt": "Which term matches this description? The count of individual chromosomes in a specified cell or nucleus.",
+      "options": [
+        "centromere",
+        "chromosome number",
+        "DNA amount",
+        "anaphase"
+      ],
+      "answer": "chromosome number",
+      "cue": "Use the meaning of each term, not the length of its name.",
+      "explanation": "The count of individual chromosomes in a specified cell or nucleus. Always state which cell, nucleus or pole is being counted.",
+      "difficulty": "recall",
+      "family": "definition-recognition",
+      "kind": "mc"
+    },
+    {
+      "id": "ch16-foundation-ch16-word-dna-amount",
+      "lesson": 3,
+      "conceptId": "ch16-concept-dna-amount",
+      "prompt": "Which term matches this description? The quantity of DNA in the specified cell or nucleus.",
+      "options": [
+        "centromere",
+        "chromosome number",
+        "DNA amount",
+        "anaphase"
+      ],
+      "answer": "DNA amount",
+      "cue": "Use the meaning of each term, not the length of its name.",
+      "explanation": "The quantity of DNA in the specified cell or nucleus. DNA amount can change while chromosome number stays the same.",
+      "difficulty": "recall",
+      "family": "definition-recognition",
+      "kind": "mc"
+    },
+    {
+      "id": "ch16-foundation-ch16-word-anaphase",
+      "lesson": 3,
+      "conceptId": "ch16-concept-anaphase",
+      "prompt": "Which term matches this description? The mitotic stage in which sister chromatids separate and move toward opposite poles.",
+      "options": [
+        "centromere",
+        "chromosome number",
+        "DNA amount",
+        "anaphase"
+      ],
+      "answer": "anaphase",
+      "cue": "Use the meaning of each term, not the length of its name.",
+      "explanation": "The mitotic stage in which sister chromatids separate and move toward opposite poles. The whole-cell chromosome count briefly increases before cytokinesis.",
+      "difficulty": "recall",
+      "family": "definition-recognition",
+      "kind": "mc"
+    },
+    {
+      "id": "ch16-foundation-ch16-word-prophase",
+      "lesson": 4,
+      "conceptId": "ch16-concept-prophase",
+      "prompt": "Which term matches this description? The mitotic stage in which chromosomes condense and the division machinery becomes organized.",
+      "options": [
+        "prophase",
+        "metaphase",
+        "spindle fibre",
+        "telophase"
+      ],
+      "answer": "prophase",
+      "cue": "Use the meaning of each term, not the length of its name.",
+      "explanation": "The mitotic stage in which chromosomes condense and the division machinery becomes organized. DNA replication precedes prophase in the normal cycle.",
+      "difficulty": "recall",
+      "family": "definition-recognition",
+      "kind": "mc"
+    },
+    {
+      "id": "ch16-foundation-ch16-word-metaphase",
+      "lesson": 4,
+      "conceptId": "ch16-concept-metaphase",
+      "prompt": "Which term matches this description? The mitotic stage in which replicated chromosomes align at the cell equator.",
+      "options": [
+        "prophase",
+        "metaphase",
+        "spindle fibre",
+        "telophase"
+      ],
+      "answer": "metaphase",
+      "cue": "Use the meaning of each term, not the length of its name.",
+      "explanation": "The mitotic stage in which replicated chromosomes align at the cell equator. Homologous pairs do not normally align as tetrads in mitotic metaphase.",
+      "difficulty": "recall",
+      "family": "definition-recognition",
+      "kind": "mc"
+    },
+    {
+      "id": "ch16-foundation-ch16-word-spindle-fibre",
+      "lesson": 4,
+      "conceptId": "ch16-concept-spindle-fibre",
+      "prompt": "Which term matches this description? A microtubule structure involved in chromosome attachment and movement during division.",
+      "options": [
+        "prophase",
+        "metaphase",
+        "spindle fibre",
+        "telophase"
+      ],
+      "answer": "spindle fibre",
+      "cue": "Use the meaning of each term, not the length of its name.",
+      "explanation": "A microtubule structure involved in chromosome attachment and movement during division. Spindle attachment guides chromosome movement; it does not create new DNA.",
+      "difficulty": "recall",
+      "family": "definition-recognition",
+      "kind": "mc"
+    },
+    {
+      "id": "ch16-foundation-ch16-word-telophase",
+      "lesson": 4,
+      "conceptId": "ch16-concept-telophase",
+      "prompt": "Which term matches this description? The mitotic stage in which chromosome groups reach the poles and daughter nuclei form.",
+      "options": [
+        "prophase",
+        "metaphase",
+        "spindle fibre",
+        "telophase"
+      ],
+      "answer": "telophase",
+      "cue": "Use the meaning of each term, not the length of its name.",
+      "explanation": "The mitotic stage in which chromosome groups reach the poles and daughter nuclei form. Cytokinesis is a separate, coordinated division of the cytoplasm.",
+      "difficulty": "recall",
+      "family": "definition-recognition",
+      "kind": "mc"
+    }
+  ],
+  "sequences": [
+    {
+      "id": "ch16-sequence-04",
+      "lesson": 4,
+      "conceptId": "ch16-concept-telophase",
+      "title": "Mitosis: chromosome movement through the stages",
+      "steps": [
+        "Prophase: chromosomes condense and spindle organizes",
+        "Metaphase: replicated chromosomes align individually",
+        "Anaphase: sister chromatids separate",
+        "Telophase: daughter nuclei form"
+      ]
+    }
+  ],
+  "labelDiagrams": [
+    {
+      "id": "ch16-chromosome-label",
+      "title": "One chromosome before and after replication",
+      "lesson": 3,
+      "src": "./assets/labeling/ch16-chromosome.svg",
+      "alt": "Replication doubles DNA amount without initially doubling chromosome number. The two sister chromatids remain one replicated chromosome until they separate. Lettered identification version; answer key is not drawn.",
+      "answers": {
+        "A": "One unreplicated chromosome",
+        "B": "Sister chromatid",
+        "C": "Sister chromatid",
+        "D": "Centromere region"
+      },
+      "options": [
+        "One unreplicated chromosome",
+        "Sister chromatid",
+        "Centromere region"
+      ],
+      "reviewNote": "Follow each letter or its leader line. Use the model assumptions and units shown."
+    },
+    {
+      "id": "ch16-mitosis-label",
+      "title": "Mitosis in a model cell: 2n = 4",
+      "lesson": 4,
+      "src": "./assets/labeling/ch16-mitosis.svg",
+      "alt": "Four replicated chromosomes align individually; sister chromatids separate. Each daughter nucleus receives four chromosomes. Blue and orange identify parental origins, not different cell types. Lettered identification version; answer key is not drawn.",
+      "answers": {
+        "A": "Prophase",
+        "B": "Metaphase",
+        "C": "Anaphase",
+        "D": "Telophase"
+      },
+      "options": [
+        "Prophase",
+        "Metaphase",
+        "Anaphase",
+        "Telophase"
+      ],
+      "reviewNote": "Follow each letter or its leader line. Use the model assumptions and units shown."
+    }
+  ],
+  "videos": [
+    {
+      "id": "f-ldPgEfAHI",
+      "lesson": 4,
+      "title": "Mitosis: chromosome movement through the stages — video support",
+      "purpose": "Trace prophase, metaphase, anaphase and telophase, connecting visible events with accurate chromosome distribution.",
+      "fallback": "During anaphase, sister chromatids separate. Each becomes an individual chromosome and moves toward its assigned pole. The important event is separation of the copies made during S phase. Mitosis does not normally pair maternal and paternal homologues into tetrads and separate those pairs as meiosis I does. A diploid cell uses mitosis to preserve the chromosome complement in the two daughter nuclei. If a diagram uses two colours for parental origin, each normal mitotic daughter receives both parental contributions. Do not place all maternal chromosomes in one daughter and all paternal chromosomes in the other.",
+      "disposition": "included",
+      "sourceSlide": 32,
+      "sourceDeck": "c16",
+      "availability": "Source hyperlink resolved syntactically; external playback not certified."
+    },
+    {
+      "id": "5bq1To_RKEo",
+      "lesson": 4,
+      "title": "Mitosis: chromosome movement through the stages — video support 2",
+      "purpose": "Trace prophase, metaphase, anaphase and telophase, connecting visible events with accurate chromosome distribution.",
+      "fallback": "During anaphase, sister chromatids separate. Each becomes an individual chromosome and moves toward its assigned pole. The important event is separation of the copies made during S phase. Mitosis does not normally pair maternal and paternal homologues into tetrads and separate those pairs as meiosis I does. A diploid cell uses mitosis to preserve the chromosome complement in the two daughter nuclei. If a diagram uses two colours for parental origin, each normal mitotic daughter receives both parental contributions. Do not place all maternal chromosomes in one daughter and all paternal chromosomes in the other.",
+      "disposition": "included",
+      "sourceSlide": 32,
+      "sourceDeck": "c16",
+      "availability": "Source hyperlink resolved syntactically; external playback not certified."
+    }
+  ],
+  "practiceConcepts": [
+    {
+      "id": "ch16-concept-centromere",
+      "term": "centromere",
+      "lesson": 3,
+      "meaning": "The chromosome region associated with the attachment and separation of sister chromatids.",
+      "example": "Sister chromatids remain linked at a constricted chromosome region before division.",
+      "aliases": [],
+      "cue": "Identify the structure, quantity or relationship described.",
+      "correctExplanation": "The chromosome region associated with the attachment and separation of sister chromatids. Counting separated centromere units helps distinguish chromosomes from chromatids.",
+      "misconception": {
+        "statement": "A centromere is a whole homologous pair.",
+        "correction": "The chromosome region associated with the attachment and separation of sister chromatids. Counting separated centromere units helps distinguish chromosomes from chromatids."
+      },
+      "reviewRoute": "lesson-03"
+    },
+    {
+      "id": "ch16-concept-chromosome-number",
+      "term": "chromosome number",
+      "lesson": 3,
+      "meaning": "The count of individual chromosomes in a specified cell or nucleus.",
+      "example": "A diploid model cell retains four chromosomes after replication until sister chromatids separate.",
+      "aliases": [],
+      "cue": "Identify the structure, quantity or relationship described.",
+      "correctExplanation": "The count of individual chromosomes in a specified cell or nucleus. Always state which cell, nucleus or pole is being counted.",
+      "misconception": {
+        "statement": "Chromosome number and DNA amount always change together.",
+        "correction": "The count of individual chromosomes in a specified cell or nucleus. Always state which cell, nucleus or pole is being counted."
+      },
+      "reviewRoute": "lesson-03"
+    },
+    {
+      "id": "ch16-concept-dna-amount",
+      "term": "DNA amount",
+      "lesson": 3,
+      "meaning": "The quantity of DNA in the specified cell or nucleus.",
+      "example": "The DNA quantity doubles during S phase before the cell divides.",
+      "aliases": [],
+      "cue": "Identify the structure, quantity or relationship described.",
+      "correctExplanation": "The quantity of DNA in the specified cell or nucleus. DNA amount can change while chromosome number stays the same.",
+      "misconception": {
+        "statement": "DNA amount is always equal to the number of chromosome sets.",
+        "correction": "The quantity of DNA in the specified cell or nucleus. DNA amount can change while chromosome number stays the same."
+      },
+      "reviewRoute": "lesson-03"
+    },
+    {
+      "id": "ch16-concept-anaphase",
+      "term": "anaphase",
+      "lesson": 3,
+      "meaning": "The mitotic stage in which sister chromatids separate and move toward opposite poles.",
+      "example": "Copied chromosome units become independent chromosomes as they separate.",
+      "aliases": [],
+      "cue": "Identify the structure, quantity or relationship described.",
+      "correctExplanation": "The mitotic stage in which sister chromatids separate and move toward opposite poles. The whole-cell chromosome count briefly increases before cytokinesis.",
+      "misconception": {
+        "statement": "Sister chromatids stay joined throughout mitotic anaphase.",
+        "correction": "The mitotic stage in which sister chromatids separate and move toward opposite poles. The whole-cell chromosome count briefly increases before cytokinesis."
+      },
+      "reviewRoute": "lesson-03"
+    },
+    {
+      "id": "ch16-concept-prophase",
+      "term": "prophase",
+      "lesson": 4,
+      "meaning": "The mitotic stage in which chromosomes condense and the division machinery becomes organized.",
+      "example": "Condensed replicated chromosomes become visible as spindle structures develop.",
+      "aliases": [],
+      "cue": "Identify the structure, quantity or relationship described.",
+      "correctExplanation": "The mitotic stage in which chromosomes condense and the division machinery becomes organized. DNA replication precedes prophase in the normal cycle.",
+      "misconception": {
+        "statement": "The cell first copies its DNA during prophase.",
+        "correction": "The mitotic stage in which chromosomes condense and the division machinery becomes organized. DNA replication precedes prophase in the normal cycle."
+      },
+      "reviewRoute": "lesson-04"
+    },
+    {
+      "id": "ch16-concept-metaphase",
+      "term": "metaphase",
+      "lesson": 4,
+      "meaning": "The mitotic stage in which replicated chromosomes align at the cell equator.",
+      "example": "Replicated chromosomes line up individually across the middle of the cell.",
+      "aliases": [],
+      "cue": "Identify the structure, quantity or relationship described.",
+      "correctExplanation": "The mitotic stage in which replicated chromosomes align at the cell equator. Homologous pairs do not normally align as tetrads in mitotic metaphase.",
+      "misconception": {
+        "statement": "Mitosis always pairs homologues into tetrads at metaphase.",
+        "correction": "The mitotic stage in which replicated chromosomes align at the cell equator. Homologous pairs do not normally align as tetrads in mitotic metaphase."
+      },
+      "reviewRoute": "lesson-04"
+    },
+    {
+      "id": "ch16-concept-spindle-fibre",
+      "term": "spindle fibre",
+      "lesson": 4,
+      "meaning": "A microtubule structure involved in chromosome attachment and movement during division.",
+      "example": "Fibres from opposite poles attach to the replicated chromosome’s kinetochore regions.",
+      "aliases": [],
+      "cue": "Identify the structure, quantity or relationship described.",
+      "correctExplanation": "A microtubule structure involved in chromosome attachment and movement during division. Spindle attachment guides chromosome movement; it does not create new DNA.",
+      "misconception": {
+        "statement": "Spindle fibres manufacture DNA nucleotides.",
+        "correction": "A microtubule structure involved in chromosome attachment and movement during division. Spindle attachment guides chromosome movement; it does not create new DNA."
+      },
+      "reviewRoute": "lesson-04"
+    },
+    {
+      "id": "ch16-concept-telophase",
+      "term": "telophase",
+      "lesson": 4,
+      "meaning": "The mitotic stage in which chromosome groups reach the poles and daughter nuclei form.",
+      "example": "Nuclear envelopes reform around the two chromosome groups.",
+      "aliases": [],
+      "cue": "Identify the structure, quantity or relationship described.",
+      "correctExplanation": "The mitotic stage in which chromosome groups reach the poles and daughter nuclei form. Cytokinesis is a separate, coordinated division of the cytoplasm.",
+      "misconception": {
+        "statement": "Telophase is another name for S phase.",
+        "correction": "The mitotic stage in which chromosome groups reach the poles and daughter nuclei form. Cytokinesis is a separate, coordinated division of the cytoplasm."
+      },
+      "reviewRoute": "lesson-04"
+    }
+  ],
+  "authoredPractice": [
+    {
+      "prompt": "A student counts four visible arms on a single replicated chromosome and reports four chromosomes. What should be corrected?",
+      "answer": "Arms are not the unit used to count chromosomes",
+      "explanation": "The joined sister chromatids comprise one replicated chromosome until separation.",
+      "cue": "Trace the normal mechanism before choosing an answer.",
+      "id": "ch16-l03-application-1",
+      "options": [
+        "A chromosome never contains DNA",
+        "Every arm must be a gamete",
+        "Arms are not the unit used to count chromosomes",
+        "The cell must be haploid because it has four arms"
+      ],
+      "difficulty": "application",
+      "lesson": 3,
+      "chapter": 16,
+      "conceptId": "ch16-concept-chromosome",
+      "family": "application",
+      "kind": "mc",
+      "reviewRoute": "lesson-03",
+      "flashVariant": {
+        "id": "ch16-l03-scenario-1",
+        "family": "scenario-explanation",
+        "prompt": "A student counts four visible arms on a single replicated chromosome and reports four chromosomes. What should be corrected?",
+        "model": "Arms are not the unit used to count chromosomes. The joined sister chromatids comprise one replicated chromosome until separation.",
+        "selfAssessed": true
+      }
+    },
+    {
+      "prompt": "A mitotic daughter receives only maternal homologues while the other receives only paternal homologues. What is wrong with this normal-mitosis model?",
+      "answer": "It confuses homologue segregation with distribution of replicated copies",
+      "explanation": "Normal mitosis preserves both chromosome-set contributions in each daughter.",
+      "cue": "Trace the normal mechanism before choosing an answer.",
+      "id": "ch16-l04-application-1",
+      "options": [
+        "It proves DNA never replicated",
+        "It shows normal formation of a zygote",
+        "It correctly shows ordinary mitosis",
+        "It confuses homologue segregation with distribution of replicated copies"
+      ],
+      "difficulty": "application",
+      "lesson": 4,
+      "chapter": 16,
+      "conceptId": "ch16-concept-prophase",
+      "family": "application",
+      "kind": "mc",
+      "reviewRoute": "lesson-04",
+      "flashVariant": {
+        "id": "ch16-l04-scenario-1",
+        "family": "scenario-explanation",
+        "prompt": "A mitotic daughter receives only maternal homologues while the other receives only paternal homologues. What is wrong with this normal-mitosis model?",
+        "model": "It confuses homologue segregation with distribution of replicated copies. Normal mitosis preserves both chromosome-set contributions in each daughter.",
+        "selfAssessed": true
+      }
+    }
+  ],
+  "typedPractice": [
+    {
+      "id": "ch16-l03-context-centromere",
+      "chapter": 16,
+      "lesson": 3,
+      "conceptId": "ch16-concept-centromere",
+      "family": "scenario-retrieval",
+      "kind": "blank",
+      "difficulty": "application",
+      "prompt": "Identify the term illustrated: Sister chromatids remain linked at a constricted chromosome region before division.",
+      "answer": "centromere",
+      "aliases": [],
+      "cue": "Use the relationship described in the example.",
+      "explanation": "The chromosome region associated with the attachment and separation of sister chromatids. Counting separated centromere units helps distinguish chromosomes from chromatids.",
+      "reviewRoute": "lesson-03"
+    },
+    {
+      "id": "ch16-l03-context-chromosome-number",
+      "chapter": 16,
+      "lesson": 3,
+      "conceptId": "ch16-concept-chromosome-number",
+      "family": "scenario-retrieval",
+      "kind": "blank",
+      "difficulty": "application",
+      "prompt": "Identify the term illustrated: A diploid model cell retains four chromosomes after replication until sister chromatids separate.",
+      "answer": "chromosome number",
+      "aliases": [],
+      "cue": "Use the relationship described in the example.",
+      "explanation": "The count of individual chromosomes in a specified cell or nucleus. Always state which cell, nucleus or pole is being counted.",
+      "reviewRoute": "lesson-03"
+    },
+    {
+      "id": "ch16-l03-context-dna-amount",
+      "chapter": 16,
+      "lesson": 3,
+      "conceptId": "ch16-concept-dna-amount",
+      "family": "scenario-retrieval",
+      "kind": "blank",
+      "difficulty": "application",
+      "prompt": "Identify the term illustrated: The DNA quantity doubles during S phase before the cell divides.",
+      "answer": "DNA amount",
+      "aliases": [],
+      "cue": "Use the relationship described in the example.",
+      "explanation": "The quantity of DNA in the specified cell or nucleus. DNA amount can change while chromosome number stays the same.",
+      "reviewRoute": "lesson-03"
+    },
+    {
+      "id": "ch16-l03-context-anaphase",
+      "chapter": 16,
+      "lesson": 3,
+      "conceptId": "ch16-concept-anaphase",
+      "family": "scenario-retrieval",
+      "kind": "blank",
+      "difficulty": "application",
+      "prompt": "Identify the term illustrated: Copied chromosome units become independent chromosomes as they separate.",
+      "answer": "anaphase",
+      "aliases": [],
+      "cue": "Use the relationship described in the example.",
+      "explanation": "The mitotic stage in which sister chromatids separate and move toward opposite poles. The whole-cell chromosome count briefly increases before cytokinesis.",
+      "reviewRoute": "lesson-03"
+    },
+    {
+      "id": "ch16-l04-context-prophase",
+      "chapter": 16,
+      "lesson": 4,
+      "conceptId": "ch16-concept-prophase",
+      "family": "scenario-retrieval",
+      "kind": "blank",
+      "difficulty": "application",
+      "prompt": "Identify the term illustrated: Condensed replicated chromosomes become visible as spindle structures develop.",
+      "answer": "prophase",
+      "aliases": [],
+      "cue": "Use the relationship described in the example.",
+      "explanation": "The mitotic stage in which chromosomes condense and the division machinery becomes organized. DNA replication precedes prophase in the normal cycle.",
+      "reviewRoute": "lesson-04"
+    },
+    {
+      "id": "ch16-l04-context-metaphase",
+      "chapter": 16,
+      "lesson": 4,
+      "conceptId": "ch16-concept-metaphase",
+      "family": "scenario-retrieval",
+      "kind": "blank",
+      "difficulty": "application",
+      "prompt": "Identify the term illustrated: Replicated chromosomes line up individually across the middle of the cell.",
+      "answer": "metaphase",
+      "aliases": [],
+      "cue": "Use the relationship described in the example.",
+      "explanation": "The mitotic stage in which replicated chromosomes align at the cell equator. Homologous pairs do not normally align as tetrads in mitotic metaphase.",
+      "reviewRoute": "lesson-04"
+    },
+    {
+      "id": "ch16-l04-context-spindle-fibre",
+      "chapter": 16,
+      "lesson": 4,
+      "conceptId": "ch16-concept-spindle-fibre",
+      "family": "scenario-retrieval",
+      "kind": "blank",
+      "difficulty": "application",
+      "prompt": "Identify the term illustrated: Fibres from opposite poles attach to the replicated chromosome’s kinetochore regions.",
+      "answer": "spindle fibre",
+      "aliases": [],
+      "cue": "Use the relationship described in the example.",
+      "explanation": "A microtubule structure involved in chromosome attachment and movement during division. Spindle attachment guides chromosome movement; it does not create new DNA.",
+      "reviewRoute": "lesson-04"
+    },
+    {
+      "id": "ch16-l04-context-telophase",
+      "chapter": 16,
+      "lesson": 4,
+      "conceptId": "ch16-concept-telophase",
+      "family": "scenario-retrieval",
+      "kind": "blank",
+      "difficulty": "application",
+      "prompt": "Identify the term illustrated: Nuclear envelopes reform around the two chromosome groups.",
+      "answer": "telophase",
+      "aliases": [],
+      "cue": "Use the relationship described in the example.",
+      "explanation": "The mitotic stage in which chromosome groups reach the poles and daughter nuclei form. Cytokinesis is a separate, coordinated division of the cytoplasm.",
+      "reviewRoute": "lesson-04"
+    }
+  ],
+  "multiSelectPractice": [
+    {
+      "id": "ch16-multiple-04",
+      "chapter": 16,
+      "lesson": 4,
+      "conceptId": "ch16-concept-prophase",
+      "family": "discrimination",
+      "kind": "multi-select",
+      "difficulty": "application",
+      "prompt": "Select the TWO accurate statements about mitosis: chromosome movement through the stages.",
+      "options": [
+        {
+          "id": "true-1",
+          "text": "DNA replication precedes prophase in the normal cycle."
+        },
+        {
+          "id": "false-1",
+          "text": "Mitosis always pairs homologues into tetrads at metaphase."
+        },
+        {
+          "id": "true-2",
+          "text": "Spindle attachment guides chromosome movement; it does not create new DNA."
+        },
+        {
+          "id": "false-2",
+          "text": "Telophase is another name for S phase."
+        }
+      ],
+      "answers": [
+        "true-1",
+        "true-2"
+      ],
+      "cue": "Check every statement against the mechanism; do not assume a negative statement is correct.",
+      "explanation": "DNA replication precedes prophase in the normal cycle. Spindle attachment guides chromosome movement; it does not create new DNA. Homologous pairs do not normally align as tetrads in mitotic metaphase. Cytokinesis is a separate, coordinated division of the cytoplasm.",
+      "reviewRoute": "lesson-04"
+    }
+  ],
+  "guidedActivities": [
+    {
+      "chapter": 16,
+      "lesson": 3,
+      "route": "lesson-03",
+      "worked": {
+        "title": "Count at four stages",
+        "scenario": "A diploid cell has 2n = 6. Count chromosomes before replication, after replication, during whole-cell mitotic anaphase and in each daughter cell.",
+        "steps": [
+          "G1: 6 chromosomes, each unreplicated.",
+          "After S: 6 chromosomes with 12 chromatids; DNA amount is doubled.",
+          "Anaphase before cytokinesis: 12 separated chromosomes in the whole cell, with 6 moving to each pole.",
+          "Each daughter cell: 6 chromosomes.",
+          "The chromosome count per daughter remains 2n = 6; specify boundaries when reporting the temporary anaphase count."
+        ],
+        "id": "ch16-l03-worked",
+        "label": "Worked example"
+      },
+      "guided": {
+        "id": "ch16-l03-guided",
+        "label": "Practise with support",
+        "title": "Apply the explanation",
+        "instruction": "Try both questions. Use the hint to revise your thinking after an incorrect answer.",
+        "items": [
+          {
+            "prompt": "For 2n = 10, how many chromatids are present after S phase before separation?",
+            "answer": "20",
+            "explanation": "Ten replicated chromosomes each have two chromatids.",
+            "cue": "Multiply chromosome count by two only for the chromatid count at this stage.",
+            "id": "ch16-l03-guided-q1",
+            "options": [
+              "5",
+              "20",
+              "10"
+            ],
+            "difficulty": "application",
+            "kind": "select",
+            "hint": "Multiply chromosome count by two only for the chromatid count at this stage."
+          },
+          {
+            "prompt": "A 2n = 4 model is in mitotic anaphase. How many chromosomes are moving toward one pole?",
+            "answer": "4",
+            "explanation": "Each pole receives one full diploid set for the future daughter nucleus.",
+            "cue": "The question asks about one pole, not the whole cell.",
+            "id": "ch16-l03-guided-q2",
+            "options": [
+              "8",
+              "2",
+              "4"
+            ],
+            "difficulty": "application",
+            "kind": "select",
+            "hint": "The question asks about one pole, not the whole cell."
+          }
+        ]
+      }
+    },
+    {
+      "chapter": 16,
+      "lesson": 4,
+      "route": "lesson-04",
+      "worked": {
+        "title": "Identify a stage without relying on the caption",
+        "scenario": "A model cell contains two groups of separated chromosomes moving toward opposite poles, and new nuclear envelopes have not formed.",
+        "steps": [
+          "The chromosomes are no longer lined up at the equator, so this is not metaphase.",
+          "Sister chromatids have separated and are moving apart.",
+          "These observations identify anaphase.",
+          "Count each separated chromatid as a chromosome, and state whether counting one pole or the whole cell."
+        ],
+        "id": "ch16-l04-worked",
+        "label": "Worked example"
+      },
+      "guided": {
+        "id": "ch16-l04-guided",
+        "label": "Practise with support",
+        "title": "Apply the explanation",
+        "instruction": "Try both questions. Use the hint to revise your thinking after an incorrect answer.",
+        "items": [
+          {
+            "prompt": "Replicated chromosomes line up individually across the equator. Which stage is shown?",
+            "answer": "Metaphase",
+            "explanation": "Individual chromosome alignment at the equator identifies mitotic metaphase.",
+            "cue": "Look at position before deciding from chromosome shape.",
+            "id": "ch16-l04-guided-q1",
+            "options": [
+              "Metaphase",
+              "G1",
+              "Telophase"
+            ],
+            "difficulty": "application",
+            "kind": "select",
+            "hint": "Look at position before deciding from chromosome shape."
+          },
+          {
+            "prompt": "Which structures separate during normal mitotic anaphase?",
+            "answer": "Sister chromatids",
+            "explanation": "Sister chromatids separate into individual chromosomes.",
+            "cue": "Compare copied chromosomes with the two strands inside a DNA molecule.",
+            "id": "ch16-l04-guided-q2",
+            "options": [
+              "Intact homologous pairs only",
+              "Sister chromatids",
+              "The two strands of every DNA molecule"
+            ],
+            "difficulty": "application",
+            "kind": "select",
+            "hint": "Compare copied chromosomes with the two strands inside a DNA molecule."
+          }
+        ]
+      }
+    }
+  ],
+  "diagramPractice": [
+    {
+      "id": "ch16-chromosome-label-practice-A",
+      "lesson": 3,
+      "conceptId": "ch16-concept-chromosome",
+      "diagramId": "ch16-chromosome-label",
+      "letter": "A",
+      "prompt": "What does letter A identify?",
+      "options": [
+        "One unreplicated chromosome",
+        "Centromere region",
+        "Sister chromatid"
+      ],
+      "cue": "Follow the leader line or the lettered feature. Read any stated model assumptions.",
+      "explanation": "Letter A identifies One unreplicated chromosome.",
+      "reviewRoute": "lesson-03"
+    },
+    {
+      "id": "ch16-chromosome-label-practice-B",
+      "lesson": 3,
+      "conceptId": "ch16-concept-chromosome",
+      "diagramId": "ch16-chromosome-label",
+      "letter": "B",
+      "prompt": "What does letter B identify?",
+      "options": [
+        "One unreplicated chromosome",
+        "Sister chromatid",
+        "Centromere region"
+      ],
+      "cue": "Follow the leader line or the lettered feature. Read any stated model assumptions.",
+      "explanation": "Letter B identifies Sister chromatid.",
+      "reviewRoute": "lesson-03"
+    },
+    {
+      "id": "ch16-chromosome-label-practice-C",
+      "lesson": 3,
+      "conceptId": "ch16-concept-chromosome",
+      "diagramId": "ch16-chromosome-label",
+      "letter": "C",
+      "prompt": "What does letter C identify?",
+      "options": [
+        "Centromere region",
+        "One unreplicated chromosome",
+        "Sister chromatid"
+      ],
+      "cue": "Follow the leader line or the lettered feature. Read any stated model assumptions.",
+      "explanation": "Letter C identifies Sister chromatid.",
+      "reviewRoute": "lesson-03"
+    },
+    {
+      "id": "ch16-chromosome-label-practice-D",
+      "lesson": 3,
+      "conceptId": "ch16-concept-chromosome",
+      "diagramId": "ch16-chromosome-label",
+      "letter": "D",
+      "prompt": "What does letter D identify?",
+      "options": [
+        "Centromere region",
+        "One unreplicated chromosome",
+        "Sister chromatid"
+      ],
+      "cue": "Follow the leader line or the lettered feature. Read any stated model assumptions.",
+      "explanation": "Letter D identifies Centromere region.",
+      "reviewRoute": "lesson-03"
+    },
+    {
+      "id": "ch16-mitosis-label-practice-A",
+      "lesson": 4,
+      "conceptId": "ch16-concept-prophase",
+      "diagramId": "ch16-mitosis-label",
+      "letter": "A",
+      "prompt": "What does letter A identify?",
+      "options": [
+        "Prophase",
+        "Anaphase",
+        "Telophase",
+        "Metaphase"
+      ],
+      "cue": "Follow the leader line or the lettered feature. Read any stated model assumptions.",
+      "explanation": "Letter A identifies Prophase.",
+      "reviewRoute": "lesson-04"
+    },
+    {
+      "id": "ch16-mitosis-label-practice-B",
+      "lesson": 4,
+      "conceptId": "ch16-concept-metaphase",
+      "diagramId": "ch16-mitosis-label",
+      "letter": "B",
+      "prompt": "What does letter B identify?",
+      "options": [
+        "Telophase",
+        "Metaphase",
+        "Prophase",
+        "Anaphase"
+      ],
+      "cue": "Follow the leader line or the lettered feature. Read any stated model assumptions.",
+      "explanation": "Letter B identifies Metaphase.",
+      "reviewRoute": "lesson-04"
+    },
+    {
+      "id": "ch16-mitosis-label-practice-C",
+      "lesson": 4,
+      "conceptId": "ch16-concept-anaphase",
+      "diagramId": "ch16-mitosis-label",
+      "letter": "C",
+      "prompt": "What does letter C identify?",
+      "options": [
+        "Prophase",
+        "Metaphase",
+        "Anaphase",
+        "Telophase"
+      ],
+      "cue": "Follow the leader line or the lettered feature. Read any stated model assumptions.",
+      "explanation": "Letter C identifies Anaphase.",
+      "reviewRoute": "lesson-04"
+    },
+    {
+      "id": "ch16-mitosis-label-practice-D",
+      "lesson": 4,
+      "conceptId": "ch16-concept-telophase",
+      "diagramId": "ch16-mitosis-label",
+      "letter": "D",
+      "prompt": "What does letter D identify?",
+      "options": [
+        "Metaphase",
+        "Anaphase",
+        "Prophase",
+        "Telophase"
+      ],
+      "cue": "Follow the leader line or the lettered feature. Read any stated model assumptions.",
+      "explanation": "Letter D identifies Telophase.",
+      "reviewRoute": "lesson-04"
+    }
+  ]
+}

@@ -1,0 +1,113 @@
+[
+  {
+    "chapter": 16,
+    "lesson": 3,
+    "route": "lesson-03",
+    "worked": {
+      "title": "Count at four stages",
+      "scenario": "A diploid cell has 2n = 6. Count chromosomes before replication, after replication, during whole-cell mitotic anaphase and in each daughter cell.",
+      "steps": [
+        "G1: 6 chromosomes, each unreplicated.",
+        "After S: 6 chromosomes with 12 chromatids; DNA amount is doubled.",
+        "Anaphase before cytokinesis: 12 separated chromosomes in the whole cell, with 6 moving to each pole.",
+        "Each daughter cell: 6 chromosomes.",
+        "The chromosome count per daughter remains 2n = 6; specify boundaries when reporting the temporary anaphase count."
+      ],
+      "id": "ch16-l03-worked",
+      "label": "Worked example"
+    },
+    "guided": {
+      "id": "ch16-l03-guided",
+      "label": "Practise with support",
+      "title": "Apply the explanation",
+      "instruction": "Try both questions. Use the hint to revise your thinking after an incorrect answer.",
+      "items": [
+        {
+          "prompt": "For 2n = 10, how many chromatids are present after S phase before separation?",
+          "answer": "20",
+          "explanation": "Ten replicated chromosomes each have two chromatids.",
+          "cue": "Multiply chromosome count by two only for the chromatid count at this stage.",
+          "id": "ch16-l03-guided-q1",
+          "options": [
+            "5",
+            "20",
+            "10"
+          ],
+          "difficulty": "application",
+          "kind": "select",
+          "hint": "Multiply chromosome count by two only for the chromatid count at this stage."
+        },
+        {
+          "prompt": "A 2n = 4 model is in mitotic anaphase. How many chromosomes are moving toward one pole?",
+          "answer": "4",
+          "explanation": "Each pole receives one full diploid set for the future daughter nucleus.",
+          "cue": "The question asks about one pole, not the whole cell.",
+          "id": "ch16-l03-guided-q2",
+          "options": [
+            "8",
+            "2",
+            "4"
+          ],
+          "difficulty": "application",
+          "kind": "select",
+          "hint": "The question asks about one pole, not the whole cell."
+        }
+      ]
+    }
+  },
+  {
+    "chapter": 16,
+    "lesson": 4,
+    "route": "lesson-04",
+    "worked": {
+      "title": "Identify a stage without relying on the caption",
+      "scenario": "A model cell contains two groups of separated chromosomes moving toward opposite poles, and new nuclear envelopes have not formed.",
+      "steps": [
+        "The chromosomes are no longer lined up at the equator, so this is not metaphase.",
+        "Sister chromatids have separated and are moving apart.",
+        "These observations identify anaphase.",
+        "Count each separated chromatid as a chromosome, and state whether counting one pole or the whole cell."
+      ],
+      "id": "ch16-l04-worked",
+      "label": "Worked example"
+    },
+    "guided": {
+      "id": "ch16-l04-guided",
+      "label": "Practise with support",
+      "title": "Apply the explanation",
+      "instruction": "Try both questions. Use the hint to revise your thinking after an incorrect answer.",
+      "items": [
+        {
+          "prompt": "Replicated chromosomes line up individually across the equator. Which stage is shown?",
+          "answer": "Metaphase",
+          "explanation": "Individual chromosome alignment at the equator identifies mitotic metaphase.",
+          "cue": "Look at position before deciding from chromosome shape.",
+          "id": "ch16-l04-guided-q1",
+          "options": [
+            "Metaphase",
+            "G1",
+            "Telophase"
+          ],
+          "difficulty": "application",
+          "kind": "select",
+          "hint": "Look at position before deciding from chromosome shape."
+        },
+        {
+          "prompt": "Which structures separate during normal mitotic anaphase?",
+          "answer": "Sister chromatids",
+          "explanation": "Sister chromatids separate into individual chromosomes.",
+          "cue": "Compare copied chromosomes with the two strands inside a DNA molecule.",
+          "id": "ch16-l04-guided-q2",
+          "options": [
+            "Intact homologous pairs only",
+            "Sister chromatids",
+            "The two strands of every DNA molecule"
+          ],
+          "difficulty": "application",
+          "kind": "select",
+          "hint": "Compare copied chromosomes with the two strands inside a DNA molecule."
+        }
+      ]
+    }
+  }
+]

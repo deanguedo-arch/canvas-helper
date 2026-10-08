@@ -1,0 +1,13 @@
+# Count and mechanism boundaries
+
+Normal model2n=4: G1whole-cell4chromosomes/relativeDNA1; afterS4replicated chromosomes/8sisters/DNA2; anaphase whole-cell8separated chromosomes/DNA2; one pole4/DNA1; one daughter4/DNA1. RelativeDNAuses this model's wholeG1cell as reference, not a measured data set or universal mass. Copying changes amount; separation changes the counted chromosome units; changing the boundary changes the total reported.
+
+G1 contains unreplicated one-DNA chromosomes and no sister pairs. Some charts call each an unreplicated/single chromatid; the candidate states this convention explicitly rather than treating the DNA as absent. Native written models/criteria remain unchanged. Source554's two-identical-chromosomes shorthand is reconciled with558's explicit one-joined-pair counting convention. Temporary whole-anaphase totals do not imply stable tetraploid daughters.
+
+The chromosome figureB/C leaders mark whole sister copies even though they touch upper ends. Individual visible arms are not the chromosome-counting unit. Two replicated homologues therefore make2chromosomes/4chromatids. Normal mitosis distributes both parental contributions to each daughter in the diploid model; it does not send all maternal chromosomes to one daughter and all paternal chromosomes to the other.
+
+Spindle microtubules interact with kinetochores at centromere regions. Correct opposite-pole attachment supports delivery of one copied chromosome to each future nucleus. DNA replication preceded prophase. Early events can be subdivided as prometaphase in other conventions; the current source uses four-stagePMAT. Cytokinesis and late mitosis can overlap; neither a rigid after-all-stages-only claim nor a synonymy of the two processes is taught.
+
+Stable external corroboration retrieved8October2026 from original textbook accounts indexed by NCBI: https://www.ncbi.nlm.nih.gov/books/NBK26934/ for kinetochore/microtubule attachment, and https://www.ncbi.nlm.nih.gov/books/NBK26831/ for cytokinesis overlapping anaphase/telophase. These are indexed original-source passages, not a claim that a blocked full-text browser page was read. Original provided textbook557–558 and teacher23–29 were directly inspected for exact source identity.
+
+Figure lettering is figure-specific: native modelA–D=PMAT; original Figure16.8A=interphase,B–E=PMAT. SourceEshows nuclear re-formation together with furrowing. The candidate names these distinct processes and avoids assuming movement is directly observable from an unclear still image. Matching daughter complements are the expected normal outcome, not a guarantee against mutation/error.
