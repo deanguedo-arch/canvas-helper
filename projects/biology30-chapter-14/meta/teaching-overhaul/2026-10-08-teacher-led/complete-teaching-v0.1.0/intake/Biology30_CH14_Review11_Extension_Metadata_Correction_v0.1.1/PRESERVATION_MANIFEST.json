@@ -1,0 +1,81 @@
+{
+  "candidate_version": "0.1.0",
+  "status": "conditional teaching-only content; no integration",
+  "source_archive_sha256": "904db6f6e58c4d68689c611e2b6f2e3f5b020f48d6db55d366b934dbcf396a58",
+  "base_files": {
+    "scripts/content.py": "15f3e496a739a40f7de85ccfa8a8dcaadfb0a4ebb4274f4c36c272244d542a2e",
+    "scripts/build_chapter.py": "915625267d4ea0a5a2bbd5cb86c62d3a9767f1d5aebcadcfb7b0169ee0eb704a",
+    "workspace/index.html": "4ce8de9382426b07de164b5de82ab6c25cd2471f41f309f7208311d3b523d1d0",
+    "authoring/course-config.json": "22a968d603d78dd5cd12e81324f8f4df4fbd29161413de20873884c714d1ffe8"
+  },
+  "standard": {
+    "content_version": "0.4",
+    "library_version": 5,
+    "bytes": 65442,
+    "sha256": "db8a04bcd7620d9ecf64ec6dc86c046cb3075b9b09cc51dac41936c391379e1e",
+    "provenance": "exact copy frozen from verified09\u201310 standard before authoring; logical recovered Library text lineage, no unsupported original-byte download claim"
+  },
+  "replacement_targets": [
+    {
+      "route": "lesson-11",
+      "selector": "#ch14-l11-teaching-01",
+      "owner": "scripts/build_chapter.py review(), original line 209",
+      "original_dom_sha256": "2eaf8c859ed78b55f0e162bbcd56c9ac75166f37070951e5a90cdd169ffad495",
+      "preserve_original_comparison_table": true,
+      "legacy_v0_1_0_original_dom_sha256": "6fbc92780a63ead5b2eda97e3cf15ca986919e60c51a89b32ea27827ad3170ab",
+      "legacy_v0_1_0_serialization": "lxml.html.tostring(node) default ASCII serialization with numeric character entities for non-ASCII characters",
+      "original_dom_utf8_bytes": 1427,
+      "original_dom_hash_contract": "Read the source document as UTF-8; parse with lxml.html.fromstring; select the exact target; serialize with lxml.html.tostring(node, encoding=\"utf-8\", method=\"html\", with_tail=False); hash those bytes with SHA-256. No Unicode normalization, whitespace cleanup, attribute removal or content substitution."
+    },
+    {
+      "route": "lesson-11",
+      "selector": "#ch14-l11-teaching-02",
+      "owner": "scripts/build_chapter.py review(), original line 210",
+      "original_dom_sha256": "b88db3a12724f9f152d5ea3e8a949415fa21b4f3ccb072e4816708608421b631",
+      "preserve_original_comparison_table": true,
+      "legacy_v0_1_0_original_dom_sha256": "b88db3a12724f9f152d5ea3e8a949415fa21b4f3ccb072e4816708608421b631",
+      "legacy_v0_1_0_serialization": "lxml.html.tostring(node) default ASCII serialization with numeric character entities for non-ASCII characters",
+      "original_dom_utf8_bytes": 1557,
+      "original_dom_hash_contract": "Read the source document as UTF-8; parse with lxml.html.fromstring; select the exact target; serialize with lxml.html.tostring(node, encoding=\"utf-8\", method=\"html\", with_tail=False); hash those bytes with SHA-256. No Unicode normalization, whitespace cleanup, attribute removal or content substitution."
+    },
+    {
+      "route": "lesson-11",
+      "selector": "#ch14-review-worked",
+      "owner": "scripts/build_chapter.py review() g definition, original line211",
+      "original_dom_sha256": "4e986badd6feb85e8a16c20137fea0f06f99182e5e946afe9b55dd4385d27da4",
+      "legacy_v0_1_0_original_dom_sha256": "4e986badd6feb85e8a16c20137fea0f06f99182e5e946afe9b55dd4385d27da4",
+      "legacy_v0_1_0_serialization": "lxml.html.tostring(node) default ASCII serialization with numeric character entities for non-ASCII characters",
+      "original_dom_utf8_bytes": 942,
+      "original_dom_hash_contract": "Read the source document as UTF-8; parse with lxml.html.fromstring; select the exact target; serialize with lxml.html.tostring(node, encoding=\"utf-8\", method=\"html\", with_tail=False); hash those bytes with SHA-256. No Unicode normalization, whitespace cleanup, attribute removal or content substitution."
+    },
+    {
+      "route": "extension",
+      "selector": "#extension > .p2-topic > div.content-section:first-of-type",
+      "exact_xpath": "//*[@id=\"extension\"]/div[@class=\"p2-topic\"]/div[@class=\"content-section\"][1]",
+      "owner": "scripts/build_chapter.py exbody.append first content string, original line236; replace only its teaching div, preserving header",
+      "original_dom_sha256": "5b17194154d90a4f55efd4438c2bed122dbb5da327b43bec5d3d3c56a7f0898b",
+      "protected_original_AB_observation_and_inference_paragraphs_preserved": true,
+      "legacy_v0_1_0_original_dom_sha256": "2889a38235e92e855e7d4a2659b0af09232020f2335695f8d1855e00aa11c76b",
+      "legacy_v0_1_0_serialization": "lxml.html.tostring(node) default ASCII serialization with numeric character entities for non-ASCII characters",
+      "original_dom_utf8_bytes": 1148,
+      "original_dom_hash_contract": "Read the source document as UTF-8; parse with lxml.html.fromstring; select the exact target; serialize with lxml.html.tostring(node, encoding=\"utf-8\", method=\"html\", with_tail=False); hash those bytes with SHA-256. No Unicode normalization, whitespace cleanup, attribute removal or content substitution."
+    }
+  ],
+  "protected_scope": "All other DOM, final/transfer/extension prompts, original A/B experiment observations, options/keys/models/criteria/IDs/limits, original comparison tables, source images, mappings and runtime preserved. New explanatory worked cases remain teaching, not added progress tasks.",
+  "current_owner_gate": "Compare current local owners to historical hashes and reconcile only four declared teaching locations; do not replace newer local owners.",
+  "reference_files": {
+    "BENCHMARK_STATUS_AND_ACCEPTANCE.json": "becf8ac84525a589cbe903b4d774472aaf76b937d5c74e025e0813b83fa98c31",
+    "process/history/teacher-led-batch-06-07-v0.1.0/TEACHER_ACCEPTANCE.md": "26450315855806634a6c878d15c975c8cc58709d6832a1c994ec5c7980299f53",
+    "returned-copy/teacher-led-batch-06-07-v0.1.0/lesson-06.teaching-fragment.html": "8f6f7d8013b8ada7841a4d843c5119f8d011fc7d6ddca6e822c871dc8555c0c4",
+    "returned-copy/teacher-led-batch-06-07-v0.1.0/lesson-07.teaching-fragment.html": "0a9c4872e8a65813229c7f1258b154315faeb8f71f04dc8342ac50abb454527a"
+  },
+  "handoff_metadata_version": "0.1.1",
+  "content_candidate_version": "0.1.0",
+  "supersedes_metadata_only": {
+    "original_library_file_id": "libfile_51dcc5d0d1f4819195070fc625d9e80e",
+    "original_zip_sha256": "06ff7ea7bdb1add31e4301c94b84c384df90f79c1ba325638ce3d66a66d407e5",
+    "original_manifest_sha256": "0389d8f8ae46681cd117004a0854a4c7627a14e85dd1a65d74c815f729a071cc",
+    "scope": "Clarifies and corrects target DOM-hash serialization contract only; all content, protected source, whole-owner hashes and original review receipts remain unchanged."
+  },
+  "hash_guard_caution": "These parsed target hashes supplement the unchanged full-owner base hashes and explicit current-owner reconciliation. They do not authorize force application, overwriting newer owner work or bypassing a mismatch. A nonmatching target must remain held for reconciliation."
+}

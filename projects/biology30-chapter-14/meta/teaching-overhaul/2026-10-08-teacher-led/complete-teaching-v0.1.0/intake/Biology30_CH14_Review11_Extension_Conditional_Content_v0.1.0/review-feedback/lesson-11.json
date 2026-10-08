@@ -1,0 +1,175 @@
+{
+  "check": {
+    "id": "ch14-check-11",
+    "route": "lesson-11",
+    "title": "Chapter review and final check",
+    "mc": [
+      {
+        "id": "ch14-final-mc-1",
+        "prompt": "Sperm production is normal, but a transport duct between the epididymis and ejaculatory duct is blocked. Which structure is affected?",
+        "answer": "Vas deferens",
+        "options": [
+          "Vas deferens",
+          "Seminiferous tubule",
+          "Seminal vesicle",
+          "Prostate gland"
+        ],
+        "cue": "Trace the sperm route after maturation.",
+        "explanation": "The vas deferens carries sperm toward the ejaculatory duct; it is downstream of the epididymis.",
+        "difficulty": "application"
+      },
+      {
+        "id": "ch14-final-mc-2",
+        "prompt": "FSH is present, but Sertoli cells cannot respond to it. Which function is directly threatened?",
+        "answer": "Support of developing sperm",
+        "options": [
+          "Fructose release by the sperm head",
+          "Support of developing sperm",
+          "Storage of urine in the ovary",
+          "LH release from interstitial cells"
+        ],
+        "cue": "Identify the direct target and its normal role.",
+        "explanation": "Sertoli cells respond to FSH and support spermatogenesis; the defect is at the target rather than the release site.",
+        "difficulty": "application"
+      },
+      {
+        "id": "ch14-final-mc-3",
+        "prompt": "Which structure remains in the ovary after ovulation and supports the endometrium through hormone release?",
+        "answer": "Corpus luteum",
+        "options": [
+          "Cervix",
+          "Released secondary oocyte",
+          "Corpus luteum",
+          "Oviduct"
+        ],
+        "cue": "Distinguish remaining follicular tissue from the released cell.",
+        "explanation": "The corpus luteum develops from remaining follicular tissue and releases progesterone and some estrogen.",
+        "difficulty": "application"
+      },
+      {
+        "id": "ch14-final-mc-4",
+        "prompt": "An illustrative graph shows estrogen rising first, a short LH surge, and then a broad progesterone rise. What explains the last rise?",
+        "answer": "Hormone release by the newly formed corpus luteum",
+        "options": [
+          "Menstrual shedding produces progesterone",
+          "Progesterone is converted directly from LH in blood",
+          "The oocyte releases all progesterone before ovulation",
+          "Hormone release by the newly formed corpus luteum"
+        ],
+        "cue": "Identify the endocrine structure that develops after ovulation.",
+        "explanation": "The corpus luteum releases progesterone after ovulation, linking ovarian events with endometrial support.",
+        "difficulty": "application"
+      },
+      {
+        "id": "ch14-final-mc-5",
+        "prompt": "Outside testosterone increases feedback on a functioning hypothalamus and pituitary. Which response is most consistent with the model?",
+        "answer": "Reduced upstream stimulation of the testis",
+        "options": [
+          "Reduced upstream stimulation of the testis",
+          "A physical blockage of every reproductive duct",
+          "Conversion of testosterone into sperm",
+          "A required increase in both FSH and LH"
+        ],
+        "cue": "Trace the inhibitory feedback direction.",
+        "explanation": "Increased androgen feedback can reduce GnRH, FSH and LH signalling and thereby reduce testicular activity.",
+        "difficulty": "application"
+      },
+      {
+        "id": "ch14-final-mc-6",
+        "prompt": "An STI causes scarring of an oviduct. Which explanation best connects this damage to reduced fertility?",
+        "answer": "The route for gamete encounter or transport can be disrupted",
+        "options": [
+          "The cervix becomes a new sperm-production site",
+          "The route for gamete encounter or transport can be disrupted",
+          "The scar must directly remove all sex chromosomes",
+          "The ovary must stop every hormone immediately"
+        ],
+        "cue": "Start with the normal function of the damaged structure.",
+        "explanation": "Oviduct damage can prevent gametes meeting or interrupt transport toward the uterus without necessarily stopping ovarian hormones.",
+        "difficulty": "application"
+      }
+    ],
+    "writing": [
+      {
+        "id": "ch14-final-writing-1",
+        "prompt": "Compare the regulation of sperm production with the sequence leading to ovulation. Use GnRH, FSH, LH and the correct target cells or structures.",
+        "model": "Both begin with hypothalamic GnRH and anterior-pituitary FSH/LH. In males FSH supports Sertoli cells and LH stimulates interstitial-cell testosterone production. In females FSH supports follicular development, estrogen rises, and sustained high estrogen promotes an LH surge that triggers ovulation and corpus-luteum formation. Feedback differs with the stage of the cycle.",
+        "criteria": [
+          "Correct hormone sources.",
+          "Distinct targets in the two systems.",
+          "Explains the pre-ovulatory feedback event rather than only listing hormones."
+        ],
+        "limit": 3200
+      },
+      {
+        "id": "ch14-final-writing-2",
+        "prompt": "In a hypothetical cycle, an LH surge is followed by ovulation, but the corpus luteum then fails to remain active. Explain the likely hormone and endometrial consequences. Distinguish this from an oviduct blockage.",
+        "model": "Reduced corpus-luteum activity means reduced progesterone and estrogen support for the endometrium. The lining may not be maintained. An oviduct blockage instead disrupts transport and may occur even with normal ovarian hormone activity. Neither description alone provides a complete personal diagnosis.",
+        "criteria": [
+          "Traces structure \u2192 hormone \u2192 target response.",
+          "Contrasts endocrine failure with a transport problem.",
+          "Limits the conclusion to the model."
+        ],
+        "limit": 3200
+      }
+    ]
+  },
+  "transfer": [
+    {
+      "id": "ch14-transfer-01",
+      "chapter": 14,
+      "route": "lesson-11",
+      "title": "Try a new case",
+      "instruction": "Try the whole set before viewing feedback. Record whether you used help. This optional formative check does not add to required progress.",
+      "mc": [
+        {
+          "id": "ch14-transfer-mc-1",
+          "prompt": "A model testis has interstitial cells that cannot respond to LH. The hypothalamus and pituitary still respond normally to feedback. Which pattern is most consistent with this model?",
+          "answer": "Reduced testosterone with increased stimulation from the control centres",
+          "options": [
+            "Reduced testosterone with increased stimulation from the control centres",
+            "Reduced testosterone with permanently absent LH release",
+            "Normal testosterone because FSH directly replaces LH at interstitial cells",
+            "Increased testosterone with reduced stimulation from the control centres"
+          ],
+          "explanation": "Reduced testosterone means weaker negative feedback. More upstream stimulation cannot fully correct an unresponsive target."
+        },
+        {
+          "id": "ch14-transfer-mc-2",
+          "prompt": "A model shows an LH surge and release of an oocyte, followed by failure of the corpus luteum to remain active. Which change follows most directly?",
+          "answer": "Lower luteal progesterone and reduced support for the endometrium",
+          "options": [
+            "A direct blockage of the oviduct by falling progesterone",
+            "Lower luteal progesterone and reduced support for the endometrium",
+            "Persistently high luteal progesterone from the inactive corpus luteum",
+            "Failure of the earlier LH surge to have occurred"
+          ],
+          "explanation": "The corpus luteum is the main luteal progesterone source. Its reduced activity affects hormonal support of the lining; it does not undo earlier ovulation."
+        },
+        {
+          "id": "ch14-transfer-mc-3",
+          "prompt": "A semen sample contains sperm and the transport ducts are open, but seminal-vesicle fluid contains unusually little fructose. Which function is affected most directly by this specific change?",
+          "answer": "An energy contribution normally provided by an accessory-gland secretion",
+          "options": [
+            "Testosterone synthesis in interstitial cells",
+            "Chromosome reduction inside primary spermatocytes",
+            "An energy contribution normally provided by an accessory-gland secretion",
+            "The opening of the vas deferens during sperm transport"
+          ],
+          "explanation": "Fructose is part of an accessory-gland contribution to semen. The finding does not by itself establish failed meiosis, absent testosterone or blocked transport."
+        }
+      ],
+      "writing": {
+        "id": "ch14-transfer-writing",
+        "prompt": "A tissue model receives a normal luteal progesterone concentration, but its endometrial cells have non-functioning progesterone receptors. Explain why hormone concentration alone cannot establish that the lining will respond normally. Distinguish hormone production from target-cell response.",
+        "model": "A normal progesterone concentration is evidence about hormone availability, not receptor function. Endometrial cells need functioning receptors for the usual progesterone response. The model can have normal ovarian hormone production but reduced support of the lining because the target cannot respond normally.",
+        "criteria": [
+          "Separates hormone availability from target response.",
+          "Connects receptor function to progesterone action in endometrial cells.",
+          "Limits the conclusion to the stated model."
+        ],
+        "limit": 3200
+      }
+    }
+  ]
+}

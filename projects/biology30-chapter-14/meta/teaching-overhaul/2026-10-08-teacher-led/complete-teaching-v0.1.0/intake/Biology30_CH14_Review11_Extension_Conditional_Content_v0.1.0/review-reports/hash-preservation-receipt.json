@@ -1,0 +1,4561 @@
+{
+  "created_at_utc": "2026-10-08T21:24:19.923474+00:00",
+  "scope": "Independent historical-source, four-target DOM, assessment and static export preservation; no owner integration or native runtime.",
+  "archive": {
+    "path": "/workspace/scratch/6f97d4e841e3/biology-image-source-review/BIOLOGY 30 COURSE CREATION/Biology30_Chapter14_Exact_Template_Handoff.zip",
+    "bytes": 42156775,
+    "sha256": "904db6f6e58c4d68689c611e2b6f2e3f5b020f48d6db55d366b934dbcf396a58",
+    "crc_first_bad_member": null,
+    "entries": 323
+  },
+  "historical_manifest": {
+    "entries": 322,
+    "passed": 322,
+    "failed": [],
+    "files": [
+      {
+        "path": "README.md",
+        "expected": "223ac556c6caf0f1af577abee8400ce8902d35c3ab04a0667fa9b22cacd878f0",
+        "actual": "223ac556c6caf0f1af577abee8400ce8902d35c3ab04a0667fa9b22cacd878f0",
+        "pass": true
+      },
+      {
+        "path": "authoring/assessment-dispositions.json",
+        "expected": "577d895a6cc1a6cbfa840c3ec12067d2a5a748cf742389fbea219b57fcdb5acf",
+        "actual": "577d895a6cc1a6cbfa840c3ec12067d2a5a748cf742389fbea219b57fcdb5acf",
+        "pass": true
+      },
+      {
+        "path": "authoring/compiled-textbook-data.json",
+        "expected": "412a545eda05604f22a577d4745b92dc75fe3afe7d1d20f505fd29b42a4a2d5d",
+        "actual": "412a545eda05604f22a577d4745b92dc75fe3afe7d1d20f505fd29b42a4a2d5d",
+        "pass": true
+      },
+      {
+        "path": "authoring/component-catalogue.json",
+        "expected": "f58b62b7fa4342dc3d024f8e94519c20fe40755cd97b013cca19bcbe09d9685f",
+        "actual": "f58b62b7fa4342dc3d024f8e94519c20fe40755cd97b013cca19bcbe09d9685f",
+        "pass": true
+      },
+      {
+        "path": "authoring/course-config.json",
+        "expected": "22a968d603d78dd5cd12e81324f8f4df4fbd29161413de20873884c714d1ffe8",
+        "actual": "22a968d603d78dd5cd12e81324f8f4df4fbd29161413de20873884c714d1ffe8",
+        "pass": true
+      },
+      {
+        "path": "authoring/daily-plan-reference.txt",
+        "expected": "b8b72f83c74be35d6754b78b9fb2640fa36a1f516edd8f3cc154dfc41443c962",
+        "actual": "b8b72f83c74be35d6754b78b9fb2640fa36a1f516edd8f3cc154dfc41443c962",
+        "pass": true
+      },
+      {
+        "path": "authoring/diagram-review.json",
+        "expected": "1c7ec707c708d76e043d06ce620fcf739de37399e05410420f4508684d54318a",
+        "actual": "1c7ec707c708d76e043d06ce620fcf739de37399e05410420f4508684d54318a",
+        "pass": true
+      },
+      {
+        "path": "authoring/generated-practice-items.json",
+        "expected": "613d547dd7d90953445c18d140070e73e099c8b578e098c8efe8b8d2b204c2d8",
+        "actual": "613d547dd7d90953445c18d140070e73e099c8b578e098c8efe8b8d2b204c2d8",
+        "pass": true
+      },
+      {
+        "path": "authoring/imported-practice.json",
+        "expected": "b16f75cd4d6555e2fe71c9d6a9dda5b6662562448ee66bb9e2c9fc99dfa2accb",
+        "actual": "b16f75cd4d6555e2fe71c9d6a9dda5b6662562448ee66bb9e2c9fc99dfa2accb",
+        "pass": true
+      },
+      {
+        "path": "authoring/label-diagrams.json",
+        "expected": "0557385ea4a41a07f30addf64fc53ca5616e1384086deb3e4acd05e9e6ea3e3d",
+        "actual": "0557385ea4a41a07f30addf64fc53ca5616e1384086deb3e4acd05e9e6ea3e3d",
+        "pass": true
+      },
+      {
+        "path": "authoring/lesson-source-map.json",
+        "expected": "1cd874f5673125df0d80810514cfe9f22fec30e649ed288475eb8fe4b8fa8033",
+        "actual": "1cd874f5673125df0d80810514cfe9f22fec30e649ed288475eb8fe4b8fa8033",
+        "pass": true
+      },
+      {
+        "path": "authoring/option-position-audit.json",
+        "expected": "22afaf3143d25dfc2dc43de709d9e8ccb693e8a58715bc1a1a0f654bb0311796",
+        "actual": "22afaf3143d25dfc2dc43de709d9e8ccb693e8a58715bc1a1a0f654bb0311796",
+        "pass": true
+      },
+      {
+        "path": "authoring/optional-source-responses.json",
+        "expected": "969e044a0ddd76dfe99ad0772252bc5586275a6732657ee5f24330d9f0b42496",
+        "actual": "969e044a0ddd76dfe99ad0772252bc5586275a6732657ee5f24330d9f0b42496",
+        "pass": true
+      },
+      {
+        "path": "authoring/outcome-coverage.json",
+        "expected": "220ab26b2feff4e11942b83a358b34e79583acb64e803222d12014ccd3f38b83",
+        "actual": "220ab26b2feff4e11942b83a358b34e79583acb64e803222d12014ccd3f38b83",
+        "pass": true
+      },
+      {
+        "path": "authoring/portable-assets.json",
+        "expected": "1aa6bfa46ebc6a927e24cc4c46e0ed9d06b9f1f8cc008755101c019e84f6ba84",
+        "actual": "1aa6bfa46ebc6a927e24cc4c46e0ed9d06b9f1f8cc008755101c019e84f6ba84",
+        "pass": true
+      },
+      {
+        "path": "authoring/practice-coverage.json",
+        "expected": "10f59ce81e238a8c2bc04f118bc18a37ff200bbed8788cc5507fdb0c42eac8f5",
+        "actual": "10f59ce81e238a8c2bc04f118bc18a37ff200bbed8788cc5507fdb0c42eac8f5",
+        "pass": true
+      },
+      {
+        "path": "authoring/reserved-source-assets.json",
+        "expected": "01abdc3c51d9ec54a2224eb0258889e84a7d81fa52f9fb182ee0072b67ac4d66",
+        "actual": "01abdc3c51d9ec54a2224eb0258889e84a7d81fa52f9fb182ee0072b67ac4d66",
+        "pass": true
+      },
+      {
+        "path": "authoring/schematic-rendering-values.json",
+        "expected": "215cc3045ea4376a91fd75ffb17092adf85a7c9efdd48c1df1fac7abcc82b494",
+        "actual": "215cc3045ea4376a91fd75ffb17092adf85a7c9efdd48c1df1fac7abcc82b494",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assessment-catalogue.json",
+        "expected": "a540df55f7499962d24430effe2d986a881a656aca2d8ea9cc6fdfb339d2adc6",
+        "actual": "a540df55f7499962d24430effe2d986a881a656aca2d8ea9cc6fdfb339d2adc6",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/0223dddfefc4c637.png",
+        "expected": "0223dddfefc4c6372f71ed95f85c4d5e414859ad7edd7ed5f08511dbb88ddef4",
+        "actual": "0223dddfefc4c6372f71ed95f85c4d5e414859ad7edd7ed5f08511dbb88ddef4",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/05d94286f029e791.png",
+        "expected": "05d94286f029e79142312acf5d3babf4bc9b9051ab80ee215b2b43e53251aab8",
+        "actual": "05d94286f029e79142312acf5d3babf4bc9b9051ab80ee215b2b43e53251aab8",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/0b85ab1aa8695312.png",
+        "expected": "0b85ab1aa86953123b1ee3d12256f6dee32fad8106f90e12e74cd89028d3cd05",
+        "actual": "0b85ab1aa86953123b1ee3d12256f6dee32fad8106f90e12e74cd89028d3cd05",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/0d50968339d9a863.png",
+        "expected": "0d50968339d9a8635c9575c3d76375f53eac1d4565771f79f72692e781517740",
+        "actual": "0d50968339d9a8635c9575c3d76375f53eac1d4565771f79f72692e781517740",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/0e03dda147babb97.png",
+        "expected": "0e03dda147babb974e5fd6dbad4b01d85629eb0c4840b60171a5c67807a88ca7",
+        "actual": "0e03dda147babb974e5fd6dbad4b01d85629eb0c4840b60171a5c67807a88ca7",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/0f871c39250b8c55.png",
+        "expected": "0f871c39250b8c55eb2540d03da74df7d2a58ab82782da1e8a87b60b7fea5ae5",
+        "actual": "0f871c39250b8c55eb2540d03da74df7d2a58ab82782da1e8a87b60b7fea5ae5",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/12afc42bc30cdd48.png",
+        "expected": "12afc42bc30cdd48c8a734065e6d72bbda2424c8c5ae34eaa96c92cfe1dadc43",
+        "actual": "12afc42bc30cdd48c8a734065e6d72bbda2424c8c5ae34eaa96c92cfe1dadc43",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/1bc4661b07b32e09.png",
+        "expected": "1bc4661b07b32e092d524bd2a08d93f8386b7c8c62912c3c50b3892cd75a1d40",
+        "actual": "1bc4661b07b32e092d524bd2a08d93f8386b7c8c62912c3c50b3892cd75a1d40",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/1fdf0c6c0550cf02.png",
+        "expected": "1fdf0c6c0550cf027b51ad93467580c9dcf542675aa24153640ba4dd9469d9bb",
+        "actual": "1fdf0c6c0550cf027b51ad93467580c9dcf542675aa24153640ba4dd9469d9bb",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/2148b4ca3c9f3217.png",
+        "expected": "2148b4ca3c9f3217a4f3825a00653cf4ac36fdf89b6e366c64c39da184adc8fe",
+        "actual": "2148b4ca3c9f3217a4f3825a00653cf4ac36fdf89b6e366c64c39da184adc8fe",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/214bf0f50018f3fc.png",
+        "expected": "214bf0f50018f3fc367441dacd4fe5d10c0f3082b4499c8f7061bc2aa89287f7",
+        "actual": "214bf0f50018f3fc367441dacd4fe5d10c0f3082b4499c8f7061bc2aa89287f7",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/21aa7a5a3c752ae4.png",
+        "expected": "21aa7a5a3c752ae40e26ffe3b024bf0115fe770d9ce9e1f7e4a6a552b616406a",
+        "actual": "21aa7a5a3c752ae40e26ffe3b024bf0115fe770d9ce9e1f7e4a6a552b616406a",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/24347adf67b84dce.png",
+        "expected": "24347adf67b84dce24ffd4ab0511c8ad5f37e4338f98a3cb7d23e8c1306aa8c3",
+        "actual": "24347adf67b84dce24ffd4ab0511c8ad5f37e4338f98a3cb7d23e8c1306aa8c3",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/2baed3365879f1fa.png",
+        "expected": "2baed3365879f1fa6f5ab218aeaf3491a21530e5e07f0aa1f8855a8f19502001",
+        "actual": "2baed3365879f1fa6f5ab218aeaf3491a21530e5e07f0aa1f8855a8f19502001",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/2e30badc5645bfd1.png",
+        "expected": "2e30badc5645bfd14333e8a3068a94d1c88ba0116f3c0d532eae7e1687ec8ed8",
+        "actual": "2e30badc5645bfd14333e8a3068a94d1c88ba0116f3c0d532eae7e1687ec8ed8",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/31dcb3d9c620e380.png",
+        "expected": "31dcb3d9c620e3800ebab2aba141f67e65367d92b2a3b29010739c6982ee33f9",
+        "actual": "31dcb3d9c620e3800ebab2aba141f67e65367d92b2a3b29010739c6982ee33f9",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/34f7832079ee3012.png",
+        "expected": "34f7832079ee30123e848620f0c8a5f522f17a8ae9d39cf40ee946f30955b290",
+        "actual": "34f7832079ee30123e848620f0c8a5f522f17a8ae9d39cf40ee946f30955b290",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/358737a18b07733d.png",
+        "expected": "358737a18b07733d8ca9d388d59423e4aab84ff4bfd8ec8e696cf1586323af88",
+        "actual": "358737a18b07733d8ca9d388d59423e4aab84ff4bfd8ec8e696cf1586323af88",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/3acccde6f8099d5b.png",
+        "expected": "3acccde6f8099d5b59001b4757523e4e93edb697a2834f77e77ae91d61d0a7fc",
+        "actual": "3acccde6f8099d5b59001b4757523e4e93edb697a2834f77e77ae91d61d0a7fc",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/3b87413c605fe16b.png",
+        "expected": "3b87413c605fe16b8a335c6193157ff3aa8981ff98e092aa6ea4c73532ac4c80",
+        "actual": "3b87413c605fe16b8a335c6193157ff3aa8981ff98e092aa6ea4c73532ac4c80",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/3d32f200a7d912e0.png",
+        "expected": "3d32f200a7d912e0f6e80be5cdd2acb328351f0d5d92eb7740bddc4498dab257",
+        "actual": "3d32f200a7d912e0f6e80be5cdd2acb328351f0d5d92eb7740bddc4498dab257",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/3d52396522e4360f.png",
+        "expected": "3d52396522e4360f275a837f8120c991156e1a3ad6bf6af35ebf35786ea1dc3d",
+        "actual": "3d52396522e4360f275a837f8120c991156e1a3ad6bf6af35ebf35786ea1dc3d",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/428b42589e34453c.png",
+        "expected": "428b42589e34453c75aa2d450e5ae87f54d8e189d3005ced149ef70587d5281a",
+        "actual": "428b42589e34453c75aa2d450e5ae87f54d8e189d3005ced149ef70587d5281a",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/44a5878d9b363f40.png",
+        "expected": "44a5878d9b363f401fce99e4a5060cc64f6a8fef3bb469abdc2e7723d269ef9d",
+        "actual": "44a5878d9b363f401fce99e4a5060cc64f6a8fef3bb469abdc2e7723d269ef9d",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/471827644a67ee68.png",
+        "expected": "471827644a67ee6893cfbd49a41616b53599f17e1c4d051458e899df6dc0f28b",
+        "actual": "471827644a67ee6893cfbd49a41616b53599f17e1c4d051458e899df6dc0f28b",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/47ee499d22916f92.png",
+        "expected": "47ee499d22916f9248eb84e8a40e5f7ee6cf273013068585d16e7ef4fe733518",
+        "actual": "47ee499d22916f9248eb84e8a40e5f7ee6cf273013068585d16e7ef4fe733518",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/47f455a95150b798.png",
+        "expected": "47f455a95150b7989080b9307189c0a31fcc9ff65f3cc799d262ea179e0d9bf8",
+        "actual": "47f455a95150b7989080b9307189c0a31fcc9ff65f3cc799d262ea179e0d9bf8",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/4974af5812b46cf1.png",
+        "expected": "4974af5812b46cf11f7d5afb565f555db41225fc6a3076a496d9e091dc38c592",
+        "actual": "4974af5812b46cf11f7d5afb565f555db41225fc6a3076a496d9e091dc38c592",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/4bf6b7e0cb9e8015.png",
+        "expected": "4bf6b7e0cb9e8015ab3b809dd51f864f5cca864255c349a028442424ff6f5ef5",
+        "actual": "4bf6b7e0cb9e8015ab3b809dd51f864f5cca864255c349a028442424ff6f5ef5",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/507e15b3f5ae1f4d.png",
+        "expected": "507e15b3f5ae1f4d5807682cf2f703055149d21111a6264ddca736ec58674cf7",
+        "actual": "507e15b3f5ae1f4d5807682cf2f703055149d21111a6264ddca736ec58674cf7",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/53005768bdd98f5f.png",
+        "expected": "53005768bdd98f5f33bd0516b3c003592dae67329bda9e3289eebc00eb475b29",
+        "actual": "53005768bdd98f5f33bd0516b3c003592dae67329bda9e3289eebc00eb475b29",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/567e66b30bef289a.png",
+        "expected": "567e66b30bef289a3b1406959aee70fc39088e563367f3888a92b7be7dd294d7",
+        "actual": "567e66b30bef289a3b1406959aee70fc39088e563367f3888a92b7be7dd294d7",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/56c7fd52f5c7f8e4.png",
+        "expected": "56c7fd52f5c7f8e4c49ad801ea2a55b9fd30457fdf4b1fdc51b6bc37d3ad6166",
+        "actual": "56c7fd52f5c7f8e4c49ad801ea2a55b9fd30457fdf4b1fdc51b6bc37d3ad6166",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/57ec62a44db37e95.png",
+        "expected": "57ec62a44db37e95df9af1ab5e51af8da5db9bea3f82ace4aefc13b28cc66bf1",
+        "actual": "57ec62a44db37e95df9af1ab5e51af8da5db9bea3f82ace4aefc13b28cc66bf1",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/582ef77fd210c306.png",
+        "expected": "582ef77fd210c3060627e690497f043bfe300928288122305fe6e506fbdb809a",
+        "actual": "582ef77fd210c3060627e690497f043bfe300928288122305fe6e506fbdb809a",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/5c8c4613378cddbd.png",
+        "expected": "5c8c4613378cddbdf0573d233b6b7fca1cc930861f3ef5342b1b1eae15ad486e",
+        "actual": "5c8c4613378cddbdf0573d233b6b7fca1cc930861f3ef5342b1b1eae15ad486e",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/6694e7892b4f3c26.png",
+        "expected": "6694e7892b4f3c264c7c5a24d4f07d77b28da2e84e6ec004eea003fc53de7b00",
+        "actual": "6694e7892b4f3c264c7c5a24d4f07d77b28da2e84e6ec004eea003fc53de7b00",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/6cea5cf6365a36a1.png",
+        "expected": "6cea5cf6365a36a174338860710bcdd07ac4071de6601b85abf3eb75956b6866",
+        "actual": "6cea5cf6365a36a174338860710bcdd07ac4071de6601b85abf3eb75956b6866",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/6d538ca55fb04fe6.png",
+        "expected": "6d538ca55fb04fe63fa22c216737b83752832411380aa696fbb938f7f58e3a3b",
+        "actual": "6d538ca55fb04fe63fa22c216737b83752832411380aa696fbb938f7f58e3a3b",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/6dc4f537d50d52ed.png",
+        "expected": "6dc4f537d50d52ed2ad132e4d2f805e8374f2ffb8ba2c4205a2e2477c77067a8",
+        "actual": "6dc4f537d50d52ed2ad132e4d2f805e8374f2ffb8ba2c4205a2e2477c77067a8",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/6f3c5166713c84be.png",
+        "expected": "6f3c5166713c84bedf935b76bc640760c728a8c6ab24d22589a2c95ee09afa3d",
+        "actual": "6f3c5166713c84bedf935b76bc640760c728a8c6ab24d22589a2c95ee09afa3d",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/6fba72cc32ceae26.png",
+        "expected": "6fba72cc32ceae266608555513f9dbdbc535c21205549e212d96943d46c2e8d9",
+        "actual": "6fba72cc32ceae266608555513f9dbdbc535c21205549e212d96943d46c2e8d9",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/740db3921a769b60.png",
+        "expected": "740db3921a769b602b23bd92ea508c60eda93fe09027c4c43dd5d05702847200",
+        "actual": "740db3921a769b602b23bd92ea508c60eda93fe09027c4c43dd5d05702847200",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/74137d645f6b6662.png",
+        "expected": "74137d645f6b6662c2fdb00dcc8a1c100e7e764019fd9ea87cfdffac945c83e4",
+        "actual": "74137d645f6b6662c2fdb00dcc8a1c100e7e764019fd9ea87cfdffac945c83e4",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/74d48638791d2633.png",
+        "expected": "74d48638791d26338b1546cd4e94dcbd84e9da866177082178cec8973e4b1de8",
+        "actual": "74d48638791d26338b1546cd4e94dcbd84e9da866177082178cec8973e4b1de8",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/762dc9c961c69a4f.png",
+        "expected": "762dc9c961c69a4f5d5f4fdf5a541114553cb35431d8dcf410498979f39cfb72",
+        "actual": "762dc9c961c69a4f5d5f4fdf5a541114553cb35431d8dcf410498979f39cfb72",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/77719c69c29b856b.png",
+        "expected": "77719c69c29b856bd796d6bbfd108d5948231ed9158de41ddf31eb290c81c7bb",
+        "actual": "77719c69c29b856bd796d6bbfd108d5948231ed9158de41ddf31eb290c81c7bb",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/78cceae6dbc3f7d7.png",
+        "expected": "78cceae6dbc3f7d731b53f8054c2d73940827d477dd8b44d9461c82da6b7da32",
+        "actual": "78cceae6dbc3f7d731b53f8054c2d73940827d477dd8b44d9461c82da6b7da32",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/7eeee50362191224.png",
+        "expected": "7eeee503621912248cdd8c95ef9684202c2ed595ad90c269487e041c19b4371b",
+        "actual": "7eeee503621912248cdd8c95ef9684202c2ed595ad90c269487e041c19b4371b",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/81f51f894d2b50d9.png",
+        "expected": "81f51f894d2b50d927b8059ff4ec8a13123b4788b9a5ce8f0b1c6b9af4353b4b",
+        "actual": "81f51f894d2b50d927b8059ff4ec8a13123b4788b9a5ce8f0b1c6b9af4353b4b",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/84d29f883264813a.png",
+        "expected": "84d29f883264813abceb8f2ec325b9c692e31276405c50ceb0dabc4720159160",
+        "actual": "84d29f883264813abceb8f2ec325b9c692e31276405c50ceb0dabc4720159160",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/866b48cc6ef48afe.png",
+        "expected": "866b48cc6ef48afe154102da32b98f88d03d20598343569d3175380ca0d3af03",
+        "actual": "866b48cc6ef48afe154102da32b98f88d03d20598343569d3175380ca0d3af03",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/89c4431c0340a1a2.png",
+        "expected": "89c4431c0340a1a2e53997ee187c00186efd540eb3eed3dd4315fb46bcff9006",
+        "actual": "89c4431c0340a1a2e53997ee187c00186efd540eb3eed3dd4315fb46bcff9006",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/8a948d2b853bfd94.png",
+        "expected": "8a948d2b853bfd94e8c864fe3eb59324bf7202170283fbbfd7ced0b86cd76340",
+        "actual": "8a948d2b853bfd94e8c864fe3eb59324bf7202170283fbbfd7ced0b86cd76340",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/8ba13820ad167f07.png",
+        "expected": "8ba13820ad167f07d1e5eda323390c945f37051118f5e1c175a3cca2c39ef8d4",
+        "actual": "8ba13820ad167f07d1e5eda323390c945f37051118f5e1c175a3cca2c39ef8d4",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/8c191fd34e3e093a.png",
+        "expected": "8c191fd34e3e093aa28673c3388fd2c48f0718c247cece963699b7bfb3cb5533",
+        "actual": "8c191fd34e3e093aa28673c3388fd2c48f0718c247cece963699b7bfb3cb5533",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/8e2b07b34153a59d.png",
+        "expected": "8e2b07b34153a59d63fb44a5375a0beef3d150c071330e83e957ed47cc056eeb",
+        "actual": "8e2b07b34153a59d63fb44a5375a0beef3d150c071330e83e957ed47cc056eeb",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/910790624a98dbc4.png",
+        "expected": "910790624a98dbc4b4f7c19618d7ca544974562b1f287456279b1584e4ec3932",
+        "actual": "910790624a98dbc4b4f7c19618d7ca544974562b1f287456279b1584e4ec3932",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/92f4993a67c16bf7.png",
+        "expected": "92f4993a67c16bf7a39ee2711e1561e73e1e6be4f44606995c0b3f345e4dc07c",
+        "actual": "92f4993a67c16bf7a39ee2711e1561e73e1e6be4f44606995c0b3f345e4dc07c",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/9345709c8077076b.png",
+        "expected": "9345709c8077076b7af0b7f7875a3694475ab24bcf4666cc46b3f5aba81d674a",
+        "actual": "9345709c8077076b7af0b7f7875a3694475ab24bcf4666cc46b3f5aba81d674a",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/96465e03d1973181.png",
+        "expected": "96465e03d19731819a8a50a86ec220e4d3ec7d6b8307900bbc75121bf431c5c7",
+        "actual": "96465e03d19731819a8a50a86ec220e4d3ec7d6b8307900bbc75121bf431c5c7",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/9738d92eef552019.png",
+        "expected": "9738d92eef5520194928e41a4e1d1df1140c380cfdb1fb4a3c2df1d9c9875388",
+        "actual": "9738d92eef5520194928e41a4e1d1df1140c380cfdb1fb4a3c2df1d9c9875388",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/987d1ba568badee0.png",
+        "expected": "987d1ba568badee095b2a9d2358ea81029824c8248f50a69feed2384a6a2b2e9",
+        "actual": "987d1ba568badee095b2a9d2358ea81029824c8248f50a69feed2384a6a2b2e9",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/9aa12f685ba44b09.png",
+        "expected": "9aa12f685ba44b091fb4a699cd93914c89f5a8ed76e6c69c757d545db083a923",
+        "actual": "9aa12f685ba44b091fb4a699cd93914c89f5a8ed76e6c69c757d545db083a923",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/9bdf27fb68d6331a.png",
+        "expected": "9bdf27fb68d6331a08ba371dfdae029cf5c3465ed191155d26e8aca6200c8b0a",
+        "actual": "9bdf27fb68d6331a08ba371dfdae029cf5c3465ed191155d26e8aca6200c8b0a",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/9d45801c5591767e.png",
+        "expected": "9d45801c5591767eb097208b15a110c1c27fccfe46f93a370cccbb7eb657f945",
+        "actual": "9d45801c5591767eb097208b15a110c1c27fccfe46f93a370cccbb7eb657f945",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/a1c53a99dfb57037.png",
+        "expected": "a1c53a99dfb57037fa3b3faced6536bb633ead4a5d106b53e9ea7279ef835ab5",
+        "actual": "a1c53a99dfb57037fa3b3faced6536bb633ead4a5d106b53e9ea7279ef835ab5",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/a8cf7470de074ce7.png",
+        "expected": "a8cf7470de074ce7375a8a6cce5b6da4358a8ff4eb9ad6a199f3e1b666d2705a",
+        "actual": "a8cf7470de074ce7375a8a6cce5b6da4358a8ff4eb9ad6a199f3e1b666d2705a",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/a93f7d2a39d0c895.png",
+        "expected": "a93f7d2a39d0c8959f598d8b1d5b46cf38e32f8ebd74124cf444451771dbe95d",
+        "actual": "a93f7d2a39d0c8959f598d8b1d5b46cf38e32f8ebd74124cf444451771dbe95d",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/a9d7044916531a45.png",
+        "expected": "a9d7044916531a45e162f4baf9b48ef6fffef5a78401ebbbba7a367194b903ef",
+        "actual": "a9d7044916531a45e162f4baf9b48ef6fffef5a78401ebbbba7a367194b903ef",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/ac6d47ee88ea0c78.png",
+        "expected": "ac6d47ee88ea0c78c3162601c6c4eb93c16f64351e504e60fcc48d0446f00df5",
+        "actual": "ac6d47ee88ea0c78c3162601c6c4eb93c16f64351e504e60fcc48d0446f00df5",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/b6065caedc33daea.png",
+        "expected": "b6065caedc33daea05d9c8c8c9da2dce96b103a26f66210659873fa3a909e133",
+        "actual": "b6065caedc33daea05d9c8c8c9da2dce96b103a26f66210659873fa3a909e133",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/bab9687d8e764e29.png",
+        "expected": "bab9687d8e764e29ad4d5cb123adccb0a1b694a78e9216ea7aee0f342127cfda",
+        "actual": "bab9687d8e764e29ad4d5cb123adccb0a1b694a78e9216ea7aee0f342127cfda",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/bb89cd92bf32778b.png",
+        "expected": "bb89cd92bf32778bdb061ac18667b92a139617418149f39503c2b6a9e1aae6ff",
+        "actual": "bb89cd92bf32778bdb061ac18667b92a139617418149f39503c2b6a9e1aae6ff",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/bb95ca6c25df00f8.png",
+        "expected": "bb95ca6c25df00f8d01d563fe94e325149dd1b903a0313d4f19150e54588954e",
+        "actual": "bb95ca6c25df00f8d01d563fe94e325149dd1b903a0313d4f19150e54588954e",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/bd82fde7cbcb4e44.png",
+        "expected": "bd82fde7cbcb4e44785a2f27ca085f7bd4723cec5408067e80cb498a2f555420",
+        "actual": "bd82fde7cbcb4e44785a2f27ca085f7bd4723cec5408067e80cb498a2f555420",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/be3283cf513d711f.png",
+        "expected": "be3283cf513d711f35b1fabe4ca06d8739c707d4b38c7f1346fb7015fa69f585",
+        "actual": "be3283cf513d711f35b1fabe4ca06d8739c707d4b38c7f1346fb7015fa69f585",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/c2b39cac422390aa.png",
+        "expected": "c2b39cac422390aaa5a3e315222432ca65231e6c2d809fd44ca67d7c023b4eef",
+        "actual": "c2b39cac422390aaa5a3e315222432ca65231e6c2d809fd44ca67d7c023b4eef",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/c6b5013521144b6e.png",
+        "expected": "c6b5013521144b6e951287681edd19dc6a878a821050e9ee5669848cd00e2cce",
+        "actual": "c6b5013521144b6e951287681edd19dc6a878a821050e9ee5669848cd00e2cce",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/cba9de331aae4fd8.png",
+        "expected": "cba9de331aae4fd8a1cb37fae87116bca3a729473add88a6a4585e75d6313f18",
+        "actual": "cba9de331aae4fd8a1cb37fae87116bca3a729473add88a6a4585e75d6313f18",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/cc665d8bda2b3e95.png",
+        "expected": "cc665d8bda2b3e954901f64a77ec47d89d66831d62514ae8aa7c27b5f66fd8a1",
+        "actual": "cc665d8bda2b3e954901f64a77ec47d89d66831d62514ae8aa7c27b5f66fd8a1",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/ce525c89118ab555.png",
+        "expected": "ce525c89118ab5559fca5c5818e04774a3fc636ff208794ea11dd91e595b6eb2",
+        "actual": "ce525c89118ab5559fca5c5818e04774a3fc636ff208794ea11dd91e595b6eb2",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/cf9507ed9bc0be0f.png",
+        "expected": "cf9507ed9bc0be0f27040988ec64b33b8f7e90f01d869c2fea79577ae990469b",
+        "actual": "cf9507ed9bc0be0f27040988ec64b33b8f7e90f01d869c2fea79577ae990469b",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/d139104d8fae0f74.png",
+        "expected": "d139104d8fae0f74a85dbbc232d41bc89317c39865b09cffde8d03431affa726",
+        "actual": "d139104d8fae0f74a85dbbc232d41bc89317c39865b09cffde8d03431affa726",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/d37426be8ae79b52.png",
+        "expected": "d37426be8ae79b5289dc9e81a40e42cfbf2a72c87b03db85c5787eccc55baa61",
+        "actual": "d37426be8ae79b5289dc9e81a40e42cfbf2a72c87b03db85c5787eccc55baa61",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/d5a31f18df17b604.png",
+        "expected": "d5a31f18df17b6047eadc463e978efdedec3bec35d3a3cf72c249eeb94c4ffdf",
+        "actual": "d5a31f18df17b6047eadc463e978efdedec3bec35d3a3cf72c249eeb94c4ffdf",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/d66857afed549d75.png",
+        "expected": "d66857afed549d7568028a8b93e2195fbf54bbf1b3d701fba10633f2da01242a",
+        "actual": "d66857afed549d7568028a8b93e2195fbf54bbf1b3d701fba10633f2da01242a",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/dc3d5070012c0731.png",
+        "expected": "dc3d5070012c0731969cd3fbc1b57047463e0dfb40074b8cf27797b68eeb9962",
+        "actual": "dc3d5070012c0731969cd3fbc1b57047463e0dfb40074b8cf27797b68eeb9962",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/e6f3a3465347f916.png",
+        "expected": "e6f3a3465347f916fdd9078015243e06073cec0e9e4ef17a3e82d230833f90fa",
+        "actual": "e6f3a3465347f916fdd9078015243e06073cec0e9e4ef17a3e82d230833f90fa",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/eb015710927a71a4.png",
+        "expected": "eb015710927a71a452e826068210a1350dbae2d6d7b440503ea0e091cf16f644",
+        "actual": "eb015710927a71a452e826068210a1350dbae2d6d7b440503ea0e091cf16f644",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/ecabe1544c9c65aa.png",
+        "expected": "ecabe1544c9c65aa250f00b608c09a99ffadc7e77de0e3f180c60e6b1a98f6bc",
+        "actual": "ecabe1544c9c65aa250f00b608c09a99ffadc7e77de0e3f180c60e6b1a98f6bc",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/f4971a2ad02dcaed.png",
+        "expected": "f4971a2ad02dcaed2bb3e88c20d4bd036bcc97c083451c7e91504678dee2011c",
+        "actual": "f4971a2ad02dcaed2bb3e88c20d4bd036bcc97c083451c7e91504678dee2011c",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/f9f0b6aa49c9a744.png",
+        "expected": "f9f0b6aa49c9a744e12cb45ffa7e679b42ab2d839d5594862efb13870f203bf8",
+        "actual": "f9f0b6aa49c9a744e12cb45ffa7e679b42ab2d839d5594862efb13870f203bf8",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/fabf4f2941ef763d.png",
+        "expected": "fabf4f2941ef763db2bd6343c874bf986bb99107bb1d36a488b3d1e835749acf",
+        "actual": "fabf4f2941ef763db2bd6343c874bf986bb99107bb1d36a488b3d1e835749acf",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/fb4e1327bf080321.png",
+        "expected": "fb4e1327bf080321d0ec5a79aa8468ac0e5a764d141e9b3140edde248d165c7f",
+        "actual": "fb4e1327bf080321d0ec5a79aa8468ac0e5a764d141e9b3140edde248d165c7f",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/fc7108bc15c42203.png",
+        "expected": "fc7108bc15c422035969c7197185b54908884345c2f9f2bafe9f7666734766b1",
+        "actual": "fc7108bc15c422035969c7197185b54908884345c2f9f2bafe9f7666734766b1",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-discrepancies.md",
+        "expected": "4cac0340fefd0c417b34824a3b98b97d507eddca27aeaae0c465981a351797fc",
+        "actual": "4cac0340fefd0c417b34824a3b98b97d507eddca27aeaae0c465981a351797fc",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-inputs/Unit B Chapter 14 Notes.pptx",
+        "expected": "b2d6ed2ff0e758f81e2c2dab288011188fa9c8370b873ebf2c70caf25499d229",
+        "actual": "b2d6ed2ff0e758f81e2c2dab288011188fa9c8370b873ebf2c70caf25499d229",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-inventory.json",
+        "expected": "183669b77eb4fecf33f45d177d56a571325a23df7a6b40e19d541af655bd1d01",
+        "actual": "183669b77eb4fecf33f45d177d56a571325a23df7a6b40e19d541af655bd1d01",
+        "pass": true
+      },
+      {
+        "path": "authoring/template-lock.json",
+        "expected": "d3dfe616987846dcb6275e910cc37c378ab38325eeeba98a09f646ab398fd15d",
+        "actual": "d3dfe616987846dcb6275e910cc37c378ab38325eeeba98a09f646ab398fd15d",
+        "pass": true
+      },
+      {
+        "path": "authoring/templates/core-vocabulary.html",
+        "expected": "dd9de0a03f8a7c90db4db9828331212778c3c567007af2412a2549550d5e8547",
+        "actual": "dd9de0a03f8a7c90db4db9828331212778c3c567007af2412a2549550d5e8547",
+        "pass": true
+      },
+      {
+        "path": "authoring/templates/extension.html",
+        "expected": "62b958d44f2413f60d5dc5525345686a5edd2f0bceefe407c5f2c3342fdd3399",
+        "actual": "62b958d44f2413f60d5dc5525345686a5edd2f0bceefe407c5f2c3342fdd3399",
+        "pass": true
+      },
+      {
+        "path": "authoring/templates/fill-in-the-blanks.html",
+        "expected": "44feda05cacdbd6c18c08fcf77c3ac64fe59563f67f1eec835fe058396608c95",
+        "actual": "44feda05cacdbd6c18c08fcf77c3ac64fe59563f67f1eec835fe058396608c95",
+        "pass": true
+      },
+      {
+        "path": "authoring/templates/labeling-practice.html",
+        "expected": "cb7dd659b97210938a35a7c9202b7fc88ce8d8245bebc75910beb7b48a0b03c9",
+        "actual": "cb7dd659b97210938a35a7c9202b7fc88ce8d8245bebc75910beb7b48a0b03c9",
+        "pass": true
+      },
+      {
+        "path": "authoring/templates/lesson-01.html",
+        "expected": "264e627daf1b1d2461ace7c25aeb4983176c61facea8ecd0110b7775dff3adff",
+        "actual": "264e627daf1b1d2461ace7c25aeb4983176c61facea8ecd0110b7775dff3adff",
+        "pass": true
+      },
+      {
+        "path": "authoring/templates/lesson-09.html",
+        "expected": "87b233999059d40ad3eee993333f0052649b19c14955d169311390166ca1ed8c",
+        "actual": "87b233999059d40ad3eee993333f0052649b19c14955d169311390166ca1ed8c",
+        "pass": true
+      },
+      {
+        "path": "authoring/templates/mixed-practice.html",
+        "expected": "433a1c5e1df67e90a81662e5fa7741b5b79831d086a389b1b0c1cba5d2c7cc12",
+        "actual": "433a1c5e1df67e90a81662e5fa7741b5b79831d086a389b1b0c1cba5d2c7cc12",
+        "pass": true
+      },
+      {
+        "path": "authoring/templates/multiple-choice.html",
+        "expected": "522f2a4e3b9e6ccc23796e80bf91f30cc52b594541fe836ebff5da557e815400",
+        "actual": "522f2a4e3b9e6ccc23796e80bf91f30cc52b594541fe836ebff5da557e815400",
+        "pass": true
+      },
+      {
+        "path": "authoring/templates/overview.html",
+        "expected": "de43d89d337eac0fb8777b5c57f71dd73f3d7ba9b00bea2d9c0a7c58415b1a9f",
+        "actual": "de43d89d337eac0fb8777b5c57f71dd73f3d7ba9b00bea2d9c0a7c58415b1a9f",
+        "pass": true
+      },
+      {
+        "path": "authoring/templates/practice.html",
+        "expected": "b3adf0340a831171a3c8ba5bd5a76e4639d6de4b983b4d339ac1c98a6fdce30e",
+        "actual": "b3adf0340a831171a3c8ba5bd5a76e4639d6de4b983b4d339ac1c98a6fdce30e",
+        "pass": true
+      },
+      {
+        "path": "authoring/templates/process-collection.html",
+        "expected": "6ea519ac86e7c4ce405b1f5228bca4246f05d3827f26a29f5de69b3fa9ba89a6",
+        "actual": "6ea519ac86e7c4ce405b1f5228bca4246f05d3827f26a29f5de69b3fa9ba89a6",
+        "pass": true
+      },
+      {
+        "path": "authoring/templates/shell.html",
+        "expected": "be626bf93b328b64edce016f9bd063a2731f5412585e9bed2450ed261505425c",
+        "actual": "be626bf93b328b64edce016f9bd063a2731f5412585e9bed2450ed261505425c",
+        "pass": true
+      },
+      {
+        "path": "authoring/templates/textbook-library.html",
+        "expected": "e72abed96f2c31f5b48eba23a74f0fa991430d1bd3d9d28dbc8b4c7e2a4d8741",
+        "actual": "e72abed96f2c31f5b48eba23a74f0fa991430d1bd3d9d28dbc8b4c7e2a4d8741",
+        "pass": true
+      },
+      {
+        "path": "authoring/templates/textbook-practice.html",
+        "expected": "856a266aa0b84316821dc02123f3898102ea46694ccd06b6e71a5960219d5918",
+        "actual": "856a266aa0b84316821dc02123f3898102ea46694ccd06b6e71a5960219d5918",
+        "pass": true
+      },
+      {
+        "path": "authoring/templates/video-library.html",
+        "expected": "d849ab6b3b12bc1b4673cf2ea200e8317e2a2ab7e6644d0fb4d8bd15af882c62",
+        "actual": "d849ab6b3b12bc1b4673cf2ea200e8317e2a2ab7e6644d0fb4d8bd15af882c62",
+        "pass": true
+      },
+      {
+        "path": "authoring/textbook-question-manifest.json",
+        "expected": "b4bfb29a87b355b46d2bd2ba870258073f2eca088f1de3e9dd6fee631017b0d3",
+        "actual": "b4bfb29a87b355b46d2bd2ba870258073f2eca088f1de3e9dd6fee631017b0d3",
+        "pass": true
+      },
+      {
+        "path": "authoring/textbook-visual-review.json",
+        "expected": "dc383e1577123e5bb22d286e6f35cd4236687f63ac2162c88d46eabfccfa0dd0",
+        "actual": "dc383e1577123e5bb22d286e6f35cd4236687f63ac2162c88d46eabfccfa0dd0",
+        "pass": true
+      },
+      {
+        "path": "authoring/video-map.json",
+        "expected": "dc6995c89500c894fd7b2e378b8efa0aa521357ecb834f00e89c72fb3c538e04",
+        "actual": "dc6995c89500c894fd7b2e378b8efa0aa521357ecb834f00e89c72fb3c538e04",
+        "pass": true
+      },
+      {
+        "path": "authoring/vocabulary.json",
+        "expected": "b1f02ef126670c3f8856804e8d5600a8092e52ca37b690085ea308248461a5b5",
+        "actual": "b1f02ef126670c3f8856804e8d5600a8092e52ca37b690085ea308248461a5b5",
+        "pass": true
+      },
+      {
+        "path": "portable/Biology30_Chapter14.html",
+        "expected": "97edd885e7743c5ec6222e7d37c1dfa21b15433f09e2aa9dfb0fd37e949d62b6",
+        "actual": "97edd885e7743c5ec6222e7d37c1dfa21b15433f09e2aa9dfb0fd37e949d62b6",
+        "pass": true
+      },
+      {
+        "path": "scripts/assemble_portable.py",
+        "expected": "9b8295046bbb55ff6896e762a4c18eb0c28a4573ec261b1ea77c4cb05db86c0b",
+        "actual": "9b8295046bbb55ff6896e762a4c18eb0c28a4573ec261b1ea77c4cb05db86c0b",
+        "pass": true
+      },
+      {
+        "path": "scripts/build_chapter.py",
+        "expected": "915625267d4ea0a5a2bbd5cb86c62d3a9767f1d5aebcadcfb7b0169ee0eb704a",
+        "actual": "915625267d4ea0a5a2bbd5cb86c62d3a9767f1d5aebcadcfb7b0169ee0eb704a",
+        "pass": true
+      },
+      {
+        "path": "scripts/content.py",
+        "expected": "15f3e496a739a40f7de85ccfa8a8dcaadfb0a4ebb4274f4c36c272244d542a2e",
+        "actual": "15f3e496a739a40f7de85ccfa8a8dcaadfb0a4ebb4274f4c36c272244d542a2e",
+        "pass": true
+      },
+      {
+        "path": "scripts/export_practice_coverage.js",
+        "expected": "eda22226a547e55f8c7e50deb848b2a5bf53e4a7eb7ae465618201c4409da706",
+        "actual": "eda22226a547e55f8c7e50deb848b2a5bf53e4a7eb7ae465618201c4409da706",
+        "pass": true
+      },
+      {
+        "path": "scripts/finalize_handoff.py",
+        "expected": "dc90a0c3c1a19d18ecba8d0423718f01552f0037fd375647a9e0d4be15a1bb9c",
+        "actual": "dc90a0c3c1a19d18ecba8d0423718f01552f0037fd375647a9e0d4be15a1bb9c",
+        "pass": true
+      },
+      {
+        "path": "scripts/import_assessments.py",
+        "expected": "4866f9a055ca36d1f40c716df2060ea25e2e3f2b7699a253f636e2f252099f33",
+        "actual": "4866f9a055ca36d1f40c716df2060ea25e2e3f2b7699a253f636e2f252099f33",
+        "pass": true
+      },
+      {
+        "path": "scripts/patch_runtime.py",
+        "expected": "7ba3aa782bf6f54601bddca39ebb93c463adf1eaa5c5ccb5a7ab0adf1700f6eb",
+        "actual": "7ba3aa782bf6f54601bddca39ebb93c463adf1eaa5c5ccb5a7ab0adf1700f6eb",
+        "pass": true
+      },
+      {
+        "path": "scripts/prepare_assets.py",
+        "expected": "b618e8218252c514f4f8187129ce1dd73ee9058747a006bc5be8b9cc47b06131",
+        "actual": "b618e8218252c514f4f8187129ce1dd73ee9058747a006bc5be8b9cc47b06131",
+        "pass": true
+      },
+      {
+        "path": "scripts/prepare_textbook.py",
+        "expected": "5f5c4148cc81de45e2bcb060f2ceb8f6ed598b3596e2d8c5f7e8dce4ac4e8b35",
+        "actual": "5f5c4148cc81de45e2bcb060f2ceb8f6ed598b3596e2d8c5f7e8dce4ac4e8b35",
+        "pass": true
+      },
+      {
+        "path": "scripts/verify_additional.py",
+        "expected": "a4368af581ad408ea3da3f7c4256f9c1f35bbeda35ec386d313252d12f1fe9a5",
+        "actual": "a4368af581ad408ea3da3f7c4256f9c1f35bbeda35ec386d313252d12f1fe9a5",
+        "pass": true
+      },
+      {
+        "path": "scripts/verify_browser.py",
+        "expected": "4f7d65639b2abeeaa77d55a6653cca225cedeac4640e86ee4279b634dd914149",
+        "actual": "4f7d65639b2abeeaa77d55a6653cca225cedeac4640e86ee4279b634dd914149",
+        "pass": true
+      },
+      {
+        "path": "scripts/write_checksums.py",
+        "expected": "db57d0d5745d3e934454bf22857fc5b51dce5a0b7ccdee0f1622d9d1fd630d19",
+        "actual": "db57d0d5745d3e934454bf22857fc5b51dce5a0b7ccdee0f1622d9d1fd630d19",
+        "pass": true
+      },
+      {
+        "path": "verification/additional-browser-results.json",
+        "expected": "ab7dd8e31c903b358494a2feddf4be4a774fa113505d0c6784434e7bdda21227",
+        "actual": "ab7dd8e31c903b358494a2feddf4be4a774fa113505d0c6784434e7bdda21227",
+        "pass": true
+      },
+      {
+        "path": "verification/all-my-work-print-test.pdf",
+        "expected": "5a9c76565400dbc1b679b62181f9f08d2e1b420ce784bf87b7ce337085c30060",
+        "actual": "5a9c76565400dbc1b679b62181f9f08d2e1b420ce784bf87b7ce337085c30060",
+        "pass": true
+      },
+      {
+        "path": "verification/browser-results.json",
+        "expected": "ab66e61dc31d42e002a20af7b100a7f37179ca266c0bfac341dceca7466887f2",
+        "actual": "ab66e61dc31d42e002a20af7b100a7f37179ca266c0bfac341dceca7466887f2",
+        "pass": true
+      },
+      {
+        "path": "verification/neutral-template-gate.json",
+        "expected": "d99cb62f2b501ed10a2980c01425304822a8add0c1eac84360729693c5f50e2f",
+        "actual": "d99cb62f2b501ed10a2980c01425304822a8add0c1eac84360729693c5f50e2f",
+        "pass": true
+      },
+      {
+        "path": "verification/screenshots/all-my-work.png",
+        "expected": "8e33cd396893983407ed12015863d9e5a9794891ccc753f99d4a301af99bd77f",
+        "actual": "8e33cd396893983407ed12015863d9e5a9794891ccc753f99d4a301af99bd77f",
+        "pass": true
+      },
+      {
+        "path": "verification/screenshots/blanks-running.png",
+        "expected": "1b82c56d424994d6b447188bdb63c74bd6b1f9e3ca5f6db69f37efaf07d4c24f",
+        "actual": "1b82c56d424994d6b447188bdb63c74bd6b1f9e3ca5f6db69f37efaf07d4c24f",
+        "pass": true
+      },
+      {
+        "path": "verification/screenshots/final-crops-0.jpg",
+        "expected": "f5e1e3396ea2fc5c7281d00bab9f06caadbaa26998f43fb2c3eb1d887a5fd00b",
+        "actual": "f5e1e3396ea2fc5c7281d00bab9f06caadbaa26998f43fb2c3eb1d887a5fd00b",
+        "pass": true
+      },
+      {
+        "path": "verification/screenshots/final-crops-6.jpg",
+        "expected": "02bce18a4b8730573602dc939f4d8cdf7098ee0666ef01f945eab9691bccda58",
+        "actual": "02bce18a4b8730573602dc939f4d8cdf7098ee0666ef01f945eab9691bccda58",
+        "pass": true
+      },
+      {
+        "path": "verification/screenshots/flash-running.png",
+        "expected": "f41ec65e16518e27461ad986e47b13165258a18bd1f9200ca65f4c0e00ed4037",
+        "actual": "f41ec65e16518e27461ad986e47b13165258a18bd1f9200ca65f4c0e00ed4037",
+        "pass": true
+      },
+      {
+        "path": "verification/screenshots/lesson-08-1117.png",
+        "expected": "12c2d41b749278857c51696155ef75a550356eec8f1f632a6da7824986f500c7",
+        "actual": "12c2d41b749278857c51696155ef75a550356eec8f1f632a6da7824986f500c7",
+        "pass": true
+      },
+      {
+        "path": "verification/screenshots/lesson-08-1469.png",
+        "expected": "b4911313b2a72d3151c393913e125a563df3eeba61473847f638e7b53e3ab211",
+        "actual": "b4911313b2a72d3151c393913e125a563df3eeba61473847f638e7b53e3ab211",
+        "pass": true
+      },
+      {
+        "path": "verification/screenshots/lesson-08-320.png",
+        "expected": "b423d97c4b4d6dde72f34b5398872bf19837ec3f6ff821ecc517772fa9c39a9b",
+        "actual": "b423d97c4b4d6dde72f34b5398872bf19837ec3f6ff821ecc517772fa9c39a9b",
+        "pass": true
+      },
+      {
+        "path": "verification/screenshots/lesson-08-390.png",
+        "expected": "6cb5b30df46779876eec03d71d534edcc886bb4991c6ede29a32c2060f59e2d2",
+        "actual": "6cb5b30df46779876eec03d71d534edcc886bb4991c6ede29a32c2060f59e2d2",
+        "pass": true
+      },
+      {
+        "path": "verification/screenshots/lesson-08-760.png",
+        "expected": "05a7aacb61a363398088dd3a1f2d9ff948698c8f10c02e710794a4bbd9e40412",
+        "actual": "05a7aacb61a363398088dd3a1f2d9ff948698c8f10c02e710794a4bbd9e40412",
+        "pass": true
+      },
+      {
+        "path": "verification/screenshots/lesson-08-980.png",
+        "expected": "10635dfe1973eea450deace9142e23b6c80845670b91565ab489b879199e8045",
+        "actual": "10635dfe1973eea450deace9142e23b6c80845670b91565ab489b879199e8045",
+        "pass": true
+      },
+      {
+        "path": "verification/screenshots/mc-running.png",
+        "expected": "ee91b3a9bc9e151c25d927862c54d04a07f9733e957067140756df1dbbbc768a",
+        "actual": "ee91b3a9bc9e151c25d927862c54d04a07f9733e957067140756df1dbbbc768a",
+        "pass": true
+      },
+      {
+        "path": "verification/screenshots/mixed-running.png",
+        "expected": "09b5e2cc9c741a05264bd16de31eaa05ee30d7278a04f97e59735e8178ca02df",
+        "actual": "09b5e2cc9c741a05264bd16de31eaa05ee30d7278a04f97e59735e8178ca02df",
+        "pass": true
+      },
+      {
+        "path": "verification/screenshots/overview-1469.png",
+        "expected": "3699a5cd4e39eeffd022fb5603c3ec8f1cb32191bfb9640629efdfcf1b3eb58b",
+        "actual": "3699a5cd4e39eeffd022fb5603c3ec8f1cb32191bfb9640629efdfcf1b3eb58b",
+        "pass": true
+      },
+      {
+        "path": "verification/screenshots/question-review-00.jpg",
+        "expected": "60345d7e0b6b27c785cde70741311937c7119d14715893d34a72acab06cec10a",
+        "actual": "60345d7e0b6b27c785cde70741311937c7119d14715893d34a72acab06cec10a",
+        "pass": true
+      },
+      {
+        "path": "verification/screenshots/question-review-01.jpg",
+        "expected": "3ad48da9df3427fbe3fd79f049077599b559b8e71bce71aeb51fe86d142f54c5",
+        "actual": "3ad48da9df3427fbe3fd79f049077599b559b8e71bce71aeb51fe86d142f54c5",
+        "pass": true
+      },
+      {
+        "path": "verification/screenshots/question-review-02.jpg",
+        "expected": "83606cc8e80e30f196cb37beff9f4ec7c05f5d156d5038c663b84566b7f6ca3f",
+        "actual": "83606cc8e80e30f196cb37beff9f4ec7c05f5d156d5038c663b84566b7f6ca3f",
+        "pass": true
+      },
+      {
+        "path": "verification/screenshots/question-review-03.jpg",
+        "expected": "562adebd9cdd10af18b5c92669dbc36a8e998e17faca84ebe2a8255759e0864f",
+        "actual": "562adebd9cdd10af18b5c92669dbc36a8e998e17faca84ebe2a8255759e0864f",
+        "pass": true
+      },
+      {
+        "path": "verification/screenshots/question-review-04.jpg",
+        "expected": "23291ab3e2e9b2db34140b02aeee64f0f01d7257ae5daf464a090412de43fab2",
+        "actual": "23291ab3e2e9b2db34140b02aeee64f0f01d7257ae5daf464a090412de43fab2",
+        "pass": true
+      },
+      {
+        "path": "verification/screenshots/question-review-05.jpg",
+        "expected": "0e4c9ee13d1c0c83ae7475995d3acf34cea6179d2dc6eea879d08fbda9d9b711",
+        "actual": "0e4c9ee13d1c0c83ae7475995d3acf34cea6179d2dc6eea879d08fbda9d9b711",
+        "pass": true
+      },
+      {
+        "path": "verification/screenshots/question-review-06.jpg",
+        "expected": "9b9fe350990162bc53501722852b9c8620d387c1dfd8117da3adbeb01e50b484",
+        "actual": "9b9fe350990162bc53501722852b9c8620d387c1dfd8117da3adbeb01e50b484",
+        "pass": true
+      },
+      {
+        "path": "verification/screenshots/question-review-07.jpg",
+        "expected": "22101a9f4bb56d60cca38cdcc99947b1f9e03312bd0dc558de0796e92f7268f2",
+        "actual": "22101a9f4bb56d60cca38cdcc99947b1f9e03312bd0dc558de0796e92f7268f2",
+        "pass": true
+      },
+      {
+        "path": "verification/screenshots/question-review-08.jpg",
+        "expected": "1c304f7852c666bcd36fa8ae771a79a04c0b792c3b4136319d55bf66632fad0c",
+        "actual": "1c304f7852c666bcd36fa8ae771a79a04c0b792c3b4136319d55bf66632fad0c",
+        "pass": true
+      },
+      {
+        "path": "verification/screenshots/question-review-09.jpg",
+        "expected": "8ab8cef4f9b55eada194cb885f792f040653f2dd74055fc0673235b3b5b007bf",
+        "actual": "8ab8cef4f9b55eada194cb885f792f040653f2dd74055fc0673235b3b5b007bf",
+        "pass": true
+      },
+      {
+        "path": "verification/static-checks.json",
+        "expected": "4eaf2eb71e1591baecde2f7514ac063da82c71bfeb77d7b33d5e0cee12bf98dd",
+        "actual": "4eaf2eb71e1591baecde2f7514ac063da82c71bfeb77d7b33d5e0cee12bf98dd",
+        "pass": true
+      },
+      {
+        "path": "verification/surface-matrix.json",
+        "expected": "bd99b04d2b2349e0d472b9abc62d08a891358c60d25c045c31c06233a95f4da8",
+        "actual": "bd99b04d2b2349e0d472b9abc62d08a891358c60d25c045c31c06233a95f4da8",
+        "pass": true
+      },
+      {
+        "path": "verification/verification-results.md",
+        "expected": "f4e1e11ad6bbd90c13e376dbd791ac464a62363017250f5824b05fbe4483ee7b",
+        "actual": "f4e1e11ad6bbd90c13e376dbd791ac464a62363017250f5824b05fbe4483ee7b",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/assessment/02bb8e7f03394198.png",
+        "expected": "02bb8e7f033941983cca5986d5831efdddea53822a5acd60fc66a92f5852fb41",
+        "actual": "02bb8e7f033941983cca5986d5831efdddea53822a5acd60fc66a92f5852fb41",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/assessment/0494827f4e9ddf52.png",
+        "expected": "0494827f4e9ddf52cd986de6076591ea8e52569de388150723ef2002e2097447",
+        "actual": "0494827f4e9ddf52cd986de6076591ea8e52569de388150723ef2002e2097447",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/assessment/1fe7d26423286fef.png",
+        "expected": "1fe7d26423286fef95c0ddcd0c5b2dcb447aebd8699ee8f3d3f5ca5ce8c343e7",
+        "actual": "1fe7d26423286fef95c0ddcd0c5b2dcb447aebd8699ee8f3d3f5ca5ce8c343e7",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/assessment/38d9d5d902e46ecb.png",
+        "expected": "38d9d5d902e46ecbcd9c924792fdca2e8ea44d517df5bfe3c35a2a11ad10ee1f",
+        "actual": "38d9d5d902e46ecbcd9c924792fdca2e8ea44d517df5bfe3c35a2a11ad10ee1f",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/assessment/3e94259b702ce9b6.png",
+        "expected": "3e94259b702ce9b60ca1ed96f8ad78f088dbb4a4b245291343fa6e53630da441",
+        "actual": "3e94259b702ce9b60ca1ed96f8ad78f088dbb4a4b245291343fa6e53630da441",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/assessment/5538ea0e4a8af8b0.png",
+        "expected": "5538ea0e4a8af8b0b693bbd356ab3f7dbea00ae47d37b3cb52dba7f235a0827d",
+        "actual": "5538ea0e4a8af8b0b693bbd356ab3f7dbea00ae47d37b3cb52dba7f235a0827d",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/assessment/646fd8c557960fad.png",
+        "expected": "646fd8c557960fadae2e5b8637dd93e421e7a9adefb71cd1ac8e2fd9be40b334",
+        "actual": "646fd8c557960fadae2e5b8637dd93e421e7a9adefb71cd1ac8e2fd9be40b334",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/assessment/7bb5b33615668d7b.png",
+        "expected": "7bb5b33615668d7bd1b2e7b658151ac6d7a70f46914bd361ac690c7e7820f9cd",
+        "actual": "7bb5b33615668d7bd1b2e7b658151ac6d7a70f46914bd361ac690c7e7820f9cd",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/assessment/84315541bff5cc8f.png",
+        "expected": "84315541bff5cc8fd0af672dbe5f873753deaca2c08a992057f3d67f749a599d",
+        "actual": "84315541bff5cc8fd0af672dbe5f873753deaca2c08a992057f3d67f749a599d",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/assessment/c52ed443adfef6fe.png",
+        "expected": "c52ed443adfef6fea81abae481a021f6a28c9ee2994f44e90f88aec407c7ac7e",
+        "actual": "c52ed443adfef6fea81abae481a021f6a28c9ee2994f44e90f88aec407c7ac7e",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/assessment/c9c3004e80c37fc5.png",
+        "expected": "c9c3004e80c37fc56ffd015be9b140f7c771ee899e2dbc17c76d6c927c5bad55",
+        "actual": "c9c3004e80c37fc56ffd015be9b140f7c771ee899e2dbc17c76d6c927c5bad55",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/assessment/cb32b3295ef90021.png",
+        "expected": "cb32b3295ef9002159c56a9c4e98ab1657a0a95ac7e6c54a7b9f667eca15318e",
+        "actual": "cb32b3295ef9002159c56a9c4e98ab1657a0a95ac7e6c54a7b9f667eca15318e",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/assessment/cfcb48cb1ab97495.png",
+        "expected": "cfcb48cb1ab9749575c571f0eaa58133a17bfb519eecffe2d8fc69558dfdf0a7",
+        "actual": "cfcb48cb1ab9749575c571f0eaa58133a17bfb519eecffe2d8fc69558dfdf0a7",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/assessment/e2fc08fe1c10aa91.png",
+        "expected": "e2fc08fe1c10aa913ef5b4bc0b0d9c394dd952f95f43216bb6a1d452c8f50741",
+        "actual": "e2fc08fe1c10aa913ef5b4bc0b0d9c394dd952f95f43216bb6a1d452c8f50741",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/assessment/e5cd83cdfd72362f.png",
+        "expected": "e5cd83cdfd72362f1405fde57f802489055d85a87ac790b34b0580e7f4558c0e",
+        "actual": "e5cd83cdfd72362f1405fde57f802489055d85a87ac790b34b0580e7f4558c0e",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/assessment/endometrium-location.png",
+        "expected": "e5b0b7e23636b5e1d45df877a631bbe37bbeba91733e559e9d9aa09d19ff2324",
+        "actual": "e5b0b7e23636b5e1d45df877a631bbe37bbeba91733e559e9d9aa09d19ff2324",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/assessment/f0f497f31b18db94.png",
+        "expected": "f0f497f31b18db9465e2b01e66e7c9324492211801ad78ecd202d08266189fe0",
+        "actual": "f0f497f31b18db9465e2b01e66e7c9324492211801ad78ecd202d08266189fe0",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/figures/cycle-coordination.svg",
+        "expected": "67822d2123a1b97d4d5af600f2980d996cc630ee1f6a39879c5c95af875f6b8f",
+        "actual": "67822d2123a1b97d4d5af600f2980d996cc630ee1f6a39879c5c95af875f6b8f",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/figures/cycle-hormones.svg",
+        "expected": "af66841a7f1578d5b2f482ee1ce577081552f33c16e9a07fa68f5dde321a2b59",
+        "actual": "af66841a7f1578d5b2f482ee1ce577081552f33c16e9a07fa68f5dde321a2b59",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/figures/female-anatomy.png",
+        "expected": "aeddd3a1c334fc4fa16e213a0ea8967c25e541afd991a2fb04ec20bc8f7f03f2",
+        "actual": "aeddd3a1c334fc4fa16e213a0ea8967c25e541afd991a2fb04ec20bc8f7f03f2",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/figures/follicle-development.png",
+        "expected": "fe5d482e81d4a071bd64d51ca6cec94c5f8f777e3a1a234f4858e09e6635dee0",
+        "actual": "fe5d482e81d4a071bd64d51ca6cec94c5f8f777e3a1a234f4858e09e6635dee0",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/figures/male-anatomy.png",
+        "expected": "f7a26cfd325397e561a3bc59815685d6bdc76e88bc314e27545b81a405870f06",
+        "actual": "f7a26cfd325397e561a3bc59815685d6bdc76e88bc314e27545b81a405870f06",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/figures/male-feedback.svg",
+        "expected": "1e9579a27e090ce7c755423c2fc9537e911c2c9c4fe49c0d84346b9c5bd388b8",
+        "actual": "1e9579a27e090ce7c755423c2fc9537e911c2c9c4fe49c0d84346b9c5bd388b8",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/figures/sperm-structure.png",
+        "expected": "246b73cae9be2ce43e44f7079ecec08759c23eb3361ac3e7a32ef94b60e72109",
+        "actual": "246b73cae9be2ce43e44f7079ecec08759c23eb3361ac3e7a32ef94b60e72109",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/figures/testis-cells.png",
+        "expected": "a712160606975d4874d7fab4c59120b2fabd2ea676d44c05bd72975cc8621ed7",
+        "actual": "a712160606975d4874d7fab4c59120b2fabd2ea676d44c05bd72975cc8621ed7",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/labeling/ch14-label-cycle.svg",
+        "expected": "cfb4885c8b8c758d1df560decbaa5681f18a9f83e87badf8e9e6340aa47dbe55",
+        "actual": "cfb4885c8b8c758d1df560decbaa5681f18a9f83e87badf8e9e6340aa47dbe55",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/labeling/ch14-label-feedback.svg",
+        "expected": "9670e3300cf754ffc7ee0c82257003e24308360bb0beca4e2c299276a07b6c5a",
+        "actual": "9670e3300cf754ffc7ee0c82257003e24308360bb0beca4e2c299276a07b6c5a",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/labeling/ch14-label-female.png",
+        "expected": "74e12713a17a111cfff40bfc13e5be53efb4f669760b0920c01cc75edcc018b0",
+        "actual": "74e12713a17a111cfff40bfc13e5be53efb4f669760b0920c01cc75edcc018b0",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/labeling/ch14-label-follicle.png",
+        "expected": "d1b76ea6b79cc0a4f991a0b82b8dc5eee32a98b09d21e7af8fa9700b91741f3a",
+        "actual": "d1b76ea6b79cc0a4f991a0b82b8dc5eee32a98b09d21e7af8fa9700b91741f3a",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/labeling/ch14-label-male.png",
+        "expected": "c82cefd443cb9746568d5bab643d1bfcceef99ac716968e7ddd091a2fc8c19d2",
+        "actual": "c82cefd443cb9746568d5bab643d1bfcceef99ac716968e7ddd091a2fc8c19d2",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/labeling/ch14-label-sperm.png",
+        "expected": "423cbdd596c6536d9b01161a00544eaf79bda57e23f4bd8db28d12d2bc3fc6a1",
+        "actual": "423cbdd596c6536d9b01161a00544eaf79bda57e23f4bd8db28d12d2bc3fc6a1",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/revision-activities.js",
+        "expected": "957583a09be13e3b0bb888928d49ed87605b154f14eeaacbea3ea569e27b60c8",
+        "actual": "957583a09be13e3b0bb888928d49ed87605b154f14eeaacbea3ea569e27b60c8",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/revision-practice.js",
+        "expected": "490849b14ff0fd8b2072e653ce80e7d282327cef6f125e66d4fc18f56fb16cd6",
+        "actual": "490849b14ff0fd8b2072e653ce80e7d282327cef6f125e66d4fc18f56fb16cd6",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook/chapter-14.pdf",
+        "expected": "82d37feec1390def949ed241d117e2b218b8dc8aa09d9cddead37fd6c64a49ea",
+        "actual": "82d37feec1390def949ed241d117e2b218b8dc8aa09d9cddead37fd6c64a49ea",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p478-in-text-q1-1.png",
+        "expected": "7e475a0a818f532fd5e20bd70b237684791c79f1ae3164a4c5d1e93b93879644",
+        "actual": "7e475a0a818f532fd5e20bd70b237684791c79f1ae3164a4c5d1e93b93879644",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p481-in-text-q2-1.png",
+        "expected": "9e3194d5d9f8cfe2f352e23b75f71f5e03ce515a54eff246a2307dd755faab82",
+        "actual": "9e3194d5d9f8cfe2f352e23b75f71f5e03ce515a54eff246a2307dd755faab82",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p481-in-text-q3-1.png",
+        "expected": "a675e05f5bb9cf60d910343d1c96f19ed456e609ce19d4992e265d61de160dae",
+        "actual": "a675e05f5bb9cf60d910343d1c96f19ed456e609ce19d4992e265d61de160dae",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p481-in-text-q4-1.png",
+        "expected": "bb266bf7efc156079e2d53cadcaa61c9f7a381bc2c7e89af2c787160ae4d43c1",
+        "actual": "bb266bf7efc156079e2d53cadcaa61c9f7a381bc2c7e89af2c787160ae4d43c1",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p481-in-text-q5-1.png",
+        "expected": "6f73ba35bb50fa31afe86f4b8abc6afa4ecc9b11c052390225df8d1f21ec70fb",
+        "actual": "6f73ba35bb50fa31afe86f4b8abc6afa4ecc9b11c052390225df8d1f21ec70fb",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p481-in-text-q6-1.png",
+        "expected": "95ba9bea3df942d749367f1bad672692ab852d7c53248f58f490320cdf1e0ee2",
+        "actual": "95ba9bea3df942d749367f1bad672692ab852d7c53248f58f490320cdf1e0ee2",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p484-in-text-q10-1.png",
+        "expected": "460b18cfbac6d8a54afd55d89d756d36c88c4af89bd88f0c2d103d72b36b76fb",
+        "actual": "460b18cfbac6d8a54afd55d89d756d36c88c4af89bd88f0c2d103d72b36b76fb",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p484-in-text-q7-1.png",
+        "expected": "8fecc7044e3b117e72288f918b15e71469b31b841854fd3844dacc2143dbcdf7",
+        "actual": "8fecc7044e3b117e72288f918b15e71469b31b841854fd3844dacc2143dbcdf7",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p484-in-text-q8-1.png",
+        "expected": "4a40ca0650dbf8aa8b436ee8107861d4278588fbdab486cf7bf6fcd605a94bc4",
+        "actual": "4a40ca0650dbf8aa8b436ee8107861d4278588fbdab486cf7bf6fcd605a94bc4",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p484-in-text-q9-1.png",
+        "expected": "708586abffb98252f6e87fafe0f259502da342872416b177d19a53be167345ad",
+        "actual": "708586abffb98252f6e87fafe0f259502da342872416b177d19a53be167345ad",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p485-section-14-1-q1-1.png",
+        "expected": "a0c7fe72ad55d0b2defbaa990f287387f2d62cad5184c567b644070718a6404a",
+        "actual": "a0c7fe72ad55d0b2defbaa990f287387f2d62cad5184c567b644070718a6404a",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p485-section-14-1-q2-1.png",
+        "expected": "b7906617c35d67ce13a0687a297d613ecc94728167984869e1b50acb03341c3b",
+        "actual": "b7906617c35d67ce13a0687a297d613ecc94728167984869e1b50acb03341c3b",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p485-section-14-1-q3-1.png",
+        "expected": "f5d5046056687a12e3a1767116ad04e011e7a1e37b53321cdb881a56eb5ad371",
+        "actual": "f5d5046056687a12e3a1767116ad04e011e7a1e37b53321cdb881a56eb5ad371",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p485-section-14-1-q4-1.png",
+        "expected": "8efc7edbd134403e1d78761cce2167262b8809c6d30284901079df94027f9519",
+        "actual": "8efc7edbd134403e1d78761cce2167262b8809c6d30284901079df94027f9519",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p485-section-14-1-q5-1.png",
+        "expected": "fea0b4d28bd8032b9077087e91852fd0cf5fc8b99c1dae1c85f034bca12bd577",
+        "actual": "fea0b4d28bd8032b9077087e91852fd0cf5fc8b99c1dae1c85f034bca12bd577",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p485-section-14-1-q6-1.png",
+        "expected": "0d24dffa307674d226eb6b82b89d4e1bbafff9307534eb09ac705f05741450ff",
+        "actual": "0d24dffa307674d226eb6b82b89d4e1bbafff9307534eb09ac705f05741450ff",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p485-section-14-1-q7-1.png",
+        "expected": "633fd0339e9473fbdd6da4a813ad4d39e3244fbc853817c687440d8e563e9f0f",
+        "actual": "633fd0339e9473fbdd6da4a813ad4d39e3244fbc853817c687440d8e563e9f0f",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p485-section-14-1-q8-1.png",
+        "expected": "3fafa17efafcd1b257d89559cc31c120c2b2980f2bd33c77321a13e1964eea76",
+        "actual": "3fafa17efafcd1b257d89559cc31c120c2b2980f2bd33c77321a13e1964eea76",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p487-in-text-q11-1.png",
+        "expected": "90f51409b79ded512d698e33c40a7aaee23619a9b5b1d5364296ae466d282ef6",
+        "actual": "90f51409b79ded512d698e33c40a7aaee23619a9b5b1d5364296ae466d282ef6",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p487-in-text-q12-1.png",
+        "expected": "f8bb9a6d75a658ab4a69301449e7d9c8cc379dc6c58d1a7f8855f52f7815461c",
+        "actual": "f8bb9a6d75a658ab4a69301449e7d9c8cc379dc6c58d1a7f8855f52f7815461c",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p487-in-text-q13-1.png",
+        "expected": "2bd048685933331cd413e062f261f8e9b2ed350d950ee863cad4da951ab7bd03",
+        "actual": "2bd048685933331cd413e062f261f8e9b2ed350d950ee863cad4da951ab7bd03",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p488-in-text-q14-1.png",
+        "expected": "d2b24ccca21f2eb6e4102a09acc5d4e63a828f0ffccfecc3346129c49b898461",
+        "actual": "d2b24ccca21f2eb6e4102a09acc5d4e63a828f0ffccfecc3346129c49b898461",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p488-in-text-q16-1.png",
+        "expected": "ca428b23cc405b93cecbc88a9d93a80c9ba908abda645a27ed1e10fee4f6ae43",
+        "actual": "ca428b23cc405b93cecbc88a9d93a80c9ba908abda645a27ed1e10fee4f6ae43",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p491-section-14-2-q1-1.png",
+        "expected": "60a5ad32ac33ed8339a92f5e350aabb38cc62e0033423db7ba9db5492812e4e1",
+        "actual": "60a5ad32ac33ed8339a92f5e350aabb38cc62e0033423db7ba9db5492812e4e1",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p491-section-14-2-q2-1.png",
+        "expected": "35e0d979007bcdb930cbb62693ab8805b8535b84b0d5877ff1d96a31472ffe79",
+        "actual": "35e0d979007bcdb930cbb62693ab8805b8535b84b0d5877ff1d96a31472ffe79",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p491-section-14-2-q3-1.png",
+        "expected": "625df5d7f59a9f2a7fb9c71d60f7803a195c881368be61bebfd3256770eaf0fe",
+        "actual": "625df5d7f59a9f2a7fb9c71d60f7803a195c881368be61bebfd3256770eaf0fe",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p491-section-14-2-q4-1.png",
+        "expected": "0b2baa776132d00d99c04c994f723762aba1a5d5a188d7da87bf25a9524b93df",
+        "actual": "0b2baa776132d00d99c04c994f723762aba1a5d5a188d7da87bf25a9524b93df",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p491-section-14-2-q5-1.png",
+        "expected": "dbe8a63ada405b6d1ce4d816f07496cf10e49488d5927db0efba0dce2588f62f",
+        "actual": "dbe8a63ada405b6d1ce4d816f07496cf10e49488d5927db0efba0dce2588f62f",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p492-in-text-q18-1.png",
+        "expected": "0d63ba5453333b5eb36e9d72e8a7d5ebafe8c0826962ab8440d32d16c21ce747",
+        "actual": "0d63ba5453333b5eb36e9d72e8a7d5ebafe8c0826962ab8440d32d16c21ce747",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p494-thought-lab-14-2-analysis-q1-1.png",
+        "expected": "875fee8cbef31084ece5277510707599ba19d6c4ab13334edfbdf3e993ffb08e",
+        "actual": "875fee8cbef31084ece5277510707599ba19d6c4ab13334edfbdf3e993ffb08e",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p494-thought-lab-14-2-analysis-q2-1.png",
+        "expected": "096a19ea6451d6cda2d0828336f08f4b566e2ddd0fc04c392364913c2e32f553",
+        "actual": "096a19ea6451d6cda2d0828336f08f4b566e2ddd0fc04c392364913c2e32f553",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p494-thought-lab-14-2-procedure-q1-1.png",
+        "expected": "a851205ad630422ad1a511ec0db09ba4266c7b98d2228701e475061da9e6ad0c",
+        "actual": "a851205ad630422ad1a511ec0db09ba4266c7b98d2228701e475061da9e6ad0c",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p494-thought-lab-14-2-procedure-q2-1.png",
+        "expected": "f9c10480c83f29e55cb82e7f6bf205cac3c10439156de26ee19b6c29188c4d7c",
+        "actual": "f9c10480c83f29e55cb82e7f6bf205cac3c10439156de26ee19b6c29188c4d7c",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p495-in-text-q19-1.png",
+        "expected": "38e571962648cacb25ac16283415847519ff313b999dab9a12aa31b61d68afd0",
+        "actual": "38e571962648cacb25ac16283415847519ff313b999dab9a12aa31b61d68afd0",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p495-in-text-q20-1.png",
+        "expected": "966b634f81a6ff3c0bf73b317ce7e6c6d3448f3a581c6bc5a5b9f1b30ab10ef0",
+        "actual": "966b634f81a6ff3c0bf73b317ce7e6c6d3448f3a581c6bc5a5b9f1b30ab10ef0",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p497-thought-lab-14-3-analysis-q1-1.png",
+        "expected": "8dd24ac9a7b97ee787e9182982b9a3456456dc9074aaab4849075da86ea6f4b7",
+        "actual": "8dd24ac9a7b97ee787e9182982b9a3456456dc9074aaab4849075da86ea6f4b7",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p497-thought-lab-14-3-analysis-q2-1.png",
+        "expected": "c33ef02a5b92d7ddfd844b3f87cfa997516a1bb009807924d43125963d11da33",
+        "actual": "c33ef02a5b92d7ddfd844b3f87cfa997516a1bb009807924d43125963d11da33",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p497-thought-lab-14-3-procedure-q1-1.png",
+        "expected": "13e0f044704dafb3807fe3100df0e7d9c8cba30d2cb6ea1a6f2ad547fa454b66",
+        "actual": "13e0f044704dafb3807fe3100df0e7d9c8cba30d2cb6ea1a6f2ad547fa454b66",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p497-thought-lab-14-3-procedure-q2-1.png",
+        "expected": "07d88931c7d4bc0bfb2c61b755c646db28f94925474432e8027f31927eba7696",
+        "actual": "07d88931c7d4bc0bfb2c61b755c646db28f94925474432e8027f31927eba7696",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p497-thought-lab-14-3-procedure-q3-1.png",
+        "expected": "436954b42e0d8d97b58c91734f30efd5015eff3d6d55b074bbf5b24afcc30ce0",
+        "actual": "436954b42e0d8d97b58c91734f30efd5015eff3d6d55b074bbf5b24afcc30ce0",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p498-in-text-q21-1.png",
+        "expected": "83f66339668f55cc4c27ac86dc3ac9524df4d7cedadc0352c37cd53a3e551773",
+        "actual": "83f66339668f55cc4c27ac86dc3ac9524df4d7cedadc0352c37cd53a3e551773",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p498-in-text-q22-1.png",
+        "expected": "528b47e05268342abfa74406c449ebaee1ebf54ecc7a620358bc2be9d6178ea4",
+        "actual": "528b47e05268342abfa74406c449ebaee1ebf54ecc7a620358bc2be9d6178ea4",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p498-in-text-q23-1.png",
+        "expected": "f8fa943d39a7b2dbf35002c10a94df2297863f14c1215ab4d340bef0144be16a",
+        "actual": "f8fa943d39a7b2dbf35002c10a94df2297863f14c1215ab4d340bef0144be16a",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p498-in-text-q24-1.png",
+        "expected": "f3094a714187f4612105a0654e48f7a2ab5322cfa4e62a54d32f0e8564d0edb4",
+        "actual": "f3094a714187f4612105a0654e48f7a2ab5322cfa4e62a54d32f0e8564d0edb4",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p500-investigation-14b-q1-1.png",
+        "expected": "bf55d44629484c9da9152c94b53e7225a4c800b91b3dfaa9cb8685c1c8085c45",
+        "actual": "bf55d44629484c9da9152c94b53e7225a4c800b91b3dfaa9cb8685c1c8085c45",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p500-investigation-14b-q10-1.png",
+        "expected": "177dee66b8215d2c536c4cf469f45fd1730c8a275b22f986406e74e0309b76d7",
+        "actual": "177dee66b8215d2c536c4cf469f45fd1730c8a275b22f986406e74e0309b76d7",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p500-investigation-14b-q2-1.png",
+        "expected": "1fdb3925ef02d0aba8789cee7261ad4a06ac174276dce5d16fbc75a4ac0e93e2",
+        "actual": "1fdb3925ef02d0aba8789cee7261ad4a06ac174276dce5d16fbc75a4ac0e93e2",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p500-investigation-14b-q3-1.png",
+        "expected": "8a3084e0d9299d0402359f96fd3bd427f157a1c72af4fb37b023b8ee093b7ae9",
+        "actual": "8a3084e0d9299d0402359f96fd3bd427f157a1c72af4fb37b023b8ee093b7ae9",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p500-investigation-14b-q4-1.png",
+        "expected": "dab3df2351601df400403c5b0cd5e608189e8b44baeafaaab98835c25dbb8f17",
+        "actual": "dab3df2351601df400403c5b0cd5e608189e8b44baeafaaab98835c25dbb8f17",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p500-investigation-14b-q5-1.png",
+        "expected": "95a6a5c9a2324da116674f16290e9d3153ea8484489426f7fe96b4c36397dfab",
+        "actual": "95a6a5c9a2324da116674f16290e9d3153ea8484489426f7fe96b4c36397dfab",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p500-investigation-14b-q6-1.png",
+        "expected": "c06a4a8cd12ecb22e89d9c3d60f8edc93e06e3ec232e778016ea480364a94af5",
+        "actual": "c06a4a8cd12ecb22e89d9c3d60f8edc93e06e3ec232e778016ea480364a94af5",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p500-investigation-14b-q7-1.png",
+        "expected": "84f8be4301f5db7bcc41ba910b5172904f786649d60b37755b014d2494e710d8",
+        "actual": "84f8be4301f5db7bcc41ba910b5172904f786649d60b37755b014d2494e710d8",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p500-investigation-14b-q8-1.png",
+        "expected": "a598797111f000cc45cd059e5949e7d0de6ed7d6fea84fec1555a8a2c340cf4a",
+        "actual": "a598797111f000cc45cd059e5949e7d0de6ed7d6fea84fec1555a8a2c340cf4a",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p500-investigation-14b-q9-1.png",
+        "expected": "93fd88d95d00b04d1293c7525bf5313f825069caa81a955622de85c82d40054e",
+        "actual": "93fd88d95d00b04d1293c7525bf5313f825069caa81a955622de85c82d40054e",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p502-section-14-3-q1-1.png",
+        "expected": "4d86990fa41cdd93ce3c093201dbbdefeb2df44579b8a47f1d2da2a22cafb5d0",
+        "actual": "4d86990fa41cdd93ce3c093201dbbdefeb2df44579b8a47f1d2da2a22cafb5d0",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p502-section-14-3-q2-1.png",
+        "expected": "49e48551f6913ef7be138b9e955df6c327f72956882d6c4ba2ce2aeb52e89472",
+        "actual": "49e48551f6913ef7be138b9e955df6c327f72956882d6c4ba2ce2aeb52e89472",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p502-section-14-3-q3-1.png",
+        "expected": "6fd0f87ff4618af3214af9de5f91ec78c33fe0e3c0bd9a1ba850e474daca93da",
+        "actual": "6fd0f87ff4618af3214af9de5f91ec78c33fe0e3c0bd9a1ba850e474daca93da",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p502-section-14-3-q4-1.png",
+        "expected": "8ec4d38828f1f1341a2d746c1ed8da920564ba0a19f20036effe5d1c2a8e4dc8",
+        "actual": "8ec4d38828f1f1341a2d746c1ed8da920564ba0a19f20036effe5d1c2a8e4dc8",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p502-section-14-3-q4-2.png",
+        "expected": "e38eeffe47e317c7254a234b816caa5b3f205129380272b903c7e66bc65e113b",
+        "actual": "e38eeffe47e317c7254a234b816caa5b3f205129380272b903c7e66bc65e113b",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p502-section-14-3-q4-3.png",
+        "expected": "0fa684078d6e6cfef0eccf240f9737689381eef76c97edb726ca278ee1d92a03",
+        "actual": "0fa684078d6e6cfef0eccf240f9737689381eef76c97edb726ca278ee1d92a03",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p502-section-14-3-q5-1.png",
+        "expected": "b9ae3ea278d8b3d528cf13582575657b281d010c4895a1263e6267e33e8f27f9",
+        "actual": "b9ae3ea278d8b3d528cf13582575657b281d010c4895a1263e6267e33e8f27f9",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p502-section-14-3-q6-1.png",
+        "expected": "f5cf0bbf1f633f59e20fdcf13c7f848f4709e3e3008a1d6e2bbeea5e21092d67",
+        "actual": "f5cf0bbf1f633f59e20fdcf13c7f848f4709e3e3008a1d6e2bbeea5e21092d67",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p502-section-14-3-q7-1.png",
+        "expected": "3be072f4fed6ccfd0298e81273280b235b97dcba30354f812f76a575457b8b4c",
+        "actual": "3be072f4fed6ccfd0298e81273280b235b97dcba30354f812f76a575457b8b4c",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p502-section-14-3-q8-1.png",
+        "expected": "c25fc914ef1575f620abdef0222a2323c888e8e395a1f2ab8f453ab5da53cd18",
+        "actual": "c25fc914ef1575f620abdef0222a2323c888e8e395a1f2ab8f453ab5da53cd18",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p504-chapter-review-q1-1.png",
+        "expected": "5805264e4b80ee997f72e0b7acc2ba02ecb44cc22926a8bbef59f5517829db28",
+        "actual": "5805264e4b80ee997f72e0b7acc2ba02ecb44cc22926a8bbef59f5517829db28",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p504-chapter-review-q10-1.png",
+        "expected": "eb1a3fdea3f3610af021a420bf02e9156ed015356d11717623a68316dca0e016",
+        "actual": "eb1a3fdea3f3610af021a420bf02e9156ed015356d11717623a68316dca0e016",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p504-chapter-review-q11-1.png",
+        "expected": "6f64dc6314689accb020037b98d60395d28640074ded2fbc7361bf3a6f3a26b4",
+        "actual": "6f64dc6314689accb020037b98d60395d28640074ded2fbc7361bf3a6f3a26b4",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p504-chapter-review-q12-1.png",
+        "expected": "1f85eb1ca4be129d26e1d46e84a9235c3f7b775a4c8941a3a27c549c231d6f42",
+        "actual": "1f85eb1ca4be129d26e1d46e84a9235c3f7b775a4c8941a3a27c549c231d6f42",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p504-chapter-review-q13-1.png",
+        "expected": "1bfa7de4d9be95c79a53026b17d1caf375dd5715aa79bd798d473b449bd57001",
+        "actual": "1bfa7de4d9be95c79a53026b17d1caf375dd5715aa79bd798d473b449bd57001",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p504-chapter-review-q14-1.png",
+        "expected": "0a5a03795ebf95284516d2a873e0f265c7a7bddc53e034991473e1a586c49cff",
+        "actual": "0a5a03795ebf95284516d2a873e0f265c7a7bddc53e034991473e1a586c49cff",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p504-chapter-review-q16-1.png",
+        "expected": "074ba415328092bdfb95af5089d283652e39e166708debb63d526749eb5cc14d",
+        "actual": "074ba415328092bdfb95af5089d283652e39e166708debb63d526749eb5cc14d",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p504-chapter-review-q17-1.png",
+        "expected": "c9c12013dd130fa2ebf4795ad77d1f4a37832561a0243a4b9f40ec85c4554f1e",
+        "actual": "c9c12013dd130fa2ebf4795ad77d1f4a37832561a0243a4b9f40ec85c4554f1e",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p504-chapter-review-q2-1.png",
+        "expected": "775f1349245d3c563dfbbf25befd911409c680bf4834a6b88549370c9b5a41e8",
+        "actual": "775f1349245d3c563dfbbf25befd911409c680bf4834a6b88549370c9b5a41e8",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p504-chapter-review-q3-1.png",
+        "expected": "c3e0fda12fac51e435a0b81742bf609c2a2e04cc3f43d2b5e0ff977a8dd452cb",
+        "actual": "c3e0fda12fac51e435a0b81742bf609c2a2e04cc3f43d2b5e0ff977a8dd452cb",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p504-chapter-review-q4-1.png",
+        "expected": "fff6133a2e86e985d7bd87fd7e90cdf9233d80221145b69c67cd4c43c01fbdda",
+        "actual": "fff6133a2e86e985d7bd87fd7e90cdf9233d80221145b69c67cd4c43c01fbdda",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p504-chapter-review-q6-1.png",
+        "expected": "c7aa7516feab704e3a03df0bf6e16e60940df5b5c4215e3f2ef8d2d599d3b916",
+        "actual": "c7aa7516feab704e3a03df0bf6e16e60940df5b5c4215e3f2ef8d2d599d3b916",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p504-chapter-review-q8-1.png",
+        "expected": "c969c939b16de563e68645f3a14a04b95f4420f9313f53d9b290ae656c347837",
+        "actual": "c969c939b16de563e68645f3a14a04b95f4420f9313f53d9b290ae656c347837",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p504-chapter-review-q9-1.png",
+        "expected": "c17f02e09af3374d0c418b26907dd5ec2ef7441ae2c5c1a82eb12c98b35d0b27",
+        "actual": "c17f02e09af3374d0c418b26907dd5ec2ef7441ae2c5c1a82eb12c98b35d0b27",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p505-chapter-review-q18-1.png",
+        "expected": "9d0f917931bcf29a7336537c3d3f41e043cccf227e4f5d5db70715f8a6d8df0d",
+        "actual": "9d0f917931bcf29a7336537c3d3f41e043cccf227e4f5d5db70715f8a6d8df0d",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p505-chapter-review-q20-1.png",
+        "expected": "e1a417ecaa433b876df502190ee3410e5b189b13a3138dada7bf24e5d52c27a4",
+        "actual": "e1a417ecaa433b876df502190ee3410e5b189b13a3138dada7bf24e5d52c27a4",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p505-chapter-review-q21-1.png",
+        "expected": "06d2afef15c073c6eb17f12de7de1a519577c59defb7f53ee151d9e17e89dc39",
+        "actual": "06d2afef15c073c6eb17f12de7de1a519577c59defb7f53ee151d9e17e89dc39",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p505-chapter-review-q22-1.png",
+        "expected": "255316bb8f7fc12db678b4ec77980fff21136be50ac954caab589613fc958cf6",
+        "actual": "255316bb8f7fc12db678b4ec77980fff21136be50ac954caab589613fc958cf6",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p505-chapter-review-q23-1.png",
+        "expected": "3ec65f3b276bbd63f14d9c71e4faa6879831ec19364d56f579eaf744c19eb13d",
+        "actual": "3ec65f3b276bbd63f14d9c71e4faa6879831ec19364d56f579eaf744c19eb13d",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p505-chapter-review-q24-1.png",
+        "expected": "330cc1392ed94b44661b21bc0ac3ebc8a17a28bb24e33f29e8bc3f5b5aed71f4",
+        "actual": "330cc1392ed94b44661b21bc0ac3ebc8a17a28bb24e33f29e8bc3f5b5aed71f4",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/p478.jpg",
+        "expected": "254b621a46c404e47bba9b8c982cd9b2ef4818fe6860571106524f7b4fce019f",
+        "actual": "254b621a46c404e47bba9b8c982cd9b2ef4818fe6860571106524f7b4fce019f",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/p481.jpg",
+        "expected": "b1f9119e650678ab62e8052ae099bdc9e617ef84f72832d96ae69bd46ec7586e",
+        "actual": "b1f9119e650678ab62e8052ae099bdc9e617ef84f72832d96ae69bd46ec7586e",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/p484.jpg",
+        "expected": "dd4779f803f5d85361f6b3d703d1d28061a5aca63509919c1bb9e28a7623a85d",
+        "actual": "dd4779f803f5d85361f6b3d703d1d28061a5aca63509919c1bb9e28a7623a85d",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/p485.jpg",
+        "expected": "4e2686c15843923b449f7e925e15e76ed21eefc02e347820b8b672de313e0617",
+        "actual": "4e2686c15843923b449f7e925e15e76ed21eefc02e347820b8b672de313e0617",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/p487.jpg",
+        "expected": "7b55500495dfc943c9a90777469a55ba241da6440f9d0a7242796a7dd8409f13",
+        "actual": "7b55500495dfc943c9a90777469a55ba241da6440f9d0a7242796a7dd8409f13",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/p488.jpg",
+        "expected": "e77471dc326626f75665185ee5280e6b15da789092a3df45dbf657cfe1b89bcf",
+        "actual": "e77471dc326626f75665185ee5280e6b15da789092a3df45dbf657cfe1b89bcf",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/p491.jpg",
+        "expected": "68ce1ddbad864dc4399dcabf482011ad4b2f26c721198374e5fb2bcd27e0ffe0",
+        "actual": "68ce1ddbad864dc4399dcabf482011ad4b2f26c721198374e5fb2bcd27e0ffe0",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/p492.jpg",
+        "expected": "3d389f2bed5a0e4ecf2f8360dd20fb800adb70227a1e48d8423746f8192e1a4e",
+        "actual": "3d389f2bed5a0e4ecf2f8360dd20fb800adb70227a1e48d8423746f8192e1a4e",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/p494.jpg",
+        "expected": "4b9cea7ca1fccf3e5466483b5acccf4ae931925d6114233af8ce6632d9ba62e1",
+        "actual": "4b9cea7ca1fccf3e5466483b5acccf4ae931925d6114233af8ce6632d9ba62e1",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/p495.jpg",
+        "expected": "59c7993dcc8676eef4d63f848e0ca18c71f843f17b8882d41c17f08759e4d229",
+        "actual": "59c7993dcc8676eef4d63f848e0ca18c71f843f17b8882d41c17f08759e4d229",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/p496.jpg",
+        "expected": "1106f784db05274b49a2ee94b4adad108c86994719b786ffb7ab2f14a7593c92",
+        "actual": "1106f784db05274b49a2ee94b4adad108c86994719b786ffb7ab2f14a7593c92",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/p497.jpg",
+        "expected": "3f7d0de06c4403652d7093cb21e716527c458d30343e1fa5d722939290f49edc",
+        "actual": "3f7d0de06c4403652d7093cb21e716527c458d30343e1fa5d722939290f49edc",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/p498.jpg",
+        "expected": "19ec9705bcc7748d3a576df6ad78bb39c0493e31d2b49e8f0f6bab4e9067688f",
+        "actual": "19ec9705bcc7748d3a576df6ad78bb39c0493e31d2b49e8f0f6bab4e9067688f",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/p500.jpg",
+        "expected": "aa26f106ac710f24e99eba1dcfedec4471e73694b7bf47c7add651edca5c71a8",
+        "actual": "aa26f106ac710f24e99eba1dcfedec4471e73694b7bf47c7add651edca5c71a8",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/p502.jpg",
+        "expected": "ad76c24c2afb0d0080b29bad18aa12e090aabf670813943481cae47ff33b8fcb",
+        "actual": "ad76c24c2afb0d0080b29bad18aa12e090aabf670813943481cae47ff33b8fcb",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/p504.jpg",
+        "expected": "b4475ac6593b3ac29fb9541bf8b84226c72e316af5ed45685548d91eb5b258c7",
+        "actual": "b4475ac6593b3ac29fb9541bf8b84226c72e316af5ed45685548d91eb5b258c7",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/p505.jpg",
+        "expected": "ce9cd493cf1380bdf3f46bbfffc6840d7fb34622278316bcd04a427d9d36b9df",
+        "actual": "ce9cd493cf1380bdf3f46bbfffc6840d7fb34622278316bcd04a427d9d36b9df",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice.css",
+        "expected": "4101415cce977a4a8553754a01cea3d33ad194add1198db00ddc0ba99bfeea12",
+        "actual": "4101415cce977a4a8553754a01cea3d33ad194add1198db00ddc0ba99bfeea12",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice.js",
+        "expected": "f0abb25e579caa421b2b173a3b30cc3bce47d9cf699559393b97906bf3b95176",
+        "actual": "f0abb25e579caa421b2b173a3b30cc3bce47d9cf699559393b97906bf3b95176",
+        "pass": true
+      },
+      {
+        "path": "workspace/index.html",
+        "expected": "4ce8de9382426b07de164b5de82ab6c25cd2471f41f309f7208311d3b523d1d0",
+        "actual": "4ce8de9382426b07de164b5de82ab6c25cd2471f41f309f7208311d3b523d1d0",
+        "pass": true
+      },
+      {
+        "path": "workspace/main.js",
+        "expected": "1ca7d2612d90aaceaa63458bc30df3225bbabad93c5e2ba5499c639e6e916659",
+        "actual": "1ca7d2612d90aaceaa63458bc30df3225bbabad93c5e2ba5499c639e6e916659",
+        "pass": true
+      },
+      {
+        "path": "workspace/styles.css",
+        "expected": "94fe523654289edd8b0f951dd6782f83dce7d08f5e18a3d903d25576fbfa0ba5",
+        "actual": "94fe523654289edd8b0f951dd6782f83dce7d08f5e18a3d903d25576fbfa0ba5",
+        "pass": true
+      }
+    ]
+  },
+  "owner_freezes": [
+    {
+      "relative_path": "scripts/content.py",
+      "expected": "15f3e496a739a40f7de85ccfa8a8dcaadfb0a4ebb4274f4c36c272244d542a2e",
+      "frozen": {
+        "path": "/workspace/shared/ch14_11_extension/frozen/scripts/content.py",
+        "bytes": 96342,
+        "sha256": "15f3e496a739a40f7de85ccfa8a8dcaadfb0a4ebb4274f4c36c272244d542a2e"
+      },
+      "original": {
+        "path": "/workspace/scratch/6f97d4e841e3/biology-image-source-review/ch14/chapter-14/scripts/content.py",
+        "bytes": 96342,
+        "sha256": "15f3e496a739a40f7de85ccfa8a8dcaadfb0a4ebb4274f4c36c272244d542a2e"
+      },
+      "all_equal": true
+    },
+    {
+      "relative_path": "scripts/build_chapter.py",
+      "expected": "915625267d4ea0a5a2bbd5cb86c62d3a9767f1d5aebcadcfb7b0169ee0eb704a",
+      "frozen": {
+        "path": "/workspace/shared/ch14_11_extension/frozen/scripts/build_chapter.py",
+        "bytes": 50631,
+        "sha256": "915625267d4ea0a5a2bbd5cb86c62d3a9767f1d5aebcadcfb7b0169ee0eb704a"
+      },
+      "original": {
+        "path": "/workspace/scratch/6f97d4e841e3/biology-image-source-review/ch14/chapter-14/scripts/build_chapter.py",
+        "bytes": 50631,
+        "sha256": "915625267d4ea0a5a2bbd5cb86c62d3a9767f1d5aebcadcfb7b0169ee0eb704a"
+      },
+      "all_equal": true
+    },
+    {
+      "relative_path": "workspace/index.html",
+      "expected": "4ce8de9382426b07de164b5de82ab6c25cd2471f41f309f7208311d3b523d1d0",
+      "frozen": {
+        "path": "/workspace/shared/ch14_11_extension/frozen/workspace/index.html",
+        "bytes": 2158943,
+        "sha256": "4ce8de9382426b07de164b5de82ab6c25cd2471f41f309f7208311d3b523d1d0"
+      },
+      "original": {
+        "path": "/workspace/scratch/6f97d4e841e3/biology-image-source-review/ch14/chapter-14/workspace/index.html",
+        "bytes": 2158943,
+        "sha256": "4ce8de9382426b07de164b5de82ab6c25cd2471f41f309f7208311d3b523d1d0"
+      },
+      "all_equal": true
+    },
+    {
+      "relative_path": "authoring/course-config.json",
+      "expected": "22a968d603d78dd5cd12e81324f8f4df4fbd29161413de20873884c714d1ffe8",
+      "frozen": {
+        "path": "/workspace/shared/ch14_11_extension/frozen/authoring/course-config.json",
+        "bytes": 271594,
+        "sha256": "22a968d603d78dd5cd12e81324f8f4df4fbd29161413de20873884c714d1ffe8"
+      },
+      "original": {
+        "path": "/workspace/scratch/6f97d4e841e3/biology-image-source-review/ch14/chapter-14/authoring/course-config.json",
+        "bytes": 271594,
+        "sha256": "22a968d603d78dd5cd12e81324f8f4df4fbd29161413de20873884c714d1ffe8"
+      },
+      "all_equal": true
+    }
+  ],
+  "standard": {
+    "path": "/workspace/shared/ch14_11_extension/frozen/Course_Production_Standards_v0.4.txt",
+    "bytes": 65442,
+    "sha256": "db8a04bcd7620d9ecf64ec6dc86c046cb3075b9b09cc51dac41936c391379e1e",
+    "matches_frozen_contract": true
+  },
+  "reference_hashes": [
+    {
+      "relative_path": "BENCHMARK_STATUS_AND_ACCEPTANCE.json",
+      "expected": "becf8ac84525a589cbe903b4d774472aaf76b937d5c74e025e0813b83fa98c31",
+      "actual": "becf8ac84525a589cbe903b4d774472aaf76b937d5c74e025e0813b83fa98c31",
+      "match": true
+    },
+    {
+      "relative_path": "process/history/teacher-led-batch-06-07-v0.1.0/TEACHER_ACCEPTANCE.md",
+      "expected": "26450315855806634a6c878d15c975c8cc58709d6832a1c994ec5c7980299f53",
+      "actual": "26450315855806634a6c878d15c975c8cc58709d6832a1c994ec5c7980299f53",
+      "match": true
+    },
+    {
+      "relative_path": "returned-copy/teacher-led-batch-06-07-v0.1.0/lesson-06.teaching-fragment.html",
+      "expected": "8f6f7d8013b8ada7841a4d843c5119f8d011fc7d6ddca6e822c871dc8555c0c4",
+      "actual": "8f6f7d8013b8ada7841a4d843c5119f8d011fc7d6ddca6e822c871dc8555c0c4",
+      "match": true
+    },
+    {
+      "relative_path": "returned-copy/teacher-led-batch-06-07-v0.1.0/lesson-07.teaching-fragment.html",
+      "expected": "0a9c4872e8a65813229c7f1258b154315faeb8f71f04dc8342ac50abb454527a",
+      "actual": "0a9c4872e8a65813229c7f1258b154315faeb8f71f04dc8342ac50abb454527a",
+      "match": true
+    }
+  ],
+  "dom_normalization": [
+    "Parse HTML and compare tag, sorted attributes, exact text and child tails. Boolean attributes canonicalized by presence.",
+    "Remove only standalone route-root hidden attribute.",
+    "Remove review-copy-added disabled attribute only from button/input/select/textarea; retain original disabled fieldset gating.",
+    "Replace only contents of three lesson-11 nodes or the first extension teaching div with a sentinel; compare target container attributes. No other content ignored."
+  ],
+  "embedded_course_data_equals_config": true,
+  "routes": [
+    {
+      "route": "lesson-11",
+      "original_export_matches_workspace": true,
+      "outside_declared_targets_equal": true,
+      "normalized_original_sha256": "eed666afa3233546190ea674dd9282a8ce151120678245a4ded3c16d9c74319e",
+      "normalized_candidate_sha256": "eed666afa3233546190ea674dd9282a8ce151120678245a4ded3c16d9c74319e",
+      "original_ids": [
+        "lesson-11",
+        "lesson-11-anchor-words",
+        "ch14-l11-teaching-01",
+        "ch14-l11-teaching-02",
+        "ch14-review-worked",
+        "ch14-transfer-writing",
+        "ch14-final-mc-1-prompt",
+        "ch14-final-mc-2-prompt",
+        "ch14-final-mc-3-prompt",
+        "ch14-final-mc-4-prompt",
+        "ch14-final-mc-5-prompt",
+        "ch14-final-mc-6-prompt",
+        "ch14-final-writing-1",
+        "ch14-final-writing-1-status",
+        "ch14-final-writing-2",
+        "ch14-final-writing-2-status"
+      ],
+      "candidate_ids": [
+        "lesson-11",
+        "lesson-11-anchor-words",
+        "ch14-l11-teaching-01",
+        "ch14-l11-teaching-02",
+        "ch14-review-worked",
+        "ch14-transfer-writing",
+        "ch14-final-mc-1-prompt",
+        "ch14-final-mc-2-prompt",
+        "ch14-final-mc-3-prompt",
+        "ch14-final-mc-4-prompt",
+        "ch14-final-mc-5-prompt",
+        "ch14-final-mc-6-prompt",
+        "ch14-final-writing-1",
+        "ch14-final-writing-1-status",
+        "ch14-final-writing-2",
+        "ch14-final-writing-2-status"
+      ],
+      "ids_equal": true,
+      "vocabulary_bindings_equal": true,
+      "duplicate_candidate_ids": [],
+      "replacement_count": 3,
+      "containers_equal": [
+        true,
+        true,
+        true
+      ],
+      "fragment_reading_parity": [
+        true,
+        true,
+        true
+      ],
+      "protected_tables_equal": [
+        true,
+        true
+      ]
+    },
+    {
+      "route": "extension",
+      "original_export_matches_workspace": true,
+      "outside_declared_targets_equal": true,
+      "normalized_original_sha256": "952d8e21b3f6538e2ed140f972f96ba77b3b36b266634f31e55ddf02aece6d17",
+      "normalized_candidate_sha256": "952d8e21b3f6538e2ed140f972f96ba77b3b36b266634f31e55ddf02aece6d17",
+      "original_ids": [
+        "extension",
+        "ch14-optional-extension",
+        "ch14-optional-extension-status"
+      ],
+      "candidate_ids": [
+        "extension",
+        "ch14-optional-extension",
+        "ch14-optional-extension-status"
+      ],
+      "ids_equal": true,
+      "vocabulary_bindings_equal": true,
+      "duplicate_candidate_ids": [],
+      "replacement_count": 1,
+      "containers_equal": [
+        true
+      ],
+      "fragment_reading_parity": [
+        true
+      ],
+      "protected_tables_equal": null,
+      "original_AB_paragraphs": [
+        {
+          "text": "Consider a hypothetical experiment using two otherwise comparable tissue samples. Both receive the same estrogen concentration. Sample A develops the expected response. Sample B receives an additional chemical and shows a weaker response. A separate binding test finds that the chemical can occupy estrogen receptors without activating them.",
+          "exact_dom_present": true
+        },
+        {
+          "text": "These observations support an interference model: the chemical may reduce the opportunity for estrogen to activate its receptor. They do not establish the chemical’s effects in an entire person, a safe exposure level, or the outcome of every environmental exposure.",
+          "exact_dom_present": true
+        }
+      ]
+    }
+  ],
+  "feedback_original_parity": {
+    "final_check": true,
+    "transfer_check": true,
+    "extension_model": true,
+    "extension_criteria": true
+  },
+  "assessments": {
+    "final": {
+      "id": "ch14-check-11",
+      "route": "lesson-11",
+      "title": "Chapter review and final check",
+      "mc": [
+        {
+          "id": "ch14-final-mc-1",
+          "prompt": "Sperm production is normal, but a transport duct between the epididymis and ejaculatory duct is blocked. Which structure is affected?",
+          "answer": "Vas deferens",
+          "options": [
+            "Vas deferens",
+            "Seminiferous tubule",
+            "Seminal vesicle",
+            "Prostate gland"
+          ],
+          "cue": "Trace the sperm route after maturation.",
+          "explanation": "The vas deferens carries sperm toward the ejaculatory duct; it is downstream of the epididymis.",
+          "difficulty": "application"
+        },
+        {
+          "id": "ch14-final-mc-2",
+          "prompt": "FSH is present, but Sertoli cells cannot respond to it. Which function is directly threatened?",
+          "answer": "Support of developing sperm",
+          "options": [
+            "Fructose release by the sperm head",
+            "Support of developing sperm",
+            "Storage of urine in the ovary",
+            "LH release from interstitial cells"
+          ],
+          "cue": "Identify the direct target and its normal role.",
+          "explanation": "Sertoli cells respond to FSH and support spermatogenesis; the defect is at the target rather than the release site.",
+          "difficulty": "application"
+        },
+        {
+          "id": "ch14-final-mc-3",
+          "prompt": "Which structure remains in the ovary after ovulation and supports the endometrium through hormone release?",
+          "answer": "Corpus luteum",
+          "options": [
+            "Cervix",
+            "Released secondary oocyte",
+            "Corpus luteum",
+            "Oviduct"
+          ],
+          "cue": "Distinguish remaining follicular tissue from the released cell.",
+          "explanation": "The corpus luteum develops from remaining follicular tissue and releases progesterone and some estrogen.",
+          "difficulty": "application"
+        },
+        {
+          "id": "ch14-final-mc-4",
+          "prompt": "An illustrative graph shows estrogen rising first, a short LH surge, and then a broad progesterone rise. What explains the last rise?",
+          "answer": "Hormone release by the newly formed corpus luteum",
+          "options": [
+            "Menstrual shedding produces progesterone",
+            "Progesterone is converted directly from LH in blood",
+            "The oocyte releases all progesterone before ovulation",
+            "Hormone release by the newly formed corpus luteum"
+          ],
+          "cue": "Identify the endocrine structure that develops after ovulation.",
+          "explanation": "The corpus luteum releases progesterone after ovulation, linking ovarian events with endometrial support.",
+          "difficulty": "application"
+        },
+        {
+          "id": "ch14-final-mc-5",
+          "prompt": "Outside testosterone increases feedback on a functioning hypothalamus and pituitary. Which response is most consistent with the model?",
+          "answer": "Reduced upstream stimulation of the testis",
+          "options": [
+            "Reduced upstream stimulation of the testis",
+            "A physical blockage of every reproductive duct",
+            "Conversion of testosterone into sperm",
+            "A required increase in both FSH and LH"
+          ],
+          "cue": "Trace the inhibitory feedback direction.",
+          "explanation": "Increased androgen feedback can reduce GnRH, FSH and LH signalling and thereby reduce testicular activity.",
+          "difficulty": "application"
+        },
+        {
+          "id": "ch14-final-mc-6",
+          "prompt": "An STI causes scarring of an oviduct. Which explanation best connects this damage to reduced fertility?",
+          "answer": "The route for gamete encounter or transport can be disrupted",
+          "options": [
+            "The cervix becomes a new sperm-production site",
+            "The route for gamete encounter or transport can be disrupted",
+            "The scar must directly remove all sex chromosomes",
+            "The ovary must stop every hormone immediately"
+          ],
+          "cue": "Start with the normal function of the damaged structure.",
+          "explanation": "Oviduct damage can prevent gametes meeting or interrupt transport toward the uterus without necessarily stopping ovarian hormones.",
+          "difficulty": "application"
+        }
+      ],
+      "writing": [
+        {
+          "id": "ch14-final-writing-1",
+          "prompt": "Compare the regulation of sperm production with the sequence leading to ovulation. Use GnRH, FSH, LH and the correct target cells or structures.",
+          "model": "Both begin with hypothalamic GnRH and anterior-pituitary FSH/LH. In males FSH supports Sertoli cells and LH stimulates interstitial-cell testosterone production. In females FSH supports follicular development, estrogen rises, and sustained high estrogen promotes an LH surge that triggers ovulation and corpus-luteum formation. Feedback differs with the stage of the cycle.",
+          "criteria": [
+            "Correct hormone sources.",
+            "Distinct targets in the two systems.",
+            "Explains the pre-ovulatory feedback event rather than only listing hormones."
+          ],
+          "limit": 3200
+        },
+        {
+          "id": "ch14-final-writing-2",
+          "prompt": "In a hypothetical cycle, an LH surge is followed by ovulation, but the corpus luteum then fails to remain active. Explain the likely hormone and endometrial consequences. Distinguish this from an oviduct blockage.",
+          "model": "Reduced corpus-luteum activity means reduced progesterone and estrogen support for the endometrium. The lining may not be maintained. An oviduct blockage instead disrupts transport and may occur even with normal ovarian hormone activity. Neither description alone provides a complete personal diagnosis.",
+          "criteria": [
+            "Traces structure → hormone → target response.",
+            "Contrasts endocrine failure with a transport problem.",
+            "Limits the conclusion to the model."
+          ],
+          "limit": 3200
+        }
+      ]
+    },
+    "transfer": {
+      "id": "ch14-transfer-01",
+      "chapter": 14,
+      "route": "lesson-11",
+      "title": "Try a new case",
+      "instruction": "Try the whole set before viewing feedback. Record whether you used help. This optional formative check does not add to required progress.",
+      "mc": [
+        {
+          "id": "ch14-transfer-mc-1",
+          "prompt": "A model testis has interstitial cells that cannot respond to LH. The hypothalamus and pituitary still respond normally to feedback. Which pattern is most consistent with this model?",
+          "answer": "Reduced testosterone with increased stimulation from the control centres",
+          "options": [
+            "Reduced testosterone with increased stimulation from the control centres",
+            "Reduced testosterone with permanently absent LH release",
+            "Normal testosterone because FSH directly replaces LH at interstitial cells",
+            "Increased testosterone with reduced stimulation from the control centres"
+          ],
+          "explanation": "Reduced testosterone means weaker negative feedback. More upstream stimulation cannot fully correct an unresponsive target."
+        },
+        {
+          "id": "ch14-transfer-mc-2",
+          "prompt": "A model shows an LH surge and release of an oocyte, followed by failure of the corpus luteum to remain active. Which change follows most directly?",
+          "answer": "Lower luteal progesterone and reduced support for the endometrium",
+          "options": [
+            "A direct blockage of the oviduct by falling progesterone",
+            "Lower luteal progesterone and reduced support for the endometrium",
+            "Persistently high luteal progesterone from the inactive corpus luteum",
+            "Failure of the earlier LH surge to have occurred"
+          ],
+          "explanation": "The corpus luteum is the main luteal progesterone source. Its reduced activity affects hormonal support of the lining; it does not undo earlier ovulation."
+        },
+        {
+          "id": "ch14-transfer-mc-3",
+          "prompt": "A semen sample contains sperm and the transport ducts are open, but seminal-vesicle fluid contains unusually little fructose. Which function is affected most directly by this specific change?",
+          "answer": "An energy contribution normally provided by an accessory-gland secretion",
+          "options": [
+            "Testosterone synthesis in interstitial cells",
+            "Chromosome reduction inside primary spermatocytes",
+            "An energy contribution normally provided by an accessory-gland secretion",
+            "The opening of the vas deferens during sperm transport"
+          ],
+          "explanation": "Fructose is part of an accessory-gland contribution to semen. The finding does not by itself establish failed meiosis, absent testosterone or blocked transport."
+        }
+      ],
+      "writing": {
+        "id": "ch14-transfer-writing",
+        "prompt": "A tissue model receives a normal luteal progesterone concentration, but its endometrial cells have non-functioning progesterone receptors. Explain why hormone concentration alone cannot establish that the lining will respond normally. Distinguish hormone production from target-cell response.",
+        "model": "A normal progesterone concentration is evidence about hormone availability, not receptor function. Endometrial cells need functioning receptors for the usual progesterone response. The model can have normal ovarian hormone production but reduced support of the lining because the target cannot respond normally.",
+        "criteria": [
+          "Separates hormone availability from target response.",
+          "Connects receptor function to progesterone action in endometrial cells.",
+          "Limits the conclusion to the stated model."
+        ],
+        "limit": 3200
+      }
+    },
+    "extension": {
+      "id": "ch14-optional-extension",
+      "prompt": "Explain the proposed receptor-interference mechanism. Identify one condition that should be held constant and one conclusion that cannot be established from these tissue samples alone.",
+      "model": "The added chemical occupies receptors without activating them, potentially reducing estrogen signalling. Estrogen concentration, tissue type and exposure conditions should be comparable. A tissue result does not establish a safe dose or predict every effect in a whole organism.",
+      "criteria": [
+        "Connects receptor occupancy with a weaker response.",
+        "Names a controlled condition.",
+        "Limits the conclusion to what the model supports."
+      ],
+      "limit": 5000
+    },
+    "mc_count": 9,
+    "writing_count": 4,
+    "writing_criteria_count": 12
+  },
+  "static_packet": [
+    {
+      "route": "lesson-11",
+      "pdf": {
+        "path": "/workspace/shared/ch14_11_extension/review-rendered-final/lesson-11.pdf",
+        "bytes": 58041,
+        "sha256": "d01070c6dcbba151c3a84844beb6537dcbe3ac663d0abc83d5762434864f8c95"
+      },
+      "pages": [
+        {
+          "path": "/workspace/shared/ch14_11_extension/review-rendered-final/lesson-11-page-01.png",
+          "bytes": 113195,
+          "sha256": "5003f0618c83ee19dcc3fed0f2b0fa53631d787eaa4284dd1501b899051bc8fd",
+          "exact_fresh_render_pixels_equal": true
+        },
+        {
+          "path": "/workspace/shared/ch14_11_extension/review-rendered-final/lesson-11-page-02.png",
+          "bytes": 174433,
+          "sha256": "f3e8b241b920ef2888a9bfa16a9c95df352ae5059cf418de5a5fb4991821d241",
+          "exact_fresh_render_pixels_equal": true
+        },
+        {
+          "path": "/workspace/shared/ch14_11_extension/review-rendered-final/lesson-11-page-03.png",
+          "bytes": 211482,
+          "sha256": "5553c92e2f391a8e2c6d2f2aa1832c8e6e98eb27f84db536c004198d486a7f6f",
+          "exact_fresh_render_pixels_equal": true
+        },
+        {
+          "path": "/workspace/shared/ch14_11_extension/review-rendered-final/lesson-11-page-04.png",
+          "bytes": 168506,
+          "sha256": "8efa303e0e8025082f155ac4f8e0cb7d7d2049a21c130bf2ddcdbda845c30c85",
+          "exact_fresh_render_pixels_equal": true
+        },
+        {
+          "path": "/workspace/shared/ch14_11_extension/review-rendered-final/lesson-11-page-05.png",
+          "bytes": 158822,
+          "sha256": "245d27e838c79bbed2656c8046913e66e485383c6a6adbd9eb291afbc379f212",
+          "exact_fresh_render_pixels_equal": true
+        },
+        {
+          "path": "/workspace/shared/ch14_11_extension/review-rendered-final/lesson-11-page-06.png",
+          "bytes": 107339,
+          "sha256": "381b9680fc6894bac92ed170bb2527f0710e7d4e4c2e6907ec5cbb896821580f",
+          "exact_fresh_render_pixels_equal": true
+        },
+        {
+          "path": "/workspace/shared/ch14_11_extension/review-rendered-final/lesson-11-page-07.png",
+          "bytes": 119056,
+          "sha256": "e316c35d1cf846421e1fbc2eb5acae2fdf5ea3f826eadc761ce4989eae4721be",
+          "exact_fresh_render_pixels_equal": true
+        }
+      ],
+      "tasks": [
+        {
+          "id": "ch14-final-mc-1",
+          "full_prompt_in_blind": true,
+          "full_prompt_in_pdf": true,
+          "all_options_in_blind": true,
+          "all_options_in_pdf": true
+        },
+        {
+          "id": "ch14-final-mc-2",
+          "full_prompt_in_blind": true,
+          "full_prompt_in_pdf": true,
+          "all_options_in_blind": true,
+          "all_options_in_pdf": true
+        },
+        {
+          "id": "ch14-final-mc-3",
+          "full_prompt_in_blind": true,
+          "full_prompt_in_pdf": true,
+          "all_options_in_blind": true,
+          "all_options_in_pdf": true
+        },
+        {
+          "id": "ch14-final-mc-4",
+          "full_prompt_in_blind": true,
+          "full_prompt_in_pdf": true,
+          "all_options_in_blind": true,
+          "all_options_in_pdf": true
+        },
+        {
+          "id": "ch14-final-mc-5",
+          "full_prompt_in_blind": true,
+          "full_prompt_in_pdf": true,
+          "all_options_in_blind": true,
+          "all_options_in_pdf": true
+        },
+        {
+          "id": "ch14-final-mc-6",
+          "full_prompt_in_blind": true,
+          "full_prompt_in_pdf": true,
+          "all_options_in_blind": true,
+          "all_options_in_pdf": true
+        },
+        {
+          "id": "ch14-final-writing-1",
+          "full_prompt_in_blind": true,
+          "full_prompt_in_pdf": true,
+          "all_options_in_blind": true,
+          "all_options_in_pdf": true
+        },
+        {
+          "id": "ch14-final-writing-2",
+          "full_prompt_in_blind": true,
+          "full_prompt_in_pdf": true,
+          "all_options_in_blind": true,
+          "all_options_in_pdf": true
+        },
+        {
+          "id": "ch14-transfer-mc-1",
+          "full_prompt_in_blind": true,
+          "full_prompt_in_pdf": true,
+          "all_options_in_blind": true,
+          "all_options_in_pdf": true
+        },
+        {
+          "id": "ch14-transfer-mc-2",
+          "full_prompt_in_blind": true,
+          "full_prompt_in_pdf": true,
+          "all_options_in_blind": true,
+          "all_options_in_pdf": true
+        },
+        {
+          "id": "ch14-transfer-mc-3",
+          "full_prompt_in_blind": true,
+          "full_prompt_in_pdf": true,
+          "all_options_in_blind": true,
+          "all_options_in_pdf": true
+        },
+        {
+          "id": "ch14-transfer-writing",
+          "full_prompt_in_blind": true,
+          "full_prompt_in_pdf": true,
+          "all_options_in_blind": true,
+          "all_options_in_pdf": true
+        }
+      ],
+      "table_cells": [
+        {
+          "text": "Function",
+          "in_pdf": true
+        },
+        {
+          "text": "Male example",
+          "in_pdf": true
+        },
+        {
+          "text": "Female example",
+          "in_pdf": true
+        },
+        {
+          "text": "Gamete development",
+          "in_pdf": true
+        },
+        {
+          "text": "Seminiferous tubules, with Sertoli-cell support",
+          "in_pdf": true
+        },
+        {
+          "text": "Oocyte development within ovarian follicles",
+          "in_pdf": true
+        },
+        {
+          "text": "Transport",
+          "in_pdf": true
+        },
+        {
+          "text": "Epididymis → vas deferens → ejaculatory duct → urethra",
+          "in_pdf": true
+        },
+        {
+          "text": "Ovary releases oocyte; fimbriae help guide it into the oviduct",
+          "in_pdf": true
+        },
+        {
+          "text": "Hormone-producing tissue",
+          "in_pdf": true
+        },
+        {
+          "text": "Interstitial cells release testosterone",
+          "in_pdf": true
+        },
+        {
+          "text": "Follicle cells release estrogen; corpus luteum releases progesterone and estrogen",
+          "in_pdf": true
+        },
+        {
+          "text": "Central control",
+          "in_pdf": true
+        },
+        {
+          "text": "GnRH → anterior pituitary → FSH and LH",
+          "in_pdf": true
+        },
+        {
+          "text": "GnRH → anterior pituitary → FSH and LH",
+          "in_pdf": true
+        },
+        {
+          "text": "Useful caution",
+          "in_pdf": true
+        },
+        {
+          "text": "Sperm production is not accessory-gland secretion",
+          "in_pdf": true
+        },
+        {
+          "text": "Ovulation is not menstruation or implantation",
+          "in_pdf": true
+        },
+        {
+          "text": "Change",
+          "in_pdf": true
+        },
+        {
+          "text": "Normal-pathway reasoning",
+          "in_pdf": true
+        },
+        {
+          "text": "LH target cells fail to respond",
+          "in_pdf": true
+        },
+        {
+          "text": "Increasing LH cannot guarantee the usual target response.",
+          "in_pdf": true
+        },
+        {
+          "text": "Corpus luteum becomes inactive",
+          "in_pdf": true
+        },
+        {
+          "text": "Progesterone support falls; connect this with the endometrium.",
+          "in_pdf": true
+        },
+        {
+          "text": "Oviduct scarring obstructs transport",
+          "in_pdf": true
+        },
+        {
+          "text": "Cycles can remain normal while fertilisation becomes less likely.",
+          "in_pdf": true
+        },
+        {
+          "text": "No visible symptoms of infection",
+          "in_pdf": true
+        },
+        {
+          "text": "Symptoms alone cannot rule out an STI.",
+          "in_pdf": true
+        },
+        {
+          "text": "A model says day 14",
+          "in_pdf": true
+        },
+        {
+          "text": "Use the stated illustrative cycle; do not turn it into a universal calendar rule.",
+          "in_pdf": true
+        }
+      ],
+      "models_masked_in_blind": true,
+      "models_masked_in_pdf": true
+    },
+    {
+      "route": "extension",
+      "pdf": {
+        "path": "/workspace/shared/ch14_11_extension/review-rendered-final/extension.pdf",
+        "bytes": 48782,
+        "sha256": "7474f8f6ab8ba116e773c456f98bb55ba46070ce6b7c08f9ca0ab6041ae48ba7"
+      },
+      "pages": [
+        {
+          "path": "/workspace/shared/ch14_11_extension/review-rendered-final/extension-page-01.png",
+          "bytes": 172997,
+          "sha256": "34841a7e766a7c66e6449f4c1e5d676a3fe2ea8c51d60817bc9133886fff1c9a",
+          "exact_fresh_render_pixels_equal": true
+        },
+        {
+          "path": "/workspace/shared/ch14_11_extension/review-rendered-final/extension-page-02.png",
+          "bytes": 183222,
+          "sha256": "8c2ee15ccf97c3cb44abbb8f5419b96a20836efa27eb9cd668257204a852e3e2",
+          "exact_fresh_render_pixels_equal": true
+        },
+        {
+          "path": "/workspace/shared/ch14_11_extension/review-rendered-final/extension-page-03.png",
+          "bytes": 42212,
+          "sha256": "8b70a07e5fef71e1c07f6b77f4c2a173958d8f878ca40c652b7e35cc2f2a5a3d",
+          "exact_fresh_render_pixels_equal": true
+        }
+      ],
+      "tasks": [
+        {
+          "id": "ch14-optional-extension",
+          "full_prompt_in_blind": true,
+          "full_prompt_in_pdf": true,
+          "all_options_in_blind": true,
+          "all_options_in_pdf": true
+        }
+      ],
+      "table_cells": [
+        {
+          "text": "Condition or observation",
+          "in_pdf": true
+        },
+        {
+          "text": "Sample A",
+          "in_pdf": true
+        },
+        {
+          "text": "Sample B",
+          "in_pdf": true
+        },
+        {
+          "text": "Estrogen concentration",
+          "in_pdf": true
+        },
+        {
+          "text": "Same supplied concentration",
+          "in_pdf": true
+        },
+        {
+          "text": "Same supplied concentration",
+          "in_pdf": true
+        },
+        {
+          "text": "Additional chemical",
+          "in_pdf": true
+        },
+        {
+          "text": "Absent",
+          "in_pdf": true
+        },
+        {
+          "text": "Present",
+          "in_pdf": true
+        },
+        {
+          "text": "Observed tissue response",
+          "in_pdf": true
+        },
+        {
+          "text": "Expected response",
+          "in_pdf": true
+        },
+        {
+          "text": "Weaker response",
+          "in_pdf": true
+        }
+      ],
+      "models_masked_in_blind": true,
+      "models_masked_in_pdf": true
+    }
+  ],
+  "source_documents": [
+    {
+      "path": "/workspace/scratch/6f97d4e841e3/biology-image-source-review/ch14/chapter-14/workspace/assets/textbook/chapter-14.pdf",
+      "bytes": 1135646,
+      "sha256": "82d37feec1390def949ed241d117e2b218b8dc8aa09d9cddead37fd6c64a49ea"
+    },
+    {
+      "path": "/workspace/scratch/6f97d4e841e3/biology-image-source-review/ch14/chapter-14/authoring/source-inputs/Unit B Chapter 14 Notes.pptx",
+      "bytes": 5729234,
+      "sha256": "b2d6ed2ff0e758f81e2c2dab288011188fa9c8370b873ebf2c70caf25499d229"
+    },
+    {
+      "path": "/workspace/shared/ch14_authoring/source-read/Unit B Chapter 14 Notes.pdf",
+      "bytes": 2801557,
+      "sha256": "2d39bfe68211071182c2ab79713ee5c7171370dbb7137b93ee39277610384009"
+    }
+  ],
+  "source_render_identity": [
+    {
+      "number": 480,
+      "kind": "p",
+      "source_page_index": 4,
+      "exact_rgb_pixels_equal": true,
+      "path": "/workspace/shared/ch14_11_extension/review-reports/source-evidence/p480.png",
+      "bytes": 566500,
+      "sha256": "244f219d39ef3504a2ea4ddf34523925d5334fd79a6e9bfb3c8be296b77f5a43"
+    },
+    {
+      "number": 481,
+      "kind": "p",
+      "source_page_index": 5,
+      "exact_rgb_pixels_equal": true,
+      "path": "/workspace/shared/ch14_11_extension/review-reports/source-evidence/p481.png",
+      "bytes": 267657,
+      "sha256": "2cdbce69c6c90dd7f3f506ea57ffc5af32bd9bfb7e0dfb4929ef8bc153d428f5"
+    },
+    {
+      "number": 482,
+      "kind": "p",
+      "source_page_index": 6,
+      "exact_rgb_pixels_equal": true,
+      "path": "/workspace/shared/ch14_11_extension/review-reports/source-evidence/p482.png",
+      "bytes": 572176,
+      "sha256": "ea23b4163d827f8ad3818abe673420f11806a8fb7255ca3e8716a511b16955f0"
+    },
+    {
+      "number": 484,
+      "kind": "p",
+      "source_page_index": 8,
+      "exact_rgb_pixels_equal": true,
+      "path": "/workspace/shared/ch14_11_extension/review-reports/source-evidence/p484.png",
+      "bytes": 236732,
+      "sha256": "2a5d811025cab731e82df36345b24e30eb9bf4dca24a2705a3d7d4442c67c1f8"
+    },
+    {
+      "number": 488,
+      "kind": "p",
+      "source_page_index": 12,
+      "exact_rgb_pixels_equal": true,
+      "path": "/workspace/shared/ch14_11_extension/review-reports/source-evidence/p488.png",
+      "bytes": 579892,
+      "sha256": "5b4d1f1517977192a861ed1171669a384765f4b96581b312a44c5e4408fed3ac"
+    },
+    {
+      "number": 489,
+      "kind": "p",
+      "source_page_index": 13,
+      "exact_rgb_pixels_equal": true,
+      "path": "/workspace/shared/ch14_11_extension/review-reports/source-evidence/p489.png",
+      "bytes": 474914,
+      "sha256": "05bbf0116aecd5fbf3ae958f2ba83f60a5149827be25eb5e58234d5bcc0a4954"
+    },
+    {
+      "number": 493,
+      "kind": "p",
+      "source_page_index": 17,
+      "exact_rgb_pixels_equal": true,
+      "path": "/workspace/shared/ch14_11_extension/review-reports/source-evidence/p493.png",
+      "bytes": 231694,
+      "sha256": "49f41dfeeaab65f3c349187ca55db6bba8b7838fc8b4d01f872f187f24281de8"
+    },
+    {
+      "number": 494,
+      "kind": "p",
+      "source_page_index": 18,
+      "exact_rgb_pixels_equal": true,
+      "path": "/workspace/shared/ch14_11_extension/review-reports/source-evidence/p494.png",
+      "bytes": 312164,
+      "sha256": "0760292c4c01b2eb192995215adae1d6344b98a89fc3a8652b204d90ebb7975e"
+    },
+    {
+      "number": 496,
+      "kind": "p",
+      "source_page_index": 20,
+      "exact_rgb_pixels_equal": true,
+      "path": "/workspace/shared/ch14_11_extension/review-reports/source-evidence/p496.png",
+      "bytes": 594039,
+      "sha256": "4d1b70efbd6ca1f0d02b379116ac9ab0714bcf2884b693c167bcbf6e0f3f183d"
+    },
+    {
+      "number": 497,
+      "kind": "p",
+      "source_page_index": 21,
+      "exact_rgb_pixels_equal": true,
+      "path": "/workspace/shared/ch14_11_extension/review-reports/source-evidence/p497.png",
+      "bytes": 264099,
+      "sha256": "f86d5c461983ef3af6eda09146335b785a0e38d2bbff530cd4e2c0a0130f5ad9"
+    },
+    {
+      "number": 498,
+      "kind": "p",
+      "source_page_index": 22,
+      "exact_rgb_pixels_equal": true,
+      "path": "/workspace/shared/ch14_11_extension/review-reports/source-evidence/p498.png",
+      "bytes": 220015,
+      "sha256": "98c743c744c0c9c82fa2eaea6e36428f2bd5275a2e2dda4bfda604353baa95b9"
+    },
+    {
+      "number": 501,
+      "kind": "p",
+      "source_page_index": 25,
+      "exact_rgb_pixels_equal": true,
+      "path": "/workspace/shared/ch14_11_extension/review-reports/source-evidence/p501.png",
+      "bytes": 322431,
+      "sha256": "d16e740bb5749a0bfcd81c4e01fc50aedcad16d9d233e9a781709a7c0805897b"
+    },
+    {
+      "number": 503,
+      "kind": "p",
+      "source_page_index": 27,
+      "exact_rgb_pixels_equal": true,
+      "path": "/workspace/shared/ch14_11_extension/review-reports/source-evidence/p503.png",
+      "bytes": 265449,
+      "sha256": "bfe1ffc06d865f802edf8a4b71b7d4dcc8f11f32fb775583b9aaf5b0cac219bb"
+    },
+    {
+      "number": 504,
+      "kind": "p",
+      "source_page_index": 28,
+      "exact_rgb_pixels_equal": true,
+      "path": "/workspace/shared/ch14_11_extension/review-reports/source-evidence/p504.png",
+      "bytes": 274375,
+      "sha256": "fbbcb42c8ebb7bfb006d263b5962186929bbb9c8d30771732a32d5528f2111dc"
+    },
+    {
+      "number": 505,
+      "kind": "p",
+      "source_page_index": 29,
+      "exact_rgb_pixels_equal": true,
+      "path": "/workspace/shared/ch14_11_extension/review-reports/source-evidence/p505.png",
+      "bytes": 205023,
+      "sha256": "5ac0ff0c1aeb6314be8ff16eadd2fc54e23b5d4826c9ac958a8d742e74519f40"
+    },
+    {
+      "number": 8,
+      "kind": "slide",
+      "source_page_index": 7,
+      "exact_rgb_pixels_equal": true,
+      "path": "/workspace/shared/ch14_11_extension/review-reports/source-evidence/slide8.png",
+      "bytes": 411418,
+      "sha256": "63b54d2102a1d0ef945bcb11d0ada3f602b1e3ccdb4aac76176ccea6ae636e13"
+    },
+    {
+      "number": 12,
+      "kind": "slide",
+      "source_page_index": 11,
+      "exact_rgb_pixels_equal": true,
+      "path": "/workspace/shared/ch14_11_extension/review-reports/source-evidence/slide12.png",
+      "bytes": 547870,
+      "sha256": "6ce2c13e0f6341d43cde6b922707b059928e7aa839557002bfecef67de7b1296"
+    },
+    {
+      "number": 13,
+      "kind": "slide",
+      "source_page_index": 12,
+      "exact_rgb_pixels_equal": true,
+      "path": "/workspace/shared/ch14_11_extension/review-reports/source-evidence/slide13.png",
+      "bytes": 319589,
+      "sha256": "bef1389d28855781c6454d3d3bf9bac17003a34472fe0c0b4bca192e54cf9ad5"
+    },
+    {
+      "number": 17,
+      "kind": "slide",
+      "source_page_index": 16,
+      "exact_rgb_pixels_equal": true,
+      "path": "/workspace/shared/ch14_11_extension/review-reports/source-evidence/slide17.png",
+      "bytes": 627323,
+      "sha256": "4d8e6d35c9846153367b180fd782e32de4cd7cb1650fe8f3bc25d0c7fb835556"
+    },
+    {
+      "number": 18,
+      "kind": "slide",
+      "source_page_index": 17,
+      "exact_rgb_pixels_equal": true,
+      "path": "/workspace/shared/ch14_11_extension/review-reports/source-evidence/slide18.png",
+      "bytes": 420753,
+      "sha256": "4ac5d253d5cc59bfe954aab62efec5737133dff99b29c424a08fecefde4a2c8d"
+    },
+    {
+      "number": 22,
+      "kind": "slide",
+      "source_page_index": 21,
+      "exact_rgb_pixels_equal": true,
+      "path": "/workspace/shared/ch14_11_extension/review-reports/source-evidence/slide22.png",
+      "bytes": 403433,
+      "sha256": "03aebcfeb48cd05fa10af20e2f8e2e624e615f7498bb2f205d35e0dd801af5ee"
+    },
+    {
+      "number": 23,
+      "kind": "slide",
+      "source_page_index": 22,
+      "exact_rgb_pixels_equal": true,
+      "path": "/workspace/shared/ch14_11_extension/review-reports/source-evidence/slide23.png",
+      "bytes": 239232,
+      "sha256": "b56c197e77396e7b09e11fa4d062e81d329dba36f1606f3157fe67e928b317eb"
+    },
+    {
+      "number": 24,
+      "kind": "slide",
+      "source_page_index": 23,
+      "exact_rgb_pixels_equal": true,
+      "path": "/workspace/shared/ch14_11_extension/review-reports/source-evidence/slide24.png",
+      "bytes": 344513,
+      "sha256": "ddcd68db3b5e1d75448c93186fe7f7fb4a5049121b110bf2f958a3c4af4a6b5a"
+    },
+    {
+      "number": 27,
+      "kind": "slide",
+      "source_page_index": 26,
+      "exact_rgb_pixels_equal": true,
+      "path": "/workspace/shared/ch14_11_extension/review-reports/source-evidence/slide27.png",
+      "bytes": 339070,
+      "sha256": "b87a3d3bfdf192b7026b8bf64f31f8cbbe9e839595784fc85258240ca03e2574"
+    },
+    {
+      "number": 29,
+      "kind": "slide",
+      "source_page_index": 28,
+      "exact_rgb_pixels_equal": true,
+      "path": "/workspace/shared/ch14_11_extension/review-reports/source-evidence/slide29.png",
+      "bytes": 413853,
+      "sha256": "95ce73064ef59e0acdd530ba91d95850f6591f32fb60a0fb697c5faea4c271f4"
+    },
+    {
+      "number": 30,
+      "kind": "slide",
+      "source_page_index": 29,
+      "exact_rgb_pixels_equal": true,
+      "path": "/workspace/shared/ch14_11_extension/review-reports/source-evidence/slide30.png",
+      "bytes": 431239,
+      "sha256": "14f5f230bb2b186281d56c85cb15e06db0f194281bbf38f851961f357235c0c8"
+    },
+    {
+      "number": 31,
+      "kind": "slide",
+      "source_page_index": 30,
+      "exact_rgb_pixels_equal": true,
+      "path": "/workspace/shared/ch14_11_extension/review-reports/source-evidence/slide31.png",
+      "bytes": 428156,
+      "sha256": "8868ccac17f44f7828b0d057581e9219ed28c573fe318e216787c4d9c47d94c8"
+    },
+    {
+      "number": 32,
+      "kind": "slide",
+      "source_page_index": 31,
+      "exact_rgb_pixels_equal": true,
+      "path": "/workspace/shared/ch14_11_extension/review-reports/source-evidence/slide32.png",
+      "bytes": 415585,
+      "sha256": "843d5e8cd9fea1a67a28eda66cf2537b0f78a3a658ae6e81094281a35f35716e"
+    }
+  ],
+  "supplied_source_render_parity": [
+    {
+      "printed_page": 501,
+      "pixels_equal": true
+    },
+    {
+      "printed_page": 503,
+      "pixels_equal": true
+    },
+    {
+      "printed_page": 504,
+      "pixels_equal": true
+    },
+    {
+      "printed_page": 505,
+      "pixels_equal": true
+    }
+  ],
+  "pptx_slides_read": [
+    {
+      "slide": 3,
+      "xml_sha256": "820aef2f0899e903b17ca569572d29ee7f840075c0312eb60c06c2d31fa5820e",
+      "text": "The male reproductive system (​key structures, spermatogenesis, secondary sex characteristics) Male sex hormones (roles of testosterone, LH & FSH) The female reproductive system (key structures, oogenesis, secondary sex characteristics) Sexually transmitted infections Hormonal regulation of gametogenesis Textbook pages 476-505 Chapter 14 The Reproductive System"
+    },
+    {
+      "slide": 4,
+      "xml_sha256": "e5cb56bcfecb4de33878647fc314714a81e587d7365c29decfebf386c2ca184a",
+      "text": "Male and female reproductive systems are characterized by distinct… Gonads  ( gamete-producing organs →  testes vs. ovaries) Sex hormones  (testosterone vs. estrogen) Gametes  (sex cells  →  sperm vs. eggs) Primary sex characteristics  These are the  reproductive organs/structures Typically  present at birth  but further develop during puberty Secondary sex characteristics  features not directly related to reproduction   Develop over time, especially after puberty, in response to increased sex-hormone levels e .g. facial hair, voice changes, breast development, etc."
+    },
+    {
+      "slide": 5,
+      "xml_sha256": "9e70ff84b33869171f3d55c4eda9be91d2fa7e5bcbeef09878e39f1a1f0ed17b",
+      "text": "Primary vs. Secondary Sex Characteristics"
+    },
+    {
+      "slide": 6,
+      "xml_sha256": "e7d5c4178a4cf4ed2f17793366b55253c237faba763a27cd0bd5ba36e6a7100d",
+      "text": "Control of Reproductive System  Sex Determination How do embryos develop into male or female? There are 23 pairs of chromosomes in humans (46 total) The 23rd pair is the sex chromosome pair, and are different between male/female Females have two ‘X’ chromosomes (XX) Males have an X and a Y chromosome (XY) The presence of a Y chromosome stimulates the production of testes Testes in turn secrete testosterone which leads to the development of male sex characteristics 6-7 weeks after fertilization"
+    },
+    {
+      "slide": 7,
+      "xml_sha256": "c4a61258085a43e76fde9f7e765815bc15de01f479ae727ef897c93a6a094a04",
+      "text": "The Male Reproductive System"
+    },
+    {
+      "slide": 8,
+      "xml_sha256": "99239bd31001fd501ff3ac59dee1495668c2154b8d0387daa4b00747c90d7cb5",
+      "text": "The Male Reproductive System *you need to know all these structures and functions. A more comprehensive table with functions is on a later slide. * (secretes alkaline  mucus  to protect sperm) (secretes alkaline mucus to protect sperm) (secretes fructose into semen to provide energy) * * * * * * * * * (produces sperm in  seminiferous  tubules)"
+    },
+    {
+      "slide": 9,
+      "xml_sha256": "66e9ce985fba9c4dac032fde75c230a6b82c599cf88a365112e0ebec577d7670",
+      "text": "Can you match the structures on the previous page to a front view diagram? (Answers on the next slide)"
+    },
+    {
+      "slide": 10,
+      "xml_sha256": "eea02188f139d63365a92e37004e16fcb85efdfb6616374e9cd4c706372be300",
+      "text": "Male  Reproductive  Structures  (Front View)"
+    },
+    {
+      "slide": 11,
+      "xml_sha256": "c05d7f3ee87cc579172521df0e58254482f5b640a4befa30301113d7455556dc",
+      "text": "Sperm : T he  M ale  G amete  (sex cells) Produced in large amounts throughout a male’s lifespan  starting at puberty Flagellum  allows sperm to propel themselves through the female reproductive system Acrosome cap  releases enzymes which enable sperm to penetrate the outer layers of the female egg"
+    },
+    {
+      "slide": 12,
+      "xml_sha256": "283f076aea7583a75d368bf5173f07c33a037dd5559f6a235004fd9e30a29118",
+      "text": "The testes are composed of long, coiled tubes called  seminiferous tubules ; this is where sperm are produced during  spermatogenesis   Testes also contain   testosterone -secreting cells called  interstitial cells  (also known as Leydig cells) , that surround the seminiferous tubules. The  testosterone  released by the interstitial cells is also indirectly involved in spermatogenesis by stimulating various functions of Sertoli cells. Interstitial cell Seminiferous tubule ( c ross section) SPERMATOGENESIS  (Sperm production) Interstitial cells Interstitial cells"
+    },
+    {
+      "slide": 13,
+      "xml_sha256": "79985b5830746f14c795008910159c6afe34de51ae1fa7de053d70904307465c",
+      "text": "Sperm develop from precursor cells called  spermatogonia  within seminiferous tubules Spermatogonia undergo two cycles of meiosis (more on this in Chapter 16) as they  develop  into a primary spermatocyte, then a  secondary  spermatocyte, and ultimately a  spermatid .  Spermatids then go on to differentiate into  spermatozoa (sperm) These series of cell divisions and differentiation occur towards the middle of the seminiferous tubule, where the final spermatocyte are released into the  lumen SPERMATOGENESIS Sertoli cells  within the seminiferous tubules nourish and provide metabolic support for developing sperm. These can be easily recognized on diagrams as the largest cells in the tubule.  Sperm cells mature and gain their ability to swim in the  epididymis  of the testes"
+    },
+    {
+      "slide": 14,
+      "xml_sha256": "accfa3897d2357b5fd4d3fa902db6d50683b1a888cfc62941b2bc16828b059dd",
+      "text": "Direction of development Lumen (where sperm are released) Lumen (where sperm are released) (where sperm mature and gain swimming ability) (nourish and support the developing sperm) SPERMATOGENESIS"
+    },
+    {
+      "slide": 15,
+      "xml_sha256": "ab91ed9b392af502eb952e5ed806c2b965eb25b27dc068d737ddbf9731078a16",
+      "text": "Can you label the following structures? Sertoli cell Spermatid Spermatozoa (Sperm) Spermatogonium Interstitial cell"
+    },
+    {
+      "slide": 16,
+      "xml_sha256": "9b3b28b88086cf3e991ae1867b6fc2d4621c08ff59b27f436607696ef8e549b9",
+      "text": "Male Sex Hormones Male sex hormones are known as  androgens .  While  testosterone  is the primary male sex hormone , a series of other hormones are required for spermatogenesis. T estosterone  is the hormone that initiates the development of male sex organs and ducts When a male reaches puberty, testosterone levels increase, leading to the development of secondary sex characteristics Testosterone also plays a central role in spermatogenesis"
+    },
+    {
+      "slide": 17,
+      "xml_sha256": "fed58b64f208ec8e8e4b204a22e4233b7f1e2754bd6f6b1309f8dd992cd51dd7",
+      "text": "Puberty and  Hormonal Regulation of Spermatogenesis At puberty, the hypothalamus produces  Gonadotropin Releasing Hormone (GnRH) , which stimulates the anterior pituitary to release two hormones: Follicle  Stimulating Hormone  ( FSH)  and  L ut einizing Hormone  (LH) FSH stimulates  S ertoli cells within the  seminiferous tubules   of  the test e s to start producing sperm LH stimulates the  interstitial cells  within the test e s to start producing testosterone * don’t need to remember this hormone name Interstitial cells"
+    },
+    {
+      "slide": 18,
+      "xml_sha256": "837338058fbcbe6df229dabec3e13bad1cb1132520f9e6a58500f671214e5aa2",
+      "text": "Puberty and  Hormonal Regulation of Spermatogenesis Testosterone contributes to sperm production and also causes s econdary sex characteristics  to begin  to develop: deepening of voice, facial hair, etc.  Hormone levels are regulated through negative feedback * don’t need to remember this hormone name"
+    },
+    {
+      "slide": 19,
+      "xml_sha256": "7b6c4ff1ad0330014326eece4e10685ae28b40b6c7641bacbec1ac31870a807d",
+      "text": "Although testosterone is especially important during puberty, it is required throughout a man’s lifespan to maintain reproductive functioning and secondary sex characteristics… Steroids, such as hGH, can disrupt reproductive hormone feedback systems Side effects in men include shrinking testicles, low sperm count, loss of body hair, and the development of breasts"
+    },
+    {
+      "slide": 20,
+      "xml_sha256": "f33224238b6cee731b50c56d379830a9f431ef64b93c732ff632a9101f85728d",
+      "text": "Over time, m any  men experience a gradual decline in testosterone levels. This condition is known as  andropause .  SYMPTOMS INCLUDE: Fatigue Depression Loss of muscle and bone mass Decreased sperm production"
+    },
+    {
+      "slide": 21,
+      "xml_sha256": "c3d01c14c10a0ad4021cdd4e287193dec280967dacd51a1269e2bfebfa184bf5",
+      "text": "The Female Reproductive System"
+    },
+    {
+      "slide": 22,
+      "xml_sha256": "a08749ed6f10c68f8242a16a029ebfa72313d7165d558f2cdf395e461a846913",
+      "text": "The Female Reproductive System  Connects ovaries to the uterus - normal site of  fertilization *will not be tested *  *  *  *  * "
+    },
+    {
+      "slide": 23,
+      "xml_sha256": "95261132634dc5b0f6929c03d4685863f1840d650fa3f57f70b938fd555b4eaa",
+      "text": "The  Ovaries Each month, a single mature egg (or “ ovum ”) is released from the ovary, allowing for potential  fertilization . This process is known as  ovulation .  During this period, the  endometrial lining  of the uterus thickens in preparation for pregnancy. The ovum can survive in the  oviduct  for a period of 24 hours; if fertilization does not occur, the endometrial lining will then be shed. This process is known as  menstruation ."
+    },
+    {
+      "slide": 24,
+      "xml_sha256": "d2218b69d1120d22a69f68d8a5c7e23d6f8c61c6c13d34cfcc91b6ac6088fded",
+      "text": "OOGENESIS Occurs within the  follicle cells  of the ovaries; follicle cells provide nutrients necessary for the ovum’s development The maturing follicle releases increasing amounts of  estrogen  which helps  build the endometrial lining Once the ovum is released, surrounding follicle cells form the  corpus luteum The corpus luteum releases  some estrogen , but  mostly progesterone  which helps  maintain the endometrial lining  in case fertilization occurs and implantation expected If no fertilization occurs, the corpus luteum will degenerate in about 14 days"
+    },
+    {
+      "slide": 25,
+      "xml_sha256": "f2b786bd2ce7a3d9b98bea23ebe8b7638634dad1bbc654917bc598ab1f3bac06",
+      "text": "A mature ovum: Females are born with a finite amount of  oocytes ; after a certain age, then, women no can longer ovulate (menopause) Surrounded by two key layers  (do not need to know) the  corona radiata , which supplies vital proteins to the cell a specialized coating   called the  zona pellucida , which can only be penetrated by a single sperm Non-motile"
+    },
+    {
+      "slide": 26,
+      "xml_sha256": "6314c78a57ed64a3b3a59643c50e2219d3653eb17c791759cfb3d07884e28a1d",
+      "text": "An immature oocyte developing within a follicle: follicles zona pellucida oocyte corona radiata"
+    },
+    {
+      "slide": 27,
+      "xml_sha256": "a508e1907683fb645ae186aa67b696c17bc786bde237191258ddda3e0392d18c",
+      "text": "Female Sex Hormones Like in males, puberty begins when the hypothalamus triggers the release of LH and FSH from the pituitary. However, in females… FSH  stimulates the development of female sex organs as well as follicle development within the ovaries. As the follicle develops, it releases  estrogen . LH  triggers ovulation  (signals egg maturation) This marks the beginning of a young woman’s reproductive years; associated hormones also stimulate the development of secondary sex characteristics. "
+    },
+    {
+      "slide": 28,
+      "xml_sha256": "64162f1eab30b933b052420e1acc7b759bbf5e855bfa95a928ac0e254b557218",
+      "text": "Hormonal regulation of the female menstrual cycle is complex. Watch both videos to get an increasing in-depth understanding of it. There are  summary  notes on the next pages and a diagram, but that will not give you the whole picture.  Watch first Watch second"
+    },
+    {
+      "slide": 29,
+      "xml_sha256": "8ce6324aad20f0adbac2afe119ba960a663f3b86317a36f36119ce5ecfc85cf2",
+      "text": "THE MENSTRUAL CYCLE Flow phase (days 0-7) A.k.a. Menstruation Marks the beginning of the cycle Characterized by shedding of the endometrium Estrogen/progesterone  levels are at their lowest     Divided into four phases…"
+    },
+    {
+      "slide": 30,
+      "xml_sha256": "c7140b81e2e08188131b769c235ed63073db37eb5655f3099a390836fd489dba",
+      "text": "THE MENSTRUAL CYCLE Follicular phase (days 7-14) GnRH stimulates the release of FSH from the pituitary, which causes a follicle cell within the ovary to mature.  As  the follicle develops,  estrogen   is secreted,  promoting the development of the endometrium Rising levels of estrogen then inhibit the release of FSH from        the pituitary     Divided into four phases…"
+    },
+    {
+      "slide": 31,
+      "xml_sha256": "20ed5b3727768a82a8870601c9d51609214778e457060b706b4b744414d1cc67",
+      "text": "Ovulatory phase (day 14) Estrogen also triggers a sharp increase in LH production, which signals the release of the mature ovum from the follicle Once this occurs   the f ollicle begins to form the corpus luteum Since there no no more follicle to release estrogen, we see a temporary decrease in estrogen levels"
+    },
+    {
+      "slide": 32,
+      "xml_sha256": "120db670489ce6c47b84d93d3504c901f66caa70b603592283f097e16beb59ba",
+      "text": "Luteal phase (days 14-28) Once the  corpus luteum forms  it   begins to secrete  estrogen and progesterone . Estrogen continues to promote the development of the endometrial lining.  Progesterone plays an important role in preparing the uterus for an embryo . Progesterone helps maintain the endometrial lining. It also inhibits LH, preventing  further ovulation and firming the cervix.   If fertilization does not occur, the corpus luteum degenerates, and hormone secretion stops, causing the endometrial lining to be shed (beginning of flow phase) Note: some sources only consider two separate phases, where 0-14 is follicular phase and 14-28 is luteal phase)"
+    },
+    {
+      "slide": 33,
+      "xml_sha256": "9c58e51b1b2e6287f85dde2c9a8191d5989e321a14184b85599e3e4f3eb1647b",
+      "text": "Pause here and try to describe all of the changes that occur during the menstrual cycle, and all causes and effects."
+    },
+    {
+      "slide": 34,
+      "xml_sha256": "e3a903e01a508ba227c58c72397ddc6e362740007128a7ac8fdce94132cf22e4",
+      "text": "Eventually, women stop producing eggs. Hormone levels decline, leading to a condition known as  menopause .  SYMPTOMS: “hot flashes”  High cholesterol Diminished bone mass Changes in mood"
+    },
+    {
+      "slide": 35,
+      "xml_sha256": "d979374be2a95705202877abcd1eaf397fd74c1f750dfd6b3d10a94d4440153f",
+      "text": "How   do birth control pills prevent pregnancy?  Birth control pills typically contain  high doses of  progesterone  and estrogen , which  inhibit release of FSH and LH through negative feedback .  Without FSH and LH, a follicle is unlikely to mature and  ovulation will not occur ."
+    }
+  ],
+  "optional_chapter_review_records": [
+    {
+      "id": "ch14-p504-chapter-review-q1",
+      "page": 504,
+      "group": "chapter-review",
+      "number": 1,
+      "label": "Chapter Review · p. 504 · question 1",
+      "topics": [
+        "lesson-03"
+      ],
+      "crops": [
+        {
+          "page": 504,
+          "box": [
+            38,
+            87,
+            285,
+            114
+          ],
+          "asset": "ch14-p504-chapter-review-q1-1.png",
+          "src": "./assets/textbook-practice/ch14-p504-chapter-review-q1-1.png",
+          "role": "question"
+        },
+        {
+          "page": 504,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "src": "./assets/textbook-practice/p504.jpg",
+          "role": "supporting full-page context"
+        }
+      ],
+      "clinicalNote": null,
+      "reviewStatus": "Crop boundaries checked against original text geometry; visual review recorded separately."
+    },
+    {
+      "id": "ch14-p504-chapter-review-q2",
+      "page": 504,
+      "group": "chapter-review",
+      "number": 2,
+      "label": "Chapter Review · p. 504 · question 2",
+      "topics": [
+        "lesson-03",
+        "lesson-04",
+        "lesson-06",
+        "lesson-08"
+      ],
+      "crops": [
+        {
+          "page": 504,
+          "box": [
+            38,
+            118,
+            285,
+            224
+          ],
+          "asset": "ch14-p504-chapter-review-q2-1.png",
+          "src": "./assets/textbook-practice/ch14-p504-chapter-review-q2-1.png",
+          "role": "question"
+        },
+        {
+          "page": 504,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "src": "./assets/textbook-practice/p504.jpg",
+          "role": "supporting full-page context"
+        }
+      ],
+      "clinicalNote": null,
+      "reviewStatus": "Crop boundaries checked against original text geometry; visual review recorded separately."
+    },
+    {
+      "id": "ch14-p504-chapter-review-q3",
+      "page": 504,
+      "group": "chapter-review",
+      "number": 3,
+      "label": "Chapter Review · p. 504 · question 3",
+      "topics": [
+        "lesson-02",
+        "lesson-05"
+      ],
+      "crops": [
+        {
+          "page": 504,
+          "box": [
+            38,
+            228,
+            285,
+            295
+          ],
+          "asset": "ch14-p504-chapter-review-q3-1.png",
+          "src": "./assets/textbook-practice/ch14-p504-chapter-review-q3-1.png",
+          "role": "question"
+        },
+        {
+          "page": 504,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "src": "./assets/textbook-practice/p504.jpg",
+          "role": "supporting full-page context"
+        }
+      ],
+      "clinicalNote": null,
+      "reviewStatus": "Crop boundaries checked against original text geometry; visual review recorded separately."
+    },
+    {
+      "id": "ch14-p504-chapter-review-q4",
+      "page": 504,
+      "group": "chapter-review",
+      "number": 4,
+      "label": "Chapter Review · p. 504 · question 4",
+      "topics": [
+        "lesson-02"
+      ],
+      "crops": [
+        {
+          "page": 504,
+          "box": [
+            38,
+            299,
+            285,
+            340
+          ],
+          "asset": "ch14-p504-chapter-review-q4-1.png",
+          "src": "./assets/textbook-practice/ch14-p504-chapter-review-q4-1.png",
+          "role": "question"
+        },
+        {
+          "page": 504,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "src": "./assets/textbook-practice/p504.jpg",
+          "role": "supporting full-page context"
+        }
+      ],
+      "clinicalNote": null,
+      "reviewStatus": "Crop boundaries checked against original text geometry; visual review recorded separately."
+    },
+    {
+      "id": "ch14-p504-chapter-review-q6",
+      "page": 504,
+      "group": "chapter-review",
+      "number": 6,
+      "label": "Chapter Review · p. 504 · question 6",
+      "topics": [
+        "lesson-10"
+      ],
+      "crops": [
+        {
+          "page": 504,
+          "box": [
+            38,
+            493,
+            285,
+            535
+          ],
+          "asset": "ch14-p504-chapter-review-q6-1.png",
+          "src": "./assets/textbook-practice/ch14-p504-chapter-review-q6-1.png",
+          "role": "question"
+        },
+        {
+          "page": 504,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "src": "./assets/textbook-practice/p504.jpg",
+          "role": "supporting full-page context"
+        }
+      ],
+      "clinicalNote": null,
+      "reviewStatus": "Crop boundaries checked against original text geometry; visual review recorded separately."
+    },
+    {
+      "id": "ch14-p504-chapter-review-q8",
+      "page": 504,
+      "group": "chapter-review",
+      "number": 8,
+      "label": "Chapter Review · p. 504 · question 8",
+      "topics": [
+        "lesson-06"
+      ],
+      "crops": [
+        {
+          "page": 504,
+          "box": [
+            38,
+            570,
+            285,
+            599
+          ],
+          "asset": "ch14-p504-chapter-review-q8-1.png",
+          "src": "./assets/textbook-practice/ch14-p504-chapter-review-q8-1.png",
+          "role": "question"
+        },
+        {
+          "page": 504,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "src": "./assets/textbook-practice/p504.jpg",
+          "role": "supporting full-page context"
+        }
+      ],
+      "clinicalNote": null,
+      "reviewStatus": "Crop boundaries checked against original text geometry; visual review recorded separately."
+    },
+    {
+      "id": "ch14-p504-chapter-review-q9",
+      "page": 504,
+      "group": "chapter-review",
+      "number": 9,
+      "label": "Chapter Review · p. 504 · question 9",
+      "topics": [
+        "lesson-07"
+      ],
+      "crops": [
+        {
+          "page": 504,
+          "box": [
+            38,
+            602,
+            286,
+            631
+          ],
+          "asset": "ch14-p504-chapter-review-q9-1.png",
+          "src": "./assets/textbook-practice/ch14-p504-chapter-review-q9-1.png",
+          "role": "question"
+        },
+        {
+          "page": 504,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "src": "./assets/textbook-practice/p504.jpg",
+          "role": "supporting full-page context"
+        }
+      ],
+      "clinicalNote": null,
+      "reviewStatus": "Crop boundaries checked against original text geometry; visual review recorded separately."
+    },
+    {
+      "id": "ch14-p504-chapter-review-q10",
+      "page": 504,
+      "group": "chapter-review",
+      "number": 10,
+      "label": "Chapter Review · p. 504 · question 10",
+      "topics": [
+        "lesson-01",
+        "lesson-08"
+      ],
+      "crops": [
+        {
+          "page": 504,
+          "box": [
+            38,
+            634,
+            286,
+            676
+          ],
+          "asset": "ch14-p504-chapter-review-q10-1.png",
+          "src": "./assets/textbook-practice/ch14-p504-chapter-review-q10-1.png",
+          "role": "question"
+        },
+        {
+          "page": 504,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "src": "./assets/textbook-practice/p504.jpg",
+          "role": "supporting full-page context"
+        }
+      ],
+      "clinicalNote": null,
+      "reviewStatus": "Crop boundaries checked against original text geometry; visual review recorded separately."
+    },
+    {
+      "id": "ch14-p504-chapter-review-q11",
+      "page": 504,
+      "group": "chapter-review",
+      "number": 11,
+      "label": "Chapter Review · p. 504 · question 11",
+      "topics": [
+        "lesson-08"
+      ],
+      "crops": [
+        {
+          "page": 504,
+          "box": [
+            289,
+            70,
+            536,
+            340
+          ],
+          "asset": "ch14-p504-chapter-review-q11-1.png",
+          "src": "./assets/textbook-practice/ch14-p504-chapter-review-q11-1.png",
+          "role": "question"
+        },
+        {
+          "page": 504,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "src": "./assets/textbook-practice/p504.jpg",
+          "role": "supporting full-page context"
+        }
+      ],
+      "clinicalNote": null,
+      "reviewStatus": "Crop boundaries checked against original text geometry; visual review recorded separately."
+    },
+    {
+      "id": "ch14-p504-chapter-review-q12",
+      "page": 504,
+      "group": "chapter-review",
+      "number": 12,
+      "label": "Chapter Review · p. 504 · question 12",
+      "topics": [
+        "lesson-10"
+      ],
+      "crops": [
+        {
+          "page": 504,
+          "box": [
+            289,
+            359,
+            536,
+            389
+          ],
+          "asset": "ch14-p504-chapter-review-q12-1.png",
+          "src": "./assets/textbook-practice/ch14-p504-chapter-review-q12-1.png",
+          "role": "question"
+        },
+        {
+          "page": 504,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "src": "./assets/textbook-practice/p504.jpg",
+          "role": "supporting full-page context"
+        }
+      ],
+      "clinicalNote": null,
+      "reviewStatus": "Crop boundaries checked against original text geometry; visual review recorded separately."
+    },
+    {
+      "id": "ch14-p504-chapter-review-q13",
+      "page": 504,
+      "group": "chapter-review",
+      "number": 13,
+      "label": "Chapter Review · p. 504 · question 13",
+      "topics": [
+        "lesson-03"
+      ],
+      "crops": [
+        {
+          "page": 504,
+          "box": [
+            289,
+            392,
+            536,
+            421
+          ],
+          "asset": "ch14-p504-chapter-review-q13-1.png",
+          "src": "./assets/textbook-practice/ch14-p504-chapter-review-q13-1.png",
+          "role": "question"
+        },
+        {
+          "page": 504,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "src": "./assets/textbook-practice/p504.jpg",
+          "role": "supporting full-page context"
+        }
+      ],
+      "clinicalNote": null,
+      "reviewStatus": "Crop boundaries checked against original text geometry; visual review recorded separately."
+    },
+    {
+      "id": "ch14-p504-chapter-review-q14",
+      "page": 504,
+      "group": "chapter-review",
+      "number": 14,
+      "label": "Chapter Review · p. 504 · question 14",
+      "topics": [
+        "lesson-04",
+        "lesson-08"
+      ],
+      "crops": [
+        {
+          "page": 504,
+          "box": [
+            289,
+            424,
+            536,
+            479
+          ],
+          "asset": "ch14-p504-chapter-review-q14-1.png",
+          "src": "./assets/textbook-practice/ch14-p504-chapter-review-q14-1.png",
+          "role": "question"
+        },
+        {
+          "page": 504,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "src": "./assets/textbook-practice/p504.jpg",
+          "role": "supporting full-page context"
+        }
+      ],
+      "clinicalNote": null,
+      "reviewStatus": "Crop boundaries checked against original text geometry; visual review recorded separately."
+    },
+    {
+      "id": "ch14-p504-chapter-review-q16",
+      "page": 504,
+      "group": "chapter-review",
+      "number": 16,
+      "label": "Chapter Review · p. 504 · question 16",
+      "topics": [
+        "lesson-04"
+      ],
+      "crops": [
+        {
+          "page": 504,
+          "box": [
+            289,
+            540,
+            536,
+            608
+          ],
+          "asset": "ch14-p504-chapter-review-q16-1.png",
+          "src": "./assets/textbook-practice/ch14-p504-chapter-review-q16-1.png",
+          "role": "question"
+        },
+        {
+          "page": 504,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "src": "./assets/textbook-practice/p504.jpg",
+          "role": "supporting full-page context"
+        }
+      ],
+      "clinicalNote": null,
+      "reviewStatus": "Crop boundaries checked against original text geometry; visual review recorded separately."
+    },
+    {
+      "id": "ch14-p504-chapter-review-q17",
+      "page": 504,
+      "group": "chapter-review",
+      "number": 17,
+      "label": "Chapter Review · p. 504 · question 17",
+      "topics": [
+        "lesson-09"
+      ],
+      "crops": [
+        {
+          "page": 504,
+          "box": [
+            289,
+            611,
+            536,
+            679
+          ],
+          "asset": "ch14-p504-chapter-review-q17-1.png",
+          "src": "./assets/textbook-practice/ch14-p504-chapter-review-q17-1.png",
+          "role": "question"
+        },
+        {
+          "page": 504,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "src": "./assets/textbook-practice/p504.jpg",
+          "role": "supporting full-page context"
+        }
+      ],
+      "clinicalNote": null,
+      "reviewStatus": "Crop boundaries checked against original text geometry; visual review recorded separately."
+    },
+    {
+      "id": "ch14-p505-chapter-review-q18",
+      "page": 505,
+      "group": "chapter-review",
+      "number": 18,
+      "label": "Chapter Review · p. 505 · question 18",
+      "topics": [
+        "lesson-08",
+        "lesson-09"
+      ],
+      "crops": [
+        {
+          "page": 505,
+          "box": [
+            68,
+            70,
+            315,
+            416
+          ],
+          "asset": "ch14-p505-chapter-review-q18-1.png",
+          "src": "./assets/textbook-practice/ch14-p505-chapter-review-q18-1.png",
+          "role": "question"
+        },
+        {
+          "page": 505,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "src": "./assets/textbook-practice/p505.jpg",
+          "role": "supporting full-page context"
+        }
+      ],
+      "clinicalNote": null,
+      "reviewStatus": "Crop boundaries checked against original text geometry; visual review recorded separately."
+    },
+    {
+      "id": "ch14-p505-chapter-review-q20",
+      "page": 505,
+      "group": "chapter-review",
+      "number": 20,
+      "label": "Chapter Review · p. 505 · question 20",
+      "topics": [
+        "lesson-01",
+        "lesson-09"
+      ],
+      "crops": [
+        {
+          "page": 505,
+          "box": [
+            319,
+            87,
+            567,
+            245
+          ],
+          "asset": "ch14-p505-chapter-review-q20-1.png",
+          "src": "./assets/textbook-practice/ch14-p505-chapter-review-q20-1.png",
+          "role": "question"
+        },
+        {
+          "page": 505,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "src": "./assets/textbook-practice/p505.jpg",
+          "role": "supporting full-page context"
+        }
+      ],
+      "clinicalNote": null,
+      "reviewStatus": "Crop boundaries checked against original text geometry; visual review recorded separately."
+    },
+    {
+      "id": "ch14-p505-chapter-review-q21",
+      "page": 505,
+      "group": "chapter-review",
+      "number": 21,
+      "label": "Chapter Review · p. 505 · question 21",
+      "topics": [
+        "lesson-03",
+        "lesson-05"
+      ],
+      "crops": [
+        {
+          "page": 505,
+          "box": [
+            319,
+            248,
+            567,
+            290
+          ],
+          "asset": "ch14-p505-chapter-review-q21-1.png",
+          "src": "./assets/textbook-practice/ch14-p505-chapter-review-q21-1.png",
+          "role": "question"
+        },
+        {
+          "page": 505,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "src": "./assets/textbook-practice/p505.jpg",
+          "role": "supporting full-page context"
+        }
+      ],
+      "clinicalNote": null,
+      "reviewStatus": "Crop boundaries checked against original text geometry; visual review recorded separately."
+    },
+    {
+      "id": "ch14-p505-chapter-review-q22",
+      "page": 505,
+      "group": "chapter-review",
+      "number": 22,
+      "label": "Chapter Review · p. 505 · question 22",
+      "topics": [
+        "lesson-10"
+      ],
+      "crops": [
+        {
+          "page": 505,
+          "box": [
+            319,
+            293,
+            567,
+            335
+          ],
+          "asset": "ch14-p505-chapter-review-q22-1.png",
+          "src": "./assets/textbook-practice/ch14-p505-chapter-review-q22-1.png",
+          "role": "question"
+        },
+        {
+          "page": 505,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "src": "./assets/textbook-practice/p505.jpg",
+          "role": "supporting full-page context"
+        }
+      ],
+      "clinicalNote": null,
+      "reviewStatus": "Crop boundaries checked against original text geometry; visual review recorded separately."
+    },
+    {
+      "id": "ch14-p505-chapter-review-q23",
+      "page": 505,
+      "group": "chapter-review",
+      "number": 23,
+      "label": "Chapter Review · p. 505 · question 23",
+      "topics": [
+        "lesson-09"
+      ],
+      "crops": [
+        {
+          "page": 505,
+          "box": [
+            319,
+            338,
+            567,
+            419
+          ],
+          "asset": "ch14-p505-chapter-review-q23-1.png",
+          "src": "./assets/textbook-practice/ch14-p505-chapter-review-q23-1.png",
+          "role": "question"
+        },
+        {
+          "page": 505,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "src": "./assets/textbook-practice/p505.jpg",
+          "role": "supporting full-page context"
+        }
+      ],
+      "clinicalNote": null,
+      "reviewStatus": "Crop boundaries checked against original text geometry; visual review recorded separately."
+    },
+    {
+      "id": "ch14-p505-chapter-review-q24",
+      "page": 505,
+      "group": "chapter-review",
+      "number": 24,
+      "label": "Chapter Review · p. 505 · question 24",
+      "topics": [
+        "lesson-04",
+        "lesson-09"
+      ],
+      "crops": [
+        {
+          "page": 505,
+          "box": [
+            319,
+            422,
+            567,
+            595
+          ],
+          "asset": "ch14-p505-chapter-review-q24-1.png",
+          "src": "./assets/textbook-practice/ch14-p505-chapter-review-q24-1.png",
+          "role": "question"
+        },
+        {
+          "page": 505,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "src": "./assets/textbook-practice/p505.jpg",
+          "role": "supporting full-page context"
+        }
+      ],
+      "clinicalNote": null,
+      "reviewStatus": "Crop boundaries checked against original text geometry; visual review recorded separately."
+    }
+  ],
+  "optional_records_count": 20,
+  "optional_resource_presence": [
+    {
+      "question": "ch14-p504-chapter-review-q1",
+      "resource": "./assets/textbook-practice/ch14-p504-chapter-review-q1-1.png",
+      "exists": true,
+      "sha256": "5805264e4b80ee997f72e0b7acc2ba02ecb44cc22926a8bbef59f5517829db28"
+    },
+    {
+      "question": "ch14-p504-chapter-review-q1",
+      "resource": "./assets/textbook-practice/p504.jpg",
+      "exists": true,
+      "sha256": "b4475ac6593b3ac29fb9541bf8b84226c72e316af5ed45685548d91eb5b258c7"
+    },
+    {
+      "question": "ch14-p504-chapter-review-q2",
+      "resource": "./assets/textbook-practice/ch14-p504-chapter-review-q2-1.png",
+      "exists": true,
+      "sha256": "775f1349245d3c563dfbbf25befd911409c680bf4834a6b88549370c9b5a41e8"
+    },
+    {
+      "question": "ch14-p504-chapter-review-q2",
+      "resource": "./assets/textbook-practice/p504.jpg",
+      "exists": true,
+      "sha256": "b4475ac6593b3ac29fb9541bf8b84226c72e316af5ed45685548d91eb5b258c7"
+    },
+    {
+      "question": "ch14-p504-chapter-review-q3",
+      "resource": "./assets/textbook-practice/ch14-p504-chapter-review-q3-1.png",
+      "exists": true,
+      "sha256": "c3e0fda12fac51e435a0b81742bf609c2a2e04cc3f43d2b5e0ff977a8dd452cb"
+    },
+    {
+      "question": "ch14-p504-chapter-review-q3",
+      "resource": "./assets/textbook-practice/p504.jpg",
+      "exists": true,
+      "sha256": "b4475ac6593b3ac29fb9541bf8b84226c72e316af5ed45685548d91eb5b258c7"
+    },
+    {
+      "question": "ch14-p504-chapter-review-q4",
+      "resource": "./assets/textbook-practice/ch14-p504-chapter-review-q4-1.png",
+      "exists": true,
+      "sha256": "fff6133a2e86e985d7bd87fd7e90cdf9233d80221145b69c67cd4c43c01fbdda"
+    },
+    {
+      "question": "ch14-p504-chapter-review-q4",
+      "resource": "./assets/textbook-practice/p504.jpg",
+      "exists": true,
+      "sha256": "b4475ac6593b3ac29fb9541bf8b84226c72e316af5ed45685548d91eb5b258c7"
+    },
+    {
+      "question": "ch14-p504-chapter-review-q6",
+      "resource": "./assets/textbook-practice/ch14-p504-chapter-review-q6-1.png",
+      "exists": true,
+      "sha256": "c7aa7516feab704e3a03df0bf6e16e60940df5b5c4215e3f2ef8d2d599d3b916"
+    },
+    {
+      "question": "ch14-p504-chapter-review-q6",
+      "resource": "./assets/textbook-practice/p504.jpg",
+      "exists": true,
+      "sha256": "b4475ac6593b3ac29fb9541bf8b84226c72e316af5ed45685548d91eb5b258c7"
+    },
+    {
+      "question": "ch14-p504-chapter-review-q8",
+      "resource": "./assets/textbook-practice/ch14-p504-chapter-review-q8-1.png",
+      "exists": true,
+      "sha256": "c969c939b16de563e68645f3a14a04b95f4420f9313f53d9b290ae656c347837"
+    },
+    {
+      "question": "ch14-p504-chapter-review-q8",
+      "resource": "./assets/textbook-practice/p504.jpg",
+      "exists": true,
+      "sha256": "b4475ac6593b3ac29fb9541bf8b84226c72e316af5ed45685548d91eb5b258c7"
+    },
+    {
+      "question": "ch14-p504-chapter-review-q9",
+      "resource": "./assets/textbook-practice/ch14-p504-chapter-review-q9-1.png",
+      "exists": true,
+      "sha256": "c17f02e09af3374d0c418b26907dd5ec2ef7441ae2c5c1a82eb12c98b35d0b27"
+    },
+    {
+      "question": "ch14-p504-chapter-review-q9",
+      "resource": "./assets/textbook-practice/p504.jpg",
+      "exists": true,
+      "sha256": "b4475ac6593b3ac29fb9541bf8b84226c72e316af5ed45685548d91eb5b258c7"
+    },
+    {
+      "question": "ch14-p504-chapter-review-q10",
+      "resource": "./assets/textbook-practice/ch14-p504-chapter-review-q10-1.png",
+      "exists": true,
+      "sha256": "eb1a3fdea3f3610af021a420bf02e9156ed015356d11717623a68316dca0e016"
+    },
+    {
+      "question": "ch14-p504-chapter-review-q10",
+      "resource": "./assets/textbook-practice/p504.jpg",
+      "exists": true,
+      "sha256": "b4475ac6593b3ac29fb9541bf8b84226c72e316af5ed45685548d91eb5b258c7"
+    },
+    {
+      "question": "ch14-p504-chapter-review-q11",
+      "resource": "./assets/textbook-practice/ch14-p504-chapter-review-q11-1.png",
+      "exists": true,
+      "sha256": "6f64dc6314689accb020037b98d60395d28640074ded2fbc7361bf3a6f3a26b4"
+    },
+    {
+      "question": "ch14-p504-chapter-review-q11",
+      "resource": "./assets/textbook-practice/p504.jpg",
+      "exists": true,
+      "sha256": "b4475ac6593b3ac29fb9541bf8b84226c72e316af5ed45685548d91eb5b258c7"
+    },
+    {
+      "question": "ch14-p504-chapter-review-q12",
+      "resource": "./assets/textbook-practice/ch14-p504-chapter-review-q12-1.png",
+      "exists": true,
+      "sha256": "1f85eb1ca4be129d26e1d46e84a9235c3f7b775a4c8941a3a27c549c231d6f42"
+    },
+    {
+      "question": "ch14-p504-chapter-review-q12",
+      "resource": "./assets/textbook-practice/p504.jpg",
+      "exists": true,
+      "sha256": "b4475ac6593b3ac29fb9541bf8b84226c72e316af5ed45685548d91eb5b258c7"
+    },
+    {
+      "question": "ch14-p504-chapter-review-q13",
+      "resource": "./assets/textbook-practice/ch14-p504-chapter-review-q13-1.png",
+      "exists": true,
+      "sha256": "1bfa7de4d9be95c79a53026b17d1caf375dd5715aa79bd798d473b449bd57001"
+    },
+    {
+      "question": "ch14-p504-chapter-review-q13",
+      "resource": "./assets/textbook-practice/p504.jpg",
+      "exists": true,
+      "sha256": "b4475ac6593b3ac29fb9541bf8b84226c72e316af5ed45685548d91eb5b258c7"
+    },
+    {
+      "question": "ch14-p504-chapter-review-q14",
+      "resource": "./assets/textbook-practice/ch14-p504-chapter-review-q14-1.png",
+      "exists": true,
+      "sha256": "0a5a03795ebf95284516d2a873e0f265c7a7bddc53e034991473e1a586c49cff"
+    },
+    {
+      "question": "ch14-p504-chapter-review-q14",
+      "resource": "./assets/textbook-practice/p504.jpg",
+      "exists": true,
+      "sha256": "b4475ac6593b3ac29fb9541bf8b84226c72e316af5ed45685548d91eb5b258c7"
+    },
+    {
+      "question": "ch14-p504-chapter-review-q16",
+      "resource": "./assets/textbook-practice/ch14-p504-chapter-review-q16-1.png",
+      "exists": true,
+      "sha256": "074ba415328092bdfb95af5089d283652e39e166708debb63d526749eb5cc14d"
+    },
+    {
+      "question": "ch14-p504-chapter-review-q16",
+      "resource": "./assets/textbook-practice/p504.jpg",
+      "exists": true,
+      "sha256": "b4475ac6593b3ac29fb9541bf8b84226c72e316af5ed45685548d91eb5b258c7"
+    },
+    {
+      "question": "ch14-p504-chapter-review-q17",
+      "resource": "./assets/textbook-practice/ch14-p504-chapter-review-q17-1.png",
+      "exists": true,
+      "sha256": "c9c12013dd130fa2ebf4795ad77d1f4a37832561a0243a4b9f40ec85c4554f1e"
+    },
+    {
+      "question": "ch14-p504-chapter-review-q17",
+      "resource": "./assets/textbook-practice/p504.jpg",
+      "exists": true,
+      "sha256": "b4475ac6593b3ac29fb9541bf8b84226c72e316af5ed45685548d91eb5b258c7"
+    },
+    {
+      "question": "ch14-p505-chapter-review-q18",
+      "resource": "./assets/textbook-practice/ch14-p505-chapter-review-q18-1.png",
+      "exists": true,
+      "sha256": "9d0f917931bcf29a7336537c3d3f41e043cccf227e4f5d5db70715f8a6d8df0d"
+    },
+    {
+      "question": "ch14-p505-chapter-review-q18",
+      "resource": "./assets/textbook-practice/p505.jpg",
+      "exists": true,
+      "sha256": "ce9cd493cf1380bdf3f46bbfffc6840d7fb34622278316bcd04a427d9d36b9df"
+    },
+    {
+      "question": "ch14-p505-chapter-review-q20",
+      "resource": "./assets/textbook-practice/ch14-p505-chapter-review-q20-1.png",
+      "exists": true,
+      "sha256": "e1a417ecaa433b876df502190ee3410e5b189b13a3138dada7bf24e5d52c27a4"
+    },
+    {
+      "question": "ch14-p505-chapter-review-q20",
+      "resource": "./assets/textbook-practice/p505.jpg",
+      "exists": true,
+      "sha256": "ce9cd493cf1380bdf3f46bbfffc6840d7fb34622278316bcd04a427d9d36b9df"
+    },
+    {
+      "question": "ch14-p505-chapter-review-q21",
+      "resource": "./assets/textbook-practice/ch14-p505-chapter-review-q21-1.png",
+      "exists": true,
+      "sha256": "06d2afef15c073c6eb17f12de7de1a519577c59defb7f53ee151d9e17e89dc39"
+    },
+    {
+      "question": "ch14-p505-chapter-review-q21",
+      "resource": "./assets/textbook-practice/p505.jpg",
+      "exists": true,
+      "sha256": "ce9cd493cf1380bdf3f46bbfffc6840d7fb34622278316bcd04a427d9d36b9df"
+    },
+    {
+      "question": "ch14-p505-chapter-review-q22",
+      "resource": "./assets/textbook-practice/ch14-p505-chapter-review-q22-1.png",
+      "exists": true,
+      "sha256": "255316bb8f7fc12db678b4ec77980fff21136be50ac954caab589613fc958cf6"
+    },
+    {
+      "question": "ch14-p505-chapter-review-q22",
+      "resource": "./assets/textbook-practice/p505.jpg",
+      "exists": true,
+      "sha256": "ce9cd493cf1380bdf3f46bbfffc6840d7fb34622278316bcd04a427d9d36b9df"
+    },
+    {
+      "question": "ch14-p505-chapter-review-q23",
+      "resource": "./assets/textbook-practice/ch14-p505-chapter-review-q23-1.png",
+      "exists": true,
+      "sha256": "3ec65f3b276bbd63f14d9c71e4faa6879831ec19364d56f579eaf744c19eb13d"
+    },
+    {
+      "question": "ch14-p505-chapter-review-q23",
+      "resource": "./assets/textbook-practice/p505.jpg",
+      "exists": true,
+      "sha256": "ce9cd493cf1380bdf3f46bbfffc6840d7fb34622278316bcd04a427d9d36b9df"
+    },
+    {
+      "question": "ch14-p505-chapter-review-q24",
+      "resource": "./assets/textbook-practice/ch14-p505-chapter-review-q24-1.png",
+      "exists": true,
+      "sha256": "330cc1392ed94b44661b21bc0ac3ebc8a17a28bb24e33f29e8bc3f5b5aed71f4"
+    },
+    {
+      "question": "ch14-p505-chapter-review-q24",
+      "resource": "./assets/textbook-practice/p505.jpg",
+      "exists": true,
+      "sha256": "ce9cd493cf1380bdf3f46bbfffc6840d7fb34622278316bcd04a427d9d36b9df"
+    }
+  ],
+  "candidate_and_review_hashes": [
+    {
+      "path": "/workspace/shared/ch14_11_extension/candidate/extension.reading.html",
+      "bytes": 7842,
+      "sha256": "880eec232a38b1ac80b50f2e3bc3b6a1a25b0e55f00b9cada5467e78f9a8c167"
+    },
+    {
+      "path": "/workspace/shared/ch14_11_extension/candidate/extension.teaching-fragment.html",
+      "bytes": 5492,
+      "sha256": "fc50102455ab8acb98575bba19188f3a49646ce61c2ff0118de4f9f995f046a3"
+    },
+    {
+      "path": "/workspace/shared/ch14_11_extension/candidate/extension.teaching-manuscript.txt",
+      "bytes": 4891,
+      "sha256": "c8d14d2aa021d562aad416900b8ba93d641d3931a6b13b93d8c0db3f977e1cfd"
+    },
+    {
+      "path": "/workspace/shared/ch14_11_extension/candidate/lesson-11.reading.html",
+      "bytes": 32183,
+      "sha256": "20538ba46945c860481a7f7500916b4c3bfd337c99e8832217fcc4224c5e491d"
+    },
+    {
+      "path": "/workspace/shared/ch14_11_extension/candidate/lesson-11.teaching-fragments.html",
+      "bytes": 9644,
+      "sha256": "ea051fdbcdd0e36ddf6419738c4281e928ab159cbe4b7769e6544a653a8e53a3"
+    },
+    {
+      "path": "/workspace/shared/ch14_11_extension/candidate/lesson-11.teaching-manuscript.txt",
+      "bytes": 8538,
+      "sha256": "fad77f3d64961692f0aee9d1e4d5a2e48aa13e69055d0ead9318d7f2f4abbbf7"
+    },
+    {
+      "path": "/workspace/shared/ch14_11_extension/review-blind-final/extension.html",
+      "bytes": 7388,
+      "sha256": "52a09d823f66e64a9d32d6aa54b47924388c3a26c710f81908a249835dd63536"
+    },
+    {
+      "path": "/workspace/shared/ch14_11_extension/review-blind-final/lesson-11.html",
+      "bytes": 30980,
+      "sha256": "3e86e714101e8325f0d8e2303e540e975cadbb84221b3641728687d0cd030912"
+    },
+    {
+      "path": "/workspace/shared/ch14_11_extension/review-rendered-final/extension-extracted.txt",
+      "bytes": 5836,
+      "sha256": "74d9865c3eb3771d3bc8e9b9cd8c84afb501d3726dcb6842162f4be71c00ceee"
+    },
+    {
+      "path": "/workspace/shared/ch14_11_extension/review-rendered-final/extension-page-01.png",
+      "bytes": 172997,
+      "sha256": "34841a7e766a7c66e6449f4c1e5d676a3fe2ea8c51d60817bc9133886fff1c9a"
+    },
+    {
+      "path": "/workspace/shared/ch14_11_extension/review-rendered-final/extension-page-02.png",
+      "bytes": 183222,
+      "sha256": "8c2ee15ccf97c3cb44abbb8f5419b96a20836efa27eb9cd668257204a852e3e2"
+    },
+    {
+      "path": "/workspace/shared/ch14_11_extension/review-rendered-final/extension-page-03.png",
+      "bytes": 42212,
+      "sha256": "8b70a07e5fef71e1c07f6b77f4c2a173958d8f878ca40c652b7e35cc2f2a5a3d"
+    },
+    {
+      "path": "/workspace/shared/ch14_11_extension/review-rendered-final/extension.pdf",
+      "bytes": 48782,
+      "sha256": "7474f8f6ab8ba116e773c456f98bb55ba46070ce6b7c08f9ca0ab6041ae48ba7"
+    },
+    {
+      "path": "/workspace/shared/ch14_11_extension/review-rendered-final/lesson-11-extracted.txt",
+      "bytes": 14744,
+      "sha256": "cacbb0ea8e6f5b1f88989271a75c826fd653a172a74a34e297fb36bd24c8ca91"
+    },
+    {
+      "path": "/workspace/shared/ch14_11_extension/review-rendered-final/lesson-11-page-01.png",
+      "bytes": 113195,
+      "sha256": "5003f0618c83ee19dcc3fed0f2b0fa53631d787eaa4284dd1501b899051bc8fd"
+    },
+    {
+      "path": "/workspace/shared/ch14_11_extension/review-rendered-final/lesson-11-page-02.png",
+      "bytes": 174433,
+      "sha256": "f3e8b241b920ef2888a9bfa16a9c95df352ae5059cf418de5a5fb4991821d241"
+    },
+    {
+      "path": "/workspace/shared/ch14_11_extension/review-rendered-final/lesson-11-page-03.png",
+      "bytes": 211482,
+      "sha256": "5553c92e2f391a8e2c6d2f2aa1832c8e6e98eb27f84db536c004198d486a7f6f"
+    },
+    {
+      "path": "/workspace/shared/ch14_11_extension/review-rendered-final/lesson-11-page-04.png",
+      "bytes": 168506,
+      "sha256": "8efa303e0e8025082f155ac4f8e0cb7d7d2049a21c130bf2ddcdbda845c30c85"
+    },
+    {
+      "path": "/workspace/shared/ch14_11_extension/review-rendered-final/lesson-11-page-05.png",
+      "bytes": 158822,
+      "sha256": "245d27e838c79bbed2656c8046913e66e485383c6a6adbd9eb291afbc379f212"
+    },
+    {
+      "path": "/workspace/shared/ch14_11_extension/review-rendered-final/lesson-11-page-06.png",
+      "bytes": 107339,
+      "sha256": "381b9680fc6894bac92ed170bb2527f0710e7d4e4c2e6907ec5cbb896821580f"
+    },
+    {
+      "path": "/workspace/shared/ch14_11_extension/review-rendered-final/lesson-11-page-07.png",
+      "bytes": 119056,
+      "sha256": "e316c35d1cf846421e1fbc2eb5acae2fdf5ea3f826eadc761ce4989eae4721be"
+    },
+    {
+      "path": "/workspace/shared/ch14_11_extension/review-rendered-final/lesson-11.pdf",
+      "bytes": 58041,
+      "sha256": "d01070c6dcbba151c3a84844beb6537dcbe3ac663d0abc83d5762434864f8c95"
+    },
+    {
+      "path": "/workspace/shared/ch14_11_extension/review-rendered-final/packet-integrity.json",
+      "bytes": 522,
+      "sha256": "cff335c582fa6a6dc083bad56ab7a544c339bcdb40e5d741235118012513aafd"
+    },
+    {
+      "path": "/workspace/shared/ch14_11_extension/review-feedback/extension.json",
+      "bytes": 504,
+      "sha256": "d3f1b0a131a923f3ecd1963f32c280396f64dfd2b06a806532ef879d91c0a447"
+    },
+    {
+      "path": "/workspace/shared/ch14_11_extension/review-feedback/lesson-11.json",
+      "bytes": 9999,
+      "sha256": "9650a77215d5516b3a4b09cd3e5cadb8aea14ea84dfc5dca807289408a61e1ef"
+    },
+    {
+      "path": "/workspace/shared/ch14_11_extension/review-reports/route11-extension/first-attempt.json",
+      "bytes": 42990,
+      "sha256": "e562589298688d896b6a41d87f65dbd5b60a0653e4c8d8728c69aeddbe50d156"
+    },
+    {
+      "path": "/workspace/shared/ch14_11_extension/review-reports/route11-extension/first-attempt.md",
+      "bytes": 33945,
+      "sha256": "3435e01d97616924f7b57e37734ed2c307699a018025671b78920c87d4b00c44"
+    },
+    {
+      "path": "/workspace/shared/ch14_11_extension/review-reports/route11-extension/second-pass.json",
+      "bytes": 26428,
+      "sha256": "dce30033fce36c17ba37d1c5be9093444fe8cbef6d421580063c297ec81df218"
+    },
+    {
+      "path": "/workspace/shared/ch14_11_extension/review-reports/route11-extension/second-pass.md",
+      "bytes": 21652,
+      "sha256": "f8698986335848b41f4780e482942bda4d6e44e40e9a54bac0868051954728d9"
+    }
+  ],
+  "summary": {
+    "archive_crc_ok": true,
+    "all_322_historical_hashes_match": true,
+    "all_owner_freezes_match": true,
+    "all_protected_dom_preserved": true,
+    "all_fragment_reading_parity": true,
+    "all_feedback_exact": true,
+    "all_10_packet_pngs_match_pdf": true,
+    "all_prompts_options_tables_present": true,
+    "all_28_source_pngs_match": true,
+    "all_optional_resources_exist": true,
+    "all_mc_orders_match": true,
+    "all_authored_strings_present": true,
+    "first_attempt_unchanged": true
+  },
+  "authored_string_parity": [
+    {
+      "route": "lesson-11",
+      "strings": 22,
+      "all_in_manuscript": true,
+      "all_in_reading": true
+    },
+    {
+      "route": "extension",
+      "strings": 18,
+      "all_in_manuscript": true,
+      "all_in_reading": true
+    }
+  ],
+  "option_order_checks": [
+    {
+      "representation": "candidate",
+      "id": "ch14-final-mc-1",
+      "actual": [
+        "Vas deferens",
+        "Seminiferous tubule",
+        "Seminal vesicle",
+        "Prostate gland"
+      ],
+      "exact_original_order": true
+    },
+    {
+      "representation": "candidate",
+      "id": "ch14-final-mc-2",
+      "actual": [
+        "Fructose release by the sperm head",
+        "Support of developing sperm",
+        "Storage of urine in the ovary",
+        "LH release from interstitial cells"
+      ],
+      "exact_original_order": true
+    },
+    {
+      "representation": "candidate",
+      "id": "ch14-final-mc-3",
+      "actual": [
+        "Cervix",
+        "Released secondary oocyte",
+        "Corpus luteum",
+        "Oviduct"
+      ],
+      "exact_original_order": true
+    },
+    {
+      "representation": "candidate",
+      "id": "ch14-final-mc-4",
+      "actual": [
+        "Menstrual shedding produces progesterone",
+        "Progesterone is converted directly from LH in blood",
+        "The oocyte releases all progesterone before ovulation",
+        "Hormone release by the newly formed corpus luteum"
+      ],
+      "exact_original_order": true
+    },
+    {
+      "representation": "candidate",
+      "id": "ch14-final-mc-5",
+      "actual": [
+        "Reduced upstream stimulation of the testis",
+        "A physical blockage of every reproductive duct",
+        "Conversion of testosterone into sperm",
+        "A required increase in both FSH and LH"
+      ],
+      "exact_original_order": true
+    },
+    {
+      "representation": "candidate",
+      "id": "ch14-final-mc-6",
+      "actual": [
+        "The cervix becomes a new sperm-production site",
+        "The route for gamete encounter or transport can be disrupted",
+        "The scar must directly remove all sex chromosomes",
+        "The ovary must stop every hormone immediately"
+      ],
+      "exact_original_order": true
+    },
+    {
+      "representation": "candidate",
+      "id": "ch14-transfer-mc-1",
+      "actual": [
+        "Reduced testosterone with increased stimulation from the control centres",
+        "Reduced testosterone with permanently absent LH release",
+        "Normal testosterone because FSH directly replaces LH at interstitial cells",
+        "Increased testosterone with reduced stimulation from the control centres"
+      ],
+      "exact_original_order": true
+    },
+    {
+      "representation": "candidate",
+      "id": "ch14-transfer-mc-2",
+      "actual": [
+        "A direct blockage of the oviduct by falling progesterone",
+        "Lower luteal progesterone and reduced support for the endometrium",
+        "Persistently high luteal progesterone from the inactive corpus luteum",
+        "Failure of the earlier LH surge to have occurred"
+      ],
+      "exact_original_order": true
+    },
+    {
+      "representation": "candidate",
+      "id": "ch14-transfer-mc-3",
+      "actual": [
+        "Testosterone synthesis in interstitial cells",
+        "Chromosome reduction inside primary spermatocytes",
+        "An energy contribution normally provided by an accessory-gland secretion",
+        "The opening of the vas deferens during sperm transport"
+      ],
+      "exact_original_order": true
+    },
+    {
+      "representation": "review-blind-final",
+      "id": "ch14-final-mc-1",
+      "actual": [
+        "Vas deferens",
+        "Seminiferous tubule",
+        "Seminal vesicle",
+        "Prostate gland"
+      ],
+      "exact_original_order": true
+    },
+    {
+      "representation": "review-blind-final",
+      "id": "ch14-final-mc-2",
+      "actual": [
+        "Fructose release by the sperm head",
+        "Support of developing sperm",
+        "Storage of urine in the ovary",
+        "LH release from interstitial cells"
+      ],
+      "exact_original_order": true
+    },
+    {
+      "representation": "review-blind-final",
+      "id": "ch14-final-mc-3",
+      "actual": [
+        "Cervix",
+        "Released secondary oocyte",
+        "Corpus luteum",
+        "Oviduct"
+      ],
+      "exact_original_order": true
+    },
+    {
+      "representation": "review-blind-final",
+      "id": "ch14-final-mc-4",
+      "actual": [
+        "Menstrual shedding produces progesterone",
+        "Progesterone is converted directly from LH in blood",
+        "The oocyte releases all progesterone before ovulation",
+        "Hormone release by the newly formed corpus luteum"
+      ],
+      "exact_original_order": true
+    },
+    {
+      "representation": "review-blind-final",
+      "id": "ch14-final-mc-5",
+      "actual": [
+        "Reduced upstream stimulation of the testis",
+        "A physical blockage of every reproductive duct",
+        "Conversion of testosterone into sperm",
+        "A required increase in both FSH and LH"
+      ],
+      "exact_original_order": true
+    },
+    {
+      "representation": "review-blind-final",
+      "id": "ch14-final-mc-6",
+      "actual": [
+        "The cervix becomes a new sperm-production site",
+        "The route for gamete encounter or transport can be disrupted",
+        "The scar must directly remove all sex chromosomes",
+        "The ovary must stop every hormone immediately"
+      ],
+      "exact_original_order": true
+    },
+    {
+      "representation": "review-blind-final",
+      "id": "ch14-transfer-mc-1",
+      "actual": [
+        "Reduced testosterone with increased stimulation from the control centres",
+        "Reduced testosterone with permanently absent LH release",
+        "Normal testosterone because FSH directly replaces LH at interstitial cells",
+        "Increased testosterone with reduced stimulation from the control centres"
+      ],
+      "exact_original_order": true
+    },
+    {
+      "representation": "review-blind-final",
+      "id": "ch14-transfer-mc-2",
+      "actual": [
+        "A direct blockage of the oviduct by falling progesterone",
+        "Lower luteal progesterone and reduced support for the endometrium",
+        "Persistently high luteal progesterone from the inactive corpus luteum",
+        "Failure of the earlier LH surge to have occurred"
+      ],
+      "exact_original_order": true
+    },
+    {
+      "representation": "review-blind-final",
+      "id": "ch14-transfer-mc-3",
+      "actual": [
+        "Testosterone synthesis in interstitial cells",
+        "Chromosome reduction inside primary spermatocytes",
+        "An energy contribution normally provided by an accessory-gland secretion",
+        "The opening of the vas deferens during sperm transport"
+      ],
+      "exact_original_order": true
+    }
+  ],
+  "review_only_contact_sheets": [
+    {
+      "path": "/workspace/shared/ch14_11_extension/review-reports/source-evidence/optional-crops-1.png",
+      "bytes": 104153,
+      "sha256": "883eea0c87f700316a79ce3da568f1de7a78ed9fc6885bd72dc1b60c63f5cb8b"
+    },
+    {
+      "path": "/workspace/shared/ch14_11_extension/review-reports/source-evidence/optional-crops-2.png",
+      "bytes": 145002,
+      "sha256": "011a9b73559f6c28c6a2a7cadbc230a61ff428dadcf25c3159bd21846a10f83b"
+    },
+    {
+      "path": "/workspace/shared/ch14_11_extension/review-reports/source-evidence/optional-crops-3.png",
+      "bytes": 199273,
+      "sha256": "a635150c5f715b3ff1a6b1024e4e43ec24804cb9cdb95372a13782f3e05be5ce"
+    },
+    {
+      "path": "/workspace/shared/ch14_11_extension/review-reports/source-evidence/optional-crops-4.png",
+      "bytes": 217996,
+      "sha256": "97f8fe36653e64d3cf51fe019c8b99115438727a66acbc56ee0a856ab61a00f8"
+    }
+  ],
+  "first_attempt_expected_hashes": [
+    {
+      "file": "first-attempt.json",
+      "expected": "e562589298688d896b6a41d87f65dbd5b60a0653e4c8d8728c69aeddbe50d156",
+      "actual": "e562589298688d896b6a41d87f65dbd5b60a0653e4c8d8728c69aeddbe50d156",
+      "unchanged": true
+    },
+    {
+      "file": "first-attempt.md",
+      "expected": "3435e01d97616924f7b57e37734ed2c307699a018025671b78920c87d4b00c44",
+      "actual": "3435e01d97616924f7b57e37734ed2c307699a018025671b78920c87d4b00c44",
+      "unchanged": true
+    }
+  ]
+}

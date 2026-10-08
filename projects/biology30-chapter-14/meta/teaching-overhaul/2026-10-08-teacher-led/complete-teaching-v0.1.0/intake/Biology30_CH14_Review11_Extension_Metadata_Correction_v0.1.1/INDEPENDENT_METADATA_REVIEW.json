@@ -1,0 +1,123 @@
+{
+  "reviewed_at_utc": "2026-10-08T21:39:22.902321+00:00",
+  "scope": "Independent metadata-only serialization correction verification; no source, content, integration or runtime edit.",
+  "targets": [
+    {
+      "selector": "#ch14-l11-teaching-01",
+      "xpath": "//*[@id=\"ch14-l11-teaching-01\"]",
+      "selected_nodes": 1,
+      "legacy_ascii_sha256": "6fbc92780a63ead5b2eda97e3cf15ca986919e60c51a89b32ea27827ad3170ab",
+      "legacy_ascii_bytes": 1455,
+      "corrected_utf8_sha256": "2eaf8c859ed78b55f0e162bbcd56c9ac75166f37070951e5a90cdd169ffad495",
+      "corrected_utf8_bytes": 1427,
+      "legacy_matches_original_and_retained_metadata": true,
+      "utf8_matches_corrected_manifest_and_receipt": true,
+      "explicit_contract_matches": true
+    },
+    {
+      "selector": "#ch14-l11-teaching-02",
+      "xpath": "//*[@id=\"ch14-l11-teaching-02\"]",
+      "selected_nodes": 1,
+      "legacy_ascii_sha256": "b88db3a12724f9f152d5ea3e8a949415fa21b4f3ccb072e4816708608421b631",
+      "legacy_ascii_bytes": 1557,
+      "corrected_utf8_sha256": "b88db3a12724f9f152d5ea3e8a949415fa21b4f3ccb072e4816708608421b631",
+      "corrected_utf8_bytes": 1557,
+      "legacy_matches_original_and_retained_metadata": true,
+      "utf8_matches_corrected_manifest_and_receipt": true,
+      "explicit_contract_matches": true
+    },
+    {
+      "selector": "#ch14-review-worked",
+      "xpath": "//*[@id=\"ch14-review-worked\"]",
+      "selected_nodes": 1,
+      "legacy_ascii_sha256": "4e986badd6feb85e8a16c20137fea0f06f99182e5e946afe9b55dd4385d27da4",
+      "legacy_ascii_bytes": 942,
+      "corrected_utf8_sha256": "4e986badd6feb85e8a16c20137fea0f06f99182e5e946afe9b55dd4385d27da4",
+      "corrected_utf8_bytes": 942,
+      "legacy_matches_original_and_retained_metadata": true,
+      "utf8_matches_corrected_manifest_and_receipt": true,
+      "explicit_contract_matches": true
+    },
+    {
+      "selector": "#extension > .p2-topic > div.content-section:first-of-type",
+      "xpath": "//*[@id=\"extension\"]/div[@class=\"p2-topic\"]/div[@class=\"content-section\"][1]",
+      "selected_nodes": 1,
+      "legacy_ascii_sha256": "2889a38235e92e855e7d4a2659b0af09232020f2335695f8d1855e00aa11c76b",
+      "legacy_ascii_bytes": 1152,
+      "corrected_utf8_sha256": "5b17194154d90a4f55efd4438c2bed122dbb5da327b43bec5d3d3c56a7f0898b",
+      "corrected_utf8_bytes": 1148,
+      "legacy_matches_original_and_retained_metadata": true,
+      "utf8_matches_corrected_manifest_and_receipt": true,
+      "explicit_contract_matches": true
+    }
+  ],
+  "whole_owners": [
+    {
+      "path": "scripts/content.py",
+      "expected": "15f3e496a739a40f7de85ccfa8a8dcaadfb0a4ebb4274f4c36c272244d542a2e",
+      "historical_sha256": "15f3e496a739a40f7de85ccfa8a8dcaadfb0a4ebb4274f4c36c272244d542a2e",
+      "frozen_sha256": "15f3e496a739a40f7de85ccfa8a8dcaadfb0a4ebb4274f4c36c272244d542a2e",
+      "hash_and_metadata_unchanged": true
+    },
+    {
+      "path": "scripts/build_chapter.py",
+      "expected": "915625267d4ea0a5a2bbd5cb86c62d3a9767f1d5aebcadcfb7b0169ee0eb704a",
+      "historical_sha256": "915625267d4ea0a5a2bbd5cb86c62d3a9767f1d5aebcadcfb7b0169ee0eb704a",
+      "frozen_sha256": "915625267d4ea0a5a2bbd5cb86c62d3a9767f1d5aebcadcfb7b0169ee0eb704a",
+      "hash_and_metadata_unchanged": true
+    },
+    {
+      "path": "workspace/index.html",
+      "expected": "4ce8de9382426b07de164b5de82ab6c25cd2471f41f309f7208311d3b523d1d0",
+      "historical_sha256": "4ce8de9382426b07de164b5de82ab6c25cd2471f41f309f7208311d3b523d1d0",
+      "frozen_sha256": "4ce8de9382426b07de164b5de82ab6c25cd2471f41f309f7208311d3b523d1d0",
+      "hash_and_metadata_unchanged": true
+    },
+    {
+      "path": "authoring/course-config.json",
+      "expected": "22a968d603d78dd5cd12e81324f8f4df4fbd29161413de20873884c714d1ffe8",
+      "historical_sha256": "22a968d603d78dd5cd12e81324f8f4df4fbd29161413de20873884c714d1ffe8",
+      "frozen_sha256": "22a968d603d78dd5cd12e81324f8f4df4fbd29161413de20873884c714d1ffe8",
+      "hash_and_metadata_unchanged": true
+    }
+  ],
+  "original_manifest": {
+    "original_sha256": "0389d8f8ae46681cd117004a0854a4c7627a14e85dd1a65d74c815f729a071cc",
+    "copy_sha256": "0389d8f8ae46681cd117004a0854a4c7627a14e85dd1a65d74c815f729a071cc",
+    "byte_identical": true,
+    "matches_declared_provenance": true
+  },
+  "original_zip": {
+    "path": "/workspace/scratch/6f97d4e841e3/Biology30_CH14_Review11_Extension_Conditional_Content_v0.1.0.zip",
+    "sha256": "06ff7ea7bdb1add31e4301c94b84c384df90f79c1ba325638ce3d66a66d407e5",
+    "expected_sha256": "06ff7ea7bdb1add31e4301c94b84c384df90f79c1ba325638ce3d66a66d407e5",
+    "unchanged": true,
+    "crc_first_bad_member": null,
+    "original_manifest_member_exact": true
+  },
+  "original_packet_local_parity": {
+    "compared_files": 93,
+    "all_unchanged": true,
+    "differences": []
+  },
+  "only_declared_metadata_changes": true,
+  "provenance_preserved": {
+    "content_version_remains_0_1_0": true,
+    "metadata_version_0_1_1": true,
+    "source_archive_standard_references_unchanged": true,
+    "owner_and_protected_gates_unchanged": true
+  },
+  "instruction_review": {
+    "files_read": [
+      "README.txt",
+      "AUTHOR_RECHECK.txt",
+      "PRESERVATION_MANIFEST.json",
+      "HASH_CORRECTION_RECEIPT.json",
+      "PRESERVATION_MANIFEST_v0.1.0_UNCHANGED.json"
+    ],
+    "no_force_application_instruction": true,
+    "finding": "README and manifest explicitly prohibit force application, overwriting newer owners and bypassing a mismatch. Nonmatching targets remain held for reconciliation; full-owner hashes/current-owner gate remain required."
+  },
+  "verdict": "Pass",
+  "limits": "Metadata-only pass. Current-local target/owner parity, integration, native runtime, mobile/accessibility, teacher acceptance and release remain Not verified. No instruction to apply or bypass a mismatch."
+}

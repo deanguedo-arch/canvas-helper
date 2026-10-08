@@ -1,0 +1,44 @@
+{
+  "metadata_version": "0.1.1",
+  "content_version": "0.1.0",
+  "contract": "Read the source document as UTF-8; parse with lxml.html.fromstring; select the exact target; serialize with lxml.html.tostring(node, encoding=\"utf-8\", method=\"html\", with_tail=False); hash those bytes with SHA-256. No Unicode normalization, whitespace cleanup, attribute removal or content substitution.",
+  "targets": [
+    {
+      "selector": "#ch14-l11-teaching-01",
+      "legacy_ascii_sha256": "6fbc92780a63ead5b2eda97e3cf15ca986919e60c51a89b32ea27827ad3170ab",
+      "legacy_ascii_bytes": 1455,
+      "corrected_utf8_sha256": "2eaf8c859ed78b55f0e162bbcd56c9ac75166f37070951e5a90cdd169ffad495",
+      "corrected_utf8_bytes": 1427,
+      "non_ascii_characters": [
+        "\u2192"
+      ]
+    },
+    {
+      "selector": "#ch14-l11-teaching-02",
+      "legacy_ascii_sha256": "b88db3a12724f9f152d5ea3e8a949415fa21b4f3ccb072e4816708608421b631",
+      "legacy_ascii_bytes": 1557,
+      "corrected_utf8_sha256": "b88db3a12724f9f152d5ea3e8a949415fa21b4f3ccb072e4816708608421b631",
+      "corrected_utf8_bytes": 1557,
+      "non_ascii_characters": []
+    },
+    {
+      "selector": "#ch14-review-worked",
+      "legacy_ascii_sha256": "4e986badd6feb85e8a16c20137fea0f06f99182e5e946afe9b55dd4385d27da4",
+      "legacy_ascii_bytes": 942,
+      "corrected_utf8_sha256": "4e986badd6feb85e8a16c20137fea0f06f99182e5e946afe9b55dd4385d27da4",
+      "corrected_utf8_bytes": 942,
+      "non_ascii_characters": []
+    },
+    {
+      "selector": "#extension > .p2-topic > div.content-section:first-of-type",
+      "legacy_ascii_sha256": "2889a38235e92e855e7d4a2659b0af09232020f2335695f8d1855e00aa11c76b",
+      "legacy_ascii_bytes": 1152,
+      "corrected_utf8_sha256": "5b17194154d90a4f55efd4438c2bed122dbb5da327b43bec5d3d3c56a7f0898b",
+      "corrected_utf8_bytes": 1148,
+      "non_ascii_characters": [
+        "\u2019"
+      ]
+    }
+  ],
+  "all_content_and_protected_base_bytes_unchanged": true
+}
