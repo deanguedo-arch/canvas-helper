@@ -73,6 +73,8 @@ const oldOwnerFiles=tree(path.join(previous,'owner')),newOwnerFiles=tree(path.jo
 assert.equal(oldOwnerFiles.length,newOwnerFiles.length);for(const f of oldOwnerFiles)if(!['workspace/index.html','authoring/reviewed-teaching-copy.json'].includes(f.path))assert.equal(newOwnerFiles.find(x=>x.path===f.path).sha256,f.sha256);
 let comparison=read(path.join(previous,'evaluation/index.html')).replaceAll('57633','57673').replaceAll('57631','57671').replaceAll('57630','57670');
 comparison=comparison.replace('Current course · frozen baseline','Approved complete teaching · v0.1.0').replace('comparison candidate','chromatid clarification · v0.1.1').replace('review/extension','lesson03 teaching clarification');
+comparison=comparison.replace('Previous · first-ten candidate','Approved · complete teaching v0.1.0').replace('New · complete teaching candidate','New · lesson03 clarification v0.1.1').replace('Previous Chapter 14 candidate','Approved Chapter 14 complete candidate').replace('Complete Chapter 14 teaching candidate','Chapter 14 clarification candidate');
+comparison=comparison.replace('Lessons 1–2: Dean’s comparison sign-off retained. Lessons 3–11 and extension: awaiting Dean’s acceptance.','Dean accepted the complete v0.1.0 teaching comparison. This separate v0.1.1 copy adds only three explanatory sentences in lesson3; that clarification awaits acceptance.');
 fs.writeFileSync(path.join(root,'evaluation/index.html'),comparison);
 assert.equal(sha(fs.readFileSync(native)),'6d57efbeb6e5b81142a90c5854c3a1453ffda7acd7cdf805fb202667ee1d332a');
 assert.equal(sha(fs.readFileSync(canonicalPath)),'054b823d5758a702041f24fd06b15a77d69cdfff63323cd5ffd7e803bf8936b8');
