@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "verifiedAt": "2026-10-02T23:18:07.416Z",
+  "purpose": "Teacher review only",
+  "hosting": {
+    "provider": "Firebase Hosting",
+    "projectId": "calm-module-one",
+    "siteId": "biology30pilot",
+    "url": "https://biology30pilot.web.app"
+  },
+  "reviewVersion": "20261002-science24-visual1",
+  "deployedAt": "2026-10-02T23:16:34.782Z",
+  "units": [
+    {
+      "id": "science24-unit-a",
+      "treeSha256": "93f61454a671c9060d809670e3fc23de0cd1d51c53922d25bb10a9426ba2ac9a",
+      "indexSha256": "0743da65433bdaec46ccca8dd4db12f2666182866d52bec6728ea71f3f1511f6",
+      "url": "https://biology30pilot.web.app/science24-unit-a/index.html?v=20261002-science24-visual1"
+    },
+    {
+      "id": "science24-unit-b",
+      "treeSha256": "ac666204be4fdaf5bac0a9f247b10da67e02c1df3edc4dc7d45736025b3e9f60",
+      "indexSha256": "b2029dcd19495e5f5789c70d451c082ebb52526e0adba8cbdb7f934e51b49234",
+      "url": "https://biology30pilot.web.app/science24-unit-b/index.html?v=20261002-science24-visual1"
+    },
+    {
+      "id": "science24-unit-c",
+      "treeSha256": "ab8d9222c899db2de5a3fc6e27982b0e35cd49a74fedfcd3e68f4f0943d78916",
+      "indexSha256": "73bf3253e0af04bebf8c9df9b455e33c66c836f4a4c06574e4dc9b3634cb2158",
+      "url": "https://biology30pilot.web.app/science24-unit-c/index.html?v=20261002-science24-visual1"
+    },
+    {
+      "id": "science24-unit-d",
+      "treeSha256": "8d7dccf0d159e121c80c6a7a8ae6aa5415fe70a57d2591a0d0564317482cd39b",
+      "indexSha256": "ef0288c7abe5765fb537e1687ed270e018601f1cd614f5ca88b46102c65f7698",
+      "url": "https://biology30pilot.web.app/science24-unit-d/index.html?v=20261002-science24-visual1"
+    }
+  ],
+  "verification": {
+    "fileCount": 671,
+    "allFilesMatch": true
+  },
+  "scienceFiles": 670,
+  "selectorFiles": 1,
+  "unrelatedFilesPreserved": 1883,
+  "allBlocked": true,
+  "deployCommand": "npx tsx scripts/deploy-biology30-current-review.mjs --deploy --refresh-science24",
+  "localCandidateChecksReusedOnlyAfterExactHashComparison": true
+}

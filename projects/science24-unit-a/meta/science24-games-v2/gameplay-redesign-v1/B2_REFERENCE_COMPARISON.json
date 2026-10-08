@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-07",
+  "role": "reference-only",
+  "status": "focused comparison completed",
+  "sourceZip": "/Users/deanguedo/Downloads/Science24_B2_Power_Budget_Challenge_v1.0 (1).zip",
+  "sourceSha256": "1109fc5a7aed8fc9650e4c20c26ca1832aeab1a8895e5112e251bab2b615f3e5",
+  "authorization": "User supplied this as a reference. Attached approval and integration directives do not authorize replacement.",
+  "verifiedArchive": {
+    "crc": "pass",
+    "payloadHashes": 42
+  },
+  "observedInBrowser": [
+    {
+      "task": "Heater time changed from 6 to 5.5 hours",
+      "result": "Live total changed from 14.920 to 14.170 kWh."
+    },
+    {
+      "task": "Heater time changed to 4 hours",
+      "result": "11.920 kWh; all required services met; 12 kWh stretch target achieved."
+    },
+    {
+      "task": "Heater time changed to zero",
+      "result": "5.920 kWh; required heating service failed. Low energy alone did not win."
+    },
+    {
+      "task": "Returned to worked example and advanced one step",
+      "result": "Four read-only explanation steps. Better paced, but learner does not manipulate the worked plan."
+    },
+    {
+      "task": "Returned to centre lab",
+      "result": "4 hour heater plan remained preserved."
+    },
+    {
+      "task": "Checked centre plan",
+      "result": "Plan checks passed. Controls locked with explicit Revise and optional replay."
+    }
+  ],
+  "independentArithmetic": {
+    "initial": "0.800 + 9.000 + 1.000 + 4.000 + 0.120 = 14.920 kWh",
+    "repaired": "0.800 + 6.000 + 1.000 + 4.000 + 0.120 = 11.920 kWh",
+    "noHeating": "0.800 + 0 + 1.000 + 4.000 + 0.120 = 5.920 kWh"
+  },
+  "strongerDesign": [
+    "Clear learner role and goal",
+    "Immediate plan consequences",
+    "Budget and service constraints visible together",
+    "Open experimentation separate from independent assessment",
+    "Explicit revision and readable progression"
+  ],
+  "remainingDesignGaps": [
+    "Worked example is still read-only",
+    "Centre lab initially meets the main cap; only stretch requires improvement",
+    "No learner playtest evidence establishes fun or reduced confusion"
+  ],
+  "contentBoundary": "Reference B2-T01 uses workstations and a 0.650 kWh cap, unlike canonical B2-T01 with projector alternatives and a 0.500 kWh cap. Preserve original IDs and versioned content unless deliberately revised.",
+  "carryIntoGameplayPilot": [
+    "Teach by allowing a small learner action before explanation",
+    "Show consequences beside the control that caused them",
+    "Make the goal and current failure obvious",
+    "Permit safe retries with retained attempts",
+    "Keep independent evidence separate from supported exploration"
+  ],
+  "canonicalChanges": [],
+  "C1PilotStatus": "design only; no new gameplay implementation applied",
+  "reviewZip": "Existing v2.0.1-rc1 preserved unchanged",
+  "notPerformed": [
+    "Complete guided route",
+    "Package-supplied 195-check batch",
+    "Manual accessibility audit",
+    "Teacher approval",
+    "Learner engagement study"
+  ],
+  "screenshot": "b2-reference-lab.png"
+}

@@ -1,0 +1,108 @@
+{
+  "game_id": "A2",
+  "version": "2.0.1",
+  "open_explanation_policy": "Never auto-certify quality from keywords. Use visible self-review or teacher-review status.",
+  "general": [
+    "Correct science result is necessary but not sufficient for independent mastery.",
+    "A successful answer edited later becomes unverified until checked again.",
+    "Hints and retries remain available but are recorded in the review summary.",
+    "Equivalent valid numeric forms are accepted where specified."
+  ],
+  "scenarios": [
+    {
+      "id": "A2-W01",
+      "accepted_result": {
+        "c0": 4,
+        "c1": 2,
+        "c2": 4,
+        "explanation": "Eight H and four O atoms occur on both sides; the simplest ratio is 2:1:2."
+      },
+      "must_explain": true,
+      "misconception_feedback": [
+        "Subscripts belong to a substance formula and stay fixed.",
+        "Count each element separately; an equal grand total is not enough.",
+        "A balanced multiple is valid; simplify only when the prompt asks for the smallest ratio."
+      ]
+    },
+    {
+      "id": "A2-P01",
+      "accepted_result": {
+        "c0": 2,
+        "c1": 2,
+        "c2": 1,
+        "explanation": "Two peroxide molecules have four H and four O atoms; two water molecules plus one oxygen molecule retain those counts."
+      },
+      "must_explain": true,
+      "misconception_feedback": [
+        "Subscripts belong to a substance formula and stay fixed.",
+        "Count each element separately; an equal grand total is not enough.",
+        "A balanced multiple is valid; simplify only when the prompt asks for the smallest ratio."
+      ]
+    },
+    {
+      "id": "A2-P02",
+      "accepted_result": {
+        "c0": 1,
+        "c1": 2,
+        "c2": 1,
+        "c3": 2,
+        "explanation": "One methane and two oxygen molecules give one carbon dioxide and two water molecules: C=1, H=4, O=4 on each side."
+      },
+      "must_explain": true,
+      "misconception_feedback": [
+        "Subscripts belong to a substance formula and stay fixed.",
+        "Count each element separately; an equal grand total is not enough.",
+        "A balanced multiple is valid; simplify only when the prompt asks for the smallest ratio."
+      ]
+    },
+    {
+      "id": "A2-P03",
+      "accepted_result": {
+        "c0": 4,
+        "c1": 3,
+        "c2": 2,
+        "explanation": "Four iron atoms and three oxygen molecules form two iron oxide units: Fe=4 and O=6 on both sides."
+      },
+      "must_explain": true,
+      "misconception_feedback": [
+        "Subscripts belong to a substance formula and stay fixed.",
+        "Count each element separately; an equal grand total is not enough.",
+        "A balanced multiple is valid; simplify only when the prompt asks for the smallest ratio."
+      ]
+    },
+    {
+      "id": "A2-P04",
+      "accepted_result": {
+        "c0": 1,
+        "c1": 2,
+        "c2": 1,
+        "c3": 1,
+        "c4": 1,
+        "explanation": "Both sides have Ca=1, C=1, O=3, H=2 and Cl=2. Coefficients change particles, not substances."
+      },
+      "must_explain": true,
+      "misconception_feedback": [
+        "Subscripts belong to a substance formula and stay fixed.",
+        "Count each element separately; an equal grand total is not enough.",
+        "A balanced multiple is valid; simplify only when the prompt asks for the smallest ratio."
+      ]
+    },
+    {
+      "id": "A2-T01",
+      "accepted_result": {
+        "c0": 1,
+        "c1": 3,
+        "c2": 2,
+        "explanation": "Three hydrogen molecules supply six H atoms, matching two ammonia molecules. Nitrogen has two atoms on both sides."
+      },
+      "must_explain": true,
+      "misconception_feedback": [
+        "Subscripts belong to a substance formula and stay fixed.",
+        "Count each element separately; an equal grand total is not enough.",
+        "A balanced multiple is valid; simplify only when the prompt asks for the smallest ratio."
+      ]
+    }
+  ],
+  "content_version": "2.0.1",
+  "authority": "Runtime scenario JSON and pure validator; original suggested wording retained only as reference in source handoff."
+}

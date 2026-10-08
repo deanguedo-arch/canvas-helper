@@ -1,0 +1,40 @@
+{
+  "passed": 8,
+  "failed": 0,
+  "tests": [
+    {
+      "test": "Offline file entry renders intro",
+      "status": "PASS"
+    },
+    {
+      "test": "Offline worked round renders",
+      "status": "PASS"
+    },
+    {
+      "test": "Offline art decodes",
+      "status": "PASS"
+    },
+    {
+      "test": "Offline evidence reveal works",
+      "status": "PASS"
+    },
+    {
+      "test": "Offline Previous returns worked round",
+      "status": "PASS"
+    },
+    {
+      "test": "Offline back-forward preserves record",
+      "status": "PASS"
+    },
+    {
+      "test": "Offline no page errors",
+      "status": "PASS"
+    },
+    {
+      "test": "Offline has no external HTTP requests",
+      "status": "PASS"
+    }
+  ],
+  "artifact_sha256": "ebd9f60548887206e144fbbc3fece4d90877fbe47c01422d5aac943341c0fc70",
+  "method": "Actual file:// navigation to portable standalone HTML, not set_content"
+}

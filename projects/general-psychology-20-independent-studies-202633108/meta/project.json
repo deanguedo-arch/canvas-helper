@@ -68,7 +68,7 @@
   "referenceOnly": [],
   "sourceOfTruthNotes": "Use workspace/index.html, workspace/main.js, workspace/assessment-delivery.js, and workspace/assets/*.html as editable canonical sources. Regenerate course-shell-data.js and D2L map artifacts from meta/build-shell-from-manifest.ps1. Do not replace this project with the generic build:course-shell output unless intentionally rebuilding course structure. Legacy onboarding quarantined the prior rebuild command until its source inputs are restored: powershell -ExecutionPolicy Bypass -File projects/general-psychology-20-independent-studies-202633108/meta/build-shell-from-manifest.ps1 Studio onboarding: The learner page is preserved as the editable baseline because its original rebuild inputs are incomplete or not portable.",
   "createdAt": "2026-04-09T19:29:15.518Z",
-  "updatedAt": "2026-08-27T15:38:50.806Z",
+  "updatedAt": "2026-10-07T18:32:04.941Z",
   "workspaceApprovedAt": "2026-06-15T15:31:59.487Z",
   "authoring": {
     "driverId": "legacy-snapshot-v1",

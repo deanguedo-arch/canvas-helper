@@ -1,0 +1,771 @@
+{
+  "version": "1.0.0",
+  "html_sha256": "5423cd6ee0f517567ee4744e5ab55d83e6a0b84ba24522407e409a1348db3a71",
+  "method": "Exact self-contained PLAY.html executed with Playwright set_content in system Chromium. This is runtime browser testing, not a design-image render.",
+  "browser_path": "/usr/bin/chromium",
+  "passed": 119,
+  "failed": 0,
+  "exception": null,
+  "runtime_errors": [],
+  "external_requests": [],
+  "checks": [
+    {
+      "check": "Loads the executable B2 application",
+      "pass": true
+    },
+    {
+      "check": "Future stages are initially locked",
+      "pass": true
+    },
+    {
+      "check": "No whole-app live announcement region",
+      "pass": true
+    },
+    {
+      "check": "Dedicated status region exists",
+      "pass": true
+    },
+    {
+      "check": "All initial embedded photos loaded",
+      "pass": true
+    },
+    {
+      "check": "Worked example starts at first step",
+      "pass": true
+    },
+    {
+      "check": "Worked next changes modelled step",
+      "pass": true
+    },
+    {
+      "check": "Worked previous preserves route and returns",
+      "pass": true
+    },
+    {
+      "check": "Final worked account is 0.440 kWh",
+      "pass": true
+    },
+    {
+      "check": "Blank submission is not counted as an attempt",
+      "pass": true
+    },
+    {
+      "check": "Blank answer has visible corrective feedback",
+      "pass": true
+    },
+    {
+      "check": "Submit focuses feedback rather than heading",
+      "pass": true
+    },
+    {
+      "check": "Zero-energy service cancellation is rejected",
+      "pass": true
+    },
+    {
+      "check": "Service failure names the constraint",
+      "pass": true
+    },
+    {
+      "check": "Hint count is retained",
+      "pass": true
+    },
+    {
+      "check": "Hint focus stays with the opened hint",
+      "pass": true
+    },
+    {
+      "check": "Lighting valid plan passes",
+      "pass": true
+    },
+    {
+      "check": "Checked successful schedule is locked",
+      "pass": true
+    },
+    {
+      "check": "Successful free text is not called automatically graded",
+      "pass": true
+    },
+    {
+      "check": "Next stage waits for self-review",
+      "pass": true
+    },
+    {
+      "check": "Self-review unlocks next stage",
+      "pass": true
+    },
+    {
+      "check": "Revision invalidates current passed state",
+      "pass": true
+    },
+    {
+      "check": "Revision removes active forward continuation",
+      "pass": true
+    },
+    {
+      "check": "Revision unlocks input fields",
+      "pass": true
+    },
+    {
+      "check": "Revision preserves numeric answer",
+      "pass": true
+    },
+    {
+      "check": "First submission cannot be overwritten by revision",
+      "pass": true
+    },
+    {
+      "check": "Going back restores prior checked lighting answer",
+      "pass": true
+    },
+    {
+      "check": "Going back retains opened hints",
+      "pass": true
+    },
+    {
+      "check": "Going forward restores unfinished later draft",
+      "pass": true
+    },
+    {
+      "check": "Visible later explanation is restored",
+      "pass": true
+    },
+    {
+      "check": "Computer room checks actual group count",
+      "pass": true
+    },
+    {
+      "check": "Computer room displays exact 1.616 kWh",
+      "pass": true
+    },
+    {
+      "check": "Reduced-support projector starts without hint button",
+      "pass": true
+    },
+    {
+      "check": "Projector replacement preserves full service and passes",
+      "pass": true
+    },
+    {
+      "check": "Projector exact sum is displayed",
+      "pass": true
+    },
+    {
+      "check": "Efficiency and remaining output both pass",
+      "pass": true
+    },
+    {
+      "check": "Independent screen contains no live plan total",
+      "pass": true
+    },
+    {
+      "check": "Independent screen contains no hint control",
+      "pass": true
+    },
+    {
+      "check": "Independent model answer is not exposed before submission",
+      "pass": true
+    },
+    {
+      "check": "Transfer answer survives back/forward",
+      "pass": true
+    },
+    {
+      "check": "Returning to practice records support before transfer submission",
+      "pass": true
+    },
+    {
+      "check": "Incorrect transfer is not passed",
+      "pass": true
+    },
+    {
+      "check": "Transfer first record includes support",
+      "pass": true
+    },
+    {
+      "check": "Corrected transfer passes checked parts",
+      "pass": true
+    },
+    {
+      "check": "Transfer correction does not replace failed first answer",
+      "pass": true
+    },
+    {
+      "check": "Completed route shows final review",
+      "pass": true
+    },
+    {
+      "check": "Review discloses writing is not automatically graded",
+      "pass": true
+    },
+    {
+      "check": "Review does not turn a corrected first answer into independent success",
+      "pass": true
+    },
+    {
+      "check": "Cancel restart keeps the session",
+      "pass": true
+    },
+    {
+      "check": "Centre lab default corrects the mockup total",
+      "pass": true
+    },
+    {
+      "check": "Lab updates totals live at zero",
+      "pass": true
+    },
+    {
+      "check": "Lab visibly refuses zero-service plan",
+      "pass": true
+    },
+    {
+      "check": "Lab all-off check does not pass",
+      "pass": true
+    },
+    {
+      "check": "Lab stretch exact total is 10.390 kWh",
+      "pass": true
+    },
+    {
+      "check": "Lab stretch target includes service constraint",
+      "pass": true
+    },
+    {
+      "check": "Replay starts a real timeline",
+      "pass": true
+    },
+    {
+      "check": "Replay can be paused",
+      "pass": true
+    },
+    {
+      "check": "Replay ends at correct total",
+      "pass": true
+    },
+    {
+      "check": "Lab reset restores only lab draft",
+      "pass": true
+    },
+    {
+      "check": "Lab reset does not clear completed guided route",
+      "pass": true
+    },
+    {
+      "check": "Formula help uses native modal dialog",
+      "pass": true
+    },
+    {
+      "check": "Escape closes formula help",
+      "pass": true
+    },
+    {
+      "check": "Focus returns to formula help trigger",
+      "pass": true
+    },
+    {
+      "check": "Clean transfer records a correct first attempt",
+      "pass": true
+    },
+    {
+      "check": "Clean transfer records no in-game support",
+      "pass": true
+    },
+    {
+      "check": "Confirmed fresh session clears old records",
+      "pass": true
+    },
+    {
+      "check": "Markup in writing is not executable",
+      "pass": true
+    },
+    {
+      "check": "Markup is preserved as literal writing",
+      "pass": true
+    },
+    {
+      "check": "Escaping does not create student-supplied images",
+      "pass": true
+    },
+    {
+      "check": "Malformed schedule fails without a runtime exception",
+      "pass": true
+    },
+    {
+      "check": "Keyboard starts the route",
+      "pass": true
+    },
+    {
+      "check": "Native equipment selector is keyboard operable",
+      "pass": true
+    },
+    {
+      "check": "Typing hours does not send focus to page heading",
+      "pass": true
+    },
+    {
+      "check": "Keyboard-only primary plan checks correctly",
+      "pass": true
+    },
+    {
+      "check": "Reduced motion replay resolves without forced animation",
+      "pass": true
+    },
+    {
+      "check": "No page overflow at 320px on home",
+      "pass": true
+    },
+    {
+      "check": "No page overflow at 320px on lab",
+      "pass": true
+    },
+    {
+      "check": "No page overflow at 320px on worked",
+      "pass": true
+    },
+    {
+      "check": "No page overflow at 320px on lighting",
+      "pass": true
+    },
+    {
+      "check": "No page overflow at 360px on home",
+      "pass": true
+    },
+    {
+      "check": "No page overflow at 360px on lab",
+      "pass": true
+    },
+    {
+      "check": "No page overflow at 360px on worked",
+      "pass": true
+    },
+    {
+      "check": "No page overflow at 360px on lighting",
+      "pass": true
+    },
+    {
+      "check": "No page overflow at 390px on home",
+      "pass": true
+    },
+    {
+      "check": "No page overflow at 390px on lab",
+      "pass": true
+    },
+    {
+      "check": "No page overflow at 390px on worked",
+      "pass": true
+    },
+    {
+      "check": "No page overflow at 390px on lighting",
+      "pass": true
+    },
+    {
+      "check": "Independent table reflows at 390px",
+      "pass": true
+    },
+    {
+      "check": "Formula modal fits narrow viewport",
+      "pass": true
+    },
+    {
+      "check": "No page overflow at 430px on home",
+      "pass": true
+    },
+    {
+      "check": "No page overflow at 430px on lab",
+      "pass": true
+    },
+    {
+      "check": "No page overflow at 430px on worked",
+      "pass": true
+    },
+    {
+      "check": "No page overflow at 430px on lighting",
+      "pass": true
+    },
+    {
+      "check": "No page overflow at 590px on home",
+      "pass": true
+    },
+    {
+      "check": "No page overflow at 590px on lab",
+      "pass": true
+    },
+    {
+      "check": "No page overflow at 590px on worked",
+      "pass": true
+    },
+    {
+      "check": "No page overflow at 590px on lighting",
+      "pass": true
+    },
+    {
+      "check": "No page overflow at 760px on home",
+      "pass": true
+    },
+    {
+      "check": "No page overflow at 760px on lab",
+      "pass": true
+    },
+    {
+      "check": "No page overflow at 760px on worked",
+      "pass": true
+    },
+    {
+      "check": "No page overflow at 760px on lighting",
+      "pass": true
+    },
+    {
+      "check": "No page overflow at 768px on home",
+      "pass": true
+    },
+    {
+      "check": "No page overflow at 768px on lab",
+      "pass": true
+    },
+    {
+      "check": "No page overflow at 768px on worked",
+      "pass": true
+    },
+    {
+      "check": "No page overflow at 768px on lighting",
+      "pass": true
+    },
+    {
+      "check": "No page overflow at 1024px on home",
+      "pass": true
+    },
+    {
+      "check": "No page overflow at 1024px on lab",
+      "pass": true
+    },
+    {
+      "check": "No page overflow at 1024px on worked",
+      "pass": true
+    },
+    {
+      "check": "No page overflow at 1024px on lighting",
+      "pass": true
+    },
+    {
+      "check": "No page overflow at 1366px on home",
+      "pass": true
+    },
+    {
+      "check": "No page overflow at 1366px on lab",
+      "pass": true
+    },
+    {
+      "check": "No page overflow at 1366px on worked",
+      "pass": true
+    },
+    {
+      "check": "No page overflow at 1366px on lighting",
+      "pass": true
+    },
+    {
+      "check": "No page overflow at 1648px on home",
+      "pass": true
+    },
+    {
+      "check": "No page overflow at 1648px on lab",
+      "pass": true
+    },
+    {
+      "check": "No page overflow at 1648px on worked",
+      "pass": true
+    },
+    {
+      "check": "No page overflow at 1648px on lighting",
+      "pass": true
+    },
+    {
+      "check": "No JavaScript runtime errors during exercised flows",
+      "pass": true
+    },
+    {
+      "check": "No external requests or analytics",
+      "pass": true
+    }
+  ],
+  "viewport_records": [
+    {
+      "width": 320,
+      "route": "home",
+      "viewport": 320,
+      "doc": 320,
+      "body": 320
+    },
+    {
+      "width": 320,
+      "route": "lab",
+      "viewport": 320,
+      "doc": 320,
+      "body": 320
+    },
+    {
+      "width": 320,
+      "route": "worked",
+      "viewport": 320,
+      "doc": 320,
+      "body": 320
+    },
+    {
+      "width": 320,
+      "route": "lighting",
+      "viewport": 320,
+      "doc": 320,
+      "body": 320
+    },
+    {
+      "width": 360,
+      "route": "home",
+      "viewport": 360,
+      "doc": 360,
+      "body": 360
+    },
+    {
+      "width": 360,
+      "route": "lab",
+      "viewport": 360,
+      "doc": 360,
+      "body": 360
+    },
+    {
+      "width": 360,
+      "route": "worked",
+      "viewport": 360,
+      "doc": 360,
+      "body": 360
+    },
+    {
+      "width": 360,
+      "route": "lighting",
+      "viewport": 360,
+      "doc": 360,
+      "body": 360
+    },
+    {
+      "width": 390,
+      "route": "home",
+      "viewport": 390,
+      "doc": 390,
+      "body": 390
+    },
+    {
+      "width": 390,
+      "route": "lab",
+      "viewport": 390,
+      "doc": 390,
+      "body": 390
+    },
+    {
+      "width": 390,
+      "route": "worked",
+      "viewport": 390,
+      "doc": 390,
+      "body": 390
+    },
+    {
+      "width": 390,
+      "route": "lighting",
+      "viewport": 390,
+      "doc": 390,
+      "body": 390
+    },
+    {
+      "width": 430,
+      "route": "home",
+      "viewport": 430,
+      "doc": 430,
+      "body": 430
+    },
+    {
+      "width": 430,
+      "route": "lab",
+      "viewport": 430,
+      "doc": 430,
+      "body": 430
+    },
+    {
+      "width": 430,
+      "route": "worked",
+      "viewport": 430,
+      "doc": 430,
+      "body": 430
+    },
+    {
+      "width": 430,
+      "route": "lighting",
+      "viewport": 430,
+      "doc": 430,
+      "body": 430
+    },
+    {
+      "width": 590,
+      "route": "home",
+      "viewport": 590,
+      "doc": 590,
+      "body": 590
+    },
+    {
+      "width": 590,
+      "route": "lab",
+      "viewport": 590,
+      "doc": 590,
+      "body": 590
+    },
+    {
+      "width": 590,
+      "route": "worked",
+      "viewport": 590,
+      "doc": 590,
+      "body": 590
+    },
+    {
+      "width": 590,
+      "route": "lighting",
+      "viewport": 590,
+      "doc": 590,
+      "body": 590
+    },
+    {
+      "width": 760,
+      "route": "home",
+      "viewport": 760,
+      "doc": 760,
+      "body": 760
+    },
+    {
+      "width": 760,
+      "route": "lab",
+      "viewport": 760,
+      "doc": 760,
+      "body": 760
+    },
+    {
+      "width": 760,
+      "route": "worked",
+      "viewport": 760,
+      "doc": 760,
+      "body": 760
+    },
+    {
+      "width": 760,
+      "route": "lighting",
+      "viewport": 760,
+      "doc": 760,
+      "body": 760
+    },
+    {
+      "width": 768,
+      "route": "home",
+      "viewport": 768,
+      "doc": 768,
+      "body": 768
+    },
+    {
+      "width": 768,
+      "route": "lab",
+      "viewport": 768,
+      "doc": 768,
+      "body": 768
+    },
+    {
+      "width": 768,
+      "route": "worked",
+      "viewport": 768,
+      "doc": 768,
+      "body": 768
+    },
+    {
+      "width": 768,
+      "route": "lighting",
+      "viewport": 768,
+      "doc": 768,
+      "body": 768
+    },
+    {
+      "width": 1024,
+      "route": "home",
+      "viewport": 1024,
+      "doc": 1024,
+      "body": 1024
+    },
+    {
+      "width": 1024,
+      "route": "lab",
+      "viewport": 1024,
+      "doc": 1024,
+      "body": 1024
+    },
+    {
+      "width": 1024,
+      "route": "worked",
+      "viewport": 1024,
+      "doc": 1024,
+      "body": 1024
+    },
+    {
+      "width": 1024,
+      "route": "lighting",
+      "viewport": 1024,
+      "doc": 1024,
+      "body": 1024
+    },
+    {
+      "width": 1366,
+      "route": "home",
+      "viewport": 1366,
+      "doc": 1366,
+      "body": 1366
+    },
+    {
+      "width": 1366,
+      "route": "lab",
+      "viewport": 1366,
+      "doc": 1366,
+      "body": 1366
+    },
+    {
+      "width": 1366,
+      "route": "worked",
+      "viewport": 1366,
+      "doc": 1366,
+      "body": 1366
+    },
+    {
+      "width": 1366,
+      "route": "lighting",
+      "viewport": 1366,
+      "doc": 1366,
+      "body": 1366
+    },
+    {
+      "width": 1648,
+      "route": "home",
+      "viewport": 1648,
+      "doc": 1648,
+      "body": 1648
+    },
+    {
+      "width": 1648,
+      "route": "lab",
+      "viewport": 1648,
+      "doc": 1648,
+      "body": 1648
+    },
+    {
+      "width": 1648,
+      "route": "worked",
+      "viewport": 1648,
+      "doc": 1648,
+      "body": 1648
+    },
+    {
+      "width": 1648,
+      "route": "lighting",
+      "viewport": 1648,
+      "doc": 1648,
+      "body": 1648
+    }
+  ]
+}

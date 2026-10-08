@@ -1,0 +1,211 @@
+{
+  "game_id": "D2",
+  "version": "2.0.1",
+  "source_boundary": "Original authored teaching scenarios aligned to supplied course; not copied assessment questions.",
+  "scenarios": [
+    {
+      "id": "D2-W01",
+      "stage": "worked",
+      "title": "Two Stopping Fixtures",
+      "mass": 60,
+      "vi": 20,
+      "vf": 0,
+      "delta_p": -1200,
+      "times": [
+        0.06,
+        0.15
+      ],
+      "forces": [
+        -20000,
+        -8000
+      ],
+      "answer": "Same impulse; longer supplied stopping time lowers average-force magnitude.",
+      "scene": "assets/scenes/scene_01_d2_w01.png",
+      "initial": {
+        "deltaP": -1200,
+        "force0": -20000,
+        "force1": -8000
+      },
+      "kind": "stop",
+      "predictionPrompt": "For the same momentum change, which duration lowers average-force magnitude?",
+      "predictions": [
+        "The shorter duration",
+        "The longer duration",
+        "The impulse must become larger"
+      ],
+      "explanationPrompt": "Explain what stays fixed, what changes, and the direction and limits of the model.",
+      "keyIdea": "Average net force = \u0394p / \u0394t. Keep the system boundary and signs explicit; this model does not predict injury.",
+      "hints": [
+        "For the stated system, \u0394p = mass \u00d7 (final velocity \u2212 initial velocity).",
+        "Divide signed \u0394p by each supplied duration. Compare magnitudes; longer duration changes force, not required \u0394p."
+      ],
+      "teacherReasoning": "60(0\u221220) = \u22121200 kg\u00b7m/s. Dividing by 0.06 and 0.15 gives \u221220000 and \u22128000 N; same impulse, different average force."
+    },
+    {
+      "id": "D2-P01",
+      "stage": "supported",
+      "title": "New Occupant Model",
+      "mass": 50,
+      "vi": 16,
+      "vf": 0,
+      "delta_p": -800,
+      "times": [
+        0.08,
+        0.16
+      ],
+      "forces": [
+        -10000,
+        -5000
+      ],
+      "scene": "assets/scenes/scene_02_d2_p01.png",
+      "initial": {},
+      "kind": "stop",
+      "predictionPrompt": "For the same momentum change, which duration lowers average-force magnitude?",
+      "predictions": [
+        "The shorter duration",
+        "The longer duration",
+        "The impulse must become larger"
+      ],
+      "explanationPrompt": "Explain what stays fixed, what changes, and the direction and limits of the model.",
+      "keyIdea": "Average net force = \u0394p / \u0394t. Keep the system boundary and signs explicit; this model does not predict injury.",
+      "hints": [
+        "For the stated system, \u0394p = mass \u00d7 (final velocity \u2212 initial velocity).",
+        "Divide signed \u0394p by each supplied duration. Compare magnitudes; longer duration changes force, not required \u0394p."
+      ],
+      "teacherReasoning": "50(0\u221216) = \u2212800 kg\u00b7m/s. Average forces are \u221210000 and \u22125000 N; the longer duration lowers magnitude, not impulse."
+    },
+    {
+      "id": "D2-P02",
+      "stage": "practice",
+      "title": "Controlled Comparison",
+      "mass": 75,
+      "vi": 12,
+      "vf": 0,
+      "delta_p": -900,
+      "times": [
+        0.09,
+        0.18
+      ],
+      "forces": [
+        -10000,
+        -5000
+      ],
+      "scene": "assets/scenes/scene_03_d2_p02.png",
+      "initial": {},
+      "kind": "stop",
+      "predictionPrompt": "For the same momentum change, which duration lowers average-force magnitude?",
+      "predictions": [
+        "The shorter duration",
+        "The longer duration",
+        "The impulse must become larger"
+      ],
+      "explanationPrompt": "Explain what stays fixed, what changes, and the direction and limits of the model.",
+      "keyIdea": "Average net force = \u0394p / \u0394t. Keep the system boundary and signs explicit; this model does not predict injury.",
+      "hints": [
+        "For the stated system, \u0394p = mass \u00d7 (final velocity \u2212 initial velocity).",
+        "Divide signed \u0394p by each supplied duration. Compare magnitudes; longer duration changes force, not required \u0394p."
+      ],
+      "teacherReasoning": "75(0\u221212) = \u2212900 kg\u00b7m/s. Average forces are \u221210000 and \u22125000 N; only duration changes."
+    },
+    {
+      "id": "D2-P03",
+      "stage": "practice",
+      "title": "System Boundary Check",
+      "occupant_mass": 60,
+      "vehicle_mass": 1200,
+      "answer": "Use the occupant mass for the occupant ledger. Do not insert the whole vehicle mass.",
+      "scene": "assets/scenes/scene_04_d2_p03.png",
+      "initial": {},
+      "kind": "boundary",
+      "predictionPrompt": "Which mass belongs in the occupant momentum ledger?",
+      "predictions": [
+        "Whole vehicle mass",
+        "Occupant mass",
+        "Sum of vehicle and occupant masses"
+      ],
+      "explanationPrompt": "The ledger is for the occupant. Explain why its mass is used rather than the whole vehicle mass.",
+      "keyIdea": "Name the system first. Occupant and vehicle masses belong to separate momentum ledgers.",
+      "hints": [
+        "For the stated system, \u0394p = mass \u00d7 (final velocity \u2212 initial velocity).",
+        "Divide signed \u0394p by each supplied duration. Compare magnitudes; longer duration changes force, not required \u0394p."
+      ],
+      "teacherReasoning": "The occupant system uses 60 kg. The 1200 kg vehicle belongs to a separate ledger and cannot substitute for occupant mass."
+    },
+    {
+      "id": "D2-P04",
+      "stage": "low_support",
+      "title": "Locking Carts",
+      "carts": [
+        {
+          "m": 2,
+          "v": 3
+        },
+        {
+          "m": 1,
+          "v": 0
+        }
+      ],
+      "initial_momentum": 6,
+      "combined_mass": 3,
+      "final_velocity": 2,
+      "answer": "Combined momentum is conserved in the supplied low-friction system; kinetic energy is not claimed conserved.",
+      "scene": "assets/scenes/scene_05_d2_p04.png",
+      "initial": {},
+      "kind": "carts",
+      "predictionPrompt": "Which momentum account applies when the supplied low-friction carts lock?",
+      "predictions": [
+        "Combined two-cart system",
+        "Moving cart alone",
+        "Kinetic energy must always be conserved"
+      ],
+      "explanationPrompt": "Define the two-cart system, show its signed momentum before and after locking, and explain the external-impulse assumption and kinetic-energy limitation.",
+      "keyIdea": "With negligible external impulse, combined momentum is conserved. Kinetic energy is not claimed conserved in the locking collision.",
+      "hints": [],
+      "teacherReasoning": "Initial momentum is 2\u00d73 + 1\u00d70 = 6 kg\u00b7m/s. Combined mass 3 kg gives +2 m/s after locking. External impulse is negligible; kinetic energy is not claimed conserved."
+    },
+    {
+      "id": "D2-T01",
+      "stage": "transfer",
+      "title": "Fresh Stopping Test",
+      "mass": 55,
+      "vi": 18,
+      "vf": 0,
+      "delta_p": -990,
+      "times": [
+        0.1,
+        0.2
+      ],
+      "forces": [
+        -9900,
+        -4950
+      ],
+      "answer": "Explain the inverse relationship for the same \u0394p and identify direction.",
+      "scene": "assets/scenes/scene_06_d2_t01.png",
+      "initial": {},
+      "kind": "stop",
+      "predictionPrompt": "For the same momentum change, which duration lowers average-force magnitude?",
+      "predictions": [
+        "The shorter duration",
+        "The longer duration",
+        "The impulse must become larger"
+      ],
+      "explanationPrompt": "Explain what stays fixed, what changes, and the direction and limits of the model.",
+      "keyIdea": "Average net force = \u0394p / \u0394t. Keep the system boundary and signs explicit; this model does not predict injury.",
+      "hints": [
+        "For the stated system, \u0394p = mass \u00d7 (final velocity \u2212 initial velocity).",
+        "Divide signed \u0394p by each supplied duration. Compare magnitudes; longer duration changes force, not required \u0394p."
+      ],
+      "teacherReasoning": "55(0\u221218) = \u2212990 kg\u00b7m/s. Average forces are \u22129900 and \u22124950 N. Longer duration lowers magnitude; both oppose the initial positive motion, without injury prediction."
+    }
+  ],
+  "title": "Crash-Test Studio",
+  "unitTitle": "Safety in Transportation",
+  "nextPractice": "Compare another fixed momentum change over two stopping times, keeping the system and direction explicit.",
+  "instructions": [
+    "Read the worked occupant-system comparison.",
+    "Predict which supplied stopping duration lowers average-force magnitude.",
+    "Calculate signed momentum change and average net force for each fixture.",
+    "Keep occupant and cart system ledgers separate. Use Pause or Step for the abstract model.",
+    "Apply momentum conservation to locking carts, then complete a fresh stopping test independently."
+  ]
+}

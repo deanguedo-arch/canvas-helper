@@ -1,0 +1,154 @@
+{
+  "schemaVersion": 1,
+  "reviewer": "Codex lead; source decisions retained with lead",
+  "status": "passed for this scoped visual candidate",
+  "teacherAcceptance": "pending",
+  "visuals": [
+    {
+      "lesson": "01",
+      "id": "c-germ-theory",
+      "sha256": "0b2b7b59d7b9f106d7d8958ed81fd140b62025e92a73411d8751e621f853ca70",
+      "review": "Illustrative mid-1800s/modern comparison explicitly qualified as not a historical record. Current controls reduce exposure; knowledge does not imply every earlier practice or modern outcome was identical.",
+      "source": {
+        "kind": "supplied-generated-illustration",
+        "credit": "Original course illustration generated for Science 24.",
+        "url": null,
+        "suppliedFile": "sources/supplied-package/assets/gen-c-l01-germ-theory.png",
+        "suppliedSha256": "0b2b7b59d7b9f106d7d8958ed81fd140b62025e92a73411d8751e621f853ca70",
+        "disposition": "Supplied image preserved and used without further pixel changes."
+      }
+    },
+    {
+      "lesson": "03",
+      "id": "c-transmission",
+      "sha256": "b2d0040164f561919f4558919619f25a96d74cee5afa010b941a9ee94b6ebe16",
+      "review": "Air, water, direct/indirect contact and vectors checked as different common routes. Some diseases have several pathways; the picture is not an exhaustive classification.",
+      "source": {
+        "kind": "supplied-generated-illustration",
+        "credit": "Original course illustration generated for Science 24.",
+        "url": null,
+        "suppliedFile": "sources/supplied-package/assets/gen-c-l03-transmission.png",
+        "suppliedSha256": "b2d0040164f561919f4558919619f25a96d74cee5afa010b941a9ee94b6ebe16",
+        "disposition": "Supplied image preserved and used without further pixel changes."
+      }
+    },
+    {
+      "lesson": "04",
+      "id": "c-food-safety",
+      "sha256": "fdb54862380e205b6078088488638c62179a3489ceb6fe8c9f5a677667aeab19",
+      "review": "FDA Clean–Separate–Cook–Chill guidance checked. Chilling slows growth and does not sterilize food or reverse all hazards. Complementary controls.",
+      "source": {
+        "kind": "authored-native-diagram",
+        "credit": "Original course diagram authored for Science 24.",
+        "url": "https://www.fda.gov/food/buy-store-serve-safe-food/safe-food-handling",
+        "canonicalOwner": "projects/science24-unit-c/workspace/assets/visual-refresh/c-food-safety.svg"
+      }
+    },
+    {
+      "lesson": "05",
+      "id": "c-methods",
+      "sha256": "fa1bdbdc03ce1f14449235bf45b5dde3fb55eac5167dfde4975e834e31073f8a",
+      "review": "CDC terminology checked: cleaning, disinfection on suitable non-living surfaces, antisepsis on living tissue, validated sterilization, and contamination prevention during aseptic practice. Native diagram used because the proposed textbook figure is absent.",
+      "source": {
+        "kind": "authored-native-diagram",
+        "credit": "Original course diagram authored for Science 24.",
+        "url": "https://www.cdc.gov/infection-control/hcp/disinfection-sterilization/introduction-methods-definition-of-terms.html",
+        "canonicalOwner": "projects/science24-unit-c/workspace/assets/visual-refresh/c-methods.svg"
+      }
+    },
+    {
+      "lesson": "06",
+      "id": "c-baseline",
+      "sha256": "e71aae0f45d5a4ece110597b42b5c635ea9710418cd96098bda8350c7f74e225",
+      "review": "Existing authored scenario checked directly: 25 reported cases this week versus approximately two in a usual week. Bar heights use a common zero origin and scale; no invented dates or time series; no surveillance or pandemic claim.",
+      "source": {
+        "kind": "authored-native-diagram",
+        "credit": "Original course diagram authored for Science 24.",
+        "url": null,
+        "canonicalOwner": "projects/science24-unit-c/workspace/assets/visual-refresh/c-baseline.svg"
+      }
+    },
+    {
+      "lesson": "08",
+      "id": "c-water-plant",
+      "sha256": "f590785872be76275afc66a0d54d7730a89cafbcc081c76541d61fd9698d91c3",
+      "review": "Commons original verified: AgnosticPreachersKid, Dalecarlia Water Treatment Plant, CC BY-SA 3.0. Explicitly a comparison facility, not Walkerton. Supplied resize recorded; no additional image modifications.",
+      "source": {
+        "kind": "licensed-photograph",
+        "credit": "<a href=\"https://commons.wikimedia.org/wiki/File:Dalecarlia_Water_Treatment_Plant.jpg\" target=\"_blank\" rel=\"noopener noreferrer\">AgnosticPreachersKid, Dalecarlia Water Treatment Plant</a> · <a href=\"https://creativecommons.org/licenses/by-sa/3.0/\" target=\"_blank\" rel=\"noopener noreferrer\">CC BY-SA 3.0</a>. Supplied resized version; no additional image changes.",
+        "url": "https://commons.wikimedia.org/wiki/File:Dalecarlia_Water_Treatment_Plant.jpg",
+        "suppliedFile": "sources/supplied-package/assets/photo-c-l08-water-treatment.jpg",
+        "suppliedSha256": "f590785872be76275afc66a0d54d7730a89cafbcc081c76541d61fd9698d91c3",
+        "disposition": "Supplied image preserved and used without further pixel changes."
+      }
+    },
+    {
+      "lesson": "11",
+      "id": "c-abo",
+      "sha256": "391ae5adff60d20c5416989c44e15a93267dcfd11b0d9e69f4297abf6ad1ed6a",
+      "review": "All sixteen donor-row/recipient-column cells independently checked for ABO RED CELLS: O→O,A,B,AB; A→A,AB; B→B,AB; AB→AB. Plasma, Rh, other antigens and cross-matching excluded from this simplified model.",
+      "source": {
+        "kind": "authored-native-diagram",
+        "credit": "Original course diagram authored for Science 24.",
+        "url": "https://www.redcrossblood.org/donate-blood/blood-types.html",
+        "canonicalOwner": "projects/science24-unit-c/workspace/assets/visual-refresh/c-abo.svg"
+      }
+    },
+    {
+      "lesson": "12",
+      "id": "c-resistance",
+      "sha256": "09ac9880db57220fecde14fd7e2802e4acb8f5781e681034abb147e2e97c900c",
+      "review": "Pre-existing resistant variants, selection of survivors and reproduction distinguished. Treatment does not purposefully transform every bacterium. Antibiotics do not treat viruses.",
+      "source": {
+        "kind": "authored-native-diagram",
+        "credit": "Original course diagram authored for Science 24.",
+        "url": "https://www.cdc.gov/antimicrobial-resistance/about/index.html",
+        "canonicalOwner": "projects/science24-unit-c/workspace/assets/visual-refresh/c-resistance.svg"
+      }
+    },
+    {
+      "lesson": "16",
+      "id": "c-mutations",
+      "sha256": "d2c220576fbbb32da113e19beffb90694c9dac4ac815f297967c86033ed33123",
+      "review": "Reference ACTGAC; substitution ACAGAC; insertion ACGTGAC; deletion ACGAC. Independently checked sequence edits and lengths 6/6/7/5. Effects depend on context.",
+      "source": {
+        "kind": "authored-native-diagram",
+        "credit": "Original course diagram authored for Science 24.",
+        "url": null,
+        "canonicalOwner": "projects/science24-unit-c/workspace/assets/visual-refresh/c-mutations.svg"
+      }
+    },
+    {
+      "lesson": "18",
+      "id": "c-defence-memory",
+      "sha256": "454662f556d1b55d4c41d5920e97700ea24f8c4b56d130649ea34b0458e6c801",
+      "review": "NIAID overview checked. Barriers and innate inflammation are distinct from adaptive response; memory grouped with adaptive immunity. No separate fourth defence line or guarantee that vaccination prevents illness.",
+      "source": {
+        "kind": "corrected-generated-illustration",
+        "credit": "Original course illustration generated for Science 24; corrected for this review.",
+        "url": "https://pubweb-prod.niaid.nih.gov/research/immune-system-overview",
+        "suppliedFile": "sources/supplied-package/assets/gen-c-l18-defence-layers.png",
+        "suppliedSha256": "600333f2a558cffc2eb7a5c45108d11a042a3b9378a74ea8081e4d90d6893a73",
+        "disposition": "Original preserved; corrected illustration used.",
+        "generationRecord": "projects/science24-unit-c/meta/visual-refresh-2026-10-02/imagegen-record.json"
+      }
+    }
+  ],
+  "otherDispositions": [
+    {
+      "lesson": "10",
+      "changes": [
+        "Keep the existing immune figure beside practice"
+      ],
+      "review": "Existing immune figure kept with independent practice; sticky only at content width ≥920px; optional video before that reference/practice group."
+    },
+    {
+      "lesson": "17",
+      "changes": [
+        "Emphasise the existing ethical-decision prose"
+      ],
+      "review": "Restrained callout on the existing ethical-decision explanation; no new facts or assessment changes."
+    }
+  ],
+  "allLessonDispositions": 18
+}

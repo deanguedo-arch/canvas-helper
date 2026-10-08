@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-label="C1 context scene 1">
+<title>C1 context scene 1</title><defs>
+      <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#f8faf8"/><stop offset="1" stop-color="#eef3ef"/></linearGradient>
+      <linearGradient id="bench" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#cbd4ce"/><stop offset="1" stop-color="#8e9a92"/></linearGradient>
+      <filter id="shadow"><feDropShadow dx="0" dy="14" stdDeviation="16" flood-opacity=".14"/></filter>
+      <pattern id="grid" width="54" height="54" patternUnits="userSpaceOnUse"><path d="M54 0H0V54" fill="none" stroke="#1f6b3a" stroke-opacity=".05" stroke-width="2"/></pattern>
+    </defs>
+    <rect width="1600" height="900" fill="url(#wall)"/><rect width="1600" height="900" fill="url(#grid)"/>
+    <rect y="650" width="1600" height="250" fill="url(#bench)"/>
+    <rect x="80" y="95" width="370" height="360" rx="18" fill="#fff" stroke="#cbd5ce" stroke-width="10" opacity=".85"/>
+    <path d="M135 175h260M135 250h260M135 325h190" stroke="#b7d8c0" stroke-width="18" stroke-linecap="round" opacity=".38"/>
+    <rect x="1220" y="100" width="280" height="410" rx="18" fill="#fff" stroke="#cbd5ce" stroke-width="10" opacity=".7"/>
+    <g opacity=".35" stroke="#1f6b3a" fill="none" stroke-width="8"><circle cx="1305" cy="210" r="35"/><circle cx="1390" cy="170" r="24"/><circle cx="1435" cy="265" r="31"/><path d="M1335 194l35-15M1410 189l17 48M1332 229l74 26"/></g>
+    <g filter="url(#shadow)"><rect x="500" y="270" width="215" height="145" rx="20" fill="#d8ad79" stroke="#134926" stroke-width="12"/><path d="M540 315h136M540 360h136" stroke="#f6e0c4" stroke-width="14"/>
+        <path d="M800 300c0-70 95-76 95-10 0-58 90-58 90 8 0 70-45 105-93 146-54-39-92-78-92-144z" fill="#e6f2ea" stroke="#134926" stroke-width="11"/>
+        <path d="M1040 400h150c-6 89-43 140-75 140s-69-51-75-140z" fill="#fff" stroke="#134926" stroke-width="12"/><path d="M1070 400c4-55 50-62 69-18 14-50 55-40 52 18" fill="#39b85a" opacity=".7" stroke="#134926" stroke-width="8"/>
+        <path d="M710 342h82M985 372h49" stroke="#1f6b3a" stroke-width="22" stroke-linecap="round"/><path d="M770 315l42 27-42 27M1012 345l42 27-42 27" fill="none" stroke="#39b85a" stroke-width="17" stroke-linejoin="round"/>
+        <g opacity=".6" fill="#1f6b3a"><circle cx="605" cy="220" r="16"/><circle cx="640" cy="190" r="12"/><circle cx="675" cy="225" r="10"/></g></g></svg>

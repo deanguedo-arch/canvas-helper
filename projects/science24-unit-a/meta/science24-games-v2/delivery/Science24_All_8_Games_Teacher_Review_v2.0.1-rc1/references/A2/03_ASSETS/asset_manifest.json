@@ -1,0 +1,591 @@
+{
+  "game_id": "A2",
+  "version": "2.0.0",
+  "rule": "Scene art is contextual only. Answer-critical diagrams, labels and values remain deterministic DOM/SVG.",
+  "assets": [
+    {
+      "path": "asset_contact_sheet.png",
+      "kind": "asset_contact_sheet.png",
+      "format": "png",
+      "answer_critical": false,
+      "sha256": "b0cc1f9cb8e7b9fdd24008e2175897bd0e57de9d4c2e376cf35c661d1ab6e6e6",
+      "size_bytes": 238569
+    },
+    {
+      "path": "icons/icon_atom.png",
+      "kind": "icons",
+      "format": "png",
+      "answer_critical": true,
+      "sha256": "b969e499953559bee3470cde2cb508d9804bdf030c90924677350d093f47ed6b",
+      "size_bytes": 14156
+    },
+    {
+      "path": "icons/icon_atom.svg",
+      "kind": "icons",
+      "format": "svg",
+      "answer_critical": true,
+      "sha256": "b84dc6025573080d5fc818e704604110aebc2bc19bca1ec78c710a0421883078",
+      "size_bytes": 524
+    },
+    {
+      "path": "icons/icon_calculator.png",
+      "kind": "icons",
+      "format": "png",
+      "answer_critical": true,
+      "sha256": "d1aa9bffc77a7a0708f5c4cb33d69778f05527fb68b48b66373ae4d1795418d9",
+      "size_bytes": 4721
+    },
+    {
+      "path": "icons/icon_calculator.svg",
+      "kind": "icons",
+      "format": "svg",
+      "answer_critical": true,
+      "sha256": "b0b19a67226607cae5aad5dc9e874160527065dc70f50c2e8c73cba36ed72b6e",
+      "size_bytes": 679
+    },
+    {
+      "path": "icons/icon_car.png",
+      "kind": "icons",
+      "format": "png",
+      "answer_critical": true,
+      "sha256": "5bdceb1e17fe48f933b028423c52dfdc37616d5f5fd92ea4e84bd73c31c0db61",
+      "size_bytes": 7605
+    },
+    {
+      "path": "icons/icon_car.svg",
+      "kind": "icons",
+      "format": "svg",
+      "answer_critical": true,
+      "sha256": "df727bac0dd0d478c4e2ff280dbad48d58fb18b1bad5b4b0f13589b0556dbb06",
+      "size_bytes": 518
+    },
+    {
+      "path": "icons/icon_chain.png",
+      "kind": "icons",
+      "format": "png",
+      "answer_critical": true,
+      "sha256": "7427b6ee448662f9f737f29286225b3db1f4163bb04224fbe87454119de2d589",
+      "size_bytes": 7372
+    },
+    {
+      "path": "icons/icon_chain.svg",
+      "kind": "icons",
+      "format": "svg",
+      "answer_critical": true,
+      "sha256": "f86371b3413ff28e8271ec08270daa2176691ae55137c5f9fefa60705e812a82",
+      "size_bytes": 585
+    },
+    {
+      "path": "icons/icon_check.png",
+      "kind": "icons",
+      "format": "png",
+      "answer_critical": true,
+      "sha256": "f5306015517dae9e0771a6f74577e8fd131c85d22c452884098642911d933c1f",
+      "size_bytes": 8061
+    },
+    {
+      "path": "icons/icon_check.svg",
+      "kind": "icons",
+      "format": "svg",
+      "answer_critical": true,
+      "sha256": "022a00567c90f6ecc8be42aafb0f917d2b24b3e20fb4f22f3621d151d0107d5d",
+      "size_bytes": 316
+    },
+    {
+      "path": "icons/icon_crash.png",
+      "kind": "icons",
+      "format": "png",
+      "answer_critical": true,
+      "sha256": "bc9e59733e5f14285b3117f29c33e119ebb5e3f05cb21ec56ce65ee1d5f8fe18",
+      "size_bytes": 10277
+    },
+    {
+      "path": "icons/icon_crash.svg",
+      "kind": "icons",
+      "format": "svg",
+      "answer_critical": true,
+      "sha256": "c0cd488cec0b5bcfb06b8ff1a50cf08a3f57e8873c27246126f2a0ce1df2c417",
+      "size_bytes": 390
+    },
+    {
+      "path": "icons/icon_dna.png",
+      "kind": "icons",
+      "format": "png",
+      "answer_critical": true,
+      "sha256": "90780d23d52ffd2296ec986053299a85eaa9af6cec7046837df563d514f2ba6d",
+      "size_bytes": 8798
+    },
+    {
+      "path": "icons/icon_dna.svg",
+      "kind": "icons",
+      "format": "svg",
+      "answer_critical": true,
+      "sha256": "d8f7b7d1f5381a46de3faaaf053527ec24accbc17c4b20d81661adb449729416",
+      "size_bytes": 390
+    },
+    {
+      "path": "icons/icon_document.png",
+      "kind": "icons",
+      "format": "png",
+      "answer_critical": true,
+      "sha256": "91c3fed77e037b66fac5f3c734b7a3faad4b38af7c3b0318801a7c33488dea37",
+      "size_bytes": 2160
+    },
+    {
+      "path": "icons/icon_document.svg",
+      "kind": "icons",
+      "format": "svg",
+      "answer_critical": true,
+      "sha256": "c99804e6dd26765f6afe87d1cc1d8a11b09350e20608eceff40efb1e07c2a3d3",
+      "size_bytes": 345
+    },
+    {
+      "path": "icons/icon_flask.png",
+      "kind": "icons",
+      "format": "png",
+      "answer_critical": true,
+      "sha256": "ff44364f1f3372b387dc27cbd6633f71e249a597acd6626c6fc935c5434322cb",
+      "size_bytes": 6842
+    },
+    {
+      "path": "icons/icon_flask.svg",
+      "kind": "icons",
+      "format": "svg",
+      "answer_critical": true,
+      "sha256": "a35208a91e5a34a772910fe1376283e17c2c79dd39e15bb9ccfec824116c614b",
+      "size_bytes": 459
+    },
+    {
+      "path": "icons/icon_graph.png",
+      "kind": "icons",
+      "format": "png",
+      "answer_critical": true,
+      "sha256": "2fffc4b892984f3d0080115cda3c9b81f322e8dca0fea85e3d55b62eed6de04b",
+      "size_bytes": 5552
+    },
+    {
+      "path": "icons/icon_graph.svg",
+      "kind": "icons",
+      "format": "svg",
+      "answer_critical": true,
+      "sha256": "6a68aecb4ce793138fb4c711f16915fc5114d35fd073415df1ac5c450ec98586",
+      "size_bytes": 573
+    },
+    {
+      "path": "icons/icon_hint.png",
+      "kind": "icons",
+      "format": "png",
+      "answer_critical": true,
+      "sha256": "013e0b877769bfb47f93a9608bcfcba48e492c54f9bf4102f0c4c33c01c14de6",
+      "size_bytes": 7545
+    },
+    {
+      "path": "icons/icon_hint.svg",
+      "kind": "icons",
+      "format": "svg",
+      "answer_critical": true,
+      "sha256": "b6e50ed8b4e9b910f1e007c907db63eb73e78fa79d8083871fad3d1674ebb0c8",
+      "size_bytes": 391
+    },
+    {
+      "path": "icons/icon_magnifier.png",
+      "kind": "icons",
+      "format": "png",
+      "answer_critical": true,
+      "sha256": "3ffc4493e03c3cf8806618d70b5f81430a5a60e3823b102b5e165cdd95fa75ab",
+      "size_bytes": 6072
+    },
+    {
+      "path": "icons/icon_magnifier.svg",
+      "kind": "icons",
+      "format": "svg",
+      "answer_critical": true,
+      "sha256": "f54266896a1307d44af8278fa960f3f232d3b59cd78a75e677cfafc4752623a4",
+      "size_bytes": 317
+    },
+    {
+      "path": "icons/icon_shield.png",
+      "kind": "icons",
+      "format": "png",
+      "answer_critical": true,
+      "sha256": "0aa959e9b5396dec311839d7df1530798147e6789dda5a9d4b56ee914f4ea3c0",
+      "size_bytes": 12369
+    },
+    {
+      "path": "icons/icon_shield.svg",
+      "kind": "icons",
+      "format": "svg",
+      "answer_critical": true,
+      "sha256": "9267d9e6f34d9b17fc83bb9557bdddf52c152a9281f91331a97b78e4b1d2ac07",
+      "size_bytes": 402
+    },
+    {
+      "path": "scenes/scene_01_a2_w01.png",
+      "kind": "scenes",
+      "format": "png",
+      "answer_critical": false,
+      "sha256": "36406e0c5a7577c4f021bf3d635e089575aefaffc15bfe2c856a522ecfa2536a",
+      "size_bytes": 48354
+    },
+    {
+      "path": "scenes/scene_01_a2_w01.svg",
+      "kind": "scenes",
+      "format": "svg",
+      "answer_critical": false,
+      "sha256": "9e63cc5fa10c5f4c71fc702f3675cd9b1f146fb38fc016a62cf88eda1dd653cc",
+      "size_bytes": 3124
+    },
+    {
+      "path": "scenes/scene_02_a2_p01.png",
+      "kind": "scenes",
+      "format": "png",
+      "answer_critical": false,
+      "sha256": "e77335a4063e421cf96b4f847a819c4acf635c6484834e3ed259cae1dee00d8d",
+      "size_bytes": 49218
+    },
+    {
+      "path": "scenes/scene_02_a2_p01.svg",
+      "kind": "scenes",
+      "format": "svg",
+      "answer_critical": false,
+      "sha256": "12b5aa9e579dfa5f139e25f4298680dd38e364c8d18beff518c7c7127c1a5c44",
+      "size_bytes": 3124
+    },
+    {
+      "path": "scenes/scene_03_a2_p02.png",
+      "kind": "scenes",
+      "format": "png",
+      "answer_critical": false,
+      "sha256": "33797f4e086483b364132492ce645d50650584afd1bc699a7b85ee6807115e38",
+      "size_bytes": 49392
+    },
+    {
+      "path": "scenes/scene_03_a2_p02.svg",
+      "kind": "scenes",
+      "format": "svg",
+      "answer_critical": false,
+      "sha256": "fe6e6dd0fc48457f1c3ffb3589a7fa638d0d82f55d3fcabb832b5a261488be74",
+      "size_bytes": 3124
+    },
+    {
+      "path": "scenes/scene_04_a2_p03.png",
+      "kind": "scenes",
+      "format": "png",
+      "answer_critical": false,
+      "sha256": "11d58c3c250102a8de24d6d90bdce166e5fccba07ef758256bb4f3e316e5757a",
+      "size_bytes": 49396
+    },
+    {
+      "path": "scenes/scene_04_a2_p03.svg",
+      "kind": "scenes",
+      "format": "svg",
+      "answer_critical": false,
+      "sha256": "f2c92c58c2227a19153a510756a1e9a4e6f4ba410ad2550a626b305aec86c382",
+      "size_bytes": 3125
+    },
+    {
+      "path": "scenes/scene_05_a2_p04.png",
+      "kind": "scenes",
+      "format": "png",
+      "answer_critical": false,
+      "sha256": "550e9ed6d12dcad1c9cccdf38261e3e62b7524c06f8dde289a96d20a0cac23bb",
+      "size_bytes": 49113
+    },
+    {
+      "path": "scenes/scene_05_a2_p04.svg",
+      "kind": "scenes",
+      "format": "svg",
+      "answer_critical": false,
+      "sha256": "322a987192d44a95da3e0e235a758c1f27b413aafd62657731bbb8e12799d031",
+      "size_bytes": 3125
+    },
+    {
+      "path": "scenes/scene_06_a2_t01.png",
+      "kind": "scenes",
+      "format": "png",
+      "answer_critical": false,
+      "sha256": "188c82f958ba13540e35c85c012270d40502d681bc0cad0d53faccb000cd37f5",
+      "size_bytes": 49028
+    },
+    {
+      "path": "scenes/scene_06_a2_t01.svg",
+      "kind": "scenes",
+      "format": "svg",
+      "answer_critical": false,
+      "sha256": "ebcb3938555b6917b876594e936b87c635cc30b1c6c0d603edf836ed79482f3e",
+      "size_bytes": 3126
+    },
+    {
+      "path": "sprites/molecule_CH4.png",
+      "kind": "sprites",
+      "format": "png",
+      "answer_critical": true,
+      "sha256": "a101ffad05dcd0072ab1bbbc998459250e5e6ac173789276e190378517056c11",
+      "size_bytes": 12440
+    },
+    {
+      "path": "sprites/molecule_CH4.svg",
+      "kind": "sprites",
+      "format": "svg",
+      "answer_critical": true,
+      "sha256": "c7c29e7d17162e73e2f9d3f5a79a8693b8bd5b7525d9efc0beef3595f8d4d8c1",
+      "size_bytes": 1657
+    },
+    {
+      "path": "sprites/molecule_CO2.png",
+      "kind": "sprites",
+      "format": "png",
+      "answer_critical": true,
+      "sha256": "e2aed7b4d04e50876e93b5a49d217756b4393511552cfca58afc449bd4f0adba",
+      "size_bytes": 9251
+    },
+    {
+      "path": "sprites/molecule_CO2.svg",
+      "kind": "sprites",
+      "format": "svg",
+      "answer_critical": true,
+      "sha256": "aaa96f73725cb689f44cff1f64d279613d21e1fa7bc8cede6d666637c4883599",
+      "size_bytes": 1063
+    },
+    {
+      "path": "sprites/molecule_CaCO3.png",
+      "kind": "sprites",
+      "format": "png",
+      "answer_critical": true,
+      "sha256": "fba878248a3400a38e53650e1e9ccf75163f4a1fe70fcb91b8612d73d816c8b4",
+      "size_bytes": 16364
+    },
+    {
+      "path": "sprites/molecule_CaCO3.svg",
+      "kind": "sprites",
+      "format": "svg",
+      "answer_critical": true,
+      "sha256": "9a419ba1838f7419e419e66fc344cf82d596548a8d4719da8b8d13d7aff014ee",
+      "size_bytes": 1676
+    },
+    {
+      "path": "sprites/molecule_CaCl2.png",
+      "kind": "sprites",
+      "format": "png",
+      "answer_critical": true,
+      "sha256": "fff7b25c2908a2464920d5eaed58e8ccc6d7e2557845db2536c32827814f8f9b",
+      "size_bytes": 10466
+    },
+    {
+      "path": "sprites/molecule_CaCl2.svg",
+      "kind": "sprites",
+      "format": "svg",
+      "answer_critical": true,
+      "sha256": "3783f35ccf833d5e8e28d4e4b4397f74798b47f79b8b721037a73545c8c5d74c",
+      "size_bytes": 1073
+    },
+    {
+      "path": "sprites/molecule_Fe.png",
+      "kind": "sprites",
+      "format": "png",
+      "answer_critical": true,
+      "sha256": "eebfee2a660ed5e4ace09fae18c2a44705b5ba5a684df52394f5d63f17c31231",
+      "size_bytes": 7148
+    },
+    {
+      "path": "sprites/molecule_Fe.svg",
+      "kind": "sprites",
+      "format": "svg",
+      "answer_critical": true,
+      "sha256": "973718490c1cd27cfe76b9bb2155c6a535839bc8bdda17255bb1fad85437720a",
+      "size_bytes": 474
+    },
+    {
+      "path": "sprites/molecule_Fe2O3.png",
+      "kind": "sprites",
+      "format": "png",
+      "answer_critical": true,
+      "sha256": "8df7ce5e8ba9d8dc9ae885092899d35e0442a7f93c1cc9be706ee8b95b35c4e6",
+      "size_bytes": 13209
+    },
+    {
+      "path": "sprites/molecule_Fe2O3.svg",
+      "kind": "sprites",
+      "format": "svg",
+      "answer_critical": true,
+      "sha256": "601272bd10a9d28a12ab094e74d7cdf83f22b2bb4056d16ee531491f1cd04997",
+      "size_bytes": 1709
+    },
+    {
+      "path": "sprites/molecule_H2.png",
+      "kind": "sprites",
+      "format": "png",
+      "answer_critical": true,
+      "sha256": "aadfef0c6c643195fc1d55a447af09f29b6eb5b54388b08e3b8d7221f45a3eba",
+      "size_bytes": 5220
+    },
+    {
+      "path": "sprites/molecule_H2.svg",
+      "kind": "sprites",
+      "format": "svg",
+      "answer_critical": true,
+      "sha256": "d9d9829b1fd964201340b8277bfe2e4014c51a465042d788976db5ff1af50cee",
+      "size_bytes": 758
+    },
+    {
+      "path": "sprites/molecule_H2O.png",
+      "kind": "sprites",
+      "format": "png",
+      "answer_critical": true,
+      "sha256": "2b862b21a957de18d0e9d5e6a2c97c541ac8d63ab3175d19d71ceb8816272a5d",
+      "size_bytes": 9273
+    },
+    {
+      "path": "sprites/molecule_H2O.svg",
+      "kind": "sprites",
+      "format": "svg",
+      "answer_critical": true,
+      "sha256": "cdd015d57bcd98a908c3cd53a4363411afe44792ae1cccbaeaa55d8abd6637ca",
+      "size_bytes": 1064
+    },
+    {
+      "path": "sprites/molecule_H2O2.png",
+      "kind": "sprites",
+      "format": "png",
+      "answer_critical": true,
+      "sha256": "327f465f9b41a977c4e5c09e137fb82a97b31921857d65b030ffb687c960ff3a",
+      "size_bytes": 8845
+    },
+    {
+      "path": "sprites/molecule_H2O2.svg",
+      "kind": "sprites",
+      "format": "svg",
+      "answer_critical": true,
+      "sha256": "11c15be7176d1155c16e4dd9d021f7b2ac54dbca1803c2610b000a9b914f262d",
+      "size_bytes": 1398
+    },
+    {
+      "path": "sprites/molecule_HCl.png",
+      "kind": "sprites",
+      "format": "png",
+      "answer_critical": true,
+      "sha256": "1a2d2701a1e4b640f855a9e3759ed5c755e8de5488efa2442601b5c586b4a88a",
+      "size_bytes": 9030
+    },
+    {
+      "path": "sprites/molecule_HCl.svg",
+      "kind": "sprites",
+      "format": "svg",
+      "answer_critical": true,
+      "sha256": "21040dc5b2ed8598f06270de4fa50e97e68374631dc5a26458f5c3652f06f82d",
+      "size_bytes": 790
+    },
+    {
+      "path": "sprites/molecule_N2.png",
+      "kind": "sprites",
+      "format": "png",
+      "answer_critical": true,
+      "sha256": "e8c6ada3cb6fd4c9d114436ab89560015149d2674c6db902c2c6351029593763",
+      "size_bytes": 5771
+    },
+    {
+      "path": "sprites/molecule_N2.svg",
+      "kind": "sprites",
+      "format": "svg",
+      "answer_critical": true,
+      "sha256": "05b8799a7d945dfefe2e1dafa145c3e42a330a91948ee71f09ffaaa7f7c4bf53",
+      "size_bytes": 758
+    },
+    {
+      "path": "sprites/molecule_NH3.png",
+      "kind": "sprites",
+      "format": "png",
+      "answer_critical": true,
+      "sha256": "0c9cd594526deb2fbd6f9650220870147258a57acca618b4ac85fe83a58c8fc5",
+      "size_bytes": 12348
+    },
+    {
+      "path": "sprites/molecule_NH3.svg",
+      "kind": "sprites",
+      "format": "svg",
+      "answer_critical": true,
+      "sha256": "e8dccee16d45a972293ff03c208112eabd0e9cd1827bbd69565f1bcb6e8d9242",
+      "size_bytes": 1366
+    },
+    {
+      "path": "sprites/molecule_O2.png",
+      "kind": "sprites",
+      "format": "png",
+      "answer_critical": true,
+      "sha256": "70fb7b7263dcd91c5dcfb25f375a3cacec1d0d0651b8a3453a47bba7d8e623f9",
+      "size_bytes": 6258
+    },
+    {
+      "path": "sprites/molecule_O2.svg",
+      "kind": "sprites",
+      "format": "svg",
+      "answer_critical": true,
+      "sha256": "0b82d534f8111a523f0033bc7b80fe4d1011563b8eadca06ca473bc2755b877c",
+      "size_bytes": 758
+    },
+    {
+      "path": "sprites/sprite_atom.png",
+      "kind": "sprites",
+      "format": "png",
+      "answer_critical": true,
+      "sha256": "b969e499953559bee3470cde2cb508d9804bdf030c90924677350d093f47ed6b",
+      "size_bytes": 14156
+    },
+    {
+      "path": "sprites/sprite_atom.svg",
+      "kind": "sprites",
+      "format": "svg",
+      "answer_critical": true,
+      "sha256": "b84dc6025573080d5fc818e704604110aebc2bc19bca1ec78c710a0421883078",
+      "size_bytes": 524
+    },
+    {
+      "path": "sprites/sprite_check.png",
+      "kind": "sprites",
+      "format": "png",
+      "answer_critical": true,
+      "sha256": "f5306015517dae9e0771a6f74577e8fd131c85d22c452884098642911d933c1f",
+      "size_bytes": 8061
+    },
+    {
+      "path": "sprites/sprite_check.svg",
+      "kind": "sprites",
+      "format": "svg",
+      "answer_critical": true,
+      "sha256": "022a00567c90f6ecc8be42aafb0f917d2b24b3e20fb4f22f3621d151d0107d5d",
+      "size_bytes": 316
+    },
+    {
+      "path": "sprites/sprite_flask.png",
+      "kind": "sprites",
+      "format": "png",
+      "answer_critical": true,
+      "sha256": "ff44364f1f3372b387dc27cbd6633f71e249a597acd6626c6fc935c5434322cb",
+      "size_bytes": 6842
+    },
+    {
+      "path": "sprites/sprite_flask.svg",
+      "kind": "sprites",
+      "format": "svg",
+      "answer_critical": true,
+      "sha256": "a35208a91e5a34a772910fe1376283e17c2c79dd39e15bb9ccfec824116c614b",
+      "size_bytes": 459
+    },
+    {
+      "path": "sprites/sprite_hint.png",
+      "kind": "sprites",
+      "format": "png",
+      "answer_critical": true,
+      "sha256": "013e0b877769bfb47f93a9608bcfcba48e492c54f9bf4102f0c4c33c01c14de6",
+      "size_bytes": 7545
+    },
+    {
+      "path": "sprites/sprite_hint.svg",
+      "kind": "sprites",
+      "format": "svg",
+      "answer_critical": true,
+      "sha256": "b6e50ed8b4e9b910f1e007c907db63eb73e78fa79d8083871fad3d1674ebb0c8",
+      "size_bytes": 391
+    }
+  ]
+}

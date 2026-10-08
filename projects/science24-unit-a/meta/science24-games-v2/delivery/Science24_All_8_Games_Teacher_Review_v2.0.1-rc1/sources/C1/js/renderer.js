@@ -1,0 +1,14 @@
+import {evaluateRoutes} from './engine.js';
+import {escapeHTML as h,panel,scene,prediction,routeMap,selectField,explanation,checkButtons,formGate,modelGate} from './ui.js';
+function routes(s,m){let r=null;try{r=evaluateRoutes(s.routes,s.measures,m.modelInputs.measures||[],s.budget);}catch{}return routeMap(s.routes,r?.blocked||[],m.revealed,m.replayTime)+`<p>${m.revealed?'Replay describes only the authored routes; it does not quantify risk.':'Choose measures, then run the route replay.'}</p>`;}
+export function render(s,m,transfer=false){
+ if(s.sequence)return panel('Body Defence Evidence',1,'Layered, overlapping responses',scene(s,'Context illustration of body defence')+'<p>A barrier limits entry; broad responses act early; specific responses can leave immune memory. These layers can overlap.</p>'+prediction(s,m))+
+ panel('Defence Sequence',2,'Select labels; no dragging',formGate(m,s.sequence.map((_,i)=>selectField('defence'+i,i===3?'Retained adaptive feature':'Defence response '+(i+1),m.modelInputs['defence'+i],s.sequence.map(v=>[v,v.replaceAll('_',' ')]))).join('')))+
+ panel('Explain the Distinctions',3,'Preparation differs from treatment',explanation(m.explanation,s.explanationPrompt)+checkButtons(m));
+ const measures=Object.keys(s.measures).map(k=>`<button class="choice" data-measure="${h(k)}" aria-pressed="${(m.modelInputs.measures||[]).includes(k)}"><span class="radio" aria-hidden="true"></span><span><strong>${h(k)}</strong><small>Judge its action against the stated route evidence.</small></span></button>`).join('');
+ return panel(transfer?'Fresh Transfer':'Case Evidence',1,transfer?'Conventional route diagram':'Read only the stated evidence',(transfer?'':scene(s,'Context illustration of a fictional transmission setting'))+`<h3>${h(s.title)}</h3><p>Only the supplied routes are modelled. There are ${s.routes.length} routes and a maximum of ${s.budget} intervention tokens.</p>`+(s.classificationRequired?selectField('cause','Type of case',m.modelInputs.cause,[['communicable','Communicable pathogen process'],['noncommunicable','Noncommunicable condition']]):'')+(transfer?'':prediction(s,m)))+
+ panel('Transmission Map',2,'Trace source → entry',`<div id="live-routes">${routes(s,m)}</div>${transfer?'<p>No causal replay is available before your first response.</p>':'<div class="btn-row"><button class="btn primary" data-action="replay">Run route replay</button><button class="btn" data-action="pause">Pause</button></div>'}`)+
+ panel('Intervention Plan',3,'Match actions to evidence',formGate(m,`<div class="choice-list">${measures}</div>`,transfer)+explanation(m.explanation,s.explanationPrompt)+checkButtons(m,transfer));
+}
+export function refresh(root,s,m){const el=root.querySelector('#live-routes');if(el)el.innerHTML=routes(s,m);}
+export function worked(){}

@@ -1,0 +1,17 @@
+{
+  "projectSlug": "biology30-chapter-12",
+  "requiredTestIds": ["studio-shell", "course-studio-tab", "workspace-project-select", "project-root", "workspace-preview-frame"],
+  "modes": {"enabled": false},
+  "navigation": {"enabled": false},
+  "quiz": {"enabled": false, "lessonTitle": "Pitch, loudness and hearing impairment"},
+  "fallbackPanel": {"enabled": false},
+  "learnerCourse": {
+    "enabled": true,
+    "routes": ["overview", "lesson-01", "lesson-02", "lesson-03", "lesson-04", "lesson-05", "lesson-06", "lesson-07", "lesson-08", "lesson-09", "extension", "practice", "fill-in-the-blanks", "labeling-practice", "multiple-choice", "mixed-practice", "textbook-practice", "process-collection", "core-vocabulary", "textbook-library", "video-library"],
+    "hintRoutes": [],
+    "printRoutes": [],
+    "resourceChecks": [],
+    "evidenceScenario": {"kind":"native-note","route":"lesson-06","responseId":"ch12-pre-v1-06-place-evidence","collectionRoute":"process-collection"},
+    "mobile": {"width": 390, "height": 844, "routes": ["overview", "lesson-01", "lesson-02", "lesson-03", "lesson-04", "lesson-05", "lesson-06", "lesson-07", "lesson-08", "lesson-09", "extension", "practice", "fill-in-the-blanks", "labeling-practice", "multiple-choice", "mixed-practice", "textbook-practice", "process-collection", "core-vocabulary", "textbook-library", "video-library"]}
+  }
+}

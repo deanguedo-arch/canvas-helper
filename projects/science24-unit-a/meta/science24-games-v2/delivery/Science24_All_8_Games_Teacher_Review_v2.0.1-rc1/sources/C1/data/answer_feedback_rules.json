@@ -1,0 +1,114 @@
+{
+  "game_id": "C1",
+  "version": "2.0.1",
+  "open_explanation_policy": "Never auto-certify quality from keywords. Use visible self-review or teacher-review status.",
+  "general": [
+    "Correct science result is necessary but not sufficient for independent mastery.",
+    "A successful answer edited later becomes unverified until checked again.",
+    "Hints and retries remain available but are recorded in the review summary.",
+    "Equivalent valid numeric forms are accepted where specified."
+  ],
+  "scenarios": [
+    {
+      "id": "C1-W01",
+      "accepted_result": {
+        "measures": [
+          "separate clean equipment",
+          "hand hygiene"
+        ],
+        "explanation": "Separate clean equipment addresses the board route; hand hygiene addresses the hand route. This puzzle does not predict infection probability."
+      },
+      "must_explain": true,
+      "misconception_feedback": [
+        "Name the stated route this measure interrupts.",
+        "Prevention, treatment and immune memory are different ideas.",
+        "Blocking one route does not guarantee zero real-world risk."
+      ]
+    },
+    {
+      "id": "C1-P01",
+      "accepted_result": {
+        "cause": "communicable",
+        "measures": [
+          "safe supplied water",
+          "hand hygiene"
+        ],
+        "explanation": "Safe supplied water addresses the source route and hand hygiene addresses hands/cup contact. A clean container alone does not fix contaminated source water."
+      },
+      "must_explain": true,
+      "misconception_feedback": [
+        "Name the stated route this measure interrupts.",
+        "Prevention, treatment and immune memory are different ideas.",
+        "Blocking one route does not guarantee zero real-world risk."
+      ]
+    },
+    {
+      "id": "C1-P02",
+      "accepted_result": {
+        "cause": "communicable",
+        "measures": [
+          "source-reducing behaviour"
+        ],
+        "explanation": "Source-reducing behaviour addresses both supplied source routes in this model. Table cleaning alone does not match those routes."
+      },
+      "must_explain": true,
+      "misconception_feedback": [
+        "Name the stated route this measure interrupts.",
+        "Prevention, treatment and immune memory are different ideas.",
+        "Blocking one route does not guarantee zero real-world risk."
+      ]
+    },
+    {
+      "id": "C1-P03",
+      "accepted_result": {
+        "cause": "communicable",
+        "measures": [
+          "ventilation",
+          "surface cleaning"
+        ],
+        "explanation": "Ventilation addresses shared air and cleaning the supplied contaminated surface addresses the surface/hand route. Hand hygiene is another supported option."
+      },
+      "must_explain": true,
+      "misconception_feedback": [
+        "Name the stated route this measure interrupts.",
+        "Prevention, treatment and immune memory are different ideas.",
+        "Blocking one route does not guarantee zero real-world risk."
+      ]
+    },
+    {
+      "id": "C1-P04",
+      "accepted_result": {
+        "defence0": "barrier",
+        "defence1": "innate response",
+        "defence2": "adaptive response",
+        "defence3": "immune memory",
+        "explanation": "A barrier limits entry; innate response is broad; adaptive response is specific and can leave memory. These layers overlap; vaccination prepares a response, not an instant cure."
+      },
+      "must_explain": true,
+      "misconception_feedback": [
+        "Name the stated route this measure interrupts.",
+        "Prevention, treatment and immune memory are different ideas.",
+        "Blocking one route does not guarantee zero real-world risk."
+      ]
+    },
+    {
+      "id": "C1-T01",
+      "accepted_result": {
+        "cause": "communicable",
+        "measures": [
+          "ventilation",
+          "hand hygiene"
+        ],
+        "explanation": "Ventilation addresses shared air and hand hygiene addresses hands at the entry point. Both stated routes are addressed in this model, not guaranteed eliminated in the real world."
+      },
+      "must_explain": true,
+      "misconception_feedback": [
+        "Name the stated route this measure interrupts.",
+        "Prevention, treatment and immune memory are different ideas.",
+        "Blocking one route does not guarantee zero real-world risk."
+      ]
+    }
+  ],
+  "content_version": "2.0.1",
+  "authority": "Runtime scenario JSON and pure validator; original suggested wording retained only as reference in source handoff."
+}

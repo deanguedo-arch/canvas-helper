@@ -2,7 +2,7 @@
   "id": "aa207749-3487-492e-a252-42ef1d93da3e",
   "slug": "pe10-online-pilot",
   "title": "Physical Education 10 — Online",
-  "sourcePath": "projects/pe10-online-pilot/raw/original.html",
+  "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/processed/pe10-online-pilot/source",
   "inputKind": "html",
   "brightspaceTarget": "course-page",
   "previewModes": [
@@ -15,7 +15,7 @@
   "learningTrust": "curated",
   "learningUpdatedAt": "2026-09-03T18:31:24.473Z",
   "createdAt": "2026-09-03T18:31:24.473Z",
-  "updatedAt": "2026-09-03T20:55:26.000Z",
+  "updatedAt": "2026-10-07T18:32:05.147Z",
   "migrationState": "migrated",
   "projectType": "generated-course",
   "preferredWorkflows": [
@@ -44,6 +44,11 @@
     "driverId": "direct-workspace-v1",
     "familyId": "codex-studio-direct-v1",
     "qualityProfile": "direct-rendered-course",
+    "studioEditing": {
+      "enabled": false,
+      "renameCourse": false,
+      "imageAssets": false
+    },
     "learnerSurfaces": {
       "schemaVersion": 1,
       "mode": "static-pages-complete",
@@ -53,11 +58,6 @@
           "route": ""
         }
       ]
-    },
-    "studioEditing": {
-      "enabled": false,
-      "renameCourse": false,
-      "imageAssets": false
     }
   },
   "injectedComponents": [],

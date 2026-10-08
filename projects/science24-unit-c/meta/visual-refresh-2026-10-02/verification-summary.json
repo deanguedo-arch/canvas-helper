@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "workspace": {
+    "command": "npm run verify -- --project science24-unit-c --mode workspace",
+    "exitCode": 0,
+    "result": "Metadata policy and local dependencies passed; no missing assets, embeds or course-shell resources."
+  },
+  "doctor": {
+    "command": "npm run course:doctor -- --project science24-unit-c",
+    "exitCode": 1,
+    "result": "Refused not-active because authoringStatus is blocked. This is not a doctor pass."
+  },
+  "runtime": "Preservation checker plus isolated synthetic save/reload/completed-check carryover passed",
+  "publication": "not performed"
+}

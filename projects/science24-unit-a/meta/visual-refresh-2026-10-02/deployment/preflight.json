@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-10-02T23:15:24.025Z",
+  "authorization": "User: Can you deploy these",
+  "scope": "Science 24 A–D teacher review only; other hosted courses preserved",
+  "branch": "codex/math-engine-preflight",
+  "head": "ecc1b806630cb33b9942e64eb676a1f8568c007e",
+  "stage": "/var/folders/ff/52r3_p9554bgwzvj0nkjw8k00000gn/T/biology30-current-review-ZuHlOB/public",
+  "reviewVersion": "20261002-science24-visual1",
+  "units": [
+    {
+      "id": "science24-unit-a",
+      "files": 135,
+      "treeSha256": "93f61454a671c9060d809670e3fc23de0cd1d51c53922d25bb10a9426ba2ac9a",
+      "authoringStatus": "blocked"
+    },
+    {
+      "id": "science24-unit-b",
+      "files": 179,
+      "treeSha256": "ac666204be4fdaf5bac0a9f247b10da67e02c1df3edc4dc7d45736025b3e9f60",
+      "authoringStatus": "blocked"
+    },
+    {
+      "id": "science24-unit-c",
+      "files": 211,
+      "treeSha256": "ab8d9222c899db2de5a3fc6e27982b0e35cd49a74fedfcd3e68f4f0943d78916",
+      "authoringStatus": "blocked"
+    },
+    {
+      "id": "science24-unit-d",
+      "files": 145,
+      "treeSha256": "8d7dccf0d159e121c80c6a7a8ae6aa5415fe70a57d2591a0d0564317482cd39b",
+      "authoringStatus": "blocked"
+    }
+  ],
+  "scienceFiles": 670,
+  "unrelatedFilesPreserved": 1883,
+  "totalFiles": 2554,
+  "selectorSha256": "58138680625b36597c217131c2c28caa9f03696214139a8a23ae29f4f88be6dd",
+  "previousReceiptSha256": "14f1e8a647e3972186d0325d5ca71f681f96260b19db5559b4f0c391f0ec8667",
+  "workspaceVerifications": {
+    "a": "pass",
+    "b": "pass",
+    "c": "pass",
+    "d": "pass"
+  },
+  "scopeTests": {
+    "passed": 4,
+    "failed": 0
+  },
+  "errors": []
+}

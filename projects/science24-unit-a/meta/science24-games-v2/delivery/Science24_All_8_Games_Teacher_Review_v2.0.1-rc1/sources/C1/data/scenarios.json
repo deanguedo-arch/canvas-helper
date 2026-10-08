@@ -1,0 +1,278 @@
+{
+  "game_id": "C1",
+  "version": "2.0.1",
+  "source_boundary": "Original authored teaching scenarios aligned to supplied course; not copied assessment questions.",
+  "scenarios": [
+    {
+      "id": "C1-W01",
+      "stage": "worked",
+      "title": "Food Preparation",
+      "routes": [
+        [
+          "raw-food residue",
+          "shared board",
+          "ready-to-eat salad"
+        ],
+        [
+          "contaminated hands",
+          "ready-to-eat salad"
+        ]
+      ],
+      "measures": {
+        "separate clean equipment": [
+          0
+        ],
+        "hand hygiene": [
+          1
+        ]
+      },
+      "answer": "Use one measure on each stated route; addressing only the board leaves the hand route open.",
+      "scene": "assets/scenes/scene_01_c1_w01.png",
+      "initial": {
+        "measures": [
+          "separate clean equipment",
+          "hand hygiene"
+        ]
+      },
+      "budget": 2,
+      "predictionPrompt": "Can a precaution address a route it does not act on?",
+      "predictions": [
+        "Yes; every precaution acts on every route",
+        "No; its action must match the supplied route",
+        "Treatment and prevention always mean the same thing"
+      ],
+      "explanationPrompt": "Explain which stated route each chosen measure addresses, and identify any route left open.",
+      "keyIdea": "Route-matched in this puzzle is not a forecast of infection or a guarantee of zero risk.",
+      "hints": [
+        "Follow each supplied route from its source to its entry point.",
+        "Select a measure that acts on the named route. Treatment is not a universal prevention card."
+      ],
+      "classificationRequired": false,
+      "teacherReasoning": "Separate clean equipment addresses the board route; hand hygiene addresses the hand route. This puzzle does not predict infection probability."
+    },
+    {
+      "id": "C1-P01",
+      "stage": "supported",
+      "title": "Shared Water Station",
+      "routes": [
+        [
+          "contaminated source",
+          "water container",
+          "drink"
+        ],
+        [
+          "contaminated hands",
+          "cup rim",
+          "drink"
+        ]
+      ],
+      "measures": {
+        "safe supplied water": [
+          0
+        ],
+        "hand hygiene": [
+          1
+        ],
+        "clean container": []
+      },
+      "answer": "Choose route-specific measures; multiple supported combinations may be valid.",
+      "scene": "assets/scenes/scene_02_c1_p01.png",
+      "initial": {
+        "measures": []
+      },
+      "budget": 2,
+      "predictionPrompt": "Can a precaution address a route it does not act on?",
+      "predictions": [
+        "Yes; every precaution acts on every route",
+        "No; its action must match the supplied route",
+        "Treatment and prevention always mean the same thing"
+      ],
+      "explanationPrompt": "Explain which stated route each chosen measure addresses, and identify any route left open.",
+      "keyIdea": "Route-matched in this puzzle is not a forecast of infection or a guarantee of zero risk.",
+      "hints": [
+        "Follow each supplied route from its source to its entry point.",
+        "Select a measure that acts on the named route. Treatment is not a universal prevention card."
+      ],
+      "classificationRequired": true,
+      "teacherReasoning": "Safe supplied water addresses the source route and hand hygiene addresses hands/cup contact. A clean container alone does not fix contaminated source water."
+    },
+    {
+      "id": "C1-P02",
+      "stage": "practice",
+      "title": "Indoor Respiratory Case",
+      "routes": [
+        [
+          "symptomatic source",
+          "shared air",
+          "host"
+        ],
+        [
+          "respiratory droplets",
+          "close contact",
+          "host"
+        ]
+      ],
+      "measures": {
+        "improved ventilation": [
+          0
+        ],
+        "source-reducing behaviour": [
+          0,
+          1
+        ],
+        "clean one table": []
+      },
+      "answer": "Ventilation and source reduction address the supplied routes; table cleaning alone does not.",
+      "scene": "assets/scenes/scene_03_c1_p02.png",
+      "initial": {
+        "measures": []
+      },
+      "budget": 2,
+      "predictionPrompt": "Can a precaution address a route it does not act on?",
+      "predictions": [
+        "Yes; every precaution acts on every route",
+        "No; its action must match the supplied route",
+        "Treatment and prevention always mean the same thing"
+      ],
+      "explanationPrompt": "Explain which stated route each chosen measure addresses, and identify any route left open.",
+      "keyIdea": "Route-matched in this puzzle is not a forecast of infection or a guarantee of zero risk.",
+      "hints": [
+        "Follow each supplied route from its source to its entry point.",
+        "Select a measure that acts on the named route. Treatment is not a universal prevention card."
+      ],
+      "classificationRequired": true,
+      "teacherReasoning": "Source-reducing behaviour addresses both supplied source routes in this model. Table cleaning alone does not match those routes."
+    },
+    {
+      "id": "C1-P03",
+      "stage": "practice",
+      "title": "Layered Community Centre",
+      "routes": [
+        [
+          "shared air",
+          "room",
+          "host"
+        ],
+        [
+          "contaminated surface",
+          "hands",
+          "eyes/nose/mouth"
+        ]
+      ],
+      "budget": 2,
+      "measures": {
+        "ventilation": [
+          0
+        ],
+        "hand hygiene": [
+          1
+        ],
+        "surface cleaning": [
+          1
+        ],
+        "antibiotics": []
+      },
+      "answer": "Use evidence-supported prevention; antibiotics are treatment for some bacterial infections, not a universal route blocker.",
+      "scene": "assets/scenes/scene_04_c1_p03.png",
+      "initial": {
+        "measures": []
+      },
+      "predictionPrompt": "Can a precaution address a route it does not act on?",
+      "predictions": [
+        "Yes; every precaution acts on every route",
+        "No; its action must match the supplied route",
+        "Treatment and prevention always mean the same thing"
+      ],
+      "explanationPrompt": "Explain which stated route each chosen measure addresses, and identify any route left open.",
+      "keyIdea": "Route-matched in this puzzle is not a forecast of infection or a guarantee of zero risk.",
+      "hints": [
+        "Follow each supplied route from its source to its entry point.",
+        "Select a measure that acts on the named route. Treatment is not a universal prevention card."
+      ],
+      "classificationRequired": true,
+      "teacherReasoning": "Ventilation addresses shared air and cleaning the supplied contaminated surface addresses the surface/hand route. Hand hygiene is another supported option."
+    },
+    {
+      "id": "C1-P04",
+      "stage": "low_support",
+      "title": "Body Defence Sequence",
+      "sequence": [
+        "barrier",
+        "innate response",
+        "adaptive response",
+        "immune memory"
+      ],
+      "answer": "Immune memory belongs to adaptive immunity; vaccination prepares a response and is not an instant cure.",
+      "scene": "assets/scenes/scene_05_c1_p04.png",
+      "initial": {},
+      "budget": 2,
+      "predictionPrompt": "Where does immune memory belong in this teaching model?",
+      "predictions": [
+        "Adaptive response",
+        "A separate physical barrier",
+        "Every antibiotic treatment"
+      ],
+      "explanationPrompt": "Distinguish barriers, innate response and adaptive response. Explain how adaptive immune memory and vaccination relate; the responses can overlap.",
+      "keyIdea": "Immune memory is a retained feature of adaptive immunity, not an independent fourth barrier. Vaccination prepares a response rather than providing an instant cure.",
+      "hints": [],
+      "classificationRequired": false,
+      "teacherReasoning": "Barrier limits entry; innate response is broad; adaptive response is specific and can retain immune memory. Memory belongs to adaptive immunity, not a separate fourth barrier; vaccination prepares a response rather than an instant cure."
+    },
+    {
+      "id": "C1-T01",
+      "stage": "transfer",
+      "title": "Two-Route Transfer",
+      "routes": [
+        [
+          "infectious source",
+          "shared air",
+          "host"
+        ],
+        [
+          "contaminated hands",
+          "entry point",
+          "host"
+        ]
+      ],
+      "budget": 2,
+      "answer": "Choose two route-matched measures and explain any remaining route. The model does not predict real infection probability.",
+      "scene": "assets/scenes/scene_06_c1_t01.png",
+      "initial": {
+        "measures": []
+      },
+      "predictionPrompt": "Can a precaution address a route it does not act on?",
+      "predictions": [
+        "Yes; every precaution acts on every route",
+        "No; its action must match the supplied route",
+        "Treatment and prevention always mean the same thing"
+      ],
+      "explanationPrompt": "Explain which stated route each chosen measure addresses, and identify any route left open.",
+      "keyIdea": "Route-matched in this puzzle is not a forecast of infection or a guarantee of zero risk.",
+      "hints": [
+        "Follow each supplied route from its source to its entry point.",
+        "Select a measure that acts on the named route. Treatment is not a universal prevention card."
+      ],
+      "measures": {
+        "ventilation": [
+          0
+        ],
+        "hand hygiene": [
+          1
+        ],
+        "antibiotics": []
+      },
+      "classificationRequired": true,
+      "teacherReasoning": "Ventilation addresses shared air and hand hygiene addresses hands at the entry point. Both stated routes are addressed in this model, not guaranteed eliminated in the real world."
+    }
+  ],
+  "title": "Break the Chain",
+  "unitTitle": "Disease Defence and Human Health",
+  "nextPractice": "Read a new route diagram and justify which layer addresses each stated route without claiming zero real-world risk.",
+  "instructions": [
+    "Read the worked two-route food case.",
+    "Predict which route a precaution could address.",
+    "Select relevant measures within the token budget; replay the authored routes.",
+    "Distinguish route prevention, treatment and the body's defences.",
+    "Explain each measure in the fresh transfer using only its supplied route evidence."
+  ]
+}

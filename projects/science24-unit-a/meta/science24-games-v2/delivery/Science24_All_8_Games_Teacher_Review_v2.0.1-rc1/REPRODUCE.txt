@@ -1,0 +1,16 @@
+REPRODUCE THIS CANDIDATE
+
+Use Node 22+ and Python 3.10+. Offline PLAY.html needs only a browser; these dependencies are for developers running the source checks.
+
+1. Run python3 tooling/lib/science24-games/restore_review.py /absolute/path/to/NEW-empty-science24-review
+2. In that new directory: npm install
+3. In your Python environment: python3 -m pip install playwright pillow numpy reportlab pypdf
+4. python3 -m playwright install chromium
+5. Set S24_PYTHON to your environment's Python executable if needed. Set CHROMIUM only if using a separately installed Chromium executable. Otherwise Playwright's installed Chromium is used.
+6. npm run test:science24-games -- --game A2
+7. npm run test:science24-games
+8. npm run package:science24-games-review
+
+The test command returns nonzero when the strict visual gate fails, even if science/state/browser flows pass. Reports retain that distinction. Packaging permits an unsigned teacher-review candidate with documented blocked visual acceptance; it does not approve or release it.
+
+Restore refuses a nonempty destination. It recreates the supplied candidate's canonical paths without changing your existing course checkout. Candidate and file hashes establish source parity. Generated PDF timestamps and ZIP metadata may differ on a later run; game source identity and deterministic PLAY.html bytes are the parity boundaries.

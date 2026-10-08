@@ -1,0 +1,466 @@
+TAP version 13
+# Subtest: Reject invalid numeric value ""
+ok 1 - Reject invalid numeric value ""
+  ---
+  duration_ms: 2.619038
+  type: 'test'
+  ...
+# Subtest: Reject invalid numeric value " "
+ok 2 - Reject invalid numeric value " "
+  ---
+  duration_ms: 0.258147
+  type: 'test'
+  ...
+# Subtest: Reject invalid numeric value null
+ok 3 - Reject invalid numeric value null
+  ---
+  duration_ms: 0.074031
+  type: 'test'
+  ...
+# Subtest: Reject invalid numeric value undefined
+ok 4 - Reject invalid numeric value undefined
+  ---
+  duration_ms: 0.06026
+  type: 'test'
+  ...
+# Subtest: Reject invalid numeric value true
+ok 5 - Reject invalid numeric value true
+  ---
+  duration_ms: 0.134181
+  type: 'test'
+  ...
+# Subtest: Reject invalid numeric value false
+ok 6 - Reject invalid numeric value false
+  ---
+  duration_ms: 0.089725
+  type: 'test'
+  ...
+# Subtest: Reject invalid numeric value {}
+ok 7 - Reject invalid numeric value {}
+  ---
+  duration_ms: 0.355493
+  type: 'test'
+  ...
+# Subtest: Reject invalid numeric value []
+ok 8 - Reject invalid numeric value []
+  ---
+  duration_ms: 0.117757
+  type: 'test'
+  ...
+# Subtest: Reject invalid numeric value "Infinity"
+ok 9 - Reject invalid numeric value "Infinity"
+  ---
+  duration_ms: 0.297917
+  type: 'test'
+  ...
+# Subtest: Reject invalid numeric value "NaN"
+ok 10 - Reject invalid numeric value "NaN"
+  ---
+  duration_ms: 0.348292
+  type: 'test'
+  ...
+# Subtest: Reject invalid numeric value "0x10"
+ok 11 - Reject invalid numeric value "0x10"
+  ---
+  duration_ms: 0.129725
+  type: 'test'
+  ...
+# Subtest: Reject invalid numeric value "1,616"
+ok 12 - Reject invalid numeric value "1,616"
+  ---
+  duration_ms: 0.137126
+  type: 'test'
+  ...
+# Subtest: Reject invalid numeric value "1.2kWh"
+ok 13 - Reject invalid numeric value "1.2kWh"
+  ---
+  duration_ms: 0.045007
+  type: 'test'
+  ...
+# Subtest: Reject invalid numeric value "1e999"
+ok 14 - Reject invalid numeric value "1e999"
+  ---
+  duration_ms: 0.036275
+  type: 'test'
+  ...
+# Subtest: Reject invalid numeric value "1;alert(1)"
+ok 15 - Reject invalid numeric value "1;alert(1)"
+  ---
+  duration_ms: 0.028613
+  type: 'test'
+  ...
+# Subtest: Parse numeric "0"
+ok 16 - Parse numeric "0"
+  ---
+  duration_ms: 0.053681
+  type: 'test'
+  ...
+# Subtest: Parse numeric " .360 "
+ok 17 - Parse numeric " .360 "
+  ---
+  duration_ms: 0.030265
+  type: 'test'
+  ...
+# Subtest: Parse numeric "1.616"
+ok 18 - Parse numeric "1.616"
+  ---
+  duration_ms: 0.027751
+  type: 'test'
+  ...
+# Subtest: Parse numeric "3.6e2"
+ok 19 - Parse numeric "3.6e2"
+  ---
+  duration_ms: 0.027271
+  type: 'test'
+  ...
+# Subtest: Parse numeric "1."
+ok 20 - Parse numeric "1."
+  ---
+  duration_ms: 0.084017
+  type: 'test'
+  ...
+# Subtest: Parse numeric "+0.5"
+ok 21 - Parse numeric "+0.5"
+  ---
+  duration_ms: 0.032179
+  type: 'test'
+  ...
+# Subtest: Negative value is not a non-negative energy
+ok 22 - Negative value is not a non-negative energy
+  ---
+  duration_ms: 0.065888
+  type: 'test'
+  ...
+# Subtest: Power, quantity and time all contribute to kWh
+ok 23 - Power, quantity and time all contribute to kWh
+  ---
+  duration_ms: 0.074201
+  type: 'test'
+  ...
+# Subtest: Zero hours use zero energy
+ok 24 - Zero hours use zero energy
+  ---
+  duration_ms: 0.044797
+  type: 'test'
+  ...
+# Subtest: Reject invalid device quantities [0,10,1]
+ok 25 - Reject invalid device quantities [0,10,1]
+  ---
+  duration_ms: 0.454773
+  type: 'test'
+  ...
+# Subtest: Reject invalid device quantities [-1,10,1]
+ok 26 - Reject invalid device quantities [-1,10,1]
+  ---
+  duration_ms: 0.080671
+  type: 'test'
+  ...
+# Subtest: Reject invalid device quantities [1.5,10,1]
+ok 27 - Reject invalid device quantities [1.5,10,1]
+  ---
+  duration_ms: 0.051497
+  type: 'test'
+  ...
+# Subtest: Reject invalid device quantities [1,-10,1]
+ok 28 - Reject invalid device quantities [1,-10,1]
+  ---
+  duration_ms: 0.046329
+  type: 'test'
+  ...
+# Subtest: Reject invalid device quantities [1,10,-1]
+ok 29 - Reject invalid device quantities [1,10,-1]
+  ---
+  duration_ms: 0.175623
+  type: 'test'
+  ...
+# Subtest: Reject invalid device quantities [1,null,1]
+ok 30 - Reject invalid device quantities [1,null,1]
+  ---
+  duration_ms: 0.184376
+  type: 'test'
+  ...
+# Subtest: Reject invalid device quantities [1,10,null]
+ok 31 - Reject invalid device quantities [1,10,null]
+  ---
+  duration_ms: 0.06026
+  type: 'test'
+  ...
+# Subtest: Wh conversion and kWh identity
+ok 32 - Wh conversion and kWh identity
+  ---
+  duration_ms: 0.080241
+  type: 'test'
+  ...
+# Subtest: Power units cannot pass as energy units
+ok 33 - Power units cannot pass as energy units
+  ---
+  duration_ms: 0.315333
+  type: 'test'
+  ...
+# Subtest: Blank is not silently converted to zero
+ok 34 - Blank is not silently converted to zero
+  ---
+  duration_ms: 0.075423
+  type: 'test'
+  ...
+# Subtest: Worked round is 0.440 kWh
+ok 35 - Worked round is 0.440 kWh
+  ---
+  duration_ms: 0.438598
+  type: 'test'
+  ...
+# Subtest: Initial lighting plan exceeds cap
+ok 36 - Initial lighting plan exceeds cap
+  ---
+  duration_ms: 0.090997
+  type: 'test'
+  ...
+# Subtest: LED option meets lighting floor with 0.360 kWh
+ok 37 - LED option meets lighting floor with 0.360 kWh
+  ---
+  duration_ms: 0.143175
+  type: 'test'
+  ...
+# Subtest: Accept a valid alternative lighting schedule
+ok 38 - Accept a valid alternative lighting schedule
+  ---
+  duration_ms: 0.535503
+  type: 'test'
+  ...
+# Subtest: Turning every required service off cannot win
+ok 39 - Turning every required service off cannot win
+  ---
+  duration_ms: 1.182284
+  type: 'test'
+  ...
+# Subtest: Unknown device option fails closed
+ok 40 - Unknown device option fails closed
+  ---
+  duration_ms: 0.171897
+  type: 'test'
+  ...
+# Subtest: Reject invalid schedule hours 
+ok 41 - Reject invalid schedule hours 
+  ---
+  duration_ms: 0.140761
+  type: 'test'
+  ...
+# Subtest: Reject invalid schedule hours -0.5
+ok 42 - Reject invalid schedule hours -0.5
+  ---
+  duration_ms: 0.086529
+  type: 'test'
+  ...
+# Subtest: Reject invalid schedule hours 12.5
+ok 43 - Reject invalid schedule hours 12.5
+  ---
+  duration_ms: 0.080371
+  type: 'test'
+  ...
+# Subtest: Reject invalid schedule hours 0.1
+ok 44 - Reject invalid schedule hours 0.1
+  ---
+  duration_ms: 0.113541
+  type: 'test'
+  ...
+# Subtest: Reject invalid schedule hours NaN
+ok 45 - Reject invalid schedule hours NaN
+  ---
+  duration_ms: 0.07965
+  type: 'test'
+  ...
+# Subtest: Reject invalid schedule hours Infinity
+ok 46 - Reject invalid schedule hours Infinity
+  ---
+  duration_ms: 0.073961
+  type: 'test'
+  ...
+# Subtest: Missing group is not ignored
+ok 47 - Missing group is not ignored
+  ---
+  duration_ms: 0.132469
+  type: 'test'
+  ...
+# Subtest: Mandatory hours are a floor, not arbitrary row labels
+ok 48 - Mandatory hours are a floor, not arbitrary row labels
+  ---
+  duration_ms: 0.181061
+  type: 'test'
+  ...
+# Subtest: Computer group and all three services total 1.616 kWh
+ok 49 - Computer group and all three services total 1.616 kWh
+  ---
+  duration_ms: 0.185899
+  type: 'test'
+  ...
+# Subtest: Extra half hour can break the computer-room cap
+ok 50 - Extra half hour can break the computer-room cap
+  ---
+  duration_ms: 0.132739
+  type: 'test'
+  ...
+# Subtest: Projector initial plan is 0.414 kWh and exceeds 0.400
+ok 51 - Projector initial plan is 0.414 kWh and exceeds 0.400
+  ---
+  duration_ms: 0.165048
+  type: 'test'
+  ...
+# Subtest: Equivalent projector with full session yields 0.369 kWh
+ok 52 - Equivalent projector with full session yields 0.369 kWh
+  ---
+  duration_ms: 0.191818
+  type: 'test'
+  ...
+# Subtest: Cancelling part of the session fails even below cap
+ok 53 - Cancelling part of the session fails even below cap
+  ---
+  duration_ms: 0.161172
+  type: 'test'
+  ...
+# Subtest: Correct plan without predicted total is not a submitted attempt
+ok 54 - Correct plan without predicted total is not a submitted attempt
+  ---
+  duration_ms: 0.151047
+  type: 'test'
+  ...
+# Subtest: A wrong reasoning choice blocks the checked pass
+ok 55 - A wrong reasoning choice blocks the checked pass
+  ---
+  duration_ms: 0.226961
+  type: 'test'
+  ...
+# Subtest: Wh / kWh mislabelling has targeted feedback
+ok 56 - Wh / kWh mislabelling has targeted feedback
+  ---
+  duration_ms: 0.176956
+  type: 'test'
+  ...
+# Subtest: Equivalent correct watt-hour answer is accepted
+ok 57 - Equivalent correct watt-hour answer is accepted
+  ---
+  duration_ms: 0.147892
+  type: 'test'
+  ...
+# Subtest: Budget equality succeeds without rounding the underlying total
+ok 58 - Budget equality succeeds without rounding the underlying total
+  ---
+  duration_ms: 0.150376
+  type: 'test'
+  ...
+# Subtest: 0.001 kWh mismatch is not accepted
+ok 59 - 0.001 kWh mismatch is not accepted
+  ---
+  duration_ms: 0.089444
+  type: 'test'
+  ...
+# Subtest: Efficiency is 60% and other output 600 J
+ok 60 - Efficiency is 60% and other output 600 J
+  ---
+  duration_ms: 0.258338
+  type: 'test'
+  ...
+# Subtest: Fraction supplied as percentage gets correction
+ok 61 - Fraction supplied as percentage gets correction
+  ---
+  duration_ms: 0.199729
+  type: 'test'
+  ...
+# Subtest: Invalid efficiency model 10/0
+ok 62 - Invalid efficiency model 10/0
+  ---
+  duration_ms: 0.128463
+  type: 'test'
+  ...
+# Subtest: Invalid efficiency model 20/10
+ok 63 - Invalid efficiency model 20/10
+  ---
+  duration_ms: 0.083545
+  type: 'test'
+  ...
+# Subtest: Invalid efficiency model -1/10
+ok 64 - Invalid efficiency model -1/10
+  ---
+  duration_ms: 0.074011
+  type: 'test'
+  ...
+# Subtest: Invalid efficiency model 10/-1
+ok 65 - Invalid efficiency model 10/-1
+  ---
+  duration_ms: 0.072639
+  type: 'test'
+  ...
+# Subtest: Invalid efficiency model 10/Infinity
+ok 66 - Invalid efficiency model 10/Infinity
+  ---
+  duration_ms: 0.073561
+  type: 'test'
+  ...
+# Subtest: Original and revised transfer values are derived independently
+ok 67 - Original and revised transfer values are derived independently
+  ---
+  duration_ms: 0.148082
+  type: 'test'
+  ...
+# Subtest: Transfer passes checked numbers and decision but never grades prose
+ok 68 - Transfer passes checked numbers and decision but never grades prose
+  ---
+  duration_ms: 0.202323
+  type: 'test'
+  ...
+# Subtest: Transfer uses a changed context and different numerical answer
+ok 69 - Transfer uses a changed context and different numerical answer
+  ---
+  duration_ms: 0.143545
+  type: 'test'
+  ...
+# Subtest: Transfer needs written response without keyword grading
+ok 70 - Transfer needs written response without keyword grading
+  ---
+  duration_ms: 0.139629
+  type: 'test'
+  ...
+# Subtest: The previous mockup total is corrected to 14.920 kWh
+ok 71 - The previous mockup total is corrected to 14.920 kWh
+  ---
+  duration_ms: 0.183335
+  type: 'test'
+  ...
+# Subtest: Stretch target is possible at 10.390 kWh with all services
+ok 72 - Stretch target is possible at 10.390 kWh with all services
+  ---
+  duration_ms: 0.178137
+  type: 'test'
+  ...
+# Subtest: Replay reaches exactly the checked energy total
+ok 73 - Replay reaches exactly the checked energy total
+  ---
+  duration_ms: 0.250225
+  type: 'test'
+  ...
+# Subtest: Replay starts at zero and caps each device at its run time
+ok 74 - Replay starts at zero and caps each device at its run time
+  ---
+  duration_ms: 0.305698
+  type: 'test'
+  ...
+# Subtest: Author data are frozen and drafts are independent
+ok 75 - Author data are frozen and drafts are independent
+  ---
+  duration_ms: 0.242094
+  type: 'test'
+  ...
+# Subtest: Enumerate every half-hour lighting plan: feasibility agrees with independent arithmetic
+ok 76 - Enumerate every half-hour lighting plan: feasibility agrees with independent arithmetic
+  ---
+  duration_ms: 0.634612
+  type: 'test'
+  ...
+1..76
+# tests 76
+# suites 0
+# pass 76
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 99.336772

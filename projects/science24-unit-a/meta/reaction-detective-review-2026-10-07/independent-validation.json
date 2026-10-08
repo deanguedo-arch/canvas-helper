@@ -1,0 +1,101 @@
+{
+  "status": "Candidate ready for teacher review; no human acceptance or LMS release",
+  "version": "1.2.0",
+  "playSHA256": "ebd9f60548887206e144fbbc3fece4d90877fbe47c01422d5aac943341c0fc70",
+  "runtimeFiles": {
+    "assets/scenes/scene_01_peroxide.webp": "0ef5db12f2b1456a17f20e8df4de80dc541bed6f78543aecb6388ab6549960b2",
+    "assets/scenes/scene_02_cooling_solution.webp": "52156132f6f3ef96dcdaa793af4ec3a9d1f03e79531171008fe45e5bc5b8dbf7",
+    "assets/scenes/scene_03_rusting_tool.webp": "ca473e1f6c775de50eda485f380e416a629c3f742c208bb4f791448fb9492a3a",
+    "assets/scenes/scene_04_antacid_model.webp": "ab73409d3b55b5600a14f2f9333921daec25e268bfe0a3174af610f109cf368e",
+    "assets/scenes/scene_05_combustion_furnace.webp": "918d27e171cbc0b0e34b8a5d39c489f9a65c3b5ceb2f8021d9ae781d004637c9",
+    "assets/scenes/scene_06_boiling_transfer.webp": "75c7e5e249a685f37eaea5c9b6ccc6e356d52ac137eee7b2c1d5b517e2637087",
+    "engine.js": "de42406619c364531cab412662f6325fdb7224cb87edc7da84a392a48a35df75",
+    "game.js": "a5966266bddb3f78c14c50acb360d60109d22818715d32186f22974505413a9f",
+    "index.html": "daed5286d853cb1801d2b841cf0969b1f745096a1222777487ebf08c5a8d2d6f",
+    "scenarios.js": "176948d8b0849a865beedaae5b10544b77029f0a5a0890ca8ca19cd6696b7ec2",
+    "styles.css": "1ebc3ae9bac178c90559f5abc66b190d2b861787642c59f596a93c5e47c8618e"
+  },
+  "engine": {
+    "passed": 842,
+    "failed": 0,
+    "method": "Supplied engine tests independently rerun with Node v24.14.0; validation package declared CommonJS to match supplied module exports"
+  },
+  "reports": {
+    "core": {
+      "passed": 88,
+      "failed": 0,
+      "method": "Exact PLAY.html bytes loaded with Chromium set_content; no debug state or mock UI. Managed browser blocks file:// and localhost navigation; routing not claimed tested."
+    },
+    "host": {
+      "passed": 88,
+      "failed": 0,
+      "method": "Independent full core browser flow via actual canonical multi-file game at http://127.0.0.1:57324/. Only that origin and data URLs allowed in network assertion."
+    },
+    "keyboard": {
+      "passed": 39,
+      "failed": 0,
+      "method": "macOS keyboard typeahead for native select labels; Chromium exact PLAY.html via set_content. Initial six-case route uses keyboard only. Later robustness checks use DOM input controls. CSS zoom stress is explicitly not native browser zoom. No real assistive-technology or physical-touch-hardware claim."
+    },
+    "width-360": {
+      "passed": 34,
+      "failed": 0,
+      "method": "Exact PLAY.html bytes, Chromium set_content; computed CSS contrast is a custom opaque/alpha background check, not a screen-reader or full WCAG audit."
+    },
+    "width-390": {
+      "passed": 60,
+      "failed": 0,
+      "method": "Exact PLAY.html bytes, Chromium set_content; computed CSS contrast is a custom opaque/alpha background check, not a screen-reader or full WCAG audit."
+    },
+    "width-430": {
+      "passed": 34,
+      "failed": 0,
+      "method": "Exact PLAY.html bytes, Chromium set_content; computed CSS contrast is a custom opaque/alpha background check, not a screen-reader or full WCAG audit."
+    },
+    "width-768": {
+      "passed": 34,
+      "failed": 0,
+      "method": "Exact PLAY.html bytes, Chromium set_content; computed CSS contrast is a custom opaque/alpha background check, not a screen-reader or full WCAG audit."
+    },
+    "width-1024": {
+      "passed": 34,
+      "failed": 0,
+      "method": "Exact PLAY.html bytes, Chromium set_content; computed CSS contrast is a custom opaque/alpha background check, not a screen-reader or full WCAG audit."
+    },
+    "width-1440": {
+      "passed": 47,
+      "failed": 0,
+      "method": "Exact PLAY.html bytes, Chromium set_content; computed CSS contrast is a custom opaque/alpha background check, not a screen-reader or full WCAG audit."
+    },
+    "width-1648": {
+      "passed": 34,
+      "failed": 0,
+      "method": "Exact PLAY.html bytes, Chromium set_content; computed CSS contrast is a custom opaque/alpha background check, not a screen-reader or full WCAG audit."
+    },
+    "offline": {
+      "passed": 8,
+      "failed": 0,
+      "method": "Actual file:// navigation to portable standalone HTML, not set_content"
+    }
+  },
+  "summary": [
+    "842 engine tests passed; 88 core browser assertions passed on exact embedded PLAY.html.",
+    "277 responsive assertions passed at 360, 390, 430, 768, 1024, 1440 and 1648 CSS pixels, including 390px touch emulation.",
+    "39 keyboard/stress assertions passed: full keyboard-only learner route, reduced motion, escaped text, long text, image fallback and CSS 200% zoom/reflow stress.",
+    "88 core browser assertions also passed through the actual canonical multi-file HTTP preview. All 11 supplied runtime file hashes match their hosted bytes.",
+    "Imported v1.2 learner runtime was not altered. Local validation harness adjustments: CommonJS package boundary; macOS keyboard typeahead for native select controls; screenshot timeout increased from 5 to 30 seconds.",
+    "Actual in-app-browser worked/first-practice layout inspected; local preview remains available.",
+    "8 offline smoke checks passed through an actual file:// launch of the self-contained PLAY.html, including evidence reveal and backward-state restoration."
+  ],
+  "pending": [
+    "Independent Science 24 teacher science, answer-fairness and instructional-suitability review.",
+    "Real phone and actual VoiceOver/NVDA route; native browser zoom; actual Safari/Firefox and print-dialog behavior.",
+    "Final lesson placement, optional/required progress decision, target host/CSP/iframe and Brightspace/SCORM integration.",
+    "Any persistent save or LMS reporting is a separate implementation and acceptance decision."
+  ],
+  "methodNotes": [
+    "Initial keyboard harness failed on macOS arrow-only native select behavior; selecting by keyboard typeahead passes without changing learner code.",
+    "A temporary focus-expectation edit failed and was reverted; the final test retains the original revealed-evidence-container focus assertion.",
+    "1440px screenshot capture hit 5-second timeout; increasing only capture timeout to 30 seconds passed the affected width. Original supplied receipts remain preserved in resource intake.",
+    "842 engine combinations and repeated viewport assertions are technical checks, not 842 curriculum outcomes or teacher approval."
+  ]
+}

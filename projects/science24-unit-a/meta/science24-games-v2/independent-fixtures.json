@@ -1,0 +1,333 @@
+{
+  "provenance": "Hand-solved from the authored source data; not produced by runtime validators. These are QA/teacher examples, never learner prefilled answers.",
+  "games": {
+    "A2": [
+      {
+        "c0": 4,
+        "c1": 2,
+        "c2": 4,
+        "explanation": "Eight H and four O atoms occur on both sides; the simplest ratio is 2:1:2."
+      },
+      {
+        "c0": 2,
+        "c1": 2,
+        "c2": 1,
+        "explanation": "Two peroxide molecules have four H and four O atoms; two water molecules plus one oxygen molecule retain those counts."
+      },
+      {
+        "c0": 1,
+        "c1": 2,
+        "c2": 1,
+        "c3": 2,
+        "explanation": "One methane and two oxygen molecules give one carbon dioxide and two water molecules: C=1, H=4, O=4 on each side."
+      },
+      {
+        "c0": 4,
+        "c1": 3,
+        "c2": 2,
+        "explanation": "Four iron atoms and three oxygen molecules form two iron oxide units: Fe=4 and O=6 on both sides."
+      },
+      {
+        "c0": 1,
+        "c1": 2,
+        "c2": 1,
+        "c3": 1,
+        "c4": 1,
+        "explanation": "Both sides have Ca=1, C=1, O=3, H=2 and Cl=2. Coefficients change particles, not substances."
+      },
+      {
+        "c0": 1,
+        "c1": 3,
+        "c2": 2,
+        "explanation": "Three hydrogen molecules supply six H atoms, matching two ammonia molecules. Nitrogen has two atoms on both sides."
+      }
+    ],
+    "B1": [
+      {
+        "path0": "mechanical input",
+        "path1": "generator",
+        "path2": "electrical transfer",
+        "path3": "lamp",
+        "path4": "light + thermal",
+        "out_light": 45,
+        "out_thermal": 155,
+        "explanation": "The generator gives 150 J electrical to the lamp and 50 J thermal. The lamp gives 45 J light and 105 J thermal; the whole account is 200 J."
+      },
+      {
+        "path0": "chemical energy in battery",
+        "path1": "electrical transfer",
+        "path2": "motor",
+        "path3": "motion + thermal + sound",
+        "out_motion": 180,
+        "out_thermal": 280,
+        "out_sound": 40,
+        "explanation": "The 500 J input becomes 180 J motion, 280 J thermal and 40 J sound. Motion meets the toy purpose; no energy disappears."
+      },
+      {
+        "path0": "gravitational potential of water",
+        "path1": "moving water",
+        "path2": "turbine-generator",
+        "path3": "electrical + thermal + sound",
+        "out_electrical": 780,
+        "out_thermal": 180,
+        "out_sound": 40,
+        "explanation": "Electrical 780 J, thermal 180 J and sound 40 J account for all 1000 J. Useful output depends on the mission."
+      },
+      {
+        "path0": "chemical potential in food",
+        "path1": "cellular respiration",
+        "path2": "muscles",
+        "path3": "motion + thermal",
+        "out_motion": 150,
+        "out_thermal": 450,
+        "explanation": "Food contains matter and chemical potential energy. Motion 150 J plus thermal 450 J accounts for 600 J; food atoms do not become energy."
+      },
+      {
+        "path0": "light energy",
+        "path1": "photosynthesis",
+        "path2": "stored chemical + thermal",
+        "out_stored_chemical": 320,
+        "out_thermal": 80,
+        "explanation": "The illustrative 400 J light input gives 320 J stored chemical and 80 J thermal. Matter inputs and products remain separate. Plants also respire to transfer stored chemical energy for cellular functions."
+      },
+      {
+        "out_motion": 450,
+        "out_thermal": 750,
+        "fraction": 37.5,
+        "explanation": "1200 J input \u2212 450 J useful motion = 750 J thermal. Useful fraction is 450/1200 = 37.5%; the complete account is conserved."
+      }
+    ],
+    "B2": [
+      {
+        "lamps_power": 10,
+        "lamps_count": 4,
+        "lamps_hours": 5,
+        "fan_power": 60,
+        "fan_count": 1,
+        "fan_hours": 4,
+        "total": 0.44,
+        "explanation": "Lighting uses 0.200 kWh and the fan 0.240 kWh, totalling 0.440 kWh. Both required services remain on."
+      },
+      {
+        "lamps_power": 10,
+        "lamps_count": 6,
+        "lamps_hours": 6,
+        "total": 0.36,
+        "explanation": "Six 10 W lamps for six hours use 0.360 kWh, below 0.750 kWh while retaining the stated lighting service."
+      },
+      {
+        "computers_power": 80,
+        "computers_count": 8,
+        "computers_hours": 2,
+        "lamps_power": 12,
+        "lamps_count": 6,
+        "lamps_hours": 3,
+        "fan_power": 60,
+        "fan_count": 1,
+        "fan_hours": 2,
+        "total": 1.616,
+        "explanation": "Computers 1.280 + lamps 0.216 + fan 0.120 = 1.616 kWh, below 1.650 kWh."
+      },
+      {
+        "lamps_power": 12,
+        "lamps_count": 3,
+        "lamps_hours": 4,
+        "projector_power": 150,
+        "projector_count": 1,
+        "projector_hours": 1.5,
+        "total": 0.369,
+        "explanation": "Lighting uses 0.144 kWh; the 150 W equal-service projector uses 0.225 kWh. Total 0.369 kWh meets the 0.400 cap without shortening the session."
+      },
+      {
+        "efficiency": 60,
+        "explanation": "Useful/input = 900/1500 \u00d7 100 = 60%. The remaining 600 J is still energy, less useful for this purpose."
+      },
+      {
+        "lamps_power": 9,
+        "lamps_count": 4,
+        "lamps_hours": 5,
+        "projector_power": 140,
+        "projector_count": 1,
+        "projector_hours": 2,
+        "initialTotal": 0.58,
+        "repairedTotal": 0.46,
+        "explanation": "Lighting uses 4\u00d79\u00d75/1000 = 0.180 kWh. Original total is 0.580; the 140 W equal-service projector gives 0.460 kWh total. Both services remain, below 0.500."
+      }
+    ],
+    "C1": [
+      {
+        "measures": [
+          "separate clean equipment",
+          "hand hygiene"
+        ],
+        "explanation": "Separate clean equipment addresses the board route; hand hygiene addresses the hand route. This puzzle does not predict infection probability."
+      },
+      {
+        "cause": "communicable",
+        "measures": [
+          "safe supplied water",
+          "hand hygiene"
+        ],
+        "explanation": "Safe supplied water addresses the source route and hand hygiene addresses hands/cup contact. A clean container alone does not fix contaminated source water."
+      },
+      {
+        "cause": "communicable",
+        "measures": [
+          "source-reducing behaviour"
+        ],
+        "explanation": "Source-reducing behaviour addresses both supplied source routes in this model. Table cleaning alone does not match those routes."
+      },
+      {
+        "cause": "communicable",
+        "measures": [
+          "ventilation",
+          "surface cleaning"
+        ],
+        "explanation": "Ventilation addresses shared air and cleaning the supplied contaminated surface addresses the surface/hand route. Hand hygiene is another supported option."
+      },
+      {
+        "defence0": "barrier",
+        "defence1": "innate response",
+        "defence2": "adaptive response",
+        "defence3": "immune memory",
+        "explanation": "Barrier limits entry; innate response is broad; adaptive response is specific and can retain immune memory. Memory belongs to adaptive immunity, not a separate fourth barrier; vaccination prepares a response rather than an instant cure."
+      },
+      {
+        "cause": "communicable",
+        "measures": [
+          "ventilation",
+          "hand hygiene"
+        ],
+        "explanation": "Ventilation addresses shared air and hand hygiene addresses hands at the entry point. Both stated routes are addressed in this model, not guaranteed eliminated in the real world."
+      }
+    ],
+    "C2": [
+      {
+        "p_AA": 25,
+        "p_Aa": 50,
+        "p_aa": 25,
+        "explanation": "An aa child needs an a from each dominant parent, so both are Aa. The cross gives 25/50/25 genotypes per offspring, not a fixed family count."
+      },
+      {
+        "cell0": "Aa",
+        "cell1": "aa",
+        "cell2": "Aa",
+        "cell3": "aa",
+        "p_AA": 0,
+        "p_Aa": 50,
+        "p_aa": 50,
+        "explanation": "aa supplies a on each row and Aa supplies A or a on columns. The square gives 50% Aa and 50% aa per offspring."
+      },
+      {
+        "parent1": "Aa",
+        "parent2": "Aa",
+        "explanation": "Both dominant parents must be Aa because each supplied an a to the aa child under this fictional model."
+      },
+      {
+        "possible1": "AA",
+        "probability1": 0,
+        "possible2": "Aa",
+        "probability2": 50,
+        "uncertainty": "underdetermined",
+        "explanation": "aa \u00d7 AA gives 0% recessive and aa \u00d7 Aa gives 50%. The dominant parent could have either genotype, so one probability is unjustified."
+      },
+      {
+        "p_AA": 25,
+        "p_Aa": 50,
+        "p_aa": 25,
+        "outcome": "independent",
+        "explanation": "The Aa \u00d7 Aa probabilities remain 25/50/25 for the next offspring. Previous outcomes do not make another due."
+      },
+      {
+        "possible1": "Aa",
+        "probability1": 50,
+        "possible2": "AA",
+        "probability2": 0,
+        "uncertainty": "underdetermined",
+        "explanation": "The unknown dominant parent could be Aa or AA. aa \u00d7 Aa gives 50% recessive; aa \u00d7 AA gives 0%. No child or genotype-test evidence selects one."
+      }
+    ],
+    "D1": [
+      {
+        "reaction": 30,
+        "total": 70,
+        "margin": 10,
+        "outcome": "before",
+        "explanation": "20\u00d71.5 = 30 m reaction; add 40 m braking for 70 m total. The 80 m obstacle leaves 10 m in this illustrative model."
+      },
+      {
+        "reaction": 15,
+        "total": 37.5,
+        "margin": 7.5,
+        "outcome": "before",
+        "explanation": "15\u00d71 = 15 m reaction; plus 22.5 m braking gives 37.5 m. Clearance is 45\u221237.5 = 7.5 m."
+      },
+      {
+        "reaction": 40,
+        "total": 80,
+        "margin": -5,
+        "outcome": "passes",
+        "explanation": "20\u00d72 = 40 m reaction; plus 40 m braking gives 80 m. Clearance 75\u221280 = \u22125 m, so the stop passes the obstacle position."
+      },
+      {
+        "reaction0": 20,
+        "reaction1": 30,
+        "reaction2": 40,
+        "brakingChange": "unchanged",
+        "explanation": "At 20 m/s, reaction times 1, 1.5 and 2 s give 20, 30 and 40 m. The supplied 40 m braking distance stays fixed."
+      },
+      {
+        "reactionSpeed": 20,
+        "slope": "speed",
+        "horizontal": "stopped",
+        "brakingSlope": "decreasing",
+        "explanation": "Reaction slope is 20 m/s. During braking it decreases to zero; a horizontal distance-time segment means stopped."
+      },
+      {
+        "reaction": 30,
+        "total": 92.5,
+        "margin": -7.5,
+        "outcome": "passes",
+        "explanation": "25\u00d71.2 = 30 m reaction; add 62.5 m braking for 92.5 m. Clearance is \u22127.5 m. A shorter reaction time alone does not determine total stop across different speeds."
+      }
+    ],
+    "D2": [
+      {
+        "deltaP": -1200,
+        "force0": -20000,
+        "force1": -8000,
+        "explanation": "60(0\u221220) = \u22121200 kg\u00b7m/s. Dividing by 0.06 and 0.15 gives \u221220000 and \u22128000 N; same impulse, different average force."
+      },
+      {
+        "deltaP": -800,
+        "force0": -10000,
+        "force1": -5000,
+        "explanation": "50(0\u221216) = \u2212800 kg\u00b7m/s. Average forces are \u221210000 and \u22125000 N; the longer duration lowers magnitude, not impulse."
+      },
+      {
+        "deltaP": -900,
+        "force0": -10000,
+        "force1": -5000,
+        "explanation": "75(0\u221212) = \u2212900 kg\u00b7m/s. Average forces are \u221210000 and \u22125000 N; only duration changes."
+      },
+      {
+        "system": "occupant",
+        "mass": 60,
+        "explanation": "The occupant system uses 60 kg. The 1200 kg vehicle belongs to a separate ledger and cannot substitute for occupant mass."
+      },
+      {
+        "initialMomentum": 6,
+        "combinedMass": 3,
+        "finalVelocity": 2,
+        "energy": "not-guaranteed",
+        "explanation": "Initial momentum is 2\u00d73 + 1\u00d70 = 6 kg\u00b7m/s. Combined mass 3 kg gives +2 m/s after locking. External impulse is negligible; kinetic energy is not claimed conserved."
+      },
+      {
+        "deltaP": -990,
+        "force0": -9900,
+        "force1": -4950,
+        "explanation": "55(0\u221218) = \u2212990 kg\u00b7m/s. Average forces are \u22129900 and \u22124950 N. Longer duration lowers magnitude; both oppose the initial positive motion, without injury prediction."
+      }
+    ]
+  }
+}

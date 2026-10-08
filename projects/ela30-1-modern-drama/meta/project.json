@@ -10,7 +10,7 @@
   "workspaceEntrypoint": "workspace/index.html",
   "rawEntrypoint": "raw/README.md",
   "createdAt": "2026-06-08T21:31:19.092Z",
-  "updatedAt": "2026-08-27T15:38:48.862Z",
+  "updatedAt": "2026-10-07T18:32:04.729Z",
   "learningSource": "other",
   "learningTrust": "curated",
   "learningUpdatedAt": "2026-08-21T17:34:56.000Z",
@@ -21,9 +21,12 @@
   ],
   "canonicalEntry": "projects/ela30-1-modern-drama/workspace/index.html",
   "canonicalSources": [
-    "projects/ela30-1-modern-drama/workspace/index.html"
+    "projects/ela30-1-modern-drama/workspace/index.html",
+    "projects/ela30-1-modern-drama/workspace/assets/studio-local-theme/theme.json"
   ],
-  "generatedOutputs": [],
+  "generatedOutputs": [
+    "projects/ela30-1-modern-drama/workspace/assets/studio-local-theme/utilities.css"
+  ],
   "importedFirstPassOrigin": {
     "sourceSystem": "brightspace",
     "sourcePath": "/Users/deanguedo/Downloads/ELA_30-1_MODERN_PLAY.zip",
@@ -46,7 +49,7 @@
   "referenceOnly": [
     "/Users/deanguedo/Downloads/ELA_30-1_MODERN_PLAY.zip"
   ],
-  "sourceOfTruthNotes": "The workspace is the supplied SCORM learner snapshot and is the canonical editable boundary. Any prior English builder or generated output is quarantined; do not run it through Studio or replace this snapshot without an explicit new import. Studio onboarding: The learner page is preserved as the editable baseline because its original rebuild inputs are incomplete or not portable.",
+  "sourceOfTruthNotes": "The workspace is the supplied SCORM learner snapshot and is the canonical editable boundary. Any prior English builder or generated output is quarantined; do not run it through Studio or replace this snapshot without an explicit new import. Studio onboarding: The learner page is preserved as the editable baseline because its original rebuild inputs are incomplete or not portable. Studio layout repair: utility CSS is compiled locally from the preserved theme with scripts/repair-ela-snapshot-styles.mjs; the snapshot remains canonical and the old English builder remains quarantined.",
   "authoring": {
     "driverId": "legacy-snapshot-v1",
     "familyId": "english-legacy-snapshot",
@@ -58,5 +61,13 @@
     }
   },
   "title": "ELA 30-1 - A Streetcar Named Desire",
-  "injectedComponents": []
+  "injectedComponents": [],
+  "recoveryArchive": {
+    "registry": "config/project-archives.json",
+    "sourcePath": "projects/processed/ela30-1-modern-drama/source/ELA_30-1_MODERN_PLAY.zip",
+    "sha256": "69a2d446be9042444d7fa6a30c91555fcc569c8a0f865b91b5952d09ba822b87",
+    "sizeBytes": 1263991663,
+    "previousSourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/processed/ela30-1-modern-drama/source"
+  },
+  "regenerateCommand": "node scripts/repair-ela-snapshot-styles.mjs --project ela30-1-modern-drama"
 }

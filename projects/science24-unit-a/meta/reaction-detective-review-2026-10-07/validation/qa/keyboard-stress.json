@@ -1,0 +1,203 @@
+{
+  "artifact_sha256": "ebd9f60548887206e144fbbc3fece4d90877fbe47c01422d5aac943341c0fc70",
+  "method": "macOS keyboard typeahead for native select labels; Chromium exact PLAY.html via set_content. Initial six-case route uses keyboard only. Later robustness checks use DOM input controls. CSS zoom stress is explicitly not native browser zoom. No real assistive-technology or physical-touch-hardware claim.",
+  "tests": [
+    {
+      "test": "Skip link is the first keyboard stop",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Skip link visibly focused",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Skip link transfers focus into activity",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Keyboard opens native help dialog",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Tab focus stays within modal",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Escape restores invoking help control",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "P01 reveal focus p01_e1",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "P01 reveal focus p01_e2",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "P01 keyboard accepted",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "P01 feedback receives focus",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "P02 reveal focus p02_e1",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "P02 reveal focus p02_e2",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "P02 keyboard accepted",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "P02 feedback receives focus",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "P03 reveal focus p03_e1",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "P03 reveal focus p03_e2",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "P03 keyboard accepted",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "P03 feedback receives focus",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "P04 reveal focus p04_e1",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "P04 reveal focus p04_e2",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "P04 keyboard accepted",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "P04 feedback receives focus",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "T01 keyboard accepted",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "T01 feedback receives focus",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Entire learning route completed using keyboard alone",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Reduced-motion setting removes all transitions and animations",
+      "status": "PASS",
+      "detail": "0"
+    },
+    {
+      "test": "User HTML never becomes elements or executable markup",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Literal text preserved in feedback",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Unbroken user text wraps at 360px",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Unbroken user text wraps at 430px",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Unbroken user text wraps at 768px",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Unbroken user text wraps at 1440px",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "200% CSS zoom transfer stress: no horizontal overflow",
+      "status": "PASS",
+      "detail": "{'w': 1648, 'scroll': 1648}"
+    },
+    {
+      "test": "Missing decorative asset has visible fallback",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Asset failure leaves base science and all evidence available",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Asset failure does not block investigation",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "824px reflow equivalent: no overflow",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "200% CSS zoom practice stress: no overflow",
+      "status": "PASS",
+      "detail": "{'w': 824, 'scroll': 824}"
+    },
+    {
+      "test": "No JavaScript errors during keyboard and stress tests",
+      "status": "PASS",
+      "detail": "[]"
+    }
+  ],
+  "passed": 39,
+  "failed": 0
+}

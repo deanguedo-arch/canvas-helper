@@ -1,0 +1,122 @@
+{
+  "game_id": "B1",
+  "version": "2.0.1",
+  "open_explanation_policy": "Never auto-certify quality from keywords. Use visible self-review or teacher-review status.",
+  "general": [
+    "Correct science result is necessary but not sufficient for independent mastery.",
+    "A successful answer edited later becomes unverified until checked again.",
+    "Hints and retries remain available but are recorded in the review summary.",
+    "Equivalent valid numeric forms are accepted where specified."
+  ],
+  "scenarios": [
+    {
+      "id": "B1-W01",
+      "accepted_result": {
+        "path0": "mechanical input",
+        "path1": "generator",
+        "path2": "electrical transfer",
+        "path3": "lamp",
+        "path4": "light + thermal",
+        "out_light": 45,
+        "out_thermal": 155,
+        "explanation": "The generator gives 150 J electrical to the lamp and 50 J thermal. The lamp gives 45 J light and 105 J thermal; the whole account is 200 J."
+      },
+      "must_explain": true,
+      "misconception_feedback": [
+        "The second converter receives the previous converter's output, not the original input.",
+        "Energy did not disappear; complete the output account.",
+        "Do not describe matter atoms as turning into energy."
+      ]
+    },
+    {
+      "id": "B1-P01",
+      "accepted_result": {
+        "path0": "chemical energy in battery",
+        "path1": "electrical transfer",
+        "path2": "motor",
+        "path3": "motion + thermal + sound",
+        "out_motion": 180,
+        "out_thermal": 280,
+        "out_sound": 40,
+        "explanation": "The 500 J input becomes 180 J motion, 280 J thermal and 40 J sound. Motion meets the toy purpose; no energy disappears."
+      },
+      "must_explain": true,
+      "misconception_feedback": [
+        "The second converter receives the previous converter's output, not the original input.",
+        "Energy did not disappear; complete the output account.",
+        "Do not describe matter atoms as turning into energy."
+      ]
+    },
+    {
+      "id": "B1-P02",
+      "accepted_result": {
+        "path0": "gravitational potential of water",
+        "path1": "moving water",
+        "path2": "turbine-generator",
+        "path3": "electrical + thermal + sound",
+        "out_electrical": 780,
+        "out_thermal": 180,
+        "out_sound": 40,
+        "explanation": "Electrical 780 J, thermal 180 J and sound 40 J account for all 1000 J. Useful output depends on the mission."
+      },
+      "must_explain": true,
+      "misconception_feedback": [
+        "The second converter receives the previous converter's output, not the original input.",
+        "Energy did not disappear; complete the output account.",
+        "Do not describe matter atoms as turning into energy."
+      ]
+    },
+    {
+      "id": "B1-P03",
+      "accepted_result": {
+        "path0": "chemical potential in food",
+        "path1": "cellular respiration",
+        "path2": "muscles",
+        "path3": "motion + thermal",
+        "out_motion": 150,
+        "out_thermal": 450,
+        "explanation": "Food contains matter and chemical potential energy. Motion 150 J plus thermal 450 J accounts for 600 J; food atoms do not become energy."
+      },
+      "must_explain": true,
+      "misconception_feedback": [
+        "The second converter receives the previous converter's output, not the original input.",
+        "Energy did not disappear; complete the output account.",
+        "Do not describe matter atoms as turning into energy."
+      ]
+    },
+    {
+      "id": "B1-P04",
+      "accepted_result": {
+        "path0": "light energy",
+        "path1": "photosynthesis",
+        "path2": "stored chemical + thermal",
+        "out_stored_chemical": 320,
+        "out_thermal": 80,
+        "explanation": "The illustrative 400 J light input gives 320 J stored chemical and 80 J thermal. Matter inputs and products are represented separately; plants also respire."
+      },
+      "must_explain": true,
+      "misconception_feedback": [
+        "The second converter receives the previous converter's output, not the original input.",
+        "Energy did not disappear; complete the output account.",
+        "Do not describe matter atoms as turning into energy."
+      ]
+    },
+    {
+      "id": "B1-T01",
+      "accepted_result": {
+        "out_motion": 450,
+        "out_thermal": 750,
+        "fraction": 37.5,
+        "explanation": "1200 J input \u2212 450 J useful motion = 750 J thermal. Useful fraction is 450/1200 = 37.5%; the complete account is conserved."
+      },
+      "must_explain": true,
+      "misconception_feedback": [
+        "The second converter receives the previous converter's output, not the original input.",
+        "Energy did not disappear; complete the output account.",
+        "Do not describe matter atoms as turning into energy."
+      ]
+    }
+  ],
+  "content_version": "2.0.1",
+  "authority": "Runtime scenario JSON and pure validator; original suggested wording retained only as reference in source handoff."
+}

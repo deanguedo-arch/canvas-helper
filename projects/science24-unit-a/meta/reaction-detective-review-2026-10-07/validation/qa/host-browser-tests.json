@@ -1,0 +1,448 @@
+{
+  "artifact_sha256": "ebd9f60548887206e144fbbc3fece4d90877fbe47c01422d5aac943341c0fc70",
+  "method": "Independent full core browser flow via actual canonical multi-file game at http://127.0.0.1:57324/. Only that origin and data URLs allowed in network assertion.",
+  "tests": [
+    {
+      "test": "Intro / native inputs named",
+      "status": "PASS",
+      "detail": "[]"
+    },
+    {
+      "test": "Intro / buttons named",
+      "status": "PASS",
+      "detail": "[]"
+    },
+    {
+      "test": "Intro / whole main is not live",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Intro / one h1",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Intro / no document overflow",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Help dialog open",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Dialog safe close autofocus",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Escape closes dialog",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Dialog focus restored",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Worked / native inputs named",
+      "status": "PASS",
+      "detail": "[]"
+    },
+    {
+      "test": "Worked / buttons named",
+      "status": "PASS",
+      "detail": "[]"
+    },
+    {
+      "test": "Worked / whole main is not live",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Worked / one h1",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Worked / no document overflow",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "No labelled original peroxide bottle in runtime",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "P01 / native inputs named",
+      "status": "PASS",
+      "detail": "[]"
+    },
+    {
+      "test": "P01 / buttons named",
+      "status": "PASS",
+      "detail": "[]"
+    },
+    {
+      "test": "P01 / whole main is not live",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "P01 / one h1",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Evidence locked before prediction",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Empty submission focuses missing prediction",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Empty attempt does not unlock hints",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Reveal focus stays on new evidence",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Previous returns to worked example",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Back-forward restores opened evidence",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Back-forward preserves locked prediction",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Prediction freezes on first reveal",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Two record budget enforced",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Uncertainty accepted but does not complete case",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Successful checkpoint answer locks",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Follow-up focus on identity record",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Third evidence selection prevented",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "P01 supported answer accepted",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Feedback receives focus",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Next disabled until rubric reviewed",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Next available after rubric",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Revision invalidates successful progression",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Wrong revision cannot advance",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "P01 hints capped at three",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Cancel keeps current records",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Reopen keeps attempts",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Reopen keeps hint count",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Earlier evidence remains readable",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Next enabled only after explanation review",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "New case correctly named",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "New case fields cleared",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Previous case restores completed P01",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Returning forward restores later draft",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Blanket composition alternative removed",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Corrosion response actually validated",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "P02 feedback / native inputs named",
+      "status": "PASS",
+      "detail": "[]"
+    },
+    {
+      "test": "P02 feedback / buttons named",
+      "status": "PASS",
+      "detail": "[]"
+    },
+    {
+      "test": "P02 feedback / whole main is not live",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "P02 feedback / one h1",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Next enabled only after explanation review",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "P03 no early sentence starter",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Acid-carbonate neutralization accepted",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Next enabled only after explanation review",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "P04 reduced hint cap",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "P04 no early teaching scaffold",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Greenhouse question disambiguates water vapour",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Next enabled only after explanation review",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Transfer has no hints, tokens, art or help",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Transfer no model before submission",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Transfer / native inputs named",
+      "status": "PASS",
+      "detail": "[]"
+    },
+    {
+      "test": "Transfer / buttons named",
+      "status": "PASS",
+      "detail": "[]"
+    },
+    {
+      "test": "Transfer / whole main is not live",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Transfer / one h1",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Transfer first error requires revision",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Next enabled only after explanation review",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Review preserves failed first transfer",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Five completed learner tasks displayed",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Review does not grade written explanations",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Support not erased on case reset",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Review / native inputs named",
+      "status": "PASS",
+      "detail": "[]"
+    },
+    {
+      "test": "Review / buttons named",
+      "status": "PASS",
+      "detail": "[]"
+    },
+    {
+      "test": "Review / whole main is not live",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Review / one h1",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Review / no document overflow",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Replay not presented as a fresh independent attempt",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Next enabled only after explanation review",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Replay does not overwrite original transfer result",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Print review action works",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "All runtime images decoded",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "No page JavaScript errors",
+      "status": "PASS",
+      "detail": "[]"
+    },
+    {
+      "test": "No external network requests",
+      "status": "PASS",
+      "detail": "['http://127.0.0.1:57324/', 'http://127.0.0.1:57324/styles.css', 'http://127.0.0.1:57324/scenarios.js', 'http://127.0.0.1:57324/engine.js', 'http://127.0.0.1:57324/game.js', 'http://127.0.0.1:57324/assets/scenes/scene_01_peroxide.webp', 'http://127.0.0.1:57324/assets/scenes/scene_02_cooling_solution.webp', 'http://127.0.0.1:57324/assets/scenes/scene_03_rusting_tool.webp', 'http://127.0.0.1:57324/assets/scenes/scene_04_antacid_model.webp', 'http://127.0.0.1:57324/assets/scenes/scene_05_combustion_furnace.webp']"
+    },
+    {
+      "test": "Restart cancel keeps review",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "test": "Explicit new session returns to intro",
+      "status": "PASS",
+      "detail": ""
+    }
+  ],
+  "passed": 88,
+  "failed": 0
+}

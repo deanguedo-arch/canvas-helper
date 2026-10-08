@@ -1,0 +1,52 @@
+'use strict';
+const test=require('node:test');
+const assert=require('node:assert/strict');
+const E=require('../game/engine.js');
+const D=require('../game/data.js');
+const s=id=>[...D.scenarios,D.lab].find(x=>x.id===id);
+function draft(id,overrides={}){return Object.assign(E.makeDraft(s(id)),overrides);}
+function ready(id,changes={}){const x=s(id),d=draft(id,changes);if(x.type==='plan'){d.choice=x.correctChoice;d.explanation='I preserved every required service and compared the calculated total with the cap.';d.total=E.fmt(E.plan(x,d).total);}return d;}
+for(const input of ['', ' ',null,undefined,true,false,{},[], 'Infinity','NaN','0x10','1,616','1.2kWh','1e999','1;alert(1)'])test('Reject invalid numeric value '+JSON.stringify(input),()=>assert.equal(E.number(input),null));
+for(const [input,expected] of [['0',0],[' .360 ',.36],['1.616',1.616],['3.6e2',360],['1.',1],['+0.5',.5]])test('Parse numeric '+JSON.stringify(input),()=>assert.equal(E.number(input),expected));
+test('Negative value is not a non-negative energy',()=>assert.equal(E.nonnegative('-1'),null));
+test('Power, quantity and time all contribute to kWh',()=>assert.equal(E.energy(8,80,2),1.28));
+test('Zero hours use zero energy',()=>assert.equal(E.energy(8,80,0),0));
+for(const args of [[0,10,1],[-1,10,1],[1.5,10,1],[1,-10,1],[1,10,-1],[1,Infinity,1],[1,10,NaN]])test('Reject invalid device quantities '+JSON.stringify(args),()=>assert.throws(()=>E.energy(...args),RangeError));
+test('Wh conversion and kWh identity',()=>{assert.equal(E.toKWh('360','Wh'),.36);assert.equal(E.toKWh('.36','kWh'),.36);});
+test('Power units cannot pass as energy units',()=>{assert.equal(E.toKWh(360,'W'),null);assert.equal(E.toKWh(1,'kW'),null);});
+test('Blank is not silently converted to zero',()=>assert.equal(E.toKWh('','kWh'),null));
+test('Worked round is 0.440 kWh',()=>assert.ok(E.close(E.plan(s('B2-W01'),draft('B2-W01')).total,.44,1e-10)));
+test('Initial lighting plan exceeds cap',()=>assert.equal(E.plan(s('B2-P01'),draft('B2-P01')).underCap,false));
+test('LED option meets lighting floor with 0.360 kWh',()=>{const d=draft('B2-P01',{hours:{lights:'6'},options:{lights:'led'}}),p=E.plan(s('B2-P01'),d);assert.ok(E.close(p.total,.36,1e-10));assert.equal(p.feasible,true);});
+test('Accept a valid alternative lighting schedule',()=>{const d=ready('B2-P01',{hours:{lights:'7'},options:{lights:'led'}});assert.equal(E.validate(s('B2-P01'),d).pass,true);});
+test('Turning every required service off cannot win',()=>{const d=draft('B2-LAB');Object.keys(d.hours).forEach(k=>d.hours[k]='0');const r=E.validate(D.lab,d);assert.equal(r.plan.total,0);assert.equal(r.plan.underCap,true);assert.equal(r.pass,false);});
+test('Unknown device option fails closed',()=>{const d=draft('B2-P01');d.options.lights='invented';assert.equal(E.plan(s('B2-P01'),d).valid,false);});
+for(const h of ['', '-0.5','12.5','0.1','NaN','Infinity'])test('Reject invalid schedule hours '+h,()=>{const d=draft('B2-P01');d.hours.lights=h;assert.equal(E.plan(s('B2-P01'),d).valid,false);});
+test('Missing group is not ignored',()=>{const d=draft('B2-P02');delete d.hours.computers;assert.equal(E.plan(s('B2-P02'),d).valid,false);});
+test('Mandatory hours are a floor, not arbitrary row labels',()=>{const d=draft('B2-P01',{hours:{lights:'5.5'},options:{lights:'led'}});const p=E.plan(s('B2-P01'),d);assert.equal(p.underCap,true);assert.equal(p.servicesMet,false);});
+test('Computer group and all three services total 1.616 kWh',()=>{const d=draft('B2-P02',{hours:{computers:'2',lights:'3',fan:'2'}}),p=E.plan(s('B2-P02'),d);assert.ok(E.close(p.total,1.616,1e-10));assert.equal(p.feasible,true);});
+test('Extra half hour can break the computer-room cap',()=>{const d=draft('B2-P02',{hours:{computers:'2.5',lights:'3',fan:'2'}});assert.equal(E.plan(s('B2-P02'),d).underCap,false);});
+test('Projector initial plan is 0.414 kWh and exceeds 0.400',()=>{const p=E.plan(s('B2-P03'),draft('B2-P03'));assert.ok(E.close(p.total,.414,1e-10));assert.equal(p.feasible,false);});
+test('Equivalent projector with full session yields 0.369 kWh',()=>{const d=ready('B2-P03',{options:{lights:'standard',projector:'b'}});assert.equal(E.validate(s('B2-P03'),d).pass,true);assert.ok(E.close(E.plan(s('B2-P03'),d).total,.369,1e-10));});
+test('Cancelling part of the session fails even below cap',()=>{const d=ready('B2-P03',{hours:{lights:'4',projector:'1'}});assert.equal(E.validate(s('B2-P03'),d).pass,false);});
+test('Correct plan without predicted total is not a submitted attempt',()=>{const d=ready('B2-P01',{hours:{lights:'6'},options:{lights:'led'}});d.total='';assert.equal(E.validate(s('B2-P01'),d).ready,false);});
+test('A wrong reasoning choice blocks the checked pass',()=>{const d=ready('B2-P01',{hours:{lights:'6'},options:{lights:'led'}});d.choice='low-watts';assert.equal(E.validate(s('B2-P01'),d).pass,false);});
+test('Wh / kWh mislabelling has targeted feedback',()=>{const d=ready('B2-P01',{hours:{lights:'6'},options:{lights:'led'}});d.total='360';const r=E.validate(s('B2-P01'),d);assert.equal(r.pass,false);assert.ok(r.feedback.some(t=>t.includes('watt-hours entered as kilowatt-hours')));});
+test('Equivalent correct watt-hour answer is accepted',()=>{const d=ready('B2-P01',{hours:{lights:'6'},options:{lights:'led'}});d.total='360';d.unit='Wh';assert.equal(E.validate(s('B2-P01'),d).pass,true);});
+test('Budget equality succeeds without rounding the underlying total',()=>{const x={...s('B2-P01'),cap:.36};const d=draft('B2-P01',{hours:{lights:'6'},options:{lights:'led'}});assert.equal(E.plan(x,d).underCap,true);assert.equal(E.plan({...x,cap:.3599},d).underCap,false);});
+test('0.001 kWh mismatch is not accepted',()=>assert.equal(E.close(.361,.36),false));
+test('Efficiency is 60% and other output 600 J',()=>{assert.equal(E.efficiency(900,1500),60);const d=draft('B2-P04',{percent:'60',other:'600',choice:'no'});assert.equal(E.validate(s('B2-P04'),d).pass,true);});
+test('Fraction supplied as percentage gets correction',()=>{const d=draft('B2-P04',{percent:'.6',other:'600',choice:'no'});const r=E.validate(s('B2-P04'),d);assert.equal(r.pass,false);assert.ok(r.feedback[0].includes('decimal fraction'));});
+for(const [u,i] of [[10,0],[20,10],[-1,10],[10,-1],[10,Infinity]])test('Invalid efficiency model '+u+'/'+i,()=>assert.throws(()=>E.efficiency(u,i),RangeError));
+test('Original and revised transfer values are derived independently',()=>{assert.ok(E.close(E.energy(4,15,180/60)+E.energy(2,120,150/60),s('B2-T01').initialKWh,1e-10));assert.ok(E.close(E.energy(4,15,180/60)+E.energy(2,80,150/60),s('B2-T01').revisedKWh,1e-10));});
+test('Transfer passes checked numbers and decision but never grades prose',()=>{const d=draft('B2-T01',{initial:'.780',revised:'.580',choice:'replace',explanation:'I kept the full service times.'});const r=E.validate(s('B2-T01'),d);assert.equal(r.pass,true);assert.equal(r.writingReviewed,false);});
+test('Transfer uses a changed context and different numerical answer',()=>{assert.notEqual(s('B2-T01').revisedKWh,.369);assert.ok(s('B2-T01').brief.includes('workstations'));});
+test('Transfer needs written response without keyword grading',()=>{const d=draft('B2-T01',{initial:'.78',revised:'.58',choice:'replace',explanation:'  '});assert.equal(E.validate(s('B2-T01'),d).ready,false);});
+test('The previous mockup total is corrected to 14.920 kWh',()=>assert.ok(E.close(E.plan(D.lab,draft('B2-LAB')).total,14.92,1e-10)));
+test('Stretch target is possible at 10.390 kWh with all services',()=>{const d=draft('B2-LAB');D.lab.devices.forEach(x=>d.hours[x.id]=String(x.minHours));const p=E.plan(D.lab,d);assert.ok(E.close(p.total,10.39,1e-10));assert.equal(p.feasible,true);assert.ok(p.total<D.lab.stretch);});
+test('Replay reaches exactly the checked energy total',()=>{const p=E.plan(D.lab,draft('B2-LAB'));const used=E.replayRows(p.rows,12).reduce((n,x)=>n+x.usedKWh,0);assert.ok(E.close(used,p.total,1e-10));});
+test('Replay starts at zero and caps each device at its run time',()=>{const p=E.plan(D.lab,draft('B2-LAB'));assert.equal(E.replayRows(p.rows,0).reduce((n,x)=>n+x.usedKWh,0),0);assert.equal(E.replayRows(p.rows,12).find(x=>x.id==='water').elapsed,2);});
+test('Author data are frozen and drafts are independent',()=>{const a=draft('B2-P01'),b=draft('B2-P01');a.hours.lights='0';assert.equal(b.hours.lights,'8');assert.throws(()=>{D.lab.cap=0},TypeError);});
+test('Enumerate every half-hour lighting plan: feasibility agrees with independent arithmetic',()=>{
+ const x=s('B2-P01');for(const opt of x.devices[0].options)for(let k=0;k<=24;k++){const h=k/2,d=draft(x.id,{hours:{lights:String(h)},options:{lights:opt.id}}),p=E.plan(x,d);assert.ok(E.close(p.total,6*opt.watts*h/1000,1e-10));assert.equal(p.feasible,h>=6&&6*opt.watts*h/1000<=.75);}
+});

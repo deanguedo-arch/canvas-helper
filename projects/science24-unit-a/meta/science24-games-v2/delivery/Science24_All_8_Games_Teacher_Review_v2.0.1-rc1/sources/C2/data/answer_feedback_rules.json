@@ -1,0 +1,113 @@
+{
+  "game_id": "C2",
+  "version": "2.0.1",
+  "open_explanation_policy": "Never auto-certify quality from keywords. Use visible self-review or teacher-review status.",
+  "general": [
+    "Correct science result is necessary but not sufficient for independent mastery.",
+    "A successful answer edited later becomes unverified until checked again.",
+    "Hints and retries remain available but are recorded in the review summary.",
+    "Equivalent valid numeric forms are accepted where specified."
+  ],
+  "scenarios": [
+    {
+      "id": "C2-W01",
+      "accepted_result": {
+        "p_AA": 25,
+        "p_Aa": 50,
+        "p_aa": 25,
+        "explanation": "An aa child needs an a from each dominant parent, so both are Aa. The cross gives 25/50/25 genotypes per offspring, not a fixed family count."
+      },
+      "must_explain": true,
+      "misconception_feedback": [
+        "Dominant phenotype does not identify AA rather than Aa.",
+        "Probability is not a guaranteed family count.",
+        "Do not force one answer when the evidence supports multiple genotypes."
+      ]
+    },
+    {
+      "id": "C2-P01",
+      "accepted_result": {
+        "cell0": "Aa",
+        "cell1": "aa",
+        "cell2": "Aa",
+        "cell3": "aa",
+        "p_AA": 0,
+        "p_Aa": 50,
+        "p_aa": 50,
+        "explanation": "aa supplies a on each row and Aa supplies A or a on columns. The square gives 50% Aa and 50% aa per offspring."
+      },
+      "must_explain": true,
+      "misconception_feedback": [
+        "Dominant phenotype does not identify AA rather than Aa.",
+        "Probability is not a guaranteed family count.",
+        "Do not force one answer when the evidence supports multiple genotypes."
+      ]
+    },
+    {
+      "id": "C2-P02",
+      "accepted_result": {
+        "parent1": "Aa",
+        "parent2": "Aa",
+        "explanation": "Both dominant parents must be Aa because each supplied an a to the aa child under this fictional model."
+      },
+      "must_explain": true,
+      "misconception_feedback": [
+        "Dominant phenotype does not identify AA rather than Aa.",
+        "Probability is not a guaranteed family count.",
+        "Do not force one answer when the evidence supports multiple genotypes."
+      ]
+    },
+    {
+      "id": "C2-P03",
+      "accepted_result": {
+        "possible1": "AA",
+        "probability1": 0,
+        "possible2": "Aa",
+        "probability2": 50,
+        "uncertainty": "underdetermined",
+        "explanation": "aa \u00d7 AA gives 0% recessive and aa \u00d7 Aa gives 50%. The dominant parent could have either genotype, so one probability is unjustified."
+      },
+      "must_explain": true,
+      "misconception_feedback": [
+        "Dominant phenotype does not identify AA rather than Aa.",
+        "Probability is not a guaranteed family count.",
+        "Do not force one answer when the evidence supports multiple genotypes."
+      ]
+    },
+    {
+      "id": "C2-P04",
+      "accepted_result": {
+        "p_AA": 25,
+        "p_Aa": 50,
+        "p_aa": 25,
+        "outcome": "independent",
+        "explanation": "The Aa \u00d7 Aa probabilities remain 25/50/25 for the next offspring. Previous outcomes do not make another due."
+      },
+      "must_explain": true,
+      "misconception_feedback": [
+        "Dominant phenotype does not identify AA rather than Aa.",
+        "Probability is not a guaranteed family count.",
+        "Do not force one answer when the evidence supports multiple genotypes."
+      ]
+    },
+    {
+      "id": "C2-T01",
+      "accepted_result": {
+        "possible1": "Aa",
+        "probability1": 50,
+        "possible2": "AA",
+        "probability2": 0,
+        "uncertainty": "underdetermined",
+        "explanation": "The unknown dominant parent could be Aa or AA. aa \u00d7 Aa gives 50% recessive; aa \u00d7 AA gives 0%. No child or genotype-test evidence selects one."
+      },
+      "must_explain": true,
+      "misconception_feedback": [
+        "Dominant phenotype does not identify AA rather than Aa.",
+        "Probability is not a guaranteed family count.",
+        "Do not force one answer when the evidence supports multiple genotypes."
+      ]
+    }
+  ],
+  "content_version": "2.0.1",
+  "authority": "Runtime scenario JSON and pure validator; original suggested wording retained only as reference in source handoff."
+}

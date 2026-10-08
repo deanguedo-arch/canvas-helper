@@ -1,0 +1,24 @@
+{
+  "archive": "/Users/deanguedo/Downloads/Science24_A1_Reaction_Detective_Handoff_v1.0.zip",
+  "sha256": "a5e3bad7bcb4ecf371977917b85bc8e20265daf40f779b54c7b8f87b6d227bb5",
+  "referenceSource": "projects/resources/science24-unit-a/reaction-detective-v1",
+  "canonicalEntry": "projects/science24-unit-a/workspace/games/reaction-detective/index.html",
+  "status": "first playable preview",
+  "integration": "standalone local preview; no course progress or LMS reporting",
+  "routing": "deterministic ZIP intake; lead state fixes and preview acceptance; external source and dirty metadata preclude worker delegation",
+  "previewUrl": "http://127.0.0.1:57324/",
+  "verification": [
+    "JavaScript syntax check passed",
+    "Browser: intro, worked example and first practice rendered",
+    "Browser: prediction unlocks evidence; two reveals consume two tokens",
+    "Browser: evidence/conclusion/explanation submission progresses to Rusting Tool with case fields cleared",
+    "No captured console errors in inspected route"
+  ],
+  "deferred": [
+    "All-scenario correct/misconception/alternative review",
+    "Retry/hint/reset and transfer regression",
+    "Keyboard, touch, narrow viewport and 200% zoom",
+    "Teacher science review, lesson placement and course integration",
+    "SCORM/Brightspace and release validation"
+  ]
+}

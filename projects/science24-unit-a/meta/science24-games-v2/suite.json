@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 1,
+  "version": "2.0.1-rc1",
+  "sourceArchiveSHA256": "b59a395e7fcabe014ffad77e9ac7fd5eaea5baf5ea2f4bd9a8237d5c9bb49e0d",
+  "status": "B2 gameplay pilot awaits play review. The rc1 delivery remains a preserved archive; current canonical suite changes are not release-validated. Teacher decisions pending.",
+  "scope": "Standalone supplemental practice and teacher review",
+  "games": [
+    {
+      "id": "A1",
+      "title": "Reaction Detective",
+      "slug": "reaction-detective",
+      "canonical": "projects/science24-unit-a/workspace/games/reaction-detective",
+      "reference": "projects/resources/science24-games-v2/handoff/A1_Reaction_Detective",
+      "version": "1.2.0",
+      "teacherDecision": "pending"
+    },
+    {
+      "id": "A2",
+      "title": "Atom Factory",
+      "slug": "atom-factory",
+      "canonical": "projects/science24-unit-a/workspace/games/atom-factory",
+      "reference": "projects/resources/science24-games-v2/handoff/A2_Atom_Factory",
+      "version": "2.0.1-rc1",
+      "teacherDecision": "pending"
+    },
+    {
+      "id": "B1",
+      "title": "Energy Chain Rescue",
+      "slug": "energy-chain-rescue",
+      "canonical": "projects/science24-unit-b/workspace/games/energy-chain-rescue",
+      "reference": "projects/resources/science24-games-v2/handoff/B1_Energy_Chain_Rescue",
+      "version": "2.0.1-rc1",
+      "teacherDecision": "pending"
+    },
+    {
+      "id": "B2",
+      "title": "Power Budget Challenge",
+      "slug": "power-budget-challenge",
+      "canonical": "projects/science24-unit-b/workspace/games/power-budget-challenge",
+      "reference": "projects/resources/science24-games-v2/handoff/B2_Power_Budget_Challenge",
+      "version": "2.1.0-pilot1",
+      "coreContentVersion": "2.0.1",
+      "teacherDecision": "pending"
+    },
+    {
+      "id": "C1",
+      "title": "Break the Chain",
+      "slug": "break-the-chain",
+      "canonical": "projects/science24-unit-c/workspace/games/break-the-chain",
+      "reference": "projects/resources/science24-games-v2/handoff/C1_Break_the_Chain",
+      "version": "2.0.1-rc1",
+      "teacherDecision": "pending"
+    },
+    {
+      "id": "C2",
+      "title": "Inheritance Detective",
+      "slug": "inheritance-detective",
+      "canonical": "projects/science24-unit-c/workspace/games/inheritance-detective",
+      "reference": "projects/resources/science24-games-v2/handoff/C2_Inheritance_Detective",
+      "version": "2.0.1-rc1",
+      "teacherDecision": "pending"
+    },
+    {
+      "id": "D1",
+      "title": "Safe Stop Challenge",
+      "slug": "safe-stop-challenge",
+      "canonical": "projects/science24-unit-d/workspace/games/safe-stop-challenge",
+      "reference": "projects/resources/science24-games-v2/handoff/D1_Safe_Stop_Challenge",
+      "version": "2.0.1-rc1",
+      "teacherDecision": "pending"
+    },
+    {
+      "id": "D2",
+      "title": "Crash Test Studio",
+      "slug": "crash-test-studio",
+      "canonical": "projects/science24-unit-d/workspace/games/crash-test-studio",
+      "reference": "projects/resources/science24-games-v2/handoff/D2_Crash_Test_Studio",
+      "version": "2.0.1-rc1",
+      "teacherDecision": "pending"
+    }
+  ],
+  "visualAuthority": "premium-visual-v1/manifest.json",
+  "priorVisualAuthority": "Preserved original v2 mockups; superseded as presentation authority by October 7 user premium references",
+  "gameplayRedesign": {
+    "version": "2.1.0-pilot1",
+    "status": "pilot-review-pending",
+    "firstGame": "B2",
+    "sequenceAfterPilotAcceptance": ["C1", "A2", "D2", "B1", "D1", "C2"],
+    "pilotRecords": "gameplay-redesign-v1/b2-pilot-1",
+    "visualContract": "Retain Science 24 / Next Step identity and supplied art; gameplay-led compositions replace the old pixel matching gate for redesigned games.",
+    "validationScope": "Focused B2 Build checks only; accumulated suite, offline packaging and manual checks deferred until acceptance and rollout.",
+    "learnerPlaytesting": "pending",
+    "teacherDecision": "pending",
+    "preservedReviewCandidate": "Science24-v2.0.1-rc1-a6e3202c2cd0"
+  }
+}

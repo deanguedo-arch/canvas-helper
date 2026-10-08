@@ -1,0 +1,582 @@
+{
+  "at": "2026-10-08T02:08:36.317306+00:00",
+  "method": "New October 7 user premium PNG references vs actual Chromium worked presentations at the reference 1672x941 viewport; full-page image, no masks, 10-channel tolerance. Panel boxes measured from original references. No screenshot derived from this runtime is used as its acceptance baseline.",
+  "browser": "Chromium 145.0.7632.6",
+  "mobileReference": "No independent mobile premium reference supplied; implementation snapshots and seven-width responsive checks are separate.",
+  "otherStates": "Title, feedback, transfer and mobile snapshots are implementation proposals; no independent premium reference supplied.",
+  "results": [
+    {
+      "game": "A2",
+      "stage": "premium worked presentation",
+      "width": 1672,
+      "pixelAgreementPercent": 54.5257,
+      "pixelThreshold": 99.25,
+      "geometryTolerancePx": 4,
+      "geometry": [
+        {
+          "selector": ".course-header",
+          "reference": [
+            0,
+            0,
+            1672,
+            78
+          ],
+          "actual": {
+            "x": 0,
+            "y": 0,
+            "width": 1672,
+            "height": 78
+          },
+          "maxErrorPx": 0
+        },
+        {
+          "selector": ".workspace > .panel:nth-child(1)",
+          "reference": [
+            33,
+            198,
+            430,
+            588
+          ],
+          "actual": {
+            "x": 32,
+            "y": 198,
+            "width": 431.078125,
+            "height": 593.078125
+          },
+          "maxErrorPx": 5.08
+        },
+        {
+          "selector": ".workspace > .panel:nth-child(2)",
+          "reference": [
+            480,
+            198,
+            701,
+            588
+          ],
+          "actual": {
+            "x": 477.078125,
+            "y": 198,
+            "width": 703.78125,
+            "height": 593.078125
+          },
+          "maxErrorPx": 5.08
+        },
+        {
+          "selector": ".workspace > .panel:nth-child(3)",
+          "reference": [
+            1196,
+            198,
+            444,
+            588
+          ],
+          "actual": {
+            "x": 1194.859375,
+            "y": 198,
+            "width": 445.140625,
+            "height": 593.078125
+          },
+          "maxErrorPx": 5.08
+        }
+      ],
+      "passed": false,
+      "mask": "None; whole images including additional learner navigation and evidence; white padding at original origin",
+      "reference": "projects/science24-unit-a/meta/science24-games-v2/premium-visual-v1/references/A2-premium-gameplay.png",
+      "referenceSHA256": "a31575bbeb4c267656165f7954ac1ec64e50a403bc504df90423ca1e593e0445",
+      "actualScreenshot": "projects/science24-unit-a/meta/science24-games-v2/validation/browser/A2-premium-worked-1672.png",
+      "actualSHA256": "ad0477677a9e76ca9a545fa35b145e0afdd4fcb1347efcc4c32f765107f37c74",
+      "contentNote": "Preserved scenario values and corrected scientific text differ from the illustration. Clean generated photo plates and accessible controls are real implementation assets. These differences are documented; raw pixel agreement remains conservative."
+    },
+    {
+      "game": "B1",
+      "stage": "premium worked presentation",
+      "width": 1672,
+      "pixelAgreementPercent": 64.332,
+      "pixelThreshold": 99.25,
+      "geometryTolerancePx": 4,
+      "geometry": [
+        {
+          "selector": ".course-header",
+          "reference": [
+            0,
+            0,
+            1672,
+            78
+          ],
+          "actual": {
+            "x": 0,
+            "y": 0,
+            "width": 1672,
+            "height": 78
+          },
+          "maxErrorPx": 0
+        },
+        {
+          "selector": ".workspace > .panel:nth-child(1)",
+          "reference": [
+            33,
+            198,
+            493,
+            610
+          ],
+          "actual": {
+            "x": 32,
+            "y": 198,
+            "width": 495.1875,
+            "height": 683.1875
+          },
+          "maxErrorPx": 73.19
+        },
+        {
+          "selector": ".workspace > .panel:nth-child(2)",
+          "reference": [
+            540,
+            198,
+            651,
+            610
+          ],
+          "actual": {
+            "x": 541.1875,
+            "y": 198,
+            "width": 652.890625,
+            "height": 683.1875
+          },
+          "maxErrorPx": 73.19
+        },
+        {
+          "selector": ".workspace > .panel:nth-child(3)",
+          "reference": [
+            1207,
+            198,
+            432,
+            610
+          ],
+          "actual": {
+            "x": 1208.078125,
+            "y": 198,
+            "width": 431.90625,
+            "height": 683.1875
+          },
+          "maxErrorPx": 73.19
+        }
+      ],
+      "passed": false,
+      "mask": "None; whole images including additional learner navigation and evidence; white padding at original origin",
+      "reference": "projects/science24-unit-a/meta/science24-games-v2/premium-visual-v1/references/B1-premium-gameplay.png",
+      "referenceSHA256": "c7e168892519cd9e077864356cea4a6e9a80fa36fdda03d76999621c9c5c9e42",
+      "actualScreenshot": "projects/science24-unit-a/meta/science24-games-v2/validation/browser/B1-premium-worked-1672.png",
+      "actualSHA256": "d4cfc3d8519142cde49f511dc202b7e3ef17e63f9ecd1619b0a3c592e2bfe185",
+      "contentNote": "Preserved scenario values and corrected scientific text differ from the illustration. Clean generated photo plates and accessible controls are real implementation assets. These differences are documented; raw pixel agreement remains conservative."
+    },
+    {
+      "game": "B2",
+      "stage": "premium worked presentation",
+      "width": 1672,
+      "pixelAgreementPercent": 66.4341,
+      "pixelThreshold": 99.25,
+      "geometryTolerancePx": 4,
+      "geometry": [
+        {
+          "selector": ".course-header",
+          "reference": [
+            0,
+            0,
+            1672,
+            78
+          ],
+          "actual": {
+            "x": 0,
+            "y": 0,
+            "width": 1672,
+            "height": 78
+          },
+          "maxErrorPx": 0
+        },
+        {
+          "selector": ".workspace > .panel:nth-child(1)",
+          "reference": [
+            33,
+            198,
+            519,
+            586
+          ],
+          "actual": {
+            "x": 32,
+            "y": 198,
+            "width": 520,
+            "height": 735.3125
+          },
+          "maxErrorPx": 149.31
+        },
+        {
+          "selector": ".workspace > .panel:nth-child(2)",
+          "reference": [
+            567,
+            198,
+            537,
+            586
+          ],
+          "actual": {
+            "x": 566,
+            "y": 198,
+            "width": 540,
+            "height": 735.3125
+          },
+          "maxErrorPx": 149.31
+        },
+        {
+          "selector": ".workspace > .panel:nth-child(3)",
+          "reference": [
+            1119,
+            198,
+            521,
+            586
+          ],
+          "actual": {
+            "x": 1120,
+            "y": 198,
+            "width": 520,
+            "height": 735.3125
+          },
+          "maxErrorPx": 149.31
+        }
+      ],
+      "passed": false,
+      "mask": "None; whole images including additional learner navigation and evidence; white padding at original origin",
+      "reference": "projects/science24-unit-a/meta/science24-games-v2/premium-visual-v1/references/B2-premium-gameplay.png",
+      "referenceSHA256": "82471ac7b5bf69b579608481ea51ec28d236a3bd8b5dedb799f6a1ec311b41cd",
+      "actualScreenshot": "projects/science24-unit-a/meta/science24-games-v2/validation/browser/B2-premium-worked-1672.png",
+      "actualSHA256": "415ceda487e3f5fcf8d31e0b9df5cd9a699bdbaceff3dfc8dcb28c0346642e7c",
+      "contentNote": "Preserved scenario values and corrected scientific text differ from the illustration. Clean generated photo plates and accessible controls are real implementation assets. These differences are documented; raw pixel agreement remains conservative."
+    },
+    {
+      "game": "C1",
+      "stage": "premium worked presentation",
+      "width": 1672,
+      "pixelAgreementPercent": 61.0542,
+      "pixelThreshold": 99.25,
+      "geometryTolerancePx": 4,
+      "geometry": [
+        {
+          "selector": ".course-header",
+          "reference": [
+            0,
+            0,
+            1672,
+            78
+          ],
+          "actual": {
+            "x": 0,
+            "y": 0,
+            "width": 1672,
+            "height": 78
+          },
+          "maxErrorPx": 0
+        },
+        {
+          "selector": ".workspace > .panel:nth-child(1)",
+          "reference": [
+            34,
+            199,
+            518,
+            584
+          ],
+          "actual": {
+            "x": 32,
+            "y": 198,
+            "width": 519.65625,
+            "height": 651.9375
+          },
+          "maxErrorPx": 67.94
+        },
+        {
+          "selector": ".workspace > .panel:nth-child(2)",
+          "reference": [
+            568,
+            199,
+            536,
+            584
+          ],
+          "actual": {
+            "x": 565.65625,
+            "y": 198,
+            "width": 538.671875,
+            "height": 651.9375
+          },
+          "maxErrorPx": 67.94
+        },
+        {
+          "selector": ".workspace > .panel:nth-child(3)",
+          "reference": [
+            1119,
+            199,
+            520,
+            584
+          ],
+          "actual": {
+            "x": 1118.328125,
+            "y": 198,
+            "width": 521.671875,
+            "height": 651.9375
+          },
+          "maxErrorPx": 67.94
+        }
+      ],
+      "passed": false,
+      "mask": "None; whole images including additional learner navigation and evidence; white padding at original origin",
+      "reference": "projects/science24-unit-a/meta/science24-games-v2/premium-visual-v1/references/C1-premium-gameplay.png",
+      "referenceSHA256": "40b2b01ee7dabbc3dd58a99d47cc90b4335c4c0b1276aa26648e877003767894",
+      "actualScreenshot": "projects/science24-unit-a/meta/science24-games-v2/validation/browser/C1-premium-worked-1672.png",
+      "actualSHA256": "21e1c25b40e247bba1efe7b54325e316dcd5e42b6a3859f22346c0fae0b56f6e",
+      "contentNote": "Preserved scenario values and corrected scientific text differ from the illustration. Clean generated photo plates and accessible controls are real implementation assets. These differences are documented; raw pixel agreement remains conservative."
+    },
+    {
+      "game": "C2",
+      "stage": "premium worked presentation",
+      "width": 1672,
+      "pixelAgreementPercent": 64.5773,
+      "pixelThreshold": 99.25,
+      "geometryTolerancePx": 4,
+      "geometry": [
+        {
+          "selector": ".course-header",
+          "reference": [
+            0,
+            0,
+            1672,
+            78
+          ],
+          "actual": {
+            "x": 0,
+            "y": 0,
+            "width": 1672,
+            "height": 78
+          },
+          "maxErrorPx": 0
+        },
+        {
+          "selector": ".workspace > .panel:nth-child(1)",
+          "reference": [
+            33,
+            196,
+            514,
+            629
+          ],
+          "actual": {
+            "x": 32,
+            "y": 198,
+            "width": 513,
+            "height": 728.734375
+          },
+          "maxErrorPx": 99.73
+        },
+        {
+          "selector": ".workspace > .panel:nth-child(2)",
+          "reference": [
+            563,
+            196,
+            597,
+            629
+          ],
+          "actual": {
+            "x": 559,
+            "y": 198,
+            "width": 598,
+            "height": 728.734375
+          },
+          "maxErrorPx": 99.73
+        },
+        {
+          "selector": ".workspace > .panel:nth-child(3)",
+          "reference": [
+            1174,
+            196,
+            466,
+            629
+          ],
+          "actual": {
+            "x": 1171,
+            "y": 198,
+            "width": 469,
+            "height": 728.734375
+          },
+          "maxErrorPx": 99.73
+        }
+      ],
+      "passed": false,
+      "mask": "None; whole images including additional learner navigation and evidence; white padding at original origin",
+      "reference": "projects/science24-unit-a/meta/science24-games-v2/premium-visual-v1/references/C2-premium-gameplay.png",
+      "referenceSHA256": "4e8605f8e345513f0dcd5ef43c5270f4d7ff75f3f344d82fdb7ea82a5125fe11",
+      "actualScreenshot": "projects/science24-unit-a/meta/science24-games-v2/validation/browser/C2-premium-worked-1672.png",
+      "actualSHA256": "ee9c3396352d01ccab01394c31d6dfcc3f25637140efd340d20ff0e04c4cffd5",
+      "contentNote": "Preserved scenario values and corrected scientific text differ from the illustration. Clean generated photo plates and accessible controls are real implementation assets. These differences are documented; raw pixel agreement remains conservative."
+    },
+    {
+      "game": "D1",
+      "stage": "premium worked presentation",
+      "width": 1672,
+      "pixelAgreementPercent": 55.4671,
+      "pixelThreshold": 99.25,
+      "geometryTolerancePx": 4,
+      "geometry": [
+        {
+          "selector": ".course-header",
+          "reference": [
+            0,
+            0,
+            1672,
+            78
+          ],
+          "actual": {
+            "x": 0,
+            "y": 0,
+            "width": 1672,
+            "height": 78
+          },
+          "maxErrorPx": 0
+        },
+        {
+          "selector": ".workspace > .panel:nth-child(1)",
+          "reference": [
+            34,
+            198,
+            475,
+            586
+          ],
+          "actual": {
+            "x": 32,
+            "y": 198,
+            "width": 476.5,
+            "height": 671.484375
+          },
+          "maxErrorPx": 85.48
+        },
+        {
+          "selector": ".workspace > .panel:nth-child(2)",
+          "reference": [
+            524,
+            198,
+            620,
+            586
+          ],
+          "actual": {
+            "x": 522.5,
+            "y": 198,
+            "width": 621.96875,
+            "height": 671.484375
+          },
+          "maxErrorPx": 85.48
+        },
+        {
+          "selector": ".workspace > .panel:nth-child(3)",
+          "reference": [
+            1160,
+            198,
+            480,
+            586
+          ],
+          "actual": {
+            "x": 1158.46875,
+            "y": 198,
+            "width": 481.53125,
+            "height": 671.484375
+          },
+          "maxErrorPx": 85.48
+        }
+      ],
+      "passed": false,
+      "mask": "None; whole images including additional learner navigation and evidence; white padding at original origin",
+      "reference": "projects/science24-unit-a/meta/science24-games-v2/premium-visual-v1/references/D1-premium-gameplay.png",
+      "referenceSHA256": "26804d9bba909b274c81249b7bc1c49c2bb8818ad319d35466393d1f66d6e665",
+      "actualScreenshot": "projects/science24-unit-a/meta/science24-games-v2/validation/browser/D1-premium-worked-1672.png",
+      "actualSHA256": "ddf7e183d8442be6407d9314f18a851fb08326249ed1a25b2dcc26e8a8254083",
+      "contentNote": "Preserved scenario values and corrected scientific text differ from the illustration. Clean generated photo plates and accessible controls are real implementation assets. These differences are documented; raw pixel agreement remains conservative."
+    },
+    {
+      "game": "D2",
+      "stage": "premium worked presentation",
+      "width": 1672,
+      "pixelAgreementPercent": 55.8915,
+      "pixelThreshold": 99.25,
+      "geometryTolerancePx": 4,
+      "geometry": [
+        {
+          "selector": ".course-header",
+          "reference": [
+            0,
+            0,
+            1672,
+            78
+          ],
+          "actual": {
+            "x": 0,
+            "y": 0,
+            "width": 1672,
+            "height": 78
+          },
+          "maxErrorPx": 0
+        },
+        {
+          "selector": ".workspace > .panel:nth-child(1)",
+          "reference": [
+            33,
+            195,
+            453,
+            623
+          ],
+          "actual": {
+            "x": 32,
+            "y": 198,
+            "width": 455.296875,
+            "height": 702.125
+          },
+          "maxErrorPx": 79.12
+        },
+        {
+          "selector": ".workspace > .panel:nth-child(2)",
+          "reference": [
+            502,
+            195,
+            654,
+            623
+          ],
+          "actual": {
+            "x": 501.296875,
+            "y": 198,
+            "width": 657.328125,
+            "height": 702.125
+          },
+          "maxErrorPx": 79.12
+        },
+        {
+          "selector": ".workspace > .panel:nth-child(3)",
+          "reference": [
+            1172,
+            195,
+            467,
+            623
+          ],
+          "actual": {
+            "x": 1172.625,
+            "y": 198,
+            "width": 467.359375,
+            "height": 702.125
+          },
+          "maxErrorPx": 79.12
+        }
+      ],
+      "passed": false,
+      "mask": "None; whole images including additional learner navigation and evidence; white padding at original origin",
+      "reference": "projects/science24-unit-a/meta/science24-games-v2/premium-visual-v1/references/D2-premium-gameplay.png",
+      "referenceSHA256": "34eb52a7953fd06f01f1c46df486d4c9256a0c84fb09812a30a8b75fd2931836",
+      "actualScreenshot": "projects/science24-unit-a/meta/science24-games-v2/validation/browser/D2-premium-worked-1672.png",
+      "actualSHA256": "b954645372a4b9c5af062885c970698dff2c1386349444291d74ed9612f8bbdd",
+      "contentNote": "Preserved scenario values and corrected scientific text differ from the illustration. Clean generated photo plates and accessible controls are real implementation assets. These differences are documented; raw pixel agreement remains conservative."
+    }
+  ],
+  "passed": false,
+  "affectedRerun": {
+    "game": "C2",
+    "at": "2026-10-08T02:14:48Z",
+    "reason": "Solved worked cells, child evidence and right-column genotype probabilities; all other source hashes retain frozen full-batch proof"
+  }
+}

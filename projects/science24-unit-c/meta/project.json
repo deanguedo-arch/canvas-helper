@@ -2,7 +2,7 @@
   "id": "science24-unit-c",
   "slug": "science24-unit-c",
   "title": "SCI 24 Unit C: Disease Defence and Human Health",
-  "sourcePath": "projects/resources/science24-unit-c/resource-manifest.json",
+  "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/processed/science24-unit-c/source",
   "inputKind": "brightspace-zip",
   "brightspaceTarget": "scorm",
   "previewModes": [
@@ -122,7 +122,18 @@
     "projects/science24-unit-c/workspace/state-store.js",
     "projects/science24-unit-c/workspace/styles.css",
     "projects/science24-unit-c/workspace/unit-c.css",
-    "projects/science24-unit-c/workspace/assets/source-inflammation-p195.png"
+    "projects/science24-unit-c/workspace/assets/source-inflammation-p195.png",
+    "projects/science24-unit-c/workspace/assets/visual-refresh/c-abo.svg",
+    "projects/science24-unit-c/workspace/assets/visual-refresh/c-baseline.svg",
+    "projects/science24-unit-c/workspace/assets/visual-refresh/c-defence-memory.png",
+    "projects/science24-unit-c/workspace/assets/visual-refresh/c-food-safety.svg",
+    "projects/science24-unit-c/workspace/assets/visual-refresh/c-germ-theory.png",
+    "projects/science24-unit-c/workspace/assets/visual-refresh/c-methods.svg",
+    "projects/science24-unit-c/workspace/assets/visual-refresh/c-mutations.svg",
+    "projects/science24-unit-c/workspace/assets/visual-refresh/c-resistance.svg",
+    "projects/science24-unit-c/workspace/assets/visual-refresh/c-transmission.png",
+    "projects/science24-unit-c/workspace/assets/visual-refresh/c-water-plant.jpg",
+    "projects/science24-unit-c/workspace/assets/visual-refresh.css"
   ],
   "generatedOutputs": [
     "projects/science24-unit-c/workspace/course-data.js",
@@ -379,5 +390,66 @@
   "sourceOfTruthNotes": "Unit C v2 learner copy, links and figures are canonical in workspace/index.html. The canonical activity catalog is workspace/course-data.json; scripts/compile-science24-bcd-data.cjs deterministically compiles its browser wrapper course-data.js. Reviewed chapter seeds and scripts/build-science24-c-catalog.py document initial catalog assembly but are not routine regeneration dependencies; edit the catalog directly for later activity changes. Runtime practice, histories, Frayer forms, and dialogs are Annotation only. Rejected v1 remains frozen and accessible as previous-draft work. Brightspace and CBE archives are unchanged. Candidate remains blocked for teacher and rollout review. The original textbook-page JPGs remain canonical source scans; assets/reader-pages/ are deterministic margin-trimmed display copies regenerated with readerPageRegenerateCommand. Question-level Textbook Practice crops, its browser overlay and its review manifest regenerate from the canonical textbook/page catalog with scripts/build-science24-textbook-practice.py. The overlay freezes the earlier page catalog as legacyBookQuestions so original saved page records remain visible and are never counted as replacement question work. Printed/PDF page mapping and accessible text remain unchanged.",
   "regenerateCommand": "node scripts/compile-science24-bcd-data.cjs --project science24-unit-c && node scripts/prepare-science24-reader-pages.cjs --project science24-unit-c && python3 scripts/build-science24-textbook-practice.py --project science24-unit-c",
   "readerPageRegenerateCommand": "node scripts/prepare-science24-reader-pages.cjs --project science24-unit-c",
-  "textbookPracticeRegenerateCommand": "python3 scripts/build-science24-textbook-practice.py --project science24-unit-c"
+  "textbookPracticeRegenerateCommand": "python3 scripts/build-science24-textbook-practice.py --project science24-unit-c",
+  "visualRefreshReview": {
+    "date": "2026-10-02",
+    "role": "local comparison candidate; teacher acceptance pending",
+    "record": "projects/science24-unit-c/meta/visual-refresh-2026-10-02/lesson-matrix.json",
+    "hashes": "projects/science24-unit-c/meta/visual-refresh-2026-10-02/candidate-hashes.json",
+    "publication": "separate checkpoint"
+  },
+  "injectedComponents": [
+    {
+      "id": "s24-c1-break-the-chain",
+      "source": "projects/resources/science24-games-v2/handoff/C1_Break_the_Chain",
+      "target": "projects/science24-unit-c/workspace/games/break-the-chain/index.html",
+      "canonicalEntry": "projects/science24-unit-c/workspace/games/break-the-chain/index.html",
+      "canonicalSources": [
+        "projects/science24-unit-c/workspace/games/break-the-chain/index.html",
+        "projects/science24-unit-c/workspace/games/break-the-chain/css/shell.css",
+        "projects/science24-unit-c/workspace/games/break-the-chain/css/game.css",
+        "projects/science24-unit-c/workspace/games/break-the-chain/js/app.js",
+        "projects/science24-unit-c/workspace/games/break-the-chain/js/state.js",
+        "projects/science24-unit-c/workspace/games/break-the-chain/js/engine.js",
+        "projects/science24-unit-c/workspace/games/break-the-chain/js/renderer.js",
+        "projects/science24-unit-c/workspace/games/break-the-chain/js/ui.js",
+        "projects/science24-unit-c/workspace/games/break-the-chain/js/screens.js",
+        "projects/science24-unit-c/workspace/games/break-the-chain/data/scenarios.json",
+        "projects/science24-unit-c/workspace/games/break-the-chain/js/premium.js",
+        "projects/science24-unit-c/workspace/games/break-the-chain/assets/premium/**"
+      ],
+      "status": "planned",
+      "version": "2.0.1-rc1",
+      "reviewRecord": "projects/science24-unit-a/meta/science24-games-v2/suite.json",
+      "notes": "Standalone supplemental practice candidate. Teacher decision pending; course placement, activation and LMS release are separate."
+    },
+    {
+      "id": "s24-c2-inheritance-detective",
+      "source": "projects/resources/science24-games-v2/handoff/C2_Inheritance_Detective",
+      "target": "projects/science24-unit-c/workspace/games/inheritance-detective/index.html",
+      "canonicalEntry": "projects/science24-unit-c/workspace/games/inheritance-detective/index.html",
+      "canonicalSources": [
+        "projects/science24-unit-c/workspace/games/inheritance-detective/index.html",
+        "projects/science24-unit-c/workspace/games/inheritance-detective/css/shell.css",
+        "projects/science24-unit-c/workspace/games/inheritance-detective/css/game.css",
+        "projects/science24-unit-c/workspace/games/inheritance-detective/js/app.js",
+        "projects/science24-unit-c/workspace/games/inheritance-detective/js/state.js",
+        "projects/science24-unit-c/workspace/games/inheritance-detective/js/engine.js",
+        "projects/science24-unit-c/workspace/games/inheritance-detective/js/renderer.js",
+        "projects/science24-unit-c/workspace/games/inheritance-detective/js/ui.js",
+        "projects/science24-unit-c/workspace/games/inheritance-detective/js/screens.js",
+        "projects/science24-unit-c/workspace/games/inheritance-detective/data/scenarios.json",
+        "projects/science24-unit-c/workspace/games/inheritance-detective/js/premium.js",
+        "projects/science24-unit-c/workspace/games/inheritance-detective/assets/premium/**"
+      ],
+      "status": "planned",
+      "version": "2.0.1-rc1",
+      "reviewRecord": "projects/science24-unit-a/meta/science24-games-v2/suite.json",
+      "notes": "Standalone supplemental practice candidate. Teacher decision pending; course placement, activation and LMS release are separate."
+    }
+  ],
+  "learningSource": "other",
+  "learningTrust": "auto",
+  "learningUpdatedAt": "2026-10-07T18:32:05.168Z",
+  "updatedAt": "2026-10-07T18:32:05.168Z"
 }

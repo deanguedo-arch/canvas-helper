@@ -1,0 +1,298 @@
+{
+  "role": "Teacher reference and independently authored fixtures; never imported into learner runtime",
+  "solutions": {
+    "B2-W01": {
+      "config": {
+        "lamps_power": 10,
+        "lamps_count": 4,
+        "lamps_hours": 5,
+        "fan_power": 60,
+        "fan_count": 1,
+        "fan_hours": 4
+      },
+      "total": 0.44,
+      "calculation": "4\u00d710\u00d75/1000 + 1\u00d760\u00d74/1000 = 0.200 + 0.240 = 0.440 kWh",
+      "acceptableAlternatives": "Any permitted configuration providing all service floors within the cap, with a matching energy calculation where required.",
+      "reasoningRubric": [
+        "Names the change or chosen equipment",
+        "Uses a correct quantitative account with units",
+        "Connects the account to the service or useful-output goal",
+        "States the equal-service or authored-model limitation"
+      ]
+    },
+    "B2-P01": {
+      "config": {
+        "lamps_power": 10,
+        "lamps_count": 6,
+        "lamps_hours": 6
+      },
+      "total": 0.36,
+      "calculation": "6\u00d710\u00d76/1000 = 0.360 kWh; 40 W option gives 1.440 kWh",
+      "acceptableAlternatives": "Any permitted configuration providing all service floors within the cap, with a matching energy calculation where required.",
+      "reasoningRubric": [
+        "Names the change or chosen equipment",
+        "Uses a correct quantitative account with units",
+        "Connects the account to the service or useful-output goal",
+        "States the equal-service or authored-model limitation"
+      ]
+    },
+    "B2-P02": {
+      "config": {
+        "computers_power": 80,
+        "computers_count": 8,
+        "computers_hours": 2,
+        "lamps_power": 12,
+        "lamps_count": 6,
+        "lamps_hours": 3,
+        "fan_power": 60,
+        "fan_count": 1,
+        "fan_hours": 2
+      },
+      "total": 1.616,
+      "calculation": "1.280 + 0.216 + 0.120 = 1.616 kWh",
+      "acceptableAlternatives": "Any permitted configuration providing all service floors within the cap, with a matching energy calculation where required.",
+      "reasoningRubric": [
+        "Names the change or chosen equipment",
+        "Uses a correct quantitative account with units",
+        "Connects the account to the service or useful-output goal",
+        "States the equal-service or authored-model limitation"
+      ]
+    },
+    "B2-P03": {
+      "config": {
+        "lamps_power": 12,
+        "lamps_count": 3,
+        "lamps_hours": 4,
+        "projector_power": 150,
+        "projector_count": 1,
+        "projector_hours": 1.5
+      },
+      "total": 0.369,
+      "calculation": "0.144 + 0.225 = 0.369 kWh; 180 W original gives 0.414 kWh",
+      "acceptableAlternatives": "Any permitted configuration providing all service floors within the cap, with a matching energy calculation where required.",
+      "reasoningRubric": [
+        "Names the change or chosen equipment",
+        "Uses a correct quantitative account with units",
+        "Connects the account to the service or useful-output goal",
+        "States the equal-service or authored-model limitation"
+      ]
+    },
+    "B2-P04": {
+      "config": {
+        "fixture": "reference",
+        "efficiency": 60
+      },
+      "percent": 60,
+      "other": 600,
+      "calculation": "900/1500\u00d7100 = 60%; 600 J other output. Motor B gives 600/1200\u00d7100 = 50% and insufficient useful output.",
+      "acceptableAlternatives": "Percentages within 0.05 percentage points of the selected fixture ratio; useful-motion and efficiency targets must both be met.",
+      "reasoningRubric": [
+        "Names the change or chosen equipment",
+        "Uses a correct quantitative account with units",
+        "Connects the account to the service or useful-output goal",
+        "States the equal-service or authored-model limitation"
+      ]
+    },
+    "B2-T01": {
+      "config": {
+        "lamps_power": 9,
+        "lamps_count": 4,
+        "lamps_hours": 5,
+        "projector_power": 140,
+        "projector_count": 1,
+        "projector_hours": 2,
+        "initialTotal": 0.58,
+        "repairedTotal": 0.46
+      },
+      "total": 0.46,
+      "calculation": "Lighting 0.180; original projector 0.400 => 0.580. Replacement projector 0.280 => 0.460 kWh.",
+      "acceptableAlternatives": "Any permitted configuration providing all service floors within the cap, with a matching energy calculation where required.",
+      "reasoningRubric": [
+        "Names the change or chosen equipment",
+        "Uses a correct quantitative account with units",
+        "Connects the account to the service or useful-output goal",
+        "States the equal-service or authored-model limitation"
+      ]
+    },
+    "B2-P01-R1": {
+      "config": {
+        "lamps_power": 10,
+        "lamps_count": 4,
+        "lamps_hours": 8
+      },
+      "total": 0.32,
+      "calculation": "4\u00d710\u00d78/1000 = 0.320 kWh; 40 W gives 1.280.",
+      "acceptableAlternatives": "Any permitted configuration providing all service floors within the cap, with a matching energy calculation where required.",
+      "reasoningRubric": [
+        "Names the change or chosen equipment",
+        "Uses a correct quantitative account with units",
+        "Connects the account to the service or useful-output goal",
+        "States the equal-service or authored-model limitation"
+      ]
+    },
+    "B2-P01-R2": {
+      "config": {
+        "lamps_power": 12,
+        "lamps_count": 8,
+        "lamps_hours": 3
+      },
+      "total": 0.288,
+      "calculation": "8\u00d712\u00d73/1000 = 0.288 kWh. Six lamps would use 0.216 but miss two places.",
+      "acceptableAlternatives": "Any permitted configuration providing all service floors within the cap, with a matching energy calculation where required.",
+      "reasoningRubric": [
+        "Names the change or chosen equipment",
+        "Uses a correct quantitative account with units",
+        "Connects the account to the service or useful-output goal",
+        "States the equal-service or authored-model limitation"
+      ]
+    },
+    "B2-P02-R1": {
+      "config": {
+        "computers_power": 75,
+        "computers_count": 4,
+        "computers_hours": 3,
+        "lamps_power": 10,
+        "lamps_count": 4,
+        "lamps_hours": 4,
+        "fan_power": 60,
+        "fan_count": 1,
+        "fan_hours": 2
+      },
+      "total": 1.18,
+      "calculation": "0.900 + 0.160 + 0.120 = 1.180 kWh. Initial four computer hours give 1.480.",
+      "acceptableAlternatives": "Any permitted configuration providing all service floors within the cap, with a matching energy calculation where required.",
+      "reasoningRubric": [
+        "Names the change or chosen equipment",
+        "Uses a correct quantitative account with units",
+        "Connects the account to the service or useful-output goal",
+        "States the equal-service or authored-model limitation"
+      ]
+    },
+    "B2-P02-R2": {
+      "config": {
+        "computers_power": 65,
+        "computers_count": 6,
+        "computers_hours": 2,
+        "lamps_power": 10,
+        "lamps_count": 6,
+        "lamps_hours": 3,
+        "fan_power": 60,
+        "fan_count": 1,
+        "fan_hours": 2
+      },
+      "total": 1.08,
+      "calculation": "0.780 + 0.180 + 0.120 = 1.080 kWh. Four computers save energy but miss service.",
+      "acceptableAlternatives": "Any permitted configuration providing all service floors within the cap, with a matching energy calculation where required.",
+      "reasoningRubric": [
+        "Names the change or chosen equipment",
+        "Uses a correct quantitative account with units",
+        "Connects the account to the service or useful-output goal",
+        "States the equal-service or authored-model limitation"
+      ]
+    },
+    "B2-P03-R1": {
+      "config": {
+        "lamps_power": 8,
+        "lamps_count": 5,
+        "lamps_hours": 4,
+        "projector_power": 120,
+        "projector_count": 1,
+        "projector_hours": 2
+      },
+      "total": 0.4,
+      "calculation": "0.160 + 0.240 = 0.400 kWh; 180 W projector gives 0.520.",
+      "acceptableAlternatives": "Any permitted configuration providing all service floors within the cap, with a matching energy calculation where required.",
+      "reasoningRubric": [
+        "Names the change or chosen equipment",
+        "Uses a correct quantitative account with units",
+        "Connects the account to the service or useful-output goal",
+        "States the equal-service or authored-model limitation"
+      ]
+    },
+    "B2-P03-R2": {
+      "config": {
+        "lamps_power": 10,
+        "lamps_count": 2,
+        "lamps_hours": 5,
+        "projector_power": 100,
+        "projector_count": 1,
+        "projector_hours": 3
+      },
+      "total": 0.4,
+      "calculation": "0.100 + 0.300 = 0.400 kWh; two projector hours miss service; 160 W at three hours gives 0.580.",
+      "acceptableAlternatives": "Any permitted configuration providing all service floors within the cap, with a matching energy calculation where required.",
+      "reasoningRubric": [
+        "Names the change or chosen equipment",
+        "Uses a correct quantitative account with units",
+        "Connects the account to the service or useful-output goal",
+        "States the equal-service or authored-model limitation"
+      ]
+    },
+    "B2-P04-R1": {
+      "config": {
+        "fixture": "reference",
+        "efficiency": 66.67
+      },
+      "percent": 66.66666666666666,
+      "other": 600,
+      "calculation": "1200/1800\u00d7100 = 66\u2154%; other output 600 J. Motor B: 750/1500=50%, insufficient useful motion.",
+      "acceptableAlternatives": "Percentages within 0.05 percentage points of the selected fixture ratio; useful-motion and efficiency targets must both be met.",
+      "reasoningRubric": [
+        "Names the change or chosen equipment",
+        "Uses a correct quantitative account with units",
+        "Connects the account to the service or useful-output goal",
+        "States the equal-service or authored-model limitation"
+      ]
+    },
+    "B2-P04-R2": {
+      "config": {
+        "fixture": "reference",
+        "efficiency": 70
+      },
+      "percent": 70,
+      "other": 600,
+      "calculation": "1400/2000\u00d7100 = 70%; other output 600 J. Motor B gives more useful energy but 1500/2500=60%, below 65%.",
+      "acceptableAlternatives": "Percentages within 0.05 percentage points of the selected fixture ratio; useful-motion and efficiency targets must both be met.",
+      "reasoningRubric": [
+        "Names the change or chosen equipment",
+        "Uses a correct quantitative account with units",
+        "Connects the account to the service or useful-output goal",
+        "States the equal-service or authored-model limitation"
+      ]
+    },
+    "B2-LAB": {
+      "config": {
+        "lamps_power": 10,
+        "lamps_count": 10,
+        "lamps_hours": 8,
+        "heater_power": 1500,
+        "heater_count": 1,
+        "heater_hours": 4,
+        "computers_power": 50,
+        "computers_count": 5,
+        "computers_hours": 4,
+        "water_power": 2000,
+        "water_count": 1,
+        "water_hours": 2,
+        "chargers_power": 2,
+        "chargers_count": 10,
+        "chargers_hours": 6
+      },
+      "total": 11.92,
+      "calculation": "0.800 + 6.000 + 1.000 + 4.000 + 0.120 = 11.920 kWh. Initial: 14.920. All-minimum plan: 0.600 + 6.000 + 0.750 + 3.000 + 0.040 = 10.390.",
+      "acceptableAlternatives": "Any permitted configuration providing all service floors within the cap, with a matching energy calculation where required.",
+      "reasoningRubric": [
+        "Names the change or chosen equipment",
+        "Uses a correct quantitative account with units",
+        "Connects the account to the service or useful-output goal",
+        "States the equal-service or authored-model limitation"
+      ]
+    }
+  },
+  "limitations": [
+    "Supplemental Unit B energy and efficiency practice; not full curriculum coverage.",
+    "No real building booking, thermal-comfort or appliance-certification model.",
+    "Ten to fifteen minute duration and engagement are design targets; actual learner checks pending."
+  ],
+  "teacherDecision": "pending"
+}

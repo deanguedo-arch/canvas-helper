@@ -10,7 +10,7 @@
   "workspaceEntrypoint": "workspace/index.html",
   "rawEntrypoint": "raw/README.md",
   "createdAt": "2026-06-21T14:13:24.514Z",
-  "updatedAt": "2026-08-27T15:38:49.605Z",
+  "updatedAt": "2026-10-07T18:32:04.832Z",
   "migrationState": "migrated",
   "projectType": "conversion",
   "preferredWorkflows": [
@@ -18,9 +18,12 @@
   ],
   "canonicalEntry": "projects/ela30-1-short-stories/workspace/index.html",
   "canonicalSources": [
-    "projects/ela30-1-short-stories/workspace/index.html"
+    "projects/ela30-1-short-stories/workspace/index.html",
+    "projects/ela30-1-short-stories/workspace/assets/studio-local-theme/theme.json"
   ],
-  "generatedOutputs": [],
+  "generatedOutputs": [
+    "projects/ela30-1-short-stories/workspace/assets/studio-local-theme/utilities.css"
+  ],
   "importedFirstPassOrigin": {
     "sourceSystem": "brightspace",
     "sourcePath": "/Users/deanguedo/Downloads/ELA_30-1_SHORT_STORY.zip",
@@ -44,7 +47,7 @@
     "/Users/deanguedo/Downloads/ELA_30-1_SHORT_STORY.zip",
     "/Users/deanguedo/Downloads/ELA_30-1_SHORT_STORY (1).zip"
   ],
-  "sourceOfTruthNotes": "The workspace is the supplied SCORM learner snapshot and is the canonical editable boundary. The older duplicate snapshot is retained as a reference alternate. Any prior English builder or generated output is quarantined; do not run it through Studio or replace this snapshot without an explicit new import. Studio onboarding: The learner page is preserved as the editable baseline because its original rebuild inputs are incomplete or not portable.",
+  "sourceOfTruthNotes": "The workspace is the supplied SCORM learner snapshot and is the canonical editable boundary. The older duplicate snapshot is retained as a reference alternate. Any prior English builder or generated output is quarantined; do not run it through Studio or replace this snapshot without an explicit new import. Studio onboarding: The learner page is preserved as the editable baseline because its original rebuild inputs are incomplete or not portable. Studio layout repair: utility CSS is compiled locally from the preserved theme with scripts/repair-ela-snapshot-styles.mjs; the snapshot remains canonical and the old English builder remains quarantined.",
   "learningSource": "other",
   "learningTrust": "curated",
   "learningUpdatedAt": "2026-08-21T17:34:56.000Z",
@@ -215,5 +218,6 @@
     }
   },
   "title": "ELA 30-1 - Short Stories",
-  "injectedComponents": []
+  "injectedComponents": [],
+  "regenerateCommand": "node scripts/repair-ela-snapshot-styles.mjs --project ela30-1-short-stories"
 }

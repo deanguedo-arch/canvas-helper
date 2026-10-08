@@ -1,0 +1,33 @@
+{
+  "id": "credit-gauntlet",
+  "slug": "credit-gauntlet",
+  "title": "Credit Gauntlet",
+  "courseCode": "CALM 10",
+  "migrationState": "migrated",
+  "projectType": "generated-course",
+  "preferredWorkflows": [
+    "generated-course"
+  ],
+  "authoringStatus": "blocked",
+  "canonicalEntry": "projects/credit-gauntlet/workspace/index.html",
+  "canonicalSources": [
+    "projects/credit-gauntlet/workspace/index.html",
+    "projects/credit-gauntlet/workspace/styles.css",
+    "projects/credit-gauntlet/workspace/model.js",
+    "projects/credit-gauntlet/workspace/game.js",
+    "projects/credit-gauntlet/workspace/presentation.css"
+  ],
+  "exportTargets": [],
+  "importedFirstPassOrigin": {
+    "kind": "supplied-preproduction-and-production-art",
+    "artArchive": "projects/resources/credit-gauntlet/Credit_Gauntlet_Production_Art_v1.zip",
+    "visualReference": "projects/resources/credit-gauntlet/Credit_Gauntlet_Review.pdf",
+    "agreedPlan": "projects/resources/credit-gauntlet/Credit_Gauntlet_Agreed_Game_Plan.txt",
+    "currentVisualReferences": "projects/resources/credit-gauntlet/presentation-references"
+  },
+  "sourceOfTruthNotes": "Standalone ten-screen HTML decision game; model.js owns integer-cent financial rules; index.html, game.js and presentation.css own current native interface. The supplied game plan and October 6 CALM pixel screenshots now guide presentation; the earlier simplified PDF is historical visual reference. Original forty PNGs remain unchanged. styles.css styles developer review tools only. No SCORM export, Studio editing or LMS readiness claimed. Existing CALM course unchanged.",
+  "referenceOnly": [
+    "projects/credit-gauntlet/workspace/mockups",
+    "projects/resources/credit-gauntlet/Credit_Gauntlet_Review.pdf"
+  ]
+}

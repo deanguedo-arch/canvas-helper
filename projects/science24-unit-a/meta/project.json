@@ -2,7 +2,7 @@
   "id": "science24-unit-a",
   "slug": "science24-unit-a",
   "title": "SCI 24 Unit A: Matter and Chemical Change",
-  "sourcePath": "projects/resources/science24-unit-a/resource-manifest.json",
+  "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/processed/science24-unit-a/source",
   "inputKind": "brightspace-zip",
   "brightspaceTarget": "scorm",
   "previewModes": [
@@ -14,7 +14,7 @@
   "learningTrust": "curated",
   "learningUpdatedAt": "2026-09-24T17:03:47.822Z",
   "createdAt": "2026-09-24T17:03:47.822Z",
-  "updatedAt": "2026-09-24T17:03:47.822Z",
+  "updatedAt": "2026-10-07T18:32:05.158Z",
   "migrationState": "migrated",
   "projectType": "hybrid",
   "preferredWorkflows": [
@@ -118,7 +118,22 @@
     "projects/science24-unit-a/workspace/assets/polymer-textiles.webp",
     "projects/science24-unit-a/workspace/assets/hhps-flammable.png",
     "projects/science24-unit-a/workspace/assets/whmis-flame.png",
-    "projects/science24-unit-a/workspace/assets/source-chemical-evidence-p34.jpg"
+    "projects/science24-unit-a/workspace/assets/source-chemical-evidence-p34.jpg",
+    "projects/science24-unit-a/workspace/assets/visual-refresh/a-energy-levels.svg",
+    "projects/science24-unit-a/workspace/assets/visual-refresh/a-summary.svg",
+    "projects/science24-unit-a/workspace/assets/visual-refresh/a-word-equation.svg",
+    "projects/science24-unit-a/workspace/assets/visual-refresh.css",
+    "projects/science24-unit-a/workspace/games/reaction-detective/assets/scenes/scene_01_peroxide.webp",
+    "projects/science24-unit-a/workspace/games/reaction-detective/assets/scenes/scene_02_cooling_solution.webp",
+    "projects/science24-unit-a/workspace/games/reaction-detective/assets/scenes/scene_03_rusting_tool.webp",
+    "projects/science24-unit-a/workspace/games/reaction-detective/assets/scenes/scene_04_antacid_model.webp",
+    "projects/science24-unit-a/workspace/games/reaction-detective/assets/scenes/scene_05_combustion_furnace.webp",
+    "projects/science24-unit-a/workspace/games/reaction-detective/assets/scenes/scene_06_boiling_transfer.webp",
+    "projects/science24-unit-a/workspace/games/reaction-detective/engine.js",
+    "projects/science24-unit-a/workspace/games/reaction-detective/game.js",
+    "projects/science24-unit-a/workspace/games/reaction-detective/index.html",
+    "projects/science24-unit-a/workspace/games/reaction-detective/scenarios.js",
+    "projects/science24-unit-a/workspace/games/reaction-detective/styles.css"
   ],
   "generatedOutputs": [
     "projects/science24-unit-a/workspace/assets/science24-formula-page-1.png",
@@ -317,5 +332,47 @@
   "sourceOfTruthNotes": "Unit A review candidate. Canonical learner content is workspace/index.html, course-data.js, main.js, state-store.js and scoped CSS/assets. Imported authoring JSON and both immutable ZIPs are evidence only. Runtime-rendered practice, vocabulary, video and saved-work nodes are Annotation only. Studio Edit and export remain disabled until exact-build readiness and teacher review. The two in-course formula images are rendered from the unchanged supplied PDF with scripts/prepare-science24-formula-sheet.cjs; page 2 is rotated and trimmed for reading. Question-level Textbook Practice crops, its browser overlay and its review manifest regenerate from the canonical textbook/page catalog with scripts/build-science24-textbook-practice.py. The overlay freezes the earlier page catalog as legacyBookQuestions so original saved page records remain visible and are never counted as replacement question work.",
   "regenerateCommand": "node scripts/prepare-science24-formula-sheet.cjs && python3 scripts/build-science24-textbook-practice.py --project science24-unit-a",
   "formulaPageRegenerateCommand": "node scripts/prepare-science24-formula-sheet.cjs",
-  "textbookPracticeRegenerateCommand": "python3 scripts/build-science24-textbook-practice.py --project science24-unit-a"
+  "textbookPracticeRegenerateCommand": "python3 scripts/build-science24-textbook-practice.py --project science24-unit-a",
+  "visualRefreshReview": {
+    "date": "2026-10-02",
+    "role": "local comparison candidate; teacher acceptance pending",
+    "record": "projects/science24-unit-a/meta/visual-refresh-2026-10-02/lesson-matrix.json",
+    "hashes": "projects/science24-unit-a/meta/visual-refresh-2026-10-02/candidate-hashes.json",
+    "publication": "separate checkpoint"
+  },
+  "injectedComponents": [
+    {
+      "id": "s24-a1-reaction-detective",
+      "source": "projects/resources/science24-unit-a/reaction-detective-v1.2.0/game",
+      "target": "projects/science24-unit-a/workspace/games/reaction-detective/index.html",
+      "status": "planned",
+      "notes": "Imported v1.2.0 canonical standalone game, independently validated for teacher review. Optional practice proposed; teacher acceptance, host placement and LMS release pending.",
+      "version": "1.2.0",
+      "reviewRecord": "projects/science24-unit-a/meta/reaction-detective-review-2026-10-07/independent-validation.json"
+    },
+    {
+      "id": "s24-a2-atom-factory",
+      "source": "projects/resources/science24-games-v2/handoff/A2_Atom_Factory",
+      "target": "projects/science24-unit-a/workspace/games/atom-factory/index.html",
+      "canonicalEntry": "projects/science24-unit-a/workspace/games/atom-factory/index.html",
+      "canonicalSources": [
+        "projects/science24-unit-a/workspace/games/atom-factory/index.html",
+        "projects/science24-unit-a/workspace/games/atom-factory/css/shell.css",
+        "projects/science24-unit-a/workspace/games/atom-factory/css/game.css",
+        "projects/science24-unit-a/workspace/games/atom-factory/js/app.js",
+        "projects/science24-unit-a/workspace/games/atom-factory/js/state.js",
+        "projects/science24-unit-a/workspace/games/atom-factory/js/engine.js",
+        "projects/science24-unit-a/workspace/games/atom-factory/js/renderer.js",
+        "projects/science24-unit-a/workspace/games/atom-factory/js/ui.js",
+        "projects/science24-unit-a/workspace/games/atom-factory/js/screens.js",
+        "projects/science24-unit-a/workspace/games/atom-factory/data/scenarios.json",
+        "projects/science24-unit-a/workspace/games/atom-factory/js/premium.js",
+        "projects/science24-unit-a/workspace/games/atom-factory/assets/premium/**"
+      ],
+      "status": "planned",
+      "version": "2.0.1-rc1",
+      "reviewRecord": "projects/science24-unit-a/meta/science24-games-v2/suite.json",
+      "notes": "Standalone supplemental practice candidate. Teacher decision pending; course placement, activation and LMS release are separate."
+    }
+  ]
 }

@@ -1,7 +1,7 @@
 {
   "id": "a0dc9f81-1d49-4169-99aa-137c4835d871",
   "slug": "biology30-chapter-12",
-  "sourcePath": "/Users/deanguedo/Downloads/Biology30_Chapter12.html",
+  "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/processed/biology30-chapter-12/source",
   "inputKind": "html",
   "brightspaceTarget": "course-page",
   "previewModes": [
@@ -33,7 +33,8 @@
     "scripts/lib/biology30-chapters/revision-practice.js",
     "scripts/lib/biology30-chapters/revision-activities.js",
     "scripts/lib/biology30-chapters/component-reader.js",
-    "scripts/lib/biology30-chapters/audit-corrections.mjs"
+    "scripts/lib/biology30-chapters/audit-corrections.mjs",
+    "projects/biology30-chapter-12/workspace/assets/teaching-v101/extension-model-lock.js"
   ],
   "authoring": {
     "driverId": "proposal-only-v1",
@@ -47,8 +48,15 @@
   "generatedOutputs": [
     "projects/biology30-chapter-12/workspace/Biology30_Chapter12.html"
   ],
-  "regenerateCommand": "node scripts/refresh-biology30-chapter-portable.mjs",
-  "injectedComponents": [],
+  "regenerateCommand": "node scripts/snapshot-biology30-chapter12-portable.mjs",
+  "injectedComponents": [
+    {
+      "id": "ch12-teaching-handoff-v101",
+      "source": "projects/biology30-unit-a-pilot-3/meta/teaching-overhaul/ch11-ch12-handoff-v1.0.1/pro-return",
+      "target": "projects/biology30-chapter-12/workspace/index.html",
+      "status": "active"
+    }
+  ],
   "importedFirstPassOrigin": {
     "sourceSystem": "other",
     "sourcePath": "/Users/deanguedo/Downloads/Biology30_Chapter12.html",
@@ -65,7 +73,7 @@
   "referenceOnly": [],
   "sourceOfTruthNotes": "Imported workspace sources remain reviewable but are not automatically Studio-editable. Onboard explicit ownership, complete learner surfaces, rendered coverage, and a reversible lifecycle before changing authoringStatus to active. Treat generated exports and runtime bundles as derived output. Presentation aligned to Chapter 11; portable HTML is derived. Preserve inline non-executable course-data/textbook-data blocks; generic reimport merges these incorrectly. Presentation aligned to Chapter 11; portable HTML is derived. Preserve inline non-executable course-data/textbook-data blocks; generic reimport merges these incorrectly. Presentation aligned to Chapter 11; portable HTML is derived. Preserve inline non-executable course-data/textbook-data blocks; generic reimport merges these incorrectly. Presentation aligned to Chapter 11; portable HTML is derived. Preserve inline non-executable course-data/textbook-data blocks; generic reimport merges these incorrectly.",
   "createdAt": "2026-09-16T17:30:09.431Z",
-  "updatedAt": "2026-09-17T15:59:00.147Z",
+  "updatedAt": "2026-10-07T18:32:02.864Z",
   "title": "Biology 30 - Chapter 12",
   "workspaceApprovedAt": "2026-09-17T15:59:00.147Z"
 }

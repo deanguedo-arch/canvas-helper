@@ -1,0 +1,218 @@
+{
+  "game_id": "C2",
+  "version": "2.0.1",
+  "source_boundary": "Original authored teaching scenarios aligned to supplied course; not copied assessment questions.",
+  "scenarios": [
+    {
+      "id": "C2-W01",
+      "stage": "worked",
+      "title": "Carrier Parents",
+      "parents": [
+        "Aa",
+        "Aa"
+      ],
+      "offspring": {
+        "AA": 25,
+        "Aa": 50,
+        "aa": 25
+      },
+      "phenotype": {
+        "dominant": 75,
+        "recessive": 25
+      },
+      "evidence": "Two dominant-phenotype parents have an aa child, so both must supply a and therefore are Aa.",
+      "scene": "assets/scenes/scene_01_c2_w01.png",
+      "initial": {
+        "p_AA": 25,
+        "p_Aa": 50,
+        "p_aa": 25,
+        "cell0": "AA",
+        "cell1": "Aa",
+        "cell2": "Aa",
+        "cell3": "aa"
+      },
+      "kind": "cross",
+      "predictionPrompt": "Does a dominant phenotype uniquely identify a genotype?",
+      "predictions": [
+        "Always AA",
+        "Always Aa",
+        "It can be AA or Aa"
+      ],
+      "explanationPrompt": "Explain the genotype evidence, the probabilities and any uncertainty.",
+      "keyIdea": "A fictional single autosomal locus with complete dominance and full penetrance is assumed. Probability is not a guaranteed count.",
+      "hints": [
+        "Each parent contributes one allele. A recessive aa outcome requires an a from each parent.",
+        "A dominant phenotype can be AA or Aa. Keep both possibilities unless other evidence rules one out."
+      ],
+      "teacherReasoning": "An aa child needs an a from each dominant parent, so both are Aa. The cross gives 25/50/25 genotypes per offspring, not a fixed family count."
+    },
+    {
+      "id": "C2-P01",
+      "stage": "supported",
+      "title": "Recessive \u00d7 Carrier",
+      "parents": [
+        "aa",
+        "Aa"
+      ],
+      "offspring": {
+        "AA": 0,
+        "Aa": 50,
+        "aa": 50
+      },
+      "evidence": "Each offspring has a 50% probability of the recessive phenotype; this does not guarantee one of every two children.",
+      "scene": "assets/scenes/scene_02_c2_p01.png",
+      "initial": {},
+      "kind": "cross",
+      "predictionPrompt": "Does a dominant phenotype uniquely identify a genotype?",
+      "predictions": [
+        "Always AA",
+        "Always Aa",
+        "It can be AA or Aa"
+      ],
+      "explanationPrompt": "Explain the genotype evidence, the probabilities and any uncertainty.",
+      "keyIdea": "A fictional single autosomal locus with complete dominance and full penetrance is assumed. Probability is not a guaranteed count.",
+      "hints": [
+        "Each parent contributes one allele. A recessive aa outcome requires an a from each parent.",
+        "A dominant phenotype can be AA or Aa. Keep both possibilities unless other evidence rules one out."
+      ],
+      "phenotype": {
+        "dominant": 50,
+        "recessive": 50
+      },
+      "teacherReasoning": "aa supplies a on each row and Aa supplies A or a on columns. The square gives 50% Aa and 50% aa per offspring."
+    },
+    {
+      "id": "C2-P02",
+      "stage": "practice",
+      "title": "Pedigree Constraint",
+      "known": [
+        "child=aa",
+        "parent1=dominant phenotype",
+        "parent2=dominant phenotype"
+      ],
+      "answer": "Both parents must be Aa under the stated model.",
+      "scene": "assets/scenes/scene_03_c2_p02.png",
+      "initial": {},
+      "kind": "constraint",
+      "predictionPrompt": "Does a dominant phenotype uniquely identify a genotype?",
+      "predictions": [
+        "Always AA",
+        "Always Aa",
+        "It can be AA or Aa"
+      ],
+      "explanationPrompt": "Explain the genotype evidence, the probabilities and any uncertainty.",
+      "keyIdea": "A fictional single autosomal locus with complete dominance and full penetrance is assumed. Probability is not a guaranteed count.",
+      "hints": [
+        "Each parent contributes one allele. A recessive aa outcome requires an a from each parent.",
+        "A dominant phenotype can be AA or Aa. Keep both possibilities unless other evidence rules one out."
+      ],
+      "teacherReasoning": "Both dominant parents must be Aa because each supplied an a to the aa child under this fictional model."
+    },
+    {
+      "id": "C2-P03",
+      "stage": "practice",
+      "title": "Possible Dominant Parent",
+      "parents": [
+        "aa",
+        "AA_or_Aa"
+      ],
+      "range": {
+        "recessive_probability": [
+          0,
+          50
+        ]
+      },
+      "answer": "A single percentage is not justified until the dominant parent's genotype is known.",
+      "scene": "assets/scenes/scene_04_c2_p03.png",
+      "initial": {},
+      "kind": "uncertainty",
+      "predictionPrompt": "Does a dominant phenotype uniquely identify a genotype?",
+      "predictions": [
+        "Always AA",
+        "Always Aa",
+        "It can be AA or Aa"
+      ],
+      "explanationPrompt": "Explain the genotype evidence, the probabilities and any uncertainty.",
+      "keyIdea": "A fictional single autosomal locus with complete dominance and full penetrance is assumed. Probability is not a guaranteed count.",
+      "hints": [
+        "Each parent contributes one allele. A recessive aa outcome requires an a from each parent.",
+        "A dominant phenotype can be AA or Aa. Keep both possibilities unless other evidence rules one out."
+      ],
+      "teacherReasoning": "aa \u00d7 AA gives 0% recessive and aa \u00d7 Aa gives 50%. The dominant parent could have either genotype, so one probability is unjustified."
+    },
+    {
+      "id": "C2-P04",
+      "stage": "low_support",
+      "title": "Independent Outcomes",
+      "parents": [
+        "Aa",
+        "Aa"
+      ],
+      "history": [
+        "aa",
+        "AA",
+        "Aa"
+      ],
+      "answer": "The next outcome is not due; the same 25/50/25 probabilities apply to each pregnancy in this simplified model.",
+      "scene": "assets/scenes/scene_05_c2_p04.png",
+      "initial": {},
+      "kind": "independent",
+      "predictionPrompt": "Do earlier offspring outcomes make a different outcome due next?",
+      "predictions": [
+        "Yes; a missing outcome is now due",
+        "No; the probabilities remain the same",
+        "Earlier outcomes remove possible alleles"
+      ],
+      "explanationPrompt": "Calculate the next-offspring probabilities and explain why earlier outcomes do not make a particular genotype due.",
+      "keyIdea": "Under this independent-offspring model, each offspring has the same probabilities regardless of earlier outcomes.",
+      "hints": [],
+      "phenotype": {
+        "dominant": 75,
+        "recessive": 25
+      },
+      "offspring": {
+        "AA": 25,
+        "Aa": 50,
+        "aa": 25
+      },
+      "teacherReasoning": "The Aa \u00d7 Aa probabilities remain 25/50/25 for the next offspring. Previous outcomes do not make another due."
+    },
+    {
+      "id": "C2-T01",
+      "stage": "transfer",
+      "title": "Underdetermined Pedigree",
+      "parents": [
+        "aa",
+        "dominant_unknown"
+      ],
+      "answer": "aa \u00d7 AA gives 0% recessive phenotype; aa \u00d7 Aa gives 50%. Both crosses are possible; no single probability is justified.",
+      "scene": "assets/scenes/scene_06_c2_t01.png",
+      "initial": {},
+      "kind": "uncertainty",
+      "predictionPrompt": "Does a dominant phenotype uniquely identify a genotype?",
+      "predictions": [
+        "Always AA",
+        "Always Aa",
+        "It can be AA or Aa"
+      ],
+      "explanationPrompt": "Explain the genotype evidence, the probabilities and any uncertainty.",
+      "keyIdea": "A fictional single autosomal locus with complete dominance and full penetrance is assumed. Probability is not a guaranteed count.",
+      "hints": [
+        "Each parent contributes one allele. A recessive aa outcome requires an a from each parent.",
+        "A dominant phenotype can be AA or Aa. Keep both possibilities unless other evidence rules one out."
+      ],
+      "evidence": "Parent 1 is aa. Parent 2 shows the dominant phenotype. No offspring or genotype-test evidence is supplied.",
+      "teacherReasoning": "The unknown dominant parent could be Aa or AA. aa \u00d7 Aa gives 50% recessive; aa \u00d7 AA gives 0%. No child or genotype-test evidence selects one."
+    }
+  ],
+  "title": "Inheritance Detective",
+  "unitTitle": "Disease Defence and Human Health",
+  "nextPractice": "Use another fictional pedigree to list every compatible genotype and explain the uncertainty.",
+  "instructions": [
+    "Read the worked pedigree and its fully stated model.",
+    "Commit a prediction before constructing a square or genotype deduction.",
+    "Use allele selectors to build a cross, then enter probabilities.",
+    "Preserve every genotype allowed by the evidence; dominant does not mean common or better.",
+    "Complete a fresh underdetermined pedigree without supplying unsupported family information."
+  ]
+}

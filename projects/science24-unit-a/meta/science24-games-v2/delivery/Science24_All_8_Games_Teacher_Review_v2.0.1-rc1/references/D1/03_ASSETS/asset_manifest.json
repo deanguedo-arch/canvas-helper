@@ -1,0 +1,415 @@
+{
+  "game_id": "D1",
+  "version": "2.0.0",
+  "rule": "Scene art is contextual only. Answer-critical diagrams, labels and values remain deterministic DOM/SVG.",
+  "assets": [
+    {
+      "path": "asset_contact_sheet.png",
+      "kind": "asset_contact_sheet.png",
+      "format": "png",
+      "answer_critical": false,
+      "sha256": "5efd4f039a86737152df4d534f031af17dba73c39d8342417b113f22b256459d",
+      "size_bytes": 143830
+    },
+    {
+      "path": "icons/icon_atom.png",
+      "kind": "icons",
+      "format": "png",
+      "answer_critical": true,
+      "sha256": "b969e499953559bee3470cde2cb508d9804bdf030c90924677350d093f47ed6b",
+      "size_bytes": 14156
+    },
+    {
+      "path": "icons/icon_atom.svg",
+      "kind": "icons",
+      "format": "svg",
+      "answer_critical": true,
+      "sha256": "b84dc6025573080d5fc818e704604110aebc2bc19bca1ec78c710a0421883078",
+      "size_bytes": 524
+    },
+    {
+      "path": "icons/icon_calculator.png",
+      "kind": "icons",
+      "format": "png",
+      "answer_critical": true,
+      "sha256": "d1aa9bffc77a7a0708f5c4cb33d69778f05527fb68b48b66373ae4d1795418d9",
+      "size_bytes": 4721
+    },
+    {
+      "path": "icons/icon_calculator.svg",
+      "kind": "icons",
+      "format": "svg",
+      "answer_critical": true,
+      "sha256": "b0b19a67226607cae5aad5dc9e874160527065dc70f50c2e8c73cba36ed72b6e",
+      "size_bytes": 679
+    },
+    {
+      "path": "icons/icon_car.png",
+      "kind": "icons",
+      "format": "png",
+      "answer_critical": true,
+      "sha256": "5bdceb1e17fe48f933b028423c52dfdc37616d5f5fd92ea4e84bd73c31c0db61",
+      "size_bytes": 7605
+    },
+    {
+      "path": "icons/icon_car.svg",
+      "kind": "icons",
+      "format": "svg",
+      "answer_critical": true,
+      "sha256": "df727bac0dd0d478c4e2ff280dbad48d58fb18b1bad5b4b0f13589b0556dbb06",
+      "size_bytes": 518
+    },
+    {
+      "path": "icons/icon_chain.png",
+      "kind": "icons",
+      "format": "png",
+      "answer_critical": true,
+      "sha256": "7427b6ee448662f9f737f29286225b3db1f4163bb04224fbe87454119de2d589",
+      "size_bytes": 7372
+    },
+    {
+      "path": "icons/icon_chain.svg",
+      "kind": "icons",
+      "format": "svg",
+      "answer_critical": true,
+      "sha256": "f86371b3413ff28e8271ec08270daa2176691ae55137c5f9fefa60705e812a82",
+      "size_bytes": 585
+    },
+    {
+      "path": "icons/icon_check.png",
+      "kind": "icons",
+      "format": "png",
+      "answer_critical": true,
+      "sha256": "f5306015517dae9e0771a6f74577e8fd131c85d22c452884098642911d933c1f",
+      "size_bytes": 8061
+    },
+    {
+      "path": "icons/icon_check.svg",
+      "kind": "icons",
+      "format": "svg",
+      "answer_critical": true,
+      "sha256": "022a00567c90f6ecc8be42aafb0f917d2b24b3e20fb4f22f3621d151d0107d5d",
+      "size_bytes": 316
+    },
+    {
+      "path": "icons/icon_crash.png",
+      "kind": "icons",
+      "format": "png",
+      "answer_critical": true,
+      "sha256": "bc9e59733e5f14285b3117f29c33e119ebb5e3f05cb21ec56ce65ee1d5f8fe18",
+      "size_bytes": 10277
+    },
+    {
+      "path": "icons/icon_crash.svg",
+      "kind": "icons",
+      "format": "svg",
+      "answer_critical": true,
+      "sha256": "c0cd488cec0b5bcfb06b8ff1a50cf08a3f57e8873c27246126f2a0ce1df2c417",
+      "size_bytes": 390
+    },
+    {
+      "path": "icons/icon_dna.png",
+      "kind": "icons",
+      "format": "png",
+      "answer_critical": true,
+      "sha256": "90780d23d52ffd2296ec986053299a85eaa9af6cec7046837df563d514f2ba6d",
+      "size_bytes": 8798
+    },
+    {
+      "path": "icons/icon_dna.svg",
+      "kind": "icons",
+      "format": "svg",
+      "answer_critical": true,
+      "sha256": "d8f7b7d1f5381a46de3faaaf053527ec24accbc17c4b20d81661adb449729416",
+      "size_bytes": 390
+    },
+    {
+      "path": "icons/icon_document.png",
+      "kind": "icons",
+      "format": "png",
+      "answer_critical": true,
+      "sha256": "91c3fed77e037b66fac5f3c734b7a3faad4b38af7c3b0318801a7c33488dea37",
+      "size_bytes": 2160
+    },
+    {
+      "path": "icons/icon_document.svg",
+      "kind": "icons",
+      "format": "svg",
+      "answer_critical": true,
+      "sha256": "c99804e6dd26765f6afe87d1cc1d8a11b09350e20608eceff40efb1e07c2a3d3",
+      "size_bytes": 345
+    },
+    {
+      "path": "icons/icon_flask.png",
+      "kind": "icons",
+      "format": "png",
+      "answer_critical": true,
+      "sha256": "ff44364f1f3372b387dc27cbd6633f71e249a597acd6626c6fc935c5434322cb",
+      "size_bytes": 6842
+    },
+    {
+      "path": "icons/icon_flask.svg",
+      "kind": "icons",
+      "format": "svg",
+      "answer_critical": true,
+      "sha256": "a35208a91e5a34a772910fe1376283e17c2c79dd39e15bb9ccfec824116c614b",
+      "size_bytes": 459
+    },
+    {
+      "path": "icons/icon_graph.png",
+      "kind": "icons",
+      "format": "png",
+      "answer_critical": true,
+      "sha256": "2fffc4b892984f3d0080115cda3c9b81f322e8dca0fea85e3d55b62eed6de04b",
+      "size_bytes": 5552
+    },
+    {
+      "path": "icons/icon_graph.svg",
+      "kind": "icons",
+      "format": "svg",
+      "answer_critical": true,
+      "sha256": "6a68aecb4ce793138fb4c711f16915fc5114d35fd073415df1ac5c450ec98586",
+      "size_bytes": 573
+    },
+    {
+      "path": "icons/icon_hint.png",
+      "kind": "icons",
+      "format": "png",
+      "answer_critical": true,
+      "sha256": "013e0b877769bfb47f93a9608bcfcba48e492c54f9bf4102f0c4c33c01c14de6",
+      "size_bytes": 7545
+    },
+    {
+      "path": "icons/icon_hint.svg",
+      "kind": "icons",
+      "format": "svg",
+      "answer_critical": true,
+      "sha256": "b6e50ed8b4e9b910f1e007c907db63eb73e78fa79d8083871fad3d1674ebb0c8",
+      "size_bytes": 391
+    },
+    {
+      "path": "icons/icon_magnifier.png",
+      "kind": "icons",
+      "format": "png",
+      "answer_critical": true,
+      "sha256": "3ffc4493e03c3cf8806618d70b5f81430a5a60e3823b102b5e165cdd95fa75ab",
+      "size_bytes": 6072
+    },
+    {
+      "path": "icons/icon_magnifier.svg",
+      "kind": "icons",
+      "format": "svg",
+      "answer_critical": true,
+      "sha256": "f54266896a1307d44af8278fa960f3f232d3b59cd78a75e677cfafc4752623a4",
+      "size_bytes": 317
+    },
+    {
+      "path": "icons/icon_shield.png",
+      "kind": "icons",
+      "format": "png",
+      "answer_critical": true,
+      "sha256": "0aa959e9b5396dec311839d7df1530798147e6789dda5a9d4b56ee914f4ea3c0",
+      "size_bytes": 12369
+    },
+    {
+      "path": "icons/icon_shield.svg",
+      "kind": "icons",
+      "format": "svg",
+      "answer_critical": true,
+      "sha256": "9267d9e6f34d9b17fc83bb9557bdddf52c152a9281f91331a97b78e4b1d2ac07",
+      "size_bytes": 402
+    },
+    {
+      "path": "scenes/scene_01_d1_w01.png",
+      "kind": "scenes",
+      "format": "png",
+      "answer_critical": false,
+      "sha256": "35febc8b3956f46ed8f21aec1e4f3d8e56cb72418e5827390e16e68140e98183",
+      "size_bytes": 26502
+    },
+    {
+      "path": "scenes/scene_01_d1_w01.svg",
+      "kind": "scenes",
+      "format": "svg",
+      "answer_critical": false,
+      "sha256": "2601db9a0cb32afd913f8684a1105ed4ff7583fb5ab7280d1ebc0f1283def26a",
+      "size_bytes": 1345
+    },
+    {
+      "path": "scenes/scene_02_d1_p01.png",
+      "kind": "scenes",
+      "format": "png",
+      "answer_critical": false,
+      "sha256": "3b62ec4232d5285ad5500bc2c5dca1ac87e149885cd115703c949eac2f668ff3",
+      "size_bytes": 26291
+    },
+    {
+      "path": "scenes/scene_02_d1_p01.svg",
+      "kind": "scenes",
+      "format": "svg",
+      "answer_critical": false,
+      "sha256": "dc0b7fc68b15d1419745815885d9bf446d1eb39075e799052ce2892113b2ee9c",
+      "size_bytes": 1346
+    },
+    {
+      "path": "scenes/scene_03_d1_p02.png",
+      "kind": "scenes",
+      "format": "png",
+      "answer_critical": false,
+      "sha256": "d51d7ddda0889eee47c16840e85a64648c09eaab96fce9d2a824e8ac6cf1729c",
+      "size_bytes": 26297
+    },
+    {
+      "path": "scenes/scene_03_d1_p02.svg",
+      "kind": "scenes",
+      "format": "svg",
+      "answer_critical": false,
+      "sha256": "9ff5f51081e544ab184a9f9109c4dfb28fe4c08121bb82f8ca15b20de6c7d89c",
+      "size_bytes": 1346
+    },
+    {
+      "path": "scenes/scene_04_d1_p03.png",
+      "kind": "scenes",
+      "format": "png",
+      "answer_critical": false,
+      "sha256": "fe3c72b975660e27572d79df9f8e847bef05b85002ebe79987ee9eca585a52cf",
+      "size_bytes": 26161
+    },
+    {
+      "path": "scenes/scene_04_d1_p03.svg",
+      "kind": "scenes",
+      "format": "svg",
+      "answer_critical": false,
+      "sha256": "19b336f1d446a8bdb0e4c72a62ccea6bf88366736ec9f436c4edc00210c9b068",
+      "size_bytes": 1346
+    },
+    {
+      "path": "scenes/scene_05_d1_p04.png",
+      "kind": "scenes",
+      "format": "png",
+      "answer_critical": false,
+      "sha256": "0dc9ad4afaf716c8a4798458ca4daee0f2fba9fd7aee459ed33bc3245574ea71",
+      "size_bytes": 26427
+    },
+    {
+      "path": "scenes/scene_05_d1_p04.svg",
+      "kind": "scenes",
+      "format": "svg",
+      "answer_critical": false,
+      "sha256": "cc5310c4e015e585723e3a5854f217f8db1f1a68699e35851b7e6baee81648d3",
+      "size_bytes": 1346
+    },
+    {
+      "path": "scenes/scene_06_d1_t01.png",
+      "kind": "scenes",
+      "format": "png",
+      "answer_critical": false,
+      "sha256": "e36f4410d683825f5c894d1e173a3513e0c795b835e7fb36f5767581c64313a0",
+      "size_bytes": 26320
+    },
+    {
+      "path": "scenes/scene_06_d1_t01.svg",
+      "kind": "scenes",
+      "format": "svg",
+      "answer_critical": false,
+      "sha256": "473c88919aff12ae1334a8998423e4e181657235ba8ad0ff2c6d8ae7982e781f",
+      "size_bytes": 1346
+    },
+    {
+      "path": "sprites/sprite_calculator.png",
+      "kind": "sprites",
+      "format": "png",
+      "answer_critical": true,
+      "sha256": "d1aa9bffc77a7a0708f5c4cb33d69778f05527fb68b48b66373ae4d1795418d9",
+      "size_bytes": 4721
+    },
+    {
+      "path": "sprites/sprite_calculator.svg",
+      "kind": "sprites",
+      "format": "svg",
+      "answer_critical": true,
+      "sha256": "b0b19a67226607cae5aad5dc9e874160527065dc70f50c2e8c73cba36ed72b6e",
+      "size_bytes": 679
+    },
+    {
+      "path": "sprites/sprite_car.png",
+      "kind": "sprites",
+      "format": "png",
+      "answer_critical": true,
+      "sha256": "5bdceb1e17fe48f933b028423c52dfdc37616d5f5fd92ea4e84bd73c31c0db61",
+      "size_bytes": 7605
+    },
+    {
+      "path": "sprites/sprite_car.svg",
+      "kind": "sprites",
+      "format": "svg",
+      "answer_critical": true,
+      "sha256": "df727bac0dd0d478c4e2ff280dbad48d58fb18b1bad5b4b0f13589b0556dbb06",
+      "size_bytes": 518
+    },
+    {
+      "path": "sprites/sprite_check.png",
+      "kind": "sprites",
+      "format": "png",
+      "answer_critical": true,
+      "sha256": "f5306015517dae9e0771a6f74577e8fd131c85d22c452884098642911d933c1f",
+      "size_bytes": 8061
+    },
+    {
+      "path": "sprites/sprite_check.svg",
+      "kind": "sprites",
+      "format": "svg",
+      "answer_critical": true,
+      "sha256": "022a00567c90f6ecc8be42aafb0f917d2b24b3e20fb4f22f3621d151d0107d5d",
+      "size_bytes": 316
+    },
+    {
+      "path": "sprites/sprite_clock.png",
+      "kind": "sprites",
+      "format": "png",
+      "answer_critical": true,
+      "sha256": "2cfa954ca69da78e5c486349f8c775510233e7af6d6ab13344b4bfcdee7eebdf",
+      "size_bytes": 10343
+    },
+    {
+      "path": "sprites/sprite_clock.svg",
+      "kind": "sprites",
+      "format": "svg",
+      "answer_critical": true,
+      "sha256": "30e5ee51d433d7d6c038790418d0963544ccf756f2f4f278b1c80459af83c4b9",
+      "size_bytes": 400
+    },
+    {
+      "path": "sprites/sprite_graph.png",
+      "kind": "sprites",
+      "format": "png",
+      "answer_critical": true,
+      "sha256": "2fffc4b892984f3d0080115cda3c9b81f322e8dca0fea85e3d55b62eed6de04b",
+      "size_bytes": 5552
+    },
+    {
+      "path": "sprites/sprite_graph.svg",
+      "kind": "sprites",
+      "format": "svg",
+      "answer_critical": true,
+      "sha256": "6a68aecb4ce793138fb4c711f16915fc5114d35fd073415df1ac5c450ec98586",
+      "size_bytes": 573
+    },
+    {
+      "path": "sprites/sprite_obstacle.png",
+      "kind": "sprites",
+      "format": "png",
+      "answer_critical": true,
+      "sha256": "1e155a8b9db80d32c727164c0342059b292bf65940175ca8e82ac8a938204171",
+      "size_bytes": 1505
+    },
+    {
+      "path": "sprites/sprite_obstacle.svg",
+      "kind": "sprites",
+      "format": "svg",
+      "answer_critical": true,
+      "sha256": "625bbe364f959f6687940cf83b6d7f90d42e1b71ffb28310a10bba57f5c05268",
+      "size_bytes": 401
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "version": "2.1.0-pilot1",
+  "checks": 261,
+  "scenarios": 15,
+  "status": "passed",
+  "sourceFiles": {
+    "data/scenarios.json": "10f9a1510e2c2e717c07cc9d9fd252ea1f5cbb2a7fee4ba006805f6caa5f15e1",
+    "data/gameplay.json": "c2be4ab9281930cb536aabb45dd4d1a51f88376ea7272b620abe3b0b71c61259",
+    "js/engine.js": "de47a508efbc08c29a353c7bca370c1ca86c08c96de929e103a1dc66f1d715a0",
+    "js/state.js": "6b85d691bc26873609c7b3b5c2f9ee583f2e4af21ad53e4758ee663e501812da",
+    "js/gameplay-model.js": "ec7e8d1cf27bc54dc3555eb759bb8ada92b66e62ab9d7867967cf0aed8e1d36c",
+    "js/gameplay-state.js": "7681a1f8946368ccdddf7713761e96bddecd7c9d4e9ccf89cbdd5592e0a9c291"
+  },
+  "independentSolutionsSHA256": "745d5432368d1fa81aefb8e427861c5a252f65084a15a3c483cc659fd0e0568b",
+  "testScriptSHA256": "622cfeeb024c72a6827732ecbf337450772a7f8dcc9c15fa90de0e35753dba92",
+  "scope": "B2 gameplay model and state; not learner/teacher acceptance"
+}

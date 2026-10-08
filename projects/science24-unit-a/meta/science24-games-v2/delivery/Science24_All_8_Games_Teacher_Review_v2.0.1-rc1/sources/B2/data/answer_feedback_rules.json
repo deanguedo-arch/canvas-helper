@@ -1,0 +1,124 @@
+{
+  "game_id": "B2",
+  "version": "2.0.1",
+  "open_explanation_policy": "Never auto-certify quality from keywords. Use visible self-review or teacher-review status.",
+  "general": [
+    "Correct science result is necessary but not sufficient for independent mastery.",
+    "A successful answer edited later becomes unverified until checked again.",
+    "Hints and retries remain available but are recorded in the review summary.",
+    "Equivalent valid numeric forms are accepted where specified."
+  ],
+  "scenarios": [
+    {
+      "id": "B2-W01",
+      "accepted_result": {
+        "lamps_power": 10,
+        "lamps_count": 4,
+        "lamps_hours": 5,
+        "fan_power": 60,
+        "fan_count": 1,
+        "fan_hours": 4,
+        "total": 0.44,
+        "explanation": "Lighting uses 0.200 kWh and the fan 0.240 kWh, totalling 0.440 kWh. Both required services remain on."
+      },
+      "must_explain": true,
+      "misconception_feedback": [
+        "Watts describe power; kilowatt-hours describe energy used over time.",
+        "A plan that turns off a required service is invalid.",
+        "Lower power alone proves greater efficiency only when useful service is comparable and supplied."
+      ]
+    },
+    {
+      "id": "B2-P01",
+      "accepted_result": {
+        "lamps_power": 10,
+        "lamps_count": 6,
+        "lamps_hours": 6,
+        "total": 0.36,
+        "explanation": "Six 10 W lamps for six hours use 0.360 kWh, below 0.750 kWh while retaining the stated lighting service."
+      },
+      "must_explain": true,
+      "misconception_feedback": [
+        "Watts describe power; kilowatt-hours describe energy used over time.",
+        "A plan that turns off a required service is invalid.",
+        "Lower power alone proves greater efficiency only when useful service is comparable and supplied."
+      ]
+    },
+    {
+      "id": "B2-P02",
+      "accepted_result": {
+        "computers_power": 80,
+        "computers_count": 8,
+        "computers_hours": 2,
+        "lamps_power": 12,
+        "lamps_count": 6,
+        "lamps_hours": 3,
+        "fan_power": 60,
+        "fan_count": 1,
+        "fan_hours": 2,
+        "total": 1.616,
+        "explanation": "Computers 1.280 + lamps 0.216 + fan 0.120 = 1.616 kWh, below 1.650 kWh."
+      },
+      "must_explain": true,
+      "misconception_feedback": [
+        "Watts describe power; kilowatt-hours describe energy used over time.",
+        "A plan that turns off a required service is invalid.",
+        "Lower power alone proves greater efficiency only when useful service is comparable and supplied."
+      ]
+    },
+    {
+      "id": "B2-P03",
+      "accepted_result": {
+        "lamps_power": 12,
+        "lamps_count": 3,
+        "lamps_hours": 4,
+        "projector_power": 150,
+        "projector_count": 1,
+        "projector_hours": 1.5,
+        "total": 0.369,
+        "explanation": "Lighting uses 0.144 kWh; the 150 W equal-service projector uses 0.225 kWh. Total 0.369 kWh meets the 0.400 cap without shortening the session."
+      },
+      "must_explain": true,
+      "misconception_feedback": [
+        "Watts describe power; kilowatt-hours describe energy used over time.",
+        "A plan that turns off a required service is invalid.",
+        "Lower power alone proves greater efficiency only when useful service is comparable and supplied."
+      ]
+    },
+    {
+      "id": "B2-P04",
+      "accepted_result": {
+        "efficiency": 60,
+        "explanation": "Useful/input = 900/1500 \u00d7 100 = 60%. The remaining 600 J is still energy, less useful for this purpose."
+      },
+      "must_explain": true,
+      "misconception_feedback": [
+        "Watts describe power; kilowatt-hours describe energy used over time.",
+        "A plan that turns off a required service is invalid.",
+        "Lower power alone proves greater efficiency only when useful service is comparable and supplied."
+      ]
+    },
+    {
+      "id": "B2-T01",
+      "accepted_result": {
+        "lamps_power": 9,
+        "lamps_count": 4,
+        "lamps_hours": 5,
+        "projector_power": 140,
+        "projector_count": 1,
+        "projector_hours": 2,
+        "initialTotal": 0.58,
+        "repairedTotal": 0.46,
+        "explanation": "Lighting uses 4\u00d79\u00d75/1000 = 0.180 kWh. Original total is 0.580; the 140 W equal-service projector gives 0.460 kWh total. Both services remain, below 0.500."
+      },
+      "must_explain": true,
+      "misconception_feedback": [
+        "Watts describe power; kilowatt-hours describe energy used over time.",
+        "A plan that turns off a required service is invalid.",
+        "Lower power alone proves greater efficiency only when useful service is comparable and supplied."
+      ]
+    }
+  ],
+  "content_version": "2.0.1",
+  "authority": "Runtime scenario JSON and pure validator; original suggested wording retained only as reference in source handoff."
+}

@@ -1,7 +1,7 @@
 {
   "id": "ela10-1-short-stories",
   "slug": "ela10-1-short-stories",
-  "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/resources/ela10-1/_sources/98a7423518aa49d55b37e75f4a7a44037949c06416146e806705b85c933cbf49.normalized.zip",
+  "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/processed/ela10-1-short-stories/source",
   "inputKind": "brightspace-zip",
   "brightspaceTarget": "scorm",
   "previewModes": [
@@ -10,7 +10,7 @@
   "workspaceEntrypoint": "workspace/index.html",
   "rawEntrypoint": "raw/original.html",
   "createdAt": "2026-07-17T01:31:15.788Z",
-  "updatedAt": "2026-08-14T17:52:27.429Z",
+  "updatedAt": "2026-10-07T18:32:03.665Z",
   "migrationState": "migrated",
   "projectType": "conversion",
   "preferredWorkflows": [
@@ -61,6 +61,11 @@
     "driverId": "legacy-snapshot-v1",
     "familyId": "english-legacy-snapshot",
     "qualityProfile": "legacy-snapshot-rendered",
+    "studioEditing": {
+      "enabled": true,
+      "renameCourse": false,
+      "imageAssets": true
+    },
     "learnerSurfaces": {
       "schemaVersion": 1,
       "mode": "declared-routes-and-states",
@@ -211,11 +216,6 @@
           "stateKey": null
         }
       ]
-    },
-    "studioEditing": {
-      "enabled": true,
-      "renameCourse": false,
-      "imageAssets": true
     }
   }
 }

@@ -1,0 +1,257 @@
+/* Science 24 subject rules, followed by Unit A component rules. */
+/* Subject adaptation layer. The imported component stylesheet is kept separately.
+   No font bytes are embedded; exact typography awaits the approved source snapshot. */
+[hidden]{display:none!important}html{scroll-padding-top:90px}button{cursor:pointer}body{font-family:"Work Sans",Arial,sans-serif}.course-page h1{font-family:"Hanken Grotesk",Arial,sans-serif}#course-main{min-width:0}.p2-topic{min-width:0}p,li,td,th{overflow-wrap:break-word}.content-section>.note-activity{margin-top:24px}.guide-label{display:block;font-size:10px;letter-spacing:.04em;text-transform:uppercase;color:var(--teal);font-weight:800}.guide-process{display:block;font-size:14px;font-weight:400;color:var(--muted)}.page-guide>summary>strong{display:block;font-size:21px;line-height:1.3}.page-guide>summary::before{content:none!important}.page-guide>summary::after{content:'⌄';position:absolute;right:20px;top:35%;color:var(--teal)}.page-guide[open]>summary::after{content:'⌃'}#course-main .lesson-term-strip button[data-term-id],#course-main .bio-term{font-weight:800!important;text-decoration:underline dotted!important;text-underline-offset:4px}.textbook-band button{min-height:44px;white-space:normal;flex-shrink:0}.lesson-words-list{display:grid;grid-template-columns:1fr 1fr;gap:18px 28px;margin:0}.lesson-words-list div{padding:12px 0;border-top:1px solid var(--border)}.lesson-words-list dt{font-weight:800}.lesson-words-list dd{margin:4px 0 0}.formula{border-left:4px solid var(--teal);background:#f0f6f3;margin:22px 0;padding:18px;font-size:23px;font-weight:750}.formula small{display:block;font-size:15px;font-weight:400}.compare{overflow:auto}.steps{padding-left:22px}.steps li{padding-left:6px;margin-bottom:18px}.steps strong{display:block}.steps p{margin:6px 0}.practice{border:1px solid var(--border);padding:22px;margin:22px 0}.answer-row{display:flex;flex-wrap:wrap;gap:12px;align-items:end}.answer-row label{display:block;font-weight:700}.answer-row input{display:block;margin-top:8px;max-width:220px;width:100%;min-height:44px;padding:10px}.answer-row button{min-height:46px}.field-label,.note-activity label{display:block;font-weight:700;margin-top:20px;margin-bottom:8px}textarea{width:100%;min-height:105px;padding:12px;border:1px solid #8b9c91;border-radius:4px;font:inherit;resize:vertical}.small{font-size:14px;color:var(--muted)}.feedback{margin-top:18px;padding:16px;border-left:4px solid var(--teal);background:#eef7f4}.feedback[data-result=retry],.feedback.warning{border-color:var(--amber);background:#fbf4e7}.actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin:18px 0}.lesson-pagination{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:28px 54px;border-top:1px solid var(--border)}.activity-disclosure>.activity{padding:22px 40px}.activity-disclosure{margin:0;border-top:1px solid var(--border)}.check-question{padding:22px 0;border-bottom:1px solid var(--border)}.check-question h3{font-size:20px;margin:0 0 16px}.check-question fieldset{border:0;padding:0;margin:0}.check-question legend{font-weight:700;margin-bottom:10px}.choice-row{color:var(--ink);font-weight:400!important}.choice-row input{flex:0 0 18px}.check-question button[data-check-question]{margin-top:18px}.writing-prompt{margin:24px 0}.status-label{font-weight:750;color:var(--teal)}.timer{font-size:13px;color:var(--muted)}.practice-setup{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px}.practice-setup label{display:block;font-weight:700}.practice-setup select,.vocabulary-filters input,.vocabulary-filters select{display:block;width:100%;min-height:44px;padding:9px;margin-top:8px}.setup-action{grid-column:1/-1}.practice-question{padding:0}.practice-question h3{margin-top:12px}.practice-navigation{display:flex;gap:12px;justify-content:space-between;margin-top:22px}.practice-run-bar{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;border-bottom:1px solid var(--border);padding-bottom:15px}.vocabulary-reader{display:grid;grid-template-columns:210px minmax(0,1fr);gap:28px;margin-top:20px}.vocabulary-index{max-height:650px;overflow:auto}.vocabulary-index button{display:block;width:100%;text-align:left;background:#fff;color:var(--ink);border:0;border-left:3px solid transparent;padding:10px 12px;font:inherit;min-height:44px}.vocabulary-index button[aria-pressed=true]{background:#eef3ee;border-left-color:var(--teal);font-weight:800}.vocabulary-filters{display:grid;grid-template-columns:1fr 1fr;gap:20px}.term-meaning{font-size:19px}.frayer-fields{display:grid;grid-template-columns:1fr 1fr;gap:18px}.frayer-fields label{display:block;font-weight:700}.frayer-fields small{display:block;font-weight:400;color:var(--muted);font-size:12px}.frayer-section{border-top:1px solid var(--border);padding-top:22px;margin-top:24px}.frayer-fields textarea{margin-top:8px;min-height:120px}.bio-vocabulary h2{font-size:26px}.bio-vocabulary>header{align-items:start}.bio-vocabulary>header h2{margin-top:3px}.bio-vocabulary .frayer-fields{grid-template-columns:1fr}.local-save-status{position:fixed;bottom:0;left:270px;right:0;z-index:91;background:white;border-top:1px solid var(--border);padding:10px 18px;font-size:13px;line-height:1.4}.sidebar-reopen{position:fixed;left:14px;top:76px;z-index:95;padding:9px;background:var(--ink);color:white}.sidebar-collapsed .sidebar{transform:translateX(-100%)}.sidebar-collapsed .main{margin-left:0}.sidebar-collapsed .local-save-status{left:0}.sidebar-collapsed .course-frame{width:min(1120px,calc(100vw - 80px))}#save-alert{position:sticky;top:64px;z-index:100;background:#fff3db;border:1px solid #9f6500;padding:14px;margin-left:270px}#save-alert button{margin:10px 8px 0 0}.reading-body{display:flex;flex-direction:column;height:calc(100% - 82px);min-height:0}.reading-toolbar{display:flex;align-items:center;gap:12px;padding:10px 18px;border-bottom:1px solid var(--border)}.reading-toolbar label{display:flex;align-items:center;gap:8px;margin-left:auto}.reading-toolbar select{min-height:40px;font:inherit}.reading-toolbar button{font-size:14px;padding:8px}.reading-scroll{flex:1;min-height:0;overflow:auto;background:#edf0eb;padding:14px}.reading-scroll img{display:block;width:100%;height:auto;background:white}.reading-scroll details{margin:20px 0;padding:14px;background:white}.reading-scroll pre{white-space:pre-wrap;font:16px/1.6 Arial,sans-serif}.textbook-dialog>header h2{font-size:20px;margin:0;line-height:1.3}.textbook-dialog>header p{margin:4px 0 0}.textbook-dialog>header{height:82px}.textbook-dialog-actions{flex-shrink:0;min-height:50px}.reading-library-frame{margin-top:22px;border:1px solid var(--border);padding:16px;max-height:750px;overflow:auto}.reading-library-frame select{margin:0 10px;min-height:44px}.reading-library-frame img{display:block;margin-top:15px;width:100%}.book-question-layout{display:grid;grid-template-columns:160px minmax(0,1fr);gap:22px;margin-top:22px}#book-tiles button{display:block;width:100%;margin:8px 0;padding:12px;text-align:left;background:#fff;color:var(--ink);border:1px solid var(--border)}#book-tiles button[aria-pressed=true]{background:#eef3ee;border-left:4px solid var(--teal)}#book-tiles small{display:block}#book-workspace{min-width:0}.book-crop{width:100%;height:auto;border:1px solid var(--border);margin:20px 0}.record{padding:18px 0;border-bottom:1px solid var(--border)}.record h3{margin:0 0 8px}.record p{margin:8px 0}.record pre,.written-response{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit}.record details{margin:12px 0}.record details>summary{font-weight:700;color:var(--green);cursor:pointer}.number-diagram{display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap;padding:30px 18px;background:#fafcf9;border:1px solid var(--border);text-align:center}.number-diagram .quantity{display:grid;gap:20px}.number-diagram .letter{justify-self:center;border:2px solid var(--teal);border-radius:50%;width:34px;height:34px;display:grid;place-items:center;font-weight:800}.number-diagram .value{border-top:2px solid var(--muted);padding-top:18px;font-size:25px;font-weight:750}.number-diagram .operator{font-size:26px}.label-row{display:grid;grid-template-columns:40px minmax(0,1fr) auto;align-items:center;gap:12px;margin:14px 0}.label-row select{width:100%;min-height:46px;padding:8px}.label-row .label-feedback{grid-column:2/-1;font-size:14px}.label-diagram{margin:24px 0}.figure-body{padding:24px;overflow:auto}.figure-body img{width:100%;height:auto}.dialog-content{padding:24px}.app-dialog{max-width:min(900px,96vw);width:900px;max-height:92dvh;overflow:auto;border:1px solid var(--border);border-radius:8px;padding:0}.app-dialog>header{padding:18px 24px;display:flex;justify-content:space-between;gap:20px;align-items:start}.app-dialog>header h2{margin:0;font-size:25px}.app-dialog::backdrop{background:#171b1baa}.video-card{border:1px solid var(--border);margin:20px 0;padding:22px}.video-card h3{margin-top:0}.video-stage{margin:20px 0;aspect-ratio:16/9;min-height:220px;background:#edf2eb;display:grid;place-items:center}.video-stage iframe{width:100%;height:100%;border:0}.video-stage p{padding:20px;margin:0}.video-card .concept-summary{margin-top:22px}.warning-text{color:#8b3d05}body:has(dialog[open]){overflow:hidden}@media(max-width:1000px){.vocabulary-reader{grid-template-columns:1fr}.vocabulary-index{max-height:220px}.book-question-layout{grid-template-columns:1fr}#book-tiles{display:flex;gap:10px;overflow:auto}#book-tiles button{min-width:140px}.practice-setup{grid-template-columns:1fr 1fr}}@media(max-width:760px){.lesson-words-list,.frayer-fields,.vocabulary-filters{grid-template-columns:1fr}.practice-setup{grid-template-columns:1fr}.lesson-pagination{padding:24px 22px}.activity-disclosure>.activity{padding:22px}.local-save-status{left:0}.sidebar-reopen{display:none}.sidebar-collapsed .course-frame{width:100%}#save-alert{margin-left:0}.reading-toolbar{flex-wrap:wrap;padding:10px}.reading-toolbar label{margin-left:0}.reading-toolbar button{flex:1}.number-diagram{gap:10px;padding:20px 8px}.number-diagram .value{font-size:19px}.label-row{grid-template-columns:28px minmax(0,1fr) auto;gap:8px}.label-row button{padding:8px}.textbook-dialog>header h2{font-size:18px}.textbook-dialog>header{padding:12px}.textbook-dialog>header p{font-size:12px}.practice{padding:16px}.sidebar-collapsed .sidebar{width:min(310px,86vw)!important}.vocab-help .lesson-words{padding:0}.sidebar .sidebar-header{position:relative}}@media(max-width:390px){.top-progress-shell .progress-meta{font-size:10px}.top-progress-shell{width:160px!important;right:8px!important}.topbar .brand-logo{width:82px;margin-left:-65px}.label-row{grid-template-columns:24px 1fr}.label-row button{grid-column:2;justify-self:start}.label-row .label-feedback{grid-column:2}.reading-toolbar button{font-size:12px}}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}@media print{.topbar,.sidebar,.sidebar-reopen,.local-save-status,#save-alert,dialog,.actions,.page-guide,.skip-link{display:none!important}.main{margin:0!important;padding:0!important}.main>.course-frame{width:100%!important;border:0!important}.course-page{display:none!important}#process-collection{display:block!important}#process-collection[hidden]{display:block!important}#process-collection .content-section{padding:0!important}#process-collection .page-header{padding:0 0 18px!important;border:0!important}.record details>*{display:block!important}.record details{display:block!important}.record{break-inside:auto;padding:14px 0}.record pre{white-space:pre-wrap!important;overflow-wrap:anywhere}.record h3,.record h4{break-after:avoid}.book-crop{max-height:200px;width:auto}body.print-recovery .main{display:none!important}body.print-recovery #recovery-print{display:block!important}#recovery-print pre{white-space:pre-wrap;overflow-wrap:anywhere;font:10pt/1.4 monospace}@page{margin:18mm}}
+
+/* Semantic disclosure marker and optional whole-set transfer, shared across this pilot. */
+.page-guide>summary{list-style:none}.page-guide>summary::-webkit-details-marker{display:none}
+[data-transfer] fieldset{border:0;padding:0;margin:18px 0}
+[data-transfer] legend{font-weight:750;margin-bottom:12px}
+[data-transfer] .transfer-help label{display:block;margin:10px 0}
+[data-transfer] select{min-height:44px;padding:8px;width:100%}
+[data-transfer] h3{margin-top:24px}
+@media print{#process-collection details::details-content{content-visibility:visible!important}#process-collection details>*{display:block!important}}
+
+/* Keep the recovered border-chevron, not a second text glyph. */
+.page-guide>summary::after,.page-guide[open]>summary::after{content:""!important}
+dialog button:not(.text-link){min-height:44px;padding:9px 15px;border:1px solid var(--green);border-radius:6px;background:var(--green);color:#fff;font:800 16px/1.5 Arial,sans-serif;cursor:pointer}
+dialog button.secondary{background:white;color:var(--green)}
+dialog button:disabled{opacity:.48;cursor:not-allowed}
+dialog button:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+@media(max-width:760px){.topbar .brand-logo{position:absolute;left:66px;top:13px;width:90px;margin:0!important;transform:none!important}}
+@media(max-width:390px){.topbar .brand-logo{width:78px;top:15px}.top-progress-shell{width:135px!important;right:8px!important}}
+
+
+/* Unit A content components. The base course geometry and v3 lesson system remain intact. */
+.embedded-exercise{margin:26px 0;padding:24px;border:1px solid var(--border);background:white}
+.embedded-exercise>h3{margin:0 0 18px;font:750 21px/1.4 "Hanken Grotesk",Arial,sans-serif}
+.embedded-exercise fieldset{border:0;padding:0;margin:0}
+.embedded-exercise>input{width:min(100%,420px);min-height:46px;border:1px solid #8b9c91;border-radius:4px;padding:10px;font:inherit}
+.embedded-exercise>button[data-exercise-check]{display:block!important;margin-top:18px}
+.exercise-hint{margin:18px 0}.exercise-hint>summary{cursor:pointer;color:var(--teal);font-weight:750;min-height:44px;padding-top:10px}
+.exercise-error:empty{display:none}.exercise-error{font-weight:700;color:var(--brick)}
+.practice-question>input{width:min(100%,500px);min-height:46px;padding:10px;border:1px solid #8b9c91;font:inherit}
+.practice-question fieldset{border:0;padding:0;margin:18px 0}
+.check-question>button[data-check-required]{margin-top:18px!important}
+.formula{overflow-wrap:anywhere}.steps li p{max-width:100%}
+.science-figure .figure-toolbar{padding:12px 16px}.science-figure img{display:block;width:100%;height:auto}
+.table-scroll,.compare{max-width:100%;overflow-x:auto}.compare table{min-width:500px}
+.note-activity{margin:20px 0}.note-activity .actions{margin-bottom:10px}
+/* Restore the Biology grouped-index/detail page rather than the v3 flat button list. */
+[data-biology-word-reader].vocabulary-layout{display:grid;grid-template-columns:minmax(220px,.7fr) minmax(0,1.6fr);gap:0;margin:0;padding:0;border-top:1px solid var(--border)}
+[data-biology-word-reader]>.vocabulary-index{max-height:760px;overflow:auto;padding:22px 14px;border-right:1px solid var(--border);background:#f7f9f6}
+[data-biology-word-reader]>.vocabulary-detail{min-width:0;padding:32px 38px}
+#course-main [data-biology-word-reader] .word-category{margin:0 0 22px;padding:0;border:0}
+#course-main [data-biology-word-reader] .word-category>h2{margin:8px 10px 10px;font:850 12px/1.5 "Work Sans",Arial,sans-serif;letter-spacing:.045em;text-transform:uppercase;color:var(--teal)}
+#course-main [data-biology-word-reader] .word-category>button[data-select-word]{display:grid;width:100%;gap:3px;min-height:44px;padding:9px 10px;border:0;border-left:3px solid transparent;border-radius:0;background:transparent;color:var(--ink);font:inherit;text-align:left;text-decoration:none;cursor:pointer;overflow-wrap:anywhere}
+#course-main [data-biology-word-reader] .word-category>button[aria-pressed=true],#course-main [data-biology-word-reader] .word-category>button:hover{border-left-color:var(--teal);background:#e9f2ee}
+#course-main [data-biology-word-reader] .word-category>button[aria-pressed=true]>span{font-weight:800}
+#course-main [data-biology-word-reader] .word-category small{font-size:13px;line-height:1.4;color:var(--muted);font-weight:400}
+[data-biology-word-details]>.term-meaning{font-size:19px}[data-biology-word-details]>section{padding:18px 0;border-top:1px solid var(--border)}
+[data-biology-word-details] .section-label{font-size:12px;font-weight:850;letter-spacing:.04em;color:var(--teal);text-transform:uppercase}
+.vocabulary-detail .frayer-fields{grid-template-columns:1fr}.frayer-section h3{font-size:23px}
+#drawer-detail [data-biology-word-details]>h2{font-size:30px}
+#book-topic,#labeling-picker,#drawer-word{min-height:44px;max-width:100%;padding:9px;font:inherit}
+#book-tiles{max-height:660px;overflow:auto;padding-right:6px}
+.book-crop{display:block;max-height:800px;object-fit:contain;background:#f7f8f5}
+.book-workspace h2{overflow-wrap:anywhere}.label-diagram img{width:100%;height:auto;border:1px solid var(--border);background:white}
+.label-diagram figcaption{font-size:14px;color:var(--muted);margin:10px 0}
+.reading-toolbar label{min-width:0}.reading-toolbar select{max-width:260px;min-width:0}
+.textbook-dialog{width:min(900px,calc(100vw - 32px));height:min(760px,calc(100dvh - 32px));max-height:calc(100dvh - 32px)}
+#reading-subtitle{line-height:1.3}.reading-scroll pre{white-space:pre-wrap;overflow-wrap:anywhere}
+.reading-library-frame select{max-width:100%}.video-stage{min-height:0}.video-stage button{margin:24px}
+.record .written-response{max-width:none;line-height:1.6}.record ol>li{margin:10px 0}
+@media(max-width:1100px){[data-biology-word-reader].vocabulary-layout{grid-template-columns:minmax(190px,.7fr) minmax(0,1.3fr)}[data-biology-word-reader]>.vocabulary-detail{padding:28px 24px}}
+@media(max-width:900px){[data-biology-word-reader].vocabulary-layout{grid-template-columns:1fr}[data-biology-word-reader]>.vocabulary-index{max-height:260px;border-right:0;border-bottom:1px solid var(--border)}[data-biology-word-reader]>.vocabulary-detail{padding:26px 22px}.vocabulary-detail .frayer-fields{grid-template-columns:1fr}#book-tiles{max-height:200px;display:flex;gap:10px}.book-question-layout{grid-template-columns:1fr}}
+@media(max-width:760px){.embedded-exercise{padding:18px;margin:24px 0}.embedded-exercise>h3{font-size:20px}.reading-toolbar label{width:100%;display:flex;flex-wrap:wrap}.reading-toolbar select{flex:1;max-width:100%}.textbook-dialog>header{min-height:88px;height:auto}.reading-body{height:calc(100% - 88px)}.reading-scroll{padding:8px}.reading-library-frame{padding:12px}.reading-library-frame select{margin:8px 0;width:100%}.compare table{min-width:480px}.formula{font-size:21px}.course-page .content-section:has(.embedded-exercise){min-width:0}}
+@media print{#process-collection button{display:none!important}.record details{break-inside:auto}.record .written-response{font:10.5pt/1.5 Arial,sans-serif}.record details::details-content{content-visibility:visible!important}}
+
+/* Lesson 5 uses a native direction diagram so energy transfer stays legible and
+   no decorative molecule art implies an unbalanced reaction. */
+.energy-direction-figure{margin:28px 0 8px;border:1px solid var(--border);background:#fff}
+.energy-direction-figure>.figure-toolbar{padding:13px 16px;border-bottom:1px solid var(--border)}
+.energy-direction-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border)}
+.energy-direction-panel{min-width:0;padding:24px;background:#f7f9f6}
+.energy-direction-panel h3{margin:0 0 18px;font:800 23px/1.25 "Hanken Grotesk",Arial,sans-serif}
+.energy-path{display:grid;grid-template-columns:minmax(110px,1fr) minmax(100px,.8fr) minmax(110px,1fr);align-items:center;gap:12px}
+.energy-place{min-height:92px;padding:16px 12px;border:1px solid #aebbb1;background:#fff;text-align:center}
+.energy-place strong,.energy-place span{display:block}
+.energy-place span{margin-top:5px;color:var(--muted);font-size:14px}
+.energy-arrow{position:relative;text-align:center;color:var(--teal);font-weight:800;font-size:13px}
+.energy-arrow::after{content:"";display:block;margin:8px 0;border-top:4px solid var(--teal)}
+.energy-arrow.out::after{clip-path:polygon(0 38%,86% 38%,86% 0,100% 50%,86% 100%,86% 62%,0 62%)}
+.energy-arrow.in::after{clip-path:polygon(14% 0,14% 38%,100% 38%,100% 62%,14% 62%,14% 100%,0 50%)}
+.energy-result{margin:18px 0 0;padding-top:16px;border-top:1px solid var(--border)}
+.energy-direction-figure>figcaption{padding:13px 16px;color:var(--muted);font-size:14px}
+@media(max-width:760px){.energy-direction-grid{grid-template-columns:1fr}.energy-direction-panel{padding:20px}.energy-path{grid-template-columns:1fr}.energy-arrow{padding:4px 0}.energy-arrow::after{width:96px;margin:10px auto}.energy-place{min-height:0}.energy-direction-panel h3{font-size:22px}}
+/* Explicit labels in authored markup replace the reference's generated label. */
+.page-guide>summary strong::before,.course-page:not([id^="lesson-"]) .page-header>.page-guide>summary strong::before{content:none!important;display:none!important}
+#save-alert button{min-height:44px;padding:9px 15px;border:1px solid var(--green);border-radius:6px;background:white;color:var(--green);font:700 15px/1.4 Arial,sans-serif}
+@media print{#process-collection .recovery-archive details,#process-collection .recovery-archive details>*{display:none!important}}
+
+
+/* Unit A Excellence Pass v5 */
+.media-rich-figure{margin:28px 0 8px;border-radius:8px;overflow:hidden;box-shadow:0 1px 0 rgba(0,0,0,.03)}
+.media-rich-figure img{width:100%;display:block;background:#f7f8f5}
+.media-rich-figure .figure-credit{display:block;margin-top:5px;color:var(--muted);font-size:12px}
+.video-support-section{background:linear-gradient(180deg,#fff 0%,#fbfcfa 100%)}
+.video-support-section>[data-video-card] .video-card{margin-top:14px}
+.video-card{display:grid;grid-template-columns:minmax(0,.85fr) minmax(360px,1.15fr);gap:18px 28px;padding:22px;border:1px solid var(--border);background:#fff}
+.video-card>h3,.video-card>.eyebrow,.video-card>.small,.video-card>p,.video-card>a,.video-card>.concept-summary{grid-column:1}
+.video-card>.video-stage{grid-column:2;grid-row:1/7;align-self:start;min-height:260px}
+.video-stage{display:grid;place-items:center;aspect-ratio:16/9;background:#e9ede9;border:1px solid var(--border);overflow:hidden}
+.video-stage iframe{width:100%;height:100%;border:0}
+.final-prep-hero{background:#f3f7f1}
+.final-prep-stats{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin:0 0 28px}
+.final-prep-stats article{padding:18px 12px;border:1px solid var(--border);background:#fff;text-align:center}
+.final-prep-stats strong{display:block;font:800 34px/1 Hanken Grotesk,sans-serif;color:var(--green)}
+.final-prep-stats span{display:block;margin-top:7px;color:var(--muted);font-size:13px}
+.final-prep-links{display:flex;flex-wrap:wrap;gap:12px}
+@media(max-width:900px){.video-card{grid-template-columns:1fr}.video-card>.video-stage,.video-card>h3,.video-card>.eyebrow,.video-card>.small,.video-card>p,.video-card>a,.video-card>.concept-summary{grid-column:1;grid-row:auto}.final-prep-stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:520px){.final-prep-stats{grid-template-columns:1fr 1fr}.final-prep-stats strong{font-size:28px}}
+
+/* Pilot 3 alignment: keep one predictable layout for the imported subject components. */
+#textbook-practice .book-question-layout{display:block;margin-top:24px}
+#textbook-practice #book-tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(128px,1fr));gap:8px;max-height:300px;overflow:auto;padding:12px;border:1px solid var(--border);background:#fff}
+#textbook-practice #book-tiles .book-list-intro{grid-column:1/-1;margin:0 0 5px;font-weight:750}
+#textbook-practice #book-tiles button{display:grid;align-content:start;gap:3px;min-width:0;min-height:66px;margin:0;padding:10px;border:1px solid var(--border);border-left:3px solid transparent;border-radius:3px;background:#fff;color:var(--ink);text-align:left;box-shadow:none}
+#textbook-practice #book-tiles button strong{font-size:18px;line-height:1.2}
+#textbook-practice #book-tiles button span{font-size:12px;line-height:1.3;color:var(--muted)}
+#textbook-practice #book-tiles button small{font-size:12px;color:var(--muted)}
+#textbook-practice #book-tiles button[aria-pressed=true]{border-color:var(--teal);border-left-color:var(--teal);background:#eef7f4;color:var(--ink)}
+#textbook-practice #book-workspace{margin-top:30px}
+#textbook-practice .book-heading{display:flex;align-items:end;justify-content:space-between;gap:16px;flex-wrap:wrap}
+#textbook-practice .book-heading h2{margin:0;font:750 clamp(25px,3vw,32px)/1.15 "Hanken Grotesk",sans-serif}
+#textbook-practice .book-heading p{margin:6px 0}
+#textbook-practice .book-heading .actions{margin:0}
+#textbook-practice .book-source{margin:20px 0;padding:18px;border:1px solid var(--border)}
+#textbook-practice .book-source-intro{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+#textbook-practice .book-source-intro p{max-width:60ch;margin:0}
+#textbook-practice .book-source-intro .actions{margin:0}
+#textbook-practice .book-source figure{max-width:760px;margin:20px auto}
+#textbook-practice .book-crop{max-height:none;margin:0;border:1px solid var(--border);object-fit:contain}
+#textbook-practice .book-source figcaption{margin-top:7px;color:var(--muted);font-size:13px}
+#textbook-practice .book-source details{margin-top:16px}
+#textbook-practice .book-source details summary{min-height:44px;padding:10px 0;cursor:pointer}
+#textbook-practice .book-source .written-response{max-height:400px;overflow:auto;padding:16px;border:1px solid var(--border);background:#fafbf9}
+#textbook-practice [data-book-id]>textarea{min-height:180px}
+.workbook-self-check{margin-top:26px;padding:18px 0;border-top:1px solid var(--border)}
+.workbook-self-check h3{margin:0 0 7px;font:750 22px/1.25 "Hanken Grotesk",sans-serif}
+.workbook-self-check p{max-width:72ch;margin:0 0 14px}
+.workbook-self-check .button{display:inline-block;text-decoration:none}
+#core-vocabulary [data-biology-word-reader]{margin-top:20px}
+#core-vocabulary [data-biology-word-details]>h2{margin:0 0 20px;font:750 clamp(28px,3vw,36px)/1.15 "Hanken Grotesk",sans-serif}
+#core-vocabulary [data-biology-word-details]>section{padding:16px 0}
+#core-vocabulary [data-biology-word-details]>section p{max-width:62ch;margin:8px 0;line-height:1.55}
+#core-vocabulary .frayer-section{padding:20px;margin-top:24px;border:1px solid var(--border);background:#fff}
+#core-vocabulary .frayer-section h3{margin:0 0 8px}
+#core-vocabulary .frayer-section>p{margin:0 0 15px}
+.video-support-section{background:#fff}
+.video-card{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:18px 26px;margin:16px 0;padding:22px;border:1px solid var(--border);background:#fff}
+.video-card>.video-copy{grid-column:1;grid-row:1;min-width:0}
+.video-card .video-copy h3{margin:4px 0 12px;font:750 24px/1.2 "Hanken Grotesk",sans-serif}
+.video-card .video-copy p{max-width:60ch;margin:10px 0}
+.video-card>.video-stage{grid-column:2;grid-row:1;align-self:start;width:100%;min-height:0;margin:0;aspect-ratio:16/9;border:1px solid var(--border);background:#f2f6f4}
+.video-card>.video-footer,.video-card>.concept-summary{grid-column:1/-1;grid-row:auto;min-width:0}
+.video-card>.video-footer{display:flex;align-items:center;justify-content:space-between;gap:12px 24px;flex-wrap:wrap;padding-top:14px;border-top:1px solid var(--border)}
+.video-card>.video-footer p{max-width:48ch;margin:0}
+.video-card>.concept-summary{margin:0;padding:16px 18px;border-left:3px solid var(--teal);background:#f3f8f5}
+.video-card>.concept-summary h4{margin:0 0 7px;font-size:17px}
+.video-card>.concept-summary p{max-width:78ch;margin:0}
+#course-main :is(button,a,input,select,textarea,summary):focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+@media(max-width:900px){.video-card{grid-template-columns:1fr}.video-card>.video-copy,.video-card>.video-stage,.video-card>.video-footer,.video-card>.concept-summary{grid-column:1;grid-row:auto}}
+@media(max-width:760px){#textbook-practice #book-tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));max-height:260px}#textbook-practice .book-source{padding:14px}#textbook-practice .book-heading .actions{width:100%}#textbook-practice .book-heading button{flex:1}#core-vocabulary [data-biology-word-reader]>.vocabulary-index{max-height:230px}}
+@media(max-width:440px){#textbook-practice #book-tiles{grid-template-columns:repeat(2,minmax(0,1fr))}.video-card{padding:16px}}
+
+/* Lesson 13: source-informed scrubber pathway, kept readable at phone width. */
+.scrubber-process .scrubber-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin:0;padding:0;list-style:none;border-top:1px solid var(--border)}
+.scrubber-process .scrubber-steps li{min-width:0;padding:18px 20px;border-right:1px solid var(--border)}
+.scrubber-process .scrubber-steps li:last-child{border-right:0}
+.scrubber-process .scrubber-steps strong,.scrubber-process .scrubber-steps span{display:block}
+.scrubber-process .scrubber-steps strong{margin-bottom:8px;font-size:16px;line-height:1.3}
+.scrubber-process .scrubber-steps span{font-size:14px;line-height:1.55}
+.scrubber-process figcaption{padding:14px 20px;border-top:1px solid var(--border)}
+@media(max-width:700px){.scrubber-process .scrubber-steps{grid-template-columns:1fr}.scrubber-process .scrubber-steps li{padding:14px 18px;border-right:0;border-bottom:1px solid var(--border)}.scrubber-process .scrubber-steps li:last-child{border-bottom:0}}
+
+/* Lesson 2: compare the actual symbol systems at a readable size. */
+.hazard-symbol-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid var(--border)}
+.hazard-symbol-example{min-width:0;padding:20px 24px;border-right:1px solid var(--border)}
+.hazard-symbol-example:last-child{border-right:0}
+.hazard-symbol-figure .hazard-symbol-example img{display:block;width:150px;max-width:100%;height:150px;object-fit:contain;margin:0 auto 18px}
+.hazard-symbol-example strong{display:block;margin-bottom:8px;font-size:17px;line-height:1.3}
+.hazard-symbol-example p{margin:0;font-size:15px;line-height:1.55}
+.hazard-symbol-figure figcaption{padding:14px 18px;border-top:1px solid var(--border)}
+@media(max-width:700px){.hazard-symbol-grid{grid-template-columns:1fr}.hazard-symbol-example{display:grid;grid-template-columns:100px minmax(0,1fr);gap:18px;padding:18px;border-right:0;border-bottom:1px solid var(--border)}.hazard-symbol-example:last-child{border-bottom:0}.hazard-symbol-figure .hazard-symbol-example img{width:100px;height:100px;margin:0}.hazard-symbol-example strong{font-size:16px}}
+@media(max-width:440px){.hazard-symbol-example{grid-template-columns:80px minmax(0,1fr);gap:14px}.hazard-symbol-figure .hazard-symbol-example img{width:80px;height:80px}}
+
+/* Source visuals sit with the explanation they support. */
+.visual-reading-pair{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.92fr);gap:28px;align-items:start;margin:20px 0 24px}
+.visual-reading-pair .science-figure{min-width:0;margin:0}
+.visual-reading-copy>*:first-child{margin-top:0}
+.source-evidence-figure{max-width:520px;margin:24px auto}
+@media(max-width:1000px){.visual-reading-pair{grid-template-columns:1fr;gap:16px}.visual-reading-pair .science-figure{max-width:560px}}
+@media(max-width:700px){.source-evidence-figure{margin-inline:0}}
+@media(max-width:520px){.visual-reading-pair .figure-toolbar,.source-evidence-figure .figure-toolbar{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:start;gap:8px}.visual-reading-pair .figure-toolbar strong,.source-evidence-figure .figure-toolbar strong{font-size:15px;line-height:1.3}.visual-reading-pair .figure-toolbar .text-link,.source-evidence-figure .figure-toolbar .text-link{margin-left:0;white-space:nowrap}}
+
+/* The fabric photo is evidence for the choice worked through below, not a
+   side illustration of molecular structure. */
+.polymer-material-figure{max-width:680px;margin:20px 0 24px}
+.p2-topic .polymer-material-figure img{width:100%;height:250px;object-fit:cover;object-position:center}
+.polymer-material-figure figcaption{max-width:none}
+.polymer-reading-copy{max-width:72ch}
+.worked-example .figure-reading-prompt{max-width:62ch;margin:20px 0 10px;font-weight:650}
+@media(max-width:700px){.p2-topic .polymer-material-figure img{height:210px}}
+
+/* Required checks keep the label and lesson title on separate lines. */
+.activity-disclosure>summary>span{display:grid;gap:3px;min-width:0}
+.activity-disclosure>summary small{display:block;margin:0;color:var(--muted);font-size:12px;line-height:1.3}
+.activity-disclosure>summary strong{display:block;line-height:1.35}
+.workbook-answer-key{margin-top:4px;border-top:1px solid var(--border)}
+.workbook-answer-key>summary{min-height:48px;padding:13px 0;color:var(--green);font-weight:750;cursor:pointer}
+.workbook-answer-key>p{max-width:72ch;margin:0 0 14px}
+.workbook-answer-key>a{display:inline-flex;margin-bottom:10px}
+
+/* Textbook page window now uses the same size controls as Units B and C. */
+@media(min-width:701px){
+  #reading-dialog{width:min(900px,calc(100vw - 32px));height:min(760px,calc(100dvh - 32px));min-width:min(520px,calc(100vw - 32px));min-height:min(460px,calc(100dvh - 32px));max-width:calc(100vw - 32px);max-height:calc(100dvh - 32px);resize:both;overflow:hidden}
+  #reading-dialog.is-expanded{width:calc(100vw - 32px)!important;height:calc(100dvh - 32px)!important;resize:none}
+}
+#reading-dialog[open]{display:flex;flex-direction:column}
+#reading-dialog>header{flex:0 0 auto}
+#reading-dialog .reading-window-actions{display:flex;align-items:flex-start;justify-content:flex-end;flex-wrap:wrap;gap:8px}
+#reading-dialog .reading-body{flex:1 1 auto;height:auto;min-height:0}
+#reading-dialog .reading-toolbar{flex:0 0 auto}
+#reading-dialog .reading-resize-hint{margin-left:auto;color:var(--muted);font-size:12px;font-weight:500}
+@media(max-width:700px){#reading-dialog #reading-size,#reading-dialog .reading-resize-hint{display:none}}
+
+/* Compact, persistent formula sheet window. */
+.floating-formula{position:fixed;z-index:110;right:14px;bottom:54px;display:inline-flex;align-items:center;gap:0;width:44px;max-width:44px;height:44px;overflow:hidden;white-space:nowrap;padding:10px 12px;border:1px solid #355b38;border-radius:6px;background:var(--green);color:#fff;font-size:13px;font-weight:800;transition:max-width .15s ease,background .15s ease}
+.floating-formula:hover,.floating-formula:focus-visible{max-width:220px;width:auto;background:var(--green-2)}
+.floating-formula:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+.formula-launch-icon{flex:0 0 18px;font-size:18px;line-height:1;text-align:center}
+.formula-launch-label{max-width:0;opacity:0;overflow:hidden;transition:max-width .15s ease,opacity .15s ease,padding .15s ease}
+.floating-formula:hover .formula-launch-label,.floating-formula:focus-visible .formula-launch-label{max-width:160px;opacity:1;padding-left:8px}
+.formula-dialog{position:fixed;z-index:125;inset:76px 18px auto auto;width:min(640px,calc(100vw - 36px));height:min(740px,calc(100dvh - 94px));min-width:min(360px,calc(100vw - 36px));min-height:min(340px,calc(100dvh - 94px));max-width:calc(100vw - 16px);max-height:calc(100dvh - 84px);margin:0;padding:0;resize:both;overflow:hidden;border:1px solid var(--border);border-radius:8px;background:#fff;color:var(--ink);box-shadow:0 18px 60px #0005}
+.formula-dialog[open]{display:flex;flex-direction:column}
+.formula-dialog .formula-drag-handle{display:flex;align-items:start;justify-content:space-between;gap:18px;padding:14px 16px;border-bottom:1px solid var(--border);cursor:grab;user-select:none}
+.formula-dialog .formula-drag-handle:active{cursor:grabbing}
+.formula-dialog .formula-drag-handle:focus-visible{outline:3px solid var(--focus);outline-offset:-3px}
+.formula-dialog .formula-drag-handle h2{margin:1px 0 0;font:760 21px/1.18 "Hanken Grotesk",sans-serif}
+.formula-dialog .formula-drag-handle p{margin:0}
+.formula-dialog .formula-drag-handle .small{margin-top:4px;color:var(--muted);font-size:12px}
+.formula-window-actions{display:flex;align-items:center;justify-content:flex-end;gap:8px;flex-wrap:wrap}
+.formula-window-actions button{cursor:pointer;user-select:auto}
+.formula-sheet-pages{flex:1 1 auto;min-height:0;overflow:auto;overscroll-behavior:contain;padding:16px;background:#edf0eb}
+.formula-sheet-pages figure{margin:0 0 18px;background:#fff;border:1px solid var(--border)}
+.formula-sheet-pages figcaption{padding:10px 14px;border-bottom:1px solid var(--border);font-weight:750}
+.formula-sheet-pages img{display:block;width:100%;height:auto;background:#fff}
+.formula-sheet-pages>p{margin:0 0 8px}
+.formula-sheet-pages a{color:var(--teal);font-weight:750}
+.formula-sheet-pages:focus-visible{outline:3px solid var(--focus);outline-offset:-3px}
+.formula-page-toolbar{display:flex;align-items:center;gap:12px;padding:9px 16px;border-bottom:1px solid var(--border);font-size:12px;color:var(--muted)}
+.formula-page-toolbar .button{flex:0 0 auto;min-height:36px;padding:7px 10px;border:1px solid var(--green);background:#fff;color:var(--green);font-size:12px}
+.formula-dialog.is-zoomed .formula-sheet-pages img{width:max(900px,100%);max-width:none}
+@media(max-width:700px){.formula-page-toolbar span{font-size:11px}.formula-dialog.is-zoomed .formula-sheet-pages img{width:760px}}
+.formula-dialog.is-expanded{inset:8px!important;width:calc(100vw - 16px)!important;height:calc(100dvh - 16px)!important;resize:none}
+@media(max-width:700px){.formula-dialog,.formula-dialog.is-expanded{inset:var(--top) 0 0!important;width:100vw!important;height:calc(100dvh - var(--top))!important;max-width:100vw;max-height:calc(100dvh - var(--top));min-width:0;min-height:0;resize:none;border:0;border-radius:0}.formula-dialog .formula-drag-handle{cursor:default}.formula-window-actions #formula-size,.formula-window-actions #formula-reset,.formula-dialog .formula-drag-handle .small{display:none}}
+@media(prefers-reduced-motion:reduce){.floating-formula,.formula-launch-label{transition:none}}

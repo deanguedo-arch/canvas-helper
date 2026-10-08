@@ -1,0 +1,270 @@
+{
+  "game_id": "A2",
+  "version": "2.0.1",
+  "source_boundary": "Original authored teaching scenarios aligned to supplied course; not copied assessment questions.",
+  "scenarios": [
+    {
+      "id": "A2-W01",
+      "stage": "worked",
+      "title": "Water Order: Four Molecules",
+      "equation": [
+        [
+          "H2",
+          4
+        ],
+        [
+          "O2",
+          2
+        ]
+      ],
+      "products": [
+        [
+          "H2O",
+          4
+        ]
+      ],
+      "simplest": [
+        2,
+        1,
+        2
+      ],
+      "explain": "Eight H atoms and four O atoms appear on each side. Changing H2O to H2O2 changes the substance.",
+      "reactants": [
+        "H2",
+        "O2"
+      ],
+      "products_list": [
+        "H2O"
+      ],
+      "solution": [
+        4,
+        2,
+        4
+      ],
+      "scene": "assets/scenes/scene_01_a2_w01.png",
+      "initial": {
+        "c0": 4,
+        "c1": 2,
+        "c2": 4
+      },
+      "smallestRequired": false,
+      "predictionPrompt": "Which element needs attention in the starting batch?",
+      "predictions": [
+        "H",
+        "O"
+      ],
+      "explanationPrompt": "Explain how your coefficients conserve one named element.",
+      "keyIdea": "Count each element separately. Coefficients change whole molecules; subscripts identify the substance.",
+      "hints": [
+        "Keep every formula fixed. Compare the left and right counts of each element.",
+        "Change whole-particle coefficients, then recount the element rows. All rows must agree."
+      ],
+      "teacherReasoning": "Eight H and four O atoms occur on both sides; the simplest ratio is 2:1:2."
+    },
+    {
+      "id": "A2-P01",
+      "stage": "supported",
+      "title": "Peroxide Breakdown",
+      "reactants": [
+        "H2O2"
+      ],
+      "products_list": [
+        "H2O",
+        "O2"
+      ],
+      "solution": [
+        2,
+        2,
+        1
+      ],
+      "focus": "repair oxygen while formulas remain fixed",
+      "scene": "assets/scenes/scene_02_a2_p01.png",
+      "initial": {
+        "c0": 1,
+        "c1": 1,
+        "c2": 1
+      },
+      "smallestRequired": false,
+      "predictionPrompt": "Which element needs attention in the starting batch?",
+      "predictions": [
+        "H",
+        "O"
+      ],
+      "explanationPrompt": "Explain how your coefficients conserve one named element.",
+      "keyIdea": "Count each element separately. Coefficients change whole molecules; subscripts identify the substance.",
+      "hints": [
+        "Keep every formula fixed. Compare the left and right counts of each element.",
+        "Change whole-particle coefficients, then recount the element rows. All rows must agree."
+      ],
+      "teacherReasoning": "Two peroxide molecules have four H and four O atoms; two water molecules plus one oxygen molecule retain those counts."
+    },
+    {
+      "id": "A2-P02",
+      "stage": "practice",
+      "title": "Methane Combustion",
+      "reactants": [
+        "CH4",
+        "O2"
+      ],
+      "products_list": [
+        "CO2",
+        "H2O"
+      ],
+      "solution": [
+        1,
+        2,
+        1,
+        2
+      ],
+      "focus": "balance carbon, hydrogen, then oxygen",
+      "scene": "assets/scenes/scene_03_a2_p02.png",
+      "initial": {
+        "c0": 1,
+        "c1": 1,
+        "c2": 1,
+        "c3": 1
+      },
+      "smallestRequired": false,
+      "predictionPrompt": "Which element needs attention in the starting batch?",
+      "predictions": [
+        "C",
+        "H",
+        "O"
+      ],
+      "explanationPrompt": "Explain how your coefficients conserve one named element.",
+      "keyIdea": "Count each element separately. Coefficients change whole molecules; subscripts identify the substance.",
+      "hints": [
+        "Keep every formula fixed. Compare the left and right counts of each element.",
+        "Change whole-particle coefficients, then recount the element rows. All rows must agree."
+      ],
+      "teacherReasoning": "One methane and two oxygen molecules give one carbon dioxide and two water molecules: C=1, H=4, O=4 on each side."
+    },
+    {
+      "id": "A2-P03",
+      "stage": "practice",
+      "title": "Iron Oxide Batch",
+      "reactants": [
+        "Fe",
+        "O2"
+      ],
+      "products_list": [
+        "Fe2O3"
+      ],
+      "solution": [
+        4,
+        3,
+        2
+      ],
+      "focus": "find a shared oxygen multiple",
+      "scene": "assets/scenes/scene_04_a2_p03.png",
+      "initial": {
+        "c0": 1,
+        "c1": 1,
+        "c2": 1
+      },
+      "smallestRequired": false,
+      "predictionPrompt": "Which element needs attention in the starting batch?",
+      "predictions": [
+        "Fe",
+        "O"
+      ],
+      "explanationPrompt": "Explain how your coefficients conserve one named element.",
+      "keyIdea": "Count each element separately. Coefficients change whole molecules; subscripts identify the substance.",
+      "hints": [
+        "Keep every formula fixed. Compare the left and right counts of each element.",
+        "Change whole-particle coefficients, then recount the element rows. All rows must agree."
+      ],
+      "teacherReasoning": "Four iron atoms and three oxygen molecules form two iron oxide units: Fe=4 and O=6 on both sides."
+    },
+    {
+      "id": "A2-P04",
+      "stage": "low_support",
+      "title": "Calcium Carbonate and Acid",
+      "reactants": [
+        "CaCO3",
+        "HCl"
+      ],
+      "products_list": [
+        "CaCl2",
+        "H2O",
+        "CO2"
+      ],
+      "solution": [
+        1,
+        2,
+        1,
+        1,
+        1
+      ],
+      "focus": "typed coefficients with optional ledger",
+      "scene": "assets/scenes/scene_05_a2_p04.png",
+      "initial": {
+        "c0": 1,
+        "c1": 1,
+        "c2": 1,
+        "c3": 1,
+        "c4": 1
+      },
+      "smallestRequired": false,
+      "predictionPrompt": "Which element needs attention in the starting batch?",
+      "predictions": [
+        "Ca",
+        "C",
+        "O",
+        "H",
+        "Cl"
+      ],
+      "explanationPrompt": "Explain how your coefficients conserve one named element.",
+      "keyIdea": "Count each element separately. Coefficients change whole molecules; subscripts identify the substance.",
+      "hints": [],
+      "teacherReasoning": "Both sides have Ca=1, C=1, O=3, H=2 and Cl=2. Coefficients change particles, not substances."
+    },
+    {
+      "id": "A2-T01",
+      "stage": "transfer",
+      "title": "Ammonia Equation",
+      "reactants": [
+        "N2",
+        "H2"
+      ],
+      "products_list": [
+        "NH3"
+      ],
+      "solution": [
+        1,
+        3,
+        2
+      ],
+      "focus": "plain-text equation; explain the H accounting",
+      "scene": "assets/scenes/scene_06_a2_t01.png",
+      "initial": {
+        "c0": 1,
+        "c1": 1,
+        "c2": 1
+      },
+      "smallestRequired": true,
+      "predictionPrompt": "Which element needs attention in the starting batch?",
+      "predictions": [
+        "N",
+        "H"
+      ],
+      "explanationPrompt": "Explain how your coefficients conserve one named element.",
+      "keyIdea": "Count each element separately. Coefficients change whole molecules; subscripts identify the substance.",
+      "hints": [
+        "Keep every formula fixed. Compare the left and right counts of each element.",
+        "Change whole-particle coefficients, then recount the element rows. All rows must agree."
+      ],
+      "teacherReasoning": "Three hydrogen molecules supply six H atoms, matching two ammonia molecules. Nitrogen has two atoms on both sides."
+    }
+  ],
+  "title": "Atom Factory",
+  "unitTitle": "Applications of Matter and Chemical Change",
+  "nextPractice": "Balance another equation, count every element, and explain conservation without the particle tiles.",
+  "instructions": [
+    "Read the worked production order and its atom ledger.",
+    "Commit a prediction before changing the batch.",
+    "Change coefficients using the number inputs or add/remove buttons. Substance formulas stay fixed.",
+    "Check your model, explain the atom account, then self-review your reasoning.",
+    "Complete all four practice cases and the fresh transfer. Previous preserves drafts and attempts."
+  ]
+}

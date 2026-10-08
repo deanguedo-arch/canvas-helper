@@ -1,0 +1,105 @@
+{
+  "game_id": "D2",
+  "version": "2.0.1",
+  "open_explanation_policy": "Never auto-certify quality from keywords. Use visible self-review or teacher-review status.",
+  "general": [
+    "Correct science result is necessary but not sufficient for independent mastery.",
+    "A successful answer edited later becomes unverified until checked again.",
+    "Hints and retries remain available but are recorded in the review summary.",
+    "Equivalent valid numeric forms are accepted where specified."
+  ],
+  "scenarios": [
+    {
+      "id": "D2-W01",
+      "accepted_result": {
+        "deltaP": -1200,
+        "force0": -20000,
+        "force1": -8000,
+        "explanation": "60(0\u221220) = \u22121200 kg\u00b7m/s. Dividing by 0.06 and 0.15 gives \u221220000 and \u22128000 N; same impulse, different average force."
+      },
+      "must_explain": true,
+      "misconception_feedback": [
+        "Use the mass of the stated system, not the whole vehicle automatically.",
+        "Longer stopping time changes average force, not the required momentum change.",
+        "Average force is not automatically peak force or an injury prediction."
+      ]
+    },
+    {
+      "id": "D2-P01",
+      "accepted_result": {
+        "deltaP": -800,
+        "force0": -10000,
+        "force1": -5000,
+        "explanation": "50(0\u221216) = \u2212800 kg\u00b7m/s. Average forces are \u221210000 and \u22125000 N; the longer duration lowers magnitude, not impulse."
+      },
+      "must_explain": true,
+      "misconception_feedback": [
+        "Use the mass of the stated system, not the whole vehicle automatically.",
+        "Longer stopping time changes average force, not the required momentum change.",
+        "Average force is not automatically peak force or an injury prediction."
+      ]
+    },
+    {
+      "id": "D2-P02",
+      "accepted_result": {
+        "deltaP": -900,
+        "force0": -10000,
+        "force1": -5000,
+        "explanation": "75(0\u221212) = \u2212900 kg\u00b7m/s. Average forces are \u221210000 and \u22125000 N; only duration changes."
+      },
+      "must_explain": true,
+      "misconception_feedback": [
+        "Use the mass of the stated system, not the whole vehicle automatically.",
+        "Longer stopping time changes average force, not the required momentum change.",
+        "Average force is not automatically peak force or an injury prediction."
+      ]
+    },
+    {
+      "id": "D2-P03",
+      "accepted_result": {
+        "system": "occupant",
+        "mass": 60,
+        "explanation": "The occupant system uses 60 kg. The 1200 kg vehicle belongs to a separate ledger and cannot substitute for occupant mass."
+      },
+      "must_explain": true,
+      "misconception_feedback": [
+        "Use the mass of the stated system, not the whole vehicle automatically.",
+        "Longer stopping time changes average force, not the required momentum change.",
+        "Average force is not automatically peak force or an injury prediction."
+      ]
+    },
+    {
+      "id": "D2-P04",
+      "accepted_result": {
+        "initialMomentum": 6,
+        "combinedMass": 3,
+        "finalVelocity": 2,
+        "energy": "not-guaranteed",
+        "explanation": "Initial momentum is 2\u00d73 + 1\u00d70 = 6 kg\u00b7m/s. Combined mass 3 kg gives +2 m/s after locking. External impulse is negligible; kinetic energy is not claimed conserved."
+      },
+      "must_explain": true,
+      "misconception_feedback": [
+        "Use the mass of the stated system, not the whole vehicle automatically.",
+        "Longer stopping time changes average force, not the required momentum change.",
+        "Average force is not automatically peak force or an injury prediction."
+      ]
+    },
+    {
+      "id": "D2-T01",
+      "accepted_result": {
+        "deltaP": -990,
+        "force0": -9900,
+        "force1": -4950,
+        "explanation": "55(0\u221218) = \u2212990 kg\u00b7m/s. Average forces are \u22129900 and \u22124950 N. Longer duration lowers magnitude; both oppose the initial positive motion, without injury prediction."
+      },
+      "must_explain": true,
+      "misconception_feedback": [
+        "Use the mass of the stated system, not the whole vehicle automatically.",
+        "Longer stopping time changes average force, not the required momentum change.",
+        "Average force is not automatically peak force or an injury prediction."
+      ]
+    }
+  ],
+  "content_version": "2.0.1",
+  "authority": "Runtime scenario JSON and pure validator; original suggested wording retained only as reference in source handoff."
+}

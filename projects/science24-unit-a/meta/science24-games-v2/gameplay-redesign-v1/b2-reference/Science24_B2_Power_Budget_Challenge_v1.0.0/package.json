@@ -1,0 +1,10 @@
+{
+  "name": "science24-b2-power-budget-challenge",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Framework-free, local Science 24 B2 practice game",
+  "scripts": {
+    "build": "python3 tools/build.py",
+    "test": "node --test tests/engine.test.cjs"
+  }
+}

@@ -1,0 +1,111 @@
+{
+  "game_id": "D1",
+  "version": "2.0.1",
+  "open_explanation_policy": "Never auto-certify quality from keywords. Use visible self-review or teacher-review status.",
+  "general": [
+    "Correct science result is necessary but not sufficient for independent mastery.",
+    "A successful answer edited later becomes unverified until checked again.",
+    "Hints and retries remain available but are recorded in the review summary.",
+    "Equivalent valid numeric forms are accepted where specified."
+  ],
+  "scenarios": [
+    {
+      "id": "D1-W01",
+      "accepted_result": {
+        "reaction": 30,
+        "total": 70,
+        "margin": 10,
+        "outcome": "before",
+        "explanation": "20\u00d71.5 = 30 m reaction; add 40 m braking for 70 m total. The 80 m obstacle leaves 10 m in this illustrative model."
+      },
+      "must_explain": true,
+      "misconception_feedback": [
+        "Reaction distance is not total stopping distance.",
+        "Slope on a distance\u2013time graph represents speed.",
+        "A horizontal distance\u2013time segment means stopped."
+      ]
+    },
+    {
+      "id": "D1-P01",
+      "accepted_result": {
+        "reaction": 15,
+        "total": 37.5,
+        "margin": 7.5,
+        "outcome": "before",
+        "explanation": "15\u00d71 = 15 m reaction; plus 22.5 m braking gives 37.5 m. Clearance is 45\u221237.5 = 7.5 m."
+      },
+      "must_explain": true,
+      "misconception_feedback": [
+        "Reaction distance is not total stopping distance.",
+        "Slope on a distance\u2013time graph represents speed.",
+        "A horizontal distance\u2013time segment means stopped."
+      ]
+    },
+    {
+      "id": "D1-P02",
+      "accepted_result": {
+        "reaction": 40,
+        "total": 80,
+        "margin": -5,
+        "outcome": "passes",
+        "explanation": "20\u00d72 = 40 m reaction; plus 40 m braking gives 80 m. Clearance 75\u221280 = \u22125 m, so the stop passes the obstacle position."
+      },
+      "must_explain": true,
+      "misconception_feedback": [
+        "Reaction distance is not total stopping distance.",
+        "Slope on a distance\u2013time graph represents speed.",
+        "A horizontal distance\u2013time segment means stopped."
+      ]
+    },
+    {
+      "id": "D1-P03",
+      "accepted_result": {
+        "reaction0": 20,
+        "reaction1": 30,
+        "reaction2": 40,
+        "brakingChange": "unchanged",
+        "explanation": "At 20 m/s, reaction times 1, 1.5 and 2 s give 20, 30 and 40 m. The supplied 40 m braking distance stays fixed."
+      },
+      "must_explain": true,
+      "misconception_feedback": [
+        "Reaction distance is not total stopping distance.",
+        "Slope on a distance\u2013time graph represents speed.",
+        "A horizontal distance\u2013time segment means stopped."
+      ]
+    },
+    {
+      "id": "D1-P04",
+      "accepted_result": {
+        "reactionSpeed": 20,
+        "slope": "speed",
+        "horizontal": "stopped",
+        "brakingSlope": "decreasing",
+        "explanation": "Reaction slope is 20 m/s. During braking it decreases to zero; a horizontal distance-time segment means stopped."
+      },
+      "must_explain": true,
+      "misconception_feedback": [
+        "Reaction distance is not total stopping distance.",
+        "Slope on a distance\u2013time graph represents speed.",
+        "A horizontal distance\u2013time segment means stopped."
+      ]
+    },
+    {
+      "id": "D1-T01",
+      "accepted_result": {
+        "reaction": 30,
+        "total": 92.5,
+        "margin": -7.5,
+        "outcome": "passes",
+        "explanation": "25\u00d71.2 = 30 m reaction; add 62.5 m braking for 92.5 m. Clearance is \u22127.5 m. A shorter reaction time alone does not determine total stop across different speeds."
+      },
+      "must_explain": true,
+      "misconception_feedback": [
+        "Reaction distance is not total stopping distance.",
+        "Slope on a distance\u2013time graph represents speed.",
+        "A horizontal distance\u2013time segment means stopped."
+      ]
+    }
+  ],
+  "content_version": "2.0.1",
+  "authority": "Runtime scenario JSON and pure validator; original suggested wording retained only as reference in source handoff."
+}

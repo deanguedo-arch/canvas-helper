@@ -1,0 +1,98 @@
+{
+  "schemaVersion": 1,
+  "status": "deployed-and-live-verified",
+  "authorization": "Can you deploy these",
+  "scope": "Science 24 A–D on existing shared Biology Firebase teacher-review site",
+  "verifiedAt": "2026-10-02T23:18:07.416Z",
+  "purpose": "Teacher review only",
+  "hosting": {
+    "provider": "Firebase Hosting",
+    "projectId": "calm-module-one",
+    "siteId": "biology30pilot",
+    "url": "https://biology30pilot.web.app"
+  },
+  "reviewVersion": "20261002-science24-visual1",
+  "deployedAt": "2026-10-02T23:16:34.782Z",
+  "units": [
+    {
+      "id": "science24-unit-a",
+      "treeSha256": "93f61454a671c9060d809670e3fc23de0cd1d51c53922d25bb10a9426ba2ac9a",
+      "indexSha256": "0743da65433bdaec46ccca8dd4db12f2666182866d52bec6728ea71f3f1511f6",
+      "url": "https://biology30pilot.web.app/science24-unit-a/index.html?v=20261002-science24-visual1"
+    },
+    {
+      "id": "science24-unit-b",
+      "treeSha256": "ac666204be4fdaf5bac0a9f247b10da67e02c1df3edc4dc7d45736025b3e9f60",
+      "indexSha256": "b2029dcd19495e5f5789c70d451c082ebb52526e0adba8cbdb7f934e51b49234",
+      "url": "https://biology30pilot.web.app/science24-unit-b/index.html?v=20261002-science24-visual1"
+    },
+    {
+      "id": "science24-unit-c",
+      "treeSha256": "ab8d9222c899db2de5a3fc6e27982b0e35cd49a74fedfcd3e68f4f0943d78916",
+      "indexSha256": "73bf3253e0af04bebf8c9df9b455e33c66c836f4a4c06574e4dc9b3634cb2158",
+      "url": "https://biology30pilot.web.app/science24-unit-c/index.html?v=20261002-science24-visual1"
+    },
+    {
+      "id": "science24-unit-d",
+      "treeSha256": "8d7dccf0d159e121c80c6a7a8ae6aa5415fe70a57d2591a0d0564317482cd39b",
+      "indexSha256": "ef0288c7abe5765fb537e1687ed270e018601f1cd614f5ca88b46102c65f7698",
+      "url": "https://biology30pilot.web.app/science24-unit-d/index.html?v=20261002-science24-visual1"
+    }
+  ],
+  "verification": {
+    "fileCount": 671,
+    "allFilesMatch": true
+  },
+  "scienceFiles": 670,
+  "selectorFiles": 1,
+  "unrelatedFilesPreserved": 1883,
+  "allBlocked": true,
+  "deployCommand": "npx tsx scripts/deploy-biology30-current-review.mjs --deploy --refresh-science24",
+  "localCandidateChecksReusedOnlyAfterExactHashComparison": true,
+  "browser": {
+    "schemaVersion": 1,
+    "verifiedAt": "2026-10-02T23:17:11.771Z",
+    "selectorOptions": 17,
+    "routes": [
+      "science24-unit-a",
+      "science24-unit-b",
+      "science24-unit-c",
+      "science24-unit-d"
+    ],
+    "browserPageErrors": [],
+    "missingLocalAssets": [],
+    "scope": "science24-only",
+    "unrelatedBiologyMetadataPreserved": [
+      "projects/biology30-chapter-14/meta/integration-receipt.json",
+      "projects/biology30-chapter-15/meta/integration-receipt.json",
+      "projects/biology30-chapter-16/meta/integration-receipt.json",
+      "projects/biology30-chapter-17/meta/integration-receipt.json",
+      "projects/biology30-chapter-18/meta/integration-receipt.json",
+      "projects/biology30-chapter-19/meta/integration-receipt.json",
+      "projects/biology30-chapter-20/meta/integration-receipt.json"
+    ],
+    "externalPublisherPlayback": "Separate check; requests excluded in this synthetic browser context"
+  },
+  "sharedReceipt": {
+    "path": "projects/biology30-unit-a-pilot-2/meta/review-selector-deployment.json",
+    "sha256": "ef9a0c38dcfc315eb90ec1e8431d281bfda1c355bfef956806f4d93d03039db3",
+    "payloadFileCount": 2554,
+    "newOrChangedFilesVerifiedByOwner": 49,
+    "priorVerifiedFilesReusedByOwner": 2505
+  },
+  "tools": {
+    "scripts/deploy-biology30-current-review.mjs": "9ef2b9291b766e47b36ed7e44adbdd6fa79448550678fee75913041a50ba5f2f",
+    "scripts/lib/review-deployment-scope.mjs": "6c3729bedde080fac00de5caf477bf3a064a53c827e6f8a09cc453ec83432dff",
+    "scripts/tests/biology30-current-review-scope.test.mjs": "2bf7ef8defd5ded2512678a6123fc543bdd4ddb597f4d74263930b99075b8af5",
+    "scripts/tests/biology30-current-review-live.mjs": "a137cc0d1a7f8db6807ceab2b58ff80d855d29bf8da87ef91274a4275e60e7ce"
+  },
+  "workspaceVerification": "All four passed",
+  "scopeTests": {
+    "passed": 4,
+    "failed": 0
+  },
+  "teacherAcceptance": "pending",
+  "learnerRelease": false,
+  "courseAuthoringStatuses": "All four remain blocked",
+  "originalLocalComparisonUnchanged": true
+}

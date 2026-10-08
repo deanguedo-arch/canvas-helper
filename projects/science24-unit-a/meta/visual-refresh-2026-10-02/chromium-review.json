@@ -1,0 +1,4534 @@
+{
+  "schemaVersion": 1,
+  "scope": "Local Chromium A-D comparison candidate",
+  "studentData": "Isolated synthetic profile only",
+  "browserVersion": "145.0.7632.6",
+  "zoomMethod": "Real Chromium tabs.setZoom via temporary extension; confirmed innerWidth and devicePixelRatio",
+  "screenshots": "Complete changed-area captures use CDP coordinates scaled by actual tab zoom; fixed shell chrome hidden only during capture.",
+  "routes": [
+    {
+      "unit": "a",
+      "lesson": "01",
+      "width": 1440,
+      "zoom": 1,
+      "title": "Chemistry in everyday life",
+      "disposition": "keep",
+      "innerWidth": 1440,
+      "devicePixelRatio": 1,
+      "documentWidth": 1440,
+      "images": [
+        {
+          "src": "assets/chemistry-in-our-lives.png",
+          "complete": true,
+          "natural": 1586,
+          "box": {
+            "x": 375.359375,
+            "y": -1202.953125,
+            "w": 959.265625,
+            "h": 600
+          },
+          "parent": {
+            "x": 360,
+            "y": -1257.171875,
+            "w": 990,
+            "h": 756.59375
+          },
+          "ratio": 1.5987903225806452,
+          "renderRatio": 1.5983333333333334
+        },
+        {
+          "src": "assets/polymer-textiles.webp",
+          "complete": true,
+          "natural": 1500,
+          "box": {
+            "x": 366,
+            "y": 419.625,
+            "w": 678,
+            "h": 250
+          },
+          "parent": {
+            "x": 365,
+            "y": 353.625,
+            "w": 680,
+            "h": 393.46875
+          },
+          "ratio": 1.5,
+          "renderRatio": 2.712
+        }
+      ],
+      "videos": [],
+      "layouts": [],
+      "native": [],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "a",
+      "lesson": "02",
+      "width": 1440,
+      "zoom": 1,
+      "title": "Chemical safety: HHPS, WHMIS and safety data",
+      "disposition": "keep",
+      "innerWidth": 1440,
+      "devicePixelRatio": 1,
+      "documentWidth": 1440,
+      "images": [
+        {
+          "src": "assets/hhps-flammable.png",
+          "complete": true,
+          "natural": 500,
+          "box": {
+            "x": 532.5,
+            "y": -515.359375,
+            "w": 150,
+            "h": 150
+          },
+          "parent": {
+            "x": 361,
+            "y": -535.359375,
+            "w": 494,
+            "h": 307.84375
+          },
+          "ratio": 1.0224948875255624,
+          "renderRatio": 1
+        },
+        {
+          "src": "assets/whmis-flame.png",
+          "complete": true,
+          "natural": 298,
+          "box": {
+            "x": 1027,
+            "y": -515.359375,
+            "w": 150,
+            "h": 150
+          },
+          "parent": {
+            "x": 855,
+            "y": -535.359375,
+            "w": 494,
+            "h": 307.84375
+          },
+          "ratio": 1.0170648464163823,
+          "renderRatio": 1
+        },
+        {
+          "src": "assets/source-safety-symbols.jpg",
+          "complete": true,
+          "natural": 1200,
+          "box": {
+            "x": 650.109375,
+            "y": 244.609375,
+            "w": 409.78125,
+            "h": 600
+          },
+          "parent": {
+            "x": 360,
+            "y": 190.390625,
+            "w": 990,
+            "h": 756.59375
+          },
+          "ratio": 0.6829823562891292,
+          "renderRatio": 0.6833333333333333
+        }
+      ],
+      "videos": [
+        {
+          "box": {
+            "x": 306,
+            "y": 8162.703125,
+            "w": 1098,
+            "h": 838.78125
+          },
+          "card": {
+            "x": 360,
+            "y": 8292.421875,
+            "w": 990,
+            "h": 661.0625
+          },
+          "columns": "426.031px 489.953px",
+          "copy": {
+            "x": 385,
+            "y": 8317.421875,
+            "w": 426.03125,
+            "h": 319.53125
+          },
+          "stage": {
+            "x": 835.03125,
+            "y": 8317.421875,
+            "w": 489.953125,
+            "h": 275.59375
+          },
+          "written": "Written explanationRead the product label and SDS before use. Match PPE and handling steps to the actual hazard, keep containers controlled, avoid cross-contamination, and know the spill and first-aid response before starting.",
+          "focus": true
+        }
+      ],
+      "layouts": [],
+      "native": [],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "a",
+      "lesson": "03",
+      "width": 1440,
+      "zoom": 1,
+      "title": "Reactants, products and useful reactions",
+      "disposition": "keep",
+      "innerWidth": 1440,
+      "devicePixelRatio": 1,
+      "documentWidth": 1440,
+      "images": [
+        {
+          "src": "assets/reaction-map.svg",
+          "complete": true,
+          "natural": 300,
+          "box": {
+            "x": 361,
+            "y": 364.265625,
+            "w": 987.984375,
+            "h": 362.265625
+          },
+          "parent": {
+            "x": 360,
+            "y": 298.265625,
+            "w": 990,
+            "h": 482.5
+          },
+          "ratio": 2.727272727272727,
+          "renderRatio": 2.729281767955801
+        }
+      ],
+      "videos": [
+        {
+          "box": {
+            "x": 306,
+            "y": 7652.859375,
+            "w": 1098,
+            "h": 837
+          },
+          "card": {
+            "x": 360,
+            "y": 7782.578125,
+            "w": 990,
+            "h": 659.28125
+          },
+          "columns": "426.031px 489.953px",
+          "copy": {
+            "x": 385,
+            "y": 7807.578125,
+            "w": 426.03125,
+            "h": 317.75
+          },
+          "stage": {
+            "x": 835.03125,
+            "y": 7807.578125,
+            "w": 489.953125,
+            "h": 275.59375
+          },
+          "written": "Written explanationReaction types describe recurring patterns. Combination joins simpler reactants into a more complex product. Decomposition splits one reactant into simpler products. Combustion involves rapid reaction with oxygen. Replacement reactions rearrange which substances are paired.",
+          "focus": true
+        }
+      ],
+      "layouts": [],
+      "native": [],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "a",
+      "lesson": "04",
+      "width": 1440,
+      "zoom": 1,
+      "title": "Evidence of chemical change",
+      "disposition": "refreshed",
+      "innerWidth": 1440,
+      "devicePixelRatio": 1,
+      "documentWidth": 1440,
+      "images": [
+        {
+          "src": "assets/source-chemical-evidence-p34.jpg",
+          "complete": true,
+          "natural": 425,
+          "box": {
+            "x": 907.015625,
+            "y": 305.109375,
+            "w": 425,
+            "h": 480
+          },
+          "parent": {
+            "x": 889.03125,
+            "y": 239.109375,
+            "w": 460.96875,
+            "h": 669.9375
+          },
+          "ratio": 0.8854166666666666,
+          "renderRatio": 0.8854166666666666
+        }
+      ],
+      "videos": [
+        {
+          "box": {
+            "x": 360,
+            "y": 989.046875,
+            "w": 990,
+            "h": 908.4375
+          },
+          "card": {
+            "x": 388,
+            "y": 1110.765625,
+            "w": 937,
+            "h": 745.71875
+          },
+          "columns": "401.391px 461.594px",
+          "copy": {
+            "x": 413,
+            "y": 1135.765625,
+            "w": 401.390625,
+            "h": 375.96875
+          },
+          "stage": {
+            "x": 838.390625,
+            "y": 1135.765625,
+            "w": 461.59375,
+            "h": 259.640625
+          },
+          "written": "Written explanationGas production, a colour change, a temperature change or a new solid can be evidence that substances have reacted. The observation must be interpreted in context: bubbles from boiling and colour from simple mixing do not by themselves prove a chemical reaction. Different starting substances can produce different observations.",
+          "focus": true
+        }
+      ],
+      "layouts": [],
+      "native": [],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "a",
+      "lesson": "05",
+      "width": 1440,
+      "zoom": 1,
+      "title": "Energy changes in reactions",
+      "disposition": "refreshed",
+      "innerWidth": 1440,
+      "devicePixelRatio": 1,
+      "documentWidth": 1440,
+      "images": [
+        {
+          "src": "assets/visual-refresh/a-energy-levels.svg",
+          "complete": true,
+          "natural": 600,
+          "box": {
+            "x": 555,
+            "y": 329.765625,
+            "w": 600,
+            "h": 430
+          },
+          "parent": {
+            "x": 360,
+            "y": 259.765625,
+            "w": 990,
+            "h": 618.578125
+          },
+          "ratio": 1.3953488372093024,
+          "renderRatio": 1.3953488372093024
+        }
+      ],
+      "videos": [
+        {
+          "box": {
+            "x": 360,
+            "y": -683.296875,
+            "w": 990,
+            "h": 795.5625
+          },
+          "card": {
+            "x": 388,
+            "y": -561.578125,
+            "w": 937,
+            "h": 632.84375
+          },
+          "columns": "401.391px 461.594px",
+          "copy": {
+            "x": 413,
+            "y": -536.578125,
+            "w": 401.390625,
+            "h": 291.3125
+          },
+          "stage": {
+            "x": 838.390625,
+            "y": -536.578125,
+            "w": 461.59375,
+            "h": 259.640625
+          },
+          "written": "Written explanationBreaking bonds requires energy and forming bonds releases energy. A reaction is exothermic when it releases energy overall to its surroundings; it is endothermic when it takes energy in overall. An initial energy input does not determine the net classification.",
+          "focus": true
+        }
+      ],
+      "layouts": [],
+      "native": [
+        {
+          "box": {
+            "x": 360,
+            "y": 259.765625,
+            "w": 990,
+            "h": 618.578125
+          },
+          "caption": "ExothermicProducts have lower chemical energy; net energy leaves the reacting system.EndothermicProducts have higher chemical energy; net energy enters the reacting system.Chemical energy is lower after an exothermic reaction and higher after an endothermic reaction. The arrows represent net transfer, not a particular molecular equation.Original course diagram authored for Science 24.",
+          "font": "16px",
+          "narrowNotes": "none"
+        }
+      ],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "a",
+      "lesson": "06",
+      "width": 1440,
+      "zoom": 1,
+      "title": "Writing and reading word equations",
+      "disposition": "refreshed",
+      "innerWidth": 1440,
+      "devicePixelRatio": 1,
+      "documentWidth": 1440,
+      "images": [
+        {
+          "src": "assets/visual-refresh/a-word-equation.svg",
+          "complete": true,
+          "natural": 600,
+          "box": {
+            "x": 555,
+            "y": 334.84375,
+            "w": 600,
+            "h": 420
+          },
+          "parent": {
+            "x": 360,
+            "y": 264.84375,
+            "w": 990,
+            "h": 608.578125
+          },
+          "ratio": 1.4285714285714286,
+          "renderRatio": 1.4285714285714286
+        }
+      ],
+      "videos": [],
+      "layouts": [],
+      "native": [
+        {
+          "box": {
+            "x": 360,
+            "y": 264.84375,
+            "w": 990,
+            "h": 608.578125
+          },
+          "caption": "ReactantsMagnesium and oxygen are the starting substances.ArrowRead the arrow as “produces.”ProductMagnesium oxide is the substance formed.Magnesium and oxygen are reactants; magnesium oxide is the product. The word equation names substances without specifying particle ratios.Original course diagram authored for Science 24.",
+          "font": "16px",
+          "narrowNotes": "none"
+        }
+      ],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "a",
+      "lesson": "07",
+      "width": 1440,
+      "zoom": 1,
+      "title": "Recognizing reaction types",
+      "disposition": "keep",
+      "innerWidth": 1440,
+      "devicePixelRatio": 1,
+      "documentWidth": 1440,
+      "images": [
+        {
+          "src": "assets/source-reaction-types.jpg",
+          "complete": true,
+          "natural": 1200,
+          "box": {
+            "x": 573.3125,
+            "y": 244.859375,
+            "w": 563.375,
+            "h": 600
+          },
+          "parent": {
+            "x": 360,
+            "y": 190.640625,
+            "w": 990,
+            "h": 733.359375
+          },
+          "ratio": 0.9389671361502347,
+          "renderRatio": 0.9383333333333334
+        }
+      ],
+      "videos": [
+        {
+          "box": {
+            "x": 306,
+            "y": 7633.859375,
+            "w": 1098,
+            "h": 837
+          },
+          "card": {
+            "x": 360,
+            "y": 7763.578125,
+            "w": 990,
+            "h": 659.28125
+          },
+          "columns": "426.031px 489.953px",
+          "copy": {
+            "x": 385,
+            "y": 7788.578125,
+            "w": 426.03125,
+            "h": 317.75
+          },
+          "stage": {
+            "x": 835.03125,
+            "y": 7788.578125,
+            "w": 489.953125,
+            "h": 275.59375
+          },
+          "written": "Written explanationReaction types describe recurring patterns. Combination joins simpler reactants into a more complex product. Decomposition splits one reactant into simpler products. Combustion involves rapid reaction with oxygen. Replacement reactions rearrange which substances are paired.",
+          "focus": true
+        }
+      ],
+      "layouts": [],
+      "native": [],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "a",
+      "lesson": "08",
+      "width": 1440,
+      "zoom": 1,
+      "title": "Chemical formulas, common names and states",
+      "disposition": "keep",
+      "innerWidth": 1440,
+      "devicePixelRatio": 1,
+      "documentWidth": 1440,
+      "images": [],
+      "videos": [
+        {
+          "box": {
+            "x": 306,
+            "y": 8214.40625,
+            "w": 1098,
+            "h": 895.21875
+          },
+          "card": {
+            "x": 360,
+            "y": 8344.125,
+            "w": 990,
+            "h": 717.5
+          },
+          "columns": "426.031px 489.953px",
+          "copy": {
+            "x": 385,
+            "y": 8369.125,
+            "w": 426.03125,
+            "h": 375.96875
+          },
+          "stage": {
+            "x": 835.03125,
+            "y": 8369.125,
+            "w": 489.953125,
+            "h": 275.59375
+          },
+          "written": "Written explanationA chemical formula identifies the elements and their ratios in a substance. A subscript belongs to the formula and changes substance composition. A coefficient in front of the formula changes only how many particles or formula units are counted.",
+          "focus": true
+        }
+      ],
+      "layouts": [],
+      "native": [],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "a",
+      "lesson": "09",
+      "width": 1440,
+      "zoom": 1,
+      "title": "Conservation of mass and balancing equations",
+      "disposition": "refreshed",
+      "innerWidth": 1440,
+      "devicePixelRatio": 1,
+      "documentWidth": 1440,
+      "images": [],
+      "videos": [
+        {
+          "box": {
+            "x": 360,
+            "y": 2867.078125,
+            "w": 990,
+            "h": 823.78125
+          },
+          "card": {
+            "x": 388,
+            "y": 2988.796875,
+            "w": 937,
+            "h": 661.0625
+          },
+          "columns": "401.391px 461.594px",
+          "copy": {
+            "x": 413,
+            "y": 3013.796875,
+            "w": 401.390625,
+            "h": 319.53125
+          },
+          "stage": {
+            "x": 838.390625,
+            "y": 3013.796875,
+            "w": 461.59375,
+            "h": 259.640625
+          },
+          "written": "Written explanationBalancing is an accounting problem. Count each element in the reactants and products, change coefficients to make the counts equal, and recount after every change. Never change a subscript to force a balance because that changes the substance itself.",
+          "focus": true
+        }
+      ],
+      "layouts": [],
+      "native": [],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "a",
+      "lesson": "10",
+      "width": 1440,
+      "zoom": 1,
+      "title": "Fossil fuel combustion",
+      "disposition": "keep",
+      "innerWidth": 1440,
+      "devicePixelRatio": 1,
+      "documentWidth": 1440,
+      "images": [
+        {
+          "src": "assets/source-combustion.jpg",
+          "complete": true,
+          "natural": 1200,
+          "box": {
+            "x": 601.296875,
+            "y": 244.703125,
+            "w": 507.390625,
+            "h": 600
+          },
+          "parent": {
+            "x": 360,
+            "y": 190.484375,
+            "w": 990,
+            "h": 756.59375
+          },
+          "ratio": 0.8456659619450317,
+          "renderRatio": 0.845
+        }
+      ],
+      "videos": [],
+      "layouts": [],
+      "native": [],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "a",
+      "lesson": "11",
+      "width": 1440,
+      "zoom": 1,
+      "title": "Greenhouse gases and climate change",
+      "disposition": "keep",
+      "innerWidth": 1440,
+      "devicePixelRatio": 1,
+      "documentWidth": 1440,
+      "images": [
+        {
+          "src": "assets/greenhouse.svg",
+          "complete": true,
+          "natural": 300,
+          "box": {
+            "x": 361,
+            "y": 363.421875,
+            "w": 987.984375,
+            "h": 362.265625
+          },
+          "parent": {
+            "x": 360,
+            "y": 297.421875,
+            "w": 990,
+            "h": 505.734375
+          },
+          "ratio": 2.727272727272727,
+          "renderRatio": 2.729281767955801
+        }
+      ],
+      "videos": [
+        {
+          "box": {
+            "x": 306,
+            "y": 7879.328125,
+            "w": 1098,
+            "h": 838.78125
+          },
+          "card": {
+            "x": 360,
+            "y": 8009.046875,
+            "w": 990,
+            "h": 661.0625
+          },
+          "columns": "426.031px 489.953px",
+          "copy": {
+            "x": 385,
+            "y": 8034.046875,
+            "w": 426.03125,
+            "h": 319.53125
+          },
+          "stage": {
+            "x": 835.03125,
+            "y": 8034.046875,
+            "w": 489.953125,
+            "h": 275.59375
+          },
+          "written": "Written explanationComplete combustion of carbon-containing fuels transfers carbon into carbon dioxide. Adding CO₂ increases the atmosphere’s ability to absorb and re-emit infrared radiation. Energy still leaves Earth, but the balance changes until the climate system reaches a new energy balance.",
+          "focus": true
+        }
+      ],
+      "layouts": [],
+      "native": [],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "a",
+      "lesson": "12",
+      "width": 1440,
+      "zoom": 1,
+      "title": "Acid deposition, pH and neutralization",
+      "disposition": "keep",
+      "innerWidth": 1440,
+      "devicePixelRatio": 1,
+      "documentWidth": 1440,
+      "images": [
+        {
+          "src": "assets/source-acid-base.jpg",
+          "complete": true,
+          "natural": 1200,
+          "box": {
+            "x": 609.765625,
+            "y": 244.515625,
+            "w": 490.453125,
+            "h": 600
+          },
+          "parent": {
+            "x": 360,
+            "y": 190.296875,
+            "w": 990,
+            "h": 756.59375
+          },
+          "ratio": 0.8174386920980926,
+          "renderRatio": 0.8166666666666667
+        }
+      ],
+      "videos": [
+        {
+          "box": {
+            "x": 306,
+            "y": 7559.890625,
+            "w": 1098,
+            "h": 837
+          },
+          "card": {
+            "x": 360,
+            "y": 7689.609375,
+            "w": 990,
+            "h": 659.28125
+          },
+          "columns": "426.031px 489.953px",
+          "copy": {
+            "x": 385,
+            "y": 7714.609375,
+            "w": 426.03125,
+            "h": 317.75
+          },
+          "stage": {
+            "x": 835.03125,
+            "y": 7714.609375,
+            "w": 489.953125,
+            "h": 275.59375
+          },
+          "written": "Written explanationpH is a scale used to describe acidity and basicity. Indicators provide evidence by changing colour. Neutralization involves an acid and a base reacting so that their acidic/basic properties are reduced as new products form.",
+          "focus": true
+        }
+      ],
+      "layouts": [],
+      "native": [],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "a",
+      "lesson": "13",
+      "width": 1440,
+      "zoom": 1,
+      "title": "Reducing acid-forming emissions",
+      "disposition": "keep",
+      "innerWidth": 1440,
+      "devicePixelRatio": 1,
+      "documentWidth": 1440,
+      "images": [],
+      "videos": [],
+      "layouts": [],
+      "native": [],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "a",
+      "lesson": "14",
+      "width": 1440,
+      "zoom": 1,
+      "title": "Corrosion, rusting and protecting metals",
+      "disposition": "keep",
+      "innerWidth": 1440,
+      "devicePixelRatio": 1,
+      "documentWidth": 1440,
+      "images": [
+        {
+          "src": "assets/corrosion-protection.png",
+          "complete": true,
+          "natural": 1586,
+          "box": {
+            "x": 375.359375,
+            "y": -853.390625,
+            "w": 959.265625,
+            "h": 600
+          },
+          "parent": {
+            "x": 360,
+            "y": -907.609375,
+            "w": 990,
+            "h": 733.359375
+          },
+          "ratio": 1.5987903225806452,
+          "renderRatio": 1.5983333333333334
+        },
+        {
+          "src": "assets/corrosion.svg",
+          "complete": true,
+          "natural": 300,
+          "box": {
+            "x": 361,
+            "y": 363.4375,
+            "w": 987.984375,
+            "h": 362.265625
+          },
+          "parent": {
+            "x": 360,
+            "y": 297.4375,
+            "w": 990,
+            "h": 482.5
+          },
+          "ratio": 2.727272727272727,
+          "renderRatio": 2.729281767955801
+        }
+      ],
+      "videos": [
+        {
+          "box": {
+            "x": 306,
+            "y": 7455.703125,
+            "w": 1098,
+            "h": 808.78125
+          },
+          "card": {
+            "x": 360,
+            "y": 7585.421875,
+            "w": 990,
+            "h": 631.0625
+          },
+          "columns": "426.031px 489.953px",
+          "copy": {
+            "x": 385,
+            "y": 7610.421875,
+            "w": 426.03125,
+            "h": 289.53125
+          },
+          "stage": {
+            "x": 835.03125,
+            "y": 7610.421875,
+            "w": 489.953125,
+            "h": 275.59375
+          },
+          "written": "Written explanationIron rusts when iron, oxygen and water can interact. Paint and other barrier coatings reduce contact with oxygen and water. Galvanizing adds zinc, which can act as both a barrier and a sacrificial metal. A sacrificial metal corrodes preferentially and protects the iron or steel.",
+          "focus": true
+        }
+      ],
+      "layouts": [],
+      "native": [],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "a",
+      "lesson": "15",
+      "width": 1440,
+      "zoom": 1,
+      "title": "Bring the chemistry together",
+      "disposition": "refreshed",
+      "innerWidth": 1440,
+      "devicePixelRatio": 1,
+      "documentWidth": 1440,
+      "images": [
+        {
+          "src": "assets/visual-refresh/a-summary.svg",
+          "complete": true,
+          "natural": 600,
+          "box": {
+            "x": 555,
+            "y": 339.71875,
+            "w": 600,
+            "h": 660
+          },
+          "parent": {
+            "x": 360,
+            "y": 269.71875,
+            "w": 990,
+            "h": 848.578125
+          },
+          "ratio": 0.9090909090909091,
+          "renderRatio": 0.9090909090909091
+        }
+      ],
+      "videos": [],
+      "layouts": [],
+      "native": [
+        {
+          "box": {
+            "x": 360,
+            "y": 269.71875,
+            "w": 990,
+            "h": 848.578125
+          },
+          "caption": "Choose a materialConnect its properties with the job.Explain a reactionUse evidence of new substances; account for atoms and energy transfer.Support a claimExplain the pathway and the limits of the evidence.Use the same reasoning from the lessons: identify the material, interpret chemical change, account for atoms, trace energy and support a claim with evidence.Original course diagram authored for Science 24.",
+          "font": "16px",
+          "narrowNotes": "none"
+        }
+      ],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "a",
+      "lesson": "01",
+      "width": 820,
+      "zoom": 1,
+      "title": "Chemistry in everyday life",
+      "disposition": "keep",
+      "innerWidth": 820,
+      "devicePixelRatio": 1,
+      "documentWidth": 820,
+      "images": [
+        {
+          "src": "assets/chemistry-in-our-lives.png",
+          "complete": true,
+          "natural": 1586,
+          "box": {
+            "x": 324,
+            "y": -1265.828125,
+            "w": 409.984375,
+            "h": 256.4375
+          },
+          "parent": {
+            "x": 323,
+            "y": -1348.265625,
+            "w": 412,
+            "h": 464.484375
+          },
+          "ratio": 1.5987903225806452,
+          "renderRatio": 1.6015625
+        },
+        {
+          "src": "assets/polymer-textiles.webp",
+          "complete": true,
+          "natural": 1500,
+          "box": {
+            "x": 329,
+            "y": 420.15625,
+            "w": 405,
+            "h": 250
+          },
+          "parent": {
+            "x": 328,
+            "y": 337.71875,
+            "w": 407,
+            "h": 433.140625
+          },
+          "ratio": 1.5,
+          "renderRatio": 1.62
+        }
+      ],
+      "videos": [],
+      "layouts": [],
+      "native": [],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "a",
+      "lesson": "02",
+      "width": 820,
+      "zoom": 1,
+      "title": "Chemical safety: HHPS, WHMIS and safety data",
+      "disposition": "keep",
+      "innerWidth": 820,
+      "devicePixelRatio": 1,
+      "documentWidth": 820,
+      "images": [
+        {
+          "src": "assets/hhps-flammable.png",
+          "complete": true,
+          "natural": 500,
+          "box": {
+            "x": 351,
+            "y": -834.078125,
+            "w": 150,
+            "h": 150
+          },
+          "parent": {
+            "x": 324,
+            "y": -854.078125,
+            "w": 205,
+            "h": 446.1875
+          },
+          "ratio": 1.0224948875255624,
+          "renderRatio": 1
+        },
+        {
+          "src": "assets/whmis-flame.png",
+          "complete": true,
+          "natural": 298,
+          "box": {
+            "x": 556.5,
+            "y": -834.078125,
+            "w": 150,
+            "h": 150
+          },
+          "parent": {
+            "x": 529,
+            "y": -854.078125,
+            "w": 205,
+            "h": 446.1875
+          },
+          "ratio": 1.0170648464163823,
+          "renderRatio": 1
+        },
+        {
+          "src": "assets/source-safety-symbols.jpg",
+          "complete": true,
+          "natural": 1200,
+          "box": {
+            "x": 324.109375,
+            "y": 245.140625,
+            "w": 409.78125,
+            "h": 600
+          },
+          "parent": {
+            "x": 323,
+            "y": 162.703125,
+            "w": 412,
+            "h": 831.28125
+          },
+          "ratio": 0.6829823562891292,
+          "renderRatio": 0.6833333333333333
+        }
+      ],
+      "videos": [
+        {
+          "box": {
+            "x": 269,
+            "y": 9831.125,
+            "w": 520,
+            "h": 1221.78125
+          },
+          "card": {
+            "x": 323,
+            "y": 9995.34375,
+            "w": 412,
+            "h": 1009.5625
+          },
+          "columns": "362px",
+          "copy": {
+            "x": 348,
+            "y": 10020.34375,
+            "w": 362,
+            "h": 347.75
+          },
+          "stage": {
+            "x": 348,
+            "y": 10388.09375,
+            "w": 362,
+            "h": 203.625
+          },
+          "written": "Written explanationRead the product label and SDS before use. Match PPE and handling steps to the actual hazard, keep containers controlled, avoid cross-contamination, and know the spill and first-aid response before starting.",
+          "focus": true
+        }
+      ],
+      "layouts": [],
+      "native": [],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "a",
+      "lesson": "03",
+      "width": 820,
+      "zoom": 1,
+      "title": "Reactants, products and useful reactions",
+      "disposition": "keep",
+      "innerWidth": 820,
+      "devicePixelRatio": 1,
+      "documentWidth": 820,
+      "images": [],
+      "videos": [
+        {
+          "box": {
+            "x": 269,
+            "y": 11110.125,
+            "w": 520,
+            "h": 1304.65625
+          },
+          "card": {
+            "x": 323,
+            "y": 11274.34375,
+            "w": 412,
+            "h": 1092.4375
+          },
+          "columns": "362px",
+          "copy": {
+            "x": 348,
+            "y": 11299.34375,
+            "w": 362,
+            "h": 345.96875
+          },
+          "stage": {
+            "x": 348,
+            "y": 11665.3125,
+            "w": 362,
+            "h": 203.625
+          },
+          "written": "Written explanationReaction types describe recurring patterns. Combination joins simpler reactants into a more complex product. Decomposition splits one reactant into simpler products. Combustion involves rapid reaction with oxygen. Replacement reactions rearrange which substances are paired.",
+          "focus": true
+        }
+      ],
+      "layouts": [],
+      "native": [],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "a",
+      "lesson": "04",
+      "width": 820,
+      "zoom": 1,
+      "title": "Evidence of chemical change",
+      "disposition": "refreshed",
+      "innerWidth": 820,
+      "devicePixelRatio": 1,
+      "documentWidth": 820,
+      "images": [],
+      "videos": [
+        {
+          "box": {
+            "x": 323,
+            "y": 2895.421875,
+            "w": 412,
+            "h": 1487.375
+          },
+          "card": {
+            "x": 351,
+            "y": 3051.640625,
+            "w": 359,
+            "h": 1290.15625
+          },
+          "columns": "309px",
+          "copy": {
+            "x": 376,
+            "y": 3076.640625,
+            "w": 309,
+            "h": 460.625
+          },
+          "stage": {
+            "x": 376,
+            "y": 3557.265625,
+            "w": 309,
+            "h": 173.8125
+          },
+          "written": "Written explanationGas production, a colour change, a temperature change or a new solid can be evidence that substances have reacted. The observation must be interpreted in context: bubbles from boiling and colour from simple mixing do not by themselves prove a chemical reaction. Different starting substances can produce different observations.",
+          "focus": true
+        }
+      ],
+      "layouts": [],
+      "native": [],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "a",
+      "lesson": "05",
+      "width": 820,
+      "zoom": 1,
+      "title": "Energy changes in reactions",
+      "disposition": "refreshed",
+      "innerWidth": 820,
+      "devicePixelRatio": 1,
+      "documentWidth": 820,
+      "images": [
+        {
+          "src": "assets/visual-refresh/a-energy-levels.svg",
+          "complete": true,
+          "natural": 600,
+          "box": {
+            "x": 324,
+            "y": 397.625,
+            "w": 410,
+            "h": 293.828125
+          },
+          "parent": {
+            "x": 323,
+            "y": 327.625,
+            "w": 412,
+            "h": 725.15625
+          },
+          "ratio": 1.3953488372093024,
+          "renderRatio": 1.3945578231292517
+        }
+      ],
+      "videos": [
+        {
+          "box": {
+            "x": 323,
+            "y": -1109.71875,
+            "w": 412,
+            "h": 1289.84375
+          },
+          "card": {
+            "x": 351,
+            "y": -953.5,
+            "w": 359,
+            "h": 1092.625
+          },
+          "columns": "309px",
+          "copy": {
+            "x": 376,
+            "y": -928.5,
+            "w": 309,
+            "h": 347.75
+          },
+          "stage": {
+            "x": 376,
+            "y": -560.75,
+            "w": 309,
+            "h": 173.8125
+          },
+          "written": "Written explanationBreaking bonds requires energy and forming bonds releases energy. A reaction is exothermic when it releases energy overall to its surroundings; it is endothermic when it takes energy in overall. An initial energy input does not determine the net classification.",
+          "focus": true
+        }
+      ],
+      "layouts": [],
+      "native": [
+        {
+          "box": {
+            "x": 323,
+            "y": 327.625,
+            "w": 412,
+            "h": 725.15625
+          },
+          "caption": "ExothermicProducts have lower chemical energy; net energy leaves the reacting system.EndothermicProducts have higher chemical energy; net energy enters the reacting system.Chemical energy is lower after an exothermic reaction and higher after an endothermic reaction. The arrows represent net transfer, not a particular molecular equation.Original course diagram authored for Science 24.",
+          "font": "16px",
+          "narrowNotes": "grid"
+        }
+      ],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "a",
+      "lesson": "06",
+      "width": 820,
+      "zoom": 1,
+      "title": "Writing and reading word equations",
+      "disposition": "refreshed",
+      "innerWidth": 820,
+      "devicePixelRatio": 1,
+      "documentWidth": 820,
+      "images": [
+        {
+          "src": "assets/visual-refresh/a-word-equation.svg",
+          "complete": true,
+          "natural": 600,
+          "box": {
+            "x": 324,
+            "y": 401.765625,
+            "w": 410,
+            "h": 287
+          },
+          "parent": {
+            "x": 323,
+            "y": 331.765625,
+            "w": 412,
+            "h": 708.734375
+          },
+          "ratio": 1.4285714285714286,
+          "renderRatio": 1.4285714285714286
+        }
+      ],
+      "videos": [],
+      "layouts": [],
+      "native": [
+        {
+          "box": {
+            "x": 323,
+            "y": 331.765625,
+            "w": 412,
+            "h": 708.734375
+          },
+          "caption": "ReactantsMagnesium and oxygen are the starting substances.ArrowRead the arrow as “produces.”ProductMagnesium oxide is the substance formed.Magnesium and oxygen are reactants; magnesium oxide is the product. The word equation names substances without specifying particle ratios.Original course diagram authored for Science 24.",
+          "font": "16px",
+          "narrowNotes": "grid"
+        }
+      ],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "a",
+      "lesson": "07",
+      "width": 820,
+      "zoom": 1,
+      "title": "Recognizing reaction types",
+      "disposition": "keep",
+      "innerWidth": 820,
+      "devicePixelRatio": 1,
+      "documentWidth": 820,
+      "images": [],
+      "videos": [
+        {
+          "box": {
+            "x": 269,
+            "y": 11103.953125,
+            "w": 520,
+            "h": 1304.65625
+          },
+          "card": {
+            "x": 323,
+            "y": 11268.171875,
+            "w": 412,
+            "h": 1092.4375
+          },
+          "columns": "362px",
+          "copy": {
+            "x": 348,
+            "y": 11293.171875,
+            "w": 362,
+            "h": 345.96875
+          },
+          "stage": {
+            "x": 348,
+            "y": 11659.140625,
+            "w": 362,
+            "h": 203.625
+          },
+          "written": "Written explanationReaction types describe recurring patterns. Combination joins simpler reactants into a more complex product. Decomposition splits one reactant into simpler products. Combustion involves rapid reaction with oxygen. Replacement reactions rearrange which substances are paired.",
+          "focus": true
+        }
+      ],
+      "layouts": [],
+      "native": [],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "a",
+      "lesson": "08",
+      "width": 820,
+      "zoom": 1,
+      "title": "Chemical formulas, common names and states",
+      "disposition": "keep",
+      "innerWidth": 820,
+      "devicePixelRatio": 1,
+      "documentWidth": 820,
+      "images": [],
+      "videos": [
+        {
+          "box": {
+            "x": 269,
+            "y": 10080.265625,
+            "w": 520,
+            "h": 1334.65625
+          },
+          "card": {
+            "x": 323,
+            "y": 10244.484375,
+            "w": 412,
+            "h": 1122.4375
+          },
+          "columns": "362px",
+          "copy": {
+            "x": 348,
+            "y": 10269.484375,
+            "w": 362,
+            "h": 404.1875
+          },
+          "stage": {
+            "x": 348,
+            "y": 10693.671875,
+            "w": 362,
+            "h": 203.625
+          },
+          "written": "Written explanationA chemical formula identifies the elements and their ratios in a substance. A subscript belongs to the formula and changes substance composition. A coefficient in front of the formula changes only how many particles or formula units are counted.",
+          "focus": true
+        }
+      ],
+      "layouts": [],
+      "native": [],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "a",
+      "lesson": "09",
+      "width": 820,
+      "zoom": 1,
+      "title": "Conservation of mass and balancing equations",
+      "disposition": "refreshed",
+      "innerWidth": 820,
+      "devicePixelRatio": 1,
+      "documentWidth": 820,
+      "images": [],
+      "videos": [
+        {
+          "box": {
+            "x": 323,
+            "y": 3495.9375,
+            "w": 412,
+            "h": 1318.0625
+          },
+          "card": {
+            "x": 351,
+            "y": 3652.15625,
+            "w": 359,
+            "h": 1120.84375
+          },
+          "columns": "309px",
+          "copy": {
+            "x": 376,
+            "y": 3677.15625,
+            "w": 309,
+            "h": 375.96875
+          },
+          "stage": {
+            "x": 376,
+            "y": 4073.125,
+            "w": 309,
+            "h": 173.8125
+          },
+          "written": "Written explanationBalancing is an accounting problem. Count each element in the reactants and products, change coefficients to make the counts equal, and recount after every change. Never change a subscript to force a balance because that changes the substance itself.",
+          "focus": true
+        }
+      ],
+      "layouts": [],
+      "native": [],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "a",
+      "lesson": "10",
+      "width": 820,
+      "zoom": 1,
+      "title": "Fossil fuel combustion",
+      "disposition": "keep",
+      "innerWidth": 820,
+      "devicePixelRatio": 1,
+      "documentWidth": 820,
+      "images": [],
+      "videos": [],
+      "layouts": [],
+      "native": [],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "a",
+      "lesson": "11",
+      "width": 820,
+      "zoom": 1,
+      "title": "Greenhouse gases and climate change",
+      "disposition": "keep",
+      "innerWidth": 820,
+      "devicePixelRatio": 1,
+      "documentWidth": 820,
+      "images": [
+        {
+          "src": "assets/greenhouse.svg",
+          "complete": true,
+          "natural": 300,
+          "box": {
+            "x": 324,
+            "y": 469.484375,
+            "w": 409.984375,
+            "h": 150.328125
+          },
+          "parent": {
+            "x": 323,
+            "y": 387.046875,
+            "w": 412,
+            "h": 333.46875
+          },
+          "ratio": 2.727272727272727,
+          "renderRatio": 2.7333333333333334
+        }
+      ],
+      "videos": [
+        {
+          "box": {
+            "x": 269,
+            "y": 9684.1875,
+            "w": 520,
+            "h": 1278.21875
+          },
+          "card": {
+            "x": 323,
+            "y": 9848.40625,
+            "w": 412,
+            "h": 1066
+          },
+          "columns": "362px",
+          "copy": {
+            "x": 348,
+            "y": 9873.40625,
+            "w": 362,
+            "h": 319.53125
+          },
+          "stage": {
+            "x": 348,
+            "y": 10212.9375,
+            "w": 362,
+            "h": 203.625
+          },
+          "written": "Written explanationComplete combustion of carbon-containing fuels transfers carbon into carbon dioxide. Adding CO₂ increases the atmosphere’s ability to absorb and re-emit infrared radiation. Energy still leaves Earth, but the balance changes until the climate system reaches a new energy balance.",
+          "focus": true
+        }
+      ],
+      "layouts": [],
+      "native": [],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "a",
+      "lesson": "12",
+      "width": 820,
+      "zoom": 1,
+      "title": "Acid deposition, pH and neutralization",
+      "disposition": "keep",
+      "innerWidth": 820,
+      "devicePixelRatio": 1,
+      "documentWidth": 820,
+      "images": [],
+      "videos": [
+        {
+          "box": {
+            "x": 269,
+            "y": 10983.109375,
+            "w": 520,
+            "h": 1213.71875
+          },
+          "card": {
+            "x": 323,
+            "y": 11112.828125,
+            "w": 412,
+            "h": 1036
+          },
+          "columns": "362px",
+          "copy": {
+            "x": 348,
+            "y": 11137.828125,
+            "w": 362,
+            "h": 345.96875
+          },
+          "stage": {
+            "x": 348,
+            "y": 11503.796875,
+            "w": 362,
+            "h": 203.625
+          },
+          "written": "Written explanationpH is a scale used to describe acidity and basicity. Indicators provide evidence by changing colour. Neutralization involves an acid and a base reacting so that their acidic/basic properties are reduced as new products form.",
+          "focus": true
+        }
+      ],
+      "layouts": [],
+      "native": [],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "a",
+      "lesson": "13",
+      "width": 820,
+      "zoom": 1,
+      "title": "Reducing acid-forming emissions",
+      "disposition": "keep",
+      "innerWidth": 820,
+      "devicePixelRatio": 1,
+      "documentWidth": 820,
+      "images": [],
+      "videos": [],
+      "layouts": [],
+      "native": [],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "a",
+      "lesson": "14",
+      "width": 820,
+      "zoom": 1,
+      "title": "Corrosion, rusting and protecting metals",
+      "disposition": "keep",
+      "innerWidth": 820,
+      "devicePixelRatio": 1,
+      "documentWidth": 820,
+      "images": [
+        {
+          "src": "assets/corrosion-protection.png",
+          "complete": true,
+          "natural": 1586,
+          "box": {
+            "x": 324,
+            "y": 416.796875,
+            "w": 409.984375,
+            "h": 256.4375
+          },
+          "parent": {
+            "x": 323,
+            "y": 334.359375,
+            "w": 412,
+            "h": 464.484375
+          },
+          "ratio": 1.5987903225806452,
+          "renderRatio": 1.6015625
+        }
+      ],
+      "videos": [
+        {
+          "box": {
+            "x": 269,
+            "y": 9866.375,
+            "w": 520,
+            "h": 1248.21875
+          },
+          "card": {
+            "x": 323,
+            "y": 10030.59375,
+            "w": 412,
+            "h": 1036
+          },
+          "columns": "362px",
+          "copy": {
+            "x": 348,
+            "y": 10055.59375,
+            "w": 362,
+            "h": 317.75
+          },
+          "stage": {
+            "x": 348,
+            "y": 10393.34375,
+            "w": 362,
+            "h": 203.625
+          },
+          "written": "Written explanationIron rusts when iron, oxygen and water can interact. Paint and other barrier coatings reduce contact with oxygen and water. Galvanizing adds zinc, which can act as both a barrier and a sacrificial metal. A sacrificial metal corrodes preferentially and protects the iron or steel.",
+          "focus": true
+        }
+      ],
+      "layouts": [],
+      "native": [],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "a",
+      "lesson": "15",
+      "width": 820,
+      "zoom": 1,
+      "title": "Bring the chemistry together",
+      "disposition": "refreshed",
+      "innerWidth": 820,
+      "devicePixelRatio": 1,
+      "documentWidth": 820,
+      "images": [
+        {
+          "src": "assets/visual-refresh/a-summary.svg",
+          "complete": true,
+          "natural": 600,
+          "box": {
+            "x": 324,
+            "y": 548.96875,
+            "w": 410,
+            "h": 451
+          },
+          "parent": {
+            "x": 323,
+            "y": 478.96875,
+            "w": 412,
+            "h": 923.921875
+          },
+          "ratio": 0.9090909090909091,
+          "renderRatio": 0.9090909090909091
+        }
+      ],
+      "videos": [],
+      "layouts": [],
+      "native": [
+        {
+          "box": {
+            "x": 323,
+            "y": 478.96875,
+            "w": 412,
+            "h": 923.921875
+          },
+          "caption": "Choose a materialConnect its properties with the job.Explain a reactionUse evidence of new substances; account for atoms and energy transfer.Support a claimExplain the pathway and the limits of the evidence.Use the same reasoning from the lessons: identify the material, interpret chemical change, account for atoms, trace energy and support a claim with evidence.Original course diagram authored for Science 24.",
+          "font": "16px",
+          "narrowNotes": "grid"
+        }
+      ],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "a",
+      "lesson": "01",
+      "width": 390,
+      "zoom": 1,
+      "title": "Chemistry in everyday life",
+      "disposition": "keep",
+      "innerWidth": 390,
+      "devicePixelRatio": 1,
+      "documentWidth": 390,
+      "images": [
+        {
+          "src": "assets/chemistry-in-our-lives.png",
+          "complete": true,
+          "natural": 1586,
+          "box": {
+            "x": 23,
+            "y": -1366.34375,
+            "w": 343.984375,
+            "h": 215.15625
+          },
+          "parent": {
+            "x": 22,
+            "y": -1418.890625,
+            "w": 346,
+            "h": 416.546875
+          },
+          "ratio": 1.5987903225806452,
+          "renderRatio": 1.6
+        },
+        {
+          "src": "assets/polymer-textiles.webp",
+          "complete": true,
+          "natural": 1500,
+          "box": {
+            "x": 28,
+            "y": 362.078125,
+            "w": 339,
+            "h": 210
+          },
+          "parent": {
+            "x": 27,
+            "y": 253.53125,
+            "w": 341,
+            "h": 442.484375
+          },
+          "ratio": 1.5,
+          "renderRatio": 1.6142857142857143
+        }
+      ],
+      "videos": [],
+      "layouts": [],
+      "native": [],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "a",
+      "lesson": "02",
+      "width": 390,
+      "zoom": 1,
+      "title": "Chemical safety: HHPS, WHMIS and safety data",
+      "disposition": "keep",
+      "innerWidth": 390,
+      "devicePixelRatio": 1,
+      "documentWidth": 390,
+      "images": [
+        {
+          "src": "assets/hhps-flammable.png",
+          "complete": true,
+          "natural": 500,
+          "box": {
+            "x": 41,
+            "y": -892.75,
+            "w": 80,
+            "h": 80
+          },
+          "parent": {
+            "x": 23,
+            "y": -910.75,
+            "w": 344,
+            "h": 205.296875
+          },
+          "ratio": 1.0224948875255624,
+          "renderRatio": 1
+        },
+        {
+          "src": "assets/whmis-flame.png",
+          "complete": true,
+          "natural": 298,
+          "box": {
+            "x": 41,
+            "y": -687.453125,
+            "w": 80,
+            "h": 80
+          },
+          "parent": {
+            "x": 23,
+            "y": -705.453125,
+            "w": 344,
+            "h": 181.046875
+          },
+          "ratio": 1.0170648464163823,
+          "renderRatio": 1
+        },
+        {
+          "src": "assets/source-safety-symbols.jpg",
+          "complete": true,
+          "natural": 1200,
+          "box": {
+            "x": 23,
+            "y": 214.8125,
+            "w": 343.984375,
+            "h": 503.671875
+          },
+          "parent": {
+            "x": 22,
+            "y": 135.71875,
+            "w": 346,
+            "h": 731.609375
+          },
+          "ratio": 0.6829823562891292,
+          "renderRatio": 0.6825396825396826
+        }
+      ],
+      "videos": [
+        {
+          "box": {
+            "x": 0,
+            "y": 9646.734375,
+            "w": 390,
+            "h": 1152.109375
+          },
+          "card": {
+            "x": 22,
+            "y": 9801.28125,
+            "w": 346,
+            "h": 957.5625
+          },
+          "columns": "312px",
+          "copy": {
+            "x": 39,
+            "y": 9818.28125,
+            "w": 312,
+            "h": 334.375
+          },
+          "stage": {
+            "x": 39,
+            "y": 10170.65625,
+            "w": 312,
+            "h": 175.5
+          },
+          "written": "Written explanationRead the product label and SDS before use. Match PPE and handling steps to the actual hazard, keep containers controlled, avoid cross-contamination, and know the spill and first-aid response before starting.",
+          "focus": true
+        }
+      ],
+      "layouts": [],
+      "native": [],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "a",
+      "lesson": "03",
+      "width": 390,
+      "zoom": 1,
+      "title": "Reactants, products and useful reactions",
+      "disposition": "keep",
+      "innerWidth": 390,
+      "devicePixelRatio": 1,
+      "documentWidth": 390,
+      "images": [],
+      "videos": [
+        {
+          "box": {
+            "x": 0,
+            "y": 11090.015625,
+            "w": 390,
+            "h": 1284.84375
+          },
+          "card": {
+            "x": 22,
+            "y": 11244.5625,
+            "w": 346,
+            "h": 1090.296875
+          },
+          "columns": "312px",
+          "copy": {
+            "x": 39,
+            "y": 11261.5625,
+            "w": 312,
+            "h": 387.46875
+          },
+          "stage": {
+            "x": 39,
+            "y": 11667.03125,
+            "w": 312,
+            "h": 175.5
+          },
+          "written": "Written explanationReaction types describe recurring patterns. Combination joins simpler reactants into a more complex product. Decomposition splits one reactant into simpler products. Combustion involves rapid reaction with oxygen. Replacement reactions rearrange which substances are paired.",
+          "focus": true
+        }
+      ],
+      "layouts": [],
+      "native": [],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "a",
+      "lesson": "04",
+      "width": 390,
+      "zoom": 1,
+      "title": "Evidence of chemical change",
+      "disposition": "refreshed",
+      "innerWidth": 390,
+      "devicePixelRatio": 1,
+      "documentWidth": 390,
+      "images": [],
+      "videos": [
+        {
+          "box": {
+            "x": 22,
+            "y": 2875.59375,
+            "w": 346,
+            "h": 1381.765625
+          },
+          "card": {
+            "x": 42,
+            "y": 3022.140625,
+            "w": 309,
+            "h": 1202.21875
+          },
+          "columns": "275px",
+          "copy": {
+            "x": 59,
+            "y": 3039.140625,
+            "w": 275,
+            "h": 440.5625
+          },
+          "stage": {
+            "x": 59,
+            "y": 3497.703125,
+            "w": 275,
+            "h": 154.6875
+          },
+          "written": "Written explanationGas production, a colour change, a temperature change or a new solid can be evidence that substances have reacted. The observation must be interpreted in context: bubbles from boiling and colour from simple mixing do not by themselves prove a chemical reaction. Different starting substances can produce different observations.",
+          "focus": true
+        }
+      ],
+      "layouts": [],
+      "native": [],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "a",
+      "lesson": "05",
+      "width": 390,
+      "zoom": 1,
+      "title": "Energy changes in reactions",
+      "disposition": "refreshed",
+      "innerWidth": 390,
+      "devicePixelRatio": 1,
+      "documentWidth": 390,
+      "images": [
+        {
+          "src": "assets/visual-refresh/a-energy-levels.svg",
+          "complete": true,
+          "natural": 600,
+          "box": {
+            "x": 23,
+            "y": 344.203125,
+            "w": 344,
+            "h": 246.53125
+          },
+          "parent": {
+            "x": 22,
+            "y": 238.40625,
+            "w": 346,
+            "h": 731.25
+          },
+          "ratio": 1.3953488372093024,
+          "renderRatio": 1.3927125506072875
+        }
+      ],
+      "videos": [
+        {
+          "box": {
+            "x": 22,
+            "y": -1183.625,
+            "w": 346,
+            "h": 1256.03125
+          },
+          "card": {
+            "x": 50,
+            "y": -1029.078125,
+            "w": 293,
+            "h": 1060.484375
+          },
+          "columns": "259px",
+          "copy": {
+            "x": 67,
+            "y": -1012.078125,
+            "w": 259,
+            "h": 334.375
+          },
+          "stage": {
+            "x": 67,
+            "y": -659.703125,
+            "w": 259,
+            "h": 145.6875
+          },
+          "written": "Written explanationBreaking bonds requires energy and forming bonds releases energy. A reaction is exothermic when it releases energy overall to its surroundings; it is endothermic when it takes energy in overall. An initial energy input does not determine the net classification.",
+          "focus": true
+        }
+      ],
+      "layouts": [],
+      "native": [
+        {
+          "box": {
+            "x": 22,
+            "y": 238.40625,
+            "w": 346,
+            "h": 731.25
+          },
+          "caption": "ExothermicProducts have lower chemical energy; net energy leaves the reacting system.EndothermicProducts have higher chemical energy; net energy enters the reacting system.Chemical energy is lower after an exothermic reaction and higher after an endothermic reaction. The arrows represent net transfer, not a particular molecular equation.Original course diagram authored for Science 24.",
+          "font": "16px",
+          "narrowNotes": "grid"
+        }
+      ],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "a",
+      "lesson": "06",
+      "width": 390,
+      "zoom": 1,
+      "title": "Writing and reading word equations",
+      "disposition": "refreshed",
+      "innerWidth": 390,
+      "devicePixelRatio": 1,
+      "documentWidth": 390,
+      "images": [
+        {
+          "src": "assets/visual-refresh/a-word-equation.svg",
+          "complete": true,
+          "natural": 600,
+          "box": {
+            "x": 23,
+            "y": 346.296875,
+            "w": 344,
+            "h": 240.796875
+          },
+          "parent": {
+            "x": 22,
+            "y": 240.5,
+            "w": 346,
+            "h": 741.515625
+          },
+          "ratio": 1.4285714285714286,
+          "renderRatio": 1.4273858921161826
+        }
+      ],
+      "videos": [],
+      "layouts": [],
+      "native": [
+        {
+          "box": {
+            "x": 22,
+            "y": 240.5,
+            "w": 346,
+            "h": 741.515625
+          },
+          "caption": "ReactantsMagnesium and oxygen are the starting substances.ArrowRead the arrow as “produces.”ProductMagnesium oxide is the substance formed.Magnesium and oxygen are reactants; magnesium oxide is the product. The word equation names substances without specifying particle ratios.Original course diagram authored for Science 24.",
+          "font": "16px",
+          "narrowNotes": "grid"
+        }
+      ],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "a",
+      "lesson": "07",
+      "width": 390,
+      "zoom": 1,
+      "title": "Recognizing reaction types",
+      "disposition": "keep",
+      "innerWidth": 390,
+      "devicePixelRatio": 1,
+      "documentWidth": 390,
+      "images": [],
+      "videos": [
+        {
+          "box": {
+            "x": 0,
+            "y": 11027.609375,
+            "w": 390,
+            "h": 1284.84375
+          },
+          "card": {
+            "x": 22,
+            "y": 11182.15625,
+            "w": 346,
+            "h": 1090.296875
+          },
+          "columns": "312px",
+          "copy": {
+            "x": 39,
+            "y": 11199.15625,
+            "w": 312,
+            "h": 387.46875
+          },
+          "stage": {
+            "x": 39,
+            "y": 11604.625,
+            "w": 312,
+            "h": 175.5
+          },
+          "written": "Written explanationReaction types describe recurring patterns. Combination joins simpler reactants into a more complex product. Decomposition splits one reactant into simpler products. Combustion involves rapid reaction with oxygen. Replacement reactions rearrange which substances are paired.",
+          "focus": true
+        }
+      ],
+      "layouts": [],
+      "native": [],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "a",
+      "lesson": "08",
+      "width": 390,
+      "zoom": 1,
+      "title": "Chemical formulas, common names and states",
+      "disposition": "keep",
+      "innerWidth": 390,
+      "devicePixelRatio": 1,
+      "documentWidth": 390,
+      "images": [],
+      "videos": [
+        {
+          "box": {
+            "x": 0,
+            "y": 10090.34375,
+            "w": 390,
+            "h": 1292.796875
+          },
+          "card": {
+            "x": 22,
+            "y": 10279.390625,
+            "w": 346,
+            "h": 1063.75
+          },
+          "columns": "312px",
+          "copy": {
+            "x": 39,
+            "y": 10296.390625,
+            "w": 312,
+            "h": 414.015625
+          },
+          "stage": {
+            "x": 39,
+            "y": 10728.40625,
+            "w": 312,
+            "h": 175.5
+          },
+          "written": "Written explanationA chemical formula identifies the elements and their ratios in a substance. A subscript belongs to the formula and changes substance composition. A coefficient in front of the formula changes only how many particles or formula units are counted.",
+          "focus": true
+        }
+      ],
+      "layouts": [],
+      "native": [],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "a",
+      "lesson": "09",
+      "width": 390,
+      "zoom": 1,
+      "title": "Conservation of mass and balancing equations",
+      "disposition": "refreshed",
+      "innerWidth": 390,
+      "devicePixelRatio": 1,
+      "documentWidth": 390,
+      "images": [],
+      "videos": [
+        {
+          "box": {
+            "x": 22,
+            "y": 3673.4375,
+            "w": 346,
+            "h": 1279.03125
+          },
+          "card": {
+            "x": 42,
+            "y": 3819.984375,
+            "w": 309,
+            "h": 1099.484375
+          },
+          "columns": "275px",
+          "copy": {
+            "x": 59,
+            "y": 3836.984375,
+            "w": 275,
+            "h": 390.921875
+          },
+          "stage": {
+            "x": 59,
+            "y": 4245.90625,
+            "w": 275,
+            "h": 154.6875
+          },
+          "written": "Written explanationBalancing is an accounting problem. Count each element in the reactants and products, change coefficients to make the counts equal, and recount after every change. Never change a subscript to force a balance because that changes the substance itself.",
+          "focus": true
+        }
+      ],
+      "layouts": [],
+      "native": [],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "a",
+      "lesson": "10",
+      "width": 390,
+      "zoom": 1,
+      "title": "Fossil fuel combustion",
+      "disposition": "keep",
+      "innerWidth": 390,
+      "devicePixelRatio": 1,
+      "documentWidth": 390,
+      "images": [],
+      "videos": [],
+      "layouts": [],
+      "native": [],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "a",
+      "lesson": "11",
+      "width": 390,
+      "zoom": 1,
+      "title": "Greenhouse gases and climate change",
+      "disposition": "keep",
+      "innerWidth": 390,
+      "devicePixelRatio": 1,
+      "documentWidth": 390,
+      "images": [],
+      "videos": [
+        {
+          "box": {
+            "x": 0,
+            "y": 11547.9375,
+            "w": 390,
+            "h": 1231.75
+          },
+          "card": {
+            "x": 22,
+            "y": 11702.484375,
+            "w": 346,
+            "h": 1037.203125
+          },
+          "columns": "312px",
+          "copy": {
+            "x": 39,
+            "y": 11719.484375,
+            "w": 312,
+            "h": 360.921875
+          },
+          "stage": {
+            "x": 39,
+            "y": 12098.40625,
+            "w": 312,
+            "h": 175.5
+          },
+          "written": "Written explanationComplete combustion of carbon-containing fuels transfers carbon into carbon dioxide. Adding CO₂ increases the atmosphere’s ability to absorb and re-emit infrared radiation. Energy still leaves Earth, but the balance changes until the climate system reaches a new energy balance.",
+          "focus": true
+        }
+      ],
+      "layouts": [],
+      "native": [],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "a",
+      "lesson": "12",
+      "width": 390,
+      "zoom": 1,
+      "title": "Acid deposition, pH and neutralization",
+      "disposition": "keep",
+      "innerWidth": 390,
+      "devicePixelRatio": 1,
+      "documentWidth": 390,
+      "images": [],
+      "videos": [
+        {
+          "box": {
+            "x": 0,
+            "y": 11007.140625,
+            "w": 390,
+            "h": 1175.203125
+          },
+          "card": {
+            "x": 22,
+            "y": 11161.6875,
+            "w": 346,
+            "h": 980.65625
+          },
+          "columns": "312px",
+          "copy": {
+            "x": 39,
+            "y": 11178.6875,
+            "w": 312,
+            "h": 330.921875
+          },
+          "stage": {
+            "x": 39,
+            "y": 11527.609375,
+            "w": 312,
+            "h": 175.5
+          },
+          "written": "Written explanationpH is a scale used to describe acidity and basicity. Indicators provide evidence by changing colour. Neutralization involves an acid and a base reacting so that their acidic/basic properties are reduced as new products form.",
+          "focus": true
+        }
+      ],
+      "layouts": [],
+      "native": [],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "a",
+      "lesson": "13",
+      "width": 390,
+      "zoom": 1,
+      "title": "Reducing acid-forming emissions",
+      "disposition": "keep",
+      "innerWidth": 390,
+      "devicePixelRatio": 1,
+      "documentWidth": 390,
+      "images": [],
+      "videos": [],
+      "layouts": [],
+      "native": [],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "a",
+      "lesson": "14",
+      "width": 390,
+      "zoom": 1,
+      "title": "Corrosion, rusting and protecting metals",
+      "disposition": "keep",
+      "innerWidth": 390,
+      "devicePixelRatio": 1,
+      "documentWidth": 390,
+      "images": [
+        {
+          "src": "assets/corrosion-protection.png",
+          "complete": true,
+          "natural": 1586,
+          "box": {
+            "x": 23,
+            "y": 359.515625,
+            "w": 343.984375,
+            "h": 215.15625
+          },
+          "parent": {
+            "x": 22,
+            "y": 280.421875,
+            "w": 346,
+            "h": 443.09375
+          },
+          "ratio": 1.5987903225806452,
+          "renderRatio": 1.6
+        }
+      ],
+      "videos": [
+        {
+          "box": {
+            "x": 0,
+            "y": 9757.640625,
+            "w": 390,
+            "h": 1231.75
+          },
+          "card": {
+            "x": 22,
+            "y": 9912.1875,
+            "w": 346,
+            "h": 1037.203125
+          },
+          "columns": "312px",
+          "copy": {
+            "x": 39,
+            "y": 9929.1875,
+            "w": 312,
+            "h": 360.921875
+          },
+          "stage": {
+            "x": 39,
+            "y": 10308.109375,
+            "w": 312,
+            "h": 175.5
+          },
+          "written": "Written explanationIron rusts when iron, oxygen and water can interact. Paint and other barrier coatings reduce contact with oxygen and water. Galvanizing adds zinc, which can act as both a barrier and a sacrificial metal. A sacrificial metal corrodes preferentially and protects the iron or steel.",
+          "focus": true
+        }
+      ],
+      "layouts": [],
+      "native": [],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "a",
+      "lesson": "15",
+      "width": 390,
+      "zoom": 1,
+      "title": "Bring the chemistry together",
+      "disposition": "refreshed",
+      "innerWidth": 390,
+      "devicePixelRatio": 1,
+      "documentWidth": 390,
+      "images": [
+        {
+          "src": "assets/visual-refresh/a-summary.svg",
+          "complete": true,
+          "natural": 600,
+          "box": {
+            "x": 23,
+            "y": 277.515625,
+            "w": 344,
+            "h": 378.390625
+          },
+          "parent": {
+            "x": 22,
+            "y": 171.71875,
+            "w": 346,
+            "h": 904.703125
+          },
+          "ratio": 0.9090909090909091,
+          "renderRatio": 0.91005291005291
+        }
+      ],
+      "videos": [],
+      "layouts": [],
+      "native": [
+        {
+          "box": {
+            "x": 22,
+            "y": 171.71875,
+            "w": 346,
+            "h": 904.703125
+          },
+          "caption": "Choose a materialConnect its properties with the job.Explain a reactionUse evidence of new substances; account for atoms and energy transfer.Support a claimExplain the pathway and the limits of the evidence.Use the same reasoning from the lessons: identify the material, interpret chemical change, account for atoms, trace energy and support a claim with evidence.Original course diagram authored for Science 24.",
+          "font": "16px",
+          "narrowNotes": "grid"
+        }
+      ],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "a",
+      "lesson": "01",
+      "width": 1440,
+      "zoom": 2,
+      "title": "Chemistry in everyday life",
+      "disposition": "keep",
+      "innerWidth": 720,
+      "devicePixelRatio": 2,
+      "documentWidth": 720,
+      "images": [
+        {
+          "src": "assets/chemistry-in-our-lives.png",
+          "complete": true,
+          "natural": 1586,
+          "box": {
+            "x": 55.0078125,
+            "y": -1250.1328125,
+            "w": 609.984375,
+            "h": 381.53125
+          },
+          "parent": {
+            "x": 54,
+            "y": -1302.6875,
+            "w": 612,
+            "h": 536.46875
+          },
+          "ratio": 1.5987903225806452,
+          "renderRatio": 1.5968586387434556
+        },
+        {
+          "src": "assets/polymer-textiles.webp",
+          "complete": true,
+          "natural": 1500,
+          "box": {
+            "x": 28,
+            "y": 169.96875,
+            "w": 669,
+            "h": 250
+          },
+          "parent": {
+            "x": 27,
+            "y": 103.96875,
+            "w": 671,
+            "h": 393.46875
+          },
+          "ratio": 1.5,
+          "renderRatio": 2.676
+        }
+      ],
+      "videos": [],
+      "layouts": [],
+      "native": [],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "a",
+      "lesson": "02",
+      "width": 1440,
+      "zoom": 2,
+      "title": "Chemical safety: HHPS, WHMIS and safety data",
+      "disposition": "keep",
+      "innerWidth": 720,
+      "devicePixelRatio": 2,
+      "documentWidth": 720,
+      "images": [
+        {
+          "src": "assets/hhps-flammable.png",
+          "complete": true,
+          "natural": 500,
+          "box": {
+            "x": 132,
+            "y": -826.2890625,
+            "w": 150,
+            "h": 150
+          },
+          "parent": {
+            "x": 55,
+            "y": -846.2890625,
+            "w": 305,
+            "h": 354.34375
+          },
+          "ratio": 1.0224948875255624,
+          "renderRatio": 1
+        },
+        {
+          "src": "assets/whmis-flame.png",
+          "complete": true,
+          "natural": 298,
+          "box": {
+            "x": 437.5,
+            "y": -826.2890625,
+            "w": 150,
+            "h": 150
+          },
+          "parent": {
+            "x": 360,
+            "y": -846.2890625,
+            "w": 305,
+            "h": 354.34375
+          },
+          "ratio": 1.0170648464163823,
+          "renderRatio": 1
+        },
+        {
+          "src": "assets/source-safety-symbols.jpg",
+          "complete": true,
+          "natural": 1200,
+          "box": {
+            "x": 155.1015625,
+            "y": -4.875,
+            "w": 409.7890625,
+            "h": 600
+          },
+          "parent": {
+            "x": 54,
+            "y": -57.4296875,
+            "w": 612,
+            "h": 778.171875
+          },
+          "ratio": 0.6829823562891292,
+          "renderRatio": 0.6833333333333333
+        }
+      ],
+      "videos": [
+        {
+          "box": {
+            "x": 0,
+            "y": 7859.5234375,
+            "w": 720,
+            "h": 1094.0546875
+          },
+          "card": {
+            "x": 54,
+            "y": 7987.578125,
+            "w": 612,
+            "h": 918
+          },
+          "columns": "578px",
+          "copy": {
+            "x": 71,
+            "y": 8004.578125,
+            "w": 578,
+            "h": 224.7734375
+          },
+          "stage": {
+            "x": 71,
+            "y": 8247.3515625,
+            "w": 578,
+            "h": 325.125
+          },
+          "written": "Written explanationRead the product label and SDS before use. Match PPE and handling steps to the actual hazard, keep containers controlled, avoid cross-contamination, and know the spill and first-aid response before starting.",
+          "focus": true
+        }
+      ],
+      "layouts": [],
+      "native": [],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "a",
+      "lesson": "03",
+      "width": 1440,
+      "zoom": 2,
+      "title": "Reactants, products and useful reactions",
+      "disposition": "keep",
+      "innerWidth": 720,
+      "devicePixelRatio": 2,
+      "documentWidth": 720,
+      "images": [],
+      "videos": [
+        {
+          "box": {
+            "x": 0,
+            "y": 8674.0078125,
+            "w": 720,
+            "h": 1173.71875
+          },
+          "card": {
+            "x": 54,
+            "y": 8802.0625,
+            "w": 612,
+            "h": 997.6640625
+          },
+          "columns": "578px",
+          "copy": {
+            "x": 71,
+            "y": 8819.0625,
+            "w": 578,
+            "h": 277.8828125
+          },
+          "stage": {
+            "x": 71,
+            "y": 9114.9453125,
+            "w": 578,
+            "h": 325.125
+          },
+          "written": "Written explanationReaction types describe recurring patterns. Combination joins simpler reactants into a more complex product. Decomposition splits one reactant into simpler products. Combustion involves rapid reaction with oxygen. Replacement reactions rearrange which substances are paired.",
+          "focus": true
+        }
+      ],
+      "layouts": [],
+      "native": [],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "a",
+      "lesson": "04",
+      "width": 1440,
+      "zoom": 2,
+      "title": "Evidence of chemical change",
+      "disposition": "refreshed",
+      "innerWidth": 720,
+      "devicePixelRatio": 2,
+      "documentWidth": 720,
+      "images": [],
+      "videos": [
+        {
+          "box": {
+            "x": 22,
+            "y": 2279.6796875,
+            "w": 676,
+            "h": 1157.90625
+          },
+          "card": {
+            "x": 42,
+            "y": 2391.734375,
+            "w": 639,
+            "h": 1012.8515625
+          },
+          "columns": "605px",
+          "copy": {
+            "x": 59,
+            "y": 2408.734375,
+            "w": 605,
+            "h": 251.328125
+          },
+          "stage": {
+            "x": 59,
+            "y": 2678.0625,
+            "w": 605,
+            "h": 340.3125
+          },
+          "written": "Written explanationGas production, a colour change, a temperature change or a new solid can be evidence that substances have reacted. The observation must be interpreted in context: bubbles from boiling and colour from simple mixing do not by themselves prove a chemical reaction. Different starting substances can produce different observations.",
+          "focus": true
+        }
+      ],
+      "layouts": [],
+      "native": [],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "a",
+      "lesson": "05",
+      "width": 1440,
+      "zoom": 2,
+      "title": "Energy changes in reactions",
+      "disposition": "refreshed",
+      "innerWidth": 720,
+      "devicePixelRatio": 2,
+      "documentWidth": 720,
+      "images": [
+        {
+          "src": "assets/visual-refresh/a-energy-levels.svg",
+          "complete": true,
+          "natural": 600,
+          "box": {
+            "x": 60,
+            "y": 79.8359375,
+            "w": 600,
+            "h": 430
+          },
+          "parent": {
+            "x": 54,
+            "y": 13.8359375,
+            "w": 612,
+            "h": 632.1796875
+          },
+          "ratio": 1.3953488372093024,
+          "renderRatio": 1.3953488372093024
+        }
+      ],
+      "videos": [
+        {
+          "box": {
+            "x": 54,
+            "y": -1209.4609375,
+            "w": 612,
+            "h": 1075.796875
+          },
+          "card": {
+            "x": 82,
+            "y": -1089.40625,
+            "w": 559,
+            "h": 914.7421875
+          },
+          "columns": "525px",
+          "copy": {
+            "x": 99,
+            "y": -1072.40625,
+            "w": 525,
+            "h": 224.7734375
+          },
+          "stage": {
+            "x": 99,
+            "y": -829.6328125,
+            "w": 525,
+            "h": 295.3125
+          },
+          "written": "Written explanationBreaking bonds requires energy and forming bonds releases energy. A reaction is exothermic when it releases energy overall to its surroundings; it is endothermic when it takes energy in overall. An initial energy input does not determine the net classification.",
+          "focus": true
+        }
+      ],
+      "layouts": [],
+      "native": [
+        {
+          "box": {
+            "x": 54,
+            "y": 13.8359375,
+            "w": 612,
+            "h": 632.1796875
+          },
+          "caption": "ExothermicProducts have lower chemical energy; net energy leaves the reacting system.EndothermicProducts have higher chemical energy; net energy enters the reacting system.Chemical energy is lower after an exothermic reaction and higher after an endothermic reaction. The arrows represent net transfer, not a particular molecular equation.Original course diagram authored for Science 24.",
+          "font": "16px",
+          "narrowNotes": "none"
+        }
+      ],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "a",
+      "lesson": "06",
+      "width": 1440,
+      "zoom": 2,
+      "title": "Writing and reading word equations",
+      "disposition": "refreshed",
+      "innerWidth": 720,
+      "devicePixelRatio": 2,
+      "documentWidth": 720,
+      "images": [
+        {
+          "src": "assets/visual-refresh/a-word-equation.svg",
+          "complete": true,
+          "natural": 600,
+          "box": {
+            "x": 60,
+            "y": 84.84375,
+            "w": 600,
+            "h": 420
+          },
+          "parent": {
+            "x": 54,
+            "y": 18.84375,
+            "w": 612,
+            "h": 596.5859375
+          },
+          "ratio": 1.4285714285714286,
+          "renderRatio": 1.4285714285714286
+        }
+      ],
+      "videos": [],
+      "layouts": [],
+      "native": [
+        {
+          "box": {
+            "x": 54,
+            "y": 18.84375,
+            "w": 612,
+            "h": 596.5859375
+          },
+          "caption": "ReactantsMagnesium and oxygen are the starting substances.ArrowRead the arrow as “produces.”ProductMagnesium oxide is the substance formed.Magnesium and oxygen are reactants; magnesium oxide is the product. The word equation names substances without specifying particle ratios.Original course diagram authored for Science 24.",
+          "font": "16px",
+          "narrowNotes": "none"
+        }
+      ],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "a",
+      "lesson": "07",
+      "width": 1440,
+      "zoom": 2,
+      "title": "Recognizing reaction types",
+      "disposition": "keep",
+      "innerWidth": 720,
+      "devicePixelRatio": 2,
+      "documentWidth": 720,
+      "images": [],
+      "videos": [
+        {
+          "box": {
+            "x": 0,
+            "y": 8947.625,
+            "w": 720,
+            "h": 1173.71875
+          },
+          "card": {
+            "x": 54,
+            "y": 9075.6796875,
+            "w": 612,
+            "h": 997.6640625
+          },
+          "columns": "578px",
+          "copy": {
+            "x": 71,
+            "y": 9092.6796875,
+            "w": 578,
+            "h": 277.8828125
+          },
+          "stage": {
+            "x": 71,
+            "y": 9388.5625,
+            "w": 578,
+            "h": 325.125
+          },
+          "written": "Written explanationReaction types describe recurring patterns. Combination joins simpler reactants into a more complex product. Decomposition splits one reactant into simpler products. Combustion involves rapid reaction with oxygen. Replacement reactions rearrange which substances are paired.",
+          "focus": true
+        }
+      ],
+      "layouts": [],
+      "native": [],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "a",
+      "lesson": "08",
+      "width": 1440,
+      "zoom": 2,
+      "title": "Chemical formulas, common names and states",
+      "disposition": "keep",
+      "innerWidth": 720,
+      "devicePixelRatio": 2,
+      "documentWidth": 720,
+      "images": [],
+      "videos": [
+        {
+          "box": {
+            "x": 0,
+            "y": 8089.890625,
+            "w": 720,
+            "h": 1208.21875
+          },
+          "card": {
+            "x": 54,
+            "y": 8252.4453125,
+            "w": 612,
+            "h": 997.6640625
+          },
+          "columns": "578px",
+          "copy": {
+            "x": 71,
+            "y": 8269.4453125,
+            "w": 578,
+            "h": 277.8828125
+          },
+          "stage": {
+            "x": 71,
+            "y": 8565.328125,
+            "w": 578,
+            "h": 325.125
+          },
+          "written": "Written explanationA chemical formula identifies the elements and their ratios in a substance. A subscript belongs to the formula and changes substance composition. A coefficient in front of the formula changes only how many particles or formula units are counted.",
+          "focus": true
+        }
+      ],
+      "layouts": [],
+      "native": [],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "a",
+      "lesson": "09",
+      "width": 1440,
+      "zoom": 2,
+      "title": "Conservation of mass and balancing equations",
+      "disposition": "refreshed",
+      "innerWidth": 720,
+      "devicePixelRatio": 2,
+      "documentWidth": 720,
+      "images": [],
+      "videos": [
+        {
+          "box": {
+            "x": 22,
+            "y": 2898.203125,
+            "w": 676,
+            "h": 1131.3515625
+          },
+          "card": {
+            "x": 42,
+            "y": 3010.2578125,
+            "w": 639,
+            "h": 986.296875
+          },
+          "columns": "605px",
+          "copy": {
+            "x": 59,
+            "y": 3027.2578125,
+            "w": 605,
+            "h": 251.328125
+          },
+          "stage": {
+            "x": 59,
+            "y": 3296.5859375,
+            "w": 605,
+            "h": 340.3125
+          },
+          "written": "Written explanationBalancing is an accounting problem. Count each element in the reactants and products, change coefficients to make the counts equal, and recount after every change. Never change a subscript to force a balance because that changes the substance itself.",
+          "focus": true
+        }
+      ],
+      "layouts": [],
+      "native": [],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "a",
+      "lesson": "10",
+      "width": 1440,
+      "zoom": 2,
+      "title": "Fossil fuel combustion",
+      "disposition": "keep",
+      "innerWidth": 720,
+      "devicePixelRatio": 2,
+      "documentWidth": 720,
+      "images": [],
+      "videos": [],
+      "layouts": [],
+      "native": [],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "a",
+      "lesson": "11",
+      "width": 1440,
+      "zoom": 2,
+      "title": "Greenhouse gases and climate change",
+      "disposition": "keep",
+      "innerWidth": 720,
+      "devicePixelRatio": 2,
+      "documentWidth": 720,
+      "images": [
+        {
+          "src": "assets/greenhouse.svg",
+          "complete": true,
+          "natural": 300,
+          "box": {
+            "x": 55,
+            "y": 183.03125,
+            "w": 609.9921875,
+            "h": 223.6640625
+          },
+          "parent": {
+            "x": 54,
+            "y": 117.03125,
+            "w": 612,
+            "h": 367.1328125
+          },
+          "ratio": 2.727272727272727,
+          "renderRatio": 2.7232142857142856
+        }
+      ],
+      "videos": [
+        {
+          "box": {
+            "x": 0,
+            "y": 7483.484375,
+            "w": 720,
+            "h": 1147.1640625
+          },
+          "card": {
+            "x": 54,
+            "y": 7611.5390625,
+            "w": 612,
+            "h": 971.109375
+          },
+          "columns": "578px",
+          "copy": {
+            "x": 71,
+            "y": 7628.5390625,
+            "w": 578,
+            "h": 251.328125
+          },
+          "stage": {
+            "x": 71,
+            "y": 7897.8671875,
+            "w": 578,
+            "h": 325.125
+          },
+          "written": "Written explanationComplete combustion of carbon-containing fuels transfers carbon into carbon dioxide. Adding CO₂ increases the atmosphere’s ability to absorb and re-emit infrared radiation. Energy still leaves Earth, but the balance changes until the climate system reaches a new energy balance.",
+          "focus": true
+        }
+      ],
+      "layouts": [],
+      "native": [],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "a",
+      "lesson": "12",
+      "width": 1440,
+      "zoom": 2,
+      "title": "Acid deposition, pH and neutralization",
+      "disposition": "keep",
+      "innerWidth": 720,
+      "devicePixelRatio": 2,
+      "documentWidth": 720,
+      "images": [],
+      "videos": [
+        {
+          "box": {
+            "x": 0,
+            "y": 8853.890625,
+            "w": 720,
+            "h": 1147.1640625
+          },
+          "card": {
+            "x": 54,
+            "y": 8981.9453125,
+            "w": 612,
+            "h": 971.109375
+          },
+          "columns": "578px",
+          "copy": {
+            "x": 71,
+            "y": 8998.9453125,
+            "w": 578,
+            "h": 251.328125
+          },
+          "stage": {
+            "x": 71,
+            "y": 9268.2734375,
+            "w": 578,
+            "h": 325.125
+          },
+          "written": "Written explanationpH is a scale used to describe acidity and basicity. Indicators provide evidence by changing colour. Neutralization involves an acid and a base reacting so that their acidic/basic properties are reduced as new products form.",
+          "focus": true
+        }
+      ],
+      "layouts": [],
+      "native": [],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "a",
+      "lesson": "13",
+      "width": 1440,
+      "zoom": 2,
+      "title": "Reducing acid-forming emissions",
+      "disposition": "keep",
+      "innerWidth": 720,
+      "devicePixelRatio": 2,
+      "documentWidth": 720,
+      "images": [],
+      "videos": [],
+      "layouts": [],
+      "native": [],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "a",
+      "lesson": "14",
+      "width": 1440,
+      "zoom": 2,
+      "title": "Corrosion, rusting and protecting metals",
+      "disposition": "keep",
+      "innerWidth": 720,
+      "devicePixelRatio": 2,
+      "documentWidth": 720,
+      "images": [
+        {
+          "src": "assets/corrosion-protection.png",
+          "complete": true,
+          "natural": 1586,
+          "box": {
+            "x": 55.0078125,
+            "y": 104.203125,
+            "w": 609.984375,
+            "h": 381.53125
+          },
+          "parent": {
+            "x": 54,
+            "y": 51.6484375,
+            "w": 612,
+            "h": 536.46875
+          },
+          "ratio": 1.5987903225806452,
+          "renderRatio": 1.5968586387434556
+        },
+        {
+          "src": "assets/corrosion.svg",
+          "complete": true,
+          "natural": 300,
+          "box": {
+            "x": 55,
+            "y": 1143.6640625,
+            "w": 609.9921875,
+            "h": 223.6640625
+          },
+          "parent": {
+            "x": 54,
+            "y": 1077.6640625,
+            "w": 612,
+            "h": 367.1328125
+          },
+          "ratio": 2.727272727272727,
+          "renderRatio": 2.7232142857142856
+        }
+      ],
+      "videos": [
+        {
+          "box": {
+            "x": 0,
+            "y": 8002.34375,
+            "w": 720,
+            "h": 1147.1640625
+          },
+          "card": {
+            "x": 54,
+            "y": 8130.3984375,
+            "w": 612,
+            "h": 971.109375
+          },
+          "columns": "578px",
+          "copy": {
+            "x": 71,
+            "y": 8147.3984375,
+            "w": 578,
+            "h": 251.328125
+          },
+          "stage": {
+            "x": 71,
+            "y": 8416.7265625,
+            "w": 578,
+            "h": 325.125
+          },
+          "written": "Written explanationIron rusts when iron, oxygen and water can interact. Paint and other barrier coatings reduce contact with oxygen and water. Galvanizing adds zinc, which can act as both a barrier and a sacrificial metal. A sacrificial metal corrodes preferentially and protects the iron or steel.",
+          "focus": true
+        }
+      ],
+      "layouts": [],
+      "native": [],
+      "overflow": [],
+      "active": 1
+    },
+    {
+      "unit": "a",
+      "lesson": "15",
+      "width": 1440,
+      "zoom": 2,
+      "title": "Bring the chemistry together",
+      "disposition": "refreshed",
+      "innerWidth": 720,
+      "devicePixelRatio": 2,
+      "documentWidth": 720,
+      "images": [
+        {
+          "src": "assets/visual-refresh/a-summary.svg",
+          "complete": true,
+          "natural": 600,
+          "box": {
+            "x": 60,
+            "y": -35.078125,
+            "w": 600,
+            "h": 660
+          },
+          "parent": {
+            "x": 54,
+            "y": -101.078125,
+            "w": 612,
+            "h": 836.5859375
+          },
+          "ratio": 0.9090909090909091,
+          "renderRatio": 0.9090909090909091
+        }
+      ],
+      "videos": [],
+      "layouts": [],
+      "native": [
+        {
+          "box": {
+            "x": 54,
+            "y": -101.078125,
+            "w": 612,
+            "h": 836.5859375
+          },
+          "caption": "Choose a materialConnect its properties with the job.Explain a reactionUse evidence of new substances; account for atoms and energy transfer.Support a claimExplain the pathway and the limits of the evidence.Use the same reasoning from the lessons: identify the material, interpret chemical change, account for atoms, trace energy and support a claim with evidence.Original course diagram authored for Science 24.",
+          "font": "16px",
+          "narrowNotes": "none"
+        }
+      ],
+      "overflow": [],
+      "active": 1
+    }
+  ],
+  "dialogs": [
+    {
+      "unit": "a",
+      "lesson": "05",
+      "id": "s24x-a-energy-levels",
+      "enlarge": "passed",
+      "keyboardEnterEscape": "passed",
+      "focusReturn": "passed"
+    },
+    {
+      "unit": "a",
+      "lesson": "06",
+      "id": "s24x-a-word-equation",
+      "enlarge": "passed",
+      "keyboardEnterEscape": "passed",
+      "focusReturn": "passed"
+    },
+    {
+      "unit": "a",
+      "lesson": "15",
+      "id": "s24x-a-summary",
+      "enlarge": "passed",
+      "keyboardEnterEscape": "passed",
+      "focusReturn": "passed"
+    }
+  ],
+  "media": [
+    {
+      "unit": "a",
+      "lesson": "02",
+      "id": "s24-a-video-safety",
+      "control": "passed",
+      "externalPlayback": "Not certified; publisher frame stubbed for deterministic control check",
+      "writtenAlternative": "preserved"
+    },
+    {
+      "unit": "a",
+      "lesson": "03",
+      "id": "s24-a-video-reaction-types",
+      "control": "passed",
+      "externalPlayback": "Not certified; publisher frame stubbed for deterministic control check",
+      "writtenAlternative": "preserved"
+    },
+    {
+      "unit": "a",
+      "lesson": "04",
+      "id": "s24-a-video-evidence",
+      "control": "passed",
+      "externalPlayback": "Not certified; publisher frame stubbed for deterministic control check",
+      "writtenAlternative": "preserved"
+    },
+    {
+      "unit": "a",
+      "lesson": "05",
+      "id": "s24-a-video-energy",
+      "control": "passed",
+      "externalPlayback": "Not certified; publisher frame stubbed for deterministic control check",
+      "writtenAlternative": "preserved"
+    },
+    {
+      "unit": "a",
+      "lesson": "07",
+      "id": "s24-a-video-reaction-types",
+      "control": "passed",
+      "externalPlayback": "Not certified; publisher frame stubbed for deterministic control check",
+      "writtenAlternative": "preserved"
+    },
+    {
+      "unit": "a",
+      "lesson": "08",
+      "id": "s24-a-video-naming",
+      "control": "passed",
+      "externalPlayback": "Not certified; publisher frame stubbed for deterministic control check",
+      "writtenAlternative": "preserved"
+    },
+    {
+      "unit": "a",
+      "lesson": "09",
+      "id": "s24-a-video-balancing",
+      "control": "passed",
+      "externalPlayback": "Not certified; publisher frame stubbed for deterministic control check",
+      "writtenAlternative": "preserved"
+    },
+    {
+      "unit": "a",
+      "lesson": "11",
+      "id": "s24-a-video-climate",
+      "control": "passed",
+      "externalPlayback": "Not certified; publisher frame stubbed for deterministic control check",
+      "writtenAlternative": "preserved"
+    },
+    {
+      "unit": "a",
+      "lesson": "12",
+      "id": "s24-a-video-ph",
+      "control": "passed",
+      "externalPlayback": "Not certified; publisher frame stubbed for deterministic control check",
+      "writtenAlternative": "preserved"
+    },
+    {
+      "unit": "a",
+      "lesson": "14",
+      "id": "s24-a-video-corrosion",
+      "control": "passed",
+      "externalPlayback": "Not certified; publisher frame stubbed for deterministic control check",
+      "writtenAlternative": "preserved"
+    }
+  ],
+  "saves": [
+    {
+      "unit": "a",
+      "profile": "isolated synthetic Chromium profile",
+      "baselineCompletedCheck": "s24-a-required-01",
+      "savedNoteId": "s24-a-l01-transfer",
+      "baselineToCandidate": "passed",
+      "candidateSaveReload": "passed",
+      "completedCheckAndWritingHistory": "passed",
+      "realLearnerData": "not accessed"
+    }
+  ],
+  "svgLabels": [
+    {
+      "id": "a-energy-levels",
+      "status": "passed",
+      "labels": 11,
+      "clipped": []
+    },
+    {
+      "id": "a-word-equation",
+      "status": "passed",
+      "labels": 7,
+      "clipped": []
+    },
+    {
+      "id": "a-summary",
+      "status": "passed",
+      "labels": 10,
+      "clipped": []
+    },
+    {
+      "id": "b-energy-account",
+      "status": "passed",
+      "labels": 7,
+      "clipped": []
+    },
+    {
+      "id": "b-power",
+      "status": "passed",
+      "labels": 4,
+      "clipped": []
+    },
+    {
+      "id": "b-respiration",
+      "status": "passed",
+      "labels": 5,
+      "clipped": []
+    },
+    {
+      "id": "b-temperature",
+      "status": "passed",
+      "labels": 7,
+      "clipped": []
+    },
+    {
+      "id": "b-summary",
+      "status": "passed",
+      "labels": 13,
+      "clipped": []
+    },
+    {
+      "id": "c-food-safety",
+      "status": "passed",
+      "labels": 8,
+      "clipped": []
+    },
+    {
+      "id": "c-methods",
+      "status": "passed",
+      "labels": 12,
+      "clipped": []
+    },
+    {
+      "id": "c-baseline",
+      "status": "passed",
+      "labels": 11,
+      "clipped": []
+    },
+    {
+      "id": "c-abo",
+      "status": "passed",
+      "labels": 27,
+      "clipped": []
+    },
+    {
+      "id": "c-resistance",
+      "status": "passed",
+      "labels": 7,
+      "clipped": []
+    },
+    {
+      "id": "c-mutations",
+      "status": "passed",
+      "labels": 29,
+      "clipped": []
+    },
+    {
+      "id": "d-distance",
+      "status": "passed",
+      "labels": 6,
+      "clipped": []
+    },
+    {
+      "id": "d-momentum",
+      "status": "passed",
+      "labels": 5,
+      "clipped": []
+    },
+    {
+      "id": "d-impulse",
+      "status": "passed",
+      "labels": 16,
+      "clipped": []
+    },
+    {
+      "id": "d-stopping-force",
+      "status": "passed",
+      "labels": 17,
+      "clipped": []
+    },
+    {
+      "id": "d-summary",
+      "status": "passed",
+      "labels": 9,
+      "clipped": []
+    }
+  ],
+  "assetResponses": [
+    {
+      "unit": "a",
+      "file": "asset-loader.js",
+      "status": 200,
+      "sha256": "c0e7bf1566b59cbbe9600cf569ff299be5b82c5119df9024130a22600076c662"
+    },
+    {
+      "unit": "a",
+      "file": "assets/chemistry-in-our-lives.png",
+      "status": 200,
+      "sha256": "8a8ee4467fc6d48542d4eedbd1d560c09bd0c1337b6bcd9b753df49706c410f1"
+    },
+    {
+      "unit": "a",
+      "file": "assets/coefficient.svg",
+      "status": 200,
+      "sha256": "7ded68072c968e030751fe12beabffd4ad34ee50ea088e2204b74999abfa76f6"
+    },
+    {
+      "unit": "a",
+      "file": "assets/corrosion-protection.png",
+      "status": 200,
+      "sha256": "2e7ecc784d340408fddb0720caba9805981382934029e00dd0f49bc3e777fc85"
+    },
+    {
+      "unit": "a",
+      "file": "assets/corrosion.svg",
+      "status": 200,
+      "sha256": "738715a3c19415c84e0e9fac17a2a0b707536d40b02479e038e29f8bd8438232"
+    },
+    {
+      "unit": "a",
+      "file": "assets/exo-endo-generated.png",
+      "status": 200,
+      "sha256": "15325f8cf238cc8808267aec1ed8081cb313ae57eaaa24e0d46982f26fe233ec"
+    },
+    {
+      "unit": "a",
+      "file": "assets/greenhouse.svg",
+      "status": 200,
+      "sha256": "b2b7e2320d51497f820bb23dab3c8ff595a83f08aaaf6cacc06e9b91d0d671f9"
+    },
+    {
+      "unit": "a",
+      "file": "assets/hhps-flammable.png",
+      "status": 200,
+      "sha256": "ad82caa457520c17d4336c943c890170974b4dda05ae8c84661a7742daddb994"
+    },
+    {
+      "unit": "a",
+      "file": "assets/label-energy-premium.png",
+      "status": 200,
+      "sha256": "210bcd2f0c4a9a4fb64fcf1ee50eccc97bfcf6842c355822fe9836d1d2380428"
+    },
+    {
+      "unit": "a",
+      "file": "assets/label-energy.svg",
+      "status": 200,
+      "sha256": "e1003aa0f91762a6eebd5387bc37f900bc1536b71e50fe195b193d9b902c503c"
+    },
+    {
+      "unit": "a",
+      "file": "assets/label-formula-premium.png",
+      "status": 200,
+      "sha256": "352c2971a2185e3dd8c0a9f0177af05b75bbec170e80719515ffa8c18c513a03"
+    },
+    {
+      "unit": "a",
+      "file": "assets/label-formula.svg",
+      "status": 200,
+      "sha256": "5deaf9c771e8f0f36b93090e412d349b003dfd6cac90262102029d6f0c13b379"
+    },
+    {
+      "unit": "a",
+      "file": "assets/label-protection-premium.png",
+      "status": 200,
+      "sha256": "6b7037d56c137a0ac78f0a075012ee6b699cfa5821824ee9434b0cf66393d774"
+    },
+    {
+      "unit": "a",
+      "file": "assets/label-protection.svg",
+      "status": 200,
+      "sha256": "d1ecc6a1524d4cd4fab320f8fe369cbd02af21911d7d783e46c67f0e58d67be6"
+    },
+    {
+      "unit": "a",
+      "file": "assets/label-reaction-premium.png",
+      "status": 200,
+      "sha256": "eb574c6ab4b8af23ee26c2fb906f8dbef83d7984a7a8e4a2808552af69625f5c"
+    },
+    {
+      "unit": "a",
+      "file": "assets/label-reaction.svg",
+      "status": 200,
+      "sha256": "a7552fd6240da86f7272024ea4de2e625a4da70911c0b5950f7664d196c979d5"
+    },
+    {
+      "unit": "a",
+      "file": "assets/nextstep-logo.png",
+      "status": 200,
+      "sha256": "9ed7b47ad131ec598ae77fdb4650c95658dcab6fa1db6e6630c2fe7809b25ec8"
+    },
+    {
+      "unit": "a",
+      "file": "assets/polymer-textiles.webp",
+      "status": 200,
+      "sha256": "a29e16a1298fc91e710e2ef3c58805ee6104c4a154ebc96e9e68e96fe1d5a9c9"
+    },
+    {
+      "unit": "a",
+      "file": "assets/reaction-map.svg",
+      "status": 200,
+      "sha256": "9122310bfa75a9ea6352f0db956718814a5802b55ff936d0657655f697391833"
+    },
+    {
+      "unit": "a",
+      "file": "assets/science24-formula-page-1.png",
+      "status": 200,
+      "sha256": "06c3770903be2bf6ee891eb5c15477d7159a0089fd2045fe41ad3444ea2dce9e"
+    },
+    {
+      "unit": "a",
+      "file": "assets/science24-formula-page-2.png",
+      "status": 200,
+      "sha256": "954a9a06c321d17e4e2698d649335783b5029943346ca654a35fe74de87286e1"
+    },
+    {
+      "unit": "a",
+      "file": "assets/science24-formula-sheet.pdf",
+      "status": 200,
+      "sha256": "8f3eb6c45e3a87e33542f6fcd361db5c57682789523483499bca583d5004106b"
+    },
+    {
+      "unit": "a",
+      "file": "assets/science24-unit-a-guided-notes.pdf",
+      "status": 200,
+      "sha256": "0c23657a791fa4e3f884b809a9df39324d4c74c3481e1a0d7911fd8388d6d8a0"
+    },
+    {
+      "unit": "a",
+      "file": "assets/science24-unit-a-textbook.pdf",
+      "status": 200,
+      "sha256": "3749c5efdf4cac5f458e8ea8a1a77eca863571b405272594a4d46ee7d4b2e547"
+    },
+    {
+      "unit": "a",
+      "file": "assets/science24-unit-a-workbook-key.pdf",
+      "status": 200,
+      "sha256": "43b820482486ad9bb9105feb7adc3f457e0e75447a78a28287bab07954ac7517"
+    },
+    {
+      "unit": "a",
+      "file": "assets/science24-unit-a-workbook.pdf",
+      "status": 200,
+      "sha256": "7ba2d6afa65d1633addff43712b030bdf44b7f909218e1c9f037223393ceedfa"
+    },
+    {
+      "unit": "a",
+      "file": "assets/source-acid-base.jpg",
+      "status": 200,
+      "sha256": "a1974efe6a3064b92005641bc506101ec6c801ea687995da15061fddc156d747"
+    },
+    {
+      "unit": "a",
+      "file": "assets/source-acid-deposition.jpg",
+      "status": 200,
+      "sha256": "2ef2979ba0062fd70d13f21e5cfdd45067733701153ce44951063aea2a01ec4b"
+    },
+    {
+      "unit": "a",
+      "file": "assets/source-chemical-evidence-p34.jpg",
+      "status": 200,
+      "sha256": "34c612d7091b41e1d2e39b4fdad5bd451dea4efb9f2458a588621e026ff958d1"
+    },
+    {
+      "unit": "a",
+      "file": "assets/source-combustion.jpg",
+      "status": 200,
+      "sha256": "25a23fe182b2425bfb82fba498de6db01f616ea3d5bad3c4b7198bf1b72daa4f"
+    },
+    {
+      "unit": "a",
+      "file": "assets/source-corrosion-protection.jpg",
+      "status": 200,
+      "sha256": "837cb4b2c4b44223550adcafbd49359f64cd8c9ac23cbe3e91eb277bd1d2a074"
+    },
+    {
+      "unit": "a",
+      "file": "assets/source-corrosion.jpg",
+      "status": 200,
+      "sha256": "bcb4106fea83fc3fe065d6b75404d14e872387f46450e5e1a2aea15703b69a51"
+    },
+    {
+      "unit": "a",
+      "file": "assets/source-reaction-types.jpg",
+      "status": 200,
+      "sha256": "3002cacaabb7c5e93e8bf38f704dc851a6fccacebc4287701e72ea5288f2fbf4"
+    },
+    {
+      "unit": "a",
+      "file": "assets/source-safety-symbols.jpg",
+      "status": 200,
+      "sha256": "e5883200893f88817734721aa5e69054267ee659dd9eab79a29983cd67bdd09e"
+    },
+    {
+      "unit": "a",
+      "file": "assets/textbook-01.jpg",
+      "status": 200,
+      "sha256": "ac7341539f9f8cecc0176f151612d90b74de3ac18860d068c7c910da50ddba8f"
+    },
+    {
+      "unit": "a",
+      "file": "assets/textbook-02.jpg",
+      "status": 200,
+      "sha256": "b018f5cf99679772f0c85ddcbb1efac1d1d973f3a98048231154e667a83ed9e5"
+    },
+    {
+      "unit": "a",
+      "file": "assets/textbook-03.jpg",
+      "status": 200,
+      "sha256": "f6e0a932c0119ab08df5c4402f1e22fcf8fef4f678c8170806890bbefb9ac806"
+    },
+    {
+      "unit": "a",
+      "file": "assets/textbook-04.jpg",
+      "status": 200,
+      "sha256": "f394fd65b20db2724d9a82eb361a5a0913159558dfb0f39aad0540f533cc7150"
+    },
+    {
+      "unit": "a",
+      "file": "assets/textbook-05.jpg",
+      "status": 200,
+      "sha256": "1aa6079f083180bd848bcb8c920ec6f9488db4fc12f59e41b1d428070f2da833"
+    },
+    {
+      "unit": "a",
+      "file": "assets/textbook-06.jpg",
+      "status": 200,
+      "sha256": "6aef7a99975cc78f5f446a392382da59227c58bd8c12b99530b1063ec5375647"
+    },
+    {
+      "unit": "a",
+      "file": "assets/textbook-07.jpg",
+      "status": 200,
+      "sha256": "20df4fc22ad1d3aca03427e2e3188864a1dba9a5725c5f7e91d02ae8b8f54718"
+    },
+    {
+      "unit": "a",
+      "file": "assets/textbook-08.jpg",
+      "status": 200,
+      "sha256": "98c42e09bfbf2cddc30474a8ce670f788d17a94825ee5f0fc7cdb2348a65cd00"
+    },
+    {
+      "unit": "a",
+      "file": "assets/textbook-09.jpg",
+      "status": 200,
+      "sha256": "6e487edf51388dcc9ecbe53227d685587cc9d54230d208f92b6f4277efbaaf0a"
+    },
+    {
+      "unit": "a",
+      "file": "assets/textbook-10.jpg",
+      "status": 200,
+      "sha256": "3b1be1bb4669243130845b7e4e3cb6c5e4d4a81b8109b1d756922953555d8572"
+    },
+    {
+      "unit": "a",
+      "file": "assets/textbook-11.jpg",
+      "status": 200,
+      "sha256": "0d3a755b9ca6f6753005893db905ca07384f29106c197a9bd734da9a4738a371"
+    },
+    {
+      "unit": "a",
+      "file": "assets/textbook-12.jpg",
+      "status": 200,
+      "sha256": "58c19eb0e5b3349356fc70e95bd42e9fed33f6560546f1b8a347d43d372a6ab4"
+    },
+    {
+      "unit": "a",
+      "file": "assets/textbook-13.jpg",
+      "status": 200,
+      "sha256": "02d2e5117aac4e37373e248bf8c6712ceae48bbb2905d49304a401c81e01b478"
+    },
+    {
+      "unit": "a",
+      "file": "assets/textbook-14.jpg",
+      "status": 200,
+      "sha256": "365fba501a5bd7542bf27aeff26f7dfd5e8f5ab3a1c55575adc905f5b8b313cb"
+    },
+    {
+      "unit": "a",
+      "file": "assets/textbook-15.jpg",
+      "status": 200,
+      "sha256": "2c7617fd1ab818b2a7749684731c93222a3151d24fab5286d2118ba5f8a804ab"
+    },
+    {
+      "unit": "a",
+      "file": "assets/textbook-16.jpg",
+      "status": 200,
+      "sha256": "abf0d4b91ae369abbf284de35f69d1829ad237929e8e453fca122fa55c9f2f0c"
+    },
+    {
+      "unit": "a",
+      "file": "assets/textbook-17.jpg",
+      "status": 200,
+      "sha256": "57185f1ac3787977ac27f044403abcc88b831933102b994900bfa4d2f97d589e"
+    },
+    {
+      "unit": "a",
+      "file": "assets/textbook-18.jpg",
+      "status": 200,
+      "sha256": "6c4986862d2bf14195ad1825fe7cca6b3f1e0eea55d744cd150c34c5c9f5301e"
+    },
+    {
+      "unit": "a",
+      "file": "assets/textbook-19.jpg",
+      "status": 200,
+      "sha256": "f5e671ca5f440056cdb39a1d974fdefa679b23f39613fa6895c19c8f80c69d29"
+    },
+    {
+      "unit": "a",
+      "file": "assets/textbook-20.jpg",
+      "status": 200,
+      "sha256": "9aa3c88747714be2a26201c681fa292603bde2cb975b28509826e5c8561da061"
+    },
+    {
+      "unit": "a",
+      "file": "assets/textbook-21.jpg",
+      "status": 200,
+      "sha256": "d7cb4a1f24b53f96d9eb27d1ea404516205e17f54bad6c5228ec18519a537030"
+    },
+    {
+      "unit": "a",
+      "file": "assets/textbook-22.jpg",
+      "status": 200,
+      "sha256": "9c90702ca3272fd58520266eb4cf874b074d79a1e22c5d2857f03ba6bdfd8ea5"
+    },
+    {
+      "unit": "a",
+      "file": "assets/textbook-23.jpg",
+      "status": 200,
+      "sha256": "64a8a5a5d86cfe17467b723c0857bce234aa26c50c8705e4d051d7bf7bc8933d"
+    },
+    {
+      "unit": "a",
+      "file": "assets/textbook-24.jpg",
+      "status": 200,
+      "sha256": "354eb35e62f918b41599b1b7d09436a996a6a2d51d4f517dffa8e24e7f2ca6d8"
+    },
+    {
+      "unit": "a",
+      "file": "assets/textbook-25.jpg",
+      "status": 200,
+      "sha256": "29f2c722f7443813ae23d071804741adce454d09818dbdce8765f72666742b67"
+    },
+    {
+      "unit": "a",
+      "file": "assets/textbook-26.jpg",
+      "status": 200,
+      "sha256": "3d0785c66225928e8e7c158e90be81bb06d297784711d4bf4e2277efe953d27a"
+    },
+    {
+      "unit": "a",
+      "file": "assets/textbook-27.jpg",
+      "status": 200,
+      "sha256": "5289e736e50672c9116fdea1e47fc276e77921acb884a69bbf8e9c9ef5a79f27"
+    },
+    {
+      "unit": "a",
+      "file": "assets/textbook-28.jpg",
+      "status": 200,
+      "sha256": "305a1e432d9382ad1fc852652676e216c0d71e5d104eb3fd1301e924317db99f"
+    },
+    {
+      "unit": "a",
+      "file": "assets/textbook-29.jpg",
+      "status": 200,
+      "sha256": "be95a6cf4368bbf3349abe643adb81d933674f8685fe24399248ec0a72fffae0"
+    },
+    {
+      "unit": "a",
+      "file": "assets/textbook-30.jpg",
+      "status": 200,
+      "sha256": "c94858443fa90489784a8c7e0d07e6629b7c359766aa952f3fbca1981b26725f"
+    },
+    {
+      "unit": "a",
+      "file": "assets/textbook-31.jpg",
+      "status": 200,
+      "sha256": "18160f50f446f63b520e0ef1190f1f802cf6feaaf3a036d61ada6d8bf8755322"
+    },
+    {
+      "unit": "a",
+      "file": "assets/textbook-32.jpg",
+      "status": 200,
+      "sha256": "fc74cc1e34d1e36aef1ecaa556a8978e9edb2ee88f519997bf3bd9fedbcea501"
+    },
+    {
+      "unit": "a",
+      "file": "assets/textbook-33.jpg",
+      "status": 200,
+      "sha256": "ace11b1a620e975ceb82a3cc080ecb75af566df33700ab1df7641366e162ed4d"
+    },
+    {
+      "unit": "a",
+      "file": "assets/textbook-34.jpg",
+      "status": 200,
+      "sha256": "1c1f13b76946e19009995850c84cba3f931f6767610bc235487f110c734ac633"
+    },
+    {
+      "unit": "a",
+      "file": "assets/textbook-35.jpg",
+      "status": 200,
+      "sha256": "2687b010651f325aa0858ea5ecff520b382065a0604f368c06364ca61b28b3a7"
+    },
+    {
+      "unit": "a",
+      "file": "assets/textbook-36.jpg",
+      "status": 200,
+      "sha256": "374221b2c84afa221cfb15badd0e2e875aa1ae8d8b0de3dcb7df63fca09edab0"
+    },
+    {
+      "unit": "a",
+      "file": "assets/textbook-37.jpg",
+      "status": 200,
+      "sha256": "62689f5e689d5bdc2de2460c5bf4fdc1b7fde7bddcf7e7945eb0928364f9f2b0"
+    },
+    {
+      "unit": "a",
+      "file": "assets/textbook-38.jpg",
+      "status": 200,
+      "sha256": "3043e2bd83598da53ed026c0719cdc72ea0938475f3276510a933a43182d9e46"
+    },
+    {
+      "unit": "a",
+      "file": "assets/textbook-39.jpg",
+      "status": 200,
+      "sha256": "5288b2e6768acfc3ce97a0f47e9d347359d35f06d037a9e29a86bb00968f884f"
+    },
+    {
+      "unit": "a",
+      "file": "assets/textbook-40.jpg",
+      "status": 200,
+      "sha256": "e33dbac765eeeabbd4b8dc9508cbb32f71e2418231f144ee601fc0c3a2ecacf8"
+    },
+    {
+      "unit": "a",
+      "file": "assets/textbook-41.jpg",
+      "status": 200,
+      "sha256": "41ce8ae2d5b9d6ad73f8ad725d22a42912da06744a9d68c09c3f971358f9ecf0"
+    },
+    {
+      "unit": "a",
+      "file": "assets/textbook-42.jpg",
+      "status": 200,
+      "sha256": "a0e4d1c4a9aa07ed880306dd6e82dcd97fc7606edf93fe35bafbe5e11190c99f"
+    },
+    {
+      "unit": "a",
+      "file": "assets/textbook-43.jpg",
+      "status": 200,
+      "sha256": "5d8d569d1786258b5cc5a741433a1c373e0af80659c0213e04d91e8650df2b91"
+    },
+    {
+      "unit": "a",
+      "file": "assets/textbook-44.jpg",
+      "status": 200,
+      "sha256": "1e67b0893722ea8cab3566ea55998bf726b1ed7252d4d3b63fd1672822b17c98"
+    },
+    {
+      "unit": "a",
+      "file": "assets/textbook-45.jpg",
+      "status": 200,
+      "sha256": "d4195ef4ecaf3065f9f22b3bfc1f56b1cb034509e702262d05a4251bd6e1dd93"
+    },
+    {
+      "unit": "a",
+      "file": "assets/textbook-46.jpg",
+      "status": 200,
+      "sha256": "8d466212642e7692cc5f55a5771946f0c121ad4d78d431c9bc92b7d4bf7abd72"
+    },
+    {
+      "unit": "a",
+      "file": "assets/textbook-47.jpg",
+      "status": 200,
+      "sha256": "1fb1824b34ccd31c3868879ae80477e413a5bf5680c31a31632ac6c5d1549195"
+    },
+    {
+      "unit": "a",
+      "file": "assets/textbook-48.jpg",
+      "status": 200,
+      "sha256": "c8efdc3c712b54bb25bbbc20617b758b9e845f6c03ec85dc045d770ea896eabb"
+    },
+    {
+      "unit": "a",
+      "file": "assets/textbook-49.jpg",
+      "status": 200,
+      "sha256": "989729950854a485fec6a77bd122b0035876fa42bd353d9abd8b03b5f5813ac0"
+    },
+    {
+      "unit": "a",
+      "file": "assets/textbook-50.jpg",
+      "status": 200,
+      "sha256": "5f084f115f36ff90559039829d074f1268cf9c7c52af4c9e6607a0e6e81097ff"
+    },
+    {
+      "unit": "a",
+      "file": "assets/textbook-51.jpg",
+      "status": 200,
+      "sha256": "c983bb2c72b05d694f95aec721033746431d736a5ba322de9e4052228b99694c"
+    },
+    {
+      "unit": "a",
+      "file": "assets/textbook-52.jpg",
+      "status": 200,
+      "sha256": "37268f57325af2381d7f330a1c8ebd77ba361bbcc108a5517c8213dba9dc1f85"
+    },
+    {
+      "unit": "a",
+      "file": "assets/textbook-53.jpg",
+      "status": 200,
+      "sha256": "1a1150487436cc0002c9a7ac2980877416d158e6585a006ee067b162d493f8fd"
+    },
+    {
+      "unit": "a",
+      "file": "assets/textbook-54.jpg",
+      "status": 200,
+      "sha256": "51d92d57a9b6c36002ca8fb035c2d8622625ff4eb52aaea751fa0c5d4e2c15c7"
+    },
+    {
+      "unit": "a",
+      "file": "assets/textbook-practice/s24-a-p11-check-your-understanding-q1.png",
+      "status": 200,
+      "sha256": "c81dce8e936991cea5d0f6876d996c9880682b5771971b31c597bc54cbdb265a"
+    },
+    {
+      "unit": "a",
+      "file": "assets/textbook-practice/s24-a-p11-check-your-understanding-q2.png",
+      "status": 200,
+      "sha256": "d935504ceeb43e73f0574d80a6a611f986ba32ef54cb2c1f6908af34c440e06d"
+    },
+    {
+      "unit": "a",
+      "file": "assets/textbook-practice/s24-a-p11-check-your-understanding-q3.png",
+      "status": 200,
+      "sha256": "18f0391c516ecabdbfa608c2319db4bea62518b6e43d239e58e0a72929bea45a"
+    },
+    {
+      "unit": "a",
+      "file": "assets/textbook-practice/s24-a-p15-check-your-understanding-q1.png",
+      "status": 200,
+      "sha256": "e9b2adfa8f6d71d3564cef4317cea4dd43b3598757eab3b5d12ac8a0d6e461cb"
+    },
+    {
+      "unit": "a",
+      "file": "assets/textbook-practice/s24-a-p15-check-your-understanding-q2.png",
+      "status": 200,
+      "sha256": "7600dd19de7a839c7710400ba9602e38be16bf24a5e32b7a66b214d26d5ac239"
+    },
+    {
+      "unit": "a",
+      "file": "assets/textbook-practice/s24-a-p15-check-your-understanding-q3.png",
+      "status": 200,
+      "sha256": "4cc52f3b62aa70f1a7a402bd2294dd9613c84fe101323c44773b115eb52eccb0"
+    },
+    {
+      "unit": "a",
+      "file": "assets/textbook-practice/s24-a-p28-check-your-understanding-q1.png",
+      "status": 200,
+      "sha256": "2efac28f132724835a04234c213d32cc1c95b93e545e71eec8779cb868485264"
+    },
+    {
+      "unit": "a",
+      "file": "assets/textbook-practice/s24-a-p28-check-your-understanding-q2.png",
+      "status": 200,
+      "sha256": "2f366b25185c51eab11bb44594bdf113b8211f3f539f089c8c49134b7366ca44"
+    },
+    {
+      "unit": "a",
+      "file": "assets/textbook-practice/s24-a-p28-check-your-understanding-q3.png",
+      "status": 200,
+      "sha256": "a40a145bf8ac9f1c74f5511e7d1ee4e21e1ab272c1e655fa48d84fd0bf282764"
+    },
+    {
+      "unit": "a",
+      "file": "assets/textbook-practice/s24-a-p43-check-your-understanding-q1.png",
+      "status": 200,
+      "sha256": "a8dc0a82336bad014175e1cf6e81990dccf8b798d2471663b53647035f05dd1f"
+    },
+    {
+      "unit": "a",
+      "file": "assets/textbook-practice/s24-a-p49-check-your-understanding-q1.png",
+      "status": 200,
+      "sha256": "ff09c62a949560d55af0c634b5fa99b5a969d7d9ac93272b1a3d10dacc5e2a4a"
+    },
+    {
+      "unit": "a",
+      "file": "assets/textbook-practice/s24-a-p49-check-your-understanding-q2.png",
+      "status": 200,
+      "sha256": "bc11d153ea057af720f47aa5b2381abc99460d950871b7b033fa90196c394398"
+    },
+    {
+      "unit": "a",
+      "file": "assets/textbook-practice/s24-a-p51-check-your-understanding-q1.png",
+      "status": 200,
+      "sha256": "34b874131591dd8471db27537e30852e316cf90ec7d57e7e38ff43bb66634c48"
+    },
+    {
+      "unit": "a",
+      "file": "assets/textbook-practice/s24-a-p53-solve-these-q1.png",
+      "status": 200,
+      "sha256": "71a19c73356a3466905657765d79c4641f1396678faf105618173bbca55c2660"
+    },
+    {
+      "unit": "a",
+      "file": "assets/textbook-practice/s24-a-p53-solve-these-q2.png",
+      "status": 200,
+      "sha256": "5aadf45061479242941611370b15dd59b4f41932f09ea28f19c41d0305d9713d"
+    },
+    {
+      "unit": "a",
+      "file": "assets/textbook-practice/s24-a-p54-solve-these-q1.png",
+      "status": 200,
+      "sha256": "e79271c00fb1b36dd3753ebb79594dbbd267b91742c0035181b9baf8db24617f"
+    },
+    {
+      "unit": "a",
+      "file": "assets/textbook-practice/s24-a-p54-solve-these-q2.png",
+      "status": 200,
+      "sha256": "eb00e7b22afa04e471c1e49838afafa7744bfec261bf84ceccbbd52e2d319b66"
+    },
+    {
+      "unit": "a",
+      "file": "assets/textbook-practice/s24-a-p54-solve-these-q3.png",
+      "status": 200,
+      "sha256": "03f6538412d058cccf62264a9ef3ce5325a93de962f0736d4d1e69bf48e1d308"
+    },
+    {
+      "unit": "a",
+      "file": "assets/textbook-practice/s24-a-p65-check-your-understanding-q1.png",
+      "status": 200,
+      "sha256": "b256e66344bb15632ae1c6bac62f67f0b226e72dec3eb8ec420e47e0a8481af6"
+    },
+    {
+      "unit": "a",
+      "file": "assets/textbook-practice/s24-a-p65-check-your-understanding-q2.png",
+      "status": 200,
+      "sha256": "84fcfbdf6665b43636caf2a1fb467e7301477313b93309c1e30d84fee38fb73d"
+    },
+    {
+      "unit": "a",
+      "file": "assets/textbook-practice/s24-a-p65-check-your-understanding-q3.png",
+      "status": 200,
+      "sha256": "4244e3b22536909b006bf8b9d6ba593a5b7a493e6129c6fe880bf712abaac02e"
+    },
+    {
+      "unit": "a",
+      "file": "assets/textbook-practice/s24-a-p65-check-your-understanding-q4.png",
+      "status": 200,
+      "sha256": "5d39633d0ea51c4cf33a5f6df210bdd33b9cc845c75454f2415cd980373a3a6d"
+    },
+    {
+      "unit": "a",
+      "file": "assets/textbook-practice/s24-a-p68-check-your-understanding-q1.png",
+      "status": 200,
+      "sha256": "735e42cb8497404bbbad6b8a533f8449de25c1a0c151110a781909d03c73000f"
+    },
+    {
+      "unit": "a",
+      "file": "assets/textbook-practice/s24-a-p68-check-your-understanding-q2.png",
+      "status": 200,
+      "sha256": "b0af941362a29a082d0aea1320e2b823667df024752efebfbc68b78cf0224882"
+    },
+    {
+      "unit": "a",
+      "file": "assets/textbook-practice/s24-a-p68-check-your-understanding-q3.png",
+      "status": 200,
+      "sha256": "eaa46229b4cacf4472dfa179ea272377e83a169f7c53a9c22a2a231dcc6364ac"
+    },
+    {
+      "unit": "a",
+      "file": "assets/textbook-practice/s24-a-p68-check-your-understanding-q4.png",
+      "status": 200,
+      "sha256": "d03e15607875889ecc379779cad58bdb4138ae2cadb308f9165185c30629f87f"
+    },
+    {
+      "unit": "a",
+      "file": "assets/textbook-practice/s24-a-p73-check-your-understanding-q1.png",
+      "status": 200,
+      "sha256": "ab461652dc252fbf096cc1d5772ca6ba2344ef6a28fb98ccbfb3296085799667"
+    },
+    {
+      "unit": "a",
+      "file": "assets/textbook-practice/s24-a-p73-check-your-understanding-q2.png",
+      "status": 200,
+      "sha256": "ace1a7ec97b30ab9aaf83bd92b52c353ecb078395b4127b0f028e499a944aac7"
+    },
+    {
+      "unit": "a",
+      "file": "assets/textbook-practice/s24-a-p73-check-your-understanding-q3.png",
+      "status": 200,
+      "sha256": "50b96f2fd0164ef861b0f85cef8f7707983e07e90a497677c5fd31202b9002cb"
+    },
+    {
+      "unit": "a",
+      "file": "assets/textbook-practice/s24-a-p9-check-your-understanding-q1.png",
+      "status": 200,
+      "sha256": "3f4dea17ae52947c3b55a7c9a1142d67d756631e1b2dd12a2df962c3baeafa95"
+    },
+    {
+      "unit": "a",
+      "file": "assets/textbook-practice/s24-a-p9-check-your-understanding-q2.png",
+      "status": 200,
+      "sha256": "3f6d49cbf91526de8f81f982d7cab7184d5295ebb1b873eb3ce4f034796078cf"
+    },
+    {
+      "unit": "a",
+      "file": "assets/textbook-practice/s24-a-p9-check-your-understanding-q3.png",
+      "status": 200,
+      "sha256": "0ec959522d460436cad5b81179a2134812ea2d60a2e729d0dc5d53161fc4be3d"
+    },
+    {
+      "unit": "a",
+      "file": "assets/textbook-practice.css",
+      "status": 200,
+      "sha256": "4101415cce977a4a8553754a01cea3d33ad194add1198db00ddc0ba99bfeea12"
+    },
+    {
+      "unit": "a",
+      "file": "assets/visual-refresh/a-energy-levels.svg",
+      "status": 200,
+      "sha256": "5c0dbc7d53a5a0e71242c6b202eaac053e8a9230ea3146acb5ddd0993217fb72"
+    },
+    {
+      "unit": "a",
+      "file": "assets/visual-refresh/a-summary.svg",
+      "status": 200,
+      "sha256": "307217ec00749976af6b3fccbb0cc7e58d87b393f8281f4dbf39752cf2a66fcc"
+    },
+    {
+      "unit": "a",
+      "file": "assets/visual-refresh/a-word-equation.svg",
+      "status": 200,
+      "sha256": "42cedac10218880ff1f1d22ea86ca3dbbc40bf92245fb94f050ff3b4a669cb67"
+    },
+    {
+      "unit": "a",
+      "file": "assets/visual-refresh.css",
+      "status": 200,
+      "sha256": "edfa12817795fc550b66bffb2eca3c93fb8c10d7c89e527ddb47315743ab4659"
+    },
+    {
+      "unit": "a",
+      "file": "assets/water-balance.svg",
+      "status": 200,
+      "sha256": "5e544024f1ebd0007c1532e1eb6e176fd0c18f79468a45c2a5325e3c638525e6"
+    },
+    {
+      "unit": "a",
+      "file": "assets/whmis-flame.png",
+      "status": 200,
+      "sha256": "b854302249c6be05239d669ddc4c6e1fbd6d4752543b71251d2f1ebc8595b3e2"
+    },
+    {
+      "unit": "a",
+      "file": "course-data.js",
+      "status": 200,
+      "sha256": "e8dfddb73d99376578285338e9417a3e84bae4c064f6fc707d0d2c166f02df1d"
+    },
+    {
+      "unit": "a",
+      "file": "index.html",
+      "status": 200,
+      "sha256": "0743da65433bdaec46ccca8dd4db12f2666182866d52bec6728ea71f3f1511f6"
+    },
+    {
+      "unit": "a",
+      "file": "main.js",
+      "status": 200,
+      "sha256": "b8aed4e995654e40979c207d4ab9f83b140818d996cdd28f1bee21a917c004bd"
+    },
+    {
+      "unit": "a",
+      "file": "state-store.js",
+      "status": 200,
+      "sha256": "dcb523cd4915f4af8a06b15730a14f1ed2e3c6aef4c1d4c76b6888f394464b64"
+    },
+    {
+      "unit": "a",
+      "file": "styles.css",
+      "status": 200,
+      "sha256": "f0bce32fcd6d4243cbcde101c1e916b247de55cc45696a3fc624c54bd0b6a85a"
+    },
+    {
+      "unit": "a",
+      "file": "textbook-practice-data.js",
+      "status": 200,
+      "sha256": "bdc2e5557b23060072b90fbd1f69b4190abd680495708ca1d886dde29be7a677"
+    },
+    {
+      "unit": "a",
+      "file": "textbook-practice.css",
+      "status": 200,
+      "sha256": "ae788103fac4f01d09387892aba6de115ee0ba84a0a0e258c48a4f2bee762222"
+    },
+    {
+      "unit": "a",
+      "file": "unit-a.css",
+      "status": 200,
+      "sha256": "e1fd8f3184bdfdfb272a5a78b61344503b03ea1da8122d2ebfefc71f244b2bae"
+    }
+  ],
+  "captures": [
+    {
+      "unit": "a",
+      "lesson": "04",
+      "label": "desktop",
+      "path": "screenshots/A04-desktop.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    },
+    {
+      "unit": "a",
+      "lesson": "05",
+      "label": "desktop",
+      "path": "screenshots/A05-desktop.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    },
+    {
+      "unit": "a",
+      "lesson": "06",
+      "label": "desktop",
+      "path": "screenshots/A06-desktop.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    },
+    {
+      "unit": "a",
+      "lesson": "09",
+      "label": "desktop",
+      "path": "screenshots/A09-desktop.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    },
+    {
+      "unit": "a",
+      "lesson": "15",
+      "label": "desktop",
+      "path": "screenshots/A15-desktop.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    },
+    {
+      "unit": "a",
+      "lesson": "04",
+      "label": "tablet",
+      "path": "screenshots/A04-tablet.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    },
+    {
+      "unit": "a",
+      "lesson": "05",
+      "label": "tablet",
+      "path": "screenshots/A05-tablet.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    },
+    {
+      "unit": "a",
+      "lesson": "06",
+      "label": "tablet",
+      "path": "screenshots/A06-tablet.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    },
+    {
+      "unit": "a",
+      "lesson": "09",
+      "label": "tablet",
+      "path": "screenshots/A09-tablet.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    },
+    {
+      "unit": "a",
+      "lesson": "15",
+      "label": "tablet",
+      "path": "screenshots/A15-tablet.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    },
+    {
+      "unit": "a",
+      "lesson": "04",
+      "label": "phone",
+      "path": "screenshots/A04-phone.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    },
+    {
+      "unit": "a",
+      "lesson": "05",
+      "label": "phone",
+      "path": "screenshots/A05-phone.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    },
+    {
+      "unit": "a",
+      "lesson": "06",
+      "label": "phone",
+      "path": "screenshots/A06-phone.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    },
+    {
+      "unit": "a",
+      "lesson": "09",
+      "label": "phone",
+      "path": "screenshots/A09-phone.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    },
+    {
+      "unit": "a",
+      "lesson": "15",
+      "label": "phone",
+      "path": "screenshots/A15-phone.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    },
+    {
+      "unit": "a",
+      "lesson": "04",
+      "label": "zoom200",
+      "path": "screenshots/A04-zoom200.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    },
+    {
+      "unit": "a",
+      "lesson": "05",
+      "label": "zoom200",
+      "path": "screenshots/A05-zoom200.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    },
+    {
+      "unit": "a",
+      "lesson": "06",
+      "label": "zoom200",
+      "path": "screenshots/A06-zoom200.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    },
+    {
+      "unit": "a",
+      "lesson": "09",
+      "label": "zoom200",
+      "path": "screenshots/A09-zoom200.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    },
+    {
+      "unit": "a",
+      "lesson": "15",
+      "label": "zoom200",
+      "path": "screenshots/A15-zoom200.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    },
+    {
+      "unit": "a",
+      "lesson": "04",
+      "label": "before",
+      "path": "screenshots/A04-before.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    },
+    {
+      "unit": "a",
+      "lesson": "05",
+      "label": "before",
+      "path": "screenshots/A05-before.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    },
+    {
+      "unit": "a",
+      "lesson": "06",
+      "label": "before",
+      "path": "screenshots/A06-before.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    },
+    {
+      "unit": "a",
+      "lesson": "09",
+      "label": "before",
+      "path": "screenshots/A09-before.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    },
+    {
+      "unit": "a",
+      "lesson": "15",
+      "label": "before",
+      "path": "screenshots/A15-before.png",
+      "scope": "Complete changed content area; fixed shell chrome hidden only for capture",
+      "method": "CDP clip scaled by actual Chromium tab zoom"
+    }
+  ],
+  "failures": [],
+  "status": "passed",
+  "publisherAvailability": "Not certified by stubbed player control checks",
+  "teacherAcceptance": "pending"
+}

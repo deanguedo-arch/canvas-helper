@@ -1,0 +1,470 @@
+{
+  "method": "Same Chromium and viewport; no masked pixels; raw comparisons against 44px accessibility comparison copies. Dynamic task/feedback content changes documented separately; failures remain failures.",
+  "results": [
+    {
+      "game": "B1",
+      "stage": "title",
+      "width": 390,
+      "pixelAgreementPercent": 100.0,
+      "pixelThreshold": 99.25,
+      "geometryTolerancePx": 4,
+      "geometry": [
+        {
+          "selector": ".course-header",
+          "maxErrorPx": 0
+        },
+        {
+          "selector": ".game-heading",
+          "maxErrorPx": 0
+        },
+        {
+          "selector": ".workspace",
+          "maxErrorPx": 0
+        },
+        {
+          "selector": ".workspace section:nth-child(1)",
+          "maxErrorPx": 0
+        },
+        {
+          "selector": ".workspace section:nth-child(2)",
+          "maxErrorPx": 0
+        }
+      ],
+      "passed": true,
+      "mask": "None; full viewport; original reference with 44px controls only"
+    },
+    {
+      "game": "B1",
+      "stage": "title",
+      "width": 1440,
+      "pixelAgreementPercent": 99.9877,
+      "pixelThreshold": 99.25,
+      "geometryTolerancePx": 4,
+      "geometry": [
+        {
+          "selector": ".course-header",
+          "maxErrorPx": 0
+        },
+        {
+          "selector": ".game-heading",
+          "maxErrorPx": 0
+        },
+        {
+          "selector": ".workspace",
+          "maxErrorPx": 0
+        },
+        {
+          "selector": ".workspace section:nth-child(1)",
+          "maxErrorPx": 0
+        },
+        {
+          "selector": ".workspace section:nth-child(2)",
+          "maxErrorPx": 0.0
+        }
+      ],
+      "passed": true,
+      "mask": "None; full viewport; original reference with 44px controls only"
+    },
+    {
+      "game": "B1",
+      "stage": "worked",
+      "width": 390,
+      "pixelAgreementPercent": 100.0,
+      "pixelThreshold": 99.25,
+      "geometryTolerancePx": 4,
+      "geometry": [
+        {
+          "selector": ".course-header",
+          "maxErrorPx": 0
+        },
+        {
+          "selector": ".game-heading",
+          "maxErrorPx": 0
+        },
+        {
+          "selector": ".workspace",
+          "maxErrorPx": 249.75
+        },
+        {
+          "selector": ".workspace section:nth-child(1)",
+          "maxErrorPx": 0
+        },
+        {
+          "selector": ".workspace section:nth-child(2)",
+          "maxErrorPx": 249.75
+        },
+        {
+          "selector": ".workspace section:nth-child(3)",
+          "maxErrorPx": 249.75
+        }
+      ],
+      "passed": false,
+      "mask": "None; full viewport; original reference with 44px controls only"
+    },
+    {
+      "game": "B1",
+      "stage": "worked",
+      "width": 1440,
+      "pixelAgreementPercent": 94.8992,
+      "pixelThreshold": 99.25,
+      "geometryTolerancePx": 4,
+      "geometry": [
+        {
+          "selector": ".course-header",
+          "maxErrorPx": 0
+        },
+        {
+          "selector": ".game-heading",
+          "maxErrorPx": 0
+        },
+        {
+          "selector": ".workspace",
+          "maxErrorPx": 0
+        },
+        {
+          "selector": ".workspace section:nth-child(1)",
+          "maxErrorPx": 0
+        },
+        {
+          "selector": ".workspace section:nth-child(2)",
+          "maxErrorPx": 0.0
+        },
+        {
+          "selector": ".workspace section:nth-child(3)",
+          "maxErrorPx": 0.0
+        }
+      ],
+      "passed": false,
+      "mask": "None; full viewport; original reference with 44px controls only"
+    },
+    {
+      "game": "B1",
+      "stage": "supported",
+      "width": 390,
+      "pixelAgreementPercent": 36.8766,
+      "pixelThreshold": 99.25,
+      "geometryTolerancePx": 4,
+      "geometry": [
+        {
+          "selector": ".course-header",
+          "maxErrorPx": 344
+        },
+        {
+          "selector": ".game-heading",
+          "maxErrorPx": 344.0
+        },
+        {
+          "selector": ".workspace",
+          "maxErrorPx": 344.0
+        },
+        {
+          "selector": ".workspace section:nth-child(1)",
+          "maxErrorPx": 344.0
+        },
+        {
+          "selector": ".workspace section:nth-child(2)",
+          "maxErrorPx": 158.64
+        },
+        {
+          "selector": ".workspace section:nth-child(3)",
+          "maxErrorPx": 89.64
+        }
+      ],
+      "passed": false,
+      "mask": "None; full viewport; original reference with 44px controls only"
+    },
+    {
+      "game": "B1",
+      "stage": "supported",
+      "width": 1440,
+      "pixelAgreementPercent": 63.2455,
+      "pixelThreshold": 99.25,
+      "geometryTolerancePx": 4,
+      "geometry": [
+        {
+          "selector": ".course-header",
+          "maxErrorPx": 341
+        },
+        {
+          "selector": ".game-heading",
+          "maxErrorPx": 341
+        },
+        {
+          "selector": ".workspace",
+          "maxErrorPx": 341.0
+        },
+        {
+          "selector": ".workspace section:nth-child(1)",
+          "maxErrorPx": 341.0
+        },
+        {
+          "selector": ".workspace section:nth-child(2)",
+          "maxErrorPx": 341.0
+        },
+        {
+          "selector": ".workspace section:nth-child(3)",
+          "maxErrorPx": 341.0
+        }
+      ],
+      "passed": false,
+      "mask": "None; full viewport; original reference with 44px controls only"
+    },
+    {
+      "game": "B1",
+      "stage": "feedback",
+      "width": 390,
+      "pixelAgreementPercent": 45.4654,
+      "pixelThreshold": 99.25,
+      "geometryTolerancePx": 4,
+      "geometry": [
+        {
+          "selector": ".course-header",
+          "maxErrorPx": 47
+        },
+        {
+          "selector": ".game-heading",
+          "maxErrorPx": 47.0
+        },
+        {
+          "selector": ".workspace",
+          "maxErrorPx": 188.19
+        },
+        {
+          "selector": ".workspace section:nth-child(1)",
+          "maxErrorPx": 47.0
+        },
+        {
+          "selector": ".workspace section:nth-child(2)",
+          "maxErrorPx": 136.77
+        }
+      ],
+      "passed": false,
+      "mask": "None; full viewport; original reference with 44px controls only"
+    },
+    {
+      "game": "B1",
+      "stage": "feedback",
+      "width": 1440,
+      "pixelAgreementPercent": 61.149,
+      "pixelThreshold": 99.25,
+      "geometryTolerancePx": 4,
+      "geometry": [
+        {
+          "selector": ".course-header",
+          "maxErrorPx": 47
+        },
+        {
+          "selector": ".game-heading",
+          "maxErrorPx": 47
+        },
+        {
+          "selector": ".workspace",
+          "maxErrorPx": 47.0
+        },
+        {
+          "selector": ".workspace section:nth-child(1)",
+          "maxErrorPx": 290.98
+        },
+        {
+          "selector": ".workspace section:nth-child(2)",
+          "maxErrorPx": 290.98
+        }
+      ],
+      "passed": false,
+      "mask": "None; full viewport; original reference with 44px controls only"
+    },
+    {
+      "game": "B1",
+      "stage": "reduced",
+      "width": 390,
+      "pixelAgreementPercent": 89.2086,
+      "pixelThreshold": 99.25,
+      "geometryTolerancePx": 4,
+      "geometry": [
+        {
+          "selector": ".course-header",
+          "maxErrorPx": 0
+        },
+        {
+          "selector": ".game-heading",
+          "maxErrorPx": 0
+        },
+        {
+          "selector": ".workspace",
+          "maxErrorPx": 695.92
+        },
+        {
+          "selector": ".workspace section:nth-child(1)",
+          "maxErrorPx": 458.92
+        },
+        {
+          "selector": ".workspace section:nth-child(2)",
+          "maxErrorPx": 458.92
+        },
+        {
+          "selector": ".workspace section:nth-child(3)",
+          "maxErrorPx": 638.92
+        }
+      ],
+      "passed": false,
+      "mask": "None; full viewport; original reference with 44px controls only"
+    },
+    {
+      "game": "B1",
+      "stage": "reduced",
+      "width": 1440,
+      "pixelAgreementPercent": 86.5143,
+      "pixelThreshold": 99.25,
+      "geometryTolerancePx": 4,
+      "geometry": [
+        {
+          "selector": ".course-header",
+          "maxErrorPx": 0
+        },
+        {
+          "selector": ".game-heading",
+          "maxErrorPx": 0
+        },
+        {
+          "selector": ".workspace",
+          "maxErrorPx": 428.55
+        },
+        {
+          "selector": ".workspace section:nth-child(1)",
+          "maxErrorPx": 428.55
+        },
+        {
+          "selector": ".workspace section:nth-child(2)",
+          "maxErrorPx": 428.55
+        },
+        {
+          "selector": ".workspace section:nth-child(3)",
+          "maxErrorPx": 428.55
+        }
+      ],
+      "passed": false,
+      "mask": "None; full viewport; original reference with 44px controls only"
+    },
+    {
+      "game": "B1",
+      "stage": "transfer",
+      "width": 390,
+      "pixelAgreementPercent": 77.4183,
+      "pixelThreshold": 99.25,
+      "geometryTolerancePx": 4,
+      "geometry": [
+        {
+          "selector": ".course-header",
+          "maxErrorPx": 0
+        },
+        {
+          "selector": ".game-heading",
+          "maxErrorPx": 0
+        },
+        {
+          "selector": ".workspace",
+          "maxErrorPx": 129.27
+        },
+        {
+          "selector": ".workspace section:nth-child(1)",
+          "maxErrorPx": 125.73
+        },
+        {
+          "selector": ".workspace section:nth-child(2)",
+          "maxErrorPx": 255.0
+        }
+      ],
+      "passed": false,
+      "mask": "None; full viewport; original reference with 44px controls only"
+    },
+    {
+      "game": "B1",
+      "stage": "transfer",
+      "width": 1440,
+      "pixelAgreementPercent": 89.9131,
+      "pixelThreshold": 99.25,
+      "geometryTolerancePx": 4,
+      "geometry": [
+        {
+          "selector": ".course-header",
+          "maxErrorPx": 0
+        },
+        {
+          "selector": ".game-heading",
+          "maxErrorPx": 0
+        },
+        {
+          "selector": ".workspace",
+          "maxErrorPx": 206.75
+        },
+        {
+          "selector": ".workspace section:nth-child(1)",
+          "maxErrorPx": 206.75
+        },
+        {
+          "selector": ".workspace section:nth-child(2)",
+          "maxErrorPx": 206.75
+        }
+      ],
+      "passed": false,
+      "mask": "None; full viewport; original reference with 44px controls only"
+    },
+    {
+      "game": "B1",
+      "stage": "review",
+      "width": 390,
+      "pixelAgreementPercent": 74.5069,
+      "pixelThreshold": 99.25,
+      "geometryTolerancePx": 4,
+      "geometry": [
+        {
+          "selector": ".course-header",
+          "maxErrorPx": 0
+        },
+        {
+          "selector": ".game-heading",
+          "maxErrorPx": 0
+        },
+        {
+          "selector": ".workspace",
+          "maxErrorPx": 1659.12
+        },
+        {
+          "selector": ".workspace section:nth-child(1)",
+          "maxErrorPx": 1132.64
+        }
+      ],
+      "passed": false,
+      "mask": "None; full viewport; original reference with 44px controls only"
+    },
+    {
+      "game": "B1",
+      "stage": "review",
+      "width": 1440,
+      "pixelAgreementPercent": 88.1874,
+      "pixelThreshold": 99.25,
+      "geometryTolerancePx": 4,
+      "geometry": [
+        {
+          "selector": ".course-header",
+          "maxErrorPx": 0
+        },
+        {
+          "selector": ".game-heading",
+          "maxErrorPx": 0
+        },
+        {
+          "selector": ".workspace",
+          "maxErrorPx": 1286.41
+        },
+        {
+          "selector": ".workspace section:nth-child(1)",
+          "maxErrorPx": 1286.41
+        }
+      ],
+      "passed": false,
+      "mask": "None; full viewport; original reference with 44px controls only"
+    }
+  ],
+  "passed": false
+}
