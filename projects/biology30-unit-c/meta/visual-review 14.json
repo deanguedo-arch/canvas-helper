@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "projectSlug": "biology30-unit-c",
+  "buildSha256": "7eb9ea23ba3fe856df97f259392b92a1f4e62a407e0b09bda7889bc535acd177",
+  "reviewedAt": "2026-08-31T02:30:19Z",
+  "status": "visual-red-team-complete-awaiting-human-decision",
+  "requiredViewports": [
+    "1440x900",
+    "1024x768",
+    "390x844"
+  ],
+  "requiredRoutes": [
+    "overview",
+    "c-lesson-01",
+    "c-lesson-13",
+    "c-lesson-24",
+    "model-lab",
+    "investigation-notebook",
+    "practice-hub"
+  ],
+  "screenshots": [
+    {
+      "kind": "route-contact-sheet",
+      "viewport": "1440x900",
+      "path": ".runtime/biology30-course-production-visual-audit/2026-08-31T02-29-06-811Z/biology30-unit-c/routes-desktop-1440x900-01.png",
+      "sha256": "f7aae3ba9ee18a3b6b72d7fb59255b46e8a7ed3956c59420f97b89a864902319"
+    },
+    {
+      "kind": "route-contact-sheet",
+      "viewport": "1024x768",
+      "path": ".runtime/biology30-course-production-visual-audit/2026-08-31T02-29-06-811Z/biology30-unit-c/routes-tablet-1024x768-01.png",
+      "sha256": "e9683d245af4054c493f0ebca4ca51d7d9a7b7ca0fc39c18e36337c7b94908ae"
+    },
+    {
+      "kind": "route-contact-sheet",
+      "viewport": "390x844",
+      "path": ".runtime/biology30-course-production-visual-audit/2026-08-31T02-29-06-811Z/biology30-unit-c/routes-mobile-390x844-01.png",
+      "sha256": "3c33392d0aaa00facf95350775c83e193908cf46a47f555bc7939ed319e96770"
+    },
+    {
+      "kind": "figure-contact-sheet",
+      "path": ".runtime/biology30-course-production-visual-audit/2026-08-31T02-29-06-811Z/biology30-unit-c/figures-contact-sheet-01.png",
+      "sha256": "0075835b793542dbd9c4ba34ef022beb7c1cf547178e2992bcdd14be2bdf5ba9"
+    },
+    {
+      "kind": "figure-contact-sheet",
+      "path": ".runtime/biology30-course-production-visual-audit/2026-08-31T02-29-06-811Z/biology30-unit-c/figures-contact-sheet-02.png",
+      "sha256": "e97a97f4f29a7d768bb73893e281273838eb20b80558b22720770fc152b0fbb1"
+    }
+  ],
+  "findings": [],
+  "allListedSheetsOpened": true,
+  "checks": {
+    "hierarchyAndReadability": true,
+    "textFitAndClipping": true,
+    "cardAndLabelOverlap": true,
+    "modelArrowAlignment": true,
+    "responsiveReflow": true,
+    "scientificLegibility": true
+  },
+  "binaryVisualBlockerFound": false,
+  "pass": true,
+  "humanVisualAcceptance": null
+}

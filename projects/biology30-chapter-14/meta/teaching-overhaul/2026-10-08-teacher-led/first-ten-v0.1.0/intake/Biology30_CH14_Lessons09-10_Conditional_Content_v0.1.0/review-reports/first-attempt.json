@@ -1,0 +1,2043 @@
+{
+  "status": "FROZEN_BLIND_FIRST_ATTEMPT",
+  "frozen_at_utc": "2026-10-08T20:38:22.203965+00:00",
+  "scope": "CH14 lessons09–10; authorized direct Scout content review only",
+  "read_boundary": "Read only the two blind HTML files, generated-09-10.json, and actual PDF/PNG files in review-rendered-final. Did not read candidate/, teaching-copy.json, review-feedback/, source-read/, other reviewers, originals, integrity JSONs or extracted text files.",
+  "prerequisite": "Only basic reproductive anatomy and normal hormonal cycles assumed. No gap filled using external expertise. No web lookup used.",
+  "counts": {
+    "required_selections": 4,
+    "required_writings": 4,
+    "supported": 4,
+    "stops": 2,
+    "new_optional": 2,
+    "original_saved_optional": 1,
+    "complete_lesson_tasks": 17,
+    "optional_generated_representations": 49,
+    "all_attempts": 66,
+    "rendered_pages_inspected": 20
+  },
+  "result": "All 66 prompts have one recorded first answer and visible teaching support. Correctness remains ungraded until the authorized feedback comparison. No blocking text/figure clipping or answer-support gap found. This is not runtime, mobile, clinical or course acceptance.",
+  "source_manifest": [
+    {
+      "path": "review-blind-final/lesson-09.html",
+      "bytes": 27664,
+      "sha256": "9e2c1fe6ce829b8252f7cf2b601ce2323935421fba5af9a7d4f8128fb11961e2"
+    },
+    {
+      "path": "review-blind-final/lesson-10.html",
+      "bytes": 25691,
+      "sha256": "ed4686b2a1a17299597765f8a6d73b0b54d3140c61111605c22411ef192e24c5"
+    },
+    {
+      "path": "review-blind-final/generated-09-10.json",
+      "bytes": 14021,
+      "sha256": "c5ff3d5fcf2f5fafa10c01a84add5d54439cf41273643d1a24d1445c16904e12"
+    },
+    {
+      "path": "review-rendered-final/lesson-09.pdf",
+      "bytes": 142417,
+      "sha256": "83114e79e075b162b70c2667e99586805395c0b47567d118a8e145c8dab990a5"
+    },
+    {
+      "path": "review-rendered-final/lesson-10.pdf",
+      "bytes": 376613,
+      "sha256": "7524f7a73e4cdf3f21b858b03df21c3fef9a94a098f50679353d14a579e9a36f"
+    },
+    {
+      "path": "review-rendered-final/generated-09-10.pdf",
+      "bytes": 51679,
+      "sha256": "6bf949e42b7387e87efcc9bf8149a2311e3f30c8a422328dee563b646d1f301a"
+    },
+    {
+      "path": "review-rendered-final/lesson-09-page-01.png",
+      "bytes": 127404,
+      "sha256": "6102313218513f6e86d2ca9a2b01ed6afe5841fb1d23fada4950a604fbf6c112"
+    },
+    {
+      "path": "review-rendered-final/lesson-09-page-02.png",
+      "bytes": 142256,
+      "sha256": "f5f5a511154ecaae67e1020ea447bc27c1a48c343a3e9c3918fac4dc33fb1a70"
+    },
+    {
+      "path": "review-rendered-final/lesson-09-page-03.png",
+      "bytes": 152654,
+      "sha256": "69f30ebcc9691ba028aa10a99ba0fdfb73fdcf2ea7e3686077c3368f1fab416c"
+    },
+    {
+      "path": "review-rendered-final/lesson-09-page-04.png",
+      "bytes": 198850,
+      "sha256": "e5f1453a2fa9aa1fc5ce378280d8a614a57119421eb3dfb1fac0003384a540b0"
+    },
+    {
+      "path": "review-rendered-final/lesson-09-page-05.png",
+      "bytes": 163802,
+      "sha256": "4d3cf1195d4cd85981aa68328e9b157420a173ed6562e7538e2faa39669680fd"
+    },
+    {
+      "path": "review-rendered-final/lesson-09-page-06.png",
+      "bytes": 121684,
+      "sha256": "bc83754c250921a9f3b41216ddbcb6b914ba48cd417a4e855313d0479cbda3ac"
+    },
+    {
+      "path": "review-rendered-final/lesson-09-page-07.png",
+      "bytes": 104975,
+      "sha256": "30a4c511e751b8834ffd52d2206005dc2248a737a24c04b1df4c09fadb6bf1d8"
+    },
+    {
+      "path": "review-rendered-final/lesson-10-page-01.png",
+      "bytes": 119915,
+      "sha256": "af02d007a1c400b61644e348294cfdca0de94e2357342c00bf1ca0d27fb3f48d"
+    },
+    {
+      "path": "review-rendered-final/lesson-10-page-02.png",
+      "bytes": 172139,
+      "sha256": "e79472971f695eaed341790ee570e42a185a82d7f168f6379aa19bd809d3129b"
+    },
+    {
+      "path": "review-rendered-final/lesson-10-page-03.png",
+      "bytes": 579735,
+      "sha256": "4515edd74c483d4806cb6373a94e5738e45b821c85d6508e061be92ced90ccb7"
+    },
+    {
+      "path": "review-rendered-final/lesson-10-page-04.png",
+      "bytes": 208410,
+      "sha256": "b6b0dc3e9719d7af6dff86a32434d130848bb72e90610f817e229ab7394cb313"
+    },
+    {
+      "path": "review-rendered-final/lesson-10-page-05.png",
+      "bytes": 157071,
+      "sha256": "36d6cbe662ca42e31f7dab883ea7f646551d23cbaebe081c95017bc4af323af6"
+    },
+    {
+      "path": "review-rendered-final/lesson-10-page-06.png",
+      "bytes": 105959,
+      "sha256": "80f1f7bb385bc5cdbe85c02eb281c49ac1b5ccfbd03ad63048381aae0ac68dff"
+    },
+    {
+      "path": "review-rendered-final/lesson-10-page-07.png",
+      "bytes": 34147,
+      "sha256": "98b8e73235625562c6533ebc30a24af4aa9be083e4d97fd35dbaf5b20f757aa5"
+    },
+    {
+      "path": "review-rendered-final/generated-page-01.png",
+      "bytes": 115649,
+      "sha256": "2d18159b719387c74c527d51332a37687b9af8934278594021a78ea1a6e57334"
+    },
+    {
+      "path": "review-rendered-final/generated-page-02.png",
+      "bytes": 111092,
+      "sha256": "1f82ebfa3c0fd2dedf68e8226641320a02b9d558549177d8cbb6ab64125a56b5"
+    },
+    {
+      "path": "review-rendered-final/generated-page-03.png",
+      "bytes": 100246,
+      "sha256": "9f157d1b5044c8b5e69a200a33f513cd64102a873e18ea57cae44b66c45046d4"
+    },
+    {
+      "path": "review-rendered-final/generated-page-04.png",
+      "bytes": 101758,
+      "sha256": "78b2779df6d1972141917b1d65d9c0f706c67497ae465e570354803709169700"
+    },
+    {
+      "path": "review-rendered-final/generated-page-05.png",
+      "bytes": 115719,
+      "sha256": "1a963cf36ba976c0bc669626e071c68829fe0922fb85ee7e9ddc22483e301998"
+    },
+    {
+      "path": "review-rendered-final/generated-page-06.png",
+      "bytes": 76127,
+      "sha256": "499a79de49461930360050c272c658bab002b76d5a668485b37c1482f8b8c01c"
+    }
+  ],
+  "visible_support_registry": {
+    "ch14-l09-teaching-01-p1": {
+      "file": "lesson-09.html",
+      "locator": "#ch14-l09-teaching-01-p1",
+      "rendered_pages": [
+        2
+      ],
+      "visible_text": "In the last two lessons, we connected events in the ovary with events in the uterus. Now we will change one part of that system and ask what should follow. Keep three questions separate: What was observed? What mechanism could explain it? What else would we need to know?"
+    },
+    "ch14-l09-teaching-01-p2": {
+      "file": "lesson-09.html",
+      "locator": "#ch14-l09-teaching-01-p2",
+      "rendered_pages": [
+        2
+      ],
+      "visible_text": "The cycle diagram below is our baseline, a simplified cycle without pregnancy. Read the ovarian row from a developing follicle through ovulation to the corpus luteum , the hormone-producing tissue left from the ovulated follicle. In the uterine row, follow the endometrium , the inner lining of the uterus. Growing follicles supply estrogen ; after ovulation the corpus luteum supplies progesterone and estrogen. These blood-borne signals help the lining grow and remain ready to support an early embryo."
+    },
+    "ch14-l09-teaching-01-p3": {
+      "file": "lesson-09.html",
+      "locator": "#ch14-l09-teaching-01-p3",
+      "rendered_pages": [
+        2
+      ],
+      "visible_text": "The last column shows an active corpus luteum supporting the lining. Read the footer for the later event that returns this model to flow. Without pregnancy support, the corpus luteum regresses, meaning it shrinks and loses activity. Ovarian hormone output falls, and the functional part of the lining is shed. The first column shows menstruation overlapping new follicular activity; its downward arrow does not mean that a new follicle causes the shedding. The important cause is the preceding fall in hormone support. The picture is a sequence model, not a personal calendar or a picture of every altered cycle."
+    },
+    "ch14-l09-teaching-01-p4": {
+      "file": "lesson-09.html",
+      "locator": "#ch14-l09-teaching-01-p4",
+      "rendered_pages": [
+        2
+      ],
+      "visible_text": "For example, a low progesterone result means only that the measured sample contained little progesterone. A single sample might have been collected before the usual post-ovulation rise. Even a missing recorded LH peak is not automatically proof that no peak occurred: the brief surge might fall between measurements. With a sufficiently complete pattern, absent surge and absent later progesterone rise can support a hypothesis of disrupted ovulation. They still do not identify one definite cause."
+    },
+    "ch14-l09-teaching-02-p1": {
+      "file": "lesson-09.html",
+      "locator": "#ch14-l09-teaching-02-p1",
+      "rendered_pages": [
+        3
+      ],
+      "visible_text": "An ovarian follicle contains an immature oocyte and supporting cells. As the supply of functioning follicles declines with ovarian ageing, ovulation becomes less regular. Hormone levels can fluctuate during the transition; they do not simply fall by the same amount every month. Menopause names the end of menstrual cycling associated with the loss of normal ovarian follicular activity. After menopause, ovarian estrogen and progesterone output is much lower than in typical reproductive cycles."
+    },
+    "ch14-l09-teaching-02-p2": {
+      "file": "lesson-09.html",
+      "locator": "#ch14-l09-teaching-02-p2",
+      "rendered_pages": [
+        3
+      ],
+      "visible_text": "Trace the feedback rather than assuming every hormone must move together. Normally, ovarian hormones contribute inhibitory signals to the hypothalamus and anterior pituitary. Negative feedback means that a response opposes the change that produced it. If ovarian output falls, some of that inhibition is removed. A functioning anterior pituitary can then release more FSH and LH, the gonadotropins that stimulate the gonads. Reduced ovarian inhibin, another inhibitory signal especially important for FSH, also contributes."
+    },
+    "ch14-l09-teaching-02-p3": {
+      "file": "lesson-09.html",
+      "locator": "#ch14-l09-teaching-02-p3",
+      "rendered_pages": [
+        3
+      ],
+      "visible_text": "So low ovarian output and high pituitary output can occur together. More stimulation does not create a fresh supply of responsive follicles. Picture a signal reaching a target that cannot respond as strongly: increasing the message does not guarantee restoration of the response."
+    },
+    "ch14-l09-teaching-02-p4": {
+      "file": "lesson-09.html",
+      "locator": "#ch14-l09-teaching-02-p4",
+      "rendered_pages": [
+        4
+      ],
+      "visible_text": "The teacher notes also describe age-related testosterone changes, sometimes called andropause. Do not turn that comparison into an identical male menopause. Testosterone changes are more gradual and variable, and there is no universal sudden end to sperm production. Fatigue or a changed menstrual pattern alone cannot establish a hormone diagnosis. The older textbook treatment discussions are historical reading, not personal treatment guidance."
+    },
+    "ch14-l09-teaching-03-p1": {
+      "file": "lesson-09.html",
+      "locator": "#ch14-l09-teaching-03-p1",
+      "rendered_pages": [
+        4
+      ],
+      "visible_text": "Change the baseline at the corpus luteum. After fertilization and early development, the embryo reaches the uterus. Its outer trophoblast tissue participates in implantation, attachment and embedding in the endometrium, and contributes to the placenta. During early pregnancy, trophoblast tissue releases human chorionic gonadotropin , abbreviated hCG."
+    },
+    "ch14-l09-teaching-03-p2": {
+      "file": "lesson-09.html",
+      "locator": "#ch14-l09-teaching-03-p2",
+      "rendered_pages": [
+        4
+      ],
+      "visible_text": "hCG travels in the blood and supports the corpus luteum. The corpus luteum therefore continues releasing progesterone and estrogen instead of following its usual unsupported decline. Progesterone helps maintain the endometrium, so the ordinary menstrual shedding does not occur. The developing placenta later takes on a larger role in supplying these hormones; the detailed transition belongs to Chapter 15."
+    },
+    "ch14-l09-teaching-03-p3": {
+      "file": "lesson-09.html",
+      "locator": "#ch14-l09-teaching-03-p3",
+      "rendered_pages": [
+        4
+      ],
+      "visible_text": "Follow the complete chain: trophoblast releases hCG; hCG supports the corpus luteum; the corpus luteum supplies progesterone and estrogen; those hormones support the uterine lining. hCG and progesterone are different signals with different sources and immediate targets. A pregnancy test can detect hCG, but neither a missed period nor a hormone sketch is a personal diagnosis."
+    },
+    "ch14-l09-teaching-04-p1": {
+      "file": "lesson-09.html",
+      "locator": "#ch14-l09-teaching-04-p1",
+      "rendered_pages": [
+        4
+      ],
+      "visible_text": "Hormonal contraception uses hormones or hormone-like substances to alter reproductive processes. Combined methods supply an estrogen and a progestin, a substance with progesterone-like activity. These signals act through feedback on the hypothalamus and anterior pituitary, reducing the normal FSH/LH stimulation of the ovaries. In particular, suppression of the LH surge helps prevent ovulation. Reduced follicular development is another part of the mechanism."
+    },
+    "ch14-l09-teaching-04-p2": {
+      "file": "lesson-09.html",
+      "locator": "#ch14-l09-teaching-04-p2",
+      "rendered_pages": [
+        4
+      ],
+      "visible_text": "Read this as supplied signal, changed pituitary output, then changed ovarian activity. It does not mean that all FSH and LH disappear or that every oocyte is destroyed. The teacher slide’s wording about “high doses” and being “without FSH and LH” is too absolute for this mechanism. Effects on cervical mucus also make sperm passage more difficult. Hormonal methods differ; this combined-method example does not describe every method in the same way."
+    },
+    "ch14-l09-teaching-04-p3": {
+      "file": "lesson-09.html",
+      "locator": "#ch14-l09-teaching-04-p3",
+      "rendered_pages": [
+        4
+      ],
+      "visible_text": "Notice what has not been changed: altering hormone feedback does not create a physical barrier against infectious organisms. A combined contraceptive pill does not protect against sexually transmitted infections, or STIs. Preventing conception and reducing infection transmission are different biological functions. This is a comparison of mechanisms, not advice about choosing, dosing or changing a method."
+    },
+    "ch14-l09-teaching-04-p4": {
+      "file": "lesson-09.html",
+      "locator": "#ch14-l09-teaching-04-p4",
+      "rendered_pages": [
+        5
+      ],
+      "visible_text": "The same feedback reasoning helps with the optional testosterone questions. An external testosterone-like signal can inhibit hypothalamic and pituitary stimulation, reducing LH support for the testes’ own testosterone production and disrupting support for sperm production. Effects at body tissues and effects on the control system can therefore differ. Human growth hormone, hGH, is a protein hormone, not an anabolic steroid; the example on teacher slide19 misclassifies it."
+    },
+    "ch14-l10-teaching-01-p1": {
+      "file": "lesson-10.html",
+      "locator": "#ch14-l10-teaching-01-p1",
+      "rendered_pages": [
+        2
+      ],
+      "visible_text": "A reproductive system needs functioning cells, hormone signals and open transport pathways. An infection can disturb one part while another still works. Our question is therefore not just “Are hormones present?” It is “Which tissue is affected, and what does that tissue normally do?”"
+    },
+    "ch14-l10-teaching-01-p2": {
+      "file": "lesson-10.html",
+      "locator": "#ch14-l10-teaching-01-p2",
+      "rendered_pages": [
+        2
+      ],
+      "visible_text": "A sexually transmitted infection , or STI, is an infection that can pass through sexual contact. A pathogen is an organism or infectious agent capable of causing disease. A pathogen is not a reproductive hormone: one can infect tissues; the other is a chemical message acting on responsive cells."
+    },
+    "ch14-l10-teaching-01-p3": {
+      "file": "lesson-10.html",
+      "locator": "#ch14-l10-teaching-01-p3",
+      "rendered_pages": [
+        2
+      ],
+      "visible_text": "Chlamydia, gonorrhea and syphilis are caused by bacteria. HIV, hepatitis B, genital herpes and HPV are caused by viruses. These names identify different infections, not a single disease with one set of symptoms. Some infections are asymptomatic, meaning there are no obvious symptoms. A person’s appearance or lack of discomfort cannot establish that no infection is present. An online symptom list cannot establish a diagnosis either."
+    },
+    "ch14-l10-teaching-01-p4": {
+      "file": "lesson-10.html",
+      "locator": "#ch14-l10-teaching-01-p4",
+      "rendered_pages": [
+        2
+      ],
+      "visible_text": "Keep the language about biology rather than judging a person’s character, behaviour or identity. The textbook’s historical infection-rate graphs describe particular places, years and age groups. They are not current rates and cannot identify whether an individual has an infection."
+    },
+    "ch14-l10-teaching-02-p1": {
+      "file": "lesson-10.html",
+      "locator": "#ch14-l10-teaching-02-p1",
+      "rendered_pages": [
+        2
+      ],
+      "visible_text": "Use the anatomy below to locate an oviduct between the ovary and uterus . There are two oviducts , one associated with each side of the reproductive tract. The diagram shows the normal arrangement; it does not show infection or scarring. Normally a released secondary oocyte enters an oviduct, sperm can travel toward it through the tract, and early development after fertilization moves toward the uterus. Ovulation happens at the ovary; it is not the same event as movement through the duct."
+    },
+    "ch14-l10-teaching-02-p2": {
+      "file": "lesson-10.html",
+      "locator": "#ch14-l10-teaching-02-p2",
+      "rendered_pages": [
+        2,
+        3
+      ],
+      "visible_text": "Untreated chlamydia or gonorrhea can spread into upper reproductive structures and contribute to pelvic inflammatory disease , or PID. Inflammation is a tissue response to injury or infection. Damage and healing can leave scar tissue that narrows or blocks an oviduct. Trace the consequence at that location: sperm and the oocyte may be unable to meet, or an early embryo may not move normally toward the uterus."
+    },
+    "ch14-l10-teaching-02-p3": {
+      "file": "lesson-10.html",
+      "locator": "#ch14-l10-teaching-02-p3",
+      "rendered_pages": [
+        3
+      ],
+      "visible_text": "This can contribute to infertility, difficulty establishing a pregnancy. It can also increase the risk of an ectopic pregnancy , implantation outside the normal uterine site. Normal fertilization in an oviduct is not itself an ectopic pregnancy; the difference is where the developing embryo implants. Do not conclude that every infected person will develop scarring or infertility."
+    },
+    "ch14-l10-teaching-02-p4": {
+      "file": "lesson-10.html",
+      "locator": "#ch14-l10-teaching-02-p4",
+      "rendered_pages": [
+        3
+      ],
+      "visible_text": "A similar separation of functions helps in the male tract. The epididymis is the coiled duct where sperm mature and are stored after leaving the testis. Infection and inflammation there can impair sperm function or transport and can affect fertility. Those consequences do not require all testosterone-producing cells to stop functioning. An open route and a functioning hormone system are distinct requirements."
+    },
+    "ch14-l10-teaching-03-p1": {
+      "file": "lesson-10.html",
+      "locator": "#ch14-l10-teaching-03-p1",
+      "rendered_pages": [
+        4
+      ],
+      "visible_text": "Not every STI primarily damages reproductive ducts. HIV affects immune cells, including helper T cells that help coordinate immune responses. Hepatitis B can damage the liver. Some types of human papillomavirus, HPV, can cause cell changes that increase cancer risk; other types cause genital warts. Genital herpes can cause local sores and can also be present when no sores are visible."
+    },
+    "ch14-l10-teaching-03-p2": {
+      "file": "lesson-10.html",
+      "locator": "#ch14-l10-teaching-03-p2",
+      "rendered_pages": [
+        4
+      ],
+      "visible_text": "Some infections can pass to a fetus or newborn, but the route depends on the pathogen. Syphilis can pass across the placenta during pregnancy. Chlamydia and gonorrhea can pass during birth and cause eye infections; chlamydia can also cause respiratory infection. Herpes can pass during birth and can seriously affect a newborn. Do not turn these examples into a claim that every pathogen crosses the placenta or that every exposure has the same outcome."
+    },
+    "ch14-l10-teaching-03-p3": {
+      "file": "lesson-10.html",
+      "locator": "#ch14-l10-teaching-03-p3",
+      "rendered_pages": [
+        4
+      ],
+      "visible_text": "Antibiotics act against susceptible bacteria, not viruses. That is why a bacterial treatment cannot simply be transferred to HIV or another viral infection. Bacterial infections can also cause serious lasting harm, so “bacterial” does not mean harmless. Some viral infections have effective antiviral treatment or prevention measures; the details are beyond this mechanism lesson."
+    },
+    "ch14-l10-teaching-03-p4": {
+      "file": "lesson-10.html",
+      "locator": "#ch14-l10-teaching-03-p4",
+      "rendered_pages": [
+        4
+      ],
+      "visible_text": "Now separate two outcomes: removing an infection and reversing damage it has caused. Treatment can address the pathogen without undoing established scar tissue. This is why the absence of symptoms and the availability of treatment are not evidence that the transport pathway is undamaged. Current professional information, rather than the textbook’s old statistics or treatment statements, is needed for any health decision."
+    },
+    "ch14-l10-teaching-04-p1": {
+      "file": "lesson-10.html",
+      "locator": "#ch14-l10-teaching-04-p1",
+      "rendered_pages": [
+        4
+      ],
+      "visible_text": "Ask what each method changes. Combined hormonal contraception supplies signals that can suppress the normal LH surge and ovulation. That changes the availability of an oocyte for fertilization. It does not prevent exposure to a pathogen and does not protect against STIs."
+    },
+    "ch14-l10-teaching-04-p2": {
+      "file": "lesson-10.html",
+      "locator": "#ch14-l10-teaching-04-p2",
+      "rendered_pages": [
+        4
+      ],
+      "visible_text": "A condom acts as a physical barrier. Correct and consistent use of an appropriate condom reduces contact with infectious material and can also obstruct sperm passage. Protection against infection is not absolute: affected skin outside the covered area can still transmit some infections. A barrier does not cure an infection already present, and it does not work by suppressing FSH."
+    },
+    "ch14-l10-teaching-04-p3": {
+      "file": "lesson-10.html",
+      "locator": "#ch14-l10-teaching-04-p3",
+      "rendered_pages": [
+        4
+      ],
+      "visible_text": "Likewise, interrupting sperm transport through both vasa deferentia is a conception-control mechanism, not a barrier to infection transmission. The fact that sperm cannot complete a route does not mean infectious agents cannot be passed between people. Keep the earlier distinction between sperm cells and accessory-gland fluid in mind. Semen includes sperm and accessory-gland secretions; interrupting the sperm route does not remove all seminal fluid."
+    },
+    "ch14-l10-teaching-04-p4": {
+      "file": "lesson-10.html",
+      "locator": "#ch14-l10-teaching-04-p4",
+      "rendered_pages": [
+        4
+      ],
+      "visible_text": "Finally, identifying an infection is a separate question from either prevention mechanism. Because symptoms may be absent, appearance alone cannot answer it; testing and appropriate professional care matter. In this lesson, use hypothetical cases and explain the stated biological conditions. No personal sexual or medical information is needed."
+    },
+    "L09-W2": {
+      "file": "lesson-09.html",
+      "locator": "#ch14-l09-worked ol li:nth-child(2)",
+      "rendered_pages": [
+        5
+      ],
+      "visible_text": "Trace A upstream: weaker inhibition permits FSH/LH stimulation to rise. Trace back to the target: poor follicular responsiveness means more stimulation need not restore maturation or ovulation."
+    },
+    "L09-W3": {
+      "file": "lesson-09.html",
+      "locator": "#ch14-l09-worked ol li:nth-child(3)",
+      "rendered_pages": [
+        5
+      ],
+      "visible_text": "Locate the change in Model B: an external inhibitory signal is supplied. Trace upstream output: normal FSH/LH stimulation and the LH surge can be suppressed. Responsive ovaries still need the appropriate stimulation to complete the normal sequence."
+    },
+    "L10-W2": {
+      "file": "lesson-10.html",
+      "locator": "#ch14-l10-worked ol li:nth-child(2)",
+      "rendered_pages": [
+        5
+      ],
+      "visible_text": "Locate the process that can continue: ovulation releases a secondary oocyte at an ovary. Blocking the oviduct does not itself remove that ovarian event."
+    },
+    "L10-W4": {
+      "file": "lesson-10.html",
+      "locator": "#ch14-l10-worked ol li:nth-child(4)",
+      "rendered_pages": [
+        5
+      ],
+      "visible_text": "Answer the question: no. Removing the pathogen is different from removing established scar tissue. We need separate evidence about the ducts before claiming that the normal route is restored."
+    },
+    "L09-FIG": {
+      "file": "lesson-09.html",
+      "locator": ".science-figure img (actual rendered pixels)",
+      "rendered_pages": [
+        3
+      ],
+      "visible_text": "Three ovarian boxes read Early follicular phase / Follicles develop, Late follicular phase / Estrogen rises, and After ovulation / Corpus luteum active. The corresponding uterine boxes read Menstrual flow / Part of lining is shed, Rebuilding / Endometrium grows, and Maintenance / Progesterone supports lining. Downward arrows connect each pair. The footer states Flow overlaps early follicular development and Hormone decline after corpus-luteum regression permits the next flow."
+    },
+    "L10-FIG": {
+      "file": "lesson-10.html",
+      "locator": ".science-figure img (actual rendered pixels)",
+      "rendered_pages": [
+        3
+      ],
+      "visible_text": "Normal sagittal female reproductive anatomy includes clearly legible labels for oviduct, ovary, uterus, cervix and vagina; the image does not show infection, scars, both oviducts as a bilateral frontal pair, or a gamete transport sequence."
+    },
+    "L10-V-INF": {
+      "file": "lesson-10.html",
+      "locator": "#lesson-10-anchor-words; infertility dt/dd",
+      "rendered_pages": [
+        2
+      ],
+      "visible_text": "Difficulty establishing a pregnancy due to one or more reproductive factors."
+    }
+  },
+  "attempts": [
+    {
+      "id": "ch14-l09-check-mc-1",
+      "lesson": 9,
+      "category": "required_selection",
+      "prompt": "In a functioning control system, reduced ovarian hormone feedback can produce which response?",
+      "first_attempt_answer": "Increased FSH and LH stimulation",
+      "support_ids": [
+        "ch14-l09-teaching-02-p2"
+      ],
+      "support_map": "The paragraph identifies reduced inhibitory ovarian feedback and explicitly says a functioning anterior pituitary can release more FSH and LH.",
+      "cognitive_demand": "Direct recognition of taught relation",
+      "prompt_rendered_pages": [
+        6
+      ],
+      "visible_support_judgment": "Sufficient for this answer within the stated prerequisite; no unseen content used",
+      "feedback_status": "Not accessed before freeze",
+      "correctness_status": "Ungraded first attempt"
+    },
+    {
+      "id": "ch14-l09-check-mc-2",
+      "lesson": 9,
+      "category": "required_selection",
+      "prompt": "Which statement correctly explains one effect of combined hormonal contraception?",
+      "first_attempt_answer": "Feedback can reduce the normal LH surge and prevent ovulation",
+      "support_ids": [
+        "ch14-l09-teaching-04-p1"
+      ],
+      "support_map": "The supplied estrogen/progestin signals reduce pituitary stimulation; the paragraph explicitly links LH-surge suppression to prevention of ovulation.",
+      "cognitive_demand": "Direct recognition of taught relation",
+      "prompt_rendered_pages": [
+        7
+      ],
+      "visible_support_judgment": "Sufficient for this answer within the stated prerequisite; no unseen content used",
+      "feedback_status": "Not accessed before freeze",
+      "correctness_status": "Ungraded first attempt"
+    },
+    {
+      "id": "ch14-l09-check-writing-1",
+      "lesson": 9,
+      "category": "required_writing",
+      "prompt": "Explain why low ovarian hormone output and high pituitary hormone output can occur together.",
+      "first_attempt_answer": "Ovarian hormones normally inhibit the hypothalamus and anterior pituitary. If ovarian output falls, less inhibition reaches a functioning control system, so the anterior pituitary can release more FSH and LH. Reduced inhibin also contributes, especially to higher FSH. The extra stimulation does not guarantee more ovarian output when follicles respond poorly.",
+      "support_ids": [
+        "ch14-l09-teaching-02-p2",
+        "ch14-l09-teaching-02-p3",
+        "L09-W2"
+      ],
+      "support_map": "02-p2 supplies the inhibition → reduced inhibition → higher FSH/LH chain and inhibin qualification; 02-p3 and worked step 2 explain why the weak target response can persist.",
+      "cognitive_demand": "Reconstruct a taught causal chain",
+      "prompt_rendered_pages": [
+        7
+      ],
+      "visible_support_judgment": "Sufficient for this answer within the stated prerequisite; no unseen content used",
+      "feedback_status": "Not accessed before freeze",
+      "correctness_status": "Ungraded first attempt"
+    },
+    {
+      "id": "ch14-l09-check-writing-2",
+      "lesson": 9,
+      "category": "required_writing",
+      "prompt": "Contrast a cycle without pregnancy with early pregnancy in terms of corpus-luteum activity and endometrial support.",
+      "first_attempt_answer": "Without pregnancy support, the corpus luteum regresses, its progesterone and estrogen output falls, and the functional endometrial lining is shed. In early pregnancy, developing trophoblast releases hCG, which supports the corpus luteum. The corpus luteum keeps supplying progesterone and estrogen, maintaining support for the endometrium rather than following its usual decline.",
+      "support_ids": [
+        "ch14-l09-teaching-01-p2",
+        "ch14-l09-teaching-01-p3",
+        "ch14-l09-teaching-03-p1",
+        "ch14-l09-teaching-03-p2",
+        "ch14-l09-teaching-03-p3"
+      ],
+      "support_map": "01-p2/3 supply the unsupported baseline and shedding; 03-p1/2/3 supply the trophoblast → hCG → corpus luteum → hormones → lining chain.",
+      "cognitive_demand": "Compare two explicitly taught causal pathways",
+      "prompt_rendered_pages": [
+        7
+      ],
+      "visible_support_judgment": "Sufficient for this answer within the stated prerequisite; no unseen content used",
+      "feedback_status": "Not accessed before freeze",
+      "correctness_status": "Ungraded first attempt"
+    },
+    {
+      "id": "ch14-l09-guided-q1",
+      "lesson": 9,
+      "category": "supported",
+      "prompt": "Which signal helps maintain the corpus luteum in early pregnancy?",
+      "first_attempt_answer": "hCG",
+      "support_ids": [
+        "ch14-l09-teaching-03-p2"
+      ],
+      "support_map": "The paragraph explicitly states that hCG travels in blood and supports the corpus luteum.",
+      "cognitive_demand": "Retrieval",
+      "prompt_rendered_pages": [
+        6
+      ],
+      "visible_support_judgment": "Sufficient for this answer within the stated prerequisite; no unseen content used",
+      "feedback_status": "Not accessed before freeze",
+      "correctness_status": "Ungraded first attempt"
+    },
+    {
+      "id": "ch14-l09-guided-q2",
+      "lesson": 9,
+      "category": "supported",
+      "prompt": "Why does a combined contraceptive pill not protect against an STI?",
+      "first_attempt_answer": "Changing hormonal feedback does not create a barrier to pathogen transmission",
+      "support_ids": [
+        "ch14-l09-teaching-04-p3"
+      ],
+      "support_map": "The paragraph directly distinguishes altered hormone feedback from a physical barrier to infectious organisms.",
+      "cognitive_demand": "Direct recognition",
+      "prompt_rendered_pages": [
+        6
+      ],
+      "visible_support_judgment": "Sufficient for this answer within the stated prerequisite; no unseen content used",
+      "feedback_status": "Not accessed before freeze",
+      "correctness_status": "Ungraded first attempt"
+    },
+    {
+      "id": "lesson-09-stop",
+      "lesson": 9,
+      "category": "stop",
+      "prompt": "Would low progesterone in one sample prove that ovulation never occurred?",
+      "first_attempt_answer": "No. One sample only shows that progesterone was low when it was taken. It may have been taken before the usual post-ovulation rise, so the timing and a more complete pattern are needed before interpreting ovulation.",
+      "support_ids": [
+        "ch14-l09-teaching-01-p4"
+      ],
+      "support_map": "01-p4 gives this precise limitation and the pre-rise sampling example.",
+      "cognitive_demand": "Apply a stated evidence limitation",
+      "prompt_rendered_pages": [
+        6
+      ],
+      "visible_support_judgment": "Sufficient for this answer within the stated prerequisite; no unseen content used",
+      "feedback_status": "Not accessed before freeze",
+      "correctness_status": "Ungraded first attempt"
+    },
+    {
+      "id": "lesson-09-new-optional",
+      "lesson": 9,
+      "category": "new_optional",
+      "prompt": "Optional model challenge: hCG is present in early pregnancy, but in a constructed model the corpus luteum cannot respond to it. No other tissue supplies enough progesterone or estrogen to replace that lost output. Would the presence of hCG alone guarantee maintenance of the endometrium? Trace the missing link.",
+      "first_attempt_answer": "No. hCG is the signal that normally supports the corpus luteum, but the target cannot respond in this model. Therefore the normal link from hCG to continued corpus-luteum progesterone and estrogen output is broken. With no adequate replacement source, the presence of hCG alone cannot guarantee hormonal support of the endometrium.",
+      "support_ids": [
+        "ch14-l09-teaching-03-p2",
+        "ch14-l09-teaching-03-p3",
+        "L09-W2"
+      ],
+      "support_map": "03-p2/3 supply the source–signal–target–output chain; the challenge itself supplies target failure and absence of replacement. Worked step 2 shows that a signal need not restore an unresponsive target.",
+      "cognitive_demand": "Near transfer: interrupt an explicitly taught pathway",
+      "prompt_rendered_pages": [
+        5
+      ],
+      "visible_support_judgment": "Sufficient for this answer within the stated prerequisite; no unseen content used",
+      "feedback_status": "Not accessed before freeze",
+      "correctness_status": "Ungraded first attempt"
+    },
+    {
+      "id": "ch14-source-OBJ_2131183",
+      "lesson": 9,
+      "category": "original_saved_optional",
+      "prompt": "Explain how the hormones in a combined contraceptive pill can reduce the chance of pregnancy. Trace the feedback effect to ovarian activity.",
+      "first_attempt_answer": "A combined pill supplies an estrogen and a progestin, which has progesterone-like activity. Their feedback on the hypothalamus and anterior pituitary reduces the normal FSH/LH stimulation of the ovaries. Reduced follicular development and suppression of the LH surge make ovulation less likely, so an oocyte is less likely to be available for fertilization.",
+      "support_ids": [
+        "ch14-l09-teaching-04-p1",
+        "ch14-l09-teaching-04-p2"
+      ],
+      "support_map": "04-p1 defines the supplied signals and traces their effect through FSH/LH to follicular development and ovulation. This is a written answer to the saved-response prompt, not a test of saving or persistence.",
+      "cognitive_demand": "Reconstruct a taught mechanism",
+      "prompt_rendered_pages": [
+        7
+      ],
+      "visible_support_judgment": "Sufficient for this answer within the stated prerequisite; no unseen content used",
+      "feedback_status": "Not accessed before freeze",
+      "correctness_status": "Ungraded first attempt"
+    },
+    {
+      "id": "ch14-l10-check-mc-1",
+      "lesson": 10,
+      "category": "required_selection",
+      "prompt": "Which chain best explains one way an STI can reduce fertility?",
+      "first_attempt_answer": "Infection → inflammation and scarring → disrupted transport",
+      "support_ids": [
+        "ch14-l10-teaching-02-p2",
+        "ch14-l10-teaching-02-p3"
+      ],
+      "support_map": "02-p2 traces infection/PID through inflammation and scar blockage to disrupted meeting or embryo movement; 02-p3 connects this to infertility.",
+      "cognitive_demand": "Direct recognition of taught causal chain",
+      "prompt_rendered_pages": [
+        6
+      ],
+      "visible_support_judgment": "Sufficient for this answer within the stated prerequisite; no unseen content used",
+      "feedback_status": "Not accessed before freeze",
+      "correctness_status": "Ungraded first attempt"
+    },
+    {
+      "id": "ch14-l10-check-mc-2",
+      "lesson": 10,
+      "category": "required_selection",
+      "prompt": "Which comparison is accurate?",
+      "first_attempt_answer": "Hormonal contraception and STI risk reduction are different functions",
+      "support_ids": [
+        "ch14-l10-teaching-04-p1",
+        "ch14-l10-teaching-04-p2"
+      ],
+      "support_map": "04-p1 states hormonal suppression changes oocyte availability without preventing pathogen exposure; 04-p2 supplies the separate barrier mechanism.",
+      "cognitive_demand": "Direct recognition",
+      "prompt_rendered_pages": [
+        6
+      ],
+      "visible_support_judgment": "Sufficient for this answer within the stated prerequisite; no unseen content used",
+      "feedback_status": "Not accessed before freeze",
+      "correctness_status": "Ungraded first attempt"
+    },
+    {
+      "id": "ch14-l10-check-writing-1",
+      "lesson": 10,
+      "category": "required_writing",
+      "prompt": "Explain how an STI could interfere with reproduction while gamete and hormone production continue.",
+      "first_attempt_answer": "An infection can cause inflammation and leave scar tissue that narrows or blocks an oviduct. The ovaries may still develop follicles, release an oocyte and produce hormones, but the damaged route can prevent sperm and the oocyte from meeting or interfere with early-embryo movement toward the uterus. Gamete production, hormone production and an open transport pathway are different functions, so damage to one does not require all the others to stop.",
+      "support_ids": [
+        "ch14-l10-teaching-01-p1",
+        "ch14-l10-teaching-02-p1",
+        "ch14-l10-teaching-02-p2",
+        "ch14-l10-teaching-02-p3",
+        "L10-W2"
+      ],
+      "support_map": "01-p1 separates functions; 02-p1 locates ovulation at the ovary; 02-p2/3 explain duct damage and consequences; worked step 2 explicitly preserves ovulation with blocked ducts.",
+      "cognitive_demand": "Reconstruct a taught mechanism and distinguish functions",
+      "prompt_rendered_pages": [
+        6
+      ],
+      "visible_support_judgment": "Sufficient for this answer within the stated prerequisite; no unseen content used",
+      "feedback_status": "Not accessed before freeze",
+      "correctness_status": "Ungraded first attempt"
+    },
+    {
+      "id": "ch14-l10-check-writing-2",
+      "lesson": 10,
+      "category": "required_writing",
+      "prompt": "A student says, “If a method prevents pregnancy, it must prevent STIs too.” Explain the flaw using two different mechanisms.",
+      "first_attempt_answer": "Preventing pregnancy and reducing infection transmission act on different parts of the process. Combined hormonal contraception can suppress the LH surge and ovulation, reducing the availability of an oocyte, but it does not block exposure to pathogens. An appropriate condom used correctly and consistently is a physical barrier that reduces contact with infectious material and can obstruct sperm passage. It can reduce STI risk, although exposed skin outside its coverage means protection is not absolute.",
+      "support_ids": [
+        "ch14-l10-teaching-04-p1",
+        "ch14-l10-teaching-04-p2"
+      ],
+      "support_map": "04-p1 supplies the hormone-control mechanism and its STI limit; 04-p2 supplies the physical-barrier mechanism and its coverage limitation.",
+      "cognitive_demand": "Compare two explicitly taught mechanisms",
+      "prompt_rendered_pages": [
+        7
+      ],
+      "visible_support_judgment": "Sufficient for this answer within the stated prerequisite; no unseen content used",
+      "feedback_status": "Not accessed before freeze",
+      "correctness_status": "Ungraded first attempt"
+    },
+    {
+      "id": "ch14-l10-guided-q1",
+      "lesson": 10,
+      "category": "supported",
+      "prompt": "Why might the absence of symptoms fail to rule out an STI?",
+      "first_attempt_answer": "Some infections are asymptomatic",
+      "support_ids": [
+        "ch14-l10-teaching-01-p3"
+      ],
+      "support_map": "The paragraph defines asymptomatic as no obvious symptoms and rejects appearance or lack of discomfort as proof of no infection.",
+      "cognitive_demand": "Direct recognition",
+      "prompt_rendered_pages": [
+        5
+      ],
+      "visible_support_judgment": "Sufficient for this answer within the stated prerequisite; no unseen content used",
+      "feedback_status": "Not accessed before freeze",
+      "correctness_status": "Ungraded first attempt"
+    },
+    {
+      "id": "ch14-l10-guided-q2",
+      "lesson": 10,
+      "category": "supported",
+      "prompt": "Which consequence most directly follows scarring that blocks an oviduct?",
+      "first_attempt_answer": "Disrupted reproductive-cell transport",
+      "support_ids": [
+        "ch14-l10-teaching-02-p2"
+      ],
+      "support_map": "The paragraph links scar narrowing/blockage to failure of gametes to meet or abnormal embryo movement.",
+      "cognitive_demand": "Direct recognition",
+      "prompt_rendered_pages": [
+        5
+      ],
+      "visible_support_judgment": "Sufficient for this answer within the stated prerequisite; no unseen content used",
+      "feedback_status": "Not accessed before freeze",
+      "correctness_status": "Ungraded first attempt"
+    },
+    {
+      "id": "lesson-10-stop",
+      "lesson": 10,
+      "category": "stop",
+      "prompt": "Would treating an infection necessarily remove all scarring it caused?",
+      "first_attempt_answer": "No. Removing the pathogen does not necessarily undo established scar tissue. Separate evidence would be needed to know whether the damaged transport route had reopened.",
+      "support_ids": [
+        "ch14-l10-teaching-03-p4",
+        "L10-W4"
+      ],
+      "support_map": "03-p4 explicitly distinguishes treatment of infection from reversing tissue damage; worked step 4 applies this to the ducts.",
+      "cognitive_demand": "Apply a stated distinction",
+      "prompt_rendered_pages": [
+        6
+      ],
+      "visible_support_judgment": "Sufficient for this answer within the stated prerequisite; no unseen content used",
+      "feedback_status": "Not accessed before freeze",
+      "correctness_status": "Ungraded first attempt"
+    },
+    {
+      "id": "lesson-10-new-optional",
+      "lesson": 10,
+      "category": "new_optional",
+      "prompt": "Optional comparison: Model A has open oviducts but no ovulation because the LH surge is suppressed. Model B has normal ovulation but scar tissue blocking both oviducts. Identify the disrupted step in each model. Would removing the infection that caused the old scar tissue necessarily repair either stated problem? Explain.",
+      "first_attempt_answer": "In Model A the disruption is the hormonal stimulation needed for ovulation, so an oocyte is not released despite open ducts. In Model B ovulation continues, but the blocked oviducts disrupt the normal route for sperm and the oocyte to meet. Removing the infection does not necessarily restore the suppressed LH surge in A and does not by itself show that old scarring has disappeared in B. Neither stated problem is necessarily repaired just by removing the infection.",
+      "support_ids": [
+        "ch14-l10-teaching-04-p1",
+        "ch14-l10-teaching-02-p1",
+        "ch14-l10-teaching-02-p2",
+        "ch14-l10-teaching-03-p4",
+        "L10-W4"
+      ],
+      "support_map": "04-p1 supplies LH-suppression/ovulation; 02-p1/2 separate ovulation from transport; 03-p4 and worked step 4 reject equating pathogen removal with structural repair. The prompt supplies the two model states and gives no basis to infer restoration of the LH surge.",
+      "cognitive_demand": "Near transfer: compare control failure with transport failure",
+      "prompt_rendered_pages": [
+        5
+      ],
+      "visible_support_judgment": "Sufficient for this answer within the stated prerequisite; no unseen content used",
+      "feedback_status": "Not accessed before freeze",
+      "correctness_status": "Ungraded first attempt"
+    },
+    {
+      "id": "ch14-concept-menopause-flash",
+      "lesson": 9,
+      "category": "optional_generated",
+      "prompt": "Explain menopause.",
+      "first_attempt_answer": "Menopause is the end of menstrual cycling associated with declining ovarian follicular activity.",
+      "support_ids": [
+        "ch14-l09-teaching-02-p1"
+      ],
+      "support_map": "The referenced teaching defines the term and supplies the mechanism included in this answer.",
+      "cognitive_demand": "Explain a taught term",
+      "prompt_rendered_pages": [
+        1
+      ],
+      "visible_support_judgment": "Sufficient for this answer within the stated prerequisite; no unseen content used",
+      "feedback_status": "Not accessed before freeze",
+      "correctness_status": "Ungraded first attempt",
+      "representation_number": 1,
+      "kind": "flash",
+      "family": "explain-term",
+      "prompt_source": "generated-09-10.json; generated-09-10.pdf"
+    },
+    {
+      "id": "ch14-concept-menopause-reverse",
+      "lesson": 9,
+      "category": "optional_generated",
+      "prompt": "Which term fits this definition? The end of menstrual cycling associated with declining ovarian follicular activity.",
+      "first_attempt_answer": "Menopause",
+      "support_ids": [
+        "ch14-l09-teaching-02-p1"
+      ],
+      "support_map": "The referenced visible definition matches the prompt; reverse and blank versions are representations of the same term, not separate concepts.",
+      "cognitive_demand": "Term retrieval from definition",
+      "prompt_rendered_pages": [
+        1
+      ],
+      "visible_support_judgment": "Sufficient for this answer within the stated prerequisite; no unseen content used",
+      "feedback_status": "Not accessed before freeze",
+      "correctness_status": "Ungraded first attempt",
+      "representation_number": 2,
+      "kind": "flash",
+      "family": "reverse-retrieval",
+      "prompt_source": "generated-09-10.json; generated-09-10.pdf"
+    },
+    {
+      "id": "ch14-concept-menopause-misconception",
+      "lesson": 9,
+      "category": "optional_generated",
+      "prompt": "Correct this incorrect statement: Reduced ovarian hormone production must mean FSH and LH are also low.",
+      "first_attempt_answer": "Reduced ovarian hormone output can remove some inhibitory feedback, allowing a functioning anterior pituitary to increase FSH and LH rather than making them both low.",
+      "support_ids": [
+        "ch14-l09-teaching-02-p2",
+        "ch14-l09-teaching-02-p3"
+      ],
+      "support_map": "The referenced teaching explicitly distinguishes the claim from the stated mechanism or limitation.",
+      "cognitive_demand": "Correct a directly taught misconception",
+      "prompt_rendered_pages": [
+        1
+      ],
+      "visible_support_judgment": "Sufficient for this answer within the stated prerequisite; no unseen content used",
+      "feedback_status": "Not accessed before freeze",
+      "correctness_status": "Ungraded first attempt",
+      "representation_number": 3,
+      "kind": "flash",
+      "family": "misconception-correction",
+      "prompt_source": "generated-09-10.json; generated-09-10.pdf"
+    },
+    {
+      "id": "ch14-concept-menopause-blank",
+      "lesson": 9,
+      "category": "optional_generated",
+      "prompt": "Name the term described: The end of menstrual cycling associated with declining ovarian follicular activity.",
+      "first_attempt_answer": "Menopause",
+      "support_ids": [
+        "ch14-l09-teaching-02-p1"
+      ],
+      "support_map": "The referenced visible definition matches the prompt; reverse and blank versions are representations of the same term, not separate concepts.",
+      "cognitive_demand": "Term retrieval from definition",
+      "prompt_rendered_pages": [
+        1
+      ],
+      "visible_support_judgment": "Sufficient for this answer within the stated prerequisite; no unseen content used",
+      "feedback_status": "Not accessed before freeze",
+      "correctness_status": "Ungraded first attempt",
+      "representation_number": 4,
+      "kind": "blank",
+      "family": "term-from-definition",
+      "prompt_source": "generated-09-10.json; generated-09-10.pdf"
+    },
+    {
+      "id": "ch14-concept-hcg-flash",
+      "lesson": 9,
+      "category": "optional_generated",
+      "prompt": "Explain hCG.",
+      "first_attempt_answer": "hCG is human chorionic gonadotropin, released by developing trophoblast tissue in early pregnancy. It supports the corpus luteum so that its hormone output continues.",
+      "support_ids": [
+        "ch14-l09-teaching-03-p1",
+        "ch14-l09-teaching-03-p2"
+      ],
+      "support_map": "The referenced teaching defines the term and supplies the mechanism included in this answer.",
+      "cognitive_demand": "Explain a taught term",
+      "prompt_rendered_pages": [
+        1
+      ],
+      "visible_support_judgment": "Sufficient for this answer within the stated prerequisite; no unseen content used",
+      "feedback_status": "Not accessed before freeze",
+      "correctness_status": "Ungraded first attempt",
+      "representation_number": 5,
+      "kind": "flash",
+      "family": "explain-term",
+      "prompt_source": "generated-09-10.json; generated-09-10.pdf"
+    },
+    {
+      "id": "ch14-concept-hcg-reverse",
+      "lesson": 9,
+      "category": "optional_generated",
+      "prompt": "Which term fits this definition? Human chorionic gonadotropin, released by developing trophoblast tissue in early pregnancy.",
+      "first_attempt_answer": "hCG",
+      "support_ids": [
+        "ch14-l09-teaching-03-p1",
+        "ch14-l09-teaching-03-p2"
+      ],
+      "support_map": "The referenced visible definition matches the prompt; reverse and blank versions are representations of the same term, not separate concepts.",
+      "cognitive_demand": "Term retrieval from definition",
+      "prompt_rendered_pages": [
+        1
+      ],
+      "visible_support_judgment": "Sufficient for this answer within the stated prerequisite; no unseen content used",
+      "feedback_status": "Not accessed before freeze",
+      "correctness_status": "Ungraded first attempt",
+      "representation_number": 6,
+      "kind": "flash",
+      "family": "reverse-retrieval",
+      "prompt_source": "generated-09-10.json; generated-09-10.pdf"
+    },
+    {
+      "id": "ch14-concept-hcg-misconception",
+      "lesson": 9,
+      "category": "optional_generated",
+      "prompt": "Correct this incorrect statement: hCG and progesterone are two names for the same hormone.",
+      "first_attempt_answer": "hCG and progesterone are different hormones. Trophoblast releases hCG, which supports the corpus luteum; the corpus luteum releases progesterone, which helps maintain the endometrium.",
+      "support_ids": [
+        "ch14-l09-teaching-03-p3"
+      ],
+      "support_map": "The referenced teaching explicitly distinguishes the claim from the stated mechanism or limitation.",
+      "cognitive_demand": "Correct a directly taught misconception",
+      "prompt_rendered_pages": [
+        1
+      ],
+      "visible_support_judgment": "Sufficient for this answer within the stated prerequisite; no unseen content used",
+      "feedback_status": "Not accessed before freeze",
+      "correctness_status": "Ungraded first attempt",
+      "representation_number": 7,
+      "kind": "flash",
+      "family": "misconception-correction",
+      "prompt_source": "generated-09-10.json; generated-09-10.pdf"
+    },
+    {
+      "id": "ch14-concept-hcg-blank",
+      "lesson": 9,
+      "category": "optional_generated",
+      "prompt": "Name the term described: Human chorionic gonadotropin, released by developing trophoblast tissue in early pregnancy.",
+      "first_attempt_answer": "hCG",
+      "support_ids": [
+        "ch14-l09-teaching-03-p1",
+        "ch14-l09-teaching-03-p2"
+      ],
+      "support_map": "The referenced visible definition matches the prompt; reverse and blank versions are representations of the same term, not separate concepts.",
+      "cognitive_demand": "Term retrieval from definition",
+      "prompt_rendered_pages": [
+        1
+      ],
+      "visible_support_judgment": "Sufficient for this answer within the stated prerequisite; no unseen content used",
+      "feedback_status": "Not accessed before freeze",
+      "correctness_status": "Ungraded first attempt",
+      "representation_number": 8,
+      "kind": "blank",
+      "family": "term-from-definition",
+      "prompt_source": "generated-09-10.json; generated-09-10.pdf"
+    },
+    {
+      "id": "ch14-concept-hormonal-contraception-flash",
+      "lesson": 9,
+      "category": "optional_generated",
+      "prompt": "Explain hormonal contraception.",
+      "first_attempt_answer": "Hormonal contraception uses hormones or hormone-like substances to alter reproductive processes for conception control. In the combined-method example, estrogen and a progestin reduce FSH/LH stimulation and suppress the LH surge to help prevent ovulation.",
+      "support_ids": [
+        "ch14-l09-teaching-04-p1"
+      ],
+      "support_map": "The referenced teaching defines the term and supplies the mechanism included in this answer.",
+      "cognitive_demand": "Explain a taught term",
+      "prompt_rendered_pages": [
+        1
+      ],
+      "visible_support_judgment": "Sufficient for this answer within the stated prerequisite; no unseen content used",
+      "feedback_status": "Not accessed before freeze",
+      "correctness_status": "Ungraded first attempt",
+      "representation_number": 9,
+      "kind": "flash",
+      "family": "explain-term",
+      "prompt_source": "generated-09-10.json; generated-09-10.pdf"
+    },
+    {
+      "id": "ch14-concept-hormonal-contraception-reverse",
+      "lesson": 9,
+      "category": "optional_generated",
+      "prompt": "Which term fits this definition? Conception control using hormones or hormone-like substances to alter reproductive processes.",
+      "first_attempt_answer": "Hormonal contraception",
+      "support_ids": [
+        "ch14-l09-teaching-04-p1"
+      ],
+      "support_map": "The referenced visible definition matches the prompt; reverse and blank versions are representations of the same term, not separate concepts.",
+      "cognitive_demand": "Term retrieval from definition",
+      "prompt_rendered_pages": [
+        1
+      ],
+      "visible_support_judgment": "Sufficient for this answer within the stated prerequisite; no unseen content used",
+      "feedback_status": "Not accessed before freeze",
+      "correctness_status": "Ungraded first attempt",
+      "representation_number": 10,
+      "kind": "flash",
+      "family": "reverse-retrieval",
+      "prompt_source": "generated-09-10.json; generated-09-10.pdf"
+    },
+    {
+      "id": "ch14-concept-hormonal-contraception-misconception",
+      "lesson": 9,
+      "category": "optional_generated",
+      "prompt": "Correct this incorrect statement: Any hormonal method that prevents pregnancy also prevents every STI.",
+      "first_attempt_answer": "Preventing pregnancy by altering hormone feedback does not create a barrier to pathogens. A combined contraceptive pill does not protect against STIs.",
+      "support_ids": [
+        "ch14-l09-teaching-04-p3"
+      ],
+      "support_map": "The referenced teaching explicitly distinguishes the claim from the stated mechanism or limitation.",
+      "cognitive_demand": "Correct a directly taught misconception",
+      "prompt_rendered_pages": [
+        2
+      ],
+      "visible_support_judgment": "Sufficient for this answer within the stated prerequisite; no unseen content used",
+      "feedback_status": "Not accessed before freeze",
+      "correctness_status": "Ungraded first attempt",
+      "representation_number": 11,
+      "kind": "flash",
+      "family": "misconception-correction",
+      "prompt_source": "generated-09-10.json; generated-09-10.pdf"
+    },
+    {
+      "id": "ch14-concept-hormonal-contraception-blank",
+      "lesson": 9,
+      "category": "optional_generated",
+      "prompt": "Name the term described: Conception control using hormones or hormone-like substances to alter reproductive processes.",
+      "first_attempt_answer": "Hormonal contraception",
+      "support_ids": [
+        "ch14-l09-teaching-04-p1"
+      ],
+      "support_map": "The referenced visible definition matches the prompt; reverse and blank versions are representations of the same term, not separate concepts.",
+      "cognitive_demand": "Term retrieval from definition",
+      "prompt_rendered_pages": [
+        2
+      ],
+      "visible_support_judgment": "Sufficient for this answer within the stated prerequisite; no unseen content used",
+      "feedback_status": "Not accessed before freeze",
+      "correctness_status": "Ungraded first attempt",
+      "representation_number": 12,
+      "kind": "blank",
+      "family": "term-from-definition",
+      "prompt_source": "generated-09-10.json; generated-09-10.pdf"
+    },
+    {
+      "id": "ch14-concept-sti-flash",
+      "lesson": 10,
+      "category": "optional_generated",
+      "prompt": "Explain STI.",
+      "first_attempt_answer": "An STI is a sexually transmitted infection, an infection that can pass through sexual contact.",
+      "support_ids": [
+        "ch14-l10-teaching-01-p2"
+      ],
+      "support_map": "The referenced teaching defines the term and supplies the mechanism included in this answer.",
+      "cognitive_demand": "Explain a taught term",
+      "prompt_rendered_pages": [
+        2
+      ],
+      "visible_support_judgment": "Sufficient for this answer within the stated prerequisite; no unseen content used",
+      "feedback_status": "Not accessed before freeze",
+      "correctness_status": "Ungraded first attempt",
+      "representation_number": 13,
+      "kind": "flash",
+      "family": "explain-term",
+      "prompt_source": "generated-09-10.json; generated-09-10.pdf"
+    },
+    {
+      "id": "ch14-concept-sti-reverse",
+      "lesson": 10,
+      "category": "optional_generated",
+      "prompt": "Which term fits this definition? A sexually transmitted infection.",
+      "first_attempt_answer": "STI",
+      "support_ids": [
+        "ch14-l10-teaching-01-p2"
+      ],
+      "support_map": "The referenced visible definition matches the prompt; reverse and blank versions are representations of the same term, not separate concepts.",
+      "cognitive_demand": "Term retrieval from definition",
+      "prompt_rendered_pages": [
+        2
+      ],
+      "visible_support_judgment": "Sufficient for this answer within the stated prerequisite; no unseen content used",
+      "feedback_status": "Not accessed before freeze",
+      "correctness_status": "Ungraded first attempt",
+      "representation_number": 14,
+      "kind": "flash",
+      "family": "reverse-retrieval",
+      "prompt_source": "generated-09-10.json; generated-09-10.pdf"
+    },
+    {
+      "id": "ch14-concept-sti-misconception",
+      "lesson": 10,
+      "category": "optional_generated",
+      "prompt": "Correct this incorrect statement: A person with no symptoms cannot have an STI.",
+      "first_attempt_answer": "A person can have an STI without obvious symptoms because some infections are asymptomatic. Absence of symptoms alone cannot rule out infection.",
+      "support_ids": [
+        "ch14-l10-teaching-01-p3"
+      ],
+      "support_map": "The referenced teaching explicitly distinguishes the claim from the stated mechanism or limitation.",
+      "cognitive_demand": "Correct a directly taught misconception",
+      "prompt_rendered_pages": [
+        2
+      ],
+      "visible_support_judgment": "Sufficient for this answer within the stated prerequisite; no unseen content used",
+      "feedback_status": "Not accessed before freeze",
+      "correctness_status": "Ungraded first attempt",
+      "representation_number": 15,
+      "kind": "flash",
+      "family": "misconception-correction",
+      "prompt_source": "generated-09-10.json; generated-09-10.pdf"
+    },
+    {
+      "id": "ch14-concept-sti-blank",
+      "lesson": 10,
+      "category": "optional_generated",
+      "prompt": "Name the term described: A sexually transmitted infection.",
+      "first_attempt_answer": "STI",
+      "support_ids": [
+        "ch14-l10-teaching-01-p2"
+      ],
+      "support_map": "The referenced visible definition matches the prompt; reverse and blank versions are representations of the same term, not separate concepts.",
+      "cognitive_demand": "Term retrieval from definition",
+      "prompt_rendered_pages": [
+        2
+      ],
+      "visible_support_judgment": "Sufficient for this answer within the stated prerequisite; no unseen content used",
+      "feedback_status": "Not accessed before freeze",
+      "correctness_status": "Ungraded first attempt",
+      "representation_number": 16,
+      "kind": "blank",
+      "family": "term-from-definition",
+      "prompt_source": "generated-09-10.json; generated-09-10.pdf"
+    },
+    {
+      "id": "ch14-concept-pathogen-flash",
+      "lesson": 10,
+      "category": "optional_generated",
+      "prompt": "Explain pathogen.",
+      "first_attempt_answer": "A pathogen is an organism or infectious agent capable of causing disease.",
+      "support_ids": [
+        "ch14-l10-teaching-01-p2"
+      ],
+      "support_map": "The referenced teaching defines the term and supplies the mechanism included in this answer.",
+      "cognitive_demand": "Explain a taught term",
+      "prompt_rendered_pages": [
+        2
+      ],
+      "visible_support_judgment": "Sufficient for this answer within the stated prerequisite; no unseen content used",
+      "feedback_status": "Not accessed before freeze",
+      "correctness_status": "Ungraded first attempt",
+      "representation_number": 17,
+      "kind": "flash",
+      "family": "explain-term",
+      "prompt_source": "generated-09-10.json; generated-09-10.pdf"
+    },
+    {
+      "id": "ch14-concept-pathogen-reverse",
+      "lesson": 10,
+      "category": "optional_generated",
+      "prompt": "Which term fits this definition? An organism or infectious agent capable of causing disease.",
+      "first_attempt_answer": "Pathogen",
+      "support_ids": [
+        "ch14-l10-teaching-01-p2"
+      ],
+      "support_map": "The referenced visible definition matches the prompt; reverse and blank versions are representations of the same term, not separate concepts.",
+      "cognitive_demand": "Term retrieval from definition",
+      "prompt_rendered_pages": [
+        2
+      ],
+      "visible_support_judgment": "Sufficient for this answer within the stated prerequisite; no unseen content used",
+      "feedback_status": "Not accessed before freeze",
+      "correctness_status": "Ungraded first attempt",
+      "representation_number": 18,
+      "kind": "flash",
+      "family": "reverse-retrieval",
+      "prompt_source": "generated-09-10.json; generated-09-10.pdf"
+    },
+    {
+      "id": "ch14-concept-pathogen-misconception",
+      "lesson": 10,
+      "category": "optional_generated",
+      "prompt": "Correct this incorrect statement: A pathogen is any reproductive hormone in the bloodstream.",
+      "first_attempt_answer": "A pathogen is an organism or infectious agent capable of causing disease. A reproductive hormone is a chemical message acting on responsive cells, not a pathogen.",
+      "support_ids": [
+        "ch14-l10-teaching-01-p2"
+      ],
+      "support_map": "The referenced teaching explicitly distinguishes the claim from the stated mechanism or limitation.",
+      "cognitive_demand": "Correct a directly taught misconception",
+      "prompt_rendered_pages": [
+        2
+      ],
+      "visible_support_judgment": "Sufficient for this answer within the stated prerequisite; no unseen content used",
+      "feedback_status": "Not accessed before freeze",
+      "correctness_status": "Ungraded first attempt",
+      "representation_number": 19,
+      "kind": "flash",
+      "family": "misconception-correction",
+      "prompt_source": "generated-09-10.json; generated-09-10.pdf"
+    },
+    {
+      "id": "ch14-concept-pathogen-blank",
+      "lesson": 10,
+      "category": "optional_generated",
+      "prompt": "Name the term described: An organism or infectious agent capable of causing disease.",
+      "first_attempt_answer": "Pathogen",
+      "support_ids": [
+        "ch14-l10-teaching-01-p2"
+      ],
+      "support_map": "The referenced visible definition matches the prompt; reverse and blank versions are representations of the same term, not separate concepts.",
+      "cognitive_demand": "Term retrieval from definition",
+      "prompt_rendered_pages": [
+        2
+      ],
+      "visible_support_judgment": "Sufficient for this answer within the stated prerequisite; no unseen content used",
+      "feedback_status": "Not accessed before freeze",
+      "correctness_status": "Ungraded first attempt",
+      "representation_number": 20,
+      "kind": "blank",
+      "family": "term-from-definition",
+      "prompt_source": "generated-09-10.json; generated-09-10.pdf"
+    },
+    {
+      "id": "ch14-concept-pelvic-inflammatory-disease-flash",
+      "lesson": 10,
+      "category": "optional_generated",
+      "prompt": "Explain pelvic inflammatory disease.",
+      "first_attempt_answer": "Pelvic inflammatory disease, or PID, involves inflammation in upper female reproductive structures, often associated with infection. Untreated chlamydia or gonorrhea can spread there and contribute to it.",
+      "support_ids": [
+        "ch14-l10-teaching-02-p2"
+      ],
+      "support_map": "The referenced teaching defines the term and supplies the mechanism included in this answer.",
+      "cognitive_demand": "Explain a taught term",
+      "prompt_rendered_pages": [
+        2
+      ],
+      "visible_support_judgment": "Sufficient for this answer within the stated prerequisite; no unseen content used",
+      "feedback_status": "Not accessed before freeze",
+      "correctness_status": "Ungraded first attempt",
+      "representation_number": 21,
+      "kind": "flash",
+      "family": "explain-term",
+      "prompt_source": "generated-09-10.json; generated-09-10.pdf"
+    },
+    {
+      "id": "ch14-concept-pelvic-inflammatory-disease-reverse",
+      "lesson": 10,
+      "category": "optional_generated",
+      "prompt": "Which term fits this definition? Inflammation involving upper female reproductive structures, often associated with infection.",
+      "first_attempt_answer": "Pelvic inflammatory disease",
+      "support_ids": [
+        "ch14-l10-teaching-02-p2"
+      ],
+      "support_map": "The referenced visible definition matches the prompt; reverse and blank versions are representations of the same term, not separate concepts.",
+      "cognitive_demand": "Term retrieval from definition",
+      "prompt_rendered_pages": [
+        2
+      ],
+      "visible_support_judgment": "Sufficient for this answer within the stated prerequisite; no unseen content used",
+      "feedback_status": "Not accessed before freeze",
+      "correctness_status": "Ungraded first attempt",
+      "representation_number": 22,
+      "kind": "flash",
+      "family": "reverse-retrieval",
+      "prompt_source": "generated-09-10.json; generated-09-10.pdf"
+    },
+    {
+      "id": "ch14-concept-pelvic-inflammatory-disease-misconception",
+      "lesson": 10,
+      "category": "optional_generated",
+      "prompt": "Correct this incorrect statement: Normal ovarian hormones guarantee that infection cannot damage an oviduct.",
+      "first_attempt_answer": "Normal ovarian hormones do not protect a duct from infection-related tissue damage. Inflammation and healing can leave scar tissue that narrows or blocks an oviduct even while ovarian function continues.",
+      "support_ids": [
+        "ch14-l10-teaching-02-p2",
+        "L10-W2"
+      ],
+      "support_map": "The referenced teaching explicitly distinguishes the claim from the stated mechanism or limitation.",
+      "cognitive_demand": "Correct a directly taught misconception",
+      "prompt_rendered_pages": [
+        2
+      ],
+      "visible_support_judgment": "Sufficient for this answer within the stated prerequisite; no unseen content used",
+      "feedback_status": "Not accessed before freeze",
+      "correctness_status": "Ungraded first attempt",
+      "representation_number": 23,
+      "kind": "flash",
+      "family": "misconception-correction",
+      "prompt_source": "generated-09-10.json; generated-09-10.pdf"
+    },
+    {
+      "id": "ch14-concept-pelvic-inflammatory-disease-blank",
+      "lesson": 10,
+      "category": "optional_generated",
+      "prompt": "Name the term described: Inflammation involving upper female reproductive structures, often associated with infection.",
+      "first_attempt_answer": "Pelvic inflammatory disease",
+      "support_ids": [
+        "ch14-l10-teaching-02-p2"
+      ],
+      "support_map": "The referenced visible definition matches the prompt; reverse and blank versions are representations of the same term, not separate concepts.",
+      "cognitive_demand": "Term retrieval from definition",
+      "prompt_rendered_pages": [
+        3
+      ],
+      "visible_support_judgment": "Sufficient for this answer within the stated prerequisite; no unseen content used",
+      "feedback_status": "Not accessed before freeze",
+      "correctness_status": "Ungraded first attempt",
+      "representation_number": 24,
+      "kind": "blank",
+      "family": "term-from-definition",
+      "prompt_source": "generated-09-10.json; generated-09-10.pdf"
+    },
+    {
+      "id": "ch14-concept-infertility-flash",
+      "lesson": 10,
+      "category": "optional_generated",
+      "prompt": "Explain infertility.",
+      "first_attempt_answer": "Infertility is difficulty establishing a pregnancy due to one or more reproductive factors. For example, damage to a transport pathway can make pregnancy harder to establish.",
+      "support_ids": [
+        "L10-V-INF",
+        "ch14-l10-teaching-02-p3"
+      ],
+      "support_map": "The referenced teaching defines the term and supplies the mechanism included in this answer.",
+      "cognitive_demand": "Explain a taught term",
+      "prompt_rendered_pages": [
+        3
+      ],
+      "visible_support_judgment": "Sufficient for this answer within the stated prerequisite; no unseen content used",
+      "feedback_status": "Not accessed before freeze",
+      "correctness_status": "Ungraded first attempt",
+      "representation_number": 25,
+      "kind": "flash",
+      "family": "explain-term",
+      "prompt_source": "generated-09-10.json; generated-09-10.pdf"
+    },
+    {
+      "id": "ch14-concept-infertility-reverse",
+      "lesson": 10,
+      "category": "optional_generated",
+      "prompt": "Which term fits this definition? Difficulty establishing a pregnancy due to one or more reproductive factors.",
+      "first_attempt_answer": "Infertility",
+      "support_ids": [
+        "L10-V-INF",
+        "ch14-l10-teaching-02-p3"
+      ],
+      "support_map": "The referenced visible definition matches the prompt; reverse and blank versions are representations of the same term, not separate concepts.",
+      "cognitive_demand": "Term retrieval from definition",
+      "prompt_rendered_pages": [
+        3
+      ],
+      "visible_support_judgment": "Sufficient for this answer within the stated prerequisite; no unseen content used",
+      "feedback_status": "Not accessed before freeze",
+      "correctness_status": "Ungraded first attempt",
+      "representation_number": 26,
+      "kind": "flash",
+      "family": "reverse-retrieval",
+      "prompt_source": "generated-09-10.json; generated-09-10.pdf"
+    },
+    {
+      "id": "ch14-concept-infertility-misconception",
+      "lesson": 10,
+      "category": "optional_generated",
+      "prompt": "Correct this incorrect statement: Infertility always means every gonad has stopped producing both hormones and gametes.",
+      "first_attempt_answer": "Infertility does not require every gonad to stop making hormones and gametes. Ovarian activity can continue while a scarred oviduct disrupts the route needed for sperm and the oocyte to meet.",
+      "support_ids": [
+        "ch14-l10-teaching-01-p1",
+        "ch14-l10-teaching-02-p2",
+        "L10-W2"
+      ],
+      "support_map": "The referenced teaching explicitly distinguishes the claim from the stated mechanism or limitation.",
+      "cognitive_demand": "Correct a directly taught misconception",
+      "prompt_rendered_pages": [
+        3
+      ],
+      "visible_support_judgment": "Sufficient for this answer within the stated prerequisite; no unseen content used",
+      "feedback_status": "Not accessed before freeze",
+      "correctness_status": "Ungraded first attempt",
+      "representation_number": 27,
+      "kind": "flash",
+      "family": "misconception-correction",
+      "prompt_source": "generated-09-10.json; generated-09-10.pdf"
+    },
+    {
+      "id": "ch14-concept-infertility-blank",
+      "lesson": 10,
+      "category": "optional_generated",
+      "prompt": "Name the term described: Difficulty establishing a pregnancy due to one or more reproductive factors.",
+      "first_attempt_answer": "Infertility",
+      "support_ids": [
+        "L10-V-INF",
+        "ch14-l10-teaching-02-p3"
+      ],
+      "support_map": "The referenced visible definition matches the prompt; reverse and blank versions are representations of the same term, not separate concepts.",
+      "cognitive_demand": "Term retrieval from definition",
+      "prompt_rendered_pages": [
+        3
+      ],
+      "visible_support_judgment": "Sufficient for this answer within the stated prerequisite; no unseen content used",
+      "feedback_status": "Not accessed before freeze",
+      "correctness_status": "Ungraded first attempt",
+      "representation_number": 28,
+      "kind": "blank",
+      "family": "term-from-definition",
+      "prompt_source": "generated-09-10.json; generated-09-10.pdf"
+    },
+    {
+      "id": "ch14-concept-ectopic-pregnancy-flash",
+      "lesson": 10,
+      "category": "optional_generated",
+      "prompt": "Explain ectopic pregnancy.",
+      "first_attempt_answer": "An ectopic pregnancy is a pregnancy in which implantation occurs outside the normal uterine site.",
+      "support_ids": [
+        "ch14-l10-teaching-02-p3"
+      ],
+      "support_map": "The referenced teaching defines the term and supplies the mechanism included in this answer.",
+      "cognitive_demand": "Explain a taught term",
+      "prompt_rendered_pages": [
+        3
+      ],
+      "visible_support_judgment": "Sufficient for this answer within the stated prerequisite; no unseen content used",
+      "feedback_status": "Not accessed before freeze",
+      "correctness_status": "Ungraded first attempt",
+      "representation_number": 29,
+      "kind": "flash",
+      "family": "explain-term",
+      "prompt_source": "generated-09-10.json; generated-09-10.pdf"
+    },
+    {
+      "id": "ch14-concept-ectopic-pregnancy-reverse",
+      "lesson": 10,
+      "category": "optional_generated",
+      "prompt": "Which term fits this definition? A pregnancy implanted outside the normal uterine site.",
+      "first_attempt_answer": "Ectopic pregnancy",
+      "support_ids": [
+        "ch14-l10-teaching-02-p3"
+      ],
+      "support_map": "The referenced visible definition matches the prompt; reverse and blank versions are representations of the same term, not separate concepts.",
+      "cognitive_demand": "Term retrieval from definition",
+      "prompt_rendered_pages": [
+        3
+      ],
+      "visible_support_judgment": "Sufficient for this answer within the stated prerequisite; no unseen content used",
+      "feedback_status": "Not accessed before freeze",
+      "correctness_status": "Ungraded first attempt",
+      "representation_number": 30,
+      "kind": "flash",
+      "family": "reverse-retrieval",
+      "prompt_source": "generated-09-10.json; generated-09-10.pdf"
+    },
+    {
+      "id": "ch14-concept-ectopic-pregnancy-misconception",
+      "lesson": 10,
+      "category": "optional_generated",
+      "prompt": "Correct this incorrect statement: Normal fertilization in an oviduct is itself an ectopic pregnancy.",
+      "first_attempt_answer": "Normal fertilization in an oviduct is not an ectopic pregnancy. The defining difference is implantation outside the normal uterine site, not the normal location of fertilization.",
+      "support_ids": [
+        "ch14-l10-teaching-02-p3"
+      ],
+      "support_map": "The referenced teaching explicitly distinguishes the claim from the stated mechanism or limitation.",
+      "cognitive_demand": "Correct a directly taught misconception",
+      "prompt_rendered_pages": [
+        3
+      ],
+      "visible_support_judgment": "Sufficient for this answer within the stated prerequisite; no unseen content used",
+      "feedback_status": "Not accessed before freeze",
+      "correctness_status": "Ungraded first attempt",
+      "representation_number": 31,
+      "kind": "flash",
+      "family": "misconception-correction",
+      "prompt_source": "generated-09-10.json; generated-09-10.pdf"
+    },
+    {
+      "id": "ch14-concept-ectopic-pregnancy-blank",
+      "lesson": 10,
+      "category": "optional_generated",
+      "prompt": "Name the term described: A pregnancy implanted outside the normal uterine site.",
+      "first_attempt_answer": "Ectopic pregnancy",
+      "support_ids": [
+        "ch14-l10-teaching-02-p3"
+      ],
+      "support_map": "The referenced visible definition matches the prompt; reverse and blank versions are representations of the same term, not separate concepts.",
+      "cognitive_demand": "Term retrieval from definition",
+      "prompt_rendered_pages": [
+        3
+      ],
+      "visible_support_judgment": "Sufficient for this answer within the stated prerequisite; no unseen content used",
+      "feedback_status": "Not accessed before freeze",
+      "correctness_status": "Ungraded first attempt",
+      "representation_number": 32,
+      "kind": "blank",
+      "family": "term-from-definition",
+      "prompt_source": "generated-09-10.json; generated-09-10.pdf"
+    },
+    {
+      "id": "ch14-import-OBJ_2131525",
+      "lesson": 10,
+      "category": "optional_generated",
+      "prompt": "In a hypothetical case, scarring completely blocks both oviducts while ovarian hormone production remains normal. Which event can still occur?",
+      "first_attempt_answer": "Ovulation",
+      "support_ids": [
+        "ch14-l10-teaching-02-p1",
+        "L10-W2"
+      ],
+      "support_map": "Ovulation is located at the ovary, and worked step 2 explicitly says oviduct blockage does not itself remove this event. Unknown distractor terminology is not needed to choose the supported event.",
+      "cognitive_demand": "Recognition/application",
+      "prompt_rendered_pages": [
+        3
+      ],
+      "visible_support_judgment": "Sufficient for this answer within the stated prerequisite; no unseen content used",
+      "feedback_status": "Not accessed before freeze",
+      "correctness_status": "Ungraded first attempt",
+      "representation_number": 33,
+      "kind": "mc",
+      "family": "recognition",
+      "prompt_source": "generated-09-10.json; generated-09-10.pdf"
+    },
+    {
+      "id": "ch14-import-OBJ_2131570",
+      "lesson": 9,
+      "category": "optional_generated",
+      "prompt": "Another contraceptive, the birth control pill, causes negative feedback on the pituitary, which prevents the release of eggs. Typically, the hormones in the birth control pill are similar to",
+      "first_attempt_answer": "Estrogen and progesterone",
+      "support_ids": [
+        "ch14-l09-teaching-04-p1"
+      ],
+      "support_map": "The paragraph says combined methods supply an estrogen and a progestin and defines progestin as progesterone-like. This supports the option phrased as hormones similar to estrogen and progesterone.",
+      "cognitive_demand": "Recognition",
+      "prompt_rendered_pages": [
+        4
+      ],
+      "visible_support_judgment": "Sufficient for this answer within the stated prerequisite; no unseen content used",
+      "feedback_status": "Not accessed before freeze",
+      "correctness_status": "Ungraded first attempt",
+      "representation_number": 34,
+      "kind": "mc",
+      "family": "recognition",
+      "prompt_source": "generated-09-10.json; generated-09-10.pdf"
+    },
+    {
+      "id": "ch14-import-OBJ_2131114",
+      "lesson": 9,
+      "category": "optional_generated",
+      "prompt": "Which term describes the end of menstrual cycling associated with declining ovarian follicular activity?",
+      "first_attempt_answer": "Menopause",
+      "support_ids": [
+        "ch14-l09-teaching-02-p1"
+      ],
+      "support_map": "The paragraph defines menopause in the terms used by the prompt.",
+      "cognitive_demand": "Retrieval",
+      "prompt_rendered_pages": [
+        4
+      ],
+      "visible_support_judgment": "Sufficient for this answer within the stated prerequisite; no unseen content used",
+      "feedback_status": "Not accessed before freeze",
+      "correctness_status": "Ungraded first attempt",
+      "representation_number": 35,
+      "kind": "mc",
+      "family": "recognition",
+      "prompt_source": "generated-09-10.json; generated-09-10.pdf"
+    },
+    {
+      "id": "ch14-sequence-08",
+      "lesson": 9,
+      "category": "optional_generated",
+      "prompt": "Put these steps in order: Supporting the lining in early pregnancy",
+      "first_attempt_answer": "1. Developing trophoblast tissue releases hCG → 2. hCG supports the corpus luteum → 3. The corpus luteum continues hormone release → 4. Progesterone helps maintain the endometrium",
+      "support_ids": [
+        "ch14-l09-teaching-03-p1",
+        "ch14-l09-teaching-03-p2",
+        "ch14-l09-teaching-03-p3"
+      ],
+      "support_map": "03-p3 states the complete causal order. The supplied steps are already stored/displayed in this order; this answer verifies a readable sequence only, not independent ordering or a native shuffle.",
+      "cognitive_demand": "Pathway reconstruction; display order cues answer",
+      "prompt_rendered_pages": [
+        4
+      ],
+      "visible_support_judgment": "Sufficient for this answer within the stated prerequisite; no unseen content used",
+      "feedback_status": "Not accessed before freeze",
+      "correctness_status": "Ungraded first attempt",
+      "representation_number": 36,
+      "kind": "order",
+      "family": "pathway-order",
+      "prompt_source": "generated-09-10.json; generated-09-10.pdf"
+    },
+    {
+      "id": "ch14-application-16",
+      "lesson": 9,
+      "category": "optional_generated",
+      "prompt": "Ovarian follicles respond less strongly while pituitary feedback detection remains functional. Why can gonadotropin levels rise?",
+      "first_attempt_answer": "Less ovarian hormone feedback allows greater pituitary stimulation",
+      "support_ids": [
+        "ch14-l09-teaching-02-p2",
+        "ch14-l09-teaching-02-p3"
+      ],
+      "support_map": "Reduced ovarian output removes inhibition; the functioning anterior pituitary can release more FSH/LH even while the target responds poorly.",
+      "cognitive_demand": "Close application/recognition",
+      "prompt_rendered_pages": [
+        4
+      ],
+      "visible_support_judgment": "Sufficient for this answer within the stated prerequisite; no unseen content used",
+      "feedback_status": "Not accessed before freeze",
+      "correctness_status": "Ungraded first attempt",
+      "representation_number": 37,
+      "kind": "mc",
+      "family": "application",
+      "prompt_source": "generated-09-10.json; generated-09-10.pdf"
+    },
+    {
+      "id": "ch14-application-16-flash",
+      "lesson": 9,
+      "category": "optional_generated",
+      "prompt": "Ovarian follicles respond less strongly while pituitary feedback detection remains functional. Why can gonadotropin levels rise? Explain your reasoning without answer choices.",
+      "first_attempt_answer": "If follicles respond less strongly, their ovarian hormone output can fall. With less inhibitory feedback, a functioning hypothalamic–pituitary system allows the anterior pituitary to release more FSH and LH. More gonadotropin stimulation does not guarantee that poorly responsive follicles recover.",
+      "support_ids": [
+        "ch14-l09-teaching-02-p2",
+        "ch14-l09-teaching-02-p3",
+        "L09-W2"
+      ],
+      "support_map": "The paragraphs and worked step 2 supply the entire weak response → less inhibition → higher pituitary output chain.",
+      "cognitive_demand": "Taught scenario explanation",
+      "prompt_rendered_pages": [
+        4
+      ],
+      "visible_support_judgment": "Sufficient for this answer within the stated prerequisite; no unseen content used",
+      "feedback_status": "Not accessed before freeze",
+      "correctness_status": "Ungraded first attempt",
+      "representation_number": 38,
+      "kind": "flash",
+      "family": "scenario-explanation",
+      "prompt_source": "generated-09-10.json; generated-09-10.pdf"
+    },
+    {
+      "id": "ch14-application-17",
+      "lesson": 9,
+      "category": "optional_generated",
+      "prompt": "In a combined hormonal-contraceptive model, FSH/LH support and the mid-cycle surge are suppressed. What is the intended ovarian consequence?",
+      "first_attempt_answer": "Reduced likelihood of follicle maturation and ovulation",
+      "support_ids": [
+        "ch14-l09-teaching-04-p1",
+        "L09-W3"
+      ],
+      "support_map": "04-p1 links reduced FSH/LH support to reduced follicular development and suppressed LH surge to reduced ovulation; worked step 3 connects ovarian responsiveness to needed stimulation.",
+      "cognitive_demand": "Close application/recognition",
+      "prompt_rendered_pages": [
+        5
+      ],
+      "visible_support_judgment": "Sufficient for this answer within the stated prerequisite; no unseen content used",
+      "feedback_status": "Not accessed before freeze",
+      "correctness_status": "Ungraded first attempt",
+      "representation_number": 39,
+      "kind": "mc",
+      "family": "application",
+      "prompt_source": "generated-09-10.json; generated-09-10.pdf"
+    },
+    {
+      "id": "ch14-application-17-flash",
+      "lesson": 9,
+      "category": "optional_generated",
+      "prompt": "In a combined hormonal-contraceptive model, FSH/LH support and the mid-cycle surge are suppressed. What is the intended ovarian consequence? Explain your reasoning without answer choices.",
+      "first_attempt_answer": "The intended consequence is less follicle maturation and a lower likelihood of ovulation. The ovaries receive reduced FSH/LH stimulation, and suppressing the LH surge removes the normal signal needed for ovulation.",
+      "support_ids": [
+        "ch14-l09-teaching-04-p1",
+        "L09-W3"
+      ],
+      "support_map": "The same taught causal links explain the intended ovarian consequence without requiring unseen information.",
+      "cognitive_demand": "Taught scenario explanation",
+      "prompt_rendered_pages": [
+        5
+      ],
+      "visible_support_judgment": "Sufficient for this answer within the stated prerequisite; no unseen content used",
+      "feedback_status": "Not accessed before freeze",
+      "correctness_status": "Ungraded first attempt",
+      "representation_number": 40,
+      "kind": "flash",
+      "family": "scenario-explanation",
+      "prompt_source": "generated-09-10.json; generated-09-10.pdf"
+    },
+    {
+      "id": "ch14-application-18",
+      "lesson": 10,
+      "category": "optional_generated",
+      "prompt": "A person has no visible symptoms. Which conclusion about an STI is justified?",
+      "first_attempt_answer": "Absence of symptoms alone cannot rule out an infection",
+      "support_ids": [
+        "ch14-l10-teaching-01-p3"
+      ],
+      "support_map": "Asymptomatic infection and the limits of appearance are explicitly stated.",
+      "cognitive_demand": "Direct recognition",
+      "prompt_rendered_pages": [
+        5
+      ],
+      "visible_support_judgment": "Sufficient for this answer within the stated prerequisite; no unseen content used",
+      "feedback_status": "Not accessed before freeze",
+      "correctness_status": "Ungraded first attempt",
+      "representation_number": 41,
+      "kind": "mc",
+      "family": "application",
+      "prompt_source": "generated-09-10.json; generated-09-10.pdf"
+    },
+    {
+      "id": "ch14-application-18-flash",
+      "lesson": 10,
+      "category": "optional_generated",
+      "prompt": "A person has no visible symptoms. Which conclusion about an STI is justified? Explain your reasoning without answer choices.",
+      "first_attempt_answer": "No visible symptoms do not establish that there is no STI. Some infections are asymptomatic, so appearance or lack of discomfort alone cannot rule infection out.",
+      "support_ids": [
+        "ch14-l10-teaching-01-p3"
+      ],
+      "support_map": "The paragraph directly defines asymptomatic and explains the inference limit.",
+      "cognitive_demand": "Explain stated evidence limitation",
+      "prompt_rendered_pages": [
+        5
+      ],
+      "visible_support_judgment": "Sufficient for this answer within the stated prerequisite; no unseen content used",
+      "feedback_status": "Not accessed before freeze",
+      "correctness_status": "Ungraded first attempt",
+      "representation_number": 42,
+      "kind": "flash",
+      "family": "scenario-explanation",
+      "prompt_source": "generated-09-10.json; generated-09-10.pdf"
+    },
+    {
+      "id": "ch14-application-19",
+      "lesson": 10,
+      "category": "optional_generated",
+      "prompt": "After an untreated infection, scar tissue obstructs an oviduct. Why can fertility be reduced even if follicles still develop?",
+      "first_attempt_answer": "The route needed for gametes to meet is disrupted",
+      "support_ids": [
+        "ch14-l10-teaching-02-p1",
+        "ch14-l10-teaching-02-p2"
+      ],
+      "support_map": "Follicular/ovarian events are separated from oviduct transport, which scar blockage can disrupt.",
+      "cognitive_demand": "Close application/recognition",
+      "prompt_rendered_pages": [
+        5
+      ],
+      "visible_support_judgment": "Sufficient for this answer within the stated prerequisite; no unseen content used",
+      "feedback_status": "Not accessed before freeze",
+      "correctness_status": "Ungraded first attempt",
+      "representation_number": 43,
+      "kind": "mc",
+      "family": "application",
+      "prompt_source": "generated-09-10.json; generated-09-10.pdf"
+    },
+    {
+      "id": "ch14-application-19-flash",
+      "lesson": 10,
+      "category": "optional_generated",
+      "prompt": "After an untreated infection, scar tissue obstructs an oviduct. Why can fertility be reduced even if follicles still develop? Explain your reasoning without answer choices.",
+      "first_attempt_answer": "Follicles may still develop at the ovary, but scar tissue can obstruct the oviduct route through which sperm and the oocyte would meet. A functioning source of gametes does not repair the transport pathway, so fertility can be reduced.",
+      "support_ids": [
+        "ch14-l10-teaching-02-p1",
+        "ch14-l10-teaching-02-p2",
+        "ch14-l10-teaching-02-p3"
+      ],
+      "support_map": "The teaching locates the separate functions and states transport impairment can contribute to infertility. One affected duct is phrased as a reduction in fertility, not a guarantee that all reproduction stops.",
+      "cognitive_demand": "Taught scenario explanation",
+      "prompt_rendered_pages": [
+        5
+      ],
+      "visible_support_judgment": "Sufficient for this answer within the stated prerequisite; no unseen content used",
+      "feedback_status": "Not accessed before freeze",
+      "correctness_status": "Ungraded first attempt",
+      "representation_number": 44,
+      "kind": "flash",
+      "family": "scenario-explanation",
+      "prompt_source": "generated-09-10.json; generated-09-10.pdf"
+    },
+    {
+      "id": "ch14-application-20",
+      "lesson": 10,
+      "category": "optional_generated",
+      "prompt": "Which statement best describes a condom’s role in STI prevention?",
+      "first_attempt_answer": "It can reduce transmission risk but does not eliminate every risk",
+      "support_ids": [
+        "ch14-l10-teaching-04-p2"
+      ],
+      "support_map": "The paragraph explains barrier action and continuing transmission risk from affected uncovered skin.",
+      "cognitive_demand": "Direct recognition",
+      "prompt_rendered_pages": [
+        6
+      ],
+      "visible_support_judgment": "Sufficient for this answer within the stated prerequisite; no unseen content used",
+      "feedback_status": "Not accessed before freeze",
+      "correctness_status": "Ungraded first attempt",
+      "representation_number": 45,
+      "kind": "mc",
+      "family": "application",
+      "prompt_source": "generated-09-10.json; generated-09-10.pdf"
+    },
+    {
+      "id": "ch14-application-20-flash",
+      "lesson": 10,
+      "category": "optional_generated",
+      "prompt": "Which statement best describes a condom’s role in STI prevention? Explain your reasoning without answer choices.",
+      "first_attempt_answer": "An appropriate condom used correctly and consistently acts as a physical barrier that reduces contact with infectious material. It can lower transmission risk, but affected skin outside the covered area can still transmit some infections, so the protection is not absolute.",
+      "support_ids": [
+        "ch14-l10-teaching-04-p2"
+      ],
+      "support_map": "The paragraph supplies both the positive mechanism and its limitation.",
+      "cognitive_demand": "Reconstruct stated mechanism",
+      "prompt_rendered_pages": [
+        6
+      ],
+      "visible_support_judgment": "Sufficient for this answer within the stated prerequisite; no unseen content used",
+      "feedback_status": "Not accessed before freeze",
+      "correctness_status": "Ungraded first attempt",
+      "representation_number": 46,
+      "kind": "flash",
+      "family": "scenario-explanation",
+      "prompt_source": "generated-09-10.json; generated-09-10.pdf"
+    },
+    {
+      "id": "ch14-typed-19",
+      "lesson": 9,
+      "category": "optional_generated",
+      "prompt": "Which early pregnancy signal supports the corpus luteum?",
+      "first_attempt_answer": "hCG",
+      "support_ids": [
+        "ch14-l09-teaching-03-p2"
+      ],
+      "support_map": "The early-pregnancy signal supporting the corpus luteum is explicitly named.",
+      "cognitive_demand": "Retrieval",
+      "prompt_rendered_pages": [
+        6
+      ],
+      "visible_support_judgment": "Sufficient for this answer within the stated prerequisite; no unseen content used",
+      "feedback_status": "Not accessed before freeze",
+      "correctness_status": "Ungraded first attempt",
+      "representation_number": 47,
+      "kind": "blank",
+      "family": "scenario-retrieval",
+      "prompt_source": "generated-09-10.json; generated-09-10.pdf"
+    },
+    {
+      "id": "ch14-typed-20",
+      "lesson": 10,
+      "category": "optional_generated",
+      "prompt": "An infection spreads into upper female reproductive structures and causes inflammation. Name the condition, or give its standard abbreviation.",
+      "first_attempt_answer": "Pelvic inflammatory disease (PID)",
+      "support_ids": [
+        "ch14-l10-teaching-02-p2"
+      ],
+      "support_map": "The paragraph names the condition and abbreviation after describing spread into upper reproductive structures.",
+      "cognitive_demand": "Scenario retrieval",
+      "prompt_rendered_pages": [
+        6
+      ],
+      "visible_support_judgment": "Sufficient for this answer within the stated prerequisite; no unseen content used",
+      "feedback_status": "Not accessed before freeze",
+      "correctness_status": "Ungraded first attempt",
+      "representation_number": 48,
+      "kind": "blank",
+      "family": "scenario-retrieval",
+      "prompt_source": "generated-09-10.json; generated-09-10.pdf"
+    },
+    {
+      "id": "ch14-multiple-select-5",
+      "lesson": 10,
+      "category": "optional_generated",
+      "prompt": "Select every conclusion supported by this chapter’s STI explanation.",
+      "first_attempt_answer": "a and b: Some infections may be present without obvious symptoms; scarring in an oviduct can interfere with reproduction.",
+      "support_ids": [
+        "ch14-l10-teaching-01-p3",
+        "ch14-l10-teaching-02-p2",
+        "ch14-l10-teaching-02-p3"
+      ],
+      "support_map": "01-p3 supports a, rejects diagnosis from an online symptom list, and names both bacterial and viral infections (rejecting c and d). 02-p2/3 supports b.",
+      "cognitive_demand": "Discriminate multiple stated conclusions",
+      "prompt_rendered_pages": [
+        6
+      ],
+      "visible_support_judgment": "Sufficient for this answer within the stated prerequisite; no unseen content used",
+      "feedback_status": "Not accessed before freeze",
+      "correctness_status": "Ungraded first attempt",
+      "representation_number": 49,
+      "kind": "multi-select",
+      "family": "discrimination",
+      "prompt_source": "generated-09-10.json; generated-09-10.pdf"
+    }
+  ],
+  "rendered_page_observations": [
+    {
+      "file": "lesson-09-page-01.png",
+      "observation": "Title, purpose, completion directions and first definitions readable; vocabulary continues onto page 2. Trophoblast appears in the short hCG glossary definition before being explained in the teaching on page 4; no task requires it before that explanation.",
+      "actual_pixels_inspected": true
+    },
+    {
+      "file": "lesson-09-page-02.png",
+      "observation": "Baseline explanation and sampling limitation readable with ample bottom space. The figure it introduces is on page 3, creating a page-turn integration demand, but all relevant text is complete.",
+      "actual_pixels_inspected": true
+    },
+    {
+      "file": "lesson-09-page-03.png",
+      "observation": "Cycle figure text and arrows legible. Downward early-follicle-to-menstrual-flow arrow can suggest causation when viewed alone; page 2 explicitly corrects that interpretation and the figure footer supplies hormone-decline causation. No explicit ovulation event box or post-active regression box; those transitions rely on adjacent prose/footer. Menopause feedback explanation is readable.",
+      "actual_pixels_inspected": true
+    },
+    {
+      "file": "lesson-09-page-04.png",
+      "observation": "Dense but readable page covering age comparison, early pregnancy and combined contraception. No clipped lines. New trophoblast, implantation and progestin terms receive explanatory apposition before the assessed mechanisms.",
+      "actual_pixels_inspected": true
+    },
+    {
+      "file": "lesson-09-page-05.png",
+      "observation": "Worked example and non-responsive corpus-luteum challenge fully readable. Supported-practice introduction sits at the page bottom, with actual questions on page 6; mild navigation burden only.",
+      "actual_pixels_inspected": true
+    },
+    {
+      "file": "lesson-09-page-06.png",
+      "observation": "Both supported prompts, stop prompt, video-independent explanation and required selection 1 are readable and complete. Lowest choice stays clear of footer.",
+      "actual_pixels_inspected": true
+    },
+    {
+      "file": "lesson-09-page-07.png",
+      "observation": "Required selection 2, both writing prompts and original optional saved-response prompt readable; character limits and navigation are present. Static placeholders and inactive controls provide no persistence or gate evidence.",
+      "actual_pixels_inspected": true
+    },
+    {
+      "file": "lesson-10-page-01.png",
+      "observation": "Title, purpose, completion directions and first terms readable. Terms continue onto page 2; no clipped content.",
+      "actual_pixels_inspected": true
+    },
+    {
+      "file": "lesson-10-page-02.png",
+      "observation": "Vocabulary and first two teaching sections readable. The inflammation/scarring paragraph crosses to page 3 at a sentence boundary; no text loss, but route consequences require a page turn.",
+      "actual_pixels_inspected": true
+    },
+    {
+      "file": "lesson-10-page-03.png",
+      "observation": "Continuation and consequences readable. Normal sagittal anatomy image is large, with legible oviduct/ovary/uterus labels. It does not portray scarring or both ducts as a bilateral route; teaching and caption explicitly limit its use to normal location. No figure label clipping detected.",
+      "actual_pixels_inspected": true
+    },
+    {
+      "file": "lesson-10-page-04.png",
+      "observation": "Pathogen/tissue differences and conception-control/barrier comparison are dense but readable through the bottom paragraph, clear of the footer.",
+      "actual_pixels_inspected": true
+    },
+    {
+      "file": "lesson-10-page-05.png",
+      "observation": "Worked case, new optional comparison and both supported questions fully readable, including all options near page bottom.",
+      "actual_pixels_inspected": true
+    },
+    {
+      "file": "lesson-10-page-06.png",
+      "observation": "Stop prompt, both required selections and writing 1 complete and readable. No clipping.",
+      "actual_pixels_inspected": true
+    },
+    {
+      "file": "lesson-10-page-07.png",
+      "observation": "Writing 2 and navigation readable; most of page is intentionally blank in this static rendering. This is inefficient pagination, not missing question content.",
+      "actual_pixels_inspected": true
+    },
+    {
+      "file": "generated-page-01.png",
+      "observation": "Representations 1–10 fully readable. Intro correctly warns that 49 representations are not 49 concepts and this is not a native shuffled session.",
+      "actual_pixels_inspected": true
+    },
+    {
+      "file": "generated-page-02.png",
+      "observation": "Representations 11–23 readable and complete. Long PID identifiers fit; final misconception stays above bottom margin.",
+      "actual_pixels_inspected": true
+    },
+    {
+      "file": "generated-page-03.png",
+      "observation": "Representations 24–33 readable, including all bilateral-blockage MC options. No clipping.",
+      "actual_pixels_inspected": true
+    },
+    {
+      "file": "generated-page-04.png",
+      "observation": "Representations 34–38 readable. Sequence 36 is already listed in the biologically supported order, so independent ordering/shuffling is not measured.",
+      "actual_pixels_inspected": true
+    },
+    {
+      "file": "generated-page-05.png",
+      "observation": "Representations 39–44 readable. The four choices under item 39 lack visible bullet dots while other MC groups have them; wording remains separated and usable. This is a minor presentation inconsistency.",
+      "actual_pixels_inspected": true
+    },
+    {
+      "file": "generated-page-06.png",
+      "observation": "Representations 45–49 readable and complete; multi-select option IDs a–d are visible. No clipping.",
+      "actual_pixels_inspected": true
+    }
+  ],
+  "cross_cutting_observations": [
+    {
+      "id": "O1",
+      "severity": "limitation",
+      "finding": "First-attempt answers are supported, but most assessment is close retrieval or reconstruction of immediately taught statements.",
+      "evidence": "The required selections contain conspicuous impossibilities such as moving ovaries into the uterus, LH turning into sperm, and bacterial/viral guarantees. The four writing tasks reconstruct taught chains or comparisons. The two new optional tasks require a useful small transfer: target non-response and hormonal versus transport failure.",
+      "consequence": "Do not interpret success on this packet alone as robust independent diagnostic or unfamiliar-scenario reasoning."
+    },
+    {
+      "id": "O2",
+      "severity": "minor residual visual risk",
+      "finding": "The unchanged cycle diagram can imply an incorrect causal arrow from developing follicles to menstrual flow when seen alone.",
+      "evidence": "Actual lesson09 page 3 pixels show a downward arrow between those boxes; lesson09 01-p3 explicitly says this is overlap and not follicle-caused shedding, and the footer supplies preceding hormone decline.",
+      "consequence": "The integrated lesson supports the correct reading. An isolated diagram/read-aloud still should not be counted as proof that learners will interpret the arrow correctly."
+    },
+    {
+      "id": "O3",
+      "severity": "boundary",
+      "finding": "No required-answer-blocking first-use gap identified within the allowed prerequisite.",
+      "evidence": "Corpus luteum and endometrium are restated; gonadotropins, inhibin, trophoblast, implantation, progestin, asymptomatic, inflammation, PID, infertility, ectopic pregnancy and epididymis are explained by the time they are needed. Trophoblast first occurs in the hCG glossary before the later explanation. HIV is not expanded, and imported-MC distractors include parturition/relaxin/oxytocin/prolactin without explanations here.",
+      "consequence": "These latter terms could impose incidental reading load, but none is required to select or explain the supported answer. I did not supply unseen definitions in answering."
+    },
+    {
+      "id": "O4",
+      "severity": "boundary",
+      "finding": "Normal-anatomy figure is correctly scoped, not a damage illustration.",
+      "evidence": "Lesson10 page 3 and 02-p1/caption explicitly describe normal anatomy, not infection or scars. Bilateral duct count and consequences are supplied by text and worked case.",
+      "consequence": "Answers about blockage depend on taught mechanism and stipulated model conditions; the picture itself cannot prove bilateral obstruction."
+    },
+    {
+      "id": "O5",
+      "severity": "minor layout",
+      "finding": "Static pagination adds mild page-turn effort but no lost content.",
+      "evidence": "Lesson09 figure/prose and support introduction/questions are separated; lesson10 scarring paragraph spans pages 2–3; lesson10 writing 2 occupies a sparse seventh page; generated item39 choices lack bullet dots.",
+      "consequence": "Readable at supplied render size; no course/mobile/runtime acceptance inferred."
+    },
+    {
+      "id": "O6",
+      "severity": "scope",
+      "finding": "Optional 49 representations cover repeated concepts and repeated scenario variants.",
+      "evidence": "Eight term concepts each appear in four forms (32 items); three imported MCs, one already-ordered pathway, five MC/flash pairs, two typed retrievals and one multi-select account for the remaining 17.",
+      "consequence": "All were attempted individually; the count is not a claim of 49 independent concepts or 49 independent demonstrations of mastery."
+    },
+    {
+      "id": "O7",
+      "severity": "untested",
+      "finding": "Interaction, grading and persistence were not tested.",
+      "evidence": "The review pages explicitly have inactive controls, withheld feedback and separate writing placeholders. No native session was opened.",
+      "consequence": "Start/unlock gating, wrong-answer hints, answer normalization, native shuffle, term dialogs, video playback, textbook navigation, save/edit state, reload persistence, All My Work, Submit/finish and mobile/responsive accessibility remain unverified."
+    }
+  ],
+  "pending": "Await parent permission to inspect feedback. Preserve this frozen file unchanged and record any later comparison separately."
+}

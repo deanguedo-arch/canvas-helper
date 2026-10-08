@@ -2,7 +2,7 @@
   "id": "biology30-unit-a",
   "slug": "biology30-unit-a",
   "title": "Biology 30 — Unit A: Nervous and Endocrine Systems",
-  "sourcePath": "projects/resources/biology30-unit-a-pilot/resource-manifest.json",
+  "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/processed/biology30-unit-a/source",
   "inputKind": "brightspace-zip",
   "brightspaceTarget": "scorm",
   "previewModes": [
@@ -14,7 +14,7 @@
   "learningTrust": "curated",
   "learningUpdatedAt": "2026-08-31T01:59:00.496Z",
   "createdAt": "2026-08-30T00:10:19.494Z",
-  "updatedAt": "2026-08-31T01:59:00.496Z",
+  "updatedAt": "2026-10-07T18:32:03.006Z",
   "migrationState": "migrated",
   "projectType": "hybrid",
   "preferredWorkflows": [
@@ -180,5 +180,6 @@
     "projects/biology30-unit-a/raw/intake.json"
   ],
   "sourceOfTruthNotes": "Biology V2 canonical resources and the Biology-specific renderer own this generated full-course proposal. Studio editing, promotion, export, upload, publication, and commit remain unauthorized.",
-  "regenerateCommand": "npm run build:biology30-unit-a-v2 -- --project biology30-unit-a --strict"
+  "regenerateCommand": "npm run build:biology30-unit-a-v2 -- --project biology30-unit-a --strict",
+  "injectedComponents": []
 }

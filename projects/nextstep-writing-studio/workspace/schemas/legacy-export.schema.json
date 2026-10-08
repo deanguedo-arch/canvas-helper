@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nextstep.invalid/writing-studio/legacy-export.schema.json",
+  "type": "object",
+  "properties": {
+    "format": {
+      "const": "nextstep.writing-studio.legacy"
+    },
+    "formatVersion": {
+      "const": 1
+    },
+    "exportedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "raw": {
+      "type": "object",
+      "properties": {
+        "responsesKey": {
+          "const": "ela-student-tool-kit:writing-studio:responses:v1"
+        },
+        "notesKey": {
+          "const": "ela-student-tool-kit:writing-studio:notes:v1"
+        },
+        "responsesRaw": {
+          "anyOf": [
+            {
+              "type": "string",
+              "maxLength": 500000
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "notesRaw": {
+          "anyOf": [
+            {
+              "type": "string",
+              "maxLength": 500000
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "responsesKey",
+        "notesKey",
+        "responsesRaw",
+        "notesRaw"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "format",
+    "formatVersion",
+    "exportedAt",
+    "raw"
+  ],
+  "additionalProperties": false
+}

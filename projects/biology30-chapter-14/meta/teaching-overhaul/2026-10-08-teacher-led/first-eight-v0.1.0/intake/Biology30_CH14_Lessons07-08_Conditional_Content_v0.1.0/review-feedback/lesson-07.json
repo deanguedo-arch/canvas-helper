@@ -1,0 +1,111 @@
+{
+  "check": {
+    "id": "ch14-check-07",
+    "route": "lesson-07",
+    "title": "Coordinating the ovarian and uterine cycles",
+    "mc": [
+      {
+        "id": "ch14-l07-check-mc-1",
+        "prompt": "What most directly links corpus-luteum regression with menstruation?",
+        "answer": "A fall in progesterone and estrogen",
+        "options": [
+          "A fall in progesterone and estrogen",
+          "The corpus luteum entering the cervix",
+          "A new oocyte becoming diploid",
+          "A rise in sperm production"
+        ],
+        "cue": "Follow the chemical signals between ovary and uterus.",
+        "explanation": "Regression reduces hormone support for the endometrium, contributing to its shedding.",
+        "difficulty": "application"
+      },
+      {
+        "id": "ch14-l07-check-mc-2",
+        "prompt": "Which statement uses the 28-day model appropriately?",
+        "answer": "It illustrates a sequence; actual cycle lengths and ovulation timing can vary",
+        "options": [
+          "The model guarantees which days cannot result in pregnancy",
+          "It illustrates a sequence; actual cycle lengths and ovulation timing can vary",
+          "Every person ovulates exactly on day 14",
+          "The follicular phase starts only after menstrual flow ends"
+        ],
+        "cue": "A model can explain relationships without giving a universal calendar.",
+        "explanation": "The model illustrates coordination, not an exact prediction for every individual or a contraceptive guarantee.",
+        "difficulty": "application"
+      }
+    ],
+    "writing": [
+      {
+        "id": "ch14-l07-check-writing-1",
+        "prompt": "Connect ovarian and uterine events before and after ovulation. Include the source and effect of estrogen and progesterone.",
+        "model": "Before ovulation, a growing follicle releases estrogen that helps rebuild the endometrium. After ovulation, the corpus luteum releases progesterone and some estrogen that maintain and prepare the lining. These hormones coordinate organs through the blood.",
+        "criteria": [
+          "Correctly distinguishes before and after ovulation.",
+          "Connects ovarian structures, hormones and uterine responses."
+        ],
+        "limit": 3200
+      },
+      {
+        "id": "ch14-l07-check-writing-2",
+        "prompt": "Why can menstrual flow and follicular development occur at the same time?",
+        "model": "They describe events in different organs. At the start of a cycle, part of the endometrium is being shed while FSH supports development of follicles in the ovary. The ovarian and uterine cycles overlap and are hormonally coordinated.",
+        "criteria": [
+          "Names the two locations.",
+          "Explains simultaneous events rather than mutually exclusive phases."
+        ],
+        "limit": 3200
+      }
+    ]
+  },
+  "guided": {
+    "chapter": 14,
+    "lesson": 7,
+    "route": "lesson-07",
+    "worked": {
+      "id": "ch14-l07-worked",
+      "label": "Worked example",
+      "title": "A change in one organ affects another",
+      "scenario": "A model shows the corpus luteum regressing while the endometrium begins to break down.",
+      "steps": [
+        "Locate the initial change in the ovary: corpus-luteum regression.",
+        "Identify the hormonal consequence: progesterone and estrogen fall.",
+        "Identify the target response in the uterus: the endometrium loses hormonal support.",
+        "Explain the observed flow: part of the lining is shed, beginning the next cycle. The ovary and uterus are linked by signals, not by the corpus luteum moving into the uterus."
+      ]
+    },
+    "guided": {
+      "id": "ch14-l07-guided",
+      "label": "Practise with support",
+      "title": "Apply the explanation",
+      "instruction": "Try both questions. Use the hint to revise your thinking after an incorrect answer.",
+      "items": [
+        {
+          "id": "ch14-l07-guided-q1",
+          "kind": "select",
+          "prompt": "On day 2 of the illustrative cycle, menstrual flow is occurring. Which ovarian phase is also underway?",
+          "answer": "Follicular phase",
+          "options": [
+            "Follicular phase",
+            "Ovulation",
+            "Luteal phase"
+          ],
+          "hint": "Flow is a uterine event; ovarian development does not pause.",
+          "explanation": "Menstrual flow occurs during the early follicular phase."
+        },
+        {
+          "id": "ch14-l07-guided-q2",
+          "kind": "select",
+          "prompt": "Progesterone has risen after ovulation. Which ovarian structure is the main source in this cycle?",
+          "answer": "Corpus luteum",
+          "options": [
+            "Endometrium",
+            "Corpus luteum",
+            "An unfertilized oocyte"
+          ],
+          "hint": "Look for the endocrine tissue that forms after ovulation.",
+          "explanation": "The corpus luteum releases progesterone, supporting the endometrium."
+        }
+      ]
+    }
+  },
+  "new_optional_model": "Day 16 is still follicular because it precedes the stated ovulation event on day 18. Rising follicular estrogen normally supports endometrial growth. The ovarian luteal phase begins after ovulation, so transferring day 14 mechanically from a different illustrative model would assign the boundary to the wrong event."
+}

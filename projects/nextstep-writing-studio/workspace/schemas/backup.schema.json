@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nextstep.invalid/writing-studio/backup.schema.json",
+  "type": "object",
+  "properties": {
+    "format": {
+      "const": "nextstep.writing-studio.backup"
+    },
+    "formatVersion": {
+      "const": 1
+    },
+    "schemaVersion": {
+      "const": 1
+    },
+    "kind": {
+      "enum": [
+        "studio",
+        "project"
+      ]
+    },
+    "appVersion": {
+      "type": "string",
+      "maxLength": 40
+    },
+    "exportedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "payload": {},
+    "checksum": {
+      "type": "object",
+      "properties": {
+        "algorithm": {
+          "const": "sha256"
+        },
+        "value": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      },
+      "required": [
+        "algorithm",
+        "value"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "format",
+    "formatVersion",
+    "schemaVersion",
+    "kind",
+    "appVersion",
+    "exportedAt",
+    "payload",
+    "checksum"
+  ],
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "kind": {
+            "const": "studio"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "payload": {
+            "$ref": "https://nextstep.invalid/writing-studio/workspace.schema.json"
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "payload": {
+            "$ref": "https://nextstep.invalid/writing-studio/workspace.schema.json#/$defs/Project"
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,179 @@
+{
+  "contentVersion": "1.0.0",
+  "status": "ORIGINAL_DRAFT_FOR_TEACHER_REVIEW",
+  "templates": [
+    {
+      "id": "personal-response",
+      "label": "Personal Response",
+      "sections": [
+        {
+          "key": "focus",
+          "kind": "text",
+          "label": "Controlling idea",
+          "prompt": "What insight about the topic do you want to explore?"
+        },
+        {
+          "key": "connection",
+          "kind": "text",
+          "label": "Meaningful connection",
+          "prompt": "Choose an experience, observation or reading that helps explain the idea. You do not have to disclose private experiences."
+        },
+        {
+          "key": "points",
+          "kind": "list",
+          "label": "Supporting moments",
+          "prompt": "Choose specific details and explain their significance."
+        },
+        {
+          "key": "opening",
+          "kind": "text",
+          "label": "Opening direction",
+          "prompt": "How will you introduce the idea?"
+        },
+        {
+          "key": "ending",
+          "kind": "text",
+          "label": "Closing reflection",
+          "prompt": "What understanding should stay with the reader?"
+        }
+      ]
+    },
+    {
+      "id": "critical-analysis",
+      "label": "Critical Essay",
+      "sections": [
+        {
+          "key": "focus",
+          "kind": "text",
+          "label": "Controlling Idea",
+          "prompt": "A defensible interpretation that answers your topic and can guide the whole essay."
+        },
+        {
+          "key": "insight",
+          "kind": "text",
+          "label": "Key Insight",
+          "prompt": "The tension, change, or qualification that gives your interpretation depth."
+        },
+        {
+          "key": "points",
+          "kind": "list",
+          "label": "Supporting Points",
+          "prompt": "Give each point a distinct job. Choose the order that develops your reasoning."
+        },
+        {
+          "key": "opening",
+          "kind": "text",
+          "label": "Opening Direction",
+          "prompt": "Establish the issue, identify the text, and lead the reader toward your interpretation."
+        },
+        {
+          "key": "ending",
+          "kind": "text",
+          "label": "Closing Insight",
+          "prompt": "Explain what the developed argument helps a reader understand. Go beyond repeating the thesis."
+        }
+      ]
+    },
+    {
+      "id": "argument",
+      "label": "Argument",
+      "sections": [
+        {
+          "key": "focus",
+          "kind": "text",
+          "label": "Position and purpose",
+          "prompt": "What should your reader understand or consider?"
+        },
+        {
+          "key": "points",
+          "kind": "list",
+          "label": "Reasons and support",
+          "prompt": "Choose reasons, examples and sources relevant to the audience."
+        },
+        {
+          "key": "alternatives",
+          "kind": "text",
+          "label": "Another perspective",
+          "prompt": "What objection or alternative deserves a fair response?"
+        },
+        {
+          "key": "opening",
+          "kind": "text",
+          "label": "Opening direction",
+          "prompt": "Give the reader a reason to consider the issue."
+        },
+        {
+          "key": "ending",
+          "kind": "text",
+          "label": "Closing direction",
+          "prompt": "What follows from your reasoning?"
+        }
+      ]
+    },
+    {
+      "id": "narrative",
+      "label": "Narrative",
+      "sections": [
+        {
+          "key": "focus",
+          "kind": "text",
+          "label": "Focus or change",
+          "prompt": "What changes for your character or narrator?"
+        },
+        {
+          "key": "perspective",
+          "kind": "text",
+          "label": "Character and perspective",
+          "prompt": "Who experiences the events and who tells them?"
+        },
+        {
+          "key": "points",
+          "kind": "list",
+          "label": "Key moments",
+          "prompt": "Select the moments that develop the change."
+        },
+        {
+          "key": "opening",
+          "kind": "text",
+          "label": "Opening scene",
+          "prompt": "Choose where the reader enters the story."
+        },
+        {
+          "key": "ending",
+          "kind": "text",
+          "label": "Ending and resonance",
+          "prompt": "What final moment gives the experience meaning?"
+        }
+      ]
+    },
+    {
+      "id": "short-response",
+      "label": "Short Response",
+      "sections": [
+        {
+          "key": "focus",
+          "kind": "text",
+          "label": "Main point",
+          "prompt": "What is the clearest answer to the task?"
+        },
+        {
+          "key": "points",
+          "kind": "list",
+          "label": "Details and explanation",
+          "prompt": "What specific support makes the point convincing?"
+        },
+        {
+          "key": "ending",
+          "kind": "text",
+          "label": "Closing sentence",
+          "prompt": "What is the key takeaway?"
+        }
+      ]
+    },
+    {
+      "id": "blank",
+      "label": "Blank",
+      "sections": []
+    }
+  ]
+}

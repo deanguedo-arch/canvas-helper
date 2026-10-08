@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-09-30T00:39:55.600234+00:00",
+  "status": "build-candidate",
+  "rules": "2026.09.financial-story.1",
+  "headAtRecord": "ecc1b806630cb33b9942e64eb676a1f8568c007e",
+  "files": {
+    "workspace/index.html": "cfacaf302be70ef90e942df5975e425a398f70392860bafc023b9b9436237d7f",
+    "workspace/earlier.html": "a8ce2f58b02f60aa584038bc3439063c1f19916effcdfc506692330c61034da1",
+    "workspace/sim-economy.js": "19e71f52c096e139045668cb994a56c60047bf05797ad83fcc05e0bc90c1c7ee",
+    "workspace/sim-game.js": "734b0e60801bf327928620d87d66a2a78bf91975c5519b427b524efeaf9d1b57",
+    "workspace/sim-world.js": "532900c8257ec15f3442404b877258dbc69d54a8ef5607ed4cd82754c97f6fb2",
+    "workspace/sim-activities.js": "9d599f6bf1a47db4516862ad0d48e2319efef3fdc0e0319c2dea59f1f8c39473",
+    "workspace/sim.css": "bb21b706e42afc9410005862daf394d03f6f962108cde98abcea64ceb2fb0ec8",
+    "meta/economy-v3/verify.cjs": "62522c5e5607fbb3bd2ee7e1b6fafa1a7dfce50a10ea3ea0814af56c92c098eb",
+    "meta/economy-v3/activity-save-check.cjs": "02129a464c1d1145d57119e4f422847fad12b976731f3436a40db5fd02f49dcd"
+  },
+  "verification": {
+    "financeSaveGroupedChecks": {
+      "passed": 13,
+      "command": "node projects/paycheck-panic/meta/economy-v3/verify.cjs"
+    },
+    "activityControllerGroupedCheck": {
+      "passed": 1,
+      "command": "node projects/paycheck-panic/meta/economy-v3/activity-save-check.cjs"
+    },
+    "scriptSyntax": "passed; latest navigation repair parsed",
+    "browserReview": "targeted desktop and 390x844 paths; see REVIEW.md",
+    "casinoAfterReload": {
+      "cashCents": 269000,
+      "loanCents": 120000,
+      "blocks": 3,
+      "wagers": 2,
+      "stakesCents": 1000,
+      "limitCents": 2000,
+      "sameLastResult": true
+    },
+    "humanAllChapterPlaythrough": "not performed",
+    "campaignDurationMeasured": false,
+    "physicalPhone": "not performed",
+    "backupBrowserImport": "blocked by extension file-URL permission; not changed",
+    "rollout": "not performed"
+  },
+  "saveIncident": "Early new-v3 QA used default new-v3 namespace before window.location.search fix; those saves were preserved. Older namespaces untouched. Fresh post-fix QA isolation passed.",
+  "evidence": [
+    "meta/economy-v3/review/phone-capped-meal.png",
+    "meta/economy-v3/review/casino-cash-effect.png"
+  ]
+}

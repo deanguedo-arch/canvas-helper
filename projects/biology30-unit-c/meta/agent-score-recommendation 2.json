@@ -1,0 +1,132 @@
+{
+  "schemaVersion": 1,
+  "recommendationProfile": "biology30-agent-score-recommendation-v1",
+  "projectSlug": "biology30-unit-c",
+  "unitCode": "C",
+  "buildSha256": "0814f93c4d74bb6411045d649625ba2bd6c664cf6e98d8147a215c7014f9354a",
+  "generatedAt": "2026-08-31T05:18:27Z",
+  "status": "ai-assisted-95-threshold-recommended-awaiting-human-confirmation",
+  "recommendationOnly": true,
+  "recommendedScores": [
+    {
+      "id": "academic",
+      "label": "Academic alignment and accuracy",
+      "score": 24,
+      "available": 25,
+      "minimum": 20,
+      "evidencePaths": [
+        "meta/curriculum-audit.json",
+        "meta/factual-review.json",
+        "meta/provenance.json",
+        "meta/source-disposition.json",
+        "meta/rights-audit.json"
+      ],
+      "rationale": "All 35 official Unit C outcomes have explicit teach, practice, and evidence routes. Exact source disposition, factual-correction, provenance, and rights reports pass for cell division, classical genetics, molecular genetics, biotechnology, probability, privacy, and evidence limits. One point remains reserved for the teacher's final content judgment."
+    },
+    {
+      "id": "coherence",
+      "label": "Instructional coherence",
+      "score": 19,
+      "available": 20,
+      "minimum": 16,
+      "evidencePaths": [
+        "meta/production-build.json",
+        "meta/content-density.json",
+        "meta/build-summary.md",
+        "workspace/index.html"
+      ],
+      "rationale": "The independent-learning loop and route inventory are complete across 24 lessons. The evidence supports the 24-lesson progression from chromosome behaviour through inheritance probability, molecular expression, biotechnology, investigation, and integrated transfer. One point remains reserved for teacher judgment of pacing and transitions."
+    },
+    {
+      "id": "visual",
+      "label": "Visual and editorial quality",
+      "score": 14,
+      "available": 15,
+      "minimum": 12,
+      "evidencePaths": [
+        "meta/visual-audit.json",
+        "meta/visual-review.json",
+        "workspace/index.html"
+      ],
+      "rationale": "All 30 routes were inspected across 90 route-viewports, with 24 scientific figures and 24 interactions reviewed for hierarchy, fit, connectors, legibility, and responsive reflow. One point remains reserved for teacher preference and extended-device use."
+    },
+    {
+      "id": "practice",
+      "label": "Practice and investigations",
+      "score": 15,
+      "available": 15,
+      "minimum": 12,
+      "evidencePaths": [
+        "meta/practice-audit.json",
+        "meta/interaction-inventory.json",
+        "meta/curriculum-audit.json",
+        "workspace/index.html"
+      ],
+      "rationale": "All 160 prompts are unique; lesson, module, and final practice include targeted feedback and cognitively matched tasks. Higher-order mixed practice integrates two evidence streams, and 12 portfolio artifacts provide observable evidence."
+    },
+    {
+      "id": "accessibility",
+      "label": "Accessibility",
+      "score": 9,
+      "available": 10,
+      "minimum": 8,
+      "evidencePaths": [
+        "meta/accessibility-static.json",
+        "meta/visual-review.json",
+        "../../e2e/specs/biology30-course-production.spec.ts"
+      ],
+      "rationale": "Static WCAG prerequisites pass, every learner route is axe-clean in Chromium, representative Firefox and WebKit checks pass, and required interactions are keyboard-operable with static equivalents. One point remains reserved for hands-on assistive-technology review."
+    },
+    {
+      "id": "runtime",
+      "label": "Local-first runtime and persistence",
+      "score": 10,
+      "available": 10,
+      "minimum": 8,
+      "evidencePaths": [
+        "meta/persistence-budget.json",
+        "meta/asset-audit.json",
+        "meta/link-audit.json",
+        "../../e2e/specs/biology30-course-production.spec.ts"
+      ],
+      "rationale": "Required learning makes zero network requests, has no unresolved local assets, restores learner state across Chromium, Firefox, and WebKit, preserves the last valid state on overflow, and remains below the 48,000-character guard at 43,081 characters."
+    },
+    {
+      "id": "maintainability",
+      "label": "Maintainability and Studio readiness",
+      "score": 4,
+      "available": 5,
+      "minimum": 4,
+      "evidencePaths": [
+        "meta/project.json",
+        "meta/production-build.json",
+        "../resources/biology30-production/v1/family-contract.json",
+        "../../scripts/lib/biology30-course/v1/"
+      ],
+      "rationale": "The Biology-specific contract, deterministic transactional builder, exact-hash reports, and proposal-only ownership boundary are clear and validated. One point remains reserved until accepted Direct ownership and the reversible Studio Apply/reload/Undo lifecycle are proven."
+    }
+  ],
+  "recommendedTotal": 95,
+  "minimumTotal": 95,
+  "everyCategoryMinimumMet": true,
+  "automatedOrVisualBinaryBlockersFound": 0,
+  "recommendedDecision": "Accept this exact blocked candidate for post-acceptance promotion-readiness work only if the teacher confirms the representative review and finds no binary blocker.",
+  "reservations": [
+    "The teacher must confirm academic quality and the seven category scores for this exact build.",
+    "Hands-on assistive-technology review remains a human judgment point.",
+    "Direct Studio ownership, reversible editing, SCORM validation, and real Brightspace learner-account restoration are post-acceptance gates."
+  ],
+  "humanAcceptanceRecord": {
+    "path": "meta/human-acceptance-template.json",
+    "scoresRemainBlank": true,
+    "decisionRemainsNull": true,
+    "userConfirmedRemainsFalse": true
+  },
+  "authorization": {
+    "promotionAuthorized": false,
+    "studioEditingAuthorized": false,
+    "exportAuthorized": false,
+    "brightspaceUploadAuthorized": false,
+    "publicationAuthorized": false
+  }
+}

@@ -1,0 +1,730 @@
+{
+  "verifiedPayloads": 169,
+  "currentOwner": {
+    "scripts/content.py": "15f3e496a739a40f7de85ccfa8a8dcaadfb0a4ebb4274f4c36c272244d542a2e",
+    "scripts/build_chapter.py": "f389fa6ace53dd19e2e3f4c7d336d32f7391656e0d66799404a90695883d06e0",
+    "authoring/course-config.json": "d3467ba67cc5b2bbbf8cc26fb3b8e0a8f8754102ebe545fd607ef2180149c74d"
+  },
+  "currentHTML": "054b823d5758a702041f24fd06b15a77d69cdfff63323cd5ffd7e803bf8936b8",
+  "currentRuntime": "295522cb7ae3dbc4bd845b8916b41605c6c771dc9b11d041e01af7565b173d0b",
+  "routes": [
+    {
+      "route": "overview",
+      "currentSha256": "2e9603e5cdb0b12758b4a9ee4bb83eee5d5139e4c76742a8bd60ed112f3cdb25",
+      "historicalSha256": "eb6a602ca07dbd2a13317ba6929e57cf140cc8076d41680cb7683c0493dfde59"
+    },
+    {
+      "route": "lesson-01",
+      "currentSha256": "cf2b24ae4f09465f9410c7b77bd05825951fbbc3d21db717b30dd6d06bbd4135",
+      "historicalSha256": "cf2b24ae4f09465f9410c7b77bd05825951fbbc3d21db717b30dd6d06bbd4135"
+    },
+    {
+      "route": "lesson-02",
+      "currentSha256": "e7109dd10e5529333be0295ca50ef139f91e15c949e67da722d9c534620ec9f0",
+      "historicalSha256": "e7109dd10e5529333be0295ca50ef139f91e15c949e67da722d9c534620ec9f0"
+    },
+    {
+      "route": "lesson-03",
+      "currentSha256": "d9ce17aee622705b53b38b0ffceb78f9146025d5e804992114a6b9af4be8d46c",
+      "historicalSha256": "d9ce17aee622705b53b38b0ffceb78f9146025d5e804992114a6b9af4be8d46c"
+    },
+    {
+      "route": "lesson-04",
+      "currentSha256": "66b923922e53edb50ddb41bfadd9bbaa94e36d795a9efa0d769d1c55386be710",
+      "historicalSha256": "66b923922e53edb50ddb41bfadd9bbaa94e36d795a9efa0d769d1c55386be710"
+    },
+    {
+      "route": "lesson-05",
+      "currentSha256": "5f3c07bc3a0db2dc67368988b4bf3964441834abade9edc0233b97e99df40185",
+      "historicalSha256": "5f3c07bc3a0db2dc67368988b4bf3964441834abade9edc0233b97e99df40185"
+    },
+    {
+      "route": "lesson-06",
+      "currentSha256": "f50ced82a6bd9ac08eb2ae02a6468dfb23726dde1a4d76a399ed7945dadbbceb",
+      "historicalSha256": "f50ced82a6bd9ac08eb2ae02a6468dfb23726dde1a4d76a399ed7945dadbbceb"
+    },
+    {
+      "route": "lesson-07",
+      "currentSha256": "eab7b8656e54626d4043a864538619085c814c45de28a65f81c7e1cad07fd9e0",
+      "historicalSha256": "eab7b8656e54626d4043a864538619085c814c45de28a65f81c7e1cad07fd9e0"
+    },
+    {
+      "route": "lesson-08",
+      "currentSha256": "d55e91c44f46940fdab80e1e96ccf4d87f3532b67ebb78af5174db1770030b0c",
+      "historicalSha256": "d55e91c44f46940fdab80e1e96ccf4d87f3532b67ebb78af5174db1770030b0c"
+    },
+    {
+      "route": "lesson-09",
+      "currentSha256": "9257efeed3fa19358e8817e7caed9e82120e4f552b3da1a4d0ec6ec6fda1eb4f",
+      "historicalSha256": "9257efeed3fa19358e8817e7caed9e82120e4f552b3da1a4d0ec6ec6fda1eb4f"
+    },
+    {
+      "route": "lesson-10",
+      "currentSha256": "ac0daa07b71cd7e8cc672864fb15f8fdb6986c63afac061fd216335d7467e234",
+      "historicalSha256": "ac0daa07b71cd7e8cc672864fb15f8fdb6986c63afac061fd216335d7467e234"
+    },
+    {
+      "route": "lesson-11",
+      "currentSha256": "4dc4c8c3a00d2f1f383630f3392f66d949cb7ecf6882eafc4cd28302cce906e3",
+      "historicalSha256": "4dc4c8c3a00d2f1f383630f3392f66d949cb7ecf6882eafc4cd28302cce906e3"
+    },
+    {
+      "route": "extension",
+      "currentSha256": "7ed345760b702edfaa97d463cedf755fc4dcb70ddeec0f62f9b6270c53a04373",
+      "historicalSha256": "7ed345760b702edfaa97d463cedf755fc4dcb70ddeec0f62f9b6270c53a04373"
+    },
+    {
+      "route": "practice",
+      "currentSha256": "983edc849eabdfc3cabdb67e85e2f86baaa18dfffc5b1ca9ac34c00fe36671b4",
+      "historicalSha256": "983edc849eabdfc3cabdb67e85e2f86baaa18dfffc5b1ca9ac34c00fe36671b4"
+    },
+    {
+      "route": "fill-in-the-blanks",
+      "currentSha256": "3970f142efeeff6a423d11b6e574348eac4f3eb232d6b5285c50d363fad71458",
+      "historicalSha256": "3970f142efeeff6a423d11b6e574348eac4f3eb232d6b5285c50d363fad71458"
+    },
+    {
+      "route": "labeling-practice",
+      "currentSha256": "3ffe618a93fc64e6a31527e11ae39e3133198a68667882b885075055de28a832",
+      "historicalSha256": "3ffe618a93fc64e6a31527e11ae39e3133198a68667882b885075055de28a832"
+    },
+    {
+      "route": "multiple-choice",
+      "currentSha256": "47acf858688aa72e377ab964ffc2bed4e9c38310bbb0780452049ca2fb90d1ef",
+      "historicalSha256": "47acf858688aa72e377ab964ffc2bed4e9c38310bbb0780452049ca2fb90d1ef"
+    },
+    {
+      "route": "mixed-practice",
+      "currentSha256": "77d4808f7f4aa7c096792ca09d70f248e4fff3990203bd0c2467f2501a864595",
+      "historicalSha256": "77d4808f7f4aa7c096792ca09d70f248e4fff3990203bd0c2467f2501a864595"
+    },
+    {
+      "route": "textbook-practice",
+      "currentSha256": "5f3e824863be56e58f93add898cc23cab568182f57635dd5303f60b0c7686b54",
+      "historicalSha256": "5f3e824863be56e58f93add898cc23cab568182f57635dd5303f60b0c7686b54"
+    },
+    {
+      "route": "process-collection",
+      "currentSha256": "d1e961abf47210ae08f96bd9261e553ed9158bcc9ae25a5d07bfdcc5255102ba",
+      "historicalSha256": "d1e961abf47210ae08f96bd9261e553ed9158bcc9ae25a5d07bfdcc5255102ba"
+    },
+    {
+      "route": "core-vocabulary",
+      "currentSha256": "e0313f77e60765e7ecab2372262e4f21d1379140fa062dcf3331b46f9998e28b",
+      "historicalSha256": "e0313f77e60765e7ecab2372262e4f21d1379140fa062dcf3331b46f9998e28b"
+    },
+    {
+      "route": "textbook-library",
+      "currentSha256": "2dbb9c60d43f6cc324d2769a6a1928c44c5ff241f6e304c3702ede7ebde4b402",
+      "historicalSha256": "2dbb9c60d43f6cc324d2769a6a1928c44c5ff241f6e304c3702ede7ebde4b402"
+    },
+    {
+      "route": "video-library",
+      "currentSha256": "514416b6d5020c167274bcb1563c65b61bd25e66251e197a01019663ed3a7f87",
+      "historicalSha256": "514416b6d5020c167274bcb1563c65b61bd25e66251e197a01019663ed3a7f87"
+    }
+  ],
+  "retainedRepairs": [
+    "overview-current template",
+    "lesson04 approved PNG pointer",
+    "legend normalization",
+    "760px navigation breakpoint",
+    "synchronous textbook save callback"
+  ],
+  "manuscriptConsumedStandards": [
+    {
+      "intake": "Biology30_CH14_Lessons01-02_Conditional_Content_v0.1.0",
+      "standard": "v0.3 native-read with local byte corroboration; original signed-standard-byte download unavailable at authoring"
+    },
+    {
+      "intake": "Biology30_CH14_Lessons03-04_Conditional_Content_v0.1.0",
+      "standard": "v0.3 native-read with local byte corroboration; original signed-standard-byte download unavailable at authoring"
+    },
+    {
+      "intake": "Biology30_CH14_Lessons05-06_Conditional_Content_v0.1.0",
+      "standard": "v0.4 exact source bytes verified at authoring"
+    },
+    {
+      "intake": "Biology30_CH14_Lessons07-08_Conditional_Content_v0.1.0",
+      "standard": "v0.4 exact source bytes verified at authoring"
+    }
+  ],
+  "integrationReconciliationStandard": "v0.4",
+  "integrationStandardSha256": "db8a04bcd7620d9ecf64ec6dc86c046cb3075b9b09cc51dac41936c391379e1e",
+  "protectedDecisionsApplied": false,
+  "canonicalChanged": false,
+  "assets": [
+    {
+      "path": "assets/assessment/02bb8e7f03394198.png",
+      "sha256": "02bb8e7f033941983cca5986d5831efdddea53822a5acd60fc66a92f5852fb41"
+    },
+    {
+      "path": "assets/assessment/0494827f4e9ddf52.png",
+      "sha256": "0494827f4e9ddf52cd986de6076591ea8e52569de388150723ef2002e2097447"
+    },
+    {
+      "path": "assets/assessment/1fe7d26423286fef.png",
+      "sha256": "1fe7d26423286fef95c0ddcd0c5b2dcb447aebd8699ee8f3d3f5ca5ce8c343e7"
+    },
+    {
+      "path": "assets/assessment/38d9d5d902e46ecb.png",
+      "sha256": "38d9d5d902e46ecbcd9c924792fdca2e8ea44d517df5bfe3c35a2a11ad10ee1f"
+    },
+    {
+      "path": "assets/assessment/3e94259b702ce9b6.png",
+      "sha256": "3e94259b702ce9b60ca1ed96f8ad78f088dbb4a4b245291343fa6e53630da441"
+    },
+    {
+      "path": "assets/assessment/5538ea0e4a8af8b0.png",
+      "sha256": "5538ea0e4a8af8b0b693bbd356ab3f7dbea00ae47d37b3cb52dba7f235a0827d"
+    },
+    {
+      "path": "assets/assessment/646fd8c557960fad.png",
+      "sha256": "646fd8c557960fadae2e5b8637dd93e421e7a9adefb71cd1ac8e2fd9be40b334"
+    },
+    {
+      "path": "assets/assessment/7bb5b33615668d7b.png",
+      "sha256": "7bb5b33615668d7bd1b2e7b658151ac6d7a70f46914bd361ac690c7e7820f9cd"
+    },
+    {
+      "path": "assets/assessment/84315541bff5cc8f.png",
+      "sha256": "84315541bff5cc8fd0af672dbe5f873753deaca2c08a992057f3d67f749a599d"
+    },
+    {
+      "path": "assets/assessment/c52ed443adfef6fe.png",
+      "sha256": "c52ed443adfef6fea81abae481a021f6a28c9ee2994f44e90f88aec407c7ac7e"
+    },
+    {
+      "path": "assets/assessment/c9c3004e80c37fc5.png",
+      "sha256": "c9c3004e80c37fc56ffd015be9b140f7c771ee899e2dbc17c76d6c927c5bad55"
+    },
+    {
+      "path": "assets/assessment/cb32b3295ef90021.png",
+      "sha256": "cb32b3295ef9002159c56a9c4e98ab1657a0a95ac7e6c54a7b9f667eca15318e"
+    },
+    {
+      "path": "assets/assessment/cfcb48cb1ab97495.png",
+      "sha256": "cfcb48cb1ab9749575c571f0eaa58133a17bfb519eecffe2d8fc69558dfdf0a7"
+    },
+    {
+      "path": "assets/assessment/e2fc08fe1c10aa91.png",
+      "sha256": "e2fc08fe1c10aa913ef5b4bc0b0d9c394dd952f95f43216bb6a1d452c8f50741"
+    },
+    {
+      "path": "assets/assessment/e5cd83cdfd72362f.png",
+      "sha256": "e5cd83cdfd72362f1405fde57f802489055d85a87ac790b34b0580e7f4558c0e"
+    },
+    {
+      "path": "assets/assessment/endometrium-location.png",
+      "sha256": "e5b0b7e23636b5e1d45df877a631bbe37bbeba91733e559e9d9aa09d19ff2324"
+    },
+    {
+      "path": "assets/assessment/f0f497f31b18db94.png",
+      "sha256": "f0f497f31b18db9465e2b01e66e7c9324492211801ad78ecd202d08266189fe0"
+    },
+    {
+      "path": "assets/figures/cycle-coordination.svg",
+      "sha256": "67822d2123a1b97d4d5af600f2980d996cc630ee1f6a39879c5c95af875f6b8f"
+    },
+    {
+      "path": "assets/figures/cycle-hormones.svg",
+      "sha256": "af66841a7f1578d5b2f482ee1ce577081552f33c16e9a07fa68f5dde321a2b59"
+    },
+    {
+      "path": "assets/figures/female-anatomy.png",
+      "sha256": "aeddd3a1c334fc4fa16e213a0ea8967c25e541afd991a2fb04ec20bc8f7f03f2"
+    },
+    {
+      "path": "assets/figures/follicle-development.png",
+      "sha256": "fe5d482e81d4a071bd64d51ca6cec94c5f8f777e3a1a234f4858e09e6635dee0"
+    },
+    {
+      "path": "assets/figures/male-anatomy.png",
+      "sha256": "f7a26cfd325397e561a3bc59815685d6bdc76e88bc314e27545b81a405870f06"
+    },
+    {
+      "path": "assets/figures/male-feedback.svg",
+      "sha256": "1e9579a27e090ce7c755423c2fc9537e911c2c9c4fe49c0d84346b9c5bd388b8"
+    },
+    {
+      "path": "assets/figures/sperm-structure.png",
+      "sha256": "246b73cae9be2ce43e44f7079ecec08759c23eb3361ac3e7a32ef94b60e72109"
+    },
+    {
+      "path": "assets/figures/testis-cells.png",
+      "sha256": "a712160606975d4874d7fab4c59120b2fabd2ea676d44c05bd72975cc8621ed7"
+    },
+    {
+      "path": "assets/labeling/ch14-label-cycle.svg",
+      "sha256": "cfb4885c8b8c758d1df560decbaa5681f18a9f83e87badf8e9e6340aa47dbe55"
+    },
+    {
+      "path": "assets/labeling/ch14-label-feedback.png",
+      "sha256": "edfe3804d98776b3eeab276554bd4e88ea1f9a424dfa83f5794b4616ac81aecf"
+    },
+    {
+      "path": "assets/labeling/ch14-label-feedback.svg",
+      "sha256": "9670e3300cf754ffc7ee0c82257003e24308360bb0beca4e2c299276a07b6c5a"
+    },
+    {
+      "path": "assets/labeling/ch14-label-female.png",
+      "sha256": "74e12713a17a111cfff40bfc13e5be53efb4f669760b0920c01cc75edcc018b0"
+    },
+    {
+      "path": "assets/labeling/ch14-label-follicle.png",
+      "sha256": "d1b76ea6b79cc0a4f991a0b82b8dc5eee32a98b09d21e7af8fa9700b91741f3a"
+    },
+    {
+      "path": "assets/labeling/ch14-label-male.png",
+      "sha256": "c82cefd443cb9746568d5bab643d1bfcceef99ac716968e7ddd091a2fc8c19d2"
+    },
+    {
+      "path": "assets/labeling/ch14-label-sperm.png",
+      "sha256": "4dbb41ceb01f49367a4282f6394cc6091a3f145302c4a2724fbea84c83728a8d"
+    },
+    {
+      "path": "assets/revision-activities.js",
+      "sha256": "957583a09be13e3b0bb888928d49ed87605b154f14eeaacbea3ea569e27b60c8"
+    },
+    {
+      "path": "assets/revision-practice.js",
+      "sha256": "490849b14ff0fd8b2072e653ce80e7d282327cef6f125e66d4fc18f56fb16cd6"
+    },
+    {
+      "path": "assets/textbook/chapter-14.pdf",
+      "sha256": "82d37feec1390def949ed241d117e2b218b8dc8aa09d9cddead37fd6c64a49ea"
+    },
+    {
+      "path": "assets/textbook-practice/ch14-p478-in-text-q1-1.png",
+      "sha256": "7e475a0a818f532fd5e20bd70b237684791c79f1ae3164a4c5d1e93b93879644"
+    },
+    {
+      "path": "assets/textbook-practice/ch14-p481-in-text-q2-1.png",
+      "sha256": "9e3194d5d9f8cfe2f352e23b75f71f5e03ce515a54eff246a2307dd755faab82"
+    },
+    {
+      "path": "assets/textbook-practice/ch14-p481-in-text-q3-1.png",
+      "sha256": "a675e05f5bb9cf60d910343d1c96f19ed456e609ce19d4992e265d61de160dae"
+    },
+    {
+      "path": "assets/textbook-practice/ch14-p481-in-text-q4-1.png",
+      "sha256": "bb266bf7efc156079e2d53cadcaa61c9f7a381bc2c7e89af2c787160ae4d43c1"
+    },
+    {
+      "path": "assets/textbook-practice/ch14-p481-in-text-q5-1.png",
+      "sha256": "6f73ba35bb50fa31afe86f4b8abc6afa4ecc9b11c052390225df8d1f21ec70fb"
+    },
+    {
+      "path": "assets/textbook-practice/ch14-p481-in-text-q6-1.png",
+      "sha256": "95ba9bea3df942d749367f1bad672692ab852d7c53248f58f490320cdf1e0ee2"
+    },
+    {
+      "path": "assets/textbook-practice/ch14-p484-in-text-q10-1.png",
+      "sha256": "460b18cfbac6d8a54afd55d89d756d36c88c4af89bd88f0c2d103d72b36b76fb"
+    },
+    {
+      "path": "assets/textbook-practice/ch14-p484-in-text-q7-1.png",
+      "sha256": "8fecc7044e3b117e72288f918b15e71469b31b841854fd3844dacc2143dbcdf7"
+    },
+    {
+      "path": "assets/textbook-practice/ch14-p484-in-text-q8-1.png",
+      "sha256": "4a40ca0650dbf8aa8b436ee8107861d4278588fbdab486cf7bf6fcd605a94bc4"
+    },
+    {
+      "path": "assets/textbook-practice/ch14-p484-in-text-q9-1.png",
+      "sha256": "708586abffb98252f6e87fafe0f259502da342872416b177d19a53be167345ad"
+    },
+    {
+      "path": "assets/textbook-practice/ch14-p485-section-14-1-q1-1.png",
+      "sha256": "a0c7fe72ad55d0b2defbaa990f287387f2d62cad5184c567b644070718a6404a"
+    },
+    {
+      "path": "assets/textbook-practice/ch14-p485-section-14-1-q2-1.png",
+      "sha256": "b7906617c35d67ce13a0687a297d613ecc94728167984869e1b50acb03341c3b"
+    },
+    {
+      "path": "assets/textbook-practice/ch14-p485-section-14-1-q3-1.png",
+      "sha256": "f5d5046056687a12e3a1767116ad04e011e7a1e37b53321cdb881a56eb5ad371"
+    },
+    {
+      "path": "assets/textbook-practice/ch14-p485-section-14-1-q4-1.png",
+      "sha256": "8efc7edbd134403e1d78761cce2167262b8809c6d30284901079df94027f9519"
+    },
+    {
+      "path": "assets/textbook-practice/ch14-p485-section-14-1-q5-1.png",
+      "sha256": "fea0b4d28bd8032b9077087e91852fd0cf5fc8b99c1dae1c85f034bca12bd577"
+    },
+    {
+      "path": "assets/textbook-practice/ch14-p485-section-14-1-q6-1.png",
+      "sha256": "0d24dffa307674d226eb6b82b89d4e1bbafff9307534eb09ac705f05741450ff"
+    },
+    {
+      "path": "assets/textbook-practice/ch14-p485-section-14-1-q7-1.png",
+      "sha256": "633fd0339e9473fbdd6da4a813ad4d39e3244fbc853817c687440d8e563e9f0f"
+    },
+    {
+      "path": "assets/textbook-practice/ch14-p485-section-14-1-q8-1.png",
+      "sha256": "3fafa17efafcd1b257d89559cc31c120c2b2980f2bd33c77321a13e1964eea76"
+    },
+    {
+      "path": "assets/textbook-practice/ch14-p487-in-text-q11-1.png",
+      "sha256": "90f51409b79ded512d698e33c40a7aaee23619a9b5b1d5364296ae466d282ef6"
+    },
+    {
+      "path": "assets/textbook-practice/ch14-p487-in-text-q12-1.png",
+      "sha256": "f8bb9a6d75a658ab4a69301449e7d9c8cc379dc6c58d1a7f8855f52f7815461c"
+    },
+    {
+      "path": "assets/textbook-practice/ch14-p487-in-text-q13-1.png",
+      "sha256": "2bd048685933331cd413e062f261f8e9b2ed350d950ee863cad4da951ab7bd03"
+    },
+    {
+      "path": "assets/textbook-practice/ch14-p488-in-text-q14-1.png",
+      "sha256": "d2b24ccca21f2eb6e4102a09acc5d4e63a828f0ffccfecc3346129c49b898461"
+    },
+    {
+      "path": "assets/textbook-practice/ch14-p488-in-text-q16-1.png",
+      "sha256": "ca428b23cc405b93cecbc88a9d93a80c9ba908abda645a27ed1e10fee4f6ae43"
+    },
+    {
+      "path": "assets/textbook-practice/ch14-p491-section-14-2-q1-1.png",
+      "sha256": "60a5ad32ac33ed8339a92f5e350aabb38cc62e0033423db7ba9db5492812e4e1"
+    },
+    {
+      "path": "assets/textbook-practice/ch14-p491-section-14-2-q2-1.png",
+      "sha256": "35e0d979007bcdb930cbb62693ab8805b8535b84b0d5877ff1d96a31472ffe79"
+    },
+    {
+      "path": "assets/textbook-practice/ch14-p491-section-14-2-q3-1.png",
+      "sha256": "625df5d7f59a9f2a7fb9c71d60f7803a195c881368be61bebfd3256770eaf0fe"
+    },
+    {
+      "path": "assets/textbook-practice/ch14-p491-section-14-2-q4-1.png",
+      "sha256": "0b2baa776132d00d99c04c994f723762aba1a5d5a188d7da87bf25a9524b93df"
+    },
+    {
+      "path": "assets/textbook-practice/ch14-p491-section-14-2-q5-1.png",
+      "sha256": "dbe8a63ada405b6d1ce4d816f07496cf10e49488d5927db0efba0dce2588f62f"
+    },
+    {
+      "path": "assets/textbook-practice/ch14-p492-in-text-q18-1.png",
+      "sha256": "0d63ba5453333b5eb36e9d72e8a7d5ebafe8c0826962ab8440d32d16c21ce747"
+    },
+    {
+      "path": "assets/textbook-practice/ch14-p494-thought-lab-14-2-analysis-q1-1.png",
+      "sha256": "875fee8cbef31084ece5277510707599ba19d6c4ab13334edfbdf3e993ffb08e"
+    },
+    {
+      "path": "assets/textbook-practice/ch14-p494-thought-lab-14-2-analysis-q2-1.png",
+      "sha256": "096a19ea6451d6cda2d0828336f08f4b566e2ddd0fc04c392364913c2e32f553"
+    },
+    {
+      "path": "assets/textbook-practice/ch14-p494-thought-lab-14-2-procedure-q1-1.png",
+      "sha256": "a851205ad630422ad1a511ec0db09ba4266c7b98d2228701e475061da9e6ad0c"
+    },
+    {
+      "path": "assets/textbook-practice/ch14-p494-thought-lab-14-2-procedure-q2-1.png",
+      "sha256": "f9c10480c83f29e55cb82e7f6bf205cac3c10439156de26ee19b6c29188c4d7c"
+    },
+    {
+      "path": "assets/textbook-practice/ch14-p495-in-text-q19-1.png",
+      "sha256": "38e571962648cacb25ac16283415847519ff313b999dab9a12aa31b61d68afd0"
+    },
+    {
+      "path": "assets/textbook-practice/ch14-p495-in-text-q20-1.png",
+      "sha256": "966b634f81a6ff3c0bf73b317ce7e6c6d3448f3a581c6bc5a5b9f1b30ab10ef0"
+    },
+    {
+      "path": "assets/textbook-practice/ch14-p497-thought-lab-14-3-analysis-q1-1.png",
+      "sha256": "8dd24ac9a7b97ee787e9182982b9a3456456dc9074aaab4849075da86ea6f4b7"
+    },
+    {
+      "path": "assets/textbook-practice/ch14-p497-thought-lab-14-3-analysis-q2-1.png",
+      "sha256": "c33ef02a5b92d7ddfd844b3f87cfa997516a1bb009807924d43125963d11da33"
+    },
+    {
+      "path": "assets/textbook-practice/ch14-p497-thought-lab-14-3-procedure-q1-1.png",
+      "sha256": "13e0f044704dafb3807fe3100df0e7d9c8cba30d2cb6ea1a6f2ad547fa454b66"
+    },
+    {
+      "path": "assets/textbook-practice/ch14-p497-thought-lab-14-3-procedure-q2-1.png",
+      "sha256": "07d88931c7d4bc0bfb2c61b755c646db28f94925474432e8027f31927eba7696"
+    },
+    {
+      "path": "assets/textbook-practice/ch14-p497-thought-lab-14-3-procedure-q3-1.png",
+      "sha256": "436954b42e0d8d97b58c91734f30efd5015eff3d6d55b074bbf5b24afcc30ce0"
+    },
+    {
+      "path": "assets/textbook-practice/ch14-p498-in-text-q21-1.png",
+      "sha256": "83f66339668f55cc4c27ac86dc3ac9524df4d7cedadc0352c37cd53a3e551773"
+    },
+    {
+      "path": "assets/textbook-practice/ch14-p498-in-text-q22-1.png",
+      "sha256": "528b47e05268342abfa74406c449ebaee1ebf54ecc7a620358bc2be9d6178ea4"
+    },
+    {
+      "path": "assets/textbook-practice/ch14-p498-in-text-q23-1.png",
+      "sha256": "f8fa943d39a7b2dbf35002c10a94df2297863f14c1215ab4d340bef0144be16a"
+    },
+    {
+      "path": "assets/textbook-practice/ch14-p498-in-text-q24-1.png",
+      "sha256": "f3094a714187f4612105a0654e48f7a2ab5322cfa4e62a54d32f0e8564d0edb4"
+    },
+    {
+      "path": "assets/textbook-practice/ch14-p500-investigation-14b-q1-1.png",
+      "sha256": "bf55d44629484c9da9152c94b53e7225a4c800b91b3dfaa9cb8685c1c8085c45"
+    },
+    {
+      "path": "assets/textbook-practice/ch14-p500-investigation-14b-q10-1.png",
+      "sha256": "177dee66b8215d2c536c4cf469f45fd1730c8a275b22f986406e74e0309b76d7"
+    },
+    {
+      "path": "assets/textbook-practice/ch14-p500-investigation-14b-q2-1.png",
+      "sha256": "1fdb3925ef02d0aba8789cee7261ad4a06ac174276dce5d16fbc75a4ac0e93e2"
+    },
+    {
+      "path": "assets/textbook-practice/ch14-p500-investigation-14b-q3-1.png",
+      "sha256": "8a3084e0d9299d0402359f96fd3bd427f157a1c72af4fb37b023b8ee093b7ae9"
+    },
+    {
+      "path": "assets/textbook-practice/ch14-p500-investigation-14b-q4-1.png",
+      "sha256": "dab3df2351601df400403c5b0cd5e608189e8b44baeafaaab98835c25dbb8f17"
+    },
+    {
+      "path": "assets/textbook-practice/ch14-p500-investigation-14b-q5-1.png",
+      "sha256": "95a6a5c9a2324da116674f16290e9d3153ea8484489426f7fe96b4c36397dfab"
+    },
+    {
+      "path": "assets/textbook-practice/ch14-p500-investigation-14b-q6-1.png",
+      "sha256": "c06a4a8cd12ecb22e89d9c3d60f8edc93e06e3ec232e778016ea480364a94af5"
+    },
+    {
+      "path": "assets/textbook-practice/ch14-p500-investigation-14b-q7-1.png",
+      "sha256": "84f8be4301f5db7bcc41ba910b5172904f786649d60b37755b014d2494e710d8"
+    },
+    {
+      "path": "assets/textbook-practice/ch14-p500-investigation-14b-q8-1.png",
+      "sha256": "a598797111f000cc45cd059e5949e7d0de6ed7d6fea84fec1555a8a2c340cf4a"
+    },
+    {
+      "path": "assets/textbook-practice/ch14-p500-investigation-14b-q9-1.png",
+      "sha256": "93fd88d95d00b04d1293c7525bf5313f825069caa81a955622de85c82d40054e"
+    },
+    {
+      "path": "assets/textbook-practice/ch14-p502-section-14-3-q1-1.png",
+      "sha256": "4d86990fa41cdd93ce3c093201dbbdefeb2df44579b8a47f1d2da2a22cafb5d0"
+    },
+    {
+      "path": "assets/textbook-practice/ch14-p502-section-14-3-q2-1.png",
+      "sha256": "49e48551f6913ef7be138b9e955df6c327f72956882d6c4ba2ce2aeb52e89472"
+    },
+    {
+      "path": "assets/textbook-practice/ch14-p502-section-14-3-q3-1.png",
+      "sha256": "6fd0f87ff4618af3214af9de5f91ec78c33fe0e3c0bd9a1ba850e474daca93da"
+    },
+    {
+      "path": "assets/textbook-practice/ch14-p502-section-14-3-q4-1.png",
+      "sha256": "8ec4d38828f1f1341a2d746c1ed8da920564ba0a19f20036effe5d1c2a8e4dc8"
+    },
+    {
+      "path": "assets/textbook-practice/ch14-p502-section-14-3-q4-2.png",
+      "sha256": "e38eeffe47e317c7254a234b816caa5b3f205129380272b903c7e66bc65e113b"
+    },
+    {
+      "path": "assets/textbook-practice/ch14-p502-section-14-3-q4-3.png",
+      "sha256": "0fa684078d6e6cfef0eccf240f9737689381eef76c97edb726ca278ee1d92a03"
+    },
+    {
+      "path": "assets/textbook-practice/ch14-p502-section-14-3-q5-1.png",
+      "sha256": "b9ae3ea278d8b3d528cf13582575657b281d010c4895a1263e6267e33e8f27f9"
+    },
+    {
+      "path": "assets/textbook-practice/ch14-p502-section-14-3-q6-1.png",
+      "sha256": "f5cf0bbf1f633f59e20fdcf13c7f848f4709e3e3008a1d6e2bbeea5e21092d67"
+    },
+    {
+      "path": "assets/textbook-practice/ch14-p502-section-14-3-q7-1.png",
+      "sha256": "3be072f4fed6ccfd0298e81273280b235b97dcba30354f812f76a575457b8b4c"
+    },
+    {
+      "path": "assets/textbook-practice/ch14-p502-section-14-3-q8-1.png",
+      "sha256": "c25fc914ef1575f620abdef0222a2323c888e8e395a1f2ab8f453ab5da53cd18"
+    },
+    {
+      "path": "assets/textbook-practice/ch14-p504-chapter-review-q1-1.png",
+      "sha256": "5805264e4b80ee997f72e0b7acc2ba02ecb44cc22926a8bbef59f5517829db28"
+    },
+    {
+      "path": "assets/textbook-practice/ch14-p504-chapter-review-q10-1.png",
+      "sha256": "eb1a3fdea3f3610af021a420bf02e9156ed015356d11717623a68316dca0e016"
+    },
+    {
+      "path": "assets/textbook-practice/ch14-p504-chapter-review-q11-1.png",
+      "sha256": "6f64dc6314689accb020037b98d60395d28640074ded2fbc7361bf3a6f3a26b4"
+    },
+    {
+      "path": "assets/textbook-practice/ch14-p504-chapter-review-q12-1.png",
+      "sha256": "1f85eb1ca4be129d26e1d46e84a9235c3f7b775a4c8941a3a27c549c231d6f42"
+    },
+    {
+      "path": "assets/textbook-practice/ch14-p504-chapter-review-q13-1.png",
+      "sha256": "1bfa7de4d9be95c79a53026b17d1caf375dd5715aa79bd798d473b449bd57001"
+    },
+    {
+      "path": "assets/textbook-practice/ch14-p504-chapter-review-q14-1.png",
+      "sha256": "0a5a03795ebf95284516d2a873e0f265c7a7bddc53e034991473e1a586c49cff"
+    },
+    {
+      "path": "assets/textbook-practice/ch14-p504-chapter-review-q16-1.png",
+      "sha256": "074ba415328092bdfb95af5089d283652e39e166708debb63d526749eb5cc14d"
+    },
+    {
+      "path": "assets/textbook-practice/ch14-p504-chapter-review-q17-1.png",
+      "sha256": "c9c12013dd130fa2ebf4795ad77d1f4a37832561a0243a4b9f40ec85c4554f1e"
+    },
+    {
+      "path": "assets/textbook-practice/ch14-p504-chapter-review-q2-1.png",
+      "sha256": "775f1349245d3c563dfbbf25befd911409c680bf4834a6b88549370c9b5a41e8"
+    },
+    {
+      "path": "assets/textbook-practice/ch14-p504-chapter-review-q3-1.png",
+      "sha256": "c3e0fda12fac51e435a0b81742bf609c2a2e04cc3f43d2b5e0ff977a8dd452cb"
+    },
+    {
+      "path": "assets/textbook-practice/ch14-p504-chapter-review-q4-1.png",
+      "sha256": "fff6133a2e86e985d7bd87fd7e90cdf9233d80221145b69c67cd4c43c01fbdda"
+    },
+    {
+      "path": "assets/textbook-practice/ch14-p504-chapter-review-q6-1.png",
+      "sha256": "c7aa7516feab704e3a03df0bf6e16e60940df5b5c4215e3f2ef8d2d599d3b916"
+    },
+    {
+      "path": "assets/textbook-practice/ch14-p504-chapter-review-q8-1.png",
+      "sha256": "c969c939b16de563e68645f3a14a04b95f4420f9313f53d9b290ae656c347837"
+    },
+    {
+      "path": "assets/textbook-practice/ch14-p504-chapter-review-q9-1.png",
+      "sha256": "c17f02e09af3374d0c418b26907dd5ec2ef7441ae2c5c1a82eb12c98b35d0b27"
+    },
+    {
+      "path": "assets/textbook-practice/ch14-p505-chapter-review-q18-1.png",
+      "sha256": "9d0f917931bcf29a7336537c3d3f41e043cccf227e4f5d5db70715f8a6d8df0d"
+    },
+    {
+      "path": "assets/textbook-practice/ch14-p505-chapter-review-q20-1.png",
+      "sha256": "e1a417ecaa433b876df502190ee3410e5b189b13a3138dada7bf24e5d52c27a4"
+    },
+    {
+      "path": "assets/textbook-practice/ch14-p505-chapter-review-q21-1.png",
+      "sha256": "06d2afef15c073c6eb17f12de7de1a519577c59defb7f53ee151d9e17e89dc39"
+    },
+    {
+      "path": "assets/textbook-practice/ch14-p505-chapter-review-q22-1.png",
+      "sha256": "255316bb8f7fc12db678b4ec77980fff21136be50ac954caab589613fc958cf6"
+    },
+    {
+      "path": "assets/textbook-practice/ch14-p505-chapter-review-q23-1.png",
+      "sha256": "3ec65f3b276bbd63f14d9c71e4faa6879831ec19364d56f579eaf744c19eb13d"
+    },
+    {
+      "path": "assets/textbook-practice/ch14-p505-chapter-review-q24-1.png",
+      "sha256": "330cc1392ed94b44661b21bc0ac3ebc8a17a28bb24e33f29e8bc3f5b5aed71f4"
+    },
+    {
+      "path": "assets/textbook-practice/p478.jpg",
+      "sha256": "254b621a46c404e47bba9b8c982cd9b2ef4818fe6860571106524f7b4fce019f"
+    },
+    {
+      "path": "assets/textbook-practice/p481.jpg",
+      "sha256": "b1f9119e650678ab62e8052ae099bdc9e617ef84f72832d96ae69bd46ec7586e"
+    },
+    {
+      "path": "assets/textbook-practice/p484.jpg",
+      "sha256": "dd4779f803f5d85361f6b3d703d1d28061a5aca63509919c1bb9e28a7623a85d"
+    },
+    {
+      "path": "assets/textbook-practice/p485.jpg",
+      "sha256": "4e2686c15843923b449f7e925e15e76ed21eefc02e347820b8b672de313e0617"
+    },
+    {
+      "path": "assets/textbook-practice/p487.jpg",
+      "sha256": "7b55500495dfc943c9a90777469a55ba241da6440f9d0a7242796a7dd8409f13"
+    },
+    {
+      "path": "assets/textbook-practice/p488.jpg",
+      "sha256": "e77471dc326626f75665185ee5280e6b15da789092a3df45dbf657cfe1b89bcf"
+    },
+    {
+      "path": "assets/textbook-practice/p491.jpg",
+      "sha256": "68ce1ddbad864dc4399dcabf482011ad4b2f26c721198374e5fb2bcd27e0ffe0"
+    },
+    {
+      "path": "assets/textbook-practice/p492.jpg",
+      "sha256": "3d389f2bed5a0e4ecf2f8360dd20fb800adb70227a1e48d8423746f8192e1a4e"
+    },
+    {
+      "path": "assets/textbook-practice/p494.jpg",
+      "sha256": "4b9cea7ca1fccf3e5466483b5acccf4ae931925d6114233af8ce6632d9ba62e1"
+    },
+    {
+      "path": "assets/textbook-practice/p495.jpg",
+      "sha256": "59c7993dcc8676eef4d63f848e0ca18c71f843f17b8882d41c17f08759e4d229"
+    },
+    {
+      "path": "assets/textbook-practice/p496.jpg",
+      "sha256": "1106f784db05274b49a2ee94b4adad108c86994719b786ffb7ab2f14a7593c92"
+    },
+    {
+      "path": "assets/textbook-practice/p497.jpg",
+      "sha256": "3f7d0de06c4403652d7093cb21e716527c458d30343e1fa5d722939290f49edc"
+    },
+    {
+      "path": "assets/textbook-practice/p498.jpg",
+      "sha256": "19ec9705bcc7748d3a576df6ad78bb39c0493e31d2b49e8f0f6bab4e9067688f"
+    },
+    {
+      "path": "assets/textbook-practice/p500.jpg",
+      "sha256": "aa26f106ac710f24e99eba1dcfedec4471e73694b7bf47c7add651edca5c71a8"
+    },
+    {
+      "path": "assets/textbook-practice/p502.jpg",
+      "sha256": "ad76c24c2afb0d0080b29bad18aa12e090aabf670813943481cae47ff33b8fcb"
+    },
+    {
+      "path": "assets/textbook-practice/p504.jpg",
+      "sha256": "b4475ac6593b3ac29fb9541bf8b84226c72e316af5ed45685548d91eb5b258c7"
+    },
+    {
+      "path": "assets/textbook-practice/p505.jpg",
+      "sha256": "ce9cd493cf1380bdf3f46bbfffc6840d7fb34622278316bcd04a427d9d36b9df"
+    },
+    {
+      "path": "assets/textbook-practice.css",
+      "sha256": "4101415cce977a4a8553754a01cea3d33ad194add1198db00ddc0ba99bfeea12"
+    },
+    {
+      "path": "assets/textbook-practice.js",
+      "sha256": "93aeb0c00866c552e0e2331e6e94096c60679d8c899f7f03cfb257ff3d3864d6"
+    },
+    {
+      "path": "index.html",
+      "sha256": "054b823d5758a702041f24fd06b15a77d69cdfff63323cd5ffd7e803bf8936b8"
+    },
+    {
+      "path": "main.js",
+      "sha256": "295522cb7ae3dbc4bd845b8916b41605c6c771dc9b11d041e01af7565b173d0b"
+    },
+    {
+      "path": "portable/Biology30_Chapter14.html",
+      "sha256": "ae494b43eb113ba715d87356624dcfcbe4756ab4b938be9aee48c7940ac54d44"
+    },
+    {
+      "path": "scorm-tracking.json",
+      "sha256": "8773990dd4d0c3a9376959b6f02217a89f482774fb7c95962201c262fd2d0db3"
+    },
+    {
+      "path": "styles.css",
+      "sha256": "94fe523654289edd8b0f951dd6782f83dce7d08f5e18a3d903d25576fbfa0ba5"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+Protected figure decision: no graphic edit applied
+
+Asset: workspace/assets/figures/cycle-hormones.svg
+Historical SHA256: af66841a7f1578d5b2f482ee1ce577081552f33c16e9a07fa68f5dde321a2b59
+Used by lesson08, figure ID cycle-hormones.
+
+Observed in the actual original SVG and rendered static PDF: the short legend strokes overlap parts of the FSH, Estrogen and Progesterone words. The marks sit at x360–388 for FSH/progesterone and x120–148 for estrogen. The text is centred at x405 or x165, so the longer words extend back over their strokes. This is an inherited source-asset layout defect, not missing hormone knowledge or a wrong answer key.
+
+The candidate's prose identifies each curve by line pattern, colour and temporal pattern, and the lesson08 required check and supported selections remain answerable. That support does not silently repair the graphic. The exact figure bytes, model data, axes, labels, caption, alternative text, figure ID and controls are preserved in this package.
+
+Minimal proposed change, NOT APPLIED:
+Use left/start anchoring for the four legend labels, with the left labels beginning at x160 and right labels at x400. This gives a 12-unit gap after the existing marker ends at 148 and 388. Retain their y positions, exact text, colour, line pattern, marker geometry, all plotted points, axes and model notes. Inspect at actual desktop/mobile sizes and in the enlarged view after any separately approved repair.
+
+Apply an approved correction through the verified actual owner/generator, not only a derived SVG that regeneration would overwrite. This handoff does not authorize changing that owner, the graphic, the separate lettered labeling asset or any assessment. Before integration, bind to the actual current asset and stop if it differs from the historical hash.
+
+Teacher/owner decision required: approve or defer the bounded legend-spacing correction. Until then, claim teaching support and bounded static readability separately from a fully repaired figure or released lesson.
+
+Independent source/subject review, 8 October 2026
+
+Hormone legend: independently confirmed from the exact original SVG elements and the Inkscape raster, not inferred from the learner report. All four curves, ticks, labels and timing remain scientifically interpretable with the adjacent teaching. The overlap is still a real inherited visual defect; the proposed anchoring/spacing change above is appropriate and remains unapplied. The separate A–D assessment-labeling SVG was also inspected; its single-letter labels do not have this long-word overlap. Do not modify that separate stimulus incidentally.
+
+Coordination asset: workspace/assets/figures/cycle-coordination.svg
+Historical SHA256: 67822d2123a1b97d4d5af600f2980d996cc630ee1f6a39879c5c95af875f6b8f
+The first vertical arrow runs from early follicular development to menstrual flow and visually resembles the causal links in later columns. Viewed alone, it can imply the wrong cause. The existing footer names prior corpus-luteum regression and declining hormones; the candidate lesson07 teaching section3 explicitly says the first arrow means temporal overlap, not direct causation, and distinguishes it from the later hormonal links.
+
+Decision proposed for this bounded teaching candidate: retain exact coordination bytes with that explicit, adjacent explanation. The complete teaching-and-figure interpretation passes; the graphic by itself is not certified as an unambiguous causal diagram. A later optional visual clarification could replace only the first downward arrow with a non-directional temporal connector labelled “overlap,” but that is a separate protected-art decision, not an ordinary copy repair and not applied here. Native-size and enlargement checks remain necessary after any approved graphic change.

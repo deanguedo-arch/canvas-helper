@@ -1,0 +1,140 @@
+{
+  "status": "conditional teaching-only candidate; no integration",
+  "candidate_version": "0.1.0",
+  "source_archive_sha256": "904db6f6e58c4d68689c611e2b6f2e3f5b020f48d6db55d366b934dbcf396a58",
+  "base_files": {
+    "scripts/content.py": "15f3e496a739a40f7de85ccfa8a8dcaadfb0a4ebb4274f4c36c272244d542a2e",
+    "scripts/build_chapter.py": "915625267d4ea0a5a2bbd5cb86c62d3a9767f1d5aebcadcfb7b0169ee0eb704a",
+    "workspace/index.html": "4ce8de9382426b07de164b5de82ab6c25cd2471f41f309f7208311d3b523d1d0",
+    "authoring/course-config.json": "22a968d603d78dd5cd12e81324f8f4df4fbd29161413de20873884c714d1ffe8"
+  },
+  "replacement_targets": [
+    {
+      "lesson": "lesson-09",
+      "selector": "#ch14-l09-teaching-01",
+      "owner": "scripts/content.py LESSONS[8].sections[0]",
+      "original_dom_serialization_sha256": "aec8bf6eb97fc2cbe7e78e3563b038e8a1aad0bcc4a628a7bf82e64b95ef7d8a",
+      "original_owner_lines": [
+        354,
+        358
+      ]
+    },
+    {
+      "lesson": "lesson-09",
+      "selector": "#ch14-l09-teaching-02",
+      "owner": "scripts/content.py LESSONS[8].sections[1]",
+      "original_dom_serialization_sha256": "f33d74bba7234a70b137e1424e4a9e547fdb025d339dfc12b5ce2812cc7c26d7",
+      "original_owner_lines": [
+        359,
+        363
+      ]
+    },
+    {
+      "lesson": "lesson-09",
+      "selector": "#ch14-l09-teaching-03",
+      "owner": "scripts/content.py LESSONS[8].sections[2]",
+      "original_dom_serialization_sha256": "9d3082832b4d3f1471f462bb5ce38be9430b2b29406ddb50da64fa4b39f5e8f3",
+      "original_owner_lines": [
+        364,
+        368
+      ]
+    },
+    {
+      "lesson": "lesson-09",
+      "selector": "#ch14-l09-teaching-04",
+      "owner": "scripts/content.py LESSONS[8].sections[3]",
+      "original_dom_serialization_sha256": "f1bc0103565c5820eb385d9bd696d6b23d92925a66f8760f84348cfb50c4b455",
+      "original_owner_lines": [
+        369,
+        373
+      ]
+    },
+    {
+      "lesson": "lesson-09",
+      "selector": "#ch14-l09-worked",
+      "owner": "scripts/content.py LESSONS[8].worked; new optional application is inert teaching prose, not a saved task",
+      "original_owner_lines": [
+        374,
+        379
+      ]
+    },
+    {
+      "lesson": "lesson-10",
+      "selector": "#ch14-l10-teaching-01",
+      "owner": "scripts/content.py LESSONS[9].sections[0]",
+      "original_dom_serialization_sha256": "1e2b1d794983c5f54df750c16ff7e67a6d12d291af62b1fb87d4b7b937d8cae1",
+      "original_owner_lines": [
+        397,
+        401
+      ]
+    },
+    {
+      "lesson": "lesson-10",
+      "selector": "#ch14-l10-teaching-02",
+      "owner": "scripts/content.py LESSONS[9].sections[1]",
+      "original_dom_serialization_sha256": "959409423322cd9868f9164df119ba17f295fc0d4565bf89a39d346d764624ae",
+      "original_owner_lines": [
+        402,
+        406
+      ]
+    },
+    {
+      "lesson": "lesson-10",
+      "selector": "#ch14-l10-teaching-03",
+      "owner": "scripts/content.py LESSONS[9].sections[2]",
+      "original_dom_serialization_sha256": "5b1d64e9275f51416f5da18caeaeef3471eb6410fb50d23bcd6223a3890b439a",
+      "original_owner_lines": [
+        407,
+        411
+      ]
+    },
+    {
+      "lesson": "lesson-10",
+      "selector": "#ch14-l10-teaching-04",
+      "owner": "scripts/content.py LESSONS[9].sections[3]",
+      "original_dom_serialization_sha256": "72301b89fb3a801af4f86147e3dff230e61223b68b719e7810fc7dc6e563b1c2",
+      "original_owner_lines": [
+        412,
+        416
+      ]
+    },
+    {
+      "lesson": "lesson-10",
+      "selector": "#ch14-l10-worked",
+      "owner": "scripts/content.py LESSONS[9].worked; new optional application is inert teaching prose, not a saved task",
+      "original_owner_lines": [
+        417,
+        422
+      ]
+    }
+  ],
+  "source_manifest_entries_verified": 322,
+  "standard": {
+    "content_version": "0.4",
+    "library_version": 5,
+    "sha256": "db8a04bcd7620d9ecf64ec6dc86c046cb3075b9b09cc51dac41936c391379e1e",
+    "provenance": "exact frozen v0.4 source supplied by standard coordinator and hash/size verified before drafting; 65442 bytes"
+  },
+  "figure_disposition": [
+    {
+      "file": "female-anatomy.png",
+      "sha256": "aeddd3a1c334fc4fa16e213a0ea8967c25e541afd991a2fb04ec20bc8f7f03f2",
+      "exact_original_bytes": true,
+      "new_reuse_placement_only": true
+    },
+    {
+      "file": "cycle-coordination.svg",
+      "sha256": "67822d2123a1b97d4d5af600f2980d996cc630ee1f6a39879c5c95af875f6b8f",
+      "exact_original_bytes": true,
+      "new_reuse_placement_only": true
+    }
+  ],
+  "required_gate": "Compare exact historical owner hashes to current local owner before any authorized integration. If they differ, reconcile only these named teaching locations and preserve newer local work. This is not an integration script.",
+  "protected_scope": "All other DOM, runtime, assessment, options/keys/feedback/IDs, source imports, generated practice, vocabulary/Frayer, reader mapping and original figures unchanged. The five teaching replacement nodes preserve original attributes. New optional prose is unsaved and ungraded. Reused original images are teaching-only placements without new runtime bindings.",
+  "reference_files": {
+    "BENCHMARK_STATUS_AND_ACCEPTANCE.json": "becf8ac84525a589cbe903b4d774472aaf76b937d5c74e025e0813b83fa98c31",
+    "process/history/teacher-led-batch-06-07-v0.1.0/TEACHER_ACCEPTANCE.md": "26450315855806634a6c878d15c975c8cc58709d6832a1c994ec5c7980299f53",
+    "returned-copy/teacher-led-batch-06-07-v0.1.0/lesson-06.teaching-fragment.html": "8f6f7d8013b8ada7841a4d843c5119f8d011fc7d6ddca6e822c871dc8555c0c4",
+    "returned-copy/teacher-led-batch-06-07-v0.1.0/lesson-07.teaching-fragment.html": "0a9c4872e8a65813229c7f1258b154315faeb8f71f04dc8342ac50abb454527a"
+  }
+}

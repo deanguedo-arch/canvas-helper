@@ -1,0 +1,29 @@
+Two inherited optional feedback completeness issues
+No changes applied; prompts, answers/explanations, IDs and bank version remain preserved.
+
+1. ch14-concept-ovulation-misconception
+Exact prompt: Correct this incorrect statement: Ovulation and implantation are the same event.
+Exact answer and explanation: Release of a secondary oocyte from a mature ovarian follicle. It is different from fertilization and from menstruation.
+
+Finding: the existing feedback accurately defines ovulation but does not explain or directly contrast implantation, the event actually named in the false statement. Correct teaching elsewhere mitigates this; it does not make the feedback complete.
+
+Proposed complete answer/explanation, NOT APPLIED:
+Ovulation is the release of a secondary oocyte from a mature ovarian follicle. Implantation is the later attachment and embedding of an early embryo in the uterine endometrium. They are different events at different sites. Ovulation also differs from fertilization and menstruation.
+
+Support: supplied textbook pp482–484, with the candidate's source-verified clarification that a later blastocyst rather than a single-cell zygote implants; prior pair05–06 source review and this pair's visible ovarian/uterine distinction. The original publisher's embryonic-development account is https://openstax.org/books/anatomy-and-physiology-2e/pages/28-2-embryonic-development .
+
+2. ch14-concept-lh-surge-misconception
+Exact prompt: Correct this incorrect statement: The LH surge is produced by the corpus luteum after it regresses.
+Exact answer and explanation: A large, brief increase in LH release associated with ovulation. A progesterone rise after ovulation is a different pattern.
+
+Finding: the existing feedback distinguishes two patterns but never supplies the correct release site or directly corrects the claimed post-regression timing.
+
+Proposed complete answer/explanation, NOT APPLIED:
+The LH surge is a large, brief increase in LH released by the anterior pituitary before ovulation. Sustained high pre-ovulatory estrogen promotes the surge, which helps trigger ovulation and corpus-luteum formation. It does not come from a regressing corpus luteum. The later progesterone rise is a different pattern produced mainly by the active corpus luteum.
+
+Support: supplied textbook pp497/500, teacher slides27/31–33, and source-reviewed candidate hormone-source and sequence teaching.
+
+Implementation boundary
+These are proposed feedback repairs only, not new task meanings or replacement IDs. If approved, update the actual owning definitions and every dependent answer/explanation representation, then recheck the false-statement/feedback match and neighbouring concept uses. Do not patch only a generated bank file that will be overwritten, and do not change unrelated prompts/options/keys or saved-response semantics. Bind the actual current owner first; the supplied snapshot is historical.
+
+Both issues are separate from the preserved graph-legend defect and earlier01–06 decisions. Teaching sufficiency does not imply a globally complete assessment-feedback pass or release authorization.

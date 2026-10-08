@@ -1,0 +1,116 @@
+{
+  "check": {
+    "id": "ch14-check-05",
+    "route": "lesson-05",
+    "title": "Female reproductive structures and the egg pathway",
+    "mc": [
+      {
+        "id": "ch14-l05-check-mc-1",
+        "prompt": "Where does fertilization normally occur?",
+        "answer": "Oviduct",
+        "options": [
+          "Oviduct",
+          "Endometrium",
+          "Ovary",
+          "Cervix"
+        ],
+        "cue": "Distinguish the site where gametes meet from the later site of attachment.",
+        "explanation": "Fertilization normally occurs in an oviduct. Implantation occurs later in the uterine endometrium.",
+        "difficulty": "application"
+      },
+      {
+        "id": "ch14-l05-check-mc-2",
+        "prompt": "A model has an open oviduct but a damaged endometrium. Which function is most directly threatened?",
+        "answer": "Providing a suitable site for implantation",
+        "options": [
+          "Producing oocytes in ovarian follicles",
+          "Providing a suitable site for implantation",
+          "Moving sperm through the epididymis",
+          "Producing testosterone in interstitial cells"
+        ],
+        "cue": "Identify the endometrium\u2019s normal role.",
+        "explanation": "The endometrium provides the uterine environment for implantation; it is not the site of oocyte production.",
+        "difficulty": "application"
+      }
+    ],
+    "writing": [
+      {
+        "id": "ch14-l05-check-writing-1",
+        "prompt": "Trace the usual routes of a sperm deposited in the vagina and an oocyte released from an ovary until they may meet.",
+        "model": "Sperm move from the vagina through the cervix and uterus toward an oviduct. The released oocyte is guided near the fimbriae into an oviduct. Fertilization can occur there.",
+        "criteria": [
+          "Correctly orders both routes.",
+          "Identifies the normal meeting site."
+        ],
+        "limit": 3200
+      },
+      {
+        "id": "ch14-l05-check-writing-2",
+        "prompt": "Explain the difference between uterus, endometrium and cervix. Connect each with one function.",
+        "model": "The uterus is a muscular organ supporting pregnancy. The endometrium is its inner lining and the implantation site. The cervix is the narrow lower region connecting the uterus with the vagina.",
+        "criteria": [
+          "Distinguishes organ, lining and lower opening region.",
+          "Assigns an appropriate function to each."
+        ],
+        "limit": 3200
+      }
+    ]
+  },
+  "guided": {
+    "chapter": 14,
+    "lesson": 5,
+    "route": "lesson-05",
+    "worked": {
+      "id": "ch14-l05-worked",
+      "label": "Worked example",
+      "title": "Fertilization versus implantation",
+      "scenario": "A student places both fertilization and implantation in the uterus because it is where pregnancy develops.",
+      "steps": [
+        "Separate the events. Fertilization combines the genetic contributions of sperm and egg.",
+        "Identify the usual meeting place: an oviduct.",
+        "Identify the later attachment site: the endometrium of the uterus.",
+        "Connect them with transport and early division. They belong to one developmental sequence but do not occur at the same place or time."
+      ]
+    },
+    "guided": {
+      "id": "ch14-l05-guided",
+      "label": "Practise with support",
+      "title": "Apply the explanation",
+      "instruction": "Try both questions. Use the hint to revise your thinking after an incorrect answer.",
+      "items": [
+        {
+          "id": "ch14-l05-guided-q1",
+          "kind": "select",
+          "prompt": "Which structure is the inner lining that changes during the menstrual cycle?",
+          "answer": "Endometrium",
+          "options": [
+            "Oviduct",
+            "Cervix",
+            "Endometrium"
+          ],
+          "hint": "One answer is a tissue layer rather than a passage.",
+          "explanation": "The endometrium is the uterine lining. The cervix and oviduct are different structures."
+        },
+        {
+          "id": "ch14-l05-guided-q2",
+          "kind": "select",
+          "prompt": "What is the next major region sperm reach after passing through the cervix?",
+          "answer": "Uterus",
+          "options": [
+            "Uterus",
+            "Ovary",
+            "Vagina"
+          ],
+          "hint": "Trace inward from the vagina.",
+          "explanation": "The cervix opens into the uterus. Sperm can then move toward an oviduct."
+        }
+      ]
+    }
+  },
+  "new_optional_model": "Sperm cannot pass from the vagina into the uterus through the cervix, so they cannot use that usual route to reach the oviducts. Open oviducts farther along do not remove the earlier interruption. Normal ovarian hormone release describes a different function and does not establish passage through the cervix. This is a specified pathway model, not a diagnosis.",
+  "original_optional_source": {
+    "id": "ch14-source-OBJ_2131118",
+    "original_key": "42315",
+    "source": "source-assessment-catalogue OBJ_2131118; preserve"
+  }
+}

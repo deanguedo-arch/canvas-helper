@@ -1,0 +1,21 @@
+# Critical Essay Studio — Google Sites review code
+
+1. Open `PASTE-INTO-GOOGLE-SITES.txt` in a text editor and copy all its contents.
+2. In Google Sites, choose Insert → Embed → Embed code. Paste the full contents, then choose Next → Insert. A full-page embed gives the studio more room.
+3. Keep the embed wide and tall enough for the editor. Check the Google Sites preview before publishing.
+
+The matching `.html` file is the same code and can also run as a standalone page. Fonts, images, CSS, teaching and JavaScript are included; no localhost URL or asset upload is required. It is approximately 1.5 MB. If the editor rejects the size, host the `.html` file at an HTTPS URL and embed that URL; do not use the developer's localhost address as a public embed.
+
+This is a review build of the current candidate. Actual Google Sites insertion and selected navigation paths were checked in Dean's unpublished Preview. Download permissions and published-site behaviour are not yet verified. The source project remains blocked; this file does not change its publication settings.
+
+Local check: the single-file page loaded in an opaque sandboxed `srcdoc` iframe. Teaching opened without a project, native stage navigation stayed within the iframe, a synthetic essay opened in the optional editor, and typed text updated its word count. Settings correctly reported unavailable device recovery. The backup control reported that a download started, but the browser automation did not receive a completed download; backup delivery and import still require checking in Google Sites before student use. A local screenshot is retained in `meta/review/google-sites-iframe.png`. This is not a published Google Sites validation.
+
+October 8 startup correction: the first embed used Ajv's runtime schema compiler, which calls the Function constructor. A restrictive iframe policy without `unsafe-eval` reproduced startup failure before controls were attached. The embed builder now compiles the exact existing schemas at build time using Ajv standalone validation. Local before/after proof under the same restrictive policy confirms teaching navigation, Continue/Create essay buttons and editor typing now work. Build checks exercise a valid critical workspace and eight malformed save/model shapes with runtime string compilation disabled. Screenshot: `meta/review/google-sites-csp-fix.png`. The reported Google Sites instance has not yet been inspected, so this is a confirmed compatibility correction, not confirmation of the actual site's cause. Replace the previous embed code with the complete rebuilt file and check Preview.
+
+Actual Sites follow-up: inspected Untitled site in Chrome's Google Sites Preview. Startup was working there; the CSP correction was not the cause of the reported dead links. Native fragment links did nothing, while the save-status JavaScript button successfully navigated. The embed adapter now captures internal fragment-link clicks and explicitly calls the existing router. Replaced the custom embed in the unpublished draft and observed All changes saved in Drive. Verified Explore the teaching, the first teaching section and sidebar My Work in the actual Google Sites Preview. Screenshot: `meta/review/google-sites-live-link-fix.png`; hash-bound scope record: `meta/review/google-sites-preview-check.json`. No site was published. These focused navigation checks do not prove backup delivery or student save/reopen.
+
+Work uses the existing temporary save mode. Google Sites supplies no Brightspace SCORM player or Google account save adapter. When browser storage is available, work stays in the current tab; if it is refused, the app reports that and work remains in memory. Export full/project backups before leaving, and import them to resume. Do not promise cross-device or cloud saving. Text/HTML and Print/PDF still use the existing draft export controls; browser permissions may affect downloads and printing.
+
+Canonical source: `projects/nextstep-writing-studio/workspace/`.
+Regenerate: `node scripts/build-writing-studio-embed.mjs`.
+`build-receipt.json` records the exact source hashes and bundled assets. No source schema, project ID, save namespace, notebook marker or backup format was changed.

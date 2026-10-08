@@ -1,0 +1,200 @@
+{
+  "frozen": {
+    "Course_Production_Standards_v0.4.txt": {
+      "hash": "db8a04bcd7620d9ecf64ec6dc86c046cb3075b9b09cc51dac41936c391379e1e",
+      "bytes": 65442,
+      "equals_base": null
+    },
+    "SHA256SUMS.txt": {
+      "hash": "8b0888ebfd66cc0c63ee9b0f25a9998f5acbd07221a82ac7980c65b9dc5ff99e",
+      "bytes": 37028,
+      "equals_base": true
+    },
+    "scripts/content.py": {
+      "hash": "15f3e496a739a40f7de85ccfa8a8dcaadfb0a4ebb4274f4c36c272244d542a2e",
+      "bytes": 96342,
+      "equals_base": true
+    },
+    "scripts/build_chapter.py": {
+      "hash": "915625267d4ea0a5a2bbd5cb86c62d3a9767f1d5aebcadcfb7b0169ee0eb704a",
+      "bytes": 50631,
+      "equals_base": true
+    },
+    "authoring/course-config.json": {
+      "hash": "22a968d603d78dd5cd12e81324f8f4df4fbd29161413de20873884c714d1ffe8",
+      "bytes": 271594,
+      "equals_base": true
+    },
+    "workspace/index.html": {
+      "hash": "4ce8de9382426b07de164b5de82ab6c25cd2471f41f309f7208311d3b523d1d0",
+      "bytes": 2158943,
+      "equals_base": true
+    }
+  },
+  "figures": {
+    "cycle-hormones.svg": {
+      "hash": "af66841a7f1578d5b2f482ee1ce577081552f33c16e9a07fa68f5dde321a2b59",
+      "equals_base": true
+    },
+    "cycle-coordination.svg": {
+      "hash": "67822d2123a1b97d4d5af600f2980d996cc630ee1f6a39879c5c95af875f6b8f",
+      "equals_base": true
+    }
+  },
+  "lessons": {
+    "07": {
+      "data-check-question": {
+        "original_count": 2,
+        "candidate_count": 2,
+        "exact_normalized_subtrees_equal": true
+      },
+      "data-writing-question": {
+        "original_count": 2,
+        "candidate_count": 2,
+        "exact_normalized_subtrees_equal": true
+      },
+      "data-guided-item": {
+        "original_count": 2,
+        "candidate_count": 2,
+        "exact_normalized_subtrees_equal": true
+      },
+      "data-note-input": {
+        "original_count": 0,
+        "candidate_count": 0,
+        "exact_normalized_subtrees_equal": true
+      },
+      "reader_mappings_equal": true,
+      "original_term_ids_subset": true,
+      "original_ids_subset": true,
+      "full_original_equals_base_serialize": true,
+      "candidate_has_script": false,
+      "optional-disclosure": {
+        "original_count": 0,
+        "candidate_count": 0,
+        "subtrees_equal_ignoring_disabled_and_imgsrc": true
+      },
+      "vocab-help": {
+        "original_count": 1,
+        "candidate_count": 1,
+        "subtrees_equal_ignoring_disabled_and_imgsrc": true
+      },
+      "stop-check": {
+        "original_count": 1,
+        "candidate_count": 1,
+        "subtrees_equal_ignoring_disabled_and_imgsrc": true
+      },
+      "video-companion": {
+        "original_count": 1,
+        "candidate_count": 1,
+        "subtrees_equal_ignoring_disabled_and_imgsrc": true
+      },
+      "activity-disclosure": {
+        "original_count": 1,
+        "candidate_count": 1,
+        "subtrees_equal_ignoring_disabled_and_imgsrc": true
+      },
+      "figures": {
+        "alt_equal": true,
+        "original_src": [
+          "./assets/figures/cycle-coordination.svg"
+        ],
+        "candidate_src": [
+          "../assets/cycle-coordination.svg"
+        ],
+        "figure_controls_equal": true
+      },
+      "final_post_repair_protected_subtrees_rechecked": true,
+      "final_reading_sha256": "bcdeb016ef8866733e1a9fa7e3a5a5be03fc5bed515978554d1a2655225dc23b"
+    },
+    "08": {
+      "data-check-question": {
+        "original_count": 2,
+        "candidate_count": 2,
+        "exact_normalized_subtrees_equal": true
+      },
+      "data-writing-question": {
+        "original_count": 2,
+        "candidate_count": 2,
+        "exact_normalized_subtrees_equal": true
+      },
+      "data-guided-item": {
+        "original_count": 2,
+        "candidate_count": 2,
+        "exact_normalized_subtrees_equal": true
+      },
+      "data-note-input": {
+        "original_count": 1,
+        "candidate_count": 1,
+        "exact_normalized_subtrees_equal": true
+      },
+      "reader_mappings_equal": true,
+      "original_term_ids_subset": true,
+      "original_ids_subset": true,
+      "full_original_equals_base_serialize": true,
+      "candidate_has_script": false,
+      "optional-disclosure": {
+        "original_count": 1,
+        "candidate_count": 1,
+        "subtrees_equal_ignoring_disabled_and_imgsrc": true
+      },
+      "vocab-help": {
+        "original_count": 1,
+        "candidate_count": 1,
+        "subtrees_equal_ignoring_disabled_and_imgsrc": true
+      },
+      "stop-check": {
+        "original_count": 1,
+        "candidate_count": 1,
+        "subtrees_equal_ignoring_disabled_and_imgsrc": true
+      },
+      "video-companion": {
+        "original_count": 1,
+        "candidate_count": 1,
+        "subtrees_equal_ignoring_disabled_and_imgsrc": true
+      },
+      "activity-disclosure": {
+        "original_count": 2,
+        "candidate_count": 2,
+        "subtrees_equal_ignoring_disabled_and_imgsrc": true
+      },
+      "figures": {
+        "alt_equal": true,
+        "original_src": [
+          "./assets/figures/cycle-hormones.svg"
+        ],
+        "candidate_src": [
+          "../assets/cycle-hormones.svg"
+        ],
+        "figure_controls_equal": true
+      },
+      "final_post_repair_protected_subtrees_rechecked": true,
+      "final_reading_sha256": "ab1f88270066a44d726f7c5f0fa9e70ecd9442a64e57c962369e5d105b00e25c"
+    }
+  },
+  "generated_records": {
+    "count": 59,
+    "equals_base": true,
+    "base_hash": "613d547dd7d90953445c18d140070e73e099c8b578e098c8efe8b8d2b204c2d8"
+  },
+  "archive": {
+    "sha256": "904db6f6e58c4d68689c611e2b6f2e3f5b020f48d6db55d366b934dbcf396a58",
+    "bytes": 42156775,
+    "crc_bad_member": null,
+    "file_count": 323,
+    "changed_base_files": [],
+    "missing_base_files": [],
+    "sha256_manifest_entry_count": 322
+  },
+  "final_linear_scale_repair": {
+    "propagated_scenario": true,
+    "recalculated_A": 15,
+    "recalculated_B": 100,
+    "common_unit": "units/L",
+    "assumptions": "linear axes, zero origins, stated ranges and fractions of equal displayed height",
+    "final_pdf_pages_rechecked": [
+      4,
+      5,
+      6
+    ]
+  }
+}

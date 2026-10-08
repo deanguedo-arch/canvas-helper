@@ -1,0 +1,116 @@
+{
+  "check": {
+    "id": "ch14-check-04",
+    "route": "lesson-04",
+    "title": "Hormonal control of the male reproductive system",
+    "mc": [
+      {
+        "id": "ch14-l04-check-mc-1",
+        "prompt": "Which source \u2192 hormone \u2192 target chain is correct?",
+        "answer": "Anterior pituitary \u2192 LH \u2192 interstitial cells",
+        "options": [
+          "Interstitial cells \u2192 FSH \u2192 Sertoli cells",
+          "Anterior pituitary \u2192 FSH \u2192 interstitial cells",
+          "Anterior pituitary \u2192 LH \u2192 interstitial cells",
+          "Hypothalamus \u2192 testosterone \u2192 anterior pituitary"
+        ],
+        "cue": "Match a release site and its direct target.",
+        "explanation": "LH is released by the anterior pituitary and stimulates testosterone-producing interstitial cells.",
+        "difficulty": "application"
+      },
+      {
+        "id": "ch14-l04-check-mc-2",
+        "prompt": "Why can an outside androgen source reduce sperm production?",
+        "answer": "Negative feedback can reduce FSH and LH stimulation",
+        "options": [
+          "The anterior pituitary begins making sperm instead",
+          "The androgen must block the vas deferens physically",
+          "Androgens change sperm into Sertoli cells",
+          "Negative feedback can reduce FSH and LH stimulation"
+        ],
+        "cue": "Use the normal feedback loop rather than inventing a duct blockage.",
+        "explanation": "Outside androgen can suppress upstream signals, reducing support for the testis\u2019s normal sperm-production activity.",
+        "difficulty": "application"
+      }
+    ],
+    "writing": [
+      {
+        "id": "ch14-l04-check-writing-1",
+        "prompt": "Trace two branches from GnRH to their testicular targets. Explain how the branches support sperm production.",
+        "model": "GnRH from the hypothalamus stimulates the anterior pituitary. FSH supports Sertoli cells in seminiferous tubules; LH stimulates interstitial cells to release testosterone. Sertoli-cell activity and testosterone support sperm production.",
+        "criteria": [
+          "Correct sources, hormones and targets.",
+          "Explains the relationship to spermatogenesis."
+        ],
+        "limit": 3200
+      },
+      {
+        "id": "ch14-l04-check-writing-2",
+        "prompt": "In a functioning feedback model, explain what rising testosterone does to its upstream stimulation. Why is this negative feedback?",
+        "model": "Rising testosterone inhibits hypothalamic and pituitary stimulation, reducing GnRH and LH. This tends to limit further testosterone production, opposing the initial rise. Negative refers to the opposing response, not an undesirable effect.",
+        "criteria": [
+          "Traces feedback back to control centres.",
+          "Explains opposition to the original change."
+        ],
+        "limit": 3200
+      }
+    ]
+  },
+  "guided": {
+    "chapter": 14,
+    "lesson": 4,
+    "route": "lesson-04",
+    "worked": {
+      "id": "ch14-l04-worked",
+      "label": "Worked example",
+      "title": "Low LH with functioning interstitial cells",
+      "scenario": "In a simplified model, LH release falls while the interstitial cells remain capable of responding.",
+      "steps": [
+        "Locate LH\u2019s source: the anterior pituitary.",
+        "Locate LH\u2019s target: interstitial cells in the testis.",
+        "Reduce the stimulation in the model: less LH tends to mean less testosterone release.",
+        "Consider feedback: lower testosterone reduces inhibitory feedback. If the control centres can respond, they may increase stimulation. The reason LH first fell is not established by this model."
+      ]
+    },
+    "guided": {
+      "id": "ch14-l04-guided",
+      "label": "Practise with support",
+      "title": "Apply the explanation",
+      "instruction": "Try both questions. Use the hint to revise your thinking after an incorrect answer.",
+      "items": [
+        {
+          "id": "ch14-l04-guided-q1",
+          "kind": "select",
+          "prompt": "FSH release falls. Which target loses direct stimulation first?",
+          "answer": "Sertoli cells",
+          "options": [
+            "Sertoli cells",
+            "The epididymal duct wall",
+            "Interstitial cells"
+          ],
+          "hint": "FSH and LH have different targets within the testis.",
+          "explanation": "FSH supports Sertoli-cell activity; LH is the direct signal to interstitial cells."
+        },
+        {
+          "id": "ch14-l04-guided-q2",
+          "kind": "select",
+          "prompt": "Testosterone rises above its usual level in this functioning model. What feedback response is expected?",
+          "answer": "Reduced GnRH and LH stimulation",
+          "options": [
+            "Increased GnRH and LH stimulation",
+            "Reduced GnRH and LH stimulation",
+            "Conversion of LH into FSH"
+          ],
+          "hint": "Trace the return arrow, not just the downward pathway.",
+          "explanation": "Higher testosterone strengthens negative feedback, reducing upstream stimulation."
+        }
+      ]
+    }
+  },
+  "new_optional_model": "FSH is directly released from inhibin's inhibitory effect and would tend to rise. The stated change concerns the Sertoli-cell/inhibin feedback loop. Testosterone feedback remains usual in this model, so the observation does not itself establish a corresponding LH rise. Distinguish the two return signals instead of predicting that every pituitary hormone changes together.",
+  "original_optional_source": {
+    "id": "ch14-source-OBJ_2131119",
+    "original_key": "3421",
+    "source": "source-assessment-catalogue OBJ_2131119; preserve"
+  }
+}

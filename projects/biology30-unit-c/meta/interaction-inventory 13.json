@@ -1,0 +1,881 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-31T02:28:59.573Z",
+  "interactionCount": 24,
+  "artifactCount": 12,
+  "semanticFigureCount": 24,
+  "interactions": [
+    {
+      "id": "c-lesson-01:interaction",
+      "kind": "chromosome-ploidy-model",
+      "lessonId": "c-lesson-01",
+      "responseIds": [
+        "biology30-unit-c:activity:chromosome-ploidy-model:state"
+      ],
+      "completionRule": "Learner completes the reasoning task and receives or reveals explanatory feedback.",
+      "fallbackType": "static-model",
+      "keyboardOperable": true,
+      "persistent": true,
+      "networkRequired": false,
+      "staticEquivalentPresent": true,
+      "scopedReset": true
+    },
+    {
+      "id": "c-lesson-02:interaction",
+      "kind": "mitosis-stage-model",
+      "lessonId": "c-lesson-02",
+      "responseIds": [
+        "biology30-unit-c:activity:mitosis-stage-model:state"
+      ],
+      "completionRule": "Learner completes the reasoning task and receives or reveals explanatory feedback.",
+      "fallbackType": "static-model",
+      "keyboardOperable": true,
+      "persistent": true,
+      "networkRequired": false,
+      "staticEquivalentPresent": true,
+      "scopedReset": true
+    },
+    {
+      "id": "c-lesson-03:interaction",
+      "kind": "cell-cycle-data-lab",
+      "lessonId": "c-lesson-03",
+      "responseIds": [
+        "biology30-unit-c:activity:cell-cycle-data-lab:state"
+      ],
+      "completionRule": "Learner completes the reasoning task and receives or reveals explanatory feedback.",
+      "fallbackType": "supplied-data",
+      "keyboardOperable": true,
+      "persistent": true,
+      "networkRequired": false,
+      "staticEquivalentPresent": true,
+      "scopedReset": true
+    },
+    {
+      "id": "c-lesson-04:interaction",
+      "kind": "meiosis-chromosome-model",
+      "lessonId": "c-lesson-04",
+      "responseIds": [
+        "biology30-unit-c:activity:meiosis-chromosome-model:state"
+      ],
+      "completionRule": "Learner completes the reasoning task and receives or reveals explanatory feedback.",
+      "fallbackType": "static-model",
+      "keyboardOperable": true,
+      "persistent": true,
+      "networkRequired": false,
+      "staticEquivalentPresent": true,
+      "scopedReset": true
+    },
+    {
+      "id": "c-lesson-05:interaction",
+      "kind": "gametogenesis-comparison",
+      "lessonId": "c-lesson-05",
+      "responseIds": [
+        "biology30-unit-c:activity:gametogenesis-comparison:state"
+      ],
+      "completionRule": "Learner completes the reasoning task and receives or reveals explanatory feedback.",
+      "fallbackType": "static-model",
+      "keyboardOperable": true,
+      "persistent": true,
+      "networkRequired": false,
+      "staticEquivalentPresent": true,
+      "scopedReset": true
+    },
+    {
+      "id": "c-lesson-06:interaction",
+      "kind": "karyotype-evidence-lab",
+      "lessonId": "c-lesson-06",
+      "responseIds": [
+        "biology30-unit-c:activity:karyotype-evidence-lab:state"
+      ],
+      "completionRule": "Learner completes the reasoning task and receives or reveals explanatory feedback.",
+      "fallbackType": "supplied-data",
+      "keyboardOperable": true,
+      "persistent": true,
+      "networkRequired": false,
+      "staticEquivalentPresent": true,
+      "scopedReset": true
+    },
+    {
+      "id": "c-lesson-07:interaction",
+      "kind": "life-cycle-comparison",
+      "lessonId": "c-lesson-07",
+      "responseIds": [
+        "biology30-unit-c:activity:life-cycle-comparison:state"
+      ],
+      "completionRule": "Learner completes the reasoning task and receives or reveals explanatory feedback.",
+      "fallbackType": "static-model",
+      "keyboardOperable": true,
+      "persistent": true,
+      "networkRequired": false,
+      "staticEquivalentPresent": true,
+      "scopedReset": true
+    },
+    {
+      "id": "c-lesson-08:interaction",
+      "kind": "segregation-model",
+      "lessonId": "c-lesson-08",
+      "responseIds": [
+        "biology30-unit-c:activity:segregation-model:state"
+      ],
+      "completionRule": "Learner completes the reasoning task and receives or reveals explanatory feedback.",
+      "fallbackType": "static-model",
+      "keyboardOperable": true,
+      "persistent": true,
+      "networkRequired": false,
+      "staticEquivalentPresent": true,
+      "scopedReset": true
+    },
+    {
+      "id": "c-lesson-09:interaction",
+      "kind": "monohybrid-cross-lab",
+      "lessonId": "c-lesson-09",
+      "responseIds": [
+        "biology30-unit-c:activity:monohybrid-cross-lab:state"
+      ],
+      "completionRule": "Learner completes the reasoning task and receives or reveals explanatory feedback.",
+      "fallbackType": "supplied-data",
+      "keyboardOperable": true,
+      "persistent": true,
+      "networkRequired": false,
+      "staticEquivalentPresent": true,
+      "scopedReset": true
+    },
+    {
+      "id": "c-lesson-10:interaction",
+      "kind": "probability-sampling-simulator",
+      "lessonId": "c-lesson-10",
+      "responseIds": [
+        "biology30-unit-c:activity:probability-sampling-simulator:state"
+      ],
+      "completionRule": "Learner completes the reasoning task and receives or reveals explanatory feedback.",
+      "fallbackType": "supplied-data",
+      "keyboardOperable": true,
+      "persistent": true,
+      "networkRequired": false,
+      "staticEquivalentPresent": true,
+      "scopedReset": true
+    },
+    {
+      "id": "c-lesson-11:interaction",
+      "kind": "inheritance-pattern-sort",
+      "lessonId": "c-lesson-11",
+      "responseIds": [
+        "biology30-unit-c:activity:inheritance-pattern-sort:state"
+      ],
+      "completionRule": "Learner completes the reasoning task and receives or reveals explanatory feedback.",
+      "fallbackType": "static-model",
+      "keyboardOperable": true,
+      "persistent": true,
+      "networkRequired": false,
+      "staticEquivalentPresent": true,
+      "scopedReset": true
+    },
+    {
+      "id": "c-lesson-12:interaction",
+      "kind": "dihybrid-cross-lab",
+      "lessonId": "c-lesson-12",
+      "responseIds": [
+        "biology30-unit-c:activity:dihybrid-cross-lab:state"
+      ],
+      "completionRule": "Learner completes the reasoning task and receives or reveals explanatory feedback.",
+      "fallbackType": "supplied-data",
+      "keyboardOperable": true,
+      "persistent": true,
+      "networkRequired": false,
+      "staticEquivalentPresent": true,
+      "scopedReset": true
+    },
+    {
+      "id": "c-lesson-13:interaction",
+      "kind": "pedigree-evidence-lab",
+      "lessonId": "c-lesson-13",
+      "responseIds": [
+        "biology30-unit-c:activity:pedigree-evidence-lab:state"
+      ],
+      "completionRule": "Learner completes the reasoning task and receives or reveals explanatory feedback.",
+      "fallbackType": "supplied-data",
+      "keyboardOperable": true,
+      "persistent": true,
+      "networkRequired": false,
+      "staticEquivalentPresent": true,
+      "scopedReset": true
+    },
+    {
+      "id": "c-lesson-14:interaction",
+      "kind": "recombination-map-lab",
+      "lessonId": "c-lesson-14",
+      "responseIds": [
+        "biology30-unit-c:activity:recombination-map-lab:state"
+      ],
+      "completionRule": "Learner completes the reasoning task and receives or reveals explanatory feedback.",
+      "fallbackType": "supplied-data",
+      "keyboardOperable": true,
+      "persistent": true,
+      "networkRequired": false,
+      "staticEquivalentPresent": true,
+      "scopedReset": true
+    },
+    {
+      "id": "c-lesson-15:interaction",
+      "kind": "trait-evidence-model",
+      "lessonId": "c-lesson-15",
+      "responseIds": [
+        "biology30-unit-c:activity:trait-evidence-model:state"
+      ],
+      "completionRule": "Learner completes the reasoning task and receives or reveals explanatory feedback.",
+      "fallbackType": "supplied-data",
+      "keyboardOperable": true,
+      "persistent": true,
+      "networkRequired": false,
+      "staticEquivalentPresent": true,
+      "scopedReset": true
+    },
+    {
+      "id": "c-lesson-16:interaction",
+      "kind": "dna-evidence-builder",
+      "lessonId": "c-lesson-16",
+      "responseIds": [
+        "biology30-unit-c:activity:dna-evidence-builder:state"
+      ],
+      "completionRule": "Learner completes the reasoning task and receives or reveals explanatory feedback.",
+      "fallbackType": "supplied-data",
+      "keyboardOperable": true,
+      "persistent": true,
+      "networkRequired": false,
+      "staticEquivalentPresent": true,
+      "scopedReset": true
+    },
+    {
+      "id": "c-lesson-17:interaction",
+      "kind": "replication-sequence-model",
+      "lessonId": "c-lesson-17",
+      "responseIds": [
+        "biology30-unit-c:activity:replication-sequence-model:state"
+      ],
+      "completionRule": "Learner completes the reasoning task and receives or reveals explanatory feedback.",
+      "fallbackType": "static-model",
+      "keyboardOperable": true,
+      "persistent": true,
+      "networkRequired": false,
+      "staticEquivalentPresent": true,
+      "scopedReset": true
+    },
+    {
+      "id": "c-lesson-18:interaction",
+      "kind": "transcription-model",
+      "lessonId": "c-lesson-18",
+      "responseIds": [
+        "biology30-unit-c:activity:transcription-model:state"
+      ],
+      "completionRule": "Learner completes the reasoning task and receives or reveals explanatory feedback.",
+      "fallbackType": "static-model",
+      "keyboardOperable": true,
+      "persistent": true,
+      "networkRequired": false,
+      "staticEquivalentPresent": true,
+      "scopedReset": true
+    },
+    {
+      "id": "c-lesson-19:interaction",
+      "kind": "translation-codon-lab",
+      "lessonId": "c-lesson-19",
+      "responseIds": [
+        "biology30-unit-c:activity:translation-codon-lab:state"
+      ],
+      "completionRule": "Learner completes the reasoning task and receives or reveals explanatory feedback.",
+      "fallbackType": "supplied-data",
+      "keyboardOperable": true,
+      "persistent": true,
+      "networkRequired": false,
+      "staticEquivalentPresent": true,
+      "scopedReset": true
+    },
+    {
+      "id": "c-lesson-20:interaction",
+      "kind": "mutation-consequence-lab",
+      "lessonId": "c-lesson-20",
+      "responseIds": [
+        "biology30-unit-c:activity:mutation-consequence-lab:state"
+      ],
+      "completionRule": "Learner completes the reasoning task and receives or reveals explanatory feedback.",
+      "fallbackType": "supplied-data",
+      "keyboardOperable": true,
+      "persistent": true,
+      "networkRequired": false,
+      "staticEquivalentPresent": true,
+      "scopedReset": true
+    },
+    {
+      "id": "c-lesson-21:interaction",
+      "kind": "recombinant-dna-model",
+      "lessonId": "c-lesson-21",
+      "responseIds": [
+        "biology30-unit-c:activity:recombinant-dna-model:state"
+      ],
+      "completionRule": "Learner completes the reasoning task and receives or reveals explanatory feedback.",
+      "fallbackType": "static-model",
+      "keyboardOperable": true,
+      "persistent": true,
+      "networkRequired": false,
+      "staticEquivalentPresent": true,
+      "scopedReset": true
+    },
+    {
+      "id": "c-lesson-22:interaction",
+      "kind": "dna-evidence-board",
+      "lessonId": "c-lesson-22",
+      "responseIds": [
+        "biology30-unit-c:activity:dna-evidence-board:state"
+      ],
+      "completionRule": "Learner completes the reasoning task and receives or reveals explanatory feedback.",
+      "fallbackType": "supplied-data",
+      "keyboardOperable": true,
+      "persistent": true,
+      "networkRequired": false,
+      "staticEquivalentPresent": true,
+      "scopedReset": true
+    },
+    {
+      "id": "c-lesson-23:interaction",
+      "kind": "genetics-investigation-board",
+      "lessonId": "c-lesson-23",
+      "responseIds": [
+        "biology30-unit-c:activity:genetics-investigation-board:state"
+      ],
+      "completionRule": "Learner completes the reasoning task and receives or reveals explanatory feedback.",
+      "fallbackType": "static-model",
+      "keyboardOperable": true,
+      "persistent": true,
+      "networkRequired": false,
+      "staticEquivalentPresent": true,
+      "scopedReset": true
+    },
+    {
+      "id": "c-lesson-24:interaction",
+      "kind": "integrated-genetics-case",
+      "lessonId": "c-lesson-24",
+      "responseIds": [
+        "biology30-unit-c:activity:integrated-genetics-case:state"
+      ],
+      "completionRule": "Learner completes the reasoning task and receives or reveals explanatory feedback.",
+      "fallbackType": "static-model",
+      "keyboardOperable": true,
+      "persistent": true,
+      "networkRequired": false,
+      "staticEquivalentPresent": true,
+      "scopedReset": true
+    }
+  ],
+  "artifacts": [
+    {
+      "id": "c-cell-cycle-analysis",
+      "unitCode": "C",
+      "title": "Cell Cycle Analysis",
+      "lessonIds": [
+        "c-lesson-01",
+        "c-lesson-02",
+        "c-lesson-03"
+      ],
+      "outcomeIds": [
+        "C1.1k",
+        "C1.2k",
+        "C1.2s",
+        "C1.1sts",
+        "C1.1s",
+        "C1.3s",
+        "C1.4s"
+      ],
+      "fields": [
+        {
+          "id": "c-cell-cycle-analysis:claim",
+          "label": "Scientific claim",
+          "maxLength": 350
+        },
+        {
+          "id": "c-cell-cycle-analysis:evidence",
+          "label": "Evidence or data",
+          "maxLength": 350
+        },
+        {
+          "id": "c-cell-cycle-analysis:reasoning",
+          "label": "Reasoning and connections",
+          "maxLength": 350
+        },
+        {
+          "id": "c-cell-cycle-analysis:limitations",
+          "label": "Limitations, safety, or reflection",
+          "maxLength": 350
+        }
+      ],
+      "rubricId": "biology30-scientific-evidence-rubric-v1",
+      "printEnabled": true,
+      "exportSummaryEnabled": true
+    },
+    {
+      "id": "c-meiosis-karyotype",
+      "unitCode": "C",
+      "title": "Meiosis Karyotype",
+      "lessonIds": [
+        "c-lesson-04",
+        "c-lesson-05",
+        "c-lesson-06"
+      ],
+      "outcomeIds": [
+        "C1.3k",
+        "C1.4k",
+        "C1.5k",
+        "C1.6k",
+        "C1.3s"
+      ],
+      "fields": [
+        {
+          "id": "c-meiosis-karyotype:claim",
+          "label": "Scientific claim",
+          "maxLength": 350
+        },
+        {
+          "id": "c-meiosis-karyotype:evidence",
+          "label": "Evidence or data",
+          "maxLength": 350
+        },
+        {
+          "id": "c-meiosis-karyotype:reasoning",
+          "label": "Reasoning and connections",
+          "maxLength": 350
+        },
+        {
+          "id": "c-meiosis-karyotype:limitations",
+          "label": "Limitations, safety, or reflection",
+          "maxLength": 350
+        }
+      ],
+      "rubricId": "biology30-scientific-evidence-rubric-v1",
+      "printEnabled": true,
+      "exportSummaryEnabled": true
+    },
+    {
+      "id": "c-reproductive-strategy-comparison",
+      "unitCode": "C",
+      "title": "Reproductive Strategy Comparison",
+      "lessonIds": [
+        "c-lesson-07"
+      ],
+      "outcomeIds": [
+        "C1.7k",
+        "C1.2s",
+        "C1.4s"
+      ],
+      "fields": [
+        {
+          "id": "c-reproductive-strategy-comparison:claim",
+          "label": "Scientific claim",
+          "maxLength": 350
+        },
+        {
+          "id": "c-reproductive-strategy-comparison:evidence",
+          "label": "Evidence or data",
+          "maxLength": 350
+        },
+        {
+          "id": "c-reproductive-strategy-comparison:reasoning",
+          "label": "Reasoning and connections",
+          "maxLength": 350
+        },
+        {
+          "id": "c-reproductive-strategy-comparison:limitations",
+          "label": "Limitations, safety, or reflection",
+          "maxLength": 350
+        }
+      ],
+      "rubricId": "biology30-scientific-evidence-rubric-v1",
+      "printEnabled": true,
+      "exportSummaryEnabled": true
+    },
+    {
+      "id": "c-inheritance-investigation",
+      "unitCode": "C",
+      "title": "Inheritance Investigation",
+      "lessonIds": [
+        "c-lesson-08",
+        "c-lesson-09",
+        "c-lesson-10",
+        "c-lesson-11",
+        "c-lesson-12"
+      ],
+      "outcomeIds": [
+        "C2.1k",
+        "C2.2k",
+        "C2.1s",
+        "C2.2s",
+        "C2.3s",
+        "C2.4k"
+      ],
+      "fields": [
+        {
+          "id": "c-inheritance-investigation:claim",
+          "label": "Scientific claim",
+          "maxLength": 350
+        },
+        {
+          "id": "c-inheritance-investigation:evidence",
+          "label": "Evidence or data",
+          "maxLength": 350
+        },
+        {
+          "id": "c-inheritance-investigation:reasoning",
+          "label": "Reasoning and connections",
+          "maxLength": 350
+        },
+        {
+          "id": "c-inheritance-investigation:limitations",
+          "label": "Limitations, safety, or reflection",
+          "maxLength": 350
+        }
+      ],
+      "rubricId": "biology30-scientific-evidence-rubric-v1",
+      "printEnabled": true,
+      "exportSummaryEnabled": true
+    },
+    {
+      "id": "c-pedigree-evidence",
+      "unitCode": "C",
+      "title": "Pedigree Evidence",
+      "lessonIds": [
+        "c-lesson-13"
+      ],
+      "outcomeIds": [
+        "C2.5k",
+        "C2.3s"
+      ],
+      "fields": [
+        {
+          "id": "c-pedigree-evidence:claim",
+          "label": "Scientific claim",
+          "maxLength": 350
+        },
+        {
+          "id": "c-pedigree-evidence:evidence",
+          "label": "Evidence or data",
+          "maxLength": 350
+        },
+        {
+          "id": "c-pedigree-evidence:reasoning",
+          "label": "Reasoning and connections",
+          "maxLength": 350
+        },
+        {
+          "id": "c-pedigree-evidence:limitations",
+          "label": "Limitations, safety, or reflection",
+          "maxLength": 350
+        }
+      ],
+      "rubricId": "biology30-scientific-evidence-rubric-v1",
+      "printEnabled": true,
+      "exportSummaryEnabled": true
+    },
+    {
+      "id": "c-chromosome-map",
+      "unitCode": "C",
+      "title": "Chromosome Map",
+      "lessonIds": [
+        "c-lesson-14"
+      ],
+      "outcomeIds": [
+        "C2.3k",
+        "C2.3s"
+      ],
+      "fields": [
+        {
+          "id": "c-chromosome-map:claim",
+          "label": "Scientific claim",
+          "maxLength": 350
+        },
+        {
+          "id": "c-chromosome-map:evidence",
+          "label": "Evidence or data",
+          "maxLength": 350
+        },
+        {
+          "id": "c-chromosome-map:reasoning",
+          "label": "Reasoning and connections",
+          "maxLength": 350
+        },
+        {
+          "id": "c-chromosome-map:limitations",
+          "label": "Limitations, safety, or reflection",
+          "maxLength": 350
+        }
+      ],
+      "rubricId": "biology30-scientific-evidence-rubric-v1",
+      "printEnabled": true,
+      "exportSummaryEnabled": true
+    },
+    {
+      "id": "c-genetic-decision-brief",
+      "unitCode": "C",
+      "title": "Genetic Decision Brief",
+      "lessonIds": [
+        "c-lesson-15"
+      ],
+      "outcomeIds": [
+        "C2.4k",
+        "C2.1sts",
+        "C2.1s",
+        "C2.2s",
+        "C2.4s"
+      ],
+      "fields": [
+        {
+          "id": "c-genetic-decision-brief:claim",
+          "label": "Scientific claim",
+          "maxLength": 350
+        },
+        {
+          "id": "c-genetic-decision-brief:evidence",
+          "label": "Evidence or data",
+          "maxLength": 350
+        },
+        {
+          "id": "c-genetic-decision-brief:reasoning",
+          "label": "Reasoning and connections",
+          "maxLength": 350
+        },
+        {
+          "id": "c-genetic-decision-brief:limitations",
+          "label": "Limitations, safety, or reflection",
+          "maxLength": 350
+        }
+      ],
+      "rubricId": "biology30-scientific-evidence-rubric-v1",
+      "printEnabled": true,
+      "exportSummaryEnabled": true
+    },
+    {
+      "id": "c-dna-model",
+      "unitCode": "C",
+      "title": "Dna Model",
+      "lessonIds": [
+        "c-lesson-16",
+        "c-lesson-17"
+      ],
+      "outcomeIds": [
+        "C3.1k",
+        "C3.2k",
+        "C3.2s"
+      ],
+      "fields": [
+        {
+          "id": "c-dna-model:claim",
+          "label": "Scientific claim",
+          "maxLength": 350
+        },
+        {
+          "id": "c-dna-model:evidence",
+          "label": "Evidence or data",
+          "maxLength": 350
+        },
+        {
+          "id": "c-dna-model:reasoning",
+          "label": "Reasoning and connections",
+          "maxLength": 350
+        },
+        {
+          "id": "c-dna-model:limitations",
+          "label": "Limitations, safety, or reflection",
+          "maxLength": 350
+        }
+      ],
+      "rubricId": "biology30-scientific-evidence-rubric-v1",
+      "printEnabled": true,
+      "exportSummaryEnabled": true
+    },
+    {
+      "id": "c-protein-synthesis-evidence",
+      "unitCode": "C",
+      "title": "Protein Synthesis Evidence",
+      "lessonIds": [
+        "c-lesson-18",
+        "c-lesson-19",
+        "c-lesson-20"
+      ],
+      "outcomeIds": [
+        "C3.3k",
+        "C3.2s",
+        "C3.6k",
+        "C3.1s",
+        "C3.3s"
+      ],
+      "fields": [
+        {
+          "id": "c-protein-synthesis-evidence:claim",
+          "label": "Scientific claim",
+          "maxLength": 350
+        },
+        {
+          "id": "c-protein-synthesis-evidence:evidence",
+          "label": "Evidence or data",
+          "maxLength": 350
+        },
+        {
+          "id": "c-protein-synthesis-evidence:reasoning",
+          "label": "Reasoning and connections",
+          "maxLength": 350
+        },
+        {
+          "id": "c-protein-synthesis-evidence:limitations",
+          "label": "Limitations, safety, or reflection",
+          "maxLength": 350
+        }
+      ],
+      "rubricId": "biology30-scientific-evidence-rubric-v1",
+      "printEnabled": true,
+      "exportSummaryEnabled": true
+    },
+    {
+      "id": "c-biotechnology-brief",
+      "unitCode": "C",
+      "title": "Biotechnology Brief",
+      "lessonIds": [
+        "c-lesson-21",
+        "c-lesson-22"
+      ],
+      "outcomeIds": [
+        "C3.4k",
+        "C3.5k",
+        "C3.1sts",
+        "C3.2s",
+        "C3.7k",
+        "C3.2sts",
+        "C3.3s",
+        "C3.4s"
+      ],
+      "fields": [
+        {
+          "id": "c-biotechnology-brief:claim",
+          "label": "Scientific claim",
+          "maxLength": 350
+        },
+        {
+          "id": "c-biotechnology-brief:evidence",
+          "label": "Evidence or data",
+          "maxLength": 350
+        },
+        {
+          "id": "c-biotechnology-brief:reasoning",
+          "label": "Reasoning and connections",
+          "maxLength": 350
+        },
+        {
+          "id": "c-biotechnology-brief:limitations",
+          "label": "Limitations, safety, or reflection",
+          "maxLength": 350
+        }
+      ],
+      "rubricId": "biology30-scientific-evidence-rubric-v1",
+      "printEnabled": true,
+      "exportSummaryEnabled": true
+    },
+    {
+      "id": "c-investigation-portfolio",
+      "unitCode": "C",
+      "title": "Investigation Portfolio",
+      "lessonIds": [
+        "c-lesson-23"
+      ],
+      "outcomeIds": [
+        "C1.1s",
+        "C1.2s",
+        "C1.3s",
+        "C1.4s",
+        "C2.1s",
+        "C2.2s",
+        "C2.3s",
+        "C2.4s",
+        "C3.1s",
+        "C3.2s",
+        "C3.3s",
+        "C3.4s"
+      ],
+      "fields": [
+        {
+          "id": "c-investigation-portfolio:claim",
+          "label": "Scientific claim",
+          "maxLength": 350
+        },
+        {
+          "id": "c-investigation-portfolio:evidence",
+          "label": "Evidence or data",
+          "maxLength": 350
+        },
+        {
+          "id": "c-investigation-portfolio:reasoning",
+          "label": "Reasoning and connections",
+          "maxLength": 350
+        },
+        {
+          "id": "c-investigation-portfolio:limitations",
+          "label": "Limitations, safety, or reflection",
+          "maxLength": 350
+        }
+      ],
+      "rubricId": "biology30-scientific-evidence-rubric-v1",
+      "printEnabled": true,
+      "exportSummaryEnabled": true
+    },
+    {
+      "id": "c-integrated-case",
+      "unitCode": "C",
+      "title": "Integrated Case",
+      "lessonIds": [
+        "c-lesson-24"
+      ],
+      "outcomeIds": [
+        "C1.1k",
+        "C1.2k",
+        "C1.3k",
+        "C1.4k",
+        "C1.5k",
+        "C1.6k",
+        "C1.7k",
+        "C2.1k",
+        "C2.2k",
+        "C2.3k",
+        "C2.4k",
+        "C2.5k",
+        "C3.1k",
+        "C3.2k",
+        "C3.3k",
+        "C3.4k",
+        "C3.5k",
+        "C3.6k",
+        "C3.7k"
+      ],
+      "fields": [
+        {
+          "id": "c-integrated-case:claim",
+          "label": "Scientific claim",
+          "maxLength": 350
+        },
+        {
+          "id": "c-integrated-case:evidence",
+          "label": "Evidence or data",
+          "maxLength": 350
+        },
+        {
+          "id": "c-integrated-case:reasoning",
+          "label": "Reasoning and connections",
+          "maxLength": 350
+        },
+        {
+          "id": "c-integrated-case:limitations",
+          "label": "Limitations, safety, or reflection",
+          "maxLength": 350
+        }
+      ],
+      "rubricId": "biology30-scientific-evidence-rubric-v1",
+      "printEnabled": true,
+      "exportSummaryEnabled": true
+    }
+  ],
+  "pass": true
+}

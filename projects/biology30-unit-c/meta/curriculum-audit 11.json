@@ -1,0 +1,826 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-31T04:36:45.852Z",
+  "unitCode": "C",
+  "officialOutcomeCount": 35,
+  "requiredMinutes": 2400,
+  "optionalMinutes": 480,
+  "outcomes": [
+    {
+      "id": "C1.1k",
+      "officialText": "Define and explain the significance of chromosome number in somatic and sex cells; i.e., haploidy, diploidy and polyploidy.",
+      "category": "knowledge",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 66,
+      "teachRoutes": [
+        "c-lesson-01",
+        "c-lesson-24"
+      ],
+      "practiceRoutes": [
+        "c-lesson-01#practice",
+        "c-lesson-24#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#c-cell-cycle-analysis",
+        "investigation-notebook#c-integrated-case"
+      ],
+      "explicitTeaching": true,
+      "explicitPractice": true,
+      "explicitEvidence": true
+    },
+    {
+      "id": "C1.2k",
+      "officialText": "Explain, in general terms, the events of the cell cycle; i.e., interphase, mitosis and cytokinesis.",
+      "category": "knowledge",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 66,
+      "teachRoutes": [
+        "c-lesson-01",
+        "c-lesson-02",
+        "c-lesson-03",
+        "c-lesson-24"
+      ],
+      "practiceRoutes": [
+        "c-lesson-01#practice",
+        "c-lesson-02#practice",
+        "c-lesson-03#practice",
+        "c-lesson-24#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#c-cell-cycle-analysis",
+        "investigation-notebook#c-integrated-case"
+      ],
+      "explicitTeaching": true,
+      "explicitPractice": true,
+      "explicitEvidence": true
+    },
+    {
+      "id": "C1.3k",
+      "officialText": "Describe the process of meiosis (spermatogenesis and oogenesis) and the necessity for the reduction of chromosome number.",
+      "category": "knowledge",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 66,
+      "teachRoutes": [
+        "c-lesson-04",
+        "c-lesson-05",
+        "c-lesson-24"
+      ],
+      "practiceRoutes": [
+        "c-lesson-04#practice",
+        "c-lesson-05#practice",
+        "c-lesson-24#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#c-meiosis-karyotype",
+        "investigation-notebook#c-integrated-case"
+      ],
+      "explicitTeaching": true,
+      "explicitPractice": true,
+      "explicitEvidence": true
+    },
+    {
+      "id": "C1.4k",
+      "officialText": "Compare the processes of mitosis and meiosis.",
+      "category": "knowledge",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 66,
+      "teachRoutes": [
+        "c-lesson-04",
+        "c-lesson-24"
+      ],
+      "practiceRoutes": [
+        "c-lesson-04#practice",
+        "c-lesson-24#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#c-meiosis-karyotype",
+        "investigation-notebook#c-integrated-case"
+      ],
+      "explicitTeaching": true,
+      "explicitPractice": true,
+      "explicitEvidence": true
+    },
+    {
+      "id": "C1.5k",
+      "officialText": "Describe the processes of crossing over and nondisjunction and evaluate their significance to organism inheritance and development.",
+      "category": "knowledge",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 66,
+      "teachRoutes": [
+        "c-lesson-06",
+        "c-lesson-24"
+      ],
+      "practiceRoutes": [
+        "c-lesson-06#practice",
+        "c-lesson-24#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#c-meiosis-karyotype",
+        "investigation-notebook#c-integrated-case"
+      ],
+      "explicitTeaching": true,
+      "explicitPractice": true,
+      "explicitEvidence": true
+    },
+    {
+      "id": "C1.6k",
+      "officialText": "Compare the formation of fraternal and identical offspring in a single birthing event.",
+      "category": "knowledge",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 66,
+      "teachRoutes": [
+        "c-lesson-06",
+        "c-lesson-24"
+      ],
+      "practiceRoutes": [
+        "c-lesson-06#practice",
+        "c-lesson-24#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#c-meiosis-karyotype",
+        "investigation-notebook#c-integrated-case"
+      ],
+      "explicitTeaching": true,
+      "explicitPractice": true,
+      "explicitEvidence": true
+    },
+    {
+      "id": "C1.7k",
+      "officialText": "Describe the diversity of reproductive strategies by comparing the alternation of generations in a range of organisms; e.g., Daphnia, sea anemone, moss, pine.",
+      "category": "knowledge",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 66,
+      "teachRoutes": [
+        "c-lesson-07",
+        "c-lesson-24"
+      ],
+      "practiceRoutes": [
+        "c-lesson-07#practice",
+        "c-lesson-24#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#c-reproductive-strategy-comparison",
+        "investigation-notebook#c-integrated-case"
+      ],
+      "explicitTeaching": true,
+      "explicitPractice": true,
+      "explicitEvidence": true
+    },
+    {
+      "id": "C1.1sts",
+      "officialText": "Explain that science and technology are developed to meet societal needs and expand human capability (SEC1).",
+      "category": "sts",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 66,
+      "teachRoutes": [
+        "c-lesson-03"
+      ],
+      "practiceRoutes": [
+        "c-lesson-03#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#c-cell-cycle-analysis"
+      ],
+      "explicitTeaching": true,
+      "explicitPractice": true,
+      "explicitEvidence": true
+    },
+    {
+      "id": "C1.1s",
+      "officialText": "Formulate questions about observed relationships and plan investigations of questions, ideas, problems and issues.",
+      "category": "skills",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 67,
+      "teachRoutes": [
+        "c-lesson-03",
+        "c-lesson-23"
+      ],
+      "practiceRoutes": [
+        "c-lesson-03#practice",
+        "c-lesson-23#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#c-cell-cycle-analysis",
+        "investigation-notebook#c-investigation-portfolio"
+      ],
+      "explicitTeaching": true,
+      "explicitPractice": true,
+      "explicitEvidence": true
+    },
+    {
+      "id": "C1.2s",
+      "officialText": "Conduct investigations into relationships between and among observable variables and use a broad range of tools and techniques to gather and record data and information.",
+      "category": "skills",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 67,
+      "teachRoutes": [
+        "c-lesson-02",
+        "c-lesson-03",
+        "c-lesson-07",
+        "c-lesson-23"
+      ],
+      "practiceRoutes": [
+        "c-lesson-02#practice",
+        "c-lesson-03#practice",
+        "c-lesson-07#practice",
+        "c-lesson-23#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#c-cell-cycle-analysis",
+        "investigation-notebook#c-reproductive-strategy-comparison",
+        "investigation-notebook#c-investigation-portfolio"
+      ],
+      "explicitTeaching": true,
+      "explicitPractice": true,
+      "explicitEvidence": true
+    },
+    {
+      "id": "C1.3s",
+      "officialText": "Analyze data and apply mathematical and conceptual models to develop and assess possible solutions.",
+      "category": "skills",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 67,
+      "teachRoutes": [
+        "c-lesson-03",
+        "c-lesson-06",
+        "c-lesson-23"
+      ],
+      "practiceRoutes": [
+        "c-lesson-03#practice",
+        "c-lesson-06#practice",
+        "c-lesson-23#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#c-cell-cycle-analysis",
+        "investigation-notebook#c-meiosis-karyotype",
+        "investigation-notebook#c-investigation-portfolio"
+      ],
+      "explicitTeaching": true,
+      "explicitPractice": true,
+      "explicitEvidence": true
+    },
+    {
+      "id": "C1.4s",
+      "officialText": "Work collaboratively in addressing problems and apply the skills and conventions of science in communicating information and ideas and in assessing results.",
+      "category": "skills",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 68,
+      "teachRoutes": [
+        "c-lesson-03",
+        "c-lesson-07",
+        "c-lesson-23"
+      ],
+      "practiceRoutes": [
+        "c-lesson-03#practice",
+        "c-lesson-07#practice",
+        "c-lesson-23#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#c-cell-cycle-analysis",
+        "investigation-notebook#c-reproductive-strategy-comparison",
+        "investigation-notebook#c-investigation-portfolio"
+      ],
+      "explicitTeaching": true,
+      "explicitPractice": true,
+      "explicitEvidence": true
+    },
+    {
+      "id": "C2.1k",
+      "officialText": "Describe the evidence for dominance, segregation and the independent assortment of genes on different chromosomes, as investigated by Mendel.",
+      "category": "knowledge",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 69,
+      "teachRoutes": [
+        "c-lesson-08",
+        "c-lesson-09",
+        "c-lesson-12",
+        "c-lesson-24"
+      ],
+      "practiceRoutes": [
+        "c-lesson-08#practice",
+        "c-lesson-09#practice",
+        "c-lesson-12#practice",
+        "c-lesson-24#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#c-inheritance-investigation",
+        "investigation-notebook#c-integrated-case"
+      ],
+      "explicitTeaching": true,
+      "explicitPractice": true,
+      "explicitEvidence": true
+    },
+    {
+      "id": "C2.2k",
+      "officialText": "Compare ratios and probabilities of genotypes and phenotypes for dominant and recessive, multiple, incompletely dominant, and codominant alleles.",
+      "category": "knowledge",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 69,
+      "teachRoutes": [
+        "c-lesson-09",
+        "c-lesson-10",
+        "c-lesson-11",
+        "c-lesson-12",
+        "c-lesson-24"
+      ],
+      "practiceRoutes": [
+        "c-lesson-09#practice",
+        "c-lesson-10#practice",
+        "c-lesson-11#practice",
+        "c-lesson-12#practice",
+        "c-lesson-24#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#c-inheritance-investigation",
+        "investigation-notebook#c-integrated-case"
+      ],
+      "explicitTeaching": true,
+      "explicitPractice": true,
+      "explicitEvidence": true
+    },
+    {
+      "id": "C2.3k",
+      "officialText": "Explain the influence of gene linkage and crossing over on variability.",
+      "category": "knowledge",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 69,
+      "teachRoutes": [
+        "c-lesson-14",
+        "c-lesson-24"
+      ],
+      "practiceRoutes": [
+        "c-lesson-14#practice",
+        "c-lesson-24#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#c-chromosome-map",
+        "investigation-notebook#c-integrated-case"
+      ],
+      "explicitTeaching": true,
+      "explicitPractice": true,
+      "explicitEvidence": true
+    },
+    {
+      "id": "C2.4k",
+      "officialText": "Explain the relationship between variability and the number of genes controlling a trait; e.g., one pair of genes, as for Rh factor, versus two or more pairs of genes, as for skin colour and height.",
+      "category": "knowledge",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 69,
+      "teachRoutes": [
+        "c-lesson-11",
+        "c-lesson-15",
+        "c-lesson-24"
+      ],
+      "practiceRoutes": [
+        "c-lesson-11#practice",
+        "c-lesson-15#practice",
+        "c-lesson-24#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#c-inheritance-investigation",
+        "investigation-notebook#c-genetic-decision-brief",
+        "investigation-notebook#c-integrated-case"
+      ],
+      "explicitTeaching": true,
+      "explicitPractice": true,
+      "explicitEvidence": true
+    },
+    {
+      "id": "C2.5k",
+      "officialText": "Compare the pattern of inheritance produced by genes on the sex chromosomes to that produced by genes on autosomes, as investigated by Morgan and others.",
+      "category": "knowledge",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 69,
+      "teachRoutes": [
+        "c-lesson-13",
+        "c-lesson-24"
+      ],
+      "practiceRoutes": [
+        "c-lesson-13#practice",
+        "c-lesson-24#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#c-pedigree-evidence",
+        "investigation-notebook#c-integrated-case"
+      ],
+      "explicitTeaching": true,
+      "explicitPractice": true,
+      "explicitEvidence": true
+    },
+    {
+      "id": "C2.1sts",
+      "officialText": "Explain that decisions regarding the application of scientific and technological development involve a variety of perspectives, including social, cultural, environmental, ethical and economic considerations (SEC4b) [ICT F2–4.2, F3–4.1].",
+      "category": "sts",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 69,
+      "teachRoutes": [
+        "c-lesson-15"
+      ],
+      "practiceRoutes": [
+        "c-lesson-15#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#c-genetic-decision-brief"
+      ],
+      "explicitTeaching": true,
+      "explicitPractice": true,
+      "explicitEvidence": true
+    },
+    {
+      "id": "C2.1s",
+      "officialText": "Formulate questions about observed relationships and plan investigations of questions, ideas, problems and issues.",
+      "category": "skills",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 70,
+      "teachRoutes": [
+        "c-lesson-10",
+        "c-lesson-15",
+        "c-lesson-23"
+      ],
+      "practiceRoutes": [
+        "c-lesson-10#practice",
+        "c-lesson-15#practice",
+        "c-lesson-23#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#c-inheritance-investigation",
+        "investigation-notebook#c-genetic-decision-brief",
+        "investigation-notebook#c-investigation-portfolio"
+      ],
+      "explicitTeaching": true,
+      "explicitPractice": true,
+      "explicitEvidence": true
+    },
+    {
+      "id": "C2.2s",
+      "officialText": "Conduct investigations into relationships between and among observable variables and use a broad range of tools and techniques to gather and record data and information.",
+      "category": "skills",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 70,
+      "teachRoutes": [
+        "c-lesson-10",
+        "c-lesson-15",
+        "c-lesson-23"
+      ],
+      "practiceRoutes": [
+        "c-lesson-10#practice",
+        "c-lesson-15#practice",
+        "c-lesson-23#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#c-inheritance-investigation",
+        "investigation-notebook#c-genetic-decision-brief",
+        "investigation-notebook#c-investigation-portfolio"
+      ],
+      "explicitTeaching": true,
+      "explicitPractice": true,
+      "explicitEvidence": true
+    },
+    {
+      "id": "C2.3s",
+      "officialText": "Analyze data and apply mathematical and conceptual models to develop and assess possible solutions.",
+      "category": "skills",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 70,
+      "teachRoutes": [
+        "c-lesson-10",
+        "c-lesson-13",
+        "c-lesson-14",
+        "c-lesson-23"
+      ],
+      "practiceRoutes": [
+        "c-lesson-10#practice",
+        "c-lesson-13#practice",
+        "c-lesson-14#practice",
+        "c-lesson-23#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#c-inheritance-investigation",
+        "investigation-notebook#c-pedigree-evidence",
+        "investigation-notebook#c-chromosome-map",
+        "investigation-notebook#c-investigation-portfolio"
+      ],
+      "explicitTeaching": true,
+      "explicitPractice": true,
+      "explicitEvidence": true
+    },
+    {
+      "id": "C2.4s",
+      "officialText": "Work collaboratively in addressing problems and apply the skills and conventions of science in communicating information and ideas and in assessing results.",
+      "category": "skills",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 70,
+      "teachRoutes": [
+        "c-lesson-15",
+        "c-lesson-23"
+      ],
+      "practiceRoutes": [
+        "c-lesson-15#practice",
+        "c-lesson-23#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#c-genetic-decision-brief",
+        "investigation-notebook#c-investigation-portfolio"
+      ],
+      "explicitTeaching": true,
+      "explicitPractice": true,
+      "explicitEvidence": true
+    },
+    {
+      "id": "C3.1k",
+      "officialText": "Summarize the historical events that led to the discovery of the structure of the DNA molecule, including the work of Franklin and Watson and Crick.",
+      "category": "knowledge",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 71,
+      "teachRoutes": [
+        "c-lesson-16",
+        "c-lesson-24"
+      ],
+      "practiceRoutes": [
+        "c-lesson-16#practice",
+        "c-lesson-24#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#c-dna-model",
+        "investigation-notebook#c-integrated-case"
+      ],
+      "explicitTeaching": true,
+      "explicitPractice": true,
+      "explicitEvidence": true
+    },
+    {
+      "id": "C3.2k",
+      "officialText": "Describe, in general, how genetic information is contained in the sequence of bases in DNA molecules in chromosomes and how the DNA molecules replicate themselves.",
+      "category": "knowledge",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 71,
+      "teachRoutes": [
+        "c-lesson-16",
+        "c-lesson-17",
+        "c-lesson-24"
+      ],
+      "practiceRoutes": [
+        "c-lesson-16#practice",
+        "c-lesson-17#practice",
+        "c-lesson-24#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#c-dna-model",
+        "investigation-notebook#c-integrated-case"
+      ],
+      "explicitTeaching": true,
+      "explicitPractice": true,
+      "explicitEvidence": true
+    },
+    {
+      "id": "C3.3k",
+      "officialText": "Describe, in general, how genetic information is transcribed into sequences of bases in RNA molecules and is finally translated into sequences of amino acids in proteins.",
+      "category": "knowledge",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 71,
+      "teachRoutes": [
+        "c-lesson-18",
+        "c-lesson-19",
+        "c-lesson-24"
+      ],
+      "practiceRoutes": [
+        "c-lesson-18#practice",
+        "c-lesson-19#practice",
+        "c-lesson-24#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#c-protein-synthesis-evidence",
+        "investigation-notebook#c-integrated-case"
+      ],
+      "explicitTeaching": true,
+      "explicitPractice": true,
+      "explicitEvidence": true
+    },
+    {
+      "id": "C3.4k",
+      "officialText": "Explain, in general, how restriction enzymes cut DNA molecules into smaller fragments and how ligases reassemble them.",
+      "category": "knowledge",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 71,
+      "teachRoutes": [
+        "c-lesson-21",
+        "c-lesson-24"
+      ],
+      "practiceRoutes": [
+        "c-lesson-21#practice",
+        "c-lesson-24#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#c-biotechnology-brief",
+        "investigation-notebook#c-integrated-case"
+      ],
+      "explicitTeaching": true,
+      "explicitPractice": true,
+      "explicitEvidence": true
+    },
+    {
+      "id": "C3.5k",
+      "officialText": "Explain, in general, how cells may be transformed by inserting new DNA sequences into their genomes.",
+      "category": "knowledge",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 71,
+      "teachRoutes": [
+        "c-lesson-21",
+        "c-lesson-24"
+      ],
+      "practiceRoutes": [
+        "c-lesson-21#practice",
+        "c-lesson-24#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#c-biotechnology-brief",
+        "investigation-notebook#c-integrated-case"
+      ],
+      "explicitTeaching": true,
+      "explicitPractice": true,
+      "explicitEvidence": true
+    },
+    {
+      "id": "C3.6k",
+      "officialText": "Explain how a random change (mutation) in the sequence of bases results in abnormalities or provides a source of genetic variability.",
+      "category": "knowledge",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 71,
+      "teachRoutes": [
+        "c-lesson-20",
+        "c-lesson-24"
+      ],
+      "practiceRoutes": [
+        "c-lesson-20#practice",
+        "c-lesson-24#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#c-protein-synthesis-evidence",
+        "investigation-notebook#c-integrated-case"
+      ],
+      "explicitTeaching": true,
+      "explicitPractice": true,
+      "explicitEvidence": true
+    },
+    {
+      "id": "C3.7k",
+      "officialText": "Explain how base sequences in nucleic acids contained in the nucleus, mitochondrion and chloroplast give evidence for the relationships among organisms of different species.",
+      "category": "knowledge",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 71,
+      "teachRoutes": [
+        "c-lesson-22",
+        "c-lesson-24"
+      ],
+      "practiceRoutes": [
+        "c-lesson-22#practice",
+        "c-lesson-24#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#c-biotechnology-brief",
+        "investigation-notebook#c-integrated-case"
+      ],
+      "explicitTeaching": true,
+      "explicitPractice": true,
+      "explicitEvidence": true
+    },
+    {
+      "id": "C3.1sts",
+      "officialText": "Explain that science and technology have both intended and unintended consequences for humans and the environment (SEC3) [ICT F3–4.1].",
+      "category": "sts",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 71,
+      "teachRoutes": [
+        "c-lesson-21"
+      ],
+      "practiceRoutes": [
+        "c-lesson-21#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#c-biotechnology-brief"
+      ],
+      "explicitTeaching": true,
+      "explicitPractice": true,
+      "explicitEvidence": true
+    },
+    {
+      "id": "C3.2sts",
+      "officialText": "Explain that scientific research and technological development help achieve a sustainable society, economy and environment (SEC4a) [ICT F2–4.2, F2–4.8].",
+      "category": "sts",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 71,
+      "teachRoutes": [
+        "c-lesson-22"
+      ],
+      "practiceRoutes": [
+        "c-lesson-22#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#c-biotechnology-brief"
+      ],
+      "explicitTeaching": true,
+      "explicitPractice": true,
+      "explicitEvidence": true
+    },
+    {
+      "id": "C3.1s",
+      "officialText": "Formulate questions about observed relationships and plan investigations of questions, ideas, problems and issues.",
+      "category": "skills",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 72,
+      "teachRoutes": [
+        "c-lesson-20",
+        "c-lesson-23"
+      ],
+      "practiceRoutes": [
+        "c-lesson-20#practice",
+        "c-lesson-23#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#c-protein-synthesis-evidence",
+        "investigation-notebook#c-investigation-portfolio"
+      ],
+      "explicitTeaching": true,
+      "explicitPractice": true,
+      "explicitEvidence": true
+    },
+    {
+      "id": "C3.2s",
+      "officialText": "Conduct investigations into relationships between and among observable variables and use a broad range of tools and techniques to gather and record data and information.",
+      "category": "skills",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 72,
+      "teachRoutes": [
+        "c-lesson-17",
+        "c-lesson-18",
+        "c-lesson-19",
+        "c-lesson-21",
+        "c-lesson-23"
+      ],
+      "practiceRoutes": [
+        "c-lesson-17#practice",
+        "c-lesson-18#practice",
+        "c-lesson-19#practice",
+        "c-lesson-21#practice",
+        "c-lesson-23#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#c-dna-model",
+        "investigation-notebook#c-protein-synthesis-evidence",
+        "investigation-notebook#c-biotechnology-brief",
+        "investigation-notebook#c-investigation-portfolio"
+      ],
+      "explicitTeaching": true,
+      "explicitPractice": true,
+      "explicitEvidence": true
+    },
+    {
+      "id": "C3.3s",
+      "officialText": "Analyze data and apply mathematical and conceptual models to develop and assess possible solutions.",
+      "category": "skills",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 72,
+      "teachRoutes": [
+        "c-lesson-20",
+        "c-lesson-22",
+        "c-lesson-23"
+      ],
+      "practiceRoutes": [
+        "c-lesson-20#practice",
+        "c-lesson-22#practice",
+        "c-lesson-23#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#c-protein-synthesis-evidence",
+        "investigation-notebook#c-biotechnology-brief",
+        "investigation-notebook#c-investigation-portfolio"
+      ],
+      "explicitTeaching": true,
+      "explicitPractice": true,
+      "explicitEvidence": true
+    },
+    {
+      "id": "C3.4s",
+      "officialText": "Work collaboratively in addressing problems and apply the skills and conventions of science in communicating information and ideas and in assessing results.",
+      "category": "skills",
+      "authorityUrl": "https://education.alberta.ca/media/159727/bio203007.pdf",
+      "authorityPdfPage": 72,
+      "teachRoutes": [
+        "c-lesson-22",
+        "c-lesson-23"
+      ],
+      "practiceRoutes": [
+        "c-lesson-22#practice",
+        "c-lesson-23#practice"
+      ],
+      "evidenceRoutes": [
+        "investigation-notebook#c-biotechnology-brief",
+        "investigation-notebook#c-investigation-portfolio"
+      ],
+      "explicitTeaching": true,
+      "explicitPractice": true,
+      "explicitEvidence": true
+    }
+  ],
+  "pass": true
+}

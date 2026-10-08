@@ -1,0 +1,111 @@
+{
+  "check": {
+    "id": "ch14-check-03",
+    "route": "lesson-03",
+    "title": "Sperm production and sperm structure",
+    "mc": [
+      {
+        "id": "ch14-l03-check-mc-1",
+        "prompt": "A cell lies between seminiferous tubules and releases testosterone. What is it?",
+        "answer": "Interstitial cell",
+        "options": [
+          "Interstitial cell",
+          "Spermatogonium",
+          "Sertoli cell",
+          "Spermatid"
+        ],
+        "cue": "Use both its position and its product.",
+        "explanation": "Interstitial, or Leydig, cells between tubules release testosterone.",
+        "difficulty": "application"
+      },
+      {
+        "id": "ch14-l03-check-mc-2",
+        "prompt": "Which sperm structure is most directly involved in helping penetrate the egg\u2019s surrounding layers?",
+        "answer": "Acrosome",
+        "options": [
+          "Flagellum",
+          "Acrosome",
+          "Middle piece",
+          "Nuclear chromosome set"
+        ],
+        "cue": "Look for the structure containing enzymes rather than ATP-producing organelles.",
+        "explanation": "Acrosomal enzymes help the sperm pass through surrounding layers; the tail mainly contributes movement.",
+        "difficulty": "application"
+      }
+    ],
+    "writing": [
+      {
+        "id": "ch14-l03-check-writing-1",
+        "prompt": "Explain why Sertoli cells and interstitial cells are not interchangeable. Include location and function.",
+        "model": "Sertoli cells are within seminiferous tubules and support developing sperm. Interstitial cells are between tubules and release testosterone. Both contribute to reproduction but perform different jobs.",
+        "criteria": [
+          "Gives both locations.",
+          "Connects each cell type to its correct function."
+        ],
+        "limit": 3200
+      },
+      {
+        "id": "ch14-l03-check-writing-2",
+        "prompt": "Trace the main stages from a primary spermatocyte to sperm. Distinguish meiosis from differentiation.",
+        "model": "Meiosis I produces two secondary spermatocytes. Meiosis II produces four haploid spermatids in total. These differentiate into sperm with specialised heads, middle pieces and flagella. Differentiation does not halve chromosome number again.",
+        "criteria": [
+          "Distinguishes the two meiotic divisions.",
+          "States the four haploid products and subsequent differentiation."
+        ],
+        "limit": 3200
+      }
+    ]
+  },
+  "guided": {
+    "chapter": 14,
+    "lesson": 3,
+    "route": "lesson-03",
+    "worked": {
+      "id": "ch14-l03-worked",
+      "label": "Worked example",
+      "title": "Normal sperm count, poor movement",
+      "scenario": "A sample contains many sperm with heads and acrosomes, but their flagella are not functioning normally.",
+      "steps": [
+        "Identify the affected structure: the flagellum.",
+        "Recall its role: movement, powered by ATP supplied through cell metabolism.",
+        "Predict the immediate consequence: reduced ability to move effectively along the reproductive tract.",
+        "Limit the conclusion: this observation does not itself show that meiosis, chromosome number or testosterone production was abnormal."
+      ]
+    },
+    "guided": {
+      "id": "ch14-l03-guided",
+      "label": "Practise with support",
+      "title": "Apply the explanation",
+      "instruction": "Try both questions. Use the hint to revise your thinking after an incorrect answer.",
+      "items": [
+        {
+          "id": "ch14-l03-guided-q1",
+          "kind": "select",
+          "prompt": "Which cell is inside a seminiferous tubule and supports developing sperm?",
+          "answer": "Sertoli cell",
+          "options": [
+            "Secondary spermatocyte",
+            "Sertoli cell",
+            "Interstitial cell"
+          ],
+          "hint": "Which cells provide support rather than becoming gametes?",
+          "explanation": "Sertoli cells support developing sperm. Secondary spermatocytes are stages in the reproductive-cell pathway."
+        },
+        {
+          "id": "ch14-l03-guided-q2",
+          "kind": "select",
+          "prompt": "Four haploid spermatids have formed. What must happen next to produce specialised sperm?",
+          "answer": "Differentiation",
+          "options": [
+            "Another reduction of chromosome number",
+            "Formation of four interstitial cells",
+            "Differentiation"
+          ],
+          "hint": "Separate a change of cell shape from another division.",
+          "explanation": "Spermatids differentiate by developing structures such as the acrosome and flagellum."
+        }
+      ]
+    }
+  },
+  "new_optional_model": "The directly disrupted job is local Sertoli-cell support within the tubules. Normal testosterone release from cells between the tubules establishes a different functioning contribution. Developing sperm need the supporting environment as well, so that hormone result alone does not show that development continues normally. The model does not provide enough information to count surviving sperm or diagnose a person."
+}

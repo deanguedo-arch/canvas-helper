@@ -1,0 +1,116 @@
+{
+  "check": {
+    "id": "ch14-check-09",
+    "route": "lesson-09",
+    "title": "When hormone patterns change",
+    "mc": [
+      {
+        "id": "ch14-l09-check-mc-1",
+        "prompt": "In a functioning control system, reduced ovarian hormone feedback can produce which response?",
+        "answer": "Increased FSH and LH stimulation",
+        "options": [
+          "Increased FSH and LH stimulation",
+          "Movement of the ovaries into the uterus",
+          "A guaranteed new pregnancy",
+          "A complete loss of all pituitary hormone production"
+        ],
+        "cue": "Less inhibition can permit more upstream stimulation.",
+        "explanation": "Reduced ovarian feedback can allow the pituitary signals to rise even when ovarian responsiveness is reduced.",
+        "difficulty": "application"
+      },
+      {
+        "id": "ch14-l09-check-mc-2",
+        "prompt": "Which statement correctly explains one effect of combined hormonal contraception?",
+        "answer": "Feedback can reduce the normal LH surge and prevent ovulation",
+        "options": [
+          "It permanently removes all oocytes",
+          "Feedback can reduce the normal LH surge and prevent ovulation",
+          "It blocks the vas deferens",
+          "It guarantees protection against bacterial and viral STIs"
+        ],
+        "cue": "Identify the hormonal signal controlling ovulation.",
+        "explanation": "The supplied hormone signals alter feedback and help prevent the pituitary surge needed for ovulation.",
+        "difficulty": "application"
+      }
+    ],
+    "writing": [
+      {
+        "id": "ch14-l09-check-writing-1",
+        "prompt": "Explain why low ovarian hormone output and high pituitary hormone output can occur together.",
+        "model": "Lower ovarian estrogen/progesterone reduces inhibitory feedback on the hypothalamus and anterior pituitary. FSH and LH can therefore rise. Increased stimulation does not guarantee an ovarian response.",
+        "criteria": [
+          "Uses negative feedback correctly.",
+          "Separates stimulation from target responsiveness."
+        ],
+        "limit": 3200
+      },
+      {
+        "id": "ch14-l09-check-writing-2",
+        "prompt": "Contrast a cycle without pregnancy with early pregnancy in terms of corpus-luteum activity and endometrial support.",
+        "model": "Without pregnancy support the corpus luteum regresses, progesterone and estrogen fall, and part of the endometrium is shed. During early pregnancy, hCG supports the corpus luteum and hormone output helps maintain the lining.",
+        "criteria": [
+          "Connects corpus luteum to hormones and lining in both cases.",
+          "Identifies hCG\u2019s early supporting role."
+        ],
+        "limit": 3200
+      }
+    ]
+  },
+  "guided": {
+    "chapter": 14,
+    "lesson": 9,
+    "route": "lesson-09",
+    "worked": {
+      "id": "ch14-l09-worked",
+      "label": "Worked example",
+      "title": "Less ovarian output, more pituitary stimulation",
+      "scenario": "A simplified model has declining follicular activity and reduced ovarian-hormone feedback, with a functioning hypothalamus and pituitary.",
+      "steps": [
+        "Identify the initial change: less ovarian hormone output.",
+        "Trace feedback backward: less inhibitory signal reaches the control centres.",
+        "Predict the upstream response: FSH and LH stimulation can rise.",
+        "State the limitation: more stimulation does not ensure that the ovary can respond. This model alone does not identify the cause in an individual."
+      ]
+    },
+    "guided": {
+      "id": "ch14-l09-guided",
+      "label": "Practise with support",
+      "title": "Apply the explanation",
+      "instruction": "Try both questions. Use the hint to revise your thinking after an incorrect answer.",
+      "items": [
+        {
+          "id": "ch14-l09-guided-q1",
+          "kind": "select",
+          "prompt": "Which signal helps maintain the corpus luteum in early pregnancy?",
+          "answer": "hCG",
+          "options": [
+            "The loss of all pituitary activity",
+            "hCG",
+            "A new monthly LH surge"
+          ],
+          "hint": "Follow the signal from developing trophoblast tissue.",
+          "explanation": "hCG supports the corpus luteum, helping sustain progesterone and estrogen output."
+        },
+        {
+          "id": "ch14-l09-guided-q2",
+          "kind": "select",
+          "prompt": "Why does a combined contraceptive pill not protect against an STI?",
+          "answer": "Changing hormonal feedback does not create a barrier to pathogen transmission",
+          "options": [
+            "FSH is itself a pathogen",
+            "Every STI can enter only during ovulation",
+            "Changing hormonal feedback does not create a barrier to pathogen transmission"
+          ],
+          "hint": "Separate the target of the hormone from the route of infection.",
+          "explanation": "A hormonal method alters reproductive signalling; it does not prevent exposure to infectious organisms."
+        }
+      ]
+    }
+  },
+  "new_optional_model": "No. hCG is a supporting signal, not the progesterone itself. If the corpus luteum cannot respond, its hormone output is not maintained by that signal. Without sufficient replacement hormone support, the model does not guarantee maintenance of the endometrium. This identifies a target-response failure rather than a shortage of hCG; it does not predict an individual clinical outcome.",
+  "original_optional_source": {
+    "id": "ch14-source-OBJ_2131183",
+    "original_key": null,
+    "source": "source-assessment-catalogue OBJ_2131183; preserve"
+  }
+}

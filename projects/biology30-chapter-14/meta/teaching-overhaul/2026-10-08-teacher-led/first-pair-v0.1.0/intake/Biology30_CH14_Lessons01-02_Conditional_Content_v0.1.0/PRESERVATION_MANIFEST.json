@@ -1,0 +1,147 @@
+{
+  "status": "conditional teaching-only candidate; no integration",
+  "source_archive_sha256": "904db6f6e58c4d68689c611e2b6f2e3f5b020f48d6db55d366b934dbcf396a58",
+  "base_files": {
+    "scripts/content.py": "15f3e496a739a40f7de85ccfa8a8dcaadfb0a4ebb4274f4c36c272244d542a2e",
+    "scripts/build_chapter.py": "915625267d4ea0a5a2bbd5cb86c62d3a9767f1d5aebcadcfb7b0169ee0eb704a",
+    "workspace/index.html": "4ce8de9382426b07de164b5de82ab6c25cd2471f41f309f7208311d3b523d1d0",
+    "authoring/course-config.json": "22a968d603d78dd5cd12e81324f8f4df4fbd29161413de20873884c714d1ffe8"
+  },
+  "replacement_targets": [
+    {
+      "lesson": "lesson-01",
+      "selector": "#ch14-l01-teaching-01",
+      "owner": "scripts/content.py LESSONS[0].sections[0]",
+      "original_dom_serialization_sha256": "7e9f7084a51bba85686a867f7d8483528f1b12bae05f570b829505c764c0bae2",
+      "note": "DOM hash supplementary; exact full base file hashes govern eligibility",
+      "historical_owner_lines": [
+        11,
+        15
+      ]
+    },
+    {
+      "lesson": "lesson-01",
+      "selector": "#ch14-l01-teaching-02",
+      "owner": "scripts/content.py LESSONS[0].sections[1]",
+      "original_dom_serialization_sha256": "ae9591d73efc949827585b246bda05cde707367c359fe9a40a70bea4306ecbee",
+      "note": "DOM hash supplementary; exact full base file hashes govern eligibility",
+      "historical_owner_lines": [
+        16,
+        20
+      ]
+    },
+    {
+      "lesson": "lesson-01",
+      "selector": "#ch14-l01-teaching-03",
+      "owner": "scripts/content.py LESSONS[0].sections[2]",
+      "original_dom_serialization_sha256": "08ade6f2cfde4a4a9f82a519886aa31bc6d271fabe1f38c25c0ef73204fa7892",
+      "note": "DOM hash supplementary; exact full base file hashes govern eligibility",
+      "historical_owner_lines": [
+        21,
+        25
+      ]
+    },
+    {
+      "lesson": "lesson-01",
+      "selector": "#ch14-l01-teaching-04",
+      "owner": "scripts/content.py LESSONS[0].sections[3]",
+      "original_dom_serialization_sha256": "2612e36ebd75aad0668181393432b9188df8a8b2efa7ddc254a56f164b6e669d",
+      "note": "DOM hash supplementary; exact full base file hashes govern eligibility",
+      "historical_owner_lines": [
+        26,
+        29
+      ]
+    },
+    {
+      "lesson": "lesson-01",
+      "selector": "#ch14-l01-worked",
+      "owner": "scripts/content.py LESSONS[0].worked; optional application is new inert teaching, not a saved task",
+      "note": "Preserve owner identity; synchronize any derived worked record during separately authorized integration.",
+      "historical_owner_lines": [
+        30,
+        35
+      ]
+    },
+    {
+      "lesson": "lesson-02",
+      "selector": "#ch14-l02-teaching-01",
+      "owner": "scripts/content.py LESSONS[1].sections[0]",
+      "original_dom_serialization_sha256": "761f8e00801d15c8fc297d83e91fbf8a065ef583b98aad7f45dd36a4c324dd64",
+      "note": "DOM hash supplementary; exact full base file hashes govern eligibility",
+      "historical_owner_lines": [
+        53,
+        57
+      ]
+    },
+    {
+      "lesson": "lesson-02",
+      "selector": "#ch14-l02-teaching-02",
+      "owner": "scripts/content.py LESSONS[1].sections[1]",
+      "original_dom_serialization_sha256": "988b34926281d65f12ab14aa55ded597f4c56361f8e69a964b0dfc53038d8a1c",
+      "note": "DOM hash supplementary; exact full base file hashes govern eligibility",
+      "historical_owner_lines": [
+        58,
+        62
+      ]
+    },
+    {
+      "lesson": "lesson-02",
+      "selector": "#ch14-l02-teaching-03",
+      "owner": "scripts/content.py LESSONS[1].sections[2]",
+      "original_dom_serialization_sha256": "d7bf17653dd4e3b3a74a147177a012e11c30d5e276d883dcee7319710074fdd4",
+      "note": "DOM hash supplementary; exact full base file hashes govern eligibility",
+      "historical_owner_lines": [
+        63,
+        67
+      ]
+    },
+    {
+      "lesson": "lesson-02",
+      "selector": "#ch14-l02-teaching-04",
+      "owner": "scripts/content.py LESSONS[1].sections[3]",
+      "original_dom_serialization_sha256": "23d1c260b4a9ad6e1e8c1b2c8a623114520918df4fafc41ac7c5a95ca2541305",
+      "note": "DOM hash supplementary; exact full base file hashes govern eligibility",
+      "historical_owner_lines": [
+        68,
+        71
+      ]
+    },
+    {
+      "lesson": "lesson-02",
+      "selector": "#ch14-l02-worked",
+      "owner": "scripts/content.py LESSONS[1].worked; optional application is new inert teaching, not a saved task",
+      "note": "Preserve owner identity; synchronize any derived worked record during separately authorized integration.",
+      "historical_owner_lines": [
+        73,
+        78
+      ]
+    }
+  ],
+  "source_manifest_entries_verified": 322,
+  "protected_scope": "Every source file unchanged; candidate replacement limited to four teaching divs and worked div for each of lessons01\u201302. Original guided/check/stop/self/video/optional banks remain protected; new optional reading prose is unsaved and ungraded.",
+  "standard": {
+    "content_version": "0.3",
+    "library_version": 4,
+    "bytes": 54557,
+    "sha256": "ac1d791f49e8d0b488eb54897de0a039149c9e5d325b32b7d7a1fd21f1e1a7a5",
+    "provenance": "complete native-read reconstruction, size matches; original bytes not independently verified",
+    "local_corroboration": "cmp matched existing learner-calibration/Course_Production_Standards.txt byte-for-byte; separate frozen copy retained"
+  },
+  "reference_files": {
+    "BENCHMARK_STATUS_AND_ACCEPTANCE.json": "becf8ac84525a589cbe903b4d774472aaf76b937d5c74e025e0813b83fa98c31",
+    "process/history/teacher-led-batch-06-07-v0.1.0/TEACHER_ACCEPTANCE.md": "26450315855806634a6c878d15c975c8cc58709d6832a1c994ec5c7980299f53",
+    "returned-copy/teacher-led-batch-06-07-v0.1.0/lesson-06.teaching-fragment.html": "8f6f7d8013b8ada7841a4d843c5119f8d011fc7d6ddca6e822c871dc8555c0c4",
+    "returned-copy/teacher-led-batch-06-07-v0.1.0/lesson-07.teaching-fragment.html": "0a9c4872e8a65813229c7f1258b154315faeb8f71f04dc8342ac50abb454527a"
+  },
+  "candidate_version": "0.1.0",
+  "review_state": "teaching sufficiency passed with source-parity repair/recheck; protected assessment decision unresolved; no release",
+  "output_files": {
+    "candidate/lesson-01.reading.html": "c982acd89d8398c3186164a4bfcecf785f309f868132aaebc26b02ca9b860d59",
+    "candidate/lesson-01.teaching-fragments.html": "db318b627f145573a7e419c3fe97701fe3ba5dc3cb44b7c7b4081df9e070f478",
+    "candidate/lesson-01.teaching-manuscript.txt": "ee4bfdcffae8152abeb79f5d70b596f82ce3ad224003c456a0ba78887ebd81c3",
+    "candidate/lesson-02.reading.html": "f23d65de9e5cc6bba145e99c19e877a7dc09ef7ba400734c1ed8129519982fe1",
+    "candidate/lesson-02.teaching-fragments.html": "2262ba9e1bbc26f77fd74e95604e5ea66d88c1ee2d54a779e7668ad067f13ece",
+    "candidate/lesson-02.teaching-manuscript.txt": "88a4028f5445251c03d98485775e83cd5c58df27abc2b55e0fa285999700ab6c",
+    "teaching-copy.json": "6ebcce60037694329efd7316fb19cbfa5d76eb967d5f10c38b7e8c06995483f1"
+  }
+}

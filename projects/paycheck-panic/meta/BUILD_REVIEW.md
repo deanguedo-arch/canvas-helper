@@ -1,3 +1,16 @@
+# Paycheck Panic — current financial life candidate
+
+Updated 2026-09-29. New campaigns now use **six-month Story + ongoing Free Play** over a shared financial engine. The previous Quick/Class/Life version remains at `workspace/earlier.html` with its existing saves. The entries below describe that preserved earlier build and are historical, not the current default economy.
+
+- Current canonical entry: `workspace/index.html`; owners: `sim-economy.js`, `sim-game.js`, `sim-world.js`, `sim-activities.js`, and `sim.css`, using the established generated art.
+- Current rules, supplied prices and consequences: `economy-v3/DESIGN.md`.
+- Curriculum/financial authority and limitations: `economy-v3/SOURCES.md` and `economy-v3/curriculum-map.json`.
+- Current implementation and actual verification: **`economy-v3/REVIEW.md`**. Thirteen grouped financial/save checks, one grouped gym-controller check, and targeted desktop/390 px browser paths passed. Full human campaign pacing and rollout remain open.
+- New versioned saves are independent; old namespaces and raw intake remain intact. Early new-v3 QA saves were preserved after fixing URL-based QA isolation. The review record distinguishes those runs from post-fix isolated checks.
+- Project remains a blocked Build candidate with runtime content Annotation only. No task deployment, export or commit. Story's 60–90 minutes is an unmeasured target.
+
+## Earlier illustrated candidate — preserved review history
+
 # Paycheck Panic — illustrated candidate
 
 ## Status and source of truth

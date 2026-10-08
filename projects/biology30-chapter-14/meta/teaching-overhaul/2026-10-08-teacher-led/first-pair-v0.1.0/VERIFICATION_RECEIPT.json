@@ -1,0 +1,44 @@
+{
+  "scope": "Chapter14 lessons01-02 conditional teaching candidate only",
+  "candidateHTMLSha256": "ff219852e658e9eca126b065d19cfa9ac0d6f39ddc53cae511f30268450d9dd3",
+  "canonicalHTMLSha256": "054b823d5758a702041f24fd06b15a77d69cdfff63323cd5ffd7e803bf8936b8",
+  "environment": "Actual Codex in-app browser, localhost57572, native browser storage; synthetic QA only",
+  "static": {
+    "reviewedBlocks": 10,
+    "frozenFilesPerSnapshot": 143,
+    "allNonHTMLAssetsByteExact": true,
+    "unrelatedRoutesByteExact": true,
+    "protectedChecksWritingGuidedFiguresNotesByteExact": true,
+    "onlyConfigurationChanges": ["guidedActivities[0].worked", "guidedActivities[1].worked"],
+    "duplicateIDs": 0,
+    "oldVocabularyTargetsRetained": true,
+    "symlinksInActiveSnapshots": 0
+  },
+  "nativeRuntimeObserved": [
+    {"claim":"Anatomy enlargement","status":"Pass","evidence":"Existing View larger opens native dialog; PNG complete,1131x756; displayed width1029.53; actual labeled pixels inspected; dialog1080x810 fits1600x900 viewport; Close returns focus to launcher."},
+    {"claim":"Guided feedback and retained attempts","status":"Pass","evidence":"Lesson02 first answer Ureter shows hint; second Vas deferens shows correct explanation. Reload retains correction. All My Work shows original incorrect first attempt separately from later correct attempt."},
+    {"claim":"Required-check locks","status":"Pass","evidence":"Before Start selections and writing disabled. Lesson02 and01 two correct native selections unlock writing."},
+    {"claim":"Draft reload","status":"Pass","evidence":"Lesson02 writing1 typed synthetic pathway persists verbatim after real reload, alongside guided correction."},
+    {"claim":"Saved-edit completion guard","status":"Pass","evidence":"Lesson02 both writing responses saved; editing writing1 changes status to Draft saved locally. Submit and finish leaves progress0/11. Resaving then finishing changes progress1/11, retained after reload."},
+    {"claim":"Both required completions","status":"Pass","evidence":"Lesson01 native answers and two saved synthetic explanations completed. Reload shows2/11,18%. All My Work shows two completed runs, four exact submitted writing texts and first-try selections2/2 each; writing explicitly human-review required."},
+    {"claim":"Vocabulary popup","status":"Pass","evidence":"New lesson01 gonad link opens native Core Vocabulary with existing definition and Frayer entry; Close returns focus to exact launcher; computed weight800."},
+    {"claim":"Comparison delivered","status":"Pass","evidence":"Old57573 and clean new57571 loaded side-by-side at57570/?lesson=02, both0/11; screenshot saved. QA origin57572 remains separate."}
+  ],
+  "suppliedReviewEvidence": {
+    "learnerReview": "16 tasks attempted before feedback; teaching sufficiency Pass with protected assessment qualification; source/native/runtime not inferred from that review",
+    "sourceReview": "Supplied independent bounded source/pixel review Pass after penis-function repair; review artifacts read, not a new independent source audit in this integration turn",
+    "originalConsumedStandard": "v0.3 native-read, local bytes corroborated; original signed standard-byte download unavailable at authoring",
+    "integrationStandardReconciliation": "v0.4 full65442byte record read; frozen SHA db8a04bcd7620d9ecf64ec6dc86c046cb3075b9b09cc51dac41936c391379e1e",
+    "adoptionStatus": "Partly reviewed; exact bounded local candidate and checks only"
+  },
+  "unresolved": [
+    "ch14-l02-check-writing-2 paired-duct and timing ambiguity; protected wording, model, criteria and ID unchanged",
+    "ch14-import-OBJ_2131542 misleading clinical stem and OBJ_2131107 prostrate typo remain unchanged",
+    "Inherited generic image alt text in optional assessment stimuli remains an accessibility limitation",
+    "Latest-standard reconciliation is not retroactive v0.4 authorship or a new blind learner review"
+  ],
+  "deferred": ["Synthetic pre-existing old-to-new saved-run migration", "Quota/failure/two-tab conflict checks", "Whole-course E2E", "Mobile/accessibility survey", "Reader PDF pixels and textbook saving", "Print/PDF", "Portable refresh", "Teacher acceptance", "SCORM/Brightspace"],
+  "releaseStatus": "Needs decision",
+  "canonicalChanged": false,
+  "deployed": false
+}

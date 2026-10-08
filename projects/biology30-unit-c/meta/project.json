@@ -2,7 +2,7 @@
   "id": "biology30-unit-c",
   "slug": "biology30-unit-c",
   "title": "Biology 30 — Unit C: Cell Division, Genetics and Molecular Biology",
-  "sourcePath": "projects/resources/biology30-unit-a-pilot/resource-manifest.json",
+  "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/processed/biology30-unit-c/source",
   "inputKind": "brightspace-zip",
   "brightspaceTarget": "scorm",
   "previewModes": [
@@ -14,7 +14,7 @@
   "learningTrust": "curated",
   "learningUpdatedAt": "2026-08-31T04:36:45.852Z",
   "createdAt": "2026-08-31T00:02:59.328Z",
-  "updatedAt": "2026-08-31T04:36:45.852Z",
+  "updatedAt": "2026-10-07T18:32:03.355Z",
   "migrationState": "migrated",
   "projectType": "hybrid",
   "preferredWorkflows": [
@@ -333,5 +333,6 @@
     "projects/biology30-unit-c/raw/intake.json"
   ],
   "sourceOfTruthNotes": "The frozen Pilot 2 contracts, authored resource inputs and transitive Biology owner generate this local candidate. Unit A remains provisional. Teacher acceptance, Studio Edit, export and publication are not granted.",
-  "regenerateCommand": "npm run build:biology30-course -- --project biology30-unit-c --strict --profile pilot2-topic-sequence-v1 --baseline-workspace-sha aa2f6b78db5b9378668d80de1f2190911a1abaeb868af76e9851a87a082ef760"
+  "regenerateCommand": "npm run build:biology30-course -- --project biology30-unit-c --strict --profile pilot2-topic-sequence-v1 --baseline-workspace-sha aa2f6b78db5b9378668d80de1f2190911a1abaeb868af76e9851a87a082ef760",
+  "injectedComponents": []
 }

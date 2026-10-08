@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nextstep.invalid/writing-studio/persisted-workspace.schema.json",
+  "type": "object",
+  "properties": {
+    "format": {
+      "const": "nextstep.writing-studio.state"
+    },
+    "schemaVersion": {
+      "const": 1
+    },
+    "appVersion": {
+      "type": "string",
+      "maxLength": 40
+    },
+    "binding": {
+      "type": "object",
+      "properties": {
+        "deploymentScope": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{7,95}$"
+        },
+        "learnerKey": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      },
+      "required": [
+        "deploymentScope",
+        "learnerKey"
+      ],
+      "additionalProperties": false
+    },
+    "workspace": {
+      "$ref": "https://nextstep.invalid/writing-studio/workspace.schema.json"
+    }
+  },
+  "required": [
+    "format",
+    "schemaVersion",
+    "appVersion",
+    "binding",
+    "workspace"
+  ],
+  "additionalProperties": false
+}

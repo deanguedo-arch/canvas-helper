@@ -1,0 +1,111 @@
+{
+  "check": {
+    "id": "ch14-check-01",
+    "route": "lesson-01",
+    "title": "Reproductive systems and sex characteristics",
+    "mc": [
+      {
+        "id": "ch14-l01-check-mc-1",
+        "prompt": "Which pairing identifies an organ and the gamete associated with it?",
+        "answer": "Testis \u2014 sperm",
+        "options": [
+          "Testis \u2014 sperm",
+          "Ovary \u2014 estrogen",
+          "Sperm \u2014 testis",
+          "Testosterone \u2014 sperm"
+        ],
+        "cue": "A gonad is an organ; a gamete is a cell.",
+        "explanation": "Testes are gonads, and sperm are the associated gametes.",
+        "difficulty": "application"
+      },
+      {
+        "id": "ch14-l01-check-mc-2",
+        "prompt": "A voice becomes deeper during puberty. Which classification fits this change?",
+        "answer": "Secondary sex characteristic",
+        "options": [
+          "A change from 23 to 46 chromosomes",
+          "Secondary sex characteristic",
+          "Primary sex characteristic",
+          "Formation of a gamete"
+        ],
+        "cue": "Decide whether the observation describes a reproductive organ.",
+        "explanation": "A deeper voice is a physical change associated with maturation, not a reproductive organ.",
+        "difficulty": "application"
+      }
+    ],
+    "writing": [
+      {
+        "id": "ch14-l01-check-writing-1",
+        "prompt": "Explain how a gonad, a gamete and a reproductive hormone differ. Connect all three using either the ovary or testis.",
+        "model": "A gonad is an organ. A gamete is a reproductive cell. A hormone is a chemical signal. For example, a testis contains sites of sperm production and cells that release testosterone.",
+        "criteria": [
+          "Distinguishes organ, cell and signal.",
+          "Uses a coherent example linking a gonad, its gamete and a hormone."
+        ],
+        "limit": 3200
+      },
+      {
+        "id": "ch14-l01-check-writing-2",
+        "prompt": "Why is the statement \u201ca feature that changes at puberty must be a secondary sex characteristic\u201d incorrect? Use two examples.",
+        "model": "Reproductive organs also develop further at puberty. A testis is a primary characteristic even when sperm production begins; a deepening voice is a secondary characteristic. Classification depends on the kind of structure or feature, not only its timing.",
+        "criteria": [
+          "Explains why timing alone is insufficient.",
+          "Contrasts a primary organ with a secondary feature."
+        ],
+        "limit": 3200
+      }
+    ]
+  },
+  "guided": {
+    "chapter": 14,
+    "lesson": 1,
+    "route": "lesson-01",
+    "worked": {
+      "id": "ch14-l01-worked",
+      "label": "Worked example",
+      "title": "Classifying three observations",
+      "scenario": "A student lists an ovary, an egg and a rise in estrogen. Are these three examples of the same thing?",
+      "steps": [
+        "Identify the level of organization. The ovary is an organ and a gonad.",
+        "Identify the cell. The egg is a gamete produced through processes in the ovary.",
+        "Identify the signal. Estrogen is a hormone that can act on target tissues.",
+        "Connect them: cells in an ovarian follicle release estrogen while an oocyte develops within the follicle. Related does not mean interchangeable."
+      ]
+    },
+    "guided": {
+      "id": "ch14-l01-guided",
+      "label": "Practise with support",
+      "title": "Apply the explanation",
+      "instruction": "Try both questions. Use the hint to revise your thinking after an incorrect answer.",
+      "items": [
+        {
+          "id": "ch14-l01-guided-q1",
+          "kind": "select",
+          "prompt": "A testis begins producing sperm at puberty. How should the testis be classified?",
+          "answer": "A primary sex characteristic",
+          "options": [
+            "A primary sex characteristic",
+            "A gamete",
+            "A secondary sex characteristic"
+          ],
+          "hint": "Ask whether it is a reproductive organ or a cell.",
+          "explanation": "The testis is a reproductive organ. Increased activity at puberty does not turn it into a secondary characteristic."
+        },
+        {
+          "id": "ch14-l01-guided-q2",
+          "kind": "select",
+          "prompt": "A target tissue has no functioning receptor for a reproductive hormone. What is the best prediction?",
+          "answer": "Its usual response to that hormone will be reduced or absent",
+          "options": [
+            "The hormone becomes a gamete",
+            "Its usual response to that hormone will be reduced or absent",
+            "Its chromosome number must double"
+          ],
+          "hint": "Recall what makes a cell a target cell.",
+          "explanation": "The hormone must interact with an appropriate receptor to produce its normal response."
+        }
+      ]
+    }
+  },
+  "new_optional_model": "The uterus is a reproductive organ, the egg is a gamete and progesterone is a hormone. A gonad specifically produces gametes and reproductive hormones. The uterus supports development but is not an ovary or testis and does not produce gametes. The word reproductive therefore describes a wider group of organs than the word gonad."
+}

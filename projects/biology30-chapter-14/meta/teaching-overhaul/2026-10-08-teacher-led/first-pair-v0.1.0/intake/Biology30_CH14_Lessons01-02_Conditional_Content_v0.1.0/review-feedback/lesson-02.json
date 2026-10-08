@@ -1,0 +1,111 @@
+{
+  "check": {
+    "id": "ch14-check-02",
+    "route": "lesson-02",
+    "title": "Male reproductive structures and the sperm pathway",
+    "mc": [
+      {
+        "id": "ch14-l02-check-mc-1",
+        "prompt": "Which sequence correctly follows sperm after they leave the epididymis?",
+        "answer": "Vas deferens \u2192 ejaculatory duct \u2192 urethra",
+        "options": [
+          "Urethra \u2192 vas deferens \u2192 ejaculatory duct",
+          "Seminal vesicle \u2192 urinary bladder \u2192 urethra",
+          "Vas deferens \u2192 ejaculatory duct \u2192 urethra",
+          "Ejaculatory duct \u2192 epididymis \u2192 vas deferens"
+        ],
+        "cue": "Trace connected transport ducts, not every nearby organ.",
+        "explanation": "Sperm pass through the vas deferens and ejaculatory duct before entering the urethra.",
+        "difficulty": "application"
+      },
+      {
+        "id": "ch14-l02-check-mc-2",
+        "prompt": "Which statement distinguishes sperm from semen?",
+        "answer": "Semen contains sperm mixed with accessory-gland secretions",
+        "options": [
+          "Sperm are the fluid secreted by the prostate",
+          "Sperm and semen name exactly the same material",
+          "Semen is produced only by interstitial cells",
+          "Semen contains sperm mixed with accessory-gland secretions"
+        ],
+        "cue": "One term names a cell; the other names a mixture.",
+        "explanation": "Sperm are reproductive cells. Semen is the mixture of cells and gland secretions.",
+        "difficulty": "application"
+      }
+    ],
+    "writing": [
+      {
+        "id": "ch14-l02-check-writing-1",
+        "prompt": "Trace the sperm pathway from its production site to the outside. Include where maturation occurs.",
+        "model": "Sperm form in seminiferous tubules, enter the epididymis for maturation and storage, then move through the vas deferens, ejaculatory duct and urethra to the outside through the penis.",
+        "criteria": [
+          "Names production and maturation sites correctly.",
+          "Places the major transport ducts in order."
+        ],
+        "limit": 3200
+      },
+      {
+        "id": "ch14-l02-check-writing-2",
+        "prompt": "Explain why a blocked vas deferens could prevent sperm from appearing in semen without stopping all semen production.",
+        "model": "The duct blockage interrupts sperm transport. Seminal vesicles, the prostate and bulbourethral glands add secretions through other connections. Some gland fluid can still enter the downstream pathway.",
+        "criteria": [
+          "Distinguishes transport from gland secretion.",
+          "Does not infer loss of testosterone solely from a blocked duct."
+        ],
+        "limit": 3200
+      }
+    ]
+  },
+  "guided": {
+    "chapter": 14,
+    "lesson": 2,
+    "route": "lesson-02",
+    "worked": {
+      "id": "ch14-l02-worked",
+      "label": "Worked example",
+      "title": "A blocked transport duct",
+      "scenario": "A model shows normal seminiferous tubules and accessory glands but a completely blocked vas deferens.",
+      "steps": [
+        "Start at the production site. The seminiferous tubules may still produce sperm.",
+        "Follow the route. Sperm cannot pass the blockage to reach the ejaculatory duct.",
+        "Consider the glands separately. Their ducts may still add fluid downstream.",
+        "Predict carefully: the ejaculate can contain gland fluid without sperm. The blockage does not itself establish that testosterone production has stopped."
+      ]
+    },
+    "guided": {
+      "id": "ch14-l02-guided",
+      "label": "Practise with support",
+      "title": "Apply the explanation",
+      "instruction": "Try both questions. Use the hint to revise your thinking after an incorrect answer.",
+      "items": [
+        {
+          "id": "ch14-l02-guided-q1",
+          "kind": "select",
+          "prompt": "After sperm mature in the epididymis, which major duct carries them toward the ejaculatory duct?",
+          "answer": "Vas deferens",
+          "options": [
+            "Seminal vesicle",
+            "Ureter",
+            "Vas deferens"
+          ],
+          "hint": "Follow the route out of the testis region.",
+          "explanation": "The vas deferens is a transport duct carrying sperm from the epididymis toward the pelvic ducts."
+        },
+        {
+          "id": "ch14-l02-guided-q2",
+          "kind": "select",
+          "prompt": "A seminal-vesicle secretion contains fructose. Which function does this support?",
+          "answer": "Providing an energy source for sperm",
+          "options": [
+            "Providing an energy source for sperm",
+            "Producing sperm by meiosis",
+            "Producing testosterone"
+          ],
+          "hint": "Separate gland secretions from the cells made in the testis.",
+          "explanation": "Fructose in the secretion supplies a usable energy source; sperm production occurs in seminiferous tubules."
+        }
+      ]
+    }
+  },
+  "new_optional_model": "Newly produced sperm cannot pass through the interrupted epididymides to reach the downstream sperm ducts. Accessory-gland fluid still has its own downstream entry points, so it need not disappear. This prediction concerns new transport after the interruption; it does not determine whether sperm were already stored farther along before it occurred. Unlike the worked example, this model changes a cell-transport route rather than only the composition of a gland secretion."
+}

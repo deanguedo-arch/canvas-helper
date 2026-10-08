@@ -1,0 +1,37 @@
+Approval needed before any assessment change
+
+Target: Chapter14 lesson02, ch14-l02-check-writing-2.
+Historical owner: scripts/content.py LESSONS[1].writing[1]; derived authoring/course-config.json checks[1].writing[1].
+Status: unresolved inherited assessment ambiguity. The candidate does not modify this prompt, model, criteria, ID or historical responses. Full lesson release is NOT PASS.
+
+EXACT ORIGINAL PROMPT
+Explain why a blocked vas deferens could prevent sperm from appearing in semen without stopping all semen production.
+
+EXACT ORIGINAL MODEL
+The duct blockage interrupts sperm transport. Seminal vesicles, the prostate and bulbourethral glands add secretions through other connections. Some gland fluid can still enter the downstream pathway.
+
+EXACT ORIGINAL CRITERIA
+Distinguishes transport from gland secretion.
+Does not infer loss of testosterone solely from a blocked duct.
+
+ISSUE
+There are two testes and paired transport routes. A blockage in one vas deferens does not establish that the other side contributes no sperm. The prompt also does not settle the timing or whether sperm were already farther downstream. The learner reviewer answered with these qualifications using visible candidate teaching. The original model explains the mechanism but omits the one-side/both-side distinction. This finding is not a claim that the visible physiology explanation is wrong or that all possible responses fail.
+
+PROPOSED MINIMAL CLARIFICATION, NOT APPLIED
+Explain why completely blocked vasa deferentia on both sides could prevent newly produced sperm from reaching semen without stopping all seminal-fluid production. Assume the accessory glands and their downstream ducts function normally.
+
+PROPOSED ALIGNED MODEL, NOT APPLIED
+Both sperm-transport routes are blocked, so newly produced sperm cannot pass from the epididymides through the vasa deferentia to the downstream pathway. The seminal vesicles, prostate and bulbourethral glands still add fluid through their functioning downstream connections. Testosterone can still enter the blood from interstitial cells; its route is separate. This model does not establish whether sperm were already present downstream before the blockage.
+
+PROPOSED CRITERIA IF THE CHANGE IS APPROVED
+- Distinguishes blocked transport of newly produced sperm on both sides from functioning accessory-gland secretion
+- Explains why this duct change alone does not establish loss of testosterone release into blood
+- Does not claim immediate absence of all previously stored downstream sperm
+
+SOURCE SUPPORT
+Supplied Inquiry into Biology Chapter14, printed479–481, Figures14.2–14.3 and Table14.2: paired testes/duct system; sperm production, epididymal maturation/storage, ductus-deferens transport, accessory-gland secretion and interstitial testosterone release. Exact supplied PDF SHA25682d37feec1390def949ed241d117e2b218b8dc8aa09d9cddead37fd6c64a49ea.
+Teacher Chapter14 slides8–10 show the same side-view/front-view anatomy and paired structures; PPTX SHA256b2d6ed2ff0e758f81e2c2dab288011188fa9c8370b873ebf2c70caf25499d229.
+Official publisher crosscheck: OpenStax Anatomy and Physiology2e27.1, Sperm Transport, Duct System and accessory-gland subsections, https://openstax.org/books/anatomy-and-physiology-2e/pages/27-1-anatomy-and-physiology-of-the-testicular-reproductive-system (accessed8Oct2026).
+
+VERSION SAFETY
+If the teacher approves, apply the wording/model/criteria as one bounded versioned assessment change in the actual verified current owner. Decide how to preserve interpretation of existing saved responses; do not silently reuse the old response identity for materially changed expectations. Approval of this teaching manuscript alone does not authorize that assessment edit.

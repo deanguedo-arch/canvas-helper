@@ -1,0 +1,35 @@
+{
+  "reviewed_at_utc": "2026-10-08T20:56:08.825235+00:00",
+  "candidate_version": "0.1.0",
+  "core_teaching": "PASS bounded to ten declared replacement nodes",
+  "required_assessment_alignment_and_preservation": "PASS content-only; not runtime or broad transfer",
+  "historical_preservation": "PASS 322 hashes and CRC; all export/DOM/asset checks pass",
+  "static_pixels": "PASS all 20 packet pages plus 17 source renders inspected and independently pixel-matched",
+  "optional_source_surfaces": "NEEDS TEACHER DISPOSITION; nineteen records read, not all independently attempted or certified",
+  "current_owner_integration_runtime_teacher_release": "NOT VERIFIED",
+  "mandatory_ordinary_author_copy_repairs": [],
+  "protected_findings": [
+    "P1: p505Q20 receptor-case assumptions, ch14-p505-chapter-review-q20",
+    "P2: p505Q23(b) postpartum/lactation context, ch14-p505-chapter-review-q23",
+    "P3: p490 overbroad any-contact syphilis statement, lesson10 reader context",
+    "P4: p487\u2013488 herpes delivery generalization; p499 HRT risk generalization; p498 cycle-synchrony sidebar; historical clinical/rate data",
+    "P5: slide19 hGH and slide35 contraceptive absolutes are qualified in teaching but source bytes retained; inherited assessment adaptations require approval/provenance reconciliation"
+  ],
+  "file_receipts": [
+    {
+      "file": "source-review.md",
+      "bytes": 29137,
+      "sha256": "922abf4c997aa9c5e20c3b9900cffc3bb9510ab72b413fe6c7fe0e8a0de8de89"
+    },
+    {
+      "file": "source-preservation-receipts.json",
+      "bytes": 152447,
+      "sha256": "46aed2951e180d963d5e28a553915b43bc6d809a64d973802583ad97fbcdfcf7"
+    },
+    {
+      "file": "verify-source-preservation.py",
+      "bytes": 11410,
+      "sha256": "2f62ca6dac84b0d3aee07e727ba0c2948f2dbb197238683f5d4dfbf27c4c1fce"
+    }
+  ]
+}

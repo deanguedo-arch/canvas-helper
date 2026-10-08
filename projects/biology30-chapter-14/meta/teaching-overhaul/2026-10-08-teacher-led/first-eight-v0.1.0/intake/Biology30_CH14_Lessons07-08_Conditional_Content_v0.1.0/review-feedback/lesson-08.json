@@ -1,0 +1,116 @@
+{
+  "check": {
+    "id": "ch14-check-08",
+    "route": "lesson-08",
+    "title": "Hormone changes across the menstrual cycle",
+    "mc": [
+      {
+        "id": "ch14-l08-check-mc-1",
+        "prompt": "Which hormone change most directly triggers ovulation in the usual cycle?",
+        "answer": "LH surge",
+        "options": [
+          "Fall in all pituitary hormones",
+          "Peak in inhibin alone",
+          "LH surge",
+          "Regression of the corpus luteum"
+        ],
+        "cue": "Identify the pituitary signal linked to the release event.",
+        "explanation": "A large LH surge helps trigger ovulation and luteinization of the remaining follicular tissue.",
+        "difficulty": "application"
+      },
+      {
+        "id": "ch14-l08-check-mc-2",
+        "prompt": "Why is the pre-ovulatory estrogen\u2013LH relationship an example of positive feedback?",
+        "answer": "High estrogen promotes increased pituitary stimulation leading to an LH surge",
+        "options": [
+          "Progesterone has already caused menstruation",
+          "The hormone concentrations cannot change after the surge",
+          "Estrogen removes every inhibitory signal permanently",
+          "High estrogen promotes increased pituitary stimulation leading to an LH surge"
+        ],
+        "cue": "Positive feedback reinforces a response rather than opposing it.",
+        "explanation": "Sustained high estrogen promotes the LH surge; this differs from its inhibitory contribution at other parts of the cycle.",
+        "difficulty": "application"
+      }
+    ],
+    "writing": [
+      {
+        "id": "ch14-l08-check-writing-1",
+        "prompt": "Explain the normal order of estrogen, LH and progesterone changes around ovulation. Name the relevant ovarian structures.",
+        "model": "A growing follicle releases increasing estrogen. Sustained high estrogen promotes an LH surge from the anterior pituitary. The surge triggers ovulation and corpus-luteum formation. The corpus luteum releases progesterone after ovulation.",
+        "criteria": [
+          "Correct order and hormone sources.",
+          "Connects hormone changes with follicle, ovulation and corpus luteum."
+        ],
+        "limit": 3200
+      },
+      {
+        "id": "ch14-l08-check-writing-2",
+        "prompt": "Two curves use different vertical scales. Explain why comparing their visual heights may be misleading and describe a comparison you can still make.",
+        "model": "Height on different scales does not directly compare absolute blood concentrations. We can compare the timing of increases, peaks and decreases and relate their order to events such as ovulation.",
+        "criteria": [
+          "Recognises the scale limitation.",
+          "Uses timing or within-hormone change for a valid comparison."
+        ],
+        "limit": 3200
+      }
+    ]
+  },
+  "guided": {
+    "chapter": 14,
+    "lesson": 8,
+    "route": "lesson-08",
+    "worked": {
+      "id": "ch14-l08-worked",
+      "label": "Worked example",
+      "title": "A rise followed by a surge",
+      "scenario": "An illustrative graph shows a sustained estrogen rise, then a short LH peak, followed by a broad progesterone rise.",
+      "steps": [
+        "Read the order rather than memorizing colours: estrogen first, LH surge next, progesterone later.",
+        "Connect the first transition: sustained high estrogen supports positive feedback and an LH surge.",
+        "Connect LH to ovulation and formation of the corpus luteum.",
+        "Connect the later progesterone rise to corpus-luteum activity and support of the endometrium. The graph uses relative levels, so do not compare absolute hormone quantities."
+      ]
+    },
+    "guided": {
+      "id": "ch14-l08-guided",
+      "label": "Practise with support",
+      "title": "Apply the explanation",
+      "instruction": "Try both questions. Use the hint to revise your thinking after an incorrect answer.",
+      "items": [
+        {
+          "id": "ch14-l08-guided-q1",
+          "kind": "select",
+          "prompt": "What change most directly precedes the LH surge in the normal model?",
+          "answer": "Sustained high estrogen from the developing follicle",
+          "options": [
+            "A fall in all ovarian hormones",
+            "Regression of the corpus luteum at the end of the cycle",
+            "Sustained high estrogen from the developing follicle"
+          ],
+          "hint": "Look immediately before ovulation, not at the start of the next cycle.",
+          "explanation": "Sustained high pre-ovulatory estrogen contributes to positive feedback and the LH surge."
+        },
+        {
+          "id": "ch14-l08-guided-q2",
+          "kind": "select",
+          "prompt": "A broad progesterone rise occurs after the LH peak. What ovarian change explains it?",
+          "answer": "Formation of an active corpus luteum",
+          "options": [
+            "Formation of an active corpus luteum",
+            "Loss of every follicular cell from the ovary",
+            "The oocyte becoming a hormone-producing gland"
+          ],
+          "hint": "Which endocrine structure develops after ovulation?",
+          "explanation": "The corpus luteum forms from remaining follicular tissue and releases progesterone."
+        }
+      ]
+    }
+  },
+  "new_optional_model": "The normal-model sequence links sustained high pre-ovulatory estrogen with a later LH surge. The record lacks a recorded surge in the stated interval, so that expected link is not demonstrated. The observation interval and sampling may not capture every event, and the record does not identify why the pattern differs. It supports a bounded description of the missing observed event, not a diagnosis or a claim about every time outside the record.",
+  "original_optional_source": {
+    "id": "ch14-source-OBJ_2131186",
+    "original_key": null,
+    "source": "source-assessment-catalogue OBJ_2131186; preserve"
+  }
+}

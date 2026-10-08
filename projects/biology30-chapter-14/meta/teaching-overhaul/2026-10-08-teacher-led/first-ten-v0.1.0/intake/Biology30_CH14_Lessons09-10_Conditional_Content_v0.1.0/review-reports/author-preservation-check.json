@@ -1,0 +1,31 @@
+{
+  "checks": [
+    {
+      "lesson": 9,
+      "all_original_ids_retained": true,
+      "vocabulary_bindings_retained": true,
+      "full_dom_outside_five_teaching_targets_equal_after_documented_static_only_normalization": true
+    },
+    {
+      "lesson": 10,
+      "all_original_ids_retained": true,
+      "vocabulary_bindings_retained": true,
+      "full_dom_outside_five_teaching_targets_equal_after_documented_static_only_normalization": true
+    }
+  ],
+  "assets": [
+    {
+      "file": "female-anatomy.png",
+      "sha256": "aeddd3a1c334fc4fa16e213a0ea8967c25e541afd991a2fb04ec20bc8f7f03f2",
+      "exact_original_bytes": true,
+      "new_reuse_placement_only": true
+    },
+    {
+      "file": "cycle-coordination.svg",
+      "sha256": "67822d2123a1b97d4d5af600f2980d996cc630ee1f6a39879c5c95af875f6b8f",
+      "exact_original_bytes": true,
+      "new_reuse_placement_only": true
+    }
+  ],
+  "scope": "author deterministic comparison, not independent review or browser runtime"
+}

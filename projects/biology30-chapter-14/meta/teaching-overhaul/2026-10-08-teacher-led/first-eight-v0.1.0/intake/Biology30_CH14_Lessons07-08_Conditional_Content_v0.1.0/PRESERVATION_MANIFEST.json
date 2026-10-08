@@ -1,0 +1,125 @@
+{
+  "status": "conditional teaching-only candidate; no integration",
+  "candidate_version": "0.1.0",
+  "source_archive_sha256": "904db6f6e58c4d68689c611e2b6f2e3f5b020f48d6db55d366b934dbcf396a58",
+  "base_files": {
+    "scripts/content.py": "15f3e496a739a40f7de85ccfa8a8dcaadfb0a4ebb4274f4c36c272244d542a2e",
+    "scripts/build_chapter.py": "915625267d4ea0a5a2bbd5cb86c62d3a9767f1d5aebcadcfb7b0169ee0eb704a",
+    "workspace/index.html": "4ce8de9382426b07de164b5de82ab6c25cd2471f41f309f7208311d3b523d1d0",
+    "authoring/course-config.json": "22a968d603d78dd5cd12e81324f8f4df4fbd29161413de20873884c714d1ffe8"
+  },
+  "replacement_targets": [
+    {
+      "lesson": "lesson-07",
+      "selector": "#ch14-l07-teaching-01",
+      "owner": "scripts/content.py LESSONS[6].sections[0]",
+      "original_dom_serialization_sha256": "491b9a28520287dfee0eb80f55763339c21149a751cbfe0301a624d8304c222d",
+      "historical_owner_lines": [
+        268,
+        272
+      ]
+    },
+    {
+      "lesson": "lesson-07",
+      "selector": "#ch14-l07-teaching-02",
+      "owner": "scripts/content.py LESSONS[6].sections[1]",
+      "original_dom_serialization_sha256": "960085ff7693ba7da965cf4096902752d2d12df24d34acd3a0319d55aa82af51",
+      "historical_owner_lines": [
+        273,
+        277
+      ]
+    },
+    {
+      "lesson": "lesson-07",
+      "selector": "#ch14-l07-teaching-03",
+      "owner": "scripts/content.py LESSONS[6].sections[2]",
+      "original_dom_serialization_sha256": "9579aac411dac6d3aa613425b4ac92e0a5f18296a240614d907ab25280df4a47",
+      "historical_owner_lines": [
+        278,
+        282
+      ]
+    },
+    {
+      "lesson": "lesson-07",
+      "selector": "#ch14-l07-teaching-04",
+      "owner": "scripts/content.py LESSONS[6].sections[3]",
+      "original_dom_serialization_sha256": "0b3fadc7cb15b48e38ac736b2f6fbf3621fec41af065f93db011bc4ee7d0076a",
+      "historical_owner_lines": [
+        283,
+        286
+      ]
+    },
+    {
+      "lesson": "lesson-07",
+      "selector": "#ch14-l07-worked",
+      "owner": "scripts/content.py LESSONS[6].worked; new optional application is inert teaching prose, not a saved task",
+      "historical_owner_lines": [
+        288,
+        293
+      ]
+    },
+    {
+      "lesson": "lesson-08",
+      "selector": "#ch14-l08-teaching-01",
+      "owner": "scripts/content.py LESSONS[7].sections[0]",
+      "original_dom_serialization_sha256": "95624bace6251f2d2861516260bd2d6788c067631be267494c4f47809383791f",
+      "historical_owner_lines": [
+        311,
+        315
+      ]
+    },
+    {
+      "lesson": "lesson-08",
+      "selector": "#ch14-l08-teaching-02",
+      "owner": "scripts/content.py LESSONS[7].sections[1]",
+      "original_dom_serialization_sha256": "2d3d73a57c1d953e0c49eac9c93239ab9e4f5908a6f5f1245a6411acd1e334b4",
+      "historical_owner_lines": [
+        316,
+        320
+      ]
+    },
+    {
+      "lesson": "lesson-08",
+      "selector": "#ch14-l08-teaching-03",
+      "owner": "scripts/content.py LESSONS[7].sections[2]",
+      "original_dom_serialization_sha256": "ff5f90168b639b3f9ecf33f44533c9b052b3a11d37e18c3e6cc4ce3f9a49dddf",
+      "historical_owner_lines": [
+        321,
+        324
+      ]
+    },
+    {
+      "lesson": "lesson-08",
+      "selector": "#ch14-l08-teaching-04",
+      "owner": "scripts/content.py LESSONS[7].sections[3]",
+      "original_dom_serialization_sha256": "25593e9ac63b8c2b07185636f7685e318f6844e8f3c196b770280336dbd82f97",
+      "historical_owner_lines": [
+        325,
+        329
+      ]
+    },
+    {
+      "lesson": "lesson-08",
+      "selector": "#ch14-l08-worked",
+      "owner": "scripts/content.py LESSONS[7].worked; new optional application is inert teaching prose, not a saved task",
+      "historical_owner_lines": [
+        331,
+        336
+      ]
+    }
+  ],
+  "source_manifest_entries_verified": 322,
+  "standard": {
+    "content_version": "0.4",
+    "library_version": 5,
+    "sha256": "db8a04bcd7620d9ecf64ec6dc86c046cb3075b9b09cc51dac41936c391379e1e",
+    "provenance": "exact frozen v0.4 source supplied by standard coordinator and hash/size verified before drafting; 65442 bytes"
+  },
+  "reference_files": {
+    "BENCHMARK_STATUS_AND_ACCEPTANCE.json": "becf8ac84525a589cbe903b4d774472aaf76b937d5c74e025e0813b83fa98c31",
+    "process/history/teacher-led-batch-06-07-v0.1.0/TEACHER_ACCEPTANCE.md": "26450315855806634a6c878d15c975c8cc58709d6832a1c994ec5c7980299f53",
+    "returned-copy/teacher-led-batch-06-07-v0.1.0/lesson-06.teaching-fragment.html": "8f6f7d8013b8ada7841a4d843c5119f8d011fc7d6ddca6e822c871dc8555c0c4",
+    "returned-copy/teacher-led-batch-06-07-v0.1.0/lesson-07.teaching-fragment.html": "0a9c4872e8a65813229c7f1258b154315faeb8f71f04dc8342ac50abb454527a"
+  },
+  "protected_scope": "Only detached teaching/worked07\u201308; original assessments and saved optional field, keys, figures, vocabulary, source owners and runtime unchanged. Earlier01\u201306 decisions not changed."
+}

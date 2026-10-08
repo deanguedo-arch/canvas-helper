@@ -1,0 +1,269 @@
+{
+  "status": "FINAL_RECHECK_COMPLETE",
+  "created_at_utc": "2026-10-08T20:43:06.192130+00:00",
+  "scope": "Focused recheck of the repaired static generated appendix plus newly authorized original stop feedback; no expansion into source-accuracy or protected-change review.",
+  "frozen_first_attempt_integrity": {
+    "first-attempt.json": "2efa66e5a6b3945188ff5cda597b6eac33697cf8fbc72547e07ba45b641534c5",
+    "first-attempt.md": "fc4714470cb130093cb144a9b2bd0851f1ff57206d251e1b5aab435baf5dc8f2"
+  },
+  "final_result": "All 66 frozen answers remain supported. All 65 items now having supplied keys/models align substantively, including both newly supplied original stop models. The original saved contraception response is the sole unkeyed item and is supported by its visible mechanism. All 8 required-writing criteria are met. No answer corrections needed.",
+  "score_boundary": "This is an offline content/model comparison, not 65 native runtime passes or a course acceptance result.",
+  "appendix_parity": {
+    "expected_records": 49,
+    "actual_numbered_item_ids": 49,
+    "same_id_inventory_and_order": true,
+    "all_prompts_and_ordered_options_steps_match_unchanged_json": true,
+    "source_json_hash_unchanged": true,
+    "comparison_method": "Extract revised PDF text, collapse whitespace only, compare each numbered item block to unchanged JSON prompt and option/step strings; also visually inspect all six PNG pages.",
+    "receipt": "revised-appendix-parity.json"
+  },
+  "six_page_pixel_recheck": [
+    {
+      "page": 1,
+      "result": "Inspected actual revised pixels. Title now reads “Optional generated practice for lessons 09 and 10”; introductory “All 49” and “are not 49” spacing is clear. Items 1–10 remain readable and unchanged."
+    },
+    {
+      "page": 2,
+      "result": "Inspected actual revised pixels. Items 11–23 remain readable and complete; no new clipping or displacement."
+    },
+    {
+      "page": 3,
+      "result": "Inspected actual revised pixels. Items 24–33 and all four item33 choices remain readable; no changed task content."
+    },
+    {
+      "page": 4,
+      "result": "Inspected actual revised pixels. Items 34–38 remain readable. Item36 remains in stored causal order and is still not a native shuffle test."
+    },
+    {
+      "page": 5,
+      "result": "Inspected actual revised pixels. Item39 now has explicit “Choice 1:” through “Choice 4:” markers with all four original option strings in the same order. Items 40–44 remain readable; no clipping or page overflow."
+    },
+    {
+      "page": 6,
+      "result": "Inspected actual revised pixels. Items 45–49, typed prompts and a–d multi-select options remain readable and complete."
+    }
+  ],
+  "stop_model_comparison": [
+    {
+      "id": "lesson-09-stop",
+      "prompt": "Would low progesterone in one sample prove that ovulation never occurred?",
+      "frozen_answer": "No. One sample only shows that progesterone was low when it was taken. It may have been taken before the usual post-ovulation rise, so the timing and a more complete pattern are needed before interpreting ovulation.",
+      "newly_supplied_original_model": "No. Sample timing and the wider pattern matter. State what the sample shows before deciding what it can support.",
+      "result": "Substantive alignment; no change to the first answer needed",
+      "reason": "The answer rejects a conclusion from one sample, states the measured/timing limit, and requires a wider pattern."
+    },
+    {
+      "id": "lesson-10-stop",
+      "prompt": "Would treating an infection necessarily remove all scarring it caused?",
+      "frozen_answer": "No. Removing the pathogen does not necessarily undo established scar tissue. Separate evidence would be needed to know whether the damaged transport route had reopened.",
+      "newly_supplied_original_model": "No. Addressing the pathogen and reversing existing tissue damage are different things.",
+      "result": "Substantive alignment; no change to the first answer needed",
+      "reason": "The answer separates removing the pathogen from reversing scar tissue and asks for separate evidence about the pathway."
+    }
+  ],
+  "new_feedback_receipt": {
+    "path": "review-feedback/original-stops.json",
+    "bytes": 418,
+    "sha256": "61038b7bc0ef656b49247cd6f02044358756d362d0edf2f4f1298da1a433d3b0"
+  },
+  "final_source_render_receipts": [
+    {
+      "path": "review-blind-final/lesson-09.html",
+      "bytes": 27664,
+      "sha256": "9e2c1fe6ce829b8252f7cf2b601ce2323935421fba5af9a7d4f8128fb11961e2",
+      "first_attempt_sha256": "9e2c1fe6ce829b8252f7cf2b601ce2323935421fba5af9a7d4f8128fb11961e2",
+      "changed_since_first_attempt": false
+    },
+    {
+      "path": "review-blind-final/lesson-10.html",
+      "bytes": 25691,
+      "sha256": "ed4686b2a1a17299597765f8a6d73b0b54d3140c61111605c22411ef192e24c5",
+      "first_attempt_sha256": "ed4686b2a1a17299597765f8a6d73b0b54d3140c61111605c22411ef192e24c5",
+      "changed_since_first_attempt": false
+    },
+    {
+      "path": "review-blind-final/generated-09-10.json",
+      "bytes": 14021,
+      "sha256": "c5ff3d5fcf2f5fafa10c01a84add5d54439cf41273643d1a24d1445c16904e12",
+      "first_attempt_sha256": "c5ff3d5fcf2f5fafa10c01a84add5d54439cf41273643d1a24d1445c16904e12",
+      "changed_since_first_attempt": false
+    },
+    {
+      "path": "review-rendered-final/lesson-09.pdf",
+      "bytes": 142417,
+      "sha256": "83114e79e075b162b70c2667e99586805395c0b47567d118a8e145c8dab990a5",
+      "first_attempt_sha256": "83114e79e075b162b70c2667e99586805395c0b47567d118a8e145c8dab990a5",
+      "changed_since_first_attempt": false
+    },
+    {
+      "path": "review-rendered-final/lesson-10.pdf",
+      "bytes": 376613,
+      "sha256": "7524f7a73e4cdf3f21b858b03df21c3fef9a94a098f50679353d14a579e9a36f",
+      "first_attempt_sha256": "7524f7a73e4cdf3f21b858b03df21c3fef9a94a098f50679353d14a579e9a36f",
+      "changed_since_first_attempt": false
+    },
+    {
+      "path": "review-rendered-final/generated-09-10.pdf",
+      "bytes": 51701,
+      "sha256": "a18e1256c22447b08f6f595e58627b69bf263fd08ff733bae52b3a5605398efe",
+      "first_attempt_sha256": "6bf949e42b7387e87efcc9bf8149a2311e3f30c8a422328dee563b646d1f301a",
+      "changed_since_first_attempt": true
+    },
+    {
+      "path": "review-rendered-final/lesson-09-page-01.png",
+      "bytes": 127404,
+      "sha256": "6102313218513f6e86d2ca9a2b01ed6afe5841fb1d23fada4950a604fbf6c112",
+      "first_attempt_sha256": "6102313218513f6e86d2ca9a2b01ed6afe5841fb1d23fada4950a604fbf6c112",
+      "changed_since_first_attempt": false
+    },
+    {
+      "path": "review-rendered-final/lesson-09-page-02.png",
+      "bytes": 142256,
+      "sha256": "f5f5a511154ecaae67e1020ea447bc27c1a48c343a3e9c3918fac4dc33fb1a70",
+      "first_attempt_sha256": "f5f5a511154ecaae67e1020ea447bc27c1a48c343a3e9c3918fac4dc33fb1a70",
+      "changed_since_first_attempt": false
+    },
+    {
+      "path": "review-rendered-final/lesson-09-page-03.png",
+      "bytes": 152654,
+      "sha256": "69f30ebcc9691ba028aa10a99ba0fdfb73fdcf2ea7e3686077c3368f1fab416c",
+      "first_attempt_sha256": "69f30ebcc9691ba028aa10a99ba0fdfb73fdcf2ea7e3686077c3368f1fab416c",
+      "changed_since_first_attempt": false
+    },
+    {
+      "path": "review-rendered-final/lesson-09-page-04.png",
+      "bytes": 198850,
+      "sha256": "e5f1453a2fa9aa1fc5ce378280d8a614a57119421eb3dfb1fac0003384a540b0",
+      "first_attempt_sha256": "e5f1453a2fa9aa1fc5ce378280d8a614a57119421eb3dfb1fac0003384a540b0",
+      "changed_since_first_attempt": false
+    },
+    {
+      "path": "review-rendered-final/lesson-09-page-05.png",
+      "bytes": 163802,
+      "sha256": "4d3cf1195d4cd85981aa68328e9b157420a173ed6562e7538e2faa39669680fd",
+      "first_attempt_sha256": "4d3cf1195d4cd85981aa68328e9b157420a173ed6562e7538e2faa39669680fd",
+      "changed_since_first_attempt": false
+    },
+    {
+      "path": "review-rendered-final/lesson-09-page-06.png",
+      "bytes": 121684,
+      "sha256": "bc83754c250921a9f3b41216ddbcb6b914ba48cd417a4e855313d0479cbda3ac",
+      "first_attempt_sha256": "bc83754c250921a9f3b41216ddbcb6b914ba48cd417a4e855313d0479cbda3ac",
+      "changed_since_first_attempt": false
+    },
+    {
+      "path": "review-rendered-final/lesson-09-page-07.png",
+      "bytes": 104975,
+      "sha256": "30a4c511e751b8834ffd52d2206005dc2248a737a24c04b1df4c09fadb6bf1d8",
+      "first_attempt_sha256": "30a4c511e751b8834ffd52d2206005dc2248a737a24c04b1df4c09fadb6bf1d8",
+      "changed_since_first_attempt": false
+    },
+    {
+      "path": "review-rendered-final/lesson-10-page-01.png",
+      "bytes": 119915,
+      "sha256": "af02d007a1c400b61644e348294cfdca0de94e2357342c00bf1ca0d27fb3f48d",
+      "first_attempt_sha256": "af02d007a1c400b61644e348294cfdca0de94e2357342c00bf1ca0d27fb3f48d",
+      "changed_since_first_attempt": false
+    },
+    {
+      "path": "review-rendered-final/lesson-10-page-02.png",
+      "bytes": 172139,
+      "sha256": "e79472971f695eaed341790ee570e42a185a82d7f168f6379aa19bd809d3129b",
+      "first_attempt_sha256": "e79472971f695eaed341790ee570e42a185a82d7f168f6379aa19bd809d3129b",
+      "changed_since_first_attempt": false
+    },
+    {
+      "path": "review-rendered-final/lesson-10-page-03.png",
+      "bytes": 579735,
+      "sha256": "4515edd74c483d4806cb6373a94e5738e45b821c85d6508e061be92ced90ccb7",
+      "first_attempt_sha256": "4515edd74c483d4806cb6373a94e5738e45b821c85d6508e061be92ced90ccb7",
+      "changed_since_first_attempt": false
+    },
+    {
+      "path": "review-rendered-final/lesson-10-page-04.png",
+      "bytes": 208410,
+      "sha256": "b6b0dc3e9719d7af6dff86a32434d130848bb72e90610f817e229ab7394cb313",
+      "first_attempt_sha256": "b6b0dc3e9719d7af6dff86a32434d130848bb72e90610f817e229ab7394cb313",
+      "changed_since_first_attempt": false
+    },
+    {
+      "path": "review-rendered-final/lesson-10-page-05.png",
+      "bytes": 157071,
+      "sha256": "36d6cbe662ca42e31f7dab883ea7f646551d23cbaebe081c95017bc4af323af6",
+      "first_attempt_sha256": "36d6cbe662ca42e31f7dab883ea7f646551d23cbaebe081c95017bc4af323af6",
+      "changed_since_first_attempt": false
+    },
+    {
+      "path": "review-rendered-final/lesson-10-page-06.png",
+      "bytes": 105959,
+      "sha256": "80f1f7bb385bc5cdbe85c02eb281c49ac1b5ccfbd03ad63048381aae0ac68dff",
+      "first_attempt_sha256": "80f1f7bb385bc5cdbe85c02eb281c49ac1b5ccfbd03ad63048381aae0ac68dff",
+      "changed_since_first_attempt": false
+    },
+    {
+      "path": "review-rendered-final/lesson-10-page-07.png",
+      "bytes": 34147,
+      "sha256": "98b8e73235625562c6533ebc30a24af4aa9be083e4d97fd35dbaf5b20f757aa5",
+      "first_attempt_sha256": "98b8e73235625562c6533ebc30a24af4aa9be083e4d97fd35dbaf5b20f757aa5",
+      "changed_since_first_attempt": false
+    },
+    {
+      "path": "review-rendered-final/generated-page-01.png",
+      "bytes": 115943,
+      "sha256": "28e7adfef036f0a09ccfa7aad0b674ac29a059077c04be0cf712ff6a56f85794",
+      "first_attempt_sha256": "2d18159b719387c74c527d51332a37687b9af8934278594021a78ea1a6e57334",
+      "changed_since_first_attempt": true
+    },
+    {
+      "path": "review-rendered-final/generated-page-02.png",
+      "bytes": 111092,
+      "sha256": "1f82ebfa3c0fd2dedf68e8226641320a02b9d558549177d8cbb6ab64125a56b5",
+      "first_attempt_sha256": "1f82ebfa3c0fd2dedf68e8226641320a02b9d558549177d8cbb6ab64125a56b5",
+      "changed_since_first_attempt": false
+    },
+    {
+      "path": "review-rendered-final/generated-page-03.png",
+      "bytes": 100246,
+      "sha256": "9f157d1b5044c8b5e69a200a33f513cd64102a873e18ea57cae44b66c45046d4",
+      "first_attempt_sha256": "9f157d1b5044c8b5e69a200a33f513cd64102a873e18ea57cae44b66c45046d4",
+      "changed_since_first_attempt": false
+    },
+    {
+      "path": "review-rendered-final/generated-page-04.png",
+      "bytes": 101758,
+      "sha256": "78b2779df6d1972141917b1d65d9c0f706c67497ae465e570354803709169700",
+      "first_attempt_sha256": "78b2779df6d1972141917b1d65d9c0f706c67497ae465e570354803709169700",
+      "changed_since_first_attempt": false
+    },
+    {
+      "path": "review-rendered-final/generated-page-05.png",
+      "bytes": 117892,
+      "sha256": "0c500a4c3b48c92656eaf11147f372eba857305d84a38ccbb5248d4bcc8b8b50",
+      "first_attempt_sha256": "1a963cf36ba976c0bc669626e071c68829fe0922fb85ee7e9ddc22483e301998",
+      "changed_since_first_attempt": true
+    },
+    {
+      "path": "review-rendered-final/generated-page-06.png",
+      "bytes": 76127,
+      "sha256": "499a79de49461930360050c272c658bab002b76d5a668485b37c1482f8b8c01c",
+      "first_attempt_sha256": "499a79de49461930360050c272c658bab002b76d5a668485b37c1482f8b8c01c",
+      "changed_since_first_attempt": false
+    }
+  ],
+  "remaining_limitations": [
+    "No missing explanation blocks completing any of the 66 tasks, but success largely reflects close recognition/reconstruction and repeated representations; novel independent transfer remains untested.",
+    "The cycle figure’s initial downward arrow retains a standalone causal-reading risk; surrounding text and footer explicitly correct it. The normal-anatomy figure cannot prove infection or blockage.",
+    "The PID full-name-plus-abbreviation answer is semantically correct but not literally either stored answer/alias separately; native input normalization remains untested.",
+    "No native runtime, mobile/responsive layout, interaction, shuffle, feedback activation, saving, persistence, gating or progress acceptance tested.",
+    "Scientific source accuracy and protected-source changes are reserved for the separate reviewer."
+  ],
+  "files_delivered": [
+    "first-attempt.md",
+    "first-attempt.json",
+    "second-pass.md",
+    "second-pass.json",
+    "revised-appendix-parity.json",
+    "final-recheck.md",
+    "final-recheck.json"
+  ]
+}

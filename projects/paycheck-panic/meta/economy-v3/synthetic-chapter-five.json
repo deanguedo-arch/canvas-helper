@@ -1,0 +1,1695 @@
+{
+  "schema": 3,
+  "rules": "2026.09.financial-story.1",
+  "revision": 0,
+  "state": {
+    "schema": 3,
+    "rules": "2026.09.financial-story.1",
+    "id": "synthetic-review",
+    "profile": "independent",
+    "mode": "story",
+    "char": "jay",
+    "month": 5,
+    "day": 15,
+    "cash": 467861,
+    "emergency": 30301,
+    "goal": 80000,
+    "investment": 0,
+    "card": 0,
+    "loan": {
+      "principal": 120000,
+      "balance": 101258,
+      "apr": 0.15,
+      "variable": true,
+      "payment": 10662,
+      "arrears": 0,
+      "origin": 3
+    },
+    "unpaid": [],
+    "ledger": [
+      {
+        "id": "food1",
+        "month": 1,
+        "day": 0,
+        "label": "Monthly meal basket",
+        "category": "food",
+        "delta": {
+          "cash": -36000
+        },
+        "before": {
+          "cash": 150000
+        },
+        "blocks": 1,
+        "stats": {},
+        "statExpected": {}
+      },
+      {
+        "id": "bill:1:housing",
+        "month": 1,
+        "day": 1,
+        "label": "Shared rent",
+        "category": "housing",
+        "delta": {
+          "cash": -95000
+        },
+        "before": {
+          "cash": 114000
+        },
+        "due": 95000,
+        "paid": 95000,
+        "unpaid": 0
+      },
+      {
+        "id": "bill:1:transport",
+        "month": 1,
+        "day": 2,
+        "label": "Transit pass",
+        "category": "transport",
+        "delta": {
+          "cash": -11000
+        },
+        "before": {
+          "cash": 19000
+        },
+        "due": 11000,
+        "paid": 11000,
+        "unpaid": 0
+      },
+      {
+        "id": "bill:1:insurance",
+        "month": 1,
+        "day": 5,
+        "label": "Tenant insurance",
+        "category": "insurance",
+        "delta": {
+          "cash": -2500
+        },
+        "before": {
+          "cash": 8000
+        },
+        "due": 2500,
+        "paid": 2500,
+        "unpaid": 0
+      },
+      {
+        "id": "bill:1:utilities",
+        "month": 1,
+        "day": 10,
+        "label": "Utilities and internet",
+        "category": "utilities",
+        "delta": {
+          "cash": -5500
+        },
+        "before": {
+          "cash": 5500
+        },
+        "due": 10000,
+        "paid": 5500,
+        "unpaid": 4500
+      },
+      {
+        "id": "pay:1:15",
+        "month": 1,
+        "day": 15,
+        "label": "Payday — 80 hours",
+        "category": "income",
+        "delta": {
+          "cash": 125429
+        },
+        "before": {
+          "cash": 0
+        },
+        "gross": 148000,
+        "cpp": 7938,
+        "ei": 2412,
+        "tax": 12221,
+        "net": 125429
+      },
+      {
+        "id": "bill:1:phone",
+        "month": 1,
+        "day": 20,
+        "label": "Phone plan",
+        "category": "phone",
+        "delta": {
+          "cash": -4500
+        },
+        "before": {
+          "cash": 125429
+        },
+        "due": 4500,
+        "paid": 4500,
+        "unpaid": 0
+      },
+      {
+        "id": "bill:1:essentials",
+        "month": 1,
+        "day": 24,
+        "label": "Household essentials",
+        "category": "essentials",
+        "delta": {
+          "cash": -6000
+        },
+        "before": {
+          "cash": 120929
+        },
+        "due": 6000,
+        "paid": 6000,
+        "unpaid": 0
+      },
+      {
+        "id": "debt:1",
+        "month": 1,
+        "day": 25,
+        "label": "Card minimum",
+        "category": "debt",
+        "delta": {
+          "cash": 0,
+          "card": 0
+        },
+        "before": {
+          "cash": 114929,
+          "card": 0
+        },
+        "due": 0,
+        "paid": 0
+      },
+      {
+        "id": "pay:1:30",
+        "month": 1,
+        "day": 30,
+        "label": "Payday — 80 hours",
+        "category": "income",
+        "delta": {
+          "cash": 125429
+        },
+        "before": {
+          "cash": 114929
+        },
+        "gross": 148000,
+        "cpp": 7938,
+        "ei": 2412,
+        "tax": 12221,
+        "net": 125429
+      },
+      {
+        "id": "goal1",
+        "month": 1,
+        "day": 30,
+        "label": "Transfer to your goal",
+        "category": "goal",
+        "delta": {
+          "cash": -20000,
+          "goal": 20000
+        },
+        "before": {
+          "cash": 240358,
+          "goal": 0
+        },
+        "blocks": 0,
+        "stats": {},
+        "statExpected": {}
+      },
+      {
+        "id": "close:1",
+        "month": 1,
+        "day": 30,
+        "label": "Card interest",
+        "category": "interest",
+        "delta": {
+          "card": 0
+        },
+        "before": {
+          "card": 0
+        }
+      },
+      {
+        "id": "savings:1",
+        "month": 1,
+        "day": 30,
+        "label": "Emergency savings interest",
+        "category": "interest",
+        "delta": {
+          "emergency": 75
+        },
+        "before": {
+          "emergency": 30000
+        }
+      },
+      {
+        "id": "food2",
+        "month": 2,
+        "day": 0,
+        "label": "Monthly meal basket",
+        "category": "food",
+        "delta": {
+          "cash": -36000
+        },
+        "before": {
+          "cash": 220358
+        },
+        "blocks": 1,
+        "stats": {},
+        "statExpected": {}
+      },
+      {
+        "id": "device",
+        "month": 2,
+        "day": 0,
+        "label": "Start 24-month device agreement",
+        "category": "phone",
+        "delta": {
+          "cash": 0
+        },
+        "before": {
+          "cash": 184358
+        },
+        "blocks": 0,
+        "stats": {},
+        "statExpected": {}
+      },
+      {
+        "id": "bill:2:housing",
+        "month": 2,
+        "day": 1,
+        "label": "Shared rent",
+        "category": "housing",
+        "delta": {
+          "cash": -95000
+        },
+        "before": {
+          "cash": 184358
+        },
+        "due": 95000,
+        "paid": 95000,
+        "unpaid": 0
+      },
+      {
+        "id": "bill:2:transport",
+        "month": 2,
+        "day": 2,
+        "label": "Transit pass",
+        "category": "transport",
+        "delta": {
+          "cash": -11000
+        },
+        "before": {
+          "cash": 89358
+        },
+        "due": 11000,
+        "paid": 11000,
+        "unpaid": 0
+      },
+      {
+        "id": "bill:2:insurance",
+        "month": 2,
+        "day": 5,
+        "label": "Tenant insurance",
+        "category": "insurance",
+        "delta": {
+          "cash": -2500
+        },
+        "before": {
+          "cash": 78358
+        },
+        "due": 2500,
+        "paid": 2500,
+        "unpaid": 0
+      },
+      {
+        "id": "bill:2:utilities",
+        "month": 2,
+        "day": 10,
+        "label": "Utilities and internet",
+        "category": "utilities",
+        "delta": {
+          "cash": -15500
+        },
+        "before": {
+          "cash": 75858
+        },
+        "due": 15500,
+        "paid": 15500,
+        "unpaid": 0
+      },
+      {
+        "id": "pay:2:15",
+        "month": 2,
+        "day": 15,
+        "label": "Payday — 80 hours",
+        "category": "income",
+        "delta": {
+          "cash": 125429
+        },
+        "before": {
+          "cash": 60358
+        },
+        "gross": 148000,
+        "cpp": 7938,
+        "ei": 2412,
+        "tax": 12221,
+        "net": 125429
+      },
+      {
+        "id": "bill:2:phone",
+        "month": 2,
+        "day": 20,
+        "label": "Phone plan",
+        "category": "phone",
+        "delta": {
+          "cash": -4500
+        },
+        "before": {
+          "cash": 185787
+        },
+        "due": 4500,
+        "paid": 4500,
+        "unpaid": 0
+      },
+      {
+        "id": "bill:2:device",
+        "month": 2,
+        "day": 20,
+        "label": "Device instalment",
+        "category": "phone",
+        "delta": {
+          "cash": -2500
+        },
+        "before": {
+          "cash": 181287
+        },
+        "due": 2500,
+        "paid": 2500,
+        "unpaid": 0
+      },
+      {
+        "id": "bill:2:essentials",
+        "month": 2,
+        "day": 24,
+        "label": "Household essentials",
+        "category": "essentials",
+        "delta": {
+          "cash": -6000
+        },
+        "before": {
+          "cash": 178787
+        },
+        "due": 6000,
+        "paid": 6000,
+        "unpaid": 0
+      },
+      {
+        "id": "debt:2",
+        "month": 2,
+        "day": 25,
+        "label": "Card minimum",
+        "category": "debt",
+        "delta": {
+          "cash": 0,
+          "card": 0
+        },
+        "before": {
+          "cash": 172787,
+          "card": 0
+        },
+        "due": 0,
+        "paid": 0
+      },
+      {
+        "id": "pay:2:30",
+        "month": 2,
+        "day": 30,
+        "label": "Payday — 80 hours",
+        "category": "income",
+        "delta": {
+          "cash": 125429
+        },
+        "before": {
+          "cash": 172787
+        },
+        "gross": 148000,
+        "cpp": 7938,
+        "ei": 2412,
+        "tax": 12221,
+        "net": 125429
+      },
+      {
+        "id": "goal2",
+        "month": 2,
+        "day": 30,
+        "label": "Transfer to your goal",
+        "category": "goal",
+        "delta": {
+          "cash": -20000,
+          "goal": 20000
+        },
+        "before": {
+          "cash": 298216,
+          "goal": 20000
+        },
+        "blocks": 0,
+        "stats": {},
+        "statExpected": {}
+      },
+      {
+        "id": "close:2",
+        "month": 2,
+        "day": 30,
+        "label": "Card interest",
+        "category": "interest",
+        "delta": {
+          "card": 0
+        },
+        "before": {
+          "card": 0
+        }
+      },
+      {
+        "id": "savings:2",
+        "month": 2,
+        "day": 30,
+        "label": "Emergency savings interest",
+        "category": "interest",
+        "delta": {
+          "emergency": 75
+        },
+        "before": {
+          "emergency": 30075
+        }
+      },
+      {
+        "id": "food3",
+        "month": 3,
+        "day": 0,
+        "label": "Monthly meal basket",
+        "category": "food",
+        "delta": {
+          "cash": -36000
+        },
+        "before": {
+          "cash": 278216
+        },
+        "blocks": 1,
+        "stats": {},
+        "statExpected": {}
+      },
+      {
+        "id": "loan",
+        "month": 3,
+        "day": 0,
+        "label": "Take a 12-month personal loan",
+        "category": "borrowing",
+        "delta": {
+          "cash": 120000
+        },
+        "before": {
+          "cash": 242216
+        },
+        "blocks": 0,
+        "liability": {
+          "loan": [
+            0,
+            120000
+          ]
+        },
+        "stats": {},
+        "statExpected": {}
+      },
+      {
+        "id": "bill:3:housing",
+        "month": 3,
+        "day": 1,
+        "label": "Shared rent",
+        "category": "housing",
+        "delta": {
+          "cash": -95000
+        },
+        "before": {
+          "cash": 362216
+        },
+        "due": 95000,
+        "paid": 95000,
+        "unpaid": 0
+      },
+      {
+        "id": "bill:3:transport",
+        "month": 3,
+        "day": 2,
+        "label": "Transit pass",
+        "category": "transport",
+        "delta": {
+          "cash": -11000
+        },
+        "before": {
+          "cash": 267216
+        },
+        "due": 11000,
+        "paid": 11000,
+        "unpaid": 0
+      },
+      {
+        "id": "bill:3:insurance",
+        "month": 3,
+        "day": 5,
+        "label": "Tenant insurance",
+        "category": "insurance",
+        "delta": {
+          "cash": -2500
+        },
+        "before": {
+          "cash": 256216
+        },
+        "due": 2500,
+        "paid": 2500,
+        "unpaid": 0
+      },
+      {
+        "id": "bill:3:utilities",
+        "month": 3,
+        "day": 10,
+        "label": "Utilities and internet",
+        "category": "utilities",
+        "delta": {
+          "cash": -10000
+        },
+        "before": {
+          "cash": 253716
+        },
+        "due": 10000,
+        "paid": 10000,
+        "unpaid": 0
+      },
+      {
+        "id": "pay:3:15",
+        "month": 3,
+        "day": 15,
+        "label": "Payday — 80 hours",
+        "category": "income",
+        "delta": {
+          "cash": 125429
+        },
+        "before": {
+          "cash": 243716
+        },
+        "gross": 148000,
+        "cpp": 7938,
+        "ei": 2412,
+        "tax": 12221,
+        "net": 125429
+      },
+      {
+        "id": "bill:3:phone",
+        "month": 3,
+        "day": 20,
+        "label": "Phone plan",
+        "category": "phone",
+        "delta": {
+          "cash": -4500
+        },
+        "before": {
+          "cash": 369145
+        },
+        "due": 4500,
+        "paid": 4500,
+        "unpaid": 0
+      },
+      {
+        "id": "bill:3:device",
+        "month": 3,
+        "day": 20,
+        "label": "Device instalment",
+        "category": "phone",
+        "delta": {
+          "cash": -2500
+        },
+        "before": {
+          "cash": 364645
+        },
+        "due": 2500,
+        "paid": 2500,
+        "unpaid": 0
+      },
+      {
+        "id": "bill:3:essentials",
+        "month": 3,
+        "day": 24,
+        "label": "Household essentials",
+        "category": "essentials",
+        "delta": {
+          "cash": -6000
+        },
+        "before": {
+          "cash": 362145
+        },
+        "due": 6000,
+        "paid": 6000,
+        "unpaid": 0
+      },
+      {
+        "id": "debt:3",
+        "month": 3,
+        "day": 25,
+        "label": "Card minimum",
+        "category": "debt",
+        "delta": {
+          "cash": 0,
+          "card": 0
+        },
+        "before": {
+          "cash": 356145,
+          "card": 0
+        },
+        "due": 0,
+        "paid": 0
+      },
+      {
+        "id": "loan:3",
+        "month": 3,
+        "day": 25,
+        "label": "Loan payment",
+        "category": "debt",
+        "delta": {
+          "cash": -10662
+        },
+        "before": {
+          "cash": 356145
+        },
+        "interest": 1200,
+        "due": 10662,
+        "paid": 10662,
+        "liability": {
+          "loan": [
+            120000,
+            110538
+          ]
+        }
+      },
+      {
+        "id": "pay:3:30",
+        "month": 3,
+        "day": 30,
+        "label": "Payday — 80 hours",
+        "category": "income",
+        "delta": {
+          "cash": 125429
+        },
+        "before": {
+          "cash": 345483
+        },
+        "gross": 148000,
+        "cpp": 7938,
+        "ei": 2412,
+        "tax": 12221,
+        "net": 125429
+      },
+      {
+        "id": "goal3",
+        "month": 3,
+        "day": 30,
+        "label": "Transfer to your goal",
+        "category": "goal",
+        "delta": {
+          "cash": -20000,
+          "goal": 20000
+        },
+        "before": {
+          "cash": 470912,
+          "goal": 40000
+        },
+        "blocks": 0,
+        "stats": {},
+        "statExpected": {}
+      },
+      {
+        "id": "close:3",
+        "month": 3,
+        "day": 30,
+        "label": "Card interest",
+        "category": "interest",
+        "delta": {
+          "card": 0
+        },
+        "before": {
+          "card": 0
+        }
+      },
+      {
+        "id": "savings:3",
+        "month": 3,
+        "day": 30,
+        "label": "Emergency savings interest",
+        "category": "interest",
+        "delta": {
+          "emergency": 75
+        },
+        "before": {
+          "emergency": 30150
+        }
+      },
+      {
+        "id": "food4",
+        "month": 4,
+        "day": 0,
+        "label": "Monthly meal basket",
+        "category": "food",
+        "delta": {
+          "cash": -36000
+        },
+        "before": {
+          "cash": 450912
+        },
+        "blocks": 1,
+        "stats": {},
+        "statExpected": {}
+      },
+      {
+        "id": "bill:4:housing",
+        "month": 4,
+        "day": 1,
+        "label": "Shared rent",
+        "category": "housing",
+        "delta": {
+          "cash": -95000
+        },
+        "before": {
+          "cash": 414912
+        },
+        "due": 95000,
+        "paid": 95000,
+        "unpaid": 0
+      },
+      {
+        "id": "bill:4:transport",
+        "month": 4,
+        "day": 2,
+        "label": "Transit pass",
+        "category": "transport",
+        "delta": {
+          "cash": -11000
+        },
+        "before": {
+          "cash": 319912
+        },
+        "due": 11000,
+        "paid": 11000,
+        "unpaid": 0
+      },
+      {
+        "id": "bill:4:insurance",
+        "month": 4,
+        "day": 5,
+        "label": "Tenant insurance",
+        "category": "insurance",
+        "delta": {
+          "cash": -2500
+        },
+        "before": {
+          "cash": 308912
+        },
+        "due": 2500,
+        "paid": 2500,
+        "unpaid": 0
+      },
+      {
+        "id": "bill:4:utilities",
+        "month": 4,
+        "day": 10,
+        "label": "Utilities and internet",
+        "category": "utilities",
+        "delta": {
+          "cash": -10000
+        },
+        "before": {
+          "cash": 306412
+        },
+        "due": 10000,
+        "paid": 10000,
+        "unpaid": 0
+      },
+      {
+        "id": "pay:4:15",
+        "month": 4,
+        "day": 15,
+        "label": "Payday — 64 hours",
+        "category": "income",
+        "delta": {
+          "cash": 104091
+        },
+        "before": {
+          "cash": 296412
+        },
+        "gross": 118400,
+        "cpp": 6177,
+        "ei": 1930,
+        "tax": 6202,
+        "net": 104091
+      },
+      {
+        "id": "bill:4:phone",
+        "month": 4,
+        "day": 20,
+        "label": "Phone plan",
+        "category": "phone",
+        "delta": {
+          "cash": -4500
+        },
+        "before": {
+          "cash": 400503
+        },
+        "due": 4500,
+        "paid": 4500,
+        "unpaid": 0
+      },
+      {
+        "id": "bill:4:device",
+        "month": 4,
+        "day": 20,
+        "label": "Device instalment",
+        "category": "phone",
+        "delta": {
+          "cash": -2500
+        },
+        "before": {
+          "cash": 396003
+        },
+        "due": 2500,
+        "paid": 2500,
+        "unpaid": 0
+      },
+      {
+        "id": "bill:4:essentials",
+        "month": 4,
+        "day": 24,
+        "label": "Household essentials",
+        "category": "essentials",
+        "delta": {
+          "cash": -6000
+        },
+        "before": {
+          "cash": 393503
+        },
+        "due": 6000,
+        "paid": 6000,
+        "unpaid": 0
+      },
+      {
+        "id": "debt:4",
+        "month": 4,
+        "day": 25,
+        "label": "Card minimum",
+        "category": "debt",
+        "delta": {
+          "cash": 0,
+          "card": 0
+        },
+        "before": {
+          "cash": 387503,
+          "card": 0
+        },
+        "due": 0,
+        "paid": 0
+      },
+      {
+        "id": "loan:4",
+        "month": 4,
+        "day": 25,
+        "label": "Loan payment",
+        "category": "debt",
+        "delta": {
+          "cash": -10662
+        },
+        "before": {
+          "cash": 387503
+        },
+        "interest": 1382,
+        "due": 10662,
+        "paid": 10662,
+        "liability": {
+          "loan": [
+            110538,
+            101258
+          ]
+        }
+      },
+      {
+        "id": "pay:4:30",
+        "month": 4,
+        "day": 30,
+        "label": "Payday — 64 hours",
+        "category": "income",
+        "delta": {
+          "cash": 104091
+        },
+        "before": {
+          "cash": 376841
+        },
+        "gross": 118400,
+        "cpp": 6177,
+        "ei": 1930,
+        "tax": 6202,
+        "net": 104091
+      },
+      {
+        "id": "goal4",
+        "month": 4,
+        "day": 30,
+        "label": "Transfer to your goal",
+        "category": "goal",
+        "delta": {
+          "cash": -20000,
+          "goal": 20000
+        },
+        "before": {
+          "cash": 480932,
+          "goal": 60000
+        },
+        "blocks": 0,
+        "stats": {},
+        "statExpected": {}
+      },
+      {
+        "id": "close:4",
+        "month": 4,
+        "day": 30,
+        "label": "Card interest",
+        "category": "interest",
+        "delta": {
+          "card": 0
+        },
+        "before": {
+          "card": 0
+        }
+      },
+      {
+        "id": "savings:4",
+        "month": 4,
+        "day": 30,
+        "label": "Emergency savings interest",
+        "category": "interest",
+        "delta": {
+          "emergency": 76
+        },
+        "before": {
+          "emergency": 30225
+        }
+      },
+      {
+        "id": "bill:5:housing",
+        "month": 5,
+        "day": 1,
+        "label": "Shared rent",
+        "category": "housing",
+        "delta": {
+          "cash": -95000
+        },
+        "before": {
+          "cash": 460932
+        },
+        "due": 95000,
+        "paid": 95000,
+        "unpaid": 0
+      },
+      {
+        "id": "bill:5:transport",
+        "month": 5,
+        "day": 2,
+        "label": "Transit pass",
+        "category": "transport",
+        "delta": {
+          "cash": -11000
+        },
+        "before": {
+          "cash": 365932
+        },
+        "due": 11000,
+        "paid": 11000,
+        "unpaid": 0
+      },
+      {
+        "id": "bill:5:insurance",
+        "month": 5,
+        "day": 5,
+        "label": "Tenant insurance",
+        "category": "insurance",
+        "delta": {
+          "cash": -2500
+        },
+        "before": {
+          "cash": 354932
+        },
+        "due": 2500,
+        "paid": 2500,
+        "unpaid": 0
+      },
+      {
+        "id": "bill:5:utilities",
+        "month": 5,
+        "day": 10,
+        "label": "Utilities and internet",
+        "category": "utilities",
+        "delta": {
+          "cash": -10000
+        },
+        "before": {
+          "cash": 352432
+        },
+        "due": 10000,
+        "paid": 10000,
+        "unpaid": 0
+      },
+      {
+        "id": "pay:5:15",
+        "month": 5,
+        "day": 15,
+        "label": "Payday — 80 hours",
+        "category": "income",
+        "delta": {
+          "cash": 125429
+        },
+        "before": {
+          "cash": 342432
+        },
+        "gross": 148000,
+        "cpp": 7938,
+        "ei": 2412,
+        "tax": 12221,
+        "net": 125429
+      }
+    ],
+    "receipts": {
+      "food1": true,
+      "bill:1:housing": true,
+      "bill:1:transport": true,
+      "bill:1:insurance": true,
+      "bill:1:utilities": true,
+      "pay:1:15": true,
+      "bill:1:phone": true,
+      "bill:1:essentials": true,
+      "debt:1": true,
+      "pay:1:30": true,
+      "goal1": true,
+      "close:1": true,
+      "savings:1": true,
+      "food2": true,
+      "device": true,
+      "bill:2:housing": true,
+      "bill:2:transport": true,
+      "bill:2:insurance": true,
+      "bill:2:utilities": true,
+      "pay:2:15": true,
+      "bill:2:phone": true,
+      "bill:2:device": true,
+      "bill:2:essentials": true,
+      "debt:2": true,
+      "pay:2:30": true,
+      "goal2": true,
+      "close:2": true,
+      "savings:2": true,
+      "food3": true,
+      "loan": true,
+      "bill:3:housing": true,
+      "bill:3:transport": true,
+      "bill:3:insurance": true,
+      "bill:3:utilities": true,
+      "pay:3:15": true,
+      "bill:3:phone": true,
+      "bill:3:device": true,
+      "bill:3:essentials": true,
+      "debt:3": true,
+      "loan:3": true,
+      "pay:3:30": true,
+      "goal3": true,
+      "close:3": true,
+      "savings:3": true,
+      "food4": true,
+      "bill:4:housing": true,
+      "bill:4:transport": true,
+      "bill:4:insurance": true,
+      "bill:4:utilities": true,
+      "pay:4:15": true,
+      "bill:4:phone": true,
+      "bill:4:device": true,
+      "bill:4:essentials": true,
+      "debt:4": true,
+      "loan:4": true,
+      "pay:4:30": true,
+      "goal4": true,
+      "close:4": true,
+      "savings:4": true,
+      "bill:5:housing": true,
+      "bill:5:transport": true,
+      "bill:5:insurance": true,
+      "bill:5:utilities": true,
+      "pay:5:15": true
+    },
+    "decisions": [
+      {
+        "id": "1:move",
+        "month": 1,
+        "day": 30,
+        "key": "move",
+        "choice": "Synthetic setup, not human play",
+        "reason": "Fixture preparation for later chapter UI inspection.",
+        "cash": 240358,
+        "goal": 0,
+        "card": 0,
+        "forecast": {
+          "nextPay": 30,
+          "pay": 0,
+          "due": 0,
+          "arrears": 5500,
+          "food": 0,
+          "reserved": 20000,
+          "available": 214858,
+          "monthNet": 250858,
+          "monthlyBills": 129000
+        }
+      },
+      {
+        "id": "1:paystub",
+        "month": 1,
+        "day": 30,
+        "key": "paystub",
+        "choice": "Synthetic setup, not human play",
+        "reason": "Fixture preparation for later chapter UI inspection.",
+        "cash": 240358,
+        "goal": 0,
+        "card": 0,
+        "forecast": {
+          "nextPay": 30,
+          "pay": 0,
+          "due": 0,
+          "arrears": 5500,
+          "food": 0,
+          "reserved": 20000,
+          "available": 214858,
+          "monthNet": 250858,
+          "monthlyBills": 129000
+        }
+      },
+      {
+        "id": "1:review",
+        "month": 1,
+        "day": 30,
+        "key": "review",
+        "choice": "Synthetic review",
+        "reason": "Fixture only, not learner work or measured playtime.",
+        "cash": 220358,
+        "goal": 20000,
+        "card": 0,
+        "forecast": {
+          "nextPay": 30,
+          "pay": 0,
+          "due": 0,
+          "arrears": 5500,
+          "food": 0,
+          "reserved": 0,
+          "available": 214858,
+          "monthNet": 250858,
+          "monthlyBills": 129000
+        }
+      },
+      {
+        "id": "2:contract",
+        "month": 2,
+        "day": 30,
+        "key": "contract",
+        "choice": "Synthetic setup, not human play",
+        "reason": "Fixture preparation for later chapter UI inspection.",
+        "cash": 298216,
+        "goal": 20000,
+        "card": 0,
+        "forecast": {
+          "nextPay": 30,
+          "pay": 0,
+          "due": 0,
+          "arrears": 0,
+          "food": 0,
+          "reserved": 20000,
+          "available": 278216,
+          "monthNet": 250858,
+          "monthlyBills": 131500
+        }
+      },
+      {
+        "id": "2:social",
+        "month": 2,
+        "day": 30,
+        "key": "social",
+        "choice": "Synthetic setup, not human play",
+        "reason": "Fixture preparation for later chapter UI inspection.",
+        "cash": 298216,
+        "goal": 20000,
+        "card": 0,
+        "forecast": {
+          "nextPay": 30,
+          "pay": 0,
+          "due": 0,
+          "arrears": 0,
+          "food": 0,
+          "reserved": 20000,
+          "available": 278216,
+          "monthNet": 250858,
+          "monthlyBills": 131500
+        }
+      },
+      {
+        "id": "2:review",
+        "month": 2,
+        "day": 30,
+        "key": "review",
+        "choice": "Synthetic review",
+        "reason": "Fixture only, not learner work or measured playtime.",
+        "cash": 278216,
+        "goal": 40000,
+        "card": 0,
+        "forecast": {
+          "nextPay": 30,
+          "pay": 0,
+          "due": 0,
+          "arrears": 0,
+          "food": 0,
+          "reserved": 0,
+          "available": 278216,
+          "monthNet": 250858,
+          "monthlyBills": 131500
+        }
+      },
+      {
+        "id": "3:transport",
+        "month": 3,
+        "day": 30,
+        "key": "transport",
+        "choice": "Synthetic setup, not human play",
+        "reason": "Fixture preparation for later chapter UI inspection.",
+        "cash": 470912,
+        "goal": 40000,
+        "card": 0,
+        "forecast": {
+          "nextPay": 30,
+          "pay": 0,
+          "due": 0,
+          "arrears": 0,
+          "food": 0,
+          "reserved": 20000,
+          "available": 450912,
+          "monthNet": 250858,
+          "monthlyBills": 131500
+        }
+      },
+      {
+        "id": "3:borrowing",
+        "month": 3,
+        "day": 30,
+        "key": "borrowing",
+        "choice": "Synthetic setup, not human play",
+        "reason": "Fixture preparation for later chapter UI inspection.",
+        "cash": 470912,
+        "goal": 40000,
+        "card": 0,
+        "forecast": {
+          "nextPay": 30,
+          "pay": 0,
+          "due": 0,
+          "arrears": 0,
+          "food": 0,
+          "reserved": 20000,
+          "available": 450912,
+          "monthNet": 250858,
+          "monthlyBills": 131500
+        }
+      },
+      {
+        "id": "3:review",
+        "month": 3,
+        "day": 30,
+        "key": "review",
+        "choice": "Synthetic review",
+        "reason": "Fixture only, not learner work or measured playtime.",
+        "cash": 450912,
+        "goal": 60000,
+        "card": 0,
+        "forecast": {
+          "nextPay": 30,
+          "pay": 0,
+          "due": 0,
+          "arrears": 0,
+          "food": 0,
+          "reserved": 0,
+          "available": 450912,
+          "monthNet": 250858,
+          "monthlyBills": 131500
+        }
+      },
+      {
+        "id": "4:recovery",
+        "month": 4,
+        "day": 30,
+        "key": "recovery",
+        "choice": "Synthetic setup, not human play",
+        "reason": "Fixture preparation for later chapter UI inspection.",
+        "cash": 480932,
+        "goal": 60000,
+        "card": 0,
+        "forecast": {
+          "nextPay": 30,
+          "pay": 0,
+          "due": 0,
+          "arrears": 0,
+          "food": 0,
+          "reserved": 20000,
+          "available": 460932,
+          "monthNet": 208182,
+          "monthlyBills": 131500
+        }
+      },
+      {
+        "id": "4:debtStrategy",
+        "month": 4,
+        "day": 30,
+        "key": "debtStrategy",
+        "choice": "Synthetic setup, not human play",
+        "reason": "Fixture preparation for later chapter UI inspection.",
+        "cash": 480932,
+        "goal": 60000,
+        "card": 0,
+        "forecast": {
+          "nextPay": 30,
+          "pay": 0,
+          "due": 0,
+          "arrears": 0,
+          "food": 0,
+          "reserved": 20000,
+          "available": 460932,
+          "monthNet": 208182,
+          "monthlyBills": 131500
+        }
+      },
+      {
+        "id": "4:review",
+        "month": 4,
+        "day": 30,
+        "key": "review",
+        "choice": "Synthetic review",
+        "reason": "Fixture only, not learner work or measured playtime.",
+        "cash": 460932,
+        "goal": 80000,
+        "card": 0,
+        "forecast": {
+          "nextPay": 30,
+          "pay": 0,
+          "due": 0,
+          "arrears": 0,
+          "food": 0,
+          "reserved": 0,
+          "available": 460932,
+          "monthNet": 208182,
+          "monthlyBills": 131500
+        }
+      }
+    ],
+    "tasks": {
+      "1:budget": true,
+      "1:food": true,
+      "1:move": true,
+      "1:paystub": true,
+      "1:review": true,
+      "2:budget": true,
+      "2:food": true,
+      "2:contract": true,
+      "2:social": true,
+      "2:review": true,
+      "3:budget": true,
+      "3:food": true,
+      "3:transport": true,
+      "3:borrowing": true,
+      "3:review": true,
+      "4:budget": true,
+      "4:food": true,
+      "4:recovery": true,
+      "4:debtStrategy": true,
+      "4:review": true
+    },
+    "budgets": {
+      "1": {
+        "food": 36000,
+        "leisure": 5000,
+        "goal": 20000,
+        "emergency": 0,
+        "debt": 0
+      },
+      "2": {
+        "food": 36000,
+        "leisure": 5000,
+        "goal": 20000,
+        "emergency": 0,
+        "debt": 0
+      },
+      "3": {
+        "food": 36000,
+        "leisure": 5000,
+        "goal": 20000,
+        "emergency": 0,
+        "debt": 0
+      },
+      "4": {
+        "food": 36000,
+        "leisure": 5000,
+        "goal": 20000,
+        "emergency": 0,
+        "debt": 0
+      }
+    },
+    "budgetDraft": null,
+    "food": {
+      "month": 4,
+      "choices": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "total": 36000,
+      "cost": 36000,
+      "days": 30
+    },
+    "blocks": 4,
+    "extraHours": 0,
+    "trained": false,
+    "trainingMonth": 0,
+    "transport": "transit",
+    "contract": {
+      "kind": "term",
+      "start": 2,
+      "total": 60000
+    },
+    "casino": null,
+    "casinoNet": 0,
+    "casinoWagers": 0,
+    "rng": 547013,
+    "activity": null,
+    "energy": 100,
+    "happiness": 70,
+    "stress": 25,
+    "playedSeconds": 0,
+    "completed": false,
+    "position": {
+      "room": "bank",
+      "x": 450,
+      "y": 405,
+      "dir": "n",
+      "returnX": 1515,
+      "returnY": 384
+    },
+    "settings": {
+      "muted": true,
+      "reduced": true
+    },
+    "ytd": {
+      "gross": 1272800,
+      "cpp": 67920,
+      "ei": 20744,
+      "tax": 97951,
+      "net": 1086185
+    },
+    "stubs": [
+      {
+        "gross": 148000,
+        "cpp": 7938,
+        "ei": 2412,
+        "tax": 12221,
+        "net": 125429,
+        "id": "pay:1:15",
+        "month": 1,
+        "day": 15,
+        "hours": 80,
+        "wage": 1850,
+        "ytd": {
+          "gross": 148000,
+          "cpp": 7938,
+          "ei": 2412,
+          "tax": 12221,
+          "net": 125429
+        }
+      },
+      {
+        "gross": 148000,
+        "cpp": 7938,
+        "ei": 2412,
+        "tax": 12221,
+        "net": 125429,
+        "id": "pay:1:30",
+        "month": 1,
+        "day": 30,
+        "hours": 80,
+        "wage": 1850,
+        "ytd": {
+          "gross": 296000,
+          "cpp": 15876,
+          "ei": 4824,
+          "tax": 24442,
+          "net": 250858
+        }
+      },
+      {
+        "gross": 148000,
+        "cpp": 7938,
+        "ei": 2412,
+        "tax": 12221,
+        "net": 125429,
+        "id": "pay:2:15",
+        "month": 2,
+        "day": 15,
+        "hours": 80,
+        "wage": 1850,
+        "ytd": {
+          "gross": 444000,
+          "cpp": 23814,
+          "ei": 7236,
+          "tax": 36663,
+          "net": 376287
+        }
+      },
+      {
+        "gross": 148000,
+        "cpp": 7938,
+        "ei": 2412,
+        "tax": 12221,
+        "net": 125429,
+        "id": "pay:2:30",
+        "month": 2,
+        "day": 30,
+        "hours": 80,
+        "wage": 1850,
+        "ytd": {
+          "gross": 592000,
+          "cpp": 31752,
+          "ei": 9648,
+          "tax": 48884,
+          "net": 501716
+        }
+      },
+      {
+        "gross": 148000,
+        "cpp": 7938,
+        "ei": 2412,
+        "tax": 12221,
+        "net": 125429,
+        "id": "pay:3:15",
+        "month": 3,
+        "day": 15,
+        "hours": 80,
+        "wage": 1850,
+        "ytd": {
+          "gross": 740000,
+          "cpp": 39690,
+          "ei": 12060,
+          "tax": 61105,
+          "net": 627145
+        }
+      },
+      {
+        "gross": 148000,
+        "cpp": 7938,
+        "ei": 2412,
+        "tax": 12221,
+        "net": 125429,
+        "id": "pay:3:30",
+        "month": 3,
+        "day": 30,
+        "hours": 80,
+        "wage": 1850,
+        "ytd": {
+          "gross": 888000,
+          "cpp": 47628,
+          "ei": 14472,
+          "tax": 73326,
+          "net": 752574
+        }
+      },
+      {
+        "gross": 118400,
+        "cpp": 6177,
+        "ei": 1930,
+        "tax": 6202,
+        "net": 104091,
+        "id": "pay:4:15",
+        "month": 4,
+        "day": 15,
+        "hours": 64,
+        "wage": 1850,
+        "ytd": {
+          "gross": 1006400,
+          "cpp": 53805,
+          "ei": 16402,
+          "tax": 79528,
+          "net": 856665
+        }
+      },
+      {
+        "gross": 118400,
+        "cpp": 6177,
+        "ei": 1930,
+        "tax": 6202,
+        "net": 104091,
+        "id": "pay:4:30",
+        "month": 4,
+        "day": 30,
+        "hours": 64,
+        "wage": 1850,
+        "ytd": {
+          "gross": 1124800,
+          "cpp": 59982,
+          "ei": 18332,
+          "tax": 85730,
+          "net": 960756
+        }
+      },
+      {
+        "gross": 148000,
+        "cpp": 7938,
+        "ei": 2412,
+        "tax": 12221,
+        "net": 125429,
+        "id": "pay:5:15",
+        "month": 5,
+        "day": 15,
+        "hours": 80,
+        "wage": 1850,
+        "ytd": {
+          "gross": 1272800,
+          "cpp": 67920,
+          "ei": 20744,
+          "tax": 97951,
+          "net": 1086185
+        }
+      }
+    ],
+    "statement": 0,
+    "paidCard": 0,
+    "investmentHistory": [],
+    "used": {},
+    "reviewFixture": true,
+    "introMonth": 5
+  }
+}

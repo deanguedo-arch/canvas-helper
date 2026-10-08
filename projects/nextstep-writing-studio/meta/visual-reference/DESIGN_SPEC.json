@@ -1,0 +1,52 @@
+{
+  "name": "Writing Studio Exact Visual Assets",
+  "version": "1.0",
+  "reference_share_url": "https://chatgpt.com/s/p_6ac691e823b88191bcb3c4ffb3da9306",
+  "visual_authority": [
+    "reference/canonical/01-plan-light-authority.png",
+    "reference/canonical/02-settings-light-authority.png",
+    "design/tokens.css",
+    "design/components.css",
+    "design/shell.css"
+  ],
+  "tokens": {
+    "ink": "#171C1A",
+    "muted": "#535D58",
+    "primary": "#124B38",
+    "primaryHover": "#0C3B2B",
+    "primarySoft": "#EAF2EC",
+    "background": "#F7F8F6",
+    "surface": "#FFFFFF",
+    "border": "#D9DFDA",
+    "controlBorder": "#7B897F",
+    "sage": "#DCE9DD",
+    "goldSoft": "#F6ECD4",
+    "warning": "#70520C",
+    "error": "#A12A2A",
+    "focus": "#176E50"
+  },
+  "geometry_px": {
+    "topbar": 56,
+    "sidebar": 224,
+    "contextRail": 304,
+    "contentOuterPadding": [
+      28,
+      32
+    ],
+    "majorGap": 24,
+    "cardRadius": 6,
+    "controlRadius": 4,
+    "minControlHeight": 44
+  },
+  "fonts": {
+    "ui": "Arial, Helvetica, sans-serif",
+    "prose": "Georgia, Times New Roman, serif",
+    "note": "No font files are included."
+  },
+  "implementation": {
+    "ui": "HTML/CSS/SVG",
+    "raster_ui_controls": "forbidden",
+    "external_font_dependency": "avoid for SCORM",
+    "reference_pngs": "appearance only"
+  }
+}

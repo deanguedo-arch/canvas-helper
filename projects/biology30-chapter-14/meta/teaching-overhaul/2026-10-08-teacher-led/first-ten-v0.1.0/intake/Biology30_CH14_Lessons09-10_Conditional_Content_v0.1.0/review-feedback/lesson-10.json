@@ -1,0 +1,111 @@
+{
+  "check": {
+    "id": "ch14-check-10",
+    "route": "lesson-10",
+    "title": "STIs and reproductive function",
+    "mc": [
+      {
+        "id": "ch14-l10-check-mc-1",
+        "prompt": "Which chain best explains one way an STI can reduce fertility?",
+        "answer": "Infection \u2192 inflammation and scarring \u2192 disrupted transport",
+        "options": [
+          "Infection \u2192 conversion of LH into sperm \u2192 duct blockage",
+          "Infection \u2192 immediate menstruation in every case \u2192 fertilization",
+          "Infection \u2192 inflammation and scarring \u2192 disrupted transport",
+          "Infection \u2192 guaranteed loss of all gametes \u2192 higher fertility"
+        ],
+        "cue": "Look for a mechanism linking tissue damage with normal reproductive function.",
+        "explanation": "Inflammation and scarring can damage reproductive passages and interfere with transport.",
+        "difficulty": "application"
+      },
+      {
+        "id": "ch14-l10-check-mc-2",
+        "prompt": "Which comparison is accurate?",
+        "answer": "Hormonal contraception and STI risk reduction are different functions",
+        "options": [
+          "No symptoms means no infection",
+          "All contraceptive methods prevent every STI",
+          "Antibiotics treat every viral STI",
+          "Hormonal contraception and STI risk reduction are different functions"
+        ],
+        "cue": "Separate pathogens, hormone signals and physical barriers.",
+        "explanation": "A method that prevents ovulation does not necessarily reduce exposure to infectious organisms.",
+        "difficulty": "application"
+      }
+    ],
+    "writing": [
+      {
+        "id": "ch14-l10-check-writing-1",
+        "prompt": "Explain how an STI could interfere with reproduction while gamete and hormone production continue.",
+        "model": "Infection may cause inflammation and scarring in a duct such as an oviduct or epididymis. Damage can interfere with maturation or transport even when gonads continue producing cells or hormones.",
+        "criteria": [
+          "Gives a relevant reproductive structure.",
+          "Explains tissue damage and its functional effect."
+        ],
+        "limit": 3200
+      },
+      {
+        "id": "ch14-l10-check-writing-2",
+        "prompt": "A student says, \u201cIf a method prevents pregnancy, it must prevent STIs too.\u201d Explain the flaw using two different mechanisms.",
+        "model": "Hormonal contraception can prevent an LH surge and ovulation; it does not form a pathogen barrier. Condoms reduce contact with some infectious material and also obstruct sperm passage, but do not eliminate every infection risk. Conception and transmission are different processes.",
+        "criteria": [
+          "Separates conception from infection transmission.",
+          "Contrasts hormonal action with barrier action without promising complete protection."
+        ],
+        "limit": 3200
+      }
+    ]
+  },
+  "guided": {
+    "chapter": 14,
+    "lesson": 10,
+    "route": "lesson-10",
+    "worked": {
+      "id": "ch14-l10-worked",
+      "label": "Worked example",
+      "title": "Normal ovulation, damaged oviduct",
+      "scenario": "A hypothetical case describes normal ovulation and a scarred, blocked oviduct after an infection.",
+      "steps": [
+        "Identify what still occurs: the ovary releases an oocyte.",
+        "Locate the problem: transport through the oviduct is impaired.",
+        "Explain the consequence: sperm and the oocyte may not meet, or movement toward the uterus may be disrupted.",
+        "Do not overstate: this description does not show that FSH, LH or ovarian hormone production has stopped. The immediate explanation is tissue damage along the pathway."
+      ]
+    },
+    "guided": {
+      "id": "ch14-l10-guided",
+      "label": "Practise with support",
+      "title": "Apply the explanation",
+      "instruction": "Try both questions. Use the hint to revise your thinking after an incorrect answer.",
+      "items": [
+        {
+          "id": "ch14-l10-guided-q1",
+          "kind": "select",
+          "prompt": "Why might the absence of symptoms fail to rule out an STI?",
+          "answer": "Some infections are asymptomatic",
+          "options": [
+            "Some infections are asymptomatic",
+            "Only hormone-producing cells can be infected",
+            "All pathogens immediately cause pain"
+          ],
+          "hint": "Consider whether every infection produces visible signs.",
+          "explanation": "Some infections produce no obvious symptoms, so symptoms alone cannot establish infection status."
+        },
+        {
+          "id": "ch14-l10-guided-q2",
+          "kind": "select",
+          "prompt": "Which consequence most directly follows scarring that blocks an oviduct?",
+          "answer": "Disrupted reproductive-cell transport",
+          "options": [
+            "Automatic loss of all ovarian chromosomes",
+            "Disrupted reproductive-cell transport",
+            "Direct conversion of bacteria into hormones"
+          ],
+          "hint": "Use the normal function of an oviduct.",
+          "explanation": "Scarring can obstruct the pathway where gametes meet and early development moves toward the uterus."
+        }
+      ]
+    }
+  },
+  "new_optional_model": "A has a signalling/ovulation problem: no oocyte is released in the stated cycle. B has a transport problem despite release of an oocyte. Removing an infection does not by itself restore the LH surge in A or reverse established scarring in B. The models need evidence about the affected process, not an assumption that one intervention fixes every cause of reduced fertility."
+}

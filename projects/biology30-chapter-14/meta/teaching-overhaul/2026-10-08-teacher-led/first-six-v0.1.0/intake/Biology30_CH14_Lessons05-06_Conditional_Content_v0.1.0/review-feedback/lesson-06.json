@@ -1,0 +1,111 @@
+{
+  "check": {
+    "id": "ch14-check-06",
+    "route": "lesson-06",
+    "title": "Oogenesis and ovarian follicles",
+    "mc": [
+      {
+        "id": "ch14-l06-check-mc-1",
+        "prompt": "Which statement correctly distinguishes an oocyte from the corpus luteum?",
+        "answer": "The oocyte is released; the corpus luteum forms from tissue remaining in the ovary",
+        "options": [
+          "The oocyte forms from the uterine lining",
+          "The corpus luteum is the released oocyte",
+          "The oocyte is released; the corpus luteum forms from tissue remaining in the ovary",
+          "Both move through the oviduct together"
+        ],
+        "cue": "Track what leaves the ovary and what remains.",
+        "explanation": "Ovulation releases the oocyte while the remaining follicular tissue forms a temporary endocrine structure.",
+        "difficulty": "application"
+      },
+      {
+        "id": "ch14-l06-check-mc-2",
+        "prompt": "Why is cytokinesis unequal during oogenesis?",
+        "answer": "It retains most cytoplasm in one large reproductive cell",
+        "options": [
+          "It doubles the final chromosome number",
+          "It creates four equally sized motile gametes",
+          "It prevents any cell from becoming haploid",
+          "It retains most cytoplasm in one large reproductive cell"
+        ],
+        "cue": "Focus on cytoplasm, not an extra chromosome set.",
+        "explanation": "Most cytoplasm and its resources remain in one large cell rather than being divided equally among four gametes.",
+        "difficulty": "application"
+      }
+    ],
+    "writing": [
+      {
+        "id": "ch14-l06-check-writing-1",
+        "prompt": "Follow an ovarian follicle from growth through ovulation and corpus-luteum formation. Include the changing hormone output.",
+        "model": "Growing follicles support an oocyte and release increasing estrogen. Ovulation releases the secondary oocyte. Remaining follicular tissue forms the corpus luteum, which releases mainly progesterone and some estrogen.",
+        "criteria": [
+          "Separates released cell from remaining tissue.",
+          "Associates estrogen and progesterone with the correct stages."
+        ],
+        "limit": 3200
+      },
+      {
+        "id": "ch14-l06-check-writing-2",
+        "prompt": "Compare the products of spermatogenesis and oogenesis without giving the detailed phases of meiosis.",
+        "model": "Both reduce the chromosome sets to produce haploid reproductive cells. A primary spermatocyte can yield four sperm. Oogenesis retains most cytoplasm in one large cell and produces small polar bodies; the released secondary oocyte completes meiosis II if fertilization occurs.",
+        "criteria": [
+          "Recognises haploid outcome.",
+          "Explains the unequal distribution of cytoplasm and different functional products."
+        ],
+        "limit": 3200
+      }
+    ]
+  },
+  "guided": {
+    "chapter": 14,
+    "lesson": 6,
+    "route": "lesson-06",
+    "worked": {
+      "id": "ch14-l06-worked",
+      "label": "Worked example",
+      "title": "What remains in the ovary?",
+      "scenario": "A diagram shows a cell leaving a mature follicle and a yellow structure developing where the follicle was.",
+      "steps": [
+        "The released cell is the secondary oocyte; its route is toward the oviduct.",
+        "The remaining follicular tissue stays in the ovary.",
+        "That tissue forms the corpus luteum, which releases mainly progesterone as well as estrogen.",
+        "Connect the effect: these hormones support the endometrium. The corpus luteum is not the released egg or a developing embryo."
+      ]
+    },
+    "guided": {
+      "id": "ch14-l06-guided",
+      "label": "Practise with support",
+      "title": "Apply the explanation",
+      "instruction": "Try both questions. Use the hint to revise your thinking after an incorrect answer.",
+      "items": [
+        {
+          "id": "ch14-l06-guided-q1",
+          "kind": "select",
+          "prompt": "What does a follicle contain before ovulation?",
+          "answer": "An oocyte and supporting cells",
+          "options": [
+            "A complete embryo implanted in the uterus",
+            "An oocyte and supporting cells",
+            "Only a mature sperm"
+          ],
+          "hint": "Separate the reproductive cell from its support structure.",
+          "explanation": "A follicle consists of an oocyte and the surrounding supporting cells."
+        },
+        {
+          "id": "ch14-l06-guided-q2",
+          "kind": "select",
+          "prompt": "Which structure forms from tissue remaining after the oocyte is released?",
+          "answer": "Corpus luteum",
+          "options": [
+            "Endometrium",
+            "Epididymis",
+            "Corpus luteum"
+          ],
+          "hint": "Follow the tissue left in the ovary.",
+          "explanation": "The remaining follicular tissue forms the corpus luteum; it does not become the uterine lining."
+        }
+      ]
+    }
+  },
+  "new_optional_model": "Haploid and diploid describe chromosome-set number, not total cell size. Unequal cytokinesis leaves most cytoplasm and its resources in the large reproductive cell, while the polar body receives little. The size difference therefore does not overturn the stated haploid chromosome sets. Retained resources support early development if fertilization occurs."
+}

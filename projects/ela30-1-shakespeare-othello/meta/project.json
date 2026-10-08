@@ -10,7 +10,7 @@
   "workspaceEntrypoint": "workspace/index.html",
   "rawEntrypoint": "raw/README.md",
   "createdAt": "2026-06-21T14:13:26.779Z",
-  "updatedAt": "2026-08-27T15:38:49.596Z",
+  "updatedAt": "2026-10-07T18:32:04.787Z",
   "migrationState": "migrated",
   "projectType": "conversion",
   "preferredWorkflows": [
@@ -18,9 +18,12 @@
   ],
   "canonicalEntry": "projects/ela30-1-shakespeare-othello/workspace/index.html",
   "canonicalSources": [
-    "projects/ela30-1-shakespeare-othello/workspace/index.html"
+    "projects/ela30-1-shakespeare-othello/workspace/index.html",
+    "projects/ela30-1-shakespeare-othello/workspace/assets/studio-local-theme/theme.json"
   ],
-  "generatedOutputs": [],
+  "generatedOutputs": [
+    "projects/ela30-1-shakespeare-othello/workspace/assets/studio-local-theme/utilities.css"
+  ],
   "importedFirstPassOrigin": {
     "sourceSystem": "brightspace",
     "sourcePath": "/Users/deanguedo/Downloads/ELA_30-1_SHAKESPEARE_OTHELLO.zip",
@@ -43,7 +46,7 @@
   "referenceOnly": [
     "/Users/deanguedo/Downloads/ELA_30-1_SHAKESPEARE_OTHELLO.zip"
   ],
-  "sourceOfTruthNotes": "The workspace is the supplied SCORM learner snapshot and is the canonical editable boundary. Any prior English builder or generated output is quarantined; do not run it through Studio or replace this snapshot without an explicit new import. Studio onboarding: The learner page is preserved as the editable baseline because its original rebuild inputs are incomplete or not portable.",
+  "sourceOfTruthNotes": "The workspace is the supplied SCORM learner snapshot and is the canonical editable boundary. Any prior English builder or generated output is quarantined; do not run it through Studio or replace this snapshot without an explicit new import. Studio onboarding: The learner page is preserved as the editable baseline because its original rebuild inputs are incomplete or not portable. Studio layout repair: utility CSS is compiled locally from the preserved theme with scripts/repair-ela-snapshot-styles.mjs; the snapshot remains canonical and the old English builder remains quarantined.",
   "learningSource": "other",
   "learningTrust": "curated",
   "learningUpdatedAt": "2026-08-21T17:34:56.000Z",
@@ -58,5 +61,13 @@
     }
   },
   "title": "ELA 30-1 - Shakespeare: Othello",
-  "injectedComponents": []
+  "injectedComponents": [],
+  "recoveryArchive": {
+    "registry": "config/project-archives.json",
+    "sourcePath": "projects/processed/ela30-1-shakespeare-othello/source/ELA_30-1_SHAKESPEARE_OTHELLO.zip",
+    "sha256": "057aa0593d0c2e33414d25fac5ac513d89ed5ebfc27cfaa5eb40a8f69ff6637d",
+    "sizeBytes": 1331601865,
+    "previousSourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/processed/ela30-1-shakespeare-othello/source"
+  },
+  "regenerateCommand": "node scripts/repair-ela-snapshot-styles.mjs --project ela30-1-shakespeare-othello"
 }

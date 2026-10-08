@@ -1,0 +1,95 @@
+{
+  "schemaVersion": 1,
+  "projectSlug": "biology30-unit-b",
+  "buildSha256": "c810dd85af4ba82dc7f08ddf28ace20a7abe2cc5b731234f245b266e2111d23c",
+  "status": "agent-visual-inspection-passed-awaiting-human-score",
+  "reviewedAt": "2026-08-31T04:41:00.000Z",
+  "reviewerType": "AI-assisted red-team",
+  "requiredViewports": [
+    "1440x900",
+    "1024x768",
+    "390x844"
+  ],
+  "requiredRoutes": [
+    "overview",
+    "b-lesson-01",
+    "b-lesson-08",
+    "b-lesson-14",
+    "model-lab",
+    "investigation-notebook",
+    "practice-hub",
+    "sources-and-credits"
+  ],
+  "screenshots": [
+    {
+      "path": ".runtime/biology30-course-production-visual-audit/2026-08-31T04-36-50-182Z/biology30-unit-b/routes-desktop-1440x900-01.png",
+      "sha256": "b35f8b97a60e6c9a5b77416f553d882f419593caa8e59e9a74ce77eca7499c6d"
+    },
+    {
+      "path": ".runtime/biology30-course-production-visual-audit/2026-08-31T04-36-50-182Z/biology30-unit-b/routes-desktop-1440x900-02.png",
+      "sha256": "b5628e20a2921c4813b5a62484b49ffc97e952464e5a9fd05b7b7ed2596ea47f"
+    },
+    {
+      "path": ".runtime/biology30-course-production-visual-audit/2026-08-31T04-36-50-182Z/biology30-unit-b/routes-desktop-1440x900-03.png",
+      "sha256": "851364ce486adc7c511fa87fdaf3926590852343c9ebc3add47c27414ce204ff"
+    },
+    {
+      "path": ".runtime/biology30-course-production-visual-audit/2026-08-31T04-36-50-182Z/biology30-unit-b/routes-tablet-1024x768-01.png",
+      "sha256": "1da4292210cf4f1e535d30321c8db91c6994ff901093be30b70b3037c9933693"
+    },
+    {
+      "path": ".runtime/biology30-course-production-visual-audit/2026-08-31T04-36-50-182Z/biology30-unit-b/routes-tablet-1024x768-02.png",
+      "sha256": "e54426f9e951366234a0cf0b746aa76d505c7a0f4fd047ab2ed96ad9d77e3563"
+    },
+    {
+      "path": ".runtime/biology30-course-production-visual-audit/2026-08-31T04-36-50-182Z/biology30-unit-b/routes-tablet-1024x768-03.png",
+      "sha256": "c29e3dc9c3b90dbdc2dff9605ec65f48fbe2f4bf3f3e03acd409b0417f961873"
+    },
+    {
+      "path": ".runtime/biology30-course-production-visual-audit/2026-08-31T04-36-50-182Z/biology30-unit-b/routes-mobile-390x844-01.png",
+      "sha256": "20b512bef43dfa4f8fbf03a2138d2078f2529f31e5712b403541b539efe28f05"
+    },
+    {
+      "path": ".runtime/biology30-course-production-visual-audit/2026-08-31T04-36-50-182Z/biology30-unit-b/routes-mobile-390x844-02.png",
+      "sha256": "124cc9ba575294b9b94bf65d2b0673fa5e76a1e826f9b55ab0ec36a1a457b787"
+    },
+    {
+      "path": ".runtime/biology30-course-production-visual-audit/2026-08-31T04-36-50-182Z/biology30-unit-b/routes-mobile-390x844-03.png",
+      "sha256": "ccb52b09c6eee9c8a438676755b8184ddccb898547cd1afd77354b99758851fd"
+    },
+    {
+      "path": ".runtime/biology30-course-production-visual-audit/2026-08-31T04-36-50-182Z/biology30-unit-b/figures-contact-sheet-01.png",
+      "sha256": "3fd01295db39c25cdffd374525a33d29c8d33b32ced58c604c62983307fac406"
+    },
+    {
+      "path": ".runtime/biology30-course-production-visual-audit/2026-08-31T04-36-50-182Z/biology30-unit-b/figures-contact-sheet-02.png",
+      "sha256": "dc6d5878c2076b87da9f365764eb8cf3345954e2c6446e177df9d8087e432668"
+    },
+    {
+      "path": ".runtime/biology30-course-production-visual-audit/2026-08-31T04-36-50-182Z/biology30-unit-b/interactions-contact-sheet-01.png",
+      "sha256": "838bffd9c34c419a3abb1f576b06c6860ceee4f5ba9f92e60dba073ee271c90c"
+    },
+    {
+      "path": ".runtime/biology30-course-production-visual-audit/2026-08-31T04-36-50-182Z/biology30-unit-b/interactions-contact-sheet-02.png",
+      "sha256": "1f62b6b5abf1e1b5a218f0194104b593a1654ae89e7a6827176c7bb951f90bb0"
+    }
+  ],
+  "inspectionSummary": {
+    "learnerRoutes": 20,
+    "routeViewports": 3,
+    "scientificFigures": 14,
+    "reasoningInteractions": 14,
+    "contactSheetsOpened": 13,
+    "checks": [
+      "information hierarchy and typography",
+      "text fit, clipping, and overlap",
+      "scientific figure labels, connectors, and arrows",
+      "interaction case-board grammar and legibility",
+      "desktop, tablet, and mobile responsive reflow",
+      "fixed persistence chrome and learner-content clearance"
+    ]
+  },
+  "findings": [],
+  "pass": true,
+  "reviewBoundary": "This AI-assisted visual pass records red-team evidence only. Human category scoring and explicit acceptance of the exact build remain required."
+}

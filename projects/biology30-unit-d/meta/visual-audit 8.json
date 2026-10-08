@@ -1,0 +1,432 @@
+{
+  "schemaVersion": 1,
+  "projectSlug": "biology30-unit-d",
+  "buildSha256": "dcb35045a3a82d8be75b81f24c2649a38f3cbd21efbbcb53c9efafc530847392",
+  "workspaceTreeSha256": "dcb35045a3a82d8be75b81f24c2649a38f3cbd21efbbcb53c9efafc530847392",
+  "generatedAt": "2026-08-31T04:37:27.017Z",
+  "status": "geometry-and-agent-visual-inspection-passed",
+  "viewports": [
+    {
+      "id": "desktop-1440x900",
+      "width": 1440,
+      "height": 900
+    },
+    {
+      "id": "tablet-1024x768",
+      "width": 1024,
+      "height": 768
+    },
+    {
+      "id": "mobile-390x844",
+      "width": 390,
+      "height": 844
+    }
+  ],
+  "requiredRoutes": [
+    "overview",
+    "d-lesson-01",
+    "d-lesson-06",
+    "d-lesson-11",
+    "model-lab",
+    "investigation-notebook",
+    "practice-hub",
+    "sources-and-credits"
+  ],
+  "auditedRoutes": [
+    "overview",
+    "d-lesson-01",
+    "d-lesson-02",
+    "d-lesson-03",
+    "d-lesson-04",
+    "d-lesson-05",
+    "d-lesson-06",
+    "d-lesson-07",
+    "d-lesson-08",
+    "d-lesson-09",
+    "d-lesson-10",
+    "d-lesson-11",
+    "model-lab",
+    "investigation-notebook",
+    "practice-hub",
+    "glossary-and-data",
+    "sources-and-credits"
+  ],
+  "auditedRouteViewportCount": 51,
+  "routeSheets": [
+    {
+      "viewport": "desktop-1440x900",
+      "path": ".runtime/biology30-course-production-visual-audit/2026-08-31T04-36-50-182Z/biology30-unit-d/routes-desktop-1440x900-01.png",
+      "sha256": "a49a30819b8b4f82dbdbeb23ddf078c8f0a05fb20ae4e6b00d2a0cb6379ce0d5",
+      "routes": [
+        "overview",
+        "d-lesson-01",
+        "d-lesson-02",
+        "d-lesson-03",
+        "d-lesson-04",
+        "d-lesson-05",
+        "d-lesson-06",
+        "d-lesson-07"
+      ]
+    },
+    {
+      "viewport": "desktop-1440x900",
+      "path": ".runtime/biology30-course-production-visual-audit/2026-08-31T04-36-50-182Z/biology30-unit-d/routes-desktop-1440x900-02.png",
+      "sha256": "76d1f88e5bdd0b422b028fc3fcd745bf4dc85675009c675104f21e2a4a04c2f8",
+      "routes": [
+        "d-lesson-08",
+        "d-lesson-09",
+        "d-lesson-10",
+        "d-lesson-11",
+        "model-lab",
+        "investigation-notebook",
+        "practice-hub",
+        "glossary-and-data"
+      ]
+    },
+    {
+      "viewport": "desktop-1440x900",
+      "path": ".runtime/biology30-course-production-visual-audit/2026-08-31T04-36-50-182Z/biology30-unit-d/routes-desktop-1440x900-03.png",
+      "sha256": "b49fb8b8f76ba57214d04a84860038d94dd349797706e2be38ac3a72a62abe81",
+      "routes": [
+        "sources-and-credits"
+      ]
+    },
+    {
+      "viewport": "tablet-1024x768",
+      "path": ".runtime/biology30-course-production-visual-audit/2026-08-31T04-36-50-182Z/biology30-unit-d/routes-tablet-1024x768-01.png",
+      "sha256": "e64e4ea42ef7d033eb0f4d3b3ce849b7c1ef9617affebec5a4e7a2e10b56d5d2",
+      "routes": [
+        "overview",
+        "d-lesson-01",
+        "d-lesson-02",
+        "d-lesson-03",
+        "d-lesson-04",
+        "d-lesson-05",
+        "d-lesson-06",
+        "d-lesson-07"
+      ]
+    },
+    {
+      "viewport": "tablet-1024x768",
+      "path": ".runtime/biology30-course-production-visual-audit/2026-08-31T04-36-50-182Z/biology30-unit-d/routes-tablet-1024x768-02.png",
+      "sha256": "2f08a2e39f0216b551681e9a3d43e290903f25771fb0e50813cc8fe41d6a7570",
+      "routes": [
+        "d-lesson-08",
+        "d-lesson-09",
+        "d-lesson-10",
+        "d-lesson-11",
+        "model-lab",
+        "investigation-notebook",
+        "practice-hub",
+        "glossary-and-data"
+      ]
+    },
+    {
+      "viewport": "tablet-1024x768",
+      "path": ".runtime/biology30-course-production-visual-audit/2026-08-31T04-36-50-182Z/biology30-unit-d/routes-tablet-1024x768-03.png",
+      "sha256": "d7539250880530e387d46c88bfb3f93318fc14ee899c7eb412bf0cdba68082bc",
+      "routes": [
+        "sources-and-credits"
+      ]
+    },
+    {
+      "viewport": "mobile-390x844",
+      "path": ".runtime/biology30-course-production-visual-audit/2026-08-31T04-36-50-182Z/biology30-unit-d/routes-mobile-390x844-01.png",
+      "sha256": "b208afd2809a114da9a9317df971bc9547974fbbf143f954922dcd0b0aa0fe23",
+      "routes": [
+        "overview",
+        "d-lesson-01",
+        "d-lesson-02",
+        "d-lesson-03",
+        "d-lesson-04",
+        "d-lesson-05",
+        "d-lesson-06",
+        "d-lesson-07"
+      ]
+    },
+    {
+      "viewport": "mobile-390x844",
+      "path": ".runtime/biology30-course-production-visual-audit/2026-08-31T04-36-50-182Z/biology30-unit-d/routes-mobile-390x844-02.png",
+      "sha256": "4a6bec3bb2b9c27403d5f529b8c316668eb52b4bf7c5241d0e24a0fe61a7c39b",
+      "routes": [
+        "d-lesson-08",
+        "d-lesson-09",
+        "d-lesson-10",
+        "d-lesson-11",
+        "model-lab",
+        "investigation-notebook",
+        "practice-hub",
+        "glossary-and-data"
+      ]
+    },
+    {
+      "viewport": "mobile-390x844",
+      "path": ".runtime/biology30-course-production-visual-audit/2026-08-31T04-36-50-182Z/biology30-unit-d/routes-mobile-390x844-03.png",
+      "sha256": "fa88c83eb1534be3a0340aa26907ad41864d38848f5b7934eb573a8dc986b453",
+      "routes": [
+        "sources-and-credits"
+      ]
+    }
+  ],
+  "expectedFigureCount": 11,
+  "expectedFigureKinds": {
+    "d-lesson-01": "evidence",
+    "d-lesson-02": "feedback",
+    "d-lesson-03": "calculation",
+    "d-lesson-04": "evidence",
+    "d-lesson-05": "comparison",
+    "d-lesson-06": "pathway",
+    "d-lesson-07": "timeline",
+    "d-lesson-08": "evidence",
+    "d-lesson-09": "feedback",
+    "d-lesson-10": "evidence",
+    "d-lesson-11": "network"
+  },
+  "scientificFigureKindCount": 7,
+  "figures": [
+    {
+      "figureId": "d-lesson-01-concept-model",
+      "kind": "evidence",
+      "routeId": "d-lesson-01",
+      "title": "Population-genetics evidence chain",
+      "screenshotPath": ".runtime/biology30-course-production-visual-audit/2026-08-31T04-36-50-182Z/biology30-unit-d/figures/01-d-lesson-01-concept-model.png",
+      "screenshotSha256": "a971d5b988fff08e336c037566efdbaea658d57eab737fa6d4858a31f077982c"
+    },
+    {
+      "figureId": "d-lesson-02-concept-model",
+      "kind": "feedback",
+      "routeId": "d-lesson-02",
+      "title": "Assumption-to-evidence workflow",
+      "screenshotPath": ".runtime/biology30-course-production-visual-audit/2026-08-31T04-36-50-182Z/biology30-unit-d/figures/02-d-lesson-02-concept-model.png",
+      "screenshotSha256": "db94d57dd515bb495e96e3a3e186f59034bd7e48afd89c08f7da1a714c260c6b"
+    },
+    {
+      "figureId": "d-lesson-03-concept-model",
+      "kind": "calculation",
+      "routeId": "d-lesson-03",
+      "title": "Hardy-Weinberg calculation route",
+      "screenshotPath": ".runtime/biology30-course-production-visual-audit/2026-08-31T04-36-50-182Z/biology30-unit-d/figures/03-d-lesson-03-concept-model.png",
+      "screenshotSha256": "cf441fb6265e7a1e90437f4fa9f698742e8bbd58911ecbb63c5f966c7c0d6d3b"
+    },
+    {
+      "figureId": "d-lesson-04-concept-model",
+      "kind": "evidence",
+      "routeId": "d-lesson-04",
+      "title": "Mechanism-evidence distinction",
+      "screenshotPath": ".runtime/biology30-course-production-visual-audit/2026-08-31T04-36-50-182Z/biology30-unit-d/figures/04-d-lesson-04-concept-model.png",
+      "screenshotSha256": "19dc0f5215354fcecee3e3a004549a5fef02ec42d922a56e22ed1012c684ee32"
+    },
+    {
+      "figureId": "d-lesson-05-concept-model",
+      "kind": "comparison",
+      "routeId": "d-lesson-05",
+      "title": "Community interaction evidence",
+      "screenshotPath": ".runtime/biology30-course-production-visual-audit/2026-08-31T04-36-50-182Z/biology30-unit-d/figures/05-d-lesson-05-concept-model.png",
+      "screenshotSha256": "cbbc7d0f4c47b1d74f46e96853ae5988244b4724ba52a839df5f57ce6ebe0989"
+    },
+    {
+      "figureId": "d-lesson-06-concept-model",
+      "kind": "pathway",
+      "routeId": "d-lesson-06",
+      "title": "Interaction-to-adaptation pathway",
+      "screenshotPath": ".runtime/biology30-course-production-visual-audit/2026-08-31T04-36-50-182Z/biology30-unit-d/figures/06-d-lesson-06-concept-model.png",
+      "screenshotSha256": "19128e5cd5ca7e10139f4c893fee1d503273fe301ef66bf34febee88eff563f6"
+    },
+    {
+      "figureId": "d-lesson-07-concept-model",
+      "kind": "timeline",
+      "routeId": "d-lesson-07",
+      "title": "Succession evidence timeline",
+      "screenshotPath": ".runtime/biology30-course-production-visual-audit/2026-08-31T04-36-50-182Z/biology30-unit-d/figures/07-d-lesson-07-concept-model.png",
+      "screenshotSha256": "a876e3a9a13b7f6519133185a7845d9abea0ba38d86dce1dd25b3e2419e8472f"
+    },
+    {
+      "figureId": "d-lesson-08-concept-model",
+      "kind": "evidence",
+      "routeId": "d-lesson-08",
+      "title": "Population measurement chain",
+      "screenshotPath": ".runtime/biology30-course-production-visual-audit/2026-08-31T04-36-50-182Z/biology30-unit-d/figures/08-d-lesson-08-concept-model.png",
+      "screenshotSha256": "15955cc7b013b19738575d0c4e6eae0bd11d7141ee2bc758f620ff759ae76bde"
+    },
+    {
+      "figureId": "d-lesson-09-concept-model",
+      "kind": "feedback",
+      "routeId": "d-lesson-09",
+      "title": "Population growth controls",
+      "screenshotPath": ".runtime/biology30-course-production-visual-audit/2026-08-31T04-36-50-182Z/biology30-unit-d/figures/09-d-lesson-09-concept-model.png",
+      "screenshotSha256": "df32c21a7944fd3ee12332eca35a413592ca76c756af74929e0d590a7a825f4c"
+    },
+    {
+      "figureId": "d-lesson-10-concept-model",
+      "kind": "evidence",
+      "routeId": "d-lesson-10",
+      "title": "Management decision pathway",
+      "screenshotPath": ".runtime/biology30-course-production-visual-audit/2026-08-31T04-36-50-182Z/biology30-unit-d/figures/10-d-lesson-10-concept-model.png",
+      "screenshotSha256": "ee3479ded63154ffe4c63069053ddff297873ce36166d69e8c31414fcf8b9b21"
+    },
+    {
+      "figureId": "d-lesson-11-concept-model",
+      "kind": "network",
+      "routeId": "d-lesson-11",
+      "title": "Integrated population case model",
+      "screenshotPath": ".runtime/biology30-course-production-visual-audit/2026-08-31T04-36-50-182Z/biology30-unit-d/figures/11-d-lesson-11-concept-model.png",
+      "screenshotSha256": "16b7f602cc295f8a6f8397336b5417ad25813344217c5bf173037a5e9b1e3da2"
+    }
+  ],
+  "figureSheets": [
+    {
+      "path": ".runtime/biology30-course-production-visual-audit/2026-08-31T04-36-50-182Z/biology30-unit-d/figures-contact-sheet-01.png",
+      "sha256": "03e08c35099c93ccb8e12bf1daf6bd113828a43639879c421a4d1f4f68461e2b",
+      "figureIds": [
+        "d-lesson-01-concept-model",
+        "d-lesson-02-concept-model",
+        "d-lesson-03-concept-model",
+        "d-lesson-04-concept-model",
+        "d-lesson-05-concept-model",
+        "d-lesson-06-concept-model",
+        "d-lesson-07-concept-model",
+        "d-lesson-08-concept-model",
+        "d-lesson-09-concept-model",
+        "d-lesson-10-concept-model",
+        "d-lesson-11-concept-model"
+      ]
+    }
+  ],
+  "expectedInteractionCount": 11,
+  "interactionPresentationKinds": {
+    "d-lesson-01": "evidence",
+    "d-lesson-02": "feedback",
+    "d-lesson-03": "calculation",
+    "d-lesson-04": "evidence",
+    "d-lesson-05": "comparison",
+    "d-lesson-06": "pathway",
+    "d-lesson-07": "timeline",
+    "d-lesson-08": "evidence",
+    "d-lesson-09": "feedback",
+    "d-lesson-10": "evidence",
+    "d-lesson-11": "network"
+  },
+  "interactionPresentationKindCount": 7,
+  "interactions": [
+    {
+      "interactionId": "d-lesson-01:interaction",
+      "kind": "evidence",
+      "routeId": "d-lesson-01",
+      "title": "Gene-pool equilibrium model",
+      "screenshotPath": ".runtime/biology30-course-production-visual-audit/2026-08-31T04-36-50-182Z/biology30-unit-d/interactions/01-d-lesson-01:interaction.png",
+      "screenshotSha256": "6ffbed09ab21ae25d60b629eda21fecbc9fbc7d0eb152682db7383625e69e6aa"
+    },
+    {
+      "interactionId": "d-lesson-02:interaction",
+      "kind": "feedback",
+      "routeId": "d-lesson-02",
+      "title": "Hardy-Weinberg assumption lab",
+      "screenshotPath": ".runtime/biology30-course-production-visual-audit/2026-08-31T04-36-50-182Z/biology30-unit-d/interactions/02-d-lesson-02:interaction.png",
+      "screenshotSha256": "93e23e3d187bae80e5d170981600a544472f025aa8a8620aea0b00bc3061f809"
+    },
+    {
+      "interactionId": "d-lesson-03:interaction",
+      "kind": "calculation",
+      "routeId": "d-lesson-03",
+      "title": "Hardy-Weinberg calculator",
+      "screenshotPath": ".runtime/biology30-course-production-visual-audit/2026-08-31T04-36-50-182Z/biology30-unit-d/interactions/03-d-lesson-03:interaction.png",
+      "screenshotSha256": "a65780f73bf9adde8c5248a2ab36e7bbf9b11bb11bf9f695a5487adae640e90b"
+    },
+    {
+      "interactionId": "d-lesson-04:interaction",
+      "kind": "evidence",
+      "routeId": "d-lesson-04",
+      "title": "Microevolution evidence sort",
+      "screenshotPath": ".runtime/biology30-course-production-visual-audit/2026-08-31T04-36-50-182Z/biology30-unit-d/interactions/04-d-lesson-04:interaction.png",
+      "screenshotSha256": "a5346f71cc8916ceda41dd4ca9fe460b316e07961098a1cdba537616350aadc9"
+    },
+    {
+      "interactionId": "d-lesson-05:interaction",
+      "kind": "comparison",
+      "routeId": "d-lesson-05",
+      "title": "Species-interaction model",
+      "screenshotPath": ".runtime/biology30-course-production-visual-audit/2026-08-31T04-36-50-182Z/biology30-unit-d/interactions/05-d-lesson-05:interaction.png",
+      "screenshotSha256": "e9c1fb7fdb103697d4806f356b4f9d2594c48bcfc9d627ec30dadfaffadb6421"
+    },
+    {
+      "interactionId": "d-lesson-06:interaction",
+      "kind": "pathway",
+      "routeId": "d-lesson-06",
+      "title": "Predator-prey evidence model",
+      "screenshotPath": ".runtime/biology30-course-production-visual-audit/2026-08-31T04-36-50-182Z/biology30-unit-d/interactions/06-d-lesson-06:interaction.png",
+      "screenshotSha256": "143099dfac9f0a484541da1e81328a391ca8cad6482fdabbb2f9f7743778b571"
+    },
+    {
+      "interactionId": "d-lesson-07:interaction",
+      "kind": "timeline",
+      "routeId": "d-lesson-07",
+      "title": "Succession evidence timeline",
+      "screenshotPath": ".runtime/biology30-course-production-visual-audit/2026-08-31T04-36-50-182Z/biology30-unit-d/interactions/07-d-lesson-07:interaction.png",
+      "screenshotSha256": "e27ad54b47a5333ff987d24bb03ec1ab898442b8cec8138613b85e03e7302201"
+    },
+    {
+      "interactionId": "d-lesson-08:interaction",
+      "kind": "evidence",
+      "routeId": "d-lesson-08",
+      "title": "Population measures lab",
+      "screenshotPath": ".runtime/biology30-course-production-visual-audit/2026-08-31T04-36-50-182Z/biology30-unit-d/interactions/08-d-lesson-08:interaction.png",
+      "screenshotSha256": "a09412a9248d9e05e8aa5c9895150e3a814bfd3b10ac13f7da91b7af63c95f77"
+    },
+    {
+      "interactionId": "d-lesson-09:interaction",
+      "kind": "feedback",
+      "routeId": "d-lesson-09",
+      "title": "Population growth simulator",
+      "screenshotPath": ".runtime/biology30-course-production-visual-audit/2026-08-31T04-36-50-182Z/biology30-unit-d/interactions/09-d-lesson-09:interaction.png",
+      "screenshotSha256": "d7f41494471b0adc3e60014492836b072c95975500064777169b5ffe58c37a33"
+    },
+    {
+      "interactionId": "d-lesson-10:interaction",
+      "kind": "evidence",
+      "routeId": "d-lesson-10",
+      "title": "Management evidence matrix",
+      "screenshotPath": ".runtime/biology30-course-production-visual-audit/2026-08-31T04-36-50-182Z/biology30-unit-d/interactions/10-d-lesson-10:interaction.png",
+      "screenshotSha256": "6f99761543e1493f7e94fa0d12035d546bacc084c83a5ba3db3daed1d7e011e7"
+    },
+    {
+      "interactionId": "d-lesson-11:interaction",
+      "kind": "network",
+      "routeId": "d-lesson-11",
+      "title": "Integrated population case",
+      "screenshotPath": ".runtime/biology30-course-production-visual-audit/2026-08-31T04-36-50-182Z/biology30-unit-d/interactions/11-d-lesson-11:interaction.png",
+      "screenshotSha256": "0617312e5b042f8c81a167f7c0e6acb2440c5fc0f29d8c1f14299487c2a435d9"
+    }
+  ],
+  "interactionSheets": [
+    {
+      "path": ".runtime/biology30-course-production-visual-audit/2026-08-31T04-36-50-182Z/biology30-unit-d/interactions-contact-sheet-01.png",
+      "sha256": "ae9d0e95e745ac31e8fa94d92e110a69122d93e9f8252c0f32e4747189366824",
+      "interactionIds": [
+        "d-lesson-01:interaction",
+        "d-lesson-02:interaction",
+        "d-lesson-03:interaction",
+        "d-lesson-04:interaction",
+        "d-lesson-05:interaction",
+        "d-lesson-06:interaction",
+        "d-lesson-07:interaction",
+        "d-lesson-08:interaction",
+        "d-lesson-09:interaction",
+        "d-lesson-10:interaction",
+        "d-lesson-11:interaction"
+      ]
+    }
+  ],
+  "geometry": {
+    "pass": true,
+    "findingCount": 0,
+    "findings": []
+  },
+  "visualInspection": {
+    "required": true,
+    "status": "agent-review-passed-awaiting-human-score",
+    "reviewedAt": "2026-08-31T04:41:00.000Z",
+    "contactSheetHashesRecordedIn": "meta/visual-review.json",
+    "unresolvedFindings": 0,
+    "boundary": "This is AI-assisted red-team evidence, not a human category score or approval."
+  }
+}

@@ -1,0 +1,185 @@
+{
+  "historical_manifest": {
+    "count": 322,
+    "all_pass": true,
+    "failures": []
+  },
+  "base_and_frozen": {
+    "scripts/content.py": {
+      "sha256": "15f3e496a739a40f7de85ccfa8a8dcaadfb0a4ebb4274f4c36c272244d542a2e",
+      "matches_base": true
+    },
+    "scripts/build_chapter.py": {
+      "sha256": "915625267d4ea0a5a2bbd5cb86c62d3a9767f1d5aebcadcfb7b0169ee0eb704a",
+      "matches_base": true
+    },
+    "authoring/course-config.json": {
+      "sha256": "22a968d603d78dd5cd12e81324f8f4df4fbd29161413de20873884c714d1ffe8",
+      "matches_base": true
+    },
+    "workspace/index.html": {
+      "sha256": "4ce8de9382426b07de164b5de82ab6c25cd2471f41f309f7208311d3b523d1d0",
+      "matches_base": true
+    }
+  },
+  "standard": {
+    "bytes": 65442,
+    "sha256": "db8a04bcd7620d9ecf64ec6dc86c046cb3075b9b09cc51dac41936c391379e1e"
+  },
+  "lesson-05": {
+    "original_extract_equals_base": true,
+    "ids_equal": true,
+    "ids": [
+      "lesson-05-anchor-words",
+      "ch14-l05-teaching-01",
+      "ch14-l05-teaching-02",
+      "ch14-l05-teaching-03",
+      "ch14-l05-teaching-04",
+      "ch14-l05-worked",
+      "ch14-l05-guided",
+      "ch14-l05-guided-q1",
+      "ch14-l05-guided-q2",
+      "ch14-l05-check-mc-1-prompt",
+      "ch14-l05-check-mc-2-prompt",
+      "ch14-l05-check-writing-1",
+      "ch14-l05-check-writing-1-status",
+      "ch14-l05-check-writing-2",
+      "ch14-l05-check-writing-2-status",
+      "ch14-source-OBJ_2131118",
+      "ch14-source-OBJ_2131118-status"
+    ],
+    "scripts_in_candidate": 0,
+    "protected_dom_equal_after_review_only_normalizations": true,
+    "review_only_normalizations": [
+      "Unhide root for detached read-only display",
+      "Disable controls to prevent pretending save/runtime is active",
+      "Rebase image URLs; file bytes and original filenames verified",
+      "Whitespace normalization, attribute-order canonicalization; omit only four teaching blocks and worked block"
+    ],
+    "editkeys_all_original_retained": true,
+    "editkeys_added": [
+      "ch14-l05-teaching-01-p4",
+      "ch14-l05-teaching-01-p5",
+      "ch14-l05-teaching-02-p4",
+      "ch14-l05-teaching-02-p5",
+      "ch14-l05-teaching-03-p4",
+      "ch14-l05-teaching-03-p5",
+      "ch14-l05-teaching-04-p3"
+    ],
+    "helper_editkeys_all_original_retained": true,
+    "helper_editkeys_added": [
+      "ch14-l05-teaching-01-p4",
+      "ch14-l05-teaching-01-p5",
+      "ch14-l05-teaching-02-p4",
+      "ch14-l05-teaching-02-p5",
+      "ch14-l05-teaching-03-p4",
+      "ch14-l05-teaching-03-p5",
+      "ch14-l05-teaching-04-p3"
+    ],
+    "final_pdf_pages": 8,
+    "optional_task_starts_page8_only": true
+  },
+  "lesson-06": {
+    "original_extract_equals_base": true,
+    "ids_equal": true,
+    "ids": [
+      "lesson-06-anchor-words",
+      "ch14-l06-teaching-01",
+      "ch14-l06-teaching-02",
+      "ch14-l06-teaching-03",
+      "ch14-l06-teaching-04",
+      "ch14-l06-worked",
+      "ch14-l06-guided",
+      "ch14-l06-guided-q1",
+      "ch14-l06-guided-q2",
+      "ch14-l06-check-mc-1-prompt",
+      "ch14-l06-check-mc-2-prompt",
+      "ch14-l06-check-writing-1",
+      "ch14-l06-check-writing-1-status",
+      "ch14-l06-check-writing-2",
+      "ch14-l06-check-writing-2-status"
+    ],
+    "scripts_in_candidate": 0,
+    "protected_dom_equal_after_review_only_normalizations": true,
+    "review_only_normalizations": [
+      "Unhide root for detached read-only display",
+      "Disable controls to prevent pretending save/runtime is active",
+      "Rebase image URLs; file bytes and original filenames verified",
+      "Whitespace normalization, attribute-order canonicalization; omit only four teaching blocks and worked block"
+    ],
+    "editkeys_all_original_retained": true,
+    "editkeys_added": [
+      "ch14-l06-teaching-01-p4",
+      "ch14-l06-teaching-02-p4",
+      "ch14-l06-teaching-02-p5",
+      "ch14-l06-teaching-03-p3",
+      "ch14-l06-teaching-03-p4",
+      "ch14-l06-teaching-04-p4"
+    ],
+    "helper_editkeys_all_original_retained": true,
+    "helper_editkeys_added": [
+      "ch14-l06-teaching-01-p4",
+      "ch14-l06-teaching-02-p4",
+      "ch14-l06-teaching-02-p5",
+      "ch14-l06-teaching-03-p3",
+      "ch14-l06-teaching-03-p4",
+      "ch14-l06-teaching-04-p4"
+    ],
+    "final_pdf_pages": 7
+  },
+  "image_copy_hashes": {
+    "e5cd83cdfd72362f.png": {
+      "sha256": "e5cd83cdfd72362f1405fde57f802489055d85a87ac790b34b0580e7f4558c0e",
+      "matches_original": true
+    },
+    "female-anatomy.png": {
+      "sha256": "aeddd3a1c334fc4fa16e213a0ea8967c25e541afd991a2fb04ec20bc8f7f03f2",
+      "matches_original": true
+    },
+    "follicle-development.png": {
+      "sha256": "fe5d482e81d4a071bd64d51ca6cec94c5f8f777e3a1a234f4858e09e6635dee0",
+      "matches_original": true
+    }
+  },
+  "final_candidate_hashes": {
+    "candidate/lesson-06.teaching-manuscript.txt": "d025f903a22921483800e968e847615797cfb99367510b9928cd7cfbfe210007",
+    "candidate/lesson-05.reading.html": "80d3c05e7646128302b08a7d9362a1aade7f9418d664c123b11eb2f1a3bd1eef",
+    "candidate/lesson-06.reading.html": "cea0baea510f2d20ad1c8958cc698fcc77a02085c76a1119c2b929a644ee360f",
+    "candidate/lesson-05.teaching-fragments.html": "3980ebdb000b9d40fbfae428ba4348bc8952ae13f90037e11b490383a8cf5c8e",
+    "candidate/lesson-06.teaching-fragments.html": "dfd15b35592ee2d80ca872b581525571a5cfa003d71fdc4610521aa799198125",
+    "candidate/lesson-05.teaching-manuscript.txt": "d513f1c7ec91ca581a326ac29282c9db777f75c73b1394ff4c551fdad8ac459e",
+    "teaching-copy.json": "fa50612b1d743571989bf26a0bdd3c51d4b338fc9905aa27e9fe975ee67ebc8e",
+    "review-rendered-final/lesson-06.pdf": "daf087a02f37b15f462b5125c3d8a4b193227e253f1259688875a36ada20d92a",
+    "review-rendered-final/lesson-05.pdf": "9214d28e9b9aa642c27d0ec62dbe4e1c12a6f18a0f71ce8576c4f0e36da032d6"
+  },
+  "copy_json_text_coverage": {
+    "lesson-05": {
+      "reading.html": {
+        "all_text_present": true,
+        "missing": []
+      },
+      "teaching-fragments.html": {
+        "all_text_present": true,
+        "missing": []
+      },
+      "teaching-manuscript.txt": {
+        "all_text_present": true,
+        "missing": []
+      }
+    },
+    "lesson-06": {
+      "reading.html": {
+        "all_text_present": true,
+        "missing": []
+      },
+      "teaching-fragments.html": {
+        "all_text_present": true,
+        "missing": []
+      },
+      "teaching-manuscript.txt": {
+        "all_text_present": true,
+        "missing": []
+      }
+    }
+  }
+}

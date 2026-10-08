@@ -1,0 +1,4016 @@
+{
+  "created_at_utc": "2026-10-08T20:56:07.320310+00:00",
+  "scope": "Independent read-only historical-source, candidate DOM and static packet audit; no native runtime or current-owner test.",
+  "archive": {
+    "path": "/workspace/scratch/6f97d4e841e3/biology-image-source-review/BIOLOGY 30 COURSE CREATION/Biology30_Chapter14_Exact_Template_Handoff.zip",
+    "bytes": 42156775,
+    "sha256": "904db6f6e58c4d68689c611e2b6f2e3f5b020f48d6db55d366b934dbcf396a58",
+    "crc_first_bad_member": null,
+    "entries": 323
+  },
+  "original_manifest": {
+    "entries": 322,
+    "passed": 322,
+    "failed": [],
+    "files": [
+      {
+        "path": "README.md",
+        "expected": "223ac556c6caf0f1af577abee8400ce8902d35c3ab04a0667fa9b22cacd878f0",
+        "actual": "223ac556c6caf0f1af577abee8400ce8902d35c3ab04a0667fa9b22cacd878f0",
+        "pass": true
+      },
+      {
+        "path": "authoring/assessment-dispositions.json",
+        "expected": "577d895a6cc1a6cbfa840c3ec12067d2a5a748cf742389fbea219b57fcdb5acf",
+        "actual": "577d895a6cc1a6cbfa840c3ec12067d2a5a748cf742389fbea219b57fcdb5acf",
+        "pass": true
+      },
+      {
+        "path": "authoring/compiled-textbook-data.json",
+        "expected": "412a545eda05604f22a577d4745b92dc75fe3afe7d1d20f505fd29b42a4a2d5d",
+        "actual": "412a545eda05604f22a577d4745b92dc75fe3afe7d1d20f505fd29b42a4a2d5d",
+        "pass": true
+      },
+      {
+        "path": "authoring/component-catalogue.json",
+        "expected": "f58b62b7fa4342dc3d024f8e94519c20fe40755cd97b013cca19bcbe09d9685f",
+        "actual": "f58b62b7fa4342dc3d024f8e94519c20fe40755cd97b013cca19bcbe09d9685f",
+        "pass": true
+      },
+      {
+        "path": "authoring/course-config.json",
+        "expected": "22a968d603d78dd5cd12e81324f8f4df4fbd29161413de20873884c714d1ffe8",
+        "actual": "22a968d603d78dd5cd12e81324f8f4df4fbd29161413de20873884c714d1ffe8",
+        "pass": true
+      },
+      {
+        "path": "authoring/daily-plan-reference.txt",
+        "expected": "b8b72f83c74be35d6754b78b9fb2640fa36a1f516edd8f3cc154dfc41443c962",
+        "actual": "b8b72f83c74be35d6754b78b9fb2640fa36a1f516edd8f3cc154dfc41443c962",
+        "pass": true
+      },
+      {
+        "path": "authoring/diagram-review.json",
+        "expected": "1c7ec707c708d76e043d06ce620fcf739de37399e05410420f4508684d54318a",
+        "actual": "1c7ec707c708d76e043d06ce620fcf739de37399e05410420f4508684d54318a",
+        "pass": true
+      },
+      {
+        "path": "authoring/generated-practice-items.json",
+        "expected": "613d547dd7d90953445c18d140070e73e099c8b578e098c8efe8b8d2b204c2d8",
+        "actual": "613d547dd7d90953445c18d140070e73e099c8b578e098c8efe8b8d2b204c2d8",
+        "pass": true
+      },
+      {
+        "path": "authoring/imported-practice.json",
+        "expected": "b16f75cd4d6555e2fe71c9d6a9dda5b6662562448ee66bb9e2c9fc99dfa2accb",
+        "actual": "b16f75cd4d6555e2fe71c9d6a9dda5b6662562448ee66bb9e2c9fc99dfa2accb",
+        "pass": true
+      },
+      {
+        "path": "authoring/label-diagrams.json",
+        "expected": "0557385ea4a41a07f30addf64fc53ca5616e1384086deb3e4acd05e9e6ea3e3d",
+        "actual": "0557385ea4a41a07f30addf64fc53ca5616e1384086deb3e4acd05e9e6ea3e3d",
+        "pass": true
+      },
+      {
+        "path": "authoring/lesson-source-map.json",
+        "expected": "1cd874f5673125df0d80810514cfe9f22fec30e649ed288475eb8fe4b8fa8033",
+        "actual": "1cd874f5673125df0d80810514cfe9f22fec30e649ed288475eb8fe4b8fa8033",
+        "pass": true
+      },
+      {
+        "path": "authoring/option-position-audit.json",
+        "expected": "22afaf3143d25dfc2dc43de709d9e8ccb693e8a58715bc1a1a0f654bb0311796",
+        "actual": "22afaf3143d25dfc2dc43de709d9e8ccb693e8a58715bc1a1a0f654bb0311796",
+        "pass": true
+      },
+      {
+        "path": "authoring/optional-source-responses.json",
+        "expected": "969e044a0ddd76dfe99ad0772252bc5586275a6732657ee5f24330d9f0b42496",
+        "actual": "969e044a0ddd76dfe99ad0772252bc5586275a6732657ee5f24330d9f0b42496",
+        "pass": true
+      },
+      {
+        "path": "authoring/outcome-coverage.json",
+        "expected": "220ab26b2feff4e11942b83a358b34e79583acb64e803222d12014ccd3f38b83",
+        "actual": "220ab26b2feff4e11942b83a358b34e79583acb64e803222d12014ccd3f38b83",
+        "pass": true
+      },
+      {
+        "path": "authoring/portable-assets.json",
+        "expected": "1aa6bfa46ebc6a927e24cc4c46e0ed9d06b9f1f8cc008755101c019e84f6ba84",
+        "actual": "1aa6bfa46ebc6a927e24cc4c46e0ed9d06b9f1f8cc008755101c019e84f6ba84",
+        "pass": true
+      },
+      {
+        "path": "authoring/practice-coverage.json",
+        "expected": "10f59ce81e238a8c2bc04f118bc18a37ff200bbed8788cc5507fdb0c42eac8f5",
+        "actual": "10f59ce81e238a8c2bc04f118bc18a37ff200bbed8788cc5507fdb0c42eac8f5",
+        "pass": true
+      },
+      {
+        "path": "authoring/reserved-source-assets.json",
+        "expected": "01abdc3c51d9ec54a2224eb0258889e84a7d81fa52f9fb182ee0072b67ac4d66",
+        "actual": "01abdc3c51d9ec54a2224eb0258889e84a7d81fa52f9fb182ee0072b67ac4d66",
+        "pass": true
+      },
+      {
+        "path": "authoring/schematic-rendering-values.json",
+        "expected": "215cc3045ea4376a91fd75ffb17092adf85a7c9efdd48c1df1fac7abcc82b494",
+        "actual": "215cc3045ea4376a91fd75ffb17092adf85a7c9efdd48c1df1fac7abcc82b494",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assessment-catalogue.json",
+        "expected": "a540df55f7499962d24430effe2d986a881a656aca2d8ea9cc6fdfb339d2adc6",
+        "actual": "a540df55f7499962d24430effe2d986a881a656aca2d8ea9cc6fdfb339d2adc6",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/0223dddfefc4c637.png",
+        "expected": "0223dddfefc4c6372f71ed95f85c4d5e414859ad7edd7ed5f08511dbb88ddef4",
+        "actual": "0223dddfefc4c6372f71ed95f85c4d5e414859ad7edd7ed5f08511dbb88ddef4",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/05d94286f029e791.png",
+        "expected": "05d94286f029e79142312acf5d3babf4bc9b9051ab80ee215b2b43e53251aab8",
+        "actual": "05d94286f029e79142312acf5d3babf4bc9b9051ab80ee215b2b43e53251aab8",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/0b85ab1aa8695312.png",
+        "expected": "0b85ab1aa86953123b1ee3d12256f6dee32fad8106f90e12e74cd89028d3cd05",
+        "actual": "0b85ab1aa86953123b1ee3d12256f6dee32fad8106f90e12e74cd89028d3cd05",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/0d50968339d9a863.png",
+        "expected": "0d50968339d9a8635c9575c3d76375f53eac1d4565771f79f72692e781517740",
+        "actual": "0d50968339d9a8635c9575c3d76375f53eac1d4565771f79f72692e781517740",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/0e03dda147babb97.png",
+        "expected": "0e03dda147babb974e5fd6dbad4b01d85629eb0c4840b60171a5c67807a88ca7",
+        "actual": "0e03dda147babb974e5fd6dbad4b01d85629eb0c4840b60171a5c67807a88ca7",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/0f871c39250b8c55.png",
+        "expected": "0f871c39250b8c55eb2540d03da74df7d2a58ab82782da1e8a87b60b7fea5ae5",
+        "actual": "0f871c39250b8c55eb2540d03da74df7d2a58ab82782da1e8a87b60b7fea5ae5",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/12afc42bc30cdd48.png",
+        "expected": "12afc42bc30cdd48c8a734065e6d72bbda2424c8c5ae34eaa96c92cfe1dadc43",
+        "actual": "12afc42bc30cdd48c8a734065e6d72bbda2424c8c5ae34eaa96c92cfe1dadc43",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/1bc4661b07b32e09.png",
+        "expected": "1bc4661b07b32e092d524bd2a08d93f8386b7c8c62912c3c50b3892cd75a1d40",
+        "actual": "1bc4661b07b32e092d524bd2a08d93f8386b7c8c62912c3c50b3892cd75a1d40",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/1fdf0c6c0550cf02.png",
+        "expected": "1fdf0c6c0550cf027b51ad93467580c9dcf542675aa24153640ba4dd9469d9bb",
+        "actual": "1fdf0c6c0550cf027b51ad93467580c9dcf542675aa24153640ba4dd9469d9bb",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/2148b4ca3c9f3217.png",
+        "expected": "2148b4ca3c9f3217a4f3825a00653cf4ac36fdf89b6e366c64c39da184adc8fe",
+        "actual": "2148b4ca3c9f3217a4f3825a00653cf4ac36fdf89b6e366c64c39da184adc8fe",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/214bf0f50018f3fc.png",
+        "expected": "214bf0f50018f3fc367441dacd4fe5d10c0f3082b4499c8f7061bc2aa89287f7",
+        "actual": "214bf0f50018f3fc367441dacd4fe5d10c0f3082b4499c8f7061bc2aa89287f7",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/21aa7a5a3c752ae4.png",
+        "expected": "21aa7a5a3c752ae40e26ffe3b024bf0115fe770d9ce9e1f7e4a6a552b616406a",
+        "actual": "21aa7a5a3c752ae40e26ffe3b024bf0115fe770d9ce9e1f7e4a6a552b616406a",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/24347adf67b84dce.png",
+        "expected": "24347adf67b84dce24ffd4ab0511c8ad5f37e4338f98a3cb7d23e8c1306aa8c3",
+        "actual": "24347adf67b84dce24ffd4ab0511c8ad5f37e4338f98a3cb7d23e8c1306aa8c3",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/2baed3365879f1fa.png",
+        "expected": "2baed3365879f1fa6f5ab218aeaf3491a21530e5e07f0aa1f8855a8f19502001",
+        "actual": "2baed3365879f1fa6f5ab218aeaf3491a21530e5e07f0aa1f8855a8f19502001",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/2e30badc5645bfd1.png",
+        "expected": "2e30badc5645bfd14333e8a3068a94d1c88ba0116f3c0d532eae7e1687ec8ed8",
+        "actual": "2e30badc5645bfd14333e8a3068a94d1c88ba0116f3c0d532eae7e1687ec8ed8",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/31dcb3d9c620e380.png",
+        "expected": "31dcb3d9c620e3800ebab2aba141f67e65367d92b2a3b29010739c6982ee33f9",
+        "actual": "31dcb3d9c620e3800ebab2aba141f67e65367d92b2a3b29010739c6982ee33f9",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/34f7832079ee3012.png",
+        "expected": "34f7832079ee30123e848620f0c8a5f522f17a8ae9d39cf40ee946f30955b290",
+        "actual": "34f7832079ee30123e848620f0c8a5f522f17a8ae9d39cf40ee946f30955b290",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/358737a18b07733d.png",
+        "expected": "358737a18b07733d8ca9d388d59423e4aab84ff4bfd8ec8e696cf1586323af88",
+        "actual": "358737a18b07733d8ca9d388d59423e4aab84ff4bfd8ec8e696cf1586323af88",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/3acccde6f8099d5b.png",
+        "expected": "3acccde6f8099d5b59001b4757523e4e93edb697a2834f77e77ae91d61d0a7fc",
+        "actual": "3acccde6f8099d5b59001b4757523e4e93edb697a2834f77e77ae91d61d0a7fc",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/3b87413c605fe16b.png",
+        "expected": "3b87413c605fe16b8a335c6193157ff3aa8981ff98e092aa6ea4c73532ac4c80",
+        "actual": "3b87413c605fe16b8a335c6193157ff3aa8981ff98e092aa6ea4c73532ac4c80",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/3d32f200a7d912e0.png",
+        "expected": "3d32f200a7d912e0f6e80be5cdd2acb328351f0d5d92eb7740bddc4498dab257",
+        "actual": "3d32f200a7d912e0f6e80be5cdd2acb328351f0d5d92eb7740bddc4498dab257",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/3d52396522e4360f.png",
+        "expected": "3d52396522e4360f275a837f8120c991156e1a3ad6bf6af35ebf35786ea1dc3d",
+        "actual": "3d52396522e4360f275a837f8120c991156e1a3ad6bf6af35ebf35786ea1dc3d",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/428b42589e34453c.png",
+        "expected": "428b42589e34453c75aa2d450e5ae87f54d8e189d3005ced149ef70587d5281a",
+        "actual": "428b42589e34453c75aa2d450e5ae87f54d8e189d3005ced149ef70587d5281a",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/44a5878d9b363f40.png",
+        "expected": "44a5878d9b363f401fce99e4a5060cc64f6a8fef3bb469abdc2e7723d269ef9d",
+        "actual": "44a5878d9b363f401fce99e4a5060cc64f6a8fef3bb469abdc2e7723d269ef9d",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/471827644a67ee68.png",
+        "expected": "471827644a67ee6893cfbd49a41616b53599f17e1c4d051458e899df6dc0f28b",
+        "actual": "471827644a67ee6893cfbd49a41616b53599f17e1c4d051458e899df6dc0f28b",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/47ee499d22916f92.png",
+        "expected": "47ee499d22916f9248eb84e8a40e5f7ee6cf273013068585d16e7ef4fe733518",
+        "actual": "47ee499d22916f9248eb84e8a40e5f7ee6cf273013068585d16e7ef4fe733518",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/47f455a95150b798.png",
+        "expected": "47f455a95150b7989080b9307189c0a31fcc9ff65f3cc799d262ea179e0d9bf8",
+        "actual": "47f455a95150b7989080b9307189c0a31fcc9ff65f3cc799d262ea179e0d9bf8",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/4974af5812b46cf1.png",
+        "expected": "4974af5812b46cf11f7d5afb565f555db41225fc6a3076a496d9e091dc38c592",
+        "actual": "4974af5812b46cf11f7d5afb565f555db41225fc6a3076a496d9e091dc38c592",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/4bf6b7e0cb9e8015.png",
+        "expected": "4bf6b7e0cb9e8015ab3b809dd51f864f5cca864255c349a028442424ff6f5ef5",
+        "actual": "4bf6b7e0cb9e8015ab3b809dd51f864f5cca864255c349a028442424ff6f5ef5",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/507e15b3f5ae1f4d.png",
+        "expected": "507e15b3f5ae1f4d5807682cf2f703055149d21111a6264ddca736ec58674cf7",
+        "actual": "507e15b3f5ae1f4d5807682cf2f703055149d21111a6264ddca736ec58674cf7",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/53005768bdd98f5f.png",
+        "expected": "53005768bdd98f5f33bd0516b3c003592dae67329bda9e3289eebc00eb475b29",
+        "actual": "53005768bdd98f5f33bd0516b3c003592dae67329bda9e3289eebc00eb475b29",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/567e66b30bef289a.png",
+        "expected": "567e66b30bef289a3b1406959aee70fc39088e563367f3888a92b7be7dd294d7",
+        "actual": "567e66b30bef289a3b1406959aee70fc39088e563367f3888a92b7be7dd294d7",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/56c7fd52f5c7f8e4.png",
+        "expected": "56c7fd52f5c7f8e4c49ad801ea2a55b9fd30457fdf4b1fdc51b6bc37d3ad6166",
+        "actual": "56c7fd52f5c7f8e4c49ad801ea2a55b9fd30457fdf4b1fdc51b6bc37d3ad6166",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/57ec62a44db37e95.png",
+        "expected": "57ec62a44db37e95df9af1ab5e51af8da5db9bea3f82ace4aefc13b28cc66bf1",
+        "actual": "57ec62a44db37e95df9af1ab5e51af8da5db9bea3f82ace4aefc13b28cc66bf1",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/582ef77fd210c306.png",
+        "expected": "582ef77fd210c3060627e690497f043bfe300928288122305fe6e506fbdb809a",
+        "actual": "582ef77fd210c3060627e690497f043bfe300928288122305fe6e506fbdb809a",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/5c8c4613378cddbd.png",
+        "expected": "5c8c4613378cddbdf0573d233b6b7fca1cc930861f3ef5342b1b1eae15ad486e",
+        "actual": "5c8c4613378cddbdf0573d233b6b7fca1cc930861f3ef5342b1b1eae15ad486e",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/6694e7892b4f3c26.png",
+        "expected": "6694e7892b4f3c264c7c5a24d4f07d77b28da2e84e6ec004eea003fc53de7b00",
+        "actual": "6694e7892b4f3c264c7c5a24d4f07d77b28da2e84e6ec004eea003fc53de7b00",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/6cea5cf6365a36a1.png",
+        "expected": "6cea5cf6365a36a174338860710bcdd07ac4071de6601b85abf3eb75956b6866",
+        "actual": "6cea5cf6365a36a174338860710bcdd07ac4071de6601b85abf3eb75956b6866",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/6d538ca55fb04fe6.png",
+        "expected": "6d538ca55fb04fe63fa22c216737b83752832411380aa696fbb938f7f58e3a3b",
+        "actual": "6d538ca55fb04fe63fa22c216737b83752832411380aa696fbb938f7f58e3a3b",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/6dc4f537d50d52ed.png",
+        "expected": "6dc4f537d50d52ed2ad132e4d2f805e8374f2ffb8ba2c4205a2e2477c77067a8",
+        "actual": "6dc4f537d50d52ed2ad132e4d2f805e8374f2ffb8ba2c4205a2e2477c77067a8",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/6f3c5166713c84be.png",
+        "expected": "6f3c5166713c84bedf935b76bc640760c728a8c6ab24d22589a2c95ee09afa3d",
+        "actual": "6f3c5166713c84bedf935b76bc640760c728a8c6ab24d22589a2c95ee09afa3d",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/6fba72cc32ceae26.png",
+        "expected": "6fba72cc32ceae266608555513f9dbdbc535c21205549e212d96943d46c2e8d9",
+        "actual": "6fba72cc32ceae266608555513f9dbdbc535c21205549e212d96943d46c2e8d9",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/740db3921a769b60.png",
+        "expected": "740db3921a769b602b23bd92ea508c60eda93fe09027c4c43dd5d05702847200",
+        "actual": "740db3921a769b602b23bd92ea508c60eda93fe09027c4c43dd5d05702847200",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/74137d645f6b6662.png",
+        "expected": "74137d645f6b6662c2fdb00dcc8a1c100e7e764019fd9ea87cfdffac945c83e4",
+        "actual": "74137d645f6b6662c2fdb00dcc8a1c100e7e764019fd9ea87cfdffac945c83e4",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/74d48638791d2633.png",
+        "expected": "74d48638791d26338b1546cd4e94dcbd84e9da866177082178cec8973e4b1de8",
+        "actual": "74d48638791d26338b1546cd4e94dcbd84e9da866177082178cec8973e4b1de8",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/762dc9c961c69a4f.png",
+        "expected": "762dc9c961c69a4f5d5f4fdf5a541114553cb35431d8dcf410498979f39cfb72",
+        "actual": "762dc9c961c69a4f5d5f4fdf5a541114553cb35431d8dcf410498979f39cfb72",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/77719c69c29b856b.png",
+        "expected": "77719c69c29b856bd796d6bbfd108d5948231ed9158de41ddf31eb290c81c7bb",
+        "actual": "77719c69c29b856bd796d6bbfd108d5948231ed9158de41ddf31eb290c81c7bb",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/78cceae6dbc3f7d7.png",
+        "expected": "78cceae6dbc3f7d731b53f8054c2d73940827d477dd8b44d9461c82da6b7da32",
+        "actual": "78cceae6dbc3f7d731b53f8054c2d73940827d477dd8b44d9461c82da6b7da32",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/7eeee50362191224.png",
+        "expected": "7eeee503621912248cdd8c95ef9684202c2ed595ad90c269487e041c19b4371b",
+        "actual": "7eeee503621912248cdd8c95ef9684202c2ed595ad90c269487e041c19b4371b",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/81f51f894d2b50d9.png",
+        "expected": "81f51f894d2b50d927b8059ff4ec8a13123b4788b9a5ce8f0b1c6b9af4353b4b",
+        "actual": "81f51f894d2b50d927b8059ff4ec8a13123b4788b9a5ce8f0b1c6b9af4353b4b",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/84d29f883264813a.png",
+        "expected": "84d29f883264813abceb8f2ec325b9c692e31276405c50ceb0dabc4720159160",
+        "actual": "84d29f883264813abceb8f2ec325b9c692e31276405c50ceb0dabc4720159160",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/866b48cc6ef48afe.png",
+        "expected": "866b48cc6ef48afe154102da32b98f88d03d20598343569d3175380ca0d3af03",
+        "actual": "866b48cc6ef48afe154102da32b98f88d03d20598343569d3175380ca0d3af03",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/89c4431c0340a1a2.png",
+        "expected": "89c4431c0340a1a2e53997ee187c00186efd540eb3eed3dd4315fb46bcff9006",
+        "actual": "89c4431c0340a1a2e53997ee187c00186efd540eb3eed3dd4315fb46bcff9006",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/8a948d2b853bfd94.png",
+        "expected": "8a948d2b853bfd94e8c864fe3eb59324bf7202170283fbbfd7ced0b86cd76340",
+        "actual": "8a948d2b853bfd94e8c864fe3eb59324bf7202170283fbbfd7ced0b86cd76340",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/8ba13820ad167f07.png",
+        "expected": "8ba13820ad167f07d1e5eda323390c945f37051118f5e1c175a3cca2c39ef8d4",
+        "actual": "8ba13820ad167f07d1e5eda323390c945f37051118f5e1c175a3cca2c39ef8d4",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/8c191fd34e3e093a.png",
+        "expected": "8c191fd34e3e093aa28673c3388fd2c48f0718c247cece963699b7bfb3cb5533",
+        "actual": "8c191fd34e3e093aa28673c3388fd2c48f0718c247cece963699b7bfb3cb5533",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/8e2b07b34153a59d.png",
+        "expected": "8e2b07b34153a59d63fb44a5375a0beef3d150c071330e83e957ed47cc056eeb",
+        "actual": "8e2b07b34153a59d63fb44a5375a0beef3d150c071330e83e957ed47cc056eeb",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/910790624a98dbc4.png",
+        "expected": "910790624a98dbc4b4f7c19618d7ca544974562b1f287456279b1584e4ec3932",
+        "actual": "910790624a98dbc4b4f7c19618d7ca544974562b1f287456279b1584e4ec3932",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/92f4993a67c16bf7.png",
+        "expected": "92f4993a67c16bf7a39ee2711e1561e73e1e6be4f44606995c0b3f345e4dc07c",
+        "actual": "92f4993a67c16bf7a39ee2711e1561e73e1e6be4f44606995c0b3f345e4dc07c",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/9345709c8077076b.png",
+        "expected": "9345709c8077076b7af0b7f7875a3694475ab24bcf4666cc46b3f5aba81d674a",
+        "actual": "9345709c8077076b7af0b7f7875a3694475ab24bcf4666cc46b3f5aba81d674a",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/96465e03d1973181.png",
+        "expected": "96465e03d19731819a8a50a86ec220e4d3ec7d6b8307900bbc75121bf431c5c7",
+        "actual": "96465e03d19731819a8a50a86ec220e4d3ec7d6b8307900bbc75121bf431c5c7",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/9738d92eef552019.png",
+        "expected": "9738d92eef5520194928e41a4e1d1df1140c380cfdb1fb4a3c2df1d9c9875388",
+        "actual": "9738d92eef5520194928e41a4e1d1df1140c380cfdb1fb4a3c2df1d9c9875388",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/987d1ba568badee0.png",
+        "expected": "987d1ba568badee095b2a9d2358ea81029824c8248f50a69feed2384a6a2b2e9",
+        "actual": "987d1ba568badee095b2a9d2358ea81029824c8248f50a69feed2384a6a2b2e9",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/9aa12f685ba44b09.png",
+        "expected": "9aa12f685ba44b091fb4a699cd93914c89f5a8ed76e6c69c757d545db083a923",
+        "actual": "9aa12f685ba44b091fb4a699cd93914c89f5a8ed76e6c69c757d545db083a923",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/9bdf27fb68d6331a.png",
+        "expected": "9bdf27fb68d6331a08ba371dfdae029cf5c3465ed191155d26e8aca6200c8b0a",
+        "actual": "9bdf27fb68d6331a08ba371dfdae029cf5c3465ed191155d26e8aca6200c8b0a",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/9d45801c5591767e.png",
+        "expected": "9d45801c5591767eb097208b15a110c1c27fccfe46f93a370cccbb7eb657f945",
+        "actual": "9d45801c5591767eb097208b15a110c1c27fccfe46f93a370cccbb7eb657f945",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/a1c53a99dfb57037.png",
+        "expected": "a1c53a99dfb57037fa3b3faced6536bb633ead4a5d106b53e9ea7279ef835ab5",
+        "actual": "a1c53a99dfb57037fa3b3faced6536bb633ead4a5d106b53e9ea7279ef835ab5",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/a8cf7470de074ce7.png",
+        "expected": "a8cf7470de074ce7375a8a6cce5b6da4358a8ff4eb9ad6a199f3e1b666d2705a",
+        "actual": "a8cf7470de074ce7375a8a6cce5b6da4358a8ff4eb9ad6a199f3e1b666d2705a",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/a93f7d2a39d0c895.png",
+        "expected": "a93f7d2a39d0c8959f598d8b1d5b46cf38e32f8ebd74124cf444451771dbe95d",
+        "actual": "a93f7d2a39d0c8959f598d8b1d5b46cf38e32f8ebd74124cf444451771dbe95d",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/a9d7044916531a45.png",
+        "expected": "a9d7044916531a45e162f4baf9b48ef6fffef5a78401ebbbba7a367194b903ef",
+        "actual": "a9d7044916531a45e162f4baf9b48ef6fffef5a78401ebbbba7a367194b903ef",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/ac6d47ee88ea0c78.png",
+        "expected": "ac6d47ee88ea0c78c3162601c6c4eb93c16f64351e504e60fcc48d0446f00df5",
+        "actual": "ac6d47ee88ea0c78c3162601c6c4eb93c16f64351e504e60fcc48d0446f00df5",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/b6065caedc33daea.png",
+        "expected": "b6065caedc33daea05d9c8c8c9da2dce96b103a26f66210659873fa3a909e133",
+        "actual": "b6065caedc33daea05d9c8c8c9da2dce96b103a26f66210659873fa3a909e133",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/bab9687d8e764e29.png",
+        "expected": "bab9687d8e764e29ad4d5cb123adccb0a1b694a78e9216ea7aee0f342127cfda",
+        "actual": "bab9687d8e764e29ad4d5cb123adccb0a1b694a78e9216ea7aee0f342127cfda",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/bb89cd92bf32778b.png",
+        "expected": "bb89cd92bf32778bdb061ac18667b92a139617418149f39503c2b6a9e1aae6ff",
+        "actual": "bb89cd92bf32778bdb061ac18667b92a139617418149f39503c2b6a9e1aae6ff",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/bb95ca6c25df00f8.png",
+        "expected": "bb95ca6c25df00f8d01d563fe94e325149dd1b903a0313d4f19150e54588954e",
+        "actual": "bb95ca6c25df00f8d01d563fe94e325149dd1b903a0313d4f19150e54588954e",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/bd82fde7cbcb4e44.png",
+        "expected": "bd82fde7cbcb4e44785a2f27ca085f7bd4723cec5408067e80cb498a2f555420",
+        "actual": "bd82fde7cbcb4e44785a2f27ca085f7bd4723cec5408067e80cb498a2f555420",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/be3283cf513d711f.png",
+        "expected": "be3283cf513d711f35b1fabe4ca06d8739c707d4b38c7f1346fb7015fa69f585",
+        "actual": "be3283cf513d711f35b1fabe4ca06d8739c707d4b38c7f1346fb7015fa69f585",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/c2b39cac422390aa.png",
+        "expected": "c2b39cac422390aaa5a3e315222432ca65231e6c2d809fd44ca67d7c023b4eef",
+        "actual": "c2b39cac422390aaa5a3e315222432ca65231e6c2d809fd44ca67d7c023b4eef",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/c6b5013521144b6e.png",
+        "expected": "c6b5013521144b6e951287681edd19dc6a878a821050e9ee5669848cd00e2cce",
+        "actual": "c6b5013521144b6e951287681edd19dc6a878a821050e9ee5669848cd00e2cce",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/cba9de331aae4fd8.png",
+        "expected": "cba9de331aae4fd8a1cb37fae87116bca3a729473add88a6a4585e75d6313f18",
+        "actual": "cba9de331aae4fd8a1cb37fae87116bca3a729473add88a6a4585e75d6313f18",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/cc665d8bda2b3e95.png",
+        "expected": "cc665d8bda2b3e954901f64a77ec47d89d66831d62514ae8aa7c27b5f66fd8a1",
+        "actual": "cc665d8bda2b3e954901f64a77ec47d89d66831d62514ae8aa7c27b5f66fd8a1",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/ce525c89118ab555.png",
+        "expected": "ce525c89118ab5559fca5c5818e04774a3fc636ff208794ea11dd91e595b6eb2",
+        "actual": "ce525c89118ab5559fca5c5818e04774a3fc636ff208794ea11dd91e595b6eb2",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/cf9507ed9bc0be0f.png",
+        "expected": "cf9507ed9bc0be0f27040988ec64b33b8f7e90f01d869c2fea79577ae990469b",
+        "actual": "cf9507ed9bc0be0f27040988ec64b33b8f7e90f01d869c2fea79577ae990469b",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/d139104d8fae0f74.png",
+        "expected": "d139104d8fae0f74a85dbbc232d41bc89317c39865b09cffde8d03431affa726",
+        "actual": "d139104d8fae0f74a85dbbc232d41bc89317c39865b09cffde8d03431affa726",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/d37426be8ae79b52.png",
+        "expected": "d37426be8ae79b5289dc9e81a40e42cfbf2a72c87b03db85c5787eccc55baa61",
+        "actual": "d37426be8ae79b5289dc9e81a40e42cfbf2a72c87b03db85c5787eccc55baa61",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/d5a31f18df17b604.png",
+        "expected": "d5a31f18df17b6047eadc463e978efdedec3bec35d3a3cf72c249eeb94c4ffdf",
+        "actual": "d5a31f18df17b6047eadc463e978efdedec3bec35d3a3cf72c249eeb94c4ffdf",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/d66857afed549d75.png",
+        "expected": "d66857afed549d7568028a8b93e2195fbf54bbf1b3d701fba10633f2da01242a",
+        "actual": "d66857afed549d7568028a8b93e2195fbf54bbf1b3d701fba10633f2da01242a",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/dc3d5070012c0731.png",
+        "expected": "dc3d5070012c0731969cd3fbc1b57047463e0dfb40074b8cf27797b68eeb9962",
+        "actual": "dc3d5070012c0731969cd3fbc1b57047463e0dfb40074b8cf27797b68eeb9962",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/e6f3a3465347f916.png",
+        "expected": "e6f3a3465347f916fdd9078015243e06073cec0e9e4ef17a3e82d230833f90fa",
+        "actual": "e6f3a3465347f916fdd9078015243e06073cec0e9e4ef17a3e82d230833f90fa",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/eb015710927a71a4.png",
+        "expected": "eb015710927a71a452e826068210a1350dbae2d6d7b440503ea0e091cf16f644",
+        "actual": "eb015710927a71a452e826068210a1350dbae2d6d7b440503ea0e091cf16f644",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/ecabe1544c9c65aa.png",
+        "expected": "ecabe1544c9c65aa250f00b608c09a99ffadc7e77de0e3f180c60e6b1a98f6bc",
+        "actual": "ecabe1544c9c65aa250f00b608c09a99ffadc7e77de0e3f180c60e6b1a98f6bc",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/f4971a2ad02dcaed.png",
+        "expected": "f4971a2ad02dcaed2bb3e88c20d4bd036bcc97c083451c7e91504678dee2011c",
+        "actual": "f4971a2ad02dcaed2bb3e88c20d4bd036bcc97c083451c7e91504678dee2011c",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/f9f0b6aa49c9a744.png",
+        "expected": "f9f0b6aa49c9a744e12cb45ffa7e679b42ab2d839d5594862efb13870f203bf8",
+        "actual": "f9f0b6aa49c9a744e12cb45ffa7e679b42ab2d839d5594862efb13870f203bf8",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/fabf4f2941ef763d.png",
+        "expected": "fabf4f2941ef763db2bd6343c874bf986bb99107bb1d36a488b3d1e835749acf",
+        "actual": "fabf4f2941ef763db2bd6343c874bf986bb99107bb1d36a488b3d1e835749acf",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/fb4e1327bf080321.png",
+        "expected": "fb4e1327bf080321d0ec5a79aa8468ac0e5a764d141e9b3140edde248d165c7f",
+        "actual": "fb4e1327bf080321d0ec5a79aa8468ac0e5a764d141e9b3140edde248d165c7f",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-assets/fc7108bc15c42203.png",
+        "expected": "fc7108bc15c422035969c7197185b54908884345c2f9f2bafe9f7666734766b1",
+        "actual": "fc7108bc15c422035969c7197185b54908884345c2f9f2bafe9f7666734766b1",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-discrepancies.md",
+        "expected": "4cac0340fefd0c417b34824a3b98b97d507eddca27aeaae0c465981a351797fc",
+        "actual": "4cac0340fefd0c417b34824a3b98b97d507eddca27aeaae0c465981a351797fc",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-inputs/Unit B Chapter 14 Notes.pptx",
+        "expected": "b2d6ed2ff0e758f81e2c2dab288011188fa9c8370b873ebf2c70caf25499d229",
+        "actual": "b2d6ed2ff0e758f81e2c2dab288011188fa9c8370b873ebf2c70caf25499d229",
+        "pass": true
+      },
+      {
+        "path": "authoring/source-inventory.json",
+        "expected": "183669b77eb4fecf33f45d177d56a571325a23df7a6b40e19d541af655bd1d01",
+        "actual": "183669b77eb4fecf33f45d177d56a571325a23df7a6b40e19d541af655bd1d01",
+        "pass": true
+      },
+      {
+        "path": "authoring/template-lock.json",
+        "expected": "d3dfe616987846dcb6275e910cc37c378ab38325eeeba98a09f646ab398fd15d",
+        "actual": "d3dfe616987846dcb6275e910cc37c378ab38325eeeba98a09f646ab398fd15d",
+        "pass": true
+      },
+      {
+        "path": "authoring/templates/core-vocabulary.html",
+        "expected": "dd9de0a03f8a7c90db4db9828331212778c3c567007af2412a2549550d5e8547",
+        "actual": "dd9de0a03f8a7c90db4db9828331212778c3c567007af2412a2549550d5e8547",
+        "pass": true
+      },
+      {
+        "path": "authoring/templates/extension.html",
+        "expected": "62b958d44f2413f60d5dc5525345686a5edd2f0bceefe407c5f2c3342fdd3399",
+        "actual": "62b958d44f2413f60d5dc5525345686a5edd2f0bceefe407c5f2c3342fdd3399",
+        "pass": true
+      },
+      {
+        "path": "authoring/templates/fill-in-the-blanks.html",
+        "expected": "44feda05cacdbd6c18c08fcf77c3ac64fe59563f67f1eec835fe058396608c95",
+        "actual": "44feda05cacdbd6c18c08fcf77c3ac64fe59563f67f1eec835fe058396608c95",
+        "pass": true
+      },
+      {
+        "path": "authoring/templates/labeling-practice.html",
+        "expected": "cb7dd659b97210938a35a7c9202b7fc88ce8d8245bebc75910beb7b48a0b03c9",
+        "actual": "cb7dd659b97210938a35a7c9202b7fc88ce8d8245bebc75910beb7b48a0b03c9",
+        "pass": true
+      },
+      {
+        "path": "authoring/templates/lesson-01.html",
+        "expected": "264e627daf1b1d2461ace7c25aeb4983176c61facea8ecd0110b7775dff3adff",
+        "actual": "264e627daf1b1d2461ace7c25aeb4983176c61facea8ecd0110b7775dff3adff",
+        "pass": true
+      },
+      {
+        "path": "authoring/templates/lesson-09.html",
+        "expected": "87b233999059d40ad3eee993333f0052649b19c14955d169311390166ca1ed8c",
+        "actual": "87b233999059d40ad3eee993333f0052649b19c14955d169311390166ca1ed8c",
+        "pass": true
+      },
+      {
+        "path": "authoring/templates/mixed-practice.html",
+        "expected": "433a1c5e1df67e90a81662e5fa7741b5b79831d086a389b1b0c1cba5d2c7cc12",
+        "actual": "433a1c5e1df67e90a81662e5fa7741b5b79831d086a389b1b0c1cba5d2c7cc12",
+        "pass": true
+      },
+      {
+        "path": "authoring/templates/multiple-choice.html",
+        "expected": "522f2a4e3b9e6ccc23796e80bf91f30cc52b594541fe836ebff5da557e815400",
+        "actual": "522f2a4e3b9e6ccc23796e80bf91f30cc52b594541fe836ebff5da557e815400",
+        "pass": true
+      },
+      {
+        "path": "authoring/templates/overview.html",
+        "expected": "de43d89d337eac0fb8777b5c57f71dd73f3d7ba9b00bea2d9c0a7c58415b1a9f",
+        "actual": "de43d89d337eac0fb8777b5c57f71dd73f3d7ba9b00bea2d9c0a7c58415b1a9f",
+        "pass": true
+      },
+      {
+        "path": "authoring/templates/practice.html",
+        "expected": "b3adf0340a831171a3c8ba5bd5a76e4639d6de4b983b4d339ac1c98a6fdce30e",
+        "actual": "b3adf0340a831171a3c8ba5bd5a76e4639d6de4b983b4d339ac1c98a6fdce30e",
+        "pass": true
+      },
+      {
+        "path": "authoring/templates/process-collection.html",
+        "expected": "6ea519ac86e7c4ce405b1f5228bca4246f05d3827f26a29f5de69b3fa9ba89a6",
+        "actual": "6ea519ac86e7c4ce405b1f5228bca4246f05d3827f26a29f5de69b3fa9ba89a6",
+        "pass": true
+      },
+      {
+        "path": "authoring/templates/shell.html",
+        "expected": "be626bf93b328b64edce016f9bd063a2731f5412585e9bed2450ed261505425c",
+        "actual": "be626bf93b328b64edce016f9bd063a2731f5412585e9bed2450ed261505425c",
+        "pass": true
+      },
+      {
+        "path": "authoring/templates/textbook-library.html",
+        "expected": "e72abed96f2c31f5b48eba23a74f0fa991430d1bd3d9d28dbc8b4c7e2a4d8741",
+        "actual": "e72abed96f2c31f5b48eba23a74f0fa991430d1bd3d9d28dbc8b4c7e2a4d8741",
+        "pass": true
+      },
+      {
+        "path": "authoring/templates/textbook-practice.html",
+        "expected": "856a266aa0b84316821dc02123f3898102ea46694ccd06b6e71a5960219d5918",
+        "actual": "856a266aa0b84316821dc02123f3898102ea46694ccd06b6e71a5960219d5918",
+        "pass": true
+      },
+      {
+        "path": "authoring/templates/video-library.html",
+        "expected": "d849ab6b3b12bc1b4673cf2ea200e8317e2a2ab7e6644d0fb4d8bd15af882c62",
+        "actual": "d849ab6b3b12bc1b4673cf2ea200e8317e2a2ab7e6644d0fb4d8bd15af882c62",
+        "pass": true
+      },
+      {
+        "path": "authoring/textbook-question-manifest.json",
+        "expected": "b4bfb29a87b355b46d2bd2ba870258073f2eca088f1de3e9dd6fee631017b0d3",
+        "actual": "b4bfb29a87b355b46d2bd2ba870258073f2eca088f1de3e9dd6fee631017b0d3",
+        "pass": true
+      },
+      {
+        "path": "authoring/textbook-visual-review.json",
+        "expected": "dc383e1577123e5bb22d286e6f35cd4236687f63ac2162c88d46eabfccfa0dd0",
+        "actual": "dc383e1577123e5bb22d286e6f35cd4236687f63ac2162c88d46eabfccfa0dd0",
+        "pass": true
+      },
+      {
+        "path": "authoring/video-map.json",
+        "expected": "dc6995c89500c894fd7b2e378b8efa0aa521357ecb834f00e89c72fb3c538e04",
+        "actual": "dc6995c89500c894fd7b2e378b8efa0aa521357ecb834f00e89c72fb3c538e04",
+        "pass": true
+      },
+      {
+        "path": "authoring/vocabulary.json",
+        "expected": "b1f02ef126670c3f8856804e8d5600a8092e52ca37b690085ea308248461a5b5",
+        "actual": "b1f02ef126670c3f8856804e8d5600a8092e52ca37b690085ea308248461a5b5",
+        "pass": true
+      },
+      {
+        "path": "portable/Biology30_Chapter14.html",
+        "expected": "97edd885e7743c5ec6222e7d37c1dfa21b15433f09e2aa9dfb0fd37e949d62b6",
+        "actual": "97edd885e7743c5ec6222e7d37c1dfa21b15433f09e2aa9dfb0fd37e949d62b6",
+        "pass": true
+      },
+      {
+        "path": "scripts/assemble_portable.py",
+        "expected": "9b8295046bbb55ff6896e762a4c18eb0c28a4573ec261b1ea77c4cb05db86c0b",
+        "actual": "9b8295046bbb55ff6896e762a4c18eb0c28a4573ec261b1ea77c4cb05db86c0b",
+        "pass": true
+      },
+      {
+        "path": "scripts/build_chapter.py",
+        "expected": "915625267d4ea0a5a2bbd5cb86c62d3a9767f1d5aebcadcfb7b0169ee0eb704a",
+        "actual": "915625267d4ea0a5a2bbd5cb86c62d3a9767f1d5aebcadcfb7b0169ee0eb704a",
+        "pass": true
+      },
+      {
+        "path": "scripts/content.py",
+        "expected": "15f3e496a739a40f7de85ccfa8a8dcaadfb0a4ebb4274f4c36c272244d542a2e",
+        "actual": "15f3e496a739a40f7de85ccfa8a8dcaadfb0a4ebb4274f4c36c272244d542a2e",
+        "pass": true
+      },
+      {
+        "path": "scripts/export_practice_coverage.js",
+        "expected": "eda22226a547e55f8c7e50deb848b2a5bf53e4a7eb7ae465618201c4409da706",
+        "actual": "eda22226a547e55f8c7e50deb848b2a5bf53e4a7eb7ae465618201c4409da706",
+        "pass": true
+      },
+      {
+        "path": "scripts/finalize_handoff.py",
+        "expected": "dc90a0c3c1a19d18ecba8d0423718f01552f0037fd375647a9e0d4be15a1bb9c",
+        "actual": "dc90a0c3c1a19d18ecba8d0423718f01552f0037fd375647a9e0d4be15a1bb9c",
+        "pass": true
+      },
+      {
+        "path": "scripts/import_assessments.py",
+        "expected": "4866f9a055ca36d1f40c716df2060ea25e2e3f2b7699a253f636e2f252099f33",
+        "actual": "4866f9a055ca36d1f40c716df2060ea25e2e3f2b7699a253f636e2f252099f33",
+        "pass": true
+      },
+      {
+        "path": "scripts/patch_runtime.py",
+        "expected": "7ba3aa782bf6f54601bddca39ebb93c463adf1eaa5c5ccb5a7ab0adf1700f6eb",
+        "actual": "7ba3aa782bf6f54601bddca39ebb93c463adf1eaa5c5ccb5a7ab0adf1700f6eb",
+        "pass": true
+      },
+      {
+        "path": "scripts/prepare_assets.py",
+        "expected": "b618e8218252c514f4f8187129ce1dd73ee9058747a006bc5be8b9cc47b06131",
+        "actual": "b618e8218252c514f4f8187129ce1dd73ee9058747a006bc5be8b9cc47b06131",
+        "pass": true
+      },
+      {
+        "path": "scripts/prepare_textbook.py",
+        "expected": "5f5c4148cc81de45e2bcb060f2ceb8f6ed598b3596e2d8c5f7e8dce4ac4e8b35",
+        "actual": "5f5c4148cc81de45e2bcb060f2ceb8f6ed598b3596e2d8c5f7e8dce4ac4e8b35",
+        "pass": true
+      },
+      {
+        "path": "scripts/verify_additional.py",
+        "expected": "a4368af581ad408ea3da3f7c4256f9c1f35bbeda35ec386d313252d12f1fe9a5",
+        "actual": "a4368af581ad408ea3da3f7c4256f9c1f35bbeda35ec386d313252d12f1fe9a5",
+        "pass": true
+      },
+      {
+        "path": "scripts/verify_browser.py",
+        "expected": "4f7d65639b2abeeaa77d55a6653cca225cedeac4640e86ee4279b634dd914149",
+        "actual": "4f7d65639b2abeeaa77d55a6653cca225cedeac4640e86ee4279b634dd914149",
+        "pass": true
+      },
+      {
+        "path": "scripts/write_checksums.py",
+        "expected": "db57d0d5745d3e934454bf22857fc5b51dce5a0b7ccdee0f1622d9d1fd630d19",
+        "actual": "db57d0d5745d3e934454bf22857fc5b51dce5a0b7ccdee0f1622d9d1fd630d19",
+        "pass": true
+      },
+      {
+        "path": "verification/additional-browser-results.json",
+        "expected": "ab7dd8e31c903b358494a2feddf4be4a774fa113505d0c6784434e7bdda21227",
+        "actual": "ab7dd8e31c903b358494a2feddf4be4a774fa113505d0c6784434e7bdda21227",
+        "pass": true
+      },
+      {
+        "path": "verification/all-my-work-print-test.pdf",
+        "expected": "5a9c76565400dbc1b679b62181f9f08d2e1b420ce784bf87b7ce337085c30060",
+        "actual": "5a9c76565400dbc1b679b62181f9f08d2e1b420ce784bf87b7ce337085c30060",
+        "pass": true
+      },
+      {
+        "path": "verification/browser-results.json",
+        "expected": "ab66e61dc31d42e002a20af7b100a7f37179ca266c0bfac341dceca7466887f2",
+        "actual": "ab66e61dc31d42e002a20af7b100a7f37179ca266c0bfac341dceca7466887f2",
+        "pass": true
+      },
+      {
+        "path": "verification/neutral-template-gate.json",
+        "expected": "d99cb62f2b501ed10a2980c01425304822a8add0c1eac84360729693c5f50e2f",
+        "actual": "d99cb62f2b501ed10a2980c01425304822a8add0c1eac84360729693c5f50e2f",
+        "pass": true
+      },
+      {
+        "path": "verification/screenshots/all-my-work.png",
+        "expected": "8e33cd396893983407ed12015863d9e5a9794891ccc753f99d4a301af99bd77f",
+        "actual": "8e33cd396893983407ed12015863d9e5a9794891ccc753f99d4a301af99bd77f",
+        "pass": true
+      },
+      {
+        "path": "verification/screenshots/blanks-running.png",
+        "expected": "1b82c56d424994d6b447188bdb63c74bd6b1f9e3ca5f6db69f37efaf07d4c24f",
+        "actual": "1b82c56d424994d6b447188bdb63c74bd6b1f9e3ca5f6db69f37efaf07d4c24f",
+        "pass": true
+      },
+      {
+        "path": "verification/screenshots/final-crops-0.jpg",
+        "expected": "f5e1e3396ea2fc5c7281d00bab9f06caadbaa26998f43fb2c3eb1d887a5fd00b",
+        "actual": "f5e1e3396ea2fc5c7281d00bab9f06caadbaa26998f43fb2c3eb1d887a5fd00b",
+        "pass": true
+      },
+      {
+        "path": "verification/screenshots/final-crops-6.jpg",
+        "expected": "02bce18a4b8730573602dc939f4d8cdf7098ee0666ef01f945eab9691bccda58",
+        "actual": "02bce18a4b8730573602dc939f4d8cdf7098ee0666ef01f945eab9691bccda58",
+        "pass": true
+      },
+      {
+        "path": "verification/screenshots/flash-running.png",
+        "expected": "f41ec65e16518e27461ad986e47b13165258a18bd1f9200ca65f4c0e00ed4037",
+        "actual": "f41ec65e16518e27461ad986e47b13165258a18bd1f9200ca65f4c0e00ed4037",
+        "pass": true
+      },
+      {
+        "path": "verification/screenshots/lesson-08-1117.png",
+        "expected": "12c2d41b749278857c51696155ef75a550356eec8f1f632a6da7824986f500c7",
+        "actual": "12c2d41b749278857c51696155ef75a550356eec8f1f632a6da7824986f500c7",
+        "pass": true
+      },
+      {
+        "path": "verification/screenshots/lesson-08-1469.png",
+        "expected": "b4911313b2a72d3151c393913e125a563df3eeba61473847f638e7b53e3ab211",
+        "actual": "b4911313b2a72d3151c393913e125a563df3eeba61473847f638e7b53e3ab211",
+        "pass": true
+      },
+      {
+        "path": "verification/screenshots/lesson-08-320.png",
+        "expected": "b423d97c4b4d6dde72f34b5398872bf19837ec3f6ff821ecc517772fa9c39a9b",
+        "actual": "b423d97c4b4d6dde72f34b5398872bf19837ec3f6ff821ecc517772fa9c39a9b",
+        "pass": true
+      },
+      {
+        "path": "verification/screenshots/lesson-08-390.png",
+        "expected": "6cb5b30df46779876eec03d71d534edcc886bb4991c6ede29a32c2060f59e2d2",
+        "actual": "6cb5b30df46779876eec03d71d534edcc886bb4991c6ede29a32c2060f59e2d2",
+        "pass": true
+      },
+      {
+        "path": "verification/screenshots/lesson-08-760.png",
+        "expected": "05a7aacb61a363398088dd3a1f2d9ff948698c8f10c02e710794a4bbd9e40412",
+        "actual": "05a7aacb61a363398088dd3a1f2d9ff948698c8f10c02e710794a4bbd9e40412",
+        "pass": true
+      },
+      {
+        "path": "verification/screenshots/lesson-08-980.png",
+        "expected": "10635dfe1973eea450deace9142e23b6c80845670b91565ab489b879199e8045",
+        "actual": "10635dfe1973eea450deace9142e23b6c80845670b91565ab489b879199e8045",
+        "pass": true
+      },
+      {
+        "path": "verification/screenshots/mc-running.png",
+        "expected": "ee91b3a9bc9e151c25d927862c54d04a07f9733e957067140756df1dbbbc768a",
+        "actual": "ee91b3a9bc9e151c25d927862c54d04a07f9733e957067140756df1dbbbc768a",
+        "pass": true
+      },
+      {
+        "path": "verification/screenshots/mixed-running.png",
+        "expected": "09b5e2cc9c741a05264bd16de31eaa05ee30d7278a04f97e59735e8178ca02df",
+        "actual": "09b5e2cc9c741a05264bd16de31eaa05ee30d7278a04f97e59735e8178ca02df",
+        "pass": true
+      },
+      {
+        "path": "verification/screenshots/overview-1469.png",
+        "expected": "3699a5cd4e39eeffd022fb5603c3ec8f1cb32191bfb9640629efdfcf1b3eb58b",
+        "actual": "3699a5cd4e39eeffd022fb5603c3ec8f1cb32191bfb9640629efdfcf1b3eb58b",
+        "pass": true
+      },
+      {
+        "path": "verification/screenshots/question-review-00.jpg",
+        "expected": "60345d7e0b6b27c785cde70741311937c7119d14715893d34a72acab06cec10a",
+        "actual": "60345d7e0b6b27c785cde70741311937c7119d14715893d34a72acab06cec10a",
+        "pass": true
+      },
+      {
+        "path": "verification/screenshots/question-review-01.jpg",
+        "expected": "3ad48da9df3427fbe3fd79f049077599b559b8e71bce71aeb51fe86d142f54c5",
+        "actual": "3ad48da9df3427fbe3fd79f049077599b559b8e71bce71aeb51fe86d142f54c5",
+        "pass": true
+      },
+      {
+        "path": "verification/screenshots/question-review-02.jpg",
+        "expected": "83606cc8e80e30f196cb37beff9f4ec7c05f5d156d5038c663b84566b7f6ca3f",
+        "actual": "83606cc8e80e30f196cb37beff9f4ec7c05f5d156d5038c663b84566b7f6ca3f",
+        "pass": true
+      },
+      {
+        "path": "verification/screenshots/question-review-03.jpg",
+        "expected": "562adebd9cdd10af18b5c92669dbc36a8e998e17faca84ebe2a8255759e0864f",
+        "actual": "562adebd9cdd10af18b5c92669dbc36a8e998e17faca84ebe2a8255759e0864f",
+        "pass": true
+      },
+      {
+        "path": "verification/screenshots/question-review-04.jpg",
+        "expected": "23291ab3e2e9b2db34140b02aeee64f0f01d7257ae5daf464a090412de43fab2",
+        "actual": "23291ab3e2e9b2db34140b02aeee64f0f01d7257ae5daf464a090412de43fab2",
+        "pass": true
+      },
+      {
+        "path": "verification/screenshots/question-review-05.jpg",
+        "expected": "0e4c9ee13d1c0c83ae7475995d3acf34cea6179d2dc6eea879d08fbda9d9b711",
+        "actual": "0e4c9ee13d1c0c83ae7475995d3acf34cea6179d2dc6eea879d08fbda9d9b711",
+        "pass": true
+      },
+      {
+        "path": "verification/screenshots/question-review-06.jpg",
+        "expected": "9b9fe350990162bc53501722852b9c8620d387c1dfd8117da3adbeb01e50b484",
+        "actual": "9b9fe350990162bc53501722852b9c8620d387c1dfd8117da3adbeb01e50b484",
+        "pass": true
+      },
+      {
+        "path": "verification/screenshots/question-review-07.jpg",
+        "expected": "22101a9f4bb56d60cca38cdcc99947b1f9e03312bd0dc558de0796e92f7268f2",
+        "actual": "22101a9f4bb56d60cca38cdcc99947b1f9e03312bd0dc558de0796e92f7268f2",
+        "pass": true
+      },
+      {
+        "path": "verification/screenshots/question-review-08.jpg",
+        "expected": "1c304f7852c666bcd36fa8ae771a79a04c0b792c3b4136319d55bf66632fad0c",
+        "actual": "1c304f7852c666bcd36fa8ae771a79a04c0b792c3b4136319d55bf66632fad0c",
+        "pass": true
+      },
+      {
+        "path": "verification/screenshots/question-review-09.jpg",
+        "expected": "8ab8cef4f9b55eada194cb885f792f040653f2dd74055fc0673235b3b5b007bf",
+        "actual": "8ab8cef4f9b55eada194cb885f792f040653f2dd74055fc0673235b3b5b007bf",
+        "pass": true
+      },
+      {
+        "path": "verification/static-checks.json",
+        "expected": "4eaf2eb71e1591baecde2f7514ac063da82c71bfeb77d7b33d5e0cee12bf98dd",
+        "actual": "4eaf2eb71e1591baecde2f7514ac063da82c71bfeb77d7b33d5e0cee12bf98dd",
+        "pass": true
+      },
+      {
+        "path": "verification/surface-matrix.json",
+        "expected": "bd99b04d2b2349e0d472b9abc62d08a891358c60d25c045c31c06233a95f4da8",
+        "actual": "bd99b04d2b2349e0d472b9abc62d08a891358c60d25c045c31c06233a95f4da8",
+        "pass": true
+      },
+      {
+        "path": "verification/verification-results.md",
+        "expected": "f4e1e11ad6bbd90c13e376dbd791ac464a62363017250f5824b05fbe4483ee7b",
+        "actual": "f4e1e11ad6bbd90c13e376dbd791ac464a62363017250f5824b05fbe4483ee7b",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/assessment/02bb8e7f03394198.png",
+        "expected": "02bb8e7f033941983cca5986d5831efdddea53822a5acd60fc66a92f5852fb41",
+        "actual": "02bb8e7f033941983cca5986d5831efdddea53822a5acd60fc66a92f5852fb41",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/assessment/0494827f4e9ddf52.png",
+        "expected": "0494827f4e9ddf52cd986de6076591ea8e52569de388150723ef2002e2097447",
+        "actual": "0494827f4e9ddf52cd986de6076591ea8e52569de388150723ef2002e2097447",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/assessment/1fe7d26423286fef.png",
+        "expected": "1fe7d26423286fef95c0ddcd0c5b2dcb447aebd8699ee8f3d3f5ca5ce8c343e7",
+        "actual": "1fe7d26423286fef95c0ddcd0c5b2dcb447aebd8699ee8f3d3f5ca5ce8c343e7",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/assessment/38d9d5d902e46ecb.png",
+        "expected": "38d9d5d902e46ecbcd9c924792fdca2e8ea44d517df5bfe3c35a2a11ad10ee1f",
+        "actual": "38d9d5d902e46ecbcd9c924792fdca2e8ea44d517df5bfe3c35a2a11ad10ee1f",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/assessment/3e94259b702ce9b6.png",
+        "expected": "3e94259b702ce9b60ca1ed96f8ad78f088dbb4a4b245291343fa6e53630da441",
+        "actual": "3e94259b702ce9b60ca1ed96f8ad78f088dbb4a4b245291343fa6e53630da441",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/assessment/5538ea0e4a8af8b0.png",
+        "expected": "5538ea0e4a8af8b0b693bbd356ab3f7dbea00ae47d37b3cb52dba7f235a0827d",
+        "actual": "5538ea0e4a8af8b0b693bbd356ab3f7dbea00ae47d37b3cb52dba7f235a0827d",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/assessment/646fd8c557960fad.png",
+        "expected": "646fd8c557960fadae2e5b8637dd93e421e7a9adefb71cd1ac8e2fd9be40b334",
+        "actual": "646fd8c557960fadae2e5b8637dd93e421e7a9adefb71cd1ac8e2fd9be40b334",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/assessment/7bb5b33615668d7b.png",
+        "expected": "7bb5b33615668d7bd1b2e7b658151ac6d7a70f46914bd361ac690c7e7820f9cd",
+        "actual": "7bb5b33615668d7bd1b2e7b658151ac6d7a70f46914bd361ac690c7e7820f9cd",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/assessment/84315541bff5cc8f.png",
+        "expected": "84315541bff5cc8fd0af672dbe5f873753deaca2c08a992057f3d67f749a599d",
+        "actual": "84315541bff5cc8fd0af672dbe5f873753deaca2c08a992057f3d67f749a599d",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/assessment/c52ed443adfef6fe.png",
+        "expected": "c52ed443adfef6fea81abae481a021f6a28c9ee2994f44e90f88aec407c7ac7e",
+        "actual": "c52ed443adfef6fea81abae481a021f6a28c9ee2994f44e90f88aec407c7ac7e",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/assessment/c9c3004e80c37fc5.png",
+        "expected": "c9c3004e80c37fc56ffd015be9b140f7c771ee899e2dbc17c76d6c927c5bad55",
+        "actual": "c9c3004e80c37fc56ffd015be9b140f7c771ee899e2dbc17c76d6c927c5bad55",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/assessment/cb32b3295ef90021.png",
+        "expected": "cb32b3295ef9002159c56a9c4e98ab1657a0a95ac7e6c54a7b9f667eca15318e",
+        "actual": "cb32b3295ef9002159c56a9c4e98ab1657a0a95ac7e6c54a7b9f667eca15318e",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/assessment/cfcb48cb1ab97495.png",
+        "expected": "cfcb48cb1ab9749575c571f0eaa58133a17bfb519eecffe2d8fc69558dfdf0a7",
+        "actual": "cfcb48cb1ab9749575c571f0eaa58133a17bfb519eecffe2d8fc69558dfdf0a7",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/assessment/e2fc08fe1c10aa91.png",
+        "expected": "e2fc08fe1c10aa913ef5b4bc0b0d9c394dd952f95f43216bb6a1d452c8f50741",
+        "actual": "e2fc08fe1c10aa913ef5b4bc0b0d9c394dd952f95f43216bb6a1d452c8f50741",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/assessment/e5cd83cdfd72362f.png",
+        "expected": "e5cd83cdfd72362f1405fde57f802489055d85a87ac790b34b0580e7f4558c0e",
+        "actual": "e5cd83cdfd72362f1405fde57f802489055d85a87ac790b34b0580e7f4558c0e",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/assessment/endometrium-location.png",
+        "expected": "e5b0b7e23636b5e1d45df877a631bbe37bbeba91733e559e9d9aa09d19ff2324",
+        "actual": "e5b0b7e23636b5e1d45df877a631bbe37bbeba91733e559e9d9aa09d19ff2324",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/assessment/f0f497f31b18db94.png",
+        "expected": "f0f497f31b18db9465e2b01e66e7c9324492211801ad78ecd202d08266189fe0",
+        "actual": "f0f497f31b18db9465e2b01e66e7c9324492211801ad78ecd202d08266189fe0",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/figures/cycle-coordination.svg",
+        "expected": "67822d2123a1b97d4d5af600f2980d996cc630ee1f6a39879c5c95af875f6b8f",
+        "actual": "67822d2123a1b97d4d5af600f2980d996cc630ee1f6a39879c5c95af875f6b8f",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/figures/cycle-hormones.svg",
+        "expected": "af66841a7f1578d5b2f482ee1ce577081552f33c16e9a07fa68f5dde321a2b59",
+        "actual": "af66841a7f1578d5b2f482ee1ce577081552f33c16e9a07fa68f5dde321a2b59",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/figures/female-anatomy.png",
+        "expected": "aeddd3a1c334fc4fa16e213a0ea8967c25e541afd991a2fb04ec20bc8f7f03f2",
+        "actual": "aeddd3a1c334fc4fa16e213a0ea8967c25e541afd991a2fb04ec20bc8f7f03f2",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/figures/follicle-development.png",
+        "expected": "fe5d482e81d4a071bd64d51ca6cec94c5f8f777e3a1a234f4858e09e6635dee0",
+        "actual": "fe5d482e81d4a071bd64d51ca6cec94c5f8f777e3a1a234f4858e09e6635dee0",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/figures/male-anatomy.png",
+        "expected": "f7a26cfd325397e561a3bc59815685d6bdc76e88bc314e27545b81a405870f06",
+        "actual": "f7a26cfd325397e561a3bc59815685d6bdc76e88bc314e27545b81a405870f06",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/figures/male-feedback.svg",
+        "expected": "1e9579a27e090ce7c755423c2fc9537e911c2c9c4fe49c0d84346b9c5bd388b8",
+        "actual": "1e9579a27e090ce7c755423c2fc9537e911c2c9c4fe49c0d84346b9c5bd388b8",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/figures/sperm-structure.png",
+        "expected": "246b73cae9be2ce43e44f7079ecec08759c23eb3361ac3e7a32ef94b60e72109",
+        "actual": "246b73cae9be2ce43e44f7079ecec08759c23eb3361ac3e7a32ef94b60e72109",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/figures/testis-cells.png",
+        "expected": "a712160606975d4874d7fab4c59120b2fabd2ea676d44c05bd72975cc8621ed7",
+        "actual": "a712160606975d4874d7fab4c59120b2fabd2ea676d44c05bd72975cc8621ed7",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/labeling/ch14-label-cycle.svg",
+        "expected": "cfb4885c8b8c758d1df560decbaa5681f18a9f83e87badf8e9e6340aa47dbe55",
+        "actual": "cfb4885c8b8c758d1df560decbaa5681f18a9f83e87badf8e9e6340aa47dbe55",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/labeling/ch14-label-feedback.svg",
+        "expected": "9670e3300cf754ffc7ee0c82257003e24308360bb0beca4e2c299276a07b6c5a",
+        "actual": "9670e3300cf754ffc7ee0c82257003e24308360bb0beca4e2c299276a07b6c5a",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/labeling/ch14-label-female.png",
+        "expected": "74e12713a17a111cfff40bfc13e5be53efb4f669760b0920c01cc75edcc018b0",
+        "actual": "74e12713a17a111cfff40bfc13e5be53efb4f669760b0920c01cc75edcc018b0",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/labeling/ch14-label-follicle.png",
+        "expected": "d1b76ea6b79cc0a4f991a0b82b8dc5eee32a98b09d21e7af8fa9700b91741f3a",
+        "actual": "d1b76ea6b79cc0a4f991a0b82b8dc5eee32a98b09d21e7af8fa9700b91741f3a",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/labeling/ch14-label-male.png",
+        "expected": "c82cefd443cb9746568d5bab643d1bfcceef99ac716968e7ddd091a2fc8c19d2",
+        "actual": "c82cefd443cb9746568d5bab643d1bfcceef99ac716968e7ddd091a2fc8c19d2",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/labeling/ch14-label-sperm.png",
+        "expected": "423cbdd596c6536d9b01161a00544eaf79bda57e23f4bd8db28d12d2bc3fc6a1",
+        "actual": "423cbdd596c6536d9b01161a00544eaf79bda57e23f4bd8db28d12d2bc3fc6a1",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/revision-activities.js",
+        "expected": "957583a09be13e3b0bb888928d49ed87605b154f14eeaacbea3ea569e27b60c8",
+        "actual": "957583a09be13e3b0bb888928d49ed87605b154f14eeaacbea3ea569e27b60c8",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/revision-practice.js",
+        "expected": "490849b14ff0fd8b2072e653ce80e7d282327cef6f125e66d4fc18f56fb16cd6",
+        "actual": "490849b14ff0fd8b2072e653ce80e7d282327cef6f125e66d4fc18f56fb16cd6",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook/chapter-14.pdf",
+        "expected": "82d37feec1390def949ed241d117e2b218b8dc8aa09d9cddead37fd6c64a49ea",
+        "actual": "82d37feec1390def949ed241d117e2b218b8dc8aa09d9cddead37fd6c64a49ea",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p478-in-text-q1-1.png",
+        "expected": "7e475a0a818f532fd5e20bd70b237684791c79f1ae3164a4c5d1e93b93879644",
+        "actual": "7e475a0a818f532fd5e20bd70b237684791c79f1ae3164a4c5d1e93b93879644",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p481-in-text-q2-1.png",
+        "expected": "9e3194d5d9f8cfe2f352e23b75f71f5e03ce515a54eff246a2307dd755faab82",
+        "actual": "9e3194d5d9f8cfe2f352e23b75f71f5e03ce515a54eff246a2307dd755faab82",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p481-in-text-q3-1.png",
+        "expected": "a675e05f5bb9cf60d910343d1c96f19ed456e609ce19d4992e265d61de160dae",
+        "actual": "a675e05f5bb9cf60d910343d1c96f19ed456e609ce19d4992e265d61de160dae",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p481-in-text-q4-1.png",
+        "expected": "bb266bf7efc156079e2d53cadcaa61c9f7a381bc2c7e89af2c787160ae4d43c1",
+        "actual": "bb266bf7efc156079e2d53cadcaa61c9f7a381bc2c7e89af2c787160ae4d43c1",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p481-in-text-q5-1.png",
+        "expected": "6f73ba35bb50fa31afe86f4b8abc6afa4ecc9b11c052390225df8d1f21ec70fb",
+        "actual": "6f73ba35bb50fa31afe86f4b8abc6afa4ecc9b11c052390225df8d1f21ec70fb",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p481-in-text-q6-1.png",
+        "expected": "95ba9bea3df942d749367f1bad672692ab852d7c53248f58f490320cdf1e0ee2",
+        "actual": "95ba9bea3df942d749367f1bad672692ab852d7c53248f58f490320cdf1e0ee2",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p484-in-text-q10-1.png",
+        "expected": "460b18cfbac6d8a54afd55d89d756d36c88c4af89bd88f0c2d103d72b36b76fb",
+        "actual": "460b18cfbac6d8a54afd55d89d756d36c88c4af89bd88f0c2d103d72b36b76fb",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p484-in-text-q7-1.png",
+        "expected": "8fecc7044e3b117e72288f918b15e71469b31b841854fd3844dacc2143dbcdf7",
+        "actual": "8fecc7044e3b117e72288f918b15e71469b31b841854fd3844dacc2143dbcdf7",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p484-in-text-q8-1.png",
+        "expected": "4a40ca0650dbf8aa8b436ee8107861d4278588fbdab486cf7bf6fcd605a94bc4",
+        "actual": "4a40ca0650dbf8aa8b436ee8107861d4278588fbdab486cf7bf6fcd605a94bc4",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p484-in-text-q9-1.png",
+        "expected": "708586abffb98252f6e87fafe0f259502da342872416b177d19a53be167345ad",
+        "actual": "708586abffb98252f6e87fafe0f259502da342872416b177d19a53be167345ad",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p485-section-14-1-q1-1.png",
+        "expected": "a0c7fe72ad55d0b2defbaa990f287387f2d62cad5184c567b644070718a6404a",
+        "actual": "a0c7fe72ad55d0b2defbaa990f287387f2d62cad5184c567b644070718a6404a",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p485-section-14-1-q2-1.png",
+        "expected": "b7906617c35d67ce13a0687a297d613ecc94728167984869e1b50acb03341c3b",
+        "actual": "b7906617c35d67ce13a0687a297d613ecc94728167984869e1b50acb03341c3b",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p485-section-14-1-q3-1.png",
+        "expected": "f5d5046056687a12e3a1767116ad04e011e7a1e37b53321cdb881a56eb5ad371",
+        "actual": "f5d5046056687a12e3a1767116ad04e011e7a1e37b53321cdb881a56eb5ad371",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p485-section-14-1-q4-1.png",
+        "expected": "8efc7edbd134403e1d78761cce2167262b8809c6d30284901079df94027f9519",
+        "actual": "8efc7edbd134403e1d78761cce2167262b8809c6d30284901079df94027f9519",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p485-section-14-1-q5-1.png",
+        "expected": "fea0b4d28bd8032b9077087e91852fd0cf5fc8b99c1dae1c85f034bca12bd577",
+        "actual": "fea0b4d28bd8032b9077087e91852fd0cf5fc8b99c1dae1c85f034bca12bd577",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p485-section-14-1-q6-1.png",
+        "expected": "0d24dffa307674d226eb6b82b89d4e1bbafff9307534eb09ac705f05741450ff",
+        "actual": "0d24dffa307674d226eb6b82b89d4e1bbafff9307534eb09ac705f05741450ff",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p485-section-14-1-q7-1.png",
+        "expected": "633fd0339e9473fbdd6da4a813ad4d39e3244fbc853817c687440d8e563e9f0f",
+        "actual": "633fd0339e9473fbdd6da4a813ad4d39e3244fbc853817c687440d8e563e9f0f",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p485-section-14-1-q8-1.png",
+        "expected": "3fafa17efafcd1b257d89559cc31c120c2b2980f2bd33c77321a13e1964eea76",
+        "actual": "3fafa17efafcd1b257d89559cc31c120c2b2980f2bd33c77321a13e1964eea76",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p487-in-text-q11-1.png",
+        "expected": "90f51409b79ded512d698e33c40a7aaee23619a9b5b1d5364296ae466d282ef6",
+        "actual": "90f51409b79ded512d698e33c40a7aaee23619a9b5b1d5364296ae466d282ef6",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p487-in-text-q12-1.png",
+        "expected": "f8bb9a6d75a658ab4a69301449e7d9c8cc379dc6c58d1a7f8855f52f7815461c",
+        "actual": "f8bb9a6d75a658ab4a69301449e7d9c8cc379dc6c58d1a7f8855f52f7815461c",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p487-in-text-q13-1.png",
+        "expected": "2bd048685933331cd413e062f261f8e9b2ed350d950ee863cad4da951ab7bd03",
+        "actual": "2bd048685933331cd413e062f261f8e9b2ed350d950ee863cad4da951ab7bd03",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p488-in-text-q14-1.png",
+        "expected": "d2b24ccca21f2eb6e4102a09acc5d4e63a828f0ffccfecc3346129c49b898461",
+        "actual": "d2b24ccca21f2eb6e4102a09acc5d4e63a828f0ffccfecc3346129c49b898461",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p488-in-text-q16-1.png",
+        "expected": "ca428b23cc405b93cecbc88a9d93a80c9ba908abda645a27ed1e10fee4f6ae43",
+        "actual": "ca428b23cc405b93cecbc88a9d93a80c9ba908abda645a27ed1e10fee4f6ae43",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p491-section-14-2-q1-1.png",
+        "expected": "60a5ad32ac33ed8339a92f5e350aabb38cc62e0033423db7ba9db5492812e4e1",
+        "actual": "60a5ad32ac33ed8339a92f5e350aabb38cc62e0033423db7ba9db5492812e4e1",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p491-section-14-2-q2-1.png",
+        "expected": "35e0d979007bcdb930cbb62693ab8805b8535b84b0d5877ff1d96a31472ffe79",
+        "actual": "35e0d979007bcdb930cbb62693ab8805b8535b84b0d5877ff1d96a31472ffe79",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p491-section-14-2-q3-1.png",
+        "expected": "625df5d7f59a9f2a7fb9c71d60f7803a195c881368be61bebfd3256770eaf0fe",
+        "actual": "625df5d7f59a9f2a7fb9c71d60f7803a195c881368be61bebfd3256770eaf0fe",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p491-section-14-2-q4-1.png",
+        "expected": "0b2baa776132d00d99c04c994f723762aba1a5d5a188d7da87bf25a9524b93df",
+        "actual": "0b2baa776132d00d99c04c994f723762aba1a5d5a188d7da87bf25a9524b93df",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p491-section-14-2-q5-1.png",
+        "expected": "dbe8a63ada405b6d1ce4d816f07496cf10e49488d5927db0efba0dce2588f62f",
+        "actual": "dbe8a63ada405b6d1ce4d816f07496cf10e49488d5927db0efba0dce2588f62f",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p492-in-text-q18-1.png",
+        "expected": "0d63ba5453333b5eb36e9d72e8a7d5ebafe8c0826962ab8440d32d16c21ce747",
+        "actual": "0d63ba5453333b5eb36e9d72e8a7d5ebafe8c0826962ab8440d32d16c21ce747",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p494-thought-lab-14-2-analysis-q1-1.png",
+        "expected": "875fee8cbef31084ece5277510707599ba19d6c4ab13334edfbdf3e993ffb08e",
+        "actual": "875fee8cbef31084ece5277510707599ba19d6c4ab13334edfbdf3e993ffb08e",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p494-thought-lab-14-2-analysis-q2-1.png",
+        "expected": "096a19ea6451d6cda2d0828336f08f4b566e2ddd0fc04c392364913c2e32f553",
+        "actual": "096a19ea6451d6cda2d0828336f08f4b566e2ddd0fc04c392364913c2e32f553",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p494-thought-lab-14-2-procedure-q1-1.png",
+        "expected": "a851205ad630422ad1a511ec0db09ba4266c7b98d2228701e475061da9e6ad0c",
+        "actual": "a851205ad630422ad1a511ec0db09ba4266c7b98d2228701e475061da9e6ad0c",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p494-thought-lab-14-2-procedure-q2-1.png",
+        "expected": "f9c10480c83f29e55cb82e7f6bf205cac3c10439156de26ee19b6c29188c4d7c",
+        "actual": "f9c10480c83f29e55cb82e7f6bf205cac3c10439156de26ee19b6c29188c4d7c",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p495-in-text-q19-1.png",
+        "expected": "38e571962648cacb25ac16283415847519ff313b999dab9a12aa31b61d68afd0",
+        "actual": "38e571962648cacb25ac16283415847519ff313b999dab9a12aa31b61d68afd0",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p495-in-text-q20-1.png",
+        "expected": "966b634f81a6ff3c0bf73b317ce7e6c6d3448f3a581c6bc5a5b9f1b30ab10ef0",
+        "actual": "966b634f81a6ff3c0bf73b317ce7e6c6d3448f3a581c6bc5a5b9f1b30ab10ef0",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p497-thought-lab-14-3-analysis-q1-1.png",
+        "expected": "8dd24ac9a7b97ee787e9182982b9a3456456dc9074aaab4849075da86ea6f4b7",
+        "actual": "8dd24ac9a7b97ee787e9182982b9a3456456dc9074aaab4849075da86ea6f4b7",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p497-thought-lab-14-3-analysis-q2-1.png",
+        "expected": "c33ef02a5b92d7ddfd844b3f87cfa997516a1bb009807924d43125963d11da33",
+        "actual": "c33ef02a5b92d7ddfd844b3f87cfa997516a1bb009807924d43125963d11da33",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p497-thought-lab-14-3-procedure-q1-1.png",
+        "expected": "13e0f044704dafb3807fe3100df0e7d9c8cba30d2cb6ea1a6f2ad547fa454b66",
+        "actual": "13e0f044704dafb3807fe3100df0e7d9c8cba30d2cb6ea1a6f2ad547fa454b66",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p497-thought-lab-14-3-procedure-q2-1.png",
+        "expected": "07d88931c7d4bc0bfb2c61b755c646db28f94925474432e8027f31927eba7696",
+        "actual": "07d88931c7d4bc0bfb2c61b755c646db28f94925474432e8027f31927eba7696",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p497-thought-lab-14-3-procedure-q3-1.png",
+        "expected": "436954b42e0d8d97b58c91734f30efd5015eff3d6d55b074bbf5b24afcc30ce0",
+        "actual": "436954b42e0d8d97b58c91734f30efd5015eff3d6d55b074bbf5b24afcc30ce0",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p498-in-text-q21-1.png",
+        "expected": "83f66339668f55cc4c27ac86dc3ac9524df4d7cedadc0352c37cd53a3e551773",
+        "actual": "83f66339668f55cc4c27ac86dc3ac9524df4d7cedadc0352c37cd53a3e551773",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p498-in-text-q22-1.png",
+        "expected": "528b47e05268342abfa74406c449ebaee1ebf54ecc7a620358bc2be9d6178ea4",
+        "actual": "528b47e05268342abfa74406c449ebaee1ebf54ecc7a620358bc2be9d6178ea4",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p498-in-text-q23-1.png",
+        "expected": "f8fa943d39a7b2dbf35002c10a94df2297863f14c1215ab4d340bef0144be16a",
+        "actual": "f8fa943d39a7b2dbf35002c10a94df2297863f14c1215ab4d340bef0144be16a",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p498-in-text-q24-1.png",
+        "expected": "f3094a714187f4612105a0654e48f7a2ab5322cfa4e62a54d32f0e8564d0edb4",
+        "actual": "f3094a714187f4612105a0654e48f7a2ab5322cfa4e62a54d32f0e8564d0edb4",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p500-investigation-14b-q1-1.png",
+        "expected": "bf55d44629484c9da9152c94b53e7225a4c800b91b3dfaa9cb8685c1c8085c45",
+        "actual": "bf55d44629484c9da9152c94b53e7225a4c800b91b3dfaa9cb8685c1c8085c45",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p500-investigation-14b-q10-1.png",
+        "expected": "177dee66b8215d2c536c4cf469f45fd1730c8a275b22f986406e74e0309b76d7",
+        "actual": "177dee66b8215d2c536c4cf469f45fd1730c8a275b22f986406e74e0309b76d7",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p500-investigation-14b-q2-1.png",
+        "expected": "1fdb3925ef02d0aba8789cee7261ad4a06ac174276dce5d16fbc75a4ac0e93e2",
+        "actual": "1fdb3925ef02d0aba8789cee7261ad4a06ac174276dce5d16fbc75a4ac0e93e2",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p500-investigation-14b-q3-1.png",
+        "expected": "8a3084e0d9299d0402359f96fd3bd427f157a1c72af4fb37b023b8ee093b7ae9",
+        "actual": "8a3084e0d9299d0402359f96fd3bd427f157a1c72af4fb37b023b8ee093b7ae9",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p500-investigation-14b-q4-1.png",
+        "expected": "dab3df2351601df400403c5b0cd5e608189e8b44baeafaaab98835c25dbb8f17",
+        "actual": "dab3df2351601df400403c5b0cd5e608189e8b44baeafaaab98835c25dbb8f17",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p500-investigation-14b-q5-1.png",
+        "expected": "95a6a5c9a2324da116674f16290e9d3153ea8484489426f7fe96b4c36397dfab",
+        "actual": "95a6a5c9a2324da116674f16290e9d3153ea8484489426f7fe96b4c36397dfab",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p500-investigation-14b-q6-1.png",
+        "expected": "c06a4a8cd12ecb22e89d9c3d60f8edc93e06e3ec232e778016ea480364a94af5",
+        "actual": "c06a4a8cd12ecb22e89d9c3d60f8edc93e06e3ec232e778016ea480364a94af5",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p500-investigation-14b-q7-1.png",
+        "expected": "84f8be4301f5db7bcc41ba910b5172904f786649d60b37755b014d2494e710d8",
+        "actual": "84f8be4301f5db7bcc41ba910b5172904f786649d60b37755b014d2494e710d8",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p500-investigation-14b-q8-1.png",
+        "expected": "a598797111f000cc45cd059e5949e7d0de6ed7d6fea84fec1555a8a2c340cf4a",
+        "actual": "a598797111f000cc45cd059e5949e7d0de6ed7d6fea84fec1555a8a2c340cf4a",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p500-investigation-14b-q9-1.png",
+        "expected": "93fd88d95d00b04d1293c7525bf5313f825069caa81a955622de85c82d40054e",
+        "actual": "93fd88d95d00b04d1293c7525bf5313f825069caa81a955622de85c82d40054e",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p502-section-14-3-q1-1.png",
+        "expected": "4d86990fa41cdd93ce3c093201dbbdefeb2df44579b8a47f1d2da2a22cafb5d0",
+        "actual": "4d86990fa41cdd93ce3c093201dbbdefeb2df44579b8a47f1d2da2a22cafb5d0",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p502-section-14-3-q2-1.png",
+        "expected": "49e48551f6913ef7be138b9e955df6c327f72956882d6c4ba2ce2aeb52e89472",
+        "actual": "49e48551f6913ef7be138b9e955df6c327f72956882d6c4ba2ce2aeb52e89472",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p502-section-14-3-q3-1.png",
+        "expected": "6fd0f87ff4618af3214af9de5f91ec78c33fe0e3c0bd9a1ba850e474daca93da",
+        "actual": "6fd0f87ff4618af3214af9de5f91ec78c33fe0e3c0bd9a1ba850e474daca93da",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p502-section-14-3-q4-1.png",
+        "expected": "8ec4d38828f1f1341a2d746c1ed8da920564ba0a19f20036effe5d1c2a8e4dc8",
+        "actual": "8ec4d38828f1f1341a2d746c1ed8da920564ba0a19f20036effe5d1c2a8e4dc8",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p502-section-14-3-q4-2.png",
+        "expected": "e38eeffe47e317c7254a234b816caa5b3f205129380272b903c7e66bc65e113b",
+        "actual": "e38eeffe47e317c7254a234b816caa5b3f205129380272b903c7e66bc65e113b",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p502-section-14-3-q4-3.png",
+        "expected": "0fa684078d6e6cfef0eccf240f9737689381eef76c97edb726ca278ee1d92a03",
+        "actual": "0fa684078d6e6cfef0eccf240f9737689381eef76c97edb726ca278ee1d92a03",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p502-section-14-3-q5-1.png",
+        "expected": "b9ae3ea278d8b3d528cf13582575657b281d010c4895a1263e6267e33e8f27f9",
+        "actual": "b9ae3ea278d8b3d528cf13582575657b281d010c4895a1263e6267e33e8f27f9",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p502-section-14-3-q6-1.png",
+        "expected": "f5cf0bbf1f633f59e20fdcf13c7f848f4709e3e3008a1d6e2bbeea5e21092d67",
+        "actual": "f5cf0bbf1f633f59e20fdcf13c7f848f4709e3e3008a1d6e2bbeea5e21092d67",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p502-section-14-3-q7-1.png",
+        "expected": "3be072f4fed6ccfd0298e81273280b235b97dcba30354f812f76a575457b8b4c",
+        "actual": "3be072f4fed6ccfd0298e81273280b235b97dcba30354f812f76a575457b8b4c",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p502-section-14-3-q8-1.png",
+        "expected": "c25fc914ef1575f620abdef0222a2323c888e8e395a1f2ab8f453ab5da53cd18",
+        "actual": "c25fc914ef1575f620abdef0222a2323c888e8e395a1f2ab8f453ab5da53cd18",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p504-chapter-review-q1-1.png",
+        "expected": "5805264e4b80ee997f72e0b7acc2ba02ecb44cc22926a8bbef59f5517829db28",
+        "actual": "5805264e4b80ee997f72e0b7acc2ba02ecb44cc22926a8bbef59f5517829db28",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p504-chapter-review-q10-1.png",
+        "expected": "eb1a3fdea3f3610af021a420bf02e9156ed015356d11717623a68316dca0e016",
+        "actual": "eb1a3fdea3f3610af021a420bf02e9156ed015356d11717623a68316dca0e016",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p504-chapter-review-q11-1.png",
+        "expected": "6f64dc6314689accb020037b98d60395d28640074ded2fbc7361bf3a6f3a26b4",
+        "actual": "6f64dc6314689accb020037b98d60395d28640074ded2fbc7361bf3a6f3a26b4",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p504-chapter-review-q12-1.png",
+        "expected": "1f85eb1ca4be129d26e1d46e84a9235c3f7b775a4c8941a3a27c549c231d6f42",
+        "actual": "1f85eb1ca4be129d26e1d46e84a9235c3f7b775a4c8941a3a27c549c231d6f42",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p504-chapter-review-q13-1.png",
+        "expected": "1bfa7de4d9be95c79a53026b17d1caf375dd5715aa79bd798d473b449bd57001",
+        "actual": "1bfa7de4d9be95c79a53026b17d1caf375dd5715aa79bd798d473b449bd57001",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p504-chapter-review-q14-1.png",
+        "expected": "0a5a03795ebf95284516d2a873e0f265c7a7bddc53e034991473e1a586c49cff",
+        "actual": "0a5a03795ebf95284516d2a873e0f265c7a7bddc53e034991473e1a586c49cff",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p504-chapter-review-q16-1.png",
+        "expected": "074ba415328092bdfb95af5089d283652e39e166708debb63d526749eb5cc14d",
+        "actual": "074ba415328092bdfb95af5089d283652e39e166708debb63d526749eb5cc14d",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p504-chapter-review-q17-1.png",
+        "expected": "c9c12013dd130fa2ebf4795ad77d1f4a37832561a0243a4b9f40ec85c4554f1e",
+        "actual": "c9c12013dd130fa2ebf4795ad77d1f4a37832561a0243a4b9f40ec85c4554f1e",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p504-chapter-review-q2-1.png",
+        "expected": "775f1349245d3c563dfbbf25befd911409c680bf4834a6b88549370c9b5a41e8",
+        "actual": "775f1349245d3c563dfbbf25befd911409c680bf4834a6b88549370c9b5a41e8",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p504-chapter-review-q3-1.png",
+        "expected": "c3e0fda12fac51e435a0b81742bf609c2a2e04cc3f43d2b5e0ff977a8dd452cb",
+        "actual": "c3e0fda12fac51e435a0b81742bf609c2a2e04cc3f43d2b5e0ff977a8dd452cb",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p504-chapter-review-q4-1.png",
+        "expected": "fff6133a2e86e985d7bd87fd7e90cdf9233d80221145b69c67cd4c43c01fbdda",
+        "actual": "fff6133a2e86e985d7bd87fd7e90cdf9233d80221145b69c67cd4c43c01fbdda",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p504-chapter-review-q6-1.png",
+        "expected": "c7aa7516feab704e3a03df0bf6e16e60940df5b5c4215e3f2ef8d2d599d3b916",
+        "actual": "c7aa7516feab704e3a03df0bf6e16e60940df5b5c4215e3f2ef8d2d599d3b916",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p504-chapter-review-q8-1.png",
+        "expected": "c969c939b16de563e68645f3a14a04b95f4420f9313f53d9b290ae656c347837",
+        "actual": "c969c939b16de563e68645f3a14a04b95f4420f9313f53d9b290ae656c347837",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p504-chapter-review-q9-1.png",
+        "expected": "c17f02e09af3374d0c418b26907dd5ec2ef7441ae2c5c1a82eb12c98b35d0b27",
+        "actual": "c17f02e09af3374d0c418b26907dd5ec2ef7441ae2c5c1a82eb12c98b35d0b27",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p505-chapter-review-q18-1.png",
+        "expected": "9d0f917931bcf29a7336537c3d3f41e043cccf227e4f5d5db70715f8a6d8df0d",
+        "actual": "9d0f917931bcf29a7336537c3d3f41e043cccf227e4f5d5db70715f8a6d8df0d",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p505-chapter-review-q20-1.png",
+        "expected": "e1a417ecaa433b876df502190ee3410e5b189b13a3138dada7bf24e5d52c27a4",
+        "actual": "e1a417ecaa433b876df502190ee3410e5b189b13a3138dada7bf24e5d52c27a4",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p505-chapter-review-q21-1.png",
+        "expected": "06d2afef15c073c6eb17f12de7de1a519577c59defb7f53ee151d9e17e89dc39",
+        "actual": "06d2afef15c073c6eb17f12de7de1a519577c59defb7f53ee151d9e17e89dc39",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p505-chapter-review-q22-1.png",
+        "expected": "255316bb8f7fc12db678b4ec77980fff21136be50ac954caab589613fc958cf6",
+        "actual": "255316bb8f7fc12db678b4ec77980fff21136be50ac954caab589613fc958cf6",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p505-chapter-review-q23-1.png",
+        "expected": "3ec65f3b276bbd63f14d9c71e4faa6879831ec19364d56f579eaf744c19eb13d",
+        "actual": "3ec65f3b276bbd63f14d9c71e4faa6879831ec19364d56f579eaf744c19eb13d",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/ch14-p505-chapter-review-q24-1.png",
+        "expected": "330cc1392ed94b44661b21bc0ac3ebc8a17a28bb24e33f29e8bc3f5b5aed71f4",
+        "actual": "330cc1392ed94b44661b21bc0ac3ebc8a17a28bb24e33f29e8bc3f5b5aed71f4",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/p478.jpg",
+        "expected": "254b621a46c404e47bba9b8c982cd9b2ef4818fe6860571106524f7b4fce019f",
+        "actual": "254b621a46c404e47bba9b8c982cd9b2ef4818fe6860571106524f7b4fce019f",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/p481.jpg",
+        "expected": "b1f9119e650678ab62e8052ae099bdc9e617ef84f72832d96ae69bd46ec7586e",
+        "actual": "b1f9119e650678ab62e8052ae099bdc9e617ef84f72832d96ae69bd46ec7586e",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/p484.jpg",
+        "expected": "dd4779f803f5d85361f6b3d703d1d28061a5aca63509919c1bb9e28a7623a85d",
+        "actual": "dd4779f803f5d85361f6b3d703d1d28061a5aca63509919c1bb9e28a7623a85d",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/p485.jpg",
+        "expected": "4e2686c15843923b449f7e925e15e76ed21eefc02e347820b8b672de313e0617",
+        "actual": "4e2686c15843923b449f7e925e15e76ed21eefc02e347820b8b672de313e0617",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/p487.jpg",
+        "expected": "7b55500495dfc943c9a90777469a55ba241da6440f9d0a7242796a7dd8409f13",
+        "actual": "7b55500495dfc943c9a90777469a55ba241da6440f9d0a7242796a7dd8409f13",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/p488.jpg",
+        "expected": "e77471dc326626f75665185ee5280e6b15da789092a3df45dbf657cfe1b89bcf",
+        "actual": "e77471dc326626f75665185ee5280e6b15da789092a3df45dbf657cfe1b89bcf",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/p491.jpg",
+        "expected": "68ce1ddbad864dc4399dcabf482011ad4b2f26c721198374e5fb2bcd27e0ffe0",
+        "actual": "68ce1ddbad864dc4399dcabf482011ad4b2f26c721198374e5fb2bcd27e0ffe0",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/p492.jpg",
+        "expected": "3d389f2bed5a0e4ecf2f8360dd20fb800adb70227a1e48d8423746f8192e1a4e",
+        "actual": "3d389f2bed5a0e4ecf2f8360dd20fb800adb70227a1e48d8423746f8192e1a4e",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/p494.jpg",
+        "expected": "4b9cea7ca1fccf3e5466483b5acccf4ae931925d6114233af8ce6632d9ba62e1",
+        "actual": "4b9cea7ca1fccf3e5466483b5acccf4ae931925d6114233af8ce6632d9ba62e1",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/p495.jpg",
+        "expected": "59c7993dcc8676eef4d63f848e0ca18c71f843f17b8882d41c17f08759e4d229",
+        "actual": "59c7993dcc8676eef4d63f848e0ca18c71f843f17b8882d41c17f08759e4d229",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/p496.jpg",
+        "expected": "1106f784db05274b49a2ee94b4adad108c86994719b786ffb7ab2f14a7593c92",
+        "actual": "1106f784db05274b49a2ee94b4adad108c86994719b786ffb7ab2f14a7593c92",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/p497.jpg",
+        "expected": "3f7d0de06c4403652d7093cb21e716527c458d30343e1fa5d722939290f49edc",
+        "actual": "3f7d0de06c4403652d7093cb21e716527c458d30343e1fa5d722939290f49edc",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/p498.jpg",
+        "expected": "19ec9705bcc7748d3a576df6ad78bb39c0493e31d2b49e8f0f6bab4e9067688f",
+        "actual": "19ec9705bcc7748d3a576df6ad78bb39c0493e31d2b49e8f0f6bab4e9067688f",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/p500.jpg",
+        "expected": "aa26f106ac710f24e99eba1dcfedec4471e73694b7bf47c7add651edca5c71a8",
+        "actual": "aa26f106ac710f24e99eba1dcfedec4471e73694b7bf47c7add651edca5c71a8",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/p502.jpg",
+        "expected": "ad76c24c2afb0d0080b29bad18aa12e090aabf670813943481cae47ff33b8fcb",
+        "actual": "ad76c24c2afb0d0080b29bad18aa12e090aabf670813943481cae47ff33b8fcb",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/p504.jpg",
+        "expected": "b4475ac6593b3ac29fb9541bf8b84226c72e316af5ed45685548d91eb5b258c7",
+        "actual": "b4475ac6593b3ac29fb9541bf8b84226c72e316af5ed45685548d91eb5b258c7",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice/p505.jpg",
+        "expected": "ce9cd493cf1380bdf3f46bbfffc6840d7fb34622278316bcd04a427d9d36b9df",
+        "actual": "ce9cd493cf1380bdf3f46bbfffc6840d7fb34622278316bcd04a427d9d36b9df",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice.css",
+        "expected": "4101415cce977a4a8553754a01cea3d33ad194add1198db00ddc0ba99bfeea12",
+        "actual": "4101415cce977a4a8553754a01cea3d33ad194add1198db00ddc0ba99bfeea12",
+        "pass": true
+      },
+      {
+        "path": "workspace/assets/textbook-practice.js",
+        "expected": "f0abb25e579caa421b2b173a3b30cc3bce47d9cf699559393b97906bf3b95176",
+        "actual": "f0abb25e579caa421b2b173a3b30cc3bce47d9cf699559393b97906bf3b95176",
+        "pass": true
+      },
+      {
+        "path": "workspace/index.html",
+        "expected": "4ce8de9382426b07de164b5de82ab6c25cd2471f41f309f7208311d3b523d1d0",
+        "actual": "4ce8de9382426b07de164b5de82ab6c25cd2471f41f309f7208311d3b523d1d0",
+        "pass": true
+      },
+      {
+        "path": "workspace/main.js",
+        "expected": "1ca7d2612d90aaceaa63458bc30df3225bbabad93c5e2ba5499c639e6e916659",
+        "actual": "1ca7d2612d90aaceaa63458bc30df3225bbabad93c5e2ba5499c639e6e916659",
+        "pass": true
+      },
+      {
+        "path": "workspace/styles.css",
+        "expected": "94fe523654289edd8b0f951dd6782f83dce7d08f5e18a3d903d25576fbfa0ba5",
+        "actual": "94fe523654289edd8b0f951dd6782f83dce7d08f5e18a3d903d25576fbfa0ba5",
+        "pass": true
+      }
+    ]
+  },
+  "frozen_files": [
+    {
+      "path": "/workspace/shared/ch14_0910/frozen/Course_Production_Standards_v0.4.txt",
+      "bytes": 65442,
+      "sha256": "db8a04bcd7620d9ecf64ec6dc86c046cb3075b9b09cc51dac41936c391379e1e",
+      "original_path": null,
+      "matches_original": null
+    },
+    {
+      "path": "/workspace/shared/ch14_0910/frozen/SHA256SUMS.txt",
+      "bytes": 37028,
+      "sha256": "8b0888ebfd66cc0c63ee9b0f25a9998f5acbd07221a82ac7980c65b9dc5ff99e",
+      "original_path": "/workspace/scratch/6f97d4e841e3/biology-image-source-review/ch14/chapter-14/SHA256SUMS.txt",
+      "matches_original": true
+    },
+    {
+      "path": "/workspace/shared/ch14_0910/frozen/authoring/course-config.json",
+      "bytes": 271594,
+      "sha256": "22a968d603d78dd5cd12e81324f8f4df4fbd29161413de20873884c714d1ffe8",
+      "original_path": "/workspace/scratch/6f97d4e841e3/biology-image-source-review/ch14/chapter-14/authoring/course-config.json",
+      "matches_original": true
+    },
+    {
+      "path": "/workspace/shared/ch14_0910/frozen/scripts/build_chapter.py",
+      "bytes": 50631,
+      "sha256": "915625267d4ea0a5a2bbd5cb86c62d3a9767f1d5aebcadcfb7b0169ee0eb704a",
+      "original_path": "/workspace/scratch/6f97d4e841e3/biology-image-source-review/ch14/chapter-14/scripts/build_chapter.py",
+      "matches_original": true
+    },
+    {
+      "path": "/workspace/shared/ch14_0910/frozen/scripts/content.py",
+      "bytes": 96342,
+      "sha256": "15f3e496a739a40f7de85ccfa8a8dcaadfb0a4ebb4274f4c36c272244d542a2e",
+      "original_path": "/workspace/scratch/6f97d4e841e3/biology-image-source-review/ch14/chapter-14/scripts/content.py",
+      "matches_original": true
+    },
+    {
+      "path": "/workspace/shared/ch14_0910/frozen/workspace/index.html",
+      "bytes": 2158943,
+      "sha256": "4ce8de9382426b07de164b5de82ab6c25cd2471f41f309f7208311d3b523d1d0",
+      "original_path": "/workspace/scratch/6f97d4e841e3/biology-image-source-review/ch14/chapter-14/workspace/index.html",
+      "matches_original": true
+    }
+  ],
+  "standard": {
+    "path": "/workspace/shared/ch14_0910/frozen/Course_Production_Standards_v0.4.txt",
+    "bytes": 65442,
+    "sha256": "db8a04bcd7620d9ecf64ec6dc86c046cb3075b9b09cc51dac41936c391379e1e",
+    "expected_match": true
+  },
+  "asset_parity": [
+    {
+      "path": "/workspace/shared/ch14_0910/assets/female-anatomy.png",
+      "bytes": 231174,
+      "sha256": "aeddd3a1c334fc4fa16e213a0ea8967c25e541afd991a2fb04ec20bc8f7f03f2",
+      "original_matches": [
+        {
+          "path": "/workspace/scratch/6f97d4e841e3/biology-image-source-review/ch14/chapter-14/workspace/assets/figures/female-anatomy.png",
+          "equal": true,
+          "sha256": "aeddd3a1c334fc4fa16e213a0ea8967c25e541afd991a2fb04ec20bc8f7f03f2"
+        }
+      ]
+    },
+    {
+      "path": "/workspace/shared/ch14_0910/assets/cycle-coordination.svg",
+      "bytes": 3186,
+      "sha256": "67822d2123a1b97d4d5af600f2980d996cc630ee1f6a39879c5c95af875f6b8f",
+      "original_matches": [
+        {
+          "path": "/workspace/scratch/6f97d4e841e3/biology-image-source-review/ch14/chapter-14/workspace/assets/figures/cycle-coordination.svg",
+          "equal": true,
+          "sha256": "67822d2123a1b97d4d5af600f2980d996cc630ee1f6a39879c5c95af875f6b8f"
+        }
+      ]
+    }
+  ],
+  "dom_normalizations": [
+    "HTML boolean attribute serialization is canonicalized to presence, preserving true/false semantics.",
+    "Only the root lesson section hidden attribute is removed for standalone reading visibility.",
+    "Candidate-added disabled attributes are removed only from button/input/select/textarea; original fieldset-disabled gating is retained.",
+    "Only child contents/text of the four teaching nodes and one worked node are replaced by a common sentinel; their original attributes remain compared.",
+    "DOM equality ignores source formatting and attribute order through parsing, but text nodes and tails are compared exactly."
+  ],
+  "dom": [
+    {
+      "lesson": 9,
+      "original_export_matches_workspace": true,
+      "outside_five_replacement_nodes_equal": true,
+      "original_ids": 18,
+      "candidate_ids": 18,
+      "missing_original_ids": [],
+      "duplicate_candidate_ids": [],
+      "original_terms": [
+        "ch14-word-corpus-luteum",
+        "ch14-word-endometrium",
+        "ch14-word-estrogen",
+        "ch14-word-fsh",
+        "ch14-word-hcg",
+        "ch14-word-hormonal-contraception",
+        "ch14-word-lh-surge",
+        "ch14-word-menopause",
+        "ch14-word-negative-feedback",
+        "ch14-word-ovary",
+        "ch14-word-ovulation",
+        "ch14-word-progesterone",
+        "ch14-word-testosterone"
+      ],
+      "missing_original_vocabulary_bindings": [],
+      "targets": [
+        {
+          "id": "ch14-l09-teaching-01",
+          "original_attrs": {
+            "class": "content-section",
+            "data-canvas-edit-key": "ch14-l09-teaching-01",
+            "data-canvas-helper-edit-key": "ch14-l09-teaching-01",
+            "id": "ch14-l09-teaching-01"
+          },
+          "candidate_attrs": {
+            "class": "content-section",
+            "data-canvas-edit-key": "ch14-l09-teaching-01",
+            "data-canvas-helper-edit-key": "ch14-l09-teaching-01",
+            "id": "ch14-l09-teaching-01"
+          },
+          "attributes_equal": true,
+          "content_changed": true
+        },
+        {
+          "id": "ch14-l09-teaching-02",
+          "original_attrs": {
+            "class": "content-section",
+            "data-canvas-edit-key": "ch14-l09-teaching-02",
+            "data-canvas-helper-edit-key": "ch14-l09-teaching-02",
+            "id": "ch14-l09-teaching-02"
+          },
+          "candidate_attrs": {
+            "class": "content-section",
+            "data-canvas-edit-key": "ch14-l09-teaching-02",
+            "data-canvas-helper-edit-key": "ch14-l09-teaching-02",
+            "id": "ch14-l09-teaching-02"
+          },
+          "attributes_equal": true,
+          "content_changed": true
+        },
+        {
+          "id": "ch14-l09-teaching-03",
+          "original_attrs": {
+            "class": "content-section",
+            "data-canvas-edit-key": "ch14-l09-teaching-03",
+            "data-canvas-helper-edit-key": "ch14-l09-teaching-03",
+            "id": "ch14-l09-teaching-03"
+          },
+          "candidate_attrs": {
+            "class": "content-section",
+            "data-canvas-edit-key": "ch14-l09-teaching-03",
+            "data-canvas-helper-edit-key": "ch14-l09-teaching-03",
+            "id": "ch14-l09-teaching-03"
+          },
+          "attributes_equal": true,
+          "content_changed": true
+        },
+        {
+          "id": "ch14-l09-teaching-04",
+          "original_attrs": {
+            "class": "content-section",
+            "data-canvas-edit-key": "ch14-l09-teaching-04",
+            "data-canvas-helper-edit-key": "ch14-l09-teaching-04",
+            "id": "ch14-l09-teaching-04"
+          },
+          "candidate_attrs": {
+            "class": "content-section",
+            "data-canvas-edit-key": "ch14-l09-teaching-04",
+            "data-canvas-helper-edit-key": "ch14-l09-teaching-04",
+            "id": "ch14-l09-teaching-04"
+          },
+          "attributes_equal": true,
+          "content_changed": true
+        },
+        {
+          "id": "ch14-l09-worked",
+          "original_attrs": {
+            "class": "worked-example",
+            "data-canvas-edit-key": "ch14-l09-worked",
+            "data-canvas-helper-edit-key": "ch14-l09-worked",
+            "id": "ch14-l09-worked"
+          },
+          "candidate_attrs": {
+            "class": "worked-example",
+            "data-canvas-edit-key": "ch14-l09-worked",
+            "data-canvas-helper-edit-key": "ch14-l09-worked",
+            "id": "ch14-l09-worked"
+          },
+          "attributes_equal": true,
+          "content_changed": true
+        }
+      ],
+      "fragment_parity": [
+        {
+          "id": "ch14-l09-teaching-01",
+          "fragment_matches_candidate_content": true
+        },
+        {
+          "id": "ch14-l09-teaching-02",
+          "fragment_matches_candidate_content": true
+        },
+        {
+          "id": "ch14-l09-teaching-03",
+          "fragment_matches_candidate_content": true
+        },
+        {
+          "id": "ch14-l09-teaching-04",
+          "fragment_matches_candidate_content": true
+        },
+        {
+          "id": "ch14-l09-worked",
+          "fragment_matches_candidate_content": true
+        }
+      ],
+      "normalized_original_sha256": "826bf638d337f4d157da7eccd707244b20311ee5fa2da1d6c513fbf12602fe6b",
+      "normalized_candidate_sha256": "826bf638d337f4d157da7eccd707244b20311ee5fa2da1d6c513fbf12602fe6b"
+    },
+    {
+      "lesson": 10,
+      "original_export_matches_workspace": true,
+      "outside_five_replacement_nodes_equal": true,
+      "original_ids": 16,
+      "candidate_ids": 16,
+      "missing_original_ids": [],
+      "duplicate_candidate_ids": [],
+      "original_terms": [
+        "ch14-word-ectopic-pregnancy",
+        "ch14-word-epididymis",
+        "ch14-word-infertility",
+        "ch14-word-oocyte",
+        "ch14-word-oviduct",
+        "ch14-word-ovulation",
+        "ch14-word-pathogen",
+        "ch14-word-pelvic-inflammatory-disease",
+        "ch14-word-semen",
+        "ch14-word-sti",
+        "ch14-word-uterus"
+      ],
+      "missing_original_vocabulary_bindings": [],
+      "targets": [
+        {
+          "id": "ch14-l10-teaching-01",
+          "original_attrs": {
+            "class": "content-section",
+            "data-canvas-edit-key": "ch14-l10-teaching-01",
+            "data-canvas-helper-edit-key": "ch14-l10-teaching-01",
+            "id": "ch14-l10-teaching-01"
+          },
+          "candidate_attrs": {
+            "class": "content-section",
+            "data-canvas-edit-key": "ch14-l10-teaching-01",
+            "data-canvas-helper-edit-key": "ch14-l10-teaching-01",
+            "id": "ch14-l10-teaching-01"
+          },
+          "attributes_equal": true,
+          "content_changed": true
+        },
+        {
+          "id": "ch14-l10-teaching-02",
+          "original_attrs": {
+            "class": "content-section",
+            "data-canvas-edit-key": "ch14-l10-teaching-02",
+            "data-canvas-helper-edit-key": "ch14-l10-teaching-02",
+            "id": "ch14-l10-teaching-02"
+          },
+          "candidate_attrs": {
+            "class": "content-section",
+            "data-canvas-edit-key": "ch14-l10-teaching-02",
+            "data-canvas-helper-edit-key": "ch14-l10-teaching-02",
+            "id": "ch14-l10-teaching-02"
+          },
+          "attributes_equal": true,
+          "content_changed": true
+        },
+        {
+          "id": "ch14-l10-teaching-03",
+          "original_attrs": {
+            "class": "content-section",
+            "data-canvas-edit-key": "ch14-l10-teaching-03",
+            "data-canvas-helper-edit-key": "ch14-l10-teaching-03",
+            "id": "ch14-l10-teaching-03"
+          },
+          "candidate_attrs": {
+            "class": "content-section",
+            "data-canvas-edit-key": "ch14-l10-teaching-03",
+            "data-canvas-helper-edit-key": "ch14-l10-teaching-03",
+            "id": "ch14-l10-teaching-03"
+          },
+          "attributes_equal": true,
+          "content_changed": true
+        },
+        {
+          "id": "ch14-l10-teaching-04",
+          "original_attrs": {
+            "class": "content-section",
+            "data-canvas-edit-key": "ch14-l10-teaching-04",
+            "data-canvas-helper-edit-key": "ch14-l10-teaching-04",
+            "id": "ch14-l10-teaching-04"
+          },
+          "candidate_attrs": {
+            "class": "content-section",
+            "data-canvas-edit-key": "ch14-l10-teaching-04",
+            "data-canvas-helper-edit-key": "ch14-l10-teaching-04",
+            "id": "ch14-l10-teaching-04"
+          },
+          "attributes_equal": true,
+          "content_changed": true
+        },
+        {
+          "id": "ch14-l10-worked",
+          "original_attrs": {
+            "class": "worked-example",
+            "data-canvas-edit-key": "ch14-l10-worked",
+            "data-canvas-helper-edit-key": "ch14-l10-worked",
+            "id": "ch14-l10-worked"
+          },
+          "candidate_attrs": {
+            "class": "worked-example",
+            "data-canvas-edit-key": "ch14-l10-worked",
+            "data-canvas-helper-edit-key": "ch14-l10-worked",
+            "id": "ch14-l10-worked"
+          },
+          "attributes_equal": true,
+          "content_changed": true
+        }
+      ],
+      "fragment_parity": [
+        {
+          "id": "ch14-l10-teaching-01",
+          "fragment_matches_candidate_content": true
+        },
+        {
+          "id": "ch14-l10-teaching-02",
+          "fragment_matches_candidate_content": true
+        },
+        {
+          "id": "ch14-l10-teaching-03",
+          "fragment_matches_candidate_content": true
+        },
+        {
+          "id": "ch14-l10-teaching-04",
+          "fragment_matches_candidate_content": true
+        },
+        {
+          "id": "ch14-l10-worked",
+          "fragment_matches_candidate_content": true
+        }
+      ],
+      "normalized_original_sha256": "0549bb094952ae196298cf0cc928534c4bab0185828046306c8368102ac3769c",
+      "normalized_candidate_sha256": "0549bb094952ae196298cf0cc928534c4bab0185828046306c8368102ac3769c"
+    }
+  ],
+  "source_record_exports": [
+    {
+      "file": "generated-practice-items.json",
+      "records": 49,
+      "exact_json_equal_to_filtered_original": true,
+      "export_sha256": "9a5459f06ef0efe56fbca8f5f320155ca2c26f42f564199df0456e37da09627d"
+    },
+    {
+      "file": "imported-practice.json",
+      "records": 3,
+      "exact_json_equal_to_filtered_original": true,
+      "export_sha256": "9c08b4bb82633be6a084afb09a9735c09c5da65a7562760d7689feec218f2bc1"
+    },
+    {
+      "file": "optional-source-responses.json",
+      "records": 1,
+      "exact_json_equal_to_filtered_original": true,
+      "export_sha256": "e8dc7fe22198d8d3985be47ab94a87d4076dcc529737aacd24f3bf21ad0d8a1b"
+    },
+    {
+      "file": "lesson-source-map.json",
+      "records": 2,
+      "exact_json_equal_to_filtered_original": true,
+      "export_sha256": "d2e67b89ffa816725ad79c1305e5af0238faff5c53e47b9c8f8988d81a27de85"
+    }
+  ],
+  "source_documents": [
+    {
+      "path": "/workspace/scratch/6f97d4e841e3/biology-image-source-review/ch14/chapter-14/workspace/assets/textbook/chapter-14.pdf",
+      "bytes": 1135646,
+      "sha256": "82d37feec1390def949ed241d117e2b218b8dc8aa09d9cddead37fd6c64a49ea"
+    },
+    {
+      "path": "/workspace/scratch/6f97d4e841e3/biology-image-source-review/ch14/chapter-14/authoring/source-inputs/Unit B Chapter 14 Notes.pptx",
+      "bytes": 5729234,
+      "sha256": "b2d6ed2ff0e758f81e2c2dab288011188fa9c8370b873ebf2c70caf25499d229"
+    },
+    {
+      "path": "/workspace/shared/ch14_authoring/source-read/Unit B Chapter 14 Notes.pdf",
+      "bytes": 2801557,
+      "sha256": "2d39bfe68211071182c2ab79713ee5c7171370dbb7137b93ee39277610384009"
+    }
+  ],
+  "source_render_identity": [
+    {
+      "kind": "p",
+      "printed_page_or_slide": 486,
+      "source_page_index": 10,
+      "source_render_dimensions": [
+        905,
+        1175
+      ],
+      "saved_dimensions": [
+        905,
+        1175
+      ],
+      "exact_rgb_pixels_equal": true,
+      "saved": {
+        "path": "/workspace/shared/ch14_0910/source-read/p486.png",
+        "bytes": 518735,
+        "sha256": "d83bfb199b7756113733e58e981e7dc49a8fb9de4d0883819de4c607404147bf"
+      },
+      "text_sha256": "745948a3ec21c67385fc2d44b747a3186e8ade4f333f0faf138d6f8a949f647f"
+    },
+    {
+      "kind": "p",
+      "printed_page_or_slide": 487,
+      "source_page_index": 11,
+      "source_render_dimensions": [
+        905,
+        1175
+      ],
+      "saved_dimensions": [
+        905,
+        1175
+      ],
+      "exact_rgb_pixels_equal": true,
+      "saved": {
+        "path": "/workspace/shared/ch14_0910/source-read/p487.png",
+        "bytes": 524787,
+        "sha256": "ea6b8cce057f52a88cf756d81eef3e87c8cdbac723e62f0b5fce3ff323bdb57d"
+      },
+      "text_sha256": "88067c67f7af09415bc0933769ad0a1e61b8bf8447331a8edfd414210e0b8052"
+    },
+    {
+      "kind": "p",
+      "printed_page_or_slide": 488,
+      "source_page_index": 12,
+      "source_render_dimensions": [
+        905,
+        1175
+      ],
+      "saved_dimensions": [
+        905,
+        1175
+      ],
+      "exact_rgb_pixels_equal": true,
+      "saved": {
+        "path": "/workspace/shared/ch14_0910/source-read/p488.png",
+        "bytes": 579892,
+        "sha256": "5b4d1f1517977192a861ed1171669a384765f4b96581b312a44c5e4408fed3ac"
+      },
+      "text_sha256": "0f8e01721e821873cf7b2deb4b410688ac76b392d3f32e0ffa644156bcbee717"
+    },
+    {
+      "kind": "p",
+      "printed_page_or_slide": 489,
+      "source_page_index": 13,
+      "source_render_dimensions": [
+        905,
+        1175
+      ],
+      "saved_dimensions": [
+        905,
+        1175
+      ],
+      "exact_rgb_pixels_equal": true,
+      "saved": {
+        "path": "/workspace/shared/ch14_0910/source-read/p489.png",
+        "bytes": 474914,
+        "sha256": "05bbf0116aecd5fbf3ae958f2ba83f60a5149827be25eb5e58234d5bcc0a4954"
+      },
+      "text_sha256": "dd530464b7f7c50c6d97a40c81837a0469228dcf714b26da151e6da5349dfb7e"
+    },
+    {
+      "kind": "p",
+      "printed_page_or_slide": 490,
+      "source_page_index": 14,
+      "source_render_dimensions": [
+        905,
+        1175
+      ],
+      "saved_dimensions": [
+        905,
+        1175
+      ],
+      "exact_rgb_pixels_equal": true,
+      "saved": {
+        "path": "/workspace/shared/ch14_0910/source-read/p490.png",
+        "bytes": 234738,
+        "sha256": "4a9cc0096583de95ec47a59a632b56ba2d91004eb964d592f9e84a01fd2f140c"
+      },
+      "text_sha256": "68254ba2b88d877ebecd49ddb3bbafcb2e146578c579c49c2fe8a2097c48a382"
+    },
+    {
+      "kind": "p",
+      "printed_page_or_slide": 491,
+      "source_page_index": 15,
+      "source_render_dimensions": [
+        905,
+        1175
+      ],
+      "saved_dimensions": [
+        905,
+        1175
+      ],
+      "exact_rgb_pixels_equal": true,
+      "saved": {
+        "path": "/workspace/shared/ch14_0910/source-read/p491.png",
+        "bytes": 223003,
+        "sha256": "020f393b4a68f4e72535996faf97e98554638b1596e54aa79eedf7b77986fdb4"
+      },
+      "text_sha256": "18016572d6a9c3bc15e274662f8e67c4f17019db88f0ff841034e4918d722d06"
+    },
+    {
+      "kind": "p",
+      "printed_page_or_slide": 495,
+      "source_page_index": 19,
+      "source_render_dimensions": [
+        905,
+        1175
+      ],
+      "saved_dimensions": [
+        905,
+        1175
+      ],
+      "exact_rgb_pixels_equal": true,
+      "saved": {
+        "path": "/workspace/shared/ch14_0910/source-read/p495.png",
+        "bytes": 281401,
+        "sha256": "fbe2bb91bfac3fe371eae8946cbd5ae02f4925fdc9baaf68090aa9ee9d6a4a62"
+      },
+      "text_sha256": "3437c59428a1283ee3f5718ce6cdf7181cdac251f27121ef1214007854c749eb"
+    },
+    {
+      "kind": "p",
+      "printed_page_or_slide": 498,
+      "source_page_index": 22,
+      "source_render_dimensions": [
+        905,
+        1175
+      ],
+      "saved_dimensions": [
+        905,
+        1175
+      ],
+      "exact_rgb_pixels_equal": true,
+      "saved": {
+        "path": "/workspace/shared/ch14_0910/source-read/p498.png",
+        "bytes": 220015,
+        "sha256": "98c743c744c0c9c82fa2eaea6e36428f2bd5275a2e2dda4bfda604353baa95b9"
+      },
+      "text_sha256": "c1eaa5b9b2f71112126353d4a7a922fb1ac159338ad15c68d2b756e4f1969ad0"
+    },
+    {
+      "kind": "p",
+      "printed_page_or_slide": 499,
+      "source_page_index": 23,
+      "source_render_dimensions": [
+        905,
+        1175
+      ],
+      "saved_dimensions": [
+        905,
+        1175
+      ],
+      "exact_rgb_pixels_equal": true,
+      "saved": {
+        "path": "/workspace/shared/ch14_0910/source-read/p499.png",
+        "bytes": 228676,
+        "sha256": "79a447f0843f842279bc5e18d2f3ce4ba1f9f46a2b75c909c1cbe60e46b31e0d"
+      },
+      "text_sha256": "e7baa98e39fd8e1706ffa90779fefe4589415794b843d3ef4dd7466de67e2c5c"
+    },
+    {
+      "kind": "p",
+      "printed_page_or_slide": 502,
+      "source_page_index": 26,
+      "source_render_dimensions": [
+        905,
+        1175
+      ],
+      "saved_dimensions": [
+        905,
+        1175
+      ],
+      "exact_rgb_pixels_equal": true,
+      "saved": {
+        "path": "/workspace/shared/ch14_0910/source-read/p502.png",
+        "bytes": 192919,
+        "sha256": "28569ecc81551740e3e6a66ea69df5d920eaccd4f9751f7be6b896d07b33422a"
+      },
+      "text_sha256": "06b809429160eed135118fa2e43a28cb296ab26147b298d39632136d2b1372ce"
+    },
+    {
+      "kind": "p",
+      "printed_page_or_slide": 504,
+      "source_page_index": 28,
+      "source_render_dimensions": [
+        905,
+        1175
+      ],
+      "saved_dimensions": [
+        905,
+        1175
+      ],
+      "exact_rgb_pixels_equal": true,
+      "saved": {
+        "path": "/workspace/shared/ch14_0910/source-read/p504.png",
+        "bytes": 274375,
+        "sha256": "fbbcb42c8ebb7bfb006d263b5962186929bbb9c8d30771732a32d5528f2111dc"
+      },
+      "text_sha256": "9bbbc9854105a792471dd6aa3e69cf5f6e68756c8ebc7b90e15fd5355b2845f3"
+    },
+    {
+      "kind": "p",
+      "printed_page_or_slide": 505,
+      "source_page_index": 29,
+      "source_render_dimensions": [
+        905,
+        1175
+      ],
+      "saved_dimensions": [
+        905,
+        1175
+      ],
+      "exact_rgb_pixels_equal": true,
+      "saved": {
+        "path": "/workspace/shared/ch14_0910/source-read/p505.png",
+        "bytes": 205023,
+        "sha256": "5ac0ff0c1aeb6314be8ff16eadd2fc54e23b5d4826c9ac958a8d742e74519f40"
+      },
+      "text_sha256": "360b06a76eb27c893e4e757a87d04bd15aa234ff436cf04502e0ab336beedc68"
+    },
+    {
+      "kind": "slide",
+      "printed_page_or_slide": 3,
+      "source_page_index": 2,
+      "source_render_dimensions": [
+        1080,
+        810
+      ],
+      "saved_dimensions": [
+        1080,
+        810
+      ],
+      "exact_rgb_pixels_equal": true,
+      "saved": {
+        "path": "/workspace/shared/ch14_0910/source-read/slide3.png",
+        "bytes": 83279,
+        "sha256": "26873ea59c7d06970d1ccc52b5085de8071dbafe5ffc320893fb4b33505332a9"
+      },
+      "text_sha256": "ff70427d51a16a4cc235aed35d0f612e72ec1dd55ad51ab872d173f44ae0c1fa"
+    },
+    {
+      "kind": "slide",
+      "printed_page_or_slide": 19,
+      "source_page_index": 18,
+      "source_render_dimensions": [
+        1080,
+        810
+      ],
+      "saved_dimensions": [
+        1080,
+        810
+      ],
+      "exact_rgb_pixels_equal": true,
+      "saved": {
+        "path": "/workspace/shared/ch14_0910/source-read/slide19.png",
+        "bytes": 368032,
+        "sha256": "4c0225ea03a43a0a09a333e97c7c7f774da27b8280edbbfec754249f14434e47"
+      },
+      "text_sha256": "582aeae1b92f56c2f6a27c457404c5a2bf1d628e47c74827a8f96e6f52faec0b"
+    },
+    {
+      "kind": "slide",
+      "printed_page_or_slide": 20,
+      "source_page_index": 19,
+      "source_render_dimensions": [
+        1080,
+        810
+      ],
+      "saved_dimensions": [
+        1080,
+        810
+      ],
+      "exact_rgb_pixels_equal": true,
+      "saved": {
+        "path": "/workspace/shared/ch14_0910/source-read/slide20.png",
+        "bytes": 65243,
+        "sha256": "447cc3f766eee7d26967426c6da0f2957c0725ad2544f75725a29d7dd1f45e27"
+      },
+      "text_sha256": "2df54188b264169f2903a0267b62418904757180e45533c0896c1ee87f366000"
+    },
+    {
+      "kind": "slide",
+      "printed_page_or_slide": 34,
+      "source_page_index": 33,
+      "source_render_dimensions": [
+        1080,
+        810
+      ],
+      "saved_dimensions": [
+        1080,
+        810
+      ],
+      "exact_rgb_pixels_equal": true,
+      "saved": {
+        "path": "/workspace/shared/ch14_0910/source-read/slide34.png",
+        "bytes": 64382,
+        "sha256": "b7dab60b044f15888e468157ab974b5c45d50788c5542e8f8593e9bf0f10e84c"
+      },
+      "text_sha256": "64652c91ae87a84d2c3ebb5e74db2e5cd64b50b841488eeb94195f6eeb37071d"
+    },
+    {
+      "kind": "slide",
+      "printed_page_or_slide": 35,
+      "source_page_index": 34,
+      "source_render_dimensions": [
+        1080,
+        810
+      ],
+      "saved_dimensions": [
+        1080,
+        810
+      ],
+      "exact_rgb_pixels_equal": true,
+      "saved": {
+        "path": "/workspace/shared/ch14_0910/source-read/slide35.png",
+        "bytes": 647585,
+        "sha256": "74d512e4c6ca121060acb73fef41fe070136ab83173c807d248c7d28bfd3ce66"
+      },
+      "text_sha256": "6b74f5ccbe915b3dc470183b2e389173ae061e367eb01364994dc697516714c2"
+    }
+  ],
+  "pptx_slide_text": [
+    {
+      "slide": 3,
+      "text": "The male reproductive system (​key structures, spermatogenesis, secondary sex characteristics) Male sex hormones (roles of testosterone, LH & FSH) The female reproductive system (key structures, oogenesis, secondary sex characteristics) Sexually transmitted infections Hormonal regulation of gametogenesis Textbook pages 476-505 Chapter 14 The Reproductive System",
+      "xml_sha256": "820aef2f0899e903b17ca569572d29ee7f840075c0312eb60c06c2d31fa5820e"
+    },
+    {
+      "slide": 19,
+      "text": "Although testosterone is especially important during puberty, it is required throughout a man’s lifespan to maintain reproductive functioning and secondary sex characteristics… Steroids, such as hGH, can disrupt reproductive hormone feedback systems Side effects in men include shrinking testicles, low sperm count, loss of body hair, and the development of breasts",
+      "xml_sha256": "7b6c4ff1ad0330014326eece4e10685ae28b40b6c7641bacbec1ac31870a807d"
+    },
+    {
+      "slide": 20,
+      "text": "Over time, m any  men experience a gradual decline in testosterone levels. This condition is known as  andropause .  SYMPTOMS INCLUDE: Fatigue Depression Loss of muscle and bone mass Decreased sperm production",
+      "xml_sha256": "f33224238b6cee731b50c56d379830a9f431ef64b93c732ff632a9101f85728d"
+    },
+    {
+      "slide": 34,
+      "text": "Eventually, women stop producing eggs. Hormone levels decline, leading to a condition known as  menopause .  SYMPTOMS: “hot flashes”  High cholesterol Diminished bone mass Changes in mood",
+      "xml_sha256": "e3a903e01a508ba227c58c72397ddc6e362740007128a7ac8fdce94132cf22e4"
+    },
+    {
+      "slide": 35,
+      "text": "How   do birth control pills prevent pregnancy?  Birth control pills typically contain  high doses of  progesterone  and estrogen , which  inhibit release of FSH and LH through negative feedback .  Without FSH and LH, a follicle is unlikely to mature and  ovulation will not occur .",
+      "xml_sha256": "d979374be2a95705202877abcd1eaf397fd74c1f750dfd6b3d10a94d4440153f"
+    }
+  ],
+  "candidate_and_review_receipts": [
+    {
+      "path": "/workspace/shared/ch14_0910/candidate/lesson-09.reading.html",
+      "bytes": 28997,
+      "sha256": "a515c48fe75078dc7e4c4fc21565a41e9f066d895f8b8c703fa9527a0e92bf68"
+    },
+    {
+      "path": "/workspace/shared/ch14_0910/candidate/lesson-09.teaching-fragments.html",
+      "bytes": 13018,
+      "sha256": "52249caedcc34a7a98e0dd25c8c825505ffce50c726d44b5ca36ea551203ac03"
+    },
+    {
+      "path": "/workspace/shared/ch14_0910/candidate/lesson-09.teaching-manuscript.txt",
+      "bytes": 8947,
+      "sha256": "1d493581e9d227eac556320dc0dd2183382c6a9e6891f5fa85f449dc615c3477"
+    },
+    {
+      "path": "/workspace/shared/ch14_0910/candidate/lesson-10.reading.html",
+      "bytes": 27077,
+      "sha256": "b3c3fa46b7daf8564436a7d0abf380b9ea5be087207f760d6dabce358213a6d5"
+    },
+    {
+      "path": "/workspace/shared/ch14_0910/candidate/lesson-10.teaching-fragments.html",
+      "bytes": 12456,
+      "sha256": "cfa293c9ec56e01f0ec255e848d0fc7fe6de6685e6906fbc9ce5123ebbc1cfce"
+    },
+    {
+      "path": "/workspace/shared/ch14_0910/candidate/lesson-10.teaching-manuscript.txt",
+      "bytes": 8369,
+      "sha256": "82b38e4cc3f8a7bd8e77d7f9217993c812d661355bef31c89767796b8f09557b"
+    },
+    {
+      "path": "/workspace/shared/ch14_0910/review-blind-final/generated-09-10.json",
+      "bytes": 14021,
+      "sha256": "c5ff3d5fcf2f5fafa10c01a84add5d54439cf41273643d1a24d1445c16904e12"
+    },
+    {
+      "path": "/workspace/shared/ch14_0910/review-blind-final/lesson-09.html",
+      "bytes": 27664,
+      "sha256": "9e2c1fe6ce829b8252f7cf2b601ce2323935421fba5af9a7d4f8128fb11961e2"
+    },
+    {
+      "path": "/workspace/shared/ch14_0910/review-blind-final/lesson-10.html",
+      "bytes": 25691,
+      "sha256": "ed4686b2a1a17299597765f8a6d73b0b54d3140c61111605c22411ef192e24c5"
+    },
+    {
+      "path": "/workspace/shared/ch14_0910/review-rendered-final/generated-09-10.pdf",
+      "bytes": 51701,
+      "sha256": "a18e1256c22447b08f6f595e58627b69bf263fd08ff733bae52b3a5605398efe"
+    },
+    {
+      "path": "/workspace/shared/ch14_0910/review-rendered-final/generated-integrity.json",
+      "bytes": 1995,
+      "sha256": "3a46297089023f2cdf2a90e78f6d16b09d3984d7c07cd29ba20e28f8f28c5691"
+    },
+    {
+      "path": "/workspace/shared/ch14_0910/review-rendered-final/generated-page-01.png",
+      "bytes": 115943,
+      "sha256": "28e7adfef036f0a09ccfa7aad0b674ac29a059077c04be0cf712ff6a56f85794"
+    },
+    {
+      "path": "/workspace/shared/ch14_0910/review-rendered-final/generated-page-02.png",
+      "bytes": 111092,
+      "sha256": "1f82ebfa3c0fd2dedf68e8226641320a02b9d558549177d8cbb6ab64125a56b5"
+    },
+    {
+      "path": "/workspace/shared/ch14_0910/review-rendered-final/generated-page-03.png",
+      "bytes": 100246,
+      "sha256": "9f157d1b5044c8b5e69a200a33f513cd64102a873e18ea57cae44b66c45046d4"
+    },
+    {
+      "path": "/workspace/shared/ch14_0910/review-rendered-final/generated-page-04.png",
+      "bytes": 101758,
+      "sha256": "78b2779df6d1972141917b1d65d9c0f706c67497ae465e570354803709169700"
+    },
+    {
+      "path": "/workspace/shared/ch14_0910/review-rendered-final/generated-page-05.png",
+      "bytes": 117892,
+      "sha256": "0c500a4c3b48c92656eaf11147f372eba857305d84a38ccbb5248d4bcc8b8b50"
+    },
+    {
+      "path": "/workspace/shared/ch14_0910/review-rendered-final/generated-page-06.png",
+      "bytes": 76127,
+      "sha256": "499a79de49461930360050c272c658bab002b76d5a668485b37c1482f8b8c01c"
+    },
+    {
+      "path": "/workspace/shared/ch14_0910/review-rendered-final/lesson-09-extracted.txt",
+      "bytes": 13640,
+      "sha256": "b26f1007bd71f60e9413f3490bb78d3d3aa7596e8f3212f6b2ab0f3f63d5e044"
+    },
+    {
+      "path": "/workspace/shared/ch14_0910/review-rendered-final/lesson-09-page-01.png",
+      "bytes": 127404,
+      "sha256": "6102313218513f6e86d2ca9a2b01ed6afe5841fb1d23fada4950a604fbf6c112"
+    },
+    {
+      "path": "/workspace/shared/ch14_0910/review-rendered-final/lesson-09-page-02.png",
+      "bytes": 142256,
+      "sha256": "f5f5a511154ecaae67e1020ea447bc27c1a48c343a3e9c3918fac4dc33fb1a70"
+    },
+    {
+      "path": "/workspace/shared/ch14_0910/review-rendered-final/lesson-09-page-03.png",
+      "bytes": 152654,
+      "sha256": "69f30ebcc9691ba028aa10a99ba0fdfb73fdcf2ea7e3686077c3368f1fab416c"
+    },
+    {
+      "path": "/workspace/shared/ch14_0910/review-rendered-final/lesson-09-page-04.png",
+      "bytes": 198850,
+      "sha256": "e5f1453a2fa9aa1fc5ce378280d8a614a57119421eb3dfb1fac0003384a540b0"
+    },
+    {
+      "path": "/workspace/shared/ch14_0910/review-rendered-final/lesson-09-page-05.png",
+      "bytes": 163802,
+      "sha256": "4d3cf1195d4cd85981aa68328e9b157420a173ed6562e7538e2faa39669680fd"
+    },
+    {
+      "path": "/workspace/shared/ch14_0910/review-rendered-final/lesson-09-page-06.png",
+      "bytes": 121684,
+      "sha256": "bc83754c250921a9f3b41216ddbcb6b914ba48cd417a4e855313d0479cbda3ac"
+    },
+    {
+      "path": "/workspace/shared/ch14_0910/review-rendered-final/lesson-09-page-07.png",
+      "bytes": 104975,
+      "sha256": "30a4c511e751b8834ffd52d2206005dc2248a737a24c04b1df4c09fadb6bf1d8"
+    },
+    {
+      "path": "/workspace/shared/ch14_0910/review-rendered-final/lesson-09.pdf",
+      "bytes": 142417,
+      "sha256": "83114e79e075b162b70c2667e99586805395c0b47567d118a8e145c8dab990a5"
+    },
+    {
+      "path": "/workspace/shared/ch14_0910/review-rendered-final/lesson-10-extracted.txt",
+      "bytes": 12357,
+      "sha256": "ef7b8a08fc2e9d85190fb8e802ef430b380441ca87d385e36b8d3cbe4ad3ca1d"
+    },
+    {
+      "path": "/workspace/shared/ch14_0910/review-rendered-final/lesson-10-page-01.png",
+      "bytes": 119915,
+      "sha256": "af02d007a1c400b61644e348294cfdca0de94e2357342c00bf1ca0d27fb3f48d"
+    },
+    {
+      "path": "/workspace/shared/ch14_0910/review-rendered-final/lesson-10-page-02.png",
+      "bytes": 172139,
+      "sha256": "e79472971f695eaed341790ee570e42a185a82d7f168f6379aa19bd809d3129b"
+    },
+    {
+      "path": "/workspace/shared/ch14_0910/review-rendered-final/lesson-10-page-03.png",
+      "bytes": 579735,
+      "sha256": "4515edd74c483d4806cb6373a94e5738e45b821c85d6508e061be92ced90ccb7"
+    },
+    {
+      "path": "/workspace/shared/ch14_0910/review-rendered-final/lesson-10-page-04.png",
+      "bytes": 208410,
+      "sha256": "b6b0dc3e9719d7af6dff86a32434d130848bb72e90610f817e229ab7394cb313"
+    },
+    {
+      "path": "/workspace/shared/ch14_0910/review-rendered-final/lesson-10-page-05.png",
+      "bytes": 157071,
+      "sha256": "36d6cbe662ca42e31f7dab883ea7f646551d23cbaebe081c95017bc4af323af6"
+    },
+    {
+      "path": "/workspace/shared/ch14_0910/review-rendered-final/lesson-10-page-06.png",
+      "bytes": 105959,
+      "sha256": "80f1f7bb385bc5cdbe85c02eb281c49ac1b5ccfbd03ad63048381aae0ac68dff"
+    },
+    {
+      "path": "/workspace/shared/ch14_0910/review-rendered-final/lesson-10-page-07.png",
+      "bytes": 34147,
+      "sha256": "98b8e73235625562c6533ebc30a24af4aa9be083e4d97fd35dbaf5b20f757aa5"
+    },
+    {
+      "path": "/workspace/shared/ch14_0910/review-rendered-final/lesson-10.pdf",
+      "bytes": 376613,
+      "sha256": "7524f7a73e4cdf3f21b858b03df21c3fef9a94a098f50679353d14a579e9a36f"
+    },
+    {
+      "path": "/workspace/shared/ch14_0910/review-rendered-final/packet-integrity.json",
+      "bytes": 1406,
+      "sha256": "f0f5a892375e9931e2bd44d6074b5bfe00b12e9b34369374582aa2dfa1204338"
+    },
+    {
+      "path": "/workspace/shared/ch14_0910/review-feedback/generated-09-10.json",
+      "bytes": 41249,
+      "sha256": "9bf64f1481b9ee7bdd90fab06a9c0dd288254ad072d9aa1c7be103eb255962bf"
+    },
+    {
+      "path": "/workspace/shared/ch14_0910/review-feedback/lesson-09.json",
+      "bytes": 5682,
+      "sha256": "6ca9aca45c0b89c04554b2bfc1cbfa3b003443ff469b32e1f48a26d1841ad482"
+    },
+    {
+      "path": "/workspace/shared/ch14_0910/review-feedback/lesson-10.json",
+      "bytes": 5719,
+      "sha256": "f5d081557386e48881ede7f346b86fd78ea330c76ac985f46daf28e148d32927"
+    },
+    {
+      "path": "/workspace/shared/ch14_0910/review-feedback/original-stops.json",
+      "bytes": 418,
+      "sha256": "61038b7bc0ef656b49247cd6f02044358756d362d0edf2f4f1298da1a433d3b0"
+    }
+  ],
+  "summary": {
+    "all_original_hashes_match": true,
+    "archive_crc_ok": true,
+    "all_dom_preserved_outside_declared_targets": true,
+    "all_exports_match": true,
+    "all_source_render_pixels_match": true,
+    "all_static_render_pixels_match": true,
+    "all_manuscript_strings_match": true
+  },
+  "static_render_identity": [
+    {
+      "pdf": "lesson-09.pdf",
+      "page": 1,
+      "png": "lesson-09-page-01.png",
+      "dimensions": [
+        804,
+        1137
+      ],
+      "fresh_dimensions": [
+        804,
+        1137
+      ],
+      "matches_fresh_pdf_pixels": true
+    },
+    {
+      "pdf": "lesson-09.pdf",
+      "page": 2,
+      "png": "lesson-09-page-02.png",
+      "dimensions": [
+        804,
+        1137
+      ],
+      "fresh_dimensions": [
+        804,
+        1137
+      ],
+      "matches_fresh_pdf_pixels": true
+    },
+    {
+      "pdf": "lesson-09.pdf",
+      "page": 3,
+      "png": "lesson-09-page-03.png",
+      "dimensions": [
+        804,
+        1137
+      ],
+      "fresh_dimensions": [
+        804,
+        1137
+      ],
+      "matches_fresh_pdf_pixels": true
+    },
+    {
+      "pdf": "lesson-09.pdf",
+      "page": 4,
+      "png": "lesson-09-page-04.png",
+      "dimensions": [
+        804,
+        1137
+      ],
+      "fresh_dimensions": [
+        804,
+        1137
+      ],
+      "matches_fresh_pdf_pixels": true
+    },
+    {
+      "pdf": "lesson-09.pdf",
+      "page": 5,
+      "png": "lesson-09-page-05.png",
+      "dimensions": [
+        804,
+        1137
+      ],
+      "fresh_dimensions": [
+        804,
+        1137
+      ],
+      "matches_fresh_pdf_pixels": true
+    },
+    {
+      "pdf": "lesson-09.pdf",
+      "page": 6,
+      "png": "lesson-09-page-06.png",
+      "dimensions": [
+        804,
+        1137
+      ],
+      "fresh_dimensions": [
+        804,
+        1137
+      ],
+      "matches_fresh_pdf_pixels": true
+    },
+    {
+      "pdf": "lesson-09.pdf",
+      "page": 7,
+      "png": "lesson-09-page-07.png",
+      "dimensions": [
+        804,
+        1137
+      ],
+      "fresh_dimensions": [
+        804,
+        1137
+      ],
+      "matches_fresh_pdf_pixels": true
+    },
+    {
+      "pdf": "lesson-10.pdf",
+      "page": 1,
+      "png": "lesson-10-page-01.png",
+      "dimensions": [
+        804,
+        1137
+      ],
+      "fresh_dimensions": [
+        804,
+        1137
+      ],
+      "matches_fresh_pdf_pixels": true
+    },
+    {
+      "pdf": "lesson-10.pdf",
+      "page": 2,
+      "png": "lesson-10-page-02.png",
+      "dimensions": [
+        804,
+        1137
+      ],
+      "fresh_dimensions": [
+        804,
+        1137
+      ],
+      "matches_fresh_pdf_pixels": true
+    },
+    {
+      "pdf": "lesson-10.pdf",
+      "page": 3,
+      "png": "lesson-10-page-03.png",
+      "dimensions": [
+        804,
+        1137
+      ],
+      "fresh_dimensions": [
+        804,
+        1137
+      ],
+      "matches_fresh_pdf_pixels": true
+    },
+    {
+      "pdf": "lesson-10.pdf",
+      "page": 4,
+      "png": "lesson-10-page-04.png",
+      "dimensions": [
+        804,
+        1137
+      ],
+      "fresh_dimensions": [
+        804,
+        1137
+      ],
+      "matches_fresh_pdf_pixels": true
+    },
+    {
+      "pdf": "lesson-10.pdf",
+      "page": 5,
+      "png": "lesson-10-page-05.png",
+      "dimensions": [
+        804,
+        1137
+      ],
+      "fresh_dimensions": [
+        804,
+        1137
+      ],
+      "matches_fresh_pdf_pixels": true
+    },
+    {
+      "pdf": "lesson-10.pdf",
+      "page": 6,
+      "png": "lesson-10-page-06.png",
+      "dimensions": [
+        804,
+        1137
+      ],
+      "fresh_dimensions": [
+        804,
+        1137
+      ],
+      "matches_fresh_pdf_pixels": true
+    },
+    {
+      "pdf": "lesson-10.pdf",
+      "page": 7,
+      "png": "lesson-10-page-07.png",
+      "dimensions": [
+        804,
+        1137
+      ],
+      "fresh_dimensions": [
+        804,
+        1137
+      ],
+      "matches_fresh_pdf_pixels": true
+    },
+    {
+      "pdf": "generated-09-10.pdf",
+      "page": 1,
+      "png": "generated-page-01.png",
+      "dimensions": [
+        804,
+        1137
+      ],
+      "fresh_dimensions": [
+        804,
+        1137
+      ],
+      "matches_fresh_pdf_pixels": true
+    },
+    {
+      "pdf": "generated-09-10.pdf",
+      "page": 2,
+      "png": "generated-page-02.png",
+      "dimensions": [
+        804,
+        1137
+      ],
+      "fresh_dimensions": [
+        804,
+        1137
+      ],
+      "matches_fresh_pdf_pixels": true
+    },
+    {
+      "pdf": "generated-09-10.pdf",
+      "page": 3,
+      "png": "generated-page-03.png",
+      "dimensions": [
+        804,
+        1137
+      ],
+      "fresh_dimensions": [
+        804,
+        1137
+      ],
+      "matches_fresh_pdf_pixels": true
+    },
+    {
+      "pdf": "generated-09-10.pdf",
+      "page": 4,
+      "png": "generated-page-04.png",
+      "dimensions": [
+        804,
+        1137
+      ],
+      "fresh_dimensions": [
+        804,
+        1137
+      ],
+      "matches_fresh_pdf_pixels": true
+    },
+    {
+      "pdf": "generated-09-10.pdf",
+      "page": 5,
+      "png": "generated-page-05.png",
+      "dimensions": [
+        804,
+        1137
+      ],
+      "fresh_dimensions": [
+        804,
+        1137
+      ],
+      "matches_fresh_pdf_pixels": true
+    },
+    {
+      "pdf": "generated-09-10.pdf",
+      "page": 6,
+      "png": "generated-page-06.png",
+      "dimensions": [
+        804,
+        1137
+      ],
+      "fresh_dimensions": [
+        804,
+        1137
+      ],
+      "matches_fresh_pdf_pixels": true
+    }
+  ],
+  "manuscript_structured_copy_parity": [
+    {
+      "route": "lesson-09",
+      "authored_string_count": 28,
+      "all_strings_in_manuscript": true,
+      "all_strings_in_reading_text": true
+    },
+    {
+      "route": "lesson-10",
+      "authored_string_count": 29,
+      "all_strings_in_manuscript": true,
+      "all_strings_in_reading_text": true
+    }
+  ],
+  "textbook_question_records": [
+    {
+      "id": "ch14-p487-in-text-q11",
+      "page": 487,
+      "group": "in-text",
+      "number": 11,
+      "label": "In Text · p. 487 · question 11",
+      "topics": [
+        "lesson-10"
+      ],
+      "crops": [
+        {
+          "page": 487,
+          "box": [
+            72.49490356445312,
+            467.2859802246094,
+            222.94879150390625,
+            516.01708984375
+          ],
+          "asset": "ch14-p487-in-text-q11-1.png",
+          "src": "./assets/textbook-practice/ch14-p487-in-text-q11-1.png",
+          "role": "question"
+        },
+        {
+          "page": 487,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "src": "./assets/textbook-practice/p487.jpg",
+          "role": "supporting full-page context"
+        }
+      ]
+    },
+    {
+      "id": "ch14-p487-in-text-q12",
+      "page": 487,
+      "group": "in-text",
+      "number": 12,
+      "label": "In Text · p. 487 · question 12",
+      "topics": [
+        "lesson-10"
+      ],
+      "crops": [
+        {
+          "page": 487,
+          "box": [
+            72.49490356445312,
+            513.7860107421875,
+            207.1883544921875,
+            535.803466796875
+          ],
+          "asset": "ch14-p487-in-text-q12-1.png",
+          "src": "./assets/textbook-practice/ch14-p487-in-text-q12-1.png",
+          "role": "question"
+        },
+        {
+          "page": 487,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "src": "./assets/textbook-practice/p487.jpg",
+          "role": "supporting full-page context"
+        }
+      ]
+    },
+    {
+      "id": "ch14-p487-in-text-q13",
+      "page": 487,
+      "group": "in-text",
+      "number": 13,
+      "label": "In Text · p. 487 · question 13",
+      "topics": [
+        "lesson-10"
+      ],
+      "crops": [
+        {
+          "page": 487,
+          "box": [
+            72.49490356445312,
+            533.2860107421875,
+            226.8579864501953,
+            568.5172729492188
+          ],
+          "asset": "ch14-p487-in-text-q13-1.png",
+          "src": "./assets/textbook-practice/ch14-p487-in-text-q13-1.png",
+          "role": "question"
+        },
+        {
+          "page": 487,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "src": "./assets/textbook-practice/p487.jpg",
+          "role": "supporting full-page context"
+        }
+      ]
+    },
+    {
+      "id": "ch14-p488-in-text-q14",
+      "page": 488,
+      "group": "in-text",
+      "number": 14,
+      "label": "In Text · p. 488 · question 14",
+      "topics": [
+        "lesson-10"
+      ],
+      "crops": [
+        {
+          "page": 488,
+          "box": [
+            360.4949951171875,
+            57.91007995605469,
+            532.4329833984375,
+            93.14076232910156
+          ],
+          "asset": "ch14-p488-in-text-q14-1.png",
+          "src": "./assets/textbook-practice/ch14-p488-in-text-q14-1.png",
+          "role": "question"
+        },
+        {
+          "page": 488,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "src": "./assets/textbook-practice/p488.jpg",
+          "role": "supporting full-page context"
+        }
+      ]
+    },
+    {
+      "id": "ch14-p488-in-text-q16",
+      "page": 488,
+      "group": "in-text",
+      "number": 16,
+      "label": "In Text · p. 488 · question 16",
+      "topics": [
+        "lesson-10"
+      ],
+      "crops": [
+        {
+          "page": 488,
+          "box": [
+            360.4949951171875,
+            150.91001892089844,
+            532.3153076171875,
+            226.64076232910156
+          ],
+          "asset": "ch14-p488-in-text-q16-1.png",
+          "src": "./assets/textbook-practice/ch14-p488-in-text-q16-1.png",
+          "role": "question"
+        },
+        {
+          "page": 488,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "src": "./assets/textbook-practice/p488.jpg",
+          "role": "supporting full-page context"
+        }
+      ]
+    },
+    {
+      "id": "ch14-p491-section-14-2-q1",
+      "page": 491,
+      "group": "section-14-2",
+      "number": 1,
+      "label": "Section 14 2 · p. 491 · question 1",
+      "topics": [
+        "lesson-10"
+      ],
+      "crops": [
+        {
+          "page": 491,
+          "box": [
+            68,
+            497,
+            314,
+            525
+          ],
+          "asset": "ch14-p491-section-14-2-q1-1.png",
+          "src": "./assets/textbook-practice/ch14-p491-section-14-2-q1-1.png",
+          "role": "question"
+        },
+        {
+          "page": 491,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "src": "./assets/textbook-practice/p491.jpg",
+          "role": "supporting full-page context"
+        }
+      ]
+    },
+    {
+      "id": "ch14-p491-section-14-2-q2",
+      "page": 491,
+      "group": "section-14-2",
+      "number": 2,
+      "label": "Section 14 2 · p. 491 · question 2",
+      "topics": [
+        "lesson-10"
+      ],
+      "crops": [
+        {
+          "page": 491,
+          "box": [
+            68,
+            529,
+            314,
+            557
+          ],
+          "asset": "ch14-p491-section-14-2-q2-1.png",
+          "src": "./assets/textbook-practice/ch14-p491-section-14-2-q2-1.png",
+          "role": "question"
+        },
+        {
+          "page": 491,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "src": "./assets/textbook-practice/p491.jpg",
+          "role": "supporting full-page context"
+        }
+      ]
+    },
+    {
+      "id": "ch14-p491-section-14-2-q3",
+      "page": 491,
+      "group": "section-14-2",
+      "number": 3,
+      "label": "Section 14 2 · p. 491 · question 3",
+      "topics": [
+        "lesson-10"
+      ],
+      "crops": [
+        {
+          "page": 491,
+          "box": [
+            68,
+            561,
+            314,
+            589
+          ],
+          "asset": "ch14-p491-section-14-2-q3-1.png",
+          "src": "./assets/textbook-practice/ch14-p491-section-14-2-q3-1.png",
+          "role": "question"
+        },
+        {
+          "page": 491,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "src": "./assets/textbook-practice/p491.jpg",
+          "role": "supporting full-page context"
+        }
+      ]
+    },
+    {
+      "id": "ch14-p491-section-14-2-q4",
+      "page": 491,
+      "group": "section-14-2",
+      "number": 4,
+      "label": "Section 14 2 · p. 491 · question 4",
+      "topics": [
+        "lesson-10"
+      ],
+      "crops": [
+        {
+          "page": 491,
+          "box": [
+            68,
+            593,
+            314,
+            667
+          ],
+          "asset": "ch14-p491-section-14-2-q4-1.png",
+          "src": "./assets/textbook-practice/ch14-p491-section-14-2-q4-1.png",
+          "role": "question"
+        },
+        {
+          "page": 491,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "src": "./assets/textbook-practice/p491.jpg",
+          "role": "supporting full-page context"
+        }
+      ]
+    },
+    {
+      "id": "ch14-p491-section-14-2-q5",
+      "page": 491,
+      "group": "section-14-2",
+      "number": 5,
+      "label": "Section 14 2 · p. 491 · question 5",
+      "topics": [
+        "lesson-10"
+      ],
+      "crops": [
+        {
+          "page": 491,
+          "box": [
+            319,
+            497,
+            567,
+            552
+          ],
+          "asset": "ch14-p491-section-14-2-q5-1.png",
+          "src": "./assets/textbook-practice/ch14-p491-section-14-2-q5-1.png",
+          "role": "question"
+        },
+        {
+          "page": 491,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "src": "./assets/textbook-practice/p491.jpg",
+          "role": "supporting full-page context"
+        }
+      ]
+    },
+    {
+      "id": "ch14-p502-section-14-3-q8",
+      "page": 502,
+      "group": "section-14-3",
+      "number": 8,
+      "label": "Section 14 3 · p. 502 · question 8",
+      "topics": [
+        "lesson-04",
+        "lesson-09"
+      ],
+      "crops": [
+        {
+          "page": 502,
+          "box": [
+            289,
+            295,
+            537,
+            337
+          ],
+          "asset": "ch14-p502-section-14-3-q8-1.png",
+          "src": "./assets/textbook-practice/ch14-p502-section-14-3-q8-1.png",
+          "role": "question"
+        },
+        {
+          "page": 502,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "src": "./assets/textbook-practice/p502.jpg",
+          "role": "supporting full-page context"
+        }
+      ]
+    },
+    {
+      "id": "ch14-p504-chapter-review-q6",
+      "page": 504,
+      "group": "chapter-review",
+      "number": 6,
+      "label": "Chapter Review · p. 504 · question 6",
+      "topics": [
+        "lesson-10"
+      ],
+      "crops": [
+        {
+          "page": 504,
+          "box": [
+            38,
+            493,
+            285,
+            535
+          ],
+          "asset": "ch14-p504-chapter-review-q6-1.png",
+          "src": "./assets/textbook-practice/ch14-p504-chapter-review-q6-1.png",
+          "role": "question"
+        },
+        {
+          "page": 504,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "src": "./assets/textbook-practice/p504.jpg",
+          "role": "supporting full-page context"
+        }
+      ]
+    },
+    {
+      "id": "ch14-p504-chapter-review-q12",
+      "page": 504,
+      "group": "chapter-review",
+      "number": 12,
+      "label": "Chapter Review · p. 504 · question 12",
+      "topics": [
+        "lesson-10"
+      ],
+      "crops": [
+        {
+          "page": 504,
+          "box": [
+            289,
+            359,
+            536,
+            389
+          ],
+          "asset": "ch14-p504-chapter-review-q12-1.png",
+          "src": "./assets/textbook-practice/ch14-p504-chapter-review-q12-1.png",
+          "role": "question"
+        },
+        {
+          "page": 504,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "src": "./assets/textbook-practice/p504.jpg",
+          "role": "supporting full-page context"
+        }
+      ]
+    },
+    {
+      "id": "ch14-p504-chapter-review-q17",
+      "page": 504,
+      "group": "chapter-review",
+      "number": 17,
+      "label": "Chapter Review · p. 504 · question 17",
+      "topics": [
+        "lesson-09"
+      ],
+      "crops": [
+        {
+          "page": 504,
+          "box": [
+            289,
+            611,
+            536,
+            679
+          ],
+          "asset": "ch14-p504-chapter-review-q17-1.png",
+          "src": "./assets/textbook-practice/ch14-p504-chapter-review-q17-1.png",
+          "role": "question"
+        },
+        {
+          "page": 504,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "src": "./assets/textbook-practice/p504.jpg",
+          "role": "supporting full-page context"
+        }
+      ]
+    },
+    {
+      "id": "ch14-p505-chapter-review-q18",
+      "page": 505,
+      "group": "chapter-review",
+      "number": 18,
+      "label": "Chapter Review · p. 505 · question 18",
+      "topics": [
+        "lesson-08",
+        "lesson-09"
+      ],
+      "crops": [
+        {
+          "page": 505,
+          "box": [
+            68,
+            70,
+            315,
+            416
+          ],
+          "asset": "ch14-p505-chapter-review-q18-1.png",
+          "src": "./assets/textbook-practice/ch14-p505-chapter-review-q18-1.png",
+          "role": "question"
+        },
+        {
+          "page": 505,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "src": "./assets/textbook-practice/p505.jpg",
+          "role": "supporting full-page context"
+        }
+      ]
+    },
+    {
+      "id": "ch14-p505-chapter-review-q20",
+      "page": 505,
+      "group": "chapter-review",
+      "number": 20,
+      "label": "Chapter Review · p. 505 · question 20",
+      "topics": [
+        "lesson-01",
+        "lesson-09"
+      ],
+      "crops": [
+        {
+          "page": 505,
+          "box": [
+            319,
+            87,
+            567,
+            245
+          ],
+          "asset": "ch14-p505-chapter-review-q20-1.png",
+          "src": "./assets/textbook-practice/ch14-p505-chapter-review-q20-1.png",
+          "role": "question"
+        },
+        {
+          "page": 505,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "src": "./assets/textbook-practice/p505.jpg",
+          "role": "supporting full-page context"
+        }
+      ]
+    },
+    {
+      "id": "ch14-p505-chapter-review-q22",
+      "page": 505,
+      "group": "chapter-review",
+      "number": 22,
+      "label": "Chapter Review · p. 505 · question 22",
+      "topics": [
+        "lesson-10"
+      ],
+      "crops": [
+        {
+          "page": 505,
+          "box": [
+            319,
+            293,
+            567,
+            335
+          ],
+          "asset": "ch14-p505-chapter-review-q22-1.png",
+          "src": "./assets/textbook-practice/ch14-p505-chapter-review-q22-1.png",
+          "role": "question"
+        },
+        {
+          "page": 505,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "src": "./assets/textbook-practice/p505.jpg",
+          "role": "supporting full-page context"
+        }
+      ]
+    },
+    {
+      "id": "ch14-p505-chapter-review-q23",
+      "page": 505,
+      "group": "chapter-review",
+      "number": 23,
+      "label": "Chapter Review · p. 505 · question 23",
+      "topics": [
+        "lesson-09"
+      ],
+      "crops": [
+        {
+          "page": 505,
+          "box": [
+            319,
+            338,
+            567,
+            419
+          ],
+          "asset": "ch14-p505-chapter-review-q23-1.png",
+          "src": "./assets/textbook-practice/ch14-p505-chapter-review-q23-1.png",
+          "role": "question"
+        },
+        {
+          "page": 505,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "src": "./assets/textbook-practice/p505.jpg",
+          "role": "supporting full-page context"
+        }
+      ]
+    },
+    {
+      "id": "ch14-p505-chapter-review-q24",
+      "page": 505,
+      "group": "chapter-review",
+      "number": 24,
+      "label": "Chapter Review · p. 505 · question 24",
+      "topics": [
+        "lesson-04",
+        "lesson-09"
+      ],
+      "crops": [
+        {
+          "page": 505,
+          "box": [
+            319,
+            422,
+            567,
+            595
+          ],
+          "asset": "ch14-p505-chapter-review-q24-1.png",
+          "src": "./assets/textbook-practice/ch14-p505-chapter-review-q24-1.png",
+          "role": "question"
+        },
+        {
+          "page": 505,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "src": "./assets/textbook-practice/p505.jpg",
+          "role": "supporting full-page context"
+        }
+      ]
+    }
+  ],
+  "raw_source_catalogue_records": [
+    {
+      "file": "quiz_d2l_59237.xml",
+      "title": "Biology 30 - Unit B Review",
+      "id": "OBJ_2131525",
+      "stem": "Infection by Chlamydia bacteria may cause tissue scarring that results in blockage of the Fallopian tubes. Without treatment, which event will still occur in an individual with this condition?",
+      "stemHtml": "<p>Infection by Chlamydia bacteria may cause tissue scarring that results in blockage of the Fallopian tubes. Without treatment, which event will still occur in an individual with this condition?</p>",
+      "images": [],
+      "options": [
+        {
+          "id": "QUES_110010_118621_A394579",
+          "html": "<p>A. Ovulation</p>",
+          "text": "A. Ovulation"
+        },
+        {
+          "id": "QUES_110010_118621_A394580",
+          "html": "<p>B. Parturition</p>",
+          "text": "B. Parturition"
+        },
+        {
+          "id": "QUES_110010_118621_A394581",
+          "html": "<p>C. Fertilization&nbsp; &nbsp;</p>",
+          "text": "C. Fertilization"
+        },
+        {
+          "id": "QUES_110010_118621_A394582",
+          "html": "<p>D. Implantation</p>",
+          "text": "D. Implantation"
+        }
+      ],
+      "correctOptionIds": [
+        "QUES_110010_118621_A394579"
+      ],
+      "assets": []
+    },
+    {
+      "file": "quiz_d2l_59237.xml",
+      "title": "Biology 30 - Unit B Review",
+      "id": "OBJ_2131570",
+      "stem": "Another contraceptive, the birth control pill, causes negative feedback on the pituitary, which prevents the release of eggs. Typically, the hormones in the birth control pill are similar to",
+      "stemHtml": "<p>Another contraceptive, the birth control pill, causes negative feedback on the pituitary, which prevents the release of eggs. Typically, the hormones in the birth control pill are similar to</p>",
+      "images": [],
+      "options": [
+        {
+          "id": "QUES_110497_119192_A396072",
+          "html": "<p>A. FSH and LH</p>",
+          "text": "A. FSH and LH"
+        },
+        {
+          "id": "QUES_110497_119192_A396073",
+          "html": "<p>B. Oxytocin and prolactin</p>",
+          "text": "B. Oxytocin and prolactin"
+        },
+        {
+          "id": "QUES_110497_119192_A396074",
+          "html": "<p>C. Estrogen and progesterone</p>",
+          "text": "C. Estrogen and progesterone"
+        },
+        {
+          "id": "QUES_110497_119192_A396075",
+          "html": "<p>D. Relaxin and gonadotropins</p>",
+          "text": "D. Relaxin and gonadotropins"
+        }
+      ],
+      "correctOptionIds": [
+        "QUES_110497_119192_A396074"
+      ],
+      "assets": []
+    },
+    {
+      "file": "quiz_d2l_59228.xml",
+      "title": "Biology 30 Unit B Test",
+      "id": "OBJ_2131183",
+      "stem": "How do birth control pills containing artificial hormones reduce the chances of pregnancy? Be specific!",
+      "stemHtml": "<p><strong>How</strong> do birth control pills containing artificial hormones reduce the chances of pregnancy? Be specific!</p>",
+      "images": [],
+      "options": [
+        {
+          "id": "QUES_52522_85486_LA",
+          "html": "",
+          "text": ""
+        }
+      ],
+      "correctOptionIds": [],
+      "assets": []
+    },
+    {
+      "file": "quiz_d2l_59226.xml",
+      "title": "Biology 30 Unit B - Chapter 14 Quiz",
+      "id": "OBJ_2131114",
+      "stem": "The decline of testosterone production in males and the end of the menstrual cycle in females are known, respectively as",
+      "stemHtml": "<p class=\"MsoNormal\" style=\"margin: 0cm 0cm 0cm 18pt; font-size: medium; font-family: 'Times New Roman', serif; color: #000000; font-style: normal; font-weight: normal; text-align: start; text-indent: -18pt;\"><span style=\"font-family: arial, helvetica, sans-serif; font-size: 14pt;\">The decline of testosterone production in males and the end of the menstrual cycle in females are known, respectively as</span></p>",
+      "images": [],
+      "options": [
+        {
+          "id": "QUES_53316_82676_A275384",
+          "html": "<p><span style=\"font-family: arial, helvetica, sans-serif; font-size: 14pt;\">andropause and menopause.</span></p>",
+          "text": "andropause and menopause."
+        },
+        {
+          "id": "QUES_53316_82676_A275385",
+          "html": "<p><span style=\"font-family: arial, helvetica, sans-serif; font-size: 14pt;\">follicular stage and luteal stage.</span></p>",
+          "text": "follicular stage and luteal stage."
+        },
+        {
+          "id": "QUES_53316_82676_A275386",
+          "html": "<p><span style=\"font-family: arial, helvetica, sans-serif; font-size: 14pt;\">testosterone stage and endometrial stage.</span></p>",
+          "text": "testosterone stage and endometrial stage."
+        },
+        {
+          "id": "QUES_53316_82676_A275387",
+          "html": "<p><span style=\"font-family: arial, helvetica, sans-serif; font-size: 14pt;\">prostatitis and hormone replacement therapy.</span></p>",
+          "text": "prostatitis and hormone replacement therapy."
+        }
+      ],
+      "correctOptionIds": [
+        "QUES_53316_82676_A275384"
+      ],
+      "assets": []
+    }
+  ]
+}

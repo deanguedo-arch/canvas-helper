@@ -1,0 +1,166 @@
+{
+  "schemaVersion": 1,
+  "projectSlug": "biology30-unit-d",
+  "buildSha256": "2de02a6971189a32382a71630fd60106b75428231ff5a4435c40ebdd571eea6b",
+  "generatedAt": "2026-08-31T03:44:00Z",
+  "status": "ready-for-human-scoring",
+  "evidencePathBase": "project-directory",
+  "minimumTotal": 95,
+  "automaticPromotion": false,
+  "snapshot": {
+    "requiredMinutes": 900,
+    "optionalMinutes": 180,
+    "lessonCount": 11,
+    "learnerRouteCount": 17,
+    "officialOutcomeCount": 27,
+    "practiceItemCount": 72,
+    "interactionCount": 11,
+    "artifactCount": 6,
+    "scientificFigureCount": 11,
+    "scientificFigureKindCount": 7,
+    "familyScientificFigureKindCount": 9,
+    "auditedRouteViewportCount": 51,
+    "worstCaseSuspendDataCharacters": 27431,
+    "suspendDataGuardCharacters": 48000
+  },
+  "verification": {
+    "allRouteVisualInspection": "pass",
+    "allRouteExactBuildContactSheetCount": 10,
+    "allRouteAxeChromium": "pass",
+    "allRouteAxeChromiumCount": 17,
+    "scientificFigureGrammar": "pass",
+    "crossBrowserEngines": [
+      "chromium",
+      "firefox",
+      "webkit"
+    ],
+    "crossBrowserTestCount": 9,
+    "crossBrowserResult": "pass",
+    "requiredNetworkRequests": 0,
+    "unresolvedLocalAssets": 0,
+    "unresolvedRights": 0
+  },
+  "categories": [
+    {
+      "id": "academic",
+      "label": "Academic alignment and accuracy",
+      "pointsAvailable": 25,
+      "minimum": 20,
+      "humanScore": null,
+      "automatedStatus": "pass",
+      "evidencePaths": [
+        "meta/curriculum-audit.json",
+        "meta/factual-review.json",
+        "meta/provenance.json",
+        "meta/source-disposition.json",
+        "meta/rights-audit.json"
+      ],
+      "reviewerFocus": "Confirm population genetics, species interactions, succession, population growth, management, and integrated evidence are accurate and appropriately bounded."
+    },
+    {
+      "id": "coherence",
+      "label": "Instructional coherence",
+      "pointsAvailable": 20,
+      "minimum": 16,
+      "humanScore": null,
+      "automatedStatus": "pass",
+      "evidencePaths": [
+        "meta/production-build.json",
+        "meta/content-density.json",
+        "meta/build-summary.md",
+        "workspace/index.html"
+      ],
+      "reviewerFocus": "Review the 11-lesson progression, quantitative-to-ecological integration, lesson learning loops, transitions, and independent-learner clarity."
+    },
+    {
+      "id": "visual",
+      "label": "Visual and editorial quality",
+      "pointsAvailable": 15,
+      "minimum": 12,
+      "humanScore": null,
+      "automatedStatus": "pass",
+      "evidencePaths": [
+        "meta/visual-audit.json",
+        "meta/visual-review.json",
+        "workspace/index.html"
+      ],
+      "reviewerFocus": "Judge hierarchy, typography, mobile reflow, ecological-model legibility, model variety, and whether the restrained editorial system reaches the desired 95-plus production bar."
+    },
+    {
+      "id": "practice",
+      "label": "Practice and investigations",
+      "pointsAvailable": 15,
+      "minimum": 12,
+      "humanScore": null,
+      "automatedStatus": "pass",
+      "evidencePaths": [
+        "meta/practice-audit.json",
+        "meta/interaction-inventory.json",
+        "meta/curriculum-audit.json",
+        "workspace/index.html"
+      ],
+      "reviewerFocus": "Sample feedback quality, population calculations, cognitive demand, field-data fallbacks, and the usefulness of six portfolio artifacts."
+    },
+    {
+      "id": "accessibility",
+      "label": "Accessibility",
+      "pointsAvailable": 10,
+      "minimum": 8,
+      "humanScore": null,
+      "automatedStatus": "pass",
+      "evidencePaths": [
+        "meta/accessibility-static.json",
+        "meta/visual-review.json",
+        "../../e2e/specs/biology30-course-production.spec.ts"
+      ],
+      "reviewerFocus": "Confirm keyboard clarity, focus visibility, readable ecological models, and comfortable use at desktop, tablet, and mobile sizes."
+    },
+    {
+      "id": "runtime",
+      "label": "Local-first runtime and persistence",
+      "pointsAvailable": 10,
+      "minimum": 8,
+      "humanScore": null,
+      "automatedStatus": "pass",
+      "evidencePaths": [
+        "meta/persistence-budget.json",
+        "meta/asset-audit.json",
+        "meta/link-audit.json",
+        "../../e2e/specs/biology30-course-production.spec.ts"
+      ],
+      "reviewerFocus": "Confirm offline completeness and restoration of responses, practice, model state, notebook entries, and lesson completion."
+    },
+    {
+      "id": "maintainability",
+      "label": "Maintainability and Studio readiness",
+      "pointsAvailable": 5,
+      "minimum": 4,
+      "humanScore": null,
+      "automatedStatus": "pass-for-blocked-candidate",
+      "evidencePaths": [
+        "meta/project.json",
+        "meta/production-build.json",
+        "../resources/biology30-production/v1/family-contract.json",
+        "../../scripts/lib/biology30-course/v1/"
+      ],
+      "reviewerFocus": "Confirm the Biology-specific source boundary, deterministic rebuild, and the deliberate rule that Studio editing remains disabled until promotion."
+    }
+  ],
+  "binaryBlockerAudit": {
+    "automatedOrVisualBlockersFound": 0,
+    "humanConfirmation": null,
+    "evidencePaths": [
+      "meta/acceptance-matrix.json",
+      "meta/production-review.json",
+      "meta/visual-review.json",
+      "meta/source-verification.json"
+    ]
+  },
+  "knownReviewCautions": [
+    "Human category scoring and explicit acceptance are still required; automated evidence does not assign a 95-plus score."
+  ],
+  "humanTotal": null,
+  "humanDecision": null,
+  "promotionAuthorized": false,
+  "exportAuthorized": false
+}

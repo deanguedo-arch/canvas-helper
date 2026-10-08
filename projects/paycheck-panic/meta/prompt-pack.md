@@ -1,3 +1,11 @@
+# Current build: financial life (2026-09-29)
+
+New source: `workspace/index.html` and `sim-{economy,game,world,activities}.js`, `sim.css`, shared art/geometry. Six-month Story plus ongoing Free Play replace new Quick/Class/Life campaigns. `earlier.html` preserves that prior candidate and its saves. Schema 3 independent campaign identities, versioned financial rules, integer cents, resumable activities, saved reasons. Runtime remains Annotation only; release blocked.
+
+Read `meta/economy-v3/DESIGN.md`, `SOURCES.md`, `curriculum-map.json`, and `REVIEW.md` before editing the current economy. All prices/contracts except cited payroll/package examples are supplied fictional cases. Local checks are not full campaign timing or LMS proof. See ACTIVE_HANDOFF for next action. Earlier material below describes the preserved prior candidate, not the new default mode.
+
+---
+
 # Paycheck Panic candidate — working context
 
 ## Current instruction and boundary

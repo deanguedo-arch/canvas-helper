@@ -1,0 +1,167 @@
+{
+  "schemaVersion": 1,
+  "scope": "Reusable English 30-1 critical/analytical essay teaching; student assignment and literary text supplied by student",
+  "status": "ORIGINAL_CANDIDATE_FOR_TEACHER_REVIEW",
+  "verifiedOn": "2026-10-07",
+  "sources": [
+    {
+      "role": "curriculum authority",
+      "title": "Implemented English 30-1 Program of Studies",
+      "url": "https://curriculum.learnalberta.ca/curriculum/en/pos/LANENG_HS/ELA3105",
+      "courseCode": "ELA3105",
+      "curriculumStatus": "IMPLEMENTED"
+    },
+    {
+      "role": "diploma assessment reference",
+      "title": "English Language Arts 30-1 scoring guide",
+      "url": "https://www.alberta.ca/system/files/edc-ela-30-1-scoring-guide.pdf",
+      "editionObserved": "September 2025"
+    },
+    {
+      "role": "diploma instructions reference",
+      "title": "English Language Arts 30-1 Guide for Students",
+      "url": "https://www.alberta.ca/system/files/custom_downloaded_images/edc-ela30-1-guide-for-students.pdf"
+    }
+  ],
+  "outcomes": {
+    "1.1.1": "Form, test and refine tentative interpretations.",
+    "2.1.2": "Use close reading to relate controlling ideas, supporting details, characterization, tone and textual choices.",
+    "2.2.2": "Explain how craft, voice and recurring choices develop meaning.",
+    "3.2.1": "Record accurate information and sources, organize information and avoid plagiarism.",
+    "4.1.2": "Select purposeful forms and structures appropriate to the task.",
+    "4.1.3": "Develop a controlling focus with sufficient relevant support and ownership.",
+    "4.2.1": "Refine interpretation, reasoning, relevance and accuracy.",
+    "4.2.2": "Develop purposeful openings, relationships, unity and significant endings.",
+    "4.2.3": "Refine purposeful diction, syntax, transitions and voice.",
+    "4.2.4": "Check correctness and conventions in increasingly complex writing."
+  },
+  "lessonMapping": [
+    {
+      "route": "#/critical/task",
+      "title": "Understand the task and choose a text",
+      "outcomes": [
+        "1.1.1",
+        "2.1.2",
+        "4.1.2"
+      ],
+      "reviewCategories": [
+        "Thought and Understanding",
+        "Form and Structure"
+      ]
+    },
+    {
+      "route": "#/critical/interpretation",
+      "title": "Develop an interpretation",
+      "outcomes": [
+        "1.1.1",
+        "2.1.2",
+        "4.1.3",
+        "4.2.1"
+      ],
+      "reviewCategories": [
+        "Thought and Understanding"
+      ]
+    },
+    {
+      "route": "#/critical/evidence",
+      "title": "Select evidence",
+      "outcomes": [
+        "2.1.2",
+        "3.2.1",
+        "4.1.3",
+        "4.2.1"
+      ],
+      "reviewCategories": [
+        "Supporting Evidence",
+        "Matters of Correctness"
+      ]
+    },
+    {
+      "route": "#/critical/explain",
+      "title": "Explain the evidence",
+      "outcomes": [
+        "2.1.2",
+        "2.2.2",
+        "4.2.1"
+      ],
+      "reviewCategories": [
+        "Thought and Understanding",
+        "Supporting Evidence"
+      ]
+    },
+    {
+      "route": "#/critical/organization",
+      "title": "Organize the argument",
+      "outcomes": [
+        "4.1.2",
+        "4.1.3",
+        "4.2.2"
+      ],
+      "reviewCategories": [
+        "Form and Structure"
+      ]
+    },
+    {
+      "route": "#/critical/openings",
+      "title": "Write openings and conclusions",
+      "outcomes": [
+        "4.1.2",
+        "4.2.2",
+        "4.2.3"
+      ],
+      "reviewCategories": [
+        "Form and Structure",
+        "Matters of Choice"
+      ]
+    },
+    {
+      "route": "#/critical/language",
+      "title": "Make purposeful language choices",
+      "outcomes": [
+        "2.2.2",
+        "4.2.3",
+        "4.2.4"
+      ],
+      "reviewCategories": [
+        "Matters of Choice",
+        "Matters of Correctness"
+      ]
+    },
+    {
+      "route": "#/critical/revision",
+      "title": "Revise deliberately",
+      "outcomes": [
+        "4.2.1",
+        "4.2.2",
+        "4.2.3",
+        "4.2.4"
+      ],
+      "reviewCategories": [
+        "Thought and Understanding",
+        "Supporting Evidence",
+        "Form and Structure",
+        "Matters of Choice",
+        "Matters of Correctness"
+      ]
+    }
+  ],
+  "reviewPassMapping": {
+    "ideas": "Thought and Understanding",
+    "analysis": "Thought and Understanding",
+    "evidence": "Supporting Evidence",
+    "organization": "Form and Structure",
+    "style": "Matters of Choice",
+    "conventions": "Matters of Correctness"
+  },
+  "distinctions": [
+    "Original teaching questions are not official scoring descriptors or automated grades.",
+    "Classroom assignment requirements take precedence for classroom work. Diploma expectations are explained separately.",
+    "Model texts are teaching examples, not recommended diploma studied texts."
+  ],
+  "originalModelProvenance": {
+    "story": "The Last Light",
+    "completeEssay": "A Light Turned Outward",
+    "secondPassage": "A Place on the Wall",
+    "origin": "Original fiction and teaching prose authored for this tool. No external literary passages copied."
+  }
+}

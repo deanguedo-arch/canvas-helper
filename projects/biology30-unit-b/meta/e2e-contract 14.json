@@ -1,0 +1,92 @@
+{
+  "$schema": "../../../e2e/project-e2e-contract.schema.json",
+  "projectSlug": "biology30-unit-b",
+  "requiredTestIds": [
+    "studio-shell",
+    "course-studio-tab",
+    "workspace-project-select",
+    "project-root",
+    "workspace-preview-frame"
+  ],
+  "modes": {
+    "enabled": false
+  },
+  "navigation": {
+    "enabled": false
+  },
+  "quiz": {
+    "enabled": false,
+    "lessonTitle": "Formative practice"
+  },
+  "fallbackPanel": {
+    "enabled": false
+  },
+  "learnerCourse": {
+    "enabled": true,
+    "routes": [
+      "overview",
+      "b-lesson-01",
+      "b-lesson-02",
+      "b-lesson-03",
+      "b-lesson-04",
+      "b-lesson-05",
+      "b-lesson-06",
+      "b-lesson-07",
+      "b-lesson-08",
+      "b-lesson-09",
+      "b-lesson-10",
+      "b-lesson-11",
+      "b-lesson-12",
+      "b-lesson-13",
+      "b-lesson-14",
+      "model-lab",
+      "investigation-notebook",
+      "practice-hub",
+      "glossary-and-data",
+      "sources-and-credits"
+    ],
+    "hintRoutes": [],
+    "printRoutes": [
+      "investigation-notebook"
+    ],
+    "evidenceScenario": {
+      "kind": "individual",
+      "route": "b-lesson-12",
+      "captureId": "b-regulation-map",
+      "contributionId": "biology30-unit-b:artifact:b-regulation-map",
+      "responseId": "biology30-unit-b:artifact:b-regulation-map:claim",
+      "preserveResponseOnSave": true,
+      "setupResponses": [
+        {
+          "responseId": "biology30-unit-b:artifact:b-regulation-map:claim",
+          "value": "Scientific claim: {{e2e-value}}"
+        },
+        {
+          "responseId": "biology30-unit-b:artifact:b-regulation-map:evidence",
+          "value": "Evidence or data: {{e2e-value}}"
+        },
+        {
+          "responseId": "biology30-unit-b:artifact:b-regulation-map:reasoning",
+          "value": "Reasoning and connections: {{e2e-value}}"
+        },
+        {
+          "responseId": "biology30-unit-b:artifact:b-regulation-map:limitations",
+          "value": "Limitations, safety, or reflection: {{e2e-value}}"
+        }
+      ]
+    },
+    "resourceChecks": [],
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "routes": [
+        "overview",
+        "b-lesson-01",
+        "b-lesson-08",
+        "b-lesson-14",
+        "investigation-notebook",
+        "practice-hub"
+      ]
+    }
+  }
+}

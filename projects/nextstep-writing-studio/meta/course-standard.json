@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "outreach-v1",
+  "version": 1,
+  "parent": null,
+  "provenance": {
+    "authorization": "Dean: approved standards-promotion slice, 2026-09-30",
+    "exemplars": [
+      "Biology30 chapters 12/13",
+      "Social30-1",
+      "English30-1"
+    ]
+  },
+  "rules": {
+    "targetGrade": 10,
+    "maxParagraphWords": 120
+  },
+  "blueprint": [
+    "context",
+    "explanation",
+    "worked",
+    "guided",
+    "independent-check"
+  ],
+  "requirements": [
+    "self-teaching outreach",
+    "Alberta rigor and explicit outcomes",
+    "instructions and purpose for every activity",
+    "dark sidebar, NextStep navigation, subject-appropriate tools",
+    "sources and teacher exemplars",
+    "mobile, save/resume, SCORM verification before release"
+  ],
+  "componentVersion": "standard-lesson-v1",
+  "blueprintVersion": "outreach-five-stage-v1"
+}
