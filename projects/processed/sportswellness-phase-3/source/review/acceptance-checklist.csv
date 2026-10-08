@@ -1,0 +1,11 @@
+gate,status,evidence
+54 routes at desktop and phone,component checks passed,developer/tests/all-route-results.csv
+state/quiz/Build/notes/import/export/game logic,component checks passed,developer/tests/all-interaction-results.csv
+reference stylesheet and geometry,matches available upload; latest local reference unavailable,developer/tests/visual-geometry-comparison.csv
+source coverage,"mapped 104 controls, 44 sections, 34 original checkpoint identities, 16 figures, 29 videos",developer/contracts
+reading PDFs,selectable Letter PDFs generated; bounds checked and rendered for review,assets/readings and developer/tests/pdf-and-figures
+live browser launch/close persistence,NOT RUN,environment denied URL navigation; emulated storage fixture only
+SCORM and Brightspace,NOT RUN / deferred,local previews have no LMS calls
+physical devices and screen reader,NOT RUN,viewport emulation is not hardware or assistive-technology testing
+external videos,WITHHELD / verification not completed,developer/contracts/video-review.csv
+student pilot and credit evidence,PENDING,developer/contracts/curriculum-evidence-map.csv

@@ -1,0 +1,9 @@
+document.querySelector("[data-practice-emphasis]")?.addEventListener("click", (event) => {
+  const button = event.currentTarget;
+  if (!(button instanceof HTMLButtonElement)) return;
+  const card = button.closest("[data-practice-card]");
+  const pressed = button.getAttribute("aria-pressed") !== "true";
+  button.setAttribute("aria-pressed", String(pressed));
+  card?.toggleAttribute("data-emphasized", pressed);
+});
+(()=>{const root=document.querySelector('[data-standard]');if(!root)return;const key='canvas-standard:'+document.body.dataset.projectSlug;for(const check of root.querySelectorAll('[data-lesson-check]')){check.querySelector('[data-check-answer]').addEventListener('click',()=>{const selected=check.querySelector('input:checked');const feedback=check.querySelector('[data-check-feedback]');feedback.textContent=selected?(selected.value===check.dataset.correct?'Correct. ':'Try again. ')+feedback.dataset.explanation:'Choose an answer first.'})}let answers={};let storage=true;try{const saved=JSON.parse(localStorage.getItem(key)||'{}');answers=saved&&typeof saved==='object'&&!Array.isArray(saved)?saved:{}}catch{storage=false}const status=root.querySelector('[data-lesson-save-status]');for(const field of root.querySelectorAll('[data-lesson-answer]')){field.value=typeof answers[field.dataset.lessonAnswer]==='string'?answers[field.dataset.lessonAnswer]:'';field.addEventListener('input',()=>{answers[field.dataset.lessonAnswer]=field.value;try{localStorage.setItem(key,JSON.stringify(answers));status.textContent='Saved on this device.'}catch{status.textContent='Saving unavailable. Keep a copy before leaving.'}})}status.textContent=storage?'Answers resume on this device.':'Saving unavailable.'})();

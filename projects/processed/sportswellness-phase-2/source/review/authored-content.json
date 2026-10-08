@@ -1,0 +1,737 @@
+{
+  "number": 2,
+  "name": "The Drive",
+  "assignment": "My Motivation Plan",
+  "lab_title": "Motivation decision lab",
+  "reading": "phase2-drive-reading.pdf",
+  "purpose": "Understand what directs effort, then build a realistic plan that includes values, support and recovery.",
+  "case_title": "Alex prepares for a school volleyball tryout",
+  "case": "Alex is a fictional Grade 10 student. The school volleyball tryout is two weeks away. Alex enjoys playing games with friends and values contributing to a group. Repeating a serving drill is not always enjoyable, but Alex chooses it because becoming a reliable teammate matters. Alex also says, “Sometimes I practise because I would feel guilty if I stopped.” Those are different reasons, even when the practice looks the same.\n\nAlex can attend two school practices this week. A late bus is available on Tuesday, but not Thursday. There is also a science presentation to prepare. At the last practice, Alex completed the preparation routine on six of ten planned serves. On four attempts, Alex rushed the setup after watching another player score. The coach offered to demonstrate the setup again. A classmate offered to practise together during a suitable school session.\n\nFor the assignment, treat these details as case evidence, not a report about a real student. You may add reasonable fictional details and label them as assumptions. Later, the case changes: Thursday's gym session is cancelled. Alex also reports that the current schedule leaves too little time to recover. Your job is to adjust the plan, not diagnose Alex or prescribe harder training.",
+  "opening": "Describe Alex’s task and two practical constraints. What information would help you choose a realistic next action?",
+  "lessons": [
+    {
+      "route": "effort-direction",
+      "title": "Where effort goes",
+      "intro": "Separate the amount of effort from the job that effort is doing.",
+      "goal": "I can distinguish direction and intensity using evidence from one situation.",
+      "before": "Think of two people who spend the same amount of time practising different things.",
+      "core": "## Start with the task\nTwo students each spend twenty minutes preparing for a presentation. One practises explaining the main idea without reading. The other changes the title slide several times. Both are working. They are not working on the same thing. Before judging effort, ask what each action is meant to improve.\n\n**Motivation** concerns the reasons and processes that get action started and keep it going. This phase begins with two useful dimensions: **direction** and **intensity**. Direction means where effort is aimed. Intensity means how much effort is applied. Time spent can give one clue, but time alone does not tell you either the quality or the purpose of the work.\n\n## Direction: choose a useful target\nA volleyball player may aim to improve a reliable serving setup. A musician may aim to enter on the correct beat. A student may aim to explain evidence clearly. Each target gives practice a job. “Improve everything” is too broad to guide the next few minutes.\n\nDirection also involves choosing between tasks. Repeating an already comfortable skill can feel productive. However, it might leave the main difficulty untouched. A useful question is, “Which part of this performance needs attention now?” The answer should come from evidence, such as feedback or a pattern across attempts.\n\n## Intensity: how much effort is applied?\nIntensity describes the effort invested after a target is chosen. Two players may practise the same skill, but one engages carefully while the other barely attempts it. That difference may concern intensity. Do not decide why it happened from appearance alone. The second player might need clearer instructions, a different level of challenge, or support.\n\nMore intense work is not automatically better work. Repeating a misunderstood action with greater force does not supply the missing explanation. A useful plan joins an appropriate target with an amount of effort that fits the task and setting.\n\n## Discipline is not a fixed label\nIn this course, discipline means organizing and returning to useful actions over time. It is not a permanent label separating good people from bad people. Reasons, skills, time, feedback and the environment all affect what a person can do.\n\nWhen a plan slips, inspect it before judging the person. Was the task clear? Was the action realistic? Was there a way to get feedback? A plan can need adjusting even when the performer cares about the goal. Later topics explain reasons for effort and the conditions that support it.",
+      "worked_title": "Equal time, different practice",
+      "worked": "Alex and Sam each practise for twenty minutes. Alex repeats a familiar serve. Sam checks the starting position, tries a correction and asks whether it changed the setup. Their practice time is equal, but their direction differs. Sam is targeting a specific part of the skill.\n\nWe cannot conclude that Sam is a better person or is trying harder. The evidence tells us what each session targets. A useful adjustment for Alex is to identify one feature to observe, rather than simply adding more minutes.",
+      "application": "Two performers work equally hard but improve different things. Explain their direction of effort and how it differs from intensity.",
+      "label": "Explain the difference",
+      "expected": [
+        "Name what each performer is trying to improve.",
+        "Distinguish the target from the amount of effort.",
+        "Avoid treating one observation as a character judgment."
+      ],
+      "checks": [
+        {
+          "prompt": "A student practises the opening sentence rather than the slide colours. Which dimension is most directly described?",
+          "choices": [
+            "Direction: the aspect being practised.",
+            "Intensity: how hard the student works.",
+            "Recovery: how long the student rests."
+          ],
+          "answer": 0,
+          "feedback": "The choice identifies where effort is aimed. We need more information to describe the amount of effort.",
+          "id": "p2-effort-direction-check-1"
+        },
+        {
+          "prompt": "A performer repeats a misunderstood instruction with more effort. What is the most useful next step?",
+          "choices": [
+            "Extend the session before checking anything.",
+            "Clarify the instruction and choose one feature to observe.",
+            "Decide that effort is unrelated to learning."
+          ],
+          "answer": 1,
+          "feedback": "Clarifying the task addresses the problem stated in the case. Effort still matters, but more of the same action may repeat the misunderstanding.",
+          "id": "p2-effort-direction-check-2"
+        }
+      ],
+      "figures": [],
+      "source_sections": [
+        3
+      ],
+      "support": "Picture a camera with a direction and a zoom setting. Where it points and how strongly it zooms are different choices. Similarly, ask what the practice targets before asking how hard the performer is working. The comparison helps separate two questions; it is not a measurement of motivation.",
+      "number": 2,
+      "field": "p2-effort-direction-response"
+    },
+    {
+      "route": "motivation-reasons",
+      "title": "Why we do the work",
+      "intro": "The same activity can be done for very different reasons.",
+      "goal": "I can distinguish reasons for action without assigning a permanent label to a person.",
+      "before": "Use the performer’s words, not their appearance, as the main evidence.",
+      "core": "## Look beneath the action\nThree students attend the same rehearsal. One enjoys making music. One values contributing to the concert. One fears getting in trouble for missing it. Attendance looks the same, but the reasons differ. **Self-determination theory**, associated with Edward Deci and Richard Ryan, helps us name those differences.\n\n**Intrinsic motivation** means doing an activity for its own interest or enjoyment. “I like playing this piece” is an example. **Extrinsic motivation** means doing it for a separable result or purpose. That purpose can be personally meaningful; extrinsic does not always mean someone is forcing the person.\n\n## Four forms of extrinsic regulation\n**External regulation** centres on an outside demand, reward or consequence. A learner might practise to earn a reward or avoid punishment. The immediate reason is outside the activity itself.\n\n**Introjected regulation** involves pressure that the person has taken inside. “I must practise or I am worthless” ties action to guilt or protecting self-worth. The pressure feels internal, but the action may still feel controlled rather than freely endorsed.\n\n**Identified regulation** means accepting the importance of the action. “This drill helps a skill I value” gives a personally accepted reason. The drill does not have to be enjoyable.\n\n**Integrated regulation** means that the accepted reason fits with broader values and identity. “Preparing reliably fits how I want to contribute as a teammate” is an example. Integrated regulation remains extrinsic: the activity serves a valued purpose rather than being done only for enjoyment.\n\n## Lack of intention is a separate idea\n**Amotivation** describes a lack of intention to act. A learner may not see a purpose, may not believe the action will help, or may feel unable to influence the result. Do not describe it as the most controlled kind of intentional motivation. A useful response begins by understanding what is missing.\n\nThe diagram organizes reasons. It is not a compulsory ladder that everyone must climb. A person can have several reasons at once, and reasons can change between activities or situations. Someone may enjoy games, value repetitive practice and also feel pressure about selection.\n\n## Use the categories carefully\nAsk what the person says about the activity. Do not assume that smiling proves intrinsic motivation or that effort proves integrated regulation. Rewards and feedback also depend on context. Information that helps someone understand progress is different from pressure that makes them feel controlled.\n\nThe practical question is not, “Which student deserves the best label?” It is, “What reason is supported by the evidence, and what would make the next action understandable and worthwhile?”",
+      "worked_title": "Enjoyment is not the same as a valued purpose",
+      "worked": "Maya says, “I enjoy the sound we make together.” That statement supports intrinsic motivation. Ren says, “Scales are repetitive, but they help me become the musician I want to be.” That statement supports a valued, potentially integrated reason. It does not establish that Ren enjoys scales.\n\nBoth reasons can support participation. We would need more information before making claims about either learner’s long-term behaviour.",
+      "application": "Compare someone who enjoys the activity with someone who chooses it because it fits a value. What evidence distinguishes their reasons?",
+      "label": "Compare two reasons",
+      "expected": [
+        "Use the words or action-purpose stated in the case.",
+        "Keep intrinsic enjoyment distinct from a valued extrinsic purpose.",
+        "Recognize that reasons can overlap or change."
+      ],
+      "checks": [
+        {
+          "prompt": "“I do this repetitive drill because reliable preparation fits my values.” Which reason is most directly supported?",
+          "choices": [
+            "Intrinsic enjoyment of the drill itself.",
+            "External regulation through a reward.",
+            "Integrated regulation connected to values."
+          ],
+          "answer": 2,
+          "feedback": "The stated reason is a value-consistent purpose, not enjoyment of the drill. Integrated regulation remains a form of extrinsic motivation.",
+          "id": "p2-motivation-reasons-check-1"
+        },
+        {
+          "prompt": "A student sees no purpose in a task and does not intend to start. What should you investigate first?",
+          "choices": [
+            "Whether the task has meaning and feels possible to influence.",
+            "Which reward proves the student is intrinsically motivated.",
+            "Which fixed motivation type the student will always have."
+          ],
+          "answer": 0,
+          "feedback": "The case suggests a lack of intention. Clarifying purpose, task understanding and available support is more useful than assigning a permanent type.",
+          "id": "p2-motivation-reasons-check-2"
+        }
+      ],
+      "figures": [
+        "phase2-motivation-continuum"
+      ],
+      "source_sections": [
+        4
+      ],
+      "support": "Ask “Why this action?” Enjoying the activity itself points to intrinsic motivation. Doing it for something personally important can be an autonomous extrinsic reason. Feeling guilty or fearing a consequence points to a different reason. Several can be present together. The diagram is a way to compare the evidence, not a ranking of people.",
+      "number": 3,
+      "field": "p2-motivation-reasons-response"
+    },
+    {
+      "route": "psychological-needs",
+      "title": "Choice, progress and belonging",
+      "intro": "A practice environment can support motivation rather than only demand more effort.",
+      "goal": "I can connect one environmental change to autonomy, competence or relatedness.",
+      "before": "Return to the difference between choosing an action and feeling pressured into it.",
+      "core": "## Change the conditions, not just the slogan\nImagine arriving at practice and receiving an unexplained task that feels impossible. Nobody answers questions, and partners exclude you. “Be motivated” does not address those conditions. Self-determination theory identifies three psychological needs that help us examine an environment: **autonomy, competence and relatedness**.\n\nThese needs are not prizes that only successful performers earn. Use them to ask what support a learner might need. A small change in the task or interaction can be more relevant than another speech about effort.\n\n## Autonomy: a meaningful sense of choice\nAutonomy concerns experiencing an action as chosen and personally endorsed. It does not mean having no rules, ignoring safety or choosing only easy tasks. A teacher can set an appropriate learning target while explaining its purpose and offering useful choices within it.\n\nFor example, a learner might choose which of two suitable practice tasks to try first. They might help set a realistic review point. The choice should matter to the learning, not merely change a decorative detail. Clear reasons can also help someone understand why a constraint is necessary.\n\n## Competence: understanding how to make progress\nCompetence concerns feeling able to develop skill and affect what happens through action. It is not the claim that the learner already knows everything. Clear demonstrations, manageable steps and specific feedback can help connect practice to progress.\n\nA task that is far beyond current understanding may need a smaller first step. A task that is too easy may need a suitable challenge. Feedback such as “Your setup stayed consistent on the last three attempts” provides information. “Be better” does not explain what to keep or change.\n\n## Relatedness: being included and supported\nRelatedness concerns belonging and mattering to others. In a class, it can be supported by respectful partners, being included in a group and being able to ask for help. It does not require being popular, agreeing with everyone or sharing private information.\n\nA support role can be enough for a plan: a teacher, coach or practice partner. You do not need to name a real person. The useful detail is what help the performer would request and how that request fits the task.\n\n## One change can support more than one need\nA partner demonstration may support competence and relatedness. A choice between suitable tasks may support autonomy while allowing a better challenge level. Explain the strongest connection rather than forcing every change into all three categories.\n\nSupporting a need is not a promise that motivation or performance will immediately improve. Ask what the learner experiences and observe what happens next. The point is to make an informed adjustment, then review it.",
+      "worked_title": "A welcoming first practice",
+      "worked": "A new player does not understand the serving setup and is left without a partner. The teacher pairs the learner with a respectful classmate and gives a short demonstration. The demonstration supports competence by making the next step clearer. The pairing may support relatedness by making participation more inclusive.\n\nTo check the change, ask whether the instructions are clearer and observe the next setup. Do not assume that being assigned a partner automatically creates belonging.",
+      "application": "Change one feature of this practice environment. Which need does it support, and why might it help?",
+      "label": "Change the practice environment",
+      "expected": [
+        "Name the problem in the case.",
+        "Propose a specific change and connect it to one need.",
+        "Describe what to ask or observe after the change."
+      ],
+      "checks": [
+        {
+          "prompt": "A teacher explains the purpose of a task and offers two appropriate ways to practise it. Which need is most directly supported?",
+          "choices": [
+            "Relatedness through group popularity.",
+            "Autonomy through meaningful choice.",
+            "Competence through an automatic improvement."
+          ],
+          "answer": 1,
+          "feedback": "The choice and explanation support ownership within a suitable constraint. They do not remove the learning target or guarantee improvement.",
+          "id": "p2-psychological-needs-check-1"
+        },
+        {
+          "prompt": "A new dancer feels lost during a long sequence. Which change most directly addresses competence?",
+          "choices": [
+            "Tell the dancer that confidence will arrive eventually.",
+            "Assign a more public performance immediately.",
+            "Demonstrate a short section and give specific feedback on it."
+          ],
+          "answer": 2,
+          "feedback": "A clear, manageable section links action to feedback. The next check is whether the learner understands and can use the step, not whether they report perfect confidence.",
+          "id": "p2-psychological-needs-check-2"
+        }
+      ],
+      "figures": [
+        "phase2-psychological-needs"
+      ],
+      "source_sections": [
+        5
+      ],
+      "support": "For a school presentation, autonomy could mean choosing a relevant example. Competence could mean rehearsing one explanation with specific feedback. Relatedness could mean a respectful practice partner. Each change addresses a different question: Do I endorse this? Can I make progress? Am I supported? The conditions can help, but the learner’s experience still needs checking.",
+      "number": 4,
+      "field": "p2-psychological-needs-response"
+    },
+    {
+      "route": "values-action",
+      "title": "Values into action",
+      "intro": "A value becomes useful when you can connect it to something observable.",
+      "goal": "I can connect one value to an action without judging a person’s worth.",
+      "before": "Use the fictional case or a personal example you are comfortable discussing.",
+      "core": "## A direction, not a trophy\nA **value** is a quality or direction that matters to a person. Examples include learning, contribution, fairness and care. A **goal** is a particular target. A learner may value learning and set a goal of explaining one difficult idea clearly. The value can continue after that goal is reached.\n\nValues help organize choices when several things compete for time. They do not make every decision easy. A student can value both preparation and supporting a family activity. A workable plan needs to consider the situation rather than pretend that one value removes all conflicts.\n\n## Make the value visible in behaviour\n“Contribution” is a label. “Arrive with the agreed part prepared and help a partner understand the next step” describes behaviour. Someone can observe whether the action happened. This makes the plan easier to explain and review.\n\nAvoid using words such as “good” or “strong” as the only evidence. They judge the whole person without identifying an action. A useful response states what the performer will do, when they will do it and how it connects to the chosen value.\n\nYou do not have to prove private beliefs in this assignment. You can choose a suitable value for the fictional performer and explain a reasonable action. A teacher can assess that explanation without deciding whether the value is truly part of your identity.\n\n## Toward and away are about the choice\nA toward-value action fits the direction in the case. An away-from-value action moves away from it. If a learner values improving understanding, asking about unclear feedback may be a toward action. Hiding the feedback without reading it may move away from that direction.\n\nThese descriptions are not permanent labels for people. One missed practice does not establish that someone lacks commitment. There may be a transport problem, a competing responsibility or missing information. Describe the decision and context before interpreting it.\n\n## Acting while uncertain\nEntering an “arena” is a metaphor for beginning before feeling perfectly ready. Treat that as a metaphor for participating in learning despite ordinary uncertainty. A learner can ask a question, share a rough draft or try an appropriately supported new step without knowing the outcome.\n\nIt is not an instruction to ignore safety, injury or a lack of essential skill. A useful action may be to ask for help or change the task. Courage and careful planning can belong together.\n\n## Review the action, not the identity\nAt a review point, ask what happened and whether the action still fits. If it did not happen, identify a barrier and revise the plan. This produces a next step. “I am not the right kind of person” produces a judgment but no usable instruction.",
+      "worked_title": "Contribution during a rehearsal",
+      "worked": "A fictional musician values contribution to the ensemble. One toward action is to practise the agreed entrance and arrive ready to follow the conductor. An away action would be to ignore a known entrance problem while blaming the group.\n\nIf transport prevents attendance, contribution might instead involve contacting the teacher and arranging a suitable way to prepare. The value stays meaningful while the action changes with the constraint.",
+      "application": "Choose one value for the fictional performer. Describe one action that expresses it and one action that would move away from it.",
+      "label": "Connect a value to behaviour",
+      "expected": [
+        "Name one value and explain it in ordinary language.",
+        "Describe two observable actions in the same situation.",
+        "Explain the connection without judging the whole person."
+      ],
+      "checks": [
+        {
+          "prompt": "Which statement is an observable expression of contribution?",
+          "choices": [
+            "Prepare the agreed role and offer relevant help during practice.",
+            "Be a person who always has the right values.",
+            "Feel completely motivated before every session."
+          ],
+          "answer": 0,
+          "feedback": "The first statement describes actions that can be followed and reviewed. The other statements ask for a broad identity or internal feeling.",
+          "id": "p2-values-action-check-1"
+        },
+        {
+          "prompt": "Alex cannot attend because the late bus is unavailable. What is the most useful values-based response?",
+          "choices": [
+            "Treat attendance as the only possible sign of commitment.",
+            "Ignore the constraint because values should be non-negotiable.",
+            "Discuss another suitable preparation action and explain how it serves contribution."
+          ],
+          "answer": 2,
+          "feedback": "The transport constraint changes what is possible. An adapted action can still express the value without pretending the barrier does not exist.",
+          "id": "p2-values-action-check-2"
+        }
+      ],
+      "figures": [],
+      "source_sections": [
+        6
+      ],
+      "support": "Try the sentence “Because this performer values ___, they will ___ in this situation.” The second blank must name an action. Then ask what could stop that action and how the plan could change. Values guide choices; they do not give a teacher a test of the learner’s private character.",
+      "number": 5,
+      "field": "p2-values-action-response"
+    },
+    {
+      "route": "responding-mistakes",
+      "title": "Responding to mistakes",
+      "intro": "Keep the useful information in an error without turning it into a judgment of the whole person.",
+      "goal": "I can write an accurate observation, choose an adjustment and explain evidence-based pride.",
+      "before": "A useful response does not pretend the mistake never happened.",
+      "core": "## An error can become information\nA student misses an entrance and thinks, “I am useless.” The entrance was missed, but the conclusion about the whole person goes beyond that event. Compare it with, “I lost the count while watching the audience.” The second statement identifies something that can be investigated and changed.\n\nA **fixed or entity view** treats ability as something largely set that must be displayed. A **growth or incremental view** treats skill as something that can develop through practice, strategy, feedback and time. These are ways of interpreting learning, not permanent types of student.\n\n## Growth is more than praising effort\n“Try harder” is not a complete learning strategy. A learner may be repeating an error because the instruction is unclear. Useful feedback identifies what happened, offers a relevant adjustment and gives a way to check the next attempt.\n\nFor example, “Practise the first sentence more slowly and check whether the main idea is clear” gives a task. “You are talented” may feel encouraging, but does not explain that task. Praise should not replace information about learning.\n\nA growth-oriented response also has limits. Practice does not guarantee every desired result. A learner may need a different method, more instruction, time or appropriate support. Recognizing that need is part of adjusting the process, not evidence that effort is pointless.\n\n## Behaviour and the whole self\nA useful distinction separates **guilt**, which can focus on an action, from **shame**, which can become a global judgment about the person. “I did not prepare the agreed section” identifies behaviour. “I am a failure” describes the whole self.\n\nUse this distinction to make the response more specific. It is not a tool for diagnosing a classmate’s emotions. Nor does it mean a student must feel guilty to improve. A factual observation and repair action can be useful without making a claim about how someone should feel.\n\n## What kind of pride is supported?\n**Authentic pride** connects achievement to evidence such as preparation, effort and skill development. “I used the feedback and made the entrance more consistent” identifies something worth keeping. **Hubristic pride** centres on a broad claim of superiority, such as “I am naturally better than everyone.”\n\nThe practical difference is what the statement lets the performer review. Specific evidence can identify a useful process. A superiority claim does not explain what to repeat and can make correction seem like an attack on status.\n\n## Use a three-part response\nState the observation. Choose one adjustment. Decide what would show whether it helped. Keep both success and mistakes specific. A strong explanation can recognize progress and still identify something to work on next.",
+      "worked_title": "A serve after feedback",
+      "worked": "Alex says, “I rushed my setup after looking at another player’s result.” The proposed adjustment is to use the practised setup and target cue on the next planned attempt. The review checks whether the routine was used, separately from whether the serve scored.\n\nIf the setup becomes more consistent, Alex can recognize that progress. “I used the feedback” is evidence-based pride. It does not require claiming to be a naturally superior player.",
+      "application": "Rewrite “I failed because I am useless” as an observation and a useful adjustment. Explain what changed.",
+      "label": "Turn a judgment into a next step",
+      "expected": [
+        "State a specific event rather than a global identity claim.",
+        "Choose a relevant adjustment and a way to review it.",
+        "Recognize effort or progress without promising a result."
+      ],
+      "checks": [
+        {
+          "prompt": "Which statement focuses on behaviour rather than judging the whole person?",
+          "choices": [
+            "I am the kind of person who always fails.",
+            "I skipped the agreed preparation step before this attempt.",
+            "My ability has been permanently exposed."
+          ],
+          "answer": 1,
+          "feedback": "The preparation step is a specific behaviour. It can be reviewed and changed without making the event a verdict about the whole person.",
+          "id": "p2-responding-mistakes-check-1"
+        },
+        {
+          "prompt": "After a clearer presentation, which response best connects pride to evidence?",
+          "choices": [
+            "My explanation improved after I tested it with a partner.",
+            "This proves I no longer need feedback.",
+            "I must be naturally better than the rest of the class."
+          ],
+          "answer": 0,
+          "feedback": "The first response links improvement to a relevant process. It recognizes progress while leaving room for further feedback.",
+          "id": "p2-responding-mistakes-check-2"
+        }
+      ],
+      "figures": [],
+      "source_sections": [
+        7,
+        8
+      ],
+      "support": "An observation answers “What happened?” An adjustment answers “What will change?” Evidence-based pride answers “What useful action or progress can be recognized?” None requires a verdict about the whole person. A difficult result may still matter, but the next response should give the performer something realistic to do.",
+      "number": 6,
+      "field": "p2-responding-mistakes-response"
+    },
+    {
+      "route": "usable-goals",
+      "title": "Goals you can use",
+      "intro": "Connect the result you care about to an action you can practise and review.",
+      "goal": "I can distinguish three goal types and write a usable SMART process goal.",
+      "before": "Use one performance situation for all three goal types.",
+      "core": "## Put a job on the calendar\n“I want to improve” gives a direction but not a plan. What will the performer do? In which setting? How will they check it? A useful goal helps answer those questions. It should also fit the performer’s time, current learning and wider responsibilities.\n\nA broad priority, such as learning or contribution, can guide several goals. A specific goal chooses one target within that direction. Do not confuse having an important priority with having a workable action for this week.\n\n## Three goal types\nAn **outcome goal** concerns a result relative to others, such as winning a match or earning a place in a group. Other people and conditions influence it. Caring about the outcome is understandable, but the performer cannot guarantee it through a thought.\n\nA **performance goal** concerns a personal standard. Examples include a target serving percentage or explaining a topic within an agreed time. It can help track progress, but execution and conditions still affect the result.\n\nA **process goal** concerns an action used in the task. Examples include using a preparation routine, checking the evidence before making a claim, or following the conductor’s entrance cue. These actions are usually more directly controllable than the final result. They are not completely independent of circumstances.\n\n## Use SMART as a planning check\nIn this course, SMART means **Specific, Measurable, Achievable, Relevant and Time-bound**. Specific names the action. Measurable explains what can be observed or recorded. Achievable checks whether it is workable. Relevant connects it to the actual need. Time-bound sets a review point.\n\nFor example: “During the next two school practices, Alex will use the agreed setup before ten planned serves and record whether it was used. Alex will review the record with the coach after the second practice.” The number of attempts is a fictional planning choice, not a training prescription for everyone.\n\nA measurable goal can still be a poor fit. It may ignore transport, overload the schedule or focus on a result that depends heavily on others. SMART does not replace judgment about those conditions.\n\n## Make the next action manageable\nKeep the action clear and short. A long list of simultaneous cues can make execution harder to organize. Choose the current learning need and a suitable challenge. The plan can include a longer-term aim while making the next step small enough to begin.\n\n## Review action and result separately\nA player may follow the routine and miss. Another may skip it and score. Record the planned action and the outcome separately. Then inspect a pattern across attempts and decide what to adjust. One result does not prove that the routine caused success or failure.",
+      "worked_title": "Three goals for one presentation",
+      "worked": "Outcome: be selected to present at the school showcase. Performance: explain the example within the agreed presentation length. Process: use the evidence card to connect each claim to a reason.\n\nThe process goal gives the student an action during rehearsal. The performance standard helps review the rehearsal. The selection outcome still depends on other presentations and the selection process.",
+      "application": "Write an outcome, performance and process goal for the same situation. Explain which action the performer can work on next.",
+      "label": "Build one connected goal set",
+      "expected": [
+        "Keep all three goals in the same situation.",
+        "Make the process goal an observable action.",
+        "Include a realistic review point and distinguish action from result."
+      ],
+      "checks": [
+        {
+          "prompt": "Which is a performance goal rather than an outcome or process goal?",
+          "choices": [
+            "Earn the final place on a team.",
+            "Use the agreed setup before each planned serve.",
+            "Reach a personal target serving percentage."
+          ],
+          "answer": 2,
+          "feedback": "A personal percentage is a performance standard. Selection is an outcome, and using the setup is an action.",
+          "id": "p2-usable-goals-check-1"
+        },
+        {
+          "prompt": "Alex uses the routine but misses a serve. What should the record say?",
+          "choices": [
+            "The routine was used and the serve missed; review the pattern across attempts.",
+            "The miss proves the routine cannot help.",
+            "Only the result should be recorded because the action does not matter."
+          ],
+          "answer": 0,
+          "feedback": "The action and result are different observations. Keeping both supports a more careful review than drawing a conclusion from one serve.",
+          "id": "p2-usable-goals-check-2"
+        }
+      ],
+      "figures": [],
+      "source_sections": [
+        9
+      ],
+      "support": "Use the same event when comparing goals. “Win the recital award” is an outcome. “Meet the agreed tempo” is a performance standard. “Follow the opening count” is a process action. The categories help organize attention; they do not mean the performer must stop caring about the final result.",
+      "number": 7,
+      "field": "p2-usable-goals-response"
+    },
+    {
+      "route": "effort-recovery",
+      "title": "Effort, recovery and support",
+      "intro": "A useful plan changes when the demands no longer fit the performer’s resources.",
+      "goal": "I can identify information, support and a reasonable planning adjustment without making a diagnosis.",
+      "before": "Treat the case as a planning problem, not a test of toughness.",
+      "core": "## Effort is only part of a plan\nA performer can care deeply about a goal and still struggle with the current schedule. More practice, homework, travel and other demands all take time. When the plan no longer fits, “push harder” may ignore the real problem. A useful review considers both what is being asked and the resources available.\n\n**Recovery** means allowing the resources and time needed after demanding activity. In this course, it is part of planning. It is not a reward that must be earned by reaching a score. Nor is one feeling enough to calculate exactly how much recovery a person needs.\n\n## Read the growth model carefully\n“Stress plus rest equals growth” is a shorthand for considering challenge and recovery together. Treat it as a simplified model, not a literal equation. Appropriate challenge, learning and recovery can support development. They do not guarantee improvement after every session or tell every learner to follow the same schedule.\n\nThe **SAID principle** refers to specific adaptations to imposed demands. At this introductory level, the useful planning point is that the kind of task matters. Practising an explanation is different from training a physical skill. Neither a slogan nor a graph gives a personal training dose.\n\n## Describe patterns without diagnosing\nTraining discussions may refer to acute fatigue, functional overreaching, nonfunctional overreaching and overtraining syndrome. These terms describe different responses to demands and recovery. They are not categories students should assign to themselves from a short symptom checklist.\n\nTemporary fatigue after a demanding activity is different from a continuing pattern of difficulty. However, a classroom scenario cannot establish the cause of persistent tiredness, changes in sleep or falling performance. The same observation can need more context and appropriate assessment.\n\nDo not decide that a struggling performer is lazy or that high motivation means continuing is safe. Motivation and readiness are different questions. If a person is worried about ongoing symptoms, a trusted adult and suitable qualified support are more appropriate than a motivational test.\n\n## Ask useful questions\nStart with practical information. What changed in the schedule? Are the instructions clear? What commitments compete for time? What opportunities for rest and support are already available? The performer does not need to share private health details in this assignment.\n\nThen identify a discussion or adjustment. A teacher might help reorganize deadlines. A coach might review the planned activity. A support request should explain the problem and ask for appropriate help, rather than prescribe a diagnosis or treatment.\n\n## Keep the review open\nA plan is a starting decision, not proof that the problem is solved. Decide when to review it and what information would matter. Continued difficulty can be a reason for more support, not a reason to blame the performer for failing to follow the plan perfectly.",
+      "worked_title": "When the schedule stops fitting",
+      "worked": "Alex has two practices, a presentation deadline and limited transport. Alex reports struggling to recover under the current schedule. A reasonable first step is to discuss the demands with the teacher or coach and ask which planned activities can be adjusted.\n\nThe class task is to describe the information and support needed. It is not to diagnose overtraining, decide whether pain is “only effort,” or prescribe a harder session.",
+      "application": "The performer is struggling to recover. What information and support would you seek, and what adjustment could be discussed?",
+      "label": "Make a support-and-adjustment decision",
+      "expected": [
+        "Identify the demands or changes described in the case.",
+        "Name a support role and a specific question or request.",
+        "Suggest a planning discussion without diagnosing or prescribing treatment."
+      ],
+      "checks": [
+        {
+          "prompt": "What does the growth diagram provide in this lesson?",
+          "choices": [
+            "A fixed recovery deadline for every learner.",
+            "A simplified reminder to consider challenge and recovery together.",
+            "A diagnostic test based on the shape of a line."
+          ],
+          "answer": 1,
+          "feedback": "The diagram organizes a planning idea. It does not supply personal recovery times or diagnose a condition.",
+          "id": "p2-effort-recovery-check-1"
+        },
+        {
+          "prompt": "A learner reports continuing difficulty recovering while trying very hard. What response best fits this lesson?",
+          "choices": [
+            "Assume effort proves readiness for a harder session.",
+            "Use the report to assign an overtraining diagnosis.",
+            "Review the demands and seek suitable support about an adjustment."
+          ],
+          "answer": 2,
+          "feedback": "The report supports asking questions and discussing support. It does not establish a diagnosis, a safe workload or a failure of motivation.",
+          "id": "p2-effort-recovery-check-2"
+        }
+      ],
+      "figures": [
+        "phase2-recovery-continuum",
+        "phase2-growth-equation"
+      ],
+      "source_sections": [
+        10,
+        11
+      ],
+      "support": "Separate three things: an observation, a possible explanation and a decision. “The schedule changed and the learner feels persistently tired” is an observation. It does not establish a medical cause. The useful classroom decision is to identify what information and support are needed and discuss a realistic adjustment. No physical trial is required.",
+      "number": 8,
+      "field": "p2-effort-recovery-response"
+    },
+    {
+      "route": "situation-plan",
+      "title": "Make the plan fit the situation",
+      "intro": "A workable plan accounts for time, transport, feedback and support.",
+      "goal": "I can adapt a plan when the situation changes and explain the evidence for the change.",
+      "before": "Bring together direction, reasons, needs, values, goals and recovery.",
+      "core": "## The same person can act differently\nA learner speaks freely in a small rehearsal but becomes quiet in an unfamiliar group. Another works carefully alone but benefits from a partner when a task is unclear. These examples show why one label, such as “motivated” or “unmotivated,” may miss important information.\n\nA **person-by-situation view** considers both the person and the conditions. Relevant details can include experience, reasons for participating, the task, feedback, resources and social setting. The question is how these features interact in this case, not which permanent category the person belongs in.\n\n## Social settings do not affect everyone the same way\nAn audience, partner or team can change a performance situation. A familiar skill and an unfamiliar skill may need different preparation. A supportive partner and an evaluative audience are also different conditions.\n\nDo not prescribe solitude or group work from a brief personality label. Instead, describe the task and compare evidence. Does the learner understand the instruction? What does the partner contribute? What has changed when the difficulty appears? A reasonable plan may involve both independent preparation and a supported review.\n\n## Make constraints visible\nA plan is not realistic simply because it is written neatly. Check the actual week. Time, transport, access to equipment, other deadlines and available support can affect what happens. These are conditions to consider, not excuses to dismiss automatically.\n\nFor Alex, a Thursday practice may not be possible without transport. A science presentation also needs preparation. A usable plan can prioritize one suitable school practice, a short planning task and a check-in. The exact choice should fit the case and any guidance about the activity.\n\n## Use an if–then plan\nAn **if–then plan** connects a likely barrier to a response. “If the gym session is cancelled, then I will ask the coach which available preparation task still fits the goal” is more useful than “I will never miss practice.” It names both the trigger and the next action.\n\nNot every disruption can be predicted. Leave room to pause, ask questions or choose a different response when new information appears. An automatic response should not override safety or ignore a changed demand.\n\n## Review the plan with evidence\nChoose a review point and identify what to inspect: actions completed, feedback, remaining confusion and practical barriers. Keep the final outcome separate from the actions used. A single good result does not establish that every part of the plan was necessary.\n\nWhen the plan needs changing, explain why. Connect the revision to the constraint or observation. This is where the phase comes together: choose useful work, understand the reasons, support the conditions, make actions realistic and review what happens.",
+      "worked_title": "Thursday’s session is cancelled",
+      "worked": "Alex’s original plan includes Tuesday and Thursday school practice. Thursday is cancelled. Simply adding a late off-site session would ignore the transport limit and the presentation deadline.\n\nA revised plan keeps Tuesday’s agreed practice, asks the coach for a suitable alternative and uses an available period to review the serving record. The review checks whether the revised action still supports the goal. The change follows evidence about the situation, not a judgment that Alex lacks discipline.",
+      "application": "Adapt a weekly plan when time, transport or support changes. Explain why the original plan needs adjusting.",
+      "label": "Adapt the plan",
+      "expected": [
+        "Name the changed constraint.",
+        "Describe a realistic revised action and support request.",
+        "Explain how the change preserves a useful purpose and how it will be reviewed."
+      ],
+      "checks": [
+        {
+          "prompt": "A student works differently with a supportive partner than with an unfamiliar audience. What should you examine?",
+          "choices": [
+            "The task and social conditions, as well as the learner’s experience.",
+            "A permanent personality type that predicts every situation.",
+            "Only the final score, without the conditions."
+          ],
+          "answer": 0,
+          "feedback": "The changed social conditions are relevant evidence. One comparison cannot establish a permanent type or a universal prescription.",
+          "id": "p2-situation-plan-check-1"
+        },
+        {
+          "prompt": "Which if–then plan responds to a real constraint?",
+          "choices": [
+            "If I feel uncertain, I will pretend the plan cannot fail.",
+            "If transport changes, I will discuss an available preparation option that still serves the goal.",
+            "If a session is cancelled, I will double every later session regardless of the schedule."
+          ],
+          "answer": 1,
+          "feedback": "The response acknowledges the transport constraint and preserves the learning purpose. It leaves room for appropriate advice rather than assuming more activity is always possible.",
+          "id": "p2-situation-plan-check-2"
+        }
+      ],
+      "figures": [
+        "phase2-person-situation",
+        "phase2-integrated-discipline-system"
+      ],
+      "source_sections": [
+        12,
+        13,
+        14,
+        15
+      ],
+      "support": "A useful weekly plan is not a test of whether someone has enough willpower. Check the action, reason and conditions together. When one changes, the plan may need a different action or support. Explaining that adjustment is stronger than defending an unrealistic schedule because it was the original plan.",
+      "number": 9,
+      "field": "p2-situation-plan-response"
+    }
+  ],
+  "labs": [
+    {
+      "title": "Same activity, different reasons",
+      "text": "Two fictional learners attend the same art workshop. Jo enjoys experimenting with colour. Lee finds the exercises repetitive but chooses them because developing a careful creative practice fits an important value. What is the best interpretation?",
+      "choices": [
+        "Both must be intrinsically motivated because both attend.",
+        "Jo describes enjoyment; Lee describes a personally endorsed purpose.",
+        "Lee must be controlled by someone else because the exercises are not enjoyable."
+      ],
+      "answer": 1,
+      "feedback": "The reason matters. Enjoyment of the activity supports intrinsic motivation. A value-consistent purpose can be autonomous while remaining extrinsic. Attendance alone does not distinguish them."
+    },
+    {
+      "title": "A practice that leaves a learner behind",
+      "text": "A new player receives a long instruction without a demonstration. The first task is too difficult to understand, and the player is repeatedly left without a partner. What is the most useful first change?",
+      "choices": [
+        "Demand more effort before changing the task.",
+        "Assign a public ranking to make the goal important.",
+        "Demonstrate a manageable step and arrange a respectful practice partner."
+      ],
+      "answer": 2,
+      "feedback": "The demonstration addresses competence, and the partner may support relatedness. Check the learner’s experience afterward. The change does not guarantee a particular feeling or result."
+    },
+    {
+      "title": "The week no longer fits",
+      "text": "A fictional performer loses access to a planned session. A deadline has moved earlier, and the performer reports difficulty recovering. What response best fits the evidence?",
+      "choices": [
+        "Review the schedule with suitable support and discuss which demands can change.",
+        "Diagnose overtraining from this description alone.",
+        "Add extra work to prove commitment despite the changes."
+      ],
+      "answer": 0,
+      "feedback": "The case supports a planning review and a support request. It does not establish a diagnosis or show that more work is safe or useful. Specify what information would guide the adjustment."
+    }
+  ],
+  "lab_transfer": "Choose a different school, art or recreational situation. Identify one reason for action and one changed constraint. Explain a suitable adjustment and one thing you would check next.",
+  "reviews": [
+    {
+      "prompt": "Explain the difference between intrinsic motivation and integrated regulation. Use one activity.",
+      "answer": "Intrinsic motivation concerns enjoyment or interest in the activity itself. Integrated regulation concerns a purpose that fits broader values and identity. It remains extrinsic. The same person can have both reasons.",
+      "route": "motivation-reasons"
+    },
+    {
+      "prompt": "A learner values improvement but cannot understand a task and is excluded from a group. Explain one useful environmental change.",
+      "answer": "Use the stated barrier. A clear demonstration can support competence; a respectful partner can support relatedness. Explain what to ask or observe after the change rather than promise immediate motivation.",
+      "route": "psychological-needs"
+    },
+    {
+      "prompt": "Correct this claim: “If someone works hard enough, they should never need to change their plan.”",
+      "answer": "Effort does not remove constraints, unclear instructions or recovery needs. Describe the changed demand, identify support and adapt the action. A realistic revision is part of planning, not proof of weak character.",
+      "route": "effort-recovery"
+    },
+    {
+      "prompt": "Choose one earlier response. What specific distinction or piece of evidence would make it clearer?",
+      "answer": "Name the earlier response and the exact change. For example, separate an outcome goal from a process action or replace a global judgment with an observation. Explain why the revision improves the reasoning rather than copy an entire new plan.",
+      "route": "usable-goals"
+    }
+  ],
+  "checkpoint": [
+    {
+      "prompt": "Two learners invest similar effort: one rehearses the main explanation and one polishes slide colours. What differs most directly?",
+      "choices": [
+        "Their direction of effort.",
+        "Their amount of effort must differ.",
+        "Their level of trait anxiety.",
+        "Their recovery category."
+      ],
+      "answer": 0,
+      "feedback": "Direction identifies where effort is aimed. Similar effort can serve different targets; the scenario does not establish a difference in intensity.",
+      "id": "phase2-q1"
+    },
+    {
+      "prompt": "“This repetitive practice fits the reliable teammate I want to be, even when it is not fun.” Which interpretation fits?",
+      "choices": [
+        "Intrinsic enjoyment alone.",
+        "Integrated regulation, an autonomous extrinsic reason.",
+        "Amotivation because the drill is repetitive.",
+        "External regulation because every practice is assigned."
+      ],
+      "answer": 1,
+      "feedback": "The value-consistent purpose supports integrated regulation. It remains extrinsic and does not require enjoyment of the activity.",
+      "id": "phase2-q2"
+    },
+    {
+      "prompt": "A teacher offers meaningful task choices, clear feedback and respectful partners. What is the best explanation?",
+      "choices": [
+        "These remove all performance pressure.",
+        "These guarantee intrinsic enjoyment.",
+        "These may support autonomy, competence and relatedness.",
+        "These prove that effort will be identical for everyone."
+      ],
+      "answer": 2,
+      "feedback": "The changes can support the three needs. Their effects still need checking in context rather than being treated as guarantees.",
+      "id": "phase2-q3"
+    },
+    {
+      "prompt": "Which evidence best connects a value of contribution to action?",
+      "choices": [
+        "The performer says they are always a good person.",
+        "The performer feels no uncertainty.",
+        "The performer chooses the hardest possible task.",
+        "The performer prepares the agreed part and offers relevant help."
+      ],
+      "answer": 3,
+      "feedback": "Preparing a role and offering relevant help are observable actions. They can be connected to contribution without assessing private character.",
+      "id": "phase2-q4"
+    },
+    {
+      "prompt": "After an error, which response best supports learning?",
+      "choices": [
+        "State what happened, try a relevant adjustment and inspect the next attempt.",
+        "Praise effort without looking at the method.",
+        "Decide the error reveals permanent ability.",
+        "Repeat the same instruction more loudly."
+      ],
+      "answer": 0,
+      "feedback": "The response connects evidence, strategy and feedback. Effort matters, but a learning plan needs more than encouragement alone.",
+      "id": "phase2-q5"
+    },
+    {
+      "prompt": "Which statement is behaviour-focused rather than a global self-judgment?",
+      "choices": [
+        "I am useless when a task becomes difficult.",
+        "I did not use the agreed preparation step on this attempt.",
+        "My whole identity is the problem.",
+        "This error proves I cannot learn."
+      ],
+      "answer": 1,
+      "feedback": "The statement identifies an action in a specific attempt. It permits repair without making the event a verdict about the whole person.",
+      "id": "phase2-q6"
+    },
+    {
+      "prompt": "Which statement best illustrates evidence-based authentic pride?",
+      "choices": [
+        "I am above feedback because I succeeded.",
+        "My result proves I am naturally superior.",
+        "I used the feedback and made my setup more consistent.",
+        "I deserve a result regardless of preparation."
+      ],
+      "answer": 2,
+      "feedback": "The statement recognizes a specific process and progress rather than superiority or entitlement.",
+      "id": "phase2-q7"
+    },
+    {
+      "prompt": "A learner wants to deliver a clearer explanation. Which is a process goal?",
+      "choices": [
+        "Be chosen as the best speaker.",
+        "Receive the highest audience rating.",
+        "Reach an agreed presentation standard.",
+        "Connect each claim to one relevant example during rehearsal."
+      ],
+      "answer": 3,
+      "feedback": "Connecting a claim to an example is an action used in the task. Ratings and selection are outcomes, while a standard is a performance target.",
+      "id": "phase2-q8"
+    },
+    {
+      "prompt": "A performer reports ongoing difficulty recovering after several schedule changes. What is the best classroom decision?",
+      "choices": [
+        "Discuss the changed demands and appropriate support before deciding on adjustments.",
+        "Diagnose overtraining from the report alone.",
+        "Prescribe extra work because motivation remains high.",
+        "Use a toughness rule to distinguish injury from effort."
+      ],
+      "answer": 0,
+      "feedback": "The information supports a planning and support discussion. It does not establish a diagnosis, treatment or safe workload.",
+      "id": "phase2-q9"
+    },
+    {
+      "prompt": "A learner performs differently alone and with a supportive partner. What evidence is most useful for adapting the plan?",
+      "choices": [
+        "A fixed personality label assigned from one result.",
+        "The task, available feedback and what changed in the social setting.",
+        "Only the performer’s highest score.",
+        "An assumption that group work always improves performance."
+      ],
+      "answer": 1,
+      "feedback": "A person-by-situation explanation considers the task and conditions as well as the learner. One result does not establish a universal prescription.",
+      "id": "phase2-q10"
+    }
+  ],
+  "glossary": {
+    "Motivation": "Reasons and processes that start, direct and sustain action.",
+    "Direction": "Where effort is aimed.",
+    "Intensity": "How much effort is applied.",
+    "Intrinsic motivation": "Doing an activity for its own interest or enjoyment.",
+    "Extrinsic motivation": "Doing an activity for a separable purpose or result.",
+    "External regulation": "Acting for an outside demand, reward or consequence.",
+    "Introjected regulation": "Acting under internal pressure, such as guilt or protecting self-worth.",
+    "Identified regulation": "Acting because a purpose is personally accepted as important.",
+    "Integrated regulation": "Acting for a purpose that fits broader values and identity; it remains extrinsic.",
+    "Amotivation": "Lack of intention to act.",
+    "Autonomy": "Experiencing action as chosen and endorsed, within appropriate constraints.",
+    "Competence": "Experiencing opportunities to develop skill and affect progress.",
+    "Relatedness": "Experiencing belonging and support.",
+    "Value": "A meaningful quality or direction that guides choices.",
+    "Growth mindset": "A view that skill can develop through strategy, feedback, effort and time.",
+    "Guilt and shame": "A distinction between focusing on behaviour and making a global judgment about the self; not a diagnostic checklist.",
+    "Authentic pride": "Recognizing achievement through specific evidence of preparation, learning or effort.",
+    "Hubristic pride": "A broad superiority claim rather than an explanation of a useful process.",
+    "Outcome, performance and process goals": "A result relative to others; a personal standard; and an action used in the task.",
+    "Recovery": "Time and resources after demands, considered as part of a realistic plan.",
+    "SAID": "Specific adaptations to imposed demands; an introductory principle, not a personal training prescription.",
+    "Acute fatigue": "Temporary fatigue following demand; context matters.",
+    "Functional overreaching": "A term for planned short-term performance reduction followed by recovery and improvement; not a learner diagnosis.",
+    "Nonfunctional overreaching": "A term used when reduced performance is not followed by the intended recovery benefit; assessment needs context.",
+    "Overtraining syndrome": "A clinical sport-science term for persistent difficulties that cannot be diagnosed from this classroom activity.",
+    "Person by situation": "Considering how the performer and conditions interact in a particular task.",
+    "If–then plan": "A likely trigger linked to a suitable next action."
+  },
+  "steps": [
+    {
+      "title": "Choose the situation",
+      "fields": [
+        {
+          "id": "p2-case",
+          "label": "Task, performer and constraint",
+          "help": "Name the task and two case details that affect the plan. Use the supplied case or a suitable fictional alternative.",
+          "example": "Alex is preparing for a school volleyball tryout. There are two school practice opportunities, limited Thursday transport and a presentation deadline.",
+          "reuse": "p2-opening"
+        },
+        {
+          "id": "p2-reasons",
+          "label": "Two reasons for doing the task",
+          "help": "Distinguish two reasons using the performer’s words. Explain which concepts apply.",
+          "example": "Alex enjoys games, an intrinsic reason. Alex also chooses serving practice because reliable contribution fits a value, a personally endorsed extrinsic reason.",
+          "reuse": "p2-motivation-reasons-response"
+        }
+      ],
+      "intro": "Use the same case. Explain the evidence, your decision and why the choice fits."
+    },
+    {
+      "title": "Connect values and support",
+      "fields": [
+        {
+          "id": "p2-value-action",
+          "label": "A value expressed in action",
+          "help": "Choose one value. Describe one toward action and one action that would move away from it.",
+          "example": "Contribution could mean preparing the agreed role and asking about an unclear setup. Ignoring the known issue while blaming teammates would move away from that value.",
+          "reuse": "p2-values-action-response"
+        },
+        {
+          "id": "p2-needs-context",
+          "label": "A need and an environmental change",
+          "help": "Name a need, identify the case evidence and propose a specific change.",
+          "example": "A short demonstration could support competence because Alex is still learning the setup. A respectful partner could make practice more inclusive. Check whether the instructions are clearer.",
+          "reuse": "p2-psychological-needs-response"
+        }
+      ],
+      "intro": "Use the same case. Explain the evidence, your decision and why the choice fits."
+    },
+    {
+      "title": "Make an achievable plan",
+      "fields": [
+        {
+          "id": "p2-goals",
+          "label": "Outcome, performance and process goals",
+          "help": "Write all three for the same task. Make the process action reviewable using SMART.",
+          "example": "Outcome: earn a team place. Performance: improve a personally agreed serving standard. Process: use the agreed setup on ten planned serves during the next two available practices and review the record.",
+          "reuse": "p2-usable-goals-response"
+        },
+        {
+          "id": "p2-week-plan",
+          "label": "Realistic actions and review point",
+          "help": "State when suitable actions can happen, what support is available and when the record will be reviewed. Do not prescribe extra training.",
+          "example": "Keep Tuesday’s planned practice, reserve time for the presentation and ask about an available preparation option after the cancellation. Review the serving record with the coach at the next suitable session.",
+          "reuse": "p2-situation-plan-response"
+        }
+      ],
+      "intro": "Use the same case. Explain the evidence, your decision and why the choice fits."
+    },
+    {
+      "title": "Respond and get support",
+      "fields": [
+        {
+          "id": "p2-if-then",
+          "label": "A barrier and a response",
+          "help": "Connect a likely trigger to one realistic action. State when you would ask for advice instead.",
+          "example": "If the gym session is cancelled, Alex will ask which available preparation action still fits the goal rather than add an unsuitable late session.",
+          "reuse": null
+        },
+        {
+          "id": "p2-support",
+          "label": "A support role and a request",
+          "help": "Use a role rather than a real person’s name. Write the actual question or request.",
+          "example": "Ask the coach: “Which part of the setup should I observe, and which available session fits the changed schedule?”",
+          "reuse": null
+        },
+        {
+          "id": "p2-recovery",
+          "label": "A recovery-related planning decision",
+          "help": "Identify information and appropriate support. Suggest what could be discussed, without diagnosing or prescribing treatment.",
+          "example": "Alex could explain the changed demands and difficulty recovering to a trusted adult and coach. The discussion could review the schedule and appropriate support rather than label the problem as weak motivation.",
+          "reuse": "p2-effort-recovery-response"
+        }
+      ],
+      "intro": "Use the same case. Explain the evidence, your decision and why the choice fits."
+    },
+    {
+      "title": "Review and adapt",
+      "fields": [
+        {
+          "id": "p2-review",
+          "label": "Evidence and a revision",
+          "help": "Choose one observation from the case or a labelled hypothetical record. Explain what to keep or change.",
+          "example": "The record shows six completed routines and four rushed setups. Keep recording the setup separately from the result and review the cue after a demonstration.",
+          "reuse": "p2-responding-mistakes-response"
+        },
+        {
+          "id": "p2-transfer",
+          "label": "Adapt to a new constraint",
+          "help": "New case: a musician now has half the usual rehearsal time and cannot meet their partner. Apply the ideas without copying the volleyball schedule.",
+          "example": "Identify the most important passage, ask for focused feedback at an available time and revise the review point. Preserve the purpose while changing the action to fit the new time and support.",
+          "reuse": null
+        },
+        {
+          "id": "p2-explain",
+          "label": "Explain a choice and a limitation",
+          "help": "Justify one decision using a course concept. State what the plan cannot establish.",
+          "example": "Changing the environment addresses competence and access, not merely effort. The plan cannot guarantee selection or explain every cause of difficulty.",
+          "reuse": null
+        }
+      ],
+      "intro": "Use the same case. Explain the evidence, your decision and why the choice fits."
+    }
+  ]
+}

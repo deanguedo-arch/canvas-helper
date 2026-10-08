@@ -1,0 +1,170 @@
+:root {
+  --performance-game-bg: #0b111a;
+  --performance-game-bg-alt: #111822;
+  --performance-game-panel: #151b25;
+  --performance-game-panel-alt: #0f131a;
+  --performance-game-line: #2a3748;
+  --performance-game-line-soft: #1d2734;
+  --performance-game-text: #f4f7fb;
+  --performance-game-muted: #9aa6b6;
+  --performance-game-muted-strong: #c2ccd9;
+  --performance-game-primary: #00ffca;
+  --performance-game-primary-dim: #00a676;
+  --performance-game-primary-soft: rgba(0, 255, 202, 0.12);
+  --performance-game-primary-border: rgba(0, 255, 202, 0.24);
+  --performance-game-primary-glow: rgba(0, 255, 202, 0.35);
+  --performance-game-danger: #f87171;
+  --performance-game-danger-soft: rgba(248, 113, 113, 0.18);
+  --performance-game-warning: #f59e0b;
+  --performance-game-warning-soft: rgba(245, 158, 11, 0.16);
+}
+
+html,
+body {
+  background: linear-gradient(180deg, #0a1018 0%, #091018 55%, #071019 100%);
+  color: var(--performance-game-text);
+}
+
+body.performance-game-theme {
+  background: linear-gradient(180deg, #0a1018 0%, #091018 55%, #071019 100%);
+  color: var(--performance-game-text);
+}
+
+body.performance-game-theme #root {
+  min-height: 100vh;
+}
+
+.performance-game-theme .bg-zinc-950 {
+  background-color: var(--performance-game-bg) !important;
+}
+
+.performance-game-theme .bg-zinc-900,
+.performance-game-theme .bg-zinc-900\/95,
+.performance-game-theme .bg-zinc-900\/90,
+.performance-game-theme .bg-zinc-900\/50 {
+  background-color: color-mix(in srgb, var(--performance-game-panel) 94%, transparent) !important;
+}
+
+.performance-game-theme .bg-black,
+.performance-game-theme .bg-black\/90,
+.performance-game-theme .bg-black\/80,
+.performance-game-theme .bg-black\/50 {
+  background-color: color-mix(in srgb, var(--performance-game-panel-alt) 92%, transparent) !important;
+}
+
+.performance-game-theme .text-zinc-100,
+.performance-game-theme .text-white {
+  color: var(--performance-game-text) !important;
+}
+
+.performance-game-theme .text-zinc-500,
+.performance-game-theme .text-zinc-400 {
+  color: var(--performance-game-muted) !important;
+}
+
+.performance-game-theme .text-zinc-300 {
+  color: var(--performance-game-muted-strong) !important;
+}
+
+.performance-game-theme .text-zinc-600,
+.performance-game-theme .text-zinc-700 {
+  color: #6f7d90 !important;
+}
+
+.performance-game-theme .border-zinc-800,
+.performance-game-theme .border-zinc-700,
+.performance-game-theme .border-zinc-600,
+.performance-game-theme .border-zinc-500,
+.performance-game-theme .border-black {
+  border-color: var(--performance-game-line) !important;
+}
+
+.performance-game-theme .bg-lime-400,
+.performance-game-theme .bg-lime-300,
+.performance-game-theme .bg-cyan-400,
+.performance-game-theme .bg-cyan-500,
+.performance-game-theme .bg-cyan-300,
+.performance-game-theme .bg-emerald-400,
+.performance-game-theme .bg-sky-400,
+.performance-game-theme .bg-yellow-400 {
+  background-color: var(--performance-game-primary) !important;
+}
+
+.performance-game-theme .bg-lime-400\/10,
+.performance-game-theme .bg-lime-400\/20,
+.performance-game-theme .bg-lime-400\/30,
+.performance-game-theme .bg-lime-500\/20,
+.performance-game-theme .bg-lime-500\/40,
+.performance-game-theme .bg-lime-400\/80,
+.performance-game-theme .bg-cyan-400\/10,
+.performance-game-theme .bg-cyan-400\/5,
+.performance-game-theme .bg-cyan-400\/20,
+.performance-game-theme .bg-cyan-400\/30,
+.performance-game-theme .bg-cyan-500\/10,
+.performance-game-theme .bg-cyan-500\/20,
+.performance-game-theme .bg-cyan-500\/40,
+.performance-game-theme .bg-sky-400\/20,
+.performance-game-theme .bg-yellow-500\/10 {
+  background-color: var(--performance-game-primary-soft) !important;
+}
+
+.performance-game-theme .text-lime-400,
+.performance-game-theme .text-lime-400\/70,
+.performance-game-theme .text-cyan-400,
+.performance-game-theme .text-cyan-300,
+.performance-game-theme .text-cyan-200,
+.performance-game-theme .text-cyan-500,
+.performance-game-theme .text-emerald-400,
+.performance-game-theme .text-sky-400,
+.performance-game-theme .text-sky-200,
+.performance-game-theme .text-blue-500,
+.performance-game-theme .text-blue-600,
+.performance-game-theme .text-yellow-400 {
+  color: var(--performance-game-primary) !important;
+}
+
+.performance-game-theme .text-amber-400 {
+  color: var(--performance-game-warning) !important;
+}
+
+.performance-game-theme .border-lime-400,
+.performance-game-theme .border-cyan-400,
+.performance-game-theme .border-cyan-500,
+.performance-game-theme .border-sky-400,
+.performance-game-theme .border-blue-500,
+.performance-game-theme .border-yellow-500\/20,
+.performance-game-theme .border-lime-400\/50,
+.performance-game-theme .border-cyan-400\/50,
+.performance-game-theme .border-cyan-400\/80,
+.performance-game-theme .border-cyan-500\/50,
+.performance-game-theme .border-lime-500\/50 {
+  border-color: var(--performance-game-primary-border) !important;
+}
+
+.performance-game-theme .bg-amber-400\/10,
+.performance-game-theme .bg-amber-400\/20 {
+  background-color: var(--performance-game-warning-soft) !important;
+}
+
+.performance-game-theme .border-amber-400\/50 {
+  border-color: color-mix(in srgb, var(--performance-game-warning) 50%, transparent) !important;
+}
+
+.performance-game-theme .hover\:bg-lime-300:hover,
+.performance-game-theme .hover\:bg-cyan-300:hover,
+.performance-game-theme .hover\:bg-cyan-400:hover {
+  background-color: #5affdf !important;
+}
+
+.performance-game-theme .hover\:bg-zinc-700:hover {
+  background-color: #1b2430 !important;
+}
+
+.performance-game-theme .hover\:bg-zinc-200:hover {
+  background-color: #d9e6f2 !important;
+}
+
+.performance-game-theme .hover\:border-lime-400\/50:hover,
+.performance-game-theme .hover\:border-cyan-400:hover {
+  border-color: var(--performance-game-primary) !important;
+}
