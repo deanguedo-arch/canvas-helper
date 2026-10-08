@@ -1,0 +1,535 @@
+{
+  "owner_path": "biology_transfer_review/CH11/native/index.html",
+  "owner_sha256": "9fcd8203b41f4220e53716e473c02a0835f356420b363ea0092e544a8e7bb210",
+  "status": "PROPOSED ONLY; no owner changed",
+  "rules": [
+    "Verify whole owner before any future integration. Stop and rebind on mismatch.",
+    "Replace individually listed data-teaching sections only; never use one broad lesson overwrite.",
+    "Keep all nonteaching bytes exact, including header, videos, required and optional activities, reader links and suffix.",
+    "Retain each supplied figure block exact inside its mapped replacement. No label/key change.",
+    "Inert new controls require separately authorized native realization and testing."
+  ],
+  "lessons": [
+    {
+      "lesson": "lesson-04",
+      "owner_route_byte_start": 74162,
+      "route_sha256": "a8196c2781da242222692339d6a535f3ed9c8607dc1e5222f92ba0b70ec7e819",
+      "teaching_replacements": [
+        {
+          "ordinal": 1,
+          "selector": "#lesson-04 > div.p2-topic > section[data-teaching]: teaching ordinal 1",
+          "owner_byte_start": 80659,
+          "owner_byte_end": 82072,
+          "before_sha256": "969a62344e441e8f5dee7f1912d7d766ba6b50b9cf9133e237a44d42525c7d48",
+          "before_file": "lesson-04-teaching-01-before.html",
+          "outer_opening_tag": "<section class=\"content-section\" data-teaching=\"\">",
+          "outer_closing_tag": "</section>"
+        },
+        {
+          "ordinal": 2,
+          "selector": "#lesson-04 > div.p2-topic > section[data-teaching]: teaching ordinal 2",
+          "owner_byte_start": 82073,
+          "owner_byte_end": 83240,
+          "before_sha256": "8c6b6d91cfc2e1aa551817c8059fc787b773329ff2961ee03dce1a6058a62a69",
+          "before_file": "lesson-04-teaching-02-before.html",
+          "outer_opening_tag": "<section class=\"content-section\" data-teaching=\"\">",
+          "outer_closing_tag": "</section>"
+        },
+        {
+          "ordinal": 3,
+          "selector": "#lesson-04 > div.p2-topic > section[data-teaching]: teaching ordinal 3",
+          "owner_byte_start": 83241,
+          "owner_byte_end": 85380,
+          "before_sha256": "6373ef297692d675fc1991a5cb86ce5f692db831ed290d0b67a865d58b970072",
+          "before_file": "lesson-04-teaching-03-before.html",
+          "outer_opening_tag": "<section class=\"content-section\" data-teaching=\"\">",
+          "outer_closing_tag": "</section>"
+        }
+      ],
+      "protected_nonteaching_chunk_sha256": [
+        "54e69ad7a89cae614eae8b06aab7ebb6de8ce1aca9ffdc802d09c001159f7ac2",
+        "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+        "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+        "d241bf476ea93fed89e75398eb34dc5cd3eb965a6ecddedc56f3b3fe2ddd038b"
+      ],
+      "preserved_teaching_figure_sha256": [
+        "45774e843e0bedeac7bbf6efe566c843816cd03fc9f68aae38c8bb7a4d1d87b4"
+      ]
+    },
+    {
+      "lesson": "lesson-05",
+      "owner_route_byte_start": 92992,
+      "route_sha256": "d5fd660e21835cf124dbdb888b190f2c81dacb3a36349ffd3b28509417d8dff5",
+      "teaching_replacements": [
+        {
+          "ordinal": 1,
+          "selector": "#lesson-05 > div.p2-topic > section[data-teaching]: teaching ordinal 1",
+          "owner_byte_start": 99606,
+          "owner_byte_end": 101224,
+          "before_sha256": "26f5e17d1d2740b4c59366fefe29b55021b90f7ff92a313d5ec507e7251c6af0",
+          "before_file": "lesson-05-teaching-01-before.html",
+          "outer_opening_tag": "<section class=\"content-section\" data-teaching=\"\">",
+          "outer_closing_tag": "</section>"
+        },
+        {
+          "ordinal": 2,
+          "selector": "#lesson-05 > div.p2-topic > section[data-teaching]: teaching ordinal 2",
+          "owner_byte_start": 101225,
+          "owner_byte_end": 103744,
+          "before_sha256": "04bb48cbe88e9227b8b42e56fcf55395b6d94ff66236bfce2925fed49d86bc39",
+          "before_file": "lesson-05-teaching-02-before.html",
+          "outer_opening_tag": "<section class=\"content-section\" data-teaching=\"\">",
+          "outer_closing_tag": "</section>"
+        },
+        {
+          "ordinal": 3,
+          "selector": "#lesson-05 > div.p2-topic > section[data-teaching]: teaching ordinal 3",
+          "owner_byte_start": 103745,
+          "owner_byte_end": 106031,
+          "before_sha256": "8a9275f012731a58e20b5384619bac6b186eae6b7c59a5fd8db58d8928fa8c45",
+          "before_file": "lesson-05-teaching-03-before.html",
+          "outer_opening_tag": "<section class=\"content-section\" data-teaching=\"\">",
+          "outer_closing_tag": "</section>"
+        },
+        {
+          "ordinal": 4,
+          "selector": "#lesson-05 > div.p2-topic > section[data-teaching]: teaching ordinal 4",
+          "owner_byte_start": 106032,
+          "owner_byte_end": 108185,
+          "before_sha256": "d693296210a6e705d20056b7764e4c667e34bf4240cbe3323dbc42e907751139",
+          "before_file": "lesson-05-teaching-04-before.html",
+          "outer_opening_tag": "<section class=\"content-section\" data-teaching=\"\">",
+          "outer_closing_tag": "</section>"
+        },
+        {
+          "ordinal": 5,
+          "selector": "#lesson-05 > div.p2-topic > section[data-teaching]: teaching ordinal 5",
+          "owner_byte_start": 108186,
+          "owner_byte_end": 109997,
+          "before_sha256": "60ffea9e43d335908a93048ef860de6b03a9cf8cac4c356487df63462f5737f0",
+          "before_file": "lesson-05-teaching-05-before.html",
+          "outer_opening_tag": "<section class=\"content-section\" data-teaching=\"\">",
+          "outer_closing_tag": "</section>"
+        }
+      ],
+      "protected_nonteaching_chunk_sha256": [
+        "f06332515c3660d93bac6eb29260d5e914858a780df89c0d255610024b972db8",
+        "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+        "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+        "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+        "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+        "4b6023cfde8b9aff5968aafbaa36cadcc5e179c38127ae48e76ed7f2d10e5f32"
+      ],
+      "preserved_teaching_figure_sha256": [
+        "a4a5c52d0dc287f663e0bd477363c8d6baba2e0e108e53974b2d7b9e065a0882",
+        "945f220a59d139ff0519a254f85daca42de0f3d49c768ba14a6c15c2249729ae"
+      ]
+    },
+    {
+      "lesson": "lesson-06",
+      "owner_route_byte_start": 120994,
+      "route_sha256": "fcbc37f759643ecc352465cc318d063fd23861ff3c058c68231d87ce240304c1",
+      "teaching_replacements": [
+        {
+          "ordinal": 1,
+          "selector": "#lesson-06 > div.p2-topic > section[data-teaching]: teaching ordinal 1",
+          "owner_byte_start": 127454,
+          "owner_byte_end": 129245,
+          "before_sha256": "9983890694fbe78ff3a564f6c86e2ba8070aec3bf99be9c5779a3cf6d2f185fb",
+          "before_file": "lesson-06-teaching-01-before.html",
+          "outer_opening_tag": "<section class=\"content-section\" data-teaching=\"\">",
+          "outer_closing_tag": "</section>"
+        },
+        {
+          "ordinal": 2,
+          "selector": "#lesson-06 > div.p2-topic > section[data-teaching]: teaching ordinal 2",
+          "owner_byte_start": 129246,
+          "owner_byte_end": 133803,
+          "before_sha256": "5945bddf5d039bec3d8e16e8c88643f2fb08f4a8cdb7a89ee4282d2ef3f640a5",
+          "before_file": "lesson-06-teaching-02-before.html",
+          "outer_opening_tag": "<section class=\"content-section\" data-teaching=\"\">",
+          "outer_closing_tag": "</section>"
+        },
+        {
+          "ordinal": 3,
+          "selector": "#lesson-06 > div.p2-topic > section[data-teaching]: teaching ordinal 3",
+          "owner_byte_start": 133804,
+          "owner_byte_end": 135718,
+          "before_sha256": "92b485ff6b635fc5ed1cf8b6c827c2b6d9b26bf07325c4608804a42a5c7c93c9",
+          "before_file": "lesson-06-teaching-03-before.html",
+          "outer_opening_tag": "<section class=\"content-section\" data-teaching=\"\">",
+          "outer_closing_tag": "</section>"
+        },
+        {
+          "ordinal": 4,
+          "selector": "#lesson-06 > div.p2-topic > section[data-teaching]: teaching ordinal 4",
+          "owner_byte_start": 135719,
+          "owner_byte_end": 137666,
+          "before_sha256": "4fdbc11e25219e2fd4c36aa39ea2e6913f97bd2f287f76bcebc37c2d018d2804",
+          "before_file": "lesson-06-teaching-04-before.html",
+          "outer_opening_tag": "<section class=\"content-section\" data-teaching=\"\">",
+          "outer_closing_tag": "</section>"
+        },
+        {
+          "ordinal": 5,
+          "selector": "#lesson-06 > div.p2-topic > section[data-teaching]: teaching ordinal 5",
+          "owner_byte_start": 137667,
+          "owner_byte_end": 142462,
+          "before_sha256": "8f62210e84b95016879e03d1769bb00471bda93d2b740135ed66ae84f4fac777",
+          "before_file": "lesson-06-teaching-05-before.html",
+          "outer_opening_tag": "<section class=\"content-section\" data-teaching=\"\">",
+          "outer_closing_tag": "</section>"
+        }
+      ],
+      "protected_nonteaching_chunk_sha256": [
+        "6761430ba9651a422bcc9cebb4718ed3f4700a930aa8a4e10c50c6c4f9b28565",
+        "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+        "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+        "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+        "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+        "76faee2921faba089ddbcfab415d21dc01ed400bc220b11f69f220adbdb8ee10"
+      ],
+      "preserved_teaching_figure_sha256": [
+        "3bc4555fac603e5e8daaef8f51acbd867d898315662a454cb1605b979c78806b",
+        "821810dce10558b289c7fadb0a216e8624afcdffe3ccc6f499b393236c04a794",
+        "3815e49e60f410dd019137da56083c77762a37acf18b74c12e63396c224bdcca"
+      ]
+    },
+    {
+      "lesson": "lesson-07",
+      "owner_route_byte_start": 153955,
+      "route_sha256": "daf3f2f46c7e4ba372a54ceb7914b6fe4d17ae235cf9ecb2915e936bd4943708",
+      "teaching_replacements": [
+        {
+          "ordinal": 1,
+          "selector": "#lesson-07 > div.p2-topic > section[data-teaching]: teaching ordinal 1",
+          "owner_byte_start": 160173,
+          "owner_byte_end": 163396,
+          "before_sha256": "38c370c496039da410408d11c1078ccc77e2acf13a259071740eae313efdd4cc",
+          "before_file": "lesson-07-teaching-01-before.html",
+          "outer_opening_tag": "<section class=\"content-section\" data-teaching=\"\">",
+          "outer_closing_tag": "</section>"
+        }
+      ],
+      "protected_nonteaching_chunk_sha256": [
+        "7b4ee3714dc654164f6f2d6f9de38e31135dbf1d3f142e96e02064512616ea26",
+        "11618b38e080f6e8bf655f7249a4fa98f76cff6fe01be6b645bc24d63c393f93"
+      ],
+      "preserved_teaching_figure_sha256": [
+        "edc057173caad9ffb55427e06fcc28a0384b62c699ffff9605a5b325eb3beb65"
+      ]
+    },
+    {
+      "lesson": "lesson-08",
+      "owner_route_byte_start": 180253,
+      "route_sha256": "b385182355020948a68114c9a34c8ee3d58eb1b349759c0e635bb1c5ca430774",
+      "teaching_replacements": [
+        {
+          "ordinal": 1,
+          "selector": "#lesson-08 > div.p2-topic > section[data-teaching]: teaching ordinal 1",
+          "owner_byte_start": 186798,
+          "owner_byte_end": 187787,
+          "before_sha256": "dad3a53d5761d40698c72ced013d4f74fe4a484ab3281da3bfbc56d24b8e80b1",
+          "before_file": "lesson-08-teaching-01-before.html",
+          "outer_opening_tag": "<section class=\"content-section\" data-teaching=\"\">",
+          "outer_closing_tag": "</section>"
+        },
+        {
+          "ordinal": 2,
+          "selector": "#lesson-08 > div.p2-topic > section[data-teaching]: teaching ordinal 2",
+          "owner_byte_start": 187788,
+          "owner_byte_end": 190401,
+          "before_sha256": "7fb0cce4f80ed9950d03f318a1e3116a035131cd565b972cc1a3695b4266cdac",
+          "before_file": "lesson-08-teaching-02-before.html",
+          "outer_opening_tag": "<section class=\"content-section\" data-teaching=\"\">",
+          "outer_closing_tag": "</section>"
+        },
+        {
+          "ordinal": 3,
+          "selector": "#lesson-08 > div.p2-topic > section[data-teaching]: teaching ordinal 3",
+          "owner_byte_start": 190402,
+          "owner_byte_end": 192432,
+          "before_sha256": "d2e5c7a46e6ff440d8685d4834c0e2dc889710a1d1e6a864da2e291171db8b97",
+          "before_file": "lesson-08-teaching-03-before.html",
+          "outer_opening_tag": "<section class=\"content-section\" data-teaching=\"\">",
+          "outer_closing_tag": "</section>"
+        },
+        {
+          "ordinal": 4,
+          "selector": "#lesson-08 > div.p2-topic > section[data-teaching]: teaching ordinal 4",
+          "owner_byte_start": 192433,
+          "owner_byte_end": 195421,
+          "before_sha256": "7d3c4654d7fc6d2a148714f4ddacad1e18032f7111e4b2345adcb6042a6096c4",
+          "before_file": "lesson-08-teaching-04-before.html",
+          "outer_opening_tag": "<section class=\"content-section\" data-teaching=\"\">",
+          "outer_closing_tag": "</section>"
+        }
+      ],
+      "protected_nonteaching_chunk_sha256": [
+        "2f1053012c13ee0cafb10c1f0e673660d6d2ede08f560914590dffdff2a03a82",
+        "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+        "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+        "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+        "dafd37c575f615381311c898ca86a12887c4f0baac821581d667d33674c857ec"
+      ],
+      "preserved_teaching_figure_sha256": [
+        "f4e93bc52aed950d037d4653b331411aa411cffe1134e349e9118adc00406509",
+        "5fac328abf09533d0b54e45d1516154e2a2a992b61b697b312c9155e9f7db9bc",
+        "24f0ba3bf4a6f5ac8933a24bbf46bac1839bc27c2bfb434162790b2ceb6889ad"
+      ]
+    },
+    {
+      "lesson": "lesson-09",
+      "owner_route_byte_start": 216488,
+      "route_sha256": "4d6d02e7e015788bfcc75a2033b84985a1c5c2fa6490ea3a533b4f76081175be",
+      "teaching_replacements": [
+        {
+          "ordinal": 1,
+          "selector": "#lesson-09 > div.p2-topic > section[data-teaching]: teaching ordinal 1",
+          "owner_byte_start": 222626,
+          "owner_byte_end": 224615,
+          "before_sha256": "4898d1913416058ba42025a936f1a79d5d00dcbc888ecba26c3734df7e420d60",
+          "before_file": "lesson-09-teaching-01-before.html",
+          "outer_opening_tag": "<section class=\"content-section\" data-teaching=\"\">",
+          "outer_closing_tag": "</section>"
+        },
+        {
+          "ordinal": 2,
+          "selector": "#lesson-09 > div.p2-topic > section[data-teaching]: teaching ordinal 2",
+          "owner_byte_start": 224616,
+          "owner_byte_end": 225803,
+          "before_sha256": "f8d863a328c7f0d24922f45dd17500e0354447c6b4792e9c3ad823967e072d48",
+          "before_file": "lesson-09-teaching-02-before.html",
+          "outer_opening_tag": "<section class=\"content-section\" data-teaching=\"\">",
+          "outer_closing_tag": "</section>"
+        },
+        {
+          "ordinal": 3,
+          "selector": "#lesson-09 > div.p2-topic > section[data-teaching]: teaching ordinal 3",
+          "owner_byte_start": 225804,
+          "owner_byte_end": 227440,
+          "before_sha256": "505d46ae1c132469f46387c90e6c789b6f63f50583859fe45b2d9352b0c67269",
+          "before_file": "lesson-09-teaching-03-before.html",
+          "outer_opening_tag": "<section class=\"content-section\" data-teaching=\"\">",
+          "outer_closing_tag": "</section>"
+        },
+        {
+          "ordinal": 4,
+          "selector": "#lesson-09 > div.p2-topic > section[data-teaching]: teaching ordinal 4",
+          "owner_byte_start": 227441,
+          "owner_byte_end": 228160,
+          "before_sha256": "8ace7871ed4a88af73f629ffcdfff0c12529506552a4ffa46250ba6a70850699",
+          "before_file": "lesson-09-teaching-04-before.html",
+          "outer_opening_tag": "<section class=\"content-section\" data-teaching=\"\">",
+          "outer_closing_tag": "</section>"
+        }
+      ],
+      "protected_nonteaching_chunk_sha256": [
+        "22a5ef083f0474bb95211d5301e2c8268bfd8c615139e5026c6f3612e36b73d1",
+        "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+        "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+        "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+        "8620bef557049fee876436f86393fba2639e3aace7193661b747c25958391141"
+      ],
+      "preserved_teaching_figure_sha256": [
+        "ffe4c46f1576567a3999aa0bbb3e3db2707dbaa7ef35734207d06a8ea5aa89e5",
+        "0829924bcf9e0f90768a0a4718673e6e7ca0c27296ae29f6909566df220f2d79"
+      ]
+    },
+    {
+      "lesson": "lesson-10",
+      "owner_route_byte_start": 234317,
+      "route_sha256": "0da7cb78ef389b23131c3926c667030120e5f9045fdd6073619d201fd6819738",
+      "teaching_replacements": [
+        {
+          "ordinal": 1,
+          "selector": "#lesson-10 > div.p2-topic > section[data-teaching]: teaching ordinal 1",
+          "owner_byte_start": 240716,
+          "owner_byte_end": 244007,
+          "before_sha256": "bbb891af3362ea9b13aa02fcbde4fc8ce09c15cd7fd733259346adb035191839",
+          "before_file": "lesson-10-teaching-01-before.html",
+          "outer_opening_tag": "<section class=\"content-section\" data-teaching=\"\">",
+          "outer_closing_tag": "</section>"
+        },
+        {
+          "ordinal": 2,
+          "selector": "#lesson-10 > div.p2-topic > section[data-teaching]: teaching ordinal 2",
+          "owner_byte_start": 244008,
+          "owner_byte_end": 245726,
+          "before_sha256": "b51ddef4efae479d5802b1c12f8bea0a7eea8e78b4e9a3f0cba71d41ea381cbb",
+          "before_file": "lesson-10-teaching-02-before.html",
+          "outer_opening_tag": "<section class=\"content-section\" data-teaching=\"\">",
+          "outer_closing_tag": "</section>"
+        },
+        {
+          "ordinal": 3,
+          "selector": "#lesson-10 > div.p2-topic > section[data-teaching]: teaching ordinal 3",
+          "owner_byte_start": 245727,
+          "owner_byte_end": 247674,
+          "before_sha256": "35a8290a605012667561fd77018d212d927cbc91720a90ecb753a3ec13bd623f",
+          "before_file": "lesson-10-teaching-03-before.html",
+          "outer_opening_tag": "<section class=\"content-section\" data-teaching=\"\">",
+          "outer_closing_tag": "</section>"
+        },
+        {
+          "ordinal": 4,
+          "selector": "#lesson-10 > div.p2-topic > section[data-teaching]: teaching ordinal 4",
+          "owner_byte_start": 247675,
+          "owner_byte_end": 248385,
+          "before_sha256": "0d7cb95f7a404d113bd5926c754359aeb7efe2ebc8a875f2897dee2836b8ca01",
+          "before_file": "lesson-10-teaching-04-before.html",
+          "outer_opening_tag": "<section class=\"content-section\" data-teaching=\"\">",
+          "outer_closing_tag": "</section>"
+        },
+        {
+          "ordinal": 5,
+          "selector": "#lesson-10 > div.p2-topic > section[data-teaching]: teaching ordinal 5",
+          "owner_byte_start": 248386,
+          "owner_byte_end": 249852,
+          "before_sha256": "1d2686f90887d7ebe652c3698ef22ca684ad47b3920a6b72352cbeee6a89bcab",
+          "before_file": "lesson-10-teaching-05-before.html",
+          "outer_opening_tag": "<section class=\"content-section\" data-teaching=\"\">",
+          "outer_closing_tag": "</section>"
+        },
+        {
+          "ordinal": 6,
+          "selector": "#lesson-10 > div.p2-topic > section[data-teaching]: teaching ordinal 6",
+          "owner_byte_start": 249853,
+          "owner_byte_end": 249914,
+          "before_sha256": "667d17f0a628acf04c27d926d247e4482b55c6e6ae45d1f01e8c6d024b6bd729",
+          "before_file": "lesson-10-teaching-06-before.html",
+          "outer_opening_tag": "<section class=\"content-section\" data-teaching=\"\">",
+          "outer_closing_tag": "</section>"
+        }
+      ],
+      "protected_nonteaching_chunk_sha256": [
+        "9f99f43b9dc1636271f16b0f9971495fc3d36d90ad82b4b26514f8190ecb66e9",
+        "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+        "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+        "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+        "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+        "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+        "5c46c2257eded0c1d1d15e1fa5631cda9603ad23c65e2b79fdd1c3819aeed9bd"
+      ],
+      "preserved_teaching_figure_sha256": [
+        "dde8d3bccc1aef0234003276f3631d695c9512c5668d25f8da52be4d7c65d564",
+        "1299c3afdf81faff04148e3f25b36c1912287f010cc75d62c0c88188c66bc543",
+        "79d385c3f12214b7e47a495bf34b3fe92f5dc57cd04aa0f0d77a9156bdd2d150"
+      ]
+    },
+    {
+      "lesson": "lesson-11",
+      "owner_route_byte_start": 261804,
+      "route_sha256": "145cae1166da81544f8f9b638515d60114fae3ff7e902d18c00714161768b11f",
+      "teaching_replacements": [
+        {
+          "ordinal": 1,
+          "selector": "#lesson-11 > div.p2-topic > section[data-teaching]: teaching ordinal 1",
+          "owner_byte_start": 268055,
+          "owner_byte_end": 269106,
+          "before_sha256": "ba00bc00a4b143de55c73d953f84e06e411ac537711451d127db5ef92868137a",
+          "before_file": "lesson-11-teaching-01-before.html",
+          "outer_opening_tag": "<section class=\"content-section\" data-teaching=\"\">",
+          "outer_closing_tag": "</section>"
+        },
+        {
+          "ordinal": 2,
+          "selector": "#lesson-11 > div.p2-topic > section[data-teaching]: teaching ordinal 2",
+          "owner_byte_start": 269107,
+          "owner_byte_end": 270765,
+          "before_sha256": "3257527ad141ef689f314c55ba990e9af070134be9d0101ddd6ded73684b6b84",
+          "before_file": "lesson-11-teaching-02-before.html",
+          "outer_opening_tag": "<section class=\"content-section\" data-teaching=\"\">",
+          "outer_closing_tag": "</section>"
+        }
+      ],
+      "protected_nonteaching_chunk_sha256": [
+        "855ae88678412ffbba2a2638beb3400d951f888bbbfc19ea699f9f44f1518363",
+        "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+        "71f32a863780518fe592b8539c9cb25c48f7e16170824a8b5f795b30b129bced"
+      ],
+      "preserved_teaching_figure_sha256": [
+        "5a4aa40412b5750ab39df2e733cc2c9a25bbdfaff16cb061bf04c9b69c6bb029"
+      ]
+    },
+    {
+      "lesson": "lesson-12",
+      "owner_route_byte_start": 287207,
+      "route_sha256": "e5c7c883e41c6d911c1ffc74a142baa45591777ef408ff126fef305f1f0d38bc",
+      "teaching_replacements": [
+        {
+          "ordinal": 1,
+          "selector": "#lesson-12 > div.p2-topic > section[data-teaching]: teaching ordinal 1",
+          "owner_byte_start": 292695,
+          "owner_byte_end": 296461,
+          "before_sha256": "7c10b9f4363abb710d449a915046b94f35bd9efb7527d69073e60190260d1685",
+          "before_file": "lesson-12-teaching-01-before.html",
+          "outer_opening_tag": "<section class=\"content-section\" data-teaching=\"\">",
+          "outer_closing_tag": "</section>"
+        },
+        {
+          "ordinal": 2,
+          "selector": "#lesson-12 > div.p2-topic > section[data-teaching]: teaching ordinal 2",
+          "owner_byte_start": 296462,
+          "owner_byte_end": 296853,
+          "before_sha256": "ac9a1e99da5c76072e5f2d062416927c1823c266f3e08f20f3d241fdba826ee3",
+          "before_file": "lesson-12-teaching-02-before.html",
+          "outer_opening_tag": "<section class=\"content-section\" data-teaching=\"\">",
+          "outer_closing_tag": "</section>"
+        }
+      ],
+      "protected_nonteaching_chunk_sha256": [
+        "486696b97fdbd3facac4152f14cecb2b217c8b4accb6de3c5c31b68de125cf03",
+        "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+        "e2573708626f0450c1e1cbe83cc6b9e8f8dd9138d62064172357b6f11606ea46"
+      ],
+      "preserved_teaching_figure_sha256": [
+        "cfe9887480390e7b7f30674455f2d633d6624103c5ee90d26a26fe4ba2593044"
+      ]
+    },
+    {
+      "lesson": "lesson-13",
+      "owner_route_byte_start": 339213,
+      "route_sha256": "4a572f50a4516cb96bb26e4ca6b22600fd1bf1670506bae94ef8e4c566a4a214",
+      "teaching_replacements": [
+        {
+          "ordinal": 1,
+          "selector": "#lesson-13 > div.p2-topic > section[data-teaching]: teaching ordinal 1",
+          "owner_byte_start": 343270,
+          "owner_byte_end": 344183,
+          "before_sha256": "bb57e218fd3427fb8aa6fd673a10ea9f93b1bd0b7d76e921c287abf8e4e9ef4e",
+          "before_file": "lesson-13-teaching-01-before.html",
+          "outer_opening_tag": "<section class=\"content-section\" data-teaching=\"\">",
+          "outer_closing_tag": "</section>"
+        },
+        {
+          "ordinal": 2,
+          "selector": "#lesson-13 > div.p2-topic > section[data-teaching]: teaching ordinal 2",
+          "owner_byte_start": 344184,
+          "owner_byte_end": 344887,
+          "before_sha256": "7893ac5f499705cc55eca6044a3dd04b8cfcd11e6bb5f9630eb16953e7f5010a",
+          "before_file": "lesson-13-teaching-02-before.html",
+          "outer_opening_tag": "<section class=\"content-section\" data-teaching=\"\">",
+          "outer_closing_tag": "</section>"
+        },
+        {
+          "ordinal": 3,
+          "selector": "#lesson-13 > div.p2-topic > section[data-teaching]: teaching ordinal 3",
+          "owner_byte_start": 344888,
+          "owner_byte_end": 345957,
+          "before_sha256": "64391063d06084c459bd4f50951490b4433a8f707428a9d9cd81b5c4efa8e7a2",
+          "before_file": "lesson-13-teaching-03-before.html",
+          "outer_opening_tag": "<section class=\"content-section\" data-teaching=\"\">",
+          "outer_closing_tag": "</section>"
+        }
+      ],
+      "protected_nonteaching_chunk_sha256": [
+        "33ce2bd4015e2efb8116ff3e222ab4abc5438e1d5a7783bb018e9a66ec9b7dd8",
+        "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+        "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+        "c6840b507b70de914a21fcb2dd1cb5f0a1a7a399a2d134aa384e0dda7cef0167"
+      ],
+      "preserved_teaching_figure_sha256": []
+    }
+  ]
+}

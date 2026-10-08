@@ -1,0 +1,15 @@
+# Teacher deck — slide 10
+
+Source: sources/original/Unit-A-Chapter-11-Teacher-Notes.pptx; ppt/slides/slide10.xml
+
+Schwann Cells, a type of glial cell, are responsible for producing the myelin that surrounds each axon.
+
+In myelinated axons, gaps between Schwann cells are referred to as the nodes of Ranvier. Electrical impulses “jump” from node to node, which is referred to as saltatory conduction. This speeds up transmission, avoiding having to travel down the entire length of the axon.
+
+Once the electrical signal reaches the axon terminal, it is then passed on to the dendrites of an adjoining neuron.
+
+Synapse: the space/junction between two adjoining neurons
+
+## Speaker notes (unchanged extracted text)
+
+

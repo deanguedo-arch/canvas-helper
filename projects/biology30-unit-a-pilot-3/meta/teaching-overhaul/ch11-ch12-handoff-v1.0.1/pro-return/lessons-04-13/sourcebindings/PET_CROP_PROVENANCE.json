@@ -1,0 +1,21 @@
+{
+  "source_pdf": "biology_transfer_review/CH11/native/assets/textbook/chapter-11.pdf",
+  "source_sha256": "841565cb96cbe378ba9dfe95a2718f3405ef67b3dea65a4ce8970d9d6597edec",
+  "physical_pdf_page": 35,
+  "printed_page": 394,
+  "figure": "11.32",
+  "render": "pdftoppm -f35 -singlefile -scale-to2400 -png",
+  "render_pixel_dimensions": [
+    1849,
+    2400
+  ],
+  "crop_box_pixels": [
+    120,
+    1785,
+    1040,
+    2262
+  ],
+  "output": "biology_pre_codex_v1/CH11_remaining/assets/source/ch11-textbook-p394-figure11-32-caption.png",
+  "output_sha256": "fb75f4f74613970cec2627f621b3b92ec2898ad611f26e327bd02c467dbe587c",
+  "status": "Actual source pixels with full adjacent Figure11.32 caption; not generated scan; inspected. No clinical diagnosis inferred."
+}

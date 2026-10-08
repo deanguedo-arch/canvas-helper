@@ -1,0 +1,141 @@
+{
+  "schemaVersion": 1,
+  "observedAt": "2026-10-03T14:04:27.082Z",
+  "scope": "Chapter 11 complete-manuscript extraction, targeted source reconciliation and teaching-baseline proposal only",
+  "humanAuthorization": "Dean: ok lets do the next step then",
+  "conversation": {
+    "title": "Scout",
+    "url": "https://chatgpt.com/dots/01a0f255-85e0-706a-ac4c-0ab4dc11f00f",
+    "browser": "existing signed-in Chrome session",
+    "taskTitleObserved": "Reconcile Chapter 11 manuscripts",
+    "stagingTaskThreadId": "01a10209-a356-750c-93b6-5fcf3a88002e",
+    "stagingTaskHostId": "durable",
+    "stagingTaskLatestTurnStatus": "inProgress",
+    "stagingTaskWaitCursor": "44cfc904-b929-4d00-9a6b-f22ace6ed35c:1",
+    "stagingTaskStatusEvidence": "read_thread and one bounded wait_threads snapshot; not proof of Pro model or authoring"
+  },
+  "primaryMessage": {
+    "submittedUiTime": "Oct 3, 7:49 AM",
+    "characters": 4477,
+    "sha256": "fbe8befe011eb91ef8a7d21de6cdd53778aa8f1cdd03e7c6e2fe6d84c8b6d00f",
+    "instructionOwner": "SCOUT_NEXT_PROMPT.md",
+    "instructionOwnerSha256": "49c9ced6a011c5d50048cd11ad0bf275f65efb8ecb6658405ce96c1c5865337c",
+    "readUiTime": "7:50 AM",
+    "initialDeliveryWarning": "Message saved; delivery unconfirmed",
+    "supportedSavedMessageRetries": 1,
+    "acknowledged": true,
+    "acknowledgment": "I’ll use regular ChatGPT Pro in your Chrome browser for the manuscript reconciliation and verify the visible model selection. I’ll first check all eight attachments, reconstruct the repaired source and verify the hashes, then return the complete Chapter 11 candidate for your approval"
+  },
+  "attachments": [
+    {
+      "filename": "Biology30_CH11_Baseline_Handoff_2026-10-03.zip",
+      "bytes": 802580,
+      "sha256": "08aa127b12c221f9bdcc701ed12a4f67889896261f92c63310de4f0a873642a9"
+    },
+    {
+      "filename": "Chapter11_Original_Textbook.pdf",
+      "bytes": 8730624,
+      "sha256": "841565cb96cbe378ba9dfe95a2718f3405ef67b3dea65a4ce8970d9d6597edec"
+    },
+    {
+      "filename": "Chapter11_Original_Teacher_Notes.pptx",
+      "bytes": 18306454,
+      "sha256": "74630659f9860c65b17356513c37f954d4df7b2a55742f1d535f5041e40abfb1"
+    },
+    {
+      "filename": "Alberta_Program_Unit_A1_Original_Excerpt.pdf",
+      "bytes": 28922,
+      "sha256": "9c42ae835acb05de562a4200f8957ab277e7737e913e79f7276a1e799e2604de"
+    },
+    {
+      "filename": "Chapter11_Teacher_Only_Comprehension_Key.pdf",
+      "bytes": 118248,
+      "sha256": "5e97c5733f4183e2bb869a7bebb327618e0fc48b5cfe6627c12589e6fbf046f1"
+    },
+    {
+      "filename": "UPLOAD_MANIFEST.json",
+      "bytes": 32138,
+      "sha256": "45174ce72c6333a0c0e5bf6d2e6a6ecd8acb5e415ddf2436751c6975f975e956"
+    },
+    {
+      "filename": "Biology30_CH11_Repaired_Source_Part_01.zip",
+      "bytes": 12586360,
+      "sha256": "f9c1f136a4566db58e596af78fcf1d09320114a338850cbc4a333cd3ad37300f"
+    },
+    {
+      "filename": "Biology30_CH11_Repaired_Source_Part_02.zip",
+      "bytes": 8464164,
+      "sha256": "2282538fb8ae3333f171d60a91a661a608b0d5f59324ded981f6c2ff1f18abc6"
+    }
+  ],
+  "uploadEvidence": {
+    "visibleAttachmentsBeforeSubmission": 8,
+    "visibleAttachmentsInSavedMessage": 8,
+    "noUploadPendingBeforeSubmission": true,
+    "oversizedOriginalZipRejected": "Attachments must be 20 MB or smaller",
+    "additionalTransportManifestRejected": "You can attach up to eight files",
+    "replacementTransportRecord": "CANDIDATE_TRANSPORT.json",
+    "preparationRecordImmutable": "UPLOAD_MANIFEST.json",
+    "rawCandidateArchiveSha256": "6ae67ae8cbea799e66df11982e7246935d03fae8bc873874ad34e7292b5bebff",
+    "baselineArchiveEntryCount": 65,
+    "localArchiveCrcAndExactReconstructionChecks": "passed",
+    "photoOrLearnerSaveDataIncluded": false
+  },
+  "stagingFallback": {
+    "scoutReportedError": "library file transfer failed: download failed",
+    "httpStatusProvided": false,
+    "permissionDenialReported": false,
+    "existingLocalSourceFolder": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-unit-a-pilot-3/meta/teaching-overhaul/2026-10-03-scout-standard/upload-ready",
+    "fileCount": 8,
+    "localCopyHashComparison": "all eight copies match their original bytes",
+    "followupMessageCharacters": 2212,
+    "followupMessageSha256": "11c3b413eea3e169957e87b6ef7eaa4ffcc0d9e346eb66bd0e6e2d0cd0da2a4f",
+    "followupReadUiTime": "7:56 AM",
+    "scoutAcknowledgment": "The transfer error was library file transfer failed: download failed; it didn’t provide an HTTP status or indicate a permission denial. Your existing Mac connection gives us a supported local route. I’ll use only the upload-ready folder, verify the hashes and confirm Pro visibly before submitting",
+    "newPermissionsGranted": false
+  },
+  "route": {
+    "sourceAssembly": "deterministic archive, binary transport and byte-identical staging copies",
+    "sourceAuthorityAndBrowserDelivery": "Sol lead",
+    "orchestrator": "Scout; acknowledged and using its existing Mac connection for staging",
+    "requestedManuscriptAuthor": "regular ChatGPT Pro",
+    "actualProComposerModelObservedByLead": false,
+    "actualProPreset": "not yet verified for this task",
+    "proSubmission": "not yet confirmed; Scout last reported no submission before the local fallback",
+    "proConversationUrl": null,
+    "additionalLeadSubagentsOrMuse": false,
+    "localReuse": "frozen Chapter 11 source records reused after current SHA256 verification",
+    "providerCacheTelemetry": "unavailable",
+    "usageSavings": "unmeasured"
+  },
+  "status": {
+    "localSourcesReady": "verified",
+    "browserMessageDelivered": "acknowledged",
+    "browserAttachmentsVisible": "verified",
+    "scoutSourceContentsAndHashes": "pending verification through the local fallback",
+    "authoring": "pending actual Pro submission",
+    "manuscriptsReturned": false,
+    "contentReviewComplete": false,
+    "deanExactCopyApproval": false,
+    "canonicalIntegration": "not started",
+    "technicalAcceptance": "not performed",
+    "chapter19Calibration": "not started",
+    "otherChapterPasses": "not started",
+    "packagingDeploymentAndBrightspace": "outside current authorization"
+  },
+  "nativeSourceBindings": {
+    "indexHtmlSha256": "9fcd8203b41f4220e53716e473c02a0835f356420b363ea0092e544a8e7bb210",
+    "stylesSha256": "a45318415c43b025748aceb5a6d220de38c76f683ac027de84a7f689964bca55",
+    "runtimeSourceSha256": "b5cb302cbc5db9305cae3461f05ad32c5940ae7609e624c7ac3d0fed89fc6fef",
+    "canonicalEditsByThisHandoff": false,
+    "releaseStatusChanged": false
+  },
+  "evidence": {
+    "initialAcknowledgmentScreenshot": "SCOUT_ACKNOWLEDGMENT.jpg",
+    "currentLocalFallbackScreenshot": "SCOUT_LOCAL_FALLBACK.jpg",
+    "screenshotNote": "The initial acknowledgment predates the Library-transfer failure. The later screenshot shows Scout acknowledging the existing-local-connection fallback, not claiming actual Pro submission.",
+    "focusedVerification": "Four JSON records parsed, eight staged copies matched hashes and sizes, three native owners retained their bound hashes; no canonical diff or course/release test run.",
+    "livePageRetainedForContinuation": true
+  },
+  "nextAction": "Confirm Scout verified the local handoff and actual regular-Pro composer and submission. Review complete returned files against the bound sources; obtain Dean’s exact-copy approval before any canonical integration or calibration. Do not duplicate an in-flight authoring request."
+}

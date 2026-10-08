@@ -1,0 +1,15 @@
+# Teacher deck — slide 31
+
+Source: sources/original/Unit-A-Chapter-11-Teacher-Notes.pptx; ppt/slides/slide31.xml
+
+Signal Transduction across a Synapse (Chemical Event)
+
+Once the impulse has traveled down the length of the axon, it reaches the axon terminal.
+
+The axon terminal is in close contact with the dendrites of another neuron.
+
+For the signal to move to the next neuron, it must cross the space between the axon terminal and the dendrites of the subsequent cell; this space is referred to as the synapse.
+
+## Speaker notes (unchanged extracted text)
+
+

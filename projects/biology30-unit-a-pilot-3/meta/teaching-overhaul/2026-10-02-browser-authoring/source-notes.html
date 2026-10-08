@@ -1,0 +1,651 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; font-src 'self' file:; img-src 'self' file:; base-uri 'none'; form-action 'none'">
+<title>Teacher source and integration notes · Biology 30 teaching review</title><style>
+@font-face{font-family:"Hanken Grotesk";src:url("../../../workspace/assets/fonts/HankenGrotesk-Variable.ttf") format("truetype");font-weight:100 900;font-display:swap}
+@font-face{font-family:"Work Sans";src:url("../../../workspace/assets/fonts/WorkSans-Variable.ttf") format("truetype");font-weight:100 900;font-display:swap}
+:root{--ink:#171b1b;--muted:#5b635d;--canvas:#f7f8f5;--green:#154212;--teal:#146c60;--border:#d9ded8;--soft:#eef3ee}
+*{box-sizing:border-box}body{margin:0;color:var(--ink);background:var(--canvas);font:17px/1.66 "Work Sans",Arial,sans-serif}
+a{color:var(--teal);text-underline-offset:3px}a:hover{color:var(--green)}a:focus-visible,summary:focus-visible,.table-scroll:focus-visible{outline:3px solid #f2b84b;outline-offset:3px}
+.skip{position:absolute;left:16px;top:-100px;background:#fff;padding:10px;z-index:10}.skip:focus{top:8px}
+.topbar{height:64px;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;gap:32px;padding:8px 24px}
+.topbar img{width:116px;max-height:50px;object-fit:contain}.topbar p{font-size:14px;margin:0}
+.shell{display:grid;grid-template-columns:270px minmax(0,1fr);min-height:calc(100vh - 64px)}
+.sidebar{background:var(--ink);color:#fff;padding:24px 18px;border-right:1px solid #303830}
+.sidebar-title{font:800 24px/1.1 "Hanken Grotesk",sans-serif;margin:0 0 32px}.sidebar h2{font-size:18px;margin:24px 0 12px}
+.sidebar nav a{display:block;padding:10px 14px;border-left:2px solid transparent;color:#e5ebe3;text-decoration:none;font-size:14px;line-height:1.5}
+.sidebar nav a:hover{background:#232b24}.sidebar nav a[aria-current="page"]{border-color:#94bd85;font-weight:800;color:#fff}
+.sidebar .reference-links{border-top:1px solid #303830;padding-top:20px;margin-top:28px}.sidebar .reference-links a{display:block;color:#c9ddc4;font-size:14px;margin-bottom:16px}
+main{min-width:0;padding:32px 36px 64px}.reader{max-width:980px;margin:auto;background:#fff;border:1px solid var(--border);border-top:5px solid var(--green);border-radius:6px 6px 0 0;overflow:hidden}
+.review-notice{padding:20px 54px;background:var(--soft);border-bottom:1px solid var(--border);font-size:14px;line-height:1.6}
+.review-notice p{margin:0}.review-notice p+p{margin-top:8px}.manuscript,.overview,.teacher-notes{padding:32px 54px}
+h1,h2,h3,h4,h5,h6,summary{font-family:"Hanken Grotesk",sans-serif}h1{font-size:clamp(34px,4.4vw,50px);font-weight:800;line-height:1.08;margin:8px 0 24px}
+h2{font-size:28px;line-height:1.25;margin:42px 0 20px}h3{font-size:22px;line-height:1.35;margin:28px 0 14px}h4{font-size:19px}
+p{margin:0 0 22px}strong{font-weight:760}li{margin:10px 0}ul,ol{padding-left:28px}hr{border:0;border-top:1px solid var(--border);margin:30px 0}
+details{border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin:24px 0;padding:0 18px}
+summary{cursor:pointer;color:var(--green);font-size:18px;font-weight:760;padding:14px 0}details[open]>summary{margin-bottom:12px}details>:last-child{margin-bottom:20px}
+.manuscript>details:first-of-type{background:#eef6f3;border-left:4px solid var(--teal);border-top:0;border-bottom:0;padding:4px 24px}
+.table-scroll{overflow-x:auto;margin:24px 0}table{border-collapse:collapse;width:100%;min-width:420px;font-size:16px}th,td{padding:14px;vertical-align:top;text-align:left;border:1px solid var(--border)}th{background:var(--soft)}
+blockquote{border-left:4px solid var(--teal);margin:24px 0;padding:12px 20px;background:var(--soft)}code{overflow-wrap:anywhere;font-size:.86em}pre{white-space:pre-wrap}
+.lesson-index{list-style:none;padding:0;margin:28px 0}.lesson-index li{border-top:1px solid var(--border);padding:22px 0;margin:0}.lesson-index a{font:760 24px/1.3 "Hanken Grotesk",sans-serif}.lesson-index p{color:var(--muted);margin:10px 0 0}
+.teacher-notes{border-top:1px solid var(--border);font-size:15px}.teacher-notes>details{margin:0}.teacher-notes h1{font-size:30px}.teacher-notes h2{font-size:24px}.teacher-notes h3{font-size:20px}
+.bottom-links{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;border-top:1px solid var(--border);margin-top:32px;padding-top:24px}
+@media(max-width:760px){.shell{display:block}.topbar{justify-content:space-between;gap:16px}.sidebar{padding:20px}.sidebar-title{font-size:22px;margin-bottom:14px}.sidebar h2{margin:12px 0}.sidebar .reference-links{margin-top:14px;padding-top:12px}.sidebar .reference-links a{display:inline-block;margin:0 20px 8px 0}.sidebar nav a{padding:8px 12px}main{padding:20px 12px 40px}.review-notice,.manuscript,.overview,.teacher-notes{padding:24px}h2{font-size:25px}.table-scroll{max-width:100%}}
+@media print{.sidebar,.topbar,.review-notice,.bottom-links,.teacher-notes,.skip{display:none}.shell{display:block}main{padding:0}.reader{border:0;max-width:none}.manuscript,.overview{padding:0}details{break-inside:avoid}.table-scroll{overflow:visible}table{min-width:0}}
+</style></head><body>
+<a class="skip" href="#review-main">Skip to manuscript</a>
+<header class="topbar"><img src="../../../workspace/assets/brand/nxt-ce-logo-white-with-ce.png" alt="Next Step Continuing Education"><p>Chapter 11 · teaching draft review</p></header>
+<div class="shell"><aside class="sidebar"><p class="sidebar-title">Biology 30 -<br>Chapter 11</p><h2>Review the drafts</h2>
+<nav aria-label="Teaching review"><a href="index.html">Review overview</a><a href="lesson-01.html">1. Nervous communication</a><a href="lesson-02.html">2. Neurons &amp; myelin</a><a href="lesson-03.html">3. Pathways &amp; reflexes</a></nav>
+<div class="reference-links"><a href="responses/CH11_First_Batch_Authoring_Draft_v2.zip">Download complete manuscripts</a><a href="source-notes.html">Teacher source and integration notes</a><a href="../../../workspace/index.html">Open unchanged current course</a></div></aside>
+<main id="review-main"><div class="reader"><div class="review-notice"><p><strong>Draft v2 — awaiting Dean’s approval.</strong> This is a read-only manuscript preview, not the live learner course.</p><p>Full lesson wording is preserved. Native hints and feedback can be opened. Diagrams, vocabulary pop-ups, response fields and saving are not integrated here.</p></div><article class="teacher-notes"><p><strong>Teacher-only appendix.</strong> These notes are not learner copy and do not authorize course integration.</p><h1 id="chapter-11-first-batch-source-assets-and-integration-handoff-draft-v2">Chapter 11 first batch — source, assets and integration handoff — DRAFT v2</h1>
+<p><strong>Status:</strong> DRAFT v2 authoring handoff only, revised from Codex lead review. Independent re-review, Dean approval, integration, technical verification, deployment and release remain outstanding.<br><strong>Scope:</strong> <code>lesson-01</code>, <code>lesson-02</code>, <code>lesson-03</code> only.<br><strong>Branch:</strong> <code>codex/math-engine-preflight</code><br><strong>Revision:</strong> <code>ecc1b806630cb33b9942e64eb676a1f8568c007e</code><br><strong>Source-tree SHA-256:</strong> <code>0e89c19b8db652abffc5a8837e084b7e84eb30be888057c8ccdf2e2efe33ba52</code><br><strong>Canonical entry:</strong> <code>projects/biology30-unit-a-pilot-3/workspace/index.html</code><br><strong>Driver/status:</strong> active · <code>direct-workspace-v1</code></p>
+<p>This record is teacher/developer-only. Historical project files are not current authority for this batch.</p>
+<hr>
+<h2 id="v2-correction-ledger">v2 correction ledger</h2>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Lesson comparison table"><table>
+<thead>
+<tr>
+<th>Requested correction</th>
+<th>v2 location</th>
+<th>Change made</th>
+<th>Remaining evidence/status gap</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>L02 guided structure flow must ask for four regions</td>
+<td>Lesson 02 guided item + teacher registry + formative registry</td>
+<td>Retained <code>ch11-l02-guided-structure-flow-v1</code>; prompt, hint, model and criteria now consistently require dendrites → soma → axon → axon terminals</td>
+<td>Content re-review still pending</td>
+</tr>
+<tr>
+<td>Remove production/admin language from learner copy</td>
+<td>All three learner manuscripts</td>
+<td>Replaced unnecessary “existing/new/course control” wording with direct learner instructions; drawing workflow is positive and realistic</td>
+<td>Video playback remains unverified; no UI integration performed</td>
+</tr>
+<tr>
+<td>L02 teach terms before use</td>
+<td>Lesson 02 opening/table/diagram walk</td>
+<td>Action potential now defined before axon-hillock/table use; “summed” explained as combined; synapse defined at first terminal communication; typical multipolar briefly explained</td>
+<td>Detailed ion-channel, threshold and synapse mechanisms still correctly deferred to Lessons 04–06</td>
+</tr>
+<tr>
+<td>Add L02 structure-to-function worked example</td>
+<td>Lesson 02 between neuron figure walk and myelin</td>
+<td>Added full causal example linking branching input region, soma, long axon and terminal branches to a long-distance communication problem</td>
+<td>Independent re-review pending</td>
+</tr>
+<tr>
+<td>L01 teach cell/nerve scale before hierarchy and strengthen system structures</td>
+<td>Lesson 01 before hierarchy + structure/function table</td>
+<td>Introduced neuron/axon/nerve distinction before table; motor fibres and autonomic pathway physical orientation added; detailed organ effects still deferred</td>
+<td>Later Lesson 08 detailed autonomic treatment not part of this batch</td>
+</tr>
+<tr>
+<td>Native save-after-edit semantics</td>
+<td>All three completion guides + check preparation; preservation contract below</td>
+<td>Added requirement to select <code>Save written response</code> again after editing a saved response; draft autosave explicitly distinguished from submission</td>
+<td>Must be regression-tested after any integration</td>
+</tr>
+<tr>
+<td>Preserve transfer in L03 tennis-ball check</td>
+<td>Lesson 03 pre-check</td>
+<td>Removed worked tennis-ball trace; replaced with reusable detector/input/integration/output/effector comparison strategy</td>
+<td>Corrected Q6 teacher marking guidance still requires independent re-review/Dean approval</td>
+</tr>
+<tr>
+<td>Preserve vocabulary baseline without stealth expansion</td>
+<td>All three learner key strips + vocabulary section below</td>
+<td>Restored current approved strips; richer terms are explanatory only unless separately bound later</td>
+<td>No new vocabulary binding proposed in v2</td>
+</tr>
+<tr>
+<td>Correct native owners/namespaces</td>
+<td>Sections 4 and 9 below</td>
+<td>Live vocabulary/runtime owners, local/LMS namespaces, IndexedDB contract, generated-practice resume and Frayer namespace corrected from lead-verified local source</td>
+<td>No runtime/code change or technical verification performed</td>
+</tr>
+</tbody></table></div>
+<h2 id="1-canonical-lesson-anchors-and-source-fragments">1. Canonical lesson anchors and source fragments</h2>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Lesson comparison table"><table>
+<thead>
+<tr>
+<th>Lesson</th>
+<th>Anchor</th>
+<th align="right">Current lines</th>
+<th>Fragment SHA-256</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Nervous communication</td>
+<td><code>#lesson-01</code></td>
+<td align="right">167–368</td>
+<td><code>d6e23136fc8be7c720cfc63e4f18f51d774d8e77c8243ab6bb14884e62ea9d3c</code></td>
+</tr>
+<tr>
+<td>Neurons &amp; myelin</td>
+<td><code>#lesson-02</code></td>
+<td align="right">369–518</td>
+<td><code>0ea84201a6ae183b7a3bb4ecdceb98c24b3703b5ad5999525a0d5d082bb57643</code></td>
+</tr>
+<tr>
+<td>Pathways &amp; reflexes</td>
+<td><code>#lesson-03</code></td>
+<td align="right">519–679</td>
+<td><code>ec297bb0523c652595051ea9bbf79f5f50eacc1ae46f1549c94f424249b7ccd9</code></td>
+</tr>
+</tbody></table></div>
+<p>Do not regenerate the canonical workspace using retired initializer, intake or Pilot 2 builders.</p>
+<hr>
+<h2 id="2-immutable-required-check-bindings">2. Immutable required-check bindings</h2>
+<p>All six required items remain written-only. Do not rename, split, rewrite, regrade, auto-grade, gate with new MC items, or reuse their IDs for new content.</p>
+<h3 id="lesson-01-practice-overview">Lesson 01 — <code>practice-overview</code></h3>
+<p>Activity attributes: <code>data-activity="practice-overview"</code>, <code>data-activity-mode="writing"</code>, required check.</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Lesson comparison table"><table>
+<thead>
+<tr>
+<th>Question ID</th>
+<th>Exact prompt</th>
+<th>Written field / data-writing</th>
+<th align="right">Limit</th>
+<th>Existing reader page</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>source-checkpoint-1</code></td>
+<td><code>Define homeostasis.</code></td>
+<td><code>source-checkpoint-1-written</code></td>
+<td align="right">3200</td>
+<td>printed 367 / PDF 8</td>
+</tr>
+<tr>
+<td><code>source-checkpoint-2</code></td>
+<td><code>Explain why the nervous system is critical for maintaining homeostasis.</code></td>
+<td><code>source-checkpoint-2-written</code></td>
+<td align="right">3200</td>
+<td>printed 367 / PDF 8</td>
+</tr>
+<tr>
+<td><code>source-checkpoint-3</code></td>
+<td><code>Create a table to identify the different systems in the nervous system and explain the structure and function of each.</code></td>
+<td><code>source-checkpoint-3-written</code></td>
+<td align="right">3200</td>
+<td>printed 367 / PDF 8</td>
+</tr>
+</tbody></table></div>
+<h3 id="lesson-02-practice-neuron-structure">Lesson 02 — <code>practice-neuron-structure</code></h3>
+<p>Activity attributes: <code>data-activity="practice-neuron-structure"</code>, <code>data-activity-mode="writing"</code>, required check.</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Lesson comparison table"><table>
+<thead>
+<tr>
+<th>Question ID</th>
+<th>Exact prompt</th>
+<th>Written field / data-writing</th>
+<th align="right">Limit</th>
+<th>Existing reader page</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>source-checkpoint-7</code></td>
+<td><code>Draw a neuron, label its basic structures, and identify their functions.</code></td>
+<td><code>source-checkpoint-7-written</code></td>
+<td align="right">3200</td>
+<td>printed 372 / PDF 13</td>
+</tr>
+</tbody></table></div>
+<p>No image/photo-upload control exists or is proposed. Paper/personal-notes drawing + typed label/function account is the authored workflow.</p>
+<h3 id="lesson-03-practice-reflexes">Lesson 03 — <code>practice-reflexes</code></h3>
+<p>Activity attributes: <code>data-activity="practice-reflexes"</code>, <code>data-activity-mode="writing"</code>, required check.</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Lesson comparison table"><table>
+<thead>
+<tr>
+<th>Question ID</th>
+<th>Exact prompt</th>
+<th>Written field / data-writing</th>
+<th align="right">Limit</th>
+<th>Existing reader page</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>source-checkpoint-4</code></td>
+<td><code>Compare the basic function of neurons and glial cells.</code></td>
+<td><code>source-checkpoint-4-written</code></td>
+<td align="right">3200</td>
+<td>printed 370 / PDF 11</td>
+</tr>
+<tr>
+<td><code>source-checkpoint-6</code></td>
+<td><code>Identify the basic neural pathway that is involved as you dodge a wayward tennis ball. Compare this pathway with a withdrawal reflex.</code></td>
+<td><code>source-checkpoint-6-written</code></td>
+<td align="right">3200</td>
+<td>printed 370 / PDF 11</td>
+</tr>
+</tbody></table></div>
+<p>Native learner controls to preserve: <strong>Open check → Start → Written response → Save written response → Submit and finish</strong>. There are <strong>three required activity sections</strong>, containing <strong>six question IDs</strong> and <strong>six written-field IDs</strong>, each with a 3200-character submission limit. Writing is not automatically graded. If a learner edits a saved response, the current field must be saved again before <code>Submit and finish</code>; draft autosave is not submission. Redo/history behaviour must remain native.</p>
+<hr>
+<h2 id="3-reader-bindings-and-exact-page-mapping">3. Reader bindings and exact page mapping</h2>
+<p>The Chapter 11 source uses <strong>printed page = PDF page + 359</strong>.</p>
+<h3 id="lesson-01-retained-reader-bindings">Lesson 01 retained reader bindings</h3>
+<ul>
+<li>primary optional reading: printed pp. 367–371;</li>
+<li><code>Open at p. 367</code> → PDF p. 8;</li>
+<li>required-check source references to printed p. 367 → PDF p. 8;</li>
+<li>existing Launch Lab support to printed p. 371 → PDF p. 12 may remain.</li>
+</ul>
+<h3 id="lesson-02-retained-reader-bindings">Lesson 02 retained reader bindings</h3>
+<ul>
+<li><code>Open at p. 372</code> → PDF p. 13;</li>
+<li>figure/reference page for neuron drawing → printed p. 372 / PDF p. 13.</li>
+</ul>
+<h3 id="lesson-03-retained-reader-bindings">Lesson 03 retained reader bindings</h3>
+<ul>
+<li><code>Open at p. 370</code> → PDF p. 11;</li>
+<li>existing p. 371 investigation link → PDF p. 12;</li>
+<li>required-check references → printed p. 370 / PDF p. 11.</li>
+</ul>
+<p>Reader links remain optional support. Do not restore obsolete “read textbook first” wording.</p>
+<hr>
+<h2 id="4-vocabulary-bindings-and-native-owner">4. Vocabulary bindings and native owner</h2>
+<p><code>current-course/data/vocabulary-and-schema.json</code> is a <strong>FROZEN EXPORTED SNAPSHOT</strong>, not the canonical live vocabulary owner.</p>
+<p>The canonical Chapter 11 vocabulary payload and routine visible vocabulary/Frayer markup are in:</p>
+<p><code>projects/biology30-unit-a-pilot-3/workspace/index.html</code></p>
+<p>including:</p>
+<p><code>&lt;script type="application/json" id="pilot3-words"&gt;</code></p>
+<p>The runtime reads that live payload. Native vocabulary/Frayer helpers to preserve are:</p>
+<ul>
+<li><code>scripts/lib/biology30-vocabulary/word-frayer-runtime.ts</code></li>
+<li><code>scripts/lib/biology30-vocabulary/word-frayer-state.ts</code></li>
+<li><code>scripts/lib/biology30-vocabulary/panel.ts</code></li>
+</ul>
+<p>Preserve current word IDs, contextual <code>bio-term</code> links, routes, reader connections, Frayer ownership, Process Collection behaviour, packing/schema and baseline conflict protection. Do not create duplicate IDs merely because the manuscripts teach a term in prose.</p>
+<h3 id="approved-learner-key-terms-strips-retained">Approved learner key-terms strips retained</h3>
+<ul>
+<li><strong>Lesson 01:</strong> <code>stimulus · response · receptor · effector · neuron · homeostasis</code></li>
+<li><strong>Lesson 02:</strong> <code>dendrite · cell body (soma) · axon · myelin sheath · Schwann cell · node of Ranvier</code></li>
+<li><strong>Lesson 03:</strong> <code>sensory neuron · interneuron · motor neuron · reflex · reflex arc</code></li>
+</ul>
+<p>Additional terms in the richer explanations may be bold and defined when first used. That does <strong>not</strong> automatically create a Frayer entry, word ID, required-vocabulary demand or replacement vocabulary component.</p>
+<p><strong>New vocabulary binding proposals in v2:</strong> none. Any future proposal must be listed separately and reviewed before integration.</p>
+<h2 id="5-existing-media-and-assets-retain-in-place">5. Existing media and assets — retain in place</h2>
+<h3 id="lesson-01-video">Lesson 01 video</h3>
+<ul>
+<li>Section class currently includes <code>video-companion required-media</code>.</li>
+<li><code>data-video="qPix_X-9t7E"</code></li>
+<li>URL: <code>https://www.youtube.com/watch?v=qPix_X-9t7E</code></li>
+<li>Playback/transcript: <strong>UNVERIFIED</strong>.</li>
+<li>Authoring treatment: optional support only; lesson remains self-teaching if blocked.</li>
+<li>Integration caution: preserve binding/controls; do not infer that the historical class name <code>required-media</code> means the learner must watch it before progressing.</li>
+</ul>
+<h3 id="lesson-02-neuron-asset">Lesson 02 neuron asset</h3>
+<p>Path: <code>assets/source/integrated-neuron.png</code></p>
+<p>Existing alt: <code>A labelled neuron showing dendrites, soma, nucleus, axon, myelin sheath, nodes of Ranvier, axon terminals, and supporting glial cells.</code></p>
+<p>Existing caption: <code>Read from dendrites to axon terminals. This is a simplified illustration of a typical multipolar neuron, not every neuron shape.</code></p>
+<p>Status: existing source asset; inspected for draft authoring; <strong>not newly teacher-approved</strong>.</p>
+<p>Actual elements referenced by manuscript:</p>
+<ul>
+<li>orange neuron/dendritic tree and axon;</li>
+<li>labels Dendrites, Cell body (soma), Nucleus, Axon hillock, Axon, Myelin sheath, Nodes of Ranvier, Axon terminals;</li>
+<li>large teal <code>Direction of information flow (from dendrites to axon terminals)</code> arrow;</li>
+<li>glial inset labelled Astrocyte, Oligodendrocyte, Microglial cell.</li>
+</ul>
+<p>Do not modify asset or locked relationships in this handoff.</p>
+<h3 id="lesson-02-myelin-asset">Lesson 02 myelin asset</h3>
+<p>Path: <code>assets/source/integrated-myelin.png</code></p>
+<p>Existing alt: <code>A comparison of continuous conduction in an unmyelinated axon and saltatory conduction in a myelinated axon.</code></p>
+<p>Existing caption: <code>Compare where the impulse is regenerated. The arrows are a shorthand: the axon remains continuous beneath the sheath. Schwann cells shown here form peripheral myelin; CNS myelin is made by oligodendrocytes.</code></p>
+<p>Status: existing source asset; inspected for draft authoring; <strong>not newly teacher-approved</strong>.</p>
+<p>Actual elements referenced:</p>
+<ul>
+<li>Panel A <code>Unmyelinated axon — continuous conduction</code>;</li>
+<li>Panel B <code>Myelinated axon — saltatory conduction</code>;</li>
+<li>orange directional arcs/highlighted node positions;</li>
+<li>labels <code>Node of Ranvier (gap in myelin)</code>, <code>Schwann cell (forms myelin sheath)</code>, <code>Myelin sheath (multiple layers of membrane)</code>, <code>Axon</code>;</li>
+<li>teal bottom direction-of-conduction arrows;</li>
+<li>bottom messages about faster conduction and damage to myelin.</li>
+</ul>
+<h3 id="lesson-02-video">Lesson 02 video</h3>
+<ul>
+<li><code>data-video="A44brRGG4Ys"</code></li>
+<li>URL: <code>https://www.youtube.com/watch?v=A44brRGG4Ys</code></li>
+<li>Playback/transcript: <strong>UNVERIFIED</strong>; optional support only.</li>
+</ul>
+<h3 id="lesson-03-withdrawal-asset">Lesson 03 withdrawal asset</h3>
+<p>Canonical path: <code>assets/source/integrated-withdrawal.svg</code></p>
+<p>Existing alt: <code>Trace the withdrawal pathway first, then follow the separate route carrying information toward the brain.</code></p>
+<p>Existing caption: <code>Follow the spinal withdrawal circuit, then the separate path toward the brain. This is a simplified pathway, not a scale drawing or the wiring of every reflex.</code></p>
+<p>Status: existing source asset; SVG source/relationships inspected by the Codex lead. <strong>Lead-rendered visual review and teacher visual acceptance remain PENDING.</strong> A separate author-side render used during manuscript authoring is not independent/teacher visual acceptance.</p>
+<p>Actual rendered relationships referenced:</p>
+<ul>
+<li><code>Stimulus</code> red-brown arrow;</li>
+<li><code>Receptor in skin</code>;</li>
+<li>orange <code>Sensory neuron</code> route into <code>Spinal cord (CNS)</code>;</li>
+<li>labelled <code>Interneuron</code>;</li>
+<li>teal <code>Motor neuron</code> route to <code>Effector: muscle</code>;</li>
+<li>response text <code>Response: the muscle contracts and the hand withdraws.</code>;</li>
+<li>dashed grey route <code>Information also travels to the brain.</code>;</li>
+<li>bottom sequence <code>Receptor → sensory neuron → interneuron → motor neuron → effector.</code></li>
+</ul>
+<p>The extracted PNG used for inspection is not a replacement asset. Keep the canonical SVG.</p>
+<h3 id="lesson-03-videos">Lesson 03 videos</h3>
+<ul>
+<li><code>data-video="aaQWxko6qmk"</code> → <code>https://www.youtube.com/watch?v=aaQWxko6qmk</code></li>
+<li><code>data-video="4WcZR_k_a0I"</code> → <code>https://www.youtube.com/watch?v=4WcZR_k_a0I</code></li>
+<li>Playback/transcripts: <strong>UNVERIFIED</strong>; optional support only; no timestamps authored.</li>
+</ul>
+<hr>
+<h2 id="6-new-media-briefs">6. New media briefs</h2>
+<h3 id="proposed-l01-board-visual-nervous-system-hierarchy">Proposed L01 board visual — nervous-system hierarchy</h3>
+<p><strong>Status: NOT PRODUCED / NOT REVIEWED.</strong></p>
+<p>Teaching question: “How are the major nervous-system divisions nested, and which way does information move?”</p>
+<p>Required relationships:</p>
+<p><code>Nervous system</code></p>
+<ul>
+<li><code>Central nervous system (CNS)</code> → <code>brain</code>, <code>spinal cord</code></li>
+<li><code>Peripheral nervous system (PNS)</code><ul>
+<li><code>sensory / afferent pathways</code> → arrows toward CNS</li>
+<li><code>motor / efferent pathways</code> → arrows away from CNS<ul>
+<li><code>somatic nervous system</code> → skeletal muscle</li>
+<li><code>autonomic nervous system</code><ul>
+<li><code>sympathetic division</code></li>
+<li><code>parasympathetic division</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Caption concept: CNS/PNS is anatomical; sensory/motor describes information direction; somatic/autonomic subdivides motor output. Somatic must not be labelled “always conscious.”</p>
+<p>Accessibility: full equivalent information is already authored as text tree + table, so this image is enhancement rather than a blocking placeholder.</p>
+<h3 id="proposed-l03-board-visual-selected-response-versus-spinal-withdrawal">Proposed L03 board visual — selected response versus spinal withdrawal</h3>
+<p><strong>Status: NOT PRODUCED / NOT REVIEWED.</strong></p>
+<p>Teaching question: “What is shared, and what changes, between a deliberately selected sensory-motor response and a spinal withdrawal reflex?”</p>
+<p>Left route:
+<code>receptor → sensory route → brain/CNS integration + response selection → somatic motor route → skeletal muscle → selected movement</code></p>
+<p>Right route:
+<code>receptor → sensory neuron → spinal integration/interneuron in shown example → motor neuron → skeletal muscle → withdrawal</code>
+plus separate arrow <code>information also travels toward brain</code>.</p>
+<p>Accessibility: manuscript comparison table contains the complete equivalent teaching. No release should depend on a missing image.</p>
+<hr>
+<h2 id="7-proposed-teaching-block-order-for-integration">7. Proposed teaching-block order for integration</h2>
+<p>This is declarative ordering only, not implementation code.</p>
+<h3 id="lesson-01"><code>#lesson-01</code></h3>
+<p>Preserve existing shell in place:</p>
+<ol>
+<li>Learn · Chapter 11 / title.</li>
+<li>Side-by-side <strong>Learning goal / Before you begin</strong>.</li>
+<li>Existing <code>How to complete this lesson</code> disclosure container, replacing obsolete generic MC language with lesson-specific written-check instructions from manuscript.</li>
+<li>Existing optional embedded-reading block and vocabulary system.</li>
+<li>Replace/expand current teaching body with manuscript sequence:<ul>
+<li>homeostasis as workable-range regulation;</li>
+<li>communication pathway;</li>
+<li>fully worked thermoregulation example;</li>
+<li>non-homeostatic nervous response contrast;</li>
+<li>minimum neuron/axon/nerve scale distinction before the hierarchy;</li>
+<li>accessible nervous-system hierarchy tree + structure/function table with motor-fibre and autonomic pathway physical orientation;</li>
+<li>two guided self-checks;</li>
+<li>neuron/glia/nerve preview;</li>
+<li>independent interrupted-control transfer;</li>
+<li>retained optional video support;</li>
+<li>required-check preparation.</li>
+</ul>
+</li>
+<li>Preserve <code>practice-overview</code> and its three immutable written questions exactly.</li>
+<li>Closing/bridge to <code>#lesson-02</code>.</li>
+</ol>
+<h3 id="lesson-02"><code>#lesson-02</code></h3>
+<p>Preserve shell, reader, vocabulary, assets and video. Proposed order:</p>
+<ol>
+<li>Learning goal / Before you begin.</li>
+<li>Accurate completion disclosure.</li>
+<li>Optional p. 372 reading.</li>
+<li>Typical-multipolar orientation + brief action-potential definition before first axon-hillock/table use; defer ion mechanism.</li>
+<li>One-cell communication model and structure/function table, including first-use synapse definition without claiming all synapses are chemical.</li>
+<li>Retain <code>integrated-neuron.png</code> + deliberate visual-reading prose.</li>
+<li>Fully worked neuron structure-to-function example: branching input region → soma → long axon → terminal branches.</li>
+<li>Myelin / Schwann-PNS / oligodendrocyte-CNS explanation.</li>
+<li>Retain <code>integrated-myelin.png</code> + deliberate comparison reading.</li>
+<li>Fully worked myelinated-versus-unmyelinated reasoning.</li>
+<li>Two guided self-checks, including corrected four-region <code>ch11-l02-guided-structure-flow-v1</code>.</li>
+<li>Qualified MS application.</li>
+<li>Independent demyelination transfer.</li>
+<li>Retained optional video.</li>
+<li>Drawing-check preparation with paper/personal-notes + typed account instruction.</li>
+<li>Preserve <code>practice-neuron-structure</code> / <code>source-checkpoint-7</code> exactly.</li>
+<li>Closing/bridge to <code>#lesson-03</code>.</li>
+</ol>
+<h3 id="lesson-03"><code>#lesson-03</code></h3>
+<p>Preserve shell, reader, vocabulary, SVG, two videos and required check. Proposed order:</p>
+<ol>
+<li>Learning goal / Before you begin.</li>
+<li>Accurate completion disclosure.</li>
+<li>Optional pp. 370–371 reading.</li>
+<li>Sensory/interneuron/motor jobs.</li>
+<li>Concise job-versus-shape qualification.</li>
+<li>Fully worked phone-sliding deliberately selected response.</li>
+<li>Fully worked spinal withdrawal response.</li>
+<li>Existing <code>integrated-withdrawal.svg</code> + precise reading moves.</li>
+<li>Accessible two-pathway comparison table.</li>
+<li>Two anti-overgeneralization notes: interneuron not universal; reflex not always spinal.</li>
+<li>Neuron/glia retrieval.</li>
+<li>Guided withdrawal trace.</li>
+<li>Independent buzzer/raise-hand transfer.</li>
+<li>Retained optional videos.</li>
+<li>Required-check preparation using a reusable pathway-comparison strategy; do not pre-trace the tennis-ball answer.</li>
+<li>Preserve <code>practice-reflexes</code> / <code>source-checkpoint-4</code> and <code>source-checkpoint-6</code> exactly.</li>
+<li>Closing/bridge to <code>#lesson-04</code>.</li>
+</ol>
+<hr>
+<h2 id="8-new-formative-item-registry">8. New formative item registry</h2>
+<p>No new item below is a required check. No existing checkpoint ID is reused.</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Lesson comparison table"><table>
+<thead>
+<tr>
+<th>Proposed ID</th>
+<th>Lesson</th>
+<th>Mode in manuscript</th>
+<th>Persistence</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>ch11-l01-guided-sensory-direction-v1</code></td>
+<td>01</td>
+<td>guided notes + hint + reveal solution</td>
+<td>none</td>
+</tr>
+<tr>
+<td><code>ch11-l01-guided-somatic-classification-v1</code></td>
+<td>01</td>
+<td>guided notes + hint + reveal solution</td>
+<td>none</td>
+</tr>
+<tr>
+<td><code>ch11-l01-independent-control-interruption-v1</code></td>
+<td>01</td>
+<td>independent notes + reveal model</td>
+<td>none</td>
+</tr>
+<tr>
+<td><code>ch11-l02-guided-structure-flow-v1</code></td>
+<td>02</td>
+<td>guided notes + hint + reveal solution; <strong>v2 corrected to four regions</strong></td>
+<td>none</td>
+</tr>
+<tr>
+<td><code>ch11-l02-guided-node-correction-v1</code></td>
+<td>02</td>
+<td>guided notes + hint + reveal solution</td>
+<td>none</td>
+</tr>
+<tr>
+<td><code>ch11-l02-independent-demyelination-v1</code></td>
+<td>02</td>
+<td>independent notes + reveal model</td>
+<td>none</td>
+</tr>
+<tr>
+<td><code>ch11-l03-guided-withdrawal-trace-v1</code></td>
+<td>03</td>
+<td>guided notes + hint + reveal solution</td>
+<td>none</td>
+</tr>
+<tr>
+<td><code>ch11-l03-independent-buzzer-selected-response-v1</code></td>
+<td>03</td>
+<td>independent notes + reveal model</td>
+<td>none</td>
+</tr>
+</tbody></table></div>
+<p>If later review asks for saved formative response fields, native-owner integration is <strong>PENDING</strong> and must use the existing state owner. Do not create another persistence/state system.</p>
+<hr>
+<h2 id="9-verified-native-preservation-contract">9. Verified native preservation contract</h2>
+<p>Preserve without behavioural redesign:</p>
+<ul>
+<li>side-by-side Learning goal / Before you begin;</li>
+<li>current guide/disclosure placement;</li>
+<li>typography, colours and navigation;</li>
+<li>existing textbook reader and exact page-target semantics;</li>
+<li>current vocabulary IDs, routes, Frayer/Process Collection ownership;</li>
+<li>existing image paths, SVG, video IDs/URLs and load controls;</li>
+<li>all <strong>three required activity sections</strong>, all <strong>six question IDs</strong>, all <strong>six written-field IDs</strong>, and each 3200-character submission limit;</li>
+<li><code>Save written response</code> / <code>Submit and finish</code> / Redo / All My Work behaviour;</li>
+<li>native required-progress semantics;</li>
+<li>student-work preservation and accessibility behaviour;</li>
+<li>established SCORM path.</li>
+</ul>
+<h3 id="canonical-code-runtime-ownership">Canonical code/runtime ownership</h3>
+<ul>
+<li>Canonical course HTML: <code>projects/biology30-unit-a-pilot-3/workspace/index.html</code>.</li>
+<li>Native save/progress/activity owner: <code>scripts/lib/biology30-pilot3/runtime.ts</code>.</li>
+<li><code>workspace/assets/pilot3-runtime.js</code> is <strong>DERIVED</strong>, not the edit owner.</li>
+<li>No code changes are authorized in this authoring handoff.</li>
+</ul>
+<h3 id="state-and-resume-namespaces">State and resume namespaces</h3>
+<ul>
+<li>Native local namespace: <code>biology30-unit-a-pilot-3:v1</code>.</li>
+<li>Native LMS namespace: <code>scorm.scopeKey('biology30-unit-a-pilot-3:v1')</code>.</li>
+<li>Native IndexedDB: version <code>1</code>; object store <code>work</code>; record key <code>state</code>.</li>
+<li>Version-1 state contains <code>revision</code>, <code>current</code>, <code>history</code> and optional <code>textbookWork</code>.</li>
+<li>Preserve revision compare-and-swap conflict/failure protection, immutable completed history and redo semantics.</li>
+<li>Generated-practice resume projection: <code>biology30-unit-a-pilot-3:generated-practice-resume:v1</code>.</li>
+<li>Frayer namespace: native namespace plus <code>:frayers</code>; preserve packing/schema/baseline conflict protection and the existing <strong>44000-character save budget</strong>.</li>
+<li>This batch's proposed formative items use notes plus revealed self-check reasoning; they are <strong>not</strong> newly persisted required fields. If later persistence is requested, native-owner integration is <strong>PENDING</strong>; do not create another state owner.</li>
+</ul>
+<h3 id="written-response-save-contract">Written-response save contract</h3>
+<p>A prior save is not enough after an edit. The current written field must match a saved attempt before <code>Submit and finish</code>. Therefore learner copy now states: after changing a saved response, select <strong>Save written response</strong> again. Draft autosave may preserve text but is <strong>not submission</strong>.</p>
+<p>No new global Save &amp; Exit, upload control, runtime, grading system, completion gate or state owner is authorized.</p>
+<h2 id="10-curriculum-coverage-map">10. Curriculum coverage map</h2>
+<p>Official source: <code>Alberta_Program_Unit_A1_Original_Excerpt.pdf</code>, physical pp. 51–53 / excerpt PDF pp. 1–3.</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Lesson comparison table"><table>
+<thead>
+<tr>
+<th>Outcome</th>
+<th>First-batch relationship</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>General Outcome 1 — explain how the nervous system controls physiological processes</td>
+<td>Central organizing outcome for all three manuscripts.</td>
+</tr>
+<tr>
+<td><code>30–A1.1k</code> — neuron/myelin, action potential, all-or-none/intensity, synapse, named transmitters/chemicals</td>
+<td>Lesson 02 provides neuron/myelin foundation only. Lessons 04–06 are still required for the rest. <strong>Not completed in this batch.</strong></td>
+</tr>
+<tr>
+<td><code>30–A1.2k</code> — principal CNS/PNS structures and voluntary/autonomic regulation</td>
+<td>Lesson 01 provides hierarchy orientation only. Lessons 08–10 are still required for detailed structures/functions. <strong>Not completed in this batch.</strong></td>
+</tr>
+<tr>
+<td><code>30–A1.3k</code> — organization of neurons into nerves and composition/function of reflex arcs using an example</td>
+<td>Lessons 01–03 together provide substantial conceptual coverage: nerve versus neuron, pathway roles and withdrawal reflex. Full course acceptance remains pending.</td>
+</tr>
+<tr>
+<td><code>30–A1.2s</code> — design and perform investigation of reflex arcs</td>
+<td>Optional textbook Investigation 11.A is linked, but this online manuscript does not itself design/perform the investigation. <strong>Do not claim skill completion.</strong></td>
+</tr>
+</tbody></table></div>
+<hr>
+<h2 id="11-source-conflicts-resolved-for-this-draft">11. Source conflicts resolved for this draft</h2>
+<h3 id="homeostasis">Homeostasis</h3>
+<ul>
+<li>Historical teacher key uses “constant internal environment” but also notes dynamic equilibrium.</li>
+<li>Draft uses <strong>regulated workable range / relative stability</strong>, avoiding perfect-constancy language.</li>
+</ul>
+<h3 id="temperature-sensing-and-sweating">Temperature sensing and sweating</h3>
+<ul>
+<li>Textbook p. 366 supplies temperature/homeostasis context but is not used to claim all sensing is peripheral.</li>
+<li>Current verification: OpenStax §16.3 identifies both peripheral surface-temperature sensing and central core-temperature sensing; NCBI temperature-regulation reference supports sweat evaporation as heat loss.</li>
+</ul>
+<h3 id="somatic-always-conscious">Somatic ≠ always conscious</h3>
+<ul>
+<li>Textbook/older course language may equate somatic with voluntary too strongly.</li>
+<li>Current verification: OpenStax Anatomy &amp; Physiology 2e describes somatic output as skeletal-muscle control and explicitly notes somatic reflexes can occur without conscious decision.</li>
+</ul>
+<h3 id="myelin-producing-cells">Myelin-producing cells</h3>
+<ul>
+<li>Teacher slide 10 generalizes Schwann cells too broadly.</li>
+<li>Draft: Schwann cells = PNS myelin; oligodendrocytes = CNS myelin.</li>
+</ul>
+<h3 id="saltatory-jumping">Saltatory “jumping”</h3>
+<ul>
+<li>“Jumping” retained only as shorthand after continuous-axon/regeneration explanation.</li>
+</ul>
+<h3 id="grey-white-matter">Grey/white matter</h3>
+<ul>
+<li>Teacher slide 12 and textbook p. 372 are not used to teach a binary “myelinated neurons = white / unmyelinated neurons = grey” rule.</li>
+<li>Detailed tissue composition remains for later CNS teaching.</li>
+</ul>
+<h3 id="regeneration">Regeneration</h3>
+<ul>
+<li>Teacher slide 12's myelinated/unmyelinated regeneration binary is omitted as misleading.</li>
+</ul>
+<h3 id="multiple-sclerosis">Multiple sclerosis</h3>
+<ul>
+<li>Teacher slide 14's “genetic disorder” and simple inevitable age-progressive framing are omitted.</li>
+<li>Draft v2 retains the current multifactorial/immune-mediated framing and variable course.</li>
+</ul>
+<h3 id="reflexes">Reflexes</h3>
+<ul>
+<li>Teacher slide 20's universal spinal-bypass statement is narrowed to the spinal withdrawal example.</li>
+<li>Pupillary light reflex is used only as a brief counterexample showing that not every reflex is spinal.</li>
+<li>Teacher slide 18's note that some reflexes lack an interneuron is retained.</li>
+</ul>
+<h3 id="historical-teacher-key-q6">Historical teacher key Q6</h3>
+<ul>
+<li>The historical key calls the tennis-ball dodge a withdrawal reflex and routes it through the spinal cord.</li>
+<li>Current required prompt is preserved unchanged, but teacher-only marking guidance in Lesson 03 treats a deliberately selected visually guided dodge as receptor → sensory route → CNS/brain integration → somatic motor route → skeletal muscle, then compares it with a spinal withdrawal reflex.</li>
+<li>No automatic learner feedback is attached to this correction.</li>
+</ul>
+<hr>
+<h2 id="12-external-verification-references">12. External verification references</h2>
+<p>Retrieved 2026-10-02. These are teacher/developer verification sources, not learner-facing required readings.</p>
+<ol>
+<li>OpenStax, <em>Introduction to Behavioral Neuroscience</em>, §16.3 Neural Control of Core Body Temperature<br><a href="https://openstax.org/books/introduction-behavioral-neuroscience/pages/16-3-neural-control-of-core-body-temperature" rel="noopener">https://openstax.org/books/introduction-behavioral-neuroscience/pages/16-3-neural-control-of-core-body-temperature</a></li>
+<li>StatPearls / NCBI Bookshelf, <em>Physiology, Temperature Regulation</em><br><a href="https://www.ncbi.nlm.nih.gov/books/NBK507838/" rel="noopener">https://www.ncbi.nlm.nih.gov/books/NBK507838/</a></li>
+<li>OpenStax, <em>Anatomy and Physiology 2e</em>, §12.1 Basic Structure and Function of the Nervous System<br><a href="https://openstax.org/books/anatomy-and-physiology-2e/pages/12-1-basic-structure-and-function-of-the-nervous-system" rel="noopener">https://openstax.org/books/anatomy-and-physiology-2e/pages/12-1-basic-structure-and-function-of-the-nervous-system</a></li>
+<li>OpenStax, <em>Anatomy and Physiology 2e</em>, §14.3 Motor Responses<br><a href="https://openstax.org/books/anatomy-and-physiology-2e/pages/14-3-motor-responses" rel="noopener">https://openstax.org/books/anatomy-and-physiology-2e/pages/14-3-motor-responses</a></li>
+<li>OpenStax, <em>Anatomy and Physiology 2e</em>, §15.2 Autonomic Reflexes and Homeostasis<br><a href="https://openstax.org/books/anatomy-and-physiology-2e/pages/15-2-autonomic-reflexes-and-homeostasis" rel="noopener">https://openstax.org/books/anatomy-and-physiology-2e/pages/15-2-autonomic-reflexes-and-homeostasis</a></li>
+<li>NCBI Bookshelf, <em>Basic Neurochemistry — The Myelin Sheath</em><br><a href="https://www.ncbi.nlm.nih.gov/books/NBK27954/" rel="noopener">https://www.ncbi.nlm.nih.gov/books/NBK27954/</a></li>
+<li>MedlinePlus Genetics, <em>Multiple sclerosis</em><br><a href="https://medlineplus.gov/genetics/condition/multiple-sclerosis/" rel="noopener">https://medlineplus.gov/genetics/condition/multiple-sclerosis/</a></li>
+<li>StatPearls / NCBI Bookshelf, <em>Neuroanatomy, Pupillary Light Reflexes and Pathway</em><br><a href="https://www.ncbi.nlm.nih.gov/books/NBK553169/" rel="noopener">https://www.ncbi.nlm.nih.gov/books/NBK553169/</a></li>
+</ol>
+<hr>
+<h2 id="13-current-status-acceptance-boundary">13. Current status / acceptance boundary</h2>
+<ul>
+<li>Source inventory: <strong>available for this first batch</strong> and bound to the revision/tree SHA above.</li>
+<li>Authorship: <strong>DRAFT v2 manuscript revision completed</strong> from the current handoff.</li>
+<li>Codex lead authoring review: <strong>incorporated as correction input</strong>, not Dean approval and not release acceptance.</li>
+<li>Independent content re-review: <strong>PENDING</strong>.</li>
+<li>Dean explicit first-batch teacher acceptance: <strong>ABSENT / PENDING</strong>.</li>
+<li>New hierarchy/pathway images: <strong>NOT PRODUCED / NOT VISUALLY REVIEWED</strong>; the accessible text tree/table carries the essential teaching without a placeholder.</li>
+<li>Existing neuron/myelin assets: retained; Codex lead inspection does not equal new teacher approval.</li>
+<li>Withdrawal SVG: source/relationships inspected by the Codex lead; <strong>lead-rendered visual review and teacher visual acceptance remain PENDING</strong>. The author-side render is not independent acceptance.</li>
+<li>Existing video playback/transcripts/timestamps: <strong>UNVERIFIED</strong>.</li>
+<li>Integration: <strong>NOT STARTED / NOT AUTHORIZED</strong>.</li>
+<li>Technical verification: <strong>NOT STARTED</strong>.</li>
+<li>Brightspace/SCORM verification: <strong>NOT STARTED</strong>.</li>
+<li>Release: <strong>NOT AUTHORIZED</strong>.</li>
+<li>Chapter 19 Lesson 04 calibration: <strong>NOT STARTED</strong> and remains behind Dean's first-batch approval.</li>
+</ul>
+</article></div></main></div></body></html>

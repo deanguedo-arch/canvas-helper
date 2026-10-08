@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "sourceArchive": "projects/biology30-unit-a-pilot-3/meta/injected-components/biology30_ch11_labeling_pack.zip",
+  "sourceSha256": "1ac0c592dca10f517e9ed2b103b8c53c1be744469141d00731088506953ab14b",
+  "correctionArchive": "projects/biology30-unit-a-pilot-3/meta/injected-components/biology30_ch11_corrected_diagrams.zip",
+  "correctionSha256": "934f0ba831fe6c6312f22dd2d35a17ad3f55cf13c47f7e2ddc922f68261016cc",
+  "targetRoute": "#labeling-practice",
+  "activityIds": [
+    "labeling-neuron-anatomy",
+    "labeling-withdrawal-reflex",
+    "labeling-resting-potential",
+    "labeling-action-potential",
+    "labeling-chemical-synapse",
+    "labeling-brain-structures",
+    "labeling-cerebral-lobes",
+    "labeling-autonomic-divisions"
+  ],
+  "assets": {
+    "01_neuron_anatomy.png": "b51898e7c72bf01a4e35d2e532b7a89deb4a3bcbc20e3a064a6cdf98dc01df53",
+    "02_withdrawal_reflex_pathway.png": "c1b44380f76b53e23c0982d76c9e9a4e20ba2d86d8b6c93d5355686bb28444cd",
+    "03_resting_membrane_potential.png": "67df9f185880f86858fcd4d48ee1f9b3a5b34ee7387cc7a765a2f7b131f4ebc3",
+    "04_action_potential.png": "b8485d1ab2a2cef1ae99e45088338c3a79bc7dc7b286aa1af052622e266120a9",
+    "05_chemical_synapse.png": "14c7aff2de08931ec3c141dddcec0a5bd1d1c81140f295d08ee9e0986e35e7dd",
+    "06_major_brain_structures.png": "22ef290d85fb621be4032dc48b3a39b74ba7c477ed02cbb11ba5433b97f55c5e",
+    "07_cerebral_lobes_and_functional_areas.png": "89bc9197f0306d22f029d7b4000ce0ef2ca577bf85cf0b10ca8f943565caa14f",
+    "08_autonomic_nervous_system_divisions.png": "9c4d7d662d9276eb63b35726998cba677ecfaa605d2318cbab882d817a21437a"
+  },
+  "answerKeyHandling": {
+    "default": "Use the supplied answer_key.json aliases.",
+    "withdrawalReflexCorrection": "The supplied image contains A-H, but its packaged key describes A-J and does not match the visible callouts. The integrated activity follows the visible image: A stimulus, B sensory receptor, C sensory neuron, D interneuron, E spinal cord, F motor neuron, G effector, H response.",
+    "correctedDiagramReview": "Approved against the Chapter 11 textbook: the resting-potential pump shows 3 Na+ out and 2 K+ in; the action-potential graph uses G peak membrane potential and H refractory period; the chemical-synapse B pointer lands on the synaptic vesicle."
+  }
+}

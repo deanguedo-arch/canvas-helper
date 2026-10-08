@@ -1,0 +1,43 @@
+{
+  "lesson": "lesson-12",
+  "owner_route_byte_start": 287207,
+  "route_sha256": "e5c7c883e41c6d911c1ffc74a142baa45591777ef408ff126fef305f1f0d38bc",
+  "teaching_replacements": [
+    {
+      "ordinal": 1,
+      "selector": "#lesson-12 > div.p2-topic > section[data-teaching]: teaching ordinal 1",
+      "owner_byte_start": 292695,
+      "owner_byte_end": 296461,
+      "before_sha256": "7c10b9f4363abb710d449a915046b94f35bd9efb7527d69073e60190260d1685",
+      "before_file": "lesson-12-teaching-01-before.html",
+      "outer_opening_tag": "<section class=\"content-section\" data-teaching=\"\">",
+      "outer_closing_tag": "</section>",
+      "proposed_after_sha256": "1dc01963aba8961570329d2ce9f5b74e551c47e9c39036ef306077537441bccd",
+      "proposed_fragment_ordinal": 1,
+      "proposed_bytes": 11854
+    },
+    {
+      "ordinal": 2,
+      "selector": "#lesson-12 > div.p2-topic > section[data-teaching]: teaching ordinal 2",
+      "owner_byte_start": 296462,
+      "owner_byte_end": 296853,
+      "before_sha256": "ac9a1e99da5c76072e5f2d062416927c1823c266f3e08f20f3d241fdba826ee3",
+      "before_file": "lesson-12-teaching-02-before.html",
+      "outer_opening_tag": "<section class=\"content-section\" data-teaching=\"\">",
+      "outer_closing_tag": "</section>",
+      "proposed_after_sha256": "f1149af2ac1c790d3902df0ea7fb83f1289343377ce88d04d2535016fd655cae",
+      "proposed_fragment_ordinal": 2,
+      "proposed_bytes": 4780
+    }
+  ],
+  "protected_nonteaching_chunk_sha256": [
+    "486696b97fdbd3facac4152f14cecb2b217c8b4accb6de3c5c31b68de125cf03",
+    "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "e2573708626f0450c1e1cbe83cc6b9e8f8dd9138d62064172357b6f11606ea46"
+  ],
+  "preserved_teaching_figure_sha256": [
+    "cfe9887480390e7b7f30674455f2d633d6624103c5ee90d26a26fe4ba2593044"
+  ],
+  "fragment_sha256": "7f10f6ab479ceb0ae8c1e4be0c27b159c0d0b06563bdeaf3af46dc3f9cd4c67e",
+  "manuscript_sha256": "64416d62e95a6b5b682894fb97e232bfce121d92835e00c221d14d7e0c455880"
+}

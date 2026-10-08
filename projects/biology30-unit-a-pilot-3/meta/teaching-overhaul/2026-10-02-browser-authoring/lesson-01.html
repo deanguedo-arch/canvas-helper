@@ -1,0 +1,462 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; font-src 'self' file:; img-src 'self' file:; base-uri 'none'; form-action 'none'">
+<title>Nervous communication · Biology 30 teaching review</title><style>
+@font-face{font-family:"Hanken Grotesk";src:url("../../../workspace/assets/fonts/HankenGrotesk-Variable.ttf") format("truetype");font-weight:100 900;font-display:swap}
+@font-face{font-family:"Work Sans";src:url("../../../workspace/assets/fonts/WorkSans-Variable.ttf") format("truetype");font-weight:100 900;font-display:swap}
+:root{--ink:#171b1b;--muted:#5b635d;--canvas:#f7f8f5;--green:#154212;--teal:#146c60;--border:#d9ded8;--soft:#eef3ee}
+*{box-sizing:border-box}body{margin:0;color:var(--ink);background:var(--canvas);font:17px/1.66 "Work Sans",Arial,sans-serif}
+a{color:var(--teal);text-underline-offset:3px}a:hover{color:var(--green)}a:focus-visible,summary:focus-visible,.table-scroll:focus-visible{outline:3px solid #f2b84b;outline-offset:3px}
+.skip{position:absolute;left:16px;top:-100px;background:#fff;padding:10px;z-index:10}.skip:focus{top:8px}
+.topbar{height:64px;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;gap:32px;padding:8px 24px}
+.topbar img{width:116px;max-height:50px;object-fit:contain}.topbar p{font-size:14px;margin:0}
+.shell{display:grid;grid-template-columns:270px minmax(0,1fr);min-height:calc(100vh - 64px)}
+.sidebar{background:var(--ink);color:#fff;padding:24px 18px;border-right:1px solid #303830}
+.sidebar-title{font:800 24px/1.1 "Hanken Grotesk",sans-serif;margin:0 0 32px}.sidebar h2{font-size:18px;margin:24px 0 12px}
+.sidebar nav a{display:block;padding:10px 14px;border-left:2px solid transparent;color:#e5ebe3;text-decoration:none;font-size:14px;line-height:1.5}
+.sidebar nav a:hover{background:#232b24}.sidebar nav a[aria-current="page"]{border-color:#94bd85;font-weight:800;color:#fff}
+.sidebar .reference-links{border-top:1px solid #303830;padding-top:20px;margin-top:28px}.sidebar .reference-links a{display:block;color:#c9ddc4;font-size:14px;margin-bottom:16px}
+main{min-width:0;padding:32px 36px 64px}.reader{max-width:980px;margin:auto;background:#fff;border:1px solid var(--border);border-top:5px solid var(--green);border-radius:6px 6px 0 0;overflow:hidden}
+.review-notice{padding:20px 54px;background:var(--soft);border-bottom:1px solid var(--border);font-size:14px;line-height:1.6}
+.review-notice p{margin:0}.review-notice p+p{margin-top:8px}.manuscript,.overview,.teacher-notes{padding:32px 54px}
+h1,h2,h3,h4,h5,h6,summary{font-family:"Hanken Grotesk",sans-serif}h1{font-size:clamp(34px,4.4vw,50px);font-weight:800;line-height:1.08;margin:8px 0 24px}
+h2{font-size:28px;line-height:1.25;margin:42px 0 20px}h3{font-size:22px;line-height:1.35;margin:28px 0 14px}h4{font-size:19px}
+p{margin:0 0 22px}strong{font-weight:760}li{margin:10px 0}ul,ol{padding-left:28px}hr{border:0;border-top:1px solid var(--border);margin:30px 0}
+details{border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin:24px 0;padding:0 18px}
+summary{cursor:pointer;color:var(--green);font-size:18px;font-weight:760;padding:14px 0}details[open]>summary{margin-bottom:12px}details>:last-child{margin-bottom:20px}
+.manuscript>details:first-of-type{background:#eef6f3;border-left:4px solid var(--teal);border-top:0;border-bottom:0;padding:4px 24px}
+.table-scroll{overflow-x:auto;margin:24px 0}table{border-collapse:collapse;width:100%;min-width:420px;font-size:16px}th,td{padding:14px;vertical-align:top;text-align:left;border:1px solid var(--border)}th{background:var(--soft)}
+blockquote{border-left:4px solid var(--teal);margin:24px 0;padding:12px 20px;background:var(--soft)}code{overflow-wrap:anywhere;font-size:.86em}pre{white-space:pre-wrap}
+.lesson-index{list-style:none;padding:0;margin:28px 0}.lesson-index li{border-top:1px solid var(--border);padding:22px 0;margin:0}.lesson-index a{font:760 24px/1.3 "Hanken Grotesk",sans-serif}.lesson-index p{color:var(--muted);margin:10px 0 0}
+.teacher-notes{border-top:1px solid var(--border);font-size:15px}.teacher-notes>details{margin:0}.teacher-notes h1{font-size:30px}.teacher-notes h2{font-size:24px}.teacher-notes h3{font-size:20px}
+.bottom-links{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;border-top:1px solid var(--border);margin-top:32px;padding-top:24px}
+@media(max-width:760px){.shell{display:block}.topbar{justify-content:space-between;gap:16px}.sidebar{padding:20px}.sidebar-title{font-size:22px;margin-bottom:14px}.sidebar h2{margin:12px 0}.sidebar .reference-links{margin-top:14px;padding-top:12px}.sidebar .reference-links a{display:inline-block;margin:0 20px 8px 0}.sidebar nav a{padding:8px 12px}main{padding:20px 12px 40px}.review-notice,.manuscript,.overview,.teacher-notes{padding:24px}h2{font-size:25px}.table-scroll{max-width:100%}}
+@media print{.sidebar,.topbar,.review-notice,.bottom-links,.teacher-notes,.skip{display:none}.shell{display:block}main{padding:0}.reader{border:0;max-width:none}.manuscript,.overview{padding:0}details{break-inside:avoid}.table-scroll{overflow:visible}table{min-width:0}}
+</style></head><body>
+<a class="skip" href="#review-main">Skip to manuscript</a>
+<header class="topbar"><img src="../../../workspace/assets/brand/nxt-ce-logo-white-with-ce.png" alt="Next Step Continuing Education"><p>Chapter 11 · teaching draft review</p></header>
+<div class="shell"><aside class="sidebar"><p class="sidebar-title">Biology 30 -<br>Chapter 11</p><h2>Review the drafts</h2>
+<nav aria-label="Teaching review"><a href="index.html">Review overview</a><a href="lesson-01.html" aria-current="page">1. Nervous communication</a><a href="lesson-02.html">2. Neurons &amp; myelin</a><a href="lesson-03.html">3. Pathways &amp; reflexes</a></nav>
+<div class="reference-links"><a href="responses/CH11_First_Batch_Authoring_Draft_v2.zip">Download complete manuscripts</a><a href="source-notes.html">Teacher source and integration notes</a><a href="../../../workspace/index.html">Open unchanged current course</a></div></aside>
+<main id="review-main"><div class="reader"><div class="review-notice"><p><strong>Draft v2 — awaiting Dean’s approval.</strong> This is a read-only manuscript preview, not the live learner course.</p><p>Full lesson wording is preserved. Native hints and feedback can be opened. Diagrams, vocabulary pop-ups, response fields and saving are not integrated here.</p></div><article class="manuscript"><p>Learn · Chapter 11</p>
+<h1 id="nervous-communication">Nervous communication</h1>
+<p><strong>How can your body detect a change, decide what matters, and coordinate a response quickly enough to keep internal conditions workable?</strong></p>
+<h3 id="learning-goal">Learning goal</h3>
+<p><strong>I can explain how the nervous system detects changes, processes information, and directs responses, and I can describe the basic organization of the nervous system.</strong></p>
+<h3 id="before-you-begin">Before you begin</h3>
+<p>A <strong>stimulus</strong> is a change inside or outside the body. A <strong>response</strong> is what the body does after detecting that change.</p>
+<p>You already know that cells and body systems have to work together. In this lesson, you will add the communication pathway that lets the nervous system detect a change, process information, and direct a response.</p>
+<details>
+<summary><strong>How to complete this lesson — Learn → practise → required check → finish</strong></summary>
+
+<ol>
+<li><strong>Learn first.</strong> Work through the explanation, examples, diagrams and comparison below. The online lesson contains the essential teaching.</li>
+<li><strong>Use support when it helps.</strong> The embedded textbook, vocabulary tools and video are optional supports. You do not need to use them before starting the lesson.</li>
+<li><strong>Try the practice before revealing the help.</strong> For the guided and independent questions, answer in your own notes first. Open the hint only if you need it, then reveal the solution to check your reasoning.</li>
+<li><strong>Complete the required chapter check.</strong> Open the check near the bottom of the lesson and select <strong>Start</strong>. All questions in this check are written responses. Type each answer in its written-response box and select <strong>Save written response</strong>. If you edit an answer after saving it, select <strong>Save written response</strong> again so the saved attempt matches your current answer.</li>
+<li><strong>Finish only after your current required responses are saved.</strong> Draft autosave can help preserve work while you type, but it is not submission. Select <strong>Submit and finish</strong> only after every current written response has been saved. Writing is not automatically graded.</li>
+<li><strong>Optional practice does not replace the required check.</strong> Use it to learn and review; it does not add another completion gate.</li>
+</ol>
+</details>
+
+<h3 id="optional-embedded-reading">Optional embedded reading</h3>
+<p><strong>Chapter 11 · pp. 367–371</strong><br><a href="attachments/Chapter11_Original_Textbook.pdf#page=8" rel="noopener">Open at p. 367</a></p>
+<p><strong>Key terms:</strong> stimulus · response · receptor · effector · neuron · homeostasis</p>
+<hr>
+<h2 id="start-with-the-problem-your-body-never-stays-perfectly-unchanged">Start with the problem: your body never stays perfectly unchanged</h2>
+<p>Walk from a quiet classroom into a warm gym. Start moving hard and your muscles release more heat. Your breathing changes. Your heart rate changes. After a while, you may begin to sweat.</p>
+<p>Your body did not stay perfectly constant, and it was not supposed to. <strong>Homeostasis</strong> means regulating internal conditions within ranges that allow cells and organs to function. Conditions can move up and down; the important point is that control systems detect meaningful change and produce responses that help keep internal conditions within workable limits.</p>
+<p>The nervous system is one of the body's major control and communication systems. It can detect changes, carry information rapidly, integrate that information in the central nervous system, and direct muscles or glands to respond. The endocrine system also contributes to homeostasis using hormones; you will study that system in more detail later.</p>
+<p>The nervous system also does many things that are <strong>not</strong> simply homeostatic corrections. Seeing a friend, choosing to pick up a backpack, remembering a song, or deliberately moving your hand are nervous-system functions even when no internal variable needs to be returned toward a regulated range.</p>
+<p>So keep two ideas separate:</p>
+<ul>
+<li><strong>The nervous system has many functions.</strong></li>
+<li><strong>One important function is helping regulate homeostasis.</strong></li>
+</ul>
+<hr>
+<h2 id="a-basic-nervous-system-communication-pathway">A basic nervous-system communication pathway</h2>
+<p>When the nervous system controls a response, the details can vary, but this pattern is a useful starting model:</p>
+<p><strong>stimulus → receptor → sensory input → integration in the CNS → motor output → effector → response</strong></p>
+<p>Read that pathway from left to right.</p>
+<h3 id="1-a-stimulus-changes-something">1. A stimulus changes something</h3>
+<p>A <strong>stimulus</strong> is a change that can be detected. It might come from outside the body, such as pressure on the skin, or from inside the body, such as a change in temperature or blood chemistry.</p>
+<h3 id="2-a-receptor-detects-the-change">2. A receptor detects the change</h3>
+<p>A <strong>receptor</strong> is a specialized structure that detects a particular kind of stimulus. Detecting the change is not yet the response. It is the beginning of the information pathway.</p>
+<h3 id="3-sensory-input-carries-information-toward-the-cns">3. Sensory input carries information toward the CNS</h3>
+<p><strong>Sensory input</strong> is information travelling from receptors toward the <strong>central nervous system (CNS)</strong>. The CNS is the brain and spinal cord.</p>
+<p>You will also see the word <strong>afferent</strong>. Sensory or afferent pathways carry information <strong>toward</strong> the CNS.</p>
+<h3 id="4-integration-means-processing-the-information">4. Integration means processing the information</h3>
+<p><strong>Integration</strong> is the processing step. The CNS receives information, combines it with other information when needed, and organizes an appropriate output.</p>
+<p>Integration does not always mean a long conscious decision. Some responses involve brain processing and conscious choice; others can be initiated by rapid neural circuits before conscious processing is complete. You will compare those pathways in Lesson 3.</p>
+<h3 id="5-motor-output-carries-instructions-away-from-the-cns">5. Motor output carries instructions away from the CNS</h3>
+<p><strong>Motor output</strong> is information travelling from the CNS toward a structure that will carry out the response.</p>
+<p>You will also see the word <strong>efferent</strong>. Motor or efferent pathways carry instructions <strong>away from</strong> the CNS.</p>
+<h3 id="6-an-effector-carries-out-the-response">6. An effector carries out the response</h3>
+<p>An <strong>effector</strong> is the responding structure. Effectors include muscles and glands.</p>
+<p>A muscle can contract. A gland can change its secretion. The activity of the effector produces the response.</p>
+<hr>
+<h2 id="worked-example-cooling-the-body-during-hard-exercise">Worked example: cooling the body during hard exercise</h2>
+<p>Suppose you are exercising hard in a warm gym. Your body produces more heat, and core temperature begins to rise.</p>
+<p>We can use the communication pathway to explain part of the body's response.</p>
+<h3 id="step-1-identify-the-change">Step 1 — Identify the change</h3>
+<p>The important change is <strong>increased body temperature</strong>.</p>
+<h3 id="step-2-detect-the-change">Step 2 — Detect the change</h3>
+<p>Temperature information comes from more than one place. Temperature-sensitive receptors in the body surface provide information about environmental temperature, and temperature-sensitive structures within the central nervous system can monitor the body's internal temperature.</p>
+<p>The key idea is not that one skin receptor controls the response. The key idea is that temperature information is detected and communicated to nervous-system control centres.</p>
+<h3 id="step-3-carry-sensory-information">Step 3 — Carry sensory information</h3>
+<p>Sensory information about temperature reaches the CNS.</p>
+<h3 id="step-4-integrate">Step 4 — Integrate</h3>
+<p>The CNS processes the incoming information and organizes responses that can help limit the rise in body temperature.</p>
+<p>At this point you do <strong>not</strong> need to memorize the detailed brain anatomy of thermoregulation. The important idea is the job being done: information is detected, processed and used to organize an output.</p>
+<h3 id="step-5-send-motor-output">Step 5 — Send motor output</h3>
+<p>Motor instructions can increase the activity of sweat glands.</p>
+<h3 id="step-6-the-effector-acts">Step 6 — The effector acts</h3>
+<p>The sweat glands release sweat onto the skin.</p>
+<h3 id="step-7-explain-how-the-response-helps">Step 7 — Explain how the response helps</h3>
+<p>Sweat on the skin does not cool the body simply because it is wet. <strong>Evaporation matters.</strong> When liquid water in sweat changes to water vapour, energy is required for that change of state. Heat is transferred from the body as the sweat evaporates, helping remove heat from the skin and limit the rise in body temperature.</p>
+<p>Put the reasoning together:</p>
+<p><strong>body temperature rises → temperature information is detected → the CNS integrates the information → motor output increases sweat-gland activity → sweat evaporates → heat is removed → the response helps keep body temperature within a workable range</strong></p>
+<p>That is a homeostatic nervous-system response because the response helps oppose the original change.</p>
+<hr>
+<h2 id="contrast-a-nervous-response-that-is-not-mainly-a-homeostatic-correction">Contrast: a nervous response that is not mainly a homeostatic correction</h2>
+<p>Imagine that your pencil rolls off your desk. You see it falling and deliberately reach to catch it.</p>
+<p>The nervous system still detects information, integrates it and sends motor output to skeletal muscles. But the purpose of the response is not to return an internal condition such as body temperature toward a regulated range.</p>
+<p>This is why you should not use <strong>nervous-system response</strong> and <strong>homeostatic response</strong> as if they mean exactly the same thing.</p>
+<hr>
+<h2 id="how-the-nervous-system-is-organized">How the nervous system is organized</h2>
+<p>The required check in this lesson asks you to identify the different systems in the nervous system and explain their structure and function. A list of names is not enough. You need to know <strong>how the divisions are nested</strong> and <strong>which direction information travels</strong>.</p>
+<p>Before reading the hierarchy, separate a <strong>cell</strong> from a <strong>nerve</strong>. A <strong>neuron</strong> is one specialized cell. Its <strong>axon</strong> is the long nerve fibre that carries a signal away from the cell body. In the PNS, a <strong>nerve</strong> is a larger cable-like structure containing many axons, or nerve fibres, bundled together with protective tissues. That means a sensory or motor pathway can travel through a nerve made of many separate fibres; one nerve is not one giant neuron.</p>
+<p>Now read this tree from the top down:</p>
+<p><strong>Nervous system</strong></p>
+<ul>
+<li><strong>Central nervous system (CNS)</strong><ul>
+<li>brain</li>
+<li>spinal cord</li>
+</ul>
+</li>
+<li><strong>Peripheral nervous system (PNS)</strong><ul>
+<li><strong>sensory (afferent) pathways</strong> — carry information from receptors toward the CNS</li>
+<li><strong>motor (efferent) pathways</strong> — carry instructions from the CNS toward effectors<ul>
+<li><strong>somatic nervous system</strong> — motor control of skeletal muscles</li>
+<li><strong>autonomic nervous system</strong> — motor control of smooth muscle, cardiac muscle and glands<ul>
+<li><strong>sympathetic division</strong></li>
+<li><strong>parasympathetic division</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Now turn the tree into structure-and-function statements.</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Lesson comparison table"><table>
+<thead>
+<tr>
+<th>Division</th>
+<th>Basic structure</th>
+<th>Basic function in this chapter</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Central nervous system (CNS)</strong></td>
+<td>Brain and spinal cord</td>
+<td>Receives and integrates information and organizes nervous-system responses.</td>
+</tr>
+<tr>
+<td><strong>Peripheral nervous system (PNS)</strong></td>
+<td>Nerves and neural pathways connecting the CNS with the rest of the body</td>
+<td>Carries sensory information toward the CNS and motor information from the CNS toward effectors.</td>
+</tr>
+<tr>
+<td><strong>Sensory / afferent pathways</strong></td>
+<td>Sensory neurons and their axons/nerve fibres carry input from receptors through the PNS toward the CNS</td>
+<td>Carry information <strong>toward</strong> the CNS.</td>
+</tr>
+<tr>
+<td><strong>Motor / efferent pathways</strong></td>
+<td>Motor neurons and their axons/nerve fibres connect the CNS through the PNS to effectors</td>
+<td>Carry instructions <strong>away from</strong> the CNS toward effectors.</td>
+</tr>
+<tr>
+<td><strong>Somatic nervous system</strong></td>
+<td>Motor pathways from the CNS through the PNS to skeletal-muscle effectors</td>
+<td>Controls skeletal-muscle responses. Many are deliberate, but a somatic response is not automatically conscious: a withdrawal reflex also activates skeletal muscle.</td>
+</tr>
+<tr>
+<td><strong>Autonomic nervous system</strong></td>
+<td>Motor pathways from the CNS through the PNS to smooth muscle, cardiac muscle and glands</td>
+<td>Regulates involuntary organ and gland activity. Detailed organ effects come later in Lesson 8.</td>
+</tr>
+<tr>
+<td><strong>Sympathetic division</strong></td>
+<td>One branch of autonomic neural pathways running from the CNS through the PNS to cardiac muscle, smooth muscle and glands</td>
+<td>Adjusts autonomic output during action, challenge or increased demand. Detailed organ effects come later.</td>
+</tr>
+<tr>
+<td><strong>Parasympathetic division</strong></td>
+<td>The complementary branch of autonomic neural pathways running from the CNS through the PNS to cardiac muscle, smooth muscle and glands</td>
+<td>Adjusts autonomic output during rest, maintenance and recovery. Detailed organ effects come later.</td>
+</tr>
+</tbody></table></div>
+<h3 id="read-the-hierarchy-not-just-the-words">Read the hierarchy, not just the words</h3>
+<p>Notice three different kinds of distinction:</p>
+<ol>
+<li><strong>CNS versus PNS</strong> is mainly an anatomical distinction: central structures versus the neural connections linking the CNS with the body.</li>
+<li><strong>Sensory versus motor</strong> describes the direction of information relative to the CNS.</li>
+<li><strong>Somatic versus autonomic</strong> describes the type of motor control and the effectors being controlled.</li>
+</ol>
+<p>The sympathetic and parasympathetic divisions are <strong>inside the autonomic motor system</strong>. They are not separate systems sitting beside the CNS and PNS.</p>
+<hr>
+<h2 id="guided-attempt-1-which-way-is-the-information-travelling">Guided attempt 1 — Which way is the information travelling?</h2>
+<p>A pressure receptor in the skin of the foot is activated. Information travels through a peripheral nerve toward the spinal cord.</p>
+<p><strong>Question:</strong> Is this sensory/afferent or motor/efferent information? Is the spinal cord part of the CNS or PNS?</p>
+<details>
+<summary><strong>Hint — reveal only if you need it</strong></summary>
+
+<p>Use direction first. Information moving <strong>toward</strong> the brain or spinal cord is sensory/afferent. Then ask where the spinal cord belongs.</p>
+</details>
+
+<details>
+<summary><strong>Check your reasoning</strong></summary>
+
+<p>This is <strong>sensory/afferent</strong> information because it is travelling from a receptor toward the CNS. The <strong>spinal cord is part of the CNS</strong>. The peripheral nerve carrying the signal is part of the PNS.</p>
+<p>If you called the pathway motor because the body might eventually move, you skipped ahead. Classify the signal by the direction it is travelling <strong>at this part of the pathway</strong>.</p>
+</details>
+
+<hr>
+<h2 id="guided-attempt-2-somatic-or-autonomic">Guided attempt 2 — Somatic or autonomic?</h2>
+<p>A motor command leaves the CNS and causes a skeletal muscle to contract.</p>
+<p><strong>Question:</strong> Is this motor pathway somatic or autonomic? Does the word <em>somatic</em> prove that the movement was consciously chosen?</p>
+<details>
+<summary><strong>Hint — reveal only if you need it</strong></summary>
+
+<p>Classify the pathway by its effector. Which motor division controls skeletal muscle?</p>
+</details>
+
+<details>
+<summary><strong>Check your reasoning</strong></summary>
+
+<p>It is a <strong>somatic motor</strong> pathway because the effector is skeletal muscle. Somatic does <strong>not</strong> guarantee that the movement was consciously chosen. Some skeletal-muscle responses are reflexes. You will study a withdrawal reflex in Lesson 3.</p>
+</details>
+
+<hr>
+<h2 id="the-cells-that-make-the-pathway-possible">The cells that make the pathway possible</h2>
+<p>Now zoom in from the system-level map to the cells and fibres carrying those messages. The nervous system contains <strong>neurons</strong> and <strong>glial cells</strong>.</p>
+<p>A <strong>neuron</strong> is one specialized cell that receives, conducts and passes information. A <strong>glial cell</strong> supports neural function. Different glial cells can help maintain the chemical environment around neurons, support and insulate axons, remove debris and contribute to immune defence.</p>
+<p>A <strong>nerve is not one neuron</strong>. In the PNS, a nerve is a larger structure containing many axons, or nerve fibres, bundled together with protective tissues. Think of a cable containing many separate fibres: the cable is the nerve; the individual conducting fibres are axons from neurons.</p>
+<p>You will zoom in on one neuron and its myelin in the next lesson.</p>
+<hr>
+<h2 id="independent-transfer-what-happens-if-the-control-route-is-interrupted">Independent transfer — what happens if the control route is interrupted?</h2>
+<p>Consider this generic homeostatic control route:</p>
+<p><strong>internal condition moves outside its workable range → receptor detects the change → sensory information reaches the CNS → the CNS integrates the information → motor output travels to an effector → the effector acts → the response helps move the condition back toward its workable range</strong></p>
+<p>Now suppose the receptor and sensory pathway work normally and the CNS correctly processes the information, <strong>but the motor pathway to the effector is blocked</strong>.</p>
+<p><strong>Explain:</strong></p>
+<ol>
+<li>Which parts of the route can still occur?</li>
+<li>Which part fails?</li>
+<li>Why can homeostatic regulation be disrupted even though the original change was detected correctly?</li>
+</ol>
+<p>Write your answer in your notes before checking the model.</p>
+<details>
+<summary><strong>Model answer and feedback — reveal after you try</strong></summary>
+
+<p>The receptor can still detect the change, sensory information can still reach the CNS, and the CNS can still integrate that information. The failure occurs after integration: the motor instruction cannot reach the effector. Because the effector does not receive the command, it cannot produce the corrective response. The body can therefore detect the problem correctly but still fail to regulate the condition through that pathway.</p>
+<p>A strong answer separates <strong>detection</strong>, <strong>integration</strong> and <strong>output</strong> instead of saying only that “the nervous system stops working.”</p>
+<p>If you wrote that the receptor fails, check the scenario again: the receptor was specifically stated to work normally.</p>
+<p>If you wrote that the CNS does not know a change occurred, check the direction of the sensory pathway: the sensory message still reaches the CNS.</p>
+</details>
+
+<hr>
+<h2 id="optional-support">Optional support</h2>
+<h3 id="the-nervous-system-an-overview">The nervous system: an overview</h3>
+<p>If the overview video loads for you, use it as a second explanation. While watching, look for the same three functions used in this lesson: <strong>sensory input, integration and motor output</strong>. The written lesson above contains the essential explanation if the video is unavailable.</p>
+<p><a href="https://www.youtube.com/watch?v=qPix_X-9t7E" rel="noopener">Watch on YouTube</a></p>
+<p>You can also revisit the organization diagram in the embedded textbook at <strong>p. 367</strong> if you want another view of how the CNS, PNS and motor subdivisions fit together.</p>
+<hr>
+<h2 id="before-the-required-check">Before the required check</h2>
+<p>You should now be able to do three things without relying on the vocabulary popup:</p>
+<ul>
+<li>explain homeostasis as regulation within workable internal ranges;</li>
+<li>explain why nervous-system detection, integration and motor output can be important in homeostatic control;</li>
+<li>build a nervous-system table that includes the CNS, PNS, sensory/afferent pathways, motor/efferent pathways, somatic system, autonomic system, sympathetic division and parasympathetic division, with both structure and function.</li>
+</ul>
+<h3 id="open-chapter-check-nervous-communication">Open chapter check: Nervous communication</h3>
+<p>Select <strong>Start</strong> when you are ready. Type your answers in the written-response boxes. Select <strong>Save written response</strong> for each response. If you edit a saved answer, select <strong>Save written response</strong> again before finishing. Draft autosave is not submission. Writing is not automatically graded. When all current required responses are saved, select <strong>Submit and finish</strong>.</p>
+<p><strong>Required prompt 1</strong><br>Define homeostasis.</p>
+<p><strong>Required prompt 2</strong><br>Explain why the nervous system is critical for maintaining homeostasis.</p>
+<p><strong>Required prompt 3</strong><br>Create a table to identify the different systems in the nervous system and explain the structure and function of each.</p>
+<hr>
+<h2 id="closing-answer">Closing answer</h2>
+<p>Your nervous system can detect a change, carry sensory information toward the CNS, integrate that information, and send motor instructions toward effectors. When the response helps regulate an internal condition within a workable range, the nervous system is contributing to homeostasis.</p>
+<p>You now have the whole communication route. The next question is smaller but essential:</p>
+<p><strong>What does one neuron have to look like to receive information, carry it over distance, and pass it onward quickly?</strong></p>
+<p><a href="lesson-02.html" rel="noopener">Next: Neurons &amp; myelin</a></p>
+<nav class="bottom-links" aria-label="Draft navigation"><a href="index.html">Review overview</a><a href="lesson-02.html">Next draft</a></nav></article>
+<section class="teacher-notes" aria-label="Teacher-only notes"><details><summary>Teacher notes and source references</summary><p><a href="responses/v2/CH11_Lesson01_Nervous_Communication_v2.md">Open the complete original Markdown manuscript</a></p><hr>
+<h1 id="teacher-only-authoring-record">Teacher-only authoring record</h1>
+<h2 id="source-binding">Source binding</h2>
+<ul>
+<li>Branch: <code>codex/math-engine-preflight</code></li>
+<li>Revision: <code>ecc1b806630cb33b9942e64eb676a1f8568c007e</code></li>
+<li>Source-tree SHA-256: <code>0e89c19b8db652abffc5a8837e084b7e84eb30be888057c8ccdf2e2efe33ba52</code></li>
+<li>Canonical path/anchor: <code>projects/biology30-unit-a-pilot-3/workspace/index.html#lesson-01</code></li>
+<li>Current canonical fragment: lines 167–368; fragment SHA-256 <code>d6e23136fc8be7c720cfc63e4f18f51d774d8e77c8243ab6bb14884e62ea9d3c</code></li>
+<li>Printed textbook page = PDF page + 359.</li>
+</ul>
+<h2 id="source-outcome-map-by-teaching-chunk">Source/outcome map by teaching chunk</h2>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Lesson comparison table"><table>
+<thead>
+<tr>
+<th>Teaching chunk</th>
+<th>Source evidence</th>
+<th>Outcome relationship</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Homeostasis and nervous control</td>
+<td>Textbook printed p. 366 / PDF p. 7, Fig. 11.1; printed p. 367 / PDF p. 8; teacher slide 6; Alberta Program physical p. 51 / excerpt PDF p. 1</td>
+<td>General Outcome 1 foundation: nervous system controls physiological processes and contributes to homeostasis.</td>
+</tr>
+<tr>
+<td>Stimulus → input → integration → output → effector</td>
+<td>Textbook printed pp. 368–370 / PDF pp. 9–11, Table 11.1 and Fig. 11.7; teacher slides 15 and 17</td>
+<td>Foundation for 30–A1.3k; does not by itself complete reflex-arc outcome.</td>
+</tr>
+<tr>
+<td>Thermoregulation worked example</td>
+<td>Textbook printed p. 366 / PDF p. 7 provides temperature/homeostasis context; authoritative verification below supports peripheral/core temperature sensing and evaporative cooling</td>
+<td>Application of General Outcome 1. Not a new required outcome.</td>
+</tr>
+<tr>
+<td>CNS/PNS hierarchy and sensory/motor directions</td>
+<td>Textbook printed p. 367 / PDF p. 8, Fig. 11.3; Alberta Program physical p. 52 / excerpt PDF p. 2, 30–A1.2k</td>
+<td><strong>Foundation/partial coverage of 30–A1.2k only.</strong> Principal brain structures and detailed autonomic regulation are later lessons.</td>
+</tr>
+<tr>
+<td>Somatic/autonomic + sympathetic/parasympathetic orientation</td>
+<td>Textbook printed p. 367 / PDF p. 8, Fig. 11.3; Alberta Program physical p. 52 / excerpt PDF p. 2</td>
+<td><strong>Foundation/partial coverage of 30–A1.2k.</strong> Detailed organ effects intentionally deferred to lesson-08.</td>
+</tr>
+<tr>
+<td>Neuron, glia, nerve preview</td>
+<td>Textbook printed p. 368 / PDF p. 9, Figs. 11.4–11.5; teacher slide 7</td>
+<td>Foundation for 30–A1.1k and 30–A1.3k; not completion.</td>
+</tr>
+</tbody></table></div>
+<h2 id="authoritative-verification-used-outside-learner-copy">Authoritative verification used outside learner copy</h2>
+<p>Retrieved 2026-10-02.</p>
+<ol>
+<li><strong>Thermoregulation / central and peripheral sensing:</strong> OpenStax, <em>Introduction to Behavioral Neuroscience</em>, §16.3, “Neural Control of Core Body Temperature.” Surface temperature is sensed peripherally, while core body temperature is also sensed directly by neurons in the preoptic area of the hypothalamus.<br><a href="https://openstax.org/books/introduction-behavioral-neuroscience/pages/16-3-neural-control-of-core-body-temperature" rel="noopener">https://openstax.org/books/introduction-behavioral-neuroscience/pages/16-3-neural-control-of-core-body-temperature</a></li>
+<li><strong>Evaporative heat loss:</strong> StatPearls/NCBI Bookshelf, <em>Physiology, Temperature Regulation</em>. Evaporation is a recognized route of body heat loss and sweat evaporation removes heat.<br><a href="https://www.ncbi.nlm.nih.gov/books/NBK507838/" rel="noopener">https://www.ncbi.nlm.nih.gov/books/NBK507838/</a></li>
+<li><strong>Somatic does not always mean consciously chosen:</strong> OpenStax, <em>Anatomy and Physiology 2e</em>, §12.1 and §14.3. Somatic output controls skeletal muscle, and some somatic responses are reflexive or otherwise occur without conscious choice.<br><a href="https://openstax.org/books/anatomy-and-physiology-2e/pages/12-1-basic-structure-and-function-of-the-nervous-system" rel="noopener">https://openstax.org/books/anatomy-and-physiology-2e/pages/12-1-basic-structure-and-function-of-the-nervous-system</a><br><a href="https://openstax.org/books/anatomy-and-physiology-2e/pages/14-3-motor-responses" rel="noopener">https://openstax.org/books/anatomy-and-physiology-2e/pages/14-3-motor-responses</a></li>
+</ol>
+<h2 id="consequential-editorial-decisions">Consequential editorial decisions</h2>
+<ul>
+<li>Homeostasis is written as regulation within workable ranges, not perfect constancy. The teacher key's “constant internal environment” wording is treated as an older simplification, while its note about dynamic equilibrium is retained conceptually.</li>
+<li>The temperature example does not claim that all detection comes from skin/PNS receptors. Peripheral and central temperature sensing are both acknowledged without pulling later brain anatomy into the learner path.</li>
+<li>Not every nervous-system response is described as homeostatic.</li>
+<li>Somatic control is defined by skeletal-muscle effectors, not by a rule that every somatic response is consciously chosen.</li>
+<li>The lesson teaches the hierarchy required by <code>source-checkpoint-3</code> before the student encounters that check. Detailed sympathetic/parasympathetic organ effects remain deferred to lesson-08.</li>
+<li>A nerve is described as a bundle containing many axons/nerve fibres with supporting tissues, not a bundle of whole neuron drawings.</li>
+</ul>
+<h2 id="proposed-new-formative-items">Proposed new formative items</h2>
+<p>All items below are <strong>optional/ungraded</strong> and must not change required progress. Current draft assumes answer-in-notes/self-check only; no saved response field is proposed.</p>
+<h3 id="ch11-l01-guided-sensory-direction-v1"><code>ch11-l01-guided-sensory-direction-v1</code></h3>
+<ul>
+<li>Placement: after nervous-system hierarchy, before somatic/autonomic guided item.</li>
+<li>Learner prompt: “A pressure receptor in the skin of the foot is activated. Information travels through a peripheral nerve toward the spinal cord. Is this sensory/afferent or motor/efferent information? Is the spinal cord part of the CNS or PNS?”</li>
+<li>Hint: Classify by direction first; then classify the spinal cord anatomically.</li>
+<li>Model reasoning: sensory/afferent because information travels receptor → CNS; spinal cord = CNS; carrying nerve = PNS.</li>
+<li>Acceptable answer criteria: identifies sensory/afferent; identifies spinal cord as CNS; distinguishes peripheral nerve as PNS.</li>
+<li>Targeted feedback:<ul>
+<li>If “motor”: learner likely classified by eventual movement rather than current direction.</li>
+<li>If “PNS spinal cord”: learner has confused route with destination.</li>
+</ul>
+</li>
+<li>State owner: none; notes/self-check only.</li>
+</ul>
+<h3 id="ch11-l01-guided-somatic-classification-v1"><code>ch11-l01-guided-somatic-classification-v1</code></h3>
+<ul>
+<li>Placement: immediately after first guided item.</li>
+<li>Learner prompt: “A motor command leaves the CNS and causes a skeletal muscle to contract. Is this motor pathway somatic or autonomic? Does the word somatic prove that the movement was consciously chosen?”</li>
+<li>Hint: classify by effector.</li>
+<li>Model reasoning: somatic because skeletal muscle is the effector; not necessarily conscious because somatic reflexes exist.</li>
+<li>Acceptable answer criteria: somatic + skeletal muscle + explicit rejection of “somatic always means conscious.”</li>
+<li>Targeted feedback:<ul>
+<li>If “autonomic because involuntary”: correct the false equation autonomic = every nonconscious movement.</li>
+</ul>
+</li>
+<li>State owner: none; notes/self-check only.</li>
+</ul>
+<h3 id="ch11-l01-independent-control-interruption-v1"><code>ch11-l01-independent-control-interruption-v1</code></h3>
+<ul>
+<li>Placement: after neuron/glia/nerve preview, before optional support.</li>
+<li>Learner prompt: exact independent-transfer block in learner manuscript.</li>
+<li>Hint: none initially; model reveal only after attempt.</li>
+<li>Model reasoning: receptor, sensory route and CNS integration still occur; motor output fails to reach effector; therefore corrective response fails despite correct detection.</li>
+<li>Acceptable answer criteria:<ol>
+<li>preserves functioning receptor/sensory/CNS stages;</li>
+<li>locates failure in motor pathway/output;</li>
+<li>explains lack of effector response;</li>
+<li>links missing effector response to disrupted regulation.</li>
+</ol>
+</li>
+<li>Targeted feedback:<ul>
+<li>“Receptor failed” contradicts supplied condition.</li>
+<li>“CNS never detected it” ignores intact sensory path.</li>
+<li>“Homeostasis always stops entirely” is overbroad; only the supplied pathway is established as interrupted.</li>
+</ul>
+</li>
+<li>State owner: none; notes/self-check only.</li>
+</ul>
+<h2 id="v2-correction-record">v2 correction record</h2>
+<ul>
+<li>Moved the minimum neuron/axon/nerve distinction ahead of the systems hierarchy so the table no longer uses sensory/motor fibres before the scale distinction is taught.</li>
+<li>Strengthened the motor, somatic, autonomic, sympathetic and parasympathetic structure cells so they identify neural pathways and effectors rather than classification labels alone. Detailed organ-specific autonomic effects remain deferred to Lesson 08.</li>
+<li>Restored the learner key-terms strip to the current approved baseline; no new vocabulary binding is implied by bold explanatory terms.</li>
+<li>Updated both completion instructions to reflect native save semantics: an edited response must be saved again, and draft autosave is not submission.</li>
+</ul>
+<h2 id="existing-required-check-immutable">Existing required check — immutable</h2>
+<p>Activity: <code>practice-overview</code> · <code>data-activity-mode="writing"</code> · required check.</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Lesson comparison table"><table>
+<thead>
+<tr>
+<th>Question ID</th>
+<th>Exact prompt</th>
+<th>Written field</th>
+<th align="right">Limit</th>
+<th>Source reader target</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>source-checkpoint-1</code></td>
+<td><code>Define homeostasis.</code></td>
+<td><code>source-checkpoint-1-written</code></td>
+<td align="right">3200</td>
+<td>printed p. 367 / PDF p. 8</td>
+</tr>
+<tr>
+<td><code>source-checkpoint-2</code></td>
+<td><code>Explain why the nervous system is critical for maintaining homeostasis.</code></td>
+<td><code>source-checkpoint-2-written</code></td>
+<td align="right">3200</td>
+<td>printed p. 367 / PDF p. 8</td>
+</tr>
+<tr>
+<td><code>source-checkpoint-3</code></td>
+<td><code>Create a table to identify the different systems in the nervous system and explain the structure and function of each.</code></td>
+<td><code>source-checkpoint-3-written</code></td>
+<td align="right">3200</td>
+<td>printed p. 367 / PDF p. 8</td>
+</tr>
+</tbody></table></div>
+<p>Do not add automatic grading or authored-key exposure to these required written questions. If a learner edits a saved response, the current field must be saved again before <code>Submit and finish</code>; draft autosave alone does not satisfy the native saved-attempt requirement.</p>
+<h2 id="asset-media-notes">Asset / media notes</h2>
+<ul>
+<li>Existing video binding: <code>data-video="qPix_X-9t7E"</code>; current URL <code>https://www.youtube.com/watch?v=qPix_X-9t7E</code>. Playback/transcript <strong>UNVERIFIED</strong>; optional support only.</li>
+<li>Existing reader target: <code>#textbook-library</code>, printed p. 367 = PDF p. 8; additional existing p. 371 = PDF p. 12 reference remains available.</li>
+<li>Canonical live Chapter 11 vocabulary payload and routine visible vocabulary/Frayer markup are owned in <code>projects/biology30-unit-a-pilot-3/workspace/index.html</code>, including <code>&lt;script type="application/json" id="pilot3-words"&gt;</code>. <code>current-course/data/vocabulary-and-schema.json</code> is a frozen exported snapshot, not the live owner. Preserve current word IDs, routes, reader/Frayer connections and native helper ownership.</li>
+<li>Learner key-terms strip remains the current approved baseline: <code>stimulus · response · receptor · effector · neuron · homeostasis</code>. Richer terms in the explanation are taught in context; no new Frayer/word binding is proposed by this draft.</li>
+<li><strong>Proposed new hierarchy visual:</strong> NOT PRODUCED / NOT REVIEWED. Essential teaching is fully present as accessible text tree + table; release does not depend on a placeholder image. If later produced, it should visually stage CNS/PNS → sensory/motor → somatic/autonomic → sympathetic/parasympathetic and must not imply that somatic means always conscious.</li>
+</ul>
+</details></section></div></main></div></body></html>

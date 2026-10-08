@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "projectSlug": "biology30-unit-a-pilot-3",
+  "sourceRevision": "ecc1b806630cb33b9942e64eb676a1f8568c007e",
+  "sourceTreeSha256": "0e89c19b8db652abffc5a8837e084b7e84eb30be888057c8ccdf2e2efe33ba52",
+  "rawResponsesPreserved": true,
+  "teacherAccepted": false,
+  "currentReviewCandidate": "v2",
+  "versions": [
+    {
+      "id": "progression-v1",
+      "files": [{"path": "responses/CH11_First_Batch_Progression_v1.md", "bytes": 52184, "sha256": "4ad152a9ebeffb750a78baa71a54965fb34480bec98884b2bc9f4090794797dd"}],
+      "leadReview": "PROGRESSION_REVIEW.md"
+    },
+    {
+      "id": "manuscripts-v1",
+      "archive": {"path": "responses/CH11_First_Batch_Authoring_Draft_v1.zip", "bytes": 37129, "sha256": "059ace05a633f8388f7732cb76306c714d30fecce6c161b4742c7bba5ad42c66"},
+      "files": [
+        {"path": "responses/v1/CH11_Lesson01_Nervous_Communication_v1.md", "bytes": 27579, "sha256": "39aea5ebb771556eda4c8351c53d26485e044a1372674df33af75fc0ab5dbc9d"},
+        {"path": "responses/v1/CH11_Lesson02_Neurons_Myelin_v1.md", "bytes": 26215, "sha256": "8bdeb158cb1d5eda184dd30b6daeae9540a4919e8c16235d0bf0c1a7be90b6a6"},
+        {"path": "responses/v1/CH11_Lesson03_Pathways_Reflexes_v1.md", "bytes": 28372, "sha256": "7a9a7191648f01a7a4207d08fed275084367a85c876785c4cbd65bd15aa9703e"},
+        {"path": "responses/v1/CH11_First_Batch_Source_Assets_Integration_v1.md", "bytes": 22580, "sha256": "7e072328b06f9e23c0e65dcc5e69ecb6e19d72e7e91460cf358c3982d9c298cd"}
+      ],
+      "leadReview": "MANUSCRIPT_REVIEW_V1.md — revisions required"
+    },
+    {
+      "id": "manuscripts-v2",
+      "archive": {"path": "responses/CH11_First_Batch_Authoring_Draft_v2.zip", "bytes": 42111, "sha256": "0bc6740baff68af926ce12b7bd6431b17b628b9502c7b3159edf0c8f5600049c"},
+      "files": [
+        {"path": "responses/v2/CH11_Lesson01_Nervous_Communication_v2.md", "bytes": 30061, "sha256": "e01af0992d99da796d13f3213ae4b62389dad1968c395dd56ac4eadd3ba56837", "approximateLearnerWordCount": 2916},
+        {"path": "responses/v2/CH11_Lesson02_Neurons_Myelin_v2.md", "bytes": 31464, "sha256": "cb5825fd0cb7e38ab1d8ac673d91e55a8f407e56165fbe3982399406fc18b2b9", "approximateLearnerWordCount": 2980},
+        {"path": "responses/v2/CH11_Lesson03_Pathways_Reflexes_v2.md", "bytes": 30745, "sha256": "bf81c2a2f5278f67694b149fcc276d582686fdafa638360606a09a6812427e50", "approximateLearnerWordCount": 2662},
+        {"path": "responses/v2/CH11_First_Batch_Source_Assets_Integration_v2.md", "bytes": 28761, "sha256": "8a2b325728d310b2a60ffaa27a8e939e52f91711457d857065cf83ef9659a14f"}
+      ],
+      "leadReview": "MANUSCRIPT_REVIEW_V2.md — ready for Dean first-batch teaching review",
+      "contentIntegration": "not started"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "lesson": "lesson-11",
+  "owner_route_byte_start": 261804,
+  "route_sha256": "145cae1166da81544f8f9b638515d60114fae3ff7e902d18c00714161768b11f",
+  "teaching_replacements": [
+    {
+      "ordinal": 1,
+      "selector": "#lesson-11 > div.p2-topic > section[data-teaching]: teaching ordinal 1",
+      "owner_byte_start": 268055,
+      "owner_byte_end": 269106,
+      "before_sha256": "ba00bc00a4b143de55c73d953f84e06e411ac537711451d127db5ef92868137a",
+      "before_file": "lesson-11-teaching-01-before.html",
+      "outer_opening_tag": "<section class=\"content-section\" data-teaching=\"\">",
+      "outer_closing_tag": "</section>",
+      "proposed_after_sha256": "e471983a6841811ec6e8d03c8845cfa956778b960b69a7f083d9eceae8c82bd7",
+      "proposed_fragment_ordinal": 1,
+      "proposed_bytes": 6429
+    },
+    {
+      "ordinal": 2,
+      "selector": "#lesson-11 > div.p2-topic > section[data-teaching]: teaching ordinal 2",
+      "owner_byte_start": 269107,
+      "owner_byte_end": 270765,
+      "before_sha256": "3257527ad141ef689f314c55ba990e9af070134be9d0101ddd6ded73684b6b84",
+      "before_file": "lesson-11-teaching-02-before.html",
+      "outer_opening_tag": "<section class=\"content-section\" data-teaching=\"\">",
+      "outer_closing_tag": "</section>",
+      "proposed_after_sha256": "671d7f8638dd20bc8916e57567d305f99fdb869e639ff29c12ecffd90b99cbbe",
+      "proposed_fragment_ordinal": 2,
+      "proposed_bytes": 7394
+    }
+  ],
+  "protected_nonteaching_chunk_sha256": [
+    "855ae88678412ffbba2a2638beb3400d951f888bbbfc19ea699f9f44f1518363",
+    "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "71f32a863780518fe592b8539c9cb25c48f7e16170824a8b5f795b30b129bced"
+  ],
+  "preserved_teaching_figure_sha256": [
+    "5a4aa40412b5750ab39df2e733cc2c9a25bbdfaff16cb061bf04c9b69c6bb029"
+  ],
+  "fragment_sha256": "d3a972633839a817a26aa713298f7d4b81b8d6622bce4781faeacd061519515a",
+  "manuscript_sha256": "d94752980fcddda9032c9d8e7f458900327d00b8a847524b548cc44f7e147c36"
+}

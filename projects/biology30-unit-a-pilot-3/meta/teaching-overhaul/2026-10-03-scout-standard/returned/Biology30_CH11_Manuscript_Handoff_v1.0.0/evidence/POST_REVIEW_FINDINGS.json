@@ -1,0 +1,44 @@
+{
+  "stage": "same-author static content review after targeted revisions",
+  "independent_review": false,
+  "issues": [
+    {
+      "issue_id": "C27",
+      "severity": "MAJOR",
+      "title": "Action-potential onset wording versus polarity reversal",
+      "lessons": [
+        "lesson-05"
+      ],
+      "status": "Dean clarification needed; unchanged native key",
+      "native_records": [
+        "check-action-potentials-mc"
+      ],
+      "sources": [
+        {
+          "source": "textbook",
+          "printed_page": 376,
+          "pdf_page": 17,
+          "detail": "threshold passage"
+        },
+        {
+          "source": "textbook",
+          "printed_page": 377,
+          "pdf_page": 18,
+          "detail": "Figure11.15 crosses zero after threshold"
+        },
+        {
+          "source": "teacher-deck",
+          "slide": 24,
+          "detail": "threshold and later positive inside"
+        },
+        {
+          "source": "all-static-questions-and-bindings",
+          "record_id": "check-action-potentials-mc",
+          "correct": "QUES_51676_82712_A275484"
+        }
+      ],
+      "finding": "The unchanged prompt starts “When an action potential begins” but its keyed polarity describes the later positive-inside phase. The exemplar correctly distinguishes threshold onset from crossing zero. This is an imprecise timing cue, not permission to alter an old question or saved answer.",
+      "required_decision": "Clarify to Dean whether the intended reading is “during depolarization after the membrane passes zero”; any stem/key/feedback amendment must be separately versioned. No historical attempt is reinterpreted."
+    }
+  ]
+}

@@ -1,0 +1,554 @@
+{
+  "status": "source-grounded draft; teacher acceptance pending",
+  "authority_read": "Actual program printed52\u201353 and performance printed1\u20134; textbook extracted14\u201344 with relevant figure/PDF pixel inspection; original deck slideXML22\u201366; full current routes04\u201313; full current chapter review and decision summary; standards and Chapter17 process/review references. Primary verification records separately below.",
+  "lessons": [
+    {
+      "lesson": "lesson-04",
+      "source_pdf": "CH11/native/assets/textbook/chapter-11.pdf",
+      "printed_pages_inclusive": [
+        373,
+        375
+      ],
+      "physical_pdf_pages_inclusive": [
+        14,
+        16
+      ],
+      "teacher_original_deck": "CH11/sources/teacher-original.pptx",
+      "teacher_slide_range_inclusive": [
+        22,
+        23
+      ],
+      "outcomes": [
+        "30\u2013A1.1k",
+        "30\u2013A1.3s"
+      ],
+      "scope_document": "CH11/sources/cached-authority/program.pdf, printed52\u201353",
+      "performance_context": "CH11/sources/cached-authority/performance.pdf, printed1\u20134; illustrative not prescriptive",
+      "coverage": "Voltage reference, gradients/permeability and active maintenance; signed-voltage worked/guided interpretation and longer-term stopped-pump transfer.",
+      "new_content_blocks": [
+        {
+          "id": "ch11-scout-v1-l04-measure",
+          "heading": "A neuron can be ready without firing"
+        },
+        {
+          "id": "ch11-scout-v1-l04-gradients",
+          "heading": "What separates the charges?"
+        },
+        {
+          "id": "ch11-scout-v1-l04-maintain",
+          "heading": "Keeping the gradients available"
+        }
+      ],
+      "worked_reasoning": [
+        "A complete voltage comparison",
+        "One changed pathway, two time scales"
+      ],
+      "practice_ids": [
+        "ch11-scout-v1-l04-guided",
+        "ch11-scout-v1-l04-transfer"
+      ],
+      "visuals": [
+        "assets/source/chapter11-resting-potential-0.png"
+      ],
+      "limits": "Physical investigation performance, diagnosis/treatment, new source-assessment versions and runtime/LMS compatibility are not certified by this teaching."
+    },
+    {
+      "lesson": "lesson-05",
+      "source_pdf": "CH11/native/assets/textbook/chapter-11.pdf",
+      "printed_pages_inclusive": [
+        376,
+        380
+      ],
+      "physical_pdf_pages_inclusive": [
+        17,
+        21
+      ],
+      "teacher_original_deck": "CH11/sources/teacher-original.pptx",
+      "teacher_slide_range_inclusive": [
+        24,
+        30
+      ],
+      "outcomes": [
+        "30\u2013A1.1k",
+        "30\u2013A1.3s"
+      ],
+      "scope_document": "CH11/sources/cached-authority/program.pdf, printed52\u201353",
+      "performance_context": "CH11/sources/cached-authority/performance.pdf, printed1\u20134; illustrative not prescriptive",
+      "coverage": "Threshold and local voltage time-course; ion/channel interpretation, recovery/propagation/myelin and independent amplitude/frequency/recruitment quantities.",
+      "new_content_blocks": [
+        {
+          "id": "ch11-scout-v1-l05-threshold",
+          "heading": "A small change and a full firing event"
+        },
+        {
+          "id": "ch11-scout-v1-l05-graph",
+          "heading": "Read the voltage graph, then explain its shape"
+        },
+        {
+          "id": "ch11-scout-v1-l05-recovery",
+          "heading": "Why the membrane cannot immediately repeat the event"
+        },
+        {
+          "id": "ch11-scout-v1-l05-propagation",
+          "heading": "A wave is regenerated along the membrane"
+        },
+        {
+          "id": "ch11-scout-v1-l05-coding",
+          "heading": "How can stimulus strength be signalled if each spike is all-or-none?"
+        }
+      ],
+      "worked_reasoning": [
+        "Does trial B make the inside positive immediately?",
+        "One voltage can occur during two different phases",
+        "Why myelin loss can disrupt a signal",
+        "Choose the right denominator"
+      ],
+      "practice_ids": [
+        "ch11-scout-v1-l05-guided",
+        "ch11-scout-v1-l05-transfer"
+      ],
+      "visuals": [
+        "assets/source/chapter11-action-potentials-0.png",
+        "assets/source/chapter11-action-potentials-1.svg"
+      ],
+      "limits": "Physical investigation performance, diagnosis/treatment, new source-assessment versions and runtime/LMS compatibility are not certified by this teaching."
+    },
+    {
+      "lesson": "lesson-06",
+      "source_pdf": "CH11/native/assets/textbook/chapter-11.pdf",
+      "printed_pages_inclusive": [
+        379,
+        382
+      ],
+      "physical_pdf_pages_inclusive": [
+        20,
+        23
+      ],
+      "teacher_original_deck": "CH11/sources/teacher-original.pptx",
+      "teacher_slide_range_inclusive": [
+        31,
+        39
+      ],
+      "outcomes": [
+        "30\u2013A1.1k",
+        "30\u2013A1.3s"
+      ],
+      "scope_document": "CH11/sources/cached-authority/program.pdf, printed52\u201353",
+      "performance_context": "CH11/sources/cached-authority/performance.pdf, printed1\u20134; illustrative not prescriptive",
+      "coverage": "Chemical synapse sequence/clearance, receptor-dependent effects and timing/location summation with explicit model assumptions.",
+      "new_content_blocks": [
+        {
+          "id": "ch11-scout-v1-l06-junction",
+          "heading": "The arriving impulse is not yet a message in the next cell"
+        },
+        {
+          "id": "ch11-scout-v1-l06-sequence",
+          "heading": "Follow the causal handover"
+        },
+        {
+          "id": "ch11-scout-v1-l06-effects",
+          "heading": "A chemical input can help or oppose firing"
+        },
+        {
+          "id": "ch11-scout-v1-l06-sum",
+          "heading": "Combine inputs that still overlap"
+        },
+        {
+          "id": "ch11-scout-v1-l06-transmitters",
+          "heading": "Keep the messenger, receptor and cleanup roles separate"
+        }
+      ],
+      "worked_reasoning": [
+        "Which step failed?",
+        "A deliberately simplified summation model"
+      ],
+      "practice_ids": [
+        "ch11-scout-v1-l06-guided",
+        "ch11-scout-v1-l06-transfer"
+      ],
+      "visuals": [
+        "assets/source/chapter11-synapses-0.png",
+        "assets/source/chapter11-synapses-1.png",
+        "assets/source/chapter11-synapses-2.svg"
+      ],
+      "limits": "Physical investigation performance, diagnosis/treatment, new source-assessment versions and runtime/LMS compatibility are not certified by this teaching."
+    },
+    {
+      "lesson": "lesson-07",
+      "source_pdf": "CH11/native/assets/textbook/chapter-11.pdf",
+      "printed_pages_inclusive": [
+        383,
+        384
+      ],
+      "physical_pdf_pages_inclusive": [
+        24,
+        25
+      ],
+      "teacher_original_deck": "CH11/sources/teacher-original.pptx",
+      "teacher_slide_range_inclusive": [
+        40,
+        42
+      ],
+      "outcomes": [
+        "30\u2013A1.1k",
+        "30\u2013A1.2sts",
+        "30\u2013A1.3s"
+      ],
+      "scope_document": "CH11/sources/cached-authority/program.pdf, printed52\u201353",
+      "performance_context": "CH11/sources/cached-authority/performance.pdf, printed1\u20134; illustrative not prescriptive",
+      "coverage": "Normal-sequence intervention analysis, changed inhibitory target and clearance; inference from two supplied observations.",
+      "new_content_blocks": [
+        {
+          "id": "ch11-scout-v1-l07-locate",
+          "heading": "Change one link and trace its consequences"
+        },
+        {
+          "id": "ch11-scout-v1-l07-duration",
+          "heading": "Changing the ending changes how long an influence lasts"
+        },
+        {
+          "id": "ch11-scout-v1-l07-limits",
+          "heading": "Use a hypothesis at the right scale"
+        }
+      ],
+      "worked_reasoning": [
+        "A receptor blocker at an excitatory synapse",
+        "Move the same kind of blocker to an inhibitory synapse"
+      ],
+      "practice_ids": [
+        "ch11-scout-v1-l07-guided",
+        "ch11-scout-v1-l07-transfer"
+      ],
+      "visuals": [
+        "assets/source/chapter11-drugs-0.svg"
+      ],
+      "limits": "Physical investigation performance, diagnosis/treatment, new source-assessment versions and runtime/LMS compatibility are not certified by this teaching."
+    },
+    {
+      "lesson": "lesson-08",
+      "source_pdf": "CH11/native/assets/textbook/chapter-11.pdf",
+      "printed_pages_inclusive": [
+        396,
+        399
+      ],
+      "physical_pdf_pages_inclusive": [
+        37,
+        40
+      ],
+      "teacher_original_deck": "CH11/sources/teacher-original.pptx",
+      "teacher_slide_range_inclusive": [
+        43,
+        48
+      ],
+      "outcomes": [
+        "30\u2013A1.2k",
+        "30\u2013A1.3s"
+      ],
+      "scope_document": "CH11/sources/cached-authority/program.pdf, printed52\u201353",
+      "performance_context": "CH11/sources/cached-authority/performance.pdf, printed1\u20134; illustrative not prescriptive",
+      "coverage": "PNS direction/target classification; somatic-reflex qualification; organ-specific autonomic responses, neurotransmitter/hormone distinction and physiological-evidence limits.",
+      "new_content_blocks": [
+        {
+          "id": "ch11-scout-v1-l08-route",
+          "heading": "One situation, different output pathways"
+        },
+        {
+          "id": "ch11-scout-v1-l08-target",
+          "heading": "Classify the target before using voluntary or involuntary"
+        },
+        {
+          "id": "ch11-scout-v1-l08-organs",
+          "heading": "Autonomic balance is organ-specific"
+        },
+        {
+          "id": "ch11-scout-v1-l08-evidence",
+          "heading": "A body response does not uniquely identify its cause"
+        }
+      ],
+      "worked_reasoning": [
+        "Classify the staircase response"
+      ],
+      "practice_ids": [
+        "ch11-scout-v1-l08-guided",
+        "ch11-scout-v1-l08-transfer"
+      ],
+      "visuals": [
+        "assets/source/chapter11-pns-0.svg",
+        "assets/source/chapter11-pns-1.svg",
+        "assets/source/chapter11-pns-2.png"
+      ],
+      "limits": "Physical investigation performance, diagnosis/treatment, new source-assessment versions and runtime/LMS compatibility are not certified by this teaching."
+    },
+    {
+      "lesson": "lesson-09",
+      "source_pdf": "CH11/native/assets/textbook/chapter-11.pdf",
+      "printed_pages_inclusive": [
+        385,
+        389
+      ],
+      "physical_pdf_pages_inclusive": [
+        26,
+        30
+      ],
+      "teacher_original_deck": "CH11/sources/teacher-original.pptx",
+      "teacher_slide_range_inclusive": [
+        50,
+        54
+      ],
+      "outcomes": [
+        "30\u2013A1.2k",
+        "30\u2013A1.3k",
+        "30\u2013A1.3s"
+      ],
+      "scope_document": "CH11/sources/cached-authority/program.pdf, printed52\u201353",
+      "performance_context": "CH11/sources/cached-authority/performance.pdf, printed1\u20134; illustrative not prescriptive",
+      "coverage": "Grey/white composition/position, local versus long-distance cord paths, physical surroundings versus selective capillary exchange.",
+      "new_content_blocks": [
+        {
+          "id": "ch11-scout-v1-l09-tissue",
+          "heading": "The same tissue types, different arrangements"
+        },
+        {
+          "id": "ch11-scout-v1-l09-pathway",
+          "heading": "Communication through the cord and processing within it"
+        },
+        {
+          "id": "ch11-scout-v1-l09-protection",
+          "heading": "Separate the tissue from its protective structures"
+        },
+        {
+          "id": "ch11-scout-v1-l09-barrier",
+          "heading": "A capillary barrier solves a different problem"
+        }
+      ],
+      "worked_reasoning": [
+        "Predict only what the interrupted route requires",
+        "Match an observation with the kind of protection"
+      ],
+      "practice_ids": [
+        "ch11-scout-v1-l09-guided",
+        "ch11-scout-v1-l09-transfer"
+      ],
+      "visuals": [
+        "assets/source/chapter11-cns-0.svg",
+        "assets/source/chapter11-cns-1.svg"
+      ],
+      "limits": "Physical investigation performance, diagnosis/treatment, new source-assessment versions and runtime/LMS compatibility are not certified by this teaching."
+    },
+    {
+      "lesson": "lesson-10",
+      "source_pdf": "CH11/native/assets/textbook/chapter-11.pdf",
+      "printed_pages_inclusive": [
+        387,
+        392
+      ],
+      "physical_pdf_pages_inclusive": [
+        28,
+        33
+      ],
+      "teacher_original_deck": "CH11/sources/teacher-original.pptx",
+      "teacher_slide_range_inclusive": [
+        55,
+        61
+      ],
+      "outcomes": [
+        "30\u2013A1.2k",
+        "30\u2013A1.3s"
+      ],
+      "scope_document": "CH11/sources/cached-authority/program.pdf, printed52\u201353",
+      "performance_context": "CH11/sources/cached-authority/performance.pdf, printed1\u20134; illustrative not prescriptive",
+      "coverage": "Viewpoint, major brain structure/function, cooperative movement, cortical maps, language, callosal communication and motor crossing.",
+      "new_content_blocks": [
+        {
+          "id": "ch11-scout-v1-l10-orient",
+          "heading": "Find your viewpoint before finding a structure"
+        },
+        {
+          "id": "ch11-scout-v1-l10-cooperate",
+          "heading": "Structures contribute different kinds of control"
+        },
+        {
+          "id": "ch11-scout-v1-l10-lobes",
+          "heading": "The cerebral surface is a folded processing layer"
+        },
+        {
+          "id": "ch11-scout-v1-l10-maps",
+          "heading": "A large hand on a cortex map is not a large physical hand"
+        },
+        {
+          "id": "ch11-scout-v1-l10-hemispheres",
+          "heading": "Communication between sides and crossing toward the body"
+        },
+        {
+          "id": "ch11-scout-v1-l10-close",
+          "heading": "Use a structure name to support an explanation"
+        }
+      ],
+      "worked_reasoning": [
+        "Explain a coordinated cup movement",
+        "Apply a stated motor-pathway model"
+      ],
+      "practice_ids": [
+        "ch11-scout-v1-l10-guided",
+        "ch11-scout-v1-l10-transfer"
+      ],
+      "visuals": [
+        "assets/source/chapter11-brain-0.png",
+        "assets/source/chapter11-brain-1.png",
+        "assets/source/chapter11-brain-2.svg"
+      ],
+      "limits": "Physical investigation performance, diagnosis/treatment, new source-assessment versions and runtime/LMS compatibility are not certified by this teaching."
+    },
+    {
+      "lesson": "lesson-11",
+      "source_pdf": "CH11/native/assets/textbook/chapter-11.pdf",
+      "printed_pages_inclusive": [
+        392,
+        395
+      ],
+      "physical_pdf_pages_inclusive": [
+        33,
+        36
+      ],
+      "teacher_original_deck": "CH11/sources/teacher-original.pptx",
+      "teacher_slide_range_inclusive": [
+        54,
+        61
+      ],
+      "outcomes": [
+        "30\u2013A1.1sts",
+        "30\u2013A1.2sts",
+        "30\u2013A1.3s"
+      ],
+      "scope_document": "CH11/sources/cached-authority/program.pdf, printed52\u201353",
+      "performance_context": "CH11/sources/cached-authority/performance.pdf, printed1\u20134; illustrative not prescriptive",
+      "coverage": "Match method to measured variable; actual sourcePET image and hypothetical changed-control dataset; historical injury/stimulation inference limits.",
+      "new_content_blocks": [
+        {
+          "id": "ch11-scout-v1-l11-question",
+          "heading": "Choose a method that can answer the question"
+        },
+        {
+          "id": "ch11-scout-v1-l11-pixels",
+          "heading": "Read an actual image with its caption"
+        }
+      ],
+      "worked_reasoning": [
+        "Observation, inference and limit",
+        "Compare Hearing with Seeing without reading a mind"
+      ],
+      "practice_ids": [
+        "ch11-scout-v1-l11-guided",
+        "ch11-scout-v1-l11-transfer"
+      ],
+      "visuals": [
+        "assets/source/chapter11-brain-investigation-0.svg",
+        "assets/source/ch11-textbook-p394-figure11-32-caption.png"
+      ],
+      "limits": "Physical investigation performance, diagnosis/treatment, new source-assessment versions and runtime/LMS compatibility are not certified by this teaching."
+    },
+    {
+      "lesson": "lesson-12",
+      "source_pdf": "CH11/native/assets/textbook/chapter-11.pdf",
+      "printed_pages_inclusive": [
+        401,
+        403
+      ],
+      "physical_pdf_pages_inclusive": [
+        42,
+        44
+      ],
+      "teacher_original_deck": "CH11/sources/teacher-original.pptx",
+      "teacher_slide_range_inclusive": [
+        66,
+        66
+      ],
+      "outcomes": [
+        "30\u2013A1.1k",
+        "30\u2013A1.2k",
+        "30\u2013A1.3k",
+        "30\u2013A1.3s"
+      ],
+      "scope_document": "CH11/sources/cached-authority/program.pdf, printed52\u201353",
+      "performance_context": "CH11/sources/cached-authority/performance.pdf, printed1\u20134; illustrative not prescriptive",
+      "coverage": "Cross-scale synthesis, failed handover, external stimulus versus membrane threshold, recruitment and model bounds; corpuscallosum spread bridge also textbook389/PDF30.",
+      "new_content_blocks": [
+        {
+          "id": "ch11-scout-v1-l12-scales",
+          "heading": "Build one explanation across three scales"
+        },
+        {
+          "id": "ch11-scout-v1-l12-data",
+          "heading": "Keep stimulus setting, membrane threshold and muscle output distinct"
+        },
+        {
+          "id": "ch11-scout-v1-l12-connections",
+          "heading": "Use the right connection in the final check"
+        },
+        {
+          "id": "ch11-scout-v1-l12-source-models",
+          "heading": "Keep the limits of review models visible"
+        },
+        {
+          "id": "ch11-scout-v1-l12-finish",
+          "heading": "Check an explanation before you call it complete"
+        }
+      ],
+      "worked_reasoning": [
+        "Explain a withdrawal without skipping the membrane or synapse"
+      ],
+      "practice_ids": [
+        "ch11-scout-v1-l12-guided",
+        "ch11-scout-v1-l12-transfer"
+      ],
+      "visuals": [
+        "assets/source/chapter11-chapter-review-section-0.png"
+      ],
+      "limits": "Physical investigation performance, diagnosis/treatment, new source-assessment versions and runtime/LMS compatibility are not certified by this teaching."
+    },
+    {
+      "lesson": "lesson-13",
+      "source_pdf": "CH11/native/assets/textbook/chapter-11.pdf",
+      "printed_pages_inclusive": [
+        383,
+        384
+      ],
+      "physical_pdf_pages_inclusive": [
+        24,
+        25
+      ],
+      "teacher_original_deck": "CH11/sources/teacher-original.pptx",
+      "teacher_slide_range_inclusive": [
+        49,
+        65
+      ],
+      "outcomes": [
+        "30\u2013A1.2sts",
+        "30\u2013A1.3s"
+      ],
+      "scope_document": "CH11/sources/cached-authority/program.pdf, printed52\u201353",
+      "performance_context": "CH11/sources/cached-authority/performance.pdf, printed1\u20134; illustrative not prescriptive",
+      "coverage": "Optional bounded stress/experience/addiction evidence interpretation; hypothetical dataset, no personal disclosure or diagnosis.",
+      "new_content_blocks": [
+        {
+          "id": "ch11-scout-v1-l13-stress",
+          "heading": "An optional evidence task, without personal disclosure"
+        },
+        {
+          "id": "ch11-scout-v1-l13-experience",
+          "heading": "Experience and development: compare explanations"
+        },
+        {
+          "id": "ch11-scout-v1-l13-addiction",
+          "heading": "A synaptic mechanism is one part of a larger explanation"
+        }
+      ],
+      "worked_reasoning": [],
+      "practice_ids": [
+        "ch11-scout-v1-l13-evidence"
+      ],
+      "visuals": [],
+      "limits": "Physical investigation performance, diagnosis/treatment, new source-assessment versions and runtime/LMS compatibility are not certified by this teaching."
+    }
+  ]
+}

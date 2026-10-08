@@ -1,0 +1,514 @@
+{
+  "schemaVersion": 1,
+  "preparedAt": "2026-10-03T13:39:44.877Z",
+  "scope": "Chapter 11 baseline authoring only; no learner saves or release files",
+  "route": {
+    "assembly": "Deterministic hash-bound ZIP assembly",
+    "delivery": "Sol lead ordinary browser to Scout",
+    "contentAuthoring": "Scout to coordinate regular ChatGPT Pro as authorized; not yet initiated",
+    "usageSavings": "unmeasured"
+  },
+  "archiveEntryCount": 65,
+  "sourceFiles": [
+    {
+      "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-unit-a-pilot-3/meta/teaching-overhaul/2026-10-03-scout-standard/CHAPTER11_TEACHING_STANDARD.md",
+      "archiveEntry": "CHAPTER11_TEACHING_STANDARD.md",
+      "bytes": 11846,
+      "sha256": "cf7d4942a44944defd587813dcf68fc53e29773d189834c8e304bced4f530d80"
+    },
+    {
+      "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-unit-a-pilot-3/meta/teaching-overhaul/2026-10-03-scout-standard/SCOUT_CHAPTER_PASS_PROCESS.md",
+      "archiveEntry": "SCOUT_CHAPTER_PASS_PROCESS.md",
+      "bytes": 14790,
+      "sha256": "3c6c69e91e87a79b3fa1d33f3c369b3cb651d475ae96d3c08cd2576a48f90bac"
+    },
+    {
+      "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-unit-a-pilot-3/meta/teaching-overhaul/2026-10-03-scout-standard/SCOUT_NEXT_PROMPT.md",
+      "archiveEntry": "SCOUT_NEXT_PROMPT.md",
+      "bytes": 8779,
+      "sha256": "49c9ced6a011c5d50048cd11ad0bf275f65efb8ecb6658405ce96c1c5865337c"
+    },
+    {
+      "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-unit-a-pilot-3/meta/teaching-overhaul/2026-10-03-scout-standard/BASELINE_RECORD.json",
+      "archiveEntry": "BASELINE_RECORD.json",
+      "bytes": 4154,
+      "sha256": "efc4751d5e6d96a94c95f8980f9b96320493185ccdf625d697d6c39cc57da27d"
+    },
+    {
+      "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-unit-a-pilot-3/meta/teaching-overhaul/2026-10-03-scout-standard/README_SOURCE_HANDOFF.txt",
+      "archiveEntry": "README_SOURCE_HANDOFF.txt",
+      "bytes": 1924,
+      "sha256": "8248d7d6184719678e9be0d3b3fe27cc1edd16c985399d7c076a5f05663316e0"
+    },
+    {
+      "path": "PRESERVATION_CONTRACT.md",
+      "bytes": 8246,
+      "sha256": "1e331d7124dc048d17d61bec49de6d96436b805f37869bfb77b03c47420f89f0",
+      "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-unit-a-pilot-3/meta/teaching-overhaul/2026-10-02-source-handoff/PRESERVATION_CONTRACT.md",
+      "archiveEntry": "PRESERVATION_CONTRACT.md"
+    },
+    {
+      "path": "REVISION_BINDING.json",
+      "bytes": 616,
+      "sha256": "76ef6076cc9269f69f65a1ed0dd4939f4c24393608db532de42f77c2c91d22c3",
+      "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-unit-a-pilot-3/meta/teaching-overhaul/2026-10-02-source-handoff/REVISION_BINDING.json",
+      "archiveEntry": "REVISION_BINDING.json"
+    },
+    {
+      "path": "chapter11-lessons/lesson-source-index.json",
+      "bytes": 299707,
+      "sha256": "369cfa999423721b03c94ffd6cd2cd8c64798972aac88620154ab2a48b688164",
+      "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-unit-a-pilot-3/meta/teaching-overhaul/2026-10-02-source-handoff/chapter11-lessons/lesson-source-index.json",
+      "archiveEntry": "chapter11-lessons/lesson-source-index.json"
+    },
+    {
+      "path": "current-course/workspace/index.html",
+      "bytes": 1138265,
+      "sha256": "9fcd8203b41f4220e53716e473c02a0835f356420b363ea0092e544a8e7bb210",
+      "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-unit-a-pilot-3/meta/teaching-overhaul/2026-10-02-source-handoff/current-course/workspace/index.html",
+      "archiveEntry": "current-course/workspace/index.html"
+    },
+    {
+      "path": "current-course/workspace/styles.css",
+      "bytes": 73361,
+      "sha256": "a45318415c43b025748aceb5a6d220de38c76f683ac027de84a7f689964bca55",
+      "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-unit-a-pilot-3/meta/teaching-overhaul/2026-10-02-source-handoff/current-course/workspace/styles.css",
+      "archiveEntry": "current-course/workspace/styles.css"
+    },
+    {
+      "path": "sources/source-register.json",
+      "bytes": 24609,
+      "sha256": "7bc8d5836d190b181fed37dbaf879439d24e88b4f2462ee61a0afd51de5acd01",
+      "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-unit-a-pilot-3/meta/teaching-overhaul/2026-10-02-source-handoff/sources/source-register.json",
+      "archiveEntry": "sources/source-register.json"
+    },
+    {
+      "path": "sources/textbook-page-map.json",
+      "bytes": 2503,
+      "sha256": "3e79a9fcf328a9b8be4b5eec22aeee672b8c21f5b88d57b096413079d2fbc943",
+      "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-unit-a-pilot-3/meta/teaching-overhaul/2026-10-02-source-handoff/sources/textbook-page-map.json",
+      "archiveEntry": "sources/textbook-page-map.json"
+    },
+    {
+      "path": "sources/extraction-gaps.json",
+      "bytes": 7139,
+      "sha256": "1ef6260b641a5a2729c8dec9c0ddfcd2bb64b43bf20b2b63b83215257e1b4ee3",
+      "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-unit-a-pilot-3/meta/teaching-overhaul/2026-10-02-source-handoff/sources/extraction-gaps.json",
+      "archiveEntry": "sources/extraction-gaps.json"
+    },
+    {
+      "path": "supplied-standard/02_TEACHING_STANDARD.md",
+      "bytes": 11744,
+      "sha256": "aa273698aa48c983081ca9bb724dec66959ce86ea4f33049f12330715fbf89e2",
+      "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-unit-a-pilot-3/meta/teaching-overhaul/2026-10-02-source-handoff/supplied-standard/02_TEACHING_STANDARD.md",
+      "archiveEntry": "supplied-standard/02_TEACHING_STANDARD.md"
+    },
+    {
+      "path": "supplied-standard/03_CHATGPT_AUTHOR_CHAPTER.md",
+      "bytes": 4624,
+      "sha256": "cffde6755b4994f1a21021af72c300690a719506d0f71780067416606a04dcbb",
+      "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-unit-a-pilot-3/meta/teaching-overhaul/2026-10-02-source-handoff/supplied-standard/03_CHATGPT_AUTHOR_CHAPTER.md",
+      "archiveEntry": "supplied-standard/03_CHATGPT_AUTHOR_CHAPTER.md"
+    },
+    {
+      "path": "supplied-standard/04_CODEX_IMPLEMENT_APPROVED_BATCH.md",
+      "bytes": 3934,
+      "sha256": "9a747d5a56ba814a056ca6066a0c9833076d82d2b13305b8a4a96ad8489a9bd0",
+      "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-unit-a-pilot-3/meta/teaching-overhaul/2026-10-02-source-handoff/supplied-standard/04_CODEX_IMPLEMENT_APPROVED_BATCH.md",
+      "archiveEntry": "supplied-standard/04_CODEX_IMPLEMENT_APPROVED_BATCH.md"
+    },
+    {
+      "path": "supplied-standard/05_REVIEW_AND_ACCEPT.md",
+      "bytes": 3475,
+      "sha256": "347da035a32672793970dbd73d006b78c9f0ddc288255dee536df009d01a52c4",
+      "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-unit-a-pilot-3/meta/teaching-overhaul/2026-10-02-source-handoff/supplied-standard/05_REVIEW_AND_ACCEPT.md",
+      "archiveEntry": "supplied-standard/05_REVIEW_AND_ACCEPT.md"
+    },
+    {
+      "path": "current-course/data/all-generated-question-families-with-keys.json",
+      "bytes": 897905,
+      "sha256": "c1a247fa319cce9ffc4610607796d807d2bebc8302418f0f87fc1176d56a4be3",
+      "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-unit-a-pilot-3/meta/teaching-overhaul/2026-10-02-source-handoff/current-course/data/all-generated-question-families-with-keys.json",
+      "archiveEntry": "current-course/data/all-generated-question-families-with-keys.json"
+    },
+    {
+      "path": "current-course/data/all-static-questions-and-bindings.json",
+      "bytes": 536327,
+      "sha256": "2cbcde00c6807334cb75fa0976592bbfa36db1ce98915bca770f8c35bd95c845",
+      "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-unit-a-pilot-3/meta/teaching-overhaul/2026-10-02-source-handoff/current-course/data/all-static-questions-and-bindings.json",
+      "archiveEntry": "current-course/data/all-static-questions-and-bindings.json"
+    },
+    {
+      "path": "current-course/data/authored-practice-concepts-and-keys.json",
+      "bytes": 140463,
+      "sha256": "7ead62e90fe6a124dce54dfc4d2e41695a0aba5b1ec093719766d3f0caa1ae21",
+      "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-unit-a-pilot-3/meta/teaching-overhaul/2026-10-02-source-handoff/current-course/data/authored-practice-concepts-and-keys.json",
+      "archiveEntry": "current-course/data/authored-practice-concepts-and-keys.json"
+    },
+    {
+      "path": "current-course/data/catalog-and-original-keys.json",
+      "bytes": 3730,
+      "sha256": "afadc717176a04c80bcbdfd2ecd1b73c385e2b1f908b719b071c822ac1dc8698",
+      "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-unit-a-pilot-3/meta/teaching-overhaul/2026-10-02-source-handoff/current-course/data/catalog-and-original-keys.json",
+      "archiveEntry": "current-course/data/catalog-and-original-keys.json"
+    },
+    {
+      "path": "current-course/data/feedback-policy.json",
+      "bytes": 1167,
+      "sha256": "553a9dcb2ab9fe19cd1c3301cf67d8eeab70acba1026adc3ee519c5dde1e8ffc",
+      "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-unit-a-pilot-3/meta/teaching-overhaul/2026-10-02-source-handoff/current-course/data/feedback-policy.json",
+      "archiveEntry": "current-course/data/feedback-policy.json"
+    },
+    {
+      "path": "current-course/data/textbook-crop-provenance.json",
+      "bytes": 86355,
+      "sha256": "e7494d8e5af5b7839d4b37c65d30122a4161a92ed2d8899c1ae215090722039f",
+      "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-unit-a-pilot-3/meta/teaching-overhaul/2026-10-02-source-handoff/current-course/data/textbook-crop-provenance.json",
+      "archiveEntry": "current-course/data/textbook-crop-provenance.json"
+    },
+    {
+      "path": "current-course/data/textbook-practice-manifest.json",
+      "bytes": 86355,
+      "sha256": "e7494d8e5af5b7839d4b37c65d30122a4161a92ed2d8899c1ae215090722039f",
+      "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-unit-a-pilot-3/meta/teaching-overhaul/2026-10-02-source-handoff/current-course/data/textbook-practice-manifest.json",
+      "archiveEntry": "current-course/data/textbook-practice-manifest.json"
+    },
+    {
+      "path": "current-course/data/vocabulary-and-schema.json",
+      "bytes": 187080,
+      "sha256": "efbc5f0ede6c9c9c58f4c369d037873ecc273bb456edd5381319c03bc3e776ad",
+      "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-unit-a-pilot-3/meta/teaching-overhaul/2026-10-02-source-handoff/current-course/data/vocabulary-and-schema.json",
+      "archiveEntry": "current-course/data/vocabulary-and-schema.json"
+    },
+    {
+      "path": "chapter11-lessons/lesson-01/current-complete.md",
+      "bytes": 7603,
+      "sha256": "5df143a16466ff748fd24790faa5ac2c15349b308cf0b234c87c97b8a3d2f88a",
+      "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-unit-a-pilot-3/meta/teaching-overhaul/2026-10-02-source-handoff/chapter11-lessons/lesson-01/current-complete.md",
+      "archiveEntry": "chapter11-lessons/lesson-01/current-complete.md"
+    },
+    {
+      "path": "chapter11-lessons/lesson-01/current-exact.html",
+      "bytes": 21377,
+      "sha256": "d6e23136fc8be7c720cfc63e4f18f51d774d8e77c8243ab6bb14884e62ea9d3c",
+      "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-unit-a-pilot-3/meta/teaching-overhaul/2026-10-02-source-handoff/chapter11-lessons/lesson-01/current-exact.html",
+      "archiveEntry": "chapter11-lessons/lesson-01/current-exact.html"
+    },
+    {
+      "path": "chapter11-lessons/lesson-01/source-packet.json",
+      "bytes": 109868,
+      "sha256": "0c6a6dd10166df9b33767746682c52162f170bf02ff8ba45f28e95206d305465",
+      "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-unit-a-pilot-3/meta/teaching-overhaul/2026-10-02-source-handoff/chapter11-lessons/lesson-01/source-packet.json",
+      "archiveEntry": "chapter11-lessons/lesson-01/source-packet.json"
+    },
+    {
+      "path": "chapter11-lessons/lesson-02/current-complete.md",
+      "bytes": 7385,
+      "sha256": "f668b18d83cc371de3077158364cd7dcebac020c9cf916c2711fbb0afeacfa63",
+      "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-unit-a-pilot-3/meta/teaching-overhaul/2026-10-02-source-handoff/chapter11-lessons/lesson-02/current-complete.md",
+      "archiveEntry": "chapter11-lessons/lesson-02/current-complete.md"
+    },
+    {
+      "path": "chapter11-lessons/lesson-02/current-exact.html",
+      "bytes": 18196,
+      "sha256": "0ea84201a6ae183b7a3bb4ecdceb98c24b3703b5ad5999525a0d5d082bb57643",
+      "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-unit-a-pilot-3/meta/teaching-overhaul/2026-10-02-source-handoff/chapter11-lessons/lesson-02/current-exact.html",
+      "archiveEntry": "chapter11-lessons/lesson-02/current-exact.html"
+    },
+    {
+      "path": "chapter11-lessons/lesson-02/source-packet.json",
+      "bytes": 105837,
+      "sha256": "cc6626a34d32a4a507a32c79d530b8b3a9f32f106e62b2a029cd90e461799658",
+      "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-unit-a-pilot-3/meta/teaching-overhaul/2026-10-02-source-handoff/chapter11-lessons/lesson-02/source-packet.json",
+      "archiveEntry": "chapter11-lessons/lesson-02/source-packet.json"
+    },
+    {
+      "path": "chapter11-lessons/lesson-03/current-complete.md",
+      "bytes": 7229,
+      "sha256": "4a1f06f587dfe026813cb5f2d71c6127882bc65e4d5fabf75216dcccb151708a",
+      "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-unit-a-pilot-3/meta/teaching-overhaul/2026-10-02-source-handoff/chapter11-lessons/lesson-03/current-complete.md",
+      "archiveEntry": "chapter11-lessons/lesson-03/current-complete.md"
+    },
+    {
+      "path": "chapter11-lessons/lesson-03/current-exact.html",
+      "bytes": 20391,
+      "sha256": "ec297bb0523c652595051ea9bbf79f5f50eacc1ae46f1549c94f424249b7ccd9",
+      "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-unit-a-pilot-3/meta/teaching-overhaul/2026-10-02-source-handoff/chapter11-lessons/lesson-03/current-exact.html",
+      "archiveEntry": "chapter11-lessons/lesson-03/current-exact.html"
+    },
+    {
+      "path": "chapter11-lessons/lesson-03/source-packet.json",
+      "bytes": 104460,
+      "sha256": "3b885d23c017190bc1afd1b588000cfbf2eea84d73c70dcf5ea5071ee02de1a7",
+      "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-unit-a-pilot-3/meta/teaching-overhaul/2026-10-02-source-handoff/chapter11-lessons/lesson-03/source-packet.json",
+      "archiveEntry": "chapter11-lessons/lesson-03/source-packet.json"
+    },
+    {
+      "path": "chapter11-lessons/lesson-04/current-complete.md",
+      "bytes": 7678,
+      "sha256": "6b8666939976d37af48e0f77d28afabd08c3feccf50cfdce9eea55323cd57d51",
+      "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-unit-a-pilot-3/meta/teaching-overhaul/2026-10-02-source-handoff/chapter11-lessons/lesson-04/current-complete.md",
+      "archiveEntry": "chapter11-lessons/lesson-04/current-complete.md"
+    },
+    {
+      "path": "chapter11-lessons/lesson-04/current-exact.html",
+      "bytes": 18829,
+      "sha256": "a8196c2781da242222692339d6a535f3ed9c8607dc1e5222f92ba0b70ec7e819",
+      "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-unit-a-pilot-3/meta/teaching-overhaul/2026-10-02-source-handoff/chapter11-lessons/lesson-04/current-exact.html",
+      "archiveEntry": "chapter11-lessons/lesson-04/current-exact.html"
+    },
+    {
+      "path": "chapter11-lessons/lesson-04/source-packet.json",
+      "bytes": 109673,
+      "sha256": "3bcac5c47321d0f3926c5d603085bc26894e1be3dfeef6b74c9e54fa08057060",
+      "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-unit-a-pilot-3/meta/teaching-overhaul/2026-10-02-source-handoff/chapter11-lessons/lesson-04/source-packet.json",
+      "archiveEntry": "chapter11-lessons/lesson-04/source-packet.json"
+    },
+    {
+      "path": "chapter11-lessons/lesson-05/current-complete.md",
+      "bytes": 10650,
+      "sha256": "14e06e3ea9ff8642400808cc4c9e6f2c3213c6056339d3f2b2495df3a764a148",
+      "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-unit-a-pilot-3/meta/teaching-overhaul/2026-10-02-source-handoff/chapter11-lessons/lesson-05/current-complete.md",
+      "archiveEntry": "chapter11-lessons/lesson-05/current-complete.md"
+    },
+    {
+      "path": "chapter11-lessons/lesson-05/current-exact.html",
+      "bytes": 28001,
+      "sha256": "d5fd660e21835cf124dbdb888b190f2c81dacb3a36349ffd3b28509417d8dff5",
+      "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-unit-a-pilot-3/meta/teaching-overhaul/2026-10-02-source-handoff/chapter11-lessons/lesson-05/current-exact.html",
+      "archiveEntry": "chapter11-lessons/lesson-05/current-exact.html"
+    },
+    {
+      "path": "chapter11-lessons/lesson-05/source-packet.json",
+      "bytes": 130017,
+      "sha256": "05c62cc3d71539c782e0f3307f5e2c62becc9da25c190403de5cf3116d0f63b9",
+      "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-unit-a-pilot-3/meta/teaching-overhaul/2026-10-02-source-handoff/chapter11-lessons/lesson-05/source-packet.json",
+      "archiveEntry": "chapter11-lessons/lesson-05/source-packet.json"
+    },
+    {
+      "path": "chapter11-lessons/lesson-06/current-complete.md",
+      "bytes": 12270,
+      "sha256": "197dce0eb3feeb43e9b36f02f419a35927a2d6869e1e73ca8db8dd87431b45f1",
+      "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-unit-a-pilot-3/meta/teaching-overhaul/2026-10-02-source-handoff/chapter11-lessons/lesson-06/current-complete.md",
+      "archiveEntry": "chapter11-lessons/lesson-06/current-complete.md"
+    },
+    {
+      "path": "chapter11-lessons/lesson-06/current-exact.html",
+      "bytes": 32960,
+      "sha256": "fcbc37f759643ecc352465cc318d063fd23861ff3c058c68231d87ce240304c1",
+      "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-unit-a-pilot-3/meta/teaching-overhaul/2026-10-02-source-handoff/chapter11-lessons/lesson-06/current-exact.html",
+      "archiveEntry": "chapter11-lessons/lesson-06/current-exact.html"
+    },
+    {
+      "path": "chapter11-lessons/lesson-06/source-packet.json",
+      "bytes": 130460,
+      "sha256": "4fcbfa8218c37b2a3ee451ddef51a1bc87768c6f8c163fb2a308ab467cb9528a",
+      "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-unit-a-pilot-3/meta/teaching-overhaul/2026-10-02-source-handoff/chapter11-lessons/lesson-06/source-packet.json",
+      "archiveEntry": "chapter11-lessons/lesson-06/source-packet.json"
+    },
+    {
+      "path": "chapter11-lessons/lesson-07/current-complete.md",
+      "bytes": 10363,
+      "sha256": "f448a0faeac321cbe49469a98ef95d20a655659d5eab0257618112b92768f2c9",
+      "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-unit-a-pilot-3/meta/teaching-overhaul/2026-10-02-source-handoff/chapter11-lessons/lesson-07/current-complete.md",
+      "archiveEntry": "chapter11-lessons/lesson-07/current-complete.md"
+    },
+    {
+      "path": "chapter11-lessons/lesson-07/current-exact.html",
+      "bytes": 26297,
+      "sha256": "daf3f2f46c7e4ba372a54ceb7914b6fe4d17ae235cf9ecb2915e936bd4943708",
+      "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-unit-a-pilot-3/meta/teaching-overhaul/2026-10-02-source-handoff/chapter11-lessons/lesson-07/current-exact.html",
+      "archiveEntry": "chapter11-lessons/lesson-07/current-exact.html"
+    },
+    {
+      "path": "chapter11-lessons/lesson-07/source-packet.json",
+      "bytes": 130621,
+      "sha256": "1b01b46f6a2aa27631ee965c5e092e39a20333a84bbdefb4782dca099bb84d57",
+      "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-unit-a-pilot-3/meta/teaching-overhaul/2026-10-02-source-handoff/chapter11-lessons/lesson-07/source-packet.json",
+      "archiveEntry": "chapter11-lessons/lesson-07/source-packet.json"
+    },
+    {
+      "path": "chapter11-lessons/lesson-08/current-complete.md",
+      "bytes": 13770,
+      "sha256": "ee5e18c6f82befe75ff675b06de5940c7a54802a57ab39d619dfab7887717167",
+      "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-unit-a-pilot-3/meta/teaching-overhaul/2026-10-02-source-handoff/chapter11-lessons/lesson-08/current-complete.md",
+      "archiveEntry": "chapter11-lessons/lesson-08/current-complete.md"
+    },
+    {
+      "path": "chapter11-lessons/lesson-08/current-exact.html",
+      "bytes": 36234,
+      "sha256": "b385182355020948a68114c9a34c8ee3d58eb1b349759c0e635bb1c5ca430774",
+      "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-unit-a-pilot-3/meta/teaching-overhaul/2026-10-02-source-handoff/chapter11-lessons/lesson-08/current-exact.html",
+      "archiveEntry": "chapter11-lessons/lesson-08/current-exact.html"
+    },
+    {
+      "path": "chapter11-lessons/lesson-08/source-packet.json",
+      "bytes": 157457,
+      "sha256": "448bb24a88891ac38869156af9ba9af5e474e437b0fa52669534da9ce7a3e5e1",
+      "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-unit-a-pilot-3/meta/teaching-overhaul/2026-10-02-source-handoff/chapter11-lessons/lesson-08/source-packet.json",
+      "archiveEntry": "chapter11-lessons/lesson-08/source-packet.json"
+    },
+    {
+      "path": "chapter11-lessons/lesson-09/current-complete.md",
+      "bytes": 7419,
+      "sha256": "1a17617c73240010c156dfdbb9e7f5888f195429bdabe8bd8b53e3478fa330e7",
+      "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-unit-a-pilot-3/meta/teaching-overhaul/2026-10-02-source-handoff/chapter11-lessons/lesson-09/current-complete.md",
+      "archiveEntry": "chapter11-lessons/lesson-09/current-complete.md"
+    },
+    {
+      "path": "chapter11-lessons/lesson-09/current-exact.html",
+      "bytes": 17828,
+      "sha256": "4d6d02e7e015788bfcc75a2033b84985a1c5c2fa6490ea3a533b4f76081175be",
+      "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-unit-a-pilot-3/meta/teaching-overhaul/2026-10-02-source-handoff/chapter11-lessons/lesson-09/current-exact.html",
+      "archiveEntry": "chapter11-lessons/lesson-09/current-exact.html"
+    },
+    {
+      "path": "chapter11-lessons/lesson-09/source-packet.json",
+      "bytes": 106429,
+      "sha256": "11543a3de6b269a03dade91b726069d2f5b3e705d0039ca3bcbfa948e3f7f14d",
+      "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-unit-a-pilot-3/meta/teaching-overhaul/2026-10-02-source-handoff/chapter11-lessons/lesson-09/source-packet.json",
+      "archiveEntry": "chapter11-lessons/lesson-09/source-packet.json"
+    },
+    {
+      "path": "chapter11-lessons/lesson-10/current-complete.md",
+      "bytes": 11448,
+      "sha256": "ebfa137cdf550067161ad3c18b87f066e37775c5e2b9c4445da5502a3ad0bbd3",
+      "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-unit-a-pilot-3/meta/teaching-overhaul/2026-10-02-source-handoff/chapter11-lessons/lesson-10/current-complete.md",
+      "archiveEntry": "chapter11-lessons/lesson-10/current-complete.md"
+    },
+    {
+      "path": "chapter11-lessons/lesson-10/current-exact.html",
+      "bytes": 27486,
+      "sha256": "0da7cb78ef389b23131c3926c667030120e5f9045fdd6073619d201fd6819738",
+      "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-unit-a-pilot-3/meta/teaching-overhaul/2026-10-02-source-handoff/chapter11-lessons/lesson-10/current-exact.html",
+      "archiveEntry": "chapter11-lessons/lesson-10/current-exact.html"
+    },
+    {
+      "path": "chapter11-lessons/lesson-10/source-packet.json",
+      "bytes": 128701,
+      "sha256": "b04817fe7fbf903b4e54212437252cd879eceed69db060c653f82a9486839baf",
+      "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-unit-a-pilot-3/meta/teaching-overhaul/2026-10-02-source-handoff/chapter11-lessons/lesson-10/source-packet.json",
+      "archiveEntry": "chapter11-lessons/lesson-10/source-packet.json"
+    },
+    {
+      "path": "chapter11-lessons/lesson-11/current-complete.md",
+      "bytes": 9708,
+      "sha256": "6de9e30a843b8e56a5154c240febd5bc482f8f4b1186f02d1506fde0badc24fe",
+      "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-unit-a-pilot-3/meta/teaching-overhaul/2026-10-02-source-handoff/chapter11-lessons/lesson-11/current-complete.md",
+      "archiveEntry": "chapter11-lessons/lesson-11/current-complete.md"
+    },
+    {
+      "path": "chapter11-lessons/lesson-11/current-exact.html",
+      "bytes": 25402,
+      "sha256": "145cae1166da81544f8f9b638515d60114fae3ff7e902d18c00714161768b11f",
+      "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-unit-a-pilot-3/meta/teaching-overhaul/2026-10-02-source-handoff/chapter11-lessons/lesson-11/current-exact.html",
+      "archiveEntry": "chapter11-lessons/lesson-11/current-exact.html"
+    },
+    {
+      "path": "chapter11-lessons/lesson-11/source-packet.json",
+      "bytes": 129914,
+      "sha256": "102303cbd2034074a2858c855299b11057e4d59db536add21b49217f6aa7d85a",
+      "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-unit-a-pilot-3/meta/teaching-overhaul/2026-10-02-source-handoff/chapter11-lessons/lesson-11/source-packet.json",
+      "archiveEntry": "chapter11-lessons/lesson-11/source-packet.json"
+    },
+    {
+      "path": "chapter11-lessons/lesson-12/current-complete.md",
+      "bytes": 19325,
+      "sha256": "062fdf21b3f997f08173bb40c723a543cff6e38e8bf220b65cb1fa3f71a03763",
+      "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-unit-a-pilot-3/meta/teaching-overhaul/2026-10-02-source-handoff/chapter11-lessons/lesson-12/current-complete.md",
+      "archiveEntry": "chapter11-lessons/lesson-12/current-complete.md"
+    },
+    {
+      "path": "chapter11-lessons/lesson-12/current-exact.html",
+      "bytes": 52005,
+      "sha256": "e5c7c883e41c6d911c1ffc74a142baa45591777ef408ff126fef305f1f0d38bc",
+      "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-unit-a-pilot-3/meta/teaching-overhaul/2026-10-02-source-handoff/chapter11-lessons/lesson-12/current-exact.html",
+      "archiveEntry": "chapter11-lessons/lesson-12/current-exact.html"
+    },
+    {
+      "path": "chapter11-lessons/lesson-12/source-packet.json",
+      "bytes": 199380,
+      "sha256": "452003b332adf4df5518653ee1077a1443ee59984e5ae6d83943e08d1467e51f",
+      "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-unit-a-pilot-3/meta/teaching-overhaul/2026-10-02-source-handoff/chapter11-lessons/lesson-12/source-packet.json",
+      "archiveEntry": "chapter11-lessons/lesson-12/source-packet.json"
+    },
+    {
+      "path": "chapter11-lessons/lesson-13/current-complete.md",
+      "bytes": 4065,
+      "sha256": "5e79f0f7228d311e581a918f0e58db1109b21dd24d65ee5d8ffbe6f77e55e9a7",
+      "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-unit-a-pilot-3/meta/teaching-overhaul/2026-10-02-source-handoff/chapter11-lessons/lesson-13/current-complete.md",
+      "archiveEntry": "chapter11-lessons/lesson-13/current-complete.md"
+    },
+    {
+      "path": "chapter11-lessons/lesson-13/current-exact.html",
+      "bytes": 10290,
+      "sha256": "4a572f50a4516cb96bb26e4ca6b22600fd1bf1670506bae94ef8e4c566a4a214",
+      "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-unit-a-pilot-3/meta/teaching-overhaul/2026-10-02-source-handoff/chapter11-lessons/lesson-13/current-exact.html",
+      "archiveEntry": "chapter11-lessons/lesson-13/current-exact.html"
+    },
+    {
+      "path": "chapter11-lessons/lesson-13/source-packet.json",
+      "bytes": 69069,
+      "sha256": "6d3472c95afb616a3898a1946355cbf9d393afe614f9d7aec26004d267c212e6",
+      "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-unit-a-pilot-3/meta/teaching-overhaul/2026-10-02-source-handoff/chapter11-lessons/lesson-13/source-packet.json",
+      "archiveEntry": "chapter11-lessons/lesson-13/source-packet.json"
+    },
+    {
+      "sourcePath": "/Users/deanguedo/Downloads/Biology30_Chapter11_Pro_FIXED.html",
+      "archiveEntry": "Biology30_Chapter11_Pro_FIXED.html",
+      "bytes": 1454485,
+      "sha256": "860de589d378da33aeea54c3a9ba1186de55cd2250679ad35205df4b472a6a3f"
+    }
+  ],
+  "attachments": [
+    {
+      "path": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-unit-a-pilot-3/meta/teaching-overhaul/2026-10-03-scout-standard/Biology30_CH11_Baseline_Handoff_2026-10-03.zip",
+      "role": "Standards, original native course and all 13 original lesson/source/question records",
+      "name": "Biology30_CH11_Baseline_Handoff_2026-10-03.zip",
+      "bytes": 802580,
+      "sha256": "08aa127b12c221f9bdcc701ed12a4f67889896261f92c63310de4f0a873642a9"
+    },
+    {
+      "path": "/Users/deanguedo/Downloads/Biology30_Chapter11_REPAIRED (1).zip",
+      "role": "Full repaired evaluation exemplar with repair notes and author-reported test results",
+      "name": "Biology30_Chapter11_REPAIRED (1).zip",
+      "bytes": 21044405,
+      "sha256": "6ae67ae8cbea799e66df11982e7246935d03fae8bc873874ad34e7292b5bebff"
+    },
+    {
+      "path": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-unit-a-pilot-3/meta/teaching-overhaul/2026-10-02-browser-authoring/attachments/Chapter11_Original_Textbook.pdf",
+      "role": "Byte-exact copy of sources/original/chapter-11.pdf",
+      "name": "Chapter11_Original_Textbook.pdf",
+      "bytes": 8730624,
+      "sha256": "841565cb96cbe378ba9dfe95a2718f3405ef67b3dea65a4ce8970d9d6597edec"
+    },
+    {
+      "path": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-unit-a-pilot-3/meta/teaching-overhaul/2026-10-02-browser-authoring/attachments/Chapter11_Original_Teacher_Notes.pptx",
+      "role": "Byte-exact copy of sources/original/Unit-A-Chapter-11-Teacher-Notes.pptx",
+      "name": "Chapter11_Original_Teacher_Notes.pptx",
+      "bytes": 18306454,
+      "sha256": "74630659f9860c65b17356513c37f954d4df7b2a55742f1d535f5041e40abfb1"
+    },
+    {
+      "path": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-unit-a-pilot-3/meta/teaching-overhaul/2026-10-02-browser-authoring/attachments/Alberta_Program_Unit_A1_Original_Excerpt.pdf",
+      "role": "Byte-exact copy of first-batch/source-excerpts/alberta-program-unit-a1.pdf",
+      "name": "Alberta_Program_Unit_A1_Original_Excerpt.pdf",
+      "bytes": 28922,
+      "sha256": "9c42ae835acb05de562a4200f8957ab277e7737e913e79f7276a1e799e2604de"
+    },
+    {
+      "path": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/biology30-unit-a-pilot-3/meta/teaching-overhaul/2026-10-02-browser-authoring/attachments/Chapter11_Teacher_Only_Comprehension_Key.pdf",
+      "role": "Byte-exact copy of sources/teacher-only/chapter11-comprehension-key.pdf",
+      "name": "Chapter11_Teacher_Only_Comprehension_Key.pdf",
+      "bytes": 118248,
+      "sha256": "5e97c5733f4183e2bb869a7bebb327618e0fc48b5cfe6627c12589e6fbf046f1"
+    }
+  ],
+  "checks": {
+    "frozenInputs": "all selected hashes matched",
+    "nativeBinding": "all six bindings matched; frozen HTML and CSS equal current native owners",
+    "archive": "CRC check passed",
+    "completeOriginalLessons": 13
+  },
+  "uploadStatus": "prepared; not attached or sent"
+}

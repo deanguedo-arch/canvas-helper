@@ -1,0 +1,491 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; font-src 'self' file:; img-src 'self' file:; base-uri 'none'; form-action 'none'">
+<title>Pathways &amp; reflexes · Biology 30 teaching review</title><style>
+@font-face{font-family:"Hanken Grotesk";src:url("../../../workspace/assets/fonts/HankenGrotesk-Variable.ttf") format("truetype");font-weight:100 900;font-display:swap}
+@font-face{font-family:"Work Sans";src:url("../../../workspace/assets/fonts/WorkSans-Variable.ttf") format("truetype");font-weight:100 900;font-display:swap}
+:root{--ink:#171b1b;--muted:#5b635d;--canvas:#f7f8f5;--green:#154212;--teal:#146c60;--border:#d9ded8;--soft:#eef3ee}
+*{box-sizing:border-box}body{margin:0;color:var(--ink);background:var(--canvas);font:17px/1.66 "Work Sans",Arial,sans-serif}
+a{color:var(--teal);text-underline-offset:3px}a:hover{color:var(--green)}a:focus-visible,summary:focus-visible,.table-scroll:focus-visible{outline:3px solid #f2b84b;outline-offset:3px}
+.skip{position:absolute;left:16px;top:-100px;background:#fff;padding:10px;z-index:10}.skip:focus{top:8px}
+.topbar{height:64px;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;gap:32px;padding:8px 24px}
+.topbar img{width:116px;max-height:50px;object-fit:contain}.topbar p{font-size:14px;margin:0}
+.shell{display:grid;grid-template-columns:270px minmax(0,1fr);min-height:calc(100vh - 64px)}
+.sidebar{background:var(--ink);color:#fff;padding:24px 18px;border-right:1px solid #303830}
+.sidebar-title{font:800 24px/1.1 "Hanken Grotesk",sans-serif;margin:0 0 32px}.sidebar h2{font-size:18px;margin:24px 0 12px}
+.sidebar nav a{display:block;padding:10px 14px;border-left:2px solid transparent;color:#e5ebe3;text-decoration:none;font-size:14px;line-height:1.5}
+.sidebar nav a:hover{background:#232b24}.sidebar nav a[aria-current="page"]{border-color:#94bd85;font-weight:800;color:#fff}
+.sidebar .reference-links{border-top:1px solid #303830;padding-top:20px;margin-top:28px}.sidebar .reference-links a{display:block;color:#c9ddc4;font-size:14px;margin-bottom:16px}
+main{min-width:0;padding:32px 36px 64px}.reader{max-width:980px;margin:auto;background:#fff;border:1px solid var(--border);border-top:5px solid var(--green);border-radius:6px 6px 0 0;overflow:hidden}
+.review-notice{padding:20px 54px;background:var(--soft);border-bottom:1px solid var(--border);font-size:14px;line-height:1.6}
+.review-notice p{margin:0}.review-notice p+p{margin-top:8px}.manuscript,.overview,.teacher-notes{padding:32px 54px}
+h1,h2,h3,h4,h5,h6,summary{font-family:"Hanken Grotesk",sans-serif}h1{font-size:clamp(34px,4.4vw,50px);font-weight:800;line-height:1.08;margin:8px 0 24px}
+h2{font-size:28px;line-height:1.25;margin:42px 0 20px}h3{font-size:22px;line-height:1.35;margin:28px 0 14px}h4{font-size:19px}
+p{margin:0 0 22px}strong{font-weight:760}li{margin:10px 0}ul,ol{padding-left:28px}hr{border:0;border-top:1px solid var(--border);margin:30px 0}
+details{border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin:24px 0;padding:0 18px}
+summary{cursor:pointer;color:var(--green);font-size:18px;font-weight:760;padding:14px 0}details[open]>summary{margin-bottom:12px}details>:last-child{margin-bottom:20px}
+.manuscript>details:first-of-type{background:#eef6f3;border-left:4px solid var(--teal);border-top:0;border-bottom:0;padding:4px 24px}
+.table-scroll{overflow-x:auto;margin:24px 0}table{border-collapse:collapse;width:100%;min-width:420px;font-size:16px}th,td{padding:14px;vertical-align:top;text-align:left;border:1px solid var(--border)}th{background:var(--soft)}
+blockquote{border-left:4px solid var(--teal);margin:24px 0;padding:12px 20px;background:var(--soft)}code{overflow-wrap:anywhere;font-size:.86em}pre{white-space:pre-wrap}
+.lesson-index{list-style:none;padding:0;margin:28px 0}.lesson-index li{border-top:1px solid var(--border);padding:22px 0;margin:0}.lesson-index a{font:760 24px/1.3 "Hanken Grotesk",sans-serif}.lesson-index p{color:var(--muted);margin:10px 0 0}
+.teacher-notes{border-top:1px solid var(--border);font-size:15px}.teacher-notes>details{margin:0}.teacher-notes h1{font-size:30px}.teacher-notes h2{font-size:24px}.teacher-notes h3{font-size:20px}
+.bottom-links{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;border-top:1px solid var(--border);margin-top:32px;padding-top:24px}
+@media(max-width:760px){.shell{display:block}.topbar{justify-content:space-between;gap:16px}.sidebar{padding:20px}.sidebar-title{font-size:22px;margin-bottom:14px}.sidebar h2{margin:12px 0}.sidebar .reference-links{margin-top:14px;padding-top:12px}.sidebar .reference-links a{display:inline-block;margin:0 20px 8px 0}.sidebar nav a{padding:8px 12px}main{padding:20px 12px 40px}.review-notice,.manuscript,.overview,.teacher-notes{padding:24px}h2{font-size:25px}.table-scroll{max-width:100%}}
+@media print{.sidebar,.topbar,.review-notice,.bottom-links,.teacher-notes,.skip{display:none}.shell{display:block}main{padding:0}.reader{border:0;max-width:none}.manuscript,.overview{padding:0}details{break-inside:avoid}.table-scroll{overflow:visible}table{min-width:0}}
+</style></head><body>
+<a class="skip" href="#review-main">Skip to manuscript</a>
+<header class="topbar"><img src="../../../workspace/assets/brand/nxt-ce-logo-white-with-ce.png" alt="Next Step Continuing Education"><p>Chapter 11 · teaching draft review</p></header>
+<div class="shell"><aside class="sidebar"><p class="sidebar-title">Biology 30 -<br>Chapter 11</p><h2>Review the drafts</h2>
+<nav aria-label="Teaching review"><a href="index.html">Review overview</a><a href="lesson-01.html">1. Nervous communication</a><a href="lesson-02.html">2. Neurons &amp; myelin</a><a href="lesson-03.html" aria-current="page">3. Pathways &amp; reflexes</a></nav>
+<div class="reference-links"><a href="responses/CH11_First_Batch_Authoring_Draft_v2.zip">Download complete manuscripts</a><a href="source-notes.html">Teacher source and integration notes</a><a href="../../../workspace/index.html">Open unchanged current course</a></div></aside>
+<main id="review-main"><div class="reader"><div class="review-notice"><p><strong>Draft v2 — awaiting Dean’s approval.</strong> This is a read-only manuscript preview, not the live learner course.</p><p>Full lesson wording is preserved. Native hints and feedback can be opened. Diagrams, vocabulary pop-ups, response fields and saving are not integrated here.</p></div><article class="manuscript"><p>Learn · Chapter 11</p>
+<h1 id="pathways-reflexes">Pathways &amp; reflexes</h1>
+<p><strong>A phone starts sliding off a desk and you choose to reach for it. A dangerously hot object touches your hand and your arm withdraws before you decide to pull away. Both responses move skeletal muscle. Are the neural pathways the same?</strong></p>
+<h3 id="learning-goal">Learning goal</h3>
+<p><strong>I can trace information from a receptor to an effector and explain how a spinal withdrawal reflex differs from a deliberately selected sensory-motor response.</strong></p>
+<h3 id="before-you-begin">Before you begin</h3>
+<p>Remember the direction rule from Lesson 1:</p>
+<ul>
+<li><strong>sensory / afferent</strong> information travels toward the CNS;</li>
+<li><strong>motor / efferent</strong> information travels away from the CNS toward an effector.</li>
+</ul>
+<p>And remember from Lesson 2: a neuron is one cell, while nerves contain many axons or nerve fibres.</p>
+<details>
+<summary><strong>How to complete this lesson — Learn → practise → required check → finish</strong></summary>
+
+<ol>
+<li><strong>Learn the pathway roles first.</strong> Distinguish sensory neurons, interneurons and motor neurons by what they do.</li>
+<li><strong>Compare two routes.</strong> Work through a deliberately selected response, then a spinal withdrawal reflex. Do not decide that a movement is a reflex just because it is fast.</li>
+<li><strong>Use the withdrawal diagram deliberately.</strong> Trace the sensory route into the spinal cord, the motor route out to the muscle, and the separate route carrying information toward the brain.</li>
+<li><strong>Use support when it helps.</strong> The textbook and videos are optional. The essential explanation is on this page.</li>
+<li><strong>Try the practice in your notes first.</strong> Reveal the hint only if needed, then use the solution to check your reasoning.</li>
+<li><strong>Complete the required chapter check.</strong> Open it and select <strong>Start</strong>. Type each written response and select <strong>Save written response</strong>. If you edit a response after saving it, select <strong>Save written response</strong> again so the saved attempt matches your current answer. Draft autosave is not submission. Select <strong>Submit and finish</strong> only after both current responses are saved. Writing is not automatically graded.</li>
+</ol>
+</details>
+
+<h3 id="optional-embedded-reading">Optional embedded reading</h3>
+<p><strong>Chapter 11 · pp. 370–371</strong><br><a href="attachments/Chapter11_Original_Textbook.pdf#page=11" rel="noopener">Open at p. 370</a></p>
+<p><strong>Key terms:</strong> sensory neuron · interneuron · motor neuron · reflex · reflex arc</p>
+<hr>
+<h2 id="three-neuron-jobs-in-a-pathway">Three neuron jobs in a pathway</h2>
+<p>When you trace a route through the nervous system, classify neurons by the <strong>job they are doing</strong>.</p>
+<h3 id="sensory-neuron-information-toward-the-cns">Sensory neuron — information toward the CNS</h3>
+<p>A <strong>sensory neuron</strong>, also called an <strong>afferent neuron</strong>, carries information from a sensory receptor toward the central nervous system.</p>
+<p>The receptor is the detector. The sensory neuron is part of the route carrying that information inward.</p>
+<h3 id="interneuron-processing-and-connection-inside-the-cns">Interneuron — processing and connection inside the CNS</h3>
+<p>An <strong>interneuron</strong> is a neuron within the CNS that processes or relays information between neurons.</p>
+<p>In the withdrawal pathway used in this lesson, an interneuron helps connect sensory input to motor output within the spinal cord.</p>
+<h3 id="motor-neuron-instructions-toward-an-effector">Motor neuron — instructions toward an effector</h3>
+<p>A <strong>motor neuron</strong>, also called an <strong>efferent neuron</strong>, carries instructions from the CNS toward an effector such as a muscle.</p>
+<p>For the somatic pathways in this lesson, the effector is skeletal muscle.</p>
+<p>Put the jobs together:</p>
+<p><strong>receptor → sensory neuron → CNS integration → motor neuron → effector → response</strong></p>
+<p>That is a general route. The exact form of <strong>CNS integration</strong> is what changes between different responses.</p>
+<hr>
+<h2 id="job-is-not-the-same-thing-as-shape">Job is not the same thing as shape</h2>
+<p>You may see neurons described as <strong>multipolar, bipolar or unipolar/pseudounipolar</strong>. Those words describe neuron morphology — how the cell body and processes are arranged.</p>
+<p>By contrast, <strong>sensory neuron, interneuron and motor neuron</strong> describe functional roles in a pathway.</p>
+<p>Do not memorize a rule that every sensory neuron must have one shape, every interneuron another, and every motor neuron another. In this lesson, classify the pathway by <strong>function</strong> unless a question specifically asks about morphology.</p>
+<hr>
+<h2 id="worked-pathway-1-a-deliberately-selected-response">Worked pathway 1: a deliberately selected response</h2>
+<p>Your phone begins sliding off the edge of a desk. You see it move and choose to reach for it.</p>
+<p>This can happen quickly, but speed alone does not make it a reflex.</p>
+<h3 id="step-1-detect-the-stimulus">Step 1 — Detect the stimulus</h3>
+<p>Visual receptors detect the changing position of the phone.</p>
+<p>You do not need detailed eye anatomy yet. For this pathway, the important fact is that a sensory receptor detects visual information.</p>
+<h3 id="step-2-carry-sensory-information-toward-the-cns">Step 2 — Carry sensory information toward the CNS</h3>
+<p>Sensory information travels toward the CNS.</p>
+<h3 id="step-3-integrate-in-the-brain">Step 3 — Integrate in the brain</h3>
+<p>Brain circuits process the visual information and select a response: reach for the phone.</p>
+<p>That deliberate selection matters. The movement is not simply the automatic output of a spinal withdrawal circuit.</p>
+<h3 id="step-4-send-somatic-motor-output">Step 4 — Send somatic motor output</h3>
+<p>Motor commands travel from the CNS along somatic motor pathways toward skeletal muscles in the arm and hand.</p>
+<h3 id="step-5-the-effectors-act">Step 5 — The effectors act</h3>
+<p>Skeletal muscles contract in a coordinated pattern and the hand reaches toward the phone.</p>
+<p>So the simplified pathway is:</p>
+<p><strong>visual receptor → sensory pathway → CNS/brain integration and response selection → somatic motor pathway → skeletal-muscle effectors → reaching response</strong></p>
+<hr>
+<h2 id="worked-pathway-2-a-spinal-withdrawal-reflex">Worked pathway 2: a spinal withdrawal reflex</h2>
+<p>Now consider a different event. Your hand accidentally contacts a dangerously hot surface. Do <strong>not</strong> test this. It is only a scenario for tracing the neural circuit.</p>
+<p>A <strong>reflex</strong> is a rapid, involuntary response to a stimulus. A <strong>reflex arc</strong> is the neural pathway that produces the reflex response.</p>
+<p>For the spinal withdrawal example in this lesson:</p>
+<p><strong>receptor in skin → sensory neuron → spinal cord integration → motor neuron → skeletal-muscle effector → withdrawal</strong></p>
+<h3 id="step-1-a-receptor-detects-the-harmful-stimulus">Step 1 — A receptor detects the harmful stimulus</h3>
+<p>Receptors in the skin detect the intense stimulus and sensory neurons carry information inward.</p>
+<h3 id="step-2-sensory-information-enters-the-spinal-cord">Step 2 — Sensory information enters the spinal cord</h3>
+<p>The signal enters the CNS at the spinal cord.</p>
+<h3 id="step-3-a-spinal-circuit-begins-the-response">Step 3 — A spinal circuit begins the response</h3>
+<p>In the simplified withdrawal pathway shown here, an interneuron within the spinal cord relays the sensory information to a motor neuron.</p>
+<p>The spinal circuit can initiate motor output before the brain has completed conscious processing of the event.</p>
+<h3 id="step-4-motor-output-travels-to-skeletal-muscle">Step 4 — Motor output travels to skeletal muscle</h3>
+<p>The motor neuron carries instructions from the spinal cord toward the skeletal-muscle effector.</p>
+<h3 id="step-5-the-muscle-contracts-and-the-hand-withdraws">Step 5 — The muscle contracts and the hand withdraws</h3>
+<p>The response reduces continued contact with the harmful stimulus.</p>
+<h3 id="step-6-information-also-reaches-the-brain">Step 6 — Information also reaches the brain</h3>
+<p>A spinal reflex does <strong>not</strong> mean that information never reaches the brain. Other neural pathways carry information upward, allowing conscious perception and further processing.</p>
+<p>That is why the useful contrast is:</p>
+<p><strong>the spinal circuit can initiate withdrawal before conscious processing is complete</strong> — not “the brain never receives the information.”</p>
+<hr>
+<h2 id="read-the-withdrawal-diagram-in-the-correct-order">Read the withdrawal diagram in the correct order</h2>
+<p>Use the figure titled <strong>A withdrawal reflex: follow the pathway</strong>.</p>
+<ol>
+<li>Start at the <strong>Stimulus</strong> arrow on the left.</li>
+<li>Move to the labelled <strong>Receptor in skin</strong>.</li>
+<li>Follow the orange route labelled <strong>Sensory neuron</strong> into the <strong>Spinal cord (CNS)</strong>.</li>
+<li>Inside the spinal cord, find the label <strong>Interneuron</strong> in this simplified pathway.</li>
+<li>Follow the teal route labelled <strong>Motor neuron</strong> out of the spinal cord.</li>
+<li>End at the <strong>Effector: muscle</strong>.</li>
+<li>Read the teal response label: <strong>Response: the muscle contracts and the hand withdraws.</strong></li>
+<li>Now look back inside the spinal cord and follow the <strong>dashed grey arrow</strong> labelled <strong>Information also travels to the brain.</strong> That arrow is essential: spinal withdrawal and information travelling toward the brain can happen as parts of the same overall event.</li>
+</ol>
+<p>The bottom pathway sentence summarizes the route shown:</p>
+<p><strong>Receptor → sensory neuron → interneuron → motor neuron → effector.</strong></p>
+<p>Treat that sequence as the pathway in <strong>this withdrawal example</strong>, not as the wiring diagram for every reflex in the body.</p>
+<hr>
+<h2 id="compare-the-two-pathways">Compare the two pathways</h2>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Lesson comparison table"><table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Deliberately selected visual response</th>
+<th>Spinal withdrawal reflex</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Stimulus is detected by a receptor</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Sensory information travels toward the CNS</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>CNS integration occurs</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Brain processing selects the movement before the response in this example</td>
+<td>Yes</td>
+<td>No — the spinal circuit can initiate withdrawal first</td>
+</tr>
+<tr>
+<td>Somatic motor output reaches skeletal muscle</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Conscious decision is required before the movement begins</td>
+<td>Yes, for the deliberately selected action described here</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Information can reach the brain</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+</tbody></table></div>
+<p>The shared structure matters: both use sensory input, CNS processing, motor output and skeletal-muscle effectors.</p>
+<p>The difference is <strong>how the response is selected and where the rapid initiating integration occurs</strong>.</p>
+<hr>
+<h2 id="two-rules-you-should-not-overgeneralize">Two rules you should not overgeneralize</h2>
+<h3 id="not-every-reflex-requires-an-interneuron-between-the-sensory-and-motor-neuron">Not every reflex requires an interneuron between the sensory and motor neuron</h3>
+<p>The withdrawal reflex shown here uses an interneuron. Some simpler reflex circuits can connect the sensory input to a motor neuron without an intervening interneuron in that part of the circuit.</p>
+<p>So do not memorize <strong>reflex = must contain an interneuron</strong> as a universal rule.</p>
+<h3 id="not-every-reflex-is-a-spinal-reflex">Not every reflex is a spinal reflex</h3>
+<p>This lesson focuses on a spinal withdrawal reflex, but reflexes can also be integrated in the brainstem. For example, the pupillary light reflex that constricts the pupil in response to light uses brain/midbrain circuitry.</p>
+<p>So do not memorize <strong>reflex = always bypasses the brain and goes through the spinal cord</strong>.</p>
+<p>The useful general definition is that a reflex is a rapid, involuntary response produced by a neural circuit.</p>
+<hr>
+<h2 id="quick-retrieval-neurons-and-glial-cells-are-not-the-same-job">Quick retrieval: neurons and glial cells are not the same job</h2>
+<p>Before the required check, retrieve this distinction from Lessons 1 and 2.</p>
+<p><strong>Neurons</strong> are specialized communication cells. They receive information, conduct electrical signals and pass information to other cells.</p>
+<p><strong>Glial cells</strong> support neural function. Depending on the glial cell type, that support can include maintaining the environment around neurons, forming myelin, providing structural/metabolic support, contributing to immune defence and removing debris.</p>
+<p>The comparison is not “important cells versus unimportant cells.” Neurons and glia have different roles that work together.</p>
+<hr>
+<h2 id="guided-attempt-trace-a-withdrawal-pathway">Guided attempt — trace a withdrawal pathway</h2>
+<p>A person accidentally brushes the side of a hot baking tray and immediately pulls the hand away. Again, this is a scenario, not an experiment to perform.</p>
+<p><strong>Question:</strong> Trace the basic pathway from detection to withdrawal. Then explain why the person's hand can begin moving before conscious awareness of pain is complete.</p>
+<details>
+<summary><strong>Hint — reveal only if you need it</strong></summary>
+
+<p>Start with <strong>receptor → sensory neuron</strong>. Ask where the rapid withdrawal circuit is integrated, then follow motor output to the effector. Finally, remember the dashed route in the diagram.</p>
+</details>
+
+<details>
+<summary><strong>Check your reasoning</strong></summary>
+
+<p>A suitable pathway is:</p>
+<p><strong>skin receptor → sensory neuron → spinal cord/interneuron in this withdrawal circuit → motor neuron → skeletal-muscle effector → hand withdraws</strong></p>
+<p>The spinal circuit can initiate the motor response before the brain has completed conscious processing of the sensory information. Information also travels toward the brain, so the person can become consciously aware of the painful stimulus even though the withdrawal has already started.</p>
+<p>If you wrote “the brain is never involved,” use the dashed route in the diagram to correct that idea.</p>
+<p>If you wrote that the sensory neuron carries the command to the muscle, recheck the direction rule: sensory neurons carry information toward the CNS; motor neurons carry output toward the effector.</p>
+</details>
+
+<hr>
+<h2 id="independent-transfer-fast-does-not-automatically-mean-reflex">Independent transfer — fast does not automatically mean reflex</h2>
+<p>Before a class activity, you are told: <strong>“When you hear the buzzer, raise your right hand.”</strong> The buzzer sounds, you recognize the signal, and you deliberately raise your hand.</p>
+<p><strong>Question:</strong> Is the hand-raising response best modelled as the spinal withdrawal reflex taught above? Trace the basic pathway and justify your answer.</p>
+<p>Write your reasoning in your notes before revealing the model.</p>
+<details>
+<summary><strong>Model answer and feedback — reveal after you try</strong></summary>
+
+<p>The response should <strong>not</strong> be modelled as the spinal withdrawal reflex simply because it happens quickly. A sound receptor detects the buzzer, sensory information travels toward the CNS, brain circuits recognize the signal and select the instructed response, motor commands travel through somatic motor pathways, and skeletal muscles raise the hand.</p>
+<p>A suitable simplified route is:</p>
+<p><strong>sensory receptor → sensory pathway → CNS/brain integration and response selection → somatic motor pathway → skeletal-muscle effector → hand raises</strong></p>
+<p>The key distinction is that the movement is a learned, deliberately selected response to the signal, whereas the spinal withdrawal reflex can be initiated by a spinal circuit without a conscious decision before movement begins.</p>
+<p>If you wrote “it is a reflex because it is fast,” speed alone is not enough. Identify how the response is selected.</p>
+<p>If you wrote “autonomic because you did not spend long thinking,” remember that the effector is skeletal muscle; that makes the motor output somatic.</p>
+</details>
+
+<hr>
+<h2 id="optional-support">Optional support</h2>
+<h3 id="reflex-arcs-video-examples">Reflex arcs: video examples</h3>
+<p>Two video supports are available in this lesson. If either loads, use it only as another representation of the pathway you already learned here.</p>
+<p>For the first, trace the sensory route into the CNS and the motor route to the effector. Ask whether the response begins before conscious processing is complete.</p>
+<p><a href="https://www.youtube.com/watch?v=aaQWxko6qmk" rel="noopener">Watch example 1 on YouTube</a></p>
+<p>For the second, compare the example shown with the components <strong>receptor → sensory route → central integration → motor route → effector</strong>. Do not assume every reflex must contain an interneuron simply because this lesson's withdrawal diagram does.</p>
+<p><a href="https://www.youtube.com/watch?v=4WcZR_k_a0I" rel="noopener">Watch example 2 on YouTube</a></p>
+<p>Playback and transcripts are not required for the lesson. The written explanation above is the teaching path.</p>
+<p>You can also open the embedded textbook at <strong>p. 370</strong> for the neural pathway and withdrawal-reflex figures, or <strong>p. 371</strong> for the optional reflex investigation.</p>
+<hr>
+<h2 id="before-the-required-check">Before the required check</h2>
+<p>Make sure you can explain these ideas in your own words:</p>
+<ul>
+<li>sensory neurons carry information toward the CNS;</li>
+<li>interneurons process/relay information within the CNS;</li>
+<li>motor neurons carry instructions toward effectors;</li>
+<li>neurons communicate information, while glial cells support neural function;</li>
+<li>a deliberately selected visual response and a spinal withdrawal reflex share a receptor-to-effector organization but differ in how the response is initiated;</li>
+<li>a spinal withdrawal response can begin before conscious processing is complete while information also travels toward the brain;</li>
+<li>fast movement alone does not prove that the movement is a reflex.</li>
+</ul>
+<p>For any pathway comparison, use the same reasoning strategy:</p>
+<ol>
+<li>identify the <strong>detector/receptor</strong>;</li>
+<li>trace the <strong>sensory input direction</strong> toward the CNS;</li>
+<li>identify <strong>where and how the response is integrated or selected</strong>;</li>
+<li>trace the <strong>motor output</strong> toward the effector;</li>
+<li>identify the <strong>effector and response</strong>;</li>
+<li>then compare whether the movement requires a selected response before it begins or can be initiated by a reflex circuit.</li>
+</ol>
+<p>Use that strategy on the required comparison instead of deciding from speed alone.</p>
+<h3 id="open-chapter-check-pathways-reflexes">Open chapter check: Pathways &amp; reflexes</h3>
+<p>Select <strong>Start</strong> when ready. Type each response in its written-response box and select <strong>Save written response</strong>. If you edit a saved answer, select <strong>Save written response</strong> again before finishing. Draft autosave is not submission. Writing is not automatically graded. When both current required responses are saved, select <strong>Submit and finish</strong>.</p>
+<p><strong>Required prompt 1</strong><br>Compare the basic function of neurons and glial cells.</p>
+<p><strong>Required prompt 2</strong><br>Identify the basic neural pathway that is involved as you dodge a wayward tennis ball. Compare this pathway with a withdrawal reflex.</p>
+<hr>
+<h2 id="closing-answer">Closing answer</h2>
+<p>Information can move from a receptor through sensory pathways into the CNS and then through motor pathways to an effector. A deliberately selected response relies on brain processing to select the movement. In a spinal withdrawal reflex, a spinal circuit can initiate motor output before conscious processing is complete, while information also travels toward the brain.</p>
+<p>You now know <strong>where</strong> information travels. The next lesson asks what must already be true across a neuron's membrane before that cell can generate an electrical signal at all.</p>
+<p><a href="lesson-02.html" rel="noopener">Previous: Neurons &amp; myelin</a> · <a href="../../../workspace/index.html#lesson-04" title="Opens the unchanged current course, not a revised draft" rel="noopener">Next: The resting neuron</a></p>
+<nav class="bottom-links" aria-label="Draft navigation"><a href="lesson-02.html">Previous draft</a><a href="index.html">Return to review overview</a></nav></article>
+<section class="teacher-notes" aria-label="Teacher-only notes"><details><summary>Teacher notes and source references</summary><p><a href="responses/v2/CH11_Lesson03_Pathways_Reflexes_v2.md">Open the complete original Markdown manuscript</a></p><hr>
+<h1 id="teacher-only-authoring-record">Teacher-only authoring record</h1>
+<h2 id="source-binding">Source binding</h2>
+<ul>
+<li>Branch: <code>codex/math-engine-preflight</code></li>
+<li>Revision: <code>ecc1b806630cb33b9942e64eb676a1f8568c007e</code></li>
+<li>Source-tree SHA-256: <code>0e89c19b8db652abffc5a8837e084b7e84eb30be888057c8ccdf2e2efe33ba52</code></li>
+<li>Canonical path/anchor: <code>projects/biology30-unit-a-pilot-3/workspace/index.html#lesson-03</code></li>
+<li>Current canonical fragment: lines 519–679; fragment SHA-256 <code>ec297bb0523c652595051ea9bbf79f5f50eacc1ae46f1549c94f424249b7ccd9</code></li>
+<li>Printed textbook page = PDF page + 359.</li>
+</ul>
+<h2 id="source-outcome-map-by-teaching-chunk">Source/outcome map by teaching chunk</h2>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Lesson comparison table"><table>
+<thead>
+<tr>
+<th>Teaching chunk</th>
+<th>Source evidence</th>
+<th>Outcome relationship</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Sensory/interneuron/motor roles</td>
+<td>Textbook printed p. 368 / PDF p. 9; printed p. 369 / PDF p. 10, Table 11.1 and Fig. 11.6; teacher slide 15</td>
+<td>Direct foundation for 30–A1.3k.</td>
+</tr>
+<tr>
+<td>Function versus morphology</td>
+<td>Teacher slide 16 is historical source showing motor/multipolar, interneuron/bipolar, sensory/unipolar pairings; learner copy deliberately qualifies job versus shape</td>
+<td>Supporting clarification; no new memorization requirement.</td>
+</tr>
+<tr>
+<td>Deliberately selected sensory-motor route</td>
+<td>Textbook printed pp. 369–370 / PDF pp. 10–11, cat/braking example and Fig. 11.7; teacher slide 17</td>
+<td>Foundation for general neural pathway; supports comparison demanded by required check.</td>
+</tr>
+<tr>
+<td>Spinal withdrawal reflex</td>
+<td>Textbook printed pp. 369–370 / PDF pp. 10–11, Fig. 11.8; current <code>integrated-withdrawal.svg</code>; teacher slides 18–20 treated cautiously</td>
+<td>Direct <strong>substantial partial coverage</strong> of 30–A1.3k using an example. Full outcome also includes organization of neurons into nerves, supported across lessons 1–2.</td>
+</tr>
+<tr>
+<td>Reflex variation / not every reflex spinal</td>
+<td>Textbook printed p. 371 / PDF p. 12 includes pupillary and patellar reflexes; teacher slide 18 notes some reflexes lack an interneuron; authoritative verification below resolves slide-20 overgeneralization</td>
+<td>Scientific qualification; does not expand required memorization.</td>
+</tr>
+<tr>
+<td>Neuron versus glia retrieval</td>
+<td>Textbook printed p. 368 / PDF p. 9; teacher-only key p. 2</td>
+<td>Direct preparation for immutable <code>source-checkpoint-4</code>.</td>
+</tr>
+<tr>
+<td>Optional Investigation 11.A</td>
+<td>Textbook printed p. 371 / PDF p. 12</td>
+<td>Alberta 30–A1.2s names design/perform reflex-arc investigation. Merely linking this investigation <strong>does not complete the skill outcome</strong> in the online lesson.</td>
+</tr>
+</tbody></table></div>
+<p>Official program: Alberta Program physical p. 52 / excerpt PDF p. 2, <strong>30–A1.3k</strong> requires organization of neurons into nerves and composition/function of reflex arcs using an example. Alberta Program physical p. 53 / excerpt PDF p. 3, <strong>30–A1.2s</strong> includes designing and performing a reflex-arc investigation; this manuscript does not claim that skill has been completed.</p>
+<h2 id="authoritative-verification-used-outside-learner-copy">Authoritative verification used outside learner copy</h2>
+<p>Retrieved 2026-10-02.</p>
+<ol>
+<li><strong>Somatic output can include reflexive skeletal-muscle movement:</strong> OpenStax, <em>Anatomy and Physiology 2e</em>, §12.1 and §15.2. Somatic responses target skeletal muscle; not every somatic movement requires a conscious decision.<br><a href="https://openstax.org/books/anatomy-and-physiology-2e/pages/12-1-basic-structure-and-function-of-the-nervous-system" rel="noopener">https://openstax.org/books/anatomy-and-physiology-2e/pages/12-1-basic-structure-and-function-of-the-nervous-system</a><br><a href="https://openstax.org/books/anatomy-and-physiology-2e/pages/15-2-autonomic-reflexes-and-homeostasis" rel="noopener">https://openstax.org/books/anatomy-and-physiology-2e/pages/15-2-autonomic-reflexes-and-homeostasis</a></li>
+<li><strong>Withdrawal-reflex organization:</strong> OpenStax, <em>Anatomy and Physiology 2e</em>, Chapter 14 introduction describes a somatic withdrawal reflex using a skin receptor, sensory pathway into spinal cord and motor output to skeletal muscle.<br><a href="https://openstax.org/books/anatomy-and-physiology-2e/pages/14-introduction" rel="noopener">https://openstax.org/books/anatomy-and-physiology-2e/pages/14-introduction</a></li>
+<li><strong>Pupillary reflex is not spinal:</strong> StatPearls/NCBI Bookshelf, <em>Neuroanatomy, Pupillary Light Reflexes and Pathway</em>. The afferent pathway projects to pretectal nuclei of the midbrain and the efferent limb involves Edinger–Westphal nuclei/oculomotor pathways.<br><a href="https://www.ncbi.nlm.nih.gov/books/NBK553169/" rel="noopener">https://www.ncbi.nlm.nih.gov/books/NBK553169/</a></li>
+</ol>
+<h2 id="consequential-source-conflicts-and-decisions">Consequential source conflicts and decisions</h2>
+<ul>
+<li>Teacher slide 20 states broadly that “during a reflex arc” information bypasses the brain and goes directly through the spinal cord. Draft narrows this claim to the <strong>spinal withdrawal reflex</strong>. Reflexes can be integrated in brain/brainstem circuits.</li>
+<li>Teacher slide 18 correctly warns that some reflex arcs do not require an interneuron. Draft preserves that qualification.</li>
+<li>Textbook/teacher language implying that conscious pain necessarily follows withdrawal is treated as a simplified teaching model, not a universal timing claim. Draft says the spinal circuit can initiate movement before conscious processing is complete while information also reaches the brain.</li>
+<li>Rapid movement alone is not used to define a reflex.</li>
+<li>No harmful heat/sharp-object procedure is assigned. Hot-surface examples are descriptive scenarios only.</li>
+</ul>
+<h2 id="proposed-new-formative-items">Proposed new formative items</h2>
+<p>All are optional/ungraded; notes/self-check only; no new state owner.</p>
+<h3 id="ch11-l03-guided-withdrawal-trace-v1"><code>ch11-l03-guided-withdrawal-trace-v1</code></h3>
+<ul>
+<li>Placement: after withdrawal diagram and comparison.</li>
+<li>Prompt: exact “hot baking tray” guided block in learner manuscript.</li>
+<li>Hint: receptor → sensory neuron → spinal integration → motor neuron → skeletal-muscle effector; remember brain-directed route.</li>
+<li>Model reasoning: spinal withdrawal pathway plus upward information route; movement can begin before conscious processing is complete.</li>
+<li>Acceptable criteria:<ol>
+<li>receptor;</li>
+<li>sensory/afferent route toward spinal cord;</li>
+<li>spinal integration, with interneuron acceptable/expected for this diagram;</li>
+<li>motor/efferent route;</li>
+<li>skeletal-muscle effector and withdrawal;</li>
+<li>information also reaches brain.</li>
+</ol>
+</li>
+<li>Targeted feedback: brain-never-involved; sensory neuron as motor output; omission of effector.</li>
+<li>State owner: none.</li>
+</ul>
+<h3 id="ch11-l03-independent-buzzer-selected-response-v1"><code>ch11-l03-independent-buzzer-selected-response-v1</code></h3>
+<ul>
+<li>Placement: after glia retrieval, before optional support.</li>
+<li>Prompt: exact buzzer/raise-hand transfer block in learner manuscript.</li>
+<li>Hint: none initially.</li>
+<li>Model reasoning: sensory receptor → sensory route → CNS/brain integration/response selection → somatic motor route → skeletal muscle; not a spinal withdrawal reflex simply because fast.</li>
+<li>Acceptable criteria:<ol>
+<li>identifies a sensory receptor/input;</li>
+<li>traces toward CNS;</li>
+<li>includes brain integration/selected response;</li>
+<li>traces somatic motor output to skeletal muscle;</li>
+<li>justifies why speed alone is not reflex classification.</li>
+</ol>
+</li>
+<li>Targeted feedback: “fast = reflex”; “autonomic because not much thought”; missing CNS integration.</li>
+<li>State owner: none.</li>
+</ul>
+<h2 id="v2-correction-record">v2 correction record</h2>
+<ul>
+<li>Removed learner-facing production/admin terms such as “existing diagram/video” where they did not help the biology.</li>
+<li>Restored the approved key-terms strip baseline; richer pathway terms remain explained in context without automatically creating new vocabulary/Frayer bindings.</li>
+<li>Replaced the pre-check tennis-ball answer trace with a reusable detector → input direction → integration/selection → output → effector comparison strategy, preserving genuine transfer into <code>source-checkpoint-6</code>.</li>
+<li>Kept the phone worked example, spinal-withdrawal worked example and buzzer/raise-hand independent transfer distinct from the immutable tennis-ball prompt.</li>
+<li>Updated completion/check instructions to require re-saving after edits; draft autosave is not submission.</li>
+</ul>
+<h2 id="existing-required-checks-immutable">Existing required checks — immutable</h2>
+<p>Activity: <code>practice-reflexes</code> · <code>data-activity-mode="writing"</code> · required check.</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Lesson comparison table"><table>
+<thead>
+<tr>
+<th>Question ID</th>
+<th>Exact prompt</th>
+<th>Written field</th>
+<th align="right">Limit</th>
+<th>Reader target</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>source-checkpoint-4</code></td>
+<td><code>Compare the basic function of neurons and glial cells.</code></td>
+<td><code>source-checkpoint-4-written</code></td>
+<td align="right">3200</td>
+<td>printed p. 370 / PDF p. 11</td>
+</tr>
+<tr>
+<td><code>source-checkpoint-6</code></td>
+<td><code>Identify the basic neural pathway that is involved as you dodge a wayward tennis ball. Compare this pathway with a withdrawal reflex.</code></td>
+<td><code>source-checkpoint-6-written</code></td>
+<td align="right">3200</td>
+<td>printed p. 370 / PDF p. 11</td>
+</tr>
+</tbody></table></div>
+<p>Do not attach an automatic key to either written response. If either response is edited after saving, the learner must save that current response again before <code>Submit and finish</code>; draft autosave alone does not satisfy the saved-attempt requirement.</p>
+<h2 id="corrected-teacher-only-marking-guidance-for-source-checkpoint-6">Corrected teacher-only marking guidance for <code>source-checkpoint-6</code></h2>
+<p><strong>Historical key conflict:</strong> Chapter 11 teacher-only comprehension key, p. 2, labels the tennis-ball dodge itself as a withdrawal reflex and routes it through eye → sensory neuron → spinal cord/interneuron → motor neuron → muscle. This should <strong>not</strong> be used as the automatic/scientific authority for the current course.</p>
+<h3 id="scientifically-defensible-marking-guidance">Scientifically defensible marking guidance</h3>
+<p>A strong response should:</p>
+<ol>
+<li>identify visual detection in the eye at a general receptor level;</li>
+<li>carry sensory information toward the CNS/brain;</li>
+<li>include brain integration/processing and selection of the dodge response;</li>
+<li>carry somatic motor output toward skeletal muscles that produce the dodge;</li>
+<li>compare this with a spinal withdrawal reflex: receptor → sensory neuron → spinal integration (interneuron in the course's withdrawal diagram) → motor neuron → skeletal-muscle effector;</li>
+<li>explain that the spinal withdrawal response can begin without a prior conscious decision while information also travels toward the brain.</li>
+</ol>
+<h3 id="acceptable-nuance">Acceptable nuance</h3>
+<p>A student may discuss startle/protective reflex components in a real unexpected-ball situation if the response still distinguishes those components from the simplified deliberately selected visual pathway and correctly traces the neural route. Do not require students to call the entire tennis-ball dodge a spinal withdrawal reflex.</p>
+<h3 id="do-not-award-as-fully-correct-solely-for">Do not award as fully correct solely for</h3>
+<ul>
+<li>“eye → spinal cord → muscle” with no brain/visual integration for the deliberately selected dodge;</li>
+<li>“both are reflexes because both are fast”;</li>
+<li>“withdrawal never sends information to the brain.”</li>
+</ul>
+<p>This teacher-only correction must remain outside learner automatic feedback unless separately approved.</p>
+<h2 id="vocabulary-preservation-note">Vocabulary preservation note</h2>
+<ul>
+<li>Canonical live Chapter 11 vocabulary payload and routine visible vocabulary/Frayer markup are in <code>projects/biology30-unit-a-pilot-3/workspace/index.html</code>, including <code>&lt;script type="application/json" id="pilot3-words"&gt;</code>. <code>current-course/data/vocabulary-and-schema.json</code> is a frozen exported snapshot, not the live owner.</li>
+<li>Preserve current word IDs, routes, reader/Frayer connections and native helper ownership.</li>
+<li>Learner key-terms strip remains the approved baseline: <code>sensory neuron · interneuron · motor neuron · reflex · reflex arc</code>.</li>
+<li>Other explanatory terms may be bold and taught in context; v2 proposes no automatic new Frayer entries, duplicate word IDs or required vocabulary demands.</li>
+</ul>
+<h2 id="existing-media-asset-bindings">Existing media / asset bindings</h2>
+<h3 id="assets-source-integrated-withdrawal-svg"><code>assets/source/integrated-withdrawal.svg</code></h3>
+<ul>
+<li>Status: existing source asset; SVG source/relationships inspected by the Codex lead. A separate author-side render was used only to support manuscript reasoning; <strong>lead-rendered visual review and teacher visual acceptance remain PENDING</strong>.</li>
+<li>Existing alt: <code>Trace the withdrawal pathway first, then follow the separate route carrying information toward the brain.</code></li>
+<li>Existing caption: <code>Follow the spinal withdrawal circuit, then the separate path toward the brain. This is a simplified pathway, not a scale drawing or the wiring of every reflex.</code></li>
+<li>Actual learner-reading elements used in draft:<ul>
+<li>red-brown <code>Stimulus</code> arrow;</li>
+<li><code>Receptor in skin</code>;</li>
+<li>orange route labelled <code>Sensory neuron</code> entering <code>Spinal cord (CNS)</code>;</li>
+<li>labelled <code>Interneuron</code>;</li>
+<li>teal route labelled <code>Motor neuron</code> to <code>Effector: muscle</code>;</li>
+<li>teal response text <code>Response: the muscle contracts and the hand withdraws.</code>;</li>
+<li>dashed grey arrow <code>Information also travels to the brain.</code>;</li>
+<li>bottom pathway <code>Receptor → sensory neuron → interneuron → motor neuron → effector.</code></li>
+</ul>
+</li>
+<li>A PNG rendered from the supplied SVG was used only for inspection; canonical integration target remains the existing SVG.</li>
+</ul>
+<h3 id="existing-videos">Existing videos</h3>
+<ul>
+<li><code>data-video="aaQWxko6qmk"</code> → <code>https://www.youtube.com/watch?v=aaQWxko6qmk</code></li>
+<li><code>data-video="4WcZR_k_a0I"</code> → <code>https://www.youtube.com/watch?v=4WcZR_k_a0I</code></li>
+<li>Playback/transcripts: <strong>UNVERIFIED</strong>. No timestamps or essential teaching depend on either video.</li>
+</ul>
+<h3 id="proposed-new-two-pathway-comparison-visual">Proposed new two-pathway comparison visual</h3>
+<p><strong>Status: NOT PRODUCED / NOT REVIEWED.</strong></p>
+<p>A future board-style version may stage two columns:</p>
+<ul>
+<li><strong>Deliberately selected response:</strong> receptor → sensory route → brain/CNS integration + selected response → somatic motor route → skeletal muscle.</li>
+<li><strong>Spinal withdrawal:</strong> receptor → sensory neuron → spinal integration/interneuron in the illustrated example → motor neuron → skeletal muscle, with a separate route continuing toward brain.</li>
+</ul>
+<p>Essential content is already present in the accessible text table; no image placeholder is required for comprehension or release.</p>
+</details></section></div></main></div></body></html>

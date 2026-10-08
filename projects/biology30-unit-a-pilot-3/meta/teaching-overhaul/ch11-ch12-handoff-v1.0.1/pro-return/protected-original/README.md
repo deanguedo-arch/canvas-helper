@@ -1,0 +1,3 @@
+# Unchanged original Chapter 11 records
+
+All complete original current routes and the current owner/runtime/catalogue/practice-bank basis are retained byte-for-byte here. Original source assets, textbook/slides and complete authority/teacher-key files remain in the frozen Library source package identified in master/SOURCE_REGISTER.json. These snapshots are preservation evidence, not a standalone running course; do not use them to overwrite a newer current owner. Existing questions, keys, feedback, optional saved-task sections, IDs and history contracts are protected. No learner state is included.

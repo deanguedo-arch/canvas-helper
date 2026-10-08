@@ -1,0 +1,87 @@
+{
+  "sourceZip": "/Users/deanguedo/Downloads/Biology30_Labeling_Package_with_Answers.zip",
+  "referenceOnly": "projects/resources/biology30-labeling-package",
+  "review": [
+    {
+      "number": 1,
+      "status": "audit-target-corrected-local-review",
+      "reason": "2026-09-17 corrected sibling image visually inspected for the recorded target. See instructional-revision/audit-image-edits.json in Chapter 12 metadata and docs/ops/BIOLOGY30_AUDIT_CORRECTIONS.md. Not independent teacher acceptance.",
+      "originalConcern": {
+        "status": "needs-correction",
+        "reason": "C lands at the pupil/iris boundary rather than distinctly on iris; K points to a retinal depression away from the optic nerve exit but the key calls it optic disc. Retarget C onto iris and K onto the actual nerve exit, or name the depicted depression fovea and add a separate optic-disc target."
+      }
+    },
+    {
+      "number": 2,
+      "status": "cleared-limited-scope",
+      "reason": "Retinal layers and opposing light/neural directions agree with p.415. Right panel is a simplified route, not a diagram for grading optic chiasm or partial crossing."
+    },
+    {
+      "number": 3,
+      "status": "audit-target-corrected-local-review",
+      "reason": "2026-09-17 corrected sibling image visually inspected for the recorded target. See instructional-revision/audit-image-edits.json in Chapter 12 metadata and docs/ops/BIOLOGY30_AUDIT_CORRECTIONS.md. Not independent teacher acceptance.",
+      "originalConcern": {
+        "status": "needs-correction",
+        "reason": "S targets the lower wall of the enlarged cochlear cross-section, not a round window at the basal cochlea. Move S to the basal round window in the main view; distinguish cochlea from vestibular canal structure."
+      }
+    },
+    {
+      "number": 4,
+      "status": "cleared-with-key-cleanup",
+      "reason": "Cupula and otolith apparatus kept separate. H specifically targets stereocilia, not the hair-cell body; use stereocilia in the ampulla as its key."
+    },
+    {
+      "number": 5,
+      "status": "audit-target-corrected-local-review",
+      "reason": "2026-09-17 corrected sibling image visually inspected for the recorded target. See instructional-revision/audit-image-edits.json in Chapter 12 metadata and docs/ops/BIOLOGY30_AUDIT_CORRECTIONS.md. Not independent teacher acceptance.",
+      "originalConcern": {
+        "status": "needs-correction",
+        "reason": "In the thyroid inset, D points to a yellow parathyroid nodule while its answer is thyroid. Move D to pink thyroid tissue, keeping E on a parathyroid nodule."
+      }
+    },
+    {
+      "number": 6,
+      "status": "cleared-with-key-cleanup",
+      "reason": "Separate anterior hormone secretion and hypothalamic axons to posterior release agree with Fig.13.12. Use adrenal cortex for ACTH target P, and explicit gland/tissue keys."
+    },
+    {
+      "number": 7,
+      "status": "audit-target-corrected-local-review",
+      "reason": "2026-09-17 corrected sibling image visually inspected for the recorded target. See instructional-revision/audit-image-edits.json in Chapter 12 metadata and docs/ops/BIOLOGY30_AUDIT_CORRECTIONS.md. Not independent teacher acceptance.",
+      "originalConcern": {
+        "status": "needs-correction",
+        "reason": "Blue arrows point into collecting-duct lumen, reversing reabsorption. Reverse arrows to lumen-to-interstitium/blood and label the two empty upper boxes. Avoid equating whole nephron with collecting duct."
+      }
+    },
+    {
+      "number": 8,
+      "status": "audit-target-corrected-local-review",
+      "reason": "2026-09-17 corrected sibling image visually inspected for the recorded target. See instructional-revision/audit-image-edits.json in Chapter 12 metadata and docs/ops/BIOLOGY30_AUDIT_CORRECTIONS.md. Not independent teacher acceptance.",
+      "originalConcern": {
+        "status": "needs-clarification",
+        "reason": "Physiological feedback order agrees with p.448, but C points at the small yellow pituitary lobe. Clearly identify/redraw it as anterior pituitary rather than requiring students to infer a nonstandard lobe depiction."
+      }
+    },
+    {
+      "number": 9,
+      "status": "needs-correction",
+      "reason": "ACTH branch produces both aldosterone and cortisol in this image. Remove aldosterone from the HPA branch, or show its separate angiotensin II/potassium regulation. Include cortisol effects and negative feedback if testing the full loop."
+    },
+    {
+      "number": 10,
+      "status": "cleared-limited-scope",
+      "reason": "Beta insulin and alpha glucagon pathways match taught content. Keys identify tissues/pathway; add teaching note about glucose uptake/storage versus liver glucose release and return toward a workable range."
+    }
+  ],
+  "added": [
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "existingDiagramIdsPreserved": true,
+  "userRequestedAllSupplied": true,
+  "status": "Supplied original images preserved; five audited targets use corrected siblings. Original concerns retained as provenance; other review scopes unchanged."
+}

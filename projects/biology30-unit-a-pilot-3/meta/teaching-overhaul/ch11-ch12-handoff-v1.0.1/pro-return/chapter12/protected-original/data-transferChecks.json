@@ -1,0 +1,63 @@
+[
+  {
+    "chapter": 12,
+    "id": "ch12-transfer-01",
+    "route": "lesson-09",
+    "placement": "After ch12-l09-teaching-03 and before the existing required final-check interface.",
+    "title": "Try a new case",
+    "instruction": "Try these questions without opening notes or model answers first. Submit the whole set before viewing feedback. This is an optional independent practice check, not an exam or a new completion requirement.",
+    "kind": "transfer",
+    "mc": [
+      {
+        "id": "ch12-transfer-mc-1",
+        "prompt": "A case states that light is focused normally and photoreceptors respond, but the optic nerve cannot carry signals. Which step is directly affected?",
+        "answer": "Transmission of retinal information toward the brain",
+        "options": [
+          "Transmission of retinal information toward the brain",
+          "Conversion of light into signals in rods and cones",
+          "Integration of incoming signals within the retina",
+          "Transfer of signals from photoreceptors to bipolar cells"
+        ],
+        "explanation": "The stated problem occurs after retinal detection. A working optical system cannot replace the neural output pathway."
+      },
+      {
+        "id": "ch12-transfer-mc-2",
+        "prompt": "A plan compares two body regions for touch discrimination but also uses stronger pressure on one region. Why can it not isolate the effect of body region?",
+        "answer": "Both body region and contact pressure changed",
+        "options": [
+          "Any difference must be due to receptor density alone",
+          "Pressure is the responding variable and body region is controlled",
+          "Repeating the same pressure difference isolates body region",
+          "Both body region and contact pressure changed"
+        ],
+        "explanation": "More than one changed factor can explain a difference, so pressure should be controlled."
+      },
+      {
+        "id": "ch12-transfer-mc-3",
+        "prompt": "In a described movement, the head turns left and then stops. Which structure may still be bent briefly by continued relative fluid movement?",
+        "answer": "A semicircular-canal cupula",
+        "options": [
+          "An otolith-bearing membrane in the saccule",
+          "A semicircular-canal cupula",
+          "An otolith-bearing membrane in the utricle",
+          "The basilar membrane within the cochlea"
+        ],
+        "explanation": "Canal fluid can continue moving briefly relative to the stopped canal, bending the cupula."
+      }
+    ],
+    "writing": {
+      "id": "ch12-transfer-writing-1",
+      "prompt": "A student says, “A brighter object and a nearer object require the same eye adjustment.” Explain why this is incomplete. Name the main adjustment for each change and trace the muscle–ligament–lens sequence for the nearer object.",
+      "model": "Greater brightness mainly calls for the iris to reduce pupil size and limit light entry. A nearer object calls for accommodation: the ciliary muscle contracts, ligament tension decreases, and the lens becomes rounder to bend light more strongly. The two adjustments have different jobs and can occur together.",
+      "criteria": [
+        "Brightness linked to iris/pupil",
+        "Distance linked to lens accommodation",
+        "Contraction → reduced ligament tension → rounder lens",
+        "Optical consequence explained"
+      ],
+      "limit": 3200
+    },
+    "feedbackPolicy": "No per-item hints, correctness or model answers before whole-set submission. Do not disable normal navigation or accessibility features. Record whether the learner reports using help; do not claim secure closed-book conditions.",
+    "scoringPolicy": "MC first submission only; writing saved for review, not auto-graded. Later attempts labelled practice after feedback. No contribution to C.checks, required completion, passed status or existing gradebook score."
+  }
+]

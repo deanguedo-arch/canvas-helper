@@ -1,0 +1,3632 @@
+{
+  "lessonId": "lesson-08",
+  "title": "Peripheral control",
+  "locator": {
+    "path": "projects/biology30-unit-a-pilot-3/workspace/index.html",
+    "selector": "#lesson-08",
+    "startLine": 1590,
+    "endLine": 1898,
+    "startOffset": 179833,
+    "endOffset": 216013,
+    "offsetUnit": "JavaScript UTF-16 code units",
+    "fragmentSha256": "b385182355020948a68114c9a34c8ee3d58eb1b349759c0e635bb1c5ca430774"
+  },
+  "currentHtml": "chapter11-lessons/lesson-08/current-exact.html",
+  "completeReadableCopy": "chapter11-lessons/lesson-08/current-complete.md",
+  "chapterTextbook": "sources/original/chapter-11.pdf",
+  "printedPageOffset": 359,
+  "textbookLinks": [
+    {
+      "pdfPage": 37,
+      "text": "Open at p. 396",
+      "line": 1612,
+      "printedPage": 396,
+      "textExtract": "sources/extracted/chapter11-textbook/pdf-page-037.txt"
+    },
+    {
+      "pdfPage": 40,
+      "text": "Textbook p. 399",
+      "line": 1727,
+      "printedPage": 399,
+      "textExtract": "sources/extracted/chapter11-textbook/pdf-page-040.txt"
+    },
+    {
+      "pdfPage": 37,
+      "text": "Textbook p. 396",
+      "line": 1757,
+      "printedPage": 396,
+      "textExtract": "sources/extracted/chapter11-textbook/pdf-page-037.txt"
+    },
+    {
+      "pdfPage": 37,
+      "text": "Textbook p. 396",
+      "line": 1770,
+      "printedPage": 396,
+      "textExtract": "sources/extracted/chapter11-textbook/pdf-page-037.txt"
+    },
+    {
+      "pdfPage": 40,
+      "text": "Textbook p. 399",
+      "line": 1783,
+      "printedPage": 399,
+      "textExtract": "sources/extracted/chapter11-textbook/pdf-page-040.txt"
+    },
+    {
+      "pdfPage": 40,
+      "text": "Textbook p. 399",
+      "line": 1796,
+      "printedPage": 399,
+      "textExtract": "sources/extracted/chapter11-textbook/pdf-page-040.txt"
+    },
+    {
+      "pdfPage": 40,
+      "text": "Textbook p. 399",
+      "line": 1809,
+      "printedPage": 399,
+      "textExtract": "sources/extracted/chapter11-textbook/pdf-page-040.txt"
+    },
+    {
+      "pdfPage": 40,
+      "text": "Textbook p. 399",
+      "line": 1822,
+      "printedPage": 399,
+      "textExtract": "sources/extracted/chapter11-textbook/pdf-page-040.txt"
+    },
+    {
+      "pdfPage": 40,
+      "text": "Textbook p. 399",
+      "line": 1835,
+      "printedPage": 399,
+      "textExtract": "sources/extracted/chapter11-textbook/pdf-page-040.txt"
+    },
+    {
+      "pdfPage": 40,
+      "text": "Textbook p. 399",
+      "line": 1853,
+      "printedPage": 399,
+      "textExtract": "sources/extracted/chapter11-textbook/pdf-page-040.txt"
+    },
+    {
+      "pdfPage": 40,
+      "text": "Textbook p. 399",
+      "line": 1866,
+      "printedPage": 399,
+      "textExtract": "sources/extracted/chapter11-textbook/pdf-page-040.txt"
+    },
+    {
+      "pdfPage": 40,
+      "text": "Textbook p. 399",
+      "line": 1879,
+      "printedPage": 399,
+      "textExtract": "sources/extracted/chapter11-textbook/pdf-page-040.txt"
+    }
+  ],
+  "teacherSlides": [
+    {
+      "slide": 43,
+      "textPath": "sources/extracted/chapter11-teacher-deck/slide-043.md",
+      "media": []
+    },
+    {
+      "slide": 44,
+      "textPath": "sources/extracted/chapter11-teacher-deck/slide-044.md",
+      "media": [
+        {
+          "id": "rId3",
+          "type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/image",
+          "target": "ppt/media/image33.png",
+          "external": false,
+          "packageMediaPath": "sources/teacher-deck-media/image33.png"
+        }
+      ]
+    },
+    {
+      "slide": 45,
+      "textPath": "sources/extracted/chapter11-teacher-deck/slide-045.md",
+      "media": [
+        {
+          "id": "rId4",
+          "type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/image",
+          "target": "ppt/media/image32.jpg",
+          "external": false,
+          "packageMediaPath": "sources/teacher-deck-media/image32.jpg"
+        },
+        {
+          "id": "rId6",
+          "type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/image",
+          "target": "ppt/media/image40.jpg",
+          "external": false,
+          "packageMediaPath": "sources/teacher-deck-media/image40.jpg"
+        }
+      ]
+    },
+    {
+      "slide": 46,
+      "textPath": "sources/extracted/chapter11-teacher-deck/slide-046.md",
+      "media": [
+        {
+          "id": "rId3",
+          "type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/image",
+          "target": "ppt/media/image34.png",
+          "external": false,
+          "packageMediaPath": "sources/teacher-deck-media/image34.png"
+        }
+      ]
+    },
+    {
+      "slide": 47,
+      "textPath": "sources/extracted/chapter11-teacher-deck/slide-047.md",
+      "media": [
+        {
+          "id": "rId3",
+          "type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/image",
+          "target": "ppt/media/image43.png",
+          "external": false,
+          "packageMediaPath": "sources/teacher-deck-media/image43.png"
+        }
+      ]
+    },
+    {
+      "slide": 48,
+      "textPath": "sources/extracted/chapter11-teacher-deck/slide-048.md",
+      "media": [
+        {
+          "id": "rId4",
+          "type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/image",
+          "target": "ppt/media/image37.jpg",
+          "external": false,
+          "packageMediaPath": "sources/teacher-deck-media/image37.jpg"
+        },
+        {
+          "id": "rId5",
+          "type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/image",
+          "target": "ppt/media/image54.png",
+          "external": false,
+          "packageMediaPath": "sources/teacher-deck-media/image54.png"
+        }
+      ]
+    }
+  ],
+  "mappingStatus": "Lead topic-based source locator from inspected slide titles/text; not teacher-certified outcome coverage. Consult full deck when context is needed.",
+  "caveat": null,
+  "questions": [
+    {
+      "id": "check-pns-mc",
+      "activityId": "check-pns",
+      "lessonId": "lesson-08",
+      "attrs": {
+        "class": "question",
+        "data-question": "check-pns-mc"
+      },
+      "originalHtml": "<div class=\"question\" data-question=\"check-pns-mc\">\n<h3 data-canvas-helper-edit-key=\"p3-chapter-656\">The two divisions of the autonomic nervous system are called the</h3>\n<label class=\"choice\" data-canvas-helper-edit-key=\"p3-chapter-657\">\n<input type=\"radio\" name=\"check-pns-mc\" value=\"QUES_51668_82707_A275462\" data-answer=\"\"> central nervous system (CNS) and the peripheral nervous system (PNS).</label>\n<label class=\"choice\" data-canvas-helper-edit-key=\"p3-chapter-658\">\n<input type=\"radio\" name=\"check-pns-mc\" value=\"QUES_51668_82707_A275463\" data-answer=\"\"> somatic nervous system and the skeletal nervous system</label>\n<label class=\"choice\" data-canvas-helper-edit-key=\"p3-chapter-659\">\n<input type=\"radio\" name=\"check-pns-mc\" value=\"QUES_51668_82707_A275464\" data-answer=\"\"> sympathetic nervous system and the parasympathetic nervous system.</label>\n<label class=\"choice\" data-canvas-helper-edit-key=\"p3-chapter-660\">\n<input type=\"radio\" name=\"check-pns-mc\" value=\"QUES_51668_82707_A275465\" data-answer=\"\"> myelinated nervous system and the unmyelinated nervous system.</label>\n<button type=\"button\" data-check=\"\" data-canvas-helper-edit-key=\"p3-chapter-661\">Check answer</button>\n<p data-feedback=\"\" role=\"status\" data-canvas-helper-edit-key=\"p3-chapter-662\">\n</p>\n<fieldset class=\"paired-writing\" data-unlock=\"check-pns-mc\" disabled=\"\">\n<legend>Explain the related idea</legend>\n<p data-canvas-helper-edit-key=\"p3-chapter-663\">\nCompare the functions of the sympathetic and parasympathetic divisions of the autonomic system. Give specific examples of their physiological effects in the body.</p>\n<p data-canvas-helper-edit-key=\"p3-chapter-664\">\n<a href=\"#textbook-library\" data-book-page=\"40\" data-canvas-helper-edit-key=\"p3-chapter-665\">Textbook p. 399</a>\n</p>\n<label for=\"check-pns-written\" data-canvas-helper-edit-key=\"p3-chapter-666\">Written response</label>\n<textarea id=\"check-pns-written\" data-writing=\"check-pns-written\" data-answer-limit=\"3200\" rows=\"6\" aria-describedby=\"check-pns-written-limit check-pns-written-status\"></textarea>\n<p id=\"check-pns-written-limit\" class=\"muted\" data-canvas-helper-edit-key=\"p3-chapter-667\">Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded.</p>\n<button type=\"button\" data-submit-writing=\"\" data-canvas-helper-edit-key=\"p3-chapter-668\">Save written response</button>\n<p data-writing-status=\"\" id=\"check-pns-written-status\" role=\"status\" data-canvas-helper-edit-key=\"p3-chapter-669\">\n</p>\n</fieldset>\n</div>",
+      "completeText": "The two divisions of the autonomic nervous system are called the central nervous system (CNS) and the peripheral nervous system (PNS). somatic nervous system and the skeletal nervous system sympathetic nervous system and the parasympathetic nervous system. myelinated nervous system and the unmyelinated nervous system. Check answer Explain the related idea Compare the functions of the sympathetic and parasympathetic divisions of the autonomic system. Give specific examples of their physiological effects in the body. Textbook p. 399 Written response Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded. Save written response",
+      "locator": {
+        "path": "projects/biology30-unit-a-pilot-3/workspace/index.html",
+        "line": 1709,
+        "endLine": 1736
+      },
+      "answerFields": [
+        {
+          "tag": "input",
+          "attrs": {
+            "type": "radio",
+            "name": "check-pns-mc",
+            "value": "QUES_51668_82707_A275462",
+            "data-answer": ""
+          },
+          "text": ""
+        },
+        {
+          "tag": "input",
+          "attrs": {
+            "type": "radio",
+            "name": "check-pns-mc",
+            "value": "QUES_51668_82707_A275463",
+            "data-answer": ""
+          },
+          "text": ""
+        },
+        {
+          "tag": "input",
+          "attrs": {
+            "type": "radio",
+            "name": "check-pns-mc",
+            "value": "QUES_51668_82707_A275464",
+            "data-answer": ""
+          },
+          "text": ""
+        },
+        {
+          "tag": "input",
+          "attrs": {
+            "type": "radio",
+            "name": "check-pns-mc",
+            "value": "QUES_51668_82707_A275465",
+            "data-answer": ""
+          },
+          "text": ""
+        },
+        {
+          "tag": "textarea",
+          "attrs": {
+            "id": "check-pns-written",
+            "data-writing": "check-pns-written",
+            "data-answer-limit": "3200",
+            "rows": "6",
+            "aria-describedby": "check-pns-written-limit check-pns-written-status"
+          },
+          "text": ""
+        }
+      ],
+      "authoredKey": {
+        "id": "check-pns-mc",
+        "sourceId": "res-quiz-59222:obj-2130969",
+        "correct": "QUES_51668_82707_A275464"
+      }
+    },
+    {
+      "id": "source-checkpoint-28",
+      "activityId": "practice-pns",
+      "lessonId": "lesson-08",
+      "attrs": {
+        "class": "question",
+        "data-question": "source-checkpoint-28"
+      },
+      "originalHtml": "<div class=\"question\" data-question=\"source-checkpoint-28\">\n<p data-canvas-helper-edit-key=\"p3-chapter-676\">\nWhat are the major structures involved in the somatic system? </p>\n<p data-canvas-helper-edit-key=\"p3-chapter-677\">\n<a href=\"#textbook-library\" data-book-page=\"37\" data-canvas-helper-edit-key=\"p3-chapter-678\">Textbook p. 396</a>\n</p>\n<label for=\"source-checkpoint-28-written\" data-canvas-helper-edit-key=\"p3-chapter-679\">Written response</label>\n<textarea id=\"source-checkpoint-28-written\" data-writing=\"source-checkpoint-28-written\" data-answer-limit=\"3200\" rows=\"6\" aria-describedby=\"source-checkpoint-28-written-limit source-checkpoint-28-written-status\"></textarea>\n<p id=\"source-checkpoint-28-written-limit\" class=\"muted\" data-canvas-helper-edit-key=\"p3-chapter-680\">Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded.</p>\n<button type=\"button\" data-submit-writing=\"\" data-canvas-helper-edit-key=\"p3-chapter-681\">Save written response</button>\n<p data-writing-status=\"\" id=\"source-checkpoint-28-written-status\" role=\"status\" data-canvas-helper-edit-key=\"p3-chapter-682\">\n</p>\n</div>",
+      "completeText": "What are the major structures involved in the somatic system? Textbook p. 396 Written response Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded. Save written response",
+      "locator": {
+        "path": "projects/biology30-unit-a-pilot-3/workspace/index.html",
+        "line": 1753,
+        "endLine": 1765
+      },
+      "answerFields": [
+        {
+          "tag": "textarea",
+          "attrs": {
+            "id": "source-checkpoint-28-written",
+            "data-writing": "source-checkpoint-28-written",
+            "data-answer-limit": "3200",
+            "rows": "6",
+            "aria-describedby": "source-checkpoint-28-written-limit source-checkpoint-28-written-status"
+          },
+          "text": ""
+        }
+      ],
+      "authoredKey": null
+    },
+    {
+      "id": "source-checkpoint-29",
+      "activityId": "practice-pns",
+      "lessonId": "lesson-08",
+      "attrs": {
+        "class": "question",
+        "data-question": "source-checkpoint-29"
+      },
+      "originalHtml": "<div class=\"question\" data-question=\"source-checkpoint-29\">\n<p data-canvas-helper-edit-key=\"p3-chapter-683\">\nWhat role does the somatic system play in the functioning of the body? </p>\n<p data-canvas-helper-edit-key=\"p3-chapter-684\">\n<a href=\"#textbook-library\" data-book-page=\"37\" data-canvas-helper-edit-key=\"p3-chapter-685\">Textbook p. 396</a>\n</p>\n<label for=\"source-checkpoint-29-written\" data-canvas-helper-edit-key=\"p3-chapter-686\">Written response</label>\n<textarea id=\"source-checkpoint-29-written\" data-writing=\"source-checkpoint-29-written\" data-answer-limit=\"3200\" rows=\"6\" aria-describedby=\"source-checkpoint-29-written-limit source-checkpoint-29-written-status\"></textarea>\n<p id=\"source-checkpoint-29-written-limit\" class=\"muted\" data-canvas-helper-edit-key=\"p3-chapter-687\">Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded.</p>\n<button type=\"button\" data-submit-writing=\"\" data-canvas-helper-edit-key=\"p3-chapter-688\">Save written response</button>\n<p data-writing-status=\"\" id=\"source-checkpoint-29-written-status\" role=\"status\" data-canvas-helper-edit-key=\"p3-chapter-689\">\n</p>\n</div>",
+      "completeText": "What role does the somatic system play in the functioning of the body? Textbook p. 396 Written response Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded. Save written response",
+      "locator": {
+        "path": "projects/biology30-unit-a-pilot-3/workspace/index.html",
+        "line": 1766,
+        "endLine": 1778
+      },
+      "answerFields": [
+        {
+          "tag": "textarea",
+          "attrs": {
+            "id": "source-checkpoint-29-written",
+            "data-writing": "source-checkpoint-29-written",
+            "data-answer-limit": "3200",
+            "rows": "6",
+            "aria-describedby": "source-checkpoint-29-written-limit source-checkpoint-29-written-status"
+          },
+          "text": ""
+        }
+      ],
+      "authoredKey": null
+    },
+    {
+      "id": "source-checkpoint-30",
+      "activityId": "practice-pns",
+      "lessonId": "lesson-08",
+      "attrs": {
+        "class": "question",
+        "data-question": "source-checkpoint-30"
+      },
+      "originalHtml": "<div class=\"question\" data-question=\"source-checkpoint-30\">\n<p data-canvas-helper-edit-key=\"p3-chapter-690\">\nWhat type of motor neurons are involved in the autonomic nervous system? </p>\n<p data-canvas-helper-edit-key=\"p3-chapter-691\">\n<a href=\"#textbook-library\" data-book-page=\"40\" data-canvas-helper-edit-key=\"p3-chapter-692\">Textbook p. 399</a>\n</p>\n<label for=\"source-checkpoint-30-written\" data-canvas-helper-edit-key=\"p3-chapter-693\">Written response</label>\n<textarea id=\"source-checkpoint-30-written\" data-writing=\"source-checkpoint-30-written\" data-answer-limit=\"3200\" rows=\"6\" aria-describedby=\"source-checkpoint-30-written-limit source-checkpoint-30-written-status\"></textarea>\n<p id=\"source-checkpoint-30-written-limit\" class=\"muted\" data-canvas-helper-edit-key=\"p3-chapter-694\">Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded.</p>\n<button type=\"button\" data-submit-writing=\"\" data-canvas-helper-edit-key=\"p3-chapter-695\">Save written response</button>\n<p data-writing-status=\"\" id=\"source-checkpoint-30-written-status\" role=\"status\" data-canvas-helper-edit-key=\"p3-chapter-696\">\n</p>\n</div>",
+      "completeText": "What type of motor neurons are involved in the autonomic nervous system? Textbook p. 399 Written response Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded. Save written response",
+      "locator": {
+        "path": "projects/biology30-unit-a-pilot-3/workspace/index.html",
+        "line": 1779,
+        "endLine": 1791
+      },
+      "answerFields": [
+        {
+          "tag": "textarea",
+          "attrs": {
+            "id": "source-checkpoint-30-written",
+            "data-writing": "source-checkpoint-30-written",
+            "data-answer-limit": "3200",
+            "rows": "6",
+            "aria-describedby": "source-checkpoint-30-written-limit source-checkpoint-30-written-status"
+          },
+          "text": ""
+        }
+      ],
+      "authoredKey": null
+    },
+    {
+      "id": "source-checkpoint-31",
+      "activityId": "practice-pns",
+      "lessonId": "lesson-08",
+      "attrs": {
+        "class": "question",
+        "data-question": "source-checkpoint-31"
+      },
+      "originalHtml": "<div class=\"question\" data-question=\"source-checkpoint-31\">\n<p data-canvas-helper-edit-key=\"p3-chapter-697\">\nWhat generally triggers the sympathetic nervous system, and what are its effects on the body? </p>\n<p data-canvas-helper-edit-key=\"p3-chapter-698\">\n<a href=\"#textbook-library\" data-book-page=\"40\" data-canvas-helper-edit-key=\"p3-chapter-699\">Textbook p. 399</a>\n</p>\n<label for=\"source-checkpoint-31-written\" data-canvas-helper-edit-key=\"p3-chapter-700\">Written response</label>\n<textarea id=\"source-checkpoint-31-written\" data-writing=\"source-checkpoint-31-written\" data-answer-limit=\"3200\" rows=\"6\" aria-describedby=\"source-checkpoint-31-written-limit source-checkpoint-31-written-status\"></textarea>\n<p id=\"source-checkpoint-31-written-limit\" class=\"muted\" data-canvas-helper-edit-key=\"p3-chapter-701\">Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded.</p>\n<button type=\"button\" data-submit-writing=\"\" data-canvas-helper-edit-key=\"p3-chapter-702\">Save written response</button>\n<p data-writing-status=\"\" id=\"source-checkpoint-31-written-status\" role=\"status\" data-canvas-helper-edit-key=\"p3-chapter-703\">\n</p>\n</div>",
+      "completeText": "What generally triggers the sympathetic nervous system, and what are its effects on the body? Textbook p. 399 Written response Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded. Save written response",
+      "locator": {
+        "path": "projects/biology30-unit-a-pilot-3/workspace/index.html",
+        "line": 1792,
+        "endLine": 1804
+      },
+      "answerFields": [
+        {
+          "tag": "textarea",
+          "attrs": {
+            "id": "source-checkpoint-31-written",
+            "data-writing": "source-checkpoint-31-written",
+            "data-answer-limit": "3200",
+            "rows": "6",
+            "aria-describedby": "source-checkpoint-31-written-limit source-checkpoint-31-written-status"
+          },
+          "text": ""
+        }
+      ],
+      "authoredKey": null
+    },
+    {
+      "id": "source-checkpoint-32",
+      "activityId": "practice-pns",
+      "lessonId": "lesson-08",
+      "attrs": {
+        "class": "question",
+        "data-question": "source-checkpoint-32"
+      },
+      "originalHtml": "<div class=\"question\" data-question=\"source-checkpoint-32\">\n<p data-canvas-helper-edit-key=\"p3-chapter-704\">\nWhat generally triggers the parasympathetic nervous system, and what are its effects on the body? </p>\n<p data-canvas-helper-edit-key=\"p3-chapter-705\">\n<a href=\"#textbook-library\" data-book-page=\"40\" data-canvas-helper-edit-key=\"p3-chapter-706\">Textbook p. 399</a>\n</p>\n<label for=\"source-checkpoint-32-written\" data-canvas-helper-edit-key=\"p3-chapter-707\">Written response</label>\n<textarea id=\"source-checkpoint-32-written\" data-writing=\"source-checkpoint-32-written\" data-answer-limit=\"3200\" rows=\"6\" aria-describedby=\"source-checkpoint-32-written-limit source-checkpoint-32-written-status\"></textarea>\n<p id=\"source-checkpoint-32-written-limit\" class=\"muted\" data-canvas-helper-edit-key=\"p3-chapter-708\">Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded.</p>\n<button type=\"button\" data-submit-writing=\"\" data-canvas-helper-edit-key=\"p3-chapter-709\">Save written response</button>\n<p data-writing-status=\"\" id=\"source-checkpoint-32-written-status\" role=\"status\" data-canvas-helper-edit-key=\"p3-chapter-710\">\n</p>\n</div>",
+      "completeText": "What generally triggers the parasympathetic nervous system, and what are its effects on the body? Textbook p. 399 Written response Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded. Save written response",
+      "locator": {
+        "path": "projects/biology30-unit-a-pilot-3/workspace/index.html",
+        "line": 1805,
+        "endLine": 1817
+      },
+      "answerFields": [
+        {
+          "tag": "textarea",
+          "attrs": {
+            "id": "source-checkpoint-32-written",
+            "data-writing": "source-checkpoint-32-written",
+            "data-answer-limit": "3200",
+            "rows": "6",
+            "aria-describedby": "source-checkpoint-32-written-limit source-checkpoint-32-written-status"
+          },
+          "text": ""
+        }
+      ],
+      "authoredKey": null
+    },
+    {
+      "id": "source-review113-q1",
+      "activityId": "practice-pns",
+      "lessonId": "lesson-08",
+      "attrs": {
+        "class": "question",
+        "data-question": "source-review113-q1"
+      },
+      "originalHtml": "<div class=\"question\" data-question=\"source-review113-q1\">\n<p data-canvas-helper-edit-key=\"p3-chapter-711\">\nCompare the general functions of the central nervous system with the functions of the peripheral nervous system.</p>\n<p data-canvas-helper-edit-key=\"p3-chapter-712\">\n<a href=\"#textbook-library\" data-book-page=\"40\" data-canvas-helper-edit-key=\"p3-chapter-713\">Textbook p. 399</a>\n</p>\n<label for=\"source-review113-q1-written\" data-canvas-helper-edit-key=\"p3-chapter-714\">Written response</label>\n<textarea id=\"source-review113-q1-written\" data-writing=\"source-review113-q1-written\" data-answer-limit=\"3200\" rows=\"6\" aria-describedby=\"source-review113-q1-written-limit source-review113-q1-written-status\"></textarea>\n<p id=\"source-review113-q1-written-limit\" class=\"muted\" data-canvas-helper-edit-key=\"p3-chapter-715\">Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded.</p>\n<button type=\"button\" data-submit-writing=\"\" data-canvas-helper-edit-key=\"p3-chapter-716\">Save written response</button>\n<p data-writing-status=\"\" id=\"source-review113-q1-written-status\" role=\"status\" data-canvas-helper-edit-key=\"p3-chapter-717\">\n</p>\n</div>",
+      "completeText": "Compare the general functions of the central nervous system with the functions of the peripheral nervous system. Textbook p. 399 Written response Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded. Save written response",
+      "locator": {
+        "path": "projects/biology30-unit-a-pilot-3/workspace/index.html",
+        "line": 1818,
+        "endLine": 1830
+      },
+      "answerFields": [
+        {
+          "tag": "textarea",
+          "attrs": {
+            "id": "source-review113-q1-written",
+            "data-writing": "source-review113-q1-written",
+            "data-answer-limit": "3200",
+            "rows": "6",
+            "aria-describedby": "source-review113-q1-written-limit source-review113-q1-written-status"
+          },
+          "text": ""
+        }
+      ],
+      "authoredKey": null
+    },
+    {
+      "id": "source-review113-q2",
+      "activityId": "practice-pns",
+      "lessonId": "lesson-08",
+      "attrs": {
+        "class": "question",
+        "data-question": "source-review113-q2"
+      },
+      "originalHtml": "<div class=\"question\" data-question=\"source-review113-q2\">\n<p data-canvas-helper-edit-key=\"p3-chapter-718\">\nIdentify which division of the peripheral nervous system is under voluntary control and which division is under involuntary control. Compare the functions of these two divisions.</p>\n<p data-canvas-helper-edit-key=\"p3-chapter-719\">\n<a href=\"#textbook-library\" data-book-page=\"40\" data-canvas-helper-edit-key=\"p3-chapter-720\">Textbook p. 399</a>\n</p>\n<label for=\"source-review113-q2-written\" data-canvas-helper-edit-key=\"p3-chapter-721\">Written response</label>\n<textarea id=\"source-review113-q2-written\" data-writing=\"source-review113-q2-written\" data-answer-limit=\"3200\" rows=\"6\" aria-describedby=\"source-review113-q2-written-limit source-review113-q2-written-status\"></textarea>\n<p id=\"source-review113-q2-written-limit\" class=\"muted\" data-canvas-helper-edit-key=\"p3-chapter-722\">Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded.</p>\n<button type=\"button\" data-submit-writing=\"\" data-canvas-helper-edit-key=\"p3-chapter-723\">Save written response</button>\n<p data-writing-status=\"\" id=\"source-review113-q2-written-status\" role=\"status\" data-canvas-helper-edit-key=\"p3-chapter-724\">\n</p>\n</div>",
+      "completeText": "Identify which division of the peripheral nervous system is under voluntary control and which division is under involuntary control. Compare the functions of these two divisions. Textbook p. 399 Written response Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded. Save written response",
+      "locator": {
+        "path": "projects/biology30-unit-a-pilot-3/workspace/index.html",
+        "line": 1831,
+        "endLine": 1843
+      },
+      "answerFields": [
+        {
+          "tag": "textarea",
+          "attrs": {
+            "id": "source-review113-q2-written",
+            "data-writing": "source-review113-q2-written",
+            "data-answer-limit": "3200",
+            "rows": "6",
+            "aria-describedby": "source-review113-q2-written-limit source-review113-q2-written-status"
+          },
+          "text": ""
+        }
+      ],
+      "authoredKey": null
+    },
+    {
+      "id": "source-review113-q3",
+      "activityId": "practice-pns",
+      "lessonId": "lesson-08",
+      "attrs": {
+        "class": "question",
+        "data-question": "source-review113-q3"
+      },
+      "originalHtml": "<div class=\"question\" data-question=\"source-review113-q3\">\n<p data-canvas-helper-edit-key=\"p3-chapter-725\">\nImagine that you are hiking in the mountains one afternoon with friends. As you turn a corner, you come across a mother bear and her cubs standing in the middle of the trail.</p>\n<ol class=\"subquestions\" type=\"a\">\n<li data-canvas-helper-edit-key=\"p3-chapter-726\">Identify the specific division of the nervous system that is responsible for the body’s response to this situation.</li>\n<li data-canvas-helper-edit-key=\"p3-chapter-727\">Describe at least six physiological responses you might have upon seeing the bears.</li>\n<li data-canvas-helper-edit-key=\"p3-chapter-728\">Indicate the division of the nervous system that is responsible for returning the body back to equilibrium after the event is over.</li>\n</ol>\n<p data-canvas-helper-edit-key=\"p3-chapter-729\">\n<a href=\"#textbook-library\" data-book-page=\"40\" data-canvas-helper-edit-key=\"p3-chapter-730\">Textbook p. 399</a>\n</p>\n<label for=\"source-review113-q3-written\" data-canvas-helper-edit-key=\"p3-chapter-731\">Written response</label>\n<textarea id=\"source-review113-q3-written\" data-writing=\"source-review113-q3-written\" data-answer-limit=\"3200\" rows=\"6\" aria-describedby=\"source-review113-q3-written-limit source-review113-q3-written-status\"></textarea>\n<p id=\"source-review113-q3-written-limit\" class=\"muted\" data-canvas-helper-edit-key=\"p3-chapter-732\">Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded.</p>\n<button type=\"button\" data-submit-writing=\"\" data-canvas-helper-edit-key=\"p3-chapter-733\">Save written response</button>\n<p data-writing-status=\"\" id=\"source-review113-q3-written-status\" role=\"status\" data-canvas-helper-edit-key=\"p3-chapter-734\">\n</p>\n</div>",
+      "completeText": "Imagine that you are hiking in the mountains one afternoon with friends. As you turn a corner, you come across a mother bear and her cubs standing in the middle of the trail. Identify the specific division of the nervous system that is responsible for the body’s response to this situation. Describe at least six physiological responses you might have upon seeing the bears. Indicate the division of the nervous system that is responsible for returning the body back to equilibrium after the event is over. Textbook p. 399 Written response Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded. Save written response",
+      "locator": {
+        "path": "projects/biology30-unit-a-pilot-3/workspace/index.html",
+        "line": 1844,
+        "endLine": 1861
+      },
+      "answerFields": [
+        {
+          "tag": "textarea",
+          "attrs": {
+            "id": "source-review113-q3-written",
+            "data-writing": "source-review113-q3-written",
+            "data-answer-limit": "3200",
+            "rows": "6",
+            "aria-describedby": "source-review113-q3-written-limit source-review113-q3-written-status"
+          },
+          "text": ""
+        }
+      ],
+      "authoredKey": null
+    },
+    {
+      "id": "source-review113-q4",
+      "activityId": "practice-pns",
+      "lessonId": "lesson-08",
+      "attrs": {
+        "class": "question",
+        "data-question": "source-review113-q4"
+      },
+      "originalHtml": "<div class=\"question\" data-question=\"source-review113-q4\">\n<p data-canvas-helper-edit-key=\"p3-chapter-735\">\nUse word processing software to construct a three-column table. Use the following headings: Body structures, Sympathetic stimulation effect, and Parasympathetic stimulation effect. In the first column, list these structures: eyes, salivary glands, bronchioles, heart, liver, adrenal glands, kidneys, stomach, pancreas, intestines, and bladder. Then complete the rest of the table. ICT</p>\n<p data-canvas-helper-edit-key=\"p3-chapter-736\">\n<a href=\"#textbook-library\" data-book-page=\"40\" data-canvas-helper-edit-key=\"p3-chapter-737\">Textbook p. 399</a>\n</p>\n<label for=\"source-review113-q4-written\" data-canvas-helper-edit-key=\"p3-chapter-738\">Written response</label>\n<textarea id=\"source-review113-q4-written\" data-writing=\"source-review113-q4-written\" data-answer-limit=\"3200\" rows=\"6\" aria-describedby=\"source-review113-q4-written-limit source-review113-q4-written-status\"></textarea>\n<p id=\"source-review113-q4-written-limit\" class=\"muted\" data-canvas-helper-edit-key=\"p3-chapter-739\">Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded.</p>\n<button type=\"button\" data-submit-writing=\"\" data-canvas-helper-edit-key=\"p3-chapter-740\">Save written response</button>\n<p data-writing-status=\"\" id=\"source-review113-q4-written-status\" role=\"status\" data-canvas-helper-edit-key=\"p3-chapter-741\">\n</p>\n</div>",
+      "completeText": "Use word processing software to construct a three-column table. Use the following headings: Body structures, Sympathetic stimulation effect, and Parasympathetic stimulation effect. In the first column, list these structures: eyes, salivary glands, bronchioles, heart, liver, adrenal glands, kidneys, stomach, pancreas, intestines, and bladder. Then complete the rest of the table. ICT Textbook p. 399 Written response Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded. Save written response",
+      "locator": {
+        "path": "projects/biology30-unit-a-pilot-3/workspace/index.html",
+        "line": 1862,
+        "endLine": 1874
+      },
+      "answerFields": [
+        {
+          "tag": "textarea",
+          "attrs": {
+            "id": "source-review113-q4-written",
+            "data-writing": "source-review113-q4-written",
+            "data-answer-limit": "3200",
+            "rows": "6",
+            "aria-describedby": "source-review113-q4-written-limit source-review113-q4-written-status"
+          },
+          "text": ""
+        }
+      ],
+      "authoredKey": null
+    },
+    {
+      "id": "source-review113-q5",
+      "activityId": "practice-pns",
+      "lessonId": "lesson-08",
+      "attrs": {
+        "class": "question",
+        "data-question": "source-review113-q5"
+      },
+      "originalHtml": "<div class=\"question\" data-question=\"source-review113-q5\">\n<p data-canvas-helper-edit-key=\"p3-chapter-742\">\nCompare how stimulants and depressants affect the nervous system. Name a common stimulant.</p>\n<p data-canvas-helper-edit-key=\"p3-chapter-743\">\n<a href=\"#textbook-library\" data-book-page=\"40\" data-canvas-helper-edit-key=\"p3-chapter-744\">Textbook p. 399</a>\n</p>\n<label for=\"source-review113-q5-written\" data-canvas-helper-edit-key=\"p3-chapter-745\">Written response</label>\n<textarea id=\"source-review113-q5-written\" data-writing=\"source-review113-q5-written\" data-answer-limit=\"3200\" rows=\"6\" aria-describedby=\"source-review113-q5-written-limit source-review113-q5-written-status\"></textarea>\n<p id=\"source-review113-q5-written-limit\" class=\"muted\" data-canvas-helper-edit-key=\"p3-chapter-746\">Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded.</p>\n<button type=\"button\" data-submit-writing=\"\" data-canvas-helper-edit-key=\"p3-chapter-747\">Save written response</button>\n<p data-writing-status=\"\" id=\"source-review113-q5-written-status\" role=\"status\" data-canvas-helper-edit-key=\"p3-chapter-748\">\n</p>\n</div>",
+      "completeText": "Compare how stimulants and depressants affect the nervous system. Name a common stimulant. Textbook p. 399 Written response Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded. Save written response",
+      "locator": {
+        "path": "projects/biology30-unit-a-pilot-3/workspace/index.html",
+        "line": 1875,
+        "endLine": 1887
+      },
+      "answerFields": [
+        {
+          "tag": "textarea",
+          "attrs": {
+            "id": "source-review113-q5-written",
+            "data-writing": "source-review113-q5-written",
+            "data-answer-limit": "3200",
+            "rows": "6",
+            "aria-describedby": "source-review113-q5-written-limit source-review113-q5-written-status"
+          },
+          "text": ""
+        }
+      ],
+      "authoredKey": null
+    }
+  ],
+  "optionalGeneratedPractice": [
+    {
+      "id": "somatic-autonomic",
+      "lessonId": "lesson-08",
+      "term": "somatic and autonomic control",
+      "definition": "somatic pathways control skeletal muscle; autonomic pathways regulate organs, glands and smooth or cardiac muscle",
+      "scenario": "Choosing to lift a book uses somatic output, while heart-rate regulation is autonomic.",
+      "misconception": "Autonomic control means every response is consciously chosen.",
+      "sequence": [
+        "CNS command",
+        "somatic or autonomic pathway",
+        "target tissue",
+        "response"
+      ],
+      "answers": [
+        "somatic and autonomic control"
+      ],
+      "aliases": [],
+      "relationships": [
+        "CNS command",
+        "somatic or autonomic pathway",
+        "target tissue",
+        "response"
+      ],
+      "contrast": [
+        "somatic pathways control skeletal muscle; autonomic pathways regulate organs, glands and smooth or cardiac muscle",
+        "Autonomic control means every response is consciously chosen."
+      ],
+      "cue": "Trace where somatic and autonomic control belongs in the lesson mechanism or example.",
+      "explanation": "somatic and autonomic control: somatic pathways control skeletal muscle; autonomic pathways regulate organs, glands and smooth or cardiac muscle",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 396"
+      ],
+      "mcVariants": [
+        {
+          "id": "term",
+          "skill": "recognize",
+          "difficulty": 1,
+          "prompt": "Which term best matches this description: somatic pathways control skeletal muscle; autonomic pathways regulate organs, glands and smooth or cardiac muscle?",
+          "answer": "somatic and autonomic control",
+          "optionSource": "terms"
+        },
+        {
+          "id": "function",
+          "skill": "relate",
+          "difficulty": 2,
+          "prompt": "Which statement best describes somatic and autonomic control?",
+          "answer": "somatic pathways control skeletal muscle; autonomic pathways regulate organs, glands and smooth or cardiac muscle",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "scenario",
+          "skill": "apply",
+          "difficulty": 3,
+          "prompt": "Which concept best explains this situation? Choosing to lift a book uses somatic output, while heart-rate regulation is autonomic.",
+          "answer": "somatic and autonomic control",
+          "optionSource": "terms"
+        },
+        {
+          "id": "correction",
+          "skill": "misconception",
+          "difficulty": 3,
+          "prompt": "Which statement correctly replaces this inaccurate idea: “Autonomic control means every response is consciously chosen.”",
+          "answer": "somatic pathways control skeletal muscle; autonomic pathways regulate organs, glands and smooth or cardiac muscle",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "sequence-start",
+          "skill": "sequence",
+          "difficulty": 1,
+          "prompt": "Which event begins the somatic and autonomic control sequence?",
+          "answer": "CNS command",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-next",
+          "skill": "sequence",
+          "difficulty": 2,
+          "prompt": "In the somatic and autonomic control sequence, what follows CNS command?",
+          "answer": "somatic or autonomic pathway",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-end",
+          "skill": "integrate",
+          "difficulty": 4,
+          "prompt": "Which event completes the somatic and autonomic control sequence?",
+          "answer": "response",
+          "optionSource": "sequence"
+        }
+      ]
+    },
+    {
+      "id": "sympathetic",
+      "lessonId": "lesson-08",
+      "term": "sympathetic division",
+      "definition": "the autonomic division that generally supports activity and acute challenge",
+      "scenario": "During sudden danger, heart rate rises and digestion is reduced.",
+      "misconception": "Sympathetic activity always slows the heart and promotes digestion.",
+      "sequence": [
+        "challenge detected",
+        "sympathetic output",
+        "organ adjustments",
+        "action supported"
+      ],
+      "answers": [
+        "sympathetic division"
+      ],
+      "aliases": [],
+      "relationships": [
+        "challenge detected",
+        "sympathetic output",
+        "organ adjustments",
+        "action supported"
+      ],
+      "contrast": [
+        "the autonomic division that generally supports activity and acute challenge",
+        "Sympathetic activity always slows the heart and promotes digestion."
+      ],
+      "cue": "Trace where sympathetic division belongs in the lesson mechanism or example.",
+      "explanation": "sympathetic division: the autonomic division that generally supports activity and acute challenge",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 399"
+      ],
+      "mcVariants": [
+        {
+          "id": "term",
+          "skill": "recognize",
+          "difficulty": 1,
+          "prompt": "Which term best matches this description: the autonomic division that generally supports activity and acute challenge?",
+          "answer": "sympathetic division",
+          "optionSource": "terms"
+        },
+        {
+          "id": "function",
+          "skill": "relate",
+          "difficulty": 2,
+          "prompt": "Which statement best describes sympathetic division?",
+          "answer": "the autonomic division that generally supports activity and acute challenge",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "scenario",
+          "skill": "apply",
+          "difficulty": 3,
+          "prompt": "Which concept best explains this situation? During sudden danger, heart rate rises and digestion is reduced.",
+          "answer": "sympathetic division",
+          "optionSource": "terms"
+        },
+        {
+          "id": "correction",
+          "skill": "misconception",
+          "difficulty": 3,
+          "prompt": "Which statement correctly replaces this inaccurate idea: “Sympathetic activity always slows the heart and promotes digestion.”",
+          "answer": "the autonomic division that generally supports activity and acute challenge",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "sequence-start",
+          "skill": "sequence",
+          "difficulty": 1,
+          "prompt": "Which event begins the sympathetic division sequence?",
+          "answer": "challenge detected",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-next",
+          "skill": "sequence",
+          "difficulty": 2,
+          "prompt": "In the sympathetic division sequence, what follows challenge detected?",
+          "answer": "sympathetic output",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-end",
+          "skill": "integrate",
+          "difficulty": 4,
+          "prompt": "Which event completes the sympathetic division sequence?",
+          "answer": "action supported",
+          "optionSource": "sequence"
+        }
+      ]
+    },
+    {
+      "id": "parasympathetic",
+      "lessonId": "lesson-08",
+      "term": "parasympathetic division",
+      "definition": "the autonomic division that generally supports rest, digestion and recovery",
+      "scenario": "After a threat passes, heart rate can fall and digestive activity can increase.",
+      "misconception": "Parasympathetic and sympathetic divisions produce identical effects in every organ.",
+      "sequence": [
+        "challenge passes",
+        "parasympathetic output",
+        "restorative adjustments",
+        "recovery"
+      ],
+      "answers": [
+        "parasympathetic division"
+      ],
+      "aliases": [],
+      "relationships": [
+        "challenge passes",
+        "parasympathetic output",
+        "restorative adjustments",
+        "recovery"
+      ],
+      "contrast": [
+        "the autonomic division that generally supports rest, digestion and recovery",
+        "Parasympathetic and sympathetic divisions produce identical effects in every organ."
+      ],
+      "cue": "Trace where parasympathetic division belongs in the lesson mechanism or example.",
+      "explanation": "parasympathetic division: the autonomic division that generally supports rest, digestion and recovery",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 399"
+      ],
+      "mcVariants": [
+        {
+          "id": "term",
+          "skill": "recognize",
+          "difficulty": 1,
+          "prompt": "Which term best matches this description: the autonomic division that generally supports rest, digestion and recovery?",
+          "answer": "parasympathetic division",
+          "optionSource": "terms"
+        },
+        {
+          "id": "function",
+          "skill": "relate",
+          "difficulty": 2,
+          "prompt": "Which statement best describes parasympathetic division?",
+          "answer": "the autonomic division that generally supports rest, digestion and recovery",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "scenario",
+          "skill": "apply",
+          "difficulty": 3,
+          "prompt": "Which concept best explains this situation? After a threat passes, heart rate can fall and digestive activity can increase.",
+          "answer": "parasympathetic division",
+          "optionSource": "terms"
+        },
+        {
+          "id": "correction",
+          "skill": "misconception",
+          "difficulty": 3,
+          "prompt": "Which statement correctly replaces this inaccurate idea: “Parasympathetic and sympathetic divisions produce identical effects in every organ.”",
+          "answer": "the autonomic division that generally supports rest, digestion and recovery",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "sequence-start",
+          "skill": "sequence",
+          "difficulty": 1,
+          "prompt": "Which event begins the parasympathetic division sequence?",
+          "answer": "challenge passes",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-next",
+          "skill": "sequence",
+          "difficulty": 2,
+          "prompt": "In the parasympathetic division sequence, what follows challenge passes?",
+          "answer": "parasympathetic output",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-end",
+          "skill": "integrate",
+          "difficulty": 4,
+          "prompt": "Which event completes the parasympathetic division sequence?",
+          "answer": "recovery",
+          "optionSource": "sequence"
+        }
+      ]
+    }
+  ],
+  "generatedItemFamilies": [
+    {
+      "kind": "flashcards",
+      "conceptId": "somatic-autonomic",
+      "lessonId": "lesson-08",
+      "cue": "Trace where somatic and autonomic control belongs in the lesson mechanism or example.",
+      "explanation": "somatic and autonomic control: somatic pathways control skeletal muscle; autonomic pathways regulate organs, glands and smooth or cardiac muscle Source: Biology 30 Chapter 11, textbook p. 396",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 396"
+      ],
+      "id": "somatic-autonomic:card-term",
+      "family": "recall",
+      "interaction": "flashcard",
+      "skill": "recall",
+      "prompt": "somatic and autonomic control",
+      "answers": [
+        "somatic pathways control skeletal muscle; autonomic pathways regulate organs, glands and smooth or cardiac muscle"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "flashcards",
+      "conceptId": "somatic-autonomic",
+      "lessonId": "lesson-08",
+      "cue": "Trace where somatic and autonomic control belongs in the lesson mechanism or example.",
+      "explanation": "somatic and autonomic control: somatic pathways control skeletal muscle; autonomic pathways regulate organs, glands and smooth or cardiac muscle Source: Biology 30 Chapter 11, textbook p. 396",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 396"
+      ],
+      "id": "somatic-autonomic:card-definition",
+      "family": "reverse-retrieval",
+      "interaction": "flashcard",
+      "skill": "recall",
+      "prompt": "somatic pathways control skeletal muscle; autonomic pathways regulate organs, glands and smooth or cardiac muscle",
+      "answers": [
+        "somatic and autonomic control"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "flashcards",
+      "conceptId": "somatic-autonomic",
+      "lessonId": "lesson-08",
+      "cue": "Trace where somatic and autonomic control belongs in the lesson mechanism or example.",
+      "explanation": "somatic and autonomic control: somatic pathways control skeletal muscle; autonomic pathways regulate organs, glands and smooth or cardiac muscle Source: Biology 30 Chapter 11, textbook p. 396",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 396"
+      ],
+      "id": "somatic-autonomic:card-scenario",
+      "family": "application",
+      "interaction": "flashcard",
+      "skill": "application",
+      "prompt": "Choosing to lift a book uses somatic output, while heart-rate regulation is autonomic.",
+      "answers": [
+        "somatic and autonomic control — somatic pathways control skeletal muscle; autonomic pathways regulate organs, glands and smooth or cardiac muscle"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "flashcards",
+      "conceptId": "somatic-autonomic",
+      "lessonId": "lesson-08",
+      "cue": "Trace where somatic and autonomic control belongs in the lesson mechanism or example.",
+      "explanation": "somatic and autonomic control: somatic pathways control skeletal muscle; autonomic pathways regulate organs, glands and smooth or cardiac muscle Source: Biology 30 Chapter 11, textbook p. 396",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 396"
+      ],
+      "id": "somatic-autonomic:card-error",
+      "family": "error-correction",
+      "interaction": "flashcard",
+      "skill": "error-correction",
+      "prompt": "Correct this idea: Autonomic control means every response is consciously chosen.",
+      "answers": [
+        "somatic pathways control skeletal muscle; autonomic pathways regulate organs, glands and smooth or cardiac muscle"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "blanks",
+      "conceptId": "somatic-autonomic",
+      "lessonId": "lesson-08",
+      "cue": "Trace where somatic and autonomic control belongs in the lesson mechanism or example.",
+      "explanation": "somatic and autonomic control: somatic pathways control skeletal muscle; autonomic pathways regulate organs, glands and smooth or cardiac muscle Source: Biology 30 Chapter 11, textbook p. 396",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 396"
+      ],
+      "id": "somatic-autonomic:blank-definition",
+      "family": "definition",
+      "interaction": "typed",
+      "skill": "recall",
+      "prompt": "The term for “somatic pathways control skeletal muscle; autonomic pathways regulate organs, glands and smooth or cardiac muscle” is _____.",
+      "answers": [
+        "somatic and autonomic control"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "blanks",
+      "conceptId": "somatic-autonomic",
+      "lessonId": "lesson-08",
+      "cue": "Trace where somatic and autonomic control belongs in the lesson mechanism or example.",
+      "explanation": "somatic and autonomic control: somatic pathways control skeletal muscle; autonomic pathways regulate organs, glands and smooth or cardiac muscle Source: Biology 30 Chapter 11, textbook p. 396",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 396"
+      ],
+      "id": "somatic-autonomic:blank-scenario",
+      "family": "scenario",
+      "interaction": "typed",
+      "skill": "application",
+      "prompt": "This situation illustrates _____: Choosing to lift a book uses somatic output, while heart-rate regulation is autonomic.",
+      "answers": [
+        "somatic and autonomic control"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "blanks",
+      "conceptId": "somatic-autonomic",
+      "lessonId": "lesson-08",
+      "cue": "Trace where somatic and autonomic control belongs in the lesson mechanism or example.",
+      "explanation": "somatic and autonomic control: somatic pathways control skeletal muscle; autonomic pathways regulate organs, glands and smooth or cardiac muscle Source: Biology 30 Chapter 11, textbook p. 396",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 396"
+      ],
+      "id": "somatic-autonomic:blank-sequence",
+      "family": "pathway",
+      "interaction": "typed",
+      "skill": "sequencing",
+      "prompt": "Complete the pathway: CNS command → somatic or autonomic pathway → target tissue → _____.",
+      "answers": [
+        "response"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "somatic-autonomic",
+      "lessonId": "lesson-08",
+      "cue": "Trace where somatic and autonomic control belongs in the lesson mechanism or example.",
+      "explanation": "somatic and autonomic control: somatic pathways control skeletal muscle; autonomic pathways regulate organs, glands and smooth or cardiac muscle Source: Biology 30 Chapter 11, textbook p. 396",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 396"
+      ],
+      "id": "somatic-autonomic:mc-term",
+      "family": "recognize",
+      "interaction": "single",
+      "skill": "recognize",
+      "difficulty": 1,
+      "prompt": "Which term best matches this description: somatic pathways control skeletal muscle; autonomic pathways regulate organs, glands and smooth or cardiac muscle?",
+      "answers": [
+        "somatic and autonomic control"
+      ],
+      "options": [
+        "parasympathetic division",
+        "somatic or autonomic pathway",
+        "somatic and autonomic control",
+        "response"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "somatic-autonomic",
+      "lessonId": "lesson-08",
+      "cue": "Trace where somatic and autonomic control belongs in the lesson mechanism or example.",
+      "explanation": "somatic and autonomic control: somatic pathways control skeletal muscle; autonomic pathways regulate organs, glands and smooth or cardiac muscle Source: Biology 30 Chapter 11, textbook p. 396",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 396"
+      ],
+      "id": "somatic-autonomic:mc-function",
+      "family": "relate",
+      "interaction": "single",
+      "skill": "relate",
+      "difficulty": 2,
+      "prompt": "Which statement best describes somatic and autonomic control?",
+      "answers": [
+        "somatic pathways control skeletal muscle; autonomic pathways regulate organs, glands and smooth or cardiac muscle"
+      ],
+      "options": [
+        "somatic pathways control skeletal muscle; autonomic pathways regulate organs, glands and smooth or cardiac muscle",
+        "the autonomic division that generally supports rest, digestion and recovery",
+        "the autonomic division that generally supports activity and acute challenge",
+        "Sympathetic activity always slows the heart and promotes digestion."
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "somatic-autonomic",
+      "lessonId": "lesson-08",
+      "cue": "Trace where somatic and autonomic control belongs in the lesson mechanism or example.",
+      "explanation": "somatic and autonomic control: somatic pathways control skeletal muscle; autonomic pathways regulate organs, glands and smooth or cardiac muscle Source: Biology 30 Chapter 11, textbook p. 396",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 396"
+      ],
+      "id": "somatic-autonomic:mc-scenario",
+      "family": "apply",
+      "interaction": "single",
+      "skill": "apply",
+      "difficulty": 3,
+      "prompt": "Which concept best explains this situation? Choosing to lift a book uses somatic output, while heart-rate regulation is autonomic.",
+      "answers": [
+        "somatic and autonomic control"
+      ],
+      "options": [
+        "somatic and autonomic control",
+        "sympathetic division",
+        "CNS command",
+        "somatic or autonomic pathway"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "somatic-autonomic",
+      "lessonId": "lesson-08",
+      "cue": "Trace where somatic and autonomic control belongs in the lesson mechanism or example.",
+      "explanation": "somatic and autonomic control: somatic pathways control skeletal muscle; autonomic pathways regulate organs, glands and smooth or cardiac muscle Source: Biology 30 Chapter 11, textbook p. 396",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 396"
+      ],
+      "id": "somatic-autonomic:mc-correction",
+      "family": "misconception",
+      "interaction": "single",
+      "skill": "misconception",
+      "difficulty": 3,
+      "prompt": "Which statement correctly replaces this inaccurate idea: “Autonomic control means every response is consciously chosen.”",
+      "answers": [
+        "somatic pathways control skeletal muscle; autonomic pathways regulate organs, glands and smooth or cardiac muscle"
+      ],
+      "options": [
+        "the autonomic division that generally supports activity and acute challenge",
+        "somatic pathways control skeletal muscle; autonomic pathways regulate organs, glands and smooth or cardiac muscle",
+        "Sympathetic activity always slows the heart and promotes digestion.",
+        "Autonomic control means every response is consciously chosen."
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "somatic-autonomic",
+      "lessonId": "lesson-08",
+      "cue": "Trace where somatic and autonomic control belongs in the lesson mechanism or example.",
+      "explanation": "somatic and autonomic control: somatic pathways control skeletal muscle; autonomic pathways regulate organs, glands and smooth or cardiac muscle Source: Biology 30 Chapter 11, textbook p. 396",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 396"
+      ],
+      "id": "somatic-autonomic:mc-sequence-start",
+      "family": "sequence",
+      "interaction": "single",
+      "skill": "sequence",
+      "difficulty": 1,
+      "prompt": "Which event begins the somatic and autonomic control sequence?",
+      "answers": [
+        "CNS command"
+      ],
+      "options": [
+        "action supported",
+        "challenge detected",
+        "CNS command",
+        "organ adjustments"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "somatic-autonomic",
+      "lessonId": "lesson-08",
+      "cue": "Trace where somatic and autonomic control belongs in the lesson mechanism or example.",
+      "explanation": "somatic and autonomic control: somatic pathways control skeletal muscle; autonomic pathways regulate organs, glands and smooth or cardiac muscle Source: Biology 30 Chapter 11, textbook p. 396",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 396"
+      ],
+      "id": "somatic-autonomic:mc-sequence-next",
+      "family": "sequence",
+      "interaction": "single",
+      "skill": "sequence",
+      "difficulty": 2,
+      "prompt": "In the somatic and autonomic control sequence, what follows CNS command?",
+      "answers": [
+        "somatic or autonomic pathway"
+      ],
+      "options": [
+        "target tissue",
+        "organ adjustments",
+        "challenge detected",
+        "somatic or autonomic pathway"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "somatic-autonomic",
+      "lessonId": "lesson-08",
+      "cue": "Trace where somatic and autonomic control belongs in the lesson mechanism or example.",
+      "explanation": "somatic and autonomic control: somatic pathways control skeletal muscle; autonomic pathways regulate organs, glands and smooth or cardiac muscle Source: Biology 30 Chapter 11, textbook p. 396",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 396"
+      ],
+      "id": "somatic-autonomic:mc-sequence-end",
+      "family": "integrate",
+      "interaction": "single",
+      "skill": "integrate",
+      "difficulty": 4,
+      "prompt": "Which event completes the somatic and autonomic control sequence?",
+      "answers": [
+        "response"
+      ],
+      "options": [
+        "response",
+        "somatic or autonomic pathway",
+        "CNS command",
+        "action supported"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "somatic-autonomic",
+      "lessonId": "lesson-08",
+      "cue": "Trace where somatic and autonomic control belongs in the lesson mechanism or example.",
+      "explanation": "somatic and autonomic control: somatic pathways control skeletal muscle; autonomic pathways regulate organs, glands and smooth or cardiac muscle Source: Biology 30 Chapter 11, textbook p. 396",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 396"
+      ],
+      "id": "somatic-autonomic:mixed-typed",
+      "family": "retrieval",
+      "interaction": "typed",
+      "skill": "recall",
+      "prompt": "Name the concept: somatic pathways control skeletal muscle; autonomic pathways regulate organs, glands and smooth or cardiac muscle",
+      "answers": [
+        "somatic and autonomic control"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "somatic-autonomic",
+      "lessonId": "lesson-08",
+      "cue": "Trace where somatic and autonomic control belongs in the lesson mechanism or example.",
+      "explanation": "somatic and autonomic control: somatic pathways control skeletal muscle; autonomic pathways regulate organs, glands and smooth or cardiac muscle Source: Biology 30 Chapter 11, textbook p. 396",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 396"
+      ],
+      "id": "somatic-autonomic:mixed-single",
+      "family": "discrimination",
+      "interaction": "single",
+      "skill": "comparison",
+      "prompt": "Which concept means “somatic pathways control skeletal muscle; autonomic pathways regulate organs, glands and smooth or cardiac muscle”?",
+      "answers": [
+        "somatic and autonomic control"
+      ],
+      "options": [
+        "sympathetic division",
+        "parasympathetic division",
+        "somatic and autonomic control"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "somatic-autonomic",
+      "lessonId": "lesson-08",
+      "cue": "Trace where somatic and autonomic control belongs in the lesson mechanism or example.",
+      "explanation": "somatic and autonomic control: somatic pathways control skeletal muscle; autonomic pathways regulate organs, glands and smooth or cardiac muscle Source: Biology 30 Chapter 11, textbook p. 396",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 396"
+      ],
+      "id": "somatic-autonomic:mixed-application",
+      "family": "application",
+      "interaction": "single",
+      "skill": "application",
+      "prompt": "Choosing to lift a book uses somatic output, while heart-rate regulation is autonomic.",
+      "answers": [
+        "somatic and autonomic control"
+      ],
+      "options": [
+        "sympathetic division",
+        "somatic and autonomic control",
+        "parasympathetic division"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "somatic-autonomic",
+      "lessonId": "lesson-08",
+      "cue": "Trace where somatic and autonomic control belongs in the lesson mechanism or example.",
+      "explanation": "somatic and autonomic control: somatic pathways control skeletal muscle; autonomic pathways regulate organs, glands and smooth or cardiac muscle Source: Biology 30 Chapter 11, textbook p. 396",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 396"
+      ],
+      "id": "somatic-autonomic:mixed-multiple",
+      "family": "odd-one-out",
+      "interaction": "multiple",
+      "skill": "comparison",
+      "prompt": "Select both statements that belong with somatic and autonomic control.",
+      "answers": [
+        "somatic pathways control skeletal muscle; autonomic pathways regulate organs, glands and smooth or cardiac muscle",
+        "Choosing to lift a book uses somatic output, while heart-rate regulation is autonomic."
+      ],
+      "options": [
+        "the autonomic division that generally supports rest, digestion and recovery",
+        "somatic pathways control skeletal muscle; autonomic pathways regulate organs, glands and smooth or cardiac muscle",
+        "the autonomic division that generally supports activity and acute challenge",
+        "Choosing to lift a book uses somatic output, while heart-rate regulation is autonomic."
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "somatic-autonomic",
+      "lessonId": "lesson-08",
+      "cue": "Trace where somatic and autonomic control belongs in the lesson mechanism or example.",
+      "explanation": "somatic and autonomic control: somatic pathways control skeletal muscle; autonomic pathways regulate organs, glands and smooth or cardiac muscle Source: Biology 30 Chapter 11, textbook p. 396",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 396"
+      ],
+      "id": "somatic-autonomic:mixed-tf",
+      "family": "misconception",
+      "interaction": "true-false",
+      "skill": "error-correction",
+      "prompt": "Autonomic control means every response is consciously chosen.",
+      "answers": [
+        "false"
+      ],
+      "options": [
+        "true",
+        "false"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "somatic-autonomic",
+      "lessonId": "lesson-08",
+      "cue": "Trace where somatic and autonomic control belongs in the lesson mechanism or example.",
+      "explanation": "somatic and autonomic control: somatic pathways control skeletal muscle; autonomic pathways regulate organs, glands and smooth or cardiac muscle Source: Biology 30 Chapter 11, textbook p. 396",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 396"
+      ],
+      "id": "somatic-autonomic:mixed-order",
+      "family": "sequence",
+      "interaction": "ordering",
+      "skill": "sequencing",
+      "prompt": "Put the somatic and autonomic control steps in order.",
+      "answers": [
+        "CNS command",
+        "somatic or autonomic pathway",
+        "target tissue",
+        "response"
+      ],
+      "options": [
+        "somatic or autonomic pathway",
+        "target tissue",
+        "response",
+        "CNS command"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "somatic-autonomic",
+      "lessonId": "lesson-08",
+      "cue": "Trace where somatic and autonomic control belongs in the lesson mechanism or example.",
+      "explanation": "somatic and autonomic control: somatic pathways control skeletal muscle; autonomic pathways regulate organs, glands and smooth or cardiac muscle Source: Biology 30 Chapter 11, textbook p. 396",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 396"
+      ],
+      "id": "somatic-autonomic:mc-term",
+      "family": "recognize",
+      "interaction": "single",
+      "skill": "recognize",
+      "difficulty": 1,
+      "prompt": "Which term best matches this description: somatic pathways control skeletal muscle; autonomic pathways regulate organs, glands and smooth or cardiac muscle?",
+      "answers": [
+        "somatic and autonomic control"
+      ],
+      "options": [
+        "somatic and autonomic control",
+        "CNS command",
+        "sympathetic division",
+        "target tissue"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "somatic-autonomic",
+      "lessonId": "lesson-08",
+      "cue": "Trace where somatic and autonomic control belongs in the lesson mechanism or example.",
+      "explanation": "somatic and autonomic control: somatic pathways control skeletal muscle; autonomic pathways regulate organs, glands and smooth or cardiac muscle Source: Biology 30 Chapter 11, textbook p. 396",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 396"
+      ],
+      "id": "somatic-autonomic:mc-function",
+      "family": "relate",
+      "interaction": "single",
+      "skill": "relate",
+      "difficulty": 2,
+      "prompt": "Which statement best describes somatic and autonomic control?",
+      "answers": [
+        "somatic pathways control skeletal muscle; autonomic pathways regulate organs, glands and smooth or cardiac muscle"
+      ],
+      "options": [
+        "the autonomic division that generally supports activity and acute challenge",
+        "Sympathetic activity always slows the heart and promotes digestion.",
+        "the autonomic division that generally supports rest, digestion and recovery",
+        "somatic pathways control skeletal muscle; autonomic pathways regulate organs, glands and smooth or cardiac muscle"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "flashcards",
+      "conceptId": "sympathetic",
+      "lessonId": "lesson-08",
+      "cue": "Trace where sympathetic division belongs in the lesson mechanism or example.",
+      "explanation": "sympathetic division: the autonomic division that generally supports activity and acute challenge Source: Biology 30 Chapter 11, textbook p. 399",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 399"
+      ],
+      "id": "sympathetic:card-term",
+      "family": "recall",
+      "interaction": "flashcard",
+      "skill": "recall",
+      "prompt": "sympathetic division",
+      "answers": [
+        "the autonomic division that generally supports activity and acute challenge"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "flashcards",
+      "conceptId": "sympathetic",
+      "lessonId": "lesson-08",
+      "cue": "Trace where sympathetic division belongs in the lesson mechanism or example.",
+      "explanation": "sympathetic division: the autonomic division that generally supports activity and acute challenge Source: Biology 30 Chapter 11, textbook p. 399",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 399"
+      ],
+      "id": "sympathetic:card-definition",
+      "family": "reverse-retrieval",
+      "interaction": "flashcard",
+      "skill": "recall",
+      "prompt": "the autonomic division that generally supports activity and acute challenge",
+      "answers": [
+        "sympathetic division"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "flashcards",
+      "conceptId": "sympathetic",
+      "lessonId": "lesson-08",
+      "cue": "Trace where sympathetic division belongs in the lesson mechanism or example.",
+      "explanation": "sympathetic division: the autonomic division that generally supports activity and acute challenge Source: Biology 30 Chapter 11, textbook p. 399",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 399"
+      ],
+      "id": "sympathetic:card-scenario",
+      "family": "application",
+      "interaction": "flashcard",
+      "skill": "application",
+      "prompt": "During sudden danger, heart rate rises and digestion is reduced.",
+      "answers": [
+        "sympathetic division — the autonomic division that generally supports activity and acute challenge"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "flashcards",
+      "conceptId": "sympathetic",
+      "lessonId": "lesson-08",
+      "cue": "Trace where sympathetic division belongs in the lesson mechanism or example.",
+      "explanation": "sympathetic division: the autonomic division that generally supports activity and acute challenge Source: Biology 30 Chapter 11, textbook p. 399",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 399"
+      ],
+      "id": "sympathetic:card-error",
+      "family": "error-correction",
+      "interaction": "flashcard",
+      "skill": "error-correction",
+      "prompt": "Correct this idea: Sympathetic activity always slows the heart and promotes digestion.",
+      "answers": [
+        "the autonomic division that generally supports activity and acute challenge"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "blanks",
+      "conceptId": "sympathetic",
+      "lessonId": "lesson-08",
+      "cue": "Trace where sympathetic division belongs in the lesson mechanism or example.",
+      "explanation": "sympathetic division: the autonomic division that generally supports activity and acute challenge Source: Biology 30 Chapter 11, textbook p. 399",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 399"
+      ],
+      "id": "sympathetic:blank-definition",
+      "family": "definition",
+      "interaction": "typed",
+      "skill": "recall",
+      "prompt": "The term for “the autonomic division that generally supports activity and acute challenge” is _____.",
+      "answers": [
+        "sympathetic division"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "blanks",
+      "conceptId": "sympathetic",
+      "lessonId": "lesson-08",
+      "cue": "Trace where sympathetic division belongs in the lesson mechanism or example.",
+      "explanation": "sympathetic division: the autonomic division that generally supports activity and acute challenge Source: Biology 30 Chapter 11, textbook p. 399",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 399"
+      ],
+      "id": "sympathetic:blank-scenario",
+      "family": "scenario",
+      "interaction": "typed",
+      "skill": "application",
+      "prompt": "This situation illustrates _____: During sudden danger, heart rate rises and digestion is reduced.",
+      "answers": [
+        "sympathetic division"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "blanks",
+      "conceptId": "sympathetic",
+      "lessonId": "lesson-08",
+      "cue": "Trace where sympathetic division belongs in the lesson mechanism or example.",
+      "explanation": "sympathetic division: the autonomic division that generally supports activity and acute challenge Source: Biology 30 Chapter 11, textbook p. 399",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 399"
+      ],
+      "id": "sympathetic:blank-sequence",
+      "family": "pathway",
+      "interaction": "typed",
+      "skill": "sequencing",
+      "prompt": "Complete the pathway: challenge detected → sympathetic output → organ adjustments → _____.",
+      "answers": [
+        "action supported"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "sympathetic",
+      "lessonId": "lesson-08",
+      "cue": "Trace where sympathetic division belongs in the lesson mechanism or example.",
+      "explanation": "sympathetic division: the autonomic division that generally supports activity and acute challenge Source: Biology 30 Chapter 11, textbook p. 399",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 399"
+      ],
+      "id": "sympathetic:mc-term",
+      "family": "recognize",
+      "interaction": "single",
+      "skill": "recognize",
+      "difficulty": 1,
+      "prompt": "Which term best matches this description: the autonomic division that generally supports activity and acute challenge?",
+      "answers": [
+        "sympathetic division"
+      ],
+      "options": [
+        "parasympathetic division",
+        "somatic and autonomic control",
+        "sympathetic division",
+        "sympathetic output"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "sympathetic",
+      "lessonId": "lesson-08",
+      "cue": "Trace where sympathetic division belongs in the lesson mechanism or example.",
+      "explanation": "sympathetic division: the autonomic division that generally supports activity and acute challenge Source: Biology 30 Chapter 11, textbook p. 399",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 399"
+      ],
+      "id": "sympathetic:mc-function",
+      "family": "relate",
+      "interaction": "single",
+      "skill": "relate",
+      "difficulty": 2,
+      "prompt": "Which statement best describes sympathetic division?",
+      "answers": [
+        "the autonomic division that generally supports activity and acute challenge"
+      ],
+      "options": [
+        "somatic pathways control skeletal muscle; autonomic pathways regulate organs, glands and smooth or cardiac muscle",
+        "the autonomic division that generally supports rest, digestion and recovery",
+        "the autonomic division that generally supports activity and acute challenge",
+        "Sympathetic activity always slows the heart and promotes digestion."
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "sympathetic",
+      "lessonId": "lesson-08",
+      "cue": "Trace where sympathetic division belongs in the lesson mechanism or example.",
+      "explanation": "sympathetic division: the autonomic division that generally supports activity and acute challenge Source: Biology 30 Chapter 11, textbook p. 399",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 399"
+      ],
+      "id": "sympathetic:mc-scenario",
+      "family": "apply",
+      "interaction": "single",
+      "skill": "apply",
+      "difficulty": 3,
+      "prompt": "Which concept best explains this situation? During sudden danger, heart rate rises and digestion is reduced.",
+      "answers": [
+        "sympathetic division"
+      ],
+      "options": [
+        "challenge detected",
+        "somatic and autonomic control",
+        "organ adjustments",
+        "sympathetic division"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "sympathetic",
+      "lessonId": "lesson-08",
+      "cue": "Trace where sympathetic division belongs in the lesson mechanism or example.",
+      "explanation": "sympathetic division: the autonomic division that generally supports activity and acute challenge Source: Biology 30 Chapter 11, textbook p. 399",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 399"
+      ],
+      "id": "sympathetic:mc-correction",
+      "family": "misconception",
+      "interaction": "single",
+      "skill": "misconception",
+      "difficulty": 3,
+      "prompt": "Which statement correctly replaces this inaccurate idea: “Sympathetic activity always slows the heart and promotes digestion.”",
+      "answers": [
+        "the autonomic division that generally supports activity and acute challenge"
+      ],
+      "options": [
+        "somatic pathways control skeletal muscle; autonomic pathways regulate organs, glands and smooth or cardiac muscle",
+        "the autonomic division that generally supports activity and acute challenge",
+        "Autonomic control means every response is consciously chosen.",
+        "the autonomic division that generally supports rest, digestion and recovery"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "sympathetic",
+      "lessonId": "lesson-08",
+      "cue": "Trace where sympathetic division belongs in the lesson mechanism or example.",
+      "explanation": "sympathetic division: the autonomic division that generally supports activity and acute challenge Source: Biology 30 Chapter 11, textbook p. 399",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 399"
+      ],
+      "id": "sympathetic:mc-sequence-start",
+      "family": "sequence",
+      "interaction": "single",
+      "skill": "sequence",
+      "difficulty": 1,
+      "prompt": "Which event begins the sympathetic division sequence?",
+      "answers": [
+        "challenge detected"
+      ],
+      "options": [
+        "action supported",
+        "CNS command",
+        "challenge detected",
+        "somatic or autonomic pathway"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "sympathetic",
+      "lessonId": "lesson-08",
+      "cue": "Trace where sympathetic division belongs in the lesson mechanism or example.",
+      "explanation": "sympathetic division: the autonomic division that generally supports activity and acute challenge Source: Biology 30 Chapter 11, textbook p. 399",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 399"
+      ],
+      "id": "sympathetic:mc-sequence-next",
+      "family": "sequence",
+      "interaction": "single",
+      "skill": "sequence",
+      "difficulty": 2,
+      "prompt": "In the sympathetic division sequence, what follows challenge detected?",
+      "answers": [
+        "sympathetic output"
+      ],
+      "options": [
+        "sympathetic output",
+        "CNS command",
+        "action supported",
+        "challenge detected"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "sympathetic",
+      "lessonId": "lesson-08",
+      "cue": "Trace where sympathetic division belongs in the lesson mechanism or example.",
+      "explanation": "sympathetic division: the autonomic division that generally supports activity and acute challenge Source: Biology 30 Chapter 11, textbook p. 399",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 399"
+      ],
+      "id": "sympathetic:mc-sequence-end",
+      "family": "integrate",
+      "interaction": "single",
+      "skill": "integrate",
+      "difficulty": 4,
+      "prompt": "Which event completes the sympathetic division sequence?",
+      "answers": [
+        "action supported"
+      ],
+      "options": [
+        "action supported",
+        "target tissue",
+        "CNS command",
+        "somatic or autonomic pathway"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "sympathetic",
+      "lessonId": "lesson-08",
+      "cue": "Trace where sympathetic division belongs in the lesson mechanism or example.",
+      "explanation": "sympathetic division: the autonomic division that generally supports activity and acute challenge Source: Biology 30 Chapter 11, textbook p. 399",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 399"
+      ],
+      "id": "sympathetic:mixed-typed",
+      "family": "retrieval",
+      "interaction": "typed",
+      "skill": "recall",
+      "prompt": "Name the concept: the autonomic division that generally supports activity and acute challenge",
+      "answers": [
+        "sympathetic division"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "sympathetic",
+      "lessonId": "lesson-08",
+      "cue": "Trace where sympathetic division belongs in the lesson mechanism or example.",
+      "explanation": "sympathetic division: the autonomic division that generally supports activity and acute challenge Source: Biology 30 Chapter 11, textbook p. 399",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 399"
+      ],
+      "id": "sympathetic:mixed-single",
+      "family": "discrimination",
+      "interaction": "single",
+      "skill": "comparison",
+      "prompt": "Which concept means “the autonomic division that generally supports activity and acute challenge”?",
+      "answers": [
+        "sympathetic division"
+      ],
+      "options": [
+        "parasympathetic division",
+        "sympathetic division",
+        "somatic and autonomic control"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "sympathetic",
+      "lessonId": "lesson-08",
+      "cue": "Trace where sympathetic division belongs in the lesson mechanism or example.",
+      "explanation": "sympathetic division: the autonomic division that generally supports activity and acute challenge Source: Biology 30 Chapter 11, textbook p. 399",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 399"
+      ],
+      "id": "sympathetic:mixed-application",
+      "family": "application",
+      "interaction": "single",
+      "skill": "application",
+      "prompt": "During sudden danger, heart rate rises and digestion is reduced.",
+      "answers": [
+        "sympathetic division"
+      ],
+      "options": [
+        "somatic and autonomic control",
+        "parasympathetic division",
+        "sympathetic division"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "sympathetic",
+      "lessonId": "lesson-08",
+      "cue": "Trace where sympathetic division belongs in the lesson mechanism or example.",
+      "explanation": "sympathetic division: the autonomic division that generally supports activity and acute challenge Source: Biology 30 Chapter 11, textbook p. 399",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 399"
+      ],
+      "id": "sympathetic:mixed-multiple",
+      "family": "odd-one-out",
+      "interaction": "multiple",
+      "skill": "comparison",
+      "prompt": "Select both statements that belong with sympathetic division.",
+      "answers": [
+        "the autonomic division that generally supports activity and acute challenge",
+        "During sudden danger, heart rate rises and digestion is reduced."
+      ],
+      "options": [
+        "somatic pathways control skeletal muscle; autonomic pathways regulate organs, glands and smooth or cardiac muscle",
+        "the autonomic division that generally supports rest, digestion and recovery",
+        "During sudden danger, heart rate rises and digestion is reduced.",
+        "the autonomic division that generally supports activity and acute challenge"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "sympathetic",
+      "lessonId": "lesson-08",
+      "cue": "Trace where sympathetic division belongs in the lesson mechanism or example.",
+      "explanation": "sympathetic division: the autonomic division that generally supports activity and acute challenge Source: Biology 30 Chapter 11, textbook p. 399",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 399"
+      ],
+      "id": "sympathetic:mixed-tf",
+      "family": "misconception",
+      "interaction": "true-false",
+      "skill": "error-correction",
+      "prompt": "Sympathetic activity always slows the heart and promotes digestion.",
+      "answers": [
+        "false"
+      ],
+      "options": [
+        "true",
+        "false"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "sympathetic",
+      "lessonId": "lesson-08",
+      "cue": "Trace where sympathetic division belongs in the lesson mechanism or example.",
+      "explanation": "sympathetic division: the autonomic division that generally supports activity and acute challenge Source: Biology 30 Chapter 11, textbook p. 399",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 399"
+      ],
+      "id": "sympathetic:mixed-order",
+      "family": "sequence",
+      "interaction": "ordering",
+      "skill": "sequencing",
+      "prompt": "Put the sympathetic division steps in order.",
+      "answers": [
+        "challenge detected",
+        "sympathetic output",
+        "organ adjustments",
+        "action supported"
+      ],
+      "options": [
+        "sympathetic output",
+        "action supported",
+        "challenge detected",
+        "organ adjustments"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "sympathetic",
+      "lessonId": "lesson-08",
+      "cue": "Trace where sympathetic division belongs in the lesson mechanism or example.",
+      "explanation": "sympathetic division: the autonomic division that generally supports activity and acute challenge Source: Biology 30 Chapter 11, textbook p. 399",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 399"
+      ],
+      "id": "sympathetic:mc-term",
+      "family": "recognize",
+      "interaction": "single",
+      "skill": "recognize",
+      "difficulty": 1,
+      "prompt": "Which term best matches this description: the autonomic division that generally supports activity and acute challenge?",
+      "answers": [
+        "sympathetic division"
+      ],
+      "options": [
+        "parasympathetic division",
+        "sympathetic output",
+        "somatic and autonomic control",
+        "sympathetic division"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "sympathetic",
+      "lessonId": "lesson-08",
+      "cue": "Trace where sympathetic division belongs in the lesson mechanism or example.",
+      "explanation": "sympathetic division: the autonomic division that generally supports activity and acute challenge Source: Biology 30 Chapter 11, textbook p. 399",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 399"
+      ],
+      "id": "sympathetic:mc-function",
+      "family": "relate",
+      "interaction": "single",
+      "skill": "relate",
+      "difficulty": 2,
+      "prompt": "Which statement best describes sympathetic division?",
+      "answers": [
+        "the autonomic division that generally supports activity and acute challenge"
+      ],
+      "options": [
+        "the autonomic division that generally supports rest, digestion and recovery",
+        "Sympathetic activity always slows the heart and promotes digestion.",
+        "the autonomic division that generally supports activity and acute challenge",
+        "somatic pathways control skeletal muscle; autonomic pathways regulate organs, glands and smooth or cardiac muscle"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "flashcards",
+      "conceptId": "parasympathetic",
+      "lessonId": "lesson-08",
+      "cue": "Trace where parasympathetic division belongs in the lesson mechanism or example.",
+      "explanation": "parasympathetic division: the autonomic division that generally supports rest, digestion and recovery Source: Biology 30 Chapter 11, textbook p. 399",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 399"
+      ],
+      "id": "parasympathetic:card-term",
+      "family": "recall",
+      "interaction": "flashcard",
+      "skill": "recall",
+      "prompt": "parasympathetic division",
+      "answers": [
+        "the autonomic division that generally supports rest, digestion and recovery"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "flashcards",
+      "conceptId": "parasympathetic",
+      "lessonId": "lesson-08",
+      "cue": "Trace where parasympathetic division belongs in the lesson mechanism or example.",
+      "explanation": "parasympathetic division: the autonomic division that generally supports rest, digestion and recovery Source: Biology 30 Chapter 11, textbook p. 399",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 399"
+      ],
+      "id": "parasympathetic:card-definition",
+      "family": "reverse-retrieval",
+      "interaction": "flashcard",
+      "skill": "recall",
+      "prompt": "the autonomic division that generally supports rest, digestion and recovery",
+      "answers": [
+        "parasympathetic division"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "flashcards",
+      "conceptId": "parasympathetic",
+      "lessonId": "lesson-08",
+      "cue": "Trace where parasympathetic division belongs in the lesson mechanism or example.",
+      "explanation": "parasympathetic division: the autonomic division that generally supports rest, digestion and recovery Source: Biology 30 Chapter 11, textbook p. 399",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 399"
+      ],
+      "id": "parasympathetic:card-scenario",
+      "family": "application",
+      "interaction": "flashcard",
+      "skill": "application",
+      "prompt": "After a threat passes, heart rate can fall and digestive activity can increase.",
+      "answers": [
+        "parasympathetic division — the autonomic division that generally supports rest, digestion and recovery"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "flashcards",
+      "conceptId": "parasympathetic",
+      "lessonId": "lesson-08",
+      "cue": "Trace where parasympathetic division belongs in the lesson mechanism or example.",
+      "explanation": "parasympathetic division: the autonomic division that generally supports rest, digestion and recovery Source: Biology 30 Chapter 11, textbook p. 399",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 399"
+      ],
+      "id": "parasympathetic:card-error",
+      "family": "error-correction",
+      "interaction": "flashcard",
+      "skill": "error-correction",
+      "prompt": "Correct this idea: Parasympathetic and sympathetic divisions produce identical effects in every organ.",
+      "answers": [
+        "the autonomic division that generally supports rest, digestion and recovery"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "blanks",
+      "conceptId": "parasympathetic",
+      "lessonId": "lesson-08",
+      "cue": "Trace where parasympathetic division belongs in the lesson mechanism or example.",
+      "explanation": "parasympathetic division: the autonomic division that generally supports rest, digestion and recovery Source: Biology 30 Chapter 11, textbook p. 399",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 399"
+      ],
+      "id": "parasympathetic:blank-definition",
+      "family": "definition",
+      "interaction": "typed",
+      "skill": "recall",
+      "prompt": "The term for “the autonomic division that generally supports rest, digestion and recovery” is _____.",
+      "answers": [
+        "parasympathetic division"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "blanks",
+      "conceptId": "parasympathetic",
+      "lessonId": "lesson-08",
+      "cue": "Trace where parasympathetic division belongs in the lesson mechanism or example.",
+      "explanation": "parasympathetic division: the autonomic division that generally supports rest, digestion and recovery Source: Biology 30 Chapter 11, textbook p. 399",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 399"
+      ],
+      "id": "parasympathetic:blank-scenario",
+      "family": "scenario",
+      "interaction": "typed",
+      "skill": "application",
+      "prompt": "This situation illustrates _____: After a threat passes, heart rate can fall and digestive activity can increase.",
+      "answers": [
+        "parasympathetic division"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "blanks",
+      "conceptId": "parasympathetic",
+      "lessonId": "lesson-08",
+      "cue": "Trace where parasympathetic division belongs in the lesson mechanism or example.",
+      "explanation": "parasympathetic division: the autonomic division that generally supports rest, digestion and recovery Source: Biology 30 Chapter 11, textbook p. 399",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 399"
+      ],
+      "id": "parasympathetic:blank-sequence",
+      "family": "pathway",
+      "interaction": "typed",
+      "skill": "sequencing",
+      "prompt": "Complete the pathway: challenge passes → parasympathetic output → restorative adjustments → _____.",
+      "answers": [
+        "recovery"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "parasympathetic",
+      "lessonId": "lesson-08",
+      "cue": "Trace where parasympathetic division belongs in the lesson mechanism or example.",
+      "explanation": "parasympathetic division: the autonomic division that generally supports rest, digestion and recovery Source: Biology 30 Chapter 11, textbook p. 399",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 399"
+      ],
+      "id": "parasympathetic:mc-term",
+      "family": "recognize",
+      "interaction": "single",
+      "skill": "recognize",
+      "difficulty": 1,
+      "prompt": "Which term best matches this description: the autonomic division that generally supports rest, digestion and recovery?",
+      "answers": [
+        "parasympathetic division"
+      ],
+      "options": [
+        "parasympathetic output",
+        "sympathetic division",
+        "parasympathetic division",
+        "recovery"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "parasympathetic",
+      "lessonId": "lesson-08",
+      "cue": "Trace where parasympathetic division belongs in the lesson mechanism or example.",
+      "explanation": "parasympathetic division: the autonomic division that generally supports rest, digestion and recovery Source: Biology 30 Chapter 11, textbook p. 399",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 399"
+      ],
+      "id": "parasympathetic:mc-function",
+      "family": "relate",
+      "interaction": "single",
+      "skill": "relate",
+      "difficulty": 2,
+      "prompt": "Which statement best describes parasympathetic division?",
+      "answers": [
+        "the autonomic division that generally supports rest, digestion and recovery"
+      ],
+      "options": [
+        "the autonomic division that generally supports rest, digestion and recovery",
+        "Autonomic control means every response is consciously chosen.",
+        "Parasympathetic and sympathetic divisions produce identical effects in every organ.",
+        "the autonomic division that generally supports activity and acute challenge"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "parasympathetic",
+      "lessonId": "lesson-08",
+      "cue": "Trace where parasympathetic division belongs in the lesson mechanism or example.",
+      "explanation": "parasympathetic division: the autonomic division that generally supports rest, digestion and recovery Source: Biology 30 Chapter 11, textbook p. 399",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 399"
+      ],
+      "id": "parasympathetic:mc-scenario",
+      "family": "apply",
+      "interaction": "single",
+      "skill": "apply",
+      "difficulty": 3,
+      "prompt": "Which concept best explains this situation? After a threat passes, heart rate can fall and digestive activity can increase.",
+      "answers": [
+        "parasympathetic division"
+      ],
+      "options": [
+        "restorative adjustments",
+        "parasympathetic output",
+        "recovery",
+        "parasympathetic division"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "parasympathetic",
+      "lessonId": "lesson-08",
+      "cue": "Trace where parasympathetic division belongs in the lesson mechanism or example.",
+      "explanation": "parasympathetic division: the autonomic division that generally supports rest, digestion and recovery Source: Biology 30 Chapter 11, textbook p. 399",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 399"
+      ],
+      "id": "parasympathetic:mc-correction",
+      "family": "misconception",
+      "interaction": "single",
+      "skill": "misconception",
+      "difficulty": 3,
+      "prompt": "Which statement correctly replaces this inaccurate idea: “Parasympathetic and sympathetic divisions produce identical effects in every organ.”",
+      "answers": [
+        "the autonomic division that generally supports rest, digestion and recovery"
+      ],
+      "options": [
+        "Sympathetic activity always slows the heart and promotes digestion.",
+        "the autonomic division that generally supports rest, digestion and recovery",
+        "somatic pathways control skeletal muscle; autonomic pathways regulate organs, glands and smooth or cardiac muscle",
+        "Autonomic control means every response is consciously chosen."
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "parasympathetic",
+      "lessonId": "lesson-08",
+      "cue": "Trace where parasympathetic division belongs in the lesson mechanism or example.",
+      "explanation": "parasympathetic division: the autonomic division that generally supports rest, digestion and recovery Source: Biology 30 Chapter 11, textbook p. 399",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 399"
+      ],
+      "id": "parasympathetic:mc-sequence-start",
+      "family": "sequence",
+      "interaction": "single",
+      "skill": "sequence",
+      "difficulty": 1,
+      "prompt": "Which event begins the parasympathetic division sequence?",
+      "answers": [
+        "challenge passes"
+      ],
+      "options": [
+        "CNS command",
+        "challenge passes",
+        "parasympathetic output",
+        "recovery"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "parasympathetic",
+      "lessonId": "lesson-08",
+      "cue": "Trace where parasympathetic division belongs in the lesson mechanism or example.",
+      "explanation": "parasympathetic division: the autonomic division that generally supports rest, digestion and recovery Source: Biology 30 Chapter 11, textbook p. 399",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 399"
+      ],
+      "id": "parasympathetic:mc-sequence-next",
+      "family": "sequence",
+      "interaction": "single",
+      "skill": "sequence",
+      "difficulty": 2,
+      "prompt": "In the parasympathetic division sequence, what follows challenge passes?",
+      "answers": [
+        "parasympathetic output"
+      ],
+      "options": [
+        "recovery",
+        "somatic or autonomic pathway",
+        "parasympathetic output",
+        "target tissue"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "parasympathetic",
+      "lessonId": "lesson-08",
+      "cue": "Trace where parasympathetic division belongs in the lesson mechanism or example.",
+      "explanation": "parasympathetic division: the autonomic division that generally supports rest, digestion and recovery Source: Biology 30 Chapter 11, textbook p. 399",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 399"
+      ],
+      "id": "parasympathetic:mc-sequence-end",
+      "family": "integrate",
+      "interaction": "single",
+      "skill": "integrate",
+      "difficulty": 4,
+      "prompt": "Which event completes the parasympathetic division sequence?",
+      "answers": [
+        "recovery"
+      ],
+      "options": [
+        "target tissue",
+        "somatic or autonomic pathway",
+        "recovery",
+        "challenge passes"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "parasympathetic",
+      "lessonId": "lesson-08",
+      "cue": "Trace where parasympathetic division belongs in the lesson mechanism or example.",
+      "explanation": "parasympathetic division: the autonomic division that generally supports rest, digestion and recovery Source: Biology 30 Chapter 11, textbook p. 399",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 399"
+      ],
+      "id": "parasympathetic:mixed-typed",
+      "family": "retrieval",
+      "interaction": "typed",
+      "skill": "recall",
+      "prompt": "Name the concept: the autonomic division that generally supports rest, digestion and recovery",
+      "answers": [
+        "parasympathetic division"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "parasympathetic",
+      "lessonId": "lesson-08",
+      "cue": "Trace where parasympathetic division belongs in the lesson mechanism or example.",
+      "explanation": "parasympathetic division: the autonomic division that generally supports rest, digestion and recovery Source: Biology 30 Chapter 11, textbook p. 399",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 399"
+      ],
+      "id": "parasympathetic:mixed-single",
+      "family": "discrimination",
+      "interaction": "single",
+      "skill": "comparison",
+      "prompt": "Which concept means “the autonomic division that generally supports rest, digestion and recovery”?",
+      "answers": [
+        "parasympathetic division"
+      ],
+      "options": [
+        "sympathetic division",
+        "parasympathetic division",
+        "somatic and autonomic control"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "parasympathetic",
+      "lessonId": "lesson-08",
+      "cue": "Trace where parasympathetic division belongs in the lesson mechanism or example.",
+      "explanation": "parasympathetic division: the autonomic division that generally supports rest, digestion and recovery Source: Biology 30 Chapter 11, textbook p. 399",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 399"
+      ],
+      "id": "parasympathetic:mixed-application",
+      "family": "application",
+      "interaction": "single",
+      "skill": "application",
+      "prompt": "After a threat passes, heart rate can fall and digestive activity can increase.",
+      "answers": [
+        "parasympathetic division"
+      ],
+      "options": [
+        "somatic and autonomic control",
+        "sympathetic division",
+        "parasympathetic division"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "parasympathetic",
+      "lessonId": "lesson-08",
+      "cue": "Trace where parasympathetic division belongs in the lesson mechanism or example.",
+      "explanation": "parasympathetic division: the autonomic division that generally supports rest, digestion and recovery Source: Biology 30 Chapter 11, textbook p. 399",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 399"
+      ],
+      "id": "parasympathetic:mixed-multiple",
+      "family": "odd-one-out",
+      "interaction": "multiple",
+      "skill": "comparison",
+      "prompt": "Select both statements that belong with parasympathetic division.",
+      "answers": [
+        "the autonomic division that generally supports rest, digestion and recovery",
+        "After a threat passes, heart rate can fall and digestive activity can increase."
+      ],
+      "options": [
+        "After a threat passes, heart rate can fall and digestive activity can increase.",
+        "the autonomic division that generally supports activity and acute challenge",
+        "somatic pathways control skeletal muscle; autonomic pathways regulate organs, glands and smooth or cardiac muscle",
+        "the autonomic division that generally supports rest, digestion and recovery"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "parasympathetic",
+      "lessonId": "lesson-08",
+      "cue": "Trace where parasympathetic division belongs in the lesson mechanism or example.",
+      "explanation": "parasympathetic division: the autonomic division that generally supports rest, digestion and recovery Source: Biology 30 Chapter 11, textbook p. 399",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 399"
+      ],
+      "id": "parasympathetic:mixed-tf",
+      "family": "misconception",
+      "interaction": "true-false",
+      "skill": "error-correction",
+      "prompt": "Parasympathetic and sympathetic divisions produce identical effects in every organ.",
+      "answers": [
+        "false"
+      ],
+      "options": [
+        "true",
+        "false"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "parasympathetic",
+      "lessonId": "lesson-08",
+      "cue": "Trace where parasympathetic division belongs in the lesson mechanism or example.",
+      "explanation": "parasympathetic division: the autonomic division that generally supports rest, digestion and recovery Source: Biology 30 Chapter 11, textbook p. 399",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 399"
+      ],
+      "id": "parasympathetic:mixed-order",
+      "family": "sequence",
+      "interaction": "ordering",
+      "skill": "sequencing",
+      "prompt": "Put the parasympathetic division steps in order.",
+      "answers": [
+        "challenge passes",
+        "parasympathetic output",
+        "restorative adjustments",
+        "recovery"
+      ],
+      "options": [
+        "challenge passes",
+        "restorative adjustments",
+        "parasympathetic output",
+        "recovery"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "parasympathetic",
+      "lessonId": "lesson-08",
+      "cue": "Trace where parasympathetic division belongs in the lesson mechanism or example.",
+      "explanation": "parasympathetic division: the autonomic division that generally supports rest, digestion and recovery Source: Biology 30 Chapter 11, textbook p. 399",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 399"
+      ],
+      "id": "parasympathetic:mc-term",
+      "family": "recognize",
+      "interaction": "single",
+      "skill": "recognize",
+      "difficulty": 1,
+      "prompt": "Which term best matches this description: the autonomic division that generally supports rest, digestion and recovery?",
+      "answers": [
+        "parasympathetic division"
+      ],
+      "options": [
+        "recovery",
+        "challenge passes",
+        "sympathetic division",
+        "parasympathetic division"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "parasympathetic",
+      "lessonId": "lesson-08",
+      "cue": "Trace where parasympathetic division belongs in the lesson mechanism or example.",
+      "explanation": "parasympathetic division: the autonomic division that generally supports rest, digestion and recovery Source: Biology 30 Chapter 11, textbook p. 399",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 399"
+      ],
+      "id": "parasympathetic:mc-function",
+      "family": "relate",
+      "interaction": "single",
+      "skill": "relate",
+      "difficulty": 2,
+      "prompt": "Which statement best describes parasympathetic division?",
+      "answers": [
+        "the autonomic division that generally supports rest, digestion and recovery"
+      ],
+      "options": [
+        "the autonomic division that generally supports activity and acute challenge",
+        "Autonomic control means every response is consciously chosen.",
+        "the autonomic division that generally supports rest, digestion and recovery",
+        "somatic pathways control skeletal muscle; autonomic pathways regulate organs, glands and smooth or cardiac muscle"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    }
+  ],
+  "textbookPractice": [
+    {
+      "id": "ch11-p396-in-text-q28",
+      "page": 396,
+      "group": "in-text",
+      "number": 28,
+      "label": "In Text · p. 396 · question 28",
+      "crops": [
+        {
+          "page": 396,
+          "box": [
+            358,
+            631.29,
+            533,
+            671.29
+          ],
+          "asset": "ch11-p396-in-text-q28.jpg",
+          "role": "selected question column; full context follows",
+          "src": "./assets/textbook-practice/ch11-p396-in-text-q28.jpg"
+        },
+        {
+          "page": 396,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ]
+        },
+        {
+          "page": 397,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "role": "referenced context / continuation"
+        }
+      ],
+      "topics": [
+        "lesson-08"
+      ]
+    },
+    {
+      "id": "ch11-p396-in-text-q29",
+      "page": 396,
+      "group": "in-text",
+      "number": 29,
+      "label": "In Text · p. 396 · question 29",
+      "crops": [
+        {
+          "page": 396,
+          "box": [
+            358,
+            664.29,
+            533,
+            722.875
+          ],
+          "asset": "ch11-p396-in-text-q29.jpg",
+          "role": "selected question column; full context follows",
+          "src": "./assets/textbook-practice/ch11-p396-in-text-q29.jpg"
+        },
+        {
+          "page": 396,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ]
+        },
+        {
+          "page": 397,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "role": "referenced context / continuation"
+        }
+      ],
+      "topics": [
+        "lesson-08"
+      ]
+    },
+    {
+      "id": "ch11-p399-in-text-q30",
+      "page": 399,
+      "group": "in-text",
+      "number": 30,
+      "label": "In Text · p. 399 · question 30",
+      "crops": [
+        {
+          "page": 399,
+          "box": [
+            70,
+            314.788,
+            245,
+            368.288
+          ],
+          "asset": "ch11-p399-in-text-q30.jpg",
+          "role": "selected question column; full context follows",
+          "src": "./assets/textbook-practice/ch11-p399-in-text-q30.jpg"
+        },
+        {
+          "page": 399,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ]
+        },
+        {
+          "page": 397,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "role": "referenced context / continuation"
+        }
+      ],
+      "topics": [
+        "lesson-08"
+      ]
+    },
+    {
+      "id": "ch11-p399-in-text-q31",
+      "page": 399,
+      "group": "in-text",
+      "number": 31,
+      "label": "In Text · p. 399 · question 31",
+      "crops": [
+        {
+          "page": 399,
+          "box": [
+            70,
+            361.288,
+            245,
+            414.788
+          ],
+          "asset": "ch11-p399-in-text-q31.jpg",
+          "role": "selected question column; full context follows",
+          "src": "./assets/textbook-practice/ch11-p399-in-text-q31.jpg"
+        },
+        {
+          "page": 399,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ]
+        },
+        {
+          "page": 397,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "role": "referenced context / continuation"
+        }
+      ],
+      "topics": [
+        "lesson-08"
+      ]
+    },
+    {
+      "id": "ch11-p399-in-text-q32",
+      "page": 399,
+      "group": "in-text",
+      "number": 32,
+      "label": "In Text · p. 399 · question 32",
+      "crops": [
+        {
+          "page": 399,
+          "box": [
+            70,
+            407.788,
+            245,
+            480.375
+          ],
+          "asset": "ch11-p399-in-text-q32.jpg",
+          "role": "selected question column; full context follows",
+          "src": "./assets/textbook-practice/ch11-p399-in-text-q32.jpg"
+        },
+        {
+          "page": 399,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ]
+        },
+        {
+          "page": 397,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "role": "referenced context / continuation"
+        }
+      ],
+      "topics": [
+        "lesson-08"
+      ]
+    },
+    {
+      "id": "ch11-p399-section-11-3-q1",
+      "page": 399,
+      "group": "section-11.3",
+      "number": 1,
+      "label": "Section 11.3 · p. 399 · question 1",
+      "crops": [
+        {
+          "page": 399,
+          "box": [
+            69.85,
+            527.7301,
+            316.35,
+            573.7301
+          ],
+          "asset": "ch11-p399-section-11-3-q1.jpg",
+          "role": "selected question including its in-column figure",
+          "src": "./assets/textbook-practice/ch11-p399-section-11-3-q1.jpg"
+        },
+        {
+          "page": 399,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ]
+        },
+        {
+          "page": 397,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "role": "referenced context / continuation"
+        }
+      ],
+      "topics": [
+        "lesson-08",
+        "lesson-09"
+      ]
+    },
+    {
+      "id": "ch11-p399-section-11-3-q2",
+      "page": 399,
+      "group": "section-11.3",
+      "number": 2,
+      "label": "Section 11.3 · p. 399 · question 2",
+      "crops": [
+        {
+          "page": 399,
+          "box": [
+            69.85,
+            572.7301,
+            316.35,
+            631.7301
+          ],
+          "asset": "ch11-p399-section-11-3-q2.jpg",
+          "role": "selected question including its in-column figure",
+          "src": "./assets/textbook-practice/ch11-p399-section-11-3-q2.jpg"
+        },
+        {
+          "page": 399,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ]
+        },
+        {
+          "page": 397,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "role": "referenced context / continuation"
+        }
+      ],
+      "topics": [
+        "lesson-08"
+      ]
+    },
+    {
+      "id": "ch11-p399-section-11-3-q3",
+      "page": 399,
+      "group": "section-11.3",
+      "number": 3,
+      "label": "Section 11.3 · p. 399 · question 3",
+      "crops": [
+        {
+          "page": 399,
+          "box": [
+            69.85,
+            630.7301,
+            316.35,
+            758
+          ],
+          "asset": "ch11-p399-section-11-3-q3.jpg",
+          "role": "selected question including its in-column figure",
+          "src": "./assets/textbook-practice/ch11-p399-section-11-3-q3.jpg"
+        },
+        {
+          "page": 399,
+          "box": [
+            320.35,
+            502.605,
+            593,
+            598.7301
+          ],
+          "asset": "ch11-p399-section-11-3-q3-continuation.jpg",
+          "role": "required question continuation",
+          "src": "./assets/textbook-practice/ch11-p399-section-11-3-q3-continuation.jpg"
+        },
+        {
+          "page": 399,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ]
+        },
+        {
+          "page": 397,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "role": "referenced context / continuation"
+        }
+      ],
+      "topics": [
+        "lesson-08"
+      ]
+    },
+    {
+      "id": "ch11-p399-section-11-3-q4",
+      "page": 399,
+      "group": "section-11.3",
+      "number": 4,
+      "label": "Section 11.3 · p. 399 · question 4",
+      "crops": [
+        {
+          "page": 399,
+          "box": [
+            320.35,
+            601.7301,
+            593,
+            712.73
+          ],
+          "asset": "ch11-p399-section-11-3-q4.jpg",
+          "role": "selected question including its in-column figure",
+          "src": "./assets/textbook-practice/ch11-p399-section-11-3-q4.jpg"
+        },
+        {
+          "page": 399,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ]
+        },
+        {
+          "page": 397,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "role": "referenced context / continuation"
+        }
+      ],
+      "topics": [
+        "lesson-08"
+      ]
+    },
+    {
+      "id": "ch11-p399-section-11-3-q5",
+      "page": 399,
+      "group": "section-11.3",
+      "number": 5,
+      "label": "Section 11.3 · p. 399 · question 5",
+      "crops": [
+        {
+          "page": 399,
+          "box": [
+            320.35,
+            711.73,
+            593,
+            758
+          ],
+          "asset": "ch11-p399-section-11-3-q5.jpg",
+          "role": "selected question including its in-column figure",
+          "src": "./assets/textbook-practice/ch11-p399-section-11-3-q5.jpg"
+        },
+        {
+          "page": 399,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ]
+        },
+        {
+          "page": 397,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "role": "referenced context / continuation"
+        }
+      ],
+      "topics": [
+        "lesson-07",
+        "lesson-08"
+      ]
+    },
+    {
+      "id": "ch11-p402-chapter-review-q4",
+      "page": 402,
+      "group": "chapter-review",
+      "number": 4,
+      "label": "Chapter Review · p. 402 · question 4",
+      "crops": [
+        {
+          "page": 402,
+          "box": [
+            39.849999999999994,
+            415.48,
+            280.8,
+            474.48
+          ],
+          "asset": "ch11-p402-chapter-review-q4.jpg",
+          "role": "selected question including its in-column figure",
+          "src": "./assets/textbook-practice/ch11-p402-chapter-review-q4.jpg"
+        },
+        {
+          "page": 402,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ]
+        },
+        {
+          "page": 403,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "role": "referenced context / continuation"
+        }
+      ],
+      "topics": [
+        "lesson-08"
+      ]
+    },
+    {
+      "id": "ch11-p402-chapter-review-q8",
+      "page": 402,
+      "group": "chapter-review",
+      "number": 8,
+      "label": "Chapter Review · p. 402 · question 8",
+      "crops": [
+        {
+          "page": 402,
+          "box": [
+            39.849999999999994,
+            608.48,
+            280.8,
+            693.48
+          ],
+          "asset": "ch11-p402-chapter-review-q8.jpg",
+          "role": "selected question including its in-column figure",
+          "src": "./assets/textbook-practice/ch11-p402-chapter-review-q8.jpg"
+        },
+        {
+          "page": 402,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ]
+        },
+        {
+          "page": 403,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "role": "referenced context / continuation"
+        }
+      ],
+      "topics": [
+        "lesson-03",
+        "lesson-08"
+      ]
+    },
+    {
+      "id": "ch11-p402-chapter-review-q10",
+      "page": 402,
+      "group": "chapter-review",
+      "number": 10,
+      "label": "Chapter Review · p. 402 · question 10",
+      "crops": [
+        {
+          "page": 402,
+          "box": [
+            284.8,
+            69.48000000000002,
+            593,
+            341.492
+          ],
+          "asset": "ch11-p402-chapter-review-q10.jpg",
+          "role": "selected question including its in-column figure",
+          "src": "./assets/textbook-practice/ch11-p402-chapter-review-q10.jpg"
+        },
+        {
+          "page": 402,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ]
+        },
+        {
+          "page": 403,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "role": "referenced context / continuation"
+        }
+      ],
+      "topics": [
+        "lesson-02",
+        "lesson-03",
+        "lesson-06",
+        "lesson-08"
+      ]
+    }
+  ],
+  "media": [
+    {
+      "kind": "img",
+      "attrs": {
+        "alt": "Read down from nervous system to CNS and PNS, then follow the sensory and motor branches. The autonomic branch divides further into sympathetic and parasympathetic systems.",
+        "decoding": "async",
+        "loading": "lazy",
+        "src": "assets/source/chapter11-pns-0.svg",
+        "data-canvas-helper-edit-key": "p3-chapter-608"
+      },
+      "caption": "Figure 13. Read down from nervous system to CNS and PNS, then follow the sensory and motor branches. The autonomic branch divides further into sympathetic and parasympathetic systems.",
+      "locator": {
+        "path": "projects/biology30-unit-a-pilot-3/workspace/index.html",
+        "startLine": 1637
+      },
+      "status": "existing source asset; no new visual/science acceptance or video playback asserted"
+    },
+    {
+      "kind": "img",
+      "attrs": {
+        "alt": "Compare the two responses organ by organ. Use the textbook’s Figure 11.36 for the larger organ list required by review question 4.",
+        "decoding": "async",
+        "loading": "lazy",
+        "src": "assets/source/chapter11-pns-1.svg",
+        "data-canvas-helper-edit-key": "p3-chapter-630"
+      },
+      "caption": "Figure 14. Compare the two responses organ by organ. Use the textbook’s Figure 11.36 for the larger organ list required by review question 4.",
+      "locator": {
+        "path": "projects/biology30-unit-a-pilot-3/workspace/index.html",
+        "startLine": 1655
+      },
+      "status": "existing source asset; no new visual/science acceptance or video playback asserted"
+    },
+    {
+      "kind": "img",
+      "attrs": {
+        "alt": "Figure 11.36, p. 398, retained for Section 11.3 review question 4. It shows the specific organ list and the source’s transmitter key.",
+        "decoding": "async",
+        "loading": "lazy",
+        "src": "assets/source/chapter11-pns-2.png",
+        "data-canvas-helper-edit-key": "p3-chapter-633"
+      },
+      "caption": "Figure 11.36, p. 398, retained for Section 11.3 review question 4. It shows the specific organ list and the source’s transmitter key.",
+      "locator": {
+        "path": "projects/biology30-unit-a-pilot-3/workspace/index.html",
+        "startLine": 1662
+      },
+      "status": "existing source asset; no new visual/science acceptance or video playback asserted"
+    },
+    {
+      "kind": "section",
+      "attrs": {
+        "class": "video-support",
+        "data-video": "QY9NTVh-Awo"
+      },
+      "caption": "",
+      "locator": {
+        "path": "projects/biology30-unit-a-pilot-3/workspace/index.html",
+        "startLine": 1673
+      },
+      "status": "existing source asset; no new visual/science acceptance or video playback asserted"
+    },
+    {
+      "kind": "a",
+      "attrs": {
+        "href": "https://www.youtube.com/watch?v=QY9NTVh-Awo",
+        "target": "_blank",
+        "rel": "noopener",
+        "data-canvas-helper-edit-key": "p3-chapter-641"
+      },
+      "caption": "",
+      "locator": {
+        "path": "projects/biology30-unit-a-pilot-3/workspace/index.html",
+        "startLine": 1678
+      },
+      "status": "existing source asset; no new visual/science acceptance or video playback asserted"
+    },
+    {
+      "kind": "section",
+      "attrs": {
+        "class": "video-support",
+        "data-video": "jaWrMYChc5A"
+      },
+      "caption": "",
+      "locator": {
+        "path": "projects/biology30-unit-a-pilot-3/workspace/index.html",
+        "startLine": 1681
+      },
+      "status": "existing source asset; no new visual/science acceptance or video playback asserted"
+    },
+    {
+      "kind": "a",
+      "attrs": {
+        "href": "https://www.youtube.com/watch?v=jaWrMYChc5A",
+        "target": "_blank",
+        "rel": "noopener",
+        "data-canvas-helper-edit-key": "p3-chapter-646"
+      },
+      "caption": "",
+      "locator": {
+        "path": "projects/biology30-unit-a-pilot-3/workspace/index.html",
+        "startLine": 1687
+      },
+      "status": "existing source asset; no new visual/science acceptance or video playback asserted"
+    },
+    {
+      "kind": "section",
+      "attrs": {
+        "class": "video-support",
+        "data-video": "DPWEhl7gbu4"
+      },
+      "caption": "",
+      "locator": {
+        "path": "projects/biology30-unit-a-pilot-3/workspace/index.html",
+        "startLine": 1690
+      },
+      "status": "existing source asset; no new visual/science acceptance or video playback asserted"
+    },
+    {
+      "kind": "a",
+      "attrs": {
+        "href": "https://www.youtube.com/watch?v=DPWEhl7gbu4",
+        "target": "_blank",
+        "rel": "noopener",
+        "data-canvas-helper-edit-key": "p3-chapter-651"
+      },
+      "caption": "",
+      "locator": {
+        "path": "projects/biology30-unit-a-pilot-3/workspace/index.html",
+        "startLine": 1695
+      },
+      "status": "existing source asset; no new visual/science acceptance or video playback asserted"
+    }
+  ],
+  "vocabulary": {
+    "canonicalPayload": "current-course/data/vocabulary-and-schema.json",
+    "inlineTermLinks": [
+      {
+        "attrs": {
+          "type": "button",
+          "class": "bio-term",
+          "data-bio-term": "pns",
+          "data-bio-term-route": "lesson-08",
+          "aria-haspopup": "dialog",
+          "data-canvas-helper-edit-key": "p3-l08-setup-11"
+        },
+        "term": "PNS"
+      },
+      {
+        "attrs": {
+          "type": "button",
+          "class": "bio-term",
+          "data-bio-term": "somatic nervous system",
+          "data-bio-term-route": "lesson-08",
+          "aria-haspopup": "dialog",
+          "data-canvas-helper-edit-key": "p3-l08-setup-13"
+        },
+        "term": "somatic nervous system"
+      },
+      {
+        "attrs": {
+          "type": "button",
+          "class": "bio-term",
+          "data-bio-term": "autonomic nervous system",
+          "data-bio-term-route": "lesson-08",
+          "aria-haspopup": "dialog",
+          "data-canvas-helper-edit-key": "p3-l08-setup-15"
+        },
+        "term": "autonomic nervous system"
+      },
+      {
+        "attrs": {
+          "type": "button",
+          "class": "bio-term",
+          "data-bio-term": "sympathetic division",
+          "data-bio-term-route": "lesson-08",
+          "aria-haspopup": "dialog",
+          "data-canvas-helper-edit-key": "p3-l08-setup-17"
+        },
+        "term": "sympathetic division"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "pns",
+          "data-canvas-helper-edit-key": "p3-chapter-594",
+          "type": "button"
+        },
+        "term": "PNS"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "cns",
+          "data-canvas-helper-edit-key": "p3-chapter-595",
+          "type": "button"
+        },
+        "term": "CNS"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "pns",
+          "data-canvas-helper-edit-key": "p3-chapter-599",
+          "type": "button"
+        },
+        "term": "PNS"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "voluntary control",
+          "data-canvas-helper-edit-key": "p3-chapter-600",
+          "type": "button"
+        },
+        "term": "voluntary control"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "homeostasis",
+          "data-canvas-helper-edit-key": "p3-chapter-602",
+          "type": "button"
+        },
+        "term": "homeostasis"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "effector",
+          "data-canvas-helper-edit-key": "p3-chapter-604",
+          "type": "button"
+        },
+        "term": "effector"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "response",
+          "data-canvas-helper-edit-key": "p3-chapter-605",
+          "type": "button"
+        },
+        "term": "response"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "sympathetic division",
+          "data-canvas-helper-edit-key": "p3-chapter-611",
+          "type": "button"
+        },
+        "term": "sympathetic division"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "response",
+          "data-canvas-helper-edit-key": "p3-chapter-612",
+          "type": "button"
+        },
+        "term": "response"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "acetylcholine",
+          "data-canvas-helper-edit-key": "p3-chapter-615",
+          "type": "button"
+        },
+        "term": "acetylcholine"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "norepinephrine",
+          "data-canvas-helper-edit-key": "p3-chapter-616",
+          "type": "button"
+        },
+        "term": "norepinephrine"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "epinephrine",
+          "data-canvas-helper-edit-key": "p3-chapter-617",
+          "type": "button"
+        },
+        "term": "epinephrine"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "hormone",
+          "data-canvas-helper-edit-key": "p3-chapter-618",
+          "type": "button"
+        },
+        "term": "hormone"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "axon",
+          "data-canvas-helper-edit-key": "p3-chapter-619",
+          "type": "button"
+        },
+        "term": "axon"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "parasympathetic division",
+          "data-canvas-helper-edit-key": "p3-chapter-622",
+          "type": "button"
+        },
+        "term": "parasympathetic division"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "acetylcholine",
+          "data-canvas-helper-edit-key": "p3-chapter-623",
+          "type": "button"
+        },
+        "term": "Acetylcholine"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "neurotransmitter",
+          "data-canvas-helper-edit-key": "p3-chapter-624",
+          "type": "button"
+        },
+        "term": "neurotransmitter"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "sympathetic and parasympathetic divisions",
+          "data-canvas-helper-edit-key": "p3-chapter-626",
+          "type": "button"
+        },
+        "term": "sympathetic and parasympathetic divisions"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "opposing effects",
+          "data-canvas-helper-edit-key": "p3-chapter-627",
+          "type": "button"
+        },
+        "term": "opposing effects"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "evidence",
+          "data-canvas-helper-edit-key": "p3-chapter-637",
+          "type": "button"
+        },
+        "term": "Evidence"
+      }
+    ],
+    "visibleWords": [
+      "Vocabulary help Key termsWords for this lessonUse these definitions when you need help with a term. PNSnerves connecting the CNS with the rest of the body somatic nervous systemthe system that carries somatic sensory information and controls skeletal muscles autonomic nervous systemthe system that controls involuntary activity in organs and glands sympathetic divisionthe autonomic division involved in fight-or-flight More vocabulary for this lessonLesson vocabularyPNS · CNS · somatic nervous system · autonomic nervous system · voluntary control · sympathetic division · parasympathetic division · autonomic balance · opposing effects · effector · response · homeostasis · acetylcholine · norepinephrine · epinephrine · hormone · evidenceSelect an underlined term for its definition. Your vocabulary writing is saved in Process Collection."
+    ]
+  },
+  "immutablePreservationBindings": [
+    {
+      "tag": "section",
+      "attrs": {
+        "class": "activity",
+        "data-activity": "check-pns",
+        "data-activity-mode": "paired",
+        "data-required-check": ""
+      },
+      "startLine": 1701
+    },
+    {
+      "tag": "div",
+      "attrs": {
+        "class": "question",
+        "data-question": "check-pns-mc"
+      },
+      "startLine": 1709,
+      "questionText": "The two divisions of the autonomic nervous system are called the central nervous system (CNS) and the peripheral nervous system (PNS). somatic nervous system and the skeletal nervous system sympathetic nervous system and the parasympathetic nervous system. myelinated nervous system and the unmyelinated nervous system. Check answer Explain the related idea Compare the functions of the sympathetic and parasympathetic divisions of the autonomic system. Give specific examples of their physiological effects in the body. Textbook p. 399 Written response Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded. Save written response"
+    },
+    {
+      "tag": "input",
+      "attrs": {
+        "type": "radio",
+        "name": "check-pns-mc",
+        "value": "QUES_51668_82707_A275462",
+        "data-answer": ""
+      },
+      "startLine": 1712
+    },
+    {
+      "tag": "input",
+      "attrs": {
+        "type": "radio",
+        "name": "check-pns-mc",
+        "value": "QUES_51668_82707_A275463",
+        "data-answer": ""
+      },
+      "startLine": 1714
+    },
+    {
+      "tag": "input",
+      "attrs": {
+        "type": "radio",
+        "name": "check-pns-mc",
+        "value": "QUES_51668_82707_A275464",
+        "data-answer": ""
+      },
+      "startLine": 1716
+    },
+    {
+      "tag": "input",
+      "attrs": {
+        "type": "radio",
+        "name": "check-pns-mc",
+        "value": "QUES_51668_82707_A275465",
+        "data-answer": ""
+      },
+      "startLine": 1718
+    },
+    {
+      "tag": "textarea",
+      "attrs": {
+        "id": "check-pns-written",
+        "data-writing": "check-pns-written",
+        "data-answer-limit": "3200",
+        "rows": "6",
+        "aria-describedby": "check-pns-written-limit check-pns-written-status"
+      },
+      "startLine": 1730
+    },
+    {
+      "tag": "section",
+      "attrs": {
+        "class": "activity",
+        "data-activity": "practice-pns",
+        "data-activity-mode": "writing"
+      },
+      "startLine": 1745
+    },
+    {
+      "tag": "div",
+      "attrs": {
+        "class": "question",
+        "data-question": "source-checkpoint-28"
+      },
+      "startLine": 1753,
+      "questionText": "What are the major structures involved in the somatic system? Textbook p. 396 Written response Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded. Save written response"
+    },
+    {
+      "tag": "textarea",
+      "attrs": {
+        "id": "source-checkpoint-28-written",
+        "data-writing": "source-checkpoint-28-written",
+        "data-answer-limit": "3200",
+        "rows": "6",
+        "aria-describedby": "source-checkpoint-28-written-limit source-checkpoint-28-written-status"
+      },
+      "startLine": 1760
+    },
+    {
+      "tag": "div",
+      "attrs": {
+        "class": "question",
+        "data-question": "source-checkpoint-29"
+      },
+      "startLine": 1766,
+      "questionText": "What role does the somatic system play in the functioning of the body? Textbook p. 396 Written response Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded. Save written response"
+    },
+    {
+      "tag": "textarea",
+      "attrs": {
+        "id": "source-checkpoint-29-written",
+        "data-writing": "source-checkpoint-29-written",
+        "data-answer-limit": "3200",
+        "rows": "6",
+        "aria-describedby": "source-checkpoint-29-written-limit source-checkpoint-29-written-status"
+      },
+      "startLine": 1773
+    },
+    {
+      "tag": "div",
+      "attrs": {
+        "class": "question",
+        "data-question": "source-checkpoint-30"
+      },
+      "startLine": 1779,
+      "questionText": "What type of motor neurons are involved in the autonomic nervous system? Textbook p. 399 Written response Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded. Save written response"
+    },
+    {
+      "tag": "textarea",
+      "attrs": {
+        "id": "source-checkpoint-30-written",
+        "data-writing": "source-checkpoint-30-written",
+        "data-answer-limit": "3200",
+        "rows": "6",
+        "aria-describedby": "source-checkpoint-30-written-limit source-checkpoint-30-written-status"
+      },
+      "startLine": 1786
+    },
+    {
+      "tag": "div",
+      "attrs": {
+        "class": "question",
+        "data-question": "source-checkpoint-31"
+      },
+      "startLine": 1792,
+      "questionText": "What generally triggers the sympathetic nervous system, and what are its effects on the body? Textbook p. 399 Written response Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded. Save written response"
+    },
+    {
+      "tag": "textarea",
+      "attrs": {
+        "id": "source-checkpoint-31-written",
+        "data-writing": "source-checkpoint-31-written",
+        "data-answer-limit": "3200",
+        "rows": "6",
+        "aria-describedby": "source-checkpoint-31-written-limit source-checkpoint-31-written-status"
+      },
+      "startLine": 1799
+    },
+    {
+      "tag": "div",
+      "attrs": {
+        "class": "question",
+        "data-question": "source-checkpoint-32"
+      },
+      "startLine": 1805,
+      "questionText": "What generally triggers the parasympathetic nervous system, and what are its effects on the body? Textbook p. 399 Written response Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded. Save written response"
+    },
+    {
+      "tag": "textarea",
+      "attrs": {
+        "id": "source-checkpoint-32-written",
+        "data-writing": "source-checkpoint-32-written",
+        "data-answer-limit": "3200",
+        "rows": "6",
+        "aria-describedby": "source-checkpoint-32-written-limit source-checkpoint-32-written-status"
+      },
+      "startLine": 1812
+    },
+    {
+      "tag": "div",
+      "attrs": {
+        "class": "question",
+        "data-question": "source-review113-q1"
+      },
+      "startLine": 1818,
+      "questionText": "Compare the general functions of the central nervous system with the functions of the peripheral nervous system. Textbook p. 399 Written response Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded. Save written response"
+    },
+    {
+      "tag": "textarea",
+      "attrs": {
+        "id": "source-review113-q1-written",
+        "data-writing": "source-review113-q1-written",
+        "data-answer-limit": "3200",
+        "rows": "6",
+        "aria-describedby": "source-review113-q1-written-limit source-review113-q1-written-status"
+      },
+      "startLine": 1825
+    },
+    {
+      "tag": "div",
+      "attrs": {
+        "class": "question",
+        "data-question": "source-review113-q2"
+      },
+      "startLine": 1831,
+      "questionText": "Identify which division of the peripheral nervous system is under voluntary control and which division is under involuntary control. Compare the functions of these two divisions. Textbook p. 399 Written response Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded. Save written response"
+    },
+    {
+      "tag": "textarea",
+      "attrs": {
+        "id": "source-review113-q2-written",
+        "data-writing": "source-review113-q2-written",
+        "data-answer-limit": "3200",
+        "rows": "6",
+        "aria-describedby": "source-review113-q2-written-limit source-review113-q2-written-status"
+      },
+      "startLine": 1838
+    },
+    {
+      "tag": "div",
+      "attrs": {
+        "class": "question",
+        "data-question": "source-review113-q3"
+      },
+      "startLine": 1844,
+      "questionText": "Imagine that you are hiking in the mountains one afternoon with friends. As you turn a corner, you come across a mother bear and her cubs standing in the middle of the trail. Identify the specific division of the nervous system that is responsible for the body’s response to this situation. Describe at least six physiological responses you might have upon seeing the bears. Indicate the division of the nervous system that is responsible for returning the body back to equilibrium after the event is over. Textbook p. 399 Written response Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded. Save written response"
+    },
+    {
+      "tag": "textarea",
+      "attrs": {
+        "id": "source-review113-q3-written",
+        "data-writing": "source-review113-q3-written",
+        "data-answer-limit": "3200",
+        "rows": "6",
+        "aria-describedby": "source-review113-q3-written-limit source-review113-q3-written-status"
+      },
+      "startLine": 1856
+    },
+    {
+      "tag": "div",
+      "attrs": {
+        "class": "question",
+        "data-question": "source-review113-q4"
+      },
+      "startLine": 1862,
+      "questionText": "Use word processing software to construct a three-column table. Use the following headings: Body structures, Sympathetic stimulation effect, and Parasympathetic stimulation effect. In the first column, list these structures: eyes, salivary glands, bronchioles, heart, liver, adrenal glands, kidneys, stomach, pancreas, intestines, and bladder. Then complete the rest of the table. ICT Textbook p. 399 Written response Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded. Save written response"
+    },
+    {
+      "tag": "textarea",
+      "attrs": {
+        "id": "source-review113-q4-written",
+        "data-writing": "source-review113-q4-written",
+        "data-answer-limit": "3200",
+        "rows": "6",
+        "aria-describedby": "source-review113-q4-written-limit source-review113-q4-written-status"
+      },
+      "startLine": 1869
+    },
+    {
+      "tag": "div",
+      "attrs": {
+        "class": "question",
+        "data-question": "source-review113-q5"
+      },
+      "startLine": 1875,
+      "questionText": "Compare how stimulants and depressants affect the nervous system. Name a common stimulant. Textbook p. 399 Written response Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded. Save written response"
+    },
+    {
+      "tag": "textarea",
+      "attrs": {
+        "id": "source-review113-q5-written",
+        "data-writing": "source-review113-q5-written",
+        "data-answer-limit": "3200",
+        "rows": "6",
+        "aria-describedby": "source-review113-q5-written-limit source-review113-q5-written-status"
+      },
+      "startLine": 1882
+    }
+  ],
+  "status": {
+    "sourceInventory": "exported with exact locators; see explicit source gaps",
+    "authoring": "not-started",
+    "contentReview": "not-started",
+    "integration": "not-started",
+    "technicalTesting": "not-started",
+    "teacherAcceptance": "not-requested"
+  }
+}

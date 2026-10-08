@@ -1,0 +1,74 @@
+[
+  {
+    "id": "ch11-scout-v100-l01-guided",
+    "lesson": "lesson-01",
+    "title": "Try a supported pathway",
+    "source_manuscript": "manuscripts/lesson-01.md",
+    "prompt_and_stimulus_html": "\n<p>A student hears a signal and deliberately presses a button. Use the record below to identify sensory input, integration, motor output and the effector. Then explain why the hand muscle belongs on the output side of the pathway.</p>\n<div class=\"table-scroll\"><table>\n<tr><th>Information in the record</th><th>Stage to identify</th></tr>\n<tr><td>The sound is detected and information travels toward the brain</td><td>?</td></tr>\n<tr><td>The brain processes the signal and organizes the chosen movement</td><td>?</td></tr>\n<tr><td>Instructions travel from the CNS toward the hand muscle</td><td>?</td></tr>\n<tr><td>The hand muscle contracts and the button is pressed</td><td>?</td></tr>\n</table></div>\n<p>Write your explanation and save it before opening the comparison.</p>\n",
+    "hint_model_criteria_html": "<p><strong>Hint:</strong> follow the direction of information relative to the CNS. Then distinguish the instruction from the structure that carries it out.</p>\n<p><strong>Compare your reasoning:</strong> information travelling toward the brain is sensory input. Processing the signal and organizing the movement is integration. Instructions travelling away from the CNS are motor output. The hand muscle is the effector, and its contraction produces the movement. Calling the muscle a receptor would reverse its role: in this record it acts on an instruction rather than detecting the sound.</p>\n<p><strong>Check your explanation:</strong> identify all four stages, use inward and outward directions correctly, and distinguish the responding muscle from the command sent to it.</p>",
+    "proposed_response_id": "ch11-scout-v100-l01-guided-written",
+    "status": "new optional formative proposal; inert controls; native realization/test pending",
+    "required_progress": false,
+    "automatic_grading": false
+  },
+  {
+    "id": "ch11-scout-v100-l01-transfer",
+    "lesson": "lesson-01",
+    "title": "Use evidence to locate a missing connection",
+    "source_manuscript": "manuscripts/lesson-01.md",
+    "prompt_and_stimulus_html": "\n<p>The two records describe hypothetical signalling pathways. They are teaching models, not measurements from a person. In both, the receptor can detect the stimulus and the effector can respond when it receives an appropriate instruction.</p>\n<div class=\"table-scroll\"><table>\n<tr><th>Record</th><th>Information available</th></tr>\n<tr><td>A</td><td>A signal starts at the receptor, but it does not reach the CNS</td></tr>\n<tr><td>B</td><td>Sensory information reaches the CNS and an output command is formed, but that command does not reach the effector</td></tr>\n</table></div>\n<p>For each record, identify the part of the communication pathway that is interrupted. Explain why “the effector is broken” does not fit the stated evidence. Save your first response, then compare it with the model.</p>\n",
+    "hint_model_criteria_html": "<p><strong>Hint:</strong> use what is known to work. Locate the missing connection between the last confirmed event and the next event that fails to occur.</p>\n<p><strong>Model explanation:</strong> record A places the interruption in the sensory route between detection and the CNS. Record B places it in the motor route between the CNS and the effector. The effector is stated to respond when an appropriate instruction reaches it, so failure of the whole pathway is not enough evidence to call that structure broken. Different missing connections can produce the same final observation of no response. The intermediate information lets us distinguish them.</p>\n<p><strong>Check your explanation:</strong> locate each interruption, cite a specific observation from the record and explain why a missing response alone does not identify one unique cause.</p>",
+    "proposed_response_id": "ch11-scout-v100-l01-transfer-written",
+    "status": "new optional formative proposal; inert controls; native realization/test pending",
+    "required_progress": false,
+    "automatic_grading": false
+  },
+  {
+    "id": "ch11-scout-v100-l02-guided",
+    "lesson": "lesson-02",
+    "title": "Explain a drawing error",
+    "source_manuscript": "manuscripts/lesson-02.md",
+    "prompt_and_stimulus_html": "\n<p>A student's diagram notes are shown below. Use the actual myelin comparison to evaluate them.</p>\n<div class=\"table-scroll\"><table>\n<tr><th>Student's note</th><th>Your task</th></tr>\n<tr><td>“At each node, the axon ends. The impulse crosses the empty gap to the next axon piece.”</td><td>Identify the incorrect structural claim and replace it with the correct relationship</td></tr>\n<tr><td>“The blue covering is the electrical signal.”</td><td>Explain what the covering is and where the signal is regenerated</td></tr>\n</table></div>\n<p>Save a correction that explains the biology, then open the comparison.</p>\n",
+    "hint_model_criteria_html": "<p><strong>Hint:</strong> follow the yellow structure through a blue segment. Then identify what is absent at a node: the axon or its insulating covering?</p>\n<p><strong>Model correction:</strong> the axon is continuous. A node is an exposed region between myelin segments, not a cut between separate axon pieces. Electrical change spreads along the axon beneath the covering, and an action potential is regenerated at the next node. The blue region represents myelin made by a glial cell. It supports the conduction pattern but is not itself the electrical signal.</p>\n<p><strong>Check your explanation:</strong> name the continuous structure, identify the gap correctly, and explain regeneration rather than repeating the word “jump.”</p>\n",
+    "proposed_response_id": "ch11-scout-v100-l02-guided-written",
+    "status": "new optional formative proposal; inert controls; native realization/test pending",
+    "required_progress": false,
+    "automatic_grading": false
+  },
+  {
+    "id": "ch11-scout-v100-l02-transfer",
+    "lesson": "lesson-02",
+    "title": "Decide whether a proposed repair addresses the problem",
+    "source_manuscript": "manuscripts/lesson-02.md",
+    "prompt_and_stimulus_html": "\n<p>Use these hypothetical records. No disease diagnosis is required.</p>\n<div class=\"table-scroll\"><table>\n<tr><th>Record</th><th>Problem</th><th>Proposed change</th></tr>\n<tr><td>A</td><td>A neuron receives an adequate input, but its impulse is disrupted along a region with damaged myelin</td><td>Give the receiving region more dendritic branches</td></tr>\n<tr><td>B</td><td>The impulse reaches the terminal normally, but the terminal does not release its chemical message</td><td>Increase the amount of myelin on the already functioning axon</td></tr>\n</table></div>\n<p>Would either proposed change directly repair the stated missing function? Explain each answer using the location and job of the relevant structures. Save your first explanation before comparing it with the model.</p>\n",
+    "hint_model_criteria_html": "<p><strong>Hint:</strong> identify the confirmed working stage first. A change to that stage does not automatically repair a different stage farther along the pathway.</p>\n<p><strong>Model explanation:</strong> more dendritic branches would change the receiving surface in record A. The record already supplies adequate input and identifies disrupted axonal conduction, so extra branches do not directly repair the damaged insulation. More myelin in record B addresses conduction along an axon that already carries the impulse to the terminal. It does not directly restore the missing release step. These are predictions within the stated models, not a claim that one repair procedure is appropriate for an actual person.</p>\n<p><strong>Check your explanation:</strong> distinguish receiving, conduction and transmission to another cell; use the information about what still works; and explain why each proposed change targets the wrong job.</p>",
+    "proposed_response_id": "ch11-scout-v100-l02-transfer-written",
+    "status": "new optional formative proposal; inert controls; native realization/test pending",
+    "required_progress": false,
+    "automatic_grading": false
+  },
+  {
+    "id": "ch11-scout-v100-l03-guided",
+    "lesson": "lesson-03",
+    "title": "Repair an incomplete pathway",
+    "source_manuscript": "manuscripts/lesson-03.md",
+    "prompt_and_stimulus_html": "\n<p>A student has written the following withdrawal pathway:</p>\n<div class=\"table-scroll\"><table>\n<tr><th>Position</th><th>Student's entry</th></tr>\n<tr><td>1</td><td>Receptor detects the stimulus</td></tr>\n<tr><td>2</td><td>Motor neuron carries information into the spinal cord</td></tr>\n<tr><td>3</td><td>Interneuron connects the pathway within the spinal cord</td></tr>\n<tr><td>4</td><td>Sensory neuron carries instructions out toward the muscle</td></tr>\n<tr><td>5</td><td>Muscle contracts</td></tr>\n</table></div>\n<p>Correct positions 2 and 4 and explain why each correction is needed. Then add one sentence about how the brain can become aware of the stimulus even though the movement has begun. Save your response before opening the comparison.</p>\n",
+    "hint_model_criteria_html": "<p><strong>Hint:</strong> sensory and motor name opposite directions relative to the CNS. Use the separate ascending route in the figure for the awareness sentence.</p>\n<p><strong>Model correction:</strong> a sensory neuron carries the input toward the spinal cord at position 2. A motor neuron carries output toward the muscle at position 4. The student reversed their jobs. An ascending pathway also carries information toward the brain, where further processing can contribute to conscious awareness. The existence of that route does not require the spinal withdrawal circuit to wait for a conscious decision.</p>\n<p><strong>Check your explanation:</strong> correct both directions, retain the interneuron within the CNS and explain the separate information route toward awareness.</p>",
+    "proposed_response_id": "ch11-scout-v100-l03-guided-written",
+    "status": "new optional formative proposal; inert controls; native realization/test pending",
+    "required_progress": false,
+    "automatic_grading": false
+  },
+  {
+    "id": "ch11-scout-v100-l03-transfer",
+    "lesson": "lesson-03",
+    "title": "Predict two different outcomes",
+    "source_manuscript": "manuscripts/lesson-03.md",
+    "prompt_and_stimulus_html": "\n<p>Use the withdrawal figure and the two hypothetical modifications below. Assume every part not identified as interrupted continues to function as shown. These are simplified teaching models, not clinical records.</p>\n<div class=\"table-scroll\"><table>\n<tr><th>Model</th><th>Specified interruption</th></tr>\n<tr><td>A</td><td>The separate ascending route toward the brain is interrupted after information has entered the spinal withdrawal circuit. The local sensory-to-interneuron-to-motor route remains intact</td></tr>\n<tr><td>B</td><td>The motor route from the spinal circuit to the muscle is interrupted. The sensory route into the spinal cord and the ascending route toward the brain remain intact</td></tr>\n</table></div>\n<p>For each model, predict whether the pictured withdrawal movement can begin and whether information can reach the brain through the pictured ascending route. Explain why “no withdrawal” and “no sensory information” are different conclusions. Save your first response before comparing it with the model.</p>\n",
+    "hint_model_criteria_html": "<p><strong>Hint:</strong> trace the two routes separately. Mark where each route encounters its stated interruption rather than assuming that damage to one branch disables every branch.</p>\n<p><strong>Model explanation:</strong> in model A, the local withdrawal circuit is intact, so it can still send motor output to begin the pictured response. Information cannot continue to the brain through the interrupted ascending route. In model B, sensory information can enter the spinal cord and continue toward the brain, but the interrupted motor route cannot deliver the pictured instruction to the muscle. The withdrawal movement therefore cannot be produced through that route. These predictions concern only the explicitly described pathways. They do not establish every sensation or possible movement in a real person.</p>\n<p><strong>Check your explanation:</strong> give both predictions for each model, trace the relevant intact or interrupted route, and avoid using absence of movement as proof that detection failed.</p>",
+    "proposed_response_id": "ch11-scout-v100-l03-transfer-written",
+    "status": "new optional formative proposal; inert controls; native realization/test pending",
+    "required_progress": false,
+    "automatic_grading": false
+  }
+]

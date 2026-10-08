@@ -1,0 +1,43 @@
+Chapter 11 exact repaired-candidate source: two-part transport
+
+Scout rejected the original candidate ZIP because its 21,044,405 bytes exceed
+the visible 20 MB attachment limit. These two ordinary ZIP containers hold
+binary segments of that exact original archive. They are transport containers,
+not separate course candidates. No HTML, lesson copy or assets were rewritten.
+
+1. Extract Biology30_CH11_Repaired_Source_Part_01.zip and
+   Biology30_CH11_Repaired_Source_Part_02.zip.
+2. Concatenate the bytes of Biology30_Chapter11_REPAIRED.zip.part01 followed by
+   Biology30_Chapter11_REPAIRED.zip.part02 into a new file named
+   Biology30_Chapter11_REPAIRED.zip. Do not decode or interpret the segments.
+3. Verify the reconstructed archive is exactly 21,044,405 bytes, SHA-256:
+   6ae67ae8cbea799e66df11982e7246935d03fae8bc873874ad34e7292b5bebff
+4. Open the reconstructed ZIP. It has exactly these three entries:
+   Biology30_Chapter11_REPAIRED.html
+   Biology30_Chapter11_REPAIR_NOTES.txt
+   Biology30_Chapter11_REPAIR_TESTS.json
+5. Verify the extracted HTML is 29,002,929 bytes, SHA-256:
+   56bbed509233ee497f7af3aefe27856cd58e9e498c1ff52e9b2893f6776634cf
+
+Example Python reconstruction in an already-authorized cloud file workspace:
+
+from pathlib import Path
+import hashlib
+part1 = Path('Biology30_Chapter11_REPAIRED.zip.part01').read_bytes()
+part2 = Path('Biology30_Chapter11_REPAIRED.zip.part02').read_bytes()
+combined = part1 + part2
+assert len(combined) == 21044405
+assert hashlib.sha256(combined).hexdigest() == (
+    '6ae67ae8cbea799e66df11982e7246935d03fae8bc873874ad34e7292b5bebff'
+)
+Path('Biology30_Chapter11_REPAIRED.zip').write_bytes(combined)
+
+UPLOAD_MANIFEST.json is an immutable pre-upload preparation record. Its
+original-candidate path/hash remains correct; the actual browser transport
+uses these two wrappers instead of that oversized attachment. Refer to
+CANDIDATE_TRANSPORT.json for wrapper and segment hashes. A subsequent
+SCOUT_DELIVERY.json records observed submission/acknowledgment separately.
+
+Treat REPAIR_TESTS.json as author-reported evidence, not independent acceptance.
+Read and reconcile the manuscripts; do not execute the candidate runtime or
+copy its saving, font, reader or assessment changes into the canonical course.

@@ -1,0 +1,524 @@
+[
+  {
+    "change_id": "CH001",
+    "lesson_id": "lesson-01",
+    "kind": "replace-text",
+    "target": "p3-l01-guide-04",
+    "before": "Complete the required chapter check. Open the check near the bottom and select Start. For multiple choice, select Check answer; a correct answer unlocks the related writing. Answer in your own words and select Save written response for every response box.",
+    "after": "Complete the required written chapter check. Open the check near the bottom and select Start. This check contains written responses only; there is no multiple-choice question to unlock them. Answer each prompt in your own words and select Save written response for every response box.",
+    "reason": "C01: directions follow the actual writing-only native activity; no activity or completion change."
+  },
+  {
+    "change_id": "CH002",
+    "lesson_id": "lesson-01",
+    "kind": "replace-text",
+    "target": "p3-l01-guide-07",
+    "before": "Expected work: complete the lesson and submit the required chapter check. Use optional reading, videos and practice when they help. Drafts save automatically as you work in this browser.",
+    "after": "Expected work: complete the lesson and submit the required chapter check. Use optional reading, videos and practice when they help. Draft saving applies to the chapter-check and textbook activities you start; use their Save written response controls and check the save status. The optional practice spaces in the teaching are labelled “not saved.” They are not stored, automatically graded or counted toward the 12 required checks.",
+    "reason": "C17: distinguish native activity draft/save semantics from the 27 deliberately unsaved formative spaces. No saving implementation is changed."
+  },
+  {
+    "change_id": "CH003",
+    "lesson_id": "lesson-01",
+    "kind": "append-explanation",
+    "target": "pro-l01-homeostasis",
+    "before": "",
+    "after": "For warming, connect the response to heat loss: sweat glands release sweat onto the skin, and evaporation removes heat from the body. The gland is the effector, releasing sweat is its activity, and cooling is the effect that can oppose a temperature rise. Use those distinctions in the next example.",
+    "reason": "Practice support: teach the evaporation/effector reasoning before the guided task instead of leaving it only in the existing model answer; native homeostasis Frayer and exemplar model provide the bounded basis."
+  },
+  {
+    "change_id": "CH004",
+    "lesson_id": "lesson-01",
+    "kind": "add-optional-hint",
+    "target": "pro-evaluation-2026-10-03-v1-l01-independent",
+    "before": "",
+    "after": "Optional hint: Separate information flow from regulation Make a first attempt before using this hint. First trace what was detected, where it was processed and which structure moved. Then ask which internal condition, if any, the catch was correcting. A useful response is not automatically a homeostatic response.",
+    "reason": "C17: purposeful support after an independent first attempt; original prompt, field ID, model and explanatory feedback stay intact."
+  },
+  {
+    "change_id": "CH005",
+    "lesson_id": "lesson-01",
+    "kind": "append-explanation",
+    "target": "Optional investigation: You, Robot?",
+    "before": "",
+    "after": "Use the source procedure to explain which input or movement has been changed and predict how that could affect the task. This lesson supplies no timing results. Perform a physical version only when your teacher has assigned an approved procedure with suitable materials and supervision; do not improvise sensory restrictions or tools.",
+    "reason": "C18: separate source interpretation/planning from physical investigation and avoid invented observations."
+  },
+  {
+    "change_id": "CH006",
+    "lesson_id": "lesson-02",
+    "kind": "replace-text",
+    "target": "p3-l02-guide-04",
+    "before": "Complete the required chapter check. Open the check near the bottom and select Start. For multiple choice, select Check answer; a correct answer unlocks the related writing. Answer in your own words and select Save written response for every response box.",
+    "after": "Complete the required written chapter check. Open the check near the bottom and select Start. This check contains written responses only; there is no multiple-choice question to unlock them. Answer each prompt in your own words and select Save written response for every response box.",
+    "reason": "C01: directions follow the actual writing-only native activity; no activity or completion change."
+  },
+  {
+    "change_id": "CH007",
+    "lesson_id": "lesson-02",
+    "kind": "replace-text",
+    "target": "p3-l02-guide-07",
+    "before": "Expected work: complete the lesson and submit the required chapter check. Use optional reading, videos and practice when they help. Drafts save automatically as you work in this browser.",
+    "after": "Expected work: complete the lesson and submit the required chapter check. Use optional reading, videos and practice when they help. Draft saving applies to the chapter-check and textbook activities you start; use their Save written response controls and check the save status. The optional practice spaces in the teaching are labelled “not saved.” They are not stored, automatically graded or counted toward the 12 required checks.",
+    "reason": "C17: distinguish native activity draft/save semantics from the 27 deliberately unsaved formative spaces. No saving implementation is changed."
+  },
+  {
+    "change_id": "CH008",
+    "lesson_id": "lesson-02",
+    "kind": "replace-text",
+    "target": "p",
+    "before": "Start with a typical multipolar neuron. Dendrites are branching receiving regions. The cell body , or soma, contains the nucleus and organelles and maintains the cell's metabolism. The axon carries action potentials toward its terminal branches. An axon terminal passes a signal to another cell at a junction called a synapse.",
+    "after": "Start with a typical multipolar neuron : it has many dendrites and one axon. Dendrites are branching receiving regions. The cell body , or soma, contains the nucleus and organelles and maintains the cell's metabolism. The axon carries action potentials toward its terminal branches. An action potential is a brief electrical change across a neuron’s membrane. Regenerating that change along the axon carries a nerve signal. For now, connect this signal with the continuous axon; Lessons 4 and 5 will explain the ion movements that produce it. An axon terminal passes a signal to another cell at a junction called a synapse.",
+    "reason": "C02: define multipolar and action potential at their first explanatory use without importing the later ionic lesson."
+  },
+  {
+    "change_id": "CH009",
+    "lesson_id": "lesson-02",
+    "kind": "replace-phrase",
+    "target": "p",
+    "before": "The next region may reach threshold later, or may fail to reach it.",
+    "after": "The next region may reach threshold—the level of electrical change needed to regenerate an action potential—later, or may fail to reach it.",
+    "reason": "C02: explain threshold sufficiently for this structure/failure prediction; detailed threshold mechanism stays in lesson 05."
+  },
+  {
+    "change_id": "CH010",
+    "lesson_id": "lesson-02",
+    "kind": "add-optional-hint",
+    "target": "pro-evaluation-2026-10-03-v1-l02-independent",
+    "before": "",
+    "after": "Optional hint: Locate each failure before proposing a repair Make a first attempt before using this hint. Mark the conducting axon, the terminal and the receiving branches as different places. Ask which missing function additional input branches would actually restore.",
+    "reason": "C17: purposeful support after an independent first attempt; original prompt, field ID, model and explanatory feedback stay intact."
+  },
+  {
+    "change_id": "CH011",
+    "lesson_id": "lesson-03",
+    "kind": "replace-text",
+    "target": "p3-l03-guide-04",
+    "before": "Complete the required chapter check. Open the check near the bottom and select Start. For multiple choice, select Check answer; a correct answer unlocks the related writing. Answer in your own words and select Save written response for every response box.",
+    "after": "Complete the required written chapter check. Open the check near the bottom and select Start. This check contains written responses only; there is no multiple-choice question to unlock them. Answer each prompt in your own words and select Save written response for every response box.",
+    "reason": "C01: directions follow the actual writing-only native activity; no activity or completion change."
+  },
+  {
+    "change_id": "CH012",
+    "lesson_id": "lesson-03",
+    "kind": "replace-text",
+    "target": "p3-l03-guide-07",
+    "before": "Expected work: complete the lesson and submit the required chapter check. Use optional reading, videos and practice when they help. Drafts save automatically as you work in this browser.",
+    "after": "Expected work: complete the lesson and submit the required chapter check. Use optional reading, videos and practice when they help. Draft saving applies to the chapter-check and textbook activities you start; use their Save written response controls and check the save status. The optional practice spaces in the teaching are labelled “not saved.” They are not stored, automatically graded or counted toward the 12 required checks.",
+    "reason": "C17: distinguish native activity draft/save semantics from the 27 deliberately unsaved formative spaces. No saving implementation is changed."
+  },
+  {
+    "change_id": "CH013",
+    "lesson_id": "lesson-03",
+    "kind": "replace-text",
+    "target": "p",
+    "before": "Now imagine a ball moving toward your face and deliberately moving aside. Visual information enters through a sensory pathway. Brain processing helps identify the ball and organize a suitable movement. Descending motor signals reach spinal pathways and motor neurons that activate skeletal muscles.",
+    "after": "Now consider a driver who sees a cat move onto the road and deliberately presses the brake. Work through the response from the detected change to the foot movement. The response can be quick, but it is not the same circuit as withdrawing a hand from a sharp object.",
+    "reason": "C03: replace the worked ball situation with textbook p.369/PDF10 and slide17’s driver/braking example; the required tennis-ball prompt remains untouched."
+  },
+  {
+    "change_id": "CH014",
+    "lesson_id": "lesson-03",
+    "kind": "insert-worked-reasoning",
+    "target": "pro-l03-comparison",
+    "before": "",
+    "after": "Detect the change. Visual receptors provide information about the cat on the road. This is sensory input, not yet the instruction to move a foot. Explain the processing. Brain circuits interpret the incoming information and contribute to selecting the braking response. This step connects seeing the obstacle with a deliberate action. Trace the outgoing route. Motor commands descend through pathways in the spinal cord and travel in motor neurons toward the leg and foot muscles. Using the brain does not mean bypassing the spinal cord. Identify the effector and result. Skeletal muscles contract so that the foot presses the brake. Naming the muscle’s role completes the connection between the detected change and the response.",
+    "reason": "C03: preserve and make explicit the full causal comparison using a meaningfully different source example, rather than answer the unchanged required tennis-ball question."
+  },
+  {
+    "change_id": "CH015",
+    "lesson_id": "lesson-03",
+    "kind": "add-optional-hint",
+    "target": "pro-evaluation-2026-10-03-v1-l03-independent",
+    "before": "",
+    "after": "Optional hint: Keep the first response separate from the later choice Make a first attempt before using this hint. Follow the first route to a muscle, then follow the information that permits awareness and a planned step. A short route need not prevent a longer route from also carrying information.",
+    "reason": "C17: purposeful support after an independent first attempt; original prompt, field ID, model and explanatory feedback stay intact."
+  },
+  {
+    "change_id": "CH016",
+    "lesson_id": "lesson-03",
+    "kind": "append-explanation",
+    "target": "pro-l03-investigation",
+    "before": "",
+    "after": "Planning a fair comparison is not the same as collecting data. No reflex measurements are supplied here. Any physical investigation must follow the procedure and safety conditions your teacher has approved; do not create painful stimuli, throw objects at someone’s eyes, or use bright lights to improvise a test.",
+    "reason": "C18: separate source interpretation/planning from physical investigation and avoid invented observations."
+  },
+  {
+    "change_id": "CH017",
+    "lesson_id": "lesson-04",
+    "kind": "replace-text",
+    "target": "p3-l04-guide-04",
+    "before": "Complete the required chapter check. Open the check near the bottom and select Start. For multiple choice, select Check answer; a correct answer unlocks the related writing. Answer in your own words and select Save written response for every response box.",
+    "after": "Complete the required chapter check. Open the check near the bottom and select Start. Choose a multiple-choice answer and select Check answer. A correct choice unlocks the related writing. Answer that prompt in your own words and select Save written response.",
+    "reason": "C01/C17: make the existing paired-control sequence explicit; preserve its unlock and saving semantics."
+  },
+  {
+    "change_id": "CH018",
+    "lesson_id": "lesson-04",
+    "kind": "replace-text",
+    "target": "p3-l04-guide-07",
+    "before": "Expected work: complete the lesson and submit the required chapter check. Use optional reading, videos and practice when they help. Drafts save automatically as you work in this browser.",
+    "after": "Expected work: complete the lesson and submit the required chapter check. Use optional reading, videos and practice when they help. Draft saving applies to the chapter-check and textbook activities you start; use their Save written response controls and check the save status. The optional practice spaces in the teaching are labelled “not saved.” They are not stored, automatically graded or counted toward the 12 required checks.",
+    "reason": "C17: distinguish native activity draft/save semantics from the 27 deliberately unsaved formative spaces. No saving implementation is changed."
+  },
+  {
+    "change_id": "CH019",
+    "lesson_id": "lesson-04",
+    "kind": "replace-phrase",
+    "target": "p",
+    "before": "Ions still move through channels, and the cell still uses ATP.",
+    "after": "Ions still move through channels, and the cell still uses ATP, a molecule that transfers energy for cellular work such as active transport.",
+    "reason": "First-use support for ATP’s role, grounded in textbook p.374/PDF15 and the native resting-potential explanation; no extra metabolic pathway added."
+  },
+  {
+    "change_id": "CH020",
+    "lesson_id": "lesson-04",
+    "kind": "add-optional-hint",
+    "target": "pro-evaluation-2026-10-03-v1-l04-independent",
+    "before": "",
+    "after": "Optional hint: Track charge across the boundary Make a first attempt before using this hint. Count the sign of the charge and the direction it moves. Use only the initial conditions specified; do not assume the same net movement continues indefinitely.",
+    "reason": "C17: purposeful support after an independent first attempt; original prompt, field ID, model and explanatory feedback stay intact."
+  },
+  {
+    "change_id": "CH021",
+    "lesson_id": "lesson-04",
+    "kind": "append-explanation",
+    "target": "Optional model investigation",
+    "before": "",
+    "after": "Use the source description to compare the model with a neuron. No measured voltage table is supplied here, so do not invent one. Preparing solutions and taking measurements belong to a separate teacher-approved laboratory task, not an unsupervised requirement of this online explanation.",
+    "reason": "C18: separate source interpretation/planning from physical investigation and avoid invented observations."
+  },
+  {
+    "change_id": "CH022",
+    "lesson_id": "lesson-05",
+    "kind": "replace-text",
+    "target": "p3-l05-guide-04",
+    "before": "Complete the required chapter check. Open the check near the bottom and select Start. For multiple choice, select Check answer; a correct answer unlocks the related writing. Answer in your own words and select Save written response for every response box.",
+    "after": "Complete the required chapter check. Open the check near the bottom and select Start. Choose a multiple-choice answer and select Check answer. A correct choice unlocks the related writing. Answer that prompt in your own words and select Save written response.",
+    "reason": "C01/C17: make the existing paired-control sequence explicit; preserve its unlock and saving semantics."
+  },
+  {
+    "change_id": "CH023",
+    "lesson_id": "lesson-05",
+    "kind": "replace-text",
+    "target": "p3-l05-guide-07",
+    "before": "Expected work: complete the lesson and submit the required chapter check. Use optional reading, videos and practice when they help. Drafts save automatically as you work in this browser.",
+    "after": "Expected work: complete the lesson and submit the required chapter check. Use optional reading, videos and practice when they help. Draft saving applies to the chapter-check and textbook activities you start; use their Save written response controls and check the save status. The optional practice spaces in the teaching are labelled “not saved.” They are not stored, automatically graded or counted toward the 12 required checks.",
+    "reason": "C17: distinguish native activity draft/save semantics from the 27 deliberately unsaved formative spaces. No saving implementation is changed."
+  },
+  {
+    "change_id": "CH024",
+    "lesson_id": "lesson-05",
+    "kind": "replace-text",
+    "target": "p",
+    "before": "Suppose one 100 ms interval contains 2 spikes and another contains 5. Because 100 ms is 0.10 s, the frequencies are 2 ÷ 0.10 = 20 impulses/s and 5 ÷ 0.10 = 50 impulses/s . If the spike heights are unchanged, the evidence supports a frequency increase. It does not show that each impulse became stronger, or that more neurons fired.",
+    "after": "Use these supplied teaching-model numbers, not experimental measurements. Suppose one 100 ms interval contains 2 spikes and another contains 5. Because 100 ms is 0.10 s, the frequencies are 2 ÷ 0.10 = 20 impulses/s and 5 ÷ 0.10 = 50 impulses/s . If the spike heights are unchanged, the evidence supports a frequency increase. It does not show that each impulse became stronger, or that more neurons fired.",
+    "reason": "C18: preserve the exemplar’s exact 100 ms / 2 / 5 values and calculations while explicitly identifying them as an illustrative model."
+  },
+  {
+    "change_id": "CH025",
+    "lesson_id": "lesson-05",
+    "kind": "replace-phrase",
+    "target": "p",
+    "before": "recruiting more motor units and increasing firing frequency",
+    "after": "recruiting more motor units (motor neurons together with the muscle fibres they control) and increasing firing frequency",
+    "reason": "First-use explanation of a retained term, not a new force calculation. The quantitative whole-muscle extension remains a bounded-source review item."
+  },
+  {
+    "change_id": "CH026",
+    "lesson_id": "lesson-05",
+    "kind": "append-explanation",
+    "target": "pro-evaluation-2026-10-03-v1-l05-guided",
+    "before": "",
+    "after": "The three trials above are model conditions for reasoning, not reported measurements from an experiment.",
+    "reason": "C18: distinguish supplied hypothetical trial conditions from collected observations."
+  },
+  {
+    "change_id": "CH027",
+    "lesson_id": "lesson-05",
+    "kind": "replace-phrase",
+    "target": "p",
+    "before": "A stronger stimulus produces more equal-height spikes from neuron A.",
+    "after": "In this model recording, a stronger stimulus produces more equal-height spikes from neuron A.",
+    "reason": "C18: classify the supplied recording scenario as a model without changing its inference demand or numbers."
+  },
+  {
+    "change_id": "CH028",
+    "lesson_id": "lesson-05",
+    "kind": "add-optional-hint",
+    "target": "pro-evaluation-2026-10-03-v1-l05-independent",
+    "before": "",
+    "after": "Optional hint: Count spikes and count neurons separately Make a first attempt before using this hint. More spikes from A and newly detected spikes from B and C are different observations. For the final prediction, identify which part of the refractory period the prompt names.",
+    "reason": "C17: purposeful support after an independent first attempt; original prompt, field ID, model and explanatory feedback stay intact."
+  },
+  {
+    "change_id": "CH029",
+    "lesson_id": "lesson-06",
+    "kind": "replace-text",
+    "target": "p3-l06-guide-04",
+    "before": "Complete the required chapter check. Open the check near the bottom and select Start. For multiple choice, select Check answer; a correct answer unlocks the related writing. Answer in your own words and select Save written response for every response box.",
+    "after": "Complete the required chapter check. Open the check near the bottom and select Start. Choose a multiple-choice answer and select Check answer. A correct choice unlocks the related writing. Answer that prompt in your own words and select Save written response.",
+    "reason": "C01/C17: make the existing paired-control sequence explicit; preserve its unlock and saving semantics."
+  },
+  {
+    "change_id": "CH030",
+    "lesson_id": "lesson-06",
+    "kind": "replace-text",
+    "target": "p3-l06-guide-07",
+    "before": "Expected work: complete the lesson and submit the required chapter check. Use optional reading, videos and practice when they help. Drafts save automatically as you work in this browser.",
+    "after": "Expected work: complete the lesson and submit the required chapter check. Use optional reading, videos and practice when they help. Draft saving applies to the chapter-check and textbook activities you start; use their Save written response controls and check the save status. The optional practice spaces in the teaching are labelled “not saved.” They are not stored, automatically graded or counted toward the 12 required checks.",
+    "reason": "C17: distinguish native activity draft/save semantics from the 27 deliberately unsaved formative spaces. No saving implementation is changed."
+  },
+  {
+    "change_id": "CH031",
+    "lesson_id": "lesson-06",
+    "kind": "replace-phrase",
+    "target": "p",
+    "before": "One small input produces a depolarization that stays below threshold.",
+    "after": "In this model experiment, one small input produces a depolarization that stays below threshold.",
+    "reason": "C18: the supplied timing observations are scenario assumptions, not a newly claimed experiment."
+  },
+  {
+    "change_id": "CH032",
+    "lesson_id": "lesson-06",
+    "kind": "add-optional-hint",
+    "target": "pro-evaluation-2026-10-03-v1-l06-independent",
+    "before": "",
+    "after": "Optional hint: Ask what can overlap in time Make a first attempt before using this hint. Compare how much of an earlier postsynaptic effect remains when the next input arrives. Then keep the threshold decision separate from the height of the resulting spike.",
+    "reason": "C17: purposeful support after an independent first attempt; original prompt, field ID, model and explanatory feedback stay intact."
+  },
+  {
+    "change_id": "CH033",
+    "lesson_id": "lesson-06",
+    "kind": "append-explanation",
+    "target": "Optional tissue investigation",
+    "before": "",
+    "after": "You may analyse the textbook’s supplied micrographs and label features that are actually visible. That is image interpretation, not a claim that you used a microscope. Handling slides and equipment belongs to a separate teacher-approved practical activity; do not invent observations from missing specimens.",
+    "reason": "C18: separate source interpretation/planning from physical investigation and avoid invented observations."
+  },
+  {
+    "change_id": "CH034",
+    "lesson_id": "lesson-07",
+    "kind": "replace-text",
+    "target": "p3-l07-guide-04",
+    "before": "Complete the required chapter check. Open the check near the bottom and select Start. For multiple choice, select Check answer; a correct answer unlocks the related writing. Answer in your own words and select Save written response for every response box.",
+    "after": "Complete the required chapter check. Open the check near the bottom and select Start. Choose a multiple-choice answer and select Check answer. A correct choice unlocks the related writing. Answer that prompt in your own words and select Save written response.",
+    "reason": "C01/C17: make the existing paired-control sequence explicit; preserve its unlock and saving semantics."
+  },
+  {
+    "change_id": "CH035",
+    "lesson_id": "lesson-07",
+    "kind": "replace-text",
+    "target": "p3-l07-guide-07",
+    "before": "Expected work: complete the lesson and submit the required chapter check. Use optional reading, videos and practice when they help. Drafts save automatically as you work in this browser.",
+    "after": "Expected work: complete the lesson and submit the required chapter check. Use optional reading, videos and practice when they help. Draft saving applies to the chapter-check and textbook activities you start; use their Save written response controls and check the save status. The optional practice spaces in the teaching are labelled “not saved.” They are not stored, automatically graded or counted toward the 12 required checks.",
+    "reason": "C17: distinguish native activity draft/save semantics from the 27 deliberately unsaved formative spaces. No saving implementation is changed."
+  },
+  {
+    "change_id": "CH036",
+    "lesson_id": "lesson-07",
+    "kind": "add-optional-hint",
+    "target": "pro-evaluation-2026-10-03-v1-l07-independent",
+    "before": "",
+    "after": "Optional hint: Use the controls to eliminate a proposed failure Make a first attempt before using this hint. A normal signal at A’s terminal checks one part of the route. A normal response to transmitter placed at B checks another. Identify what has not yet been measured directly.",
+    "reason": "C17: purposeful support after an independent first attempt; original prompt, field ID, model and explanatory feedback stay intact."
+  },
+  {
+    "change_id": "CH037",
+    "lesson_id": "lesson-08",
+    "kind": "replace-text",
+    "target": "p3-l08-guide-04",
+    "before": "Complete the required chapter check. Open the check near the bottom and select Start. For multiple choice, select Check answer; a correct answer unlocks the related writing. Answer in your own words and select Save written response for every response box.",
+    "after": "Complete the required chapter check. Open the check near the bottom and select Start. Choose a multiple-choice answer and select Check answer. A correct choice unlocks the related writing. Answer that prompt in your own words and select Save written response.",
+    "reason": "C01/C17: make the existing paired-control sequence explicit; preserve its unlock and saving semantics."
+  },
+  {
+    "change_id": "CH038",
+    "lesson_id": "lesson-08",
+    "kind": "replace-text",
+    "target": "p3-l08-guide-07",
+    "before": "Expected work: complete the lesson and submit the required chapter check. Use optional reading, videos and practice when they help. Drafts save automatically as you work in this browser.",
+    "after": "Expected work: complete the lesson and submit the required chapter check. Use optional reading, videos and practice when they help. Draft saving applies to the chapter-check and textbook activities you start; use their Save written response controls and check the save status. The optional practice spaces in the teaching are labelled “not saved.” They are not stored, automatically graded or counted toward the 12 required checks.",
+    "reason": "C17: distinguish native activity draft/save semantics from the 27 deliberately unsaved formative spaces. No saving implementation is changed."
+  },
+  {
+    "change_id": "CH039",
+    "lesson_id": "lesson-08",
+    "kind": "append-explanation",
+    "target": "pro-l08-effectors",
+    "before": "",
+    "after": "For the next comparison, note the effectors: the knee is moved by skeletal muscle, whereas pupil constriction is produced by smooth muscle in the iris. Use that tissue information when you classify the motor pathways; an involuntary response can use either type of effector.",
+    "reason": "Practice support: make the effector information from the existing guided hint/model available before the attempt; no new eye-anatomy lesson or required task is added."
+  },
+  {
+    "change_id": "CH040",
+    "lesson_id": "lesson-08",
+    "kind": "add-optional-hint",
+    "target": "pro-evaluation-2026-10-03-v1-l08-independent",
+    "before": "",
+    "after": "Optional hint: Explain the organ pattern before its possible cause Make a first attempt before using this hint. Compare the heart, salivary glands and digestive tract before and after the presentation. Then ask whether those same measurements could occur for a reason other than lying.",
+    "reason": "C17: purposeful support after an independent first attempt; original prompt, field ID, model and explanatory feedback stay intact."
+  },
+  {
+    "change_id": "CH041",
+    "lesson_id": "lesson-09",
+    "kind": "replace-text",
+    "target": "p3-l09-guide-04",
+    "before": "Complete the required chapter check. Open the check near the bottom and select Start. For multiple choice, select Check answer; a correct answer unlocks the related writing. Answer in your own words and select Save written response for every response box.",
+    "after": "Complete the required chapter check. Open the check near the bottom and select Start. Choose a multiple-choice answer and select Check answer. A correct choice unlocks the related writing. Answer that prompt in your own words and select Save written response.",
+    "reason": "C01/C17: make the existing paired-control sequence explicit; preserve its unlock and saving semantics."
+  },
+  {
+    "change_id": "CH042",
+    "lesson_id": "lesson-09",
+    "kind": "replace-text",
+    "target": "p3-l09-guide-07",
+    "before": "Expected work: complete the lesson and submit the required chapter check. Use optional reading, videos and practice when they help. Drafts save automatically as you work in this browser.",
+    "after": "Expected work: complete the lesson and submit the required chapter check. Use optional reading, videos and practice when they help. Draft saving applies to the chapter-check and textbook activities you start; use their Save written response controls and check the save status. The optional practice spaces in the teaching are labelled “not saved.” They are not stored, automatically graded or counted toward the 12 required checks.",
+    "reason": "C17: distinguish native activity draft/save semantics from the 27 deliberately unsaved formative spaces. No saving implementation is changed."
+  },
+  {
+    "change_id": "CH043",
+    "lesson_id": "lesson-09",
+    "kind": "add-optional-hint",
+    "target": "pro-evaluation-2026-10-03-v1-l09-independent",
+    "before": "",
+    "after": "Optional hint: Compare cushioning with selective exchange Make a first attempt before using this hint. Locate the fluid around nervous tissue and the capillary wall between blood and tissue. Ask which structure changes mechanical forces and which controls the passage of materials.",
+    "reason": "C17: purposeful support after an independent first attempt; original prompt, field ID, model and explanatory feedback stay intact."
+  },
+  {
+    "change_id": "CH044",
+    "lesson_id": "lesson-10",
+    "kind": "replace-text",
+    "target": "p3-l10-guide-04",
+    "before": "Complete the required chapter check. Open the check near the bottom and select Start. For multiple choice, select Check answer; a correct answer unlocks the related writing. Answer in your own words and select Save written response for every response box.",
+    "after": "Complete the required chapter check. Open the check near the bottom and select Start. Choose a multiple-choice answer and select Check answer. A correct choice unlocks the related writing. Answer that prompt in your own words and select Save written response.",
+    "reason": "C01/C17: make the existing paired-control sequence explicit; preserve its unlock and saving semantics."
+  },
+  {
+    "change_id": "CH045",
+    "lesson_id": "lesson-10",
+    "kind": "replace-text",
+    "target": "p3-l10-guide-07",
+    "before": "Expected work: complete the lesson and submit the required chapter check. Use optional reading, videos and practice when they help. Drafts save automatically as you work in this browser.",
+    "after": "Expected work: complete the lesson and submit the required chapter check. Use optional reading, videos and practice when they help. Draft saving applies to the chapter-check and textbook activities you start; use their Save written response controls and check the save status. The optional practice spaces in the teaching are labelled “not saved.” They are not stored, automatically graded or counted toward the 12 required checks.",
+    "reason": "C17: distinguish native activity draft/save semantics from the 27 deliberately unsaved formative spaces. No saving implementation is changed."
+  },
+  {
+    "change_id": "CH046",
+    "lesson_id": "lesson-10",
+    "kind": "replace-phrase",
+    "target": "p",
+    "before": "A person reads an instruction in Braille, understands it,",
+    "after": "A person reads an instruction in Braille by touch, understands it,",
+    "reason": "Practice support: make the sensory condition explicit in the existing independent scenario; preserve the native textbook Braille question unchanged."
+  },
+  {
+    "change_id": "CH047",
+    "lesson_id": "lesson-10",
+    "kind": "add-optional-hint",
+    "target": "pro-evaluation-2026-10-03-v1-l10-independent",
+    "before": "",
+    "after": "Optional hint: Break the task into cooperating contributions Make a first attempt before using this hint. Separate receiving touch information, understanding and planning, sending a motor command, and correcting precision. Then consider why information may have to pass between hemispheres.",
+    "reason": "C17: purposeful support after an independent first attempt; original prompt, field ID, model and explanatory feedback stay intact."
+  },
+  {
+    "change_id": "CH048",
+    "lesson_id": "lesson-11",
+    "kind": "replace-text",
+    "target": "p3-l11-guide-04",
+    "before": "Complete the required chapter check. Open the check near the bottom and select Start. For multiple choice, select Check answer; a correct answer unlocks the related writing. Answer in your own words and select Save written response for every response box.",
+    "after": "Complete the required chapter check. Open the check near the bottom and select Start. Choose a multiple-choice answer and select Check answer. A correct choice unlocks the related writing. Answer that prompt in your own words and select Save written response.",
+    "reason": "C01/C17: make the existing paired-control sequence explicit; preserve its unlock and saving semantics."
+  },
+  {
+    "change_id": "CH049",
+    "lesson_id": "lesson-11",
+    "kind": "replace-text",
+    "target": "p3-l11-guide-07",
+    "before": "Expected work: complete the lesson and submit the required chapter check. Use optional reading, videos and practice when they help. Drafts save automatically as you work in this browser.",
+    "after": "Expected work: complete the lesson and submit the required chapter check. Use optional reading, videos and practice when they help. Draft saving applies to the chapter-check and textbook activities you start; use their Save written response controls and check the save status. The optional practice spaces in the teaching are labelled “not saved.” They are not stored, automatically graded or counted toward the 12 required checks.",
+    "reason": "C17: distinguish native activity draft/save semantics from the 27 deliberately unsaved formative spaces. No saving implementation is changed."
+  },
+  {
+    "change_id": "CH050",
+    "lesson_id": "lesson-11",
+    "kind": "add-optional-hint",
+    "target": "pro-evaluation-2026-10-03-v1-l11-independent",
+    "before": "",
+    "after": "Optional hint: Separate uptake from the claim about intelligence Make a first attempt before using this hint. State what PET records in this example before interpreting a brighter region. Ask what comparison is absent and whether the activity of a single region excludes the contribution of the rest of the network.",
+    "reason": "C17: purposeful support after an independent first attempt; original prompt, field ID, model and explanatory feedback stay intact."
+  },
+  {
+    "change_id": "CH051",
+    "lesson_id": "lesson-11",
+    "kind": "append-explanation",
+    "target": "pro-l11-anatomy",
+    "before": "",
+    "after": "Using the supplied photographs is a source-image observation task. It does not establish that you performed a dissection. A physical specimen or dissection requires a separately assigned, teacher-approved procedure, materials and safety arrangements; a practical performance is not required to work through this lesson.",
+    "reason": "C18: separate source interpretation/planning from physical investigation and avoid invented observations."
+  },
+  {
+    "change_id": "CH052",
+    "lesson_id": "lesson-12",
+    "kind": "replace-text",
+    "target": "p3-l12-review-process-04",
+    "before": "Complete the required check. Open the final chapter check, select Start, answer the multiple-choice question correctly, save the written explanation and then select Submit and finish.",
+    "after": "Complete the required check. Open the final chapter check and select Start. Choose the multiple-choice answer and select Check answer. Once it is correct, write and save the explanation that appears, then select Submit and finish.",
+    "reason": "C01: state the native final paired-check control sequence without changing the final check."
+  },
+  {
+    "change_id": "CH053",
+    "lesson_id": "lesson-12",
+    "kind": "replace-text",
+    "target": "p3-l12-review-process-06",
+    "before": "Expected written work: answer in your own words and explain the biological connection. Written responses are saved, but they are not automatically graded.",
+    "after": "Expected written work: answer in your own words and explain the biological connection. Written responses inside an activity you have started use its Save written response control and are not automatically graded. The optional practice spaces in the teaching are labelled “not saved”; they do not change chapter progress.",
+    "reason": "C17: distinguish required/optional native writing from the new unsaved practice spaces."
+  },
+  {
+    "change_id": "CH054",
+    "lesson_id": "lesson-12",
+    "kind": "add-optional-hint",
+    "target": "pro-evaluation-2026-10-03-v1-l12-independent",
+    "before": "",
+    "after": "Optional hint: Trace one whole route, then zoom into two steps Make a first attempt before using this hint. Start with the sound and end with movement and adjustment. Insert cellular mechanisms where they do work. For the changed condition, locate the neuromuscular junction after the brain’s processing steps.",
+    "reason": "C17: purposeful support after an independent first attempt; original prompt, field ID, model and explanatory feedback stay intact."
+  },
+  {
+    "change_id": "CH055",
+    "lesson_id": "lesson-13",
+    "kind": "replace-phrase",
+    "target": "p3-l13-setup-02",
+    "before": "read its short introduction",
+    "after": "read its explanation",
+    "reason": "Keep the original optional-choice invitation accurate for the full, substantive extension teaching."
+  },
+  {
+    "change_id": "CH056",
+    "lesson_id": "lesson-13",
+    "kind": "add-optional-hint",
+    "target": "pro-evaluation-2026-10-03-v1-l13-stress-application",
+    "before": "",
+    "after": "Optional hint: Ask what the instrument did and did not measure Make a first attempt before using this hint. The observation is a change in heart rate. Consider whether that one variable uniquely identifies either a subjective experience or its cause.",
+    "reason": "C17: purposeful support after an independent first attempt; original prompt, field ID, model and explanatory feedback stay intact."
+  },
+  {
+    "change_id": "CH057",
+    "lesson_id": "lesson-13",
+    "kind": "add-optional-hint",
+    "target": "pro-evaluation-2026-10-03-v1-l13-experience-application",
+    "before": "",
+    "after": "Optional hint: Separate a picture, an association and a causal test Make a first attempt before using this hint. Ask how participants and comparison conditions were selected, and whether the evidence follows change over time. A single image cannot supply all of that information.",
+    "reason": "C17: purposeful support after an independent first attempt; original prompt, field ID, model and explanatory feedback stay intact."
+  },
+  {
+    "change_id": "CH058",
+    "lesson_id": "lesson-13",
+    "kind": "add-optional-hint",
+    "target": "pro-evaluation-2026-10-03-v1-l13-addiction-application",
+    "before": "",
+    "after": "Optional hint: Connect a synaptic change with learning and context Make a first attempt before using this hint. Choose a communication step already taught, then connect it to a cue, repeated behaviour or an environmental influence. Check what each absolute claim leaves out.",
+    "reason": "C17: purposeful support after an independent first attempt; original prompt, field ID, model and explanatory feedback stay intact."
+  }
+]

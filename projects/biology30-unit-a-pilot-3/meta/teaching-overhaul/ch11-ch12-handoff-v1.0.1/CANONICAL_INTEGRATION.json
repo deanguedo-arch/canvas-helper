@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "authorization": "Dean: integrate Chapters11–12 and finish local checks; no SCORM packages or deployment.",
+  "integratedAt": "2026-10-07T00:02:47.115Z",
+  "editorMap": "projects/biology30-unit-a-pilot-3/meta/teaching-overhaul/ch11-ch12-handoff-v1.0.1/EDITOR_RECONCILIATION.json",
+  "canonicalOverrideMigration": false,
+  "releaseAuthorized": false,
+  "chapters": [
+    {
+      "chapter": 11,
+      "canonicalEntry": "projects/biology30-unit-a-pilot-3/workspace/index.html",
+      "beforeSha256": "9fcd8203b41f4220e53716e473c02a0835f356420b363ea0092e544a8e7bb210",
+      "integratedSha256": "7500d72fe3f340ffb3de15248c09816ea542a50d791c0bf25b5d7e50464b3084",
+      "authoringStatus": "active",
+      "driver": "direct-workspace-v1",
+      "assetFiles": 21
+    },
+    {
+      "chapter": 12,
+      "canonicalEntry": "projects/biology30-chapter-12/workspace/index.html",
+      "beforeSha256": "2205c401e8edacf3fb91b71cb7146ae1757d5d1bf06d5ec6e8b24724bcde3062",
+      "integratedSha256": "7c762bb9f006fa8f156ce60c6a058349264f945b537200d5cab64c69b3e34920",
+      "authoringStatus": "blocked",
+      "driver": "proposal-only-v1",
+      "assetFiles": 4
+    }
+  ]
+}

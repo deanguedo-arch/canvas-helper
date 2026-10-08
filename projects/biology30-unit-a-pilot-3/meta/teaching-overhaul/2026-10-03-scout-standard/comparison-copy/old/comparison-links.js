@@ -1,0 +1,1 @@
+(()=>{const update=()=>document.querySelectorAll('[data-compare-switch]').forEach(a=>{a.href=a.getAttribute('href').split('#')[0]+(location.hash||'#overview');});update();addEventListener('hashchange',update);})();

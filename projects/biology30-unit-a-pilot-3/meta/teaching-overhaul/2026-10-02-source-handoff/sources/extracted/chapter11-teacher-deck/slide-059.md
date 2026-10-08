@@ -1,0 +1,21 @@
+# Teacher deck — slide 59
+
+Source: sources/original/Unit-A-Chapter-11-Teacher-Notes.pptx; ppt/slides/slide59.xml
+
+The Forebrain: Cerebrum
+
+Extra: Broca’s vs. Wernicke’s Aphasia
+
+Damage to the brain can lead to impairments in language, or aphasia.
+
+Depending on which area is damaged, patients may experience difficulties with language production (Broca’s Aphasia) or language comprehension (Wernicke’s Aphasia).
+
+In Broca’s Aphasia, patients are unable to produce fluent speech despite understanding what others are saying. 
+
+In Wernicke’s Aphasia, patients are able to produce fluent speech, but do not actually understand what they are saying/what is being said to them, so their words often do not make sense.
+
+Patients with Broca’s Aphasia can learn to speak through song, as the area of the brain responsible for singing is different than the area responsible for speech. 
+
+## Speaker notes (unchanged extracted text)
+
+

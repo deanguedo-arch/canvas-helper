@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "role": "read-only manuscript review; not a learner course",
+  "renderer": "scripts/render-biology30-teaching-review.mjs",
+  "sources": [
+    {
+      "path": "responses/v2/CH11_Lesson01_Nervous_Communication_v2.md",
+      "bytes": 30061,
+      "sha256": "e01af0992d99da796d13f3213ae4b62389dad1968c395dd56ac4eadd3ba56837"
+    },
+    {
+      "path": "responses/v2/CH11_Lesson02_Neurons_Myelin_v2.md",
+      "bytes": 31464,
+      "sha256": "cb5825fd0cb7e38ab1d8ac673d91e55a8f407e56165fbe3982399406fc18b2b9"
+    },
+    {
+      "path": "responses/v2/CH11_Lesson03_Pathways_Reflexes_v2.md",
+      "bytes": 30745,
+      "sha256": "bf81c2a2f5278f67694b149fcc276d582686fdafa638360606a09a6812427e50"
+    },
+    {
+      "path": "responses/v2/CH11_First_Batch_Source_Assets_Integration_v2.md",
+      "bytes": 28761,
+      "sha256": "8a2b325728d310b2a60ffaa27a8e939e52f91711457d857065cf83ef9659a14f"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "lesson-01.html",
+      "bytes": 43224,
+      "sha256": "ebdae73b7eac7539bdf302e0dec4cf9700394b59fe4d9a76d4894ce1b47afb67"
+    },
+    {
+      "path": "lesson-02.html",
+      "bytes": 44424,
+      "sha256": "4fc13ae9911f49bafc11031cbe02dfdf0e49e73fd961f3f6ababe33c09cdf0f9"
+    },
+    {
+      "path": "lesson-03.html",
+      "bytes": 44681,
+      "sha256": "99bcf6bd9e143aacf4561b29726eb2d88312845fb757e194a21cda0861338c2d"
+    },
+    {
+      "path": "source-notes.html",
+      "bytes": 44861,
+      "sha256": "8c692ef32cca6603ff86e9e9a0055e36d1cc819e92a156a95066befdef32319e"
+    },
+    {
+      "path": "index.html",
+      "bytes": 8643,
+      "sha256": "f202ede3ff577b22a2da2e6884d96883146b1c6c5cafca0ae789de06f903c16b"
+    }
+  ],
+  "rendererSha256": "fedb534fc301a539357a9d47ba8220632ec4d0e7ec2f9b37105b2314cc21adda"
+}

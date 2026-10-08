@@ -1,0 +1,1953 @@
+{
+  "schemaVersion": 1,
+  "role": "derived working teacher-evaluation copy; not canonical or approved",
+  "entry": "working-copy/index.html#lesson-01",
+  "sourceWorkspace": "projects/biology30-unit-a-pilot-3/workspace",
+  "sourceRuntime": "scripts/lib/biology30-pilot3/runtime.ts",
+  "nativeRuntimeSha256": "b5cb302cbc5db9305cae3461f05ad32c5940ae7609e624c7ac3d0fed89fc6fef",
+  "sourceWorkspaceFiles": [
+    {
+      "path": "assets/brand/nxt-ce-logo-white-with-ce.png",
+      "bytes": 53313,
+      "sha256": "9ed7b47ad131ec598ae77fdb4650c95658dcab6fa1db6e6630c2fe7809b25ec8"
+    },
+    {
+      "path": "assets/fonts/HankenGrotesk-Variable.ttf",
+      "bytes": 132892,
+      "sha256": "813b3f8fa0965405669a89b38e51bbefd95eef6b8e20d1cb2d8c10cce062662f"
+    },
+    {
+      "path": "assets/fonts/OFL-Hanken-Grotesk.txt",
+      "bytes": 4402,
+      "sha256": "e02ccb89a86839b22feff7872ff5cc355cc0f58318d29eee20e2cf83a612f16d"
+    },
+    {
+      "path": "assets/fonts/OFL-Work-Sans.txt",
+      "bytes": 4396,
+      "sha256": "749aca05078664ce682dce1b1b10096ac397cb088c1a6df4e1bb56f0092a9272"
+    },
+    {
+      "path": "assets/fonts/WorkSans-Variable.ttf",
+      "bytes": 361072,
+      "sha256": "f50f61f2ba738e239442d40bf1069adb195c224b6a5a73a581fc2f3ed62a9f63"
+    },
+    {
+      "path": "assets/pilot3-catalog.js",
+      "bytes": 2475,
+      "sha256": "e080ff9a4868fe70ec92f9f343ceb5650543826fc5a412d2e9d136b2c4d47632"
+    },
+    {
+      "path": "assets/pilot3-practice-bank.js",
+      "bytes": 17097,
+      "sha256": "caec8c6cf524810c87f0b79725314cd74309fecba0ec0aff9973d75989534294"
+    },
+    {
+      "path": "assets/pilot3-runtime.js",
+      "bytes": 110068,
+      "sha256": "db434f4688c422024c16ec2a68b8a5bf08776d0af680aa2e48b6083ca3f0cccd"
+    },
+    {
+      "path": "assets/source/chapter11-action-potentials-0.png",
+      "bytes": 1726015,
+      "sha256": "ecd4d3a6f241916d9d7faaa09c1dd79d51eb87a56494d2b4bee90f0d7d5d0423"
+    },
+    {
+      "path": "assets/source/chapter11-action-potentials-1.svg",
+      "bytes": 3669,
+      "sha256": "df424718a3ed531b03792b5d93c6c97bacd9cbed9cfa61f3beef6d88391a4f24"
+    },
+    {
+      "path": "assets/source/chapter11-brain-0.png",
+      "bytes": 1881345,
+      "sha256": "b91325a4ecf9238a852b87663e987ff49a01cbe3fbca3a5e65c87ada18240175"
+    },
+    {
+      "path": "assets/source/chapter11-brain-1.png",
+      "bytes": 1824134,
+      "sha256": "bb2490ee6381ec72082a6d1218b1b5ad87714684cd31e3f986c9034dc3677d19"
+    },
+    {
+      "path": "assets/source/chapter11-brain-2.svg",
+      "bytes": 3647,
+      "sha256": "63c47c8e47d0522dad511750d58a8f25c0809c59700066c0280d5e746ce85353"
+    },
+    {
+      "path": "assets/source/chapter11-brain-investigation-0.svg",
+      "bytes": 5485,
+      "sha256": "42b01f66ae6853627db54fbc4cd189f3338c055ed110d46275ea5250895c8691"
+    },
+    {
+      "path": "assets/source/chapter11-brain-investigation-2.png",
+      "bytes": 44506,
+      "sha256": "ed580c42e749a49ecda83ea04ea82f76f8c78a0636cd85b02052193d27a3b453"
+    },
+    {
+      "path": "assets/source/chapter11-chapter-review-section-0.png",
+      "bytes": 171306,
+      "sha256": "3fa571764c7f7b0e88b8b9788b43ec5ee58052fff733ad11fff574c9d4e5c18e"
+    },
+    {
+      "path": "assets/source/chapter11-chapter-review-section-1.png",
+      "bytes": 62141,
+      "sha256": "49722b01034f9430a1c8fc2c0a7a4d28ca2cd896ddc23dc05e1e124e0c6a6fab"
+    },
+    {
+      "path": "assets/source/chapter11-chapter-review-section-2.png",
+      "bytes": 49759,
+      "sha256": "152672826962111d4a682bbc0a6b359a9732f7535a95b632bf9d0669f5e9cc5f"
+    },
+    {
+      "path": "assets/source/chapter11-chapter-review-section-3.png",
+      "bytes": 38059,
+      "sha256": "3da76063d2e7c4e05f7c39279ee619a9a13e32579d1c61345f3a6ac168b8eff6"
+    },
+    {
+      "path": "assets/source/chapter11-chapter-review-section-4.png",
+      "bytes": 70681,
+      "sha256": "78c086cecc40dd705d1f72fe6b574bd44943251f0767bfe1690afd39fb68dda4"
+    },
+    {
+      "path": "assets/source/chapter11-cns-0.svg",
+      "bytes": 5047,
+      "sha256": "d2f061f71cc31cf0b6d502fe39ebc8aad6ceb85a61f593017a92368e5f47d900"
+    },
+    {
+      "path": "assets/source/chapter11-cns-1.svg",
+      "bytes": 4959,
+      "sha256": "25e52c753840d85206b0aea6afb6516a76fb8a3943d5ff8a09fb3e8c998abbac"
+    },
+    {
+      "path": "assets/source/chapter11-drugs-0.svg",
+      "bytes": 4748,
+      "sha256": "dff645618ef5a14914577fff876a299766cbfea8329373c87e5bfede5312be51"
+    },
+    {
+      "path": "assets/source/chapter11-drugs-1.png",
+      "bytes": 13641,
+      "sha256": "b81b8f09c9f3f38332867dc4fcf40dc14e4ad5c796b398beb5ff0bc943bbf665"
+    },
+    {
+      "path": "assets/source/chapter11-drugs-2.png",
+      "bytes": 38894,
+      "sha256": "8bc7248e6ccca6e83cb53e2027cc51f7e5686a0c752c21a0db77a8e899321849"
+    },
+    {
+      "path": "assets/source/chapter11-pns-0.svg",
+      "bytes": 6995,
+      "sha256": "fbb887d91cc0b11f765420d29b765f9704716bc880858e5c5ab09157d6eb1cf9"
+    },
+    {
+      "path": "assets/source/chapter11-pns-1.svg",
+      "bytes": 6380,
+      "sha256": "4ee2efa3219475e1e9b25e566170bc45f8174c3d9ee86a7fbc513c757fec61db"
+    },
+    {
+      "path": "assets/source/chapter11-pns-2.png",
+      "bytes": 449906,
+      "sha256": "bdeb094d7bca1b3c7e6ddeef0b1dc13ac0431031da81afef7ccc57596c70b742"
+    },
+    {
+      "path": "assets/source/chapter11-resting-potential-0.png",
+      "bytes": 1673462,
+      "sha256": "8608ef9bfefe5a528c0ed7b0f4d8a2424f4c0c234451ed89336884b0d5bb5601"
+    },
+    {
+      "path": "assets/source/chapter11-synapses-0.png",
+      "bytes": 2052111,
+      "sha256": "37a5904df148db32eda08c6c628abcefd1dfebd538c3c36d97878633f03606bd"
+    },
+    {
+      "path": "assets/source/chapter11-synapses-1.png",
+      "bytes": 1878636,
+      "sha256": "f273515da6d427a0e84a6c23e6e9f974873481afab2ee02a2ed7170fca0b0649"
+    },
+    {
+      "path": "assets/source/chapter11-synapses-2.svg",
+      "bytes": 7125,
+      "sha256": "7adc6e108d028d530b24f4cb016ada506c0e23c22bc66460a036f00e5fa38640"
+    },
+    {
+      "path": "assets/source/integrated-myelin.png",
+      "bytes": 1606070,
+      "sha256": "87cf1aa42e91c7a544eb1f538f95df983f0abbd140c888766488c8973c0aaa82"
+    },
+    {
+      "path": "assets/source/integrated-neuron.png",
+      "bytes": 1615712,
+      "sha256": "368e7a915e803f7d60e35819d6a87956724f0271bda2b97ad1d96cc1a54a68f2"
+    },
+    {
+      "path": "assets/source/integrated-withdrawal.svg",
+      "bytes": 7407,
+      "sha256": "836f66028c014ecc28aac24ba47f1da345ef559126e5c234d67ece4dc48ddada"
+    },
+    {
+      "path": "assets/source/label-neurons.png",
+      "bytes": 58545,
+      "sha256": "21d5108f5c9a10eba0e76bf5ca431c00b0f3094ca72345a61b076fb77b99c7f2"
+    },
+    {
+      "path": "assets/source/labeling-pack/01_neuron_anatomy.png",
+      "bytes": 1417766,
+      "sha256": "b51898e7c72bf01a4e35d2e532b7a89deb4a3bcbc20e3a064a6cdf98dc01df53"
+    },
+    {
+      "path": "assets/source/labeling-pack/02_withdrawal_reflex_pathway.png",
+      "bytes": 1541127,
+      "sha256": "c1b44380f76b53e23c0982d76c9e9a4e20ba2d86d8b6c93d5355686bb28444cd"
+    },
+    {
+      "path": "assets/source/labeling-pack/03_resting_membrane_potential.png",
+      "bytes": 1556857,
+      "sha256": "67df9f185880f86858fcd4d48ee1f9b3a5b34ee7387cc7a765a2f7b131f4ebc3"
+    },
+    {
+      "path": "assets/source/labeling-pack/04_action_potential.png",
+      "bytes": 1212618,
+      "sha256": "b8485d1ab2a2cef1ae99e45088338c3a79bc7dc7b286aa1af052622e266120a9"
+    },
+    {
+      "path": "assets/source/labeling-pack/05_chemical_synapse.png",
+      "bytes": 1600826,
+      "sha256": "14c7aff2de08931ec3c141dddcec0a5bd1d1c81140f295d08ee9e0986e35e7dd"
+    },
+    {
+      "path": "assets/source/labeling-pack/06_major_brain_structures.png",
+      "bytes": 1740099,
+      "sha256": "22ef290d85fb621be4032dc48b3a39b74ba7c477ed02cbb11ba5433b97f55c5e"
+    },
+    {
+      "path": "assets/source/labeling-pack/07_cerebral_lobes_and_functional_areas.png",
+      "bytes": 1684070,
+      "sha256": "89bc9197f0306d22f029d7b4000ce0ef2ca577bf85cf0b10ca8f943565caa14f"
+    },
+    {
+      "path": "assets/source/labeling-pack/08_autonomic_nervous_system_divisions.png",
+      "bytes": 1558132,
+      "sha256": "9c4d7d662d9276eb63b35726998cba677ecfaa605d2318cbab882d817a21437a"
+    },
+    {
+      "path": "assets/source/neural-pathway-labeling-corrected.png",
+      "bytes": 1704203,
+      "sha256": "b6e5d1c3dfec25a54bdebe83ef6fe60acad4df27410eabdd4224de07876df4ee"
+    },
+    {
+      "path": "assets/source/neural-pathway-labeling.png",
+      "bytes": 1775409,
+      "sha256": "8fbc7b8f540c1b8d35972a06a62bce96399639fc224892846af2a1cc111a04dc"
+    },
+    {
+      "path": "assets/source/neuron-slide9.png",
+      "bytes": 136106,
+      "sha256": "1fe42ba863208a0f8c6a80f9d45a56099eb24e4e000a9bf5f6a9d6bc8b2bd2f4"
+    },
+    {
+      "path": "assets/source/neuron-textbook.png",
+      "bytes": 198927,
+      "sha256": "4d85f8acb8899e2f35a1a39b57285db163fc1a03ac8f4bb69f6166a65b13fdb4"
+    },
+    {
+      "path": "assets/source/reflex-question-table.png",
+      "bytes": 45871,
+      "sha256": "5574e98e9d15720a31775da4f20b54a6b149065634b73c903d2371b9bc70f2d0"
+    },
+    {
+      "path": "assets/source/reflex-slide18.png",
+      "bytes": 202294,
+      "sha256": "3c8c6abf9242ea0a69b6ed97c9c18c2cebbb645d584d40e336c26048d82a7a04"
+    },
+    {
+      "path": "assets/textbook/chapter-11.pdf",
+      "bytes": 8730624,
+      "sha256": "841565cb96cbe378ba9dfe95a2718f3405ef67b3dea65a4ce8970d9d6597edec"
+    },
+    {
+      "path": "assets/textbook/chapter-12.pdf",
+      "bytes": 6614656,
+      "sha256": "f6f2050fab98f05beb7ca3a589b1d95f1966b6a67ac0b7e1dfe263247205e10d"
+    },
+    {
+      "path": "assets/textbook/chapter-13.pdf",
+      "bytes": 6536448,
+      "sha256": "e69ed45e05ab0cdc55490aada364ee415197e21aaf59445f8983a8c17d92a251"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p367-in-text-q1.jpg",
+      "bytes": 5152,
+      "sha256": "42f975dfbe0d519b007c17b0cb91fb19594fc11818af6c5844a8491ef97f3150"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p367-in-text-q2.jpg",
+      "bytes": 14665,
+      "sha256": "7f31dfcbb968c8ff021986fb39db475a17942c5ecbe7e17fccfce74a74f46a77"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p367-in-text-q3.jpg",
+      "bytes": 20463,
+      "sha256": "4d37270d73d9c6ee7f862e4fbcd5b6e7439d8af59cc2d6b52cd9f8d9b3d41cd7"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p370-in-text-q4.jpg",
+      "bytes": 10022,
+      "sha256": "b5d8458cb8a853ddf97dff797f35fa0c2f4a192fba8a398c9e3376ac3a98082a"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p370-in-text-q5.jpg",
+      "bytes": 12042,
+      "sha256": "6848bd8505935164993c83b1f28638d7cbb2c7d8aee87209ec0c0b00b16d1ebb"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p370-in-text-q6.jpg",
+      "bytes": 23823,
+      "sha256": "16cd12b950a55ee483bd42aef54bd7dde0fb6a7c7ae1c8d656f05743167201a5"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p371-11-a-paper-analysis-q2.jpg",
+      "bytes": 32436,
+      "sha256": "da31331d5737ddda819540b1bfbf3b053f34973ef8d576dd8ea146b0d23b8e35"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p371-11-a-paper-analysis-q4.jpg",
+      "bytes": 72151,
+      "sha256": "ee0b39bd322d10773e8f0a9cbdaa8f02b3cfc11206ae63a2922f8764538aa754"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p372-in-text-q7.jpg",
+      "bytes": 12964,
+      "sha256": "b4aafae1bc87efc47dafd8fec46b3378911ba93270efd42d18a3c424a6778c83"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p372-in-text-q8.jpg",
+      "bytes": 10560,
+      "sha256": "9a4d2f1482d3c8106347376812112c57ef460a1ab9716c2f05ea4300504057fa"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p374-in-text-q10.jpg",
+      "bytes": 16477,
+      "sha256": "a6129ebbfe9421da83255b99de8162e7566b8a6f53fa82619a78df53a5129e79"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p374-in-text-q9.jpg",
+      "bytes": 17743,
+      "sha256": "ad234aa150884ed395f180db1a4b822fc12c0a483978ba0bd9ba4427ce27c358"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p375-11-b-paper-analysis-q2.jpg",
+      "bytes": 76623,
+      "sha256": "336d2c72104931f6c9fc9ffc447aca8dd9453986a4914628cff1986aa06ad653"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p375-11-b-paper-analysis-q5.jpg",
+      "bytes": 75480,
+      "sha256": "16b1b1a19a5c2a87426b8dafbe91162cfea95f97d13f25f5d2fe1edbf0385bb7"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p377-in-text-q11.jpg",
+      "bytes": 14858,
+      "sha256": "1daccb43ed47da002634d04eae2fc5c114c5bb6a871d03f3321ee43e8ae6e61e"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p377-in-text-q12.jpg",
+      "bytes": 7826,
+      "sha256": "bf565fbafef9d0de5328d1a84374a7e378e44bd2fb3b87bd65ec56d760c0c407"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p377-in-text-q13.jpg",
+      "bytes": 21755,
+      "sha256": "880f67093ed474e09c854cea0840848350278f97fba9f9549d008e34119ae2c0"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p380-in-text-q14.jpg",
+      "bytes": 15585,
+      "sha256": "ff6305ec84da8d7e15fc1622a32342b42e25b70b98816ec620fad81eacb30df5"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p380-in-text-q15.jpg",
+      "bytes": 19146,
+      "sha256": "04ecbd511f64b36bb61ad9612b3bf2ac84685a36f8b016d54f5cac3745d08201"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p380-in-text-q16.jpg",
+      "bytes": 13528,
+      "sha256": "c7da5e599f8f43a3ecb4030403a151a7f294c7ff2af0ba9e5d8c4749e0a19b65"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p381-11-c-analysis-q1.jpg",
+      "bytes": 137108,
+      "sha256": "1f011da63347027ef762843ed6e4fce6c6bdf8d6de31bb3c5bfde04a1ba10754"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p381-11-c-analysis-q2.jpg",
+      "bytes": 22271,
+      "sha256": "b934695c5923546702dc8c6e5f1b1c36891db666333bbf82624beecc4d871ff2"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p381-11-c-analysis-q3.jpg",
+      "bytes": 32922,
+      "sha256": "3fd1e8425185431eb2224c5786c2c9d581d34250e33c84e69c328c8839f09528"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p381-11-c-analysis-q4.jpg",
+      "bytes": 26578,
+      "sha256": "8d9e7043eb8b25fbed72613981c7127d560d6277607db5881a4dcaf1f171da04"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p381-11-c-analysis-q5.jpg",
+      "bytes": 29768,
+      "sha256": "05df1bf3acbc7f5017e44777fb7399f421ef9148090e5b8deff5d466e88cfd9c"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p381-11-c-analysis-q6.jpg",
+      "bytes": 127313,
+      "sha256": "6d1b6f02f4f277fe7170876297a9e540978815e12a472400e7eecaf6a53d086a"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p382-in-text-q17.jpg",
+      "bytes": 17590,
+      "sha256": "49b4767067c39ba83f6031ff6c314bbe58317e7e198a1decd38fbf2548af0db4"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p382-in-text-q18.jpg",
+      "bytes": 13950,
+      "sha256": "06d04b8f627ad53a2c8c67b4342b9c6010a24bc9ba5749f7833289ca1899ad0f"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p383-drug-activity-analysis-q1.jpg",
+      "bytes": 30793,
+      "sha256": "30dfdfef170ae3fb06f906ad7f96ac44db2fe0412aa4e8be31425487e7ee1923"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p383-drug-activity-analysis-q2.jpg",
+      "bytes": 123858,
+      "sha256": "ddb97ffb82fb59b72bf1b10575c89cc6a5b88f10cec20e6df3043dfca5dd8203"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p384-section-11-1-q1.jpg",
+      "bytes": 29726,
+      "sha256": "73fb98efd0ed27ab008c8cda930d84cd03a0f1368c7a2e9c4428bfa91ee9a3fc"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p384-section-11-1-q2.jpg",
+      "bytes": 32291,
+      "sha256": "7f6f51a02865cd49a44d9226425c55bdea9f983f42837f0c7517f8aa783ec785"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p384-section-11-1-q3.jpg",
+      "bytes": 12329,
+      "sha256": "437a4a0b0296ed0b4883e61fc6ee892fc7a787925566184bb3838670f120e9f0"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p384-section-11-1-q4.jpg",
+      "bytes": 16411,
+      "sha256": "2b506de9682976617df341a06db7b02ddb8803c512858aaf5ba2e33f0d4d5f19"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p384-section-11-1-q5-continuation.jpg",
+      "bytes": 46726,
+      "sha256": "9a3daaa5666a89bdc40c61de3bfa7f5d5b6579cc7dc529d9dad3e7a507197780"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p384-section-11-1-q5.jpg",
+      "bytes": 50236,
+      "sha256": "9b1f6f249797c545cf12d86dfece9b04fbf71d9e8eb9a17f2e45f0a1b0bbd99f"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p384-section-11-1-q6.jpg",
+      "bytes": 13958,
+      "sha256": "8b18fc60cc52c0dc5714c0cbe99eb17e6425c7eab05d136d7fe974101357511f"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p384-section-11-1-q7.jpg",
+      "bytes": 27511,
+      "sha256": "eb200fbd9f1c12ca12d9ee3b0d497d1873ec657f6cb86e1fbaa8036013f58957"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p384-section-11-1-q8.jpg",
+      "bytes": 87065,
+      "sha256": "a232da2f2c90d7dc88edd736a85aa3e4ca1c6b65f58793abc9c1a069c3ed94b9"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p389-in-text-q19.jpg",
+      "bytes": 15413,
+      "sha256": "5647c13be06d3e4979a4c4eefe18da50172c89f60dd31793dceaadb850aa1b20"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p389-in-text-q20.jpg",
+      "bytes": 16731,
+      "sha256": "20336368eda0ce38419a54fe4ea6cb33efaa2e9fbd0d989276d1df25700afe42"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p389-in-text-q21.jpg",
+      "bytes": 9594,
+      "sha256": "72f9f9326e305b1fb07ebe1240dfe4f634a62627f5ac767af03cfc328c4690c9"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p389-in-text-q22.jpg",
+      "bytes": 20005,
+      "sha256": "93f17b80b7c071bae130e9a58a27ecd22b40a29fb13b4479ad86d5bc24a02063"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p392-in-text-q23.jpg",
+      "bytes": 13224,
+      "sha256": "26641a7bc7d1d77b7c61009777ad5ebdece20f6706a2fcb2cda3ea8d78d7e449"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p392-in-text-q24.jpg",
+      "bytes": 27119,
+      "sha256": "195706993098bbd370ebc7f840825c17773d4f122e33bb379eab2efbe7ec7797"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p392-in-text-q25.jpg",
+      "bytes": 16177,
+      "sha256": "a5e943cf7bf8506a09bf2f27ca067aa8a3711825e540e794715d8539b6edc564"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p393-11-d-photograph-b-q3.jpg",
+      "bytes": 90605,
+      "sha256": "91e34d67263b026ed7fb27293d518c1a1175f668a821a51b8d900e5549bb3c94"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p394-in-text-q26.jpg",
+      "bytes": 12382,
+      "sha256": "d7efc6963f891edb39b6ad0a8048f9240f2a11f1aa9e0020208e4be8127bafb4"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p394-in-text-q27.jpg",
+      "bytes": 14352,
+      "sha256": "d1001697aebb581e2694fd72923b75905f52598db17d215094a4a0e4354d9f31"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p395-section-11-2-q1.jpg",
+      "bytes": 11038,
+      "sha256": "c126702c2559e51eefd55150d08b4c37a17fba5be4b6e0adc2dfcba5fa1d8caf"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p395-section-11-2-q2.jpg",
+      "bytes": 11828,
+      "sha256": "71c49319108b151a1b116b5a7c3f4194db8532383e97e01ff3adcb445e93fc26"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p395-section-11-2-q3.jpg",
+      "bytes": 14513,
+      "sha256": "17825ac6e70f579fa4458d44fb7eed9de8db898738c9f43a5e5873a210f6d4de"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p395-section-11-2-q4.jpg",
+      "bytes": 60204,
+      "sha256": "3938fa27c896566468093a9127f23207420dead578ac767923bc2c466d06d583"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p395-section-11-2-q5.jpg",
+      "bytes": 46200,
+      "sha256": "d25b525d99ac0a305fb11ab1790420c4d90947255fbc166cced309424587be40"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p395-section-11-2-q6.jpg",
+      "bytes": 41572,
+      "sha256": "2099a93601e82bac5426177ee9131a394f7ccf15789bb580b189a93d8ef0c52b"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p395-section-11-2-q7.jpg",
+      "bytes": 14529,
+      "sha256": "22e2fd691eb91167cdbb0d5b8bef1eae2b4e2b3240728df13d27af4d2f3fff3d"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p396-in-text-q28.jpg",
+      "bytes": 11189,
+      "sha256": "58ea7424d44c30c06f873d5c83f35b7fe4c9f72f61385bf429a56713107e0bc2"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p396-in-text-q29.jpg",
+      "bytes": 14670,
+      "sha256": "630df3dd9e9edef7cd00e2faba9fcbee58eb3aeaa0aa1d0f81a7dc99ccee8848"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p399-in-text-q30.jpg",
+      "bytes": 13386,
+      "sha256": "e3b0ae0f97ac87bac0b065ba3804692dd3e716d144dbbc1cfe497eccc8442cde"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p399-in-text-q31.jpg",
+      "bytes": 15971,
+      "sha256": "6065e29f29650c725462470c2a071ab152eb3775cf6c578ff5bd63f46c79a409"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p399-in-text-q32.jpg",
+      "bytes": 18603,
+      "sha256": "1976a008fdaa89fad136b2bf03e0fde871ecc0b3a2830338ad26126a246548bc"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p399-section-11-3-q1.jpg",
+      "bytes": 16095,
+      "sha256": "dea6774facf77915ebec34dc0883a46a9313f5f9c9bc643e5719950055519240"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p399-section-11-3-q2.jpg",
+      "bytes": 24146,
+      "sha256": "38c07faebca64c63b09d88619dc2ef1e7d659a2ef077e81dff11c75e68cadf59"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p399-section-11-3-q3-continuation.jpg",
+      "bytes": 31866,
+      "sha256": "332e48fb3983fdcbd9bd95558886d0301d1d3737adce6d7795e6345c0e5276be"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p399-section-11-3-q3.jpg",
+      "bytes": 39544,
+      "sha256": "2ee7333bbd7866355cbdf26276c9846b6c070af1e509c98fd380dae6417bb86a"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p399-section-11-3-q4.jpg",
+      "bytes": 51210,
+      "sha256": "402f57a2a34ddade0a9f80285b69836ff91522d152276fc6332a5dd32a19ca9c"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p399-section-11-3-q5.jpg",
+      "bytes": 13659,
+      "sha256": "15aeca75976ea005857956333bf18055526b03128a4f05d42e79107c4c858f14"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p400-go-further-q1.jpg",
+      "bytes": 23805,
+      "sha256": "99850f6fb61ab3c54cd5e5590f59a4437a80387db37aa84df55ba42d0a51c854"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p400-go-further-q2.jpg",
+      "bytes": 15295,
+      "sha256": "55ca68907a7dfe587ecbd1f828a1e7ced9d2a537611155b2c417d868e9158e9c"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p400-go-further-q3.jpg",
+      "bytes": 20871,
+      "sha256": "60fc27a816761662f882e2c03a8058e4988393cf1a5bfdb04984a89a193a4048"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p400-go-further-q4.jpg",
+      "bytes": 13507,
+      "sha256": "0599615ddf7d434ea11bd1772551c1156de3883f511b2545319bde081dac3bec"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p402-chapter-review-q1.jpg",
+      "bytes": 21386,
+      "sha256": "bd927bc1c6981fda37a4ed44f9e999f348149fe3726a959eee18ab9b591f321c"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p402-chapter-review-q10.jpg",
+      "bytes": 76989,
+      "sha256": "3483459a2716b3e976d6906cfc0c0f1a75aca4372602f84179f52c2e58a7cb79"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p402-chapter-review-q11.jpg",
+      "bytes": 14088,
+      "sha256": "c3c06b7a58fc29dc02102c2cb853e4c263d6e533d32b1cb819c7e90c0f9827f8"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p402-chapter-review-q12.jpg",
+      "bytes": 20399,
+      "sha256": "d3568d006f45765cb181a6101bbad0fd36d99e98b3c7660d39fa9116760c05ac"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p402-chapter-review-q13.jpg",
+      "bytes": 86554,
+      "sha256": "a8398563228a215c4c817b0bb7b5ad0068c7325f68ab6b6219fee4cc70ca24b1"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p402-chapter-review-q14.jpg",
+      "bytes": 20826,
+      "sha256": "b051357ecbd18ef42e49324abf06ffe4f776f55858a9b7a4e9d0ad696c06cc93"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p402-chapter-review-q15.jpg",
+      "bytes": 14091,
+      "sha256": "cd8a035af0285a73579fb88c7f05faabc6de6bb67108b9f62ed7e2ddb759d082"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p402-chapter-review-q2.jpg",
+      "bytes": 19011,
+      "sha256": "2172731b604fd5a410960d5a5706c28c8e40fa238a530aefa8574db3e687c8ae"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p402-chapter-review-q3.jpg",
+      "bytes": 83402,
+      "sha256": "2774966d309b69d2b25c87d395fead05dc7a37b07a8d436eb73dee4c2c46c64f"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p402-chapter-review-q4.jpg",
+      "bytes": 23428,
+      "sha256": "bca2e71ffae1dc06a48bd75c325095555eb77fbacc28e880ac86a0fb3fcd17f1"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p402-chapter-review-q5.jpg",
+      "bytes": 19490,
+      "sha256": "cde955f3e0952c9a669e20b9b0fa5df748eb9210e226cf2ad9665964a59e7d96"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p402-chapter-review-q6.jpg",
+      "bytes": 18147,
+      "sha256": "db6f0d0cc01771acbd1af02290271c920137bbcbb42d1a81f9098468982bedaa"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p402-chapter-review-q7.jpg",
+      "bytes": 21280,
+      "sha256": "4d3a136e0fe0d63115cb812727d9660c598efc53e7e2298c5877e012e3733081"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p402-chapter-review-q8.jpg",
+      "bytes": 38784,
+      "sha256": "3f857958eb09fb3dc5e0a228d3ae3d513a5a82444db58b8dabe7653dd3d1f9e7"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p402-chapter-review-q9.jpg",
+      "bytes": 18575,
+      "sha256": "fcfd2739b5a7663ba91cf7114eb79f9383f9ea56e77ea025f5b94dcd002a6985"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p403-chapter-review-q16.jpg",
+      "bytes": 14201,
+      "sha256": "57d0c6cf677ce526dffa15770238dcf8d8f5df84ecc355c6779ff5fd98c22af1"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p403-chapter-review-q17.jpg",
+      "bytes": 134783,
+      "sha256": "3827546a73dec129c0d25339e18b5cdc85e233965781e652ba51b582045d29eb"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p403-chapter-review-q18.jpg",
+      "bytes": 36114,
+      "sha256": "807947c842626c3dfedf112d08fa85d621c658c55bab2be5b261bedaf23bf4cb"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p403-chapter-review-q19-continuation.jpg",
+      "bytes": 65148,
+      "sha256": "daa6a7a99168530464ca6e9af4073d3310f3e70b3369ca3ddefd5eca869a8960"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p403-chapter-review-q19.jpg",
+      "bytes": 86075,
+      "sha256": "78a900c46207ea709f8ab06cc1e278141a1e81d9e08c3535e28e19df48e37423"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p403-chapter-review-q20.jpg",
+      "bytes": 23750,
+      "sha256": "2259192e17a2f679f2727b30403d4b9184efc98d2c376ae23bc7af3ff9635866"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p403-chapter-review-q21.jpg",
+      "bytes": 108390,
+      "sha256": "fef6cbe88ada0240967076ed3f1bc7db62a5662782a32d137fc0ebae8c2a68a8"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p403-chapter-review-q22.jpg",
+      "bytes": 35596,
+      "sha256": "6b24d33f530876cd194d460cc6fa161634aa5d947caf62ca5b1bb297b5c58746"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p403-chapter-review-q23.jpg",
+      "bytes": 17678,
+      "sha256": "f12534dcb6909047ab9f02ad4a70245bdaf496e0628a1a7255fae4a2e5f8df5d"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p403-chapter-review-q24.jpg",
+      "bytes": 43309,
+      "sha256": "28cb38158447d89a098a957c833ae1cb9f86d5d672342b699e52da35150f6e6c"
+    },
+    {
+      "path": "assets/textbook-practice/manifest.json",
+      "bytes": 44860,
+      "sha256": "28b6a977f27fcfcc40af209fc0c34abaa69173878103874b2dc63cd086cc4a4b"
+    },
+    {
+      "path": "assets/textbook-practice/p366.jpg",
+      "bytes": 548462,
+      "sha256": "639637215a6d53c110ef9b55f83ba09119f26910dd90acde5b83d03fd6a953c6"
+    },
+    {
+      "path": "assets/textbook-practice/p367.jpg",
+      "bytes": 479180,
+      "sha256": "eaa69897e83b37dcf477f6eabc0574d7be7c1e8f92beb3265f2eeb89a74a97cb"
+    },
+    {
+      "path": "assets/textbook-practice/p369.jpg",
+      "bytes": 388963,
+      "sha256": "6df494144685e611d4d890a8ba241bedc0b8874d87033df745ea8f39b16d9753"
+    },
+    {
+      "path": "assets/textbook-practice/p370.jpg",
+      "bytes": 344152,
+      "sha256": "2e4344f55350c49834ed4ffa61298339fbbcb829946eef75cbe22738e6cd9669"
+    },
+    {
+      "path": "assets/textbook-practice/p371.jpg",
+      "bytes": 350205,
+      "sha256": "827db9addc3f31b9049f92733c262c2da66b06f5f7b70a2e0320fdf14f81132c"
+    },
+    {
+      "path": "assets/textbook-practice/p372.jpg",
+      "bytes": 577998,
+      "sha256": "f495ea0789ee1562ab32c6c413b13210e38a933c0c39858d5033a6a5cb43cd44"
+    },
+    {
+      "path": "assets/textbook-practice/p374.jpg",
+      "bytes": 501112,
+      "sha256": "5b4d98bea2ef301c43f52b6b4b83d35c7aa132ae05a293e2ad7181b55bfeeef3"
+    },
+    {
+      "path": "assets/textbook-practice/p375.jpg",
+      "bytes": 447962,
+      "sha256": "44ca46585f09ede504ca9bc27263ce66d8fc1d1ea138bd797ceaa8652a7ecc0d"
+    },
+    {
+      "path": "assets/textbook-practice/p376.jpg",
+      "bytes": 434683,
+      "sha256": "1608cd6a89560aa15025dd24fea77ff354767fc2aa8fbd8faa42bb82612c7c50"
+    },
+    {
+      "path": "assets/textbook-practice/p377.jpg",
+      "bytes": 517575,
+      "sha256": "f23c458a11185bfeef5bff6caabfab20f5e9adc76dfaf80752ac38fca7696c4f"
+    },
+    {
+      "path": "assets/textbook-practice/p378.jpg",
+      "bytes": 488150,
+      "sha256": "3b1ac47367d3b98c2d9bd112ed5b7ca1744acb21bedb2f12e170b373cadaa3ac"
+    },
+    {
+      "path": "assets/textbook-practice/p380.jpg",
+      "bytes": 448910,
+      "sha256": "6581dbb6b7387844a0077fc6dd2ecc4e9b4707f09f11e92d2466468f00a902d1"
+    },
+    {
+      "path": "assets/textbook-practice/p381.jpg",
+      "bytes": 478087,
+      "sha256": "1b7e3c16d3526a3fdb192660b21e6fb8b998c1357b997d6b9a9ea111200375b1"
+    },
+    {
+      "path": "assets/textbook-practice/p382.jpg",
+      "bytes": 507132,
+      "sha256": "c78544ba500c0e79e7444908f775c5d434f9ef3d5b5b5ba9e1810eb4ae014edd"
+    },
+    {
+      "path": "assets/textbook-practice/p383.jpg",
+      "bytes": 456300,
+      "sha256": "43fd73437d27843d81424f74f01decad72309aeccd639fd38f70ab3a6c1877c0"
+    },
+    {
+      "path": "assets/textbook-practice/p384.jpg",
+      "bytes": 341658,
+      "sha256": "5115c79ed18411f52af17ad24c502de89f13231f1bc33c1037ffac1eb5bba7d0"
+    },
+    {
+      "path": "assets/textbook-practice/p389.jpg",
+      "bytes": 587686,
+      "sha256": "95173a01568137e1b884d2d16789faf9b728dc9a9ecc40bf235ee80b9c09af03"
+    },
+    {
+      "path": "assets/textbook-practice/p390.jpg",
+      "bytes": 459325,
+      "sha256": "d83c85a8bf53a975345dda89f6a874904f0ff7a202480794d7f2e0d3a3d4dcc7"
+    },
+    {
+      "path": "assets/textbook-practice/p391.jpg",
+      "bytes": 433925,
+      "sha256": "f4723c10227145e064274730d0c5b298d4705466ff4a3aa29cb87fdc22e62943"
+    },
+    {
+      "path": "assets/textbook-practice/p392.jpg",
+      "bytes": 552593,
+      "sha256": "f3a4eb895815d53cd947f4035345032d3c375a9f43dffdf7a4876b4a2169dd1b"
+    },
+    {
+      "path": "assets/textbook-practice/p393.jpg",
+      "bytes": 425902,
+      "sha256": "527e7845779efa525929585977dad66964fa5eb13e181c24ac07dad81fef3fd6"
+    },
+    {
+      "path": "assets/textbook-practice/p394.jpg",
+      "bytes": 460236,
+      "sha256": "2de9a835d2d973ef8f152e5ed39f41c67e8c813cfb830f1df304256c57cc4980"
+    },
+    {
+      "path": "assets/textbook-practice/p395.jpg",
+      "bytes": 475364,
+      "sha256": "a993be0a9e9ddb6dee8648778d3df8fb677d5a937deb7a30741854e5bd897f31"
+    },
+    {
+      "path": "assets/textbook-practice/p396.jpg",
+      "bytes": 467763,
+      "sha256": "289bbe4d9ce7281eddce651e185a6ff1dffbde98b26d3f2d5923259855beab36"
+    },
+    {
+      "path": "assets/textbook-practice/p397.jpg",
+      "bytes": 516062,
+      "sha256": "5dde1814022620a5b3e23ba3d0a9282e3535797d14b369404cae6fbbba4a2e78"
+    },
+    {
+      "path": "assets/textbook-practice/p399.jpg",
+      "bytes": 400668,
+      "sha256": "042eb87accfc159ab0c9e45f9713ec5a3ffe662efc401df011d7d157d1fc9bb4"
+    },
+    {
+      "path": "assets/textbook-practice/p400.jpg",
+      "bytes": 606696,
+      "sha256": "bf7b53ea2a9fb29b5c5fa6606f5ef32e1b96d8e42f254b42acbf327232aa25f0"
+    },
+    {
+      "path": "assets/textbook-practice/p402.jpg",
+      "bytes": 486404,
+      "sha256": "4edb946d660ec7af984cd30084506cc2b14116899e652e4c79c8cdf48dd9e397"
+    },
+    {
+      "path": "assets/textbook-practice/p403.jpg",
+      "bytes": 543867,
+      "sha256": "c751e6a33446c27d7ce37503a93f7dcaae7cfb2224add358d27fcb58a138eb6e"
+    },
+    {
+      "path": "assets/textbook-practice.css",
+      "bytes": 14156,
+      "sha256": "4101415cce977a4a8553754a01cea3d33ad194add1198db00ddc0ba99bfeea12"
+    },
+    {
+      "path": "index.html",
+      "bytes": 1138265,
+      "sha256": "9fcd8203b41f4220e53716e473c02a0835f356420b363ea0092e544a8e7bb210"
+    },
+    {
+      "path": "scorm-tracking.json",
+      "bytes": 1094,
+      "sha256": "2281f54888f235bc2695a6967b13a587ffef5d37fa6bf582383c2edf55796cf6"
+    },
+    {
+      "path": "styles.css",
+      "bytes": 73361,
+      "sha256": "a45318415c43b025748aceb5a6d220de38c76f683ac027de84a7f689964bca55"
+    }
+  ],
+  "files": [
+    {
+      "path": "assets/brand/nxt-ce-logo-white-with-ce.png",
+      "bytes": 53313,
+      "sha256": "9ed7b47ad131ec598ae77fdb4650c95658dcab6fa1db6e6630c2fe7809b25ec8"
+    },
+    {
+      "path": "assets/fonts/HankenGrotesk-Variable.ttf",
+      "bytes": 132892,
+      "sha256": "813b3f8fa0965405669a89b38e51bbefd95eef6b8e20d1cb2d8c10cce062662f"
+    },
+    {
+      "path": "assets/fonts/OFL-Hanken-Grotesk.txt",
+      "bytes": 4402,
+      "sha256": "e02ccb89a86839b22feff7872ff5cc355cc0f58318d29eee20e2cf83a612f16d"
+    },
+    {
+      "path": "assets/fonts/OFL-Work-Sans.txt",
+      "bytes": 4396,
+      "sha256": "749aca05078664ce682dce1b1b10096ac397cb088c1a6df4e1bb56f0092a9272"
+    },
+    {
+      "path": "assets/fonts/WorkSans-Variable.ttf",
+      "bytes": 361072,
+      "sha256": "f50f61f2ba738e239442d40bf1069adb195c224b6a5a73a581fc2f3ed62a9f63"
+    },
+    {
+      "path": "assets/pilot3-catalog.js",
+      "bytes": 2475,
+      "sha256": "e080ff9a4868fe70ec92f9f343ceb5650543826fc5a412d2e9d136b2c4d47632"
+    },
+    {
+      "path": "assets/pilot3-practice-bank.js",
+      "bytes": 17097,
+      "sha256": "caec8c6cf524810c87f0b79725314cd74309fecba0ec0aff9973d75989534294"
+    },
+    {
+      "path": "assets/pilot3-runtime.js",
+      "bytes": 110012,
+      "sha256": "9b0cdd4a0bd8257fe79847d791771cc4c20d502cea348cc733a75fbbc639365c"
+    },
+    {
+      "path": "assets/source/chapter11-action-potentials-0.png",
+      "bytes": 1726015,
+      "sha256": "ecd4d3a6f241916d9d7faaa09c1dd79d51eb87a56494d2b4bee90f0d7d5d0423"
+    },
+    {
+      "path": "assets/source/chapter11-action-potentials-1.svg",
+      "bytes": 3669,
+      "sha256": "df424718a3ed531b03792b5d93c6c97bacd9cbed9cfa61f3beef6d88391a4f24"
+    },
+    {
+      "path": "assets/source/chapter11-brain-0.png",
+      "bytes": 1881345,
+      "sha256": "b91325a4ecf9238a852b87663e987ff49a01cbe3fbca3a5e65c87ada18240175"
+    },
+    {
+      "path": "assets/source/chapter11-brain-1.png",
+      "bytes": 1824134,
+      "sha256": "bb2490ee6381ec72082a6d1218b1b5ad87714684cd31e3f986c9034dc3677d19"
+    },
+    {
+      "path": "assets/source/chapter11-brain-2.svg",
+      "bytes": 3647,
+      "sha256": "63c47c8e47d0522dad511750d58a8f25c0809c59700066c0280d5e746ce85353"
+    },
+    {
+      "path": "assets/source/chapter11-brain-investigation-0.svg",
+      "bytes": 5485,
+      "sha256": "42b01f66ae6853627db54fbc4cd189f3338c055ed110d46275ea5250895c8691"
+    },
+    {
+      "path": "assets/source/chapter11-brain-investigation-2.png",
+      "bytes": 44506,
+      "sha256": "ed580c42e749a49ecda83ea04ea82f76f8c78a0636cd85b02052193d27a3b453"
+    },
+    {
+      "path": "assets/source/chapter11-chapter-review-section-0.png",
+      "bytes": 171306,
+      "sha256": "3fa571764c7f7b0e88b8b9788b43ec5ee58052fff733ad11fff574c9d4e5c18e"
+    },
+    {
+      "path": "assets/source/chapter11-chapter-review-section-1.png",
+      "bytes": 62141,
+      "sha256": "49722b01034f9430a1c8fc2c0a7a4d28ca2cd896ddc23dc05e1e124e0c6a6fab"
+    },
+    {
+      "path": "assets/source/chapter11-chapter-review-section-2.png",
+      "bytes": 49759,
+      "sha256": "152672826962111d4a682bbc0a6b359a9732f7535a95b632bf9d0669f5e9cc5f"
+    },
+    {
+      "path": "assets/source/chapter11-chapter-review-section-3.png",
+      "bytes": 38059,
+      "sha256": "3da76063d2e7c4e05f7c39279ee619a9a13e32579d1c61345f3a6ac168b8eff6"
+    },
+    {
+      "path": "assets/source/chapter11-chapter-review-section-4.png",
+      "bytes": 70681,
+      "sha256": "78c086cecc40dd705d1f72fe6b574bd44943251f0767bfe1690afd39fb68dda4"
+    },
+    {
+      "path": "assets/source/chapter11-cns-0.svg",
+      "bytes": 5047,
+      "sha256": "d2f061f71cc31cf0b6d502fe39ebc8aad6ceb85a61f593017a92368e5f47d900"
+    },
+    {
+      "path": "assets/source/chapter11-cns-1.svg",
+      "bytes": 4959,
+      "sha256": "25e52c753840d85206b0aea6afb6516a76fb8a3943d5ff8a09fb3e8c998abbac"
+    },
+    {
+      "path": "assets/source/chapter11-drugs-0.svg",
+      "bytes": 4748,
+      "sha256": "dff645618ef5a14914577fff876a299766cbfea8329373c87e5bfede5312be51"
+    },
+    {
+      "path": "assets/source/chapter11-drugs-1.png",
+      "bytes": 13641,
+      "sha256": "b81b8f09c9f3f38332867dc4fcf40dc14e4ad5c796b398beb5ff0bc943bbf665"
+    },
+    {
+      "path": "assets/source/chapter11-drugs-2.png",
+      "bytes": 38894,
+      "sha256": "8bc7248e6ccca6e83cb53e2027cc51f7e5686a0c752c21a0db77a8e899321849"
+    },
+    {
+      "path": "assets/source/chapter11-pns-0.svg",
+      "bytes": 6995,
+      "sha256": "fbb887d91cc0b11f765420d29b765f9704716bc880858e5c5ab09157d6eb1cf9"
+    },
+    {
+      "path": "assets/source/chapter11-pns-1.svg",
+      "bytes": 6380,
+      "sha256": "4ee2efa3219475e1e9b25e566170bc45f8174c3d9ee86a7fbc513c757fec61db"
+    },
+    {
+      "path": "assets/source/chapter11-pns-2.png",
+      "bytes": 449906,
+      "sha256": "bdeb094d7bca1b3c7e6ddeef0b1dc13ac0431031da81afef7ccc57596c70b742"
+    },
+    {
+      "path": "assets/source/chapter11-resting-potential-0.png",
+      "bytes": 1673462,
+      "sha256": "8608ef9bfefe5a528c0ed7b0f4d8a2424f4c0c234451ed89336884b0d5bb5601"
+    },
+    {
+      "path": "assets/source/chapter11-synapses-0.png",
+      "bytes": 2052111,
+      "sha256": "37a5904df148db32eda08c6c628abcefd1dfebd538c3c36d97878633f03606bd"
+    },
+    {
+      "path": "assets/source/chapter11-synapses-1.png",
+      "bytes": 1878636,
+      "sha256": "f273515da6d427a0e84a6c23e6e9f974873481afab2ee02a2ed7170fca0b0649"
+    },
+    {
+      "path": "assets/source/chapter11-synapses-2.svg",
+      "bytes": 7125,
+      "sha256": "7adc6e108d028d530b24f4cb016ada506c0e23c22bc66460a036f00e5fa38640"
+    },
+    {
+      "path": "assets/source/integrated-myelin.png",
+      "bytes": 1606070,
+      "sha256": "87cf1aa42e91c7a544eb1f538f95df983f0abbd140c888766488c8973c0aaa82"
+    },
+    {
+      "path": "assets/source/integrated-neuron.png",
+      "bytes": 1615712,
+      "sha256": "368e7a915e803f7d60e35819d6a87956724f0271bda2b97ad1d96cc1a54a68f2"
+    },
+    {
+      "path": "assets/source/integrated-withdrawal.svg",
+      "bytes": 7407,
+      "sha256": "836f66028c014ecc28aac24ba47f1da345ef559126e5c234d67ece4dc48ddada"
+    },
+    {
+      "path": "assets/source/label-neurons.png",
+      "bytes": 58545,
+      "sha256": "21d5108f5c9a10eba0e76bf5ca431c00b0f3094ca72345a61b076fb77b99c7f2"
+    },
+    {
+      "path": "assets/source/labeling-pack/01_neuron_anatomy.png",
+      "bytes": 1417766,
+      "sha256": "b51898e7c72bf01a4e35d2e532b7a89deb4a3bcbc20e3a064a6cdf98dc01df53"
+    },
+    {
+      "path": "assets/source/labeling-pack/02_withdrawal_reflex_pathway.png",
+      "bytes": 1541127,
+      "sha256": "c1b44380f76b53e23c0982d76c9e9a4e20ba2d86d8b6c93d5355686bb28444cd"
+    },
+    {
+      "path": "assets/source/labeling-pack/03_resting_membrane_potential.png",
+      "bytes": 1556857,
+      "sha256": "67df9f185880f86858fcd4d48ee1f9b3a5b34ee7387cc7a765a2f7b131f4ebc3"
+    },
+    {
+      "path": "assets/source/labeling-pack/04_action_potential.png",
+      "bytes": 1212618,
+      "sha256": "b8485d1ab2a2cef1ae99e45088338c3a79bc7dc7b286aa1af052622e266120a9"
+    },
+    {
+      "path": "assets/source/labeling-pack/05_chemical_synapse.png",
+      "bytes": 1600826,
+      "sha256": "14c7aff2de08931ec3c141dddcec0a5bd1d1c81140f295d08ee9e0986e35e7dd"
+    },
+    {
+      "path": "assets/source/labeling-pack/06_major_brain_structures.png",
+      "bytes": 1740099,
+      "sha256": "22ef290d85fb621be4032dc48b3a39b74ba7c477ed02cbb11ba5433b97f55c5e"
+    },
+    {
+      "path": "assets/source/labeling-pack/07_cerebral_lobes_and_functional_areas.png",
+      "bytes": 1684070,
+      "sha256": "89bc9197f0306d22f029d7b4000ce0ef2ca577bf85cf0b10ca8f943565caa14f"
+    },
+    {
+      "path": "assets/source/labeling-pack/08_autonomic_nervous_system_divisions.png",
+      "bytes": 1558132,
+      "sha256": "9c4d7d662d9276eb63b35726998cba677ecfaa605d2318cbab882d817a21437a"
+    },
+    {
+      "path": "assets/source/neural-pathway-labeling-corrected.png",
+      "bytes": 1704203,
+      "sha256": "b6e5d1c3dfec25a54bdebe83ef6fe60acad4df27410eabdd4224de07876df4ee"
+    },
+    {
+      "path": "assets/source/neural-pathway-labeling.png",
+      "bytes": 1775409,
+      "sha256": "8fbc7b8f540c1b8d35972a06a62bce96399639fc224892846af2a1cc111a04dc"
+    },
+    {
+      "path": "assets/source/neuron-slide9.png",
+      "bytes": 136106,
+      "sha256": "1fe42ba863208a0f8c6a80f9d45a56099eb24e4e000a9bf5f6a9d6bc8b2bd2f4"
+    },
+    {
+      "path": "assets/source/neuron-textbook.png",
+      "bytes": 198927,
+      "sha256": "4d85f8acb8899e2f35a1a39b57285db163fc1a03ac8f4bb69f6166a65b13fdb4"
+    },
+    {
+      "path": "assets/source/reflex-question-table.png",
+      "bytes": 45871,
+      "sha256": "5574e98e9d15720a31775da4f20b54a6b149065634b73c903d2371b9bc70f2d0"
+    },
+    {
+      "path": "assets/source/reflex-slide18.png",
+      "bytes": 202294,
+      "sha256": "3c8c6abf9242ea0a69b6ed97c9c18c2cebbb645d584d40e336c26048d82a7a04"
+    },
+    {
+      "path": "assets/textbook/chapter-11.pdf",
+      "bytes": 8730624,
+      "sha256": "841565cb96cbe378ba9dfe95a2718f3405ef67b3dea65a4ce8970d9d6597edec"
+    },
+    {
+      "path": "assets/textbook/chapter-12.pdf",
+      "bytes": 6614656,
+      "sha256": "f6f2050fab98f05beb7ca3a589b1d95f1966b6a67ac0b7e1dfe263247205e10d"
+    },
+    {
+      "path": "assets/textbook/chapter-13.pdf",
+      "bytes": 6536448,
+      "sha256": "e69ed45e05ab0cdc55490aada364ee415197e21aaf59445f8983a8c17d92a251"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p367-in-text-q1.jpg",
+      "bytes": 5152,
+      "sha256": "42f975dfbe0d519b007c17b0cb91fb19594fc11818af6c5844a8491ef97f3150"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p367-in-text-q2.jpg",
+      "bytes": 14665,
+      "sha256": "7f31dfcbb968c8ff021986fb39db475a17942c5ecbe7e17fccfce74a74f46a77"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p367-in-text-q3.jpg",
+      "bytes": 20463,
+      "sha256": "4d37270d73d9c6ee7f862e4fbcd5b6e7439d8af59cc2d6b52cd9f8d9b3d41cd7"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p370-in-text-q4.jpg",
+      "bytes": 10022,
+      "sha256": "b5d8458cb8a853ddf97dff797f35fa0c2f4a192fba8a398c9e3376ac3a98082a"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p370-in-text-q5.jpg",
+      "bytes": 12042,
+      "sha256": "6848bd8505935164993c83b1f28638d7cbb2c7d8aee87209ec0c0b00b16d1ebb"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p370-in-text-q6.jpg",
+      "bytes": 23823,
+      "sha256": "16cd12b950a55ee483bd42aef54bd7dde0fb6a7c7ae1c8d656f05743167201a5"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p371-11-a-paper-analysis-q2.jpg",
+      "bytes": 32436,
+      "sha256": "da31331d5737ddda819540b1bfbf3b053f34973ef8d576dd8ea146b0d23b8e35"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p371-11-a-paper-analysis-q4.jpg",
+      "bytes": 72151,
+      "sha256": "ee0b39bd322d10773e8f0a9cbdaa8f02b3cfc11206ae63a2922f8764538aa754"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p372-in-text-q7.jpg",
+      "bytes": 12964,
+      "sha256": "b4aafae1bc87efc47dafd8fec46b3378911ba93270efd42d18a3c424a6778c83"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p372-in-text-q8.jpg",
+      "bytes": 10560,
+      "sha256": "9a4d2f1482d3c8106347376812112c57ef460a1ab9716c2f05ea4300504057fa"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p374-in-text-q10.jpg",
+      "bytes": 16477,
+      "sha256": "a6129ebbfe9421da83255b99de8162e7566b8a6f53fa82619a78df53a5129e79"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p374-in-text-q9.jpg",
+      "bytes": 17743,
+      "sha256": "ad234aa150884ed395f180db1a4b822fc12c0a483978ba0bd9ba4427ce27c358"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p375-11-b-paper-analysis-q2.jpg",
+      "bytes": 76623,
+      "sha256": "336d2c72104931f6c9fc9ffc447aca8dd9453986a4914628cff1986aa06ad653"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p375-11-b-paper-analysis-q5.jpg",
+      "bytes": 75480,
+      "sha256": "16b1b1a19a5c2a87426b8dafbe91162cfea95f97d13f25f5d2fe1edbf0385bb7"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p377-in-text-q11.jpg",
+      "bytes": 14858,
+      "sha256": "1daccb43ed47da002634d04eae2fc5c114c5bb6a871d03f3321ee43e8ae6e61e"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p377-in-text-q12.jpg",
+      "bytes": 7826,
+      "sha256": "bf565fbafef9d0de5328d1a84374a7e378e44bd2fb3b87bd65ec56d760c0c407"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p377-in-text-q13.jpg",
+      "bytes": 21755,
+      "sha256": "880f67093ed474e09c854cea0840848350278f97fba9f9549d008e34119ae2c0"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p380-in-text-q14.jpg",
+      "bytes": 15585,
+      "sha256": "ff6305ec84da8d7e15fc1622a32342b42e25b70b98816ec620fad81eacb30df5"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p380-in-text-q15.jpg",
+      "bytes": 19146,
+      "sha256": "04ecbd511f64b36bb61ad9612b3bf2ac84685a36f8b016d54f5cac3745d08201"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p380-in-text-q16.jpg",
+      "bytes": 13528,
+      "sha256": "c7da5e599f8f43a3ecb4030403a151a7f294c7ff2af0ba9e5d8c4749e0a19b65"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p381-11-c-analysis-q1.jpg",
+      "bytes": 137108,
+      "sha256": "1f011da63347027ef762843ed6e4fce6c6bdf8d6de31bb3c5bfde04a1ba10754"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p381-11-c-analysis-q2.jpg",
+      "bytes": 22271,
+      "sha256": "b934695c5923546702dc8c6e5f1b1c36891db666333bbf82624beecc4d871ff2"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p381-11-c-analysis-q3.jpg",
+      "bytes": 32922,
+      "sha256": "3fd1e8425185431eb2224c5786c2c9d581d34250e33c84e69c328c8839f09528"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p381-11-c-analysis-q4.jpg",
+      "bytes": 26578,
+      "sha256": "8d9e7043eb8b25fbed72613981c7127d560d6277607db5881a4dcaf1f171da04"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p381-11-c-analysis-q5.jpg",
+      "bytes": 29768,
+      "sha256": "05df1bf3acbc7f5017e44777fb7399f421ef9148090e5b8deff5d466e88cfd9c"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p381-11-c-analysis-q6.jpg",
+      "bytes": 127313,
+      "sha256": "6d1b6f02f4f277fe7170876297a9e540978815e12a472400e7eecaf6a53d086a"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p382-in-text-q17.jpg",
+      "bytes": 17590,
+      "sha256": "49b4767067c39ba83f6031ff6c314bbe58317e7e198a1decd38fbf2548af0db4"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p382-in-text-q18.jpg",
+      "bytes": 13950,
+      "sha256": "06d04b8f627ad53a2c8c67b4342b9c6010a24bc9ba5749f7833289ca1899ad0f"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p383-drug-activity-analysis-q1.jpg",
+      "bytes": 30793,
+      "sha256": "30dfdfef170ae3fb06f906ad7f96ac44db2fe0412aa4e8be31425487e7ee1923"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p383-drug-activity-analysis-q2.jpg",
+      "bytes": 123858,
+      "sha256": "ddb97ffb82fb59b72bf1b10575c89cc6a5b88f10cec20e6df3043dfca5dd8203"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p384-section-11-1-q1.jpg",
+      "bytes": 29726,
+      "sha256": "73fb98efd0ed27ab008c8cda930d84cd03a0f1368c7a2e9c4428bfa91ee9a3fc"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p384-section-11-1-q2.jpg",
+      "bytes": 32291,
+      "sha256": "7f6f51a02865cd49a44d9226425c55bdea9f983f42837f0c7517f8aa783ec785"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p384-section-11-1-q3.jpg",
+      "bytes": 12329,
+      "sha256": "437a4a0b0296ed0b4883e61fc6ee892fc7a787925566184bb3838670f120e9f0"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p384-section-11-1-q4.jpg",
+      "bytes": 16411,
+      "sha256": "2b506de9682976617df341a06db7b02ddb8803c512858aaf5ba2e33f0d4d5f19"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p384-section-11-1-q5-continuation.jpg",
+      "bytes": 46726,
+      "sha256": "9a3daaa5666a89bdc40c61de3bfa7f5d5b6579cc7dc529d9dad3e7a507197780"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p384-section-11-1-q5.jpg",
+      "bytes": 50236,
+      "sha256": "9b1f6f249797c545cf12d86dfece9b04fbf71d9e8eb9a17f2e45f0a1b0bbd99f"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p384-section-11-1-q6.jpg",
+      "bytes": 13958,
+      "sha256": "8b18fc60cc52c0dc5714c0cbe99eb17e6425c7eab05d136d7fe974101357511f"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p384-section-11-1-q7.jpg",
+      "bytes": 27511,
+      "sha256": "eb200fbd9f1c12ca12d9ee3b0d497d1873ec657f6cb86e1fbaa8036013f58957"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p384-section-11-1-q8.jpg",
+      "bytes": 87065,
+      "sha256": "a232da2f2c90d7dc88edd736a85aa3e4ca1c6b65f58793abc9c1a069c3ed94b9"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p389-in-text-q19.jpg",
+      "bytes": 15413,
+      "sha256": "5647c13be06d3e4979a4c4eefe18da50172c89f60dd31793dceaadb850aa1b20"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p389-in-text-q20.jpg",
+      "bytes": 16731,
+      "sha256": "20336368eda0ce38419a54fe4ea6cb33efaa2e9fbd0d989276d1df25700afe42"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p389-in-text-q21.jpg",
+      "bytes": 9594,
+      "sha256": "72f9f9326e305b1fb07ebe1240dfe4f634a62627f5ac767af03cfc328c4690c9"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p389-in-text-q22.jpg",
+      "bytes": 20005,
+      "sha256": "93f17b80b7c071bae130e9a58a27ecd22b40a29fb13b4479ad86d5bc24a02063"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p392-in-text-q23.jpg",
+      "bytes": 13224,
+      "sha256": "26641a7bc7d1d77b7c61009777ad5ebdece20f6706a2fcb2cda3ea8d78d7e449"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p392-in-text-q24.jpg",
+      "bytes": 27119,
+      "sha256": "195706993098bbd370ebc7f840825c17773d4f122e33bb379eab2efbe7ec7797"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p392-in-text-q25.jpg",
+      "bytes": 16177,
+      "sha256": "a5e943cf7bf8506a09bf2f27ca067aa8a3711825e540e794715d8539b6edc564"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p393-11-d-photograph-b-q3.jpg",
+      "bytes": 90605,
+      "sha256": "91e34d67263b026ed7fb27293d518c1a1175f668a821a51b8d900e5549bb3c94"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p394-in-text-q26.jpg",
+      "bytes": 12382,
+      "sha256": "d7efc6963f891edb39b6ad0a8048f9240f2a11f1aa9e0020208e4be8127bafb4"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p394-in-text-q27.jpg",
+      "bytes": 14352,
+      "sha256": "d1001697aebb581e2694fd72923b75905f52598db17d215094a4a0e4354d9f31"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p395-section-11-2-q1.jpg",
+      "bytes": 11038,
+      "sha256": "c126702c2559e51eefd55150d08b4c37a17fba5be4b6e0adc2dfcba5fa1d8caf"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p395-section-11-2-q2.jpg",
+      "bytes": 11828,
+      "sha256": "71c49319108b151a1b116b5a7c3f4194db8532383e97e01ff3adcb445e93fc26"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p395-section-11-2-q3.jpg",
+      "bytes": 14513,
+      "sha256": "17825ac6e70f579fa4458d44fb7eed9de8db898738c9f43a5e5873a210f6d4de"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p395-section-11-2-q4.jpg",
+      "bytes": 60204,
+      "sha256": "3938fa27c896566468093a9127f23207420dead578ac767923bc2c466d06d583"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p395-section-11-2-q5.jpg",
+      "bytes": 46200,
+      "sha256": "d25b525d99ac0a305fb11ab1790420c4d90947255fbc166cced309424587be40"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p395-section-11-2-q6.jpg",
+      "bytes": 41572,
+      "sha256": "2099a93601e82bac5426177ee9131a394f7ccf15789bb580b189a93d8ef0c52b"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p395-section-11-2-q7.jpg",
+      "bytes": 14529,
+      "sha256": "22e2fd691eb91167cdbb0d5b8bef1eae2b4e2b3240728df13d27af4d2f3fff3d"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p396-in-text-q28.jpg",
+      "bytes": 11189,
+      "sha256": "58ea7424d44c30c06f873d5c83f35b7fe4c9f72f61385bf429a56713107e0bc2"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p396-in-text-q29.jpg",
+      "bytes": 14670,
+      "sha256": "630df3dd9e9edef7cd00e2faba9fcbee58eb3aeaa0aa1d0f81a7dc99ccee8848"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p399-in-text-q30.jpg",
+      "bytes": 13386,
+      "sha256": "e3b0ae0f97ac87bac0b065ba3804692dd3e716d144dbbc1cfe497eccc8442cde"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p399-in-text-q31.jpg",
+      "bytes": 15971,
+      "sha256": "6065e29f29650c725462470c2a071ab152eb3775cf6c578ff5bd63f46c79a409"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p399-in-text-q32.jpg",
+      "bytes": 18603,
+      "sha256": "1976a008fdaa89fad136b2bf03e0fde871ecc0b3a2830338ad26126a246548bc"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p399-section-11-3-q1.jpg",
+      "bytes": 16095,
+      "sha256": "dea6774facf77915ebec34dc0883a46a9313f5f9c9bc643e5719950055519240"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p399-section-11-3-q2.jpg",
+      "bytes": 24146,
+      "sha256": "38c07faebca64c63b09d88619dc2ef1e7d659a2ef077e81dff11c75e68cadf59"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p399-section-11-3-q3-continuation.jpg",
+      "bytes": 31866,
+      "sha256": "332e48fb3983fdcbd9bd95558886d0301d1d3737adce6d7795e6345c0e5276be"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p399-section-11-3-q3.jpg",
+      "bytes": 39544,
+      "sha256": "2ee7333bbd7866355cbdf26276c9846b6c070af1e509c98fd380dae6417bb86a"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p399-section-11-3-q4.jpg",
+      "bytes": 51210,
+      "sha256": "402f57a2a34ddade0a9f80285b69836ff91522d152276fc6332a5dd32a19ca9c"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p399-section-11-3-q5.jpg",
+      "bytes": 13659,
+      "sha256": "15aeca75976ea005857956333bf18055526b03128a4f05d42e79107c4c858f14"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p400-go-further-q1.jpg",
+      "bytes": 23805,
+      "sha256": "99850f6fb61ab3c54cd5e5590f59a4437a80387db37aa84df55ba42d0a51c854"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p400-go-further-q2.jpg",
+      "bytes": 15295,
+      "sha256": "55ca68907a7dfe587ecbd1f828a1e7ced9d2a537611155b2c417d868e9158e9c"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p400-go-further-q3.jpg",
+      "bytes": 20871,
+      "sha256": "60fc27a816761662f882e2c03a8058e4988393cf1a5bfdb04984a89a193a4048"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p400-go-further-q4.jpg",
+      "bytes": 13507,
+      "sha256": "0599615ddf7d434ea11bd1772551c1156de3883f511b2545319bde081dac3bec"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p402-chapter-review-q1.jpg",
+      "bytes": 21386,
+      "sha256": "bd927bc1c6981fda37a4ed44f9e999f348149fe3726a959eee18ab9b591f321c"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p402-chapter-review-q10.jpg",
+      "bytes": 76989,
+      "sha256": "3483459a2716b3e976d6906cfc0c0f1a75aca4372602f84179f52c2e58a7cb79"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p402-chapter-review-q11.jpg",
+      "bytes": 14088,
+      "sha256": "c3c06b7a58fc29dc02102c2cb853e4c263d6e533d32b1cb819c7e90c0f9827f8"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p402-chapter-review-q12.jpg",
+      "bytes": 20399,
+      "sha256": "d3568d006f45765cb181a6101bbad0fd36d99e98b3c7660d39fa9116760c05ac"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p402-chapter-review-q13.jpg",
+      "bytes": 86554,
+      "sha256": "a8398563228a215c4c817b0bb7b5ad0068c7325f68ab6b6219fee4cc70ca24b1"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p402-chapter-review-q14.jpg",
+      "bytes": 20826,
+      "sha256": "b051357ecbd18ef42e49324abf06ffe4f776f55858a9b7a4e9d0ad696c06cc93"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p402-chapter-review-q15.jpg",
+      "bytes": 14091,
+      "sha256": "cd8a035af0285a73579fb88c7f05faabc6de6bb67108b9f62ed7e2ddb759d082"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p402-chapter-review-q2.jpg",
+      "bytes": 19011,
+      "sha256": "2172731b604fd5a410960d5a5706c28c8e40fa238a530aefa8574db3e687c8ae"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p402-chapter-review-q3.jpg",
+      "bytes": 83402,
+      "sha256": "2774966d309b69d2b25c87d395fead05dc7a37b07a8d436eb73dee4c2c46c64f"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p402-chapter-review-q4.jpg",
+      "bytes": 23428,
+      "sha256": "bca2e71ffae1dc06a48bd75c325095555eb77fbacc28e880ac86a0fb3fcd17f1"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p402-chapter-review-q5.jpg",
+      "bytes": 19490,
+      "sha256": "cde955f3e0952c9a669e20b9b0fa5df748eb9210e226cf2ad9665964a59e7d96"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p402-chapter-review-q6.jpg",
+      "bytes": 18147,
+      "sha256": "db6f0d0cc01771acbd1af02290271c920137bbcbb42d1a81f9098468982bedaa"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p402-chapter-review-q7.jpg",
+      "bytes": 21280,
+      "sha256": "4d3a136e0fe0d63115cb812727d9660c598efc53e7e2298c5877e012e3733081"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p402-chapter-review-q8.jpg",
+      "bytes": 38784,
+      "sha256": "3f857958eb09fb3dc5e0a228d3ae3d513a5a82444db58b8dabe7653dd3d1f9e7"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p402-chapter-review-q9.jpg",
+      "bytes": 18575,
+      "sha256": "fcfd2739b5a7663ba91cf7114eb79f9383f9ea56e77ea025f5b94dcd002a6985"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p403-chapter-review-q16.jpg",
+      "bytes": 14201,
+      "sha256": "57d0c6cf677ce526dffa15770238dcf8d8f5df84ecc355c6779ff5fd98c22af1"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p403-chapter-review-q17.jpg",
+      "bytes": 134783,
+      "sha256": "3827546a73dec129c0d25339e18b5cdc85e233965781e652ba51b582045d29eb"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p403-chapter-review-q18.jpg",
+      "bytes": 36114,
+      "sha256": "807947c842626c3dfedf112d08fa85d621c658c55bab2be5b261bedaf23bf4cb"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p403-chapter-review-q19-continuation.jpg",
+      "bytes": 65148,
+      "sha256": "daa6a7a99168530464ca6e9af4073d3310f3e70b3369ca3ddefd5eca869a8960"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p403-chapter-review-q19.jpg",
+      "bytes": 86075,
+      "sha256": "78a900c46207ea709f8ab06cc1e278141a1e81d9e08c3535e28e19df48e37423"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p403-chapter-review-q20.jpg",
+      "bytes": 23750,
+      "sha256": "2259192e17a2f679f2727b30403d4b9184efc98d2c376ae23bc7af3ff9635866"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p403-chapter-review-q21.jpg",
+      "bytes": 108390,
+      "sha256": "fef6cbe88ada0240967076ed3f1bc7db62a5662782a32d137fc0ebae8c2a68a8"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p403-chapter-review-q22.jpg",
+      "bytes": 35596,
+      "sha256": "6b24d33f530876cd194d460cc6fa161634aa5d947caf62ca5b1bb297b5c58746"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p403-chapter-review-q23.jpg",
+      "bytes": 17678,
+      "sha256": "f12534dcb6909047ab9f02ad4a70245bdaf496e0628a1a7255fae4a2e5f8df5d"
+    },
+    {
+      "path": "assets/textbook-practice/ch11-p403-chapter-review-q24.jpg",
+      "bytes": 43309,
+      "sha256": "28cb38158447d89a098a957c833ae1cb9f86d5d672342b699e52da35150f6e6c"
+    },
+    {
+      "path": "assets/textbook-practice/manifest.json",
+      "bytes": 44860,
+      "sha256": "28b6a977f27fcfcc40af209fc0c34abaa69173878103874b2dc63cd086cc4a4b"
+    },
+    {
+      "path": "assets/textbook-practice/p366.jpg",
+      "bytes": 548462,
+      "sha256": "639637215a6d53c110ef9b55f83ba09119f26910dd90acde5b83d03fd6a953c6"
+    },
+    {
+      "path": "assets/textbook-practice/p367.jpg",
+      "bytes": 479180,
+      "sha256": "eaa69897e83b37dcf477f6eabc0574d7be7c1e8f92beb3265f2eeb89a74a97cb"
+    },
+    {
+      "path": "assets/textbook-practice/p369.jpg",
+      "bytes": 388963,
+      "sha256": "6df494144685e611d4d890a8ba241bedc0b8874d87033df745ea8f39b16d9753"
+    },
+    {
+      "path": "assets/textbook-practice/p370.jpg",
+      "bytes": 344152,
+      "sha256": "2e4344f55350c49834ed4ffa61298339fbbcb829946eef75cbe22738e6cd9669"
+    },
+    {
+      "path": "assets/textbook-practice/p371.jpg",
+      "bytes": 350205,
+      "sha256": "827db9addc3f31b9049f92733c262c2da66b06f5f7b70a2e0320fdf14f81132c"
+    },
+    {
+      "path": "assets/textbook-practice/p372.jpg",
+      "bytes": 577998,
+      "sha256": "f495ea0789ee1562ab32c6c413b13210e38a933c0c39858d5033a6a5cb43cd44"
+    },
+    {
+      "path": "assets/textbook-practice/p374.jpg",
+      "bytes": 501112,
+      "sha256": "5b4d98bea2ef301c43f52b6b4b83d35c7aa132ae05a293e2ad7181b55bfeeef3"
+    },
+    {
+      "path": "assets/textbook-practice/p375.jpg",
+      "bytes": 447962,
+      "sha256": "44ca46585f09ede504ca9bc27263ce66d8fc1d1ea138bd797ceaa8652a7ecc0d"
+    },
+    {
+      "path": "assets/textbook-practice/p376.jpg",
+      "bytes": 434683,
+      "sha256": "1608cd6a89560aa15025dd24fea77ff354767fc2aa8fbd8faa42bb82612c7c50"
+    },
+    {
+      "path": "assets/textbook-practice/p377.jpg",
+      "bytes": 517575,
+      "sha256": "f23c458a11185bfeef5bff6caabfab20f5e9adc76dfaf80752ac38fca7696c4f"
+    },
+    {
+      "path": "assets/textbook-practice/p378.jpg",
+      "bytes": 488150,
+      "sha256": "3b1ac47367d3b98c2d9bd112ed5b7ca1744acb21bedb2f12e170b373cadaa3ac"
+    },
+    {
+      "path": "assets/textbook-practice/p380.jpg",
+      "bytes": 448910,
+      "sha256": "6581dbb6b7387844a0077fc6dd2ecc4e9b4707f09f11e92d2466468f00a902d1"
+    },
+    {
+      "path": "assets/textbook-practice/p381.jpg",
+      "bytes": 478087,
+      "sha256": "1b7e3c16d3526a3fdb192660b21e6fb8b998c1357b997d6b9a9ea111200375b1"
+    },
+    {
+      "path": "assets/textbook-practice/p382.jpg",
+      "bytes": 507132,
+      "sha256": "c78544ba500c0e79e7444908f775c5d434f9ef3d5b5b5ba9e1810eb4ae014edd"
+    },
+    {
+      "path": "assets/textbook-practice/p383.jpg",
+      "bytes": 456300,
+      "sha256": "43fd73437d27843d81424f74f01decad72309aeccd639fd38f70ab3a6c1877c0"
+    },
+    {
+      "path": "assets/textbook-practice/p384.jpg",
+      "bytes": 341658,
+      "sha256": "5115c79ed18411f52af17ad24c502de89f13231f1bc33c1037ffac1eb5bba7d0"
+    },
+    {
+      "path": "assets/textbook-practice/p389.jpg",
+      "bytes": 587686,
+      "sha256": "95173a01568137e1b884d2d16789faf9b728dc9a9ecc40bf235ee80b9c09af03"
+    },
+    {
+      "path": "assets/textbook-practice/p390.jpg",
+      "bytes": 459325,
+      "sha256": "d83c85a8bf53a975345dda89f6a874904f0ff7a202480794d7f2e0d3a3d4dcc7"
+    },
+    {
+      "path": "assets/textbook-practice/p391.jpg",
+      "bytes": 433925,
+      "sha256": "f4723c10227145e064274730d0c5b298d4705466ff4a3aa29cb87fdc22e62943"
+    },
+    {
+      "path": "assets/textbook-practice/p392.jpg",
+      "bytes": 552593,
+      "sha256": "f3a4eb895815d53cd947f4035345032d3c375a9f43dffdf7a4876b4a2169dd1b"
+    },
+    {
+      "path": "assets/textbook-practice/p393.jpg",
+      "bytes": 425902,
+      "sha256": "527e7845779efa525929585977dad66964fa5eb13e181c24ac07dad81fef3fd6"
+    },
+    {
+      "path": "assets/textbook-practice/p394.jpg",
+      "bytes": 460236,
+      "sha256": "2de9a835d2d973ef8f152e5ed39f41c67e8c813cfb830f1df304256c57cc4980"
+    },
+    {
+      "path": "assets/textbook-practice/p395.jpg",
+      "bytes": 475364,
+      "sha256": "a993be0a9e9ddb6dee8648778d3df8fb677d5a937deb7a30741854e5bd897f31"
+    },
+    {
+      "path": "assets/textbook-practice/p396.jpg",
+      "bytes": 467763,
+      "sha256": "289bbe4d9ce7281eddce651e185a6ff1dffbde98b26d3f2d5923259855beab36"
+    },
+    {
+      "path": "assets/textbook-practice/p397.jpg",
+      "bytes": 516062,
+      "sha256": "5dde1814022620a5b3e23ba3d0a9282e3535797d14b369404cae6fbbba4a2e78"
+    },
+    {
+      "path": "assets/textbook-practice/p399.jpg",
+      "bytes": 400668,
+      "sha256": "042eb87accfc159ab0c9e45f9713ec5a3ffe662efc401df011d7d157d1fc9bb4"
+    },
+    {
+      "path": "assets/textbook-practice/p400.jpg",
+      "bytes": 606696,
+      "sha256": "bf7b53ea2a9fb29b5c5fa6606f5ef32e1b96d8e42f254b42acbf327232aa25f0"
+    },
+    {
+      "path": "assets/textbook-practice/p402.jpg",
+      "bytes": 486404,
+      "sha256": "4edb946d660ec7af984cd30084506cc2b14116899e652e4c79c8cdf48dd9e397"
+    },
+    {
+      "path": "assets/textbook-practice/p403.jpg",
+      "bytes": 543867,
+      "sha256": "c751e6a33446c27d7ce37503a93f7dcaae7cfb2224add358d27fcb58a138eb6e"
+    },
+    {
+      "path": "assets/textbook-practice.css",
+      "bytes": 14156,
+      "sha256": "4101415cce977a4a8553754a01cea3d33ad194add1198db00ddc0ba99bfeea12"
+    },
+    {
+      "path": "index.html",
+      "bytes": 1199579,
+      "sha256": "397fefe55bd9f67a42c31998ba0ceeb51ffe7605d67c71d2469dca87d95aabb0"
+    },
+    {
+      "path": "styles.css",
+      "bytes": 73361,
+      "sha256": "a45318415c43b025748aceb5a6d220de38c76f683ac027de84a7f689964bca55"
+    },
+    {
+      "path": "teaching-evaluation.css",
+      "bytes": 777,
+      "sha256": "35f5e5385568fb023d98faea44c72de280a757f0c725091450484c3d170879c6"
+    }
+  ],
+  "dependencyBindings": [
+    {
+      "path": "scripts/lib/biology30-vocabulary/word-frayer-state.ts",
+      "sha256": "14cf977a71d4d3740c22358cb7641c55296e862a0f8fd3010a671da65f20c745"
+    },
+    {
+      "path": "scripts/lib/biology30-vocabulary/word-record.ts",
+      "sha256": "2f3b77e8946d9a7eb505bbc28098c1075a0bbf5bae807046c37a01fe462c837f"
+    },
+    {
+      "path": "scripts/lib/biology30-vocabulary/word-reader.ts",
+      "sha256": "f3a83bfec64cfbe35f4919890dd3103a088627d787f26b2d139a38518c827c0c"
+    },
+    {
+      "path": "scripts/lib/biology30-vocabulary/word-frayer-runtime.ts",
+      "sha256": "bc5faa3eda06d19aafd0da9db4d440c52fae4057694725a9569d531d37ac8dd1"
+    },
+    {
+      "path": "scripts/lib/biology30-vocabulary/panel.ts",
+      "sha256": "828a7492c252725b7d49daee1f7b7467f9dec2aab02892e69e9361c73e2d4f20"
+    },
+    {
+      "path": "scripts/lib/biology30-chapters/brightspace-photo-store.js",
+      "sha256": "a5b306e7c54e156d7a32144359ab0640718804bb89dca9d2fd859cfcfb0a1550"
+    },
+    {
+      "path": "scripts/lib/biology30-chapters/textbook-practice.js",
+      "sha256": "5a1692cf5e977963dbe81ab92ec66e7a19ba207f2fa5f863c6c962d010e957d4"
+    },
+    {
+      "path": "scripts/lib/biology30-pilot3/practice-engine.ts",
+      "sha256": "b1781fc074d4738f4de8bef31403e94b9df65982b2ab1b227c2c758ded89a781"
+    }
+  ],
+  "lessons": [
+    {
+      "id": "lesson-01",
+      "manuscript": "responses/v2/CH11_Lesson01_Nervous_Communication_v2.md",
+      "manuscriptSha256": "e01af0992d99da796d13f3213ae4b62389dad1968c395dd56ac4eadd3ba56837",
+      "completeLearnerTextPreserved": true,
+      "required": [
+        {
+          "id": "source-checkpoint-1",
+          "writing": "source-checkpoint-1-written",
+          "limit": "3200"
+        },
+        {
+          "id": "source-checkpoint-2",
+          "writing": "source-checkpoint-2-written",
+          "limit": "3200"
+        },
+        {
+          "id": "source-checkpoint-3",
+          "writing": "source-checkpoint-3-written",
+          "limit": "3200"
+        }
+      ],
+      "reusedFigures": [],
+      "vocabularyButtons": 68
+    },
+    {
+      "id": "lesson-02",
+      "manuscript": "responses/v2/CH11_Lesson02_Neurons_Myelin_v2.md",
+      "manuscriptSha256": "cb5825fd0cb7e38ab1d8ac673d91e55a8f407e56165fbe3982399406fc18b2b9",
+      "completeLearnerTextPreserved": true,
+      "required": [
+        {
+          "id": "source-checkpoint-7",
+          "writing": "source-checkpoint-7-written",
+          "limit": "3200"
+        }
+      ],
+      "reusedFigures": [
+        "assets/source/integrated-neuron.png",
+        "assets/source/integrated-myelin.png"
+      ],
+      "vocabularyButtons": 83
+    },
+    {
+      "id": "lesson-03",
+      "manuscript": "responses/v2/CH11_Lesson03_Pathways_Reflexes_v2.md",
+      "manuscriptSha256": "bf81c2a2f5278f67694b149fcc276d582686fdafa638360606a09a6812427e50",
+      "completeLearnerTextPreserved": true,
+      "required": [
+        {
+          "id": "source-checkpoint-4",
+          "writing": "source-checkpoint-4-written",
+          "limit": "3200"
+        },
+        {
+          "id": "source-checkpoint-6",
+          "writing": "source-checkpoint-6-written",
+          "limit": "3200"
+        }
+      ],
+      "reusedFigures": [
+        "assets/source/integrated-withdrawal.svg"
+      ],
+      "vocabularyButtons": 91
+    }
+  ],
+  "nativeCssUnchanged": true,
+  "nativeRequiredProgressUnchanged": true,
+  "localSaveNamespace": "biology30-ch11:teaching-evaluation:2026-10-02:v2",
+  "generatedPracticeProjection": "biology30-ch11:teaching-evaluation:2026-10-02:v2:generated-practice-resume",
+  "lmsConnection": "disabled in this copy only",
+  "teacherAccepted": false,
+  "productionIntegrated": false,
+  "released": false,
+  "route": "deterministic snapshot and compile; Sol lead content mapping, trust boundary and save isolation; no worker",
+  "rebuild": "Initial output is exclusive. --refresh-generated first verifies every candidate file against its manifest and refuses teacher edits; choose a new candidate if a file has changed."
+}

@@ -1,0 +1,314 @@
+[
+  {
+    "id": "ch12-pre-v1-01-evidence",
+    "route": "lesson-01",
+    "title": "What can the two records establish?",
+    "stimulusHtml": "<p>The following records are hypothetical teaching cases, not measurements from a class or a medical test.</p><table><thead><tr><th>Record</th><th>Stimulus and observation</th></tr></thead><tbody><tr><td>A</td><td>An odour source is held constant. A recorded receptor response is larger at the start and smaller later, but remains present.</td></tr><tr><td>B</td><td>An odour source is held constant. A person reports noticing it less while reading. No receptor or nerve recording is supplied.</td></tr></tbody></table>",
+    "prompt": "Which record directly supports reduced receptor responsiveness? For each record, explain one conclusion the evidence supports and one conclusion it does not support.",
+    "hint": "Separate a recording of a receptor from a person’s report of awareness. Ask whether either record shows the stimulus disappearing.",
+    "model": "A directly supports reduced receptor responsiveness under a maintained stimulus, which fits sensory adaptation. Its remaining response also rules out the claim that the receptor has simply stopped all activity. It does not show whether the person notices the odour or how attention changes. B supports reduced reported awareness while the source remains constant. It does not locate the change in the receptor: adaptation and attention remain possible explanations. Neither record supports disappearance of the odour source.",
+    "criteria": [
+      "Uses the maintained stimulus in both records",
+      "Distinguishes receptor response from reported awareness",
+      "Identifies an evidence limit for both A and B"
+    ],
+    "feedback": "If you treated both records as proof of receptor failure, check what was actually measured. Reduced activity is not necessarily damage, and a report of reduced awareness is not a direct receptor measurement.",
+    "demand": "fresh evidence interpretation",
+    "optional": true,
+    "graded": false,
+    "status": "proposed inert manuscript; native implementation pending",
+    "placement": "after existing guided activity and before stop-check",
+    "controlSpecification": "SAVE_COMPARE_CONTRACT.md",
+    "proposedNativeBindings": {
+      "textareaId": "ch12-pre-v1-01-evidence",
+      "data-note-input": "ch12-pre-v1-01-evidence",
+      "data-note-status": "ch12-pre-v1-01-evidence",
+      "data-save-note": "ch12-pre-v1-01-evidence",
+      "C.notes": {
+        "id": "ch12-pre-v1-01-evidence",
+        "title": "What can the two records establish?"
+      },
+      "limit": 5000
+    },
+    "attemptMeaning": "Optional open response; saved writing is not auto-graded and notes do not certify immutable unaided first attempts",
+    "teachingPrerequisite": "manuscripts/lesson-01.md: explanation and worked reasoning before this proposed task"
+  },
+  {
+    "id": "ch12-pre-v1-02-optical-comparison",
+    "route": "lesson-02",
+    "title": "Compare two optical models",
+    "stimulusHtml": "<p>These are two hypothetical arrangements. In both, the pupil stays the same size, the retina is responsive, and the output pathway works.</p><table><thead><tr><th>Arrangement</th><th>Stated change</th></tr></thead><tbody><tr><td>A</td><td>The lens remains clear, but its shape produces an unfocused pattern on the retina.</td></tr><tr><td>B</td><td>The lens has the appropriate focusing shape, but cloudiness scatters light passing through it.</td></tr></tbody></table>",
+    "prompt": "Explain how each arrangement can reduce image quality even though the pupil and receptors work. Would making the pupil larger establish that either problem had been repaired? Justify your answer.",
+    "hint": "Give the lens two separate requirements: its optical shape and its transparency. Increased entry is not proof of restored focusing or transparency.",
+    "model": "A has a focusing problem: the lens is clear but does not bring the pattern into proper focus. B has a transmission problem: even the appropriate shape cannot prevent cloudiness from scattering light. A larger pupil changes the amount of entering light; that alone does not show that A now focuses correctly or that B has become clear. Retinal responsiveness is necessary but does not remove either upstream limitation.",
+    "criteria": [
+      "Separates focusing from clear transmission",
+      "Connects each stated change to retinal image quality",
+      "Does not claim pupil enlargement repairs the lens"
+    ],
+    "feedback": "If you wrote only “less light,” revisit A: a clear lens can pass light yet form a blurred image. Explain the spatial pattern as well as the amount of light.",
+    "demand": "fresh paired failure analysis",
+    "optional": true,
+    "graded": false,
+    "status": "proposed inert manuscript; native implementation pending",
+    "placement": "after existing guided activity and before stop-check",
+    "controlSpecification": "SAVE_COMPARE_CONTRACT.md",
+    "proposedNativeBindings": {
+      "textareaId": "ch12-pre-v1-02-optical-comparison",
+      "data-note-input": "ch12-pre-v1-02-optical-comparison",
+      "data-note-status": "ch12-pre-v1-02-optical-comparison",
+      "data-save-note": "ch12-pre-v1-02-optical-comparison",
+      "C.notes": {
+        "id": "ch12-pre-v1-02-optical-comparison",
+        "title": "Compare two optical models"
+      },
+      "limit": 5000
+    },
+    "attemptMeaning": "Optional open response; saved writing is not auto-graded and notes do not certify immutable unaided first attempts",
+    "teachingPrerequisite": "manuscripts/lesson-02.md: explanation and worked reasoning before this proposed task"
+  },
+  {
+    "id": "ch12-pre-v1-03-failed-step",
+    "route": "lesson-03",
+    "title": "Find the failed link",
+    "stimulusHtml": "<p>In this hypothetical model, an eye switches from a distant object to a near one. The ciliary muscle contracts and ligament tension decreases as expected, but the lens remains as flat as it was for distance. The transparent media, photoreceptors and optic nerve are stated to be functional.</p>",
+    "prompt": "Locate the first failed link in the accommodation chain. Predict the focusing consequence for the near object, and explain why a larger pupil or a normal optic nerve does not repair that link.",
+    "hint": "Follow the observed changes in order. Which expected change is specifically said not to occur?",
+    "model": "The first stated failure is that reduced ligament tension does not produce a rounder lens. The lens therefore lacks the increase in refractive power needed for the more-diverging near rays. In this simplified model, they would tend to meet behind the retina rather than on it, producing a blurred near image. A larger pupil changes light entry, not the missing lens-shape response. A normal optic nerve carries the available retinal information but cannot refocus the light beforehand. The case does not identify a disease or prove what caused the lens limitation.",
+    "criteria": [
+      "Locates failure after reduced tension and before increased curvature",
+      "Links flatter lens to insufficient near convergence",
+      "Separates optical failure from entry and neural transmission",
+      "Keeps diagnosis within the evidence"
+    ],
+    "feedback": "If you blamed a muscle that failed to contract, compare that claim with the supplied observation: it did contract. A causal explanation must retain the functioning links as well as identify the failed one.",
+    "demand": "changed-condition application",
+    "optional": true,
+    "graded": false,
+    "status": "proposed inert manuscript; native implementation pending",
+    "placement": "after existing guided activity and before stop-check",
+    "controlSpecification": "SAVE_COMPARE_CONTRACT.md",
+    "proposedNativeBindings": {
+      "textareaId": "ch12-pre-v1-03-failed-step",
+      "data-note-input": "ch12-pre-v1-03-failed-step",
+      "data-note-status": "ch12-pre-v1-03-failed-step",
+      "data-save-note": "ch12-pre-v1-03-failed-step",
+      "C.notes": {
+        "id": "ch12-pre-v1-03-failed-step",
+        "title": "Find the failed link"
+      },
+      "limit": 5000
+    },
+    "attemptMeaning": "Optional open response; saved writing is not auto-graded and notes do not certify immutable unaided first attempts",
+    "teachingPrerequisite": "manuscripts/lesson-03.md: explanation and worked reasoning before this proposed task"
+  },
+  {
+    "id": "ch12-pre-v1-04-signal-evidence",
+    "route": "lesson-04",
+    "title": "Read a response that becomes smaller",
+    "stimulusHtml": "<p>This hypothetical record describes one simplified retinal pathway. The numbers are arbitrary relative transmitter-release units, not measured human values.</p><table><thead><tr><th>Condition</th><th>Photoreceptor release</th><th>Ganglion-cell output in this particular pathway</th></tr></thead><tbody><tr><td>Before the light increase</td><td>100 units</td><td>A baseline pattern of action potentials</td></tr><tr><td>After the light increase</td><td>40 units</td><td>A changed frequency of action potentials; individual signal height stays the same</td></tr></tbody></table>",
+    "prompt": "A student says the smaller release proves that the photoreceptor detected less light, and that the optic nerve must carry smaller action potentials. Correct both inferences using the record. What could you not infer about every other retinal pathway?",
+    "hint": "Match the direction of the light change to the direction of the receptor response. Keep release amount, firing frequency and action-potential height separate.",
+    "model": "The stated light increase is followed by reduced photoreceptor release, consistent with light-induced hyperpolarization. Reduced release is the receptor response here, not evidence of reduced light detection. The record explicitly says ganglion-cell action-potential height is unchanged; the output pattern changes in frequency. The two observations concern different cells and different quantities. We cannot infer that every bipolar or ganglion pathway changes in the same direction because retinal circuits respond differently, and this record describes only one pathway.",
+    "criteria": [
+      "Uses the given light increase rather than reversing it",
+      "Explains a decrease in receptor release as a signal change",
+      "Separates receptor release from ganglion action-potential height",
+      "Limits the conclusion to the stated pathway"
+    ],
+    "feedback": "If you wrote “all neurons are inhibited,” return to the difference between the receptor and the receiving circuit. This record supplies a changed output, and the lesson does not give every circuit the same response rule.",
+    "demand": "fresh interpretation of a supplied cellular record",
+    "optional": true,
+    "graded": false,
+    "status": "proposed inert manuscript; native implementation pending",
+    "placement": "after existing guided activity and before stop-check",
+    "controlSpecification": "SAVE_COMPARE_CONTRACT.md",
+    "proposedNativeBindings": {
+      "textareaId": "ch12-pre-v1-04-signal-evidence",
+      "data-note-input": "ch12-pre-v1-04-signal-evidence",
+      "data-note-status": "ch12-pre-v1-04-signal-evidence",
+      "data-save-note": "ch12-pre-v1-04-signal-evidence",
+      "C.notes": {
+        "id": "ch12-pre-v1-04-signal-evidence",
+        "title": "Read a response that becomes smaller"
+      },
+      "limit": 5000
+    },
+    "attemptMeaning": "Optional open response; saved writing is not auto-graded and notes do not certify immutable unaided first attempts",
+    "teachingPrerequisite": "manuscripts/lesson-04.md: explanation and worked reasoning before this proposed task"
+  },
+  {
+    "id": "ch12-pre-v1-05-paired-failure",
+    "route": "lesson-05",
+    "title": "Compare input failure with conversion failure",
+    "stimulusHtml": "<p>These are hypothetical pathway records, not diagnostic test results. The same sound input is supplied in both.</p><table><thead><tr><th>Case</th><th>Given evidence</th></tr></thead><tbody><tr><td>A</td><td>Ossicle motion and subsequent cochlear motion are reduced. Hair cells can respond when suitable motion reaches them.</td></tr><tr><td>B</td><td>Suitable cochlear motion reaches the sensory apparatus, but damaged hair cells do not change their signaling normally.</td></tr></tbody></table>",
+    "prompt": "Identify the first stated limitation in each case and trace its consequence for auditory information. Explain why “the auditory nerve must be damaged” is not established by either record.",
+    "hint": "A weak later response can result from inadequate earlier input. Ask whether the evidence actually tests the nerve.",
+    "model": "In A, reduced mechanical conduction means less movement reaches otherwise responsive hair cells, so the receptor input can be reduced without receptor damage. In B, motion reaches the apparatus but the hair cells do not convert it normally into changes in signaling, so transduction is the stated limitation. Both can reduce useful information reaching the auditory nerve. Neither case establishes that nerve fibres are damaged; they may receive too little or abnormal receptor input. The evidence locates a limitation, but does not rule out every additional problem.",
+    "criteria": [
+      "Distinguishes conducting structures from sensory cells",
+      "Traces a next-step consequence in both cases",
+      "Does not infer nerve damage merely from reduced information"
+    ],
+    "feedback": "If you classified both cases as receptor damage, follow the explicit evidence in A: its hair cells can respond. The question concerns where the chain first fails, not simply whether the person hears poorly.",
+    "demand": "fresh paired causal failure comparison",
+    "optional": true,
+    "graded": false,
+    "status": "proposed inert manuscript; native implementation pending",
+    "placement": "after existing guided activity and before stop-check",
+    "controlSpecification": "SAVE_COMPARE_CONTRACT.md",
+    "proposedNativeBindings": {
+      "textareaId": "ch12-pre-v1-05-paired-failure",
+      "data-note-input": "ch12-pre-v1-05-paired-failure",
+      "data-note-status": "ch12-pre-v1-05-paired-failure",
+      "data-save-note": "ch12-pre-v1-05-paired-failure",
+      "C.notes": {
+        "id": "ch12-pre-v1-05-paired-failure",
+        "title": "Compare input failure with conversion failure"
+      },
+      "limit": 5000
+    },
+    "attemptMeaning": "Optional open response; saved writing is not auto-graded and notes do not certify immutable unaided first attempts",
+    "teachingPrerequisite": "manuscripts/lesson-05.md: explanation and worked reasoning before this proposed task"
+  },
+  {
+    "id": "ch12-pre-v1-06-place-evidence",
+    "route": "lesson-06",
+    "title": "Use the location before choosing an explanation",
+    "stimulusHtml": "<p>In a hypothetical cochlear model, the region near the apex has damaged hair cells while basal hair cells remain responsive. Assume the outer and middle ear conduct sound normally and the remaining neural pathway functions. Tone X has a low frequency and tone Y a higher frequency. They are supplied at comparable, safe model input levels; no listening test is required.</p>",
+    "prompt": "Which tone is more likely to lose useful receptor information in this model? Trace the reason from frequency through peak-motion location to neural input. Would amplifying both tones prove that missing receptor function was restored?",
+    "hint": "Use the base-to-apex location strip. Distinguish a change in acoustic input from replacement of damaged cells.",
+    "model": "The low-frequency tone X is more likely to lose useful receptor information because its strongest basilar-membrane motion is toward the damaged apical region. Tone Y is associated more strongly with the responsive basal region in this simplified comparison. Amplification changes input strength; it does not restore absent hair cells. Surviving function could still contribute, so the case does not establish the exact degree of hearing or guarantee that no amplification could help. The prediction is tied to the stated regional damage, not a diagnosis from a tone alone.",
+    "criteria": [
+      "Connects low frequency with the apex",
+      "Follows motion to receptor change to neural information",
+      "Separates amplification from cell restoration",
+      "Acknowledges surviving function and model limits"
+    ],
+    "feedback": "If you chose Y only because it is “higher,” locate high frequency anatomically. Higher pitch is associated with the basal region, not the screen position or the amount of damage.",
+    "demand": "fresh spatial failure prediction",
+    "optional": true,
+    "graded": false,
+    "status": "proposed inert manuscript; native implementation pending",
+    "placement": "after existing guided activity and before stop-check",
+    "controlSpecification": "SAVE_COMPARE_CONTRACT.md",
+    "proposedNativeBindings": {
+      "textareaId": "ch12-pre-v1-06-place-evidence",
+      "data-note-input": "ch12-pre-v1-06-place-evidence",
+      "data-note-status": "ch12-pre-v1-06-place-evidence",
+      "data-save-note": "ch12-pre-v1-06-place-evidence",
+      "C.notes": {
+        "id": "ch12-pre-v1-06-place-evidence",
+        "title": "Use the location before choosing an explanation"
+      },
+      "limit": 5000
+    },
+    "attemptMeaning": "Optional open response; saved writing is not auto-graded and notes do not certify immutable unaided first attempts",
+    "teachingPrerequisite": "manuscripts/lesson-06.md: explanation and worked reasoning before this proposed task"
+  },
+  {
+    "id": "ch12-pre-v1-07-time-record",
+    "route": "lesson-07",
+    "title": "Do the words moving and accelerating mean the same thing?",
+    "stimulusHtml": "<p>This is a hypothetical timeline. The passenger faces forward with the same head orientation throughout, and the elevator never rotates.</p><table><thead><tr><th>Interval</th><th>Stated movement</th></tr></thead><tbody><tr><td>A</td><td>The elevator increases its upward speed</td></tr><tr><td>B</td><td>It continues upward at a steady speed in a straight line</td></tr><tr><td>C</td><td>It slows while still travelling upward</td></tr></tbody></table>",
+    "prompt": "Compare the changing-motion stimulus in A, B and C. Which otolith organ is especially relevant? Explain why B does not imply that gravity or all vestibular signaling disappears, and why C need not involve head rotation.",
+    "hint": "A change in speed can be positive or negative while travel remains in the same direction. Keep acceleration separate from head orientation relative to gravity.",
+    "model": "A has upward acceleration because upward speed increases. B has no additional straight-line acceleration from a change of speed, although gravity continues to act on the weighted membrane. C has acceleration opposite the upward motion because speed decreases; it is still a straight-line change. The saccule is especially relevant to these vertical acceleration changes. None requires canal rotation, and absence of an extra acceleration in B is not absence of gravity or of all vestibular information.",
+    "criteria": [
+      "Identifies speed increase, steady speed and slowing separately",
+      "Names the saccule for vertical acceleration",
+      "Keeps gravity-related information in B",
+      "Does not equate slowing with rotation"
+    ],
+    "feedback": "If you put all three intervals in one category because the elevator travels upward, look at what changes between moments. The direction of travel alone does not identify acceleration.",
+    "demand": "fresh time-dependent motion interpretation",
+    "optional": true,
+    "graded": false,
+    "status": "proposed inert manuscript; native implementation pending",
+    "placement": "after existing guided activity and before stop-check",
+    "controlSpecification": "SAVE_COMPARE_CONTRACT.md",
+    "proposedNativeBindings": {
+      "textareaId": "ch12-pre-v1-07-time-record",
+      "data-note-input": "ch12-pre-v1-07-time-record",
+      "data-note-status": "ch12-pre-v1-07-time-record",
+      "data-save-note": "ch12-pre-v1-07-time-record",
+      "C.notes": {
+        "id": "ch12-pre-v1-07-time-record",
+        "title": "Do the words moving and accelerating mean the same thing?"
+      },
+      "limit": 5000
+    },
+    "attemptMeaning": "Optional open response; saved writing is not auto-graded and notes do not certify immutable unaided first attempts",
+    "teachingPrerequisite": "manuscripts/lesson-07.md: explanation and worked reasoning before this proposed task"
+  },
+  {
+    "id": "ch12-pre-v1-08-response-bias",
+    "route": "lesson-08",
+    "title": "Does a high success count settle the question?",
+    "stimulusHtml": "<p>These invented records illustrate a design issue. Each trial allows only one of two responses, “one” or “two”; no other response is possible. They are not actual measurements and no physical test should be carried out.</p><table><thead><tr><th>Supplied trial type</th><th>Number of trials</th><th>Correct reports</th></tr></thead><tbody><tr><td>One contact</td><td>20</td><td>3 reports of one</td></tr><tr><td>Two nearby contacts</td><td>20</td><td>18 reports of two</td></tr></tbody></table><p>A researcher claims that 18 correct reports prove very fine spatial discrimination.</p>",
+    "prompt": "Evaluate the claim using both rows. Explain a plausible alternative to excellent discrimination, and identify what a better record would need to establish before you attributed the result to receptive-field size.",
+    "hint": "If only 3 of the one-contact trials were reported correctly, what was reported on the other 17? Does the participant tend to give the same response?",
+    "model": "On 17 of 20 one-contact trials the report was incorrect. Together with 18 reports of two on two-contact trials, this suggests a tendency to answer “two,” which could explain the apparent success without accurate discrimination. The record does not prove the reason for that tendency, but it defeats the claim that the two-contact row alone establishes fine precision. A better record needs reliable distinction across both trial types, clear separation distances and consistent procedures, with repeated observations. Even then, performance alone would not measure receptive-field size directly; receptor organization and processing are possible contributors.",
+    "criteria": [
+      "Uses both 3/20 and 18/20 rather than selecting one row",
+      "Offers a response tendency as an alternative, not a proven diagnosis",
+      "Specifies the missing evidence for a discrimination claim",
+      "Avoids treating behavior as a direct receptor-size measurement"
+    ],
+    "feedback": "If you counted only correct two-contact trials, the one-contact condition is the recovery check. It asks whether the same answer is being given even when two contacts are absent.",
+    "demand": "fresh evaluation of conflicting supplied evidence",
+    "optional": true,
+    "graded": false,
+    "status": "proposed inert manuscript; native implementation pending",
+    "placement": "after existing guided activity and before stop-check",
+    "controlSpecification": "SAVE_COMPARE_CONTRACT.md",
+    "proposedNativeBindings": {
+      "textareaId": "ch12-pre-v1-08-response-bias",
+      "data-note-input": "ch12-pre-v1-08-response-bias",
+      "data-note-status": "ch12-pre-v1-08-response-bias",
+      "data-save-note": "ch12-pre-v1-08-response-bias",
+      "C.notes": {
+        "id": "ch12-pre-v1-08-response-bias",
+        "title": "Does a high success count settle the question?"
+      },
+      "limit": 5000
+    },
+    "attemptMeaning": "Optional open response; saved writing is not auto-graded and notes do not certify immutable unaided first attempts",
+    "teachingPrerequisite": "manuscripts/lesson-08.md: explanation and worked reasoning before this proposed task"
+  },
+  {
+    "id": "ch12-pre-v1-09-intervention",
+    "route": "lesson-09",
+    "title": "Use a selective improvement as evidence",
+    "stimulusHtml": "<p>These hypothetical records describe changes made to models, not treatment results. All unstated conditions are held constant for the comparison.</p><table><thead><tr><th>Record</th><th>Before</th><th>After a stated change</th></tr></thead><tbody><tr><td>Vision model</td><td>Near and far targets are blurred through a cloudy lens</td><td>The lens becomes clear with its focusing shape otherwise unchanged; the far target becomes sharp, but the near target remains blurred</td></tr><tr><td>Hearing model</td><td>Mechanical input is weak and the neural response is reduced</td><td>Mechanical input to the cochlea is restored; hair cells still fail to change signaling normally</td></tr></tbody></table>",
+    "prompt": "For each record, explain what improved or was restored, what limitation remains, and why the result does not show that every part of the sensory pathway is now normal. Identify one additional observation that would help locate the remaining limitation without assuming a diagnosis.",
+    "hint": "A successful change can isolate one contribution without resolving another. In the vision case, separate clear transmission from adjustment for near focus; in the hearing case, separate movement from transduction.",
+    "model": "In the vision model, clearer transmission supports the improved far image, but persistent near blur indicates that transparency alone did not solve the near-focus demand. Observing the muscle–ligament–lens response while the model attempts to focus from far to near would test whether accommodation is working and help locate any failure. The record alone does not identify a failed accommodation link or its cause. In the hearing model, restored mechanical input does not restore normal hair-cell signaling, so a receptor-conversion limitation remains. Evidence of auditory-nerve responsiveness would help separate that known receptor problem from an additional neural limitation. Improvement at one stage is evidence about that stage, not proof of complete pathway function.",
+    "criteria": [
+      "Uses the before-and-after change in each record",
+      "Distinguishes transparency/accommodation and conduction/transduction",
+      "Names a relevant missing observation for each case",
+      "Avoids claiming complete restoration or an unsupported diagnosis"
+    ],
+    "feedback": "If you concluded that a successful intervention proves a normal system, look at the stated residual failure. Causal chains can contain more than one limitation, and a partial improvement can make the remaining one easier to identify.",
+    "demand": "fresh cross-system inference from selective changes",
+    "optional": true,
+    "graded": false,
+    "status": "proposed inert manuscript; native implementation pending",
+    "placement": "after original whole-set transfer and before original worked-method reminder",
+    "controlSpecification": "SAVE_COMPARE_CONTRACT.md",
+    "proposedNativeBindings": {
+      "textareaId": "ch12-pre-v1-09-intervention",
+      "data-note-input": "ch12-pre-v1-09-intervention",
+      "data-note-status": "ch12-pre-v1-09-intervention",
+      "data-save-note": "ch12-pre-v1-09-intervention",
+      "C.notes": {
+        "id": "ch12-pre-v1-09-intervention",
+        "title": "Use a selective improvement as evidence"
+      },
+      "limit": 5000
+    },
+    "attemptMeaning": "Optional open response; saved writing is not auto-graded and notes do not certify immutable unaided first attempts",
+    "teachingPrerequisite": "manuscripts/lesson-09.md: explanation and worked reasoning before this proposed task"
+  }
+]

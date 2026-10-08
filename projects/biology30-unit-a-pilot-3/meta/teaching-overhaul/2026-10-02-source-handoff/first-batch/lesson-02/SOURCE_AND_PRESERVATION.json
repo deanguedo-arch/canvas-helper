@@ -1,0 +1,2921 @@
+{
+  "lessonId": "lesson-02",
+  "title": "Neurons & myelin",
+  "locator": {
+    "path": "projects/biology30-unit-a-pilot-3/workspace/index.html",
+    "selector": "#lesson-02",
+    "startLine": 369,
+    "endLine": 518,
+    "startOffset": 35532,
+    "endOffset": 53681,
+    "offsetUnit": "JavaScript UTF-16 code units",
+    "fragmentSha256": "0ea84201a6ae183b7a3bb4ecdceb98c24b3703b5ad5999525a0d5d082bb57643"
+  },
+  "currentHtml": "chapter11-lessons/lesson-02/current-exact.html",
+  "completeReadableCopy": "chapter11-lessons/lesson-02/current-complete.md",
+  "chapterTextbook": "sources/original/chapter-11.pdf",
+  "printedPageOffset": 359,
+  "textbookLinks": [
+    {
+      "pdfPage": 13,
+      "text": "Open at p. 372",
+      "line": 397,
+      "printedPage": 372,
+      "textExtract": "sources/extracted/chapter11-textbook/pdf-page-013.txt"
+    },
+    {
+      "pdfPage": 13,
+      "text": "Textbook p. 372",
+      "line": 425,
+      "printedPage": 372,
+      "textExtract": "sources/extracted/chapter11-textbook/pdf-page-013.txt"
+    },
+    {
+      "pdfPage": 13,
+      "text": "Textbook p. 372",
+      "line": 499,
+      "printedPage": 372,
+      "textExtract": "sources/extracted/chapter11-textbook/pdf-page-013.txt"
+    }
+  ],
+  "teacherSlides": [
+    {
+      "slide": 7,
+      "textPath": "sources/extracted/chapter11-teacher-deck/slide-007.md",
+      "media": [
+        {
+          "id": "rId3",
+          "type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/image",
+          "target": "ppt/media/image11.png",
+          "external": false,
+          "packageMediaPath": "sources/teacher-deck-media/image11.png"
+        }
+      ]
+    },
+    {
+      "slide": 8,
+      "textPath": "sources/extracted/chapter11-teacher-deck/slide-008.md",
+      "media": [
+        {
+          "id": "rId3",
+          "type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/image",
+          "target": "ppt/media/image21.png",
+          "external": false,
+          "packageMediaPath": "sources/teacher-deck-media/image21.png"
+        },
+        {
+          "id": "rId4",
+          "type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/image",
+          "target": "ppt/media/image16.png",
+          "external": false,
+          "packageMediaPath": "sources/teacher-deck-media/image16.png"
+        }
+      ]
+    },
+    {
+      "slide": 9,
+      "textPath": "sources/extracted/chapter11-teacher-deck/slide-009.md",
+      "media": [
+        {
+          "id": "rId3",
+          "type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/image",
+          "target": "ppt/media/image3.png",
+          "external": false,
+          "packageMediaPath": "sources/teacher-deck-media/image3.png"
+        }
+      ]
+    },
+    {
+      "slide": 10,
+      "textPath": "sources/extracted/chapter11-teacher-deck/slide-010.md",
+      "media": [
+        {
+          "id": "rId3",
+          "type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/image",
+          "target": "ppt/media/image3.png",
+          "external": false,
+          "packageMediaPath": "sources/teacher-deck-media/image3.png"
+        }
+      ]
+    },
+    {
+      "slide": 11,
+      "textPath": "sources/extracted/chapter11-teacher-deck/slide-011.md",
+      "media": [
+        {
+          "id": "rId4",
+          "type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/image",
+          "target": "ppt/media/image4.jpg",
+          "external": false,
+          "packageMediaPath": "sources/teacher-deck-media/image4.jpg"
+        }
+      ]
+    },
+    {
+      "slide": 12,
+      "textPath": "sources/extracted/chapter11-teacher-deck/slide-012.md",
+      "media": [
+        {
+          "id": "rId3",
+          "type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/image",
+          "target": "ppt/media/image12.png",
+          "external": false,
+          "packageMediaPath": "sources/teacher-deck-media/image12.png"
+        }
+      ]
+    },
+    {
+      "slide": 13,
+      "textPath": "sources/extracted/chapter11-teacher-deck/slide-013.md",
+      "media": [
+        {
+          "id": "rId3",
+          "type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/image",
+          "target": "ppt/media/image23.gif",
+          "external": false,
+          "packageMediaPath": "sources/teacher-deck-media/image23.gif"
+        }
+      ]
+    }
+  ],
+  "mappingStatus": "Lead topic-based source locator from inspected slide titles/text; not teacher-certified outcome coverage. Consult full deck when context is needed.",
+  "caveat": null,
+  "questions": [
+    {
+      "id": "source-checkpoint-7",
+      "activityId": "practice-neuron-structure",
+      "lessonId": "lesson-02",
+      "attrs": {
+        "class": "question",
+        "data-question": "source-checkpoint-7"
+      },
+      "originalHtml": "<div class=\"question\" data-question=\"source-checkpoint-7\">\n<p data-canvas-helper-edit-key=\"p3-chapter-67\">\nDraw a neuron, label its basic structures, and identify their functions. </p>\n<p data-canvas-helper-edit-key=\"p3-chapter-68\">\n<a href=\"#textbook-library\" data-book-page=\"13\" data-canvas-helper-edit-key=\"p3-chapter-69\">Textbook p. 372</a>\n</p>\n<label for=\"source-checkpoint-7-written\" data-canvas-helper-edit-key=\"p3-chapter-70\">Written response</label>\n<textarea id=\"source-checkpoint-7-written\" data-writing=\"source-checkpoint-7-written\" data-answer-limit=\"3200\" rows=\"6\" aria-describedby=\"source-checkpoint-7-written-limit source-checkpoint-7-written-status\"></textarea>\n<p id=\"source-checkpoint-7-written-limit\" class=\"muted\" data-canvas-helper-edit-key=\"p3-chapter-71\">Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded.</p>\n<button type=\"button\" data-submit-writing=\"\" data-canvas-helper-edit-key=\"p3-chapter-72\">Save written response</button>\n<p data-writing-status=\"\" id=\"source-checkpoint-7-written-status\" role=\"status\" data-canvas-helper-edit-key=\"p3-chapter-73\">\n</p>\n</div>",
+      "completeText": "Draw a neuron, label its basic structures, and identify their functions. Textbook p. 372 Written response Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded. Save written response",
+      "locator": {
+        "path": "projects/biology30-unit-a-pilot-3/workspace/index.html",
+        "line": 495,
+        "endLine": 507
+      },
+      "answerFields": [
+        {
+          "tag": "textarea",
+          "attrs": {
+            "id": "source-checkpoint-7-written",
+            "data-writing": "source-checkpoint-7-written",
+            "data-answer-limit": "3200",
+            "rows": "6",
+            "aria-describedby": "source-checkpoint-7-written-limit source-checkpoint-7-written-status"
+          },
+          "text": ""
+        }
+      ],
+      "authoredKey": null
+    }
+  ],
+  "optionalGeneratedPractice": [
+    {
+      "id": "neuron-parts",
+      "lessonId": "lesson-02",
+      "term": "neuron structure",
+      "definition": "dendrites receive, the cell body maintains the cell, and the axon carries signals away",
+      "scenario": "Damage to an axon can interrupt output from an otherwise intact cell body.",
+      "misconception": "Dendrites normally carry impulses away from the cell body.",
+      "sequence": [
+        "dendrites",
+        "cell body",
+        "axon",
+        "axon terminals"
+      ],
+      "answers": [
+        "neuron structure"
+      ],
+      "aliases": [],
+      "relationships": [
+        "dendrites",
+        "cell body",
+        "axon",
+        "axon terminals"
+      ],
+      "contrast": [
+        "dendrites receive, the cell body maintains the cell, and the axon carries signals away",
+        "Dendrites normally carry impulses away from the cell body."
+      ],
+      "cue": "Trace where neuron structure belongs in the lesson mechanism or example.",
+      "explanation": "neuron structure: dendrites receive, the cell body maintains the cell, and the axon carries signals away",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 372"
+      ],
+      "mcVariants": [
+        {
+          "id": "term",
+          "skill": "recognize",
+          "difficulty": 1,
+          "prompt": "Which term best matches this description: dendrites receive, the cell body maintains the cell, and the axon carries signals away?",
+          "answer": "neuron structure",
+          "optionSource": "terms"
+        },
+        {
+          "id": "function",
+          "skill": "relate",
+          "difficulty": 2,
+          "prompt": "Which statement best describes neuron structure?",
+          "answer": "dendrites receive, the cell body maintains the cell, and the axon carries signals away",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "scenario",
+          "skill": "apply",
+          "difficulty": 3,
+          "prompt": "Which concept best explains this situation? Damage to an axon can interrupt output from an otherwise intact cell body.",
+          "answer": "neuron structure",
+          "optionSource": "terms"
+        },
+        {
+          "id": "correction",
+          "skill": "misconception",
+          "difficulty": 3,
+          "prompt": "Which statement correctly replaces this inaccurate idea: “Dendrites normally carry impulses away from the cell body.”",
+          "answer": "dendrites receive, the cell body maintains the cell, and the axon carries signals away",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "sequence-start",
+          "skill": "sequence",
+          "difficulty": 1,
+          "prompt": "Which event begins the neuron structure sequence?",
+          "answer": "dendrites",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-next",
+          "skill": "sequence",
+          "difficulty": 2,
+          "prompt": "In the neuron structure sequence, what follows dendrites?",
+          "answer": "cell body",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-end",
+          "skill": "integrate",
+          "difficulty": 4,
+          "prompt": "Which event completes the neuron structure sequence?",
+          "answer": "axon terminals",
+          "optionSource": "sequence"
+        }
+      ]
+    },
+    {
+      "id": "myelin",
+      "lessonId": "lesson-02",
+      "term": "myelin sheath",
+      "definition": "insulation around many axons that speeds conduction",
+      "scenario": "Loss of myelin can slow or disrupt communication along an axon.",
+      "misconception": "Myelin is the electrical signal inside an axon.",
+      "sequence": [
+        "axon",
+        "myelin segment",
+        "node of Ranvier",
+        "next myelin segment"
+      ],
+      "answers": [
+        "myelin sheath"
+      ],
+      "aliases": [],
+      "relationships": [
+        "axon",
+        "myelin segment",
+        "node of Ranvier",
+        "next myelin segment"
+      ],
+      "contrast": [
+        "insulation around many axons that speeds conduction",
+        "Myelin is the electrical signal inside an axon."
+      ],
+      "cue": "Trace where myelin sheath belongs in the lesson mechanism or example.",
+      "explanation": "myelin sheath: insulation around many axons that speeds conduction",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 372"
+      ],
+      "mcVariants": [
+        {
+          "id": "term",
+          "skill": "recognize",
+          "difficulty": 1,
+          "prompt": "Which term best matches this description: insulation around many axons that speeds conduction?",
+          "answer": "myelin sheath",
+          "optionSource": "terms"
+        },
+        {
+          "id": "function",
+          "skill": "relate",
+          "difficulty": 2,
+          "prompt": "Which statement best describes myelin sheath?",
+          "answer": "insulation around many axons that speeds conduction",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "scenario",
+          "skill": "apply",
+          "difficulty": 3,
+          "prompt": "Which concept best explains this situation? Loss of myelin can slow or disrupt communication along an axon.",
+          "answer": "myelin sheath",
+          "optionSource": "terms"
+        },
+        {
+          "id": "correction",
+          "skill": "misconception",
+          "difficulty": 3,
+          "prompt": "Which statement correctly replaces this inaccurate idea: “Myelin is the electrical signal inside an axon.”",
+          "answer": "insulation around many axons that speeds conduction",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "sequence-start",
+          "skill": "sequence",
+          "difficulty": 1,
+          "prompt": "Which event begins the myelin sheath sequence?",
+          "answer": "axon",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-next",
+          "skill": "sequence",
+          "difficulty": 2,
+          "prompt": "In the myelin sheath sequence, what follows axon?",
+          "answer": "myelin segment",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-end",
+          "skill": "integrate",
+          "difficulty": 4,
+          "prompt": "Which event completes the myelin sheath sequence?",
+          "answer": "next myelin segment",
+          "optionSource": "sequence"
+        }
+      ]
+    },
+    {
+      "id": "cell-body",
+      "lessonId": "lesson-02",
+      "term": "cell body",
+      "definition": "the neuron region containing the nucleus and most organelles",
+      "scenario": "A neuron still needs its cell body to maintain cellular functions.",
+      "misconception": "The cell body is the gap between myelin segments.",
+      "sequence": [
+        "dendrite",
+        "cell body",
+        "axon"
+      ],
+      "answers": [
+        "cell body"
+      ],
+      "aliases": [],
+      "relationships": [
+        "dendrite",
+        "cell body",
+        "axon"
+      ],
+      "contrast": [
+        "the neuron region containing the nucleus and most organelles",
+        "The cell body is the gap between myelin segments."
+      ],
+      "cue": "Trace where cell body belongs in the lesson mechanism or example.",
+      "explanation": "cell body: the neuron region containing the nucleus and most organelles",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 372"
+      ],
+      "mcVariants": [
+        {
+          "id": "term",
+          "skill": "recognize",
+          "difficulty": 1,
+          "prompt": "Which term best matches this description: the neuron region containing the nucleus and most organelles?",
+          "answer": "cell body",
+          "optionSource": "terms"
+        },
+        {
+          "id": "function",
+          "skill": "relate",
+          "difficulty": 2,
+          "prompt": "Which statement best describes cell body?",
+          "answer": "the neuron region containing the nucleus and most organelles",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "scenario",
+          "skill": "apply",
+          "difficulty": 3,
+          "prompt": "Which concept best explains this situation? A neuron still needs its cell body to maintain cellular functions.",
+          "answer": "cell body",
+          "optionSource": "terms"
+        },
+        {
+          "id": "correction",
+          "skill": "misconception",
+          "difficulty": 3,
+          "prompt": "Which statement correctly replaces this inaccurate idea: “The cell body is the gap between myelin segments.”",
+          "answer": "the neuron region containing the nucleus and most organelles",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "sequence-start",
+          "skill": "sequence",
+          "difficulty": 1,
+          "prompt": "Which event begins the cell body sequence?",
+          "answer": "dendrite",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-next",
+          "skill": "sequence",
+          "difficulty": 2,
+          "prompt": "In the cell body sequence, what follows dendrite?",
+          "answer": "cell body",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-end",
+          "skill": "integrate",
+          "difficulty": 4,
+          "prompt": "Which event completes the cell body sequence?",
+          "answer": "axon",
+          "optionSource": "sequence"
+        }
+      ]
+    }
+  ],
+  "generatedItemFamilies": [
+    {
+      "kind": "flashcards",
+      "conceptId": "neuron-parts",
+      "lessonId": "lesson-02",
+      "cue": "Trace where neuron structure belongs in the lesson mechanism or example.",
+      "explanation": "neuron structure: dendrites receive, the cell body maintains the cell, and the axon carries signals away Source: Biology 30 Chapter 11, textbook p. 372",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 372"
+      ],
+      "id": "neuron-parts:card-term",
+      "family": "recall",
+      "interaction": "flashcard",
+      "skill": "recall",
+      "prompt": "neuron structure",
+      "answers": [
+        "dendrites receive, the cell body maintains the cell, and the axon carries signals away"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "flashcards",
+      "conceptId": "neuron-parts",
+      "lessonId": "lesson-02",
+      "cue": "Trace where neuron structure belongs in the lesson mechanism or example.",
+      "explanation": "neuron structure: dendrites receive, the cell body maintains the cell, and the axon carries signals away Source: Biology 30 Chapter 11, textbook p. 372",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 372"
+      ],
+      "id": "neuron-parts:card-definition",
+      "family": "reverse-retrieval",
+      "interaction": "flashcard",
+      "skill": "recall",
+      "prompt": "dendrites receive, the cell body maintains the cell, and the axon carries signals away",
+      "answers": [
+        "neuron structure"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "flashcards",
+      "conceptId": "neuron-parts",
+      "lessonId": "lesson-02",
+      "cue": "Trace where neuron structure belongs in the lesson mechanism or example.",
+      "explanation": "neuron structure: dendrites receive, the cell body maintains the cell, and the axon carries signals away Source: Biology 30 Chapter 11, textbook p. 372",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 372"
+      ],
+      "id": "neuron-parts:card-scenario",
+      "family": "application",
+      "interaction": "flashcard",
+      "skill": "application",
+      "prompt": "Damage to an axon can interrupt output from an otherwise intact cell body.",
+      "answers": [
+        "neuron structure — dendrites receive, the cell body maintains the cell, and the axon carries signals away"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "flashcards",
+      "conceptId": "neuron-parts",
+      "lessonId": "lesson-02",
+      "cue": "Trace where neuron structure belongs in the lesson mechanism or example.",
+      "explanation": "neuron structure: dendrites receive, the cell body maintains the cell, and the axon carries signals away Source: Biology 30 Chapter 11, textbook p. 372",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 372"
+      ],
+      "id": "neuron-parts:card-error",
+      "family": "error-correction",
+      "interaction": "flashcard",
+      "skill": "error-correction",
+      "prompt": "Correct this idea: Dendrites normally carry impulses away from the cell body.",
+      "answers": [
+        "dendrites receive, the cell body maintains the cell, and the axon carries signals away"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "blanks",
+      "conceptId": "neuron-parts",
+      "lessonId": "lesson-02",
+      "cue": "Trace where neuron structure belongs in the lesson mechanism or example.",
+      "explanation": "neuron structure: dendrites receive, the cell body maintains the cell, and the axon carries signals away Source: Biology 30 Chapter 11, textbook p. 372",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 372"
+      ],
+      "id": "neuron-parts:blank-definition",
+      "family": "definition",
+      "interaction": "typed",
+      "skill": "recall",
+      "prompt": "The term for “dendrites receive, the cell body maintains the cell, and the axon carries signals away” is _____.",
+      "answers": [
+        "neuron structure"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "blanks",
+      "conceptId": "neuron-parts",
+      "lessonId": "lesson-02",
+      "cue": "Trace where neuron structure belongs in the lesson mechanism or example.",
+      "explanation": "neuron structure: dendrites receive, the cell body maintains the cell, and the axon carries signals away Source: Biology 30 Chapter 11, textbook p. 372",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 372"
+      ],
+      "id": "neuron-parts:blank-scenario",
+      "family": "scenario",
+      "interaction": "typed",
+      "skill": "application",
+      "prompt": "This situation illustrates _____: Damage to an axon can interrupt output from an otherwise intact cell body.",
+      "answers": [
+        "neuron structure"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "blanks",
+      "conceptId": "neuron-parts",
+      "lessonId": "lesson-02",
+      "cue": "Trace where neuron structure belongs in the lesson mechanism or example.",
+      "explanation": "neuron structure: dendrites receive, the cell body maintains the cell, and the axon carries signals away Source: Biology 30 Chapter 11, textbook p. 372",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 372"
+      ],
+      "id": "neuron-parts:blank-sequence",
+      "family": "pathway",
+      "interaction": "typed",
+      "skill": "sequencing",
+      "prompt": "Complete the pathway: dendrites → cell body → axon → _____.",
+      "answers": [
+        "axon terminals"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "neuron-parts",
+      "lessonId": "lesson-02",
+      "cue": "Trace where neuron structure belongs in the lesson mechanism or example.",
+      "explanation": "neuron structure: dendrites receive, the cell body maintains the cell, and the axon carries signals away Source: Biology 30 Chapter 11, textbook p. 372",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 372"
+      ],
+      "id": "neuron-parts:mc-term",
+      "family": "recognize",
+      "interaction": "single",
+      "skill": "recognize",
+      "difficulty": 1,
+      "prompt": "Which term best matches this description: dendrites receive, the cell body maintains the cell, and the axon carries signals away?",
+      "answers": [
+        "neuron structure"
+      ],
+      "options": [
+        "axon terminals",
+        "dendrites",
+        "cell body",
+        "neuron structure"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "neuron-parts",
+      "lessonId": "lesson-02",
+      "cue": "Trace where neuron structure belongs in the lesson mechanism or example.",
+      "explanation": "neuron structure: dendrites receive, the cell body maintains the cell, and the axon carries signals away Source: Biology 30 Chapter 11, textbook p. 372",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 372"
+      ],
+      "id": "neuron-parts:mc-function",
+      "family": "relate",
+      "interaction": "single",
+      "skill": "relate",
+      "difficulty": 2,
+      "prompt": "Which statement best describes neuron structure?",
+      "answers": [
+        "dendrites receive, the cell body maintains the cell, and the axon carries signals away"
+      ],
+      "options": [
+        "the neuron region containing the nucleus and most organelles",
+        "insulation around many axons that speeds conduction",
+        "Dendrites normally carry impulses away from the cell body.",
+        "dendrites receive, the cell body maintains the cell, and the axon carries signals away"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "neuron-parts",
+      "lessonId": "lesson-02",
+      "cue": "Trace where neuron structure belongs in the lesson mechanism or example.",
+      "explanation": "neuron structure: dendrites receive, the cell body maintains the cell, and the axon carries signals away Source: Biology 30 Chapter 11, textbook p. 372",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 372"
+      ],
+      "id": "neuron-parts:mc-scenario",
+      "family": "apply",
+      "interaction": "single",
+      "skill": "apply",
+      "difficulty": 3,
+      "prompt": "Which concept best explains this situation? Damage to an axon can interrupt output from an otherwise intact cell body.",
+      "answers": [
+        "neuron structure"
+      ],
+      "options": [
+        "axon terminals",
+        "cell body",
+        "neuron structure",
+        "myelin sheath"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "neuron-parts",
+      "lessonId": "lesson-02",
+      "cue": "Trace where neuron structure belongs in the lesson mechanism or example.",
+      "explanation": "neuron structure: dendrites receive, the cell body maintains the cell, and the axon carries signals away Source: Biology 30 Chapter 11, textbook p. 372",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 372"
+      ],
+      "id": "neuron-parts:mc-correction",
+      "family": "misconception",
+      "interaction": "single",
+      "skill": "misconception",
+      "difficulty": 3,
+      "prompt": "Which statement correctly replaces this inaccurate idea: “Dendrites normally carry impulses away from the cell body.”",
+      "answers": [
+        "dendrites receive, the cell body maintains the cell, and the axon carries signals away"
+      ],
+      "options": [
+        "insulation around many axons that speeds conduction",
+        "Dendrites normally carry impulses away from the cell body.",
+        "dendrites receive, the cell body maintains the cell, and the axon carries signals away",
+        "The cell body is the gap between myelin segments."
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "neuron-parts",
+      "lessonId": "lesson-02",
+      "cue": "Trace where neuron structure belongs in the lesson mechanism or example.",
+      "explanation": "neuron structure: dendrites receive, the cell body maintains the cell, and the axon carries signals away Source: Biology 30 Chapter 11, textbook p. 372",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 372"
+      ],
+      "id": "neuron-parts:mc-sequence-start",
+      "family": "sequence",
+      "interaction": "single",
+      "skill": "sequence",
+      "difficulty": 1,
+      "prompt": "Which event begins the neuron structure sequence?",
+      "answers": [
+        "dendrites"
+      ],
+      "options": [
+        "node of Ranvier",
+        "axon terminals",
+        "dendrite",
+        "dendrites"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "neuron-parts",
+      "lessonId": "lesson-02",
+      "cue": "Trace where neuron structure belongs in the lesson mechanism or example.",
+      "explanation": "neuron structure: dendrites receive, the cell body maintains the cell, and the axon carries signals away Source: Biology 30 Chapter 11, textbook p. 372",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 372"
+      ],
+      "id": "neuron-parts:mc-sequence-next",
+      "family": "sequence",
+      "interaction": "single",
+      "skill": "sequence",
+      "difficulty": 2,
+      "prompt": "In the neuron structure sequence, what follows dendrites?",
+      "answers": [
+        "cell body"
+      ],
+      "options": [
+        "node of Ranvier",
+        "axon",
+        "cell body",
+        "dendrite"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "neuron-parts",
+      "lessonId": "lesson-02",
+      "cue": "Trace where neuron structure belongs in the lesson mechanism or example.",
+      "explanation": "neuron structure: dendrites receive, the cell body maintains the cell, and the axon carries signals away Source: Biology 30 Chapter 11, textbook p. 372",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 372"
+      ],
+      "id": "neuron-parts:mc-sequence-end",
+      "family": "integrate",
+      "interaction": "single",
+      "skill": "integrate",
+      "difficulty": 4,
+      "prompt": "Which event completes the neuron structure sequence?",
+      "answers": [
+        "axon terminals"
+      ],
+      "options": [
+        "cell body",
+        "dendrites",
+        "axon",
+        "axon terminals"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "neuron-parts",
+      "lessonId": "lesson-02",
+      "cue": "Trace where neuron structure belongs in the lesson mechanism or example.",
+      "explanation": "neuron structure: dendrites receive, the cell body maintains the cell, and the axon carries signals away Source: Biology 30 Chapter 11, textbook p. 372",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 372"
+      ],
+      "id": "neuron-parts:mixed-typed",
+      "family": "retrieval",
+      "interaction": "typed",
+      "skill": "recall",
+      "prompt": "Name the concept: dendrites receive, the cell body maintains the cell, and the axon carries signals away",
+      "answers": [
+        "neuron structure"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "neuron-parts",
+      "lessonId": "lesson-02",
+      "cue": "Trace where neuron structure belongs in the lesson mechanism or example.",
+      "explanation": "neuron structure: dendrites receive, the cell body maintains the cell, and the axon carries signals away Source: Biology 30 Chapter 11, textbook p. 372",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 372"
+      ],
+      "id": "neuron-parts:mixed-single",
+      "family": "discrimination",
+      "interaction": "single",
+      "skill": "comparison",
+      "prompt": "Which concept means “dendrites receive, the cell body maintains the cell, and the axon carries signals away”?",
+      "answers": [
+        "neuron structure"
+      ],
+      "options": [
+        "myelin sheath",
+        "neuron structure",
+        "cell body"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "neuron-parts",
+      "lessonId": "lesson-02",
+      "cue": "Trace where neuron structure belongs in the lesson mechanism or example.",
+      "explanation": "neuron structure: dendrites receive, the cell body maintains the cell, and the axon carries signals away Source: Biology 30 Chapter 11, textbook p. 372",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 372"
+      ],
+      "id": "neuron-parts:mixed-application",
+      "family": "application",
+      "interaction": "single",
+      "skill": "application",
+      "prompt": "Damage to an axon can interrupt output from an otherwise intact cell body.",
+      "answers": [
+        "neuron structure"
+      ],
+      "options": [
+        "neuron structure",
+        "myelin sheath",
+        "cell body"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "neuron-parts",
+      "lessonId": "lesson-02",
+      "cue": "Trace where neuron structure belongs in the lesson mechanism or example.",
+      "explanation": "neuron structure: dendrites receive, the cell body maintains the cell, and the axon carries signals away Source: Biology 30 Chapter 11, textbook p. 372",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 372"
+      ],
+      "id": "neuron-parts:mixed-multiple",
+      "family": "odd-one-out",
+      "interaction": "multiple",
+      "skill": "comparison",
+      "prompt": "Select both statements that belong with neuron structure.",
+      "answers": [
+        "dendrites receive, the cell body maintains the cell, and the axon carries signals away",
+        "Damage to an axon can interrupt output from an otherwise intact cell body."
+      ],
+      "options": [
+        "dendrites receive, the cell body maintains the cell, and the axon carries signals away",
+        "the neuron region containing the nucleus and most organelles",
+        "Damage to an axon can interrupt output from an otherwise intact cell body.",
+        "insulation around many axons that speeds conduction"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "neuron-parts",
+      "lessonId": "lesson-02",
+      "cue": "Trace where neuron structure belongs in the lesson mechanism or example.",
+      "explanation": "neuron structure: dendrites receive, the cell body maintains the cell, and the axon carries signals away Source: Biology 30 Chapter 11, textbook p. 372",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 372"
+      ],
+      "id": "neuron-parts:mixed-tf",
+      "family": "misconception",
+      "interaction": "true-false",
+      "skill": "error-correction",
+      "prompt": "Dendrites normally carry impulses away from the cell body.",
+      "answers": [
+        "false"
+      ],
+      "options": [
+        "true",
+        "false"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "neuron-parts",
+      "lessonId": "lesson-02",
+      "cue": "Trace where neuron structure belongs in the lesson mechanism or example.",
+      "explanation": "neuron structure: dendrites receive, the cell body maintains the cell, and the axon carries signals away Source: Biology 30 Chapter 11, textbook p. 372",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 372"
+      ],
+      "id": "neuron-parts:mixed-order",
+      "family": "sequence",
+      "interaction": "ordering",
+      "skill": "sequencing",
+      "prompt": "Put the neuron structure steps in order.",
+      "answers": [
+        "dendrites",
+        "cell body",
+        "axon",
+        "axon terminals"
+      ],
+      "options": [
+        "axon",
+        "axon terminals",
+        "cell body",
+        "dendrites"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "neuron-parts",
+      "lessonId": "lesson-02",
+      "cue": "Trace where neuron structure belongs in the lesson mechanism or example.",
+      "explanation": "neuron structure: dendrites receive, the cell body maintains the cell, and the axon carries signals away Source: Biology 30 Chapter 11, textbook p. 372",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 372"
+      ],
+      "id": "neuron-parts:mc-term",
+      "family": "recognize",
+      "interaction": "single",
+      "skill": "recognize",
+      "difficulty": 1,
+      "prompt": "Which term best matches this description: dendrites receive, the cell body maintains the cell, and the axon carries signals away?",
+      "answers": [
+        "neuron structure"
+      ],
+      "options": [
+        "dendrites",
+        "axon",
+        "myelin sheath",
+        "neuron structure"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "neuron-parts",
+      "lessonId": "lesson-02",
+      "cue": "Trace where neuron structure belongs in the lesson mechanism or example.",
+      "explanation": "neuron structure: dendrites receive, the cell body maintains the cell, and the axon carries signals away Source: Biology 30 Chapter 11, textbook p. 372",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 372"
+      ],
+      "id": "neuron-parts:mc-function",
+      "family": "relate",
+      "interaction": "single",
+      "skill": "relate",
+      "difficulty": 2,
+      "prompt": "Which statement best describes neuron structure?",
+      "answers": [
+        "dendrites receive, the cell body maintains the cell, and the axon carries signals away"
+      ],
+      "options": [
+        "dendrites receive, the cell body maintains the cell, and the axon carries signals away",
+        "The cell body is the gap between myelin segments.",
+        "Dendrites normally carry impulses away from the cell body.",
+        "insulation around many axons that speeds conduction"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "neuron-parts",
+      "lessonId": "lesson-02",
+      "cue": "Trace where neuron structure belongs in the lesson mechanism or example.",
+      "explanation": "neuron structure: dendrites receive, the cell body maintains the cell, and the axon carries signals away Source: Biology 30 Chapter 11, textbook p. 372",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 372"
+      ],
+      "id": "neuron-parts:mixed-diagram",
+      "family": "diagram",
+      "interaction": "diagram",
+      "skill": "diagram-reading",
+      "prompt": "In the corrected A–J neural-pathway diagram, which letter identifies the cell body?",
+      "answers": [
+        "E"
+      ],
+      "options": [
+        "E",
+        "F",
+        "G",
+        "H"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "flashcards",
+      "conceptId": "myelin",
+      "lessonId": "lesson-02",
+      "cue": "Trace where myelin sheath belongs in the lesson mechanism or example.",
+      "explanation": "myelin sheath: insulation around many axons that speeds conduction Source: Biology 30 Chapter 11, textbook p. 372",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 372"
+      ],
+      "id": "myelin:card-term",
+      "family": "recall",
+      "interaction": "flashcard",
+      "skill": "recall",
+      "prompt": "myelin sheath",
+      "answers": [
+        "insulation around many axons that speeds conduction"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "flashcards",
+      "conceptId": "myelin",
+      "lessonId": "lesson-02",
+      "cue": "Trace where myelin sheath belongs in the lesson mechanism or example.",
+      "explanation": "myelin sheath: insulation around many axons that speeds conduction Source: Biology 30 Chapter 11, textbook p. 372",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 372"
+      ],
+      "id": "myelin:card-definition",
+      "family": "reverse-retrieval",
+      "interaction": "flashcard",
+      "skill": "recall",
+      "prompt": "insulation around many axons that speeds conduction",
+      "answers": [
+        "myelin sheath"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "flashcards",
+      "conceptId": "myelin",
+      "lessonId": "lesson-02",
+      "cue": "Trace where myelin sheath belongs in the lesson mechanism or example.",
+      "explanation": "myelin sheath: insulation around many axons that speeds conduction Source: Biology 30 Chapter 11, textbook p. 372",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 372"
+      ],
+      "id": "myelin:card-scenario",
+      "family": "application",
+      "interaction": "flashcard",
+      "skill": "application",
+      "prompt": "Loss of myelin can slow or disrupt communication along an axon.",
+      "answers": [
+        "myelin sheath — insulation around many axons that speeds conduction"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "flashcards",
+      "conceptId": "myelin",
+      "lessonId": "lesson-02",
+      "cue": "Trace where myelin sheath belongs in the lesson mechanism or example.",
+      "explanation": "myelin sheath: insulation around many axons that speeds conduction Source: Biology 30 Chapter 11, textbook p. 372",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 372"
+      ],
+      "id": "myelin:card-error",
+      "family": "error-correction",
+      "interaction": "flashcard",
+      "skill": "error-correction",
+      "prompt": "Correct this idea: Myelin is the electrical signal inside an axon.",
+      "answers": [
+        "insulation around many axons that speeds conduction"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "blanks",
+      "conceptId": "myelin",
+      "lessonId": "lesson-02",
+      "cue": "Trace where myelin sheath belongs in the lesson mechanism or example.",
+      "explanation": "myelin sheath: insulation around many axons that speeds conduction Source: Biology 30 Chapter 11, textbook p. 372",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 372"
+      ],
+      "id": "myelin:blank-definition",
+      "family": "definition",
+      "interaction": "typed",
+      "skill": "recall",
+      "prompt": "The term for “insulation around many axons that speeds conduction” is _____.",
+      "answers": [
+        "myelin sheath"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "blanks",
+      "conceptId": "myelin",
+      "lessonId": "lesson-02",
+      "cue": "Trace where myelin sheath belongs in the lesson mechanism or example.",
+      "explanation": "myelin sheath: insulation around many axons that speeds conduction Source: Biology 30 Chapter 11, textbook p. 372",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 372"
+      ],
+      "id": "myelin:blank-scenario",
+      "family": "scenario",
+      "interaction": "typed",
+      "skill": "application",
+      "prompt": "This situation illustrates _____: Loss of myelin can slow or disrupt communication along an axon.",
+      "answers": [
+        "myelin sheath"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "blanks",
+      "conceptId": "myelin",
+      "lessonId": "lesson-02",
+      "cue": "Trace where myelin sheath belongs in the lesson mechanism or example.",
+      "explanation": "myelin sheath: insulation around many axons that speeds conduction Source: Biology 30 Chapter 11, textbook p. 372",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 372"
+      ],
+      "id": "myelin:blank-sequence",
+      "family": "pathway",
+      "interaction": "typed",
+      "skill": "sequencing",
+      "prompt": "Complete the pathway: axon → myelin segment → node of Ranvier → _____.",
+      "answers": [
+        "next myelin segment"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "myelin",
+      "lessonId": "lesson-02",
+      "cue": "Trace where myelin sheath belongs in the lesson mechanism or example.",
+      "explanation": "myelin sheath: insulation around many axons that speeds conduction Source: Biology 30 Chapter 11, textbook p. 372",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 372"
+      ],
+      "id": "myelin:mc-term",
+      "family": "recognize",
+      "interaction": "single",
+      "skill": "recognize",
+      "difficulty": 1,
+      "prompt": "Which term best matches this description: insulation around many axons that speeds conduction?",
+      "answers": [
+        "myelin sheath"
+      ],
+      "options": [
+        "myelin segment",
+        "axon",
+        "neuron structure",
+        "myelin sheath"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "myelin",
+      "lessonId": "lesson-02",
+      "cue": "Trace where myelin sheath belongs in the lesson mechanism or example.",
+      "explanation": "myelin sheath: insulation around many axons that speeds conduction Source: Biology 30 Chapter 11, textbook p. 372",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 372"
+      ],
+      "id": "myelin:mc-function",
+      "family": "relate",
+      "interaction": "single",
+      "skill": "relate",
+      "difficulty": 2,
+      "prompt": "Which statement best describes myelin sheath?",
+      "answers": [
+        "insulation around many axons that speeds conduction"
+      ],
+      "options": [
+        "insulation around many axons that speeds conduction",
+        "dendrites receive, the cell body maintains the cell, and the axon carries signals away",
+        "Dendrites normally carry impulses away from the cell body.",
+        "The cell body is the gap between myelin segments."
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "myelin",
+      "lessonId": "lesson-02",
+      "cue": "Trace where myelin sheath belongs in the lesson mechanism or example.",
+      "explanation": "myelin sheath: insulation around many axons that speeds conduction Source: Biology 30 Chapter 11, textbook p. 372",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 372"
+      ],
+      "id": "myelin:mc-scenario",
+      "family": "apply",
+      "interaction": "single",
+      "skill": "apply",
+      "difficulty": 3,
+      "prompt": "Which concept best explains this situation? Loss of myelin can slow or disrupt communication along an axon.",
+      "answers": [
+        "myelin sheath"
+      ],
+      "options": [
+        "cell body",
+        "myelin sheath",
+        "axon",
+        "neuron structure"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "myelin",
+      "lessonId": "lesson-02",
+      "cue": "Trace where myelin sheath belongs in the lesson mechanism or example.",
+      "explanation": "myelin sheath: insulation around many axons that speeds conduction Source: Biology 30 Chapter 11, textbook p. 372",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 372"
+      ],
+      "id": "myelin:mc-correction",
+      "family": "misconception",
+      "interaction": "single",
+      "skill": "misconception",
+      "difficulty": 3,
+      "prompt": "Which statement correctly replaces this inaccurate idea: “Myelin is the electrical signal inside an axon.”",
+      "answers": [
+        "insulation around many axons that speeds conduction"
+      ],
+      "options": [
+        "Myelin is the electrical signal inside an axon.",
+        "insulation around many axons that speeds conduction",
+        "The cell body is the gap between myelin segments.",
+        "Dendrites normally carry impulses away from the cell body."
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "myelin",
+      "lessonId": "lesson-02",
+      "cue": "Trace where myelin sheath belongs in the lesson mechanism or example.",
+      "explanation": "myelin sheath: insulation around many axons that speeds conduction Source: Biology 30 Chapter 11, textbook p. 372",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 372"
+      ],
+      "id": "myelin:mc-sequence-start",
+      "family": "sequence",
+      "interaction": "single",
+      "skill": "sequence",
+      "difficulty": 1,
+      "prompt": "Which event begins the myelin sheath sequence?",
+      "answers": [
+        "axon"
+      ],
+      "options": [
+        "axon",
+        "dendrite",
+        "dendrites",
+        "axon terminals"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "myelin",
+      "lessonId": "lesson-02",
+      "cue": "Trace where myelin sheath belongs in the lesson mechanism or example.",
+      "explanation": "myelin sheath: insulation around many axons that speeds conduction Source: Biology 30 Chapter 11, textbook p. 372",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 372"
+      ],
+      "id": "myelin:mc-sequence-next",
+      "family": "sequence",
+      "interaction": "single",
+      "skill": "sequence",
+      "difficulty": 2,
+      "prompt": "In the myelin sheath sequence, what follows axon?",
+      "answers": [
+        "myelin segment"
+      ],
+      "options": [
+        "myelin segment",
+        "next myelin segment",
+        "axon",
+        "cell body"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "myelin",
+      "lessonId": "lesson-02",
+      "cue": "Trace where myelin sheath belongs in the lesson mechanism or example.",
+      "explanation": "myelin sheath: insulation around many axons that speeds conduction Source: Biology 30 Chapter 11, textbook p. 372",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 372"
+      ],
+      "id": "myelin:mc-sequence-end",
+      "family": "integrate",
+      "interaction": "single",
+      "skill": "integrate",
+      "difficulty": 4,
+      "prompt": "Which event completes the myelin sheath sequence?",
+      "answers": [
+        "next myelin segment"
+      ],
+      "options": [
+        "dendrite",
+        "next myelin segment",
+        "myelin segment",
+        "axon terminals"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "myelin",
+      "lessonId": "lesson-02",
+      "cue": "Trace where myelin sheath belongs in the lesson mechanism or example.",
+      "explanation": "myelin sheath: insulation around many axons that speeds conduction Source: Biology 30 Chapter 11, textbook p. 372",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 372"
+      ],
+      "id": "myelin:mixed-typed",
+      "family": "retrieval",
+      "interaction": "typed",
+      "skill": "recall",
+      "prompt": "Name the concept: insulation around many axons that speeds conduction",
+      "answers": [
+        "myelin sheath"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "myelin",
+      "lessonId": "lesson-02",
+      "cue": "Trace where myelin sheath belongs in the lesson mechanism or example.",
+      "explanation": "myelin sheath: insulation around many axons that speeds conduction Source: Biology 30 Chapter 11, textbook p. 372",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 372"
+      ],
+      "id": "myelin:mixed-single",
+      "family": "discrimination",
+      "interaction": "single",
+      "skill": "comparison",
+      "prompt": "Which concept means “insulation around many axons that speeds conduction”?",
+      "answers": [
+        "myelin sheath"
+      ],
+      "options": [
+        "cell body",
+        "myelin sheath",
+        "neuron structure"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "myelin",
+      "lessonId": "lesson-02",
+      "cue": "Trace where myelin sheath belongs in the lesson mechanism or example.",
+      "explanation": "myelin sheath: insulation around many axons that speeds conduction Source: Biology 30 Chapter 11, textbook p. 372",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 372"
+      ],
+      "id": "myelin:mixed-application",
+      "family": "application",
+      "interaction": "single",
+      "skill": "application",
+      "prompt": "Loss of myelin can slow or disrupt communication along an axon.",
+      "answers": [
+        "myelin sheath"
+      ],
+      "options": [
+        "myelin sheath",
+        "neuron structure",
+        "cell body"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "myelin",
+      "lessonId": "lesson-02",
+      "cue": "Trace where myelin sheath belongs in the lesson mechanism or example.",
+      "explanation": "myelin sheath: insulation around many axons that speeds conduction Source: Biology 30 Chapter 11, textbook p. 372",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 372"
+      ],
+      "id": "myelin:mixed-multiple",
+      "family": "odd-one-out",
+      "interaction": "multiple",
+      "skill": "comparison",
+      "prompt": "Select both statements that belong with myelin sheath.",
+      "answers": [
+        "insulation around many axons that speeds conduction",
+        "Loss of myelin can slow or disrupt communication along an axon."
+      ],
+      "options": [
+        "dendrites receive, the cell body maintains the cell, and the axon carries signals away",
+        "insulation around many axons that speeds conduction",
+        "Loss of myelin can slow or disrupt communication along an axon.",
+        "the neuron region containing the nucleus and most organelles"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "myelin",
+      "lessonId": "lesson-02",
+      "cue": "Trace where myelin sheath belongs in the lesson mechanism or example.",
+      "explanation": "myelin sheath: insulation around many axons that speeds conduction Source: Biology 30 Chapter 11, textbook p. 372",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 372"
+      ],
+      "id": "myelin:mixed-tf",
+      "family": "misconception",
+      "interaction": "true-false",
+      "skill": "error-correction",
+      "prompt": "Myelin is the electrical signal inside an axon.",
+      "answers": [
+        "false"
+      ],
+      "options": [
+        "true",
+        "false"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "myelin",
+      "lessonId": "lesson-02",
+      "cue": "Trace where myelin sheath belongs in the lesson mechanism or example.",
+      "explanation": "myelin sheath: insulation around many axons that speeds conduction Source: Biology 30 Chapter 11, textbook p. 372",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 372"
+      ],
+      "id": "myelin:mixed-order",
+      "family": "sequence",
+      "interaction": "ordering",
+      "skill": "sequencing",
+      "prompt": "Put the myelin sheath steps in order.",
+      "answers": [
+        "axon",
+        "myelin segment",
+        "node of Ranvier",
+        "next myelin segment"
+      ],
+      "options": [
+        "next myelin segment",
+        "myelin segment",
+        "node of Ranvier",
+        "axon"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "myelin",
+      "lessonId": "lesson-02",
+      "cue": "Trace where myelin sheath belongs in the lesson mechanism or example.",
+      "explanation": "myelin sheath: insulation around many axons that speeds conduction Source: Biology 30 Chapter 11, textbook p. 372",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 372"
+      ],
+      "id": "myelin:mc-term",
+      "family": "recognize",
+      "interaction": "single",
+      "skill": "recognize",
+      "difficulty": 1,
+      "prompt": "Which term best matches this description: insulation around many axons that speeds conduction?",
+      "answers": [
+        "myelin sheath"
+      ],
+      "options": [
+        "node of Ranvier",
+        "myelin segment",
+        "myelin sheath",
+        "cell body"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "myelin",
+      "lessonId": "lesson-02",
+      "cue": "Trace where myelin sheath belongs in the lesson mechanism or example.",
+      "explanation": "myelin sheath: insulation around many axons that speeds conduction Source: Biology 30 Chapter 11, textbook p. 372",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 372"
+      ],
+      "id": "myelin:mc-function",
+      "family": "relate",
+      "interaction": "single",
+      "skill": "relate",
+      "difficulty": 2,
+      "prompt": "Which statement best describes myelin sheath?",
+      "answers": [
+        "insulation around many axons that speeds conduction"
+      ],
+      "options": [
+        "the neuron region containing the nucleus and most organelles",
+        "dendrites receive, the cell body maintains the cell, and the axon carries signals away",
+        "insulation around many axons that speeds conduction",
+        "The cell body is the gap between myelin segments."
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "flashcards",
+      "conceptId": "cell-body",
+      "lessonId": "lesson-02",
+      "cue": "Trace where cell body belongs in the lesson mechanism or example.",
+      "explanation": "cell body: the neuron region containing the nucleus and most organelles Source: Biology 30 Chapter 11, textbook p. 372",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 372"
+      ],
+      "id": "cell-body:card-term",
+      "family": "recall",
+      "interaction": "flashcard",
+      "skill": "recall",
+      "prompt": "cell body",
+      "answers": [
+        "the neuron region containing the nucleus and most organelles"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "flashcards",
+      "conceptId": "cell-body",
+      "lessonId": "lesson-02",
+      "cue": "Trace where cell body belongs in the lesson mechanism or example.",
+      "explanation": "cell body: the neuron region containing the nucleus and most organelles Source: Biology 30 Chapter 11, textbook p. 372",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 372"
+      ],
+      "id": "cell-body:card-definition",
+      "family": "reverse-retrieval",
+      "interaction": "flashcard",
+      "skill": "recall",
+      "prompt": "the neuron region containing the nucleus and most organelles",
+      "answers": [
+        "cell body"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "flashcards",
+      "conceptId": "cell-body",
+      "lessonId": "lesson-02",
+      "cue": "Trace where cell body belongs in the lesson mechanism or example.",
+      "explanation": "cell body: the neuron region containing the nucleus and most organelles Source: Biology 30 Chapter 11, textbook p. 372",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 372"
+      ],
+      "id": "cell-body:card-scenario",
+      "family": "application",
+      "interaction": "flashcard",
+      "skill": "application",
+      "prompt": "A neuron still needs its cell body to maintain cellular functions.",
+      "answers": [
+        "cell body — the neuron region containing the nucleus and most organelles"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "flashcards",
+      "conceptId": "cell-body",
+      "lessonId": "lesson-02",
+      "cue": "Trace where cell body belongs in the lesson mechanism or example.",
+      "explanation": "cell body: the neuron region containing the nucleus and most organelles Source: Biology 30 Chapter 11, textbook p. 372",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 372"
+      ],
+      "id": "cell-body:card-error",
+      "family": "error-correction",
+      "interaction": "flashcard",
+      "skill": "error-correction",
+      "prompt": "Correct this idea: The cell body is the gap between myelin segments.",
+      "answers": [
+        "the neuron region containing the nucleus and most organelles"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "blanks",
+      "conceptId": "cell-body",
+      "lessonId": "lesson-02",
+      "cue": "Trace where cell body belongs in the lesson mechanism or example.",
+      "explanation": "cell body: the neuron region containing the nucleus and most organelles Source: Biology 30 Chapter 11, textbook p. 372",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 372"
+      ],
+      "id": "cell-body:blank-definition",
+      "family": "definition",
+      "interaction": "typed",
+      "skill": "recall",
+      "prompt": "The term for “the neuron region containing the nucleus and most organelles” is _____.",
+      "answers": [
+        "cell body"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "blanks",
+      "conceptId": "cell-body",
+      "lessonId": "lesson-02",
+      "cue": "Trace where cell body belongs in the lesson mechanism or example.",
+      "explanation": "cell body: the neuron region containing the nucleus and most organelles Source: Biology 30 Chapter 11, textbook p. 372",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 372"
+      ],
+      "id": "cell-body:blank-scenario",
+      "family": "scenario",
+      "interaction": "typed",
+      "skill": "application",
+      "prompt": "This situation illustrates _____: A neuron still needs its cell body to maintain cellular functions.",
+      "answers": [
+        "cell body"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "blanks",
+      "conceptId": "cell-body",
+      "lessonId": "lesson-02",
+      "cue": "Trace where cell body belongs in the lesson mechanism or example.",
+      "explanation": "cell body: the neuron region containing the nucleus and most organelles Source: Biology 30 Chapter 11, textbook p. 372",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 372"
+      ],
+      "id": "cell-body:blank-sequence",
+      "family": "pathway",
+      "interaction": "typed",
+      "skill": "sequencing",
+      "prompt": "Complete the pathway: dendrite → cell body → _____.",
+      "answers": [
+        "axon"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "cell-body",
+      "lessonId": "lesson-02",
+      "cue": "Trace where cell body belongs in the lesson mechanism or example.",
+      "explanation": "cell body: the neuron region containing the nucleus and most organelles Source: Biology 30 Chapter 11, textbook p. 372",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 372"
+      ],
+      "id": "cell-body:mc-term",
+      "family": "recognize",
+      "interaction": "single",
+      "skill": "recognize",
+      "difficulty": 1,
+      "prompt": "Which term best matches this description: the neuron region containing the nucleus and most organelles?",
+      "answers": [
+        "cell body"
+      ],
+      "options": [
+        "myelin sheath",
+        "cell body",
+        "neuron structure",
+        "axon"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "cell-body",
+      "lessonId": "lesson-02",
+      "cue": "Trace where cell body belongs in the lesson mechanism or example.",
+      "explanation": "cell body: the neuron region containing the nucleus and most organelles Source: Biology 30 Chapter 11, textbook p. 372",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 372"
+      ],
+      "id": "cell-body:mc-function",
+      "family": "relate",
+      "interaction": "single",
+      "skill": "relate",
+      "difficulty": 2,
+      "prompt": "Which statement best describes cell body?",
+      "answers": [
+        "the neuron region containing the nucleus and most organelles"
+      ],
+      "options": [
+        "insulation around many axons that speeds conduction",
+        "dendrites receive, the cell body maintains the cell, and the axon carries signals away",
+        "the neuron region containing the nucleus and most organelles",
+        "The cell body is the gap between myelin segments."
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "cell-body",
+      "lessonId": "lesson-02",
+      "cue": "Trace where cell body belongs in the lesson mechanism or example.",
+      "explanation": "cell body: the neuron region containing the nucleus and most organelles Source: Biology 30 Chapter 11, textbook p. 372",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 372"
+      ],
+      "id": "cell-body:mc-scenario",
+      "family": "apply",
+      "interaction": "single",
+      "skill": "apply",
+      "difficulty": 3,
+      "prompt": "Which concept best explains this situation? A neuron still needs its cell body to maintain cellular functions.",
+      "answers": [
+        "cell body"
+      ],
+      "options": [
+        "myelin sheath",
+        "neuron structure",
+        "dendrite",
+        "cell body"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "cell-body",
+      "lessonId": "lesson-02",
+      "cue": "Trace where cell body belongs in the lesson mechanism or example.",
+      "explanation": "cell body: the neuron region containing the nucleus and most organelles Source: Biology 30 Chapter 11, textbook p. 372",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 372"
+      ],
+      "id": "cell-body:mc-correction",
+      "family": "misconception",
+      "interaction": "single",
+      "skill": "misconception",
+      "difficulty": 3,
+      "prompt": "Which statement correctly replaces this inaccurate idea: “The cell body is the gap between myelin segments.”",
+      "answers": [
+        "the neuron region containing the nucleus and most organelles"
+      ],
+      "options": [
+        "dendrites receive, the cell body maintains the cell, and the axon carries signals away",
+        "the neuron region containing the nucleus and most organelles",
+        "Myelin is the electrical signal inside an axon.",
+        "insulation around many axons that speeds conduction"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "cell-body",
+      "lessonId": "lesson-02",
+      "cue": "Trace where cell body belongs in the lesson mechanism or example.",
+      "explanation": "cell body: the neuron region containing the nucleus and most organelles Source: Biology 30 Chapter 11, textbook p. 372",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 372"
+      ],
+      "id": "cell-body:mc-sequence-start",
+      "family": "sequence",
+      "interaction": "single",
+      "skill": "sequence",
+      "difficulty": 1,
+      "prompt": "Which event begins the cell body sequence?",
+      "answers": [
+        "dendrite"
+      ],
+      "options": [
+        "dendrite",
+        "next myelin segment",
+        "axon terminals",
+        "dendrites"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "cell-body",
+      "lessonId": "lesson-02",
+      "cue": "Trace where cell body belongs in the lesson mechanism or example.",
+      "explanation": "cell body: the neuron region containing the nucleus and most organelles Source: Biology 30 Chapter 11, textbook p. 372",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 372"
+      ],
+      "id": "cell-body:mc-sequence-next",
+      "family": "sequence",
+      "interaction": "single",
+      "skill": "sequence",
+      "difficulty": 2,
+      "prompt": "In the cell body sequence, what follows dendrite?",
+      "answers": [
+        "cell body"
+      ],
+      "options": [
+        "node of Ranvier",
+        "dendrites",
+        "next myelin segment",
+        "cell body"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "cell-body",
+      "lessonId": "lesson-02",
+      "cue": "Trace where cell body belongs in the lesson mechanism or example.",
+      "explanation": "cell body: the neuron region containing the nucleus and most organelles Source: Biology 30 Chapter 11, textbook p. 372",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 372"
+      ],
+      "id": "cell-body:mc-sequence-end",
+      "family": "integrate",
+      "interaction": "single",
+      "skill": "integrate",
+      "difficulty": 4,
+      "prompt": "Which event completes the cell body sequence?",
+      "answers": [
+        "axon"
+      ],
+      "options": [
+        "myelin segment",
+        "axon terminals",
+        "axon",
+        "dendrites"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "cell-body",
+      "lessonId": "lesson-02",
+      "cue": "Trace where cell body belongs in the lesson mechanism or example.",
+      "explanation": "cell body: the neuron region containing the nucleus and most organelles Source: Biology 30 Chapter 11, textbook p. 372",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 372"
+      ],
+      "id": "cell-body:mixed-typed",
+      "family": "retrieval",
+      "interaction": "typed",
+      "skill": "recall",
+      "prompt": "Name the concept: the neuron region containing the nucleus and most organelles",
+      "answers": [
+        "cell body"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "cell-body",
+      "lessonId": "lesson-02",
+      "cue": "Trace where cell body belongs in the lesson mechanism or example.",
+      "explanation": "cell body: the neuron region containing the nucleus and most organelles Source: Biology 30 Chapter 11, textbook p. 372",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 372"
+      ],
+      "id": "cell-body:mixed-single",
+      "family": "discrimination",
+      "interaction": "single",
+      "skill": "comparison",
+      "prompt": "Which concept means “the neuron region containing the nucleus and most organelles”?",
+      "answers": [
+        "cell body"
+      ],
+      "options": [
+        "cell body",
+        "neuron structure",
+        "myelin sheath"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "cell-body",
+      "lessonId": "lesson-02",
+      "cue": "Trace where cell body belongs in the lesson mechanism or example.",
+      "explanation": "cell body: the neuron region containing the nucleus and most organelles Source: Biology 30 Chapter 11, textbook p. 372",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 372"
+      ],
+      "id": "cell-body:mixed-application",
+      "family": "application",
+      "interaction": "single",
+      "skill": "application",
+      "prompt": "A neuron still needs its cell body to maintain cellular functions.",
+      "answers": [
+        "cell body"
+      ],
+      "options": [
+        "neuron structure",
+        "cell body",
+        "myelin sheath"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "cell-body",
+      "lessonId": "lesson-02",
+      "cue": "Trace where cell body belongs in the lesson mechanism or example.",
+      "explanation": "cell body: the neuron region containing the nucleus and most organelles Source: Biology 30 Chapter 11, textbook p. 372",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 372"
+      ],
+      "id": "cell-body:mixed-multiple",
+      "family": "odd-one-out",
+      "interaction": "multiple",
+      "skill": "comparison",
+      "prompt": "Select both statements that belong with cell body.",
+      "answers": [
+        "the neuron region containing the nucleus and most organelles",
+        "A neuron still needs its cell body to maintain cellular functions."
+      ],
+      "options": [
+        "the neuron region containing the nucleus and most organelles",
+        "dendrites receive, the cell body maintains the cell, and the axon carries signals away",
+        "insulation around many axons that speeds conduction",
+        "A neuron still needs its cell body to maintain cellular functions."
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "cell-body",
+      "lessonId": "lesson-02",
+      "cue": "Trace where cell body belongs in the lesson mechanism or example.",
+      "explanation": "cell body: the neuron region containing the nucleus and most organelles Source: Biology 30 Chapter 11, textbook p. 372",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 372"
+      ],
+      "id": "cell-body:mixed-tf",
+      "family": "misconception",
+      "interaction": "true-false",
+      "skill": "error-correction",
+      "prompt": "The cell body is the gap between myelin segments.",
+      "answers": [
+        "false"
+      ],
+      "options": [
+        "true",
+        "false"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "cell-body",
+      "lessonId": "lesson-02",
+      "cue": "Trace where cell body belongs in the lesson mechanism or example.",
+      "explanation": "cell body: the neuron region containing the nucleus and most organelles Source: Biology 30 Chapter 11, textbook p. 372",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 372"
+      ],
+      "id": "cell-body:mixed-order",
+      "family": "sequence",
+      "interaction": "ordering",
+      "skill": "sequencing",
+      "prompt": "Put the cell body steps in order.",
+      "answers": [
+        "dendrite",
+        "cell body",
+        "axon"
+      ],
+      "options": [
+        "dendrite",
+        "axon",
+        "cell body"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "cell-body",
+      "lessonId": "lesson-02",
+      "cue": "Trace where cell body belongs in the lesson mechanism or example.",
+      "explanation": "cell body: the neuron region containing the nucleus and most organelles Source: Biology 30 Chapter 11, textbook p. 372",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 372"
+      ],
+      "id": "cell-body:mc-term",
+      "family": "recognize",
+      "interaction": "single",
+      "skill": "recognize",
+      "difficulty": 1,
+      "prompt": "Which term best matches this description: the neuron region containing the nucleus and most organelles?",
+      "answers": [
+        "cell body"
+      ],
+      "options": [
+        "neuron structure",
+        "dendrite",
+        "cell body",
+        "axon"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "cell-body",
+      "lessonId": "lesson-02",
+      "cue": "Trace where cell body belongs in the lesson mechanism or example.",
+      "explanation": "cell body: the neuron region containing the nucleus and most organelles Source: Biology 30 Chapter 11, textbook p. 372",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 372"
+      ],
+      "id": "cell-body:mc-function",
+      "family": "relate",
+      "interaction": "single",
+      "skill": "relate",
+      "difficulty": 2,
+      "prompt": "Which statement best describes cell body?",
+      "answers": [
+        "the neuron region containing the nucleus and most organelles"
+      ],
+      "options": [
+        "the neuron region containing the nucleus and most organelles",
+        "Dendrites normally carry impulses away from the cell body.",
+        "The cell body is the gap between myelin segments.",
+        "Myelin is the electrical signal inside an axon."
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    }
+  ],
+  "textbookPractice": [
+    {
+      "id": "ch11-p370-in-text-q4",
+      "page": 370,
+      "group": "in-text",
+      "number": 4,
+      "label": "In Text · p. 370 · question 4",
+      "crops": [
+        {
+          "page": 370,
+          "box": [
+            358,
+            140.7890000000001,
+            533,
+            180.7890000000001
+          ],
+          "asset": "ch11-p370-in-text-q4.jpg",
+          "role": "selected question column; full context follows",
+          "src": "./assets/textbook-practice/ch11-p370-in-text-q4.jpg"
+        },
+        {
+          "page": 370,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ]
+        },
+        {
+          "page": 369,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "role": "referenced context / continuation"
+        },
+        {
+          "page": 372,
+          "box": [
+            0,
+            0,
+            663,
+            843
+          ],
+          "role": "referenced context / continuation"
+        },
+        {
+          "page": 374,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "role": "referenced context / continuation"
+        }
+      ],
+      "topics": [
+        "lesson-02"
+      ]
+    },
+    {
+      "id": "ch11-p370-in-text-q5",
+      "page": 370,
+      "group": "in-text",
+      "number": 5,
+      "label": "In Text · p. 370 · question 5",
+      "crops": [
+        {
+          "page": 370,
+          "box": [
+            358,
+            173.7890000000001,
+            533,
+            213.7890000000001
+          ],
+          "asset": "ch11-p370-in-text-q5.jpg",
+          "role": "selected question column; full context follows",
+          "src": "./assets/textbook-practice/ch11-p370-in-text-q5.jpg"
+        },
+        {
+          "page": 370,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ]
+        },
+        {
+          "page": 369,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "role": "referenced context / continuation"
+        },
+        {
+          "page": 372,
+          "box": [
+            0,
+            0,
+            663,
+            843
+          ],
+          "role": "referenced context / continuation"
+        },
+        {
+          "page": 374,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "role": "referenced context / continuation"
+        }
+      ],
+      "topics": [
+        "lesson-02"
+      ]
+    },
+    {
+      "id": "ch11-p372-in-text-q7",
+      "page": 372,
+      "group": "in-text",
+      "number": 7,
+      "label": "In Text · p. 372 · question 7",
+      "crops": [
+        {
+          "page": 372,
+          "box": [
+            387.995,
+            373.28999999999996,
+            563.018,
+            426.78999999999996
+          ],
+          "asset": "ch11-p372-in-text-q7.jpg",
+          "role": "selected question column; full context follows",
+          "src": "./assets/textbook-practice/ch11-p372-in-text-q7.jpg"
+        },
+        {
+          "page": 372,
+          "box": [
+            0,
+            0,
+            663,
+            843
+          ]
+        },
+        {
+          "page": 370,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "role": "referenced context / continuation"
+        },
+        {
+          "page": 374,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "role": "referenced context / continuation"
+        }
+      ],
+      "topics": [
+        "lesson-02"
+      ]
+    },
+    {
+      "id": "ch11-p372-in-text-q8",
+      "page": 372,
+      "group": "in-text",
+      "number": 8,
+      "label": "In Text · p. 372 · question 8",
+      "crops": [
+        {
+          "page": 372,
+          "box": [
+            387.995,
+            419.78999999999996,
+            563.018,
+            464.891
+          ],
+          "asset": "ch11-p372-in-text-q8.jpg",
+          "role": "selected question column; full context follows",
+          "src": "./assets/textbook-practice/ch11-p372-in-text-q8.jpg"
+        },
+        {
+          "page": 372,
+          "box": [
+            0,
+            0,
+            663,
+            843
+          ]
+        },
+        {
+          "page": 370,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "role": "referenced context / continuation"
+        },
+        {
+          "page": 374,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "role": "referenced context / continuation"
+        }
+      ],
+      "topics": [
+        "lesson-02"
+      ]
+    },
+    {
+      "id": "ch11-p381-11-c-analysis-q1",
+      "page": 381,
+      "group": "11.C analysis",
+      "number": 1,
+      "label": "11.C Analysis · p. 381 · question 1",
+      "crops": [
+        {
+          "page": 381,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ]
+        },
+        {
+          "page": 369,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "role": "referenced context / continuation"
+        }
+      ],
+      "topics": [
+        "lesson-02"
+      ]
+    },
+    {
+      "id": "ch11-p381-11-c-analysis-q2",
+      "page": 381,
+      "group": "11.C analysis",
+      "number": 2,
+      "label": "11.C Analysis · p. 381 · question 2",
+      "crops": [
+        {
+          "page": 381,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ]
+        },
+        {
+          "page": 369,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "role": "referenced context / continuation"
+        }
+      ],
+      "topics": [
+        "lesson-02"
+      ]
+    },
+    {
+      "id": "ch11-p381-11-c-analysis-q3",
+      "page": 381,
+      "group": "11.C analysis",
+      "number": 3,
+      "label": "11.C Analysis · p. 381 · question 3",
+      "crops": [
+        {
+          "page": 381,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ]
+        },
+        {
+          "page": 369,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "role": "referenced context / continuation"
+        }
+      ],
+      "topics": [
+        "lesson-02"
+      ]
+    },
+    {
+      "id": "ch11-p381-11-c-analysis-q4",
+      "page": 381,
+      "group": "11.C analysis",
+      "number": 4,
+      "label": "11.C Analysis · p. 381 · question 4",
+      "crops": [
+        {
+          "page": 381,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ]
+        },
+        {
+          "page": 369,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "role": "referenced context / continuation"
+        }
+      ],
+      "topics": [
+        "lesson-02"
+      ]
+    },
+    {
+      "id": "ch11-p381-11-c-analysis-q5",
+      "page": 381,
+      "group": "11.C analysis",
+      "number": 5,
+      "label": "11.C Analysis · p. 381 · question 5",
+      "crops": [
+        {
+          "page": 381,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ]
+        },
+        {
+          "page": 369,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "role": "referenced context / continuation"
+        }
+      ],
+      "topics": [
+        "lesson-02"
+      ]
+    },
+    {
+      "id": "ch11-p381-11-c-analysis-q6",
+      "page": 381,
+      "group": "11.C analysis",
+      "number": 6,
+      "label": "11.C Analysis · p. 381 · question 6",
+      "crops": [
+        {
+          "page": 381,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ]
+        },
+        {
+          "page": 369,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "role": "referenced context / continuation"
+        }
+      ],
+      "topics": [
+        "lesson-02"
+      ]
+    },
+    {
+      "id": "ch11-p384-section-11-1-q1",
+      "page": 384,
+      "group": "section-11.1",
+      "number": 1,
+      "label": "Section 11.1 · p. 384 · question 1",
+      "crops": [
+        {
+          "page": 384,
+          "box": [
+            39.849999999999994,
+            168.73000000000002,
+            286.35,
+            308.73
+          ],
+          "asset": "ch11-p384-section-11-1-q1.jpg",
+          "role": "selected question including its in-column figure",
+          "src": "./assets/textbook-practice/ch11-p384-section-11-1-q1.jpg"
+        },
+        {
+          "page": 384,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ]
+        }
+      ],
+      "topics": [
+        "lesson-01",
+        "lesson-02"
+      ]
+    },
+    {
+      "id": "ch11-p384-section-11-1-q3",
+      "page": 384,
+      "group": "section-11.1",
+      "number": 3,
+      "label": "Section 11.1 · p. 384 · question 3",
+      "crops": [
+        {
+          "page": 384,
+          "box": [
+            39.849999999999994,
+            378.73,
+            286.35,
+            411.73
+          ],
+          "asset": "ch11-p384-section-11-1-q3.jpg",
+          "role": "selected question including its in-column figure",
+          "src": "./assets/textbook-practice/ch11-p384-section-11-1-q3.jpg"
+        },
+        {
+          "page": 384,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ]
+        }
+      ],
+      "topics": [
+        "lesson-02"
+      ]
+    },
+    {
+      "id": "ch11-p402-chapter-review-q10",
+      "page": 402,
+      "group": "chapter-review",
+      "number": 10,
+      "label": "Chapter Review · p. 402 · question 10",
+      "crops": [
+        {
+          "page": 402,
+          "box": [
+            284.8,
+            69.48000000000002,
+            593,
+            341.492
+          ],
+          "asset": "ch11-p402-chapter-review-q10.jpg",
+          "role": "selected question including its in-column figure",
+          "src": "./assets/textbook-practice/ch11-p402-chapter-review-q10.jpg"
+        },
+        {
+          "page": 402,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ]
+        },
+        {
+          "page": 403,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "role": "referenced context / continuation"
+        }
+      ],
+      "topics": [
+        "lesson-02",
+        "lesson-03",
+        "lesson-06",
+        "lesson-08"
+      ]
+    },
+    {
+      "id": "ch11-p402-chapter-review-q12",
+      "page": 402,
+      "group": "chapter-review",
+      "number": 12,
+      "label": "Chapter Review · p. 402 · question 12",
+      "crops": [
+        {
+          "page": 402,
+          "box": [
+            284.8,
+            372.492,
+            593,
+            418.492
+          ],
+          "asset": "ch11-p402-chapter-review-q12.jpg",
+          "role": "selected question including its in-column figure",
+          "src": "./assets/textbook-practice/ch11-p402-chapter-review-q12.jpg"
+        },
+        {
+          "page": 402,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ]
+        },
+        {
+          "page": 403,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "role": "referenced context / continuation"
+        }
+      ],
+      "topics": [
+        "lesson-02"
+      ]
+    },
+    {
+      "id": "ch11-p402-chapter-review-q15",
+      "page": 402,
+      "group": "chapter-review",
+      "number": 15,
+      "label": "Chapter Review · p. 402 · question 15",
+      "crops": [
+        {
+          "page": 402,
+          "box": [
+            284.8,
+            694.493,
+            593,
+            758
+          ],
+          "asset": "ch11-p402-chapter-review-q15.jpg",
+          "role": "selected question including its in-column figure",
+          "src": "./assets/textbook-practice/ch11-p402-chapter-review-q15.jpg"
+        },
+        {
+          "page": 402,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ]
+        },
+        {
+          "page": 403,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "role": "referenced context / continuation"
+        }
+      ],
+      "topics": [
+        "lesson-02",
+        "lesson-05"
+      ]
+    }
+  ],
+  "media": [
+    {
+      "kind": "img",
+      "attrs": {
+        "src": "assets/source/integrated-neuron.png",
+        "alt": "A labelled neuron showing dendrites, soma, nucleus, axon, myelin sheath, nodes of Ranvier, axon terminals, and supporting glial cells.",
+        "loading": "lazy",
+        "data-canvas-helper-edit-key": "p3-integrated-41"
+      },
+      "caption": "Read from dendrites to axon terminals. This is a simplified illustration of a typical multipolar neuron, not every neuron shape.",
+      "locator": {
+        "path": "projects/biology30-unit-a-pilot-3/workspace/index.html",
+        "startLine": 420
+      },
+      "status": "existing source asset; no new visual/science acceptance or video playback asserted"
+    },
+    {
+      "kind": "section",
+      "attrs": {
+        "class": "video-support",
+        "data-video": "A44brRGG4Ys"
+      },
+      "caption": "",
+      "locator": {
+        "path": "projects/biology30-unit-a-pilot-3/workspace/index.html",
+        "startLine": 427
+      },
+      "status": "existing source asset; no new visual/science acceptance or video playback asserted"
+    },
+    {
+      "kind": "a",
+      "attrs": {
+        "href": "https://www.youtube.com/watch?v=A44brRGG4Ys",
+        "target": "_blank",
+        "rel": "noopener",
+        "data-canvas-helper-edit-key": "p3-integrated-47"
+      },
+      "caption": "",
+      "locator": {
+        "path": "projects/biology30-unit-a-pilot-3/workspace/index.html",
+        "startLine": 432
+      },
+      "status": "existing source asset; no new visual/science acceptance or video playback asserted"
+    },
+    {
+      "kind": "img",
+      "attrs": {
+        "src": "assets/source/integrated-myelin.png",
+        "alt": "A comparison of continuous conduction in an unmyelinated axon and saltatory conduction in a myelinated axon.",
+        "loading": "lazy",
+        "data-canvas-helper-edit-key": "p3-integrated-77"
+      },
+      "caption": "Compare where the impulse is regenerated. The arrows are a shorthand: the axon remains continuous beneath the sheath. Schwann cells shown here form peripheral myelin; CNS myelin is made by oligodendrocytes.",
+      "locator": {
+        "path": "projects/biology30-unit-a-pilot-3/workspace/index.html",
+        "startLine": 475
+      },
+      "status": "existing source asset; no new visual/science acceptance or video playback asserted"
+    }
+  ],
+  "vocabulary": {
+    "canonicalPayload": "current-course/data/vocabulary-and-schema.json",
+    "inlineTermLinks": [
+      {
+        "attrs": {
+          "type": "button",
+          "class": "bio-term",
+          "data-bio-term": "neuron",
+          "data-bio-term-route": "lesson-02",
+          "aria-haspopup": "dialog",
+          "data-canvas-helper-edit-key": "p3-l02-setup-11"
+        },
+        "term": "neuron"
+      },
+      {
+        "attrs": {
+          "type": "button",
+          "class": "bio-term",
+          "data-bio-term": "dendrite",
+          "data-bio-term-route": "lesson-02",
+          "aria-haspopup": "dialog",
+          "data-canvas-helper-edit-key": "p3-l02-setup-13"
+        },
+        "term": "dendrite"
+      },
+      {
+        "attrs": {
+          "type": "button",
+          "class": "bio-term",
+          "data-bio-term": "axon",
+          "data-bio-term-route": "lesson-02",
+          "aria-haspopup": "dialog",
+          "data-canvas-helper-edit-key": "p3-l02-setup-15"
+        },
+        "term": "axon"
+      },
+      {
+        "attrs": {
+          "type": "button",
+          "class": "bio-term",
+          "data-bio-term": "myelin",
+          "data-bio-term-route": "lesson-02",
+          "aria-haspopup": "dialog",
+          "data-canvas-helper-edit-key": "p3-l02-setup-17"
+        },
+        "term": "myelin"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "neuron",
+          "data-bio-term-route": "lesson-01",
+          "data-canvas-helper-edit-key": "p3-integrated-29",
+          "type": "button"
+        },
+        "term": "neuron"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "cell body",
+          "data-bio-term-route": "lesson-01",
+          "data-canvas-helper-edit-key": "p3-integrated-30",
+          "type": "button"
+        },
+        "term": "cell body"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "axon",
+          "data-bio-term-route": "lesson-01",
+          "data-canvas-helper-edit-key": "p3-integrated-31",
+          "type": "button"
+        },
+        "term": "axon"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "dendrite",
+          "data-bio-term-route": "lesson-01",
+          "data-canvas-helper-edit-key": "p3-integrated-34",
+          "type": "button"
+        },
+        "term": "dendrite"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "axon terminal",
+          "data-bio-term-route": "lesson-01",
+          "data-canvas-helper-edit-key": "p3-integrated-36",
+          "type": "button"
+        },
+        "term": "axon terminal"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "effector",
+          "data-bio-term-route": "lesson-01",
+          "data-canvas-helper-edit-key": "p3-integrated-37",
+          "type": "button"
+        },
+        "term": "effector"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "synapse",
+          "data-bio-term-route": "lesson-01",
+          "data-canvas-helper-edit-key": "p3-integrated-38",
+          "type": "button"
+        },
+        "term": "synapse"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "myelin",
+          "data-bio-term-route": "lesson-01",
+          "data-canvas-helper-edit-key": "p3-integrated-51",
+          "type": "button"
+        },
+        "term": "myelin"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "action potential",
+          "data-bio-term-route": "lesson-01",
+          "data-canvas-helper-edit-key": "p3-integrated-54",
+          "type": "button"
+        },
+        "term": "action potential"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "saltatory conduction",
+          "data-bio-term-route": "lesson-01",
+          "data-canvas-helper-edit-key": "p3-integrated-55",
+          "type": "button"
+        },
+        "term": "saltatory conduction"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "pns",
+          "data-bio-term-route": "lesson-01",
+          "data-canvas-helper-edit-key": "p3-integrated-73",
+          "type": "button"
+        },
+        "term": "PNS"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "cns",
+          "data-bio-term-route": "lesson-01",
+          "data-canvas-helper-edit-key": "p3-integrated-74",
+          "type": "button"
+        },
+        "term": "CNS"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "myelin",
+          "data-bio-term-route": "lesson-01",
+          "data-canvas-helper-edit-key": "p3-integrated-80",
+          "type": "button"
+        },
+        "term": "myelin"
+      }
+    ],
+    "visibleWords": [
+      "Vocabulary help Key termsWords for this lessonUse these definitions when you need help with a term. neurona nerve cell that receives and carries information dendritea branch that receives information toward the cell body axonthe extension that carries impulses away from the cell body myelina fatty covering that insulates axons and speeds impulses More vocabulary for this lessonLesson vocabulary neuron · cell body · dendrite · axon · axon terminal · synapse · myelin · node of Ranvier · action potential · saltatory conduction · effector · CNS · PNSSelect an underlined term for its definition. Your vocabulary writing is saved in Process Collection."
+    ]
+  },
+  "immutablePreservationBindings": [
+    {
+      "tag": "section",
+      "attrs": {
+        "class": "activity",
+        "data-activity": "practice-neuron-structure",
+        "data-activity-mode": "writing",
+        "data-required-check": ""
+      },
+      "startLine": 487
+    },
+    {
+      "tag": "div",
+      "attrs": {
+        "class": "question",
+        "data-question": "source-checkpoint-7"
+      },
+      "startLine": 495,
+      "questionText": "Draw a neuron, label its basic structures, and identify their functions. Textbook p. 372 Written response Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded. Save written response"
+    },
+    {
+      "tag": "textarea",
+      "attrs": {
+        "id": "source-checkpoint-7-written",
+        "data-writing": "source-checkpoint-7-written",
+        "data-answer-limit": "3200",
+        "rows": "6",
+        "aria-describedby": "source-checkpoint-7-written-limit source-checkpoint-7-written-status"
+      },
+      "startLine": 502
+    }
+  ],
+  "status": {
+    "sourceInventory": "exported with exact locators; see explicit source gaps",
+    "authoring": "not-started",
+    "contentReview": "not-started",
+    "integration": "not-started",
+    "technicalTesting": "not-started",
+    "teacherAcceptance": "not-requested"
+  }
+}

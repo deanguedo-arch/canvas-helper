@@ -1,0 +1,15 @@
+# Teacher deck — slide 6
+
+Source: sources/original/Unit-A-Chapter-11-Teacher-Notes.pptx; ppt/slides/slide6.xml
+
+Overview
+
+The nervous system works in conjunction with the endocrine system to respond to both internal and external environmental change, thereby maintaining homeostasis within the body. 
+
+The nervous system responds via electrochemical messages relayed from the brain.
+
+The endocrine system responds via chemical messengers relayed through the bloodstream (hormones).
+
+## Speaker notes (unchanged extracted text)
+
+

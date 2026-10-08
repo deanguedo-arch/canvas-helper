@@ -1,0 +1,948 @@
+[
+  {
+    "route": "lesson-01",
+    "sourceRouteSha256": "4632606dcda07b0699c0884b2b656fb6d08f6b5659228ad7155dad9d518512a9",
+    "targetOwnerSha256": "2205c401e8edacf3fb91b71cb7146ae1757d5d1bf06d5ec6e8b24724bcde3062",
+    "intervals": [
+      {
+        "kind": "replace_exact_element",
+        "id": "ch12-l01-teaching-01",
+        "editKey": "ch12-l01-teaching-01",
+        "sourceStartUtf8Byte": 87529,
+        "sourceEndUtf8Byte": 88622,
+        "sourceSha256": "105084e90e4fc01b088b6126dcef7b89f8a67bcc129462f5cd08889bfb66fb46",
+        "replacement": "fragments/lesson-01.01.html",
+        "replacementSha256": "105084e90e4fc01b088b6126dcef7b89f8a67bcc129462f5cd08889bfb66fb46",
+        "changed": false
+      },
+      {
+        "kind": "replace_exact_element",
+        "id": "ch12-l01-teaching-02",
+        "editKey": "ch12-l01-teaching-02",
+        "sourceStartUtf8Byte": 88622,
+        "sourceEndUtf8Byte": 94174,
+        "sourceSha256": "894fe423874a1f335b0ac24fbb08e5dd8d5f4b73191ec4d8098159c812696a93",
+        "replacement": "fragments/lesson-01.02.html",
+        "replacementSha256": "ddccd4f63f182a9e7d05a3e28d57c1ed4e046d3f6c0be2a462b297a0c4b0c88d",
+        "changed": true
+      },
+      {
+        "kind": "replace_exact_element",
+        "id": "ch12-l01-teaching-03",
+        "editKey": "ch12-l01-teaching-03",
+        "sourceStartUtf8Byte": 94174,
+        "sourceEndUtf8Byte": 95984,
+        "sourceSha256": "3331307ab4435611dd8ae431cca47b6496d36d8fef2063d867cc77e9d1cb3f1f",
+        "replacement": "fragments/lesson-01.03.html",
+        "replacementSha256": "ee26188f49a4b814ee537bb8d3e1f389edff840596737369fcd00dc38f2f0298",
+        "changed": true
+      },
+      {
+        "kind": "replace_exact_element",
+        "id": "ch12-l01-teaching-04",
+        "editKey": "ch12-l01-teaching-04",
+        "sourceStartUtf8Byte": 95984,
+        "sourceEndUtf8Byte": 97106,
+        "sourceSha256": "9951416d18905b9dc313a562cdc015d2f3416d41e597649cab4e12b70f8b455a",
+        "replacement": "fragments/lesson-01.04.html",
+        "replacementSha256": "1c644ed89ab6908436a275c8f79868bc3e2c1ae947d5bb076bb39079f9fdefd3",
+        "changed": true
+      },
+      {
+        "kind": "insert_before_exact_anchor",
+        "anchor": "<div class=\"stop-check\">",
+        "sourceUtf8Byte": 99115,
+        "precedingContextSha256": "0fc1d67b7d8119f90663289c1c276d8c954ea5b74ac8570920f74610067bbc3b",
+        "followingContextSha256": "7773ba5e68a6f07f1141e929b69638a41b659900b5ad9966e952f5dc7e99438e",
+        "replacement": "fragments/lesson-01.additive-practice.html",
+        "replacementSha256": "287b1d5ba39a5044953b02d1dd5730e5a32c341615d62b40cdf719a313742e48",
+        "protectAdjacentElements": true,
+        "contextUnit": "200 UTF-8 bytes"
+      },
+      {
+        "kind": "insert_before_exact_anchor",
+        "anchor": "<nav class=\"lesson-footer\"",
+        "sourceUtf8Byte": 107419,
+        "precedingContextSha256": "1bfc3deccf3f1367efcce7dfca4a2e484f4d63c8dc9445ceaae5cdcf390dff5f",
+        "followingContextSha256": "ccf6a54ea517fb1259b73f2f61fc84d73773acfbfb97023d268ac68067c32911",
+        "replacement": "fragments/lesson-01.transition.html",
+        "replacementSha256": "8b148930e092ede9e172c60902465f1af27158529f8404d9d397fe539f817fc5",
+        "protectAdjacentElements": true,
+        "contextUnit": "200 UTF-8 bytes"
+      }
+    ],
+    "completeOriginalRoute": "protected-original/complete-native-routes/lesson-01.html",
+    "manuscript": "manuscripts/lesson-01.md",
+    "manuscriptSha256": "8de7dc20d11dc9c279d8a52981fb3c464afa28828d3d6ff2789ae2159dc56fe3",
+    "teachingFragmentSha256": "025be7043635a4aa53becd901b574aec05c0b754616b809129754100f8f303c6",
+    "protectedSubtrees": [
+      {
+        "element": "details",
+        "sha256": "0a17183ea4e9378196423e771bd78d70626eb23f2b0a1c36b808f3de6d9eac50",
+        "bytes": 6695
+      },
+      {
+        "element": "details",
+        "sha256": "f100ba38bd388203f66db0c05845beaeb81a0d95d8c038ab535b08833ead6ced",
+        "bytes": 1163
+      },
+      {
+        "element": "section",
+        "sha256": "c2d16da7212511b35f3fcb2b06dbec87e69a8a54a66331b5aa1f1ab409ecf0b8",
+        "bytes": 1417
+      },
+      {
+        "element": "div",
+        "sha256": "21cb1dfffc2dfaac18f15d4fa8bb806d6ba52ebf475f5880679c1facee988627",
+        "bytes": 592
+      },
+      {
+        "element": "div",
+        "sha256": "3d19e5571f72c434d332a61f2a754b61da0df6a8528e45ff3fa85517cb129e9e",
+        "bytes": 446
+      }
+    ]
+  },
+  {
+    "route": "lesson-02",
+    "sourceRouteSha256": "8ec519c561df7b1c12bf8d89c6586b5bd992d9db8de25c258dbe1cfe49cf54c6",
+    "targetOwnerSha256": "2205c401e8edacf3fb91b71cb7146ae1757d5d1bf06d5ec6e8b24724bcde3062",
+    "intervals": [
+      {
+        "kind": "replace_exact_element",
+        "id": "ch12-l02-teaching-01",
+        "editKey": "ch12-l02-teaching-01",
+        "sourceStartUtf8Byte": 112977,
+        "sourceEndUtf8Byte": 614872,
+        "sourceSha256": "082ff3e0948e663af19c29c9d6c6be4343413e2736c3a0753163152abbbab99e",
+        "replacement": "fragments/lesson-02.01.html",
+        "replacementSha256": "3c7eb061f0ab5a9e61d2d165df3a34a23c98517bf83f6e8759781c8e14fd9ed1",
+        "changed": true
+      },
+      {
+        "kind": "replace_exact_element",
+        "id": "ch12-l02-teaching-02",
+        "editKey": "ch12-l02-teaching-02",
+        "sourceStartUtf8Byte": 614872,
+        "sourceEndUtf8Byte": 616612,
+        "sourceSha256": "f9018f4f2e883819a8651333cf2561db21426f857d313002e2ba1bfc8d6b0ff4",
+        "replacement": "fragments/lesson-02.02.html",
+        "replacementSha256": "f4e63fa2ea4af6ef81c302bf2568cf705061f5d7173615a9112a6eb9b42d3e60",
+        "changed": true
+      },
+      {
+        "kind": "replace_exact_element",
+        "id": "ch12-l02-teaching-03",
+        "editKey": "ch12-l02-teaching-03",
+        "sourceStartUtf8Byte": 616612,
+        "sourceEndUtf8Byte": 617618,
+        "sourceSha256": "bc83e8cab324801988e82b77eaa5e75ab6c485323cdc72c3340c553a984d82ec",
+        "replacement": "fragments/lesson-02.03.html",
+        "replacementSha256": "bc83e8cab324801988e82b77eaa5e75ab6c485323cdc72c3340c553a984d82ec",
+        "changed": false
+      },
+      {
+        "kind": "replace_exact_element",
+        "id": "ch12-l02-teaching-04",
+        "editKey": "ch12-l02-teaching-04",
+        "sourceStartUtf8Byte": 617618,
+        "sourceEndUtf8Byte": 619333,
+        "sourceSha256": "0eff364b20cf3fd1a79561b3dbc077d10dcf80da9a5af88c6f6604ebc1382d92",
+        "replacement": "fragments/lesson-02.04.html",
+        "replacementSha256": "7ca7f11c29ab10faaf7bfec81adc45dd6ff01cc6ee9f8d9527a400184ca0fa2f",
+        "changed": true
+      },
+      {
+        "kind": "insert_before_exact_anchor",
+        "anchor": "<div class=\"stop-check\">",
+        "sourceUtf8Byte": 621321,
+        "precedingContextSha256": "fc38413e0db4a381f0f23cafddc1f380f12f80a6de56c2562932d34afebce1ac",
+        "followingContextSha256": "20961f31f01f49c0a0bfcbf6a2a495f23125c7522de79dd8a14b675af59b07b6",
+        "replacement": "fragments/lesson-02.additive-practice.html",
+        "replacementSha256": "fc57098a3d89a14dd9a10143f586d19d24e5892d2e170a004a5634a558f58f1a",
+        "protectAdjacentElements": true,
+        "contextUnit": "200 UTF-8 bytes"
+      },
+      {
+        "kind": "insert_before_exact_anchor",
+        "anchor": "<nav class=\"lesson-footer\"",
+        "sourceUtf8Byte": 630319,
+        "precedingContextSha256": "20bda4d8e22a76eca31f55c60d27da7b0e68fc95ca72c4e09c157ec982571ab2",
+        "followingContextSha256": "f52d3393745719ada0c8bf0e74cb18625d35c6d67e35b1661181a9a983987fba",
+        "replacement": "fragments/lesson-02.transition.html",
+        "replacementSha256": "00a02518a5939139cda2c4c2bce700b34b0437718809543be92781defb737ba5",
+        "protectAdjacentElements": true,
+        "contextUnit": "200 UTF-8 bytes"
+      }
+    ],
+    "completeOriginalRoute": "protected-original/complete-native-routes/lesson-02.html",
+    "manuscript": "manuscripts/lesson-02.md",
+    "manuscriptSha256": "8589c4d83f4d029b604caee85e2b8c45f67b31e807be8129a64c29569bd4cbab",
+    "teachingFragmentSha256": "9b7866f6e53246f4ae1a160e5096383cf2e3af3955d7704b39bc1ce181d95e34",
+    "protectedSubtrees": [
+      {
+        "element": "details",
+        "sha256": "61606e04b0bf8b17888364cf496d125c58369ba2e155156f35e49205ce7836fe",
+        "bytes": 6789
+      },
+      {
+        "element": "details",
+        "sha256": "0b435cb23feb5732f486f03c1d50f214a4643dafb195ee5b59038812de2f5e05",
+        "bytes": 1022
+      },
+      {
+        "element": "section",
+        "sha256": "22e3be370c05e5a645ad41fe8a40a8508ff04a226b0e37a1923ad92d2b6423ef",
+        "bytes": 1364
+      },
+      {
+        "element": "div",
+        "sha256": "0ee8766913ff39a50b3321219db62904a4ca9b6d20d50686c04d6d19657f9c1c",
+        "bytes": 624
+      },
+      {
+        "element": "div",
+        "sha256": "06fb7916fee324a3f9522c54463eb1fa3186a340c9ed10a72224127ae78ff91a",
+        "bytes": 378
+      }
+    ]
+  },
+  {
+    "route": "lesson-03",
+    "sourceRouteSha256": "bc71fcc36142ab109089e81b3d05d98cb91ea8c9dd3eb328176f991901b2009f",
+    "targetOwnerSha256": "2205c401e8edacf3fb91b71cb7146ae1757d5d1bf06d5ec6e8b24724bcde3062",
+    "intervals": [
+      {
+        "kind": "replace_exact_element",
+        "id": "ch12-l03-teaching-01",
+        "editKey": "ch12-l03-teaching-01",
+        "sourceStartUtf8Byte": 635906,
+        "sourceEndUtf8Byte": 785391,
+        "sourceSha256": "995a33084ac0ca5f6c3c5487ecdbcdcd14f83ea2e70ffa99aa6c4f31e7deeaff",
+        "replacement": "fragments/lesson-03.01.html",
+        "replacementSha256": "0b3a3736b2d587b0d5dcd129116ccccbd2611e9cd95b828646605ffde2bf1890",
+        "changed": true
+      },
+      {
+        "kind": "replace_exact_element",
+        "id": "ch12-l03-teaching-02",
+        "editKey": "ch12-l03-teaching-02",
+        "sourceStartUtf8Byte": 785391,
+        "sourceEndUtf8Byte": 787055,
+        "sourceSha256": "60f1598fa250cc5ac5899a9e7a1b972303b3aa15b96ab83da19a57724f838850",
+        "replacement": "fragments/lesson-03.02.html",
+        "replacementSha256": "60f1598fa250cc5ac5899a9e7a1b972303b3aa15b96ab83da19a57724f838850",
+        "changed": false
+      },
+      {
+        "kind": "replace_exact_element",
+        "id": "ch12-l03-teaching-03",
+        "editKey": "ch12-l03-teaching-03",
+        "sourceStartUtf8Byte": 787055,
+        "sourceEndUtf8Byte": 792436,
+        "sourceSha256": "ddb3a91bc8c82de2fc06b68f44b4ad2ab96daab6dd42411029b92dc746594bc8",
+        "replacement": "fragments/lesson-03.03.html",
+        "replacementSha256": "037bec5705e7e9c0b78154657949d3bf2e3e6469c880fe969ac708d4e2382d0e",
+        "changed": true
+      },
+      {
+        "kind": "replace_exact_element",
+        "id": "ch12-l03-teaching-04",
+        "editKey": "ch12-l03-teaching-04",
+        "sourceStartUtf8Byte": 792436,
+        "sourceEndUtf8Byte": 793724,
+        "sourceSha256": "babc0090ae5f860d4d87cfa0428dbbdacacefc16d991fcc0555b1fba323cde3b",
+        "replacement": "fragments/lesson-03.04.html",
+        "replacementSha256": "babc0090ae5f860d4d87cfa0428dbbdacacefc16d991fcc0555b1fba323cde3b",
+        "changed": false
+      },
+      {
+        "kind": "insert_before_exact_anchor",
+        "anchor": "<div class=\"stop-check\">",
+        "sourceUtf8Byte": 795615,
+        "precedingContextSha256": "ac055898aff7e0dcc2a402b32f3958b099cdbd07d48cae53fcb913047e1c7f2f",
+        "followingContextSha256": "d4391f2875dd0bd61a2ec3fa18b1800114be2ffda790112e1f5b0fb7c0deaa43",
+        "replacement": "fragments/lesson-03.additive-practice.html",
+        "replacementSha256": "fb891842105e3d3ec4c3a12e231789c77a2a597eefeb51ea9097ffb118188e94",
+        "protectAdjacentElements": true,
+        "contextUnit": "200 UTF-8 bytes"
+      },
+      {
+        "kind": "insert_before_exact_anchor",
+        "anchor": "<nav class=\"lesson-footer\"",
+        "sourceUtf8Byte": 804676,
+        "precedingContextSha256": "99db46c5f1f0897d3d7af88e339b10f50a92462ca2eaca2f835cbf11dbe44e9a",
+        "followingContextSha256": "6ad5cabaac181cb4a0fa8d76c31f4adeb7c2dbaf834285a623e725cebb6234e4",
+        "replacement": "fragments/lesson-03.transition.html",
+        "replacementSha256": "20a5b1057ab73e4c40b0fb325596f755a6d18685f124d4820c701505928d3958",
+        "protectAdjacentElements": true,
+        "contextUnit": "200 UTF-8 bytes"
+      }
+    ],
+    "completeOriginalRoute": "protected-original/complete-native-routes/lesson-03.html",
+    "manuscript": "manuscripts/lesson-03.md",
+    "manuscriptSha256": "26275bceb72c2c9d3d2b3b2ba6ca4f8a717ee75e8771bdf13220721e2211b02e",
+    "teachingFragmentSha256": "5071351bb3857ed87fe5ffaa39e2c3c7e75ae3faf9e17f90a9e27ac0399a8c2c",
+    "protectedSubtrees": [
+      {
+        "element": "details",
+        "sha256": "f04600df8de09251531f804c1f39132a5da3bd77136814316f474e347074a229",
+        "bytes": 6760
+      },
+      {
+        "element": "details",
+        "sha256": "c806816415bb72e3c1eb8673547966577293ba8f9c54ee81a27939b648a972d7",
+        "bytes": 1091
+      },
+      {
+        "element": "section",
+        "sha256": "4f927a4c4d9e6a16d2074e8f038f2f44a379e74c1aa825ae391580f727332731",
+        "bytes": 1381
+      },
+      {
+        "element": "div",
+        "sha256": "ea1007de996a697de6f1b8cc532d9b6e5632d75a49759f890973326d4426052f",
+        "bytes": 510
+      },
+      {
+        "element": "div",
+        "sha256": "4fba308376ae66bff59e6653f94d201e42ce12900366f4a1c3d79fd3619fc57b",
+        "bytes": 389
+      }
+    ]
+  },
+  {
+    "route": "lesson-04",
+    "sourceRouteSha256": "0c89d6b87333fc3679a3314c549874c980f0643975c32c555e65ca5a3b70f271",
+    "targetOwnerSha256": "2205c401e8edacf3fb91b71cb7146ae1757d5d1bf06d5ec6e8b24724bcde3062",
+    "intervals": [
+      {
+        "kind": "replace_exact_element",
+        "id": "ch12-l04-teaching-01",
+        "editKey": "ch12-l04-teaching-01",
+        "sourceStartUtf8Byte": 810172,
+        "sourceEndUtf8Byte": 811736,
+        "sourceSha256": "b922b19c67040bf97b0ca504f0db103a4a3808045a8545033ef2bd6822a20bea",
+        "replacement": "fragments/lesson-04.01.html",
+        "replacementSha256": "7446e691d963c07d207825cc7cb62429b57c524b5041a89ad55a26ceab0004d7",
+        "changed": true
+      },
+      {
+        "kind": "replace_exact_element",
+        "id": "ch12-l04-teaching-02",
+        "editKey": "ch12-l04-teaching-02",
+        "sourceStartUtf8Byte": 811736,
+        "sourceEndUtf8Byte": 1171391,
+        "sourceSha256": "1c18f6b3ff2dad7fe6ed82f7bdf27fb15490286c018e4f88a47b8f0b4bf8903c",
+        "replacement": "fragments/lesson-04.02.html",
+        "replacementSha256": "2fc4ece2b1f8cf2b5afaf2f87d9f0a3dd45568cc1d4c79205b256953b91b38dc",
+        "changed": true
+      },
+      {
+        "kind": "replace_exact_element",
+        "id": "ch12-l04-teaching-03",
+        "editKey": "ch12-l04-teaching-03",
+        "sourceStartUtf8Byte": 1171391,
+        "sourceEndUtf8Byte": 1172741,
+        "sourceSha256": "c057edda31865550c679a568d610e8c7c239249fa51c0ebfd58b028a57d0b84e",
+        "replacement": "fragments/lesson-04.03.html",
+        "replacementSha256": "c17b8d1ec4c3492bde9533fe829578d2d5591161b6b26a07ba900663485aa65f",
+        "changed": true
+      },
+      {
+        "kind": "replace_exact_element",
+        "id": "ch12-l04-teaching-04",
+        "editKey": "ch12-l04-teaching-04",
+        "sourceStartUtf8Byte": 1172741,
+        "sourceEndUtf8Byte": 1174180,
+        "sourceSha256": "de1649d5a4dd41bca6643bcf9c485e0a92fd17e9597bbfb3fe72cecd120c4054",
+        "replacement": "fragments/lesson-04.04.html",
+        "replacementSha256": "8af57bc4b2520e9be6466d0164d19819a7ea9de3d89598007a68ae9d0d58dfe9",
+        "changed": true
+      },
+      {
+        "kind": "insert_before_exact_anchor",
+        "anchor": "<div class=\"stop-check\">",
+        "sourceUtf8Byte": 1176159,
+        "precedingContextSha256": "8177defce664db1d198c105c299b3552859950d2e6f19e2c2f18c6b24398d410",
+        "followingContextSha256": "426dcc4e0c7f0285f30915b7fbb4bd55ac58bce95cf38bbb0a54d6301564b423",
+        "replacement": "fragments/lesson-04.additive-practice.html",
+        "replacementSha256": "5fd3ea5b1b892b831df4aa8d4f5a6e99e12b5b33b97396342119f7a984cdf41c",
+        "protectAdjacentElements": true,
+        "contextUnit": "200 UTF-8 bytes"
+      },
+      {
+        "kind": "insert_before_exact_anchor",
+        "anchor": "<nav class=\"lesson-footer\"",
+        "sourceUtf8Byte": 1185194,
+        "precedingContextSha256": "3e0c86eec125bd6f977c1c1546ac8031dd7ee65fba03c4390c340efc4a0999dd",
+        "followingContextSha256": "55caa54fab395fdecff49abb3c8eea8bdeea2bb74b1a36efb4fa3bfebb970554",
+        "replacement": "fragments/lesson-04.transition.html",
+        "replacementSha256": "0b4502c04e8a4bf59435226e80076f15543335825b96dff217e6cf9de7d9dcfd",
+        "protectAdjacentElements": true,
+        "contextUnit": "200 UTF-8 bytes"
+      }
+    ],
+    "completeOriginalRoute": "protected-original/complete-native-routes/lesson-04.html",
+    "manuscript": "manuscripts/lesson-04.md",
+    "manuscriptSha256": "2b9d20f7f900f5b9c89102eba759d0f65052abba7f17277ecc20eafcb8622a72",
+    "teachingFragmentSha256": "632246c99931c6e4802d8928d72d5bfa8e376cd5f7954cf3efc778501d7711bd",
+    "protectedSubtrees": [
+      {
+        "element": "details",
+        "sha256": "bc8ab3cd6aa8b115c374e7f1fd319649fd34be97cd0a27a985d3505fc2f20b52",
+        "bytes": 6656
+      },
+      {
+        "element": "details",
+        "sha256": "cd95f6aaf965b2a4878fab1b0548c79f080da8d02fb5114ffbec71ac997d356a",
+        "bytes": 1164
+      },
+      {
+        "element": "section",
+        "sha256": "7cb244d32144d74a7eaa17608f459be71f18802ef00386b075343dd0c1621b87",
+        "bytes": 1377
+      },
+      {
+        "element": "div",
+        "sha256": "8060fa365607bf78c591086ed83f273348eb24b89716c83683555f29b2526460",
+        "bytes": 602
+      },
+      {
+        "element": "div",
+        "sha256": "35755e8961015ae8e5b6b8c4c35175cb97752126a323acd7aa53c4821822bb9c",
+        "bytes": 337
+      }
+    ]
+  },
+  {
+    "route": "lesson-05",
+    "sourceRouteSha256": "cabad11a5637774e72811c3f68c898992a16f7599193921168d8d6d2b138697d",
+    "targetOwnerSha256": "2205c401e8edacf3fb91b71cb7146ae1757d5d1bf06d5ec6e8b24724bcde3062",
+    "intervals": [
+      {
+        "kind": "replace_exact_element",
+        "id": "ch12-l05-teaching-01",
+        "editKey": "ch12-l05-teaching-01",
+        "sourceStartUtf8Byte": 1190860,
+        "sourceEndUtf8Byte": 1415596,
+        "sourceSha256": "d5744f5955b111e749f5b0d1dfcf09ea647d3989f861424b43bfafa8cca1e9c4",
+        "replacement": "fragments/lesson-05.01.html",
+        "replacementSha256": "d5744f5955b111e749f5b0d1dfcf09ea647d3989f861424b43bfafa8cca1e9c4",
+        "changed": false
+      },
+      {
+        "kind": "replace_exact_element",
+        "id": "ch12-l05-teaching-02",
+        "editKey": "ch12-l05-teaching-02",
+        "sourceStartUtf8Byte": 1415596,
+        "sourceEndUtf8Byte": 1416578,
+        "sourceSha256": "2b98a60d2e03105d61b1edce80cabea48dc465229715101f66bf5b06d6d13eba",
+        "replacement": "fragments/lesson-05.02.html",
+        "replacementSha256": "48e5981c639233dc01a496e95af0bc0fb191740df14cd0f53f30f8c7c3ea041a",
+        "changed": true
+      },
+      {
+        "kind": "replace_exact_element",
+        "id": "ch12-l05-teaching-03",
+        "editKey": "ch12-l05-teaching-03",
+        "sourceStartUtf8Byte": 1416578,
+        "sourceEndUtf8Byte": 1699941,
+        "sourceSha256": "0b139bb6b6bf8eba0c1ec90597e2badb645b775c621dae17ffa39e75875ee775",
+        "replacement": "fragments/lesson-05.03.html",
+        "replacementSha256": "31af55be61848b61330ad9b95c3491706fd6847e6a5bbd2a11f1870d8ed8d9af",
+        "changed": true
+      },
+      {
+        "kind": "replace_exact_element",
+        "id": "ch12-l05-teaching-04",
+        "editKey": "ch12-l05-teaching-04",
+        "sourceStartUtf8Byte": 1699941,
+        "sourceEndUtf8Byte": 1702108,
+        "sourceSha256": "2c82856a673cdba6130ed1ba05e39df1b85acd4fa556916d1095f58f80cccb4d",
+        "replacement": "fragments/lesson-05.04.html",
+        "replacementSha256": "2c82856a673cdba6130ed1ba05e39df1b85acd4fa556916d1095f58f80cccb4d",
+        "changed": false
+      },
+      {
+        "kind": "insert_before_exact_anchor",
+        "anchor": "<div class=\"stop-check\">",
+        "sourceUtf8Byte": 1704296,
+        "precedingContextSha256": "620139c10c82591d895a64a14d610a4a66db4677eec17e27c3371f81a6ab2157",
+        "followingContextSha256": "a811671b6ccb5b5fc6493c717fa16ac5937a61bb662e3487d8122e026e26c275",
+        "replacement": "fragments/lesson-05.additive-practice.html",
+        "replacementSha256": "01495c4cdc48a06d5fda14bd10c8765edb3a7cb462e5ed278a995af985136340",
+        "protectAdjacentElements": true,
+        "contextUnit": "200 UTF-8 bytes"
+      },
+      {
+        "kind": "insert_before_exact_anchor",
+        "anchor": "<nav class=\"lesson-footer\"",
+        "sourceUtf8Byte": 1714121,
+        "precedingContextSha256": "0f8098d546d5f711261c2a6286e7af4fe811b1b205cc216c80e3098b8feb09b1",
+        "followingContextSha256": "3ca3004ccab1bcdb5150f936b27b3c98dcfcf853099b389245072ffb4b36f3f9",
+        "replacement": "fragments/lesson-05.transition.html",
+        "replacementSha256": "7dbc7803279746696281cb4f5715ee882a1f4c2f31a5f82758c298729ae7a041",
+        "protectAdjacentElements": true,
+        "contextUnit": "200 UTF-8 bytes"
+      }
+    ],
+    "completeOriginalRoute": "protected-original/complete-native-routes/lesson-05.html",
+    "manuscript": "manuscripts/lesson-05.md",
+    "manuscriptSha256": "daecdd47f056579d67cc2053608274048176bd55410496673b1923b97e16d57d",
+    "teachingFragmentSha256": "4c57ed99dbb3692e74056adc8a4c4ef4c72374fb43fb968fca8e9db3b3d947e5",
+    "protectedSubtrees": [
+      {
+        "element": "details",
+        "sha256": "348b1a7c6d4ba30150c114df2e160eeaa25bc4e85c698be6d0f11709170f2eb3",
+        "bytes": 6585
+      },
+      {
+        "element": "details",
+        "sha256": "8612151eca54dd9fffc86a4ac5e1d084622efd7b252b889ea88c5cf91c0330d3",
+        "bytes": 1119
+      },
+      {
+        "element": "section",
+        "sha256": "99d1fc0a640629b56a0e4c3093fdb9c4c8a4c0077e7f1730b4e97784de57fb57",
+        "bytes": 1671
+      },
+      {
+        "element": "div",
+        "sha256": "91ea62cd8b6430f706c7f8501db7f2a51471d02b05ab17a225c7f1f43e971987",
+        "bytes": 517
+      },
+      {
+        "element": "div",
+        "sha256": "5dadd7e5f80aafcfbd9537da9e050ecb6dfdae94818c1afc7405f4318e7e0d56",
+        "bytes": 406
+      }
+    ]
+  },
+  {
+    "route": "lesson-06",
+    "sourceRouteSha256": "6227e72dd3f65274b765b3b706ee4f56782e4a28bb229a75a733c63c59603ef7",
+    "targetOwnerSha256": "2205c401e8edacf3fb91b71cb7146ae1757d5d1bf06d5ec6e8b24724bcde3062",
+    "intervals": [
+      {
+        "kind": "replace_exact_element",
+        "id": "ch12-l06-teaching-01",
+        "editKey": "ch12-l06-teaching-01",
+        "sourceStartUtf8Byte": 1719855,
+        "sourceEndUtf8Byte": 1750465,
+        "sourceSha256": "1d024c78593ccd8cd3eb28c67d48fa09865d672070fee0090038c84a678e6777",
+        "replacement": "fragments/lesson-06.01.html",
+        "replacementSha256": "c15eefd8ffebfd829abb1037e180b600ff0a0139d542e44a2d344f5aa990670c",
+        "changed": true
+      },
+      {
+        "kind": "replace_exact_element",
+        "id": "ch12-l06-teaching-02",
+        "editKey": "ch12-l06-teaching-02",
+        "sourceStartUtf8Byte": 1750465,
+        "sourceEndUtf8Byte": 1751689,
+        "sourceSha256": "a6f5900b9e3dfbc4293e4389201ac31f8f7b9617b3aa475f0eb3f599cd4705fe",
+        "replacement": "fragments/lesson-06.02.html",
+        "replacementSha256": "88d2bc320a1960bcc3c0f5c50102c92464034cca402bfa43ad8b4966d4839fdb",
+        "changed": true
+      },
+      {
+        "kind": "replace_exact_element",
+        "id": "ch12-l06-teaching-03",
+        "editKey": "ch12-l06-teaching-03",
+        "sourceStartUtf8Byte": 1751689,
+        "sourceEndUtf8Byte": 1753956,
+        "sourceSha256": "cb1e004e881433191c90afe62ba54a0e0d8f804f8dfd75a749659bd348061050",
+        "replacement": "fragments/lesson-06.03.html",
+        "replacementSha256": "235a26f3af9ba54547a207bb68b370b7cd6062579a900c38ad3d16041711fe56",
+        "changed": true
+      },
+      {
+        "kind": "replace_exact_element",
+        "id": "ch12-l06-teaching-04",
+        "editKey": "ch12-l06-teaching-04",
+        "sourceStartUtf8Byte": 1753956,
+        "sourceEndUtf8Byte": 1754936,
+        "sourceSha256": "bf4e3a6933ffb65c4fafa95eb0c84ec83c03c943cdf24561728125300b082b1d",
+        "replacement": "fragments/lesson-06.04.html",
+        "replacementSha256": "bf4e3a6933ffb65c4fafa95eb0c84ec83c03c943cdf24561728125300b082b1d",
+        "changed": false
+      },
+      {
+        "kind": "insert_before_exact_anchor",
+        "anchor": "<div class=\"stop-check\">",
+        "sourceUtf8Byte": 1757051,
+        "precedingContextSha256": "f42e4ea4a00341e8a414cfaa7738eb5b09d17678022974b0d7ed42153226ee2b",
+        "followingContextSha256": "0f39c20c345dd1a47ae0ff5987b0af53beb434b32aadb8babdd3397a2c44669f",
+        "replacement": "fragments/lesson-06.additive-practice.html",
+        "replacementSha256": "35ea63895647764d5ec27cf289d9d84d20bcd00435c85b1647237d3e3fd26245",
+        "protectAdjacentElements": true,
+        "contextUnit": "200 UTF-8 bytes"
+      },
+      {
+        "kind": "insert_before_exact_anchor",
+        "anchor": "<nav class=\"lesson-footer\"",
+        "sourceUtf8Byte": 1767145,
+        "precedingContextSha256": "8c3920d8992a21111635d16dfbe57bc3fca28bc6c2c7f37f7f8d273857a97c60",
+        "followingContextSha256": "deb9f17d773d286857ae1e92e32a3d0771eb6c6164d312b9558498baee9e88a0",
+        "replacement": "fragments/lesson-06.transition.html",
+        "replacementSha256": "a0c559ce680c60f753c88a5e69758ca1c477575c5a3b3bab81be369fe7fab057",
+        "protectAdjacentElements": true,
+        "contextUnit": "200 UTF-8 bytes"
+      }
+    ],
+    "completeOriginalRoute": "protected-original/complete-native-routes/lesson-06.html",
+    "manuscript": "manuscripts/lesson-06.md",
+    "manuscriptSha256": "1560328e5d898a38676c0c24bef0c521604635e02d2626b52873b031b47bc36e",
+    "teachingFragmentSha256": "621ac0f5fbd4246eb18233d55907e7497a7fa0b0fcc256f6dd0980eb2e9bbb68",
+    "protectedSubtrees": [
+      {
+        "element": "details",
+        "sha256": "d7ea0bf7cfcce806a6832b3f5f6460084fcf889404cde2642dc0fb2b71f81153",
+        "bytes": 6736
+      },
+      {
+        "element": "details",
+        "sha256": "d9fa6534f602129ac441f7a675623d1241eacdf5cfdc35471b7102c0bd9a0b80",
+        "bytes": 1209
+      },
+      {
+        "element": "section",
+        "sha256": "f8cc1cf5068b45f16d247d004f8b5b0587331d55b8ee8c8aa2d08abba89abad5",
+        "bytes": 1558
+      },
+      {
+        "element": "div",
+        "sha256": "c7b682bb692bdd98124a6c203a535d72349711d26ef392784f109e902f5dc141",
+        "bytes": 557
+      },
+      {
+        "element": "div",
+        "sha256": "60dc63d6ae2bc07bcf683f998e5ab84fac601b0dd96acd455b20ea22ae6db426",
+        "bytes": 397
+      }
+    ]
+  },
+  {
+    "route": "lesson-07",
+    "sourceRouteSha256": "05d38ec90d60284a4b381ecd65c820429b70654b41f8710abf9246d56a5b5e85",
+    "targetOwnerSha256": "2205c401e8edacf3fb91b71cb7146ae1757d5d1bf06d5ec6e8b24724bcde3062",
+    "intervals": [
+      {
+        "kind": "replace_exact_element",
+        "id": "ch12-l07-teaching-01",
+        "editKey": "ch12-l07-teaching-01",
+        "sourceStartUtf8Byte": 1772561,
+        "sourceEndUtf8Byte": 1781410,
+        "sourceSha256": "962d3ae75ccbb66aa5673ab26a2013b0a002b818f6ba9af5bd5f394321d5e706",
+        "replacement": "fragments/lesson-07.01.html",
+        "replacementSha256": "461171aa3c5901070dbac1f1ff7b873a6f040fbc6f87d2d8b2a9a76e12dfc722",
+        "changed": true
+      },
+      {
+        "kind": "replace_exact_element",
+        "id": "ch12-l07-teaching-02",
+        "editKey": "ch12-l07-teaching-02",
+        "sourceStartUtf8Byte": 1781410,
+        "sourceEndUtf8Byte": 1782210,
+        "sourceSha256": "342b74f8874334d219e55df8fe1474d62e2ed4804c715543239cd396b80c0e82",
+        "replacement": "fragments/lesson-07.02.html",
+        "replacementSha256": "644bb5556c88715cdc01295a88a86810a361c5525c2bba600329599d61caa393",
+        "changed": true
+      },
+      {
+        "kind": "replace_exact_element",
+        "id": "ch12-l07-teaching-03",
+        "editKey": "ch12-l07-teaching-03",
+        "sourceStartUtf8Byte": 1782210,
+        "sourceEndUtf8Byte": 1783635,
+        "sourceSha256": "24f4d437a1fcdde50c3e3384f9ab31f0ad73ef73e89f1f215c9dacbf8dab0371",
+        "replacement": "fragments/lesson-07.03.html",
+        "replacementSha256": "1fb6c7412dc86f1de3dc92452236055fd0b54be9be278d4915fea42ab0f07e1d",
+        "changed": true
+      },
+      {
+        "kind": "replace_exact_element",
+        "id": "ch12-l07-teaching-04",
+        "editKey": "ch12-l07-teaching-04",
+        "sourceStartUtf8Byte": 1783635,
+        "sourceEndUtf8Byte": 1784504,
+        "sourceSha256": "839449185751a950d0c5665266b5ffd84aaf5893eeedf2207e9465e97f9cdf16",
+        "replacement": "fragments/lesson-07.04.html",
+        "replacementSha256": "ec3ef98ff40ab98d75e6dfb20a95767d98e58058458185fce6d56c9bbd9d083b",
+        "changed": true
+      },
+      {
+        "kind": "insert_before_exact_anchor",
+        "anchor": "<div class=\"stop-check\">",
+        "sourceUtf8Byte": 1786691,
+        "precedingContextSha256": "cbbda0e58ed14022a2f92d1603040027256d3f614b9da0125b102d6c3343cdd7",
+        "followingContextSha256": "ea17c40ddb09d1f18c696cc1571159d2cad61c6b7bb4644970341162742616d6",
+        "replacement": "fragments/lesson-07.additive-practice.html",
+        "replacementSha256": "f7df5d7ee26f68416cc04f651a3dadc2b79fe7b735fcdae6d78ff2222858c3cf",
+        "protectAdjacentElements": true,
+        "contextUnit": "200 UTF-8 bytes"
+      },
+      {
+        "kind": "insert_before_exact_anchor",
+        "anchor": "<nav class=\"lesson-footer\"",
+        "sourceUtf8Byte": 1795681,
+        "precedingContextSha256": "29444132cfcf16538c441c53719c83d73ba76220b33f3378ef788dcadbec805f",
+        "followingContextSha256": "688c95c75cd6f940ed05484ce21ad30881d456220706f37832a57a9854f7b5c9",
+        "replacement": "fragments/lesson-07.transition.html",
+        "replacementSha256": "312dc500e0af48447dd0bd7129d368bc1d550db54f7e8e8050bd3879f9202a02",
+        "protectAdjacentElements": true,
+        "contextUnit": "200 UTF-8 bytes"
+      }
+    ],
+    "completeOriginalRoute": "protected-original/complete-native-routes/lesson-07.html",
+    "manuscript": "manuscripts/lesson-07.md",
+    "manuscriptSha256": "30c8e9cf53ae633e540b8c0e8d2f44c2e192aac5165711ad5a19e3caf66845c3",
+    "teachingFragmentSha256": "a859a5b8bbc2eca35861279f289aa8c6329e39c7498c55b48a133344fcc9adf6",
+    "protectedSubtrees": [
+      {
+        "element": "details",
+        "sha256": "3527a8659ea64b065419a062f6e966d0993d483e0997fdde785e26585cf7ebaa",
+        "bytes": 6435
+      },
+      {
+        "element": "details",
+        "sha256": "1234b15cbc114852d3b607952816a57b6f6cabe73c011a45d497cd5a095d6b38",
+        "bytes": 1189
+      },
+      {
+        "element": "section",
+        "sha256": "0c52c40ead478ed5d3e9cd44d6a38294068437407061ad76560639683dbe34c2",
+        "bytes": 1611
+      },
+      {
+        "element": "div",
+        "sha256": "2372f67de66a2035e42aef9b7c9b426ea1fc239d3c6ca582023ef590f4d640be",
+        "bytes": 576
+      },
+      {
+        "element": "div",
+        "sha256": "3e5d1abece12ea370a8ce6764fdbb52c3536b202276be482af27882c837b63ba",
+        "bytes": 466
+      }
+    ]
+  },
+  {
+    "route": "lesson-08",
+    "sourceRouteSha256": "3dca633715e4bafcb3b5b71b6404fd91197897a02a419c17706123c19afc31cc",
+    "targetOwnerSha256": "2205c401e8edacf3fb91b71cb7146ae1757d5d1bf06d5ec6e8b24724bcde3062",
+    "intervals": [
+      {
+        "kind": "replace_exact_element",
+        "id": "ch12-l08-teaching-01",
+        "editKey": "ch12-l08-teaching-01",
+        "sourceStartUtf8Byte": 1800834,
+        "sourceEndUtf8Byte": 2060542,
+        "sourceSha256": "02f8f7be4ae1e220cfc91554af52b48cf20dd8b292975e050ef99a39e402c2ce",
+        "replacement": "fragments/lesson-08.01.html",
+        "replacementSha256": "1b9b942e85e4219d1193eca827dcf24058d1cfdae0b1716517cd0eee3d57daaa",
+        "changed": true
+      },
+      {
+        "kind": "replace_exact_element",
+        "id": "ch12-l08-teaching-02",
+        "editKey": "ch12-l08-teaching-02",
+        "sourceStartUtf8Byte": 2060542,
+        "sourceEndUtf8Byte": 2443033,
+        "sourceSha256": "f6daa48c3cb64814ee3c7ee7d77494126fccd60b0d5d064795d30445751d63e7",
+        "replacement": "fragments/lesson-08.02.html",
+        "replacementSha256": "1579f894853e36d7f9b36acb48c05cefe927c617d9ff2b584c5c9bd95169d702",
+        "changed": true
+      },
+      {
+        "kind": "replace_exact_element",
+        "id": "ch12-l08-teaching-03",
+        "editKey": "ch12-l08-teaching-03",
+        "sourceStartUtf8Byte": 2443033,
+        "sourceEndUtf8Byte": 2444123,
+        "sourceSha256": "40c7bad1d4b214ca34f11d5bac258d1cf31ac02891b6238be0a147b3cdba9066",
+        "replacement": "fragments/lesson-08.03.html",
+        "replacementSha256": "4593a40b02d71a5d62b379e9c41c20622676cf9cfb71d67e07defd8aaea23353",
+        "changed": true
+      },
+      {
+        "kind": "replace_exact_element",
+        "id": "ch12-l08-teaching-04",
+        "editKey": "ch12-l08-teaching-04",
+        "sourceStartUtf8Byte": 2444123,
+        "sourceEndUtf8Byte": 2445215,
+        "sourceSha256": "c6e12067f41ad9a7caad70b143a3fa6c043c2948a6d9abdca01aa91d714d0d02",
+        "replacement": "fragments/lesson-08.04.html",
+        "replacementSha256": "d7be0ee66736c54c63d03dd376622cd430239fed6e1db143f5767ff989d12721",
+        "changed": true
+      },
+      {
+        "kind": "insert_before_exact_anchor",
+        "anchor": "<div class=\"stop-check\">",
+        "sourceUtf8Byte": 2447966,
+        "precedingContextSha256": "bd79c071edd1afc7b87f4c37443ac3e067dc426c1929dd8de79e747d27e7d384",
+        "followingContextSha256": "0460f2bf5f2009ebf857e10879e6ad4a3dcf2edd1db45f7f58e907ab814d8f70",
+        "replacement": "fragments/lesson-08.additive-practice.html",
+        "replacementSha256": "36eb72b68d584a369f29582de757b8072498fa6e678677a8c0760cd3b5f7ff89",
+        "protectAdjacentElements": true,
+        "contextUnit": "200 UTF-8 bytes"
+      },
+      {
+        "kind": "insert_before_exact_anchor",
+        "anchor": "<nav class=\"lesson-footer\"",
+        "sourceUtf8Byte": 2456633,
+        "precedingContextSha256": "08d288d26b497b171d9cb334548baebe25463da196e91a93f487a7652281e77a",
+        "followingContextSha256": "4b2878fcabbdcb31d80838c9c484d3f1d8c91ae19f7765cf1dbd53feda4903d5",
+        "replacement": "fragments/lesson-08.transition.html",
+        "replacementSha256": "c0b0418e7bf5be6410864df33aa112212ac3889e09d94e22ed7dc6ea39365c68",
+        "protectAdjacentElements": true,
+        "contextUnit": "200 UTF-8 bytes"
+      }
+    ],
+    "completeOriginalRoute": "protected-original/complete-native-routes/lesson-08.html",
+    "manuscript": "manuscripts/lesson-08.md",
+    "manuscriptSha256": "0a9514c772bf639c7c0e8bf8bae26e644cc527d19ce9679f9568eeac6876d3b1",
+    "teachingFragmentSha256": "4bfda24ada9f1eaba72d73f375769b483e1f2355efde4d0b36345e054784002d",
+    "protectedSubtrees": [
+      {
+        "element": "details",
+        "sha256": "a5ae379d7e00bfe67ce7f794e0e32220144955d4eb8236bc66036df1022228e5",
+        "bytes": 7181
+      },
+      {
+        "element": "details",
+        "sha256": "1ed06f0abb53d44375988204c1c7ab93c91d3edf68891bf73e0ca3a399b28503",
+        "bytes": 1132
+      },
+      {
+        "element": "section",
+        "sha256": "01e543b2ab272a035da35a4c2994e79c347a7002586b733067503dd482121091",
+        "bytes": 1682
+      },
+      {
+        "element": "div",
+        "sha256": "9eb8abe9707af14fc4e7bf7ded6b2681fc3bd5d0a69d40a7047777c3878fc7aa",
+        "bytes": 1069
+      },
+      {
+        "element": "div",
+        "sha256": "ba858e53341720adb5f8146783ac77fe9c2ee4964e9eff0ff59368e36c3c276a",
+        "bytes": 354
+      }
+    ]
+  },
+  {
+    "route": "lesson-09",
+    "sourceRouteSha256": "debd71934067876546033c6c0ef13de9b3fc232c92338163388a9bdb51136ffd",
+    "targetOwnerSha256": "2205c401e8edacf3fb91b71cb7146ae1757d5d1bf06d5ec6e8b24724bcde3062",
+    "intervals": [
+      {
+        "kind": "replace_exact_element",
+        "id": "ch12-l09-teaching-01",
+        "editKey": "ch12-l09-teaching-01",
+        "sourceStartUtf8Byte": 2460570,
+        "sourceEndUtf8Byte": 2461787,
+        "sourceSha256": "af0ceefe74f742ec66c85b5ff0a1493b2fe99a94c53b30ac9a33d243a2612871",
+        "replacement": "fragments/lesson-09.01.html",
+        "replacementSha256": "fc21bd46d9d60a349885798f12126beb2899cb9ec40d8114da4fc8e36ccf7a17",
+        "changed": true
+      },
+      {
+        "kind": "replace_exact_element",
+        "id": "ch12-l09-teaching-02",
+        "editKey": "ch12-l09-teaching-02",
+        "sourceStartUtf8Byte": 2461787,
+        "sourceEndUtf8Byte": 2463791,
+        "sourceSha256": "5997d62350ca7178130ae15ed778b31e4e22aee16e1e9578b079f5f9cdc6c6be",
+        "replacement": "fragments/lesson-09.02.html",
+        "replacementSha256": "5997d62350ca7178130ae15ed778b31e4e22aee16e1e9578b079f5f9cdc6c6be",
+        "changed": false
+      },
+      {
+        "kind": "replace_exact_element",
+        "id": "ch12-l09-teaching-03",
+        "editKey": "ch12-l09-teaching-03",
+        "sourceStartUtf8Byte": 2463791,
+        "sourceEndUtf8Byte": 2464551,
+        "sourceSha256": "5376ee5844d4885d0a62d8f399bca3e31220d951ac6254c89dcd0d20bcff104b",
+        "replacement": "fragments/lesson-09.03.html",
+        "replacementSha256": "11ea5e352004d594ef5e9f6e2a2ea229b54006141df420a01f65f60f08513300",
+        "changed": true
+      },
+      {
+        "kind": "insert_before_exact_anchor",
+        "anchor": "<div class=\"worked-example\"",
+        "sourceUtf8Byte": 2469115,
+        "precedingContextSha256": "76baf49a405f74383a02c440c2d3d92a81a5fab4976d05c82c65beecf993690a",
+        "followingContextSha256": "bce8b1e30ea0d8cd290392a4b30d30604f0d5ebce1207174a977808e1908cced",
+        "replacement": "fragments/lesson-09.additive-practice.html",
+        "replacementSha256": "d1c873564e722169707259f0047af0551df416c215316848a3b7879f19c00b33",
+        "protectAdjacentElements": true,
+        "contextUnit": "200 UTF-8 bytes"
+      },
+      {
+        "kind": "insert_before_exact_anchor",
+        "anchor": "<nav class=\"lesson-footer\"",
+        "sourceUtf8Byte": 2482903,
+        "precedingContextSha256": "a7e329dcdc4003d5f6634e2af4e27546ad7048ff750e2f559da97d8b07d9ad00",
+        "followingContextSha256": "9f91cd3f0936a3acad332921c0664a065159c929b6a2539e02c46883856f7a45",
+        "replacement": "fragments/lesson-09.transition.html",
+        "replacementSha256": "7776baf88e4ff3af9854c101eb77d8d9f8e0a603c060cb4f7430de01508f292c",
+        "protectAdjacentElements": true,
+        "contextUnit": "200 UTF-8 bytes"
+      }
+    ],
+    "completeOriginalRoute": "protected-original/complete-native-routes/lesson-09.html",
+    "manuscript": "manuscripts/lesson-09.md",
+    "manuscriptSha256": "bae8eb67696829dc0d601ee381865d93ebca0c433abfdbd921f05b8fd3c3d5b2",
+    "teachingFragmentSha256": "fcf101bee848eb960ba6c7e5d3ab1e60a26be355685e32e2cc65a6398bcf06a0",
+    "protectedSubtrees": [
+      {
+        "element": "details",
+        "sha256": "dbc8ca37ce6a9c0145a390532f5f6fd85e14083da4ced7aaad091ab45df319f6",
+        "bytes": 12918
+      },
+      {
+        "element": "div",
+        "sha256": "78e288107e544cfe20e9157a445571d9f4a8b437a04987f30c710f39bb6bd4c0",
+        "bytes": 461
+      },
+      {
+        "element": "div",
+        "sha256": "a3c0e9aa4137874fc5bcd0b44ecf111c5e8901ce6ea876fee729ff8eddc37d69",
+        "bytes": 409
+      }
+    ]
+  },
+  {
+    "route": "extension",
+    "sourceRouteSha256": "7df049db91bc43230c67de8c80f021e4953590a80686ba3bcd8977fad966bd9a",
+    "targetOwnerSha256": "2205c401e8edacf3fb91b71cb7146ae1757d5d1bf06d5ec6e8b24724bcde3062",
+    "intervals": [
+      {
+        "kind": "replace_exact_element",
+        "selector": "extension first div.content-section",
+        "sourceStartUtf8Byte": 2483568,
+        "sourceEndUtf8Byte": 2484149,
+        "sourceSha256": "e4070d7659fc603fb1c4a0314bc4e0d9e4c8a14eb30c2ddf7994146960df5d46",
+        "replacement": "fragments/extension.01.html",
+        "replacementSha256": "9ee1bb91794fa92c6de20abb6fde69a36808fd77abde36bfba5f4f9245137435"
+      },
+      {
+        "kind": "insert_after_complete_saved_task",
+        "sourceUtf8Byte": 2485420,
+        "precedingContextSha256": "04004a2ff9d4b32379b8ba8ff8808d6ec6499a02fef7e9f2012c230ab73a22b7",
+        "followingContextSha256": "087273f3621a354f585444b3bb6f5a288a960e9899b26d4db698c86b5e5c57be",
+        "replacement": "fragments/extension.additive-model.html",
+        "replacementSha256": "46ef56854d1b40742205bb2399b4dcc07bb1d1d5c997e2bd7f9467f00c2593d7",
+        "nativeRequirement": "Use the existing ch12-optional-extension submitted-note lock; preserve its original section. This supplementary model must not be auto-opened before the saved attempt.",
+        "contextUnit": "200 UTF-8 bytes"
+      }
+    ],
+    "completeOriginalRoute": "protected-original/complete-native-routes/extension.html",
+    "manuscript": "manuscripts/extension.md",
+    "manuscriptSha256": "c4c95f2ec756b22f2a4a99b45849f6096226bb51ae87ccc66d7165a2e191805b",
+    "teachingFragmentSha256": "1bf6fe5f29fb63736fc91db2dfe038df04879717d74fcefa51f294ff1cdbd5f7",
+    "protectedSavedSectionSha256": "2d0a6d5fab4cacf1a566251af4e15417c7e17da1ae741d418de53aa0c2ff0f9c"
+  }
+]

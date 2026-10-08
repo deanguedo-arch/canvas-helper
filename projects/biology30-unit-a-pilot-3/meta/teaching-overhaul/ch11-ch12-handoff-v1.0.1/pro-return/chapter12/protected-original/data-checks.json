@@ -1,0 +1,590 @@
+[
+  {
+    "id": "ch12-check-01",
+    "route": "lesson-01",
+    "title": "Sensory receptors, sensation and adaptation",
+    "mc": [
+      {
+        "prompt": "A student recognizes a familiar voice. Which part of this description is perception?",
+        "options": [
+          "Hair cells bending",
+          "Sound waves reaching the ear",
+          "Interpreting the sound as that person’s voice",
+          "The eardrum vibrating"
+        ],
+        "answer": "Interpreting the sound as that person’s voice",
+        "explanation": "Perception assigns meaning to sensory information. Detection and transmission occur earlier.",
+        "cue": "Look for the step that gives the input meaning.",
+        "difficulty": "application",
+        "id": "ch12-l01-check-mc-1"
+      },
+      {
+        "prompt": "Which pair correctly matches a receptor with its stimulus?",
+        "options": [
+          "Thermoreceptor — air pressure waves",
+          "Chemoreceptor — light on the retina",
+          "Mechanoreceptor — movement of inner-ear fluid",
+          "Photoreceptor — sugar in saliva"
+        ],
+        "answer": "Mechanoreceptor — movement of inner-ear fluid",
+        "explanation": "Movement is a mechanical stimulus. Inner-ear hair cells are mechanoreceptors.",
+        "cue": "Match the form of energy, not the name of the organ.",
+        "difficulty": "foundation",
+        "id": "ch12-l01-check-mc-2"
+      }
+    ],
+    "writing": [
+      {
+        "prompt": "Use a different everyday example to distinguish sensory reception, sensation and perception. Name the receptor category.",
+        "model": "For a ringing bicycle bell, inner-ear mechanoreceptors respond to movement; I become aware of a sound; I interpret it as a bell warning me that a cyclist is approaching.",
+        "criteria": [
+          "An appropriate stimulus and receptor",
+          "Detection distinguished from awareness",
+          "Meaning or interpretation identified"
+        ],
+        "id": "ch12-l01-check-writing-1",
+        "limit": 3200
+      },
+      {
+        "prompt": "Explain why not noticing a constant stimulus is not proof that the sensory system has stopped working.",
+        "model": "Adaptation and changes in attention can reduce awareness of a constant stimulus. Receptors and pathways may still be active, and a change in the stimulus can become noticeable.",
+        "criteria": [
+          "Constant stimulus may remain",
+          "Reduced responsiveness or attention",
+          "New changes can still be detected"
+        ],
+        "id": "ch12-l01-check-writing-2",
+        "limit": 3200
+      }
+    ]
+  },
+  {
+    "id": "ch12-check-02",
+    "route": "lesson-02",
+    "title": "Eye structures and the path of light",
+    "mc": [
+      {
+        "prompt": "Which route correctly follows light through the eye?",
+        "options": [
+          "Cornea → pupil → lens → retina",
+          "Cornea → optic nerve → lens → retina",
+          "Pupil → retina → lens → cornea",
+          "Retina → lens → pupil → cornea"
+        ],
+        "answer": "Cornea → pupil → lens → retina",
+        "explanation": "This is the main route with the humours omitted for brevity. Neural signals leave the retina through the optic nerve.",
+        "cue": "Start at the transparent front of the eye.",
+        "difficulty": "foundation",
+        "id": "ch12-l02-check-mc-1"
+      },
+      {
+        "prompt": "A diagram labels the opening in the coloured ring as “iris.” What needs correcting?",
+        "options": [
+          "The opening is the retina; the ring is the lens",
+          "The opening is the optic nerve",
+          "The opening is the pupil; the coloured ring is the iris",
+          "Both labels refer to the cornea"
+        ],
+        "answer": "The opening is the pupil; the coloured ring is the iris",
+        "explanation": "Iris names the tissue that changes the size of the opening. Pupil names the opening.",
+        "cue": "Separate tissue from space.",
+        "difficulty": "foundation",
+        "id": "ch12-l02-check-mc-2"
+      }
+    ],
+    "writing": [
+      {
+        "prompt": "Trace a ray of light from outside the eye to the retina. Include both humours and explain the different roles of the iris and lens.",
+        "model": "Light passes through the cornea, aqueous humour, pupil, lens and vitreous humour to the retina. The iris controls pupil diameter and the amount of entering light. The lens adjusts the focus on the retina.",
+        "criteria": [
+          "Correct ordered optical route",
+          "Both humours included",
+          "Iris and lens functions distinguished"
+        ],
+        "id": "ch12-l02-check-writing-1",
+        "limit": 3200
+      },
+      {
+        "prompt": "Compare the sclera, choroid and retina. Give one function for each rather than only its location.",
+        "model": "The sclera protects and supports the eye; the choroid nourishes tissues and absorbs stray light; the retina contains photoreceptors and neurons that detect and process light information.",
+        "criteria": [
+          "Three layers distinguished",
+          "Protection/support",
+          "Nourishment/pigment and photoreception"
+        ],
+        "id": "ch12-l02-check-writing-2",
+        "limit": 3200
+      }
+    ]
+  },
+  {
+    "id": "ch12-check-03",
+    "route": "lesson-03",
+    "title": "Focusing, accommodation and vision problems",
+    "mc": [
+      {
+        "prompt": "A student looks from a distant tree to a nearby book. Which change supports the new focus?",
+        "options": [
+          "Ciliary muscle relaxes; lens becomes flatter",
+          "Ciliary muscle contracts; lens becomes rounder",
+          "Pupil becomes the photoreceptor",
+          "Optic nerve shortens to move the retina"
+        ],
+        "answer": "Ciliary muscle contracts; lens becomes rounder",
+        "explanation": "Near accommodation reduces ligament tension and allows the lens to round.",
+        "cue": "Follow muscle action to ligament tension, then lens shape.",
+        "difficulty": "application",
+        "id": "ch12-l03-check-mc-1"
+      },
+      {
+        "prompt": "Distant rays focus in front of the retina. Which correction matches this model?",
+        "options": [
+          "A concave lens for hyperopia",
+          "A convex lens for myopia",
+          "A concave lens for myopia",
+          "Removing the iris to treat a cataract"
+        ],
+        "answer": "A concave lens for myopia",
+        "explanation": "A concave lens diverges the rays before they enter the eye.",
+        "cue": "Does the correction need more or less initial convergence?",
+        "difficulty": "application",
+        "id": "ch12-l03-check-mc-2"
+      }
+    ],
+    "writing": [
+      {
+        "prompt": "Explain near accommodation as a four-step chain: muscle action, ligament tension, lens shape and optical effect.",
+        "model": "The ciliary muscle contracts, suspensory-ligament tension decreases, the lens becomes rounder, and its refractive power increases to focus a nearby object on the retina.",
+        "criteria": [
+          "Correct muscle action",
+          "Correct tension and lens shape",
+          "Near-focus consequence"
+        ],
+        "id": "ch12-l03-check-writing-1",
+        "limit": 3200
+      },
+      {
+        "prompt": "Compare myopia and hyperopia using focal position and corrective lens type. Explain one correction rather than just naming it.",
+        "model": "Myopia focuses distant light in front of the retina and is corrected with a concave lens. Hyperopia focuses behind the retina without sufficient accommodation and is corrected with a convex lens. The concave lens spreads rays so they meet farther back.",
+        "criteria": [
+          "Front versus behind",
+          "Concave versus convex",
+          "Mechanism of one correction"
+        ],
+        "id": "ch12-l03-check-writing-2",
+        "limit": 3200
+      }
+    ]
+  },
+  {
+    "id": "ch12-check-04",
+    "route": "lesson-04",
+    "title": "The retina, rods and cones",
+    "mc": [
+      {
+        "prompt": "Which sequence follows the principal retinal information pathway?",
+        "options": [
+          "Photoreceptor → iris → ciliary muscle",
+          "Photoreceptor → bipolar cell → ganglion cell",
+          "Ganglion cell → lens → photoreceptor",
+          "Pupil → choroid → ganglion cell"
+        ],
+        "answer": "Photoreceptor → bipolar cell → ganglion cell",
+        "explanation": "Information flows from photoreceptors through retinal circuits to ganglion cells.",
+        "cue": "Start with the cell that transduces light.",
+        "difficulty": "foundation",
+        "id": "ch12-l04-check-mc-1"
+      },
+      {
+        "prompt": "Why is the optic disc a blind spot?",
+        "options": [
+          "It lacks rods and cones",
+          "The lens focuses every image there",
+          "Its aqueous humour is opaque",
+          "It contains only cones"
+        ],
+        "answer": "It lacks rods and cones",
+        "explanation": "No photoreceptors occupy the location where ganglion axons leave.",
+        "cue": "Ask which cells are missing at the nerve exit.",
+        "difficulty": "application",
+        "id": "ch12-l04-check-mc-2"
+      }
+    ],
+    "writing": [
+      {
+        "prompt": "Trace light and neural information through the simplified three-layer retina. Explain why their directions differ.",
+        "model": "Light enters from the vitreous side past ganglion and bipolar layers to rods and cones. After transduction, information travels through bipolar pathways to ganglion cells, whose axons form the optic nerve.",
+        "criteria": [
+          "Optical direction correct",
+          "Neural direction correct",
+          "Ganglion-cell axons identified"
+        ],
+        "id": "ch12-l04-check-writing-1",
+        "limit": 3200
+      },
+      {
+        "prompt": "Compare the fovea centralis with the blind spot. Include the receptors present or absent and the consequence for vision.",
+        "model": "The fovea has a dense cone population supporting sharp central vision. The optic disc has no rods or cones because fibres leave as the optic nerve, so light falling there is not detected.",
+        "criteria": [
+          "Fovea and cones",
+          "Optic disc and absence of receptors",
+          "Consequences linked to structure"
+        ],
+        "id": "ch12-l04-check-writing-2",
+        "limit": 3200
+      }
+    ]
+  },
+  {
+    "id": "ch12-check-05",
+    "route": "lesson-05",
+    "title": "Ear structures and sound transmission",
+    "mc": [
+      {
+        "prompt": "Which structure immediately transfers ossicle movement into the inner-ear fluid?",
+        "options": [
+          "Oval window",
+          "Pinna",
+          "Eustachian tube",
+          "Optic disc"
+        ],
+        "answer": "Oval window",
+        "explanation": "The stapes moves at the oval window, creating pressure changes in cochlear fluid.",
+        "cue": "Follow the final ossicle.",
+        "difficulty": "foundation",
+        "id": "ch12-l05-check-mc-1"
+      },
+      {
+        "prompt": "Where does hearing transduction occur?",
+        "options": [
+          "At the outer surface of the sclera",
+          "In the pinna’s cartilage",
+          "Inside the Eustachian tube’s air",
+          "In hair cells of the cochlear sensory apparatus"
+        ],
+        "answer": "In hair cells of the cochlear sensory apparatus",
+        "explanation": "Hair-cell bending changes electrical activity and transmitter release to sensory neurons.",
+        "cue": "Look for the receptor rather than a conducting structure.",
+        "difficulty": "application",
+        "id": "ch12-l05-check-mc-2"
+      }
+    ],
+    "writing": [
+      {
+        "prompt": "Trace sound energy from the pinna to auditory-nerve activity. State where mechanical movement becomes a neural signal.",
+        "model": "Pinna → auditory canal → tympanum → malleus → incus → stapes → oval window → cochlear fluid and basilar-membrane movement → hair-cell bending → auditory sensory neurons. Hair cells transduce the movement and communicate with neurons that generate action potentials.",
+        "criteria": [
+          "Ordered structures",
+          "Mechanical stages distinguished",
+          "Hair-cell transduction identified"
+        ],
+        "id": "ch12-l05-check-writing-1",
+        "limit": 3200
+      },
+      {
+        "prompt": "Explain why the Eustachian tube is important even though it is not on the main route from the pinna to the organ of Corti.",
+        "model": "The tube links the middle ear to the throat region and helps equalize air pressure across the tympanum. That supports normal membrane vibration rather than directly carrying sound to the cochlea.",
+        "criteria": [
+          "Middle-ear pressure",
+          "Throat connection",
+          "Not the main conduction route"
+        ],
+        "id": "ch12-l05-check-writing-2",
+        "limit": 3200
+      }
+    ]
+  },
+  {
+    "id": "ch12-check-06",
+    "route": "lesson-06",
+    "title": "Pitch, loudness and hearing impairment",
+    "mc": [
+      {
+        "prompt": "The amplitude of a tone increases while its frequency stays constant. What should mainly change?",
+        "options": [
+          "Pitch increases while loudness stays similar",
+          "Loudness increases while pitch stays similar",
+          "The sound becomes light",
+          "Pitch becomes zero"
+        ],
+        "answer": "Loudness increases while pitch stays similar",
+        "explanation": "Amplitude and frequency are separate wave properties.",
+        "cue": "Which property counts cycles per second?",
+        "difficulty": "application",
+        "id": "ch12-l06-check-mc-1"
+      },
+      {
+        "prompt": "High-frequency sounds most strongly stimulate which region of the cochlea?",
+        "options": [
+          "The Eustachian tube’s throat opening",
+          "The pupil",
+          "The cochlear base near the oval window",
+          "The far apex only"
+        ],
+        "answer": "The cochlear base near the oval window",
+        "explanation": "The high-frequency end is closest to the oval window.",
+        "cue": "Think of position along the basilar membrane.",
+        "difficulty": "application",
+        "id": "ch12-l06-check-mc-2"
+      }
+    ],
+    "writing": [
+      {
+        "prompt": "Explain why “high sound” is ambiguous. Use frequency, amplitude, pitch and loudness correctly in your answer.",
+        "model": "High may refer to frequency and perceived pitch, or to amplitude and perceived loudness. A loud low-frequency sound is possible, so the two properties must be described separately.",
+        "criteria": [
+          "Frequency and pitch linked",
+          "Amplitude and loudness linked",
+          "Independent variation explained"
+        ],
+        "id": "ch12-l06-check-writing-1",
+        "limit": 3200
+      },
+      {
+        "prompt": "A case states that hair cells are badly damaged but some auditory nerve fibres still work. Explain the principle behind an implant without promising a guaranteed outcome.",
+        "model": "An implant can bypass some damaged hair-cell function and stimulate remaining nerve fibres electrically. Useful perception depends on the remaining pathway and adaptation; it does not regrow hair cells or reproduce all natural hearing.",
+        "criteria": [
+          "Bypasses receptor damage",
+          "Requires functional neural pathway",
+          "Limits acknowledged"
+        ],
+        "id": "ch12-l06-check-writing-2",
+        "limit": 3200
+      }
+    ]
+  },
+  {
+    "id": "ch12-check-07",
+    "route": "lesson-07",
+    "title": "Balance, body position and proprioception",
+    "mc": [
+      {
+        "prompt": "Which structure is most directly associated with detecting a change in head rotation?",
+        "options": [
+          "Cochlear organ of Corti",
+          "Lens",
+          "Thyroid gland",
+          "Semicircular canals"
+        ],
+        "answer": "Semicircular canals",
+        "explanation": "Rotational changes deflect the canal cupula through relative fluid movement.",
+        "cue": "Separate rotation from straight-line movement.",
+        "difficulty": "foundation",
+        "id": "ch12-l07-check-mc-1"
+      },
+      {
+        "prompt": "A lift begins moving upward. Which structure is particularly relevant?",
+        "options": [
+          "Pinna",
+          "Fovea",
+          "Anterior pituitary",
+          "Saccule"
+        ],
+        "answer": "Saccule",
+        "explanation": "The saccule contributes strongly to detection of vertical linear acceleration.",
+        "cue": "Identify the plane and type of movement.",
+        "difficulty": "application",
+        "id": "ch12-l07-check-mc-2"
+      }
+    ],
+    "writing": [
+      {
+        "prompt": "Compare the mechanism for a change in rotation with the mechanism for linear acceleration. Include the receptor, surrounding structure and source of movement.",
+        "model": "Rotation changes relative canal-fluid movement and deflects the cupula, bending hair cells. Linear acceleration shifts a weighted otolithic membrane in the utricle or saccule relative to hair cells. Both mechanisms alter sensory signalling.",
+        "criteria": [
+          "Canal/cupula mechanism",
+          "Otolith-organ membrane mechanism",
+          "Hair-cell bending in both"
+        ],
+        "id": "ch12-l07-check-writing-1",
+        "limit": 3200
+      },
+      {
+        "prompt": "Explain why balance can become less reliable when visual information disagrees with vestibular information.",
+        "model": "The brain normally combines vision, vestibular signals and proprioception. Conflicting signals make its estimate of motion and position less consistent, which can disturb perceived balance.",
+        "criteria": [
+          "Multiple sensory sources",
+          "Integration by the brain",
+          "Conflict linked to perception"
+        ],
+        "id": "ch12-l07-check-writing-2",
+        "limit": 3200
+      }
+    ]
+  },
+  {
+    "id": "ch12-check-08",
+    "route": "lesson-08",
+    "title": "Taste, smell, touch and temperature",
+    "mc": [
+      {
+        "prompt": "Why does food need to dissolve in saliva for taste detection?",
+        "options": [
+          "The tongue contains only photoreceptors",
+          "Dissolved chemicals can interact with taste receptor cells",
+          "Saliva sends light to the fovea",
+          "Saliva converts every taste into sound"
+        ],
+        "answer": "Dissolved chemicals can interact with taste receptor cells",
+        "explanation": "Taste is chemoreception: substances must reach receptor cells in a usable form.",
+        "cue": "Identify the kind of receptor.",
+        "difficulty": "foundation",
+        "id": "ch12-l08-check-mc-1"
+      },
+      {
+        "prompt": "Which explanation best links dense touch representation to precise discrimination?",
+        "options": [
+          "Larger action potentials always give finer detail",
+          "Small receptive fields and neural representation help separate nearby contacts",
+          "Every body region has identical receptor density",
+          "The back has no sensory receptors"
+        ],
+        "answer": "Small receptive fields and neural representation help separate nearby contacts",
+        "explanation": "Touch precision depends on receptor distribution, receptive fields and processing.",
+        "cue": "Avoid explaining acuity only with impulse height.",
+        "difficulty": "application",
+        "id": "ch12-l08-check-mc-2"
+      }
+    ],
+    "writing": [
+      {
+        "prompt": "Explain how taste and smell both use chemoreception but start at different structures. Then connect them to flavour.",
+        "model": "Dissolved food chemicals stimulate taste receptor cells in taste buds. Odour molecules stimulate olfactory receptors and signals reach the olfactory bulb. The brain combines these inputs with texture and temperature to produce flavour perception.",
+        "criteria": [
+          "Taste stimulus and structure",
+          "Olfactory stimulus and structure",
+          "Integration into flavour"
+        ],
+        "id": "ch12-l08-check-writing-1",
+        "limit": 3200
+      },
+      {
+        "prompt": "Plan, but do not perform, a fair touch-discrimination investigation. Include a question, prediction, changed variable, measured response, two controls and one safety requirement.",
+        "model": "Question: does touch discrimination differ by body region? Prediction: fingertips permit finer discrimination. Change region; measure correct discrimination using a teacher-approved method. Control contact pressure and instructions; repeat trials. Use only approved safe blunt materials under supervision, and do not invent results.",
+        "criteria": [
+          "Testable question and prediction",
+          "Changed and measured variables",
+          "Controls, repeated trials and safety"
+        ],
+        "id": "ch12-l08-check-writing-2",
+        "limit": 3200
+      }
+    ]
+  },
+  {
+    "id": "ch12-check-09",
+    "route": "lesson-09",
+    "title": "Chapter review and final check",
+    "mc": [
+      {
+        "prompt": "A clear lens forms an image on a region of retina that lacks photoreceptors. What is the immediate limitation?",
+        "options": [
+          "The image must become brighter",
+          "The ossicles stop moving",
+          "The pupil becomes a sensory neuron",
+          "There is no local photoreceptor transduction"
+        ],
+        "answer": "There is no local photoreceptor transduction",
+        "explanation": "Focusing cannot replace receptors.",
+        "cue": "Identify the step after focusing.",
+        "difficulty": "application",
+        "id": "ch12-l09-check-mc-1"
+      },
+      {
+        "prompt": "Which combination describes near accommodation?",
+        "options": [
+          "Relaxed ciliary muscle, reduced tension, rounder lens",
+          "Relaxed ciliary muscle, increased tension, rounder lens",
+          "Contracted ciliary muscle, reduced ligament tension, rounder lens",
+          "Contracted ciliary muscle, increased tension, flatter lens"
+        ],
+        "answer": "Contracted ciliary muscle, reduced ligament tension, rounder lens",
+        "explanation": "Ciliary contraction reduces the tension that flattens the lens.",
+        "cue": "Use the full four-step chain.",
+        "difficulty": "application",
+        "id": "ch12-l09-check-mc-2"
+      },
+      {
+        "prompt": "Which pair correctly distinguishes hearing and rotation receptors?",
+        "options": [
+          "Rods / cones",
+          "Pinna / iris",
+          "Cochlear hair cells / semicircular-canal hair cells",
+          "Thyroid / pancreas"
+        ],
+        "answer": "Cochlear hair cells / semicircular-canal hair cells",
+        "explanation": "Both are mechanoreceptive systems but have different structures and stimuli.",
+        "cue": "Which apparatus responds to each kind of movement?",
+        "difficulty": "application",
+        "id": "ch12-l09-check-mc-3"
+      },
+      {
+        "prompt": "A tone becomes higher in pitch without becoming louder. Which main wave property increases?",
+        "options": [
+          "Amplitude",
+          "Ligament tension",
+          "Lens curvature",
+          "Frequency"
+        ],
+        "answer": "Frequency",
+        "explanation": "Frequency is the cycles-per-second property associated with pitch.",
+        "cue": "Separate pitch from loudness.",
+        "difficulty": "foundation",
+        "id": "ch12-l09-check-mc-4"
+      },
+      {
+        "prompt": "Which route carries retinal information toward the brain?",
+        "options": [
+          "Rods/cones → bipolar pathways → ganglion cells → optic nerve",
+          "Optic nerve → iris → lens → rods",
+          "Lens → cochlea → optic nerve",
+          "Ganglion cells → pupil → cornea"
+        ],
+        "answer": "Rods/cones → bipolar pathways → ganglion cells → optic nerve",
+        "explanation": "Ganglion-cell axons form the optic nerve.",
+        "cue": "Start with transduction, not with light entry.",
+        "difficulty": "application",
+        "id": "ch12-l09-check-mc-5"
+      },
+      {
+        "prompt": "A study changes contact pressure and body region at the same time. Why is its conclusion limited?",
+        "options": [
+          "Repeated trials would erase every confound",
+          "Either change could contribute to a difference in discrimination",
+          "Pressure is unrelated to mechanoreceptors",
+          "Two variables always prove the same cause"
+        ],
+        "answer": "Either change could contribute to a difference in discrimination",
+        "explanation": "A fair comparison controls other influential variables.",
+        "cue": "Ask whether the cause of the difference is isolated.",
+        "difficulty": "application",
+        "id": "ch12-l09-check-mc-6"
+      }
+    ],
+    "writing": [
+      {
+        "prompt": "Compare vision and hearing using four headings: original stimulus, conducting/focusing structures, receptor/transduction, and route to brain interpretation.",
+        "model": "Vision begins with light guided by cornea, humours, pupil and lens to retinal rods and cones; retinal processing leads to ganglion-cell activity and visual pathways. Hearing begins with pressure waves conducted by pinna, canal, tympanum and ossicles to cochlear movement; hair cells transduce movement and sensory neurons carry information into auditory pathways.",
+        "criteria": [
+          "Both original stimuli",
+          "Correct support structures",
+          "Correct receptors and transduction",
+          "Neural transmission distinguished from original energy"
+        ],
+        "id": "ch12-l09-check-writing-1",
+        "limit": 3200
+      },
+      {
+        "prompt": "A student writes: “All balance comes from the semicircular canals, all tastes come from separate tongue regions, and the optic nerve carries light.” Correct each claim and explain the mechanism behind one correction.",
+        "model": "Balance combines semicircular canals, utricle/saccule, vision and proprioception. Taste categories are distributed, not confined to exclusive zones. The optic nerve carries ganglion-cell action potentials. For example, otolith organs use a weighted membrane to detect gravity and linear acceleration, rather than using the canal rotation mechanism.",
+        "criteria": [
+          "Three claims corrected",
+          "One causal mechanism explained",
+          "Structures named precisely"
+        ],
+        "id": "ch12-l09-check-writing-2",
+        "limit": 3200
+      }
+    ]
+  }
+]

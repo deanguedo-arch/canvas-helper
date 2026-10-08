@@ -1,0 +1,48 @@
+{
+  "checked_utc_date": "2026-10-06",
+  "sources": [
+    {
+      "topic": "CT",
+      "verified_url": "https://www.nibib.nih.gov/science-education/science-topics/computed-tomography-ct",
+      "bounded_claims_used": "Computerized X-ray measurements reconstruct cross-sectional images; CT can image the head. Plain radiography is not allX-ray technology.",
+      "placement": "lesson11 methods; pending imaging assessment version",
+      "retrieval_status": "Full official page retrieved"
+    },
+    {
+      "topic": "MRI/fMRI",
+      "verified_url": "https://www.nibib.nih.gov/science-education/science-topics/magnetic-resonance-imaging-mri",
+      "bounded_claims_used": "MRI magnetic/radiofrequency signals provide anatomical images; MRI uses noX-rays. SpecializedfMRI uses oxygen-related signals to infer task-associated activity.",
+      "placement": "lesson11 methods",
+      "retrieval_status": "Full official page retrieved; lines177\u2013202 support bounded statement"
+    },
+    {
+      "topic": "PET",
+      "verified_url": "https://www.nibib.nih.gov/science-education/science-topics/nuclear-medicine",
+      "bounded_claims_used": "PET uses radioactive tracers, and tracer selection changes the process measured; glucose-related tracer example is source-specific.",
+      "placement": "lesson11 sourceimage interpretation",
+      "retrieval_status": "Full official page retrieved; sections radioactive tracers/PET"
+    },
+    {
+      "topic": "EEG",
+      "verified_url": "https://www.ninds.nih.gov/health-information/disorders/neurological-diagnostic-tests-and-procedures",
+      "bounded_claims_used": "EEG records brain electrical activity with scalp electrodes. No diagnostic protocol, risky procedure or individual inference imported.",
+      "placement": "lesson11 methodstable",
+      "retrieval_status": "Official-source search extraction retrieved with the EEG section; later directopen returned internaltoolerror. Not a guarantee of target-LMS link behavior"
+    },
+    {
+      "topic": "Corpus callosotomy",
+      "verified_url": "https://www.ninds.nih.gov/node/647",
+      "bounded_claims_used": "Interrupting interhemispheric callosal connections may limit seizure spread in selected cases; it does not necessarily stop activity at its origin.",
+      "placement": "lesson12 final-check preparation and pending markingmodel",
+      "retrieval_status": "Official-source search extraction retrieved; later directopen failed. Bounded statement also independently supplied in textbook389/PDF30. No personalized treatment guidance"
+    },
+    {
+      "topic": "BBB",
+      "verified_url": "https://www.ninds.nih.gov/health-information/stroke/stroke-overview",
+      "bounded_claims_used": "Tightly fitting capillary-lining cells regulate passage between blood and brain. Meninges are not that capillary barrier.",
+      "placement": "lesson09 protection and pending errata",
+      "retrieval_status": "Official-source search extraction retrieved; matches existing corrected current teaching"
+    }
+  ],
+  "interpretive_limits": "No patient diagnosis, clinical timing, dose, medical procedure or new treatment claim is introduced. Teaching model datasets are explicitly hypothetical, not source measurements."
+}

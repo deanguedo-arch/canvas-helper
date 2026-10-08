@@ -1,0 +1,474 @@
+[
+  {
+    "chapter": 12,
+    "lesson": 1,
+    "route": "lesson-01",
+    "placement": {
+      "afterTeachingKey": "ch12-l01-teaching-04",
+      "order": [
+        "worked-example",
+        "guided-practice"
+      ],
+      "removeExisting": "Replace the existing div.worked-example in this lesson, do not leave a second copy. Leave the existing stop-check in its existing end-of-teaching position unless explicitly patched."
+    },
+    "worked": {
+      "id": "ch12-l01-worked",
+      "label": "Worked example",
+      "title": "From a sound to a meaning",
+      "scenario": "You hear a brief tone and recognize it as a phone notification.",
+      "steps": [
+        "The vibration is a stimulus. Hair cells in the inner ear are mechanoreceptors that respond to the resulting movement.",
+        "The sensory pathway carries information to the brain. Becoming aware of the tone is sensation.",
+        "Recognizing the tone as a notification is perception. The brain gives meaning to the information."
+      ]
+    },
+    "guided": {
+      "id": "ch12-l01-guided-01",
+      "label": "Practise with support",
+      "title": "Follow a different sense",
+      "instruction": "Sunlight warms your skin. Complete the explanation.",
+      "items": [
+        {
+          "id": "ch12-l01-guided-q1",
+          "kind": "select",
+          "prompt": "Which receptor category detects the temperature change?",
+          "answer": "Thermoreceptors",
+          "options": [
+            "Photoreceptors",
+            "Thermoreceptors",
+            "Chemoreceptors"
+          ],
+          "hint": "Name what changes at the skin.",
+          "explanation": "Thermoreceptors detect temperature change. The light source is not the same thing as the stimulus detected in this skin example."
+        },
+        {
+          "id": "ch12-l01-guided-q2",
+          "kind": "select",
+          "prompt": "You become aware that your skin feels warm. Which term fits this conscious experience?",
+          "answer": "Sensation",
+          "options": [
+            "Sensation",
+            "Sensory reception",
+            "Accommodation"
+          ],
+          "hint": "Distinguish detection at a receptor from awareness in the brain.",
+          "explanation": "Sensation is becoming aware of the input. Reception began when the receptors detected the change."
+        }
+      ],
+      "grading": "Formative only. Record first attempt and later corrections separately; do not change existing required-check totals or LMS grades."
+    }
+  },
+  {
+    "chapter": 12,
+    "lesson": 2,
+    "route": "lesson-02",
+    "placement": {
+      "afterTeachingKey": "ch12-l02-teaching-04",
+      "order": [
+        "worked-example",
+        "guided-practice"
+      ],
+      "removeExisting": "Replace the existing div.worked-example in this lesson, do not leave a second copy. Leave the existing stop-check in its existing end-of-teaching position unless explicitly patched."
+    },
+    "worked": {
+      "id": "ch12-l02-worked",
+      "label": "Worked example",
+      "title": "Light getting in is only one step",
+      "scenario": "An eye has a clear cornea and lens, but its photoreceptors are damaged.",
+      "steps": [
+        "The clear cornea and lens may still allow light through and focus it on the retina.",
+        "The retina contains rods and cones. Damaged receptors may not convert the light into normal signals.",
+        "Light must reach the retina, but that alone does not produce vision. The receptors and the pathway carrying their information must also work."
+      ]
+    },
+    "guided": {
+      "id": "ch12-l02-guided-01",
+      "label": "Practise with support",
+      "title": "Complete the light route",
+      "instruction": "Use the sequence cornea → aqueous humour → pupil → lens → vitreous humour → retina.",
+      "items": [
+        {
+          "id": "ch12-l02-guided-q1",
+          "kind": "select",
+          "prompt": "Which structure changes the size of the opening in that route?",
+          "answer": "Iris",
+          "options": [
+            "Lens",
+            "Optic nerve",
+            "Iris"
+          ],
+          "hint": "The pupil is an opening within a ring of muscle.",
+          "explanation": "Iris muscles change pupil size and control how much light enters."
+        },
+        {
+          "id": "ch12-l02-guided-q2",
+          "kind": "select",
+          "prompt": "Which part contains the receptors that detect the light?",
+          "answer": "Retina",
+          "options": [
+            "Vitreous humour",
+            "Sclera",
+            "Retina"
+          ],
+          "hint": "Clear materials let light pass; receptors detect it.",
+          "explanation": "Rods and cones are in the retina. The humours transmit light and the sclera protects the eye."
+        }
+      ],
+      "grading": "Formative only. Record first attempt and later corrections separately; do not change existing required-check totals or LMS grades."
+    }
+  },
+  {
+    "chapter": 12,
+    "lesson": 3,
+    "route": "lesson-03",
+    "placement": {
+      "afterTeachingKey": "ch12-l03-teaching-04",
+      "order": [
+        "worked-example",
+        "guided-practice"
+      ],
+      "removeExisting": "Replace the existing div.worked-example in this lesson, do not leave a second copy. Leave the existing stop-check in its existing end-of-teaching position unless explicitly patched."
+    },
+    "worked": {
+      "id": "ch12-l03-worked",
+      "label": "Worked example",
+      "title": "Looking from far away to nearby",
+      "scenario": "You stop looking at a distant clock and look down at a book.",
+      "steps": [
+        "Near vision needs stronger bending of incoming light.",
+        "The ciliary muscle contracts, reducing the pull of the suspensory ligaments.",
+        "The lens becomes rounder. Its stronger focusing effect helps form a clear image on the retina."
+      ]
+    },
+    "guided": {
+      "id": "ch12-l03-guided-01",
+      "label": "Practise with support",
+      "title": "Now reverse the change",
+      "instruction": "You look from the book back to the distant clock.",
+      "items": [
+        {
+          "id": "ch12-l03-guided-q1",
+          "kind": "select",
+          "prompt": "The ciliary muscle relaxes. What happens to ligament tension?",
+          "answer": "It increases",
+          "options": [
+            "It decreases",
+            "It increases"
+          ],
+          "hint": "A distant object needs a flatter lens.",
+          "explanation": "Relaxation allows the suspensory ligaments to become more taut."
+        },
+        {
+          "id": "ch12-l03-guided-q2",
+          "kind": "select",
+          "prompt": "What follows the increased pull?",
+          "answer": "The lens flattens and bends light less strongly",
+          "options": [
+            "The lens flattens and bends light less strongly",
+            "The lens rounds and bends light more strongly"
+          ],
+          "hint": "Trace tension → shape → focusing effect.",
+          "explanation": "Greater ligament tension stretches the lens flatter, reducing its focusing power for distant vision."
+        }
+      ],
+      "grading": "Formative only. Record first attempt and later corrections separately; do not change existing required-check totals or LMS grades."
+    }
+  },
+  {
+    "chapter": 12,
+    "lesson": 4,
+    "route": "lesson-04",
+    "placement": {
+      "afterTeachingKey": "ch12-l04-teaching-04",
+      "order": [
+        "worked-example",
+        "guided-practice"
+      ],
+      "removeExisting": "Replace the existing div.worked-example in this lesson, do not leave a second copy. Leave the existing stop-check in its existing end-of-teaching position unless explicitly patched."
+    },
+    "worked": {
+      "id": "ch12-l04-worked",
+      "label": "Worked example",
+      "title": "Separate incoming light from outgoing information",
+      "scenario": "Trace a simplified three-layer retina.",
+      "steps": [
+        "Incoming light passes the ganglion-cell layer, then the bipolar-cell layer, before reaching rods and cones.",
+        "Rods and cones detect the light and change their signalling. Information passes to bipolar cells and then ganglion cells.",
+        "Ganglion-cell axons form the optic nerve. This route carries neural information, not light."
+      ]
+    },
+    "guided": {
+      "id": "ch12-l04-guided-01",
+      "label": "Practise with support",
+      "title": "Fill the two routes",
+      "instruction": "Choose the missing stage in each route.",
+      "items": [
+        {
+          "id": "ch12-l04-guided-q1",
+          "kind": "select",
+          "prompt": "Incoming light: ganglion-cell layer → ____ → rods and cones.",
+          "answer": "Bipolar-cell layer",
+          "options": [
+            "Bipolar-cell layer",
+            "Sclera",
+            "Optic nerve"
+          ],
+          "hint": "Think about the middle retinal layer.",
+          "explanation": "Light passes through the bipolar-cell layer before reaching the photoreceptors."
+        },
+        {
+          "id": "ch12-l04-guided-q2",
+          "kind": "select",
+          "prompt": "Neural information: rods and cones → bipolar cells → ____ → optic nerve.",
+          "answer": "Ganglion cells",
+          "options": [
+            "Pigmented layer",
+            "Ganglion cells",
+            "Cornea"
+          ],
+          "hint": "Which cells send their axons into the optic nerve?",
+          "explanation": "Ganglion cells receive information from the retinal circuit, and their axons form the optic nerve."
+        }
+      ],
+      "grading": "Formative only. Record first attempt and later corrections separately; do not change existing required-check totals or LMS grades."
+    }
+  },
+  {
+    "chapter": 12,
+    "lesson": 5,
+    "route": "lesson-05",
+    "placement": {
+      "afterTeachingKey": "ch12-l05-teaching-04",
+      "order": [
+        "worked-example",
+        "guided-practice"
+      ],
+      "removeExisting": "Replace the existing div.worked-example in this lesson, do not leave a second copy. Leave the existing stop-check in its existing end-of-teaching position unless explicitly patched."
+    },
+    "worked": {
+      "id": "ch12-l05-worked",
+      "label": "Worked example",
+      "title": "Locate the first affected step",
+      "scenario": "Fluid in the middle ear reduces how well the eardrum and ossicles move.",
+      "steps": [
+        "The problem affects mechanical transmission before the receptors.",
+        "Less vibration can reach the oval window and cochlear fluid.",
+        "Hair-cell stimulation may be reduced even if the hair cells and auditory nerve are not damaged."
+      ]
+    },
+    "guided": {
+      "id": "ch12-l05-guided-01",
+      "label": "Practise with support",
+      "title": "Movement becomes neural information",
+      "instruction": "Follow the energy through the hearing pathway.",
+      "items": [
+        {
+          "id": "ch12-l05-guided-q1",
+          "kind": "select",
+          "prompt": "Immediately after the stapes moves the oval window, what happens?",
+          "answer": "Pressure waves move through cochlear fluid",
+          "options": [
+            "Light reaches the retina",
+            "The auditory nerve carries sound waves",
+            "Pressure waves move through cochlear fluid"
+          ],
+          "hint": "The inner ear is fluid-filled.",
+          "explanation": "Oval-window movement creates fluid pressure waves in the cochlea."
+        },
+        {
+          "id": "ch12-l05-guided-q2",
+          "kind": "select",
+          "prompt": "Which event performs the sensory conversion?",
+          "answer": "Bending of hair-cell projections changes cell signalling",
+          "options": [
+            "Bending of hair-cell projections changes cell signalling",
+            "The Eustachian tube equalizes pressure",
+            "The pinna collects sound"
+          ],
+          "hint": "Choose the receptor event rather than a supporting structure.",
+          "explanation": "Hair cells transduce movement into changed electrical and chemical signalling, which affects auditory nerve fibres."
+        }
+      ],
+      "grading": "Formative only. Record first attempt and later corrections separately; do not change existing required-check totals or LMS grades."
+    }
+  },
+  {
+    "chapter": 12,
+    "lesson": 6,
+    "route": "lesson-06",
+    "placement": {
+      "afterTeachingKey": "ch12-l06-teaching-04",
+      "order": [
+        "worked-example",
+        "guided-practice"
+      ],
+      "removeExisting": "Replace the existing div.worked-example in this lesson, do not leave a second copy. Leave the existing stop-check in its existing end-of-teaching position unless explicitly patched."
+    },
+    "worked": {
+      "id": "ch12-l06-worked",
+      "label": "Worked example",
+      "title": "Separate a louder note from a higher note",
+      "scenario": "A recorded tone becomes louder while its frequency stays constant.",
+      "steps": [
+        "Frequency has not changed, so its pitch stays approximately the same.",
+        "The larger pressure variation means the wave amplitude has increased.",
+        "The nervous system represents the stronger input through activity patterns, not taller individual action potentials."
+      ]
+    },
+    "guided": {
+      "id": "ch12-l06-guided-01",
+      "label": "Practise with support",
+      "title": "Compare two described waves",
+      "instruction": "These are invented comparison values, not a hearing test: A has 4 cycles in 0.01 s; B has 8 cycles in 0.01 s. They have equal amplitudes.",
+      "items": [
+        {
+          "id": "ch12-l06-guided-q1",
+          "kind": "select",
+          "prompt": "Which sound has the higher pitch?",
+          "answer": "B",
+          "options": [
+            "A",
+            "B",
+            "They must have the same pitch"
+          ],
+          "hint": "Compare cycle counts over the same time.",
+          "explanation": "B has more cycles in the same interval, so its frequency and expected pitch are higher."
+        },
+        {
+          "id": "ch12-l06-guided-q2",
+          "kind": "select",
+          "prompt": "What does equal amplitude support in this simplified comparison?",
+          "answer": "Similar loudness, not identical pitch",
+          "options": [
+            "B must be twice as loud",
+            "Identical pitch regardless of frequency",
+            "Similar loudness, not identical pitch"
+          ],
+          "hint": "Amplitude and frequency describe different wave properties.",
+          "explanation": "Equal amplitudes support a similar-loudness comparison here. The cycle counts still differ, so pitch differs."
+        }
+      ],
+      "grading": "Formative only. Record first attempt and later corrections separately; do not change existing required-check totals or LMS grades."
+    }
+  },
+  {
+    "chapter": 12,
+    "lesson": 7,
+    "route": "lesson-07",
+    "placement": {
+      "afterTeachingKey": "ch12-l07-teaching-04",
+      "order": [
+        "worked-example",
+        "guided-practice"
+      ],
+      "removeExisting": "Replace the existing div.worked-example in this lesson, do not leave a second copy. Leave the existing stop-check in its existing end-of-teaching position unless explicitly patched."
+    },
+    "worked": {
+      "id": "ch12-l07-worked",
+      "label": "Worked example",
+      "title": "Classify straight-line acceleration",
+      "scenario": "An elevator starts moving upward while a passenger keeps their head facing forward.",
+      "steps": [
+        "The described change is vertical straight-line acceleration, not head rotation.",
+        "The saccule is especially relevant. Acceleration shifts its weighted otolithic membrane relative to hair cells.",
+        "Bending the hair-cell projections changes signalling about the movement."
+      ]
+    },
+    "guided": {
+      "id": "ch12-l07-guided-01",
+      "label": "Practise with support",
+      "title": "Compare turning with moving straight",
+      "instruction": "Use the structure that matches each kind of movement.",
+      "items": [
+        {
+          "id": "ch12-l07-guided-q1",
+          "kind": "select",
+          "prompt": "Your head starts turning to look over your shoulder. Which mechanism fits?",
+          "answer": "Fluid movement bends a cupula in a semicircular canal",
+          "options": [
+            "A weighted membrane in the saccule detects a sound wave",
+            "Fluid movement bends a cupula in a semicircular canal",
+            "The cochlea detects head rotation"
+          ],
+          "hint": "The change is rotation.",
+          "explanation": "Relative fluid movement in a semicircular canal bends the cupula and hair-cell projections."
+        },
+        {
+          "id": "ch12-l07-guided-q2",
+          "kind": "select",
+          "prompt": "A vehicle starts moving straight forward. Which structure is especially relevant?",
+          "answer": "Utricle",
+          "options": [
+            "Utricle",
+            "Cochlea",
+            "Optic disc"
+          ],
+          "hint": "Horizontal acceleration differs from a turn.",
+          "explanation": "The utricle helps detect horizontal linear acceleration through movement of its weighted otolithic membrane."
+        }
+      ],
+      "grading": "Formative only. Record first attempt and later corrections separately; do not change existing required-check totals or LMS grades."
+    }
+  },
+  {
+    "chapter": 12,
+    "lesson": 8,
+    "route": "lesson-08",
+    "placement": {
+      "afterTeachingKey": "ch12-l08-teaching-04",
+      "order": [
+        "worked-example",
+        "guided-practice"
+      ],
+      "removeExisting": "Replace the existing div.worked-example in this lesson, do not leave a second copy. Leave the existing stop-check in its existing end-of-teaching position unless explicitly patched."
+    },
+    "worked": {
+      "id": "ch12-l08-worked",
+      "label": "Worked example",
+      "title": "Model a complete investigation plan",
+      "scenario": "Plan only: compare touch discrimination on a fingertip and the forearm. Do not perform the test.",
+      "steps": [
+        "Question: Does the smallest separation reported as two contacts differ between these body regions?",
+        "Prediction: The fingertip will distinguish closer contacts because its sensory representation is generally more precise.",
+        "Manipulated variable: body region. Responding variable: the smallest separation reported as two contacts, measured in millimetres.",
+        "Controls: use the same contact method, pressure, contact duration and instructions. Plan repeated trials with the same participant and more than one participant before making broad conclusions.",
+        "Safety and evidence: this is a written plan only. No physical testing or sharp objects are required. A completed data table would need real observations; a prediction is not a result."
+      ]
+    },
+    "guided": {
+      "id": "ch12-l08-guided-01",
+      "label": "Practise with support",
+      "title": "Complete part of a second plan",
+      "instruction": "A written plan compares the palm with the forearm. The question concerns the smallest separation reported as two contacts.",
+      "items": [
+        {
+          "id": "ch12-l08-guided-q1",
+          "kind": "select",
+          "prompt": "What is the manipulated variable?",
+          "answer": "Body region",
+          "options": [
+            "Smallest reported separation",
+            "Whether the prediction is correct",
+            "Body region"
+          ],
+          "hint": "Identify what the plan deliberately changes.",
+          "explanation": "The plan changes which body region is considered. The smallest reported separation is the measured response."
+        },
+        {
+          "id": "ch12-l08-guided-q2",
+          "kind": "select",
+          "prompt": "The plan changes both body region and contact pressure. What needs fixing?",
+          "answer": "Keep pressure consistent so the region comparison is fair",
+          "options": [
+            "Change the pressure even more",
+            "Keep pressure consistent so the region comparison is fair",
+            "Record the prediction as the result"
+          ],
+          "hint": "More than one changing factor makes the result harder to explain.",
+          "explanation": "Keeping pressure consistent helps isolate the effect of body region. Repeated trials can then help assess consistency."
+        }
+      ],
+      "grading": "Formative only. Record first attempt and later corrections separately; do not change existing required-check totals or LMS grades."
+    }
+  }
+]

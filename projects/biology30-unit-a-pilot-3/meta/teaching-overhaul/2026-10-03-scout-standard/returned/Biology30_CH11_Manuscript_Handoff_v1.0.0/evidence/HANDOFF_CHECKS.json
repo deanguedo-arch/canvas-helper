@@ -1,0 +1,994 @@
+{
+  "version": "1.0.0",
+  "reviewer": "ChatGPT same author, static self-check",
+  "independent_review": false,
+  "checks": [
+    {
+      "check": "Input unchanged: Biology30_CH11_Baseline_Handoff_2026-10-03(1).zip",
+      "result": "PASS",
+      "evidence": {
+        "bytes": 802580,
+        "sha256": "08aa127b12c221f9bdcc701ed12a4f67889896261f92c63310de4f0a873642a9"
+      }
+    },
+    {
+      "check": "Input unchanged: Chapter11_Original_Textbook(2).pdf",
+      "result": "PASS",
+      "evidence": {
+        "bytes": 8730624,
+        "sha256": "841565cb96cbe378ba9dfe95a2718f3405ef67b3dea65a4ce8970d9d6597edec"
+      }
+    },
+    {
+      "check": "Input unchanged: Chapter11_Original_Teacher_Notes(2).pptx",
+      "result": "PASS",
+      "evidence": {
+        "bytes": 18306454,
+        "sha256": "74630659f9860c65b17356513c37f954d4df7b2a55742f1d535f5041e40abfb1"
+      }
+    },
+    {
+      "check": "Input unchanged: Alberta_Program_Unit_A1_Original_Excerpt(2).pdf",
+      "result": "PASS",
+      "evidence": {
+        "bytes": 28922,
+        "sha256": "9c42ae835acb05de562a4200f8957ab277e7737e913e79f7276a1e799e2604de"
+      }
+    },
+    {
+      "check": "Input unchanged: Chapter11_Teacher_Only_Comprehension_Key(1).pdf",
+      "result": "PASS",
+      "evidence": {
+        "bytes": 118248,
+        "sha256": "5e97c5733f4183e2bb869a7bebb327618e0fc48b5cfe6627c12589e6fbf046f1"
+      }
+    },
+    {
+      "check": "Input unchanged: UPLOAD_MANIFEST(1).json",
+      "result": "PASS",
+      "evidence": {
+        "bytes": 32138,
+        "sha256": "45174ce72c6333a0c0e5bf6d2e6a6ecd8acb5e415ddf2436751c6975f975e956"
+      }
+    },
+    {
+      "check": "Input unchanged: Biology30_CH11_Repaired_Source_Part_01(1).zip",
+      "result": "PASS",
+      "evidence": {
+        "bytes": 12586360,
+        "sha256": "f9c1f136a4566db58e596af78fcf1d09320114a338850cbc4a333cd3ad37300f"
+      }
+    },
+    {
+      "check": "Input unchanged: Biology30_CH11_Repaired_Source_Part_02(1).zip",
+      "result": "PASS",
+      "evidence": {
+        "bytes": 8464164,
+        "sha256": "2282538fb8ae3333f171d60a91a661a608b0d5f59324ded981f6c2ff1f18abc6"
+      }
+    },
+    {
+      "check": "65 baseline archive entries unchanged",
+      "result": "PASS",
+      "evidence": {
+        "count": 65,
+        "mismatches": []
+      }
+    },
+    {
+      "check": "Raw and final complete manuscript sets",
+      "result": "PASS",
+      "evidence": "Native routes01–13, no substitute lesson14 or shortened three-route exemplar."
+    },
+    {
+      "check": "lesson-01 original formative models retained",
+      "result": "PASS",
+      "evidence": {
+        "models": 2
+      }
+    },
+    {
+      "check": "lesson-01 original question order/text retained",
+      "result": "PASS",
+      "evidence": {
+        "questions": 3
+      }
+    },
+    {
+      "check": "lesson-01 native activity text: practice-overview",
+      "result": "PASS",
+      "evidence": "Exact normalized text, with delivery source substring protected separately in INTEGRATION_MAP."
+    },
+    {
+      "check": "lesson-01 new-field identity retained",
+      "result": "PASS",
+      "evidence": {
+        "ids": [
+          "pro-evaluation-2026-10-03-v1-l01-guided-response",
+          "pro-evaluation-2026-10-03-v1-l01-independent-response"
+        ]
+      }
+    },
+    {
+      "check": "lesson-01 complete revision file matches final",
+      "result": "PASS",
+      "evidence": "Full revised lesson, not patch-only output."
+    },
+    {
+      "check": "lesson-02 original formative models retained",
+      "result": "PASS",
+      "evidence": {
+        "models": 2
+      }
+    },
+    {
+      "check": "lesson-02 original question order/text retained",
+      "result": "PASS",
+      "evidence": {
+        "questions": 1
+      }
+    },
+    {
+      "check": "lesson-02 native activity text: practice-neuron-structure",
+      "result": "PASS",
+      "evidence": "Exact normalized text, with delivery source substring protected separately in INTEGRATION_MAP."
+    },
+    {
+      "check": "lesson-02 new-field identity retained",
+      "result": "PASS",
+      "evidence": {
+        "ids": [
+          "pro-evaluation-2026-10-03-v1-l02-guided-response",
+          "pro-evaluation-2026-10-03-v1-l02-independent-response"
+        ]
+      }
+    },
+    {
+      "check": "lesson-02 complete revision file matches final",
+      "result": "PASS",
+      "evidence": "Full revised lesson, not patch-only output."
+    },
+    {
+      "check": "lesson-02 Markdown image resolves ../review-assets/integrated-neuron.webp",
+      "result": "PASS",
+      "evidence": "Review representation only; native path remains in ASSET_PLAN."
+    },
+    {
+      "check": "lesson-02 Markdown image resolves ../review-assets/integrated-myelin.webp",
+      "result": "PASS",
+      "evidence": "Review representation only; native path remains in ASSET_PLAN."
+    },
+    {
+      "check": "lesson-03 original formative models retained",
+      "result": "PASS",
+      "evidence": {
+        "models": 2
+      }
+    },
+    {
+      "check": "lesson-03 original question order/text retained",
+      "result": "PASS",
+      "evidence": {
+        "questions": 2
+      }
+    },
+    {
+      "check": "lesson-03 native activity text: practice-reflexes",
+      "result": "PASS",
+      "evidence": "Exact normalized text, with delivery source substring protected separately in INTEGRATION_MAP."
+    },
+    {
+      "check": "lesson-03 new-field identity retained",
+      "result": "PASS",
+      "evidence": {
+        "ids": [
+          "pro-evaluation-2026-10-03-v1-l03-guided-response",
+          "pro-evaluation-2026-10-03-v1-l03-independent-response"
+        ]
+      }
+    },
+    {
+      "check": "lesson-03 complete revision file matches final",
+      "result": "PASS",
+      "evidence": "Full revised lesson, not patch-only output."
+    },
+    {
+      "check": "lesson-03 Markdown image resolves ../review-assets/integrated-withdrawal.svg",
+      "result": "PASS",
+      "evidence": "Review representation only; native path remains in ASSET_PLAN."
+    },
+    {
+      "check": "lesson-04 original formative models retained",
+      "result": "PASS",
+      "evidence": {
+        "models": 2
+      }
+    },
+    {
+      "check": "lesson-04 original question order/text retained",
+      "result": "PASS",
+      "evidence": {
+        "questions": 2
+      }
+    },
+    {
+      "check": "lesson-04 native activity text: check-resting-potential",
+      "result": "PASS",
+      "evidence": "Exact normalized text, with delivery source substring protected separately in INTEGRATION_MAP."
+    },
+    {
+      "check": "lesson-04 native activity text: practice-resting-potential",
+      "result": "PASS",
+      "evidence": "Exact normalized text, with delivery source substring protected separately in INTEGRATION_MAP."
+    },
+    {
+      "check": "lesson-04 new-field identity retained",
+      "result": "PASS",
+      "evidence": {
+        "ids": [
+          "pro-evaluation-2026-10-03-v1-l04-guided-response",
+          "pro-evaluation-2026-10-03-v1-l04-independent-response"
+        ]
+      }
+    },
+    {
+      "check": "lesson-04 complete revision file matches final",
+      "result": "PASS",
+      "evidence": "Full revised lesson, not patch-only output."
+    },
+    {
+      "check": "lesson-04 Markdown image resolves ../review-assets/chapter11-resting-potential-0.webp",
+      "result": "PASS",
+      "evidence": "Review representation only; native path remains in ASSET_PLAN."
+    },
+    {
+      "check": "lesson-05 original formative models retained",
+      "result": "PASS",
+      "evidence": {
+        "models": 2
+      }
+    },
+    {
+      "check": "lesson-05 original question order/text retained",
+      "result": "PASS",
+      "evidence": {
+        "questions": 4
+      }
+    },
+    {
+      "check": "lesson-05 native activity text: check-action-potentials",
+      "result": "PASS",
+      "evidence": "Exact normalized text, with delivery source substring protected separately in INTEGRATION_MAP."
+    },
+    {
+      "check": "lesson-05 native activity text: practice-action-potentials",
+      "result": "PASS",
+      "evidence": "Exact normalized text, with delivery source substring protected separately in INTEGRATION_MAP."
+    },
+    {
+      "check": "lesson-05 new-field identity retained",
+      "result": "PASS",
+      "evidence": {
+        "ids": [
+          "pro-evaluation-2026-10-03-v1-l05-guided-response",
+          "pro-evaluation-2026-10-03-v1-l05-independent-response"
+        ]
+      }
+    },
+    {
+      "check": "lesson-05 complete revision file matches final",
+      "result": "PASS",
+      "evidence": "Full revised lesson, not patch-only output."
+    },
+    {
+      "check": "lesson-05 Markdown image resolves ../review-assets/chapter11-action-potentials-0.webp",
+      "result": "PASS",
+      "evidence": "Review representation only; native path remains in ASSET_PLAN."
+    },
+    {
+      "check": "lesson-05 Markdown image resolves ../review-assets/chapter11-action-potentials-1.svg",
+      "result": "PASS",
+      "evidence": "Review representation only; native path remains in ASSET_PLAN."
+    },
+    {
+      "check": "lesson-06 original formative models retained",
+      "result": "PASS",
+      "evidence": {
+        "models": 2
+      }
+    },
+    {
+      "check": "lesson-06 original question order/text retained",
+      "result": "PASS",
+      "evidence": {
+        "questions": 4
+      }
+    },
+    {
+      "check": "lesson-06 native activity text: check-synapses",
+      "result": "PASS",
+      "evidence": "Exact normalized text, with delivery source substring protected separately in INTEGRATION_MAP."
+    },
+    {
+      "check": "lesson-06 native activity text: practice-synapses",
+      "result": "PASS",
+      "evidence": "Exact normalized text, with delivery source substring protected separately in INTEGRATION_MAP."
+    },
+    {
+      "check": "lesson-06 new-field identity retained",
+      "result": "PASS",
+      "evidence": {
+        "ids": [
+          "pro-evaluation-2026-10-03-v1-l06-guided-release-response",
+          "pro-evaluation-2026-10-03-v1-l06-independent-response"
+        ]
+      }
+    },
+    {
+      "check": "lesson-06 complete revision file matches final",
+      "result": "PASS",
+      "evidence": "Full revised lesson, not patch-only output."
+    },
+    {
+      "check": "lesson-06 Markdown image resolves ../review-assets/chapter11-synapses-0.webp",
+      "result": "PASS",
+      "evidence": "Review representation only; native path remains in ASSET_PLAN."
+    },
+    {
+      "check": "lesson-06 Markdown image resolves ../review-assets/chapter11-synapses-1.webp",
+      "result": "PASS",
+      "evidence": "Review representation only; native path remains in ASSET_PLAN."
+    },
+    {
+      "check": "lesson-06 Markdown image resolves ../review-assets/chapter11-synapses-2.svg",
+      "result": "PASS",
+      "evidence": "Review representation only; native path remains in ASSET_PLAN."
+    },
+    {
+      "check": "lesson-07 original formative models retained",
+      "result": "PASS",
+      "evidence": {
+        "models": 2
+      }
+    },
+    {
+      "check": "lesson-07 original question order/text retained",
+      "result": "PASS",
+      "evidence": {
+        "questions": 8
+      }
+    },
+    {
+      "check": "lesson-07 native activity text: check-drugs",
+      "result": "PASS",
+      "evidence": "Exact normalized text, with delivery source substring protected separately in INTEGRATION_MAP."
+    },
+    {
+      "check": "lesson-07 native activity text: practice-drugs",
+      "result": "PASS",
+      "evidence": "Exact normalized text, with delivery source substring protected separately in INTEGRATION_MAP."
+    },
+    {
+      "check": "lesson-07 new-field identity retained",
+      "result": "PASS",
+      "evidence": {
+        "ids": [
+          "pro-evaluation-2026-10-03-v1-l07-guided-response",
+          "pro-evaluation-2026-10-03-v1-l07-independent-response"
+        ]
+      }
+    },
+    {
+      "check": "lesson-07 complete revision file matches final",
+      "result": "PASS",
+      "evidence": "Full revised lesson, not patch-only output."
+    },
+    {
+      "check": "lesson-07 Markdown image resolves ../review-assets/chapter11-drugs-0.svg",
+      "result": "PASS",
+      "evidence": "Review representation only; native path remains in ASSET_PLAN."
+    },
+    {
+      "check": "lesson-07 Markdown image resolves ../review-assets/chapter11-drugs-1.webp",
+      "result": "PASS",
+      "evidence": "Review representation only; native path remains in ASSET_PLAN."
+    },
+    {
+      "check": "lesson-07 Markdown image resolves ../review-assets/chapter11-drugs-2.webp",
+      "result": "PASS",
+      "evidence": "Review representation only; native path remains in ASSET_PLAN."
+    },
+    {
+      "check": "lesson-08 original formative models retained",
+      "result": "PASS",
+      "evidence": {
+        "models": 2
+      }
+    },
+    {
+      "check": "lesson-08 original question order/text retained",
+      "result": "PASS",
+      "evidence": {
+        "questions": 11
+      }
+    },
+    {
+      "check": "lesson-08 native activity text: check-pns",
+      "result": "PASS",
+      "evidence": "Exact normalized text, with delivery source substring protected separately in INTEGRATION_MAP."
+    },
+    {
+      "check": "lesson-08 native activity text: practice-pns",
+      "result": "PASS",
+      "evidence": "Exact normalized text, with delivery source substring protected separately in INTEGRATION_MAP."
+    },
+    {
+      "check": "lesson-08 new-field identity retained",
+      "result": "PASS",
+      "evidence": {
+        "ids": [
+          "pro-evaluation-2026-10-03-v1-l08-guided-response",
+          "pro-evaluation-2026-10-03-v1-l08-independent-response"
+        ]
+      }
+    },
+    {
+      "check": "lesson-08 complete revision file matches final",
+      "result": "PASS",
+      "evidence": "Full revised lesson, not patch-only output."
+    },
+    {
+      "check": "lesson-08 Markdown image resolves ../review-assets/chapter11-pns-0.svg",
+      "result": "PASS",
+      "evidence": "Review representation only; native path remains in ASSET_PLAN."
+    },
+    {
+      "check": "lesson-08 Markdown image resolves ../review-assets/chapter11-pns-1.svg",
+      "result": "PASS",
+      "evidence": "Review representation only; native path remains in ASSET_PLAN."
+    },
+    {
+      "check": "lesson-08 Markdown image resolves ../review-assets/chapter11-pns-2.webp",
+      "result": "PASS",
+      "evidence": "Review representation only; native path remains in ASSET_PLAN."
+    },
+    {
+      "check": "lesson-09 original formative models retained",
+      "result": "PASS",
+      "evidence": {
+        "models": 2
+      }
+    },
+    {
+      "check": "lesson-09 original question order/text retained",
+      "result": "PASS",
+      "evidence": {
+        "questions": 2
+      }
+    },
+    {
+      "check": "lesson-09 native activity text: check-cns",
+      "result": "PASS",
+      "evidence": "Exact normalized text, with delivery source substring protected separately in INTEGRATION_MAP."
+    },
+    {
+      "check": "lesson-09 native activity text: practice-cns",
+      "result": "PASS",
+      "evidence": "Exact normalized text, with delivery source substring protected separately in INTEGRATION_MAP."
+    },
+    {
+      "check": "lesson-09 new-field identity retained",
+      "result": "PASS",
+      "evidence": {
+        "ids": [
+          "pro-evaluation-2026-10-03-v1-l09-guided-response",
+          "pro-evaluation-2026-10-03-v1-l09-independent-response"
+        ]
+      }
+    },
+    {
+      "check": "lesson-09 complete revision file matches final",
+      "result": "PASS",
+      "evidence": "Full revised lesson, not patch-only output."
+    },
+    {
+      "check": "lesson-09 Markdown image resolves ../review-assets/chapter11-cns-0.svg",
+      "result": "PASS",
+      "evidence": "Review representation only; native path remains in ASSET_PLAN."
+    },
+    {
+      "check": "lesson-09 Markdown image resolves ../review-assets/chapter11-cns-1.svg",
+      "result": "PASS",
+      "evidence": "Review representation only; native path remains in ASSET_PLAN."
+    },
+    {
+      "check": "lesson-10 original formative models retained",
+      "result": "PASS",
+      "evidence": {
+        "models": 2
+      }
+    },
+    {
+      "check": "lesson-10 original question order/text retained",
+      "result": "PASS",
+      "evidence": {
+        "questions": 5
+      }
+    },
+    {
+      "check": "lesson-10 native activity text: check-brain",
+      "result": "PASS",
+      "evidence": "Exact normalized text, with delivery source substring protected separately in INTEGRATION_MAP."
+    },
+    {
+      "check": "lesson-10 native activity text: practice-brain",
+      "result": "PASS",
+      "evidence": "Exact normalized text, with delivery source substring protected separately in INTEGRATION_MAP."
+    },
+    {
+      "check": "lesson-10 new-field identity retained",
+      "result": "PASS",
+      "evidence": {
+        "ids": [
+          "pro-evaluation-2026-10-03-v1-l10-guided-response",
+          "pro-evaluation-2026-10-03-v1-l10-independent-response"
+        ]
+      }
+    },
+    {
+      "check": "lesson-10 complete revision file matches final",
+      "result": "PASS",
+      "evidence": "Full revised lesson, not patch-only output."
+    },
+    {
+      "check": "lesson-10 Markdown image resolves ../review-assets/chapter11-brain-0.webp",
+      "result": "PASS",
+      "evidence": "Review representation only; native path remains in ASSET_PLAN."
+    },
+    {
+      "check": "lesson-10 Markdown image resolves ../review-assets/chapter11-brain-1.webp",
+      "result": "PASS",
+      "evidence": "Review representation only; native path remains in ASSET_PLAN."
+    },
+    {
+      "check": "lesson-10 Markdown image resolves ../review-assets/chapter11-brain-2.svg",
+      "result": "PASS",
+      "evidence": "Review representation only; native path remains in ASSET_PLAN."
+    },
+    {
+      "check": "lesson-11 original formative models retained",
+      "result": "PASS",
+      "evidence": {
+        "models": 2
+      }
+    },
+    {
+      "check": "lesson-11 original question order/text retained",
+      "result": "PASS",
+      "evidence": {
+        "questions": 9
+      }
+    },
+    {
+      "check": "lesson-11 native activity text: check-brain-investigation",
+      "result": "PASS",
+      "evidence": "Exact normalized text, with delivery source substring protected separately in INTEGRATION_MAP."
+    },
+    {
+      "check": "lesson-11 native activity text: practice-brain-investigation",
+      "result": "PASS",
+      "evidence": "Exact normalized text, with delivery source substring protected separately in INTEGRATION_MAP."
+    },
+    {
+      "check": "lesson-11 new-field identity retained",
+      "result": "PASS",
+      "evidence": {
+        "ids": [
+          "pro-evaluation-2026-10-03-v1-l11-guided-response",
+          "pro-evaluation-2026-10-03-v1-l11-independent-response"
+        ]
+      }
+    },
+    {
+      "check": "lesson-11 complete revision file matches final",
+      "result": "PASS",
+      "evidence": "Full revised lesson, not patch-only output."
+    },
+    {
+      "check": "lesson-11 Markdown image resolves ../review-assets/chapter11-brain-investigation-0.svg",
+      "result": "PASS",
+      "evidence": "Review representation only; native path remains in ASSET_PLAN."
+    },
+    {
+      "check": "lesson-11 Markdown image resolves ../review-assets/chapter11-brain-investigation-2.webp",
+      "result": "PASS",
+      "evidence": "Review representation only; native path remains in ASSET_PLAN."
+    },
+    {
+      "check": "lesson-12 original formative models retained",
+      "result": "PASS",
+      "evidence": {
+        "models": 2
+      }
+    },
+    {
+      "check": "lesson-12 original question order/text retained",
+      "result": "PASS",
+      "evidence": {
+        "questions": 23
+      }
+    },
+    {
+      "check": "lesson-12 native activity text: check-chapter-review-section",
+      "result": "PASS",
+      "evidence": "Exact normalized text, with delivery source substring protected separately in INTEGRATION_MAP."
+    },
+    {
+      "check": "lesson-12 native activity text: practice-chapter-review-section",
+      "result": "PASS",
+      "evidence": "Exact normalized text, with delivery source substring protected separately in INTEGRATION_MAP."
+    },
+    {
+      "check": "lesson-12 new-field identity retained",
+      "result": "PASS",
+      "evidence": {
+        "ids": [
+          "pro-evaluation-2026-10-03-v1-l12-guided-response",
+          "pro-evaluation-2026-10-03-v1-l12-independent-response"
+        ]
+      }
+    },
+    {
+      "check": "lesson-12 complete revision file matches final",
+      "result": "PASS",
+      "evidence": "Full revised lesson, not patch-only output."
+    },
+    {
+      "check": "lesson-12 Markdown image resolves ../review-assets/chapter11-chapter-review-section-0.webp",
+      "result": "PASS",
+      "evidence": "Review representation only; native path remains in ASSET_PLAN."
+    },
+    {
+      "check": "lesson-12 Markdown image resolves ../review-assets/chapter11-chapter-review-section-1.webp",
+      "result": "PASS",
+      "evidence": "Review representation only; native path remains in ASSET_PLAN."
+    },
+    {
+      "check": "lesson-12 Markdown image resolves ../review-assets/chapter11-chapter-review-section-2.webp",
+      "result": "PASS",
+      "evidence": "Review representation only; native path remains in ASSET_PLAN."
+    },
+    {
+      "check": "lesson-12 Markdown image resolves ../review-assets/chapter11-chapter-review-section-3.webp",
+      "result": "PASS",
+      "evidence": "Review representation only; native path remains in ASSET_PLAN."
+    },
+    {
+      "check": "lesson-12 Markdown image resolves ../review-assets/chapter11-chapter-review-section-4.webp",
+      "result": "PASS",
+      "evidence": "Review representation only; native path remains in ASSET_PLAN."
+    },
+    {
+      "check": "lesson-13 original formative models retained",
+      "result": "PASS",
+      "evidence": {
+        "models": 3
+      }
+    },
+    {
+      "check": "lesson-13 original question order/text retained",
+      "result": "PASS",
+      "evidence": {
+        "questions": 0
+      }
+    },
+    {
+      "check": "lesson-13 new-field identity retained",
+      "result": "PASS",
+      "evidence": {
+        "ids": [
+          "pro-evaluation-2026-10-03-v1-l13-stress-application-response",
+          "pro-evaluation-2026-10-03-v1-l13-experience-application-response",
+          "pro-evaluation-2026-10-03-v1-l13-addiction-application-response"
+        ]
+      }
+    },
+    {
+      "check": "lesson-13 complete revision file matches final",
+      "result": "PASS",
+      "evidence": "Full revised lesson, not patch-only output."
+    },
+    {
+      "check": "27 distinct optional formative records",
+      "result": "PASS",
+      "evidence": {
+        "count": 27,
+        "every_field_has_hint_model_criteria_feedback": true
+      }
+    },
+    {
+      "check": "No formative grading/saving/progress registration",
+      "result": "PASS",
+      "evidence": "Map matches unregistered optional textareas; native broad listener exclusion remains untested because native runtime is not supplied."
+    },
+    {
+      "check": "Full source-map and practice crosswalk",
+      "result": "PASS",
+      "evidence": {
+        "teaching_sections": 110,
+        "text_atoms": 588,
+        "native_questions": 164,
+        "bank_concepts": 40,
+        "generated_family_count": 881
+      }
+    },
+    {
+      "check": "All new source atoms have locators",
+      "result": "PASS",
+      "evidence": "Each atom has exact text and manuscript locator; limitations are recorded rather than certified away."
+    },
+    {
+      "check": "First-use and leakage fixes present",
+      "result": "PASS",
+      "evidence": "Targeted replacement, not removal of the required tennis-ball prompt."
+    },
+    {
+      "check": "Writing-only directions lesson01",
+      "result": "PASS",
+      "evidence": "Native controls have data-activity-mode=writing and no radio inputs."
+    },
+    {
+      "check": "Writing-only directions lesson02",
+      "result": "PASS",
+      "evidence": "Native controls have data-activity-mode=writing and no radio inputs."
+    },
+    {
+      "check": "Writing-only directions lesson03",
+      "result": "PASS",
+      "evidence": "Native controls have data-activity-mode=writing and no radio inputs."
+    },
+    {
+      "check": "Static review has no executable or form controls",
+      "result": "PASS",
+      "evidence": "Whitelist-built static document; no imported runtime or storage code."
+    },
+    {
+      "check": "Static review contains all13 routes and27 images",
+      "result": "PASS",
+      "evidence": "Every lesson visible by default; models and hints initially open."
+    },
+    {
+      "check": "Static review unique IDs",
+      "result": "PASS",
+      "evidence": {
+        "duplicates": [],
+        "count": 419
+      }
+    },
+    {
+      "check": "Safe SVG image chapter11-brain-2.svg",
+      "result": "PASS",
+      "evidence": {
+        "blocked_elements": [],
+        "external_refs": []
+      }
+    },
+    {
+      "check": "Safe SVG image chapter11-action-potentials-1.svg",
+      "result": "PASS",
+      "evidence": {
+        "blocked_elements": [],
+        "external_refs": []
+      }
+    },
+    {
+      "check": "Safe SVG image chapter11-pns-0.svg",
+      "result": "PASS",
+      "evidence": {
+        "blocked_elements": [],
+        "external_refs": []
+      }
+    },
+    {
+      "check": "Safe SVG image chapter11-synapses-2.svg",
+      "result": "PASS",
+      "evidence": {
+        "blocked_elements": [],
+        "external_refs": []
+      }
+    },
+    {
+      "check": "Safe SVG image chapter11-drugs-0.svg",
+      "result": "PASS",
+      "evidence": {
+        "blocked_elements": [],
+        "external_refs": []
+      }
+    },
+    {
+      "check": "Safe SVG image chapter11-pns-1.svg",
+      "result": "PASS",
+      "evidence": {
+        "blocked_elements": [],
+        "external_refs": []
+      }
+    },
+    {
+      "check": "Safe SVG image chapter11-cns-1.svg",
+      "result": "PASS",
+      "evidence": {
+        "blocked_elements": [],
+        "external_refs": []
+      }
+    },
+    {
+      "check": "Safe SVG image chapter11-brain-investigation-0.svg",
+      "result": "PASS",
+      "evidence": {
+        "blocked_elements": [],
+        "external_refs": []
+      }
+    },
+    {
+      "check": "Safe SVG image integrated-withdrawal.svg",
+      "result": "PASS",
+      "evidence": {
+        "blocked_elements": [],
+        "external_refs": []
+      }
+    },
+    {
+      "check": "Safe SVG image chapter11-cns-0.svg",
+      "result": "PASS",
+      "evidence": {
+        "blocked_elements": [],
+        "external_refs": []
+      }
+    },
+    {
+      "check": "22 original media IDs",
+      "result": "PASS",
+      "evidence": {
+        "IDs": 22,
+        "native_library_instances": 22,
+        "playback": "not tested"
+      }
+    },
+    {
+      "check": "lesson-01 original byte boundaries verified",
+      "result": "PASS",
+      "evidence": {
+        "ranges": 11,
+        "units": "UTF8 [start,end)"
+      }
+    },
+    {
+      "check": "lesson-02 original byte boundaries verified",
+      "result": "PASS",
+      "evidence": {
+        "ranges": 9,
+        "units": "UTF8 [start,end)"
+      }
+    },
+    {
+      "check": "lesson-03 original byte boundaries verified",
+      "result": "PASS",
+      "evidence": {
+        "ranges": 10,
+        "units": "UTF8 [start,end)"
+      }
+    },
+    {
+      "check": "lesson-04 original byte boundaries verified",
+      "result": "PASS",
+      "evidence": {
+        "ranges": 12,
+        "units": "UTF8 [start,end)"
+      }
+    },
+    {
+      "check": "lesson-05 original byte boundaries verified",
+      "result": "PASS",
+      "evidence": {
+        "ranges": 13,
+        "units": "UTF8 [start,end)"
+      }
+    },
+    {
+      "check": "lesson-06 original byte boundaries verified",
+      "result": "PASS",
+      "evidence": {
+        "ranges": 14,
+        "units": "UTF8 [start,end)"
+      }
+    },
+    {
+      "check": "lesson-07 original byte boundaries verified",
+      "result": "PASS",
+      "evidence": {
+        "ranges": 9,
+        "units": "UTF8 [start,end)"
+      }
+    },
+    {
+      "check": "lesson-08 original byte boundaries verified",
+      "result": "PASS",
+      "evidence": {
+        "ranges": 13,
+        "units": "UTF8 [start,end)"
+      }
+    },
+    {
+      "check": "lesson-09 original byte boundaries verified",
+      "result": "PASS",
+      "evidence": {
+        "ranges": 11,
+        "units": "UTF8 [start,end)"
+      }
+    },
+    {
+      "check": "lesson-10 original byte boundaries verified",
+      "result": "PASS",
+      "evidence": {
+        "ranges": 14,
+        "units": "UTF8 [start,end)"
+      }
+    },
+    {
+      "check": "lesson-11 original byte boundaries verified",
+      "result": "PASS",
+      "evidence": {
+        "ranges": 10,
+        "units": "UTF8 [start,end)"
+      }
+    },
+    {
+      "check": "lesson-12 original byte boundaries verified",
+      "result": "PASS",
+      "evidence": {
+        "ranges": 9,
+        "units": "UTF8 [start,end)"
+      }
+    },
+    {
+      "check": "lesson-13 original byte boundaries verified",
+      "result": "PASS",
+      "evidence": {
+        "ranges": 8,
+        "units": "UTF8 [start,end)"
+      }
+    },
+    {
+      "check": "All output JSON parse",
+      "result": "PASS",
+      "evidence": {
+        "count": 20
+      }
+    },
+    {
+      "check": "All current output files under20MB",
+      "result": "PASS",
+      "evidence": {
+        "largest": [
+          4219971,
+          "Biology30_CH11_Teacher_Review_v1.0.0.html"
+        ]
+      }
+    }
+  ],
+  "totals": {
+    "PASS": 147
+  },
+  "explicitly_not_performed": [
+    "execution of imported HTML/runtime",
+    "native integration or original editing",
+    "native JavaScript/browser interaction testing",
+    "learner-state storage/Frayer/photo/resume testing",
+    "LMS/export/deployment testing",
+    "physical laboratory investigation",
+    "media playback/captions verification",
+    "independent scientific review",
+    "Dean acceptance"
+  ],
+  "interpretation": "PASS describes only the named mechanical/static check; it is not overall scientific, teaching or technical course acceptance."
+}

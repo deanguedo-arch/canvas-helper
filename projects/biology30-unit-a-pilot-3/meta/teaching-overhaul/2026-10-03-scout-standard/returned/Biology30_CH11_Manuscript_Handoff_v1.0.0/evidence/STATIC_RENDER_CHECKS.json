@@ -1,0 +1,609 @@
+{
+  "version": "1.0.0",
+  "scope": "Only the newly authored script-free teacher-review HTML was opened. Imported course/exemplar HTML and runtime were NEVER opened or executed.",
+  "browser": "installed Chromium via Playwright, headless; content loaded via set_content, not file navigation",
+  "direct_file_navigation": "Attempt returned ERR_BLOCKED_BY_ADMINISTRATOR; no browser policy changed. The authored document was subsequently supplied as static text for a content-render check. This is not a file:// pass.",
+  "settings": {
+    "javascript_enabled": false,
+    "offline": true,
+    "viewports": [
+      {
+        "width": 390,
+        "height": 844
+      },
+      {
+        "width": 1440,
+        "height": 1000
+      }
+    ]
+  },
+  "checks": [
+    {
+      "check": "phone all13 manuscripts displayed",
+      "result": "PASS",
+      "evidence": [
+        {
+          "id": "lesson-01",
+          "height": 16390.765625,
+          "visible": true
+        },
+        {
+          "id": "lesson-02",
+          "height": 13212.671875,
+          "visible": true
+        },
+        {
+          "id": "lesson-03",
+          "height": 14601.890625,
+          "visible": true
+        },
+        {
+          "id": "lesson-04",
+          "height": 14458.921875,
+          "visible": true
+        },
+        {
+          "id": "lesson-05",
+          "height": 18689.78125,
+          "visible": true
+        },
+        {
+          "id": "lesson-06",
+          "height": 19626.640625,
+          "visible": true
+        },
+        {
+          "id": "lesson-07",
+          "height": 19225.078125,
+          "visible": true
+        },
+        {
+          "id": "lesson-08",
+          "height": 22770.375,
+          "visible": true
+        },
+        {
+          "id": "lesson-09",
+          "height": 13754.546875,
+          "visible": true
+        },
+        {
+          "id": "lesson-10",
+          "height": 21001.796875,
+          "visible": true
+        },
+        {
+          "id": "lesson-11",
+          "height": 21535.96875,
+          "visible": true
+        },
+        {
+          "id": "lesson-12",
+          "height": 32295.5,
+          "visible": true
+        },
+        {
+          "id": "lesson-13",
+          "height": 12989.546875,
+          "visible": true
+        }
+      ]
+    },
+    {
+      "check": "phone embedded images loaded",
+      "result": "PASS",
+      "evidence": {
+        "images": 27
+      }
+    },
+    {
+      "check": "phone page fits viewport",
+      "result": "PASS",
+      "evidence": {
+        "width": 390,
+        "docWidth": 390,
+        "bodyWidth": 390,
+        "scripts": 0,
+        "images": [
+          {
+            "loaded": true,
+            "srcKind": "data"
+          },
+          {
+            "loaded": true,
+            "srcKind": "data"
+          },
+          {
+            "loaded": true,
+            "srcKind": "data"
+          },
+          {
+            "loaded": true,
+            "srcKind": "data"
+          },
+          {
+            "loaded": true,
+            "srcKind": "data"
+          },
+          {
+            "loaded": true,
+            "srcKind": "data"
+          },
+          {
+            "loaded": true,
+            "srcKind": "data"
+          },
+          {
+            "loaded": true,
+            "srcKind": "data"
+          },
+          {
+            "loaded": true,
+            "srcKind": "data"
+          },
+          {
+            "loaded": true,
+            "srcKind": "data"
+          },
+          {
+            "loaded": true,
+            "srcKind": "data"
+          },
+          {
+            "loaded": true,
+            "srcKind": "data"
+          },
+          {
+            "loaded": true,
+            "srcKind": "data"
+          },
+          {
+            "loaded": true,
+            "srcKind": "data"
+          },
+          {
+            "loaded": true,
+            "srcKind": "data"
+          },
+          {
+            "loaded": true,
+            "srcKind": "data"
+          },
+          {
+            "loaded": true,
+            "srcKind": "data"
+          },
+          {
+            "loaded": true,
+            "srcKind": "data"
+          },
+          {
+            "loaded": true,
+            "srcKind": "data"
+          },
+          {
+            "loaded": true,
+            "srcKind": "data"
+          },
+          {
+            "loaded": true,
+            "srcKind": "data"
+          },
+          {
+            "loaded": true,
+            "srcKind": "data"
+          },
+          {
+            "loaded": true,
+            "srcKind": "data"
+          },
+          {
+            "loaded": true,
+            "srcKind": "data"
+          },
+          {
+            "loaded": true,
+            "srcKind": "data"
+          },
+          {
+            "loaded": true,
+            "srcKind": "data"
+          },
+          {
+            "loaded": true,
+            "srcKind": "data"
+          }
+        ],
+        "routes": [
+          {
+            "id": "lesson-01",
+            "height": 16390.765625,
+            "visible": true
+          },
+          {
+            "id": "lesson-02",
+            "height": 13212.671875,
+            "visible": true
+          },
+          {
+            "id": "lesson-03",
+            "height": 14601.890625,
+            "visible": true
+          },
+          {
+            "id": "lesson-04",
+            "height": 14458.921875,
+            "visible": true
+          },
+          {
+            "id": "lesson-05",
+            "height": 18689.78125,
+            "visible": true
+          },
+          {
+            "id": "lesson-06",
+            "height": 19626.640625,
+            "visible": true
+          },
+          {
+            "id": "lesson-07",
+            "height": 19225.078125,
+            "visible": true
+          },
+          {
+            "id": "lesson-08",
+            "height": 22770.375,
+            "visible": true
+          },
+          {
+            "id": "lesson-09",
+            "height": 13754.546875,
+            "visible": true
+          },
+          {
+            "id": "lesson-10",
+            "height": 21001.796875,
+            "visible": true
+          },
+          {
+            "id": "lesson-11",
+            "height": 21535.96875,
+            "visible": true
+          },
+          {
+            "id": "lesson-12",
+            "height": 32295.5,
+            "visible": true
+          },
+          {
+            "id": "lesson-13",
+            "height": 12989.546875,
+            "visible": true
+          }
+        ],
+        "responseSpaces": 27
+      }
+    },
+    {
+      "check": "phone scripts absent and27 non-input formative spaces",
+      "result": "PASS",
+      "evidence": {
+        "scripts": 0,
+        "spaces": 27
+      }
+    },
+    {
+      "check": "phone static optional-route anchor",
+      "result": "PASS",
+      "evidence": "Normal fragment navigation with JavaScript disabled; not native course navigation."
+    },
+    {
+      "check": "desktop all13 manuscripts displayed",
+      "result": "PASS",
+      "evidence": [
+        {
+          "id": "lesson-01",
+          "height": 10640.125,
+          "visible": true
+        },
+        {
+          "id": "lesson-02",
+          "height": 9137.734375,
+          "visible": true
+        },
+        {
+          "id": "lesson-03",
+          "height": 9688.78125,
+          "visible": true
+        },
+        {
+          "id": "lesson-04",
+          "height": 9718.390625,
+          "visible": true
+        },
+        {
+          "id": "lesson-05",
+          "height": 12942.4375,
+          "visible": true
+        },
+        {
+          "id": "lesson-06",
+          "height": 14178.75,
+          "visible": true
+        },
+        {
+          "id": "lesson-07",
+          "height": 13727.1875,
+          "visible": true
+        },
+        {
+          "id": "lesson-08",
+          "height": 17090.03125,
+          "visible": true
+        },
+        {
+          "id": "lesson-09",
+          "height": 9786.421875,
+          "visible": true
+        },
+        {
+          "id": "lesson-10",
+          "height": 15005.984375,
+          "visible": true
+        },
+        {
+          "id": "lesson-11",
+          "height": 15166.109375,
+          "visible": true
+        },
+        {
+          "id": "lesson-12",
+          "height": 23699.09375,
+          "visible": true
+        },
+        {
+          "id": "lesson-13",
+          "height": 8243.46875,
+          "visible": true
+        }
+      ]
+    },
+    {
+      "check": "desktop embedded images loaded",
+      "result": "PASS",
+      "evidence": {
+        "images": 27
+      }
+    },
+    {
+      "check": "desktop page fits viewport",
+      "result": "PASS",
+      "evidence": {
+        "width": 1440,
+        "docWidth": 1440,
+        "bodyWidth": 1440,
+        "scripts": 0,
+        "images": [
+          {
+            "loaded": true,
+            "srcKind": "data"
+          },
+          {
+            "loaded": true,
+            "srcKind": "data"
+          },
+          {
+            "loaded": true,
+            "srcKind": "data"
+          },
+          {
+            "loaded": true,
+            "srcKind": "data"
+          },
+          {
+            "loaded": true,
+            "srcKind": "data"
+          },
+          {
+            "loaded": true,
+            "srcKind": "data"
+          },
+          {
+            "loaded": true,
+            "srcKind": "data"
+          },
+          {
+            "loaded": true,
+            "srcKind": "data"
+          },
+          {
+            "loaded": true,
+            "srcKind": "data"
+          },
+          {
+            "loaded": true,
+            "srcKind": "data"
+          },
+          {
+            "loaded": true,
+            "srcKind": "data"
+          },
+          {
+            "loaded": true,
+            "srcKind": "data"
+          },
+          {
+            "loaded": true,
+            "srcKind": "data"
+          },
+          {
+            "loaded": true,
+            "srcKind": "data"
+          },
+          {
+            "loaded": true,
+            "srcKind": "data"
+          },
+          {
+            "loaded": true,
+            "srcKind": "data"
+          },
+          {
+            "loaded": true,
+            "srcKind": "data"
+          },
+          {
+            "loaded": true,
+            "srcKind": "data"
+          },
+          {
+            "loaded": true,
+            "srcKind": "data"
+          },
+          {
+            "loaded": true,
+            "srcKind": "data"
+          },
+          {
+            "loaded": true,
+            "srcKind": "data"
+          },
+          {
+            "loaded": true,
+            "srcKind": "data"
+          },
+          {
+            "loaded": true,
+            "srcKind": "data"
+          },
+          {
+            "loaded": true,
+            "srcKind": "data"
+          },
+          {
+            "loaded": true,
+            "srcKind": "data"
+          },
+          {
+            "loaded": true,
+            "srcKind": "data"
+          },
+          {
+            "loaded": true,
+            "srcKind": "data"
+          }
+        ],
+        "routes": [
+          {
+            "id": "lesson-01",
+            "height": 10640.125,
+            "visible": true
+          },
+          {
+            "id": "lesson-02",
+            "height": 9137.734375,
+            "visible": true
+          },
+          {
+            "id": "lesson-03",
+            "height": 9688.78125,
+            "visible": true
+          },
+          {
+            "id": "lesson-04",
+            "height": 9718.390625,
+            "visible": true
+          },
+          {
+            "id": "lesson-05",
+            "height": 12942.4375,
+            "visible": true
+          },
+          {
+            "id": "lesson-06",
+            "height": 14178.75,
+            "visible": true
+          },
+          {
+            "id": "lesson-07",
+            "height": 13727.1875,
+            "visible": true
+          },
+          {
+            "id": "lesson-08",
+            "height": 17090.03125,
+            "visible": true
+          },
+          {
+            "id": "lesson-09",
+            "height": 9786.421875,
+            "visible": true
+          },
+          {
+            "id": "lesson-10",
+            "height": 15005.984375,
+            "visible": true
+          },
+          {
+            "id": "lesson-11",
+            "height": 15166.109375,
+            "visible": true
+          },
+          {
+            "id": "lesson-12",
+            "height": 23699.09375,
+            "visible": true
+          },
+          {
+            "id": "lesson-13",
+            "height": 8243.46875,
+            "visible": true
+          }
+        ],
+        "responseSpaces": 27
+      }
+    },
+    {
+      "check": "desktop scripts absent and27 non-input formative spaces",
+      "result": "PASS",
+      "evidence": {
+        "scripts": 0,
+        "spaces": 27
+      }
+    },
+    {
+      "check": "desktop static optional-route anchor",
+      "result": "PASS",
+      "evidence": "Normal fragment navigation with JavaScript disabled; not native course navigation."
+    },
+    {
+      "check": "No external requests",
+      "result": "PASS",
+      "evidence": {
+        "external": [],
+        "requests_seen": 0
+      }
+    },
+    {
+      "check": "No page errors",
+      "result": "PASS",
+      "evidence": {
+        "errors": []
+      }
+    }
+  ],
+  "totals": {
+    "pass": 12,
+    "fail": 0
+  },
+  "not_tested": [
+    "physical iPhone or Safari",
+    "native course controls or JS",
+    "save/resume/Frayer/photo storage",
+    "required-progress or grading engine",
+    "LMS",
+    "media playback",
+    "screen-reader experience"
+  ],
+  "DOM_inspection_note": "A tool-injected DOM-only query measured the new static document; no imported script or runtime function was evaluated."
+}

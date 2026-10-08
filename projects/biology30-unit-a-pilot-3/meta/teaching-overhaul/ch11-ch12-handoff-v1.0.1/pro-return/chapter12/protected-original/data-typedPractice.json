@@ -1,0 +1,230 @@
+[
+  {
+    "id": "ch12-typed-scenario-01",
+    "chapter": 12,
+    "lesson": 1,
+    "conceptId": "ch12-perception",
+    "family": "scenario-retrieval",
+    "kind": "blank",
+    "difficulty": "application",
+    "prompt": "You hear a sound and identify it as your friend’s voice. Name the process that gives the sound this meaning.",
+    "answer": "perception",
+    "aliases": [],
+    "cue": "Use the function described to identify the term.",
+    "explanation": "Perception is the brain’s interpretation of the sensory input.",
+    "reviewRoute": "lesson-01"
+  },
+  {
+    "id": "ch12-typed-scenario-02",
+    "chapter": 12,
+    "lesson": 2,
+    "conceptId": "ch12-iris-pupil",
+    "family": "scenario-retrieval",
+    "kind": "blank",
+    "difficulty": "application",
+    "prompt": "Name the opening in the coloured ring that lets light enter the eye.",
+    "answer": "pupil",
+    "aliases": [],
+    "cue": "Use the function described to identify the term.",
+    "explanation": "The pupil is the opening. The iris is the surrounding muscle that changes its size.",
+    "reviewRoute": "lesson-02"
+  },
+  {
+    "id": "ch12-typed-scenario-03",
+    "chapter": 12,
+    "lesson": 3,
+    "conceptId": "ch12-myopia",
+    "family": "scenario-retrieval",
+    "kind": "blank",
+    "difficulty": "application",
+    "prompt": "Distant objects are blurred because their light focuses in front of the retina. Name this focusing condition.",
+    "answer": "myopia",
+    "aliases": [
+      "nearsightedness",
+      "near-sightedness"
+    ],
+    "cue": "Use the function described to identify the term.",
+    "explanation": "Myopia places distant focus in front of the retina in this model.",
+    "reviewRoute": "lesson-03"
+  },
+  {
+    "id": "ch12-typed-scenario-04",
+    "chapter": 12,
+    "lesson": 4,
+    "conceptId": "ch12-fovea",
+    "family": "scenario-retrieval",
+    "kind": "blank",
+    "difficulty": "application",
+    "prompt": "Name the small retinal region with many cones that provides especially sharp central vision.",
+    "answer": "fovea centralis",
+    "aliases": [
+      "fovea"
+    ],
+    "cue": "Use the function described to identify the term.",
+    "explanation": "The fovea centralis contains densely packed cones, supporting fine detail.",
+    "reviewRoute": "lesson-04"
+  },
+  {
+    "id": "ch12-typed-scenario-05",
+    "chapter": 12,
+    "lesson": 5,
+    "conceptId": "ch12-tympanum",
+    "family": "scenario-retrieval",
+    "kind": "blank",
+    "difficulty": "application",
+    "prompt": "Sound-pressure waves make this membrane vibrate before the ossicles move. Name the membrane.",
+    "answer": "tympanum",
+    "aliases": [
+      "eardrum",
+      "tympanic membrane"
+    ],
+    "cue": "Use the function described to identify the term.",
+    "explanation": "The tympanum is the vibrating membrane at the end of the auditory canal.",
+    "reviewRoute": "lesson-05"
+  },
+  {
+    "id": "ch12-typed-scenario-06",
+    "chapter": 12,
+    "lesson": 6,
+    "conceptId": "ch12-frequency-pitch",
+    "family": "scenario-retrieval",
+    "kind": "blank",
+    "difficulty": "application",
+    "prompt": "A description gives 500 wave cycles each second. Name the wave property being measured, not its perceptual effect.",
+    "answer": "frequency",
+    "aliases": [
+      "sound frequency"
+    ],
+    "cue": "Use the function described to identify the term.",
+    "explanation": "Cycles per second measure frequency. Pitch is the associated perceptual quality.",
+    "reviewRoute": "lesson-06"
+  },
+  {
+    "id": "ch12-typed-scenario-07",
+    "chapter": 12,
+    "lesson": 7,
+    "conceptId": "ch12-proprioceptor",
+    "family": "scenario-retrieval",
+    "kind": "blank",
+    "difficulty": "application",
+    "prompt": "What receptor type helps report the position of your elbow from muscles, tendons and joints?",
+    "answer": "proprioceptor",
+    "aliases": [
+      "proprioceptors"
+    ],
+    "cue": "Use the function described to identify the term.",
+    "explanation": "Proprioceptors contribute information about body position and movement.",
+    "reviewRoute": "lesson-07"
+  },
+  {
+    "id": "ch12-typed-scenario-08",
+    "chapter": 12,
+    "lesson": 8,
+    "conceptId": "ch12-olfactory-bulb",
+    "family": "scenario-retrieval",
+    "kind": "blank",
+    "difficulty": "application",
+    "prompt": "Name the structure that first receives the signals from olfactory receptor neurons before smell information continues into other brain pathways.",
+    "answer": "olfactory bulb",
+    "aliases": [],
+    "cue": "Use the function described to identify the term.",
+    "explanation": "Olfactory receptor neurons send input to the olfactory bulb.",
+    "reviewRoute": "lesson-08"
+  },
+  {
+    "id": "ch12-pathway-blank-01",
+    "chapter": 12,
+    "lesson": 1,
+    "conceptId": "ch12-sensory-reception",
+    "family": "pathway-completion",
+    "kind": "blank",
+    "difficulty": "application",
+    "prompt": "A stimulus occurs → a receptor performs ____ → sensory information reaches the brain.",
+    "answer": "transduction",
+    "aliases": [],
+    "cue": "Follow the neighbouring steps and identify the missing link.",
+    "explanation": "Transduction converts stimulus energy into changes in cell signalling.",
+    "reviewRoute": "lesson-01"
+  },
+  {
+    "id": "ch12-pathway-blank-02",
+    "chapter": 12,
+    "lesson": 2,
+    "conceptId": "ch12-lens",
+    "family": "pathway-completion",
+    "kind": "blank",
+    "difficulty": "application",
+    "prompt": "Cornea → aqueous humour → pupil → ____ → vitreous humour → retina.",
+    "answer": "lens",
+    "aliases": [],
+    "cue": "Follow the neighbouring steps and identify the missing link.",
+    "explanation": "The lens lies after the pupil in the incoming light route.",
+    "reviewRoute": "lesson-02"
+  },
+  {
+    "id": "ch12-pathway-blank-03",
+    "chapter": 12,
+    "lesson": 3,
+    "conceptId": "ch12-near-focus",
+    "family": "pathway-completion",
+    "kind": "blank",
+    "difficulty": "application",
+    "prompt": "Near object → ciliary muscle contracts → ligament tension decreases → lens becomes ____.",
+    "answer": "rounder",
+    "aliases": [
+      "more rounded",
+      "thicker",
+      "more convex"
+    ],
+    "cue": "Follow the neighbouring steps and identify the missing link.",
+    "explanation": "Reduced ligament pull allows the lens to become rounder for stronger focusing.",
+    "reviewRoute": "lesson-03"
+  },
+  {
+    "id": "ch12-pathway-blank-04",
+    "chapter": 12,
+    "lesson": 4,
+    "conceptId": "ch12-retinal-circuit",
+    "family": "pathway-completion",
+    "kind": "blank",
+    "difficulty": "application",
+    "prompt": "Photoreceptors → bipolar cells → ____ → optic nerve.",
+    "answer": "ganglion cells",
+    "aliases": [
+      "ganglion cell"
+    ],
+    "cue": "Follow the neighbouring steps and identify the missing link.",
+    "explanation": "Ganglion-cell axons form the optic nerve.",
+    "reviewRoute": "lesson-04"
+  },
+  {
+    "id": "ch12-pathway-blank-05",
+    "chapter": 12,
+    "lesson": 5,
+    "conceptId": "ch12-oval-window",
+    "family": "pathway-completion",
+    "kind": "blank",
+    "difficulty": "application",
+    "prompt": "Eardrum → ossicles → ____ → cochlear fluid movement.",
+    "answer": "oval window",
+    "aliases": [],
+    "cue": "Follow the neighbouring steps and identify the missing link.",
+    "explanation": "The stapes transfers movement at the oval window.",
+    "reviewRoute": "lesson-05"
+  },
+  {
+    "id": "ch12-pathway-blank-07",
+    "chapter": 12,
+    "lesson": 7,
+    "conceptId": "ch12-ampulla-cupula",
+    "family": "pathway-completion",
+    "kind": "blank",
+    "difficulty": "application",
+    "prompt": "Changing head rotation → relative canal-fluid movement → ____ bends → hair-cell projections bend.",
+    "answer": "cupula",
+    "aliases": [],
+    "cue": "Follow the neighbouring steps and identify the missing link.",
+    "explanation": "The cupula is the jelly-like structure moved by fluid in the canal ampulla.",
+    "reviewRoute": "lesson-07"
+  }
+]

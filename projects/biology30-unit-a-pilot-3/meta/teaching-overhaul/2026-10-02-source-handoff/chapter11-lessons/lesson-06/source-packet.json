@@ -1,0 +1,3226 @@
+{
+  "lessonId": "lesson-06",
+  "title": "Synapses & summation",
+  "locator": {
+    "path": "projects/biology30-unit-a-pilot-3/workspace/index.html",
+    "selector": "#lesson-06",
+    "startLine": 1045,
+    "endLine": 1351,
+    "startOffset": 120698,
+    "endOffset": 153578,
+    "offsetUnit": "JavaScript UTF-16 code units",
+    "fragmentSha256": "fcbc37f759643ecc352465cc318d063fd23861ff3c058c68231d87ce240304c1"
+  },
+  "currentHtml": "chapter11-lessons/lesson-06/current-exact.html",
+  "completeReadableCopy": "chapter11-lessons/lesson-06/current-complete.md",
+  "chapterTextbook": "sources/original/chapter-11.pdf",
+  "printedPageOffset": 359,
+  "textbookLinks": [
+    {
+      "pdfPage": 21,
+      "text": "Open at p. 380",
+      "line": 1067,
+      "printedPage": 380,
+      "textExtract": "sources/extracted/chapter11-textbook/pdf-page-021.txt"
+    },
+    {
+      "pdfPage": 21,
+      "text": "Textbook p. 380",
+      "line": 1272,
+      "printedPage": 380,
+      "textExtract": "sources/extracted/chapter11-textbook/pdf-page-021.txt"
+    },
+    {
+      "pdfPage": 22,
+      "text": "Textbook p. 381",
+      "line": 1289,
+      "printedPage": 381,
+      "textExtract": "sources/extracted/chapter11-textbook/pdf-page-022.txt"
+    },
+    {
+      "pdfPage": 21,
+      "text": "Textbook p. 380",
+      "line": 1306,
+      "printedPage": 380,
+      "textExtract": "sources/extracted/chapter11-textbook/pdf-page-021.txt"
+    },
+    {
+      "pdfPage": 23,
+      "text": "Textbook p. 382",
+      "line": 1319,
+      "printedPage": 382,
+      "textExtract": "sources/extracted/chapter11-textbook/pdf-page-023.txt"
+    },
+    {
+      "pdfPage": 23,
+      "text": "Textbook p. 382",
+      "line": 1332,
+      "printedPage": 382,
+      "textExtract": "sources/extracted/chapter11-textbook/pdf-page-023.txt"
+    }
+  ],
+  "teacherSlides": [
+    {
+      "slide": 31,
+      "textPath": "sources/extracted/chapter11-teacher-deck/slide-031.md",
+      "media": [
+        {
+          "id": "rId3",
+          "type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/image",
+          "target": "ppt/media/image17.png",
+          "external": false,
+          "packageMediaPath": "sources/teacher-deck-media/image17.png"
+        }
+      ]
+    },
+    {
+      "slide": 32,
+      "textPath": "sources/extracted/chapter11-teacher-deck/slide-032.md",
+      "media": [
+        {
+          "id": "rId3",
+          "type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/image",
+          "target": "ppt/media/image19.png",
+          "external": false,
+          "packageMediaPath": "sources/teacher-deck-media/image19.png"
+        }
+      ]
+    },
+    {
+      "slide": 33,
+      "textPath": "sources/extracted/chapter11-teacher-deck/slide-033.md",
+      "media": [
+        {
+          "id": "rId3",
+          "type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/image",
+          "target": "ppt/media/image19.png",
+          "external": false,
+          "packageMediaPath": "sources/teacher-deck-media/image19.png"
+        }
+      ]
+    },
+    {
+      "slide": 34,
+      "textPath": "sources/extracted/chapter11-teacher-deck/slide-034.md",
+      "media": [
+        {
+          "id": "rId3",
+          "type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/image",
+          "target": "ppt/media/image38.png",
+          "external": false,
+          "packageMediaPath": "sources/teacher-deck-media/image38.png"
+        },
+        {
+          "id": "rId4",
+          "type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/image",
+          "target": "ppt/media/image26.png",
+          "external": false,
+          "packageMediaPath": "sources/teacher-deck-media/image26.png"
+        }
+      ]
+    },
+    {
+      "slide": 35,
+      "textPath": "sources/extracted/chapter11-teacher-deck/slide-035.md",
+      "media": [
+        {
+          "id": "rId3",
+          "type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/image",
+          "target": "ppt/media/image31.png",
+          "external": false,
+          "packageMediaPath": "sources/teacher-deck-media/image31.png"
+        }
+      ]
+    },
+    {
+      "slide": 36,
+      "textPath": "sources/extracted/chapter11-teacher-deck/slide-036.md",
+      "media": [
+        {
+          "id": "rId4",
+          "type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/image",
+          "target": "ppt/media/image50.jpg",
+          "external": false,
+          "packageMediaPath": "sources/teacher-deck-media/image50.jpg"
+        }
+      ]
+    },
+    {
+      "slide": 37,
+      "textPath": "sources/extracted/chapter11-teacher-deck/slide-037.md",
+      "media": [
+        {
+          "id": "rId3",
+          "type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/image",
+          "target": "ppt/media/image42.png",
+          "external": false,
+          "packageMediaPath": "sources/teacher-deck-media/image42.png"
+        }
+      ]
+    },
+    {
+      "slide": 38,
+      "textPath": "sources/extracted/chapter11-teacher-deck/slide-038.md",
+      "media": []
+    },
+    {
+      "slide": 39,
+      "textPath": "sources/extracted/chapter11-teacher-deck/slide-039.md",
+      "media": [
+        {
+          "id": "rId4",
+          "type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/image",
+          "target": "ppt/media/image27.jpg",
+          "external": false,
+          "packageMediaPath": "sources/teacher-deck-media/image27.jpg"
+        },
+        {
+          "id": "rId6",
+          "type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/image",
+          "target": "ppt/media/image52.jpg",
+          "external": false,
+          "packageMediaPath": "sources/teacher-deck-media/image52.jpg"
+        }
+      ]
+    }
+  ],
+  "mappingStatus": "Lead topic-based source locator from inspected slide titles/text; not teacher-certified outcome coverage. Consult full deck when context is needed.",
+  "caveat": null,
+  "questions": [
+    {
+      "id": "check-synapses-mc",
+      "activityId": "check-synapses",
+      "lessonId": "lesson-06",
+      "attrs": {
+        "class": "question",
+        "data-question": "check-synapses-mc"
+      },
+      "originalHtml": "<div class=\"question\" data-question=\"check-synapses-mc\">\n<h3 data-canvas-helper-edit-key=\"p3-chapter-424\">The transmission of the nerve impulse across a synapse is accomplished by the release of a neurotransmitter</h3>\n<label class=\"choice\" data-canvas-helper-edit-key=\"p3-chapter-425\">\n<input type=\"radio\" name=\"check-synapses-mc\" value=\"QUES_51667_82706_A275458\" data-answer=\"\"> from the cell body of the pre-synaptic neuron to the Schwann cell of the post synaptic neuron.</label>\n<label class=\"choice\" data-canvas-helper-edit-key=\"p3-chapter-426\">\n<input type=\"radio\" name=\"check-synapses-mc\" value=\"QUES_51667_82706_A275459\" data-answer=\"\"> from the Schwann cell of the pre-synaptic neuron to the cell body of the post synaptic neuron.</label>\n<label class=\"choice\" data-canvas-helper-edit-key=\"p3-chapter-427\">\n<input type=\"radio\" name=\"check-synapses-mc\" value=\"QUES_51667_82706_A275460\" data-answer=\"\"> from the dendrite of the pre-synaptic neuron to the axon of the post synaptic neuron.</label>\n<label class=\"choice\" data-canvas-helper-edit-key=\"p3-chapter-428\">\n<input type=\"radio\" name=\"check-synapses-mc\" value=\"QUES_51667_82706_A275461\" data-answer=\"\"> from the axon of the pre-synaptic neuron to the dendrite of the post synaptic neuron.</label>\n<button type=\"button\" data-check=\"\" data-canvas-helper-edit-key=\"p3-chapter-429\">Check answer</button>\n<p data-feedback=\"\" role=\"status\" data-canvas-helper-edit-key=\"p3-chapter-430\">\n</p>\n<fieldset class=\"paired-writing\" data-unlock=\"check-synapses-mc\" disabled=\"\">\n<legend>Explain the related idea</legend>\n<p data-canvas-helper-edit-key=\"p3-chapter-431\">\nSummarize the events involved in impulse transmission from the presynaptic neuron to the postsynaptic neuron. </p>\n<p data-canvas-helper-edit-key=\"p3-chapter-432\">\n<a href=\"#textbook-library\" data-book-page=\"21\" data-canvas-helper-edit-key=\"p3-chapter-433\">Textbook p. 380</a>\n</p>\n<label for=\"check-synapses-written\" data-canvas-helper-edit-key=\"p3-chapter-434\">Written response</label>\n<textarea id=\"check-synapses-written\" data-writing=\"check-synapses-written\" data-answer-limit=\"3200\" rows=\"6\" aria-describedby=\"check-synapses-written-limit check-synapses-written-status\"></textarea>\n<p id=\"check-synapses-written-limit\" class=\"muted\" data-canvas-helper-edit-key=\"p3-chapter-435\">Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded.</p>\n<button type=\"button\" data-submit-writing=\"\" data-canvas-helper-edit-key=\"p3-chapter-436\">Save written response</button>\n<p data-writing-status=\"\" id=\"check-synapses-written-status\" role=\"status\" data-canvas-helper-edit-key=\"p3-chapter-437\">\n</p>\n</fieldset>\n</div>",
+      "completeText": "The transmission of the nerve impulse across a synapse is accomplished by the release of a neurotransmitter from the cell body of the pre-synaptic neuron to the Schwann cell of the post synaptic neuron. from the Schwann cell of the pre-synaptic neuron to the cell body of the post synaptic neuron. from the dendrite of the pre-synaptic neuron to the axon of the post synaptic neuron. from the axon of the pre-synaptic neuron to the dendrite of the post synaptic neuron. Check answer Explain the related idea Summarize the events involved in impulse transmission from the presynaptic neuron to the postsynaptic neuron. Textbook p. 380 Written response Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded. Save written response",
+      "locator": {
+        "path": "projects/biology30-unit-a-pilot-3/workspace/index.html",
+        "line": 1254,
+        "endLine": 1281
+      },
+      "answerFields": [
+        {
+          "tag": "input",
+          "attrs": {
+            "type": "radio",
+            "name": "check-synapses-mc",
+            "value": "QUES_51667_82706_A275458",
+            "data-answer": ""
+          },
+          "text": ""
+        },
+        {
+          "tag": "input",
+          "attrs": {
+            "type": "radio",
+            "name": "check-synapses-mc",
+            "value": "QUES_51667_82706_A275459",
+            "data-answer": ""
+          },
+          "text": ""
+        },
+        {
+          "tag": "input",
+          "attrs": {
+            "type": "radio",
+            "name": "check-synapses-mc",
+            "value": "QUES_51667_82706_A275460",
+            "data-answer": ""
+          },
+          "text": ""
+        },
+        {
+          "tag": "input",
+          "attrs": {
+            "type": "radio",
+            "name": "check-synapses-mc",
+            "value": "QUES_51667_82706_A275461",
+            "data-answer": ""
+          },
+          "text": ""
+        },
+        {
+          "tag": "textarea",
+          "attrs": {
+            "id": "check-synapses-written",
+            "data-writing": "check-synapses-written",
+            "data-answer-limit": "3200",
+            "rows": "6",
+            "aria-describedby": "check-synapses-written-limit check-synapses-written-status"
+          },
+          "text": ""
+        }
+      ],
+      "authoredKey": {
+        "id": "check-synapses-mc",
+        "sourceId": "res-quiz-59222:obj-2130968",
+        "correct": "QUES_51667_82706_A275461"
+      }
+    },
+    {
+      "id": "source-checkpoint-16",
+      "activityId": "practice-synapses",
+      "lessonId": "lesson-06",
+      "attrs": {
+        "class": "question",
+        "data-question": "source-checkpoint-16"
+      },
+      "originalHtml": "<div class=\"question\" data-question=\"source-checkpoint-16\">\n<p data-canvas-helper-edit-key=\"p3-chapter-448\">\nIdentify the function of neurotransmitters in the nervous system. </p>\n<p data-canvas-helper-edit-key=\"p3-chapter-449\">\n<a href=\"#textbook-library\" data-book-page=\"21\" data-canvas-helper-edit-key=\"p3-chapter-450\">Textbook p. 380</a>\n</p>\n<label for=\"source-checkpoint-16-written\" data-canvas-helper-edit-key=\"p3-chapter-451\">Written response</label>\n<textarea id=\"source-checkpoint-16-written\" data-writing=\"source-checkpoint-16-written\" data-answer-limit=\"3200\" rows=\"6\" aria-describedby=\"source-checkpoint-16-written-limit source-checkpoint-16-written-status\"></textarea>\n<p id=\"source-checkpoint-16-written-limit\" class=\"muted\" data-canvas-helper-edit-key=\"p3-chapter-452\">Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded.</p>\n<button type=\"button\" data-submit-writing=\"\" data-canvas-helper-edit-key=\"p3-chapter-453\">Save written response</button>\n<p data-writing-status=\"\" id=\"source-checkpoint-16-written-status\" role=\"status\" data-canvas-helper-edit-key=\"p3-chapter-454\">\n</p>\n</div>",
+      "completeText": "Identify the function of neurotransmitters in the nervous system. Textbook p. 380 Written response Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded. Save written response",
+      "locator": {
+        "path": "projects/biology30-unit-a-pilot-3/workspace/index.html",
+        "line": 1302,
+        "endLine": 1314
+      },
+      "answerFields": [
+        {
+          "tag": "textarea",
+          "attrs": {
+            "id": "source-checkpoint-16-written",
+            "data-writing": "source-checkpoint-16-written",
+            "data-answer-limit": "3200",
+            "rows": "6",
+            "aria-describedby": "source-checkpoint-16-written-limit source-checkpoint-16-written-status"
+          },
+          "text": ""
+        }
+      ],
+      "authoredKey": null
+    },
+    {
+      "id": "source-checkpoint-17",
+      "activityId": "practice-synapses",
+      "lessonId": "lesson-06",
+      "attrs": {
+        "class": "question",
+        "data-question": "source-checkpoint-17"
+      },
+      "originalHtml": "<div class=\"question\" data-question=\"source-checkpoint-17\">\n<p data-canvas-helper-edit-key=\"p3-chapter-455\">\nCompare the excitatory and inhibitory effects of neurotransmitters on the postsynaptic membrane. </p>\n<p data-canvas-helper-edit-key=\"p3-chapter-456\">\n<a href=\"#textbook-library\" data-book-page=\"23\" data-canvas-helper-edit-key=\"p3-chapter-457\">Textbook p. 382</a>\n</p>\n<label for=\"source-checkpoint-17-written\" data-canvas-helper-edit-key=\"p3-chapter-458\">Written response</label>\n<textarea id=\"source-checkpoint-17-written\" data-writing=\"source-checkpoint-17-written\" data-answer-limit=\"3200\" rows=\"6\" aria-describedby=\"source-checkpoint-17-written-limit source-checkpoint-17-written-status\"></textarea>\n<p id=\"source-checkpoint-17-written-limit\" class=\"muted\" data-canvas-helper-edit-key=\"p3-chapter-459\">Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded.</p>\n<button type=\"button\" data-submit-writing=\"\" data-canvas-helper-edit-key=\"p3-chapter-460\">Save written response</button>\n<p data-writing-status=\"\" id=\"source-checkpoint-17-written-status\" role=\"status\" data-canvas-helper-edit-key=\"p3-chapter-461\">\n</p>\n</div>",
+      "completeText": "Compare the excitatory and inhibitory effects of neurotransmitters on the postsynaptic membrane. Textbook p. 382 Written response Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded. Save written response",
+      "locator": {
+        "path": "projects/biology30-unit-a-pilot-3/workspace/index.html",
+        "line": 1315,
+        "endLine": 1327
+      },
+      "answerFields": [
+        {
+          "tag": "textarea",
+          "attrs": {
+            "id": "source-checkpoint-17-written",
+            "data-writing": "source-checkpoint-17-written",
+            "data-answer-limit": "3200",
+            "rows": "6",
+            "aria-describedby": "source-checkpoint-17-written-limit source-checkpoint-17-written-status"
+          },
+          "text": ""
+        }
+      ],
+      "authoredKey": null
+    },
+    {
+      "id": "source-checkpoint-18",
+      "activityId": "practice-synapses",
+      "lessonId": "lesson-06",
+      "attrs": {
+        "class": "question",
+        "data-question": "source-checkpoint-18"
+      },
+      "originalHtml": "<div class=\"question\" data-question=\"source-checkpoint-18\">\n<p data-canvas-helper-edit-key=\"p3-chapter-462\">\nCompare and relate the functions of acetylcholine and cholinesterase. </p>\n<p data-canvas-helper-edit-key=\"p3-chapter-463\">\n<a href=\"#textbook-library\" data-book-page=\"23\" data-canvas-helper-edit-key=\"p3-chapter-464\">Textbook p. 382</a>\n</p>\n<label for=\"source-checkpoint-18-written\" data-canvas-helper-edit-key=\"p3-chapter-465\">Written response</label>\n<textarea id=\"source-checkpoint-18-written\" data-writing=\"source-checkpoint-18-written\" data-answer-limit=\"3200\" rows=\"6\" aria-describedby=\"source-checkpoint-18-written-limit source-checkpoint-18-written-status\"></textarea>\n<p id=\"source-checkpoint-18-written-limit\" class=\"muted\" data-canvas-helper-edit-key=\"p3-chapter-466\">Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded.</p>\n<button type=\"button\" data-submit-writing=\"\" data-canvas-helper-edit-key=\"p3-chapter-467\">Save written response</button>\n<p data-writing-status=\"\" id=\"source-checkpoint-18-written-status\" role=\"status\" data-canvas-helper-edit-key=\"p3-chapter-468\">\n</p>\n</div>",
+      "completeText": "Compare and relate the functions of acetylcholine and cholinesterase. Textbook p. 382 Written response Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded. Save written response",
+      "locator": {
+        "path": "projects/biology30-unit-a-pilot-3/workspace/index.html",
+        "line": 1328,
+        "endLine": 1340
+      },
+      "answerFields": [
+        {
+          "tag": "textarea",
+          "attrs": {
+            "id": "source-checkpoint-18-written",
+            "data-writing": "source-checkpoint-18-written",
+            "data-answer-limit": "3200",
+            "rows": "6",
+            "aria-describedby": "source-checkpoint-18-written-limit source-checkpoint-18-written-status"
+          },
+          "text": ""
+        }
+      ],
+      "authoredKey": null
+    }
+  ],
+  "optionalGeneratedPractice": [
+    {
+      "id": "synaptic-transmission",
+      "lessonId": "lesson-06",
+      "term": "synaptic transmission",
+      "definition": "chemical communication from a presynaptic terminal across a cleft to receptors on a postsynaptic cell",
+      "scenario": "An arriving impulse triggers neurotransmitter release that changes the next cell.",
+      "misconception": "Neurotransmitters normally travel down the axon as the action potential.",
+      "sequence": [
+        "action potential arrives",
+        "Ca2+ enters",
+        "vesicles release transmitter",
+        "receptors bind",
+        "postsynaptic response"
+      ],
+      "answers": [
+        "synaptic transmission"
+      ],
+      "aliases": [],
+      "relationships": [
+        "action potential arrives",
+        "Ca2+ enters",
+        "vesicles release transmitter",
+        "receptors bind",
+        "postsynaptic response"
+      ],
+      "contrast": [
+        "chemical communication from a presynaptic terminal across a cleft to receptors on a postsynaptic cell",
+        "Neurotransmitters normally travel down the axon as the action potential."
+      ],
+      "cue": "Trace where synaptic transmission belongs in the lesson mechanism or example.",
+      "explanation": "synaptic transmission: chemical communication from a presynaptic terminal across a cleft to receptors on a postsynaptic cell",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 380"
+      ],
+      "mcVariants": [
+        {
+          "id": "term",
+          "skill": "recognize",
+          "difficulty": 1,
+          "prompt": "Which term best matches this description: chemical communication from a presynaptic terminal across a cleft to receptors on a postsynaptic cell?",
+          "answer": "synaptic transmission",
+          "optionSource": "terms"
+        },
+        {
+          "id": "function",
+          "skill": "relate",
+          "difficulty": 2,
+          "prompt": "Which statement best describes synaptic transmission?",
+          "answer": "chemical communication from a presynaptic terminal across a cleft to receptors on a postsynaptic cell",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "scenario",
+          "skill": "apply",
+          "difficulty": 3,
+          "prompt": "Which concept best explains this situation? An arriving impulse triggers neurotransmitter release that changes the next cell.",
+          "answer": "synaptic transmission",
+          "optionSource": "terms"
+        },
+        {
+          "id": "correction",
+          "skill": "misconception",
+          "difficulty": 3,
+          "prompt": "Which statement correctly replaces this inaccurate idea: “Neurotransmitters normally travel down the axon as the action potential.”",
+          "answer": "chemical communication from a presynaptic terminal across a cleft to receptors on a postsynaptic cell",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "sequence-start",
+          "skill": "sequence",
+          "difficulty": 1,
+          "prompt": "Which event begins the synaptic transmission sequence?",
+          "answer": "action potential arrives",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-next",
+          "skill": "sequence",
+          "difficulty": 2,
+          "prompt": "In the synaptic transmission sequence, what follows action potential arrives?",
+          "answer": "Ca2+ enters",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-end",
+          "skill": "integrate",
+          "difficulty": 4,
+          "prompt": "Which event completes the synaptic transmission sequence?",
+          "answer": "postsynaptic response",
+          "optionSource": "sequence"
+        }
+      ]
+    },
+    {
+      "id": "summation",
+      "lessonId": "lesson-06",
+      "term": "summation",
+      "definition": "the combined effect of multiple excitatory and inhibitory postsynaptic inputs",
+      "scenario": "Several small excitatory inputs together may bring a neuron to threshold.",
+      "misconception": "Each synapse always acts alone and cannot combine with other inputs.",
+      "sequence": [
+        "inputs arrive",
+        "potentials combine",
+        "axon hillock reaches threshold",
+        "action potential"
+      ],
+      "answers": [
+        "summation"
+      ],
+      "aliases": [],
+      "relationships": [
+        "inputs arrive",
+        "potentials combine",
+        "axon hillock reaches threshold",
+        "action potential"
+      ],
+      "contrast": [
+        "the combined effect of multiple excitatory and inhibitory postsynaptic inputs",
+        "Each synapse always acts alone and cannot combine with other inputs."
+      ],
+      "cue": "Trace where summation belongs in the lesson mechanism or example.",
+      "explanation": "summation: the combined effect of multiple excitatory and inhibitory postsynaptic inputs",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 381"
+      ],
+      "mcVariants": [
+        {
+          "id": "term",
+          "skill": "recognize",
+          "difficulty": 1,
+          "prompt": "Which term best matches this description: the combined effect of multiple excitatory and inhibitory postsynaptic inputs?",
+          "answer": "summation",
+          "optionSource": "terms"
+        },
+        {
+          "id": "function",
+          "skill": "relate",
+          "difficulty": 2,
+          "prompt": "Which statement best describes summation?",
+          "answer": "the combined effect of multiple excitatory and inhibitory postsynaptic inputs",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "scenario",
+          "skill": "apply",
+          "difficulty": 3,
+          "prompt": "Which concept best explains this situation? Several small excitatory inputs together may bring a neuron to threshold.",
+          "answer": "summation",
+          "optionSource": "terms"
+        },
+        {
+          "id": "correction",
+          "skill": "misconception",
+          "difficulty": 3,
+          "prompt": "Which statement correctly replaces this inaccurate idea: “Each synapse always acts alone and cannot combine with other inputs.”",
+          "answer": "the combined effect of multiple excitatory and inhibitory postsynaptic inputs",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "sequence-start",
+          "skill": "sequence",
+          "difficulty": 1,
+          "prompt": "Which event begins the summation sequence?",
+          "answer": "inputs arrive",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-next",
+          "skill": "sequence",
+          "difficulty": 2,
+          "prompt": "In the summation sequence, what follows inputs arrive?",
+          "answer": "potentials combine",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-end",
+          "skill": "integrate",
+          "difficulty": 4,
+          "prompt": "Which event completes the summation sequence?",
+          "answer": "action potential",
+          "optionSource": "sequence"
+        }
+      ]
+    },
+    {
+      "id": "transmitter-removal",
+      "lessonId": "lesson-06",
+      "term": "neurotransmitter removal",
+      "definition": "reuptake, enzymatic breakdown or diffusion ends a synaptic signal",
+      "scenario": "Cholinesterase breaks down acetylcholine so stimulation does not continue indefinitely.",
+      "misconception": "Neurotransmitter must remain in the cleft permanently for signalling to stop.",
+      "sequence": [
+        "release",
+        "receptor binding",
+        "removal",
+        "signal ends"
+      ],
+      "answers": [
+        "neurotransmitter removal"
+      ],
+      "aliases": [],
+      "relationships": [
+        "release",
+        "receptor binding",
+        "removal",
+        "signal ends"
+      ],
+      "contrast": [
+        "reuptake, enzymatic breakdown or diffusion ends a synaptic signal",
+        "Neurotransmitter must remain in the cleft permanently for signalling to stop."
+      ],
+      "cue": "Trace where neurotransmitter removal belongs in the lesson mechanism or example.",
+      "explanation": "neurotransmitter removal: reuptake, enzymatic breakdown or diffusion ends a synaptic signal",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 382"
+      ],
+      "mcVariants": [
+        {
+          "id": "term",
+          "skill": "recognize",
+          "difficulty": 1,
+          "prompt": "Which term best matches this description: reuptake, enzymatic breakdown or diffusion ends a synaptic signal?",
+          "answer": "neurotransmitter removal",
+          "optionSource": "terms"
+        },
+        {
+          "id": "function",
+          "skill": "relate",
+          "difficulty": 2,
+          "prompt": "Which statement best describes neurotransmitter removal?",
+          "answer": "reuptake, enzymatic breakdown or diffusion ends a synaptic signal",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "scenario",
+          "skill": "apply",
+          "difficulty": 3,
+          "prompt": "Which concept best explains this situation? Cholinesterase breaks down acetylcholine so stimulation does not continue indefinitely.",
+          "answer": "neurotransmitter removal",
+          "optionSource": "terms"
+        },
+        {
+          "id": "correction",
+          "skill": "misconception",
+          "difficulty": 3,
+          "prompt": "Which statement correctly replaces this inaccurate idea: “Neurotransmitter must remain in the cleft permanently for signalling to stop.”",
+          "answer": "reuptake, enzymatic breakdown or diffusion ends a synaptic signal",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "sequence-start",
+          "skill": "sequence",
+          "difficulty": 1,
+          "prompt": "Which event begins the neurotransmitter removal sequence?",
+          "answer": "release",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-next",
+          "skill": "sequence",
+          "difficulty": 2,
+          "prompt": "In the neurotransmitter removal sequence, what follows release?",
+          "answer": "receptor binding",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-end",
+          "skill": "integrate",
+          "difficulty": 4,
+          "prompt": "Which event completes the neurotransmitter removal sequence?",
+          "answer": "signal ends",
+          "optionSource": "sequence"
+        }
+      ]
+    }
+  ],
+  "generatedItemFamilies": [
+    {
+      "kind": "flashcards",
+      "conceptId": "synaptic-transmission",
+      "lessonId": "lesson-06",
+      "cue": "Trace where synaptic transmission belongs in the lesson mechanism or example.",
+      "explanation": "synaptic transmission: chemical communication from a presynaptic terminal across a cleft to receptors on a postsynaptic cell Source: Biology 30 Chapter 11, textbook p. 380",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 380"
+      ],
+      "id": "synaptic-transmission:card-term",
+      "family": "recall",
+      "interaction": "flashcard",
+      "skill": "recall",
+      "prompt": "synaptic transmission",
+      "answers": [
+        "chemical communication from a presynaptic terminal across a cleft to receptors on a postsynaptic cell"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "flashcards",
+      "conceptId": "synaptic-transmission",
+      "lessonId": "lesson-06",
+      "cue": "Trace where synaptic transmission belongs in the lesson mechanism or example.",
+      "explanation": "synaptic transmission: chemical communication from a presynaptic terminal across a cleft to receptors on a postsynaptic cell Source: Biology 30 Chapter 11, textbook p. 380",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 380"
+      ],
+      "id": "synaptic-transmission:card-definition",
+      "family": "reverse-retrieval",
+      "interaction": "flashcard",
+      "skill": "recall",
+      "prompt": "chemical communication from a presynaptic terminal across a cleft to receptors on a postsynaptic cell",
+      "answers": [
+        "synaptic transmission"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "flashcards",
+      "conceptId": "synaptic-transmission",
+      "lessonId": "lesson-06",
+      "cue": "Trace where synaptic transmission belongs in the lesson mechanism or example.",
+      "explanation": "synaptic transmission: chemical communication from a presynaptic terminal across a cleft to receptors on a postsynaptic cell Source: Biology 30 Chapter 11, textbook p. 380",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 380"
+      ],
+      "id": "synaptic-transmission:card-scenario",
+      "family": "application",
+      "interaction": "flashcard",
+      "skill": "application",
+      "prompt": "An arriving impulse triggers neurotransmitter release that changes the next cell.",
+      "answers": [
+        "synaptic transmission — chemical communication from a presynaptic terminal across a cleft to receptors on a postsynaptic cell"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "flashcards",
+      "conceptId": "synaptic-transmission",
+      "lessonId": "lesson-06",
+      "cue": "Trace where synaptic transmission belongs in the lesson mechanism or example.",
+      "explanation": "synaptic transmission: chemical communication from a presynaptic terminal across a cleft to receptors on a postsynaptic cell Source: Biology 30 Chapter 11, textbook p. 380",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 380"
+      ],
+      "id": "synaptic-transmission:card-error",
+      "family": "error-correction",
+      "interaction": "flashcard",
+      "skill": "error-correction",
+      "prompt": "Correct this idea: Neurotransmitters normally travel down the axon as the action potential.",
+      "answers": [
+        "chemical communication from a presynaptic terminal across a cleft to receptors on a postsynaptic cell"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "blanks",
+      "conceptId": "synaptic-transmission",
+      "lessonId": "lesson-06",
+      "cue": "Trace where synaptic transmission belongs in the lesson mechanism or example.",
+      "explanation": "synaptic transmission: chemical communication from a presynaptic terminal across a cleft to receptors on a postsynaptic cell Source: Biology 30 Chapter 11, textbook p. 380",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 380"
+      ],
+      "id": "synaptic-transmission:blank-definition",
+      "family": "definition",
+      "interaction": "typed",
+      "skill": "recall",
+      "prompt": "The term for “chemical communication from a presynaptic terminal across a cleft to receptors on a postsynaptic cell” is _____.",
+      "answers": [
+        "synaptic transmission"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "blanks",
+      "conceptId": "synaptic-transmission",
+      "lessonId": "lesson-06",
+      "cue": "Trace where synaptic transmission belongs in the lesson mechanism or example.",
+      "explanation": "synaptic transmission: chemical communication from a presynaptic terminal across a cleft to receptors on a postsynaptic cell Source: Biology 30 Chapter 11, textbook p. 380",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 380"
+      ],
+      "id": "synaptic-transmission:blank-scenario",
+      "family": "scenario",
+      "interaction": "typed",
+      "skill": "application",
+      "prompt": "This situation illustrates _____: An arriving impulse triggers neurotransmitter release that changes the next cell.",
+      "answers": [
+        "synaptic transmission"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "blanks",
+      "conceptId": "synaptic-transmission",
+      "lessonId": "lesson-06",
+      "cue": "Trace where synaptic transmission belongs in the lesson mechanism or example.",
+      "explanation": "synaptic transmission: chemical communication from a presynaptic terminal across a cleft to receptors on a postsynaptic cell Source: Biology 30 Chapter 11, textbook p. 380",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 380"
+      ],
+      "id": "synaptic-transmission:blank-sequence",
+      "family": "pathway",
+      "interaction": "typed",
+      "skill": "sequencing",
+      "prompt": "Complete the pathway: action potential arrives → Ca2+ enters → vesicles release transmitter → receptors bind → _____.",
+      "answers": [
+        "postsynaptic response"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "synaptic-transmission",
+      "lessonId": "lesson-06",
+      "cue": "Trace where synaptic transmission belongs in the lesson mechanism or example.",
+      "explanation": "synaptic transmission: chemical communication from a presynaptic terminal across a cleft to receptors on a postsynaptic cell Source: Biology 30 Chapter 11, textbook p. 380",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 380"
+      ],
+      "id": "synaptic-transmission:mc-term",
+      "family": "recognize",
+      "interaction": "single",
+      "skill": "recognize",
+      "difficulty": 1,
+      "prompt": "Which term best matches this description: chemical communication from a presynaptic terminal across a cleft to receptors on a postsynaptic cell?",
+      "answers": [
+        "synaptic transmission"
+      ],
+      "options": [
+        "action potential arrives",
+        "synaptic transmission",
+        "summation",
+        "Ca2+ enters"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "synaptic-transmission",
+      "lessonId": "lesson-06",
+      "cue": "Trace where synaptic transmission belongs in the lesson mechanism or example.",
+      "explanation": "synaptic transmission: chemical communication from a presynaptic terminal across a cleft to receptors on a postsynaptic cell Source: Biology 30 Chapter 11, textbook p. 380",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 380"
+      ],
+      "id": "synaptic-transmission:mc-function",
+      "family": "relate",
+      "interaction": "single",
+      "skill": "relate",
+      "difficulty": 2,
+      "prompt": "Which statement best describes synaptic transmission?",
+      "answers": [
+        "chemical communication from a presynaptic terminal across a cleft to receptors on a postsynaptic cell"
+      ],
+      "options": [
+        "chemical communication from a presynaptic terminal across a cleft to receptors on a postsynaptic cell",
+        "Neurotransmitter must remain in the cleft permanently for signalling to stop.",
+        "the combined effect of multiple excitatory and inhibitory postsynaptic inputs",
+        "Each synapse always acts alone and cannot combine with other inputs."
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "synaptic-transmission",
+      "lessonId": "lesson-06",
+      "cue": "Trace where synaptic transmission belongs in the lesson mechanism or example.",
+      "explanation": "synaptic transmission: chemical communication from a presynaptic terminal across a cleft to receptors on a postsynaptic cell Source: Biology 30 Chapter 11, textbook p. 380",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 380"
+      ],
+      "id": "synaptic-transmission:mc-scenario",
+      "family": "apply",
+      "interaction": "single",
+      "skill": "apply",
+      "difficulty": 3,
+      "prompt": "Which concept best explains this situation? An arriving impulse triggers neurotransmitter release that changes the next cell.",
+      "answers": [
+        "synaptic transmission"
+      ],
+      "options": [
+        "synaptic transmission",
+        "action potential arrives",
+        "summation",
+        "postsynaptic response"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "synaptic-transmission",
+      "lessonId": "lesson-06",
+      "cue": "Trace where synaptic transmission belongs in the lesson mechanism or example.",
+      "explanation": "synaptic transmission: chemical communication from a presynaptic terminal across a cleft to receptors on a postsynaptic cell Source: Biology 30 Chapter 11, textbook p. 380",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 380"
+      ],
+      "id": "synaptic-transmission:mc-correction",
+      "family": "misconception",
+      "interaction": "single",
+      "skill": "misconception",
+      "difficulty": 3,
+      "prompt": "Which statement correctly replaces this inaccurate idea: “Neurotransmitters normally travel down the axon as the action potential.”",
+      "answers": [
+        "chemical communication from a presynaptic terminal across a cleft to receptors on a postsynaptic cell"
+      ],
+      "options": [
+        "chemical communication from a presynaptic terminal across a cleft to receptors on a postsynaptic cell",
+        "reuptake, enzymatic breakdown or diffusion ends a synaptic signal",
+        "Each synapse always acts alone and cannot combine with other inputs.",
+        "the combined effect of multiple excitatory and inhibitory postsynaptic inputs"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "synaptic-transmission",
+      "lessonId": "lesson-06",
+      "cue": "Trace where synaptic transmission belongs in the lesson mechanism or example.",
+      "explanation": "synaptic transmission: chemical communication from a presynaptic terminal across a cleft to receptors on a postsynaptic cell Source: Biology 30 Chapter 11, textbook p. 380",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 380"
+      ],
+      "id": "synaptic-transmission:mc-sequence-start",
+      "family": "sequence",
+      "interaction": "single",
+      "skill": "sequence",
+      "difficulty": 1,
+      "prompt": "Which event begins the synaptic transmission sequence?",
+      "answers": [
+        "action potential arrives"
+      ],
+      "options": [
+        "vesicles release transmitter",
+        "Ca2+ enters",
+        "potentials combine",
+        "action potential arrives"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "synaptic-transmission",
+      "lessonId": "lesson-06",
+      "cue": "Trace where synaptic transmission belongs in the lesson mechanism or example.",
+      "explanation": "synaptic transmission: chemical communication from a presynaptic terminal across a cleft to receptors on a postsynaptic cell Source: Biology 30 Chapter 11, textbook p. 380",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 380"
+      ],
+      "id": "synaptic-transmission:mc-sequence-next",
+      "family": "sequence",
+      "interaction": "single",
+      "skill": "sequence",
+      "difficulty": 2,
+      "prompt": "In the synaptic transmission sequence, what follows action potential arrives?",
+      "answers": [
+        "Ca2+ enters"
+      ],
+      "options": [
+        "Ca2+ enters",
+        "action potential arrives",
+        "axon hillock reaches threshold",
+        "vesicles release transmitter"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "synaptic-transmission",
+      "lessonId": "lesson-06",
+      "cue": "Trace where synaptic transmission belongs in the lesson mechanism or example.",
+      "explanation": "synaptic transmission: chemical communication from a presynaptic terminal across a cleft to receptors on a postsynaptic cell Source: Biology 30 Chapter 11, textbook p. 380",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 380"
+      ],
+      "id": "synaptic-transmission:mc-sequence-end",
+      "family": "integrate",
+      "interaction": "single",
+      "skill": "integrate",
+      "difficulty": 4,
+      "prompt": "Which event completes the synaptic transmission sequence?",
+      "answers": [
+        "postsynaptic response"
+      ],
+      "options": [
+        "axon hillock reaches threshold",
+        "Ca2+ enters",
+        "action potential arrives",
+        "postsynaptic response"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "synaptic-transmission",
+      "lessonId": "lesson-06",
+      "cue": "Trace where synaptic transmission belongs in the lesson mechanism or example.",
+      "explanation": "synaptic transmission: chemical communication from a presynaptic terminal across a cleft to receptors on a postsynaptic cell Source: Biology 30 Chapter 11, textbook p. 380",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 380"
+      ],
+      "id": "synaptic-transmission:mixed-typed",
+      "family": "retrieval",
+      "interaction": "typed",
+      "skill": "recall",
+      "prompt": "Name the concept: chemical communication from a presynaptic terminal across a cleft to receptors on a postsynaptic cell",
+      "answers": [
+        "synaptic transmission"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "synaptic-transmission",
+      "lessonId": "lesson-06",
+      "cue": "Trace where synaptic transmission belongs in the lesson mechanism or example.",
+      "explanation": "synaptic transmission: chemical communication from a presynaptic terminal across a cleft to receptors on a postsynaptic cell Source: Biology 30 Chapter 11, textbook p. 380",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 380"
+      ],
+      "id": "synaptic-transmission:mixed-single",
+      "family": "discrimination",
+      "interaction": "single",
+      "skill": "comparison",
+      "prompt": "Which concept means “chemical communication from a presynaptic terminal across a cleft to receptors on a postsynaptic cell”?",
+      "answers": [
+        "synaptic transmission"
+      ],
+      "options": [
+        "synaptic transmission",
+        "summation",
+        "neurotransmitter removal"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "synaptic-transmission",
+      "lessonId": "lesson-06",
+      "cue": "Trace where synaptic transmission belongs in the lesson mechanism or example.",
+      "explanation": "synaptic transmission: chemical communication from a presynaptic terminal across a cleft to receptors on a postsynaptic cell Source: Biology 30 Chapter 11, textbook p. 380",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 380"
+      ],
+      "id": "synaptic-transmission:mixed-application",
+      "family": "application",
+      "interaction": "single",
+      "skill": "application",
+      "prompt": "An arriving impulse triggers neurotransmitter release that changes the next cell.",
+      "answers": [
+        "synaptic transmission"
+      ],
+      "options": [
+        "summation",
+        "synaptic transmission",
+        "neurotransmitter removal"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "synaptic-transmission",
+      "lessonId": "lesson-06",
+      "cue": "Trace where synaptic transmission belongs in the lesson mechanism or example.",
+      "explanation": "synaptic transmission: chemical communication from a presynaptic terminal across a cleft to receptors on a postsynaptic cell Source: Biology 30 Chapter 11, textbook p. 380",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 380"
+      ],
+      "id": "synaptic-transmission:mixed-multiple",
+      "family": "odd-one-out",
+      "interaction": "multiple",
+      "skill": "comparison",
+      "prompt": "Select both statements that belong with synaptic transmission.",
+      "answers": [
+        "chemical communication from a presynaptic terminal across a cleft to receptors on a postsynaptic cell",
+        "An arriving impulse triggers neurotransmitter release that changes the next cell."
+      ],
+      "options": [
+        "An arriving impulse triggers neurotransmitter release that changes the next cell.",
+        "the combined effect of multiple excitatory and inhibitory postsynaptic inputs",
+        "chemical communication from a presynaptic terminal across a cleft to receptors on a postsynaptic cell",
+        "reuptake, enzymatic breakdown or diffusion ends a synaptic signal"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "synaptic-transmission",
+      "lessonId": "lesson-06",
+      "cue": "Trace where synaptic transmission belongs in the lesson mechanism or example.",
+      "explanation": "synaptic transmission: chemical communication from a presynaptic terminal across a cleft to receptors on a postsynaptic cell Source: Biology 30 Chapter 11, textbook p. 380",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 380"
+      ],
+      "id": "synaptic-transmission:mixed-tf",
+      "family": "misconception",
+      "interaction": "true-false",
+      "skill": "error-correction",
+      "prompt": "Neurotransmitters normally travel down the axon as the action potential.",
+      "answers": [
+        "false"
+      ],
+      "options": [
+        "true",
+        "false"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "synaptic-transmission",
+      "lessonId": "lesson-06",
+      "cue": "Trace where synaptic transmission belongs in the lesson mechanism or example.",
+      "explanation": "synaptic transmission: chemical communication from a presynaptic terminal across a cleft to receptors on a postsynaptic cell Source: Biology 30 Chapter 11, textbook p. 380",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 380"
+      ],
+      "id": "synaptic-transmission:mixed-order",
+      "family": "sequence",
+      "interaction": "ordering",
+      "skill": "sequencing",
+      "prompt": "Put the synaptic transmission steps in order.",
+      "answers": [
+        "action potential arrives",
+        "Ca2+ enters",
+        "vesicles release transmitter",
+        "receptors bind",
+        "postsynaptic response"
+      ],
+      "options": [
+        "postsynaptic response",
+        "action potential arrives",
+        "Ca2+ enters",
+        "receptors bind",
+        "vesicles release transmitter"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "synaptic-transmission",
+      "lessonId": "lesson-06",
+      "cue": "Trace where synaptic transmission belongs in the lesson mechanism or example.",
+      "explanation": "synaptic transmission: chemical communication from a presynaptic terminal across a cleft to receptors on a postsynaptic cell Source: Biology 30 Chapter 11, textbook p. 380",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 380"
+      ],
+      "id": "synaptic-transmission:mc-term",
+      "family": "recognize",
+      "interaction": "single",
+      "skill": "recognize",
+      "difficulty": 1,
+      "prompt": "Which term best matches this description: chemical communication from a presynaptic terminal across a cleft to receptors on a postsynaptic cell?",
+      "answers": [
+        "synaptic transmission"
+      ],
+      "options": [
+        "summation",
+        "synaptic transmission",
+        "postsynaptic response",
+        "neurotransmitter removal"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "synaptic-transmission",
+      "lessonId": "lesson-06",
+      "cue": "Trace where synaptic transmission belongs in the lesson mechanism or example.",
+      "explanation": "synaptic transmission: chemical communication from a presynaptic terminal across a cleft to receptors on a postsynaptic cell Source: Biology 30 Chapter 11, textbook p. 380",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 380"
+      ],
+      "id": "synaptic-transmission:mc-function",
+      "family": "relate",
+      "interaction": "single",
+      "skill": "relate",
+      "difficulty": 2,
+      "prompt": "Which statement best describes synaptic transmission?",
+      "answers": [
+        "chemical communication from a presynaptic terminal across a cleft to receptors on a postsynaptic cell"
+      ],
+      "options": [
+        "chemical communication from a presynaptic terminal across a cleft to receptors on a postsynaptic cell",
+        "Neurotransmitters normally travel down the axon as the action potential.",
+        "Neurotransmitter must remain in the cleft permanently for signalling to stop.",
+        "the combined effect of multiple excitatory and inhibitory postsynaptic inputs"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "flashcards",
+      "conceptId": "summation",
+      "lessonId": "lesson-06",
+      "cue": "Trace where summation belongs in the lesson mechanism or example.",
+      "explanation": "summation: the combined effect of multiple excitatory and inhibitory postsynaptic inputs Source: Biology 30 Chapter 11, textbook p. 381",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 381"
+      ],
+      "id": "summation:card-term",
+      "family": "recall",
+      "interaction": "flashcard",
+      "skill": "recall",
+      "prompt": "summation",
+      "answers": [
+        "the combined effect of multiple excitatory and inhibitory postsynaptic inputs"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "flashcards",
+      "conceptId": "summation",
+      "lessonId": "lesson-06",
+      "cue": "Trace where summation belongs in the lesson mechanism or example.",
+      "explanation": "summation: the combined effect of multiple excitatory and inhibitory postsynaptic inputs Source: Biology 30 Chapter 11, textbook p. 381",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 381"
+      ],
+      "id": "summation:card-definition",
+      "family": "reverse-retrieval",
+      "interaction": "flashcard",
+      "skill": "recall",
+      "prompt": "the combined effect of multiple excitatory and inhibitory postsynaptic inputs",
+      "answers": [
+        "summation"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "flashcards",
+      "conceptId": "summation",
+      "lessonId": "lesson-06",
+      "cue": "Trace where summation belongs in the lesson mechanism or example.",
+      "explanation": "summation: the combined effect of multiple excitatory and inhibitory postsynaptic inputs Source: Biology 30 Chapter 11, textbook p. 381",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 381"
+      ],
+      "id": "summation:card-scenario",
+      "family": "application",
+      "interaction": "flashcard",
+      "skill": "application",
+      "prompt": "Several small excitatory inputs together may bring a neuron to threshold.",
+      "answers": [
+        "summation — the combined effect of multiple excitatory and inhibitory postsynaptic inputs"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "flashcards",
+      "conceptId": "summation",
+      "lessonId": "lesson-06",
+      "cue": "Trace where summation belongs in the lesson mechanism or example.",
+      "explanation": "summation: the combined effect of multiple excitatory and inhibitory postsynaptic inputs Source: Biology 30 Chapter 11, textbook p. 381",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 381"
+      ],
+      "id": "summation:card-error",
+      "family": "error-correction",
+      "interaction": "flashcard",
+      "skill": "error-correction",
+      "prompt": "Correct this idea: Each synapse always acts alone and cannot combine with other inputs.",
+      "answers": [
+        "the combined effect of multiple excitatory and inhibitory postsynaptic inputs"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "blanks",
+      "conceptId": "summation",
+      "lessonId": "lesson-06",
+      "cue": "Trace where summation belongs in the lesson mechanism or example.",
+      "explanation": "summation: the combined effect of multiple excitatory and inhibitory postsynaptic inputs Source: Biology 30 Chapter 11, textbook p. 381",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 381"
+      ],
+      "id": "summation:blank-definition",
+      "family": "definition",
+      "interaction": "typed",
+      "skill": "recall",
+      "prompt": "The term for “the combined effect of multiple excitatory and inhibitory postsynaptic inputs” is _____.",
+      "answers": [
+        "summation"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "blanks",
+      "conceptId": "summation",
+      "lessonId": "lesson-06",
+      "cue": "Trace where summation belongs in the lesson mechanism or example.",
+      "explanation": "summation: the combined effect of multiple excitatory and inhibitory postsynaptic inputs Source: Biology 30 Chapter 11, textbook p. 381",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 381"
+      ],
+      "id": "summation:blank-scenario",
+      "family": "scenario",
+      "interaction": "typed",
+      "skill": "application",
+      "prompt": "This situation illustrates _____: Several small excitatory inputs together may bring a neuron to threshold.",
+      "answers": [
+        "summation"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "blanks",
+      "conceptId": "summation",
+      "lessonId": "lesson-06",
+      "cue": "Trace where summation belongs in the lesson mechanism or example.",
+      "explanation": "summation: the combined effect of multiple excitatory and inhibitory postsynaptic inputs Source: Biology 30 Chapter 11, textbook p. 381",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 381"
+      ],
+      "id": "summation:blank-sequence",
+      "family": "pathway",
+      "interaction": "typed",
+      "skill": "sequencing",
+      "prompt": "Complete the pathway: inputs arrive → potentials combine → axon hillock reaches threshold → _____.",
+      "answers": [
+        "action potential"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "summation",
+      "lessonId": "lesson-06",
+      "cue": "Trace where summation belongs in the lesson mechanism or example.",
+      "explanation": "summation: the combined effect of multiple excitatory and inhibitory postsynaptic inputs Source: Biology 30 Chapter 11, textbook p. 381",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 381"
+      ],
+      "id": "summation:mc-term",
+      "family": "recognize",
+      "interaction": "single",
+      "skill": "recognize",
+      "difficulty": 1,
+      "prompt": "Which term best matches this description: the combined effect of multiple excitatory and inhibitory postsynaptic inputs?",
+      "answers": [
+        "summation"
+      ],
+      "options": [
+        "synaptic transmission",
+        "inputs arrive",
+        "summation",
+        "potentials combine"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "summation",
+      "lessonId": "lesson-06",
+      "cue": "Trace where summation belongs in the lesson mechanism or example.",
+      "explanation": "summation: the combined effect of multiple excitatory and inhibitory postsynaptic inputs Source: Biology 30 Chapter 11, textbook p. 381",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 381"
+      ],
+      "id": "summation:mc-function",
+      "family": "relate",
+      "interaction": "single",
+      "skill": "relate",
+      "difficulty": 2,
+      "prompt": "Which statement best describes summation?",
+      "answers": [
+        "the combined effect of multiple excitatory and inhibitory postsynaptic inputs"
+      ],
+      "options": [
+        "the combined effect of multiple excitatory and inhibitory postsynaptic inputs",
+        "Each synapse always acts alone and cannot combine with other inputs.",
+        "reuptake, enzymatic breakdown or diffusion ends a synaptic signal",
+        "Neurotransmitters normally travel down the axon as the action potential."
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "summation",
+      "lessonId": "lesson-06",
+      "cue": "Trace where summation belongs in the lesson mechanism or example.",
+      "explanation": "summation: the combined effect of multiple excitatory and inhibitory postsynaptic inputs Source: Biology 30 Chapter 11, textbook p. 381",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 381"
+      ],
+      "id": "summation:mc-scenario",
+      "family": "apply",
+      "interaction": "single",
+      "skill": "apply",
+      "difficulty": 3,
+      "prompt": "Which concept best explains this situation? Several small excitatory inputs together may bring a neuron to threshold.",
+      "answers": [
+        "summation"
+      ],
+      "options": [
+        "summation",
+        "synaptic transmission",
+        "axon hillock reaches threshold",
+        "potentials combine"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "summation",
+      "lessonId": "lesson-06",
+      "cue": "Trace where summation belongs in the lesson mechanism or example.",
+      "explanation": "summation: the combined effect of multiple excitatory and inhibitory postsynaptic inputs Source: Biology 30 Chapter 11, textbook p. 381",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 381"
+      ],
+      "id": "summation:mc-correction",
+      "family": "misconception",
+      "interaction": "single",
+      "skill": "misconception",
+      "difficulty": 3,
+      "prompt": "Which statement correctly replaces this inaccurate idea: “Each synapse always acts alone and cannot combine with other inputs.”",
+      "answers": [
+        "the combined effect of multiple excitatory and inhibitory postsynaptic inputs"
+      ],
+      "options": [
+        "the combined effect of multiple excitatory and inhibitory postsynaptic inputs",
+        "Neurotransmitters normally travel down the axon as the action potential.",
+        "chemical communication from a presynaptic terminal across a cleft to receptors on a postsynaptic cell",
+        "reuptake, enzymatic breakdown or diffusion ends a synaptic signal"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "summation",
+      "lessonId": "lesson-06",
+      "cue": "Trace where summation belongs in the lesson mechanism or example.",
+      "explanation": "summation: the combined effect of multiple excitatory and inhibitory postsynaptic inputs Source: Biology 30 Chapter 11, textbook p. 381",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 381"
+      ],
+      "id": "summation:mc-sequence-start",
+      "family": "sequence",
+      "interaction": "single",
+      "skill": "sequence",
+      "difficulty": 1,
+      "prompt": "Which event begins the summation sequence?",
+      "answers": [
+        "inputs arrive"
+      ],
+      "options": [
+        "potentials combine",
+        "action potential",
+        "action potential arrives",
+        "inputs arrive"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "summation",
+      "lessonId": "lesson-06",
+      "cue": "Trace where summation belongs in the lesson mechanism or example.",
+      "explanation": "summation: the combined effect of multiple excitatory and inhibitory postsynaptic inputs Source: Biology 30 Chapter 11, textbook p. 381",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 381"
+      ],
+      "id": "summation:mc-sequence-next",
+      "family": "sequence",
+      "interaction": "single",
+      "skill": "sequence",
+      "difficulty": 2,
+      "prompt": "In the summation sequence, what follows inputs arrive?",
+      "answers": [
+        "potentials combine"
+      ],
+      "options": [
+        "potentials combine",
+        "axon hillock reaches threshold",
+        "action potential",
+        "inputs arrive"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "summation",
+      "lessonId": "lesson-06",
+      "cue": "Trace where summation belongs in the lesson mechanism or example.",
+      "explanation": "summation: the combined effect of multiple excitatory and inhibitory postsynaptic inputs Source: Biology 30 Chapter 11, textbook p. 381",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 381"
+      ],
+      "id": "summation:mc-sequence-end",
+      "family": "integrate",
+      "interaction": "single",
+      "skill": "integrate",
+      "difficulty": 4,
+      "prompt": "Which event completes the summation sequence?",
+      "answers": [
+        "action potential"
+      ],
+      "options": [
+        "inputs arrive",
+        "action potential",
+        "Ca2+ enters",
+        "axon hillock reaches threshold"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "summation",
+      "lessonId": "lesson-06",
+      "cue": "Trace where summation belongs in the lesson mechanism or example.",
+      "explanation": "summation: the combined effect of multiple excitatory and inhibitory postsynaptic inputs Source: Biology 30 Chapter 11, textbook p. 381",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 381"
+      ],
+      "id": "summation:mixed-typed",
+      "family": "retrieval",
+      "interaction": "typed",
+      "skill": "recall",
+      "prompt": "Name the concept: the combined effect of multiple excitatory and inhibitory postsynaptic inputs",
+      "answers": [
+        "summation"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "summation",
+      "lessonId": "lesson-06",
+      "cue": "Trace where summation belongs in the lesson mechanism or example.",
+      "explanation": "summation: the combined effect of multiple excitatory and inhibitory postsynaptic inputs Source: Biology 30 Chapter 11, textbook p. 381",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 381"
+      ],
+      "id": "summation:mixed-single",
+      "family": "discrimination",
+      "interaction": "single",
+      "skill": "comparison",
+      "prompt": "Which concept means “the combined effect of multiple excitatory and inhibitory postsynaptic inputs”?",
+      "answers": [
+        "summation"
+      ],
+      "options": [
+        "synaptic transmission",
+        "summation",
+        "neurotransmitter removal"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "summation",
+      "lessonId": "lesson-06",
+      "cue": "Trace where summation belongs in the lesson mechanism or example.",
+      "explanation": "summation: the combined effect of multiple excitatory and inhibitory postsynaptic inputs Source: Biology 30 Chapter 11, textbook p. 381",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 381"
+      ],
+      "id": "summation:mixed-application",
+      "family": "application",
+      "interaction": "single",
+      "skill": "application",
+      "prompt": "Several small excitatory inputs together may bring a neuron to threshold.",
+      "answers": [
+        "summation"
+      ],
+      "options": [
+        "summation",
+        "synaptic transmission",
+        "neurotransmitter removal"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "summation",
+      "lessonId": "lesson-06",
+      "cue": "Trace where summation belongs in the lesson mechanism or example.",
+      "explanation": "summation: the combined effect of multiple excitatory and inhibitory postsynaptic inputs Source: Biology 30 Chapter 11, textbook p. 381",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 381"
+      ],
+      "id": "summation:mixed-multiple",
+      "family": "odd-one-out",
+      "interaction": "multiple",
+      "skill": "comparison",
+      "prompt": "Select both statements that belong with summation.",
+      "answers": [
+        "the combined effect of multiple excitatory and inhibitory postsynaptic inputs",
+        "Several small excitatory inputs together may bring a neuron to threshold."
+      ],
+      "options": [
+        "the combined effect of multiple excitatory and inhibitory postsynaptic inputs",
+        "chemical communication from a presynaptic terminal across a cleft to receptors on a postsynaptic cell",
+        "Several small excitatory inputs together may bring a neuron to threshold.",
+        "reuptake, enzymatic breakdown or diffusion ends a synaptic signal"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "summation",
+      "lessonId": "lesson-06",
+      "cue": "Trace where summation belongs in the lesson mechanism or example.",
+      "explanation": "summation: the combined effect of multiple excitatory and inhibitory postsynaptic inputs Source: Biology 30 Chapter 11, textbook p. 381",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 381"
+      ],
+      "id": "summation:mixed-tf",
+      "family": "misconception",
+      "interaction": "true-false",
+      "skill": "error-correction",
+      "prompt": "Each synapse always acts alone and cannot combine with other inputs.",
+      "answers": [
+        "false"
+      ],
+      "options": [
+        "true",
+        "false"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "summation",
+      "lessonId": "lesson-06",
+      "cue": "Trace where summation belongs in the lesson mechanism or example.",
+      "explanation": "summation: the combined effect of multiple excitatory and inhibitory postsynaptic inputs Source: Biology 30 Chapter 11, textbook p. 381",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 381"
+      ],
+      "id": "summation:mixed-order",
+      "family": "sequence",
+      "interaction": "ordering",
+      "skill": "sequencing",
+      "prompt": "Put the summation steps in order.",
+      "answers": [
+        "inputs arrive",
+        "potentials combine",
+        "axon hillock reaches threshold",
+        "action potential"
+      ],
+      "options": [
+        "inputs arrive",
+        "potentials combine",
+        "axon hillock reaches threshold",
+        "action potential"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "summation",
+      "lessonId": "lesson-06",
+      "cue": "Trace where summation belongs in the lesson mechanism or example.",
+      "explanation": "summation: the combined effect of multiple excitatory and inhibitory postsynaptic inputs Source: Biology 30 Chapter 11, textbook p. 381",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 381"
+      ],
+      "id": "summation:mc-term",
+      "family": "recognize",
+      "interaction": "single",
+      "skill": "recognize",
+      "difficulty": 1,
+      "prompt": "Which term best matches this description: the combined effect of multiple excitatory and inhibitory postsynaptic inputs?",
+      "answers": [
+        "summation"
+      ],
+      "options": [
+        "axon hillock reaches threshold",
+        "neurotransmitter removal",
+        "summation",
+        "action potential"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "summation",
+      "lessonId": "lesson-06",
+      "cue": "Trace where summation belongs in the lesson mechanism or example.",
+      "explanation": "summation: the combined effect of multiple excitatory and inhibitory postsynaptic inputs Source: Biology 30 Chapter 11, textbook p. 381",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 381"
+      ],
+      "id": "summation:mc-function",
+      "family": "relate",
+      "interaction": "single",
+      "skill": "relate",
+      "difficulty": 2,
+      "prompt": "Which statement best describes summation?",
+      "answers": [
+        "the combined effect of multiple excitatory and inhibitory postsynaptic inputs"
+      ],
+      "options": [
+        "Neurotransmitter must remain in the cleft permanently for signalling to stop.",
+        "the combined effect of multiple excitatory and inhibitory postsynaptic inputs",
+        "reuptake, enzymatic breakdown or diffusion ends a synaptic signal",
+        "chemical communication from a presynaptic terminal across a cleft to receptors on a postsynaptic cell"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "flashcards",
+      "conceptId": "transmitter-removal",
+      "lessonId": "lesson-06",
+      "cue": "Trace where neurotransmitter removal belongs in the lesson mechanism or example.",
+      "explanation": "neurotransmitter removal: reuptake, enzymatic breakdown or diffusion ends a synaptic signal Source: Biology 30 Chapter 11, textbook p. 382",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 382"
+      ],
+      "id": "transmitter-removal:card-term",
+      "family": "recall",
+      "interaction": "flashcard",
+      "skill": "recall",
+      "prompt": "neurotransmitter removal",
+      "answers": [
+        "reuptake, enzymatic breakdown or diffusion ends a synaptic signal"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "flashcards",
+      "conceptId": "transmitter-removal",
+      "lessonId": "lesson-06",
+      "cue": "Trace where neurotransmitter removal belongs in the lesson mechanism or example.",
+      "explanation": "neurotransmitter removal: reuptake, enzymatic breakdown or diffusion ends a synaptic signal Source: Biology 30 Chapter 11, textbook p. 382",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 382"
+      ],
+      "id": "transmitter-removal:card-definition",
+      "family": "reverse-retrieval",
+      "interaction": "flashcard",
+      "skill": "recall",
+      "prompt": "reuptake, enzymatic breakdown or diffusion ends a synaptic signal",
+      "answers": [
+        "neurotransmitter removal"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "flashcards",
+      "conceptId": "transmitter-removal",
+      "lessonId": "lesson-06",
+      "cue": "Trace where neurotransmitter removal belongs in the lesson mechanism or example.",
+      "explanation": "neurotransmitter removal: reuptake, enzymatic breakdown or diffusion ends a synaptic signal Source: Biology 30 Chapter 11, textbook p. 382",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 382"
+      ],
+      "id": "transmitter-removal:card-scenario",
+      "family": "application",
+      "interaction": "flashcard",
+      "skill": "application",
+      "prompt": "Cholinesterase breaks down acetylcholine so stimulation does not continue indefinitely.",
+      "answers": [
+        "neurotransmitter removal — reuptake, enzymatic breakdown or diffusion ends a synaptic signal"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "flashcards",
+      "conceptId": "transmitter-removal",
+      "lessonId": "lesson-06",
+      "cue": "Trace where neurotransmitter removal belongs in the lesson mechanism or example.",
+      "explanation": "neurotransmitter removal: reuptake, enzymatic breakdown or diffusion ends a synaptic signal Source: Biology 30 Chapter 11, textbook p. 382",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 382"
+      ],
+      "id": "transmitter-removal:card-error",
+      "family": "error-correction",
+      "interaction": "flashcard",
+      "skill": "error-correction",
+      "prompt": "Correct this idea: Neurotransmitter must remain in the cleft permanently for signalling to stop.",
+      "answers": [
+        "reuptake, enzymatic breakdown or diffusion ends a synaptic signal"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "blanks",
+      "conceptId": "transmitter-removal",
+      "lessonId": "lesson-06",
+      "cue": "Trace where neurotransmitter removal belongs in the lesson mechanism or example.",
+      "explanation": "neurotransmitter removal: reuptake, enzymatic breakdown or diffusion ends a synaptic signal Source: Biology 30 Chapter 11, textbook p. 382",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 382"
+      ],
+      "id": "transmitter-removal:blank-definition",
+      "family": "definition",
+      "interaction": "typed",
+      "skill": "recall",
+      "prompt": "The term for “reuptake, enzymatic breakdown or diffusion ends a synaptic signal” is _____.",
+      "answers": [
+        "neurotransmitter removal"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "blanks",
+      "conceptId": "transmitter-removal",
+      "lessonId": "lesson-06",
+      "cue": "Trace where neurotransmitter removal belongs in the lesson mechanism or example.",
+      "explanation": "neurotransmitter removal: reuptake, enzymatic breakdown or diffusion ends a synaptic signal Source: Biology 30 Chapter 11, textbook p. 382",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 382"
+      ],
+      "id": "transmitter-removal:blank-scenario",
+      "family": "scenario",
+      "interaction": "typed",
+      "skill": "application",
+      "prompt": "This situation illustrates _____: Cholinesterase breaks down acetylcholine so stimulation does not continue indefinitely.",
+      "answers": [
+        "neurotransmitter removal"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "blanks",
+      "conceptId": "transmitter-removal",
+      "lessonId": "lesson-06",
+      "cue": "Trace where neurotransmitter removal belongs in the lesson mechanism or example.",
+      "explanation": "neurotransmitter removal: reuptake, enzymatic breakdown or diffusion ends a synaptic signal Source: Biology 30 Chapter 11, textbook p. 382",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 382"
+      ],
+      "id": "transmitter-removal:blank-sequence",
+      "family": "pathway",
+      "interaction": "typed",
+      "skill": "sequencing",
+      "prompt": "Complete the pathway: release → receptor binding → removal → _____.",
+      "answers": [
+        "signal ends"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "transmitter-removal",
+      "lessonId": "lesson-06",
+      "cue": "Trace where neurotransmitter removal belongs in the lesson mechanism or example.",
+      "explanation": "neurotransmitter removal: reuptake, enzymatic breakdown or diffusion ends a synaptic signal Source: Biology 30 Chapter 11, textbook p. 382",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 382"
+      ],
+      "id": "transmitter-removal:mc-term",
+      "family": "recognize",
+      "interaction": "single",
+      "skill": "recognize",
+      "difficulty": 1,
+      "prompt": "Which term best matches this description: reuptake, enzymatic breakdown or diffusion ends a synaptic signal?",
+      "answers": [
+        "neurotransmitter removal"
+      ],
+      "options": [
+        "neurotransmitter removal",
+        "summation",
+        "receptor binding",
+        "removal"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "transmitter-removal",
+      "lessonId": "lesson-06",
+      "cue": "Trace where neurotransmitter removal belongs in the lesson mechanism or example.",
+      "explanation": "neurotransmitter removal: reuptake, enzymatic breakdown or diffusion ends a synaptic signal Source: Biology 30 Chapter 11, textbook p. 382",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 382"
+      ],
+      "id": "transmitter-removal:mc-function",
+      "family": "relate",
+      "interaction": "single",
+      "skill": "relate",
+      "difficulty": 2,
+      "prompt": "Which statement best describes neurotransmitter removal?",
+      "answers": [
+        "reuptake, enzymatic breakdown or diffusion ends a synaptic signal"
+      ],
+      "options": [
+        "Each synapse always acts alone and cannot combine with other inputs.",
+        "reuptake, enzymatic breakdown or diffusion ends a synaptic signal",
+        "chemical communication from a presynaptic terminal across a cleft to receptors on a postsynaptic cell",
+        "Neurotransmitters normally travel down the axon as the action potential."
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "transmitter-removal",
+      "lessonId": "lesson-06",
+      "cue": "Trace where neurotransmitter removal belongs in the lesson mechanism or example.",
+      "explanation": "neurotransmitter removal: reuptake, enzymatic breakdown or diffusion ends a synaptic signal Source: Biology 30 Chapter 11, textbook p. 382",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 382"
+      ],
+      "id": "transmitter-removal:mc-scenario",
+      "family": "apply",
+      "interaction": "single",
+      "skill": "apply",
+      "difficulty": 3,
+      "prompt": "Which concept best explains this situation? Cholinesterase breaks down acetylcholine so stimulation does not continue indefinitely.",
+      "answers": [
+        "neurotransmitter removal"
+      ],
+      "options": [
+        "summation",
+        "receptor binding",
+        "neurotransmitter removal",
+        "release"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "transmitter-removal",
+      "lessonId": "lesson-06",
+      "cue": "Trace where neurotransmitter removal belongs in the lesson mechanism or example.",
+      "explanation": "neurotransmitter removal: reuptake, enzymatic breakdown or diffusion ends a synaptic signal Source: Biology 30 Chapter 11, textbook p. 382",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 382"
+      ],
+      "id": "transmitter-removal:mc-correction",
+      "family": "misconception",
+      "interaction": "single",
+      "skill": "misconception",
+      "difficulty": 3,
+      "prompt": "Which statement correctly replaces this inaccurate idea: “Neurotransmitter must remain in the cleft permanently for signalling to stop.”",
+      "answers": [
+        "reuptake, enzymatic breakdown or diffusion ends a synaptic signal"
+      ],
+      "options": [
+        "Neurotransmitter must remain in the cleft permanently for signalling to stop.",
+        "reuptake, enzymatic breakdown or diffusion ends a synaptic signal",
+        "Neurotransmitters normally travel down the axon as the action potential.",
+        "chemical communication from a presynaptic terminal across a cleft to receptors on a postsynaptic cell"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "transmitter-removal",
+      "lessonId": "lesson-06",
+      "cue": "Trace where neurotransmitter removal belongs in the lesson mechanism or example.",
+      "explanation": "neurotransmitter removal: reuptake, enzymatic breakdown or diffusion ends a synaptic signal Source: Biology 30 Chapter 11, textbook p. 382",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 382"
+      ],
+      "id": "transmitter-removal:mc-sequence-start",
+      "family": "sequence",
+      "interaction": "single",
+      "skill": "sequence",
+      "difficulty": 1,
+      "prompt": "Which event begins the neurotransmitter removal sequence?",
+      "answers": [
+        "release"
+      ],
+      "options": [
+        "receptors bind",
+        "removal",
+        "action potential arrives",
+        "release"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "transmitter-removal",
+      "lessonId": "lesson-06",
+      "cue": "Trace where neurotransmitter removal belongs in the lesson mechanism or example.",
+      "explanation": "neurotransmitter removal: reuptake, enzymatic breakdown or diffusion ends a synaptic signal Source: Biology 30 Chapter 11, textbook p. 382",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 382"
+      ],
+      "id": "transmitter-removal:mc-sequence-next",
+      "family": "sequence",
+      "interaction": "single",
+      "skill": "sequence",
+      "difficulty": 2,
+      "prompt": "In the neurotransmitter removal sequence, what follows release?",
+      "answers": [
+        "receptor binding"
+      ],
+      "options": [
+        "receptor binding",
+        "action potential arrives",
+        "receptors bind",
+        "removal"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "multiple-choice",
+      "conceptId": "transmitter-removal",
+      "lessonId": "lesson-06",
+      "cue": "Trace where neurotransmitter removal belongs in the lesson mechanism or example.",
+      "explanation": "neurotransmitter removal: reuptake, enzymatic breakdown or diffusion ends a synaptic signal Source: Biology 30 Chapter 11, textbook p. 382",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 382"
+      ],
+      "id": "transmitter-removal:mc-sequence-end",
+      "family": "integrate",
+      "interaction": "single",
+      "skill": "integrate",
+      "difficulty": 4,
+      "prompt": "Which event completes the neurotransmitter removal sequence?",
+      "answers": [
+        "signal ends"
+      ],
+      "options": [
+        "receptor binding",
+        "signal ends",
+        "removal",
+        "action potential arrives"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "transmitter-removal",
+      "lessonId": "lesson-06",
+      "cue": "Trace where neurotransmitter removal belongs in the lesson mechanism or example.",
+      "explanation": "neurotransmitter removal: reuptake, enzymatic breakdown or diffusion ends a synaptic signal Source: Biology 30 Chapter 11, textbook p. 382",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 382"
+      ],
+      "id": "transmitter-removal:mixed-typed",
+      "family": "retrieval",
+      "interaction": "typed",
+      "skill": "recall",
+      "prompt": "Name the concept: reuptake, enzymatic breakdown or diffusion ends a synaptic signal",
+      "answers": [
+        "neurotransmitter removal"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "transmitter-removal",
+      "lessonId": "lesson-06",
+      "cue": "Trace where neurotransmitter removal belongs in the lesson mechanism or example.",
+      "explanation": "neurotransmitter removal: reuptake, enzymatic breakdown or diffusion ends a synaptic signal Source: Biology 30 Chapter 11, textbook p. 382",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 382"
+      ],
+      "id": "transmitter-removal:mixed-single",
+      "family": "discrimination",
+      "interaction": "single",
+      "skill": "comparison",
+      "prompt": "Which concept means “reuptake, enzymatic breakdown or diffusion ends a synaptic signal”?",
+      "answers": [
+        "neurotransmitter removal"
+      ],
+      "options": [
+        "synaptic transmission",
+        "summation",
+        "neurotransmitter removal"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "transmitter-removal",
+      "lessonId": "lesson-06",
+      "cue": "Trace where neurotransmitter removal belongs in the lesson mechanism or example.",
+      "explanation": "neurotransmitter removal: reuptake, enzymatic breakdown or diffusion ends a synaptic signal Source: Biology 30 Chapter 11, textbook p. 382",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 382"
+      ],
+      "id": "transmitter-removal:mixed-application",
+      "family": "application",
+      "interaction": "single",
+      "skill": "application",
+      "prompt": "Cholinesterase breaks down acetylcholine so stimulation does not continue indefinitely.",
+      "answers": [
+        "neurotransmitter removal"
+      ],
+      "options": [
+        "neurotransmitter removal",
+        "summation",
+        "synaptic transmission"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "transmitter-removal",
+      "lessonId": "lesson-06",
+      "cue": "Trace where neurotransmitter removal belongs in the lesson mechanism or example.",
+      "explanation": "neurotransmitter removal: reuptake, enzymatic breakdown or diffusion ends a synaptic signal Source: Biology 30 Chapter 11, textbook p. 382",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 382"
+      ],
+      "id": "transmitter-removal:mixed-multiple",
+      "family": "odd-one-out",
+      "interaction": "multiple",
+      "skill": "comparison",
+      "prompt": "Select both statements that belong with neurotransmitter removal.",
+      "answers": [
+        "reuptake, enzymatic breakdown or diffusion ends a synaptic signal",
+        "Cholinesterase breaks down acetylcholine so stimulation does not continue indefinitely."
+      ],
+      "options": [
+        "Cholinesterase breaks down acetylcholine so stimulation does not continue indefinitely.",
+        "the combined effect of multiple excitatory and inhibitory postsynaptic inputs",
+        "reuptake, enzymatic breakdown or diffusion ends a synaptic signal",
+        "chemical communication from a presynaptic terminal across a cleft to receptors on a postsynaptic cell"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "transmitter-removal",
+      "lessonId": "lesson-06",
+      "cue": "Trace where neurotransmitter removal belongs in the lesson mechanism or example.",
+      "explanation": "neurotransmitter removal: reuptake, enzymatic breakdown or diffusion ends a synaptic signal Source: Biology 30 Chapter 11, textbook p. 382",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 382"
+      ],
+      "id": "transmitter-removal:mixed-tf",
+      "family": "misconception",
+      "interaction": "true-false",
+      "skill": "error-correction",
+      "prompt": "Neurotransmitter must remain in the cleft permanently for signalling to stop.",
+      "answers": [
+        "false"
+      ],
+      "options": [
+        "true",
+        "false"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "transmitter-removal",
+      "lessonId": "lesson-06",
+      "cue": "Trace where neurotransmitter removal belongs in the lesson mechanism or example.",
+      "explanation": "neurotransmitter removal: reuptake, enzymatic breakdown or diffusion ends a synaptic signal Source: Biology 30 Chapter 11, textbook p. 382",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 382"
+      ],
+      "id": "transmitter-removal:mixed-order",
+      "family": "sequence",
+      "interaction": "ordering",
+      "skill": "sequencing",
+      "prompt": "Put the neurotransmitter removal steps in order.",
+      "answers": [
+        "release",
+        "receptor binding",
+        "removal",
+        "signal ends"
+      ],
+      "options": [
+        "signal ends",
+        "removal",
+        "receptor binding",
+        "release"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "transmitter-removal",
+      "lessonId": "lesson-06",
+      "cue": "Trace where neurotransmitter removal belongs in the lesson mechanism or example.",
+      "explanation": "neurotransmitter removal: reuptake, enzymatic breakdown or diffusion ends a synaptic signal Source: Biology 30 Chapter 11, textbook p. 382",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 382"
+      ],
+      "id": "transmitter-removal:mc-term",
+      "family": "recognize",
+      "interaction": "single",
+      "skill": "recognize",
+      "difficulty": 1,
+      "prompt": "Which term best matches this description: reuptake, enzymatic breakdown or diffusion ends a synaptic signal?",
+      "answers": [
+        "neurotransmitter removal"
+      ],
+      "options": [
+        "release",
+        "receptor binding",
+        "neurotransmitter removal",
+        "removal"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    },
+    {
+      "kind": "mixed-practice",
+      "conceptId": "transmitter-removal",
+      "lessonId": "lesson-06",
+      "cue": "Trace where neurotransmitter removal belongs in the lesson mechanism or example.",
+      "explanation": "neurotransmitter removal: reuptake, enzymatic breakdown or diffusion ends a synaptic signal Source: Biology 30 Chapter 11, textbook p. 382",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 382"
+      ],
+      "id": "transmitter-removal:mc-function",
+      "family": "relate",
+      "interaction": "single",
+      "skill": "relate",
+      "difficulty": 2,
+      "prompt": "Which statement best describes neurotransmitter removal?",
+      "answers": [
+        "reuptake, enzymatic breakdown or diffusion ends a synaptic signal"
+      ],
+      "options": [
+        "chemical communication from a presynaptic terminal across a cleft to receptors on a postsynaptic cell",
+        "reuptake, enzymatic breakdown or diffusion ends a synaptic signal",
+        "Neurotransmitters normally travel down the axon as the action potential.",
+        "the combined effect of multiple excitatory and inhibitory postsynaptic inputs"
+      ],
+      "optionOrderStatus": "deterministic reference example only; learner session options depend on seed/peers and must be preserved from each saved session"
+    }
+  ],
+  "textbookPractice": [
+    {
+      "id": "ch11-p380-in-text-q15",
+      "page": 380,
+      "group": "in-text",
+      "number": 15,
+      "label": "In Text · p. 380 · question 15",
+      "crops": [
+        {
+          "page": 380,
+          "box": [
+            358,
+            101.91300000000001,
+            533,
+            168.9131000000001
+          ],
+          "asset": "ch11-p380-in-text-q15.jpg",
+          "role": "selected question column; full context follows",
+          "src": "./assets/textbook-practice/ch11-p380-in-text-q15.jpg"
+        },
+        {
+          "page": 380,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ]
+        }
+      ],
+      "topics": [
+        "lesson-06"
+      ]
+    },
+    {
+      "id": "ch11-p380-in-text-q16",
+      "page": 380,
+      "group": "in-text",
+      "number": 16,
+      "label": "In Text · p. 380 · question 16",
+      "crops": [
+        {
+          "page": 380,
+          "box": [
+            358,
+            161.9131000000001,
+            533,
+            221
+          ],
+          "asset": "ch11-p380-in-text-q16.jpg",
+          "role": "selected question column; full context follows",
+          "src": "./assets/textbook-practice/ch11-p380-in-text-q16.jpg"
+        },
+        {
+          "page": 380,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ]
+        }
+      ],
+      "topics": [
+        "lesson-06"
+      ]
+    },
+    {
+      "id": "ch11-p382-in-text-q17",
+      "page": 382,
+      "group": "in-text",
+      "number": 17,
+      "label": "In Text · p. 382 · question 17",
+      "crops": [
+        {
+          "page": 382,
+          "box": [
+            358,
+            55.41450000000009,
+            533,
+            122.41510000000005
+          ],
+          "asset": "ch11-p382-in-text-q17.jpg",
+          "role": "selected question column; full context follows",
+          "src": "./assets/textbook-practice/ch11-p382-in-text-q17.jpg"
+        },
+        {
+          "page": 382,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ]
+        }
+      ],
+      "topics": [
+        "lesson-06"
+      ]
+    },
+    {
+      "id": "ch11-p382-in-text-q18",
+      "page": 382,
+      "group": "in-text",
+      "number": 18,
+      "label": "In Text · p. 382 · question 18",
+      "crops": [
+        {
+          "page": 382,
+          "box": [
+            358,
+            115.41510000000005,
+            533,
+            161
+          ],
+          "asset": "ch11-p382-in-text-q18.jpg",
+          "role": "selected question column; full context follows",
+          "src": "./assets/textbook-practice/ch11-p382-in-text-q18.jpg"
+        },
+        {
+          "page": 382,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ]
+        }
+      ],
+      "topics": [
+        "lesson-06"
+      ]
+    },
+    {
+      "id": "ch11-p384-section-11-1-q6",
+      "page": 384,
+      "group": "section-11.1",
+      "number": 6,
+      "label": "Section 11.1 · p. 384 · question 6",
+      "crops": [
+        {
+          "page": 384,
+          "box": [
+            290.35,
+            287.73,
+            593,
+            320.73
+          ],
+          "asset": "ch11-p384-section-11-1-q6.jpg",
+          "role": "selected question including its in-column figure",
+          "src": "./assets/textbook-practice/ch11-p384-section-11-1-q6.jpg"
+        },
+        {
+          "page": 384,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ]
+        }
+      ],
+      "topics": [
+        "lesson-06",
+        "lesson-07"
+      ]
+    },
+    {
+      "id": "ch11-p384-section-11-1-q7",
+      "page": 384,
+      "group": "section-11.1",
+      "number": 7,
+      "label": "Section 11.1 · p. 384 · question 7",
+      "crops": [
+        {
+          "page": 384,
+          "box": [
+            290.35,
+            319.73,
+            593,
+            378.73
+          ],
+          "asset": "ch11-p384-section-11-1-q7.jpg",
+          "role": "selected question including its in-column figure",
+          "src": "./assets/textbook-practice/ch11-p384-section-11-1-q7.jpg"
+        },
+        {
+          "page": 384,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ]
+        }
+      ],
+      "topics": [
+        "lesson-06"
+      ]
+    },
+    {
+      "id": "ch11-p384-section-11-1-q8",
+      "page": 384,
+      "group": "section-11.1",
+      "number": 8,
+      "label": "Section 11.1 · p. 384 · question 8",
+      "crops": [
+        {
+          "page": 384,
+          "box": [
+            290.35,
+            377.73,
+            593,
+            758
+          ],
+          "asset": "ch11-p384-section-11-1-q8.jpg",
+          "role": "selected question including its in-column figure",
+          "src": "./assets/textbook-practice/ch11-p384-section-11-1-q8.jpg"
+        },
+        {
+          "page": 384,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ]
+        }
+      ],
+      "topics": [
+        "lesson-06",
+        "lesson-07"
+      ]
+    },
+    {
+      "id": "ch11-p402-chapter-review-q10",
+      "page": 402,
+      "group": "chapter-review",
+      "number": 10,
+      "label": "Chapter Review · p. 402 · question 10",
+      "crops": [
+        {
+          "page": 402,
+          "box": [
+            284.8,
+            69.48000000000002,
+            593,
+            341.492
+          ],
+          "asset": "ch11-p402-chapter-review-q10.jpg",
+          "role": "selected question including its in-column figure",
+          "src": "./assets/textbook-practice/ch11-p402-chapter-review-q10.jpg"
+        },
+        {
+          "page": 402,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ]
+        },
+        {
+          "page": 403,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "role": "referenced context / continuation"
+        }
+      ],
+      "topics": [
+        "lesson-02",
+        "lesson-03",
+        "lesson-06",
+        "lesson-08"
+      ]
+    },
+    {
+      "id": "ch11-p403-chapter-review-q16",
+      "page": 403,
+      "group": "chapter-review",
+      "number": 16,
+      "label": "Chapter Review · p. 403 · question 16",
+      "crops": [
+        {
+          "page": 403,
+          "box": [
+            64.3,
+            69.48000000000002,
+            310.8,
+            119.48000000000002
+          ],
+          "asset": "ch11-p403-chapter-review-q16.jpg",
+          "role": "selected question including its in-column figure",
+          "src": "./assets/textbook-practice/ch11-p403-chapter-review-q16.jpg"
+        },
+        {
+          "page": 403,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ]
+        },
+        {
+          "page": 402,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "role": "referenced context / continuation"
+        }
+      ],
+      "topics": [
+        "lesson-06"
+      ]
+    },
+    {
+      "id": "ch11-p403-chapter-review-q20",
+      "page": 403,
+      "group": "chapter-review",
+      "number": 20,
+      "label": "Chapter Review · p. 403 · question 20",
+      "crops": [
+        {
+          "page": 403,
+          "box": [
+            314.8,
+            218.48000000000002,
+            593,
+            277.48
+          ],
+          "asset": "ch11-p403-chapter-review-q20.jpg",
+          "role": "selected question including its in-column figure",
+          "src": "./assets/textbook-practice/ch11-p403-chapter-review-q20.jpg"
+        },
+        {
+          "page": 403,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ]
+        },
+        {
+          "page": 402,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "role": "referenced context / continuation"
+        }
+      ],
+      "topics": [
+        "lesson-05",
+        "lesson-06"
+      ]
+    },
+    {
+      "id": "ch11-p403-chapter-review-q24",
+      "page": 403,
+      "group": "chapter-review",
+      "number": 24,
+      "label": "Chapter Review · p. 403 · question 24",
+      "crops": [
+        {
+          "page": 403,
+          "box": [
+            314.8,
+            636.48,
+            593,
+            758
+          ],
+          "asset": "ch11-p403-chapter-review-q24.jpg",
+          "role": "selected question including its in-column figure",
+          "src": "./assets/textbook-practice/ch11-p403-chapter-review-q24.jpg"
+        },
+        {
+          "page": 403,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ]
+        },
+        {
+          "page": 402,
+          "box": [
+            0,
+            0,
+            603,
+            783
+          ],
+          "role": "referenced context / continuation"
+        }
+      ],
+      "topics": [
+        "lesson-06",
+        "lesson-07"
+      ]
+    }
+  ],
+  "media": [
+    {
+      "kind": "img",
+      "attrs": {
+        "alt": "Chemical transmission at a neuron-to-neuron synapse compared with a neuromuscular junction.",
+        "decoding": "async",
+        "loading": "lazy",
+        "src": "assets/source/chapter11-synapses-0.png",
+        "data-canvas-helper-edit-key": "p3-chapter-349"
+      },
+      "caption": "Figure 9. Trace chemical transmission at a neuron-to-neuron synapse and compare it with a neuromuscular junction.",
+      "locator": {
+        "path": "projects/biology30-unit-a-pilot-3/workspace/index.html",
+        "startLine": 1127
+      },
+      "status": "existing source asset; no new visual/science acceptance or video playback asserted"
+    },
+    {
+      "kind": "img",
+      "attrs": {
+        "alt": "Excitatory and inhibitory synapses compared with temporal and spatial summation at the axon hillock.",
+        "decoding": "async",
+        "loading": "lazy",
+        "src": "assets/source/chapter11-synapses-1.png",
+        "data-canvas-helper-edit-key": "p3-chapter-358"
+      },
+      "caption": "Figure 10. Compare EPSPs and IPSPs, then relate them to temporal and spatial summation at the axon hillock.",
+      "locator": {
+        "path": "projects/biology30-unit-a-pilot-3/workspace/index.html",
+        "startLine": 1140
+      },
+      "status": "existing source asset; no new visual/science acceptance or video playback asserted"
+    },
+    {
+      "kind": "img",
+      "attrs": {
+        "alt": "Spatial summation combines different inputs; temporal summation combines repeated inputs close together in time.",
+        "decoding": "async",
+        "loading": "lazy",
+        "src": "assets/source/chapter11-synapses-2.svg",
+        "data-canvas-helper-edit-key": "p3-chapter-367"
+      },
+      "caption": "Figure 11. Spatial summation combines different inputs; temporal summation combines repeated inputs close together in time.",
+      "locator": {
+        "path": "projects/biology30-unit-a-pilot-3/workspace/index.html",
+        "startLine": 1152
+      },
+      "status": "existing source asset; no new visual/science acceptance or video playback asserted"
+    },
+    {
+      "kind": "section",
+      "attrs": {
+        "class": "video-support",
+        "data-video": "ecGEcj1tBBI"
+      },
+      "caption": "",
+      "locator": {
+        "path": "projects/biology30-unit-a-pilot-3/workspace/index.html",
+        "startLine": 1218
+      },
+      "status": "existing source asset; no new visual/science acceptance or video playback asserted"
+    },
+    {
+      "kind": "a",
+      "attrs": {
+        "href": "https://www.youtube.com/watch?v=ecGEcj1tBBI",
+        "target": "_blank",
+        "rel": "noopener",
+        "data-canvas-helper-edit-key": "p3-chapter-409"
+      },
+      "caption": "",
+      "locator": {
+        "path": "projects/biology30-unit-a-pilot-3/workspace/index.html",
+        "startLine": 1224
+      },
+      "status": "existing source asset; no new visual/science acceptance or video playback asserted"
+    },
+    {
+      "kind": "section",
+      "attrs": {
+        "class": "video-support",
+        "data-video": "YcJy28Nnrb8"
+      },
+      "caption": "",
+      "locator": {
+        "path": "projects/biology30-unit-a-pilot-3/workspace/index.html",
+        "startLine": 1227
+      },
+      "status": "existing source asset; no new visual/science acceptance or video playback asserted"
+    },
+    {
+      "kind": "a",
+      "attrs": {
+        "href": "https://www.youtube.com/watch?v=YcJy28Nnrb8",
+        "target": "_blank",
+        "rel": "noopener",
+        "data-canvas-helper-edit-key": "p3-chapter-414"
+      },
+      "caption": "",
+      "locator": {
+        "path": "projects/biology30-unit-a-pilot-3/workspace/index.html",
+        "startLine": 1232
+      },
+      "status": "existing source asset; no new visual/science acceptance or video playback asserted"
+    },
+    {
+      "kind": "section",
+      "attrs": {
+        "class": "video-support",
+        "data-video": "GvUrdCQv3JM"
+      },
+      "caption": "",
+      "locator": {
+        "path": "projects/biology30-unit-a-pilot-3/workspace/index.html",
+        "startLine": 1235
+      },
+      "status": "existing source asset; no new visual/science acceptance or video playback asserted"
+    },
+    {
+      "kind": "a",
+      "attrs": {
+        "href": "https://www.youtube.com/watch?v=GvUrdCQv3JM",
+        "target": "_blank",
+        "rel": "noopener",
+        "data-canvas-helper-edit-key": "p3-chapter-419"
+      },
+      "caption": "",
+      "locator": {
+        "path": "projects/biology30-unit-a-pilot-3/workspace/index.html",
+        "startLine": 1240
+      },
+      "status": "existing source asset; no new visual/science acceptance or video playback asserted"
+    }
+  ],
+  "vocabulary": {
+    "canonicalPayload": "current-course/data/vocabulary-and-schema.json",
+    "inlineTermLinks": [
+      {
+        "attrs": {
+          "type": "button",
+          "class": "bio-term",
+          "data-bio-term": "synapse",
+          "data-bio-term-route": "lesson-06",
+          "aria-haspopup": "dialog",
+          "data-canvas-helper-edit-key": "p3-l06-setup-11"
+        },
+        "term": "synapse"
+      },
+      {
+        "attrs": {
+          "type": "button",
+          "class": "bio-term",
+          "data-bio-term": "neurotransmitter",
+          "data-bio-term-route": "lesson-06",
+          "aria-haspopup": "dialog",
+          "data-canvas-helper-edit-key": "p3-l06-setup-13"
+        },
+        "term": "neurotransmitter"
+      },
+      {
+        "attrs": {
+          "type": "button",
+          "class": "bio-term",
+          "data-bio-term": "acetylcholine",
+          "data-bio-term-route": "lesson-06",
+          "aria-haspopup": "dialog",
+          "data-canvas-helper-edit-key": "p3-l06-setup-15"
+        },
+        "term": "acetylcholine"
+      },
+      {
+        "attrs": {
+          "type": "button",
+          "class": "bio-term",
+          "data-bio-term": "reuptake",
+          "data-bio-term-route": "lesson-06",
+          "aria-haspopup": "dialog",
+          "data-canvas-helper-edit-key": "p3-l06-setup-17"
+        },
+        "term": "reuptake"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "action potential",
+          "data-canvas-helper-edit-key": "p3-chapter-311",
+          "type": "button"
+        },
+        "term": "action potential"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "axon",
+          "data-canvas-helper-edit-key": "p3-chapter-312",
+          "type": "button"
+        },
+        "term": "axon"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "axon terminal",
+          "data-canvas-helper-edit-key": "p3-chapter-313",
+          "type": "button"
+        },
+        "term": "axon terminal"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "synapse",
+          "data-canvas-helper-edit-key": "p3-chapter-314",
+          "type": "button"
+        },
+        "term": "synapse"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "neuron",
+          "data-canvas-helper-edit-key": "p3-chapter-315",
+          "type": "button"
+        },
+        "term": "neuron"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "neurotransmitter",
+          "data-canvas-helper-edit-key": "p3-chapter-316",
+          "type": "button"
+        },
+        "term": "neurotransmitter"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "motor neuron",
+          "data-canvas-helper-edit-key": "p3-chapter-318",
+          "type": "button"
+        },
+        "term": "motor neuron"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "action potential",
+          "data-canvas-helper-edit-key": "p3-chapter-321",
+          "type": "button"
+        },
+        "term": "action potential"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "axon terminal",
+          "data-canvas-helper-edit-key": "p3-chapter-322",
+          "type": "button"
+        },
+        "term": "axon terminal"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "neurotransmitter",
+          "data-canvas-helper-edit-key": "p3-chapter-323",
+          "type": "button"
+        },
+        "term": "neurotransmitter"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "neuron",
+          "data-canvas-helper-edit-key": "p3-chapter-326",
+          "type": "button"
+        },
+        "term": "neuron"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "reuptake",
+          "data-canvas-helper-edit-key": "p3-chapter-327",
+          "type": "button"
+        },
+        "term": "Reuptake"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "cholinesterase",
+          "data-canvas-helper-edit-key": "p3-chapter-329",
+          "type": "button"
+        },
+        "term": "cholinesterase"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "acetylcholine",
+          "data-canvas-helper-edit-key": "p3-chapter-328",
+          "type": "button"
+        },
+        "term": "acetylcholine"
+      },
+      {
+        "attrs": {
+          "type": "button",
+          "class": "bio-term",
+          "data-bio-term": "axon",
+          "aria-haspopup": "dialog",
+          "data-canvas-helper-edit-key": "p3-chapter-334"
+        },
+        "term": "axon"
+      },
+      {
+        "attrs": {
+          "type": "button",
+          "class": "bio-term",
+          "data-bio-term": "response",
+          "aria-haspopup": "dialog",
+          "data-canvas-helper-edit-key": "p3-chapter-343"
+        },
+        "term": "response"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "action potential",
+          "data-canvas-helper-edit-key": "p3-chapter-352",
+          "type": "button"
+        },
+        "term": "action potential"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "threshold",
+          "data-canvas-helper-edit-key": "p3-chapter-353",
+          "type": "button"
+        },
+        "term": "threshold"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "neuron",
+          "data-canvas-helper-edit-key": "p3-chapter-361",
+          "type": "button"
+        },
+        "term": "neuron"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "threshold",
+          "data-canvas-helper-edit-key": "p3-chapter-362",
+          "type": "button"
+        },
+        "term": "threshold"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "action potential",
+          "data-canvas-helper-edit-key": "p3-chapter-364",
+          "type": "button"
+        },
+        "term": "action potential"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "acetylcholine",
+          "data-canvas-helper-edit-key": "p3-chapter-370",
+          "type": "button"
+        },
+        "term": "acetylcholine"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "norepinephrine",
+          "data-canvas-helper-edit-key": "p3-chapter-371",
+          "type": "button"
+        },
+        "term": "norepinephrine"
+      },
+      {
+        "attrs": {
+          "aria-haspopup": "dialog",
+          "class": "bio-term",
+          "data-bio-term": "receptor",
+          "data-canvas-helper-edit-key": "p3-chapter-372",
+          "type": "button"
+        },
+        "term": "receptor"
+      },
+      {
+        "attrs": {
+          "type": "button",
+          "class": "bio-term",
+          "data-bio-term": "neurotransmitter",
+          "aria-haspopup": "dialog",
+          "data-canvas-helper-edit-key": "p3-chapter-374"
+        },
+        "term": "Neurotransmitter"
+      },
+      {
+        "attrs": {
+          "type": "button",
+          "class": "bio-term",
+          "data-bio-term": "cns",
+          "aria-haspopup": "dialog",
+          "data-canvas-helper-edit-key": "p3-chapter-381"
+        },
+        "term": "CNS"
+      },
+      {
+        "attrs": {
+          "type": "button",
+          "class": "bio-term",
+          "data-bio-term": "pns",
+          "aria-haspopup": "dialog",
+          "data-canvas-helper-edit-key": "p3-chapter-382"
+        },
+        "term": "PNS"
+      },
+      {
+        "attrs": {
+          "type": "button",
+          "class": "bio-term",
+          "data-bio-term": "cholinesterase",
+          "aria-haspopup": "dialog",
+          "data-canvas-helper-edit-key": "p3-chapter-401"
+        },
+        "term": "Cholinesterase"
+      },
+      {
+        "attrs": {
+          "type": "button",
+          "class": "bio-term",
+          "data-bio-term": "epinephrine",
+          "aria-haspopup": "dialog",
+          "data-canvas-helper-edit-key": "p3-chapter-403"
+        },
+        "term": "epinephrine"
+      },
+      {
+        "attrs": {
+          "type": "button",
+          "class": "bio-term",
+          "data-bio-term": "response",
+          "aria-haspopup": "dialog",
+          "data-canvas-helper-edit-key": "p3-chapter-404"
+        },
+        "term": "response"
+      },
+      {
+        "attrs": {
+          "type": "button",
+          "class": "bio-term",
+          "data-bio-term": "synapse",
+          "aria-haspopup": "dialog",
+          "data-canvas-helper-edit-key": "p3-chapter-405"
+        },
+        "term": "synapse"
+      }
+    ],
+    "visibleWords": [
+      "Vocabulary help Key termsWords for this lessonUse these definitions when you need help with a term. synapsea junction where a neuron communicates with another cell neurotransmittera chemical messenger released by the sending neuron acetylcholinea neurotransmitter that stimulates skeletal muscle and is also used in other pathways reuptaketaking a released neurotransmitter back into a cell More vocabulary for this lessonLesson vocabularysynapse · neurotransmitter · acetylcholine · cholinesterase · reuptake · norepinephrine · action potential · axon · axon terminal · neuron · motor neuron · receptor · response · threshold · CNS · PNS · epinephrineSelect an underlined term for its definition. Your vocabulary writing is saved in Process Collection."
+    ]
+  },
+  "immutablePreservationBindings": [
+    {
+      "tag": "section",
+      "attrs": {
+        "class": "activity",
+        "data-activity": "check-synapses",
+        "data-activity-mode": "paired",
+        "data-required-check": ""
+      },
+      "startLine": 1246
+    },
+    {
+      "tag": "div",
+      "attrs": {
+        "class": "question",
+        "data-question": "check-synapses-mc"
+      },
+      "startLine": 1254,
+      "questionText": "The transmission of the nerve impulse across a synapse is accomplished by the release of a neurotransmitter from the cell body of the pre-synaptic neuron to the Schwann cell of the post synaptic neuron. from the Schwann cell of the pre-synaptic neuron to the cell body of the post synaptic neuron. from the dendrite of the pre-synaptic neuron to the axon of the post synaptic neuron. from the axon of the pre-synaptic neuron to the dendrite of the post synaptic neuron. Check answer Explain the related idea Summarize the events involved in impulse transmission from the presynaptic neuron to the postsynaptic neuron. Textbook p. 380 Written response Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded. Save written response"
+    },
+    {
+      "tag": "input",
+      "attrs": {
+        "type": "radio",
+        "name": "check-synapses-mc",
+        "value": "QUES_51667_82706_A275458",
+        "data-answer": ""
+      },
+      "startLine": 1257
+    },
+    {
+      "tag": "input",
+      "attrs": {
+        "type": "radio",
+        "name": "check-synapses-mc",
+        "value": "QUES_51667_82706_A275459",
+        "data-answer": ""
+      },
+      "startLine": 1259
+    },
+    {
+      "tag": "input",
+      "attrs": {
+        "type": "radio",
+        "name": "check-synapses-mc",
+        "value": "QUES_51667_82706_A275460",
+        "data-answer": ""
+      },
+      "startLine": 1261
+    },
+    {
+      "tag": "input",
+      "attrs": {
+        "type": "radio",
+        "name": "check-synapses-mc",
+        "value": "QUES_51667_82706_A275461",
+        "data-answer": ""
+      },
+      "startLine": 1263
+    },
+    {
+      "tag": "textarea",
+      "attrs": {
+        "id": "check-synapses-written",
+        "data-writing": "check-synapses-written",
+        "data-answer-limit": "3200",
+        "rows": "6",
+        "aria-describedby": "check-synapses-written-limit check-synapses-written-status"
+      },
+      "startLine": 1275
+    },
+    {
+      "tag": "section",
+      "attrs": {
+        "class": "activity",
+        "data-activity": "practice-synapses",
+        "data-activity-mode": "writing"
+      },
+      "startLine": 1294
+    },
+    {
+      "tag": "div",
+      "attrs": {
+        "class": "question",
+        "data-question": "source-checkpoint-16"
+      },
+      "startLine": 1302,
+      "questionText": "Identify the function of neurotransmitters in the nervous system. Textbook p. 380 Written response Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded. Save written response"
+    },
+    {
+      "tag": "textarea",
+      "attrs": {
+        "id": "source-checkpoint-16-written",
+        "data-writing": "source-checkpoint-16-written",
+        "data-answer-limit": "3200",
+        "rows": "6",
+        "aria-describedby": "source-checkpoint-16-written-limit source-checkpoint-16-written-status"
+      },
+      "startLine": 1309
+    },
+    {
+      "tag": "div",
+      "attrs": {
+        "class": "question",
+        "data-question": "source-checkpoint-17"
+      },
+      "startLine": 1315,
+      "questionText": "Compare the excitatory and inhibitory effects of neurotransmitters on the postsynaptic membrane. Textbook p. 382 Written response Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded. Save written response"
+    },
+    {
+      "tag": "textarea",
+      "attrs": {
+        "id": "source-checkpoint-17-written",
+        "data-writing": "source-checkpoint-17-written",
+        "data-answer-limit": "3200",
+        "rows": "6",
+        "aria-describedby": "source-checkpoint-17-written-limit source-checkpoint-17-written-status"
+      },
+      "startLine": 1322
+    },
+    {
+      "tag": "div",
+      "attrs": {
+        "class": "question",
+        "data-question": "source-checkpoint-18"
+      },
+      "startLine": 1328,
+      "questionText": "Compare and relate the functions of acetylcholine and cholinesterase. Textbook p. 382 Written response Up to 3200 characters. Drafts can be longer, but must fit before submission. Writing is not automatically graded. Save written response"
+    },
+    {
+      "tag": "textarea",
+      "attrs": {
+        "id": "source-checkpoint-18-written",
+        "data-writing": "source-checkpoint-18-written",
+        "data-answer-limit": "3200",
+        "rows": "6",
+        "aria-describedby": "source-checkpoint-18-written-limit source-checkpoint-18-written-status"
+      },
+      "startLine": 1335
+    }
+  ],
+  "status": {
+    "sourceInventory": "exported with exact locators; see explicit source gaps",
+    "authoring": "not-started",
+    "contentReview": "not-started",
+    "integration": "not-started",
+    "technicalTesting": "not-started",
+    "teacherAcceptance": "not-requested"
+  }
+}

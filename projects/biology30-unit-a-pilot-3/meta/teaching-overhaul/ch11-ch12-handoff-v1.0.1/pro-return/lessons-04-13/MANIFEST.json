@@ -1,0 +1,693 @@
+{
+  "title": "Biology30 Chapter11 remaining teaching handoff v1",
+  "version": "1.0.0",
+  "status": "complete proposed teaching; acceptance/integration/runtime pending",
+  "owner_sha256": "9fcd8203b41f4220e53716e473c02a0835f356420b363ea0092e544a8e7bb210",
+  "included_payload_count": 136,
+  "total_files_including_manifest_and_checksums": 138,
+  "payload_bytes": 13506929,
+  "files": [
+    {
+      "path": "CHANGELOG.md",
+      "bytes": 1713,
+      "sha256": "c6321095e9869bfb41811089a84713357d1696a9f2a9427fdaa08b9629b43f7c"
+    },
+    {
+      "path": "README.md",
+      "bytes": 2528,
+      "sha256": "b0186863c047bf2841469a9408538b752e697e9c09bae4aa22288575e24d5d39"
+    },
+    {
+      "path": "acceptancelimits/RELEASE_STATUS.md",
+      "bytes": 1579,
+      "sha256": "2dc224627d33a23b0c5e869d2d8f776e80997ac41a26b75318f963ea712e65cc"
+    },
+    {
+      "path": "assessmentproposals/PENDING_TEACHER_DECISIONS.md",
+      "bytes": 12199,
+      "sha256": "2aa30f0add1fb17b1b6293ca65992c459f27e3e7a013f14550d9893813d02016"
+    },
+    {
+      "path": "assets/preview.css",
+      "bytes": 804,
+      "sha256": "0e7fe92162b2ff2d139120013f435c97759639e9ffae9ebc78b42df05741db89"
+    },
+    {
+      "path": "assets/source/ch11-textbook-p394-figure11-32-caption.png",
+      "bytes": 256361,
+      "sha256": "fb75f4f74613970cec2627f621b3b92ec2898ad611f26e327bd02c467dbe587c"
+    },
+    {
+      "path": "assets/source/chapter11-action-potentials-0.png",
+      "bytes": 1726015,
+      "sha256": "ecd4d3a6f241916d9d7faaa09c1dd79d51eb87a56494d2b4bee90f0d7d5d0423"
+    },
+    {
+      "path": "assets/source/chapter11-action-potentials-1.svg",
+      "bytes": 3669,
+      "sha256": "df424718a3ed531b03792b5d93c6c97bacd9cbed9cfa61f3beef6d88391a4f24"
+    },
+    {
+      "path": "assets/source/chapter11-brain-0.png",
+      "bytes": 1881345,
+      "sha256": "b91325a4ecf9238a852b87663e987ff49a01cbe3fbca3a5e65c87ada18240175"
+    },
+    {
+      "path": "assets/source/chapter11-brain-1.png",
+      "bytes": 1824134,
+      "sha256": "bb2490ee6381ec72082a6d1218b1b5ad87714684cd31e3f986c9034dc3677d19"
+    },
+    {
+      "path": "assets/source/chapter11-brain-2.svg",
+      "bytes": 3647,
+      "sha256": "63c47c8e47d0522dad511750d58a8f25c0809c59700066c0280d5e746ce85353"
+    },
+    {
+      "path": "assets/source/chapter11-brain-investigation-0.svg",
+      "bytes": 5485,
+      "sha256": "42b01f66ae6853627db54fbc4cd189f3338c055ed110d46275ea5250895c8691"
+    },
+    {
+      "path": "assets/source/chapter11-brain-investigation-2.png",
+      "bytes": 44506,
+      "sha256": "ed580c42e749a49ecda83ea04ea82f76f8c78a0636cd85b02052193d27a3b453"
+    },
+    {
+      "path": "assets/source/chapter11-chapter-review-section-0.png",
+      "bytes": 171306,
+      "sha256": "3fa571764c7f7b0e88b8b9788b43ec5ee58052fff733ad11fff574c9d4e5c18e"
+    },
+    {
+      "path": "assets/source/chapter11-chapter-review-section-1.png",
+      "bytes": 62141,
+      "sha256": "49722b01034f9430a1c8fc2c0a7a4d28ca2cd896ddc23dc05e1e124e0c6a6fab"
+    },
+    {
+      "path": "assets/source/chapter11-chapter-review-section-2.png",
+      "bytes": 49759,
+      "sha256": "152672826962111d4a682bbc0a6b359a9732f7535a95b632bf9d0669f5e9cc5f"
+    },
+    {
+      "path": "assets/source/chapter11-chapter-review-section-3.png",
+      "bytes": 38059,
+      "sha256": "3da76063d2e7c4e05f7c39279ee619a9a13e32579d1c61345f3a6ac168b8eff6"
+    },
+    {
+      "path": "assets/source/chapter11-chapter-review-section-4.png",
+      "bytes": 70681,
+      "sha256": "78c086cecc40dd705d1f72fe6b574bd44943251f0767bfe1690afd39fb68dda4"
+    },
+    {
+      "path": "assets/source/chapter11-cns-0.svg",
+      "bytes": 5047,
+      "sha256": "d2f061f71cc31cf0b6d502fe39ebc8aad6ceb85a61f593017a92368e5f47d900"
+    },
+    {
+      "path": "assets/source/chapter11-cns-1.svg",
+      "bytes": 4959,
+      "sha256": "25e52c753840d85206b0aea6afb6516a76fb8a3943d5ff8a09fb3e8c998abbac"
+    },
+    {
+      "path": "assets/source/chapter11-drugs-0.svg",
+      "bytes": 4748,
+      "sha256": "dff645618ef5a14914577fff876a299766cbfea8329373c87e5bfede5312be51"
+    },
+    {
+      "path": "assets/source/chapter11-drugs-1.png",
+      "bytes": 13641,
+      "sha256": "b81b8f09c9f3f38332867dc4fcf40dc14e4ad5c796b398beb5ff0bc943bbf665"
+    },
+    {
+      "path": "assets/source/chapter11-drugs-2.png",
+      "bytes": 38894,
+      "sha256": "8bc7248e6ccca6e83cb53e2027cc51f7e5686a0c752c21a0db77a8e899321849"
+    },
+    {
+      "path": "assets/source/chapter11-pns-0.svg",
+      "bytes": 6995,
+      "sha256": "fbb887d91cc0b11f765420d29b765f9704716bc880858e5c5ab09157d6eb1cf9"
+    },
+    {
+      "path": "assets/source/chapter11-pns-1.svg",
+      "bytes": 6380,
+      "sha256": "4ee2efa3219475e1e9b25e566170bc45f8174c3d9ee86a7fbc513c757fec61db"
+    },
+    {
+      "path": "assets/source/chapter11-pns-2.png",
+      "bytes": 449906,
+      "sha256": "bdeb094d7bca1b3c7e6ddeef0b1dc13ac0431031da81afef7ccc57596c70b742"
+    },
+    {
+      "path": "assets/source/chapter11-resting-potential-0.png",
+      "bytes": 1673462,
+      "sha256": "8608ef9bfefe5a528c0ed7b0f4d8a2424f4c0c234451ed89336884b0d5bb5601"
+    },
+    {
+      "path": "assets/source/chapter11-synapses-0.png",
+      "bytes": 2052111,
+      "sha256": "37a5904df148db32eda08c6c628abcefd1dfebd538c3c36d97878633f03606bd"
+    },
+    {
+      "path": "assets/source/chapter11-synapses-1.png",
+      "bytes": 1878636,
+      "sha256": "f273515da6d427a0e84a6c23e6e9f974873481afab2ee02a2ed7170fca0b0649"
+    },
+    {
+      "path": "assets/source/chapter11-synapses-2.svg",
+      "bytes": 7125,
+      "sha256": "7adc6e108d028d530b24f4cb016ada506c0e23c22bc66460a036f00e5fa38640"
+    },
+    {
+      "path": "continuity/CHAPTER_PROGRESSION.md",
+      "bytes": 5055,
+      "sha256": "078b3ad0be86a403b9068e73c032a223bb13c5a0ef359fefe2f84417a1b2d41d"
+    },
+    {
+      "path": "fragments/lesson-04.preview.html",
+      "bytes": 14940,
+      "sha256": "9008d1b5c80bdb6cb141e579da17485ab7db24b6fa2a6d204e1168d98751920b"
+    },
+    {
+      "path": "fragments/lesson-04.teaching-fragment.html",
+      "bytes": 14395,
+      "sha256": "abd214717e9eedbc8a45c1b02e53dfb92cbb428563dc1fa2adc227843b103eaf"
+    },
+    {
+      "path": "fragments/lesson-05.preview.html",
+      "bytes": 20118,
+      "sha256": "e5c676f435657258e5cb94e76130635b246f632f98d7aa07c4d8f9393e9b6910"
+    },
+    {
+      "path": "fragments/lesson-05.teaching-fragment.html",
+      "bytes": 19569,
+      "sha256": "5f98b7c2367245ab8672c46ff69267c7264fc21938b6e3b736b5eb40f82cfc4e"
+    },
+    {
+      "path": "fragments/lesson-06.preview.html",
+      "bytes": 19681,
+      "sha256": "9cfd93813ec80fede47ee55262d29e4817df16611e6c830d848d2547ffc980d7"
+    },
+    {
+      "path": "fragments/lesson-06.teaching-fragment.html",
+      "bytes": 19116,
+      "sha256": "bb7f5ef258bd27d8b49832da0856f4bbe154ca9540ca41d22a89655190bf97c9"
+    },
+    {
+      "path": "fragments/lesson-07.preview.html",
+      "bytes": 13584,
+      "sha256": "413f54987f13717a44fa1416d638acfe995142e160734c5596a29f45940bca3e"
+    },
+    {
+      "path": "fragments/lesson-07.teaching-fragment.html",
+      "bytes": 13035,
+      "sha256": "4b93256377c9bc850699ca89c7cf7c8e84748621ce2280df56f5cda6e2fb490a"
+    },
+    {
+      "path": "fragments/lesson-08.preview.html",
+      "bytes": 16747,
+      "sha256": "73d61992430d6851c766fd4bd43d0aa6a87dcc9d9288a18b79ecc0dda4840f9e"
+    },
+    {
+      "path": "fragments/lesson-08.teaching-fragment.html",
+      "bytes": 16190,
+      "sha256": "1739d898ebcf7767bab813ec4a8e595a50a182d4b33313c4b2e1711fc3bed864"
+    },
+    {
+      "path": "fragments/lesson-09.preview.html",
+      "bytes": 13740,
+      "sha256": "0d47619056c3bc818eee0a9b6c48519428a346f501bb8f2d62982ef9fcc37ade"
+    },
+    {
+      "path": "fragments/lesson-09.teaching-fragment.html",
+      "bytes": 13195,
+      "sha256": "c4bc76409fadcaf1e0302344731a6c6d9dc285e8906b6bf0153bc0bb62b90bbb"
+    },
+    {
+      "path": "fragments/lesson-10.preview.html",
+      "bytes": 18377,
+      "sha256": "d7cd702cd0cc7e81819c61e3875916d03d58602817c38ac7c82a041babeca7be"
+    },
+    {
+      "path": "fragments/lesson-10.teaching-fragment.html",
+      "bytes": 17838,
+      "sha256": "c2f08e777a45c9b8be117e4c148d487944b8295831a4ea2edb6f58ea0ad1c0b8"
+    },
+    {
+      "path": "fragments/lesson-11.preview.html",
+      "bytes": 14376,
+      "sha256": "bd98a8a105d785979f1f54dc054683d8ee8444fa40d65232f6753bbf1a795247"
+    },
+    {
+      "path": "fragments/lesson-11.teaching-fragment.html",
+      "bytes": 13825,
+      "sha256": "d3a972633839a817a26aa713298f7d4b81b8d6622bce4781faeacd061519515a"
+    },
+    {
+      "path": "fragments/lesson-12.preview.html",
+      "bytes": 17205,
+      "sha256": "01283bf9ca6910ce4ea8466c1134631decf0e594034c0bdba5b6bd3e25e8c323"
+    },
+    {
+      "path": "fragments/lesson-12.teaching-fragment.html",
+      "bytes": 16636,
+      "sha256": "7f10f6ab479ceb0ae8c1e4be0c27b159c0d0b06563bdeaf3af46dc3f9cd4c67e"
+    },
+    {
+      "path": "fragments/lesson-13.preview.html",
+      "bytes": 7002,
+      "sha256": "ebe07bdaed01b18eaa800d27e44ed655779c0c3562e8c649c4ffe7ab77ad4993"
+    },
+    {
+      "path": "fragments/lesson-13.teaching-fragment.html",
+      "bytes": 6435,
+      "sha256": "0948479b1c977744d9ae909b527450cd4fef8b5cbbc120c4a9180c31e2b4ff54"
+    },
+    {
+      "path": "manuscripts/lesson-04.md",
+      "bytes": 11566,
+      "sha256": "ffe1a3afab034b2ebb3453d0e5e2ad5d6040bae579534340afda4bc10f217a22"
+    },
+    {
+      "path": "manuscripts/lesson-05.md",
+      "bytes": 14286,
+      "sha256": "f87bbb38602627d38fc56b9859108358365d258e97220a932855846c6b7016f3"
+    },
+    {
+      "path": "manuscripts/lesson-06.md",
+      "bytes": 13741,
+      "sha256": "40fcbe8e4ddec6dcd9f6c42a7282dfdbf455d3d217cf92326f34d305652549d7"
+    },
+    {
+      "path": "manuscripts/lesson-07.md",
+      "bytes": 10162,
+      "sha256": "df68208e87c81ac5524e6450594d72416bd804b86254a2e7b0ddcf74e3b323ee"
+    },
+    {
+      "path": "manuscripts/lesson-08.md",
+      "bytes": 11012,
+      "sha256": "7163ce473ee88aaf323db1cc3c9abae525efde6dfc9ad2f8e040cd9b5b9802c1"
+    },
+    {
+      "path": "manuscripts/lesson-09.md",
+      "bytes": 10175,
+      "sha256": "5af835d22b63532103d339c7c5016ee3fb04bd9c022dce6feecc27ed502a0473"
+    },
+    {
+      "path": "manuscripts/lesson-10.md",
+      "bytes": 13836,
+      "sha256": "2692e772658fa7de1f0387c47afacd8bc4aafe1270bc16e65ea303aea3c3352d"
+    },
+    {
+      "path": "manuscripts/lesson-11.md",
+      "bytes": 11406,
+      "sha256": "d94752980fcddda9032c9d8e7f458900327d00b8a847524b548cc44f7e147c36"
+    },
+    {
+      "path": "manuscripts/lesson-12.md",
+      "bytes": 13160,
+      "sha256": "64416d62e95a6b5b682894fb97e232bfce121d92835e00c221d14d7e0c455880"
+    },
+    {
+      "path": "manuscripts/lesson-13.md",
+      "bytes": 5199,
+      "sha256": "87cd9b7ff98b4092bfa8827477530ab253d1ce52c73555364eb65bea0c906094"
+    },
+    {
+      "path": "maps/ASSET_PLAN.json",
+      "bytes": 31630,
+      "sha256": "104e2706858d0d4b5d7cd6db6b93bf5ac1ee7113e413e6f7126e68d45ecd7d7e"
+    },
+    {
+      "path": "maps/BATCH_04_05.md",
+      "bytes": 4906,
+      "sha256": "703a16834b61ada9b7e828b0dc6c2708a4e6790d60a266bac2e33c374ca0b14c"
+    },
+    {
+      "path": "maps/EDITOR_IDENTITY_MAP.json",
+      "bytes": 81855,
+      "sha256": "e98a3ab8061fa20a14c469150bc858e8bc6c464e99dfe11f295ccf563f0ea038"
+    },
+    {
+      "path": "maps/INTEGRATION_MAP.json",
+      "bytes": 34002,
+      "sha256": "9f9c2f032c11613b990f79804fe81aa381f03c283dcf0dfa2bed3e72c1b0d6c2"
+    },
+    {
+      "path": "maps/PRACTICE_MAP.json",
+      "bytes": 98945,
+      "sha256": "c0b0fe7098fac467af06ef516d3140549c10bc64b86599815dffc975bdf73569"
+    },
+    {
+      "path": "maps/PRIMARY_VERIFICATION.json",
+      "bytes": 3229,
+      "sha256": "edaedafc5eda3830bd58b58474631140973505d174ee050b1f9e8c6a8d07a279"
+    },
+    {
+      "path": "maps/SAVED_WORK_PROPOSAL.md",
+      "bytes": 4468,
+      "sha256": "2990650e99b7c64e0354f5830e242419091d2092da7606f25a850cb479aa93ae"
+    },
+    {
+      "path": "maps/SOURCE_MAP.json",
+      "bytes": 20145,
+      "sha256": "1f1d8df92a3d9b543c2cdfad0fe8eaa0234154f69d72d24096f24a5321b909f3"
+    },
+    {
+      "path": "maps/VIDEO_READING_MAP.json",
+      "bytes": 12933,
+      "sha256": "277f2ca480c8feeac8d975c877907af6dab2b0622ea40779a203633a2fd2fa3f"
+    },
+    {
+      "path": "maps/VOCABULARY_BINDINGS.json",
+      "bytes": 46963,
+      "sha256": "e9120a2802fb84abd3d196f17dfc10d54324a2d13e44f50b93a0896d3902a9b7"
+    },
+    {
+      "path": "maps/lesson-04-integration.json",
+      "bytes": 2701,
+      "sha256": "f978d496b3a08fcaec39aa26b625ae0104850dc87f03e8304d50740360467673"
+    },
+    {
+      "path": "maps/lesson-05-integration.json",
+      "bytes": 4186,
+      "sha256": "3c70f2a864e3a3f0a64487bb1f90019bec6f2bf7776ca3eeaed47194c3cad8a5"
+    },
+    {
+      "path": "maps/lesson-06-integration.json",
+      "bytes": 4260,
+      "sha256": "c31c2d95a90da7c73f8bb00054260a48c0bfbb25fdcb18ca7cb4b5dbb6bcd54f"
+    },
+    {
+      "path": "maps/lesson-07-integration.json",
+      "bytes": 1301,
+      "sha256": "dd376a0bb686e384937e729721716eb1499de08ce1f2538482bc3a2e6d854269"
+    },
+    {
+      "path": "maps/lesson-08-integration.json",
+      "bytes": 3556,
+      "sha256": "a499aed6da8cd922a2391ef2ba42dd97bfd0686835afd69db047a0e4f1d18dac"
+    },
+    {
+      "path": "maps/lesson-09-integration.json",
+      "bytes": 3484,
+      "sha256": "613b6933ff02e63564303bd314735bf647d6b526419384ee3a361e4ba9abca72"
+    },
+    {
+      "path": "maps/lesson-10-integration.json",
+      "bytes": 4964,
+      "sha256": "8f37e747e375c6ebf4d155555999806e1d6e423e54eabf6a9c50f4187675c920"
+    },
+    {
+      "path": "maps/lesson-11-integration.json",
+      "bytes": 2004,
+      "sha256": "a93708258b57ac186a214481a317c945d0116feb104479d386686ddd1d3b1539"
+    },
+    {
+      "path": "maps/lesson-12-integration.json",
+      "bytes": 2005,
+      "sha256": "c5a7caea40b4de9908babf068954817e7e374a96f880346a1326ffdd2c76e034"
+    },
+    {
+      "path": "maps/lesson-13-integration.json",
+      "bytes": 2634,
+      "sha256": "4e96657c8b802837866259bc260430158ee6a550b7b635a4b51987ca3b9c32a3"
+    },
+    {
+      "path": "reviews/CH11_01_03_independent_review.md",
+      "bytes": 5219,
+      "sha256": "288f04e4a6ceb3fc44db4f785c3d11aefbc50b0e32165294de918923c4c960eb"
+    },
+    {
+      "path": "reviews/CH11_08_13_independent_review.md",
+      "bytes": 4339,
+      "sha256": "037a10ebc7d852150a30734bac7dcad30a5600555f572a9a4545d2aeec1c316b"
+    },
+    {
+      "path": "selfreview/CONTENT_SELF_REVIEW.md",
+      "bytes": 5311,
+      "sha256": "e7d6377d4f9e32fb64bd1d005a114b9fbaf534472852416dedd2e05d913f4aa6"
+    },
+    {
+      "path": "selfreview/ORIGINAL_PACKAGE_CHECKSUM_RESULT.txt",
+      "bytes": 30628,
+      "sha256": "a62dce35949286c44d7390019366c4494122216b6cc9288357d6a1112982d006"
+    },
+    {
+      "path": "selfreview/READING_PREVIEW_CHECKS.json",
+      "bytes": 707,
+      "sha256": "10a0fe26013c9720a3f5dc145091a9ac1357609c4a400f9e5a80e48a8afd4dfc"
+    },
+    {
+      "path": "selfreview/STATIC_CHECKS.json",
+      "bytes": 9591,
+      "sha256": "28987b109a7c96425263d6aeb038089ef608616cca079aeba396299db2199176"
+    },
+    {
+      "path": "sourcebindings/NATIVE_PRESERVATION_HASHES.json",
+      "bytes": 32516,
+      "sha256": "c47e4415e3ef51b28aac6555483a9b190f1dd928353f51a5c126babb701bce4e"
+    },
+    {
+      "path": "sourcebindings/OWNER_BINDING.json",
+      "bytes": 26290,
+      "sha256": "8ca0bff96ae3d4114ae3ebd073cdcf8d66ad4bc495b499ecdb54a8888598fa67"
+    },
+    {
+      "path": "sourcebindings/PET_CROP_PROVENANCE.json",
+      "bytes": 761,
+      "sha256": "01bed4e813844b6055698870bb937c232aef6667454796b3886ef8684ff6d740"
+    },
+    {
+      "path": "sourcebindings/PROTECTED_CONTRACT_INVENTORY.json",
+      "bytes": 11799,
+      "sha256": "2aa78b5b9b3dcac9a1d4ca9f0e67235774dbccc57eef06d087f3415b8a3e5275"
+    },
+    {
+      "path": "sourcebindings/lesson-04-protected-nonteaching.json",
+      "bytes": 14865,
+      "sha256": "7e9d21eaa813108a7f22d2ed72aa114806fcf6c17369508becb64640824b121c"
+    },
+    {
+      "path": "sourcebindings/lesson-04-teaching-01-before.html",
+      "bytes": 1413,
+      "sha256": "969a62344e441e8f5dee7f1912d7d766ba6b50b9cf9133e237a44d42525c7d48"
+    },
+    {
+      "path": "sourcebindings/lesson-04-teaching-02-before.html",
+      "bytes": 1167,
+      "sha256": "8c6b6d91cfc2e1aa551817c8059fc787b773329ff2961ee03dce1a6058a62a69"
+    },
+    {
+      "path": "sourcebindings/lesson-04-teaching-03-before.html",
+      "bytes": 2139,
+      "sha256": "6373ef297692d675fc1991a5cb86ce5f692db831ed290d0b67a865d58b970072"
+    },
+    {
+      "path": "sourcebindings/lesson-05-protected-nonteaching.json",
+      "bytes": 18588,
+      "sha256": "987d179913afa9e7965593471b1f125f5ea1f4763d4246ad88d36ad06454e6da"
+    },
+    {
+      "path": "sourcebindings/lesson-05-teaching-01-before.html",
+      "bytes": 1618,
+      "sha256": "26f5e17d1d2740b4c59366fefe29b55021b90f7ff92a313d5ec507e7251c6af0"
+    },
+    {
+      "path": "sourcebindings/lesson-05-teaching-02-before.html",
+      "bytes": 2519,
+      "sha256": "04bb48cbe88e9227b8b42e56fcf55395b6d94ff66236bfce2925fed49d86bc39"
+    },
+    {
+      "path": "sourcebindings/lesson-05-teaching-03-before.html",
+      "bytes": 2286,
+      "sha256": "8a9275f012731a58e20b5384619bac6b186eae6b7c59a5fd8db58d8928fa8c45"
+    },
+    {
+      "path": "sourcebindings/lesson-05-teaching-04-before.html",
+      "bytes": 2153,
+      "sha256": "d693296210a6e705d20056b7764e4c667e34bf4240cbe3323dbc42e907751139"
+    },
+    {
+      "path": "sourcebindings/lesson-05-teaching-05-before.html",
+      "bytes": 1811,
+      "sha256": "60ffea9e43d335908a93048ef860de6b03a9cf8cac4c356487df63462f5737f0"
+    },
+    {
+      "path": "sourcebindings/lesson-06-protected-nonteaching.json",
+      "bytes": 18950,
+      "sha256": "c792cb36115d636cc947ef8a8c0ff14d15467ff090696cd566009bdbbefcfc22"
+    },
+    {
+      "path": "sourcebindings/lesson-06-teaching-01-before.html",
+      "bytes": 1791,
+      "sha256": "9983890694fbe78ff3a564f6c86e2ba8070aec3bf99be9c5779a3cf6d2f185fb"
+    },
+    {
+      "path": "sourcebindings/lesson-06-teaching-02-before.html",
+      "bytes": 4557,
+      "sha256": "5945bddf5d039bec3d8e16e8c88643f2fb08f4a8cdb7a89ee4282d2ef3f640a5"
+    },
+    {
+      "path": "sourcebindings/lesson-06-teaching-03-before.html",
+      "bytes": 1914,
+      "sha256": "92b485ff6b635fc5ed1cf8b6c827c2b6d9b26bf07325c4608804a42a5c7c93c9"
+    },
+    {
+      "path": "sourcebindings/lesson-06-teaching-04-before.html",
+      "bytes": 1947,
+      "sha256": "4fdbc11e25219e2fd4c36aa39ea2e6913f97bd2f287f76bcebc37c2d018d2804"
+    },
+    {
+      "path": "sourcebindings/lesson-06-teaching-05-before.html",
+      "bytes": 4795,
+      "sha256": "8f62210e84b95016879e03d1769bb00471bda93d2b740135ed66ae84f4fac777"
+    },
+    {
+      "path": "sourcebindings/lesson-07-protected-nonteaching.json",
+      "bytes": 24229,
+      "sha256": "343c3bc4f8036eed799f6de146a2f4ea0326ea33f21129079b1adbf9f7748d17"
+    },
+    {
+      "path": "sourcebindings/lesson-07-teaching-01-before.html",
+      "bytes": 3223,
+      "sha256": "38c370c496039da410408d11c1078ccc77e2acf13a259071740eae313efdd4cc"
+    },
+    {
+      "path": "sourcebindings/lesson-08-protected-nonteaching.json",
+      "bytes": 29036,
+      "sha256": "36c8be4e3ea4600d1c6edbdc68d3d3a4fcb3c79a490d10baef5fb69a3bd7b8b8"
+    },
+    {
+      "path": "sourcebindings/lesson-08-teaching-01-before.html",
+      "bytes": 989,
+      "sha256": "dad3a53d5761d40698c72ced013d4f74fe4a484ab3281da3bfbc56d24b8e80b1"
+    },
+    {
+      "path": "sourcebindings/lesson-08-teaching-02-before.html",
+      "bytes": 2613,
+      "sha256": "7fb0cce4f80ed9950d03f318a1e3116a035131cd565b972cc1a3695b4266cdac"
+    },
+    {
+      "path": "sourcebindings/lesson-08-teaching-03-before.html",
+      "bytes": 2030,
+      "sha256": "d2e5c7a46e6ff440d8685d4834c0e2dc889710a1d1e6a864da2e291171db8b97"
+    },
+    {
+      "path": "sourcebindings/lesson-08-teaching-04-before.html",
+      "bytes": 2988,
+      "sha256": "7d3c4654d7fc6d2a148714f4ddacad1e18032f7111e4b2345adcb6042a6096c4"
+    },
+    {
+      "path": "sourcebindings/lesson-09-protected-nonteaching.json",
+      "bytes": 12965,
+      "sha256": "ba0ab5c0ecd390d6abc464fa0335be167d51ba58f35a99ca70469eadf41fb320"
+    },
+    {
+      "path": "sourcebindings/lesson-09-teaching-01-before.html",
+      "bytes": 1989,
+      "sha256": "4898d1913416058ba42025a936f1a79d5d00dcbc888ecba26c3734df7e420d60"
+    },
+    {
+      "path": "sourcebindings/lesson-09-teaching-02-before.html",
+      "bytes": 1187,
+      "sha256": "f8d863a328c7f0d24922f45dd17500e0354447c6b4792e9c3ad823967e072d48"
+    },
+    {
+      "path": "sourcebindings/lesson-09-teaching-03-before.html",
+      "bytes": 1636,
+      "sha256": "505d46ae1c132469f46387c90e6c789b6f63f50583859fe45b2d9352b0c67269"
+    },
+    {
+      "path": "sourcebindings/lesson-09-teaching-04-before.html",
+      "bytes": 719,
+      "sha256": "8ace7871ed4a88af73f629ffcdfff0c12529506552a4ffa46250ba6a70850699"
+    },
+    {
+      "path": "sourcebindings/lesson-10-protected-nonteaching.json",
+      "bytes": 19327,
+      "sha256": "721f515803b28dd7ec19b9cb5f60a8265b587bcd8f078fc04e7eaaea389e3959"
+    },
+    {
+      "path": "sourcebindings/lesson-10-teaching-01-before.html",
+      "bytes": 3291,
+      "sha256": "bbb891af3362ea9b13aa02fcbde4fc8ce09c15cd7fd733259346adb035191839"
+    },
+    {
+      "path": "sourcebindings/lesson-10-teaching-02-before.html",
+      "bytes": 1718,
+      "sha256": "b51ddef4efae479d5802b1c12f8bea0a7eea8e78b4e9a3f0cba71d41ea381cbb"
+    },
+    {
+      "path": "sourcebindings/lesson-10-teaching-03-before.html",
+      "bytes": 1947,
+      "sha256": "35a8290a605012667561fd77018d212d927cbc91720a90ecb753a3ec13bd623f"
+    },
+    {
+      "path": "sourcebindings/lesson-10-teaching-04-before.html",
+      "bytes": 710,
+      "sha256": "0d7cb95f7a404d113bd5926c754359aeb7efe2ebc8a875f2897dee2836b8ca01"
+    },
+    {
+      "path": "sourcebindings/lesson-10-teaching-05-before.html",
+      "bytes": 1466,
+      "sha256": "1d2686f90887d7ebe652c3698ef22ca684ad47b3920a6b72352cbeee6a89bcab"
+    },
+    {
+      "path": "sourcebindings/lesson-10-teaching-06-before.html",
+      "bytes": 61,
+      "sha256": "667d17f0a628acf04c27d926d247e4482b55c6e6ae45d1f01e8c6d024b6bd729"
+    },
+    {
+      "path": "sourcebindings/lesson-11-protected-nonteaching.json",
+      "bytes": 23875,
+      "sha256": "d08de8f50b168875cc799446fca92c5df0bc95aa073b92ff4d54ca2b71d8814d"
+    },
+    {
+      "path": "sourcebindings/lesson-11-teaching-01-before.html",
+      "bytes": 1051,
+      "sha256": "ba00bc00a4b143de55c73d953f84e06e411ac537711451d127db5ef92868137a"
+    },
+    {
+      "path": "sourcebindings/lesson-11-teaching-02-before.html",
+      "bytes": 1658,
+      "sha256": "3257527ad141ef689f314c55ba990e9af070134be9d0101ddd6ded73684b6b84"
+    },
+    {
+      "path": "sourcebindings/lesson-12-protected-nonteaching.json",
+      "bytes": 50088,
+      "sha256": "0bd58a3d8e79b545a513b1e25104631f5fa5887c6d13d2548227cedbed2ba3b9"
+    },
+    {
+      "path": "sourcebindings/lesson-12-teaching-01-before.html",
+      "bytes": 3766,
+      "sha256": "7c10b9f4363abb710d449a915046b94f35bd9efb7527d69073e60190260d1685"
+    },
+    {
+      "path": "sourcebindings/lesson-12-teaching-02-before.html",
+      "bytes": 391,
+      "sha256": "ac9a1e99da5c76072e5f2d062416927c1823c266f3e08f20f3d241fdba826ee3"
+    },
+    {
+      "path": "sourcebindings/lesson-13-protected-nonteaching.json",
+      "bytes": 8009,
+      "sha256": "35f113aba9a4cb638a1a3efc63c7c2caf4c81f15922912acd69aa4ca4f37036d"
+    },
+    {
+      "path": "sourcebindings/lesson-13-teaching-01-before.html",
+      "bytes": 913,
+      "sha256": "bb57e218fd3427fb8aa6fd673a10ea9f93b1bd0b7d76e921c287abf8e4e9ef4e"
+    },
+    {
+      "path": "sourcebindings/lesson-13-teaching-02-before.html",
+      "bytes": 703,
+      "sha256": "7893ac5f499705cc55eca6044a3dd04b8cfcd11e6bb5f9630eb16953e7f5010a"
+    },
+    {
+      "path": "sourcebindings/lesson-13-teaching-03-before.html",
+      "bytes": 1069,
+      "sha256": "64391063d06084c459bd4f50951490b4433a8f707428a9d9cd81b5c4efa8e7a2"
+    }
+  ],
+  "chapter": 11,
+  "deliveryCopy": true
+}

@@ -1,0 +1,787 @@
+[
+  {
+    "term": "sensory receptor",
+    "meaning": "A specialized cell or nerve ending that detects a particular type of stimulus.",
+    "example": "A rod in the retina responds to light.",
+    "confusion": "A receptor detects a stimulus; it does not decide what the stimulus means.",
+    "aliases": [],
+    "id": "ch12-word-sensory-receptor",
+    "lesson": 1,
+    "whatItDoes": "Detects a particular stimulus and changes its signalling so the nervous system can receive information about it.",
+    "feature": "Detects a particular stimulus and changes its signalling so the nervous system can receive information about it.",
+    "importantDistinction": "A receptor detects a stimulus; it does not decide what the stimulus means."
+  },
+  {
+    "term": "sensory reception",
+    "meaning": "The detection of a stimulus by a sensory receptor.",
+    "example": "Light reaches a photoreceptor in the eye.",
+    "confusion": "Reception occurs at the receptor, before conscious interpretation.",
+    "aliases": [],
+    "id": "ch12-word-sensory-reception",
+    "lesson": 1,
+    "whatItDoes": "Begins the sensory process when a receptor detects a stimulus.",
+    "feature": "Begins the sensory process when a receptor detects a stimulus.",
+    "importantDistinction": "Reception occurs at the receptor, before conscious interpretation."
+  },
+  {
+    "term": "sensation",
+    "meaning": "The conscious experience of sensory input after it reaches the brain.",
+    "example": "You become aware of a sound.",
+    "confusion": "Sensation and the meaning assigned to it are related but distinguishable.",
+    "aliases": [],
+    "id": "ch12-word-sensation",
+    "lesson": 1,
+    "whatItDoes": "Makes sensory input part of conscious experience when the brain processes it.",
+    "feature": "Makes sensory input part of conscious experience when the brain processes it.",
+    "importantDistinction": "Sensation and the meaning assigned to it are related but distinguishable."
+  },
+  {
+    "term": "perception",
+    "meaning": "The brain’s interpretation of sensory information.",
+    "example": "You recognize a sound as the school bell.",
+    "confusion": "Two people can interpret the same event differently.",
+    "aliases": [],
+    "id": "ch12-word-perception",
+    "lesson": 1,
+    "whatItDoes": "Gives meaning to sensory information, such as recognizing a sound as a familiar voice.",
+    "feature": "Gives meaning to sensory information, such as recognizing a sound as a familiar voice.",
+    "importantDistinction": "Two people can interpret the same event differently."
+  },
+  {
+    "term": "sensory adaptation",
+    "meaning": "Reduced responsiveness to a stimulus that remains relatively constant.",
+    "example": "The feeling of a watch strap becomes less noticeable.",
+    "confusion": "A constant stimulus has not necessarily disappeared.",
+    "aliases": [],
+    "id": "ch12-word-sensory-adaptation",
+    "lesson": 1,
+    "whatItDoes": "Reduces responsiveness to a continuing stimulus, helping changes stand out.",
+    "feature": "Reduces responsiveness to a continuing stimulus, helping changes stand out.",
+    "importantDistinction": "A constant stimulus has not necessarily disappeared."
+  },
+  {
+    "term": "transduction",
+    "meaning": "Conversion of stimulus energy into a change that the nervous system can signal.",
+    "example": "A hair cell changes its electrical activity when its projections bend.",
+    "confusion": "Light itself does not travel along the optic nerve.",
+    "aliases": [],
+    "id": "ch12-word-transduction",
+    "lesson": 1,
+    "whatItDoes": "Changes stimulus energy into electrical or chemical signalling rather than sending light or sound itself along a nerve.",
+    "feature": "Changes stimulus energy into electrical or chemical signalling rather than sending light or sound itself along a nerve.",
+    "importantDistinction": "Light itself does not travel along the optic nerve."
+  },
+  {
+    "term": "photoreceptor",
+    "meaning": "A sensory receptor that responds to light.",
+    "example": "Rods and cones in the retina.",
+    "confusion": "Photoreceptors are not the same as the lens, which focuses light.",
+    "aliases": [],
+    "id": "ch12-word-photoreceptor",
+    "lesson": 1,
+    "whatItDoes": "Detects light through changes in light-sensitive molecules and cell signalling.",
+    "feature": "Detects light through changes in light-sensitive molecules and cell signalling.",
+    "importantDistinction": "Photoreceptors are not the same as the lens, which focuses light."
+  },
+  {
+    "term": "chemoreceptor",
+    "meaning": "A sensory receptor that responds to particular chemicals.",
+    "example": "Taste receptors respond to dissolved substances.",
+    "confusion": "Not every receptor responds to chemicals from the outside world.",
+    "aliases": [],
+    "id": "ch12-word-chemoreceptor",
+    "lesson": 1,
+    "whatItDoes": "Responds when particular chemicals interact with it or their concentration changes.",
+    "feature": "Responds when particular chemicals interact with it or their concentration changes.",
+    "importantDistinction": "Not every receptor responds to chemicals from the outside world."
+  },
+  {
+    "term": "mechanoreceptor",
+    "meaning": "A sensory receptor that responds to force, movement, pressure or stretching.",
+    "example": "Hair cells in the inner ear respond to movement.",
+    "confusion": "Hearing receptors respond to mechanical movement, not light.",
+    "aliases": [],
+    "id": "ch12-word-mechanoreceptor",
+    "lesson": 1,
+    "whatItDoes": "Changes its signalling when pressure, stretching, vibration or other movement affects it.",
+    "feature": "Changes its signalling when pressure, stretching, vibration or other movement affects it.",
+    "importantDistinction": "Hearing receptors respond to mechanical movement, not light."
+  },
+  {
+    "term": "thermoreceptor",
+    "meaning": "A sensory receptor that responds to temperature.",
+    "example": "Temperature receptors in the skin detect cooling.",
+    "confusion": "Temperature sensation depends on the receptor’s recent conditions, too.",
+    "aliases": [],
+    "id": "ch12-word-thermoreceptor",
+    "lesson": 1,
+    "whatItDoes": "Provides information about temperature changes.",
+    "feature": "Provides information about temperature changes.",
+    "importantDistinction": "Temperature sensation depends on the receptor’s recent conditions, too."
+  },
+  {
+    "term": "cornea",
+    "meaning": "The transparent front surface of the eye that refracts incoming light.",
+    "example": "Light bends as it enters through the cornea.",
+    "confusion": "The cornea is not the coloured iris.",
+    "aliases": [],
+    "id": "ch12-word-cornea",
+    "lesson": 2,
+    "whatItDoes": "Bends incoming light and provides much of the eye’s focusing power.",
+    "feature": "Bends incoming light and provides much of the eye’s focusing power.",
+    "importantDistinction": "The cornea is not the coloured iris."
+  },
+  {
+    "term": "sclera",
+    "meaning": "The tough outer coat that protects and supports the eyeball.",
+    "example": "The white part of the visible eye is sclera.",
+    "confusion": "The sclera does not contain the rods and cones.",
+    "aliases": [],
+    "id": "ch12-word-sclera",
+    "lesson": 2,
+    "whatItDoes": "Protects the eyeball and helps maintain its shape.",
+    "feature": "Protects the eyeball and helps maintain its shape.",
+    "importantDistinction": "The sclera does not contain the rods and cones."
+  },
+  {
+    "term": "choroid",
+    "meaning": "A pigmented, blood-rich layer between the sclera and retina.",
+    "example": "Its pigment helps absorb stray light.",
+    "confusion": "The choroid is a supporting layer, not the photoreceptor layer.",
+    "aliases": [],
+    "id": "ch12-word-choroid",
+    "lesson": 2,
+    "whatItDoes": "Supplies tissues through blood vessels and absorbs stray light with its pigment.",
+    "feature": "Supplies tissues through blood vessels and absorbs stray light with its pigment.",
+    "importantDistinction": "The choroid is a supporting layer, not the photoreceptor layer."
+  },
+  {
+    "term": "iris",
+    "meaning": "The coloured ring of muscle that controls pupil diameter.",
+    "example": "In bright light the pupil becomes smaller as iris muscles act.",
+    "confusion": "The iris is tissue; the pupil is an opening.",
+    "aliases": [],
+    "id": "ch12-word-iris",
+    "lesson": 2,
+    "whatItDoes": "Changes pupil diameter to control how much light enters the eye.",
+    "feature": "Changes pupil diameter to control how much light enters the eye.",
+    "importantDistinction": "The iris is tissue; the pupil is an opening."
+  },
+  {
+    "term": "pupil",
+    "meaning": "The opening in the iris through which light enters.",
+    "example": "The pupil looks dark because relatively little light returns through it.",
+    "confusion": "A pupil is not a small lens.",
+    "aliases": [],
+    "id": "ch12-word-pupil",
+    "lesson": 2,
+    "whatItDoes": "Allows light to pass through the opening in the iris.",
+    "feature": "Allows light to pass through the opening in the iris.",
+    "importantDistinction": "A pupil is not a small lens."
+  },
+  {
+    "term": "lens",
+    "meaning": "A transparent, flexible structure that adjusts focus on the retina.",
+    "example": "Its shape changes when you look from far away to nearby.",
+    "confusion": "The lens is not the only structure that refracts light.",
+    "aliases": [],
+    "id": "ch12-word-lens",
+    "lesson": 2,
+    "whatItDoes": "Changes shape to adjust the focus of near and distant objects on the retina.",
+    "feature": "Changes shape to adjust the focus of near and distant objects on the retina.",
+    "importantDistinction": "The lens is not the only structure that refracts light."
+  },
+  {
+    "term": "aqueous humour",
+    "meaning": "The clear watery fluid in the front part of the eye.",
+    "example": "It nourishes the cornea and lens.",
+    "confusion": "It is different from the gel behind the lens.",
+    "aliases": [
+      "aqueous humor"
+    ],
+    "id": "ch12-word-aqueous-humour",
+    "lesson": 2,
+    "whatItDoes": "Provides nutrients to the cornea and lens and helps support the front of the eye while allowing light through.",
+    "feature": "Provides nutrients to the cornea and lens and helps support the front of the eye while allowing light through.",
+    "importantDistinction": "It is different from the gel behind the lens."
+  },
+  {
+    "term": "vitreous humour",
+    "meaning": "The clear gel in the large cavity behind the lens.",
+    "example": "It helps support the eye’s shape.",
+    "confusion": "It is not the fluid in front of the lens.",
+    "aliases": [
+      "vitreous humor"
+    ],
+    "id": "ch12-word-vitreous-humour",
+    "lesson": 2,
+    "whatItDoes": "Helps support the eye and maintain its shape while allowing light to reach the retina.",
+    "feature": "Helps support the eye and maintain its shape while allowing light to reach the retina.",
+    "importantDistinction": "It is not the fluid in front of the lens."
+  },
+  {
+    "term": "retina",
+    "meaning": "The light-sensitive inner layer containing photoreceptors and other nerve cells.",
+    "example": "Light reaching the retina can change rod and cone activity.",
+    "confusion": "The retina receives focused light; the lens does the focusing.",
+    "aliases": [],
+    "id": "ch12-word-retina",
+    "lesson": 2,
+    "whatItDoes": "Detects light and begins processing visual information through its photoreceptors and other neurons.",
+    "feature": "Detects light and begins processing visual information through its photoreceptors and other neurons.",
+    "importantDistinction": "The retina receives focused light; the lens does the focusing."
+  },
+  {
+    "term": "refraction",
+    "meaning": "Bending of light as it passes between materials.",
+    "example": "The cornea refracts light entering the eye.",
+    "confusion": "Refraction is not the conversion of light into nerve signals.",
+    "aliases": [],
+    "id": "ch12-word-refraction",
+    "lesson": 2,
+    "whatItDoes": "Changes the direction of light, allowing the cornea and lens to focus it on the retina.",
+    "feature": "Changes the direction of light, allowing the cornea and lens to focus it on the retina.",
+    "importantDistinction": "Refraction is not the conversion of light into nerve signals."
+  },
+  {
+    "term": "accommodation",
+    "meaning": "Adjustment of lens shape to focus on objects at different distances.",
+    "example": "The lens becomes rounder for a nearby object.",
+    "confusion": "Accommodation changes focus, not pupil diameter.",
+    "aliases": [],
+    "id": "ch12-word-accommodation",
+    "lesson": 3,
+    "whatItDoes": "Keeps objects at different distances in focus by changing lens shape.",
+    "feature": "Keeps objects at different distances in focus by changing lens shape.",
+    "importantDistinction": "Accommodation changes focus, not pupil diameter."
+  },
+  {
+    "term": "ciliary muscle",
+    "meaning": "A ring of muscle that changes the tension on the lens-supporting ligaments.",
+    "example": "Contraction reduces ligament tension for near focus.",
+    "confusion": "Contracting the ciliary muscle does not pull the lens flatter.",
+    "aliases": [],
+    "id": "ch12-word-ciliary-muscle",
+    "lesson": 3,
+    "whatItDoes": "Changes the pull of the suspensory ligaments. Contraction reduces their tension, allowing the lens to become rounder.",
+    "feature": "Changes the pull of the suspensory ligaments. Contraction reduces their tension, allowing the lens to become rounder.",
+    "importantDistinction": "Contracting the ciliary muscle does not pull the lens flatter."
+  },
+  {
+    "term": "suspensory ligaments",
+    "meaning": "Fibres connecting the lens to the ciliary region.",
+    "example": "Taut ligaments pull the lens into a flatter shape.",
+    "confusion": "They transmit tension; they are not the contracting muscle.",
+    "aliases": [
+      "suspensory ligament"
+    ],
+    "id": "ch12-word-suspensory-ligaments",
+    "lesson": 3,
+    "whatItDoes": "Transmit a pull to the lens. Greater tension flattens it; reduced tension lets it become rounder.",
+    "feature": "Transmit a pull to the lens. Greater tension flattens it; reduced tension lets it become rounder.",
+    "importantDistinction": "They transmit tension; they are not the contracting muscle."
+  },
+  {
+    "term": "myopia",
+    "meaning": "A focusing condition in which distant light focuses in front of the retina.",
+    "example": "Distant objects are blurred; a concave lens can help.",
+    "confusion": "Myopia is nearsightedness, not inability to see nearby objects.",
+    "aliases": [
+      "nearsightedness"
+    ],
+    "id": "ch12-word-myopia",
+    "lesson": 3,
+    "whatItDoes": "Causes distant objects to be blurred when their light focuses in front of the retina.",
+    "feature": "Causes distant objects to be blurred when their light focuses in front of the retina.",
+    "importantDistinction": "Myopia is nearsightedness, not inability to see nearby objects."
+  },
+  {
+    "term": "hyperopia",
+    "meaning": "A focusing condition in which near images tend to focus behind the retina because the eye does not bend light enough.",
+    "example": "A convex corrective lens increases converging power.",
+    "confusion": "Hyperopia is not the same as a cloudy lens.",
+    "aliases": [
+      "farsightedness"
+    ],
+    "id": "ch12-word-hyperopia",
+    "lesson": 3,
+    "whatItDoes": "Makes near focusing difficult when the eye does not bend light enough to focus it on the retina.",
+    "feature": "Makes near focusing difficult when the eye does not bend light enough to focus it on the retina.",
+    "importantDistinction": "Hyperopia is not the same as a cloudy lens."
+  },
+  {
+    "term": "astigmatism",
+    "meaning": "Unequal focusing in different directions caused by irregular curvature of the cornea or lens.",
+    "example": "A specially shaped corrective lens can improve the focus.",
+    "confusion": "Not every blur is caused by a long or short eyeball.",
+    "aliases": [],
+    "id": "ch12-word-astigmatism",
+    "lesson": 3,
+    "whatItDoes": "Produces uneven focus because the cornea or lens has uneven curvature.",
+    "feature": "Produces uneven focus because the cornea or lens has uneven curvature.",
+    "importantDistinction": "Not every blur is caused by a long or short eyeball."
+  },
+  {
+    "term": "cataract",
+    "meaning": "Clouding of the eye’s lens that interferes with light transmission.",
+    "example": "A cloudy lens prevents a clear image.",
+    "confusion": "A cataract is not the same as glaucoma.",
+    "aliases": [],
+    "id": "ch12-word-cataract",
+    "lesson": 3,
+    "whatItDoes": "Interferes with clear light transmission because the lens is cloudy.",
+    "feature": "Interferes with clear light transmission because the lens is cloudy.",
+    "importantDistinction": "A cataract is not the same as glaucoma."
+  },
+  {
+    "term": "rod",
+    "meaning": "A photoreceptor especially sensitive in dim light.",
+    "example": "Rods help detect shapes in low illumination.",
+    "confusion": "Rods do not support colour discrimination.",
+    "aliases": [],
+    "id": "ch12-word-rod",
+    "lesson": 4,
+    "whatItDoes": "Supports vision at low light levels without providing colour discrimination.",
+    "feature": "Supports vision at low light levels without providing colour discrimination.",
+    "importantDistinction": "Rods do not support colour discrimination."
+  },
+  {
+    "term": "cone",
+    "meaning": "A photoreceptor supporting colour and fine detail in brighter light.",
+    "example": "Cones allow detailed reading in good light.",
+    "confusion": "Cones are not found only at the fovea; their density is greatest there.",
+    "aliases": [],
+    "id": "ch12-word-cone",
+    "lesson": 4,
+    "whatItDoes": "Supports colour vision and fine visual detail in brighter light.",
+    "feature": "Supports colour vision and fine visual detail in brighter light.",
+    "importantDistinction": "Cones are not found only at the fovea; their density is greatest there."
+  },
+  {
+    "term": "fovea centralis",
+    "meaning": "The central retinal region with many cones that provides especially sharp vision.",
+    "example": "Looking directly at a word places its image near the fovea.",
+    "confusion": "The fovea is not the blind spot.",
+    "aliases": [
+      "fovea"
+    ],
+    "id": "ch12-word-fovea-centralis",
+    "lesson": 2,
+    "whatItDoes": "Provides especially sharp central vision through its dense concentration of cones.",
+    "feature": "Provides especially sharp central vision through its dense concentration of cones.",
+    "importantDistinction": "The fovea is not the blind spot."
+  },
+  {
+    "term": "blind spot",
+    "meaning": "The optic-disc location without rods or cones where nerve fibres leave the eye.",
+    "example": "An image falling entirely on the optic disc is not detected there.",
+    "confusion": "A healthy blind spot is not the same as damage across the retina.",
+    "aliases": [
+      "optic disc"
+    ],
+    "id": "ch12-word-blind-spot",
+    "lesson": 2,
+    "whatItDoes": "Cannot detect light because no rods or cones are present where the optic nerve leaves the retina.",
+    "feature": "Cannot detect light because no rods or cones are present where the optic nerve leaves the retina.",
+    "importantDistinction": "A healthy blind spot is not the same as damage across the retina."
+  },
+  {
+    "term": "bipolar cell",
+    "meaning": "A retinal neuron linking photoreceptors with ganglion-cell pathways.",
+    "example": "A bipolar cell passes changes in retinal signalling onward.",
+    "confusion": "Its axon is not the main fibre forming the optic nerve.",
+    "aliases": [],
+    "id": "ch12-word-bipolar-cell",
+    "lesson": 4,
+    "whatItDoes": "Passes information from photoreceptors into ganglion-cell pathways.",
+    "feature": "Passes information from photoreceptors into ganglion-cell pathways.",
+    "importantDistinction": "Its axon is not the main fibre forming the optic nerve."
+  },
+  {
+    "term": "ganglion cell",
+    "meaning": "A retinal neuron whose axon contributes to the optic nerve.",
+    "example": "Ganglion cells send action potentials toward the brain.",
+    "confusion": "Rods and cones do not extend all the way to the brain.",
+    "aliases": [],
+    "id": "ch12-word-ganglion-cell",
+    "lesson": 4,
+    "whatItDoes": "Sends action potentials along an axon that becomes part of the optic nerve.",
+    "feature": "Sends action potentials along an axon that becomes part of the optic nerve.",
+    "importantDistinction": "Rods and cones do not extend all the way to the brain."
+  },
+  {
+    "term": "rhodopsin",
+    "meaning": "A light-sensitive rod pigment containing opsin and retinal, a vitamin A derivative.",
+    "example": "Light changes the pigment and initiates rod transduction.",
+    "confusion": "Rhodopsin is not simply another name for vitamin A.",
+    "aliases": [],
+    "id": "ch12-word-rhodopsin",
+    "lesson": 4,
+    "whatItDoes": "Absorbs light in rods and starts changes in photoreceptor signalling.",
+    "feature": "Absorbs light in rods and starts changes in photoreceptor signalling.",
+    "importantDistinction": "Rhodopsin is not simply another name for vitamin A."
+  },
+  {
+    "term": "optic nerve",
+    "meaning": "A bundle of nerve fibres carrying visual information away from the retina.",
+    "example": "Signals move through the optic nerve toward visual-processing pathways.",
+    "confusion": "The optic nerve carries neural information, not incoming light. The ganglion-cell origin of its fibres is explained in the retina lesson.",
+    "aliases": [],
+    "id": "ch12-word-optic-nerve",
+    "lesson": 2,
+    "whatItDoes": "Carries neural information from the retina toward visual pathways in the brain.",
+    "feature": "Carries neural information from the retina toward visual pathways in the brain.",
+    "importantDistinction": "The optic nerve carries neural information, not incoming light. The ganglion-cell origin of its fibres is explained in the retina lesson."
+  },
+  {
+    "term": "pinna",
+    "meaning": "The visible outer-ear flap that helps collect and direct sound.",
+    "example": "The pinna directs sound into the auditory canal.",
+    "confusion": "The pinna does not contain the hearing hair cells.",
+    "aliases": [
+      "auricle"
+    ],
+    "id": "ch12-word-pinna",
+    "lesson": 5,
+    "whatItDoes": "Collects sound and helps direct it into the auditory canal.",
+    "feature": "Collects sound and helps direct it into the auditory canal.",
+    "importantDistinction": "The pinna does not contain the hearing hair cells."
+  },
+  {
+    "term": "auditory canal",
+    "meaning": "The passage carrying sound toward the tympanum.",
+    "example": "Sound travels along the canal to the eardrum.",
+    "confusion": "It is not the Eustachian tube.",
+    "aliases": [
+      "ear canal"
+    ],
+    "id": "ch12-word-auditory-canal",
+    "lesson": 5,
+    "whatItDoes": "Directs sound toward the eardrum and helps protect the ear from foreign material.",
+    "feature": "Directs sound toward the eardrum and helps protect the ear from foreign material.",
+    "importantDistinction": "It is not the Eustachian tube."
+  },
+  {
+    "term": "tympanum",
+    "meaning": "The eardrum, which vibrates in response to sound pressure.",
+    "example": "Its movement transfers energy to the ossicles.",
+    "confusion": "It is a membrane, not one of the three bones.",
+    "aliases": [
+      "eardrum",
+      "tympanic membrane"
+    ],
+    "id": "ch12-word-tympanum",
+    "lesson": 5,
+    "whatItDoes": "Vibrates when sound-pressure waves arrive and passes movement to the ossicles.",
+    "feature": "Vibrates when sound-pressure waves arrive and passes movement to the ossicles.",
+    "importantDistinction": "It is a membrane, not one of the three bones."
+  },
+  {
+    "term": "ossicles",
+    "meaning": "The malleus, incus and stapes: three bones of the middle ear.",
+    "example": "The stapes transfers vibration to the oval window.",
+    "confusion": "They transmit vibration, not action potentials.",
+    "aliases": [],
+    "id": "ch12-word-ossicles",
+    "lesson": 5,
+    "whatItDoes": "Transmit and concentrate vibration from the eardrum to the oval window.",
+    "feature": "Transmit and concentrate vibration from the eardrum to the oval window.",
+    "importantDistinction": "They transmit vibration, not action potentials."
+  },
+  {
+    "term": "oval window",
+    "meaning": "The membrane-covered opening where stapes movement transfers energy into inner-ear fluid.",
+    "example": "The stapes moves against the oval window.",
+    "confusion": "The oval window is different from the pressure-relieving round window.",
+    "aliases": [],
+    "id": "ch12-word-oval-window",
+    "lesson": 5,
+    "whatItDoes": "Transfers movement from the stapes into pressure waves in the cochlear fluid.",
+    "feature": "Transfers movement from the stapes into pressure waves in the cochlear fluid.",
+    "importantDistinction": "The oval window is different from the pressure-relieving round window."
+  },
+  {
+    "term": "cochlea",
+    "meaning": "The coiled inner-ear structure containing the hearing apparatus.",
+    "example": "Mechanical waves move through cochlear fluid.",
+    "confusion": "The semicircular canals do not perform the cochlea’s hearing function.",
+    "aliases": [],
+    "id": "ch12-word-cochlea",
+    "lesson": 5,
+    "whatItDoes": "Contains the fluid, membranes and sensory structures that allow hearing transduction.",
+    "feature": "Contains the fluid, membranes and sensory structures that allow hearing transduction.",
+    "importantDistinction": "The semicircular canals do not perform the cochlea’s hearing function."
+  },
+  {
+    "term": "organ of Corti",
+    "meaning": "The sensory organ for hearing on the basilar membrane in the cochlea.",
+    "example": "Its hair cells transduce mechanical movement.",
+    "confusion": "It contains supporting structures as well as hair cells.",
+    "aliases": [],
+    "id": "ch12-word-organ-of-corti",
+    "lesson": 5,
+    "whatItDoes": "Contains hearing hair cells whose projections bend during movement within the cochlea.",
+    "feature": "Contains hearing hair cells whose projections bend during movement within the cochlea.",
+    "importantDistinction": "It contains supporting structures as well as hair cells."
+  },
+  {
+    "term": "basilar membrane",
+    "meaning": "A cochlear membrane whose vibration moves the hearing apparatus.",
+    "example": "Its motion helps bend hair-cell stereocilia relative to surrounding structures.",
+    "confusion": "It is not the eardrum.",
+    "aliases": [],
+    "id": "ch12-word-basilar-membrane",
+    "lesson": 5,
+    "whatItDoes": "Moves in response to cochlear pressure waves, helping bend hair-cell projections.",
+    "feature": "Moves in response to cochlear pressure waves, helping bend hair-cell projections.",
+    "importantDistinction": "It is not the eardrum."
+  },
+  {
+    "term": "Eustachian tube",
+    "meaning": "A passage linking the middle ear with the throat region to help equalize air pressure.",
+    "example": "Opening this tube can equalize pressure across the eardrum.",
+    "confusion": "It is not the normal route of sound to the cochlea.",
+    "aliases": [
+      "auditory tube"
+    ],
+    "id": "ch12-word-eustachian-tube",
+    "lesson": 5,
+    "whatItDoes": "Helps equalize pressure across the eardrum so that it can move properly.",
+    "feature": "Helps equalize pressure across the eardrum so that it can move properly.",
+    "importantDistinction": "It is not the normal route of sound to the cochlea."
+  },
+  {
+    "term": "frequency",
+    "meaning": "The number of wave cycles per second, measured in hertz.",
+    "example": "A higher-frequency tone is perceived as higher pitch.",
+    "confusion": "Frequency is different from amplitude.",
+    "aliases": [],
+    "id": "ch12-word-frequency",
+    "lesson": 6,
+    "whatItDoes": "Describes how many wave cycles occur each second; it is closely related to pitch.",
+    "feature": "Describes how many wave cycles occur each second; it is closely related to pitch.",
+    "importantDistinction": "Frequency is different from amplitude."
+  },
+  {
+    "term": "amplitude",
+    "meaning": "The size of a wave’s oscillation; in sound it relates to intensity.",
+    "example": "Increasing amplitude generally makes a sound louder.",
+    "confusion": "A louder sound does not necessarily have a higher pitch.",
+    "aliases": [],
+    "id": "ch12-word-amplitude",
+    "lesson": 6,
+    "whatItDoes": "Describes the size of a sound-pressure change; greater amplitude is generally heard as greater loudness.",
+    "feature": "Describes the size of a sound-pressure change; greater amplitude is generally heard as greater loudness.",
+    "importantDistinction": "A louder sound does not necessarily have a higher pitch."
+  },
+  {
+    "term": "pitch",
+    "meaning": "The perceptual quality associated mainly with sound frequency.",
+    "example": "A whistle has a higher pitch than a low tuba note.",
+    "confusion": "Pitch is not the same as loudness.",
+    "aliases": [],
+    "id": "ch12-word-pitch",
+    "lesson": 6,
+    "whatItDoes": "Describes how high or low a sound is heard; it depends mainly on frequency.",
+    "feature": "Describes how high or low a sound is heard; it depends mainly on frequency.",
+    "importantDistinction": "Pitch is not the same as loudness."
+  },
+  {
+    "term": "conductive hearing loss",
+    "meaning": "Hearing impairment involving reduced transmission through the outer or middle ear.",
+    "example": "An ossicle problem reduces transfer to the oval window.",
+    "confusion": "The problem need not involve damaged auditory neurons.",
+    "aliases": [
+      "conduction deafness"
+    ],
+    "id": "ch12-word-conductive-hearing-loss",
+    "lesson": 6,
+    "whatItDoes": "Reduces the effective transmission of sound through the outer or middle ear.",
+    "feature": "Reduces the effective transmission of sound through the outer or middle ear.",
+    "importantDistinction": "The problem need not involve damaged auditory neurons."
+  },
+  {
+    "term": "sensorineural hearing loss",
+    "meaning": "Hearing impairment involving inner-ear sensory cells or neural pathways.",
+    "example": "Damage to cochlear hair cells can reduce hearing.",
+    "confusion": "Amplification does not regrow damaged hair cells.",
+    "aliases": [
+      "nerve deafness"
+    ],
+    "id": "ch12-word-sensorineural-hearing-loss",
+    "lesson": 6,
+    "whatItDoes": "Reduces hearing because hair cells, nerve fibres or related neural pathways are damaged.",
+    "feature": "Reduces hearing because hair cells, nerve fibres or related neural pathways are damaged.",
+    "importantDistinction": "Amplification does not regrow damaged hair cells."
+  },
+  {
+    "term": "cochlear implant",
+    "meaning": "A device that can provide electrical stimulation to the auditory nerve in selected cases.",
+    "example": "It can bypass damaged hair-cell function.",
+    "confusion": "It does not rebuild a natural cochlea or guarantee typical hearing.",
+    "aliases": [],
+    "id": "ch12-word-cochlear-implant",
+    "lesson": 6,
+    "whatItDoes": "Can bypass damaged hair-cell transduction by providing electrical stimulation to auditory nerve fibres.",
+    "feature": "Can bypass damaged hair-cell transduction by providing electrical stimulation to auditory nerve fibres.",
+    "importantDistinction": "It does not rebuild a natural cochlea or guarantee typical hearing."
+  },
+  {
+    "term": "semicircular canals",
+    "meaning": "Three inner-ear loops that detect changes in rotational head movement.",
+    "example": "Turning your head changes fluid movement relative to a canal.",
+    "confusion": "They are not the main detectors of a sustained head tilt relative to gravity.",
+    "aliases": [],
+    "id": "ch12-word-semicircular-canals",
+    "lesson": 7,
+    "whatItDoes": "Detect changes in head rotation through relative fluid movement that bends the cupula and hair-cell projections.",
+    "feature": "Detect changes in head rotation through relative fluid movement that bends the cupula and hair-cell projections.",
+    "importantDistinction": "They are not the main detectors of a sustained head tilt relative to gravity."
+  },
+  {
+    "term": "ampulla",
+    "meaning": "The enlarged region of a semicircular canal containing its sensory apparatus.",
+    "example": "Hair-cell projections extend into a cupula in the ampulla.",
+    "confusion": "The ampulla is not the cochlea.",
+    "aliases": [],
+    "id": "ch12-word-ampulla",
+    "lesson": 7,
+    "whatItDoes": "Houses the cupula and sensory hair cells at an enlarged part of a semicircular canal.",
+    "feature": "Houses the cupula and sensory hair cells at an enlarged part of a semicircular canal.",
+    "importantDistinction": "The ampulla is not the cochlea."
+  },
+  {
+    "term": "cupula",
+    "meaning": "The gelatinous structure over hair cells in a semicircular-canal ampulla.",
+    "example": "Relative fluid movement deflects the cupula.",
+    "confusion": "Otolith crystals are not normally embedded in this cupula.",
+    "aliases": [],
+    "id": "ch12-word-cupula",
+    "lesson": 7,
+    "whatItDoes": "Bends with relative fluid movement, bending hair-cell projections during changes in head rotation.",
+    "feature": "Bends with relative fluid movement, bending hair-cell projections during changes in head rotation.",
+    "importantDistinction": "Otolith crystals are not normally embedded in this cupula."
+  },
+  {
+    "term": "utricle",
+    "meaning": "An otolith organ responding to head position and linear acceleration, especially in the horizontal plane.",
+    "example": "Starting forward in a car stimulates utricular pathways.",
+    "confusion": "It is not one of the three semicircular canals.",
+    "aliases": [],
+    "id": "ch12-word-utricle",
+    "lesson": 7,
+    "whatItDoes": "Detects head position relative to gravity and especially horizontal straight-line acceleration.",
+    "feature": "Detects head position relative to gravity and especially horizontal straight-line acceleration.",
+    "importantDistinction": "It is not one of the three semicircular canals."
+  },
+  {
+    "term": "saccule",
+    "meaning": "An otolith organ responding to head position and linear acceleration, especially vertically.",
+    "example": "Starting upward in a lift stimulates saccular pathways.",
+    "confusion": "The saccule does not convert sound in the organ of Corti.",
+    "aliases": [],
+    "id": "ch12-word-saccule",
+    "lesson": 7,
+    "whatItDoes": "Detects head position relative to gravity and especially vertical straight-line acceleration.",
+    "feature": "Detects head position relative to gravity and especially vertical straight-line acceleration.",
+    "importantDistinction": "The saccule does not convert sound in the organ of Corti."
+  },
+  {
+    "term": "otoliths",
+    "meaning": "Small calcium-carbonate particles that weight the sensory membrane in the otolith organs.",
+    "example": "Their inertia and response to gravity help bend hair-cell projections.",
+    "confusion": "They belong to an otolithic membrane, not the semicircular-canal cupula.",
+    "aliases": [
+      "otoconia"
+    ],
+    "id": "ch12-word-otoliths",
+    "lesson": 7,
+    "whatItDoes": "Add weight to the otolithic membrane, helping gravity and linear acceleration shift it relative to hair cells.",
+    "feature": "Add weight to the otolithic membrane, helping gravity and linear acceleration shift it relative to hair cells.",
+    "importantDistinction": "They belong to an otolithic membrane, not the semicircular-canal cupula."
+  },
+  {
+    "term": "proprioceptor",
+    "meaning": "A receptor providing information about body position and movement from muscles, tendons or joints.",
+    "example": "You can sense an elbow’s position without watching it.",
+    "confusion": "The inner ear is not the only source of position information.",
+    "aliases": [],
+    "id": "ch12-word-proprioceptor",
+    "lesson": 7,
+    "whatItDoes": "Provides information about muscle, tendon or joint position and movement.",
+    "feature": "Provides information about muscle, tendon or joint position and movement.",
+    "importantDistinction": "The inner ear is not the only source of position information."
+  },
+  {
+    "term": "taste bud",
+    "meaning": "A structure containing taste receptor cells.",
+    "example": "Dissolved substances reach receptor cells in taste buds.",
+    "confusion": "Taste buds are not restricted to a rigid sweet/salty map.",
+    "aliases": [],
+    "id": "ch12-word-taste-bud",
+    "lesson": 8,
+    "whatItDoes": "Houses receptor cells that respond to chemicals dissolved in saliva.",
+    "feature": "Houses receptor cells that respond to chemicals dissolved in saliva.",
+    "importantDistinction": "Taste buds are not restricted to a rigid sweet/salty map."
+  },
+  {
+    "term": "umami",
+    "meaning": "A basic taste associated with glutamate and related savoury compounds.",
+    "example": "A savoury broth can stimulate umami receptors.",
+    "confusion": "Umami is a taste category, not an area of the tongue.",
+    "aliases": [],
+    "id": "ch12-word-umami",
+    "lesson": 8,
+    "whatItDoes": "Describes the savoury basic taste associated with certain dissolved chemicals, including glutamate.",
+    "feature": "Describes the savoury basic taste associated with certain dissolved chemicals, including glutamate.",
+    "importantDistinction": "Umami is a taste category, not an area of the tongue."
+  },
+  {
+    "term": "olfactory receptor",
+    "meaning": "A sensory receptor in the nasal region that responds to odour molecules.",
+    "example": "Dissolved odour molecules stimulate olfactory receptors.",
+    "confusion": "A smell does not have to match only one receptor type.",
+    "aliases": [],
+    "id": "ch12-word-olfactory-receptor",
+    "lesson": 8,
+    "whatItDoes": "Responds to odour molecules and starts signalling toward the olfactory bulb.",
+    "feature": "Responds to odour molecules and starts signalling toward the olfactory bulb.",
+    "importantDistinction": "A smell does not have to match only one receptor type."
+  },
+  {
+    "term": "olfactory bulb",
+    "meaning": "A brain structure receiving early olfactory input from receptor neurons.",
+    "example": "Signals from the nasal sensory region reach the olfactory bulb.",
+    "confusion": "The olfactory bulb is not a taste bud.",
+    "aliases": [],
+    "id": "ch12-word-olfactory-bulb",
+    "lesson": 8,
+    "whatItDoes": "Receives input from olfactory receptor neurons and passes smell information onward.",
+    "feature": "Receives input from olfactory receptor neurons and passes smell information onward.",
+    "importantDistinction": "The olfactory bulb is not a taste bud."
+  },
+  {
+    "term": "receptive field",
+    "meaning": "The region where stimulation can influence the activity of a particular sensory neuron.",
+    "example": "Small receptive fields help distinguish nearby touches.",
+    "confusion": "Receptor density alone is not the whole explanation of touch acuity.",
+    "aliases": [],
+    "id": "ch12-word-receptive-field",
+    "lesson": 8,
+    "whatItDoes": "Identifies the region where stimulation can influence a particular sensory neuron.",
+    "feature": "Identifies the region where stimulation can influence a particular sensory neuron.",
+    "importantDistinction": "Receptor density alone is not the whole explanation of touch acuity."
+  },
+  {
+    "term": "nociceptor",
+    "meaning": "A sensory receptor responding to potentially damaging conditions.",
+    "example": "Strong mechanical or thermal stimulation can activate nociceptors.",
+    "confusion": "Pain is a brain experience, not a substance carried in a nerve.",
+    "aliases": [],
+    "id": "ch12-word-nociceptor",
+    "lesson": 8,
+    "whatItDoes": "Detects potentially damaging mechanical, thermal or chemical conditions.",
+    "feature": "Detects potentially damaging mechanical, thermal or chemical conditions.",
+    "importantDistinction": "Pain is a brain experience, not a substance carried in a nerve."
+  }
+]

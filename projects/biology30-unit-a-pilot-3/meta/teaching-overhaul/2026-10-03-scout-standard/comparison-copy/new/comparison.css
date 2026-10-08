@@ -1,0 +1,18 @@
+
+.evaluation-switch{padding:12px 20px;border-bottom:1px solid #d9ded8;font-size:14px;line-height:1.5;background:#eef3ee}
+.evaluation-switch a{font-weight:700;margin-inline-start:16px}
+.pro-practice>h3:first-child,.pro-teaching>h2:first-child{margin-top:0}
+.pro-practice .pro-response{margin:24px 0}
+.pro-response label{display:block;font-weight:700;margin-bottom:12px}
+.pro-response textarea{display:block;width:100%;min-height:140px;margin:0 0 12px}
+.pro-practice details{margin:22px 0;border-block:1px solid #d9ded8;padding:0 18px}
+.pro-practice summary{padding:14px 0;color:#154212;font-weight:760;cursor:pointer}
+.pro-practice details[open]>summary{margin-bottom:14px}
+.pro-table-wrap{overflow-x:auto;margin:24px 0}.pro-table-wrap table{border-collapse:collapse;width:100%;min-width:540px}
+.pro-table-wrap td,.pro-table-wrap th{padding:12px;border:1px solid #d9ded8;text-align:left;vertical-align:top}
+.pro-table-wrap th{background:#eef3ee}
+.pro-flow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:12px;align-items:center}
+.pro-flow-node{display:grid;gap:8px;padding:18px;border:1px solid #d9ded8;background:#eef3ee}
+.pro-flow-cns{border:2px dashed #146c60}.pro-flow-arrow{font-size:24px}
+@media(max-width:650px){.pro-flow{grid-template-columns:1fr}.pro-flow-arrow{transform:rotate(90deg);text-align:center}}
+@media print{.evaluation-switch{display:none}}

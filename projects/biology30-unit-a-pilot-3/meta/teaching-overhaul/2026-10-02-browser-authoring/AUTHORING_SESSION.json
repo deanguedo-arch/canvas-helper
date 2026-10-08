@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 1,
+  "startedDate": "2026-10-02",
+  "projectSlug": "biology30-unit-a-pilot-3",
+  "sourceRevision": "ecc1b806630cb33b9942e64eb676a1f8568c007e",
+  "sourceTreeSha256": "0e89c19b8db652abffc5a8837e084b7e84eb30be888057c8ccdf2e2efe33ba52",
+  "sourceHandoffZipSha256": "f703248ab924586b832224f570b538adfe2ef6788eb53f77aec7bf17f80c2a18",
+  "browser": {
+    "name": "Chrome",
+    "project": "BIOLOGY 30 COURSE CREATION",
+    "url": "https://chatgpt.com/g/g-p-6aaaa691bcac8191b7230604e7011382-biology-30-course-creation/c/6abfef2d-8c70-83e8-9002-93f346dcc111",
+    "conversationTitle": "Codex Biology Lesson Prompt",
+    "initialModelDisplay": "6 Pro",
+    "selectedModelMenuValue": "Latest",
+    "selectedPowerDisplay": "Extra High",
+    "selectedPowerPosition": "4 of 5",
+    "reasoningEvidence": "Visible accessibility Power control changed from Pro, 5 of 5 to Extra High, 4 of 5 with the documented Left-arrow action. Latest model-menu selection was not changed. Pro and Extra High are separate presets; no simultaneous Pro plus Extra High claim.",
+    "usedApiAuthoringService": false
+  },
+  "attachments": {
+    "manifest": "ATTACHMENT_MANIFEST.json",
+    "count": 9,
+    "uploadVerified": true,
+    "verification": "All nine composer chips present, upload progress indicators gone and Send enabled. Submitted message displays seven file cards plus two image attachments."
+  },
+  "steps": [
+    {
+      "id": "01-progression",
+      "prompt": "prompts/01-progression-v1.md",
+      "submitted": true,
+      "visibleSubmissionTime": "Today 4:55 PM",
+      "status": "response-downloaded-and-reviewed",
+      "evidence": "evidence/01-progression-request-running.jpg",
+      "response": "responses/CH11_First_Batch_Progression_v1.md",
+      "responseBytes": 52184,
+      "responseSha256": "4ad152a9ebeffb750a78baa71a54965fb34480bec98884b2bc9f4090794797dd",
+      "review": "PROGRESSION_REVIEW.md; proceed to manuscripts with listed constraints, not teacher acceptance",
+      "downloadEvidence": "Visible Download file action completed to Downloads. Browser download-event notification timed out; actual complete 52184-byte local file independently read and preserved."
+    },
+    {
+      "id": "02-complete-manuscripts",
+      "prompt": "prompts/02-complete-manuscripts-v1.md",
+      "submitted": true,
+      "submissionObservedByUtc": "2026-10-02 23:16:51 UTC",
+      "status": "response-downloaded-and-reviewed-revisions-required",
+      "evidence": "evidence/02-manuscripts-returned-v1.jpg",
+      "response": "responses/CH11_First_Batch_Authoring_Draft_v1.zip",
+      "responseBytes": 37129,
+      "responseSha256": "059ace05a633f8388f7732cb76306c714d30fecce6c161b4742c7bba5ad42c66",
+      "completeFiles": "responses/v1/ — three full lesson manuscripts and one source/assets/integration map",
+      "archiveVerification": "Four flat Markdown entries; unzip CRC test passed",
+      "review": "MANUSCRIPT_REVIEW_V1.md — complete lead read; targeted corrections required; not teacher accepted"
+    },
+    {
+      "id": "03-targeted-revisions",
+      "prompt": "prompts/03-targeted-revisions-v2.md",
+      "submitted": true,
+      "submissionObservedByUtc": "2026-10-02 23:38:16 UTC",
+      "status": "response-downloaded-and-reviewed-ready-for-dean",
+      "evidence": "evidence/03-revisions-request-running.jpg",
+      "attachmentVerification": "Long revision prompt became Pasted text.txt; upload indicator disappeared and Send was enabled before submission. Submitted file card and responding status confirmed.",
+      "response": "responses/CH11_First_Batch_Authoring_Draft_v2.zip",
+      "responseBytes": 42111,
+      "responseSha256": "0bc6740baff68af926ce12b7bd6431b17b628b9502c7b3159edf0c8f5600049c",
+      "downloadObservedByUtc": "2026-10-02 23:45:34 UTC",
+      "returnedEvidence": "evidence/04-manuscripts-returned-v2.jpg",
+      "completeFiles": "responses/v2/ — three full lesson manuscripts and one source/assets/integration map",
+      "archiveVerification": "Exactly four complete Markdown entries; archive CRC passed; hashes recorded in RESPONSE_VERSIONS.json",
+      "review": "MANUSCRIPT_REVIEW_V2.md — all four complete files independently read; ready for Dean content review, not teacher acceptance"
+    }
+  ],
+  "lessons": [
+    {"id": "lesson-01", "title": "Nervous communication", "sourceReady": true, "authored": true, "contentReviewed": true, "contentReviewDecision": "v2 ready for Dean teaching review", "teacherAccepted": false, "integrated": false, "technicallyTested": false},
+    {"id": "lesson-02", "title": "Neurons & myelin", "sourceReady": true, "authored": true, "contentReviewed": true, "contentReviewDecision": "v2 ready for Dean teaching review", "teacherAccepted": false, "integrated": false, "technicallyTested": false},
+    {"id": "lesson-03", "title": "Pathways & reflexes", "sourceReady": true, "authored": true, "contentReviewed": true, "contentReviewDecision": "v2 ready for Dean teaching review", "teacherAccepted": false, "integrated": false, "technicallyTested": false}
+  ],
+  "nextCalibration": {"chapter": 19, "lessonId": "lesson-04", "title": "Calculating expected genotype frequencies", "status": "not-started", "gate": "Dean approval of first-batch teaching standard"},
+  "courseChangesStarted": false,
+  "releaseActionsStarted": false,
+  "reviewEntry": "REVIEW_START_HERE.md",
+  "htmlReview": {
+    "entry": "index.html",
+    "role": "derived read-only manuscript preview; not integrated learner content",
+    "renderer": "scripts/render-biology30-teaching-review.mjs",
+    "manifest": "HTML_REVIEW_MANIFEST.json",
+    "staticVerification": "Five pages; three complete learner texts unchanged; four immutable source hashes matched; 62 local links/assets checked; 16 native learner disclosures; no active scripts or learner fields",
+    "browserRenderedInspection": "blocked by file URL security policy; not passed"
+  },
+  "workingEvaluationCopy": {
+    "entry": "working-copy/index.html#lesson-01",
+    "url": "http://127.0.0.1:57000/index.html#lesson-01",
+    "manifest": "WORKING_COPY_MANIFEST.json",
+    "builder": "scripts/build-biology30-teaching-working-copy.mjs",
+    "server": "scripts/serve-biology30-teaching-working-copy.mjs",
+    "authorization": "Dean requested a working copy of the three lessons to evaluate; this is prototype integration only, not content approval or a production change",
+    "copyIntegrated": true,
+    "productionIntegrated": false,
+    "teacherAccepted": false,
+    "localSaveNamespace": "biology30-ch11:teaching-evaluation:2026-10-02:v2",
+    "lmsConnection": "disabled in evaluation copy only",
+    "textFidelity": "Complete learner wording preserved for all three manuscripts; native question prompts, IDs and limits retained",
+    "sourceProtection": "183 canonical workspace file hashes and native runtime hash unchanged; 183 evaluation output hashes matched",
+    "browserChecks": "All three lesson routes; native Work Sans / Hanken Grotesk fonts; bold clickable vocabulary and popup; textbook page-372 modal; one keyboard hint; required written response Start / Save / reload / Finish / All My Work; no captured delivery-page console errors",
+    "testData": "One clearly labelled evaluation-only response retained in the separate test origin http://127.0.0.1:56880; test server stopped. Delivery origin 57000 verified fresh with 0 of 12 checks and no started check; no data deleted",
+    "serverChecks": "Loopback-only exact-file allowlist; required asset responses and PDF byte range passed; traversal/non-candidate file requests return 404 and writes return 405",
+    "evidence": "evidence/06-working-copy-fresh-evaluation.jpg",
+    "deferred": "Full accessibility/mobile/Studio, complete learner regression, print/PDF, LMS, packaging and deployment proof; new media specifications and teacher science/teaching acceptance remain separate"
+  },
+  "responseVersions": "RESPONSE_VERSIONS.json",
+  "finalSourcePreservation": {"observedUtc": "2026-10-02 23:49:50 UTC", "checkedFiles": 1876, "changedFiles": 0, "scope": "frozen source-before protection snapshot; not learner interaction/LMS testing"},
+  "teacherApproval": null
+}

@@ -1,0 +1,3722 @@
+{
+  "schemaVersion": 1,
+  "bankVersion": "2026.09.14.1",
+  "generatorVersion": "1.1.0",
+  "lessons": [
+    {
+      "id": "lesson-01",
+      "label": "Nervous communication",
+      "optional": false
+    },
+    {
+      "id": "lesson-02",
+      "label": "Neurons & myelin",
+      "optional": false
+    },
+    {
+      "id": "lesson-03",
+      "label": "Pathways & reflexes",
+      "optional": false
+    },
+    {
+      "id": "lesson-04",
+      "label": "The resting neuron",
+      "optional": false
+    },
+    {
+      "id": "lesson-05",
+      "label": "Action potentials",
+      "optional": false
+    },
+    {
+      "id": "lesson-06",
+      "label": "Synapses & summation",
+      "optional": false
+    },
+    {
+      "id": "lesson-07",
+      "label": "Drugs at the synapse",
+      "optional": false
+    },
+    {
+      "id": "lesson-08",
+      "label": "Peripheral control",
+      "optional": false
+    },
+    {
+      "id": "lesson-09",
+      "label": "Central control",
+      "optional": false
+    },
+    {
+      "id": "lesson-10",
+      "label": "The brain",
+      "optional": false
+    },
+    {
+      "id": "lesson-11",
+      "label": "Studying the brain",
+      "optional": false
+    },
+    {
+      "id": "lesson-12",
+      "label": "Chapter review and final check",
+      "optional": false
+    },
+    {
+      "id": "lesson-13",
+      "label": "Stress, experience and addiction (optional)",
+      "optional": true
+    }
+  ],
+  "concepts": [
+    {
+      "id": "communication-pathway",
+      "lessonId": "lesson-01",
+      "term": "communication pathway",
+      "definition": "receptor → sensory neuron → central nervous system → motor neuron → effector",
+      "scenario": "A response begins when a receptor detects a change.",
+      "misconception": "The brain is the first structure in every nervous-system response.",
+      "sequence": [
+        "receptor",
+        "sensory neuron",
+        "central nervous system",
+        "motor neuron",
+        "effector"
+      ],
+      "answers": [
+        "communication pathway"
+      ],
+      "aliases": [],
+      "relationships": [
+        "receptor",
+        "sensory neuron",
+        "central nervous system",
+        "motor neuron",
+        "effector"
+      ],
+      "contrast": [
+        "receptor → sensory neuron → central nervous system → motor neuron → effector",
+        "The brain is the first structure in every nervous-system response."
+      ],
+      "cue": "Trace where communication pathway belongs in the lesson mechanism or example.",
+      "explanation": "communication pathway: receptor → sensory neuron → central nervous system → motor neuron → effector",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 367"
+      ],
+      "mcVariants": [
+        {
+          "id": "term",
+          "skill": "recognize",
+          "difficulty": 1,
+          "prompt": "Which term best matches this description: receptor → sensory neuron → central nervous system → motor neuron → effector?",
+          "answer": "communication pathway",
+          "optionSource": "terms"
+        },
+        {
+          "id": "function",
+          "skill": "relate",
+          "difficulty": 2,
+          "prompt": "Which statement best describes communication pathway?",
+          "answer": "receptor → sensory neuron → central nervous system → motor neuron → effector",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "scenario",
+          "skill": "apply",
+          "difficulty": 3,
+          "prompt": "Which concept best explains this situation? A response begins when a receptor detects a change.",
+          "answer": "communication pathway",
+          "optionSource": "terms"
+        },
+        {
+          "id": "correction",
+          "skill": "misconception",
+          "difficulty": 3,
+          "prompt": "Which statement correctly replaces this inaccurate idea: “The brain is the first structure in every nervous-system response.”",
+          "answer": "receptor → sensory neuron → central nervous system → motor neuron → effector",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "sequence-start",
+          "skill": "sequence",
+          "difficulty": 1,
+          "prompt": "Which event begins the communication pathway sequence?",
+          "answer": "receptor",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-next",
+          "skill": "sequence",
+          "difficulty": 2,
+          "prompt": "In the communication pathway sequence, what follows receptor?",
+          "answer": "sensory neuron",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-end",
+          "skill": "integrate",
+          "difficulty": 4,
+          "prompt": "Which event completes the communication pathway sequence?",
+          "answer": "effector",
+          "optionSource": "sequence"
+        }
+      ]
+    },
+    {
+      "id": "sensory-motor-direction",
+      "lessonId": "lesson-01",
+      "term": "sensory and motor direction",
+      "definition": "sensory neurons carry information toward the CNS; motor neurons carry commands away",
+      "scenario": "Touching a hot surface sends sensory input inward before motor output reaches muscle.",
+      "misconception": "Sensory and motor neurons carry signals in the same direction.",
+      "sequence": [
+        "receptor",
+        "sensory neuron",
+        "CNS",
+        "motor neuron",
+        "muscle"
+      ],
+      "answers": [
+        "sensory and motor direction"
+      ],
+      "aliases": [],
+      "relationships": [
+        "receptor",
+        "sensory neuron",
+        "CNS",
+        "motor neuron",
+        "muscle"
+      ],
+      "contrast": [
+        "sensory neurons carry information toward the CNS; motor neurons carry commands away",
+        "Sensory and motor neurons carry signals in the same direction."
+      ],
+      "cue": "Trace where sensory and motor direction belongs in the lesson mechanism or example.",
+      "explanation": "sensory and motor direction: sensory neurons carry information toward the CNS; motor neurons carry commands away",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 371"
+      ],
+      "mcVariants": [
+        {
+          "id": "term",
+          "skill": "recognize",
+          "difficulty": 1,
+          "prompt": "Which term best matches this description: sensory neurons carry information toward the CNS; motor neurons carry commands away?",
+          "answer": "sensory and motor direction",
+          "optionSource": "terms"
+        },
+        {
+          "id": "function",
+          "skill": "relate",
+          "difficulty": 2,
+          "prompt": "Which statement best describes sensory and motor direction?",
+          "answer": "sensory neurons carry information toward the CNS; motor neurons carry commands away",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "scenario",
+          "skill": "apply",
+          "difficulty": 3,
+          "prompt": "Which concept best explains this situation? Touching a hot surface sends sensory input inward before motor output reaches muscle.",
+          "answer": "sensory and motor direction",
+          "optionSource": "terms"
+        },
+        {
+          "id": "correction",
+          "skill": "misconception",
+          "difficulty": 3,
+          "prompt": "Which statement correctly replaces this inaccurate idea: “Sensory and motor neurons carry signals in the same direction.”",
+          "answer": "sensory neurons carry information toward the CNS; motor neurons carry commands away",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "sequence-start",
+          "skill": "sequence",
+          "difficulty": 1,
+          "prompt": "Which event begins the sensory and motor direction sequence?",
+          "answer": "receptor",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-next",
+          "skill": "sequence",
+          "difficulty": 2,
+          "prompt": "In the sensory and motor direction sequence, what follows receptor?",
+          "answer": "sensory neuron",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-end",
+          "skill": "integrate",
+          "difficulty": 4,
+          "prompt": "Which event completes the sensory and motor direction sequence?",
+          "answer": "muscle",
+          "optionSource": "sequence"
+        }
+      ]
+    },
+    {
+      "id": "nervous-system-purpose",
+      "lessonId": "lesson-01",
+      "term": "nervous-system communication",
+      "definition": "rapid detection, integration and coordinated response",
+      "scenario": "A sudden sound is detected and a response can begin within moments.",
+      "misconception": "The nervous system only controls voluntary movement.",
+      "sequence": [
+        "stimulus",
+        "detection",
+        "integration",
+        "response"
+      ],
+      "answers": [
+        "nervous-system communication"
+      ],
+      "aliases": [],
+      "relationships": [
+        "stimulus",
+        "detection",
+        "integration",
+        "response"
+      ],
+      "contrast": [
+        "rapid detection, integration and coordinated response",
+        "The nervous system only controls voluntary movement."
+      ],
+      "cue": "Trace where nervous-system communication belongs in the lesson mechanism or example.",
+      "explanation": "nervous-system communication: rapid detection, integration and coordinated response",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 367"
+      ],
+      "mcVariants": [
+        {
+          "id": "term",
+          "skill": "recognize",
+          "difficulty": 1,
+          "prompt": "Which term best matches this description: rapid detection, integration and coordinated response?",
+          "answer": "nervous-system communication",
+          "optionSource": "terms"
+        },
+        {
+          "id": "function",
+          "skill": "relate",
+          "difficulty": 2,
+          "prompt": "Which statement best describes nervous-system communication?",
+          "answer": "rapid detection, integration and coordinated response",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "scenario",
+          "skill": "apply",
+          "difficulty": 3,
+          "prompt": "Which concept best explains this situation? A sudden sound is detected and a response can begin within moments.",
+          "answer": "nervous-system communication",
+          "optionSource": "terms"
+        },
+        {
+          "id": "correction",
+          "skill": "misconception",
+          "difficulty": 3,
+          "prompt": "Which statement correctly replaces this inaccurate idea: “The nervous system only controls voluntary movement.”",
+          "answer": "rapid detection, integration and coordinated response",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "sequence-start",
+          "skill": "sequence",
+          "difficulty": 1,
+          "prompt": "Which event begins the nervous-system communication sequence?",
+          "answer": "stimulus",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-next",
+          "skill": "sequence",
+          "difficulty": 2,
+          "prompt": "In the nervous-system communication sequence, what follows stimulus?",
+          "answer": "detection",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-end",
+          "skill": "integrate",
+          "difficulty": 4,
+          "prompt": "Which event completes the nervous-system communication sequence?",
+          "answer": "response",
+          "optionSource": "sequence"
+        }
+      ]
+    },
+    {
+      "id": "neuron-parts",
+      "lessonId": "lesson-02",
+      "term": "neuron structure",
+      "definition": "dendrites receive, the cell body maintains the cell, and the axon carries signals away",
+      "scenario": "Damage to an axon can interrupt output from an otherwise intact cell body.",
+      "misconception": "Dendrites normally carry impulses away from the cell body.",
+      "sequence": [
+        "dendrites",
+        "cell body",
+        "axon",
+        "axon terminals"
+      ],
+      "answers": [
+        "neuron structure"
+      ],
+      "aliases": [],
+      "relationships": [
+        "dendrites",
+        "cell body",
+        "axon",
+        "axon terminals"
+      ],
+      "contrast": [
+        "dendrites receive, the cell body maintains the cell, and the axon carries signals away",
+        "Dendrites normally carry impulses away from the cell body."
+      ],
+      "cue": "Trace where neuron structure belongs in the lesson mechanism or example.",
+      "explanation": "neuron structure: dendrites receive, the cell body maintains the cell, and the axon carries signals away",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 372"
+      ],
+      "mcVariants": [
+        {
+          "id": "term",
+          "skill": "recognize",
+          "difficulty": 1,
+          "prompt": "Which term best matches this description: dendrites receive, the cell body maintains the cell, and the axon carries signals away?",
+          "answer": "neuron structure",
+          "optionSource": "terms"
+        },
+        {
+          "id": "function",
+          "skill": "relate",
+          "difficulty": 2,
+          "prompt": "Which statement best describes neuron structure?",
+          "answer": "dendrites receive, the cell body maintains the cell, and the axon carries signals away",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "scenario",
+          "skill": "apply",
+          "difficulty": 3,
+          "prompt": "Which concept best explains this situation? Damage to an axon can interrupt output from an otherwise intact cell body.",
+          "answer": "neuron structure",
+          "optionSource": "terms"
+        },
+        {
+          "id": "correction",
+          "skill": "misconception",
+          "difficulty": 3,
+          "prompt": "Which statement correctly replaces this inaccurate idea: “Dendrites normally carry impulses away from the cell body.”",
+          "answer": "dendrites receive, the cell body maintains the cell, and the axon carries signals away",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "sequence-start",
+          "skill": "sequence",
+          "difficulty": 1,
+          "prompt": "Which event begins the neuron structure sequence?",
+          "answer": "dendrites",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-next",
+          "skill": "sequence",
+          "difficulty": 2,
+          "prompt": "In the neuron structure sequence, what follows dendrites?",
+          "answer": "cell body",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-end",
+          "skill": "integrate",
+          "difficulty": 4,
+          "prompt": "Which event completes the neuron structure sequence?",
+          "answer": "axon terminals",
+          "optionSource": "sequence"
+        }
+      ]
+    },
+    {
+      "id": "myelin",
+      "lessonId": "lesson-02",
+      "term": "myelin sheath",
+      "definition": "insulation around many axons that speeds conduction",
+      "scenario": "Loss of myelin can slow or disrupt communication along an axon.",
+      "misconception": "Myelin is the electrical signal inside an axon.",
+      "sequence": [
+        "axon",
+        "myelin segment",
+        "node of Ranvier",
+        "next myelin segment"
+      ],
+      "answers": [
+        "myelin sheath"
+      ],
+      "aliases": [],
+      "relationships": [
+        "axon",
+        "myelin segment",
+        "node of Ranvier",
+        "next myelin segment"
+      ],
+      "contrast": [
+        "insulation around many axons that speeds conduction",
+        "Myelin is the electrical signal inside an axon."
+      ],
+      "cue": "Trace where myelin sheath belongs in the lesson mechanism or example.",
+      "explanation": "myelin sheath: insulation around many axons that speeds conduction",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 372"
+      ],
+      "mcVariants": [
+        {
+          "id": "term",
+          "skill": "recognize",
+          "difficulty": 1,
+          "prompt": "Which term best matches this description: insulation around many axons that speeds conduction?",
+          "answer": "myelin sheath",
+          "optionSource": "terms"
+        },
+        {
+          "id": "function",
+          "skill": "relate",
+          "difficulty": 2,
+          "prompt": "Which statement best describes myelin sheath?",
+          "answer": "insulation around many axons that speeds conduction",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "scenario",
+          "skill": "apply",
+          "difficulty": 3,
+          "prompt": "Which concept best explains this situation? Loss of myelin can slow or disrupt communication along an axon.",
+          "answer": "myelin sheath",
+          "optionSource": "terms"
+        },
+        {
+          "id": "correction",
+          "skill": "misconception",
+          "difficulty": 3,
+          "prompt": "Which statement correctly replaces this inaccurate idea: “Myelin is the electrical signal inside an axon.”",
+          "answer": "insulation around many axons that speeds conduction",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "sequence-start",
+          "skill": "sequence",
+          "difficulty": 1,
+          "prompt": "Which event begins the myelin sheath sequence?",
+          "answer": "axon",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-next",
+          "skill": "sequence",
+          "difficulty": 2,
+          "prompt": "In the myelin sheath sequence, what follows axon?",
+          "answer": "myelin segment",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-end",
+          "skill": "integrate",
+          "difficulty": 4,
+          "prompt": "Which event completes the myelin sheath sequence?",
+          "answer": "next myelin segment",
+          "optionSource": "sequence"
+        }
+      ]
+    },
+    {
+      "id": "cell-body",
+      "lessonId": "lesson-02",
+      "term": "cell body",
+      "definition": "the neuron region containing the nucleus and most organelles",
+      "scenario": "A neuron still needs its cell body to maintain cellular functions.",
+      "misconception": "The cell body is the gap between myelin segments.",
+      "sequence": [
+        "dendrite",
+        "cell body",
+        "axon"
+      ],
+      "answers": [
+        "cell body"
+      ],
+      "aliases": [],
+      "relationships": [
+        "dendrite",
+        "cell body",
+        "axon"
+      ],
+      "contrast": [
+        "the neuron region containing the nucleus and most organelles",
+        "The cell body is the gap between myelin segments."
+      ],
+      "cue": "Trace where cell body belongs in the lesson mechanism or example.",
+      "explanation": "cell body: the neuron region containing the nucleus and most organelles",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 372"
+      ],
+      "mcVariants": [
+        {
+          "id": "term",
+          "skill": "recognize",
+          "difficulty": 1,
+          "prompt": "Which term best matches this description: the neuron region containing the nucleus and most organelles?",
+          "answer": "cell body",
+          "optionSource": "terms"
+        },
+        {
+          "id": "function",
+          "skill": "relate",
+          "difficulty": 2,
+          "prompt": "Which statement best describes cell body?",
+          "answer": "the neuron region containing the nucleus and most organelles",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "scenario",
+          "skill": "apply",
+          "difficulty": 3,
+          "prompt": "Which concept best explains this situation? A neuron still needs its cell body to maintain cellular functions.",
+          "answer": "cell body",
+          "optionSource": "terms"
+        },
+        {
+          "id": "correction",
+          "skill": "misconception",
+          "difficulty": 3,
+          "prompt": "Which statement correctly replaces this inaccurate idea: “The cell body is the gap between myelin segments.”",
+          "answer": "the neuron region containing the nucleus and most organelles",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "sequence-start",
+          "skill": "sequence",
+          "difficulty": 1,
+          "prompt": "Which event begins the cell body sequence?",
+          "answer": "dendrite",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-next",
+          "skill": "sequence",
+          "difficulty": 2,
+          "prompt": "In the cell body sequence, what follows dendrite?",
+          "answer": "cell body",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-end",
+          "skill": "integrate",
+          "difficulty": 4,
+          "prompt": "Which event completes the cell body sequence?",
+          "answer": "axon",
+          "optionSource": "sequence"
+        }
+      ]
+    },
+    {
+      "id": "reflex-arc",
+      "lessonId": "lesson-03",
+      "term": "reflex arc",
+      "definition": "a rapid pathway from receptor through sensory and integrating neurons to a motor neuron and effector",
+      "scenario": "Withdrawal from a sharp object can begin through a spinal pathway before conscious awareness.",
+      "misconception": "Every reflex requires a conscious decision before muscles respond.",
+      "sequence": [
+        "receptor",
+        "sensory neuron",
+        "interneuron",
+        "motor neuron",
+        "effector"
+      ],
+      "answers": [
+        "reflex arc"
+      ],
+      "aliases": [],
+      "relationships": [
+        "receptor",
+        "sensory neuron",
+        "interneuron",
+        "motor neuron",
+        "effector"
+      ],
+      "contrast": [
+        "a rapid pathway from receptor through sensory and integrating neurons to a motor neuron and effector",
+        "Every reflex requires a conscious decision before muscles respond."
+      ],
+      "cue": "Trace where reflex arc belongs in the lesson mechanism or example.",
+      "explanation": "reflex arc: a rapid pathway from receptor through sensory and integrating neurons to a motor neuron and effector",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 370"
+      ],
+      "mcVariants": [
+        {
+          "id": "term",
+          "skill": "recognize",
+          "difficulty": 1,
+          "prompt": "Which term best matches this description: a rapid pathway from receptor through sensory and integrating neurons to a motor neuron and effector?",
+          "answer": "reflex arc",
+          "optionSource": "terms"
+        },
+        {
+          "id": "function",
+          "skill": "relate",
+          "difficulty": 2,
+          "prompt": "Which statement best describes reflex arc?",
+          "answer": "a rapid pathway from receptor through sensory and integrating neurons to a motor neuron and effector",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "scenario",
+          "skill": "apply",
+          "difficulty": 3,
+          "prompt": "Which concept best explains this situation? Withdrawal from a sharp object can begin through a spinal pathway before conscious awareness.",
+          "answer": "reflex arc",
+          "optionSource": "terms"
+        },
+        {
+          "id": "correction",
+          "skill": "misconception",
+          "difficulty": 3,
+          "prompt": "Which statement correctly replaces this inaccurate idea: “Every reflex requires a conscious decision before muscles respond.”",
+          "answer": "a rapid pathway from receptor through sensory and integrating neurons to a motor neuron and effector",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "sequence-start",
+          "skill": "sequence",
+          "difficulty": 1,
+          "prompt": "Which event begins the reflex arc sequence?",
+          "answer": "receptor",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-next",
+          "skill": "sequence",
+          "difficulty": 2,
+          "prompt": "In the reflex arc sequence, what follows receptor?",
+          "answer": "sensory neuron",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-end",
+          "skill": "integrate",
+          "difficulty": 4,
+          "prompt": "Which event completes the reflex arc sequence?",
+          "answer": "effector",
+          "optionSource": "sequence"
+        }
+      ]
+    },
+    {
+      "id": "interneuron",
+      "lessonId": "lesson-03",
+      "term": "interneuron",
+      "definition": "a neuron within the CNS that connects and processes signals between neurons",
+      "scenario": "An interneuron can link sensory input with motor output in a withdrawal reflex.",
+      "misconception": "Interneurons carry commands from the CNS directly to muscles.",
+      "sequence": [
+        "sensory neuron",
+        "interneuron",
+        "motor neuron"
+      ],
+      "answers": [
+        "interneuron"
+      ],
+      "aliases": [],
+      "relationships": [
+        "sensory neuron",
+        "interneuron",
+        "motor neuron"
+      ],
+      "contrast": [
+        "a neuron within the CNS that connects and processes signals between neurons",
+        "Interneurons carry commands from the CNS directly to muscles."
+      ],
+      "cue": "Trace where interneuron belongs in the lesson mechanism or example.",
+      "explanation": "interneuron: a neuron within the CNS that connects and processes signals between neurons",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 371"
+      ],
+      "mcVariants": [
+        {
+          "id": "term",
+          "skill": "recognize",
+          "difficulty": 1,
+          "prompt": "Which term best matches this description: a neuron within the CNS that connects and processes signals between neurons?",
+          "answer": "interneuron",
+          "optionSource": "terms"
+        },
+        {
+          "id": "function",
+          "skill": "relate",
+          "difficulty": 2,
+          "prompt": "Which statement best describes interneuron?",
+          "answer": "a neuron within the CNS that connects and processes signals between neurons",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "scenario",
+          "skill": "apply",
+          "difficulty": 3,
+          "prompt": "Which concept best explains this situation? An interneuron can link sensory input with motor output in a withdrawal reflex.",
+          "answer": "interneuron",
+          "optionSource": "terms"
+        },
+        {
+          "id": "correction",
+          "skill": "misconception",
+          "difficulty": 3,
+          "prompt": "Which statement correctly replaces this inaccurate idea: “Interneurons carry commands from the CNS directly to muscles.”",
+          "answer": "a neuron within the CNS that connects and processes signals between neurons",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "sequence-start",
+          "skill": "sequence",
+          "difficulty": 1,
+          "prompt": "Which event begins the interneuron sequence?",
+          "answer": "sensory neuron",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-next",
+          "skill": "sequence",
+          "difficulty": 2,
+          "prompt": "In the interneuron sequence, what follows sensory neuron?",
+          "answer": "interneuron",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-end",
+          "skill": "integrate",
+          "difficulty": 4,
+          "prompt": "Which event completes the interneuron sequence?",
+          "answer": "motor neuron",
+          "optionSource": "sequence"
+        }
+      ]
+    },
+    {
+      "id": "reflex-purpose",
+      "lessonId": "lesson-03",
+      "term": "reflex response",
+      "definition": "a rapid, involuntary response that can reduce harm",
+      "scenario": "Pulling a hand away quickly limits continued contact with a harmful stimulus.",
+      "misconception": "A reflex never sends information to the brain.",
+      "sequence": [
+        "stimulus",
+        "spinal integration",
+        "muscle response",
+        "awareness"
+      ],
+      "answers": [
+        "reflex response"
+      ],
+      "aliases": [],
+      "relationships": [
+        "stimulus",
+        "spinal integration",
+        "muscle response",
+        "awareness"
+      ],
+      "contrast": [
+        "a rapid, involuntary response that can reduce harm",
+        "A reflex never sends information to the brain."
+      ],
+      "cue": "Trace where reflex response belongs in the lesson mechanism or example.",
+      "explanation": "reflex response: a rapid, involuntary response that can reduce harm",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 370"
+      ],
+      "mcVariants": [
+        {
+          "id": "term",
+          "skill": "recognize",
+          "difficulty": 1,
+          "prompt": "Which term best matches this description: a rapid, involuntary response that can reduce harm?",
+          "answer": "reflex response",
+          "optionSource": "terms"
+        },
+        {
+          "id": "function",
+          "skill": "relate",
+          "difficulty": 2,
+          "prompt": "Which statement best describes reflex response?",
+          "answer": "a rapid, involuntary response that can reduce harm",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "scenario",
+          "skill": "apply",
+          "difficulty": 3,
+          "prompt": "Which concept best explains this situation? Pulling a hand away quickly limits continued contact with a harmful stimulus.",
+          "answer": "reflex response",
+          "optionSource": "terms"
+        },
+        {
+          "id": "correction",
+          "skill": "misconception",
+          "difficulty": 3,
+          "prompt": "Which statement correctly replaces this inaccurate idea: “A reflex never sends information to the brain.”",
+          "answer": "a rapid, involuntary response that can reduce harm",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "sequence-start",
+          "skill": "sequence",
+          "difficulty": 1,
+          "prompt": "Which event begins the reflex response sequence?",
+          "answer": "stimulus",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-next",
+          "skill": "sequence",
+          "difficulty": 2,
+          "prompt": "In the reflex response sequence, what follows stimulus?",
+          "answer": "spinal integration",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-end",
+          "skill": "integrate",
+          "difficulty": 4,
+          "prompt": "Which event completes the reflex response sequence?",
+          "answer": "awareness",
+          "optionSource": "sequence"
+        }
+      ]
+    },
+    {
+      "id": "resting-potential",
+      "lessonId": "lesson-04",
+      "term": "resting membrane potential",
+      "definition": "a voltage difference across a resting neuron's membrane, with the inside negative relative to outside",
+      "scenario": "Ion gradients and selective permeability maintain a resting voltage before an impulse.",
+      "misconception": "A resting neuron has equal ion concentrations on both sides of its membrane.",
+      "sequence": [
+        "ion gradients",
+        "selective permeability",
+        "resting potential"
+      ],
+      "answers": [
+        "resting membrane potential"
+      ],
+      "aliases": [],
+      "relationships": [
+        "ion gradients",
+        "selective permeability",
+        "resting potential"
+      ],
+      "contrast": [
+        "a voltage difference across a resting neuron's membrane, with the inside negative relative to outside",
+        "A resting neuron has equal ion concentrations on both sides of its membrane."
+      ],
+      "cue": "Trace where resting membrane potential belongs in the lesson mechanism or example.",
+      "explanation": "resting membrane potential: a voltage difference across a resting neuron's membrane, with the inside negative relative to outside",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 374"
+      ],
+      "mcVariants": [
+        {
+          "id": "term",
+          "skill": "recognize",
+          "difficulty": 1,
+          "prompt": "Which term best matches this description: a voltage difference across a resting neuron's membrane, with the inside negative relative to outside?",
+          "answer": "resting membrane potential",
+          "optionSource": "terms"
+        },
+        {
+          "id": "function",
+          "skill": "relate",
+          "difficulty": 2,
+          "prompt": "Which statement best describes resting membrane potential?",
+          "answer": "a voltage difference across a resting neuron's membrane, with the inside negative relative to outside",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "scenario",
+          "skill": "apply",
+          "difficulty": 3,
+          "prompt": "Which concept best explains this situation? Ion gradients and selective permeability maintain a resting voltage before an impulse.",
+          "answer": "resting membrane potential",
+          "optionSource": "terms"
+        },
+        {
+          "id": "correction",
+          "skill": "misconception",
+          "difficulty": 3,
+          "prompt": "Which statement correctly replaces this inaccurate idea: “A resting neuron has equal ion concentrations on both sides of its membrane.”",
+          "answer": "a voltage difference across a resting neuron's membrane, with the inside negative relative to outside",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "sequence-start",
+          "skill": "sequence",
+          "difficulty": 1,
+          "prompt": "Which event begins the resting membrane potential sequence?",
+          "answer": "ion gradients",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-next",
+          "skill": "sequence",
+          "difficulty": 2,
+          "prompt": "In the resting membrane potential sequence, what follows ion gradients?",
+          "answer": "selective permeability",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-end",
+          "skill": "integrate",
+          "difficulty": 4,
+          "prompt": "Which event completes the resting membrane potential sequence?",
+          "answer": "resting potential",
+          "optionSource": "sequence"
+        }
+      ]
+    },
+    {
+      "id": "sodium-potassium-pump",
+      "lessonId": "lesson-04",
+      "term": "sodium–potassium pump",
+      "definition": "active transport that moves three Na+ out for every two K+ moved in",
+      "scenario": "ATP use helps maintain the ion gradients needed for electrical signalling.",
+      "misconception": "The sodium–potassium pump opens only during depolarization and uses no energy.",
+      "sequence": [
+        "ATP binding",
+        "3 Na+ out",
+        "2 K+ in",
+        "gradient maintained"
+      ],
+      "answers": [
+        "sodium–potassium pump"
+      ],
+      "aliases": [],
+      "relationships": [
+        "ATP binding",
+        "3 Na+ out",
+        "2 K+ in",
+        "gradient maintained"
+      ],
+      "contrast": [
+        "active transport that moves three Na+ out for every two K+ moved in",
+        "The sodium–potassium pump opens only during depolarization and uses no energy."
+      ],
+      "cue": "Trace where sodium–potassium pump belongs in the lesson mechanism or example.",
+      "explanation": "sodium–potassium pump: active transport that moves three Na+ out for every two K+ moved in",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 375"
+      ],
+      "mcVariants": [
+        {
+          "id": "term",
+          "skill": "recognize",
+          "difficulty": 1,
+          "prompt": "Which term best matches this description: active transport that moves three Na+ out for every two K+ moved in?",
+          "answer": "sodium–potassium pump",
+          "optionSource": "terms"
+        },
+        {
+          "id": "function",
+          "skill": "relate",
+          "difficulty": 2,
+          "prompt": "Which statement best describes sodium–potassium pump?",
+          "answer": "active transport that moves three Na+ out for every two K+ moved in",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "scenario",
+          "skill": "apply",
+          "difficulty": 3,
+          "prompt": "Which concept best explains this situation? ATP use helps maintain the ion gradients needed for electrical signalling.",
+          "answer": "sodium–potassium pump",
+          "optionSource": "terms"
+        },
+        {
+          "id": "correction",
+          "skill": "misconception",
+          "difficulty": 3,
+          "prompt": "Which statement correctly replaces this inaccurate idea: “The sodium–potassium pump opens only during depolarization and uses no energy.”",
+          "answer": "active transport that moves three Na+ out for every two K+ moved in",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "sequence-start",
+          "skill": "sequence",
+          "difficulty": 1,
+          "prompt": "Which event begins the sodium–potassium pump sequence?",
+          "answer": "ATP binding",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-next",
+          "skill": "sequence",
+          "difficulty": 2,
+          "prompt": "In the sodium–potassium pump sequence, what follows ATP binding?",
+          "answer": "3 Na+ out",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-end",
+          "skill": "integrate",
+          "difficulty": 4,
+          "prompt": "Which event completes the sodium–potassium pump sequence?",
+          "answer": "gradient maintained",
+          "optionSource": "sequence"
+        }
+      ]
+    },
+    {
+      "id": "selective-permeability",
+      "lessonId": "lesson-04",
+      "term": "selective permeability",
+      "definition": "the membrane allows some ions to cross more readily than others",
+      "scenario": "More K+ leak than Na+ leak contributes to the resting voltage.",
+      "misconception": "Selective permeability means every ion crosses at the same rate.",
+      "sequence": [
+        "ion gradient",
+        "selective channels",
+        "unequal movement",
+        "voltage difference"
+      ],
+      "answers": [
+        "selective permeability"
+      ],
+      "aliases": [],
+      "relationships": [
+        "ion gradient",
+        "selective channels",
+        "unequal movement",
+        "voltage difference"
+      ],
+      "contrast": [
+        "the membrane allows some ions to cross more readily than others",
+        "Selective permeability means every ion crosses at the same rate."
+      ],
+      "cue": "Trace where selective permeability belongs in the lesson mechanism or example.",
+      "explanation": "selective permeability: the membrane allows some ions to cross more readily than others",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 374"
+      ],
+      "mcVariants": [
+        {
+          "id": "term",
+          "skill": "recognize",
+          "difficulty": 1,
+          "prompt": "Which term best matches this description: the membrane allows some ions to cross more readily than others?",
+          "answer": "selective permeability",
+          "optionSource": "terms"
+        },
+        {
+          "id": "function",
+          "skill": "relate",
+          "difficulty": 2,
+          "prompt": "Which statement best describes selective permeability?",
+          "answer": "the membrane allows some ions to cross more readily than others",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "scenario",
+          "skill": "apply",
+          "difficulty": 3,
+          "prompt": "Which concept best explains this situation? More K+ leak than Na+ leak contributes to the resting voltage.",
+          "answer": "selective permeability",
+          "optionSource": "terms"
+        },
+        {
+          "id": "correction",
+          "skill": "misconception",
+          "difficulty": 3,
+          "prompt": "Which statement correctly replaces this inaccurate idea: “Selective permeability means every ion crosses at the same rate.”",
+          "answer": "the membrane allows some ions to cross more readily than others",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "sequence-start",
+          "skill": "sequence",
+          "difficulty": 1,
+          "prompt": "Which event begins the selective permeability sequence?",
+          "answer": "ion gradient",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-next",
+          "skill": "sequence",
+          "difficulty": 2,
+          "prompt": "In the selective permeability sequence, what follows ion gradient?",
+          "answer": "selective channels",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-end",
+          "skill": "integrate",
+          "difficulty": 4,
+          "prompt": "Which event completes the selective permeability sequence?",
+          "answer": "voltage difference",
+          "optionSource": "sequence"
+        }
+      ]
+    },
+    {
+      "id": "action-potential",
+      "lessonId": "lesson-05",
+      "term": "action potential",
+      "definition": "a rapid, all-or-none reversal and restoration of membrane potential",
+      "scenario": "Once threshold is reached, a full action potential propagates along the axon.",
+      "misconception": "A stronger stimulus creates a taller action potential in the same neuron.",
+      "sequence": [
+        "threshold",
+        "depolarization",
+        "repolarization",
+        "refractory period"
+      ],
+      "answers": [
+        "action potential"
+      ],
+      "aliases": [],
+      "relationships": [
+        "threshold",
+        "depolarization",
+        "repolarization",
+        "refractory period"
+      ],
+      "contrast": [
+        "a rapid, all-or-none reversal and restoration of membrane potential",
+        "A stronger stimulus creates a taller action potential in the same neuron."
+      ],
+      "cue": "Trace where action potential belongs in the lesson mechanism or example.",
+      "explanation": "action potential: a rapid, all-or-none reversal and restoration of membrane potential",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 377"
+      ],
+      "mcVariants": [
+        {
+          "id": "term",
+          "skill": "recognize",
+          "difficulty": 1,
+          "prompt": "Which term best matches this description: a rapid, all-or-none reversal and restoration of membrane potential?",
+          "answer": "action potential",
+          "optionSource": "terms"
+        },
+        {
+          "id": "function",
+          "skill": "relate",
+          "difficulty": 2,
+          "prompt": "Which statement best describes action potential?",
+          "answer": "a rapid, all-or-none reversal and restoration of membrane potential",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "scenario",
+          "skill": "apply",
+          "difficulty": 3,
+          "prompt": "Which concept best explains this situation? Once threshold is reached, a full action potential propagates along the axon.",
+          "answer": "action potential",
+          "optionSource": "terms"
+        },
+        {
+          "id": "correction",
+          "skill": "misconception",
+          "difficulty": 3,
+          "prompt": "Which statement correctly replaces this inaccurate idea: “A stronger stimulus creates a taller action potential in the same neuron.”",
+          "answer": "a rapid, all-or-none reversal and restoration of membrane potential",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "sequence-start",
+          "skill": "sequence",
+          "difficulty": 1,
+          "prompt": "Which event begins the action potential sequence?",
+          "answer": "threshold",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-next",
+          "skill": "sequence",
+          "difficulty": 2,
+          "prompt": "In the action potential sequence, what follows threshold?",
+          "answer": "depolarization",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-end",
+          "skill": "integrate",
+          "difficulty": 4,
+          "prompt": "Which event completes the action potential sequence?",
+          "answer": "refractory period",
+          "optionSource": "sequence"
+        }
+      ]
+    },
+    {
+      "id": "depolarization",
+      "lessonId": "lesson-05",
+      "term": "depolarization",
+      "definition": "the membrane potential becomes less negative as Na+ enters through voltage-gated channels",
+      "scenario": "Opening voltage-gated sodium channels drives the rising phase.",
+      "misconception": "Depolarization is caused mainly by K+ leaving the neuron.",
+      "sequence": [
+        "threshold",
+        "Na+ channels open",
+        "Na+ enters",
+        "potential rises"
+      ],
+      "answers": [
+        "depolarization"
+      ],
+      "aliases": [],
+      "relationships": [
+        "threshold",
+        "Na+ channels open",
+        "Na+ enters",
+        "potential rises"
+      ],
+      "contrast": [
+        "the membrane potential becomes less negative as Na+ enters through voltage-gated channels",
+        "Depolarization is caused mainly by K+ leaving the neuron."
+      ],
+      "cue": "Trace where depolarization belongs in the lesson mechanism or example.",
+      "explanation": "depolarization: the membrane potential becomes less negative as Na+ enters through voltage-gated channels",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 377"
+      ],
+      "mcVariants": [
+        {
+          "id": "term",
+          "skill": "recognize",
+          "difficulty": 1,
+          "prompt": "Which term best matches this description: the membrane potential becomes less negative as Na+ enters through voltage-gated channels?",
+          "answer": "depolarization",
+          "optionSource": "terms"
+        },
+        {
+          "id": "function",
+          "skill": "relate",
+          "difficulty": 2,
+          "prompt": "Which statement best describes depolarization?",
+          "answer": "the membrane potential becomes less negative as Na+ enters through voltage-gated channels",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "scenario",
+          "skill": "apply",
+          "difficulty": 3,
+          "prompt": "Which concept best explains this situation? Opening voltage-gated sodium channels drives the rising phase.",
+          "answer": "depolarization",
+          "optionSource": "terms"
+        },
+        {
+          "id": "correction",
+          "skill": "misconception",
+          "difficulty": 3,
+          "prompt": "Which statement correctly replaces this inaccurate idea: “Depolarization is caused mainly by K+ leaving the neuron.”",
+          "answer": "the membrane potential becomes less negative as Na+ enters through voltage-gated channels",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "sequence-start",
+          "skill": "sequence",
+          "difficulty": 1,
+          "prompt": "Which event begins the depolarization sequence?",
+          "answer": "threshold",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-next",
+          "skill": "sequence",
+          "difficulty": 2,
+          "prompt": "In the depolarization sequence, what follows threshold?",
+          "answer": "Na+ channels open",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-end",
+          "skill": "integrate",
+          "difficulty": 4,
+          "prompt": "Which event completes the depolarization sequence?",
+          "answer": "potential rises",
+          "optionSource": "sequence"
+        }
+      ]
+    },
+    {
+      "id": "refractory-period",
+      "lessonId": "lesson-05",
+      "term": "refractory period",
+      "definition": "a recovery interval that limits immediate firing and supports one-way propagation",
+      "scenario": "Recently activated membrane cannot instantly produce another identical impulse.",
+      "misconception": "The refractory period makes the impulse travel backward and forward equally.",
+      "sequence": [
+        "action potential",
+        "Na+ channel inactivation",
+        "recovery",
+        "next impulse possible"
+      ],
+      "answers": [
+        "refractory period"
+      ],
+      "aliases": [],
+      "relationships": [
+        "action potential",
+        "Na+ channel inactivation",
+        "recovery",
+        "next impulse possible"
+      ],
+      "contrast": [
+        "a recovery interval that limits immediate firing and supports one-way propagation",
+        "The refractory period makes the impulse travel backward and forward equally."
+      ],
+      "cue": "Trace where refractory period belongs in the lesson mechanism or example.",
+      "explanation": "refractory period: a recovery interval that limits immediate firing and supports one-way propagation",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 380"
+      ],
+      "mcVariants": [
+        {
+          "id": "term",
+          "skill": "recognize",
+          "difficulty": 1,
+          "prompt": "Which term best matches this description: a recovery interval that limits immediate firing and supports one-way propagation?",
+          "answer": "refractory period",
+          "optionSource": "terms"
+        },
+        {
+          "id": "function",
+          "skill": "relate",
+          "difficulty": 2,
+          "prompt": "Which statement best describes refractory period?",
+          "answer": "a recovery interval that limits immediate firing and supports one-way propagation",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "scenario",
+          "skill": "apply",
+          "difficulty": 3,
+          "prompt": "Which concept best explains this situation? Recently activated membrane cannot instantly produce another identical impulse.",
+          "answer": "refractory period",
+          "optionSource": "terms"
+        },
+        {
+          "id": "correction",
+          "skill": "misconception",
+          "difficulty": 3,
+          "prompt": "Which statement correctly replaces this inaccurate idea: “The refractory period makes the impulse travel backward and forward equally.”",
+          "answer": "a recovery interval that limits immediate firing and supports one-way propagation",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "sequence-start",
+          "skill": "sequence",
+          "difficulty": 1,
+          "prompt": "Which event begins the refractory period sequence?",
+          "answer": "action potential",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-next",
+          "skill": "sequence",
+          "difficulty": 2,
+          "prompt": "In the refractory period sequence, what follows action potential?",
+          "answer": "Na+ channel inactivation",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-end",
+          "skill": "integrate",
+          "difficulty": 4,
+          "prompt": "Which event completes the refractory period sequence?",
+          "answer": "next impulse possible",
+          "optionSource": "sequence"
+        }
+      ]
+    },
+    {
+      "id": "synaptic-transmission",
+      "lessonId": "lesson-06",
+      "term": "synaptic transmission",
+      "definition": "chemical communication from a presynaptic terminal across a cleft to receptors on a postsynaptic cell",
+      "scenario": "An arriving impulse triggers neurotransmitter release that changes the next cell.",
+      "misconception": "Neurotransmitters normally travel down the axon as the action potential.",
+      "sequence": [
+        "action potential arrives",
+        "Ca2+ enters",
+        "vesicles release transmitter",
+        "receptors bind",
+        "postsynaptic response"
+      ],
+      "answers": [
+        "synaptic transmission"
+      ],
+      "aliases": [],
+      "relationships": [
+        "action potential arrives",
+        "Ca2+ enters",
+        "vesicles release transmitter",
+        "receptors bind",
+        "postsynaptic response"
+      ],
+      "contrast": [
+        "chemical communication from a presynaptic terminal across a cleft to receptors on a postsynaptic cell",
+        "Neurotransmitters normally travel down the axon as the action potential."
+      ],
+      "cue": "Trace where synaptic transmission belongs in the lesson mechanism or example.",
+      "explanation": "synaptic transmission: chemical communication from a presynaptic terminal across a cleft to receptors on a postsynaptic cell",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 380"
+      ],
+      "mcVariants": [
+        {
+          "id": "term",
+          "skill": "recognize",
+          "difficulty": 1,
+          "prompt": "Which term best matches this description: chemical communication from a presynaptic terminal across a cleft to receptors on a postsynaptic cell?",
+          "answer": "synaptic transmission",
+          "optionSource": "terms"
+        },
+        {
+          "id": "function",
+          "skill": "relate",
+          "difficulty": 2,
+          "prompt": "Which statement best describes synaptic transmission?",
+          "answer": "chemical communication from a presynaptic terminal across a cleft to receptors on a postsynaptic cell",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "scenario",
+          "skill": "apply",
+          "difficulty": 3,
+          "prompt": "Which concept best explains this situation? An arriving impulse triggers neurotransmitter release that changes the next cell.",
+          "answer": "synaptic transmission",
+          "optionSource": "terms"
+        },
+        {
+          "id": "correction",
+          "skill": "misconception",
+          "difficulty": 3,
+          "prompt": "Which statement correctly replaces this inaccurate idea: “Neurotransmitters normally travel down the axon as the action potential.”",
+          "answer": "chemical communication from a presynaptic terminal across a cleft to receptors on a postsynaptic cell",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "sequence-start",
+          "skill": "sequence",
+          "difficulty": 1,
+          "prompt": "Which event begins the synaptic transmission sequence?",
+          "answer": "action potential arrives",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-next",
+          "skill": "sequence",
+          "difficulty": 2,
+          "prompt": "In the synaptic transmission sequence, what follows action potential arrives?",
+          "answer": "Ca2+ enters",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-end",
+          "skill": "integrate",
+          "difficulty": 4,
+          "prompt": "Which event completes the synaptic transmission sequence?",
+          "answer": "postsynaptic response",
+          "optionSource": "sequence"
+        }
+      ]
+    },
+    {
+      "id": "summation",
+      "lessonId": "lesson-06",
+      "term": "summation",
+      "definition": "the combined effect of multiple excitatory and inhibitory postsynaptic inputs",
+      "scenario": "Several small excitatory inputs together may bring a neuron to threshold.",
+      "misconception": "Each synapse always acts alone and cannot combine with other inputs.",
+      "sequence": [
+        "inputs arrive",
+        "potentials combine",
+        "axon hillock reaches threshold",
+        "action potential"
+      ],
+      "answers": [
+        "summation"
+      ],
+      "aliases": [],
+      "relationships": [
+        "inputs arrive",
+        "potentials combine",
+        "axon hillock reaches threshold",
+        "action potential"
+      ],
+      "contrast": [
+        "the combined effect of multiple excitatory and inhibitory postsynaptic inputs",
+        "Each synapse always acts alone and cannot combine with other inputs."
+      ],
+      "cue": "Trace where summation belongs in the lesson mechanism or example.",
+      "explanation": "summation: the combined effect of multiple excitatory and inhibitory postsynaptic inputs",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 381"
+      ],
+      "mcVariants": [
+        {
+          "id": "term",
+          "skill": "recognize",
+          "difficulty": 1,
+          "prompt": "Which term best matches this description: the combined effect of multiple excitatory and inhibitory postsynaptic inputs?",
+          "answer": "summation",
+          "optionSource": "terms"
+        },
+        {
+          "id": "function",
+          "skill": "relate",
+          "difficulty": 2,
+          "prompt": "Which statement best describes summation?",
+          "answer": "the combined effect of multiple excitatory and inhibitory postsynaptic inputs",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "scenario",
+          "skill": "apply",
+          "difficulty": 3,
+          "prompt": "Which concept best explains this situation? Several small excitatory inputs together may bring a neuron to threshold.",
+          "answer": "summation",
+          "optionSource": "terms"
+        },
+        {
+          "id": "correction",
+          "skill": "misconception",
+          "difficulty": 3,
+          "prompt": "Which statement correctly replaces this inaccurate idea: “Each synapse always acts alone and cannot combine with other inputs.”",
+          "answer": "the combined effect of multiple excitatory and inhibitory postsynaptic inputs",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "sequence-start",
+          "skill": "sequence",
+          "difficulty": 1,
+          "prompt": "Which event begins the summation sequence?",
+          "answer": "inputs arrive",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-next",
+          "skill": "sequence",
+          "difficulty": 2,
+          "prompt": "In the summation sequence, what follows inputs arrive?",
+          "answer": "potentials combine",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-end",
+          "skill": "integrate",
+          "difficulty": 4,
+          "prompt": "Which event completes the summation sequence?",
+          "answer": "action potential",
+          "optionSource": "sequence"
+        }
+      ]
+    },
+    {
+      "id": "transmitter-removal",
+      "lessonId": "lesson-06",
+      "term": "neurotransmitter removal",
+      "definition": "reuptake, enzymatic breakdown or diffusion ends a synaptic signal",
+      "scenario": "Cholinesterase breaks down acetylcholine so stimulation does not continue indefinitely.",
+      "misconception": "Neurotransmitter must remain in the cleft permanently for signalling to stop.",
+      "sequence": [
+        "release",
+        "receptor binding",
+        "removal",
+        "signal ends"
+      ],
+      "answers": [
+        "neurotransmitter removal"
+      ],
+      "aliases": [],
+      "relationships": [
+        "release",
+        "receptor binding",
+        "removal",
+        "signal ends"
+      ],
+      "contrast": [
+        "reuptake, enzymatic breakdown or diffusion ends a synaptic signal",
+        "Neurotransmitter must remain in the cleft permanently for signalling to stop."
+      ],
+      "cue": "Trace where neurotransmitter removal belongs in the lesson mechanism or example.",
+      "explanation": "neurotransmitter removal: reuptake, enzymatic breakdown or diffusion ends a synaptic signal",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 382"
+      ],
+      "mcVariants": [
+        {
+          "id": "term",
+          "skill": "recognize",
+          "difficulty": 1,
+          "prompt": "Which term best matches this description: reuptake, enzymatic breakdown or diffusion ends a synaptic signal?",
+          "answer": "neurotransmitter removal",
+          "optionSource": "terms"
+        },
+        {
+          "id": "function",
+          "skill": "relate",
+          "difficulty": 2,
+          "prompt": "Which statement best describes neurotransmitter removal?",
+          "answer": "reuptake, enzymatic breakdown or diffusion ends a synaptic signal",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "scenario",
+          "skill": "apply",
+          "difficulty": 3,
+          "prompt": "Which concept best explains this situation? Cholinesterase breaks down acetylcholine so stimulation does not continue indefinitely.",
+          "answer": "neurotransmitter removal",
+          "optionSource": "terms"
+        },
+        {
+          "id": "correction",
+          "skill": "misconception",
+          "difficulty": 3,
+          "prompt": "Which statement correctly replaces this inaccurate idea: “Neurotransmitter must remain in the cleft permanently for signalling to stop.”",
+          "answer": "reuptake, enzymatic breakdown or diffusion ends a synaptic signal",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "sequence-start",
+          "skill": "sequence",
+          "difficulty": 1,
+          "prompt": "Which event begins the neurotransmitter removal sequence?",
+          "answer": "release",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-next",
+          "skill": "sequence",
+          "difficulty": 2,
+          "prompt": "In the neurotransmitter removal sequence, what follows release?",
+          "answer": "receptor binding",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-end",
+          "skill": "integrate",
+          "difficulty": 4,
+          "prompt": "Which event completes the neurotransmitter removal sequence?",
+          "answer": "signal ends",
+          "optionSource": "sequence"
+        }
+      ]
+    },
+    {
+      "id": "agonist",
+      "lessonId": "lesson-07",
+      "term": "agonist",
+      "definition": "a substance that activates a receptor or increases a neurotransmitter's effect",
+      "scenario": "A receptor agonist can imitate the effect of the normal transmitter.",
+      "misconception": "An agonist always blocks the receptor without activating it.",
+      "sequence": [
+        "drug reaches synapse",
+        "receptor activation",
+        "postsynaptic effect"
+      ],
+      "answers": [
+        "agonist"
+      ],
+      "aliases": [],
+      "relationships": [
+        "drug reaches synapse",
+        "receptor activation",
+        "postsynaptic effect"
+      ],
+      "contrast": [
+        "a substance that activates a receptor or increases a neurotransmitter's effect",
+        "An agonist always blocks the receptor without activating it."
+      ],
+      "cue": "Trace where agonist belongs in the lesson mechanism or example.",
+      "explanation": "agonist: a substance that activates a receptor or increases a neurotransmitter's effect",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 384"
+      ],
+      "mcVariants": [
+        {
+          "id": "term",
+          "skill": "recognize",
+          "difficulty": 1,
+          "prompt": "Which term best matches this description: a substance that activates a receptor or increases a neurotransmitter's effect?",
+          "answer": "agonist",
+          "optionSource": "terms"
+        },
+        {
+          "id": "function",
+          "skill": "relate",
+          "difficulty": 2,
+          "prompt": "Which statement best describes agonist?",
+          "answer": "a substance that activates a receptor or increases a neurotransmitter's effect",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "scenario",
+          "skill": "apply",
+          "difficulty": 3,
+          "prompt": "Which concept best explains this situation? A receptor agonist can imitate the effect of the normal transmitter.",
+          "answer": "agonist",
+          "optionSource": "terms"
+        },
+        {
+          "id": "correction",
+          "skill": "misconception",
+          "difficulty": 3,
+          "prompt": "Which statement correctly replaces this inaccurate idea: “An agonist always blocks the receptor without activating it.”",
+          "answer": "a substance that activates a receptor or increases a neurotransmitter's effect",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "sequence-start",
+          "skill": "sequence",
+          "difficulty": 1,
+          "prompt": "Which event begins the agonist sequence?",
+          "answer": "drug reaches synapse",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-next",
+          "skill": "sequence",
+          "difficulty": 2,
+          "prompt": "In the agonist sequence, what follows drug reaches synapse?",
+          "answer": "receptor activation",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-end",
+          "skill": "integrate",
+          "difficulty": 4,
+          "prompt": "Which event completes the agonist sequence?",
+          "answer": "postsynaptic effect",
+          "optionSource": "sequence"
+        }
+      ]
+    },
+    {
+      "id": "antagonist",
+      "lessonId": "lesson-07",
+      "term": "antagonist",
+      "definition": "a substance that reduces signalling by blocking receptor activation",
+      "scenario": "A competitive antagonist can occupy a receptor without producing the usual response.",
+      "misconception": "An antagonist necessarily increases neurotransmitter release.",
+      "sequence": [
+        "drug binds receptor",
+        "normal transmitter blocked",
+        "response reduced"
+      ],
+      "answers": [
+        "antagonist"
+      ],
+      "aliases": [],
+      "relationships": [
+        "drug binds receptor",
+        "normal transmitter blocked",
+        "response reduced"
+      ],
+      "contrast": [
+        "a substance that reduces signalling by blocking receptor activation",
+        "An antagonist necessarily increases neurotransmitter release."
+      ],
+      "cue": "Trace where antagonist belongs in the lesson mechanism or example.",
+      "explanation": "antagonist: a substance that reduces signalling by blocking receptor activation",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 384"
+      ],
+      "mcVariants": [
+        {
+          "id": "term",
+          "skill": "recognize",
+          "difficulty": 1,
+          "prompt": "Which term best matches this description: a substance that reduces signalling by blocking receptor activation?",
+          "answer": "antagonist",
+          "optionSource": "terms"
+        },
+        {
+          "id": "function",
+          "skill": "relate",
+          "difficulty": 2,
+          "prompt": "Which statement best describes antagonist?",
+          "answer": "a substance that reduces signalling by blocking receptor activation",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "scenario",
+          "skill": "apply",
+          "difficulty": 3,
+          "prompt": "Which concept best explains this situation? A competitive antagonist can occupy a receptor without producing the usual response.",
+          "answer": "antagonist",
+          "optionSource": "terms"
+        },
+        {
+          "id": "correction",
+          "skill": "misconception",
+          "difficulty": 3,
+          "prompt": "Which statement correctly replaces this inaccurate idea: “An antagonist necessarily increases neurotransmitter release.”",
+          "answer": "a substance that reduces signalling by blocking receptor activation",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "sequence-start",
+          "skill": "sequence",
+          "difficulty": 1,
+          "prompt": "Which event begins the antagonist sequence?",
+          "answer": "drug binds receptor",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-next",
+          "skill": "sequence",
+          "difficulty": 2,
+          "prompt": "In the antagonist sequence, what follows drug binds receptor?",
+          "answer": "normal transmitter blocked",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-end",
+          "skill": "integrate",
+          "difficulty": 4,
+          "prompt": "Which event completes the antagonist sequence?",
+          "answer": "response reduced",
+          "optionSource": "sequence"
+        }
+      ]
+    },
+    {
+      "id": "reuptake-inhibition",
+      "lessonId": "lesson-07",
+      "term": "reuptake inhibition",
+      "definition": "slower transmitter removal that can prolong its effect in the synaptic cleft",
+      "scenario": "Blocking reuptake can leave more transmitter available to bind receptors.",
+      "misconception": "Reuptake inhibition removes transmitter from the cleft faster.",
+      "sequence": [
+        "transmitter released",
+        "reuptake blocked",
+        "transmitter remains",
+        "effect prolonged"
+      ],
+      "answers": [
+        "reuptake inhibition"
+      ],
+      "aliases": [],
+      "relationships": [
+        "transmitter released",
+        "reuptake blocked",
+        "transmitter remains",
+        "effect prolonged"
+      ],
+      "contrast": [
+        "slower transmitter removal that can prolong its effect in the synaptic cleft",
+        "Reuptake inhibition removes transmitter from the cleft faster."
+      ],
+      "cue": "Trace where reuptake inhibition belongs in the lesson mechanism or example.",
+      "explanation": "reuptake inhibition: slower transmitter removal that can prolong its effect in the synaptic cleft",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 384"
+      ],
+      "mcVariants": [
+        {
+          "id": "term",
+          "skill": "recognize",
+          "difficulty": 1,
+          "prompt": "Which term best matches this description: slower transmitter removal that can prolong its effect in the synaptic cleft?",
+          "answer": "reuptake inhibition",
+          "optionSource": "terms"
+        },
+        {
+          "id": "function",
+          "skill": "relate",
+          "difficulty": 2,
+          "prompt": "Which statement best describes reuptake inhibition?",
+          "answer": "slower transmitter removal that can prolong its effect in the synaptic cleft",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "scenario",
+          "skill": "apply",
+          "difficulty": 3,
+          "prompt": "Which concept best explains this situation? Blocking reuptake can leave more transmitter available to bind receptors.",
+          "answer": "reuptake inhibition",
+          "optionSource": "terms"
+        },
+        {
+          "id": "correction",
+          "skill": "misconception",
+          "difficulty": 3,
+          "prompt": "Which statement correctly replaces this inaccurate idea: “Reuptake inhibition removes transmitter from the cleft faster.”",
+          "answer": "slower transmitter removal that can prolong its effect in the synaptic cleft",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "sequence-start",
+          "skill": "sequence",
+          "difficulty": 1,
+          "prompt": "Which event begins the reuptake inhibition sequence?",
+          "answer": "transmitter released",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-next",
+          "skill": "sequence",
+          "difficulty": 2,
+          "prompt": "In the reuptake inhibition sequence, what follows transmitter released?",
+          "answer": "reuptake blocked",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-end",
+          "skill": "integrate",
+          "difficulty": 4,
+          "prompt": "Which event completes the reuptake inhibition sequence?",
+          "answer": "effect prolonged",
+          "optionSource": "sequence"
+        }
+      ]
+    },
+    {
+      "id": "somatic-autonomic",
+      "lessonId": "lesson-08",
+      "term": "somatic and autonomic control",
+      "definition": "somatic pathways control skeletal muscle; autonomic pathways regulate organs, glands and smooth or cardiac muscle",
+      "scenario": "Choosing to lift a book uses somatic output, while heart-rate regulation is autonomic.",
+      "misconception": "Autonomic control means every response is consciously chosen.",
+      "sequence": [
+        "CNS command",
+        "somatic or autonomic pathway",
+        "target tissue",
+        "response"
+      ],
+      "answers": [
+        "somatic and autonomic control"
+      ],
+      "aliases": [],
+      "relationships": [
+        "CNS command",
+        "somatic or autonomic pathway",
+        "target tissue",
+        "response"
+      ],
+      "contrast": [
+        "somatic pathways control skeletal muscle; autonomic pathways regulate organs, glands and smooth or cardiac muscle",
+        "Autonomic control means every response is consciously chosen."
+      ],
+      "cue": "Trace where somatic and autonomic control belongs in the lesson mechanism or example.",
+      "explanation": "somatic and autonomic control: somatic pathways control skeletal muscle; autonomic pathways regulate organs, glands and smooth or cardiac muscle",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 396"
+      ],
+      "mcVariants": [
+        {
+          "id": "term",
+          "skill": "recognize",
+          "difficulty": 1,
+          "prompt": "Which term best matches this description: somatic pathways control skeletal muscle; autonomic pathways regulate organs, glands and smooth or cardiac muscle?",
+          "answer": "somatic and autonomic control",
+          "optionSource": "terms"
+        },
+        {
+          "id": "function",
+          "skill": "relate",
+          "difficulty": 2,
+          "prompt": "Which statement best describes somatic and autonomic control?",
+          "answer": "somatic pathways control skeletal muscle; autonomic pathways regulate organs, glands and smooth or cardiac muscle",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "scenario",
+          "skill": "apply",
+          "difficulty": 3,
+          "prompt": "Which concept best explains this situation? Choosing to lift a book uses somatic output, while heart-rate regulation is autonomic.",
+          "answer": "somatic and autonomic control",
+          "optionSource": "terms"
+        },
+        {
+          "id": "correction",
+          "skill": "misconception",
+          "difficulty": 3,
+          "prompt": "Which statement correctly replaces this inaccurate idea: “Autonomic control means every response is consciously chosen.”",
+          "answer": "somatic pathways control skeletal muscle; autonomic pathways regulate organs, glands and smooth or cardiac muscle",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "sequence-start",
+          "skill": "sequence",
+          "difficulty": 1,
+          "prompt": "Which event begins the somatic and autonomic control sequence?",
+          "answer": "CNS command",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-next",
+          "skill": "sequence",
+          "difficulty": 2,
+          "prompt": "In the somatic and autonomic control sequence, what follows CNS command?",
+          "answer": "somatic or autonomic pathway",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-end",
+          "skill": "integrate",
+          "difficulty": 4,
+          "prompt": "Which event completes the somatic and autonomic control sequence?",
+          "answer": "response",
+          "optionSource": "sequence"
+        }
+      ]
+    },
+    {
+      "id": "sympathetic",
+      "lessonId": "lesson-08",
+      "term": "sympathetic division",
+      "definition": "the autonomic division that generally supports activity and acute challenge",
+      "scenario": "During sudden danger, heart rate rises and digestion is reduced.",
+      "misconception": "Sympathetic activity always slows the heart and promotes digestion.",
+      "sequence": [
+        "challenge detected",
+        "sympathetic output",
+        "organ adjustments",
+        "action supported"
+      ],
+      "answers": [
+        "sympathetic division"
+      ],
+      "aliases": [],
+      "relationships": [
+        "challenge detected",
+        "sympathetic output",
+        "organ adjustments",
+        "action supported"
+      ],
+      "contrast": [
+        "the autonomic division that generally supports activity and acute challenge",
+        "Sympathetic activity always slows the heart and promotes digestion."
+      ],
+      "cue": "Trace where sympathetic division belongs in the lesson mechanism or example.",
+      "explanation": "sympathetic division: the autonomic division that generally supports activity and acute challenge",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 399"
+      ],
+      "mcVariants": [
+        {
+          "id": "term",
+          "skill": "recognize",
+          "difficulty": 1,
+          "prompt": "Which term best matches this description: the autonomic division that generally supports activity and acute challenge?",
+          "answer": "sympathetic division",
+          "optionSource": "terms"
+        },
+        {
+          "id": "function",
+          "skill": "relate",
+          "difficulty": 2,
+          "prompt": "Which statement best describes sympathetic division?",
+          "answer": "the autonomic division that generally supports activity and acute challenge",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "scenario",
+          "skill": "apply",
+          "difficulty": 3,
+          "prompt": "Which concept best explains this situation? During sudden danger, heart rate rises and digestion is reduced.",
+          "answer": "sympathetic division",
+          "optionSource": "terms"
+        },
+        {
+          "id": "correction",
+          "skill": "misconception",
+          "difficulty": 3,
+          "prompt": "Which statement correctly replaces this inaccurate idea: “Sympathetic activity always slows the heart and promotes digestion.”",
+          "answer": "the autonomic division that generally supports activity and acute challenge",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "sequence-start",
+          "skill": "sequence",
+          "difficulty": 1,
+          "prompt": "Which event begins the sympathetic division sequence?",
+          "answer": "challenge detected",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-next",
+          "skill": "sequence",
+          "difficulty": 2,
+          "prompt": "In the sympathetic division sequence, what follows challenge detected?",
+          "answer": "sympathetic output",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-end",
+          "skill": "integrate",
+          "difficulty": 4,
+          "prompt": "Which event completes the sympathetic division sequence?",
+          "answer": "action supported",
+          "optionSource": "sequence"
+        }
+      ]
+    },
+    {
+      "id": "parasympathetic",
+      "lessonId": "lesson-08",
+      "term": "parasympathetic division",
+      "definition": "the autonomic division that generally supports rest, digestion and recovery",
+      "scenario": "After a threat passes, heart rate can fall and digestive activity can increase.",
+      "misconception": "Parasympathetic and sympathetic divisions produce identical effects in every organ.",
+      "sequence": [
+        "challenge passes",
+        "parasympathetic output",
+        "restorative adjustments",
+        "recovery"
+      ],
+      "answers": [
+        "parasympathetic division"
+      ],
+      "aliases": [],
+      "relationships": [
+        "challenge passes",
+        "parasympathetic output",
+        "restorative adjustments",
+        "recovery"
+      ],
+      "contrast": [
+        "the autonomic division that generally supports rest, digestion and recovery",
+        "Parasympathetic and sympathetic divisions produce identical effects in every organ."
+      ],
+      "cue": "Trace where parasympathetic division belongs in the lesson mechanism or example.",
+      "explanation": "parasympathetic division: the autonomic division that generally supports rest, digestion and recovery",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 399"
+      ],
+      "mcVariants": [
+        {
+          "id": "term",
+          "skill": "recognize",
+          "difficulty": 1,
+          "prompt": "Which term best matches this description: the autonomic division that generally supports rest, digestion and recovery?",
+          "answer": "parasympathetic division",
+          "optionSource": "terms"
+        },
+        {
+          "id": "function",
+          "skill": "relate",
+          "difficulty": 2,
+          "prompt": "Which statement best describes parasympathetic division?",
+          "answer": "the autonomic division that generally supports rest, digestion and recovery",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "scenario",
+          "skill": "apply",
+          "difficulty": 3,
+          "prompt": "Which concept best explains this situation? After a threat passes, heart rate can fall and digestive activity can increase.",
+          "answer": "parasympathetic division",
+          "optionSource": "terms"
+        },
+        {
+          "id": "correction",
+          "skill": "misconception",
+          "difficulty": 3,
+          "prompt": "Which statement correctly replaces this inaccurate idea: “Parasympathetic and sympathetic divisions produce identical effects in every organ.”",
+          "answer": "the autonomic division that generally supports rest, digestion and recovery",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "sequence-start",
+          "skill": "sequence",
+          "difficulty": 1,
+          "prompt": "Which event begins the parasympathetic division sequence?",
+          "answer": "challenge passes",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-next",
+          "skill": "sequence",
+          "difficulty": 2,
+          "prompt": "In the parasympathetic division sequence, what follows challenge passes?",
+          "answer": "parasympathetic output",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-end",
+          "skill": "integrate",
+          "difficulty": 4,
+          "prompt": "Which event completes the parasympathetic division sequence?",
+          "answer": "recovery",
+          "optionSource": "sequence"
+        }
+      ]
+    },
+    {
+      "id": "cns-protection",
+      "lessonId": "lesson-09",
+      "term": "CNS protection",
+      "definition": "bone, meninges and cerebrospinal fluid protect the brain and spinal cord",
+      "scenario": "Cerebrospinal fluid cushions nervous tissue within protective membranes and bone.",
+      "misconception": "The meninges are neurons that carry motor signals.",
+      "sequence": [
+        "bone",
+        "meninges",
+        "cerebrospinal fluid",
+        "nervous tissue"
+      ],
+      "answers": [
+        "CNS protection"
+      ],
+      "aliases": [],
+      "relationships": [
+        "bone",
+        "meninges",
+        "cerebrospinal fluid",
+        "nervous tissue"
+      ],
+      "contrast": [
+        "bone, meninges and cerebrospinal fluid protect the brain and spinal cord",
+        "The meninges are neurons that carry motor signals."
+      ],
+      "cue": "Trace where CNS protection belongs in the lesson mechanism or example.",
+      "explanation": "CNS protection: bone, meninges and cerebrospinal fluid protect the brain and spinal cord",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 389"
+      ],
+      "mcVariants": [
+        {
+          "id": "term",
+          "skill": "recognize",
+          "difficulty": 1,
+          "prompt": "Which term best matches this description: bone, meninges and cerebrospinal fluid protect the brain and spinal cord?",
+          "answer": "CNS protection",
+          "optionSource": "terms"
+        },
+        {
+          "id": "function",
+          "skill": "relate",
+          "difficulty": 2,
+          "prompt": "Which statement best describes CNS protection?",
+          "answer": "bone, meninges and cerebrospinal fluid protect the brain and spinal cord",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "scenario",
+          "skill": "apply",
+          "difficulty": 3,
+          "prompt": "Which concept best explains this situation? Cerebrospinal fluid cushions nervous tissue within protective membranes and bone.",
+          "answer": "CNS protection",
+          "optionSource": "terms"
+        },
+        {
+          "id": "correction",
+          "skill": "misconception",
+          "difficulty": 3,
+          "prompt": "Which statement correctly replaces this inaccurate idea: “The meninges are neurons that carry motor signals.”",
+          "answer": "bone, meninges and cerebrospinal fluid protect the brain and spinal cord",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "sequence-start",
+          "skill": "sequence",
+          "difficulty": 1,
+          "prompt": "Which event begins the CNS protection sequence?",
+          "answer": "bone",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-next",
+          "skill": "sequence",
+          "difficulty": 2,
+          "prompt": "In the CNS protection sequence, what follows bone?",
+          "answer": "meninges",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-end",
+          "skill": "integrate",
+          "difficulty": 4,
+          "prompt": "Which event completes the CNS protection sequence?",
+          "answer": "nervous tissue",
+          "optionSource": "sequence"
+        }
+      ]
+    },
+    {
+      "id": "gray-white-matter",
+      "lessonId": "lesson-09",
+      "term": "gray and white matter",
+      "definition": "gray matter contains many cell bodies and synapses; white matter contains many myelinated axons",
+      "scenario": "A white-matter tract carries signals between CNS regions.",
+      "misconception": "White matter is white because it contains only dendrites and no axons.",
+      "sequence": [
+        "cell bodies and synapses",
+        "gray matter",
+        "myelinated axons",
+        "white matter"
+      ],
+      "answers": [
+        "gray and white matter"
+      ],
+      "aliases": [],
+      "relationships": [
+        "cell bodies and synapses",
+        "gray matter",
+        "myelinated axons",
+        "white matter"
+      ],
+      "contrast": [
+        "gray matter contains many cell bodies and synapses; white matter contains many myelinated axons",
+        "White matter is white because it contains only dendrites and no axons."
+      ],
+      "cue": "Trace where gray and white matter belongs in the lesson mechanism or example.",
+      "explanation": "gray and white matter: gray matter contains many cell bodies and synapses; white matter contains many myelinated axons",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 389"
+      ],
+      "mcVariants": [
+        {
+          "id": "term",
+          "skill": "recognize",
+          "difficulty": 1,
+          "prompt": "Which term best matches this description: gray matter contains many cell bodies and synapses; white matter contains many myelinated axons?",
+          "answer": "gray and white matter",
+          "optionSource": "terms"
+        },
+        {
+          "id": "function",
+          "skill": "relate",
+          "difficulty": 2,
+          "prompt": "Which statement best describes gray and white matter?",
+          "answer": "gray matter contains many cell bodies and synapses; white matter contains many myelinated axons",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "scenario",
+          "skill": "apply",
+          "difficulty": 3,
+          "prompt": "Which concept best explains this situation? A white-matter tract carries signals between CNS regions.",
+          "answer": "gray and white matter",
+          "optionSource": "terms"
+        },
+        {
+          "id": "correction",
+          "skill": "misconception",
+          "difficulty": 3,
+          "prompt": "Which statement correctly replaces this inaccurate idea: “White matter is white because it contains only dendrites and no axons.”",
+          "answer": "gray matter contains many cell bodies and synapses; white matter contains many myelinated axons",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "sequence-start",
+          "skill": "sequence",
+          "difficulty": 1,
+          "prompt": "Which event begins the gray and white matter sequence?",
+          "answer": "cell bodies and synapses",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-next",
+          "skill": "sequence",
+          "difficulty": 2,
+          "prompt": "In the gray and white matter sequence, what follows cell bodies and synapses?",
+          "answer": "gray matter",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-end",
+          "skill": "integrate",
+          "difficulty": 4,
+          "prompt": "Which event completes the gray and white matter sequence?",
+          "answer": "white matter",
+          "optionSource": "sequence"
+        }
+      ]
+    },
+    {
+      "id": "spinal-cord",
+      "lessonId": "lesson-09",
+      "term": "spinal cord",
+      "definition": "a CNS pathway and integration centre linking brain, body and spinal reflexes",
+      "scenario": "A spinal injury can interrupt ascending sensory and descending motor pathways.",
+      "misconception": "The spinal cord is part of the peripheral nervous system.",
+      "sequence": [
+        "sensory input",
+        "ascending tract",
+        "brain processing",
+        "descending tract",
+        "motor output"
+      ],
+      "answers": [
+        "spinal cord"
+      ],
+      "aliases": [],
+      "relationships": [
+        "sensory input",
+        "ascending tract",
+        "brain processing",
+        "descending tract",
+        "motor output"
+      ],
+      "contrast": [
+        "a CNS pathway and integration centre linking brain, body and spinal reflexes",
+        "The spinal cord is part of the peripheral nervous system."
+      ],
+      "cue": "Trace where spinal cord belongs in the lesson mechanism or example.",
+      "explanation": "spinal cord: a CNS pathway and integration centre linking brain, body and spinal reflexes",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 389"
+      ],
+      "mcVariants": [
+        {
+          "id": "term",
+          "skill": "recognize",
+          "difficulty": 1,
+          "prompt": "Which term best matches this description: a CNS pathway and integration centre linking brain, body and spinal reflexes?",
+          "answer": "spinal cord",
+          "optionSource": "terms"
+        },
+        {
+          "id": "function",
+          "skill": "relate",
+          "difficulty": 2,
+          "prompt": "Which statement best describes spinal cord?",
+          "answer": "a CNS pathway and integration centre linking brain, body and spinal reflexes",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "scenario",
+          "skill": "apply",
+          "difficulty": 3,
+          "prompt": "Which concept best explains this situation? A spinal injury can interrupt ascending sensory and descending motor pathways.",
+          "answer": "spinal cord",
+          "optionSource": "terms"
+        },
+        {
+          "id": "correction",
+          "skill": "misconception",
+          "difficulty": 3,
+          "prompt": "Which statement correctly replaces this inaccurate idea: “The spinal cord is part of the peripheral nervous system.”",
+          "answer": "a CNS pathway and integration centre linking brain, body and spinal reflexes",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "sequence-start",
+          "skill": "sequence",
+          "difficulty": 1,
+          "prompt": "Which event begins the spinal cord sequence?",
+          "answer": "sensory input",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-next",
+          "skill": "sequence",
+          "difficulty": 2,
+          "prompt": "In the spinal cord sequence, what follows sensory input?",
+          "answer": "ascending tract",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-end",
+          "skill": "integrate",
+          "difficulty": 4,
+          "prompt": "Which event completes the spinal cord sequence?",
+          "answer": "motor output",
+          "optionSource": "sequence"
+        }
+      ]
+    },
+    {
+      "id": "cerebrum",
+      "lessonId": "lesson-10",
+      "term": "cerebrum",
+      "definition": "the largest brain region, supporting conscious perception, voluntary movement, language, memory and reasoning",
+      "scenario": "Damage to a cerebral area can change speech or voluntary movement.",
+      "misconception": "The cerebrum's main role is directly controlling breathing rhythm.",
+      "sequence": [
+        "sensory input",
+        "cortical processing",
+        "decision",
+        "voluntary output"
+      ],
+      "answers": [
+        "cerebrum"
+      ],
+      "aliases": [],
+      "relationships": [
+        "sensory input",
+        "cortical processing",
+        "decision",
+        "voluntary output"
+      ],
+      "contrast": [
+        "the largest brain region, supporting conscious perception, voluntary movement, language, memory and reasoning",
+        "The cerebrum's main role is directly controlling breathing rhythm."
+      ],
+      "cue": "Trace where cerebrum belongs in the lesson mechanism or example.",
+      "explanation": "cerebrum: the largest brain region, supporting conscious perception, voluntary movement, language, memory and reasoning",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 389"
+      ],
+      "mcVariants": [
+        {
+          "id": "term",
+          "skill": "recognize",
+          "difficulty": 1,
+          "prompt": "Which term best matches this description: the largest brain region, supporting conscious perception, voluntary movement, language, memory and reasoning?",
+          "answer": "cerebrum",
+          "optionSource": "terms"
+        },
+        {
+          "id": "function",
+          "skill": "relate",
+          "difficulty": 2,
+          "prompt": "Which statement best describes cerebrum?",
+          "answer": "the largest brain region, supporting conscious perception, voluntary movement, language, memory and reasoning",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "scenario",
+          "skill": "apply",
+          "difficulty": 3,
+          "prompt": "Which concept best explains this situation? Damage to a cerebral area can change speech or voluntary movement.",
+          "answer": "cerebrum",
+          "optionSource": "terms"
+        },
+        {
+          "id": "correction",
+          "skill": "misconception",
+          "difficulty": 3,
+          "prompt": "Which statement correctly replaces this inaccurate idea: “The cerebrum's main role is directly controlling breathing rhythm.”",
+          "answer": "the largest brain region, supporting conscious perception, voluntary movement, language, memory and reasoning",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "sequence-start",
+          "skill": "sequence",
+          "difficulty": 1,
+          "prompt": "Which event begins the cerebrum sequence?",
+          "answer": "sensory input",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-next",
+          "skill": "sequence",
+          "difficulty": 2,
+          "prompt": "In the cerebrum sequence, what follows sensory input?",
+          "answer": "cortical processing",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-end",
+          "skill": "integrate",
+          "difficulty": 4,
+          "prompt": "Which event completes the cerebrum sequence?",
+          "answer": "voluntary output",
+          "optionSource": "sequence"
+        }
+      ]
+    },
+    {
+      "id": "cerebellum",
+      "lessonId": "lesson-10",
+      "term": "cerebellum",
+      "definition": "a brain region that coordinates movement, balance and motor learning",
+      "scenario": "Walking smoothly on uneven ground depends partly on cerebellar coordination.",
+      "misconception": "The cerebellum initiates every conscious thought and language decision.",
+      "sequence": [
+        "movement plan",
+        "sensory feedback",
+        "cerebellar comparison",
+        "coordination adjusted"
+      ],
+      "answers": [
+        "cerebellum"
+      ],
+      "aliases": [],
+      "relationships": [
+        "movement plan",
+        "sensory feedback",
+        "cerebellar comparison",
+        "coordination adjusted"
+      ],
+      "contrast": [
+        "a brain region that coordinates movement, balance and motor learning",
+        "The cerebellum initiates every conscious thought and language decision."
+      ],
+      "cue": "Trace where cerebellum belongs in the lesson mechanism or example.",
+      "explanation": "cerebellum: a brain region that coordinates movement, balance and motor learning",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 392"
+      ],
+      "mcVariants": [
+        {
+          "id": "term",
+          "skill": "recognize",
+          "difficulty": 1,
+          "prompt": "Which term best matches this description: a brain region that coordinates movement, balance and motor learning?",
+          "answer": "cerebellum",
+          "optionSource": "terms"
+        },
+        {
+          "id": "function",
+          "skill": "relate",
+          "difficulty": 2,
+          "prompt": "Which statement best describes cerebellum?",
+          "answer": "a brain region that coordinates movement, balance and motor learning",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "scenario",
+          "skill": "apply",
+          "difficulty": 3,
+          "prompt": "Which concept best explains this situation? Walking smoothly on uneven ground depends partly on cerebellar coordination.",
+          "answer": "cerebellum",
+          "optionSource": "terms"
+        },
+        {
+          "id": "correction",
+          "skill": "misconception",
+          "difficulty": 3,
+          "prompt": "Which statement correctly replaces this inaccurate idea: “The cerebellum initiates every conscious thought and language decision.”",
+          "answer": "a brain region that coordinates movement, balance and motor learning",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "sequence-start",
+          "skill": "sequence",
+          "difficulty": 1,
+          "prompt": "Which event begins the cerebellum sequence?",
+          "answer": "movement plan",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-next",
+          "skill": "sequence",
+          "difficulty": 2,
+          "prompt": "In the cerebellum sequence, what follows movement plan?",
+          "answer": "sensory feedback",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-end",
+          "skill": "integrate",
+          "difficulty": 4,
+          "prompt": "Which event completes the cerebellum sequence?",
+          "answer": "coordination adjusted",
+          "optionSource": "sequence"
+        }
+      ]
+    },
+    {
+      "id": "brain-stem",
+      "lessonId": "lesson-10",
+      "term": "brain stem",
+      "definition": "the region connecting brain and spinal cord that regulates vital automatic functions",
+      "scenario": "Damage here can disrupt breathing, heart rate and arousal.",
+      "misconception": "The brain stem is responsible only for long-term memory storage.",
+      "sequence": [
+        "body signals",
+        "brain-stem centres",
+        "automatic output",
+        "vital function adjusted"
+      ],
+      "answers": [
+        "brain stem"
+      ],
+      "aliases": [],
+      "relationships": [
+        "body signals",
+        "brain-stem centres",
+        "automatic output",
+        "vital function adjusted"
+      ],
+      "contrast": [
+        "the region connecting brain and spinal cord that regulates vital automatic functions",
+        "The brain stem is responsible only for long-term memory storage."
+      ],
+      "cue": "Trace where brain stem belongs in the lesson mechanism or example.",
+      "explanation": "brain stem: the region connecting brain and spinal cord that regulates vital automatic functions",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 392"
+      ],
+      "mcVariants": [
+        {
+          "id": "term",
+          "skill": "recognize",
+          "difficulty": 1,
+          "prompt": "Which term best matches this description: the region connecting brain and spinal cord that regulates vital automatic functions?",
+          "answer": "brain stem",
+          "optionSource": "terms"
+        },
+        {
+          "id": "function",
+          "skill": "relate",
+          "difficulty": 2,
+          "prompt": "Which statement best describes brain stem?",
+          "answer": "the region connecting brain and spinal cord that regulates vital automatic functions",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "scenario",
+          "skill": "apply",
+          "difficulty": 3,
+          "prompt": "Which concept best explains this situation? Damage here can disrupt breathing, heart rate and arousal.",
+          "answer": "brain stem",
+          "optionSource": "terms"
+        },
+        {
+          "id": "correction",
+          "skill": "misconception",
+          "difficulty": 3,
+          "prompt": "Which statement correctly replaces this inaccurate idea: “The brain stem is responsible only for long-term memory storage.”",
+          "answer": "the region connecting brain and spinal cord that regulates vital automatic functions",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "sequence-start",
+          "skill": "sequence",
+          "difficulty": 1,
+          "prompt": "Which event begins the brain stem sequence?",
+          "answer": "body signals",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-next",
+          "skill": "sequence",
+          "difficulty": 2,
+          "prompt": "In the brain stem sequence, what follows body signals?",
+          "answer": "brain-stem centres",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-end",
+          "skill": "integrate",
+          "difficulty": 4,
+          "prompt": "Which event completes the brain stem sequence?",
+          "answer": "vital function adjusted",
+          "optionSource": "sequence"
+        }
+      ]
+    },
+    {
+      "id": "ct-mri",
+      "lessonId": "lesson-11",
+      "term": "CT and MRI",
+      "definition": "CT uses X-rays for structural images; MRI uses magnetic fields and radio waves for detailed soft-tissue structure",
+      "scenario": "MRI can reveal a structural lesion without measuring moment-to-moment electrical activity.",
+      "misconception": "MRI and EEG both directly record the same electrical signals from neurons.",
+      "sequence": [
+        "choose structural question",
+        "acquire slices",
+        "reconstruct anatomy",
+        "interpret"
+      ],
+      "answers": [
+        "CT and MRI"
+      ],
+      "aliases": [],
+      "relationships": [
+        "choose structural question",
+        "acquire slices",
+        "reconstruct anatomy",
+        "interpret"
+      ],
+      "contrast": [
+        "CT uses X-rays for structural images; MRI uses magnetic fields and radio waves for detailed soft-tissue structure",
+        "MRI and EEG both directly record the same electrical signals from neurons."
+      ],
+      "cue": "Trace where CT and MRI belongs in the lesson mechanism or example.",
+      "explanation": "CT and MRI: CT uses X-rays for structural images; MRI uses magnetic fields and radio waves for detailed soft-tissue structure",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 393"
+      ],
+      "mcVariants": [
+        {
+          "id": "term",
+          "skill": "recognize",
+          "difficulty": 1,
+          "prompt": "Which term best matches this description: CT uses X-rays for structural images; MRI uses magnetic fields and radio waves for detailed soft-tissue structure?",
+          "answer": "CT and MRI",
+          "optionSource": "terms"
+        },
+        {
+          "id": "function",
+          "skill": "relate",
+          "difficulty": 2,
+          "prompt": "Which statement best describes CT and MRI?",
+          "answer": "CT uses X-rays for structural images; MRI uses magnetic fields and radio waves for detailed soft-tissue structure",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "scenario",
+          "skill": "apply",
+          "difficulty": 3,
+          "prompt": "Which concept best explains this situation? MRI can reveal a structural lesion without measuring moment-to-moment electrical activity.",
+          "answer": "CT and MRI",
+          "optionSource": "terms"
+        },
+        {
+          "id": "correction",
+          "skill": "misconception",
+          "difficulty": 3,
+          "prompt": "Which statement correctly replaces this inaccurate idea: “MRI and EEG both directly record the same electrical signals from neurons.”",
+          "answer": "CT uses X-rays for structural images; MRI uses magnetic fields and radio waves for detailed soft-tissue structure",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "sequence-start",
+          "skill": "sequence",
+          "difficulty": 1,
+          "prompt": "Which event begins the CT and MRI sequence?",
+          "answer": "choose structural question",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-next",
+          "skill": "sequence",
+          "difficulty": 2,
+          "prompt": "In the CT and MRI sequence, what follows choose structural question?",
+          "answer": "acquire slices",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-end",
+          "skill": "integrate",
+          "difficulty": 4,
+          "prompt": "Which event completes the CT and MRI sequence?",
+          "answer": "interpret",
+          "optionSource": "sequence"
+        }
+      ]
+    },
+    {
+      "id": "eeg",
+      "lessonId": "lesson-11",
+      "term": "EEG",
+      "definition": "electrodes at the scalp record patterns of electrical activity with high time resolution",
+      "scenario": "EEG can show rapid changes during sleep or a seizure.",
+      "misconception": "EEG provides a sharply detailed three-dimensional image of deep brain anatomy.",
+      "sequence": [
+        "place scalp electrodes",
+        "record voltage changes",
+        "compare patterns",
+        "interpret timing"
+      ],
+      "answers": [
+        "EEG"
+      ],
+      "aliases": [],
+      "relationships": [
+        "place scalp electrodes",
+        "record voltage changes",
+        "compare patterns",
+        "interpret timing"
+      ],
+      "contrast": [
+        "electrodes at the scalp record patterns of electrical activity with high time resolution",
+        "EEG provides a sharply detailed three-dimensional image of deep brain anatomy."
+      ],
+      "cue": "Trace where EEG belongs in the lesson mechanism or example.",
+      "explanation": "EEG: electrodes at the scalp record patterns of electrical activity with high time resolution",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 394"
+      ],
+      "mcVariants": [
+        {
+          "id": "term",
+          "skill": "recognize",
+          "difficulty": 1,
+          "prompt": "Which term best matches this description: electrodes at the scalp record patterns of electrical activity with high time resolution?",
+          "answer": "EEG",
+          "optionSource": "terms"
+        },
+        {
+          "id": "function",
+          "skill": "relate",
+          "difficulty": 2,
+          "prompt": "Which statement best describes EEG?",
+          "answer": "electrodes at the scalp record patterns of electrical activity with high time resolution",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "scenario",
+          "skill": "apply",
+          "difficulty": 3,
+          "prompt": "Which concept best explains this situation? EEG can show rapid changes during sleep or a seizure.",
+          "answer": "EEG",
+          "optionSource": "terms"
+        },
+        {
+          "id": "correction",
+          "skill": "misconception",
+          "difficulty": 3,
+          "prompt": "Which statement correctly replaces this inaccurate idea: “EEG provides a sharply detailed three-dimensional image of deep brain anatomy.”",
+          "answer": "electrodes at the scalp record patterns of electrical activity with high time resolution",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "sequence-start",
+          "skill": "sequence",
+          "difficulty": 1,
+          "prompt": "Which event begins the EEG sequence?",
+          "answer": "place scalp electrodes",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-next",
+          "skill": "sequence",
+          "difficulty": 2,
+          "prompt": "In the EEG sequence, what follows place scalp electrodes?",
+          "answer": "record voltage changes",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-end",
+          "skill": "integrate",
+          "difficulty": 4,
+          "prompt": "Which event completes the EEG sequence?",
+          "answer": "interpret timing",
+          "optionSource": "sequence"
+        }
+      ]
+    },
+    {
+      "id": "evidence-limits",
+      "lessonId": "lesson-11",
+      "term": "brain evidence",
+      "definition": "each method provides particular evidence and has limits on structure, activity, timing and location",
+      "scenario": "A researcher should match the imaging method to the question and avoid claiming more than it measures.",
+      "misconception": "A colourful brain image proves the exact cause of a person's behaviour.",
+      "sequence": [
+        "ask question",
+        "choose method",
+        "collect evidence",
+        "consider limits",
+        "draw claim"
+      ],
+      "answers": [
+        "brain evidence"
+      ],
+      "aliases": [],
+      "relationships": [
+        "ask question",
+        "choose method",
+        "collect evidence",
+        "consider limits",
+        "draw claim"
+      ],
+      "contrast": [
+        "each method provides particular evidence and has limits on structure, activity, timing and location",
+        "A colourful brain image proves the exact cause of a person's behaviour."
+      ],
+      "cue": "Trace where brain evidence belongs in the lesson mechanism or example.",
+      "explanation": "brain evidence: each method provides particular evidence and has limits on structure, activity, timing and location",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 395"
+      ],
+      "mcVariants": [
+        {
+          "id": "term",
+          "skill": "recognize",
+          "difficulty": 1,
+          "prompt": "Which term best matches this description: each method provides particular evidence and has limits on structure, activity, timing and location?",
+          "answer": "brain evidence",
+          "optionSource": "terms"
+        },
+        {
+          "id": "function",
+          "skill": "relate",
+          "difficulty": 2,
+          "prompt": "Which statement best describes brain evidence?",
+          "answer": "each method provides particular evidence and has limits on structure, activity, timing and location",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "scenario",
+          "skill": "apply",
+          "difficulty": 3,
+          "prompt": "Which concept best explains this situation? A researcher should match the imaging method to the question and avoid claiming more than it measures.",
+          "answer": "brain evidence",
+          "optionSource": "terms"
+        },
+        {
+          "id": "correction",
+          "skill": "misconception",
+          "difficulty": 3,
+          "prompt": "Which statement correctly replaces this inaccurate idea: “A colourful brain image proves the exact cause of a person's behaviour.”",
+          "answer": "each method provides particular evidence and has limits on structure, activity, timing and location",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "sequence-start",
+          "skill": "sequence",
+          "difficulty": 1,
+          "prompt": "Which event begins the brain evidence sequence?",
+          "answer": "ask question",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-next",
+          "skill": "sequence",
+          "difficulty": 2,
+          "prompt": "In the brain evidence sequence, what follows ask question?",
+          "answer": "choose method",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-end",
+          "skill": "integrate",
+          "difficulty": 4,
+          "prompt": "Which event completes the brain evidence sequence?",
+          "answer": "draw claim",
+          "optionSource": "sequence"
+        }
+      ]
+    },
+    {
+      "id": "chapter-integration",
+      "lessonId": "lesson-12",
+      "term": "integrated neural response",
+      "definition": "neural responses connect receptors, membrane events, synapses, CNS processing and effectors",
+      "scenario": "A withdrawal response depends on structures and events at several biological scales.",
+      "misconception": "Explaining a response requires naming only one neuron part.",
+      "sequence": [
+        "stimulus",
+        "receptor",
+        "electrical signal",
+        "synapse",
+        "CNS integration",
+        "motor output"
+      ],
+      "answers": [
+        "integrated neural response"
+      ],
+      "aliases": [],
+      "relationships": [
+        "stimulus",
+        "receptor",
+        "electrical signal",
+        "synapse",
+        "CNS integration",
+        "motor output"
+      ],
+      "contrast": [
+        "neural responses connect receptors, membrane events, synapses, CNS processing and effectors",
+        "Explaining a response requires naming only one neuron part."
+      ],
+      "cue": "Trace where integrated neural response belongs in the lesson mechanism or example.",
+      "explanation": "integrated neural response: neural responses connect receptors, membrane events, synapses, CNS processing and effectors",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 402"
+      ],
+      "mcVariants": [
+        {
+          "id": "term",
+          "skill": "recognize",
+          "difficulty": 1,
+          "prompt": "Which term best matches this description: neural responses connect receptors, membrane events, synapses, CNS processing and effectors?",
+          "answer": "integrated neural response",
+          "optionSource": "terms"
+        },
+        {
+          "id": "function",
+          "skill": "relate",
+          "difficulty": 2,
+          "prompt": "Which statement best describes integrated neural response?",
+          "answer": "neural responses connect receptors, membrane events, synapses, CNS processing and effectors",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "scenario",
+          "skill": "apply",
+          "difficulty": 3,
+          "prompt": "Which concept best explains this situation? A withdrawal response depends on structures and events at several biological scales.",
+          "answer": "integrated neural response",
+          "optionSource": "terms"
+        },
+        {
+          "id": "correction",
+          "skill": "misconception",
+          "difficulty": 3,
+          "prompt": "Which statement correctly replaces this inaccurate idea: “Explaining a response requires naming only one neuron part.”",
+          "answer": "neural responses connect receptors, membrane events, synapses, CNS processing and effectors",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "sequence-start",
+          "skill": "sequence",
+          "difficulty": 1,
+          "prompt": "Which event begins the integrated neural response sequence?",
+          "answer": "stimulus",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-next",
+          "skill": "sequence",
+          "difficulty": 2,
+          "prompt": "In the integrated neural response sequence, what follows stimulus?",
+          "answer": "receptor",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-end",
+          "skill": "integrate",
+          "difficulty": 4,
+          "prompt": "Which event completes the integrated neural response sequence?",
+          "answer": "motor output",
+          "optionSource": "sequence"
+        }
+      ]
+    },
+    {
+      "id": "structure-function",
+      "lessonId": "lesson-12",
+      "term": "structure–function reasoning",
+      "definition": "a biological structure's features help explain what it can do",
+      "scenario": "Myelin's insulating arrangement helps explain rapid saltatory conduction.",
+      "misconception": "Naming a structure without a mechanism fully explains its function.",
+      "sequence": [
+        "identify structure",
+        "identify feature",
+        "connect mechanism",
+        "explain function"
+      ],
+      "answers": [
+        "structure–function reasoning"
+      ],
+      "aliases": [],
+      "relationships": [
+        "identify structure",
+        "identify feature",
+        "connect mechanism",
+        "explain function"
+      ],
+      "contrast": [
+        "a biological structure's features help explain what it can do",
+        "Naming a structure without a mechanism fully explains its function."
+      ],
+      "cue": "Trace where structure–function reasoning belongs in the lesson mechanism or example.",
+      "explanation": "structure–function reasoning: a biological structure's features help explain what it can do",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 402"
+      ],
+      "mcVariants": [
+        {
+          "id": "term",
+          "skill": "recognize",
+          "difficulty": 1,
+          "prompt": "Which term best matches this description: a biological structure's features help explain what it can do?",
+          "answer": "structure–function reasoning",
+          "optionSource": "terms"
+        },
+        {
+          "id": "function",
+          "skill": "relate",
+          "difficulty": 2,
+          "prompt": "Which statement best describes structure–function reasoning?",
+          "answer": "a biological structure's features help explain what it can do",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "scenario",
+          "skill": "apply",
+          "difficulty": 3,
+          "prompt": "Which concept best explains this situation? Myelin's insulating arrangement helps explain rapid saltatory conduction.",
+          "answer": "structure–function reasoning",
+          "optionSource": "terms"
+        },
+        {
+          "id": "correction",
+          "skill": "misconception",
+          "difficulty": 3,
+          "prompt": "Which statement correctly replaces this inaccurate idea: “Naming a structure without a mechanism fully explains its function.”",
+          "answer": "a biological structure's features help explain what it can do",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "sequence-start",
+          "skill": "sequence",
+          "difficulty": 1,
+          "prompt": "Which event begins the structure–function reasoning sequence?",
+          "answer": "identify structure",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-next",
+          "skill": "sequence",
+          "difficulty": 2,
+          "prompt": "In the structure–function reasoning sequence, what follows identify structure?",
+          "answer": "identify feature",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-end",
+          "skill": "integrate",
+          "difficulty": 4,
+          "prompt": "Which event completes the structure–function reasoning sequence?",
+          "answer": "explain function",
+          "optionSource": "sequence"
+        }
+      ]
+    },
+    {
+      "id": "error-checking",
+      "lessonId": "lesson-12",
+      "term": "scientific error correction",
+      "definition": "a correction identifies the inaccurate claim and replaces it with a mechanism supported by evidence",
+      "scenario": "Correcting 'stronger stimuli make taller action potentials' requires all-or-none firing and frequency.",
+      "misconception": "An error correction only says that a statement is wrong.",
+      "sequence": [
+        "locate claim",
+        "identify error",
+        "replace with accurate idea",
+        "justify"
+      ],
+      "answers": [
+        "scientific error correction"
+      ],
+      "aliases": [],
+      "relationships": [
+        "locate claim",
+        "identify error",
+        "replace with accurate idea",
+        "justify"
+      ],
+      "contrast": [
+        "a correction identifies the inaccurate claim and replaces it with a mechanism supported by evidence",
+        "An error correction only says that a statement is wrong."
+      ],
+      "cue": "Trace where scientific error correction belongs in the lesson mechanism or example.",
+      "explanation": "scientific error correction: a correction identifies the inaccurate claim and replaces it with a mechanism supported by evidence",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 402"
+      ],
+      "mcVariants": [
+        {
+          "id": "term",
+          "skill": "recognize",
+          "difficulty": 1,
+          "prompt": "Which term best matches this description: a correction identifies the inaccurate claim and replaces it with a mechanism supported by evidence?",
+          "answer": "scientific error correction",
+          "optionSource": "terms"
+        },
+        {
+          "id": "function",
+          "skill": "relate",
+          "difficulty": 2,
+          "prompt": "Which statement best describes scientific error correction?",
+          "answer": "a correction identifies the inaccurate claim and replaces it with a mechanism supported by evidence",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "scenario",
+          "skill": "apply",
+          "difficulty": 3,
+          "prompt": "Which concept best explains this situation? Correcting 'stronger stimuli make taller action potentials' requires all-or-none firing and frequency.",
+          "answer": "scientific error correction",
+          "optionSource": "terms"
+        },
+        {
+          "id": "correction",
+          "skill": "misconception",
+          "difficulty": 3,
+          "prompt": "Which statement correctly replaces this inaccurate idea: “An error correction only says that a statement is wrong.”",
+          "answer": "a correction identifies the inaccurate claim and replaces it with a mechanism supported by evidence",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "sequence-start",
+          "skill": "sequence",
+          "difficulty": 1,
+          "prompt": "Which event begins the scientific error correction sequence?",
+          "answer": "locate claim",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-next",
+          "skill": "sequence",
+          "difficulty": 2,
+          "prompt": "In the scientific error correction sequence, what follows locate claim?",
+          "answer": "identify error",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-end",
+          "skill": "integrate",
+          "difficulty": 4,
+          "prompt": "Which event completes the scientific error correction sequence?",
+          "answer": "justify",
+          "optionSource": "sequence"
+        }
+      ]
+    },
+    {
+      "id": "evidence-application",
+      "lessonId": "lesson-13",
+      "term": "evidence-based application",
+      "definition": "a chapter concept can support a cautious explanation without requiring personal disclosure or outside research",
+      "scenario": "A claim about nerve damage can be evaluated using pathway and structure evidence from the chapter.",
+      "misconception": "A personal story is required evidence for every biological explanation.",
+      "sequence": [
+        "chapter claim",
+        "relevant evidence",
+        "mechanism",
+        "limitation"
+      ],
+      "answers": [
+        "evidence-based application"
+      ],
+      "aliases": [],
+      "relationships": [
+        "chapter claim",
+        "relevant evidence",
+        "mechanism",
+        "limitation"
+      ],
+      "contrast": [
+        "a chapter concept can support a cautious explanation without requiring personal disclosure or outside research",
+        "A personal story is required evidence for every biological explanation."
+      ],
+      "cue": "Trace where evidence-based application belongs in the lesson mechanism or example.",
+      "explanation": "evidence-based application: a chapter concept can support a cautious explanation without requiring personal disclosure or outside research",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 402"
+      ],
+      "mcVariants": [
+        {
+          "id": "term",
+          "skill": "recognize",
+          "difficulty": 1,
+          "prompt": "Which term best matches this description: a chapter concept can support a cautious explanation without requiring personal disclosure or outside research?",
+          "answer": "evidence-based application",
+          "optionSource": "terms"
+        },
+        {
+          "id": "function",
+          "skill": "relate",
+          "difficulty": 2,
+          "prompt": "Which statement best describes evidence-based application?",
+          "answer": "a chapter concept can support a cautious explanation without requiring personal disclosure or outside research",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "scenario",
+          "skill": "apply",
+          "difficulty": 3,
+          "prompt": "Which concept best explains this situation? A claim about nerve damage can be evaluated using pathway and structure evidence from the chapter.",
+          "answer": "evidence-based application",
+          "optionSource": "terms"
+        },
+        {
+          "id": "correction",
+          "skill": "misconception",
+          "difficulty": 3,
+          "prompt": "Which statement correctly replaces this inaccurate idea: “A personal story is required evidence for every biological explanation.”",
+          "answer": "a chapter concept can support a cautious explanation without requiring personal disclosure or outside research",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "sequence-start",
+          "skill": "sequence",
+          "difficulty": 1,
+          "prompt": "Which event begins the evidence-based application sequence?",
+          "answer": "chapter claim",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-next",
+          "skill": "sequence",
+          "difficulty": 2,
+          "prompt": "In the evidence-based application sequence, what follows chapter claim?",
+          "answer": "relevant evidence",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-end",
+          "skill": "integrate",
+          "difficulty": 4,
+          "prompt": "Which event completes the evidence-based application sequence?",
+          "answer": "limitation",
+          "optionSource": "sequence"
+        }
+      ]
+    },
+    {
+      "id": "model-limits",
+      "lessonId": "lesson-13",
+      "term": "model limitation",
+      "definition": "a model simplifies reality and must be interpreted within its stated boundaries",
+      "scenario": "A pathway diagram can show signal order without showing realistic size or every neuron.",
+      "misconception": "A diagram that omits detail is automatically useless.",
+      "sequence": [
+        "identify purpose",
+        "use represented relationship",
+        "note omission",
+        "limit conclusion"
+      ],
+      "answers": [
+        "model limitation"
+      ],
+      "aliases": [],
+      "relationships": [
+        "identify purpose",
+        "use represented relationship",
+        "note omission",
+        "limit conclusion"
+      ],
+      "contrast": [
+        "a model simplifies reality and must be interpreted within its stated boundaries",
+        "A diagram that omits detail is automatically useless."
+      ],
+      "cue": "Trace where model limitation belongs in the lesson mechanism or example.",
+      "explanation": "model limitation: a model simplifies reality and must be interpreted within its stated boundaries",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 402"
+      ],
+      "mcVariants": [
+        {
+          "id": "term",
+          "skill": "recognize",
+          "difficulty": 1,
+          "prompt": "Which term best matches this description: a model simplifies reality and must be interpreted within its stated boundaries?",
+          "answer": "model limitation",
+          "optionSource": "terms"
+        },
+        {
+          "id": "function",
+          "skill": "relate",
+          "difficulty": 2,
+          "prompt": "Which statement best describes model limitation?",
+          "answer": "a model simplifies reality and must be interpreted within its stated boundaries",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "scenario",
+          "skill": "apply",
+          "difficulty": 3,
+          "prompt": "Which concept best explains this situation? A pathway diagram can show signal order without showing realistic size or every neuron.",
+          "answer": "model limitation",
+          "optionSource": "terms"
+        },
+        {
+          "id": "correction",
+          "skill": "misconception",
+          "difficulty": 3,
+          "prompt": "Which statement correctly replaces this inaccurate idea: “A diagram that omits detail is automatically useless.”",
+          "answer": "a model simplifies reality and must be interpreted within its stated boundaries",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "sequence-start",
+          "skill": "sequence",
+          "difficulty": 1,
+          "prompt": "Which event begins the model limitation sequence?",
+          "answer": "identify purpose",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-next",
+          "skill": "sequence",
+          "difficulty": 2,
+          "prompt": "In the model limitation sequence, what follows identify purpose?",
+          "answer": "use represented relationship",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-end",
+          "skill": "integrate",
+          "difficulty": 4,
+          "prompt": "Which event completes the model limitation sequence?",
+          "answer": "limit conclusion",
+          "optionSource": "sequence"
+        }
+      ]
+    },
+    {
+      "id": "health-claim",
+      "lessonId": "lesson-14",
+      "term": "evaluating a health claim",
+      "definition": "check mechanism, evidence quality, alternatives and limits before accepting a claim",
+      "scenario": "A product claim about faster reflexes needs controlled evidence, not a current price or testimonial.",
+      "misconception": "A higher price is biological evidence that a treatment works.",
+      "sequence": [
+        "identify claim",
+        "check evidence",
+        "compare mechanism",
+        "consider alternatives",
+        "conclude cautiously"
+      ],
+      "answers": [
+        "evaluating a health claim"
+      ],
+      "aliases": [],
+      "relationships": [
+        "identify claim",
+        "check evidence",
+        "compare mechanism",
+        "consider alternatives",
+        "conclude cautiously"
+      ],
+      "contrast": [
+        "check mechanism, evidence quality, alternatives and limits before accepting a claim",
+        "A higher price is biological evidence that a treatment works."
+      ],
+      "cue": "Trace where evaluating a health claim belongs in the lesson mechanism or example.",
+      "explanation": "evaluating a health claim: check mechanism, evidence quality, alternatives and limits before accepting a claim",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 400"
+      ],
+      "mcVariants": [
+        {
+          "id": "term",
+          "skill": "recognize",
+          "difficulty": 1,
+          "prompt": "Which term best matches this description: check mechanism, evidence quality, alternatives and limits before accepting a claim?",
+          "answer": "evaluating a health claim",
+          "optionSource": "terms"
+        },
+        {
+          "id": "function",
+          "skill": "relate",
+          "difficulty": 2,
+          "prompt": "Which statement best describes evaluating a health claim?",
+          "answer": "check mechanism, evidence quality, alternatives and limits before accepting a claim",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "scenario",
+          "skill": "apply",
+          "difficulty": 3,
+          "prompt": "Which concept best explains this situation? A product claim about faster reflexes needs controlled evidence, not a current price or testimonial.",
+          "answer": "evaluating a health claim",
+          "optionSource": "terms"
+        },
+        {
+          "id": "correction",
+          "skill": "misconception",
+          "difficulty": 3,
+          "prompt": "Which statement correctly replaces this inaccurate idea: “A higher price is biological evidence that a treatment works.”",
+          "answer": "check mechanism, evidence quality, alternatives and limits before accepting a claim",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "sequence-start",
+          "skill": "sequence",
+          "difficulty": 1,
+          "prompt": "Which event begins the evaluating a health claim sequence?",
+          "answer": "identify claim",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-next",
+          "skill": "sequence",
+          "difficulty": 2,
+          "prompt": "In the evaluating a health claim sequence, what follows identify claim?",
+          "answer": "check evidence",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-end",
+          "skill": "integrate",
+          "difficulty": 4,
+          "prompt": "Which event completes the evaluating a health claim sequence?",
+          "answer": "conclude cautiously",
+          "optionSource": "sequence"
+        }
+      ]
+    },
+    {
+      "id": "applied-neuroscience",
+      "lessonId": "lesson-14",
+      "term": "applied neuroscience",
+      "definition": "chapter mechanisms can help explain technologies and health decisions without grading opinions",
+      "scenario": "A prosthetic-control example can be analyzed by tracing input, processing and output.",
+      "misconception": "An opinion becomes scientific evidence when it is stated confidently.",
+      "sequence": [
+        "define problem",
+        "trace nervous-system pathway",
+        "apply evidence",
+        "state limitation"
+      ],
+      "answers": [
+        "applied neuroscience"
+      ],
+      "aliases": [],
+      "relationships": [
+        "define problem",
+        "trace nervous-system pathway",
+        "apply evidence",
+        "state limitation"
+      ],
+      "contrast": [
+        "chapter mechanisms can help explain technologies and health decisions without grading opinions",
+        "An opinion becomes scientific evidence when it is stated confidently."
+      ],
+      "cue": "Trace where applied neuroscience belongs in the lesson mechanism or example.",
+      "explanation": "applied neuroscience: chapter mechanisms can help explain technologies and health decisions without grading opinions",
+      "sourceRefs": [
+        "Biology 30 Chapter 11, textbook p. 400"
+      ],
+      "mcVariants": [
+        {
+          "id": "term",
+          "skill": "recognize",
+          "difficulty": 1,
+          "prompt": "Which term best matches this description: chapter mechanisms can help explain technologies and health decisions without grading opinions?",
+          "answer": "applied neuroscience",
+          "optionSource": "terms"
+        },
+        {
+          "id": "function",
+          "skill": "relate",
+          "difficulty": 2,
+          "prompt": "Which statement best describes applied neuroscience?",
+          "answer": "chapter mechanisms can help explain technologies and health decisions without grading opinions",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "scenario",
+          "skill": "apply",
+          "difficulty": 3,
+          "prompt": "Which concept best explains this situation? A prosthetic-control example can be analyzed by tracing input, processing and output.",
+          "answer": "applied neuroscience",
+          "optionSource": "terms"
+        },
+        {
+          "id": "correction",
+          "skill": "misconception",
+          "difficulty": 3,
+          "prompt": "Which statement correctly replaces this inaccurate idea: “An opinion becomes scientific evidence when it is stated confidently.”",
+          "answer": "chapter mechanisms can help explain technologies and health decisions without grading opinions",
+          "optionSource": "definitions"
+        },
+        {
+          "id": "sequence-start",
+          "skill": "sequence",
+          "difficulty": 1,
+          "prompt": "Which event begins the applied neuroscience sequence?",
+          "answer": "define problem",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-next",
+          "skill": "sequence",
+          "difficulty": 2,
+          "prompt": "In the applied neuroscience sequence, what follows define problem?",
+          "answer": "trace nervous-system pathway",
+          "optionSource": "sequence"
+        },
+        {
+          "id": "sequence-end",
+          "skill": "integrate",
+          "difficulty": 4,
+          "prompt": "Which event completes the applied neuroscience sequence?",
+          "answer": "state limitation",
+          "optionSource": "sequence"
+        }
+      ]
+    }
+  ]
+}

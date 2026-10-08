@@ -1,0 +1,15 @@
+# Teacher deck — slide 43
+
+Source: sources/original/Unit-A-Chapter-11-Teacher-Notes.pptx; ppt/slides/slide43.xml
+
+11.2 & 11.3 Central & Peripheral Nervous System
+
+Identify the principal structures & functions of the central and peripheral nervous systems (e.g. cerebral hemispheres and lobes, cerebellum, pons, medulla oblongata, hypothalamus, spinal cord, sympathetic and parasympathetic systems, sensory-somatic system)
+
+Explain the functions of the central and peripheral nervous systems in regulating the voluntary (somatic) and involuntary (autonomic) systems
+
+* Textbook pages 385-401
+
+## Speaker notes (unchanged extracted text)
+
+

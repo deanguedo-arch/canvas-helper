@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; font-src 'self' file:; img-src 'self' file:; base-uri 'none'; form-action 'none'">
+<title>Neurons &amp; myelin · Biology 30 teaching review</title><style>
+@font-face{font-family:"Hanken Grotesk";src:url("../../../workspace/assets/fonts/HankenGrotesk-Variable.ttf") format("truetype");font-weight:100 900;font-display:swap}
+@font-face{font-family:"Work Sans";src:url("../../../workspace/assets/fonts/WorkSans-Variable.ttf") format("truetype");font-weight:100 900;font-display:swap}
+:root{--ink:#171b1b;--muted:#5b635d;--canvas:#f7f8f5;--green:#154212;--teal:#146c60;--border:#d9ded8;--soft:#eef3ee}
+*{box-sizing:border-box}body{margin:0;color:var(--ink);background:var(--canvas);font:17px/1.66 "Work Sans",Arial,sans-serif}
+a{color:var(--teal);text-underline-offset:3px}a:hover{color:var(--green)}a:focus-visible,summary:focus-visible,.table-scroll:focus-visible{outline:3px solid #f2b84b;outline-offset:3px}
+.skip{position:absolute;left:16px;top:-100px;background:#fff;padding:10px;z-index:10}.skip:focus{top:8px}
+.topbar{height:64px;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;gap:32px;padding:8px 24px}
+.topbar img{width:116px;max-height:50px;object-fit:contain}.topbar p{font-size:14px;margin:0}
+.shell{display:grid;grid-template-columns:270px minmax(0,1fr);min-height:calc(100vh - 64px)}
+.sidebar{background:var(--ink);color:#fff;padding:24px 18px;border-right:1px solid #303830}
+.sidebar-title{font:800 24px/1.1 "Hanken Grotesk",sans-serif;margin:0 0 32px}.sidebar h2{font-size:18px;margin:24px 0 12px}
+.sidebar nav a{display:block;padding:10px 14px;border-left:2px solid transparent;color:#e5ebe3;text-decoration:none;font-size:14px;line-height:1.5}
+.sidebar nav a:hover{background:#232b24}.sidebar nav a[aria-current="page"]{border-color:#94bd85;font-weight:800;color:#fff}
+.sidebar .reference-links{border-top:1px solid #303830;padding-top:20px;margin-top:28px}.sidebar .reference-links a{display:block;color:#c9ddc4;font-size:14px;margin-bottom:16px}
+main{min-width:0;padding:32px 36px 64px}.reader{max-width:980px;margin:auto;background:#fff;border:1px solid var(--border);border-top:5px solid var(--green);border-radius:6px 6px 0 0;overflow:hidden}
+.review-notice{padding:20px 54px;background:var(--soft);border-bottom:1px solid var(--border);font-size:14px;line-height:1.6}
+.review-notice p{margin:0}.review-notice p+p{margin-top:8px}.manuscript,.overview,.teacher-notes{padding:32px 54px}
+h1,h2,h3,h4,h5,h6,summary{font-family:"Hanken Grotesk",sans-serif}h1{font-size:clamp(34px,4.4vw,50px);font-weight:800;line-height:1.08;margin:8px 0 24px}
+h2{font-size:28px;line-height:1.25;margin:42px 0 20px}h3{font-size:22px;line-height:1.35;margin:28px 0 14px}h4{font-size:19px}
+p{margin:0 0 22px}strong{font-weight:760}li{margin:10px 0}ul,ol{padding-left:28px}hr{border:0;border-top:1px solid var(--border);margin:30px 0}
+details{border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin:24px 0;padding:0 18px}
+summary{cursor:pointer;color:var(--green);font-size:18px;font-weight:760;padding:14px 0}details[open]>summary{margin-bottom:12px}details>:last-child{margin-bottom:20px}
+.manuscript>details:first-of-type{background:#eef6f3;border-left:4px solid var(--teal);border-top:0;border-bottom:0;padding:4px 24px}
+.table-scroll{overflow-x:auto;margin:24px 0}table{border-collapse:collapse;width:100%;min-width:420px;font-size:16px}th,td{padding:14px;vertical-align:top;text-align:left;border:1px solid var(--border)}th{background:var(--soft)}
+blockquote{border-left:4px solid var(--teal);margin:24px 0;padding:12px 20px;background:var(--soft)}code{overflow-wrap:anywhere;font-size:.86em}pre{white-space:pre-wrap}
+.lesson-index{list-style:none;padding:0;margin:28px 0}.lesson-index li{border-top:1px solid var(--border);padding:22px 0;margin:0}.lesson-index a{font:760 24px/1.3 "Hanken Grotesk",sans-serif}.lesson-index p{color:var(--muted);margin:10px 0 0}
+.teacher-notes{border-top:1px solid var(--border);font-size:15px}.teacher-notes>details{margin:0}.teacher-notes h1{font-size:30px}.teacher-notes h2{font-size:24px}.teacher-notes h3{font-size:20px}
+.bottom-links{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;border-top:1px solid var(--border);margin-top:32px;padding-top:24px}
+@media(max-width:760px){.shell{display:block}.topbar{justify-content:space-between;gap:16px}.sidebar{padding:20px}.sidebar-title{font-size:22px;margin-bottom:14px}.sidebar h2{margin:12px 0}.sidebar .reference-links{margin-top:14px;padding-top:12px}.sidebar .reference-links a{display:inline-block;margin:0 20px 8px 0}.sidebar nav a{padding:8px 12px}main{padding:20px 12px 40px}.review-notice,.manuscript,.overview,.teacher-notes{padding:24px}h2{font-size:25px}.table-scroll{max-width:100%}}
+@media print{.sidebar,.topbar,.review-notice,.bottom-links,.teacher-notes,.skip{display:none}.shell{display:block}main{padding:0}.reader{border:0;max-width:none}.manuscript,.overview{padding:0}details{break-inside:avoid}.table-scroll{overflow:visible}table{min-width:0}}
+</style></head><body>
+<a class="skip" href="#review-main">Skip to manuscript</a>
+<header class="topbar"><img src="../../../workspace/assets/brand/nxt-ce-logo-white-with-ce.png" alt="Next Step Continuing Education"><p>Chapter 11 · teaching draft review</p></header>
+<div class="shell"><aside class="sidebar"><p class="sidebar-title">Biology 30 -<br>Chapter 11</p><h2>Review the drafts</h2>
+<nav aria-label="Teaching review"><a href="index.html">Review overview</a><a href="lesson-01.html">1. Nervous communication</a><a href="lesson-02.html" aria-current="page">2. Neurons &amp; myelin</a><a href="lesson-03.html">3. Pathways &amp; reflexes</a></nav>
+<div class="reference-links"><a href="responses/CH11_First_Batch_Authoring_Draft_v2.zip">Download complete manuscripts</a><a href="source-notes.html">Teacher source and integration notes</a><a href="../../../workspace/index.html">Open unchanged current course</a></div></aside>
+<main id="review-main"><div class="reader"><div class="review-notice"><p><strong>Draft v2 — awaiting Dean’s approval.</strong> This is a read-only manuscript preview, not the live learner course.</p><p>Full lesson wording is preserved. Native hints and feedback can be opened. Diagrams, vocabulary pop-ups, response fields and saving are not integrated here.</p></div><article class="manuscript"><p>Learn · Chapter 11</p>
+<h1 id="neurons-myelin">Neurons &amp; myelin</h1>
+<p><strong>How can one microscopic cell receive information, carry it over a long distance, and pass it onward quickly enough to be useful?</strong></p>
+<h3 id="learning-goal">Learning goal</h3>
+<p><strong>I can identify the main parts of a neuron, connect each structure to its function, and explain how myelin changes the way an impulse travels along an axon.</strong></p>
+<h3 id="before-you-begin">Before you begin</h3>
+<p>In Lesson 1, you followed information from receptors toward the CNS and motor instructions from the CNS toward effectors.</p>
+<p>Now zoom in on the cell doing much of that communication.</p>
+<p><strong>A neuron is one cell. A nerve is a larger structure containing many axons, or nerve fibres, bundled together with supporting tissues.</strong></p>
+<details>
+<summary><strong>How to complete this lesson — Learn → practise → required check → finish</strong></summary>
+
+<ol>
+<li><strong>Learn first.</strong> Follow the neuron from its receiving end to its transmitting end, then compare unmyelinated and myelinated conduction.</li>
+<li><strong>Use support when it helps.</strong> The embedded textbook, vocabulary tools and video are optional. The essential explanation is on this page.</li>
+<li><strong>Try the practice before revealing the help.</strong> Answer in your notes first. Reveal the hint only if needed, then use the solution to check your reasoning.</li>
+<li><strong>Prepare for the drawing check.</strong> Draw and label the neuron on paper or in personal notes. In the written-response box, type the structures you labelled and explain each function. Keep your drawing for study; only the typed label/function account is stored here.</li>
+<li><strong>Complete the required chapter check.</strong> Open the check and select <strong>Start</strong>. Enter your written response and select <strong>Save written response</strong>. If you edit the response after saving it, select <strong>Save written response</strong> again so the saved attempt matches your current answer. Draft autosave is not submission. Select <strong>Submit and finish</strong> only after the current response is saved. Writing is not automatically graded.</li>
+</ol>
+</details>
+
+<h3 id="optional-embedded-reading">Optional embedded reading</h3>
+<p><strong>Chapter 11 · p. 372</strong><br><a href="attachments/Chapter11_Original_Textbook.pdf#page=13" rel="noopener">Open at p. 372</a></p>
+<p><strong>Key terms:</strong> dendrite · cell body (soma) · axon · myelin sheath · Schwann cell · node of Ranvier</p>
+<hr>
+<h2 id="one-cell-built-for-communication">One cell, built for communication</h2>
+<p>Neurons share many features with other body cells: they have a cell membrane, cytoplasm, a nucleus and organelles. What makes them useful in a nervous system is the way their specialized regions are arranged for communication.</p>
+<p>A useful first model is:</p>
+<p><strong>receive → integrate → conduct → pass information onward</strong></p>
+<p>The figure in this lesson uses a <strong>typical multipolar neuron</strong>: many dendrites branch around the cell body, and one axon leaves the cell body. This is a useful model for learning structure and function, not a rule that every neuron has the same shape.</p>
+<p>Before using the structure table, you need one signal term. An <strong>action potential</strong> is a brief travelling electrical event in a neuron's membrane. As it moves along an axon, active membrane regions generate the next part of the signal. That basic meaning is enough for this lesson; Lessons 4 and 5 teach the ion movements, resting conditions and threshold in detail.</p>
+<p>The parts of a typical neuron support the communication jobs below.</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Lesson comparison table"><table>
+<thead>
+<tr>
+<th>Structure</th>
+<th>Where to find it</th>
+<th>Main job in this lesson</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Dendrites</strong></td>
+<td>Branched extensions near the cell body</td>
+<td>Receive incoming information from other cells or receptors and carry that influence toward the cell body.</td>
+</tr>
+<tr>
+<td><strong>Cell body (soma)</strong></td>
+<td>Main region containing the nucleus and most organelles</td>
+<td>Maintains the cell and combines incoming influences.</td>
+</tr>
+<tr>
+<td><strong>Nucleus</strong></td>
+<td>Inside the cell body</td>
+<td>Contains DNA and supports control of the cell's activities.</td>
+</tr>
+<tr>
+<td><strong>Axon hillock / initial region</strong></td>
+<td>Where the cell body narrows into the axon</td>
+<td>Incoming influences are combined here; under the right electrical conditions, an action potential can begin in the axon's initial region. Detailed threshold physiology comes later.</td>
+</tr>
+<tr>
+<td><strong>Axon</strong></td>
+<td>Long extension leaving the cell body</td>
+<td>Conducts the travelling electrical event away from the cell body.</td>
+</tr>
+<tr>
+<td><strong>Axon terminals</strong></td>
+<td>Branched end of the axon</td>
+<td>Pass information onward at a <strong>synapse</strong>, the junction where a neuron communicates with another cell. Many synapses studied later in this chapter use chemical messengers; detailed synaptic transmission comes in Lesson 6.</td>
+</tr>
+</tbody></table></div>
+<hr>
+<h2 id="follow-information-through-one-neuron">Follow information through one neuron</h2>
+<p>Use the image titled <strong>Structure of a neuron</strong>.</p>
+<p>Start on the left side at the label <strong>Dendrites</strong>. These orange branching structures provide a large receiving region.</p>
+<p>Next, follow the branches into the <strong>Cell body (soma)</strong>. The labelled <strong>Nucleus</strong> sits inside the soma. The cell body is not just a relay point; it contains the machinery that keeps the neuron alive and it is where incoming signals are combined.</p>
+<p>Now find the <strong>Axon hillock</strong> where the cell body narrows into the axon. The figure says that signals are <strong>summed</strong> here. In plain language, that means incoming influences are combined. Under the right electrical conditions, an action potential can begin in the axon's initial region. Lessons 4 and 5 explain those conditions.</p>
+<p>Follow the long <strong>Axon</strong> to the right. The large teal arrow along the bottom shows the overall direction of information flow: from dendrites toward the axon terminals.</p>
+<p>Around parts of the axon are blue <strong>Myelin sheath</strong> segments. The small exposed gaps between those segments are labelled <strong>Nodes of Ranvier</strong>.</p>
+<p>Finally, follow the axon to the branching <strong>Axon terminals</strong> on the far right. A <strong>synapse</strong> is the communication junction between a neuron and another cell. The terminals pass information onward at these junctions. Many of the synapses emphasized later in this chapter use chemical messengers, but the detailed synaptic mechanism is intentionally left for Lesson 6.</p>
+<p>The image also includes a box labelled <strong>Glial cells support neurons</strong>. Three examples are shown:</p>
+<ul>
+<li>an <strong>astrocyte</strong>, which helps support neurons and regulate their chemical environment;</li>
+<li>an <strong>oligodendrocyte</strong>, which forms myelin in the CNS;</li>
+<li>a <strong>microglial cell</strong>, which contributes to immune defence and removal of debris.</li>
+</ul>
+<p>These are examples of glial cells. They are not three new types of neuron.</p>
+<h3 id="one-important-distinction">One important distinction</h3>
+<p>A diagram often makes the neuron look like a complete cable. A <strong>nerve</strong>, however, is not this one whole neuron copied many times. In the PNS, many axons from many neurons are bundled together into nerves with protective connective tissues.</p>
+<hr>
+<h2 id="worked-example-why-this-neuron-shape-suits-the-job">Worked example: why this neuron shape suits the job</h2>
+<p>Imagine a neuron that receives information from many nearby cells but must send its output to a target much farther away. Why is a branching receiving region, a cell body, one long axon and terminal branches a useful arrangement?</p>
+<h3 id="step-1-start-with-the-input-problem">Step 1 — Start with the input problem</h3>
+<p>The neuron may be influenced by many other cells. A branching dendritic region provides many places where incoming information can reach the neuron. More branching does not mean the dendrites make the final response by themselves; it gives the neuron a large receiving region.</p>
+<h3 id="step-2-combine-the-incoming-information">Step 2 — Combine the incoming information</h3>
+<p>Those incoming influences converge on the <strong>cell body (soma)</strong> and the axon's initial region. The soma also contains the nucleus and organelles that keep the cell functioning. The communication job here is to maintain the cell and combine incoming influences before an outgoing electrical event is produced.</p>
+<h3 id="step-3-solve-the-distance-problem">Step 3 — Solve the distance problem</h3>
+<p>Once an action potential begins, one long <strong>axon</strong> provides a continuous cellular route for carrying that electrical event away from the soma toward a distant target. The axon is suited to transmission over distance in a way that a cluster of short receiving branches is not.</p>
+<h3 id="step-4-pass-the-output-onward">Step 4 — Pass the output onward</h3>
+<p>At the far end, <strong>axon terminals</strong> branch in the target region. At synapses, those terminals can pass information to another neuron or to an effector cell. The exact synaptic mechanism is a later lesson; here the important structure-function idea is that terminal branching creates multiple communication endings at the output end of the neuron.</p>
+<h3 id="conclusion">Conclusion</h3>
+<p>The overall shape matches the communication problem: <strong>branched dendrites receive many inputs → the soma maintains the cell and combines incoming influences → one long axon carries the electrical event over distance → terminal branches pass the output onward.</strong></p>
+<p>This is more than a label list. Each structure helps solve a different part of the neuron's communication job.</p>
+<hr>
+<h2 id="why-myelin-changes-conduction">Why myelin changes conduction</h2>
+<p>Many axons are wrapped in a fatty insulating layer called the <strong>myelin sheath</strong>.</p>
+<p>Myelin is made by glial cells, but the type of glial cell depends on location:</p>
+<ul>
+<li><strong>Schwann cells form myelin in the PNS.</strong></li>
+<li><strong>Oligodendrocytes form myelin in the CNS.</strong></li>
+</ul>
+<p>Myelin does not replace the axon. The axon remains continuous underneath the sheath.</p>
+<p>The gaps between adjacent myelin segments are the <strong>nodes of Ranvier</strong>. Those exposed regions of axon membrane are where the action potential is regenerated in a myelinated axon.</p>
+<h3 id="compare-the-two-patterns">Compare the two patterns</h3>
+<p>In an <strong>unmyelinated axon</strong>, neighbouring regions of axon membrane are activated one after another. The travelling electrical event is regenerated continuously along the membrane.</p>
+<p>In a <strong>myelinated axon</strong>, the insulating myelin changes how local electrical current spreads. The action potential is regenerated mainly at the nodes of Ranvier. This pattern is called <strong>saltatory conduction</strong>.</p>
+<p>You will often hear saltatory conduction described as the impulse “jumping” from node to node. That is a useful visual shorthand, but do not imagine a signal teleporting through empty space. The axon is continuous beneath the myelin. Current spreads along the axon under the insulated regions, and the full action potential is regenerated at the exposed nodes.</p>
+<p>Because the membrane does not need to regenerate the action potential at every neighbouring point along the myelinated stretch, myelinated conduction is faster than continuous conduction in a comparable unmyelinated axon.</p>
+<hr>
+<h2 id="compare-conduction-in-the-myelin-figure">Compare conduction in the myelin figure</h2>
+<p>The image titled <strong>Myelin and saltatory conduction</strong> has two panels.</p>
+<h3 id="panel-a-unmyelinated-axon-continuous-conduction">Panel A — Unmyelinated axon: continuous conduction</h3>
+<p>Look at the exposed axon. The orange curved arrows and highlighted points run along neighbouring regions of membrane. The figure labels this <strong>continuous conduction</strong> and shows the direction from left to right.</p>
+<p>Do not interpret the separate highlighted points as separate signals. They represent successive regions participating in the propagation of one travelling impulse.</p>
+<h3 id="panel-b-myelinated-axon-saltatory-conduction">Panel B — Myelinated axon: saltatory conduction</h3>
+<p>Now look at the blue myelin sheath segments around the axon. The gaps are labelled <strong>Node of Ranvier (gap in myelin)</strong>. The orange arrows span from one node region toward the next.</p>
+<p>The figure also labels a <strong>Schwann cell</strong>, because this drawing is showing peripheral myelin. If the axon were in the CNS, myelin would be formed by oligodendrocytes instead.</p>
+<p>The bottom message is the comparison to remember:</p>
+<p><strong>myelin increases the speed of nerve impulse conduction.</strong></p>
+<p>The figure also warns that damage to myelin can slow or block signalling.</p>
+<hr>
+<h2 id="worked-example-same-distance-different-insulation">Worked example: same distance, different insulation</h2>
+<p>Two axons carry signals the same distance. They are similar in other relevant ways, but Axon A is myelinated and Axon B is unmyelinated.</p>
+<p><strong>Question:</strong> Which signal should arrive sooner, and what biological mechanism explains the difference?</p>
+<h3 id="step-1-identify-the-meaningful-difference">Step 1 — Identify the meaningful difference</h3>
+<p>The important difference is <strong>myelin</strong>, not the destination or the length of the route.</p>
+<h3 id="step-2-compare-where-the-action-potential-is-regenerated">Step 2 — Compare where the action potential is regenerated</h3>
+<p>In Axon B, which is unmyelinated, neighbouring regions of membrane regenerate the signal in sequence along the axon.</p>
+<p>In Axon A, myelin insulates long stretches of membrane and the action potential is regenerated mainly at nodes of Ranvier.</p>
+<h3 id="step-3-link-structure-to-function">Step 3 — Link structure to function</h3>
+<p>The myelin sheath changes conduction so the signal can travel more rapidly along the axon between the exposed nodes.</p>
+<h3 id="conclusion-2">Conclusion</h3>
+<p><strong>Axon A should conduct the signal faster because its myelin sheath allows saltatory conduction, with action potentials regenerated at nodes of Ranvier rather than continuously at every neighbouring region of membrane.</strong></p>
+<p>Notice what the answer does <strong>not</strong> say:</p>
+<ul>
+<li>Myelin is not the electrical signal.</li>
+<li>The signal does not leave one axon and jump through space to another.</li>
+<li>An unmyelinated axon is not “off”; it still conducts, but by a different pattern.</li>
+</ul>
+<hr>
+<h2 id="guided-attempt-1-follow-structure-into-function">Guided attempt 1 — follow structure into function</h2>
+<p>Imagine that the labels on the neuron figure are hidden. You can still see a highly branched region leading into a large cell body, followed by one long extension and a set of terminal branches.</p>
+<p><strong>Question:</strong> Identify the four main regions in order and state the communication job of each.</p>
+<details>
+<summary><strong>Hint — reveal only if you need it</strong></summary>
+
+<p>Use the pattern <strong>receive → combine/maintain → conduct → pass onward</strong>. The cell body belongs between the receiving branches and the long conducting extension, and the terminal branches are the output end.</p>
+</details>
+
+<details>
+<summary><strong>Check your reasoning</strong></summary>
+
+<p>A strong sequence is:</p>
+<p><strong>dendrites → cell body (soma) → axon → axon terminals</strong></p>
+<ul>
+<li>Dendrites receive incoming information.</li>
+<li>The cell body maintains the neuron and integrates incoming signals.</li>
+<li>The axon conducts the travelling electrical signal away from the cell body.</li>
+<li>Axon terminals pass information to another cell.</li>
+</ul>
+<p>If you placed the axon before the cell body, recheck the direction-of-information arrow on the diagram.</p>
+<p>If you described dendrites as the structures that normally carry the action potential away from the soma in this model, you have reversed the typical direction shown here.</p>
+</details>
+
+<hr>
+<h2 id="guided-attempt-2-what-does-the-node-do">Guided attempt 2 — what does the node do?</h2>
+<p>A student says: “The node of Ranvier is the piece of myelin that speeds the signal.”</p>
+<p><strong>Question:</strong> What needs to be corrected in that statement?</p>
+<details>
+<summary><strong>Hint — reveal only if you need it</strong></summary>
+
+<p>Look at the label in the myelin figure. Is the node a covered region or a gap?</p>
+</details>
+
+<details>
+<summary><strong>Check your reasoning</strong></summary>
+
+<p>A node of Ranvier is a <strong>gap between myelin segments</strong>, not a piece of myelin. In a myelinated axon, the action potential is regenerated at these exposed nodes. The myelin sheath insulates the stretches between nodes and helps make saltatory conduction faster.</p>
+</details>
+
+<hr>
+<h2 id="why-myelin-damage-matters">Why myelin damage matters</h2>
+<p>If myelin is damaged, the normal insulation and organization of conduction are disrupted. Signals can slow, become unreliable, or fail along affected pathways.</p>
+<p><strong>Multiple sclerosis (MS)</strong> is a disorder of the CNS in which immune-mediated damage affects myelin and can also damage nerve fibres. Because different CNS pathways can be affected in different people, symptoms vary. They can include changes in sensation, vision, strength, balance or coordination.</p>
+<p>For this lesson, keep the causal connection simple:</p>
+<p><strong>myelin damage → disrupted neural signalling → changes in function depending on the pathway affected</strong></p>
+<p>MS is not explained by a single “MS gene,” and the course of the disease is not identical for every person.</p>
+<hr>
+<h2 id="independent-transfer-the-axon-is-intact-but-the-myelin-is-damaged">Independent transfer — the axon is intact, but the myelin is damaged</h2>
+<p>A long axon is still physically continuous from its starting region to its terminals. The neuron can still produce an action potential, but much of the myelin along the axon has been damaged.</p>
+<p><strong>Predict what could happen to signal conduction and explain the mechanism using the terms <em>myelin</em>, <em>node of Ranvier</em>, <em>action potential</em> and <em>saltatory conduction</em>.</strong></p>
+<p>Write your explanation in your notes before revealing the model.</p>
+<details>
+<summary><strong>Model answer and feedback — reveal after you try</strong></summary>
+
+<p>The axon can still be physically continuous, but damaged myelin reduces the insulation that normally supports rapid saltatory conduction. In a healthy myelinated axon, the action potential is regenerated at nodes of Ranvier while current spreads efficiently beneath myelinated segments. When myelin is lost, that pattern is disrupted, so conduction can slow or the signal can fail before reaching the terminals.</p>
+<p>A strong answer connects <strong>structure to mechanism to consequence</strong>.</p>
+<p>If you wrote “the signal has nowhere to jump,” replace that picture with the continuous-axon model: the signal does not teleport. Myelin supports efficient current spread between nodes.</p>
+<p>If you wrote “the axon disappears,” check the scenario: it explicitly states that the axon is still continuous.</p>
+</details>
+
+<hr>
+<h2 id="optional-support">Optional support</h2>
+<h3 id="the-structure-of-a-neuron-recap">The structure of a neuron: recap</h3>
+<p>If the video loads, pause when a structure is labelled and try to say its function before the explanation continues. The written lesson and neuron diagram contain the essential teaching if the video is unavailable.</p>
+<p><a href="https://www.youtube.com/watch?v=A44brRGG4Ys" rel="noopener">Watch on YouTube</a></p>
+<p>For another labelled representation, open the embedded textbook at <strong>p. 372</strong>.</p>
+<hr>
+<h2 id="before-the-required-check">Before the required check</h2>
+<p>The required check asks you to <strong>draw a neuron, label its basic structures, and identify their functions</strong>.</p>
+<p>Use this workflow:</p>
+<ol>
+<li>Draw a neuron on paper or in your personal notes.</li>
+<li>Label at least the key structures taught here: dendrites, cell body/soma, nucleus, axon, myelin sheath where shown, nodes of Ranvier, and axon terminals.</li>
+<li>Use arrows or spacing so the direction from receiving region to terminal region is clear.</li>
+<li>In the written-response box, type the labels you used and explain the function of each structure. Keep your drawing for study; only the typed label/function account is stored here.</li>
+</ol>
+<h3 id="open-chapter-check-neurons-myelin">Open chapter check: Neurons &amp; myelin</h3>
+<p>Select <strong>Start</strong> when you are ready. Complete the drawing on paper or in your notes, then enter the label/function account in the written-response box. Select <strong>Save written response</strong>. If you edit the response after saving it, select <strong>Save written response</strong> again before finishing. Draft autosave is not submission. Writing is not automatically graded. When the current required response is saved, select <strong>Submit and finish</strong>.</p>
+<p><strong>Required prompt</strong><br>Draw a neuron, label its basic structures, and identify their functions.</p>
+<hr>
+<h2 id="closing-answer">Closing answer</h2>
+<p>A neuron is shaped for directional communication: dendrites receive, the cell body maintains and integrates, the axon conducts a travelling electrical event, and the terminals pass information onward. Myelin insulates many axons and allows faster saltatory conduction because the action potential is regenerated mainly at nodes of Ranvier.</p>
+<p>Now we can follow one cell. The next question is how several cells are organized into a complete route from a receptor to an effector.</p>
+<p><a href="lesson-01.html" rel="noopener">Previous: Nervous communication</a> · <a href="lesson-03.html" rel="noopener">Next: Pathways &amp; reflexes</a></p>
+<nav class="bottom-links" aria-label="Draft navigation"><a href="lesson-01.html">Previous draft</a><a href="lesson-03.html">Next draft</a></nav></article>
+<section class="teacher-notes" aria-label="Teacher-only notes"><details><summary>Teacher notes and source references</summary><p><a href="responses/v2/CH11_Lesson02_Neurons_Myelin_v2.md">Open the complete original Markdown manuscript</a></p><hr>
+<h1 id="teacher-only-authoring-record">Teacher-only authoring record</h1>
+<h2 id="source-binding">Source binding</h2>
+<ul>
+<li>Branch: <code>codex/math-engine-preflight</code></li>
+<li>Revision: <code>ecc1b806630cb33b9942e64eb676a1f8568c007e</code></li>
+<li>Source-tree SHA-256: <code>0e89c19b8db652abffc5a8837e084b7e84eb30be888057c8ccdf2e2efe33ba52</code></li>
+<li>Canonical path/anchor: <code>projects/biology30-unit-a-pilot-3/workspace/index.html#lesson-02</code></li>
+<li>Current canonical fragment: lines 369–518; fragment SHA-256 <code>0ea84201a6ae183b7a3bb4ecdceb98c24b3703b5ad5999525a0d5d082bb57643</code></li>
+<li>Printed textbook page = PDF page + 359.</li>
+</ul>
+<h2 id="source-outcome-map-by-teaching-chunk">Source/outcome map by teaching chunk</h2>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Lesson comparison table"><table>
+<thead>
+<tr>
+<th>Teaching chunk</th>
+<th>Source evidence</th>
+<th>Outcome relationship</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Neuron structure/function</td>
+<td>Textbook printed p. 370 / PDF p. 11 introduces four common features; printed p. 372 / PDF p. 13, Fig. 11.9; teacher slides 8–11</td>
+<td>Direct <strong>foundation/partial coverage</strong> of 30–A1.1k. Action-potential mechanism and synapse components are later lessons.</td>
+</tr>
+<tr>
+<td>Structure-to-function worked reasoning</td>
+<td>Same neuron-structure sources above; learner example applies receiving branches → soma/integration → long axon → terminal output without importing later ion/synapse mechanisms</td>
+<td>Worked causal application of the neuron-structure portion of 30–A1.1k; not additional outcome scope.</td>
+</tr>
+<tr>
+<td>Neuron versus nerve</td>
+<td>Textbook printed p. 368 / PDF p. 9, Fig. 11.5</td>
+<td>Foundation for 30–A1.3k organization of neurons/axons into nerves; not full outcome completion by this lesson alone.</td>
+</tr>
+<tr>
+<td>Glial support examples</td>
+<td>Textbook printed p. 368 / PDF p. 9; current <code>integrated-neuron.png</code>; teacher slide 7 used only as historical emphasis</td>
+<td>Supports comparison required later in <code>source-checkpoint-4</code>; glial subtype details are supportive rather than a separate memorization outcome.</td>
+</tr>
+<tr>
+<td>Myelin, nodes, saltatory conduction</td>
+<td>Textbook printed p. 372 / PDF p. 13; current <code>integrated-myelin.png</code>; teacher slides 9–13; authoritative myelin source below</td>
+<td>Direct <strong>foundation/partial coverage</strong> of 30–A1.1k. Ion-channel mechanism intentionally deferred to lessons 4–5.</td>
+</tr>
+<tr>
+<td>MS application</td>
+<td>Current course qualified passage; authoritative MedlinePlus/NIH verification below; teacher slide 14 treated as historical conflict source</td>
+<td>Application only; not used to create a new required outcome.</td>
+</tr>
+</tbody></table></div>
+<p>Official program scope: Alberta Program physical p. 52 / excerpt PDF p. 2, <strong>30–A1.1k</strong> requires neuron/myelin structure plus action potential, all-or-none/intensity, synaptic transmission and named chemicals. This lesson therefore <strong>does not complete 30–A1.1k</strong>.</p>
+<h2 id="authoritative-verification-used-outside-learner-copy">Authoritative verification used outside learner copy</h2>
+<p>Retrieved 2026-10-02.</p>
+<ol>
+<li><strong>PNS versus CNS myelin and nodes:</strong> NCBI Bookshelf, <em>Basic Neurochemistry — The Myelin Sheath</em>. Schwann cells provide PNS myelin; oligodendroglial cells provide CNS myelin; nodes of Ranvier are interruptions between myelin segments and are central to myelinated conduction.<br><a href="https://www.ncbi.nlm.nih.gov/books/NBK27954/" rel="noopener">https://www.ncbi.nlm.nih.gov/books/NBK27954/</a></li>
+<li><strong>Somatic axons bundled into nerves:</strong> OpenStax, <em>Anatomy and Physiology</em>, §10.2 notes that axons of multiple neurons bundle together to form nerves.<br><a href="https://openstax.org/books/anatomy-and-physiology/pages/10-2-skeletal-muscle" rel="noopener">https://openstax.org/books/anatomy-and-physiology/pages/10-2-skeletal-muscle</a></li>
+<li><strong>MS cause/course:</strong> MedlinePlus Genetics, <em>Multiple sclerosis</em>. MS involves CNS myelin damage; risk reflects genetic, environmental and lifestyle factors; course and features vary widely.<br><a href="https://medlineplus.gov/genetics/condition/multiple-sclerosis/" rel="noopener">https://medlineplus.gov/genetics/condition/multiple-sclerosis/</a></li>
+</ol>
+<h2 id="consequential-source-conflicts-and-decisions">Consequential source conflicts and decisions</h2>
+<ul>
+<li><strong>Teacher slide 10:</strong> “Schwann Cells ... producing the myelin that surrounds each axon” is not carried forward as a universal statement. Draft uses Schwann = PNS; oligodendrocyte = CNS.</li>
+<li><strong>Teacher slide 10:</strong> “jump from node to node” is retained only as visual shorthand after explicitly teaching continuous axon + regeneration at nodes.</li>
+<li><strong>Teacher slide 12:</strong> white-matter/grey-matter binary is not used. Detailed tissue composition belongs later and the slide's exclusive binary is misleading.</li>
+<li><strong>Teacher slide 12:</strong> “myelinated neurons capable of regenerating / unmyelinated not capable” is omitted. Regeneration cannot be reduced to myelination status.</li>
+<li><strong>Teacher slide 14:</strong> “MS is a genetic disorder” and inevitable age-linked worsening are not used. Draft uses immune-mediated CNS myelin damage with variable course and multifactorial risk.</li>
+<li><strong>Textbook printed p. 368 / PDF p. 9:</strong> historical 10:1 glia:neuron ratio is not used; it is not required and modern estimates do not support presenting it as a simple universal ratio.</li>
+<li><strong>Teacher-only key p. 3:</strong> statement that Schwann cells produce myelin in parts of the CNS and PNS is not treated as scientific authority.</li>
+</ul>
+<h2 id="proposed-new-formative-items">Proposed new formative items</h2>
+<p>All are optional/ungraded. Notes/self-check only; no new state owner.</p>
+<h3 id="ch11-l02-guided-structure-flow-v1"><code>ch11-l02-guided-structure-flow-v1</code></h3>
+<ul>
+<li>Placement: after neuron visual-reading and structure-to-function worked-example block.</li>
+<li><strong>v2 correction:</strong> item identity is retained, but prompt/hint/model/criteria now consistently require <strong>four</strong> regions.</li>
+<li>Prompt: “Imagine that the labels on the neuron figure are hidden. You can still see a highly branched region leading into a large cell body, followed by one long extension and a set of terminal branches. Identify the four main regions in order and state the communication job of each.”</li>
+<li>Hint: receive → combine/maintain → conduct → pass onward; the cell body belongs between the receiving branches and the long axon, and the terminal branches are the output end.</li>
+<li>Model reasoning: dendrites receive; cell body maintains the cell and combines incoming influences; axon conducts the travelling electrical event away; axon terminals pass information onward at synapses.</li>
+<li>Acceptable criteria: correct four-part sequence <strong>dendrites → cell body/soma → axon → axon terminals</strong>; a correct communication function for each of all four regions.</li>
+<li>Targeted feedback: reversed axon/dendrite direction; omission of the terminal region; treating the cell body as a gap in myelin.</li>
+<li>State owner: none.</li>
+</ul>
+<h3 id="ch11-l02-guided-node-correction-v1"><code>ch11-l02-guided-node-correction-v1</code></h3>
+<ul>
+<li>Placement: after myelin figure reading.</li>
+<li>Prompt: “A student says: ‘The node of Ranvier is the piece of myelin that speeds the signal.’ What needs to be corrected?”</li>
+<li>Hint: node = covered region or gap?</li>
+<li>Model reasoning: node is exposed gap between myelin segments; action potential is regenerated there; myelin insulates between nodes.</li>
+<li>Acceptable criteria: gap + regeneration + myelin insulation.</li>
+<li>Targeted feedback: node ≠ myelin segment; myelin ≠ action potential.</li>
+<li>State owner: none.</li>
+</ul>
+<h3 id="ch11-l02-independent-demyelination-v1"><code>ch11-l02-independent-demyelination-v1</code></h3>
+<ul>
+<li>Placement: after MS application, before optional video.</li>
+<li>Prompt: exact independent-transfer block in learner manuscript.</li>
+<li>Hint: none initially.</li>
+<li>Model reasoning: physical continuity does not guarantee normal conduction; loss of insulation disrupts current spread/saltatory pattern; action potential may slow or fail before terminals.</li>
+<li>Acceptable criteria: uses myelin, node of Ranvier, action potential and saltatory conduction accurately; explains mechanism and consequence.</li>
+<li>Targeted feedback:<ul>
+<li>“signal has nowhere to jump” → replace teleport model with continuous axon/current-spread model.</li>
+<li>“axon disappears” → contradicts supplied condition.</li>
+<li>“all signalling always stops” → too absolute; can slow, become unreliable or fail depending on damage.</li>
+</ul>
+</li>
+<li>State owner: none.</li>
+</ul>
+<h2 id="v2-correction-record">v2 correction record</h2>
+<ul>
+<li>Moved the basic <strong>action potential</strong> meaning ahead of the first structure table and axon-hillock reference; detailed ions/threshold remain deferred.</li>
+<li>Replaced unexplained learner-facing “summed” with “combined,” while explaining the figure's wording where it appears.</li>
+<li>Defined <strong>synapse</strong> at first terminal communication without implying that every synapse is chemically mediated.</li>
+<li>Added a complete structure-to-function worked example using branching dendrites, soma, long axon and terminal branches.</li>
+<li>Corrected <code>ch11-l02-guided-structure-flow-v1</code> from an inconsistent three-region prompt to four regions everywhere; the proposed ID is unchanged.</li>
+<li>Replaced production/admin wording in the learner copy with direct biology/drawing instructions.</li>
+<li>Restored the approved key-terms strip baseline; no new Frayer/word binding is implied by additional bold terms.</li>
+<li>Updated save instructions to require re-saving after edits; draft autosave is not submission.</li>
+</ul>
+<h2 id="existing-required-check-immutable">Existing required check — immutable</h2>
+<p>Activity: <code>practice-neuron-structure</code> · <code>data-activity-mode="writing"</code> · required check.</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Lesson comparison table"><table>
+<thead>
+<tr>
+<th>Question ID</th>
+<th>Exact prompt</th>
+<th>Written field</th>
+<th align="right">Limit</th>
+<th>Reader target</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>source-checkpoint-7</code></td>
+<td><code>Draw a neuron, label its basic structures, and identify their functions.</code></td>
+<td><code>source-checkpoint-7-written</code></td>
+<td align="right">3200</td>
+<td>printed p. 372 / PDF p. 13</td>
+</tr>
+</tbody></table></div>
+<p>Paper/personal-notes drawing + typed label/function account uses the native written field; only the typed account is stored in the check. If the typed response is edited after saving, it must be saved again before <code>Submit and finish</code>; draft autosave is not submission.</p>
+<h2 id="vocabulary-preservation-note">Vocabulary preservation note</h2>
+<ul>
+<li>Canonical live Chapter 11 vocabulary payload and routine visible vocabulary/Frayer markup are in <code>projects/biology30-unit-a-pilot-3/workspace/index.html</code>, including <code>&lt;script type="application/json" id="pilot3-words"&gt;</code>. <code>current-course/data/vocabulary-and-schema.json</code> is a frozen exported snapshot, not the live owner.</li>
+<li>Preserve current word IDs, routes, reader/Frayer connections and native helper ownership.</li>
+<li>Learner key-terms strip remains the approved baseline: <code>dendrite · cell body (soma) · axon · myelin sheath · Schwann cell · node of Ranvier</code>.</li>
+<li>Terms such as <code>action potential</code>, <code>synapse</code>, <code>oligodendrocyte</code> and <code>saltatory conduction</code> are explained in the manuscript where needed; v2 does <strong>not</strong> automatically create new Frayer entries or vocabulary IDs for them. No new vocabulary binding is proposed in this pass.</li>
+</ul>
+<h2 id="existing-media-asset-bindings">Existing media / asset bindings</h2>
+<h3 id="assets-source-integrated-neuron-png"><code>assets/source/integrated-neuron.png</code></h3>
+<ul>
+<li>Status: existing source asset; inspected by the Codex lead as authoring evidence; <strong>teacher visual acceptance remains PENDING</strong>.</li>
+<li>Existing alt: <code>A labelled neuron showing dendrites, soma, nucleus, axon, myelin sheath, nodes of Ranvier, axon terminals, and supporting glial cells.</code></li>
+<li>Existing caption: <code>Read from dendrites to axon terminals. This is a simplified illustration of a typical multipolar neuron, not every neuron shape.</code></li>
+<li>Learner reading uses only labels/arrows actually present: dendrites, soma/cell body, nucleus, axon hillock, axon, myelin sheath, nodes of Ranvier, axon terminals, glial-cell inset, and large direction-of-information-flow arrow.</li>
+</ul>
+<h3 id="assets-source-integrated-myelin-png"><code>assets/source/integrated-myelin.png</code></h3>
+<ul>
+<li>Status: existing source asset; inspected by the Codex lead as authoring evidence; <strong>teacher visual acceptance remains PENDING</strong>.</li>
+<li>Existing alt: <code>A comparison of continuous conduction in an unmyelinated axon and saltatory conduction in a myelinated axon.</code></li>
+<li>Existing caption: <code>Compare where the impulse is regenerated. The arrows are a shorthand: the axon remains continuous beneath the sheath. Schwann cells shown here form peripheral myelin; CNS myelin is made by oligodendrocytes.</code></li>
+<li>Learner reading uses actual Panel A/Panel B labels, orange conduction arrows, labelled nodes, labelled Schwann cell/myelin sheath/axon, and bottom direction-of-conduction arrows.</li>
+</ul>
+<h3 id="video">Video</h3>
+<ul>
+<li><code>data-video="A44brRGG4Ys"</code></li>
+<li>Current URL: <code>https://www.youtube.com/watch?v=A44brRGG4Ys</code></li>
+<li>Playback/transcript: <strong>UNVERIFIED</strong>; optional support only; no timestamps used.</li>
+</ul>
+<h3 id="new-media">New media</h3>
+<p>No new essential image required for this draft. Existing neuron and myelin assets are sufficient when paired with the authored reading guidance.</p>
+</details></section></div></main></div></body></html>

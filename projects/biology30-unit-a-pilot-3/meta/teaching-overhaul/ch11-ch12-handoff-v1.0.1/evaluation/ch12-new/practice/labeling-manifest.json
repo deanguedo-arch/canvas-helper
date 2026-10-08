@@ -1,0 +1,386 @@
+{
+  "schemaVersion": 1,
+  "generatedFor": "Biology 30 Chapters 12 and 13 practice handoff",
+  "principles": [
+    "Use learner-facing labeling copies with answer text removed and stable letter callouts A, B, C...",
+    "Keep a separate author-facing answer key; never bake answers into the learner image.",
+    "Prefer the reviewed repository SVG where it is scientifically complete. When a textbook figure contains needed structures that the SVG omits, create a clean derivative or a source-faithful crop rather than inventing anatomy.",
+    "All aliases below are acceptable only when they refer to the same biological structure or substance.",
+    "Labeling is formative and must not alter required-check progress."
+  ],
+  "chapters": {
+    "12": [
+      {
+        "id": "ch12-eye-anatomy",
+        "title": "Human eye anatomy",
+        "lessonId": "lesson-02",
+        "textbook": {"figure":"12.7","printedPage":411,"pdfPage":8},
+        "preferredAsset":"projects/resources/biology30-unit-a-pilot/v2/figures/eye-anatomy.svg",
+        "assetAction":"derive-lettered-copy",
+        "purpose":"Identify the main structures that control light entry, focus, retinal detection, and structural support.",
+        "labels":[
+          {"letter":"A","answer":"cornea","aliases":[]},
+          {"letter":"B","answer":"aqueous humour","aliases":["aqueous humor"]},
+          {"letter":"C","answer":"iris","aliases":[]},
+          {"letter":"D","answer":"pupil","aliases":[]},
+          {"letter":"E","answer":"lens","aliases":[]},
+          {"letter":"F","answer":"ciliary muscle","aliases":["ciliary muscles","ciliary body"]},
+          {"letter":"G","answer":"vitreous humour","aliases":["vitreous humor"]},
+          {"letter":"H","answer":"retina","aliases":[]},
+          {"letter":"I","answer":"choroid","aliases":[]},
+          {"letter":"J","answer":"sclera","aliases":[]},
+          {"letter":"K","answer":"fovea centralis","aliases":["fovea"]},
+          {"letter":"L","answer":"optic nerve","aliases":[]}
+        ],
+        "reviewNotes":["The current SVG combines iris + pupil and does not separately label aqueous humour or ciliary muscle. The learner derivative should add distinct leader targets for all A–L structures."]
+      },
+      {
+        "id":"ch12-retina-layers",
+        "title":"Retinal layers and direction of information flow",
+        "lessonId":"lesson-04",
+        "textbook":{"figure":"12.16","printedPage":415,"pdfPage":12},
+        "preferredAsset":"projects/resources/biology30-unit-a-pilot/v2/figures/retina-light-pathway.svg",
+        "assetAction":"derive-lettered-copy",
+        "purpose":"Separate the direction of incoming light from the direction of the neural signal and identify the major retinal cell layers.",
+        "labels":[
+          {"letter":"A","answer":"ganglion cell layer","aliases":["ganglion cells","ganglion layer"]},
+          {"letter":"B","answer":"bipolar cell layer","aliases":["bipolar cells","bipolar layer"]},
+          {"letter":"C","answer":"rod","aliases":["rod cell"]},
+          {"letter":"D","answer":"cone","aliases":["cone cell"]},
+          {"letter":"E","answer":"pigmented layer of retina","aliases":["pigmented layer","retinal pigment epithelium"]},
+          {"letter":"F","answer":"optic nerve","aliases":["ganglion cell axons"]},
+          {"letter":"G","answer":"incoming light","aliases":["direction of light","light path"]},
+          {"letter":"H","answer":"outgoing neural signal","aliases":["neural signal","nerve impulse direction"]},
+          {"letter":"I","answer":"thalamic relay","aliases":["lateral geniculate nucleus","LGN"]},
+          {"letter":"J","answer":"visual cortex","aliases":["occipital lobe","occipital visual cortex"]}
+        ],
+        "reviewNotes":["Incoming light passes through ganglion and bipolar layers before reaching rods/cones; neural information travels in the opposite direction. Preserve this distinction."]
+      },
+      {
+        "id":"ch12-visual-pathway",
+        "title":"Visual pathway from retina to cortex",
+        "lessonId":"lesson-04",
+        "textbook":{"figure":"12.18","printedPage":416,"pdfPage":13},
+        "preferredAsset":null,
+        "assetAction":"extract-or-redraw-from-textbook",
+        "purpose":"Identify the optic pathway and the partial crossing at the optic chiasm.",
+        "labels":[
+          {"letter":"A","answer":"left retina","aliases":[]},
+          {"letter":"B","answer":"right retina","aliases":[]},
+          {"letter":"C","answer":"optic nerve","aliases":[]},
+          {"letter":"D","answer":"optic chiasm","aliases":[]},
+          {"letter":"E","answer":"optic tract","aliases":[]},
+          {"letter":"F","answer":"lateral geniculate nucleus","aliases":["thalamic relay","LGN"]},
+          {"letter":"G","answer":"occipital lobe / visual cortex","aliases":["visual cortex","occipital lobe"]}
+        ],
+        "reviewNotes":["Do not draw a pathway in which all fibres cross or none cross. The textbook figure shows partial crossing and bilateral organization."]
+      },
+      {
+        "id":"ch12-accommodation",
+        "title":"Accommodation: near versus far focus",
+        "lessonId":"lesson-03",
+        "textbook":{"figure":"12.10","printedPage":412,"pdfPage":9},
+        "preferredAsset":null,
+        "assetAction":"extract-or-redraw-from-textbook",
+        "purpose":"Connect ciliary muscle state, suspensory-ligament tension, lens shape, and viewing distance.",
+        "labels":[
+          {"letter":"A","answer":"ciliary muscle","aliases":["ciliary muscles"]},
+          {"letter":"B","answer":"suspensory ligaments","aliases":["suspensory ligament","zonular fibres","zonules"]},
+          {"letter":"C","answer":"flattened lens","aliases":["flat lens"]},
+          {"letter":"D","answer":"rounded lens","aliases":["round lens","more convex lens"]},
+          {"letter":"E","answer":"distant object / far focus","aliases":["far object"]},
+          {"letter":"F","answer":"near object / near focus","aliases":["near object"]}
+        ],
+        "reviewNotes":["Near: ciliary muscles contract, suspensory tension falls, lens rounds. Far: ciliary muscles relax, suspensory tension rises, lens flattens."]
+      },
+      {
+        "id":"ch12-myopia-hyperopia",
+        "title":"Myopia and hyperopia correction",
+        "lessonId":"lesson-03",
+        "textbook":{"figure":"12.12","printedPage":413,"pdfPage":10},
+        "preferredAsset":null,
+        "assetAction":"extract-or-redraw-from-textbook",
+        "purpose":"Identify where light focuses and which corrective lens moves the focal point onto the retina.",
+        "labels":[
+          {"letter":"A","answer":"myopia","aliases":["nearsightedness","near-sightedness"]},
+          {"letter":"B","answer":"image focuses in front of retina","aliases":["focus in front of retina"]},
+          {"letter":"C","answer":"concave lens","aliases":["diverging lens"]},
+          {"letter":"D","answer":"hyperopia","aliases":["farsightedness","far-sightedness"]},
+          {"letter":"E","answer":"image focuses behind retina","aliases":["focus behind retina"]},
+          {"letter":"F","answer":"convex lens","aliases":["converging lens"]}
+        ],
+        "reviewNotes":["Best implemented as compare/diagram practice rather than pure structure labeling."]
+      },
+      {
+        "id":"ch12-ear-anatomy",
+        "title":"Outer, middle, and inner ear",
+        "lessonId":"lesson-05",
+        "textbook":{"figure":"12.20","printedPage":420,"pdfPage":17},
+        "preferredAsset":"projects/resources/biology30-unit-a-pilot/v2/figures/ear-hearing-pathway.svg",
+        "assetAction":"derive-lettered-copy",
+        "purpose":"Trace sound transmission from the outer ear to auditory neural signalling.",
+        "labels":[
+          {"letter":"A","answer":"pinna","aliases":["auricle"]},
+          {"letter":"B","answer":"auditory canal","aliases":["ear canal"]},
+          {"letter":"C","answer":"tympanum","aliases":["eardrum","tympanic membrane"]},
+          {"letter":"D","answer":"malleus","aliases":["hammer"]},
+          {"letter":"E","answer":"incus","aliases":["anvil"]},
+          {"letter":"F","answer":"stapes","aliases":["stirrup"]},
+          {"letter":"G","answer":"oval window","aliases":[]},
+          {"letter":"H","answer":"cochlea","aliases":[]},
+          {"letter":"I","answer":"auditory nerve","aliases":["cochlear nerve"]},
+          {"letter":"J","answer":"Eustachian tube","aliases":["auditory tube","pharyngotympanic tube"]},
+          {"letter":"K","answer":"semicircular canals","aliases":["semicircular canal"]}
+        ],
+        "reviewNotes":["The current SVG groups the three ossicles in one text label. The learner derivative should provide separate D/E/F leader targets."]
+      },
+      {
+        "id":"ch12-cochlea-organ-corti",
+        "title":"Cochlea and organ of Corti",
+        "lessonId":"lesson-05",
+        "textbook":{"figure":"12.21","printedPage":421,"pdfPage":18},
+        "preferredAsset":null,
+        "assetAction":"extract-or-redraw-from-textbook",
+        "purpose":"Identify structures that convert cochlear fluid movement into hair-cell signalling.",
+        "labels":[
+          {"letter":"A","answer":"cochlea","aliases":[]},
+          {"letter":"B","answer":"oval window","aliases":[]},
+          {"letter":"C","answer":"round window","aliases":[]},
+          {"letter":"D","answer":"upper chamber","aliases":["scala vestibuli"]},
+          {"letter":"E","answer":"cochlear duct","aliases":["scala media"]},
+          {"letter":"F","answer":"tympanic chamber","aliases":["scala tympani"]},
+          {"letter":"G","answer":"basilar membrane","aliases":[]},
+          {"letter":"H","answer":"tectorial membrane","aliases":[]},
+          {"letter":"I","answer":"hair cell","aliases":["hair cells"]},
+          {"letter":"J","answer":"stereocilia","aliases":[]},
+          {"letter":"K","answer":"auditory nerve","aliases":["cochlear nerve"]}
+        ],
+        "reviewNotes":["Keep the three fluid-filled chambers distinct and place the organ of Corti on the basilar membrane."]
+      },
+      {
+        "id":"ch12-equilibrium",
+        "title":"Vestibular apparatus and equilibrium",
+        "lessonId":"lesson-07",
+        "textbook":{"figure":"12.24","printedPage":424,"pdfPage":21},
+        "preferredAsset":"projects/resources/biology30-unit-a-pilot/v2/figures/equilibrium-apparatus.svg",
+        "reviewedCandidate":"projects/biology30-unit-a-pilot/meta/visual-comparison/candidates/previews/lesson-10-equilibrium-apparatus-chatgpt-v3.jpg",
+        "assetAction":"prefer-reviewed-candidate-or-extend-svg",
+        "purpose":"Distinguish angular-acceleration sensing in the semicircular canals from otolith sensing in the utricle and saccule.",
+        "labels":[
+          {"letter":"A","answer":"semicircular canals","aliases":["semicircular canal"]},
+          {"letter":"B","answer":"ampulla","aliases":[]},
+          {"letter":"C","answer":"cupula","aliases":[]},
+          {"letter":"D","answer":"hair cells / stereocilia","aliases":["hair cells","stereocilia"]},
+          {"letter":"E","answer":"utricle","aliases":[]},
+          {"letter":"F","answer":"saccule","aliases":[]},
+          {"letter":"G","answer":"otoliths","aliases":["otolith","calcium carbonate crystals"]},
+          {"letter":"H","answer":"vestibular nerve","aliases":["vestibulocochlear nerve"]}
+        ],
+        "reviewNotes":["Do not place otoliths inside the semicircular canals. Canal fluid/cupula sensing and utricle-saccule otolith sensing must remain distinct. Equilibrium also uses visual and proprioceptive input."]
+      },
+      {
+        "id":"ch12-receptor-families",
+        "title":"Sensory receptor families",
+        "lessonId":"lesson-01",
+        "textbook":{"figure":"Table 12.1","printedPage":409,"pdfPage":6},
+        "preferredAsset":"projects/resources/biology30-unit-a-pilot/v2/figures/sensory-receptor-families.svg",
+        "assetAction":"derive-classification-copy",
+        "purpose":"Classify receptors by the type of stimulus they transduce.",
+        "labels":[
+          {"letter":"A","answer":"photoreceptor","aliases":["photoreceptors"]},
+          {"letter":"B","answer":"chemoreceptor","aliases":["chemoreceptors"]},
+          {"letter":"C","answer":"mechanoreceptor","aliases":["mechanoreceptors"]},
+          {"letter":"D","answer":"thermoreceptor","aliases":["thermoreceptors"]},
+          {"letter":"E","answer":"nociceptor","aliases":["nociceptors"]},
+          {"letter":"F","answer":"proprioceptor","aliases":["proprioceptors"]}
+        ],
+        "reviewNotes":["This is classification practice rather than literal anatomical labeling; keep it in Labeling only if the UI supports conceptual diagrams."]
+      }
+    ],
+    "13": [
+      {
+        "id":"ch13-endocrine-body-map",
+        "title":"Principal endocrine glands",
+        "lessonId":"lesson-01",
+        "textbook":{"figure":"13.7","printedPage":439,"pdfPage":6},
+        "preferredAsset":"projects/resources/biology30-unit-a-pilot/v2/figures/endocrine-body-map.svg",
+        "assetAction":"derive-lettered-copy",
+        "purpose":"Locate the principal endocrine glands used in Chapter 13.",
+        "labels":[
+          {"letter":"A","answer":"hypothalamus","aliases":[]},
+          {"letter":"B","answer":"pituitary gland","aliases":["pituitary"]},
+          {"letter":"C","answer":"thyroid gland","aliases":["thyroid"]},
+          {"letter":"D","answer":"parathyroid glands","aliases":["parathyroids","parathyroid"]},
+          {"letter":"E","answer":"adrenal glands","aliases":["adrenals","adrenal gland"]},
+          {"letter":"F","answer":"pancreas","aliases":["pancreatic islets","islets of Langerhans"]},
+          {"letter":"G","answer":"ovaries","aliases":["ovary"]},
+          {"letter":"H","answer":"testes","aliases":["testis"]},
+          {"letter":"I","answer":"pineal gland","aliases":["pineal"]}
+        ],
+        "reviewNotes":["Core Chapter 13 emphasis is hypothalamus/pituitary, thyroid/parathyroid, adrenals and pancreas. Gonads/pineal can be optional or review-only depending on course scope."]
+      },
+      {
+        "id":"ch13-pituitary-pathways",
+        "title":"Hypothalamus and pituitary pathways",
+        "lessonId":"lesson-04",
+        "textbook":{"figure":"13.12","printedPage":445,"pdfPage":12},
+        "preferredAsset":"projects/resources/biology30-unit-a-pilot/v2/figures/hypothalamus-pituitary-axes.svg",
+        "assetAction":"derive-lettered-copy",
+        "purpose":"Distinguish anterior pituitary portal control from posterior pituitary neural release.",
+        "labels":[
+          {"letter":"A","answer":"hypothalamus","aliases":[]},
+          {"letter":"B","answer":"anterior pituitary","aliases":["anterior lobe"]},
+          {"letter":"C","answer":"posterior pituitary","aliases":["posterior lobe"]},
+          {"letter":"D","answer":"portal system","aliases":["hypothalamic-pituitary portal system"]},
+          {"letter":"E","answer":"hypothalamic neurosecretory neuron / axon","aliases":["neurosecretory neuron","axon"]},
+          {"letter":"F","answer":"ADH","aliases":["antidiuretic hormone","vasopressin"]},
+          {"letter":"G","answer":"oxytocin","aliases":["OCT"]},
+          {"letter":"H","answer":"TSH","aliases":["thyroid-stimulating hormone"]},
+          {"letter":"I","answer":"ACTH","aliases":["adrenocorticotropic hormone"]},
+          {"letter":"J","answer":"hGH","aliases":["human growth hormone","growth hormone"]},
+          {"letter":"K","answer":"prolactin","aliases":["PRL"]},
+          {"letter":"L","answer":"FSH and LH","aliases":["FSH/LH","follicle-stimulating hormone and luteinizing hormone"]}
+        ],
+        "reviewNotes":["ADH and oxytocin are produced in the hypothalamus and released from posterior pituitary terminals. Do not label the posterior pituitary as their site of synthesis."]
+      },
+      {
+        "id":"ch13-ADH-loop",
+        "title":"ADH water-balance feedback",
+        "lessonId":"lesson-06",
+        "textbook":{"figure":"13.9","printedPage":441,"pdfPage":8},
+        "preferredAsset":"projects/resources/biology30-unit-a-pilot/v2/figures/water-balance-loop.svg",
+        "assetAction":"derive-lettered-copy",
+        "purpose":"Trace dehydration detection, ADH release, kidney action, and negative feedback.",
+        "labels":[
+          {"letter":"A","answer":"osmoreceptors in hypothalamus","aliases":["osmoreceptors","hypothalamus"]},
+          {"letter":"B","answer":"ADH synthesized in hypothalamic neurons","aliases":["ADH synthesis","ADH produced in hypothalamus"]},
+          {"letter":"C","answer":"posterior pituitary releases ADH","aliases":["ADH release from posterior pituitary"]},
+          {"letter":"D","answer":"kidney collecting ducts / nephrons","aliases":["kidney","collecting ducts","nephrons"]},
+          {"letter":"E","answer":"increased water reabsorption","aliases":["more water reabsorbed"]},
+          {"letter":"F","answer":"reduced urine volume / more concentrated urine","aliases":["reduced urine volume","concentrated urine"]},
+          {"letter":"G","answer":"negative feedback","aliases":[]}
+        ],
+        "reviewNotes":["Keep synthesis in hypothalamus and release from posterior pituitary distinct."]
+      },
+      {
+        "id":"ch13-thyroxine-loop",
+        "title":"Thyroxine negative-feedback axis",
+        "lessonId":"lesson-07",
+        "textbook":{"figure":"13.17","printedPage":448,"pdfPage":15},
+        "preferredAsset":"projects/resources/biology30-unit-a-pilot/v2/figures/thyroxine-loop.svg",
+        "assetAction":"derive-lettered-copy",
+        "purpose":"Trace TSH control of thyroid hormone and feedback to hypothalamus/pituitary.",
+        "labels":[
+          {"letter":"A","answer":"hypothalamus","aliases":[]},
+          {"letter":"B","answer":"anterior pituitary","aliases":["pituitary"]},
+          {"letter":"C","answer":"TSH","aliases":["thyroid-stimulating hormone"]},
+          {"letter":"D","answer":"thyroid gland","aliases":["thyroid"]},
+          {"letter":"E","answer":"thyroxine (T4)","aliases":["thyroxine","T4","thyroid hormone"]},
+          {"letter":"F","answer":"target tissues / increased metabolic activity","aliases":["target tissues","metabolism"]},
+          {"letter":"G","answer":"negative feedback to hypothalamus and pituitary","aliases":["negative feedback"]}
+        ],
+        "reviewNotes":["Use paired TSH/T4 questions to extend beyond labeling: low T4 + high TSH is consistent with a target-gland problem if pituitary function is intact."]
+      },
+      {
+        "id":"ch13-calcium-loop",
+        "title":"PTH and blood-calcium regulation",
+        "lessonId":"lesson-08",
+        "textbook":{"figure":"13.18","printedPage":449,"pdfPage":16},
+        "preferredAsset":"projects/resources/biology30-unit-a-pilot/v2/figures/calcium-regulation-loop.svg",
+        "assetAction":"derive-lettered-copy",
+        "purpose":"Trace PTH actions on bone, kidneys, vitamin D/intestine, and blood calcium.",
+        "labels":[
+          {"letter":"A","answer":"low blood Ca2+","aliases":["low blood calcium"]},
+          {"letter":"B","answer":"parathyroid glands","aliases":["parathyroids"]},
+          {"letter":"C","answer":"parathyroid hormone (PTH)","aliases":["PTH","parathyroid hormone"]},
+          {"letter":"D","answer":"bone calcium release","aliases":["breakdown of bone releases Ca2+"]},
+          {"letter":"E","answer":"kidney Ca2+ reabsorption","aliases":["calcium reabsorption by kidneys"]},
+          {"letter":"F","answer":"vitamin D activation / intestinal Ca2+ absorption","aliases":["vitamin D","intestinal calcium absorption"]},
+          {"letter":"G","answer":"increased blood Ca2+","aliases":["increased blood calcium"]},
+          {"letter":"H","answer":"negative feedback","aliases":[]}
+        ],
+        "reviewNotes":["Optional compare variant can add calcitonin as the opposing hormone. In adult humans, PTH is the more important regulator."]
+      },
+      {
+        "id":"ch13-adrenal-anatomy",
+        "title":"Adrenal gland anatomy",
+        "lessonId":"lesson-09",
+        "textbook":{"figure":"13.19","printedPage":451,"pdfPage":18},
+        "preferredAsset":null,
+        "assetAction":"extract-or-redraw-from-textbook",
+        "purpose":"Distinguish adrenal medulla from adrenal cortex and relate each to its stress pathway.",
+        "labels":[
+          {"letter":"A","answer":"adrenal gland","aliases":[]},
+          {"letter":"B","answer":"adrenal cortex","aliases":["cortex"]},
+          {"letter":"C","answer":"adrenal medulla","aliases":["medulla"]},
+          {"letter":"D","answer":"kidney","aliases":[]}
+        ],
+        "reviewNotes":["Useful paired follow-up: cortex → cortisol/aldosterone; medulla → epinephrine/norepinephrine."]
+      },
+      {
+        "id":"ch13-stress-response",
+        "title":"Rapid and longer-term stress pathways",
+        "lessonId":"lesson-10",
+        "textbook":{"figure":"13.22","printedPage":453,"pdfPage":20},
+        "preferredAsset":"projects/resources/biology30-unit-a-pilot/v2/figures/stress-response-comparison.svg",
+        "reviewedCandidate":"projects/biology30-unit-a-pilot/meta/visual-comparison/candidates/previews/lesson-16-stress-response-chatgpt.jpg",
+        "assetAction":"derive-lettered-copy-and-apply-wording-fix",
+        "purpose":"Compare sympathetic/adrenal-medulla signalling with the HPA/adrenal-cortex pathway.",
+        "labels":[
+          {"letter":"A","answer":"hypothalamus","aliases":[]},
+          {"letter":"B","answer":"sympathetic neuron","aliases":["sympathetic nerves"]},
+          {"letter":"C","answer":"adrenal medulla","aliases":[]},
+          {"letter":"D","answer":"epinephrine and norepinephrine","aliases":["epinephrine","norepinephrine","adrenaline and noradrenaline"]},
+          {"letter":"E","answer":"hypothalamic releasing hormone","aliases":["releasing hormone"]},
+          {"letter":"F","answer":"anterior pituitary","aliases":[]},
+          {"letter":"G","answer":"ACTH","aliases":["adrenocorticotropic hormone"]},
+          {"letter":"H","answer":"adrenal cortex","aliases":[]},
+          {"letter":"I","answer":"cortisol / glucocorticoids","aliases":["cortisol","glucocorticoids"]},
+          {"letter":"J","answer":"aldosterone / mineralocorticoids","aliases":["aldosterone","mineralocorticoids"]}
+        ],
+        "reviewNotes":["Use 'return toward a workable range' rather than 'return to baseline'. Cortisol reduces inflammation / suppresses immune activity in the source textbook; do not reproduce the teacher-slide phrase that cortisol increases inflammation."]
+      },
+      {
+        "id":"ch13-blood-glucose-loop",
+        "title":"Insulin and glucagon blood-glucose feedback",
+        "lessonId":"lesson-12",
+        "textbook":{"figure":"blood sugar regulation section","printedPages":"456–462","pdfPages":"23–29"},
+        "preferredAsset":"projects/resources/biology30-unit-a-pilot/v2/figures/blood-glucose-loop.svg",
+        "assetAction":"derive-lettered-copy",
+        "purpose":"Compare the antagonistic insulin and glucagon pathways.",
+        "labels":[
+          {"letter":"A","answer":"high blood glucose","aliases":["blood glucose rises"]},
+          {"letter":"B","answer":"pancreatic beta cells","aliases":["beta cells"]},
+          {"letter":"C","answer":"insulin","aliases":[]},
+          {"letter":"D","answer":"increased glucose uptake / glycogen storage","aliases":["glucose uptake","glycogen formation","glycogenesis"]},
+          {"letter":"E","answer":"low blood glucose","aliases":["blood glucose falls"]},
+          {"letter":"F","answer":"pancreatic alpha cells","aliases":["alpha cells"]},
+          {"letter":"G","answer":"glucagon","aliases":[]},
+          {"letter":"H","answer":"liver glycogen breakdown / glucose release","aliases":["glycogen breakdown","glycogenolysis","glucose release"]},
+          {"letter":"I","answer":"blood glucose returns toward regulated range","aliases":["homeostasis restored","blood glucose normalized"]}
+        ],
+        "reviewNotes":["Insulin lowers blood glucose; glucagon raises it. Keep beta-cell and alpha-cell sources distinct."]
+      },
+      {
+        "id":"ch13-water-salt-regulation",
+        "title":"ADH and aldosterone: water versus sodium-linked regulation",
+        "lessonId":"lesson-11",
+        "textbook":{"figure":"integrated source relationship","printedPages":"441 and 454","pdfPages":"8 and 21"},
+        "preferredAsset":"projects/resources/biology30-unit-a-pilot/v2/figures/water-salt-regulation.svg",
+        "assetAction":"derive-lettered-copy",
+        "purpose":"Distinguish the source and kidney actions of ADH and aldosterone.",
+        "labels":[
+          {"letter":"A","answer":"hypothalamus","aliases":[]},
+          {"letter":"B","answer":"posterior pituitary release","aliases":["posterior pituitary"]},
+          {"letter":"C","answer":"ADH","aliases":["antidiuretic hormone","vasopressin"]},
+          {"letter":"D","answer":"increased collecting-duct water permeability","aliases":["increased water permeability","increased water reabsorption"]},
+          {"letter":"E","answer":"adrenal cortex","aliases":[]},
+          {"letter":"F","answer":"aldosterone","aliases":[]},
+          {"letter":"G","answer":"increased Na+ reabsorption","aliases":["increased sodium reabsorption"]},
+          {"letter":"H","answer":"increased water retention / blood volume and pressure","aliases":["water retention","increased blood volume","increased blood pressure"]}
+        ],
+        "reviewNotes":["ADH and aldosterone can both promote water retention but by different proximal mechanisms and different endocrine pathways."]
+      }
+    ]
+  }
+}

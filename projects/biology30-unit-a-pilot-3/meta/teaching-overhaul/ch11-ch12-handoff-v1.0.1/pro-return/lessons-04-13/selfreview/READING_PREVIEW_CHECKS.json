@@ -1,0 +1,16 @@
+{
+  "status": "NOT RENDERED",
+  "scope": "Optional inert local reading preview, not native course shell",
+  "attempts": [
+    {
+      "method": "Playwright bundled browser",
+      "result": "Expected Chromium headless executable absent"
+    },
+    {
+      "method": "Existing /usr/bin/chromium",
+      "result": "Launch blocked by environment: socket() Operation not permitted and read-only crash-report configuration. Stopped without escalation or bypass."
+    }
+  ],
+  "source_visuals": "Actual nativePNG pixels and PDF-derivedPET crop inspected directly; SVG labels/geometry read. This is not native-browserQA.",
+  "limits": "No desktop/mobile/keyboard screenshot, native UI, save or LMS pass claimed."
+}
